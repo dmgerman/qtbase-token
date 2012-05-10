@@ -3800,10 +3800,10 @@ begin_comment
 comment|/*!     \fn QString QListWidgetItem::statusTip() const      Returns the list item's status tip.      \sa setStatusTip() */
 end_comment
 begin_comment
-comment|/*!     \fn QString QListWidgetItem::toolTip() const      Returns the list item's tooltip.      \sa setToolTip() statusTip() whatsThis() */
+comment|/*!     \fn QString QListWidgetItem::toolTip() const      Returns the list item's tooltip.      \sa setToolTip(), statusTip(), whatsThis() */
 end_comment
 begin_comment
-comment|/*!     \fn QString QListWidgetItem::whatsThis() const      Returns the list item's "What's This?" help text.      \sa setWhatsThis() statusTip() toolTip() */
+comment|/*!     \fn QString QListWidgetItem::whatsThis() const      Returns the list item's "What's This?" help text.      \sa setWhatsThis(), statusTip(), toolTip() */
 end_comment
 begin_comment
 comment|/*!     \fn QFont QListWidgetItem::font() const      Returns the font used to display this list item's text. */
@@ -3815,13 +3815,13 @@ begin_comment
 comment|/*!     \fn QColor QListWidgetItem::backgroundColor() const     \obsolete      This function is deprecated. Use background() instead. */
 end_comment
 begin_comment
-comment|/*!     \fn QBrush QListWidgetItem::background() const     \since 4.2      Returns the brush used to display the list item's background.      \sa setBackground() foreground() */
+comment|/*!     \fn QBrush QListWidgetItem::background() const     \since 4.2      Returns the brush used to display the list item's background.      \sa setBackground(), foreground() */
 end_comment
 begin_comment
 comment|/*!     \fn QColor QListWidgetItem::textColor() const     \obsolete      Returns the color used to display the list item's text.      This function is deprecated. Use foreground() instead. */
 end_comment
 begin_comment
-comment|/*!     \fn QBrush QListWidgetItem::foreground() const     \since 4.2      Returns the brush used to display the list item's foreground (e.g. text).      \sa setForeground() background() */
+comment|/*!     \fn QBrush QListWidgetItem::foreground() const     \since 4.2      Returns the brush used to display the list item's foreground (e.g. text).      \sa setForeground(), background() */
 end_comment
 begin_comment
 comment|/*!     \fn Qt::CheckState QListWidgetItem::checkState() const      Returns the checked state of the list item (see \l{Qt::CheckState}).      \sa flags() */
@@ -3910,13 +3910,13 @@ begin_comment
 comment|/*!     \fn void QListWidgetItem::setBackgroundColor(const QColor&color)     \obsolete      This function is deprecated. Use setBackground() instead. */
 end_comment
 begin_comment
-comment|/*!     \fn void QListWidgetItem::setBackground(const QBrush&brush)     \since 4.2      Sets the background brush of the list item to the given \a brush.      \sa background() setForeground() */
+comment|/*!     \fn void QListWidgetItem::setBackground(const QBrush&brush)     \since 4.2      Sets the background brush of the list item to the given \a brush.      \sa background(), setForeground() */
 end_comment
 begin_comment
 comment|/*!     \fn void QListWidgetItem::setTextColor(const QColor&color)     \obsolete      This function is deprecated. Use setForeground() instead. */
 end_comment
 begin_comment
-comment|/*!     \fn void QListWidgetItem::setForeground(const QBrush&brush)     \since 4.2      Sets the foreground brush of the list item to the given \a brush.      \sa foreground() setBackground() */
+comment|/*!     \fn void QListWidgetItem::setForeground(const QBrush&brush)     \since 4.2      Sets the foreground brush of the list item to the given \a brush.      \sa foreground(), setBackground() */
 end_comment
 begin_comment
 comment|/*!     \fn void QListWidgetItem::setCheckState(Qt::CheckState state)      Sets the check state of the list item to \a state.      \sa checkState() */

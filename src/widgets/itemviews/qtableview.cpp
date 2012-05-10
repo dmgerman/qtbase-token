@@ -5801,7 +5801,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the widget to use for the horizontal header to \a header.      \sa horizontalHeader() setVerticalHeader() */
+comment|/*!     Sets the widget to use for the horizontal header to \a header.      \sa horizontalHeader(), setVerticalHeader() */
 end_comment
 begin_function
 DECL|function|setHorizontalHeader
@@ -6109,7 +6109,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the widget to use for the vertical header to \a header.      \sa verticalHeader() setHorizontalHeader() */
+comment|/*!     Sets the widget to use for the vertical header to \a header.      \sa verticalHeader(), setHorizontalHeader() */
 end_comment
 begin_function
 DECL|function|setVerticalHeader
@@ -16292,7 +16292,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Hide the given \a row.      \sa showRow() hideColumn() */
+comment|/*!     Hide the given \a row.      \sa showRow(), hideColumn() */
 end_comment
 begin_function
 DECL|function|hideRow
@@ -16322,7 +16322,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Hide the given \a column.      \sa showColumn() hideRow() */
+comment|/*!     Hide the given \a column.      \sa showColumn(), hideRow() */
 end_comment
 begin_function
 DECL|function|hideColumn
@@ -16352,7 +16352,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Show the given \a row.      \sa hideRow() showColumn() */
+comment|/*!     Show the given \a row.      \sa hideRow(), showColumn() */
 end_comment
 begin_function
 DECL|function|showRow
@@ -16382,7 +16382,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Show the given \a column.      \sa hideColumn() showRow() */
+comment|/*!     Show the given \a column.      \sa hideColumn(), showRow() */
 end_comment
 begin_function
 DECL|function|showColumn

@@ -1196,7 +1196,7 @@ block|}
 endif|#
 directive|endif
 block|}
-comment|/*!     This function is used by subclasses of QPrinter to specify custom     print and paint engines (\a printEngine and \a paintEngine,     respectively).      QPrinter does not take ownership of the engines, so you need to     manage these engine instances yourself.      Note that changing the engines will reset the printer state and     all its properties.      \sa printEngine() paintEngine() setOutputFormat()      \since 4.1 */
+comment|/*!     This function is used by subclasses of QPrinter to specify custom     print and paint engines (\a printEngine and \a paintEngine,     respectively).      QPrinter does not take ownership of the engines, so you need to     manage these engine instances yourself.      Note that changing the engines will reset the printer state and     all its properties.      \sa printEngine(), paintEngine(), setOutputFormat()      \since 4.1 */
 DECL|function|setEngines
 name|void
 name|QPrinter
@@ -1785,7 +1785,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/*!     Sets the name of the output file to \a fileName.      Setting a null or empty name (0 or "") disables printing to a file.     Setting a non-empty name enables printing to a file.      This can change the value of outputFormat().     If the file name has the ".pdf" suffix PDF is generated. If the file name     has a suffix other than ".pdf", the output format used is the     one set with setOutputFormat().      QPrinter uses Qt's cross-platform PDF print engines     respectively. If you can produce this format natively, for example     Mac OS X can generate PDF's from its print engine, set the output format     back to NativeFormat.      \sa outputFileName() setOutputToFile() setOutputFormat() */
+comment|/*!     Sets the name of the output file to \a fileName.      Setting a null or empty name (0 or "") disables printing to a file.     Setting a non-empty name enables printing to a file.      This can change the value of outputFormat().     If the file name has the ".pdf" suffix PDF is generated. If the file name     has a suffix other than ".pdf", the output format used is the     one set with setOutputFormat().      QPrinter uses Qt's cross-platform PDF print engines     respectively. If you can produce this format natively, for example     Mac OS X can generate PDF's from its print engine, set the output format     back to NativeFormat.      \sa outputFileName(), setOutputToFile(), setOutputFormat() */
 DECL|function|setOutputFileName
 name|void
 name|QPrinter
@@ -2187,7 +2187,7 @@ name|PPK_Orientation
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*!     \since 4.4     Returns the printer paper size. The default value is driver-dependent.      \sa setPaperSize() pageRect() paperRect() */
+comment|/*!     \since 4.4     Returns the printer paper size. The default value is driver-dependent.      \sa setPaperSize(), pageRect(), paperRect() */
 DECL|function|paperSize
 name|QPrinter
 operator|::
@@ -2225,7 +2225,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/*!     \since 4.4      Sets the printer paper size to \a newPaperSize if that size is     supported. The result is undefined if \a newPaperSize is not     supported.      The default paper size is driver-dependent.      This function is useful mostly for setting a default value that     the user can override in the print dialog.      \sa paperSize() PaperSize setFullPage() setResolution() pageRect() paperRect() */
+comment|/*!     \since 4.4      Sets the printer paper size to \a newPaperSize if that size is     supported. The result is undefined if \a newPaperSize is not     supported.      The default paper size is driver-dependent.      This function is useful mostly for setting a default value that     the user can override in the print dialog.      \sa paperSize(), PaperSize, setFullPage(), setResolution(), pageRect(), paperRect() */
 DECL|function|setPaperSize
 name|void
 name|QPrinter
@@ -3080,7 +3080,7 @@ name|PPK_FullPage
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*!   Returns true if the origin of the printer's coordinate system is   at the corner of the page and false if it is at the edge of the   printable area.    See setFullPage() for details and caveats.    \sa setFullPage() PaperSize */
+comment|/*!   Returns true if the origin of the printer's coordinate system is   at the corner of the page and false if it is at the edge of the   printable area.    See setFullPage() for details and caveats.    \sa setFullPage(), PaperSize */
 DECL|function|fullPage
 name|bool
 name|QPrinter
@@ -3111,7 +3111,7 @@ name|toBool
 argument_list|()
 return|;
 block|}
-comment|/*!   Requests that the printer prints at \a dpi or as near to \a dpi as   possible.    This setting affects the coordinate system as returned by, for   example QPainter::viewport().    This function must be called before QPainter::begin() to have an effect on   all platforms.    \sa resolution() setPaperSize() */
+comment|/*!   Requests that the printer prints at \a dpi or as near to \a dpi as   possible.    This setting affects the coordinate system as returned by, for   example QPainter::viewport().    This function must be called before QPainter::begin() to have an effect on   all platforms.    \sa resolution(), setPaperSize() */
 DECL|function|setResolution
 name|void
 name|QPrinter

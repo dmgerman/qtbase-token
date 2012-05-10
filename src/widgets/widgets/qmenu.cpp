@@ -6813,7 +6813,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Initialize \a option with the values from this menu and information from \a action. This method     is useful for subclasses when they need a QStyleOptionMenuItem, but don't want     to fill in all the information themselves.      \sa QStyleOption::initFrom() QMenuBar::initStyleOption() */
+comment|/*!     Initialize \a option with the values from this menu and information from \a action. This method     is useful for subclasses when they need a QStyleOptionMenuItem, but don't want     to fill in all the information themselves.      \sa QStyleOption::initFrom(), QMenuBar::initStyleOption() */
 end_comment
 begin_function
 DECL|function|initStyleOption
@@ -7770,7 +7770,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     This convenience function adds \a menu as a submenu to this menu.     It returns \a menu's menuAction(). This menu does not take     ownership of \a menu.      \sa QWidget::addAction() QMenu::menuAction() */
+comment|/*!     This convenience function adds \a menu as a submenu to this menu.     It returns \a menu's menuAction(). This menu does not take     ownership of \a menu.      \sa QWidget::addAction(), QMenu::menuAction() */
 end_comment
 begin_function
 DECL|function|addMenu
@@ -7805,7 +7805,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Appends a new QMenu with \a title to the menu. The menu   takes ownership of the menu. Returns the new menu.    \sa QWidget::addAction() QMenu::menuAction() */
+comment|/*!   Appends a new QMenu with \a title to the menu. The menu   takes ownership of the menu. Returns the new menu.    \sa QWidget::addAction(), QMenu::menuAction() */
 end_comment
 begin_function
 DECL|function|addMenu
@@ -7847,7 +7847,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Appends a new QMenu with \a icon and \a title to the menu. The menu   takes ownership of the menu. Returns the new menu.    \sa QWidget::addAction() QMenu::menuAction() */
+comment|/*!   Appends a new QMenu with \a icon and \a title to the menu. The menu   takes ownership of the menu. Returns the new menu.    \sa QWidget::addAction(), QMenu::menuAction() */
 end_comment
 begin_function
 DECL|function|addMenu
@@ -8149,7 +8149,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   When a menu is torn off a second menu is shown to display the menu   contents in a new window. When the menu is in this mode and the menu   is visible returns true; otherwise false.    \sa hideTearOffMenu() isTearOffEnabled() */
+comment|/*!   When a menu is torn off a second menu is shown to display the menu   contents in a new window. When the menu is in this mode and the menu   is visible returns true; otherwise false.    \sa hideTearOffMenu(), isTearOffEnabled() */
 end_comment
 begin_function
 DECL|function|isTearOffMenuVisible
@@ -8182,7 +8182,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!    This function will forcibly hide the torn off menu making it    disappear from the users desktop.     \sa isTearOffMenuVisible() isTearOffEnabled() */
+comment|/*!    This function will forcibly hide the torn off menu making it    disappear from the users desktop.     \sa isTearOffMenuVisible(), isTearOffEnabled() */
 end_comment
 begin_function
 DECL|function|hideTearOffMenu

@@ -287,7 +287,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Tells the splitter to move this handle to position \a pos, which is     the distance from the left or top edge of the widget.      Note that \a pos is also measured from the left (or top) for     right-to-left languages. This function will map \a pos to the     appropriate position before calling QSplitter::moveSplitter().      \sa QSplitter::moveSplitter() closestLegalPosition() */
+comment|/*!     Tells the splitter to move this handle to position \a pos, which is     the distance from the left or top edge of the widget.      Note that \a pos is also measured from the left (or top) for     right-to-left languages. This function will map \a pos to the     appropriate position before calling QSplitter::moveSplitter().      \sa QSplitter::moveSplitter(), closestLegalPosition() */
 end_comment
 begin_function
 DECL|function|moveSplitter
@@ -4960,7 +4960,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Adds the given \a widget to the splitter's layout after all the other     items.      If \a widget is already in the splitter, it will be moved to the new position.      \sa insertWidget() widget() indexOf() */
+comment|/*!     Adds the given \a widget to the splitter's layout after all the other     items.      If \a widget is already in the splitter, it will be moved to the new position.      \sa insertWidget(), widget(), indexOf() */
 end_comment
 begin_function
 DECL|function|addWidget
@@ -4994,7 +4994,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Inserts the \a widget specified into the splitter's layout at the     given \a index.      If \a widget is already in the splitter, it will be moved to the new position.      if \a index is an invalid index, then the widget will be inserted at the end.      \sa addWidget() indexOf() widget() */
+comment|/*!     Inserts the \a widget specified into the splitter's layout at the     given \a index.      If \a widget is already in the splitter, it will be moved to the new position.      if \a index is an invalid index, then the widget will be inserted at the end.      \sa addWidget(), indexOf(), widget() */
 end_comment
 begin_function
 DECL|function|insertWidget
@@ -5275,7 +5275,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \reimp      Tells the splitter that the child widget described by \a c has been     inserted or removed.      This method is also used to handle the situation where a widget is created     with the splitter as a parent but not explicitly added with insertWidget()     or addWidget(). This is for compatibility and not the recommended way of     putting widgets into a splitter in new code. Please use insertWidget() or     addWidget() in new code.      \sa addWidget() insertWidget() */
+comment|/*!     \reimp      Tells the splitter that the child widget described by \a c has been     inserted or removed.      This method is also used to handle the situation where a widget is created     with the splitter as a parent but not explicitly added with insertWidget()     or addWidget(). This is for compatibility and not the recommended way of     putting widgets into a splitter in new code. Please use insertWidget() or     addWidget() in new code.      \sa addWidget(), insertWidget() */
 end_comment
 begin_function
 DECL|function|childEvent

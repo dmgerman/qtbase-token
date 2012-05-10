@@ -111,7 +111,7 @@ begin_comment
 comment|/*! \fn void QInputEvent::setModifiers(Qt::KeyboardModifiers modifiers)      \internal      Sets the keyboard modifiers flags for this event. */
 end_comment
 begin_comment
-comment|/*!     \class QMouseEvent     \ingroup events      \brief The QMouseEvent class contains parameters that describe a mouse event.      Mouse events occur when a mouse button is pressed or released     inside a widget, or when the mouse cursor is moved.      Mouse move events will occur only when a mouse button is pressed     down, unless mouse tracking has been enabled with     QWidget::setMouseTracking().      Qt automatically grabs the mouse when a mouse button is pressed     inside a widget; the widget will continue to receive mouse events     until the last mouse button is released.      A mouse event contains a special accept flag that indicates     whether the receiver wants the event. You should call ignore() if     the mouse event is not handled by your widget. A mouse event is     propagated up the parent widget chain until a widget accepts it     with accept(), or an event filter consumes it.      \note If a mouse event is propagated to a \l{QWidget}{widget} for     which Qt::WA_NoMousePropagation has been set, that mouse event     will not be propagated further up the parent widget chain.      The state of the keyboard modifier keys can be found by calling the     \l{QInputEvent::modifiers()}{modifiers()} function, inherited from     QInputEvent.      The functions pos(), x(), and y() give the cursor position     relative to the widget that receives the mouse event. If you     move the widget as a result of the mouse event, use the global     position returned by globalPos() to avoid a shaking motion.      The QWidget::setEnabled() function can be used to enable or     disable mouse and keyboard events for a widget.      Reimplement the QWidget event handlers, QWidget::mousePressEvent(),     QWidget::mouseReleaseEvent(), QWidget::mouseDoubleClickEvent(),     and QWidget::mouseMoveEvent() to receive mouse events in your own     widgets.      \sa QWidget::setMouseTracking() QWidget::grabMouse()     QCursor::pos() */
+comment|/*!     \class QMouseEvent     \ingroup events      \brief The QMouseEvent class contains parameters that describe a mouse event.      Mouse events occur when a mouse button is pressed or released     inside a widget, or when the mouse cursor is moved.      Mouse move events will occur only when a mouse button is pressed     down, unless mouse tracking has been enabled with     QWidget::setMouseTracking().      Qt automatically grabs the mouse when a mouse button is pressed     inside a widget; the widget will continue to receive mouse events     until the last mouse button is released.      A mouse event contains a special accept flag that indicates     whether the receiver wants the event. You should call ignore() if     the mouse event is not handled by your widget. A mouse event is     propagated up the parent widget chain until a widget accepts it     with accept(), or an event filter consumes it.      \note If a mouse event is propagated to a \l{QWidget}{widget} for     which Qt::WA_NoMousePropagation has been set, that mouse event     will not be propagated further up the parent widget chain.      The state of the keyboard modifier keys can be found by calling the     \l{QInputEvent::modifiers()}{modifiers()} function, inherited from     QInputEvent.      The functions pos(), x(), and y() give the cursor position     relative to the widget that receives the mouse event. If you     move the widget as a result of the mouse event, use the global     position returned by globalPos() to avoid a shaking motion.      The QWidget::setEnabled() function can be used to enable or     disable mouse and keyboard events for a widget.      Reimplement the QWidget event handlers, QWidget::mousePressEvent(),     QWidget::mouseReleaseEvent(), QWidget::mouseDoubleClickEvent(),     and QWidget::mouseMoveEvent() to receive mouse events in your own     widgets.      \sa QWidget::setMouseTracking(), QWidget::grabMouse(),     QCursor::pos() */
 end_comment
 begin_comment
 comment|/*!     Constructs a mouse event object.      The \a type parameter must be one of QEvent::MouseButtonPress,     QEvent::MouseButtonRelease, QEvent::MouseButtonDblClick,     or QEvent::MouseMove.      The \a localPos is the mouse cursor's position relative to the     receiving widget or item. The window position is set to the same value     as \a localPos.     The \a button that caused the event is given as a value from     the Qt::MouseButton enum. If the event \a type is     \l MouseMove, the appropriate button for this event is Qt::NoButton.     The mouse and keyboard states at the time of the event are specified by     \a buttons and \a modifiers.      The screenPos() is initialized to QCursor::pos(), which may not     be appropriate. Use the other constructor to specify the global     position explicitly. */
@@ -342,37 +342,37 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     \fn QPointF QMouseEvent::localPos() const      \since 5.0      Returns the position of the mouse cursor as a QPointF, relative to the     widget or item that received the event.      If you move the widget as a result of the mouse event, use the     screen position returned by screenPos() to avoid a shaking     motion.      \sa x() y() windowPos() screenPos() */
+comment|/*!     \fn QPointF QMouseEvent::localPos() const      \since 5.0      Returns the position of the mouse cursor as a QPointF, relative to the     widget or item that received the event.      If you move the widget as a result of the mouse event, use the     screen position returned by screenPos() to avoid a shaking     motion.      \sa x(), y(), windowPos(), screenPos() */
 end_comment
 begin_comment
-comment|/*!     \fn QPointF QMouseEvent::windowPos() const      \since 5.0      Returns the position of the mouse cursor as a QPointF, relative to the     window that received the event.      If you move the widget as a result of the mouse event, use the     global position returned by globalPos() to avoid a shaking     motion.      \sa x() y() pos() localPos() screenPos() */
+comment|/*!     \fn QPointF QMouseEvent::windowPos() const      \since 5.0      Returns the position of the mouse cursor as a QPointF, relative to the     window that received the event.      If you move the widget as a result of the mouse event, use the     global position returned by globalPos() to avoid a shaking     motion.      \sa x(), y(), pos(), localPos(), screenPos() */
 end_comment
 begin_comment
-comment|/*!     \fn QPointF QMouseEvent::screenPos() const      \since 5.0      Returns the position of the mouse cursor as a QPointF, relative to the     screen that received the event.      \sa x() y() pos() localPos() screenPos() */
+comment|/*!     \fn QPointF QMouseEvent::screenPos() const      \since 5.0      Returns the position of the mouse cursor as a QPointF, relative to the     screen that received the event.      \sa x(), y(), pos(), localPos(), screenPos() */
 end_comment
 begin_comment
-comment|/*!     \fn const QPoint&QMouseEvent::pos() const      Returns the position of the mouse cursor, relative to the widget     that received the event.      If you move the widget as a result of the mouse event, use the     global position returned by globalPos() to avoid a shaking     motion.      \sa x() y() globalPos() */
+comment|/*!     \fn const QPoint&QMouseEvent::pos() const      Returns the position of the mouse cursor, relative to the widget     that received the event.      If you move the widget as a result of the mouse event, use the     global position returned by globalPos() to avoid a shaking     motion.      \sa x(), y(), globalPos() */
 end_comment
 begin_comment
-comment|/*!     \fn const QPoint&QMouseEvent::globalPos() const      Returns the global position of the mouse cursor \e{at the time     of the event}. This is important on asynchronous window systems     like X11. Whenever you move your widgets around in response to     mouse events, globalPos() may differ a lot from the current     pointer position QCursor::pos(), and from     QWidget::mapToGlobal(pos()).      \sa globalX() globalY() */
+comment|/*!     \fn const QPoint&QMouseEvent::globalPos() const      Returns the global position of the mouse cursor \e{at the time     of the event}. This is important on asynchronous window systems     like X11. Whenever you move your widgets around in response to     mouse events, globalPos() may differ a lot from the current     pointer position QCursor::pos(), and from     QWidget::mapToGlobal(pos()).      \sa globalX(), globalY() */
 end_comment
 begin_comment
-comment|/*!     \fn int QMouseEvent::x() const      Returns the x position of the mouse cursor, relative to the     widget that received the event.      \sa y() pos() */
+comment|/*!     \fn int QMouseEvent::x() const      Returns the x position of the mouse cursor, relative to the     widget that received the event.      \sa y(), pos() */
 end_comment
 begin_comment
-comment|/*!     \fn int QMouseEvent::y() const      Returns the y position of the mouse cursor, relative to the     widget that received the event.      \sa x() pos() */
+comment|/*!     \fn int QMouseEvent::y() const      Returns the y position of the mouse cursor, relative to the     widget that received the event.      \sa x(), pos() */
 end_comment
 begin_comment
-comment|/*!     \fn int QMouseEvent::globalX() const      Returns the global x position of the mouse cursor at the time of     the event.      \sa globalY() globalPos() */
+comment|/*!     \fn int QMouseEvent::globalX() const      Returns the global x position of the mouse cursor at the time of     the event.      \sa globalY(), globalPos() */
 end_comment
 begin_comment
-comment|/*!     \fn int QMouseEvent::globalY() const      Returns the global y position of the mouse cursor at the time of     the event.      \sa globalX() globalPos() */
+comment|/*!     \fn int QMouseEvent::globalY() const      Returns the global y position of the mouse cursor at the time of     the event.      \sa globalX(), globalPos() */
 end_comment
 begin_comment
-comment|/*!     \fn Qt::MouseButton QMouseEvent::button() const      Returns the button that caused the event.      Note that the returned value is always Qt::NoButton for mouse     move events.      \sa buttons() Qt::MouseButton */
+comment|/*!     \fn Qt::MouseButton QMouseEvent::button() const      Returns the button that caused the event.      Note that the returned value is always Qt::NoButton for mouse     move events.      \sa buttons(), Qt::MouseButton */
 end_comment
 begin_comment
-comment|/*!     \fn Qt::MouseButton QMouseEvent::buttons() const      Returns the button state when the event was generated. The button     state is a combination of Qt::LeftButton, Qt::RightButton,     Qt::MidButton using the OR operator. For mouse move events,     this is all buttons that are pressed down. For mouse press and     double click events this includes the button that caused the     event. For mouse release events this excludes the button that     caused the event.      \sa button() Qt::MouseButton */
+comment|/*!     \fn Qt::MouseButton QMouseEvent::buttons() const      Returns the button state when the event was generated. The button     state is a combination of Qt::LeftButton, Qt::RightButton,     Qt::MidButton using the OR operator. For mouse move events,     this is all buttons that are pressed down. For mouse press and     double click events this includes the button that caused the     event. For mouse release events this excludes the button that     caused the event.      \sa button(), Qt::MouseButton */
 end_comment
 begin_comment
 comment|/*!     \class QHoverEvent     \ingroup events      \brief The QHoverEvent class contains parameters that describe a mouse event.      Mouse events occur when a mouse cursor is moved into, out of, or within a     widget, and if the widget has the Qt::WA_Hover attribute.      The function pos() gives the current cursor position, while oldPos() gives     the old mouse position.      There are a few similarities between the events QEvent::HoverEnter     and QEvent::HoverLeave, and the events QEvent::Enter and QEvent::Leave.     However, they are slightly different because we do an update() in the event     handler of HoverEnter and HoverLeave.      QEvent::HoverMove is also slightly different from QEvent::MouseMove. Let us     consider a top-level window A containing a child B which in turn contains a     child C (all with mouse tracking enabled):      \image hoverevents.png      Now, if you move the cursor from the top to the bottom in the middle of A,     you will get the following QEvent::MouseMove events:      \list 1         \li A::MouseMove         \li B::MouseMove         \li C::MouseMove     \endlist      You will get the same events for QEvent::HoverMove, except that the event     always propagates to the top-level regardless whether the event is accepted     or not. It will only stop propagating with the Qt::WA_NoMousePropagation     attribute.      In this case the events will occur in the following way:      \list 1         \li A::HoverMove         \li A::HoverMove, B::HoverMove         \li A::HoverMove, B::HoverMove, C::HoverMove     \endlist  */
@@ -442,7 +442,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     \class QWheelEvent     \brief The QWheelEvent class contains parameters that describe a wheel event.      \ingroup events      Wheel events are sent to the widget under the mouse cursor, but     if that widget does not handle the event they are sent to the     focus widget. Wheel events are generated for both mouse wheels     and trackpad scroll gestures. There are two ways to read the     wheel event delta: angleDelta() returns the delta in wheel     degrees. This value is always provided. pixelDelta() returns     the delta in screen pixels and is available on platforms that     have high-resolution trackpads, such as Mac OS X.      The functions pos() and globalPos() return the mouse cursor's     location at the time of the event.      A wheel event contains a special accept flag that indicates     whether the receiver wants the event. You should call ignore() if     you do not handle the wheel event; this ensures that it will be     sent to the parent widget.      The QWidget::setEnabled() function can be used to enable or     disable mouse and keyboard events for a widget.      The event handler QWidget::wheelEvent() receives wheel events.      \sa QMouseEvent QWidget::grabMouse() */
+comment|/*!     \class QWheelEvent     \brief The QWheelEvent class contains parameters that describe a wheel event.      \ingroup events      Wheel events are sent to the widget under the mouse cursor, but     if that widget does not handle the event they are sent to the     focus widget. Wheel events are generated for both mouse wheels     and trackpad scroll gestures. There are two ways to read the     wheel event delta: angleDelta() returns the delta in wheel     degrees. This value is always provided. pixelDelta() returns     the delta in screen pixels and is available on platforms that     have high-resolution trackpads, such as Mac OS X.      The functions pos() and globalPos() return the mouse cursor's     location at the time of the event.      A wheel event contains a special accept flag that indicates     whether the receiver wants the event. You should call ignore() if     you do not handle the wheel event; this ensures that it will be     sent to the parent widget.      The QWidget::setEnabled() function can be used to enable or     disable mouse and keyboard events for a widget.      The event handler QWidget::wheelEvent() receives wheel events.      \sa QMouseEvent, QWidget::grabMouse() */
 end_comment
 begin_comment
 comment|/*!     \fn Qt::MouseButtons QWheelEvent::buttons() const      Returns the mouse state when the event occurred. */
@@ -451,7 +451,7 @@ begin_comment
 comment|/*!     \fn Qt::Orientation QWheelEvent::orientation() const      Returns the wheel's orientation. */
 end_comment
 begin_comment
-comment|/*!     \obsolete     Constructs a wheel event object.      Use the QPoint-based constructor instead.      The position, \a pos, is the location of the mouse cursor within     the widget. The globalPos() is initialized to QCursor::pos()     which is usually, but not always, correct.     Use the other constructor if you need to specify the global     position explicitly.      The \a buttons describe the state of the mouse buttons at the time     of the event, \a delta contains the rotation distance,     \a modifiers holds the keyboard modifier flags at the time of the     event, and \a orient holds the wheel's orientation.      \sa pos() pixelDelta() angleDelta() state() */
+comment|/*!     \obsolete     Constructs a wheel event object.      Use the QPoint-based constructor instead.      The position, \a pos, is the location of the mouse cursor within     the widget. The globalPos() is initialized to QCursor::pos()     which is usually, but not always, correct.     Use the other constructor if you need to specify the global     position explicitly.      The \a buttons describe the state of the mouse buttons at the time     of the event, \a delta contains the rotation distance,     \a modifiers holds the keyboard modifier flags at the time of the     event, and \a orient holds the wheel's orientation.      \sa pos(), pixelDelta(), angleDelta(), state() */
 end_comment
 begin_ifndef
 ifndef|#
@@ -537,7 +537,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     \obsolete     Constructs a wheel event object.      Use the QPoint-based constructor instead.      The \a pos provides the location of the mouse cursor     within the widget. The position in global coordinates is specified     by \a globalPos. \a delta contains the rotation distance, \a modifiers     holds the keyboard modifier flags at the time of the event, and     \a orient holds the wheel's orientation.       \sa pos() pixelDelta() angleDelta() state() */
+comment|/*!     \obsolete     Constructs a wheel event object.      Use the QPoint-based constructor instead.      The \a pos provides the location of the mouse cursor     within the widget. The position in global coordinates is specified     by \a globalPos. \a delta contains the rotation distance, \a modifiers     holds the keyboard modifier flags at the time of the event, and     \a orient holds the wheel's orientation.       \sa pos(), pixelDelta(), angleDelta(), state() */
 end_comment
 begin_constructor
 DECL|function|QWheelEvent
@@ -608,7 +608,7 @@ argument_list|)
 block|{}
 end_constructor
 begin_comment
-comment|/*!     Constructs a wheel event object.      The \a pos provides the location of the mouse cursor     within the window. The position in global coordinates is specified     by \a globalPos. \pixelDelta contains the scrolling distance     in pixels on screen, \a angleDelta contains the wheel rotation distance.     \pixelDelta is optional and can be null.      \a modifiers holds the keyboard modifier flags at the time of the event.      \a pixelDelta contains the scrolling delta in pixels,     \a angleDelta contains the rotation distance, and     \a orient holds the wheel's orientation.      \sa pos() globalPos() delta() state() */
+comment|/*!     Constructs a wheel event object.      The \a pos provides the location of the mouse cursor     within the window. The position in global coordinates is specified     by \a globalPos. \pixelDelta contains the scrolling distance     in pixels on screen, \a angleDelta contains the wheel rotation distance.     \pixelDelta is optional and can be null.      \a modifiers holds the keyboard modifier flags at the time of the event.      \a pixelDelta contains the scrolling delta in pixels,     \a angleDelta contains the rotation distance, and     \a orient holds the wheel's orientation.      \sa pos(), globalPos(), delta(), state() */
 end_comment
 begin_constructor
 DECL|function|QWheelEvent
@@ -711,22 +711,22 @@ begin_comment
 comment|/*!     \fn int QWheelEvent::delta() const      This function has been deprecated, use pixelDelta() or angleDelta() instead. */
 end_comment
 begin_comment
-comment|/*!     \fn const QPoint&QWheelEvent::pos() const      Returns the position of the mouse cursor relative to the widget     that received the event.      If you move your widgets around in response to mouse events,     use globalPos() instead of this function.      \sa x() y() globalPos() */
+comment|/*!     \fn const QPoint&QWheelEvent::pos() const      Returns the position of the mouse cursor relative to the widget     that received the event.      If you move your widgets around in response to mouse events,     use globalPos() instead of this function.      \sa x(), y(), globalPos() */
 end_comment
 begin_comment
-comment|/*!     \fn int QWheelEvent::x() const      Returns the x position of the mouse cursor, relative to the     widget that received the event.      \sa y() pos() */
+comment|/*!     \fn int QWheelEvent::x() const      Returns the x position of the mouse cursor, relative to the     widget that received the event.      \sa y(), pos() */
 end_comment
 begin_comment
-comment|/*!     \fn int QWheelEvent::y() const      Returns the y position of the mouse cursor, relative to the     widget that received the event.      \sa x() pos() */
+comment|/*!     \fn int QWheelEvent::y() const      Returns the y position of the mouse cursor, relative to the     widget that received the event.      \sa x(), pos() */
 end_comment
 begin_comment
-comment|/*!     \fn const QPoint&QWheelEvent::globalPos() const      Returns the global position of the mouse pointer \e{at the time     of the event}. This is important on asynchronous window systems     such as X11; whenever you move your widgets around in response to     mouse events, globalPos() can differ a lot from the current     cursor position returned by QCursor::pos().      \sa globalX() globalY() */
+comment|/*!     \fn const QPoint&QWheelEvent::globalPos() const      Returns the global position of the mouse pointer \e{at the time     of the event}. This is important on asynchronous window systems     such as X11; whenever you move your widgets around in response to     mouse events, globalPos() can differ a lot from the current     cursor position returned by QCursor::pos().      \sa globalX(), globalY() */
 end_comment
 begin_comment
-comment|/*!     \fn int QWheelEvent::globalX() const      Returns the global x position of the mouse cursor at the time of     the event.      \sa globalY() globalPos() */
+comment|/*!     \fn int QWheelEvent::globalX() const      Returns the global x position of the mouse cursor at the time of     the event.      \sa globalY(), globalPos() */
 end_comment
 begin_comment
-comment|/*!     \fn int QWheelEvent::globalY() const      Returns the global y position of the mouse cursor at the time of     the event.      \sa globalX() globalPos() */
+comment|/*!     \fn int QWheelEvent::globalY() const      Returns the global y position of the mouse cursor at the time of     the event.      \sa globalX(), globalPos() */
 end_comment
 begin_comment
 comment|/*!     \class QKeyEvent     \brief The QKeyEvent class describes a key event.      \ingroup events      Key events are sent to the widget with keyboard input focus     when keys are pressed or released.      A key event contains a special accept flag that indicates whether     the receiver will handle the key event. You should call ignore()     if the key press or release event is not handled by your widget.     A key event is propagated up the parent widget chain until a     widget accepts it with accept() or an event filter consumes it.     Key events for multimedia keys are ignored by default. You should     call accept() if your widget handles those events.      The QWidget::setEnable() function can be used to enable or disable     mouse and keyboard events for a widget.      The event handlers QWidget::keyPressEvent(), QWidget::keyReleaseEvent(),     QGraphicsItem::keyPressEvent() and QGraphicsItem::keyReleaseEvent()     receive key events.      \sa QFocusEvent, QWidget::grabKeyboard() */
@@ -1506,10 +1506,10 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     \fn const QRect&QPaintEvent::rect() const      Returns the rectangle that needs to be updated.      \sa region() QPainter::setClipRect() */
+comment|/*!     \fn const QRect&QPaintEvent::rect() const      Returns the rectangle that needs to be updated.      \sa region(), QPainter::setClipRect() */
 end_comment
 begin_comment
-comment|/*!     \fn const QRegion&QPaintEvent::region() const      Returns the region that needs to be updated.      \sa rect() QPainter::setClipRegion() */
+comment|/*!     \fn const QRegion&QPaintEvent::region() const      Returns the region that needs to be updated.      \sa rect(), QPainter::setClipRegion() */
 end_comment
 begin_constructor
 DECL|function|QUpdateLaterEvent
@@ -1639,7 +1639,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     \class QResizeEvent     \brief The QResizeEvent class contains event parameters for resize events.      \ingroup events      Resize events are sent to widgets that have been resized.      The event handler QWidget::resizeEvent() receives resize events.      \sa QWidget::resize() QWidget::setGeometry() */
+comment|/*!     \class QResizeEvent     \brief The QResizeEvent class contains event parameters for resize events.      \ingroup events      Resize events are sent to widgets that have been resized.      The event handler QWidget::resizeEvent() receives resize events.      \sa QWidget::resize(), QWidget::setGeometry() */
 end_comment
 begin_comment
 comment|/*!     Constructs a resize event with the new and old widget sizes, \a     size and \a oldSize respectively. */
@@ -2360,7 +2360,7 @@ begin_comment
 comment|/*!     \enum QTabletEvent::PointerType      This enum defines what type of point is generating the event.      \value UnknownPointer    An unknown device.     \value Pen    Tip end of a stylus-like device (the narrow end of the pen).     \value Cursor  Any puck-like device.     \value Eraser  Eraser end of a stylus-like device (the broad end of the pen).      \sa pointerType() */
 end_comment
 begin_comment
-comment|/*!   Construct a tablet event of the given \a type.    The \a pos parameter indicates where the event occurred in the   widget; \a globalPos is the corresponding position in absolute   coordinates. The \a hiResGlobalPos contains a high resolution   measurement of the position.    \a pressure contains the pressure exerted on the \a device.    \a pointerType describes the type of pen that is being used.    \a xTilt and \a yTilt contain the device's degree of tilt from the   x and y axes respectively.    \a keyState specifies which keyboard modifiers are pressed (e.g.,   \key{Ctrl}).    The \a uniqueID parameter contains the unique ID for the current device.    The \a z parameter contains the coordinate of the device on the tablet, this   is usually given by a wheel on 4D mouse. If the device does not support a   Z-axis, pass zero here.    The \a tangentialPressure parameter contins the tangential pressure of an air   brush. If the device does not support tangential pressure, pass 0 here.    \a rotation contains the device's rotation in degrees. 4D mice support   rotation. If the device does not support rotation, pass 0 here.    \sa pos() globalPos() device() pressure() xTilt() yTilt() uniqueId(), rotation(), tangentialPressure(), z() */
+comment|/*!   Construct a tablet event of the given \a type.    The \a pos parameter indicates where the event occurred in the   widget; \a globalPos is the corresponding position in absolute   coordinates. The \a hiResGlobalPos contains a high resolution   measurement of the position.    \a pressure contains the pressure exerted on the \a device.    \a pointerType describes the type of pen that is being used.    \a xTilt and \a yTilt contain the device's degree of tilt from the   x and y axes respectively.    \a keyState specifies which keyboard modifiers are pressed (e.g.,   \key{Ctrl}).    The \a uniqueID parameter contains the unique ID for the current device.    The \a z parameter contains the coordinate of the device on the tablet, this   is usually given by a wheel on 4D mouse. If the device does not support a   Z-axis, pass zero here.    The \a tangentialPressure parameter contins the tangential pressure of an air   brush. If the device does not support tangential pressure, pass 0 here.    \a rotation contains the device's rotation in degrees. 4D mice support   rotation. If the device does not support rotation, pass 0 here.    \sa pos(), globalPos(), device(), pressure(), xTilt(), yTilt(), uniqueId(), rotation(),       tangentialPressure(), z() */
 end_comment
 begin_constructor
 DECL|function|QTabletEvent
@@ -2516,31 +2516,31 @@ begin_comment
 comment|/*!     \fn int QTabletEvent::yTilt() const      Returns the angle between the device (a pen, for example) and the     perpendicular in the direction of the y axis.     Positive values are towards the bottom of the tablet. The angle is     within the range -60 to +60 degrees.      \sa xTilt() */
 end_comment
 begin_comment
-comment|/*!     \fn const QPoint&QTabletEvent::pos() const      Returns the position of the device, relative to the widget that     received the event.      If you move widgets around in response to mouse events, use     globalPos() instead of this function.      \sa x() y() globalPos() */
+comment|/*!     \fn const QPoint&QTabletEvent::pos() const      Returns the position of the device, relative to the widget that     received the event.      If you move widgets around in response to mouse events, use     globalPos() instead of this function.      \sa x(), y(), globalPos() */
 end_comment
 begin_comment
-comment|/*!     \fn int QTabletEvent::x() const      Returns the x position of the device, relative to the widget that     received the event.      \sa y() pos() */
+comment|/*!     \fn int QTabletEvent::x() const      Returns the x position of the device, relative to the widget that     received the event.      \sa y(), pos() */
 end_comment
 begin_comment
-comment|/*!     \fn int QTabletEvent::y() const      Returns the y position of the device, relative to the widget that     received the event.      \sa x() pos() */
+comment|/*!     \fn int QTabletEvent::y() const      Returns the y position of the device, relative to the widget that     received the event.      \sa x(), pos() */
 end_comment
 begin_comment
 comment|/*!     \fn int QTabletEvent::z() const      Returns the z position of the device. Typically this is represented by a     wheel on a 4D Mouse. If the device does not support a Z-axis, this value is     always zero. This is \b not the same as pressure.      \sa pressure() */
 end_comment
 begin_comment
-comment|/*!     \fn const QPoint&QTabletEvent::globalPos() const      Returns the global position of the device \e{at the time of the     event}. This is important on asynchronous windows systems like X11;     whenever you move your widgets around in response to mouse events,     globalPos() can differ significantly from the current position     QCursor::pos().      \sa globalX() globalY() hiResGlobalPos() */
+comment|/*!     \fn const QPoint&QTabletEvent::globalPos() const      Returns the global position of the device \e{at the time of the     event}. This is important on asynchronous windows systems like X11;     whenever you move your widgets around in response to mouse events,     globalPos() can differ significantly from the current position     QCursor::pos().      \sa globalX(), globalY(), hiResGlobalPos() */
 end_comment
 begin_comment
-comment|/*!     \fn int QTabletEvent::globalX() const      Returns the global x position of the mouse pointer at the time of     the event.      \sa globalY() globalPos() hiResGlobalX() */
+comment|/*!     \fn int QTabletEvent::globalX() const      Returns the global x position of the mouse pointer at the time of     the event.      \sa globalY(), globalPos(), hiResGlobalX() */
 end_comment
 begin_comment
-comment|/*!     \fn int QTabletEvent::globalY() const      Returns the global y position of the tablet device at the time of     the event.      \sa globalX() globalPos() hiResGlobalY() */
+comment|/*!     \fn int QTabletEvent::globalY() const      Returns the global y position of the tablet device at the time of     the event.      \sa globalX(), globalPos(), hiResGlobalY() */
 end_comment
 begin_comment
 comment|/*!     \fn qint64 QTabletEvent::uniqueId() const      Returns a unique ID for the current device, making it possible     to differentiate between multiple devices being used at the same     time on the tablet.      Support of this feature is dependent on the tablet.      Values for the same device may vary from OS to OS.      Later versions of the Wacom driver for Linux will now report     the ID information. If you have a tablet that supports unique ID     and are not getting the information on Linux, consider upgrading     your driver.      As of Qt 4.2, the unique ID is the same regardless of the orientation     of the pen. Earlier versions would report a different value when using     the eraser-end versus the pen-end of the stylus on some OS's.      \sa pointerType() */
 end_comment
 begin_comment
-comment|/*!     \fn const QPointF&QTabletEvent::hiResGlobalPos() const      The high precision coordinates delivered from the tablet expressed.     Sub pixeling information is in the fractional part of the QPointF.      \sa globalPos() hiResGlobalX() hiResGlobalY() */
+comment|/*!     \fn const QPointF&QTabletEvent::hiResGlobalPos() const      The high precision coordinates delivered from the tablet expressed.     Sub pixeling information is in the fractional part of the QPointF.      \sa globalPos(), hiResGlobalX(), hiResGlobalY() */
 end_comment
 begin_comment
 comment|/*!     \fn qreal&QTabletEvent::hiResGlobalX() const      The high precision x position of the tablet device. */

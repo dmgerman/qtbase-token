@@ -630,7 +630,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \property QSpinBox::minimum      \brief the minimum value of the spin box      When setting this property the \l maximum is adjusted     if necessary to ensure that the range remains valid.      The default minimum value is 0.      \sa setRange()  specialValueText */
+comment|/*!     \property QSpinBox::minimum      \brief the minimum value of the spin box      When setting this property the \l maximum is adjusted     if necessary to ensure that the range remains valid.      The default minimum value is 0.      \sa setRange(), specialValueText */
 end_comment
 begin_function
 DECL|function|minimum
@@ -711,7 +711,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QSpinBox::maximum      \brief the maximum value of the spin box      When setting this property the \l minimum is adjusted     if necessary, to ensure that the range remains valid.      The default maximum value is 99.      \sa setRange() specialValueText  */
+comment|/*!     \property QSpinBox::maximum      \brief the maximum value of the spin box      When setting this property the \l minimum is adjusted     if necessary, to ensure that the range remains valid.      The default maximum value is 99.      \sa setRange(), specialValueText  */
 end_comment
 begin_function
 DECL|function|maximum
@@ -792,7 +792,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Convenience function to set the \a minimum, and \a maximum values     with a single function call.      \snippet code/src_gui_widgets_qspinbox.cpp 2     is equivalent to:     \snippet code/src_gui_widgets_qspinbox.cpp 3      \sa minimum maximum */
+comment|/*!     Convenience function to set the \a minimum, and \a maximum values     with a single function call.      \snippet code/src_gui_widgets_qspinbox.cpp 2     is equivalent to:     \snippet code/src_gui_widgets_qspinbox.cpp 3      \sa minimum, maximum */
 end_comment
 begin_function
 DECL|function|setRange
@@ -1363,7 +1363,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \property QDoubleSpinBox::minimum      \brief the minimum value of the spin box      When setting this property the \l maximum is adjusted     if necessary to ensure that the range remains valid.      The default minimum value is 0.0.      Note: The minimum value will be rounded to match the decimals     property.      \sa decimals, setRange() specialValueText */
+comment|/*!     \property QDoubleSpinBox::minimum      \brief the minimum value of the spin box      When setting this property the \l maximum is adjusted     if necessary to ensure that the range remains valid.      The default minimum value is 0.0.      Note: The minimum value will be rounded to match the decimals     property.      \sa decimals, setRange(), specialValueText */
 end_comment
 begin_function
 DECL|function|minimum
@@ -1547,7 +1547,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Convenience function to set the \a minimum and \a maximum values     with a single function call.      Note: The maximum and minimum values will be rounded to match the     decimals property.      \snippet code/src_gui_widgets_qspinbox.cpp 6     is equivalent to:     \snippet code/src_gui_widgets_qspinbox.cpp 7      \sa minimum maximum */
+comment|/*!     Convenience function to set the \a minimum and \a maximum values     with a single function call.      Note: The maximum and minimum values will be rounded to match the     decimals property.      \snippet code/src_gui_widgets_qspinbox.cpp 6     is equivalent to:     \snippet code/src_gui_widgets_qspinbox.cpp 7      \sa minimum, maximum */
 end_comment
 begin_function
 DECL|function|setRange

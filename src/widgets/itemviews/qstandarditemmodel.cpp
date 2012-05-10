@@ -4021,19 +4021,19 @@ begin_comment
 comment|/*!     \fn QFont QStandardItem::font() const      Returns the font used to render the item's text.      \sa setFont() */
 end_comment
 begin_comment
-comment|/*!     \fn void QStandardItem::setFont(const QFont&font)      Sets the font used to display the item's text to the given \a font.      \sa font() setText() setForeground() */
+comment|/*!     \fn void QStandardItem::setFont(const QFont&font)      Sets the font used to display the item's text to the given \a font.      \sa font(), setText(), setForeground() */
 end_comment
 begin_comment
-comment|/*!     \fn QBrush QStandardItem::background() const      Returns the brush used to render the item's background.      \sa  foreground() setBackground() */
+comment|/*!     \fn QBrush QStandardItem::background() const      Returns the brush used to render the item's background.      \sa foreground(), setBackground() */
 end_comment
 begin_comment
-comment|/*!     \fn void QStandardItem::setBackground(const QBrush&brush)      Sets the item's background brush to the specified \a brush.      \sa background() setForeground() */
+comment|/*!     \fn void QStandardItem::setBackground(const QBrush&brush)      Sets the item's background brush to the specified \a brush.      \sa background(), setForeground() */
 end_comment
 begin_comment
-comment|/*!     \fn QBrush QStandardItem::foreground() const      Returns the brush used to render the item's foreground (e.g. text).      \sa setForeground() background() */
+comment|/*!     \fn QBrush QStandardItem::foreground() const      Returns the brush used to render the item's foreground (e.g. text).      \sa setForeground(), background() */
 end_comment
 begin_comment
-comment|/*!     \fn void QStandardItem::setForeground(const QBrush&brush)      Sets the brush used to display the item's foreground (e.g. text) to the     given \a brush.      \sa foreground() setBackground() setFont() */
+comment|/*!     \fn void QStandardItem::setForeground(const QBrush&brush)      Sets the brush used to display the item's foreground (e.g. text) to the     given \a brush.      \sa foreground(), setBackground(), setFont() */
 end_comment
 begin_comment
 comment|/*!     \fn int QStandardItem::textAlignment() const      Returns the text alignment for the item's text. */

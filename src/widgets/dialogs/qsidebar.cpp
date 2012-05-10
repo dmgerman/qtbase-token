@@ -1943,7 +1943,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/*!     The following path changed data update our copy of that data      \sa layoutChanged() dataChanged() */
+comment|/*!     The following path changed data update our copy of that data      \sa layoutChanged(), dataChanged() */
 DECL|function|changed
 name|void
 name|QUrlModel

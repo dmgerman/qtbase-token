@@ -3096,7 +3096,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Initialize \a option with the values from the menu bar and information from \a action. This method     is useful for subclasses when they need a QStyleOptionMenuItem, but don't want     to fill in all the information themselves.      \sa QStyleOption::initFrom() QMenu::initStyleOption() */
+comment|/*!     Initialize \a option with the values from the menu bar and information from \a action. This method     is useful for subclasses when they need a QStyleOptionMenuItem, but don't want     to fill in all the information themselves.      \sa QStyleOption::initFrom(), QMenu::initStyleOption() */
 end_comment
 begin_function
 DECL|function|initStyleOption
@@ -3822,7 +3822,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Appends a new QMenu with \a title to the menu bar. The menu bar   takes ownership of the menu. Returns the new menu.    \sa QWidget::addAction() QMenu::menuAction() */
+comment|/*!   Appends a new QMenu with \a title to the menu bar. The menu bar   takes ownership of the menu. Returns the new menu.    \sa QWidget::addAction(), QMenu::menuAction() */
 end_comment
 begin_function
 DECL|function|addMenu
@@ -3864,7 +3864,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Appends a new QMenu with \a icon and \a title to the menu bar. The menu bar   takes ownership of the menu. Returns the new menu.    \sa QWidget::addAction() QMenu::menuAction() */
+comment|/*!   Appends a new QMenu with \a icon and \a title to the menu bar. The menu bar   takes ownership of the menu. Returns the new menu.    \sa QWidget::addAction(), QMenu::menuAction() */
 end_comment
 begin_function
 DECL|function|addMenu
@@ -3918,7 +3918,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Appends \a menu to the menu bar. Returns the menu's menuAction().      \note The returned QAction object can be used to hide the corresponding     menu.      \sa QWidget::addAction() QMenu::menuAction() */
+comment|/*!     Appends \a menu to the menu bar. Returns the menu's menuAction().      \note The returned QAction object can be used to hide the corresponding     menu.      \sa QWidget::addAction(), QMenu::menuAction() */
 end_comment
 begin_function
 DECL|function|addMenu
@@ -4037,7 +4037,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   This convenience function inserts \a menu before action \a before   and returns the menus menuAction().    \sa QWidget::insertAction() addMenu() */
+comment|/*!   This convenience function inserts \a menu before action \a before   and returns the menus menuAction().    \sa QWidget::insertAction(), addMenu() */
 end_comment
 begin_function
 DECL|function|insertMenu

@@ -1921,7 +1921,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     Returns the point size of the font of the current format.      \sa setFontFamily() setCurrentFont() setFontPointSize() */
+comment|/*!     Returns the point size of the font of the current format.      \sa setFontFamily(), setCurrentFont(), setFontPointSize() */
 end_comment
 begin_function
 DECL|function|fontPointSize
@@ -1955,7 +1955,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the font family of the current format.      \sa setFontFamily() setCurrentFont() setFontPointSize() */
+comment|/*!     Returns the font family of the current format.      \sa setFontFamily(), setCurrentFont(), setFontPointSize() */
 end_comment
 begin_function
 DECL|function|fontFamily
@@ -1989,7 +1989,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the font weight of the current format.      \sa setFontWeight() setCurrentFont() setFontPointSize() QFont::Weight */
+comment|/*!     Returns the font weight of the current format.      \sa setFontWeight(), setCurrentFont(), setFontPointSize(), QFont::Weight */
 end_comment
 begin_function
 DECL|function|fontWeight
@@ -2165,7 +2165,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the font of the current format.      \sa setCurrentFont() setFontFamily() setFontPointSize() */
+comment|/*!     Returns the font of the current format.      \sa setCurrentFont(), setFontFamily(), setFontPointSize() */
 end_comment
 begin_function
 DECL|function|currentFont
@@ -2424,7 +2424,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the font family of the current format to \a fontFamily.      \sa fontFamily() setCurrentFont() */
+comment|/*!     Sets the font family of the current format to \a fontFamily.      \sa fontFamily(), setCurrentFont() */
 end_comment
 begin_function
 DECL|function|setFontFamily
@@ -2457,7 +2457,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the point size of the current format to \a s.      Note that if \a s is zero or negative, the behavior of this     function is not defined.      \sa fontPointSize() setCurrentFont() setFontFamily() */
+comment|/*!     Sets the point size of the current format to \a s.      Note that if \a s is zero or negative, the behavior of this     function is not defined.      \sa fontPointSize(), setCurrentFont(), setFontFamily() */
 end_comment
 begin_function
 DECL|function|setFontPointSize
@@ -2653,7 +2653,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the font of the current format to \a f.      \sa currentFont() setFontPointSize() setFontFamily() */
+comment|/*!     Sets the font of the current format to \a f.      \sa currentFont(), setFontPointSize(), setFontFamily() */
 end_comment
 begin_function
 DECL|function|setCurrentFont
@@ -2744,7 +2744,7 @@ directive|ifndef
 name|QT_NO_CLIPBOARD
 end_ifndef
 begin_comment
-comment|/*!     Copies the selected text to the clipboard and deletes it from     the text edit.      If there is no selected text nothing happens.      \sa copy() paste() */
+comment|/*!     Copies the selected text to the clipboard and deletes it from     the text edit.      If there is no selected text nothing happens.      \sa copy(), paste() */
 end_comment
 begin_function
 DECL|function|cut
@@ -2794,7 +2794,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Pastes the text from the clipboard into the text edit at the     current cursor position.      If there is no text in the clipboard nothing happens.      To change the behavior of this function, i.e. to modify what     QTextEdit can paste and how it is being pasted, reimplement the     virtual canInsertFromMimeData() and insertFromMimeData()     functions.      \sa cut() copy() */
+comment|/*!     Pastes the text from the clipboard into the text edit at the     current cursor position.      If there is no text in the clipboard nothing happens.      To change the behavior of this function, i.e. to modify what     QTextEdit can paste and how it is being pasted, reimplement the     virtual canInsertFromMimeData() and insertFromMimeData()     functions.      \sa cut(), copy() */
 end_comment
 begin_function
 DECL|function|paste
@@ -2823,7 +2823,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     Deletes all the text in the text edit.      Note that the undo/redo history is cleared by this function.      \sa cut() setPlainText() setHtml() */
+comment|/*!     Deletes all the text in the text edit.      Note that the undo/redo history is cleared by this function.      \sa cut(), setPlainText(), setHtml() */
 end_comment
 begin_function
 DECL|function|clear
@@ -2849,7 +2849,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Selects all text.      \sa copy() cut() textCursor()  */
+comment|/*!     Selects all text.      \sa copy(), cut(), textCursor()  */
 end_comment
 begin_function
 DECL|function|selectAll

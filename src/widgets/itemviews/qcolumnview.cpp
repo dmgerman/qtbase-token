@@ -3008,7 +3008,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \internal     Create a new column for \a index.  A grip is attached if requested and it is shown     if requested.      Return the new view      \sa createColumn() setPreviewWidget()     \sa doLayout() */
+comment|/*!     \internal     Create a new column for \a index.  A grip is attached if requested and it is shown     if requested.      Return the new view      \sa createColumn(), setPreviewWidget()     \sa doLayout() */
 end_comment
 begin_function
 DECL|function|createColumn

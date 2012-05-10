@@ -5448,7 +5448,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QBoxLayout::Direction QBoxLayout::direction() const      Returns the direction of the box. addWidget() and addSpacing()     work in this direction; the stretch stretches in this direction.      \sa QBoxLayout::Direction addWidget() addSpacing() */
+comment|/*!     \fn QBoxLayout::Direction QBoxLayout::direction() const      Returns the direction of the box. addWidget() and addSpacing()     work in this direction; the stretch stretches in this direction.      \sa QBoxLayout::Direction, addWidget(), addSpacing() */
 end_comment
 begin_function
 DECL|function|direction

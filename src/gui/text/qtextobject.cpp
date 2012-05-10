@@ -130,7 +130,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     Returns the text object's format.      \sa setFormat() document() */
+comment|/*!     Returns the text object's format.      \sa setFormat(), document() */
 end_comment
 begin_function
 DECL|function|format
@@ -330,7 +330,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QTextBlockGroup     \reentrant      \brief The QTextBlockGroup class provides a container for text blocks within     a QTextDocument.      \ingroup richtext-processing      Block groups can be used to organize blocks of text within a document.     They maintain an up-to-date list of the text blocks that belong to     them, even when text blocks are being edited.      Each group has a parent document which is specified when the group is     constructed.      Text blocks can be inserted into a group with blockInserted(), and removed     with blockRemoved(). If a block's format is changed, blockFormatChanged()     is called.      The list of blocks in the group is returned by blockList(). Note that the     blocks in the list are not necessarily adjacent elements in the document;     for example, the top-level items in a multi-level list will be separated     by the items in lower levels of the list.      \sa QTextBlock QTextDocument */
+comment|/*!     \class QTextBlockGroup     \reentrant      \brief The QTextBlockGroup class provides a container for text blocks within     a QTextDocument.      \ingroup richtext-processing      Block groups can be used to organize blocks of text within a document.     They maintain an up-to-date list of the text blocks that belong to     them, even when text blocks are being edited.      Each group has a parent document which is specified when the group is     constructed.      Text blocks can be inserted into a group with blockInserted(), and removed     with blockRemoved(). If a block's format is changed, blockFormatChanged()     is called.      The list of blocks in the group is returned by blockList(). Note that the     blocks in the list are not necessarily adjacent elements in the document;     for example, the top-level items in a multi-level list will be separated     by the items in lower levels of the list.      \sa QTextBlock, QTextDocument */
 end_comment
 begin_function
 DECL|function|markBlocksDirty
@@ -638,13 +638,13 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     \class QTextFrame     \reentrant      \brief The QTextFrame class represents a frame in a QTextDocument.      \ingroup richtext-processing      Text frames provide structure for the text in a document. They are used     as generic containers for other document elements.     Frames are usually created by using QTextCursor::insertFrame().      \omit     Each frame in a document consists of a frame start character,     QChar(0xFDD0), followed by the frame's contents, followed by a     frame end character, QChar(0xFDD1). The character formats of the     start and end character contain a reference to the frame object's     objectIndex.     \endomit      Frames can be used to create hierarchical structures in rich text documents.     Each document has a root frame (QTextDocument::rootFrame()), and each frame     beneath the root frame has a parent frame and a (possibly empty) list of     child frames. The parent frame can be found with parentFrame(), and the     childFrames() function provides a list of child frames.      Each frame contains at least one text block to enable text cursors to     insert new document elements within. As a result, the QTextFrame::iterator     class is used to traverse both the blocks and child frames within a given     frame. The first and last child elements in the frame can be found with     begin() and end().      A frame also has a format (specified using QTextFrameFormat) which can be set     with setFormat() and read with format().      Text cursors can be obtained that point to the first and last valid cursor     positions within a frame; use the firstCursorPosition() and     lastCursorPosition() functions for this. The frame's extent in the     document can be found with firstPosition() and lastPosition().      You can iterate over a frame's contents using the     QTextFrame::iterator class: this provides read-only access to its     internal list of text blocks and child frames.      \sa QTextCursor QTextDocument */
+comment|/*!     \class QTextFrame     \reentrant      \brief The QTextFrame class represents a frame in a QTextDocument.      \ingroup richtext-processing      Text frames provide structure for the text in a document. They are used     as generic containers for other document elements.     Frames are usually created by using QTextCursor::insertFrame().      \omit     Each frame in a document consists of a frame start character,     QChar(0xFDD0), followed by the frame's contents, followed by a     frame end character, QChar(0xFDD1). The character formats of the     start and end character contain a reference to the frame object's     objectIndex.     \endomit      Frames can be used to create hierarchical structures in rich text documents.     Each document has a root frame (QTextDocument::rootFrame()), and each frame     beneath the root frame has a parent frame and a (possibly empty) list of     child frames. The parent frame can be found with parentFrame(), and the     childFrames() function provides a list of child frames.      Each frame contains at least one text block to enable text cursors to     insert new document elements within. As a result, the QTextFrame::iterator     class is used to traverse both the blocks and child frames within a given     frame. The first and last child elements in the frame can be found with     begin() and end().      A frame also has a format (specified using QTextFrameFormat) which can be set     with setFormat() and read with format().      Text cursors can be obtained that point to the first and last valid cursor     positions within a frame; use the firstCursorPosition() and     lastCursorPosition() functions for this. The frame's extent in the     document can be found with firstPosition() and lastPosition().      You can iterate over a frame's contents using the     QTextFrame::iterator class: this provides read-only access to its     internal list of text blocks and child frames.      \sa QTextCursor, QTextDocument */
 end_comment
 begin_comment
 comment|/*!     \typedef QTextFrame::Iterator      Qt-style synonym for QTextFrame::iterator. */
 end_comment
 begin_comment
-comment|/*!     \fn QTextFrame *QTextFrame::iterator::parentFrame() const      Returns the parent frame of the current frame.      \sa currentFrame() QTextFrame::parentFrame() */
+comment|/*!     \fn QTextFrame *QTextFrame::iterator::parentFrame() const      Returns the parent frame of the current frame.      \sa currentFrame(), QTextFrame::parentFrame() */
 end_comment
 begin_comment
 comment|/*!     \fn bool QTextFrame::iterator::operator==(const iterator&other) const      Retuns true if the iterator is the same as the \a other iterator;     otherwise returns false. */
@@ -773,7 +773,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the frame's parent frame. If the frame is the root frame of a     document, this will return 0.      \sa childFrames() QTextDocument::rootFrame() */
+comment|/*!     Returns the frame's parent frame. If the frame is the root frame of a     document, this will return 0.      \sa childFrames(), QTextDocument::rootFrame() */
 end_comment
 begin_function
 DECL|function|parentFrame
@@ -799,7 +799,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the first cursor position inside the frame.      \sa lastCursorPosition() firstPosition() lastPosition() */
+comment|/*!     Returns the first cursor position inside the frame.      \sa lastCursorPosition(), firstPosition(), lastPosition() */
 end_comment
 begin_function
 DECL|function|firstCursorPosition
@@ -830,7 +830,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the last cursor position inside the frame.      \sa firstCursorPosition() firstPosition() lastPosition() */
+comment|/*!     Returns the last cursor position inside the frame.      \sa firstCursorPosition(), firstPosition(), lastPosition() */
 end_comment
 begin_function
 DECL|function|lastCursorPosition
@@ -861,7 +861,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the first document position inside the frame.      \sa lastPosition() firstCursorPosition() lastCursorPosition() */
+comment|/*!     Returns the first document position inside the frame.      \sa lastPosition(), firstCursorPosition(), lastCursorPosition() */
 end_comment
 begin_function
 DECL|function|firstPosition
@@ -908,7 +908,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the last document position inside the frame.      \sa firstPosition() firstCursorPosition() lastCursorPosition() */
+comment|/*!     Returns the last document position inside the frame.      \sa firstPosition(), firstCursorPosition(), lastCursorPosition() */
 end_comment
 begin_function
 DECL|function|lastPosition
@@ -1772,7 +1772,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Moves the iterator to the next frame or block.      \sa currentBlock() currentFrame() */
+comment|/*!     Moves the iterator to the next frame or block.      \sa currentBlock(), currentFrame() */
 end_comment
 begin_function
 DECL|function|operator ++
@@ -2008,7 +2008,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Moves the iterator to the previous frame or block.      \sa currentBlock() currentFrame() */
+comment|/*!     Moves the iterator to the previous frame or block.      \sa currentBlock(), currentFrame() */
 end_comment
 begin_function
 DECL|function|operator --
@@ -2261,7 +2261,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     \class QTextBlock     \reentrant      \brief The QTextBlock class provides a container for text fragments in a     QTextDocument.      \ingroup richtext-processing      A text block encapsulates a block or paragraph of text in a QTextDocument.     QTextBlock provides read-only access to the block/paragraph structure of     QTextDocuments. It is mainly of use if you want to implement your own     layouts for the visual representation of a QTextDocument, or if you want to     iterate over a document and write out the contents in your own custom     format.      Text blocks are created by their parent documents. If you need to create     a new text block, or modify the contents of a document while examining its     contents, use the cursor-based interface provided by QTextCursor instead.      Each text block is located at a specific position() in a document().     The contents of the block can be obtained by using the text() function.     The length() function determines the block's size within the document     (including formatting characters).     The visual properties of the block are determined by its text layout(),     its charFormat(), and its blockFormat().      The next() and previous() functions enable iteration over consecutive     valid blocks in a document under the condition that the document is not     modified by other means during the iteration process. Note that, although     blocks are returned in sequence, adjacent blocks may come from different     places in the document structure. The validity of a block can be determined     by calling isValid().      QTextBlock provides comparison operators to make it easier to work with     blocks: \l operator==() compares two block for equality, \l operator!=()     compares two blocks for inequality, and \l operator<() determines whether     a block precedes another in the same document.      \img qtextblock-sequence.png      \sa QTextBlockFormat QTextCharFormat QTextFragment  */
+comment|/*!     \class QTextBlock     \reentrant      \brief The QTextBlock class provides a container for text fragments in a     QTextDocument.      \ingroup richtext-processing      A text block encapsulates a block or paragraph of text in a QTextDocument.     QTextBlock provides read-only access to the block/paragraph structure of     QTextDocuments. It is mainly of use if you want to implement your own     layouts for the visual representation of a QTextDocument, or if you want to     iterate over a document and write out the contents in your own custom     format.      Text blocks are created by their parent documents. If you need to create     a new text block, or modify the contents of a document while examining its     contents, use the cursor-based interface provided by QTextCursor instead.      Each text block is located at a specific position() in a document().     The contents of the block can be obtained by using the text() function.     The length() function determines the block's size within the document     (including formatting characters).     The visual properties of the block are determined by its text layout(),     its charFormat(), and its blockFormat().      The next() and previous() functions enable iteration over consecutive     valid blocks in a document under the condition that the document is not     modified by other means during the iteration process. Note that, although     blocks are returned in sequence, adjacent blocks may come from different     places in the document structure. The validity of a block can be determined     by calling isValid().      QTextBlock provides comparison operators to make it easier to work with     blocks: \l operator==() compares two block for equality, \l operator!=()     compares two blocks for inequality, and \l operator<() determines whether     a block precedes another in the same document.      \img qtextblock-sequence.png      \sa QTextBlockFormat, QTextCharFormat, QTextFragment  */
 end_comment
 begin_comment
 comment|/*!     \fn QTextBlock::QTextBlock(QTextDocumentPrivate *priv, int b)      \internal */
@@ -2383,7 +2383,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the length of the block in characters.      \note The length returned includes all formatting characters,     for example, newline.      \sa text() charFormat() blockFormat()  */
+comment|/*!     Returns the length of the block in characters.      \note The length returned includes all formatting characters,     for example, newline.      \sa text(), charFormat(), blockFormat()  */
 end_comment
 begin_function
 DECL|function|length
@@ -2975,7 +2975,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the block's contents as plain text.      \sa length() charFormat() blockFormat()  */
+comment|/*!     Returns the block's contents as plain text.      \sa length(), charFormat(), blockFormat()  */
 end_comment
 begin_function
 DECL|function|text
@@ -3810,7 +3810,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a text block iterator pointing to the end of the text     block.      \sa begin() next() previous() */
+comment|/*!     Returns a text block iterator pointing to the end of the text     block.      \sa begin(), next(), previous() */
 end_comment
 begin_function
 DECL|function|end
@@ -3893,7 +3893,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the text block in the document after this block, or an empty     text block if this is the last one.      Note that the next block may be in a different frame or table to this block.      \sa previous() begin() end() */
+comment|/*!     Returns the text block in the document after this block, or an empty     text block if this is the last one.      Note that the next block may be in a different frame or table to this block.      \sa previous(), begin(), end() */
 end_comment
 begin_function
 DECL|function|next
@@ -3933,7 +3933,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the text block in the document before this block, or an empty text     block if this is the first one.      Note that the next block may be in a different frame or table to this block.      \sa next() begin() end() */
+comment|/*!     Returns the text block in the document before this block, or an empty text     block if this is the first one.      Note that the next block may be in a different frame or table to this block.      \sa next(), begin(), end() */
 end_comment
 begin_function
 DECL|function|previous

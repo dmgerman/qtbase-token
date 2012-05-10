@@ -594,7 +594,7 @@ begin_comment
 comment|/*!     \fn void QPolygon::setPoint(int index, int x, int y)      Sets the point at the given \a index to the point specified by     (\a{x}, \a{y}).      \sa point(), putPoints(), setPoints(), */
 end_comment
 begin_comment
-comment|/*!     Resizes the polygon to \a nPoints and populates it with the given     \a points.      The example code creates a polygon with two points (10, 20) and     (30, 40):      \snippet polygon/polygon.cpp 2      \sa setPoint() putPoints() */
+comment|/*!     Resizes the polygon to \a nPoints and populates it with the given     \a points.      The example code creates a polygon with two points (10, 20) and     (30, 40):      \snippet polygon/polygon.cpp 2      \sa setPoint(), putPoints() */
 end_comment
 begin_function
 DECL|function|setPoints

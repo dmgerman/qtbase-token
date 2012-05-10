@@ -1535,10 +1535,10 @@ begin_comment
 comment|/*!     \fn QString QFont::lastResortFamily() const      Returns the "last resort" font family name.      The current implementation tries a wide variety of common fonts,     returning the first one it finds. Is is possible that no family is     found in which case an empty string is returned.      \sa lastResortFont() */
 end_comment
 begin_comment
-comment|/*!     \fn QString QFont::defaultFamily() const      Returns the family name that corresponds to the current style     hint.      \sa StyleHint styleHint() setStyleHint() */
+comment|/*!     \fn QString QFont::defaultFamily() const      Returns the family name that corresponds to the current style     hint.      \sa StyleHint, styleHint(), setStyleHint() */
 end_comment
 begin_comment
-comment|/*!     \fn QString QFont::lastResortFont() const      Returns a "last resort" font name for the font matching algorithm.     This is used if the last resort family is not available. It will     always return a name, if necessary returning something like     "fixed" or "system".      The current implementation tries a wide variety of common fonts,     returning the first one it finds. The implementation may change     at any time, but this function will always return a string     containing something.      It is theoretically possible that there really isn't a     lastResortFont() in which case Qt will abort with an error     message. We have not been able to identify a case where this     happens. Please \link bughowto.html report it as a bug\endlink if     it does, preferably with a list of the fonts you have installed.      \sa lastResortFamily() rawName() */
+comment|/*!     \fn QString QFont::lastResortFont() const      Returns a "last resort" font name for the font matching algorithm.     This is used if the last resort family is not available. It will     always return a name, if necessary returning something like     "fixed" or "system".      The current implementation tries a wide variety of common fonts,     returning the first one it finds. The implementation may change     at any time, but this function will always return a string     containing something.      It is theoretically possible that there really isn't a     lastResortFont() in which case Qt will abort with an error     message. We have not been able to identify a case where this     happens. Please \link bughowto.html report it as a bug\endlink if     it does, preferably with a list of the fonts you have installed.      \sa lastResortFamily(), rawName() */
 end_comment
 begin_comment
 comment|/*!   Constructs a font from \a font for use on the paint device \a pd. */
@@ -1784,7 +1784,7 @@ argument_list|)
 block|{ }
 end_constructor
 begin_comment
-comment|/*!     Constructs a font object with the specified \a family, \a     pointSize, \a weight and \a italic settings.      If \a pointSize is zero or negative, the point size of the font     is set to a system-dependent default value. Generally, this is     12 points.      The \a family name may optionally also include a foundry name,     e.g. "Helvetica [Cronyx]". If the \a family is     available from more than one foundry and the foundry isn't     specified, an arbitrary foundry is chosen. If the family isn't     available a family will be set using the \l{QFont}{font matching}     algorithm.      \sa Weight, setFamily(), setPointSize(), setWeight(), setItalic(),     setStyleHint() QGuiApplication::font() */
+comment|/*!     Constructs a font object with the specified \a family, \a     pointSize, \a weight and \a italic settings.      If \a pointSize is zero or negative, the point size of the font     is set to a system-dependent default value. Generally, this is     12 points.      The \a family name may optionally also include a foundry name,     e.g. "Helvetica [Cronyx]". If the \a family is     available from more than one foundry and the foundry isn't     specified, an arbitrary foundry is chosen. If the family isn't     available a family will be set using the \l{QFont}{font matching}     algorithm.      \sa Weight, setFamily(), setPointSize(), setWeight(), setItalic(),     setStyleHint(), QGuiApplication::font() */
 end_comment
 begin_constructor
 DECL|function|QFont
@@ -2016,7 +2016,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the requested font family name, i.e. the name set in the     constructor or the last setFont() call.      \sa setFamily() substitutes() substitute() */
+comment|/*!     Returns the requested font family name, i.e. the name set in the     constructor or the last setFont() call.      \sa setFamily(), substitutes(), substitute() */
 end_comment
 begin_function
 DECL|function|family
@@ -2072,7 +2072,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.8      Returns the requested font style name, it will be used to match the     font with irregular styles (that can't be normalized in other style     properties). It depends on system font support, thus only works for     Mac OS X and X11 so far. On Windows irregular styles will be added     as separate font families so there is no need for this.      \sa setFamily() setStyle() */
+comment|/*!     \since 4.8      Returns the requested font style name, it will be used to match the     font with irregular styles (that can't be normalized in other style     properties). It depends on system font support, thus only works for     Mac OS X and X11 so far. On Windows irregular styles will be added     as separate font families so there is no need for this.      \sa setFamily(), setStyle() */
 end_comment
 begin_function
 DECL|function|styleName
@@ -2128,7 +2128,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the point size of the font. Returns -1 if the font size     was specified in pixels.      \sa setPointSize() pointSizeF() */
+comment|/*!     Returns the point size of the font. Returns -1 if the font size     was specified in pixels.      \sa setPointSize(), pointSizeF() */
 end_comment
 begin_function
 DECL|function|pointSize
@@ -2216,7 +2216,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the point size to \a pointSize. The point size must be     greater than zero.      \sa pointSize() setPointSizeF() */
+comment|/*!     Sets the point size to \a pointSize. The point size must be     greater than zero.      \sa pointSize(), setPointSizeF() */
 end_comment
 begin_function
 DECL|function|setPointSize
@@ -2277,7 +2277,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the point size to \a pointSize. The point size must be     greater than zero. The requested precision may not be achieved on     all platforms.      \sa pointSizeF() setPointSize() setPixelSize() */
+comment|/*!     Sets the point size to \a pointSize. The point size must be     greater than zero. The requested precision may not be achieved on     all platforms.      \sa pointSizeF(), setPointSize(), setPixelSize() */
 end_comment
 begin_function
 DECL|function|setPointSizeF
@@ -2335,7 +2335,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the point size of the font. Returns -1 if the font size was     specified in pixels.      \sa pointSize() setPointSizeF() pixelSize() QFontInfo::pointSize() QFontInfo::pixelSize() */
+comment|/*!     Returns the point size of the font. Returns -1 if the font size was     specified in pixels.      \sa pointSize(), setPointSizeF(), pixelSize(), QFontInfo::pointSize(), QFontInfo::pixelSize() */
 end_comment
 begin_function
 DECL|function|pointSizeF
@@ -2414,7 +2414,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the pixel size of the font if it was set with     setPixelSize(). Returns -1 if the size was set with setPointSize()     or setPointSizeF().      \sa setPixelSize() pointSize() QFontInfo::pointSize() QFontInfo::pixelSize() */
+comment|/*!     Returns the pixel size of the font if it was set with     setPixelSize(). Returns -1 if the size was set with setPointSize()     or setPointSizeF().      \sa setPixelSize(), pointSize(), QFontInfo::pointSize(), QFontInfo::pixelSize() */
 end_comment
 begin_function
 DECL|function|pixelSize
@@ -2435,10 +2435,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \fn bool QFont::italic() const      Returns true if the style() of the font is not QFont::StyleNormal      \sa setItalic() style() */
+comment|/*!   \fn bool QFont::italic() const      Returns true if the style() of the font is not QFont::StyleNormal      \sa setItalic(), style() */
 end_comment
 begin_comment
-comment|/*!   \fn void QFont::setItalic(bool enable)    Sets the style() of the font to QFont::StyleItalic if \a enable is true;   otherwise the style is set to QFont::StyleNormal.    \sa italic() QFontInfo */
+comment|/*!   \fn void QFont::setItalic(bool enable)    Sets the style() of the font to QFont::StyleItalic if \a enable is true;   otherwise the style is set to QFont::StyleNormal.    \sa italic(), QFontInfo */
 end_comment
 begin_comment
 comment|/*!     Returns the style of the font.      \sa setStyle() */
@@ -2842,7 +2842,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the StyleStrategy.      The style strategy affects the \l{QFont}{font matching} algorithm.     See \l QFont::StyleStrategy for the list of available strategies.      \sa setStyleHint() QFont::StyleHint */
+comment|/*!     Returns the StyleStrategy.      The style strategy affects the \l{QFont}{font matching} algorithm.     See \l QFont::StyleStrategy for the list of available strategies.      \sa setStyleHint(), QFont::StyleHint */
 end_comment
 begin_function
 DECL|function|styleStrategy
@@ -2868,7 +2868,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the StyleHint.      The style hint affects the \l{QFont}{font matching} algorithm.     See \l QFont::StyleHint for the list of available hints.      \sa setStyleHint(), QFont::StyleStrategy QFontInfo::styleHint() */
+comment|/*!     Returns the StyleHint.      The style hint affects the \l{QFont}{font matching} algorithm.     See \l QFont::StyleHint for the list of available hints.      \sa setStyleHint(), QFont::StyleStrategy, QFontInfo::styleHint() */
 end_comment
 begin_function
 DECL|function|styleHint
@@ -3044,7 +3044,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \enum QFont::Stretch      Predefined stretch values that follow the CSS naming convention. The higher     the value, the more stretched the text is.      \value UltraCondensed 50     \value ExtraCondensed 62     \value Condensed 75     \value SemiCondensed 87     \value Unstretched 100     \value SemiExpanded 112     \value Expanded 125     \value ExtraExpanded 150     \value UltraExpanded 200      \sa setStretch() stretch() */
+comment|/*!     \enum QFont::Stretch      Predefined stretch values that follow the CSS naming convention. The higher     the value, the more stretched the text is.      \value UltraCondensed 50     \value ExtraCondensed 62     \value Condensed 75     \value SemiCondensed 87     \value Unstretched 100     \value SemiExpanded 112     \value Expanded 125     \value ExtraExpanded 150     \value UltraExpanded 200      \sa setStretch(), stretch() */
 end_comment
 begin_comment
 comment|/*!     Returns the stretch factor for the font.      \sa setStretch()  */
@@ -3068,7 +3068,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the stretch factor for the font.      The stretch factor changes the width of all characters in the font     by \a factor percent.  For example, setting \a factor to 150     results in all characters in the font being 1.5 times (ie. 150%)     wider.  The default stretch factor is 100.  The minimum stretch     factor is 1, and the maximum stretch factor is 4000.      The stretch factor is only applied to outline fonts.  The stretch     factor is ignored for bitmap fonts.      NOTE: QFont cannot stretch XLFD fonts.  When loading XLFD fonts on     X11, the stretch factor is matched against a predefined set of     values for the SETWIDTH_NAME field of the XLFD.      \sa stretch() QFont::Stretch */
+comment|/*!     Sets the stretch factor for the font.      The stretch factor changes the width of all characters in the font     by \a factor percent.  For example, setting \a factor to 150     results in all characters in the font being 1.5 times (ie. 150%)     wider.  The default stretch factor is 100.  The minimum stretch     factor is 1, and the maximum stretch factor is 4000.      The stretch factor is only applied to outline fonts.  The stretch     factor is ignored for bitmap fonts.      NOTE: QFont cannot stretch XLFD fonts.  When loading XLFD fonts on     X11, the stretch factor is matched against a predefined set of     values for the SETWIDTH_NAME field of the XLFD.      \sa stretch(), QFont::Stretch */
 end_comment
 begin_function
 DECL|function|setStretch
@@ -3536,7 +3536,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this font is equal to \a f; otherwise returns     false.      Two QFonts are considered equal if their font attributes are     equal. If rawMode() is enabled for both fonts, only the family     fields are compared.      \sa operator!=() isCopyOf() */
+comment|/*!     Returns true if this font is equal to \a f; otherwise returns     false.      Two QFonts are considered equal if their font attributes are     equal. If rawMode() is enabled for both fonts, only the family     fields are compared.      \sa operator!=(), isCopyOf() */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -3671,7 +3671,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Provides an arbitrary comparison of this font and font \a f.     All that is guaranteed is that the operator returns false if both     fonts are equal and that (f1 \< f2) == !(f2 \< f1) if the fonts     are not equal.      This function is useful in some circumstances, for example if you     want to use QFont objects as keys in a QMap.      \sa operator==() operator!=() isCopyOf() */
+comment|/*!     Provides an arbitrary comparison of this font and font \a f.     All that is guaranteed is that the operator returns false if both     fonts are equal and that (f1 \< f2) == !(f2 \< f1) if the fonts     are not equal.      This function is useful in some circumstances, for example if you     want to use QFont objects as keys in a QMap.      \sa operator==(), operator!=(), isCopyOf() */
 end_comment
 begin_function
 DECL|function|operator <
@@ -4094,7 +4094,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this font and \a f are copies of each other, i.e.     one of them was created as a copy of the other and neither has     been modified since. This is much stricter than equality.      \sa operator=() operator==() */
+comment|/*!     Returns true if this font and \a f are copies of each other, i.e.     one of them was created as a copy of the other and neither has     been modified since. This is much stricter than equality.      \sa operator=(), operator==() */
 end_comment
 begin_function
 DECL|function|isCopyOf
@@ -4120,7 +4120,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if raw mode is used for font name matching; otherwise     returns false.      \sa setRawMode() rawName() */
+comment|/*!     Returns true if raw mode is used for font name matching; otherwise     returns false.      \sa setRawMode(), rawName() */
 end_comment
 begin_function
 DECL|function|rawMode
@@ -4263,7 +4263,7 @@ argument|globalFontSubst
 argument_list|)
 end_macro
 begin_comment
-comment|/*!     Returns the first family name to be used whenever \a familyName is     specified. The lookup is case insensitive.      If there is no substitution for \a familyName, \a familyName is     returned.      To obtain a list of substitutions use substitutes().      \sa setFamily() insertSubstitutions() insertSubstitution() removeSubstitutions() */
+comment|/*!     Returns the first family name to be used whenever \a familyName is     specified. The lookup is case insensitive.      If there is no substitution for \a familyName, \a familyName is     returned.      To obtain a list of substitutions use substitutes().      \sa setFamily(), insertSubstitutions(), insertSubstitution(), removeSubstitutions() */
 end_comment
 begin_function
 DECL|function|substitute
@@ -4340,7 +4340,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a list of family names to be used whenever \a familyName     is specified. The lookup is case insensitive.      If there is no substitution for \a familyName, an empty list is     returned.      \sa substitute() insertSubstitutions() insertSubstitution() removeSubstitutions()  */
+comment|/*!     Returns a list of family names to be used whenever \a familyName     is specified. The lookup is case insensitive.      If there is no substitution for \a familyName, an empty list is     returned.      \sa substitute(), insertSubstitutions(), insertSubstitution(), removeSubstitutions()  */
 end_comment
 begin_function
 DECL|function|substitutes
@@ -4386,7 +4386,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Inserts \a substituteName into the substitution     table for the family \a familyName.      \sa insertSubstitutions() removeSubstitutions() substitutions() substitute() substitutes() */
+comment|/*!     Inserts \a substituteName into the substitution     table for the family \a familyName.      \sa insertSubstitutions(), removeSubstitutions(), substitutions(), substitute(), substitutes() */
 end_comment
 begin_function
 DECL|function|insertSubstitution
@@ -6374,7 +6374,7 @@ begin_comment
 comment|/*****************************************************************************   QFontInfo member functions  *****************************************************************************/
 end_comment
 begin_comment
-comment|/*!     \class QFontInfo     \reentrant      \brief The QFontInfo class provides general information about fonts.      \ingroup appearance     \ingroup shared      The QFontInfo class provides the same access functions as QFont,     e.g. family(), pointSize(), italic(), weight(), fixedPitch(),     styleHint() etc. But whilst the QFont access functions return the     values that were set, a QFontInfo object returns the values that     apply to the font that will actually be used to draw the text.      For example, when the program asks for a 25pt Courier font on a     machine that has a non-scalable 24pt Courier font, QFont will     (normally) use the 24pt Courier for rendering. In this case,     QFont::pointSize() returns 25 and QFontInfo::pointSize() returns     24.      There are three ways to create a QFontInfo object.     \list 1     \li Calling the QFontInfo constructor with a QFont creates a font     info object for a screen-compatible font, i.e. the font cannot be     a printer font. If the font is changed later, the font     info object is \e not updated.      (Note: If you use a printer font the values returned may be     inaccurate. Printer fonts are not always accessible so the nearest     screen font is used if a printer font is supplied.)      \li QWidget::fontInfo() returns the font info for a widget's font.     This is equivalent to calling QFontInfo(widget->font()). If the     widget's font is changed later, the font info object is \e not     updated.      \li QPainter::fontInfo() returns the font info for a painter's     current font. If the painter's font is changed later, the font     info object is \e not updated.     \endlist      \sa QFont QFontMetrics QFontDatabase */
+comment|/*!     \class QFontInfo     \reentrant      \brief The QFontInfo class provides general information about fonts.      \ingroup appearance     \ingroup shared      The QFontInfo class provides the same access functions as QFont,     e.g. family(), pointSize(), italic(), weight(), fixedPitch(),     styleHint() etc. But whilst the QFont access functions return the     values that were set, a QFontInfo object returns the values that     apply to the font that will actually be used to draw the text.      For example, when the program asks for a 25pt Courier font on a     machine that has a non-scalable 24pt Courier font, QFont will     (normally) use the 24pt Courier for rendering. In this case,     QFont::pointSize() returns 25 and QFontInfo::pointSize() returns     24.      There are three ways to create a QFontInfo object.     \list 1     \li Calling the QFontInfo constructor with a QFont creates a font     info object for a screen-compatible font, i.e. the font cannot be     a printer font. If the font is changed later, the font     info object is \e not updated.      (Note: If you use a printer font the values returned may be     inaccurate. Printer fonts are not always accessible so the nearest     screen font is used if a printer font is supplied.)      \li QWidget::fontInfo() returns the font info for a widget's font.     This is equivalent to calling QFontInfo(widget->font()). If the     widget's font is changed later, the font info object is \e not     updated.      \li QPainter::fontInfo() returns the font info for a painter's     current font. If the painter's font is changed later, the font     info object is \e not updated.     \endlist      \sa QFont, QFontMetrics, QFontDatabase */
 end_comment
 begin_comment
 comment|/*!     Constructs a font info object for \a font.      The font must be screen-compatible, i.e. a font you use when     drawing text in \link QWidget widgets\endlink or \link QPixmap     pixmaps\endlink, not QPicture or QPrinter.      The font info object holds the information for the font that is     passed in the constructor at the time it is created, and is not     updated if the font's attributes are changed later.      Use QPainter::fontInfo() to get the font info when painting.     This will give correct results also when painting on paint device     that is not screen-compatible. */
@@ -6556,7 +6556,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the point size of the matched window system font.      \sa pointSizeF() QFont::pointSize() */
+comment|/*!     Returns the point size of the matched window system font.      \sa pointSizeF(), QFont::pointSize() */
 end_comment
 begin_function
 DECL|function|pointSize
@@ -7007,7 +7007,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the style of the matched window system font.      Currently only returns the style hint set in QFont.      \sa QFont::styleHint() QFont::StyleHint */
+comment|/*!     Returns the style of the matched window system font.      Currently only returns the style hint set in QFont.      \sa QFont::styleHint(), QFont::StyleHint */
 end_comment
 begin_function
 DECL|function|styleHint

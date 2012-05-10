@@ -5347,7 +5347,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Removes the translation file \a translationFile from the list of     translation files used by this application. (It does not delete the     translation file from the file system.)      The function returns true on success and false on failure.      \sa installTranslator() translate(), QObject::tr() */
+comment|/*!     Removes the translation file \a translationFile from the list of     translation files used by this application. (It does not delete the     translation file from the file system.)      The function returns true on success and false on failure.      \sa installTranslator(), translate(), QObject::tr() */
 end_comment
 begin_function
 DECL|function|removeTranslator

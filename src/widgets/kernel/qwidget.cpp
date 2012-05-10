@@ -9562,7 +9562,7 @@ operator|::
 name|WindowMaximized
 return|;
 block|}
-comment|/*!     Returns the current window state. The window state is a OR'ed     combination of Qt::WindowState: Qt::WindowMinimized,     Qt::WindowMaximized, Qt::WindowFullScreen, and Qt::WindowActive.    \sa Qt::WindowState setWindowState()  */
+comment|/*!     Returns the current window state. The window state is a OR'ed     combination of Qt::WindowState: Qt::WindowMinimized,     Qt::WindowMaximized, Qt::WindowFullScreen, and Qt::WindowActive.    \sa Qt::WindowState, setWindowState()  */
 DECL|function|windowState
 name|Qt
 operator|::
@@ -9629,7 +9629,7 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*!     \fn void QWidget::setWindowState(Qt::WindowStates windowState)      Sets the window state to \a windowState. The window state is a OR'ed     combination of Qt::WindowState: Qt::WindowMinimized,     Qt::WindowMaximized, Qt::WindowFullScreen, and Qt::WindowActive.      If the window is not visible (i.e. isVisible() returns false), the     window state will take effect when show() is called. For visible     windows, the change is immediate. For example, to toggle between     full-screen and normal mode, use the following code:      \snippet code/src_gui_kernel_qwidget.cpp 0      In order to restore and activate a minimized window (while     preserving its maximized and/or full-screen state), use the following:      \snippet code/src_gui_kernel_qwidget.cpp 1      Calling this function will hide the widget. You must call show() to make     the widget visible again.      \note On some window systems Qt::WindowActive is not immediate, and may be     ignored in certain cases.      When the window state changes, the widget receives a changeEvent()     of type QEvent::WindowStateChange.      \sa Qt::WindowState windowState() */
+comment|/*!     \fn void QWidget::setWindowState(Qt::WindowStates windowState)      Sets the window state to \a windowState. The window state is a OR'ed     combination of Qt::WindowState: Qt::WindowMinimized,     Qt::WindowMaximized, Qt::WindowFullScreen, and Qt::WindowActive.      If the window is not visible (i.e. isVisible() returns false), the     window state will take effect when show() is called. For visible     windows, the change is immediate. For example, to toggle between     full-screen and normal mode, use the following code:      \snippet code/src_gui_kernel_qwidget.cpp 0      In order to restore and activate a minimized window (while     preserving its maximized and/or full-screen state), use the following:      \snippet code/src_gui_kernel_qwidget.cpp 1      Calling this function will hide the widget. You must call show() to make     the widget visible again.      \note On some window systems Qt::WindowActive is not immediate, and may be     ignored in certain cases.      When the window state changes, the widget receives a changeEvent()     of type QEvent::WindowStateChange.      \sa Qt::WindowState, windowState() */
 comment|/*!     \property QWidget::fullScreen     \brief whether the widget is shown in full screen mode      A widget in full screen mode occupies the whole screen area and does not     display window decorations, such as a title bar.      By default, this property is false.      \sa windowState(), minimized, maximized */
 DECL|function|isFullScreen
 name|bool
@@ -9950,7 +9950,7 @@ name|show
 argument_list|()
 expr_stmt|;
 block|}
-comment|/*!     Returns true if this widget would become enabled if \a ancestor is     enabled; otherwise returns false.        This is the case if neither the widget itself nor every parent up     to but excluding \a ancestor has been explicitly disabled.      isEnabledTo(0) is equivalent to isEnabled().      \sa setEnabled() enabled */
+comment|/*!     Returns true if this widget would become enabled if \a ancestor is     enabled; otherwise returns false.        This is the case if neither the widget itself nor every parent up     to but excluding \a ancestor has been explicitly disabled.      isEnabledTo(0) is equivalent to isEnabled().      \sa setEnabled(), enabled */
 DECL|function|isEnabledTo
 name|bool
 name|QWidget
@@ -10838,7 +10838,7 @@ name|disable
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*!     \property QWidget::frameGeometry     \brief geometry of the widget relative to its parent including any     window frame      See the \l{Window Geometry} documentation for an overview of geometry     issues with windows.      By default, this property contains a value that depends on the user's     platform and screen geometry.      \sa geometry() x() y() pos() */
+comment|/*!     \property QWidget::frameGeometry     \brief geometry of the widget relative to its parent including any     window frame      See the \l{Window Geometry} documentation for an overview of geometry     issues with windows.      By default, this property contains a value that depends on the user's     platform and screen geometry.      \sa geometry(), x(), y(), pos() */
 DECL|function|frameGeometry
 name|QRect
 name|QWidget
@@ -11056,7 +11056,7 @@ name|y
 argument_list|()
 return|;
 block|}
-comment|/*!     \property QWidget::pos     \brief the position of the widget within its parent widget      If the widget is a window, the position is that of the widget on     the desktop, including its frame.      When changing the position, the widget, if visible, receives a     move event (moveEvent()) immediately. If the widget is not     currently visible, it is guaranteed to receive an event before it     is shown.      By default, this property contains a position that refers to the     origin.      \warning Calling move() or setGeometry() inside moveEvent() can     lead to infinite recursion.      See the \l{Window Geometry} documentation for an overview of geometry     issues with windows.      \sa frameGeometry, size x(), y() */
+comment|/*!     \property QWidget::pos     \brief the position of the widget within its parent widget      If the widget is a window, the position is that of the widget on     the desktop, including its frame.      When changing the position, the widget, if visible, receives a     move event (moveEvent()) immediately. If the widget is not     currently visible, it is guaranteed to receive an event before it     is shown.      By default, this property contains a position that refers to the     origin.      \warning Calling move() or setGeometry() inside moveEvent() can     lead to infinite recursion.      See the \l{Window Geometry} documentation for an overview of geometry     issues with windows.      \sa frameGeometry, size, x(), y() */
 DECL|function|pos
 name|QPoint
 name|QWidget
@@ -11187,7 +11187,7 @@ operator|->
 name|normalGeometry
 return|;
 block|}
-comment|/*!     \property QWidget::childrenRect     \brief the bounding rectangle of the widget's children      Hidden children are excluded.      By default, for a widget with no children, this property contains a     rectangle with zero width and height located at the origin.      \sa childrenRegion() geometry() */
+comment|/*!     \property QWidget::childrenRect     \brief the bounding rectangle of the widget's children      Hidden children are excluded.      By default, for a widget with no children, this property contains a     rectangle with zero width and height located at the origin.      \sa childrenRegion(), geometry() */
 DECL|function|childrenRect
 name|QRect
 name|QWidget
@@ -11282,7 +11282,7 @@ return|return
 name|r
 return|;
 block|}
-comment|/*!     \property QWidget::childrenRegion     \brief the combined region occupied by the widget's children      Hidden children are excluded.      By default, for a widget with no children, this property contains an     empty region.      \sa childrenRect() geometry() mask() */
+comment|/*!     \property QWidget::childrenRegion     \brief the combined region occupied by the widget's children      Hidden children are excluded.      By default, for a widget with no children, this property contains an     empty region.      \sa childrenRect(), geometry(), mask() */
 DECL|function|childrenRegion
 name|QRegion
 name|QWidget
@@ -12888,7 +12888,7 @@ operator|=
 name|expl
 expr_stmt|;
 block|}
-comment|/*!     Sets both the minimum and maximum width of the widget to \a w     without changing the heights. Provided for convenience.      \sa sizeHint() minimumSize() maximumSize() setFixedSize() */
+comment|/*!     Sets both the minimum and maximum width of the widget to \a w     without changing the heights. Provided for convenience.      \sa sizeHint(), minimumSize(), maximumSize(), setFixedSize() */
 DECL|function|setFixedWidth
 name|void
 name|QWidget
@@ -12974,7 +12974,7 @@ operator|=
 name|explMax
 expr_stmt|;
 block|}
-comment|/*!     Sets both the minimum and maximum heights of the widget to \a h     without changing the widths. Provided for convenience.      \sa sizeHint() minimumSize() maximumSize() setFixedSize() */
+comment|/*!     Sets both the minimum and maximum heights of the widget to \a h     without changing the widths. Provided for convenience.      \sa sizeHint(), minimumSize(), maximumSize(), setFixedSize() */
 DECL|function|setFixedHeight
 name|void
 name|QWidget
@@ -13060,7 +13060,7 @@ operator|=
 name|explMax
 expr_stmt|;
 block|}
-comment|/*!     Translates the widget coordinate \a pos to the coordinate system     of \a parent. The \a parent must not be 0 and must be a parent     of the calling widget.      \sa mapFrom() mapToParent() mapToGlobal() underMouse() */
+comment|/*!     Translates the widget coordinate \a pos to the coordinate system     of \a parent. The \a parent must not be 0 and must be a parent     of the calling widget.      \sa mapFrom(), mapToParent(), mapToGlobal(), underMouse() */
 DECL|function|mapTo
 name|QPoint
 name|QWidget
@@ -13134,7 +13134,7 @@ return|return
 name|p
 return|;
 block|}
-comment|/*!     Translates the widget coordinate \a pos from the coordinate system     of \a parent to this widget's coordinate system. The \a parent     must not be 0 and must be a parent of the calling widget.      \sa mapTo() mapFromParent() mapFromGlobal() underMouse() */
+comment|/*!     Translates the widget coordinate \a pos from the coordinate system     of \a parent to this widget's coordinate system. The \a parent     must not be 0 and must be a parent of the calling widget.      \sa mapTo(), mapFromParent(), mapFromGlobal(), underMouse() */
 DECL|function|mapFrom
 name|QPoint
 name|QWidget
@@ -13209,7 +13209,7 @@ return|return
 name|p
 return|;
 block|}
-comment|/*!     Translates the widget coordinate \a pos to a coordinate in the     parent widget.      Same as mapToGlobal() if the widget has no parent.      \sa mapFromParent() mapTo() mapToGlobal() underMouse() */
+comment|/*!     Translates the widget coordinate \a pos to a coordinate in the     parent widget.      Same as mapToGlobal() if the widget has no parent.      \sa mapFromParent(), mapTo(), mapToGlobal(), underMouse() */
 DECL|function|mapToParent
 name|QPoint
 name|QWidget
@@ -13234,7 +13234,7 @@ name|topLeft
 argument_list|()
 return|;
 block|}
-comment|/*!     Translates the parent widget coordinate \a pos to widget     coordinates.      Same as mapFromGlobal() if the widget has no parent.      \sa mapToParent() mapFrom() mapFromGlobal() underMouse() */
+comment|/*!     Translates the parent widget coordinate \a pos to widget     coordinates.      Same as mapFromGlobal() if the widget has no parent.      \sa mapToParent(), mapFrom(), mapFromGlobal(), underMouse() */
 DECL|function|mapFromParent
 name|QPoint
 name|QWidget
@@ -19294,7 +19294,7 @@ return|;
 block|}
 endif|#
 directive|endif
-comment|/*!     \property QWidget::locale     \brief the widget's locale     \since 4.3      As long as no special locale has been set, this is either     the parent's locale or (if this widget is a top level widget),     the default locale.      If the widget displays dates or numbers, these should be formatted     using the widget's locale.      \sa QLocale QLocale::setDefault() */
+comment|/*!     \property QWidget::locale     \brief the widget's locale     \since 4.3      As long as no special locale has been set, this is either     the parent's locale or (if this widget is a top level widget),     the default locale.      If the widget displays dates or numbers, these should be formatted     using the widget's locale.      \sa QLocale, QLocale::setDefault() */
 DECL|function|setLocale_helper
 name|void
 name|QWidgetPrivate
@@ -24795,7 +24795,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/*!   \fn void QWidget::customContextMenuRequested(const QPoint&pos)    This signal is emitted when the widget's \l contextMenuPolicy is   Qt::CustomContextMenu, and the user has requested a context menu on   the widget. The position \a pos is the position of the context menu   event that the widget receives. Normally this is in widget   coordinates. The exception to this rule is QAbstractScrollArea and   its subclasses that map the context menu event to coordinates of the   \link QAbstractScrollArea::viewport() viewport() \endlink .     \sa mapToGlobal() QMenu contextMenuPolicy */
+comment|/*!   \fn void QWidget::customContextMenuRequested(const QPoint&pos)    This signal is emitted when the widget's \l contextMenuPolicy is   Qt::CustomContextMenu, and the user has requested a context menu on   the widget. The position \a pos is the position of the context menu   event that the widget receives. Normally this is in widget   coordinates. The exception to this rule is QAbstractScrollArea and   its subclasses that map the context menu event to coordinates of the   \link QAbstractScrollArea::viewport() viewport() \endlink .     \sa mapToGlobal(), QMenu, contextMenuPolicy */
 comment|/*!     \property QWidget::contextMenuPolicy     \brief how the widget shows a context menu      The default value of this property is Qt::DefaultContextMenu,     which means the contextMenuEvent() handler is called. Other values     are Qt::NoContextMenu, Qt::PreventContextMenu,     Qt::ActionsContextMenu, and Qt::CustomContextMenu. With     Qt::CustomContextMenu, the signal customContextMenuRequested() is     emitted.      \sa contextMenuEvent(), customContextMenuRequested(), actions() */
 DECL|function|contextMenuPolicy
 name|Qt
@@ -27516,7 +27516,7 @@ argument_list|)
 return|;
 block|}
 comment|/*!     \property QWidget::visible     \brief whether the widget is visible      Calling setVisible(true) or show() sets the widget to visible     status if all its parent widgets up to the window are visible. If     an ancestor is not visible, the widget won't become visible until     all its ancestors are shown. If its size or position has changed,     Qt guarantees that a widget gets move and resize events just     before it is shown. If the widget has not been resized yet, Qt     will adjust the widget's size to a useful default using     adjustSize().      Calling setVisible(false) or hide() hides a widget explicitly. An     explicitly hidden widget will never become visible, even if all     its ancestors become visible, unless you show it.      A widget receives show and hide events when its visibility status     changes. Between a hide and a show event, there is no need to     waste CPU cycles preparing or displaying information to the user.     A video application, for example, might simply stop generating new     frames.      A widget that happens to be obscured by other windows on the     screen is considered to be visible. The same applies to iconified     windows and windows that exist on another virtual     desktop (on platforms that support this concept). A widget     receives spontaneous show and hide events when its mapping status     is changed by the window system, e.g. a spontaneous hide event     when the user minimizes the window, and a spontaneous show event     when the window is restored again.      You almost never have to reimplement the setVisible() function. If     you need to change some settings before a widget is shown, use     showEvent() instead. If you need to do some delayed initialization     use the Polish event delivered to the event() function.      \sa show(), hide(), isHidden(), isVisibleTo(), isMinimized(),     showEvent(), hideEvent() */
-comment|/*!     Returns true if this widget would become visible if \a ancestor is     shown; otherwise returns false.      The true case occurs if neither the widget itself nor any parent     up to but excluding \a ancestor has been explicitly hidden.      This function will still return true if the widget is obscured by     other windows on the screen, but could be physically visible if it     or they were to be moved.      isVisibleTo(0) is identical to isVisible().      \sa show() hide() isVisible() */
+comment|/*!     Returns true if this widget would become visible if \a ancestor is     shown; otherwise returns false.      The true case occurs if neither the widget itself nor any parent     up to but excluding \a ancestor has been explicitly hidden.      This function will still return true if the widget is obscured by     other windows on the screen, but could be physically visible if it     or they were to be moved.      isVisibleTo(0) is identical to isVisible().      \sa show(), hide(), isVisible() */
 DECL|function|isVisibleTo
 name|bool
 name|QWidget
@@ -31046,7 +31046,7 @@ name|ignore
 argument_list|()
 expr_stmt|;
 block|}
-comment|/*!     This event handler, for event \a event, can be reimplemented in a     subclass to receive mouse double click events for the widget.      The default implementation generates a normal mouse press event.      \note The widget will also receive mouse press and mouse release     events in addition to the double click event. It is up to the     developer to ensure that the application interprets these events     correctly.      \sa mousePressEvent(), mouseReleaseEvent() mouseMoveEvent(),     event(), QMouseEvent */
+comment|/*!     This event handler, for event \a event, can be reimplemented in a     subclass to receive mouse double click events for the widget.      The default implementation generates a normal mouse press event.      \note The widget will also receive mouse press and mouse release     events in addition to the double click event. It is up to the     developer to ensure that the application interprets these events     correctly.      \sa mousePressEvent(), mouseReleaseEvent(), mouseMoveEvent(),     event(), QMouseEvent */
 DECL|function|mouseDoubleClickEvent
 name|void
 name|QWidget
@@ -31332,7 +31332,7 @@ block|}
 ifndef|#
 directive|ifndef
 name|QT_NO_CONTEXTMENU
-comment|/*!     This event handler, for event \a event, can be reimplemented in a     subclass to receive widget context menu events.      The handler is called when the widget's \l contextMenuPolicy is     Qt::DefaultContextMenu.      The default implementation ignores the context event.     See the \l QContextMenuEvent documentation for more details.      \sa event(), QContextMenuEvent customContextMenuRequested() */
+comment|/*!     This event handler, for event \a event, can be reimplemented in a     subclass to receive widget context menu events.      The handler is called when the widget's \l contextMenuPolicy is     Qt::DefaultContextMenu.      The default implementation ignores the context event.     See the \l QContextMenuEvent documentation for more details.      \sa event(), QContextMenuEvent, customContextMenuRequested() */
 DECL|function|contextMenuEvent
 name|void
 name|QWidget
@@ -32164,7 +32164,7 @@ return|return
 name|l
 return|;
 block|}
-comment|/*!     \property QWidget::sizePolicy     \brief the default layout behavior of the widget      If there is a QLayout that manages this widget's children, the     size policy specified by that layout is used. If there is no such     QLayout, the result of this function is used.      The default policy is Preferred/Preferred, which means that the     widget can be freely resized, but prefers to be the size     sizeHint() returns. Button-like widgets set the size policy to     specify that they may stretch horizontally, but are fixed     vertically. The same applies to lineedit controls (such as     QLineEdit, QSpinBox or an editable QComboBox) and other     horizontally orientated widgets (such as QProgressBar).     QToolButton's are normally square, so they allow growth in both     directions. Widgets that support different directions (such as     QSlider, QScrollBar or QHeader) specify stretching in the     respective direction only. Widgets that can provide scroll bars     (usually subclasses of QScrollArea) tend to specify that they can     use additional space, and that they can make do with less than     sizeHint().      \sa sizeHint() QLayout QSizePolicy updateGeometry() */
+comment|/*!     \property QWidget::sizePolicy     \brief the default layout behavior of the widget      If there is a QLayout that manages this widget's children, the     size policy specified by that layout is used. If there is no such     QLayout, the result of this function is used.      The default policy is Preferred/Preferred, which means that the     widget can be freely resized, but prefers to be the size     sizeHint() returns. Button-like widgets set the size policy to     specify that they may stretch horizontally, but are fixed     vertically. The same applies to lineedit controls (such as     QLineEdit, QSpinBox or an editable QComboBox) and other     horizontally orientated widgets (such as QProgressBar).     QToolButton's are normally square, so they allow growth in both     directions. Widgets that support different directions (such as     QSlider, QScrollBar or QHeader) specify stretching in the     respective direction only. Widgets that can provide scroll bars     (usually subclasses of QScrollArea) tend to specify that they can     use additional space, and that they can make do with less than     sizeHint().      \sa sizeHint(), QLayout, QSizePolicy, updateGeometry() */
 DECL|function|sizePolicy
 name|QSizePolicy
 name|QWidget
@@ -34521,7 +34521,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/*!     Updates the widget unless updates are disabled or the widget is     hidden.      This function does not cause an immediate repaint; instead it     schedules a paint event for processing when Qt returns to the main     event loop. This permits Qt to optimize for more speed and less     flicker than a call to repaint() does.      Calling update() several times normally results in just one     paintEvent() call.      Qt normally erases the widget's area before the paintEvent() call.     If the Qt::WA_OpaquePaintEvent widget attribute is set, the widget is     responsible for painting all its pixels with an opaque color.      \sa repaint() paintEvent(), setUpdatesEnabled(), {Analog Clock Example} */
+comment|/*!     Updates the widget unless updates are disabled or the widget is     hidden.      This function does not cause an immediate repaint; instead it     schedules a paint event for processing when Qt returns to the main     event loop. This permits Qt to optimize for more speed and less     flicker than a call to repaint() does.      Calling update() several times normally results in just one     paintEvent() call.      Qt normally erases the widget's area before the paintEvent() call.     If the Qt::WA_OpaquePaintEvent widget attribute is set, the widget is     responsible for painting all its pixels with an opaque color.      \sa repaint(), paintEvent(), setUpdatesEnabled(), {Analog Clock Example} */
 DECL|function|update
 name|void
 name|QWidget
@@ -36669,7 +36669,7 @@ block|}
 ifndef|#
 directive|ifndef
 name|QT_NO_TOOLTIP
-comment|/*!   \property QWidget::toolTip    \brief the widget's tooltip    Note that by default tooltips are only shown for widgets that are   children of the active window. You can change this behavior by   setting the attribute Qt::WA_AlwaysShowToolTips on the \e window,   not on the widget with the tooltip.    If you want to control a tooltip's behavior, you can intercept the   event() function and catch the QEvent::ToolTip event (e.g., if you   want to customize the area for which the tooltip should be shown).    By default, this property contains an empty string.    \sa QToolTip statusTip whatsThis */
+comment|/*!   \property QWidget::toolTip    \brief the widget's tooltip    Note that by default tooltips are only shown for widgets that are   children of the active window. You can change this behavior by   setting the attribute Qt::WA_AlwaysShowToolTips on the \e window,   not on the widget with the tooltip.    If you want to control a tooltip's behavior, you can intercept the   event() function and catch the QEvent::ToolTip event (e.g., if you   want to customize the area for which the tooltip should be shown).    By default, this property contains an empty string.    \sa QToolTip, statusTip, whatsThis */
 DECL|function|setToolTip
 name|void
 name|QWidget
@@ -36738,7 +36738,7 @@ comment|// QT_NO_TOOLTIP
 ifndef|#
 directive|ifndef
 name|QT_NO_STATUSTIP
-comment|/*!   \property QWidget::statusTip   \brief the widget's status tip    By default, this property contains an empty string.    \sa toolTip whatsThis */
+comment|/*!   \property QWidget::statusTip   \brief the widget's status tip    By default, this property contains an empty string.    \sa toolTip, whatsThis */
 DECL|function|setStatusTip
 name|void
 name|QWidget
@@ -36789,7 +36789,7 @@ comment|// QT_NO_STATUSTIP
 ifndef|#
 directive|ifndef
 name|QT_NO_WHATSTHIS
-comment|/*!   \property QWidget::whatsThis    \brief the widget's What's This help text.    By default, this property contains an empty string.    \sa QWhatsThis QWidget::toolTip QWidget::statusTip */
+comment|/*!   \property QWidget::whatsThis    \brief the widget's What's This help text.    By default, this property contains an empty string.    \sa QWhatsThis, QWidget::toolTip, QWidget::statusTip */
 DECL|function|setWhatsThis
 name|void
 name|QWidget
@@ -36972,7 +36972,7 @@ comment|// QT_NO_ACCESSIBILITY
 ifndef|#
 directive|ifndef
 name|QT_NO_SHORTCUT
-comment|/*!     Adds a shortcut to Qt's shortcut system that watches for the given     \a key sequence in the given \a context. If the \a context is     Qt::ApplicationShortcut, the shortcut applies to the application as a     whole. Otherwise, it is either local to this widget, Qt::WidgetShortcut,     or to the window itself, Qt::WindowShortcut.      If the same \a key sequence has been grabbed by several widgets,     when the \a key sequence occurs a QEvent::Shortcut event is sent     to all the widgets to which it applies in a non-deterministic     order, but with the ``ambiguous'' flag set to true.      \warning You should not normally need to use this function;     instead create \l{QAction}s with the shortcut key sequences you     require (if you also want equivalent menu options and toolbar     buttons), or create \l{QShortcut}s if you just need key sequences.     Both QAction and QShortcut handle all the event filtering for you,     and provide signals which are triggered when the user triggers the     key sequence, so are much easier to use than this low-level     function.      \sa releaseShortcut() setShortcutEnabled() */
+comment|/*!     Adds a shortcut to Qt's shortcut system that watches for the given     \a key sequence in the given \a context. If the \a context is     Qt::ApplicationShortcut, the shortcut applies to the application as a     whole. Otherwise, it is either local to this widget, Qt::WidgetShortcut,     or to the window itself, Qt::WindowShortcut.      If the same \a key sequence has been grabbed by several widgets,     when the \a key sequence occurs a QEvent::Shortcut event is sent     to all the widgets to which it applies in a non-deterministic     order, but with the ``ambiguous'' flag set to true.      \warning You should not normally need to use this function;     instead create \l{QAction}s with the shortcut key sequences you     require (if you also want equivalent menu options and toolbar     buttons), or create \l{QShortcut}s if you just need key sequences.     Both QAction and QShortcut handle all the event filtering for you,     and provide signals which are triggered when the user triggers the     key sequence, so are much easier to use than this low-level     function.      \sa releaseShortcut(), setShortcutEnabled() */
 DECL|function|grabShortcut
 name|int
 name|QWidget
@@ -37032,7 +37032,7 @@ name|qWidgetShortcutContextMatcher
 argument_list|)
 return|;
 block|}
-comment|/*!     Removes the shortcut with the given \a id from Qt's shortcut     system. The widget will no longer receive QEvent::Shortcut events     for the shortcut's key sequence (unless it has other shortcuts     with the same key sequence).      \warning You should not normally need to use this function since     Qt's shortcut system removes shortcuts automatically when their     parent widget is destroyed. It is best to use QAction or     QShortcut to handle shortcuts, since they are easier to use than     this low-level function. Note also that this is an expensive     operation.      \sa grabShortcut() setShortcutEnabled() */
+comment|/*!     Removes the shortcut with the given \a id from Qt's shortcut     system. The widget will no longer receive QEvent::Shortcut events     for the shortcut's key sequence (unless it has other shortcuts     with the same key sequence).      \warning You should not normally need to use this function since     Qt's shortcut system removes shortcuts automatically when their     parent widget is destroyed. It is best to use QAction or     QShortcut to handle shortcuts, since they are easier to use than     this low-level function. Note also that this is an expensive     operation.      \sa grabShortcut(), setShortcutEnabled() */
 DECL|function|releaseShortcut
 name|void
 name|QWidget
@@ -37069,7 +37069,7 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*!     If \a enable is true, the shortcut with the given \a id is     enabled; otherwise the shortcut is disabled.      \warning You should not normally need to use this function since     Qt's shortcut system enables/disables shortcuts automatically as     widgets become hidden/visible and gain or lose focus. It is best     to use QAction or QShortcut to handle shortcuts, since they are     easier to use than this low-level function.      \sa grabShortcut() releaseShortcut() */
+comment|/*!     If \a enable is true, the shortcut with the given \a id is     enabled; otherwise the shortcut is disabled.      \warning You should not normally need to use this function since     Qt's shortcut system enables/disables shortcuts automatically as     widgets become hidden/visible and gain or lose focus. It is best     to use QAction or QShortcut to handle shortcuts, since they are     easier to use than this low-level function.      \sa grabShortcut(), releaseShortcut() */
 DECL|function|setShortcutEnabled
 name|void
 name|QWidget
@@ -37111,7 +37111,7 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*!     \since 4.2      If \a enable is true, auto repeat of the shortcut with the     given \a id is enabled; otherwise it is disabled.      \sa grabShortcut() releaseShortcut() */
+comment|/*!     \since 4.2      If \a enable is true, auto repeat of the shortcut with the     given \a id is enabled; otherwise it is disabled.      \sa grabShortcut(), releaseShortcut() */
 DECL|function|setShortcutAutoRepeat
 name|void
 name|QWidget
@@ -39125,12 +39125,12 @@ comment|// QT_NO_GESTURES
 comment|/*!     \typedef WId     \relates QWidget      Platform dependent window identifier. */
 comment|/*!     \fn void QWidget::destroy(bool destroyWindow, bool destroySubWindows)      Frees up window system resources. Destroys the widget window if \a     destroyWindow is true.      destroy() calls itself recursively for all the child widgets,     passing \a destroySubWindows for the \a destroyWindow parameter.     To have more control over destruction of subwidgets, destroy     subwidgets selectively first.      This function is usually called from the QWidget destructor. */
 comment|/*!     \fn QPaintEngine *QWidget::paintEngine() const      Returns the widget's paint engine.      Note that this function should not be called explicitly by the     user, since it's meant for reimplementation purposes only. The     function is called by Qt internally, and the default     implementation may not always return a valid pointer. */
-comment|/*!     \fn QPoint QWidget::mapToGlobal(const QPoint&pos) const      Translates the widget coordinate \a pos to global screen     coordinates. For example, \c{mapToGlobal(QPoint(0,0))} would give     the global coordinates of the top-left pixel of the widget.      \sa mapFromGlobal() mapTo() mapToParent() */
-comment|/*!     \fn QPoint QWidget::mapFromGlobal(const QPoint&pos) const      Translates the global screen coordinate \a pos to widget     coordinates.      \sa mapToGlobal() mapFrom() mapFromParent() */
-comment|/*!     \fn void QWidget::grabMouse()      Grabs the mouse input.      This widget receives all mouse events until releaseMouse() is     called; other widgets get no mouse events at all. Keyboard     events are not affected. Use grabKeyboard() if you want to grab     that.      \warning Bugs in mouse-grabbing applications very often lock the     terminal. Use this function with extreme caution, and consider     using the \c -nograb command line option while debugging.      It is almost never necessary to grab the mouse when using Qt, as     Qt grabs and releases it sensibly. In particular, Qt grabs the     mouse when a mouse button is pressed and keeps it until the last     button is released.      \note Only visible widgets can grab mouse input. If isVisible()     returns false for a widget, that widget cannot call grabMouse().      \note \b{(Mac OS X developers)} For \e Cocoa, calling     grabMouse() on a widget only works when the mouse is inside the     frame of that widget.  For \e Carbon, it works outside the widget's     frame as well, like for Windows and X11.      \sa releaseMouse() grabKeyboard() releaseKeyboard() */
+comment|/*!     \fn QPoint QWidget::mapToGlobal(const QPoint&pos) const      Translates the widget coordinate \a pos to global screen     coordinates. For example, \c{mapToGlobal(QPoint(0,0))} would give     the global coordinates of the top-left pixel of the widget.      \sa mapFromGlobal(), mapTo(), mapToParent() */
+comment|/*!     \fn QPoint QWidget::mapFromGlobal(const QPoint&pos) const      Translates the global screen coordinate \a pos to widget     coordinates.      \sa mapToGlobal(), mapFrom(), mapFromParent() */
+comment|/*!     \fn void QWidget::grabMouse()      Grabs the mouse input.      This widget receives all mouse events until releaseMouse() is     called; other widgets get no mouse events at all. Keyboard     events are not affected. Use grabKeyboard() if you want to grab     that.      \warning Bugs in mouse-grabbing applications very often lock the     terminal. Use this function with extreme caution, and consider     using the \c -nograb command line option while debugging.      It is almost never necessary to grab the mouse when using Qt, as     Qt grabs and releases it sensibly. In particular, Qt grabs the     mouse when a mouse button is pressed and keeps it until the last     button is released.      \note Only visible widgets can grab mouse input. If isVisible()     returns false for a widget, that widget cannot call grabMouse().      \note \b{(Mac OS X developers)} For \e Cocoa, calling     grabMouse() on a widget only works when the mouse is inside the     frame of that widget.  For \e Carbon, it works outside the widget's     frame as well, like for Windows and X11.      \sa releaseMouse(), grabKeyboard(), releaseKeyboard() */
 comment|/*!     \fn void QWidget::grabMouse(const QCursor&cursor)     \overload grabMouse()      Grabs the mouse input and changes the cursor shape.      The cursor will assume shape \a cursor (for as long as the mouse     focus is grabbed) and this widget will be the only one to receive     mouse events until releaseMouse() is called().      \warning Grabbing the mouse might lock the terminal.      \note \b{(Mac OS X developers)} See the note in QWidget::grabMouse().      \sa releaseMouse(), grabKeyboard(), releaseKeyboard(), setCursor() */
 comment|/*!     \fn void QWidget::releaseMouse()      Releases the mouse grab.      \sa grabMouse(), grabKeyboard(), releaseKeyboard() */
-comment|/*!     \fn void QWidget::grabKeyboard()      Grabs the keyboard input.      This widget receives all keyboard events until releaseKeyboard()     is called; other widgets get no keyboard events at all. Mouse     events are not affected. Use grabMouse() if you want to grab that.      The focus widget is not affected, except that it doesn't receive     any keyboard events. setFocus() moves the focus as usual, but the     new focus widget receives keyboard events only after     releaseKeyboard() is called.      If a different widget is currently grabbing keyboard input, that     widget's grab is released first.      \sa releaseKeyboard() grabMouse() releaseMouse() focusWidget() */
+comment|/*!     \fn void QWidget::grabKeyboard()      Grabs the keyboard input.      This widget receives all keyboard events until releaseKeyboard()     is called; other widgets get no keyboard events at all. Mouse     events are not affected. Use grabMouse() if you want to grab that.      The focus widget is not affected, except that it doesn't receive     any keyboard events. setFocus() moves the focus as usual, but the     new focus widget receives keyboard events only after     releaseKeyboard() is called.      If a different widget is currently grabbing keyboard input, that     widget's grab is released first.      \sa releaseKeyboard(), grabMouse(), releaseMouse(), focusWidget() */
 comment|/*!     \fn void QWidget::releaseKeyboard()      Releases the keyboard grab.      \sa grabKeyboard(), grabMouse(), releaseMouse() */
 comment|/*!     \fn QWidget *QWidget::mouseGrabber()      Returns the widget that is currently grabbing the mouse input.      If no widget in this application is currently grabbing the mouse,     0 is returned.      \sa grabMouse(), keyboardGrabber() */
 comment|/*!     \fn QWidget *QWidget::keyboardGrabber()      Returns the widget that is currently grabbing the keyboard input.      If no widget in this application is currently grabbing the     keyboard, 0 is returned.      \sa grabMouse(), mouseGrabber() */

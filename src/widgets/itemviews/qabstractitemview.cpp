@@ -3418,7 +3418,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QAbstractItemView::selectionMode     \brief which selection mode the view operates in      This property controls whether the user can select one or many items     and, in many-item selections, whether the selection must be a     continuous range of items.      \sa SelectionMode SelectionBehavior */
+comment|/*!     \property QAbstractItemView::selectionMode     \brief which selection mode the view operates in      This property controls whether the user can select one or many items     and, in many-item selections, whether the selection must be a     continuous range of items.      \sa SelectionMode, SelectionBehavior */
 end_comment
 begin_function
 DECL|function|setSelectionMode
@@ -3469,7 +3469,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QAbstractItemView::selectionBehavior     \brief which selection behavior the view uses      This property holds whether selections are done     in terms of single items, rows or columns.      \sa SelectionMode SelectionBehavior */
+comment|/*!     \property QAbstractItemView::selectionBehavior     \brief which selection behavior the view uses      This property holds whether selections are done     in terms of single items, rows or columns.      \sa SelectionMode, SelectionBehavior */
 end_comment
 begin_function
 DECL|function|setSelectionBehavior
@@ -4513,7 +4513,7 @@ directive|ifndef
 name|QT_NO_DRAGANDDROP
 end_ifndef
 begin_comment
-comment|/*!     \property QAbstractItemView::showDropIndicator     \brief whether the drop indicator is shown when dragging items and dropping.      \sa dragEnabled DragDropMode dragDropOverwriteMode acceptDrops */
+comment|/*!     \property QAbstractItemView::showDropIndicator     \brief whether the drop indicator is shown when dragging items and dropping.      \sa dragEnabled, DragDropMode, dragDropOverwriteMode, acceptDrops */
 end_comment
 begin_function
 DECL|function|setDropIndicatorShown
@@ -4562,7 +4562,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QAbstractItemView::dragEnabled     \brief whether the view supports dragging of its own items      \sa showDropIndicator DragDropMode dragDropOverwriteMode acceptDrops */
+comment|/*!     \property QAbstractItemView::dragEnabled     \brief whether the view supports dragging of its own items      \sa showDropIndicator, DragDropMode, dragDropOverwriteMode, acceptDrops */
 end_comment
 begin_function
 DECL|function|setDragEnabled
@@ -4611,10 +4611,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2     \enum QAbstractItemView::DragDropMode      Describes the various drag and drop events the view can act upon.     By default the view does not support dragging or dropping (\c     NoDragDrop).      \value NoDragDrop Does not support dragging or dropping.     \value DragOnly The view supports dragging of its own items     \value DropOnly The view accepts drops     \value DragDrop The view supports both dragging and dropping     \value InternalMove The view accepts move (\b{not copy}) operations only            from itself.      Note that the model used needs to provide support for drag and drop operations.      \sa setDragDropMode() {Using drag and drop with item views} */
+comment|/*!     \since 4.2     \enum QAbstractItemView::DragDropMode      Describes the various drag and drop events the view can act upon.     By default the view does not support dragging or dropping (\c     NoDragDrop).      \value NoDragDrop Does not support dragging or dropping.     \value DragOnly The view supports dragging of its own items     \value DropOnly The view accepts drops     \value DragDrop The view supports both dragging and dropping     \value InternalMove The view accepts move (\b{not copy}) operations only            from itself.      Note that the model used needs to provide support for drag and drop operations.      \sa setDragDropMode(), {Using drag and drop with item views} */
 end_comment
 begin_comment
-comment|/*!     \property QAbstractItemView::dragDropMode     \brief the drag and drop event the view will act upon      \since 4.2     \sa showDropIndicator dragDropOverwriteMode */
+comment|/*!     \property QAbstractItemView::dragDropMode     \brief the drag and drop event the view will act upon      \since 4.2     \sa showDropIndicator, dragDropOverwriteMode */
 end_comment
 begin_function
 DECL|function|setDragDropMode
@@ -4760,7 +4760,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QAbstractItemView::defaultDropAction     \brief the drop action that will be used by default in QAbstractItemView::drag()      If the property is not set, the drop action is CopyAction when the supported     actions support CopyAction.      \since 4.6     \sa showDropIndicator dragDropOverwriteMode */
+comment|/*!     \property QAbstractItemView::defaultDropAction     \brief the drop action that will be used by default in QAbstractItemView::drag()      If the property is not set, the drop action is CopyAction when the supported     actions support CopyAction.      \since 4.6     \sa showDropIndicator, dragDropOverwriteMode */
 end_comment
 begin_function
 DECL|function|setDefaultDropAction
@@ -6779,7 +6779,7 @@ directive|ifndef
 name|QT_NO_DRAGANDDROP
 end_ifndef
 begin_comment
-comment|/*!     This function is called with the given \a event when a drag and drop operation enters     the widget. If the drag is over a valid dropping place (e.g. over an item that     accepts drops), the event is accepted; otherwise it is ignored.      \sa dropEvent() startDrag() */
+comment|/*!     This function is called with the given \a event when a drag and drop operation enters     the widget. If the drag is over a valid dropping place (e.g. over an item that     accepts drops), the event is accepted; otherwise it is ignored.      \sa dropEvent(), startDrag() */
 end_comment
 begin_function
 DECL|function|dragEnterEvent
@@ -6855,7 +6855,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     This function is called continuously with the given \a event during a drag and     drop operation over the widget. It can cause the view to scroll if, for example,     the user drags a selection to view's right or bottom edge. In this case, the     event will be accepted; otherwise it will be ignored.      \sa dropEvent() startDrag() */
+comment|/*!     This function is called continuously with the given \a event during a drag and     drop operation over the widget. It can cause the view to scroll if, for example,     the user drags a selection to view's right or bottom edge. In this case, the     event will be accepted; otherwise it will be ignored.      \sa dropEvent(), startDrag() */
 end_comment
 begin_function
 DECL|function|dragMoveEvent
@@ -11407,7 +11407,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \obsolete     Sets the horizontal scroll bar's steps per item to \a steps.      This is the number of steps used by the horizontal scroll bar to     represent the width of an item.      Note that if the view has a horizontal header, the item steps     will be ignored and the header section size will be used instead.      \sa horizontalStepsPerItem() setVerticalStepsPerItem() */
+comment|/*!     \obsolete     Sets the horizontal scroll bar's steps per item to \a steps.      This is the number of steps used by the horizontal scroll bar to     represent the width of an item.      Note that if the view has a horizontal header, the item steps     will be ignored and the header section size will be used instead.      \sa horizontalStepsPerItem(), setVerticalStepsPerItem() */
 end_comment
 begin_function
 DECL|function|setHorizontalStepsPerItem
@@ -11428,7 +11428,7 @@ comment|// do nothing
 block|}
 end_function
 begin_comment
-comment|/*!     \obsolete     Returns the horizontal scroll bar's steps per item.      \sa setHorizontalStepsPerItem() verticalStepsPerItem() */
+comment|/*!     \obsolete     Returns the horizontal scroll bar's steps per item.      \sa setHorizontalStepsPerItem(), verticalStepsPerItem() */
 end_comment
 begin_function
 DECL|function|horizontalStepsPerItem
@@ -11445,7 +11445,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \obsolete     Sets the vertical scroll bar's steps per item to \a steps.      This is the number of steps used by the vertical scroll bar to     represent the height of an item.      Note that if the view has a vertical header, the item steps     will be ignored and the header section size will be used instead.      \sa verticalStepsPerItem() setHorizontalStepsPerItem() */
+comment|/*!     \obsolete     Sets the vertical scroll bar's steps per item to \a steps.      This is the number of steps used by the vertical scroll bar to     represent the height of an item.      Note that if the view has a vertical header, the item steps     will be ignored and the header section size will be used instead.      \sa verticalStepsPerItem(), setHorizontalStepsPerItem() */
 end_comment
 begin_function
 DECL|function|setVerticalStepsPerItem
@@ -11466,7 +11466,7 @@ comment|// do nothing
 block|}
 end_function
 begin_comment
-comment|/*!     \obsolete     Returns the vertical scroll bar's steps per item.      \sa setVerticalStepsPerItem() horizontalStepsPerItem() */
+comment|/*!     \obsolete     Returns the vertical scroll bar's steps per item.      \sa setVerticalStepsPerItem(), horizontalStepsPerItem() */
 end_comment
 begin_function
 DECL|function|verticalStepsPerItem

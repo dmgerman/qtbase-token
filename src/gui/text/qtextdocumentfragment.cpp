@@ -1484,7 +1484,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     Creates a QTextDocumentFragment from the \a{cursor}'s selection.     If the cursor doesn't have a selection, the created fragment is empty.      \sa isEmpty() QTextCursor::selection() */
+comment|/*!     Creates a QTextDocumentFragment from the \a{cursor}'s selection.     If the cursor doesn't have a selection, the created fragment is empty.      \sa isEmpty(), QTextCursor::selection() */
 end_comment
 begin_constructor
 DECL|function|QTextDocumentFragment

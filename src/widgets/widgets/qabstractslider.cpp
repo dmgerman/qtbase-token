@@ -65,7 +65,7 @@ begin_comment
 comment|/*!     \fn void QAbstractSlider::sliderMoved(int value)      This signal is emitted when sliderDown is true and the slider moves. This     usually happens when the user is dragging the slider. The \a value     is the new slider position.      This signal is emitted even when tracking is turned off.      \sa setTracking(), valueChanged(), isSliderDown(),     sliderPressed(), sliderReleased() */
 end_comment
 begin_comment
-comment|/*!     \fn void QAbstractSlider::sliderReleased()      This signal is emitted when the user releases the slider with the     mouse, or programmatically when setSliderDown(false) is called.      \sa sliderPressed() sliderMoved() sliderDown */
+comment|/*!     \fn void QAbstractSlider::sliderReleased()      This signal is emitted when the user releases the slider with the     mouse, or programmatically when setSliderDown(false) is called.      \sa sliderPressed(), sliderMoved(), sliderDown */
 end_comment
 begin_comment
 comment|/*!     \fn void QAbstractSlider::rangeChanged(int min, int max)      This signal is emitted when the slider range has changed, with \a     min being the new minimum, and \a max being the new maximum.      \sa minimum, maximum */
@@ -194,7 +194,7 @@ name|~
 name|QAbstractSliderPrivate
 parameter_list|()
 block|{ }
-comment|/*!     Sets the slider's minimum to \a min and its maximum to \a max.      If \a max is smaller than \a min, \a min becomes the only legal     value.      \sa minimum maximum */
+comment|/*!     Sets the slider's minimum to \a min and its maximum to \a max.      If \a max is smaller than \a min, \a min becomes the only legal     value.      \sa minimum, maximum */
 DECL|function|setRange
 name|void
 name|QAbstractSlider

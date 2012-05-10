@@ -795,7 +795,7 @@ directive|endif
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the contents pointed to by \a h, \a s, \a v, and \a a, to the hue,     saturation, value, and alpha-channel (transparency) components of the     color's HSV value.      These components can be retrieved individually using the hueF(),     saturationF(), valueF() and alphaF() functions.      \sa setHsv() {QColor#The HSV Color Model}{The HSV Color Model} */
+comment|/*!     Sets the contents pointed to by \a h, \a s, \a v, and \a a, to the hue,     saturation, value, and alpha-channel (transparency) components of the     color's HSV value.      These components can be retrieved individually using the hueF(),     saturationF(), valueF() and alphaF() functions.      \sa setHsv(), {QColor#The HSV Color Model}{The HSV Color Model} */
 end_comment
 begin_function
 DECL|function|getHsvF
@@ -1066,7 +1066,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets a HSV color value; \a h is the hue, \a s is the saturation, \a v is     the value and \a a is the alpha component of the HSV color.      All the values must be in the range 0.0-1.0.      \sa getHsvF(), setHsv(), {QColor#The HSV Color Model}{The HSV     Color Model} */
+comment|/*!     Sets a HSV color value; \a h is the hue, \a s is the saturation, \a v is     the value and \a a is the alpha component of the HSV color.      All the values must be in the range 0.0-1.0.      \sa getHsvF(), setHsv(), {QColor#The HSV Color Model}{The HSV Color Model} */
 end_comment
 begin_function
 DECL|function|setHsvF
@@ -1249,7 +1249,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets a HSV color value; \a h is the hue, \a s is the saturation, \a v is     the value and \a a is the alpha component of the HSV color.      The saturation, value and alpha-channel values must be in the range 0-255,     and the hue value must be greater than -1.      \sa getHsv(), setHsvF(), {QColor#The HSV Color Model}{The HSV     Color Model} */
+comment|/*!     Sets a HSV color value; \a h is the hue, \a s is the saturation, \a v is     the value and \a a is the alpha component of the HSV color.      The saturation, value and alpha-channel values must be in the range 0-255,     and the hue value must be greater than -1.      \sa getHsv(), setHsvF(), {QColor#The HSV Color Model}{The HSV Color Model} */
 end_comment
 begin_function
 DECL|function|setHsv
@@ -2760,7 +2760,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the alpha color component of this color.      \sa setAlpha(), alphaF(), {QColor#Alpha-Blended     Drawing}{Alpha-Blended Drawing} */
+comment|/*!     Returns the alpha color component of this color.      \sa setAlpha(), alphaF(), {QColor#Alpha-Blended Drawing}{Alpha-Blended Drawing} */
 end_comment
 begin_function
 DECL|function|alpha
@@ -2783,7 +2783,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the alpha of this color to \a alpha. Integer alpha is specified in the     range 0-255.      \sa alpha(), alphaF(), {QColor#Alpha-Blended     Drawing}{Alpha-Blended Drawing} */
+comment|/*!     Sets the alpha of this color to \a alpha. Integer alpha is specified in the     range 0-255.      \sa alpha(), alphaF(), {QColor#Alpha-Blended Drawing}{Alpha-Blended Drawing} */
 end_comment
 begin_function
 DECL|function|setAlpha
@@ -2816,7 +2816,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the alpha color component of this color.      \sa setAlphaF(), alpha(),  {QColor#Alpha-Blended     Drawing}{Alpha-Blended Drawing} */
+comment|/*!     Returns the alpha color component of this color.      \sa setAlphaF(), alpha(), {QColor#Alpha-Blended Drawing}{Alpha-Blended Drawing} */
 end_comment
 begin_function
 DECL|function|alphaF
@@ -2842,7 +2842,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the alpha of this color to \a alpha. qreal alpha is specified in the     range 0.0-1.0.      \sa alphaF(), alpha(), {QColor#Alpha-Blended     Drawing}{Alpha-Blended Drawing}  */
+comment|/*!     Sets the alpha of this color to \a alpha. qreal alpha is specified in the     range 0.0-1.0.      \sa alphaF(), alpha(), {QColor#Alpha-Blended Drawing}{Alpha-Blended Drawing}  */
 end_comment
 begin_function
 DECL|function|setAlphaF
@@ -3017,7 +3017,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the green color component of this color to \a green. Integer     components are specified in the range 0-255.      \sa green(), greenF(),  setRgb() */
+comment|/*!     Sets the green color component of this color to \a green. Integer     components are specified in the range 0-255.      \sa green(), greenF(), setRgb() */
 end_comment
 begin_function
 DECL|function|setGreen
@@ -3465,7 +3465,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the hue color component of this color.      The color is implicitly converted to HSV.      \sa hsvHue(), hueF(), getHsv(), {QColor#The HSV Color Model}{The HSV Color     Model} */
+comment|/*!     Returns the hue color component of this color.      The color is implicitly converted to HSV.      \sa hsvHue(), hueF(), getHsv(), {QColor#The HSV Color Model}{The HSV Color Model} */
 end_comment
 begin_function
 DECL|function|hue
@@ -3483,7 +3483,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the hue color component of this color.      \sa hueF(), getHsv(), {QColor#The HSV Color Model}{The HSV Color     Model} */
+comment|/*!     Returns the hue color component of this color.      \sa hueF(), getHsv(), {QColor#The HSV Color Model}{The HSV Color Model} */
 end_comment
 begin_function
 DECL|function|hsvHue
@@ -3552,7 +3552,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the saturation color component of this color.      \sa saturationF(), getHsv(), {QColor#The HSV Color Model}{The HSV Color     Model} */
+comment|/*!     Returns the saturation color component of this color.      \sa saturationF(), getHsv(), {QColor#The HSV Color Model}{The HSV Color Model} */
 end_comment
 begin_function
 DECL|function|hsvSaturation
@@ -3592,7 +3592,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the value color component of this color.      \sa valueF(), getHsv(), {QColor#The HSV Color Model}{The HSV Color     Model} */
+comment|/*!     Returns the value color component of this color.      \sa valueF(), getHsv(), {QColor#The HSV Color Model}{The HSV Color Model} */
 end_comment
 begin_function
 DECL|function|value
@@ -3632,7 +3632,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the hue color component of this color.      The color is implicitly converted to HSV.      \sa hsvHueF(), hue(), getHsvF(), {QColor#The HSV Color Model}{The HSV Color     Model} */
+comment|/*!     Returns the hue color component of this color.      The color is implicitly converted to HSV.      \sa hsvHueF(), hue(), getHsvF(), {QColor#The HSV Color Model}{The HSV Color Model} */
 end_comment
 begin_function
 DECL|function|hueF
@@ -3707,7 +3707,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the saturation color component of this color.       The color is implicitly converted to HSV.      \sa hsvSaturationF(), saturation() getHsvF(), {QColor#The HSV Color Model}{The HSV Color     Model} */
+comment|/*!     Returns the saturation color component of this color.       The color is implicitly converted to HSV.      \sa hsvSaturationF(), saturation(), getHsvF(), {QColor#The HSV Color Model}{The HSV Color     Model} */
 end_comment
 begin_function
 DECL|function|saturationF
@@ -3725,7 +3725,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the saturation color component of this color.      \sa saturation() getHsvF(), {QColor#The HSV Color Model}{The HSV Color     Model} */
+comment|/*!     Returns the saturation color component of this color.      \sa saturation(), getHsvF(), {QColor#The HSV Color Model}{The HSV Color Model} */
 end_comment
 begin_function
 DECL|function|hsvSaturationF
@@ -3768,7 +3768,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the value color component of this color.      \sa value() getHsvF(), {QColor#The HSV Color Model}{The HSV Color     Model} */
+comment|/*!     Returns the value color component of this color.      \sa value(), getHsvF(), {QColor#The HSV Color Model}{The HSV Color Model} */
 end_comment
 begin_function
 DECL|function|valueF
@@ -3862,7 +3862,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.6      Returns the saturation color component of this color.      \sa saturationF(), getHsv(), {QColor#The HSV Color Model}{The HSV Color     Model} */
+comment|/*!     \since 4.6      Returns the saturation color component of this color.      \sa saturationF(), getHsv(), {QColor#The HSV Color Model}{The HSV Color Model} */
 end_comment
 begin_function
 DECL|function|hslSaturation
@@ -3999,7 +3999,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.6      Returns the saturation color component of this color.      \sa saturationF() getHslF() */
+comment|/*!     \since 4.6      Returns the saturation color component of this color.      \sa saturationF(), getHslF() */
 end_comment
 begin_function
 DECL|function|hslSaturationF
@@ -4042,7 +4042,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.6      Returns the lightness color component of this color.      \sa value() getHslF() */
+comment|/*!     \since 4.6      Returns the lightness color component of this color.      \sa value(), getHslF() */
 end_comment
 begin_function
 DECL|function|lightnessF
@@ -4085,7 +4085,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the cyan color component of this color.      \sa cyanF(), getCmyk(), {QColor#The CMYK Color Model}{The CMYK     Color Model} */
+comment|/*!     Returns the cyan color component of this color.      \sa cyanF(), getCmyk(), {QColor#The CMYK Color Model}{The CMYK Color Model} */
 end_comment
 begin_function
 DECL|function|cyan
@@ -4125,7 +4125,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the magenta color component of this color.      \sa magentaF(), getCmyk(), {QColor#The CMYK Color Model}{The CMYK     Color Model} */
+comment|/*!     Returns the magenta color component of this color.      \sa magentaF(), getCmyk(), {QColor#The CMYK Color Model}{The CMYK Color Model} */
 end_comment
 begin_function
 DECL|function|magenta
@@ -4165,7 +4165,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the yellow color component of this color.      \sa yellowF(), getCmyk(), {QColor#The CMYK Color Model}{The CMYK     Color Model} */
+comment|/*!     Returns the yellow color component of this color.      \sa yellowF(), getCmyk(), {QColor#The CMYK Color Model}{The CMYK Color Model} */
 end_comment
 begin_function
 DECL|function|yellow
@@ -4205,7 +4205,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the black color component of this color.      \sa blackF(), getCmyk(), {QColor#The CMYK Color Model}{The CMYK     Color Model}  */
+comment|/*!     Returns the black color component of this color.      \sa blackF(), getCmyk(), {QColor#The CMYK Color Model}{The CMYK Color Model}  */
 end_comment
 begin_function
 DECL|function|black
@@ -4245,7 +4245,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the cyan color component of this color.      \sa cyan(), getCmykF(), {QColor#The CMYK Color Model}{The CMYK     Color Model} */
+comment|/*!     Returns the cyan color component of this color.      \sa cyan(), getCmykF(), {QColor#The CMYK Color Model}{The CMYK Color Model} */
 end_comment
 begin_function
 DECL|function|cyanF
@@ -4288,7 +4288,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the magenta color component of this color.      \sa magenta(), getCmykF(), {QColor#The CMYK Color Model}{The CMYK     Color Model} */
+comment|/*!     Returns the magenta color component of this color.      \sa magenta(), getCmykF(), {QColor#The CMYK Color Model}{The CMYK Color Model} */
 end_comment
 begin_function
 DECL|function|magentaF
@@ -4331,7 +4331,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the yellow color component of this color.       \sa yellow(), getCmykF(), {QColor#The CMYK Color Model}{The CMYK     Color Model} */
+comment|/*!     Returns the yellow color component of this color.       \sa yellow(), getCmykF(), {QColor#The CMYK Color Model}{The CMYK Color Model} */
 end_comment
 begin_function
 DECL|function|yellowF
@@ -4374,7 +4374,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the black color component of this color.      \sa black(), getCmykF(), {QColor#The CMYK Color Model}{The CMYK     Color Model} */
+comment|/*!     Returns the black color component of this color.      \sa black(), getCmykF(), {QColor#The CMYK Color Model}{The CMYK Color Model} */
 end_comment
 begin_function
 DECL|function|blackF
@@ -5758,7 +5758,7 @@ parameter_list|)
 value|( ( a< b&& a< c) ? a : (b< c ? b : c) )
 end_define
 begin_comment
-comment|/*!     Creates and returns an HSV QColor based on this color.      \sa fromHsv(), convertTo(), isValid(), {QColor#The HSV Color     Model}{The HSV Color Model} */
+comment|/*!     Creates and returns an HSV QColor based on this color.      \sa fromHsv(), convertTo(), isValid(), {QColor#The HSV Color Model}{The HSV Color Model} */
 end_comment
 begin_function
 DECL|function|toHsv
@@ -6533,7 +6533,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Creates and returns a CMYK QColor based on this color.      \sa fromCmyk(), convertTo(), isValid(), {QColor#The CMYK Color     Model}{The CMYK Color Model} */
+comment|/*!     Creates and returns a CMYK QColor based on this color.      \sa fromCmyk(), convertTo(), isValid(), {QColor#The CMYK Color Model}{The CMYK Color Model} */
 end_comment
 begin_function
 DECL|function|toCmyk
@@ -7276,7 +7276,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Static convenience function that returns a QColor constructed from the HSV     color values, \a h (hue), \a s (saturation), \a v (value), and \a a     (alpha-channel, i.e. transparency).      The value of \a s, \a v, and \a a must all be in the range 0-255; the value     of \a h must be in the range 0-359.      \sa toHsv(), fromHsvF(), isValid(), {QColor#The HSV Color     Model}{The HSV Color Model} */
+comment|/*!     Static convenience function that returns a QColor constructed from the HSV     color values, \a h (hue), \a s (saturation), \a v (value), and \a a     (alpha-channel, i.e. transparency).      The value of \a s, \a v, and \a a must all be in the range 0-255; the value     of \a h must be in the range 0-359.      \sa toHsv(), fromHsvF(), isValid(), {QColor#The HSV Color Model}{The HSV Color Model} */
 end_comment
 begin_function
 DECL|function|fromHsv
@@ -7436,7 +7436,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Static convenience function that returns a QColor constructed from the HSV     color values, \a h (hue), \a s (saturation), \a v (value), and \a a     (alpha-channel, i.e. transparency).      All the values must be in the range 0.0-1.0.      \sa toHsv(), fromHsv(), isValid(), {QColor#The HSV Color     Model}{The HSV Color Model} */
+comment|/*!     \overload      Static convenience function that returns a QColor constructed from the HSV     color values, \a h (hue), \a s (saturation), \a v (value), and \a a     (alpha-channel, i.e. transparency).      All the values must be in the range 0.0-1.0.      \sa toHsv(), fromHsv(), isValid(), {QColor#The HSV Color Model}{The HSV Color Model} */
 end_comment
 begin_function
 DECL|function|fromHsvF
@@ -8315,7 +8315,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the color to CMYK values, \a c (cyan), \a m (magenta), \a y (yellow),     \a k (black), and \a a (alpha-channel, i.e. transparency).      All the values must be in the range 0-255.      \sa getCmyk(), setCmykF(), {QColor#The CMYK Color Model}{The     CMYK Color Model} */
+comment|/*!     Sets the color to CMYK values, \a c (cyan), \a m (magenta), \a y (yellow),     \a k (black), and \a a (alpha-channel, i.e. transparency).      All the values must be in the range 0-255.      \sa getCmyk(), setCmykF(), {QColor#The CMYK Color Model}{The CMYK Color Model} */
 end_comment
 begin_function
 DECL|function|setCmyk
@@ -8447,7 +8447,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Sets the color to CMYK values, \a c (cyan), \a m (magenta), \a y (yellow),     \a k (black), and \a a (alpha-channel, i.e. transparency).      All the values must be in the range 0.0-1.0.      \sa getCmykF() setCmyk(), {QColor#The CMYK Color Model}{The CMYK     Color Model} */
+comment|/*!     \overload      Sets the color to CMYK values, \a c (cyan), \a m (magenta), \a y (yellow),     \a k (black), and \a a (alpha-channel, i.e. transparency).      All the values must be in the range 0.0-1.0.      \sa getCmykF(), setCmyk(), {QColor#The CMYK Color Model}{The CMYK Color Model} */
 end_comment
 begin_function
 DECL|function|setCmykF
@@ -8624,7 +8624,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Static convenience function that returns a QColor constructed from the     given CMYK color values: \a c (cyan), \a m (magenta), \a y (yellow), \a k     (black), and \a a (alpha-channel, i.e. transparency).      All the values must be in the range 0-255.      \sa toCmyk(), fromCmykF(), isValid(), {QColor#The CMYK Color Model}{The CMYK     Color Model} */
+comment|/*!     Static convenience function that returns a QColor constructed from the     given CMYK color values: \a c (cyan), \a m (magenta), \a y (yellow), \a k     (black), and \a a (alpha-channel, i.e. transparency).      All the values must be in the range 0-255.      \sa toCmyk(), fromCmykF(), isValid(), {QColor#The CMYK Color Model}{The CMYK Color Model} */
 end_comment
 begin_function
 DECL|function|fromCmyk
@@ -8777,7 +8777,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Static convenience function that returns a QColor constructed from the     given CMYK color values: \a c (cyan), \a m (magenta), \a y (yellow), \a k     (black), and \a a (alpha-channel, i.e. transparency).      All the values must be in the range 0.0-1.0.      \sa toCmyk(), fromCmyk(), isValid(), {QColor#The CMYK Color     Model}{The CMYK Color Model} */
+comment|/*!     \overload      Static convenience function that returns a QColor constructed from the     given CMYK color values: \a c (cyan), \a m (magenta), \a y (yellow), \a k     (black), and \a a (alpha-channel, i.e. transparency).      All the values must be in the range 0.0-1.0.      \sa toCmyk(), fromCmyk(), isValid(), {QColor#The CMYK Color Model}{The CMYK Color Model} */
 end_comment
 begin_function
 DECL|function|fromCmykF

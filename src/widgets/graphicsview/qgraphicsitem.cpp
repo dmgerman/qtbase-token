@@ -5724,7 +5724,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.6      Returns true if this item is blocked by a modal panel, false otherwise. If \a blockingPanel is     non-zero, \a blockingPanel will be set to the modal panel that is blocking this item. If this     item is not blocked, \a blockingPanel will not be set by this function.      This function always returns false for items not in a scene.      \sa panelModality() setPanelModality() PanelModality */
+comment|/*!     \since 4.6      Returns true if this item is blocked by a modal panel, false otherwise. If \a blockingPanel is     non-zero, \a blockingPanel will be set to the modal panel that is blocking this item. If this     item is not blocked, \a blockingPanel will not be set by this function.      This function always returns false for items not in a scene.      \sa panelModality(), setPanelModality(), PanelModality */
 end_comment
 begin_function
 DECL|function|isBlockedByModalPanel

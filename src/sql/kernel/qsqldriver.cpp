@@ -1977,7 +1977,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.6      Sets the default numerical precision policy used by queries created     by this driver to \a precisionPolicy.      Note: Setting the default precision policy to \a precisionPolicy     doesn't affect any currently active queries.      \sa QSql::NumericalPrecisionPolicy, numericalPrecisionPolicy(),      QSqlQuery::setNumericalPrecisionPolicy(), QSqlQuery::numericalPrecisionPolicy() */
+comment|/*!     \since 4.6      Sets the default numerical precision policy used by queries created     by this driver to \a precisionPolicy.      Note: Setting the default precision policy to \a precisionPolicy     doesn't affect any currently active queries.      \sa QSql::NumericalPrecisionPolicy, numericalPrecisionPolicy(),     QSqlQuery::setNumericalPrecisionPolicy(), QSqlQuery::numericalPrecisionPolicy() */
 end_comment
 begin_function
 DECL|function|setNumericalPrecisionPolicy
@@ -2002,7 +2002,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.6      Returns the current default precision policy for the database connection.      \sa QSql::NumericalPrecisionPolicy, setNumericalPrecisionPolicy(),      QSqlQuery::numericalPrecisionPolicy(), QSqlQuery::setNumericalPrecisionPolicy() */
+comment|/*!     \since 4.6      Returns the current default precision policy for the database connection.      \sa QSql::NumericalPrecisionPolicy, setNumericalPrecisionPolicy(),     QSqlQuery::numericalPrecisionPolicy(), QSqlQuery::setNumericalPrecisionPolicy() */
 end_comment
 begin_function
 DECL|function|numericalPrecisionPolicy

@@ -4119,7 +4119,7 @@ begin_comment
 comment|/*!     \fn QString QTreeWidgetItem::text(int column) const      Returns the text in the specified \a column.      \sa setText() */
 end_comment
 begin_comment
-comment|/*!     \fn void QTreeWidgetItem::setText(int column, const QString&text)      Sets the text to be displayed in the given \a column to the given \a text.      \sa text() setFont() setForeground() */
+comment|/*!     \fn void QTreeWidgetItem::setText(int column, const QString&text)      Sets the text to be displayed in the given \a column to the given \a text.      \sa text(), setFont(), setForeground() */
 end_comment
 begin_comment
 comment|/*!     \fn QIcon QTreeWidgetItem::icon(int column) const      Returns the icon that is displayed in the specified \a column.      \sa setIcon(), {QAbstractItemView::iconSize}{iconSize} */
@@ -4131,25 +4131,25 @@ begin_comment
 comment|/*!     \fn QString QTreeWidgetItem::statusTip(int column) const      Returns the status tip for the contents of the given \a column.      \sa setStatusTip() */
 end_comment
 begin_comment
-comment|/*!     \fn void QTreeWidgetItem::setStatusTip(int column, const QString&statusTip)      Sets the status tip for the given \a column to the given \a statusTip.     QTreeWidget mouse tracking needs to be enabled for this feature to work.      \sa statusTip() setToolTip() setWhatsThis() */
+comment|/*!     \fn void QTreeWidgetItem::setStatusTip(int column, const QString&statusTip)      Sets the status tip for the given \a column to the given \a statusTip.     QTreeWidget mouse tracking needs to be enabled for this feature to work.      \sa statusTip(), setToolTip(), setWhatsThis() */
 end_comment
 begin_comment
 comment|/*!     \fn QString QTreeWidgetItem::toolTip(int column) const      Returns the tool tip for the given \a column.      \sa setToolTip() */
 end_comment
 begin_comment
-comment|/*!     \fn void QTreeWidgetItem::setToolTip(int column, const QString&toolTip)      Sets the tooltip for the given \a column to \a toolTip.      \sa toolTip() setStatusTip() setWhatsThis() */
+comment|/*!     \fn void QTreeWidgetItem::setToolTip(int column, const QString&toolTip)      Sets the tooltip for the given \a column to \a toolTip.      \sa toolTip(), setStatusTip(), setWhatsThis() */
 end_comment
 begin_comment
 comment|/*!     \fn QString QTreeWidgetItem::whatsThis(int column) const      Returns the "What's This?" help for the contents of the given \a column.      \sa setWhatsThis() */
 end_comment
 begin_comment
-comment|/*!     \fn void QTreeWidgetItem::setWhatsThis(int column, const QString&whatsThis)      Sets the "What's This?" help for the given \a column to \a whatsThis.      \sa whatsThis() setStatusTip() setToolTip() */
+comment|/*!     \fn void QTreeWidgetItem::setWhatsThis(int column, const QString&whatsThis)      Sets the "What's This?" help for the given \a column to \a whatsThis.      \sa whatsThis(), setStatusTip(), setToolTip() */
 end_comment
 begin_comment
 comment|/*!     \fn QFont QTreeWidgetItem::font(int column) const      Returns the font used to render the text in the specified \a column.      \sa setFont() */
 end_comment
 begin_comment
-comment|/*!     \fn void QTreeWidgetItem::setFont(int column, const QFont&font)      Sets the font used to display the text in the given \a column to the given     \a font.      \sa font() setText() setForeground() */
+comment|/*!     \fn void QTreeWidgetItem::setFont(int column, const QFont&font)      Sets the font used to display the text in the given \a column to the given     \a font.      \sa font(), setText(), setForeground() */
 end_comment
 begin_comment
 comment|/*!     \fn QColor QTreeWidgetItem::backgroundColor(int column) const     \obsolete      This function is deprecated. Use background() instead. */
@@ -7102,7 +7102,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Appends the \a child item to the list of children.    \sa insertChild() takeChild() */
+comment|/*!   Appends the \a child item to the list of children.    \sa insertChild(), takeChild() */
 end_comment
 begin_function
 DECL|function|addChild
@@ -7674,7 +7674,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \since 4.1    Appends the given list of \a children to the item.    \sa insertChildren() takeChildren() */
+comment|/*!   \since 4.1    Appends the given list of \a children to the item.    \sa insertChildren(), takeChildren() */
 end_comment
 begin_function
 DECL|function|addChildren

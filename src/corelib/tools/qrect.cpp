@@ -132,7 +132,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn int QRect::left() const      Returns the x-coordinate of the rectangle's left edge. Equivalent     to x().      \sa setLeft(),  topLeft(), bottomLeft() */
+comment|/*!     \fn int QRect::left() const      Returns the x-coordinate of the rectangle's left edge. Equivalent     to x().      \sa setLeft(), topLeft(), bottomLeft() */
 end_comment
 begin_comment
 comment|/*!     \fn int QRect::top() const      Returns the y-coordinate of the rectangle's top edge.     Equivalent to y().      \sa setTop(), topLeft(), topRight() */
@@ -261,7 +261,7 @@ begin_comment
 comment|/*!     \fn QSize QRect::size() const      Returns the size of the rectangle.      \sa setSize(), width(), height() */
 end_comment
 begin_comment
-comment|/*!     \fn int QRect::width() const      Returns the width of the rectangle.      \sa setWidth(), height(),  size() */
+comment|/*!     \fn int QRect::width() const      Returns the width of the rectangle.      \sa setWidth(), height(), size() */
 end_comment
 begin_comment
 comment|/*!     \fn int QRect::height() const      Returns the height of the rectangle.      \sa setHeight(), width(), size() */
@@ -1216,7 +1216,7 @@ begin_comment
 comment|/*!     \fn QRect QRect::intersected(const QRect&rectangle) const     \since 4.2      Returns the intersection of this rectangle and the given \a     rectangle. Note that \c{r.intersected(s)} is equivalent to \c{r& s}.      \image qrect-intersect.png      \sa intersects(), united(), operator&=() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QRect::intersects(const QRect&rectangle) const      Returns true if this rectangle intersects with the given \a     rectangle (i.e., there is at least one pixel that is within both     rectangles), otherwise returns false.      The intersection rectangle can be retrieved using the intersected()     function.      \sa  contains() */
+comment|/*!     \fn bool QRect::intersects(const QRect&rectangle) const      Returns true if this rectangle intersects with the given \a     rectangle (i.e., there is at least one pixel that is within both     rectangles), otherwise returns false.      The intersection rectangle can be retrieved using the intersected()     function.      \sa contains() */
 end_comment
 begin_function
 DECL|function|intersects
@@ -1746,7 +1746,7 @@ begin_comment
 comment|/*!     \fn bool QRectF::isNull() const      Returns true if the rectangle is a null rectangle, otherwise returns false.      A null rectangle has both the width and the height set to 0. A     null rectangle is also empty, and hence not valid.      \sa isEmpty(), isValid() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QRectF::isEmpty() const      Returns true if the rectangle is empty, otherwise returns false.      An empty rectangle has width()<= 0 or height()<= 0.  An empty     rectangle is not valid (i.e., isEmpty() == !isValid()).      Use the normalized() function to retrieve a rectangle where the     corners are swapped.      \sa isNull(),  isValid(),  normalized() */
+comment|/*!     \fn bool QRectF::isEmpty() const      Returns true if the rectangle is empty, otherwise returns false.      An empty rectangle has width()<= 0 or height()<= 0.  An empty     rectangle is not valid (i.e., isEmpty() == !isValid()).      Use the normalized() function to retrieve a rectangle where the     corners are swapped.      \sa isNull(), isValid(), normalized() */
 end_comment
 begin_comment
 comment|/*!     \fn bool QRectF::isValid() const      Returns true if the rectangle is valid, otherwise returns false.      A valid rectangle has a width()> 0 and height()> 0. Note that     non-trivial operations like intersections are not defined for     invalid rectangles. A valid rectangle is not empty (i.e., isValid()     == !isEmpty()).      \sa isNull(), isEmpty(), normalized() */
@@ -1832,7 +1832,7 @@ begin_comment
 comment|/*!     \fn qreal QRectF::x() const      Returns the x-coordinate of the rectangle's left edge. Equivalent     to left().       \sa setX(), y(), topLeft() */
 end_comment
 begin_comment
-comment|/*!     \fn qreal QRectF::y() const      Returns the y-coordinate of the rectangle's top edge. Equivalent     to top().      \sa setY(), x(),  topLeft() */
+comment|/*!     \fn qreal QRectF::y() const      Returns the y-coordinate of the rectangle's top edge. Equivalent     to top().      \sa setY(), x(), topLeft() */
 end_comment
 begin_comment
 comment|/*!     \fn void QRectF::setLeft(qreal x)      Sets the left edge of the rectangle to the given \a x     coordinate. May change the width, but will never change the right     edge of the rectangle.      Equivalent to setX().      \sa left(), moveLeft() */
@@ -1904,7 +1904,7 @@ begin_comment
 comment|/*!     \fn void QRectF::moveTo(const QPointF&position)     \overload      Moves the rectangle, leaving the top-left corner at the given \a     position. */
 end_comment
 begin_comment
-comment|/*!     \fn void QRectF::translate(qreal dx, qreal dy)      Moves the rectangle \a dx along the x-axis and \a dy along the y-axis,     relative to the current position. Positive values move the rectangle to the     right and downwards.      \sa moveTopLeft(),  moveTo(),  translated() */
+comment|/*!     \fn void QRectF::translate(qreal dx, qreal dy)      Moves the rectangle \a dx along the x-axis and \a dy along the y-axis,     relative to the current position. Positive values move the rectangle to the     right and downwards.      \sa moveTopLeft(), moveTo(), translated() */
 end_comment
 begin_comment
 comment|/*!     \fn void QRectF::translate(const QPointF&offset)     \overload      Moves the rectangle \a{offset}.\l{QPointF::x()}{x()} along the x     axis and \a{offset}.\l{QPointF::y()}{y()} along the y axis,     relative to the current position. */
@@ -2308,7 +2308,7 @@ begin_comment
 comment|/*!     \fn QPointF QRectF::topRight() const      Returns the position of the rectangle's top-right corner.      \sa setTopRight(), top(), right() */
 end_comment
 begin_comment
-comment|/*!     \fn QPointF QRectF::bottomLeft() const      Returns the position of the rectangle's  bottom-left corner.      \sa setBottomLeft(),  bottom(), left() */
+comment|/*!     \fn QPointF QRectF::bottomLeft() const      Returns the position of the rectangle's  bottom-left corner.      \sa setBottomLeft(), bottom(), left() */
 end_comment
 begin_comment
 comment|/*!     \fn QRectF& QRectF::operator|=(const QRectF&rectangle)      Unites this rectangle with the given \a rectangle.      \sa united(), operator|() */

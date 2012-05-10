@@ -389,79 +389,79 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!    \fn const QColor&QPalette::color(ColorRole role) const     \overload      Returns the color that has been set for the given color \a role in     the current ColorGroup.      \sa brush() ColorRole  */
+comment|/*!    \fn const QColor&QPalette::color(ColorRole role) const     \overload      Returns the color that has been set for the given color \a role in     the current ColorGroup.      \sa brush(), ColorRole  */
 end_comment
 begin_comment
-comment|/*!     \fn const QBrush&QPalette::brush(ColorRole role) const      \overload      Returns the brush that has been set for the given color \a role in     the current ColorGroup.      \sa color() setBrush() ColorRole */
+comment|/*!     \fn const QBrush&QPalette::brush(ColorRole role) const      \overload      Returns the brush that has been set for the given color \a role in     the current ColorGroup.      \sa color(), setBrush(), ColorRole */
 end_comment
 begin_comment
-comment|/*!     \fn void QPalette::setColor(ColorRole role, const QColor&color)      \overload      Sets the color used for the given color \a role, in all color     groups, to the specified solid \a color.      \sa brush() setColor() ColorRole */
+comment|/*!     \fn void QPalette::setColor(ColorRole role, const QColor&color)      \overload      Sets the color used for the given color \a role, in all color     groups, to the specified solid \a color.      \sa brush(), setColor(), ColorRole */
 end_comment
 begin_comment
-comment|/*!     \fn void QPalette::setBrush(ColorRole role, const QBrush&brush)      Sets the brush for the given color \a role to the specified \a     brush for all groups in the palette.      \sa brush() setColor() ColorRole */
+comment|/*!     \fn void QPalette::setBrush(ColorRole role, const QBrush&brush)      Sets the brush for the given color \a role to the specified \a     brush for all groups in the palette.      \sa brush(), setColor(), ColorRole */
 end_comment
 begin_comment
 comment|/*!     \fn const QBrush& QPalette::foreground() const     \obsolete      Use windowText() instead. */
 end_comment
 begin_comment
-comment|/*!     \fn const QBrush& QPalette::windowText() const      Returns the window text (general foreground) brush of the     current color group.      \sa ColorRole brush() */
+comment|/*!     \fn const QBrush& QPalette::windowText() const      Returns the window text (general foreground) brush of the     current color group.      \sa ColorRole, brush() */
 end_comment
 begin_comment
-comment|/*!     \fn const QBrush& QPalette::button() const      Returns the button brush of the current color group.      \sa ColorRole brush() */
+comment|/*!     \fn const QBrush& QPalette::button() const      Returns the button brush of the current color group.      \sa ColorRole, brush() */
 end_comment
 begin_comment
-comment|/*!     \fn const QBrush& QPalette::light() const      Returns the light brush of the current color group.      \sa ColorRole brush() */
+comment|/*!     \fn const QBrush& QPalette::light() const      Returns the light brush of the current color group.      \sa ColorRole, brush() */
 end_comment
 begin_comment
-comment|/*!     \fn const QBrush& QPalette::midlight() const      Returns the midlight brush of the current color group.      \sa ColorRole brush() */
+comment|/*!     \fn const QBrush& QPalette::midlight() const      Returns the midlight brush of the current color group.      \sa ColorRole, brush() */
 end_comment
 begin_comment
-comment|/*!     \fn const QBrush& QPalette::dark() const      Returns the dark brush of the current color group.      \sa ColorRole brush() */
+comment|/*!     \fn const QBrush& QPalette::dark() const      Returns the dark brush of the current color group.      \sa ColorRole, brush() */
 end_comment
 begin_comment
-comment|/*!     \fn const QBrush& QPalette::mid() const      Returns the mid brush of the current color group.      \sa ColorRole brush() */
+comment|/*!     \fn const QBrush& QPalette::mid() const      Returns the mid brush of the current color group.      \sa ColorRole, brush() */
 end_comment
 begin_comment
-comment|/*!     \fn const QBrush& QPalette::text() const      Returns the text foreground brush of the current color group.      \sa ColorRole brush() */
+comment|/*!     \fn const QBrush& QPalette::text() const      Returns the text foreground brush of the current color group.      \sa ColorRole, brush() */
 end_comment
 begin_comment
-comment|/*!     \fn const QBrush& QPalette::brightText() const      Returns the bright text foreground brush of the current color group.      \sa ColorRole brush() */
+comment|/*!     \fn const QBrush& QPalette::brightText() const      Returns the bright text foreground brush of the current color group.      \sa ColorRole, brush() */
 end_comment
 begin_comment
-comment|/*!     \fn const QBrush& QPalette::buttonText() const      Returns the button text foreground brush of the current color group.      \sa ColorRole brush() */
+comment|/*!     \fn const QBrush& QPalette::buttonText() const      Returns the button text foreground brush of the current color group.      \sa ColorRole, brush() */
 end_comment
 begin_comment
-comment|/*!     \fn const QBrush& QPalette::base() const      Returns the base brush of the current color group.      \sa ColorRole brush() */
+comment|/*!     \fn const QBrush& QPalette::base() const      Returns the base brush of the current color group.      \sa ColorRole, brush() */
 end_comment
 begin_comment
-comment|/*!     \fn const QBrush& QPalette::alternateBase() const      Returns the alternate base brush of the current color group.      \sa ColorRole brush() */
+comment|/*!     \fn const QBrush& QPalette::alternateBase() const      Returns the alternate base brush of the current color group.      \sa ColorRole, brush() */
 end_comment
 begin_comment
-comment|/*!     \fn const QBrush& QPalette::toolTipBase() const     \since 4.4      Returns the tool tip base brush of the current color group. This brush is     used by QToolTip and QWhatsThis.      \note Tool tips use the Inactive color group of QPalette, because tool     tips are not active windows.      \sa ColorRole brush() */
+comment|/*!     \fn const QBrush& QPalette::toolTipBase() const     \since 4.4      Returns the tool tip base brush of the current color group. This brush is     used by QToolTip and QWhatsThis.      \note Tool tips use the Inactive color group of QPalette, because tool     tips are not active windows.      \sa ColorRole, brush() */
 end_comment
 begin_comment
-comment|/*!     \fn const QBrush& QPalette::toolTipText() const     \since 4.4      Returns the tool tip text brush of the current color group. This brush is     used by QToolTip and QWhatsThis.      \note Tool tips use the Inactive color group of QPalette, because tool     tips are not active windows.      \sa ColorRole brush() */
+comment|/*!     \fn const QBrush& QPalette::toolTipText() const     \since 4.4      Returns the tool tip text brush of the current color group. This brush is     used by QToolTip and QWhatsThis.      \note Tool tips use the Inactive color group of QPalette, because tool     tips are not active windows.      \sa ColorRole, brush() */
 end_comment
 begin_comment
 comment|/*!     \fn const QBrush& QPalette::background() const     \obsolete      Use window() instead. */
 end_comment
 begin_comment
-comment|/*!     \fn const QBrush& QPalette::window() const      Returns the window (general background) brush of the current     color group.      \sa ColorRole brush() */
+comment|/*!     \fn const QBrush& QPalette::window() const      Returns the window (general background) brush of the current     color group.      \sa ColorRole, brush() */
 end_comment
 begin_comment
-comment|/*!     \fn const QBrush& QPalette::shadow() const      Returns the shadow brush of the current color group.      \sa ColorRole brush() */
+comment|/*!     \fn const QBrush& QPalette::shadow() const      Returns the shadow brush of the current color group.      \sa ColorRole, brush() */
 end_comment
 begin_comment
-comment|/*!     \fn const QBrush& QPalette::highlight() const      Returns the highlight brush of the current color group.      \sa ColorRole brush() */
+comment|/*!     \fn const QBrush& QPalette::highlight() const      Returns the highlight brush of the current color group.      \sa ColorRole, brush() */
 end_comment
 begin_comment
-comment|/*!     \fn const QBrush& QPalette::highlightedText() const      Returns the highlighted text brush of the current color group.      \sa ColorRole brush() */
+comment|/*!     \fn const QBrush& QPalette::highlightedText() const      Returns the highlighted text brush of the current color group.      \sa ColorRole, brush() */
 end_comment
 begin_comment
-comment|/*!     \fn const QBrush& QPalette::link() const      Returns the unvisited link text brush of the current color group.      \sa ColorRole brush() */
+comment|/*!     \fn const QBrush& QPalette::link() const      Returns the unvisited link text brush of the current color group.      \sa ColorRole, brush() */
 end_comment
 begin_comment
-comment|/*!     \fn const QBrush& QPalette::linkVisited() const      Returns the visited link text brush of the current color group.      \sa ColorRole brush() */
+comment|/*!     \fn const QBrush& QPalette::linkVisited() const      Returns the visited link text brush of the current color group.      \sa ColorRole, brush() */
 end_comment
 begin_comment
 comment|/*!     \fn ColorGroup QPalette::currentColorGroup() const      Returns the palette's current color group. */
@@ -1207,10 +1207,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn const QColor&QPalette::color(ColorGroup group, ColorRole role) const      Returns the color in the specified color \a group, used for the     given color \a role.      \sa brush() setColor() ColorRole */
+comment|/*!     \fn const QColor&QPalette::color(ColorGroup group, ColorRole role) const      Returns the color in the specified color \a group, used for the     given color \a role.      \sa brush(), setColor(), ColorRole */
 end_comment
 begin_comment
-comment|/*!     \fn const QBrush&QPalette::brush(ColorGroup group, ColorRole role) const      Returns the brush in the specified color \a group, used for the     given color \a role.      \sa color() setBrush() ColorRole */
+comment|/*!     \fn const QBrush&QPalette::brush(ColorGroup group, ColorRole role) const      Returns the brush in the specified color \a group, used for the     given color \a role.      \sa color(), setBrush(), ColorRole */
 end_comment
 begin_function
 DECL|function|brush
@@ -1293,10 +1293,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QPalette::setColor(ColorGroup group, ColorRole role, const QColor&color)      Sets the color in the specified color \a group, used for the given     color \a role, to the specified solid \a color.      \sa setBrush() color() ColorRole */
+comment|/*!     \fn void QPalette::setColor(ColorGroup group, ColorRole role, const QColor&color)      Sets the color in the specified color \a group, used for the given     color \a role, to the specified solid \a color.      \sa setBrush(), color(), ColorRole */
 end_comment
 begin_comment
-comment|/*!     \fn void QPalette::setBrush(ColorGroup group, ColorRole role, const QBrush&brush)     \overload      Sets the brush in the specified color \a group, used for the given     color \a role, to \a brush.      \sa brush() setColor() ColorRole */
+comment|/*!     \fn void QPalette::setBrush(ColorGroup group, ColorRole role, const QBrush&brush)     \overload      Sets the brush in the specified color \a group, used for the given     color \a role, to \a brush.      \sa brush(), setColor(), ColorRole */
 end_comment
 begin_function
 DECL|function|setBrush
@@ -2544,7 +2544,7 @@ begin_comment
 comment|//QT_NO_DATASTREAM
 end_comment
 begin_comment
-comment|/*!     Returns true if this palette and \a p are copies of each other,     i.e. one of them was created as a copy of the other and neither     was subsequently modified; otherwise returns false. This is much     stricter than equality.      \sa operator=() operator==() */
+comment|/*!     Returns true if this palette and \a p are copies of each other,     i.e. one of them was created as a copy of the other and neither     was subsequently modified; otherwise returns false. This is much     stricter than equality.      \sa operator=(), operator==() */
 end_comment
 begin_function
 DECL|function|isCopyOf

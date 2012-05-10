@@ -1849,7 +1849,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Adds the \a toolbar into the specified \a area in this main     window. The \a toolbar is placed at the end of the current tool     bar block (i.e. line). If the main window already manages \a toolbar     then it will only move the toolbar to \a area.      \sa insertToolBar() addToolBarBreak() insertToolBarBreak() */
+comment|/*!     Adds the \a toolbar into the specified \a area in this main     window. The \a toolbar is placed at the end of the current tool     bar block (i.e. line). If the main window already manages \a toolbar     then it will only move the toolbar to \a area.      \sa insertToolBar(), addToolBarBreak(), insertToolBarBreak() */
 end_comment
 begin_function
 DECL|function|addToolBar
@@ -2182,7 +2182,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Inserts the \a toolbar into the area occupied by the \a before toolbar     so that it appears before it. For example, in normal left-to-right     layout operation, this means that \a toolbar will appear to the left     of the toolbar specified by \a before in a horizontal toolbar area.      \sa insertToolBarBreak() addToolBar() addToolBarBreak() */
+comment|/*!     Inserts the \a toolbar into the area occupied by the \a before toolbar     so that it appears before it. For example, in normal left-to-right     layout operation, this means that \a toolbar will appear to the left     of the toolbar specified by \a before in a horizontal toolbar area.      \sa insertToolBarBreak(), addToolBar(), addToolBarBreak() */
 end_comment
 begin_function
 DECL|function|insertToolBar
@@ -2340,7 +2340,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the Qt::ToolBarArea for \a toolbar. If \a toolbar has not     been added to the main window, this function returns \c     Qt::NoToolBarArea.      \sa addToolBar() addToolBarBreak() Qt::ToolBarArea */
+comment|/*!     Returns the Qt::ToolBarArea for \a toolbar. If \a toolbar has not     been added to the main window, this function returns \c     Qt::NoToolBarArea.      \sa addToolBar(), addToolBarBreak(), Qt::ToolBarArea */
 end_comment
 begin_function
 DECL|function|toolBarArea
@@ -2371,7 +2371,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!      Returns whether there is a toolbar     break before the \a toolbar.      \sa  addToolBarBreak(), insertToolBarBreak() */
+comment|/*!      Returns whether there is a toolbar     break before the \a toolbar.      \sa addToolBarBreak(), insertToolBarBreak() */
 end_comment
 begin_function
 DECL|function|toolBarBreak
@@ -3362,7 +3362,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the Qt::DockWidgetArea for \a dockwidget. If \a dockwidget     has not been added to the main window, this function returns \c     Qt::NoDockWidgetArea.      \sa addDockWidget() splitDockWidget() Qt::DockWidgetArea */
+comment|/*!     Returns the Qt::DockWidgetArea for \a dockwidget. If \a dockwidget     has not been added to the main window, this function returns \c     Qt::NoDockWidgetArea.      \sa addDockWidget(), splitDockWidget(), Qt::DockWidgetArea */
 end_comment
 begin_function
 DECL|function|dockWidgetArea

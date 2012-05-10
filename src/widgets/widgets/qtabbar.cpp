@@ -295,7 +295,7 @@ directive|endif
 block|}
 end_function
 begin_comment
-comment|/*!     Initialize \a option with the values from the tab at \a tabIndex. This method     is useful for subclasses when they need a QStyleOptionTab, QStyleOptionTabV2,     or QStyleOptionTabV3 but don't want to fill in all the information themselves.     This function will check the version of the QStyleOptionTab and fill in the     additional values for a QStyleOptionTabV2 and QStyleOptionTabV3.      \sa QStyleOption::initFrom() QTabWidget::initStyleOption() */
+comment|/*!     Initialize \a option with the values from the tab at \a tabIndex. This method     is useful for subclasses when they need a QStyleOptionTab, QStyleOptionTabV2,     or QStyleOptionTabV3 but don't want to fill in all the information themselves.     This function will check the version of the QStyleOptionTab and fill in the     additional values for a QStyleOptionTabV2 and QStyleOptionTabV3.      \sa QStyleOption::initFrom(), QTabWidget::initStyleOption() */
 end_comment
 begin_function
 DECL|function|initStyleOption
@@ -3648,7 +3648,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QTabBar::drawBase     \brief defines whether or not tab bar should draw its base.      If true then QTabBar draws a base in relation to the styles overlab.     Otherwise only the tabs are drawn.      \sa QStyle::pixelMetric() QStyle::PM_TabBarBaseOverlap QStyleOptionTabBarBaseV2 */
+comment|/*!     \property QTabBar::drawBase     \brief defines whether or not tab bar should draw its base.      If true then QTabBar draws a base in relation to the styles overlab.     Otherwise only the tabs are drawn.      \sa QStyle::pixelMetric(), QStyle::PM_TabBarBaseOverlap, QStyleOptionTabBarBaseV2 */
 end_comment
 begin_function
 DECL|function|setDrawBase
@@ -10874,7 +10874,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QTabBar::elideMode     \brief how to elide text in the tab bar     \since 4.2      This property controls how items are elided when there is not     enough space to show them for a given tab bar size.      By default the value is style dependent.      \sa QTabWidget::elideMode usesScrollButtons QStyle::SH_TabBar_ElideMode */
+comment|/*!     \property QTabBar::elideMode     \brief how to elide text in the tab bar     \since 4.2      This property controls how items are elided when there is not     enough space to show them for a given tab bar size.      By default the value is style dependent.      \sa QTabWidget::elideMode, usesScrollButtons, QStyle::SH_TabBar_ElideMode */
 end_comment
 begin_function
 DECL|function|elideMode
@@ -10938,7 +10938,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QTabBar::usesScrollButtons     \brief Whether or not a tab bar should use buttons to scroll tabs when it     has many tabs.     \since 4.2      When there are too many tabs in a tab bar for its size, the tab bar can either choose     to expand its size or to add buttons that allow you to scroll through the tabs.      By default the value is style dependant.      \sa elideMode QTabWidget::usesScrollButtons QStyle::SH_TabBar_PreferNoArrows */
+comment|/*!     \property QTabBar::usesScrollButtons     \brief Whether or not a tab bar should use buttons to scroll tabs when it     has many tabs.     \since 4.2      When there are too many tabs in a tab bar for its size, the tab bar can either choose     to expand its size or to add buttons that allow you to scroll through the tabs.      By default the value is style dependant.      \sa elideMode, QTabWidget::usesScrollButtons, QStyle::SH_TabBar_PreferNoArrows */
 end_comment
 begin_function
 DECL|function|usesScrollButtons

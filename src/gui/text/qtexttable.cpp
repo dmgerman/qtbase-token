@@ -44,7 +44,7 @@ file|<stdlib.h>
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
-comment|/*!     \class QTextTableCell     \reentrant      \brief The QTextTableCell class represents the properties of a     cell in a QTextTable.      \ingroup richtext-processing      Table cells are pieces of document structure that belong to a table.     The table orders cells into particular rows and columns; cells can     also span multiple columns and rows.      Cells are usually created when a table is inserted into a document with     QTextCursor::insertTable(), but they are also created and destroyed when     a table is resized.      Cells contain information about their location in a table; you can     obtain the row() and column() numbers of a cell, and its rowSpan()     and columnSpan().      The format() of a cell describes the default character format of its     contents. The firstCursorPosition() and lastCursorPosition() functions     are used to obtain the extent of the cell in the document.      \sa QTextTable QTextTableFormat */
+comment|/*!     \class QTextTableCell     \reentrant      \brief The QTextTableCell class represents the properties of a     cell in a QTextTable.      \ingroup richtext-processing      Table cells are pieces of document structure that belong to a table.     The table orders cells into particular rows and columns; cells can     also span multiple columns and rows.      Cells are usually created when a table is inserted into a document with     QTextCursor::insertTable(), but they are also created and destroyed when     a table is resized.      Cells contain information about their location in a table; you can     obtain the row() and column() numbers of a cell, and its rowSpan()     and columnSpan().      The format() of a cell describes the default character format of its     contents. The firstCursorPosition() and lastCursorPosition() functions     are used to obtain the extent of the cell in the document.      \sa QTextTable, QTextTableFormat */
 comment|/*!     \fn QTextTableCell::QTextTableCell()      Constructs an invalid table cell.      \sa isValid() */
 comment|/*!     \fn QTextTableCell::QTextTableCell(const QTextTableCell&other)      Copy constructor. Creates a new QTextTableCell object based on the     \a other cell. */
 comment|/*!     \fn QTextTableCell& QTextTableCell::operator=(const QTextTableCell&other)      Assigns the \a other table cell to this table cell. */
@@ -1887,7 +1887,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     \fn QTextTableCell QTextTable::cellAt(int row, int column) const      Returns the table cell at the given \a row and \a column in the table.      \sa columns() rows() */
+comment|/*!     \fn QTextTableCell QTextTable::cellAt(int row, int column) const      Returns the table cell at the given \a row and \a column in the table.      \sa columns(), rows() */
 end_comment
 begin_function
 DECL|function|cellAt
@@ -2143,7 +2143,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QTextTable::resize(int rows, int columns)      Resizes the table to contain the required number of \a rows and \a columns.      \sa insertRows() insertColumns() removeRows() removeColumns() */
+comment|/*!     \fn void QTextTable::resize(int rows, int columns)      Resizes the table to contain the required number of \a rows and \a columns.      \sa insertRows(), insertColumns(), removeRows(), removeColumns() */
 end_comment
 begin_function
 DECL|function|resize
@@ -2281,7 +2281,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QTextTable::insertRows(int index, int rows)      Inserts a number of \a rows before the row with the specified \a index.      \sa resize() insertColumns() removeRows() removeColumns() appendRows() appendColumns() */
+comment|/*!     \fn void QTextTable::insertRows(int index, int rows)      Inserts a number of \a rows before the row with the specified \a index.      \sa resize(), insertColumns(), removeRows(), removeColumns(), appendRows(), appendColumns() */
 end_comment
 begin_function
 DECL|function|insertRows
@@ -2682,7 +2682,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QTextTable::insertColumns(int index, int columns)      Inserts a number of \a columns before the column with the specified \a index.      \sa insertRows() resize() removeRows() removeColumns() appendRows() appendColumns() */
+comment|/*!     \fn void QTextTable::insertColumns(int index, int columns)      Inserts a number of \a columns before the column with the specified \a index.      \sa insertRows(), resize(), removeRows(), removeColumns(), appendRows(), appendColumns() */
 end_comment
 begin_function
 DECL|function|insertColumns
@@ -3249,7 +3249,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.5     Appends \a count rows at the bottom of the table.      \sa insertColumns() insertRows() resize() removeRows() removeColumns() appendColumns() */
+comment|/*!     \since 4.5     Appends \a count rows at the bottom of the table.      \sa insertColumns(), insertRows(), resize(), removeRows(), removeColumns(), appendColumns() */
 end_comment
 begin_function
 DECL|function|appendRows
@@ -3273,7 +3273,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.5     Appends \a count columns at the right side of the table.      \sa insertColumns() insertRows() resize() removeRows() removeColumns() appendRows() */
+comment|/*!     \since 4.5     Appends \a count columns at the right side of the table.      \sa insertColumns(), insertRows(), resize(), removeRows(), removeColumns(), appendRows() */
 end_comment
 begin_function
 DECL|function|appendColumns
@@ -3297,7 +3297,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QTextTable::removeRows(int index, int rows)      Removes a number of \a rows starting with the row at the specified \a index.      \sa insertRows(), insertColumns(), resize(), removeColumns() appendRows() appendColumns() */
+comment|/*!     \fn void QTextTable::removeRows(int index, int rows)      Removes a number of \a rows starting with the row at the specified \a index.      \sa insertRows(), insertColumns(), resize(), removeColumns(), appendRows(), appendColumns() */
 end_comment
 begin_function
 DECL|function|removeRows
@@ -3697,7 +3697,7 @@ comment|//     qDebug()<< "-------- end removeRows"<< pos<< num;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QTextTable::removeColumns(int index, int columns)      Removes a number of \a columns starting with the column at the specified     \a index.      \sa insertRows() insertColumns() removeRows() resize() appendRows() appendColumns() */
+comment|/*!     \fn void QTextTable::removeColumns(int index, int columns)      Removes a number of \a columns starting with the column at the specified     \a index.      \sa insertRows(), insertColumns(), removeRows(), resize(), appendRows(), appendColumns() */
 end_comment
 begin_function
 DECL|function|removeColumns

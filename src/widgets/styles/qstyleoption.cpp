@@ -1970,7 +1970,7 @@ begin_comment
 comment|/*!     \variable QStyleOptionSlider::sliderPosition     \brief the position of the slider handle      If the slider has active feedback (i.e.,     QAbstractSlider::tracking is true), this value will be the same as     \l sliderValue. Otherwise, it will have the current position of     the handle. The default value is 0.      \sa QAbstractSlider::tracking, sliderValue */
 end_comment
 begin_comment
-comment|/*!     \variable QStyleOptionSlider::sliderValue     \brief the value of the slider      If the slider has active feedback (i.e.,     QAbstractSlider::tracking is true), this value will be the same     as \l sliderPosition. Otherwise, it will have the value the     slider had before the mouse was pressed.      The default value is 0.      \sa QAbstractSlider::tracking sliderPosition */
+comment|/*!     \variable QStyleOptionSlider::sliderValue     \brief the value of the slider      If the slider has active feedback (i.e.,     QAbstractSlider::tracking is true), this value will be the same     as \l sliderPosition. Otherwise, it will have the value the     slider had before the mouse was pressed.      The default value is 0.      \sa QAbstractSlider::tracking, sliderPosition */
 end_comment
 begin_comment
 comment|/*!     \variable QStyleOptionSlider::singleStep     \brief the size of the single step of the slider      The default value is 0.      \sa QAbstractSlider::singleStep */

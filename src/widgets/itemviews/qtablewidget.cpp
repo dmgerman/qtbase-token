@@ -5368,7 +5368,7 @@ begin_comment
 comment|/*!     \fn QString QTableWidgetItem::text() const      Returns the item's text.      \sa setText() */
 end_comment
 begin_comment
-comment|/*!     \fn void QTableWidgetItem::setText(const QString&text)      Sets the item's text to the \a text specified.      \sa text() setFont() setForeground() */
+comment|/*!     \fn void QTableWidgetItem::setText(const QString&text)      Sets the item's text to the \a text specified.      \sa text(), setFont(), setForeground() */
 end_comment
 begin_comment
 comment|/*!     \fn QIcon QTableWidgetItem::icon() const      Returns the item's icon.      \sa setIcon(), {QAbstractItemView::iconSize}{iconSize} */
@@ -5380,25 +5380,25 @@ begin_comment
 comment|/*!     \fn QString QTableWidgetItem::statusTip() const      Returns the item's status tip.      \sa setStatusTip() */
 end_comment
 begin_comment
-comment|/*!     \fn void QTableWidgetItem::setStatusTip(const QString&statusTip)      Sets the status tip for the table item to the text specified by     \a statusTip. QTableWidget mouse tracking needs to be enabled for this     feature to work.      \sa statusTip() setToolTip() setWhatsThis() */
+comment|/*!     \fn void QTableWidgetItem::setStatusTip(const QString&statusTip)      Sets the status tip for the table item to the text specified by     \a statusTip. QTableWidget mouse tracking needs to be enabled for this     feature to work.      \sa statusTip(), setToolTip(), setWhatsThis() */
 end_comment
 begin_comment
 comment|/*!     \fn QString QTableWidgetItem::toolTip() const      Returns the item's tooltip.      \sa setToolTip() */
 end_comment
 begin_comment
-comment|/*!     \fn void QTableWidgetItem::setToolTip(const QString&toolTip)      Sets the item's tooltip to the string specified by \a toolTip.      \sa toolTip() setStatusTip() setWhatsThis() */
+comment|/*!     \fn void QTableWidgetItem::setToolTip(const QString&toolTip)      Sets the item's tooltip to the string specified by \a toolTip.      \sa toolTip(), setStatusTip(), setWhatsThis() */
 end_comment
 begin_comment
 comment|/*!     \fn QString QTableWidgetItem::whatsThis() const      Returns the item's "What's This?" help.      \sa setWhatsThis() */
 end_comment
 begin_comment
-comment|/*!     \fn void QTableWidgetItem::setWhatsThis(const QString&whatsThis)      Sets the item's "What's This?" help to the string specified by \a whatsThis.      \sa whatsThis() setStatusTip() setToolTip() */
+comment|/*!     \fn void QTableWidgetItem::setWhatsThis(const QString&whatsThis)      Sets the item's "What's This?" help to the string specified by \a whatsThis.      \sa whatsThis(), setStatusTip(), setToolTip() */
 end_comment
 begin_comment
 comment|/*!     \fn QFont QTableWidgetItem::font() const      Returns the font used to render the item's text.      \sa setFont() */
 end_comment
 begin_comment
-comment|/*!     \fn void QTableWidgetItem::setFont(const QFont&font)      Sets the font used to display the item's text to the given \a font.      \sa font() setText() setForeground() */
+comment|/*!     \fn void QTableWidgetItem::setFont(const QFont&font)      Sets the font used to display the item's text to the given \a font.      \sa font(), setText(), setForeground() */
 end_comment
 begin_comment
 comment|/*!     \fn QColor QTableWidgetItem::backgroundColor() const     \obsolete      This function is deprecated. Use background() instead. */
@@ -7102,7 +7102,7 @@ begin_comment
 comment|/*!     \fn void QTableWidget::currentItemChanged(QTableWidgetItem *current, QTableWidgetItem *previous)      This signal is emitted whenever the current item changes. The \a     previous item is the item that previously had the focus, \a     current is the new current item. */
 end_comment
 begin_comment
-comment|/*!     \fn void QTableWidget::itemSelectionChanged()      This signal is emitted whenever the selection changes.      \sa selectedItems() QTableWidgetItem::isSelected() */
+comment|/*!     \fn void QTableWidget::itemSelectionChanged()      This signal is emitted whenever the selection changes.      \sa selectedItems(), QTableWidgetItem::isSelected() */
 end_comment
 begin_comment
 comment|/*!   \since 4.1   \fn void QTableWidget::cellPressed(int row, int column)    This signal is emitted whenever a cell in the table is pressed.   The \a row and \a column specified is the cell that was pressed. */
@@ -7492,7 +7492,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the item for the given \a row and \a column to \a item.      The table takes ownership of the item.      Note that if sorting is enabled (see     \l{QTableView::sortingEnabled} {sortingEnabled}) and \a column is     the current sort column, the \a row will be moved to the sorted     position determined by \a item.      If you want to set several items of a particular row (say, by     calling setItem() in a loop), you may want to turn off sorting     before doing so, and turn it back on afterwards; this will allow     you to use the same \a row argument for all items in the same row     (i.e. setItem() will not move the row).      \sa item() takeItem() */
+comment|/*!     Sets the item for the given \a row and \a column to \a item.      The table takes ownership of the item.      Note that if sorting is enabled (see     \l{QTableView::sortingEnabled} {sortingEnabled}) and \a column is     the current sort column, the \a row will be moved to the sorted     position determined by \a item.      If you want to set several items of a particular row (say, by     calling setItem() in a loop), you may want to turn off sorting     before doing so, and turn it back on afterwards; this will allow     you to use the same \a row argument for all items in the same row     (i.e. setItem() will not move the row).      \sa item(), takeItem() */
 end_comment
 begin_function
 DECL|function|setItem

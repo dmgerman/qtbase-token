@@ -423,7 +423,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the clipboard image, or returns a null image if the     clipboard does not contain an image or if it contains an image in     an unsupported image format.      The \a mode argument is used to control which part of the system     clipboard is used.  If \a mode is QClipboard::Clipboard, the     image is retrieved from the global clipboard.  If \a mode is     QClipboard::Selection, the image is retrieved from the global     mouse selection.       \sa setImage() pixmap() mimeData(), QImage::isNull() */
+comment|/*!     Returns the clipboard image, or returns a null image if the     clipboard does not contain an image or if it contains an image in     an unsupported image format.      The \a mode argument is used to control which part of the system     clipboard is used.  If \a mode is QClipboard::Clipboard, the     image is retrieved from the global clipboard.  If \a mode is     QClipboard::Selection, the image is retrieved from the global     mouse selection.       \sa setImage(), pixmap(), mimeData(), QImage::isNull() */
 end_comment
 begin_function
 DECL|function|image
@@ -471,7 +471,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Copies the \a image into the clipboard.      The \a mode argument is used to control which part of the system     clipboard is used.  If \a mode is QClipboard::Clipboard, the     image is stored in the global clipboard.  If \a mode is     QClipboard::Selection, the data is stored in the global     mouse selection.      This is shorthand for:      \snippet code/src_gui_kernel_qclipboard.cpp 1      \sa image(), setPixmap() setMimeData() */
+comment|/*!     Copies the \a image into the clipboard.      The \a mode argument is used to control which part of the system     clipboard is used.  If \a mode is QClipboard::Clipboard, the     image is stored in the global clipboard.  If \a mode is     QClipboard::Selection, the data is stored in the global     mouse selection.      This is shorthand for:      \snippet code/src_gui_kernel_qclipboard.cpp 1      \sa image(), setPixmap(), setMimeData() */
 end_comment
 begin_function
 DECL|function|setImage
@@ -513,7 +513,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the clipboard pixmap, or null if the clipboard does not     contain a pixmap. Note that this can lose information. For     example, if the image is 24-bit and the display is 8-bit, the     result is converted to 8 bits, and if the image has an alpha     channel, the result just has a mask.      The \a mode argument is used to control which part of the system     clipboard is used.  If \a mode is QClipboard::Clipboard, the     pixmap is retrieved from the global clipboard.  If \a mode is     QClipboard::Selection, the pixmap is retrieved from the global     mouse selection.      \sa setPixmap() image() mimeData() QPixmap::convertFromImage() */
+comment|/*!     Returns the clipboard pixmap, or null if the clipboard does not     contain a pixmap. Note that this can lose information. For     example, if the image is 24-bit and the display is 8-bit, the     result is converted to 8 bits, and if the image has an alpha     channel, the result just has a mask.      The \a mode argument is used to control which part of the system     clipboard is used.  If \a mode is QClipboard::Clipboard, the     pixmap is retrieved from the global clipboard.  If \a mode is     QClipboard::Selection, the pixmap is retrieved from the global     mouse selection.      \sa setPixmap(), image(), mimeData(), QPixmap::convertFromImage() */
 end_comment
 begin_function
 DECL|function|pixmap
@@ -557,7 +557,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Copies \a pixmap into the clipboard. Note that this is slower     than setImage() because it needs to convert the QPixmap to a     QImage first.      The \a mode argument is used to control which part of the system     clipboard is used.  If \a mode is QClipboard::Clipboard, the     pixmap is stored in the global clipboard.  If \a mode is     QClipboard::Selection, the pixmap is stored in the global     mouse selection.      \sa pixmap() setImage() setMimeData() */
+comment|/*!     Copies \a pixmap into the clipboard. Note that this is slower     than setImage() because it needs to convert the QPixmap to a     QImage first.      The \a mode argument is used to control which part of the system     clipboard is used.  If \a mode is QClipboard::Clipboard, the     pixmap is stored in the global clipboard.  If \a mode is     QClipboard::Selection, the pixmap is stored in the global     mouse selection.      \sa pixmap(), setImage(), setMimeData() */
 end_comment
 begin_function
 DECL|function|setPixmap

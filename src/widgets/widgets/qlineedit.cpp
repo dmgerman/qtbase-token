@@ -618,7 +618,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \property QLineEdit::displayText     \brief the displayed text      If \l echoMode is \l Normal this returns the same as text(); if     \l EchoMode is \l Password or \l PasswordEchoOnEdit it returns a string of asterisks     text().length() characters long, e.g. "******"; if \l EchoMode is     \l NoEcho returns an empty string, "".      By default, this property contains an empty string.      \sa setEchoMode() text() EchoMode */
+comment|/*!     \property QLineEdit::displayText     \brief the displayed text      If \l echoMode is \l Normal this returns the same as text(); if     \l EchoMode is \l Password or \l PasswordEchoOnEdit it returns a string of asterisks     text().length() characters long, e.g. "******"; if \l EchoMode is     \l NoEcho returns an empty string, "".      By default, this property contains an empty string.      \sa setEchoMode(), text(), EchoMode */
 end_comment
 begin_function
 DECL|function|displayText
@@ -756,10 +756,10 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \enum QLineEdit::EchoMode      This enum type describes how a line edit should display its     contents.      \value Normal   Display characters as they are entered. This is the                     default.     \value NoEcho   Do not display anything. This may be appropriate                     for passwords where even the length of the                     password should be kept secret.     \value Password  Display asterisks instead of the characters                     actually entered.     \value PasswordEchoOnEdit Display characters as they are entered                     while editing otherwise display asterisks.      \sa setEchoMode() echoMode() */
+comment|/*!     \enum QLineEdit::EchoMode      This enum type describes how a line edit should display its     contents.      \value Normal   Display characters as they are entered. This is the                     default.     \value NoEcho   Do not display anything. This may be appropriate                     for passwords where even the length of the                     password should be kept secret.     \value Password  Display asterisks instead of the characters                     actually entered.     \value PasswordEchoOnEdit Display characters as they are entered                     while editing otherwise display asterisks.      \sa setEchoMode(), echoMode() */
 end_comment
 begin_comment
-comment|/*!     \property QLineEdit::echoMode     \brief the line edit's echo mode      The echo mode determines how the text entered in the line edit is     displayed (or echoed) to the user.      The most common setting is \l Normal, in which the text entered by the     user is displayed verbatim, but QLineEdit also supports modes that allow     the entered text to be suppressed or obscured: these include \l NoEcho,     \l Password and \l PasswordEchoOnEdit.      The widget's display and the ability to copy or drag the text is     affected by this setting.      By default, this property is set to \l Normal.      \sa EchoMode displayText() */
+comment|/*!     \property QLineEdit::echoMode     \brief the line edit's echo mode      The echo mode determines how the text entered in the line edit is     displayed (or echoed) to the user.      The most common setting is \l Normal, in which the text entered by the     user is displayed verbatim, but QLineEdit also supports modes that allow     the entered text to be suppressed or obscured: these include \l NoEcho,     \l Password and \l PasswordEchoOnEdit.      The widget's display and the ability to copy or drag the text is     affected by this setting.      By default, this property is set to \l Normal.      \sa EchoMode, displayText() */
 end_comment
 begin_function
 DECL|function|echoMode
@@ -978,7 +978,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets this line edit to only accept input that the validator, \a v,     will accept. This allows you to place any arbitrary constraints on     the text which may be entered.      If \a v == 0, setValidator() removes the current input validator.     The initial setting is to have no input validator (i.e. any input     is accepted up to maxLength()).      \sa validator() QIntValidator QDoubleValidator QRegExpValidator */
+comment|/*!     Sets this line edit to only accept input that the validator, \a v,     will accept. This allows you to place any arbitrary constraints on     the text which may be entered.      If \a v == 0, setValidator() removes the current input validator.     The initial setting is to have no input validator (i.e. any input     is accepted up to maxLength()).      \sa validator(), QIntValidator, QDoubleValidator, QRegExpValidator */
 end_comment
 begin_function
 DECL|function|setValidator
@@ -2038,7 +2038,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Selects text from position \a start and for \a length characters.     Negative lengths are allowed.      \sa deselect() selectAll() selectedText() */
+comment|/*!     Selects text from position \a start and for \a length characters.     Negative lengths are allowed.      \sa deselect(), selectAll(), selectedText() */
 end_comment
 begin_function
 DECL|function|setSelection
@@ -2619,7 +2619,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Selects all the text (i.e. highlights it) and moves the cursor to     the end. This is useful when a default value has been inserted     because if the user types before clicking on the widget, the     selected text will be deleted.      \sa setSelection() deselect() */
+comment|/*!     Selects all the text (i.e. highlights it) and moves the cursor to     the end. This is useful when a default value has been inserted     because if the user types before clicking on the widget, the     selected text will be deleted.      \sa setSelection(), deselect() */
 end_comment
 begin_function
 DECL|function|selectAll
@@ -2644,7 +2644,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Deselects any selected text.      \sa setSelection() selectAll() */
+comment|/*!     Deselects any selected text.      \sa setSelection(), selectAll() */
 end_comment
 begin_function
 DECL|function|deselect
@@ -2908,7 +2908,7 @@ directive|ifndef
 name|QT_NO_CLIPBOARD
 end_ifndef
 begin_comment
-comment|/*!     Copies the selected text to the clipboard and deletes it, if there     is any, and if echoMode() is \l Normal.      If the current validator disallows deleting the selected text,     cut() will copy without deleting.      \sa copy() paste() setValidator() */
+comment|/*!     Copies the selected text to the clipboard and deletes it, if there     is any, and if echoMode() is \l Normal.      If the current validator disallows deleting the selected text,     cut() will copy without deleting.      \sa copy(), paste(), setValidator() */
 end_comment
 begin_function
 DECL|function|cut
@@ -2934,7 +2934,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Copies the selected text to the clipboard, if there is any, and if     echoMode() is \l Normal.      \sa cut() paste() */
+comment|/*!     Copies the selected text to the clipboard, if there is any, and if     echoMode() is \l Normal.      \sa cut(), paste() */
 end_comment
 begin_function
 DECL|function|copy
@@ -2961,7 +2961,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Inserts the clipboard's text at the cursor position, deleting any     selected text, providing the line edit is not \link     QLineEdit::readOnly read-only\endlink.      If the end result would not be acceptable to the current     \link setValidator() validator\endlink, nothing happens.      \sa copy() cut() */
+comment|/*!     Inserts the clipboard's text at the cursor position, deleting any     selected text, providing the line edit is not \link     QLineEdit::readOnly read-only\endlink.      If the end result would not be acceptable to the current     \link setValidator() validator\endlink, nothing happens.      \sa copy(), cut() */
 end_comment
 begin_function
 DECL|function|paste

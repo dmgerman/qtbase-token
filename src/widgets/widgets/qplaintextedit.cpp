@@ -6115,7 +6115,7 @@ directive|ifndef
 name|QT_NO_CLIPBOARD
 end_ifndef
 begin_comment
-comment|/*!     Copies the selected text to the clipboard and deletes it from     the text edit.      If there is no selected text nothing happens.      \sa copy() paste() */
+comment|/*!     Copies the selected text to the clipboard and deletes it from     the text edit.      If there is no selected text nothing happens.      \sa copy(), paste() */
 end_comment
 begin_function
 DECL|function|cut
@@ -6165,7 +6165,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Pastes the text from the clipboard into the text edit at the     current cursor position.      If there is no text in the clipboard nothing happens.      To change the behavior of this function, i.e. to modify what     QPlainTextEdit can paste and how it is being pasted, reimplement the     virtual canInsertFromMimeData() and insertFromMimeData()     functions.      \sa cut() copy() */
+comment|/*!     Pastes the text from the clipboard into the text edit at the     current cursor position.      If there is no text in the clipboard nothing happens.      To change the behavior of this function, i.e. to modify what     QPlainTextEdit can paste and how it is being pasted, reimplement the     virtual canInsertFromMimeData() and insertFromMimeData()     functions.      \sa cut(), copy() */
 end_comment
 begin_function
 DECL|function|paste
@@ -6194,7 +6194,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     Deletes all the text in the text edit.      Note that the undo/redo history is cleared by this function.      \sa cut() setPlainText() */
+comment|/*!     Deletes all the text in the text edit.      Note that the undo/redo history is cleared by this function.      \sa cut(), setPlainText() */
 end_comment
 begin_function
 DECL|function|clear
@@ -6232,7 +6232,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Selects all text.      \sa copy() cut() textCursor()  */
+comment|/*!     Selects all text.      \sa copy(), cut(), textCursor()  */
 end_comment
 begin_function
 DECL|function|selectAll

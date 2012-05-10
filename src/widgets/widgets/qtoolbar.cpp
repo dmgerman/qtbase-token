@@ -1917,7 +1917,7 @@ begin_comment
 comment|/*!     \fn void QToolBar::allowedAreasChanged(Qt::ToolBarAreas allowedAreas)      This signal is emitted when the collection of allowed areas for the     toolbar is changed. The new areas in which the toolbar can be positioned     are specified by \a allowedAreas.      \sa allowedAreas */
 end_comment
 begin_comment
-comment|/*!     \fn void QToolBar::iconSizeChanged(const QSize&iconSize)      This signal is emitted when the icon size is changed.  The \a     iconSize parameter holds the toolbar's new icon size.      \sa iconSize QMainWindow::iconSize */
+comment|/*!     \fn void QToolBar::iconSizeChanged(const QSize&iconSize)      This signal is emitted when the icon size is changed.  The \a     iconSize parameter holds the toolbar's new icon size.      \sa iconSize, QMainWindow::iconSize */
 end_comment
 begin_comment
 comment|/*!     \fn void QToolBar::movableChanged(bool movable)      This signal is emitted when the toolbar becomes movable or fixed.     If the toolbar can be moved, \a movable is true; otherwise it is     false.      \sa movable */
@@ -1926,7 +1926,7 @@ begin_comment
 comment|/*!     \fn void QToolBar::orientationChanged(Qt::Orientation orientation)      This signal is emitted when the orientation of the toolbar changes.     The new orientation is specified by the \a orientation given.      \sa orientation */
 end_comment
 begin_comment
-comment|/*!     \fn void QToolBar::toolButtonStyleChanged(Qt::ToolButtonStyle toolButtonStyle)      This signal is emitted when the tool button style is changed. The     \a toolButtonStyle parameter holds the toolbar's new tool button     style.      \sa toolButtonStyle QMainWindow::toolButtonStyle */
+comment|/*!     \fn void QToolBar::toolButtonStyleChanged(Qt::ToolButtonStyle toolButtonStyle)      This signal is emitted when the tool button style is changed. The     \a toolButtonStyle parameter holds the toolbar's new tool button     style.      \sa toolButtonStyle, QMainWindow::toolButtonStyle */
 end_comment
 begin_comment
 comment|/*!     \since 4.6      \fn void QToolBar::topLevelChanged(bool topLevel)      This signal is emitted when the \l floating property changes.     The \a topLevel parameter is true if the toolbar is now floating;     otherwise it is false.      \sa isWindow() */
@@ -4742,7 +4742,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a checkable action that can be used to show or hide this     toolbar.      The action's text is set to the toolbar's window title.      \sa QAction::text QWidget::windowTitle */
+comment|/*!     Returns a checkable action that can be used to show or hide this     toolbar.      The action's text is set to the toolbar's window title.      \sa QAction::text, QWidget::windowTitle */
 end_comment
 begin_function
 DECL|function|toggleViewAction

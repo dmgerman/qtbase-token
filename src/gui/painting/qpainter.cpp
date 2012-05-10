@@ -10571,7 +10571,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Scales the coordinate system by (\a{sx}, \a{sy}).      \sa setWorldTransform() {QPainter#Coordinate Transformations}{Coordinate     Transformations} */
+comment|/*!     Scales the coordinate system by (\a{sx}, \a{sy}).      \sa setWorldTransform(), {QPainter#Coordinate Transformations}{Coordinate Transformations} */
 end_comment
 begin_function
 DECL|function|scale
@@ -10654,7 +10654,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Shears the coordinate system by (\a{sh}, \a{sv}).      \sa setWorldTransform(), {QPainter#Coordinate Transformations}{Coordinate     Transformations} */
+comment|/*!     Shears the coordinate system by (\a{sh}, \a{sv}).      \sa setWorldTransform(), {QPainter#Coordinate Transformations}{Coordinate Transformations} */
 end_comment
 begin_function
 DECL|function|shear
@@ -10737,7 +10737,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QPainter::rotate(qreal angle)      Rotates the coordinate system the given \a angle clockwise.      \sa setWorldTransform(), {QPainter#Coordinate Transformations}{Coordinate     Transformations} */
+comment|/*!     \fn void QPainter::rotate(qreal angle)      Rotates the coordinate system the given \a angle clockwise.      \sa setWorldTransform(), {QPainter#Coordinate Transformations}{Coordinate Transformations} */
 end_comment
 begin_function
 DECL|function|rotate
@@ -10813,7 +10813,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Translates the coordinate system by the given \a offset; i.e. the     given \a offset is added to points.      \sa setWorldTransform(), {QPainter#Coordinate Transformations}{Coordinate     Transformations} */
+comment|/*!     Translates the coordinate system by the given \a offset; i.e. the     given \a offset is added to points.      \sa setWorldTransform(), {QPainter#Coordinate Transformations}{Coordinate Transformations} */
 end_comment
 begin_function
 DECL|function|translate
@@ -16283,7 +16283,7 @@ begin_comment
 comment|/*!     \fn void QPainter::drawPolyline(const QPolygon&points)      \overload      Draws the polyline defined by the given \a points using the     current pen. */
 end_comment
 begin_comment
-comment|/*!     Draws the polygon defined by the first \a pointCount points in the     array \a points using the current pen and brush.      \table 100%     \row     \li \inlineimage qpainter-polygon.png     \li     \snippet code/src_gui_painting_qpainter.cpp 14     \endtable      The first point is implicitly connected to the last point, and the     polygon is filled with the current brush().      If \a fillRule is Qt::WindingFill, the polygon is filled using the     winding fill algorithm.  If \a fillRule is Qt::OddEvenFill, the     polygon is filled using the odd-even fill algorithm. See     \l{Qt::FillRule} for a more detailed description of these fill     rules.      \sa  drawConvexPolygon(), drawPolyline(), {Coordinate System} */
+comment|/*!     Draws the polygon defined by the first \a pointCount points in the     array \a points using the current pen and brush.      \table 100%     \row     \li \inlineimage qpainter-polygon.png     \li     \snippet code/src_gui_painting_qpainter.cpp 14     \endtable      The first point is implicitly connected to the last point, and the     polygon is filled with the current brush().      If \a fillRule is Qt::WindingFill, the polygon is filled using the     winding fill algorithm.  If \a fillRule is Qt::OddEvenFill, the     polygon is filled using the odd-even fill algorithm. See     \l{Qt::FillRule} for a more detailed description of these fill     rules.      \sa drawConvexPolygon(), drawPolyline(), {Coordinate System} */
 end_comment
 begin_function
 DECL|function|drawPolygon
@@ -26528,7 +26528,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QPainter::setViewport(const QRect&rectangle)      Sets the painter's viewport rectangle to the given \a rectangle,     and enables view transformations.      The viewport rectangle is part of the view transformation. The     viewport specifies the device coordinate system. Its sister, the     window(), specifies the logical coordinate system.      The default viewport rectangle is the same as the device's     rectangle.      \sa viewport(), viewTransformEnabled() {Coordinate     System#Window-Viewport Conversion}{Window-Viewport Conversion} */
+comment|/*!     \fn void QPainter::setViewport(const QRect&rectangle)      Sets the painter's viewport rectangle to the given \a rectangle,     and enables view transformations.      The viewport rectangle is part of the view transformation. The     viewport specifies the device coordinate system. Its sister, the     window(), specifies the logical coordinate system.      The default viewport rectangle is the same as the device's     rectangle.      \sa viewport(), viewTransformEnabled(), {Coordinate     System#Window-Viewport Conversion}{Window-Viewport Conversion} */
 end_comment
 begin_comment
 comment|/*!     \fn void QPainter::setViewport(int x, int y, int width, int height)     \overload      Sets the painter's viewport rectangle to be the rectangle     beginning at (\a x, \a y) with the given \a width and \a height. */
@@ -29795,7 +29795,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.3      Sets the world transformation matrix.     If \a combine is true, the specified \a transform is combined with     the current matrix; otherwise it replaces the current matrix.      \sa transform() setWorldTransform() */
+comment|/*!     \since 4.3      Sets the world transformation matrix.     If \a combine is true, the specified \a transform is combined with     the current matrix; otherwise it replaces the current matrix.      \sa transform(), setWorldTransform() */
 end_comment
 begin_function
 DECL|function|setTransform

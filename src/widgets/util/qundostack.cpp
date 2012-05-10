@@ -155,7 +155,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Attempts to merge this command with \a command. Returns true on     success; otherwise returns false.      If this function returns true, calling this command's redo() must have the same     effect as redoing both this command and \a command.     Similarly, calling this command's undo() must have the same effect as undoing     \a command and this command.      QUndoStack will only try to merge two commands if they have the same id, and     the id is not -1.      The default implementation returns false.      \snippet code/src_gui_util_qundostack.cpp 3      \sa id() QUndoStack::push() */
+comment|/*!     Attempts to merge this command with \a command. Returns true on     success; otherwise returns false.      If this function returns true, calling this command's redo() must have the same     effect as redoing both this command and \a command.     Similarly, calling this command's undo() must have the same effect as undoing     \a command and this command.      QUndoStack will only try to merge two commands if they have the same id, and     the id is not -1.      The default implementation returns false.      \snippet code/src_gui_util_qundostack.cpp 3      \sa id(), QUndoStack::push() */
 end_comment
 begin_function
 DECL|function|mergeWith
@@ -309,7 +309,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the command's text to be the \a text specified.      The specified text should be a short user-readable string describing what this     command does.      If you need to have two different strings for text() and actionText(), separate     them with "\n" and pass into this function. Even if you do not use this feature     for English strings during development, you can still let translators use two     different strings in order to match specific languages' needs.     The described feature and the function actionText() are available since Qt 4.8.      \sa text() actionText() QUndoStack::createUndoAction() QUndoStack::createRedoAction() */
+comment|/*!     Sets the command's text to be the \a text specified.      The specified text should be a short user-readable string describing what this     command does.      If you need to have two different strings for text() and actionText(), separate     them with "\n" and pass into this function. Even if you do not use this feature     for English strings during development, you can still let translators use two     different strings in order to match specific languages' needs.     The described feature and the function actionText() are available since Qt 4.8.      \sa text(), actionText(), QUndoStack::createUndoAction(), QUndoStack::createRedoAction() */
 end_comment
 begin_function
 DECL|function|setText
@@ -1058,7 +1058,7 @@ emit|;
 block|}
 end_function
 begin_comment
-comment|/*!     Pushes \a cmd on the stack or merges it with the most recently executed command.     In either case, executes \a cmd by calling its redo() function.      If \a cmd's id is not -1, and if the id is the same as that of the     most recently executed command, QUndoStack will attempt to merge the two     commands by calling QUndoCommand::mergeWith() on the most recently executed     command. If QUndoCommand::mergeWith() returns true, \a cmd is deleted.      In all other cases \a cmd is simply pushed on the stack.      If commands were undone before \a cmd was pushed, the current command and     all commands above it are deleted. Hence \a cmd always ends up being the     top-most on the stack.      Once a command is pushed, the stack takes ownership of it. There     are no getters to return the command, since modifying it after it has     been executed will almost always lead to corruption of the document's     state.      \sa QUndoCommand::id() QUndoCommand::mergeWith() */
+comment|/*!     Pushes \a cmd on the stack or merges it with the most recently executed command.     In either case, executes \a cmd by calling its redo() function.      If \a cmd's id is not -1, and if the id is the same as that of the     most recently executed command, QUndoStack will attempt to merge the two     commands by calling QUndoCommand::mergeWith() on the most recently executed     command. If QUndoCommand::mergeWith() returns true, \a cmd is deleted.      In all other cases \a cmd is simply pushed on the stack.      If commands were undone before \a cmd was pushed, the current command and     all commands above it are deleted. Hence \a cmd always ends up being the     top-most on the stack.      Once a command is pushed, the stack takes ownership of it. There     are no getters to return the command, since modifying it after it has     been executed will almost always lead to corruption of the document's     state.      \sa QUndoCommand::id(), QUndoCommand::mergeWith() */
 end_comment
 begin_function
 DECL|function|push
@@ -1405,7 +1405,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     If the stack is in the clean state, returns true; otherwise returns false.      \sa setClean() cleanIndex() */
+comment|/*!     If the stack is in the clean state, returns true; otherwise returns false.      \sa setClean(), cleanIndex() */
 end_comment
 begin_function
 DECL|function|isClean
@@ -1447,7 +1447,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the clean index. This is the index at which setClean() was called.      A stack may not have a clean index. This happens if a document is saved,     some commands are undone, then a new command is pushed. Since     push() deletes all the undone commands before pushing the new command, the stack     can't return to the clean state again. In this case, this function returns -1.      \sa isClean() setClean() */
+comment|/*!     Returns the clean index. This is the index at which setClean() was called.      A stack may not have a clean index. This happens if a document is saved,     some commands are undone, then a new command is pushed. Since     push() deletes all the undone commands before pushing the new command, the stack     can't return to the clean state again. In this case, this function returns -1.      \sa isClean(), setClean() */
 end_comment
 begin_function
 DECL|function|cleanIndex
@@ -1472,7 +1472,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Undoes the command below the current command by calling QUndoCommand::undo().     Decrements the current command index.      If the stack is empty, or if the bottom command on the stack has already been     undone, this function does nothing.      \sa redo() index() */
+comment|/*!     Undoes the command below the current command by calling QUndoCommand::undo().     Decrements the current command index.      If the stack is empty, or if the bottom command on the stack has already been     undone, this function does nothing.      \sa redo(), index() */
 end_comment
 begin_function
 DECL|function|undo
@@ -1547,7 +1547,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Redoes the current command by calling QUndoCommand::redo(). Increments the current     command index.      If the stack is empty, or if the top command on the stack has already been     redone, this function does nothing.      \sa undo() index() */
+comment|/*!     Redoes the current command by calling QUndoCommand::redo(). Increments the current     command index.      If the stack is empty, or if the top command on the stack has already been     redone, this function does nothing.      \sa undo(), index() */
 end_comment
 begin_function
 DECL|function|redo
@@ -1624,7 +1624,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the number of commands on the stack. Macro commands are counted as     one command.      \sa index() setIndex() command() */
+comment|/*!     Returns the number of commands on the stack. Macro commands are counted as     one command.      \sa index(), setIndex(), command() */
 end_comment
 begin_function
 DECL|function|count
@@ -1652,7 +1652,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the index of the current command. This is the command that will be     executed on the next call to redo(). It is not always the top-most command     on the stack, since a number of commands may have been undone.      \sa undo() redo() count() */
+comment|/*!     Returns the index of the current command. This is the command that will be     executed on the next call to redo(). It is not always the top-most command     on the stack, since a number of commands may have been undone.      \sa undo(), redo(), count() */
 end_comment
 begin_function
 DECL|function|index
@@ -1677,7 +1677,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Repeatedly calls undo() or redo() until the current command index reaches     \a idx. This function can be used to roll the state of the document forwards     of backwards. indexChanged() is emitted only once.      \sa index() count() undo() redo() */
+comment|/*!     Repeatedly calls undo() or redo() until the current command index reaches     \a idx. This function can be used to roll the state of the document forwards     of backwards. indexChanged() is emitted only once.      \sa index(), count(), undo(), redo() */
 end_comment
 begin_function
 DECL|function|setIndex
@@ -1801,7 +1801,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if there is a command available for undo; otherwise returns false.      This function returns false if the stack is empty, or if the bottom command     on the stack has already been undone.      Synonymous with index() == 0.      \sa index() canRedo() */
+comment|/*!     Returns true if there is a command available for undo; otherwise returns false.      This function returns false if the stack is empty, or if the bottom command     on the stack has already been undone.      Synonymous with index() == 0.      \sa index(), canRedo() */
 end_comment
 begin_function
 DECL|function|canUndo
@@ -1841,7 +1841,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if there is a command available for redo; otherwise returns false.      This function returns false if the stack is empty or if the top command     on the stack has already been redone.      Synonymous with index() == count().      \sa index() canUndo() */
+comment|/*!     Returns true if there is a command available for redo; otherwise returns false.      This function returns false if the stack is empty or if the top command     on the stack has already been redone.      Synonymous with index() == count().      \sa index(), canUndo() */
 end_comment
 begin_function
 DECL|function|canRedo
@@ -1886,7 +1886,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the text of the command which will be undone in the next call to undo().      \sa QUndoCommand::actionText() redoText() */
+comment|/*!     Returns the text of the command which will be undone in the next call to undo().      \sa QUndoCommand::actionText(), redoText() */
 end_comment
 begin_function
 DECL|function|undoText
@@ -1949,7 +1949,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the text of the command which will be redone in the next call to redo().      \sa QUndoCommand::actionText() undoText() */
+comment|/*!     Returns the text of the command which will be redone in the next call to redo().      \sa QUndoCommand::actionText(), undoText() */
 end_comment
 begin_function
 DECL|function|redoText
@@ -2859,10 +2859,10 @@ directive|endif
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QUndoStack::indexChanged(int idx)      This signal is emitted whenever a command modifies the state of the document.     This happens when a command is undone or redone. When a macro     command is undone or redone, or setIndex() is called, this signal     is emitted only once.      \a idx specifies the index of the current command, ie. the command which will be     executed on the next call to redo().      \sa index() setIndex() */
+comment|/*!     \fn void QUndoStack::indexChanged(int idx)      This signal is emitted whenever a command modifies the state of the document.     This happens when a command is undone or redone. When a macro     command is undone or redone, or setIndex() is called, this signal     is emitted only once.      \a idx specifies the index of the current command, ie. the command which will be     executed on the next call to redo().      \sa index(), setIndex() */
 end_comment
 begin_comment
-comment|/*!     \fn void QUndoStack::cleanChanged(bool clean)      This signal is emitted whenever the stack enters or leaves the clean state.     If \a clean is true, the stack is in a clean state; otherwise this signal     indicates that it has left the clean state.      \sa isClean() setClean() */
+comment|/*!     \fn void QUndoStack::cleanChanged(bool clean)      This signal is emitted whenever the stack enters or leaves the clean state.     If \a clean is true, the stack is in a clean state; otherwise this signal     indicates that it has left the clean state.      \sa isClean(), setClean() */
 end_comment
 begin_comment
 comment|/*!     \fn void QUndoStack::undoTextChanged(const QString&undoText)      This signal is emitted whenever the value of undoText() changes. It is     used to update the text property of the undo action returned by createUndoAction().     \a undoText specifies the new text. */

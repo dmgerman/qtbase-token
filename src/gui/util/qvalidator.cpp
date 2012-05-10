@@ -160,7 +160,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the \a locale that will be used for the validator. Unless     setLocale has been called, the validator will use the default     locale set with QLocale::setDefault(). If a default locale has not     been set, it is the operating system's locale.      \sa locale() QLocale::setDefault() */
+comment|/*!     Sets the \a locale that will be used for the validator. Unless     setLocale has been called, the validator will use the default     locale set with QLocale::setDefault(). If a default locale has not     been set, it is the operating system's locale.      \sa locale(), QLocale::setDefault() */
 end_comment
 begin_function
 DECL|function|setLocale

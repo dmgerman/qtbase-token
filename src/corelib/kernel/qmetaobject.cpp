@@ -12530,7 +12530,7 @@ begin_comment
 comment|/*!     \macro QGenericReturnArgument Q_RETURN_ARG(Type, Type&value)     \relates QMetaObject      This macro takes a \a Type and a non-const reference to a \a     value of that type and returns a QGenericReturnArgument object     that can be passed to QMetaObject::invokeMethod().      \sa Q_ARG() */
 end_comment
 begin_comment
-comment|/*!     \class QGenericArgument      \brief The QGenericArgument class is an internal helper class for     marshalling arguments.      This class should never be used directly. Please use the \l Q_ARG()     macro instead.      \sa Q_ARG(), QMetaObject::invokeMethod(),  QGenericReturnArgument */
+comment|/*!     \class QGenericArgument      \brief The QGenericArgument class is an internal helper class for     marshalling arguments.      This class should never be used directly. Please use the \l Q_ARG()     macro instead.      \sa Q_ARG(), QMetaObject::invokeMethod(), QGenericReturnArgument */
 end_comment
 begin_comment
 comment|/*!     \fn QGenericArgument::QGenericArgument(const char *name, const void *data)      Constructs a QGenericArgument object with the given \a name and \a data. */

@@ -1271,7 +1271,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     Returns the stack currently displayed by this view. If the view is looking at a     QUndoGroup, this the group's active stack.      \sa setStack() setGroup() */
+comment|/*!     Returns the stack currently displayed by this view. If the view is looking at a     QUndoGroup, this the group's active stack.      \sa setStack(), setGroup() */
 end_comment
 begin_function
 DECL|function|stack
@@ -1300,7 +1300,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the stack displayed by this view to \a stack. If \a stack is 0, the view     will be empty.      If the view was previously looking at a QUndoGroup, the group is set to 0.      \sa stack() setGroup() */
+comment|/*!     Sets the stack displayed by this view to \a stack. If \a stack is 0, the view     will be empty.      If the view was previously looking at a QUndoGroup, the group is set to 0.      \sa stack(), setGroup() */
 end_comment
 begin_function
 DECL|function|setStack
@@ -1346,7 +1346,7 @@ directive|ifndef
 name|QT_NO_UNDOGROUP
 end_ifndef
 begin_comment
-comment|/*!     Sets the group displayed by this view to \a group. If \a group is 0, the view will     be empty.      The view will update itself autmiatically whenever the active stack of the group changes.      \sa group() setStack() */
+comment|/*!     Sets the group displayed by this view to \a group. If \a group is 0, the view will     be empty.      The view will update itself autmiatically whenever the active stack of the group changes.      \sa group(), setStack() */
 end_comment
 begin_function
 DECL|function|setGroup
@@ -1487,7 +1487,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the group displayed by this view.      If the view is not looking at group, this function returns 0.      \sa setGroup() setStack() */
+comment|/*!     Returns the group displayed by this view.      If the view is not looking at group, this function returns 0.      \sa setGroup(), setStack() */
 end_comment
 begin_function
 DECL|function|group

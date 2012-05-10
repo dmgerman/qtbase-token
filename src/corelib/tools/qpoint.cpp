@@ -347,7 +347,7 @@ begin_comment
 comment|/*!     \fn void QPointF::setX(qreal x)      Sets the x coordinate of this point to the given \a x coordinate.      \sa x(), setY() */
 end_comment
 begin_comment
-comment|/*!     \fn void QPointF::setY(qreal y)      Sets the y coordinate of this point to the given \a y coordinate.      \sa  y(), setX() */
+comment|/*!     \fn void QPointF::setY(qreal y)      Sets the y coordinate of this point to the given \a y coordinate.      \sa y(), setX() */
 end_comment
 begin_comment
 comment|/*!     \fn qreal& QPointF::rx()      Returns a reference to the x coordinate of this point.      Using a reference makes it possible to directly manipulate x. For example:      \snippet code/src_corelib_tools_qpoint.cpp 10      \sa x(), setX() */

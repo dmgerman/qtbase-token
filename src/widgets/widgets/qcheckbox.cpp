@@ -452,7 +452,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the check box's check state. If you do not need tristate support,     you can also  use \l QAbstractButton::isChecked() which returns a boolean.      \sa setCheckState() Qt::CheckState */
+comment|/*!     Returns the check box's check state. If you do not need tristate support,     you can also  use \l QAbstractButton::isChecked() which returns a boolean.      \sa setCheckState(), Qt::CheckState */
 end_comment
 begin_function
 DECL|function|checkState
@@ -502,7 +502,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the check box's check state to \a state. If you do not need tristate     support, you can also use \l QAbstractButton::setChecked() which takes a     boolean.      \sa checkState() Qt::CheckState */
+comment|/*!     Sets the check box's check state to \a state. If you do not need tristate     support, you can also use \l QAbstractButton::setChecked() which takes a     boolean.      \sa checkState(), Qt::CheckState */
 end_comment
 begin_function
 DECL|function|setCheckState

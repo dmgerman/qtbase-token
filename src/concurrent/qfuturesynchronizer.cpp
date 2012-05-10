@@ -24,7 +24,7 @@ begin_comment
 comment|/*!     \fn void QFutureSynchronizer::waitForFinished()      Waits for all futures to finish. If cancelOnWait() returns true, each     future is canceled before waiting for them to finish.          \sa cancelOnWait(), setCancelOnWait() */
 end_comment
 begin_comment
-comment|/*!     \fn void QFutureSynchronizer::clearFutures()      Removes all managed futures from this QFutureSynchronizer.          \sa addFuture(), setFuture()    */
+comment|/*!     \fn void QFutureSynchronizer::clearFutures()      Removes all managed futures from this QFutureSynchronizer.          \sa addFuture(), setFuture() */
 end_comment
 begin_comment
 comment|/*!     \fn QList<QFuture<T>> QFutureSynchronizer::futures() const      Returns a list of all managed futures.          \sa addFuture(), setFuture() */

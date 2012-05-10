@@ -378,7 +378,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     \fn QPen::QPen(const QBrush&brush, qreal width, Qt::PenStyle style, Qt::PenCapStyle cap, Qt::PenJoinStyle join)      Constructs a pen with the specified \a brush, \a width, pen \a style,     \a cap style and \a join style.      \sa setBrush(), setWidth(), setStyle(),  setCapStyle(), setJoinStyle() */
+comment|/*!     \fn QPen::QPen(const QBrush&brush, qreal width, Qt::PenStyle style, Qt::PenCapStyle cap, Qt::PenJoinStyle join)      Constructs a pen with the specified \a brush, \a width, pen \a style,     \a cap style and \a join style.      \sa setBrush(), setWidth(), setStyle(), setCapStyle(), setJoinStyle() */
 end_comment
 begin_constructor
 DECL|function|QPen
@@ -1070,7 +1070,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the miter limit of the pen. The miter limit is only     relevant when the join style is set to Qt::MiterJoin.      \sa setMiterLimit(),  {QPen#Join Style}{Join Style} */
+comment|/*!     Returns the miter limit of the pen. The miter limit is only     relevant when the join style is set to Qt::MiterJoin.      \sa setMiterLimit(), {QPen#Join Style}{Join Style} */
 end_comment
 begin_function
 DECL|function|miterLimit
@@ -1163,7 +1163,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn qreal QPen::widthF() const      Returns the pen width with floating point precision.      \sa setWidthF() width() */
+comment|/*!     \fn qreal QPen::widthF() const      Returns the pen width with floating point precision.      \sa setWidthF(), width() */
 end_comment
 begin_function
 DECL|function|widthF
@@ -1230,7 +1230,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the pen width to the given \a width in pixels with floating point     precision.      A line width of zero indicates a cosmetic pen. This means that the     pen width is always drawn one pixel wide, independent of the \l     {QPainter#Coordinate Transformations}{transformation} on the     painter.      Setting a pen width with a negative value is not supported.      \sa setWidth() widthF() */
+comment|/*!     Sets the pen width to the given \a width in pixels with floating point     precision.      A line width of zero indicates a cosmetic pen. This means that the     pen width is always drawn one pixel wide, independent of the \l     {QPainter#Coordinate Transformations}{transformation} on the     painter.      Setting a pen width with a negative value is not supported.      \sa setWidth(), widthF() */
 end_comment
 begin_function
 DECL|function|setWidthF
@@ -1337,7 +1337,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the pen's join style.      \sa setJoinStyle(),  {QPen#Join Style}{Join Style} */
+comment|/*!     Returns the pen's join style.      \sa setJoinStyle(), {QPen#Join Style}{Join Style} */
 end_comment
 begin_function
 DECL|function|joinStyle

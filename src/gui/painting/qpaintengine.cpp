@@ -660,10 +660,10 @@ begin_comment
 comment|/*!     \fn void QPaintEngine::setActive(bool state)      Sets the active state of the paint engine to \a state.      \sa isActive() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QPaintEngine::begin(QPaintDevice *pdev)      Reimplement this function to initialise your paint engine when     painting is to start on the paint device \a pdev. Return true if     the initialization was successful; otherwise return false.      \sa end() isActive() */
+comment|/*!     \fn bool QPaintEngine::begin(QPaintDevice *pdev)      Reimplement this function to initialise your paint engine when     painting is to start on the paint device \a pdev. Return true if     the initialization was successful; otherwise return false.      \sa end(), isActive() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QPaintEngine::end()      Reimplement this function to finish painting on the current paint     device. Return true if painting was finished successfully;     otherwise return false.      \sa begin() isActive() */
+comment|/*!     \fn bool QPaintEngine::end()      Reimplement this function to finish painting on the current paint     device. Return true if painting was finished successfully;     otherwise return false.      \sa begin(), isActive() */
 end_comment
 begin_comment
 comment|/*!     Draws the first \a pointCount points in the buffer \a points */

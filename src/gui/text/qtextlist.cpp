@@ -129,7 +129,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the \a{i}-th text block in the list.      \sa count() itemText() */
+comment|/*!     Returns the \a{i}-th text block in the list.      \sa count(), itemText() */
 end_comment
 begin_function
 DECL|function|item

@@ -90,7 +90,7 @@ begin_comment
 comment|/*!     \enum QTabWidget::TabShape      This enum type defines the shape of the tabs:     \value Rounded  The tabs are drawn with a rounded look. This is the default                     shape.     \value Triangular  The tabs are drawn with a triangular look. */
 end_comment
 begin_comment
-comment|/*!     \fn void QTabWidget::currentChanged(int index)      This signal is emitted whenever the current page index changes.     The parameter is the new current page \a index position, or -1     if there isn't a new one (for example, if there are no widgets     in the QTabWidget)      \sa currentWidget() currentIndex */
+comment|/*!     \fn void QTabWidget::currentChanged(int index)      This signal is emitted whenever the current page index changes.     The parameter is the new current page \a index position, or -1     if there isn't a new one (for example, if there are no widgets     in the QTabWidget)      \sa currentWidget(), currentIndex */
 end_comment
 begin_comment
 comment|/*!     \fn void QTabWidget::tabCloseRequested(int index)     \since 4.5      This signal is emitted when the close button on a tab is clicked.     The \a index is the index that should be removed.      \sa setTabsClosable() */
@@ -508,7 +508,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Initialize \a option with the values from this QTabWidget. This method is useful     for subclasses when they need a QStyleOptionTabWidgetFrame, but don't want to fill     in all the information themselves.      \sa QStyleOption::initFrom() QTabBar::initStyleOption() */
+comment|/*!     Initialize \a option with the values from this QTabWidget. This method is useful     for subclasses when they need a QStyleOptionTabWidgetFrame, but don't want to fill     in all the information themselves.      \sa QStyleOption::initFrom(), QTabBar::initStyleOption() */
 end_comment
 begin_function
 DECL|function|initStyleOption
@@ -4138,7 +4138,7 @@ directive|ifndef
 name|QT_NO_TOOLTIP
 end_ifndef
 begin_comment
-comment|/*!     Sets the tab tool tip for the page at position \a index to \a tip.      \sa  tabToolTip() */
+comment|/*!     Sets the tab tool tip for the page at position \a index to \a tip.      \sa tabToolTip() */
 end_comment
 begin_function
 DECL|function|setTabToolTip
@@ -4623,7 +4623,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QTabWidget::elideMode     \brief how to elide text in the tab bar     \since 4.2      This property controls how items are elided when there is not     enough space to show them for a given tab bar size.      By default the value is style dependant.      \sa QTabBar::elideMode usesScrollButtons QStyle::SH_TabBar_ElideMode */
+comment|/*!     \property QTabWidget::elideMode     \brief how to elide text in the tab bar     \since 4.2      This property controls how items are elided when there is not     enough space to show them for a given tab bar size.      By default the value is style dependant.      \sa QTabBar::elideMode, usesScrollButtons, QStyle::SH_TabBar_ElideMode */
 end_comment
 begin_function
 DECL|function|elideMode
@@ -4673,7 +4673,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QTabWidget::usesScrollButtons     \brief Whether or not a tab bar should use buttons to scroll tabs when it     has many tabs.     \since 4.2      When there are too many tabs in a tab bar for its size, the tab bar can either choose     to expand its size or to add buttons that allow you to scroll through the tabs.      By default the value is style dependant.      \sa elideMode QTabBar::usesScrollButtons QStyle::SH_TabBar_PreferNoArrows */
+comment|/*!     \property QTabWidget::usesScrollButtons     \brief Whether or not a tab bar should use buttons to scroll tabs when it     has many tabs.     \since 4.2      When there are too many tabs in a tab bar for its size, the tab bar can either choose     to expand its size or to add buttons that allow you to scroll through the tabs.      By default the value is style dependant.      \sa elideMode, QTabBar::usesScrollButtons, QStyle::SH_TabBar_PreferNoArrows */
 end_comment
 begin_function
 DECL|function|usesScrollButtons

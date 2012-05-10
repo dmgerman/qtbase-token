@@ -1490,7 +1490,7 @@ emit|;
 block|}
 end_function
 begin_comment
-comment|/*!   Hides the modal dialog and sets the result code to \c Accepted.    \sa reject() done() */
+comment|/*!   Hides the modal dialog and sets the result code to \c Accepted.    \sa reject(), done() */
 end_comment
 begin_function
 DECL|function|accept
@@ -1508,7 +1508,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Hides the modal dialog and sets the result code to \c Rejected.    \sa accept() done() */
+comment|/*!   Hides the modal dialog and sets the result code to \c Rejected.    \sa accept(), done() */
 end_comment
 begin_function
 DECL|function|reject

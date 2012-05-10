@@ -13394,7 +13394,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!   \since 4.2   Expands all expandable items.    Warning: if the model contains a large number of items,   this function will take some time to execute.    \sa collapseAll() expand()  collapse() setExpanded() */
+comment|/*!   \since 4.2   Expands all expandable items.    Warning: if the model contains a large number of items,   this function will take some time to execute.    \sa collapseAll(), expand(), collapse(), setExpanded() */
 end_comment
 begin_function
 DECL|function|expandAll
@@ -13444,7 +13444,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \since 4.2    Collapses all expanded items.    \sa expandAll() expand()  collapse() setExpanded() */
+comment|/*!   \since 4.2    Collapses all expanded items.    \sa expandAll(), expand(), collapse(), setExpanded() */
 end_comment
 begin_function
 DECL|function|collapseAll
@@ -13472,7 +13472,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \since 4.3   Expands all expandable items to the given \a depth.    \sa expandAll() collapseAll() expand()  collapse() setExpanded() */
+comment|/*!   \since 4.3   Expands all expandable items to the given \a depth.    \sa expandAll(), collapseAll(), expand(), collapse(), setExpanded() */
 end_comment
 begin_function
 DECL|function|expandToDepth

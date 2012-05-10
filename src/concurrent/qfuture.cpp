@@ -120,7 +120,7 @@ begin_comment
 comment|/*! \typedef QFuture::const_iterator::reference      Typedef for const T&. Provided for STL compatibility. */
 end_comment
 begin_comment
-comment|/*! \fn QFuture::const_iterator::const_iterator()      Constructs an uninitialized iterator.      Functions like operator*() and operator++() should not be called on an     uninitialized iterartor. Use operator=() to assign a value to it before     using it.      \sa QFuture::constBegin() QFuture::constEnd() */
+comment|/*! \fn QFuture::const_iterator::const_iterator()      Constructs an uninitialized iterator.      Functions like operator*() and operator++() should not be called on an     uninitialized iterartor. Use operator=() to assign a value to it before     using it.      \sa QFuture::constBegin(), QFuture::constEnd() */
 end_comment
 begin_comment
 comment|/*! \fn QFuture::const_iterator::const_iterator(QFuture const * const future, int index)     \internal */

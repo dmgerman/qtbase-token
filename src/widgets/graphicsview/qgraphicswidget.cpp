@@ -5465,7 +5465,7 @@ directive|ifndef
 name|QT_NO_SHORTCUT
 end_ifndef
 begin_comment
-comment|/*!     \since 4.5      Adds a shortcut to Qt's shortcut system that watches for the given key \a     sequence in the given \a context. If the \a context is     Qt::ApplicationShortcut, the shortcut applies to the application as a     whole. Otherwise, it is either local to this widget, Qt::WidgetShortcut,     or to the window itself, Qt::WindowShortcut. For widgets that are not part     of a window (i.e., top-level widgets and their children),     Qt::WindowShortcut shortcuts apply to the scene.      If the same key \a sequence has been grabbed by several widgets,     when the key \a sequence occurs a QEvent::Shortcut event is sent     to all the widgets to which it applies in a non-deterministic     order, but with the ``ambiguous'' flag set to true.      \warning You should not normally need to use this function;     instead create \l{QAction}s with the shortcut key sequences you     require (if you also want equivalent menu options and toolbar     buttons), or create \l{QShortcut}s if you just need key sequences.     Both QAction and QShortcut handle all the event filtering for you,     and provide signals which are triggered when the user triggers the     key sequence, so are much easier to use than this low-level     function.      \sa releaseShortcut() setShortcutEnabled() QWidget::grabShortcut() */
+comment|/*!     \since 4.5      Adds a shortcut to Qt's shortcut system that watches for the given key \a     sequence in the given \a context. If the \a context is     Qt::ApplicationShortcut, the shortcut applies to the application as a     whole. Otherwise, it is either local to this widget, Qt::WidgetShortcut,     or to the window itself, Qt::WindowShortcut. For widgets that are not part     of a window (i.e., top-level widgets and their children),     Qt::WindowShortcut shortcuts apply to the scene.      If the same key \a sequence has been grabbed by several widgets,     when the key \a sequence occurs a QEvent::Shortcut event is sent     to all the widgets to which it applies in a non-deterministic     order, but with the ``ambiguous'' flag set to true.      \warning You should not normally need to use this function;     instead create \l{QAction}s with the shortcut key sequences you     require (if you also want equivalent menu options and toolbar     buttons), or create \l{QShortcut}s if you just need key sequences.     Both QAction and QShortcut handle all the event filtering for you,     and provide signals which are triggered when the user triggers the     key sequence, so are much easier to use than this low-level     function.      \sa releaseShortcut(), setShortcutEnabled(), QWidget::grabShortcut() */
 end_comment
 begin_function
 DECL|function|grabShortcut
@@ -5523,7 +5523,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.5      Removes the shortcut with the given \a id from Qt's shortcut     system. The widget will no longer receive QEvent::Shortcut events     for the shortcut's key sequence (unless it has other shortcuts     with the same key sequence).      \warning You should not normally need to use this function since     Qt's shortcut system removes shortcuts automatically when their     parent widget is destroyed. It is best to use QAction or     QShortcut to handle shortcuts, since they are easier to use than     this low-level function. Note also that this is an expensive     operation.      \sa grabShortcut() setShortcutEnabled() , QWidget::releaseShortcut() */
+comment|/*!     \since 4.5      Removes the shortcut with the given \a id from Qt's shortcut     system. The widget will no longer receive QEvent::Shortcut events     for the shortcut's key sequence (unless it has other shortcuts     with the same key sequence).      \warning You should not normally need to use this function since     Qt's shortcut system removes shortcuts automatically when their     parent widget is destroyed. It is best to use QAction or     QShortcut to handle shortcuts, since they are easier to use than     this low-level function. Note also that this is an expensive     operation.      \sa grabShortcut(), setShortcutEnabled(), QWidget::releaseShortcut() */
 end_comment
 begin_function
 DECL|function|releaseShortcut
@@ -5564,7 +5564,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.5      If \a enabled is true, the shortcut with the given \a id is     enabled; otherwise the shortcut is disabled.      \warning You should not normally need to use this function since     Qt's shortcut system enables/disables shortcuts automatically as     widgets become hidden/visible and gain or lose focus. It is best     to use QAction or QShortcut to handle shortcuts, since they are     easier to use than this low-level function.      \sa grabShortcut() releaseShortcut(), QWidget::setShortcutEnabled() */
+comment|/*!     \since 4.5      If \a enabled is true, the shortcut with the given \a id is     enabled; otherwise the shortcut is disabled.      \warning You should not normally need to use this function since     Qt's shortcut system enables/disables shortcuts automatically as     widgets become hidden/visible and gain or lose focus. It is best     to use QAction or QShortcut to handle shortcuts, since they are     easier to use than this low-level function.      \sa grabShortcut(), releaseShortcut(), QWidget::setShortcutEnabled() */
 end_comment
 begin_function
 DECL|function|setShortcutEnabled
@@ -5610,7 +5610,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.5      If \a enabled is true, auto repeat of the shortcut with the     given \a id is enabled; otherwise it is disabled.      \sa grabShortcut() releaseShortcut() QWidget::setShortcutAutoRepeat() */
+comment|/*!     \since 4.5      If \a enabled is true, auto repeat of the shortcut with the     given \a id is enabled; otherwise it is disabled.      \sa grabShortcut(), releaseShortcut(), QWidget::setShortcutAutoRepeat() */
 end_comment
 begin_function
 DECL|function|setShortcutAutoRepeat

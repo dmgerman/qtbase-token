@@ -5394,7 +5394,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Moves the cursor to the absolute position in the document specified by     \a pos using a \c MoveMode specified by \a m. The cursor is positioned     between characters.      \sa position() movePosition() anchor() */
+comment|/*!     Moves the cursor to the absolute position in the document specified by     \a pos using a \c MoveMode specified by \a m. The cursor is positioned     between characters.      \sa position(), movePosition(), anchor() */
 end_comment
 begin_function
 DECL|function|setPosition
@@ -5518,7 +5518,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the absolute position of the cursor within the document.     The cursor is positioned between characters.      \sa setPosition() movePosition() anchor() positionInBlock() */
+comment|/*!     Returns the absolute position of the cursor within the document.     The cursor is positioned between characters.      \sa setPosition(), movePosition(), anchor(), positionInBlock() */
 end_comment
 begin_function
 DECL|function|position
@@ -5591,7 +5591,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the anchor position; this is the same as position() unless     there is a selection in which case position() marks one end of the     selection and anchor() marks the other end. Just like the cursor     position, the anchor position is between characters.      \sa position() setPosition() movePosition() selectionStart() selectionEnd() */
+comment|/*!     Returns the anchor position; this is the same as position() unless     there is a selection in which case position() marks one end of the     selection and anchor() marks the other end. Just like the cursor     position, the anchor position is between characters.      \sa position(), setPosition(), movePosition(), selectionStart(), selectionEnd() */
 end_comment
 begin_function
 DECL|function|anchor
@@ -6007,7 +6007,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Inserts \a text at the current position, using the current     character format.      If there is a selection, the selection is deleted and replaced by     \a text, for example:     \snippet code/src_gui_text_qtextcursor.cpp 0     This clears any existing selection, selects the word at the cursor     (i.e. from position() forward), and replaces the selection with     the phrase "Hello World".      Any ASCII linefeed characters (\\n) in the inserted text are transformed     into unicode block separators, corresponding to insertBlock() calls.      \sa charFormat() hasSelection() */
+comment|/*!     Inserts \a text at the current position, using the current     character format.      If there is a selection, the selection is deleted and replaced by     \a text, for example:     \snippet code/src_gui_text_qtextcursor.cpp 0     This clears any existing selection, selects the word at the cursor     (i.e. from position() forward), and replaces the selection with     the phrase "Hello World".      Any ASCII linefeed characters (\\n) in the inserted text are transformed     into unicode block separators, corresponding to insertBlock() calls.      \sa charFormat(), hasSelection() */
 end_comment
 begin_function
 DECL|function|insertText
@@ -6445,7 +6445,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     If there is no selected text, deletes the character \e at the     current cursor position; otherwise deletes the selected text.      \sa deletePreviousChar() hasSelection() clearSelection() */
+comment|/*!     If there is no selected text, deletes the character \e at the     current cursor position; otherwise deletes the selected text.      \sa deletePreviousChar(), hasSelection(), clearSelection() */
 end_comment
 begin_function
 DECL|function|deleteChar
@@ -6531,7 +6531,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     If there is no selected text, deletes the character \e before the     current cursor position; otherwise deletes the selected text.      \sa deleteChar() hasSelection() clearSelection() */
+comment|/*!     If there is no selected text, deletes the character \e before the     current cursor position; otherwise deletes the selected text.      \sa deleteChar(), hasSelection(), clearSelection() */
 end_comment
 begin_function
 DECL|function|deletePreviousChar
@@ -7006,7 +7006,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Clears the current selection by setting the anchor to the cursor position.      Note that it does \b{not} delete the text of the selection.      \sa removeSelectedText() hasSelection() */
+comment|/*!     Clears the current selection by setting the anchor to the cursor position.      Note that it does \b{not} delete the text of the selection.      \sa removeSelectedText(), hasSelection() */
 end_comment
 begin_function
 DECL|function|clearSelection
@@ -7100,7 +7100,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the start of the selection or position() if the     cursor doesn't have a selection.      \sa selectionEnd() position() anchor() */
+comment|/*!     Returns the start of the selection or position() if the     cursor doesn't have a selection.      \sa selectionEnd(), position(), anchor() */
 end_comment
 begin_function
 DECL|function|selectionStart
@@ -7140,7 +7140,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the end of the selection or position() if the cursor     doesn't have a selection.      \sa selectionStart() position() anchor() */
+comment|/*!     Returns the end of the selection or position() if the cursor     doesn't have a selection.      \sa selectionStart(), position(), anchor() */
 end_comment
 begin_function
 DECL|function|selectionEnd
@@ -7606,7 +7606,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the block format of the block the cursor is in.      \sa setBlockFormat() charFormat()  */
+comment|/*!     Returns the block format of the block the cursor is in.      \sa setBlockFormat(), charFormat()  */
 end_comment
 begin_function
 DECL|function|blockFormat
@@ -8498,7 +8498,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Inserts a new block at the current position and makes it the first     list item of a newly created list with the given \a format. Returns     the created list.      \sa currentList() createList() insertBlock()  */
+comment|/*!     Inserts a new block at the current position and makes it the first     list item of a newly created list with the given \a format. Returns     the created list.      \sa currentList(), createList(), insertBlock()  */
 end_comment
 begin_function
 DECL|function|insertList
@@ -8554,7 +8554,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Creates and returns a new list with the given \a format, and makes the     current paragraph the cursor is in the first list item.      \sa insertList() currentList()  */
+comment|/*!     Creates and returns a new list with the given \a format, and makes the     current paragraph the cursor is in the first list item.      \sa insertList(), currentList()  */
 end_comment
 begin_function
 DECL|function|createList
@@ -8627,7 +8627,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Creates and returns a new list with the given \a style, making the     cursor's current paragraph the first list item.      The style to be used is defined by the QTextListFormat::Style enum.      \sa insertList() currentList()  */
+comment|/*!     \overload      Creates and returns a new list with the given \a style, making the     cursor's current paragraph the first list item.      The style to be used is defined by the QTextListFormat::Style enum.      \sa insertList(), currentList()  */
 end_comment
 begin_function
 DECL|function|createList
@@ -8662,7 +8662,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the current list if the cursor position() is inside a     block that is part of a list; otherwise returns 0.      \sa insertList() createList()  */
+comment|/*!     Returns the current list if the cursor position() is inside a     block that is part of a list; otherwise returns 0.      \sa insertList(), createList()  */
 end_comment
 begin_function
 DECL|function|currentList
@@ -9939,7 +9939,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this cursor and \a other are copies of each other, i.e.     one of them was created as a copy of the other and neither has moved since.     This is much stricter than equality.      \sa operator=() operator==() */
+comment|/*!     Returns true if this cursor and \a other are copies of each other, i.e.     one of them was created as a copy of the other and neither has moved since.     This is much stricter than equality.      \sa operator=(), operator==() */
 end_comment
 begin_function
 DECL|function|isCopyOf

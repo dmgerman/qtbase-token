@@ -2572,7 +2572,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the value of the property specified by \a propertyId. If the     property isn't of QTextFormat::Bool type, false is returned instead.      \sa setProperty() intProperty() doubleProperty() stringProperty() colorProperty() lengthProperty() lengthVectorProperty() Property */
+comment|/*!     Returns the value of the property specified by \a propertyId. If the     property isn't of QTextFormat::Bool type, false is returned instead.      \sa setProperty(), intProperty(), doubleProperty(), stringProperty(), colorProperty(),         lengthProperty(), lengthVectorProperty(), Property */
 end_comment
 begin_function
 DECL|function|boolProperty
@@ -2628,7 +2628,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the value of the property specified by \a propertyId. If the     property is not of QTextFormat::Integer type, 0 is returned instead.      \sa setProperty() boolProperty() doubleProperty() stringProperty() colorProperty() lengthProperty() lengthVectorProperty() Property */
+comment|/*!     Returns the value of the property specified by \a propertyId. If the     property is not of QTextFormat::Integer type, 0 is returned instead.      \sa setProperty(), boolProperty(), doubleProperty(), stringProperty(), colorProperty(),         lengthProperty(), lengthVectorProperty(), Property */
 end_comment
 begin_function
 DECL|function|intProperty
@@ -2705,7 +2705,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the value of the property specified by \a propertyId. If the     property isn't of QVariant::Double or QMetaType::Float type, 0 is     returned instead.      \sa setProperty() boolProperty() intProperty() stringProperty() colorProperty() lengthProperty() lengthVectorProperty() Property */
+comment|/*!     Returns the value of the property specified by \a propertyId. If the     property isn't of QVariant::Double or QMetaType::Float type, 0 is     returned instead.      \sa setProperty(), boolProperty(), intProperty(), stringProperty(), colorProperty(),         lengthProperty(), lengthVectorProperty(), Property */
 end_comment
 begin_function
 DECL|function|doubleProperty
@@ -2773,7 +2773,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the value of the property given by \a propertyId; if the     property isn't of QVariant::String type, an empty string is     returned instead.      \sa setProperty() boolProperty() intProperty() doubleProperty() colorProperty() lengthProperty() lengthVectorProperty() Property */
+comment|/*!     Returns the value of the property given by \a propertyId; if the     property isn't of QVariant::String type, an empty string is     returned instead.      \sa setProperty(), boolProperty(), intProperty(), doubleProperty(), colorProperty(),         lengthProperty(), lengthVectorProperty(), Property */
 end_comment
 begin_function
 DECL|function|stringProperty
@@ -2892,7 +2892,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the value of the property given by \a propertyId; if the     property isn't of QVariant::Pen type, Qt::NoPen is     returned instead.      \sa setProperty() boolProperty() intProperty() doubleProperty() stringProperty() lengthProperty() lengthVectorProperty() Property */
+comment|/*!     Returns the value of the property given by \a propertyId; if the     property isn't of QVariant::Pen type, Qt::NoPen is     returned instead.      \sa setProperty(), boolProperty(), intProperty(), doubleProperty(), stringProperty(),         lengthProperty(), lengthVectorProperty(), Property */
 end_comment
 begin_function
 DECL|function|penProperty
@@ -2961,7 +2961,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the value of the property given by \a propertyId; if the     property isn't of QVariant::Brush type, Qt::NoBrush is     returned instead.      \sa setProperty() boolProperty() intProperty() doubleProperty() stringProperty() lengthProperty() lengthVectorProperty() Property */
+comment|/*!     Returns the value of the property given by \a propertyId; if the     property isn't of QVariant::Brush type, Qt::NoBrush is     returned instead.      \sa setProperty(), boolProperty(), intProperty(), doubleProperty(), stringProperty(),         lengthProperty(), lengthVectorProperty(), Property */
 end_comment
 begin_function
 DECL|function|brushProperty
@@ -3030,7 +3030,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the value of the property given by \a propertyId.      \sa setProperty() boolProperty() intProperty() doubleProperty() stringProperty() colorProperty() lengthVectorProperty() Property */
+comment|/*!     Returns the value of the property given by \a propertyId.      \sa setProperty(), boolProperty(), intProperty(), doubleProperty(), stringProperty(),         colorProperty(), lengthVectorProperty(), Property */
 end_comment
 begin_function
 DECL|function|lengthProperty
@@ -3070,7 +3070,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the value of the property given by \a propertyId. If the     property isn't of QTextFormat::LengthVector type, an empty length     vector is returned instead.      \sa setProperty() boolProperty() intProperty() doubleProperty() stringProperty() colorProperty() lengthProperty() Property */
+comment|/*!     Returns the value of the property given by \a propertyId. If the     property isn't of QTextFormat::LengthVector type, an empty length     vector is returned instead.      \sa setProperty(), boolProperty(), intProperty(), doubleProperty(), stringProperty(),         colorProperty(), lengthProperty(), Property */
 end_comment
 begin_function
 DECL|function|lengthVectorProperty
@@ -3280,7 +3280,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the value of the property given by \a propertyId to \a value.      \sa lengthVectorProperty() Property */
+comment|/*!     Sets the value of the property given by \a propertyId to \a value.      \sa lengthVectorProperty(), Property */
 end_comment
 begin_function
 DECL|function|setProperty
@@ -3502,7 +3502,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the text format has a property with the given \a     propertyId; otherwise returns false.      \sa properties() Property */
+comment|/*!     Returns true if the text format has a property with the given \a     propertyId; otherwise returns false.      \sa properties(), Property */
 end_comment
 begin_function
 DECL|function|hasProperty
@@ -3531,7 +3531,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*     Returns the property type for the given \a propertyId.      \sa hasProperty() allPropertyIds() Property */
+comment|/*     Returns the property type for the given \a propertyId.      \sa hasProperty(), allPropertyIds(), Property */
 end_comment
 begin_comment
 comment|/*!     Returns a map with all properties of this text format. */
@@ -3749,7 +3749,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QTextCharFormat     \reentrant      \brief The QTextCharFormat class provides formatting information for     characters in a QTextDocument.      \ingroup richtext-processing      The character format of text in a document specifies the visual properties     of the text, as well as information about its role in a hypertext document.      The font used can be set by supplying a font to the setFont() function, and     each aspect of its appearance can be adjusted to give the desired effect.     setFontFamily() and setFontPointSize() define the font's family (e.g. Times)     and printed size; setFontWeight() and setFontItalic() provide control over     the style of the font. setFontUnderline(), setFontOverline(),     setFontStrikeOut(), and setFontFixedPitch() provide additional effects for     text.      The color is set with setForeground(). If the text is intended to be used     as an anchor (for hyperlinks), this can be enabled with setAnchor(). The     setAnchorHref() and setAnchorNames() functions are used to specify the     information about the hyperlink's destination and the anchor's name.      \sa QTextFormat QTextBlockFormat QTextTableFormat QTextListFormat */
+comment|/*!     \class QTextCharFormat     \reentrant      \brief The QTextCharFormat class provides formatting information for     characters in a QTextDocument.      \ingroup richtext-processing      The character format of text in a document specifies the visual properties     of the text, as well as information about its role in a hypertext document.      The font used can be set by supplying a font to the setFont() function, and     each aspect of its appearance can be adjusted to give the desired effect.     setFontFamily() and setFontPointSize() define the font's family (e.g. Times)     and printed size; setFontWeight() and setFontItalic() provide control over     the style of the font. setFontUnderline(), setFontOverline(),     setFontStrikeOut(), and setFontFixedPitch() provide additional effects for     text.      The color is set with setForeground(). If the text is intended to be used     as an anchor (for hyperlinks), this can be enabled with setAnchor(). The     setAnchorHref() and setAnchorNames() functions are used to specify the     information about the hyperlink's destination and the anchor's name.      \sa QTextFormat, QTextBlockFormat, QTextTableFormat, QTextListFormat */
 end_comment
 begin_comment
 comment|/*!     \enum QTextCharFormat::VerticalAlignment      This enum describes the ways that adjacent characters can be vertically     aligned.      \value AlignNormal  Adjacent characters are positioned in the standard                         way for text in the writing system in use.     \value AlignSuperScript Characters are placed above the base line for                             normal text.     \value AlignSubScript   Characters are placed below the base line for                             normal text.     \value AlignMiddle The center of the object is vertically aligned with the                        base line. Currently, this is only implemented for                        inline objects.     \value AlignBottom The bottom edge of the object is vertically aligned with                        the base line.     \value AlignTop    The top edge of the object is vertically aligned with                        the base line.     \value AlignBaseline The base lines of the characters are aligned. */
@@ -3948,19 +3948,19 @@ begin_comment
 comment|/*!     \fn QString QTextCharFormat::toolTip() const     \since 4.3      Returns the tool tip that is displayed for a fragment of text. */
 end_comment
 begin_comment
-comment|/*!     \fn void QTextFormat::setForeground(const QBrush&brush)      Sets the foreground brush to the specified \a brush. The foreground     brush is mostly used to render text.      \sa foreground() clearForeground() setBackground() */
+comment|/*!     \fn void QTextFormat::setForeground(const QBrush&brush)      Sets the foreground brush to the specified \a brush. The foreground     brush is mostly used to render text.      \sa foreground(), clearForeground(), setBackground() */
 end_comment
 begin_comment
-comment|/*!     \fn QBrush QTextFormat::foreground() const      Returns the brush used to render foreground details, such as text,     frame outlines, and table borders.      \sa setForeground() clearForeground() background() */
+comment|/*!     \fn QBrush QTextFormat::foreground() const      Returns the brush used to render foreground details, such as text,     frame outlines, and table borders.      \sa setForeground(), clearForeground(), background() */
 end_comment
 begin_comment
-comment|/*!     \fn void QTextFormat::clearForeground()      Clears the brush used to paint the document's foreground. The default     brush will be used.      \sa foreground() setForeground() clearBackground() */
+comment|/*!     \fn void QTextFormat::clearForeground()      Clears the brush used to paint the document's foreground. The default     brush will be used.      \sa foreground(), setForeground(), clearBackground() */
 end_comment
 begin_comment
 comment|/*!     \fn void QTextCharFormat::setAnchor(bool anchor)      If \a anchor is true, text with this format represents an anchor, and is     formatted in the appropriate way; otherwise the text is formatted normally.     (Anchors are hyperlinks which are often shown underlined and in a different     color from plain text.)      The way the text is rendered is independent of whether or not the format     has a valid anchor defined. Use setAnchorHref(), and optionally     setAnchorNames() to create a hypertext link.      \sa isAnchor() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTextCharFormat::isAnchor() const      Returns true if the text is formatted as an anchor; otherwise     returns false.      \sa setAnchor() setAnchorHref() setAnchorNames() */
+comment|/*!     \fn bool QTextCharFormat::isAnchor() const      Returns true if the text is formatted as an anchor; otherwise     returns false.      \sa setAnchor(), setAnchorHref(), setAnchorNames() */
 end_comment
 begin_comment
 comment|/*!     \fn void QTextCharFormat::setAnchorHref(const QString&value)      Sets the hypertext link for the text format to the given \a value.     This is typically a URL like "http://example.com/index.html".      The anchor will be displayed with the \a value as its display text;     if you want to display different text call setAnchorNames().      To format the text as a hypertext link use setAnchor(). */
@@ -4621,37 +4621,37 @@ begin_comment
 comment|/*!     \fn Qt::Alignment QTextBlockFormat::alignment() const      Returns the paragraph's alignment.      \sa setAlignment() */
 end_comment
 begin_comment
-comment|/*!     \fn void QTextBlockFormat::setTopMargin(qreal margin)      Sets the paragraph's top \a margin.      \sa topMargin() setBottomMargin() setLeftMargin() setRightMargin() */
+comment|/*!     \fn void QTextBlockFormat::setTopMargin(qreal margin)      Sets the paragraph's top \a margin.      \sa topMargin(), setBottomMargin(), setLeftMargin(), setRightMargin() */
 end_comment
 begin_comment
-comment|/*!     \fn qreal QTextBlockFormat::topMargin() const      Returns the paragraph's top margin.      \sa setTopMargin() bottomMargin() */
+comment|/*!     \fn qreal QTextBlockFormat::topMargin() const      Returns the paragraph's top margin.      \sa setTopMargin(), bottomMargin() */
 end_comment
 begin_comment
-comment|/*!     \fn void QTextBlockFormat::setBottomMargin(qreal margin)      Sets the paragraph's bottom \a margin.      \sa bottomMargin() setTopMargin() setLeftMargin() setRightMargin() */
+comment|/*!     \fn void QTextBlockFormat::setBottomMargin(qreal margin)      Sets the paragraph's bottom \a margin.      \sa bottomMargin(), setTopMargin(), setLeftMargin(), setRightMargin() */
 end_comment
 begin_comment
-comment|/*!     \fn qreal QTextBlockFormat::bottomMargin() const      Returns the paragraph's bottom margin.      \sa setBottomMargin() topMargin() */
+comment|/*!     \fn qreal QTextBlockFormat::bottomMargin() const      Returns the paragraph's bottom margin.      \sa setBottomMargin(), topMargin() */
 end_comment
 begin_comment
-comment|/*!     \fn void QTextBlockFormat::setLeftMargin(qreal margin)      Sets the paragraph's left \a margin. Indentation can be applied separately     with setIndent().      \sa leftMargin() setRightMargin() setTopMargin() setBottomMargin() */
+comment|/*!     \fn void QTextBlockFormat::setLeftMargin(qreal margin)      Sets the paragraph's left \a margin. Indentation can be applied separately     with setIndent().      \sa leftMargin(), setRightMargin(), setTopMargin(), setBottomMargin() */
 end_comment
 begin_comment
-comment|/*!     \fn qreal QTextBlockFormat::leftMargin() const      Returns the paragraph's left margin.      \sa setLeftMargin() rightMargin() indent() */
+comment|/*!     \fn qreal QTextBlockFormat::leftMargin() const      Returns the paragraph's left margin.      \sa setLeftMargin(), rightMargin(), indent() */
 end_comment
 begin_comment
-comment|/*!     \fn void QTextBlockFormat::setRightMargin(qreal margin)      Sets the paragraph's right \a margin.      \sa rightMargin() setLeftMargin() setTopMargin() setBottomMargin() */
+comment|/*!     \fn void QTextBlockFormat::setRightMargin(qreal margin)      Sets the paragraph's right \a margin.      \sa rightMargin(), setLeftMargin(), setTopMargin(), setBottomMargin() */
 end_comment
 begin_comment
-comment|/*!     \fn qreal QTextBlockFormat::rightMargin() const      Returns the paragraph's right margin.      \sa setRightMargin() leftMargin() */
+comment|/*!     \fn qreal QTextBlockFormat::rightMargin() const      Returns the paragraph's right margin.      \sa setRightMargin(), leftMargin() */
 end_comment
 begin_comment
-comment|/*!     \fn void QTextBlockFormat::setTextIndent(qreal indent)      Sets the \a indent for the first line in the block. This allows the first     line of a paragraph to be indented differently to the other lines,     enhancing the readability of the text.      \sa textIndent() setLeftMargin() setRightMargin() setTopMargin() setBottomMargin() */
+comment|/*!     \fn void QTextBlockFormat::setTextIndent(qreal indent)      Sets the \a indent for the first line in the block. This allows the first     line of a paragraph to be indented differently to the other lines,     enhancing the readability of the text.      \sa textIndent(), setLeftMargin(), setRightMargin(), setTopMargin(), setBottomMargin() */
 end_comment
 begin_comment
 comment|/*!     \fn qreal QTextBlockFormat::textIndent() const      Returns the paragraph's text indent.      \sa setTextIndent() */
 end_comment
 begin_comment
-comment|/*!     \fn void QTextBlockFormat::setIndent(int indentation)      Sets the paragraph's \a indentation. Margins are set independently of     indentation with setLeftMargin() and setTextIndent().     The \a indentation is an integer that is multiplied with the document-wide     standard indent, resulting in the actual indent of the paragraph.      \sa indent() QTextDocument::indentWidth() */
+comment|/*!     \fn void QTextBlockFormat::setIndent(int indentation)      Sets the paragraph's \a indentation. Margins are set independently of     indentation with setLeftMargin() and setTextIndent().     The \a indentation is an integer that is multiplied with the document-wide     standard indent, resulting in the actual indent of the paragraph.      \sa indent(), QTextDocument::indentWidth() */
 end_comment
 begin_comment
 comment|/*!     \fn int QTextBlockFormat::indent() const      Returns the paragraph's indent.      \sa setIndent() */
@@ -4733,10 +4733,10 @@ begin_comment
 comment|/*!     \fn bool QTextListFormat::isValid() const      Returns true if this list format is valid; otherwise     returns false. */
 end_comment
 begin_comment
-comment|/*!     \fn void QTextListFormat::setStyle(Style style)      Sets the list format's \a style.      \sa style() Style */
+comment|/*!     \fn void QTextListFormat::setStyle(Style style)      Sets the list format's \a style.      \sa style(), Style */
 end_comment
 begin_comment
-comment|/*!     \fn Style QTextListFormat::style() const      Returns the list format's style.      \sa setStyle() Style */
+comment|/*!     \fn Style QTextListFormat::style() const      Returns the list format's style.      \sa setStyle(), Style */
 end_comment
 begin_comment
 comment|/*!     \fn void QTextListFormat::setIndent(int indentation)      Sets the list format's \a indentation.     The indentation is multiplied by the QTextDocument::indentWidth     property to get the effective indent in pixels.      \sa indent() */
@@ -4757,13 +4757,13 @@ begin_comment
 comment|/*!     \fn int QTextListFormat::numberSuffix() const     \since 4.8      Returns the list format's number suffix.      \sa setNumberSuffix() */
 end_comment
 begin_comment
-comment|/*!     \class QTextFrameFormat     \reentrant      \brief The QTextFrameFormat class provides formatting information for     frames in a QTextDocument.      \ingroup richtext-processing      A text frame groups together one or more blocks of text, providing a layer     of structure larger than the paragraph. The format of a frame specifies     how it is rendered and positioned on the screen. It does not directly     specify the behavior of the text formatting within, but provides     constraints on the layout of its children.      The frame format defines the width() and height() of the frame on the     screen. Each frame can have a border() that surrounds its contents with     a rectangular box. The border is surrounded by a margin() around the frame,     and the contents of the frame are kept separate from the border by the     frame's padding(). This scheme is similar to the box model used by Cascading     Style Sheets for HTML pages.      \img qtextframe-style.png      The position() of a frame is set using setPosition() and determines how it     is located relative to the surrounding text.      The validity of a QTextFrameFormat object can be determined with the     isValid() function.      \sa QTextFrame QTextBlockFormat */
+comment|/*!     \class QTextFrameFormat     \reentrant      \brief The QTextFrameFormat class provides formatting information for     frames in a QTextDocument.      \ingroup richtext-processing      A text frame groups together one or more blocks of text, providing a layer     of structure larger than the paragraph. The format of a frame specifies     how it is rendered and positioned on the screen. It does not directly     specify the behavior of the text formatting within, but provides     constraints on the layout of its children.      The frame format defines the width() and height() of the frame on the     screen. Each frame can have a border() that surrounds its contents with     a rectangular box. The border is surrounded by a margin() around the frame,     and the contents of the frame are kept separate from the border by the     frame's padding(). This scheme is similar to the box model used by Cascading     Style Sheets for HTML pages.      \img qtextframe-style.png      The position() of a frame is set using setPosition() and determines how it     is located relative to the surrounding text.      The validity of a QTextFrameFormat object can be determined with the     isValid() function.      \sa QTextFrame, QTextBlockFormat */
 end_comment
 begin_comment
-comment|/*!     \enum QTextFrameFormat::Position      This enum describes how a frame is located relative to the surrounding text.      \value InFlow     \value FloatLeft     \value FloatRight      \sa position() CssFloat */
+comment|/*!     \enum QTextFrameFormat::Position      This enum describes how a frame is located relative to the surrounding text.      \value InFlow     \value FloatLeft     \value FloatRight      \sa position(), CssFloat */
 end_comment
 begin_comment
-comment|/*!     \enum QTextFrameFormat::BorderStyle     \since 4.3      This enum describes different border styles for the text frame.      \value BorderStyle_None     \value BorderStyle_Dotted     \value BorderStyle_Dashed     \value BorderStyle_Solid     \value BorderStyle_Double     \value BorderStyle_DotDash     \value BorderStyle_DotDotDash     \value BorderStyle_Groove     \value BorderStyle_Ridge     \value BorderStyle_Inset     \value BorderStyle_Outset      \sa borderStyle() FrameBorderStyle */
+comment|/*!     \enum QTextFrameFormat::BorderStyle     \since 4.3      This enum describes different border styles for the text frame.      \value BorderStyle_None     \value BorderStyle_Dotted     \value BorderStyle_Dashed     \value BorderStyle_Solid     \value BorderStyle_Double     \value BorderStyle_DotDash     \value BorderStyle_DotDotDash     \value BorderStyle_Groove     \value BorderStyle_Ridge     \value BorderStyle_Inset     \value BorderStyle_Outset      \sa borderStyle(), FrameBorderStyle */
 end_comment
 begin_comment
 comment|/*!     \fn QTextFrameFormat::QTextFrameFormat()      Constructs a text frame format object with the default properties. */
@@ -5067,7 +5067,7 @@ begin_comment
 comment|/*!     \fn qreal QTextFrameFormat::height() const      Returns the height of the frame's border rectangle. */
 end_comment
 begin_comment
-comment|/*!     \class QTextTableFormat     \reentrant      \brief The QTextTableFormat class provides formatting information for     tables in a QTextDocument.      \ingroup richtext-processing      A table is a group of cells ordered into rows and columns. Each table     contains at least one row and one column. Each cell contains a block.     Tables in rich text documents are formatted using the properties     defined in this class.      Tables are horizontally justified within their parent frame according to the     table's alignment. This can be read with the alignment() function and set     with setAlignment().      Cells within the table are separated by cell spacing. The number of pixels     between cells is set with setCellSpacing() and read with cellSpacing().     The contents of each cell is surrounded by cell padding. The number of pixels     between each cell edge and its contents is set with setCellPadding() and read     with cellPadding().      \image qtexttableformat-cell.png      The table's background color can be read with the background() function,     and can be specified with setBackground(). The background color of each     cell can be set independently, and will control the color of the cell within     the padded area.      The table format also provides a way to constrain the widths of the columns     in the table. Columns can be assigned a fixed width, a variable width, or     a percentage of the available width (see QTextLength). The columns() function     returns the number of columns with constraints, and the     columnWidthConstraints() function returns the constraints defined for the     table. These quantities can also be set by calling setColumnWidthConstraints()     with a vector containing new constraints. If no constraints are     required, clearColumnWidthConstraints() can be used to remove them.      \sa QTextTable QTextTableCell QTextLength */
+comment|/*!     \class QTextTableFormat     \reentrant      \brief The QTextTableFormat class provides formatting information for     tables in a QTextDocument.      \ingroup richtext-processing      A table is a group of cells ordered into rows and columns. Each table     contains at least one row and one column. Each cell contains a block.     Tables in rich text documents are formatted using the properties     defined in this class.      Tables are horizontally justified within their parent frame according to the     table's alignment. This can be read with the alignment() function and set     with setAlignment().      Cells within the table are separated by cell spacing. The number of pixels     between cells is set with setCellSpacing() and read with cellSpacing().     The contents of each cell is surrounded by cell padding. The number of pixels     between each cell edge and its contents is set with setCellPadding() and read     with cellPadding().      \image qtexttableformat-cell.png      The table's background color can be read with the background() function,     and can be specified with setBackground(). The background color of each     cell can be set independently, and will control the color of the cell within     the padded area.      The table format also provides a way to constrain the widths of the columns     in the table. Columns can be assigned a fixed width, a variable width, or     a percentage of the available width (see QTextLength). The columns() function     returns the number of columns with constraints, and the     columnWidthConstraints() function returns the constraints defined for the     table. These quantities can also be set by calling setColumnWidthConstraints()     with a vector containing new constraints. If no constraints are     required, clearColumnWidthConstraints() can be used to remove them.      \sa QTextTable, QTextTableCell, QTextLength */
 end_comment
 begin_comment
 comment|/*!     \fn QTextTableFormat::QTextTableFormat()      Constructs a new table format object. */
@@ -5130,10 +5130,10 @@ begin_comment
 comment|/*!     \internal     \fn void QTextTableFormat::setColumns(int columns)      Sets the number of \a columns required by the table format.      \sa columns() */
 end_comment
 begin_comment
-comment|/*!     \fn void QTextTableFormat::clearColumnWidthConstraints()      Clears the column width constraints for the table.      \sa columnWidthConstraints() setColumnWidthConstraints() */
+comment|/*!     \fn void QTextTableFormat::clearColumnWidthConstraints()      Clears the column width constraints for the table.      \sa columnWidthConstraints(), setColumnWidthConstraints() */
 end_comment
 begin_comment
-comment|/*!     \fn void QTextTableFormat::setColumnWidthConstraints(const QVector<QTextLength>&constraints)      Sets the column width \a constraints for the table.      \sa columnWidthConstraints() clearColumnWidthConstraints() */
+comment|/*!     \fn void QTextTableFormat::setColumnWidthConstraints(const QVector<QTextLength>&constraints)      Sets the column width \a constraints for the table.      \sa columnWidthConstraints(), clearColumnWidthConstraints() */
 end_comment
 begin_comment
 comment|/*!     \fn QVector<QTextLength> QTextTableFormat::columnWidthConstraints() const      Returns a list of constraints used by this table format to control the     appearance of columns in a table.      \sa setColumnWidthConstraints() */
@@ -5163,13 +5163,13 @@ begin_comment
 comment|/*!     \fn int QTextTableFormat::headerRowCount() const     \since 4.2      Returns the number of rows in the table that define the header.      \sa setHeaderRowCount() */
 end_comment
 begin_comment
-comment|/*!     \fn void QTextFormat::setBackground(const QBrush&brush)      Sets the brush use to paint the document's background to the     \a brush specified.      \sa background() clearBackground() setForeground() */
+comment|/*!     \fn void QTextFormat::setBackground(const QBrush&brush)      Sets the brush use to paint the document's background to the     \a brush specified.      \sa background(), clearBackground(), setForeground() */
 end_comment
 begin_comment
-comment|/*!     \fn QColor QTextFormat::background() const      Returns the brush used to paint the document's background.      \sa setBackground() clearBackground() foreground() */
+comment|/*!     \fn QColor QTextFormat::background() const      Returns the brush used to paint the document's background.      \sa setBackground(), clearBackground(), foreground() */
 end_comment
 begin_comment
-comment|/*!     \fn void QTextFormat::clearBackground()      Clears the brush used to paint the document's background. The default     brush will be used.      \sa background() setBackground() clearForeground() */
+comment|/*!     \fn void QTextFormat::clearBackground()      Clears the brush used to paint the document's background. The default     brush will be used.      \sa background(), setBackground(), clearForeground() */
 end_comment
 begin_comment
 comment|/*!     \class QTextImageFormat     \reentrant      \brief The QTextImageFormat class provides formatting information for     images in a QTextDocument.      \ingroup richtext-processing      Inline images are represented by an object replacement character     (0xFFFC in Unicode) which has an associated QTextImageFormat. The     image format specifies a name with setName() that is used to     locate the image. The size of the rectangle that the image will     occupy is specified using setWidth() and setHeight().      Images can be supplied in any format for which Qt has an image     reader, so SVG drawings can be included alongside PNG, TIFF and     other bitmap formats.      \sa QImage, QImageReader */
@@ -5225,16 +5225,16 @@ begin_comment
 comment|/*!     \fn QString QTextImageFormat::name() const      Returns the name of the image. The name refers to an entry in the     application's resources file.      \sa setName() */
 end_comment
 begin_comment
-comment|/*!     \fn void QTextImageFormat::setWidth(qreal width)      Sets the \a width of the rectangle occupied by the image.      \sa width() setHeight() */
+comment|/*!     \fn void QTextImageFormat::setWidth(qreal width)      Sets the \a width of the rectangle occupied by the image.      \sa width(), setHeight() */
 end_comment
 begin_comment
-comment|/*!     \fn qreal QTextImageFormat::width() const      Returns the width of the rectangle occupied by the image.      \sa height() setWidth() */
+comment|/*!     \fn qreal QTextImageFormat::width() const      Returns the width of the rectangle occupied by the image.      \sa height(), setWidth() */
 end_comment
 begin_comment
-comment|/*!     \fn void QTextImageFormat::setHeight(qreal height)      Sets the \a height of the rectangle occupied by the image.      \sa height() setWidth() */
+comment|/*!     \fn void QTextImageFormat::setHeight(qreal height)      Sets the \a height of the rectangle occupied by the image.      \sa height(), setWidth() */
 end_comment
 begin_comment
-comment|/*!     \fn qreal QTextImageFormat::height() const      Returns the height of the rectangle occupied by the image.      \sa width() setHeight() */
+comment|/*!     \fn qreal QTextImageFormat::height() const      Returns the height of the rectangle occupied by the image.      \sa width(), setHeight() */
 end_comment
 begin_comment
 comment|/*!     \fn void QTextCharFormat::setFontCapitalization(QFont::Capitalization capitalization)     \since 4.4      Sets the capitalization of the text that apppears in this font to \a capitalization.      A font's capitalization makes the text appear in the selected capitalization mode.      \sa fontCapitalization() */
@@ -5338,7 +5338,7 @@ argument_list|)
 block|{ }
 end_constructor
 begin_comment
-comment|/*!     \class QTextTableCellFormat     \reentrant     \since 4.4      \brief The QTextTableCellFormat class provides formatting information for     table cells in a QTextDocument.      \ingroup richtext-processing      The table cell format of a table cell in a document specifies the visual     properties of the table cell.      The padding properties of a table cell are controlled by setLeftPadding(),     setRightPadding(), setTopPadding(), and setBottomPadding(). All the paddings     can be set at once using setPadding().      \sa QTextFormat QTextBlockFormat QTextTableFormat QTextCharFormat */
+comment|/*!     \class QTextTableCellFormat     \reentrant     \since 4.4      \brief The QTextTableCellFormat class provides formatting information for     table cells in a QTextDocument.      \ingroup richtext-processing      The table cell format of a table cell in a document specifies the visual     properties of the table cell.      The padding properties of a table cell are controlled by setLeftPadding(),     setRightPadding(), setTopPadding(), and setBottomPadding(). All the paddings     can be set at once using setPadding().      \sa QTextFormat, QTextBlockFormat, QTextTableFormat, QTextCharFormat */
 end_comment
 begin_comment
 comment|// ------------------------------------------------------

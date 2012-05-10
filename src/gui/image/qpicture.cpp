@@ -4644,7 +4644,7 @@ include|#
 directive|include
 file|"qpictureformatplugin.h"
 name|QT_END_INCLUDE_NAMESPACE
-comment|/*!     \obsolete      Returns a string that specifies the picture format of the file \a     fileName, or 0 if the file cannot be read or if the format is not     recognized.      \sa load() save() */
+comment|/*!     \obsolete      Returns a string that specifies the picture format of the file \a     fileName, or 0 if the file cannot be read or if the format is not     recognized.      \sa load(), save() */
 DECL|function|pictureFormat
 specifier|const
 name|char
@@ -4670,7 +4670,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \obsolete      Returns a list of picture formats that are supported for picture     input.      \sa outputFormats() inputFormatList() QPictureIO */
+comment|/*!     \obsolete      Returns a list of picture formats that are supported for picture     input.      \sa outputFormats(), inputFormatList(), QPictureIO */
 end_comment
 begin_function
 DECL|function|inputFormats
@@ -4748,7 +4748,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \obsolete      Returns a list of picture formats that are supported for picture     input.      Note that if you want to iterate over the list, you should iterate     over a copy, e.g.     \snippet picture/picture.cpp 2      \sa outputFormatList() inputFormats() QPictureIO */
+comment|/*!     \obsolete      Returns a list of picture formats that are supported for picture     input.      Note that if you want to iterate over the list, you should iterate     over a copy, e.g.     \snippet picture/picture.cpp 2      \sa outputFormatList(), inputFormats(), QPictureIO */
 end_comment
 begin_function
 DECL|function|inputFormatList
@@ -4770,7 +4770,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \obsolete      Returns a list of picture formats that are supported for picture     output.      Note that if you want to iterate over the list, you should iterate     over a copy, e.g.     \snippet picture/picture.cpp 3      \sa inputFormatList() outputFormats() QPictureIO */
+comment|/*!     \obsolete      Returns a list of picture formats that are supported for picture     output.      Note that if you want to iterate over the list, you should iterate     over a copy, e.g.     \snippet picture/picture.cpp 3      \sa inputFormatList(), outputFormats(), QPictureIO */
 end_comment
 begin_function
 DECL|function|outputFormatList
@@ -4792,7 +4792,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \obsolete      Returns a list of picture formats that are supported for picture     output.      \sa inputFormats() outputFormatList() QPictureIO */
+comment|/*!     \obsolete      Returns a list of picture formats that are supported for picture     output.      \sa inputFormats(), outputFormatList(), QPictureIO */
 end_comment
 begin_function
 DECL|function|outputFormats
@@ -4817,7 +4817,7 @@ begin_comment
 comment|/*****************************************************************************   QPictureIO member functions  *****************************************************************************/
 end_comment
 begin_comment
-comment|/*!     \obsolete      \class QPictureIO      \brief The QPictureIO class contains parameters for loading and     saving pictures.      \ingroup painting     \ingroup io      QPictureIO contains a QIODevice object that is used for picture data     I/O. The programmer can install new picture file formats in addition     to those that Qt provides.      You don't normally need to use this class; QPicture::load(),     QPicture::save().      \sa QPicture QPixmap QFile */
+comment|/*!     \obsolete      \class QPictureIO      \brief The QPictureIO class contains parameters for loading and     saving pictures.      \ingroup painting     \ingroup io      QPictureIO contains a QIODevice object that is used for picture data     I/O. The programmer can install new picture file formats in addition     to those that Qt provides.      You don't normally need to use this class; QPicture::load(),     QPicture::save().      \sa QPicture, QPixmap, QFile */
 end_comment
 begin_struct
 DECL|struct|QPictureIOData
@@ -5747,7 +5747,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the picture format to \a format for the picture to be read or     written.      It is necessary to specify a format before writing an picture, but     it is not necessary to specify a format before reading an picture.      If no format has been set, Qt guesses the picture format before     reading it. If a format is set the picture will only be read if it     has that format.      \sa read() write() format() */
+comment|/*!     Sets the picture format to \a format for the picture to be read or     written.      It is necessary to specify a format before writing an picture, but     it is not necessary to specify a format before reading an picture.      If no format has been set, Qt guesses the picture format before     reading it. If a format is set the picture will only be read if it     has that format.      \sa read(), write(), format() */
 end_comment
 begin_function
 DECL|function|setFormat
@@ -5818,7 +5818,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the quality of the written picture, related to the     compression ratio.      \sa setQuality() QPicture::save() */
+comment|/*!     Returns the quality of the written picture, related to the     compression ratio.      \sa setQuality(), QPicture::save() */
 end_comment
 begin_function
 DECL|function|quality
@@ -5837,7 +5837,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the quality of the written picture to \a q, related to the     compression ratio.      \a q must be in the range -1..100. Specify 0 to obtain small     compressed files, 100 for large uncompressed files. (-1 signifies     the default compression.)      \sa quality() QPicture::save() */
+comment|/*!     Sets the quality of the written picture to \a q, related to the     compression ratio.      \a q must be in the range -1..100. Specify 0 to obtain small     compressed files, 100 for large uncompressed files. (-1 signifies     the default compression.)      \sa quality(), QPicture::save() */
 end_comment
 begin_function
 DECL|function|setQuality
@@ -6472,7 +6472,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Reads an picture into memory and returns true if the picture was     successfully read; otherwise returns false.      Before reading an picture you must set an IO device or a file name.     If both an IO device and a file name have been set, the IO device     will be used.      Setting the picture file format string is optional.      Note that this function does \e not set the \link format()     format\endlink used to read the picture. If you need that     information, use the pictureFormat() static functions.      Example:      \snippet picture/picture.cpp 4      \sa setIODevice() setFileName() setFormat() write() QPixmap::load() */
+comment|/*!     Reads an picture into memory and returns true if the picture was     successfully read; otherwise returns false.      Before reading an picture you must set an IO device or a file name.     If both an IO device and a file name have been set, the IO device     will be used.      Setting the picture file format string is optional.      Note that this function does \e not set the \link format()     format\endlink used to read the picture. If you need that     information, use the pictureFormat() static functions.      Example:      \snippet picture/picture.cpp 4      \sa setIODevice(), setFileName(), setFormat(), write(), QPixmap::load() */
 end_comment
 begin_function
 DECL|function|read
@@ -6739,7 +6739,7 @@ comment|// picture successfully read?
 block|}
 end_function
 begin_comment
-comment|/*!     Writes an picture to an IO device and returns true if the picture was     successfully written; otherwise returns false.      Before writing an picture you must set an IO device or a file name.     If both an IO device and a file name have been set, the IO device     will be used.      The picture will be written using the specified picture format.      Example:     \snippet picture/picture.cpp 5      \sa setIODevice() setFileName() setFormat() read() QPixmap::save() */
+comment|/*!     Writes an picture to an IO device and returns true if the picture was     successfully written; otherwise returns false.      Before writing an picture you must set an IO device or a file name.     If both an IO device and a file name have been set, the IO device     will be used.      The picture will be written using the specified picture format.      Example:     \snippet picture/picture.cpp 5      \sa setIODevice(), setFileName(), setFormat(), read(), QPixmap::save() */
 end_comment
 begin_function
 DECL|function|write

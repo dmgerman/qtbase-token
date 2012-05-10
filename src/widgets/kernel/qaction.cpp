@@ -1801,7 +1801,7 @@ begin_comment
 comment|// QT_NO_SHORTCUT
 end_comment
 begin_comment
-comment|/*!     \property QAction::font     \brief the action's font      The font property is used to render the text set on the     QAction. The font will can be considered a hint as it will not be     consulted in all cases based upon application and style.      By default, this property contains the application's default font.      \sa QAction::setText() QStyle */
+comment|/*!     \property QAction::font     \brief the action's font      The font property is used to render the text set on the     QAction. The font will can be considered a hint as it will not be     consulted in all cases based upon application and style.      By default, this property contains the application's default font.      \sa QAction::setText(), QStyle */
 end_comment
 begin_function
 DECL|function|setFont
@@ -2572,7 +2572,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QAction::toolTip     \brief the action's tooltip      This text is used for the tooltip. If no tooltip is specified,     the action's text is used.      By default, this property contains the action's text.      \sa setStatusTip() setShortcut() */
+comment|/*!     \property QAction::toolTip     \brief the action's tooltip      This text is used for the tooltip. If no tooltip is specified,     the action's text is used.      By default, this property contains the action's text.      \sa setStatusTip(), setShortcut() */
 end_comment
 begin_function
 DECL|function|setToolTip
@@ -2674,7 +2674,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QAction::statusTip     \brief the action's status tip      The status tip is displayed on all status bars provided by the     action's top-level parent widget.      By default, this property contains an empty string.      \sa setToolTip() showStatusText() */
+comment|/*!     \property QAction::statusTip     \brief the action's status tip      The status tip is displayed on all status bars provided by the     action's top-level parent widget.      By default, this property contains an empty string.      \sa setToolTip(), showStatusText() */
 end_comment
 begin_function
 DECL|function|setStatusTip
@@ -3796,7 +3796,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QAction::iconVisibleInMenu     \brief Whether or not an action should show an icon in a menu     \since 4.4      In some applications, it may make sense to have actions with icons in the     toolbar, but not in menus. If true, the icon (if valid) is shown in the menu, when it     is false, it is not shown.      The default is to follow whether the Qt::AA_DontShowIconsInMenus attribute     is set for the application. Explicitly settings this property overrides     the presence (or abscence) of the attribute.      For example:     \snippet code/src_gui_kernel_qaction.cpp 0      \sa QAction::icon QApplication::setAttribute() */
+comment|/*!     \property QAction::iconVisibleInMenu     \brief Whether or not an action should show an icon in a menu     \since 4.4      In some applications, it may make sense to have actions with icons in the     toolbar, but not in menus. If true, the icon (if valid) is shown in the menu, when it     is false, it is not shown.      The default is to follow whether the Qt::AA_DontShowIconsInMenus attribute     is set for the application. Explicitly settings this property overrides     the presence (or abscence) of the attribute.      For example:     \snippet code/src_gui_kernel_qaction.cpp 0      \sa QAction::icon, QApplication::setAttribute() */
 end_comment
 begin_function
 DECL|function|setIconVisibleInMenu

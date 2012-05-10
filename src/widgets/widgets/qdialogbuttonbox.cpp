@@ -3401,13 +3401,13 @@ begin_comment
 comment|/*!     \fn void QDialogButtonBox::clicked(QAbstractButton *button)      This signal is emitted when a button inside the button box is clicked. The     specific button that was pressed is specified by \a button.      \sa accepted(), rejected(), helpRequested() */
 end_comment
 begin_comment
-comment|/*!     \fn void QDialogButtonBox::accepted()      This signal is emitted when a button inside the button box is clicked, as long     as it was defined with the \l AcceptRole or \l YesRole.      \sa rejected(), clicked() helpRequested() */
+comment|/*!     \fn void QDialogButtonBox::accepted()      This signal is emitted when a button inside the button box is clicked, as long     as it was defined with the \l AcceptRole or \l YesRole.      \sa rejected(), clicked(), helpRequested() */
 end_comment
 begin_comment
-comment|/*!     \fn void QDialogButtonBox::rejected()      This signal is emitted when a button inside the button box is clicked, as long     as it was defined with the \l RejectRole or \l NoRole.      \sa accepted() helpRequested() clicked() */
+comment|/*!     \fn void QDialogButtonBox::rejected()      This signal is emitted when a button inside the button box is clicked, as long     as it was defined with the \l RejectRole or \l NoRole.      \sa accepted(), helpRequested(), clicked() */
 end_comment
 begin_comment
-comment|/*!     \fn void QDialogButtonBox::helpRequested()      This signal is emitted when a button inside the button box is clicked, as long     as it was defined with the \l HelpRole.      \sa accepted() rejected() clicked() */
+comment|/*!     \fn void QDialogButtonBox::helpRequested()      This signal is emitted when a button inside the button box is clicked, as long     as it was defined with the \l HelpRole.      \sa accepted(), rejected(), clicked() */
 end_comment
 begin_comment
 comment|/*!     \property QDialogButtonBox::orientation     \brief the orientation of the button box      By default, the orientation is horizontal (i.e. the buttons are laid out     side by side). The possible orientations are Qt::Horizontal and     Qt::Vertical. */
