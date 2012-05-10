@@ -241,8 +241,18 @@ name|int
 name|init_libthai
 parameter_list|()
 block|{
+specifier|static
+name|HB_Bool
+name|initialized
+init|=
+name|false
+decl_stmt|;
 if|if
 condition|(
+operator|!
+name|initialized
+operator|&&
+operator|(
 operator|!
 name|th_brk
 operator|||
@@ -257,6 +267,7 @@ name|th_render_cell_win
 operator|||
 operator|!
 name|th_render_cell_mac
+operator|)
 condition|)
 block|{
 name|th_brk
@@ -340,6 +351,10 @@ name|LIBTHAI_MAJOR
 argument_list|,
 literal|"th_render_cell_mac"
 argument_list|)
+expr_stmt|;
+name|initialized
+operator|=
+name|true
 expr_stmt|;
 block|}
 if|if
