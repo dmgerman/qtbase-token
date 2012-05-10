@@ -2156,14 +2156,9 @@ block|;
 name|NodeMap
 name|serviceClasses
 block|;
-ifdef|#
-directive|ifdef
-name|QDOC_QML
 name|NodeMap
 name|qmlClasses
 block|;
-endif|#
-directive|endif
 name|QMap
 operator|<
 name|QString
@@ -2251,10 +2246,6 @@ directive|define
 name|DITAXMLGENERATOR_GENERATEMACREFS
 value|"generatemacrefs"
 end_define
-begin_comment
-DECL|macro|DITAXMLGENERATOR_GENERATEMACREFS
-comment|// ### document me
-end_comment
 begin_define
 DECL|macro|DITAXMLGENERATOR_POSTHEADER
 define|#

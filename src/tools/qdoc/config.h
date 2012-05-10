@@ -568,10 +568,6 @@ directive|define
 name|CONFIG_BASE
 value|"base"
 end_define
-begin_comment
-DECL|macro|CONFIG_BASE
-comment|// ### don't document for now
-end_comment
 begin_define
 DECL|macro|CONFIG_BASEDIR
 define|#
@@ -936,10 +932,6 @@ directive|define
 name|CONFIG_TRANSLATORS
 value|"translators"
 end_define
-begin_comment
-DECL|macro|CONFIG_TRANSLATORS
-comment|// ### don't document for now
-end_comment
 begin_define
 DECL|macro|CONFIG_URL
 define|#
@@ -975,11 +967,6 @@ directive|define
 name|CONFIG_IMAGEEXTENSIONS
 value|"imageextensions"
 end_define
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|QDOC_QML
-end_ifdef
 begin_define
 DECL|macro|CONFIG_QMLONLY
 define|#
@@ -987,10 +974,6 @@ directive|define
 name|CONFIG_QMLONLY
 value|"qmlonly"
 end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

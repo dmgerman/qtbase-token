@@ -62,10 +62,6 @@ directive|define
 name|COMMAND_DEPRECATED
 value|Doc::alias(QLatin1String("deprecated"))
 end_define
-begin_comment
-DECL|macro|COMMAND_DEPRECATED
-comment|// ### don't document
-end_comment
 begin_define
 DECL|macro|COMMAND_INGROUP
 define|#
@@ -2590,7 +2586,6 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
-comment|//qmlPropNode->setLocation(doc.location());
 name|qmlPropNode
 operator|->
 name|setReadOnly

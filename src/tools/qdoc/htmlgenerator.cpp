@@ -1920,9 +1920,6 @@ operator|<<
 literal|"</pre>\n"
 expr_stmt|;
 break|break;
-ifdef|#
-directive|ifdef
-name|QDOC_QML
 case|case
 name|Atom
 operator|::
@@ -1989,8 +1986,6 @@ operator|<<
 literal|"</pre>\n"
 expr_stmt|;
 break|break;
-endif|#
-directive|endif
 case|case
 name|Atom
 operator|::
@@ -6226,9 +6221,6 @@ operator|<<
 literal|"</code></b>"
 expr_stmt|;
 break|break;
-ifdef|#
-directive|ifdef
-name|QDOC_QML
 case|case
 name|Atom
 operator|::
@@ -6241,8 +6233,6 @@ name|EndQmlText
 case|:
 comment|// don't do anything with these. They are just tags.
 break|break;
-endif|#
-directive|endif
 default|default:
 name|unknownAtom
 argument_list|(
