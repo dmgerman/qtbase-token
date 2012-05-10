@@ -462,9 +462,14 @@ name|format
 argument_list|)
 expr_stmt|;
 block|}
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
 name|GdiFlush
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_constructor
 begin_destructor

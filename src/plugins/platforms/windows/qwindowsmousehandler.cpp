@@ -536,6 +536,9 @@ operator|->
 name|applyCursor
 argument_list|()
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
 name|QWindowSystemInterface
 operator|::
 name|handleEnterEvent
@@ -588,6 +591,9 @@ argument_list|(
 literal|"TrackMouseEvent failed."
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|// !Q_OS_WINCE
 block|}
 name|QWindowSystemInterface
 operator|::
@@ -828,6 +834,9 @@ name|LRESULT
 modifier|*
 parameter_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
 typedef|typedef
 name|QWindowSystemInterface
 operator|::
@@ -1291,6 +1300,13 @@ expr_stmt|;
 return|return
 literal|true
 return|;
+else|#
+directive|else
+return|return
+literal|false
+return|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_macro

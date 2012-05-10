@@ -80,6 +80,11 @@ name|class
 name|QPoint
 decl_stmt|;
 end_decl_stmt
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
 begin_struct
 DECL|struct|QWindowsUser32DLL
 struct|struct
@@ -301,6 +306,13 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// Q_OS_WINCE
+end_comment
 begin_decl_stmt
 name|class
 name|QWindowsContext
@@ -615,6 +627,9 @@ modifier|&
 name|screenManager
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
 specifier|static
 name|QWindowsUser32DLL
 name|user32dll
@@ -623,6 +638,8 @@ specifier|static
 name|QWindowsShell32DLL
 name|shell32dll
 decl_stmt|;
+endif|#
+directive|endif
 specifier|static
 name|QByteArray
 name|comErrorString

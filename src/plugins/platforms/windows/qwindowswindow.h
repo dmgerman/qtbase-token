@@ -18,6 +18,20 @@ include|#
 directive|include
 file|"qtwindows_additional.h"
 end_include
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_WINCE
+end_ifdef
+begin_include
+include|#
+directive|include
+file|"qplatformfunctions_wince.h"
+end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_include
 include|#
 directive|include
@@ -70,6 +84,10 @@ name|DWORD
 name|exStyle
 parameter_list|)
 function_decl|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+comment|//MinMax maybe define struct if not available
 name|void
 name|applyToMinMaxInfo
 argument_list|(
@@ -97,6 +115,8 @@ name|mmi
 argument_list|)
 decl|const
 decl_stmt|;
+endif|#
+directive|endif
 name|bool
 name|validSize
 argument_list|(
@@ -201,6 +221,10 @@ argument_list|,
 argument|DWORD exStyle
 argument_list|)
 empty_stmt|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+comment|//MinMax maybe define struct if not available
 DECL|function|applyToMinMaxInfo
 name|void
 name|applyToMinMaxInfo
@@ -223,6 +247,8 @@ name|mmi
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 DECL|member|geometryHint
 name|QWindowsGeometryHint
 name|geometryHint
@@ -676,6 +702,10 @@ name|void
 name|releaseDC
 argument_list|()
 block|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+comment|// maybe available on some SDKs revisit WM_GETMINMAXINFO
 name|void
 name|getSizeHints
 argument_list|(
@@ -683,6 +713,8 @@ argument|MINMAXINFO *mmi
 argument_list|)
 specifier|const
 block|;
+endif|#
+directive|endif
 name|QWindowsWindowCursor
 name|cursor
 argument_list|()
@@ -786,6 +818,9 @@ name|isEnabled
 argument_list|()
 specifier|const
 block|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
 name|void
 name|alertWindow
 argument_list|(
@@ -797,6 +832,8 @@ name|void
 name|stopAlertWindow
 argument_list|()
 block|;
+endif|#
+directive|endif
 name|private
 operator|:
 specifier|inline
@@ -1048,6 +1085,14 @@ name|r
 operator|)
 expr_stmt|;
 end_expr_stmt
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
+begin_comment
+comment|// maybe available on some SDKs revisit WM_GETMINMAXINFO/WM_NCCALCSIZE
+end_comment
 begin_expr_stmt
 name|QDebug
 name|operator
@@ -1078,6 +1123,10 @@ name|p
 operator|)
 expr_stmt|;
 end_expr_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|// ---------- QWindowsGeometryHint inline functions.
 end_comment

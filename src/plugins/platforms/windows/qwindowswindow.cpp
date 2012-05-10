@@ -345,6 +345,14 @@ name|rc
 return|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
+begin_comment
+comment|// maybe available on some SDKs revisit WM_GETMINMAXINFO
+end_comment
 begin_function
 DECL|function|operator <<
 name|QDebug
@@ -434,6 +442,13 @@ name|d
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !Q_OS_WINCE
+end_comment
 begin_function
 DECL|function|qSizeOfRect
 specifier|static
@@ -612,6 +627,14 @@ name|d
 return|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
+begin_comment
+comment|// maybe available on some SDKs revisit WM_NCCALCSIZE
+end_comment
 begin_function
 DECL|function|operator <<
 name|QDebug
@@ -674,6 +697,13 @@ name|d
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !Q_OS_WINCE
+end_comment
 begin_comment
 comment|// Return the frame geometry relative to the parent
 end_comment
@@ -2639,6 +2669,11 @@ name|result
 return|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
 begin_function
 DECL|function|applyToMinMaxInfo
 name|void
@@ -2939,6 +2974,13 @@ name|mmi
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !Q_OS_WINCE
+end_comment
 begin_function
 DECL|function|positionIncludesFrame
 name|bool
@@ -6669,6 +6711,17 @@ name|level
 parameter_list|)
 specifier|const
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_WINCE
+comment|// maybe needs revisit WS_EX_LAYERED
+name|Q_UNUSED
+argument_list|(
+name|level
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 specifier|const
 name|long
 name|wl
@@ -6829,6 +6882,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+endif|#
+directive|endif
+comment|// !Q_OS_WINCE
 block|}
 end_function
 begin_function
@@ -7087,6 +7143,14 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
+begin_comment
+comment|// maybe available on some SDKs revisit WM_GETMINMAXINFO
+end_comment
 begin_function
 DECL|function|getSizeHints
 name|void
@@ -7138,6 +7202,13 @@ name|mmi
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !Q_OS_WINCE
+end_comment
 begin_comment
 comment|/*!     \brief Applies to cursor property set on the window to the global cursor.      \sa QWindowsCursor */
 end_comment
@@ -7337,6 +7408,11 @@ literal|0
 return|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
 begin_function
 DECL|function|alertWindow
 name|void
@@ -7475,6 +7551,13 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !Q_OS_WINCE
+end_comment
 begin_function
 DECL|function|isEnabled
 name|bool

@@ -22,11 +22,20 @@ include|#
 directive|include
 file|"qwindowscontext.h"
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
+end_ifndef
 begin_include
 include|#
 directive|include
 file|"qwindowsglcontext.h"
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_include
 include|#
 directive|include
@@ -66,11 +75,20 @@ include|#
 directive|include
 file|"qwindowsguieventdispatcher.h"
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
+end_ifndef
 begin_include
 include|#
 directive|include
 file|"qwindowsclipboard.h"
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_include
 include|#
 directive|include
@@ -151,6 +169,9 @@ name|QPlatformNativeInterface
 block|{
 name|Q_OBJECT
 public|public:
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
 specifier|virtual
 name|void
 modifier|*
@@ -166,6 +187,8 @@ modifier|*
 name|context
 parameter_list|)
 function_decl|;
+endif|#
+directive|endif
 specifier|virtual
 name|void
 modifier|*
@@ -471,6 +494,11 @@ literal|0
 return|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
+end_ifndef
 begin_function
 DECL|function|nativeResourceForContext
 name|void
@@ -562,6 +590,13 @@ literal|0
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !QT_NO_OPENGL
+end_comment
 begin_comment
 comment|/*!     \brief Creates a non-visible window handle for filtering messages. */
 end_comment
@@ -636,6 +671,9 @@ DECL|struct|QWindowsIntegrationPrivate
 struct|struct
 name|QWindowsIntegrationPrivate
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
 DECL|typedef|QOpenGLStaticContextPtr
 typedef|typedef
 name|QSharedPointer
@@ -644,6 +682,8 @@ name|QOpenGLStaticContext
 argument_list|>
 name|QOpenGLStaticContextPtr
 typedef|;
+endif|#
+directive|endif
 name|QWindowsIntegrationPrivate
 parameter_list|()
 constructor_decl|;
@@ -664,10 +704,15 @@ DECL|member|m_nativeInterface
 name|QWindowsNativeInterface
 name|m_nativeInterface
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
 DECL|member|m_clipboard
 name|QWindowsClipboard
 name|m_clipboard
 decl_stmt|;
+endif|#
+directive|endif
 DECL|member|m_drag
 name|QWindowsDrag
 name|m_drag
@@ -677,10 +722,15 @@ name|QWindowsGuiEventDispatcher
 modifier|*
 name|m_eventDispatcher
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
 DECL|member|m_staticOpenGLContext
 name|QOpenGLStaticContextPtr
 name|m_staticOpenGLContext
 decl_stmt|;
+endif|#
+directive|endif
 DECL|member|m_inputContext
 name|QWindowsInputContext
 name|m_inputContext
@@ -762,6 +812,9 @@ operator|->
 name|m_eventDispatcher
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
 name|d
 operator|->
 name|m_clipboard
@@ -769,6 +822,8 @@ operator|.
 name|registerViewer
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 name|d
 operator|->
 name|m_context
@@ -829,6 +884,9 @@ case|:
 return|return
 literal|true
 return|;
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
 case|case
 name|OpenGL
 case|:
@@ -841,6 +899,8 @@ case|:
 return|return
 literal|true
 return|;
+endif|#
+directive|endif
 default|default:
 return|return
 name|QPlatformIntegration
@@ -1098,6 +1158,11 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
+end_ifndef
 begin_function
 name|QPlatformOpenGLContext
 DECL|function|createPlatformOpenGLContext
@@ -1187,6 +1252,13 @@ literal|0
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !QT_NO_OPENGL
+end_comment
 begin_comment
 comment|/* Workaround for QTBUG-24205: In 'Auto', pick the FreeType engine for  * QML2 applications. */
 end_comment
@@ -1350,6 +1422,11 @@ name|m_fontDatabase
 return|;
 block|}
 end_function
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|SPI_GETKEYBOARDSPEED
+end_ifdef
 begin_function
 DECL|function|keyBoardAutoRepeatRateMS
 specifier|static
@@ -1397,6 +1474,10 @@ literal|30
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|styleHint
 name|QVariant
@@ -1440,6 +1521,9 @@ argument_list|)
 argument_list|)
 return|;
 break|break;
+ifdef|#
+directive|ifdef
+name|SPI_GETKEYBOARDSPEED
 case|case
 name|KeyboardAutoRepeatRate
 case|:
@@ -1450,6 +1534,8 @@ name|keyBoardAutoRepeatRateMS
 argument_list|()
 argument_list|)
 return|;
+endif|#
+directive|endif
 case|case
 name|QPlatformIntegration
 operator|::
@@ -1539,6 +1625,11 @@ name|m_nativeInterface
 return|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
+end_ifndef
 begin_function
 DECL|function|clipboard
 name|QPlatformClipboard
@@ -1557,6 +1648,13 @@ name|m_clipboard
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !QT_NO_CLIPBOARD
+end_comment
 begin_function
 DECL|function|drag
 name|QPlatformDrag

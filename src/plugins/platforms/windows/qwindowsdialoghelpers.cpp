@@ -3812,6 +3812,9 @@ modifier|&
 name|path
 parameter_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
 if|if
 condition|(
 name|QWindowsContext
@@ -3888,6 +3891,8 @@ return|return
 name|result
 return|;
 block|}
+endif|#
+directive|endif
 name|qErrnoWarning
 argument_list|(
 literal|"%s: SHCreateItemFromParsingName()) failed"
@@ -3951,6 +3956,9 @@ name|directory
 parameter_list|()
 specifier|const
 block|{
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
 name|IShellItem
 modifier|*
 name|item
@@ -3982,6 +3990,8 @@ argument_list|(
 name|item
 argument_list|)
 return|;
+endif|#
+directive|endif
 return|return
 name|QString
 argument_list|()
@@ -6504,6 +6514,11 @@ argument_list|>
 name|SharedPointerColor
 typedef|;
 end_typedef
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|USE_NATIVE_COLOR_DIALOG
+end_ifdef
 begin_class
 DECL|class|QWindowsNativeColorDialog
 class|class
@@ -7057,6 +7072,13 @@ name|nativeDialog
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// USE_NATIVE_COLOR_DIALOG
+end_comment
 begin_namespace
 DECL|namespace|QWindowsDialogs
 namespace|namespace

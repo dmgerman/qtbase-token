@@ -425,8 +425,30 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
+ifdef|#
+directive|ifdef
+name|Q_OS_WINCE
+comment|//Windows CE, just supports one Display and expects to get only DISPLAY,
+comment|//instead of DISPLAY0 and so on, which are passed by info.szDevice
+name|HDC
+name|hdc
+init|=
+name|CreateDC
+argument_list|(
+name|TEXT
+argument_list|(
+literal|"DISPLAY"
+argument_list|)
+argument_list|,
+name|NULL
+argument_list|,
+name|NULL
+argument_list|,
+name|NULL
+argument_list|)
+decl_stmt|;
+else|#
+directive|else
 name|HDC
 name|hdc
 init|=
@@ -442,6 +464,12 @@ name|NULL
 argument_list|,
 name|NULL
 argument_list|)
+decl_stmt|;
+endif|#
+directive|endif
+if|if
+condition|(
+name|hdc
 condition|)
 block|{
 name|data

@@ -16,6 +16,11 @@ end_define
 begin_include
 include|#
 directive|include
+file|<QtCore/qconfig.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<qpa/qplatformintegration.h>
 end_include
 begin_include
@@ -80,6 +85,9 @@ argument|QWindow *window
 argument_list|)
 specifier|const
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
 name|virtual
 name|QPlatformOpenGLContext
 operator|*
@@ -89,6 +97,8 @@ argument|QOpenGLContext *context
 argument_list|)
 specifier|const
 block|;
+endif|#
+directive|endif
 name|virtual
 name|QAbstractEventDispatcher
 operator|*
@@ -96,6 +106,9 @@ name|guiThreadEventDispatcher
 argument_list|()
 specifier|const
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
 name|virtual
 name|QPlatformClipboard
 operator|*
@@ -103,6 +116,8 @@ name|clipboard
 argument_list|()
 specifier|const
 block|;
+endif|#
+directive|endif
 name|virtual
 name|QPlatformDrag
 operator|*
