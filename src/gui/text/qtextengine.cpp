@@ -70,6 +70,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<private/qunicodetools_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|"qtextdocument_p.h"
 end_include
 begin_include
