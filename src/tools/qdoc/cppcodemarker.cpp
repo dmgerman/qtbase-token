@@ -126,6 +126,14 @@ literal|"qdoc"
 operator|||
 name|ext
 operator|==
+literal|"qtt"
+operator|||
+name|ext
+operator|==
+literal|"qtx"
+operator|||
+name|ext
+operator|==
 literal|"cc"
 operator|||
 name|ext
