@@ -4073,7 +4073,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the QTextCodec which matches the \link     QTextCodec::mibEnum() MIBenum\endlink \a mib. */
+comment|/*!     Returns the QTextCodec which matches the     \l{QTextCodec::mibEnum()}{MIBenum} \a mib. */
 end_comment
 begin_function
 DECL|function|codecForMib

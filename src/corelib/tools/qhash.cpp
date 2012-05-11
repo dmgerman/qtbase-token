@@ -2585,7 +2585,7 @@ begin_comment
 comment|/*! \fn QList<T> QHash::values(const Key&key) const      \overload      Returns a list of all the values associated with the \a key,     from the most recently inserted to the least recently inserted.      \sa count(), insertMulti() */
 end_comment
 begin_comment
-comment|/*! \fn Key QHash::key(const T&value) const      Returns the first key mapped to \a value.      If the hash contains no item with the \a value, the function     returns a \link {default-constructed value} default-constructed     key \endlink.      This function can be slow (\l{linear time}), because QHash's     internal data structure is optimized for fast lookup by key, not     by value.      \sa value(), keys() */
+comment|/*! \fn Key QHash::key(const T&value) const      Returns the first key mapped to \a value.      If the hash contains no item with the \a value, the function     returns a \l{default-constructed value}{default-constructed key}.      This function can be slow (\l{linear time}), because QHash's     internal data structure is optimized for fast lookup by key, not     by value.      \sa value(), keys() */
 end_comment
 begin_comment
 comment|/*!     \fn Key QHash::key(const T&value, const Key&defaultKey) const     \since 4.3     \overload      Returns the first key mapped to \a value, or \a defaultKey if the     hash contains no item mapped to \a value.      This function can be slow (\l{linear time}), because QHash's     internal data structure is optimized for fast lookup by key, not     by value. */

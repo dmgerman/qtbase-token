@@ -451,7 +451,7 @@ include|#
 directive|include
 file|"qtimer.moc"
 name|QT_END_INCLUDE_NAMESPACE
-comment|/*!     \reentrant     This static function calls a slot after a given time interval.      It is very convenient to use this function because you do not need     to bother with a \link QObject::timerEvent() timerEvent\endlink or     create a local QTimer object.      Example:     \snippet code/src_corelib_kernel_qtimer.cpp 0      This sample program automatically terminates after 10 minutes     (600,000 milliseconds).      The \a receiver is the receiving object and the \a member is the     slot. The time interval is \a msec milliseconds.      \sa start() */
+comment|/*!     \reentrant     This static function calls a slot after a given time interval.      It is very convenient to use this function because you do not need     to bother with a \l{QObject::timerEvent()}{timerEvent} or     create a local QTimer object.      Example:     \snippet code/src_corelib_kernel_qtimer.cpp 0      This sample program automatically terminates after 10 minutes     (600,000 milliseconds).      The \a receiver is the receiving object and the \a member is the     slot. The time interval is \a msec milliseconds.      \sa start() */
 DECL|function|singleShot
 name|void
 name|QTimer
@@ -498,7 +498,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*! \overload     \reentrant     This static function calls a slot after a given time interval.      It is very convenient to use this function because you do not need     to bother with a \link QObject::timerEvent() timerEvent\endlink or     create a local QTimer object.      The \a receiver is the receiving object and the \a member is the slot. The     time interval is \a msec milliseconds. The \a timerType affects the     accuracy of the timer.      \sa start() */
+comment|/*! \overload     \reentrant     This static function calls a slot after a given time interval.      It is very convenient to use this function because you do not need     to bother with a \l{QObject::timerEvent()}{timerEvent} or     create a local QTimer object.      The \a receiver is the receiving object and the \a member is the slot. The     time interval is \a msec milliseconds. The \a timerType affects the     accuracy of the timer.      \sa start() */
 end_comment
 begin_function
 DECL|function|singleShot

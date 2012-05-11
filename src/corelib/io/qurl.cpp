@@ -9571,7 +9571,7 @@ directive|ifndef
 name|QT_NO_DATASTREAM
 end_ifndef
 begin_comment
-comment|/*! \relates QUrl      Writes url \a url to the stream \a out and returns a reference     to the stream.      \sa \link datastreamformat.html Format of the QDataStream operators \endlink */
+comment|/*! \relates QUrl      Writes url \a url to the stream \a out and returns a reference     to the stream.      \sa{Serializing Qt Data Types}{Format of the QDataStream operators} */
 end_comment
 begin_function
 DECL|function|operator <<
@@ -9617,7 +9617,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \relates QUrl      Reads a url into \a url from the stream \a in and returns a     reference to the stream.      \sa \link datastreamformat.html Format of the QDataStream operators \endlink */
+comment|/*! \relates QUrl      Reads a url into \a url from the stream \a in and returns a     reference to the stream.      \sa{Serializing Qt Data Types}{Format of the QDataStream operators} */
 end_comment
 begin_function
 DECL|function|operator >>

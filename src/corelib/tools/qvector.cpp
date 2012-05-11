@@ -514,10 +514,10 @@ begin_comment
 comment|/*! \fn std::vector<T> QVector<T>::toStdVector() const      Returns a std::vector object with the data contained in this QVector.     Example:      \snippet code/src_corelib_tools_qvector.cpp 17      \sa fromStdVector(), QList::toStdList() */
 end_comment
 begin_comment
-comment|/*! \fn QDataStream&operator<<(QDataStream&out, const QVector<T>&vector)     \relates QVector      Writes the vector \a vector to stream \a out.      This function requires the value type to implement \c operator<<().      \sa \link datastreamformat.html Format of the QDataStream operators \endlink */
+comment|/*! \fn QDataStream&operator<<(QDataStream&out, const QVector<T>&vector)     \relates QVector      Writes the vector \a vector to stream \a out.      This function requires the value type to implement \c operator<<().      \sa{Serializing Qt Data Types}{Format of the QDataStream operators} */
 end_comment
 begin_comment
-comment|/*! \fn QDataStream&operator>>(QDataStream&in, QVector<T>&vector)     \relates QVector      Reads a vector from stream \a in into \a vector.      This function requires the value type to implement \c operator>>().      \sa \link datastreamformat.html Format of the QDataStream operators \endlink */
+comment|/*! \fn QDataStream&operator>>(QDataStream&in, QVector<T>&vector)     \relates QVector      Reads a vector from stream \a in into \a vector.      This function requires the value type to implement \c operator>>().      \sa{Serializing Qt Data Types}{Format of the QDataStream operators} */
 end_comment
 begin_macro
 name|QT_END_NAMESPACE

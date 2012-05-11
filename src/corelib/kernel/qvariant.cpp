@@ -7989,7 +7989,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.4      Reads a variant \a p from the stream \a s.      \sa \link datastreamformat.html Format of the QDataStream     operators \endlink */
+comment|/*!     \since 4.4      Reads a variant \a p from the stream \a s.      \sa{Serializing Qt Data Types}{Format of the QDataStream operators} */
 end_comment
 begin_function
 DECL|function|operator >>
@@ -8020,7 +8020,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Writes a variant \a p to the stream \a s.      \sa \link datastreamformat.html Format of the QDataStream     operators \endlink */
+comment|/*!     Writes a variant \a p to the stream \a s.      \sa{Serializing Qt Data Types}{Format of the QDataStream operators} */
 end_comment
 begin_function
 DECL|function|operator <<

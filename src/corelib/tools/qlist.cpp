@@ -2216,10 +2216,10 @@ begin_comment
 comment|/*! \fn int QList::const_iterator::operator-(const_iterator other) const      Returns the number of items between the item pointed to by \a     other and the item pointed to by this iterator. */
 end_comment
 begin_comment
-comment|/*! \fn QDataStream&operator<<(QDataStream&out, const QList<T>&list)     \relates QList      Writes the list \a list to stream \a out.      This function requires the value type to implement \c     operator<<().      \sa \link datastreamformat.html Format of the QDataStream operators \endlink */
+comment|/*! \fn QDataStream&operator<<(QDataStream&out, const QList<T>&list)     \relates QList      Writes the list \a list to stream \a out.      This function requires the value type to implement \c     operator<<().      \sa{Serializing Qt Data Types}{Format of the QDataStream operators} */
 end_comment
 begin_comment
-comment|/*! \fn QDataStream&operator>>(QDataStream&in, QList<T>&list)     \relates QList      Reads a list from stream \a in into \a list.      This function requires the value type to implement \c     operator>>().      \sa \link datastreamformat.html Format of the QDataStream operators \endlink */
+comment|/*! \fn QDataStream&operator>>(QDataStream&in, QList<T>&list)     \relates QList      Reads a list from stream \a in into \a list.      This function requires the value type to implement \c     operator>>().      \sa{Serializing Qt Data Types}{Format of the QDataStream operators} */
 end_comment
 begin_comment
 comment|/*! \fn QList<T> QList<T>::fromVector(const QVector<T>&vector)      Returns a QList object with the data contained in \a vector.      Example:      \snippet code/src_corelib_tools_qlistdata.cpp 21      \sa fromSet(), toVector(), QVector::toList() */

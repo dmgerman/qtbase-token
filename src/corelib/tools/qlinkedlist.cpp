@@ -383,10 +383,10 @@ begin_comment
 comment|/*! \fn QLinkedList::const_iterator&QLinkedList::const_iterator::operator-=(int j)      Makes the iterator go back by \a j items. (If \a j is negative,     the iterator goes forward.)      This operation can be slow for large \a j values.      \sa operator+=(), operator-() */
 end_comment
 begin_comment
-comment|/*! \fn QDataStream&operator<<(QDataStream&out, const QLinkedList<T>&list)     \relates QLinkedList      Writes the linked list \a list to stream \a out.      This function requires the value type to implement \c     operator<<().      \sa \link datastreamformat.html Format of the QDataStream operators \endlink */
+comment|/*! \fn QDataStream&operator<<(QDataStream&out, const QLinkedList<T>&list)     \relates QLinkedList      Writes the linked list \a list to stream \a out.      This function requires the value type to implement \c     operator<<().      \sa{Serializing Qt Data Types}{Format of the QDataStream operators} */
 end_comment
 begin_comment
-comment|/*! \fn QDataStream&operator>>(QDataStream&in, QLinkedList<T>&list)     \relates QLinkedList      Reads a linked list from stream \a in into \a list.      This function requires the value type to implement \c operator>>().      \sa \link datastreamformat.html Format of the QDataStream operators \endlink */
+comment|/*! \fn QDataStream&operator>>(QDataStream&in, QLinkedList<T>&list)     \relates QLinkedList      Reads a linked list from stream \a in into \a list.      This function requires the value type to implement \c operator>>().      \sa{Serializing Qt Data Types}{Format of the QDataStream operators} */
 end_comment
 begin_comment
 comment|/*!     \since 4.1     \fn QLinkedList<T> QLinkedList<T>::fromStdList(const std::list<T>&list)      Returns a QLinkedList object with the data contained in \a list.     The order of the elements in the QLinkedList is the same as in \a     list.      Example:      \snippet code/src_corelib_tools_qlinkedlist.cpp 16      \sa toStdList() */

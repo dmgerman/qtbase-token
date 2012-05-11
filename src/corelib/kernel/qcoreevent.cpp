@@ -222,7 +222,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Destroys the event. If it was \link     QCoreApplication::postEvent() posted \endlink,     it will be removed from the list of events to be posted. */
+comment|/*!     Destroys the event. If it was \l{QCoreApplication::postEvent()}{posted},     it will be removed from the list of events to be posted. */
 end_comment
 begin_destructor
 DECL|function|~QEvent
