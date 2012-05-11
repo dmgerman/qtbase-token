@@ -271,6 +271,10 @@ name|void
 name|task255350_fieldObjectDestroyed
 parameter_list|()
 function_decl|;
+name|void
+name|taskQTBUG_25691_fieldObjectDestroyed2
+parameter_list|()
+function_decl|;
 comment|/*         Things that could be added:          1. Test virtual functions that are called, signals that are            emitted, etc.          2. Test QWizardPage more thorougly.          3. Test the look and field a bit more (especially the            different wizard styles, and how they interact with            pixmaps, titles, subtitles, etc.).          4. Test minimum sizes, sizes, maximum sizes, resizing, etc.          5. Try setting various options and wizard styles in various            orders and check that the results are the same every time,            no matter the order in which the properties were set.             -> Initial version done (tst_QWizard::combinations())          6. Test done() and restart().          7. Test default properties of built-in widgets.          8. Test mutual exclusiveness of Next and Commit buttons.     */
 block|}
 class|;
@@ -18738,6 +18742,40 @@ expr_stmt|;
 comment|// don't crash!
 operator|delete
 name|page
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|// Global taskQTBUG_25691_fieldObjectDestroyed2 is defined in
+end_comment
+begin_comment
+comment|// tst_qwizard_2.cpp to avoid cluttering up this file with
+end_comment
+begin_comment
+comment|// the QWizardPage subclasses, etc. required to complete this
+end_comment
+begin_comment
+comment|// test.
+end_comment
+begin_function_decl
+name|void
+name|taskQTBUG_25691_fieldObjectDestroyed2
+parameter_list|(
+name|void
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function
+DECL|function|taskQTBUG_25691_fieldObjectDestroyed2
+name|void
+name|tst_QWizard
+operator|::
+name|taskQTBUG_25691_fieldObjectDestroyed2
+parameter_list|()
+block|{
+operator|::
+name|taskQTBUG_25691_fieldObjectDestroyed2
+argument_list|()
 expr_stmt|;
 block|}
 end_function
