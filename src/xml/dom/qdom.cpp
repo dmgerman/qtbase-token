@@ -7737,7 +7737,7 @@ begin_comment
 comment|/*!     \class QDomNode     \reentrant     \brief The QDomNode class is the base class for all the nodes in a DOM tree.      \inmodule QtXml     \ingroup xml-tools       Many functions in the DOM return a QDomNode.      You can find out the type of a node using isAttr(),     isCDATASection(), isDocumentFragment(), isDocument(),     isDocumentType(), isElement(), isEntityReference(), isText(),     isEntity(), isNotation(), isProcessingInstruction(),     isCharacterData() and isComment().      A QDomNode can be converted into one of its subclasses using     toAttr(), toCDATASection(), toDocumentFragment(), toDocument(),     toDocumentType(), toElement(), toEntityReference(), toText(),     toEntity(), toNotation(), toProcessingInstruction(),     toCharacterData() or toComment(). You can convert a node to a null     node with clear().      Copies of the QDomNode class share their data using explicit     sharing. This means that modifying one node will change all     copies. This is especially useful in combination with functions     which return a QDomNode, e.g. firstChild(). You can make an     independent (deep) copy of the node with cloneNode().      A QDomNode can be null, much like a null pointer. Creating a copy     of a null node results in another null node. It is not     possible to modify a null node, but it is possible to assign another,     possibly non-null node to it. In this case, the copy of the null node     will remain null. You can check if a QDomNode is null by calling isNull().     The empty constructor of a QDomNode (or any of the derived classes) creates     a null node.      Nodes are inserted with insertBefore(), insertAfter() or     appendChild(). You can replace one node with another using     replaceChild() and remove a node with removeChild().      To traverse nodes use firstChild() to get a node's first child (if     any), and nextSibling() to traverse. QDomNode also provides     lastChild(), previousSibling() and parentNode(). To find the first     child node with a particular node name use namedItem().      To find out if a node has children use hasChildNodes() and to get     a list of all of a node's children use childNodes().      The node's name and value (the meaning of which varies depending     on its type) is returned by nodeName() and nodeValue()     respectively. The node's type is returned by nodeType(). The     node's value can be set with setNodeValue().      The document to which the node belongs is returned by     ownerDocument().      Adjacent QDomText nodes can be merged into a single node with     normalize().      \l QDomElement nodes have attributes which can be retrieved with     attributes().      QDomElement and QDomAttr nodes can have namespaces which can be     retrieved with namespaceURI(). Their local name is retrieved with     localName(), and their prefix with prefix(). The prefix can be set     with setPrefix().      You can write the XML representation of the node to a text stream     with save().      The following example looks for the first element in an XML document and     prints the names of all the elements that are its direct children.      \snippet code/src_xml_dom_qdom.cpp 1      For further information about the Document Object Model see     \l{W3C DOM Level 1}{Level 1} and     \l{W3C DOM Level 2}{Level 2 Core}.     For a more general introduction of the DOM implementation see the     QDomDocument documentation. */
 end_comment
 begin_comment
-comment|/*!     Constructs a \link isNull() null\endlink node. */
+comment|/*!     Constructs a \l{isNull()}{null} node. */
 end_comment
 begin_constructor
 DECL|function|QDomNode
@@ -8175,7 +8175,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the first child of the node. If there is no child node, a     \link isNull() null node\endlink is returned. Changing the     returned node will also change the node in the document tree.      \sa lastChild(), childNodes() */
+comment|/*!     Returns the first child of the node. If there is no child node, a     \l{isNull()}{null node} is returned. Changing the     returned node will also change the node in the document tree.      \sa lastChild(), childNodes() */
 end_comment
 begin_function
 DECL|function|firstChild
@@ -8206,7 +8206,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the last child of the node. If there is no child node, a     \link isNull() null node\endlink is returned. Changing the     returned node will also change the node in the document tree.      \sa firstChild(), childNodes() */
+comment|/*!     Returns the last child of the node. If there is no child node, a     \l{isNull()}{null node} is returned. Changing the     returned node will also change the node in the document tree.      \sa firstChild(), childNodes() */
 end_comment
 begin_function
 DECL|function|lastChild
@@ -8477,7 +8477,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the namespace URI of this node or an empty string if the     node has no namespace URI.      Only nodes of type \link QDomNode::NodeType ElementNode\endlink or     \link QDomNode::NodeType AttributeNode\endlink can have     namespaces. A namespace URI must be specified at creation time and     cannot be changed later.      \sa prefix(), localName(), QDomDocument::createElementNS(),         QDomDocument::createAttributeNS() */
+comment|/*!     Returns the namespace URI of this node or an empty string if the     node has no namespace URI.      Only nodes of type \l{QDomNode::NodeType}{ElementNode} or     \l{QDomNode::NodeType}{AttributeNode} can have     namespaces. A namespace URI must be specified at creation time and     cannot be changed later.      \sa prefix(), localName(), QDomDocument::createElementNS(),         QDomDocument::createAttributeNS() */
 end_comment
 begin_function
 DECL|function|namespaceURI
@@ -8505,7 +8505,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the namespace prefix of the node or an empty string if the     node has no namespace prefix.      Only nodes of type \link QDomNode::NodeType ElementNode\endlink or     \link QDomNode::NodeType AttributeNode\endlink can have     namespaces. A namespace prefix must be specified at creation time.     If a node was created with a namespace prefix, you can change it     later with setPrefix().      If you create an element or attribute with     QDomDocument::createElement() or QDomDocument::createAttribute(),     the prefix will be an empty string. If you use     QDomDocument::createElementNS() or     QDomDocument::createAttributeNS() instead, the prefix will not be     an empty string; but it might be an empty string if the name does     not have a prefix.      \sa setPrefix(), localName(), namespaceURI(),         QDomDocument::createElementNS(),         QDomDocument::createAttributeNS() */
+comment|/*!     Returns the namespace prefix of the node or an empty string if the     node has no namespace prefix.      Only nodes of type \l{QDomNode::NodeType}{ElementNode} or     \l{QDomNode::NodeType}{AttributeNode} can have     namespaces. A namespace prefix must be specified at creation time.     If a node was created with a namespace prefix, you can change it     later with setPrefix().      If you create an element or attribute with     QDomDocument::createElement() or QDomDocument::createAttribute(),     the prefix will be an empty string. If you use     QDomDocument::createElementNS() or     QDomDocument::createAttributeNS() instead, the prefix will not be     an empty string; but it might be an empty string if the name does     not have a prefix.      \sa setPrefix(), localName(), namespaceURI(),         QDomDocument::createElementNS(),         QDomDocument::createAttributeNS() */
 end_comment
 begin_function
 DECL|function|prefix
@@ -8533,7 +8533,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     If the node has a namespace prefix, this function changes the     namespace prefix of the node to \a pre. Otherwise this function     does nothing.      Only nodes of type \link QDomNode::NodeType ElementNode\endlink or     \link QDomNode::NodeType AttributeNode\endlink can have     namespaces. A namespace prefix must have be specified at creation     time; it is not possible to add a namespace prefix afterwards.      \sa prefix(), localName(), namespaceURI(),         QDomDocument::createElementNS(),         QDomDocument::createAttributeNS() */
+comment|/*!     If the node has a namespace prefix, this function changes the     namespace prefix of the node to \a pre. Otherwise this function     does nothing.      Only nodes of type \l{QDomNode::NodeType}{ElementNode} or     \l{QDomNode::NodeType}{AttributeNode} can have     namespaces. A namespace prefix must have be specified at creation     time; it is not possible to add a namespace prefix afterwards.      \sa prefix(), localName(), namespaceURI(),         QDomDocument::createElementNS(),         QDomDocument::createAttributeNS() */
 end_comment
 begin_function
 DECL|function|setPrefix
@@ -8578,7 +8578,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     If the node uses namespaces, this function returns the local name     of the node; otherwise it returns an empty string.      Only nodes of type \link QDomNode::NodeType ElementNode\endlink or     \link QDomNode::NodeType AttributeNode\endlink can have     namespaces. A namespace must have been specified at creation time;     it is not possible to add a namespace afterwards.      \sa prefix(), namespaceURI(), QDomDocument::createElementNS(),         QDomDocument::createAttributeNS() */
+comment|/*!     If the node uses namespaces, this function returns the local name     of the node; otherwise it returns an empty string.      Only nodes of type \l{QDomNode::NodeType}{ElementNode} or     \l{QDomNode::NodeType}{AttributeNode} can have     namespaces. A namespace must have been specified at creation time;     it is not possible to add a namespace afterwards.      \sa prefix(), namespaceURI(), QDomDocument::createElementNS(),         QDomDocument::createAttributeNS() */
 end_comment
 begin_function
 DECL|function|localName
@@ -8651,7 +8651,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Inserts the node \a newChild before the child node \a refChild.     \a refChild must be a direct child of this node. If \a refChild is     \link isNull() null\endlink then \a newChild is inserted as the     node's first child.      If \a newChild is the child of another node, it is reparented to     this node. If \a newChild is a child of this node, then its     position in the list of children is changed.      If \a newChild is a QDomDocumentFragment, then the children of the     fragment are removed from the fragment and inserted before \a     refChild.      Returns a new reference to \a newChild on success or a \link     isNull() null node\endlink on failure.      The DOM specification disallow inserting attribute nodes, but due     to historical reasons QDom accept them nevertheless.      \sa insertAfter(), replaceChild(), removeChild(), appendChild() */
+comment|/*!     Inserts the node \a newChild before the child node \a refChild.     \a refChild must be a direct child of this node. If \a refChild is     \l{isNull()}{null} then \a newChild is inserted as the     node's first child.      If \a newChild is the child of another node, it is reparented to     this node. If \a newChild is a child of this node, then its     position in the list of children is changed.      If \a newChild is a QDomDocumentFragment, then the children of the     fragment are removed from the fragment and inserted before \a     refChild.      Returns a new reference to \a newChild on success or a \l{isNull()}{null node} on failure.      The DOM specification disallow inserting attribute nodes, but due     to historical reasons QDom accept them nevertheless.      \sa insertAfter(), replaceChild(), removeChild(), appendChild() */
 end_comment
 begin_function
 DECL|function|insertBefore
@@ -8700,7 +8700,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Inserts the node \a newChild after the child node \a refChild. \a     refChild must be a direct child of this node. If \a refChild is     \link isNull() null\endlink then \a newChild is appended as this     node's last child.      If \a newChild is the child of another node, it is reparented to     this node. If \a newChild is a child of this node, then its     position in the list of children is changed.      If \a newChild is a QDomDocumentFragment, then the children of the     fragment are removed from the fragment and inserted after \a     refChild.      Returns a new reference to \a newChild on success or a \link     isNull() null node\endlink on failure.      The DOM specification disallow inserting attribute nodes, but due     to historical reasons QDom accept them nevertheless.      \sa insertBefore(), replaceChild(), removeChild(), appendChild() */
+comment|/*!     Inserts the node \a newChild after the child node \a refChild. \a     refChild must be a direct child of this node. If \a refChild is     \l{isNull()}{null} then \a newChild is appended as this     node's last child.      If \a newChild is the child of another node, it is reparented to     this node. If \a newChild is a child of this node, then its     position in the list of children is changed.      If \a newChild is a QDomDocumentFragment, then the children of the     fragment are removed from the fragment and inserted after \a     refChild.      Returns a new reference to \a newChild on success or a \l{isNull()}{null node} on failure.      The DOM specification disallow inserting attribute nodes, but due     to historical reasons QDom accept them nevertheless.      \sa insertBefore(), replaceChild(), removeChild(), appendChild() */
 end_comment
 begin_function
 DECL|function|insertAfter
@@ -8749,7 +8749,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Replaces \a oldChild with \a newChild. \a oldChild must be a     direct child of this node.      If \a newChild is the child of another node, it is reparented to     this node. If \a newChild is a child of this node, then its     position in the list of children is changed.      If \a newChild is a QDomDocumentFragment, then \a oldChild is     replaced by all of the children of the fragment.      Returns a new reference to \a oldChild on success or a \link     isNull() null node\endlink an failure.      \sa insertBefore(), insertAfter(), removeChild(), appendChild() */
+comment|/*!     Replaces \a oldChild with \a newChild. \a oldChild must be a     direct child of this node.      If \a newChild is the child of another node, it is reparented to     this node. If \a newChild is a child of this node, then its     position in the list of children is changed.      If \a newChild is a QDomDocumentFragment, then \a oldChild is     replaced by all of the children of the fragment.      Returns a new reference to \a oldChild on success or a \l{isNull()}{null node} an failure.      \sa insertBefore(), insertAfter(), removeChild(), appendChild() */
 end_comment
 begin_function
 DECL|function|replaceChild
@@ -8808,7 +8808,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Removes \a oldChild from the list of children. \a oldChild must be     a direct child of this node.      Returns a new reference to \a oldChild on success or a \link     isNull() null node\endlink on failure.      \sa insertBefore(), insertAfter(), replaceChild(), appendChild() */
+comment|/*!     Removes \a oldChild from the list of children. \a oldChild must be     a direct child of this node.      Returns a new reference to \a oldChild on success or a \l{isNull()}{null node} on failure.      \sa insertBefore(), insertAfter(), replaceChild(), appendChild() */
 end_comment
 begin_function
 DECL|function|removeChild
@@ -8859,7 +8859,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Appends \a newChild as the node's last child.      If \a newChild is the child of another node, it is reparented to     this node. If \a newChild is a child of this node, then its     position in the list of children is changed.      If \a newChild is a QDomDocumentFragment, then the children of the     fragment are removed from the fragment and appended.      If \a newChild is a QDomElement and this node is a QDomDocument that     already has an element node as a child, \a newChild is not added as     a child and a null node is returned.      Returns a new reference to \a newChild on success or a \link     isNull() null node\endlink on failure.      Calling this function on a null node(created, for example, with     the default constructor) does nothing and returns a \link isNull()     null node\endlink.      The DOM specification disallow inserting attribute nodes, but for     historical reasons, QDom accepts them anyway.      \sa insertBefore(), insertAfter(), replaceChild(), removeChild() */
+comment|/*!     Appends \a newChild as the node's last child.      If \a newChild is the child of another node, it is reparented to     this node. If \a newChild is a child of this node, then its     position in the list of children is changed.      If \a newChild is a QDomDocumentFragment, then the children of the     fragment are removed from the fragment and appended.      If \a newChild is a QDomElement and this node is a QDomDocument that     already has an element node as a child, \a newChild is not added as     a child and a null node is returned.      Returns a new reference to \a newChild on success or a \l{isNull()}{null node} on failure.      Calling this function on a null node(created, for example, with     the default constructor) does nothing and returns a \l{isNull()}{null node}.      The DOM specification disallow inserting attribute nodes, but for     historical reasons, QDom accepts them anyway.      \sa insertBefore(), insertAfter(), replaceChild(), removeChild() */
 end_comment
 begin_function
 DECL|function|appendChild
@@ -8988,7 +8988,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the first direct child node for which nodeName() equals \a     name.      If no such direct child exists, a \link isNull() null node\endlink     is returned.      \sa nodeName() */
+comment|/*!     Returns the first direct child node for which nodeName() equals \a     name.      If no such direct child exists, a \l{isNull()}{null node}     is returned.      \sa nodeName() */
 end_comment
 begin_function
 DECL|function|namedItem
@@ -10795,7 +10795,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*!     Returns the node called \a name.      If the named node map does not contain such a node, a \link     QDomNode::isNull() null node\endlink is returned. A node's name is     the name returned by QDomNode::nodeName().      \sa setNamedItem(), namedItemNS() */
+comment|/*!     Returns the node called \a name.      If the named node map does not contain such a node, a     \l{QDomNode::isNull()}{null node} is returned. A node's name is     the name returned by QDomNode::nodeName().      \sa setNamedItem(), namedItemNS() */
 end_comment
 begin_function
 DECL|function|namedItem
@@ -10878,7 +10878,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Removes the node called \a name from the map.      The function returns the removed node or a \link     QDomNode::isNull() null node\endlink if the map did not contain a     node called \a name.      \sa setNamedItem(), namedItem(), removeNamedItemNS() */
+comment|/*!     Removes the node called \a name from the map.      The function returns the removed node or a     \l{QDomNode::isNull()}{null node} if the map did not contain a     node called \a name.      \sa setNamedItem(), namedItem(), removeNamedItemNS() */
 end_comment
 begin_function
 DECL|function|removeNamedItem
@@ -10953,7 +10953,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the node associated with the local name \a localName and     the namespace URI \a nsURI.      If the map does not contain such a node, a \link     QDomNode::isNull() null node\endlink is returned.      \sa setNamedItemNS(), namedItem() */
+comment|/*!     Returns the node associated with the local name \a localName and     the namespace URI \a nsURI.      If the map does not contain such a node,     a \l{QDomNode::isNull()}{null node} is returned.      \sa setNamedItemNS(), namedItem() */
 end_comment
 begin_function
 DECL|function|namedItemNS
@@ -11043,7 +11043,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Removes the node with the local name \a localName and the     namespace URI \a nsURI from the map.      The function returns the removed node or a \link     QDomNode::isNull() null node\endlink if the map did not contain a     node with the local name \a localName and the namespace URI \a     nsURI.      \sa setNamedItemNS(), namedItemNS(), removeNamedItem() */
+comment|/*!     Removes the node with the local name \a localName and the     namespace URI \a nsURI from the map.      The function returns the removed node or a     \l{QDomNode::isNull()}{null node} if the map did not contain a     node with the local name \a localName and the namespace URI \a     nsURI.      \sa setNamedItemNS(), namedItemNS(), removeNamedItem() */
 end_comment
 begin_function
 DECL|function|removeNamedItemNS
@@ -12930,7 +12930,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the string stored in this object.      If the node is a \link isNull() null node\endlink, it will return     an empty string. */
+comment|/*!     Returns the string stored in this object.      If the node is a \l{isNull()}{null node}, it will return     an empty string. */
 end_comment
 begin_function
 DECL|function|data
@@ -13194,7 +13194,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the type of node this object refers to (i.e. \c TextNode,     \c CDATASectionNode, \c CommentNode or \c CharacterDataNode). For     a \link isNull() null node\endlink, returns \c CharacterDataNode. */
+comment|/*!     Returns the type of node this object refers to (i.e. \c TextNode,     \c CDATASectionNode, \c CommentNode or \c CharacterDataNode). For     a \l{isNull()}{null node}, returns \c CharacterDataNode. */
 end_comment
 begin_function
 DECL|function|nodeType
@@ -14212,7 +14212,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the element node this attribute is attached to or a \link     QDomNode::isNull() null node\endlink if this attribute is not     attached to any element. */
+comment|/*!     Returns the element node this attribute is attached to or a     \l{QDomNode::isNull()}{null node} if this attribute is not     attached to any element. */
 end_comment
 begin_function
 DECL|function|ownerElement
@@ -14330,7 +14330,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QDomNode::NodeType QDomAttr::nodeType() const      Returns \link QDomNode::NodeType AttributeNode\endlink. */
+comment|/*!     \fn QDomNode::NodeType QDomAttr::nodeType() const      Returns \l{QDomNode::NodeType}{AttributeNode}. */
 end_comment
 begin_undef
 DECL|macro|IMPL
@@ -16808,7 +16808,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Adds the attribute \a newAttr to this element.      If the element has another attribute that has the same local name     and namespace URI as \a newAttr, this function replaces that     attribute and returns it; otherwise the function returns a \link     QDomNode::isNull() null attribute\endlink.      \sa attributeNodeNS(), setAttributeNS(), setAttributeNode() */
+comment|/*!     Adds the attribute \a newAttr to this element.      If the element has another attribute that has the same local name     and namespace URI as \a newAttr, this function replaces that     attribute and returns it; otherwise the function returns a     \l{QDomNode::isNull()}{null attribute}.      \sa attributeNodeNS(), setAttributeNS(), setAttributeNode() */
 end_comment
 begin_function
 DECL|function|setAttributeNodeNS
@@ -22524,7 +22524,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Imports the node \a importedNode from another document to this     document. \a importedNode remains in the original document; this     function creates a copy that can be used within this document.      This function returns the imported node that belongs to this     document. The returned node has no parent. It is not possible to     import QDomDocument and QDomDocumentType nodes. In those cases     this function returns a \link QDomNode::isNull() null node\endlink.      If \a deep is true, this function imports not only the node \a     importedNode but its whole subtree; if it is false, only the \a     importedNode is imported. The argument \a deep has no effect on     QDomAttr and QDomEntityReference nodes, since the descendants of     QDomAttr nodes are always imported and those of     QDomEntityReference nodes are never imported.      The behavior of this function is slightly different depending on     the node types:     \table     \header \li Node Type \li Behavior     \row \li QDomAttr          \li The owner element is set to 0 and the specified flag is             set to true in the generated attribute. The whole subtree             of \a importedNode is always imported for attribute nodes:             \a deep has no effect.     \row \li QDomDocument          \li Document nodes cannot be imported.     \row \li QDomDocumentFragment          \li If \a deep is true, this function imports the whole             document fragment; otherwise it only generates an empty             document fragment.     \row \li QDomDocumentType          \li Document type nodes cannot be imported.     \row \li QDomElement          \li Attributes for which QDomAttr::specified() is true are             also imported, other attributes are not imported. If \a             deep is true, this function also imports the subtree of \a             importedNode; otherwise it imports only the element node             (and some attributes, see above).     \row \li QDomEntity          \li Entity nodes can be imported, but at the moment there is             no way to use them since the document type is read-only in             DOM level 2.     \row \li QDomEntityReference          \li Descendants of entity reference nodes are never imported:             \a deep has no effect.     \row \li QDomNotation          \li Notation nodes can be imported, but at the moment there is             no way to use them since the document type is read-only in             DOM level 2.     \row \li QDomProcessingInstruction          \li The target and value of the processing instruction is             copied to the new node.     \row \li QDomText          \li The text is copied to the new node.     \row \li QDomCDATASection          \li The text is copied to the new node.     \row \li QDomComment          \li The text is copied to the new node.     \endtable      \sa QDomElement::setAttribute(), QDomNode::insertBefore(),         QDomNode::insertAfter(), QDomNode::replaceChild(), QDomNode::removeChild(),         QDomNode::appendChild() */
+comment|/*!     Imports the node \a importedNode from another document to this     document. \a importedNode remains in the original document; this     function creates a copy that can be used within this document.      This function returns the imported node that belongs to this     document. The returned node has no parent. It is not possible to     import QDomDocument and QDomDocumentType nodes. In those cases     this function returns a \l{QDomNode::isNull()}{null node}.      If \a deep is true, this function imports not only the node \a     importedNode but its whole subtree; if it is false, only the \a     importedNode is imported. The argument \a deep has no effect on     QDomAttr and QDomEntityReference nodes, since the descendants of     QDomAttr nodes are always imported and those of     QDomEntityReference nodes are never imported.      The behavior of this function is slightly different depending on     the node types:     \table     \header \li Node Type \li Behavior     \row \li QDomAttr          \li The owner element is set to 0 and the specified flag is             set to true in the generated attribute. The whole subtree             of \a importedNode is always imported for attribute nodes:             \a deep has no effect.     \row \li QDomDocument          \li Document nodes cannot be imported.     \row \li QDomDocumentFragment          \li If \a deep is true, this function imports the whole             document fragment; otherwise it only generates an empty             document fragment.     \row \li QDomDocumentType          \li Document type nodes cannot be imported.     \row \li QDomElement          \li Attributes for which QDomAttr::specified() is true are             also imported, other attributes are not imported. If \a             deep is true, this function also imports the subtree of \a             importedNode; otherwise it imports only the element node             (and some attributes, see above).     \row \li QDomEntity          \li Entity nodes can be imported, but at the moment there is             no way to use them since the document type is read-only in             DOM level 2.     \row \li QDomEntityReference          \li Descendants of entity reference nodes are never imported:             \a deep has no effect.     \row \li QDomNotation          \li Notation nodes can be imported, but at the moment there is             no way to use them since the document type is read-only in             DOM level 2.     \row \li QDomProcessingInstruction          \li The target and value of the processing instruction is             copied to the new node.     \row \li QDomText          \li The text is copied to the new node.     \row \li QDomCDATASection          \li The text is copied to the new node.     \row \li QDomComment          \li The text is copied to the new node.     \endtable      \sa QDomElement::setAttribute(), QDomNode::insertBefore(),         QDomNode::insertAfter(), QDomNode::replaceChild(), QDomNode::removeChild(),         QDomNode::appendChild() */
 end_comment
 begin_function
 DECL|function|importNode
@@ -22702,7 +22702,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the element whose ID is equal to \a elementId. If no     element with the ID was found, this function returns a \link     QDomNode::isNull() null element\endlink.      Since the QDomClasses do not know which attributes are element     IDs, this function returns always a \link QDomNode::isNull() null     element\endlink. This may change in a future version. */
+comment|/*!     Returns the element whose ID is equal to \a elementId. If no     element with the ID was found, this function returns a     \l{QDomNode::isNull()}{null element}.      Since the QDomClasses do not know which attributes are element     IDs, this function returns always a     \l{QDomNode::isNull()}{null element}.     This may change in a future version. */
 end_comment
 begin_function
 DECL|function|elementById
@@ -22741,7 +22741,7 @@ begin_comment
 comment|/**************************************************************  *  * Node casting functions  *  **************************************************************/
 end_comment
 begin_comment
-comment|/*!     Converts a QDomNode into a QDomAttr. If the node is not an     attribute, the returned object will be \link QDomNode::isNull()     null\endlink.      \sa isAttr() */
+comment|/*!     Converts a QDomNode into a QDomAttr. If the node is not an     attribute, the returned object will be \l{QDomNode::isNull()}{null}.      \sa isAttr() */
 end_comment
 begin_function
 DECL|function|toAttr
@@ -22780,7 +22780,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Converts a QDomNode into a QDomCDATASection. If the node is not a     CDATA section, the returned object will be \link     QDomNode::isNull() null\endlink.      \sa isCDATASection() */
+comment|/*!     Converts a QDomNode into a QDomCDATASection. If the node is not a     CDATA section, the returned object will be \l{QDomNode::isNull()}{null}.      \sa isCDATASection() */
 end_comment
 begin_function
 DECL|function|toCDATASection
@@ -22819,7 +22819,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Converts a QDomNode into a QDomDocumentFragment. If the node is     not a document fragment the returned object will be \link     QDomNode::isNull() null\endlink.      \sa isDocumentFragment() */
+comment|/*!     Converts a QDomNode into a QDomDocumentFragment. If the node is     not a document fragment the returned object will be \l{QDomNode::isNull()}{null}.      \sa isDocumentFragment() */
 end_comment
 begin_function
 DECL|function|toDocumentFragment
@@ -22858,7 +22858,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Converts a QDomNode into a QDomDocument. If the node is not a     document the returned object will be \link QDomNode::isNull()     null\endlink.      \sa isDocument() */
+comment|/*!     Converts a QDomNode into a QDomDocument. If the node is not a     document the returned object will be \l{QDomNode::isNull()}{null}.      \sa isDocument() */
 end_comment
 begin_function
 DECL|function|toDocument
@@ -22897,7 +22897,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Converts a QDomNode into a QDomDocumentType. If the node is not a     document type the returned object will be \link QDomNode::isNull()     null\endlink.      \sa isDocumentType() */
+comment|/*!     Converts a QDomNode into a QDomDocumentType. If the node is not a     document type the returned object will be \l{QDomNode::isNull()}{null}.      \sa isDocumentType() */
 end_comment
 begin_function
 DECL|function|toDocumentType
@@ -22936,7 +22936,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Converts a QDomNode into a QDomElement. If the node is not an     element the returned object will be \link QDomNode::isNull()     null\endlink.      \sa isElement() */
+comment|/*!     Converts a QDomNode into a QDomElement. If the node is not an     element the returned object will be \l{QDomNode::isNull()}{null}.      \sa isElement() */
 end_comment
 begin_function
 DECL|function|toElement
@@ -22975,7 +22975,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Converts a QDomNode into a QDomEntityReference. If the node is not     an entity reference, the returned object will be \link     QDomNode::isNull() null\endlink.      \sa isEntityReference() */
+comment|/*!     Converts a QDomNode into a QDomEntityReference. If the node is not     an entity reference, the returned object will be \l{QDomNode::isNull()}{null}.      \sa isEntityReference() */
 end_comment
 begin_function
 DECL|function|toEntityReference
@@ -23014,7 +23014,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Converts a QDomNode into a QDomText. If the node is not a text,     the returned object will be \link QDomNode::isNull() null\endlink.      \sa isText() */
+comment|/*!     Converts a QDomNode into a QDomText. If the node is not a text,     the returned object will be \l{QDomNode::isNull()}{null}.      \sa isText() */
 end_comment
 begin_function
 DECL|function|toText
@@ -23053,7 +23053,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Converts a QDomNode into a QDomEntity. If the node is not an     entity the returned object will be \link QDomNode::isNull()     null\endlink.      \sa isEntity() */
+comment|/*!     Converts a QDomNode into a QDomEntity. If the node is not an     entity the returned object will be \l{QDomNode::isNull()}{null}.      \sa isEntity() */
 end_comment
 begin_function
 DECL|function|toEntity
@@ -23092,7 +23092,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Converts a QDomNode into a QDomNotation. If the node is not a     notation the returned object will be \link QDomNode::isNull()     null\endlink.      \sa isNotation() */
+comment|/*!     Converts a QDomNode into a QDomNotation. If the node is not a     notation the returned object will be \l{QDomNode::isNull()}{null}.      \sa isNotation() */
 end_comment
 begin_function
 DECL|function|toNotation
@@ -23131,7 +23131,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Converts a QDomNode into a QDomProcessingInstruction. If the node     is not a processing instruction the returned object will be \link     QDomNode::isNull() null\endlink.      \sa isProcessingInstruction() */
+comment|/*!     Converts a QDomNode into a QDomProcessingInstruction. If the node     is not a processing instruction the returned object will be \l{QDomNode::isNull()}{null}.      \sa isProcessingInstruction() */
 end_comment
 begin_function
 DECL|function|toProcessingInstruction
@@ -23170,7 +23170,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Converts a QDomNode into a QDomCharacterData. If the node is not a     character data node the returned object will be \link     QDomNode::isNull() null\endlink.      \sa isCharacterData() */
+comment|/*!     Converts a QDomNode into a QDomCharacterData. If the node is not a     character data node the returned object will be \l{QDomNode::isNull()}{null}.      \sa isCharacterData() */
 end_comment
 begin_function
 DECL|function|toCharacterData
@@ -23209,7 +23209,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Converts a QDomNode into a QDomComment. If the node is not a     comment the returned object will be \link QDomNode::isNull()     null\endlink.      \sa isComment() */
+comment|/*!     Converts a QDomNode into a QDomComment. If the node is not a     comment the returned object will be \l{QDomNode::isNull()}{null}.      \sa isComment() */
 end_comment
 begin_function
 DECL|function|toComment
