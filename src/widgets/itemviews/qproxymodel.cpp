@@ -777,7 +777,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the drop actions that are supported by the model; this is     a combination of the individual actions defined in \l Qt::DropActions.      The selection of drop actions provided by the model will influence the     behavior of the component that started the drag and drop operation.      \sa \link dnd.html Drag and Drop\endlink */
+comment|/*!     Returns the drop actions that are supported by the model; this is     a combination of the individual actions defined in \l Qt::DropActions.      The selection of drop actions provided by the model will influence the     behavior of the component that started the drag and drop operation.      \sa \l{dnd.html}{Drag and Drop} */
 end_comment
 begin_function
 DECL|function|supportedDropActions

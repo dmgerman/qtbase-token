@@ -3400,7 +3400,7 @@ begin_comment
 comment|// QT_NO_DOCKWIDGET
 end_comment
 begin_comment
-comment|/*!     Saves the current state of this mainwindow's toolbars and     dockwidgets. The \a version number is stored as part of the data.      The \link QObject::objectName objectName\endlink property is used     to identify each QToolBar and QDockWidget.  You should make sure     that this property is unique for each QToolBar and QDockWidget you     add to the QMainWindow      To restore the saved state, pass the return value and \a version     number to restoreState().      To save the geometry when the window closes, you can     implement a close event like this:      \snippet code/src_gui_widgets_qmainwindow.cpp 0      \sa restoreState(), QWidget::saveGeometry(), QWidget::restoreGeometry() */
+comment|/*!     Saves the current state of this mainwindow's toolbars and     dockwidgets. The \a version number is stored as part of the data.      The \l{QObject::objectName}{objectName} property is used     to identify each QToolBar and QDockWidget.  You should make sure     that this property is unique for each QToolBar and QDockWidget you     add to the QMainWindow      To restore the saved state, pass the return value and \a version     number to restoreState().      To save the geometry when the window closes, you can     implement a close event like this:      \snippet code/src_gui_widgets_qmainwindow.cpp 0      \sa restoreState(), QWidget::saveGeometry(), QWidget::restoreGeometry() */
 end_comment
 begin_function
 DECL|function|saveState

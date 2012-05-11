@@ -2933,7 +2933,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Creates a new action with the given \a text. This action is added to     the end of the toolbar. The action's \link QAction::triggered()     triggered()\endlink signal is connected to \a member in \a     receiver. */
+comment|/*!     \overload      Creates a new action with the given \a text. This action is added to     the end of the toolbar. The action's \l{QAction::triggered()}{triggered()}     signal is connected to \a member in \a receiver. */
 end_comment
 begin_function
 DECL|function|addAction
@@ -3001,7 +3001,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Creates a new action with the icon \a icon and text \a text. This     action is added to the end of the toolbar. The action's \link     QAction::triggered() triggered()\endlink signal is connected to \a     member in \a receiver. */
+comment|/*!     \overload      Creates a new action with the icon \a icon and text \a text. This     action is added to the end of the toolbar. The action's     \l{QAction::triggered()}{triggered()} signal is connected to \a     member in \a receiver. */
 end_comment
 begin_function
 DECL|function|addAction

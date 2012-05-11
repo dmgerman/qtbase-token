@@ -5990,7 +5990,7 @@ directive|ifndef
 name|QT_NO_CURSOR
 end_ifndef
 begin_comment
-comment|/*!     Returns the current cursor shape for the item. The mouse cursor     will assume this shape when it's over this item. See the \link     Qt::CursorShape list of predefined cursor objects\endlink for a     range of useful shapes.      An editor item might want to use an I-beam cursor:      \snippet code/src_gui_graphicsview_qgraphicsitem.cpp 2      If no cursor has been set, the cursor of the item beneath is used.      \sa setCursor(), hasCursor(), unsetCursor(), QWidget::cursor,     QApplication::overrideCursor() */
+comment|/*!     Returns the current cursor shape for the item. The mouse cursor     will assume this shape when it's over this item.     See the \l{Qt::CursorShape}{list of predefined cursor objects} for a     range of useful shapes.      An editor item might want to use an I-beam cursor:      \snippet code/src_gui_graphicsview_qgraphicsitem.cpp 2      If no cursor has been set, the cursor of the item beneath is used.      \sa setCursor(), hasCursor(), unsetCursor(), QWidget::cursor,     QApplication::overrideCursor() */
 end_comment
 begin_function
 DECL|function|cursor
@@ -6020,7 +6020,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the current cursor shape for the item to \a cursor. The mouse cursor     will assume this shape when it's over this item. See the \link     Qt::CursorShape list of predefined cursor objects\endlink for a range of     useful shapes.      An editor item might want to use an I-beam cursor:      \snippet code/src_gui_graphicsview_qgraphicsitem.cpp 3      If no cursor has been set, the cursor of the item beneath is used.      \sa cursor(), hasCursor(), unsetCursor(), QWidget::cursor,     QApplication::overrideCursor() */
+comment|/*!     Sets the current cursor shape for the item to \a cursor. The mouse cursor     will assume this shape when it's over this item.     See the \l{Qt::CursorShape}{list of predefined cursor objects} for a     range of useful shapes.      An editor item might want to use an I-beam cursor:      \snippet code/src_gui_graphicsview_qgraphicsitem.cpp 3      If no cursor has been set, the cursor of the item beneath is used.      \sa cursor(), hasCursor(), unsetCursor(), QWidget::cursor,     QApplication::overrideCursor() */
 end_comment
 begin_function
 DECL|function|setCursor

@@ -5656,7 +5656,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Displays a simple about box with title \a title and text \a     text. The about box's parent is \a parent.      about() looks for a suitable icon in four locations:      \list 1     \li It prefers \link QWidget::windowIcon() parent->icon() \endlink     if that exists.     \li If not, it tries the top-level widget containing \a parent.     \li If that fails, it tries the \link     QApplication::activeWindow() active window. \endlink     \li As a last resort it uses the Information icon.     \endlist      The about box has a single button labelled "OK". On Mac OS X, the     about box is popped up as a modeless window; on other platforms,     it is currently application modal.      \sa QWidget::windowIcon(), QApplication::activeWindow() */
+comment|/*!     Displays a simple about box with title \a title and text \a     text. The about box's parent is \a parent.      about() looks for a suitable icon in four locations:      \list 1     \li It prefers \l{QWidget::windowIcon()}{parent->icon()}     if that exists.     \li If not, it tries the top-level widget containing \a parent.     \li If that fails, it tries the \l{QApplication::activeWindow()}{active window.}     \li As a last resort it uses the Information icon.     \endlist      The about box has a single button labelled "OK". On Mac OS X, the     about box is popped up as a modeless window; on other platforms,     it is currently application modal.      \sa QWidget::windowIcon(), QApplication::activeWindow() */
 end_comment
 begin_function
 DECL|function|about

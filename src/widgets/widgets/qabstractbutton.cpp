@@ -3448,7 +3448,7 @@ begin_comment
 comment|// QT_NO_BUTTONGROUP
 end_comment
 begin_comment
-comment|/*! Performs an animated click: the button is pressed immediately, and released \a msec milliseconds later (the default is 100 ms).  Calling this function again before the button was released will reset the release timer.  All signals associated with a click are emitted as appropriate.  This function does nothing if the button is \link setEnabled() disabled. \endlink  \sa click() */
+comment|/*! Performs an animated click: the button is pressed immediately, and released \a msec milliseconds later (the default is 100 ms).  Calling this function again before the button was released will reset the release timer.  All signals associated with a click are emitted as appropriate.  This function does nothing if the button is \l{setEnabled()}{disabled.}  \sa click() */
 end_comment
 begin_function
 DECL|function|animateClick
@@ -3532,7 +3532,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*! Performs a click.  All the usual signals associated with a click are emitted as appropriate. If the button is checkable, the state of the button is toggled.  This function does nothing if the button is \link setEnabled() disabled. \endlink  \sa animateClick()  */
+comment|/*! Performs a click.  All the usual signals associated with a click are emitted as appropriate. If the button is checkable, the state of the button is toggled.  This function does nothing if the button is \l{setEnabled()}{disabled.}  \sa animateClick()  */
 end_comment
 begin_function
 DECL|function|click

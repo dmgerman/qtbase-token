@@ -5417,7 +5417,7 @@ directive|ifndef
 name|QT_NO_DATASTREAM
 end_ifndef
 begin_comment
-comment|/*!     \relates QSizePolicy     \since 4.2      Writes the size \a policy to the data stream \a stream.      \sa \link datastreamformat.html Format of the QDataStream operators \endlink */
+comment|/*!     \relates QSizePolicy     \since 4.2      Writes the size \a policy to the data stream \a stream.      \sa{Serializing Qt Data Types}{Format of the QDataStream operators} */
 end_comment
 begin_function
 DECL|function|operator <<
@@ -5446,7 +5446,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \relates QSizePolicy     \since 4.2      Reads the size \a policy from the data stream \a stream.      \sa \link datastreamformat.html Format of the QDataStream operators \endlink */
+comment|/*!     \relates QSizePolicy     \since 4.2      Reads the size \a policy from the data stream \a stream.      \sa{Serializing Qt Data Types}{Format of the QDataStream operators} */
 end_comment
 begin_function
 DECL|function|operator >>

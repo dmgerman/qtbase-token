@@ -2559,7 +2559,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QLineEdit::inputMask     \brief The validation input mask      If no mask is set, inputMask() returns an empty string.      Sets the QLineEdit's validation mask. Validators can be used     instead of, or in conjunction with masks; see setValidator().      Unset the mask and return to normal QLineEdit operation by passing     an empty string ("") or just calling setInputMask() with no     arguments.      The table below shows the characters that can be used in an input mask.     A space character, the default character for a blank, is needed for cases     where a character is \e{permitted but not required}.      \table     \header \li Character \li Meaning     \row \li \c A \li ASCII alphabetic character required. A-Z, a-z.     \row \li \c a \li ASCII alphabetic character permitted but not required.     \row \li \c N \li ASCII alphanumeric character required. A-Z, a-z, 0-9.     \row \li \c n \li ASCII alphanumeric character permitted but not required.     \row \li \c X \li Any character required.     \row \li \c x \li Any character permitted but not required.     \row \li \c 9 \li ASCII digit required. 0-9.     \row \li \c 0 \li ASCII digit permitted but not required.     \row \li \c D \li ASCII digit required. 1-9.     \row \li \c d \li ASCII digit permitted but not required (1-9).     \row \li \c # \li ASCII digit or plus/minus sign permitted but not required.     \row \li \c H \li Hexadecimal character required. A-F, a-f, 0-9.     \row \li \c h \li Hexadecimal character permitted but not required.     \row \li \c B \li Binary character required. 0-1.     \row \li \c b \li Binary character permitted but not required.     \row \li \c> \li All following alphabetic characters are uppercased.     \row \li \c< \li All following alphabetic characters are lowercased.     \row \li \c ! \li Switch off case conversion.     \row \li \tt{\\} \li Use \tt{\\} to escape the special                            characters listed above to use them as                            separators.     \endtable      The mask consists of a string of mask characters and separators,     optionally followed by a semicolon and the character used for     blanks. The blank characters are always removed from the text     after editing.      Examples:     \table     \header \li Mask \li Notes     \row \li \c 000.000.000.000;_ \li IP address; blanks are \c{_}.     \row \li \c HH:HH:HH:HH:HH:HH;_ \li MAC address     \row \li \c 0000-00-00 \li ISO Date; blanks are \c space     \row \li \c>AAAAA-AAAAA-AAAAA-AAAAA-AAAAA;# \li License number;     blanks are \c - and all (alphabetic) characters are converted to     uppercase.     \endtable      To get range control (e.g., for an IP address) use masks together     with \link setValidator() validators\endlink.      \sa maxLength */
+comment|/*!     \property QLineEdit::inputMask     \brief The validation input mask      If no mask is set, inputMask() returns an empty string.      Sets the QLineEdit's validation mask. Validators can be used     instead of, or in conjunction with masks; see setValidator().      Unset the mask and return to normal QLineEdit operation by passing     an empty string ("") or just calling setInputMask() with no     arguments.      The table below shows the characters that can be used in an input mask.     A space character, the default character for a blank, is needed for cases     where a character is \e{permitted but not required}.      \table     \header \li Character \li Meaning     \row \li \c A \li ASCII alphabetic character required. A-Z, a-z.     \row \li \c a \li ASCII alphabetic character permitted but not required.     \row \li \c N \li ASCII alphanumeric character required. A-Z, a-z, 0-9.     \row \li \c n \li ASCII alphanumeric character permitted but not required.     \row \li \c X \li Any character required.     \row \li \c x \li Any character permitted but not required.     \row \li \c 9 \li ASCII digit required. 0-9.     \row \li \c 0 \li ASCII digit permitted but not required.     \row \li \c D \li ASCII digit required. 1-9.     \row \li \c d \li ASCII digit permitted but not required (1-9).     \row \li \c # \li ASCII digit or plus/minus sign permitted but not required.     \row \li \c H \li Hexadecimal character required. A-F, a-f, 0-9.     \row \li \c h \li Hexadecimal character permitted but not required.     \row \li \c B \li Binary character required. 0-1.     \row \li \c b \li Binary character permitted but not required.     \row \li \c> \li All following alphabetic characters are uppercased.     \row \li \c< \li All following alphabetic characters are lowercased.     \row \li \c ! \li Switch off case conversion.     \row \li \tt{\\} \li Use \tt{\\} to escape the special                            characters listed above to use them as                            separators.     \endtable      The mask consists of a string of mask characters and separators,     optionally followed by a semicolon and the character used for     blanks. The blank characters are always removed from the text     after editing.      Examples:     \table     \header \li Mask \li Notes     \row \li \c 000.000.000.000;_ \li IP address; blanks are \c{_}.     \row \li \c HH:HH:HH:HH:HH:HH;_ \li MAC address     \row \li \c 0000-00-00 \li ISO Date; blanks are \c space     \row \li \c>AAAAA-AAAAA-AAAAA-AAAAA-AAAAA;# \li License number;     blanks are \c - and all (alphabetic) characters are converted to     uppercase.     \endtable      To get range control (e.g., for an IP address) use masks together     with \l{setValidator()}{validators}.      \sa maxLength */
 end_comment
 begin_function
 DECL|function|inputMask
@@ -2729,7 +2729,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Undoes the last operation if undo is \link     QLineEdit::undoAvailable available\endlink. Deselects any current     selection, and updates the selection start to the current cursor     position. */
+comment|/*!     Undoes the last operation if undo is \l{QLineEdit::undoAvailable}{available}. Deselects any current     selection, and updates the selection start to the current cursor     position. */
 end_comment
 begin_function
 DECL|function|undo
@@ -2759,7 +2759,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Redoes the last operation if redo is \link     QLineEdit::redoAvailable available\endlink. */
+comment|/*!     Redoes the last operation if redo is \l{QLineEdit::redoAvailable}{available}. */
 end_comment
 begin_function
 DECL|function|redo
@@ -2958,7 +2958,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Inserts the clipboard's text at the cursor position, deleting any     selected text, providing the line edit is not \link     QLineEdit::readOnly read-only\endlink.      If the end result would not be acceptable to the current     \link setValidator() validator\endlink, nothing happens.      \sa copy(), cut() */
+comment|/*!     Inserts the clipboard's text at the cursor position, deleting any     selected text, providing the line edit is not \l{QLineEdit::readOnly}{read-only}.      If the end result would not be acceptable to the current     \l{setValidator()}{validator}, nothing happens.      \sa copy(), cut() */
 end_comment
 begin_function
 DECL|function|paste
@@ -4268,7 +4268,7 @@ begin_comment
 comment|/*!     \fn void  QLineEdit::editingFinished()      This signal is emitted when the Return or Enter key is pressed or     the line edit loses focus. Note that if there is a validator() or     inputMask() set on the line edit and enter/return is pressed, the     editingFinished() signal will only be emitted if the input follows     the inputMask() and the validator() returns QValidator::Acceptable. */
 end_comment
 begin_comment
-comment|/*!     Converts the given key press \a event into a line edit action.      If Return or Enter is pressed and the current text is valid (or     can be \link QValidator::fixup() made valid\endlink by the     validator), the signal returnPressed() is emitted.      The default key bindings are listed in the class's detailed     description. */
+comment|/*!     Converts the given key press \a event into a line edit action.      If Return or Enter is pressed and the current text is valid (or     can be \l{QValidator::fixup()}{made valid} by the     validator), the signal returnPressed() is emitted.      The default key bindings are listed in the class's detailed     description. */
 end_comment
 begin_function
 DECL|function|keyPressEvent
