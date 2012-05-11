@@ -6472,7 +6472,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Reads an picture into memory and returns true if the picture was     successfully read; otherwise returns false.      Before reading an picture you must set an IO device or a file name.     If both an IO device and a file name have been set, the IO device     will be used.      Setting the picture file format string is optional.      Note that this function does \e not set the \link format()     format\endlink used to read the picture. If you need that     information, use the pictureFormat() static functions.      Example:      \snippet picture/picture.cpp 4      \sa setIODevice(), setFileName(), setFormat(), write(), QPixmap::load() */
+comment|/*!     Reads an picture into memory and returns true if the picture was     successfully read; otherwise returns false.      Before reading an picture you must set an IO device or a file name.     If both an IO device and a file name have been set, the IO device     will be used.      Setting the picture file format string is optional.      Note that this function does \e not set the \l{format()}{format} used to read the picture. If you need that     information, use the pictureFormat() static functions.      Example:      \snippet picture/picture.cpp 4      \sa setIODevice(), setFileName(), setFormat(), write(), QPixmap::load() */
 end_comment
 begin_function
 DECL|function|read

@@ -651,7 +651,7 @@ begin_comment
 comment|/*!     \fn void QRegion::swap(QRegion&other)     \since 4.8      Swaps region \a other with this region. This operation is very     fast and never fails. */
 end_comment
 begin_comment
-comment|/*!     \relates QRegion      Writes the region \a r to the stream \a s and returns a reference     to the stream.      \sa \link datastreamformat.html Format of the QDataStream operators \endlink */
+comment|/*!     \relates QRegion      Writes the region \a r to the stream \a s and returns a reference     to the stream.      \sa{Serializing Qt Data Types}{Format of the QDataStream operators} */
 end_comment
 begin_function
 DECL|function|operator <<
@@ -832,7 +832,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \relates QRegion      Reads a region from the stream \a s into \a r and returns a     reference to the stream.      \sa \link datastreamformat.html Format of the QDataStream operators \endlink */
+comment|/*!     \relates QRegion      Reads a region from the stream \a s into \a r and returns a     reference to the stream.      \sa{Serializing Qt Data Types}{Format of the QDataStream operators} */
 end_comment
 begin_function
 DECL|function|operator >>

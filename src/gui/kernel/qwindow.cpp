@@ -4675,7 +4675,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \property QWindow::cursor     \brief the cursor shape for this window      The mouse cursor will assume this shape when it is over this     window, unless an override cursor is set. See the \link     Qt::CursorShape list of predefined cursor objects\endlink for a     range of useful shapes.      By default, this property contains a cursor with the Qt::ArrowCursor     shape.      Some underlying window implementations will reset the cursor if it     leaves a window even if the mouse is grabbed. If you want to have     a cursor set for all windows, even when outside the window, consider     QGuiApplication::setOverrideCursor().      \sa QGuiApplication::setOverrideCursor() */
+comment|/*!     \property QWindow::cursor     \brief the cursor shape for this window      The mouse cursor will assume this shape when it is over this     window, unless an override cursor is set.     See the \l{Qt::CursorShape}{list of predefined cursor objects} for a     range of useful shapes.      By default, this property contains a cursor with the Qt::ArrowCursor     shape.      Some underlying window implementations will reset the cursor if it     leaves a window even if the mouse is grabbed. If you want to have     a cursor set for all windows, even when outside the window, consider     QGuiApplication::setOverrideCursor().      \sa QGuiApplication::setOverrideCursor() */
 end_comment
 begin_ifndef
 ifndef|#

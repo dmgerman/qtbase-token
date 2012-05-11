@@ -1372,7 +1372,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2     Redoes the last editing operation on the document if \link     QTextDocument::isRedoAvailable() redo is available\endlink.      The provided \a cursor is positioned at the end of the location where     the edition operation was redone. */
+comment|/*!     \since 4.2     Redoes the last editing operation on the document if \l{QTextDocument::isRedoAvailable()}{redo is available}.      The provided \a cursor is positioned at the end of the location where     the edition operation was redone. */
 end_comment
 begin_function
 DECL|function|redo
@@ -1488,7 +1488,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload     Redoes the last editing operation on the document if \link     QTextDocument::isRedoAvailable() redo is available\endlink. */
+comment|/*!     \overload     Redoes the last editing operation on the document if \l{QTextDocument::isRedoAvailable()}{redo is available}. */
 end_comment
 begin_function
 DECL|function|redo

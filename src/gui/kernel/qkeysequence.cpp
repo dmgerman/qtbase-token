@@ -6453,7 +6453,7 @@ constructor_decl|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     Creates a key sequence from the \a key string. For example     "Ctrl+O" gives CTRL+'O'. The strings "Ctrl",     "Shift", "Alt" and "Meta" are recognized, as well as their     translated equivalents in the "QShortcut" context (using     QObject::tr()).      Up to four key codes may be entered by separating them with     commas, e.g. "Alt+X,Ctrl+S,Q".      \a key should be in NativeText format.      This constructor is typically used with \link QObject::tr() tr     \endlink(), so that shortcut keys can be replaced in     translations:      \snippet code/src_gui_kernel_qkeysequence.cpp 2      Note the "File|Open" translator comment. It is by no means     necessary, but it provides some context for the human translator. */
+comment|/*!     Creates a key sequence from the \a key string. For example     "Ctrl+O" gives CTRL+'O'. The strings "Ctrl",     "Shift", "Alt" and "Meta" are recognized, as well as their     translated equivalents in the "QShortcut" context (using     QObject::tr()).      Up to four key codes may be entered by separating them with     commas, e.g. "Alt+X,Ctrl+S,Q".      \a key should be in NativeText format.      This constructor is typically used with \l{QObject::tr()}{tr}(), so that shortcut keys can be replaced in     translations:      \snippet code/src_gui_kernel_qkeysequence.cpp 2      Note the "File|Open" translator comment. It is by no means     necessary, but it provides some context for the human translator. */
 end_comment
 begin_constructor
 DECL|function|QKeySequence
@@ -10025,7 +10025,7 @@ name|QT_NO_DATASTREAM
 argument_list|)
 end_if
 begin_comment
-comment|/*!     \fn QDataStream&operator<<(QDataStream&stream, const QKeySequence&sequence)     \relates QKeySequence      Writes the key \a sequence to the \a stream.      \sa \link datastreamformat.html Format of the QDataStream operators \endlink */
+comment|/*!     \fn QDataStream&operator<<(QDataStream&stream, const QKeySequence&sequence)     \relates QKeySequence      Writes the key \a sequence to the \a stream.      \sa{Serializing Qt Data Types}{Format of the QDataStream operators} */
 end_comment
 begin_function
 DECL|function|operator <<
@@ -10122,7 +10122,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QDataStream&operator>>(QDataStream&stream, QKeySequence&sequence)     \relates QKeySequence      Reads a key sequence from the \a stream into the key \a sequence.      \sa \link datastreamformat.html Format of the QDataStream operators \endlink */
+comment|/*!     \fn QDataStream&operator>>(QDataStream&stream, QKeySequence&sequence)     \relates QKeySequence      Reads a key sequence from the \a stream into the key \a sequence.      \sa{Serializing Qt Data Types}{Format of the QDataStream operators} */
 end_comment
 begin_function
 DECL|function|operator >>

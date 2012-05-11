@@ -2101,7 +2101,7 @@ block|}
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|/*!     \relates QPalette      Writes the palette, \a p to the stream \a s and returns a     reference to the stream.      \sa \link datastreamformat.html Format of the QDataStream operators \endlink */
+comment|/*!     \relates QPalette      Writes the palette, \a p to the stream \a s and returns a     reference to the stream.      \sa{Serializing Qt Data Types}{Format of the QDataStream operators} */
 end_comment
 begin_function
 DECL|function|operator <<
@@ -2336,7 +2336,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \relates QPalette      Reads a palette from the stream, \a s into the palette \a p, and     returns a reference to the stream.      \sa \link datastreamformat.html Format of the QDataStream operators \endlink */
+comment|/*!     \relates QPalette      Reads a palette from the stream, \a s into the palette \a p, and     returns a reference to the stream.      \sa{Serializing Qt Data Types}{Format of the QDataStream operators} */
 end_comment
 begin_function
 DECL|function|operator >>
