@@ -1654,6 +1654,12 @@ operator|::
 name|readyReadSlot
 parameter_list|()
 block|{
+if|if
+condition|(
+operator|!
+name|httpReply
+condition|)
+return|return;
 comment|// Don't do in zerocopy case
 if|if
 condition|(
