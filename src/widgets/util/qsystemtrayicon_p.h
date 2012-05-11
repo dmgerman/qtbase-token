@@ -71,6 +71,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qpa/qplatformsystemtrayicon.h>
+end_include
+begin_include
+include|#
+directive|include
 file|"QtCore/qstring.h"
 end_include
 begin_include
@@ -83,6 +88,12 @@ name|QT_BEGIN_NAMESPACE
 DECL|variable|QSystemTrayIconSys
 name|class
 name|QSystemTrayIconSys
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|QPlatformSystemTrayIcon
+name|class
+name|QPlatformSystemTrayIcon
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -112,17 +123,11 @@ name|public
 operator|:
 name|QSystemTrayIconPrivate
 argument_list|()
-operator|:
-name|sys
-argument_list|(
-literal|0
-argument_list|)
-block|,
-name|visible
-argument_list|(
-argument|false
-argument_list|)
-block|{ }
+block|;
+operator|~
+name|QSystemTrayIconPrivate
+argument_list|()
+block|;
 name|void
 name|install_sys
 argument_list|()
@@ -170,6 +175,12 @@ name|bool
 name|supportsMessages_sys
 argument_list|()
 block|;
+name|void
+name|emitActivated
+argument_list|(
+argument|QPlatformSystemTrayIcon::ActivationReason reason
+argument_list|)
+block|;
 name|QPointer
 operator|<
 name|QMenu
@@ -185,6 +196,10 @@ block|;
 name|QSystemTrayIconSys
 operator|*
 name|sys
+block|;
+name|QPlatformSystemTrayIcon
+operator|*
+name|qpa_sys
 block|;
 name|bool
 name|visible

@@ -67,6 +67,17 @@ name|createPlatformMenuBar
 argument_list|()
 specifier|const
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_SYSTEMTRAYICON
+name|QPlatformSystemTrayIcon
+operator|*
+name|createPlatformSystemTrayIcon
+argument_list|()
+specifier|const
+block|;
+endif|#
+directive|endif
 name|bool
 name|usePlatformNativeDialog
 argument_list|(

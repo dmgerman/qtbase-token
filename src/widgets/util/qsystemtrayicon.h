@@ -281,6 +281,12 @@ name|Q_DECLARE_PRIVATE
 argument_list|(
 argument|QSystemTrayIcon
 argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void emitActivated(QPlatformSystemTrayIcon::ActivationReason)
+argument_list|)
 name|friend
 name|class
 name|QSystemTrayIconSys
@@ -288,16 +294,6 @@ block|;
 name|friend
 name|class
 name|QBalloonTip
-block|;
-name|friend
-name|void
-name|qtsystray_sendActivated
-argument_list|(
-name|QSystemTrayIcon
-operator|*
-argument_list|,
-name|int
-argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt

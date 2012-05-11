@@ -768,6 +768,33 @@ literal|0
 return|;
 block|}
 end_function
+begin_constructor
+DECL|function|QSystemTrayIconPrivate
+name|QSystemTrayIconPrivate
+operator|::
+name|QSystemTrayIconPrivate
+parameter_list|()
+member_init_list|:
+name|sys
+argument_list|(
+literal|0
+argument_list|)
+member_init_list|,
+name|visible
+argument_list|(
+literal|false
+argument_list|)
+block|{ }
+end_constructor
+begin_destructor
+DECL|function|~QSystemTrayIconPrivate
+name|QSystemTrayIconPrivate
+operator|::
+name|~
+name|QSystemTrayIconPrivate
+parameter_list|()
+block|{ }
+end_destructor
 begin_function
 DECL|function|install_sys
 name|void
