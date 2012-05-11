@@ -122,6 +122,10 @@ literal|"c++"
 operator|||
 name|ext
 operator|==
+literal|"qdoc"
+operator|||
+name|ext
+operator|==
 literal|"cc"
 operator|||
 name|ext

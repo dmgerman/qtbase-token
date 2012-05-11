@@ -12056,9 +12056,11 @@ name|exampleFile
 decl|,
 name|exampleFiles
 control|)
-operator|(
-name|void
-operator|)
+block|{
+name|FakeNode
+modifier|*
+name|fn
+init|=
 operator|new
 name|FakeNode
 argument_list|(
@@ -12079,7 +12081,8 @@ name|Node
 operator|::
 name|NoPageType
 argument_list|)
-expr_stmt|;
+decl_stmt|;
+block|}
 foreach|foreach
 control|(
 specifier|const
