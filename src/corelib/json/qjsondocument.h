@@ -82,6 +82,9 @@ name|UnterminatedString
 block|,
 DECL|enumerator|MissingObject
 name|MissingObject
+block|,
+DECL|enumerator|DeepNesting
+name|DeepNesting
 block|}
 enum|;
 name|QString

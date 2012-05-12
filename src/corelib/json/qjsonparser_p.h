@@ -116,6 +116,8 @@ decl_stmt|;
 name|QVarLengthArray
 operator|<
 name|uint
+operator|,
+literal|64
 operator|>
 name|offsets
 expr_stmt|;
@@ -244,6 +246,9 @@ name|dataLength
 decl_stmt|;
 name|int
 name|current
+decl_stmt|;
+name|int
+name|nestingLevel
 decl_stmt|;
 name|QJsonParseError
 operator|::

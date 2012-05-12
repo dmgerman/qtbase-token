@@ -98,6 +98,16 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_decl_stmt
+DECL|variable|nestingLimit
+specifier|static
+specifier|const
+name|int
+name|nestingLimit
+init|=
+literal|1024
+decl_stmt|;
+end_decl_stmt
 begin_function
 name|QT_BEGIN_NAMESPACE
 comment|// error strings for the JSON parser
@@ -161,7 +171,13 @@ define|#
 directive|define
 name|JSONERR_MISS_OBJ
 value|QT_TRANSLATE_NOOP("QJsonParseError", "object is missing after a comma")
+DECL|macro|JSONERR_DEEP_NEST
+define|#
+directive|define
+name|JSONERR_DEEP_NEST
+value|QT_TRANSLATE_NOOP("QJsonParseError", "too deeply nested document")
 comment|/*!     \class QJsonParseError     \ingroup json     \reentrant     \since 5.0      \brief The QJsonParseError class is used to report errors during JSON parsing. */
+comment|/*!     \enum QJsonParseError::ParseError      This enum describes the type of error that occurred during the parsing of a JSON document.      \value NoError                  No error occured     \value UnterminatedObject       An object is not correctly terminated with a closing curly bracket     \value MissingNameSeparator     A comma separating different items is missing     \value UnterminatedArray        The array is not correctly terminated with a closing square bracket     \value MissingValueSeparator    A colon separating keys from values inside objects is missing     \value IllegalValue             The value is illegal     \value TerminationByNumber      The input stream ended while parsing a number     \value IllegalNumber            The number is not well formed     \value IllegalEscapeSequence    An illegal escape sequence occurred in the input     \value IllegalUTF8String        An illegal UTF8 sequence occurred in the input     \value UnterminatedString       A string wasn't terminated with a quote     \value MissingObject            An object was expected but couldn't be found     \value DeepNesting              The JSON document is too deeply nested for the parser to parse it */
 comment|/*!   Returns the human-readable message appropriate to the reported JSON parsing error.  */
 DECL|function|errorString
 name|QString
@@ -279,6 +295,14 @@ operator|=
 name|JSONERR_MISS_OBJ
 expr_stmt|;
 break|break;
+case|case
+name|DeepNesting
+case|:
+name|sz
+operator|=
+name|JSONERR_DEEP_NEST
+expr_stmt|;
+break|break;
 block|}
 ifndef|#
 directive|ifndef
@@ -347,6 +371,11 @@ literal|0
 argument_list|)
 member_init_list|,
 name|current
+argument_list|(
+literal|0
+argument_list|)
+member_init_list|,
+name|nestingLevel
 argument_list|(
 literal|0
 argument_list|)
@@ -1034,6 +1063,24 @@ operator|::
 name|parseObject
 parameter_list|()
 block|{
+if|if
+condition|(
+operator|++
+name|nestingLevel
+operator|>
+name|nestingLimit
+condition|)
+block|{
+name|lastError
+operator|=
+name|QJsonParseError
+operator|::
+name|DeepNesting
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
 name|int
 name|objectOffset
 init|=
@@ -1335,6 +1382,9 @@ name|current
 expr_stmt|;
 name|END
 expr_stmt|;
+operator|--
+name|nestingLevel
+expr_stmt|;
 return|return
 literal|true
 return|;
@@ -1485,6 +1535,24 @@ name|BEGIN
 operator|<<
 literal|"parseArray"
 expr_stmt|;
+if|if
+condition|(
+operator|++
+name|nestingLevel
+operator|>
+name|nestingLimit
+condition|)
+block|{
+name|lastError
+operator|=
+name|QJsonParseError
+operator|::
+name|DeepNesting
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
 name|int
 name|arrayOffset
 init|=
@@ -1503,6 +1571,8 @@ argument_list|<
 name|QJsonPrivate
 operator|::
 name|Value
+argument_list|,
+literal|64
 argument_list|>
 name|values
 decl_stmt|;
@@ -1730,6 +1800,9 @@ operator|<<
 name|current
 expr_stmt|;
 name|END
+expr_stmt|;
+operator|--
+name|nestingLevel
 expr_stmt|;
 return|return
 literal|true
