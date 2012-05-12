@@ -42,6 +42,24 @@ include|#
 directive|include
 file|"qvarlengtharray.h"
 end_include
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_BOOTSTRAPPED
+argument_list|)
+end_if
+begin_include
+include|#
+directive|include
+file|<private/qcoreapplication_p.h>
+end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -227,7 +245,6 @@ argument_list|(
 name|Q_OS_QNX
 argument_list|)
 operator|&&
-expr|\
 operator|!
 name|defined
 argument_list|(
@@ -2426,13 +2443,6 @@ name|ru_RU_codec
 init|=
 literal|0
 decl_stmt|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_SETLOCALE
-argument_list|)
 name|QByteArray
 name|origlocale
 argument_list|(
@@ -2444,16 +2454,6 @@ name|i
 argument_list|)
 argument_list|)
 decl_stmt|;
-else|#
-directive|else
-name|QByteArray
-name|origlocale
-argument_list|(
-name|i
-argument_list|)
-decl_stmt|;
-endif|#
-directive|endif
 comment|// unicode   koi8r   latin5   name
 comment|// 0x044E    0xC0    0xEE     CYRILLIC SMALL LETTER YU
 comment|// 0x042E    0xE0    0xCE     CYRILLIC CAPITAL LETTER YU
@@ -2540,13 +2540,6 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_SETLOCALE
-argument_list|)
 name|setlocale
 argument_list|(
 name|LC_CTYPE
@@ -2557,32 +2550,11 @@ name|constData
 argument_list|()
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 return|return
 name|ru_RU_codec
 return|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_if
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_WIN32
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_WINCE
-argument_list|)
-end_if
 begin_function
 DECL|function|checkForCodec
 specifier|static
@@ -2689,20 +2661,25 @@ argument_list|)
 expr_stmt|;
 else|#
 directive|else
-ifndef|#
-directive|ifndef
-name|QT_NO_ICONV
-name|localeMapper
-operator|=
-name|QTextCodec
-operator|::
-name|codecForName
+if|#
+directive|if
+operator|!
+name|defined
 argument_list|(
-literal|"System"
+name|QT_BOOTSTRAPPED
 argument_list|)
+name|QCoreApplicationPrivate
+operator|::
+name|initLocale
+argument_list|()
 expr_stmt|;
 endif|#
 directive|endif
+comment|// First try getting the codecs name from nl_langinfo and see
+comment|// if we have a builtin codec for it.
+comment|// Only fall back to using iconv if we can't find a builtin codec
+comment|// This is because the builtin utf8 codec is around 5 times faster
+comment|// then the using QIconvCodec
 if|#
 directive|if
 name|defined
@@ -2716,7 +2693,6 @@ argument_list|(
 name|Q_OS_QNX
 argument_list|)
 operator|&&
-expr|\
 operator|!
 name|defined
 argument_list|(
@@ -2728,12 +2704,6 @@ name|defined
 argument_list|(
 name|Q_OS_LINUX_ANDROID
 argument_list|)
-if|if
-condition|(
-operator|!
-name|localeMapper
-condition|)
-block|{
 name|char
 modifier|*
 name|charset
@@ -2756,6 +2726,44 @@ argument_list|(
 name|charset
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_ICONV
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_BOOTSTRAPPED
+argument_list|)
+if|if
+condition|(
+operator|!
+name|localeMapper
+condition|)
+block|{
+comment|// no builtin codec for the locale found, let's try using iconv
+operator|(
+name|void
+operator|)
+operator|new
+name|QIconvCodec
+argument_list|()
+expr_stmt|;
+name|localeMapper
+operator|=
+name|QTextCodec
+operator|::
+name|codecForName
+argument_list|(
+literal|"System"
+argument_list|)
+expr_stmt|;
 block|}
 endif|#
 directive|endif
@@ -2774,13 +2782,6 @@ comment|// LC_CTYPE category.
 comment|// First part is getting that locale name.  First try setlocale() which
 comment|// definitely knows it, but since we cannot fully trust it, get ready
 comment|// to fall back to environment variables.
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_SETLOCALE
-argument_list|)
 specifier|const
 name|QByteArray
 name|ctype
@@ -2792,14 +2793,6 @@ argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
-else|#
-directive|else
-specifier|const
-name|QByteArray
-name|ctype
-decl_stmt|;
-endif|#
-directive|endif
 comment|// Get the first nonempty value from $LC_ALL, $LC_CTYPE, and $LANG
 comment|// environment variables.
 name|QByteArray
@@ -3702,43 +3695,6 @@ operator|)
 operator|new
 name|QUtf8Codec
 expr_stmt|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_INTEGRITY
-argument_list|)
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_UNIX
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_ICONV
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|QT_BOOTSTRAPPED
-argument_list|)
-comment|// QIconvCodec depends on the UTF-16 codec, so it needs to be created last
-operator|(
-name|void
-operator|)
-operator|new
-name|QIconvCodec
-argument_list|()
-expr_stmt|;
-endif|#
-directive|endif
-endif|#
-directive|endif
 if|if
 condition|(
 operator|!
@@ -4503,7 +4459,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a pointer to the codec most suitable for this locale.      On Windows, the codec will be based on a system locale. On Unix     systems, starting with Qt 4.2, the codec will be using the \e     iconv library. Note that in both cases the codec's name will be     "System". */
+comment|/*!     Returns a pointer to the codec most suitable for this locale.      On Windows, the codec will be based on a system locale. On Unix     systems, the codec will might fall back to using the \e iconv     library if no builtin codec for the locale can be found.      Note that in these cases the codec's name will be "System". */
 end_comment
 begin_function
 DECL|function|codecForLocale

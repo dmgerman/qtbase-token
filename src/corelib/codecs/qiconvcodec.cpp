@@ -303,13 +303,9 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_decl_stmt
+begin_macro
 name|QT_BEGIN_NAMESPACE
-specifier|extern
-name|bool
-name|qt_locale_initialized
-decl_stmt|;
-end_decl_stmt
+end_macro
 begin_constructor
 DECL|function|QIconvCodec
 name|QIconvCodec
@@ -877,9 +873,6 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-operator|!
-name|qt_locale_initialized
-operator|||
 operator|!
 name|ts
 condition|)
@@ -1638,11 +1631,7 @@ modifier|*
 modifier|&
 name|state
 init|=
-operator|(
-name|qt_locale_initialized
-operator|&&
 name|ts
-operator|)
 condition|?
 name|ts
 operator|->

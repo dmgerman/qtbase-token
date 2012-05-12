@@ -187,6 +187,11 @@ argument_list|()
 block|;
 endif|#
 directive|endif
+specifier|static
+name|void
+name|initLocale
+argument_list|()
+block|;
 name|QAtomicInt
 name|quitLockRef
 block|;
