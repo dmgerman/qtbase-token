@@ -132,6 +132,15 @@ directive|define
 name|CF_DIBV5
 value|17
 end_define
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|CO_E_NOT_SUPPORTED
+argument_list|)
+end_if
 begin_define
 DECL|macro|CO_E_NOT_SUPPORTED
 define|#
@@ -139,6 +148,10 @@ directive|define
 name|CO_E_NOT_SUPPORTED
 value|_HRESULT_TYPEDEF_(0x80004021L)
 end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_define
 DECL|macro|IFMETHOD
 define|#
