@@ -30,17 +30,17 @@ end_include
 begin_include
 include|#
 directive|include
-file|<Aclapi.h>
+file|<aclapi.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<AccCtrl.h>
+file|<accctrl.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<Sddl.h>
+file|<sddl.h>
 end_include
 begin_comment
 comment|// The buffer size need to be 0 otherwise data could be

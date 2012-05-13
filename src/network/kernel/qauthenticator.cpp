@@ -87,7 +87,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<Security.h>
+file|<security.h>
 end_include
 begin_endif
 endif|#
