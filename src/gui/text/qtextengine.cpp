@@ -7732,9 +7732,10 @@ expr_stmt|;
 comment|// visual line separator
 break|break;
 case|case
-literal|9
+name|QChar
+operator|::
+name|Tabulation
 case|:
-comment|// Tab
 name|analysis
 operator|->
 name|script
@@ -7762,9 +7763,10 @@ argument_list|()
 expr_stmt|;
 break|break;
 case|case
-literal|32
+name|QChar
+operator|::
+name|Space
 case|:
-comment|// Space
 case|case
 name|QChar
 operator|::
