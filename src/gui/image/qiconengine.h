@@ -26,13 +26,13 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtWidgets/qicon.h>
+file|<QtGui/qicon.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 name|class
-name|Q_WIDGETS_EXPORT
+name|Q_GUI_EXPORT
 name|QIconEngine
 block|{
 name|public

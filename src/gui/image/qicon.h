@@ -49,7 +49,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_WIDGETS_EXPORT
+name|Q_GUI_EXPORT
 name|QIcon
 block|{
 name|public
@@ -572,7 +572,7 @@ argument_list|(
 name|QT_NO_DATASTREAM
 argument_list|)
 name|friend
-name|Q_WIDGETS_EXPORT
+name|Q_GUI_EXPORT
 name|QDataStream
 operator|&
 name|operator
@@ -587,7 +587,7 @@ operator|&
 operator|)
 expr_stmt|;
 name|friend
-name|Q_WIDGETS_EXPORT
+name|Q_GUI_EXPORT
 name|QDataStream
 operator|&
 name|operator
@@ -650,7 +650,7 @@ argument_list|)
 end_if
 begin_expr_stmt
 DECL|variable|operator
-name|Q_WIDGETS_EXPORT
+name|Q_GUI_EXPORT
 name|QDataStream
 operator|&
 name|operator
@@ -666,7 +666,7 @@ operator|)
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-name|Q_WIDGETS_EXPORT
+name|Q_GUI_EXPORT
 name|QDataStream
 operator|&
 name|operator
@@ -690,7 +690,7 @@ directive|ifndef
 name|QT_NO_DEBUG_STREAM
 end_ifndef
 begin_expr_stmt
-name|Q_WIDGETS_EXPORT
+name|Q_GUI_EXPORT
 name|QDebug
 name|operator
 operator|<<

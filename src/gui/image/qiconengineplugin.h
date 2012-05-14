@@ -34,7 +34,7 @@ end_decl_stmt
 begin_decl_stmt
 DECL|struct|QFactoryInterface
 name|struct
-name|Q_WIDGETS_EXPORT
+name|Q_GUI_EXPORT
 name|QIconEngineFactoryInterface
 range|:
 name|public
@@ -77,7 +77,7 @@ argument_list|)
 end_macro
 begin_decl_stmt
 name|class
-name|Q_WIDGETS_EXPORT
+name|Q_GUI_EXPORT
 name|QIconEnginePlugin
 range|:
 name|public

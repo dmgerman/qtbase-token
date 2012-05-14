@@ -66,12 +66,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtWidgets/qicon.h>
+file|<QtGui/qicon.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtWidgets/qiconengine.h>
+file|<QtGui/qiconengine.h>
 end_include
 begin_ifndef
 ifndef|#

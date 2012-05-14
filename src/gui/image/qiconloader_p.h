@@ -51,12 +51,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtWidgets/QIcon>
+file|<QtGui/QIcon>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtWidgets/QIconEngine>
+file|<QtGui/QIconEngine>
 end_include
 begin_include
 include|#
@@ -488,6 +488,7 @@ empty_stmt|;
 end_empty_stmt
 begin_decl_stmt
 name|class
+name|Q_GUI_EXPORT
 name|QIconLoader
 range|:
 name|public

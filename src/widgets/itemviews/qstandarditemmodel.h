@@ -31,7 +31,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtWidgets/qicon.h>
+file|<QtGui/qicon.h>
 end_include
 begin_ifndef
 ifndef|#
