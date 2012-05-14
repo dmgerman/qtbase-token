@@ -1349,10 +1349,12 @@ parameter_list|,
 name|LOGFONT
 name|lf
 parameter_list|,
+specifier|const
 name|QSharedPointer
 argument_list|<
 name|QWindowsFontEngineData
 argument_list|>
+modifier|&
 name|fontEngineData
 parameter_list|)
 member_init_list|:
@@ -7697,7 +7699,7 @@ name|lf
 init|=
 name|fe
 operator|->
-name|logfont
+name|logFont
 argument_list|()
 decl_stmt|;
 name|memcpy

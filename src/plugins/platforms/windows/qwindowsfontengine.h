@@ -61,6 +61,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/QMetaType>
+end_include
+begin_include
+include|#
+directive|include
 file|"qtwindows_additional.h"
 end_include
 begin_decl_stmt
@@ -83,9 +88,18 @@ range|:
 name|public
 name|QFontEngine
 block|{
-name|Q_DISABLE_COPY
+name|Q_OBJECT
+name|Q_PROPERTY
 argument_list|(
-argument|QWindowsFontEngine
+argument|HFONT hFont READ hFont STORED false
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|LOGFONT logFont READ logFont STORED false
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|bool trueType READ trueType STORED false
 argument_list|)
 name|public
 operator|:
@@ -102,10 +116,12 @@ name|bool
 argument_list|,
 name|LOGFONT
 argument_list|,
+specifier|const
 name|QSharedPointer
 operator|<
 name|QWindowsFontEngineData
 operator|>
+operator|&
 name|fontEngineData
 argument_list|)
 block|;
@@ -437,10 +453,12 @@ argument|glyph_metrics_t *metrics
 argument_list|)
 specifier|const
 block|;
+specifier|const
 name|QSharedPointer
 operator|<
 name|QWindowsFontEngineData
 operator|>
+operator|&
 name|fontEngineData
 argument_list|()
 specifier|const
@@ -449,13 +467,32 @@ return|return
 name|m_fontEngineData
 return|;
 block|}
+comment|// Properties accessed by QWin32PrintEngine (QtPrintSupport)
 name|LOGFONT
-name|logfont
+name|logFont
 argument_list|()
 specifier|const
 block|{
 return|return
 name|m_logfont
+return|;
+block|}
+name|HFONT
+name|hFont
+argument_list|()
+specifier|const
+block|{
+return|return
+name|hfont
+return|;
+block|}
+name|bool
+name|trueType
+argument_list|()
+specifier|const
+block|{
+return|return
+name|ttf
 return|;
 block|}
 name|void
@@ -623,9 +660,17 @@ name|fallbacks
 block|; }
 decl_stmt|;
 end_decl_stmt
-begin_macro
+begin_decl_stmt
 name|QT_END_NAMESPACE
-end_macro
+name|Q_DECLARE_METATYPE
+argument_list|(
+name|HFONT
+argument_list|)
+name|Q_DECLARE_METATYPE
+argument_list|(
+name|LOGFONT
+argument_list|)
+end_decl_stmt
 begin_endif
 endif|#
 directive|endif
