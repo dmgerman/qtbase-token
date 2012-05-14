@@ -823,7 +823,12 @@ argument_list|)
 operator|&&
 name|defined
 argument_list|(
-name|Q_COMPILER_DEFAULT_DELETE_MEMBERS
+name|Q_COMPILER_DEFAULT_MEMBERS
+argument_list|)
+operator|&&
+name|defined
+argument_list|(
+name|Q_COMPILER_DELETE_MEMBERS
 argument_list|)
 name|QBasicAtomicInteger
 argument_list|()
@@ -1352,7 +1357,12 @@ argument_list|)
 operator|&&
 name|defined
 argument_list|(
-name|Q_COMPILER_DEFAULT_DELETE_MEMBERS
+name|Q_COMPILER_DEFAULT_MEMBERS
+argument_list|)
+operator|&&
+name|defined
+argument_list|(
+name|Q_COMPILER_DELETE_MEMBERS
 argument_list|)
 end_if
 begin_expr_stmt
