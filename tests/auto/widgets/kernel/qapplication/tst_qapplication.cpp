@@ -5098,12 +5098,8 @@ argument_list|(
 name|this
 argument_list|,
 operator|new
-name|QEvent
-argument_list|(
-name|QEvent
-operator|::
-name|DeferredDelete
-argument_list|)
+name|QDeferredDeleteEvent
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|QEventLoop

@@ -3526,39 +3526,20 @@ condition|)
 block|{
 comment|// remember the current running eventloop for DeferredDelete
 comment|// events posted in the receiver's thread
-comment|// check that QEvent's d pointer is unused before we store the loop level
-comment|// if further updates to QEvent have made the use of the d pointer necessary,
-comment|// then update this code to store the loop level somewhere else
-name|Q_ASSERT_X
-argument_list|(
-name|event
-operator|->
-name|d
-operator|==
-literal|0
-argument_list|,
-literal|"QCoreApplication::postEvent"
-argument_list|,
-literal|"Internal error: this code relies on QEvent::d being null"
-argument_list|)
-expr_stmt|;
-name|event
-operator|->
-name|d
-operator|=
-cast|reinterpret_cast
+cast|static_cast
 argument_list|<
-name|QEventPrivate
+name|QDeferredDeleteEvent
 operator|*
 argument_list|>
 argument_list|(
-name|quintptr
-argument_list|(
+name|event
+argument_list|)
+operator|->
+name|level
+operator|=
 name|data
 operator|->
 name|loopLevel
-argument_list|)
-argument_list|)
 expr_stmt|;
 block|}
 comment|// delete the event on exceptions to protect against memory leaks till the event is
@@ -4405,37 +4386,37 @@ block|{
 comment|// DeferredDelete events are only sent when we are explicitly asked to
 comment|// (s.a. QEvent::DeferredDelete), and then only if the event loop that
 comment|// posted the event has returned.
+name|int
+name|loopLevel
+init|=
+cast|static_cast
+argument_list|<
+name|QDeferredDeleteEvent
+operator|*
+argument_list|>
+argument_list|(
+name|pe
+operator|.
+name|event
+argument_list|)
+operator|->
+name|loopLevel
+argument_list|()
+decl_stmt|;
 specifier|const
 name|bool
 name|allowDeferredDelete
 init|=
 operator|(
-name|quintptr
-argument_list|(
-name|pe
-operator|.
-name|event
-operator|->
-name|d
-argument_list|)
+name|loopLevel
 operator|>
-name|unsigned
-argument_list|(
 name|data
 operator|->
 name|loopLevel
-argument_list|)
 operator|||
 operator|(
 operator|!
-name|quintptr
-argument_list|(
-name|pe
-operator|.
-name|event
-operator|->
-name|d
-argument_list|)
+name|loopLevel
 operator|&&
 name|data
 operator|->
@@ -4451,21 +4432,11 @@ name|QEvent
 operator|::
 name|DeferredDelete
 operator|&&
-name|quintptr
-argument_list|(
-name|pe
-operator|.
-name|event
-operator|->
-name|d
-argument_list|)
+name|loopLevel
 operator|==
-name|unsigned
-argument_list|(
 name|data
 operator|->
 name|loopLevel
-argument_list|)
 operator|)
 operator|)
 decl_stmt|;
