@@ -575,11 +575,11 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|mimeTypeForNameAndData
+DECL|function|mimeTypeForFileNameAndData
 name|QMimeType
 name|QMimeDatabasePrivate
 operator|::
-name|mimeTypeForNameAndData
+name|mimeTypeForFileNameAndData
 parameter_list|(
 specifier|const
 name|QString
@@ -1233,7 +1233,7 @@ comment|// isOpen() will be tested by method below
 return|return
 name|d
 operator|->
-name|mimeTypeForNameAndData
+name|mimeTypeForFileNameAndData
 argument_list|(
 name|fileInfo
 operator|.
@@ -1463,7 +1463,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the MIME types for the file name \a fileName.      If the file name doesn't match any known pattern, an empty list is returned.     If multiple MIME types match this file, they are all returned.      This function does not try to open the file. To also use the content     when determining the MIME type, use mimeTypeForFile() or     mimeTypeForNameAndData() instead.      \sa mimeTypeForFile */
+comment|/*!     Returns the MIME types for the file name \a fileName.      If the file name doesn't match any known pattern, an empty list is returned.     If multiple MIME types match this file, they are all returned.      This function does not try to open the file. To also use the content     when determining the MIME type, use mimeTypeForFile() or     mimeTypeForFileNameAndData() instead.      \sa mimeTypeForFile */
 end_comment
 begin_function
 DECL|function|mimeTypesForFileName
@@ -1815,11 +1815,11 @@ begin_comment
 comment|/*!     Returns a MIME type for the given \a fileName and \a device data.      This overload can be useful when the file is remote, and we started to     download some of its data in a device. This allows to do full MIME type     matching for remote files as well.      If the device is not open, it will be opened by this function, and closed     after the MIME type detection is completed.      A valid MIME type is always returned. If \a device data doesn't match any     known MIME type data, the default MIME type (application/octet-stream)     is returned.      This method looks at both the file name and the file contents,     if necessary. The file extension has priority over the contents,     but the contents will be used if the file extension is unknown, or     matches multiple MIME types. */
 end_comment
 begin_function
-DECL|function|mimeTypeForNameAndData
+DECL|function|mimeTypeForFileNameAndData
 name|QMimeType
 name|QMimeDatabase
 operator|::
-name|mimeTypeForNameAndData
+name|mimeTypeForFileNameAndData
 parameter_list|(
 specifier|const
 name|QString
@@ -1869,7 +1869,7 @@ name|result
 init|=
 name|d
 operator|->
-name|mimeTypeForNameAndData
+name|mimeTypeForFileNameAndData
 argument_list|(
 name|fileName
 argument_list|,
@@ -1897,11 +1897,11 @@ begin_comment
 comment|/*!     Returns a MIME type for the given \a fileName and device \a data.      This overload can be useful when the file is remote, and we started to     download some of its data. This allows to do full MIME type matching for     remote files as well.      A valid MIME type is always returned. If \a data doesn't match any     known MIME type data, the default MIME type (application/octet-stream)     is returned.      This method looks at both the file name and the file contents,     if necessary. The file extension has priority over the contents,     but the contents will be used if the file extension is unknown, or     matches multiple MIME types. */
 end_comment
 begin_function
-DECL|function|mimeTypeForNameAndData
+DECL|function|mimeTypeForFileNameAndData
 name|QMimeType
 name|QMimeDatabase
 operator|::
-name|mimeTypeForNameAndData
+name|mimeTypeForFileNameAndData
 parameter_list|(
 specifier|const
 name|QString
@@ -1953,7 +1953,7 @@ decl_stmt|;
 return|return
 name|d
 operator|->
-name|mimeTypeForNameAndData
+name|mimeTypeForFileNameAndData
 argument_list|(
 name|fileName
 argument_list|,

@@ -128,7 +128,7 @@ name|nameOrAlias
 parameter_list|)
 function_decl|;
 name|QMimeType
-name|mimeTypeForNameAndData
+name|mimeTypeForFileNameAndData
 parameter_list|(
 specifier|const
 name|QString
