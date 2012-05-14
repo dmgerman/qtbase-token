@@ -122,6 +122,15 @@ expr_stmt|;
 name|QString
 name|name
 decl_stmt|;
+name|QString
+name|description
+decl_stmt|;
+name|QString
+name|location
+decl_stmt|;
+name|QString
+name|makeAndModel
+decl_stmt|;
 name|bool
 name|isDefault
 decl_stmt|;
