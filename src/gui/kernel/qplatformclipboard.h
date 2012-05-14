@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QPLATFORMCLIPBOARD_QPA_H
+name|QPLATFORMCLIPBOARD_H
 end_ifndef
 begin_define
-DECL|macro|QPLATFORMCLIPBOARD_QPA_H
+DECL|macro|QPLATFORMCLIPBOARD_H
 define|#
 directive|define
-name|QPLATFORMCLIPBOARD_QPA_H
+name|QPLATFORMCLIPBOARD_H
 end_define
 begin_comment
 comment|//
@@ -157,6 +157,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|//QPLATFORMCLIPBOARD_QPA_H
+comment|//QPLATFORMCLIPBOARD_H
 end_comment
 end_unit

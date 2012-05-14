@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QPLATFORMNATIVEINTERFACE_QPA_H
+name|QPLATFORMNATIVEINTERFACE_H
 end_ifndef
 begin_define
-DECL|macro|QPLATFORMNATIVEINTERFACE_QPA_H
+DECL|macro|QPLATFORMNATIVEINTERFACE_H
 define|#
 directive|define
-name|QPLATFORMNATIVEINTERFACE_QPA_H
+name|QPLATFORMNATIVEINTERFACE_H
 end_define
 begin_comment
 comment|//
@@ -388,6 +388,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QPLATFORMNATIVEINTERFACE_QPA_H
+comment|// QPLATFORMNATIVEINTERFACE_H
 end_comment
 end_unit

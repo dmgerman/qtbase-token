@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QPLATFORMSERVICES_QPA_H
+name|QPLATFORMSERVICES_H
 end_ifndef
 begin_define
-DECL|macro|QPLATFORMSERVICES_QPA_H
+DECL|macro|QPLATFORMSERVICES_H
 define|#
 directive|define
-name|QPLATFORMSERVICES_QPA_H
+name|QPLATFORMSERVICES_H
 end_define
 begin_comment
 comment|//
@@ -102,6 +102,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QPLATFORMSERVICES_QPA_H
+comment|// QPLATFORMSERVICES_H
 end_comment
 end_unit

@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QPLATFORMFONTDATABASE_QPA_H
+name|QPLATFORMFONTDATABASE_H
 end_ifndef
 begin_define
-DECL|macro|QPLATFORMFONTDATABASE_QPA_H
+DECL|macro|QPLATFORMFONTDATABASE_H
 define|#
 directive|define
-name|QPLATFORMFONTDATABASE_QPA_H
+name|QPLATFORMFONTDATABASE_H
 end_define
 begin_comment
 comment|//
@@ -474,6 +474,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QPLATFORMFONTDATABASE_QPA_H
+comment|// QPLATFORMFONTDATABASE_H
 end_comment
 end_unit

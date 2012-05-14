@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QPLATFORMCURSOR_QPA_H
+name|QPLATFORMCURSOR_H
 end_ifndef
 begin_define
-DECL|macro|QPLATFORMCURSOR_QPA_H
+DECL|macro|QPLATFORMCURSOR_H
 define|#
 directive|define
-name|QPLATFORMCURSOR_QPA_H
+name|QPLATFORMCURSOR_H
 end_define
 begin_comment
 comment|//
@@ -322,6 +322,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QPLATFORMCURSOR_QPA_H
+comment|// QPLATFORMCURSOR_H
 end_comment
 end_unit

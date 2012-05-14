@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QPLATFORMSHAREDGRAPHICSCACHE_QPA_H
+name|QPLATFORMSHAREDGRAPHICSCACHE_H
 end_ifndef
 begin_define
-DECL|macro|QPLATFORMSHAREDGRAPHICSCACHE_QPA_H
+DECL|macro|QPLATFORMSHAREDGRAPHICSCACHE_H
 define|#
 directive|define
-name|QPLATFORMSHAREDGRAPHICSCACHE_QPA_H
+name|QPLATFORMSHAREDGRAPHICSCACHE_H
 end_define
 begin_comment
 comment|//
@@ -343,6 +343,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QPLATFORMSHAREDGRAPHICSCACHE_QPA_H
+comment|// QPLATFORMSHAREDGRAPHICSCACHE_H
 end_comment
 end_unit

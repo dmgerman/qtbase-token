@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QPLATFORMSCREENPAGEFLIPPER_QPA_H
+name|QPLATFORMSCREENPAGEFLIPPER_H
 end_ifndef
 begin_define
-DECL|macro|QPLATFORMSCREENPAGEFLIPPER_QPA_H
+DECL|macro|QPLATFORMSCREENPAGEFLIPPER_H
 define|#
 directive|define
-name|QPLATFORMSCREENPAGEFLIPPER_QPA_H
+name|QPLATFORMSCREENPAGEFLIPPER_H
 end_define
 begin_comment
 comment|//
@@ -172,6 +172,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QPLATFORMSCREENPAGEFLIPPER_QPA_H
+comment|// QPLATFORMSCREENPAGEFLIPPER_H
 end_comment
 end_unit

@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QPLATFORMBACKINGSTORE_QPA_H
+name|QPLATFORMBACKINGSTORE_H
 end_ifndef
 begin_define
-DECL|macro|QPLATFORMBACKINGSTORE_QPA_H
+DECL|macro|QPLATFORMBACKINGSTORE_H
 define|#
 directive|define
-name|QPLATFORMBACKINGSTORE_QPA_H
+name|QPLATFORMBACKINGSTORE_H
 end_define
 begin_comment
 comment|//
@@ -220,6 +220,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QPLATFORMBACKINGSTORE_QPA_H
+comment|// QPLATFORMBACKINGSTORE_H
 end_comment
 end_unit
