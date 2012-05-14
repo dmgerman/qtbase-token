@@ -107,6 +107,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/qscopedvaluerollback.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtWidgets/qapplication.h>
 end_include
 begin_include
@@ -10296,6 +10301,7 @@ name|QEvent
 operator|::
 name|Leave
 case|:
+block|{
 comment|// ### This is a temporary fix for until we get proper mouse grab
 comment|// events. activeMouseGrabberItem should be set to 0 if we lose the
 comment|// mouse grab.
@@ -10396,6 +10402,18 @@ operator|==
 literal|0
 argument_list|)
 expr_stmt|;
+name|QScopedValueRollback
+argument_list|<
+name|QEventPrivate
+modifier|*
+argument_list|>
+name|rb
+argument_list|(
+name|event
+operator|->
+name|d
+argument_list|)
+decl_stmt|;
 name|event
 operator|->
 name|d
@@ -10422,6 +10440,7 @@ name|event
 argument_list|)
 expr_stmt|;
 break|break;
+block|}
 ifndef|#
 directive|ifndef
 name|QT_NO_TOOLTIP
