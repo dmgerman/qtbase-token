@@ -113,20 +113,6 @@ specifier|const
 block|;
 name|QString
 name|fileName
-block|;
-name|private
-operator|:
-specifier|static
-name|QFile
-operator|::
-name|EncoderFn
-name|encoder
-block|;
-specifier|static
-name|QFile
-operator|::
-name|DecoderFn
-name|decoder
 block|; }
 decl_stmt|;
 end_decl_stmt
