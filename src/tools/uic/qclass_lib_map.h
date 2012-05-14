@@ -6082,16 +6082,6 @@ end_macro
 begin_macro
 name|QT_CLASS_LIB
 argument_list|(
-argument|QUnixPrintWidget
-argument_list|,
-argument|QtWidgets
-argument_list|,
-argument|qprintdialog.h
-argument_list|)
-end_macro
-begin_macro
-name|QT_CLASS_LIB
-argument_list|(
 argument|QPrintDialog
 argument_list|,
 argument|QtWidgets
