@@ -31269,7 +31269,7 @@ operator|::
 name|OverviewPage
 index|]
 argument_list|,
-literal|"overviews"
+literal|"Overviews"
 argument_list|)
 expr_stmt|;
 name|writeTopicrefs
@@ -31281,7 +31281,7 @@ operator|::
 name|HowToPage
 index|]
 argument_list|,
-literal|"howtos"
+literal|"Howtos"
 argument_list|)
 expr_stmt|;
 name|writeTopicrefs
@@ -31293,7 +31293,7 @@ operator|::
 name|TutorialPage
 index|]
 argument_list|,
-literal|"tutorials"
+literal|"Tutorials"
 argument_list|)
 expr_stmt|;
 name|writeTopicrefs
@@ -31305,7 +31305,7 @@ operator|::
 name|FAQPage
 index|]
 argument_list|,
-literal|"faqs"
+literal|"FAQs"
 argument_list|)
 expr_stmt|;
 name|writeTopicrefs
@@ -31317,7 +31317,7 @@ operator|::
 name|ArticlePage
 index|]
 argument_list|,
-literal|"articles"
+literal|"Articles"
 argument_list|)
 expr_stmt|;
 name|writeTopicrefs
@@ -31329,7 +31329,7 @@ operator|::
 name|Example
 index|]
 argument_list|,
-literal|"examples"
+literal|"Examples"
 argument_list|)
 expr_stmt|;
 name|writeTopicrefs
@@ -31377,7 +31377,7 @@ operator|::
 name|HeaderFile
 index|]
 argument_list|,
-literal|"header files"
+literal|"Header files"
 argument_list|)
 expr_stmt|;
 name|writeTopicrefs
@@ -31389,7 +31389,7 @@ operator|::
 name|Module
 index|]
 argument_list|,
-literal|"modules"
+literal|"Modules"
 argument_list|)
 expr_stmt|;
 name|writeTopicrefs
@@ -31401,7 +31401,7 @@ operator|::
 name|Group
 index|]
 argument_list|,
-literal|"groups"
+literal|"Groups"
 argument_list|)
 expr_stmt|;
 name|writeTopicrefs
@@ -31810,7 +31810,7 @@ condition|(
 operator|(
 name|navtitle
 operator|==
-literal|"articles"
+literal|"Articles"
 operator|&&
 name|ditaMaps
 operator|&&
