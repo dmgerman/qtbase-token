@@ -271,7 +271,7 @@ literal|"    New Properties"
 block|,
 literal|"    New Variables"
 block|,
-literal|"    New QML Elements"
+literal|"    New QML Types"
 block|,
 literal|"    New QML Properties"
 block|,

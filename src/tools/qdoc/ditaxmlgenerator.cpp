@@ -11016,7 +11016,7 @@ name|title
 operator|=
 name|rawTitle
 operator|+
-literal|" Element"
+literal|" Type"
 expr_stmt|;
 name|Node
 operator|::
