@@ -120,6 +120,16 @@ name|QPrinterInfo
 name|defaultPrinter
 parameter_list|()
 function_decl|;
+specifier|static
+name|QPrinterInfo
+name|printerInfo
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|printerName
+parameter_list|)
+function_decl|;
 name|private
 label|:
 name|explicit
@@ -140,6 +150,10 @@ decl_stmt|;
 name|friend
 name|class
 name|QWindowsPrinterSupport
+decl_stmt|;
+name|friend
+name|class
+name|QCocoaPrinterSupport
 decl_stmt|;
 name|Q_DECLARE_PRIVATE
 argument_list|(

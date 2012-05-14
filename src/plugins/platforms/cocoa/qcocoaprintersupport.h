@@ -18,6 +18,11 @@ include|#
 directive|include
 file|<qpa/qplatformprintersupport.h>
 end_include
+begin_include
+include|#
+directive|include
+file|"qt_mac_p.h"
+end_include
 begin_decl_stmt
 name|class
 name|QCocoaPrinterSupport
@@ -72,6 +77,24 @@ operator|>
 name|availablePrinters
 argument_list|()
 name|Q_DECL_OVERRIDE
+block|;
+name|QPrinterInfo
+name|printerInfo
+argument_list|(
+argument|const QString&printerName
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
+name|private
+operator|:
+name|QPrinterInfo
+name|printerInfoFromPMPrinter
+argument_list|(
+specifier|const
+name|PMPrinter
+operator|&
+name|printer
+argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
