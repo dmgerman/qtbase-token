@@ -52,7 +52,7 @@ name|Q_DECLARE_INTERFACE
 argument_list|(
 argument|QFactoryInterface
 argument_list|,
-literal|"com.trolltech.Qt.QFactoryInterface"
+literal|"org.qt-project.Qt.QFactoryInterface"
 argument_list|)
 end_macro
 begin_expr_stmt
