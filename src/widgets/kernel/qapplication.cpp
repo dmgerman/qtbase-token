@@ -10855,7 +10855,10 @@ literal|false
 return|;
 block|}
 return|return
-literal|true
+name|QGuiApplicationPrivate
+operator|::
+name|shouldQuit
+argument_list|()
 return|;
 block|}
 end_function

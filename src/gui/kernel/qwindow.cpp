@@ -4690,6 +4690,11 @@ name|w
 operator|->
 name|isVisible
 argument_list|()
+operator|||
+name|w
+operator|->
+name|transientParent
+argument_list|()
 condition|)
 continue|continue;
 name|lastWindowClosed
