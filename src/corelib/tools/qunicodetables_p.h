@@ -58,11 +58,6 @@ define|#
 directive|define
 name|UNICODE_DATA_VERSION
 value|QChar::Unicode_5_0
-DECL|macro|UNICODE_LAST_CODEPOINT
-define|#
-directive|define
-name|UNICODE_LAST_CODEPOINT
-value|0x10ffff
 name|namespace
 name|QUnicodeTables
 block|{
@@ -697,39 +692,6 @@ operator|.
 name|unicode
 argument_list|()
 argument_list|)
-return|;
-block|}
-specifier|inline
-name|bool
-name|isNonCharacter
-parameter_list|(
-name|uint
-name|ucs4
-parameter_list|)
-block|{
-comment|// Noncharacter_Code_Point:
-comment|// Unicode has a couple of "non-characters" that one can use internally,
-comment|// but are not allowed to be used for text interchange.
-comment|// Those are the last two entries each Unicode Plane (U+FFFE..U+FFFF,
-comment|// U+1FFFE..U+1FFFF, etc.) as well as the entries in range U+FDD0..U+FDEF
-return|return
-name|ucs4
-operator|>=
-literal|0xfdd0
-operator|&&
-operator|(
-name|ucs4
-operator|<=
-literal|0xfdef
-operator|||
-operator|(
-name|ucs4
-operator|&
-literal|0xfffe
-operator|)
-operator|==
-literal|0xfffe
-operator|)
 return|;
 block|}
 block|}

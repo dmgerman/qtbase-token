@@ -2477,7 +2477,9 @@ literal|0
 init|;
 name|codepoint
 operator|<=
-name|UNICODE_LAST_CODEPOINT
+name|QChar
+operator|::
+name|LastValidCodePoint
 condition|;
 operator|++
 name|codepoint
@@ -2607,7 +2609,9 @@ literal|0
 init|;
 name|codepoint
 operator|<=
-name|UNICODE_LAST_CODEPOINT
+name|QChar
+operator|::
+name|LastValidCodePoint
 condition|;
 operator|++
 name|codepoint
@@ -2654,7 +2658,9 @@ literal|0
 init|;
 name|codepoint
 operator|<=
-name|UNICODE_LAST_CODEPOINT
+name|QChar
+operator|::
+name|LastValidCodePoint
 condition|;
 operator|++
 name|codepoint
@@ -4924,9 +4930,7 @@ argument_list|(
 operator|(
 name|uint
 operator|)
-name|UNICODE_LAST_CODEPOINT
-operator|+
-literal|1
+literal|0x110000u
 argument_list|)
 operator|==
 operator|-

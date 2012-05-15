@@ -22,11 +22,6 @@ include|#
 directive|include
 file|"qchar.h"
 end_include
-begin_include
-include|#
-directive|include
-file|<private/qunicodetables_p.h>
-end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|enumerator|Endian
@@ -374,7 +369,7 @@ block|{
 comment|// is it one of the Unicode non-characters?
 if|if
 condition|(
-name|QUnicodeTables
+name|QChar
 operator|::
 name|isNonCharacter
 argument_list|(
@@ -879,7 +874,7 @@ operator|!
 operator|(
 name|nonCharacter
 operator|=
-name|QUnicodeTables
+name|QChar
 operator|::
 name|isNonCharacter
 argument_list|(
@@ -895,8 +890,10 @@ name|uc
 argument_list|)
 operator|&&
 name|uc
-operator|<
-literal|0x110000
+operator|<=
+name|QChar
+operator|::
+name|LastValidCodePoint
 condition|)
 block|{
 comment|// surrogate pair
@@ -955,21 +952,20 @@ operator|<
 name|min_uc
 operator|)
 operator|||
-operator|(
+name|QChar
+operator|::
+name|isSurrogate
+argument_list|(
 name|uc
-operator|>=
-literal|0xd800
-operator|&&
-name|uc
-operator|<=
-literal|0xdfff
-operator|)
+argument_list|)
 operator|||
 name|nonCharacter
 operator|||
 name|uc
-operator|>=
-literal|0x110000
+operator|>
+name|QChar
+operator|::
+name|LastValidCodePoint
 condition|)
 block|{
 comment|// error: overlong sequence, UTF16 surrogate or non-character

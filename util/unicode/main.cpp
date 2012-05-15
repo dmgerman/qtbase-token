@@ -70,20 +70,6 @@ directive|define
 name|DATA_VERSION_STR
 value|"QChar::Unicode_5_0"
 end_define
-begin_define
-DECL|macro|LAST_CODEPOINT
-define|#
-directive|define
-name|LAST_CODEPOINT
-value|0x10ffff
-end_define
-begin_define
-DECL|macro|LAST_CODEPOINT_STR
-define|#
-directive|define
-name|LAST_CODEPOINT_STR
-value|"0x10ffff"
-end_define
 begin_decl_stmt
 DECL|variable|age_map
 specifier|static
@@ -1441,26 +1427,6 @@ literal|"    { return script(ch.unicode()); }\n\n"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|generated_methods
-specifier|static
-specifier|const
-name|char
-modifier|*
-name|generated_methods
-init|=
-literal|"    inline bool isNonCharacter(uint ucs4)\n"
-literal|"    {\n"
-literal|"        // Noncharacter_Code_Point:\n"
-literal|"        // Unicode has a couple of \"non-characters\" that one can use internally,\n"
-literal|"        // but are not allowed to be used for text interchange.\n"
-literal|"        // Those are the last two entries each Unicode Plane (U+FFFE..U+FFFF,\n"
-literal|"        // U+1FFFE..U+1FFFF, etc.) as well as the entries in range U+FDD0..U+FDEF\n"
-literal|"\n"
-literal|"        return ucs4>= 0xfdd0&& (ucs4<= 0xfdef || (ucs4& 0xfffe) == 0xfffe);\n"
-literal|"    }\n\n"
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|SizeOfPropertiesStruct
 specifier|static
 specifier|const
@@ -2289,7 +2255,9 @@ name|unicodeData
 operator|.
 name|reserve
 argument_list|(
-name|LAST_CODEPOINT
+name|QChar
+operator|::
+name|LastValidCodePoint
 operator|+
 literal|1
 argument_list|)
@@ -2303,7 +2271,9 @@ literal|0
 init|;
 name|uc
 operator|<=
-name|LAST_CODEPOINT
+name|QChar
+operator|::
+name|LastValidCodePoint
 condition|;
 operator|++
 name|uc
@@ -3459,7 +3429,9 @@ name|Q_ASSERT
 argument_list|(
 name|codepoint
 operator|<=
-name|LAST_CODEPOINT
+name|QChar
+operator|::
+name|LastValidCodePoint
 argument_list|)
 expr_stmt|;
 name|int
@@ -3574,7 +3546,9 @@ name|Q_ASSERT
 argument_list|(
 name|lastCodepoint
 operator|<=
-name|LAST_CODEPOINT
+name|QChar
+operator|::
+name|LastValidCodePoint
 argument_list|)
 expr_stmt|;
 block|}
@@ -5675,7 +5649,9 @@ literal|0
 init|;
 name|codepoint
 operator|<=
-name|LAST_CODEPOINT
+name|QChar
+operator|::
+name|LastValidCodePoint
 condition|;
 operator|++
 name|codepoint
@@ -6232,7 +6208,9 @@ literal|0
 init|;
 name|codepoint
 operator|<=
-name|LAST_CODEPOINT
+name|QChar
+operator|::
+name|LastValidCodePoint
 condition|;
 operator|++
 name|codepoint
@@ -15160,15 +15138,6 @@ name|f
 operator|.
 name|write
 argument_list|(
-literal|"#define UNICODE_LAST_CODEPOINT "
-name|LAST_CODEPOINT_STR
-literal|"\n\n"
-argument_list|)
-expr_stmt|;
-name|f
-operator|.
-name|write
-argument_list|(
 literal|"namespace QUnicodeTables {\n\n"
 argument_list|)
 expr_stmt|;
@@ -15261,20 +15230,6 @@ operator|.
 name|write
 argument_list|(
 name|methods
-argument_list|)
-expr_stmt|;
-name|f
-operator|.
-name|write
-argument_list|(
-literal|"\n"
-argument_list|)
-expr_stmt|;
-name|f
-operator|.
-name|write
-argument_list|(
-name|generated_methods
 argument_list|)
 expr_stmt|;
 name|f

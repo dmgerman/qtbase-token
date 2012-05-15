@@ -1187,42 +1187,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_function
-DECL|function|isUnicodeNonCharacter
-specifier|static
-specifier|inline
-name|bool
-name|isUnicodeNonCharacter
-parameter_list|(
-name|uint
-name|ucs4
-parameter_list|)
-block|{
-comment|// Unicode has a couple of "non-characters" that one can use internally,
-comment|// but are not allowed to be used for text interchange.
-comment|//
-comment|// Those are the last two entries each Unicode Plane (U+FFFE, U+FFFF,
-comment|// U+1FFFE, U+1FFFF, etc.) as well as the entries between U+FDD0 and
-comment|// U+FDEF (inclusive)
-return|return
-operator|(
-name|ucs4
-operator|&
-literal|0xfffe
-operator|)
-operator|==
-literal|0xfffe
-operator|||
-operator|(
-name|ucs4
-operator|-
-literal|0xfdd0U
-operator|)
-operator|<
-literal|16
-return|;
-block|}
-end_function
 begin_comment
 comment|// returns true if we performed an UTF-8 decoding
 end_comment
@@ -1538,24 +1502,25 @@ literal|false
 return|;
 if|if
 condition|(
-name|isUnicodeNonCharacter
+name|QChar
+operator|::
+name|isSurrogate
 argument_list|(
 name|uc
 argument_list|)
 operator|||
-operator|(
+name|QChar
+operator|::
+name|isNonCharacter
+argument_list|(
 name|uc
-operator|>=
-literal|0xD800
-operator|&&
-name|uc
-operator|<=
-literal|0xDFFF
-operator|)
+argument_list|)
 operator|||
 name|uc
-operator|>=
-literal|0x110000
+operator|>
+name|QChar
+operator|::
+name|LastValidCodePoint
 condition|)
 return|return
 literal|false

@@ -79,7 +79,7 @@ comment|/*!     \enum QChar::Direction      This enum type defines the Unicode d
 comment|/*!     \enum QChar::Decomposition      This enum type defines the Unicode decomposition attributes. See     the \l{http://www.unicode.org/}{Unicode Standard} for a     description of the values.      \value NoDecomposition     \value Canonical     \value Circle     \value Compat     \value Final     \value Font     \value Fraction     \value Initial     \value Isolated     \value Medial     \value Narrow     \value NoBreak     \value Small     \value Square     \value Sub     \value Super     \value Vertical     \value Wide      \sa decomposition() */
 comment|/*!     \enum QChar::Joining      This enum type defines the Unicode joining attributes. See the     \l{http://www.unicode.org/}{Unicode Standard} for a description     of the values.      \value Center     \value Dual     \value OtherJoining     \value Right      \sa joining() */
 comment|/*!     \enum QChar::CombiningClass      \internal      This enum type defines names for some of the Unicode combining     classes. See the \l{http://www.unicode.org/}{Unicode Standard}     for a description of the values.      \value Combining_Above     \value Combining_AboveAttached     \value Combining_AboveLeft     \value Combining_AboveLeftAttached     \value Combining_AboveRight     \value Combining_AboveRightAttached     \value Combining_Below     \value Combining_BelowAttached     \value Combining_BelowLeft     \value Combining_BelowLeftAttached     \value Combining_BelowRight     \value Combining_BelowRightAttached     \value Combining_DoubleAbove     \value Combining_DoubleBelow     \value Combining_IotaSubscript     \value Combining_Left     \value Combining_LeftAttached     \value Combining_Right     \value Combining_RightAttached */
-comment|/*!     \enum QChar::SpecialCharacter      \value Null A QChar with this value isNull().     \value Nbsp Non-breaking space.     \value ReplacementCharacter The character shown when a font has no glyph            for a certain codepoint. A special question mark character is often            used. Codecs use this codepoint when input data cannot be            represented in Unicode.     \value ObjectReplacementCharacter Used to represent an object such as an            image when such objects cannot be presented.     \value ByteOrderMark     \value ByteOrderSwapped     \value ParagraphSeparator     \value LineSeparator */
+comment|/*!     \enum QChar::SpecialCharacter      \value Null A QChar with this value isNull().     \value Nbsp Non-breaking space.     \value ReplacementCharacter The character shown when a font has no glyph            for a certain codepoint. A special question mark character is often            used. Codecs use this codepoint when input data cannot be            represented in Unicode.     \value ObjectReplacementCharacter Used to represent an object such as an            image when such objects cannot be presented.     \value ByteOrderMark     \value ByteOrderSwapped     \value ParagraphSeparator     \value LineSeparator     \value LastValidCodePoint */
 comment|/*!     \fn void QChar::setCell(uchar cell)     \internal */
 comment|/*!     \fn void QChar::setRow(uchar row)     \internal */
 comment|/*!     \fn QChar::QChar()      Constructs a null QChar ('\\0').      \sa isNull() */
@@ -111,7 +111,7 @@ if|if
 condition|(
 name|ucs4
 operator|>
-name|UNICODE_LAST_CODEPOINT
+name|LastValidCodePoint
 condition|)
 return|return
 literal|false
@@ -188,7 +188,7 @@ if|if
 condition|(
 name|ucs4
 operator|>
-name|UNICODE_LAST_CODEPOINT
+name|LastValidCodePoint
 condition|)
 return|return
 literal|false
@@ -248,7 +248,7 @@ if|if
 condition|(
 name|ucs4
 operator|>
-name|UNICODE_LAST_CODEPOINT
+name|LastValidCodePoint
 condition|)
 return|return
 literal|false
@@ -308,7 +308,7 @@ if|if
 condition|(
 name|ucs4
 operator|>
-name|UNICODE_LAST_CODEPOINT
+name|LastValidCodePoint
 condition|)
 return|return
 literal|false
@@ -388,7 +388,7 @@ if|if
 condition|(
 name|ucs4
 operator|>
-name|UNICODE_LAST_CODEPOINT
+name|LastValidCodePoint
 condition|)
 return|return
 literal|false
@@ -457,7 +457,7 @@ if|if
 condition|(
 name|ucs4
 operator|>
-name|UNICODE_LAST_CODEPOINT
+name|LastValidCodePoint
 condition|)
 return|return
 literal|false
@@ -531,7 +531,7 @@ if|if
 condition|(
 name|ucs4
 operator|>
-name|UNICODE_LAST_CODEPOINT
+name|LastValidCodePoint
 condition|)
 return|return
 literal|false
@@ -595,7 +595,7 @@ if|if
 condition|(
 name|ucs4
 operator|>
-name|UNICODE_LAST_CODEPOINT
+name|LastValidCodePoint
 condition|)
 return|return
 literal|false
@@ -666,19 +666,31 @@ begin_comment
 comment|/*!     \fn bool QChar::isDigit(uint ucs4)     \overload     \since 5.0      Returns true if the UCS-4-encoded character specified by \a ucs4 is     a decimal digit (Number_DecimalDigit); otherwise returns false.      \sa isNumber() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QChar::isHighSurrogate() const      Returns true if the QChar is the high part of a UTF16 surrogate     (i.e. if it's code point in range [0xd800..0xdbff]). */
+comment|/*!     \fn bool QChar::isNonCharacter() const     \since 5.0      Returns true if the QChar is a non-character; false otherwise.      Unicode has a certain number of code points that are classified     as "non-characters:" that is, they can be used for internal purposes     in applications but cannot be used for text interchange.     Those are the last two entries each Unicode Plane ([0xfffe..0xffff],     [0x1fffe..0x1ffff], etc.) as well as the entries in range [0xfdd0..0xfdef]. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QChar::isLowSurrogate() const      Returns true if the QChar is the low part of a UTF16 surrogate     (i.e. if it's code point in range [0xdc00..0xdfff]). */
+comment|/*!     \fn bool QChar::isHighSurrogate() const      Returns true if the QChar is the high part of a UTF16 surrogate     (i.e. if its code point is in range [0xd800..0xdbff]); false otherwise. */
 end_comment
 begin_comment
-comment|/*!     \fn static bool QChar::isHighSurrogate(uint ucs4)     \overload      Returns true if the UCS-4-encoded character specified by \a ucs4     is the high part of a UTF16 surrogate     (i.e. if it's code point in range [0xd800..0xdbff]). */
+comment|/*!     \fn bool QChar::isLowSurrogate() const      Returns true if the QChar is the low part of a UTF16 surrogate     (i.e. if its code point is in range [0xdc00..0xdfff]); false otherwise. */
 end_comment
 begin_comment
-comment|/*!     \fn static bool QChar::isLowSurrogate(uint ucs4)     \overload      Returns true if the UCS-4-encoded character specified by \a ucs4     is the low part of a UTF16 surrogate     (i.e. if it's code point in range [0xdc00..0xdfff]). */
+comment|/*!     \fn bool QChar::isSurrogate() const     \since 5.0      Returns true if the QChar contains a code point that is in either     the high or the low part of the UTF-16 surrogate range     (i.e. if its code point is in range [0xd800..0xdfff]); false otherwise. */
 end_comment
 begin_comment
-comment|/*!     \fn static bool QChar::requiresSurrogates(uint ucs4)      Returns true if the UCS-4-encoded character specified by \a ucs4     can be split into the high and low parts of a UTF16 surrogate     (i.e. if it's code point is greater than or equals to 0x10000). */
+comment|/*!     \fn static bool isNonCharacter(uint ucs4)     \overload     \since 5.0      Returns true if the UCS-4-encoded character specified by \a ucs4     is a non-character; false otherwise.      Unicode has a certain number of code points that are classified     as "non-characters:" that is, they can be used for internal purposes     in applications but cannot be used for text interchange.     Those are the last two entries each Unicode Plane ([0xfffe..0xffff],     [0x1fffe..0x1ffff], etc.) as well as the entries in range [0xfdd0..0xfdef]. */
+end_comment
+begin_comment
+comment|/*!     \fn static bool QChar::isHighSurrogate(uint ucs4)     \overload      Returns true if the UCS-4-encoded character specified by \a ucs4     is the high part of a UTF16 surrogate     (i.e. if its code point is in range [0xd800..0xdbff]); false otherwise. */
+end_comment
+begin_comment
+comment|/*!     \fn static bool QChar::isLowSurrogate(uint ucs4)     \overload      Returns true if the UCS-4-encoded character specified by \a ucs4     is the low part of a UTF16 surrogate     (i.e. if its code point is in range [0xdc00..0xdfff]); false otherwise. */
+end_comment
+begin_comment
+comment|/*!     \fn static bool QChar::isSurrogate(uint ucs4)     \overload     \since 5.0      Returns true if the UCS-4-encoded character specified by \a ucs4     contains a code point that is in either the high or the low part of the     UTF-16 surrogate range (i.e. if its code point is in range [0xd800..0xdfff]);     false otherwise. */
+end_comment
+begin_comment
+comment|/*!     \fn static bool QChar::requiresSurrogates(uint ucs4)      Returns true if the UCS-4-encoded character specified by \a ucs4     can be split into the high and low parts of a UTF16 surrogate     (i.e. if its code point is greater than or equals to 0x10000);     false otherwise. */
 end_comment
 begin_comment
 comment|/*!     \fn static uint QChar::surrogateToUcs4(ushort high, ushort low)      Converts a UTF16 surrogate pair with the given \a high and \a low values     to it's UCS-4-encoded code point. */
@@ -713,7 +725,7 @@ if|if
 condition|(
 name|ucs4
 operator|>
-name|UNICODE_LAST_CODEPOINT
+name|LastValidCodePoint
 condition|)
 return|return
 operator|-
@@ -752,7 +764,7 @@ if|if
 condition|(
 name|ucs4
 operator|>
-name|UNICODE_LAST_CODEPOINT
+name|LastValidCodePoint
 condition|)
 return|return
 name|QChar
@@ -797,7 +809,7 @@ if|if
 condition|(
 name|ucs4
 operator|>
-name|UNICODE_LAST_CODEPOINT
+name|LastValidCodePoint
 condition|)
 return|return
 name|QChar
@@ -842,7 +854,7 @@ if|if
 condition|(
 name|ucs4
 operator|>
-name|UNICODE_LAST_CODEPOINT
+name|LastValidCodePoint
 condition|)
 return|return
 name|QChar
@@ -885,7 +897,7 @@ if|if
 condition|(
 name|ucs4
 operator|>
-name|UNICODE_LAST_CODEPOINT
+name|LastValidCodePoint
 condition|)
 return|return
 literal|false
@@ -932,7 +944,7 @@ if|if
 condition|(
 name|ucs4
 operator|>
-name|UNICODE_LAST_CODEPOINT
+name|LastValidCodePoint
 condition|)
 return|return
 name|ucs4
@@ -1375,7 +1387,7 @@ if|if
 condition|(
 name|ucs4
 operator|>
-name|UNICODE_LAST_CODEPOINT
+name|LastValidCodePoint
 condition|)
 return|return
 literal|0
@@ -1417,7 +1429,7 @@ if|if
 condition|(
 name|ucs4
 operator|>
-name|UNICODE_LAST_CODEPOINT
+name|LastValidCodePoint
 condition|)
 return|return
 name|QChar
@@ -1754,7 +1766,7 @@ if|if
 condition|(
 name|ucs4
 operator|>
-name|UNICODE_LAST_CODEPOINT
+name|LastValidCodePoint
 condition|)
 return|return
 name|ucs4
@@ -1791,7 +1803,7 @@ if|if
 condition|(
 name|ucs4
 operator|>
-name|UNICODE_LAST_CODEPOINT
+name|LastValidCodePoint
 condition|)
 return|return
 name|ucs4
@@ -1828,7 +1840,7 @@ if|if
 condition|(
 name|ucs4
 operator|>
-name|UNICODE_LAST_CODEPOINT
+name|LastValidCodePoint
 condition|)
 return|return
 name|ucs4
@@ -2029,7 +2041,7 @@ if|if
 condition|(
 name|ucs4
 operator|>
-name|UNICODE_LAST_CODEPOINT
+name|LastValidCodePoint
 condition|)
 return|return
 name|ucs4

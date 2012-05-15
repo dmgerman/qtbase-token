@@ -2242,7 +2242,9 @@ operator|)
 operator|||
 name|c
 argument_list|>
-literal|0x10FFFF
+name|QChar
+operator|::
+name|LastValidCodePoint
 condition|)
 block|{
 name|raiseWellFormedError
@@ -6342,7 +6344,9 @@ literal|0x10000
 operator|&&
 name|s
 operator|<=
-literal|0x10ffff
+name|QChar
+operator|::
+name|LastValidCodePoint
 operator|)
 operator|)
 expr_stmt|;

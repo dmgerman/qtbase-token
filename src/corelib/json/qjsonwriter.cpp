@@ -12,11 +12,6 @@ include|#
 directive|include
 file|"qjson_p.h"
 end_include
-begin_include
-include|#
-directive|include
-file|<private/qunicodetables_p.h>
-end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
@@ -556,7 +551,7 @@ block|{
 comment|// is it one of the Unicode non-characters?
 if|if
 condition|(
-name|QUnicodeTables
+name|QChar
 operator|::
 name|isNonCharacter
 argument_list|(
