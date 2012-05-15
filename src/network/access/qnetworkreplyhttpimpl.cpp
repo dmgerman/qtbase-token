@@ -7670,7 +7670,6 @@ operator|::
 name|ContentLengthHeader
 argument_list|)
 decl_stmt|;
-comment|//pauseNotificationHandling();
 comment|// emit readyRead before downloadProgress incase this will cause events to be
 comment|// processed and we get into a recursive call (as in QProgressDialog).
 comment|// This readyRead() goes to the user. The user then may or may not read() anything.
@@ -8595,7 +8594,6 @@ operator|==
 name|WaitingForSession
 condition|)
 return|return;
-comment|//pauseNotificationHandling();
 name|QVariant
 name|totalSize
 init|=
@@ -8627,7 +8625,6 @@ argument_list|()
 operator|+
 name|preMigrationDownloaded
 expr_stmt|;
-comment|// FIXME why should it be 0
 if|if
 condition|(
 name|manager
@@ -8706,7 +8703,6 @@ operator|==
 name|WaitingForSession
 condition|)
 block|{
-comment|//resumeNotificationHandling();
 return|return;
 comment|// exit early if we are migrating.
 block|}
@@ -8734,7 +8730,6 @@ block|}
 endif|#
 directive|endif
 block|}
-comment|//resumeNotificationHandling();
 name|state
 operator|=
 name|Finished
@@ -8746,8 +8741,6 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-comment|//pendingNotifications.clear();
-comment|//pauseNotificationHandling();
 if|if
 condition|(
 name|totalSize
@@ -8795,7 +8788,6 @@ argument_list|,
 literal|0
 argument_list|)
 emit|;
-comment|//resumeNotificationHandling();
 comment|// if we don't know the total size of or we received everything save the cache
 if|if
 condition|(
@@ -8816,10 +8808,6 @@ condition|)
 name|completeCacheSave
 argument_list|()
 expr_stmt|;
-comment|// note: might not be a good idea, since users could decide to delete us
-comment|// which would delete the backend too...
-comment|// maybe we should protect the backend
-comment|//pauseNotificationHandling();
 emit|emit
 name|q
 operator|->
@@ -8832,7 +8820,6 @@ operator|->
 name|finished
 argument_list|()
 emit|;
-comment|//resumeNotificationHandling();
 block|}
 end_function
 begin_function
@@ -9103,10 +9090,6 @@ name|state
 operator|=
 name|Reconnecting
 expr_stmt|;
-comment|//    if (backend) {
-comment|//        delete backend;
-comment|//        backend = 0;
-comment|//    }
 name|cookedHeaders
 operator|.
 name|clear
@@ -9121,19 +9104,17 @@ name|preMigrationDownloaded
 operator|=
 name|bytesDownloaded
 expr_stmt|;
-comment|//    backend = manager->d_func()->findBackend(operation, request);
-comment|//    if (backend) {
-comment|//        backend->setParent(q);
-comment|//        backend->reply = this;
-comment|//        backend->setResumeOffset(bytesDownloaded);
-comment|//    }
-comment|// FIXME
-name|Q_ASSERT
+name|setResumeOffset
 argument_list|(
-literal|0
+name|bytesDownloaded
 argument_list|)
 expr_stmt|;
-comment|// What probably needs to be done is an abort and then re-send?
+emit|emit
+name|q
+operator|->
+name|abortHttpRequest
+argument_list|()
+emit|;
 name|QMetaObject
 operator|::
 name|invokeMethod
