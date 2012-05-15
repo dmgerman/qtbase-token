@@ -1547,6 +1547,19 @@ name|SOCK_STREAM
 decl_stmt|;
 comment|// MSDN KB179942 states that on winnt 4 WSA_FLAG_OVERLAPPED is needed if socket is to be non blocking
 comment|// and recomends alwasy doing it for cross windows version comapablity.
+comment|// WSA_FLAG_NO_HANDLE_INHERIT is atomic (like linux O_CLOEXEC), but requires windows 7 SP 1 or later
+comment|// SetHandleInformation is supported since W2K but isn't atomic
+comment|// According to the MS docs, we can use the new flag and call GetHandleInformation to see if it was successful
+ifndef|#
+directive|ifndef
+name|WSA_FLAG_NO_HANDLE_INHERIT
+DECL|macro|WSA_FLAG_NO_HANDLE_INHERIT
+define|#
+directive|define
+name|WSA_FLAG_NO_HANDLE_INHERIT
+value|0x80
+endif|#
+directive|endif
 name|SOCKET
 name|socket
 init|=
@@ -1563,6 +1576,8 @@ name|NULL
 argument_list|,
 literal|0
 argument_list|,
+name|WSA_FLAG_NO_HANDLE_INHERIT
+operator||
 name|WSA_FLAG_OVERLAPPED
 argument_list|)
 decl_stmt|;
@@ -1639,6 +1654,69 @@ return|return
 literal|false
 return|;
 block|}
+ifdef|#
+directive|ifdef
+name|HANDLE_FLAG_INHERIT
+comment|// check if the WSASocket was successful or not at creating a non inheritable socket
+name|DWORD
+name|handleFlags
+init|=
+literal|0xFF
+decl_stmt|;
+if|if
+condition|(
+name|GetHandleInformation
+argument_list|(
+operator|(
+name|HANDLE
+operator|)
+name|socket
+argument_list|,
+operator|&
+name|handleFlags
+argument_list|)
+operator|&&
+operator|(
+name|handleFlags
+operator|&
+name|HANDLE_FLAG_INHERIT
+operator|)
+condition|)
+block|{
+comment|// make non inheritable the old way
+if|if
+condition|(
+name|SetHandleInformation
+argument_list|(
+operator|(
+name|HANDLE
+operator|)
+name|socket
+argument_list|,
+name|HANDLE_FLAG_INHERIT
+argument_list|,
+literal|0
+argument_list|)
+condition|)
+name|handleFlags
+operator|=
+literal|0
+expr_stmt|;
+block|}
+ifdef|#
+directive|ifdef
+name|QNATIVESOCKETENGINE_DEBUG
+name|qDebug
+argument_list|()
+operator|<<
+literal|"QNativeSocketEnginePrivate::createNewSocket - set inheritable"
+operator|<<
+name|handleFlags
+expr_stmt|;
+endif|#
+directive|endif
+endif|#
+directive|endif
 if|#
 directive|if
 operator|!
