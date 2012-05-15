@@ -154,7 +154,7 @@ decl_stmt|;
 name|qelfoff_t
 name|offset
 decl_stmt|;
-name|qelfword_t
+name|qelfoff_t
 name|size
 decl_stmt|;
 block|}

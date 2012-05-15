@@ -134,7 +134,7 @@ name|size
 operator|=
 name|read
 argument_list|<
-name|qelfword_t
+name|qelfoff_t
 argument_list|>
 argument_list|(
 name|data
@@ -144,7 +144,7 @@ name|data
 operator|+=
 sizeof|sizeof
 argument_list|(
-name|qelfword_t
+name|qelfoff_t
 argument_list|)
 expr_stmt|;
 comment|// sh_size
