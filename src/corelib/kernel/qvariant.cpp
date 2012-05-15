@@ -7500,23 +7500,6 @@ if|if
 condition|(
 name|typeId
 operator|==
-literal|69
-comment|/* QIcon */
-condition|)
-block|{
-comment|// In Qt5 after modularization project these types where moved to a separate module (and ids were downgraded)
-name|typeId
-operator|=
-name|QMetaType
-operator|::
-name|QIcon
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|typeId
-operator|==
 literal|75
 comment|/* QSizePolicy */
 condition|)
@@ -7532,38 +7515,20 @@ elseif|else
 if|if
 condition|(
 name|typeId
-operator|>=
-literal|70
-condition|)
-block|{
-comment|// and as a result these types received lower ids too
-if|if
-condition|(
-name|typeId
-operator|<=
-literal|74
-condition|)
-block|{
-comment|// QImage QPolygon QRegion QBitmap QCursor
-name|typeId
-operator|-=
-literal|1
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
+operator|>
+literal|75
+operator|&&
 name|typeId
 operator|<=
 literal|86
 condition|)
 block|{
+comment|// and as a result these types received lower ids too
 comment|// QKeySequence QPen QTextLength QTextFormat QMatrix QTransform QMatrix4x4 QVector2D QVector3D QVector4D QQuaternion
 name|typeId
 operator|-=
-literal|2
+literal|1
 expr_stmt|;
-block|}
 block|}
 block|}
 name|qint8
@@ -7873,22 +7838,6 @@ name|typeId
 operator|==
 name|QMetaType
 operator|::
-name|QIcon
-condition|)
-block|{
-comment|// In Qt5 after modularization project these types where moved to a separate module (and ids were downgraded)
-name|typeId
-operator|=
-literal|69
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|typeId
-operator|==
-name|QMetaType
-operator|::
 name|QSizePolicy
 condition|)
 block|{
@@ -7904,27 +7853,8 @@ name|typeId
 operator|>=
 name|QMetaType
 operator|::
-name|QImage
-condition|)
-block|{
-comment|// and as a result these types received lower ids too
-if|if
-condition|(
-name|typeId
-operator|<=
-name|QMetaType
-operator|::
-name|QCursor
-condition|)
-block|{
-name|typeId
-operator|+=
-literal|1
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
+name|QKeySequence
+operator|&&
 name|typeId
 operator|<=
 name|QMetaType
@@ -7932,11 +7862,11 @@ operator|::
 name|QQuaternion
 condition|)
 block|{
+comment|// and as a result these types received lower ids too
 name|typeId
 operator|+=
-literal|2
+literal|1
 expr_stmt|;
-block|}
 block|}
 block|}
 name|s

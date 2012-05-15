@@ -3149,6 +3149,11 @@ name|QMetaType
 operator|::
 name|QQuaternion
 case|:
+case|case
+name|QMetaType
+operator|::
+name|QIcon
+case|:
 if|if
 condition|(
 operator|!
@@ -3172,11 +3177,6 @@ name|data
 argument_list|)
 expr_stmt|;
 break|break;
-case|case
-name|QMetaType
-operator|::
-name|QIcon
-case|:
 case|case
 name|QMetaType
 operator|::
@@ -4353,6 +4353,11 @@ name|QMetaType
 operator|::
 name|QQuaternion
 case|:
+case|case
+name|QMetaType
+operator|::
+name|QIcon
+case|:
 if|if
 condition|(
 operator|!
@@ -4376,11 +4381,6 @@ name|data
 argument_list|)
 expr_stmt|;
 break|break;
-case|case
-name|QMetaType
-operator|::
-name|QIcon
-case|:
 case|case
 name|QMetaType
 operator|::

@@ -120,6 +120,11 @@ include|#
 directive|include
 file|"qquaternion.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"qicon.h"
+end_include
 begin_comment
 comment|// Core types
 end_comment
@@ -535,7 +540,7 @@ literal|0
 argument_list|)
 return|;
 block|}
-comment|// This class is a hack that customizes access to QPixmap, QBitmap and QCursor
+comment|// This class is a hack that customizes access to QPixmap, QBitmap, QCursor and QIcon
 template|template
 parameter_list|<
 name|class
@@ -724,6 +729,24 @@ argument_list|)
 operator|->
 name|shape
 argument_list|()
+return|;
+block|}
+endif|#
+directive|endif
+ifndef|#
+directive|ifndef
+name|QT_NO_ICON
+DECL|function|delegate
+name|bool
+name|delegate
+parameter_list|(
+specifier|const
+name|QIcon
+modifier|*
+parameter_list|)
+block|{
+return|return
+literal|false
 return|;
 block|}
 endif|#
@@ -1692,6 +1715,30 @@ return|;
 default|default:
 break|break;
 block|}
+block|}
+endif|#
+directive|endif
+ifndef|#
+directive|ifndef
+name|QT_NO_ICON
+case|case
+name|QVariant
+operator|::
+name|Icon
+case|:
+block|{
+if|if
+condition|(
+name|ok
+condition|)
+operator|*
+name|ok
+operator|=
+literal|false
+expr_stmt|;
+return|return
+literal|false
+return|;
 block|}
 endif|#
 directive|endif
