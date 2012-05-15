@@ -697,6 +697,21 @@ else|else
 goto|goto
 name|cleanup
 goto|;
+name|types
+operator|=
+name|checkDeviceType
+argument_list|(
+name|dev
+argument_list|)
+expr_stmt|;
+comment|// if we cannot determine a type, walk up the device tree
+if|if
+condition|(
+name|types
+operator|==
+name|UDev_Unknown
+condition|)
+block|{
 comment|// does not increase the refcount
 name|dev
 operator|=
@@ -724,6 +739,7 @@ argument_list|(
 name|dev
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|types
