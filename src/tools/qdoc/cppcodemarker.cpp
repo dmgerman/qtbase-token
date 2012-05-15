@@ -6038,7 +6038,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   This function is for documenting QML properties. It returns   the list of documentation sections for the children of the   \a qmlClassNode.    Currently, it only handles QML property groups.  */
+comment|/*!   This function is for documenting QML properties. It returns   the list of documentation sections for the children of the   \a qmlClassNode.  */
 end_comment
 begin_function
 DECL|function|qmlSections

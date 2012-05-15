@@ -1902,10 +1902,12 @@ name|Node
 operator|::
 name|QmlProperty
 condition|)
+block|{
 name|inheritedMember
 operator|=
 literal|true
 expr_stmt|;
+block|}
 block|}
 block|}
 if|if

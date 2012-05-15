@@ -23132,7 +23132,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Generates the summary for the \a section. Only used for   sections of QML element documentation.    Currently handles only the QML property group.  */
+comment|/*!   Generates the summary for the \a section. Only used for   sections of QML element documentation.  */
 end_comment
 begin_function
 DECL|function|generateQmlSummary
