@@ -96,6 +96,15 @@ return|return
 name|m_surface
 return|;
 block|}
+name|EGLDisplay
+name|display
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_dpy
+return|;
+block|}
 name|private
 operator|:
 name|void
