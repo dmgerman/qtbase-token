@@ -101,7 +101,10 @@ name|TestData
 name|inNativeEndian
 init|=
 block|{
+name|Q_UINT64_C
+argument_list|(
 literal|0x0123456789abcdef
+argument_list|)
 block|,
 literal|0x00c0ffee
 block|,
