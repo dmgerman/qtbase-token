@@ -4700,6 +4700,9 @@ name|openingParenPos
 operator|-
 literal|1
 argument_list|)
+operator|.
+name|trimmed
+argument_list|()
 decl_stmt|;
 name|filterSpec
 operator|.
