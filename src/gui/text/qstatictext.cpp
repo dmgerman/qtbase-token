@@ -1733,6 +1733,13 @@ argument_list|(
 name|textOption
 argument_list|)
 expr_stmt|;
+name|textLayout
+operator|.
+name|setCacheEnabled
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|qreal
 name|leading
 init|=

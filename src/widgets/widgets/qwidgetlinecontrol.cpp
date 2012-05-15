@@ -1165,6 +1165,13 @@ modifier|&
 name|txt
 parameter_list|)
 block|{
+name|m_textLayout
+operator|.
+name|setCacheEnabled
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|m_text
 operator|=
 name|txt

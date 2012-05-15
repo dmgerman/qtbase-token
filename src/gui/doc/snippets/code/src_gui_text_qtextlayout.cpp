@@ -27,6 +27,15 @@ end_decl_stmt
 begin_expr_stmt
 name|textLayout
 operator|.
+name|setCacheEnabled
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+name|textLayout
+operator|.
 name|beginLayout
 argument_list|()
 expr_stmt|;
