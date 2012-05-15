@@ -736,20 +736,13 @@ operator|.
 name|variant
 argument_list|()
 decl_stmt|;
-name|QVariant
-operator|::
-name|Type
+name|int
 name|id
 init|=
-name|QVariant
-operator|::
-name|Type
-argument_list|(
 name|value
 operator|.
 name|userType
 argument_list|()
-argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -789,10 +782,7 @@ literal|0
 decl_stmt|;
 if|if
 condition|(
-name|int
-argument_list|(
 name|id
-argument_list|)
 operator|==
 name|QDBusMetaTypeId
 operator|::
@@ -848,9 +838,9 @@ argument_list|(
 literal|"QDBusMarshaller: type `%s' (%d) is not registered with D-BUS. "
 literal|"Use qDBusRegisterMetaType to register it"
 argument_list|,
-name|QVariant
+name|QMetaType
 operator|::
-name|typeToName
+name|typeName
 argument_list|(
 name|id
 argument_list|)
@@ -871,9 +861,9 @@ name|arg
 argument_list|(
 name|QLatin1String
 argument_list|(
-name|QVariant
+name|QMetaType
 operator|::
-name|typeToName
+name|typeName
 argument_list|(
 name|id
 argument_list|)
