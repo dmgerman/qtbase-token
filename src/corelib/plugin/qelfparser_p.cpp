@@ -1222,6 +1222,12 @@ name|size
 operator|)
 operator|>
 name|fdlen
+operator|||
+name|sh
+operator|.
+name|size
+operator|<
+literal|1
 condition|)
 block|{
 if|if
