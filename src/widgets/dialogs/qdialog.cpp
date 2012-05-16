@@ -110,6 +110,9 @@ modifier|*
 name|dialog
 parameter_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_FILEDIALOG
 if|if
 condition|(
 name|qobject_cast
@@ -127,6 +130,8 @@ name|QPlatformTheme
 operator|::
 name|FileDialog
 return|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|qobject_cast
@@ -144,6 +149,9 @@ name|QPlatformTheme
 operator|::
 name|ColorDialog
 return|;
+ifndef|#
+directive|ifndef
+name|QT_NO_FONTDIALOG
 if|if
 condition|(
 name|qobject_cast
@@ -161,6 +169,8 @@ name|QPlatformTheme
 operator|::
 name|FontDialog
 return|;
+endif|#
+directive|endif
 return|return
 operator|-
 literal|1

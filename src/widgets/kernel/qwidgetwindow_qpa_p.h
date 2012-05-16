@@ -151,6 +151,9 @@ name|QWheelEvent
 operator|*
 argument_list|)
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_DRAGANDDROP
 name|void
 name|handleDragEvent
 argument_list|(
@@ -158,6 +161,8 @@ name|QEvent
 operator|*
 argument_list|)
 block|;
+endif|#
+directive|endif
 name|void
 name|handleExposeEvent
 argument_list|(
@@ -213,12 +218,18 @@ name|QWidget
 operator|>
 name|m_implicit_mouse_grabber
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_DRAGANDDROP
 name|QWeakPointer
 operator|<
 name|QWidget
 operator|>
 name|m_dragTarget
-block|; }
+block|;
+endif|#
+directive|endif
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_expr_stmt

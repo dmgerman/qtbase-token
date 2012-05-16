@@ -537,6 +537,9 @@ expr_stmt|;
 return|return
 literal|true
 return|;
+ifndef|#
+directive|ifndef
+name|QT_NO_DRAGANDDROP
 case|case
 name|QEvent
 operator|::
@@ -563,6 +566,8 @@ name|event
 argument_list|)
 expr_stmt|;
 break|break;
+endif|#
+directive|endif
 case|case
 name|QEvent
 operator|::
@@ -1931,6 +1936,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_DRAGANDDROP
+end_ifndef
 begin_function
 DECL|function|handleDragEvent
 name|void
@@ -2360,6 +2370,13 @@ break|break;
 block|}
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_DRAGANDDROP
+end_comment
 begin_function
 DECL|function|handleExposeEvent
 name|void
