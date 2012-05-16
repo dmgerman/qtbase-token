@@ -7111,6 +7111,16 @@ name|endsWith
 argument_list|(
 literal|"-msvc2010"
 argument_list|)
+operator|||
+name|dictionary
+index|[
+literal|"QMAKESPEC"
+index|]
+operator|.
+name|endsWith
+argument_list|(
+literal|"-msvc11"
+argument_list|)
 condition|)
 block|{
 if|if

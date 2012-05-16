@@ -56,7 +56,12 @@ operator|,
 DECL|enumerator|CC_NET2010
 name|CC_NET2010
 operator|=
-literal|0x91
+literal|0xA0
+operator|,
+DECL|enumerator|CC_NET11
+name|CC_NET11
+operator|=
+literal|0xB0
 block|}
 end_decl_stmt
 begin_empty_stmt

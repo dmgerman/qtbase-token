@@ -248,6 +248,28 @@ block|}
 block|,
 comment|// link.exe, lib.exe
 block|{
+name|CC_NET11
+block|,
+literal|"Microsoft (R) 32-bit C/C++ Optimizing Compiler.NET 11 (11.0)"
+block|,
+literal|"Software\\Microsoft\\VisualStudio\\SxS\\VC7\\11.0"
+block|,
+literal|"cl.exe"
+block|}
+block|,
+comment|// link.exe, lib.exe
+block|{
+name|CC_NET11
+block|,
+literal|"Microsoft (R) 32-bit C/C++ Optimizing Compiler.NET 11 (11.0)"
+block|,
+literal|"Software\\Wow6432Node\\Microsoft\\VisualStudio\\SxS\\VC7\\11.0"
+block|,
+literal|"cl.exe"
+block|}
+block|,
+comment|// link.exe, lib.exe
+block|{
 name|CC_UNKNOWN
 block|,
 literal|"Unknown"
@@ -346,6 +368,14 @@ name|detectCompiler
 argument_list|()
 condition|)
 block|{
+case|case
+name|CC_NET11
+case|:
+name|spec
+operator|=
+literal|"win32-msvc11"
+expr_stmt|;
+break|break;
 case|case
 name|CC_NET2010
 case|:
