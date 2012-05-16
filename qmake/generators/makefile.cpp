@@ -17707,7 +17707,7 @@ name|st
 operator|->
 name|makefile
 operator|=
-literal|"$(MAKEFILE)"
+literal|"Makefile"
 expr_stmt|;
 if|if
 condition|(
