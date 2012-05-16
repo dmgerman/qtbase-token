@@ -916,65 +916,6 @@ argument_list|,
 argument|const char *
 argument_list|,
 argument|Encoding encoding
-argument_list|)
-block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_TEXTCODEC
-if|if
-condition|(
-name|encoding
-operator|==
-name|UnicodeUTF8
-condition|)
-return|return
-name|QString
-operator|::
-name|fromUtf8
-argument_list|(
-name|sourceText
-argument_list|)
-return|;
-else|#
-directive|else
-name|Q_UNUSED
-argument_list|(
-argument|encoding
-argument_list|)
-end_expr_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_return
-return|return
-name|QString
-operator|::
-name|fromLatin1
-argument_list|(
-name|sourceText
-argument_list|)
-return|;
-end_return
-begin_comment
-unit|}
-comment|// Simple versions
-end_comment
-begin_expr_stmt
-unit|inline
-DECL|function|translate
-name|QString
-name|QCoreApplication
-operator|::
-name|translate
-argument_list|(
-argument|const char *
-argument_list|,
-argument|const char *sourceText
-argument_list|,
-argument|const char *
-argument_list|,
-argument|Encoding encoding
 argument_list|,
 argument|int
 argument_list|)
