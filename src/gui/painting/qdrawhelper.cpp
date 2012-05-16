@@ -14364,7 +14364,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QT_HAVE_ARMV6
+name|Q_PROCESSOR_ARM_V6
 argument_list|)
 end_if
 begin_function
@@ -14460,7 +14460,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_HAVE_ARMV6
+comment|// Q_PROCESSOR_ARM_V6
 end_comment
 begin_endif
 endif|#
@@ -14481,7 +14481,7 @@ operator|||
 operator|!
 name|defined
 argument_list|(
-name|QT_HAVE_ARMV6
+name|Q_PROCESSOR_ARM_V6
 argument_list|)
 end_if
 begin_define
