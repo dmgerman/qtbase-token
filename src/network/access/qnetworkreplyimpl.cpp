@@ -463,6 +463,9 @@ endif|#
 directive|endif
 return|return;
 block|}
+ifndef|#
+directive|ifndef
+name|QT_NO_BEARERMANAGEMENT
 if|if
 condition|(
 name|session
@@ -502,6 +505,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 if|if
 condition|(
 name|backend

@@ -1138,6 +1138,11 @@ name|defined
 argument_list|(
 name|QT_NO_LIBRARY
 argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|QT_NO_PROPERTIES
+argument_list|)
 operator|)
 end_if
 begin_define

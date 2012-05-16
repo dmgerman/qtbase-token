@@ -481,6 +481,9 @@ operator|*
 name|manager
 argument_list|)
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_BEARERMANAGEMENT
 name|Q_AUTOTEST_EXPORT
 specifier|static
 specifier|const
@@ -497,6 +500,8 @@ operator|*
 name|manager
 argument_list|)
 block|;
+endif|#
+directive|endif
 name|Q_DECLARE_PUBLIC
 argument_list|(
 argument|QNetworkAccessManager

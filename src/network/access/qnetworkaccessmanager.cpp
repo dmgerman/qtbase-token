@@ -643,6 +643,9 @@ argument_list|(
 literal|"QList<QPair<QByteArray,QByteArray>>"
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_HTTP
 name|qRegisterMetaType
 argument_list|<
 name|QHttpNetworkRequest
@@ -651,6 +654,8 @@ argument_list|(
 literal|"QHttpNetworkRequest"
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|qRegisterMetaType
 argument_list|<
 name|QNetworkReply
