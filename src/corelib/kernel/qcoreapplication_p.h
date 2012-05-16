@@ -279,6 +279,20 @@ operator|*
 operator|*
 name|argv
 block|;
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+name|int
+name|origArgc
+block|;
+name|char
+operator|*
+operator|*
+name|origArgv
+block|;
+comment|// store unmodified arguments for QCoreApplication::arguments()
+endif|#
+directive|endif
 name|void
 name|appendApplicationPathToLibraryPaths
 argument_list|(
