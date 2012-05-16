@@ -35,6 +35,9 @@ file|<xcb/xfixes.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
 DECL|variable|QXcbConnection
 name|class
 name|QXcbConnection
@@ -359,6 +362,13 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_CLIPBOARD
+end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

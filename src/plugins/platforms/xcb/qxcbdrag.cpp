@@ -89,6 +89,9 @@ file|<QtPlatformSupport/private/qsimpledrag_p.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+ifndef|#
+directive|ifndef
+name|QT_NO_DRAGANDDROP
 comment|//#define DND_DEBUG
 ifdef|#
 directive|ifdef
@@ -6431,6 +6434,13 @@ name|formats
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_DRAGANDDROP
+end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

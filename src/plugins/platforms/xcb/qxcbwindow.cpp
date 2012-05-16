@@ -1774,6 +1774,9 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_DRAGANDDROP
 name|connection
 argument_list|()
 operator|->
@@ -1787,6 +1790,8 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_destructor
@@ -6998,6 +7003,9 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
+ifndef|#
+directive|ifndef
+name|QT_NO_DRAGANDDROP
 block|}
 elseif|else
 if|if
@@ -7118,6 +7126,8 @@ argument_list|,
 name|event
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 elseif|else
 if|if

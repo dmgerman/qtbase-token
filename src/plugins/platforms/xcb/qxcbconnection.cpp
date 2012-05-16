@@ -746,6 +746,9 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
 name|m_clipboard
 operator|=
 operator|new
@@ -754,6 +757,11 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+ifndef|#
+directive|ifndef
+name|QT_NO_DRAGANDDROP
 name|m_drag
 operator|=
 operator|new
@@ -762,6 +770,8 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 ifdef|#
 directive|ifdef
 name|XCB_USE_DRI2
@@ -783,9 +793,22 @@ name|~
 name|QXcbConnection
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
 operator|delete
 name|m_clipboard
 expr_stmt|;
+endif|#
+directive|endif
+ifndef|#
+directive|ifndef
+name|QT_NO_DRAGANDDROP
+operator|delete
+name|m_drag
+expr_stmt|;
+endif|#
+directive|endif
 comment|// Delete screens in reverse order to avoid crash in case of multiple screens
 while|while
 condition|(
@@ -2206,6 +2229,9 @@ operator|*
 operator|)
 name|event
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_DRAGANDDROP
 if|if
 condition|(
 name|sr
@@ -2227,6 +2253,12 @@ name|sr
 argument_list|)
 expr_stmt|;
 else|else
+endif|#
+directive|endif
+block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
 name|m_clipboard
 operator|->
 name|handleSelectionRequest
@@ -2234,6 +2266,9 @@ argument_list|(
 name|sr
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+block|}
 break|break;
 block|}
 case|case
@@ -2252,6 +2287,9 @@ operator|->
 name|time
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
 name|m_clipboard
 operator|->
 name|handleSelectionClearRequest
@@ -2263,6 +2301,8 @@ operator|)
 name|event
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|handled
 operator|=
 literal|true
@@ -2356,6 +2396,9 @@ operator|->
 name|timestamp
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
 name|m_clipboard
 operator|->
 name|handleXFixesSelectionRequest
@@ -2367,6 +2410,8 @@ operator|)
 name|event
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|handled
 operator|=
 literal|true
@@ -3116,6 +3161,9 @@ operator|!=
 literal|32
 condition|)
 return|return;
+ifndef|#
+directive|ifndef
+name|QT_NO_DRAGANDDROP
 if|if
 condition|(
 name|event
@@ -3163,6 +3211,8 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 name|QXcbWindow
 modifier|*
 name|window
