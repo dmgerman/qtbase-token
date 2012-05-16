@@ -545,21 +545,11 @@ name|QGraphicsItem
 operator|*
 operator|>
 name|items
-argument_list|()
-specifier|const
-block|;
-name|QList
-operator|<
-name|QGraphicsItem
-operator|*
-operator|>
-name|items
 argument_list|(
-argument|Qt::SortOrder order
+argument|Qt::SortOrder order = Qt::DescendingOrder
 argument_list|)
 specifier|const
 block|;
-comment|// ### Qt 5: unify
 name|QList
 operator|<
 name|QGraphicsItem
@@ -569,9 +559,9 @@ name|items
 argument_list|(
 argument|const QPointF&pos
 argument_list|,
-argument|Qt::ItemSelectionMode mode
+argument|Qt::ItemSelectionMode mode = Qt::IntersectsItemShape
 argument_list|,
-argument|Qt::SortOrder order
+argument|Qt::SortOrder order = Qt::DescendingOrder
 argument_list|,
 argument|const QTransform&deviceTransform = QTransform()
 argument_list|)
@@ -586,9 +576,9 @@ name|items
 argument_list|(
 argument|const QRectF&rect
 argument_list|,
-argument|Qt::ItemSelectionMode mode
+argument|Qt::ItemSelectionMode mode = Qt::IntersectsItemShape
 argument_list|,
-argument|Qt::SortOrder order
+argument|Qt::SortOrder order = Qt::DescendingOrder
 argument_list|,
 argument|const QTransform&deviceTransform = QTransform()
 argument_list|)
@@ -603,9 +593,9 @@ name|items
 argument_list|(
 argument|const QPolygonF&polygon
 argument_list|,
-argument|Qt::ItemSelectionMode mode
+argument|Qt::ItemSelectionMode mode = Qt::IntersectsItemShape
 argument_list|,
-argument|Qt::SortOrder order
+argument|Qt::SortOrder order = Qt::DescendingOrder
 argument_list|,
 argument|const QTransform&deviceTransform = QTransform()
 argument_list|)
@@ -620,68 +610,14 @@ name|items
 argument_list|(
 argument|const QPainterPath&path
 argument_list|,
-argument|Qt::ItemSelectionMode mode
+argument|Qt::ItemSelectionMode mode = Qt::IntersectsItemShape
 argument_list|,
-argument|Qt::SortOrder order
+argument|Qt::SortOrder order = Qt::DescendingOrder
 argument_list|,
 argument|const QTransform&deviceTransform = QTransform()
 argument_list|)
 specifier|const
 block|;
-name|QList
-operator|<
-name|QGraphicsItem
-operator|*
-operator|>
-name|items
-argument_list|(
-argument|const QPointF&pos
-argument_list|)
-specifier|const
-block|;
-comment|// ### obsolete
-name|QList
-operator|<
-name|QGraphicsItem
-operator|*
-operator|>
-name|items
-argument_list|(
-argument|const QRectF&rect
-argument_list|,
-argument|Qt::ItemSelectionMode mode = Qt::IntersectsItemShape
-argument_list|)
-specifier|const
-block|;
-comment|// ### obsolete
-name|QList
-operator|<
-name|QGraphicsItem
-operator|*
-operator|>
-name|items
-argument_list|(
-argument|const QPolygonF&polygon
-argument_list|,
-argument|Qt::ItemSelectionMode mode = Qt::IntersectsItemShape
-argument_list|)
-specifier|const
-block|;
-comment|// ### obsolete
-name|QList
-operator|<
-name|QGraphicsItem
-operator|*
-operator|>
-name|items
-argument_list|(
-argument|const QPainterPath&path
-argument_list|,
-argument|Qt::ItemSelectionMode mode = Qt::IntersectsItemShape
-argument_list|)
-specifier|const
-block|;
-comment|// ### obsolete
 name|QList
 operator|<
 name|QGraphicsItem
@@ -695,15 +631,52 @@ argument|Qt::ItemSelectionMode mode = Qt::IntersectsItemShape
 argument_list|)
 specifier|const
 block|;
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|0
+argument_list|)
+name|QT_DEPRECATED
+specifier|inline
 name|QGraphicsItem
 operator|*
 name|itemAt
 argument_list|(
-argument|const QPointF&pos
+argument|const QPointF&position
 argument_list|)
 specifier|const
+block|{
+name|QList
+operator|<
+name|QGraphicsItem
+operator|*
+operator|>
+name|itemsAtPoint
+operator|=
+name|items
+argument_list|(
+name|position
+argument_list|)
 block|;
-comment|// ### obsolete
+return|return
+name|itemsAtPoint
+operator|.
+name|isEmpty
+argument_list|()
+condition|?
+literal|0
+else|:
+name|itemsAtPoint
+operator|.
+name|first
+argument_list|()
+return|;
+block|}
+endif|#
+directive|endif
 name|QGraphicsItem
 operator|*
 name|itemAt
@@ -714,6 +687,15 @@ argument|const QTransform&deviceTransform
 argument_list|)
 specifier|const
 block|;
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|0
+argument_list|)
+name|QT_DEPRECATED
 specifier|inline
 name|QList
 operator|<
@@ -752,7 +734,8 @@ name|mode
 argument_list|)
 return|;
 block|}
-comment|// ### obsolete
+endif|#
+directive|endif
 specifier|inline
 name|QList
 operator|<
@@ -799,6 +782,15 @@ name|deviceTransform
 argument_list|)
 return|;
 block|}
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|0
+argument_list|)
+name|QT_DEPRECATED
 specifier|inline
 name|QGraphicsItem
 operator|*
@@ -809,7 +801,6 @@ argument_list|,
 argument|qreal y
 argument_list|)
 specifier|const
-comment|// ### obsolete
 block|{
 return|return
 name|itemAt
@@ -823,6 +814,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+endif|#
+directive|endif
 specifier|inline
 name|QGraphicsItem
 operator|*
@@ -871,16 +864,6 @@ specifier|const
 name|QPainterPath
 operator|&
 name|path
-argument_list|)
-block|;
-comment|// ### obsolete
-name|void
-name|setSelectionArea
-argument_list|(
-specifier|const
-name|QPainterPath
-operator|&
-name|path
 argument_list|,
 specifier|const
 name|QTransform
@@ -893,18 +876,9 @@ name|setSelectionArea
 argument_list|(
 argument|const QPainterPath&path
 argument_list|,
-argument|Qt::ItemSelectionMode mode
-argument_list|)
-block|;
-comment|// ### obsolete
-name|void
-name|setSelectionArea
-argument_list|(
-argument|const QPainterPath&path
+argument|Qt::ItemSelectionMode mode = Qt::IntersectsItemShape
 argument_list|,
-argument|Qt::ItemSelectionMode mode
-argument_list|,
-argument|const QTransform&deviceTransform
+argument|const QTransform&deviceTransform = QTransform()
 argument_list|)
 block|;
 name|QGraphicsItemGroup
