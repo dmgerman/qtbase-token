@@ -5214,7 +5214,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \enum QCoreApplication::Encoding      This enum type defines the 8-bit encoding of character string     arguments to translate():      \value UnicodeUTF8   UTF-8.     \value Latin1        Latin-1.     \value DefaultCodec  Latin-1.      \sa QObject::tr(), QObject::trUtf8(), QString::fromUtf8() */
+comment|/*! \enum QCoreApplication::Encoding     \obsolete      This enum type used to define the 8-bit encoding of character string     arguments to translate(). This enum is now obsolete and UTF-8 will be     used in all cases.      \value UnicodeUTF8   UTF-8.     \value Latin1        UTF-8.     \value DefaultCodec  UTF-8.      \sa QObject::tr(), QString::fromUtf8() */
 end_comment
 begin_function
 DECL|function|ref
@@ -5657,7 +5657,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \reentrant     \since 4.5      Returns the translation text for \a sourceText, by querying the     installed translation files. The translation files are searched     from the most recently installed file back to the first     installed file.      QObject::tr() and QObject::trUtf8() provide this functionality     more conveniently.      \a context is typically a class name (e.g., "MyDialog") and \a     sourceText is either English text or a short identifying text.      \a disambiguation is an identifying string, for when the same \a     sourceText is used in different roles within the same context. By     default, it is null.      See the \l QTranslator and \l QObject::tr() documentation for     more information about contexts, disambiguations and comments.      \a encoding indicates the 8-bit encoding of character strings.      \a n is used in conjunction with \c %n to support plural forms.     See QObject::tr() for details.      If none of the translation files contain a translation for \a     sourceText in \a context, this function returns a QString     equivalent of \a sourceText. The encoding of \a sourceText is     specified by \e encoding; it defaults to DefaultCodec.      This function is not virtual. You can use alternative translation     techniques by subclassing \l QTranslator.      \warning This method is reentrant only if all translators are     installed \e before calling this method. Installing or removing     translators while performing translations is not supported. Doing     so will most likely result in crashes or other undesirable     behavior.      \sa QObject::tr(), installTranslator() */
+comment|/*!     \reentrant      Returns the translation text for \a sourceText, by querying the     installed translation files. The translation files are searched     from the most recently installed file back to the first     installed file.      QObject::tr() provides this functionality more conveniently.      \a context is typically a class name (e.g., "MyDialog") and \a     sourceText is either English text or a short identifying text.      \a disambiguation is an identifying string, for when the same \a     sourceText is used in different roles within the same context. By     default, it is null.      See the \l QTranslator and \l QObject::tr() documentation for     more information about contexts, disambiguations and comments.      \a n is used in conjunction with \c %n to support plural forms.     See QObject::tr() for details.      If none of the translation files contain a translation for \a     sourceText in \a context, this function returns a QString     equivalent of \a sourceText.      This function is not virtual. You can use alternative translation     techniques by subclassing \l QTranslator.      \warning This method is reentrant only if all translators are     installed \e before calling this method. Installing or removing     translators while performing translations is not supported. Doing     so will most likely result in crashes or other undesirable     behavior.      \sa QObject::tr(), installTranslator() */
 end_comment
 begin_function
 DECL|function|translate
@@ -5680,9 +5680,6 @@ specifier|const
 name|char
 modifier|*
 name|disambiguation
-parameter_list|,
-name|Encoding
-name|encoding
 parameter_list|,
 name|int
 name|n
@@ -5796,22 +5793,6 @@ operator|.
 name|isNull
 argument_list|()
 condition|)
-block|{
-ifdef|#
-directive|ifdef
-name|QT_NO_TEXTCODEC
-name|Q_UNUSED
-argument_list|(
-argument|encoding
-argument_list|)
-else|#
-directive|else
-if|if
-condition|(
-name|encoding
-operator|==
-name|UnicodeUTF8
-condition|)
 name|result
 operator|=
 name|QString
@@ -5821,19 +5802,6 @@ argument_list|(
 name|sourceText
 argument_list|)
 expr_stmt|;
-else|else
-endif|#
-directive|endif
-name|result
-operator|=
-name|QString
-operator|::
-name|fromLatin1
-argument_list|(
-name|sourceText
-argument_list|)
-expr_stmt|;
-block|}
 name|replacePercentN
 argument_list|(
 operator|&
@@ -5874,10 +5842,6 @@ argument_list|,
 name|id
 argument_list|,
 literal|0
-argument_list|,
-name|QCoreApplication
-operator|::
-name|UnicodeUTF8
 argument_list|,
 name|n
 argument_list|)
