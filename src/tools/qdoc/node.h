@@ -1204,7 +1204,7 @@ name|templateStuff_
 decl_stmt|;
 name|mutable
 name|QString
-name|uuid
+name|uuid_
 decl_stmt|;
 name|QString
 name|outSubDir_
