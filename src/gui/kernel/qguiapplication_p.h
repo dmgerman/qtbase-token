@@ -420,6 +420,9 @@ operator|*
 name|e
 argument_list|)
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_DRAGANDDROP
 specifier|static
 name|QPlatformDragQtResponse
 name|processDrag
@@ -446,6 +449,8 @@ argument_list|,
 argument|Qt::DropActions supportedActions
 argument_list|)
 block|;
+endif|#
+directive|endif
 specifier|static
 name|bool
 name|processNativeEvent

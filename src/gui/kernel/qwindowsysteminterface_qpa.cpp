@@ -2833,6 +2833,11 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_DRAGANDDROP
+end_ifndef
 begin_function
 DECL|function|handleDrag
 name|QPlatformDragQtResponse
@@ -2919,6 +2924,13 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_DRAGANDDROP
+end_comment
 begin_comment
 comment|/*!     \fn static QWindowSystemInterface::handleNativeEvent(QWindow *window, const QByteArray&eventType, void *message, long *result)     \brief Passes a native event identified by \a eventType to the \a window.      \note This function can only be called from the GUI thread.     \sa QPlatformNativeInterface::setEventFilter() */
 end_comment

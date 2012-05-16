@@ -26,6 +26,9 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|QT_BEGIN_HEADER
+ifndef|#
+directive|ifndef
+name|QT_NO_DRAGANDDROP
 DECL|variable|QMouseEvent
 name|class
 name|QMouseEvent
@@ -324,6 +327,13 @@ name|m_current_window
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_DRAGANDDROP
+end_comment
 begin_expr_stmt
 name|QT_END_HEADER
 name|QT_END_NAMESPACE

@@ -971,6 +971,9 @@ modifier|&
 name|region
 parameter_list|)
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_DRAGANDDROP
 comment|// Drag and drop. These events are sent immediately.
 specifier|static
 name|QPlatformDragQtResponse
@@ -1020,6 +1023,8 @@ name|DropActions
 name|supportedActions
 argument_list|)
 decl_stmt|;
+endif|#
+directive|endif
 specifier|static
 name|bool
 name|handleNativeEvent

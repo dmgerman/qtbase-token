@@ -39,6 +39,9 @@ file|<QDebug>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+ifndef|#
+directive|ifndef
+name|QT_NO_ACCESSIBILITY
 comment|/* accessiblebridge plugin discovery stuff */
 ifndef|#
 directive|ifndef
@@ -427,6 +430,9 @@ name|bridges
 argument_list|()
 argument_list|)
 block|; }
+endif|#
+directive|endif
+comment|// QT_NO_ACCESSIBILITY
 name|QT_END_NAMESPACE
 end_expr_stmt
 end_unit

@@ -105,6 +105,11 @@ end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_DRAGANDDROP
+end_ifndef
 begin_comment
 comment|/*!     \class QBasicDrag     \brief QBasicDrag is a base class for implementing platform drag and drop.     \since 5.0     \internal     \ingroup qpa      QBasicDrag implements QPlatformDrag::drag() by running a local event loop in which     it tracks mouse movements and moves the drag icon (QShapedPixmapWindow) accordingly.     It provides new virtuals allowing for querying whether the receiving window     (within the Qt application or outside) accepts the drag and sets the state accordingly. */
 end_comment
@@ -1235,6 +1240,13 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_DRAGANDDROP
+end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

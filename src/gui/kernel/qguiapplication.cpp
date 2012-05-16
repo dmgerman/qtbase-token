@@ -2184,6 +2184,9 @@ operator|=
 operator|new
 name|QPlatformTheme
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_PROPERTIES
 comment|// Set arguments as dynamic properties on the native interface as
 comment|// boolean 'foo' or strings: 'foo=bar'
 if|if
@@ -2294,6 +2297,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+endif|#
+directive|endif
 name|fontSmoothingGamma
 operator|=
 name|QGuiApplicationPrivate
@@ -8250,6 +8255,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_DRAGANDDROP
+end_ifndef
 begin_function
 DECL|function|processDrag
 name|QPlatformDragQtResponse
@@ -8653,6 +8663,13 @@ name|response
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_DRAGANDDROP
+end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
