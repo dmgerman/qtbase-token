@@ -4925,12 +4925,16 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// Use a fake directory, since we will copy the output to a sub directory of
+comment|// installDir when using "make install". This is just for a proper relative path.
 name|QDir
 name|installDir
 argument_list|(
 name|Config
 operator|::
 name|installDir
+operator|+
+literal|"/outputdir"
 argument_list|)
 decl_stmt|;
 name|indexUrl
@@ -7160,26 +7164,6 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|indexUrl
-operator|.
-name|startsWith
-argument_list|(
-name|QLatin1Char
-argument_list|(
-literal|'.'
-argument_list|)
-argument_list|)
-condition|)
-name|section
-operator|->
-name|setUrl
-argument_list|(
-name|href
-argument_list|)
-expr_stmt|;
-else|else
 name|section
 operator|->
 name|setUrl
