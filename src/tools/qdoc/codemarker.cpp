@@ -3336,7 +3336,7 @@ parameter_list|(
 specifier|const
 name|QString
 modifier|&
-name|target
+comment|/* target */
 parameter_list|,
 specifier|const
 name|Tree
