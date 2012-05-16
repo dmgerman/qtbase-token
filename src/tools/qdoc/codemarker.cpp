@@ -1803,9 +1803,9 @@ name|node
 argument_list|)
 decl_stmt|;
 return|return
-name|QLatin1String
+name|QLatin1Char
 argument_list|(
-literal|"E"
+literal|'E'
 argument_list|)
 operator|+
 name|func

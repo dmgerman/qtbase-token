@@ -620,7 +620,10 @@ name|funcName
 parameter_list|)
 block|{
 return|return
-literal|"^"
+name|QLatin1Char
+argument_list|(
+literal|'^'
+argument_list|)
 operator|+
 name|QRegExp
 operator|::
@@ -631,7 +634,10 @@ operator|+
 name|funcName
 argument_list|)
 operator|+
-literal|"$"
+name|QLatin1Char
+argument_list|(
+literal|'$'
+argument_list|)
 return|;
 block|}
 end_function

@@ -4326,11 +4326,9 @@ block|}
 else|else
 block|{
 name|type
-operator|=
-name|QString
-argument_list|(
-literal|""
-argument_list|)
+operator|.
+name|clear
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
@@ -5971,8 +5969,9 @@ name|clear
 argument_list|()
 expr_stmt|;
 name|moduleName
-operator|=
-literal|""
+operator|.
+name|clear
+argument_list|()
 expr_stmt|;
 block|}
 end_function
@@ -11469,7 +11468,8 @@ argument_list|(
 literal|"#define Q[A-Z_]*\\(C\\)"
 argument_list|)
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if

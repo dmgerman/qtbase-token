@@ -102,8 +102,6 @@ name|QString
 name|HtmlGenerator
 operator|::
 name|divNavTop
-init|=
-literal|""
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -1211,9 +1209,15 @@ argument_list|()
 operator|.
 name|replace
 argument_list|(
-literal|" "
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
 argument_list|,
-literal|"-"
+name|QLatin1Char
+argument_list|(
+literal|'-'
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|generateIndex
@@ -8350,7 +8354,10 @@ operator|->
 name|subTitle
 argument_list|()
 operator|+
-literal|")"
+name|QLatin1Char
+argument_list|(
+literal|')'
+argument_list|)
 expr_stmt|;
 block|}
 elseif|else
@@ -8941,7 +8948,7 @@ literal|"\"></a>"
 operator|<<
 name|divNavTop
 operator|<<
-literal|"\n"
+literal|'\n'
 expr_stmt|;
 name|out
 argument_list|()
@@ -10858,9 +10865,9 @@ name|shortVersion
 operator|=
 name|project
 operator|+
-name|QLatin1String
+name|QLatin1Char
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 operator|+
 name|shortVersion
@@ -18343,7 +18350,10 @@ else|else
 block|{
 name|clean
 operator|+=
-literal|"A"
+name|QLatin1Char
+argument_list|(
+literal|'A'
+argument_list|)
 expr_stmt|;
 block|}
 for|for
@@ -18450,7 +18460,10 @@ condition|)
 block|{
 name|clean
 operator|+=
-literal|"-"
+name|QLatin1Char
+argument_list|(
+literal|'-'
+argument_list|)
 expr_stmt|;
 block|}
 elseif|else
@@ -18538,7 +18551,10 @@ else|else
 block|{
 name|clean
 operator|+=
-literal|"-"
+name|QLatin1Char
+argument_list|(
+literal|'-'
+argument_list|)
 expr_stmt|;
 name|clean
 operator|+=
@@ -18628,7 +18644,10 @@ break|break;
 block|}
 name|clean
 operator|+=
-literal|"x"
+name|QLatin1Char
+argument_list|(
+literal|'x'
+argument_list|)
 expr_stmt|;
 block|}
 return|return
@@ -19246,7 +19265,10 @@ literal|1
 condition|)
 name|ref
 operator|+=
-literal|"-"
+name|QLatin1Char
+argument_list|(
+literal|'-'
+argument_list|)
 operator|+
 name|QString
 operator|::
@@ -19364,7 +19386,10 @@ literal|1
 condition|)
 name|ref
 operator|+=
-literal|"-"
+name|QLatin1Char
+argument_list|(
+literal|'-'
+argument_list|)
 operator|+
 name|QString
 operator|::
@@ -21886,7 +21911,10 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|":"
+name|QLatin1Char
+argument_list|(
+literal|':'
+argument_list|)
 argument_list|)
 operator|&&
 operator|(

@@ -1793,7 +1793,10 @@ name|name
 expr_stmt|;
 name|synopsis
 operator|+=
-literal|"("
+name|QLatin1Char
+argument_list|(
+literal|'('
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -1887,12 +1890,18 @@ name|synopsis
 operator|.
 name|endsWith
 argument_list|(
-literal|"("
+name|QLatin1Char
+argument_list|(
+literal|'('
+argument_list|)
 argument_list|)
 condition|)
 name|synopsis
 operator|+=
-literal|" "
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
 expr_stmt|;
 name|synopsis
 operator|+=

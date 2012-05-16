@@ -5188,8 +5188,9 @@ operator|=
 literal|"1,1"
 expr_stmt|;
 name|p2
-operator|=
-literal|""
+operator|.
+name|clear
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
@@ -6467,7 +6468,10 @@ argument_list|()
 expr_stmt|;
 name|p1
 operator|+=
-literal|","
+name|QLatin1Char
+argument_list|(
+literal|','
+argument_list|)
 expr_stmt|;
 name|p1
 operator|+=
@@ -10683,8 +10687,9 @@ operator|::
 name|Nop
 expr_stmt|;
 name|pendingParaString
-operator|=
-literal|""
+operator|.
+name|clear
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -11112,8 +11117,9 @@ name|rawString
 argument_list|)
 expr_stmt|;
 name|rawString
-operator|=
-literal|""
+operator|.
+name|clear
+argument_list|()
 expr_stmt|;
 block|}
 name|append
@@ -12105,7 +12111,8 @@ argument_list|()
 condition|)
 block|{
 return|return
-literal|""
+name|QString
+argument_list|()
 return|;
 block|}
 else|else
@@ -12233,7 +12240,10 @@ argument_list|()
 condition|)
 name|t
 operator|+=
-literal|" "
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
 expr_stmt|;
 name|t
 operator|+=

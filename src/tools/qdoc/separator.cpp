@@ -120,9 +120,7 @@ literal|1
 condition|)
 return|return
 name|QString
-argument_list|(
-literal|""
-argument_list|)
+argument_list|()
 return|;
 if|if
 condition|(

@@ -1019,7 +1019,10 @@ literal|" \""
 operator|+
 name|str
 operator|+
-literal|"\""
+name|QLatin1Char
+argument_list|(
+literal|'"'
+argument_list|)
 expr_stmt|;
 name|fprintf
 argument_list|(

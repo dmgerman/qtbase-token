@@ -303,7 +303,8 @@ name|isEmpty
 argument_list|()
 condition|)
 return|return
-literal|""
+name|QString
+argument_list|()
 return|;
 name|int
 name|deltaBest
@@ -436,7 +437,8 @@ block|}
 else|else
 block|{
 return|return
-literal|""
+name|QString
+argument_list|()
 return|;
 block|}
 block|}

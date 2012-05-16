@@ -111,7 +111,8 @@ comment|/* node */
 parameter_list|)
 block|{
 return|return
-literal|""
+name|QString
+argument_list|()
 return|;
 block|}
 end_function
@@ -134,7 +135,8 @@ comment|/* relative */
 parameter_list|)
 block|{
 return|return
-literal|""
+name|QString
+argument_list|()
 return|;
 block|}
 end_function
@@ -209,7 +211,8 @@ comment|/* node */
 parameter_list|)
 block|{
 return|return
-literal|""
+name|QString
+argument_list|()
 return|;
 block|}
 end_function
@@ -232,7 +235,8 @@ comment|/* relative */
 parameter_list|)
 block|{
 return|return
-literal|""
+name|QString
+argument_list|()
 return|;
 block|}
 end_function
@@ -255,7 +259,8 @@ comment|/* relative */
 parameter_list|)
 block|{
 return|return
-literal|""
+name|QString
+argument_list|()
 return|;
 block|}
 end_function
@@ -273,7 +278,8 @@ comment|/* includes */
 parameter_list|)
 block|{
 return|return
-literal|""
+name|QString
+argument_list|()
 return|;
 block|}
 end_function
@@ -291,7 +297,8 @@ comment|/* funcName */
 parameter_list|)
 block|{
 return|return
-literal|""
+name|QString
+argument_list|()
 return|;
 block|}
 end_function
@@ -309,7 +316,8 @@ comment|/* funcName */
 parameter_list|)
 block|{
 return|return
-literal|""
+name|QString
+argument_list|()
 return|;
 block|}
 end_function

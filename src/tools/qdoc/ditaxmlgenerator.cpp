@@ -1693,7 +1693,10 @@ name|version
 operator|.
 name|split
 argument_list|(
-literal|"."
+name|QLatin1Char
+argument_list|(
+literal|'.'
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -2162,9 +2165,15 @@ argument_list|()
 operator|.
 name|replace
 argument_list|(
-literal|" "
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
 argument_list|,
-literal|"-"
+name|QLatin1Char
+argument_list|(
+literal|'-'
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|generateIndex
@@ -8736,9 +8745,11 @@ argument_list|)
 expr_stmt|;
 name|enterSection
 argument_list|(
-literal|""
+name|QString
+argument_list|()
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|generateBody
@@ -9563,9 +9574,11 @@ argument_list|)
 expr_stmt|;
 name|enterSection
 argument_list|(
-literal|""
+name|QString
+argument_list|()
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|generateBody
@@ -10328,9 +10341,11 @@ argument_list|)
 expr_stmt|;
 name|enterSection
 argument_list|(
-literal|""
+name|QString
+argument_list|()
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|generateBody
@@ -11102,9 +11117,11 @@ endif|#
 directive|endif
 name|enterSection
 argument_list|(
-literal|""
+name|QString
+argument_list|()
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|generateBody
@@ -11472,9 +11489,11 @@ argument_list|)
 expr_stmt|;
 name|enterSection
 argument_list|(
-literal|""
+name|QString
+argument_list|()
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -11719,9 +11738,11 @@ condition|)
 block|{
 name|enterSection
 argument_list|(
-literal|""
+name|QString
+argument_list|()
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|generateBody
@@ -12009,7 +12030,10 @@ name|link
 operator|.
 name|endsWith
 argument_list|(
-literal|"#"
+name|QLatin1Char
+argument_list|(
+literal|'#'
+argument_list|)
 argument_list|)
 condition|)
 name|qDebug
@@ -13173,7 +13197,7 @@ literal|"<xref href=\""
 operator|<<
 name|nodeName
 operator|<<
-literal|"#"
+literal|'#'
 operator|<<
 name|Doc
 operator|::
@@ -13819,7 +13843,7 @@ argument_list|()
 operator|<<
 literal|"<xref href=\""
 operator|<<
-literal|"#"
+literal|'#'
 operator|<<
 name|Doc
 operator|::
@@ -33498,7 +33522,10 @@ operator|)
 operator|.
 name|startsWith
 argument_list|(
-literal|"<"
+name|QLatin1Char
+argument_list|(
+literal|'<'
+argument_list|)
 argument_list|)
 operator|&&
 operator|(
@@ -33508,7 +33535,10 @@ operator|)
 operator|.
 name|endsWith
 argument_list|(
-literal|">"
+name|QLatin1Char
+argument_list|(
+literal|'>'
+argument_list|)
 argument_list|)
 condition|)
 name|text
@@ -33519,12 +33549,18 @@ expr_stmt|;
 else|else
 name|text
 operator|+=
-literal|"<"
+name|QLatin1Char
+argument_list|(
+literal|'<'
+argument_list|)
 operator|+
 operator|*
 name|i
 operator|+
-literal|">"
+name|QLatin1Char
+argument_list|(
+literal|'>'
+argument_list|)
 expr_stmt|;
 operator|++
 name|i
@@ -34024,9 +34060,11 @@ argument_list|)
 expr_stmt|;
 name|enterSection
 argument_list|(
-literal|""
+name|QString
+argument_list|()
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|NodeMap
@@ -34082,7 +34120,10 @@ operator|->
 name|qmlModuleIdentifier
 argument_list|()
 operator|+
-literal|" "
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
 expr_stmt|;
 name|t
 operator|+=

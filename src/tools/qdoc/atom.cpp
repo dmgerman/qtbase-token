@@ -1232,9 +1232,9 @@ argument_list|)
 operator|+
 name|str
 operator|+
-name|QLatin1String
+name|QLatin1Char
 argument_list|(
-literal|"\""
+literal|'"'
 argument_list|)
 expr_stmt|;
 name|fprintf
