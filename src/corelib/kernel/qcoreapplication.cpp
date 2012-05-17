@@ -2643,6 +2643,8 @@ operator|==
 name|this
 operator|->
 name|threadData
+operator|&&
+name|extraData
 condition|)
 block|{
 comment|// application event filters are only called for objects in the GUI thread
@@ -2655,6 +2657,8 @@ literal|0
 init|;
 name|i
 operator|<
+name|extraData
+operator|->
 name|eventFilters
 operator|.
 name|size
@@ -2669,6 +2673,8 @@ name|QObject
 modifier|*
 name|obj
 init|=
+name|extraData
+operator|->
 name|eventFilters
 operator|.
 name|at
@@ -2748,6 +2754,13 @@ condition|(
 name|receiver
 operator|!=
 name|q
+operator|&&
+name|receiver
+operator|->
+name|d_func
+argument_list|()
+operator|->
+name|extraData
 condition|)
 block|{
 for|for
@@ -2763,6 +2776,8 @@ name|receiver
 operator|->
 name|d_func
 argument_list|()
+operator|->
+name|extraData
 operator|->
 name|eventFilters
 operator|.
@@ -2782,6 +2797,8 @@ name|receiver
 operator|->
 name|d_func
 argument_list|()
+operator|->
+name|extraData
 operator|->
 name|eventFilters
 operator|.

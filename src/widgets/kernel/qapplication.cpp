@@ -11957,9 +11957,15 @@ name|i
 init|=
 literal|0
 init|;
+name|d
+operator|->
+name|extraData
+operator|&&
 name|i
 operator|<
 name|d
+operator|->
+name|extraData
 operator|->
 name|eventFilters
 operator|.
@@ -11976,6 +11982,8 @@ modifier|*
 name|obj
 init|=
 name|d
+operator|->
+name|extraData
 operator|->
 name|eventFilters
 operator|.
