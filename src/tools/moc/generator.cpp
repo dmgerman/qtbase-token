@@ -2361,7 +2361,7 @@ name|fprintf
 argument_list|(
 name|out
 argument_list|,
-literal|"\nconst QMetaObject *%s::metaObject() const\n{\n    return QObject::d_ptr->metaObject ? QObject::d_ptr->metaObject :&staticMetaObject;\n}\n"
+literal|"\nconst QMetaObject *%s::metaObject() const\n{\n    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() :&staticMetaObject;\n}\n"
 argument_list|,
 name|cdef
 operator|->
