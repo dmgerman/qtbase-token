@@ -89,18 +89,7 @@ name|QRect
 name|cursorRect
 argument_list|()
 specifier|const
-block|{
-return|return
-name|QRect
-argument_list|(
-name|m_pos
-argument_list|,
-name|m_cursor
-operator|.
-name|size
-argument_list|)
-return|;
-block|}
+block|;
 name|void
 name|render
 argument_list|()
@@ -140,6 +129,11 @@ block|{
 name|CursorAtlas
 argument_list|()
 operator|:
+name|cursorsPerRow
+argument_list|(
+literal|0
+argument_list|)
+block|,
 name|texture
 argument_list|(
 literal|0
@@ -155,6 +149,9 @@ argument_list|(
 literal|0
 argument_list|)
 block|{ }
+name|int
+name|cursorsPerRow
+block|;
 name|uint
 name|texture
 block|;
@@ -170,8 +167,11 @@ block|,
 name|cursorHeight
 block|;
 comment|// width and height of cursors inside the atlas
+name|QList
+operator|<
 name|QPoint
-name|hotSpot
+operator|>
+name|hotSpots
 block|;     }
 name|m_cursorAtlas
 block|;
