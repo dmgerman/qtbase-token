@@ -457,10 +457,6 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-if|if
-condition|(
-name|hooks
-condition|)
 name|hooks
 operator|->
 name|platformInit
@@ -641,10 +637,6 @@ argument_list|,
 name|m_surface
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|hooks
-condition|)
 name|hooks
 operator|->
 name|destroyNativeWindow
@@ -657,10 +649,6 @@ argument_list|(
 name|m_dpy
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|hooks
-condition|)
 name|hooks
 operator|->
 name|platformDestroy
@@ -835,10 +823,6 @@ argument_list|,
 name|platformFormat
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|hooks
-condition|)
 name|m_window
 operator|=
 name|hooks
