@@ -125,7 +125,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"Unable to open file for logging: %s"
+literal|"Unable to open file for logging: %s\n"
 argument_list|,
 name|filename
 argument_list|)
