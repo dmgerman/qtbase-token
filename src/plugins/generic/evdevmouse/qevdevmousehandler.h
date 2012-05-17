@@ -76,10 +76,6 @@ argument|int deviceDescriptor
 argument_list|,
 argument|bool compression
 argument_list|,
-argument|bool clamp
-argument_list|,
-argument|bool smooth
-argument_list|,
 argument|int jitterLimit
 argument_list|,
 argument|int xoffset
@@ -111,12 +107,6 @@ block|;
 name|bool
 name|m_compression
 block|;
-name|bool
-name|m_clamp
-block|;
-name|bool
-name|m_smooth
-block|;
 name|int
 name|m_xoffset
 block|,
@@ -126,11 +116,6 @@ name|Qt
 operator|::
 name|MouseButtons
 name|m_buttons
-block|;
-name|int
-name|m_smoothx
-block|,
-name|m_smoothy
 block|;
 name|int
 name|m_jitterLimitSquared
