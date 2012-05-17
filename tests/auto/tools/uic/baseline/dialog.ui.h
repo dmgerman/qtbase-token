@@ -286,10 +286,6 @@ argument_list|,
 literal|"Dialog"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -306,10 +302,6 @@ argument_list|,
 literal|"Load Image From File..."
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -326,10 +318,6 @@ argument_list|,
 literal|"Launch two of these dialogs.  In the first, press the top button and load an image from a file.  In the second, press the bottom button and display the loaded image from shared memory."
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -346,10 +334,6 @@ argument_list|,
 literal|"Display Image From Shared Memory"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;

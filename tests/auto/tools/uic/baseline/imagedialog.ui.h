@@ -1335,10 +1335,6 @@ argument_list|,
 literal|"Create Image"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1355,10 +1351,6 @@ argument_list|,
 literal|"Width:"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1375,10 +1367,6 @@ argument_list|,
 literal|"Height:"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1395,10 +1383,6 @@ argument_list|,
 literal|"Untitled image"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1415,10 +1399,6 @@ argument_list|,
 literal|"Name:"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1435,10 +1415,6 @@ argument_list|,
 literal|"Color depth:"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1455,10 +1431,6 @@ argument_list|,
 literal|"OK"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1475,10 +1447,6 @@ argument_list|,
 literal|"Cancel"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;

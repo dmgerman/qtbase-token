@@ -763,10 +763,6 @@ argument_list|,
 literal|"Dialog"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -783,10 +779,6 @@ argument_list|,
 literal|"Items List"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -806,10 +798,6 @@ argument_list|,
 literal|"Items List"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -832,10 +820,6 @@ argument_list|,
 literal|"New Item"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -855,10 +839,6 @@ argument_list|,
 literal|"&New"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -878,10 +858,6 @@ argument_list|,
 literal|"Delete Item"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -901,10 +877,6 @@ argument_list|,
 literal|"&Delete"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -924,10 +896,6 @@ argument_list|,
 literal|"Move Item Up"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -947,10 +915,6 @@ argument_list|,
 literal|"U"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -970,10 +934,6 @@ argument_list|,
 literal|"Move Item Down"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -993,10 +953,6 @@ argument_list|,
 literal|"D"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1013,10 +969,6 @@ argument_list|,
 literal|"Icon"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -1375,10 +1375,6 @@ argument_list|,
 literal|"MainWindow"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1395,10 +1391,6 @@ argument_list|,
 literal|"&Exit"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1415,10 +1407,6 @@ argument_list|,
 literal|"About Qt"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1435,10 +1423,6 @@ argument_list|,
 literal|"Edit&Style"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1455,10 +1439,6 @@ argument_list|,
 literal|"About"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1485,10 +1465,6 @@ argument_list|,
 literal|"Girish"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 operator|<<
 name|QApplication
@@ -1500,10 +1476,6 @@ argument_list|,
 literal|"Jasmin"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 operator|<<
 name|QApplication
@@ -1515,10 +1487,6 @@ argument_list|,
 literal|"Simon"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 operator|<<
 name|QApplication
@@ -1530,10 +1498,6 @@ argument_list|,
 literal|"Zack"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1553,10 +1517,6 @@ argument_list|,
 literal|"Specify your name"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1576,10 +1536,6 @@ argument_list|,
 literal|"Check this if you are female"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1596,10 +1552,6 @@ argument_list|,
 literal|"&Female"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1616,10 +1568,6 @@ argument_list|,
 literal|"Gender:"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1636,10 +1584,6 @@ argument_list|,
 literal|"&Age:"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1659,10 +1603,6 @@ argument_list|,
 literal|"Check this if you are male"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1682,10 +1622,6 @@ argument_list|,
 literal|"&Male"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1702,10 +1638,6 @@ argument_list|,
 literal|"&Name:"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1722,10 +1654,6 @@ argument_list|,
 literal|"&Password:"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1745,10 +1673,6 @@ argument_list|,
 literal|"Specify your age"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1771,10 +1695,6 @@ argument_list|,
 literal|"Specify your age"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1797,10 +1717,6 @@ argument_list|,
 literal|"Please read the LICENSE file before checking"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1820,10 +1736,6 @@ argument_list|,
 literal|"I&accept the terms and&conditions"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1843,10 +1755,6 @@ argument_list|,
 literal|"Specify your password"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1869,10 +1777,6 @@ argument_list|,
 literal|"Specify your password"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1892,10 +1796,6 @@ argument_list|,
 literal|"Password"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1939,10 +1839,6 @@ argument_list|,
 literal|"Developer"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1970,10 +1866,6 @@ argument_list|,
 literal|"Student"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2001,10 +1893,6 @@ argument_list|,
 literal|"Fisherman"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2031,10 +1919,6 @@ argument_list|,
 literal|"Select your profession"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2057,10 +1941,6 @@ argument_list|,
 literal|"Specify your name here"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2083,10 +1963,6 @@ argument_list|,
 literal|"Specify your name here"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2106,10 +1982,6 @@ argument_list|,
 literal|"Profession:"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2136,10 +2008,6 @@ argument_list|,
 literal|"Egypt"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 operator|<<
 name|QApplication
@@ -2151,10 +2019,6 @@ argument_list|,
 literal|"France"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 operator|<<
 name|QApplication
@@ -2166,10 +2030,6 @@ argument_list|,
 literal|"Germany"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 operator|<<
 name|QApplication
@@ -2181,10 +2041,6 @@ argument_list|,
 literal|"India"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 operator|<<
 name|QApplication
@@ -2196,10 +2052,6 @@ argument_list|,
 literal|"Italy"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 operator|<<
 name|QApplication
@@ -2211,10 +2063,6 @@ argument_list|,
 literal|"Korea"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 operator|<<
 name|QApplication
@@ -2226,10 +2074,6 @@ argument_list|,
 literal|"Norway"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2249,10 +2093,6 @@ argument_list|,
 literal|"Specify country of origin"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2275,10 +2115,6 @@ argument_list|,
 literal|"Specify country of origin"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2298,10 +2134,6 @@ argument_list|,
 literal|"Pro&fession"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2318,10 +2150,6 @@ argument_list|,
 literal|"&File"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2338,10 +2166,6 @@ argument_list|,
 literal|"&Help"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;

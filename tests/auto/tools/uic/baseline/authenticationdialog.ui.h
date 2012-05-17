@@ -604,10 +604,6 @@ argument_list|,
 literal|"Http authentication required"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -624,10 +620,6 @@ argument_list|,
 literal|"You need to supply a Username and a Password to access this site"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -644,10 +636,6 @@ argument_list|,
 literal|"Username:"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -664,10 +652,6 @@ argument_list|,
 literal|"Password:"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -684,10 +668,6 @@ argument_list|,
 literal|"Site:"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -704,10 +684,6 @@ argument_list|,
 literal|"%1 at %2"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;

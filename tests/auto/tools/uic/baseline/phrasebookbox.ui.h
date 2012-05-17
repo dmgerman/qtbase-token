@@ -821,10 +821,6 @@ argument_list|,
 literal|"Edit Phrase Book"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -844,10 +840,6 @@ argument_list|,
 literal|"This window allows you to add, modify, or delete phrases in a phrase book."
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -867,10 +859,6 @@ argument_list|,
 literal|"&Translation:"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -890,10 +878,6 @@ argument_list|,
 literal|"This is the phrase in the target language corresponding to the source phrase."
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -913,10 +897,6 @@ argument_list|,
 literal|"S&ource phrase:"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -936,10 +916,6 @@ argument_list|,
 literal|"This is a definition for the source phrase."
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -962,10 +938,6 @@ argument_list|,
 literal|"This is the phrase in the source language."
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -985,10 +957,6 @@ argument_list|,
 literal|"&Definition:"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1008,10 +976,6 @@ argument_list|,
 literal|"Click here to add the phrase to the phrase book."
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1031,10 +995,6 @@ argument_list|,
 literal|"&New Phrase"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1054,10 +1014,6 @@ argument_list|,
 literal|"Click here to remove the phrase from the phrase book."
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1077,10 +1033,6 @@ argument_list|,
 literal|"&Remove Phrase"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1100,10 +1052,6 @@ argument_list|,
 literal|"Click here to save the changes made."
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1123,10 +1071,6 @@ argument_list|,
 literal|"&Save"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1146,10 +1090,6 @@ argument_list|,
 literal|"Click here to close this window."
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1169,10 +1109,6 @@ argument_list|,
 literal|"Close"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;

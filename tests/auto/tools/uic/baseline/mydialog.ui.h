@@ -247,10 +247,6 @@ argument_list|,
 literal|"Mach 2!"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -267,10 +263,6 @@ argument_list|,
 literal|"Join the life in the fastlane; - PCH enable your project today! -"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -287,10 +279,6 @@ argument_list|,
 literal|"&Quit"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -307,10 +295,6 @@ argument_list|,
 literal|"Alt+Q"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;

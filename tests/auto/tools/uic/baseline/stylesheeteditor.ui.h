@@ -766,10 +766,6 @@ argument_list|,
 literal|"Style Editor"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -796,10 +792,6 @@ argument_list|,
 literal|"Default"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 operator|<<
 name|QApplication
@@ -811,10 +803,6 @@ argument_list|,
 literal|"Coffee"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 operator|<<
 name|QApplication
@@ -826,10 +814,6 @@ argument_list|,
 literal|"Pagefold"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -846,10 +830,6 @@ argument_list|,
 literal|"Style:"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -866,10 +846,6 @@ argument_list|,
 literal|"&Apply"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -886,10 +862,6 @@ argument_list|,
 literal|"Style Sheet:"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -334,10 +334,6 @@ argument_list|,
 literal|"Edit Gradient"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;

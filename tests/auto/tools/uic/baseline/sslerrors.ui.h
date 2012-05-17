@@ -431,10 +431,6 @@ argument_list|,
 literal|"Unable To Validate The Connection"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -454,10 +450,6 @@ literal|"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; 
 literal|"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600; color:#ff0000;\">Warning</span><span style=\" color:#ff0000;\">:</span><span style=\" color:#000000;\"> One or more errors with this connection prevent validating the authenticity of the host you are connecting to. Please review the following list of errors, and click</span><span style=\" color:#000000;\">Ignore</span><span style=\" color:#000000;\"> to continue, or</span><span style=\" color:#000000;\">Cancel</span><span style=\" color:#000000;\"> to abort the connection.</span></p></body></html>"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -474,10 +466,6 @@ argument_list|,
 literal|"View Certificate Chain"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -494,10 +482,6 @@ argument_list|,
 literal|"Ignore"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -514,10 +498,6 @@ argument_list|,
 literal|"Cancel"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;

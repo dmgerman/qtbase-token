@@ -1525,10 +1525,6 @@ argument_list|,
 literal|"Watering Configuration"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1545,10 +1541,6 @@ argument_list|,
 literal|"Plant:"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1575,10 +1567,6 @@ argument_list|,
 literal|"Squash"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 operator|<<
 name|QApplication
@@ -1590,10 +1578,6 @@ argument_list|,
 literal|"Bean"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 operator|<<
 name|QApplication
@@ -1605,10 +1589,6 @@ argument_list|,
 literal|"Carrot"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 operator|<<
 name|QApplication
@@ -1620,10 +1600,6 @@ argument_list|,
 literal|"Strawberry"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 operator|<<
 name|QApplication
@@ -1635,10 +1611,6 @@ argument_list|,
 literal|"Raspberry"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 operator|<<
 name|QApplication
@@ -1650,10 +1622,6 @@ argument_list|,
 literal|"Blueberry"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1670,10 +1638,6 @@ argument_list|,
 literal|"Water when:"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1690,10 +1654,6 @@ argument_list|,
 literal|"Temperature is higher than:"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1718,10 +1678,6 @@ argument_list|,
 literal|"C"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1738,10 +1694,6 @@ argument_list|,
 literal|"Rain less than:"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1766,10 +1718,6 @@ argument_list|,
 literal|"mm"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1786,10 +1734,6 @@ argument_list|,
 literal|"Starting Time:"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1806,10 +1750,6 @@ argument_list|,
 literal|"Amount:"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1826,10 +1766,6 @@ argument_list|,
 literal|"l"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1846,10 +1782,6 @@ argument_list|,
 literal|"Source:"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1876,10 +1808,6 @@ argument_list|,
 literal|"Foundain"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 operator|<<
 name|QApplication
@@ -1891,10 +1819,6 @@ argument_list|,
 literal|"River"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 operator|<<
 name|QApplication
@@ -1906,10 +1830,6 @@ argument_list|,
 literal|"Lake"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 operator|<<
 name|QApplication
@@ -1921,10 +1841,6 @@ argument_list|,
 literal|"Public Water System"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1941,10 +1857,6 @@ argument_list|,
 literal|"Filter:"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1969,10 +1881,6 @@ argument_list|,
 literal|"<a href=\"test\">Show Details</a>"
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
