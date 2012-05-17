@@ -80,6 +80,19 @@ operator|~
 name|QEvdevMouseManager
 argument_list|()
 block|;
+name|public
+name|slots
+operator|:
+name|void
+name|handleMouseEvent
+argument_list|(
+argument|int x
+argument_list|,
+argument|int y
+argument_list|,
+argument|Qt::MouseButtons buttons
+argument_list|)
+block|;
 name|private
 name|slots
 operator|:
@@ -128,7 +141,18 @@ block|;
 endif|#
 directive|endif
 comment|// QT_NO_LIBUDEV
-block|}
+name|int
+name|m_x
+block|;
+name|int
+name|m_y
+block|;
+name|int
+name|m_xoffset
+block|;
+name|int
+name|m_yoffset
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_expr_stmt

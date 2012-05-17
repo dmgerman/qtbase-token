@@ -61,6 +61,18 @@ operator|~
 name|QEvdevMouseHandler
 argument_list|()
 block|;
+name|signals
+operator|:
+name|void
+name|handleMouseEvent
+argument_list|(
+argument|int x
+argument_list|,
+argument|int y
+argument_list|,
+argument|Qt::MouseButtons buttons
+argument_list|)
+block|;
 name|private
 name|slots
 operator|:
@@ -77,10 +89,6 @@ argument_list|,
 argument|bool compression
 argument_list|,
 argument|int jitterLimit
-argument_list|,
-argument|int xoffset
-argument_list|,
-argument|int yoffset
 argument_list|)
 block|;
 name|void
@@ -106,11 +114,6 @@ name|m_fd
 block|;
 name|bool
 name|m_compression
-block|;
-name|int
-name|m_xoffset
-block|,
-name|m_yoffset
 block|;
 name|Qt
 operator|::
