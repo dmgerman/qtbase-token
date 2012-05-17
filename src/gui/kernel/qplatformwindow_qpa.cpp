@@ -494,6 +494,29 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
+comment|/*!   Reimplement to set the window icon to \a icon */
+end_comment
+begin_function
+DECL|function|setWindowIcon
+name|void
+name|QPlatformWindow
+operator|::
+name|setWindowIcon
+parameter_list|(
+specifier|const
+name|QIcon
+modifier|&
+name|icon
+parameter_list|)
+block|{
+name|Q_UNUSED
+argument_list|(
+name|icon
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_comment
 comment|/*!   Reimplement to be able to let Qt raise windows to the top of the desktop */
 end_comment
 begin_function

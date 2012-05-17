@@ -28,6 +28,11 @@ include|#
 directive|include
 file|<QtCore/private/qobject_p.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtGui/QIcon>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
@@ -280,6 +285,11 @@ end_decl_stmt
 begin_decl_stmt
 name|QString
 name|windowTitle
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|QIcon
+name|windowIcon
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
