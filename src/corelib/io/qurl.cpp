@@ -7457,7 +7457,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a string representation of the URL.     The output can be customized by passing flags with \a options.      \sa FormattingOptions, url(), setUrl() */
+comment|/*!     Returns a string representation of the URL.     The output can be customized by passing flags with \a options.      The default formatting option is \l{QUrl::FormattingOptions}{PrettyDecoded}.      \sa FormattingOptions, url(), setUrl() */
 end_comment
 begin_function
 DECL|function|toString
