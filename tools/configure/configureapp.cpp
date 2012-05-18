@@ -15719,7 +15719,7 @@ name|version
 operator|.
 name|indexOf
 argument_list|(
-literal|"."
+literal|'.'
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -16298,7 +16298,7 @@ name|qmakeDefines
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 expr_stmt|;
 if|if
@@ -16567,7 +16567,7 @@ name|lflagsTDS
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 expr_stmt|;
 block|}
@@ -16590,7 +16590,7 @@ name|qmakeSql
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 expr_stmt|;
 if|if
@@ -16612,7 +16612,7 @@ name|qmakeSqlPlugins
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 expr_stmt|;
 if|if
@@ -16634,7 +16634,7 @@ name|qmakeStyles
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 expr_stmt|;
 if|if
@@ -16656,7 +16656,7 @@ name|qmakeStylePlugins
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 expr_stmt|;
 if|if
@@ -16985,7 +16985,7 @@ name|qmakeConfig
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 operator|<<
 literal|"no_private_qt_headers_warning QTDIR_build"
@@ -17081,7 +17081,7 @@ name|buildParts
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 operator|<<
 name|endl
@@ -18608,7 +18608,7 @@ name|qtConfig
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 operator|<<
 name|endl
@@ -24690,7 +24690,7 @@ name|args
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 operator|<<
 literal|"\n"
@@ -24721,7 +24721,7 @@ name|args
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 operator|<<
 literal|"\n"

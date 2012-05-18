@@ -245,7 +245,7 @@ name|exampleFilePatterns
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 expr_stmt|;
 else|else
@@ -283,7 +283,7 @@ name|exampleImagePatterns
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 expr_stmt|;
 else|else

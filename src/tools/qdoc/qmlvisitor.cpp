@@ -1900,7 +1900,7 @@ index|]
 operator|.
 name|first
 decl_stmt|;
-comment|//.join(" ");
+comment|//.join(' ');
 name|node
 operator|->
 name|setSince
