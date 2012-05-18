@@ -11075,14 +11075,14 @@ argument_list|,
 name|marker
 argument_list|)
 expr_stmt|;
-name|generateQmlInstantiates
+name|generateQmlInheritedBy
 argument_list|(
 name|qcn
 argument_list|,
 name|marker
 argument_list|)
 expr_stmt|;
-name|generateQmlInheritedBy
+name|generateQmlInstantiates
 argument_list|(
 name|qcn
 argument_list|,
