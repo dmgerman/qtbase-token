@@ -230,6 +230,8 @@ name|init_compiler_already
 block|;
 name|QString
 name|chkdir
+block|,
+name|chkglue
 block|;
 name|QString
 name|build_args

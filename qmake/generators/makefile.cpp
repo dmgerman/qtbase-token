@@ -304,24 +304,10 @@ expr_stmt|;
 name|ret
 operator|+=
 literal|" "
-expr_stmt|;
-if|if
-condition|(
-name|isWindowsShell
-argument_list|()
-condition|)
-name|ret
-operator|+=
-literal|"$(MKDIR)"
-expr_stmt|;
-else|else
-name|ret
-operator|+=
-literal|"|| $(MKDIR)"
-expr_stmt|;
-name|ret
-operator|+=
-literal|" "
+operator|+
+name|chkglue
+operator|+
+literal|"$(MKDIR) "
 expr_stmt|;
 if|if
 condition|(
@@ -2673,6 +2659,35 @@ name|join
 argument_list|(
 literal|" "
 argument_list|)
+expr_stmt|;
+name|chkglue
+operator|=
+name|v
+index|[
+literal|"QMAKE_CHK_EXISTS_GLUE"
+index|]
+operator|.
+name|join
+argument_list|(
+literal|" "
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|chkglue
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+comment|// Backwards compat with Qt4 specs
+name|chkglue
+operator|=
+name|isWindowsShell
+argument_list|()
+condition|?
+literal|""
+else|:
+literal|"|| "
 expr_stmt|;
 name|QStringList
 modifier|&
