@@ -371,10 +371,6 @@ name|l
 argument_list|)
 expr_stmt|;
 comment|// vertical
-name|QGraphicsAnchor
-modifier|*
-name|anchor
-init|=
 name|l
 operator|->
 name|addAnchor
@@ -391,9 +387,7 @@ name|Qt
 operator|::
 name|AnchorTop
 argument_list|)
-decl_stmt|;
-name|anchor
-operator|=
+expr_stmt|;
 name|l
 operator|->
 name|addAnchor
@@ -411,8 +405,6 @@ operator|::
 name|AnchorTop
 argument_list|)
 expr_stmt|;
-name|anchor
-operator|=
 name|l
 operator|->
 name|addAnchor
@@ -430,8 +422,6 @@ operator|::
 name|AnchorBottom
 argument_list|)
 expr_stmt|;
-name|anchor
-operator|=
 name|l
 operator|->
 name|addAnchor
@@ -449,8 +439,6 @@ operator|::
 name|AnchorBottom
 argument_list|)
 expr_stmt|;
-name|anchor
-operator|=
 name|l
 operator|->
 name|addAnchor
@@ -468,8 +456,6 @@ operator|::
 name|AnchorTop
 argument_list|)
 expr_stmt|;
-name|anchor
-operator|=
 name|l
 operator|->
 name|addAnchor
@@ -487,8 +473,6 @@ operator|::
 name|AnchorTop
 argument_list|)
 expr_stmt|;
-name|anchor
-operator|=
 name|l
 operator|->
 name|addAnchor
@@ -506,8 +490,6 @@ operator|::
 name|AnchorBottom
 argument_list|)
 expr_stmt|;
-name|anchor
-operator|=
 name|l
 operator|->
 name|addAnchor
@@ -525,8 +507,6 @@ operator|::
 name|AnchorBottom
 argument_list|)
 expr_stmt|;
-name|anchor
-operator|=
 name|l
 operator|->
 name|addAnchor
@@ -544,8 +524,6 @@ operator|::
 name|AnchorTop
 argument_list|)
 expr_stmt|;
-name|anchor
-operator|=
 name|l
 operator|->
 name|addAnchor
@@ -563,8 +541,6 @@ operator|::
 name|AnchorBottom
 argument_list|)
 expr_stmt|;
-name|anchor
-operator|=
 name|l
 operator|->
 name|addAnchor
@@ -582,8 +558,6 @@ operator|::
 name|AnchorTop
 argument_list|)
 expr_stmt|;
-name|anchor
-operator|=
 name|l
 operator|->
 name|addAnchor
@@ -602,8 +576,6 @@ name|AnchorBottom
 argument_list|)
 expr_stmt|;
 comment|// horizontal
-name|anchor
-operator|=
 name|l
 operator|->
 name|addAnchor
@@ -621,8 +593,6 @@ operator|::
 name|AnchorLeft
 argument_list|)
 expr_stmt|;
-name|anchor
-operator|=
 name|l
 operator|->
 name|addAnchor
@@ -640,8 +610,6 @@ operator|::
 name|AnchorLeft
 argument_list|)
 expr_stmt|;
-name|anchor
-operator|=
 name|l
 operator|->
 name|addAnchor
@@ -659,8 +627,6 @@ operator|::
 name|AnchorLeft
 argument_list|)
 expr_stmt|;
-name|anchor
-operator|=
 name|l
 operator|->
 name|addAnchor
@@ -678,8 +644,6 @@ operator|::
 name|AnchorLeft
 argument_list|)
 expr_stmt|;
-name|anchor
-operator|=
 name|l
 operator|->
 name|addAnchor
@@ -697,8 +661,6 @@ operator|::
 name|AnchorLeft
 argument_list|)
 expr_stmt|;
-name|anchor
-operator|=
 name|l
 operator|->
 name|addAnchor
@@ -716,8 +678,6 @@ operator|::
 name|AnchorRight
 argument_list|)
 expr_stmt|;
-name|anchor
-operator|=
 name|l
 operator|->
 name|addAnchor
@@ -735,8 +695,6 @@ operator|::
 name|AnchorRight
 argument_list|)
 expr_stmt|;
-name|anchor
-operator|=
 name|l
 operator|->
 name|addAnchor
@@ -754,8 +712,6 @@ operator|::
 name|AnchorLeft
 argument_list|)
 expr_stmt|;
-name|anchor
-operator|=
 name|l
 operator|->
 name|addAnchor
@@ -773,8 +729,6 @@ operator|::
 name|AnchorLeft
 argument_list|)
 expr_stmt|;
-name|anchor
-operator|=
 name|l
 operator|->
 name|addAnchor
@@ -792,8 +746,6 @@ operator|::
 name|AnchorLeft
 argument_list|)
 expr_stmt|;
-name|anchor
-operator|=
 name|l
 operator|->
 name|addAnchor
