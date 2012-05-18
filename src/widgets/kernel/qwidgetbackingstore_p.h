@@ -174,12 +174,6 @@ modifier|*
 name|widget
 init|=
 literal|0
-parameter_list|,
-name|QBackingStore
-modifier|*
-name|store
-init|=
-literal|0
 parameter_list|)
 function_decl|;
 specifier|inline
