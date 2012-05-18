@@ -18786,15 +18786,6 @@ argument_list|(
 name|out_directory
 argument_list|)
 expr_stmt|;
-name|QString
-name|in_directory_cdin
-decl_stmt|,
-name|in_directory_cdout
-decl_stmt|,
-name|out_directory_cdin
-decl_stmt|,
-name|out_directory_cdout
-decl_stmt|;
 DECL|macro|MAKE_CD_IN_AND_OUT
 define|#
 directive|define
@@ -18804,11 +18795,11 @@ name|directory
 parameter_list|)
 define|\
 value|if(!directory.isEmpty()) {               \             if(project->isActiveConfig("cd_change_global")) { \                 directory ## _cdin = "\n\tcd " + directory + "\n\t";        \                 QDir pwd(Option::output_dir); \                 QStringList in = directory.split(Option::dir_sep), out; \                 for(int i = 0; i< in.size(); i++) { \                     if(in.at(i) == "..") \                         out.prepend(fileInfo(pwd.path()).fileName()); \                     else if(in.at(i) != ".") \                         out.prepend(".."); \                     pwd.cd(in.at(i)); \                 } \                 directory ## _cdout = "\n\t@cd " + out.join(Option::dir_sep); \             } else { \                 directory ## _cdin = "\n\tcd " + directory + "&& ";  \             } \         } else { \             directory ## _cdin = "\n\t"; \         }
-name|MAKE_CD_IN_AND_OUT
-argument_list|(
-name|in_directory
-argument_list|)
-expr_stmt|;
+name|QString
+name|out_directory_cdin
+decl_stmt|,
+name|out_directory_cdout
+decl_stmt|;
 name|MAKE_CD_IN_AND_OUT
 argument_list|(
 name|out_directory
@@ -18919,7 +18910,7 @@ literal|" -o "
 operator|<<
 name|out
 operator|<<
-name|in_directory_cdout
+name|out_directory_cdout
 operator|<<
 name|endl
 expr_stmt|;
@@ -19056,7 +19047,7 @@ literal|" -o "
 operator|<<
 name|out
 operator|<<
-name|in_directory_cdout
+name|out_directory_cdout
 expr_stmt|;
 block|}
 else|else
