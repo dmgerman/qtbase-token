@@ -188,6 +188,14 @@ argument_list|)
 specifier|const
 block|;
 specifier|inline
+name|QString
+name|join
+argument_list|(
+argument|QChar sep
+argument_list|)
+specifier|const
+block|;
+specifier|inline
 name|QStringList
 name|filter
 argument_list|(
@@ -531,15 +539,11 @@ name|QString
 name|Q_CORE_EXPORT
 name|QStringList_join
 argument_list|(
-specifier|const
-name|QStringList
-operator|*
-name|that
+argument|const QStringList *that
 argument_list|,
-specifier|const
-name|QString
-operator|&
-name|sep
+argument|const QChar *sep
+argument_list|,
+argument|int seplen
 argument_list|)
 block|;
 name|QStringList
@@ -784,6 +788,39 @@ argument_list|(
 name|this
 argument_list|,
 name|sep
+operator|.
+name|constData
+argument_list|()
+argument_list|,
+name|sep
+operator|.
+name|length
+argument_list|()
+argument_list|)
+return|;
+block|}
+DECL|function|join
+specifier|inline
+name|QString
+name|QStringList
+operator|::
+name|join
+argument_list|(
+argument|QChar sep
+argument_list|)
+specifier|const
+block|{
+return|return
+name|QtPrivate
+operator|::
+name|QStringList_join
+argument_list|(
+name|this
+argument_list|,
+operator|&
+name|sep
+argument_list|,
+literal|1
 argument_list|)
 return|;
 block|}

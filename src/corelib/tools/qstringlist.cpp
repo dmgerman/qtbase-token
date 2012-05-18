@@ -682,6 +682,9 @@ end_comment
 begin_comment
 comment|/*!     \fn QString QStringList::join(const QString&separator) const      Joins all the string list's strings into a single string with each     element separated by the given \a separator (which can be an     empty string).      \sa QString::split() */
 end_comment
+begin_comment
+comment|/*!     \fn QString QStringList::join(QChar separator) const     \since 5.0     \overload join() */
+end_comment
 begin_function
 DECL|function|QStringList_join
 name|QString
@@ -695,9 +698,12 @@ modifier|*
 name|that
 parameter_list|,
 specifier|const
-name|QString
-modifier|&
+name|QChar
+modifier|*
 name|sep
+parameter_list|,
+name|int
+name|seplen
 parameter_list|)
 block|{
 name|int
@@ -748,10 +754,7 @@ literal|0
 condition|)
 name|totalLength
 operator|+=
-name|sep
-operator|.
-name|size
-argument_list|()
+name|seplen
 operator|*
 operator|(
 name|size
@@ -801,8 +804,13 @@ condition|(
 name|i
 condition|)
 name|res
-operator|+=
+operator|.
+name|append
+argument_list|(
 name|sep
+argument_list|,
+name|seplen
+argument_list|)
 expr_stmt|;
 name|res
 operator|+=
