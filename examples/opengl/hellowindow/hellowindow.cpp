@@ -232,6 +232,11 @@ modifier|*
 name|event
 parameter_list|)
 block|{
+name|Q_UNUSED
+argument_list|(
+name|event
+argument_list|)
+expr_stmt|;
 name|render
 argument_list|()
 expr_stmt|;
