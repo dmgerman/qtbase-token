@@ -84,6 +84,16 @@ end_include
 begin_include
 include|#
 directive|include
+file|<string>
+end_include
+begin_include
+include|#
+directive|include
+file|<fstream>
+end_include
+begin_include
+include|#
+directive|include
 file|<windows.h>
 end_include
 begin_include
@@ -18976,8 +18986,41 @@ operator|::
 name|displayConfig
 parameter_list|()
 block|{
+name|fstream
+name|sout
+decl_stmt|;
+name|sout
+operator|.
+name|open
+argument_list|(
+name|QString
+argument_list|(
+name|buildPath
+operator|+
+literal|"/config.summary"
+argument_list|)
+operator|.
+name|toLocal8Bit
+argument_list|()
+operator|.
+name|constData
+argument_list|()
+argument_list|,
+name|ios
+operator|::
+name|in
+operator||
+name|ios
+operator|::
+name|out
+operator||
+name|ios
+operator|::
+name|trunc
+argument_list|)
+expr_stmt|;
 comment|// Give some feedback
-name|cout
+name|sout
 operator|<<
 literal|"Environment:"
 operator|<<
@@ -19017,7 +19060,7 @@ name|env
 operator|=
 literal|"Unset"
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"    INCLUDE=\r\n      "
 operator|<<
@@ -19058,7 +19101,7 @@ name|env
 operator|=
 literal|"Unset"
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"    LIB=\r\n      "
 operator|<<
@@ -19099,7 +19142,7 @@ name|env
 operator|=
 literal|"Unset"
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"    PATH=\r\n      "
 operator|<<
@@ -19117,17 +19160,17 @@ operator|==
 literal|"OpenSource"
 condition|)
 block|{
-name|cout
+name|sout
 operator|<<
 literal|"You are licensed to use this software under the terms of the GNU GPL version 3."
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"You are licensed to use this software under the terms of the Lesser GNU LGPL version 2.1."
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"See "
 operator|<<
@@ -19194,7 +19237,7 @@ index|[
 literal|"EXPIRYDATE"
 index|]
 decl_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"Licensee...................."
 operator|<<
@@ -19211,7 +19254,7 @@ operator|)
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"License ID.................."
 operator|<<
@@ -19228,7 +19271,7 @@ operator|)
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"Product license............."
 operator|<<
@@ -19245,7 +19288,7 @@ operator|)
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"Expiry Date................."
 operator|<<
@@ -19265,13 +19308,13 @@ operator|<<
 name|endl
 expr_stmt|;
 block|}
-name|cout
+name|sout
 operator|<<
 literal|"Configuration:"
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"    "
 operator|<<
@@ -19284,13 +19327,13 @@ argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"Qt Configuration:"
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"    "
 operator|<<
@@ -19303,7 +19346,7 @@ argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 name|endl
 expr_stmt|;
@@ -19316,7 +19359,7 @@ argument_list|(
 literal|"XQMAKESPEC"
 argument_list|)
 condition|)
-name|cout
+name|sout
 operator|<<
 literal|"QMAKESPEC..................."
 operator|<<
@@ -19337,7 +19380,7 @@ operator|<<
 name|endl
 expr_stmt|;
 else|else
-name|cout
+name|sout
 operator|<<
 literal|"QMAKESPEC..................."
 operator|<<
@@ -19357,7 +19400,7 @@ literal|")"
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"Architecture................"
 operator|<<
@@ -19368,7 +19411,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"Host Architecture..........."
 operator|<<
@@ -19379,7 +19422,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"Maketool...................."
 operator|<<
@@ -19390,7 +19433,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"Debug symbols..............."
 operator|<<
@@ -19409,7 +19452,7 @@ operator|)
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"Link Time Code Generation..."
 operator|<<
@@ -19420,7 +19463,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"Accessibility support......."
 operator|<<
@@ -19431,7 +19474,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"RTTI support................"
 operator|<<
@@ -19442,7 +19485,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"SSE2 support................"
 operator|<<
@@ -19453,7 +19496,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"IWMMXT support.............."
 operator|<<
@@ -19464,7 +19507,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"OpenGL support.............."
 operator|<<
@@ -19475,7 +19518,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"OpenVG support.............."
 operator|<<
@@ -19486,7 +19529,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"OpenSSL support............."
 operator|<<
@@ -19497,7 +19540,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"QtDBus support.............."
 operator|<<
@@ -19508,7 +19551,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"QtWidgets module support...."
 operator|<<
@@ -19519,7 +19562,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"QML debugging..............."
 operator|<<
@@ -19530,7 +19573,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"DirectWrite support........."
 operator|<<
@@ -19543,13 +19586,13 @@ name|endl
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"Third Party Libraries:"
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"    ZLIB support............"
 operator|<<
@@ -19560,7 +19603,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"    GIF support............."
 operator|<<
@@ -19571,7 +19614,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"    JPEG support............"
 operator|<<
@@ -19582,7 +19625,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"    PNG support............."
 operator|<<
@@ -19593,7 +19636,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"    FreeType support........"
 operator|<<
@@ -19606,7 +19649,7 @@ name|endl
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"    PCRE support............"
 operator|<<
@@ -19617,7 +19660,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"    ICU support............."
 operator|<<
@@ -19628,13 +19671,13 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"Styles:"
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"    Windows................."
 operator|<<
@@ -19645,7 +19688,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"    Windows XP.............."
 operator|<<
@@ -19656,7 +19699,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"    Windows Vista..........."
 operator|<<
@@ -19667,7 +19710,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"    Plastique..............."
 operator|<<
@@ -19678,7 +19721,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"    Cleanlooks.............."
 operator|<<
@@ -19689,7 +19732,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"    Motif..................."
 operator|<<
@@ -19700,7 +19743,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"    CDE....................."
 operator|<<
@@ -19711,7 +19754,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"    Windows CE.............."
 operator|<<
@@ -19722,7 +19765,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"    Windows Mobile.........."
 operator|<<
@@ -19735,13 +19778,13 @@ name|endl
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"Sql Drivers:"
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"    ODBC...................."
 operator|<<
@@ -19752,7 +19795,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"    MySQL..................."
 operator|<<
@@ -19763,7 +19806,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"    OCI....................."
 operator|<<
@@ -19774,7 +19817,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"    PostgreSQL.............."
 operator|<<
@@ -19785,7 +19828,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"    TDS....................."
 operator|<<
@@ -19796,7 +19839,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"    DB2....................."
 operator|<<
@@ -19807,7 +19850,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"    SQLite.................."
 operator|<<
@@ -19827,7 +19870,7 @@ literal|")"
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"    SQLite2................."
 operator|<<
@@ -19838,7 +19881,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"    InterBase..............."
 operator|<<
@@ -19851,7 +19894,7 @@ name|endl
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"Sources are in.............."
 operator|<<
@@ -19862,7 +19905,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"Build is done in............"
 operator|<<
@@ -19873,7 +19916,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"Install prefix.............."
 operator|<<
@@ -19884,7 +19927,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"Headers installed to........"
 operator|<<
@@ -19895,7 +19938,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"Libraries installed to......"
 operator|<<
@@ -19906,7 +19949,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"Plugins installed to........"
 operator|<<
@@ -19917,7 +19960,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"Imports installed to........"
 operator|<<
@@ -19928,7 +19971,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"Binaries installed to......."
 operator|<<
@@ -19939,7 +19982,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"Docs installed to..........."
 operator|<<
@@ -19950,7 +19993,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"Data installed to..........."
 operator|<<
@@ -19961,7 +20004,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"Translations installed to..."
 operator|<<
@@ -19972,7 +20015,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"Examples installed to......."
 operator|<<
@@ -19983,7 +20026,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"Tests installed to.........."
 operator|<<
@@ -20017,7 +20060,7 @@ argument_list|)
 argument_list|)
 condition|)
 block|{
-name|cout
+name|sout
 operator|<<
 literal|"Using c runtime detection..."
 operator|<<
@@ -20028,7 +20071,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"Cetest support.............."
 operator|<<
@@ -20039,7 +20082,7 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"Signature..................."
 operator|<<
@@ -20060,7 +20103,7 @@ argument_list|(
 literal|"INCREDIBUILD_XGE"
 argument_list|)
 condition|)
-name|cout
+name|sout
 operator|<<
 literal|"Using IncrediBuild XGE......"
 operator|<<
@@ -20080,7 +20123,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|cout
+name|sout
 operator|<<
 literal|"Defines....................."
 expr_stmt|;
@@ -20106,7 +20149,7 @@ condition|;
 operator|++
 name|defs
 control|)
-name|cout
+name|sout
 operator|<<
 operator|(
 operator|*
@@ -20115,7 +20158,7 @@ operator|)
 operator|<<
 literal|" "
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 name|endl
 expr_stmt|;
@@ -20129,7 +20172,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|cout
+name|sout
 operator|<<
 literal|"Include paths..............."
 expr_stmt|;
@@ -20155,7 +20198,7 @@ condition|;
 operator|++
 name|incs
 control|)
-name|cout
+name|sout
 operator|<<
 operator|(
 operator|*
@@ -20164,7 +20207,7 @@ operator|)
 operator|<<
 literal|" "
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 name|endl
 expr_stmt|;
@@ -20178,7 +20221,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|cout
+name|sout
 operator|<<
 literal|"Additional libraries........"
 expr_stmt|;
@@ -20204,7 +20247,7 @@ condition|;
 operator|++
 name|libs
 control|)
-name|cout
+name|sout
 operator|<<
 operator|(
 operator|*
@@ -20213,7 +20256,7 @@ operator|)
 operator|<<
 literal|" "
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 name|endl
 expr_stmt|;
@@ -20228,7 +20271,7 @@ operator|==
 literal|"yes"
 condition|)
 block|{
-name|cout
+name|sout
 operator|<<
 literal|"Using internal configuration."
 operator|<<
@@ -20245,13 +20288,13 @@ operator|==
 literal|"no"
 condition|)
 block|{
-name|cout
+name|sout
 operator|<<
 literal|"WARNING: Using static linking will disable the use of plugins."
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"         Make sure you compile ALL needed modules into the library."
 operator|<<
@@ -20273,25 +20316,25 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|cout
+name|sout
 operator|<<
 literal|"NOTE: When linking against OpenSSL, you can override the default"
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"library names through OPENSSL_LIBS."
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"For example:"
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"    configure -openssl-linked OPENSSL_LIBS=\"-lssleay32 -llibeay32\""
 operator|<<
@@ -20326,7 +20369,7 @@ name|which_zlib
 operator|=
 literal|"system"
 expr_stmt|;
-name|cout
+name|sout
 operator|<<
 literal|"NOTE: The -no-zlib option was supplied but is no longer supported."
 operator|<<
@@ -20357,7 +20400,7 @@ operator|==
 literal|"yes"
 condition|)
 block|{
-name|cout
+name|sout
 operator|<<
 name|endl
 operator|<<
@@ -20396,6 +20439,40 @@ operator|<<
 literal|"will be the same unless you are cross-compiling)."
 operator|<<
 name|endl
+operator|<<
+name|endl
+expr_stmt|;
+block|}
+comment|// display config.summary
+name|sout
+operator|.
+name|seekg
+argument_list|(
+literal|0
+argument_list|,
+name|ios
+operator|::
+name|beg
+argument_list|)
+expr_stmt|;
+while|while
+condition|(
+name|sout
+condition|)
+block|{
+name|string
+name|str
+decl_stmt|;
+name|getline
+argument_list|(
+name|sout
+argument_list|,
+name|str
+argument_list|)
+expr_stmt|;
+name|cout
+operator|<<
+name|str
 operator|<<
 name|endl
 expr_stmt|;
