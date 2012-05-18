@@ -2166,7 +2166,7 @@ name|nameList
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 operator|<<
 literal|"\n"

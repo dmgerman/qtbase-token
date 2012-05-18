@@ -1508,7 +1508,7 @@ argument_list|()
 operator|.
 name|join
 argument_list|(
-literal|","
+literal|','
 argument_list|)
 return|;
 case|case
