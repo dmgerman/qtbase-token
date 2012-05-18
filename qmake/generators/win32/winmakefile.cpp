@@ -2972,7 +2972,7 @@ name|vers
 operator|.
 name|join
 argument_list|(
-literal|"."
+literal|'.'
 argument_list|)
 decl_stmt|;
 name|QString
@@ -3002,7 +3002,7 @@ argument_list|)
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 expr_stmt|;
 name|QString
@@ -3032,7 +3032,7 @@ argument_list|)
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 expr_stmt|;
 name|QString
@@ -3062,7 +3062,7 @@ argument_list|)
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 expr_stmt|;
 name|QString
@@ -3092,7 +3092,7 @@ argument_list|)
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 expr_stmt|;
 else|else
@@ -5556,7 +5556,7 @@ name|dist_files
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 operator|<<
 literal|" "

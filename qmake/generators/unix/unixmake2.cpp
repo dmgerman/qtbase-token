@@ -2486,7 +2486,7 @@ name|deps
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 operator|<<
 name|endl
@@ -5071,7 +5071,7 @@ name|build
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5109,7 +5109,7 @@ name|build
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 expr_stmt|;
 block|}
@@ -6627,7 +6627,7 @@ name|val
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 operator|<<
 literal|" "
@@ -7094,7 +7094,7 @@ name|precomp_files
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 operator|<<
 literal|"\n\t"
@@ -11246,7 +11246,7 @@ argument_list|)
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 operator|<<
 literal|" "

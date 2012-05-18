@@ -255,7 +255,7 @@ name|arg
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 expr_stmt|;
 return|return

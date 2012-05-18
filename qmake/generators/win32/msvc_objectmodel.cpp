@@ -10881,7 +10881,7 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//        qDebug("*** Extra compiler file has object mapped file '%s' => '%s'", qPrintable(inFile), qPrintable(objectMappedFile.join(" ")));
+comment|//        qDebug("*** Extra compiler file has object mapped file '%s' => '%s'", qPrintable(inFile), qPrintable(objectMappedFile.join(' ')));
 block|}
 name|CustomBuildTool
 operator|.
@@ -11013,7 +11013,7 @@ argument_list|)
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 decl_stmt|;
 name|QString
@@ -11035,7 +11035,7 @@ argument_list|)
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 decl_stmt|;
 name|QStringList
@@ -11077,7 +11077,7 @@ argument_list|)
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 decl_stmt|;
 specifier|const
@@ -11604,7 +11604,7 @@ name|inputs
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 argument_list|,
 name|out

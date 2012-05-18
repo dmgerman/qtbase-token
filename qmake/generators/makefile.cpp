@@ -2688,7 +2688,7 @@ index|]
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 expr_stmt|;
 name|chkfile
@@ -2700,7 +2700,7 @@ index|]
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 expr_stmt|;
 if|if
@@ -2729,7 +2729,7 @@ index|]
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 expr_stmt|;
 if|if
@@ -7096,7 +7096,7 @@ argument_list|)
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 operator|<<
 name|endl
@@ -7124,7 +7124,7 @@ argument_list|)
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 operator|<<
 name|endl
@@ -7152,7 +7152,7 @@ argument_list|)
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 operator|<<
 name|endl
@@ -7180,7 +7180,7 @@ argument_list|)
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 operator|<<
 name|endl
@@ -7333,7 +7333,7 @@ argument_list|)
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 operator|.
 name|replace
@@ -8980,7 +8980,7 @@ name|tmp2
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 expr_stmt|;
 block|}
@@ -10141,7 +10141,7 @@ argument_list|)
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 decl_stmt|;
 if|if
@@ -12431,7 +12431,7 @@ name|val
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 expr_stmt|;
 block|}
@@ -13141,7 +13141,7 @@ name|cmdline
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 expr_stmt|;
 block|}
@@ -13802,7 +13802,7 @@ name|cmdline
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 expr_stmt|;
 block|}
@@ -13991,7 +13991,7 @@ name|cmdline
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 expr_stmt|;
 block|}
@@ -14348,7 +14348,7 @@ argument_list|)
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 decl_stmt|;
 name|QString
@@ -14369,7 +14369,7 @@ argument_list|)
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 decl_stmt|;
 if|if
@@ -16546,7 +16546,7 @@ argument_list|()
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 operator|)
 expr_stmt|;
@@ -20436,7 +20436,7 @@ name|files
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 operator|<<
 name|endl
@@ -24125,7 +24125,7 @@ argument_list|)
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 decl_stmt|;
 if|if
@@ -24341,7 +24341,7 @@ argument_list|)
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 decl_stmt|;
 if|if
@@ -24719,7 +24719,7 @@ argument_list|)
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 operator|<<
 literal|" "
@@ -24756,7 +24756,7 @@ argument_list|)
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 operator|<<
 name|project
@@ -24768,7 +24768,7 @@ argument_list|)
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 comment|//<< varGlue("DEFINES","-D"," -D"," ")
 operator|<<
@@ -24790,7 +24790,7 @@ argument_list|)
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 decl_stmt|;
 if|if

@@ -3393,7 +3393,7 @@ name|vals
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 decl_stmt|;
 if|if

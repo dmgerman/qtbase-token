@@ -2648,7 +2648,7 @@ argument_list|)
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 operator|.
 name|toLatin1
@@ -3781,7 +3781,7 @@ argument_list|)
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 operator|+
 literal|" ("
@@ -4024,7 +4024,7 @@ argument_list|)
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 operator|+
 literal|" ("
@@ -5358,7 +5358,7 @@ argument_list|)
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 operator|+
 literal|" ("
@@ -5680,7 +5680,7 @@ argument_list|)
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 expr_stmt|;
 if|if
@@ -5762,7 +5762,7 @@ argument_list|)
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 operator|+
 literal|" ("
@@ -6916,7 +6916,7 @@ argument_list|)
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 decl_stmt|;
 if|if
@@ -7157,9 +7157,9 @@ argument_list|)
 operator|.
 name|join
 argument_list|(
-name|QLatin1String
+name|QLatin1Char
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -7295,9 +7295,9 @@ argument_list|)
 operator|.
 name|join
 argument_list|(
-name|QLatin1String
+name|QLatin1Char
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -8493,7 +8493,7 @@ argument_list|)
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 decl_stmt|;
 if|if
@@ -9829,7 +9829,7 @@ name|incpath
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 argument_list|)
 expr_stmt|;
