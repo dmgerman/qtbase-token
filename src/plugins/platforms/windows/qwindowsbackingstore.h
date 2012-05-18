@@ -106,6 +106,17 @@ name|r
 argument_list|)
 block|;
 name|virtual
+name|bool
+name|scroll
+argument_list|(
+argument|const QRegion&area
+argument_list|,
+argument|int dx
+argument_list|,
+argument|int dy
+argument_list|)
+block|;
+name|virtual
 name|void
 name|beginPaint
 argument_list|(
