@@ -1457,14 +1457,6 @@ operator|->
 name|font
 argument_list|()
 decl_stmt|;
-name|QColor
-name|color
-init|=
-name|textItem
-operator|->
-name|defaultTextColor
-argument_list|()
-decl_stmt|;
 name|fontCombo
 operator|->
 name|setCurrentFont
