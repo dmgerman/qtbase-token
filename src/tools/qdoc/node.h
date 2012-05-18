@@ -638,6 +638,20 @@ name|QString
 argument_list|()
 return|;
 block|}
+name|virtual
+name|bool
+name|hasProperty
+argument_list|(
+specifier|const
+name|QString
+operator|&
+argument_list|)
+decl|const
+block|{
+return|return
+name|false
+return|;
+block|}
 name|bool
 name|isInternal
 argument_list|()
@@ -2254,6 +2268,14 @@ name|QmlPropertyGroup
 operator|)
 return|;
 block|}
+name|virtual
+name|bool
+name|hasProperty
+argument_list|(
+argument|const QString&
+argument_list|)
+specifier|const
+block|;
 specifier|static
 name|void
 name|insertQmlModuleNode
@@ -3236,6 +3258,14 @@ name|qmlModuleIdentifier
 argument_list|()
 return|;
 block|}
+name|virtual
+name|bool
+name|hasProperty
+argument_list|(
+argument|const QString& name
+argument_list|)
+specifier|const
+block|;
 name|PropertyNode
 operator|*
 name|correspondingProperty
