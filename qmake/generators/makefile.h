@@ -333,9 +333,9 @@ block|;
 name|void
 name|writeMakeQmake
 argument_list|(
-name|QTextStream
-operator|&
-name|t
+argument|QTextStream&t
+argument_list|,
+argument|bool noDummyQmakeAll = false
 argument_list|)
 block|;
 name|void

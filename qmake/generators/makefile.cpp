@@ -18637,6 +18637,16 @@ literal|"uninstall"
 argument_list|)
 expr_stmt|;
 block|}
+name|bool
+name|dont_recurse
+init|=
+name|project
+operator|->
+name|isActiveConfig
+argument_list|(
+literal|"dont_recurse"
+argument_list|)
+decl_stmt|;
 comment|// generate target rules
 for|for
 control|(
@@ -18810,6 +18820,15 @@ argument_list|(
 name|out_directory
 argument_list|)
 expr_stmt|;
+name|QString
+name|makefilein
+init|=
+literal|" -f "
+operator|+
+name|subtarget
+operator|->
+name|makefile
+decl_stmt|;
 comment|//qmake it
 if|if
 condition|(
@@ -18988,8 +19007,6 @@ operator|<<
 name|out
 operator|<<
 name|in_directory_cdout
-operator|<<
-name|endl
 expr_stmt|;
 block|}
 else|else
@@ -19008,20 +19025,32 @@ operator|<<
 literal|" -o "
 operator|<<
 name|out
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|dont_recurse
+condition|)
+name|writeSubMakeCall
+argument_list|(
+name|t
+argument_list|,
+name|out_directory_cdin
+argument_list|,
+name|makefilein
+operator|+
+literal|" qmake_all"
+argument_list|,
+name|out_directory_cdout
+argument_list|)
+expr_stmt|;
+else|else
+name|t
 operator|<<
 name|endl
 expr_stmt|;
 block|}
-block|}
-name|QString
-name|makefilein
-init|=
-literal|" -f "
-operator|+
-name|subtarget
-operator|->
-name|makefile
-decl_stmt|;
 block|{
 comment|//actually compile
 name|t
@@ -19336,6 +19365,8 @@ block|{
 name|writeMakeQmake
 argument_list|(
 name|t
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|t
@@ -20570,6 +20601,9 @@ parameter_list|(
 name|QTextStream
 modifier|&
 name|t
+parameter_list|,
+name|bool
+name|noDummyQmakeAll
 parameter_list|)
 block|{
 name|QString
@@ -20938,6 +20972,51 @@ name|endl
 operator|<<
 name|endl
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|noDummyQmakeAll
+condition|)
+block|{
+name|t
+operator|<<
+literal|"qmake_all:"
+expr_stmt|;
+if|if
+condition|(
+name|project
+operator|->
+name|isEmpty
+argument_list|(
+literal|"QMAKE_NOFORCE"
+argument_list|)
+condition|)
+name|t
+operator|<<
+literal|" FORCE"
+expr_stmt|;
+if|if
+condition|(
+name|project
+operator|->
+name|isActiveConfig
+argument_list|(
+literal|"no_empty_targets"
+argument_list|)
+condition|)
+name|t
+operator|<<
+literal|"\n\t"
+operator|<<
+literal|"@cd ."
+expr_stmt|;
+name|t
+operator|<<
+name|endl
+operator|<<
+name|endl
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
