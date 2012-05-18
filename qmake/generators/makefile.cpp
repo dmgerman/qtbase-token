@@ -20481,15 +20481,6 @@ literal|".recurse_target"
 argument_list|)
 expr_stmt|;
 comment|//write the commands
-if|if
-condition|(
-operator|!
-name|out_directory
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
 name|writeSubMakeCall
 argument_list|(
 name|t
@@ -20505,26 +20496,6 @@ argument_list|,
 name|out_directory_cdout
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|writeSubMakeCall
-argument_list|(
-name|t
-argument_list|,
-literal|"\n\t"
-argument_list|,
-name|makefilein
-operator|+
-literal|" "
-operator|+
-name|sub_targ
-argument_list|,
-name|QString
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 if|if
