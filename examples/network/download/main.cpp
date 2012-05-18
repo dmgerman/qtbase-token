@@ -221,6 +221,9 @@ argument_list|(
 name|request
 argument_list|)
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_SSL
 name|connect
 argument_list|(
 name|reply
@@ -248,6 +251,8 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|currentDownloads
 operator|.
 name|append
