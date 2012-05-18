@@ -3340,9 +3340,9 @@ name|scaps
 operator|.
 name|join
 argument_list|(
-name|QStringLiteral
+name|QLatin1Char
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 argument_list|)
 operator|<<
