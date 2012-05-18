@@ -2369,9 +2369,9 @@ argument_list|()
 operator|.
 name|join
 argument_list|(
-name|QLatin1String
+name|QLatin1Char
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 argument_list|)
 argument_list|)
