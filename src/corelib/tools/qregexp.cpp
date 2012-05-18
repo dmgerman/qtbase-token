@@ -6185,12 +6185,8 @@ literal|true
 argument_list|,
 literal|true
 argument_list|,
-name|matchState
-operator|.
 name|caretPos
 operator|-
-name|matchState
-operator|.
 name|pos
 operator|-
 name|i

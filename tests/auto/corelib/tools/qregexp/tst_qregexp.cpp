@@ -5969,15 +5969,6 @@ operator|.
 name|capturedTexts
 argument_list|()
 decl_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"anc11"
-argument_list|,
-literal|"QRegExp has bugs with anchors inside lookaheads"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|mypos
@@ -6297,15 +6288,6 @@ operator|-
 literal|1
 condition|)
 block|{
-name|QEXPECT_FAIL
-argument_list|(
-literal|"anc11"
-argument_list|,
-literal|"QRegExp has bugs with anchors inside lookaheads"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|mypos
