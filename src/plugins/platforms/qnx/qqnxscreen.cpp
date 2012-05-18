@@ -747,6 +747,35 @@ name|window
 argument_list|)
 condition|)
 return|return;
+comment|// Ensure that the desktop window is at the bottom of the zorder.
+comment|// If we do not do this then we may end up activating the desktop
+comment|// when the navigator service gets an event that our window group
+comment|// has been activated (see QQnxScreen::activateWindowGroup()).
+comment|// Such a situation would strangely break focus handling due to the
+comment|// invisible desktop widget window being layered on top of normal
+comment|// windows
+if|if
+condition|(
+name|window
+operator|->
+name|window
+argument_list|()
+operator|->
+name|windowType
+argument_list|()
+operator|==
+name|Qt
+operator|::
+name|Desktop
+condition|)
+name|m_childWindows
+operator|.
+name|push_front
+argument_list|(
+name|window
+argument_list|)
+expr_stmt|;
+else|else
 name|m_childWindows
 operator|.
 name|push_back
