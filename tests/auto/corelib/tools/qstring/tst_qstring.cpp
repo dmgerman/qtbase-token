@@ -41781,7 +41781,6 @@ argument_list|)
 decl_stmt|;
 specifier|const
 name|QChar
-modifier|&
 name|fillChar
 init|=
 name|fillChars

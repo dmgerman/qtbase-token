@@ -6222,9 +6222,7 @@ name|QFont
 modifier|&
 name|f
 parameter_list|,
-specifier|const
 name|QChar
-modifier|&
 name|ch
 parameter_list|)
 block|{
