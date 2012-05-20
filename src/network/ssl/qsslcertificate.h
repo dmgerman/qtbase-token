@@ -429,7 +429,7 @@ name|toDer
 argument_list|()
 specifier|const
 expr_stmt|;
-name|QByteArray
+name|QString
 name|toText
 argument_list|()
 specifier|const

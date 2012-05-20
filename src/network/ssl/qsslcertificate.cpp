@@ -2940,7 +2940,7 @@ comment|/*!     Returns this certificate converted to a human-readable text     
 end_comment
 begin_function
 DECL|function|toText
-name|QByteArray
+name|QString
 name|QSslCertificate
 operator|::
 name|toText
@@ -2955,7 +2955,7 @@ operator|->
 name|x509
 condition|)
 return|return
-name|QByteArray
+name|QString
 argument_list|()
 return|;
 return|return
@@ -3814,7 +3814,7 @@ block|}
 end_function
 begin_function
 DECL|function|text_from_X509
-name|QByteArray
+name|QString
 name|QSslCertificatePrivate
 operator|::
 name|text_from_X509
@@ -3836,7 +3836,7 @@ literal|"QSslSocketBackendPrivate::text_from_X509: null X509"
 argument_list|)
 expr_stmt|;
 return|return
-name|QByteArray
+name|QString
 argument_list|()
 return|;
 block|}
@@ -3859,7 +3859,8 @@ operator|!
 name|bio
 condition|)
 return|return
-name|result
+name|QString
+argument_list|()
 return|;
 name|q_X509_print
 argument_list|(
@@ -3917,7 +3918,12 @@ name|bio
 argument_list|)
 expr_stmt|;
 return|return
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
 name|result
+argument_list|)
 return|;
 block|}
 end_function
