@@ -16,7 +16,12 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtPrintSupport/qabstractpagesetupdialog.h>
+file|<QtWidgets/qdialog.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtPrintSupport/qtprintsupportglobal.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
@@ -24,6 +29,12 @@ name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
 name|QT_NO_PRINTDIALOG
+DECL|variable|QPrinter
+name|class
+name|QPrinter
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QPageSetupDialogPrivate
 name|class
 name|QPageSetupDialogPrivate
@@ -35,7 +46,7 @@ name|Q_PRINTSUPPORT_EXPORT
 name|QPageSetupDialog
 range|:
 name|public
-name|QAbstractPageSetupDialog
+name|QDialog
 block|{
 name|Q_OBJECT
 name|Q_DECLARE_PRIVATE
@@ -67,6 +78,11 @@ name|parent
 operator|=
 literal|0
 argument_list|)
+block|;
+name|virtual
+operator|~
+name|QPageSetupDialog
+argument_list|()
 block|;
 if|#
 directive|if
@@ -132,17 +148,17 @@ operator|*
 name|member
 argument_list|)
 block|;
-ifdef|#
-directive|ifdef
-name|qdoc
+name|void
+name|done
+argument_list|(
+argument|int result
+argument_list|)
+block|;
 name|QPrinter
 operator|*
 name|printer
 argument_list|()
-block|;
-endif|#
-directive|endif
-block|}
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_endif

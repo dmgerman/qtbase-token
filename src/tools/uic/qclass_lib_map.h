@@ -5972,16 +5972,6 @@ end_macro
 begin_macro
 name|QT_CLASS_LIB
 argument_list|(
-argument|QAbstractPageSetupDialog
-argument_list|,
-argument|QtWidgets
-argument_list|,
-argument|qabstractpagesetupdialog.h
-argument_list|)
-end_macro
-begin_macro
-name|QT_CLASS_LIB
-argument_list|(
 argument|QAbstractPrintDialog
 argument_list|,
 argument|QtWidgets
