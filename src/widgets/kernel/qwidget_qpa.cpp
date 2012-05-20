@@ -528,6 +528,15 @@ block|{
 if|if
 condition|(
 name|win
+operator|&&
+name|q
+operator|->
+name|windowType
+argument_list|()
+operator|!=
+name|Qt
+operator|::
+name|Desktop
 condition|)
 name|q
 operator|->
