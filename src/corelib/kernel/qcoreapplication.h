@@ -944,10 +944,6 @@ argument_list|,
 argument|int
 argument_list|)
 block|{
-name|Q_UNUSED
-argument_list|(
-argument|encoding
-argument_list|)
 return|return
 name|QString
 operator|::
@@ -958,54 +954,6 @@ argument_list|)
 return|;
 block|}
 end_expr_stmt
-begin_if
-if|#
-directive|if
-name|QT_DEPRECATED_SINCE
-argument_list|(
-literal|5
-operator|,
-literal|0
-argument_list|)
-end_if
-begin_expr_stmt
-DECL|function|translate
-name|QT_DEPRECATED
-specifier|inline
-name|QString
-name|QCoreApplication
-operator|::
-name|translate
-argument_list|(
-argument|const char *
-argument_list|,
-argument|const char *sourceText
-argument_list|,
-argument|const char *
-argument_list|,
-argument|Encoding encoding
-argument_list|,
-argument|int
-argument_list|)
-block|{
-name|Q_UNUSED
-argument_list|(
-argument|encoding
-argument_list|)
-return|return
-name|QString
-operator|::
-name|fromUtf8
-argument_list|(
-name|sourceText
-argument_list|)
-return|;
-block|}
-end_expr_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_endif
 endif|#
 directive|endif
