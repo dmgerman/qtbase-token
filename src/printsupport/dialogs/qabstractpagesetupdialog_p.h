@@ -98,6 +98,11 @@ name|printer
 argument_list|(
 literal|0
 argument_list|)
+block|,
+name|ownsPrinter
+argument_list|(
+argument|false
+argument_list|)
 block|{}
 name|void
 name|setPrinter
@@ -111,10 +116,8 @@ name|QPrinter
 operator|*
 name|printer
 block|;
-name|QPageSetupDialog
-operator|::
-name|PageSetupDialogOptions
-name|opts
+name|bool
+name|ownsPrinter
 block|;
 name|QPointer
 operator|<

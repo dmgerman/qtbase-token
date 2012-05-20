@@ -42,40 +42,8 @@ name|Q_DECLARE_PRIVATE
 argument_list|(
 argument|QPageSetupDialog
 argument_list|)
-name|Q_ENUMS
-argument_list|(
-argument|PageSetupDialogOption
-argument_list|)
-name|Q_PROPERTY
-argument_list|(
-argument|PageSetupDialogOptions options READ options WRITE setOptions
-argument_list|)
 name|public
 operator|:
-expr|enum
-name|PageSetupDialogOption
-block|{
-name|None
-operator|=
-literal|0x00000000
-block|,
-comment|// internal
-name|DontUseSheet
-operator|=
-literal|0x00000001
-block|,
-name|OwnsPrinter
-operator|=
-literal|0x80000000
-comment|// internal
-block|}
-block|;
-name|Q_DECLARE_FLAGS
-argument_list|(
-argument|PageSetupDialogOptions
-argument_list|,
-argument|PageSetupDialogOption
-argument_list|)
 name|explicit
 name|QPageSetupDialog
 argument_list|(
@@ -99,57 +67,6 @@ name|parent
 operator|=
 literal|0
 argument_list|)
-block|;
-comment|// obsolete
-name|void
-name|addEnabledOption
-argument_list|(
-argument|PageSetupDialogOption option
-argument_list|)
-block|;
-name|void
-name|setEnabledOptions
-argument_list|(
-argument|PageSetupDialogOptions options
-argument_list|)
-block|;
-name|PageSetupDialogOptions
-name|enabledOptions
-argument_list|()
-specifier|const
-block|;
-name|bool
-name|isOptionEnabled
-argument_list|(
-argument|PageSetupDialogOption option
-argument_list|)
-specifier|const
-block|;
-name|void
-name|setOption
-argument_list|(
-argument|PageSetupDialogOption option
-argument_list|,
-argument|bool on = true
-argument_list|)
-block|;
-name|bool
-name|testOption
-argument_list|(
-argument|PageSetupDialogOption option
-argument_list|)
-specifier|const
-block|;
-name|void
-name|setOptions
-argument_list|(
-argument|PageSetupDialogOptions options
-argument_list|)
-block|;
-name|PageSetupDialogOptions
-name|options
-argument_list|()
-specifier|const
 block|;
 if|#
 directive|if
