@@ -167,12 +167,11 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_decl_stmt
-DECL|variable|QDynamicMetaObjectData
-name|class
+begin_struct_decl
+struct_decl|struct
 name|QDynamicMetaObjectData
-decl_stmt|;
-end_decl_stmt
+struct_decl|;
+end_struct_decl
 begin_typedef
 DECL|typedef|QObjectList
 typedef|typedef
