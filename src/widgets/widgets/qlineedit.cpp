@@ -4908,8 +4908,12 @@ argument_list|)
 return|;
 default|default:
 return|return
-name|QVariant
-argument_list|()
+name|QWidget
+operator|::
+name|inputMethodQuery
+argument_list|(
+name|property
+argument_list|)
 return|;
 block|}
 block|}
