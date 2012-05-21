@@ -23,6 +23,11 @@ include|#
 directive|include
 file|"qeglfsscreen.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<GLES2/gl2.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QOpenGLShaderProgram
@@ -217,8 +222,7 @@ block|;
 name|QPoint
 name|m_pos
 block|;
-name|QOpenGLShaderProgram
-operator|*
+name|GLuint
 name|m_program
 block|;
 name|int
