@@ -124,6 +124,13 @@ return|return
 name|m_currentPhysicalSize
 return|;
 block|}
+name|Qt
+operator|::
+name|ScreenOrientation
+name|orientation
+argument_list|()
+specifier|const
+expr_stmt|;
 name|bool
 name|isPrimaryScreen
 argument_list|()
