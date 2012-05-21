@@ -1053,9 +1053,9 @@ literal|1
 condition|?
 name|QString
 argument_list|(
-name|QVariant
+name|QMetaType
 operator|::
-name|typeToName
+name|typeName
 argument_list|(
 name|fld
 operator|.
@@ -1071,9 +1071,9 @@ argument_list|)
 operator|.
 name|arg
 argument_list|(
-name|QVariant
+name|QMetaType
 operator|::
-name|typeToName
+name|typeName
 argument_list|(
 name|fld
 operator|.

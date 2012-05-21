@@ -1074,9 +1074,9 @@ argument_list|()
 operator|<<
 literal|", "
 operator|<<
-name|QVariant
+name|QMetaType
 operator|::
-name|typeToName
+name|typeName
 argument_list|(
 name|f
 operator|.

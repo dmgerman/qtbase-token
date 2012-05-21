@@ -7062,7 +7062,9 @@ parameter_list|()
 specifier|const
 block|{
 return|return
-name|typeToName
+name|QMetaType
+operator|::
+name|typeName
 argument_list|(
 name|d
 operator|.
