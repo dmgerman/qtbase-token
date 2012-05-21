@@ -387,6 +387,11 @@ name|QEvent
 operator|::
 name|KeyRelease
 case|:
+case|case
+name|QEvent
+operator|::
+name|ShortcutOverride
+case|:
 name|handleKeyEvent
 argument_list|(
 cast|static_cast
