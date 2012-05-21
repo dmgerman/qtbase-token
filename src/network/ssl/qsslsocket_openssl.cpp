@@ -6564,9 +6564,16 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
 name|trustedRoot
 operator|.
-name|isValid
+name|isNull
+argument_list|()
+operator|&&
+operator|!
+name|trustedRoot
+operator|.
+name|isBlacklisted
 argument_list|()
 condition|)
 block|{
