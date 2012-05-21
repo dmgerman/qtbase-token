@@ -12,7 +12,7 @@ begin_comment
 comment|/*!     \enum QUrl::FormattingOptions      The formatting options define how the URL is formatted when written out     as text.      \value None The format of the URL is unchanged.     \value RemoveScheme  The scheme is removed from the URL.     \value RemovePassword  Any password in the URL is removed.     \value RemoveUserInfo  Any user information in the URL is removed.     \value RemovePort      Any specified port is removed from the URL.     \value RemoveAuthority     \value RemovePath   The URL's path is removed, leaving only the scheme,                         host address, and port (if present).     \value RemoveQuery  The query part of the URL (following a '?' character)                         is removed.     \value RemoveFragment     \value PreferLocalFile If the URL is a local file according to isLocalFile()      and contains no query or fragment, a local file path is returned.     \value StripTrailingSlash  The trailing slash is removed if one is present.      Note that the case folding rules in \l{RFC 3491}{Nameprep}, which QUrl     conforms to, require host names to always be converted to lower case,     regardless of the Qt::FormattingOptions used.      The options from QUrl::ComponentFormattingOptions are also possible.      \sa QUrl::ComponentFormattingOptions */
 end_comment
 begin_comment
-comment|/*!     \enum QUrl::ComponentFormattingOptions     \since 5.0      The component formatting options define how the components of an URL will     be formatted when written out as text. They can be combined with the     options from QUrl::FormattingOptions when used in toString() and     toEncoded().      \value PrettyDecoded   The component is returned in a "pretty form", with                            most percent-encoded characters decoded. The exact                            behavior of PrettyDecoded varies from component to                            component and may also change from Qt release to Qt                            release. This is the default.      \value EncodeSpaces    Leave space characters in their encoded form ("%20").      \value EncodeUnicode   Leave non-US-ASCII characters encoded in their UTF-8                            percent-encoded form (e.g., "%C3%A9" for the U+00E9                            codepoint, LATIN SMALL LETTER E WITH ACUTE).      \value EncodeDelimiters Leave certain delimiters in their encoded form, as                             would appear in the URL when the full URL is                             represented as text. The delimiters are affected                             by this option change from component to component.      \value EncodeReserved  Leave the US-ASCII reserved characters in their encoded                            forms.      \value DecodeReseved   Decode the US-ASCII reserved characters.      \value FullyEncoded    Leave all characters in their properly-encoded form,                            as this component would appear as part of a URL. When                            used with toString(), this produces a fully-compliant                            URL in QString form, exactly equal to the result of                            toEncoded()      \value MostDecoded     Attempt to decode as much as possible. For individual                            components of the URL, this decodes every percent                            encoding sequence, control characters (U+0000 to U+001F)                            and non-US-ASCII sequences that aren't valid UTF-8                            sequences.      The values of EncodeReserved and DecodeReserved should not be used together     in one call. The behaviour is undefined if that happens. They are provided     as separate values because the behaviour of the "pretty mode" with regards     to reserved characters is different on certain components and specially on     the full URL.      \sa QUrl::FormattingOptions */
+comment|/*!     \enum QUrl::ComponentFormattingOptions     \since 5.0      The component formatting options define how the components of an URL will     be formatted when written out as text. They can be combined with the     options from QUrl::FormattingOptions when used in toString() and     toEncoded().      \value PrettyDecoded   The component is returned in a "pretty form", with                            most percent-encoded characters decoded. The exact                            behavior of PrettyDecoded varies from component to                            component and may also change from Qt release to Qt                            release. This is the default.      \value EncodeSpaces    Leave space characters in their encoded form ("%20").      \value EncodeUnicode   Leave non-US-ASCII characters encoded in their UTF-8                            percent-encoded form (e.g., "%C3%A9" for the U+00E9                            codepoint, LATIN SMALL LETTER E WITH ACUTE).      \value EncodeDelimiters Leave certain delimiters in their encoded form, as                             would appear in the URL when the full URL is                             represented as text. The delimiters are affected                             by this option change from component to component.      \value EncodeReserved  Leave the US-ASCII reserved characters in their encoded                            forms.      \value DecodeReseved   Decode the US-ASCII reserved characters.      \value FullyEncoded    Leave all characters in their properly-encoded form,                            as this component would appear as part of a URL. When                            used with toString(), this produces a fully-compliant                            URL in QString form, exactly equal to the result of                            toEncoded()      \value FullyDecoded    Attempt to decode as much as possible. For individual                            components of the URL, this decodes every percent                            encoding sequence, including control characters (U+0000                            to U+001F) and UTF-8 sequences found in percent-encoded form.                            Note: if the component contains non-US-ASCII sequences                            that aren't valid UTF-8 sequences, the behaviour is                            undefined since QString cannot represent those values                            (data will be lost!)                            This mode is should not be used in functions where more                            than one URL component is returned (userInfo() and authority())                            and it is not allowed in url() and toString().      The values of EncodeReserved and DecodeReserved should not be used together     in one call. The behaviour is undefined if that happens. They are provided     as separate values because the behaviour of the "pretty mode" with regards     to reserved characters is different on certain components and specially on     the full URL.      The FullyDecoded mode is similar to the behaviour of the functions     returning QString in Qt 4.x, including the fact that they will most likely     cause data loss if the component in question contains a non-UTF-8     percent-encoded sequence. Fortunately, those cases aren't common, so this     mode should be used when the component in question is used in a non-URL     context. For example, in an FTP client application, the path to the remote     file could be stored in a QUrl object, and the string to be transmitted to     the FTP server should be obtained using this flag.      \sa QUrl::FormattingOptions */
 end_comment
 begin_include
 include|#
@@ -130,66 +130,6 @@ name|c
 operator|<=
 literal|'f'
 operator|)
-return|;
-block|}
-end_function
-begin_function
-DECL|function|toHex
-specifier|static
-specifier|inline
-name|char
-name|toHex
-parameter_list|(
-name|quint8
-name|c
-parameter_list|)
-block|{
-return|return
-name|c
-operator|>
-literal|9
-condition|?
-name|c
-operator|-
-literal|10
-operator|+
-literal|'A'
-else|:
-name|c
-operator|+
-literal|'0'
-return|;
-block|}
-end_function
-begin_function
-DECL|function|fromHex
-specifier|static
-specifier|inline
-name|quint8
-name|fromHex
-parameter_list|(
-name|quint8
-name|c
-parameter_list|)
-block|{
-name|c
-operator||=
-literal|0x20
-expr_stmt|;
-return|return
-name|c
-operator|>=
-literal|'a'
-condition|?
-name|c
-operator|-
-literal|'a'
-operator|+
-literal|10
-else|:
-name|c
-operator|-
-literal|'0'
 return|;
 block|}
 end_function
@@ -5909,7 +5849,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the authority of the URL if it is defined; otherwise     an empty string is returned.      \sa setAuthority() */
+comment|/*!     Returns the authority of the URL if it is defined; otherwise     an empty string is returned.      The \a options argument controls how to format the authority portion of the     URL. The value of QUrl::FullyDecoded should be avoided, since it may     produce an ambiguous return value (for example, if the username contains a     colon ':' or either the username or password contain an at-sign '@'). In     all other cases, this function returns an unambiguous value, which may     contain those characters still percent-encoded, plus some control     sequences not representable in decoded form in QString.      \sa setAuthority(), userInfo(), userName(), password(), host(), port() */
 end_comment
 begin_function
 DECL|function|authority
@@ -6037,7 +5977,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the user info of the URL, or an empty string if the user     info is undefined. */
+comment|/*!     Returns the user info of the URL, or an empty string if the user     info is undefined.      The \a options argument controls how to format the user info component. The     value of QUrl::FullyDecoded should be avoided, since it may produce an     ambiguous return value (for example, if the username contains a colon ':').     In all other cases, this function returns an unambiguous value, which may     contain that characters still percent-encoded, plus some control sequences     not representable in decoded form in QString.      \sa setUserInfo(), userName(), password(), authority() */
 end_comment
 begin_function
 DECL|function|userInfo
@@ -6158,7 +6098,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the user name of the URL if it is defined; otherwise     an empty string is returned.      \sa setUserName(), encodedUserName() */
+comment|/*!     Returns the user name of the URL if it is defined; otherwise     an empty string is returned.      The \a options argument controls how to format the user name component. All     values produce an unambiguous result. With QUrl::FullyDecoded, all     percent-encoded sequences are decoded; otherwise, the returned value may     contain some percent-encoded sequences for some control sequences not     representable in decoded form in QString.      Note that QUrl::FullyDecoded may cause data loss if those non-representable     sequences are present. It is recommended to use that value when the result     will be used in a non-URL context, such as setting in QAuthenticator or     negotiating a login.      \sa setUserName(), userInfo() */
 end_comment
 begin_function
 DECL|function|userName
@@ -6275,7 +6215,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the password of the URL if it is defined; otherwise     an empty string is returned.      \sa setPassword() */
+comment|/*!     Returns the password of the URL if it is defined; otherwise     an empty string is returned.      The \a options argument controls how to format the user name component. All     values produce an unambiguous result. With QUrl::FullyDecoded, all     percent-encoded sequences are decoded; otherwise, the returned value may     contain some percent-encoded sequences for some control sequences not     representable in decoded form in QString.      Note that QUrl::FullyDecoded may cause data loss if those non-representable     sequences are present. It is recommended to use that value when the result     will be used in a non-URL context, such as setting in QAuthenticator or     negotiating a login.      \sa setPassword() */
 end_comment
 begin_function
 DECL|function|password
@@ -6494,7 +6434,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the host of the URL if it is defined; otherwise     an empty string is returned. */
+comment|/*!     Returns the host of the URL if it is defined; otherwise     an empty string is returned.      The \a options argument controls how the hostname will be formatted. The     QUrl::EncodeUnicode option will cause this function to return the hostname     in the ASCII-Compatible Encoding (ACE) form, which is suitable for use in     channels that are not 8-bit clean or that require the legacy hostname (such     as DNS requests or in HTTP request headers). If that flag is not present,     this function returns the International Domain Name (IDN) in Unicode form,     according to the list of permissible top-level domains (see     idnWhiteList()).      All other flags are ignored. Host names cannot contain control or percent     characters, so the returned value can be considered fully decoded.      \sa setHost(), idnWhiteList(), setIdnWhiteList(), authority() */
 end_comment
 begin_function
 DECL|function|host
@@ -6740,7 +6680,7 @@ comment|//        d->sectionIsPresent&= ~QUrlPrivate::Path;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the path of the URL.      \sa setPath() */
+comment|/*!     Returns the path of the URL.      The \a options argument controls how to format the path component. All     values produce an unambiguous result. With QUrl::FullyDecoded, all     percent-encoded sequences are decoded; otherwise, the returned value may     contain some percent-encoded sequences for some control sequences not     representable in decoded form in QString.      Note that QUrl::FullyDecoded may cause data loss if those non-representable     sequences are present. It is recommended to use that value when the result     will be used in a non-URL context, such as sending to an FTP server.      \sa setPath() */
 end_comment
 begin_function
 DECL|function|path
@@ -6785,7 +6725,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2      Returns true if this URL contains a Query (i.e., if ? was seen on it).      \sa hasQueryItem(), encodedQuery() */
+comment|/*!     \since 4.2      Returns true if this URL contains a Query (i.e., if ? was seen on it).      \sa setQuery(), query(), hasFragment() */
 end_comment
 begin_function
 DECL|function|hasQuery
@@ -6813,7 +6753,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the query string of the URL to \a query.      This function is useful if you need to pass a query string that     does not fit into the key-value pattern, or that uses a different     scheme for encoding special characters than what is suggested by     QUrl.      Passing a value of QString() to \a query (a null QString) unsets     the query completely. However, passing a value of QString("")     will set the query to an empty value, as if the original URL     had a lone "?".      The \a query data is interpreted according to \a mode: in StrictMode,     any '%' characters must be followed by exactly two hexadecimal characters     and some characters (including space) are not allowed in undecoded form. In     TolerantMode, all characters are accepted in undecoded form and the     tolerant parser will correct stray '%' not followed by two hex characters.     In DecodedMode, '%' stand for themselves and encoded characters are not     possible.      \sa encodedQuery(), hasQuery() */
+comment|/*!     Sets the query string of the URL to \a query.      This function is useful if you need to pass a query string that     does not fit into the key-value pattern, or that uses a different     scheme for encoding special characters than what is suggested by     QUrl.      Passing a value of QString() to \a query (a null QString) unsets     the query completely. However, passing a value of QString("")     will set the query to an empty value, as if the original URL     had a lone "?".      The \a query data is interpreted according to \a mode: in StrictMode,     any '%' characters must be followed by exactly two hexadecimal characters     and some characters (including space) are not allowed in undecoded form. In     TolerantMode, all characters are accepted in undecoded form and the     tolerant parser will correct stray '%' not followed by two hex characters.     In DecodedMode, '%' stand for themselves and encoded characters are not     possible.      Query strings often contain percent-encoded sequences, so use of     DecodedMode is discouraged. One special sequence to be aware of is that of     the plus character ('+'). QUrl does not convert spaces to plus characters,     even though HTML forms posted by web browsers do. In order to represent an     actual plus character in a query, the sequence "%2B" is usually used. This     function will leave "%2B" sequences untouched in TolerantMode or     StrictMode.      \sa query(), hasQuery() */
 end_comment
 begin_function
 DECL|function|setQuery
@@ -6888,6 +6828,9 @@ name|Query
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!     \overload     \since 5.0     Sets the query string of the URL to \a query.      This function reconstructs the query string from the QUrlQuery object and     sets on this QUrl object. This function does not have parsing parameters     because the QUrlQuery contains data that is already parsed.      \sa query(), hasQuery() */
+end_comment
 begin_function
 DECL|function|setQuery
 name|void
@@ -6942,7 +6885,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the query string of the URL in percent encoded form. */
+comment|/*!     Returns the query string of the URL if there's a query string, or an empty     result if not. To determine if the parsed URL contained a query string, use     hasQuery().      The \a options argument controls how to format the query component. All     values produce an unambiguous result. With QUrl::FullyDecoded, all     percent-encoded sequences are decoded; otherwise, the returned value may     contain some percent-encoded sequences for some control sequences not     representable in decoded form in QString.      Note that use of QUrl::FullyDecoded in queries is discouraged, as queries     often contain data that is supposed to remain percent-encoded, including     the use of the "%2B" sequence to represent a plus character ('+').      \sa setQuery(), hasQuery() */
 end_comment
 begin_function
 DECL|function|query
@@ -7080,7 +7023,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the fragment of the URL.      \sa setFragment() */
+comment|/*!     Returns the fragment of the URL. To determine if the parsed URL contained a     fragment, use hasFragment().      The \a options argument controls how to format the fragment component. All     values produce an unambiguous result. With QUrl::FullyDecoded, all     percent-encoded sequences are decoded; otherwise, the returned value may     contain some percent-encoded sequences for some control sequences not     representable in decoded form in QString.      Note that QUrl::FullyDecoded may cause data loss if those non-representable     sequences are present. It is recommended to use that value when the result     will be used in a non-URL context.      \sa setFragment(), hasFragment() */
 end_comment
 begin_function
 DECL|function|fragment
@@ -7682,7 +7625,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a string representation of the URL.     The output can be customized by passing flags with \a options.      The resulting QString can be passed back to a QUrl later on.      Synonym for toString(options).      \sa FormattingOptions, toEncoded(), toString() */
+comment|/*!     Returns a string representation of the URL. The output can be customized by     passing flags with \a options. The option QUrl::FullyDecoded is not     permitted in this function since it would generate ambiguous data.      The resulting QString can be passed back to a QUrl later on.      Synonym for toString(options).      \sa FormattingOptions, toEncoded(), toString() */
 end_comment
 begin_function
 DECL|function|url
@@ -7705,7 +7648,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a string representation of the URL.     The output can be customized by passing flags with \a options.      The default formatting option is \l{QUrl::FormattingOptions}{PrettyDecoded}.      \sa FormattingOptions, url(), setUrl() */
+comment|/*!     Returns a string representation of the URL. The output can be customized by     passing flags with \a options. The option QUrl::FullyDecoded is not     permitted in this function since it would generate ambiguous data.      The default formatting option is \l{QUrl::FormattingOptions}{PrettyDecoded}.      \sa FormattingOptions, url(), setUrl() */
 end_comment
 begin_function
 DECL|function|toString
@@ -7728,6 +7671,27 @@ return|return
 name|QString
 argument_list|()
 return|;
+if|if
+condition|(
+name|options
+operator|==
+name|QUrl
+operator|::
+name|FullyDecoded
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QUrl: QUrl::FullyDecoded is not permitted when reconstructing the full URL"
+argument_list|)
+expr_stmt|;
+name|options
+operator|=
+name|QUrl
+operator|::
+name|PrettyDecoded
+expr_stmt|;
+block|}
 comment|// return just the path if:
 comment|//  - QUrl::PreferLocalFile is passed
 comment|//  - QUrl::RemovePath isn't passed (rather stupid if the user did...)
@@ -9258,7 +9222,7 @@ name|path
 argument_list|(
 name|QUrl
 operator|::
-name|MostDecoded
+name|FullyDecoded
 argument_list|)
 decl_stmt|;
 comment|// magic for shared drive on windows
@@ -9368,136 +9332,6 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-block|}
-comment|// check if we need to do one more decoding pass
-name|int
-name|pct
-init|=
-name|tmp
-operator|.
-name|indexOf
-argument_list|(
-name|QLatin1Char
-argument_list|(
-literal|'%'
-argument_list|)
-argument_list|)
-decl_stmt|;
-while|while
-condition|(
-name|pct
-operator|!=
-operator|-
-literal|1
-condition|)
-block|{
-name|Q_ASSERT
-argument_list|(
-name|tmp
-operator|.
-name|size
-argument_list|()
-operator|>=
-name|pct
-operator|+
-literal|2
-argument_list|)
-expr_stmt|;
-name|ushort
-name|char1
-init|=
-name|tmp
-operator|.
-name|at
-argument_list|(
-name|pct
-operator|+
-literal|1
-argument_list|)
-operator|.
-name|unicode
-argument_list|()
-decl_stmt|;
-name|ushort
-name|char2
-init|=
-name|tmp
-operator|.
-name|at
-argument_list|(
-name|pct
-operator|+
-literal|2
-argument_list|)
-operator|.
-name|unicode
-argument_list|()
-decl_stmt|;
-name|Q_ASSERT
-argument_list|(
-name|isHex
-argument_list|(
-name|char1
-argument_list|)
-operator|&&
-name|char1
-operator|<
-literal|0x80u
-argument_list|)
-expr_stmt|;
-name|Q_ASSERT
-argument_list|(
-name|isHex
-argument_list|(
-name|char2
-argument_list|)
-operator|&&
-name|char2
-operator|<
-literal|0x80u
-argument_list|)
-expr_stmt|;
-name|tmp
-operator|.
-name|replace
-argument_list|(
-name|pct
-argument_list|,
-literal|3
-argument_list|,
-name|QChar
-argument_list|(
-name|fromHex
-argument_list|(
-name|char1
-argument_list|)
-operator|<<
-literal|4
-operator||
-name|fromHex
-argument_list|(
-name|char2
-argument_list|)
-argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// next iteration
-name|pct
-operator|=
-name|tmp
-operator|.
-name|indexOf
-argument_list|(
-name|QLatin1Char
-argument_list|(
-literal|'%'
-argument_list|)
-argument_list|,
-name|pct
-operator|+
-literal|1
-argument_list|)
-expr_stmt|;
 block|}
 return|return
 name|tmp

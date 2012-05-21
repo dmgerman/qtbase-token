@@ -857,6 +857,7 @@ name|DecodeReserved
 init|=
 literal|0x2000000
 block|,
+comment|// 0x4000000 used to indicate full-decode mode
 name|FullyEncoded
 init|=
 name|EncodeSpaces
@@ -867,11 +868,13 @@ name|EncodeDelimiters
 operator||
 name|EncodeReserved
 block|,
-name|MostDecoded
+name|FullyDecoded
 init|=
-name|PrettyDecoded
+name|FullyEncoded
 operator||
 name|DecodeReserved
+operator||
+literal|0x4000000
 block|}
 enum|;
 name|Q_DECLARE_FLAGS
