@@ -124,6 +124,11 @@ return|return
 name|m_currentPhysicalSize
 return|;
 block|}
+name|qreal
+name|refreshRate
+argument_list|()
+specifier|const
+expr_stmt|;
 name|Qt
 operator|::
 name|ScreenOrientation
