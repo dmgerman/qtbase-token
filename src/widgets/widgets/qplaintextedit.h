@@ -589,6 +589,13 @@ name|blockCount
 argument_list|()
 specifier|const
 block|;
+name|QVariant
+name|inputMethodQuery
+argument_list|(
+argument|Qt::InputMethodQuery property
+argument_list|)
+specifier|const
+block|;
 name|public
 name|Q_SLOTS
 operator|:
@@ -952,13 +959,6 @@ argument_list|(
 name|QInputMethodEvent
 operator|*
 argument_list|)
-block|;
-name|QVariant
-name|inputMethodQuery
-argument_list|(
-argument|Qt::InputMethodQuery property
-argument_list|)
-specifier|const
 block|;
 name|QPlainTextEdit
 argument_list|(

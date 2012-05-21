@@ -667,6 +667,13 @@ operator|*
 name|event
 argument_list|)
 block|;
+name|QVariant
+name|inputMethodQuery
+argument_list|(
+argument|Qt::InputMethodQuery
+argument_list|)
+specifier|const
+block|;
 name|public
 name|Q_SLOTS
 operator|:
@@ -862,13 +869,6 @@ argument_list|(
 name|QInputMethodEvent
 operator|*
 argument_list|)
-block|;
-name|QVariant
-name|inputMethodQuery
-argument_list|(
-argument|Qt::InputMethodQuery
-argument_list|)
-specifier|const
 block|;
 name|void
 name|initStyleOption
