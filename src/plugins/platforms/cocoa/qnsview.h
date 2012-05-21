@@ -75,7 +75,7 @@ name|QString
 name|m_composingText
 block|;
 name|bool
-name|m_keyEventsAccepted
+name|m_sendKeyEvent
 block|;
 name|QStringList
 operator|*
