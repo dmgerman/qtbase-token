@@ -466,10 +466,6 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-comment|// Create displays for all possible screens (which may not be attached)
-name|createDisplays
-argument_list|()
-expr_stmt|;
 if|#
 directive|if
 operator|!
@@ -612,6 +608,35 @@ argument_list|,
 name|virtualKeyboardBps
 argument_list|)
 expr_stmt|;
+name|m_bpsEventFilter
+operator|->
+name|installOnEventDispatcher
+argument_list|(
+name|m_eventDispatcher
+argument_list|)
+expr_stmt|;
+name|m_virtualKeyboard
+operator|=
+name|virtualKeyboardBps
+expr_stmt|;
+endif|#
+directive|endif
+comment|// Create displays for all possible screens (which may not be attached). We have to do this
+comment|// *after* the call to m_bpsEventFilter->installOnEventDispatcher(m_eventDispatcher). The
+comment|// reason for this is that we have to be registered for NAVIGATOR events before we create the
+comment|// QQnxScreen objects, and hence the QQnxRootWindow's. It is when the NAVIGATOR service sees
+comment|// the window creation that it starts sending us messages which results in a race if we
+comment|// create the displays first.
+name|createDisplays
+argument_list|()
+expr_stmt|;
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_BLACKBERRY
+argument_list|)
+comment|// Register for screen domain events with bps
 name|Q_FOREACH
 argument_list|(
 argument|QQnxScreen *screen
@@ -624,17 +649,6 @@ name|registerForScreenEvents
 argument_list|(
 name|screen
 argument_list|)
-expr_stmt|;
-name|m_bpsEventFilter
-operator|->
-name|installOnEventDispatcher
-argument_list|(
-name|m_eventDispatcher
-argument_list|)
-expr_stmt|;
-name|m_virtualKeyboard
-operator|=
-name|virtualKeyboardBps
 expr_stmt|;
 endif|#
 directive|endif
