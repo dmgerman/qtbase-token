@@ -680,6 +680,16 @@ name|errno
 argument_list|)
 expr_stmt|;
 block|}
+name|QWindowSystemInterface
+operator|::
+name|handleGeometryChange
+argument_list|(
+name|window
+argument_list|()
+argument_list|,
+name|rect
+argument_list|)
+expr_stmt|;
 comment|// Now move all children.
 name|QPoint
 name|offset
