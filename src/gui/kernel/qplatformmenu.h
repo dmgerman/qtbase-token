@@ -103,12 +103,16 @@ name|setTag
 argument_list|(
 argument|quintptr tag
 argument_list|)
+operator|=
+literal|0
 block|;
 name|virtual
 name|quintptr
 name|tag
 argument_list|()
 specifier|const
+operator|=
+literal|0
 block|;
 name|virtual
 name|void
@@ -119,6 +123,8 @@ name|QString
 operator|&
 name|text
 argument_list|)
+operator|=
+literal|0
 block|;
 name|virtual
 name|void
@@ -129,6 +135,8 @@ name|QImage
 operator|&
 name|icon
 argument_list|)
+operator|=
+literal|0
 block|;
 name|virtual
 name|void
@@ -138,6 +146,8 @@ name|QPlatformMenu
 operator|*
 name|menu
 argument_list|)
+operator|=
+literal|0
 block|;
 name|virtual
 name|void
@@ -145,6 +155,8 @@ name|setVisible
 argument_list|(
 argument|bool isVisible
 argument_list|)
+operator|=
+literal|0
 block|;
 name|virtual
 name|void
@@ -152,6 +164,8 @@ name|setIsSeparator
 argument_list|(
 argument|bool isSeparator
 argument_list|)
+operator|=
+literal|0
 block|;
 name|virtual
 name|void
@@ -162,6 +176,8 @@ name|QFont
 operator|&
 name|font
 argument_list|)
+operator|=
+literal|0
 block|;
 name|virtual
 name|void
@@ -169,6 +185,8 @@ name|setRole
 argument_list|(
 argument|MenuRole role
 argument_list|)
+operator|=
+literal|0
 block|;
 name|virtual
 name|void
@@ -176,6 +194,8 @@ name|setChecked
 argument_list|(
 argument|bool isChecked
 argument_list|)
+operator|=
+literal|0
 block|;
 name|virtual
 name|void
@@ -186,6 +206,8 @@ name|QKeySequence
 operator|&
 name|shortcut
 argument_list|)
+operator|=
+literal|0
 block|;
 name|virtual
 name|void
@@ -193,6 +215,8 @@ name|setEnabled
 argument_list|(
 argument|bool enabled
 argument_list|)
+operator|=
+literal|0
 block|;
 name|Q_SIGNALS
 operator|:
@@ -212,8 +236,7 @@ name|Q_GUI_EXPORT
 name|QPlatformMenu
 range|:
 name|public
-name|QPlatformMenuItem
-comment|// Some (but not all) of the PlatformMenuItem API applies to QPlatformMenu as well.
+name|QObject
 block|{
 name|Q_OBJECT
 name|public
@@ -230,6 +253,8 @@ name|QPlatformMenuItem
 operator|*
 name|before
 argument_list|)
+operator|=
+literal|0
 block|;
 name|virtual
 name|void
@@ -239,6 +264,8 @@ name|QPlatformMenuItem
 operator|*
 name|menuItem
 argument_list|)
+operator|=
+literal|0
 block|;
 name|virtual
 name|void
@@ -248,6 +275,8 @@ name|QPlatformMenuItem
 operator|*
 name|menuItem
 argument_list|)
+operator|=
+literal|0
 block|;
 name|virtual
 name|void
@@ -255,6 +284,46 @@ name|syncSeparatorsCollapsible
 argument_list|(
 argument|bool enable
 argument_list|)
+operator|=
+literal|0
+block|;
+name|virtual
+name|void
+name|setTag
+argument_list|(
+argument|quintptr tag
+argument_list|)
+operator|=
+literal|0
+block|;
+name|virtual
+name|quintptr
+name|tag
+argument_list|()
+specifier|const
+operator|=
+literal|0
+block|;
+name|virtual
+name|void
+name|setText
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|text
+argument_list|)
+operator|=
+literal|0
+block|;
+name|virtual
+name|void
+name|setEnabled
+argument_list|(
+argument|bool enabled
+argument_list|)
+operator|=
+literal|0
 block|;
 name|virtual
 name|QPlatformMenuItem
@@ -264,6 +333,8 @@ argument_list|(
 argument|int position
 argument_list|)
 specifier|const
+operator|=
+literal|0
 block|;
 name|virtual
 name|QPlatformMenuItem
@@ -273,6 +344,8 @@ argument_list|(
 argument|quintptr tag
 argument_list|)
 specifier|const
+operator|=
+literal|0
 block|;
 name|Q_SIGNALS
 operator|:
@@ -292,7 +365,7 @@ name|Q_GUI_EXPORT
 name|QPlatformMenuBar
 range|:
 name|public
-name|QPlatformMenu
+name|QObject
 block|{
 name|Q_OBJECT
 name|public
@@ -309,6 +382,8 @@ name|QPlatformMenu
 operator|*
 name|before
 argument_list|)
+operator|=
+literal|0
 block|;
 name|virtual
 name|void
@@ -318,15 +393,19 @@ name|QPlatformMenu
 operator|*
 name|menu
 argument_list|)
+operator|=
+literal|0
 block|;
 name|virtual
 name|void
 name|syncMenu
 argument_list|(
-name|QPlatformMenuItem
+name|QPlatformMenu
 operator|*
 name|menuItem
 argument_list|)
+operator|=
+literal|0
 block|;
 name|virtual
 name|void
@@ -336,6 +415,8 @@ name|QWindow
 operator|*
 name|newParentWindow
 argument_list|)
+operator|=
+literal|0
 block|;
 name|virtual
 name|QPlatformMenu
@@ -345,6 +426,8 @@ argument_list|(
 argument|quintptr tag
 argument_list|)
 specifier|const
+operator|=
+literal|0
 block|; }
 decl_stmt|;
 end_decl_stmt

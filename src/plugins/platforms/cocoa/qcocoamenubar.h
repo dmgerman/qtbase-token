@@ -84,7 +84,7 @@ name|virtual
 name|void
 name|syncMenu
 argument_list|(
-name|QPlatformMenuItem
+name|QPlatformMenu
 operator|*
 name|menuItem
 argument_list|)
