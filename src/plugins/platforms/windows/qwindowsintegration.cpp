@@ -1556,6 +1556,11 @@ name|QPlatformIntegration
 operator|::
 name|ShowIsFullScreen
 case|:
+case|case
+name|QPlatformIntegration
+operator|::
+name|PasswordMaskDelay
+case|:
 break|break;
 comment|// Not implemented
 case|case

@@ -427,6 +427,11 @@ name|QLocale
 operator|::
 name|ImperialSystem
 case|:
+case|case
+name|QLocale
+operator|::
+name|ImperialUKSystem
+case|:
 name|psd
 operator|.
 name|Flags
