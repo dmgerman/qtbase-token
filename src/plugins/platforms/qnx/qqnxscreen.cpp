@@ -201,7 +201,10 @@ literal|1
 index|]
 argument_list|)
 expr_stmt|;
-comment|// Cache size of this display in millimeters
+comment|// Cache size of this display in millimeters. We have to take care of the orientation.
+comment|// libscreen always reports the physical size dimensions as width and height in the
+comment|// landscape orientation. Contrary to this, QPlatformScreen::physicalSize() expects the
+comment|// returned dimensions to follow the current orientation.
 name|errno
 operator|=
 literal|0
@@ -232,6 +235,16 @@ name|errno
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|m_currentRotation
+operator|==
+literal|0
+operator|||
+name|m_currentRotation
+operator|==
+literal|180
+condition|)
 name|m_currentPhysicalSize
 operator|=
 name|m_initialPhysicalSize
@@ -246,6 +259,24 @@ argument_list|,
 name|val
 index|[
 literal|1
+index|]
+argument_list|)
+expr_stmt|;
+else|else
+name|m_currentPhysicalSize
+operator|=
+name|m_initialPhysicalSize
+operator|=
+name|QSize
+argument_list|(
+name|val
+index|[
+literal|1
+index|]
+argument_list|,
+name|val
+index|[
+literal|0
 index|]
 argument_list|)
 expr_stmt|;
