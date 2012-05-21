@@ -1207,7 +1207,7 @@ name|end
 argument_list|,
 name|QUrl
 operator|::
-name|MostDecoded
+name|DecodeReserved
 argument_list|,
 name|actions
 argument_list|)
@@ -3985,7 +3985,7 @@ name|end
 argument_list|,
 name|QUrl
 operator|::
-name|MostDecoded
+name|DecodeReserved
 argument_list|,
 literal|0
 argument_list|)

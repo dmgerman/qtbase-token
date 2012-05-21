@@ -534,7 +534,7 @@ argument_list|()
 argument_list|,
 name|QUrl
 operator|::
-name|MostDecoded
+name|DecodeReserved
 argument_list|,
 name|prettyDecodedActions
 argument_list|)
@@ -842,7 +842,7 @@ name|delimiter
 argument_list|,
 name|QUrl
 operator|::
-name|MostDecoded
+name|DecodeReserved
 argument_list|,
 name|prettyDecodedActions
 argument_list|)
@@ -931,7 +931,7 @@ name|pos
 argument_list|,
 name|QUrl
 operator|::
-name|MostDecoded
+name|DecodeReserved
 argument_list|,
 name|prettyDecodedActions
 argument_list|)

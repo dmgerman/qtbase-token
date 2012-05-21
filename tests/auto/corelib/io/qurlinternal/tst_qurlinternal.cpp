@@ -5353,6 +5353,8 @@ argument_list|(
 name|data
 argument_list|)
 decl_stmt|;
+comment|// this data contains invaild UTF-8 sequences, so FullyDecoded doesn't work (by design)
+comment|// use PrettyDecoded instead
 name|QTest
 operator|::
 name|newRow
@@ -5373,7 +5375,7 @@ name|ComponentFormattingOptions
 argument_list|(
 name|QUrl
 operator|::
-name|MostDecoded
+name|PrettyDecoded
 argument_list|)
 operator|<<
 name|decoded
@@ -5984,7 +5986,7 @@ name|F
 argument_list|(
 name|QUrl
 operator|::
-name|MostDecoded
+name|PrettyDecoded
 argument_list|)
 operator|<<
 literal|"%01abc%02%1Besc"
@@ -6009,7 +6011,7 @@ name|F
 argument_list|(
 name|QUrl
 operator|::
-name|MostDecoded
+name|PrettyDecoded
 argument_list|)
 operator|<<
 literal|"abc%00def"
@@ -6028,7 +6030,7 @@ name|F
 argument_list|(
 name|QUrl
 operator|::
-name|MostDecoded
+name|PrettyDecoded
 argument_list|)
 operator|<<
 literal|"Hello World "
@@ -6082,7 +6084,7 @@ name|F
 argument_list|(
 name|QUrl
 operator|::
-name|MostDecoded
+name|PrettyDecoded
 argument_list|)
 operator|<<
 literal|"Hello World "
@@ -6120,7 +6122,7 @@ name|F
 argument_list|(
 name|QUrl
 operator|::
-name|MostDecoded
+name|PrettyDecoded
 argument_list|)
 operator|<<
 literal|"%01%02 0"
@@ -6138,7 +6140,7 @@ name|F
 argument_list|(
 name|QUrl
 operator|::
-name|MostDecoded
+name|PrettyDecoded
 argument_list|)
 operator|<<
 literal|" %01%02"
@@ -6462,7 +6464,7 @@ name|F
 argument_list|(
 name|QUrl
 operator|::
-name|MostDecoded
+name|PrettyDecoded
 argument_list|)
 operator|<<
 name|QString
@@ -6485,7 +6487,7 @@ name|F
 argument_list|(
 name|QUrl
 operator|::
-name|MostDecoded
+name|PrettyDecoded
 argument_list|)
 operator|<<
 name|QString
@@ -6508,7 +6510,7 @@ name|F
 argument_list|(
 name|QUrl
 operator|::
-name|MostDecoded
+name|PrettyDecoded
 argument_list|)
 operator|<<
 name|QString
@@ -6531,7 +6533,7 @@ name|F
 argument_list|(
 name|QUrl
 operator|::
-name|MostDecoded
+name|PrettyDecoded
 argument_list|)
 operator|<<
 name|QString
@@ -6554,7 +6556,7 @@ name|F
 argument_list|(
 name|QUrl
 operator|::
-name|MostDecoded
+name|PrettyDecoded
 argument_list|)
 operator|<<
 name|QString
@@ -6790,7 +6792,7 @@ argument_list|()
 argument_list|,
 name|QUrl
 operator|::
-name|MostDecoded
+name|PrettyDecoded
 argument_list|)
 condition|)
 name|output

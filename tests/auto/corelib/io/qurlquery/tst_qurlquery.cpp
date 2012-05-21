@@ -4308,7 +4308,7 @@ name|F
 argument_list|(
 name|QUrl
 operator|::
-name|MostDecoded
+name|PrettyDecoded
 argument_list|)
 operator|<<
 literal|"%2B=%2B"
@@ -4667,7 +4667,7 @@ name|queryItems
 argument_list|(
 name|QUrl
 operator|::
-name|MostDecoded
+name|PrettyDecoded
 argument_list|)
 argument_list|,
 name|expected

@@ -8191,7 +8191,7 @@ name|toString
 argument_list|(
 name|QUrl
 operator|::
-name|MostDecoded
+name|DecodeReserved
 argument_list|)
 argument_list|,
 name|theUrl
@@ -20096,6 +20096,15 @@ argument_list|(
 literal|"toString"
 argument_list|)
 expr_stmt|;
+specifier|const
+name|int
+name|MostDecoded
+init|=
+name|QUrl
+operator|::
+name|DecodeReserved
+decl_stmt|;
+comment|// the most decoded mode without being fully decoded
 name|QTest
 operator|::
 name|newRow
@@ -20190,12 +20199,7 @@ argument_list|(
 literal|"x://user%20name:pass%20word@host/path%20name?query%20value#fragment%20value"
 argument_list|)
 operator|<<
-name|int
-argument_list|(
-name|QUrl
-operator|::
 name|MostDecoded
-argument_list|)
 operator|<<
 literal|"user name"
 operator|<<
@@ -20229,12 +20233,7 @@ argument_list|(
 literal|"x://%c0%00:%c1%01@host/%c2%02?%c3%03#%d4%04"
 argument_list|)
 operator|<<
-name|int
-argument_list|(
-name|QUrl
-operator|::
 name|MostDecoded
-argument_list|)
 operator|<<
 literal|"%C0%00"
 operator|<<
@@ -20310,12 +20309,7 @@ argument_list|(
 literal|"x://%C2%80:%C3%90@XN--SMRBRD-cyad.example.NO/%E0%A0%80?%F0%90%80%80#%C3%A9"
 argument_list|)
 operator|<<
-name|int
-argument_list|(
-name|QUrl
-operator|::
 name|MostDecoded
-argument_list|)
 operator|<<
 name|QString
 operator|::
@@ -20478,12 +20472,7 @@ argument_list|(
 literal|"x://%5b%3a%2f%3f%23%40%5d:%5b%2f%3f%23%40%5d@host/%2f%3f%23?%23"
 argument_list|)
 operator|<<
-name|int
-argument_list|(
-name|QUrl
-operator|::
 name|MostDecoded
-argument_list|)
 operator|<<
 literal|"[:/?#@]"
 operator|<<
@@ -20595,12 +20584,7 @@ argument_list|(
 literal|"x:/%5B%5D#%5B%5D"
 argument_list|)
 operator|<<
-name|int
-argument_list|(
-name|QUrl
-operator|::
 name|MostDecoded
-argument_list|)
 operator|<<
 literal|""
 operator|<<
@@ -20680,12 +20664,7 @@ argument_list|(
 literal|"?!$()*+,;=:/?[]@%21%24%26%27%28%29%2a%2b%2c%2f%3a%3b%3d%3f%40%5b%5d"
 argument_list|)
 operator|<<
-name|int
-argument_list|(
-name|QUrl
-operator|::
 name|MostDecoded
-argument_list|)
 operator|<<
 name|QString
 argument_list|()
