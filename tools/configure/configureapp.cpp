@@ -19154,52 +19154,17 @@ if|if
 condition|(
 name|dictionary
 index|[
+name|QStringLiteral
+argument_list|(
 literal|"EDITION"
+argument_list|)
 index|]
-operator|==
+operator|!=
+name|QStringLiteral
+argument_list|(
 literal|"OpenSource"
+argument_list|)
 condition|)
-block|{
-name|sout
-operator|<<
-literal|"You are licensed to use this software under the terms of the GNU GPL version 3."
-expr_stmt|;
-name|sout
-operator|<<
-literal|"You are licensed to use this software under the terms of the Lesser GNU LGPL version 2.1."
-operator|<<
-name|endl
-expr_stmt|;
-name|sout
-operator|<<
-literal|"See "
-operator|<<
-name|dictionary
-index|[
-literal|"LICENSE FILE"
-index|]
-operator|<<
-literal|"3"
-operator|<<
-name|endl
-operator|<<
-name|endl
-operator|<<
-literal|" or "
-operator|<<
-name|dictionary
-index|[
-literal|"LICENSE FILE"
-index|]
-operator|<<
-literal|"L"
-operator|<<
-name|endl
-operator|<<
-name|endl
-expr_stmt|;
-block|}
-else|else
 block|{
 name|QString
 name|l1
