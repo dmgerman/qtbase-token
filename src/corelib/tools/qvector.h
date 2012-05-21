@@ -163,7 +163,7 @@ operator|.
 name|deref
 argument_list|()
 condition|)
-name|free
+name|freeData
 argument_list|(
 name|d
 argument_list|)
@@ -416,7 +416,7 @@ name|void
 name|squeeze
 parameter_list|()
 block|{
-name|realloc
+name|reallocData
 argument_list|(
 name|d
 operator|->
@@ -1745,7 +1745,7 @@ comment|// Optimization for QRegion::rects()
 end_comment
 begin_decl_stmt
 name|void
-name|realloc
+name|reallocData
 argument_list|(
 specifier|const
 name|int
@@ -1768,7 +1768,7 @@ decl_stmt|;
 end_decl_stmt
 begin_function_decl
 name|void
-name|free
+name|freeData
 parameter_list|(
 name|Data
 modifier|*
@@ -2233,7 +2233,7 @@ name|d
 operator|->
 name|alloc
 condition|)
-name|realloc
+name|reallocData
 argument_list|(
 name|d
 operator|->
@@ -2292,7 +2292,7 @@ operator|->
 name|alloc
 argument_list|)
 condition|)
-name|realloc
+name|reallocData
 argument_list|(
 name|d
 operator|->
@@ -2429,7 +2429,7 @@ expr_stmt|;
 block|}
 end_else
 begin_expr_stmt
-name|realloc
+name|reallocData
 argument_list|(
 name|asize
 argument_list|,
@@ -3190,7 +3190,7 @@ operator|<
 name|T
 operator|>
 operator|::
-name|free
+name|freeData
 argument_list|(
 argument|Data *x
 argument_list|)
@@ -3226,7 +3226,7 @@ operator|<
 name|T
 operator|>
 operator|::
-name|realloc
+name|reallocData
 argument_list|(
 argument|const int asize
 argument_list|,
@@ -3678,7 +3678,7 @@ condition|)
 block|{
 comment|// data was copy constructed, we need to call destructors
 comment|// or if !alloc we did nothing to the old 'd'.
-name|free
+name|freeData
 argument_list|(
 name|d
 argument_list|)
@@ -3948,7 +3948,7 @@ operator|::
 name|Default
 argument_list|)
 expr_stmt|;
-name|realloc
+name|reallocData
 argument_list|(
 name|d
 operator|->
@@ -4082,7 +4082,7 @@ operator|->
 name|alloc
 argument_list|)
 condition|)
-name|realloc
+name|reallocData
 argument_list|(
 name|d
 operator|->
@@ -4762,7 +4762,7 @@ name|d
 operator|->
 name|size
 block|;
-name|realloc
+name|reallocData
 argument_list|(
 name|d
 operator|->
