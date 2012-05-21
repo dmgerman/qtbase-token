@@ -18,23 +18,11 @@ include|#
 directive|include
 file|"qevdevkeyboardhandler.h"
 end_include
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_LIBUDEV
-end_ifndef
 begin_include
 include|#
 directive|include
-file|<QtPlatformSupport/private/qudevicehelper_p.h>
+file|<QtPlatformSupport/private/qdevicediscovery_p.h>
 end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_NO_LIBUDEV
-end_comment
 begin_include
 include|#
 directive|include
@@ -118,17 +106,10 @@ operator|*
 operator|>
 name|m_keyboards
 block|;
-ifndef|#
-directive|ifndef
-name|QT_NO_LIBUDEV
-name|QUDeviceHelper
+name|QDeviceDiscovery
 operator|*
-name|m_udeviceHelper
-block|;
-endif|#
-directive|endif
-comment|// QT_NO_LIBUDEV
-block|}
+name|m_deviceDiscovery
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_expr_stmt

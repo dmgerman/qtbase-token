@@ -37,23 +37,11 @@ include|#
 directive|include
 file|<QtCore/private/qcore_unix_p.h>
 end_include
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_LIBUDEV
-end_ifndef
 begin_include
 include|#
 directive|include
-file|<QtPlatformSupport/private/qudevicehelper_p.h>
+file|<QtPlatformSupport/private/qdevicediscovery_p.h>
 end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_NO_LIBUDEV
-end_comment
 begin_include
 include|#
 directive|include
@@ -648,9 +636,6 @@ expr_stmt|;
 break|break;
 block|}
 block|}
-ifndef|#
-directive|ifndef
-name|QT_NO_LIBUDEV
 if|if
 condition|(
 name|dev
@@ -662,21 +647,21 @@ block|{
 comment|// try to let udev scan for already connected devices
 name|QScopedPointer
 argument_list|<
-name|QUDeviceHelper
+name|QDeviceDiscovery
 argument_list|>
-name|udeviceHelper
+name|deviceDiscovery
 argument_list|(
-name|QUDeviceHelper
+name|QDeviceDiscovery
 operator|::
-name|createUDeviceHelper
+name|create
 argument_list|(
-name|QUDeviceHelper
+name|QDeviceDiscovery
 operator|::
-name|UDev_Touchpad
+name|Device_Touchpad
 operator||
-name|QUDeviceHelper
+name|QDeviceDiscovery
 operator|::
-name|UDev_Touchscreen
+name|Device_Touchscreen
 argument_list|,
 name|this
 argument_list|)
@@ -684,13 +669,13 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|udeviceHelper
+name|deviceDiscovery
 condition|)
 block|{
 name|QStringList
 name|devices
 init|=
-name|udeviceHelper
+name|deviceDiscovery
 operator|->
 name|scanConnectedDevices
 argument_list|()
@@ -714,9 +699,6 @@ index|]
 expr_stmt|;
 block|}
 block|}
-endif|#
-directive|endif
-comment|// QT_NO_LIBUDEV
 if|if
 condition|(
 name|dev
@@ -724,13 +706,7 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
-name|dev
-operator|=
-name|QLatin1String
-argument_list|(
-literal|"/dev/input/event0"
-argument_list|)
-expr_stmt|;
+return|return;
 name|qDebug
 argument_list|(
 literal|"evdevtouch: Using device %s"
