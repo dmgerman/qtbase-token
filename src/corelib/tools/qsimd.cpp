@@ -751,6 +751,9 @@ ifdef|#
 directive|ifdef
 name|Q_OS_WIN
 end_ifdef
+begin_comment
+comment|// fallback overload in case this intrinsic does not exist: unsigned __int64 _xgetbv(unsigned int);
+end_comment
 begin_function
 specifier|inline
 name|quint64
@@ -773,7 +776,7 @@ specifier|static
 name|void
 name|xgetbv
 parameter_list|(
-name|int
+name|uint
 name|in
 parameter_list|,
 name|uint
