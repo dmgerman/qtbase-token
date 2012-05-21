@@ -872,6 +872,18 @@ if|if
 condition|(
 name|m_primaryScreen
 condition|)
+block|{
+name|QWindowSystemInterface
+operator|::
+name|handleScreenOrientationChange
+argument_list|(
+name|screen
+argument_list|()
+argument_list|,
+name|orientation
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|QWindowSystemInterface
 operator|::
 name|handleScreenGeometryChange
@@ -882,6 +894,7 @@ argument_list|,
 name|m_currentGeometry
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_function
