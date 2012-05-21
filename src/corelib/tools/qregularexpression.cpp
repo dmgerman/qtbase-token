@@ -2639,12 +2639,6 @@ argument_list|,
 name|d
 operator|->
 name|errorString
-argument_list|,
-literal|0
-argument_list|,
-name|QCoreApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 return|;
 return|return
@@ -2655,12 +2649,6 @@ argument_list|(
 literal|"QRegularExpression"
 argument_list|,
 literal|"no error"
-argument_list|,
-literal|0
-argument_list|,
-name|QCoreApplication
-operator|::
-name|UnicodeUTF8
 argument_list|)
 return|;
 block|}
