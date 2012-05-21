@@ -768,6 +768,8 @@ block|{
 name|TolerantMode
 block|,
 name|StrictMode
+block|,
+name|DecodedMode
 block|}
 enum|;
 comment|// encoding / toString values
