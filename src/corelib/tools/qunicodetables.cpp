@@ -152378,6 +152378,14 @@ block|,
 name|Common
 block|}
 decl_stmt|;
+DECL|enumerator|ScriptSentinel
+enum|enum
+block|{
+name|ScriptSentinel
+init|=
+literal|32
+block|}
+enum|;
 DECL|function|script
 name|Q_CORE_EXPORT
 name|int

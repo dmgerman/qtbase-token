@@ -9346,7 +9346,7 @@ expr_stmt|;
 block|}
 name|declaration
 operator|+=
-literal|"\n    };\n"
+literal|"\n    };\n\n"
 expr_stmt|;
 name|scriptSentinel
 operator|=
@@ -9363,23 +9363,6 @@ operator|*
 literal|32
 expr_stmt|;
 comment|// a multiple of 32
-name|declaration
-operator|+=
-literal|"    enum { ScriptSentinel = "
-expr_stmt|;
-name|declaration
-operator|+=
-name|QByteArray
-operator|::
-name|number
-argument_list|(
-name|scriptSentinel
-argument_list|)
-expr_stmt|;
-name|declaration
-operator|+=
-literal|" };\n\n"
-expr_stmt|;
 return|return
 name|declaration
 return|;
@@ -10085,6 +10068,19 @@ block|}
 name|declaration
 operator|+=
 literal|"\n};\n\n"
+expr_stmt|;
+name|declaration
+operator|+=
+literal|"enum { ScriptSentinel = "
+operator|+
+name|QByteArray
+operator|::
+name|number
+argument_list|(
+name|scriptSentinel
+argument_list|)
+operator|+
+literal|" };\n\n"
 expr_stmt|;
 name|declaration
 operator|+=

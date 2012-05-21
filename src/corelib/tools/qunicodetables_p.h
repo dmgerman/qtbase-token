@@ -412,13 +412,6 @@ name|Common
 block|}
 enum|;
 enum|enum
-block|{
-name|ScriptSentinel
-init|=
-literal|32
-block|}
-enum|;
-enum|enum
 name|GraphemeBreak
 block|{
 name|GraphemeBreakOther
