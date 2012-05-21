@@ -145,7 +145,7 @@ name|challenge
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN32
+name|Q_OS_WIN
 name|QNtlmWindowsHandles
 modifier|*
 name|ntlmWindowsHandles
