@@ -321,6 +321,10 @@ specifier|const
 expr_stmt|;
 name|protected
 label|:
+name|void
+name|resizeMaximizedWindows
+parameter_list|()
+function_decl|;
 name|QScopedPointer
 operator|<
 name|QPlatformScreenPrivate
