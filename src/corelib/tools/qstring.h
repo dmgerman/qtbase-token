@@ -472,7 +472,7 @@ name|QStringLiteral
 parameter_list|(
 name|str
 parameter_list|)
-value|QString::fromUtf8(str, sizeof(str) - 1)
+value|QString::fromUtf8("" str "", sizeof(str) - 1)
 end_define
 begin_endif
 endif|#
