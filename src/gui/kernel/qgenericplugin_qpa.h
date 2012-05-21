@@ -29,7 +29,6 @@ name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
 name|QT_NO_LIBRARY
-comment|//class QGenericObject; ?????
 expr|struct
 DECL|struct|QFactoryInterface
 name|Q_GUI_EXPORT
