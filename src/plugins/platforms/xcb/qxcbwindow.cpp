@@ -546,6 +546,11 @@ name|m_netWmUserTimeWindow
 argument_list|(
 name|XCB_NONE
 argument_list|)
+member_init_list|,
+name|m_dirtyFrameMargins
+argument_list|(
+literal|false
+argument_list|)
 if|#
 directive|if
 name|defined
