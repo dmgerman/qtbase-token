@@ -6723,8 +6723,14 @@ name|appname
 init|=
 name|coreappdata
 argument_list|()
+condition|?
+name|coreappdata
+argument_list|()
 operator|->
 name|application
+else|:
+name|QString
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
