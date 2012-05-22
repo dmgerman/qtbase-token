@@ -2171,6 +2171,30 @@ endif|#
 directive|endif
 argument_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
+name|Q_ASSERT_X
+argument_list|(
+name|normalizedTypeName
+operator|==
+name|QMetaObject
+operator|::
+name|normalizedType
+argument_list|(
+name|normalizedTypeName
+operator|.
+name|constData
+argument_list|()
+argument_list|)
+argument_list|,
+literal|"qRegisterNormalizedMetaType"
+argument_list|,
+literal|"qRegisterNormalizedMetaType was called with a not normalized type name, please call qRegisterMetaType instead."
+argument_list|)
+block|;
+endif|#
+directive|endif
 specifier|const
 name|int
 name|typedefOf
@@ -2565,25 +2589,32 @@ name|classNameStar
 operator|.
 name|append
 argument_list|(
-literal|"*\0"
-argument_list|,
-literal|2
+literal|'*'
 argument_list|)
 expr_stmt|;
 name|metatype_id
 operator|.
 name|storeRelease
 argument_list|(
-name|qRegisterMetaType
+name|qRegisterNormalizedMetaType
 operator|<
 name|T
 operator|*
 operator|>
 operator|(
+expr|\
+name|QByteArray
+argument_list|(
 name|classNameStar
 operator|.
 name|constData
 argument_list|()
+argument_list|,
+name|classNameStar
+operator|.
+name|size
+argument_list|()
+argument_list|)
 operator|,
 name|reinterpret_cast
 operator|<
@@ -2908,7 +2939,7 @@ parameter_list|(
 name|SINGLE_ARG_TEMPLATE
 parameter_list|)
 define|\
-value|template<typename T> \ struct QMetaTypeId< SINGLE_ARG_TEMPLATE<T>> \ { \     enum { \         Defined = QMetaTypeId2<T>::Defined \     }; \     static int qt_metatype_id() \     { \         static QBasicAtomicInt metatype_id = Q_BASIC_ATOMIC_INITIALIZER(0); \         if (!metatype_id.load()) \             metatype_id.storeRelease(qRegisterMetaType< SINGLE_ARG_TEMPLATE<T>>( QByteArray(QByteArray(#SINGLE_ARG_TEMPLATE "<") + QMetaType::typeName(qMetaTypeId<T>()) + ">").constData(), \                         reinterpret_cast< SINGLE_ARG_TEMPLATE<T> *>(quintptr(-1)))); \         return metatype_id.loadAcquire(); \     } \ };
+value|template<typename T> \ struct QMetaTypeId< SINGLE_ARG_TEMPLATE<T>> \ { \     enum { \         Defined = QMetaTypeId2<T>::Defined \     }; \     static int qt_metatype_id() \     { \         static QBasicAtomicInt metatype_id = Q_BASIC_ATOMIC_INITIALIZER(0); \         if (!metatype_id.load()) { \             QVarLengthArray<char, 24> name; \             name.append(#SINGLE_ARG_TEMPLATE, sizeof(#SINGLE_ARG_TEMPLATE) - 1); \             name.append('<'); \             const char *tName = QMetaType::typeName(qMetaTypeId<T>()); \             Q_ASSERT(tName); \             name.append(tName, strlen(tName)); \             if (name.last() == '>') \                 name.append(' '); \             name.append('>'); \             metatype_id.storeRelease( \                     qRegisterNormalizedMetaType< SINGLE_ARG_TEMPLATE<T>>( \                         QByteArray(name.constData(), name.size()), \                         reinterpret_cast< SINGLE_ARG_TEMPLATE<T> *>(quintptr(-1)))); \         } \         return metatype_id.loadAcquire(); \     } \ };
 end_define
 begin_define
 DECL|macro|Q_DECLARE_METATYPE_TEMPLATE_2ARG
@@ -2919,7 +2950,7 @@ parameter_list|(
 name|DOUBLE_ARG_TEMPLATE
 parameter_list|)
 define|\
-value|template<typename T, typename U> \ struct QMetaTypeId< DOUBLE_ARG_TEMPLATE<T, U>> \ { \     enum { \         Defined = QMetaTypeId2<T>::Defined&& QMetaTypeId2<U>::Defined \     }; \     static int qt_metatype_id() \     { \         static QBasicAtomicInt metatype_id = Q_BASIC_ATOMIC_INITIALIZER(0); \         if (!metatype_id.load()) \             metatype_id.storeRelease(qRegisterMetaType< DOUBLE_ARG_TEMPLATE<T, U>>( QByteArray(QByteArray(#DOUBLE_ARG_TEMPLATE "<") + QMetaType::typeName(qMetaTypeId<T>()) + ", " + QMetaType::typeName(qMetaTypeId<U>()) + ">").constData(), \                         reinterpret_cast< DOUBLE_ARG_TEMPLATE<T, U> *>(quintptr(-1)))); \         return metatype_id.loadAcquire(); \     } \ };
+value|template<typename T, typename U> \ struct QMetaTypeId< DOUBLE_ARG_TEMPLATE<T, U>> \ { \     enum { \         Defined = QMetaTypeId2<T>::Defined&& QMetaTypeId2<U>::Defined \     }; \     static int qt_metatype_id() \     { \         static QBasicAtomicInt metatype_id = Q_BASIC_ATOMIC_INITIALIZER(0); \         if (!metatype_id.load()) {\             QVarLengthArray<char, 24> name; \             name.append(#DOUBLE_ARG_TEMPLATE, sizeof(#DOUBLE_ARG_TEMPLATE) - 1); \             name.append('<'); \             const char *tName = QMetaType::typeName(qMetaTypeId<T>()); \             Q_ASSERT(tName); \             name.append(tName, strlen(tName)); \             name.append(','); \             const char *uName = QMetaType::typeName(qMetaTypeId<U>()); \             Q_ASSERT(uName); \             name.append(uName, strlen(uName)); \             if (name.last() == '>') \                 name.append(' '); \             name.append('>'); \             metatype_id.storeRelease(\                     qRegisterNormalizedMetaType< DOUBLE_ARG_TEMPLATE<T, U>>(\                         QByteArray(name.constData(), name.size()), \                         reinterpret_cast< DOUBLE_ARG_TEMPLATE<T, U> *>(quintptr(-1)))); \         }\         return metatype_id.loadAcquire(); \     } \ };
 end_define
 begin_macro
 DECL|function|Q_DECLARE_METATYPE_TEMPLATE_1ARG
