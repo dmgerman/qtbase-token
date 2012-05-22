@@ -2699,6 +2699,47 @@ name|minute
 decl_stmt|,
 name|second
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_CC_MSVC
+comment|// Use secure version to avoid compiler warning
+if|if
+condition|(
+name|sscanf_s
+argument_list|(
+name|value
+operator|.
+name|constData
+argument_list|()
+argument_list|,
+literal|"%*3s, %d %3s %d %d:%d:%d 'GMT'"
+argument_list|,
+operator|&
+name|day
+argument_list|,
+name|month_name
+argument_list|,
+literal|4
+argument_list|,
+operator|&
+name|year
+argument_list|,
+operator|&
+name|hour
+argument_list|,
+operator|&
+name|minute
+argument_list|,
+operator|&
+name|second
+argument_list|)
+operator|==
+literal|6
+condition|)
+else|#
+directive|else
+comment|// The POSIX secure mode is %ms (which allocates memory), too bleeding edge for now
+comment|// In any case this is already safe as field width is specified.
 if|if
 condition|(
 name|sscanf
@@ -2730,6 +2771,8 @@ argument_list|)
 operator|==
 literal|6
 condition|)
+endif|#
+directive|endif
 name|dt
 operator|=
 name|QDateTime

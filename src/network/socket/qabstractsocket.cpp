@@ -3798,13 +3798,8 @@ operator|::
 name|resume
 parameter_list|()
 block|{
-name|Q_D
-argument_list|(
-name|QAbstractSocket
-argument_list|)
-expr_stmt|;
-name|d
-operator|->
+name|QAbstractSocketPrivate
+operator|::
 name|resumeSocketNotifiers
 argument_list|(
 name|this
