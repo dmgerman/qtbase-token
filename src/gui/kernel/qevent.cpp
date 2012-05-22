@@ -172,6 +172,11 @@ name|mouseState
 argument_list|(
 name|buttons
 argument_list|)
+member_init_list|,
+name|caps
+argument_list|(
+literal|0
+argument_list|)
 block|{
 name|s
 operator|=
@@ -251,6 +256,11 @@ name|mouseState
 argument_list|(
 name|buttons
 argument_list|)
+member_init_list|,
+name|caps
+argument_list|(
+literal|0
+argument_list|)
 block|{}
 end_constructor
 begin_comment
@@ -326,6 +336,11 @@ member_init_list|,
 name|mouseState
 argument_list|(
 name|buttons
+argument_list|)
+member_init_list|,
+name|caps
+argument_list|(
+literal|0
 argument_list|)
 block|{}
 end_constructor

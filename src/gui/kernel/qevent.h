@@ -445,6 +445,16 @@ name|Qt
 operator|::
 name|MouseButtons
 name|mouseState
+block|;
+name|int
+name|caps
+block|;
+name|QVector2D
+name|velocity
+block|;
+name|friend
+name|class
+name|QGuiApplicationPrivate
 block|; }
 decl_stmt|;
 end_decl_stmt
