@@ -894,6 +894,9 @@ argument_list|,
 name|m_currentGeometry
 argument_list|)
 expr_stmt|;
+name|resizeMaximizedWindows
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 block|}
