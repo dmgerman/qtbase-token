@@ -5209,7 +5209,7 @@ argument_list|()
 operator|<<
 name|QAccessibleActionInterface
 operator|::
-name|checkAction
+name|toggleAction
 argument_list|()
 operator|<<
 name|QAccessibleActionInterface
@@ -5226,13 +5226,13 @@ name|localizedActionDescription
 argument_list|(
 name|QAccessibleActionInterface
 operator|::
-name|checkAction
+name|toggleAction
 argument_list|()
 argument_list|)
 argument_list|,
 name|QString
 argument_list|(
-literal|"Checks the checkbox"
+literal|"Toggles the state"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5262,7 +5262,7 @@ name|doAction
 argument_list|(
 name|QAccessibleActionInterface
 operator|::
-name|checkAction
+name|toggleAction
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -5295,7 +5295,7 @@ argument_list|)
 argument_list|,
 name|QAccessibleActionInterface
 operator|::
-name|uncheckAction
+name|toggleAction
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -5482,7 +5482,7 @@ argument_list|()
 operator|<<
 name|QAccessibleActionInterface
 operator|::
-name|checkAction
+name|toggleAction
 argument_list|()
 operator|<<
 name|QAccessibleActionInterface
@@ -5508,7 +5508,7 @@ name|doAction
 argument_list|(
 name|QAccessibleActionInterface
 operator|::
-name|checkAction
+name|toggleAction
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -5531,7 +5531,7 @@ argument_list|()
 operator|<<
 name|QAccessibleActionInterface
 operator|::
-name|uncheckAction
+name|toggleAction
 argument_list|()
 operator|<<
 name|QAccessibleActionInterface
@@ -5644,7 +5644,7 @@ argument_list|()
 operator|<<
 name|QAccessibleActionInterface
 operator|::
-name|checkAction
+name|toggleAction
 argument_list|()
 operator|<<
 name|QAccessibleActionInterface
@@ -5670,7 +5670,7 @@ name|doAction
 argument_list|(
 name|QAccessibleActionInterface
 operator|::
-name|checkAction
+name|toggleAction
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -5693,7 +5693,7 @@ argument_list|()
 operator|<<
 name|QAccessibleActionInterface
 operator|::
-name|checkAction
+name|toggleAction
 argument_list|()
 operator|<<
 name|QAccessibleActionInterface
@@ -13006,7 +13006,7 @@ name|contains
 argument_list|(
 name|QAccessibleActionInterface
 operator|::
-name|checkAction
+name|toggleAction
 argument_list|()
 argument_list|)
 argument_list|)
@@ -13017,7 +13017,7 @@ name|doAction
 argument_list|(
 name|QAccessibleActionInterface
 operator|::
-name|checkAction
+name|toggleAction
 argument_list|()
 argument_list|)
 expr_stmt|;

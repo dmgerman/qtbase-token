@@ -145,7 +145,7 @@ begin_comment
 comment|/*!     \class QAccessibleTableInterface     \ingroup accessibility     \internal      \brief The QAccessibleTableInterface class implements support for     the IAccessibleTable2 interface.      \link http://www.linux-foundation.org/en/Accessibility/IAccessible2 IAccessible2 Specification \endlink */
 end_comment
 begin_comment
-comment|/*!     \class QAccessibleActionInterface     \ingroup accessibility     \internal      \brief The QAccessibleActionInterface class implements support for     invocable actions in the interface.      Accessible objects should implement the action interface if they support user interaction.     Usually this interface is implemented by classes that also implement \l QAccessibleInterface.      The supported actions should use the predefined actions offered in this class unless they do not     fit a predefined action. In that case a custom action can be added.      When subclassing QAccessibleActionInterface you need to provide a list of actionNames which     is the primary means to discover the available actions. Action names are never localized.     In order to present actions to the user there are two functions that need to return localized versions     of the name and give a description of the action. For the predefined action names use     \l QAccessibleActionInterface::localizedActionName() and \l QAccessibleActionInterface::localizedActionDescription()     to return their localized counterparts.      In general you should use one of the predefined action names, unless describing an action that does not fit these:     \table     \header \li Action name         \li Description     \row    \li \l checkAction()    \li checks the item (checkbox, radio button, ...)     \row    \li \l decreaseAction() \li decrease the value of the accessible (e.g. spinbox)     \row    \li \l increaseAction() \li increase the value of the accessible (e.g. spinbox)     \row    \li \l pressAction()    \li press or click or activate the accessible (should correspont to clicking the object with the mouse)     \row    \li \l setFocusAction() \li set the focus to this accessible     \row    \li \l showMenuAction() \li show a context menu, corresponds to right-clicks     \row    \li \l uncheckAction()  \li uncheck the item (checkbox, radio button, ...)     \endtable      In order to invoke the action, \l doAction() is called with an action name.      Most widgets will simply implement \l pressAction(). This is what happens when the widget is activated by     being clicked, space pressed or similar.      \link http://www.linux-foundation.org/en/Accessibility/IAccessible2 IAccessible2 Specification \endlink */
+comment|/*!     \class QAccessibleActionInterface     \ingroup accessibility     \internal      \brief The QAccessibleActionInterface class implements support for     invocable actions in the interface.      Accessible objects should implement the action interface if they support user interaction.     Usually this interface is implemented by classes that also implement \l QAccessibleInterface.      The supported actions should use the predefined actions offered in this class unless they do not     fit a predefined action. In that case a custom action can be added.      When subclassing QAccessibleActionInterface you need to provide a list of actionNames which     is the primary means to discover the available actions. Action names are never localized.     In order to present actions to the user there are two functions that need to return localized versions     of the name and give a description of the action. For the predefined action names use     \l QAccessibleActionInterface::localizedActionName() and \l QAccessibleActionInterface::localizedActionDescription()     to return their localized counterparts.      In general you should use one of the predefined action names, unless describing an action that does not fit these:     \table     \header \li Action name         \li Description     \row    \li \l toggleAction()   \li toggles the item (checkbox, radio button, switch, ...)     \row    \li \l decreaseAction() \li decrease the value of the accessible (e.g. spinbox)     \row    \li \l increaseAction() \li increase the value of the accessible (e.g. spinbox)     \row    \li \l pressAction()    \li press or click or activate the accessible (should correspont to clicking the object with the mouse)     \row    \li \l setFocusAction() \li set the focus to this accessible     \row    \li \l showMenuAction() \li show a context menu, corresponds to right-clicks     \endtable      In order to invoke the action, \l doAction() is called with an action name.      Most widgets will simply implement \l pressAction(). This is what happens when the widget is activated by     being clicked, space pressed or similar.      \link http://www.linux-foundation.org/en/Accessibility/IAccessible2 IAccessible2 Specification \endlink */
 end_comment
 begin_comment
 comment|/*!     \fn QStringList QAccessibleActionInterface::actionNames() const      Returns the list of actions supported by this accessible object.     The actions returned should be in preferred order,     i.e. the action that the user most likely wants to trigger should be returned first,     while the least likely action should be returned last.      The list does only contain actions that can be invoked.     It won't return disabled actions, or actions associated with disabled UI controls.      The list can be empty.      Note that this list is not localized. For a localized representation re-implement \l localizedActionName()     and \l localizedActionDescription()      \sa doAction(), localizedActionName(), localizedActionDescription() */
@@ -248,32 +248,6 @@ literal|"Toggle"
 argument_list|)
 argument_list|)
 argument_list|)
-member_init_list|,
-name|checkAction
-argument_list|(
-name|QStringLiteral
-argument_list|(
-name|QT_TRANSLATE_NOOP
-argument_list|(
-literal|"QAccessibleActionInterface"
-argument_list|,
-literal|"Check"
-argument_list|)
-argument_list|)
-argument_list|)
-member_init_list|,
-name|uncheckAction
-argument_list|(
-name|QStringLiteral
-argument_list|(
-name|QT_TRANSLATE_NOOP
-argument_list|(
-literal|"QAccessibleActionInterface"
-argument_list|,
-literal|"Uncheck"
-argument_list|)
-argument_list|)
-argument_list|)
 block|{}
 DECL|member|pressAction
 specifier|const
@@ -304,16 +278,6 @@ DECL|member|toggleAction
 specifier|const
 name|QString
 name|toggleAction
-decl_stmt|;
-DECL|member|checkAction
-specifier|const
-name|QString
-name|checkAction
-decl_stmt|;
-DECL|member|uncheckAction
-specifier|const
-name|QString
-name|uncheckAction
 decl_stmt|;
 block|}
 struct|;
@@ -464,36 +428,6 @@ argument_list|(
 literal|"Toggles the state"
 argument_list|)
 return|;
-elseif|else
-if|if
-condition|(
-name|actionName
-operator|==
-name|strings
-operator|->
-name|checkAction
-condition|)
-return|return
-name|tr
-argument_list|(
-literal|"Checks the checkbox"
-argument_list|)
-return|;
-elseif|else
-if|if
-condition|(
-name|actionName
-operator|==
-name|strings
-operator|->
-name|uncheckAction
-condition|)
-return|return
-name|tr
-argument_list|(
-literal|"Unchecks the checkbox"
-argument_list|)
-return|;
 return|return
 name|QString
 argument_list|()
@@ -623,48 +557,6 @@ name|accessibleActionStrings
 argument_list|()
 operator|->
 name|toggleAction
-return|;
-block|}
-end_function
-begin_comment
-comment|/*!     Returns the name of the check default action.     \sa actionNames(), localizedActionName()   */
-end_comment
-begin_function
-DECL|function|checkAction
-specifier|const
-name|QString
-modifier|&
-name|QAccessibleActionInterface
-operator|::
-name|checkAction
-parameter_list|()
-block|{
-return|return
-name|accessibleActionStrings
-argument_list|()
-operator|->
-name|checkAction
-return|;
-block|}
-end_function
-begin_comment
-comment|/*!     Returns the name of the uncheck default action.     \sa actionNames(), localizedActionName()   */
-end_comment
-begin_function
-DECL|function|uncheckAction
-specifier|const
-name|QString
-modifier|&
-name|QAccessibleActionInterface
-operator|::
-name|uncheckAction
-parameter_list|()
-block|{
-return|return
-name|accessibleActionStrings
-argument_list|()
-operator|->
-name|uncheckAction
 return|;
 block|}
 end_function
