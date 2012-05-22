@@ -1141,20 +1141,6 @@ operator|::
 name|CaseInsensitive
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|fileinfo
-operator|.
-name|size
-argument_list|()
-operator|!=
-name|size
-argument_list|()
-condition|)
-comment|//if the size isn't the same...
-return|return
-literal|false
-return|;
 comment|// Fallback to expensive canonical path computation
 return|return
 name|canonicalFilePath
