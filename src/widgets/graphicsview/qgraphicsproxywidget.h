@@ -343,9 +343,21 @@ argument_list|(
 argument|bool next
 argument_list|)
 block|;
-comment|// ### Qt 4.5:
-comment|// QVariant inputMethodQuery(Qt::InputMethodQuery query) const;
-comment|// void inputMethodEvent(QInputMethodEvent *event);
+name|QVariant
+name|inputMethodQuery
+argument_list|(
+argument|Qt::InputMethodQuery query
+argument_list|)
+specifier|const
+block|;
+name|void
+name|inputMethodEvent
+argument_list|(
+name|QInputMethodEvent
+operator|*
+name|event
+argument_list|)
+block|;
 name|QSizeF
 name|sizeHint
 argument_list|(

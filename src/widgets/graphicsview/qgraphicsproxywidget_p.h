@@ -178,14 +178,6 @@ argument_list|,
 argument|Qt::FocusReason reason
 argument_list|)
 block|;
-comment|// ### Qt 5: Remove. Workaround for reimplementation added after Qt 4.4.
-name|QVariant
-name|inputMethodQueryHelper
-argument_list|(
-argument|Qt::InputMethodQuery query
-argument_list|)
-specifier|const
-block|;
 name|void
 name|_q_removeWidgetSlot
 argument_list|()

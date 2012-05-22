@@ -1211,18 +1211,6 @@ name|void
 name|updateSceneTransformFromParent
 parameter_list|()
 function_decl|;
-comment|// ### Qt 5: Remove. Workaround for reimplementation added after Qt 4.4.
-name|virtual
-name|QVariant
-name|inputMethodQueryHelper
-argument_list|(
-name|Qt
-operator|::
-name|InputMethodQuery
-name|query
-argument_list|)
-decl|const
-decl_stmt|;
 specifier|static
 name|bool
 name|movableAncestorIsSelected

@@ -1819,34 +1819,6 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal      This helper function helped us add input method query support in     Qt 4.4.1 without having to reimplement the inputMethodQuery()     function in QGraphicsProxyWidget. ### Qt 5: Remove. We cannot     remove it in 4.5+ even if we do reimplement the function properly,     because apps compiled with 4.4 will not be able to call the     reimplementation. */
-end_comment
-begin_function
-DECL|function|inputMethodQueryHelper
-name|QVariant
-name|QGraphicsItemPrivate
-operator|::
-name|inputMethodQueryHelper
-parameter_list|(
-name|Qt
-operator|::
-name|InputMethodQuery
-name|query
-parameter_list|)
-specifier|const
-block|{
-name|Q_UNUSED
-argument_list|(
-name|query
-argument_list|)
-expr_stmt|;
-return|return
-name|QVariant
-argument_list|()
-return|;
-block|}
-end_function
-begin_comment
 comment|/*!     \internal      Make sure not to trigger any pure virtual function calls (e.g.,     prepareGeometryChange) if the item is in its destructor, i.e.     inDestructor is 1. */
 end_comment
 begin_function
@@ -21782,24 +21754,6 @@ name|query
 parameter_list|)
 specifier|const
 block|{
-if|if
-condition|(
-name|isWidget
-argument_list|()
-condition|)
-block|{
-comment|// ### Qt 5: Remove. The reimplementation in
-comment|// QGraphicsProxyWidget solves this problem (but requires a
-comment|// recompile to take effect).
-return|return
-name|d_ptr
-operator|->
-name|inputMethodQueryHelper
-argument_list|(
-name|query
-argument_list|)
-return|;
-block|}
 name|Q_UNUSED
 argument_list|(
 name|query
