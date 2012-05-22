@@ -1137,8 +1137,10 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-name|m_surfaceSize
-operator|=
+name|platformWindow
+operator|->
+name|setBufferSize
+argument_list|(
 name|platformWindow
 operator|->
 name|geometry
@@ -1146,12 +1148,6 @@ argument_list|()
 operator|.
 name|size
 argument_list|()
-expr_stmt|;
-name|platformWindow
-operator|->
-name|setBufferSize
-argument_list|(
-name|m_surfaceSize
 argument_list|)
 expr_stmt|;
 block|}
@@ -1273,6 +1269,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|m_eglSurface
+operator|=
+name|EGL_NO_SURFACE
+expr_stmt|;
 block|}
 end_function
 begin_macro

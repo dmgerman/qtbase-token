@@ -150,9 +150,6 @@ block|;
 name|EGLSurface
 name|m_eglSurface
 block|;
-name|QSize
-name|m_surfaceSize
-block|;
 specifier|static
 name|EGLint
 operator|*
