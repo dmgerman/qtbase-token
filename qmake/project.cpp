@@ -8235,6 +8235,34 @@ name|line_no
 operator|=
 literal|0
 expr_stmt|;
+if|if
+condition|(
+name|qfile
+operator|.
+name|peek
+argument_list|(
+literal|3
+argument_list|)
+operator|==
+name|QByteArray
+argument_list|(
+literal|"\xef\xbb\xbf"
+argument_list|)
+condition|)
+block|{
+comment|//UTF-8 BOM will cause subtle errors
+name|qmake_error_msg
+argument_list|(
+literal|"Unexpected UTF-8 BOM found"
+argument_list|)
+expr_stmt|;
+name|ret
+operator|=
+literal|false
+expr_stmt|;
+block|}
+else|else
+block|{
 name|QTextStream
 name|t
 argument_list|(
@@ -8251,6 +8279,7 @@ argument_list|,
 name|place
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
