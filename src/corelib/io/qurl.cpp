@@ -8115,7 +8115,11 @@ block|{
 name|options
 operator|&=
 operator|~
-name|DecodeReserved
+operator|(
+name|FullyDecoded
+operator||
+name|FullyEncoded
+operator|)
 expr_stmt|;
 name|QString
 name|stringForm
