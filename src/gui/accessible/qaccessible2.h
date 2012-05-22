@@ -1036,6 +1036,13 @@ specifier|static
 specifier|const
 name|QString
 modifier|&
+name|toggleAction
+parameter_list|()
+function_decl|;
+specifier|static
+specifier|const
+name|QString
+modifier|&
 name|checkAction
 parameter_list|()
 function_decl|;
