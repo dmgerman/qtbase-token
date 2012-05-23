@@ -117,6 +117,16 @@ name|eglContext
 argument_list|()
 specifier|const
 block|;
+name|EGLDisplay
+name|eglDisplay
+argument_list|()
+specifier|const
+block|;
+name|EGLConfig
+name|eglConfig
+argument_list|()
+specifier|const
+block|;
 name|protected
 operator|:
 name|virtual
@@ -144,6 +154,10 @@ block|;
 name|EGLenum
 name|m_eglApi
 block|;
+name|EGLConfig
+name|m_eglConfig
+block|;
+specifier|const
 name|QSurfaceFormat
 name|m_format
 block|; }
