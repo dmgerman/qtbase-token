@@ -2184,7 +2184,7 @@ name|Qt
 operator|::
 name|Key_Launch0
 block|,
-comment|// ### Qt 5: remap properly
+comment|// ### Qt 6: remap properly
 name|XF86XK_Calculator
 block|,
 name|Qt
@@ -2797,7 +2797,7 @@ name|Qt
 operator|::
 name|Key_Launch2
 block|,
-comment|// ### Qt 5: remap properly
+comment|// ### Qt 6: remap properly
 name|XF86XK_Launch1
 block|,
 name|Qt
