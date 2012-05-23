@@ -1158,9 +1158,7 @@ specifier|static
 name|int
 name|size
 parameter_list|(
-specifier|const
 name|QCharRef
-modifier|&
 parameter_list|)
 block|{
 return|return
@@ -1174,9 +1172,7 @@ specifier|inline
 name|void
 name|appendTo
 parameter_list|(
-specifier|const
 name|QCharRef
-modifier|&
 name|c
 parameter_list|,
 name|QChar
