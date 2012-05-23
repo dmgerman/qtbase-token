@@ -33,6 +33,11 @@ include|#
 directive|include
 file|<QtCore/QSharedPointer>
 end_include
+begin_struct_decl
+struct_decl|struct
+name|IBindCtx
+struct_decl|;
+end_struct_decl
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QWindow

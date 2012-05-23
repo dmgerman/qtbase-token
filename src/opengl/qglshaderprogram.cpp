@@ -489,9 +489,16 @@ name|shader
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
-literal|"QGLShader: could not create shader"
+argument_list|(
+literal|"%s: Could not create shader of type %d."
+argument_list|,
+name|Q_FUNC_INFO
+argument_list|,
+name|int
+argument_list|(
+name|shaderType
+argument_list|)
+argument_list|)
 expr_stmt|;
 return|return
 literal|false
