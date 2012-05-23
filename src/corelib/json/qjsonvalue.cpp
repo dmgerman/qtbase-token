@@ -378,9 +378,7 @@ name|QJsonValue
 operator|::
 name|QJsonValue
 parameter_list|(
-specifier|const
 name|QLatin1String
-modifier|&
 name|s
 parameter_list|)
 member_init_list|:

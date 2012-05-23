@@ -450,9 +450,7 @@ DECL|function|qHash
 name|uint
 name|qHash
 parameter_list|(
-specifier|const
 name|QLatin1String
-modifier|&
 name|key
 parameter_list|,
 name|uint
@@ -2488,7 +2486,7 @@ begin_comment
 comment|/*! \fn uint qHash(QChar key)     \relates QHash      Returns the hash value for the \a key. */
 end_comment
 begin_comment
-comment|/*! \fn uint qHash(const QByteArray&key, uint seed = 0)     \fn uint qHash(const QBitArray&key, uint seed = 0)     \fn uint qHash(const QString&key, uint seed = 0)     \fn uint qHash(const QStringRef&key, uint seed = 0)     \fn uint qHash(const QLatin1String&key, uint seed = 0)      \relates QHash     \since 5.0      Returns the hash value for the \a key, using \a seed to     seed the calculation. */
+comment|/*! \fn uint qHash(const QByteArray&key, uint seed = 0)     \fn uint qHash(const QBitArray&key, uint seed = 0)     \fn uint qHash(const QString&key, uint seed = 0)     \fn uint qHash(const QStringRef&key, uint seed = 0)     \fn uint qHash(QLatin1String key, uint seed = 0)      \relates QHash     \since 5.0      Returns the hash value for the \a key, using \a seed to     seed the calculation. */
 end_comment
 begin_comment
 comment|/*! \fn uint qHash(const T *key)     \relates QHash      Returns the hash value for the \a key. */

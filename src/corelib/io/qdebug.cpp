@@ -119,7 +119,7 @@ begin_comment
 comment|/*!     \fn QDebug&QDebug::operator<<(const QStringRef&s)      Writes the string reference, \a s, to the stream and returns a reference to     the stream. */
 end_comment
 begin_comment
-comment|/*!     \fn QDebug&QDebug::operator<<(const QLatin1String&s)      Writes the Latin1-encoded string, \a s, to the stream and returns a reference     to the stream. */
+comment|/*!     \fn QDebug&QDebug::operator<<(QLatin1String s)      Writes the Latin1-encoded string, \a s, to the stream and returns a reference     to the stream. */
 end_comment
 begin_comment
 comment|/*!     \fn QDebug&QDebug::operator<<(const QByteArray&b)      Writes the byte array, \a b, to the stream and returns a reference to the     stream. */

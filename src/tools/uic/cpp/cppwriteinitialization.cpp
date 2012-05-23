@@ -16318,9 +16318,7 @@ name|WriteInitialization
 operator|::
 name|findWidget
 parameter_list|(
-specifier|const
 name|QLatin1String
-modifier|&
 name|widgetClass
 parameter_list|)
 block|{

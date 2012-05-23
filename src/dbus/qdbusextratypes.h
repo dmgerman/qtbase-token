@@ -71,9 +71,7 @@ specifier|inline
 name|explicit
 name|QDBusObjectPath
 parameter_list|(
-specifier|const
 name|QLatin1String
-modifier|&
 name|path
 parameter_list|)
 function_decl|;
@@ -145,10 +143,7 @@ name|QDBusObjectPath
 operator|::
 name|QDBusObjectPath
 argument_list|(
-specifier|const
-name|QLatin1String
-operator|&
-name|objectPath
+argument|QLatin1String objectPath
 argument_list|)
 operator|:
 name|m_path
@@ -344,9 +339,7 @@ specifier|inline
 name|explicit
 name|QDBusSignature
 parameter_list|(
-specifier|const
 name|QLatin1String
-modifier|&
 name|signature
 parameter_list|)
 function_decl|;
@@ -418,10 +411,7 @@ name|QDBusSignature
 operator|::
 name|QDBusSignature
 argument_list|(
-specifier|const
-name|QLatin1String
-operator|&
-name|dBusSignature
+argument|QLatin1String dBusSignature
 argument_list|)
 operator|:
 name|m_signature

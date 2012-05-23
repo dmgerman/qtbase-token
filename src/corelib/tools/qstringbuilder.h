@@ -1234,7 +1234,6 @@ name|size
 parameter_list|(
 specifier|const
 name|QLatin1String
-modifier|&
 name|a
 parameter_list|)
 block|{
@@ -1254,7 +1253,6 @@ name|appendTo
 parameter_list|(
 specifier|const
 name|QLatin1String
-modifier|&
 name|a
 parameter_list|,
 name|QChar
@@ -1300,7 +1298,6 @@ name|appendTo
 parameter_list|(
 specifier|const
 name|QLatin1String
-modifier|&
 name|a
 parameter_list|,
 name|char

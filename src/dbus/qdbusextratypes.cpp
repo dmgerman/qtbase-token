@@ -117,7 +117,7 @@ begin_comment
 comment|/*!     \fn QDBusObjectPath::QDBusObjectPath(const char *path)      Constructs a new object path from the given \a path.      \sa setPath() */
 end_comment
 begin_comment
-comment|/*!     \fn QDBusObjectPath::QDBusObjectPath(const QLatin1String&path)      Constructs a new object path from the given \a path. */
+comment|/*!     \fn QDBusObjectPath::QDBusObjectPath(QLatin1String path)      Constructs a new object path from the given \a path. */
 end_comment
 begin_comment
 comment|/*!     \fn QDBusObjectPath::QDBusObjectPath(const QString&path)      Constructs a new object path from the given \a path. */
@@ -141,7 +141,7 @@ begin_comment
 comment|/*!     \fn QDBusSignature::QDBusSignature(const char *signature)      Constructs a new signature from the given \a signature. */
 end_comment
 begin_comment
-comment|/*!     \fn QDBusSignature::QDBusSignature(const QLatin1String&signature)      Constructs a new signature from the given \a signature. */
+comment|/*!     \fn QDBusSignature::QDBusSignature(QLatin1String signature)      Constructs a new signature from the given \a signature. */
 end_comment
 begin_comment
 comment|/*!     \fn QDBusSignature::QDBusSignature(const QString&signature)      Constructs a new signature from the given \a signature. */

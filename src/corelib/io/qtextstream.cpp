@@ -8935,9 +8935,7 @@ operator|::
 name|operator
 name|<<
 parameter_list|(
-specifier|const
 name|QLatin1String
-modifier|&
 name|string
 parameter_list|)
 block|{

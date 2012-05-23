@@ -3451,9 +3451,7 @@ parameter_list|(
 name|TokenType
 name|t
 parameter_list|,
-specifier|const
 name|QLatin1String
-modifier|&
 name|str
 parameter_list|)
 function_decl|;

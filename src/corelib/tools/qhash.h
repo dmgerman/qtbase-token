@@ -548,9 +548,7 @@ name|Q_CORE_EXPORT
 name|uint
 name|qHash
 parameter_list|(
-specifier|const
 name|QLatin1String
-modifier|&
 name|key
 parameter_list|,
 name|uint

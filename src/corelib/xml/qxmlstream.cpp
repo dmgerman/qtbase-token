@@ -9140,9 +9140,7 @@ name|QString
 modifier|&
 name|namespaceUri
 parameter_list|,
-specifier|const
 name|QLatin1String
-modifier|&
 name|name
 parameter_list|)
 specifier|const
@@ -9212,14 +9210,10 @@ name|QXmlStreamAttributes
 operator|::
 name|value
 parameter_list|(
-specifier|const
 name|QLatin1String
-modifier|&
 name|namespaceUri
 parameter_list|,
-specifier|const
 name|QLatin1String
-modifier|&
 name|name
 parameter_list|)
 specifier|const
@@ -9354,9 +9348,7 @@ name|QXmlStreamAttributes
 operator|::
 name|value
 parameter_list|(
-specifier|const
 name|QLatin1String
-modifier|&
 name|qualifiedName
 parameter_list|)
 specifier|const
@@ -13716,7 +13708,7 @@ begin_comment
 comment|/*!  \fn bool QXmlStreamAttributes::hasAttribute(const QString&qualifiedName) const  \since 4.5   Returns true if this QXmlStreamAttributes has an attribute whose  qualified name is \a qualifiedName; otherwise returns false.   Note that this is not namespace aware. For instance, if this  QXmlStreamAttributes contains an attribute whose lexical name is "xlink:href"  this doesn't tell that an attribute named \c href in the XLink namespace is  present, since the \c xlink prefix can be bound to any namespace. Use the  overload that takes a namespace URI and a local name as parameter, for  namespace aware code. */
 end_comment
 begin_comment
-comment|/*!  \fn bool QXmlStreamAttributes::hasAttribute(const QLatin1String&qualifiedName) const  \overload  \since 4.5 */
+comment|/*!  \fn bool QXmlStreamAttributes::hasAttribute(QLatin1String qualifiedName) const  \overload  \since 4.5 */
 end_comment
 begin_comment
 comment|/*!  \fn bool QXmlStreamAttributes::hasAttribute(const QString&namespaceUri,                                              const QString&name) const  \overload  \since 4.5   Returns true if this QXmlStreamAttributes has an attribute whose  namespace URI and name correspond to \a namespaceUri and \a name;  otherwise returns false. */

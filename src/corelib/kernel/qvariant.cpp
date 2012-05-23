@@ -5318,7 +5318,7 @@ begin_comment
 comment|/*!   \fn QVariant::QVariant(const QString&val)      Constructs a new variant with a string value, \a val. */
 end_comment
 begin_comment
-comment|/*!   \fn QVariant::QVariant(const QLatin1String&val)      Constructs a new variant with a string value, \a val. */
+comment|/*!   \fn QVariant::QVariant(QLatin1String val)      Constructs a new variant with a string value, \a val. */
 end_comment
 begin_comment
 comment|/*!   \fn QVariant::QVariant(const char *val)      Constructs a new variant with a string value of \a val.     The variant creates a deep copy of \a val into a QString assuming     UTF-8 encoding on the input \a val.      Note that \a val is converted to a QString for storing in the     variant and QVariant::userType() will return QMetaType::QString for     the variant.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. */
@@ -5917,9 +5917,7 @@ name|QVariant
 operator|::
 name|QVariant
 parameter_list|(
-specifier|const
 name|QLatin1String
-modifier|&
 name|val
 parameter_list|)
 block|{

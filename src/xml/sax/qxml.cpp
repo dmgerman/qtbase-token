@@ -3425,9 +3425,7 @@ name|QXmlAttributes
 operator|::
 name|index
 parameter_list|(
-specifier|const
 name|QLatin1String
-modifier|&
 name|qName
 parameter_list|)
 specifier|const
@@ -3812,9 +3810,7 @@ name|QXmlAttributes
 operator|::
 name|value
 parameter_list|(
-specifier|const
 name|QLatin1String
-modifier|&
 name|qName
 parameter_list|)
 specifier|const

@@ -147,12 +147,9 @@ argument_list|)
 expr_stmt|;
 name|QJsonValue
 argument_list|(
-specifier|const
-name|QLatin1String
-operator|&
-name|s
+argument|QLatin1String s
 argument_list|)
-expr_stmt|;
+empty_stmt|;
 name|QJsonValue
 argument_list|(
 specifier|const

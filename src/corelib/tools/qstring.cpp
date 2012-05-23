@@ -444,9 +444,7 @@ parameter_list|,
 name|int
 name|size
 parameter_list|,
-specifier|const
 name|QLatin1String
-modifier|&
 name|needle
 parameter_list|,
 name|int
@@ -2211,7 +2209,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*! \fn QString::QString(const QLatin1String&str)      Constructs a copy of the Latin-1 string \a str.      \sa fromLatin1() */
+comment|/*! \fn QString::QString(QLatin1String str)      Constructs a copy of the Latin-1 string \a str.      \sa fromLatin1() */
 end_comment
 begin_comment
 comment|/*!     Constructs a string of size 1 containing the character \a ch. */
@@ -2857,7 +2855,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn QString&QString::operator=(const QLatin1String&str)      \overload operator=()      Assigns the Latin-1 string \a str to this string. */
+comment|/*! \fn QString&QString::operator=(QLatin1String str)      \overload operator=()      Assigns the Latin-1 string \a str to this string. */
 end_comment
 begin_comment
 comment|/*! \fn QString&QString::operator=(const QByteArray&ba)      \overload operator=()      Assigns \a ba to this string. The byte array is converted to Unicode     using the fromUtf8() function. This function stops conversion at the     first NUL character found, or the end of the \a ba byte array.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example. */
@@ -2900,7 +2898,7 @@ begin_comment
 comment|/*!      \fn QString& QString::insert(int position, const QString&str)      Inserts the string \a str at the given index \a position and     returns a reference to this string.      Example:      \snippet qstring/main.cpp 26      If the given \a position is greater than size(), the array is     first extended using resize().      \sa append(), prepend(), replace(), remove() */
 end_comment
 begin_comment
-comment|/*!     \fn QString&QString::insert(int position, const QLatin1String&str)     \overload insert()      Inserts the Latin-1 string \a str at the given index \a position. */
+comment|/*!     \fn QString&QString::insert(int position, QLatin1String str)     \overload insert()      Inserts the Latin-1 string \a str at the given index \a position. */
 end_comment
 begin_function
 DECL|function|insert
@@ -2913,9 +2911,7 @@ parameter_list|(
 name|int
 name|i
 parameter_list|,
-specifier|const
 name|QLatin1String
-modifier|&
 name|str
 parameter_list|)
 block|{
@@ -3536,9 +3532,7 @@ name|QString
 operator|::
 name|append
 parameter_list|(
-specifier|const
 name|QLatin1String
-modifier|&
 name|str
 parameter_list|)
 block|{
@@ -3744,7 +3738,7 @@ begin_comment
 comment|/*! \fn QString&QString::prepend(const QString&str)      Prepends the string \a str to the beginning of this string and     returns a reference to this string.      Example:      \snippet qstring/main.cpp 36      \sa append(), insert() */
 end_comment
 begin_comment
-comment|/*! \fn QString&QString::prepend(const QLatin1String&str)      \overload prepend()      Prepends the Latin-1 string \a str to this string. */
+comment|/*! \fn QString&QString::prepend(QLatin1String str)      \overload prepend()      Prepends the Latin-1 string \a str to this string. */
 end_comment
 begin_comment
 comment|/*! \fn QString&QString::prepend(const QByteArray&ba)      \overload prepend()      Prepends the byte array \a ba to this string. The byte array is     converted to Unicode using the fromUtf8() function.      You can disable this function by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example. */
@@ -5497,14 +5491,10 @@ name|QString
 operator|::
 name|replace
 parameter_list|(
-specifier|const
 name|QLatin1String
-modifier|&
 name|before
 parameter_list|,
-specifier|const
 name|QLatin1String
-modifier|&
 name|after
 parameter_list|,
 name|Qt
@@ -5650,9 +5640,7 @@ name|QString
 operator|::
 name|replace
 parameter_list|(
-specifier|const
 name|QLatin1String
-modifier|&
 name|before
 parameter_list|,
 specifier|const
@@ -5760,9 +5748,7 @@ name|QString
 modifier|&
 name|before
 parameter_list|,
-specifier|const
 name|QLatin1String
-modifier|&
 name|after
 parameter_list|,
 name|Qt
@@ -5863,9 +5849,7 @@ parameter_list|(
 name|QChar
 name|c
 parameter_list|,
-specifier|const
 name|QLatin1String
-modifier|&
 name|after
 parameter_list|,
 name|Qt
@@ -6020,9 +6004,7 @@ operator|::
 name|operator
 name|==
 parameter_list|(
-specifier|const
 name|QLatin1String
-modifier|&
 name|other
 parameter_list|)
 specifier|const
@@ -6183,9 +6165,7 @@ operator|::
 name|operator
 name|<
 parameter_list|(
-specifier|const
 name|QLatin1String
-modifier|&
 name|other
 parameter_list|)
 specifier|const
@@ -6303,7 +6283,7 @@ begin_comment
 comment|/*! \fn bool QString::operator<=(const QString&s1, const QString&s2)      Returns true if string \a s1 is lexically less than or equal to     string \a s2; otherwise returns false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     localeAwareCompare(). */
 end_comment
 begin_comment
-comment|/*! \fn bool QString::operator<=(const QLatin1String&other) const      \overload operator<=() */
+comment|/*! \fn bool QString::operator<=(QLatin1String other) const      \overload operator<=() */
 end_comment
 begin_comment
 comment|/*! \fn bool QString::operator<=(const QByteArray&other) const      \overload operator<=()      The \a other byte array is converted to a QString using the     fromUtf8() function. If any NUL characters ('\\0') are embedded     in the byte array, they will be included in the transformation.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example. */
@@ -6325,9 +6305,7 @@ operator|::
 name|operator
 name|>
 parameter_list|(
-specifier|const
 name|QLatin1String
-modifier|&
 name|other
 parameter_list|)
 specifier|const
@@ -6447,7 +6425,7 @@ begin_comment
 comment|/*! \fn bool operator>=(const QString&s1, const QString&s2)     \relates QString      Returns true if string \a s1 is lexically greater than or equal to     string \a s2; otherwise returns false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     localeAwareCompare(). */
 end_comment
 begin_comment
-comment|/*! \fn bool QString::operator>=(const QLatin1String&other) const      \overload operator>=() */
+comment|/*! \fn bool QString::operator>=(QLatin1String other) const      \overload operator>=() */
 end_comment
 begin_comment
 comment|/*! \fn bool QString::operator>=(const QByteArray&other) const      \overload operator>=()      The \a other byte array is converted to a QString using the     fromUtf8() function. If any NUL characters ('\\0') are embedded in     the byte array, they will be included in the transformation.      You can disable this operator by defining \c QT_NO_CAST_FROM_ASCII     when you compile your applications. This can be useful if you want     to ensure that all user-visible strings go through QObject::tr(),     for example. */
@@ -6459,7 +6437,7 @@ begin_comment
 comment|/*! \fn bool operator!=(const QString&s1, const QString&s2)     \relates QString      Returns true if string \a s1 is not equal to string \a s2;     otherwise returns false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     localeAwareCompare(). */
 end_comment
 begin_comment
-comment|/*! \fn bool QString::operator!=(const QLatin1String&other) const      \overload operator!=() */
+comment|/*! \fn bool QString::operator!=(QLatin1String other) const      \overload operator!=() */
 end_comment
 begin_comment
 comment|/*! \fn bool QString::operator!=(const QByteArray&other) const      \overload operator!=()      The \a other byte array is converted to a QString using the     fromUtf8() function. If any NUL characters ('\\0') are embedded     in the byte array, they will be included in the transformation.      You can disable this operator by defining \c QT_NO_CAST_FROM_ASCII     when you compile your applications. This can be useful if you want     to ensure that all user-visible strings go through QObject::tr(),     for example. */
@@ -6528,9 +6506,7 @@ name|QString
 operator|::
 name|indexOf
 parameter_list|(
-specifier|const
 name|QLatin1String
-modifier|&
 name|str
 parameter_list|,
 name|int
@@ -7605,9 +7581,7 @@ name|QString
 operator|::
 name|lastIndexOf
 parameter_list|(
-specifier|const
 name|QLatin1String
-modifier|&
 name|str
 parameter_list|,
 name|int
@@ -11551,9 +11525,7 @@ name|QString
 operator|::
 name|startsWith
 parameter_list|(
-specifier|const
 name|QLatin1String
-modifier|&
 name|s
 parameter_list|,
 name|Qt
@@ -11832,9 +11804,7 @@ name|QString
 operator|::
 name|endsWith
 parameter_list|(
-specifier|const
 name|QLatin1String
-modifier|&
 name|s
 parameter_list|,
 name|Qt
@@ -14172,7 +14142,7 @@ begin_comment
 comment|/*! \fn QString&QString::operator+=(const QString&other)      Appends the string \a other onto the end of this string and     returns a reference to this string.      Example:      \snippet qstring/main.cpp 84      This operation is typically very fast (\l{constant time}),     because QString preallocates extra space at the end of the string     data so it can grow without reallocating the entire string each     time.      \sa append(), prepend() */
 end_comment
 begin_comment
-comment|/*! \fn QString&QString::operator+=(const QLatin1String&str)      \overload operator+=()      Appends the Latin-1 string \a str to this string. */
+comment|/*! \fn QString&QString::operator+=(QLatin1String str)      \overload operator+=()      Appends the Latin-1 string \a str to this string. */
 end_comment
 begin_comment
 comment|/*! \fn QString&QString::operator+=(const QByteArray&ba)      \overload operator+=()      Appends the byte array \a ba to this string. The byte array is converted     to Unicode using the fromUtf8() function. If any NUL characters ('\\0')     are embedded in the \a ba byte array, they will be included in the     transformation.      You can disable this function by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example. */
@@ -14229,10 +14199,10 @@ begin_comment
 comment|/*!     \fn int QString::compare(const QString&s1, const QString&s2, Qt::CaseSensitivity cs)     \since 4.2      Compares \a s1 with \a s2 and returns an integer less than, equal     to, or greater than zero if \a s1 is less than, equal to, or     greater than \a s2.      If \a cs is Qt::CaseSensitive, the comparison is case sensitive;     otherwise the comparison is case insensitive.      Case sensitive comparison is based exclusively on the numeric     Unicode values of the characters and is very fast, but is not what     a human would expect.  Consider sorting user-visible strings with     localeAwareCompare().      \snippet qstring/main.cpp 16      \sa operator==(), operator<(), operator>() */
 end_comment
 begin_comment
-comment|/*!     \fn int QString::compare(const QString&s1, const QLatin1String&s2, Qt::CaseSensitivity cs)     \since 4.2     \overload compare()      Performs a comparison of \a s1 and \a s2, using the case     sensitivity setting \a cs. */
+comment|/*!     \fn int QString::compare(const QString&s1, QLatin1String s2, Qt::CaseSensitivity cs)     \since 4.2     \overload compare()      Performs a comparison of \a s1 and \a s2, using the case     sensitivity setting \a cs. */
 end_comment
 begin_comment
-comment|/*!     \fn int QString::compare(const QLatin1String&s1, const QString&s2, Qt::CaseSensitivity cs = Qt::CaseSensitive)      \since 4.2     \overload compare()      Performs a comparison of \a s1 and \a s2, using the case     sensitivity setting \a cs. */
+comment|/*!     \fn int QString::compare(QLatin1String s1, const QString&s2, Qt::CaseSensitivity cs = Qt::CaseSensitive)      \since 4.2     \overload compare()      Performs a comparison of \a s1 and \a s2, using the case     sensitivity setting \a cs. */
 end_comment
 begin_comment
 comment|/*!     \overload compare()     \since 4.2      Lexically compares this string with the \a other string and     returns an integer less than, equal to, or greater than zero if     this string is less than, equal to, or greater than the other     string.      Same as compare(*this, \a other, \a cs). */
@@ -14436,9 +14406,7 @@ name|QString
 operator|::
 name|compare
 parameter_list|(
-specifier|const
 name|QLatin1String
-modifier|&
 name|other
 parameter_list|,
 name|Qt
@@ -23455,7 +23423,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \class QLatin1String     \brief The QLatin1String class provides a thin wrapper around an US-ASCII/Latin-1 encoded string literal.      \ingroup string-processing     \reentrant      Many of QString's member functions are overloaded to accept     \c{const char *} instead of QString. This includes the copy     constructor, the assignment operator, the comparison operators,     and various other functions such as \link QString::insert()     insert() \endlink, \link QString::replace() replace()\endlink,     and \link QString::indexOf() indexOf()\endlink. These functions     are usually optimized to avoid constructing a QString object for     the \c{const char *} data. For example, assuming \c str is a     QString,      \snippet code/src_corelib_tools_qstring.cpp 3      is much faster than      \snippet code/src_corelib_tools_qstring.cpp 4      because it doesn't construct four temporary QString objects and     make a deep copy of the character data.      Applications that define \c QT_NO_CAST_FROM_ASCII (as explained     in the QString documentation) don't have access to QString's     \c{const char *} API. To provide an efficient way of specifying     constant Latin-1 strings, Qt provides the QLatin1String, which is     just a very thin wrapper around a \c{const char *}. Using     QLatin1String, the example code above becomes      \snippet code/src_corelib_tools_qstring.cpp 5      This is a bit longer to type, but it provides exactly the same     benefits as the first version of the code, and is faster than     converting the Latin-1 strings using QString::fromLatin1().      Thanks to the QString(const QLatin1String&) constructor,     QLatin1String can be used everywhere a QString is expected. For     example:      \snippet code/src_corelib_tools_qstring.cpp 6      \sa QString, QLatin1Char, QStringLiteral */
+comment|/*! \class QLatin1String     \brief The QLatin1String class provides a thin wrapper around an US-ASCII/Latin-1 encoded string literal.      \ingroup string-processing     \reentrant      Many of QString's member functions are overloaded to accept     \c{const char *} instead of QString. This includes the copy     constructor, the assignment operator, the comparison operators,     and various other functions such as \link QString::insert()     insert() \endlink, \link QString::replace() replace()\endlink,     and \link QString::indexOf() indexOf()\endlink. These functions     are usually optimized to avoid constructing a QString object for     the \c{const char *} data. For example, assuming \c str is a     QString,      \snippet code/src_corelib_tools_qstring.cpp 3      is much faster than      \snippet code/src_corelib_tools_qstring.cpp 4      because it doesn't construct four temporary QString objects and     make a deep copy of the character data.      Applications that define \c QT_NO_CAST_FROM_ASCII (as explained     in the QString documentation) don't have access to QString's     \c{const char *} API. To provide an efficient way of specifying     constant Latin-1 strings, Qt provides the QLatin1String, which is     just a very thin wrapper around a \c{const char *}. Using     QLatin1String, the example code above becomes      \snippet code/src_corelib_tools_qstring.cpp 5      This is a bit longer to type, but it provides exactly the same     benefits as the first version of the code, and is faster than     converting the Latin-1 strings using QString::fromLatin1().      Thanks to the QString(QLatin1String) constructor,     QLatin1String can be used everywhere a QString is expected. For     example:      \snippet code/src_corelib_tools_qstring.cpp 6      \sa QString, QLatin1Char, QStringLiteral */
 end_comment
 begin_comment
 comment|/*! \fn QLatin1String::QLatin1String(const char *str)      Constructs a QLatin1String object that stores \a str. Note that if     \a str is 0, an empty string is created; this case is handled by     QString.      The string data is \e not copied. The caller must be able to     guarantee that \a str will not be deleted or modified as long as     the QLatin1String object exists.      \sa latin1() */
@@ -23509,22 +23477,22 @@ begin_comment
 comment|/*!     \fn bool QLatin1String::operator<=(const char *other) const     \since 4.3     \overload      The \a other const char pointer is converted to a QString using     the QString::fromUtf8() function.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example. */
 end_comment
 begin_comment
-comment|/*! \fn bool operator==(const QLatin1String&s1, const QLatin1String&s2)    \relates QLatin1String     Returns true if string \a s1 is lexically equal to string \a s2; otherwise    returns false. */
+comment|/*! \fn bool operator==(QLatin1String s1, QLatin1String s2)    \relates QLatin1String     Returns true if string \a s1 is lexically equal to string \a s2; otherwise    returns false. */
 end_comment
 begin_comment
-comment|/*! \fn bool operator!=(const QLatin1String&s1, const QLatin1String&s2)    \relates QLatin1String     Returns true if string \a s1 is lexically unequal to string \a s2; otherwise    returns false. */
+comment|/*! \fn bool operator!=(QLatin1String s1, QLatin1String s2)    \relates QLatin1String     Returns true if string \a s1 is lexically unequal to string \a s2; otherwise    returns false. */
 end_comment
 begin_comment
-comment|/*! \fn bool operator<(const QLatin1String&s1, const QLatin1String&s2)    \relates QLatin1String     Returns true if string \a s1 is lexically smaller than string \a s2; otherwise    returns false. */
+comment|/*! \fn bool operator<(QLatin1String s1, QLatin1String s2)    \relates QLatin1String     Returns true if string \a s1 is lexically smaller than string \a s2; otherwise    returns false. */
 end_comment
 begin_comment
-comment|/*! \fn bool operator<=(const QLatin1String&s1, const QLatin1String&s2)    \relates QLatin1String     Returns true if string \a s1 is lexically smaller than or equal to string \a s2; otherwise    returns false. */
+comment|/*! \fn bool operator<=(QLatin1String s1, QLatin1String s2)    \relates QLatin1String     Returns true if string \a s1 is lexically smaller than or equal to string \a s2; otherwise    returns false. */
 end_comment
 begin_comment
-comment|/*! \fn bool operator>(const QLatin1String&s1, const QLatin1String&s2)    \relates QLatin1String     Returns true if string \a s1 is lexically greater than string \a s2; otherwise    returns false. */
+comment|/*! \fn bool operator>(QLatin1String s1, QLatin1String s2)    \relates QLatin1String     Returns true if string \a s1 is lexically greater than string \a s2; otherwise    returns false. */
 end_comment
 begin_comment
-comment|/*! \fn bool operator>=(const QLatin1String&s1, const QLatin1String&s2)    \relates QLatin1String     Returns true if string \a s1 is lexically greater than or equal to    string \a s2; otherwise returns false. */
+comment|/*! \fn bool operator>=(QLatin1String s1, QLatin1String s2)    \relates QLatin1String     Returns true if string \a s1 is lexically greater than or equal to    string \a s2; otherwise returns false. */
 end_comment
 begin_if
 if|#
@@ -24319,9 +24287,7 @@ name|bool
 name|operator
 name|==
 parameter_list|(
-specifier|const
 name|QLatin1String
-modifier|&
 name|s1
 parameter_list|,
 specifier|const
@@ -26699,9 +26665,7 @@ parameter_list|,
 name|int
 name|size
 parameter_list|,
-specifier|const
 name|QLatin1String
-modifier|&
 name|needle
 parameter_list|,
 name|int

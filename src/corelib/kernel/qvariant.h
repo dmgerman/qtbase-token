@@ -920,10 +920,7 @@ argument_list|)
 block|;
 name|QVariant
 argument_list|(
-specifier|const
-name|QLatin1String
-operator|&
-name|string
+argument|QLatin1String string
 argument_list|)
 block|;
 name|QVariant

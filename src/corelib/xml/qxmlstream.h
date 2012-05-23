@@ -523,16 +523,16 @@ name|value
 argument_list|(
 argument|const QString&namespaceUri
 argument_list|,
-argument|const QLatin1String&name
+argument|QLatin1String name
 argument_list|)
 specifier|const
 block|;
 name|QStringRef
 name|value
 argument_list|(
-argument|const QLatin1String&namespaceUri
+argument|QLatin1String namespaceUri
 argument_list|,
-argument|const QLatin1String&name
+argument|QLatin1String name
 argument_list|)
 specifier|const
 block|;
@@ -546,7 +546,7 @@ block|;
 name|QStringRef
 name|value
 argument_list|(
-argument|const QLatin1String&qualifiedName
+argument|QLatin1String qualifiedName
 argument_list|)
 specifier|const
 block|;
@@ -606,7 +606,7 @@ specifier|inline
 name|bool
 name|hasAttribute
 argument_list|(
-argument|const QLatin1String&qualifiedName
+argument|QLatin1String qualifiedName
 argument_list|)
 specifier|const
 block|{

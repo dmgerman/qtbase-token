@@ -135,9 +135,7 @@ name|QString
 modifier|&
 name|classNameIn
 parameter_list|,
-specifier|const
 name|QLatin1String
-modifier|&
 name|baseClassName
 parameter_list|)
 specifier|const

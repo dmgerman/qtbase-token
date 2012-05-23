@@ -341,9 +341,7 @@ expr_stmt|;
 name|int
 name|index
 argument_list|(
-specifier|const
 name|QLatin1String
-operator|&
 name|qName
 argument_list|)
 decl|const
@@ -451,9 +449,7 @@ decl_stmt|;
 name|QString
 name|value
 argument_list|(
-specifier|const
 name|QLatin1String
-operator|&
 name|qName
 argument_list|)
 decl|const

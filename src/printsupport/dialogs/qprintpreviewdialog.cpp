@@ -1690,9 +1690,7 @@ name|QAction
 modifier|*
 name|action
 parameter_list|,
-specifier|const
 name|QLatin1String
-modifier|&
 name|name
 parameter_list|)
 block|{

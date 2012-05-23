@@ -813,9 +813,7 @@ operator|&
 name|operator
 operator|<<
 operator|(
-specifier|const
 name|QLatin1String
-operator|&
 name|t
 operator|)
 block|{

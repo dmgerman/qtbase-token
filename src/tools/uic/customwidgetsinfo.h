@@ -152,7 +152,7 @@ name|extends
 argument_list|(
 argument|const QString&className
 argument_list|,
-argument|const QLatin1String&baseClassName
+argument|QLatin1String baseClassName
 argument_list|)
 specifier|const
 block|;
