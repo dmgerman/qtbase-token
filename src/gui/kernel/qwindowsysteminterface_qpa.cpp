@@ -413,7 +413,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!  \a tlw == 0 means that \a ev is in global coords only   */
+comment|/*!  \a w == 0 means that the event is in global coords only, \a local will be ignored in this case  */
 end_comment
 begin_function
 DECL|function|handleMouseEvent
@@ -484,7 +484,7 @@ name|handleMouseEvent
 parameter_list|(
 name|QWindow
 modifier|*
-name|tlw
+name|w
 parameter_list|,
 name|ulong
 name|timestamp
@@ -521,7 +521,7 @@ name|QWindowSystemInterfacePrivate
 operator|::
 name|MouseEvent
 argument_list|(
-name|tlw
+name|w
 argument_list|,
 name|timestamp
 argument_list|,
