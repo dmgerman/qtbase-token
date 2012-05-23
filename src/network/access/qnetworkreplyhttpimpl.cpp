@@ -1753,23 +1753,12 @@ argument_list|(
 literal|0
 argument_list|)
 member_init_list|,
-name|lastBytesDownloaded
-argument_list|(
-operator|-
-literal|1
-argument_list|)
-member_init_list|,
 name|downloadBufferReadPosition
 argument_list|(
 literal|0
 argument_list|)
 member_init_list|,
 name|downloadBufferCurrentSize
-argument_list|(
-literal|0
-argument_list|)
-member_init_list|,
-name|downloadBufferMaximumSize
 argument_list|(
 literal|0
 argument_list|)
@@ -2731,7 +2720,6 @@ argument_list|)
 argument_list|)
 control|)
 block|{
-comment|//foreach (const QNetworkProxy&p, proxyList()) {
 comment|// use the first proxy that works
 comment|// for non-encrypted connections, any transparent or HTTP proxy
 comment|// for encrypted, only transparent proxies
@@ -4727,10 +4715,6 @@ name|bytesDownloaded
 operator|+=
 name|bytesWritten
 expr_stmt|;
-name|lastBytesDownloaded
-operator|=
-name|bytesDownloaded
-expr_stmt|;
 name|QVariant
 name|totalSize
 init|=
@@ -4898,8 +4882,6 @@ name|header
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// FIXME?
-comment|//redirectionRequested(url);
 name|q
 operator|->
 name|setAttribute
@@ -4956,6 +4938,11 @@ argument_list|(
 name|QNetworkReplyHttpImpl
 argument_list|)
 expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|contentLength
+argument_list|)
+expr_stmt|;
 name|statusCode
 operator|=
 name|sc
@@ -4974,7 +4961,6 @@ name|isNull
 argument_list|()
 condition|)
 block|{
-comment|//setDownloadBuffer(db, contentLength);
 name|downloadBufferPointer
 operator|=
 name|db
@@ -4989,10 +4975,6 @@ expr_stmt|;
 name|downloadBufferCurrentSize
 operator|=
 literal|0
-expr_stmt|;
-name|downloadBufferMaximumSize
-operator|=
-name|contentLength
 expr_stmt|;
 name|q
 operator|->
@@ -5066,9 +5048,6 @@ name|headerMap
 operator|.
 name|constEnd
 argument_list|()
-decl_stmt|;
-name|QByteArray
-name|header
 decl_stmt|;
 for|for
 control|(
@@ -5505,10 +5484,6 @@ expr_stmt|;
 comment|// FIXME where is it closed?
 block|}
 name|bytesDownloaded
-operator|=
-name|bytesReceived
-expr_stmt|;
-name|lastBytesDownloaded
 operator|=
 name|bytesReceived
 expr_stmt|;
@@ -7604,11 +7579,7 @@ name|state
 operator|!=
 name|Finished
 condition|)
-block|{
-comment|//            if (operation == QNetworkAccessManager::GetOperation)
-comment|//                pendingNotifications.append(NotifyDownstreamReadyWrite);
-comment|//            handleNotifications();
-block|}
+block|{          }
 block|}
 block|}
 end_function
@@ -7653,11 +7624,6 @@ return|return;
 comment|// FIXME Optimize to use zerocopy download buffer if it is a QBuffer.
 comment|// Needs to be done where sendCacheContents() (?) of HTTP is emitting
 comment|// metaDataChanged ?
-comment|// FIXME
-name|lastBytesDownloaded
-operator|=
-name|bytesDownloaded
-expr_stmt|;
 name|QVariant
 name|totalSize
 init|=

@@ -537,7 +537,6 @@ name|void
 name|_q_finished
 argument_list|()
 block|;
-comment|// FIXME
 name|void
 name|finished
 argument_list|()
@@ -561,15 +560,6 @@ block|;
 name|void
 name|metaDataChanged
 argument_list|()
-block|;
-name|void
-name|redirectionRequested
-argument_list|(
-specifier|const
-name|QUrl
-operator|&
-name|target
-argument_list|)
 block|;
 name|void
 name|checkForRedirect
@@ -661,12 +651,6 @@ name|void
 name|initCacheSaveDevice
 argument_list|()
 block|;
-name|QAbstractNetworkCache
-operator|*
-name|networkCache
-argument_list|()
-specifier|const
-block|;
 name|QIODevice
 operator|*
 name|cacheLoadDevice
@@ -690,12 +674,6 @@ directive|ifndef
 name|QT_NO_NETWORKPROXY
 name|QNetworkProxy
 name|lastProxyAuthentication
-block|;
-name|QList
-operator|<
-name|QNetworkProxy
-operator|>
-name|proxyList
 block|;
 endif|#
 directive|endif
@@ -731,24 +709,6 @@ comment|// For signal compression
 name|qint64
 name|bytesDownloaded
 block|;
-name|qint64
-name|lastBytesDownloaded
-block|;
-name|void
-name|setDownloadBuffer
-argument_list|(
-argument|QSharedPointer<char> sp
-argument_list|,
-argument|qint64 size
-argument_list|)
-block|;
-name|char
-operator|*
-name|getDownloadBuffer
-argument_list|(
-argument|qint64 size
-argument_list|)
-block|;
 comment|// only used when the "zero copy" style is used. Else downloadMultiBuffer is used.
 comment|// Please note that the whole "zero copy" download buffer API is private right now. Do not use it.
 name|qint64
@@ -756,9 +716,6 @@ name|downloadBufferReadPosition
 block|;
 name|qint64
 name|downloadBufferCurrentSize
-block|;
-name|qint64
-name|downloadBufferMaximumSize
 block|;
 name|QSharedPointer
 operator|<
