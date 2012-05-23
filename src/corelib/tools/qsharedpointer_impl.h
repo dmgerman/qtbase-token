@@ -746,32 +746,26 @@ literal|0
 argument_list|)
 block|; }
 comment|// overridden by derived classes
-comment|// returns false to indicate caller should delete the pointer
-comment|// returns true in case it has already done so
 name|virtual
 specifier|inline
-name|bool
+name|void
 name|destroy
 argument_list|()
-block|{
-return|return
-name|false
-return|;
-block|}
+block|{ }
 ifndef|#
 directive|ifndef
 name|QT_NO_QOBJECT
 name|Q_CORE_EXPORT
 specifier|static
 name|ExternalRefCountData
-modifier|*
+operator|*
 name|getAndRef
-parameter_list|(
+argument_list|(
 specifier|const
 name|QObject
-modifier|*
-parameter_list|)
-function_decl|;
+operator|*
+argument_list|)
+expr_stmt|;
 name|Q_CORE_EXPORT
 name|void
 name|setQObjectShared
@@ -856,7 +850,7 @@ argument|d
 argument_list|)
 block|{ }
 specifier|inline
-name|bool
+name|void
 name|destroy
 argument_list|()
 block|{
@@ -864,22 +858,14 @@ name|destroyer
 argument_list|(
 name|this
 argument_list|)
-block|;
-return|return
-name|true
-return|;
-block|}
-end_expr_stmt
-begin_function
+block|; }
 specifier|inline
 name|void
 name|operator
 name|delete
-parameter_list|(
-name|void
-modifier|*
-name|ptr
-parameter_list|)
+argument_list|(
+argument|void *ptr
+argument_list|)
 block|{
 operator|::
 name|operator
@@ -887,23 +873,18 @@ name|delete
 argument_list|(
 name|ptr
 argument_list|)
-expr_stmt|;
-block|}
-end_function
-begin_function
+block|; }
 specifier|inline
 name|void
 name|operator
 name|delete
-parameter_list|(
-name|void
-modifier|*
-parameter_list|,
-name|void
-modifier|*
-parameter_list|)
+argument_list|(
+argument|void *
+argument_list|,
+argument|void *
+argument_list|)
 block|{ }
-end_function
+end_expr_stmt
 begin_comment
 unit|};
 comment|// sizeof(ExternalRefCountWithDestroyFn) = 16 (32-bit) / 24 (64-bit)
@@ -1381,10 +1362,6 @@ block|{
 name|deref
 argument_list|(
 name|d
-argument_list|,
-name|this
-operator|->
-name|value
 argument_list|)
 block|; }
 specifier|static
@@ -1393,8 +1370,6 @@ name|void
 name|deref
 argument_list|(
 argument|Data *d
-argument_list|,
-argument|T *value
 argument_list|)
 block|{
 if|if
@@ -1416,17 +1391,11 @@ name|deref
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-operator|!
 name|d
 operator|->
 name|destroy
 argument_list|()
-condition|)
-name|delete
-name|value
-decl_stmt|;
+expr_stmt|;
 block|}
 end_if
 begin_if
@@ -1444,63 +1413,8 @@ name|delete
 name|d
 decl_stmt|;
 end_if
-begin_function
-unit|}          inline
-name|void
-name|internalConstruct
-parameter_list|(
-name|T
-modifier|*
-name|ptr
-parameter_list|)
-block|{
-ifdef|#
-directive|ifdef
-name|QT_SHAREDPOINTER_TRACK_POINTERS
-name|internalConstruct
-operator|<
-name|void
-argument_list|(
-operator|*
-argument_list|)
-argument_list|(
-name|T
-operator|*
-argument_list|)
-operator|>
-operator|(
-name|ptr
-operator|,
-name|normalDeleter
-operator|)
-expr_stmt|;
-else|#
-directive|else
-if|if
-condition|(
-name|ptr
-condition|)
-name|d
-operator|=
-name|new
-name|Data
-expr_stmt|;
-else|else
-name|d
-operator|=
-literal|0
-expr_stmt|;
-name|internalFinishConstruction
-argument_list|(
-name|ptr
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-block|}
-end_function
 begin_expr_stmt
-name|template
+unit|}          template
 operator|<
 name|typename
 name|Deleter
@@ -1655,30 +1569,6 @@ operator|(
 name|i
 operator|)
 block|{ }
-specifier|inline
-name|ExternalRefCount
-argument_list|(
-name|T
-operator|*
-name|ptr
-argument_list|)
-operator|:
-name|Basic
-operator|<
-name|T
-operator|>
-operator|(
-name|Qt
-operator|::
-name|Uninitialized
-operator|)
-comment|// throws
-block|{
-name|internalConstruct
-argument_list|(
-name|ptr
-argument_list|)
-block|; }
 name|template
 operator|<
 name|typename
@@ -1855,8 +1745,6 @@ begin_expr_stmt
 name|deref
 argument_list|(
 name|o
-argument_list|,
-name|actual
 argument_list|)
 expr_stmt|;
 end_expr_stmt
@@ -2132,8 +2020,6 @@ begin_expr_stmt
 name|deref
 argument_list|(
 name|o
-argument_list|,
-name|actual
 argument_list|)
 expr_stmt|;
 end_expr_stmt
@@ -2193,6 +2079,8 @@ operator|:
 name|BaseClass
 argument_list|(
 argument|ptr
+argument_list|,
+argument|&QtSharedPointer::normalDeleter<T>
 argument_list|)
 comment|// throws
 block|{ }
