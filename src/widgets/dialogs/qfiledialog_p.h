@@ -945,26 +945,6 @@ name|newName
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_function_decl
-specifier|static
-name|QStringList
-name|qt_clean_filter_list
-parameter_list|(
-specifier|const
-name|QString
-modifier|&
-name|filter
-parameter_list|)
-function_decl|;
-end_function_decl
-begin_decl_stmt
-specifier|static
-specifier|const
-name|char
-modifier|*
-name|qt_file_dialog_filter_reg_exp
-decl_stmt|;
-end_decl_stmt
 begin_comment
 comment|// layout
 end_comment
