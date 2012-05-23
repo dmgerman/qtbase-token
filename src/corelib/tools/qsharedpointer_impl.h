@@ -1268,9 +1268,16 @@ specifier|inline
 name|explicit
 name|QSharedPointer
 argument_list|(
-argument|T *ptr
+name|T
+operator|*
+name|ptr
 argument_list|)
-comment|// throws
+operator|:
+name|value
+argument_list|(
+argument|ptr
+argument_list|)
+comment|// noexcept
 block|{
 name|internalConstruct
 argument_list|(
@@ -1826,8 +1833,22 @@ argument_list|)
 block|;
 name|result
 operator|.
-name|internalCreate
-argument_list|()
+name|d
+operator|=
+name|QtSharedPointer
+operator|::
+name|ExternalRefCountWithContiguousData
+operator|<
+name|T
+operator|>
+operator|::
+name|create
+argument_list|(
+operator|&
+name|result
+operator|.
+name|value
+argument_list|)
 block|;
 comment|// now initialize the data
 name|new
@@ -1979,29 +2000,6 @@ end_expr_stmt
 begin_function
 unit|}      inline
 name|void
-name|internalCreate
-parameter_list|()
-block|{
-name|d
-operator|=
-name|QtSharedPointer
-operator|::
-name|ExternalRefCountWithContiguousData
-operator|<
-name|T
-operator|>
-operator|::
-name|create
-argument_list|(
-operator|&
-name|value
-argument_list|)
-expr_stmt|;
-block|}
-end_function
-begin_function
-specifier|inline
-name|void
 name|internalFinishConstruction
 parameter_list|(
 name|T
@@ -2009,14 +2007,6 @@ modifier|*
 name|ptr
 parameter_list|)
 block|{
-name|value
-operator|=
-name|ptr
-expr_stmt|;
-if|if
-condition|(
-name|ptr
-condition|)
 name|d
 operator|->
 name|setQObjectShared
