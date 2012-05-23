@@ -340,6 +340,9 @@ name|s
 operator|)
 specifier|const
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CAST_FROM_ASCII
 specifier|inline
 name|QT_ASCII_CAST_WARN
 name|bool
@@ -496,6 +499,9 @@ name|s
 operator|)
 specifier|const
 expr_stmt|;
+endif|#
+directive|endif
+comment|// QT_NO_CAST_FROM_ASCII
 name|private
 label|:
 name|int
@@ -11078,13 +11084,6 @@ operator|)
 return|;
 block|}
 end_expr_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_NO_CAST_FROM_ASCII
-end_comment
 begin_expr_stmt
 specifier|inline
 name|QT_ASCII_CAST_WARN
@@ -11433,11 +11432,6 @@ name|this
 return|;
 block|}
 end_expr_stmt
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_CAST_FROM_ASCII
-end_ifndef
 begin_expr_stmt
 specifier|inline
 name|QT_ASCII_CAST_WARN
