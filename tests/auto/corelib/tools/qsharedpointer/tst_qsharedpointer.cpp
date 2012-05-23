@@ -287,9 +287,7 @@ modifier|*
 name|refCountData
 parameter_list|(
 specifier|const
-name|QtSharedPointer
-operator|::
-name|ExternalRefCount
+name|QSharedPointer
 argument_list|<
 name|T
 argument_list|>
@@ -318,9 +316,7 @@ name|Q_STATIC_ASSERT
 argument_list|(
 sizeof|sizeof
 argument_list|(
-name|QtSharedPointer
-operator|::
-name|ExternalRefCount
+name|QSharedPointer
 argument_list|<
 name|T
 argument_list|>
