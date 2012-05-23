@@ -103,6 +103,11 @@ block|,
 DECL|enumerator|Noon
 name|Noon
 block|,
+DECL|enumerator|Nya
+name|Nya
+init|=
+name|Noon
+block|,
 DECL|enumerator|Meem
 name|Meem
 init|=
@@ -129,6 +134,11 @@ init|=
 name|Noon
 block|,
 DECL|enumerator|Yeh
+name|Yeh
+block|,
+DECL|enumerator|FarsiYeh
+name|FarsiYeh
+init|=
 name|Yeh
 block|,
 DECL|enumerator|Hah
@@ -191,18 +201,24 @@ block|,
 DECL|enumerator|Reh
 name|Reh
 block|,
+DECL|enumerator|TehMarbutaGoal
+name|TehMarbutaGoal
+block|,
 DECL|enumerator|HamzaOnHehGoal
 name|HamzaOnHehGoal
+init|=
+name|TehMarbutaGoal
 block|,
+comment|/* has been retained as a property value alias */
 DECL|enumerator|YehWithTail
 name|YehWithTail
 init|=
-name|HamzaOnHehGoal
+name|TehMarbutaGoal
 block|,
-DECL|enumerator|YehBarre
-name|YehBarre
+DECL|enumerator|YehBarree
+name|YehBarree
 init|=
-name|HamzaOnHehGoal
+name|TehMarbutaGoal
 block|,
 comment|/* Syriac */
 comment|/* Dual */
@@ -231,8 +247,8 @@ name|Yudh
 init|=
 name|Noon
 block|,
-DECL|enumerator|Kaph
-name|Kaph
+DECL|enumerator|Khaph
+name|Khaph
 init|=
 name|Noon
 block|,
@@ -251,13 +267,13 @@ name|Nun
 init|=
 name|Noon
 block|,
-DECL|enumerator|Semakh
-name|Semakh
+DECL|enumerator|Semkath
+name|Semkath
 init|=
 name|Noon
 block|,
-DECL|enumerator|FinalSemakh
-name|FinalSemakh
+DECL|enumerator|FinalSemkath
+name|FinalSemkath
 init|=
 name|Noon
 block|,
@@ -297,8 +313,8 @@ name|Alaph
 init|=
 name|Alef
 block|,
-DECL|enumerator|Dalath
-name|Dalath
+DECL|enumerator|DalathRish
+name|DalathRish
 init|=
 name|Dal
 block|,
@@ -312,8 +328,8 @@ name|SyriacWaw
 init|=
 name|Waw
 block|,
-DECL|enumerator|Zain
-name|Zain
+DECL|enumerator|Zhain
+name|Zhain
 init|=
 name|Alef
 block|,
@@ -325,7 +341,7 @@ block|,
 DECL|enumerator|Sadhe
 name|Sadhe
 init|=
-name|HamzaOnHehGoal
+name|TehMarbutaGoal
 block|,
 DECL|enumerator|Taw
 name|Taw
@@ -336,7 +352,7 @@ comment|/* Compiler bug? Otherwise ArabicGroupsEnd would be equal to Dal + 1. */
 DECL|enumerator|Dummy
 name|Dummy
 init|=
-name|HamzaOnHehGoal
+name|TehMarbutaGoal
 block|,
 DECL|enumerator|ArabicGroupsEnd
 name|ArabicGroupsEnd
@@ -401,7 +417,15 @@ name|Transparent
 block|,
 name|Transparent
 block|,
-name|ArabicNone
+name|Transparent
+block|,
+name|Transparent
+block|,
+name|Transparent
+block|,
+name|Transparent
+block|,
+name|Transparent
 block|,
 name|ArabicNone
 block|,
@@ -413,15 +437,7 @@ name|ArabicNone
 block|,
 name|ArabicNone
 block|,
-name|ArabicNone
-block|,
-name|ArabicNone
-block|,
-name|ArabicNone
-block|,
-name|ArabicNone
-block|,
-name|ArabicNone
+name|Yeh
 block|,
 name|ArabicNone
 block|,
@@ -475,15 +491,15 @@ name|Ain
 block|,
 name|Ain
 block|,
-name|ArabicNone
+name|Gaf
 block|,
-name|ArabicNone
+name|Gaf
 block|,
-name|ArabicNone
+name|FarsiYeh
 block|,
-name|ArabicNone
+name|FarsiYeh
 block|,
-name|ArabicNone
+name|FarsiYeh
 block|,
 comment|/* 0x640 */
 name|Kashida
@@ -536,19 +552,19 @@ name|Transparent
 block|,
 name|Transparent
 block|,
-name|ArabicNone
+name|Transparent
 block|,
-name|ArabicNone
+name|Transparent
 block|,
-name|ArabicNone
+name|Transparent
 block|,
-name|ArabicNone
+name|Transparent
 block|,
-name|ArabicNone
+name|Transparent
 block|,
-name|ArabicNone
+name|Transparent
 block|,
-name|ArabicNone
+name|Transparent
 block|,
 name|ArabicNone
 block|,
@@ -737,7 +753,7 @@ name|Noon
 block|,
 name|Noon
 block|,
-name|Noon
+name|Nya
 block|,
 name|KnottedHeh
 block|,
@@ -748,11 +764,9 @@ name|TehMarbuta
 block|,
 name|HehGoal
 block|,
-name|HamzaOnHehGoal
+name|HehGoal
 block|,
-name|HamzaOnHehGoal
-block|,
-name|Waw
+name|TehMarbutaGoal
 block|,
 name|Waw
 block|,
@@ -768,11 +782,13 @@ name|Waw
 block|,
 name|Waw
 block|,
-name|Yeh
+name|Waw
+block|,
+name|FarsiYeh
 block|,
 name|YehWithTail
 block|,
-name|Yeh
+name|FarsiYeh
 block|,
 name|Waw
 block|,
@@ -780,9 +796,9 @@ name|Yeh
 block|,
 name|Yeh
 block|,
-name|YehBarre
+name|YehBarree
 block|,
-name|YehBarre
+name|YehBarree
 block|,
 name|ArabicNone
 block|,
@@ -903,7 +919,7 @@ name|ArabicNone
 block|,
 name|ArabicNone
 block|,
-name|ArabicNone
+name|Transparent
 block|,
 name|Alaph
 block|,
@@ -915,15 +931,15 @@ name|Gamal
 block|,
 name|Gamal
 block|,
-name|Dalath
+name|DalathRish
 block|,
-name|Dalath
+name|DalathRish
 block|,
 name|He
 block|,
 name|SyriacWaw
 block|,
-name|Zain
+name|Zhain
 block|,
 name|Heth
 block|,
@@ -935,7 +951,7 @@ name|Yudh
 block|,
 name|YudhHe
 block|,
-name|Kaph
+name|Khaph
 block|,
 name|Lamadh
 block|,
@@ -943,9 +959,9 @@ name|Mim
 block|,
 name|Nun
 block|,
-name|Semakh
+name|Semkath
 block|,
-name|FinalSemakh
+name|FinalSemkath
 block|,
 name|SyriacE
 block|,
@@ -957,7 +973,7 @@ name|Sadhe
 block|,
 name|Qaph
 block|,
-name|Dalath
+name|DalathRish
 block|,
 name|Shin
 block|,
@@ -967,7 +983,7 @@ name|Beth
 block|,
 name|Gamal
 block|,
-name|Dalath
+name|DalathRish
 block|,
 name|Transparent
 block|,
@@ -1027,9 +1043,9 @@ name|ArabicNone
 block|,
 name|ArabicNone
 block|,
-name|Zain
+name|Zhain
 block|,
-name|Kaph
+name|Khaph
 block|,
 name|Fe
 block|, }
@@ -1187,7 +1203,7 @@ name|JRight
 block|,
 comment|/* Reh */
 name|JRight
-comment|/* HamzaOnHehGoal */
+comment|/* TehMarbutaGoal */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -1817,7 +1833,7 @@ case|case
 name|Beh
 case|:
 case|case
-name|HamzaOnHehGoal
+name|TehMarbutaGoal
 case|:
 name|lastGroup
 operator|=
@@ -2476,7 +2492,7 @@ block|,
 literal|1
 block|}
 block|,
-comment|/* 0x0632    R       ZAIN */
+comment|/* 0x0632    R       ZHAIN */
 block|{
 literal|0xFEB1
 block|,
