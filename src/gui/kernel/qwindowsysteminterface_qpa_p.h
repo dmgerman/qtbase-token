@@ -69,6 +69,12 @@ block|,
 name|Expose
 block|,
 name|FileOpen
+block|,
+name|Tablet
+block|,
+name|TabletEnterProximity
+block|,
+name|TabletLeaveProximity
 block|}
 enum|;
 name|class
@@ -1134,6 +1140,314 @@ argument_list|)
 block|{ }
 name|QString
 name|fileName
+block|;     }
+decl_stmt|;
+name|class
+name|TabletEvent
+range|:
+name|public
+name|InputEvent
+block|{
+name|public
+operator|:
+specifier|static
+name|void
+name|handleTabletEvent
+argument_list|(
+argument|QWindow *w
+argument_list|,
+argument|bool down
+argument_list|,
+argument|const QPointF&local
+argument_list|,
+argument|const QPointF&global
+argument_list|,
+argument|int device
+argument_list|,
+argument|int pointerType
+argument_list|,
+argument|qreal pressure
+argument_list|,
+argument|int xTilt
+argument_list|,
+argument|int yTilt
+argument_list|,
+argument|qreal tangentialPressure
+argument_list|,
+argument|qreal rotation
+argument_list|,
+argument|int z
+argument_list|,
+argument|qint64 uid
+argument_list|,
+argument|Qt::KeyboardModifiers modifiers = Qt::NoModifier
+argument_list|)
+block|;
+name|TabletEvent
+argument_list|(
+argument|QWindow *w
+argument_list|,
+argument|ulong time
+argument_list|,
+argument|bool down
+argument_list|,
+argument|const QPointF&local
+argument_list|,
+argument|const QPointF&global
+argument_list|,
+argument|int device
+argument_list|,
+argument|int pointerType
+argument_list|,
+argument|qreal pressure
+argument_list|,
+argument|int xTilt
+argument_list|,
+argument|int yTilt
+argument_list|,
+argument|qreal tpressure
+argument_list|,
+argument|qreal rotation
+argument_list|,
+argument|int z
+argument_list|,
+argument|qint64 uid
+argument_list|,
+argument|Qt::KeyboardModifiers mods
+argument_list|)
+operator|:
+name|InputEvent
+argument_list|(
+name|w
+argument_list|,
+name|time
+argument_list|,
+name|Tablet
+argument_list|,
+name|Qt
+operator|::
+name|NoModifier
+argument_list|)
+block|,
+name|down
+argument_list|(
+name|down
+argument_list|)
+block|,
+name|local
+argument_list|(
+name|local
+argument_list|)
+block|,
+name|global
+argument_list|(
+name|global
+argument_list|)
+block|,
+name|device
+argument_list|(
+name|device
+argument_list|)
+block|,
+name|pointerType
+argument_list|(
+name|pointerType
+argument_list|)
+block|,
+name|pressure
+argument_list|(
+name|pressure
+argument_list|)
+block|,
+name|xTilt
+argument_list|(
+name|xTilt
+argument_list|)
+block|,
+name|yTilt
+argument_list|(
+name|yTilt
+argument_list|)
+block|,
+name|tangentialPressure
+argument_list|(
+name|tpressure
+argument_list|)
+block|,
+name|rotation
+argument_list|(
+name|rotation
+argument_list|)
+block|,
+name|z
+argument_list|(
+name|z
+argument_list|)
+block|,
+name|uid
+argument_list|(
+name|uid
+argument_list|)
+block|,
+name|mods
+argument_list|(
+argument|mods
+argument_list|)
+block|{ }
+name|bool
+name|down
+block|;
+name|QPointF
+name|local
+block|;
+name|QPointF
+name|global
+block|;
+name|int
+name|device
+block|;
+name|int
+name|pointerType
+block|;
+name|qreal
+name|pressure
+block|;
+name|int
+name|xTilt
+block|;
+name|int
+name|yTilt
+block|;
+name|qreal
+name|tangentialPressure
+block|;
+name|qreal
+name|rotation
+block|;
+name|int
+name|z
+block|;
+name|qint64
+name|uid
+block|;
+name|Qt
+operator|::
+name|KeyboardModifiers
+name|mods
+block|;     }
+decl_stmt|;
+name|class
+name|TabletEnterProximityEvent
+range|:
+name|public
+name|InputEvent
+block|{
+name|public
+operator|:
+name|TabletEnterProximityEvent
+argument_list|(
+argument|ulong time
+argument_list|,
+argument|int device
+argument_list|,
+argument|int pointerType
+argument_list|,
+argument|qint64 uid
+argument_list|)
+operator|:
+name|InputEvent
+argument_list|(
+literal|0
+argument_list|,
+name|time
+argument_list|,
+name|TabletEnterProximity
+argument_list|,
+name|Qt
+operator|::
+name|NoModifier
+argument_list|)
+block|,
+name|device
+argument_list|(
+name|device
+argument_list|)
+block|,
+name|pointerType
+argument_list|(
+name|pointerType
+argument_list|)
+block|,
+name|uid
+argument_list|(
+argument|uid
+argument_list|)
+block|{ }
+name|int
+name|device
+block|;
+name|int
+name|pointerType
+block|;
+name|qint64
+name|uid
+block|;     }
+decl_stmt|;
+name|class
+name|TabletLeaveProximityEvent
+range|:
+name|public
+name|InputEvent
+block|{
+name|public
+operator|:
+name|TabletLeaveProximityEvent
+argument_list|(
+argument|ulong time
+argument_list|,
+argument|int device
+argument_list|,
+argument|int pointerType
+argument_list|,
+argument|qint64 uid
+argument_list|)
+operator|:
+name|InputEvent
+argument_list|(
+literal|0
+argument_list|,
+name|time
+argument_list|,
+name|TabletLeaveProximity
+argument_list|,
+name|Qt
+operator|::
+name|NoModifier
+argument_list|)
+block|,
+name|device
+argument_list|(
+name|device
+argument_list|)
+block|,
+name|pointerType
+argument_list|(
+name|pointerType
+argument_list|)
+block|,
+name|uid
+argument_list|(
+argument|uid
+argument_list|)
+block|{ }
+name|int
+name|device
+block|;
+name|int
+name|pointerType
+block|;
+name|qint64
+name|uid
 block|;     }
 decl_stmt|;
 specifier|static
