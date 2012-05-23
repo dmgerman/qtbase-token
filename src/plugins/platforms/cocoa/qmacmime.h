@@ -199,6 +199,15 @@ argument_list|)
 operator|=
 literal|0
 expr_stmt|;
+name|virtual
+name|int
+name|count
+parameter_list|(
+name|QMimeData
+modifier|*
+name|mimeData
+parameter_list|)
+function_decl|;
 block|}
 end_decl_stmt
 begin_empty_stmt
