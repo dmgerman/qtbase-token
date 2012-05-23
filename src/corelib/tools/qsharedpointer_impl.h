@@ -686,19 +686,52 @@ end_comment
 begin_comment
 comment|// the ExternalRefCountData object.
 end_comment
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// The deleter is stored in the destroyer member and is always a pointer to
+end_comment
+begin_comment
+comment|// a static function in ExternalRefCountWithCustomDeleter or in
+end_comment
+begin_comment
+comment|// ExternalRefCountWithContiguousData
+end_comment
 begin_struct
 struct|struct
 name|ExternalRefCountData
 block|{
+typedef|typedef
+name|void
+function_decl|(
+modifier|*
+name|DestroyerFn
+function_decl|)
+parameter_list|(
+name|ExternalRefCountData
+modifier|*
+parameter_list|)
+function_decl|;
 name|QBasicAtomicInt
 name|weakref
 decl_stmt|;
 name|QBasicAtomicInt
 name|strongref
 decl_stmt|;
+name|DestroyerFn
+name|destroyer
+decl_stmt|;
 specifier|inline
 name|ExternalRefCountData
-argument_list|()
+argument_list|(
+argument|DestroyerFn d
+argument_list|)
+operator|:
+name|destroyer
+argument_list|(
+argument|d
+argument_list|)
 block|{
 name|strongref
 operator|.
@@ -720,8 +753,6 @@ argument_list|(
 argument|Qt::Initialization
 argument_list|)
 block|{ }
-name|virtual
-specifier|inline
 operator|~
 name|ExternalRefCountData
 argument_list|()
@@ -745,13 +776,15 @@ operator|<=
 literal|0
 argument_list|)
 block|; }
-comment|// overridden by derived classes
-name|virtual
-specifier|inline
 name|void
 name|destroy
 argument_list|()
-block|{ }
+block|{
+name|destroyer
+argument_list|(
+name|this
+argument_list|)
+block|; }
 ifndef|#
 directive|ifndef
 name|QT_NO_QOBJECT
@@ -803,69 +836,15 @@ parameter_list|(
 modifier|...
 parameter_list|)
 block|{ }
-block|}
-struct|;
-end_struct
-begin_comment
-comment|// sizeof(ExternalRefCount) = 12 (32-bit) / 16 (64-bit)
-end_comment
-begin_comment
-comment|// This class extends ExternalRefCountData with a pointer
-end_comment
-begin_comment
-comment|// to a function, which is called by the destroy() function.
-end_comment
-begin_decl_stmt
-name|struct
-name|ExternalRefCountWithDestroyFn
-range|:
-name|public
-name|ExternalRefCountData
-block|{
-typedef|typedef
-name|void
-function_decl|(
-modifier|*
-name|DestroyerFn
-function_decl|)
-parameter_list|(
-name|ExternalRefCountData
-modifier|*
-parameter_list|)
-function_decl|;
-name|DestroyerFn
-name|destroyer
-decl_stmt|;
-end_decl_stmt
-begin_expr_stmt
-specifier|inline
-name|ExternalRefCountWithDestroyFn
-argument_list|(
-argument|DestroyerFn d
-argument_list|)
-operator|:
-name|destroyer
-argument_list|(
-argument|d
-argument_list|)
-block|{ }
-specifier|inline
-name|void
-name|destroy
-argument_list|()
-block|{
-name|destroyer
-argument_list|(
-name|this
-argument_list|)
-block|; }
 specifier|inline
 name|void
 name|operator
 name|delete
-argument_list|(
-argument|void *ptr
-argument_list|)
+parameter_list|(
+name|void
+modifier|*
+name|ptr
+parameter_list|)
 block|{
 operator|::
 name|operator
@@ -873,30 +852,37 @@ name|delete
 argument_list|(
 name|ptr
 argument_list|)
-block|; }
+expr_stmt|;
+block|}
 specifier|inline
 name|void
 name|operator
 name|delete
-argument_list|(
-argument|void *
-argument_list|,
-argument|void *
-argument_list|)
+parameter_list|(
+name|void
+modifier|*
+parameter_list|,
+name|void
+modifier|*
+parameter_list|)
 block|{ }
-end_expr_stmt
+block|}
+struct|;
+end_struct
 begin_comment
-unit|};
-comment|// sizeof(ExternalRefCountWithDestroyFn) = 16 (32-bit) / 24 (64-bit)
+comment|// sizeof(ExternalRefCountData) = 12 (32-bit) / 16 (64-bit)
 end_comment
 begin_comment
-comment|// This class extends ExternalRefCountWithDestroyFn and implements
+comment|// This class extends ExternalRefCountData and implements
 end_comment
 begin_comment
 comment|// the static function that deletes the object. The pointer and the
 end_comment
 begin_comment
-comment|// custom deleter are kept in the "extra" member.
+comment|// custom deleter are kept in the "extra" member so we can construct
+end_comment
+begin_comment
+comment|// and destruct it independently of the full structure.
 end_comment
 begin_expr_stmt
 name|template
@@ -911,7 +897,7 @@ expr|struct
 name|ExternalRefCountWithCustomDeleter
 operator|:
 name|public
-name|ExternalRefCountWithDestroyFn
+name|ExternalRefCountData
 block|{
 typedef|typedef
 name|ExternalRefCountWithCustomDeleter
@@ -920,7 +906,7 @@ typedef|;
 end_expr_stmt
 begin_typedef
 typedef|typedef
-name|ExternalRefCountWithDestroyFn
+name|ExternalRefCountData
 name|BaseClass
 typedef|;
 end_typedef
@@ -962,7 +948,10 @@ name|extra
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|// sizeof(CustomDeleter) = sizeof(Deleter) + sizeof(void*)
+comment|// sizeof(CustomDeleter) = sizeof(Deleter) + sizeof(void*) + padding
+end_comment
+begin_comment
+comment|// for Deleter = stateless functor: 8 (32-bit) / 16 (64-bit) due to padding
 end_comment
 begin_comment
 comment|// for Deleter = function pointer:  8 (32-bit) / 16 (64-bit)
@@ -1129,22 +1118,32 @@ name|private
 label|:
 end_label
 begin_comment
-comment|// prevent construction and the emission of virtual symbols
+comment|// prevent construction
 end_comment
-begin_expr_stmt
+begin_macro
 name|ExternalRefCountWithCustomDeleter
 argument_list|()
+end_macro
+begin_expr_stmt
+name|Q_DECL_EQ_DELETE
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
 operator|~
 name|ExternalRefCountWithCustomDeleter
 argument_list|()
+name|Q_DECL_EQ_DELETE
 expr_stmt|;
 end_expr_stmt
+begin_macro
+name|Q_DISABLE_COPY
+argument_list|(
+argument|ExternalRefCountWithCustomDeleter
+argument_list|)
+end_macro
 begin_comment
 unit|};
-comment|// This class extends ExternalRefCountWithDestroyFn and adds a "T"
+comment|// This class extends ExternalRefCountData and adds a "T"
 end_comment
 begin_comment
 comment|// member. That way, when the create() function is called, we allocate
@@ -1165,10 +1164,10 @@ expr|struct
 name|ExternalRefCountWithContiguousData
 operator|:
 name|public
-name|ExternalRefCountWithDestroyFn
+name|ExternalRefCountData
 block|{
 typedef|typedef
-name|ExternalRefCountWithDestroyFn
+name|ExternalRefCountData
 name|Parent
 typedef|;
 name|T
@@ -1313,19 +1312,29 @@ name|private
 label|:
 end_label
 begin_comment
-comment|// prevent construction and the emission of virtual symbols
+comment|// prevent construction
 end_comment
-begin_expr_stmt
+begin_macro
 name|ExternalRefCountWithContiguousData
 argument_list|()
+end_macro
+begin_expr_stmt
+name|Q_DECL_EQ_DELETE
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
 operator|~
 name|ExternalRefCountWithContiguousData
 argument_list|()
+name|Q_DECL_EQ_DELETE
 expr_stmt|;
 end_expr_stmt
+begin_macro
+name|Q_DISABLE_COPY
+argument_list|(
+argument|ExternalRefCountWithContiguousData
+argument_list|)
+end_macro
 begin_comment
 unit|};
 comment|// This is the main body of QSharedPointer. It implements the
