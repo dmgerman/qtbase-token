@@ -347,10 +347,20 @@ block|;
 name|void
 name|start
 argument_list|(
-argument|const QString&program
+argument|const QString&command
 argument_list|,
 argument|OpenMode mode = ReadWrite
 argument_list|)
+block|;
+name|QString
+name|program
+argument_list|()
+specifier|const
+block|;
+name|QStringList
+name|arguments
+argument_list|()
+specifier|const
 block|;
 name|ProcessChannelMode
 name|readChannelMode

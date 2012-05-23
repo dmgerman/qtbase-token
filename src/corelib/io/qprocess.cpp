@@ -5375,7 +5375,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Starts the program \a program in a new process, if one is not already     running. \a program is a single string of text containing both the     program name and its arguments. The arguments are separated by one or     more spaces. For example:      \snippet code/src_corelib_io_qprocess.cpp 5      The \a program string can also contain quotes, to ensure that arguments     containing spaces are correctly supplied to the new process. For example:      \snippet code/src_corelib_io_qprocess.cpp 6      If the QProcess object is already running a process, a warning may be     printed at the console, and the existing process will continue running.      Note that, on Windows, quotes need to be both escaped and quoted.     For example, the above code would be specified in the following     way to ensure that \c{"My Documents"} is used as the argument to     the \c dir executable:      \snippet code/src_corelib_io_qprocess.cpp 7      The OpenMode is set to \a mode. */
+comment|/*!     \overload      Starts the command \a command in a new process, if one is not already     running. \a command is a single string of text containing both the     program name and its arguments. The arguments are separated by one or     more spaces. For example:      \snippet code/src_corelib_io_qprocess.cpp 5      The \a command string can also contain quotes, to ensure that arguments     containing spaces are correctly supplied to the new process. For example:      \snippet code/src_corelib_io_qprocess.cpp 6      If the QProcess object is already running a process, a warning may be     printed at the console, and the existing process will continue running.      Note that, on Windows, quotes need to be both escaped and quoted.     For example, the above code would be specified in the following     way to ensure that \c{"My Documents"} is used as the argument to     the \c dir executable:      \snippet code/src_corelib_io_qprocess.cpp 7      The OpenMode is set to \a mode. */
 end_comment
 begin_function
 DECL|function|start
@@ -5387,7 +5387,7 @@ parameter_list|(
 specifier|const
 name|QString
 modifier|&
-name|program
+name|command
 parameter_list|,
 name|OpenMode
 name|mode
@@ -5398,7 +5398,7 @@ name|args
 init|=
 name|parseCombinedArgString
 argument_list|(
-name|program
+name|command
 argument_list|)
 decl_stmt|;
 if|if
@@ -5462,6 +5462,56 @@ argument_list|,
 name|mode
 argument_list|)
 expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*!     Returns the program the process was last started with.      \sa start() */
+end_comment
+begin_function
+DECL|function|program
+name|QString
+name|QProcess
+operator|::
+name|program
+parameter_list|()
+specifier|const
+block|{
+name|Q_D
+argument_list|(
+specifier|const
+name|QProcess
+argument_list|)
+expr_stmt|;
+return|return
+name|d
+operator|->
+name|program
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     Returns the command line arguments the process was last started with.      \sa start() */
+end_comment
+begin_function
+DECL|function|arguments
+name|QStringList
+name|QProcess
+operator|::
+name|arguments
+parameter_list|()
+specifier|const
+block|{
+name|Q_D
+argument_list|(
+specifier|const
+name|QProcess
+argument_list|)
+expr_stmt|;
+return|return
+name|d
+operator|->
+name|arguments
+return|;
 block|}
 end_function
 begin_comment
