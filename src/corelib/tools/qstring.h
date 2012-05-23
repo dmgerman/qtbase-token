@@ -511,6 +511,15 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QLatin1String
+argument_list|,
+name|Q_MOVABLE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_comment
 comment|// Qt 4.x compatibility
 end_comment
@@ -9137,6 +9146,15 @@ block|}
 end_function
 begin_expr_stmt
 unit|};
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QCharRef
+argument_list|,
+name|Q_MOVABLE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 DECL|function|setRow
 specifier|inline
 name|void
@@ -14013,6 +14031,15 @@ function_decl|;
 end_function_decl
 begin_expr_stmt
 unit|};
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QStringRef
+argument_list|,
+name|Q_PRIMITIVE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 DECL|member|operator
 specifier|inline
 name|QStringRef
