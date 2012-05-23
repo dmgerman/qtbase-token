@@ -377,21 +377,10 @@ argument_list|(
 name|t
 argument_list|)
 block|; }
-name|template
-operator|<
-name|class
-name|T
-operator|>
-specifier|inline
-name|void
-name|normalDeleter
-argument_list|(
-argument|T *t
-argument_list|)
-block|{
-name|delete
-name|t
-block|; }
+expr|struct
+name|NormalDeleter
+block|{}
+expr_stmt|;
 comment|// this uses partial template specialization
 name|template
 operator|<
@@ -639,6 +628,102 @@ block|{ }
 block|}
 struct|;
 comment|// sizeof(ExternalRefCountData) = 12 (32-bit) / 16 (64-bit)
+name|template
+operator|<
+name|class
+name|T
+operator|,
+name|typename
+name|Deleter
+operator|>
+expr|struct
+name|CustomDeleter
+block|{
+name|Deleter
+name|deleter
+block|;
+name|T
+operator|*
+name|ptr
+block|;
+name|CustomDeleter
+argument_list|(
+argument|T *p
+argument_list|,
+argument|Deleter d
+argument_list|)
+operator|:
+name|deleter
+argument_list|(
+name|d
+argument_list|)
+block|,
+name|ptr
+argument_list|(
+argument|p
+argument_list|)
+block|{}
+name|void
+name|execute
+argument_list|()
+block|{
+name|executeDeleter
+argument_list|(
+name|ptr
+argument_list|,
+name|deleter
+argument_list|)
+block|; }
+block|}
+expr_stmt|;
+comment|// sizeof(CustomDeleter) = sizeof(Deleter) + sizeof(void*) + padding
+comment|// for Deleter = stateless functor: 8 (32-bit) / 16 (64-bit) due to padding
+comment|// for Deleter = function pointer:  8 (32-bit) / 16 (64-bit)
+comment|// for Deleter = PMF: 12 (32-bit) / 24 (64-bit)  (GCC)
+comment|// This specialization of CustomDeleter for a deleter of type NormalDeleter
+comment|// is an optimization: instead of storing a pointer to a function that does
+comment|// the deleting, we simply delete the pointer ourselves.
+name|template
+operator|<
+name|class
+name|T
+operator|>
+expr|struct
+name|CustomDeleter
+operator|<
+name|T
+operator|,
+name|NormalDeleter
+operator|>
+block|{
+name|T
+operator|*
+name|ptr
+block|;
+name|CustomDeleter
+argument_list|(
+name|T
+operator|*
+name|p
+argument_list|,
+name|NormalDeleter
+argument_list|)
+operator|:
+name|ptr
+argument_list|(
+argument|p
+argument_list|)
+block|{}
+name|void
+name|execute
+argument_list|()
+block|{
+name|delete
+name|ptr
+block|; }
+block|}
+expr_stmt|;
+comment|// sizeof(CustomDeleter specialization) = sizeof(void*)
 comment|// This class extends ExternalRefCountData and implements
 comment|// the static function that deletes the object. The pointer and the
 comment|// custom deleter are kept in the "extra" member so we can construct
@@ -665,43 +750,14 @@ typedef|typedef
 name|ExternalRefCountData
 name|BaseClass
 typedef|;
-struct|struct
 name|CustomDeleter
-block|{
-name|Deleter
-name|deleter
-decl_stmt|;
+operator|<
 name|T
-modifier|*
-name|ptr
-decl_stmt|;
-specifier|inline
-name|CustomDeleter
-argument_list|(
-argument|T *p
-argument_list|,
-argument|Deleter d
-argument_list|)
-operator|:
-name|deleter
-argument_list|(
-name|d
-argument_list|)
 operator|,
-name|ptr
-argument_list|(
-argument|p
-argument_list|)
-block|{}
-block|}
-struct|;
-name|CustomDeleter
+name|Deleter
+operator|>
 name|extra
-decl_stmt|;
-comment|// sizeof(CustomDeleter) = sizeof(Deleter) + sizeof(void*) + padding
-comment|// for Deleter = stateless functor: 8 (32-bit) / 16 (64-bit) due to padding
-comment|// for Deleter = function pointer:  8 (32-bit) / 16 (64-bit)
-comment|// for Deleter = PMF: 12 (32-bit) / 24 (64-bit)  (GCC)
+expr_stmt|;
 specifier|static
 specifier|inline
 name|void
@@ -725,20 +781,12 @@ operator|(
 name|self
 operator|)
 decl_stmt|;
-name|executeDeleter
-argument_list|(
 name|realself
 operator|->
 name|extra
 operator|.
-name|ptr
-argument_list|,
-name|realself
-operator|->
-name|extra
-operator|.
-name|deleter
-argument_list|)
+name|execute
+argument_list|()
 expr_stmt|;
 comment|// delete the deleter too
 name|realself
@@ -747,7 +795,13 @@ name|extra
 operator|.
 expr|~
 name|CustomDeleter
-argument_list|()
+operator|<
+name|T
+operator|,
+name|Deleter
+operator|>
+operator|(
+operator|)
 expr_stmt|;
 block|}
 specifier|static
@@ -814,11 +868,16 @@ argument_list|(
 argument|&d->extra
 argument_list|)
 name|CustomDeleter
-argument_list|(
+operator|<
+name|T
+operator|,
+name|Deleter
+operator|>
+operator|(
 name|ptr
-argument_list|,
+operator|,
 name|userDeleter
-argument_list|)
+operator|)
 expr_stmt|;
 name|new
 argument_list|(
@@ -1297,13 +1356,10 @@ name|internalConstruct
 argument_list|(
 name|ptr
 argument_list|,
-operator|&
 name|QtSharedPointer
 operator|::
-name|normalDeleter
-operator|<
-name|T
-operator|>
+name|NormalDeleter
+argument_list|()
 argument_list|)
 block|; }
 name|template
