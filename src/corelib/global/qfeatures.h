@@ -384,12 +384,6 @@ begin_comment
 comment|//#define QT_NO_UNDOCOMMAND
 end_comment
 begin_comment
-comment|// QUrlInfo
-end_comment
-begin_comment
-comment|//#define QT_NO_URLINFO
-end_comment
-begin_comment
 comment|// QValidator
 end_comment
 begin_comment
@@ -1242,11 +1236,6 @@ name|QT_NO_FTP
 argument_list|)
 operator|&&
 operator|(
-name|defined
-argument_list|(
-name|QT_NO_URLINFO
-argument_list|)
-operator|||
 name|defined
 argument_list|(
 name|QT_NO_TEXTDATE

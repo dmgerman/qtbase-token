@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qurlinfo.h"
+file|"qurlinfo_p.h"
 end_include
 begin_ifndef
 ifndef|#

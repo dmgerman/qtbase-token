@@ -51,7 +51,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtNetwork/qurlinfo.h>
+file|<qurlinfo_p.h>
 end_include
 begin_include
 include|#
