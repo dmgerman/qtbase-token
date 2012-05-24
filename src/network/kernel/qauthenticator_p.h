@@ -78,7 +78,7 @@ end_decl_stmt
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN32
+name|Q_OS_WIN
 end_ifdef
 begin_decl_stmt
 DECL|variable|QNtlmWindowsHandles

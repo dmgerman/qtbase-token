@@ -60,7 +60,7 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN32
+name|Q_OS_WIN
 end_ifdef
 begin_include
 include|#
@@ -131,7 +131,7 @@ end_function_decl
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN32
+name|Q_OS_WIN
 end_ifdef
 begin_function_decl
 specifier|static
@@ -742,7 +742,7 @@ end_function
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN32
+name|Q_OS_WIN
 end_ifdef
 begin_class
 DECL|class|QNtlmWindowsHandles
@@ -852,7 +852,7 @@ parameter_list|()
 block|{
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN32
+name|Q_OS_WIN
 if|if
 condition|(
 name|ntlmWindowsHandles
@@ -1546,7 +1546,7 @@ condition|)
 block|{
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN32
+name|Q_OS_WIN
 name|QByteArray
 name|phase1Token
 decl_stmt|;
@@ -1620,7 +1620,7 @@ else|else
 block|{
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN32
+name|Q_OS_WIN
 name|QByteArray
 name|phase3Token
 decl_stmt|;
@@ -6234,7 +6234,7 @@ end_function
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN32
+name|Q_OS_WIN
 end_ifdef
 begin_comment
 comment|// See http://davenport.sourceforge.net/ntlm.html
@@ -6311,6 +6311,27 @@ operator|!=
 name|NULL
 condition|)
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_WINCE
+argument_list|)
+name|INIT_SECURITY_INTERFACE
+name|pInitSecurityInterface
+init|=
+operator|(
+name|INIT_SECURITY_INTERFACE
+operator|)
+name|GetProcAddress
+argument_list|(
+name|securityDLLHandle
+argument_list|,
+literal|L"InitSecurityInterfaceW"
+argument_list|)
+decl_stmt|;
+else|#
+directive|else
 name|INIT_SECURITY_INTERFACE
 name|pInitSecurityInterface
 init|=
@@ -6324,6 +6345,8 @@ argument_list|,
 literal|"InitSecurityInterfaceW"
 argument_list|)
 decl_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|pInitSecurityInterface
@@ -6351,6 +6374,11 @@ literal|true
 return|;
 block|}
 end_function
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+end_ifdef
 begin_comment
 comment|// Phase 1:
 end_comment
@@ -6976,6 +7004,13 @@ name|result
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// Q_OS_WIN
+end_comment
 begin_endif
 endif|#
 directive|endif
