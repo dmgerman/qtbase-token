@@ -987,7 +987,7 @@ begin_function_decl
 name|iterator
 name|insert
 parameter_list|(
-name|iterator
+name|const_iterator
 name|before
 parameter_list|,
 name|int
@@ -1005,7 +1005,7 @@ specifier|inline
 name|iterator
 name|insert
 parameter_list|(
-name|iterator
+name|const_iterator
 name|before
 parameter_list|,
 specifier|const
@@ -1030,10 +1030,10 @@ begin_function_decl
 name|iterator
 name|erase
 parameter_list|(
-name|iterator
+name|const_iterator
 name|begin
 parameter_list|,
-name|iterator
+name|const_iterator
 name|end
 parameter_list|)
 function_decl|;
@@ -1043,7 +1043,7 @@ specifier|inline
 name|iterator
 name|erase
 parameter_list|(
-name|iterator
+name|const_iterator
 name|pos
 parameter_list|)
 block|{
@@ -2251,7 +2251,7 @@ operator|>
 operator|::
 name|insert
 argument_list|(
-argument|iterator before
+argument|const_iterator before
 argument_list|,
 argument|size_type n
 argument_list|,
@@ -2452,9 +2452,9 @@ operator|>
 operator|::
 name|erase
 argument_list|(
-argument|iterator abegin
+argument|const_iterator abegin
 argument_list|,
-argument|iterator aend
+argument|const_iterator aend
 argument_list|)
 block|{
 name|int
