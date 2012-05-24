@@ -18247,7 +18247,7 @@ name|it
 operator|->
 name|pen
 operator|.
-name|setWidth
+name|setWidthF
 argument_list|(
 name|penWidth
 argument_list|)

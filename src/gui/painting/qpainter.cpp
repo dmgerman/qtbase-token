@@ -22812,14 +22812,6 @@ comment|// deliberately ceil the offset to avoid the underline coming too close 
 comment|// the text above it.
 specifier|const
 name|qreal
-name|aliasedCoordinateDelta
-init|=
-literal|0.5
-operator|-
-literal|0.015625
-decl_stmt|;
-specifier|const
-name|qreal
 name|underlinePos
 init|=
 name|pos
@@ -22831,8 +22823,6 @@ name|qCeil
 argument_list|(
 name|underlineOffset
 argument_list|)
-operator|-
-name|aliasedCoordinateDelta
 decl_stmt|;
 if|if
 condition|(
