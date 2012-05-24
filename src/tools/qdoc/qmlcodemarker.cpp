@@ -562,7 +562,7 @@ name|inc
 init|=
 name|includes
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -571,7 +571,7 @@ name|inc
 operator|!=
 name|includes
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{

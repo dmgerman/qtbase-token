@@ -2850,7 +2850,7 @@ name|c
 init|=
 name|primaryFunctionMap
 operator|.
-name|find
+name|constFind
 argument_list|(
 name|clone
 operator|->
@@ -2864,7 +2864,7 @@ name|c
 operator|!=
 name|primaryFunctionMap
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -2926,7 +2926,7 @@ name|s
 init|=
 name|secs
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -2935,7 +2935,7 @@ name|s
 operator|!=
 name|secs
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -3446,7 +3446,7 @@ name|s
 init|=
 name|secs
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -3455,7 +3455,7 @@ name|s
 operator|!=
 name|secs
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -3550,7 +3550,7 @@ name|p
 init|=
 name|primaryFunctionMap
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -3559,7 +3559,7 @@ name|p
 operator|!=
 name|primaryFunctionMap
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -3619,7 +3619,7 @@ name|s
 init|=
 name|secs
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -3628,7 +3628,7 @@ name|s
 operator|!=
 name|secs
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -3674,7 +3674,7 @@ init|=
 name|childNodes
 argument_list|()
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -3684,7 +3684,7 @@ operator|!=
 name|childNodes
 argument_list|()
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -4355,7 +4355,7 @@ operator|->
 name|parameters
 argument_list|()
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 name|QList
@@ -4371,7 +4371,7 @@ operator|->
 name|parameters
 argument_list|()
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -4383,7 +4383,7 @@ operator|->
 name|parameters
 argument_list|()
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -7441,7 +7441,7 @@ name|source
 operator|->
 name|params
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -7452,7 +7452,7 @@ name|source
 operator|->
 name|params
 operator|.
-name|end
+name|constEnd
 argument_list|()
 operator|&&
 name|t
@@ -7602,7 +7602,7 @@ init|=
 name|parameters
 argument_list|()
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -7612,7 +7612,7 @@ operator|!=
 name|parameters
 argument_list|()
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -7736,7 +7736,7 @@ init|=
 name|parameters
 argument_list|()
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -7746,7 +7746,7 @@ operator|!=
 name|parameters
 argument_list|()
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -8489,7 +8489,7 @@ if|if
 condition|(
 name|inheritedBy
 operator|.
-name|find
+name|constFind
 argument_list|(
 name|base
 argument_list|,
@@ -8498,7 +8498,7 @@ argument_list|)
 operator|==
 name|inheritedBy
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -10081,7 +10081,7 @@ name|i
 init|=
 name|cn
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -10090,7 +10090,7 @@ name|i
 operator|!=
 name|cn
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -10184,7 +10184,7 @@ name|i
 init|=
 name|cn
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -10193,7 +10193,7 @@ name|i
 operator|!=
 name|cn
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{

@@ -4219,7 +4219,7 @@ name|argsIter
 init|=
 name|args
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 name|arg
@@ -4436,7 +4436,7 @@ name|argsIter
 operator|!=
 name|args
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -5349,7 +5349,7 @@ operator|->
 name|childNodes
 argument_list|()
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -5361,7 +5361,7 @@ operator|->
 name|childNodes
 argument_list|()
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -5492,7 +5492,7 @@ operator|->
 name|childNodes
 argument_list|()
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -5504,7 +5504,7 @@ operator|->
 name|childNodes
 argument_list|()
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -5656,7 +5656,7 @@ name|cmd
 init|=
 name|metaCommands
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -5665,7 +5665,7 @@ name|cmd
 operator|!=
 name|metaCommands
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -5687,7 +5687,7 @@ name|arg
 init|=
 name|args
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -5696,7 +5696,7 @@ name|arg
 operator|!=
 name|args
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -10379,7 +10379,7 @@ operator|=
 operator|*
 name|topicCommandsUsed
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 expr_stmt|;
 name|args
@@ -10624,7 +10624,7 @@ name|a
 init|=
 name|args
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -10633,7 +10633,7 @@ name|a
 operator|!=
 name|args
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{

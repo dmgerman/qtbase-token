@@ -978,7 +978,7 @@ name|iter
 operator|==
 name|yyProgram
 operator|->
-name|begin
+name|constBegin
 argument_list|()
 condition|)
 block|{
@@ -1385,7 +1385,7 @@ name|iter
 operator|=
 name|yyProgram
 operator|->
-name|end
+name|constEnd
 argument_list|()
 expr_stmt|;
 operator|--
@@ -1437,7 +1437,7 @@ name|p
 init|=
 name|yyProgram
 operator|->
-name|end
+name|constEnd
 argument_list|()
 decl_stmt|;
 operator|--
@@ -1465,7 +1465,7 @@ name|p
 operator|==
 name|yyProgram
 operator|->
-name|begin
+name|constBegin
 argument_list|()
 condition|)
 return|return
@@ -3225,7 +3225,7 @@ name|line
 init|=
 name|program
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -3234,7 +3234,7 @@ name|line
 operator|!=
 name|program
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{

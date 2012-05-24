@@ -584,7 +584,7 @@ name|fn
 init|=
 name|fileNames
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -593,7 +593,7 @@ name|fn
 operator|!=
 name|fileNames
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -1247,7 +1247,7 @@ name|h
 init|=
 name|headers
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -1256,7 +1256,7 @@ name|h
 operator|!=
 name|headers
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -1335,7 +1335,7 @@ name|s
 init|=
 name|sources
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -1344,7 +1344,7 @@ name|s
 operator|!=
 name|sources
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -1444,7 +1444,7 @@ name|of
 init|=
 name|outputFormats
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -1453,7 +1453,7 @@ name|of
 operator|!=
 name|outputFormats
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{

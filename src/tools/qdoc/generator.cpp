@@ -572,7 +572,7 @@ name|n
 init|=
 name|nodes
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 name|int
@@ -586,7 +586,7 @@ name|n
 operator|!=
 name|nodes
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -675,7 +675,7 @@ name|r
 operator|=
 name|classes
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 expr_stmt|;
 while|while
@@ -684,7 +684,7 @@ name|r
 operator|!=
 name|classes
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -4268,7 +4268,7 @@ operator|->
 name|items
 argument_list|()
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -4280,7 +4280,7 @@ operator|->
 name|items
 argument_list|()
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -4361,7 +4361,7 @@ name|a
 init|=
 name|allItems
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -4370,7 +4370,7 @@ name|a
 operator|!=
 name|allItems
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -4581,7 +4581,7 @@ operator|->
 name|parameters
 argument_list|()
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -4593,7 +4593,7 @@ operator|->
 name|parameters
 argument_list|()
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -4738,7 +4738,7 @@ name|a
 init|=
 name|allParams
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -4747,7 +4747,7 @@ name|a
 operator|!=
 name|allParams
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -5802,7 +5802,7 @@ operator|->
 name|baseClasses
 argument_list|()
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 expr_stmt|;
 name|index
@@ -5818,7 +5818,7 @@ operator|->
 name|baseClasses
 argument_list|()
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -6242,7 +6242,7 @@ operator|->
 name|childNodes
 argument_list|()
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -6254,7 +6254,7 @@ operator|->
 name|childNodes
 argument_list|()
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -7613,7 +7613,7 @@ operator|->
 name|childNodes
 argument_list|()
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -7625,7 +7625,7 @@ operator|->
 name|childNodes
 argument_list|()
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -8102,7 +8102,7 @@ name|g
 init|=
 name|generators
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -8111,7 +8111,7 @@ name|g
 operator|!=
 name|generators
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -9117,7 +9117,7 @@ name|f
 init|=
 name|formats
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -9126,7 +9126,7 @@ name|f
 operator|!=
 name|formats
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -9165,7 +9165,7 @@ name|g
 init|=
 name|generators
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -9174,7 +9174,7 @@ name|g
 operator|!=
 name|generators
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -9240,7 +9240,7 @@ name|e
 init|=
 name|extraImages
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -9249,7 +9249,7 @@ name|e
 operator|!=
 name|extraImages
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -9394,7 +9394,7 @@ name|e
 operator|=
 name|scripts
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 expr_stmt|;
 while|while
@@ -9403,7 +9403,7 @@ name|e
 operator|!=
 name|scripts
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -9496,7 +9496,7 @@ name|e
 operator|=
 name|styles
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 expr_stmt|;
 while|while
@@ -9505,7 +9505,7 @@ name|e
 operator|!=
 name|styles
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -9607,7 +9607,7 @@ name|n
 init|=
 name|formattingNames
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -9616,7 +9616,7 @@ name|n
 operator|!=
 name|formattingNames
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -9655,7 +9655,7 @@ name|f
 init|=
 name|formats
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -9664,7 +9664,7 @@ name|f
 operator|!=
 name|formats
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -11069,7 +11069,7 @@ name|g
 init|=
 name|generators
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -11078,7 +11078,7 @@ name|g
 operator|!=
 name|generators
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{

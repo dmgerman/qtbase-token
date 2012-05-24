@@ -286,7 +286,7 @@ name|pre
 init|=
 name|prefixes
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -295,7 +295,7 @@ name|pre
 operator|!=
 name|prefixes
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -306,7 +306,7 @@ name|suf
 init|=
 name|suffixes
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -315,7 +315,7 @@ name|suf
 operator|!=
 name|suffixes
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -675,7 +675,7 @@ name|v
 init|=
 name|stringValueMap
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -684,7 +684,7 @@ name|v
 operator|!=
 name|stringValueMap
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -830,7 +830,7 @@ name|s
 init|=
 name|strs
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 name|int
@@ -844,7 +844,7 @@ name|s
 operator|!=
 name|strs
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -1122,7 +1122,7 @@ name|it
 init|=
 name|stringListValueMap
 operator|.
-name|find
+name|constFind
 argument_list|(
 name|var
 argument_list|)
@@ -1133,7 +1133,7 @@ name|it
 operator|!=
 name|stringListValueMap
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -1248,7 +1248,7 @@ name|s
 init|=
 name|subRegExps
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -1257,7 +1257,7 @@ name|s
 operator|!=
 name|subRegExps
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -1373,7 +1373,7 @@ name|s
 init|=
 name|strs
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 name|QList
@@ -1388,7 +1388,7 @@ name|s
 operator|!=
 name|strs
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -1452,7 +1452,7 @@ name|v
 init|=
 name|stringValueMap
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -1461,7 +1461,7 @@ name|v
 operator|!=
 name|stringValueMap
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -1576,7 +1576,7 @@ name|v
 init|=
 name|stringValueMap
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -1585,7 +1585,7 @@ name|v
 operator|!=
 name|stringValueMap
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -1739,7 +1739,7 @@ name|d
 init|=
 name|dirs
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -1748,7 +1748,7 @@ name|d
 operator|!=
 name|dirs
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -1867,7 +1867,7 @@ name|f
 init|=
 name|files
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -1876,7 +1876,7 @@ name|f
 operator|!=
 name|files
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -1959,7 +1959,7 @@ name|d
 init|=
 name|dirs
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -1968,7 +1968,7 @@ name|d
 operator|!=
 name|dirs
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -2024,7 +2024,7 @@ name|c
 init|=
 name|components
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 for|for
@@ -2041,7 +2041,7 @@ name|c
 operator|!=
 name|components
 operator|.
-name|end
+name|constEnd
 argument_list|()
 operator|-
 literal|1
@@ -2155,7 +2155,7 @@ name|e
 init|=
 name|fileExtensions
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -2164,7 +2164,7 @@ name|e
 operator|!=
 name|fileExtensions
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -3776,7 +3776,7 @@ name|key
 init|=
 name|keys
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -3785,7 +3785,7 @@ name|key
 operator|!=
 name|keys
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{

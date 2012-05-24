@@ -783,7 +783,7 @@ name|edition
 init|=
 name|editionNames
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -792,7 +792,7 @@ name|edition
 operator|!=
 name|editionNames
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -3220,7 +3220,7 @@ name|nsmap
 operator|=
 name|newSinceMaps
 operator|.
-name|find
+name|constFind
 argument_list|(
 name|atom
 operator|->
@@ -3237,7 +3237,7 @@ name|ncmap
 operator|=
 name|newClassMaps
 operator|.
-name|find
+name|constFind
 argument_list|(
 name|atom
 operator|->
@@ -3254,7 +3254,7 @@ name|nqcmap
 operator|=
 name|newQmlClassMaps
 operator|.
-name|find
+name|constFind
 argument_list|(
 name|atom
 operator|->
@@ -6649,7 +6649,7 @@ name|s
 operator|=
 name|sections
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 expr_stmt|;
 while|while
@@ -6658,7 +6658,7 @@ name|s
 operator|!=
 name|sections
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -6891,7 +6891,7 @@ name|s
 operator|=
 name|sections
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 expr_stmt|;
 while|while
@@ -6900,7 +6900,7 @@ name|s
 operator|!=
 name|sections
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -7045,7 +7045,7 @@ name|s
 operator|=
 name|sections
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 expr_stmt|;
 while|while
@@ -7054,7 +7054,7 @@ name|s
 operator|!=
 name|sections
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -7116,7 +7116,7 @@ operator|)
 operator|.
 name|members
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -7130,7 +7130,7 @@ operator|)
 operator|.
 name|members
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -7641,7 +7641,7 @@ name|it
 init|=
 name|nl
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -7650,7 +7650,7 @@ name|it
 operator|!=
 name|nl
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -7909,7 +7909,7 @@ operator|->
 name|linkTargets
 argument_list|()
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -7921,7 +7921,7 @@ operator|->
 name|linkTargets
 argument_list|()
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -8027,7 +8027,7 @@ name|t
 init|=
 name|targets
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -8036,7 +8036,7 @@ name|t
 operator|!=
 name|targets
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -8913,7 +8913,7 @@ name|s
 operator|=
 name|sections
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 expr_stmt|;
 while|while
@@ -8922,7 +8922,7 @@ name|s
 operator|!=
 name|sections
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -9076,7 +9076,7 @@ name|s
 operator|=
 name|sections
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 expr_stmt|;
 while|while
@@ -9085,7 +9085,7 @@ name|s
 operator|!=
 name|sections
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -9118,7 +9118,7 @@ operator|)
 operator|.
 name|members
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -9132,7 +9132,7 @@ operator|)
 operator|.
 name|members
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -9199,7 +9199,7 @@ name|s
 operator|=
 name|sections
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 expr_stmt|;
 while|while
@@ -9208,7 +9208,7 @@ name|s
 operator|!=
 name|sections
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -9568,7 +9568,7 @@ name|s
 operator|=
 name|sections
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 expr_stmt|;
 while|while
@@ -9577,7 +9577,7 @@ name|s
 operator|!=
 name|sections
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -9611,7 +9611,7 @@ operator|)
 operator|.
 name|members
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -9625,7 +9625,7 @@ operator|)
 operator|.
 name|members
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -12039,7 +12039,7 @@ name|s
 init|=
 name|sections
 operator|->
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -12048,7 +12048,7 @@ name|s
 operator|!=
 name|sections
 operator|->
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -13080,7 +13080,7 @@ argument_list|)
 operator|.
 name|members
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -13096,7 +13096,7 @@ argument_list|)
 operator|.
 name|members
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -13187,7 +13187,7 @@ name|c
 init|=
 name|classMap
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -13196,7 +13196,7 @@ name|c
 operator|!=
 name|classMap
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -13311,7 +13311,7 @@ operator|.
 name|top
 argument_list|()
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -13743,7 +13743,7 @@ name|iter
 init|=
 name|classMap
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -13752,7 +13752,7 @@ name|iter
 operator|!=
 name|classMap
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -13901,7 +13901,7 @@ if|#
 directive|if
 literal|0
 comment|/*           The algorithm below eventually failed, so it was replaced           with the simple (perhaps too simple) algorithm above.            The caller didn't pass in a common prefix, so get the common           prefix by looking at the class names of the first and last           classes in the class map. Discard any namespace names and           just use the bare class names. For Qt, the prefix is "Q".            Note that the algorithm used here to derive the common prefix           from the first and last classes in alphabetical order (QAccel           and QXtWidget in Qt 2.1), fails if either class name does not           begin with Q.         */
-block|QString first;         QString last;         NodeMap::const_iterator iter = classMap.begin();         while (iter != classMap.end()) {             if (!iter.key().contains("::")) {                 first = iter.key();                 break;             }             ++iter;         }          if (first.isEmpty())             first = classMap.begin().key();          iter = classMap.end();         while (iter != classMap.begin()) {             --iter;             if (!iter.key().contains("::")) {                 last = iter.key();                 break;             }         }          if (last.isEmpty())             last = classMap.begin().key();          if (classMap.size()> 1) {             while (commonPrefixLen< first.length() + 1&&                    commonPrefixLen< last.length() + 1&&                    first[commonPrefixLen] == last[commonPrefixLen])                 ++commonPrefixLen;         }          commonPrefix = first.left(commonPrefixLen);
+block|QString first;         QString last;         NodeMap::const_iterator iter = classMap.constBegin();         while (iter != classMap.constEnd()) {             if (!iter.key().contains("::")) {                 first = iter.key();                 break;             }             ++iter;         }          if (first.isEmpty())             first = classMap.constBegin().key();          iter = classMap.constEnd();         while (iter != classMap.constBegin()) {             --iter;             if (!iter.key().contains("::")) {                 last = iter.key();                 break;             }         }          if (last.isEmpty())             last = classMap.constBegin().key();          if (classMap.size()> 1) {             while (commonPrefixLen< first.length() + 1&&                    commonPrefixLen< last.length() + 1&&                    first[commonPrefixLen] == last[commonPrefixLen])                 ++commonPrefixLen;         }          commonPrefix = first.left(commonPrefixLen);
 endif|#
 directive|endif
 block|}
@@ -13935,7 +13935,7 @@ name|c
 init|=
 name|classMap
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -13944,7 +13944,7 @@ name|c
 operator|!=
 name|classMap
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -14736,7 +14736,7 @@ name|f
 init|=
 name|funcIndex
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -14745,7 +14745,7 @@ name|f
 operator|!=
 name|funcIndex
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -14831,7 +14831,7 @@ operator|*
 name|f
 operator|)
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -14843,7 +14843,7 @@ operator|*
 name|f
 operator|)
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -14943,7 +14943,7 @@ name|it
 init|=
 name|legaleseTexts
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -14952,7 +14952,7 @@ name|it
 operator|!=
 name|legaleseTexts
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -15013,7 +15013,7 @@ name|it
 operator|!=
 name|legaleseTexts
 operator|.
-name|end
+name|constEnd
 argument_list|()
 operator|&&
 name|it
@@ -16042,7 +16042,7 @@ name|m
 init|=
 name|nl
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -16051,7 +16051,7 @@ name|m
 operator|!=
 name|nl
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -16339,7 +16339,7 @@ name|section
 operator|.
 name|members
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -16350,7 +16350,7 @@ name|section
 operator|.
 name|members
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -16619,7 +16619,7 @@ name|section
 operator|.
 name|inherited
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -16630,7 +16630,7 @@ name|section
 operator|.
 name|inherited
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -20932,7 +20932,7 @@ operator|->
 name|childNodes
 argument_list|()
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -20944,7 +20944,7 @@ operator|->
 name|childNodes
 argument_list|()
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -21134,7 +21134,7 @@ operator|->
 name|childNodes
 argument_list|()
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -21146,7 +21146,7 @@ operator|->
 name|childNodes
 argument_list|()
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -21255,7 +21255,7 @@ operator|->
 name|childNodes
 argument_list|()
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -21267,7 +21267,7 @@ operator|->
 name|childNodes
 argument_list|()
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -23211,7 +23211,7 @@ name|section
 operator|.
 name|members
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 expr_stmt|;
 while|while
@@ -23222,7 +23222,7 @@ name|section
 operator|.
 name|members
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -23351,7 +23351,7 @@ operator|->
 name|childNodes
 argument_list|()
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 name|out
@@ -23373,7 +23373,7 @@ operator|->
 name|childNodes
 argument_list|()
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -23716,7 +23716,7 @@ operator|->
 name|qmlPropNodes
 argument_list|()
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 name|out
@@ -23738,7 +23738,7 @@ operator|->
 name|qmlPropNodes
 argument_list|()
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{

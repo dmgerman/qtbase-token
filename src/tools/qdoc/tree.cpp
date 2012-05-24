@@ -1885,7 +1885,7 @@ name|priv
 operator|->
 name|fakeNodesByTitle
 operator|.
-name|find
+name|constFind
 argument_list|(
 name|Doc
 operator|::
@@ -1985,7 +1985,7 @@ name|it
 init|=
 name|nl
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -1994,7 +1994,7 @@ name|it
 operator|!=
 name|nl
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -2269,7 +2269,7 @@ name|priv
 operator|->
 name|targetHash
 operator|.
-name|find
+name|constFind
 argument_list|(
 name|Doc
 operator|::
@@ -2572,7 +2572,7 @@ name|priv
 operator|->
 name|targetHash
 operator|.
-name|find
+name|constFind
 argument_list|(
 name|key
 argument_list|)
@@ -2907,7 +2907,7 @@ operator|->
 name|childNodes
 argument_list|()
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -2919,7 +2919,7 @@ operator|->
 name|childNodes
 argument_list|()
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -3030,7 +3030,7 @@ name|priv
 operator|->
 name|unresolvedPropertyMap
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 expr_stmt|;
 while|while
@@ -3041,7 +3041,7 @@ name|priv
 operator|->
 name|unresolvedPropertyMap
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -3125,7 +3125,7 @@ operator|->
 name|childNodes
 argument_list|()
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -3137,7 +3137,7 @@ operator|->
 name|childNodes
 argument_list|()
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -3310,7 +3310,7 @@ name|priv
 operator|->
 name|unresolvedPropertyMap
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 expr_stmt|;
 while|while
@@ -3321,7 +3321,7 @@ name|priv
 operator|->
 name|unresolvedPropertyMap
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -3413,7 +3413,7 @@ name|b
 init|=
 name|bounds
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -3422,7 +3422,7 @@ name|b
 operator|!=
 name|bounds
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -3524,7 +3524,7 @@ operator|->
 name|childNodes
 argument_list|()
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -3536,7 +3536,7 @@ operator|->
 name|childNodes
 argument_list|()
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -4428,7 +4428,7 @@ operator|->
 name|childNodes
 argument_list|()
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -4440,7 +4440,7 @@ operator|->
 name|childNodes
 argument_list|()
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -4546,7 +4546,7 @@ operator|->
 name|baseClasses
 argument_list|()
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -4558,7 +4558,7 @@ operator|->
 name|baseClasses
 argument_list|()
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -4663,7 +4663,7 @@ operator|->
 name|baseClasses
 argument_list|()
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -4675,7 +4675,7 @@ operator|->
 name|baseClasses
 argument_list|()
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{

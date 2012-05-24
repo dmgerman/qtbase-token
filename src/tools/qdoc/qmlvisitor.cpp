@@ -1786,7 +1786,7 @@ name|argsIter
 init|=
 name|args
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -1795,7 +1795,7 @@ name|argsIter
 operator|!=
 name|args
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -2783,7 +2783,7 @@ operator|->
 name|childNodes
 argument_list|()
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -2795,7 +2795,7 @@ operator|->
 name|childNodes
 argument_list|()
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{

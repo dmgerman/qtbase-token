@@ -3730,7 +3730,7 @@ name|project
 operator|.
 name|customFilters
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 init|;
 name|it
@@ -3739,7 +3739,7 @@ name|project
 operator|.
 name|customFilters
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|;
 operator|++

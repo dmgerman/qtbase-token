@@ -329,7 +329,7 @@ name|c
 init|=
 name|candidates
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -338,7 +338,7 @@ name|c
 operator|!=
 name|candidates
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{

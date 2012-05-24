@@ -7031,7 +7031,7 @@ name|macro
 operator|.
 name|otherDefs
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 expr_stmt|;
 while|while
@@ -7042,7 +7042,7 @@ name|macro
 operator|.
 name|otherDefs
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -7081,7 +7081,7 @@ name|macro
 operator|.
 name|otherDefs
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -8943,7 +8943,7 @@ name|f
 init|=
 name|pendingFormats
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -8952,7 +8952,7 @@ name|f
 operator|!=
 name|pendingFormats
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -15567,7 +15567,7 @@ name|c
 init|=
 name|commands
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -15576,7 +15576,7 @@ name|c
 operator|!=
 name|commands
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -15779,7 +15779,7 @@ name|n
 init|=
 name|macroNames
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -15788,7 +15788,7 @@ name|n
 operator|!=
 name|macroNames
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -15887,7 +15887,7 @@ name|f
 init|=
 name|formats
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -15896,7 +15896,7 @@ name|f
 operator|!=
 name|formats
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -16004,7 +16004,7 @@ name|macro
 operator|.
 name|otherDefs
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 operator|.
 name|key
