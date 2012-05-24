@@ -15246,7 +15246,7 @@ name|d
 operator|->
 name|popupWidgets
 operator|.
-name|end
+name|constEnd
 argument_list|()
 decl_stmt|;
 while|while
@@ -15258,7 +15258,7 @@ name|d
 operator|->
 name|popupWidgets
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 operator|&&
 operator|!
@@ -25404,7 +25404,7 @@ name|d
 operator|->
 name|gestureContext
 operator|.
-name|find
+name|constFind
 argument_list|(
 name|gestureType
 argument_list|)
@@ -25417,7 +25417,7 @@ name|d
 operator|->
 name|gestureContext
 operator|.
-name|end
+name|constEnd
 argument_list|()
 operator|&&
 operator|(
