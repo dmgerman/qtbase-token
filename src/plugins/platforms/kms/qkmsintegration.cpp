@@ -50,11 +50,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtPlatformSupport/private/qgenericunixprintersupport_p.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtPlatformSupport/private/qgenericunixeventdispatcher_p.h>
 end_include
 begin_include

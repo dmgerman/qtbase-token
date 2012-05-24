@@ -13,6 +13,11 @@ define|#
 directive|define
 name|QKMSDEVICE_H
 end_define
+begin_include
+include|#
+directive|include
+file|<stddef.h>
+end_include
 begin_extern
 extern|extern
 literal|"C"
