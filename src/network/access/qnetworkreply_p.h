@@ -66,6 +66,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/QElapsedTimer>
+end_include
+begin_include
+include|#
+directive|include
 file|"private/qiodevice_p.h"
 end_include
 begin_decl_stmt
@@ -99,6 +104,14 @@ name|manager
 expr_stmt|;
 name|qint64
 name|readBufferMaxSize
+decl_stmt|;
+name|QElapsedTimer
+name|downloadProgressSignalChoke
+decl_stmt|;
+specifier|const
+specifier|static
+name|int
+name|progressSignalInterval
 decl_stmt|;
 name|QNetworkAccessManager
 operator|::

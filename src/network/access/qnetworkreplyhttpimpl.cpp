@@ -4189,6 +4189,12 @@ name|thread
 argument_list|)
 expr_stmt|;
 comment|// This call automatically moves the uploadDevice too for the asynchronous case.
+comment|// Start timer for progress notifications
+name|downloadProgressSignalChoke
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 comment|// Send an signal to the delegate so it starts working in the other thread
 if|if
 condition|(
@@ -4755,6 +4761,21 @@ argument_list|()
 emit|;
 comment|// emit readyRead before downloadProgress incase this will cause events to be
 comment|// processed and we get into a recursive call (as in QProgressDialog).
+if|if
+condition|(
+name|downloadProgressSignalChoke
+operator|.
+name|elapsed
+argument_list|()
+operator|>=
+name|progressSignalInterval
+condition|)
+block|{
+name|downloadProgressSignalChoke
+operator|.
+name|restart
+argument_list|()
+expr_stmt|;
 emit|emit
 name|q
 operator|->
@@ -4779,6 +4800,7 @@ name|toLongLong
 argument_list|()
 argument_list|)
 emit|;
+block|}
 block|}
 end_function
 begin_function
@@ -5507,6 +5529,21 @@ operator|->
 name|readyRead
 argument_list|()
 emit|;
+if|if
+condition|(
+name|downloadProgressSignalChoke
+operator|.
+name|elapsed
+argument_list|()
+operator|>=
+name|progressSignalInterval
+condition|)
+block|{
+name|downloadProgressSignalChoke
+operator|.
+name|restart
+argument_list|()
+expr_stmt|;
 emit|emit
 name|q
 operator|->
@@ -5517,6 +5554,7 @@ argument_list|,
 name|bytesTotal
 argument_list|)
 emit|;
+block|}
 block|}
 end_function
 begin_function
@@ -7643,6 +7681,21 @@ operator|->
 name|readyRead
 argument_list|()
 emit|;
+if|if
+condition|(
+name|downloadProgressSignalChoke
+operator|.
+name|elapsed
+argument_list|()
+operator|>=
+name|progressSignalInterval
+condition|)
+block|{
+name|downloadProgressSignalChoke
+operator|.
+name|restart
+argument_list|()
+expr_stmt|;
 emit|emit
 name|q
 operator|->
@@ -7667,6 +7720,7 @@ name|toLongLong
 argument_list|()
 argument_list|)
 emit|;
+block|}
 comment|// If there are still bytes available in the cacheLoadDevice then the user did not read
 comment|// in response to the readyRead() signal. This means we have to load from the cacheLoadDevice
 comment|// and buffer that stuff. This is needed to be able to properly emit finished() later.
@@ -8727,6 +8781,22 @@ argument_list|(
 name|bytesDownloaded
 argument_list|,
 name|bytesDownloaded
+argument_list|)
+emit|;
+block|}
+else|else
+block|{
+emit|emit
+name|q
+operator|->
+name|downloadProgress
+argument_list|(
+name|bytesDownloaded
+argument_list|,
+name|totalSize
+operator|.
+name|toLongLong
+argument_list|()
 argument_list|)
 emit|;
 block|}
