@@ -47,6 +47,33 @@ include|#
 directive|include
 file|<errno.h>
 end_include
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QQNXGLBACKINGSTORE_DEBUG
+end_ifdef
+begin_define
+DECL|macro|qGLBackingStoreDebug
+define|#
+directive|define
+name|qGLBackingStoreDebug
+value|qDebug
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|qGLBackingStoreDebug
+define|#
+directive|define
+name|qGLBackingStoreDebug
+value|QT_NO_QDEBUG_MACRO
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
@@ -197,21 +224,15 @@ member_init_list|,
 name|m_size
 argument_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXGLBACKINGSTORE_DEBUG
-argument_list|)
-name|qDebug
+name|qGLBackingStoreDebug
 argument_list|()
 operator|<<
-literal|"QQnxGLBackingStore::QQnxGLBackingStore - w="
+name|Q_FUNC_INFO
+operator|<<
+literal|"w ="
 operator|<<
 name|window
 expr_stmt|;
-endif|#
-directive|endif
 comment|// Create an OpenGL paint device which in turn creates a QGLContext for us
 name|m_paintDevice
 operator|=
@@ -241,22 +262,16 @@ name|~
 name|QQnxGLBackingStore
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXGLBACKINGSTORE_DEBUG
-argument_list|)
-name|qDebug
+name|qGLBackingStoreDebug
 argument_list|()
 operator|<<
-literal|"QQnxGLBackingStore::~QQnxGLBackingStore - w="
+name|Q_FUNC_INFO
+operator|<<
+literal|"w ="
 operator|<<
 name|window
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 comment|// cleanup OpenGL paint device
 operator|delete
 name|m_paintDevice
@@ -295,21 +310,15 @@ argument_list|(
 name|offset
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXGLBACKINGSTORE_DEBUG
-argument_list|)
-name|qDebug
+name|qGLBackingStoreDebug
 argument_list|()
 operator|<<
-literal|"QQnxGLBackingStore::flush - w="
+name|Q_FUNC_INFO
+operator|<<
+literal|"w ="
 operator|<<
 name|window
 expr_stmt|;
-endif|#
-directive|endif
 comment|// update the display with newly rendered content
 name|m_openGLContext
 operator|->
@@ -343,26 +352,20 @@ argument_list|(
 name|staticContents
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXGLBACKINGSTORE_DEBUG
-argument_list|)
-name|qDebug
+name|qGLBackingStoreDebug
 argument_list|()
 operator|<<
-literal|"QQnxGLBackingStore::resize - w="
+name|Q_FUNC_INFO
+operator|<<
+literal|"w ="
 operator|<<
 name|window
 argument_list|()
 operator|<<
-literal|", s="
+literal|", s ="
 operator|<<
 name|size
 expr_stmt|;
-endif|#
-directive|endif
 comment|// NOTE: defer resizing window buffers until next paint as
 comment|// resize() can be called multiple times before a paint occurs
 name|m_requestedSize
@@ -389,22 +392,16 @@ argument_list|(
 name|region
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXGLBACKINGSTORE_DEBUG
-argument_list|)
-name|qDebug
+name|qGLBackingStoreDebug
 argument_list|()
 operator|<<
-literal|"QQnxGLBackingStore::beginPaint - w="
+name|Q_FUNC_INFO
+operator|<<
+literal|"w ="
 operator|<<
 name|window
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 comment|// resize EGL surface if window surface resized
 if|if
 condition|(
@@ -439,22 +436,16 @@ argument_list|(
 name|region
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXGLBACKINGSTORE_DEBUG
-argument_list|)
-name|qDebug
+name|qGLBackingStoreDebug
 argument_list|()
 operator|<<
-literal|"QQnxGLBackingStore::endPaint - w="
+name|Q_FUNC_INFO
+operator|<<
+literal|"w ="
 operator|<<
 name|window
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function

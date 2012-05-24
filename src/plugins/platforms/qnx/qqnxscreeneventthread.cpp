@@ -32,6 +32,33 @@ include|#
 directive|include
 file|<cctype>
 end_include
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QQNXSCREENEVENTTHREAD_DEBUG
+end_ifdef
+begin_define
+DECL|macro|qScreenEventThreadDebug
+define|#
+directive|define
+name|qScreenEventThreadDebug
+value|qDebug
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|qScreenEventThreadDebug
+define|#
+directive|define
+name|qScreenEventThreadDebug
+value|QT_NO_QDEBUG_MACRO
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_constructor
 DECL|function|QQnxScreenEventThread
 name|QQnxScreenEventThread
@@ -155,19 +182,13 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXSCREENEVENTTHREAD_DEBUG
-argument_list|)
-name|qDebug
+name|qScreenEventThreadDebug
 argument_list|()
 operator|<<
-literal|"QQNX: screen event thread started"
+name|Q_FUNC_INFO
+operator|<<
+literal|"screen event thread started"
 expr_stmt|;
-endif|#
-directive|endif
 comment|// loop indefinitely
 while|while
 condition|(
@@ -243,19 +264,13 @@ name|SCREEN_EVENT_USER
 condition|)
 block|{
 comment|// treat all user events as shutdown requests
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXSCREENEVENTTHREAD_DEBUG
-argument_list|)
-name|qDebug
+name|qScreenEventThreadDebug
 argument_list|()
 operator|<<
-literal|"QQNX: QNX user screen event"
+name|Q_FUNC_INFO
+operator|<<
+literal|"QNX user screen event"
 expr_stmt|;
-endif|#
-directive|endif
 name|m_quit
 operator|=
 literal|true
@@ -274,19 +289,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXSCREENEVENTTHREAD_DEBUG
-argument_list|)
-name|qDebug
+name|qScreenEventThreadDebug
 argument_list|()
 operator|<<
-literal|"QQNX: screen event thread stopped"
+name|Q_FUNC_INFO
+operator|<<
+literal|"screen event thread stopped"
 expr_stmt|;
-endif|#
-directive|endif
 comment|// cleanup
 name|screen_destroy_event
 argument_list|(
@@ -399,36 +408,24 @@ argument_list|(
 name|event
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXSCREENEVENTTHREAD_DEBUG
-argument_list|)
-name|qDebug
+name|qScreenEventThreadDebug
 argument_list|()
 operator|<<
-literal|"QQNX: screen event thread shutdown begin"
+name|Q_FUNC_INFO
+operator|<<
+literal|"screen event thread shutdown begin"
 expr_stmt|;
-endif|#
-directive|endif
 comment|// block until thread terminates
 name|wait
 argument_list|()
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXSCREENEVENTTHREAD_DEBUG
-argument_list|)
-name|qDebug
+name|qScreenEventThreadDebug
 argument_list|()
 operator|<<
-literal|"QQNX: screen event thread shutdown end"
+name|Q_FUNC_INFO
+operator|<<
+literal|"screen event thread shutdown end"
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 end_unit

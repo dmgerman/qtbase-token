@@ -51,6 +51,33 @@ include|#
 directive|include
 file|<errno.h>
 end_include
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QQNXWINDOW_DEBUG
+end_ifdef
+begin_define
+DECL|macro|qWindowDebug
+define|#
+directive|define
+name|qWindowDebug
+value|qDebug
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|qWindowDebug
+define|#
+directive|define
+name|qWindowDebug
+value|QT_NO_QDEBUG_MACRO
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
@@ -120,13 +147,7 @@ argument_list|(
 literal|true
 argument_list|)
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXWINDOW_DEBUG
-argument_list|)
-name|qDebug
+name|qWindowDebug
 argument_list|()
 operator|<<
 name|Q_FUNC_INFO
@@ -142,8 +163,6 @@ operator|->
 name|size
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 name|int
 name|result
 decl_stmt|;
@@ -407,13 +426,7 @@ name|~
 name|QQnxWindow
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXWINDOW_DEBUG
-argument_list|)
-name|qDebug
+name|qWindowDebug
 argument_list|()
 operator|<<
 name|Q_FUNC_INFO
@@ -423,8 +436,6 @@ operator|<<
 name|window
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 comment|// Remove from plugin's window mapper
 name|QQnxIntegration
 operator|::
@@ -479,13 +490,7 @@ modifier|&
 name|rect
 parameter_list|)
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXWINDOW_DEBUG
-argument_list|)
-name|qDebug
+name|qWindowDebug
 argument_list|()
 operator|<<
 name|Q_FUNC_INFO
@@ -525,8 +530,6 @@ argument_list|()
 operator|<<
 literal|")"
 expr_stmt|;
-endif|#
-directive|endif
 name|QRect
 name|oldGeometry
 init|=
@@ -843,13 +846,7 @@ modifier|&
 name|offset
 parameter_list|)
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXWINDOW_DEBUG
-argument_list|)
-name|qDebug
+name|qWindowDebug
 argument_list|()
 operator|<<
 name|Q_FUNC_INFO
@@ -859,8 +856,6 @@ operator|<<
 name|window
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 comment|// Move self and then children.
 name|QRect
 name|newGeometry
@@ -993,13 +988,7 @@ name|bool
 name|visible
 parameter_list|)
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXWINDOW_DEBUG
-argument_list|)
-name|qDebug
+name|qWindowDebug
 argument_list|()
 operator|<<
 name|Q_FUNC_INFO
@@ -1013,8 +1002,6 @@ literal|"visible ="
 operator|<<
 name|visible
 expr_stmt|;
-endif|#
-directive|endif
 name|m_visible
 operator|=
 name|visible
@@ -1089,13 +1076,7 @@ name|bool
 name|parentVisible
 parameter_list|)
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXWINDOW_DEBUG
-argument_list|)
-name|qDebug
+name|qWindowDebug
 argument_list|()
 operator|<<
 name|Q_FUNC_INFO
@@ -1109,8 +1090,6 @@ operator|<<
 name|window
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 comment|// Set window visibility
 name|errno
 operator|=
@@ -1212,13 +1191,7 @@ name|qreal
 name|level
 parameter_list|)
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXWINDOW_DEBUG
-argument_list|)
-name|qDebug
+name|qWindowDebug
 argument_list|()
 operator|<<
 name|Q_FUNC_INFO
@@ -1232,8 +1205,6 @@ literal|"opacity ="
 operator|<<
 name|level
 expr_stmt|;
-endif|#
-directive|endif
 comment|// Set window global alpha
 name|errno
 operator|=
@@ -1310,13 +1281,7 @@ modifier|&
 name|size
 parameter_list|)
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXWINDOW_DEBUG
-argument_list|)
-name|qDebug
+name|qWindowDebug
 argument_list|()
 operator|<<
 name|Q_FUNC_INFO
@@ -1330,8 +1295,6 @@ literal|"size ="
 operator|<<
 name|size
 expr_stmt|;
-endif|#
-directive|endif
 comment|// Set window buffer size
 name|errno
 operator|=
@@ -1522,13 +1485,7 @@ operator|::
 name|renderBuffer
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXWINDOW_DEBUG
-argument_list|)
-name|qDebug
+name|qWindowDebug
 argument_list|()
 operator|<<
 name|Q_FUNC_INFO
@@ -1538,8 +1495,6 @@ operator|<<
 name|window
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 comment|// Check if render buffer is invalid
 if|if
 condition|(
@@ -1663,13 +1618,7 @@ name|bool
 name|flush
 parameter_list|)
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXWINDOW_DEBUG
-argument_list|)
-name|qDebug
+name|qWindowDebug
 argument_list|()
 operator|<<
 name|Q_FUNC_INFO
@@ -1679,8 +1628,6 @@ operator|<<
 name|window
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 name|copyBack
 argument_list|(
 name|region
@@ -1726,22 +1673,16 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXWINDOW_DEBUG
-argument_list|)
-name|qDebug
+name|qWindowDebug
 argument_list|()
 operator|<<
-literal|"QQnxWindow::post - window ="
+name|Q_FUNC_INFO
+operator|<<
+literal|"window ="
 operator|<<
 name|window
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 name|QQnxBuffer
 modifier|&
 name|currentBuffer
@@ -1925,13 +1866,7 @@ modifier|*
 name|platformScreen
 parameter_list|)
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXWINDOW_DEBUG
-argument_list|)
-name|qDebug
+name|qWindowDebug
 argument_list|()
 operator|<<
 name|Q_FUNC_INFO
@@ -1945,8 +1880,6 @@ literal|"platformScreen ="
 operator|<<
 name|platformScreen
 expr_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 name|m_screen
@@ -2144,13 +2077,7 @@ operator|::
 name|removeFromParent
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXWINDOW_DEBUG
-argument_list|)
-name|qDebug
+name|qWindowDebug
 argument_list|()
 operator|<<
 name|Q_FUNC_INFO
@@ -2160,8 +2087,6 @@ operator|<<
 name|window
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 comment|// Remove from old Hierarchy position
 if|if
 condition|(
@@ -2215,13 +2140,7 @@ modifier|*
 name|window
 parameter_list|)
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXWINDOW_DEBUG
-argument_list|)
-name|qDebug
+name|qWindowDebug
 argument_list|()
 operator|<<
 name|Q_FUNC_INFO
@@ -2237,8 +2156,6 @@ literal|"platformWindow ="
 operator|<<
 name|window
 expr_stmt|;
-endif|#
-directive|endif
 comment|// Cast away the const, we need to modify the hierarchy.
 name|QQnxWindow
 modifier|*
@@ -2335,13 +2252,7 @@ operator|::
 name|raise
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXWINDOW_DEBUG
-argument_list|)
-name|qDebug
+name|qWindowDebug
 argument_list|()
 operator|<<
 name|Q_FUNC_INFO
@@ -2351,8 +2262,6 @@ operator|<<
 name|window
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 name|QQnxWindow
 modifier|*
 name|oldParent
@@ -2402,13 +2311,7 @@ operator|::
 name|lower
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXWINDOW_DEBUG
-argument_list|)
-name|qDebug
+name|qWindowDebug
 argument_list|()
 operator|<<
 name|Q_FUNC_INFO
@@ -2418,8 +2321,6 @@ operator|<<
 name|window
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 name|QQnxWindow
 modifier|*
 name|oldParent
@@ -2469,13 +2370,7 @@ operator|::
 name|requestActivateWindow
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXWINDOW_DEBUG
-argument_list|)
-name|qDebug
+name|qWindowDebug
 argument_list|()
 operator|<<
 name|Q_FUNC_INFO
@@ -2485,8 +2380,6 @@ operator|<<
 name|window
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 comment|// TODO: Tell screen to set keyboard focus to this window.
 comment|// Notify that we gained focus.
 name|gainedFocus
@@ -2502,13 +2395,7 @@ operator|::
 name|gainedFocus
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXWINDOW_DEBUG
-argument_list|)
-name|qDebug
+name|qWindowDebug
 argument_list|()
 operator|<<
 name|Q_FUNC_INFO
@@ -2518,8 +2405,6 @@ operator|<<
 name|window
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 comment|// Got focus
 name|QWindowSystemInterface
 operator|::
@@ -2724,13 +2609,7 @@ name|bool
 name|flush
 parameter_list|)
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXWINDOW_DEBUG
-argument_list|)
-name|qDebug
+name|qWindowDebug
 argument_list|()
 operator|<<
 name|Q_FUNC_INFO
@@ -2740,8 +2619,6 @@ operator|<<
 name|window
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 name|int
 name|result
 decl_stmt|;
@@ -3008,19 +2885,11 @@ modifier|&
 name|format
 parameter_list|)
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXWINDOW_DEBUG
-argument_list|)
-name|qDebug
+name|qWindowDebug
 argument_list|()
 operator|<<
 name|Q_FUNC_INFO
 expr_stmt|;
-endif|#
-directive|endif
 comment|// Extract size of colour channels from window format
 name|int
 name|redSize

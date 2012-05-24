@@ -62,6 +62,33 @@ include|#
 directive|include
 file|<sys/stat.h>
 end_include
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QQNXNAVIGATOREVENTNOTIFIER_DEBUG
+end_ifdef
+begin_define
+DECL|macro|qNavigatorEventNotifierDebug
+define|#
+directive|define
+name|qNavigatorEventNotifierDebug
+value|qDebug
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|qNavigatorEventNotifierDebug
+define|#
+directive|define
+name|qNavigatorEventNotifierDebug
+value|QT_NO_QDEBUG_MACRO
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_decl_stmt
 DECL|variable|navigatorControlPath
 specifier|static
@@ -147,19 +174,13 @@ argument_list|(
 name|m_fd
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXNAVIGATOREVENTNOTIFIER_DEBUG
-argument_list|)
-name|qDebug
+name|qNavigatorEventNotifierDebug
 argument_list|()
 operator|<<
-literal|"QQNX: navigator event notifier stopped"
+name|Q_FUNC_INFO
+operator|<<
+literal|"navigator event notifier stopped"
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_destructor
 begin_function
@@ -170,19 +191,13 @@ operator|::
 name|start
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXNAVIGATOREVENTNOTIFIER_DEBUG
-argument_list|)
-name|qDebug
+name|qNavigatorEventNotifierDebug
 argument_list|()
 operator|<<
-literal|"QQNX: navigator event notifier started"
+name|Q_FUNC_INFO
+operator|<<
+literal|"navigator event notifier started"
 expr_stmt|;
-endif|#
-directive|endif
 comment|// open connection to navigator
 name|errno
 operator|=
@@ -274,21 +289,15 @@ modifier|&
 name|id
 parameter_list|)
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXNAVIGATOREVENTNOTIFIER_DEBUG
-argument_list|)
-name|qDebug
+name|qNavigatorEventNotifierDebug
 argument_list|()
 operator|<<
-literal|"PPS: data="
+name|Q_FUNC_INFO
+operator|<<
+literal|"data="
 operator|<<
 name|ppsData
 expr_stmt|;
-endif|#
-directive|endif
 comment|// tokenize pps data into lines
 name|QList
 argument_list|<
@@ -364,21 +373,15 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXNAVIGATOREVENTNOTIFIER_DEBUG
-argument_list|)
-name|qDebug
+name|qNavigatorEventNotifierDebug
 argument_list|()
 operator|<<
-literal|"PPS: attr="
+name|Q_FUNC_INFO
+operator|<<
+literal|"attr="
 operator|<<
 name|attr
 expr_stmt|;
-endif|#
-directive|endif
 name|int
 name|firstColon
 init|=
@@ -447,28 +450,24 @@ operator|+
 literal|1
 argument_list|)
 decl_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXNAVIGATOREVENTNOTIFIER_DEBUG
-argument_list|)
-name|qDebug
+name|qNavigatorEventNotifierDebug
 argument_list|()
 operator|<<
-literal|"PPS: key="
+name|Q_FUNC_INFO
+operator|<<
+literal|"key="
 operator|<<
 name|key
 expr_stmt|;
-name|qDebug
+name|qNavigatorEventNotifierDebug
 argument_list|()
 operator|<<
-literal|"PPS: val="
+name|Q_FUNC_INFO
+operator|<<
+literal|"val="
 operator|<<
 name|value
 expr_stmt|;
-endif|#
-directive|endif
 comment|// save attribute value
 if|if
 condition|(
@@ -579,21 +578,15 @@ name|ppsData
 operator|+=
 literal|"\n"
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXNAVIGATOREVENTNOTIFIER_DEBUG
-argument_list|)
-name|qDebug
+name|qNavigatorEventNotifierDebug
 argument_list|()
 operator|<<
-literal|"PPS reply="
+name|Q_FUNC_INFO
+operator|<<
+literal|"reply="
 operator|<<
 name|ppsData
 expr_stmt|;
-endif|#
-directive|endif
 comment|// send pps message to navigator
 name|errno
 operator|=
@@ -656,16 +649,12 @@ modifier|&
 name|id
 parameter_list|)
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXNAVIGATOREVENTNOTIFIER_DEBUG
-argument_list|)
-name|qDebug
+name|qNavigatorEventNotifierDebug
 argument_list|()
 operator|<<
-literal|"PPS: msg="
+name|Q_FUNC_INFO
+operator|<<
+literal|"msg="
 operator|<<
 name|msg
 operator|<<
@@ -677,8 +666,6 @@ literal|", id="
 operator|<<
 name|id
 expr_stmt|;
-endif|#
-directive|endif
 comment|// check message type
 if|if
 condition|(
@@ -814,19 +801,13 @@ operator|::
 name|readData
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXNAVIGATOREVENTNOTIFIER_DEBUG
-argument_list|)
-name|qDebug
+name|qNavigatorEventNotifierDebug
 argument_list|()
 operator|<<
-literal|"QQNX: reading navigator data"
+name|Q_FUNC_INFO
+operator|<<
+literal|"reading navigator data"
 expr_stmt|;
-endif|#
-directive|endif
 comment|// allocate buffer for pps data
 name|char
 name|buffer

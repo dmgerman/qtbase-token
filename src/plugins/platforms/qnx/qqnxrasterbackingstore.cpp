@@ -22,6 +22,33 @@ include|#
 directive|include
 file|<errno.h>
 end_include
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QQNXRASTERBACKINGSTORE_DEBUG
+end_ifdef
+begin_define
+DECL|macro|qRasterBackingStoreDebug
+define|#
+directive|define
+name|qRasterBackingStoreDebug
+value|qDebug
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|qRasterBackingStoreDebug
+define|#
+directive|define
+name|qRasterBackingStoreDebug
+value|QT_NO_QDEBUG_MACRO
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
@@ -41,21 +68,15 @@ argument_list|(
 name|window
 argument_list|)
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXRASTERBACKINGSTORE_DEBUG
-argument_list|)
-name|qDebug
+name|qRasterBackingStoreDebug
 argument_list|()
 operator|<<
-literal|"QQnxRasterBackingStore::QQnxRasterBackingStore - w="
+name|Q_FUNC_INFO
+operator|<<
+literal|"w ="
 operator|<<
 name|window
 expr_stmt|;
-endif|#
-directive|endif
 comment|// save platform window associated with widget
 name|m_platformWindow
 operator|=
@@ -81,22 +102,16 @@ name|~
 name|QQnxRasterBackingStore
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQnxRasterBackingStore_DEBUG
-argument_list|)
-name|qDebug
+name|qRasterBackingStoreDebug
 argument_list|()
 operator|<<
-literal|"QQnxRasterBackingStore::~QQnxRasterBackingStore - w="
+name|Q_FUNC_INFO
+operator|<<
+literal|"w ="
 operator|<<
 name|window
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_destructor
 begin_function
@@ -151,24 +166,18 @@ argument_list|(
 name|offset
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXRASTERBACKINGSTORE_DEBUG
-argument_list|)
-name|qDebug
+name|qRasterBackingStoreDebug
 argument_list|()
 operator|<<
-literal|"QQnxRasterBackingStore::flush - w="
+name|Q_FUNC_INFO
+operator|<<
+literal|"w ="
 operator|<<
 name|this
 operator|->
 name|window
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 comment|// visit all pending scroll operations
 for|for
 control|(
@@ -287,26 +296,20 @@ argument_list|(
 name|staticContents
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXRASTERBACKINGSTORE_DEBUG
-argument_list|)
-name|qDebug
+name|qRasterBackingStoreDebug
 argument_list|()
 operator|<<
-literal|"QQnxRasterBackingStore::resize - w="
+name|Q_FUNC_INFO
+operator|<<
+literal|"w ="
 operator|<<
 name|window
 argument_list|()
 operator|<<
-literal|", s="
+literal|", s ="
 operator|<<
 name|size
 expr_stmt|;
-endif|#
-directive|endif
 comment|// NOTE: defer resizing window buffers until next paint as
 comment|// resize() can be called multiple times before a paint occurs
 block|}
@@ -330,22 +333,16 @@ name|int
 name|dy
 parameter_list|)
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXRASTERBACKINGSTORE_DEBUG
-argument_list|)
-name|qDebug
+name|qRasterBackingStoreDebug
 argument_list|()
 operator|<<
-literal|"QQnxRasterBackingStore::scroll - w="
+name|Q_FUNC_INFO
+operator|<<
+literal|"w ="
 operator|<<
 name|window
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 comment|// calculate entire region affected by scroll operation (src + dst)
 name|QRegion
 name|totalArea
@@ -482,22 +479,16 @@ argument_list|(
 name|region
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXRASTERBACKINGSTORE_DEBUG
-argument_list|)
-name|qDebug
+name|qRasterBackingStoreDebug
 argument_list|()
 operator|<<
-literal|"QQnxRasterBackingStore::beginPaint - w="
+name|Q_FUNC_INFO
+operator|<<
+literal|"w ="
 operator|<<
 name|window
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 comment|// resize window buffers if surface resized
 name|QSize
 name|s
@@ -546,22 +537,16 @@ argument_list|(
 name|region
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQnxRasterBackingStore_DEBUG
-argument_list|)
-name|qDebug
+name|qRasterBackingStoreDebug
 argument_list|()
 operator|<<
-literal|"QQnxRasterBackingStore::endPaint - w="
+name|Q_FUNC_INFO
+operator|<<
+literal|"w ="
 operator|<<
 name|window
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_macro

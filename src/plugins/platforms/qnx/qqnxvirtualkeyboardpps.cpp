@@ -72,6 +72,33 @@ include|#
 directive|include
 file|<unistd.h>
 end_include
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QQNXVIRTUALKEYBOARD_DEBUG
+end_ifdef
+begin_define
+DECL|macro|qVirtualKeyboardDebug
+define|#
+directive|define
+name|qVirtualKeyboardDebug
+value|qDebug
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|qVirtualKeyboardDebug
+define|#
+directive|define
+name|qVirtualKeyboardDebug
+value|QT_NO_QDEBUG_MACRO
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|member|ms_PPSPath
@@ -161,19 +188,13 @@ operator|::
 name|start
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXVIRTUALKEYBOARD_DEBUG
-argument_list|)
-name|qDebug
+name|qVirtualKeyboardDebug
 argument_list|()
 operator|<<
-literal|"QQNX: starting keyboard event processing"
+name|Q_FUNC_INFO
+operator|<<
+literal|"starting keyboard event processing"
 expr_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 operator|!
@@ -522,21 +543,15 @@ operator|-
 literal|1
 argument_list|)
 decl_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXVIRTUALKEYBOARD_DEBUG
-argument_list|)
-name|qDebug
+name|qVirtualKeyboardDebug
 argument_list|()
 operator|<<
-literal|"QQNX: keyboardMessage size: "
+name|Q_FUNC_INFO
+operator|<<
+literal|"keyboardMessage size: "
 operator|<<
 name|nread
 expr_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 name|nread
@@ -979,16 +994,12 @@ argument_list|(
 name|locale
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXVIRTUALKEYBOARD_DEBUG
-argument_list|)
-name|qDebug
+name|qVirtualKeyboardDebug
 argument_list|()
 operator|<<
-literal|"QQNX: handleKeyboardInfoMessage size="
+name|Q_FUNC_INFO
+operator|<<
+literal|"size="
 operator|<<
 name|newHeight
 operator|<<
@@ -996,8 +1007,6 @@ literal|"locale="
 operator|<<
 name|locale
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -1008,19 +1017,11 @@ operator|::
 name|showKeyboard
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXVIRTUALKEYBOARD_DEBUG
-argument_list|)
-name|qDebug
+name|qVirtualKeyboardDebug
 argument_list|()
 operator|<<
-literal|"QQNX: showKeyboard()"
+name|Q_FUNC_INFO
 expr_stmt|;
-endif|#
-directive|endif
 comment|// Try to connect.
 if|if
 condition|(
@@ -1116,19 +1117,11 @@ operator|::
 name|hideKeyboard
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXVIRTUALKEYBOARD_DEBUG
-argument_list|)
-name|qDebug
+name|qVirtualKeyboardDebug
 argument_list|()
 operator|<<
-literal|"QQNX: hideKeyboard()"
+name|Q_FUNC_INFO
 expr_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 name|m_fd

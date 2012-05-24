@@ -52,6 +52,33 @@ include|#
 directive|include
 file|<bps/screen.h>
 end_include
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QQNXBPSEVENTFILTER_DEBUG
+end_ifdef
+begin_define
+DECL|macro|qBpsEventFilterDebug
+define|#
+directive|define
+name|qBpsEventFilterDebug
+value|qDebug
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|qBpsEventFilterDebug
+define|#
+directive|define
+name|qBpsEventFilterDebug
+value|QT_NO_QDEBUG_MACRO
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|s_instance
@@ -152,13 +179,7 @@ modifier|*
 name|dispatcher
 parameter_list|)
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXBPSEVENTFILTER_DEBUG
-argument_list|)
-name|qDebug
+name|qBpsEventFilterDebug
 argument_list|()
 operator|<<
 name|Q_FUNC_INFO
@@ -167,8 +188,6 @@ literal|"dispatcher="
 operator|<<
 name|dispatcher
 expr_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 name|navigator_request_events
@@ -296,19 +315,11 @@ modifier|*
 name|message
 parameter_list|)
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXBPSEVENTFILTER_DEBUG
-argument_list|)
-name|qDebug
+name|qBpsEventFilterDebug
 argument_list|()
 operator|<<
 name|Q_FUNC_INFO
 expr_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 name|s_instance
@@ -362,13 +373,7 @@ argument_list|(
 name|event
 argument_list|)
 decl_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXBPSEVENTFILTER_DEBUG
-argument_list|)
-name|qDebug
+name|qBpsEventFilterDebug
 argument_list|()
 operator|<<
 name|Q_FUNC_INFO
@@ -381,8 +386,6 @@ literal|"domain="
 operator|<<
 name|eventDomain
 expr_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 name|eventDomain
@@ -471,21 +474,15 @@ argument_list|(
 name|event
 argument_list|)
 decl_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXBPSEVENTFILTER_DEBUG
-argument_list|)
-name|qDebug
+name|qBpsEventFilterDebug
 argument_list|()
 operator|<<
-literal|"QQNX: Navigator ORIENTATION CHECK event. angle="
+name|Q_FUNC_INFO
+operator|<<
+literal|"ORIENTATION CHECK event. angle="
 operator|<<
 name|angle
 expr_stmt|;
-endif|#
-directive|endif
 specifier|const
 name|bool
 name|result
@@ -497,21 +494,15 @@ argument_list|(
 name|angle
 argument_list|)
 decl_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXBPSEVENTFILTER_DEBUG
-argument_list|)
-name|qDebug
+name|qBpsEventFilterDebug
 argument_list|()
 operator|<<
-literal|"QQNX: Navigator ORIENTATION CHECK event. result="
+name|Q_FUNC_INFO
+operator|<<
+literal|"ORIENTATION CHECK event. result="
 operator|<<
 name|result
 expr_stmt|;
-endif|#
-directive|endif
 comment|// reply to navigator whether orientation is acceptable
 name|navigator_orientation_check_response
 argument_list|(
@@ -535,21 +526,15 @@ argument_list|(
 name|event
 argument_list|)
 decl_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXBPSEVENTFILTER_DEBUG
-argument_list|)
-name|qDebug
+name|qBpsEventFilterDebug
 argument_list|()
 operator|<<
-literal|"QQNX: Navigator ORIENTATION event. angle="
+name|Q_FUNC_INFO
+operator|<<
+literal|"ORIENTATION event. angle="
 operator|<<
 name|angle
 expr_stmt|;
-endif|#
-directive|endif
 name|m_navigatorEventHandler
 operator|->
 name|handleOrientationChange
@@ -567,19 +552,13 @@ block|}
 case|case
 name|NAVIGATOR_SWIPE_DOWN
 case|:
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXBPSEVENTFILTER_DEBUG
-argument_list|)
-name|qDebug
+name|qBpsEventFilterDebug
 argument_list|()
 operator|<<
-literal|"QQNX: Navigator SWIPE DOWN event"
+name|Q_FUNC_INFO
+operator|<<
+literal|"SWIPE DOWN event"
 expr_stmt|;
-endif|#
-directive|endif
 name|m_navigatorEventHandler
 operator|->
 name|handleSwipeDown
@@ -589,19 +568,13 @@ break|break;
 case|case
 name|NAVIGATOR_EXIT
 case|:
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXBPSEVENTFILTER_DEBUG
-argument_list|)
-name|qDebug
+name|qBpsEventFilterDebug
 argument_list|()
 operator|<<
-literal|"QQNX: Navigator EXIT event"
+name|Q_FUNC_INFO
+operator|<<
+literal|"EXIT event"
 expr_stmt|;
-endif|#
-directive|endif
 name|m_navigatorEventHandler
 operator|->
 name|handleExit
@@ -612,19 +585,13 @@ case|case
 name|NAVIGATOR_WINDOW_ACTIVE
 case|:
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXBPSEVENTFILTER_DEBUG
-argument_list|)
-name|qDebug
+name|qBpsEventFilterDebug
 argument_list|()
 operator|<<
-literal|"QQNX: Navigator WINDOW ACTIVE event"
+name|Q_FUNC_INFO
+operator|<<
+literal|"WINDOW ACTIVE event"
 expr_stmt|;
-endif|#
-directive|endif
 specifier|const
 name|QByteArray
 name|id
@@ -648,19 +615,13 @@ case|case
 name|NAVIGATOR_WINDOW_INACTIVE
 case|:
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXBPSEVENTFILTER_DEBUG
-argument_list|)
-name|qDebug
+name|qBpsEventFilterDebug
 argument_list|()
 operator|<<
-literal|"QQNX: Navigator WINDOW INACTIVE event"
+name|Q_FUNC_INFO
+operator|<<
+literal|"WINDOW INACTIVE event"
 expr_stmt|;
-endif|#
-directive|endif
 specifier|const
 name|QByteArray
 name|id
@@ -681,24 +642,18 @@ expr_stmt|;
 break|break;
 block|}
 default|default:
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXBPSEVENTFILTER_DEBUG
-argument_list|)
-name|qDebug
+name|qBpsEventFilterDebug
 argument_list|()
 operator|<<
-literal|"QQNX: Unhandled navigator event. code="
+name|Q_FUNC_INFO
+operator|<<
+literal|"Unhandled navigator event. code="
 operator|<<
 name|bps_event_get_code
 argument_list|(
 name|event
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 return|return
 literal|false
 return|;

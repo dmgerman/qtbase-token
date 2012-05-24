@@ -37,6 +37,33 @@ include|#
 directive|include
 file|<sys/keycodes.h>
 end_include
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QQNXSCREENEVENT_DEBUG
+end_ifdef
+begin_define
+DECL|macro|qScreenEventDebug
+define|#
+directive|define
+name|qScreenEventDebug
+value|qDebug
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|qScreenEventDebug
+define|#
+directive|define
+name|qScreenEventDebug
+value|QT_NO_QDEBUG_MACRO
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
@@ -287,19 +314,13 @@ expr_stmt|;
 break|break;
 default|default:
 comment|// event ignored
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXSCREENEVENT_DEBUG
-argument_list|)
-name|qDebug
+name|qScreenEventDebug
 argument_list|()
 operator|<<
-literal|"QQNX: QNX unknown event"
+name|Q_FUNC_INFO
+operator|<<
+literal|"unknown event"
 expr_stmt|;
-endif|#
-directive|endif
 return|return
 literal|false
 return|;
@@ -570,16 +591,12 @@ argument_list|,
 name|keyStr
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXSCREENEVENT_DEBUG
-argument_list|)
-name|qDebug
+name|qScreenEventDebug
 argument_list|()
 operator|<<
-literal|"QQNX: Qt key t="
+name|Q_FUNC_INFO
+operator|<<
+literal|"Qt key t="
 operator|<<
 name|type
 operator|<<
@@ -591,8 +608,6 @@ literal|", s="
 operator|<<
 name|keyStr
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 block|}
 end_function
@@ -999,21 +1014,15 @@ argument_list|(
 name|wOld
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXSCREENEVENT_DEBUG
-argument_list|)
-name|qDebug
+name|qScreenEventDebug
 argument_list|()
 operator|<<
-literal|"QQNX: Qt leave, w="
+name|Q_FUNC_INFO
+operator|<<
+literal|"Qt leave, w="
 operator|<<
 name|wOld
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 if|if
 condition|(
@@ -1027,21 +1036,15 @@ argument_list|(
 name|w
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXSCREENEVENT_DEBUG
-argument_list|)
-name|qDebug
+name|qScreenEventDebug
 argument_list|()
 operator|<<
-literal|"QQNX: Qt enter, w="
+name|Q_FUNC_INFO
+operator|<<
+literal|"Qt enter, w="
 operator|<<
 name|w
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 block|}
 name|m_lastMouseWindow
@@ -1230,16 +1233,12 @@ argument_list|,
 name|buttons
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXSCREENEVENT_DEBUG
-argument_list|)
-name|qDebug
+name|qScreenEventDebug
 argument_list|()
 operator|<<
-literal|"QQNX: Qt mouse, w="
+name|Q_FUNC_INFO
+operator|<<
+literal|"Qt mouse, w="
 operator|<<
 name|w
 operator|<<
@@ -1267,8 +1266,6 @@ argument_list|(
 name|buttons
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 if|if
 condition|(
@@ -1294,16 +1291,12 @@ operator|::
 name|Vertical
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXSCREENEVENT_DEBUG
-argument_list|)
-name|qDebug
+name|qScreenEventDebug
 argument_list|()
 operator|<<
-literal|"QQNX: Qt wheel, w="
+name|Q_FUNC_INFO
+operator|<<
+literal|"Qt wheel, w="
 operator|<<
 name|w
 operator|<<
@@ -1331,8 +1324,6 @@ argument_list|(
 name|wheelDelta
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 block|}
 name|m_lastGlobalMousePoint
@@ -1563,21 +1554,15 @@ argument_list|(
 name|wOld
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXSCREENEVENT_DEBUG
-argument_list|)
-name|qDebug
+name|qScreenEventDebug
 argument_list|()
 operator|<<
-literal|"QQNX: Qt leave, w="
+name|Q_FUNC_INFO
+operator|<<
+literal|"Qt leave, w="
 operator|<<
 name|wOld
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 if|if
 condition|(
@@ -1591,21 +1576,15 @@ argument_list|(
 name|w
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXSCREENEVENT_DEBUG
-argument_list|)
-name|qDebug
+name|qScreenEventDebug
 argument_list|()
 operator|<<
-literal|"QQNX: Qt enter, w="
+name|Q_FUNC_INFO
+operator|<<
+literal|"Qt enter, w="
 operator|<<
 name|w
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 block|}
 name|m_lastMouseWindow
@@ -1688,16 +1667,12 @@ argument_list|,
 name|buttons
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXSCREENEVENT_DEBUG
-argument_list|)
-name|qDebug
+name|qScreenEventDebug
 argument_list|()
 operator|<<
-literal|"QQNX: Qt mouse, w="
+name|Q_FUNC_INFO
+operator|<<
+literal|"Qt mouse, w ="
 operator|<<
 name|w
 operator|<<
@@ -1715,12 +1690,10 @@ operator|.
 name|y
 argument_list|()
 operator|<<
-literal|"), b="
+literal|"), b ="
 operator|<<
 name|buttons
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 comment|// get size of screen which contains window
 name|QPlatformScreen
@@ -1982,16 +1955,12 @@ argument_list|,
 name|pointList
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXSCREENEVENT_DEBUG
-argument_list|)
-name|qDebug
+name|qScreenEventDebug
 argument_list|()
 operator|<<
-literal|"QQNX: Qt touch, w="
+name|Q_FUNC_INFO
+operator|<<
+literal|"Qt touch, w ="
 operator|<<
 name|w
 operator|<<
@@ -2013,8 +1982,6 @@ literal|"), t="
 operator|<<
 name|type
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 block|}
 block|}
