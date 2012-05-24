@@ -2311,7 +2311,10 @@ comment|// lower-bound search for where this object should enter in the tree
 name|QDBusConnectionPrivate
 operator|::
 name|ObjectTreeNode
-modifier|*
+operator|::
+name|DataList
+operator|::
+name|Iterator
 name|node
 init|=
 operator|&

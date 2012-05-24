@@ -2355,11 +2355,13 @@ operator|=
 literal|1
 expr_stmt|;
 comment|// walk the object tree
-specifier|const
 name|QDBusConnectionPrivate
 operator|::
 name|ObjectTreeNode
-modifier|*
+operator|::
+name|DataList
+operator|::
+name|ConstIterator
 name|node
 init|=
 name|root
@@ -8484,7 +8486,7 @@ name|it
 init|=
 name|signalHooks
 operator|.
-name|find
+name|constFind
 argument_list|(
 name|key
 argument_list|)
@@ -11369,7 +11371,7 @@ name|it
 init|=
 name|signalHooks
 operator|.
-name|find
+name|constFind
 argument_list|(
 name|key
 argument_list|)
@@ -12547,7 +12549,7 @@ name|it
 init|=
 name|signalHooks
 operator|.
-name|find
+name|constFind
 argument_list|(
 name|key
 argument_list|)
