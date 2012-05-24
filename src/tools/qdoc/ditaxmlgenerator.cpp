@@ -6624,7 +6624,7 @@ operator|!=
 literal|1
 condition|)
 block|{
-comment|/*                   This attribute is not supported in DITA, and at the                   moment, including it is causing a validation error                   wherever it is used. I think it is onlym used in the                   qdoc manual.                  */
+comment|/*                   This attribute is not supported in DITA, and at the                   moment, including it is causing a validation error                   wherever it is used. I think it is only used in the                   qdoc manual.                  */
 comment|//xmlWriter().writeAttribute("start",atom->next()->string());
 block|}
 block|}

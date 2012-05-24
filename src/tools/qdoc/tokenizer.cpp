@@ -1901,6 +1901,7 @@ operator|==
 literal|0
 operator|&&
 operator|!
+operator|(
 name|yyTokLoc
 operator|.
 name|fileName
@@ -1910,6 +1911,17 @@ name|endsWith
 argument_list|(
 literal|".qdoc"
 argument_list|)
+operator|||
+name|yyTokLoc
+operator|.
+name|fileName
+argument_list|()
+operator|.
+name|endsWith
+argument_list|(
+literal|".js"
+argument_list|)
+operator|)
 condition|)
 block|{
 name|yyTokLoc
