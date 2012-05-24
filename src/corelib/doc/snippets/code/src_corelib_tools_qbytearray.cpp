@@ -1409,6 +1409,110 @@ index|[]
 name|data
 expr_stmt|;
 comment|//! [47]
+comment|//! [48]
+name|QByteArray
+name|ba1
+argument_list|(
+literal|"ca\0r\0t"
+argument_list|)
+decl_stmt|;
+name|ba1
+operator|.
+name|size
+argument_list|()
+expr_stmt|;
+comment|// Returns 2.
+name|ba1
+operator|.
+name|constData
+argument_list|()
+expr_stmt|;
+comment|// Returns "ca" with terminating \0.
+name|QByteArray
+name|ba2
+argument_list|(
+literal|"ca\0r\0t"
+argument_list|,
+literal|3
+argument_list|)
+decl_stmt|;
+name|ba2
+operator|.
+name|size
+argument_list|()
+expr_stmt|;
+comment|// Returns 3.
+name|ba2
+operator|.
+name|constData
+argument_list|()
+expr_stmt|;
+comment|// Returns "ca\0" with terminating \0.
+name|QByteArray
+name|ba3
+argument_list|(
+literal|"ca\0r\0t"
+argument_list|,
+literal|4
+argument_list|)
+decl_stmt|;
+name|ba3
+operator|.
+name|size
+argument_list|()
+expr_stmt|;
+comment|// Returns 4.
+name|ba2
+operator|.
+name|constData
+argument_list|()
+expr_stmt|;
+comment|// Returns "ca\0r" with terminating \0.
+specifier|const
+name|char
+name|cart
+index|[]
+init|=
+block|{
+literal|'c'
+block|,
+literal|'a'
+block|,
+literal|'\0'
+block|,
+literal|'r'
+block|,
+literal|'\0'
+block|,
+literal|'t'
+block|}
+decl_stmt|;
+name|QByteArray
+name|ba4
+argument_list|(
+name|QByteArray
+operator|::
+name|fromRawData
+argument_list|(
+name|cart
+argument_list|,
+literal|6
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|ba4
+operator|.
+name|size
+argument_list|()
+expr_stmt|;
+comment|// Returns 6.
+name|ba4
+operator|.
+name|constData
+argument_list|()
+expr_stmt|;
+comment|// Returns "ca\0r\0t" without terminating \0.
+comment|//! [48]
 block|}
 end_function
 end_unit
