@@ -78,11 +78,6 @@ label|:
 comment|// The thread count is maintained as an integer in the count atomic
 comment|// variable. The count can be either positive or negative - a negative
 comment|// count signals that a thread is waiting on the barrier.
-comment|// BC note: inlined code from Qt< 4.6 will expect to find the QMutex
-comment|// and QAtomicInt here. ### Qt 5: remove.
-name|QMutex
-name|mutex
-decl_stmt|;
 name|QAtomicInt
 name|count
 decl_stmt|;
