@@ -144,6 +144,21 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|m_dev
+condition|)
+block|{
+name|qErrnoWarning
+argument_list|(
+name|errno
+argument_list|,
+literal|"ts_open() failed"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+if|if
+condition|(
 name|ts_config
 argument_list|(
 name|m_dev
