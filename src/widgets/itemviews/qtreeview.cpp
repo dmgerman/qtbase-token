@@ -9944,7 +9944,7 @@ name|d
 operator|->
 name|expandedIndexes
 operator|.
-name|constEnd
+name|end
 argument_list|()
 condition|)
 block|{
@@ -9989,7 +9989,7 @@ name|d
 operator|->
 name|hiddenIndexes
 operator|.
-name|constEnd
+name|end
 argument_list|()
 condition|)
 block|{

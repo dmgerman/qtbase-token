@@ -2613,7 +2613,7 @@ name|d
 operator|->
 name|cache
 operator|.
-name|constEnd
+name|end
 argument_list|()
 condition|;
 operator|++

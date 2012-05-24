@@ -14357,7 +14357,7 @@ name|it
 init|=
 name|draggedItems
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 decl_stmt|;
 name|QListViewItem
@@ -14376,7 +14376,7 @@ name|it
 operator|!=
 name|draggedItems
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|;
 operator|++

@@ -5396,7 +5396,7 @@ name|indexNode
 operator|->
 name|children
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 init|;
 name|iterator
@@ -5405,7 +5405,7 @@ name|indexNode
 operator|->
 name|children
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|;
 operator|++
