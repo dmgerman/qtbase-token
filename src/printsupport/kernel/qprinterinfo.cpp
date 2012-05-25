@@ -43,7 +43,7 @@ begin_comment
 comment|/*!     \fn QList<QPrinterInfo> QPrinterInfo::availablePrinters()      Returns a list of available printers on the system. */
 end_comment
 begin_comment
-comment|/*!     \fn QPrinterInfo QPrinterInfo::defaultPrinter()      Returns the default printer on the system.      The return value should be checked using isNull() before being     used, in case there is no default printer.      \sa isNull() */
+comment|/*!     \fn QPrinterInfo QPrinterInfo::defaultPrinter()      Returns the default printer on the system.      The return value should be checked using isNull() before being     used, in case there is no default printer.      On some systems it is possible for there to be available printers     but none of them set to be the default printer.      \sa isNull()     \sa isDefault()     \sa availablePrinters() */
 end_comment
 begin_comment
 comment|/*!     Constructs an empty QPrinterInfo object.      \sa isNull() */

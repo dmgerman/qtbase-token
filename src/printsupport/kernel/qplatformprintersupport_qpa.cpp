@@ -169,17 +169,7 @@ name|printerInfo
 return|;
 block|}
 return|return
-name|printers
-operator|.
-name|isEmpty
-argument_list|()
-condition|?
 name|QPrinterInfo
-argument_list|()
-else|:
-name|printers
-operator|.
-name|front
 argument_list|()
 return|;
 block|}
