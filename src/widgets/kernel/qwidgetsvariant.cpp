@@ -168,7 +168,6 @@ name|QVariant
 operator|::
 name|Private
 modifier|*
-name|d
 parameter_list|)
 block|{
 return|return

@@ -124,7 +124,6 @@ parameter_list|(
 name|Qt
 operator|::
 name|WindowState
-name|state
 parameter_list|)
 block|{
 name|setGeometry
