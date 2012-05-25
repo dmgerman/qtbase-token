@@ -4298,7 +4298,7 @@ name|index
 operator|!=
 name|printerCount
 operator|-
-literal|3
+literal|2
 argument_list|)
 expr_stmt|;
 comment|// separator
@@ -5809,7 +5809,7 @@ name|index
 operator|!=
 name|printerCount
 operator|-
-literal|3
+literal|2
 argument_list|)
 expr_stmt|;
 comment|// separator
