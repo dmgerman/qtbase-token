@@ -132,6 +132,13 @@ expr_stmt|;
 name|Qt
 operator|::
 name|ScreenOrientation
+name|nativeOrientation
+argument_list|()
+specifier|const
+expr_stmt|;
+name|Qt
+operator|::
+name|ScreenOrientation
 name|orientation
 argument_list|()
 specifier|const
@@ -373,6 +380,11 @@ decl_stmt|;
 name|QSize
 name|m_currentPhysicalSize
 decl_stmt|;
+name|Qt
+operator|::
+name|ScreenOrientation
+name|m_nativeOrientation
+expr_stmt|;
 name|QRect
 name|m_initialGeometry
 decl_stmt|;
