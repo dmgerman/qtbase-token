@@ -44,12 +44,12 @@ operator|:
 specifier|static
 name|QEvdevMouseHandler
 operator|*
-name|createLinuxInputMouseHandler
+name|create
 argument_list|(
 specifier|const
 name|QString
 operator|&
-name|key
+name|device
 argument_list|,
 specifier|const
 name|QString
@@ -84,7 +84,9 @@ name|private
 operator|:
 name|QEvdevMouseHandler
 argument_list|(
-argument|int deviceDescriptor
+argument|const QString&device
+argument_list|,
+argument|int fd
 argument_list|,
 argument|bool compression
 argument_list|,
@@ -94,6 +96,12 @@ block|;
 name|void
 name|sendMouseEvent
 argument_list|()
+block|;
+name|QString
+name|m_device
+block|;
+name|int
+name|m_fd
 block|;
 name|QSocketNotifier
 operator|*
@@ -108,9 +116,6 @@ name|int
 name|m_prevx
 block|,
 name|m_prevy
-block|;
-name|int
-name|m_fd
 block|;
 name|bool
 name|m_compression

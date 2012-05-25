@@ -355,7 +355,9 @@ name|public
 operator|:
 name|QEvdevKeyboardHandler
 argument_list|(
-argument|int deviceDescriptor
+argument|const QString&device
+argument_list|,
+argument|int fd
 argument_list|,
 argument|bool disableZap
 argument_list|,
@@ -426,12 +428,12 @@ block|;
 specifier|static
 name|QEvdevKeyboardHandler
 operator|*
-name|createLinuxInputKeyboardHandler
+name|create
 argument_list|(
 specifier|const
 name|QString
 operator|&
-name|key
+name|device
 argument_list|,
 specifier|const
 name|QString
@@ -607,6 +609,11 @@ name|bool
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_decl_stmt
+name|QString
+name|m_device
+decl_stmt|;
+end_decl_stmt
 begin_decl_stmt
 name|int
 name|m_fd
