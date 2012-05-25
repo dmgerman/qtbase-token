@@ -177,7 +177,12 @@ operator|<
 name|QPoint
 operator|>
 name|hotSpots
-block|;     }
+block|;
+name|QImage
+name|image
+block|;
+comment|// valid until it's uploaded
+block|}
 name|m_cursorAtlas
 block|;
 comment|// current cursor information
@@ -194,7 +199,14 @@ argument_list|)
 block|,
 name|shape
 argument_list|(
-argument|Qt::BlankCursor
+name|Qt
+operator|::
+name|BlankCursor
+argument_list|)
+block|,
+name|customCursorTexture
+argument_list|(
+literal|0
 argument_list|)
 block|{ }
 name|uint
@@ -216,6 +228,12 @@ block|;
 comment|// size of the cursor
 name|QPoint
 name|hotSpot
+block|;
+name|QImage
+name|customCursorImage
+block|;
+name|uint
+name|customCursorTexture
 block|;     }
 name|m_cursor
 block|;
