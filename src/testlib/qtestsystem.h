@@ -219,6 +219,54 @@ literal|10
 argument_list|)
 expr_stmt|;
 block|}
+comment|// Try ensuring the platform window receives the real position.
+comment|// (i.e. that window->pos() reflects reality)
+comment|// isActive() ( == FocusIn in case of X) does not guarantee this. It seems some WMs randomly
+comment|// send the final ConfigureNotify (the one with the non-bogus 0,0 position) after the FocusIn.
+comment|// If we just let things go, every mapTo/FromGlobal call the tests perform directly after
+comment|// qWaitForWindowShown() will generate bogus results.
+if|if
+condition|(
+name|window
+operator|->
+name|isActive
+argument_list|()
+condition|)
+block|{
+name|int
+name|waitNo
+init|=
+literal|0
+decl_stmt|;
+comment|// 0, 0 might be a valid position after all, so do not wait for ever
+while|while
+condition|(
+name|window
+operator|->
+name|pos
+argument_list|()
+operator|.
+name|isNull
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|waitNo
+operator|++
+operator|>
+name|timeout
+operator|/
+literal|10
+condition|)
+break|break;
+name|qWait
+argument_list|(
+literal|10
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 return|return
 name|window
 operator|->
