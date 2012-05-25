@@ -3425,6 +3425,7 @@ literal|"_NET_ACTIVE_WINDOW\0"
 comment|// Property formats
 literal|"TEXT\0"
 literal|"UTF8_STRING\0"
+literal|"CARDINAL\0"
 comment|// xdnd
 literal|"XdndEnter\0"
 literal|"XdndPosition\0"

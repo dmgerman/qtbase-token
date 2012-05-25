@@ -301,6 +301,8 @@ name|TEXT
 block|,
 name|UTF8_STRING
 block|,
+name|CARDINAL
+block|,
 comment|// Xdnd
 name|XdndEnter
 block|,
