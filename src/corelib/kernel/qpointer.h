@@ -55,6 +55,8 @@ operator|:
 name|wp
 argument_list|(
 argument|p
+argument_list|,
+argument|true
 argument_list|)
 block|{ }
 comment|// compiler-generated copy/move ctor/assignment operators are fine! (even though public)
@@ -87,8 +89,11 @@ name|p
 parameter_list|)
 block|{
 name|wp
-operator|=
+operator|.
+name|assign
+argument_list|(
 name|p
+argument_list|)
 expr_stmt|;
 block|}
 specifier|inline
