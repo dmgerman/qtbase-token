@@ -15918,7 +15918,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/*!     \since 5.0      Renders the widget into a pixmap restricted by the     given \a rectangle. If the \a widget has any children, then     they are also painted in the appropriate positions.      If no rectangle is specified (the default) the entire widget is     painted.      Replacement for Qt 4's QPixmap::grabWidget().      \sa render(), QPixmap */
+comment|/*!     \since 5.0      Renders the widget into a pixmap restricted by the     given \a rectangle. If the \a widget has any children, then     they are also painted in the appropriate positions.      If a rectangle with an invalid size is specified  (the default),     the entire widget is painted.      \sa render(), QPixmap */
 comment|/* INVOKABLE since used by QPixmap::grabWidget(). */
 DECL|function|grab
 name|QPixmap
