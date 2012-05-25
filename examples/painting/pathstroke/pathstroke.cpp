@@ -3634,11 +3634,6 @@ block|{
 name|updatePoints
 argument_list|()
 expr_stmt|;
-name|QApplication
-operator|::
-name|syncX
-argument_list|()
-expr_stmt|;
 block|}
 comment|// else if (e->timerId() == m_fpsTimer.timerId()) {
 comment|//         emit frameRate(m_frameCount);

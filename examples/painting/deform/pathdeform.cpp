@@ -2924,11 +2924,6 @@ operator||
 name|rectBefore
 argument_list|)
 expr_stmt|;
-name|QApplication
-operator|::
-name|syncX
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 comment|//     else if (e->timerId() == m_fpsTimer.timerId()) {
