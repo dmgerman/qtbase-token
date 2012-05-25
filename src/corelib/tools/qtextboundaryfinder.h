@@ -90,7 +90,10 @@ block|,
 name|EndWord
 init|=
 literal|2
-comment|//Hyphen
+block|,
+name|SoftHyphen
+init|=
+literal|4
 block|}
 enum|;
 name|Q_DECLARE_FLAGS
@@ -222,6 +225,12 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_macro
+name|Q_DECLARE_OPERATORS_FOR_FLAGS
+argument_list|(
+argument|QTextBoundaryFinder::BoundaryReasons
+argument_list|)
+end_macro
 begin_expr_stmt
 name|QT_END_NAMESPACE
 name|QT_END_HEADER
