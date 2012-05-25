@@ -2074,10 +2074,7 @@ name|d
 operator|->
 name|control
 operator|->
-name|text
-argument_list|()
-operator|.
-name|length
+name|end
 argument_list|()
 condition|)
 block|{
