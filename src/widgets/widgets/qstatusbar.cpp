@@ -1751,15 +1751,6 @@ argument_list|(
 name|QStatusBar
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|d
-operator|->
-name|tempItem
-operator|==
-name|message
-condition|)
-return|return;
 name|d
 operator|->
 name|tempItem
