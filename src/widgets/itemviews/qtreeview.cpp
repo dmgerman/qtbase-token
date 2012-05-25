@@ -5559,11 +5559,12 @@ specifier|const
 name|int
 name|row
 init|=
+name|viewIndex
+argument_list|(
 name|current
-operator|.
-name|row
-argument_list|()
+argument_list|)
 decl_stmt|;
+comment|// get the index in viewItems[]
 name|option
 operator|->
 name|state
