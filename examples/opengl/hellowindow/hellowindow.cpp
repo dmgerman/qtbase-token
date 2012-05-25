@@ -104,8 +104,12 @@ name|HelloWindow
 operator|::
 name|HelloWindow
 parameter_list|(
+specifier|const
+name|QSharedPointer
+argument_list|<
 name|Renderer
-modifier|*
+argument_list|>
+modifier|&
 name|renderer
 parameter_list|)
 member_init_list|:
@@ -196,6 +200,9 @@ argument_list|)
 argument_list|)
 argument_list|,
 name|renderer
+operator|.
+name|data
+argument_list|()
 argument_list|,
 name|SLOT
 argument_list|(
@@ -763,6 +770,9 @@ name|m_program
 operator|=
 operator|new
 name|QOpenGLShaderProgram
+argument_list|(
+name|this
+argument_list|)
 expr_stmt|;
 name|m_program
 operator|->

@@ -27,6 +27,11 @@ include|#
 directive|include
 file|<QTime>
 end_include
+begin_include
+include|#
+directive|include
+file|<QSharedPointer>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QOpenGLContext
@@ -203,10 +208,15 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+name|explicit
 name|HelloWindow
 argument_list|(
+specifier|const
+name|QSharedPointer
+operator|<
 name|Renderer
-operator|*
+operator|>
+operator|&
 name|renderer
 argument_list|)
 block|;
@@ -264,8 +274,11 @@ block|;
 name|QColor
 name|m_color
 block|;
+specifier|const
+name|QSharedPointer
+operator|<
 name|Renderer
-operator|*
+operator|>
 name|m_renderer
 block|; }
 decl_stmt|;
