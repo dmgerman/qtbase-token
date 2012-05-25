@@ -249,6 +249,14 @@ name|virtual
 name|Qt
 operator|::
 name|ScreenOrientation
+name|nativeOrientation
+argument_list|()
+specifier|const
+expr_stmt|;
+name|virtual
+name|Qt
+operator|::
+name|ScreenOrientation
 name|orientation
 argument_list|()
 specifier|const

@@ -416,6 +416,27 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     Reimplement this function in subclass to return the native orientation     of the screen, e.g. the orientation where the logo sticker of the device     appears the right way up.      The default implementation returns Qt::PrimaryOrientation. */
+end_comment
+begin_function
+DECL|function|nativeOrientation
+name|Qt
+operator|::
+name|ScreenOrientation
+name|QPlatformScreen
+operator|::
+name|nativeOrientation
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|Qt
+operator|::
+name|PrimaryOrientation
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     Reimplement this function in subclass to return the current orientation     of the screen, for example based on accelerometer data to determine     the device orientation.      The default implementation returns Qt::PrimaryOrientation. */
 end_comment
 begin_function
