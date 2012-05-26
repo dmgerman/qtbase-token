@@ -702,7 +702,7 @@ argument_list|)
 condition|)
 name|cursor
 operator|->
-name|render
+name|paintOnScreen
 argument_list|()
 expr_stmt|;
 name|m_context

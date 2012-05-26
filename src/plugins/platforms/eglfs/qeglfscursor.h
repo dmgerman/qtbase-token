@@ -36,6 +36,12 @@ name|QOpenGLShaderProgram
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QEglFSScreen
+name|class
+name|QEglFSScreen
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QEglFSCursor
 range|:
@@ -95,10 +101,99 @@ name|cursorRect
 argument_list|()
 specifier|const
 block|;
+name|virtual
 name|void
-name|render
+name|paintOnScreen
 argument_list|()
 block|;
+name|protected
+operator|:
+name|bool
+name|setCurrentCursor
+argument_list|(
+name|QCursor
+operator|*
+name|cursor
+argument_list|)
+block|;
+name|void
+name|draw
+argument_list|(
+specifier|const
+name|QRectF
+operator|&
+name|rect
+argument_list|)
+block|;
+name|void
+name|update
+argument_list|(
+specifier|const
+name|QRegion
+operator|&
+name|region
+argument_list|)
+block|;
+name|QEglFSScreen
+operator|*
+name|m_screen
+block|;
+comment|// current cursor information
+block|struct
+name|Cursor
+block|{
+name|Cursor
+argument_list|()
+operator|:
+name|texture
+argument_list|(
+literal|0
+argument_list|)
+block|,
+name|shape
+argument_list|(
+name|Qt
+operator|::
+name|BlankCursor
+argument_list|)
+block|,
+name|customCursorTexture
+argument_list|(
+literal|0
+argument_list|)
+block|{ }
+name|uint
+name|texture
+block|;
+comment|// a texture from 'image' or the atlas
+name|Qt
+operator|::
+name|CursorShape
+name|shape
+block|;
+name|QRectF
+name|textureRect
+block|;
+comment|// normalized rect inside texture
+name|QSize
+name|size
+block|;
+comment|// size of the cursor
+name|QPoint
+name|hotSpot
+block|;
+name|QImage
+name|customCursorImage
+block|;
+name|uint
+name|customCursorTexture
+block|;     }
+name|m_cursor
+block|;
+name|QPoint
+name|m_pos
+block|;
+comment|// current cursor position
 name|private
 operator|:
 name|void
@@ -122,10 +217,6 @@ block|;
 name|void
 name|initCursorAtlas
 argument_list|()
-block|;
-name|QPlatformScreen
-operator|*
-name|m_screen
 block|;
 comment|// cursor atlas information
 block|struct
@@ -184,61 +275,6 @@ block|;
 comment|// valid until it's uploaded
 block|}
 name|m_cursorAtlas
-block|;
-comment|// current cursor information
-block|struct
-name|Cursor
-block|{
-name|Cursor
-argument_list|()
-operator|:
-name|texture
-argument_list|(
-literal|0
-argument_list|)
-block|,
-name|shape
-argument_list|(
-name|Qt
-operator|::
-name|BlankCursor
-argument_list|)
-block|,
-name|customCursorTexture
-argument_list|(
-literal|0
-argument_list|)
-block|{ }
-name|uint
-name|texture
-block|;
-comment|// a texture from 'image' or the atlas
-name|Qt
-operator|::
-name|CursorShape
-name|shape
-block|;
-name|QRectF
-name|textureRect
-block|;
-comment|// normalized rect inside texture
-name|QSize
-name|size
-block|;
-comment|// size of the cursor
-name|QPoint
-name|hotSpot
-block|;
-name|QImage
-name|customCursorImage
-block|;
-name|uint
-name|customCursorTexture
-block|;     }
-name|m_cursor
-block|;
-name|QPoint
-name|m_pos
 block|;
 name|GLuint
 name|m_program
