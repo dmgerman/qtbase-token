@@ -385,11 +385,6 @@ modifier|*
 name|icon
 decl_stmt|;
 comment|// widget icon
-DECL|member|iconPixmap
-name|QPixmap
-modifier|*
-name|iconPixmap
-decl_stmt|;
 DECL|member|backingStoreTracker
 name|QWidgetBackingStoreTracker
 name|backingStoreTracker
@@ -1635,12 +1630,7 @@ end_function_decl
 begin_function_decl
 name|void
 name|setWindowIcon_sys
-parameter_list|(
-name|bool
-name|forceReset
-init|=
-name|false
-parameter_list|)
+parameter_list|()
 function_decl|;
 end_function_decl
 begin_function_decl
