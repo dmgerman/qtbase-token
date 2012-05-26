@@ -1536,38 +1536,6 @@ end_comment
 begin_comment
 comment|/*!     \fn const QRegion&QPaintEvent::region() const      Returns the region that needs to be updated.      \sa rect(), QPainter::setClipRegion() */
 end_comment
-begin_constructor
-DECL|function|QUpdateLaterEvent
-name|QUpdateLaterEvent
-operator|::
-name|QUpdateLaterEvent
-parameter_list|(
-specifier|const
-name|QRegion
-modifier|&
-name|paintRegion
-parameter_list|)
-member_init_list|:
-name|QEvent
-argument_list|(
-name|UpdateLater
-argument_list|)
-member_init_list|,
-name|m_region
-argument_list|(
-name|paintRegion
-argument_list|)
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~QUpdateLaterEvent
-name|QUpdateLaterEvent
-operator|::
-name|~
-name|QUpdateLaterEvent
-parameter_list|()
-block|{ }
-end_destructor
 begin_comment
 comment|/*!     \class QMoveEvent     \brief The QMoveEvent class contains event parameters for move events.      \ingroup events      Move events are sent to widgets that have been moved to a new     position relative to their parent.      The event handler QWidget::moveEvent() receives move events.      \sa QWidget::move(), QWidget::setGeometry() */
 end_comment
