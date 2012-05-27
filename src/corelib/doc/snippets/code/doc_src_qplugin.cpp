@@ -33,14 +33,24 @@ end_comment
 begin_comment
 comment|//! [1]
 end_comment
-begin_macro
-name|Q_EXPORT_PLUGIN2
+begin_class
+DECL|class|MyInstance
+class|class
+name|MyInstance
+super|:
+specifier|public
+name|QObject
+block|{
+name|Q_PLUGIN_METADATA
 argument_list|(
-argument|pnp_extrafilters
-argument_list|,
-argument|ExtraFiltersPlugin
+argument|IID
+literal|"org.qt-project.Qt.QDummyPlugin"
+argument|FILE
+literal|"mymetadata.json"
 argument_list|)
-end_macro
+block|}
+class|;
+end_class
 begin_comment
 comment|//! [1]
 end_comment
