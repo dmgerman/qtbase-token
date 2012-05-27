@@ -28,12 +28,6 @@ include|#
 directive|include
 file|<QRegion>
 end_include
-begin_define
-DECL|macro|EGLFS_BACKINGSTORE_USE_IMAGE
-define|#
-directive|define
-name|EGLFS_BACKINGSTORE_USE_IMAGE
-end_define
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QOpenGLContext
@@ -132,9 +126,6 @@ name|QOpenGLContext
 operator|*
 name|m_context
 block|;
-ifdef|#
-directive|ifdef
-name|EGLFS_BACKINGSTORE_USE_IMAGE
 name|QImage
 name|m_image
 block|;
@@ -153,16 +144,7 @@ name|m_vertexCoordEntry
 block|;
 name|int
 name|m_textureCoordEntry
-block|;
-else|#
-directive|else
-name|QOpenGLPaintDevice
-operator|*
-name|m_device
-block|;
-endif|#
-directive|endif
-block|}
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_macro
