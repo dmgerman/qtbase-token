@@ -173,7 +173,7 @@ name|qLoadPlugin1
 argument_list|<
 name|QPlatformInputContext
 argument_list|,
-name|QPlatformInputContextFactoryInterface
+name|QPlatformInputContextPlugin
 argument_list|>
 argument_list|(
 name|loader
