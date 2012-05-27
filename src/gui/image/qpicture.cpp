@@ -5319,13 +5319,13 @@ control|)
 block|{
 if|if
 condition|(
-name|QPictureFormatInterface
+name|QPictureFormatPlugin
 modifier|*
 name|format
 init|=
 name|qobject_cast
 argument_list|<
-name|QPictureFormatInterface
+name|QPictureFormatPlugin
 operator|*
 argument_list|>
 argument_list|(

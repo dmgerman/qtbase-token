@@ -31,10 +31,7 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!     \obsolete      \class QPictureFormatPlugin     \brief The QPictureFormatPlugin class provides an abstract base     for custom picture format plugins.      \ingroup plugins      The picture format plugin is a simple plugin interface that makes     it easy to create custom picture formats that can be used     transparently by applications.      Writing an picture format plugin is achieved by subclassing this     base class, reimplementing the pure virtual functions keys(),     loadPicture(), savePicture(), and installIOHandler(), and     exporting the class with the Q_EXPORT_PLUGIN2() macro.      \sa {How to Create Qt Plugins} */
-end_comment
-begin_comment
-comment|/*!     \fn QStringList QPictureFormatPlugin::keys() const      Returns the list of picture formats this plugin supports.      \sa installIOHandler() */
+comment|/*!     \obsolete      \class QPictureFormatPlugin     \brief The QPictureFormatPlugin class provides an abstract base     for custom picture format plugins.      \ingroup plugins      The picture format plugin is a simple plugin interface that makes     it easy to create custom picture formats that can be used     transparently by applications.      Writing an picture format plugin is achieved by subclassing this     base class, reimplementing the pure virtual functions     loadPicture(), savePicture(), and installIOHandler(), and     exporting the class with the Q_PLUGIN_METADATA() macro.      The json file containing the metadata should contain one entry     with the list of picture formats supported by the plugin:      \code     { "Keys": [ "mypictureformat" ] }     \endcode      \sa {How to Create Qt Plugins} */
 end_comment
 begin_comment
 comment|/*!     \fn bool QPictureFormatPlugin::installIOHandler(const QString&format)      Installs a QPictureIO picture I/O handler for the picture format \a     format.      \sa keys() */
