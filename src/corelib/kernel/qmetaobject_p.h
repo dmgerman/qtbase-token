@@ -53,6 +53,23 @@ include|#
 directive|include
 file|<QtCore/qobjectdefs.h>
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
+end_ifndef
+begin_include
+include|#
+directive|include
+file|<private/qobject_p.h>
+end_include
+begin_comment
+comment|// For QObjectPrivate::Connection
+end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|enum|PropertyFlags
