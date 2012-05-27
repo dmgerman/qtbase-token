@@ -100,7 +100,7 @@ directive|ifdef
 name|QEGL_EXTRA_DEBUG
 name|qWarning
 argument_list|(
-literal|"QEglIntegration\n"
+literal|"QEglFSIntegration\n"
 argument_list|)
 expr_stmt|;
 endif|#
@@ -203,7 +203,7 @@ directive|ifdef
 name|QEGL_EXTRA_DEBUG
 name|qWarning
 argument_list|(
-literal|"QEglIntegration::createPlatformWindow %p\n"
+literal|"QEglFSIntegration::createPlatformWindow %p\n"
 argument_list|,
 name|window
 argument_list|)
@@ -249,7 +249,7 @@ directive|ifdef
 name|QEGL_EXTRA_DEBUG
 name|qWarning
 argument_list|(
-literal|"QEglIntegration::createWindowSurface %p\n"
+literal|"QEglFSIntegration::createWindowSurface %p\n"
 argument_list|,
 name|window
 argument_list|)

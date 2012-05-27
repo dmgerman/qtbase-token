@@ -16,9 +16,9 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_class
-DECL|class|QEglIntegrationPlugin
+DECL|class|QEglFSIntegrationPlugin
 class|class
-name|QEglIntegrationPlugin
+name|QEglFSIntegrationPlugin
 super|:
 specifier|public
 name|QPlatformIntegrationPlugin
@@ -57,7 +57,7 @@ end_class
 begin_function
 DECL|function|keys
 name|QStringList
-name|QEglIntegrationPlugin
+name|QEglFSIntegrationPlugin
 operator|::
 name|keys
 parameter_list|()
@@ -79,7 +79,7 @@ begin_function
 DECL|function|create
 name|QPlatformIntegration
 modifier|*
-name|QEglIntegrationPlugin
+name|QEglFSIntegrationPlugin
 operator|::
 name|create
 parameter_list|(
