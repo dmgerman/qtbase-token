@@ -36,11 +36,6 @@ range|:
 name|QEvdevTouchScreenPlugin
 argument_list|()
 decl_stmt|;
-name|QStringList
-name|keys
-parameter_list|()
-specifier|const
-function_decl|;
 name|QObject
 modifier|*
 name|create
@@ -67,23 +62,6 @@ name|QEvdevTouchScreenPlugin
 parameter_list|()
 block|{ }
 end_constructor
-begin_function
-DECL|function|keys
-name|QStringList
-name|QEvdevTouchScreenPlugin
-operator|::
-name|keys
-parameter_list|()
-specifier|const
-block|{
-return|return
-name|QStringList
-argument_list|()
-operator|<<
-literal|"EvdevTouch"
-return|;
-block|}
-end_function
 begin_function
 DECL|function|create
 name|QObject

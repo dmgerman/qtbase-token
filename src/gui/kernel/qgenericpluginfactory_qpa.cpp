@@ -123,7 +123,7 @@ name|qLoadPlugin1
 argument_list|<
 name|QObject
 argument_list|,
-name|QGenericPluginFactoryInterface
+name|QGenericPlugin
 argument_list|>
 argument_list|(
 name|loader
