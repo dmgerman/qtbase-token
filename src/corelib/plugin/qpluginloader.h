@@ -63,6 +63,12 @@ name|QLibraryPrivate
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QJsonObject
+name|class
+name|QJsonObject
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|Q_CORE_EXPORT
 name|QPluginLoader
@@ -114,6 +120,11 @@ name|QObject
 operator|*
 name|instance
 argument_list|()
+block|;
+name|QJsonObject
+name|metaData
+argument_list|()
+specifier|const
 block|;
 specifier|static
 name|QObjectList

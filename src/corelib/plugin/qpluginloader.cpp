@@ -197,6 +197,34 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     Returns the meta data for this plugin. The meta data is data specified     in a json format using the Q_PLUGIN_METADATA() macro when compiling     the plugin.      The meta data can be queried in a fast and inexpensive way without     actually loading the plugin. This makes it possible to e.g. store     capabilities of the plugin in there, and make the decision whether to     load the plugin dependent on this meta data.  */
+end_comment
+begin_function
+DECL|function|metaData
+name|QJsonObject
+name|QPluginLoader
+operator|::
+name|metaData
+parameter_list|()
+specifier|const
+block|{
+if|if
+condition|(
+operator|!
+name|d
+condition|)
+return|return
+name|QJsonObject
+argument_list|()
+return|;
+return|return
+name|d
+operator|->
+name|metaData
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     Loads the plugin and returns true if the plugin was loaded     successfully; otherwise returns false. Since instance() always     calls this function before resolving any symbols it is not     necessary to call it explicitly. In some situations you might want     the plugin loaded in advance, in which case you would use this     function.      \sa unload() */
 end_comment
 begin_function
