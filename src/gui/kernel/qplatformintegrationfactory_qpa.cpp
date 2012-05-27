@@ -175,7 +175,7 @@ name|qLoadPlugin1
 argument_list|<
 name|QPlatformIntegration
 argument_list|,
-name|QPlatformIntegrationFactoryInterface
+name|QPlatformIntegrationPlugin
 argument_list|>
 type|(
 name|directLoader
@@ -199,7 +199,7 @@ name|qLoadPlugin1
 argument_list|<
 name|QPlatformIntegration
 argument_list|,
-name|QPlatformIntegrationFactoryInterface
+name|QPlatformIntegrationPlugin
 argument_list|>
 type|(
 name|loader

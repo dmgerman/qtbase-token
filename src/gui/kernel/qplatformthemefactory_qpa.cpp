@@ -175,7 +175,7 @@ name|qLoadPlugin1
 argument_list|<
 name|QPlatformTheme
 argument_list|,
-name|QPlatformThemeFactoryInterface
+name|QPlatformThemePlugin
 argument_list|>
 type|(
 name|directLoader
@@ -199,7 +199,7 @@ name|qLoadPlugin1
 argument_list|<
 name|QPlatformTheme
 argument_list|,
-name|QPlatformThemeFactoryInterface
+name|QPlatformThemePlugin
 argument_list|>
 type|(
 name|loader

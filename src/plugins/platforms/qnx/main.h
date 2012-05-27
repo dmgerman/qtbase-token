@@ -25,11 +25,6 @@ literal|"qnx.json"
 argument_list|)
 name|public
 operator|:
-name|QStringList
-name|keys
-argument_list|()
-specifier|const
-block|;
 name|QPlatformIntegration
 operator|*
 name|create
