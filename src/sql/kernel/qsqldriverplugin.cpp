@@ -11,10 +11,7 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!     \class QSqlDriverPlugin     \brief The QSqlDriverPlugin class provides an abstract base for custom QSqlDriver plugins.      \ingroup plugins     \inmodule QtSql      The SQL driver plugin is a simple plugin interface that makes it     easy to create your own SQL driver plugins that can be loaded     dynamically by Qt.      Writing a SQL plugin is achieved by subclassing this base class,     reimplementing the pure virtual functions keys() and create(), and     exporting the class with the Q_EXPORT_PLUGIN2() macro. See the SQL     plugins that come with Qt for example implementations (in the     \c{plugins/src/sqldrivers} subdirectory of the source     distribution).      \sa {How to Create Qt Plugins} */
-end_comment
-begin_comment
-comment|/*!     \fn QStringList QSqlDriverPlugin::keys() const      Returns the list of drivers (keys) this plugin supports.      These keys are usually the class names of the custom drivers that     are implemented in the plugin.      \sa create() */
+comment|/*!     \class QSqlDriverPlugin     \brief The QSqlDriverPlugin class provides an abstract base for custom QSqlDriver plugins.      \ingroup plugins     \inmodule QtSql      The SQL driver plugin is a simple plugin interface that makes it     easy to create your own SQL driver plugins that can be loaded     dynamically by Qt.      Writing a SQL plugin is achieved by subclassing this base class,     reimplementing the pure virtual function create(), and     exporting the class with the Q_PLUGIN_METADATA() macro. See the SQL     plugins that come with Qt for example implementations (in the     \c{plugins/src/sqldrivers} subdirectory of the source     distribution).      The json file containing the metadata for the plugin contains a list of     keys indicating the supported sql drivers      \code     { "Keys": [ "mysqldriver" ] }     \endcode      \sa {How to Create Qt Plugins} */
 end_comment
 begin_comment
 comment|/*!     \fn QSqlDriver *QSqlDriverPlugin::create(const QString& key)      Creates and returns a QSqlDriver object for the driver called \a     key. The driver key is usually the class name of the required     driver. Keys are case sensitive.      \sa keys() */

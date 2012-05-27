@@ -2315,7 +2315,7 @@ name|qLoadPlugin
 argument_list|<
 name|QSqlDriver
 argument_list|,
-name|QSqlDriverFactoryInterface
+name|QSqlDriverPlugin
 argument_list|>
 argument_list|(
 name|loader
