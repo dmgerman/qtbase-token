@@ -16,10 +16,7 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!     \class QStylePlugin     \brief The QStylePlugin class provides an abstract base for custom QStyle plugins.      \ingroup plugins     \inmodule QtWidgets      QStylePlugin is a simple plugin interface that makes it easy     to create custom styles that can be loaded dynamically into     applications using the QStyleFactory class.      Writing a style plugin is achieved by subclassing this base class,     reimplementing the pure virtual keys() and create() functions, and     exporting the class using the Q_EXPORT_PLUGIN2() macro. See \l     {How to Create Qt Plugins} for details.      \sa QStyleFactory, QStyle */
-end_comment
-begin_comment
-comment|/*!     \fn QStringList QStylePlugin::keys() const      Returns the list of style keys this plugin supports.      These keys are usually the class names of the custom styles that     are implemented in the plugin.      \sa create() */
+comment|/*!     \class QStylePlugin     \brief The QStylePlugin class provides an abstract base for custom QStyle plugins.      \ingroup plugins     \inmodule QtWidgets      QStylePlugin is a simple plugin interface that makes it easy     to create custom styles that can be loaded dynamically into     applications using the QStyleFactory class.      Writing a style plugin is achieved by subclassing this base class,     reimplementing the pure virtual create() function, and     exporting the class using the Q_PLUGIN_METADATA() macro. See \l     {How to Create Qt Plugins} for details.      The json metadata file for the plugin needs to contain information     about the names of the styles the plugins supports as follows:      \code     { "Keys": [ "mystyle" ] }     \endcode      \sa QStyleFactory, QStyle */
 end_comment
 begin_comment
 comment|/*!     \fn QStyle *QStylePlugin::create(const QString& key)      Creates and returns a QStyle object for the given style \a key.     If a plugin cannot create a style, it should return 0 instead.      The style key is usually the class name of the required     style. Note that the keys are case insensitive. For example:      \snippet qstyleplugin/main.cpp 0     \codeline     \snippet qstyleplugin/main.cpp 1     \snippet qstyleplugin/main.cpp 2      \sa keys() */

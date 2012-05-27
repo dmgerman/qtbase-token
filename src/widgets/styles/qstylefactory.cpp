@@ -483,7 +483,7 @@ name|qLoadPlugin
 argument_list|<
 name|QStyle
 argument_list|,
-name|QStyleFactoryInterface
+name|QStylePlugin
 argument_list|>
 argument_list|(
 name|loader
