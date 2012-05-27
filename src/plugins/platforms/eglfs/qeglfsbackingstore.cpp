@@ -668,6 +668,11 @@ argument_list|,
 literal|4
 argument_list|)
 expr_stmt|;
+name|m_program
+operator|->
+name|release
+argument_list|()
+expr_stmt|;
 name|glBindTexture
 argument_list|(
 name|GL_TEXTURE_2D
