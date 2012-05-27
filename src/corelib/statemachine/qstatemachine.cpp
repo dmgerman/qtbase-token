@@ -9479,15 +9479,7 @@ name|sender
 operator|<<
 literal|", signal ="
 operator|<<
-name|sender
-operator|->
-name|metaObject
-argument_list|()
-operator|->
 name|method
-argument_list|(
-name|signalIndex
-argument_list|)
 operator|.
 name|methodSignature
 argument_list|()
