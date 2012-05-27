@@ -57,11 +57,6 @@ operator|~
 name|QGifPlugin
 argument_list|()
 block|;
-name|QStringList
-name|keys
-argument_list|()
-specifier|const
-block|;
 name|Capabilities
 name|capabilities
 argument_list|(

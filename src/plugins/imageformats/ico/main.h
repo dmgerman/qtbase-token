@@ -55,11 +55,6 @@ literal|"ico.json"
 argument_list|)
 name|public
 operator|:
-name|QStringList
-name|keys
-argument_list|()
-specifier|const
-block|;
 name|Capabilities
 name|capabilities
 argument_list|(

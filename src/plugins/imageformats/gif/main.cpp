@@ -61,26 +61,6 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_function
-DECL|function|keys
-name|QStringList
-name|QGifPlugin
-operator|::
-name|keys
-parameter_list|()
-specifier|const
-block|{
-return|return
-name|QStringList
-argument_list|()
-operator|<<
-name|QLatin1String
-argument_list|(
-literal|"gif"
-argument_list|)
-return|;
-block|}
-end_function
-begin_function
 DECL|function|capabilities
 name|QImageIOPlugin
 operator|::
