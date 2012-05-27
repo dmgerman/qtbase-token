@@ -107,6 +107,15 @@ name|extensionName
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_function_decl
+name|void
+name|q_printEglConfig
+parameter_list|(
+name|EGLConfig
+name|config
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
