@@ -484,7 +484,7 @@ name|qLoadPlugin1
 argument_list|<
 name|QAccessibleInterface
 argument_list|,
-name|QAccessibleFactoryInterface
+name|QAccessiblePlugin
 argument_list|>
 argument_list|(
 name|loader

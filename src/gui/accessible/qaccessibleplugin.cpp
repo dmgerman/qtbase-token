@@ -26,10 +26,10 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!     \class QAccessiblePlugin     \brief The QAccessiblePlugin class provides an abstract base for     accessibility plugins.     \internal      \ingroup plugins     \ingroup accessibility      Writing an accessibility plugin is achieved by subclassing this     base class, reimplementing the pure virtual functions keys() and     create(), and exporting the class with the Q_EXPORT_PLUGIN2()     macro.      \sa QAccessibleBridgePlugin, {How to Create Qt Plugins} */
+comment|/*!     \class QAccessiblePlugin     \brief The QAccessiblePlugin class provides an abstract base for     accessibility plugins.     \internal      \ingroup plugins     \ingroup accessibility      Writing an accessibility plugin is achieved by subclassing this     base class, reimplementing the pure virtual function create(),     and exporting the class with the Q_PLUGIN_METADATA() macro.      \sa QAccessibleBridgePlugin, {How to Create Qt Plugins} */
 end_comment
 begin_comment
-comment|/*!     Constructs an accessibility plugin with the given \a parent. This     is invoked automatically by the Q_EXPORT_PLUGIN2() macro. */
+comment|/*!     Constructs an accessibility plugin with the given \a parent. This     is invoked automatically by the plugin loader. */
 end_comment
 begin_constructor
 DECL|function|QAccessiblePlugin
@@ -60,9 +60,6 @@ name|QAccessiblePlugin
 parameter_list|()
 block|{ }
 end_destructor
-begin_comment
-comment|/*!     \fn QStringList QAccessiblePlugin::keys() const      Returns the list of keys this plugin supports.      These keys must be the class names that this plugin provides     an accessibility implementation for.      \sa create() */
-end_comment
 begin_comment
 comment|/*!     \fn QAccessibleInterface *QAccessiblePlugin::create(const QString&key, QObject *object)      Creates and returns a QAccessibleInterface implementation for the     class \a key and the object \a object. Keys are case sensitive.      \sa keys() */
 end_comment

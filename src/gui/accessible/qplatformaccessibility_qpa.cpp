@@ -297,7 +297,7 @@ argument_list|()
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-name|QAccessibleBridgeFactoryInterface
+name|QAccessibleBridgePlugin
 modifier|*
 name|factory
 init|=
@@ -363,7 +363,7 @@ name|factory
 operator|=
 name|qobject_cast
 argument_list|<
-name|QAccessibleBridgeFactoryInterface
+name|QAccessibleBridgePlugin
 operator|*
 argument_list|>
 argument_list|(

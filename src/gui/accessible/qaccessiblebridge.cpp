@@ -28,10 +28,10 @@ begin_comment
 comment|/*!     \fn void QAccessibleBridge::notifyAccessibilityUpdate(int reason, QAccessibleInterface *interface, int child)      This function is called by Qt to notify the bridge about a change     in the accessibility information for object wrapped by the given     \a interface.      \a reason specifies the cause of the change. It can take values     of type QAccessible::Event.      \a child is the (1-based) index of the child element that has     changed. When \a child is 0, the object itself has changed.      \sa QAccessible::updateAccessibility() */
 end_comment
 begin_comment
-comment|/*!     \class QAccessibleBridgePlugin     \brief The QAccessibleBridgePlugin class provides an abstract     base for accessibility bridge plugins.     \internal      \ingroup plugins     \ingroup accessibility     \inmodule QtWidgets      Writing an accessibility bridge plugin is achieved by subclassing     this base class, reimplementing the pure virtual functions keys()     and create(), and exporting the class with the     Q_EXPORT_PLUGIN2() macro.      \sa QAccessibleBridge, QAccessiblePlugin, {How to Create Qt Plugins} */
+comment|/*!     \class QAccessibleBridgePlugin     \brief The QAccessibleBridgePlugin class provides an abstract     base for accessibility bridge plugins.     \internal      \ingroup plugins     \ingroup accessibility     \inmodule QtWidgets      Writing an accessibility bridge plugin is achieved by subclassing     this base class, reimplementing the pure virtual function create(),     and exporting the class with the Q_PLUGIN_METADATA() macro.      \sa QAccessibleBridge, QAccessiblePlugin, {How to Create Qt Plugins} */
 end_comment
 begin_comment
-comment|/*!     Constructs an accessibility bridge plugin with the given \a     parent. This is invoked automatically by the Q_EXPORT_PLUGIN2()     macro. */
+comment|/*!     Constructs an accessibility bridge plugin with the given \a     parent. This is invoked automatically by the plugin loader. */
 end_comment
 begin_constructor
 DECL|function|QAccessibleBridgePlugin
@@ -62,9 +62,6 @@ name|QAccessibleBridgePlugin
 parameter_list|()
 block|{  }
 end_destructor
-begin_comment
-comment|/*!     \fn QStringList QAccessibleBridgePlugin::keys() const      Returns the list of keys this plugins supports.      These keys must be the names of the bridges that this     plugin provides.      \sa create() */
-end_comment
 begin_comment
 comment|/*!     \fn QAccessibleBridge *QAccessibleBridgePlugin::create(const QString&key)      Creates and returns the QAccessibleBridge object corresponding to     the given \a key. Keys are case sensitive.      \sa keys() */
 end_comment
