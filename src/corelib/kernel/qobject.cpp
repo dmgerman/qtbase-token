@@ -11295,10 +11295,7 @@ literal|0
 init|;
 name|k
 operator|<
-name|co
-operator|->
-name|metaObject
-argument_list|()
+name|smo
 operator|->
 name|methodCount
 argument_list|()
