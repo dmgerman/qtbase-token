@@ -154,6 +154,9 @@ argument_list|(
 name|offset
 argument_list|)
 expr_stmt|;
+name|makeCurrent
+argument_list|()
+expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QEGL_EXTRA_DEBUG
@@ -709,6 +712,11 @@ argument_list|(
 name|window
 argument_list|)
 expr_stmt|;
+name|m_context
+operator|->
+name|doneCurrent
+argument_list|()
+expr_stmt|;
 block|}
 end_function
 begin_function
@@ -753,9 +761,6 @@ modifier|&
 name|rgn
 parameter_list|)
 block|{
-name|makeCurrent
-argument_list|()
-expr_stmt|;
 name|m_dirty
 operator|=
 name|m_dirty
