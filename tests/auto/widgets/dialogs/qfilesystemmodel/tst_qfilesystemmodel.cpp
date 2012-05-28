@@ -7390,10 +7390,7 @@ block|{
 name|QString
 name|tmp
 init|=
-name|QDir
-operator|::
-name|tempPath
-argument_list|()
+name|flatDirTestPath
 decl_stmt|;
 name|QString
 name|newFolderPath
