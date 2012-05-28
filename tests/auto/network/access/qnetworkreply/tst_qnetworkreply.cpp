@@ -4901,6 +4901,11 @@ name|NetworkError
 argument_list|>
 argument_list|()
 expr_stmt|;
+name|uniqueExtension
+operator|=
+name|createUniqueExtension
+argument_list|()
+expr_stmt|;
 name|testFileName
 operator|=
 name|QDir
@@ -4909,11 +4914,8 @@ name|currentPath
 argument_list|()
 operator|+
 literal|"/testfile"
-expr_stmt|;
+operator|+
 name|uniqueExtension
-operator|=
-name|createUniqueExtension
-argument_list|()
 expr_stmt|;
 name|cookieJar
 operator|=
@@ -6232,6 +6234,8 @@ operator|=
 name|testDataDir
 operator|+
 literal|"/write-only"
+operator|+
+name|uniqueExtension
 expr_stmt|;
 name|QFile
 name|wr
