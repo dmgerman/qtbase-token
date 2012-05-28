@@ -1094,6 +1094,9 @@ name|qt_replay_popup_mouse_event
 operator|=
 literal|false
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CONTEXTMENU
 block|}
 elseif|else
 if|if
@@ -1176,6 +1179,8 @@ operator|&
 name|e
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 if|if
 condition|(
@@ -1396,6 +1401,9 @@ argument_list|,
 name|qt_last_mouse_receiver
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CONTEXTMENU
 if|if
 condition|(
 name|event
@@ -1448,6 +1456,8 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 block|}
 end_function
 begin_function

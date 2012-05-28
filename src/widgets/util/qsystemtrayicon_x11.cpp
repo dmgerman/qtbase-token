@@ -966,6 +966,9 @@ operator|->
 name|globalPos
 argument_list|()
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CONTEXTMENU
 if|if
 condition|(
 name|ev
@@ -992,6 +995,8 @@ argument_list|(
 name|globalPos
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|QBalloonTip
