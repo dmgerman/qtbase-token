@@ -2285,15 +2285,6 @@ argument_list|(
 name|type
 argument_list|)
 expr_stmt|;
-name|qApp
-operator|->
-name|setAttribute
-argument_list|(
-name|Qt
-operator|::
-name|AA_DontCreateNativeWidgetSiblings
-argument_list|)
-expr_stmt|;
 name|QColormap
 operator|::
 name|initialize

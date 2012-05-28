@@ -573,9 +573,32 @@ name|winId
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//    first check children. and create them if necessary
-comment|//    q_createNativeChildrenAndSetParent(q->windowHandle(),q);
-comment|//    qDebug()<< "create_sys"<< q<< q->internalWinId();
+comment|// Check children and create windows for them if necessary
+name|q_createNativeChildrenAndSetParent
+argument_list|(
+name|q
+operator|->
+name|windowHandle
+argument_list|()
+argument_list|,
+name|q
+argument_list|)
+expr_stmt|;
+comment|// If widget is already shown, set window visible, too
+if|if
+condition|(
+name|q
+operator|->
+name|isVisible
+argument_list|()
+condition|)
+name|win
+operator|->
+name|setVisible
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function
