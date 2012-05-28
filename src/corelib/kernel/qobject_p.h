@@ -672,6 +672,11 @@ argument_list|()
 return|;
 block|}
 name|int
+name|senderSignalIndex
+argument_list|()
+specifier|const
+block|;
+name|int
 name|signalIndex
 argument_list|(
 argument|const char *signalName
