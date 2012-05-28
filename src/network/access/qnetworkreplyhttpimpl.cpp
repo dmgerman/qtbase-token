@@ -4189,10 +4189,15 @@ name|thread
 argument_list|)
 expr_stmt|;
 comment|// This call automatically moves the uploadDevice too for the asynchronous case.
-comment|// Start timer for progress notifications
+comment|// Prepare timers for progress notifications
 name|downloadProgressSignalChoke
 operator|.
 name|start
+argument_list|()
+expr_stmt|;
+name|uploadProgressSignalChoke
+operator|.
+name|invalidate
 argument_list|()
 expr_stmt|;
 comment|// Send an signal to the delegate so it starts working in the other thread
@@ -8421,6 +8426,45 @@ condition|(
 name|isFinished
 condition|)
 return|return;
+comment|//choke signal emissions, except the first and last signals which are unconditional
+if|if
+condition|(
+name|uploadProgressSignalChoke
+operator|.
+name|isValid
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|bytesSent
+operator|!=
+name|bytesTotal
+operator|&&
+name|uploadProgressSignalChoke
+operator|.
+name|elapsed
+argument_list|()
+operator|<
+name|progressSignalInterval
+condition|)
+block|{
+return|return;
+block|}
+name|uploadProgressSignalChoke
+operator|.
+name|restart
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|uploadProgressSignalChoke
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+block|}
 emit|emit
 name|q
 operator|->

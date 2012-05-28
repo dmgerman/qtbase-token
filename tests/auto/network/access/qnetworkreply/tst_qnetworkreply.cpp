@@ -28360,12 +28360,13 @@ operator|::
 name|ioPostToHttpUploadProgress
 parameter_list|()
 block|{
+comment|//test file must be larger than OS socket buffers (~830kB on MacOS 10.6)
 name|QFile
 name|sourceFile
 argument_list|(
 name|testDataDir
 operator|+
-literal|"/bigfile"
+literal|"/image1.jpg"
 argument_list|)
 decl_stmt|;
 name|QVERIFY
@@ -28571,6 +28572,15 @@ literal|5
 argument_list|)
 expr_stmt|;
 comment|// some progress should have been made
+name|QVERIFY
+argument_list|(
+operator|!
+name|spy
+operator|.
+name|isEmpty
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|QList
 argument_list|<
 name|QVariant
@@ -28644,6 +28654,15 @@ literal|10
 argument_list|)
 expr_stmt|;
 comment|// progress should be finished
+name|QVERIFY
+argument_list|(
+operator|!
+name|spy
+operator|.
+name|isEmpty
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|QList
 argument_list|<
 name|QVariant

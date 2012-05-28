@@ -108,6 +108,9 @@ decl_stmt|;
 name|QElapsedTimer
 name|downloadProgressSignalChoke
 decl_stmt|;
+name|QElapsedTimer
+name|uploadProgressSignalChoke
+decl_stmt|;
 specifier|const
 specifier|static
 name|int
