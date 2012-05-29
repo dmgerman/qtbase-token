@@ -65,7 +65,7 @@ operator|~
 name|QSocketNotifier
 argument_list|()
 block|;
-name|int
+name|qintptr
 name|socket
 argument_list|()
 specifier|const

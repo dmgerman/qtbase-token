@@ -193,7 +193,7 @@ comment|/*!     Returns the socket identifier specified to the constructor.     
 end_comment
 begin_function
 DECL|function|socket
-name|int
+name|qintptr
 name|QSocketNotifier
 operator|::
 name|socket
