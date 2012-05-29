@@ -124,7 +124,7 @@ operator|*
 name|dfbSurface
 argument_list|()
 block|;
-name|private
+name|protected
 operator|:
 name|QDirectFBPointer
 operator|<
