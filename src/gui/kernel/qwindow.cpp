@@ -394,7 +394,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*!     Set the \a surfaceType of the window.      Specifies whether the window is meant for raster rendering with     QBackingStore, or OpenGL rendering with QOpenGLContext.      \sa QBackingStore, QOpenGLContext */
+comment|/*!     Set the \a surfaceType of the window.      Specifies whether the window is meant for raster rendering with     QBackingStore, or OpenGL rendering with QOpenGLContext.      The surfaceType will be used when the native surface is created     in the create() function. Calling this function after the native     surface has been created requires calling destroy() and create()     to release the old native surface and create a new one.      \sa QBackingStore, QOpenGLContext, create(), destroy() */
 end_comment
 begin_function
 DECL|function|setSurfaceType
@@ -1028,7 +1028,7 @@ begin_comment
 comment|/*! \fn void QWindow::windowModalityChanged(Qt::WindowModality windowModality)      This signal is emitted when the Qwindow::windowModality property changes to \a windowModality. */
 end_comment
 begin_comment
-comment|/*!     Sets the window's surface \a format.      The format determines properties such as color depth, alpha,     depth and stencil buffer size, etc. */
+comment|/*!     Sets the window's surface \a format.      The format determines properties such as color depth, alpha,     depth and stencil buffer size, etc.      The surface format will be resolved in the create() function. Calling     this function after create() has been called will not re-resolve the     surface format of the native surface.      \sa create(), destroy() */
 end_comment
 begin_function
 DECL|function|setFormat
