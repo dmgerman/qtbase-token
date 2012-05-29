@@ -18525,28 +18525,6 @@ name|endl
 expr_stmt|;
 name|t
 operator|<<
-literal|"CHK_DIR_EXISTS= "
-operator|<<
-name|var
-argument_list|(
-literal|"QMAKE_CHK_DIR_EXISTS"
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
-name|t
-operator|<<
-literal|"MKDIR         = "
-operator|<<
-name|var
-argument_list|(
-literal|"QMAKE_MKDIR"
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
-name|t
-operator|<<
 literal|"SUBTARGETS    = "
 expr_stmt|;
 comment|// subtargets are sub-directory
