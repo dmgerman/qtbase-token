@@ -107,6 +107,11 @@ name|winId
 argument_list|()
 specifier|const
 block|;
+name|virtual
+name|void
+name|createDirectFBWindow
+argument_list|()
+block|;
 name|IDirectFBWindow
 operator|*
 name|dfbWindow

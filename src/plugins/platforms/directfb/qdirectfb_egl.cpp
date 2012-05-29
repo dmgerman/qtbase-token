@@ -616,7 +616,10 @@ name|window
 parameter_list|)
 specifier|const
 block|{
-return|return
+name|QDirectFbWindow
+modifier|*
+name|dfbWindow
+init|=
 operator|new
 name|QDirectFbWindowEGL
 argument_list|(
@@ -627,6 +630,14 @@ operator|.
 name|data
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|dfbWindow
+operator|->
+name|createDirectFBWindow
+argument_list|()
+expr_stmt|;
+return|return
+name|dfbWindow
 return|;
 block|}
 end_function
