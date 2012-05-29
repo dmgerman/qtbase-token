@@ -1158,7 +1158,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     For random-access devices, this function sets the current position     to \a pos, returning true on success, or false if an error occurred.     For sequential devices, the default behavior is to do nothing and     return false.      When subclassing QIODevice, you must call QIODevice::seek() at the     start of your function to ensure integrity with QIODevice's     built-in buffer. The base implementation always returns true.      \sa pos(), isSequential() */
+comment|/*!     For random-access devices, this function sets the current position     to \a pos, returning true on success, or false if an error occurred.     For sequential devices, the default behavior is to produce a warning     and return false.      When subclassing QIODevice, you must call QIODevice::seek() at the     start of your function to ensure integrity with QIODevice's     built-in buffer.      \sa pos(), isSequential() */
 end_comment
 begin_function
 DECL|function|seek
@@ -1176,6 +1176,23 @@ argument_list|(
 name|QIODevice
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|d
+operator|->
+name|isSequential
+argument_list|()
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QIODevice::seek: Cannot call seek on a sequential device"
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
 if|if
 condition|(
 name|d
@@ -1256,15 +1273,6 @@ name|d
 operator|->
 name|pos
 decl_stmt|;
-if|if
-condition|(
-operator|!
-name|d
-operator|->
-name|isSequential
-argument_list|()
-condition|)
-block|{
 name|d
 operator|->
 name|pos
@@ -1277,7 +1285,6 @@ name|devicePos
 operator|=
 name|pos
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|offset

@@ -1625,7 +1625,7 @@ name|ignoreMessage
 argument_list|(
 name|QtWarningMsg
 argument_list|,
-literal|"QIODevice::seek: The device is not open"
+literal|"QIODevice::seek: Cannot call seek on a sequential device"
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -1643,7 +1643,7 @@ name|ignoreMessage
 argument_list|(
 name|QtWarningMsg
 argument_list|,
-literal|"QIODevice::seek: The device is not open"
+literal|"QIODevice::seek: Cannot call seek on a sequential device"
 argument_list|)
 expr_stmt|;
 name|QVERIFY
