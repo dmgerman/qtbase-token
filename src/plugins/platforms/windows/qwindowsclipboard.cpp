@@ -96,7 +96,7 @@ literal|"text/html"
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|/*!     \class QWindowsClipboard     \brief Clipboard implementation.      Registers a non-visible clipboard viewer window that     receives clipboard events in its own window procedure to be     able to receive clipboard-changed events, which     QPlatformClipboard needs to emit. That requires housekeeping     of the next in the viewer chain.      \note The OLE-functions used in this class require OleInitialize().      \ingroup qt-lighthouse-win */
+comment|/*!     \class QWindowsClipboard     \brief Clipboard implementation.      Registers a non-visible clipboard viewer window that     receives clipboard events in its own window procedure to be     able to receive clipboard-changed events, which     QPlatformClipboard needs to emit. That requires housekeeping     of the next in the viewer chain.      \note The OLE-functions used in this class require OleInitialize().      \internal     \ingroup qt-lighthouse-win */
 end_comment
 begin_function
 DECL|function|operator <<
@@ -294,7 +294,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QWindowsClipboardRetrievalMimeData     \brief Special mime data class managing delayed retrieval of clipboard data.      Implementation of QWindowsInternalMimeDataBase that obtains the     IDataObject from the clipboard.      \sa QWindowsInternalMimeDataBase, QWindowsClipboard     \ingroup qt-lighthouse-win */
+comment|/*!     \class QWindowsClipboardRetrievalMimeData     \brief Special mime data class managing delayed retrieval of clipboard data.      Implementation of QWindowsInternalMimeDataBase that obtains the     IDataObject from the clipboard.      \sa QWindowsInternalMimeDataBase, QWindowsClipboard     \internal     \ingroup qt-lighthouse-win */
 end_comment
 begin_function
 DECL|function|retrieveDataObject

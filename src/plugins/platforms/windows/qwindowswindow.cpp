@@ -949,7 +949,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class WindowCreationData     \brief Window creation code.      This struct gathers all information required to create a window.     Window creation is split in 3 steps:      \list     \li fromWindow() Gather all required information     \li create() Create the system handle.     \li initialize() Post creation initialization steps.     \endlist      The reason for this split is to also enable changing the QWindowFlags     by calling:      \list     \li fromWindow() Gather information and determine new system styles     \li applyWindowFlags() to apply the new window system styles.     \li initialize() Post creation initialization steps.     \endlist      Contains the window creation code formerly in qwidget_win.cpp.      \sa QWindowCreationContext     \ingroup qt-lighthouse-win */
+comment|/*!     \class WindowCreationData     \brief Window creation code.      This struct gathers all information required to create a window.     Window creation is split in 3 steps:      \list     \li fromWindow() Gather all required information     \li create() Create the system handle.     \li initialize() Post creation initialization steps.     \endlist      The reason for this split is to also enable changing the QWindowFlags     by calling:      \list     \li fromWindow() Gather information and determine new system styles     \li applyWindowFlags() to apply the new window system styles.     \li initialize() Post creation initialization steps.     \endlist      Contains the window creation code formerly in qwidget_win.cpp.      \sa QWindowCreationContext     \internal     \ingroup qt-lighthouse-win */
 end_comment
 begin_struct
 DECL|struct|WindowCreationData
@@ -2429,7 +2429,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \class QWindowsGeometryHint     \brief Stores geometry constraints and provides utility functions.      Geometry constraints ready to apply to a MINMAXINFO taking frame     into account.      \ingroup qt-lighthouse-win */
+comment|/*!     \class QWindowsGeometryHint     \brief Stores geometry constraints and provides utility functions.      Geometry constraints ready to apply to a MINMAXINFO taking frame     into account.      \internal     \ingroup qt-lighthouse-win */
 end_comment
 begin_define
 DECL|macro|QWINDOWSIZE_MAX
@@ -3016,7 +3016,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QWindowCreationContext     \brief Active Context for creating windows.      There is a phase in window creation (WindowCreationData::create())     in which events are sent before the system API CreateWindowEx() returns     the handle. These cannot be handled by the platform window as the association     of the unknown handle value to the window does not exist yet and as not     to trigger recursive handle creation, etc.      In that phase, an instance of  QWindowCreationContext is set on     QWindowsContext.      QWindowCreationContext stores the information to answer the initial     WM_GETMINMAXINFO and obtains the corrected size/position.      \sa WindowCreationData, QWindowsContext     \ingroup qt-lighthouse-win */
+comment|/*!     \class QWindowCreationContext     \brief Active Context for creating windows.      There is a phase in window creation (WindowCreationData::create())     in which events are sent before the system API CreateWindowEx() returns     the handle. These cannot be handled by the platform window as the association     of the unknown handle value to the window does not exist yet and as not     to trigger recursive handle creation, etc.      In that phase, an instance of  QWindowCreationContext is set on     QWindowsContext.      QWindowCreationContext stores the information to answer the initial     WM_GETMINMAXINFO and obtains the corrected size/position.      \sa WindowCreationData, QWindowsContext     \internal     \ingroup qt-lighthouse-win */
 end_comment
 begin_constructor
 DECL|function|QWindowCreationContext
@@ -3263,7 +3263,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     \class QWindowsBaseWindow     \brief Raster or OpenGL Window.      \list     \li Raster type: handleWmPaint() is implemented to        to bitblt the image. The DC can be accessed        via getDC/Relase DC, which has a special handling        when within a paint event (in that case, the DC obtained        from BeginPaint() is returned).      \li Open GL: The first time QWindowsGLContext accesses        the handle, it sets up the pixelformat on the DC        which in turn sets it on the window (see flag        PixelFormatInitialized).        handleWmPaint() is empty (although required).     \endlist      \ingroup qt-lighthouse-win */
+comment|/*!     \class QWindowsWindow     \brief Raster or OpenGL Window.      \list     \li Raster type: handleWmPaint() is implemented to        to bitblt the image. The DC can be accessed        via getDC/Relase DC, which has a special handling        when within a paint event (in that case, the DC obtained        from BeginPaint() is returned).      \li Open GL: The first time QWindowsGLContext accesses        the handle, it sets up the pixelformat on the DC        which in turn sets it on the window (see flag        PixelFormatInitialized).        handleWmPaint() is empty (although required).     \endlist      \internal     \ingroup qt-lighthouse-win */
 end_comment
 begin_constructor
 DECL|function|QWindowsWindow

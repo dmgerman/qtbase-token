@@ -51,7 +51,7 @@ name|BITMAPINFO_MASK
 typedef|;
 end_typedef
 begin_comment
-comment|/*!     \class QWindowsNativeImage     \brief Windows Native image      Note that size can be 0 (widget autotests with zero size), which     causes CreateDIBSection() to fail.      \sa QWindowsBackingStore     \ingroup qt-lighthouse-win */
+comment|/*!     \class QWindowsNativeImage     \brief Windows Native image      Note that size can be 0 (widget autotests with zero size), which     causes CreateDIBSection() to fail.      \sa QWindowsBackingStore     \internal     \ingroup qt-lighthouse-win */
 end_comment
 begin_function
 DECL|function|createDC

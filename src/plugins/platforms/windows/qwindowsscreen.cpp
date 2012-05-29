@@ -1018,7 +1018,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QWindowsScreen     \brief Windows screen.     \ingroup qt-lighthouse-win     \sa QWindowsScreenManager */
+comment|/*!     \class QWindowsScreen     \brief Windows screen.     \sa QWindowsScreenManager     \internal     \ingroup qt-lighthouse-win */
 end_comment
 begin_constructor
 DECL|function|QWindowsScreen
@@ -1815,7 +1815,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \class QWindowsScreenManager     \brief Manages a list of QWindowsScreen.      Listens for changes and notifies QWindowSystemInterface about changed/     added/deleted screens.      \ingroup qt-lighthouse-win     \sa QWindowsScreen */
+comment|/*!     \class QWindowsScreenManager     \brief Manages a list of QWindowsScreen.      Listens for changes and notifies QWindowSystemInterface about changed/     added/deleted screens.      \sa QWindowsScreen     \internal     \ingroup qt-lighthouse-win */
 end_comment
 begin_constructor
 DECL|function|QWindowsScreenManager

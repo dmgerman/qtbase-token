@@ -48,7 +48,7 @@ include|#
 directive|include
 file|<shlobj.h>
 name|QT_BEGIN_NAMESPACE
-comment|/*!     \class QWindowsOleDataObject     \brief OLE data container     The following methods are NOT supported for data transfer using the    clipboard or drag-drop:    \list    \li IDataObject::SetData    -- return E_NOTIMPL    \li IDataObject::DAdvise    -- return OLE_E_ADVISENOTSUPPORTED    \li ::DUnadvise    \li ::EnumDAdvise    \li IDataObject::GetCanonicalFormatEtc -- return E_NOTIMPL        (NOTE: must set pformatetcOut->ptd = NULL)    \endlist      \ingroup qt-lighthouse-win */
+comment|/*!     \class QWindowsOleDataObject     \brief OLE data container     The following methods are NOT supported for data transfer using the    clipboard or drag-drop:    \list    \li IDataObject::SetData    -- return E_NOTIMPL    \li IDataObject::DAdvise    -- return OLE_E_ADVISENOTSUPPORTED    \li ::DUnadvise    \li ::EnumDAdvise    \li IDataObject::GetCanonicalFormatEtc -- return E_NOTIMPL        (NOTE: must set pformatetcOut->ptd = NULL)    \endlist      \internal     \ingroup qt-lighthouse-win */
 DECL|function|QWindowsOleDataObject
 name|QWindowsOleDataObject
 operator|::
@@ -1019,7 +1019,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QWindowsOleEnumFmtEtc     \brief Enumerates the FORMATETC structures supported by QWindowsOleDataObject.     \ingroup qt-lighthouse-win */
+comment|/*!     \class QWindowsOleEnumFmtEtc     \brief Enumerates the FORMATETC structures supported by QWindowsOleDataObject.     \internal     \ingroup qt-lighthouse-win */
 end_comment
 begin_constructor
 DECL|function|QWindowsOleEnumFmtEtc

@@ -630,7 +630,7 @@ directive|endif
 block|}
 end_function
 begin_comment
-comment|/*!     \class QWindowsUser32DLL     \brief Struct that contains dynamically resolved symbols of User32.dll.      The stub libraries shipped with the MinGW compiler miss some of the     functions. They need to be retrieved dynamically.      In addition, touch-related functions are available only from Windows onwards.     These need to resolved dynamically for Q_CC_MSVC as well.      \sa QWindowsShell32DLL      \ingroup qt-lighthouse-win */
+comment|/*!     \class QWindowsUser32DLL     \brief Struct that contains dynamically resolved symbols of User32.dll.      The stub libraries shipped with the MinGW compiler miss some of the     functions. They need to be retrieved dynamically.      In addition, touch-related functions are available only from Windows onwards.     These need to resolved dynamically for Q_CC_MSVC as well.      \sa QWindowsShell32DLL      \internal     \ingroup qt-lighthouse-win */
 end_comment
 begin_ifndef
 ifndef|#
@@ -836,7 +836,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QWindowsShell32DLL     \brief Struct that contains dynamically resolved symbols of Shell32.dll.      The stub libraries shipped with the MinGW compiler miss some of the     functions. They need to be retrieved dynamically.      \sa QWindowsUser32DLL      \ingroup qt-lighthouse-win */
+comment|/*!     \class QWindowsShell32DLL     \brief Struct that contains dynamically resolved symbols of Shell32.dll.      The stub libraries shipped with the MinGW compiler miss some of the     functions. They need to be retrieved dynamically.      \sa QWindowsUser32DLL      \internal     \ingroup qt-lighthouse-win */
 end_comment
 begin_constructor
 DECL|function|QWindowsShell32DLL
@@ -919,7 +919,7 @@ literal|0
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|/*!     \class QWindowsContext     \brief Singleton container for all relevant information.      Holds state information formerly stored in \c qapplication_win.cpp.     \ingroup qt-lighthouse-win */
+comment|/*!     \class QWindowsContext     \brief Singleton container for all relevant information.      Holds state information formerly stored in \c qapplication_win.cpp.      \internal     \ingroup qt-lighthouse-win */
 end_comment
 begin_typedef
 DECL|typedef|HandleBaseWindowHash

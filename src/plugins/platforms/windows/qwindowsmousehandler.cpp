@@ -314,7 +314,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \class QWindowsMouseHandler     \brief Windows mouse handler      Dispatches mouse and touch events. Separate for code cleanliness.      \ingroup qt-lighthouse-win */
+comment|/*!     \class QWindowsMouseHandler     \brief Windows mouse handler      Dispatches mouse and touch events. Separate for code cleanliness.      \internal     \ingroup qt-lighthouse-win */
 end_comment
 begin_constructor
 DECL|function|QWindowsMouseHandler

@@ -2628,7 +2628,7 @@ begin_comment
 comment|// !defined(QT_NO_DIRECTWRITE)
 end_comment
 begin_comment
-comment|/*!     \class QWindowsFontDatabase     \brief Font database for Windows      \note The Qt 4.8 WIndows font database employed a mechanism of     delayed population of the database again passing a font name     to EnumFontFamiliesEx(), working around the fact that     EnumFontFamiliesEx() does not list all fonts by default.     This should be introduced to Lighthouse as well?      \ingroup qt-lighthouse-win */
+comment|/*!     \class QWindowsFontDatabase     \brief Font database for Windows      \note The Qt 4.8 WIndows font database employed a mechanism of     delayed population of the database again passing a font name     to EnumFontFamiliesEx(), working around the fact that     EnumFontFamiliesEx() does not list all fonts by default.     This should be introduced to Lighthouse as well?      \internal     \ingroup qt-lighthouse-win */
 end_comment
 begin_function
 DECL|function|operator <<

@@ -96,7 +96,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/*!     \class QWindowsCursor     \brief Platform cursor implementation      Note that whereas under X11, a cursor can be set as a property of     a window, there is only a global SetCursor() function on Windows.     Each Window sets on the global cursor on receiving a Enter-event     as do the Window manager frames (resize/move handles).      \ingroup qt-lighthouse-win     \sa QWindowsWindowCursor */
+comment|/*!     \class QWindowsCursor     \brief Platform cursor implementation      Note that whereas under X11, a cursor can be set as a property of     a window, there is only a global SetCursor() function on Windows.     Each Window sets on the global cursor on receiving a Enter-event     as do the Window manager frames (resize/move handles).      \internal     \ingroup qt-lighthouse-win     \sa QWindowsWindowCursor */
 end_comment
 begin_function
 DECL|function|createPixmapCursor
@@ -3327,7 +3327,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QWindowsWindowCursor     \brief Per-Window cursor. Contains a QCursor and manages its associated system      cursor handle resource.      Based on QSharedDataPointer, so that it can be passed around and     used as a property of QWindowsBaseWindow.      \ingroup qt-lighthouse-win     \sa QWindowsCursor */
+comment|/*!     \class QWindowsWindowCursor     \brief Per-Window cursor. Contains a QCursor and manages its associated system      cursor handle resource.      Based on QSharedDataPointer, so that it can be passed around and     used as a property of QWindowsBaseWindow.      \internal     \ingroup qt-lighthouse-win     \sa QWindowsCursor */
 end_comment
 begin_class
 DECL|class|QWindowsWindowCursorData

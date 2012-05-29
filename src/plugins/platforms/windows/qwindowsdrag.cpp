@@ -421,7 +421,7 @@ block|}
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|/*!     \class QWindowsDropMimeData     \brief Special mime data class for data retrieval from Drag operations.      Implementation of QWindowsInternalMimeDataBase which retrieves the     current drop data object from QWindowsDrag.      \sa QWindowsDrag     \ingroup qt-lighthouse-win */
+comment|/*!     \class QWindowsDropMimeData     \brief Special mime data class for data retrieval from Drag operations.      Implementation of QWindowsInternalMimeDataBase which retrieves the     current drop data object from QWindowsDrag.      \sa QWindowsDrag     \internal     \ingroup qt-lighthouse-win */
 end_comment
 begin_function
 DECL|function|retrieveDataObject
@@ -683,7 +683,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QWindowsOleDropSource     \brief Implementation of IDropSource      Used for drag operations.      \sa QWindowsDrag     \ingroup qt-lighthouse-win */
+comment|/*!     \class QWindowsOleDropSource     \brief Implementation of IDropSource      Used for drag operations.      \sa QWindowsDrag     \internal     \ingroup qt-lighthouse-win */
 end_comment
 begin_class
 DECL|class|QWindowsOleDropSource
@@ -1833,7 +1833,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QWindowsOleDropTarget     \brief Implementation of IDropTarget      To be registered for each window. Currently, drop sites     are enabled for top levels. The child window handling     (sending DragEnter/Leave, etc) is handled in here.      \sa QWindowsDrag     \ingroup qt-lighthouse-win */
+comment|/*!     \class QWindowsOleDropTarget     \brief Implementation of IDropTarget      To be registered for each window. Currently, drop sites     are enabled for top levels. The child window handling     (sending DragEnter/Leave, etc) is handled in here.      \sa QWindowsDrag     \internal     \ingroup qt-lighthouse-win */
 end_comment
 begin_constructor
 DECL|function|QWindowsOleDropTarget
@@ -2930,7 +2930,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QWindowsDrag     \brief Windows drag implementation.      \ingroup qt-lighthouse-win */
+comment|/*!     \class QWindowsDrag     \brief Windows drag implementation.     \internal     \ingroup qt-lighthouse-win */
 end_comment
 begin_constructor
 DECL|function|QWindowsDrag

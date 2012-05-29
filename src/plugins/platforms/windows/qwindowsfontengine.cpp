@@ -1329,7 +1329,7 @@ return|return
 name|glyph_pos
 return|;
 block|}
-comment|/*!     \class QWindowsFontEngine     \brief Standard Windows font engine.     \ingroup qt-lighthouse-win      Will probably be superseded by a common Free Type font engine in Qt 5.X. */
+comment|/*!     \class QWindowsFontEngine     \brief Standard Windows font engine.     \internal     \ingroup qt-lighthouse-win      Will probably be superseded by a common Free Type font engine in Qt 5.X. */
 DECL|function|QWindowsFontEngine
 name|QWindowsFontEngine
 operator|::
@@ -7523,7 +7523,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/*!     \class QWindowsMultiFontEngine     \brief Standard Windows Multi font engine.     \ingroup qt-lighthouse-win      "Merges" several font engines that have gaps in the     supported writing systems.      Will probably be superseded by a common Free Type font engine in Qt 5.X. */
+comment|/*!     \class QWindowsMultiFontEngine     \brief Standard Windows Multi font engine.     \internal     \ingroup qt-lighthouse-win      "Merges" several font engines that have gaps in the     supported writing systems.      Will probably be superseded by a common Free Type font engine in Qt 5.X. */
 DECL|function|QWindowsMultiFontEngine
 name|QWindowsMultiFontEngine
 operator|::

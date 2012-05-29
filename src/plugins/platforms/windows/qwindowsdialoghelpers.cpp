@@ -2293,7 +2293,7 @@ begin_comment
 comment|// namespace QWindowsDialogs
 end_comment
 begin_comment
-comment|/*!     \class QWindowsNativeDialogBase     \brief Base class for Windows native dialogs.      Base clases for native dialogs that mimick the     behaviour of their QDialog counterparts as close as     possible.      A major difference is that there is only an exec(), which     is a modal, blocking call; there is no non-blocking show().     There 2 types of native dialogs:      \list     \li Dialogs provided by the Comdlg32 library (ChooseColor,        ChooseFont). They only provide a modal, blocking        function call (with idle processing).     \li File dialogs are classes derived from IFileDialog. They        inherit IModalWindow and their exec() method (calling        IModalWindow::Show()) is similarly blocking, but methods        like close() can be called on them from event handlers.     \endlist      \ingroup qt-lighthouse-win */
+comment|/*!     \class QWindowsNativeDialogBase     \brief Base class for Windows native dialogs.      Base clases for native dialogs that mimick the     behaviour of their QDialog counterparts as close as     possible.      A major difference is that there is only an exec(), which     is a modal, blocking call; there is no non-blocking show().     There 2 types of native dialogs:      \list     \li Dialogs provided by the Comdlg32 library (ChooseColor,        ChooseFont). They only provide a modal, blocking        function call (with idle processing).     \li File dialogs are classes derived from IFileDialog. They        inherit IModalWindow and their exec() method (calling        IModalWindow::Show()) is similarly blocking, but methods        like close() can be called on them from event handlers.     \endlist      \internal     \ingroup qt-lighthouse-win */
 end_comment
 begin_class
 DECL|class|QWindowsNativeDialogBase
@@ -2367,7 +2367,7 @@ block|}
 class|;
 end_class
 begin_comment
-comment|/*!     \class QWindowsDialogHelperBase     \brief Helper for native Windows dialogs.      Provides basic functionality and introduces new virtuals.     The native dialog is created in setVisible_sys() since     then modality and the state of DontUseNativeDialog is known.      Modal dialogs are then started via the platformNativeDialogModalHelp(),     platformNativeDialogModalHelp() slots.     Non-modal dialogs are shown using a separate thread should     they support it.      \sa QWindowsDialogThread     \ingroup qt-lighthouse-win */
+comment|/*!     \class QWindowsDialogHelperBase     \brief Helper for native Windows dialogs.      Provides basic functionality and introduces new virtuals.     The native dialog is created in setVisible_sys() since     then modality and the state of DontUseNativeDialog is known.      Modal dialogs are then started via the platformNativeDialogModalHelp(),     platformNativeDialogModalHelp() slots.     Non-modal dialogs are shown using a separate thread should     they support it.      \sa QWindowsDialogThread     \internal     \ingroup qt-lighthouse-win */
 end_comment
 begin_constructor
 template|template
@@ -2490,7 +2490,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QWindowsDialogThread     \brief Run a non-modal native dialog in a separate thread.      \sa QWindowsDialogHelperBase     \ingroup qt-lighthouse-win */
+comment|/*!     \class QWindowsDialogThread     \brief Run a non-modal native dialog in a separate thread.      \sa QWindowsDialogHelperBase     \internal     \ingroup qt-lighthouse-win */
 end_comment
 begin_class
 DECL|class|QWindowsDialogThread
@@ -2886,7 +2886,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QWindowsNativeFileDialogEventHandler     \brief Listens to IFileDialog events and forwards them to QWindowsNativeFileDialogBase      Events like 'folder change' that have an equivalent signal     in QFileDialog are forwarded.      \sa QWindowsNativeFileDialogBase, QWindowsFileDialogHelper      \ingroup qt-lighthouse-win */
+comment|/*!     \class QWindowsNativeFileDialogEventHandler     \brief Listens to IFileDialog events and forwards them to QWindowsNativeFileDialogBase      Events like 'folder change' that have an equivalent signal     in QFileDialog are forwarded.      \sa QWindowsNativeFileDialogBase, QWindowsFileDialogHelper     \internal     \ingroup qt-lighthouse-win */
 end_comment
 begin_class_decl
 class_decl|class
@@ -3211,7 +3211,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QWindowsNativeFileDialogBase     \brief Windows native file dialog wrapper around IFileOpenDialog, IFileSaveDialog.      Provides convenience methods.     Note that only IFileOpenDialog has multi-file functionality.      \sa QWindowsNativeFileDialogEventHandler, QWindowsFileDialogHelper     \ingroup qt-lighthouse-win */
+comment|/*!     \class QWindowsNativeFileDialogBase     \brief Windows native file dialog wrapper around IFileOpenDialog, IFileSaveDialog.      Provides convenience methods.     Note that only IFileOpenDialog has multi-file functionality.      \sa QWindowsNativeFileDialogEventHandler, QWindowsFileDialogHelper     \internal     \ingroup qt-lighthouse-win */
 end_comment
 begin_class
 DECL|class|QWindowsNativeFileDialogBase
@@ -5274,7 +5274,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QWindowsNativeSaveFileDialog     \brief Windows native file save dialog wrapper around IFileSaveDialog.      Implements single-selection methods.      \ingroup qt-lighthouse-win */
+comment|/*!     \class QWindowsNativeSaveFileDialog     \brief Windows native file save dialog wrapper around IFileSaveDialog.      Implements single-selection methods.      \internal     \ingroup qt-lighthouse-win */
 end_comment
 begin_class
 DECL|class|QWindowsNativeSaveFileDialog
@@ -5448,7 +5448,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QWindowsNativeOpenFileDialog     \brief Windows native file save dialog wrapper around IFileOpenDialog.      Implements multi-selection methods.      \ingroup qt-lighthouse-win */
+comment|/*!     \class QWindowsNativeOpenFileDialog     \brief Windows native file save dialog wrapper around IFileOpenDialog.      Implements multi-selection methods.      \internal     \ingroup qt-lighthouse-win */
 end_comment
 begin_class
 DECL|class|QWindowsNativeOpenFileDialog
@@ -5726,7 +5726,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QWindowsFileDialogHelper     \brief Helper for native Windows file dialogs      Non-modal dialogs are disabled for now. The functionality is     implemented in principle, however there are failures     when querying the results from a dialog run in another thread.     This could probably be fixed be calling CoInitializeEx() with     the right parameters from each thread. The problem is though     that calls to CoInitialize() occur in several places in Qt.      \ingroup qt-lighthouse-win */
+comment|/*!     \class QWindowsFileDialogHelper     \brief Helper for native Windows file dialogs      Non-modal dialogs are disabled for now. The functionality is     implemented in principle, however there are failures     when querying the results from a dialog run in another thread.     This could probably be fixed be calling CoInitializeEx() with     the right parameters from each thread. The problem is though     that calls to CoInitialize() occur in several places in Qt.      \internal     \ingroup qt-lighthouse-win */
 end_comment
 begin_class
 DECL|class|QWindowsFileDialogHelper
@@ -6505,7 +6505,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QWindowsNativeColorDialog     \brief Native Windows color dialog.      Wrapper around Comdlg32's ChooseColor() function.     Not currently in use as QColorDialog is equivalent.      \sa QWindowsColorDialogHelper     \sa #define USE_NATIVE_COLOR_DIALOG      \ingroup qt-lighthouse-win */
+comment|/*!     \class QWindowsNativeColorDialog     \brief Native Windows color dialog.      Wrapper around Comdlg32's ChooseColor() function.     Not currently in use as QColorDialog is equivalent.      \sa QWindowsColorDialogHelper     \sa #define USE_NATIVE_COLOR_DIALOG     \internal     \ingroup qt-lighthouse-win */
 end_comment
 begin_typedef
 DECL|typedef|SharedPointerColor
@@ -6949,7 +6949,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \class QWindowsColorDialogHelper     \brief Helper for native Windows color dialogs      Not currently in use as QColorDialog is equivalent.      \sa #define USE_NATIVE_COLOR_DIALOG     \sa QWindowsNativeColorDialog      \ingroup qt-lighthouse-win */
+comment|/*!     \class QWindowsColorDialogHelper     \brief Helper for native Windows color dialogs      Not currently in use as QColorDialog is equivalent.      \sa #define USE_NATIVE_COLOR_DIALOG     \sa QWindowsNativeColorDialog     \internal     \ingroup qt-lighthouse-win */
 end_comment
 begin_class
 DECL|class|QWindowsColorDialogHelper

@@ -3945,7 +3945,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QOpenGLContextFormat     \brief Format options that are related to the context (not pixelformats)      Provides utility function to retrieve from currently active     context and to apply to a QSurfaceFormat.      \ingroup qt-lighthouse-win */
+comment|/*!     \class QOpenGLContextFormat     \brief Format options that are related to the context (not pixelformats)      Provides utility function to retrieve from currently active     context and to apply to a QSurfaceFormat.      \internal     \ingroup qt-lighthouse-win */
 end_comment
 begin_constructor
 DECL|function|QWindowsOpenGLContextFormat
@@ -4352,7 +4352,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QOpenGLTemporaryContext     \brief A temporary context that can be instantiated on the stack.      Functions like wglGetProcAddress() or glGetString() only work if there     is a current GL context.      \ingroup qt-lighthouse-win */
+comment|/*!     \class QOpenGLTemporaryContext     \brief A temporary context that can be instantiated on the stack.      Functions like wglGetProcAddress() or glGetString() only work if there     is a current GL context.      \internal     \ingroup qt-lighthouse-win */
 end_comment
 begin_class
 DECL|class|QOpenGLTemporaryContext
@@ -4468,7 +4468,7 @@ begin_comment
 comment|/*!     \class QWindowsOpenGLAdditionalFormat     \brief Additional format information that is not in QSurfaceFormat     \ingroup qt-lighthouse-win */
 end_comment
 begin_comment
-comment|/*!     \class QOpenGLStaticContext     \brief Static Open GL context containing version information, extension function pointers, etc.      Functions pending integration in the next version of OpenGL are post-fixed ARB.      \note Initialization requires an active context (see create()).      \sa QWindowsGLContext     \ingroup qt-lighthouse-win */
+comment|/*!     \class QOpenGLStaticContext     \brief Static Open GL context containing version information, extension function pointers, etc.      Functions pending integration in the next version of OpenGL are post-fixed ARB.      \note Initialization requires an active context (see create()).      \sa QWindowsGLContext     \internal     \ingroup qt-lighthouse-win */
 end_comment
 begin_define
 DECL|macro|SAMPLE_BUFFER_EXTENSION
@@ -4874,7 +4874,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QWindowsGLContext     \brief Open GL context.      An Open GL context for use with several windows.     As opposed to other implementations, activating a GL context for     a window requires a HDC allocated for it. The first time this     HDC is created for the window, the pixel format must be applied,     which will affect the window as well. The HDCs are stored in a list of     QOpenGLContextData and are released in doneCurrent().      \ingroup qt-lighthouse-win */
+comment|/*!     \class QWindowsGLContext     \brief Open GL context.      An Open GL context for use with several windows.     As opposed to other implementations, activating a GL context for     a window requires a HDC allocated for it. The first time this     HDC is created for the window, the pixel format must be applied,     which will affect the window as well. The HDCs are stored in a list of     QOpenGLContextData and are released in doneCurrent().      \internal     \ingroup qt-lighthouse-win */
 end_comment
 begin_constructor
 DECL|function|QWindowsGLContext

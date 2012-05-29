@@ -36,7 +36,7 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!     \class QWindowsBackingStore     \brief Backing store for windows.     \ingroup qt-lighthouse-win */
+comment|/*!     \class QWindowsBackingStore     \brief Backing store for windows.     \internal     \ingroup qt-lighthouse-win */
 end_comment
 begin_constructor
 DECL|function|QWindowsBackingStore

@@ -41,7 +41,7 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!     \class QWindowsKeyMapper     \brief Translates Windows keys to QWindowSystemInterface events.     \ingroup qt-lighthouse-win      In addition, handles some special keys to display system menus, etc.     The code originates from \c qkeymapper_win.cpp. */
+comment|/*!     \class QWindowsKeyMapper     \brief Translates Windows keys to QWindowSystemInterface events.     \internal     \ingroup qt-lighthouse-win      In addition, handles some special keys to display system menus, etc.     The code originates from \c qkeymapper_win.cpp. */
 end_comment
 begin_constructor
 DECL|function|QWindowsKeyMapper

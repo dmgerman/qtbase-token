@@ -36,7 +36,7 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!     \class QWindowsGuiEventDispatcher     \brief Event dispatcher for Windows      Maintains a global stack storing the current event dispatcher and     its processing flags for access from the Windows procedure     qWindowsWndProc. Handling the Lighthouse gui events should be done     from within the qWindowsWndProc to ensure correct processing of messages.      \ingroup qt-lighthouse-win */
+comment|/*!     \class QWindowsGuiEventDispatcher     \brief Event dispatcher for Windows      Maintains a global stack storing the current event dispatcher and     its processing flags for access from the Windows procedure     qWindowsWndProc. Handling the Lighthouse gui events should be done     from within the qWindowsWndProc to ensure correct processing of messages.      \internal     \ingroup qt-lighthouse-win */
 end_comment
 begin_typedef
 DECL|typedef|DispatchContextStack
