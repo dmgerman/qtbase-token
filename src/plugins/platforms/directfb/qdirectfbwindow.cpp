@@ -232,12 +232,6 @@ operator||
 name|DWCAPS_ALPHACHANNEL
 argument_list|)
 expr_stmt|;
-name|description
-operator|.
-name|surface_caps
-operator|=
-name|DSCAPS_PREMULTIPLIED
-expr_stmt|;
 name|DFBResult
 name|result
 init|=
