@@ -2390,9 +2390,6 @@ block|{
 name|QString
 name|newPath
 init|=
-ifndef|#
-directive|ifndef
-name|QT_NO_SETTINGS
 name|QLibraryInfo
 operator|::
 name|location
@@ -2402,8 +2399,6 @@ operator|::
 name|LibrariesPath
 argument_list|)
 operator|+
-endif|#
-directive|endif
 name|QLatin1String
 argument_list|(
 literal|"/fonts/"

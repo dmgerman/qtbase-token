@@ -26,9 +26,6 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-ifndef|#
-directive|ifndef
-name|QT_NO_SETTINGS
 name|class
 name|Q_CORE_EXPORT
 name|QLibraryInfo
@@ -152,13 +149,6 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|/* QT_NO_SETTINGS */
-end_comment
 begin_expr_stmt
 name|QT_END_NAMESPACE
 name|QT_END_HEADER

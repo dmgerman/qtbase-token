@@ -450,6 +450,11 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_SETTINGS
+end_ifndef
 begin_comment
 comment|// Reads the color from the KDE configuration, and store it in the
 end_comment
@@ -1724,6 +1729,13 @@ literal|0
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_SETTINGS
+end_comment
 begin_comment
 comment|/*!     \class QGnomeTheme     \brief QGnomeTheme is a theme implementation for the Gnome desktop.     \since 5.0     \internal     \ingroup qpa */
 end_comment
@@ -1909,6 +1921,9 @@ return|return
 operator|new
 name|QGenericUnixTheme
 return|;
+ifndef|#
+directive|ifndef
+name|QT_NO_SETTINGS
 if|if
 condition|(
 name|name
@@ -1934,6 +1949,8 @@ condition|)
 return|return
 name|kdeTheme
 return|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|name
@@ -1993,6 +2010,9 @@ literal|"KDE"
 argument_list|)
 condition|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_SETTINGS
 name|result
 operator|.
 name|push_back
@@ -2005,6 +2025,8 @@ name|name
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 elseif|else
 if|if

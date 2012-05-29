@@ -1306,9 +1306,6 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_SETTINGS
 name|fontpath
 operator|=
 name|QLibraryInfo
@@ -1327,8 +1324,6 @@ argument_list|(
 literal|"/fonts"
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 return|return
 name|fontpath

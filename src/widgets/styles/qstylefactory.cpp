@@ -459,19 +459,9 @@ endif|#
 directive|endif
 block|{ }
 comment|// Keep these here - they make the #ifdefery above work
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
+ifndef|#
+directive|ifndef
 name|QT_NO_LIBRARY
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_SETTINGS
-argument_list|)
 if|if
 condition|(
 operator|!
@@ -534,19 +524,9 @@ block|{
 name|QStringList
 name|list
 block|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
+ifndef|#
+directive|ifndef
 name|QT_NO_LIBRARY
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_SETTINGS
-argument_list|)
 typedef|typedef
 name|QMultiMap
 argument_list|<

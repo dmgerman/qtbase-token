@@ -521,6 +521,13 @@ return|;
 comment|//no luck
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_SETTINGS
+end_comment
 begin_comment
 comment|/*!     \class QLibraryInfo     \brief The QLibraryInfo class provides information about the Qt library.      Many pieces of information are established when Qt is configured and built.     This class provides an abstraction for accessing that information.     By using the static functions of this class, an application can obtain     information about the instance of the Qt library which the application     is using at run-time.      You can also use a \c qt.conf file to override the hard-coded paths     that are compiled into the Qt library. For more information, see     the \l {Using qt.conf} documentation.      \sa QSysInfo, {Using qt.conf} */
 end_comment
@@ -992,8 +999,13 @@ argument_list|)
 operator|)
 operator|)
 condition|)
-else|#
-directive|else
+elif|#
+directive|elif
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_SETTINGS
+argument_list|)
 if|if
 condition|(
 operator|!
@@ -1072,6 +1084,9 @@ argument_list|(
 name|path
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_SETTINGS
 block|}
 else|else
 block|{
@@ -1345,6 +1360,9 @@ name|ret
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
+comment|// QT_NO_SETTINGS
 block|}
 if|if
 condition|(
@@ -1556,9 +1574,6 @@ name|ret
 return|;
 block|}
 comment|/*!     \enum QLibraryInfo::LibraryLocation      \keyword library location      This enum type is used to specify a specific location     specifier:      \value PrefixPath The default prefix for all paths.     \value DocumentationPath The location for documentation upon install.     \value HeadersPath The location for all headers.     \value LibrariesPath The location of installed libraries.     \value BinariesPath The location of installed Qt binaries (tools and applications).     \value PluginsPath The location of installed Qt plugins.     \value ImportsPath The location of installed QML extensions to import.     \value DataPath The location of general Qt data.     \value TranslationsPath The location of translation information for Qt strings.     \value ExamplesPath The location for examples upon install.     \value TestsPath The location of installed Qt testcases.     \value SettingsPath The location for Qt settings. Not applicable on Windows.      \sa location() */
-endif|#
-directive|endif
-comment|// QT_NO_SETTINGS
 name|QT_END_NAMESPACE
 if|#
 directive|if

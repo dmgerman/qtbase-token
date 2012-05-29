@@ -122,6 +122,11 @@ name|name
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_SETTINGS
+end_ifndef
 begin_decl_stmt
 name|class
 name|QKdeTheme
@@ -235,6 +240,13 @@ name|m_toolBarIconSize
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_SETTINGS
+end_comment
 begin_decl_stmt
 name|class
 name|QGnomeTheme
