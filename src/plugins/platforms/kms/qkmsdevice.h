@@ -94,14 +94,6 @@ return|return
 name|m_graphicsBufferManager
 return|;
 block|}
-name|EGLContext
-name|eglContext
-argument_list|()
-block|{
-return|return
-name|m_eglContext
-return|;
-block|}
 name|int
 name|fd
 argument_list|()

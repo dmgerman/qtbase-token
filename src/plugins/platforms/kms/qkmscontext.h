@@ -48,6 +48,10 @@ name|public
 operator|:
 name|QKmsContext
 argument_list|(
+name|QOpenGLContext
+operator|*
+name|context
+argument_list|,
 name|QKmsDevice
 operator|*
 name|device
@@ -86,6 +90,11 @@ argument_list|)
 argument_list|)
 argument_list|()
 block|;
+name|bool
+name|isValid
+argument_list|()
+specifier|const
+block|;
 name|QSurfaceFormat
 name|format
 argument_list|()
@@ -96,15 +105,14 @@ name|eglContext
 argument_list|()
 specifier|const
 block|;
-name|GLuint
-name|defaultFramebufferObject
-argument_list|(
-argument|QPlatformSurface *surface
-argument_list|)
-specifier|const
-block|;
 name|private
 operator|:
+name|EGLContext
+name|m_eglContext
+block|;
+name|QSurfaceFormat
+name|m_format
+block|;
 name|QKmsDevice
 operator|*
 name|m_device

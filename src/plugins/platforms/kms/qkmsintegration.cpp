@@ -263,6 +263,12 @@ case|:
 return|return
 literal|true
 return|;
+case|case
+name|BufferQueueingOpenGL
+case|:
+return|return
+literal|true
+return|;
 default|default:
 return|return
 name|QPlatformIntegration
@@ -312,6 +318,8 @@ return|return
 operator|new
 name|QKmsContext
 argument_list|(
+name|context
+argument_list|,
 name|screen
 operator|->
 name|device
