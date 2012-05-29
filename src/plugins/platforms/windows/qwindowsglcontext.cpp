@@ -5735,6 +5735,21 @@ expr_stmt|;
 endif|#
 directive|endif
 comment|// DEBUG_GL
+name|Q_ASSERT
+argument_list|(
+name|surface
+operator|->
+name|surface
+argument_list|()
+operator|->
+name|surfaceType
+argument_list|()
+operator|==
+name|QSurface
+operator|::
+name|OpenGLSurface
+argument_list|)
+expr_stmt|;
 comment|// Do we already have a DC entry for that window?
 name|QWindowsWindow
 modifier|*

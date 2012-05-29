@@ -18,19 +18,18 @@ name|QPlatformSurface
 operator|(
 operator|)
 block|{  }
-DECL|function|surfaceClass
+DECL|function|surface
 name|QSurface
-operator|::
-name|SurfaceClass
+operator|*
 name|QPlatformSurface
 operator|::
-name|surfaceClass
+name|surface
 operator|(
 operator|)
 specifier|const
 block|{
 return|return
-name|m_type
+name|m_surface
 return|;
 block|}
 end_expr_stmt
@@ -41,14 +40,13 @@ operator|::
 name|QPlatformSurface
 parameter_list|(
 name|QSurface
-operator|::
-name|SurfaceClass
-name|type
+modifier|*
+name|surface
 parameter_list|)
 member_init_list|:
-name|m_type
+name|m_surface
 argument_list|(
-name|type
+name|surface
 argument_list|)
 block|{ }
 end_constructor

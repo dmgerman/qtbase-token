@@ -351,6 +351,16 @@ block|{
 name|Q_ASSERT
 argument_list|(
 name|surface
+operator|->
+name|surface
+argument_list|()
+operator|->
+name|surfaceType
+argument_list|()
+operator|==
+name|QSurface
+operator|::
+name|OpenGLSurface
 argument_list|)
 expr_stmt|;
 name|GLXDrawable
