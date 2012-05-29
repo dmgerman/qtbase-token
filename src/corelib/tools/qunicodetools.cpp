@@ -12,39 +12,30 @@ include|#
 directive|include
 file|"qunicodetables_p.h"
 end_include
-begin_macro
+begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-end_macro
-begin_comment
-comment|// -----------------------------------------------------------------------------------------------------
-end_comment
-begin_comment
-comment|//
-end_comment
-begin_comment
-comment|// The line breaking algorithm. See http://www.unicode.org/reports/tr14/tr14-19.html
-end_comment
-begin_comment
-comment|//
-end_comment
-begin_comment
-comment|// -----------------------------------------------------------------------------------------------------
-end_comment
-begin_comment
-comment|//
-end_comment
-begin_comment
-comment|// The text boundaries determination algorithm. See http://www.unicode.org/reports/tr29/tr29-11.html
-end_comment
-begin_comment
-comment|//
-end_comment
-begin_comment
-comment|// -----------------------------------------------------------------------------------------------------
-end_comment
+DECL|variable|qt_initcharattributes_default_algorithm_only
+name|Q_AUTOTEST_EXPORT
+name|int
+name|qt_initcharattributes_default_algorithm_only
+init|=
+literal|0
+decl_stmt|;
+end_decl_stmt
 begin_namespace
+DECL|namespace|QUnicodeTools
 namespace|namespace
+name|QUnicodeTools
 block|{
+comment|// -----------------------------------------------------------------------------------------------------
+comment|//
+comment|// The line breaking algorithm. See http://www.unicode.org/reports/tr14/tr14-19.html
+comment|//
+comment|// -----------------------------------------------------------------------------------------------------
+comment|//
+comment|// The text boundaries determination algorithm. See http://www.unicode.org/reports/tr29/tr29-11.html
+comment|//
+comment|// -----------------------------------------------------------------------------------------------------
 comment|/* The Unicode algorithm does in our opinion allow line breaks at some    places they shouldn't be allowed. The following changes were thus    made in comparison to the Unicode reference:     EX->AL from DB to IB    SY->AL from DB to IB    SY->PO from DB to IB    SY->PR from DB to IB    SY->OP from DB to IB    AL->PR from DB to IB    AL->PO from DB to IB    PR->PR from DB to IB    PO->PO from DB to IB    PR->PO from DB to IB    PO->PR from DB to IB    HY->PO from DB to IB    HY->PR from DB to IB    HY->OP from DB to IB    NU->EX from PB to IB    EX->PO from DB to IB */
 comment|// The following line break classes are not treated by the table:
 comment|//  AI, BK, CB, CR, LF, NL, SA, SG, SP, XX
@@ -3481,16 +3472,10 @@ expr_stmt|;
 block|}
 block|}
 block|}
-block|}
-end_namespace
-begin_comment
-comment|// namespace
-end_comment
-begin_function
-DECL|function|qGetCharAttributes
+DECL|function|initCharAttributes
 name|Q_CORE_EXPORT
 name|void
-name|qGetCharAttributes
+name|initCharAttributes
 parameter_list|(
 specifier|const
 name|ushort
@@ -3512,7 +3497,7 @@ name|HB_CharAttributes
 modifier|*
 name|attributes
 parameter_list|,
-name|QCharAttributeOptions
+name|CharAttributeOptions
 name|options
 parameter_list|)
 block|{
@@ -3523,6 +3508,17 @@ operator|<=
 literal|0
 condition|)
 return|return;
+if|if
+condition|(
+operator|!
+operator|(
+name|options
+operator|&
+name|DontClearAttributes
+operator|)
+condition|)
+block|{
+operator|::
 name|memset
 argument_list|(
 name|attributes
@@ -3537,6 +3533,33 @@ name|HB_CharAttributes
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|options
+operator|&
+operator|(
+name|WordBreaks
+operator||
+name|SentenceBreaks
+operator|)
+condition|)
+name|options
+operator||=
+name|GraphemeBreaks
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|options
+operator|&
+operator|(
+name|GraphemeBreaks
+operator||
+name|LineBreaks
+operator||
+name|WhiteSpaces
+operator|)
+condition|)
 name|calcGraphemeAndLineBreaks
 argument_list|(
 name|string
@@ -3550,7 +3573,7 @@ if|if
 condition|(
 name|options
 operator|&
-name|GetWordBreaks
+name|WordBreaks
 condition|)
 name|calcWordBreaks
 argument_list|(
@@ -3565,7 +3588,7 @@ if|if
 condition|(
 name|options
 operator|&
-name|GetSentenceBreaks
+name|SentenceBreaks
 condition|)
 name|calcSentenceBreaks
 argument_list|(
@@ -3576,6 +3599,21 @@ argument_list|,
 name|attributes
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|items
+operator|||
+name|numItems
+operator|<=
+literal|0
+condition|)
+return|return;
+if|if
+condition|(
+operator|!
+name|qt_initcharattributes_default_algorithm_only
+condition|)
 name|HB_GetTailoredCharAttributes
 argument_list|(
 name|string
@@ -3590,7 +3628,11 @@ name|attributes
 argument_list|)
 expr_stmt|;
 block|}
-end_function
+block|}
+end_namespace
+begin_comment
+comment|// namespace QUnicodeTools
+end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

@@ -6915,7 +6915,9 @@ operator|.
 name|script
 expr_stmt|;
 block|}
-name|qGetCharAttributes
+name|QUnicodeTools
+operator|::
+name|initCharAttributes
 argument_list|(
 cast|reinterpret_cast
 argument_list|<
