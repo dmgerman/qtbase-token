@@ -111,7 +111,7 @@ parameter_list|,
 name|a8
 parameter_list|)
 define|\
-value|QTextUndoCommand c = { a1, a2, 0, 0, quint8(a3), a4, a5, a6, { a7 }, a8 }
+value|QTextUndoCommand c = { a1, a2, 0, 0, quint8(a3), a4, quint32(a5), quint32(a6), { int(a7) }, quint32(a8) }
 else|#
 directive|else
 define|#
