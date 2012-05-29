@@ -279,7 +279,11 @@ block|{
 name|QString
 name|ret
 init|=
-literal|"@$(CHK_DIR_EXISTS) "
+literal|"@"
+operator|+
+name|chkdir
+operator|+
+literal|" "
 decl_stmt|;
 if|if
 condition|(
@@ -2658,6 +2662,18 @@ operator|->
 name|variables
 argument_list|()
 decl_stmt|;
+name|chkdir
+operator|=
+name|v
+index|[
+literal|"QMAKE_CHK_DIR_EXISTS"
+index|]
+operator|.
+name|join
+argument_list|(
+literal|" "
+argument_list|)
+expr_stmt|;
 name|QStringList
 modifier|&
 name|quc

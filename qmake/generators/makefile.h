@@ -229,6 +229,9 @@ operator|>
 name|init_compiler_already
 block|;
 name|QString
+name|chkdir
+block|;
+name|QString
 name|build_args
 argument_list|(
 specifier|const
