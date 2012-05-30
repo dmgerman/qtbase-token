@@ -14888,6 +14888,24 @@ if|if
 condition|(
 name|dictionary
 index|[
+literal|"SHARED"
+index|]
+operator|==
+literal|"no"
+condition|)
+name|qtConfig
+operator|+=
+literal|"static"
+expr_stmt|;
+else|else
+name|qtConfig
+operator|+=
+literal|"shared"
+expr_stmt|;
+if|if
+condition|(
+name|dictionary
+index|[
 literal|"WIDGETS"
 index|]
 operator|==
@@ -18689,24 +18707,6 @@ if|if
 condition|(
 name|dictionary
 index|[
-literal|"SHARED"
-index|]
-operator|==
-literal|"yes"
-condition|)
-name|configStream
-operator|<<
-literal|" shared"
-expr_stmt|;
-else|else
-name|configStream
-operator|<<
-literal|" static"
-expr_stmt|;
-if|if
-condition|(
-name|dictionary
-index|[
 literal|"LTCG"
 index|]
 operator|==
@@ -19618,32 +19618,30 @@ index|[
 literal|"SHARED"
 index|]
 operator|==
-literal|"yes"
+literal|"no"
 condition|)
 block|{
 name|tmpStream
 operator|<<
-literal|"#ifndef QT_DLL"
+literal|"/* Qt was configured for a static build */"
 operator|<<
 name|endl
-expr_stmt|;
-name|tmpStream
 operator|<<
-literal|"#define QT_DLL"
+literal|"#if !defined(QT_SHARED)&& !defined(QT_STATIC)"
 operator|<<
 name|endl
-expr_stmt|;
-name|tmpStream
+operator|<<
+literal|"# define QT_STATIC"
+operator|<<
+name|endl
 operator|<<
 literal|"#endif"
 operator|<<
 name|endl
-expr_stmt|;
-block|}
-name|tmpStream
 operator|<<
 name|endl
 expr_stmt|;
+block|}
 name|tmpStream
 operator|<<
 literal|"/* License information */"

@@ -23,16 +23,9 @@ name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 if|#
 directive|if
-operator|!
 name|defined
 argument_list|(
-name|QT_SHARED
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|QT_DLL
+name|QT_STATIC
 argument_list|)
 DECL|macro|Q_TESTLIB_EXPORT
 define|#
