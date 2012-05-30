@@ -1310,6 +1310,10 @@ name|friend
 struct_decl|struct
 name|QMetaObject
 struct_decl|;
+name|friend
+struct_decl|struct
+name|QMetaObjectPrivate
+struct_decl|;
 block|}
 end_decl_stmt
 begin_empty_stmt
