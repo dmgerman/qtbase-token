@@ -5529,11 +5529,17 @@ operator|.
 name|size
 argument_list|()
 operator|<
+cast|static_cast
+argument_list|<
+name|int
+argument_list|>
+argument_list|(
 name|entire_shaper_item
 operator|.
 name|item
 operator|.
 name|length
+argument_list|)
 condition|)
 name|casedString
 operator|.
