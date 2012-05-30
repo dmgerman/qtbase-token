@@ -678,6 +678,11 @@ name|filePathIsTemplate
 argument_list|(
 name|fileIsTemplate
 argument_list|)
+member_init_list|,
+name|filePathWasTemplate
+argument_list|(
+name|fileIsTemplate
+argument_list|)
 block|{
 name|Q_D
 argument_list|(
@@ -761,6 +766,10 @@ function_decl|;
 DECL|member|filePathIsTemplate
 name|bool
 name|filePathIsTemplate
+decl_stmt|;
+DECL|member|filePathWasTemplate
+name|bool
+name|filePathWasTemplate
 decl_stmt|;
 block|}
 class|;
@@ -1280,6 +1289,15 @@ name|fileEntry
 operator|.
 name|clear
 argument_list|()
+expr_stmt|;
+comment|// If a QTemporaryFile is constructed using a template file path, the path
+comment|// is generated in QTemporaryFileEngine::open() and then filePathIsTemplate
+comment|// is set to false. If remove() and then open() are called on the same
+comment|// QTemporaryFile, the path is not regenerated. Here we ensure that if the
+comment|// file path was generated, it will be generated again in the scenario above.
+name|filePathIsTemplate
+operator|=
+name|filePathWasTemplate
 expr_stmt|;
 return|return
 literal|true
