@@ -1427,7 +1427,7 @@ name|d
 operator|->
 name|tcpSocket
 operator|->
-name|readData
+name|read
 argument_list|(
 name|data
 argument_list|,

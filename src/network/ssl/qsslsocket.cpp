@@ -1082,13 +1082,6 @@ name|QIODevice
 operator|::
 name|bytesAvailable
 argument_list|()
-operator|+
-name|d
-operator|->
-name|readBuffer
-operator|.
-name|size
-argument_list|()
 return|;
 block|}
 end_function
@@ -1270,23 +1263,6 @@ name|QIODevice
 operator|::
 name|canReadLine
 argument_list|()
-operator|||
-operator|(
-operator|!
-name|d
-operator|->
-name|readBuffer
-operator|.
-name|isEmpty
-argument_list|()
-operator|&&
-name|d
-operator|->
-name|readBuffer
-operator|.
-name|canReadLine
-argument_list|()
-operator|)
 return|;
 block|}
 end_function
@@ -1337,7 +1313,7 @@ expr_stmt|;
 comment|// must be cleared, reading/writing not possible on closed socket:
 name|d
 operator|->
-name|readBuffer
+name|buffer
 operator|.
 name|clear
 argument_list|()
@@ -1349,10 +1325,6 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-comment|// for QTcpSocket this is already done because it uses the readBuffer/writeBuffer
-comment|// if the QIODevice it is based on
-comment|// ### FIXME QSslSocket should probably do similar instead of having
-comment|// its own readBuffer/writeBuffer
 block|}
 end_function
 begin_comment
@@ -1405,13 +1377,6 @@ return|return
 name|QIODevice
 operator|::
 name|atEnd
-argument_list|()
-operator|&&
-name|d
-operator|->
-name|readBuffer
-operator|.
-name|isEmpty
 argument_list|()
 return|;
 block|}
@@ -3992,20 +3957,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-do|do
-block|{
-specifier|const
-name|char
-modifier|*
-name|readPtr
-init|=
-name|d
-operator|->
-name|readBuffer
-operator|.
-name|readPointer
-argument_list|()
-decl_stmt|;
 name|int
 name|bytesToRead
 init|=
@@ -4015,58 +3966,28 @@ name|int
 argument_list|>
 argument_list|(
 name|maxlen
-operator|-
-name|readBytes
 argument_list|,
 name|d
 operator|->
-name|readBuffer
+name|buffer
 operator|.
-name|nextDataBlockSize
+name|size
 argument_list|()
 argument_list|)
 decl_stmt|;
-operator|::
-name|memcpy
+name|readBytes
+operator|=
+name|d
+operator|->
+name|buffer
+operator|.
+name|read
 argument_list|(
 name|data
-operator|+
-name|readBytes
-argument_list|,
-name|readPtr
 argument_list|,
 name|bytesToRead
 argument_list|)
 expr_stmt|;
-name|readBytes
-operator|+=
-name|bytesToRead
-expr_stmt|;
-name|d
-operator|->
-name|readBuffer
-operator|.
-name|free
-argument_list|(
-name|bytesToRead
-argument_list|)
-expr_stmt|;
-block|}
-do|while
-condition|(
-operator|!
-name|d
-operator|->
-name|readBuffer
-operator|.
-name|isEmpty
-argument_list|()
-operator|&&
-name|readBytes
-operator|<
-name|maxlen
-condition|)
-do|;
 block|}
 ifdef|#
 directive|ifdef
@@ -4097,7 +4018,7 @@ if|if
 condition|(
 name|d
 operator|->
-name|readBuffer
+name|buffer
 operator|.
 name|isEmpty
 argument_list|()
@@ -4109,6 +4030,7 @@ operator|->
 name|bytesAvailable
 argument_list|()
 condition|)
+block|{
 name|QMetaObject
 operator|::
 name|invokeMethod
@@ -4122,6 +4044,7 @@ operator|::
 name|QueuedConnection
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|readBytes
 return|;
@@ -4351,7 +4274,7 @@ expr_stmt|;
 comment|// we don't want to clear the ignoreErrorsList, so
 comment|// that it is possible setting it before connecting
 comment|//    ignoreErrorsList.clear();
-name|readBuffer
+name|buffer
 operator|.
 name|clear
 argument_list|()
@@ -5436,7 +5359,7 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-name|readBuffer
+name|buffer
 operator|.
 name|clear
 argument_list|()

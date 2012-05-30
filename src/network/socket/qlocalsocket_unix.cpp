@@ -1922,7 +1922,7 @@ name|d
 operator|->
 name|unixSocket
 operator|.
-name|readData
+name|read
 argument_list|(
 name|data
 argument_list|,

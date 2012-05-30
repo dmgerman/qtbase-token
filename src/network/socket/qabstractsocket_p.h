@@ -372,9 +372,6 @@ name|qint64
 name|readBufferMaxSize
 decl_stmt|;
 name|QRingBuffer
-name|readBuffer
-decl_stmt|;
-name|QRingBuffer
 name|writeBuffer
 decl_stmt|;
 name|bool

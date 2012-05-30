@@ -4650,7 +4650,7 @@ operator|||
 operator|!
 name|readBufferMaxSize
 operator|||
-name|readBuffer
+name|buffer
 operator|.
 name|size
 argument_list|()
@@ -4970,7 +4970,7 @@ name|char
 modifier|*
 name|ptr
 init|=
-name|readBuffer
+name|buffer
 operator|.
 name|reserve
 argument_list|(
