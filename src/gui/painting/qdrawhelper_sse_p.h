@@ -51,7 +51,7 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|QT_HAVE_SSE
+name|QT_COMPILER_SUPPORTS_SSE
 end_ifdef
 begin_ifdef
 ifdef|#
@@ -783,7 +783,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_HAVE_SSE
+comment|// QT_COMPILER_SUPPORTS_SSE
 end_comment
 begin_endif
 endif|#

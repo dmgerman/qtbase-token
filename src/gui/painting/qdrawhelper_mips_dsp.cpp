@@ -23,7 +23,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QT_HAVE_MIPS_DSP
+name|QT_COMPILER_SUPPORTS_MIPS_DSP
 argument_list|)
 specifier|extern
 literal|"C"
@@ -101,7 +101,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QT_HAVE_MIPS_DSPR2
+name|QT_COMPILER_SUPPORTS_MIPS_DSPR2
 argument_list|)
 end_if
 begin_extern
@@ -143,7 +143,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_HAVE_MIPS_DSPR2
+comment|// QT_COMPILER_SUPPORTS_MIPS_DSPR2
 end_comment
 begin_function
 DECL|function|qt_blend_argb32_on_argb32_mips_dsp
@@ -298,7 +298,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|QT_HAVE_MIPS_DSPR2
+name|QT_COMPILER_SUPPORTS_MIPS_DSPR2
 argument_list|)
 name|dst
 index|[
@@ -440,7 +440,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|QT_HAVE_MIPS_DSPR2
+name|QT_COMPILER_SUPPORTS_MIPS_DSPR2
 argument_list|)
 name|uint
 name|s
@@ -811,7 +811,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|QT_HAVE_MIPS_DSPR2
+name|QT_COMPILER_SUPPORTS_MIPS_DSPR2
 argument_list|)
 name|dest
 index|[
@@ -983,7 +983,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_HAVE_MIPS_DSP
+comment|// QT_COMPILER_SUPPORTS_MIPS_DSP
 end_comment
 begin_macro
 name|QT_END_NAMESPACE

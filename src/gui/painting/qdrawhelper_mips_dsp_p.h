@@ -24,7 +24,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QT_HAVE_MIPS_DSP
+name|QT_COMPILER_SUPPORTS_MIPS_DSP
 argument_list|)
 specifier|extern
 literal|"C"
@@ -196,7 +196,7 @@ end_function_decl
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|QT_HAVE_MIPS_DSPR2
+name|QT_COMPILER_SUPPORTS_MIPS_DSPR2
 end_ifdef
 begin_extern
 extern|extern
@@ -223,14 +223,14 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_HAVE_MIPS_DSPR2
+comment|// QT_COMPILER_SUPPORTS_MIPS_DSPR2
 end_comment
 begin_endif
 endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_HAVE_MIPS_DSP
+comment|// QT_COMPILER_SUPPORTS_MIPS_DSP
 end_comment
 begin_macro
 name|QT_END_NAMESPACE

@@ -52,7 +52,7 @@ begin_function_decl
 name|QT_BEGIN_NAMESPACE
 ifdef|#
 directive|ifdef
-name|QT_HAVE_NEON
+name|QT_COMPILER_SUPPORTS_NEON
 name|void
 name|qt_blend_argb32_on_argb32_neon
 parameter_list|(
@@ -594,7 +594,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_HAVE_NEON
+comment|// QT_COMPILER_SUPPORTS_NEON
 end_comment
 begin_macro
 name|QT_END_NAMESPACE

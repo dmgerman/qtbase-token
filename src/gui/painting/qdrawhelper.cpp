@@ -119,7 +119,7 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|QT_HAVE_MIPS_DSP
+name|QT_COMPILER_SUPPORTS_MIPS_DSP
 end_ifdef
 begin_include
 include|#
@@ -4177,7 +4177,7 @@ name|x
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|QT_HAVE_MIPS_DSPR2
+name|QT_COMPILER_SUPPORTS_MIPS_DSPR2
 name|qConvertRgb16To32_asm_mips_dspr2
 argument_list|(
 name|buffer
@@ -38669,7 +38669,7 @@ condition|)
 block|{
 ifdef|#
 directive|ifdef
-name|QT_HAVE_AVX
+name|QT_COMPILER_SUPPORTS_AVX
 block|}
 elseif|else
 if|if
@@ -38801,7 +38801,7 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
-name|QT_HAVE_SSE2
+name|QT_COMPILER_SUPPORTS_SSE2
 block|}
 elseif|else
 if|if
@@ -38934,7 +38934,7 @@ directive|endif
 block|}
 ifdef|#
 directive|ifdef
-name|QT_HAVE_SSE2
+name|QT_COMPILER_SUPPORTS_SSE2
 if|if
 condition|(
 name|features
@@ -39094,7 +39094,7 @@ expr_stmt|;
 block|}
 ifdef|#
 directive|ifdef
-name|QT_HAVE_SSSE3
+name|QT_COMPILER_SUPPORTS_SSSE3
 if|if
 condition|(
 name|features
@@ -39165,7 +39165,7 @@ directive|endif
 comment|// SSSE3
 ifdef|#
 directive|ifdef
-name|QT_HAVE_AVX
+name|QT_COMPILER_SUPPORTS_AVX
 if|if
 condition|(
 name|features
@@ -39331,7 +39331,7 @@ directive|endif
 comment|// SSE2
 ifdef|#
 directive|ifdef
-name|QT_HAVE_SSE2
+name|QT_COMPILER_SUPPORTS_SSE2
 if|if
 condition|(
 name|features
@@ -39352,7 +39352,7 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
-name|QT_HAVE_AVX
+name|QT_COMPILER_SUPPORTS_AVX
 if|if
 condition|(
 name|features
@@ -39480,7 +39480,7 @@ directive|endif
 comment|// SSE2
 ifdef|#
 directive|ifdef
-name|QT_HAVE_IWMMXT
+name|QT_COMPILER_SUPPORTS_IWMMXT
 if|if
 condition|(
 name|features
@@ -39515,7 +39515,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QT_HAVE_NEON
+name|QT_COMPILER_SUPPORTS_NEON
 argument_list|)
 if|if
 condition|(
@@ -39804,7 +39804,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QT_HAVE_MIPS_DSP
+name|QT_COMPILER_SUPPORTS_MIPS_DSP
 argument_list|)
 name|functionForMode_C
 index|[
@@ -39904,7 +39904,7 @@ name|qt_destStoreARGB32_mips_dsp
 expr_stmt|;
 endif|#
 directive|endif
-comment|// QT_HAVE_MIPS_DSP
+comment|// QT_COMPILER_SUPPORTS_MIPS_DSP
 if|if
 condition|(
 name|functionForModeSolidAsm

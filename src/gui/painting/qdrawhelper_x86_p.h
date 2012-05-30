@@ -52,7 +52,7 @@ begin_function_decl
 name|QT_BEGIN_NAMESPACE
 ifdef|#
 directive|ifdef
-name|QT_HAVE_SSE2
+name|QT_COMPILER_SUPPORTS_SSE2
 name|void
 name|qt_memfill32_sse2
 parameter_list|(
@@ -229,12 +229,12 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_HAVE_SSE2
+comment|// QT_COMPILER_SUPPORTS_SSE2
 end_comment
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|QT_HAVE_AVX
+name|QT_COMPILER_SUPPORTS_AVX
 end_ifdef
 begin_function_decl
 name|void
@@ -399,12 +399,12 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_HAVE_AVX
+comment|// QT_COMPILER_SUPPORTS_AVX
 end_comment
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|QT_HAVE_IWMMXT
+name|QT_COMPILER_SUPPORTS_IWMMXT
 end_ifdef
 begin_function_decl
 name|void

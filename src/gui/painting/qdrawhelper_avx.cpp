@@ -10,7 +10,7 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|QT_HAVE_AVX
+name|QT_COMPILER_SUPPORTS_AVX
 end_ifdef
 begin_define
 DECL|macro|QDRAWHELPER_AVX

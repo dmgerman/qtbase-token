@@ -14227,10 +14227,10 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|QT_HAVE_SSE2
+name|QT_COMPILER_SUPPORTS_SSE2
 ifdef|#
 directive|ifdef
-name|QT_HAVE_AVX
+name|QT_COMPILER_SUPPORTS_AVX
 if|if
 condition|(
 name|features
@@ -14365,7 +14365,7 @@ name|convert_ARGB_to_ARGB_PM_inplace_sse2
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|QT_HAVE_SSSE3
+name|QT_COMPILER_SUPPORTS_SSSE3
 if|if
 condition|(
 name|features
@@ -14442,7 +14442,7 @@ directive|endif
 comment|// SSE2
 ifdef|#
 directive|ifdef
-name|QT_HAVE_NEON
+name|QT_COMPILER_SUPPORTS_NEON
 if|if
 condition|(
 name|features

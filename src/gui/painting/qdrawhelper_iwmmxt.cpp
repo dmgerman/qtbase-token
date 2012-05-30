@@ -5,7 +5,7 @@ end_comment
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|QT_HAVE_IWMMXT
+name|QT_COMPILER_SUPPORTS_IWMMXT
 end_ifdef
 begin_include
 include|#
@@ -496,7 +496,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_HAVE_IWMMXT
+comment|// QT_COMPILER_SUPPORTS_IWMMXT
 end_comment
 begin_macro
 name|QT_END_NAMESPACE

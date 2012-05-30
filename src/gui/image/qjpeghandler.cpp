@@ -4960,7 +4960,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QT_HAVE_NEON
+name|QT_COMPILER_SUPPORTS_NEON
 argument_list|)
 comment|// from qimage_neon.cpp
 name|Q_GUI_EXPORT
@@ -4993,12 +4993,12 @@ name|qt_convert_rgb888_to_rgb32_neon
 expr_stmt|;
 endif|#
 directive|endif
-comment|// QT_HAVE_NEON
+comment|// QT_COMPILER_SUPPORTS_NEON
 if|#
 directive|if
 name|defined
 argument_list|(
-name|QT_HAVE_SSSE3
+name|QT_COMPILER_SUPPORTS_SSSE3
 argument_list|)
 comment|// from qimage_ssse3.cpp
 name|Q_GUI_EXPORT
@@ -5031,7 +5031,7 @@ name|qt_convert_rgb888_to_rgb32_ssse3
 expr_stmt|;
 endif|#
 directive|endif
-comment|// QT_HAVE_SSSE3
+comment|// QT_COMPILER_SUPPORTS_SSSE3
 block|}
 end_constructor
 begin_destructor

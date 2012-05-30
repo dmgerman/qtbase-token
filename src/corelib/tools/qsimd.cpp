@@ -279,12 +279,12 @@ argument_list|)
 operator|||
 name|defined
 argument_list|(
-name|QT_HAVE_IWMMXT
+name|QT_COMPILER_SUPPORTS_IWMMXT
 argument_list|)
 operator|||
 name|defined
 argument_list|(
-name|QT_HAVE_NEON
+name|QT_COMPILER_SUPPORTS_NEON
 argument_list|)
 end_elif
 begin_function
@@ -453,7 +453,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QT_HAVE_IWMMXT
+name|QT_COMPILER_SUPPORTS_IWMMXT
 argument_list|)
 comment|// runtime detection only available when running as a previlegied process
 name|features

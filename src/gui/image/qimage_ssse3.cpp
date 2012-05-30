@@ -20,7 +20,7 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|QT_HAVE_SSSE3
+name|QT_COMPILER_SUPPORTS_SSSE3
 end_ifdef
 begin_function
 name|QT_BEGIN_NAMESPACE
@@ -656,6 +656,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_HAVE_SSSE3
+comment|// QT_COMPILER_SUPPORTS_SSSE3
 end_comment
 end_unit
