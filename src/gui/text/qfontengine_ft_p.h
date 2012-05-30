@@ -1442,7 +1442,6 @@ return|;
 end_return
 begin_function_decl
 unit|}  extern
-name|Q_GUI_EXPORT
 name|FT_Library
 name|qt_getFreetype
 parameter_list|()
