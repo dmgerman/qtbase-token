@@ -2635,23 +2635,16 @@ name|QT_NO_BEARERMANAGEMENT
 comment|// If there are no active requests, release our reference to the network session.
 comment|// It will not be destroyed immediately, but rather when the connection cache is flushed
 comment|// after 2 minutes.
+name|activeReplyCount
+operator|--
+expr_stmt|;
 if|if
 condition|(
 name|networkSession
 operator|&&
-name|q
-operator|->
-name|findChildren
-argument_list|<
-name|QNetworkReply
-operator|*
-argument_list|>
-argument_list|()
-operator|.
-name|count
-argument_list|()
+name|activeReplyCount
 operator|==
-literal|1
+literal|0
 condition|)
 name|networkSession
 operator|.
@@ -2805,6 +2798,14 @@ argument_list|>
 argument_list|)
 argument_list|)
 argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+ifndef|#
+directive|ifndef
+name|QT_NO_BEARERMANAGEMENT
+name|activeReplyCount
+operator|++
 expr_stmt|;
 endif|#
 directive|endif

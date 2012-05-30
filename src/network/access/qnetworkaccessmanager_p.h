@@ -162,6 +162,11 @@ operator|::
 name|Accessible
 argument_list|)
 block|,
+name|activeReplyCount
+argument_list|(
+literal|0
+argument_list|)
+block|,
 name|online
 argument_list|(
 name|false
@@ -429,6 +434,9 @@ name|QNetworkAccessManager
 operator|::
 name|NetworkAccessibility
 name|networkAccessible
+block|;
+name|int
+name|activeReplyCount
 block|;
 name|bool
 name|online
