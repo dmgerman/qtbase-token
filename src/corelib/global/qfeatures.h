@@ -228,12 +228,6 @@ begin_comment
 comment|//#define QT_NO_QUUID_STRING
 end_comment
 begin_comment
-comment|// Raster Paint Engine callback functions
-end_comment
-begin_comment
-comment|//#define QT_NO_RASTERCALLBACKS
-end_comment
-begin_comment
 comment|// Resize Handler
 end_comment
 begin_comment
@@ -286,12 +280,6 @@ comment|// QSlider
 end_comment
 begin_comment
 comment|//#define QT_NO_SLIDER
-end_comment
-begin_comment
-comment|// Sounds
-end_comment
-begin_comment
-comment|//#define QT_NO_SOUND
 end_comment
 begin_comment
 comment|// Spin Widget
