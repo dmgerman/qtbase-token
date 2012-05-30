@@ -118,9 +118,6 @@ name|hx
 decl_stmt|,
 name|hy
 decl_stmt|;
-name|int
-name|id
-decl_stmt|;
 specifier|static
 name|bool
 name|initialized

@@ -367,16 +367,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-ifndef|#
-directive|ifndef
-name|qdoc
-name|int
-name|handle
-argument_list|()
-specifier|const
-expr_stmt|;
-endif|#
-directive|endif
 name|private
 label|:
 name|QCursorData

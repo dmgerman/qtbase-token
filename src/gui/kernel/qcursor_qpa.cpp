@@ -32,22 +32,17 @@ include|#
 directive|include
 file|<qbitmap.h>
 end_include
-begin_decl_stmt
+begin_macro
 name|QT_BEGIN_NAMESPACE
+end_macro
+begin_macro
 name|QT_USE_NAMESPACE
+end_macro
+begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_NO_CURSOR
-DECL|variable|nextCursorId
-specifier|static
-name|int
-name|nextCursorId
-init|=
-name|Qt
-operator|::
-name|BitmapCursor
-decl_stmt|;
-end_decl_stmt
+end_ifndef
 begin_comment
 comment|/*****************************************************************************   Internal QCursorData class  *****************************************************************************/
 end_comment
@@ -92,11 +87,6 @@ name|hy
 argument_list|(
 literal|0
 argument_list|)
-member_init_list|,
-name|id
-argument_list|(
-name|s
-argument_list|)
 block|{ }
 end_constructor
 begin_destructor
@@ -135,22 +125,6 @@ end_decl_stmt
 begin_comment
 comment|// qcursor.cpp
 end_comment
-begin_function
-DECL|function|handle
-name|int
-name|QCursor
-operator|::
-name|handle
-parameter_list|()
-specifier|const
-block|{
-return|return
-name|d
-operator|->
-name|id
-return|;
-block|}
-end_function
 begin_function
 DECL|function|setBitmap
 name|QCursorData
@@ -274,13 +248,6 @@ operator|=
 name|Qt
 operator|::
 name|BitmapCursor
-expr_stmt|;
-name|d
-operator|->
-name|id
-operator|=
-operator|++
-name|nextCursorId
 expr_stmt|;
 name|d
 operator|->

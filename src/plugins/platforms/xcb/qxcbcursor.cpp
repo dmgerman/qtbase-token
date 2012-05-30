@@ -3889,7 +3889,7 @@ name|id
 init|=
 name|cursor
 operator|->
-name|handle
+name|shape
 argument_list|()
 decl_stmt|;
 if|if
