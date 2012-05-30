@@ -628,18 +628,10 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QEGL_EXTRA_DEBUG
-name|qWarning
-argument_list|(
-literal|"Configuration %d matches requirements\n"
-argument_list|,
-operator|(
-name|int
-operator|)
-name|config
-argument_list|)
-expr_stmt|;
 name|q_printEglConfig
 argument_list|(
+name|m_dpy
+argument_list|,
 name|config
 argument_list|)
 expr_stmt|;

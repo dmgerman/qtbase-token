@@ -111,6 +111,9 @@ begin_function_decl
 name|void
 name|q_printEglConfig
 parameter_list|(
+name|EGLDisplay
+name|display
+parameter_list|,
 name|EGLConfig
 name|config
 parameter_list|)

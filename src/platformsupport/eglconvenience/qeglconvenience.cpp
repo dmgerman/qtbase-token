@@ -1643,6 +1643,9 @@ DECL|function|q_printEglConfig
 name|void
 name|q_printEglConfig
 parameter_list|(
+name|EGLDisplay
+name|display
+parameter_list|,
 name|EGLConfig
 name|config
 parameter_list|)
@@ -1677,7 +1680,7 @@ if|if
 condition|(
 name|eglGetConfigAttrib
 argument_list|(
-name|m_dpy
+name|display
 argument_list|,
 name|config
 argument_list|,
