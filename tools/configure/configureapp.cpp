@@ -16200,6 +16200,34 @@ expr_stmt|;
 name|moduleStream
 operator|<<
 literal|"CONFIG += create_prl link_prl"
+expr_stmt|;
+if|if
+condition|(
+name|dictionary
+index|[
+literal|"SSE2"
+index|]
+operator|==
+literal|"yes"
+condition|)
+name|moduleStream
+operator|<<
+literal|" sse2"
+expr_stmt|;
+if|if
+condition|(
+name|dictionary
+index|[
+literal|"IWMMXT"
+index|]
+operator|==
+literal|"yes"
+condition|)
+name|moduleStream
+operator|<<
+literal|" iwmmxt"
+expr_stmt|;
+name|moduleStream
 operator|<<
 name|endl
 expr_stmt|;
@@ -16939,32 +16967,6 @@ condition|)
 name|configStream
 operator|<<
 literal|" rtti"
-expr_stmt|;
-if|if
-condition|(
-name|dictionary
-index|[
-literal|"SSE2"
-index|]
-operator|==
-literal|"yes"
-condition|)
-name|configStream
-operator|<<
-literal|" sse2"
-expr_stmt|;
-if|if
-condition|(
-name|dictionary
-index|[
-literal|"IWMMXT"
-index|]
-operator|==
-literal|"yes"
-condition|)
-name|configStream
-operator|<<
-literal|" iwmmxt"
 expr_stmt|;
 if|if
 condition|(
