@@ -11146,7 +11146,7 @@ argument_list|()
 expr_stmt|;
 name|calendar
 operator|=
-name|QWeakPointer
+name|QPointer
 argument_list|<
 name|QCalendarWidget
 argument_list|>

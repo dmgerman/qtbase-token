@@ -5189,7 +5189,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|QWeakPointer
+name|QPointer
 argument_list|<
 name|QAction
 argument_list|>

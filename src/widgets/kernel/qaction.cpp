@@ -3548,7 +3548,7 @@ operator|==
 name|Trigger
 condition|)
 block|{
-name|QWeakPointer
+name|QPointer
 argument_list|<
 name|QObject
 argument_list|>

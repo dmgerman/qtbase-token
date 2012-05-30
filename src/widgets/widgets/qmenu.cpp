@@ -6665,7 +6665,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|QWeakPointer
+name|QPointer
 argument_list|<
 name|QAction
 argument_list|>

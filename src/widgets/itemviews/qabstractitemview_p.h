@@ -126,7 +126,7 @@ argument_list|)
 block|:
 name|widget
 argument_list|(
-name|QWeakPointer
+name|QPointer
 operator|<
 name|QWidget
 operator|>
@@ -150,7 +150,7 @@ argument|false
 argument_list|)
 block|{}
 DECL|member|widget
-name|QWeakPointer
+name|QPointer
 operator|<
 name|QWidget
 operator|>

@@ -91,7 +91,7 @@ argument|-
 literal|1
 argument_list|)
 block|{     }
-name|QWeakPointer
+name|QPointer
 operator|<
 name|QObject
 operator|>

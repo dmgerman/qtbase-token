@@ -906,13 +906,13 @@ begin_struct
 struct|struct
 name|ActiveTouchPointsValue
 block|{
-name|QWeakPointer
+name|QPointer
 operator|<
 name|QWindow
 operator|>
 name|window
 expr_stmt|;
-name|QWeakPointer
+name|QPointer
 operator|<
 name|QObject
 operator|>
@@ -985,7 +985,7 @@ expr_stmt|;
 name|QPointF
 name|screenPos
 decl_stmt|;
-name|QWeakPointer
+name|QPointer
 operator|<
 name|QWindow
 operator|>

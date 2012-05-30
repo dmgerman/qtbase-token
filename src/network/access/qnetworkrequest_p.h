@@ -73,6 +73,11 @@ include|#
 directive|include
 file|"QtCore/qsharedpointer.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"QtCore/qpointer.h"
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 comment|// this is the common part between QNetworkRequestPrivate, QNetworkReplyPrivate and QHttpPartPrivate
@@ -128,7 +133,7 @@ decl_stmt|;
 name|AttributesMap
 name|attributes
 decl_stmt|;
-name|QWeakPointer
+name|QPointer
 operator|<
 name|QObject
 operator|>

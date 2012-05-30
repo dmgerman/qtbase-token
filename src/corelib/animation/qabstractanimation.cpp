@@ -3103,7 +3103,7 @@ name|state
 operator|=
 name|newState
 expr_stmt|;
-name|QWeakPointer
+name|QPointer
 argument_list|<
 name|QAbstractAnimation
 argument_list|>

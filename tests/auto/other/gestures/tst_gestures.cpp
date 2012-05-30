@@ -1368,7 +1368,7 @@ init|=
 literal|0
 parameter_list|)
 block|{
-name|QWeakPointer
+name|QPointer
 argument_list|<
 name|QObject
 argument_list|>

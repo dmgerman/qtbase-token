@@ -115,7 +115,7 @@ init|=
 operator|new
 name|QWidget
 decl_stmt|;
-name|QWeakPointer
+name|QPointer
 argument_list|<
 name|QWidget
 argument_list|>
@@ -170,7 +170,7 @@ argument_list|(
 name|parent
 argument_list|)
 decl_stmt|;
-name|QWeakPointer
+name|QPointer
 argument_list|<
 name|QWidget
 argument_list|>
@@ -222,7 +222,7 @@ init|=
 operator|new
 name|QWidget
 decl_stmt|;
-name|QWeakPointer
+name|QPointer
 argument_list|<
 name|QWidget
 argument_list|>
@@ -280,7 +280,7 @@ operator|new
 name|QWidget
 argument_list|)
 decl_stmt|;
-name|QWeakPointer
+name|QPointer
 argument_list|<
 name|QWidget
 argument_list|>

@@ -25507,7 +25507,7 @@ operator|++
 name|i
 control|)
 block|{
-name|QWeakPointer
+name|QPointer
 argument_list|<
 name|QGraphicsObject
 argument_list|>
@@ -26054,7 +26054,7 @@ operator|++
 name|i
 control|)
 block|{
-name|QWeakPointer
+name|QPointer
 argument_list|<
 name|QGraphicsObject
 argument_list|>

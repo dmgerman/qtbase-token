@@ -13705,7 +13705,7 @@ argument_list|(
 name|acceptTouchEvents
 argument_list|)
 expr_stmt|;
-name|QWeakPointer
+name|QPointer
 argument_list|<
 name|QWidget
 argument_list|>
@@ -15802,7 +15802,7 @@ name|detach
 argument_list|()
 expr_stmt|;
 comment|// update state
-name|QWeakPointer
+name|QPointer
 argument_list|<
 name|QObject
 argument_list|>
@@ -15864,7 +15864,7 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|?
-name|QWeakPointer
+name|QPointer
 argument_list|<
 name|QObject
 argument_list|>

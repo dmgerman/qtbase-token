@@ -9615,7 +9615,7 @@ argument_list|,
 name|touchPoints
 argument_list|)
 decl_stmt|;
-name|QWeakPointer
+name|QPointer
 argument_list|<
 name|QWidget
 argument_list|>
@@ -10737,7 +10737,7 @@ operator|&
 name|touchWidget
 argument_list|)
 decl_stmt|;
-name|QWeakPointer
+name|QPointer
 argument_list|<
 name|QWidget
 argument_list|>

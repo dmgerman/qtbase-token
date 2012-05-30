@@ -7006,7 +7006,7 @@ name|detach
 argument_list|()
 expr_stmt|;
 comment|// update state
-name|QWeakPointer
+name|QPointer
 argument_list|<
 name|QWindow
 argument_list|>
@@ -7078,7 +7078,7 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|?
-name|QWeakPointer
+name|QPointer
 argument_list|<
 name|QWindow
 argument_list|>

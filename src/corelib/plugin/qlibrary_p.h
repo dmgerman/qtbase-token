@@ -187,7 +187,7 @@ operator|>
 name|staticPlugins
 argument_list|()
 expr_stmt|;
-name|QWeakPointer
+name|QPointer
 operator|<
 name|QObject
 operator|>

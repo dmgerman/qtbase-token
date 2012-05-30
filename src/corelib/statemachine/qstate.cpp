@@ -828,7 +828,7 @@ expr_stmt|;
 specifier|const
 name|QList
 argument_list|<
-name|QWeakPointer
+name|QPointer
 argument_list|<
 name|QAbstractState
 argument_list|>

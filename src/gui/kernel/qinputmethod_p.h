@@ -171,7 +171,7 @@ name|inputItemTransform
 decl_stmt|;
 end_decl_stmt
 begin_expr_stmt
-name|QWeakPointer
+name|QPointer
 operator|<
 name|QObject
 operator|>

@@ -771,7 +771,7 @@ operator|*
 name|verifyCalendarInstance
 argument_list|()
 block|;
-name|QWeakPointer
+name|QPointer
 operator|<
 name|QCalendarWidget
 operator|>

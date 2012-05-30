@@ -8864,7 +8864,7 @@ decl_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_NO_STYLE_STYLESHEET
-name|QWeakPointer
+name|QPointer
 argument_list|<
 name|QStyle
 argument_list|>

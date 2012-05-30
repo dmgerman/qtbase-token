@@ -224,7 +224,7 @@ name|QWidget
 operator|*
 name|m_widget
 block|;
-name|QWeakPointer
+name|QPointer
 operator|<
 name|QWidget
 operator|>
@@ -233,7 +233,7 @@ block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_DRAGANDDROP
-name|QWeakPointer
+name|QPointer
 operator|<
 name|QWidget
 operator|>

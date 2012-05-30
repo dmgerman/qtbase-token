@@ -1692,7 +1692,7 @@ condition|(
 name|w
 condition|)
 block|{
-name|QWeakPointer
+name|QPointer
 argument_list|<
 name|QMenu
 argument_list|>

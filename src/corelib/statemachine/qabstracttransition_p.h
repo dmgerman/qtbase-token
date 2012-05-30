@@ -145,7 +145,7 @@ argument_list|()
 block|;
 name|QList
 operator|<
-name|QWeakPointer
+name|QPointer
 operator|<
 name|QAbstractState
 operator|>

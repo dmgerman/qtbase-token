@@ -23,6 +23,11 @@ include|#
 directive|include
 file|<QElapsedTimer>
 end_include
+begin_include
+include|#
+directive|include
+file|<QPointer>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
@@ -137,7 +142,7 @@ argument_list|(
 argument|w
 argument_list|)
 block|{ }
-name|QWeakPointer
+name|QPointer
 operator|<
 name|QWindow
 operator|>
@@ -179,7 +184,7 @@ argument_list|(
 argument|newGeometry
 argument_list|)
 block|{ }
-name|QWeakPointer
+name|QPointer
 operator|<
 name|QWindow
 operator|>
@@ -215,7 +220,7 @@ argument_list|(
 argument|enter
 argument_list|)
 block|{ }
-name|QWeakPointer
+name|QPointer
 operator|<
 name|QWindow
 operator|>
@@ -248,7 +253,7 @@ argument_list|(
 argument|leave
 argument_list|)
 block|{ }
-name|QWeakPointer
+name|QPointer
 operator|<
 name|QWindow
 operator|>
@@ -281,7 +286,7 @@ argument_list|(
 argument|activatedWindow
 argument_list|)
 block|{ }
-name|QWeakPointer
+name|QPointer
 operator|<
 name|QWindow
 operator|>
@@ -318,7 +323,7 @@ argument_list|(
 argument|_newState
 argument_list|)
 block|{ }
-name|QWeakPointer
+name|QPointer
 operator|<
 name|QWindow
 operator|>
@@ -369,7 +374,7 @@ argument_list|(
 argument|time
 argument_list|)
 block|{ }
-name|QWeakPointer
+name|QPointer
 operator|<
 name|QWindow
 operator|>
@@ -854,7 +859,7 @@ argument_list|(
 argument|o
 argument_list|)
 block|{ }
-name|QWeakPointer
+name|QPointer
 operator|<
 name|QScreen
 operator|>
@@ -901,7 +906,7 @@ argument_list|(
 argument|g
 argument_list|)
 block|{ }
-name|QWeakPointer
+name|QPointer
 operator|<
 name|QScreen
 operator|>
@@ -946,7 +951,7 @@ argument_list|(
 argument|g
 argument_list|)
 block|{ }
-name|QWeakPointer
+name|QPointer
 operator|<
 name|QScreen
 operator|>
@@ -993,7 +998,7 @@ argument_list|(
 argument|dy
 argument_list|)
 block|{ }
-name|QWeakPointer
+name|QPointer
 operator|<
 name|QScreen
 operator|>
@@ -1036,7 +1041,7 @@ argument_list|(
 argument|r
 argument_list|)
 block|{ }
-name|QWeakPointer
+name|QPointer
 operator|<
 name|QScreen
 operator|>
@@ -1072,7 +1077,7 @@ argument_list|(
 argument|w
 argument_list|)
 block|{ }
-name|QWeakPointer
+name|QPointer
 operator|<
 name|QWindow
 operator|>
@@ -1099,7 +1104,7 @@ operator|&
 name|region
 argument_list|)
 block|;
-name|QWeakPointer
+name|QPointer
 operator|<
 name|QWindow
 operator|>

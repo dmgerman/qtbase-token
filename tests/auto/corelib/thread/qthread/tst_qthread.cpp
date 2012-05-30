@@ -5528,7 +5528,7 @@ init|=
 operator|new
 name|QObject
 decl_stmt|;
-name|QWeakPointer
+name|QPointer
 argument_list|<
 name|QObject
 argument_list|>
@@ -6056,7 +6056,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|QWeakPointer
+name|QPointer
 argument_list|<
 name|QThread
 argument_list|>
@@ -6936,7 +6936,7 @@ operator|->
 name|visited
 argument_list|)
 expr_stmt|;
-name|QWeakPointer
+name|QPointer
 argument_list|<
 name|DummyEventDispatcher
 argument_list|>

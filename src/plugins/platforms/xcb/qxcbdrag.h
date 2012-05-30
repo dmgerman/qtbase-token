@@ -56,6 +56,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qpointer.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<qvector.h>
 end_include
 begin_include
@@ -343,7 +348,7 @@ name|a
 argument_list|)
 decl|const
 decl_stmt|;
-name|QWeakPointer
+name|QPointer
 operator|<
 name|QWindow
 operator|>
