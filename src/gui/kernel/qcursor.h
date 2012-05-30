@@ -367,25 +367,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-ifdef|#
-directive|ifdef
-name|qdoc
-name|HCURSOR_or_HANDLE
-name|handle
-parameter_list|()
-function_decl|const;
-name|QCursor
-argument_list|(
-argument|HCURSOR cursor
-argument_list|)
-empty_stmt|;
-name|QCursor
-argument_list|(
-argument|Qt::HANDLE cursor
-argument_list|)
-empty_stmt|;
-endif|#
-directive|endif
 ifndef|#
 directive|ifndef
 name|qdoc
