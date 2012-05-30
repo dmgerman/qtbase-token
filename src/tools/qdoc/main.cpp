@@ -2005,9 +2005,6 @@ index|[
 name|i
 index|]
 expr_stmt|;
-return|return
-name|EXIT_FAILURE
-return|;
 block|}
 name|i
 operator|++
