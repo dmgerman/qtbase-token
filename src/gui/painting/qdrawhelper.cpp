@@ -5669,7 +5669,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QT_ALWAYS_HAVE_SSE2
+name|__SSE2__
 argument_list|)
 end_if
 begin_define
@@ -5710,7 +5710,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QT_ALWAYS_HAVE_NEON
+name|__ARM_NEON__
 argument_list|)
 end_if
 begin_define
@@ -6513,7 +6513,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QT_ALWAYS_HAVE_SSE2
+name|__SSE2__
 argument_list|)
 specifier|const
 name|__m128i
@@ -6771,7 +6771,7 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|QT_ALWAYS_HAVE_NEON
+name|__ARM_NEON__
 argument_list|)
 specifier|const
 name|int16x8_t
@@ -7687,7 +7687,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QT_ALWAYS_HAVE_SSE2
+name|__SSE2__
 argument_list|)
 name|BILINEAR_DOWNSCALE_BOUNDS_PROLOG
 specifier|const
@@ -8022,7 +8022,7 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|QT_ALWAYS_HAVE_NEON
+name|__ARM_NEON__
 argument_list|)
 name|BILINEAR_DOWNSCALE_BOUNDS_PROLOG
 specifier|const

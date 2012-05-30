@@ -11912,7 +11912,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QT_ALWAYS_HAVE_SSE2
+name|__SSE2__
 argument_list|)
 end_if
 begin_function
@@ -12173,7 +12173,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QT_ALWAYS_HAVE_SSE2
+name|__SSE2__
 argument_list|)
 if|if
 condition|(
@@ -12294,7 +12294,7 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|QT_ALWAYS_HAVE_NEON
+name|__ARM_NEON__
 argument_list|)
 comment|// Refer to the documentation of the SSE2 implementation
 comment|// this use eactly the same method as for SSE except:
@@ -12845,7 +12845,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QT_ALWAYS_HAVE_SSE2
+name|__SSE2__
 argument_list|)
 if|if
 condition|(

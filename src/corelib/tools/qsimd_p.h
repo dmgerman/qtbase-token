@@ -20,7 +20,7 @@ file|<qglobal.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
-comment|/*  * qt_module_config.prf defines the QT_COMPILER_SUPPORTS_XXX macros.  * They mean the compiler supports the necessary flags and the headers  * for the x86 and ARM intrinsics:  *  - GCC: the -mXXX or march=YYY flag is necessary before #include  *  - Intel CC: #include can happen unconditionally  *  - MSVC: #include can happen unconditionally  *  - RVCT: ???  *  * We will try to include all headers possible under this configuration.  *  * Supported XXX are:  *   Flag  | Arch |  GCC  | Intel CC |  MSVC  |  *  NEON   | ARM  | I& C | None     |   ?    |  *  IWMMXT | ARM  | I& C | None     | I& C  |  *  SSE2   | x86  | I& C | I& C    | I& C  |  *  SSE3   | x86  | I& C | I& C    | I only |  *  SSSE3  | x86  | I& C | I& C    | I only |  *  SSE4_1 | x86  | I& C | I& C    | I only |  *  SSE4_2 | x86  | I& C | I& C    | I only |  *  AVX    | x86  | I& C | I& C    | I& C  |  *  AVX2   | x86  | I& C | I& C    | I only |  * I = intrinsics; C = code generation  */
+comment|/*  * qt_module_config.prf defines the QT_COMPILER_SUPPORTS_XXX macros.  * They mean the compiler supports the necessary flags and the headers  * for the x86 and ARM intrinsics:  *  - GCC: the -mXXX or march=YYY flag is necessary before #include  *  - Intel CC: #include can happen unconditionally  *  - MSVC: #include can happen unconditionally  *  - RVCT: ???  *  * We will try to include all headers possible under this configuration.  *  * MSVC does not define __SSE2__& family, so we will define them.  *  * Supported XXX are:  *   Flag  | Arch |  GCC  | Intel CC |  MSVC  |  *  NEON   | ARM  | I& C | None     |   ?    |  *  IWMMXT | ARM  | I& C | None     | I& C  |  *  SSE2   | x86  | I& C | I& C    | I& C  |  *  SSE3   | x86  | I& C | I& C    | I only |  *  SSSE3  | x86  | I& C | I& C    | I only |  *  SSE4_1 | x86  | I& C | I& C    | I only |  *  SSE4_2 | x86  | I& C | I& C    | I only |  *  AVX    | x86  | I& C | I& C    | I& C  |  *  AVX2   | x86  | I& C | I& C    | I only |  * I = intrinsics; C = code generation  */
 ifdef|#
 directive|ifdef
 name|__MINGW64_VERSION_MAJOR
@@ -73,6 +73,35 @@ directive|else
 include|#
 directive|include
 file|<emmintrin.h>
+endif|#
+directive|endif
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_CC_MSVC
+argument_list|)
+operator|&&
+operator|(
+name|defined
+argument_list|(
+name|_M_X64
+argument_list|)
+operator|||
+name|_M_IX86_FP
+operator|>=
+literal|2
+operator|)
+DECL|macro|__SSE__
+define|#
+directive|define
+name|__SSE__
+value|1
+DECL|macro|__SSE2__
+define|#
+directive|define
+name|__SSE2__
+value|1
 endif|#
 directive|endif
 endif|#
@@ -196,6 +225,70 @@ comment|// immintrin.h is the ultimate header, we don't need anything else after
 include|#
 directive|include
 file|<immintrin.h>
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_CC_MSVC
+argument_list|)
+operator|&&
+name|defined
+argument_list|(
+name|_M_AVX
+argument_list|)
+comment|// MS Visual Studio 2010 has no macro pre-defined to identify the use of /arch:AVX
+comment|// See: http://connect.microsoft.com/VisualStudio/feedback/details/605858/arch-avx-should-define-a-predefined-macro-in-x64-and-set-a-unique-value-for-m-ix86-fp-in-win32
+comment|// When such a macro exists, add it above, replacing _M_AVX as appropriate
+DECL|macro|__SSE3__
+define|#
+directive|define
+name|__SSE3__
+value|1
+DECL|macro|__SSSE3__
+define|#
+directive|define
+name|__SSSE3__
+value|1
+comment|// no Intel CPU supports SSE4a, so don't define it
+DECL|macro|__SSE4_1__
+define|#
+directive|define
+name|__SSE4_1__
+value|1
+DECL|macro|__SSE4_2__
+define|#
+directive|define
+name|__SSE4_2__
+value|1
+DECL|macro|__AVX__
+define|#
+directive|define
+name|__AVX__
+value|1
+ifdef|#
+directive|ifdef
+name|_M_AVX2
+comment|// replace the macro above with the proper MS macro when it exists
+comment|// All processors with AVX2 will support BMI1 and FMA
+DECL|macro|__AVX2__
+define|#
+directive|define
+name|__AVX2__
+value|1
+DECL|macro|__BMI__
+define|#
+directive|define
+name|__BMI__
+value|1
+DECL|macro|__FMA__
+define|#
+directive|define
+name|__FMA__
+value|1
+endif|#
+directive|endif
+endif|#
+directive|endif
 endif|#
 directive|endif
 comment|// NEON intrinsics
@@ -203,10 +296,6 @@ if|#
 directive|if
 name|defined
 name|__ARM_NEON__
-DECL|macro|QT_ALWAYS_HAVE_NEON
-define|#
-directive|define
-name|QT_ALWAYS_HAVE_NEON
 include|#
 directive|include
 file|<arm_neon.h>

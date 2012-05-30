@@ -464,7 +464,7 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|QT_ALWAYS_HAVE_NEON
+name|__ARM_NEON__
 argument_list|)
 name|features
 operator|=
