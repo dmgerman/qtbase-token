@@ -291,6 +291,27 @@ endif|#
 directive|endif
 endif|#
 directive|endif
+comment|// other x86 intrinsics
+if|#
+directive|if
+name|defined
+argument_list|(
+name|QT_COMPILER_SUPPORTS_AVX
+argument_list|)
+operator|&&
+name|defined
+argument_list|(
+name|Q_CC_GNU
+argument_list|)
+DECL|macro|QT_COMPILER_SUPPORTS_X86INTRIN
+define|#
+directive|define
+name|QT_COMPILER_SUPPORTS_X86INTRIN
+include|#
+directive|include
+file|<x86intrin.h>
+endif|#
+directive|endif
 comment|// NEON intrinsics
 if|#
 directive|if
