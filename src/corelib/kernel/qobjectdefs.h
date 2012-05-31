@@ -1484,9 +1484,6 @@ modifier|*
 name|sender
 parameter_list|,
 name|int
-name|method_offset
-parameter_list|,
-name|int
 name|signal_offset
 parameter_list|,
 name|int
