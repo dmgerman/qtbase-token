@@ -399,11 +399,7 @@ name|disable_clear_on_painter_begin
 argument_list|(
 argument|false
 argument_list|)
-block|{
-name|isGLWidget
-operator|=
-literal|1
-block|;     }
+block|{     }
 operator|~
 name|QGLWidgetPrivate
 argument_list|()

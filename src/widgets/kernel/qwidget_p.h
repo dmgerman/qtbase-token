@@ -3360,13 +3360,6 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|uint
-name|isGLWidget
-range|:
-literal|1
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-name|uint
 name|usesDoubleBufferedGLContext
 range|:
 literal|1

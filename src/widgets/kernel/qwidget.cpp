@@ -913,11 +913,6 @@ argument_list|(
 literal|0
 argument_list|)
 member_init_list|,
-name|isGLWidget
-argument_list|(
-literal|0
-argument_list|)
-member_init_list|,
 name|usesDoubleBufferedGLContext
 argument_list|(
 literal|0
