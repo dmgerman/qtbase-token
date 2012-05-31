@@ -1257,6 +1257,14 @@ modifier|&
 name|out
 parameter_list|)
 block|{
+if|if
+condition|(
+name|a
+operator|.
+name|data
+argument_list|()
+condition|)
+block|{
 for|for
 control|(
 specifier|const
@@ -1285,6 +1293,7 @@ operator|++
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 end_function
 begin_function
 specifier|static
@@ -1301,6 +1310,14 @@ modifier|*
 modifier|&
 name|out
 parameter_list|)
+block|{
+if|if
+condition|(
+name|a
+operator|.
+name|data
+argument_list|()
+condition|)
 block|{
 for|for
 control|(
@@ -1326,6 +1343,7 @@ operator|*
 name|s
 operator|++
 expr_stmt|;
+block|}
 block|}
 end_function
 begin_expr_stmt
