@@ -2656,8 +2656,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-return|return;
 block|}
+else|else
+block|{
 name|invalidateBuffer
 argument_list|(
 name|q
@@ -2666,6 +2667,7 @@ name|rect
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|window
