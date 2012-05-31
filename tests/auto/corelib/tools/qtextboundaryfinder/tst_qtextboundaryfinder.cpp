@@ -1304,22 +1304,6 @@ argument_list|,
 name|expectedBreakPositions
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|testString
-operator|.
-name|contains
-argument_list|(
-name|QChar
-operator|::
-name|ObjectReplacementCharacter
-argument_list|)
-condition|)
-name|QSKIP
-argument_list|(
-literal|"QTextBoundaryFinder doesn't handle Object Replacement character"
-argument_list|)
-expr_stmt|;
 name|expectedBreakPositions
 operator|.
 name|prepend

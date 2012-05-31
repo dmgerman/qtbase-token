@@ -1082,15 +1082,15 @@ modifier|*
 name|line_break_class_string
 init|=
 literal|"    // see http://www.unicode.org/reports/tr14/tr14-28.html\n"
-literal|"    // we don't use the XX, AI, and CB classes and map them to AL instead.\n"
+literal|"    // we don't use the XX and AI classes and map them to AL instead.\n"
 literal|"    enum LineBreakClass {\n"
 literal|"        LineBreak_OP, LineBreak_CL, LineBreak_CP, LineBreak_QU, LineBreak_GL,\n"
 literal|"        LineBreak_NS, LineBreak_EX, LineBreak_SY, LineBreak_IS, LineBreak_PR,\n"
 literal|"        LineBreak_PO, LineBreak_NU, LineBreak_AL, LineBreak_HL, LineBreak_ID,\n"
 literal|"        LineBreak_IN, LineBreak_HY, LineBreak_BA, LineBreak_BB, LineBreak_B2,\n"
 literal|"        LineBreak_ZW, LineBreak_CM, LineBreak_WJ, LineBreak_H2, LineBreak_H3,\n"
-literal|"        LineBreak_JL, LineBreak_JV, LineBreak_JT, LineBreak_SA, LineBreak_SG,\n"
-literal|"        LineBreak_SP, LineBreak_CR, LineBreak_LF, LineBreak_BK\n"
+literal|"        LineBreak_JL, LineBreak_JV, LineBreak_JT, LineBreak_CB, LineBreak_SA,\n"
+literal|"        LineBreak_SG, LineBreak_SP, LineBreak_CR, LineBreak_LF, LineBreak_BK\n"
 literal|"    };\n\n"
 decl_stmt|;
 end_decl_stmt
@@ -1177,22 +1177,25 @@ block|,
 DECL|enumerator|LineBreak_JL
 DECL|enumerator|LineBreak_JV
 DECL|enumerator|LineBreak_JT
+DECL|enumerator|LineBreak_CB
 DECL|enumerator|LineBreak_SA
-DECL|enumerator|LineBreak_SG
 name|LineBreak_JL
 block|,
 name|LineBreak_JV
 block|,
 name|LineBreak_JT
 block|,
+name|LineBreak_CB
+block|,
 name|LineBreak_SA
 block|,
-name|LineBreak_SG
-block|,
+DECL|enumerator|LineBreak_SG
 DECL|enumerator|LineBreak_SP
 DECL|enumerator|LineBreak_CR
 DECL|enumerator|LineBreak_LF
 DECL|enumerator|LineBreak_BK
+name|LineBreak_SG
+block|,
 name|LineBreak_SP
 block|,
 name|LineBreak_CR
@@ -1226,7 +1229,6 @@ name|initLineBreak
 parameter_list|()
 block|{
 comment|// ### Classes XX and AI are left out and mapped to AL for now.
-comment|// ### Class CB is unsupported for now and mapped to AL as well.
 comment|// ### Class NL is mapped to BK.
 comment|// ### Treating characters of class CJ as class NS will give CSS strict line breaking;
 comment|//     treating them as class ID will give CSS normal breaking.
@@ -1331,12 +1333,11 @@ literal|"HY"
 block|}
 block|,
 block|{
-name|LineBreak_AL
+name|LineBreak_CB
 block|,
 literal|"CB"
 block|}
 block|,
-comment|// ###
 block|{
 name|LineBreak_NS
 block|,

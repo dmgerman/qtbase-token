@@ -2381,20 +2381,20 @@ name|breakTable
 index|[
 name|QUnicodeTables
 operator|::
-name|LineBreak_JT
+name|LineBreak_CB
 operator|+
 literal|1
 index|]
 index|[
 name|QUnicodeTables
 operator|::
-name|LineBreak_JT
+name|LineBreak_CB
 operator|+
 literal|1
 index|]
 init|=
 block|{
-comment|/*         OP  CL  CP  QU  GL  NS  EX  SY  IS  PR  PO  NU  AL  HL  ID  IN  HY  BA  BB  B2  ZW  CM  WJ  H2  H3  JL  JV  JT */
+comment|/*         OP  CL  CP  QU  GL  NS  EX  SY  IS  PR  PO  NU  AL  HL  ID  IN  HY  BA  BB  B2  ZW  CM  WJ  H2  H3  JL  JV  JT  CB */
 comment|/* OP */
 block|{
 name|PB
@@ -2440,6 +2440,8 @@ block|,
 name|PB
 block|,
 name|CP
+block|,
+name|PB
 block|,
 name|PB
 block|,
@@ -2511,6 +2513,8 @@ block|,
 name|DB
 block|,
 name|DB
+block|,
+name|DB
 block|}
 block|,
 comment|/* CP */
@@ -2560,6 +2564,8 @@ block|,
 name|CI
 block|,
 name|PB
+block|,
+name|DB
 block|,
 name|DB
 block|,
@@ -2629,6 +2635,8 @@ block|,
 name|IB
 block|,
 name|IB
+block|,
+name|IB
 block|}
 block|,
 comment|/* GL */
@@ -2678,6 +2686,8 @@ block|,
 name|CI
 block|,
 name|PB
+block|,
+name|IB
 block|,
 name|IB
 block|,
@@ -2747,6 +2757,8 @@ block|,
 name|DB
 block|,
 name|DB
+block|,
+name|DB
 block|}
 block|,
 comment|/* EX */
@@ -2796,6 +2808,8 @@ block|,
 name|CI
 block|,
 name|PB
+block|,
+name|DB
 block|,
 name|DB
 block|,
@@ -2865,6 +2879,8 @@ block|,
 name|DB
 block|,
 name|DB
+block|,
+name|DB
 block|}
 block|,
 comment|/* IS */
@@ -2914,6 +2930,8 @@ block|,
 name|CI
 block|,
 name|PB
+block|,
+name|DB
 block|,
 name|DB
 block|,
@@ -2983,6 +3001,8 @@ block|,
 name|IB
 block|,
 name|IB
+block|,
+name|DB
 block|}
 block|,
 comment|/* PO */
@@ -3032,6 +3052,8 @@ block|,
 name|CI
 block|,
 name|PB
+block|,
+name|DB
 block|,
 name|DB
 block|,
@@ -3101,6 +3123,8 @@ block|,
 name|DB
 block|,
 name|DB
+block|,
+name|DB
 block|}
 block|,
 comment|/* AL */
@@ -3150,6 +3174,8 @@ block|,
 name|CI
 block|,
 name|PB
+block|,
+name|DB
 block|,
 name|DB
 block|,
@@ -3219,6 +3245,8 @@ block|,
 name|DB
 block|,
 name|DB
+block|,
+name|DB
 block|}
 block|,
 comment|/* ID */
@@ -3268,6 +3296,8 @@ block|,
 name|CI
 block|,
 name|PB
+block|,
+name|DB
 block|,
 name|DB
 block|,
@@ -3337,6 +3367,8 @@ block|,
 name|DB
 block|,
 name|DB
+block|,
+name|DB
 block|}
 block|,
 comment|/* HY */
@@ -3386,6 +3418,8 @@ block|,
 name|CI
 block|,
 name|PB
+block|,
+name|DB
 block|,
 name|DB
 block|,
@@ -3455,6 +3489,8 @@ block|,
 name|DB
 block|,
 name|DB
+block|,
+name|DB
 block|}
 block|,
 comment|/* BB */
@@ -3514,6 +3550,8 @@ block|,
 name|IB
 block|,
 name|IB
+block|,
+name|DB
 block|}
 block|,
 comment|/* B2 */
@@ -3573,6 +3611,8 @@ block|,
 name|DB
 block|,
 name|DB
+block|,
+name|DB
 block|}
 block|,
 comment|/* ZW */
@@ -3618,6 +3658,8 @@ block|,
 name|DB
 block|,
 name|PB
+block|,
+name|DB
 block|,
 name|DB
 block|,
@@ -3691,6 +3733,8 @@ block|,
 name|DB
 block|,
 name|DB
+block|,
+name|DB
 block|}
 block|,
 comment|/* WJ */
@@ -3740,6 +3784,8 @@ block|,
 name|CI
 block|,
 name|PB
+block|,
+name|IB
 block|,
 name|IB
 block|,
@@ -3809,6 +3855,8 @@ block|,
 name|IB
 block|,
 name|IB
+block|,
+name|DB
 block|}
 block|,
 comment|/* H3 */
@@ -3868,6 +3916,8 @@ block|,
 name|DB
 block|,
 name|IB
+block|,
+name|DB
 block|}
 block|,
 comment|/* JL */
@@ -3925,6 +3975,8 @@ block|,
 name|IB
 block|,
 name|IB
+block|,
+name|DB
 block|,
 name|DB
 block|}
@@ -3986,6 +4038,8 @@ block|,
 name|IB
 block|,
 name|IB
+block|,
+name|DB
 block|}
 block|,
 comment|/* JT */
@@ -4045,6 +4099,69 @@ block|,
 name|DB
 block|,
 name|IB
+block|,
+name|DB
+block|}
+block|,
+comment|/* CB */
+block|{
+name|DB
+block|,
+name|PB
+block|,
+name|PB
+block|,
+name|IB
+block|,
+name|IB
+block|,
+name|DB
+block|,
+name|PB
+block|,
+name|PB
+block|,
+name|PB
+block|,
+name|DB
+block|,
+name|DB
+block|,
+name|DB
+block|,
+name|DB
+block|,
+name|DB
+block|,
+name|DB
+block|,
+name|DB
+block|,
+name|DB
+block|,
+name|DB
+block|,
+name|DB
+block|,
+name|DB
+block|,
+name|PB
+block|,
+name|CI
+block|,
+name|PB
+block|,
+name|DB
+block|,
+name|DB
+block|,
+name|DB
+block|,
+name|DB
+block|,
+name|DB
+block|,
+name|DB
 block|}
 block|}
 decl_stmt|;
