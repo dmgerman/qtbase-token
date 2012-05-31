@@ -529,6 +529,22 @@ operator|==
 literal|0x10400
 argument_list|)
 expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|QChar
+operator|::
+name|toUpper
+argument_list|(
+operator|(
+name|uint
+operator|)
+literal|0xdf
+argument_list|)
+operator|==
+literal|0xdf
+argument_list|)
+expr_stmt|;
+comment|// german sharp s
 block|}
 end_function
 begin_function
@@ -1075,6 +1091,22 @@ operator|==
 literal|0x10400
 argument_list|)
 expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|QChar
+operator|::
+name|toTitleCase
+argument_list|(
+operator|(
+name|uint
+operator|)
+literal|0xdf
+argument_list|)
+operator|==
+literal|0xdf
+argument_list|)
+expr_stmt|;
+comment|// german sharp s
 block|}
 end_function
 begin_function
