@@ -6960,12 +6960,6 @@ operator|=
 literal|true
 expr_stmt|;
 comment|// we call _q_process() below
-emit|emit
-name|q
-operator|->
-name|started
-argument_list|()
-emit|;
 name|QState
 modifier|*
 name|start
@@ -7101,6 +7095,12 @@ name|configuration
 expr_stmt|;
 endif|#
 directive|endif
+emit|emit
+name|q
+operator|->
+name|started
+argument_list|()
+emit|;
 name|_q_process
 argument_list|()
 expr_stmt|;
