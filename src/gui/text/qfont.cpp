@@ -1520,9 +1520,6 @@ begin_comment
 comment|/*!     \enum QFont::Style      This enum describes the different styles of glyphs that are used to     display text.      \value StyleNormal  Normal glyphs used in unstyled text.     \value StyleItalic  Italic glyphs that are specifically designed for                         the purpose of representing italicized text.     \value StyleOblique Glyphs with an italic appearance that are typically                         based on the unstyled glyphs, but are not fine-tuned                         for the purpose of representing italicized text.      \sa Weight */
 end_comment
 begin_comment
-comment|/*!     \fn Qt::HANDLE QFont::handle() const      Returns the window system handle to the font, for low-level     access. Using this function is \e not portable. */
-end_comment
-begin_comment
 comment|/*!     \fn FT_Face QFont::freetypeFace() const      Returns the handle to the primary FreeType face of the font. If font merging is not disabled a     QFont can contain several physical fonts.      Returns 0 if the font does not contain a FreeType face.      \note This function is only available on platforms that provide the FreeType library;     i.e., X11 and some Embedded Linux platforms. */
 end_comment
 begin_comment

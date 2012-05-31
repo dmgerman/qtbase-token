@@ -46,22 +46,6 @@ begin_comment
 comment|/*****************************************************************************   QFont member functions  *****************************************************************************/
 end_comment
 begin_function
-DECL|function|handle
-name|Qt
-operator|::
-name|HANDLE
-name|QFont
-operator|::
-name|handle
-parameter_list|()
-specifier|const
-block|{
-return|return
-literal|0
-return|;
-block|}
-end_function
-begin_function
 DECL|function|rawName
 name|QString
 name|QFont

@@ -751,13 +751,6 @@ return|;
 block|}
 endif|#
 directive|endif
-name|Qt
-operator|::
-name|HANDLE
-name|handle
-argument_list|()
-specifier|const
-expr_stmt|;
 comment|// needed for X11
 name|void
 name|setRawName
