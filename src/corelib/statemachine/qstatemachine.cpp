@@ -521,6 +521,9 @@ block|{
 return|return
 name|s1
 operator|->
+name|parent
+argument_list|()
+operator|->
 name|children
 argument_list|()
 operator|.
@@ -530,6 +533,9 @@ name|s1
 argument_list|)
 operator|<
 name|s2
+operator|->
+name|parent
+argument_list|()
 operator|->
 name|children
 argument_list|()
@@ -675,6 +681,9 @@ block|{
 return|return
 name|s1
 operator|->
+name|parent
+argument_list|()
+operator|->
 name|children
 argument_list|()
 operator|.
@@ -684,6 +693,9 @@ name|s1
 argument_list|)
 operator|<
 name|s2
+operator|->
+name|parent
+argument_list|()
 operator|->
 name|children
 argument_list|()
