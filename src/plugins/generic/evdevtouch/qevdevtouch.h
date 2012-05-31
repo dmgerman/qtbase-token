@@ -85,6 +85,12 @@ name|spec
 operator|=
 name|QString
 argument_list|()
+argument_list|,
+name|QObject
+operator|*
+name|parent
+operator|=
+literal|0
 argument_list|)
 block|;
 operator|~

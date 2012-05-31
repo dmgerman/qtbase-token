@@ -34,8 +34,10 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_function
+begin_macro
 name|QT_BEGIN_NAMESPACE
+end_macro
+begin_constructor
 DECL|function|QEvdevKeyboardManager
 name|QEvdevKeyboardManager
 operator|::
@@ -50,7 +52,16 @@ specifier|const
 name|QString
 modifier|&
 name|specification
+parameter_list|,
+name|QObject
+modifier|*
+name|parent
 parameter_list|)
+member_init_list|:
+name|QObject
+argument_list|(
+name|parent
+argument_list|)
 block|{
 name|Q_UNUSED
 argument_list|(
@@ -249,7 +260,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-end_function
+end_constructor
 begin_destructor
 DECL|function|~QEvdevKeyboardManager
 name|QEvdevKeyboardManager

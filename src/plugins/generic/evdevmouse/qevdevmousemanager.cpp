@@ -62,8 +62,17 @@ specifier|const
 name|QString
 modifier|&
 name|specification
+parameter_list|,
+name|QObject
+modifier|*
+name|parent
 parameter_list|)
 member_init_list|:
+name|QObject
+argument_list|(
+name|parent
+argument_list|)
+member_init_list|,
 name|m_x
 argument_list|(
 literal|0
