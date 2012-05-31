@@ -69,7 +69,7 @@ DECL|macro|LONG_BITS
 define|#
 directive|define
 name|LONG_BITS
-value|(sizeof(int) * 8 )
+value|(sizeof(long) * 8 )
 end_define
 begin_define
 DECL|macro|LONG_FIELD_SIZE
