@@ -26305,7 +26305,7 @@ condition|(
 operator|++
 name|m_count
 operator|<
-literal|10000
+literal|1000
 condition|)
 name|QTimer
 operator|::
