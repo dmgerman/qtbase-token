@@ -2089,7 +2089,7 @@ name|it1
 operator|=
 name|hash
 operator|.
-name|begin
+name|constBegin
 argument_list|()
 expr_stmt|;
 while|while
@@ -2098,7 +2098,7 @@ name|it1
 operator|!=
 name|hash
 operator|.
-name|end
+name|constEnd
 argument_list|()
 condition|)
 block|{
@@ -3754,7 +3754,7 @@ name|it
 init|=
 name|map1
 operator|.
-name|find
+name|constFind
 argument_list|(
 literal|4
 argument_list|)
@@ -3773,7 +3773,7 @@ name|it
 operator|!=
 name|map1
 operator|.
-name|end
+name|constEnd
 argument_list|()
 operator|&&
 name|it
