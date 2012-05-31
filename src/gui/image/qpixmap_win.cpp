@@ -5,6 +5,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|"qbitmap.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qpixmap.h"
 end_include
 begin_include
