@@ -6754,6 +6754,11 @@ operator|::
 name|Window
 argument_list|)
 expr_stmt|;
+name|modal_widget
+operator|.
+name|createWinId
+argument_list|()
+expr_stmt|;
 name|QGuiApplicationPrivate
 operator|::
 name|showModalWindow
@@ -6969,6 +6974,11 @@ operator|::
 name|Window
 argument_list|)
 expr_stmt|;
+name|modal_widget
+operator|.
+name|createWinId
+argument_list|()
+expr_stmt|;
 name|QGuiApplicationPrivate
 operator|::
 name|showModalWindow
@@ -7182,6 +7192,11 @@ name|Qt
 operator|::
 name|Window
 argument_list|)
+expr_stmt|;
+name|modal_widget
+operator|.
+name|createWinId
+argument_list|()
 expr_stmt|;
 name|QGuiApplicationPrivate
 operator|::
@@ -7428,6 +7443,11 @@ name|Qt
 operator|::
 name|Window
 argument_list|)
+expr_stmt|;
+name|modal_widget
+operator|.
+name|createWinId
+argument_list|()
 expr_stmt|;
 name|QGuiApplicationPrivate
 operator|::
