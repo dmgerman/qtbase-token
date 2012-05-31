@@ -961,6 +961,7 @@ argument|QSemaphore *semaphore =
 literal|0
 argument_list|)
 block|;
+comment|/*! \internal         \a signalId is in the signal index range (see QObjectPrivate::signalIndex()).     */
 name|QMetaCallEvent
 argument_list|(
 argument|QObject::QSlotObjectBase *slotObj
