@@ -10,7 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qevdevkeyboardmanager.h"
+file|<QtPlatformSupport/private/qevdevkeyboardmanager_p.h>
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE

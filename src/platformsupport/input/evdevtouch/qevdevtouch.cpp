@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qevdevtouch.h"
+file|"qevdevtouch_p.h"
 end_include
 begin_include
 include|#

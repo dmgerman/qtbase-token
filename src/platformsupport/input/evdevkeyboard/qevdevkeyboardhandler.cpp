@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qevdevkeyboardhandler.h"
+file|"qevdevkeyboardhandler_p.h"
 end_include
 begin_include
 include|#
@@ -68,7 +68,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qevdevkeyboard_defaultmap.h"
+file|"qevdevkeyboard_defaultmap_p.h"
 end_include
 begin_constructor
 DECL|function|QEvdevKeyboardHandler

@@ -10,7 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qevdevtouch.h"
+file|<QtPlatformSupport/private/qevdevtouch_p.h>
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE

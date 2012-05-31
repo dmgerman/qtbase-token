@@ -10,7 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qevdevmousemanager.h"
+file|<QtPlatformSupport/private/qevdevmousemanager_p.h>
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE

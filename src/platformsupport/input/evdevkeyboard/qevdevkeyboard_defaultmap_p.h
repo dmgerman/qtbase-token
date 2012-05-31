@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QEVDEVKEYBOARDHANDLER_DEFAULTMAP_H
+name|QEVDEVKEYBOARDHANDLER_DEFAULTMAP_P_H
 end_ifndef
 begin_define
-DECL|macro|QEVDEVKEYBOARDHANDLER_DEFAULTMAP_H
+DECL|macro|QEVDEVKEYBOARDHANDLER_DEFAULTMAP_P_H
 define|#
 directive|define
-name|QEVDEVKEYBOARDHANDLER_DEFAULTMAP_H
+name|QEVDEVKEYBOARDHANDLER_DEFAULTMAP_P_H
 end_define
 begin_comment
 comment|// no QT_BEGIN_NAMESPACE, since we include it internally...
@@ -9443,6 +9443,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QEVDEVKEYBOARDHANDLER_DEFAULTMAP_H
+comment|// QEVDEVKEYBOARDHANDLER_DEFAULTMAP_P_H
 end_comment
 end_unit

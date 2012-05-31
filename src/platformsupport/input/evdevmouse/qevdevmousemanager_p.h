@@ -5,18 +5,18 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QEVDEVKEYBOARDMANAGER_H
+name|QEVDEVMOUSEMANAGER_P_H
 end_ifndef
 begin_define
-DECL|macro|QEVDEVKEYBOARDMANAGER_H
+DECL|macro|QEVDEVMOUSEMANAGER_P_H
 define|#
 directive|define
-name|QEVDEVKEYBOARDMANAGER_H
+name|QEVDEVMOUSEMANAGER_P_H
 end_define
 begin_include
 include|#
 directive|include
-file|"qevdevkeyboardhandler.h"
+file|"qevdevmousehandler_p.h"
 end_include
 begin_include
 include|#
@@ -42,7 +42,7 @@ begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 name|class
-name|QEvdevKeyboardManager
+name|QEvdevMouseManager
 range|:
 name|public
 name|QObject
@@ -50,7 +50,7 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
-name|QEvdevKeyboardManager
+name|QEvdevMouseManager
 argument_list|(
 specifier|const
 name|QString
@@ -70,14 +70,27 @@ literal|0
 argument_list|)
 block|;
 operator|~
-name|QEvdevKeyboardManager
+name|QEvdevMouseManager
 argument_list|()
+block|;
+name|public
+name|slots
+operator|:
+name|void
+name|handleMouseEvent
+argument_list|(
+argument|int x
+argument_list|,
+argument|int y
+argument_list|,
+argument|Qt::MouseButtons buttons
+argument_list|)
 block|;
 name|private
 name|slots
 operator|:
 name|void
-name|addKeyboard
+name|addMouse
 argument_list|(
 specifier|const
 name|QString
@@ -89,7 +102,7 @@ argument_list|()
 argument_list|)
 block|;
 name|void
-name|removeKeyboard
+name|removeMouse
 argument_list|(
 specifier|const
 name|QString
@@ -106,14 +119,26 @@ name|QHash
 operator|<
 name|QString
 block|,
-name|QEvdevKeyboardHandler
+name|QEvdevMouseHandler
 operator|*
 operator|>
-name|m_keyboards
+name|m_mice
 block|;
 name|QDeviceDiscovery
 operator|*
 name|m_deviceDiscovery
+block|;
+name|int
+name|m_x
+block|;
+name|int
+name|m_y
+block|;
+name|int
+name|m_xoffset
+block|;
+name|int
+name|m_yoffset
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -126,6 +151,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QEVDEVKEYBOARDMANAGER_H
+comment|// QEVDEVMOUSEMANAGER_P_H
 end_comment
 end_unit

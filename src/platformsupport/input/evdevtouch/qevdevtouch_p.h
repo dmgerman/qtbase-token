@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QEVDEVTOUCH_H
+name|QEVDEVTOUCH_P_H
 end_ifndef
 begin_define
-DECL|macro|QEVDEVTOUCH_H
+DECL|macro|QEVDEVTOUCH_P_H
 define|#
 directive|define
-name|QEVDEVTOUCH_H
+name|QEVDEVTOUCH_P_H
 end_define
 begin_include
 include|#
@@ -183,6 +183,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QEVDEVTOUCH_H
+comment|// QEVDEVTOUCH_P_H
 end_comment
 end_unit

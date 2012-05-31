@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qevdevmousehandler.h"
+file|"qevdevmousehandler_p.h"
 end_include
 begin_include
 include|#
@@ -144,7 +144,10 @@ if|if
 condition|(
 name|arg
 operator|==
+name|QLatin1String
+argument_list|(
 literal|"nocompress"
+argument_list|)
 condition|)
 name|compression
 operator|=
@@ -157,7 +160,10 @@ name|arg
 operator|.
 name|startsWith
 argument_list|(
+name|QLatin1String
+argument_list|(
 literal|"dejitter="
+argument_list|)
 argument_list|)
 condition|)
 name|jitterLimit
