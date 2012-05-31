@@ -112,7 +112,7 @@ struct_decl|;
 block|}
 end_decl_stmt
 begin_comment
-comment|/* mirrored in QtTestLib, DON'T CHANGE without prior warning */
+comment|/* for QtTestLib */
 end_comment
 begin_struct
 DECL|struct|QSignalSpyCallbackSet
@@ -132,7 +132,7 @@ modifier|*
 name|caller
 parameter_list|,
 name|int
-name|method_index
+name|signal_or_method_index
 parameter_list|,
 name|void
 modifier|*
@@ -153,7 +153,7 @@ modifier|*
 name|caller
 parameter_list|,
 name|int
-name|method_index
+name|signal_or_method_index
 parameter_list|)
 function_decl|;
 DECL|member|signal_begin_callback

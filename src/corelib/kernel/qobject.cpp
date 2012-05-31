@@ -11865,13 +11865,6 @@ operator|->
 name|blockSig
 condition|)
 return|return;
-name|int
-name|signal_absolute_index
-init|=
-name|methodOffset
-operator|+
-name|local_signal_index
-decl_stmt|;
 name|void
 modifier|*
 name|empty_argv
@@ -11896,7 +11889,7 @@ name|signal_begin_callback
 argument_list|(
 name|sender
 argument_list|,
-name|signal_absolute_index
+name|signal_index
 argument_list|,
 name|argv
 condition|?
@@ -12048,7 +12041,7 @@ name|signal_end_callback
 argument_list|(
 name|sender
 argument_list|,
-name|signal_absolute_index
+name|signal_index
 argument_list|)
 expr_stmt|;
 return|return;
@@ -12669,7 +12662,7 @@ name|signal_end_callback
 argument_list|(
 name|sender
 argument_list|,
-name|signal_absolute_index
+name|signal_index
 argument_list|)
 expr_stmt|;
 block|}
