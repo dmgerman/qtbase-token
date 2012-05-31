@@ -150,6 +150,10 @@ parameter_list|)
 function_decl|;
 name|private
 label|:
+name|QAbstractEventDispatcher
+modifier|*
+name|mEventDispatcher
+decl_stmt|;
 name|QPlatformFontDatabase
 modifier|*
 name|mFontDb
