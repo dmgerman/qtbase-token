@@ -85,6 +85,9 @@ argument|QOpenGLPaintDevice
 argument_list|)
 name|public
 operator|:
+name|QOpenGLPaintDevice
+argument_list|()
+block|;
 name|explicit
 name|QOpenGLPaintDevice
 argument_list|(
@@ -133,6 +136,15 @@ name|QSize
 name|size
 argument_list|()
 specifier|const
+block|;
+name|void
+name|setSize
+argument_list|(
+specifier|const
+name|QSize
+operator|&
+name|size
+argument_list|)
 block|;
 name|qreal
 name|dotsPerMeterX
