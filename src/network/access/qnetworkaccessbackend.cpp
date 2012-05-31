@@ -1387,25 +1387,31 @@ ifndef|#
 directive|ifndef
 name|QT_NO_BEARERMANAGEMENT
 comment|// For bearer, check if session start is required
-if|if
-condition|(
+name|QSharedPointer
+argument_list|<
+name|QNetworkSession
+argument_list|>
+name|networkSession
+argument_list|(
 name|manager
 operator|->
+name|getNetworkSession
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
 name|networkSession
 condition|)
 block|{
 comment|// session required
 if|if
 condition|(
-name|manager
-operator|->
 name|networkSession
 operator|->
 name|isOpen
 argument_list|()
 operator|&&
-name|manager
-operator|->
 name|networkSession
 operator|->
 name|state
@@ -1426,8 +1432,6 @@ name|QVariant
 operator|::
 name|fromValue
 argument_list|(
-name|manager
-operator|->
 name|networkSession
 argument_list|)
 argument_list|)
@@ -1491,8 +1495,6 @@ name|QNetworkSession
 modifier|*
 name|session
 init|=
-name|manager
-operator|->
 name|networkSession
 operator|.
 name|data
