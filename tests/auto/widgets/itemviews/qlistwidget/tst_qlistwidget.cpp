@@ -10213,6 +10213,25 @@ operator|.
 name|show
 argument_list|()
 expr_stmt|;
+comment|// Force the mouse cursor off the widget as it causes item it is over to highlight,
+comment|// which causes unexpected paint region.
+name|QTest
+operator|::
+name|mouseMove
+argument_list|(
+operator|&
+name|widget
+argument_list|,
+name|QPoint
+argument_list|(
+operator|-
+literal|10
+argument_list|,
+operator|-
+literal|10
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// Make sure the widget gets the first full repaint. On
 comment|// some WMs, we'll get two (first inactive exposure, then
 comment|// active exposure.
