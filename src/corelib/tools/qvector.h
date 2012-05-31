@@ -1794,10 +1794,12 @@ begin_function_decl
 name|void
 name|copyConstruct
 parameter_list|(
+specifier|const
 name|T
 modifier|*
 name|srcFrom
 parameter_list|,
+specifier|const
 name|T
 modifier|*
 name|srcTo
@@ -1968,9 +1970,9 @@ operator|>
 operator|::
 name|copyConstruct
 argument_list|(
-argument|T *srcFrom
+argument|const T *srcFrom
 argument_list|,
-argument|T *srcTo
+argument|const T *srcTo
 argument_list|,
 argument|T *dstFrom
 argument_list|)
@@ -3133,15 +3135,14 @@ argument_list|)
 block|{
 name|d
 operator|=
-name|malloc
-argument_list|(
-name|int
+name|Data
+operator|::
+name|allocate
 argument_list|(
 name|args
 operator|.
 name|size
 argument_list|()
-argument_list|)
 argument_list|)
 block|;
 comment|// std::initializer_list<T>::iterator is guaranteed to be

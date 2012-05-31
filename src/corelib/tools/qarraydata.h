@@ -1163,6 +1163,7 @@ operator|(
 name|int
 operator|)
 block|{
+specifier|const
 name|T
 operator|*
 name|n
@@ -1204,6 +1205,7 @@ operator|(
 name|int
 operator|)
 block|{
+specifier|const
 name|T
 operator|*
 name|n

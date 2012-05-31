@@ -425,7 +425,7 @@ block|{
 return|return
 name|d
 operator|->
-name|begin
+name|constBegin
 argument_list|()
 return|;
 block|}
@@ -440,7 +440,7 @@ block|{
 return|return
 name|d
 operator|->
-name|end
+name|constEnd
 argument_list|()
 return|;
 block|}
