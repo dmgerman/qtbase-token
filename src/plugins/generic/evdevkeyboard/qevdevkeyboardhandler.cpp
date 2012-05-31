@@ -471,7 +471,9 @@ operator|.
 name|constData
 argument_list|()
 argument_list|,
-name|O_RDWR
+name|O_RDONLY
+operator||
+name|O_NDELAY
 argument_list|,
 literal|0
 argument_list|)
