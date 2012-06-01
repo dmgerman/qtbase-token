@@ -8873,6 +8873,12 @@ name|lang
 operator|==
 name|QLocale
 operator|::
+name|Pashto
+operator|||
+name|lang
+operator|==
+name|QLocale
+operator|::
 name|Urdu
 operator|||
 name|lang
