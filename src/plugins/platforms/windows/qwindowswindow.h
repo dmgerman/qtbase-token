@@ -1193,17 +1193,6 @@ argument_list|)
 decl|const
 decl_stmt|;
 end_decl_stmt
-begin_decl_stmt
-specifier|inline
-name|void
-name|setOpacity_sys
-argument_list|(
-name|qreal
-name|level
-argument_list|)
-decl|const
-decl_stmt|;
-end_decl_stmt
 begin_function_decl
 specifier|inline
 name|void
