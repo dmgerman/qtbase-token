@@ -88,10 +88,6 @@ DECL|function|q_createNativeChildrenAndSetParent
 name|void
 name|q_createNativeChildrenAndSetParent
 parameter_list|(
-name|QWindow
-modifier|*
-name|parentWindow
-parameter_list|,
 specifier|const
 name|QWidget
 modifier|*
@@ -196,11 +192,23 @@ name|windowHandle
 argument_list|()
 condition|)
 block|{
+name|QWindow
+modifier|*
+name|parentWindow
+init|=
+name|childWidget
+operator|->
+name|nativeParentWidget
+argument_list|()
+operator|->
+name|windowHandle
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|childWidget
 operator|->
-name|isTopLevel
+name|isWindow
 argument_list|()
 condition|)
 name|childWidget
@@ -230,8 +238,6 @@ else|else
 block|{
 name|q_createNativeChildrenAndSetParent
 argument_list|(
-name|parentWindow
-argument_list|,
 name|childWidget
 argument_list|)
 expr_stmt|;
@@ -576,11 +582,6 @@ expr_stmt|;
 comment|// Check children and create windows for them if necessary
 name|q_createNativeChildrenAndSetParent
 argument_list|(
-name|q
-operator|->
-name|windowHandle
-argument_list|()
-argument_list|,
 name|q
 argument_list|)
 expr_stmt|;
