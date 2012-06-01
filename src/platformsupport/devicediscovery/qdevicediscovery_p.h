@@ -121,6 +121,10 @@ name|Device_DRM
 operator|=
 literal|0x10
 block|,
+name|Device_Tablet
+operator|=
+literal|0x20
+block|,
 name|Device_InputMask
 operator|=
 name|Device_Mouse
@@ -130,6 +134,8 @@ operator||
 name|Device_Touchscreen
 operator||
 name|Device_Keyboard
+operator||
+name|Device_Tablet
 block|,
 name|Device_VideoMask
 operator|=
