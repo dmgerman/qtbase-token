@@ -121,17 +121,6 @@ block|;
 name|EGLDisplay
 name|m_dpy
 block|;
-name|QRect
-name|m_geometry
-block|;
-name|int
-name|m_depth
-block|;
-name|QImage
-operator|::
-name|Format
-name|m_format
-block|;
 name|QPlatformOpenGLContext
 operator|*
 name|m_platformContext
