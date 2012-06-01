@@ -3064,6 +3064,13 @@ decl|const
 decl_stmt|;
 name|private
 label|:
+name|QLocale
+argument_list|(
+name|QLocalePrivate
+operator|&
+name|dd
+argument_list|)
+expr_stmt|;
 name|friend
 name|class
 name|QLocalePrivate
