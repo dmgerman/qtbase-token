@@ -2489,6 +2489,11 @@ name|m_widget
 operator|->
 name|isWindow
 argument_list|()
+operator|&&
+name|m_widget
+operator|->
+name|updatesEnabled
+argument_list|()
 condition|)
 block|{
 if|if
