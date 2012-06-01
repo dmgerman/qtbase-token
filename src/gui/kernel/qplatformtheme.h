@@ -139,6 +139,8 @@ block|,
 name|KeyboardScheme
 block|,
 name|UiEffects
+block|,
+name|SpellCheckUnderlineStyle
 block|}
 enum|;
 enum|enum
