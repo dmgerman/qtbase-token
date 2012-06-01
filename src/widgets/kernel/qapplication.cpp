@@ -9548,11 +9548,14 @@ name|pos
 operator|=
 name|receiver
 operator|->
-name|mapFrom
+name|mapFromGlobal
 argument_list|(
 name|candidate
-argument_list|,
+operator|->
+name|mapToGlobal
+argument_list|(
 name|windowPos
+argument_list|)
 argument_list|)
 expr_stmt|;
 ifdef|#
