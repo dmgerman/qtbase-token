@@ -81,25 +81,7 @@ argument_list|()
 block|;
 name|private
 operator|:
-specifier|static
-name|int
-name|printerInfoCupsPrinterIndex
-argument_list|(
-specifier|const
-name|QPrinterInfo
-operator|&
-name|p
-argument_list|)
-block|;
-specifier|static
-name|void
-name|setPrinterInfoCupsPrinterIndex
-argument_list|(
-argument|QPrinterInfo *p
-argument_list|,
-argument|int index
-argument_list|)
-block|; }
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_expr_stmt
