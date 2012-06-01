@@ -42,6 +42,11 @@ include|#
 directive|include
 file|<QtPrintSupport/qprinter.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qlist.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
@@ -194,6 +199,12 @@ name|int
 name|index
 parameter_list|)
 function_decl|;
+name|QList
+operator|<
+name|QPrinterInfo
+operator|>
+name|m_printers
+expr_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt

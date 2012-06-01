@@ -16,11 +16,6 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtCore/QList>
-end_include
-begin_include
-include|#
-directive|include
 file|<qpa/qplatformprintersupport.h>
 end_include
 begin_decl_stmt
@@ -81,27 +76,6 @@ argument_list|(
 argument|const QPrinterInfo&
 argument_list|)
 specifier|const
-block|;
-name|virtual
-name|QList
-operator|<
-name|QPrinterInfo
-operator|>
-name|availablePrinters
-argument_list|()
-block|;
-name|private
-operator|:
-name|QList
-operator|<
-name|QPrinterInfo
-operator|>
-name|mPrinterList
-block|;
-name|QPrinter
-operator|::
-name|PrinterMode
-name|mCurrentMode
 block|; }
 decl_stmt|;
 end_decl_stmt

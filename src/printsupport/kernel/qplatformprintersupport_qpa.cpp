@@ -121,11 +121,7 @@ name|availablePrinters
 parameter_list|()
 block|{
 return|return
-name|QList
-argument_list|<
-name|QPrinterInfo
-argument_list|>
-argument_list|()
+name|m_printers
 return|;
 block|}
 end_function
