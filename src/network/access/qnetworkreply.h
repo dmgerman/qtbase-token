@@ -173,13 +173,6 @@ operator|~
 name|QNetworkReply
 argument_list|()
 block|;
-name|virtual
-name|void
-name|abort
-argument_list|()
-operator|=
-literal|0
-block|;
 comment|// reimplemented from QIODevice
 name|virtual
 name|void
@@ -356,10 +349,19 @@ name|Q_SLOTS
 range|:
 name|virtual
 name|void
-name|ignoreSslErrors
+name|abort
 argument_list|()
+operator|=
+literal|0
 decl_stmt|;
 end_decl_stmt
+begin_function_decl
+name|virtual
+name|void
+name|ignoreSslErrors
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_label
 name|Q_SIGNALS
 label|:
