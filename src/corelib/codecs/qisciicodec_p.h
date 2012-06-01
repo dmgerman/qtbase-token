@@ -52,7 +52,7 @@ begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
-name|QT_NO_CODECS
+name|QT_NO_BIG_CODECS
 name|class
 name|QIsciiCodec
 range|:
@@ -120,7 +120,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_CODECS
+comment|// QT_NO_BIG_CODECS
 end_comment
 begin_macro
 name|QT_END_NAMESPACE

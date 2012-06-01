@@ -12,12 +12,6 @@ begin_comment
 comment|//#define QT_NO_ACTION
 end_comment
 begin_comment
-comment|// Big Codecs
-end_comment
-begin_comment
-comment|//#define QT_NO_BIG_CODECS
-end_comment
-begin_comment
 comment|// QClipboard
 end_comment
 begin_comment
@@ -437,6 +431,35 @@ DECL|macro|QT_NO_ANIMATION
 define|#
 directive|define
 name|QT_NO_ANIMATION
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// Big Codecs
+end_comment
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_BIG_CODECS
+argument_list|)
+operator|&&
+operator|(
+name|defined
+argument_list|(
+name|QT_NO_TEXTCODEC
+argument_list|)
+operator|)
+end_if
+begin_define
+DECL|macro|QT_NO_BIG_CODECS
+define|#
+directive|define
+name|QT_NO_BIG_CODECS
 end_define
 begin_endif
 endif|#

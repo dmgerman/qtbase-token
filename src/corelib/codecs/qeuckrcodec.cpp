@@ -31,7 +31,7 @@ begin_function_decl
 name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
-name|QT_NO_TEXTCODEC
+name|QT_NO_BIG_CODECS
 name|unsigned
 name|int
 name|qt_Ksc5601ToUnicode
@@ -54314,7 +54314,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_TEXTCODEC
+comment|// QT_NO_BIG_CODECS
 end_comment
 begin_macro
 name|QT_END_NAMESPACE
