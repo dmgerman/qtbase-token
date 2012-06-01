@@ -52,7 +52,9 @@ block|{
 name|public
 operator|:
 name|QEglFSScreen
-argument_list|()
+argument_list|(
+argument|EGLDisplay display
+argument_list|)
 block|;
 operator|~
 name|QEglFSScreen
@@ -116,6 +118,9 @@ name|void
 name|createAndSetPlatformContext
 argument_list|()
 block|;
+name|EGLDisplay
+name|m_dpy
+block|;
 name|QRect
 name|m_geometry
 block|;
@@ -130,9 +135,6 @@ block|;
 name|QPlatformOpenGLContext
 operator|*
 name|m_platformContext
-block|;
-name|EGLDisplay
-name|m_dpy
 block|;
 name|EGLSurface
 name|m_surface

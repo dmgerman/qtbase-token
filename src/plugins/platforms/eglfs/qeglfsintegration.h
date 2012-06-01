@@ -150,6 +150,9 @@ parameter_list|)
 function_decl|;
 name|private
 label|:
+name|EGLDisplay
+name|mDisplay
+decl_stmt|;
 name|QAbstractEventDispatcher
 modifier|*
 name|mEventDispatcher
