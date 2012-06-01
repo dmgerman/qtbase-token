@@ -16,9 +16,9 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_class
-DECL|class|QTouchScreenPlugin
+DECL|class|QEvdevTouchScreenPlugin
 class|class
-name|QTouchScreenPlugin
+name|QEvdevTouchScreenPlugin
 super|:
 specifier|public
 name|QGenericPlugin
@@ -33,7 +33,7 @@ literal|"evdevtouch.json"
 argument_list|)
 decl|public
 range|:
-name|QTouchScreenPlugin
+name|QEvdevTouchScreenPlugin
 argument_list|()
 decl_stmt|;
 name|QStringList
@@ -60,17 +60,17 @@ block|}
 class|;
 end_class
 begin_constructor
-DECL|function|QTouchScreenPlugin
-name|QTouchScreenPlugin
+DECL|function|QEvdevTouchScreenPlugin
+name|QEvdevTouchScreenPlugin
 operator|::
-name|QTouchScreenPlugin
+name|QEvdevTouchScreenPlugin
 parameter_list|()
 block|{ }
 end_constructor
 begin_function
 DECL|function|keys
 name|QStringList
-name|QTouchScreenPlugin
+name|QEvdevTouchScreenPlugin
 operator|::
 name|keys
 parameter_list|()
@@ -88,7 +88,7 @@ begin_function
 DECL|function|create
 name|QObject
 modifier|*
-name|QTouchScreenPlugin
+name|QEvdevTouchScreenPlugin
 operator|::
 name|create
 parameter_list|(
@@ -122,7 +122,7 @@ argument_list|)
 condition|)
 return|return
 operator|new
-name|QTouchScreenHandlerThread
+name|QEvdevTouchScreenHandlerThread
 argument_list|(
 name|spec
 argument_list|)
