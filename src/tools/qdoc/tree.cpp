@@ -7608,6 +7608,15 @@ argument_list|()
 operator|.
 name|isEmpty
 argument_list|()
+operator|||
+name|node
+operator|->
+name|subType
+argument_list|()
+operator|==
+name|Node
+operator|::
+name|DitaMap
 condition|)
 return|return
 literal|false
