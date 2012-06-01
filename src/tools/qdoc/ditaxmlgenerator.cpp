@@ -30524,6 +30524,11 @@ argument_list|()
 operator|.
 name|isEmpty
 argument_list|()
+operator|||
+name|child
+operator|->
+name|isIndexNode
+argument_list|()
 condition|)
 continue|continue;
 if|if
