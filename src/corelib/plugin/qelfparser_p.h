@@ -122,8 +122,6 @@ enum|enum
 block|{
 name|QtMetaDataSection
 block|,
-name|QtPluginSection
-block|,
 name|NoQtSection
 block|,
 name|NotElf

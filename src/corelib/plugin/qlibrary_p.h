@@ -199,9 +199,6 @@ decl_stmt|;
 name|QJsonObject
 name|metaData
 decl_stmt|;
-name|bool
-name|compatPlugin
-decl_stmt|;
 name|QString
 name|errorString
 decl_stmt|;

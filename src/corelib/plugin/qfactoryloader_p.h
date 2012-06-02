@@ -123,27 +123,12 @@ operator|~
 name|QFactoryLoader
 argument_list|()
 block|;
-name|QT_DEPRECATED
-name|QStringList
-name|keys
-argument_list|()
-specifier|const
-block|;
 name|QList
 operator|<
 name|QJsonObject
 operator|>
 name|metaData
 argument_list|()
-specifier|const
-block|;
-name|QT_DEPRECATED
-name|QObject
-operator|*
-name|instance
-argument_list|(
-argument|const QString&key
-argument_list|)
 specifier|const
 block|;
 name|QObject
