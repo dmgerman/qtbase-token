@@ -127,6 +127,9 @@ name|m_buttons
 block|;
 name|int
 name|m_jitterLimitSquared
+block|;
+name|bool
+name|m_prevInvalid
 block|; }
 decl_stmt|;
 end_decl_stmt
