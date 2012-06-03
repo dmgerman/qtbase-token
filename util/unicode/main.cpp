@@ -61,14 +61,14 @@ DECL|macro|DATA_VERSION_S
 define|#
 directive|define
 name|DATA_VERSION_S
-value|"5.0"
+value|"6.1"
 end_define
 begin_define
 DECL|macro|DATA_VERSION_STR
 define|#
 directive|define
 name|DATA_VERSION_STR
-value|"QChar::Unicode_5_0"
+value|"QChar::Unicode_6_1"
 end_define
 begin_decl_stmt
 DECL|variable|age_map
@@ -180,6 +180,38 @@ operator|::
 name|Unicode_5_0
 block|,
 literal|"5.0"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Unicode_5_1
+block|,
+literal|"5.1"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Unicode_5_2
+block|,
+literal|"5.2"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Unicode_6_0
+block|,
+literal|"6.0"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Unicode_6_1
+block|,
+literal|"6.1"
 block|}
 block|,
 block|{
@@ -375,6 +407,8 @@ literal|"        GraphemeBreakCR,\n"
 literal|"        GraphemeBreakLF,\n"
 literal|"        GraphemeBreakControl,\n"
 literal|"        GraphemeBreakExtend,\n"
+literal|"        GraphemeBreakPrepend,\n"
+literal|"        GraphemeBreakSpacingMark,\n"
 literal|"        GraphemeBreakL,\n"
 literal|"        GraphemeBreakV,\n"
 literal|"        GraphemeBreakT,\n"
@@ -402,6 +436,12 @@ name|GraphemeBreakControl
 block|,
 DECL|enumerator|GraphemeBreakExtend
 name|GraphemeBreakExtend
+block|,
+DECL|enumerator|GraphemeBreakPrepend
+name|GraphemeBreakPrepend
+block|,
+DECL|enumerator|GraphemeBreakSpacingMark
+name|GraphemeBreakSpacingMark
 block|,
 DECL|enumerator|GraphemeBreakL
 name|GraphemeBreakL
@@ -489,6 +529,18 @@ literal|"Extend"
 block|}
 block|,
 block|{
+name|GraphemeBreakPrepend
+block|,
+literal|"Prepend"
+block|}
+block|,
+block|{
+name|GraphemeBreakSpacingMark
+block|,
+literal|"SpacingMark"
+block|}
+block|,
+block|{
 name|GraphemeBreakL
 block|,
 literal|"L"
@@ -567,9 +619,13 @@ name|word_break_string
 init|=
 literal|"    enum WordBreak {\n"
 literal|"        WordBreakOther,\n"
+literal|"        WordBreakCR,\n"
+literal|"        WordBreakLF,\n"
+literal|"        WordBreakNewline,\n"
 literal|"        WordBreakFormat,\n"
 literal|"        WordBreakKatakana,\n"
 literal|"        WordBreakALetter,\n"
+literal|"        WordBreakMidNumLet,\n"
 literal|"        WordBreakMidLetter,\n"
 literal|"        WordBreakMidNum,\n"
 literal|"        WordBreakNumeric,\n"
@@ -585,6 +641,15 @@ block|{
 DECL|enumerator|WordBreakOther
 name|WordBreakOther
 block|,
+DECL|enumerator|WordBreakCR
+name|WordBreakCR
+block|,
+DECL|enumerator|WordBreakLF
+name|WordBreakLF
+block|,
+DECL|enumerator|WordBreakNewline
+name|WordBreakNewline
+block|,
 DECL|enumerator|WordBreakFormat
 name|WordBreakFormat
 block|,
@@ -593,6 +658,9 @@ name|WordBreakKatakana
 block|,
 DECL|enumerator|WordBreakALetter
 name|WordBreakALetter
+block|,
+DECL|enumerator|WordBreakMidNumLet
+name|WordBreakMidNumLet
 block|,
 DECL|enumerator|WordBreakMidLetter
 name|WordBreakMidLetter
@@ -647,9 +715,27 @@ index|[]
 init|=
 block|{
 block|{
-name|WordBreakFormat
+name|WordBreakOther
 block|,
-literal|"Format"
+literal|"Other"
+block|}
+block|,
+block|{
+name|WordBreakCR
+block|,
+literal|"CR"
+block|}
+block|,
+block|{
+name|WordBreakLF
+block|,
+literal|"LF"
+block|}
+block|,
+block|{
+name|WordBreakNewline
+block|,
+literal|"Newline"
 block|}
 block|,
 block|{
@@ -658,7 +744,12 @@ block|,
 literal|"Extend"
 block|}
 block|,
-comment|// these are copied in from GraphemeBreakProperty.txt
+block|{
+name|WordBreakFormat
+block|,
+literal|"Format"
+block|}
+block|,
 block|{
 name|WordBreakKatakana
 block|,
@@ -669,6 +760,12 @@ block|{
 name|WordBreakALetter
 block|,
 literal|"ALetter"
+block|}
+block|,
+block|{
+name|WordBreakMidNumLet
+block|,
+literal|"MidNumLet"
 block|}
 block|,
 block|{
@@ -744,6 +841,8 @@ name|sentence_break_string
 init|=
 literal|"    enum SentenceBreak {\n"
 literal|"        SentenceBreakOther,\n"
+literal|"        SentenceBreakCR,\n"
+literal|"        SentenceBreakLF,\n"
 literal|"        SentenceBreakSep,\n"
 literal|"        SentenceBreakFormat,\n"
 literal|"        SentenceBreakSp,\n"
@@ -752,6 +851,7 @@ literal|"        SentenceBreakUpper,\n"
 literal|"        SentenceBreakOLetter,\n"
 literal|"        SentenceBreakNumeric,\n"
 literal|"        SentenceBreakATerm,\n"
+literal|"        SentenceBreakSContinue,\n"
 literal|"        SentenceBreakSTerm,\n"
 literal|"        SentenceBreakClose\n"
 literal|"    };\n\n"
@@ -764,6 +864,12 @@ name|SentenceBreak
 block|{
 DECL|enumerator|SentenceBreakOther
 name|SentenceBreakOther
+block|,
+DECL|enumerator|SentenceBreakCR
+name|SentenceBreakCR
+block|,
+DECL|enumerator|SentenceBreakLF
+name|SentenceBreakLF
 block|,
 DECL|enumerator|SentenceBreakSep
 name|SentenceBreakSep
@@ -788,6 +894,9 @@ name|SentenceBreakNumeric
 block|,
 DECL|enumerator|SentenceBreakATerm
 name|SentenceBreakATerm
+block|,
+DECL|enumerator|SentenceBreakSContinue
+name|SentenceBreakSContinue
 block|,
 DECL|enumerator|SentenceBreakSTerm
 name|SentenceBreakSTerm
@@ -842,9 +951,27 @@ literal|"Other"
 block|}
 block|,
 block|{
+name|SentenceBreakCR
+block|,
+literal|"CR"
+block|}
+block|,
+block|{
+name|SentenceBreakLF
+block|,
+literal|"LF"
+block|}
+block|,
+block|{
 name|SentenceBreakSep
 block|,
 literal|"Sep"
+block|}
+block|,
+block|{
+name|SentenceBreakFormat
+block|,
+literal|"Extend"
 block|}
 block|,
 block|{
@@ -887,6 +1014,12 @@ block|{
 name|SentenceBreakATerm
 block|,
 literal|"ATerm"
+block|}
+block|,
+block|{
+name|SentenceBreakSContinue
+block|,
+literal|"SContinue"
 block|}
 block|,
 block|{
@@ -948,16 +1081,15 @@ name|char
 modifier|*
 name|line_break_class_string
 init|=
-literal|"    // see http://www.unicode.org/reports/tr14/tr14-19.html\n"
-literal|"    // we don't use the XX, AI and CB properties and map them to AL instead.\n"
-literal|"    // as we don't support any EBDIC based OS'es, NL is ignored and mapped to AL as well.\n"
+literal|"    // see http://www.unicode.org/reports/tr14/tr14-28.html\n"
+literal|"    // we don't use the XX, AI, and CB classes and map them to AL instead.\n"
 literal|"    enum LineBreakClass {\n"
-literal|"        LineBreak_OP, LineBreak_CL, LineBreak_QU, LineBreak_GL, LineBreak_NS,\n"
-literal|"        LineBreak_EX, LineBreak_SY, LineBreak_IS, LineBreak_PR, LineBreak_PO,\n"
-literal|"        LineBreak_NU, LineBreak_AL, LineBreak_ID, LineBreak_IN, LineBreak_HY,\n"
-literal|"        LineBreak_BA, LineBreak_BB, LineBreak_B2, LineBreak_ZW, LineBreak_CM,\n"
-literal|"        LineBreak_WJ, LineBreak_H2, LineBreak_H3, LineBreak_JL, LineBreak_JV,\n"
-literal|"        LineBreak_JT, LineBreak_SA, LineBreak_SG,\n"
+literal|"        LineBreak_OP, LineBreak_CL, LineBreak_CP, LineBreak_QU, LineBreak_GL,\n"
+literal|"        LineBreak_NS, LineBreak_EX, LineBreak_SY, LineBreak_IS, LineBreak_PR,\n"
+literal|"        LineBreak_PO, LineBreak_NU, LineBreak_AL, LineBreak_HL, LineBreak_ID,\n"
+literal|"        LineBreak_IN, LineBreak_HY, LineBreak_BA, LineBreak_BB, LineBreak_B2,\n"
+literal|"        LineBreak_ZW, LineBreak_CM, LineBreak_WJ, LineBreak_H2, LineBreak_H3,\n"
+literal|"        LineBreak_JL, LineBreak_JV, LineBreak_JT, LineBreak_SA, LineBreak_SG,\n"
 literal|"        LineBreak_SP, LineBreak_CR, LineBreak_LF, LineBreak_BK\n"
 literal|"    };\n\n"
 decl_stmt|;
@@ -969,24 +1101,26 @@ name|LineBreakClass
 block|{
 DECL|enumerator|LineBreak_OP
 DECL|enumerator|LineBreak_CL
+DECL|enumerator|LineBreak_CP
 DECL|enumerator|LineBreak_QU
 DECL|enumerator|LineBreak_GL
-DECL|enumerator|LineBreak_NS
 name|LineBreak_OP
 block|,
 name|LineBreak_CL
+block|,
+name|LineBreak_CP
 block|,
 name|LineBreak_QU
 block|,
 name|LineBreak_GL
 block|,
-name|LineBreak_NS
-block|,
+DECL|enumerator|LineBreak_NS
 DECL|enumerator|LineBreak_EX
 DECL|enumerator|LineBreak_SY
 DECL|enumerator|LineBreak_IS
 DECL|enumerator|LineBreak_PR
-DECL|enumerator|LineBreak_PO
+name|LineBreak_NS
+block|,
 name|LineBreak_EX
 block|,
 name|LineBreak_SY
@@ -995,56 +1129,60 @@ name|LineBreak_IS
 block|,
 name|LineBreak_PR
 block|,
-name|LineBreak_PO
-block|,
+DECL|enumerator|LineBreak_PO
 DECL|enumerator|LineBreak_NU
 DECL|enumerator|LineBreak_AL
+DECL|enumerator|LineBreak_HL
 DECL|enumerator|LineBreak_ID
-DECL|enumerator|LineBreak_IN
-DECL|enumerator|LineBreak_HY
+name|LineBreak_PO
+block|,
 name|LineBreak_NU
 block|,
 name|LineBreak_AL
 block|,
+name|LineBreak_HL
+block|,
 name|LineBreak_ID
 block|,
+DECL|enumerator|LineBreak_IN
+DECL|enumerator|LineBreak_HY
+DECL|enumerator|LineBreak_BA
+DECL|enumerator|LineBreak_BB
+DECL|enumerator|LineBreak_B2
 name|LineBreak_IN
 block|,
 name|LineBreak_HY
 block|,
-DECL|enumerator|LineBreak_BA
-DECL|enumerator|LineBreak_BB
-DECL|enumerator|LineBreak_B2
-DECL|enumerator|LineBreak_ZW
-DECL|enumerator|LineBreak_CM
 name|LineBreak_BA
 block|,
 name|LineBreak_BB
 block|,
 name|LineBreak_B2
 block|,
+DECL|enumerator|LineBreak_ZW
+DECL|enumerator|LineBreak_CM
+DECL|enumerator|LineBreak_WJ
+DECL|enumerator|LineBreak_H2
+DECL|enumerator|LineBreak_H3
 name|LineBreak_ZW
 block|,
 name|LineBreak_CM
 block|,
-DECL|enumerator|LineBreak_WJ
-DECL|enumerator|LineBreak_H2
-DECL|enumerator|LineBreak_H3
-DECL|enumerator|LineBreak_JL
-DECL|enumerator|LineBreak_JV
 name|LineBreak_WJ
 block|,
 name|LineBreak_H2
 block|,
 name|LineBreak_H3
 block|,
+DECL|enumerator|LineBreak_JL
+DECL|enumerator|LineBreak_JV
+DECL|enumerator|LineBreak_JT
+DECL|enumerator|LineBreak_SA
+DECL|enumerator|LineBreak_SG
 name|LineBreak_JL
 block|,
 name|LineBreak_JV
 block|,
-DECL|enumerator|LineBreak_JT
-DECL|enumerator|LineBreak_SA
-DECL|enumerator|LineBreak_SG
 name|LineBreak_JT
 block|,
 name|LineBreak_SA
@@ -1087,8 +1225,11 @@ name|void
 name|initLineBreak
 parameter_list|()
 block|{
-comment|// ### Classes XX and AI are left out and mapped to AL for now;
-comment|// ### Class NL is ignored and mapped to AL as well.
+comment|// ### Classes XX and AI are left out and mapped to AL for now.
+comment|// ### Class CB is unsupported for now and mapped to AL as well.
+comment|// ### Class NL is mapped to BK.
+comment|// ### Treating characters of class CJ as class NS will give CSS strict line breaking;
+comment|//     treating them as class ID will give CSS normal breaking.
 struct|struct
 name|LineBreakList
 block|{
@@ -1130,7 +1271,7 @@ literal|"CM"
 block|}
 block|,
 block|{
-name|LineBreak_AL
+name|LineBreak_BK
 block|,
 literal|"NL"
 block|}
@@ -1197,9 +1338,21 @@ block|}
 block|,
 comment|// ###
 block|{
+name|LineBreak_NS
+block|,
+literal|"CJ"
+block|}
+block|,
+block|{
 name|LineBreak_CL
 block|,
 literal|"CL"
+block|}
+block|,
+block|{
+name|LineBreak_CP
+block|,
+literal|"CP"
 block|}
 block|,
 block|{
@@ -1272,6 +1425,12 @@ block|{
 name|LineBreak_AL
 block|,
 literal|"AL"
+block|}
+block|,
+block|{
+name|LineBreak_HL
+block|,
+literal|"HL"
 block|}
 block|,
 block|{
@@ -1936,37 +2095,113 @@ operator|::
 name|DirL
 expr_stmt|;
 comment|// DerivedBidiClass.txt
-comment|// DirR for:  U+0590..U+05FF, U+07C0..U+08FF, U+FB1D..U+FB4F, U+10800..U+10FFF
+comment|// The unassigned code points that default to AL are in the ranges:
+comment|//     [U+0600..U+07BF, U+08A0..U+08FF, U+FB50..U+FDCF, U+FDF0..U+FDFF, U+FE70..U+FEFF, U+1EE00..U+1EEFF]
 if|if
 condition|(
 operator|(
 name|codepoint
 operator|>=
-literal|0x590
+literal|0x0600
 operator|&&
 name|codepoint
 operator|<=
-literal|0x5ff
+literal|0x07BF
 operator|)
 operator|||
 operator|(
 name|codepoint
 operator|>=
-literal|0x7c0
+literal|0x08A0
 operator|&&
 name|codepoint
 operator|<=
-literal|0x8ff
+literal|0x08FF
 operator|)
 operator|||
 operator|(
 name|codepoint
 operator|>=
-literal|0xfb1d
+literal|0xFB50
 operator|&&
 name|codepoint
 operator|<=
-literal|0xfb4f
+literal|0xFDCF
+operator|)
+operator|||
+operator|(
+name|codepoint
+operator|>=
+literal|0xFDF0
+operator|&&
+name|codepoint
+operator|<=
+literal|0xFDFF
+operator|)
+operator|||
+operator|(
+name|codepoint
+operator|>=
+literal|0xFE70
+operator|&&
+name|codepoint
+operator|<=
+literal|0xFEFF
+operator|)
+operator|||
+operator|(
+name|codepoint
+operator|>=
+literal|0x1EE00
+operator|&&
+name|codepoint
+operator|<=
+literal|0x1EEFF
+operator|)
+condition|)
+block|{
+name|p
+operator|.
+name|direction
+operator|=
+name|QChar
+operator|::
+name|DirAL
+expr_stmt|;
+block|}
+comment|// The unassigned code points that default to R are in the ranges:
+comment|//     [U+0590..U+05FF, U+07C0..U+089F, U+FB1D..U+FB4F, U+10800..U+10FFF, U+1E800..U+1EDFF, U+1EF00..U+1EFFF]
+elseif|else
+if|if
+condition|(
+operator|(
+name|codepoint
+operator|>=
+literal|0x0590
+operator|&&
+name|codepoint
+operator|<=
+literal|0x05FF
+operator|)
+operator|||
+operator|(
+name|codepoint
+operator|>=
+literal|0x07C0
+operator|&&
+name|codepoint
+operator|<=
+literal|0x089F
+operator|)
+operator|||
+operator|(
+name|codepoint
+operator|>=
+literal|0xFB1D
+operator|&&
+name|codepoint
+operator|<=
+literal|0xFB4F
 operator|)
 operator|||
 operator|(
@@ -1976,7 +2211,27 @@ literal|0x10800
 operator|&&
 name|codepoint
 operator|<=
-literal|0x10fff
+literal|0x10FFF
+operator|)
+operator|||
+operator|(
+name|codepoint
+operator|>=
+literal|0x1E800
+operator|&&
+name|codepoint
+operator|<=
+literal|0x1EDFF
+operator|)
+operator|||
+operator|(
+name|codepoint
+operator|>=
+literal|0x1EF00
+operator|&&
+name|codepoint
+operator|<=
+literal|0x1EFFF
 operator|)
 condition|)
 block|{
@@ -1989,58 +2244,114 @@ operator|::
 name|DirR
 expr_stmt|;
 block|}
-comment|// DirAL for:  U+0600..U+07BF, U+FB50..U+FDFF, U+FE70..U+FEFF
-comment|//             minus noncharacter code points (intersects with U+FDD0..U+FDEF)
+name|p
+operator|.
+name|line_break_class
+operator|=
+name|LineBreak_AL
+expr_stmt|;
+comment|// XX -> AL
+comment|// LineBreak.txt
+comment|// The unassigned code points that default to "ID" include ranges in the following blocks:
+comment|//     [U+3400..U+4DBF, U+4E00..U+9FFF, U+F900..U+FAFF, U+20000..U+2A6DF, U+2A700..U+2B73F, U+2B740..U+2B81F, U+2F800..U+2FA1F, U+20000..U+2FFFD, U+30000..U+3FFFD]
 if|if
 condition|(
 operator|(
 name|codepoint
 operator|>=
-literal|0x600
+literal|0x3400
 operator|&&
 name|codepoint
 operator|<=
-literal|0x7bf
+literal|0x4DBF
 operator|)
 operator|||
 operator|(
 name|codepoint
 operator|>=
-literal|0xfb50
+literal|0x4E00
 operator|&&
 name|codepoint
 operator|<=
-literal|0xfdcf
+literal|0x9FFF
 operator|)
 operator|||
 operator|(
 name|codepoint
 operator|>=
-literal|0xfdf0
+literal|0xF900
 operator|&&
 name|codepoint
 operator|<=
-literal|0xfdff
+literal|0xFAFF
 operator|)
 operator|||
 operator|(
 name|codepoint
 operator|>=
-literal|0xfe70
+literal|0x20000
 operator|&&
 name|codepoint
 operator|<=
-literal|0xfeff
+literal|0x2A6DF
+operator|)
+operator|||
+operator|(
+name|codepoint
+operator|>=
+literal|0x2A700
+operator|&&
+name|codepoint
+operator|<=
+literal|0x2B73F
+operator|)
+operator|||
+operator|(
+name|codepoint
+operator|>=
+literal|0x2B740
+operator|&&
+name|codepoint
+operator|<=
+literal|0x2B81F
+operator|)
+operator|||
+operator|(
+name|codepoint
+operator|>=
+literal|0x2F800
+operator|&&
+name|codepoint
+operator|<=
+literal|0x2FA1F
+operator|)
+operator|||
+operator|(
+name|codepoint
+operator|>=
+literal|0x20000
+operator|&&
+name|codepoint
+operator|<=
+literal|0x2FFFD
+operator|)
+operator|||
+operator|(
+name|codepoint
+operator|>=
+literal|0x30000
+operator|&&
+name|codepoint
+operator|<=
+literal|0x3FFFD
 operator|)
 condition|)
 block|{
 name|p
 operator|.
-name|direction
+name|line_break_class
 operator|=
-name|QChar
-operator|::
-name|DirAL
+name|LineBreak_ID
 expr_stmt|;
 block|}
 name|mirroredChar
@@ -2082,13 +2393,6 @@ operator|=
 operator|-
 literal|1
 expr_stmt|;
-name|p
-operator|.
-name|line_break_class
-operator|=
-name|LineBreak_AL
-expr_stmt|;
-comment|// XX -> AL
 name|p
 operator|.
 name|lowerCaseDiff
