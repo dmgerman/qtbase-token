@@ -2745,7 +2745,7 @@ operator|=
 operator|*
 name|sys_locale
 operator|->
-name|fallbackLocale
+name|fallbackUiLocale
 argument_list|()
 operator|.
 name|d
@@ -3075,7 +3075,7 @@ name|qt_initIcu
 argument_list|(
 name|sys_locale
 operator|->
-name|fallbackLocale
+name|fallbackUiLocale
 argument_list|()
 operator|.
 name|bcp47Name

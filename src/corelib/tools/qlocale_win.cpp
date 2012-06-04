@@ -3473,11 +3473,11 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|fallbackLocale
+DECL|function|fallbackUiLocale
 name|QLocale
 name|QSystemLocale
 operator|::
-name|fallbackLocale
+name|fallbackUiLocale
 parameter_list|()
 specifier|const
 block|{
@@ -3892,7 +3892,7 @@ operator|::
 name|AnyCountry
 condition|)
 return|return
-name|fallbackLocale
+name|fallbackUiLocale
 argument_list|()
 operator|.
 name|country

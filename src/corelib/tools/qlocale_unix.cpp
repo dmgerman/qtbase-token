@@ -361,11 +361,11 @@ directive|ifndef
 name|QT_NO_SYSTEMLOCALE
 end_ifndef
 begin_function
-DECL|function|fallbackLocale
+DECL|function|fallbackUiLocale
 name|QLocale
 name|QSystemLocale
 operator|::
-name|fallbackLocale
+name|fallbackUiLocale
 parameter_list|()
 specifier|const
 block|{

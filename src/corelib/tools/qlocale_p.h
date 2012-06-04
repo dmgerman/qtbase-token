@@ -250,7 +250,7 @@ decl|const
 decl_stmt|;
 name|virtual
 name|QLocale
-name|fallbackLocale
+name|fallbackUiLocale
 argument_list|()
 specifier|const
 expr_stmt|;
