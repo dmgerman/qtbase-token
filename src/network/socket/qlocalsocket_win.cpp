@@ -836,6 +836,14 @@ argument_list|(
 name|QLocalSocket
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|maxSize
+condition|)
+return|return
+literal|0
+return|;
 return|return
 name|d
 operator|->

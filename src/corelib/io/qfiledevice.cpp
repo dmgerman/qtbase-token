@@ -1131,6 +1131,14 @@ argument_list|(
 name|QFileDevice
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|len
+condition|)
+return|return
+literal|0
+return|;
 name|unsetError
 argument_list|()
 expr_stmt|;

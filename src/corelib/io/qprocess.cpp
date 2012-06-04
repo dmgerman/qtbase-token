@@ -4381,6 +4381,14 @@ argument_list|(
 name|QProcess
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|maxlen
+condition|)
+return|return
+literal|0
+return|;
 name|QRingBuffer
 modifier|*
 name|readBuffer
