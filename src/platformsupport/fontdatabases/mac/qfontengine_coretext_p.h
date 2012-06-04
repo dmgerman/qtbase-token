@@ -386,6 +386,8 @@ argument_list|,
 argument|QFixed subPixelPosition
 argument_list|,
 argument|bool colorful
+argument_list|,
+argument|const QTransform&m
 argument_list|)
 block|;
 name|CTFontRef
