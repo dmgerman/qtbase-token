@@ -53,6 +53,11 @@ argument_list|()
 specifier|const
 block|;
 name|int
+name|startDragVelocity
+argument_list|()
+specifier|const
+block|;
+name|int
 name|keyboardInputInterval
 argument_list|()
 specifier|const

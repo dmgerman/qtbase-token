@@ -367,6 +367,8 @@ block|,
 name|PasswordMaskDelay
 block|,
 name|FontSmoothingGamma
+block|,
+name|StartDragVelocity
 block|}
 enum|;
 name|virtual

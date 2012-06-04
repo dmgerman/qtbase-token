@@ -463,6 +463,13 @@ argument_list|(
 literal|1.7
 argument_list|)
 return|;
+case|case
+name|StartDragVelocity
+case|:
+return|return
+literal|0
+return|;
+comment|// no limit
 block|}
 return|return
 literal|0
