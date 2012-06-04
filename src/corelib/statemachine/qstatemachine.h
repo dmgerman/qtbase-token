@@ -531,6 +531,18 @@ argument|void _q_animationFinished()
 argument_list|)
 endif|#
 directive|endif
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_startDelayedEventTimer(int, int)
+argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_killDelayedEventTimer(int, int)
+argument_list|)
 block|}
 decl_stmt|;
 end_decl_stmt
