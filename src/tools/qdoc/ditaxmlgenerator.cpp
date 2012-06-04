@@ -12199,6 +12199,8 @@ expr_stmt|;
 if|if
 condition|(
 name|linkNode
+operator|&&
+name|linkNode
 operator|->
 name|type
 argument_list|()
@@ -12288,6 +12290,8 @@ expr_stmt|;
 if|if
 condition|(
 name|linkNode
+operator|&&
+name|linkNode
 operator|->
 name|type
 argument_list|()
@@ -12376,6 +12380,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|linkNode
+operator|&&
 name|linkNode
 operator|->
 name|type
