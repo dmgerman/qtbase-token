@@ -2168,6 +2168,13 @@ name|startsWith
 argument_list|(
 literal|"LC_"
 argument_list|)
+operator|||
+name|entry
+operator|.
+name|startsWith
+argument_list|(
+literal|"LANGUAGE="
+argument_list|)
 condition|)
 continue|continue;
 name|env
