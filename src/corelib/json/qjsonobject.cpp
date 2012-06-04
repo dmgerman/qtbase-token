@@ -1581,6 +1581,9 @@ return|return
 name|end
 argument_list|()
 return|;
+name|detach
+argument_list|()
+expr_stmt|;
 return|return
 name|iterator
 argument_list|(
