@@ -6623,6 +6623,9 @@ operator|<<
 literal|"/usr/local/ssl/certs/"
 comment|// Solaris
 operator|<<
+literal|"/var/certmgr/web/user_trusted/"
+comment|// BlackBerry
+operator|<<
 literal|"/opt/openssl/certs/"
 return|;
 comment|// HP-UX
