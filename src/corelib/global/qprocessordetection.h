@@ -964,7 +964,7 @@ expr|\
 operator|||
 name|defined
 argument_list|(
-name|Q_OS_WINCE
+name|_WIN32_WCE
 argument_list|)
 end_elif
 begin_comment
