@@ -160,6 +160,8 @@ name|DT_category
 block|,
 name|DT_codeblock
 block|,
+name|DT_colspec
+block|,
 name|DT_comment
 block|,
 name|DT_component
@@ -2051,6 +2053,9 @@ name|sectionNestingLevel
 block|;
 name|int
 name|tableColumnCount
+block|;
+name|int
+name|currentColumn
 block|;
 name|QString
 name|link
