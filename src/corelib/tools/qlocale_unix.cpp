@@ -388,7 +388,7 @@ name|lang
 operator|=
 name|qgetenv
 argument_list|(
-literal|"LC_NUMERIC"
+literal|"LC_MESSAGES"
 argument_list|)
 expr_stmt|;
 if|if
@@ -1283,15 +1283,6 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-case|case
-name|LanguageId
-case|:
-return|return
-name|lc_messages
-operator|.
-name|language
-argument_list|()
-return|;
 default|default:
 break|break;
 block|}
