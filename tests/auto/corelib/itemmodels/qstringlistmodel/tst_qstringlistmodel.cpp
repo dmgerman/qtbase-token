@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qapplication.h>
+file|<qcoreapplication.h>
 end_include
 begin_include
 include|#
@@ -31,11 +31,6 @@ begin_include
 include|#
 directive|include
 file|<qstringlist.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qlistview.h>
 end_include
 begin_include
 include|#
