@@ -5709,6 +5709,9 @@ argument_list|(
 literal|"appName"
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_WIDGETS
 name|QTest
 operator|::
 name|newRow
@@ -5718,6 +5721,8 @@ argument_list|)
 operator|<<
 literal|"testGuiProcess/testGuiProcess"
 expr_stmt|;
+endif|#
+directive|endif
 name|QTest
 operator|::
 name|newRow
