@@ -325,6 +325,15 @@ argument_list|)
 block|;
 specifier|static
 name|void
+name|updateFilteredScreenOrientation
+argument_list|(
+name|QScreen
+operator|*
+name|screen
+argument_list|)
+block|;
+specifier|static
+name|void
 name|reportScreenOrientationChange
 argument_list|(
 name|QScreen

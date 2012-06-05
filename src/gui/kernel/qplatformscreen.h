@@ -262,6 +262,16 @@ argument_list|()
 specifier|const
 expr_stmt|;
 name|virtual
+name|void
+name|setOrientationUpdateMask
+argument_list|(
+name|Qt
+operator|::
+name|ScreenOrientations
+name|mask
+argument_list|)
+decl_stmt|;
+name|virtual
 name|QWindow
 modifier|*
 name|topLevelAt
