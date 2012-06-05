@@ -1052,7 +1052,7 @@ return|;
 block|}
 end_function
 begin_macro
-name|QTEST_APPLESS_MAIN
+name|QTEST_MAIN
 argument_list|(
 argument|tst_uic
 argument_list|)
