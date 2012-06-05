@@ -27,11 +27,20 @@ include|#
 directive|include
 file|<qtextdocument.h>
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_WIDGETS
+end_ifndef
 begin_include
 include|#
 directive|include
 file|<qtextedit.h>
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_include
 include|#
 directive|include
@@ -58,10 +67,15 @@ destructor_decl|;
 private|private
 name|slots
 private|:
+ifndef|#
+directive|ifndef
+name|QT_NO_WIDGETS
 name|void
 name|getSetCheck
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|testStandAloneTextObject
 parameter_list|()
@@ -86,6 +100,11 @@ name|tst_QTextObject
 parameter_list|()
 block|{ }
 end_destructor
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_WIDGETS
+end_ifndef
 begin_comment
 comment|// Testing get/set functions
 end_comment
@@ -278,6 +297,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_class
 DECL|class|TestTextObject
 class|class
