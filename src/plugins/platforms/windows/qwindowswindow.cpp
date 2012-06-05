@@ -1037,6 +1037,11 @@ name|tool
 argument_list|(
 literal|false
 argument_list|)
+member_init_list|,
+name|embedded
+argument_list|(
+literal|false
+argument_list|)
 block|{}
 name|void
 name|fromWindow
@@ -1145,6 +1150,10 @@ DECL|member|tool
 name|bool
 name|tool
 decl_stmt|;
+DECL|member|embedded
+name|bool
+name|embedded
+decl_stmt|;
 block|}
 struct|;
 end_struct
@@ -1206,6 +1215,12 @@ operator|<<
 name|d
 operator|.
 name|desktop
+operator|<<
+literal|" embedded="
+operator|<<
+name|d
+operator|.
+name|embedded
 operator|<<
 literal|" tool="
 operator|<<
@@ -1279,12 +1294,55 @@ name|flags
 operator|=
 name|flagsIn
 expr_stmt|;
+comment|// Sometimes QWindow doesn't have a QWindow parent but does have a native parent window,
+comment|// e.g. in case of embedded ActiveQt servers. They should not be considered a top-level
+comment|// windows in such cases.
+name|QVariant
+name|prop
+init|=
+name|w
+operator|->
+name|property
+argument_list|(
+literal|"_q_embedded_native_parent_handle"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|prop
+operator|.
+name|isValid
+argument_list|()
+condition|)
+block|{
+name|embedded
+operator|=
+literal|true
+expr_stmt|;
+name|parentHandle
+operator|=
+operator|(
+name|HWND
+operator|)
+name|prop
+operator|.
+name|value
+argument_list|<
+name|WId
+argument_list|>
+argument_list|()
+expr_stmt|;
+block|}
 name|topLevel
 operator|=
+operator|(
 operator|(
 name|creationFlags
 operator|&
 name|ForceChild
+operator|)
+operator|||
+name|embedded
 operator|)
 condition|?
 literal|false
@@ -1436,7 +1494,12 @@ name|WindowStaysOnTopHint
 expr_stmt|;
 comment|// a popup stays on top, no parent.
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+operator|!
+name|embedded
+condition|)
 block|{
 if|if
 condition|(
@@ -2094,6 +2157,12 @@ operator|=
 name|context
 operator|->
 name|margins
+expr_stmt|;
+name|result
+operator|.
+name|embedded
+operator|=
+name|embedded
 expr_stmt|;
 return|return
 name|result
@@ -5051,6 +5120,20 @@ parameter_list|()
 specifier|const
 block|{
 comment|// Warning: Returns bogus values when minimized.
+name|bool
+name|isRealTopLevel
+init|=
+name|window
+argument_list|()
+operator|->
+name|isTopLevel
+argument_list|()
+operator|&&
+operator|!
+name|m_data
+operator|.
+name|embedded
+decl_stmt|;
 return|return
 name|frameGeometry
 argument_list|(
@@ -5058,11 +5141,7 @@ name|m_data
 operator|.
 name|hwnd
 argument_list|,
-name|window
-argument_list|()
-operator|->
-name|isTopLevel
-argument_list|()
+name|isRealTopLevel
 argument_list|)
 return|;
 block|}

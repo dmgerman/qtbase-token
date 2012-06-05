@@ -409,6 +409,9 @@ comment|// Do not use directly for windows, see FrameDirty.
 name|HWND
 name|hwnd
 decl_stmt|;
+name|bool
+name|embedded
+decl_stmt|;
 specifier|static
 name|WindowData
 name|create
