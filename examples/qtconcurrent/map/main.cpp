@@ -25,7 +25,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QApplication>
+file|<QGuiApplication>
 end_include
 begin_include
 include|#
@@ -95,7 +95,7 @@ name|argv
 index|[]
 parameter_list|)
 block|{
-name|QApplication
+name|QGuiApplication
 name|app
 argument_list|(
 name|argc
