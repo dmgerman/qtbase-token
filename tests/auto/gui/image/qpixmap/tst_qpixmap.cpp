@@ -32,6 +32,11 @@ include|#
 directive|include
 file|<qmatrix.h>
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_WIDGETS
+end_ifndef
 begin_include
 include|#
 directive|include
@@ -40,12 +45,16 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qpaintengine.h>
+file|<qsplashscreen.h>
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_include
 include|#
 directive|include
-file|<qsplashscreen.h>
+file|<qpaintengine.h>
 end_include
 begin_include
 include|#
@@ -346,10 +355,15 @@ name|void
 name|preserveDepth
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_WIDGETS
 name|void
 name|splash_crash
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|toImageDeepCopy
 parameter_list|()
@@ -4667,6 +4681,9 @@ argument_list|(
 literal|"QTBUG-20863 grabWindow is broken on most qpa backends"
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_WIDGETS
 ifdef|#
 directive|ifdef
 name|Q_OS_WINCE
@@ -4849,6 +4866,8 @@ argument_list|,
 name|grabWidgetPixmap
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 DECL|function|isNull
 name|void
@@ -7476,6 +7495,9 @@ operator|delete
 name|img
 expr_stmt|;
 block|}
+ifndef|#
+directive|ifndef
+name|QT_NO_WIDGETS
 comment|//This is testing QPlatformPixmap::createCompatiblePlatformPixmap - see QTBUG-5977
 DECL|function|splash_crash
 name|void
@@ -7516,6 +7538,8 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 DECL|function|fromData
 name|void
 name|tst_QPixmap
