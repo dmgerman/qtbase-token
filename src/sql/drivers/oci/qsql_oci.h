@@ -190,6 +190,12 @@ name|lastInsertId
 argument_list|()
 specifier|const
 block|;
+name|bool
+name|execBatch
+argument_list|(
+argument|bool arrayBind = false
+argument_list|)
+block|;
 name|void
 name|virtual_hook
 argument_list|(

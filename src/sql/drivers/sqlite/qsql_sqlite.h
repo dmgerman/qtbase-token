@@ -165,6 +165,10 @@ argument_list|()
 specifier|const
 block|;
 name|void
+name|detachFromResultSet
+argument_list|()
+block|;
+name|void
 name|virtual_hook
 argument_list|(
 argument|int id

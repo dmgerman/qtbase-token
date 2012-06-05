@@ -279,6 +279,10 @@ argument_list|,
 argument|void *data
 argument_list|)
 block|;
+name|void
+name|detachFromResultSet
+argument_list|()
+block|;
 name|bool
 name|nextResult
 argument_list|()

@@ -469,15 +469,7 @@ specifier|const
 expr_stmt|;
 enum|enum
 name|VirtualHookOperation
-block|{
-name|BatchOperation
-block|,
-name|DetachFromResultSet
-block|,
-name|SetNumericalPrecision
-block|,
-name|NextResult
-block|}
+block|{ }
 enum|;
 name|virtual
 name|void
@@ -491,6 +483,7 @@ modifier|*
 name|data
 parameter_list|)
 function_decl|;
+name|virtual
 name|bool
 name|execBatch
 parameter_list|(
@@ -500,10 +493,12 @@ init|=
 name|false
 parameter_list|)
 function_decl|;
+name|virtual
 name|void
 name|detachFromResultSet
 parameter_list|()
 function_decl|;
+name|virtual
 name|void
 name|setNumericalPrecisionPolicy
 argument_list|(
@@ -520,6 +515,7 @@ name|numericalPrecisionPolicy
 argument_list|()
 specifier|const
 expr_stmt|;
+name|virtual
 name|bool
 name|nextResult
 parameter_list|()
