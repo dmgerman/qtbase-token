@@ -82,6 +82,12 @@ modifier|&
 name|url
 parameter_list|)
 function_decl|;
+name|virtual
+name|QByteArray
+name|desktopEnvironment
+argument_list|()
+specifier|const
+expr_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt

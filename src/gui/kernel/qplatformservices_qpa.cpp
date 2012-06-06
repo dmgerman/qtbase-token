@@ -86,6 +86,26 @@ literal|false
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!  * \brief QPlatformServices::desktopEnvironment returns the active desktop environment.  * \return On Unix this function returns KDE, GNOME or UNKNOWN.  */
+end_comment
+begin_function
+DECL|function|desktopEnvironment
+name|QByteArray
+name|QPlatformServices
+operator|::
+name|desktopEnvironment
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|QByteArray
+argument_list|(
+literal|"UNKNOWN"
+argument_list|)
+return|;
+block|}
+end_function
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
