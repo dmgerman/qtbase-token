@@ -4118,15 +4118,9 @@ name|charStop
 operator|=
 name|TRUE
 expr_stmt|;
-if|if
-condition|(
-name|i
-condition|)
 name|attributes
 index|[
 name|i
-operator|-
-literal|1
 index|]
 operator|.
 name|lineBreakType
