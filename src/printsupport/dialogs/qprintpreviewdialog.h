@@ -18,6 +18,11 @@ include|#
 directive|include
 file|<QtWidgets/qdialog.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtPrintSupport/qtprintsupportglobal.h>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef

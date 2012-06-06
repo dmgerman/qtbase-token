@@ -16,6 +16,11 @@ end_define
 begin_include
 include|#
 directive|include
+file|<QtXml/qtxmlglobal.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/qtextstream.h>
 end_include
 begin_include

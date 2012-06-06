@@ -48,6 +48,11 @@ include|#
 directive|include
 file|<QtWidgets/qgraphicseffect.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtOpenGL/qtopenglglobal.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE

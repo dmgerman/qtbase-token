@@ -62,7 +62,6 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_PLATFORMSUPPORT_EXPORT
 name|QUnixEventDispatcherQPA
 range|:
 name|public
