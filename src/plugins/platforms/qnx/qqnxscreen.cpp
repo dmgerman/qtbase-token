@@ -220,7 +220,7 @@ argument_list|)
 expr_stmt|;
 comment|// Cache size of this display in millimeters. We have to take care of the orientation.
 comment|// libscreen always reports the physical size dimensions as width and height in the
-comment|// landscape orientation. Contrary to this, QPlatformScreen::physicalSize() expects the
+comment|// native orientation. Contrary to this, QPlatformScreen::physicalSize() expects the
 comment|// returned dimensions to follow the current orientation.
 name|errno
 operator|=
@@ -272,13 +272,28 @@ name|Qt
 operator|::
 name|PortraitOrientation
 expr_stmt|;
+specifier|const
+name|int
+name|angle
+init|=
+name|screen
+argument_list|()
+operator|->
+name|angleBetween
+argument_list|(
+name|m_nativeOrientation
+argument_list|,
+name|orientation
+argument_list|()
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
-name|m_currentRotation
+name|angle
 operator|==
 literal|0
 operator|||
-name|m_currentRotation
+name|angle
 operator|==
 literal|180
 condition|)
@@ -605,6 +620,16 @@ name|orient
 decl_stmt|;
 if|if
 condition|(
+name|m_nativeOrientation
+operator|==
+name|Qt
+operator|::
+name|LandscapeOrientation
+condition|)
+block|{
+comment|// Landscape devices e.g. PlayBook
+if|if
+condition|(
 name|m_currentRotation
 operator|==
 literal|0
@@ -648,6 +673,57 @@ name|Qt
 operator|::
 name|InvertedPortraitOrientation
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// Portrait devices e.g. Phones
+comment|// ###TODO Check these on an actual phone device
+if|if
+condition|(
+name|m_currentRotation
+operator|==
+literal|0
+condition|)
+name|orient
+operator|=
+name|Qt
+operator|::
+name|PortraitOrientation
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|m_currentRotation
+operator|==
+literal|90
+condition|)
+name|orient
+operator|=
+name|Qt
+operator|::
+name|LandscapeOrientation
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|m_currentRotation
+operator|==
+literal|180
+condition|)
+name|orient
+operator|=
+name|Qt
+operator|::
+name|InvertedPortraitOrientation
+expr_stmt|;
+else|else
+name|orient
+operator|=
+name|Qt
+operator|::
+name|InvertedLandscapeOrientation
+expr_stmt|;
+block|}
 name|qScreenDebug
 argument_list|()
 operator|<<
