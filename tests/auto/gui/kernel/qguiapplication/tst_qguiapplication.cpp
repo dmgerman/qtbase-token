@@ -131,16 +131,6 @@ operator|::
 name|focusObject
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-name|QSKIP
-argument_list|(
-literal|"This test fails intermittently, and at different locations. See QTBUG-24322"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|int
 name|argc
 init|=
