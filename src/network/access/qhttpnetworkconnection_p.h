@@ -607,6 +607,12 @@ name|void
 name|startNetworkLayerStateLookup
 argument_list|()
 block|;
+name|void
+name|networkLayerDetected
+argument_list|(
+argument|QAbstractSocket::NetworkLayerProtocol protocol
+argument_list|)
+block|;
 comment|// private slots
 name|void
 name|_q_startNextRequest

@@ -4600,6 +4600,16 @@ operator|::
 name|IPv6
 expr_stmt|;
 block|}
+name|connection
+operator|->
+name|d_func
+argument_list|()
+operator|->
+name|networkLayerDetected
+argument_list|(
+name|networkLayerPreference
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
