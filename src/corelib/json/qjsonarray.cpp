@@ -825,9 +825,6 @@ operator|::
 name|Undefined
 argument_list|)
 return|;
-name|detach
-argument_list|()
-expr_stmt|;
 name|QJsonValue
 name|v
 argument_list|(
@@ -843,16 +840,12 @@ name|i
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|v
-operator|.
-name|detach
-argument_list|()
-expr_stmt|;
 name|removeAt
 argument_list|(
 name|i
 argument_list|)
 expr_stmt|;
+comment|// detaches
 return|return
 name|v
 return|;
