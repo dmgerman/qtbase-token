@@ -805,7 +805,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if the specified SSL compatibility option is enabled.    \sa testSSlOption() */
+comment|/*!   \since 4.8    Returns true if the specified SSL compatibility option is enabled.    \sa testSSlOption() */
 end_comment
 begin_function
 DECL|function|testSslOption
