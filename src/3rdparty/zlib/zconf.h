@@ -17,6 +17,15 @@ directive|define
 name|ZCONF_H
 end_define
 begin_comment
+comment|/* Since QtCore must export these symbols, define Z_PREFIX to avoid clashes system zlib */
+end_comment
+begin_define
+DECL|macro|Z_PREFIX
+define|#
+directive|define
+name|Z_PREFIX
+end_define
+begin_comment
 comment|/*  * If you *really* need a unique prefix for all types and library functions,  * compile with -DZ_PREFIX. The "standard" zlib should be compiled without it.  * Even better than compiling with -DZ_PREFIX would be to use configure to set  * this permanently in zconf.h using "./configure --zprefix".  */
 end_comment
 begin_ifdef

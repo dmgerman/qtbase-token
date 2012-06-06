@@ -1934,7 +1934,7 @@ argument_list|(
 literal|false
 argument_list|)
 member_init_list|,
-name|crc32
+name|crc
 argument_list|(
 literal|0
 argument_list|)
@@ -2027,11 +2027,11 @@ name|other
 operator|.
 name|permissions
 expr_stmt|;
-name|crc32
+name|crc
 operator|=
 name|other
 operator|.
-name|crc32
+name|crc
 expr_stmt|;
 name|size
 operator|=
@@ -2302,7 +2302,7 @@ argument_list|)
 expr_stmt|;
 name|fileInfo
 operator|.
-name|crc32
+name|crc
 operator|=
 name|readUInt
 argument_list|(
@@ -3793,7 +3793,7 @@ begin_comment
 comment|/*!     \variable FileInfo::permissions     A list of flags for the permissions of this entry. */
 end_comment
 begin_comment
-comment|/*!     \variable FileInfo::crc32     The calculated checksum as a crc32 type. */
+comment|/*!     \variable FileInfo::crc     The calculated checksum as a crc type. */
 end_comment
 begin_comment
 comment|/*!     \variable FileInfo::size     The total size of the unpacked content. */

@@ -171,7 +171,7 @@ name|Permissions
 name|permissions
 expr_stmt|;
 name|uint
-name|crc32
+name|crc
 decl_stmt|;
 name|qint64
 name|size
