@@ -7818,7 +7818,10 @@ name|QString
 operator|::
 name|fromUtf8
 argument_list|(
-literal|"à¸£âà¸£â.à¸£.âà¸£â¦à¸£âà¸£\xA0à¸£æ¬à¸£"
+literal|"\xe0\xb8\xa3\xe2\x80\x8d\xe0\xb8\xa3\xe2\x80"
+literal|"\x8c\x2e\xe0\xb8\xa3\x2e\xe2\x80\x9c\xe0\xb8"
+literal|"\xa3\xe2\x80\xa6\xe0\xb8\xa3\xe2\x80\x9d\xe0"
+literal|"\xb8\xa3\xa0\xe0\xb8\xa3\xe6\x9c\xac\xe0\xb8\xa3"
 argument_list|)
 operator|+
 name|QChar
@@ -8272,7 +8275,7 @@ name|QString
 operator|::
 name|fromUtf8
 argument_list|(
-literal|"à¸ª"
+literal|"\xe0\xb8\xaa"
 argument_list|)
 argument_list|)
 decl_stmt|;
