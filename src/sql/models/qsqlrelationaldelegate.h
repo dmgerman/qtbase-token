@@ -16,7 +16,7 @@ end_define
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|QT_GUI_LIB
+name|QT_WIDGETS_LIB
 end_ifdef
 begin_include
 include|#
@@ -497,7 +497,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_GUI_LIB
+comment|// QT_WIDGETS_LIB
 end_comment
 begin_endif
 endif|#
