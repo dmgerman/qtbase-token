@@ -8415,6 +8415,7 @@ name|effectiveWinId
 parameter_list|()
 specifier|const
 block|{
+specifier|const
 name|WId
 name|id
 init|=
@@ -8436,59 +8437,24 @@ condition|)
 return|return
 name|id
 return|;
+if|if
+condition|(
+specifier|const
 name|QWidget
 modifier|*
 name|realParent
 init|=
 name|nativeParentWidget
 argument_list|()
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|realParent
-operator|&&
-name|d_func
-argument_list|()
-operator|->
-name|inSetParent
 condition|)
-block|{
-comment|// In transitional state. This is really just a workaround. The real problem
-comment|// is that QWidgetPrivate::setParent_sys (platform specific code) first sets
-comment|// the window id to 0 (setWinId(0)) before it sets the Qt::WA_WState_Created
-comment|// attribute to false. The correct way is to do it the other way around, and
-comment|// in that case the Qt::WA_WState_Created logic above will kick in and
-comment|// return 0 whenever the widget is in a transitional state. However, changing
-comment|// the original logic for all platforms is far more intrusive and might
-comment|// break existing applications.
-comment|// Note: The widget can only be in a transitional state when changing its
-comment|// parent -- everything else is an internal error -- hence explicitly checking
-comment|// against 'inSetParent' rather than doing an unconditional return whenever
-comment|// 'realParent' is 0 (which may cause strange artifacts and headache later).
+return|return
+name|realParent
+operator|->
+name|internalWinId
+argument_list|()
+return|;
 return|return
 literal|0
-return|;
-block|}
-comment|// This widget *must* have a native parent widget.
-name|Q_ASSERT
-argument_list|(
-name|realParent
-argument_list|)
-expr_stmt|;
-name|Q_ASSERT
-argument_list|(
-name|realParent
-operator|->
-name|internalWinId
-argument_list|()
-argument_list|)
-expr_stmt|;
-return|return
-name|realParent
-operator|->
-name|internalWinId
-argument_list|()
 return|;
 block|}
 ifndef|#
