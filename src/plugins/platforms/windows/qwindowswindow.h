@@ -351,7 +351,7 @@ directive|endif
 block|enum
 name|Flags
 block|{
-name|WithinWmPaint
+name|DCFromBeginPaint
 operator|=
 literal|0x1
 block|,
