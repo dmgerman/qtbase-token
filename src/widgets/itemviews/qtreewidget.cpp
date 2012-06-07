@@ -8473,6 +8473,14 @@ name|isChanging
 argument_list|()
 condition|)
 return|return;
+name|QTreeModel
+operator|::
+name|SkipSorting
+name|skipSorting
+argument_list|(
+name|model
+argument_list|)
+decl_stmt|;
 name|int
 name|oldSortColumn
 init|=
