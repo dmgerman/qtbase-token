@@ -285,7 +285,7 @@ name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
 argument_list|,
-argument|void _q_dataChanged(const QModelIndex&, const QModelIndex&, const QSet<int>&)
+argument|void _q_dataChanged(const QModelIndex&, const QModelIndex&, const QVector<int>&)
 argument_list|)
 name|Q_PRIVATE_SLOT
 argument_list|(

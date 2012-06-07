@@ -573,7 +573,7 @@ comment|/*!     \internal      This virtual method is reserved and will be used 
 end_comment
 begin_function
 DECL|function|paintingRoles
-name|QSet
+name|QVector
 argument_list|<
 name|int
 argument_list|>
@@ -584,7 +584,7 @@ parameter_list|()
 specifier|const
 block|{
 return|return
-name|QSet
+name|QVector
 argument_list|<
 name|int
 argument_list|>

@@ -14330,7 +14330,7 @@ name|top
 argument_list|,
 name|bottom
 argument_list|,
-name|QSet
+name|QVector
 argument_list|<
 name|int
 argument_list|>
@@ -14348,7 +14348,7 @@ name|top
 argument_list|,
 name|bottom
 argument_list|,
-name|QSet
+name|QVector
 argument_list|<
 name|int
 argument_list|>
@@ -14365,12 +14365,6 @@ block|}
 block|}
 class|;
 end_class
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QSet<int>
-argument_list|)
-end_macro
 begin_function
 DECL|function|testDataChanged
 name|void
@@ -14381,7 +14375,7 @@ parameter_list|()
 block|{
 name|qRegisterMetaType
 argument_list|<
-name|QSet
+name|QVector
 argument_list|<
 name|int
 argument_list|>
@@ -14405,7 +14399,7 @@ name|QModelIndex
 argument_list|,
 name|QModelIndex
 argument_list|,
-name|QSet
+name|QVector
 argument_list|<
 name|int
 argument_list|>
@@ -14497,7 +14491,7 @@ literal|2
 argument_list|)
 decl_stmt|;
 specifier|const
-name|QSet
+name|QVector
 argument_list|<
 name|int
 argument_list|>
@@ -14512,7 +14506,7 @@ argument_list|)
 operator|.
 name|value
 argument_list|<
-name|QSet
+name|QVector
 argument_list|<
 name|int
 argument_list|>
@@ -14520,7 +14514,7 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|const
-name|QSet
+name|QVector
 argument_list|<
 name|int
 argument_list|>
@@ -14535,7 +14529,7 @@ argument_list|)
 operator|.
 name|value
 argument_list|<
-name|QSet
+name|QVector
 argument_list|<
 name|int
 argument_list|>

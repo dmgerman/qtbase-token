@@ -244,7 +244,7 @@ name|index
 argument_list|)
 block|;
 name|virtual
-name|QSet
+name|QVector
 operator|<
 name|int
 operator|>

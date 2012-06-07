@@ -760,14 +760,14 @@ operator|&
 name|bottomRight
 argument_list|,
 specifier|const
-name|QSet
+name|QVector
 operator|<
 name|int
 operator|>
 operator|&
 name|roles
 operator|=
-name|QSet
+name|QVector
 operator|<
 name|int
 operator|>

@@ -299,7 +299,7 @@ modifier|&
 name|bottomRight
 parameter_list|,
 specifier|const
-name|QSet
+name|QVector
 argument_list|<
 name|int
 argument_list|>
@@ -819,7 +819,7 @@ modifier|&
 name|bottomRight
 parameter_list|,
 specifier|const
-name|QSet
+name|QVector
 argument_list|<
 name|int
 argument_list|>
@@ -1227,7 +1227,7 @@ name|QModelIndex
 argument_list|,
 name|QModelIndex
 argument_list|,
-name|QSet
+name|QVector
 argument_list|<
 name|int
 argument_list|>
@@ -1244,7 +1244,7 @@ name|QModelIndex
 argument_list|,
 name|QModelIndex
 argument_list|,
-name|QSet
+name|QVector
 argument_list|<
 name|int
 argument_list|>
@@ -1309,7 +1309,7 @@ name|QModelIndex
 argument_list|,
 name|QModelIndex
 argument_list|,
-name|QSet
+name|QVector
 argument_list|<
 name|int
 argument_list|>
@@ -1324,7 +1324,7 @@ name|QModelIndex
 argument_list|,
 name|QModelIndex
 argument_list|,
-name|QSet
+name|QVector
 argument_list|<
 name|int
 argument_list|>

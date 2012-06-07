@@ -31,7 +31,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/qset.h>
+file|<QtCore/qvector.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
@@ -1397,14 +1397,14 @@ operator|&
 name|bottomRight
 argument_list|,
 specifier|const
-name|QSet
+name|QVector
 operator|<
 name|int
 operator|>
 operator|&
 name|roles
 operator|=
-name|QSet
+name|QVector
 operator|<
 name|int
 operator|>
