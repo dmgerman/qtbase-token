@@ -4572,27 +4572,8 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \obsolete      Use childItems() instead.      \sa setParentItem() */
+comment|/*!     \fn QList<QGraphicsItem *> QGraphicsItem::children() const     \obsolete      Use childItems() instead.      \sa setParentItem() */
 end_comment
-begin_function
-DECL|function|children
-name|QList
-argument_list|<
-name|QGraphicsItem
-modifier|*
-argument_list|>
-name|QGraphicsItem
-operator|::
-name|children
-parameter_list|()
-specifier|const
-block|{
-return|return
-name|childItems
-argument_list|()
-return|;
-block|}
-end_function
 begin_comment
 comment|/*!     \since 4.4      Returns a list of this item's children.      The items are sorted by stacking order. This takes into account both the     items' insertion order and their Z-values.      \sa setParentItem(), zValue(), {QGraphicsItem#Sorting}{Sorting} */
 end_comment
@@ -8806,24 +8787,8 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \obsolete      Call acceptHoverEvents() instead. */
+comment|/*!     \fn bool QGraphicsItem::acceptsHoverEvents() const     \obsolete      Call acceptHoverEvents() instead. */
 end_comment
-begin_function
-DECL|function|acceptsHoverEvents
-name|bool
-name|QGraphicsItem
-operator|::
-name|acceptsHoverEvents
-parameter_list|()
-specifier|const
-block|{
-return|return
-name|d_ptr
-operator|->
-name|acceptsHover
-return|;
-block|}
-end_function
 begin_comment
 comment|/*!     \since 4.4      If \a enabled is true, this item will accept hover events;     otherwise, it will ignore them. By default, items do not accept     hover events.      Hover events are delivered when there is no current mouse grabber     item.  They are sent when the mouse cursor enters an item, when it     moves around inside the item, and when the cursor leaves an     item. Hover events are commonly used to highlight an item when     it's entered, and for tracking the mouse cursor as it hovers over     the item (equivalent to QWidget::mouseTracking).      Parent items receive hover enter events before their children, and     leave events after their children. The parent does not receive a     hover leave event if the cursor enters a child, though; the parent     stays "hovered" until the cursor leaves its area, including its     children's areas.      If a parent item handles child events, it will receive hover move,     drag move, and drop events as the cursor passes through its     children, but it does not receive hover enter and hover leave, nor     drag enter and drag leave events on behalf of its children.      A QGraphicsWidget with window decorations will accept hover events     regardless of the value of acceptHoverEvents().      \sa acceptHoverEvents(), hoverEnterEvent(), hoverMoveEvent(),     hoverLeaveEvent() */
 end_comment
@@ -8904,26 +8869,8 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \obsolete      Use setAcceptHoverEvents(\a enabled) instead. */
+comment|/*!     \fn void QGraphicsItem::setAcceptsHoverEvents(bool enabled)     \obsolete      Use setAcceptHoverEvents(\a enabled) instead. */
 end_comment
-begin_function
-DECL|function|setAcceptsHoverEvents
-name|void
-name|QGraphicsItem
-operator|::
-name|setAcceptsHoverEvents
-parameter_list|(
-name|bool
-name|enabled
-parameter_list|)
-block|{
-name|setAcceptHoverEvents
-argument_list|(
-name|enabled
-argument_list|)
-expr_stmt|;
-block|}
-end_function
 begin_comment
 comment|/*! \since 4.6      Returns true if an item accepts \l{QTouchEvent}{touch events};     otherwise, returns false. By default, items do not accept touch events.      \sa setAcceptTouchEvents() */
 end_comment
@@ -12888,134 +12835,17 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \obsolete      Use      \code     setRotation(rotation() + angle);     \endcode      instead.      Rotates the current item transformation \a angle degrees clockwise around     its origin. To translate around an arbitrary point (x, y), you need to     combine translation and rotation with setTransform().      Example:      \snippet code/src_gui_graphicsview_qgraphicsitem.cpp 6      \sa setTransform(), transform(), scale(), shear(), translate() */
+comment|/*!     \fn void QGraphicsItem::rotate(qreal angle)     \obsolete      Use      \code     setRotation(rotation() + angle);     \endcode      instead.      Rotates the current item transformation \a angle degrees clockwise around     its origin. To translate around an arbitrary point (x, y), you need to     combine translation and rotation with setTransform().      Example:      \snippet code/src_gui_graphicsview_qgraphicsitem.cpp 6      \sa setTransform(), transform(), scale(), shear(), translate() */
 end_comment
-begin_function
-DECL|function|rotate
-name|void
-name|QGraphicsItem
-operator|::
-name|rotate
-parameter_list|(
-name|qreal
-name|angle
-parameter_list|)
-block|{
-name|setTransform
-argument_list|(
-name|QTransform
-argument_list|()
-operator|.
-name|rotate
-argument_list|(
-name|angle
-argument_list|)
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
-block|}
-end_function
 begin_comment
-comment|/*!     \obsolete      Use      \code     setTransform(QTransform::fromScale(sx, sy), true);     \endcode      instead.      Scales the current item transformation by (\a sx, \a sy) around its     origin. To scale from an arbitrary point (x, y), you need to combine     translation and scaling with setTransform().      Example:      \snippet code/src_gui_graphicsview_qgraphicsitem.cpp 7      \sa setTransform(), transform() */
+comment|/*!     \fn void QGraphicsItem::scale(qreal sx, qreal sy)     \obsolete      Use      \code     setTransform(QTransform::fromScale(sx, sy), true);     \endcode      instead.      Scales the current item transformation by (\a sx, \a sy) around its     origin. To scale from an arbitrary point (x, y), you need to combine     translation and scaling with setTransform().      Example:      \snippet code/src_gui_graphicsview_qgraphicsitem.cpp 7      \sa setTransform(), transform() */
 end_comment
-begin_function
-DECL|function|scale
-name|void
-name|QGraphicsItem
-operator|::
-name|scale
-parameter_list|(
-name|qreal
-name|sx
-parameter_list|,
-name|qreal
-name|sy
-parameter_list|)
-block|{
-name|setTransform
-argument_list|(
-name|QTransform
-operator|::
-name|fromScale
-argument_list|(
-name|sx
-argument_list|,
-name|sy
-argument_list|)
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
-block|}
-end_function
 begin_comment
-comment|/*!     \obsolete      Use      \code     setTransform(QTransform().shear(sh, sv), true);     \endcode      instead.      Shears the current item transformation by (\a sh, \a sv).      \sa setTransform(), transform() */
+comment|/*!     \fn void QGraphicsItem::shear(qreal sh, qreal sv)     \obsolete      Use      \code     setTransform(QTransform().shear(sh, sv), true);     \endcode      instead.      Shears the current item transformation by (\a sh, \a sv).      \sa setTransform(), transform() */
 end_comment
-begin_function
-DECL|function|shear
-name|void
-name|QGraphicsItem
-operator|::
-name|shear
-parameter_list|(
-name|qreal
-name|sh
-parameter_list|,
-name|qreal
-name|sv
-parameter_list|)
-block|{
-name|setTransform
-argument_list|(
-name|QTransform
-argument_list|()
-operator|.
-name|shear
-argument_list|(
-name|sh
-argument_list|,
-name|sv
-argument_list|)
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
-block|}
-end_function
 begin_comment
-comment|/*!     \obsolete      Use setPos() or setTransformOriginPoint() instead. For identical     behavior, use      \code     setTransform(QTransform::fromTranslate(dx, dy), true);     \endcode      Translates the current item transformation by (\a dx, \a dy).      If all you want is to move an item, you should call moveBy() or     setPos() instead; this function changes the item's translation,     which is conceptually separate from its position.      \sa setTransform(), transform() */
+comment|/*!     \fn void QGraphicsItem::translate(qreal dx, qreal dy)     \obsolete      Use setPos() or setTransformOriginPoint() instead. For identical     behavior, use      \code     setTransform(QTransform::fromTranslate(dx, dy), true);     \endcode      Translates the current item transformation by (\a dx, \a dy).      If all you want is to move an item, you should call moveBy() or     setPos() instead; this function changes the item's translation,     which is conceptually separate from its position.      \sa setTransform(), transform() */
 end_comment
-begin_function
-DECL|function|translate
-name|void
-name|QGraphicsItem
-operator|::
-name|translate
-parameter_list|(
-name|qreal
-name|dx
-parameter_list|,
-name|qreal
-name|dy
-parameter_list|)
-block|{
-name|setTransform
-argument_list|(
-name|QTransform
-operator|::
-name|fromTranslate
-argument_list|(
-name|dx
-argument_list|,
-name|dy
-argument_list|)
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
-block|}
-end_function
 begin_comment
 comment|/*!     This virtual function is called twice for all items by the     QGraphicsScene::advance() slot. In the first phase, all items are called     with \a phase == 0, indicating that items on the scene are about to     advance, and then all items are called with \a phase == 1. Reimplement     this function to update your item if you need simple scene-controlled     animation.      The default implementation does nothing.      For individual item animation, an alternative to this function is to     either use QGraphicsItemAnimation, or to multiple-inherit from QObject and     QGraphicsItem, and animate your item using QObject::startTimer() and     QObject::timerEvent().      \sa QGraphicsItemAnimation, QTimeLine */
 end_comment
@@ -14682,27 +14512,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this item's bounding rect is completely obscured by the     opaque shape of any of colliding items above it (i.e., with a higher Z     value than this item).      Its implementation is based on calling isObscuredBy(), which you can     reimplement to provide a custom obscurity algorithm.    \sa opaqueArea() */
-end_comment
-begin_function
-DECL|function|isObscured
-name|bool
-name|QGraphicsItem
-operator|::
-name|isObscured
-parameter_list|()
-specifier|const
-block|{
-return|return
-name|isObscured
-argument_list|(
-name|QRectF
-argument_list|()
-argument_list|)
-return|;
-block|}
-end_function
-begin_comment
 comment|/*!     \internal      Item obscurity helper function.      Returns true if the subrect \a rect of \a item's bounding rect is obscured     by \a other (i.e., \a other's opaque area covers \a item's \a rect     completely. \a other is assumed to already be "on top of" \a item     wrt. stacking order. */
 end_comment
 begin_function
@@ -14748,7 +14557,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload     \since 4.3      Returns true if \a rect is completely obscured by the opaque shape of any     of colliding items above it (i.e., with a higher Z value than this item).      Unlike the default isObscured() function, this function does not call     isObscuredBy().      \sa opaqueArea() */
+comment|/*!     \overload     \since 4.3      Returns true if \a rect is completely obscured by the opaque shape of any     of colliding items above it (i.e., with a higher Z value than this item).      \sa opaqueArea() */
 end_comment
 begin_function
 DECL|function|isObscured
