@@ -3479,8 +3479,7 @@ argument_list|(
 name|node
 argument_list|)
 decl_stmt|;
-comment|// Removed for QTBUG-22870
-comment|// Unremoved by mws 30/03/12
+comment|// Only print modulename::type on collision pages.
 if|if
 condition|(
 operator|!
@@ -3490,6 +3489,15 @@ name|qmlModuleIdentifier
 argument_list|()
 operator|.
 name|isEmpty
+argument_list|()
+operator|&&
+name|relative
+operator|!=
+literal|0
+operator|&&
+name|relative
+operator|->
+name|isCollisionNode
 argument_list|()
 condition|)
 return|return
