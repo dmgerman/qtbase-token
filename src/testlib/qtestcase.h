@@ -125,15 +125,39 @@ parameter_list|,
 name|__expected
 parameter_list|)
 value|QTRY_COMPARE_WITH_TIMEOUT(__expr, __expected, 5000)
+DECL|macro|QSKIP_INTERNAL
+define|#
+directive|define
+name|QSKIP_INTERNAL
+parameter_list|(
+name|statement
+parameter_list|)
+define|\
+value|do {\     QTest::qSkip(statement, __FILE__, __LINE__);\     return;\ } while (0)
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_VARIADIC_MACROS
 DECL|macro|QSKIP
 define|#
 directive|define
 name|QSKIP
 parameter_list|(
 name|statement
+parameter_list|,
+modifier|...
 parameter_list|)
-define|\
-value|do {\     QTest::qSkip(statement, __FILE__, __LINE__);\     return;\ } while (0)
+value|QSKIP_INTERNAL(statement)
+else|#
+directive|else
+define|#
+directive|define
+name|QSKIP
+parameter_list|(
+name|statement
+parameter_list|)
+value|QSKIP_INTERNAL(statement)
+endif|#
+directive|endif
 DECL|macro|QEXPECT_FAIL
 define|#
 directive|define
