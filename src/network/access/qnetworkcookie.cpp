@@ -4150,47 +4150,9 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-name|field
-operator|.
-name|first
-operator|==
-literal|"comment"
-condition|)
-block|{
-comment|//cookie.setComment(QString::fromUtf8(field.second));
-block|}
-elseif|else
-if|if
-condition|(
-name|field
-operator|.
-name|first
-operator|==
-literal|"version"
-condition|)
-block|{
-if|if
-condition|(
-name|field
-operator|.
-name|second
-operator|!=
-literal|"1"
-condition|)
-block|{
-comment|// oops, we don't know how to handle this cookie
-return|return
-name|result
-return|;
-block|}
-block|}
 else|else
 block|{
-comment|// got an unknown field in the cookie
-comment|// what do we do?
+comment|// ignore unknown fields in the cookie (RFC6265 section 5.2, rule 6)
 block|}
 name|position
 operator|=
