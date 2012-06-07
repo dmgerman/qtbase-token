@@ -153,6 +153,10 @@ block|;
 name|QCheckBox
 operator|*
 name|customizeWindowHintCheckBox
+block|;
+name|QCheckBox
+operator|*
+name|transparentForInputCheckBox
 block|; }
 decl_stmt|;
 end_decl_stmt
