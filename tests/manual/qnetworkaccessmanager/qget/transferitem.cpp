@@ -662,6 +662,8 @@ comment|//follow redirect
 if|if
 condition|(
 name|outputFile
+operator|&&
+name|outputFile
 operator|->
 name|isOpen
 argument_list|()
