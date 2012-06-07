@@ -9544,6 +9544,18 @@ operator|::
 name|NoButton
 condition|)
 block|{
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_WS_MAC
+argument_list|)
+comment|// Under Cocoa, when the mouse button is released, may include an extra
+comment|// simulated mouse moved event. The state of the buttons when this event
+comment|// is generated is already "no button" and the code below gets executed
+comment|// just before the mouseReleaseEvent and resets the state. This prevents
+comment|// column dragging from working. So this code is disabled under Cocoa.
 name|d
 operator|->
 name|state
@@ -9559,6 +9571,8 @@ operator|=
 operator|-
 literal|1
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 switch|switch
 condition|(
