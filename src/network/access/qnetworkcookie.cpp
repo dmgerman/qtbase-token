@@ -4065,12 +4065,32 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-operator|!
 name|ok
 condition|)
-return|return
-name|result
-return|;
+block|{
+if|if
+condition|(
+name|secs
+operator|<=
+literal|0
+condition|)
+block|{
+comment|//earliest representable time (RFC6265 section 5.2.2)
+name|cookie
+operator|.
+name|setExpirationDate
+argument_list|(
+name|QDateTime
+operator|::
+name|fromTime_t
+argument_list|(
+literal|0
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|cookie
 operator|.
 name|setExpirationDate
@@ -4083,6 +4103,9 @@ name|secs
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+comment|//if unparsed, ignore the attribute but not the whole cookie (RFC6265 section 5.2.2)
 block|}
 elseif|else
 if|if
