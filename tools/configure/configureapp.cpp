@@ -16609,6 +16609,26 @@ argument_list|)
 condition|)
 block|{
 comment|// no Text, this is binary
+name|exe
+operator|.
+name|setFileName
+argument_list|(
+literal|"arch"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|exe
+operator|.
+name|open
+argument_list|(
+name|QFile
+operator|::
+name|ReadOnly
+argument_list|)
+condition|)
+block|{
 name|cout
 operator|<<
 literal|"Could not find output file: "
@@ -16631,6 +16651,7 @@ operator|=
 literal|"error"
 expr_stmt|;
 return|return;
+block|}
 block|}
 name|QByteArray
 name|exeContents
