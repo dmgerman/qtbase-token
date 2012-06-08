@@ -809,7 +809,7 @@ name|cookie
 operator|.
 name|setValue
 argument_list|(
-literal|"\";\""
+literal|"\""
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -863,7 +863,7 @@ name|cookie
 operator|.
 name|setValue
 argument_list|(
-literal|"\"\\\"a, b; c\\\"\""
+literal|"\"\\\"a, b"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -1341,6 +1341,13 @@ literal|"a=b; path=/with%20spaces "
 operator|<<
 name|cookie
 expr_stmt|;
+name|cookie
+operator|.
+name|setPath
+argument_list|(
+literal|"\"/with spaces\""
+argument_list|)
+expr_stmt|;
 name|QTest
 operator|::
 name|newRow
@@ -1380,6 +1387,13 @@ operator|<<
 literal|"a=b; path = /with%22Quotes"
 operator|<<
 name|cookie
+expr_stmt|;
+name|cookie
+operator|.
+name|setPath
+argument_list|(
+literal|"\"/with\\\"Quotes\""
+argument_list|)
 expr_stmt|;
 name|QTest
 operator|::
@@ -6174,6 +6188,41 @@ literal|"network5"
 argument_list|)
 operator|<<
 literal|"leo_auth_token=\"GST:UroVXaxYA3sVSkoVjMNH9bj4dZxVzK2yekgrAUxMfUsyLTNyPjoP60:1298974875:b675566ae32ab36d7a708c0efbf446a5c22b9fca\"; Version=1; Max-Age=1799; Expires=Tue, 01-Mar-2011 10:51:14 GMT; Path=/"
+operator|<<
+name|cookie
+expr_stmt|;
+comment|// cookie containing JSON data (illegal for server, client should accept) - QTBUG-26002
+name|cookie
+operator|=
+name|QNetworkCookie
+argument_list|(
+literal|"xploreCookies"
+argument_list|,
+literal|"{\"desktopReportingUrl\":\"null\",\"userIds\":\"1938850\",\"contactEmail\":\"NA\",\"contactName\":\"NA\",\"enterpriseLicenseId\":\"0\",\"openUrlTxt\":\"NA\",\"customerSurvey\":\"NA\",\"standardsLicenseId\":\"0\",\"openUrl\":\"NA\",\"smallBusinessLicenseId\":\"0\", \"instImage\":\"1938850_univ skovde.gif\",\"isMember\":\"false\",\"products\":\"IEL|VDE|\",\"openUrlImgLoc\":\"NA\",\"isIp\":\"true\",\"instName\": \"University of XXXXXX\",\"oldSessionKey\":\"LmZ8hlXo5a9uZx2Fnyw1564T1ZOWMnf3Dk*oDx2FQHwbg6RYefyrhC8PL2wx3Dx3D-18x2d8723DyqXRnkILyGpmx2Fh9wgx3Dx3Dc2lAOhHqGSKT78xxGwXZxxCgx3Dx3D-XrL4FnIlW2OPkqtVJq0LkQx3Dx3D-tujOLwhFqtX7Pa7HGqmCXQx3Dx3D\", \"isChargebackUser\":\"false\",\"isInst\":\"true\"}"
+argument_list|)
+expr_stmt|;
+name|cookie
+operator|.
+name|setDomain
+argument_list|(
+literal|".ieee.org"
+argument_list|)
+expr_stmt|;
+name|cookie
+operator|.
+name|setPath
+argument_list|(
+literal|"/"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"network6"
+argument_list|)
+operator|<<
+literal|"xploreCookies={\"desktopReportingUrl\":\"null\",\"userIds\":\"1938850\",\"contactEmail\":\"NA\",\"contactName\":\"NA\",\"enterpriseLicenseId\":\"0\",\"openUrlTxt\":\"NA\",\"customerSurvey\":\"NA\",\"standardsLicenseId\":\"0\",\"openUrl\":\"NA\",\"smallBusinessLicenseId\":\"0\", \"instImage\":\"1938850_univ skovde.gif\",\"isMember\":\"false\",\"products\":\"IEL|VDE|\",\"openUrlImgLoc\":\"NA\",\"isIp\":\"true\",\"instName\": \"University of XXXXXX\",\"oldSessionKey\":\"LmZ8hlXo5a9uZx2Fnyw1564T1ZOWMnf3Dk*oDx2FQHwbg6RYefyrhC8PL2wx3Dx3D-18x2d8723DyqXRnkILyGpmx2Fh9wgx3Dx3Dc2lAOhHqGSKT78xxGwXZxxCgx3Dx3D-XrL4FnIlW2OPkqtVJq0LkQx3Dx3D-tujOLwhFqtX7Pa7HGqmCXQx3Dx3D\", \"isChargebackUser\":\"false\",\"isInst\":\"true\"}; domain=.ieee.org; path=/"
 operator|<<
 name|cookie
 expr_stmt|;
