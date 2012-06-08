@@ -272,6 +272,21 @@ name|bool
 name|isOk
 parameter_list|()
 function_decl|;
+name|int
+name|platform
+argument_list|()
+specifier|const
+expr_stmt|;
+name|QString
+name|platformName
+argument_list|()
+specifier|const
+expr_stmt|;
+name|QString
+name|qpaPlatformName
+argument_list|()
+specifier|const
+expr_stmt|;
 name|private
 label|:
 comment|// Our variable dictionaries
