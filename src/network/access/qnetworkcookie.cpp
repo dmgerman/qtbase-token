@@ -3572,17 +3572,11 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-operator|!
 name|dt
 operator|.
 name|isValid
 argument_list|()
 condition|)
-block|{
-return|return
-name|result
-return|;
-block|}
 name|cookie
 operator|.
 name|setExpirationDate
@@ -3590,6 +3584,7 @@ argument_list|(
 name|dt
 argument_list|)
 expr_stmt|;
+comment|//if unparsed, ignore the attribute but not the whole cookie (RFC6265 section 5.2.1)
 block|}
 elseif|else
 if|if
