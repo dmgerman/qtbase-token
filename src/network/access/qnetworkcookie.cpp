@@ -3608,6 +3608,16 @@ name|field
 operator|.
 name|second
 decl_stmt|;
+comment|//empty domain should be ignored (RFC6265 section 5.2.3)
+if|if
+condition|(
+operator|!
+name|rawDomain
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 name|QString
 name|maybeLeadingDot
 decl_stmt|;
@@ -3638,6 +3648,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+comment|//IDN domains are required by RFC6265, accepting utf8 as well doesn't break any test cases.
 name|QString
 name|normalizedDomain
 init|=
@@ -3660,20 +3671,13 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|!
 name|normalizedDomain
 operator|.
 name|isEmpty
 argument_list|()
-operator|&&
-operator|!
-name|rawDomain
-operator|.
-name|isEmpty
-argument_list|()
 condition|)
-return|return
-name|result
-return|;
+block|{
 name|cookie
 operator|.
 name|setDomain
@@ -3683,6 +3687,17 @@ operator|+
 name|normalizedDomain
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|//Normalization fails for malformed domains, e.g. "..example.org", reject the cookie now
+comment|//rather than accepting it but never sending it due to domain match failure, as the
+comment|//strict reading of RFC6265 would indicate.
+return|return
+name|result
+return|;
+block|}
+block|}
 block|}
 elseif|else
 if|if
