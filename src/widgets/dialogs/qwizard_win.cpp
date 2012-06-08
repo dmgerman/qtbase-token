@@ -2042,11 +2042,6 @@ modifier|*
 name|result
 parameter_list|)
 block|{
-name|bool
-name|retval
-init|=
-literal|true
-decl_stmt|;
 switch|switch
 condition|(
 name|msg
@@ -2061,6 +2056,9 @@ block|{
 name|LRESULT
 name|lResult
 decl_stmt|;
+comment|// Perform hit testing using DWM
+if|if
+condition|(
 name|pDwmDefWindowProc
 argument_list|(
 name|msg
@@ -2082,7 +2080,42 @@ argument_list|,
 operator|&
 name|lResult
 argument_list|)
+condition|)
+block|{
+comment|// DWM returned a hit, no further processing necessary
+operator|*
+name|result
+operator|=
+name|lResult
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// DWM didn't return a hit, process using DefWindowProc
+name|lResult
+operator|=
+name|DefWindowProc
+argument_list|(
+name|msg
+operator|->
+name|hwnd
+argument_list|,
+name|msg
+operator|->
+name|message
+argument_list|,
+name|msg
+operator|->
+name|wParam
+argument_list|,
+name|msg
+operator|->
+name|lParam
+argument_list|)
+expr_stmt|;
+comment|// If DefWindowProc returns a window caption button, just return HTCLIENT (client area).
+comment|// This avoid unnecessary hits to Windows NT style caption buttons which aren't visible but are
+comment|// located just under the Aero style window close button.
 if|if
 condition|(
 name|lResult
@@ -2104,49 +2137,31 @@ condition|)
 operator|*
 name|result
 operator|=
-name|lResult
+name|HTCLIENT
 expr_stmt|;
 else|else
 operator|*
 name|result
 operator|=
-name|DefWindowProc
-argument_list|(
-name|msg
-operator|->
-name|hwnd
-argument_list|,
-name|msg
-operator|->
-name|message
-argument_list|,
-name|msg
-operator|->
-name|wParam
-argument_list|,
-name|msg
-operator|->
-name|lParam
-argument_list|)
+name|lResult
 expr_stmt|;
+block|}
 break|break;
 block|}
-case|case
-name|WM_NCMOUSEMOVE
-case|:
-case|case
-name|WM_NCLBUTTONDOWN
-case|:
-case|case
-name|WM_NCLBUTTONUP
-case|:
-case|case
-name|WIZ_WM_NCMOUSELEAVE
-case|:
-block|{
+comment|//    case WM_NCCALCSIZE: { #fixme: If the frame size is changed, it needs to be communicated to the QWindow.
+comment|//        NCCALCSIZE_PARAMS* lpncsp = (NCCALCSIZE_PARAMS*)msg->lParam;
+comment|//        *result = DefWindowProc(msg->hwnd, msg->message, msg->wParam, msg->lParam);
+comment|//        lpncsp->rgrc[0].top -= (vistaState() == VistaAero ? titleBarSize() : 0);
+comment|//
+comment|//        break;
+comment|//    }
+default|default:
 name|LRESULT
 name|lResult
 decl_stmt|;
+comment|// Pass to DWM to handle
+if|if
+condition|(
 name|pDwmDefWindowProc
 argument_list|(
 name|msg
@@ -2168,46 +2183,20 @@ argument_list|,
 operator|&
 name|lResult
 argument_list|)
-expr_stmt|;
+condition|)
 operator|*
 name|result
 operator|=
-name|DefWindowProc
-argument_list|(
-name|msg
-operator|->
-name|hwnd
-argument_list|,
-name|msg
-operator|->
-name|message
-argument_list|,
-name|msg
-operator|->
-name|wParam
-argument_list|,
-name|msg
-operator|->
-name|lParam
-argument_list|)
+name|lResult
 expr_stmt|;
-break|break;
-block|}
-comment|//    case WM_NCCALCSIZE: { #fixme: If the frame size is changed, it needs to be communicated to the QWindow.
-comment|//        NCCALCSIZE_PARAMS* lpncsp = (NCCALCSIZE_PARAMS*)msg->lParam;
-comment|//        *result = DefWindowProc(msg->hwnd, msg->message, msg->wParam, msg->lParam);
-comment|//        lpncsp->rgrc[0].top -= (vistaState() == VistaAero ? titleBarSize() : 0);
-comment|//
-comment|//        break;
-comment|//    }
-default|default:
-name|retval
-operator|=
+comment|// If the message wasn't handled by DWM, continue processing it as normal
+else|else
+return|return
 literal|false
-expr_stmt|;
+return|;
 block|}
 return|return
-name|retval
+literal|true
 return|;
 block|}
 end_function
@@ -3297,6 +3286,18 @@ argument_list|(
 name|event
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|mouseEvent
+operator|->
+name|button
+argument_list|()
+operator|==
+name|Qt
+operator|::
+name|LeftButton
+condition|)
+block|{
 name|long
 name|result
 decl_stmt|;
@@ -3379,6 +3380,7 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 elseif|else
 if|if
 condition|(
@@ -3405,6 +3407,18 @@ argument_list|(
 name|event
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|mouseEvent
+operator|->
+name|button
+argument_list|()
+operator|==
+name|Qt
+operator|::
+name|LeftButton
+condition|)
+block|{
 name|long
 name|result
 decl_stmt|;
@@ -3486,6 +3500,7 @@ operator|&
 name|result
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 literal|false
