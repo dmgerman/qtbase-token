@@ -392,9 +392,9 @@ argument_list|)
 expr_stmt|;
 name|fi
 operator|=
-name|files
+name|zip
 operator|.
-name|at
+name|entryInfoAt
 argument_list|(
 operator|-
 literal|1
