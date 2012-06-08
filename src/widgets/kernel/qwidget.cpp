@@ -927,11 +927,6 @@ literal|0
 argument_list|)
 endif|#
 directive|endif
-member_init_list|,
-name|inSetParent
-argument_list|(
-literal|0
-argument_list|)
 if|#
 directive|if
 name|defined
@@ -32978,12 +32973,6 @@ argument_list|(
 name|QWidget
 argument_list|)
 expr_stmt|;
-name|d
-operator|->
-name|inSetParent
-operator|=
-literal|true
-expr_stmt|;
 name|bool
 name|resized
 init|=
@@ -33746,12 +33735,6 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
-name|d
-operator|->
-name|inSetParent
-operator|=
-literal|false
-expr_stmt|;
 block|}
 comment|/*!     Scrolls the widget including its children \a dx pixels to the     right and \a dy downward. Both \a dx and \a dy may be negative.      After scrolling, the widgets will receive paint events for     the areas that need to be repainted. For widgets that Qt knows to     be opaque, this is only the newly exposed parts.     For example, if an opaque widget is scrolled 8 pixels to the left,     only an 8-pixel wide stripe at the right edge needs updating.      Since widgets propagate the contents of their parents by default,     you need to set the \l autoFillBackground property, or use     setAttribute() to set the Qt::WA_OpaquePaintEvent attribute, to make     a widget opaque.      For widgets that use contents propagation, a scroll will cause an     update of the entire scroll area.      \sa {Transparency and Double Buffering} */
 DECL|function|scroll
