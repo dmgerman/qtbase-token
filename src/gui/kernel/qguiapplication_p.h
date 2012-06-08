@@ -188,6 +188,13 @@ operator|*
 name|qt_qpa_core_dispatcher
 argument_list|()
 block|{
+if|if
+condition|(
+name|QCoreApplication
+operator|::
+name|instance
+argument_list|()
+condition|)
 return|return
 name|QCoreApplication
 operator|::
@@ -200,6 +207,10 @@ operator|->
 name|threadData
 operator|->
 name|eventDispatcher
+return|;
+else|else
+return|return
+literal|0
 return|;
 block|}
 specifier|static
