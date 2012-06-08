@@ -1484,16 +1484,6 @@ argument_list|()
 operator|<<
 literal|"QOpenGLContext::swapBuffers() called without corresponding makeCurrent()"
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|GL_FRAMEBUFFER_BINDING
-DECL|macro|GL_FRAMEBUFFER_BINDING
-define|#
-directive|define
-name|GL_FRAMEBUFFER_BINDING
-value|0x8CA6
-endif|#
-directive|endif
 name|GLint
 name|framebufferBinding
 init|=

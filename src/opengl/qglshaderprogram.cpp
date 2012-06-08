@@ -458,6 +458,13 @@ argument_list|(
 name|GL_VERTEX_SHADER
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_OPENGL_ES_2
+argument_list|)
 elseif|else
 if|if
 condition|(
@@ -474,6 +481,8 @@ argument_list|(
 name|GL_GEOMETRY_SHADER_EXT
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 else|else
 name|shader
 operator|=
@@ -2881,6 +2890,13 @@ return|return
 literal|true
 return|;
 block|}
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_OPENGL_ES_2
+argument_list|)
 comment|// Set up the geometry shader parameters
 if|if
 condition|(
@@ -2947,6 +2963,8 @@ break|break;
 block|}
 block|}
 block|}
+endif|#
+directive|endif
 name|glLinkProgram
 argument_list|(
 name|program
@@ -9633,7 +9651,16 @@ specifier|const
 block|{
 name|GLint
 name|n
+init|=
+literal|0
 decl_stmt|;
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_OPENGL_ES_2
+argument_list|)
 name|glGetIntegerv
 argument_list|(
 name|GL_MAX_GEOMETRY_OUTPUT_VERTICES_EXT
@@ -9642,6 +9669,8 @@ operator|&
 name|n
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 return|return
 name|n
 return|;

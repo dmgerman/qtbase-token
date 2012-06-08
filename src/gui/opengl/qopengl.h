@@ -29,11 +29,6 @@ end_macro
 begin_if
 if|#
 directive|if
-literal|1
-end_if
-begin_if
-if|#
-directive|if
 name|defined
 argument_list|(
 name|QT_OPENGL_ES_2
@@ -65,6 +60,11 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_include
+include|#
+directive|include
+file|"qopengles2ext.h"
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -101,6 +101,45 @@ begin_else
 else|#
 directive|else
 end_else
+begin_comment
+comment|// Mac OSX is a "controlled platform" for OpenGL ABI so we use
+end_comment
+begin_comment
+comment|// the system provided headers there. Controlled means that the
+end_comment
+begin_comment
+comment|// headers always match the actual driver implementation so there
+end_comment
+begin_comment
+comment|// is no possibility of drivers exposing additional functionality
+end_comment
+begin_comment
+comment|// from the system headers. Also it means that the vendor can
+end_comment
+begin_comment
+comment|// (and does) make different choices about some OpenGL types. For
+end_comment
+begin_comment
+comment|// e.g. Apple uses void* for GLhandleARB whereas other platforms
+end_comment
+begin_comment
+comment|// use unsigned int.
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// For the "uncontrolled" Windows and Linux platforms we use the
+end_comment
+begin_comment
+comment|// official Khronos glext.h header. On these platforms this gives
+end_comment
+begin_comment
+comment|// access to additional functionality the drivers may expose but
+end_comment
+begin_comment
+comment|// which the system headers do not.
+end_comment
 begin_if
 if|#
 directive|if
@@ -113,6 +152,32 @@ begin_include
 include|#
 directive|include
 file|<OpenGL/gl.h>
+end_include
+begin_if
+if|#
+directive|if
+name|MAC_OS_X_VERSION_MAX_ALLOWED
+operator|>=
+name|MAC_OS_X_VERSION_10_7
+end_if
+begin_define
+define|#
+directive|define
+name|GL_DO_NOT_WARN_IF_MULTI_GL_VERSION_HEADERS_INCLUDED
+end_define
+begin_include
+include|#
+directive|include
+file|<OpenGL/gl3.h>
+end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_include
+include|#
+directive|include
+file|<OpenGL/glext.h>
 end_include
 begin_else
 else|#
@@ -140,10 +205,60 @@ include|#
 directive|include
 file|<GL/gl.h>
 end_include
+begin_include
+include|#
+directive|include
+file|"qopenglext.h"
+end_include
 begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// Q_OS_MAC
+end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// Desktops, apart from Mac OS X prior to 10.7 can support OpenGL 3
+end_comment
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_OPENGL_ES_2
+argument_list|)
+end_if
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_MAC
+argument_list|)
+operator|||
+operator|(
+name|defined
+argument_list|(
+name|Q_OS_MAC
+argument_list|)
+operator|&&
+name|MAC_OS_X_VERSION_MAX_ALLOWED
+operator|>=
+name|MAC_OS_X_VERSION_10_7
+operator|)
+end_if
+begin_define
+DECL|macro|QT_OPENGL_3
+define|#
+directive|define
+name|QT_OPENGL_3
+end_define
 begin_endif
 endif|#
 directive|endif

@@ -96,6 +96,28 @@ include|#
 directive|include
 file|<QDebug>
 end_include
+begin_comment
+comment|// ####TODO Properly #ifdef this class to use #define symbols actually defined
+end_comment
+begin_comment
+comment|// by OpenGL/ES includes
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|GL_FRAMEBUFFER_SRGB
+end_ifndef
+begin_define
+DECL|macro|GL_FRAMEBUFFER_SRGB
+define|#
+directive|define
+name|GL_FRAMEBUFFER_SRGB
+value|0x8DB9
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function_decl
 name|QT_BEGIN_NAMESPACE
 name|Q_GUI_EXPORT
@@ -529,6 +551,28 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|// ####TODO Properly #ifdef this class to use #define symbols actually defined
+end_comment
+begin_comment
+comment|// by OpenGL/ES includes
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|GL_MIRRORED_REPEAT_IBM
+end_ifndef
+begin_define
+DECL|macro|GL_MIRRORED_REPEAT_IBM
+define|#
+directive|define
+name|GL_MIRRORED_REPEAT_IBM
+value|0x8370
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|updateBrushTexture
 name|void
@@ -10350,7 +10394,7 @@ name|srgbFrameBufferEnabled
 condition|)
 name|glDisable
 argument_list|(
-name|FRAMEBUFFER_SRGB_EXT
+name|GL_FRAMEBUFFER_SRGB
 argument_list|)
 expr_stmt|;
 block|}

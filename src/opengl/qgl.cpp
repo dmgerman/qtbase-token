@@ -5007,6 +5007,12 @@ directive|define
 name|FOURCC_DXT5
 value|0x35545844
 end_define
+begin_comment
+comment|// ####TODO Properly #ifdef this class to use #define symbols actually defined
+end_comment
+begin_comment
+comment|// by system GL includes
+end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -5019,6 +5025,15 @@ directive|define
 name|GL_COMPRESSED_RGB_S3TC_DXT1_EXT
 value|0x83F0
 end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|GL_COMPRESSED_RGBA_S3TC_DXT1_EXT
+end_ifndef
 begin_define
 DECL|macro|GL_COMPRESSED_RGBA_S3TC_DXT1_EXT
 define|#
@@ -5026,6 +5041,15 @@ directive|define
 name|GL_COMPRESSED_RGBA_S3TC_DXT1_EXT
 value|0x83F1
 end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|GL_COMPRESSED_RGBA_S3TC_DXT3_EXT
+end_ifndef
 begin_define
 DECL|macro|GL_COMPRESSED_RGBA_S3TC_DXT3_EXT
 define|#
@@ -5033,6 +5057,15 @@ directive|define
 name|GL_COMPRESSED_RGBA_S3TC_DXT3_EXT
 value|0x83F2
 end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|GL_COMPRESSED_RGBA_S3TC_DXT5_EXT
+end_ifndef
 begin_define
 DECL|macro|GL_COMPRESSED_RGBA_S3TC_DXT5_EXT
 define|#
@@ -6489,6 +6522,28 @@ end_function
 begin_comment
 comment|// #define QGL_BIND_TEXTURE_DEBUG
 end_comment
+begin_comment
+comment|// ####TODO Properly #ifdef this file to use #define symbols actually defined
+end_comment
+begin_comment
+comment|// by OpenGL/ES includes
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|GL_UNSIGNED_INT_8_8_8_8_REV
+end_ifndef
+begin_define
+DECL|macro|GL_UNSIGNED_INT_8_8_8_8_REV
+define|#
+directive|define
+name|GL_UNSIGNED_INT_8_8_8_8_REV
+value|0x8367
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|// map from Qt's ARGB endianness-dependent format to GL's big-endian RGBA layout
 end_comment
@@ -13996,6 +14051,28 @@ block|}
 block|}
 end_function
 begin_comment
+comment|// ####TODO Properly #ifdef this class to use #define symbols actually defined
+end_comment
+begin_comment
+comment|// by OpenGL/ES includes
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|GL_FRAMEBUFFER_SRGB_CAPABLE_EXT
+end_ifndef
+begin_define
+DECL|macro|GL_FRAMEBUFFER_SRGB_CAPABLE_EXT
+define|#
+directive|define
+name|GL_FRAMEBUFFER_SRGB_CAPABLE_EXT
+value|0x8DBA
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
 comment|/*     Returns the GL extensions for the current context. */
 end_comment
 begin_function
@@ -14386,7 +14463,7 @@ name|srgbCapableFramebuffers
 decl_stmt|;
 name|glGetBooleanv
 argument_list|(
-name|FRAMEBUFFER_SRGB_CAPABLE_EXT
+name|GL_FRAMEBUFFER_SRGB_CAPABLE_EXT
 argument_list|,
 operator|&
 name|srgbCapableFramebuffers

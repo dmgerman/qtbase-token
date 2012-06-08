@@ -188,7 +188,7 @@ name|m_thisFBO
 expr_stmt|;
 name|glBindFramebuffer
 argument_list|(
-name|GL_FRAMEBUFFER_EXT
+name|GL_FRAMEBUFFER
 argument_list|,
 name|m_thisFBO
 argument_list|)
@@ -258,7 +258,7 @@ name|m_thisFBO
 expr_stmt|;
 name|glBindFramebuffer
 argument_list|(
-name|GL_FRAMEBUFFER_EXT
+name|GL_FRAMEBUFFER
 argument_list|,
 name|m_thisFBO
 argument_list|)
@@ -312,7 +312,7 @@ name|m_previousFBO
 expr_stmt|;
 name|glBindFramebuffer
 argument_list|(
-name|GL_FRAMEBUFFER_EXT
+name|GL_FRAMEBUFFER
 argument_list|,
 name|m_previousFBO
 argument_list|)
