@@ -1124,12 +1124,18 @@ name|i
 operator|==
 literal|0
 operator|&&
+operator|(
 name|c
 operator|==
 literal|'-'
+operator|||
+name|c
+operator|==
+literal|'+'
+operator|)
 operator|)
 condition|)
-comment|// check for negative sign at start of string
+comment|// check for negative or positive sign at start of string
 return|return
 literal|false
 return|;
