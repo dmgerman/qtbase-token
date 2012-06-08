@@ -2965,6 +2965,15 @@ name|noChange
 expr_stmt|;
 if|if
 condition|(
+name|event
+operator|->
+name|button
+argument_list|()
+operator|!=
+name|Qt
+operator|::
+name|LeftButton
+operator|||
 name|wizard
 operator|->
 name|windowState
