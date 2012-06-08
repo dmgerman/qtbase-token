@@ -1316,7 +1316,7 @@ name|cookie
 operator|.
 name|setPath
 argument_list|(
-literal|"/with spaces"
+literal|"/with%20spaces"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -1345,14 +1345,15 @@ name|cookie
 operator|.
 name|setPath
 argument_list|(
-literal|"\"/with spaces\""
+name|QString
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"path-with-spaces3"
+literal|"invalid-path-with-spaces3"
 argument_list|)
 operator|<<
 literal|"a=b; path=\"/with spaces\""
@@ -1363,10 +1364,39 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"path-with-spaces4"
+literal|"invalid-path-with-spaces4"
 argument_list|)
 operator|<<
 literal|"a=b; path = \"/with spaces\" "
+operator|<<
+name|cookie
+expr_stmt|;
+name|cookie
+operator|.
+name|setPath
+argument_list|(
+literal|"/with spaces"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"path-with-spaces5"
+argument_list|)
+operator|<<
+literal|"a=b; path=/with spaces"
+operator|<<
+name|cookie
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"path-with-spaces6"
+argument_list|)
+operator|<<
+literal|"a=b; path = /with spaces "
 operator|<<
 name|cookie
 expr_stmt|;
@@ -1384,7 +1414,7 @@ argument_list|(
 literal|"path-with-quotes"
 argument_list|)
 operator|<<
-literal|"a=b; path = /with%22Quotes"
+literal|"a=b; path = /with\"Quotes"
 operator|<<
 name|cookie
 expr_stmt|;
@@ -1392,14 +1422,15 @@ name|cookie
 operator|.
 name|setPath
 argument_list|(
-literal|"\"/with\\\"Quotes\""
+name|QString
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"path-with-quotes2"
+literal|"invalid-path-with-quotes2"
 argument_list|)
 operator|<<
 literal|"a=b; path = \"/with\\\"Quotes\""
@@ -1433,6 +1464,13 @@ literal|"a=b;path=/R\303\251sum\303\251"
 argument_list|)
 operator|<<
 name|cookie
+expr_stmt|;
+name|cookie
+operator|.
+name|setPath
+argument_list|(
+literal|"/R%C3%A9sum%C3%A9"
+argument_list|)
 expr_stmt|;
 name|QTest
 operator|::
@@ -6507,12 +6545,34 @@ literal|";path=/"
 operator|<<
 name|list
 expr_stmt|;
+comment|// these should be accepted by RFC6265 but ignoring the expires field
 comment|// reason: malformed expiration date string
+name|QNetworkCookie
+name|datelessCookie
+decl_stmt|;
+name|datelessCookie
+operator|.
+name|setName
+argument_list|(
+literal|"a"
+argument_list|)
+expr_stmt|;
+name|datelessCookie
+operator|.
+name|setValue
+argument_list|(
+literal|"b"
+argument_list|)
+expr_stmt|;
+name|list
+operator|<<
+name|datelessCookie
+expr_stmt|;
 name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"invalid-08"
+literal|"expiration-empty"
 argument_list|)
 operator|<<
 literal|"a=b;expires="
@@ -6523,7 +6583,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"invalid-09"
+literal|"expiration-invalid-01"
 argument_list|)
 operator|<<
 literal|"a=b;expires=foobar"
@@ -6534,7 +6594,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"invalid-10"
+literal|"expiration-invalid-02"
 argument_list|)
 operator|<<
 literal|"a=b;expires=foobar, abc"
@@ -6545,7 +6605,35 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"invalid-11"
+literal|"expiration-invalid-03"
+argument_list|)
+operator|<<
+literal|"a=b; expires=123"
+operator|<<
+name|list
+expr_stmt|;
+comment|// used to ASSERT
+name|datelessCookie
+operator|.
+name|setPath
+argument_list|(
+literal|"/"
+argument_list|)
+expr_stmt|;
+name|list
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|list
+operator|<<
+name|datelessCookie
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"expiration-invalid-04"
 argument_list|)
 operator|<<
 literal|"a=b;expires=foobar, dd-mmm-yyyy hh:mm:ss GMT; path=/"
@@ -6556,7 +6644,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"invalid-12"
+literal|"expiration-invalid-05"
 argument_list|)
 operator|<<
 literal|"a=b;expires=foobar, 32-Caz-1999 24:01:60 GMT; path=/"
@@ -6884,18 +6972,6 @@ literal|"NonAlphNumDomName=NonAlphNumDomValue; domain=!@#$%^&*()"
 operator|<<
 name|list
 expr_stmt|;
-name|QTest
-operator|::
-name|newRow
-argument_list|(
-literal|"expiration-3digit1"
-argument_list|)
-operator|<<
-literal|"a=b; expires=123"
-operator|<<
-name|list
-expr_stmt|;
-comment|// used to ASSERT
 block|}
 end_function
 begin_function
