@@ -3358,6 +3358,14 @@ name|m_savedStyle
 argument_list|(
 literal|0
 argument_list|)
+member_init_list|,
+name|m_format
+argument_list|(
+name|aWindow
+operator|->
+name|format
+argument_list|()
+argument_list|)
 ifdef|#
 directive|ifdef
 name|QT_OPENGL_ES_2
