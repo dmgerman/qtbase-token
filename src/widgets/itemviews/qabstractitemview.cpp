@@ -17958,6 +17958,17 @@ specifier|static
 name|QEditorInfo
 name|nullInfo
 decl_stmt|;
+comment|// do not try to search to avoid slow implicit cast from QModelIndex to QPersistentModelIndex
+if|if
+condition|(
+name|indexEditorHash
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+return|return
+name|nullInfo
+return|;
 name|QIndexEditorHash
 operator|::
 name|const_iterator
@@ -18003,6 +18014,18 @@ name|editor
 parameter_list|)
 specifier|const
 block|{
+comment|// do not try to search to avoid slow implicit cast from QModelIndex to QPersistentModelIndex
+if|if
+condition|(
+name|indexEditorHash
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+return|return
+name|QModelIndex
+argument_list|()
+return|;
 name|QEditorIndexHash
 operator|::
 name|const_iterator
