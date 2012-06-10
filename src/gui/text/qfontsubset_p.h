@@ -153,6 +153,7 @@ name|QVector
 operator|<
 name|int
 operator|>
+operator|&
 name|reverseMap
 argument_list|)
 decl|const
