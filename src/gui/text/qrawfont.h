@@ -384,7 +384,7 @@ decl_stmt|;
 name|bool
 name|supportsCharacter
 argument_list|(
-name|quint32
+name|uint
 name|ucs4
 argument_list|)
 decl|const
