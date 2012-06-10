@@ -753,6 +753,7 @@ condition|)
 block|{
 comment|// vertical scroll
 comment|// data->value: 1 == up, -1 == down
+specifier|const
 name|int
 name|delta
 init|=
@@ -762,33 +763,16 @@ name|data
 operator|->
 name|value
 decl_stmt|;
-name|QWindowSystemInterface
-operator|::
+emit|emit
 name|handleWheelEvent
 argument_list|(
-literal|0
-argument_list|,
-name|QPoint
-argument_list|(
-name|m_x
-argument_list|,
-name|m_y
-argument_list|)
-argument_list|,
-name|QPoint
-argument_list|(
-name|m_x
-argument_list|,
-name|m_y
-argument_list|)
-argument_list|,
 name|delta
 argument_list|,
 name|Qt
 operator|::
 name|Vertical
 argument_list|)
-expr_stmt|;
+emit|;
 block|}
 elseif|else
 if|if
@@ -802,6 +786,7 @@ condition|)
 block|{
 comment|// horizontal scroll
 comment|// data->value: 1 == right, -1 == left
+specifier|const
 name|int
 name|delta
 init|=
@@ -812,33 +797,16 @@ name|data
 operator|->
 name|value
 decl_stmt|;
-name|QWindowSystemInterface
-operator|::
+emit|emit
 name|handleWheelEvent
 argument_list|(
-literal|0
-argument_list|,
-name|QPoint
-argument_list|(
-name|m_x
-argument_list|,
-name|m_y
-argument_list|)
-argument_list|,
-name|QPoint
-argument_list|(
-name|m_x
-argument_list|,
-name|m_y
-argument_list|)
-argument_list|,
 name|delta
 argument_list|,
 name|Qt
 operator|::
 name|Horizontal
 argument_list|)
-expr_stmt|;
+emit|;
 block|}
 block|}
 elseif|else

@@ -86,6 +86,14 @@ argument_list|,
 argument|Qt::MouseButtons buttons
 argument_list|)
 block|;
+name|void
+name|handleWheelEvent
+argument_list|(
+argument|int delta
+argument_list|,
+argument|Qt::Orientation orientation
+argument_list|)
+block|;
 name|private
 name|slots
 operator|:
