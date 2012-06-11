@@ -1842,6 +1842,14 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
+block|{
+name|d
+operator|->
+name|buffer
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 name|readData
 argument_list|(
 name|data
@@ -1849,6 +1857,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|readSoFar
 return|;
