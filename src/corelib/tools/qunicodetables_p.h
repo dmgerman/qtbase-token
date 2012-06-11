@@ -69,19 +69,13 @@ name|category
 range|:
 literal|8
 decl_stmt|;
-comment|/* 5 needed */
-name|ushort
-name|line_break_class
-range|:
-literal|8
-decl_stmt|;
-comment|/* 6 needed */
+comment|/* 5 used */
 name|ushort
 name|direction
 range|:
 literal|8
 decl_stmt|;
-comment|/* 5 needed */
+comment|/* 5 used */
 name|ushort
 name|combiningClass
 range|:
@@ -98,32 +92,7 @@ name|digitValue
 range|:
 literal|6
 decl_stmt|;
-comment|/* 5 needed */
-name|ushort
-name|unicodeVersion
-range|:
-literal|4
-decl_stmt|;
-name|ushort
-name|lowerCaseSpecial
-range|:
-literal|1
-decl_stmt|;
-name|ushort
-name|upperCaseSpecial
-range|:
-literal|1
-decl_stmt|;
-name|ushort
-name|titleCaseSpecial
-range|:
-literal|1
-decl_stmt|;
-name|ushort
-name|caseFoldSpecial
-range|:
-literal|1
-decl_stmt|;
+comment|/* 5 used */
 name|signed
 name|short
 name|mirrorDiff
@@ -155,23 +124,60 @@ range|:
 literal|16
 decl_stmt|;
 name|ushort
+name|lowerCaseSpecial
+range|:
+literal|1
+decl_stmt|;
+name|ushort
+name|upperCaseSpecial
+range|:
+literal|1
+decl_stmt|;
+name|ushort
+name|titleCaseSpecial
+range|:
+literal|1
+decl_stmt|;
+name|ushort
+name|caseFoldSpecial
+range|:
+literal|1
+decl_stmt|;
+name|ushort
+name|unicodeVersion
+range|:
+literal|4
+decl_stmt|;
+name|ushort
 name|graphemeBreak
 range|:
 literal|8
 decl_stmt|;
-comment|/* 4 needed */
+comment|/* 4 used */
 name|ushort
 name|wordBreak
 range|:
 literal|8
 decl_stmt|;
-comment|/* 4 needed */
+comment|/* 4 used */
 name|ushort
 name|sentenceBreak
 range|:
 literal|8
 decl_stmt|;
-comment|/* 4 needed */
+comment|/* 4 used */
+name|ushort
+name|line_break_class
+range|:
+literal|8
+decl_stmt|;
+comment|/* 6 used */
+name|ushort
+name|script
+range|:
+literal|8
+decl_stmt|;
+comment|/* 5 used */
 block|}
 struct|;
 name|Q_CORE_EXPORT
@@ -729,7 +735,7 @@ name|ucs4
 parameter_list|)
 function_decl|;
 specifier|inline
-name|int
+name|GraphemeBreak
 name|graphemeBreakClass
 parameter_list|(
 name|QChar
@@ -756,7 +762,7 @@ name|ucs4
 parameter_list|)
 function_decl|;
 specifier|inline
-name|int
+name|WordBreak
 name|wordBreakClass
 parameter_list|(
 name|QChar
@@ -783,7 +789,7 @@ name|ucs4
 parameter_list|)
 function_decl|;
 specifier|inline
-name|int
+name|SentenceBreak
 name|sentenceBreakClass
 parameter_list|(
 name|QChar
@@ -810,7 +816,7 @@ name|ucs4
 parameter_list|)
 function_decl|;
 specifier|inline
-name|int
+name|LineBreakClass
 name|lineBreakClass
 parameter_list|(
 name|QChar
@@ -828,7 +834,7 @@ argument_list|)
 return|;
 block|}
 name|Q_CORE_EXPORT
-name|int
+name|Script
 name|QT_FASTCALL
 name|script
 parameter_list|(
@@ -837,7 +843,7 @@ name|ucs4
 parameter_list|)
 function_decl|;
 specifier|inline
-name|int
+name|Script
 name|script
 parameter_list|(
 name|QChar
