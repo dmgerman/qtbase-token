@@ -217,6 +217,11 @@ operator|*
 name|processTopicCommandGroup
 argument_list|(
 specifier|const
+name|Doc
+operator|&
+name|doc
+argument_list|,
+specifier|const
 name|QString
 operator|&
 name|command

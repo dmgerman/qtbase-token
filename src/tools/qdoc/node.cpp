@@ -5311,7 +5311,7 @@ name|hidden
 operator|=
 literal|false
 expr_stmt|;
-name|abstract
+name|abstract_
 operator|=
 literal|false
 expr_stmt|;
@@ -8280,7 +8280,12 @@ operator|::
 name|ApiPage
 argument_list|)
 member_init_list|,
-name|abstract
+name|abstract_
+argument_list|(
+literal|false
+argument_list|)
+member_init_list|,
+name|cnodeRequired_
 argument_list|(
 literal|false
 argument_list|)
@@ -8677,7 +8682,7 @@ name|warning
 argument_list|(
 name|tr
 argument_list|(
-literal|"Minor version number missing for '\\qmlmodule' or '\\inqmlmodule'; 0 assumed."
+literal|"Minor version number must be included in second arg of '\\qmlmodule' and '\\inqmlmodule'; '.0' assumed."
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -8691,7 +8696,7 @@ name|warning
 argument_list|(
 name|tr
 argument_list|(
-literal|"Module version number missing for '\\qmlmodule' or '\\inqmlmodule'; 1.0 assumed."
+literal|"Module version number 'major.minor' must be second arg of '\\qmlmodule' and '\\inqmlmodule'; '1.0' assumed."
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -9294,11 +9299,6 @@ argument_list|(
 name|attached
 argument_list|)
 member_init_list|,
-name|qproperty_
-argument_list|(
-literal|false
-argument_list|)
-member_init_list|,
 name|readOnly_
 argument_list|(
 name|FlagValueDefault
@@ -9370,11 +9370,6 @@ member_init_list|,
 name|attached_
 argument_list|(
 name|attached
-argument_list|)
-member_init_list|,
-name|qproperty_
-argument_list|(
-literal|false
 argument_list|)
 member_init_list|,
 name|readOnly_
@@ -9453,11 +9448,6 @@ argument_list|(
 name|attached
 argument_list|)
 member_init_list|,
-name|qproperty_
-argument_list|(
-literal|false
-argument_list|)
-member_init_list|,
 name|readOnly_
 argument_list|(
 name|FlagValueDefault
@@ -9470,8 +9460,18 @@ argument_list|)
 expr_stmt|;
 block|}
 end_constructor
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+begin_endif
+unit|const PropertyNode *correspondingProperty = 0;     ClassNode *correspondingClass = static_cast<QmlClassNode*>(qmlPropGroup->parent())->classNode();     if (correspondingClass) {         correspondingProperty = qmlPropNode->correspondingProperty(tree_);     }     if (correspondingProperty) {         bool writableList = type.startsWith("list")&& correspondingProperty->dataType().endsWith('*');         qmlPropNode->setReadOnly(!(writableList || correspondingProperty->isWritable()));     }      if (correspondingProperty) {         bool writableList = type.startsWith("list")&& correspondingProperty->dataType().endsWith('*');         qmlPropNode->setReadOnly(!(writableList || correspondingProperty->isWritable()));     }
+endif|#
+directive|endif
+end_endif
 begin_comment
-comment|/*!   Returns true if a QML property or attached property is   read-only. The algorithm for figuring this out is long   amd tedious and almost certainly will break. It currently   doesn't work for qmlproperty bool PropertyChanges::explicit,   because the tokenizer gets confused on "explicit".  */
+comment|/*!   Returns true if a QML property or attached property is   not read-only. The algorithm for figuring this out is long   amd tedious and almost certainly will break. It currently   doesn't work for the qmlproperty:    \code       bool PropertyChanges::explicit,   \endcode    ...because the tokenizer gets confused on \e{explicit}.  */
 end_comment
 begin_function
 DECL|function|isWritable
@@ -9500,9 +9500,32 @@ argument_list|,
 literal|false
 argument_list|)
 return|;
+name|QmlClassNode
+modifier|*
+name|qcn
+init|=
+name|qmlClassNode
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
-name|qproperty_
+name|qcn
+condition|)
+block|{
+if|if
+condition|(
+name|qcn
+operator|->
+name|cppClassRequired
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|qcn
+operator|->
+name|classNode
+argument_list|()
 condition|)
 block|{
 name|PropertyNode
@@ -9524,6 +9547,7 @@ operator|->
 name|isWritable
 argument_list|()
 return|;
+else|else
 name|location
 argument_list|()
 operator|.
@@ -9531,8 +9555,9 @@ name|warning
 argument_list|(
 name|tr
 argument_list|(
-literal|"Can't detect if QML property %1::%2::%3 is read-only; "
-literal|"writable assumed."
+literal|"No Q_PROPERTY for QML property %1::%2::%3 "
+literal|"in C++ class documented as QML type: "
+literal|"(property not found in the C++ class or its base classes)"
 argument_list|)
 operator|.
 name|arg
@@ -9554,6 +9579,40 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+name|location
+argument_list|()
+operator|.
+name|warning
+argument_list|(
+name|tr
+argument_list|(
+literal|"No Q_PROPERTY for QML property %1::%2::%3 "
+literal|"in C++ class documented as QML type: "
+literal|"(C++ class not specified or not found)."
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|qmlModuleIdentifier
+argument_list|()
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|qmlTypeName
+argument_list|()
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|name
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 return|return
 literal|true

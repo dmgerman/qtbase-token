@@ -121,6 +121,10 @@ argument_list|(
 name|filePath
 argument_list|)
 decl_stmt|;
+name|currentFile_
+operator|=
+name|filePath
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -156,6 +160,11 @@ name|errno
 argument_list|)
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|currentFile_
+operator|.
+name|clear
+argument_list|()
 expr_stmt|;
 return|return;
 block|}
@@ -205,6 +214,11 @@ expr_stmt|;
 name|in
 operator|.
 name|close
+argument_list|()
+expr_stmt|;
+name|currentFile_
+operator|.
+name|clear
 argument_list|()
 expr_stmt|;
 block|}
@@ -427,6 +441,8 @@ name|node
 init|=
 name|processTopicCommandGroup
 argument_list|(
+name|nodeDoc
+argument_list|,
 name|topic
 argument_list|,
 name|args

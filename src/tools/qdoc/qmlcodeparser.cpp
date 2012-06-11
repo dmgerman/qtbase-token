@@ -315,6 +315,10 @@ argument_list|(
 name|filePath
 argument_list|)
 decl_stmt|;
+name|currentFile_
+operator|=
+name|filePath
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -342,6 +346,11 @@ argument_list|(
 name|filePath
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|currentFile_
+operator|.
+name|clear
+argument_list|()
 expr_stmt|;
 return|return;
 block|}
@@ -523,6 +532,11 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
+name|currentFile_
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 block|}
 end_function
 begin_comment

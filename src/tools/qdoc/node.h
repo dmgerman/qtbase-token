@@ -2039,7 +2039,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|abstract
+name|abstract_
 return|;
 block|}
 name|virtual
@@ -2049,7 +2049,7 @@ argument_list|(
 argument|bool b
 argument_list|)
 block|{
-name|abstract
+name|abstract_
 operator|=
 name|b
 block|; }
@@ -2092,7 +2092,7 @@ name|bool
 name|hidden
 block|;
 name|bool
-name|abstract
+name|abstract_
 block|;
 name|QString
 name|sname
@@ -2660,7 +2660,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|abstract
+name|abstract_
 return|;
 block|}
 name|virtual
@@ -2670,7 +2670,7 @@ argument_list|(
 argument|bool b
 argument_list|)
 block|{
-name|abstract
+name|abstract_
 operator|=
 name|b
 block|; }
@@ -2693,6 +2693,23 @@ operator|*
 name|tree
 argument_list|)
 block|;
+name|void
+name|requireCppClass
+argument_list|()
+block|{
+name|cnodeRequired_
+operator|=
+name|true
+block|; }
+name|bool
+name|cppClassRequired
+argument_list|()
+specifier|const
+block|{
+return|return
+name|cnodeRequired_
+return|;
+block|}
 specifier|static
 name|void
 name|addInheritedBy
@@ -2785,7 +2802,10 @@ block|;
 name|private
 operator|:
 name|bool
-name|abstract
+name|abstract_
+block|;
+name|bool
+name|cnodeRequired_
 block|;
 name|ClassNode
 operator|*
@@ -3321,14 +3341,6 @@ return|return
 name|qmlPropNodes_
 return|;
 block|}
-name|void
-name|setQPropertyFlag
-argument_list|()
-block|{
-name|qproperty_
-operator|=
-name|true
-block|; }
 name|private
 operator|:
 name|QString
@@ -3345,9 +3357,6 @@ name|isdefault_
 block|;
 name|bool
 name|attached_
-block|;
-name|bool
-name|qproperty_
 block|;
 name|FlagValue
 name|readOnly_
