@@ -14850,7 +14850,6 @@ name|QApplicationPrivate
 operator|::
 name|inPopupMode
 parameter_list|()
-specifier|const
 block|{
 return|return
 name|QApplicationPrivate

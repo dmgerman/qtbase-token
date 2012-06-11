@@ -600,10 +600,10 @@ argument_list|()
 block|;
 endif|#
 directive|endif
+specifier|static
 name|bool
 name|inPopupMode
 argument_list|()
-specifier|const
 block|;
 name|void
 name|closePopup
