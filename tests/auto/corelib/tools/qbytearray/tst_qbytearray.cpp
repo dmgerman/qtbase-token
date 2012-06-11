@@ -14577,11 +14577,6 @@ name|defined
 argument_list|(
 name|Q_COMPILER_LAMBDA
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_CC_GNU
-argument_list|)
 name|QByteArray
 name|str
 argument_list|(
