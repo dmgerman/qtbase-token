@@ -11498,6 +11498,13 @@ init|=
 operator|&
 name|defaultGlyphSet
 decl_stmt|;
+name|QFontEngine
+operator|::
+name|HintStyle
+name|hintStyle
+init|=
+name|default_hint_style
+decl_stmt|;
 if|if
 condition|(
 name|t
@@ -11510,6 +11517,11 @@ operator|::
 name|TxScale
 condition|)
 block|{
+comment|// disable hinting if the glyphs are transformed
+name|default_hint_style
+operator|=
+name|HintNone
+expr_stmt|;
 if|if
 condition|(
 name|t
@@ -11592,6 +11604,10 @@ name|neededFormat
 argument_list|)
 condition|)
 block|{
+name|default_hint_style
+operator|=
+name|hintStyle
+expr_stmt|;
 return|return
 name|QFontEngine
 operator|::
@@ -11609,6 +11625,10 @@ name|offset
 argument_list|)
 return|;
 block|}
+name|default_hint_style
+operator|=
+name|hintStyle
+expr_stmt|;
 name|glyph
 operator|=
 name|gset
