@@ -222,6 +222,13 @@ name|defines
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|dependModules
+specifier|static
+name|QStringList
+name|dependModules
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|indexDirs
 specifier|static
 name|QStringList
@@ -261,6 +268,8 @@ literal|"Usage: qdoc [options] file1.qdocconf ...\n"
 literal|"Options:\n"
 literal|"    -D<name>       "
 literal|"Define<name> as a macro while parsing sources\n"
+literal|"    -depends       "
+literal|"Specify dependant modules\n"
 literal|"    -help          "
 literal|"Display this information and exit\n"
 literal|"    -highlighting  "
@@ -731,16 +740,15 @@ argument_list|(
 name|CONFIG_INDEXES
 argument_list|)
 decl_stmt|;
-name|QStringList
 name|dependModules
-init|=
+operator|+=
 name|config
 operator|.
 name|getStringList
 argument_list|(
 name|CONFIG_DEPENDS
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|dependModules
@@ -2103,6 +2111,25 @@ decl_stmt|;
 name|defines
 operator|+=
 name|define
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|opt
+operator|==
+literal|"-depends"
+condition|)
+block|{
+name|dependModules
+operator|+=
+name|argv
+index|[
+name|i
+index|]
+expr_stmt|;
+name|i
+operator|++
 expr_stmt|;
 block|}
 elseif|else
