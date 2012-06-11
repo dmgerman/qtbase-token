@@ -1346,7 +1346,7 @@ argument_list|)
 argument_list|,
 name|size
 argument_list|,
-literal|0
+literal|1
 argument_list|,
 name|DISPMANX_FLAGS_ALPHA_FIXED_ALL_PIXELS
 argument_list|)
