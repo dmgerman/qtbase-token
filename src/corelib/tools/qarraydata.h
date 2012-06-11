@@ -1961,34 +1961,6 @@ begin_comment
 unit|\
 comment|/**/
 end_comment
-begin_elif
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|Q_CC_GNU
-argument_list|)
-end_elif
-begin_comment
-comment|// Hide array within GCC's __extension__ {( )} block
-end_comment
-begin_define
-DECL|macro|Q_ARRAY_LITERAL
-define|#
-directive|define
-name|Q_ARRAY_LITERAL
-parameter_list|(
-name|Type
-parameter_list|,
-modifier|...
-parameter_list|)
-define|\
-value|__extension__ ({                                                            \             Q_ARRAY_LITERAL_IMPL(Type, __VA_ARGS__)                             \             ref;                                                                \         })
-end_define
-begin_comment
-unit|\
-comment|/**/
-end_comment
 begin_endif
 endif|#
 directive|endif

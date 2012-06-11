@@ -732,38 +732,6 @@ begin_comment
 unit|\
 comment|/**/
 end_comment
-begin_elif
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|Q_CC_GNU
-argument_list|)
-end_elif
-begin_comment
-comment|// We need to create a QStringData in the .rodata section of memory
-end_comment
-begin_comment
-comment|// and the only way to do that is to create a "static const" variable.
-end_comment
-begin_comment
-comment|// To do that, we need the __extension__ {( )} trick which only GCC supports
-end_comment
-begin_define
-DECL|macro|QStringLiteral
-define|#
-directive|define
-name|QStringLiteral
-parameter_list|(
-name|str
-parameter_list|)
-define|\
-value|QString(__extension__ ({ \         enum { Size = sizeof(QT_UNICODE_LITERAL(str))/2 - 1 }; \         static const QStaticStringData<Size> qstring_literal = { \             Q_STATIC_STRING_DATA_HEADER_INITIALIZER(Size), \             QT_UNICODE_LITERAL(str) }; \         QStringDataPtr holder = { qstring_literal.data_ptr() }; \         holder; \     }))
-end_define
-begin_comment
-unit|\
-comment|/**/
-end_comment
 begin_endif
 endif|#
 directive|endif
