@@ -64,37 +64,31 @@ block|;
 name|void
 name|changeCursor
 argument_list|(
-name|QCursor
-operator|*
-name|cursor
+argument|QCursor *cursor
 argument_list|,
-name|QWindow
-operator|*
-name|widget
+argument|QWindow *widget
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|pointerEvent
 argument_list|(
-specifier|const
-name|QMouseEvent
-operator|&
-name|event
+argument|const QMouseEvent&event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QPoint
 name|pos
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setPos
 argument_list|(
-specifier|const
-name|QPoint
-operator|&
-name|pos
+argument|const QPoint&pos
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QRect
 name|cursorRect

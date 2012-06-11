@@ -893,7 +893,6 @@ name|EGL_NO_CONTEXT
 argument_list|)
 expr_stmt|;
 block|}
-DECL|function|changeCursor
 name|void
 name|changeCursor
 parameter_list|(
@@ -905,6 +904,7 @@ name|QWindow
 modifier|*
 name|window
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -969,7 +969,6 @@ name|drawInLayer
 argument_list|()
 expr_stmt|;
 block|}
-DECL|function|setPos
 name|void
 name|setPos
 parameter_list|(
@@ -978,6 +977,7 @@ name|QPoint
 modifier|&
 name|pos
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|m_pos
 operator|=
@@ -995,7 +995,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|function|pointerEvent
 name|void
 name|pointerEvent
 parameter_list|(
@@ -1004,6 +1003,7 @@ name|QMouseEvent
 modifier|&
 name|event
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -1036,10 +1036,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|function|paintOnScreen
 name|void
 name|paintOnScreen
 parameter_list|()
+name|Q_DECL_OVERRIDE
 block|{ }
 private|private:
 DECL|member|m_config
