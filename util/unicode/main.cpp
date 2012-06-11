@@ -1533,25 +1533,26 @@ modifier|*
 name|property_string
 init|=
 literal|"    struct Properties {\n"
-literal|"        ushort category         : 8; /* 5 needed */\n"
-literal|"        ushort line_break_class : 8; /* 6 needed */\n"
-literal|"        ushort direction        : 8; /* 5 needed */\n"
+literal|"        ushort category         : 8; /* 5 used */\n"
+literal|"        ushort direction        : 8; /* 5 used */\n"
 literal|"        ushort combiningClass   : 8;\n"
 literal|"        ushort joining          : 2;\n"
-literal|"        signed short digitValue : 6; /* 5 needed */\n"
-literal|"        ushort unicodeVersion   : 4;\n"
-literal|"        ushort lowerCaseSpecial : 1;\n"
-literal|"        ushort upperCaseSpecial : 1;\n"
-literal|"        ushort titleCaseSpecial : 1;\n"
-literal|"        ushort caseFoldSpecial  : 1;\n"
+literal|"        signed short digitValue : 6; /* 5 used */\n"
 literal|"        signed short mirrorDiff    : 16;\n"
 literal|"        signed short lowerCaseDiff : 16;\n"
 literal|"        signed short upperCaseDiff : 16;\n"
 literal|"        signed short titleCaseDiff : 16;\n"
 literal|"        signed short caseFoldDiff  : 16;\n"
-literal|"        ushort graphemeBreak    : 8; /* 4 needed */\n"
-literal|"        ushort wordBreak        : 8; /* 4 needed */\n"
-literal|"        ushort sentenceBreak    : 8; /* 4 needed */\n"
+literal|"        ushort lowerCaseSpecial : 1;\n"
+literal|"        ushort upperCaseSpecial : 1;\n"
+literal|"        ushort titleCaseSpecial : 1;\n"
+literal|"        ushort caseFoldSpecial  : 1;\n"
+literal|"        ushort unicodeVersion   : 4;\n"
+literal|"        ushort graphemeBreak    : 8; /* 4 used */\n"
+literal|"        ushort wordBreak        : 8; /* 4 used */\n"
+literal|"        ushort sentenceBreak    : 8; /* 4 used */\n"
+literal|"        ushort line_break_class : 8; /* 6 used */\n"
+literal|"        ushort script           : 8; /* 5 used */\n"
 literal|"    };\n"
 literal|"    Q_CORE_EXPORT const Properties * QT_FASTCALL properties(uint ucs4);\n"
 literal|"    Q_CORE_EXPORT const Properties * QT_FASTCALL properties(ushort ucs2);\n"
@@ -1566,23 +1567,23 @@ modifier|*
 name|methods
 init|=
 literal|"    Q_CORE_EXPORT GraphemeBreak QT_FASTCALL graphemeBreakClass(uint ucs4);\n"
-literal|"    inline int graphemeBreakClass(QChar ch)\n"
+literal|"    inline GraphemeBreak graphemeBreakClass(QChar ch)\n"
 literal|"    { return graphemeBreakClass(ch.unicode()); }\n"
 literal|"\n"
 literal|"    Q_CORE_EXPORT WordBreak QT_FASTCALL wordBreakClass(uint ucs4);\n"
-literal|"    inline int wordBreakClass(QChar ch)\n"
+literal|"    inline WordBreak wordBreakClass(QChar ch)\n"
 literal|"    { return wordBreakClass(ch.unicode()); }\n"
 literal|"\n"
 literal|"    Q_CORE_EXPORT SentenceBreak QT_FASTCALL sentenceBreakClass(uint ucs4);\n"
-literal|"    inline int sentenceBreakClass(QChar ch)\n"
+literal|"    inline SentenceBreak sentenceBreakClass(QChar ch)\n"
 literal|"    { return sentenceBreakClass(ch.unicode()); }\n"
 literal|"\n"
 literal|"    Q_CORE_EXPORT LineBreakClass QT_FASTCALL lineBreakClass(uint ucs4);\n"
-literal|"    inline int lineBreakClass(QChar ch)\n"
+literal|"    inline LineBreakClass lineBreakClass(QChar ch)\n"
 literal|"    { return lineBreakClass(ch.unicode()); }\n"
 literal|"\n"
-literal|"    Q_CORE_EXPORT int QT_FASTCALL script(uint ucs4);\n"
-literal|"    inline int script(QChar ch)\n"
+literal|"    Q_CORE_EXPORT Script QT_FASTCALL script(uint ucs4);\n"
+literal|"    inline Script script(QChar ch)\n"
 literal|"    { return script(ch.unicode()); }\n\n"
 decl_stmt|;
 end_decl_stmt
@@ -1650,12 +1651,6 @@ name|o
 operator|.
 name|digitValue
 operator|&&
-name|line_break_class
-operator|==
-name|o
-operator|.
-name|line_break_class
-operator|&&
 name|mirrorDiff
 operator|==
 name|o
@@ -1727,6 +1722,18 @@ operator|==
 name|o
 operator|.
 name|sentenceBreak
+operator|&&
+name|line_break_class
+operator|==
+name|o
+operator|.
+name|line_break_class
+operator|&&
+name|script
+operator|==
+name|o
+operator|.
+name|script
 operator|)
 return|;
 block|}
@@ -1828,6 +1835,10 @@ decl_stmt|;
 DECL|member|sentenceBreak
 name|SentenceBreak
 name|sentenceBreak
+decl_stmt|;
+DECL|member|script
+name|int
+name|script
 decl_stmt|;
 block|}
 struct|;
@@ -2460,6 +2471,13 @@ name|sentenceBreak
 operator|=
 name|SentenceBreakOther
 expr_stmt|;
+name|p
+operator|.
+name|script
+operator|=
+literal|0
+expr_stmt|;
+comment|// Common
 name|propertyIndex
 operator|=
 operator|-
@@ -8953,94 +8971,94 @@ name|scriptNames
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|scriptAssignment
-specifier|static
-name|QHash
-argument_list|<
-name|int
-argument_list|,
-name|int
-argument_list|>
-name|scriptAssignment
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|scriptHash
-specifier|static
-name|QHash
-argument_list|<
-name|int
-argument_list|,
-name|int
-argument_list|>
-name|scriptHash
-decl_stmt|;
-end_decl_stmt
-begin_struct
-DECL|struct|ExtraBlock
-struct|struct
-name|ExtraBlock
-block|{
-DECL|member|block
-name|int
-name|block
-decl_stmt|;
-DECL|member|vector
-name|QVector
-argument_list|<
-name|int
-argument_list|>
-name|vector
-decl_stmt|;
-block|}
-struct|;
-end_struct
-begin_decl_stmt
-DECL|variable|extraBlockList
+DECL|variable|scriptMap
 specifier|static
 name|QList
 argument_list|<
-name|ExtraBlock
+name|int
 argument_list|>
-name|extraBlockList
+name|scriptMap
 decl_stmt|;
 end_decl_stmt
-begin_function
-DECL|function|readScripts
-specifier|static
-name|void
-name|readScripts
-parameter_list|()
-block|{
-name|scriptNames
-operator|.
-name|append
-argument_list|(
-literal|"Common"
-argument_list|)
-expr_stmt|;
+begin_decl_stmt
+DECL|variable|specialScripts
 specifier|static
 specifier|const
 name|char
 modifier|*
-name|files
+name|specialScripts
 index|[]
 init|=
 block|{
-literal|"data/ScriptsInitial.txt"
+literal|"Common"
 block|,
-literal|"data/Scripts.txt"
+literal|"Greek"
 block|,
-literal|"data/ScriptsCorrections.txt"
+literal|"Cyrillic"
+block|,
+literal|"Armenian"
+block|,
+literal|"Hebrew"
+block|,
+literal|"Arabic"
+block|,
+literal|"Syriac"
+block|,
+literal|"Thaana"
+block|,
+literal|"Devanagari"
+block|,
+literal|"Bengali"
+block|,
+literal|"Gurmukhi"
+block|,
+literal|"Gujarati"
+block|,
+literal|"Oriya"
+block|,
+literal|"Tamil"
+block|,
+literal|"Telugu"
+block|,
+literal|"Kannada"
+block|,
+literal|"Malayalam"
+block|,
+literal|"Sinhala"
+block|,
+literal|"Thai"
+block|,
+literal|"Lao"
+block|,
+literal|"Tibetan"
+block|,
+literal|"Myanmar"
+block|,
+literal|"Georgian"
+block|,
+literal|"Hangul"
+block|,
+literal|"Ogham"
+block|,
+literal|"Runic"
+block|,
+literal|"Khmer"
+block|,
+literal|"Nko"
+block|,
+literal|"Inherited"
 block|}
 decl_stmt|;
+end_decl_stmt
+begin_enum
+DECL|enumerator|specialScriptsCount
 enum|enum
 block|{
-name|fileCount
+name|specialScriptsCount
 init|=
 sizeof|sizeof
 argument_list|(
-name|files
+name|specialScripts
 argument_list|)
 operator|/
 expr|sizeof
@@ -9051,28 +9069,23 @@ operator|*
 operator|)
 block|}
 enum|;
-for|for
-control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-name|fileCount
-condition|;
-operator|++
-name|i
-control|)
+end_enum
+begin_function
+DECL|function|readScripts
+specifier|static
+name|void
+name|readScripts
+parameter_list|()
 block|{
+name|qDebug
+argument_list|(
+literal|"Reading Scripts.txt"
+argument_list|)
+expr_stmt|;
 name|QFile
 name|f
 argument_list|(
-name|files
-index|[
-name|i
-index|]
+literal|"data/Scripts.txt"
 argument_list|)
 decl_stmt|;
 if|if
@@ -9085,12 +9098,7 @@ argument_list|()
 condition|)
 name|qFatal
 argument_list|(
-literal|"Couldn't find %s"
-argument_list|,
-name|files
-index|[
-name|i
-index|]
+literal|"Couldn't find Scripts.txt"
 argument_list|)
 expr_stmt|;
 name|f
@@ -9102,6 +9110,45 @@ operator|::
 name|ReadOnly
 argument_list|)
 expr_stmt|;
+name|int
+name|scriptsCount
+init|=
+name|specialScriptsCount
+decl_stmt|;
+comment|// ### preserve the old ordering (temporary)
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|specialScriptsCount
+condition|;
+operator|++
+name|i
+control|)
+block|{
+name|scriptNames
+operator|.
+name|append
+argument_list|(
+name|specialScripts
+index|[
+name|i
+index|]
+argument_list|)
+expr_stmt|;
+name|scriptMap
+operator|.
+name|append
+argument_list|(
+name|i
+argument_list|)
+expr_stmt|;
+block|}
 while|while
 condition|(
 operator|!
@@ -9221,39 +9268,6 @@ operator|+
 literal|1
 argument_list|)
 decl_stmt|;
-name|int
-name|scriptIndex
-init|=
-name|scriptNames
-operator|.
-name|indexOf
-argument_list|(
-name|scriptName
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|scriptIndex
-operator|==
-operator|-
-literal|1
-condition|)
-block|{
-name|scriptIndex
-operator|=
-name|scriptNames
-operator|.
-name|size
-argument_list|()
-expr_stmt|;
-name|scriptNames
-operator|.
-name|append
-argument_list|(
-name|scriptName
-argument_list|)
-expr_stmt|;
-block|}
 name|codePoints
 operator|.
 name|replace
@@ -9336,130 +9350,127 @@ name|ok
 argument_list|)
 expr_stmt|;
 block|}
+name|int
+name|scriptIndex
+init|=
+name|scriptNames
+operator|.
+name|indexOf
+argument_list|(
+name|scriptName
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|scriptIndex
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
+name|scriptIndex
+operator|=
+name|scriptNames
+operator|.
+name|size
+argument_list|()
+expr_stmt|;
+name|scriptNames
+operator|.
+name|append
+argument_list|(
+name|scriptName
+argument_list|)
+expr_stmt|;
+comment|// is the script alias for 'Common'?
+name|int
+name|s
+init|=
+name|specialScriptsCount
+decl_stmt|;
+while|while
+condition|(
+operator|--
+name|s
+operator|>
+literal|0
+condition|)
+block|{
+if|if
+condition|(
+name|scriptName
+operator|==
+name|specialScripts
+index|[
+name|s
+index|]
+condition|)
+break|break;
+block|}
+name|scriptMap
+operator|.
+name|append
+argument_list|(
+name|s
+operator|>
+literal|0
+condition|?
+name|scriptsCount
+operator|++
+else|:
+literal|0
+argument_list|)
+expr_stmt|;
+block|}
 for|for
 control|(
 name|int
-name|i
+name|codepoint
 init|=
 name|first
 init|;
-name|i
+name|codepoint
 operator|<=
 name|last
 condition|;
 operator|++
-name|i
+name|codepoint
 control|)
-name|scriptAssignment
-index|[
-name|i
-index|]
+block|{
+name|UnicodeData
+modifier|&
+name|ud
+init|=
+name|UnicodeData
+operator|::
+name|valueRef
+argument_list|(
+name|codepoint
+argument_list|)
+decl_stmt|;
+name|ud
+operator|.
+name|p
+operator|.
+name|script
 operator|=
+name|scriptMap
+operator|.
+name|at
+argument_list|(
 name|scriptIndex
+argument_list|)
 expr_stmt|;
 block|}
 block|}
 block|}
 end_function
-begin_decl_stmt
-DECL|variable|scriptSentinel
-specifier|static
-name|int
-name|scriptSentinel
-init|=
-literal|0
-decl_stmt|;
-end_decl_stmt
 begin_function
 DECL|function|createScriptEnumDeclaration
 name|QByteArray
 name|createScriptEnumDeclaration
 parameter_list|()
 block|{
-specifier|static
-specifier|const
-name|char
-modifier|*
-name|specialScripts
-index|[]
-init|=
-block|{
-literal|"Common"
-block|,
-literal|"Arabic"
-block|,
-literal|"Armenian"
-block|,
-literal|"Bengali"
-block|,
-literal|"Cyrillic"
-block|,
-literal|"Devanagari"
-block|,
-literal|"Georgian"
-block|,
-literal|"Greek"
-block|,
-literal|"Gujarati"
-block|,
-literal|"Gurmukhi"
-block|,
-literal|"Hangul"
-block|,
-literal|"Hebrew"
-block|,
-literal|"Kannada"
-block|,
-literal|"Khmer"
-block|,
-literal|"Lao"
-block|,
-literal|"Malayalam"
-block|,
-literal|"Myanmar"
-block|,
-literal|"Nko"
-block|,
-literal|"Ogham"
-block|,
-literal|"Oriya"
-block|,
-literal|"Runic"
-block|,
-literal|"Sinhala"
-block|,
-literal|"Syriac"
-block|,
-literal|"Tamil"
-block|,
-literal|"Telugu"
-block|,
-literal|"Thaana"
-block|,
-literal|"Thai"
-block|,
-literal|"Tibetan"
-block|,
-literal|"Inherited"
-block|}
-decl_stmt|;
-specifier|const
-name|int
-name|specialScriptsCount
-init|=
-sizeof|sizeof
-argument_list|(
-name|specialScripts
-argument_list|)
-operator|/
-sizeof|sizeof
-argument_list|(
-specifier|const
-name|char
-operator|*
-argument_list|)
-decl_stmt|;
-comment|// generate script enum
 name|QByteArray
 name|declaration
 decl_stmt|;
@@ -9471,12 +9482,6 @@ name|declaration
 operator|+=
 literal|"    enum Script {\n        Common"
 expr_stmt|;
-name|int
-name|uniqueScripts
-init|=
-literal|1
-decl_stmt|;
-comment|// Common
 comment|// output the ones with special processing first
 for|for
 control|(
@@ -9496,106 +9501,32 @@ operator|++
 name|i
 control|)
 block|{
-specifier|const
-name|QByteArray
-modifier|&
-name|scriptName
-init|=
-name|scriptNames
+if|if
+condition|(
+name|scriptMap
 operator|.
 name|at
 argument_list|(
 name|i
 argument_list|)
-decl_stmt|;
-comment|// does the script require special processing?
-name|bool
-name|special
-init|=
-literal|false
-decl_stmt|;
-for|for
-control|(
-name|int
-name|s
-init|=
-literal|0
-init|;
-name|s
-operator|<
-name|specialScriptsCount
-condition|;
-operator|++
-name|s
-control|)
-block|{
-if|if
-condition|(
-name|scriptName
 operator|==
-name|specialScripts
-index|[
-name|s
-index|]
-condition|)
-block|{
-name|special
-operator|=
-literal|true
-expr_stmt|;
-break|break;
-block|}
-block|}
-if|if
-condition|(
-operator|!
-name|special
-condition|)
-block|{
-name|scriptHash
-index|[
-name|i
-index|]
-operator|=
 literal|0
-expr_stmt|;
-comment|// alias for 'Common'
-continue|continue;
-block|}
-else|else
-block|{
-operator|++
-name|uniqueScripts
-expr_stmt|;
-name|scriptHash
-index|[
-name|i
-index|]
-operator|=
-name|i
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|scriptName
-operator|!=
-literal|"Inherited"
 condition|)
-block|{
+continue|continue;
 name|declaration
 operator|+=
 literal|",\n        "
 expr_stmt|;
 name|declaration
 operator|+=
-name|scriptName
+name|scriptNames
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
 expr_stmt|;
 block|}
-block|}
-name|declaration
-operator|+=
-literal|",\n        Inherited"
-expr_stmt|;
 name|declaration
 operator|+=
 literal|",\n        ScriptCount = Inherited"
@@ -9621,9 +9552,9 @@ control|)
 block|{
 if|if
 condition|(
-name|scriptHash
+name|scriptMap
 operator|.
-name|value
+name|at
 argument_list|(
 name|i
 argument_list|)
@@ -9652,775 +9583,6 @@ block|}
 name|declaration
 operator|+=
 literal|"\n    };\n\n"
-expr_stmt|;
-name|scriptSentinel
-operator|=
-operator|(
-operator|(
-name|uniqueScripts
-operator|+
-literal|16
-operator|)
-operator|/
-literal|32
-operator|)
-operator|*
-literal|32
-expr_stmt|;
-comment|// a multiple of 32
-return|return
-name|declaration
-return|;
-block|}
-end_function
-begin_function
-DECL|function|createScriptTableDeclaration
-name|QByteArray
-name|createScriptTableDeclaration
-parameter_list|()
-block|{
-name|Q_ASSERT
-argument_list|(
-name|scriptSentinel
-operator|>
-literal|0
-argument_list|)
-expr_stmt|;
-name|QByteArray
-name|declaration
-decl_stmt|;
-specifier|const
-name|int
-name|unicodeBlockCount
-init|=
-literal|512
-decl_stmt|;
-comment|// number of unicode blocks
-specifier|const
-name|int
-name|unicodeBlockSize
-init|=
-literal|128
-decl_stmt|;
-comment|// size of each block
-name|declaration
-operator|=
-literal|"enum { UnicodeBlockCount = "
-expr_stmt|;
-name|declaration
-operator|+=
-name|QByteArray
-operator|::
-name|number
-argument_list|(
-name|unicodeBlockCount
-argument_list|)
-expr_stmt|;
-name|declaration
-operator|+=
-literal|" }; // number of unicode blocks\n"
-expr_stmt|;
-name|declaration
-operator|+=
-literal|"enum { UnicodeBlockSize = "
-expr_stmt|;
-name|declaration
-operator|+=
-name|QByteArray
-operator|::
-name|number
-argument_list|(
-name|unicodeBlockSize
-argument_list|)
-expr_stmt|;
-name|declaration
-operator|+=
-literal|" }; // size of each block\n\n"
-expr_stmt|;
-comment|// script table
-name|declaration
-operator|+=
-literal|"static const unsigned char uc_scripts[] = {\n"
-expr_stmt|;
-for|for
-control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-name|unicodeBlockCount
-condition|;
-operator|++
-name|i
-control|)
-block|{
-name|int
-name|block
-init|=
-operator|(
-operator|(
-operator|(
-name|i
-operator|<<
-literal|7
-operator|)
-operator|&
-literal|0xff00
-operator|)
-operator||
-operator|(
-operator|(
-name|i
-operator|&
-literal|1
-operator|)
-operator|*
-literal|0x80
-operator|)
-operator|)
-decl_stmt|;
-name|int
-name|blockAssignment
-index|[
-name|unicodeBlockSize
-index|]
-decl_stmt|;
-for|for
-control|(
-name|int
-name|x
-init|=
-literal|0
-init|;
-name|x
-operator|<
-name|unicodeBlockSize
-condition|;
-operator|++
-name|x
-control|)
-block|{
-name|int
-name|codePoint
-init|=
-operator|(
-name|i
-operator|<<
-literal|7
-operator|)
-operator||
-name|x
-decl_stmt|;
-name|blockAssignment
-index|[
-name|x
-index|]
-operator|=
-name|scriptAssignment
-operator|.
-name|value
-argument_list|(
-name|codePoint
-argument_list|,
-literal|0
-argument_list|)
-expr_stmt|;
-block|}
-name|bool
-name|allTheSame
-init|=
-literal|true
-decl_stmt|;
-specifier|const
-name|int
-name|originalScript
-init|=
-name|blockAssignment
-index|[
-literal|0
-index|]
-decl_stmt|;
-specifier|const
-name|int
-name|script
-init|=
-name|scriptHash
-operator|.
-name|value
-argument_list|(
-name|originalScript
-argument_list|)
-decl_stmt|;
-for|for
-control|(
-name|int
-name|x
-init|=
-literal|1
-init|;
-name|allTheSame
-operator|&&
-name|x
-operator|<
-name|unicodeBlockSize
-condition|;
-operator|++
-name|x
-control|)
-block|{
-specifier|const
-name|int
-name|s
-init|=
-name|scriptHash
-operator|.
-name|value
-argument_list|(
-name|blockAssignment
-index|[
-name|x
-index|]
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|s
-operator|!=
-name|script
-condition|)
-name|allTheSame
-operator|=
-literal|false
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|allTheSame
-condition|)
-block|{
-name|declaration
-operator|+=
-literal|"    "
-expr_stmt|;
-name|declaration
-operator|+=
-name|scriptNames
-operator|.
-name|value
-argument_list|(
-name|originalScript
-argument_list|)
-expr_stmt|;
-name|declaration
-operator|+=
-literal|", /* U+"
-expr_stmt|;
-name|declaration
-operator|+=
-name|QByteArray
-operator|::
-name|number
-argument_list|(
-name|block
-argument_list|,
-literal|16
-argument_list|)
-operator|.
-name|rightJustified
-argument_list|(
-literal|4
-argument_list|,
-literal|'0'
-argument_list|)
-expr_stmt|;
-name|declaration
-operator|+=
-literal|'-'
-expr_stmt|;
-name|declaration
-operator|+=
-name|QByteArray
-operator|::
-name|number
-argument_list|(
-name|block
-operator|+
-name|unicodeBlockSize
-operator|-
-literal|1
-argument_list|,
-literal|16
-argument_list|)
-operator|.
-name|rightJustified
-argument_list|(
-literal|4
-argument_list|,
-literal|'0'
-argument_list|)
-expr_stmt|;
-name|declaration
-operator|+=
-literal|" */\n"
-expr_stmt|;
-block|}
-else|else
-block|{
-specifier|const
-name|int
-name|value
-init|=
-name|extraBlockList
-operator|.
-name|size
-argument_list|()
-operator|+
-name|scriptSentinel
-decl_stmt|;
-specifier|const
-name|int
-name|offset
-init|=
-operator|(
-operator|(
-name|value
-operator|-
-name|scriptSentinel
-operator|)
-operator|*
-name|unicodeBlockSize
-operator|)
-operator|+
-name|unicodeBlockCount
-decl_stmt|;
-name|declaration
-operator|+=
-literal|"    "
-expr_stmt|;
-name|declaration
-operator|+=
-name|QByteArray
-operator|::
-name|number
-argument_list|(
-name|value
-argument_list|)
-expr_stmt|;
-name|declaration
-operator|+=
-literal|", /* U+"
-expr_stmt|;
-name|declaration
-operator|+=
-name|QByteArray
-operator|::
-name|number
-argument_list|(
-name|block
-argument_list|,
-literal|16
-argument_list|)
-operator|.
-name|rightJustified
-argument_list|(
-literal|4
-argument_list|,
-literal|'0'
-argument_list|)
-expr_stmt|;
-name|declaration
-operator|+=
-literal|'-'
-expr_stmt|;
-name|declaration
-operator|+=
-name|QByteArray
-operator|::
-name|number
-argument_list|(
-name|block
-operator|+
-name|unicodeBlockSize
-operator|-
-literal|1
-argument_list|,
-literal|16
-argument_list|)
-operator|.
-name|rightJustified
-argument_list|(
-literal|4
-argument_list|,
-literal|'0'
-argument_list|)
-expr_stmt|;
-name|declaration
-operator|+=
-literal|" at offset "
-expr_stmt|;
-name|declaration
-operator|+=
-name|QByteArray
-operator|::
-name|number
-argument_list|(
-name|offset
-argument_list|)
-expr_stmt|;
-name|declaration
-operator|+=
-literal|" */\n"
-expr_stmt|;
-name|ExtraBlock
-name|extraBlock
-decl_stmt|;
-name|extraBlock
-operator|.
-name|block
-operator|=
-name|block
-expr_stmt|;
-name|extraBlock
-operator|.
-name|vector
-operator|.
-name|resize
-argument_list|(
-name|unicodeBlockSize
-argument_list|)
-expr_stmt|;
-for|for
-control|(
-name|int
-name|x
-init|=
-literal|0
-init|;
-name|x
-operator|<
-name|unicodeBlockSize
-condition|;
-operator|++
-name|x
-control|)
-name|extraBlock
-operator|.
-name|vector
-index|[
-name|x
-index|]
-operator|=
-name|blockAssignment
-index|[
-name|x
-index|]
-expr_stmt|;
-name|extraBlockList
-operator|.
-name|append
-argument_list|(
-name|extraBlock
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-for|for
-control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-name|extraBlockList
-operator|.
-name|size
-argument_list|()
-condition|;
-operator|++
-name|i
-control|)
-block|{
-specifier|const
-name|int
-name|value
-init|=
-name|i
-operator|+
-name|scriptSentinel
-decl_stmt|;
-specifier|const
-name|int
-name|offset
-init|=
-operator|(
-operator|(
-name|value
-operator|-
-name|scriptSentinel
-operator|)
-operator|*
-name|unicodeBlockSize
-operator|)
-operator|+
-name|unicodeBlockCount
-decl_stmt|;
-specifier|const
-name|ExtraBlock
-modifier|&
-name|extraBlock
-init|=
-name|extraBlockList
-operator|.
-name|at
-argument_list|(
-name|i
-argument_list|)
-decl_stmt|;
-specifier|const
-name|int
-name|block
-init|=
-name|extraBlock
-operator|.
-name|block
-decl_stmt|;
-name|declaration
-operator|+=
-literal|"\n\n    /* U+"
-expr_stmt|;
-name|declaration
-operator|+=
-name|QByteArray
-operator|::
-name|number
-argument_list|(
-name|block
-argument_list|,
-literal|16
-argument_list|)
-operator|.
-name|rightJustified
-argument_list|(
-literal|4
-argument_list|,
-literal|'0'
-argument_list|)
-expr_stmt|;
-name|declaration
-operator|+=
-literal|'-'
-expr_stmt|;
-name|declaration
-operator|+=
-name|QByteArray
-operator|::
-name|number
-argument_list|(
-name|block
-operator|+
-name|unicodeBlockSize
-operator|-
-literal|1
-argument_list|,
-literal|16
-argument_list|)
-operator|.
-name|rightJustified
-argument_list|(
-literal|4
-argument_list|,
-literal|'0'
-argument_list|)
-expr_stmt|;
-name|declaration
-operator|+=
-literal|" at offset "
-expr_stmt|;
-name|declaration
-operator|+=
-name|QByteArray
-operator|::
-name|number
-argument_list|(
-name|offset
-argument_list|)
-expr_stmt|;
-name|declaration
-operator|+=
-literal|" */\n    "
-expr_stmt|;
-for|for
-control|(
-name|int
-name|x
-init|=
-literal|0
-init|;
-name|x
-operator|<
-name|extraBlock
-operator|.
-name|vector
-operator|.
-name|size
-argument_list|()
-condition|;
-operator|++
-name|x
-control|)
-block|{
-specifier|const
-name|int
-name|o
-init|=
-name|extraBlock
-operator|.
-name|vector
-operator|.
-name|at
-argument_list|(
-name|x
-argument_list|)
-decl_stmt|;
-name|declaration
-operator|+=
-name|scriptNames
-operator|.
-name|value
-argument_list|(
-name|o
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|x
-operator|<
-name|extraBlock
-operator|.
-name|vector
-operator|.
-name|size
-argument_list|()
-operator|-
-literal|1
-operator|||
-name|i
-operator|<
-name|extraBlockList
-operator|.
-name|size
-argument_list|()
-operator|-
-literal|1
-condition|)
-name|declaration
-operator|+=
-literal|','
-expr_stmt|;
-if|if
-condition|(
-operator|(
-name|x
-operator|&
-literal|7
-operator|)
-operator|==
-literal|7
-operator|&&
-name|x
-operator|<
-name|extraBlock
-operator|.
-name|vector
-operator|.
-name|size
-argument_list|()
-operator|-
-literal|1
-condition|)
-name|declaration
-operator|+=
-literal|"\n    "
-expr_stmt|;
-else|else
-name|declaration
-operator|+=
-literal|' '
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|declaration
-operator|.
-name|endsWith
-argument_list|(
-literal|' '
-argument_list|)
-condition|)
-name|declaration
-operator|.
-name|chop
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
-block|}
-name|declaration
-operator|+=
-literal|"\n};\n\n"
-expr_stmt|;
-name|declaration
-operator|+=
-literal|"enum { ScriptSentinel = "
-operator|+
-name|QByteArray
-operator|::
-name|number
-argument_list|(
-name|scriptSentinel
-argument_list|)
-operator|+
-literal|" };\n\n"
-expr_stmt|;
-name|declaration
-operator|+=
-literal|"Q_CORE_EXPORT int QT_FASTCALL script(uint ucs4)\n"
-literal|"{\n"
-literal|"    if (ucs4> 0xffff)\n"
-literal|"        return Common;\n"
-literal|"    int script = uc_scripts[ucs4>> 7];\n"
-literal|"    if (script< ScriptSentinel)\n"
-literal|"        return script;\n"
-literal|"    script = (((script - ScriptSentinel) * UnicodeBlockSize) + UnicodeBlockCount);\n"
-literal|"    script = uc_scripts[script + (ucs4& 0x7f)];\n"
-literal|"    return script;\n"
-literal|"}\n\n"
-expr_stmt|;
-name|qDebug
-argument_list|(
-literal|"createScriptTableDeclaration:"
-argument_list|)
-expr_stmt|;
-name|qDebug
-argument_list|(
-literal|"    memory usage: %d bytes"
-argument_list|,
-name|unicodeBlockCount
-operator|+
-operator|(
-name|extraBlockList
-operator|.
-name|size
-argument_list|()
-operator|*
-name|unicodeBlockSize
-operator|)
-argument_list|)
 expr_stmt|;
 return|return
 name|declaration
@@ -11569,7 +10731,7 @@ name|out
 operator|+=
 literal|"\n    { "
 expr_stmt|;
-comment|//     "        ushort category : 8;\n"
+comment|//     "        ushort category         : 8; /* 5 used */\n"
 name|out
 operator|+=
 name|QByteArray
@@ -11585,23 +10747,7 @@ name|out
 operator|+=
 literal|", "
 expr_stmt|;
-comment|//     "        ushort line_break_class : 8;\n"
-name|out
-operator|+=
-name|QByteArray
-operator|::
-name|number
-argument_list|(
-name|p
-operator|.
-name|line_break_class
-argument_list|)
-expr_stmt|;
-name|out
-operator|+=
-literal|", "
-expr_stmt|;
-comment|//     "        ushort direction : 8;\n"
+comment|//     "        ushort direction        : 8; /* 5 used */\n"
 name|out
 operator|+=
 name|QByteArray
@@ -11617,7 +10763,7 @@ name|out
 operator|+=
 literal|", "
 expr_stmt|;
-comment|//     "        ushort combiningClass :8;\n"
+comment|//     "        ushort combiningClass   : 8;\n"
 name|out
 operator|+=
 name|QByteArray
@@ -11633,7 +10779,7 @@ name|out
 operator|+=
 literal|", "
 expr_stmt|;
-comment|//     "        ushort joining : 2;\n"
+comment|//     "        ushort joining          : 2;\n"
 name|out
 operator|+=
 name|QByteArray
@@ -11649,7 +10795,7 @@ name|out
 operator|+=
 literal|", "
 expr_stmt|;
-comment|//     "        signed short digitValue : 6;\n /* 5 needed */"
+comment|//     "        signed short digitValue : 6; /* 5 used */\n"
 name|out
 operator|+=
 name|QByteArray
@@ -11665,91 +10811,11 @@ name|out
 operator|+=
 literal|", "
 expr_stmt|;
-comment|//     "        ushort unicodeVersion : 4;\n"
-name|out
-operator|+=
-name|QByteArray
-operator|::
-name|number
-argument_list|(
-name|p
-operator|.
-name|age
-argument_list|)
-expr_stmt|;
-name|out
-operator|+=
-literal|", "
-expr_stmt|;
-comment|//     "        ushort lowerCaseSpecial : 1;\n"
-comment|//     "        ushort upperCaseSpecial : 1;\n"
-comment|//     "        ushort titleCaseSpecial : 1;\n"
-comment|//     "        ushort caseFoldSpecial : 1;\n"
-name|out
-operator|+=
-name|QByteArray
-operator|::
-name|number
-argument_list|(
-name|p
-operator|.
-name|lowerCaseSpecial
-argument_list|)
-expr_stmt|;
-name|out
-operator|+=
-literal|", "
-expr_stmt|;
-name|out
-operator|+=
-name|QByteArray
-operator|::
-name|number
-argument_list|(
-name|p
-operator|.
-name|upperCaseSpecial
-argument_list|)
-expr_stmt|;
-name|out
-operator|+=
-literal|", "
-expr_stmt|;
-name|out
-operator|+=
-name|QByteArray
-operator|::
-name|number
-argument_list|(
-name|p
-operator|.
-name|titleCaseSpecial
-argument_list|)
-expr_stmt|;
-name|out
-operator|+=
-literal|", "
-expr_stmt|;
-name|out
-operator|+=
-name|QByteArray
-operator|::
-name|number
-argument_list|(
-name|p
-operator|.
-name|caseFoldSpecial
-argument_list|)
-expr_stmt|;
-name|out
-operator|+=
-literal|", "
-expr_stmt|;
-comment|//     "        signed short mirrorDiff : 16;\n"
+comment|//     "        signed short mirrorDiff    : 16;\n"
 comment|//     "        signed short lowerCaseDiff : 16;\n"
 comment|//     "        signed short upperCaseDiff : 16;\n"
 comment|//     "        signed short titleCaseDiff : 16;\n"
-comment|//     "        signed short caseFoldDiff : 16;\n"
+comment|//     "        signed short caseFoldDiff  : 16;\n"
 name|out
 operator|+=
 name|QByteArray
@@ -11825,6 +10891,90 @@ name|out
 operator|+=
 literal|", "
 expr_stmt|;
+comment|//     "        ushort lowerCaseSpecial : 1;\n"
+comment|//     "        ushort upperCaseSpecial : 1;\n"
+comment|//     "        ushort titleCaseSpecial : 1;\n"
+comment|//     "        ushort caseFoldSpecial  : 1;\n"
+name|out
+operator|+=
+name|QByteArray
+operator|::
+name|number
+argument_list|(
+name|p
+operator|.
+name|lowerCaseSpecial
+argument_list|)
+expr_stmt|;
+name|out
+operator|+=
+literal|", "
+expr_stmt|;
+name|out
+operator|+=
+name|QByteArray
+operator|::
+name|number
+argument_list|(
+name|p
+operator|.
+name|upperCaseSpecial
+argument_list|)
+expr_stmt|;
+name|out
+operator|+=
+literal|", "
+expr_stmt|;
+name|out
+operator|+=
+name|QByteArray
+operator|::
+name|number
+argument_list|(
+name|p
+operator|.
+name|titleCaseSpecial
+argument_list|)
+expr_stmt|;
+name|out
+operator|+=
+literal|", "
+expr_stmt|;
+name|out
+operator|+=
+name|QByteArray
+operator|::
+name|number
+argument_list|(
+name|p
+operator|.
+name|caseFoldSpecial
+argument_list|)
+expr_stmt|;
+name|out
+operator|+=
+literal|", "
+expr_stmt|;
+comment|//     "        ushort unicodeVersion   : 4;\n"
+name|out
+operator|+=
+name|QByteArray
+operator|::
+name|number
+argument_list|(
+name|p
+operator|.
+name|age
+argument_list|)
+expr_stmt|;
+name|out
+operator|+=
+literal|", "
+expr_stmt|;
+comment|//     "        ushort graphemeBreak    : 8; /* 4 used */\n"
+comment|//     "        ushort wordBreak        : 8; /* 4 used */\n"
+comment|//     "        ushort sentenceBreak    : 8; /* 4 used */\n"
+comment|//     "        ushort line_break_class : 8; /* 6 used */\n"
 name|out
 operator|+=
 name|QByteArray
@@ -11864,6 +11014,37 @@ argument_list|(
 name|p
 operator|.
 name|sentenceBreak
+argument_list|)
+expr_stmt|;
+name|out
+operator|+=
+literal|", "
+expr_stmt|;
+name|out
+operator|+=
+name|QByteArray
+operator|::
+name|number
+argument_list|(
+name|p
+operator|.
+name|line_break_class
+argument_list|)
+expr_stmt|;
+name|out
+operator|+=
+literal|", "
+expr_stmt|;
+comment|//     "        ushort script           : 8; /* 5 used */\n"
+name|out
+operator|+=
+name|QByteArray
+operator|::
+name|number
+argument_list|(
+name|p
+operator|.
+name|script
 argument_list|)
 expr_stmt|;
 name|out
@@ -11926,6 +11107,11 @@ literal|"\n"
 literal|"Q_CORE_EXPORT LineBreakClass QT_FASTCALL lineBreakClass(uint ucs4)\n"
 literal|"{\n"
 literal|"    return (LineBreakClass)qGetProp(ucs4)->line_break_class;\n"
+literal|"}\n"
+literal|"\n"
+literal|"Q_CORE_EXPORT Script QT_FASTCALL script(uint ucs4)\n"
+literal|"{\n"
+literal|"    return (Script)qGetProp(ucs4)->script;\n"
 literal|"}\n\n"
 expr_stmt|;
 return|return
@@ -15155,12 +14341,6 @@ name|createScriptEnumDeclaration
 argument_list|()
 decl_stmt|;
 name|QByteArray
-name|scriptTableDeclaration
-init|=
-name|createScriptTableDeclaration
-argument_list|()
-decl_stmt|;
-name|QByteArray
 name|header
 init|=
 literal|"/****************************************************************************\n"
@@ -15333,20 +14513,6 @@ operator|.
 name|write
 argument_list|(
 name|normalizationCorrections
-argument_list|)
-expr_stmt|;
-name|f
-operator|.
-name|write
-argument_list|(
-literal|"\n"
-argument_list|)
-expr_stmt|;
-name|f
-operator|.
-name|write
-argument_list|(
-name|scriptTableDeclaration
 argument_list|)
 expr_stmt|;
 name|f
