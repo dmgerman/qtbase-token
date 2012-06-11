@@ -165,70 +165,246 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_function
+begin_function_decl
 name|QT_BEGIN_NAMESPACE
+if|#
+directive|if
+operator|!
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|0
+argument_list|)
+comment|// Make sure they're defined to be exported
+name|Q_CORE_EXPORT
+name|void
+modifier|*
+name|qMemCopy
+parameter_list|(
+name|void
+modifier|*
+name|dest
+parameter_list|,
+specifier|const
+name|void
+modifier|*
+name|src
+parameter_list|,
+name|size_t
+name|n
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+name|Q_CORE_EXPORT
+name|void
+modifier|*
+name|qMemSet
+parameter_list|(
+name|void
+modifier|*
+name|dest
+parameter_list|,
+name|int
+name|c
+parameter_list|,
+name|size_t
+name|n
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
 comment|/*!     \class QFlag     \brief The QFlag class is a helper data type for QFlags.      It is equivalent to a plain \c int, except with respect to     function overloading and type conversions. You should never need     to use this class in your applications.      \sa QFlags */
+end_comment
+begin_comment
 comment|/*!     \fn QFlag::QFlag(int value)      Constructs a QFlag object that stores the given \a value. */
+end_comment
+begin_comment
 comment|/*!     \fn QFlag::operator int() const      Returns the value stored by the QFlag object. */
+end_comment
+begin_comment
 comment|/*!     \class QFlags     \brief The QFlags class provides a type-safe way of storing     OR-combinations of enum values.       \ingroup tools      The QFlags<Enum> class is a template class, where Enum is an enum     type. QFlags is used throughout Qt for storing combinations of     enum values.      The traditional C++ approach for storing OR-combinations of enum     values is to use an \c int or \c uint variable. The inconvenience     with this approach is that there's no type checking at all; any     enum value can be OR'd with any other enum value and passed on to     a function that takes an \c int or \c uint.      Qt uses QFlags to provide type safety. For example, the     Qt::Alignment type is simply a typedef for     QFlags<Qt::AlignmentFlag>. QLabel::setAlignment() takes a     Qt::Alignment parameter, which means that any combination of     Qt::AlignmentFlag values,or 0, is legal:      \snippet code/src_corelib_global_qglobal.cpp 0      If you try to pass a value from another enum or just a plain     integer other than 0, the compiler will report an error. If you     need to cast integer values to flags in a untyped fashion, you can     use the explicit QFlags constructor as cast operator.      If you want to use QFlags for your own enum types, use     the Q_DECLARE_FLAGS() and Q_DECLARE_OPERATORS_FOR_FLAGS().      Example:      \snippet code/src_corelib_global_qglobal.cpp 1      You can then use the \c MyClass::Options type to store     combinations of \c MyClass::Option values.      \section1 Flags and the Meta-Object System      The Q_DECLARE_FLAGS() macro does not expose the flags to the meta-object     system, so they cannot be used by Qt Script or edited in Qt Designer.     To make the flags available for these purposes, the Q_FLAGS() macro must     be used:      \snippet code/src_corelib_global_qglobal.cpp meta-object flags      \section1 Naming Convention      A sensible naming convention for enum types and associated QFlags     types is to give a singular name to the enum type (e.g., \c     Option) and a plural name to the QFlags type (e.g., \c Options).     When a singular name is desired for the QFlags type (e.g., \c     Alignment), you can use \c Flag as the suffix for the enum type     (e.g., \c AlignmentFlag).      \sa QFlag */
+end_comment
+begin_comment
 comment|/*!     \typedef QFlags::enum_type      Typedef for the Enum template type. */
+end_comment
+begin_comment
 comment|/*!     \fn QFlags::QFlags(const QFlags&other)      Constructs a copy of \a other. */
+end_comment
+begin_comment
 comment|/*!     \fn QFlags::QFlags(Enum flag)      Constructs a QFlags object storing the given \a flag. */
+end_comment
+begin_comment
 comment|/*!     \fn QFlags::QFlags(Zero zero)      Constructs a QFlags object with no flags set. \a zero must be a     literal 0 value. */
+end_comment
+begin_comment
 comment|/*!     \fn QFlags::QFlags(QFlag value)      Constructs a QFlags object initialized with the given integer \a     value.      The QFlag type is a helper type. By using it here instead of \c     int, we effectively ensure that arbitrary enum values cannot be     cast to a QFlags, whereas untyped enum values (i.e., \c int     values) can. */
+end_comment
+begin_comment
 comment|/*!     \fn QFlags&QFlags::operator=(const QFlags&other)      Assigns \a other to this object and returns a reference to this     object. */
+end_comment
+begin_comment
 comment|/*!     \fn QFlags&QFlags::operator&=(int mask)      Performs a bitwise AND operation with \a mask and stores the     result in this QFlags object. Returns a reference to this object.      \sa operator&(), operator|=(), operator^=() */
+end_comment
+begin_comment
 comment|/*!     \fn QFlags&QFlags::operator&=(uint mask)      \overload */
+end_comment
+begin_comment
 comment|/*!     \fn QFlags&QFlags::operator|=(QFlags other)      Performs a bitwise OR operation with \a other and stores the     result in this QFlags object. Returns a reference to this object.      \sa operator|(), operator&=(), operator^=() */
+end_comment
+begin_comment
 comment|/*!     \fn QFlags&QFlags::operator|=(Enum other)      \overload */
+end_comment
+begin_comment
 comment|/*!     \fn QFlags&QFlags::operator^=(QFlags other)      Performs a bitwise XOR operation with \a other and stores the     result in this QFlags object. Returns a reference to this object.      \sa operator^(), operator&=(), operator|=() */
+end_comment
+begin_comment
 comment|/*!     \fn QFlags&QFlags::operator^=(Enum other)      \overload */
+end_comment
+begin_comment
 comment|/*!     \fn QFlags::operator int() const      Returns the value stored in the QFlags object as an integer. */
+end_comment
+begin_comment
 comment|/*!     \fn QFlags QFlags::operator|(QFlags other) const      Returns a QFlags object containing the result of the bitwise OR     operation on this object and \a other.      \sa operator|=(), operator^(), operator&(), operator~() */
+end_comment
+begin_comment
 comment|/*!     \fn QFlags QFlags::operator|(Enum other) const      \overload */
+end_comment
+begin_comment
 comment|/*!     \fn QFlags QFlags::operator^(QFlags other) const      Returns a QFlags object containing the result of the bitwise XOR     operation on this object and \a other.      \sa operator^=(), operator&(), operator|(), operator~() */
+end_comment
+begin_comment
 comment|/*!     \fn QFlags QFlags::operator^(Enum other) const      \overload */
+end_comment
+begin_comment
 comment|/*!     \fn QFlags QFlags::operator&(int mask) const      Returns a QFlags object containing the result of the bitwise AND     operation on this object and \a mask.      \sa operator&=(), operator|(), operator^(), operator~() */
+end_comment
+begin_comment
 comment|/*!     \fn QFlags QFlags::operator&(uint mask) const      \overload */
+end_comment
+begin_comment
 comment|/*!     \fn QFlags QFlags::operator&(Enum mask) const      \overload */
+end_comment
+begin_comment
 comment|/*!     \fn QFlags QFlags::operator~() const      Returns a QFlags object that contains the bitwise negation of     this object.      \sa operator&(), operator|(), operator^() */
+end_comment
+begin_comment
 comment|/*!     \fn bool QFlags::operator!() const      Returns true if no flag is set (i.e., if the value stored by the     QFlags object is 0); otherwise returns false. */
+end_comment
+begin_comment
 comment|/*!     \fn bool QFlags::testFlag(Enum flag) const     \since 4.2      Returns true if the \a flag is set, otherwise false. */
+end_comment
+begin_comment
 comment|/*!   \macro Q_DISABLE_COPY(Class)   \relates QObject    Disables the use of copy constructors and assignment operators   for the given \a Class.    Instances of subclasses of QObject should not be thought of as   values that can be copied or assigned, but as unique identities.   This means that when you create your own subclass of QObject   (director or indirect), you should \e not give it a copy constructor   or an assignment operator.  However, it may not enough to simply   omit them from your class, because, if you mistakenly write some code   that requires a copy constructor or an assignment operator (it's easy   to do), your compiler will thoughtfully create it for you. You must   do more.    The curious user will have seen that the Qt classes derived   from QObject typically include this macro in a private section:    \snippet code/src_corelib_global_qglobal.cpp 43    It declares a copy constructor and an assignment operator in the   private section, so that if you use them by mistake, the compiler   will report an error.    \snippet code/src_corelib_global_qglobal.cpp 44    But even this might not catch absolutely every case. You might be   tempted to do something like this:    \snippet code/src_corelib_global_qglobal.cpp 45    First of all, don't do that. Most compilers will generate code that   uses the copy constructor, so the privacy violation error will be   reported, but your C++ compiler is not required to generate code for   this statement in a specific way. It could generate code using   \e{neither} the copy constructor \e{nor} the assignment operator we   made private. In that case, no error would be reported, but your   application would probably crash when you called a member function   of \c{w}. */
+end_comment
+begin_comment
 comment|/*!     \macro Q_DECLARE_FLAGS(Flags, Enum)     \relates QFlags      The Q_DECLARE_FLAGS() macro expands to      \snippet code/src_corelib_global_qglobal.cpp 2      \a Enum is the name of an existing enum type, whereas \a Flags is     the name of the QFlags<\e{Enum}> typedef.      See the QFlags documentation for details.      \sa Q_DECLARE_OPERATORS_FOR_FLAGS() */
+end_comment
+begin_comment
 comment|/*!     \macro Q_DECLARE_OPERATORS_FOR_FLAGS(Flags)     \relates QFlags      The Q_DECLARE_OPERATORS_FOR_FLAGS() macro declares global \c     operator|() functions for \a Flags, which is of type QFlags<T>.      See the QFlags documentation for details.      \sa Q_DECLARE_FLAGS() */
+end_comment
+begin_comment
 comment|/*!     \headerfile<QtGlobal>     \title Global Qt Declarations     \ingroup funclists      \brief The<QtGlobal> header file includes the fundamental global     declarations. It is included by most other Qt header files.      The global declarations include \l{types}, \l{functions} and     \l{macros}.      The type definitions are partly convenience definitions for basic     types (some of which guarantee certain bit-sizes on all platforms     supported by Qt), partly types related to Qt message handling. The     functions are related to generating messages, Qt version handling     and comparing and adjusting object values. And finally, some of     the declared macros enable programmers to add compiler or platform     specific code to their applications, while others are convenience     macros for larger operations.      \section1 Types      The header file declares several type definitions that guarantee a     specified bit-size on all platforms supported by Qt for various     basic types, for example \l qint8 which is a signed char     guaranteed to be 8-bit on all platforms supported by Qt. The     header file also declares the \l qlonglong type definition for \c     {long long int } (\c __int64 on Windows).      Several convenience type definitions are declared: \l qreal for \c     double, \l uchar for \c unsigned char, \l uint for \c unsigned     int, \l ulong for \c unsigned long and \l ushort for \c unsigned     short.      Finally, the QtMsgType definition identifies the various messages     that can be generated and sent to a Qt message handler;     QtMessageHandler is a type definition for a pointer to a function with     the signature     \c {void myMessageHandler(QtMsgType, const QMessageLogContext&, const char *)}.     QMessageLogContext class contains the line, file, and function the     message was logged at. This information is created by the QMessageLogger     class.      \section1 Functions      The<QtGlobal> header file contains several functions comparing     and adjusting an object's value. These functions take a template     type as argument: You can retrieve the absolute value of an object     using the qAbs() function, and you can bound a given object's     value by given minimum and maximum values using the qBound()     function. You can retrieve the minimum and maximum of two given     objects using qMin() and qMax() respectively. All these functions     return a corresponding template type; the template types can be     replaced by any other type.      Example:      \snippet code/src_corelib_global_qglobal.cpp 3<QtGlobal> also contains functions that generate messages from the     given string argument: qCritical(), qDebug(), qFatal() and     qWarning(). These functions call the message handler with the     given message.      Example:      \snippet code/src_corelib_global_qglobal.cpp 4      The remaining functions are qRound() and qRound64(), which both     accept a \l qreal value as their argument returning the value     rounded up to the nearest integer and 64-bit integer respectively,     the qInstallMessageHandler() function which installs the given     QtMessageHandler, and the qVersion() function which returns the     version number of Qt at run-time as a string.      \section1 Macros      The<QtGlobal> header file provides a range of macros (Q_CC_*)     that are defined if the application is compiled using the     specified platforms. For example, the Q_CC_SUN macro is defined if     the application is compiled using Forte Developer, or Sun Studio     C++.  The header file also declares a range of macros (Q_OS_*)     that are defined for the specified platforms. For example,     Q_OS_X11 which is defined for the X Window System.      The purpose of these macros is to enable programmers to add     compiler or platform specific code to their application.      The remaining macros are convenience macros for larger operations:     The QT_TRANSLATE_NOOP() and QT_TR_NOOP() macros provide the     possibility of marking text for dynamic translation,     i.e. translation without changing the stored source text. The     Q_ASSERT() and Q_ASSERT_X() enables warning messages of various     level of refinement. The Q_FOREACH() and foreach() macros     implement Qt's foreach loop.      The Q_INT64_C() and Q_UINT64_C() macros wrap signed and unsigned     64-bit integer literals in a platform-independent way. The     Q_CHECK_PTR() macro prints a warning containing the source code's     file name and line number, saying that the program ran out of     memory, if the pointer is 0. The qPrintable() macro represent an     easy way of printing text.      Finally, the QT_POINTER_SIZE macro expands to the size of a     pointer in bytes, and the QT_VERSION and QT_VERSION_STR macros     expand to a numeric value or a string, respectively, specifying     Qt's version number, i.e the version the application is compiled     against.      \sa<QtAlgorithms>, QSysInfo */
+end_comment
+begin_comment
 comment|/*!     \typedef qreal     \relates<QtGlobal>      Typedef for \c double on all platforms except for those using CPUs with     ARM architectures.     On ARM-based platforms, \c qreal is a typedef for \c float for performance     reasons. */
+end_comment
+begin_comment
 comment|/*! \typedef uchar     \relates<QtGlobal>      Convenience typedef for \c{unsigned char}. */
+end_comment
+begin_comment
 comment|/*! \typedef ushort     \relates<QtGlobal>      Convenience typedef for \c{unsigned short}. */
+end_comment
+begin_comment
 comment|/*! \typedef uint     \relates<QtGlobal>      Convenience typedef for \c{unsigned int}. */
+end_comment
+begin_comment
 comment|/*! \typedef ulong     \relates<QtGlobal>      Convenience typedef for \c{unsigned long}. */
+end_comment
+begin_comment
 comment|/*! \typedef qint8     \relates<QtGlobal>      Typedef for \c{signed char}. This type is guaranteed to be 8-bit     on all platforms supported by Qt. */
+end_comment
+begin_comment
 comment|/*!     \typedef quint8     \relates<QtGlobal>      Typedef for \c{unsigned char}. This type is guaranteed to     be 8-bit on all platforms supported by Qt. */
+end_comment
+begin_comment
 comment|/*! \typedef qint16     \relates<QtGlobal>      Typedef for \c{signed short}. This type is guaranteed to be     16-bit on all platforms supported by Qt. */
+end_comment
+begin_comment
 comment|/*!     \typedef quint16     \relates<QtGlobal>      Typedef for \c{unsigned short}. This type is guaranteed to     be 16-bit on all platforms supported by Qt. */
+end_comment
+begin_comment
 comment|/*! \typedef qint32     \relates<QtGlobal>      Typedef for \c{signed int}. This type is guaranteed to be 32-bit     on all platforms supported by Qt. */
+end_comment
+begin_comment
 comment|/*!     \typedef quint32     \relates<QtGlobal>      Typedef for \c{unsigned int}. This type is guaranteed to     be 32-bit on all platforms supported by Qt. */
+end_comment
+begin_comment
 comment|/*! \typedef qint64     \relates<QtGlobal>      Typedef for \c{long long int} (\c __int64 on Windows). This type     is guaranteed to be 64-bit on all platforms supported by Qt.      Literals of this type can be created using the Q_INT64_C() macro:      \snippet code/src_corelib_global_qglobal.cpp 5      \sa Q_INT64_C(), quint64, qlonglong */
+end_comment
+begin_comment
 comment|/*!     \typedef quint64     \relates<QtGlobal>      Typedef for \c{unsigned long long int} (\c{unsigned __int64} on     Windows). This type is guaranteed to be 64-bit on all platforms     supported by Qt.      Literals of this type can be created using the Q_UINT64_C()     macro:      \snippet code/src_corelib_global_qglobal.cpp 6      \sa Q_UINT64_C(), qint64, qulonglong */
+end_comment
+begin_comment
 comment|/*!     \typedef quintptr     \relates<QtGlobal>      Integral type for representing a pointers (useful for hashing,     etc.).      Typedef for either quint32 or quint64. This type is guaranteed to     be the same size as a pointer on all platforms supported by Qt. On     a system with 32-bit pointers, quintptr is a typedef for quint32;     on a system with 64-bit pointers, quintptr is a typedef for     quint64.      Note that quintptr is unsigned. Use qptrdiff for signed values.      \sa qptrdiff, quint32, quint64 */
+end_comment
+begin_comment
 comment|/*!     \typedef qptrdiff     \relates<QtGlobal>      Integral type for representing pointer differences.      Typedef for either qint32 or qint64. This type is guaranteed to be     the same size as a pointer on all platforms supported by Qt. On a     system with 32-bit pointers, quintptr is a typedef for quint32; on     a system with 64-bit pointers, quintptr is a typedef for quint64.      Note that qptrdiff is signed. Use quintptr for unsigned values.      \sa quintptr, qint32, qint64 */
+end_comment
+begin_comment
 comment|/*!     \enum QtMsgType     \relates<QtGlobal>      This enum describes the messages that can be sent to a message     handler (QtMsgHandler). You can use the enum to identify and     associate the various message types with the appropriate     actions.      \value QtDebugMsg            A message generated by the qDebug() function.     \value QtWarningMsg            A message generated by the qWarning() function.     \value QtCriticalMsg            A message generated by the qCritical() function.     \value QtFatalMsg            A message generated by the qFatal() function.     \value QtSystemMsg       \sa QtMessageHandler, qInstallMessageHandler() */
+end_comment
+begin_comment
 comment|/*! \typedef QFunctionPointer     \relates<QtGlobal>      This is a typedef for \c{void (*)()}, a pointer to a function that takes     no arguments and returns void. */
+end_comment
+begin_comment
 comment|/*! \macro qint64 Q_INT64_C(literal)     \relates<QtGlobal>      Wraps the signed 64-bit integer \a literal in a     platform-independent way.      Example:      \snippet code/src_corelib_global_qglobal.cpp 8      \sa qint64, Q_UINT64_C() */
+end_comment
+begin_comment
 comment|/*! \macro quint64 Q_UINT64_C(literal)     \relates<QtGlobal>      Wraps the unsigned 64-bit integer \a literal in a     platform-independent way.      Example:      \snippet code/src_corelib_global_qglobal.cpp 9      \sa quint64, Q_INT64_C() */
+end_comment
+begin_comment
 comment|/*! \typedef qlonglong     \relates<QtGlobal>      Typedef for \c{long long int} (\c __int64 on Windows). This is     the same as \l qint64.      \sa qulonglong, qint64 */
+end_comment
+begin_comment
 comment|/*!     \typedef qulonglong     \relates<QtGlobal>      Typedef for \c{unsigned long long int} (\c{unsigned __int64} on     Windows). This is the same as \l quint64.      \sa quint64, qlonglong */
+end_comment
+begin_comment
 comment|/*! \fn const T&qAbs(const T&value)     \relates<QtGlobal>      Compares \a value to the 0 of type T and returns the absolute     value. Thus if T is \e {double}, then \a value is compared to     \e{(double) 0}.      Example:      \snippet code/src_corelib_global_qglobal.cpp 10 */
+end_comment
+begin_comment
 comment|/*! \fn int qRound(qreal value)     \relates<QtGlobal>      Rounds \a value to the nearest integer.      Example:      \snippet code/src_corelib_global_qglobal.cpp 11 */
+end_comment
+begin_comment
 comment|/*! \fn qint64 qRound64(qreal value)     \relates<QtGlobal>      Rounds \a value to the nearest 64-bit integer.      Example:      \snippet code/src_corelib_global_qglobal.cpp 12 */
+end_comment
+begin_comment
 comment|/*! \fn const T&qMin(const T&value1, const T&value2)     \relates<QtGlobal>      Returns the minimum of \a value1 and \a value2.      Example:      \snippet code/src_corelib_global_qglobal.cpp 13      \sa qMax(), qBound() */
+end_comment
+begin_comment
 comment|/*! \fn const T&qMax(const T&value1, const T&value2)     \relates<QtGlobal>      Returns the maximum of \a value1 and \a value2.      Example:      \snippet code/src_corelib_global_qglobal.cpp 14      \sa qMin(), qBound() */
+end_comment
+begin_comment
 comment|/*! \fn const T&qBound(const T&min, const T&value, const T&max)     \relates<QtGlobal>      Returns \a value bounded by \a min and \a max. This is equivalent     to qMax(\a min, qMin(\a value, \a max)).      Example:      \snippet code/src_corelib_global_qglobal.cpp 15      \sa qMin(), qMax() */
+end_comment
+begin_comment
 comment|/*!     \macro QT_VERSION_CHECK     \relates<QtGlobal>      Turns the major, minor and patch numbers of a version into an     integer, 0xMMNNPP (MM = major, NN = minor, PP = patch). This can     be compared with another similarly processed version id.      \sa QT_VERSION */
+end_comment
+begin_comment
 comment|/*!     \macro QT_VERSION     \relates<QtGlobal>      This macro expands a numeric value of the form 0xMMNNPP (MM =     major, NN = minor, PP = patch) that specifies Qt's version     number. For example, if you compile your application against Qt     4.1.2, the QT_VERSION macro will expand to 0x040102.      You can use QT_VERSION to use the latest Qt features where     available.      Example:      \snippet code/src_corelib_global_qglobal.cpp 16      \sa QT_VERSION_STR, qVersion() */
+end_comment
+begin_comment
 comment|/*!     \macro QT_VERSION_STR     \relates<QtGlobal>      This macro expands to a string that specifies Qt's version number     (for example, "4.1.2"). This is the version against which the     application is compiled.      \sa qVersion(), QT_VERSION */
+end_comment
+begin_comment
 comment|/*!     \relates<QtGlobal>      Returns the version number of Qt at run-time as a string (for     example, "4.1.2"). This may be a different version than the     version the application was compiled against.      \sa QT_VERSION_STR */
+end_comment
+begin_function
 DECL|function|qVersion
 specifier|const
 name|char
