@@ -3835,6 +3835,14 @@ argument_list|(
 name|QPrinter
 argument_list|)
 expr_stmt|;
+comment|// set margins also to super class
+name|QPagedPaintDevice
+operator|::
+name|setMargins
+argument_list|(
+name|m
+argument_list|)
+expr_stmt|;
 specifier|const
 name|qreal
 name|multiplier
