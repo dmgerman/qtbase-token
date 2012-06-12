@@ -877,6 +877,9 @@ block|;
 name|QString
 name|peerName
 block|;
+name|QByteArray
+name|receivedHeaderFragment
+block|;
 name|mutable
 name|bool
 name|readNotificationActivated

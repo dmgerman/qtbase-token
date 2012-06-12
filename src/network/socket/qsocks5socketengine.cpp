@@ -1005,12 +1005,12 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*    retrives the host address in buf at pos and updates pos.    if the func fails the value of the address and the pos is undefined */
+comment|/*    retrives the host address in buf at pos and updates pos.    return 1 if OK, 0 if need more data, -1 if error    if the func fails the value of the address and the pos is undefined */
 end_comment
 begin_function
 DECL|function|qt_socks5_get_host_address_and_port
 specifier|static
-name|bool
+name|int
 name|qt_socks5_get_host_address_and_port
 parameter_list|(
 specifier|const
@@ -1031,10 +1031,11 @@ modifier|*
 name|pPos
 parameter_list|)
 block|{
-name|bool
+name|int
 name|ret
 init|=
-literal|false
+operator|-
+literal|1
 decl_stmt|;
 name|int
 name|pos
@@ -1087,7 +1088,7 @@ operator|<<
 literal|"need more data address/port"
 expr_stmt|;
 return|return
-literal|false
+literal|0
 return|;
 block|}
 if|if
@@ -1120,7 +1121,7 @@ operator|<<
 literal|"need more data for ip4 address"
 expr_stmt|;
 return|return
-literal|false
+literal|0
 return|;
 block|}
 name|address
@@ -1146,7 +1147,7 @@ literal|4
 expr_stmt|;
 name|ret
 operator|=
-literal|true
+literal|1
 expr_stmt|;
 block|}
 elseif|else
@@ -1180,7 +1181,7 @@ operator|<<
 literal|"need more data for ip6 address"
 expr_stmt|;
 return|return
-literal|false
+literal|0
 return|;
 block|}
 name|QIPv6Address
@@ -1211,9 +1212,16 @@ name|pos
 operator|++
 index|]
 expr_stmt|;
+name|address
+operator|.
+name|setAddress
+argument_list|(
+name|add
+argument_list|)
+expr_stmt|;
 name|ret
 operator|=
-literal|true
+literal|1
 expr_stmt|;
 block|}
 elseif|else
@@ -1271,12 +1279,15 @@ index|]
 expr_stmt|;
 name|ret
 operator|=
-literal|false
+operator|-
+literal|1
 expr_stmt|;
 block|}
 if|if
 condition|(
 name|ret
+operator|==
+literal|1
 condition|)
 block|{
 if|if
@@ -1296,7 +1307,7 @@ operator|<<
 literal|"need more data for port"
 expr_stmt|;
 return|return
-literal|false
+literal|0
 return|;
 block|}
 name|port
@@ -1321,6 +1332,8 @@ block|}
 if|if
 condition|(
 name|ret
+operator|==
+literal|1
 condition|)
 block|{
 name|QSOCKS5_DEBUG
@@ -4172,6 +4185,18 @@ literal|"unSeal failed, needs more data"
 expr_stmt|;
 return|return;
 block|}
+name|inBuf
+operator|.
+name|prepend
+argument_list|(
+name|receivedHeaderFragment
+argument_list|)
+expr_stmt|;
+name|receivedHeaderFragment
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 name|QSOCKS5_DEBUG
 operator|<<
 name|dump
@@ -4186,12 +4211,16 @@ operator|.
 name|size
 argument_list|()
 operator|<
-literal|2
+literal|3
 condition|)
 block|{
 name|QSOCKS5_DEBUG
 operator|<<
 literal|"need more data for request reply header .. put this data somewhere"
+expr_stmt|;
+name|receivedHeaderFragment
+operator|=
+name|inBuf
 expr_stmt|;
 return|return;
 block|}
@@ -4213,13 +4242,6 @@ literal|0
 argument_list|)
 operator|!=
 name|S5_VERSION_5
-operator|||
-name|inBuf
-operator|.
-name|length
-argument_list|()
-operator|<
-literal|3
 operator|||
 name|inBuf
 operator|.
@@ -4318,9 +4340,9 @@ name|pos
 init|=
 literal|3
 decl_stmt|;
-if|if
-condition|(
-operator|!
+name|int
+name|err
+init|=
 name|qt_socks5_get_host_address_and_port
 argument_list|(
 name|inBuf
@@ -4334,6 +4356,13 @@ argument_list|,
 operator|&
 name|pos
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|err
+operator|==
+operator|-
+literal|1
 condition|)
 block|{
 name|QSOCKS5_DEBUG
@@ -4345,6 +4374,21 @@ argument_list|(
 name|SocksError
 argument_list|)
 expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|err
+operator|==
+literal|0
+condition|)
+block|{
+comment|//need more data
+name|receivedHeaderFragment
+operator|=
+name|inBuf
+expr_stmt|;
+return|return;
 block|}
 else|else
 block|{
@@ -6444,7 +6488,6 @@ return|return;
 block|}
 if|if
 condition|(
-operator|!
 name|qt_socks5_get_host_address_and_port
 argument_list|(
 name|inBuf
@@ -6462,6 +6505,8 @@ argument_list|,
 operator|&
 name|pos
 argument_list|)
+operator|!=
+literal|1
 condition|)
 block|{
 name|QSOCKS5_D_DEBUG
