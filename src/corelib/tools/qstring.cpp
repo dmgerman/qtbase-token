@@ -12494,6 +12494,12 @@ name|defined
 argument_list|(
 name|Q_OS_UNIX
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_USE_ICU
+argument_list|)
 end_if
 begin_function
 DECL|function|toLocal8Bit_helper
