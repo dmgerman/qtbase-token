@@ -1814,7 +1814,7 @@ name|d
 operator|->
 name|glfuncs
 operator|->
-name|initializeGLFunctions
+name|initializeOpenGLFunctions
 argument_list|()
 expr_stmt|;
 name|GLuint

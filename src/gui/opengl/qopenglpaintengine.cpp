@@ -11242,7 +11242,7 @@ name|d
 operator|->
 name|funcs
 operator|.
-name|initializeGLFunctions
+name|initializeOpenGLFunctions
 argument_list|()
 expr_stmt|;
 for|for

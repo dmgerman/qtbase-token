@@ -832,7 +832,7 @@ argument_list|()
 decl_stmt|;
 name|funcs
 operator|.
-name|initializeGLFunctions
+name|initializeOpenGLFunctions
 argument_list|()
 expr_stmt|;
 if|if

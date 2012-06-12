@@ -1158,14 +1158,14 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Initializes OpenGL function resolution for the current context.      After calling this function, the QOpenGLFunctions object can only be     used with the current context and other contexts that share with it.     Call initializeGLFunctions() again to change the object's context     association. */
+comment|/*!     Initializes OpenGL function resolution for the current context.      After calling this function, the QOpenGLFunctions object can only be     used with the current context and other contexts that share with it.     Call initializeOpenGLFunctions() again to change the object's context     association. */
 end_comment
 begin_function
-DECL|function|initializeGLFunctions
+DECL|function|initializeOpenGLFunctions
 name|void
 name|QOpenGLFunctions
 operator|::
-name|initializeGLFunctions
+name|initializeOpenGLFunctions
 parameter_list|()
 block|{
 name|d_ptr
