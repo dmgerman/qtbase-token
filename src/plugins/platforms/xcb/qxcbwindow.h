@@ -258,6 +258,26 @@ name|format
 argument_list|()
 specifier|const
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|XCB_USE_XLIB
+name|bool
+name|startSystemResize
+argument_list|(
+specifier|const
+name|QPoint
+operator|&
+name|pos
+argument_list|,
+name|Qt
+operator|::
+name|Corner
+name|corner
+argument_list|)
+decl_stmt|;
+endif|#
+directive|endif
+comment|// XCB_USE_XLIB
 name|xcb_window_t
 name|xcb_window
 argument_list|()

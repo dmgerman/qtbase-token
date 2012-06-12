@@ -316,6 +316,15 @@ operator|*
 name|event
 argument_list|)
 block|;
+name|virtual
+name|bool
+name|startSystemResize
+argument_list|(
+argument|const QPoint&pos
+argument_list|,
+argument|Qt::Corner corner
+argument_list|)
+block|;
 name|protected
 operator|:
 name|QScopedPointer
