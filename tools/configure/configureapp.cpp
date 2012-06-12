@@ -14233,7 +14233,7 @@ name|buildAll
 condition|)
 name|qtConfig
 operator|+=
-literal|"release"
+literal|"debug_and_release build_all release"
 expr_stmt|;
 name|qtConfig
 operator|+=
@@ -14254,7 +14254,7 @@ name|buildAll
 condition|)
 name|qtConfig
 operator|+=
-literal|"debug"
+literal|"debug_and_release build_all debug"
 expr_stmt|;
 name|qtConfig
 operator|+=
