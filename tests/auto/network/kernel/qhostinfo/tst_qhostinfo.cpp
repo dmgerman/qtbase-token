@@ -42,6 +42,15 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// To prevent windows system header files from re-defining min/max
+end_comment
+begin_define
+DECL|macro|NOMINMAX
+define|#
+directive|define
+name|NOMINMAX
+end_define
 begin_if
 if|#
 directive|if
