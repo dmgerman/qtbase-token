@@ -334,6 +334,7 @@ end_expr_stmt
 begin_decl_stmt
 unit|@
 name|end
+name|QT_BEGIN_NAMESPACE
 name|void
 name|qt_mac_loadMenuNib
 argument_list|(
@@ -346,6 +347,9 @@ name|qtMenuLoader
 argument_list|)
 decl_stmt|;
 end_decl_stmt
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
 endif|#
 directive|endif

@@ -36,6 +36,7 @@ name|NSMenu
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 DECL|variable|QCocoaWindow
 name|class
 name|QCocoaWindow
@@ -170,6 +171,9 @@ name|m_window
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
 endif|#
 directive|endif

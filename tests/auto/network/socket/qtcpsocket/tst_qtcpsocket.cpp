@@ -257,12 +257,11 @@ argument_list|(
 argument|QTcpSocket
 argument_list|)
 end_macro
-begin_macro
-name|QT_FORWARD_DECLARE_CLASS
-argument_list|(
-argument|SocketPair
-argument_list|)
-end_macro
+begin_class_decl
+class_decl|class
+name|SocketPair
+class_decl|;
+end_class_decl
 begin_class
 DECL|class|tst_QTcpSocket
 class|class
