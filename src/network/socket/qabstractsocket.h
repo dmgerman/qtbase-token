@@ -164,6 +164,8 @@ block|,
 comment|/* 20 */
 name|SslInvalidUserDataError
 block|,
+name|TemporaryError
+block|,
 name|UnknownSocketError
 operator|=
 operator|-

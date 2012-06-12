@@ -167,6 +167,14 @@ name|errorString
 argument_list|()
 specifier|const
 block|;
+name|void
+name|pauseAccepting
+argument_list|()
+block|;
+name|void
+name|resumeAccepting
+argument_list|()
+block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_NETWORKPROXY
@@ -208,6 +216,12 @@ operator|:
 name|void
 name|newConnection
 argument_list|()
+block|;
+name|void
+name|acceptError
+argument_list|(
+argument|QAbstractSocket::SocketError socketError
+argument_list|)
 block|;
 name|private
 operator|:

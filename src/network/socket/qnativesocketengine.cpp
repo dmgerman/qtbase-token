@@ -602,6 +602,19 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
+name|TemporaryErrorString
+case|:
+name|socketErrorString
+operator|=
+name|QNativeSocketEngine
+operator|::
+name|tr
+argument_list|(
+literal|"Temporary error"
+argument_list|)
+expr_stmt|;
+break|break;
+case|case
 name|UnknownSocketErrorString
 case|:
 name|socketErrorString

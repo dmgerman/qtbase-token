@@ -725,6 +725,8 @@ name|NotSocketErrorString
 block|,
 name|InvalidProxyTypeString
 block|,
+name|TemporaryErrorString
+block|,
 name|UnknownSocketErrorString
 operator|=
 operator|-
