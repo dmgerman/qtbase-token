@@ -356,7 +356,7 @@ directive|endif
 ifdef|#
 directive|ifdef
 name|__SSSE3__
-comment|// Supplemental SSE3, Intel Core 2, AMD "Bulldozer"
+comment|// Supplemental SSE3, Intel Core 2 ("Merom"), AMD "Bulldozer"
 literal|" ssse3"
 endif|#
 directive|endif
@@ -370,7 +370,7 @@ directive|endif
 ifdef|#
 directive|ifdef
 name|__SSE4_1__
-comment|// SSE 4.1, Intel Core-i7 ("Nehalem"), AMD "Bulldozer"
+comment|// SSE 4.1, Intel Core2 45nm shrink ("Penryn"), AMD "Bulldozer"
 literal|" sse4.1"
 endif|#
 directive|endif
