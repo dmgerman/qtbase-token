@@ -156,7 +156,7 @@ name|addItem
 argument_list|(
 name|tr
 argument_list|(
-literal|"Rotate by 60\xB0"
+literal|"Rotate by 60\xC2\xB0"
 argument_list|)
 argument_list|)
 expr_stmt|;

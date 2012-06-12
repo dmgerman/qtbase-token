@@ -183,7 +183,7 @@ name|createButton
 argument_list|(
 name|tr
 argument_list|(
-literal|"\261"
+literal|"\302\261"
 argument_list|)
 argument_list|,
 name|SLOT
@@ -327,7 +327,7 @@ name|createButton
 argument_list|(
 name|tr
 argument_list|(
-literal|"\367"
+literal|"\303\267"
 argument_list|)
 argument_list|,
 name|SLOT
@@ -345,7 +345,7 @@ name|createButton
 argument_list|(
 name|tr
 argument_list|(
-literal|"\327"
+literal|"\303\227"
 argument_list|)
 argument_list|,
 name|SLOT
@@ -417,7 +417,7 @@ name|createButton
 argument_list|(
 name|tr
 argument_list|(
-literal|"x\262"
+literal|"x\302\262"
 argument_list|)
 argument_list|,
 name|SLOT
@@ -962,7 +962,7 @@ name|clickedOperator
 operator|==
 name|tr
 argument_list|(
-literal|"x\262"
+literal|"x\302\262"
 argument_list|)
 condition|)
 block|{
@@ -1917,7 +1917,7 @@ name|pendingOperator
 operator|==
 name|tr
 argument_list|(
-literal|"\327"
+literal|"\303\227"
 argument_list|)
 condition|)
 block|{
@@ -1933,7 +1933,7 @@ name|pendingOperator
 operator|==
 name|tr
 argument_list|(
-literal|"\367"
+literal|"\303\267"
 argument_list|)
 condition|)
 block|{

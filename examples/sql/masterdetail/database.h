@@ -191,7 +191,7 @@ name|query
 operator|.
 name|exec
 argument_list|(
-literal|"insert into albums values(6, 'Ompa Til Du D\xf8r', 3, 2001)"
+literal|"insert into albums values(6, 'Ompa Til Du D\xc3\xb8r', 3, 2001)"
 argument_list|)
 expr_stmt|;
 name|query

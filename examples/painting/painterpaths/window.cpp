@@ -864,7 +864,10 @@ name|rotationAngleSpinBox
 operator|->
 name|setSuffix
 argument_list|(
+name|QLatin1String
+argument_list|(
 literal|"\xB0"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|rotationAngleLabel
