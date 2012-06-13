@@ -898,6 +898,13 @@ name|parentWindow
 operator|=
 name|parent
 expr_stmt|;
+name|QGuiApplicationPrivate
+operator|::
+name|updateBlockedStatus
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -1925,6 +1932,13 @@ operator|->
 name|transientParent
 operator|=
 name|parent
+expr_stmt|;
+name|QGuiApplicationPrivate
+operator|::
+name|updateBlockedStatus
+argument_list|(
+name|this
+argument_list|)
 expr_stmt|;
 block|}
 end_function
