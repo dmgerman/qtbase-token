@@ -1972,6 +1972,12 @@ specifier|const
 name|QString
 operator|&
 name|navtitle
+argument_list|,
+name|Node
+operator|*
+name|headingnode
+operator|=
+literal|0
 argument_list|)
 block|;
 name|bool
