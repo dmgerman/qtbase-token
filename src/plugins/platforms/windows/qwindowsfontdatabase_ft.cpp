@@ -1541,11 +1541,6 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-name|QPlatformFontDatabase
-operator|::
-name|populateFontDatabase
-argument_list|()
-expr_stmt|;
 name|populate
 argument_list|()
 expr_stmt|;
