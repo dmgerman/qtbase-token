@@ -5790,7 +5790,7 @@ name|msg
 operator|+=
 literal|" does not exist. Declaration will be ignored"
 expr_stmt|;
-name|warning
+name|error
 argument_list|(
 name|msg
 operator|.
