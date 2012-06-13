@@ -1011,7 +1011,7 @@ operator|::
 name|PTR
 argument_list|)
 operator|<<
-literal|"168.52.238.87.in-addr.arpa"
+literal|"8.8.8.8.in-addr.arpa"
 operator|<<
 name|int
 argument_list|(
@@ -1028,7 +1028,7 @@ literal|""
 operator|<<
 literal|""
 operator|<<
-literal|"gitorious.org"
+literal|"google-public-dns-a.google.com"
 operator|<<
 literal|""
 operator|<<
