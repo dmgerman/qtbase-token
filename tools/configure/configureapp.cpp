@@ -24122,7 +24122,7 @@ literal|"\n"
 expr_stmt|;
 name|txt
 operator|<<
-literal|"\t\"$(MAKE)\" -$(MAKEFLAGS) -f "
+literal|"\t$(MAKE) -$(MAKEFLAGS) -f "
 operator|<<
 name|it
 operator|->
