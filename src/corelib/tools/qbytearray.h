@@ -2397,7 +2397,6 @@ name|isNull
 argument_list|()
 specifier|const
 expr_stmt|;
-name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QByteArray
 argument_list|(
