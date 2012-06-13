@@ -605,7 +605,7 @@ argument_list|)
 operator|&&
 name|q
 operator|->
-name|acceptsHoverEvents
+name|acceptHoverEvents
 argument_list|()
 condition|)
 name|lastWidgetUnderMouse

@@ -4815,7 +4815,7 @@ name|child
 decl|,
 name|item
 operator|->
-name|children
+name|childItems
 argument_list|()
 control|)
 name|_q_qgraphicsItemSetFlag

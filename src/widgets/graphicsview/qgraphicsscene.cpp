@@ -8982,7 +8982,7 @@ name|item
 decl|,
 name|group
 operator|->
-name|children
+name|childItems
 argument_list|()
 control|)
 name|group
@@ -22588,7 +22588,7 @@ name|parent
 condition|?
 name|parent
 operator|->
-name|children
+name|childItems
 argument_list|()
 else|:
 name|items

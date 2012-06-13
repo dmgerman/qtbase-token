@@ -4439,7 +4439,7 @@ comment|// decoration (special case in QGraphicsScenePrivate::dispatchHoverEvent
 if|if
 condition|(
 operator|!
-name|acceptsHoverEvents
+name|acceptHoverEvents
 argument_list|()
 condition|)
 return|return
