@@ -598,7 +598,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QTextOption     \reentrant      \brief The QTextOption class provides a description of general rich text     properties.      \ingroup richtext-processing      QTextOption is used to encapsulate common rich text properties in a single     object. It contains information about text alignment, layout direction,     word wrapping, and other standard properties associated with text rendering     and layout.      \sa QTextEdit, QTextDocument, QTextCursor */
+comment|/*!     \class QTextOption     \reentrant      \brief The QTextOption class provides a description of general rich text     properties.     \inmodule QtGui      \ingroup richtext-processing      QTextOption is used to encapsulate common rich text properties in a single     object. It contains information about text alignment, layout direction,     word wrapping, and other standard properties associated with text rendering     and layout.      \sa QTextEdit, QTextDocument, QTextCursor */
 end_comment
 begin_comment
 comment|/*!     \enum QTextOption::WrapMode      This enum describes how text is wrapped in a document.      \value NoWrap       Text is not wrapped at all.     \value WordWrap     Text is wrapped at word boundaries.     \value ManualWrap   Same as QTextOption::NoWrap     \value WrapAnywhere Text can be wrapped at any point on a line, even if                         it occurs in the middle of a word.     \value WrapAtWordBoundaryOrAnywhere If possible, wrapping occurs at a word                         boundary; otherwise it will occur at the appropriate                         point on the line, even in the middle of a word. */
@@ -646,7 +646,7 @@ begin_comment
 comment|/*!     \enum QTextOption::TabType     \since 4.4      This enum holds the different types of tabulator      \value LeftTab      A left-tab     \value RightTab     A right-tab     \value CenterTab    A centered-tab     \value DelimiterTab A tab stopping at a certain delimiter-character */
 end_comment
 begin_comment
-comment|/*!     \class QTextOption::Tab     \since 4.4     Each tab definition is represented by this struct. */
+comment|/*!     \class QTextOption::Tab     \since 4.4     \inmodule QtGui     Each tab definition is represented by this struct. */
 end_comment
 begin_comment
 comment|/*!     \variable Tab::position     Distance from the start of the paragraph.     The position of a tab is from the start of the paragraph which implies that when     the alignment of the paragraph is set to centered, the tab is interpreted to be     moved the same distance as the left ege of the paragraph does.     In case the paragraph is set to have a layoutDirection() RightToLeft the position     is interpreted to be from the right side of the paragraph with higher numbers moving     the tab to the left. */

@@ -34,7 +34,7 @@ begin_comment
 comment|/*!     \namespace QAccessible2     \ingroup accessibility     \internal      \brief The QAccessible2 namespace defines constants relating to     IAccessible2-based interfaces      \l{IAccessible2 Specification} */
 end_comment
 begin_comment
-comment|/*!     \class QAccessibleTextInterface     \internal      \ingroup accessibility      \brief The QAccessibleTextInterface class implements support for text handling.      This interface corresponds to the IAccessibleText interface.     It should be implemented for widgets that display more text than a plain label.     Labels should be represented by only \l QAccessibleInterface     and return their text as name (\l QAccessibleInterface::text() with \l QAccessible::Name as type).     The QAccessibleTextInterface is typically for text that a screen reader     might want to read line by line, and for widgets that support text selection and input.     This interface is, for example, implemented for QLineEdit.      Editable text objects should also implement \l QAccessibleEditableTextInterface.     \l{IAccessible2 Specification} */
+comment|/*!     \class QAccessibleTextInterface     \internal     \inmodule QtGui      \ingroup accessibility      \brief The QAccessibleTextInterface class implements support for text handling.      This interface corresponds to the IAccessibleText interface.     It should be implemented for widgets that display more text than a plain label.     Labels should be represented by only \l QAccessibleInterface     and return their text as name (\l QAccessibleInterface::text() with \l QAccessible::Name as type).     The QAccessibleTextInterface is typically for text that a screen reader     might want to read line by line, and for widgets that support text selection and input.     This interface is, for example, implemented for QLineEdit.      Editable text objects should also implement \l QAccessibleEditableTextInterface.     \l{IAccessible2 Specification} */
 end_comment
 begin_comment
 comment|/*!     \fn QAccessibleTextInterface::~QAccessibleTextInterface()     Destructor. */
@@ -88,7 +88,7 @@ begin_comment
 comment|/*!     \fn void QAccessibleTextInterface::scrollToSubstring(int startIndex, int endIndex)      Ensures that the text between \a startIndex and \a endIndex is visible. */
 end_comment
 begin_comment
-comment|/*!     \class QAccessibleEditableTextInterface     \ingroup accessibility     \internal      \brief The QAccessibleEditableTextInterface class implements support for objects with editable text.      When implementing this interface you will almost certainly also want to implement \l QAccessibleTextInterface.      Since this interface can be implemented by means of the normal \l QAccessibleTextInterface,     \l QAccessibleSimpleEditableTextInterface provides a convenience implementation of this interface.     Consider inheriting \l QAccessibleSimpleEditableTextInterface instead.      \sa QAccessibleInterface      \l{IAccessible2 Specification} */
+comment|/*!     \class QAccessibleEditableTextInterface     \ingroup accessibility     \inmodule QtGui     \internal      \brief The QAccessibleEditableTextInterface class implements support for objects with editable text.      When implementing this interface you will almost certainly also want to implement \l QAccessibleTextInterface.      Since this interface can be implemented by means of the normal \l QAccessibleTextInterface,     \l QAccessibleSimpleEditableTextInterface provides a convenience implementation of this interface.     Consider inheriting \l QAccessibleSimpleEditableTextInterface instead.      \sa QAccessibleInterface      \l{IAccessible2 Specification} */
 end_comment
 begin_comment
 comment|/*!     \fn QAccessibleEditableTextInterface::~QAccessibleEditableTextInterface()   */
@@ -115,10 +115,10 @@ begin_comment
 comment|/*!     \fn void QAccessibleEditableTextInterface::setAttributes(int startOffset, int endOffset, const QString&attributes)      \sa QAccessibleTextInterface::attributes() */
 end_comment
 begin_comment
-comment|/*!     \class QAccessibleSimpleEditableTextInterface     \ingroup accessibility     \internal      \brief The QAccessibleSimpleEditableTextInterface class is a convenience class for     text-based widgets. It can be inherited instead of \l QAccessibleEditableTextInterface.      \sa QAccessibleInterface, QAccessibleEditableTextInterface      \l{IAccessible2 Specification} */
+comment|/*!     \class QAccessibleSimpleEditableTextInterface     \inmodule QtGui     \ingroup accessibility     \internal      \brief The QAccessibleSimpleEditableTextInterface class is a convenience class for     text-based widgets. It can be inherited instead of \l QAccessibleEditableTextInterface.      \sa QAccessibleInterface, QAccessibleEditableTextInterface      \l{IAccessible2 Specification} */
 end_comment
 begin_comment
-comment|/*!     \class QAccessibleValueInterface     \ingroup accessibility     \internal      \brief The QAccessibleValueInterface class implements support for objects that manipulate a value.      This interface should be implemented by accessible objects that represent a value.     Examples are spinner, slider, dial and scroll bar.      Instead of forcing the user to deal with the individual parts of the widgets, this interface     gives an easier approach to the kind of widget it represents.      Usually this interface is implemented by classes that also implement \l QAccessibleInterface.      \l{IAccessible2 Specification} */
+comment|/*!     \class QAccessibleValueInterface     \inmodule QtGui     \ingroup accessibility     \internal      \brief The QAccessibleValueInterface class implements support for objects that manipulate a value.      This interface should be implemented by accessible objects that represent a value.     Examples are spinner, slider, dial and scroll bar.      Instead of forcing the user to deal with the individual parts of the widgets, this interface     gives an easier approach to the kind of widget it represents.      Usually this interface is implemented by classes that also implement \l QAccessibleInterface.      \l{IAccessible2 Specification} */
 end_comment
 begin_comment
 comment|/*!     \fn QAccessibleValueInterface::~QAccessibleValueInterface()     Destructor. */
@@ -136,10 +136,10 @@ begin_comment
 comment|/*!     \fn QVariant QAccessibleValueInterface::minimumValue() const      Returns the minimum value this object accepts.     \sa maximumValue(), currentValue() */
 end_comment
 begin_comment
-comment|/*!     \class QAccessibleImageInterface     \ingroup accessibility     \internal     \preliminary      \brief The QAccessibleImageInterface class implements support for     the IAccessibleImage interface.      \l{IAccessible2 Specification} */
+comment|/*!     \class QAccessibleImageInterface     \inmodule QtGui     \ingroup accessibility     \internal     \preliminary      \brief The QAccessibleImageInterface class implements support for     the IAccessibleImage interface.      \l{IAccessible2 Specification} */
 end_comment
 begin_comment
-comment|/*!     \class QAccessibleTableCellInterface     \ingroup accessibility     \internal      \brief The QAccessibleTableCellInterface class implements support for     the IAccessibleTable2 Cell interface.      \l{IAccessible2 Specification} */
+comment|/*!     \class QAccessibleTableCellInterface     \inmodule QtGui     \ingroup accessibility     \internal      \brief The QAccessibleTableCellInterface class implements support for     the IAccessibleTable2 Cell interface.      \l{IAccessible2 Specification} */
 end_comment
 begin_comment
 comment|/*!     \class QAccessibleTableInterface     \ingroup accessibility     \internal      \brief The QAccessibleTableInterface class implements support for     the IAccessibleTable2 interface.      \l{IAccessible2 Specification} */

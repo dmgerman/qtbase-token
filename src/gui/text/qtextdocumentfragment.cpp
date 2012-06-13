@@ -1403,7 +1403,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QTextDocumentFragment     \reentrant      \brief The QTextDocumentFragment class represents a piece of formatted text     from a QTextDocument.      \ingroup richtext-processing     \ingroup shared      A QTextDocumentFragment is a fragment of rich text, that can be inserted into     a QTextDocument. A document fragment can be created from a     QTextDocument, from a QTextCursor's selection, or from another     document fragment. Document fragments can also be created by the     static functions, fromPlainText() and fromHtml().      The contents of a document fragment can be obtained as plain text     by using the toPlainText() function, or it can be obtained as HTML     with toHtml(). */
+comment|/*!     \class QTextDocumentFragment     \reentrant      \inmodule QtGui     \brief The QTextDocumentFragment class represents a piece of formatted text     from a QTextDocument.      \ingroup richtext-processing     \ingroup shared      A QTextDocumentFragment is a fragment of rich text, that can be inserted into     a QTextDocument. A document fragment can be created from a     QTextDocument, from a QTextCursor's selection, or from another     document fragment. Document fragments can also be created by the     static functions, fromPlainText() and fromHtml().      The contents of a document fragment can be obtained as plain text     by using the toPlainText() function, or it can be obtained as HTML     with toHtml(). */
 end_comment
 begin_comment
 comment|/*!     Constructs an empty QTextDocumentFragment.      \sa isEmpty() */

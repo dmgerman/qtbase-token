@@ -45,7 +45,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QStyleHints     \since 5.0     \brief The QStyleHints contains platform specific hints and settings.  */
+comment|/*!     \class QStyleHints     \since 5.0     \brief The QStyleHints contains platform specific hints and settings.     \inmodule QtGui  */
 end_comment
 begin_constructor
 DECL|function|QStyleHints

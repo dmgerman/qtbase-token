@@ -86,7 +86,7 @@ block|}
 class|;
 end_class
 begin_comment
-comment|/*!     \class QBackingStore     \since 5.0      \brief The QBackingStore class provides the drawing area for top-level windows. */
+comment|/*!     \class QBackingStore     \since 5.0     \inmodule QtGui      \brief The QBackingStore class provides the drawing area for top-level windows. */
 end_comment
 begin_comment
 comment|/*!     Flushes the given \a region from the specified \a window onto the     screen.      Note that the \a offset parameter is currently unused. */

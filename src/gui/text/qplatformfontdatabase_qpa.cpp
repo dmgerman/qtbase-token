@@ -812,7 +812,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QSupportedWritingSystems     \brief The QSupportedWritingSystems class is used when registering fonts with the internal Qt     fontdatabase     \ingroup painting      Its to provide an easy to use interface for indicating what writing systems a specific font     supports.  */
+comment|/*!     \class QSupportedWritingSystems     \brief The QSupportedWritingSystems class is used when registering fonts with the internal Qt     fontdatabase     \ingroup painting     \inmodule QtGui      Its to provide an easy to use interface for indicating what writing systems a specific font     supports.  */
 end_comment
 begin_comment
 comment|/*!     \internal  */

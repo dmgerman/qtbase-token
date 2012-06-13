@@ -27,7 +27,7 @@ name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
 name|QT_NO_QUATERNION
-comment|/*!     \class QQuaternion     \brief The QQuaternion class represents a quaternion consisting of a vector and scalar.     \since 4.6     \ingroup painting-3D      Quaternions are used to represent rotations in 3D space, and     consist of a 3D rotation axis specified by the x, y, and z     coordinates, and a scalar representing the rotation angle. */
+comment|/*!     \class QQuaternion     \brief The QQuaternion class represents a quaternion consisting of a vector and scalar.     \since 4.6     \ingroup painting-3D     \inmodule QtGui      Quaternions are used to represent rotations in 3D space, and     consist of a 3D rotation axis specified by the x, y, and z     coordinates, and a scalar representing the rotation angle. */
 comment|/*!     \fn QQuaternion::QQuaternion()      Constructs an identity quaternion, i.e. with coordinates (1, 0, 0, 0). */
 comment|/*!     \fn QQuaternion::QQuaternion(qreal scalar, qreal xpos, qreal ypos, qreal zpos)      Constructs a quaternion with the vector (\a xpos, \a ypos, \a zpos)     and \a scalar. */
 ifndef|#

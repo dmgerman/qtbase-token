@@ -78,7 +78,7 @@ block|}
 class|;
 end_class
 begin_comment
-comment|/*! \class QPdfWriter      \brief The QPdfWriter class is a class to generate PDFs     that can be used as a paint device.      \ingroup painting      QPdfWriter generates PDF out of a series of drawing commands using QPainter.     The newPage() method can be used to create several pages.   */
+comment|/*! \class QPdfWriter     \inmodule QtGui      \brief The QPdfWriter class is a class to generate PDFs     that can be used as a paint device.      \ingroup painting      QPdfWriter generates PDF out of a series of drawing commands using QPainter.     The newPage() method can be used to create several pages.   */
 end_comment
 begin_comment
 comment|/*!   Constructs a PDF writer that will write the pdf to \a filename.   */

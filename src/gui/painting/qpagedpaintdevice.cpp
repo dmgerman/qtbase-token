@@ -244,7 +244,7 @@ block|}
 expr_stmt|;
 end_expr_stmt
 begin_comment
-comment|/*!     \class QPagedPaintDevice      \brief The QPagedPaintDevice class is a represents a paintdevice that supports     multiple pages.      \ingroup painting      Paged paint devices are used to generate output for printing or for formats like PDF.     QPdfWriter and QPrinter inherit from it.   */
+comment|/*!     \class QPagedPaintDevice     \inmodule QtGui      \brief The QPagedPaintDevice class is a represents a paintdevice that supports     multiple pages.      \ingroup painting      Paged paint devices are used to generate output for printing or for formats like PDF.     QPdfWriter and QPrinter inherit from it.   */
 end_comment
 begin_comment
 comment|/*!   Constructs a new paged paint device.   */
