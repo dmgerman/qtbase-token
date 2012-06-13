@@ -24,7 +24,35 @@ end_else
 begin_error
 error|#
 directive|error
-literal|"__cplusplus must be>= 201103L"
+literal|"__cplusplus must be>= 201103L, or __GXX_EXPERIMENTAL_CXX0X__ must be defined"
+end_error
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_include
+include|#
+directive|include
+file|<utility>
+end_include
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|__clang__
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|_LIBCPP_VERSION
+argument_list|)
+end_if
+begin_error
+error|#
+directive|error
+literal|"C++11 with clang requires libc++ runtime"
 end_error
 begin_endif
 endif|#
