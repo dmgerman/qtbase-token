@@ -617,14 +617,17 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+comment|//Content-Type is mandatory. We can't say anything about the encoding, but x-www-form-urlencoded is the most likely to work.
+comment|//This warning indicates a bug in application code not setting a required header.
+comment|//Note that if using QHttpMultipart, the content-type is set in QNetworkAccessManagerPrivate::prepareMultipart already
 name|qWarning
 argument_list|(
-literal|"content-type missing in HTTP POST, defaulting to application/octet-stream"
+literal|"content-type missing in HTTP POST, defaulting to application/x-www-form-urlencoded. Use QNetworkRequest::setHeader() to fix this problem."
 argument_list|)
 expr_stmt|;
 name|ba
 operator|+=
-literal|"Content-Type: application/octet-stream\r\n"
+literal|"Content-Type: application/x-www-form-urlencoded\r\n"
 expr_stmt|;
 block|}
 if|if
