@@ -12,6 +12,11 @@ include|#
 directive|include
 file|<QtWidgets>
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_PRINTER
+end_ifndef
 begin_include
 include|#
 directive|include
@@ -22,6 +27,10 @@ include|#
 directive|include
 file|<QPrintDialog>
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
