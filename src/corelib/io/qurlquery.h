@@ -882,10 +882,6 @@ argument_list|)
 block|{
 name|QUrlQuery
 name|q
-argument_list|(
-operator|*
-name|this
-argument_list|)
 block|;
 name|QList
 operator|<
