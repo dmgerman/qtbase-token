@@ -297,7 +297,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// neither getpagesize() or sysconf(_SC_PAGESIZE) are available
+comment|// getpagesize() not available
 end_comment
 begin_function_decl
 name|int
