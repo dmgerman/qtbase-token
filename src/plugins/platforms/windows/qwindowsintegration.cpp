@@ -1770,6 +1770,11 @@ name|QPlatformIntegration
 operator|::
 name|PasswordMaskDelay
 case|:
+case|case
+name|QPlatformIntegration
+operator|::
+name|StartDragVelocity
+case|:
 break|break;
 comment|// Not implemented
 case|case
