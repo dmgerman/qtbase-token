@@ -1826,15 +1826,6 @@ argument_list|,
 name|InvalidSocketErrorString
 argument_list|)
 expr_stmt|;
-name|setError
-argument_list|(
-name|QAbstractSocket
-operator|::
-name|SocketResourceError
-argument_list|,
-name|ResourceErrorString
-argument_list|)
-expr_stmt|;
 break|break;
 case|case
 name|EACCES
