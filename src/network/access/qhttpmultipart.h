@@ -26,6 +26,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/QIODevice>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtNetwork/QNetworkRequest>
 end_include
 begin_decl_stmt

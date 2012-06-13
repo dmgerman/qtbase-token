@@ -13,6 +13,11 @@ define|#
 directive|define
 name|QWIDGETITEMDATA_P_H
 end_define
+begin_include
+include|#
+directive|include
+file|<QtCore/qdatastream.h>
+end_include
 begin_comment
 comment|//
 end_comment

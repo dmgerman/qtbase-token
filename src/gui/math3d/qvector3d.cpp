@@ -20,6 +20,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/qdatastream.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/qmath.h>
 end_include
 begin_include

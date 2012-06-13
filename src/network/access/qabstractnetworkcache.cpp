@@ -15,6 +15,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qdatastream.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<qdatetime.h>
 end_include
 begin_include
