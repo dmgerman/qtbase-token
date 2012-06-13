@@ -283,7 +283,7 @@ begin_comment
 comment|/*!   \class QCryptographicHash    \brief The QCryptographicHash class provides a way to generate cryptographic hashes.    \since 4.3    \ingroup tools   \reentrant    QCryptographicHash can be used to generate cryptographic hashes of binary or text data.    Currently MD4, MD5, SHA-1, SHA-224, SHA-256, SHA-384, and SHA-512 are supported. */
 end_comment
 begin_comment
-comment|/*!   \enum QCryptographicHash::Algorithm    \value Md4 Generate an MD4 hash sum   \value Md5 Generate an MD5 hash sum   \value Sha1 Generate an SHA-1 hash sum   \value Sha224 Generate an SHA-224 hash sum   \value Sha256 Generate an SHA-256 hash sum   \value Sha384 Generate an SHA-384 hash sum   \value Sha512 Generate an SHA-512 hash sum */
+comment|/*!   \enum QCryptographicHash::Algorithm    \value Md4 Generate an MD4 hash sum   \value Md5 Generate an MD5 hash sum   \value Sha1 Generate an SHA-1 hash sum   \value Sha224 Generate an SHA-224 hash sum. Introduced in Qt 5.0   \value Sha256 Generate an SHA-256 hash sum. Introduced in Qt 5.0   \value Sha384 Generate an SHA-384 hash sum. Introduced in Qt 5.0   \value Sha512 Generate an SHA-512 hash sum. Introduced in Qt 5.0 */
 end_comment
 begin_comment
 comment|/*!   Constructs an object that can be used to create a cryptographic hash from data using \a method. */
@@ -677,7 +677,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Reads the data from the open QIODevice \a device until it ends   and hashes it. Returns true if reading was successful.  */
+comment|/*!   Reads the data from the open QIODevice \a device until it ends   and hashes it. Returns true if reading was successful.   \since 5.0  */
 end_comment
 begin_function
 DECL|function|addData
