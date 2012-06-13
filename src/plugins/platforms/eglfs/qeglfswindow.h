@@ -102,6 +102,9 @@ name|m_surface
 block|;
 name|EGLNativeWindowType
 name|m_window
+block|;
+name|QSurfaceFormat
+name|m_format
 block|; }
 decl_stmt|;
 end_decl_stmt

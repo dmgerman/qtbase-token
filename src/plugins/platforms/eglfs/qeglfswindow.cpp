@@ -93,6 +93,9 @@ operator|::
 name|WindowFullScreen
 argument_list|)
 expr_stmt|;
+name|create
+argument_list|()
+expr_stmt|;
 block|}
 end_constructor
 begin_destructor
@@ -116,13 +119,12 @@ operator|::
 name|create
 parameter_list|()
 block|{
-if|if
-condition|(
+name|Q_ASSERT
+argument_list|(
+operator|!
 name|m_window
-condition|)
-block|{
-return|return;
-block|}
+argument_list|)
+expr_stmt|;
 name|EGLDisplay
 name|display
 init|=
@@ -152,8 +154,14 @@ name|platformFormat
 init|=
 name|hooks
 operator|->
-name|defaultSurfaceFormat
+name|surfaceFormatFor
+argument_list|(
+name|window
 argument_list|()
+operator|->
+name|requestedFormat
+argument_list|()
+argument_list|)
 decl_stmt|;
 name|EGLConfig
 name|config
@@ -165,6 +173,15 @@ argument_list|,
 name|platformFormat
 argument_list|)
 decl_stmt|;
+name|m_format
+operator|=
+name|q_glFormatFromConfig
+argument_list|(
+name|display
+argument_list|,
+name|config
+argument_list|)
+expr_stmt|;
 name|m_window
 operator|=
 name|hooks
@@ -197,14 +214,6 @@ operator|==
 name|EGL_NO_SURFACE
 condition|)
 block|{
-name|qWarning
-argument_list|(
-literal|"Could not create the egl surface: error = 0x%x\n"
-argument_list|,
-name|eglGetError
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|eglTerminate
 argument_list|(
 name|display
@@ -212,7 +221,10 @@ argument_list|)
 expr_stmt|;
 name|qFatal
 argument_list|(
-literal|"EGL error"
+literal|"EGL Error : Could not create the egl surface: error = 0x%x\n"
+argument_list|,
+name|eglGetError
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -379,10 +391,7 @@ parameter_list|()
 specifier|const
 block|{
 return|return
-name|hooks
-operator|->
-name|defaultSurfaceFormat
-argument_list|()
+name|m_format
 return|;
 block|}
 end_function

@@ -54,7 +54,12 @@ parameter_list|)
 member_init_list|:
 name|QEGLPlatformContext
 argument_list|(
+name|hooks
+operator|->
+name|surfaceFormatFor
+argument_list|(
 name|format
+argument_list|)
 argument_list|,
 name|share
 argument_list|,
@@ -76,22 +81,6 @@ modifier|*
 name|surface
 parameter_list|)
 block|{
-comment|// create the native window surface. this makes sure that
-comment|// we create surfaces only for painted widgets (unlike QDesktopWidget)
-operator|(
-cast|static_cast
-argument_list|<
-name|QEglFSWindow
-operator|*
-argument_list|>
-argument_list|(
-name|surface
-argument_list|)
-operator|)
-operator|->
-name|create
-argument_list|()
-expr_stmt|;
 return|return
 name|QEGLPlatformContext
 operator|::
