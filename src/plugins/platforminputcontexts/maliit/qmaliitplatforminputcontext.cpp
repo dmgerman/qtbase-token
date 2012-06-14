@@ -467,7 +467,7 @@ name|QString
 name|preedit
 decl_stmt|;
 DECL|member|window
-name|QWeakPointer
+name|QPointer
 argument_list|<
 name|QWindow
 argument_list|>
