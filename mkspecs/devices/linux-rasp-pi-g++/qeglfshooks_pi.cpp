@@ -1100,6 +1100,11 @@ specifier|const
 name|QSize
 modifier|&
 name|size
+parameter_list|,
+specifier|const
+name|QSurfaceFormat
+modifier|&
+name|format
 parameter_list|)
 function_decl|;
 specifier|virtual
@@ -1332,6 +1337,11 @@ specifier|const
 name|QSize
 modifier|&
 name|size
+parameter_list|,
+specifier|const
+name|QSurfaceFormat
+modifier|&
+name|format
 parameter_list|)
 block|{
 return|return
@@ -1348,6 +1358,13 @@ name|size
 argument_list|,
 literal|1
 argument_list|,
+name|format
+operator|.
+name|hasAlpha
+argument_list|()
+condition|?
+name|DISPMANX_FLAGS_ALPHA_FROM_SOURCE
+else|:
 name|DISPMANX_FLAGS_ALPHA_FIXED_ALL_PIXELS
 argument_list|)
 return|;

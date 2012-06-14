@@ -192,6 +192,8 @@ name|hooks
 operator|->
 name|screenSize
 argument_list|()
+argument_list|,
+name|m_format
 argument_list|)
 expr_stmt|;
 name|m_surface

@@ -107,6 +107,11 @@ specifier|const
 name|QSize
 modifier|&
 name|size
+parameter_list|,
+specifier|const
+name|QSurfaceFormat
+modifier|&
+name|format
 parameter_list|)
 function_decl|;
 name|virtual
