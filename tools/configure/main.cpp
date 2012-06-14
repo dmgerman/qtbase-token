@@ -92,6 +92,27 @@ condition|)
 return|return
 literal|3
 return|;
+name|app
+operator|.
+name|generateQConfigCpp
+argument_list|()
+expr_stmt|;
+name|app
+operator|.
+name|buildQmake
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|app
+operator|.
+name|isOk
+argument_list|()
+condition|)
+return|return
+literal|3
+return|;
 comment|// Auto-detect modules and settings.
 name|app
 operator|.
@@ -174,19 +195,6 @@ condition|)
 name|app
 operator|.
 name|generateHeaders
-argument_list|()
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|app
-operator|.
-name|isDone
-argument_list|()
-condition|)
-name|app
-operator|.
-name|buildQmake
 argument_list|()
 expr_stmt|;
 comment|// must be done after buildQmake()

@@ -101,6 +101,14 @@ name|part
 parameter_list|)
 function_decl|;
 name|void
+name|generateQConfigCpp
+parameter_list|()
+function_decl|;
+name|void
+name|buildQmake
+parameter_list|()
+function_decl|;
+name|void
 name|autoDetection
 parameter_list|()
 function_decl|;
@@ -133,10 +141,6 @@ parameter_list|()
 function_decl|;
 name|void
 name|displayConfig
-parameter_list|()
-function_decl|;
-name|void
-name|buildQmake
 parameter_list|()
 function_decl|;
 endif|#
