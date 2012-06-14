@@ -2274,6 +2274,9 @@ block|}
 if|if
 condition|(
 name|done
+operator|||
+operator|!
+name|widget
 condition|)
 block|{
 name|anim
