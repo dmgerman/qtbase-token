@@ -64,6 +64,12 @@ name|class
 name|QStringRef
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|QLatin1String
+name|class
+name|QLatin1String
+decl_stmt|;
+end_decl_stmt
 begin_function
 DECL|function|qHash
 specifier|inline
