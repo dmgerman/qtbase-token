@@ -381,7 +381,8 @@ literal|"/pipe/qt_%08x"
 argument_list|,
 name|int
 argument_list|(
-name|taskIdCurrent
+name|taskIdSelf
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -614,7 +615,8 @@ literal|"/pipe/qt_%08x"
 argument_list|,
 name|int
 argument_list|(
-name|taskIdCurrent
+name|taskIdSelf
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
