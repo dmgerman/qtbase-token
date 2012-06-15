@@ -397,7 +397,7 @@ argument_list|()
 operator|)
 return|;
 block|}
-name|int
+name|qreal
 name|verticalOffset
 argument_list|(
 argument|int topBlock
@@ -406,7 +406,7 @@ argument|int topLine
 argument_list|)
 specifier|const
 block|;
-name|int
+name|qreal
 name|verticalOffset
 argument_list|()
 specifier|const
@@ -491,6 +491,10 @@ block|;
 name|int
 name|topLine
 block|;
+name|qreal
+name|topLineFracture
+block|;
+comment|// for non-int sized fonts
 name|void
 name|setTopLine
 argument_list|(
