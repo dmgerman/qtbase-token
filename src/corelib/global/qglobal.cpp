@@ -132,6 +132,11 @@ name|defined
 argument_list|(
 name|Q_OS_VXWORKS
 argument_list|)
+operator|&&
+name|defined
+argument_list|(
+name|_WRS_KERNEL
+argument_list|)
 end_if
 begin_include
 include|#
