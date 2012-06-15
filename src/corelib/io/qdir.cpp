@@ -4609,7 +4609,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Removes the directory, including all its contents.      Returns true if successful, otherwise false.      If a file or directory cannot be removed, removeRecursively() keeps going     and attempts to delete as many files and sub-directories as possible,     then returns false.      If the directory was already removed, the method returns true     (expected result already reached).      Note: this function is meant for removing a small application-internal     directory (such as a temporary directory), but not user-visible     directories. For user-visible operations, it is rather recommended     to report errors more precisely to the user, to offer solutions     in case of errors, to show progress during the deletion since it     could take several minutes, etc. */
+comment|/*!     \since 5.0     Removes the directory, including all its contents.      Returns true if successful, otherwise false.      If a file or directory cannot be removed, removeRecursively() keeps going     and attempts to delete as many files and sub-directories as possible,     then returns false.      If the directory was already removed, the method returns true     (expected result already reached).      Note: this function is meant for removing a small application-internal     directory (such as a temporary directory), but not user-visible     directories. For user-visible operations, it is rather recommended     to report errors more precisely to the user, to offer solutions     in case of errors, to show progress during the deletion since it     could take several minutes, etc. */
 end_comment
 begin_function
 DECL|function|removeRecursively
