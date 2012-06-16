@@ -2710,8 +2710,8 @@ name|d
 argument_list|(
 name|ptr
 condition|?
-name|d
-operator|->
+name|Data
+operator|::
 name|getAndRef
 argument_list|(
 name|ptr
