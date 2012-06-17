@@ -255,6 +255,774 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_decl_stmt
+DECL|variable|categoryMap
+specifier|static
+name|QHash
+argument_list|<
+name|QByteArray
+argument_list|,
+name|QChar
+operator|::
+name|Category
+argument_list|>
+name|categoryMap
+decl_stmt|;
+end_decl_stmt
+begin_function
+DECL|function|initCategoryMap
+specifier|static
+name|void
+name|initCategoryMap
+parameter_list|()
+block|{
+struct|struct
+name|Cat
+block|{
+name|QChar
+operator|::
+name|Category
+name|cat
+decl_stmt|;
+specifier|const
+name|char
+modifier|*
+name|name
+decl_stmt|;
+block|}
+name|categories
+index|[]
+init|=
+block|{
+block|{
+name|QChar
+operator|::
+name|Mark_NonSpacing
+block|,
+literal|"Mn"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Mark_SpacingCombining
+block|,
+literal|"Mc"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Mark_Enclosing
+block|,
+literal|"Me"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Number_DecimalDigit
+block|,
+literal|"Nd"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Number_Letter
+block|,
+literal|"Nl"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Number_Other
+block|,
+literal|"No"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Separator_Space
+block|,
+literal|"Zs"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Separator_Line
+block|,
+literal|"Zl"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Separator_Paragraph
+block|,
+literal|"Zp"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Other_Control
+block|,
+literal|"Cc"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Other_Format
+block|,
+literal|"Cf"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Other_Surrogate
+block|,
+literal|"Cs"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Other_PrivateUse
+block|,
+literal|"Co"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Other_NotAssigned
+block|,
+literal|"Cn"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Letter_Uppercase
+block|,
+literal|"Lu"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Letter_Lowercase
+block|,
+literal|"Ll"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Letter_Titlecase
+block|,
+literal|"Lt"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Letter_Modifier
+block|,
+literal|"Lm"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Letter_Other
+block|,
+literal|"Lo"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Punctuation_Connector
+block|,
+literal|"Pc"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Punctuation_Dash
+block|,
+literal|"Pd"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Punctuation_Open
+block|,
+literal|"Ps"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Punctuation_Close
+block|,
+literal|"Pe"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Punctuation_InitialQuote
+block|,
+literal|"Pi"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Punctuation_FinalQuote
+block|,
+literal|"Pf"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Punctuation_Other
+block|,
+literal|"Po"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Symbol_Math
+block|,
+literal|"Sm"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Symbol_Currency
+block|,
+literal|"Sc"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Symbol_Modifier
+block|,
+literal|"Sk"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Symbol_Other
+block|,
+literal|"So"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Other_NotAssigned
+block|,
+literal|0
+block|}
+block|}
+struct|;
+name|Cat
+modifier|*
+name|c
+init|=
+name|categories
+decl_stmt|;
+while|while
+condition|(
+name|c
+operator|->
+name|name
+condition|)
+block|{
+name|categoryMap
+operator|.
+name|insert
+argument_list|(
+name|c
+operator|->
+name|name
+argument_list|,
+name|c
+operator|->
+name|cat
+argument_list|)
+expr_stmt|;
+operator|++
+name|c
+expr_stmt|;
+block|}
+block|}
+end_function
+begin_decl_stmt
+DECL|variable|decompositionMap
+specifier|static
+name|QHash
+argument_list|<
+name|QByteArray
+argument_list|,
+name|QChar
+operator|::
+name|Decomposition
+argument_list|>
+name|decompositionMap
+decl_stmt|;
+end_decl_stmt
+begin_function
+DECL|function|initDecompositionMap
+specifier|static
+name|void
+name|initDecompositionMap
+parameter_list|()
+block|{
+struct|struct
+name|Dec
+block|{
+name|QChar
+operator|::
+name|Decomposition
+name|dec
+decl_stmt|;
+specifier|const
+name|char
+modifier|*
+name|name
+decl_stmt|;
+block|}
+name|decompositions
+index|[]
+init|=
+block|{
+block|{
+name|QChar
+operator|::
+name|Canonical
+block|,
+literal|"<canonical>"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Font
+block|,
+literal|"<font>"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|NoBreak
+block|,
+literal|"<noBreak>"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Initial
+block|,
+literal|"<initial>"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Medial
+block|,
+literal|"<medial>"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Final
+block|,
+literal|"<final>"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Isolated
+block|,
+literal|"<isolated>"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Circle
+block|,
+literal|"<circle>"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Super
+block|,
+literal|"<super>"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Sub
+block|,
+literal|"<sub>"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Vertical
+block|,
+literal|"<vertical>"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Wide
+block|,
+literal|"<wide>"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Narrow
+block|,
+literal|"<narrow>"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Small
+block|,
+literal|"<small>"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Square
+block|,
+literal|"<square>"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Compat
+block|,
+literal|"<compat>"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Fraction
+block|,
+literal|"<fraction>"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|NoDecomposition
+block|,
+literal|0
+block|}
+block|}
+struct|;
+name|Dec
+modifier|*
+name|d
+init|=
+name|decompositions
+decl_stmt|;
+while|while
+condition|(
+name|d
+operator|->
+name|name
+condition|)
+block|{
+name|decompositionMap
+operator|.
+name|insert
+argument_list|(
+name|d
+operator|->
+name|name
+argument_list|,
+name|d
+operator|->
+name|dec
+argument_list|)
+expr_stmt|;
+operator|++
+name|d
+expr_stmt|;
+block|}
+block|}
+end_function
+begin_decl_stmt
+DECL|variable|directionMap
+specifier|static
+name|QHash
+argument_list|<
+name|QByteArray
+argument_list|,
+name|QChar
+operator|::
+name|Direction
+argument_list|>
+name|directionMap
+decl_stmt|;
+end_decl_stmt
+begin_function
+DECL|function|initDirectionMap
+specifier|static
+name|void
+name|initDirectionMap
+parameter_list|()
+block|{
+struct|struct
+name|Dir
+block|{
+name|QChar
+operator|::
+name|Direction
+name|dir
+decl_stmt|;
+specifier|const
+name|char
+modifier|*
+name|name
+decl_stmt|;
+block|}
+name|directions
+index|[]
+init|=
+block|{
+block|{
+name|QChar
+operator|::
+name|DirL
+block|,
+literal|"L"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|DirR
+block|,
+literal|"R"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|DirEN
+block|,
+literal|"EN"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|DirES
+block|,
+literal|"ES"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|DirET
+block|,
+literal|"ET"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|DirAN
+block|,
+literal|"AN"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|DirCS
+block|,
+literal|"CS"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|DirB
+block|,
+literal|"B"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|DirS
+block|,
+literal|"S"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|DirWS
+block|,
+literal|"WS"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|DirON
+block|,
+literal|"ON"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|DirLRE
+block|,
+literal|"LRE"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|DirLRO
+block|,
+literal|"LRO"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|DirAL
+block|,
+literal|"AL"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|DirRLE
+block|,
+literal|"RLE"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|DirRLO
+block|,
+literal|"RLO"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|DirPDF
+block|,
+literal|"PDF"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|DirNSM
+block|,
+literal|"NSM"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|DirBN
+block|,
+literal|"BN"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|DirL
+block|,
+literal|0
+block|}
+block|}
+struct|;
+name|Dir
+modifier|*
+name|d
+init|=
+name|directions
+decl_stmt|;
+while|while
+condition|(
+name|d
+operator|->
+name|name
+condition|)
+block|{
+name|directionMap
+operator|.
+name|insert
+argument_list|(
+name|d
+operator|->
+name|name
+argument_list|,
+name|d
+operator|->
+name|dir
+argument_list|)
+expr_stmt|;
+operator|++
+name|d
+expr_stmt|;
+block|}
+block|}
+end_function
 begin_enum
 DECL|enum|Joining
 enum|enum
@@ -401,20 +1169,20 @@ name|char
 modifier|*
 name|grapheme_break_string
 init|=
-literal|"    enum GraphemeBreak {\n"
-literal|"        GraphemeBreakOther,\n"
-literal|"        GraphemeBreakCR,\n"
-literal|"        GraphemeBreakLF,\n"
-literal|"        GraphemeBreakControl,\n"
-literal|"        GraphemeBreakExtend,\n"
-literal|"        GraphemeBreakPrepend,\n"
-literal|"        GraphemeBreakSpacingMark,\n"
-literal|"        GraphemeBreakL,\n"
-literal|"        GraphemeBreakV,\n"
-literal|"        GraphemeBreakT,\n"
-literal|"        GraphemeBreakLV,\n"
-literal|"        GraphemeBreakLVT\n"
-literal|"    };\n\n"
+literal|"enum GraphemeBreak {\n"
+literal|"    GraphemeBreakOther,\n"
+literal|"    GraphemeBreakCR,\n"
+literal|"    GraphemeBreakLF,\n"
+literal|"    GraphemeBreakControl,\n"
+literal|"    GraphemeBreakExtend,\n"
+literal|"    GraphemeBreakPrepend,\n"
+literal|"    GraphemeBreakSpacingMark,\n"
+literal|"    GraphemeBreakL,\n"
+literal|"    GraphemeBreakV,\n"
+literal|"    GraphemeBreakT,\n"
+literal|"    GraphemeBreakLV,\n"
+literal|"    GraphemeBreakLVT\n"
+literal|"};\n\n"
 decl_stmt|;
 end_decl_stmt
 begin_enum
@@ -617,20 +1385,20 @@ name|char
 modifier|*
 name|word_break_string
 init|=
-literal|"    enum WordBreak {\n"
-literal|"        WordBreakOther,\n"
-literal|"        WordBreakCR,\n"
-literal|"        WordBreakLF,\n"
-literal|"        WordBreakNewline,\n"
-literal|"        WordBreakFormat,\n"
-literal|"        WordBreakKatakana,\n"
-literal|"        WordBreakALetter,\n"
-literal|"        WordBreakMidNumLet,\n"
-literal|"        WordBreakMidLetter,\n"
-literal|"        WordBreakMidNum,\n"
-literal|"        WordBreakNumeric,\n"
-literal|"        WordBreakExtendNumLet\n"
-literal|"    };\n\n"
+literal|"enum WordBreak {\n"
+literal|"    WordBreakOther,\n"
+literal|"    WordBreakCR,\n"
+literal|"    WordBreakLF,\n"
+literal|"    WordBreakNewline,\n"
+literal|"    WordBreakFormat,\n"
+literal|"    WordBreakKatakana,\n"
+literal|"    WordBreakALetter,\n"
+literal|"    WordBreakMidNumLet,\n"
+literal|"    WordBreakMidLetter,\n"
+literal|"    WordBreakMidNum,\n"
+literal|"    WordBreakNumeric,\n"
+literal|"    WordBreakExtendNumLet\n"
+literal|"};\n\n"
 decl_stmt|;
 end_decl_stmt
 begin_enum
@@ -839,22 +1607,22 @@ name|char
 modifier|*
 name|sentence_break_string
 init|=
-literal|"    enum SentenceBreak {\n"
-literal|"        SentenceBreakOther,\n"
-literal|"        SentenceBreakCR,\n"
-literal|"        SentenceBreakLF,\n"
-literal|"        SentenceBreakSep,\n"
-literal|"        SentenceBreakFormat,\n"
-literal|"        SentenceBreakSp,\n"
-literal|"        SentenceBreakLower,\n"
-literal|"        SentenceBreakUpper,\n"
-literal|"        SentenceBreakOLetter,\n"
-literal|"        SentenceBreakNumeric,\n"
-literal|"        SentenceBreakATerm,\n"
-literal|"        SentenceBreakSContinue,\n"
-literal|"        SentenceBreakSTerm,\n"
-literal|"        SentenceBreakClose\n"
-literal|"    };\n\n"
+literal|"enum SentenceBreak {\n"
+literal|"    SentenceBreakOther,\n"
+literal|"    SentenceBreakCR,\n"
+literal|"    SentenceBreakLF,\n"
+literal|"    SentenceBreakSep,\n"
+literal|"    SentenceBreakFormat,\n"
+literal|"    SentenceBreakSp,\n"
+literal|"    SentenceBreakLower,\n"
+literal|"    SentenceBreakUpper,\n"
+literal|"    SentenceBreakOLetter,\n"
+literal|"    SentenceBreakNumeric,\n"
+literal|"    SentenceBreakATerm,\n"
+literal|"    SentenceBreakSContinue,\n"
+literal|"    SentenceBreakSTerm,\n"
+literal|"    SentenceBreakClose\n"
+literal|"};\n\n"
 decl_stmt|;
 end_decl_stmt
 begin_enum
@@ -1081,17 +1849,17 @@ name|char
 modifier|*
 name|line_break_class_string
 init|=
-literal|"    // see http://www.unicode.org/reports/tr14/tr14-28.html\n"
-literal|"    // we don't use the XX and AI classes and map them to AL instead.\n"
-literal|"    enum LineBreakClass {\n"
-literal|"        LineBreak_OP, LineBreak_CL, LineBreak_CP, LineBreak_QU, LineBreak_GL,\n"
-literal|"        LineBreak_NS, LineBreak_EX, LineBreak_SY, LineBreak_IS, LineBreak_PR,\n"
-literal|"        LineBreak_PO, LineBreak_NU, LineBreak_AL, LineBreak_HL, LineBreak_ID,\n"
-literal|"        LineBreak_IN, LineBreak_HY, LineBreak_BA, LineBreak_BB, LineBreak_B2,\n"
-literal|"        LineBreak_ZW, LineBreak_CM, LineBreak_WJ, LineBreak_H2, LineBreak_H3,\n"
-literal|"        LineBreak_JL, LineBreak_JV, LineBreak_JT, LineBreak_CB, LineBreak_SA,\n"
-literal|"        LineBreak_SG, LineBreak_SP, LineBreak_CR, LineBreak_LF, LineBreak_BK\n"
-literal|"    };\n\n"
+literal|"// see http://www.unicode.org/reports/tr14/tr14-28.html\n"
+literal|"// we don't use the XX and AI classes and map them to AL instead.\n"
+literal|"enum LineBreakClass {\n"
+literal|"    LineBreak_OP, LineBreak_CL, LineBreak_CP, LineBreak_QU, LineBreak_GL,\n"
+literal|"    LineBreak_NS, LineBreak_EX, LineBreak_SY, LineBreak_IS, LineBreak_PR,\n"
+literal|"    LineBreak_PO, LineBreak_NU, LineBreak_AL, LineBreak_HL, LineBreak_ID,\n"
+literal|"    LineBreak_IN, LineBreak_HY, LineBreak_BA, LineBreak_BB, LineBreak_B2,\n"
+literal|"    LineBreak_ZW, LineBreak_CM, LineBreak_WJ, LineBreak_H2, LineBreak_H3,\n"
+literal|"    LineBreak_JL, LineBreak_JV, LineBreak_JT, LineBreak_CB, LineBreak_SA,\n"
+literal|"    LineBreak_SG, LineBreak_SP, LineBreak_CR, LineBreak_LF, LineBreak_BK\n"
+literal|"};\n\n"
 decl_stmt|;
 end_decl_stmt
 begin_enum
@@ -1532,30 +2300,31 @@ name|char
 modifier|*
 name|property_string
 init|=
-literal|"    struct Properties {\n"
-literal|"        ushort category         : 8; /* 5 used */\n"
-literal|"        ushort direction        : 8; /* 5 used */\n"
-literal|"        ushort combiningClass   : 8;\n"
-literal|"        ushort joining          : 2;\n"
-literal|"        signed short digitValue : 6; /* 5 used */\n"
-literal|"        signed short mirrorDiff    : 16;\n"
-literal|"        signed short lowerCaseDiff : 16;\n"
-literal|"        signed short upperCaseDiff : 16;\n"
-literal|"        signed short titleCaseDiff : 16;\n"
-literal|"        signed short caseFoldDiff  : 16;\n"
-literal|"        ushort lowerCaseSpecial : 1;\n"
-literal|"        ushort upperCaseSpecial : 1;\n"
-literal|"        ushort titleCaseSpecial : 1;\n"
-literal|"        ushort caseFoldSpecial  : 1;\n"
-literal|"        ushort unicodeVersion   : 4;\n"
-literal|"        ushort graphemeBreak    : 8; /* 4 used */\n"
-literal|"        ushort wordBreak        : 8; /* 4 used */\n"
-literal|"        ushort sentenceBreak    : 8; /* 4 used */\n"
-literal|"        ushort line_break_class : 8; /* 6 used */\n"
-literal|"        ushort script           : 8; /* 5 used */\n"
-literal|"    };\n"
-literal|"    Q_CORE_EXPORT const Properties * QT_FASTCALL properties(uint ucs4);\n"
-literal|"    Q_CORE_EXPORT const Properties * QT_FASTCALL properties(ushort ucs2);\n"
+literal|"struct Properties {\n"
+literal|"    ushort category            : 8; /* 5 used */\n"
+literal|"    ushort direction           : 8; /* 5 used */\n"
+literal|"    ushort combiningClass      : 8;\n"
+literal|"    ushort joining             : 2;\n"
+literal|"    signed short digitValue    : 6; /* 5 used */\n"
+literal|"    signed short mirrorDiff    : 16;\n"
+literal|"    signed short lowerCaseDiff : 16;\n"
+literal|"    signed short upperCaseDiff : 16;\n"
+literal|"    signed short titleCaseDiff : 16;\n"
+literal|"    signed short caseFoldDiff  : 16;\n"
+literal|"    ushort lowerCaseSpecial    : 1;\n"
+literal|"    ushort upperCaseSpecial    : 1;\n"
+literal|"    ushort titleCaseSpecial    : 1;\n"
+literal|"    ushort caseFoldSpecial     : 1;\n"
+literal|"    ushort unicodeVersion      : 4;\n"
+literal|"    ushort graphemeBreak       : 8; /* 4 used */\n"
+literal|"    ushort wordBreak           : 8; /* 4 used */\n"
+literal|"    ushort sentenceBreak       : 8; /* 4 used */\n"
+literal|"    ushort line_break_class    : 8; /* 6 used */\n"
+literal|"    ushort script              : 8; /* 5 used */\n"
+literal|"};\n\n"
+literal|"Q_CORE_EXPORT const Properties * QT_FASTCALL properties(uint ucs4);\n"
+literal|"Q_CORE_EXPORT const Properties * QT_FASTCALL properties(ushort ucs2);\n"
+literal|"\n"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -1566,25 +2335,26 @@ name|char
 modifier|*
 name|methods
 init|=
-literal|"    Q_CORE_EXPORT GraphemeBreak QT_FASTCALL graphemeBreakClass(uint ucs4);\n"
-literal|"    inline GraphemeBreak graphemeBreakClass(QChar ch)\n"
-literal|"    { return graphemeBreakClass(ch.unicode()); }\n"
+literal|"Q_CORE_EXPORT GraphemeBreak QT_FASTCALL graphemeBreakClass(uint ucs4);\n"
+literal|"inline GraphemeBreak graphemeBreakClass(QChar ch)\n"
+literal|"{ return graphemeBreakClass(ch.unicode()); }\n"
 literal|"\n"
-literal|"    Q_CORE_EXPORT WordBreak QT_FASTCALL wordBreakClass(uint ucs4);\n"
-literal|"    inline WordBreak wordBreakClass(QChar ch)\n"
-literal|"    { return wordBreakClass(ch.unicode()); }\n"
+literal|"Q_CORE_EXPORT WordBreak QT_FASTCALL wordBreakClass(uint ucs4);\n"
+literal|"inline WordBreak wordBreakClass(QChar ch)\n"
+literal|"{ return wordBreakClass(ch.unicode()); }\n"
 literal|"\n"
-literal|"    Q_CORE_EXPORT SentenceBreak QT_FASTCALL sentenceBreakClass(uint ucs4);\n"
-literal|"    inline SentenceBreak sentenceBreakClass(QChar ch)\n"
-literal|"    { return sentenceBreakClass(ch.unicode()); }\n"
+literal|"Q_CORE_EXPORT SentenceBreak QT_FASTCALL sentenceBreakClass(uint ucs4);\n"
+literal|"inline SentenceBreak sentenceBreakClass(QChar ch)\n"
+literal|"{ return sentenceBreakClass(ch.unicode()); }\n"
 literal|"\n"
-literal|"    Q_CORE_EXPORT LineBreakClass QT_FASTCALL lineBreakClass(uint ucs4);\n"
-literal|"    inline LineBreakClass lineBreakClass(QChar ch)\n"
-literal|"    { return lineBreakClass(ch.unicode()); }\n"
+literal|"Q_CORE_EXPORT LineBreakClass QT_FASTCALL lineBreakClass(uint ucs4);\n"
+literal|"inline LineBreakClass lineBreakClass(QChar ch)\n"
+literal|"{ return lineBreakClass(ch.unicode()); }\n"
 literal|"\n"
-literal|"    Q_CORE_EXPORT Script QT_FASTCALL script(uint ucs4);\n"
-literal|"    inline Script script(QChar ch)\n"
-literal|"    { return script(ch.unicode()); }\n\n"
+literal|"Q_CORE_EXPORT Script QT_FASTCALL script(uint ucs4);\n"
+literal|"inline Script script(QChar ch)\n"
+literal|"{ return script(ch.unicode()); }\n"
+literal|"\n"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -1782,10 +2552,6 @@ DECL|member|digitValue
 name|int
 name|digitValue
 decl_stmt|;
-DECL|member|line_break_class
-name|LineBreakClass
-name|line_break_class
-decl_stmt|;
 DECL|member|mirrorDiff
 name|int
 name|mirrorDiff
@@ -1835,6 +2601,10 @@ decl_stmt|;
 DECL|member|sentenceBreak
 name|SentenceBreak
 name|sentenceBreak
+decl_stmt|;
+DECL|member|line_break_class
+name|LineBreakClass
+name|line_break_class
 decl_stmt|;
 DECL|member|script
 name|int
@@ -2631,826 +3401,6 @@ index|]
 return|;
 block|}
 end_function
-begin_enum
-DECL|enum|UniDataFields
-enum|enum
-name|UniDataFields
-block|{
-DECL|enumerator|UD_Value
-name|UD_Value
-block|,
-DECL|enumerator|UD_Name
-name|UD_Name
-block|,
-DECL|enumerator|UD_Category
-name|UD_Category
-block|,
-DECL|enumerator|UD_CombiningClass
-name|UD_CombiningClass
-block|,
-DECL|enumerator|UD_BidiCategory
-name|UD_BidiCategory
-block|,
-DECL|enumerator|UD_Decomposition
-name|UD_Decomposition
-block|,
-DECL|enumerator|UD_DecimalDigitValue
-name|UD_DecimalDigitValue
-block|,
-DECL|enumerator|UD_DigitValue
-name|UD_DigitValue
-block|,
-DECL|enumerator|UD_NumericValue
-name|UD_NumericValue
-block|,
-DECL|enumerator|UD_Mirrored
-name|UD_Mirrored
-block|,
-DECL|enumerator|UD_OldName
-name|UD_OldName
-block|,
-DECL|enumerator|UD_Comment
-name|UD_Comment
-block|,
-DECL|enumerator|UD_UpperCase
-name|UD_UpperCase
-block|,
-DECL|enumerator|UD_LowerCase
-name|UD_LowerCase
-block|,
-DECL|enumerator|UD_TitleCase
-name|UD_TitleCase
-block|}
-enum|;
-end_enum
-begin_decl_stmt
-DECL|variable|categoryMap
-specifier|static
-name|QHash
-argument_list|<
-name|QByteArray
-argument_list|,
-name|QChar
-operator|::
-name|Category
-argument_list|>
-name|categoryMap
-decl_stmt|;
-end_decl_stmt
-begin_function
-DECL|function|initCategoryMap
-specifier|static
-name|void
-name|initCategoryMap
-parameter_list|()
-block|{
-struct|struct
-name|Cat
-block|{
-name|QChar
-operator|::
-name|Category
-name|cat
-decl_stmt|;
-specifier|const
-name|char
-modifier|*
-name|name
-decl_stmt|;
-block|}
-name|categories
-index|[]
-init|=
-block|{
-block|{
-name|QChar
-operator|::
-name|Mark_NonSpacing
-block|,
-literal|"Mn"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Mark_SpacingCombining
-block|,
-literal|"Mc"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Mark_Enclosing
-block|,
-literal|"Me"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Number_DecimalDigit
-block|,
-literal|"Nd"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Number_Letter
-block|,
-literal|"Nl"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Number_Other
-block|,
-literal|"No"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Separator_Space
-block|,
-literal|"Zs"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Separator_Line
-block|,
-literal|"Zl"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Separator_Paragraph
-block|,
-literal|"Zp"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Other_Control
-block|,
-literal|"Cc"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Other_Format
-block|,
-literal|"Cf"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Other_Surrogate
-block|,
-literal|"Cs"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Other_PrivateUse
-block|,
-literal|"Co"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Other_NotAssigned
-block|,
-literal|"Cn"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Letter_Uppercase
-block|,
-literal|"Lu"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Letter_Lowercase
-block|,
-literal|"Ll"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Letter_Titlecase
-block|,
-literal|"Lt"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Letter_Modifier
-block|,
-literal|"Lm"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Letter_Other
-block|,
-literal|"Lo"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Punctuation_Connector
-block|,
-literal|"Pc"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Punctuation_Dash
-block|,
-literal|"Pd"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Punctuation_Open
-block|,
-literal|"Ps"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Punctuation_Close
-block|,
-literal|"Pe"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Punctuation_InitialQuote
-block|,
-literal|"Pi"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Punctuation_FinalQuote
-block|,
-literal|"Pf"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Punctuation_Other
-block|,
-literal|"Po"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Symbol_Math
-block|,
-literal|"Sm"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Symbol_Currency
-block|,
-literal|"Sc"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Symbol_Modifier
-block|,
-literal|"Sk"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Symbol_Other
-block|,
-literal|"So"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Other_NotAssigned
-block|,
-literal|0
-block|}
-block|}
-struct|;
-name|Cat
-modifier|*
-name|c
-init|=
-name|categories
-decl_stmt|;
-while|while
-condition|(
-name|c
-operator|->
-name|name
-condition|)
-block|{
-name|categoryMap
-operator|.
-name|insert
-argument_list|(
-name|c
-operator|->
-name|name
-argument_list|,
-name|c
-operator|->
-name|cat
-argument_list|)
-expr_stmt|;
-operator|++
-name|c
-expr_stmt|;
-block|}
-block|}
-end_function
-begin_decl_stmt
-DECL|variable|directionMap
-specifier|static
-name|QHash
-argument_list|<
-name|QByteArray
-argument_list|,
-name|QChar
-operator|::
-name|Direction
-argument_list|>
-name|directionMap
-decl_stmt|;
-end_decl_stmt
-begin_function
-DECL|function|initDirectionMap
-specifier|static
-name|void
-name|initDirectionMap
-parameter_list|()
-block|{
-struct|struct
-name|Dir
-block|{
-name|QChar
-operator|::
-name|Direction
-name|dir
-decl_stmt|;
-specifier|const
-name|char
-modifier|*
-name|name
-decl_stmt|;
-block|}
-name|directions
-index|[]
-init|=
-block|{
-block|{
-name|QChar
-operator|::
-name|DirL
-block|,
-literal|"L"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|DirR
-block|,
-literal|"R"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|DirEN
-block|,
-literal|"EN"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|DirES
-block|,
-literal|"ES"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|DirET
-block|,
-literal|"ET"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|DirAN
-block|,
-literal|"AN"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|DirCS
-block|,
-literal|"CS"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|DirB
-block|,
-literal|"B"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|DirS
-block|,
-literal|"S"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|DirWS
-block|,
-literal|"WS"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|DirON
-block|,
-literal|"ON"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|DirLRE
-block|,
-literal|"LRE"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|DirLRO
-block|,
-literal|"LRO"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|DirAL
-block|,
-literal|"AL"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|DirRLE
-block|,
-literal|"RLE"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|DirRLO
-block|,
-literal|"RLO"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|DirPDF
-block|,
-literal|"PDF"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|DirNSM
-block|,
-literal|"NSM"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|DirBN
-block|,
-literal|"BN"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|DirL
-block|,
-literal|0
-block|}
-block|}
-struct|;
-name|Dir
-modifier|*
-name|d
-init|=
-name|directions
-decl_stmt|;
-while|while
-condition|(
-name|d
-operator|->
-name|name
-condition|)
-block|{
-name|directionMap
-operator|.
-name|insert
-argument_list|(
-name|d
-operator|->
-name|name
-argument_list|,
-name|d
-operator|->
-name|dir
-argument_list|)
-expr_stmt|;
-operator|++
-name|d
-expr_stmt|;
-block|}
-block|}
-end_function
-begin_decl_stmt
-DECL|variable|decompositionMap
-specifier|static
-name|QHash
-argument_list|<
-name|QByteArray
-argument_list|,
-name|QChar
-operator|::
-name|Decomposition
-argument_list|>
-name|decompositionMap
-decl_stmt|;
-end_decl_stmt
-begin_function
-DECL|function|initDecompositionMap
-specifier|static
-name|void
-name|initDecompositionMap
-parameter_list|()
-block|{
-struct|struct
-name|Dec
-block|{
-name|QChar
-operator|::
-name|Decomposition
-name|dec
-decl_stmt|;
-specifier|const
-name|char
-modifier|*
-name|name
-decl_stmt|;
-block|}
-name|decompositions
-index|[]
-init|=
-block|{
-block|{
-name|QChar
-operator|::
-name|Canonical
-block|,
-literal|"<canonical>"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Font
-block|,
-literal|"<font>"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|NoBreak
-block|,
-literal|"<noBreak>"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Initial
-block|,
-literal|"<initial>"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Medial
-block|,
-literal|"<medial>"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Final
-block|,
-literal|"<final>"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Isolated
-block|,
-literal|"<isolated>"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Circle
-block|,
-literal|"<circle>"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Super
-block|,
-literal|"<super>"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Sub
-block|,
-literal|"<sub>"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Vertical
-block|,
-literal|"<vertical>"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Wide
-block|,
-literal|"<wide>"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Narrow
-block|,
-literal|"<narrow>"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Small
-block|,
-literal|"<small>"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Square
-block|,
-literal|"<square>"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Compat
-block|,
-literal|"<compat>"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|Fraction
-block|,
-literal|"<fraction>"
-block|}
-block|,
-block|{
-name|QChar
-operator|::
-name|NoDecomposition
-block|,
-literal|0
-block|}
-block|}
-struct|;
-name|Dec
-modifier|*
-name|d
-init|=
-name|decompositions
-decl_stmt|;
-while|while
-condition|(
-name|d
-operator|->
-name|name
-condition|)
-block|{
-name|decompositionMap
-operator|.
-name|insert
-argument_list|(
-name|d
-operator|->
-name|name
-argument_list|,
-name|d
-operator|->
-name|dec
-argument_list|)
-expr_stmt|;
-operator|++
-name|d
-expr_stmt|;
-block|}
-block|}
-end_function
 begin_decl_stmt
 DECL|variable|decompositionLength
 specifier|static
@@ -3603,10 +3553,44 @@ name|readUnicodeData
 parameter_list|()
 block|{
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Reading UnicodeData.txt"
+argument_list|)
 expr_stmt|;
+enum|enum
+name|UniDataFields
+block|{
+name|UD_Value
+block|,
+name|UD_Name
+block|,
+name|UD_Category
+block|,
+name|UD_CombiningClass
+block|,
+name|UD_BidiCategory
+block|,
+name|UD_Decomposition
+block|,
+name|UD_DecimalDigitValue
+block|,
+name|UD_DigitValue
+block|,
+name|UD_NumericValue
+block|,
+name|UD_Mirrored
+block|,
+name|UD_OldName
+block|,
+name|UD_Comment
+block|,
+name|UD_UpperCase
+block|,
+name|UD_LowerCase
+block|,
+name|UD_TitleCase
+block|}
+enum|;
 name|QFile
 name|f
 argument_list|(
@@ -4814,9 +4798,9 @@ name|readBidiMirroring
 parameter_list|()
 block|{
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Reading BidiMirroring.txt"
+argument_list|)
 expr_stmt|;
 name|QFile
 name|f
@@ -5057,9 +5041,9 @@ name|readArabicShaping
 parameter_list|()
 block|{
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Reading ArabicShaping.txt"
+argument_list|)
 expr_stmt|;
 name|QFile
 name|f
@@ -5363,9 +5347,9 @@ name|readDerivedAge
 parameter_list|()
 block|{
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Reading DerivedAge.txt"
+argument_list|)
 expr_stmt|;
 name|QFile
 name|f
@@ -5683,9 +5667,9 @@ name|readDerivedNormalizationProps
 parameter_list|()
 block|{
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Reading DerivedNormalizationProps.txt"
+argument_list|)
 expr_stmt|;
 name|QFile
 name|f
@@ -6135,9 +6119,9 @@ name|createNormalizationCorrections
 parameter_list|()
 block|{
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Reading NormalizationCorrections.txt"
+argument_list|)
 expr_stmt|;
 name|QFile
 name|f
@@ -6500,112 +6484,6 @@ name|out
 return|;
 block|}
 end_function
-begin_decl_stmt
-DECL|variable|uniqueProperties
-specifier|static
-name|QList
-argument_list|<
-name|PropertyFlags
-argument_list|>
-name|uniqueProperties
-decl_stmt|;
-end_decl_stmt
-begin_function
-DECL|function|computeUniqueProperties
-specifier|static
-name|void
-name|computeUniqueProperties
-parameter_list|()
-block|{
-name|qDebug
-argument_list|(
-literal|"computeUniqueProperties:"
-argument_list|)
-expr_stmt|;
-for|for
-control|(
-name|int
-name|codepoint
-init|=
-literal|0
-init|;
-name|codepoint
-operator|<=
-name|QChar
-operator|::
-name|LastValidCodePoint
-condition|;
-operator|++
-name|codepoint
-control|)
-block|{
-name|UnicodeData
-modifier|&
-name|d
-init|=
-name|UnicodeData
-operator|::
-name|valueRef
-argument_list|(
-name|codepoint
-argument_list|)
-decl_stmt|;
-name|int
-name|index
-init|=
-name|uniqueProperties
-operator|.
-name|indexOf
-argument_list|(
-name|d
-operator|.
-name|p
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|index
-operator|==
-operator|-
-literal|1
-condition|)
-block|{
-name|index
-operator|=
-name|uniqueProperties
-operator|.
-name|size
-argument_list|()
-expr_stmt|;
-name|uniqueProperties
-operator|.
-name|append
-argument_list|(
-name|d
-operator|.
-name|p
-argument_list|)
-expr_stmt|;
-block|}
-name|d
-operator|.
-name|propertyIndex
-operator|=
-name|index
-expr_stmt|;
-block|}
-name|qDebug
-argument_list|(
-literal|"    %d unique unicode properties found"
-argument_list|,
-name|uniqueProperties
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-end_function
 begin_function
 DECL|function|readLineBreak
 specifier|static
@@ -6614,9 +6492,9 @@ name|readLineBreak
 parameter_list|()
 block|{
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Reading LineBreak.txt"
+argument_list|)
 expr_stmt|;
 name|QFile
 name|f
@@ -6924,9 +6802,9 @@ name|readSpecialCasing
 parameter_list|()
 block|{
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Reading SpecialCasing.txt"
+argument_list|)
 expr_stmt|;
 name|QFile
 name|f
@@ -7530,9 +7408,9 @@ name|readCaseFolding
 parameter_list|()
 block|{
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Reading CaseFolding.txt"
+argument_list|)
 expr_stmt|;
 name|QFile
 name|f
@@ -8009,9 +7887,9 @@ name|readGraphemeBreak
 parameter_list|()
 block|{
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Reading GraphemeBreakProperty.txt"
+argument_list|)
 expr_stmt|;
 name|QFile
 name|f
@@ -8319,9 +8197,9 @@ name|readWordBreak
 parameter_list|()
 block|{
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Reading WordBreakProperty.txt"
+argument_list|)
 expr_stmt|;
 name|QFile
 name|f
@@ -8629,9 +8507,9 @@ name|readSentenceBreak
 parameter_list|()
 block|{
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Reading SentenceBreakProperty.txt"
+argument_list|)
 expr_stmt|;
 name|QFile
 name|f
@@ -8956,7 +8834,7 @@ directive|if
 literal|0
 end_if
 begin_endif
-unit|static QList<QByteArray> blockNames; struct BlockInfo {     int blockIndex;     int firstCodePoint;     int lastCodePoint; }; static QList<BlockInfo> blockInfoList;  static void readBlocks() {     qDebug()<< "Reading Blocks.txt";     QFile f("data/Blocks.txt");     if (!f.exists())         qFatal("Couldn't find Blocks.txt");      f.open(QFile::ReadOnly);      while (!f.atEnd()) {         QByteArray line = f.readLine();         line.resize(line.size() - 1);          int comment = line.indexOf("#");         if (comment>= 0)             line = line.left(comment);          line.replace(" ", "");          if (line.isEmpty())             continue;          int semicolon = line.indexOf(';');         Q_ASSERT(semicolon>= 0);         QByteArray codePoints = line.left(semicolon);         QByteArray blockName = line.mid(semicolon + 1);          int blockIndex = blockNames.indexOf(blockName);         if (blockIndex == -1) {             blockIndex = blockNames.size();             blockNames.append(blockName);         }          codePoints.replace("..", ".");         QList<QByteArray> cl = codePoints.split('.');          bool ok;         int first = cl[0].toInt(&ok, 16);         Q_ASSERT(ok);         int last = first;         if (cl.size() == 2) {             last = cl[1].toInt(&ok, 16);             Q_ASSERT(ok);         }          BlockInfo blockInfo = { blockIndex, first, last };         blockInfoList.append(blockInfo);     } }
+unit|static QList<QByteArray> blockNames; struct BlockInfo {     int blockIndex;     int firstCodePoint;     int lastCodePoint; }; static QList<BlockInfo> blockInfoList;  static void readBlocks() {     qDebug("Reading Blocks.txt");      QFile f("data/Blocks.txt");     if (!f.exists())         qFatal("Couldn't find Blocks.txt");      f.open(QFile::ReadOnly);      while (!f.atEnd()) {         QByteArray line = f.readLine();         line.resize(line.size() - 1);          int comment = line.indexOf("#");         if (comment>= 0)             line = line.left(comment);          line.replace(" ", "");          if (line.isEmpty())             continue;          int semicolon = line.indexOf(';');         Q_ASSERT(semicolon>= 0);         QByteArray codePoints = line.left(semicolon);         QByteArray blockName = line.mid(semicolon + 1);          int blockIndex = blockNames.indexOf(blockName);         if (blockIndex == -1) {             blockIndex = blockNames.size();             blockNames.append(blockName);         }          codePoints.replace("..", ".");         QList<QByteArray> cl = codePoints.split('.');          bool ok;         int first = cl[0].toInt(&ok, 16);         Q_ASSERT(ok);         int last = first;         if (cl.size() == 2) {             last = cl[1].toInt(&ok, 16);             Q_ASSERT(ok);         }          BlockInfo blockInfo = { blockIndex, first, last };         blockInfoList.append(blockInfo);     } }
 endif|#
 directive|endif
 end_endif
@@ -9467,6 +9345,7 @@ block|}
 end_function
 begin_function
 DECL|function|createScriptEnumDeclaration
+specifier|static
 name|QByteArray
 name|createScriptEnumDeclaration
 parameter_list|()
@@ -9476,11 +9355,11 @@ name|declaration
 decl_stmt|;
 name|declaration
 operator|+=
-literal|"    // See http://www.unicode.org/reports/tr24/tr24-5.html\n"
+literal|"// See http://www.unicode.org/reports/tr24/tr24-5.html\n"
 expr_stmt|;
 name|declaration
 operator|+=
-literal|"    enum Script {\n        Common"
+literal|"enum Script {\n    Common"
 expr_stmt|;
 comment|// output the ones with special processing first
 for|for
@@ -9515,7 +9394,7 @@ condition|)
 continue|continue;
 name|declaration
 operator|+=
-literal|",\n        "
+literal|",\n    "
 expr_stmt|;
 name|declaration
 operator|+=
@@ -9529,7 +9408,7 @@ expr_stmt|;
 block|}
 name|declaration
 operator|+=
-literal|",\n        ScriptCount = Inherited"
+literal|",\n    ScriptCount = Inherited"
 expr_stmt|;
 comment|// output the ones that are an alias for 'Common'
 for|for
@@ -9564,7 +9443,7 @@ condition|)
 continue|continue;
 name|declaration
 operator|+=
-literal|",\n        "
+literal|",\n    "
 expr_stmt|;
 name|declaration
 operator|+=
@@ -9582,7 +9461,7 @@ expr_stmt|;
 block|}
 name|declaration
 operator|+=
-literal|"\n    };\n\n"
+literal|"\n};\n\n"
 expr_stmt|;
 return|return
 name|declaration
@@ -9599,51 +9478,160 @@ unit|static void dump(int from, int to) {     for (int i = from; i<= to; ++i) { 
 endif|#
 directive|endif
 end_endif
-begin_struct
-DECL|struct|PropertyBlock
-struct|struct
-name|PropertyBlock
-block|{
-DECL|function|PropertyBlock
-name|PropertyBlock
+begin_decl_stmt
+DECL|variable|uniqueProperties
+specifier|static
+name|QList
+argument_list|<
+name|PropertyFlags
+argument_list|>
+name|uniqueProperties
+decl_stmt|;
+end_decl_stmt
+begin_function
+DECL|function|computeUniqueProperties
+specifier|static
+name|void
+name|computeUniqueProperties
 parameter_list|()
+block|{
+name|qDebug
+argument_list|(
+literal|"computeUniqueProperties:"
+argument_list|)
+expr_stmt|;
+for|for
+control|(
+name|int
+name|codepoint
+init|=
+literal|0
+init|;
+name|codepoint
+operator|<=
+name|QChar
+operator|::
+name|LastValidCodePoint
+condition|;
+operator|++
+name|codepoint
+control|)
+block|{
+name|UnicodeData
+modifier|&
+name|d
+init|=
+name|UnicodeData
+operator|::
+name|valueRef
+argument_list|(
+name|codepoint
+argument_list|)
+decl_stmt|;
+name|int
+name|index
+init|=
+name|uniqueProperties
+operator|.
+name|indexOf
+argument_list|(
+name|d
+operator|.
+name|p
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|index
+operator|==
+operator|-
+literal|1
+condition|)
 block|{
 name|index
 operator|=
-operator|-
-literal|1
+name|uniqueProperties
+operator|.
+name|size
+argument_list|()
+expr_stmt|;
+name|uniqueProperties
+operator|.
+name|append
+argument_list|(
+name|d
+operator|.
+name|p
+argument_list|)
 expr_stmt|;
 block|}
-DECL|member|index
-name|int
+name|d
+operator|.
+name|propertyIndex
+operator|=
 name|index
-decl_stmt|;
-DECL|member|properties
-name|QList
-argument_list|<
-name|int
-argument_list|>
-name|properties
-decl_stmt|;
+expr_stmt|;
+block|}
+name|qDebug
+argument_list|(
+literal|"    %d unique unicode properties found"
+argument_list|,
+name|uniqueProperties
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_struct
+DECL|struct|UniqueBlock
+struct|struct
+name|UniqueBlock
+block|{
+DECL|function|UniqueBlock
+specifier|inline
+name|UniqueBlock
+parameter_list|()
+member_init_list|:
+name|index
+argument_list|(
+operator|-
+literal|1
+argument_list|)
+block|{}
 DECL|function|operator ==
+specifier|inline
 name|bool
 name|operator
 name|==
 parameter_list|(
 specifier|const
-name|PropertyBlock
+name|UniqueBlock
 modifier|&
 name|other
 parameter_list|)
+specifier|const
 block|{
 return|return
-name|properties
+name|values
 operator|==
 name|other
 operator|.
-name|properties
+name|values
 return|;
 block|}
+DECL|member|index
+name|int
+name|index
+decl_stmt|;
+DECL|member|values
+name|QVector
+argument_list|<
+name|int
+argument_list|>
+name|values
+decl_stmt|;
 block|}
 struct|;
 end_struct
@@ -9753,11 +9741,11 @@ literal|8
 decl_stmt|;
 name|QList
 argument_list|<
-name|PropertyBlock
+name|UniqueBlock
 argument_list|>
-name|blocks
+name|uniqueBlocks
 decl_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|int
 argument_list|>
@@ -9785,9 +9773,18 @@ operator|++
 name|block
 control|)
 block|{
-name|PropertyBlock
+name|UniqueBlock
 name|b
 decl_stmt|;
+name|b
+operator|.
+name|values
+operator|.
+name|reserve
+argument_list|(
+name|BMP_BLOCKSIZE
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -9825,7 +9822,7 @@ argument_list|)
 decl_stmt|;
 name|b
 operator|.
-name|properties
+name|values
 operator|.
 name|append
 argument_list|(
@@ -9838,7 +9835,7 @@ block|}
 name|int
 name|index
 init|=
-name|blocks
+name|uniqueBlocks
 operator|.
 name|indexOf
 argument_list|(
@@ -9855,7 +9852,7 @@ condition|)
 block|{
 name|index
 operator|=
-name|blocks
+name|uniqueBlocks
 operator|.
 name|size
 argument_list|()
@@ -9870,7 +9867,7 @@ name|used
 operator|+=
 name|BMP_BLOCKSIZE
 expr_stmt|;
-name|blocks
+name|uniqueBlocks
 operator|.
 name|append
 argument_list|(
@@ -9882,7 +9879,7 @@ name|blockMap
 operator|.
 name|append
 argument_list|(
-name|blocks
+name|uniqueBlocks
 operator|.
 name|at
 argument_list|(
@@ -9896,23 +9893,11 @@ block|}
 name|int
 name|bmp_blocks
 init|=
-name|blocks
+name|uniqueBlocks
 operator|.
 name|size
 argument_list|()
 decl_stmt|;
-name|Q_ASSERT
-argument_list|(
-name|blockMap
-operator|.
-name|size
-argument_list|()
-operator|==
-name|BMP_END
-operator|/
-name|BMP_BLOCKSIZE
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|int
@@ -9932,9 +9917,18 @@ operator|++
 name|block
 control|)
 block|{
-name|PropertyBlock
+name|UniqueBlock
 name|b
 decl_stmt|;
+name|b
+operator|.
+name|values
+operator|.
+name|reserve
+argument_list|(
+name|SMP_BLOCKSIZE
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -9972,7 +9966,7 @@ argument_list|)
 decl_stmt|;
 name|b
 operator|.
-name|properties
+name|values
 operator|.
 name|append
 argument_list|(
@@ -9985,7 +9979,7 @@ block|}
 name|int
 name|index
 init|=
-name|blocks
+name|uniqueBlocks
 operator|.
 name|indexOf
 argument_list|(
@@ -10002,7 +9996,7 @@ condition|)
 block|{
 name|index
 operator|=
-name|blocks
+name|uniqueBlocks
 operator|.
 name|size
 argument_list|()
@@ -10017,7 +10011,7 @@ name|used
 operator|+=
 name|SMP_BLOCKSIZE
 expr_stmt|;
-name|blocks
+name|uniqueBlocks
 operator|.
 name|append
 argument_list|(
@@ -10029,7 +10023,7 @@ name|blockMap
 operator|.
 name|append
 argument_list|(
-name|blocks
+name|uniqueBlocks
 operator|.
 name|at
 argument_list|(
@@ -10041,13 +10035,27 @@ argument_list|)
 expr_stmt|;
 block|}
 name|int
+name|smp_blocks
+init|=
+name|uniqueBlocks
+operator|.
+name|size
+argument_list|()
+operator|-
+name|bmp_blocks
+decl_stmt|;
+name|int
 name|bmp_block_data
 init|=
 name|bmp_blocks
 operator|*
 name|BMP_BLOCKSIZE
 operator|*
-literal|2
+expr|sizeof
+operator|(
+name|unsigned
+name|short
+operator|)
 decl_stmt|;
 name|int
 name|bmp_trie
@@ -10056,7 +10064,11 @@ name|BMP_END
 operator|/
 name|BMP_BLOCKSIZE
 operator|*
-literal|2
+expr|sizeof
+operator|(
+name|unsigned
+name|short
+operator|)
 decl_stmt|;
 name|int
 name|bmp_mem
@@ -10069,10 +10081,7 @@ name|qDebug
 argument_list|(
 literal|"    %d unique blocks in BMP."
 argument_list|,
-name|blocks
-operator|.
-name|size
-argument_list|()
+name|bmp_blocks
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -10092,18 +10101,15 @@ expr_stmt|;
 name|int
 name|smp_block_data
 init|=
-operator|(
-name|blocks
-operator|.
-name|size
-argument_list|()
-operator|-
-name|bmp_blocks
-operator|)
+name|smp_blocks
 operator|*
 name|SMP_BLOCKSIZE
 operator|*
-literal|2
+expr|sizeof
+operator|(
+name|unsigned
+name|short
+operator|)
 decl_stmt|;
 name|int
 name|smp_trie
@@ -10116,7 +10122,11 @@ operator|)
 operator|/
 name|SMP_BLOCKSIZE
 operator|*
-literal|2
+expr|sizeof
+operator|(
+name|unsigned
+name|short
+operator|)
 decl_stmt|;
 name|int
 name|smp_mem
@@ -10129,12 +10139,7 @@ name|qDebug
 argument_list|(
 literal|"    %d unique blocks in SMP."
 argument_list|,
-name|blocks
-operator|.
-name|size
-argument_list|()
-operator|-
-name|bmp_blocks
+name|smp_blocks
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -10151,16 +10156,21 @@ argument_list|,
 name|smp_trie
 argument_list|)
 expr_stmt|;
-name|qDebug
-argument_list|(
-literal|"\n        properties uses : %d bytes"
-argument_list|,
+name|int
+name|prop_data
+init|=
 name|uniqueProperties
 operator|.
 name|size
 argument_list|()
 operator|*
 name|SizeOfPropertiesStruct
+decl_stmt|;
+name|qDebug
+argument_list|(
+literal|"\n        properties data uses : %d bytes"
+argument_list|,
+name|prop_data
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -10171,12 +10181,34 @@ name|bmp_mem
 operator|+
 name|smp_mem
 operator|+
-name|uniqueProperties
+name|prop_data
+argument_list|)
+expr_stmt|;
+name|Q_ASSERT
+argument_list|(
+name|blockMap
+operator|.
+name|last
+argument_list|()
+operator|+
+name|blockMap
 operator|.
 name|size
 argument_list|()
+operator|<
+operator|(
+literal|1
+operator|<<
+operator|(
+expr|sizeof
+operator|(
+name|unsigned
+name|short
+operator|)
 operator|*
-name|SizeOfPropertiesStruct
+literal|8
+operator|)
+operator|)
 argument_list|)
 expr_stmt|;
 name|QByteArray
@@ -10453,7 +10485,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|blocks
+name|uniqueBlocks
 operator|.
 name|size
 argument_list|()
@@ -10483,11 +10515,11 @@ operator|+=
 literal|"\n"
 expr_stmt|;
 specifier|const
-name|PropertyBlock
+name|UniqueBlock
 modifier|&
 name|b
 init|=
-name|blocks
+name|uniqueBlocks
 operator|.
 name|at
 argument_list|(
@@ -10505,7 +10537,7 @@ name|j
 operator|<
 name|b
 operator|.
-name|properties
+name|values
 operator|.
 name|size
 argument_list|()
@@ -10553,7 +10585,7 @@ name|number
 argument_list|(
 name|b
 operator|.
-name|properties
+name|values
 operator|.
 name|at
 argument_list|(
@@ -10586,6 +10618,9 @@ expr_stmt|;
 name|out
 operator|+=
 literal|"\n};\n\n"
+expr_stmt|;
+name|out
+operator|+=
 literal|"#define GET_PROP_INDEX(ucs4) \\\n"
 literal|"       (ucs4< 0x"
 operator|+
@@ -10694,6 +10729,9 @@ literal|16
 argument_list|)
 operator|+
 literal|")])\n\n"
+expr_stmt|;
+name|out
+operator|+=
 literal|"static const Properties uc_properties[] = {"
 expr_stmt|;
 comment|// keep in sync with the property declaration
@@ -10731,7 +10769,7 @@ name|out
 operator|+=
 literal|"\n    { "
 expr_stmt|;
-comment|//     "        ushort category         : 8; /* 5 used */\n"
+comment|//     "        ushort category            : 8; /* 5 used */\n"
 name|out
 operator|+=
 name|QByteArray
@@ -10747,7 +10785,7 @@ name|out
 operator|+=
 literal|", "
 expr_stmt|;
-comment|//     "        ushort direction        : 8; /* 5 used */\n"
+comment|//     "        ushort direction           : 8; /* 5 used */\n"
 name|out
 operator|+=
 name|QByteArray
@@ -10763,7 +10801,7 @@ name|out
 operator|+=
 literal|", "
 expr_stmt|;
-comment|//     "        ushort combiningClass   : 8;\n"
+comment|//     "        ushort combiningClass      : 8;\n"
 name|out
 operator|+=
 name|QByteArray
@@ -10779,7 +10817,7 @@ name|out
 operator|+=
 literal|", "
 expr_stmt|;
-comment|//     "        ushort joining          : 2;\n"
+comment|//     "        ushort joining             : 2;\n"
 name|out
 operator|+=
 name|QByteArray
@@ -10795,7 +10833,7 @@ name|out
 operator|+=
 literal|", "
 expr_stmt|;
-comment|//     "        signed short digitValue : 6; /* 5 used */\n"
+comment|//     "        signed short digitValue    : 6; /* 5 used */\n"
 name|out
 operator|+=
 name|QByteArray
@@ -10891,10 +10929,10 @@ name|out
 operator|+=
 literal|", "
 expr_stmt|;
-comment|//     "        ushort lowerCaseSpecial : 1;\n"
-comment|//     "        ushort upperCaseSpecial : 1;\n"
-comment|//     "        ushort titleCaseSpecial : 1;\n"
-comment|//     "        ushort caseFoldSpecial  : 1;\n"
+comment|//     "        ushort lowerCaseSpecial    : 1;\n"
+comment|//     "        ushort upperCaseSpecial    : 1;\n"
+comment|//     "        ushort titleCaseSpecial    : 1;\n"
+comment|//     "        ushort caseFoldSpecial     : 1;\n"
 name|out
 operator|+=
 name|QByteArray
@@ -10955,7 +10993,7 @@ name|out
 operator|+=
 literal|", "
 expr_stmt|;
-comment|//     "        ushort unicodeVersion   : 4;\n"
+comment|//     "        ushort unicodeVersion      : 4;\n"
 name|out
 operator|+=
 name|QByteArray
@@ -10971,10 +11009,10 @@ name|out
 operator|+=
 literal|", "
 expr_stmt|;
-comment|//     "        ushort graphemeBreak    : 8; /* 4 used */\n"
-comment|//     "        ushort wordBreak        : 8; /* 4 used */\n"
-comment|//     "        ushort sentenceBreak    : 8; /* 4 used */\n"
-comment|//     "        ushort line_break_class : 8; /* 6 used */\n"
+comment|//     "        ushort graphemeBreak       : 8; /* 4 used */\n"
+comment|//     "        ushort wordBreak           : 8; /* 4 used */\n"
+comment|//     "        ushort sentenceBreak       : 8; /* 4 used */\n"
+comment|//     "        ushort line_break_class    : 8; /* 6 used */\n"
 name|out
 operator|+=
 name|QByteArray
@@ -11035,7 +11073,7 @@ name|out
 operator|+=
 literal|", "
 expr_stmt|;
-comment|//     "        ushort script           : 8; /* 5 used */\n"
+comment|//     "        ushort script              : 8; /* 5 used */\n"
 name|out
 operator|+=
 name|QByteArray
@@ -11231,14 +11269,18 @@ literal|"\n};\n\n"
 expr_stmt|;
 name|qDebug
 argument_list|(
-literal|"Special case map uses : %d bytes"
+literal|"    memory usage: %d bytes"
 argument_list|,
 name|specialCaseMap
 operator|.
 name|size
 argument_list|()
 operator|*
-literal|2
+expr|sizeof
+operator|(
+name|unsigned
+name|short
+operator|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -11246,54 +11288,6 @@ name|out
 return|;
 block|}
 end_function
-begin_struct
-DECL|struct|DecompositionBlock
-struct|struct
-name|DecompositionBlock
-block|{
-DECL|function|DecompositionBlock
-name|DecompositionBlock
-parameter_list|()
-block|{
-name|index
-operator|=
-operator|-
-literal|1
-expr_stmt|;
-block|}
-DECL|member|index
-name|int
-name|index
-decl_stmt|;
-DECL|member|decompositionPositions
-name|QList
-argument_list|<
-name|int
-argument_list|>
-name|decompositionPositions
-decl_stmt|;
-DECL|function|operator ==
-name|bool
-name|operator
-name|==
-parameter_list|(
-specifier|const
-name|DecompositionBlock
-modifier|&
-name|other
-parameter_list|)
-block|{
-return|return
-name|decompositionPositions
-operator|==
-name|other
-operator|.
-name|decompositionPositions
-return|;
-block|}
-block|}
-struct|;
-end_struct
 begin_function
 DECL|function|createCompositionInfo
 specifier|static
@@ -11358,19 +11352,7 @@ argument_list|,
 name|highestComposedCharacter
 argument_list|)
 expr_stmt|;
-name|QList
-argument_list|<
-name|DecompositionBlock
-argument_list|>
-name|blocks
-decl_stmt|;
-name|QList
-argument_list|<
-name|int
-argument_list|>
-name|blockMap
-decl_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|unsigned
 name|short
@@ -11378,12 +11360,24 @@ argument_list|>
 name|decompositions
 decl_stmt|;
 name|int
-name|used
+name|tableIndex
 init|=
 literal|0
 decl_stmt|;
+name|QList
+argument_list|<
+name|UniqueBlock
+argument_list|>
+name|uniqueBlocks
+decl_stmt|;
+name|QVector
+argument_list|<
 name|int
-name|tableIndex
+argument_list|>
+name|blockMap
+decl_stmt|;
+name|int
+name|used
 init|=
 literal|0
 decl_stmt|;
@@ -11404,9 +11398,18 @@ operator|++
 name|block
 control|)
 block|{
-name|DecompositionBlock
+name|UniqueBlock
 name|b
 decl_stmt|;
+name|b
+operator|.
+name|values
+operator|.
+name|reserve
+argument_list|(
+name|BMP_BLOCKSIZE
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -11568,7 +11571,7 @@ operator|)
 expr_stmt|;
 name|b
 operator|.
-name|decompositionPositions
+name|values
 operator|.
 name|append
 argument_list|(
@@ -11586,7 +11589,7 @@ else|else
 block|{
 name|b
 operator|.
-name|decompositionPositions
+name|values
 operator|.
 name|append
 argument_list|(
@@ -11598,7 +11601,7 @@ block|}
 name|int
 name|index
 init|=
-name|blocks
+name|uniqueBlocks
 operator|.
 name|indexOf
 argument_list|(
@@ -11615,7 +11618,7 @@ condition|)
 block|{
 name|index
 operator|=
-name|blocks
+name|uniqueBlocks
 operator|.
 name|size
 argument_list|()
@@ -11630,7 +11633,7 @@ name|used
 operator|+=
 name|BMP_BLOCKSIZE
 expr_stmt|;
-name|blocks
+name|uniqueBlocks
 operator|.
 name|append
 argument_list|(
@@ -11642,7 +11645,7 @@ name|blockMap
 operator|.
 name|append
 argument_list|(
-name|blocks
+name|uniqueBlocks
 operator|.
 name|at
 argument_list|(
@@ -11656,23 +11659,11 @@ block|}
 name|int
 name|bmp_blocks
 init|=
-name|blocks
+name|uniqueBlocks
 operator|.
 name|size
 argument_list|()
 decl_stmt|;
-name|Q_ASSERT
-argument_list|(
-name|blockMap
-operator|.
-name|size
-argument_list|()
-operator|==
-name|BMP_END
-operator|/
-name|BMP_BLOCKSIZE
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|int
@@ -11692,9 +11683,18 @@ operator|++
 name|block
 control|)
 block|{
-name|DecompositionBlock
+name|UniqueBlock
 name|b
 decl_stmt|;
+name|b
+operator|.
+name|values
+operator|.
+name|reserve
+argument_list|(
+name|SMP_BLOCKSIZE
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -11856,7 +11856,7 @@ operator|)
 expr_stmt|;
 name|b
 operator|.
-name|decompositionPositions
+name|values
 operator|.
 name|append
 argument_list|(
@@ -11874,7 +11874,7 @@ else|else
 block|{
 name|b
 operator|.
-name|decompositionPositions
+name|values
 operator|.
 name|append
 argument_list|(
@@ -11886,7 +11886,7 @@ block|}
 name|int
 name|index
 init|=
-name|blocks
+name|uniqueBlocks
 operator|.
 name|indexOf
 argument_list|(
@@ -11903,7 +11903,7 @@ condition|)
 block|{
 name|index
 operator|=
-name|blocks
+name|uniqueBlocks
 operator|.
 name|size
 argument_list|()
@@ -11918,7 +11918,7 @@ name|used
 operator|+=
 name|SMP_BLOCKSIZE
 expr_stmt|;
-name|blocks
+name|uniqueBlocks
 operator|.
 name|append
 argument_list|(
@@ -11930,7 +11930,7 @@ name|blockMap
 operator|.
 name|append
 argument_list|(
-name|blocks
+name|uniqueBlocks
 operator|.
 name|at
 argument_list|(
@@ -11941,6 +11941,16 @@ name|index
 argument_list|)
 expr_stmt|;
 block|}
+name|int
+name|smp_blocks
+init|=
+name|uniqueBlocks
+operator|.
+name|size
+argument_list|()
+operator|-
+name|bmp_blocks
+decl_stmt|;
 comment|// if the condition below doesn't hold anymore we need to modify our decomposition code
 name|Q_ASSERT
 argument_list|(
@@ -11956,7 +11966,11 @@ name|bmp_blocks
 operator|*
 name|BMP_BLOCKSIZE
 operator|*
-literal|2
+expr|sizeof
+operator|(
+name|unsigned
+name|short
+operator|)
 decl_stmt|;
 name|int
 name|bmp_trie
@@ -11965,7 +11979,11 @@ name|BMP_END
 operator|/
 name|BMP_BLOCKSIZE
 operator|*
-literal|2
+expr|sizeof
+operator|(
+name|unsigned
+name|short
+operator|)
 decl_stmt|;
 name|int
 name|bmp_mem
@@ -11978,10 +11996,7 @@ name|qDebug
 argument_list|(
 literal|"    %d unique blocks in BMP."
 argument_list|,
-name|blocks
-operator|.
-name|size
-argument_list|()
+name|bmp_blocks
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -11998,28 +12013,18 @@ argument_list|,
 name|bmp_trie
 argument_list|)
 expr_stmt|;
-name|qDebug
-argument_list|(
-literal|"        memory usage: %d bytes"
-argument_list|,
-name|bmp_mem
-argument_list|)
-expr_stmt|;
 name|int
 name|smp_block_data
 init|=
-operator|(
-name|blocks
-operator|.
-name|size
-argument_list|()
-operator|-
-name|bmp_blocks
-operator|)
+name|smp_blocks
 operator|*
 name|SMP_BLOCKSIZE
 operator|*
-literal|2
+expr|sizeof
+operator|(
+name|unsigned
+name|short
+operator|)
 decl_stmt|;
 name|int
 name|smp_trie
@@ -12032,7 +12037,11 @@ operator|)
 operator|/
 name|SMP_BLOCKSIZE
 operator|*
-literal|2
+expr|sizeof
+operator|(
+name|unsigned
+name|short
+operator|)
 decl_stmt|;
 name|int
 name|smp_mem
@@ -12045,12 +12054,7 @@ name|qDebug
 argument_list|(
 literal|"    %d unique blocks in SMP."
 argument_list|,
-name|blocks
-operator|.
-name|size
-argument_list|()
-operator|-
-name|bmp_blocks
+name|smp_blocks
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -12067,16 +12071,21 @@ argument_list|,
 name|smp_trie
 argument_list|)
 expr_stmt|;
-name|qDebug
-argument_list|(
-literal|"\n        decomposition table uses : %d bytes"
-argument_list|,
+name|int
+name|decomposition_data
+init|=
 name|decompositions
 operator|.
 name|size
 argument_list|()
 operator|*
 literal|2
+decl_stmt|;
+name|qDebug
+argument_list|(
+literal|"\n        decomposition data uses : %d bytes"
+argument_list|,
+name|decomposition_data
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -12087,12 +12096,34 @@ name|bmp_mem
 operator|+
 name|smp_mem
 operator|+
-name|decompositions
+name|decomposition_data
+argument_list|)
+expr_stmt|;
+name|Q_ASSERT
+argument_list|(
+name|blockMap
+operator|.
+name|last
+argument_list|()
+operator|+
+name|blockMap
 operator|.
 name|size
 argument_list|()
+operator|<
+operator|(
+literal|1
+operator|<<
+operator|(
+expr|sizeof
+operator|(
+name|unsigned
+name|short
+operator|)
 operator|*
-literal|2
+literal|8
+operator|)
+operator|)
 argument_list|)
 expr_stmt|;
 name|QByteArray
@@ -12369,7 +12400,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|blocks
+name|uniqueBlocks
 operator|.
 name|size
 argument_list|()
@@ -12399,11 +12430,11 @@ operator|+=
 literal|"\n"
 expr_stmt|;
 specifier|const
-name|DecompositionBlock
+name|UniqueBlock
 modifier|&
 name|b
 init|=
-name|blocks
+name|uniqueBlocks
 operator|.
 name|at
 argument_list|(
@@ -12421,7 +12452,7 @@ name|j
 operator|<
 name|b
 operator|.
-name|decompositionPositions
+name|values
 operator|.
 name|size
 argument_list|()
@@ -12471,7 +12502,7 @@ name|number
 argument_list|(
 name|b
 operator|.
-name|decompositionPositions
+name|values
 operator|.
 name|at
 argument_list|(
@@ -12506,6 +12537,9 @@ expr_stmt|;
 name|out
 operator|+=
 literal|"\n};\n\n"
+expr_stmt|;
+name|out
+operator|+=
 literal|"#define GET_DECOMPOSITION_INDEX(ucs4) \\\n"
 literal|"       (ucs4< 0x"
 operator|+
@@ -12603,6 +12637,9 @@ argument_list|)
 operator|+
 literal|")]\\\n"
 literal|"           : 0xffff))\n\n"
+expr_stmt|;
+name|out
+operator|+=
 literal|"static const unsigned short uc_decomposition_map[] = {"
 expr_stmt|;
 for|for
@@ -12882,30 +12919,30 @@ argument_list|)
 expr_stmt|;
 name|QList
 argument_list|<
-name|DecompositionBlock
-argument_list|>
-name|blocks
-decl_stmt|;
-name|QList
-argument_list|<
-name|int
-argument_list|>
-name|blockMap
-decl_stmt|;
-name|QList
-argument_list|<
 name|unsigned
 name|short
 argument_list|>
 name|ligatures
 decl_stmt|;
 name|int
-name|used
+name|tableIndex
 init|=
 literal|0
 decl_stmt|;
+name|QList
+argument_list|<
+name|UniqueBlock
+argument_list|>
+name|uniqueBlocks
+decl_stmt|;
+name|QVector
+argument_list|<
 name|int
-name|tableIndex
+argument_list|>
+name|blockMap
+decl_stmt|;
+name|int
+name|used
 init|=
 literal|0
 decl_stmt|;
@@ -12926,9 +12963,18 @@ operator|++
 name|block
 control|)
 block|{
-name|DecompositionBlock
+name|UniqueBlock
 name|b
 decl_stmt|;
+name|b
+operator|.
+name|values
+operator|.
+name|reserve
+argument_list|(
+name|BMP_BLOCKSIZE
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -13051,7 +13097,7 @@ expr_stmt|;
 block|}
 name|b
 operator|.
-name|decompositionPositions
+name|values
 operator|.
 name|append
 argument_list|(
@@ -13074,7 +13120,7 @@ else|else
 block|{
 name|b
 operator|.
-name|decompositionPositions
+name|values
 operator|.
 name|append
 argument_list|(
@@ -13086,7 +13132,7 @@ block|}
 name|int
 name|index
 init|=
-name|blocks
+name|uniqueBlocks
 operator|.
 name|indexOf
 argument_list|(
@@ -13103,7 +13149,7 @@ condition|)
 block|{
 name|index
 operator|=
-name|blocks
+name|uniqueBlocks
 operator|.
 name|size
 argument_list|()
@@ -13118,7 +13164,7 @@ name|used
 operator|+=
 name|BMP_BLOCKSIZE
 expr_stmt|;
-name|blocks
+name|uniqueBlocks
 operator|.
 name|append
 argument_list|(
@@ -13130,7 +13176,7 @@ name|blockMap
 operator|.
 name|append
 argument_list|(
-name|blocks
+name|uniqueBlocks
 operator|.
 name|at
 argument_list|(
@@ -13144,23 +13190,11 @@ block|}
 name|int
 name|bmp_blocks
 init|=
-name|blocks
+name|uniqueBlocks
 operator|.
 name|size
 argument_list|()
 decl_stmt|;
-name|Q_ASSERT
-argument_list|(
-name|blockMap
-operator|.
-name|size
-argument_list|()
-operator|==
-name|BMP_END
-operator|/
-name|BMP_BLOCKSIZE
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|int
@@ -13180,9 +13214,18 @@ operator|++
 name|block
 control|)
 block|{
-name|DecompositionBlock
+name|UniqueBlock
 name|b
 decl_stmt|;
+name|b
+operator|.
+name|values
+operator|.
+name|reserve
+argument_list|(
+name|SMP_BLOCKSIZE
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -13352,7 +13395,7 @@ expr_stmt|;
 block|}
 name|b
 operator|.
-name|decompositionPositions
+name|values
 operator|.
 name|append
 argument_list|(
@@ -13375,7 +13418,7 @@ else|else
 block|{
 name|b
 operator|.
-name|decompositionPositions
+name|values
 operator|.
 name|append
 argument_list|(
@@ -13387,7 +13430,7 @@ block|}
 name|int
 name|index
 init|=
-name|blocks
+name|uniqueBlocks
 operator|.
 name|indexOf
 argument_list|(
@@ -13404,7 +13447,7 @@ condition|)
 block|{
 name|index
 operator|=
-name|blocks
+name|uniqueBlocks
 operator|.
 name|size
 argument_list|()
@@ -13419,7 +13462,7 @@ name|used
 operator|+=
 name|SMP_BLOCKSIZE
 expr_stmt|;
-name|blocks
+name|uniqueBlocks
 operator|.
 name|append
 argument_list|(
@@ -13431,7 +13474,7 @@ name|blockMap
 operator|.
 name|append
 argument_list|(
-name|blocks
+name|uniqueBlocks
 operator|.
 name|at
 argument_list|(
@@ -13442,6 +13485,16 @@ name|index
 argument_list|)
 expr_stmt|;
 block|}
+name|int
+name|smp_blocks
+init|=
+name|uniqueBlocks
+operator|.
+name|size
+argument_list|()
+operator|-
+name|bmp_blocks
+decl_stmt|;
 comment|// if the condition below doesn't hold anymore we need to modify our composition code
 name|Q_ASSERT
 argument_list|(
@@ -13457,7 +13510,11 @@ name|bmp_blocks
 operator|*
 name|BMP_BLOCKSIZE
 operator|*
-literal|2
+expr|sizeof
+operator|(
+name|unsigned
+name|short
+operator|)
 decl_stmt|;
 name|int
 name|bmp_trie
@@ -13466,7 +13523,11 @@ name|BMP_END
 operator|/
 name|BMP_BLOCKSIZE
 operator|*
-literal|2
+expr|sizeof
+operator|(
+name|unsigned
+name|short
+operator|)
 decl_stmt|;
 name|int
 name|bmp_mem
@@ -13479,10 +13540,7 @@ name|qDebug
 argument_list|(
 literal|"    %d unique blocks in BMP."
 argument_list|,
-name|blocks
-operator|.
-name|size
-argument_list|()
+name|bmp_blocks
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -13499,28 +13557,18 @@ argument_list|,
 name|bmp_trie
 argument_list|)
 expr_stmt|;
-name|qDebug
-argument_list|(
-literal|"        memory usage: %d bytes"
-argument_list|,
-name|bmp_mem
-argument_list|)
-expr_stmt|;
 name|int
 name|smp_block_data
 init|=
-operator|(
-name|blocks
-operator|.
-name|size
-argument_list|()
-operator|-
-name|bmp_blocks
-operator|)
+name|smp_blocks
 operator|*
 name|SMP_BLOCKSIZE
 operator|*
-literal|2
+expr|sizeof
+operator|(
+name|unsigned
+name|short
+operator|)
 decl_stmt|;
 name|int
 name|smp_trie
@@ -13533,7 +13581,11 @@ operator|)
 operator|/
 name|SMP_BLOCKSIZE
 operator|*
-literal|2
+expr|sizeof
+operator|(
+name|unsigned
+name|short
+operator|)
 decl_stmt|;
 name|int
 name|smp_mem
@@ -13546,12 +13598,7 @@ name|qDebug
 argument_list|(
 literal|"    %d unique blocks in SMP."
 argument_list|,
-name|blocks
-operator|.
-name|size
-argument_list|()
-operator|-
-name|bmp_blocks
+name|smp_blocks
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -13568,16 +13615,21 @@ argument_list|,
 name|smp_trie
 argument_list|)
 expr_stmt|;
-name|qDebug
-argument_list|(
-literal|"\n        ligature data uses : %d bytes"
-argument_list|,
+name|int
+name|ligature_data
+init|=
 name|ligatures
 operator|.
 name|size
 argument_list|()
 operator|*
 literal|2
+decl_stmt|;
+name|qDebug
+argument_list|(
+literal|"\n        ligature data uses : %d bytes"
+argument_list|,
+name|ligature_data
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -13588,12 +13640,34 @@ name|bmp_mem
 operator|+
 name|smp_mem
 operator|+
-name|ligatures
+name|ligature_data
+argument_list|)
+expr_stmt|;
+name|Q_ASSERT
+argument_list|(
+name|blockMap
+operator|.
+name|last
+argument_list|()
+operator|+
+name|blockMap
 operator|.
 name|size
 argument_list|()
+operator|<
+operator|(
+literal|1
+operator|<<
+operator|(
+expr|sizeof
+operator|(
+name|unsigned
+name|short
+operator|)
 operator|*
-literal|2
+literal|8
+operator|)
+operator|)
 argument_list|)
 expr_stmt|;
 name|QByteArray
@@ -13870,7 +13944,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|blocks
+name|uniqueBlocks
 operator|.
 name|size
 argument_list|()
@@ -13900,11 +13974,11 @@ operator|+=
 literal|"\n"
 expr_stmt|;
 specifier|const
-name|DecompositionBlock
+name|UniqueBlock
 modifier|&
 name|b
 init|=
-name|blocks
+name|uniqueBlocks
 operator|.
 name|at
 argument_list|(
@@ -13922,7 +13996,7 @@ name|j
 operator|<
 name|b
 operator|.
-name|decompositionPositions
+name|values
 operator|.
 name|size
 argument_list|()
@@ -13972,7 +14046,7 @@ name|number
 argument_list|(
 name|b
 operator|.
-name|decompositionPositions
+name|values
 operator|.
 name|at
 argument_list|(
@@ -14007,6 +14081,9 @@ expr_stmt|;
 name|out
 operator|+=
 literal|"\n};\n\n"
+expr_stmt|;
+name|out
+operator|+=
 literal|"#define GET_LIGATURE_INDEX(ucs4) \\\n"
 literal|"       (ucs4< 0x"
 operator|+
@@ -14104,6 +14181,9 @@ argument_list|)
 operator|+
 literal|")]\\\n"
 literal|"           : 0xffff))\n\n"
+expr_stmt|;
+name|out
+operator|+=
 literal|"static const unsigned short uc_ligature_map[] = {"
 expr_stmt|;
 for|for
@@ -14619,21 +14699,7 @@ name|f
 operator|.
 name|write
 argument_list|(
-literal|"\n"
-argument_list|)
-expr_stmt|;
-name|f
-operator|.
-name|write
-argument_list|(
 name|scriptEnumDeclaration
-argument_list|)
-expr_stmt|;
-name|f
-operator|.
-name|write
-argument_list|(
-literal|"\n"
 argument_list|)
 expr_stmt|;
 name|f
@@ -14647,21 +14713,7 @@ name|f
 operator|.
 name|write
 argument_list|(
-literal|"\n"
-argument_list|)
-expr_stmt|;
-name|f
-operator|.
-name|write
-argument_list|(
 name|word_break_string
-argument_list|)
-expr_stmt|;
-name|f
-operator|.
-name|write
-argument_list|(
-literal|"\n"
 argument_list|)
 expr_stmt|;
 name|f
@@ -14675,21 +14727,7 @@ name|f
 operator|.
 name|write
 argument_list|(
-literal|"\n"
-argument_list|)
-expr_stmt|;
-name|f
-operator|.
-name|write
-argument_list|(
 name|line_break_class_string
-argument_list|)
-expr_stmt|;
-name|f
-operator|.
-name|write
-argument_list|(
-literal|"\n"
 argument_list|)
 expr_stmt|;
 name|f
