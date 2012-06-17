@@ -1162,69 +1162,69 @@ block|}
 block|}
 end_function
 begin_decl_stmt
-DECL|variable|grapheme_break_string
+DECL|variable|grapheme_break_class_string
 specifier|static
 specifier|const
 name|char
 modifier|*
-name|grapheme_break_string
+name|grapheme_break_class_string
 init|=
-literal|"enum GraphemeBreak {\n"
-literal|"    GraphemeBreakOther,\n"
-literal|"    GraphemeBreakCR,\n"
-literal|"    GraphemeBreakLF,\n"
-literal|"    GraphemeBreakControl,\n"
-literal|"    GraphemeBreakExtend,\n"
-literal|"    GraphemeBreakPrepend,\n"
-literal|"    GraphemeBreakSpacingMark,\n"
-literal|"    GraphemeBreakL,\n"
-literal|"    GraphemeBreakV,\n"
-literal|"    GraphemeBreakT,\n"
-literal|"    GraphemeBreakLV,\n"
-literal|"    GraphemeBreakLVT\n"
+literal|"enum GraphemeBreakClass {\n"
+literal|"    GraphemeBreak_Other,\n"
+literal|"    GraphemeBreak_CR,\n"
+literal|"    GraphemeBreak_LF,\n"
+literal|"    GraphemeBreak_Control,\n"
+literal|"    GraphemeBreak_Extend,\n"
+literal|"    GraphemeBreak_Prepend,\n"
+literal|"    GraphemeBreak_SpacingMark,\n"
+literal|"    GraphemeBreak_L,\n"
+literal|"    GraphemeBreak_V,\n"
+literal|"    GraphemeBreak_T,\n"
+literal|"    GraphemeBreak_LV,\n"
+literal|"    GraphemeBreak_LVT\n"
 literal|"};\n\n"
 decl_stmt|;
 end_decl_stmt
 begin_enum
-DECL|enum|GraphemeBreak
+DECL|enum|GraphemeBreakClass
 enum|enum
-name|GraphemeBreak
+name|GraphemeBreakClass
 block|{
-DECL|enumerator|GraphemeBreakOther
-name|GraphemeBreakOther
+DECL|enumerator|GraphemeBreak_Other
+name|GraphemeBreak_Other
 block|,
-DECL|enumerator|GraphemeBreakCR
-name|GraphemeBreakCR
+DECL|enumerator|GraphemeBreak_CR
+name|GraphemeBreak_CR
 block|,
-DECL|enumerator|GraphemeBreakLF
-name|GraphemeBreakLF
+DECL|enumerator|GraphemeBreak_LF
+name|GraphemeBreak_LF
 block|,
-DECL|enumerator|GraphemeBreakControl
-name|GraphemeBreakControl
+DECL|enumerator|GraphemeBreak_Control
+name|GraphemeBreak_Control
 block|,
-DECL|enumerator|GraphemeBreakExtend
-name|GraphemeBreakExtend
+DECL|enumerator|GraphemeBreak_Extend
+name|GraphemeBreak_Extend
 block|,
-DECL|enumerator|GraphemeBreakPrepend
-name|GraphemeBreakPrepend
+DECL|enumerator|GraphemeBreak_Prepend
+name|GraphemeBreak_Prepend
 block|,
-DECL|enumerator|GraphemeBreakSpacingMark
-name|GraphemeBreakSpacingMark
+DECL|enumerator|GraphemeBreak_SpacingMark
+name|GraphemeBreak_SpacingMark
 block|,
-DECL|enumerator|GraphemeBreakL
-name|GraphemeBreakL
+DECL|enumerator|GraphemeBreak_L
+name|GraphemeBreak_L
 block|,
-DECL|enumerator|GraphemeBreakV
-name|GraphemeBreakV
+DECL|enumerator|GraphemeBreak_V
+name|GraphemeBreak_V
 block|,
-DECL|enumerator|GraphemeBreakT
-name|GraphemeBreakT
+DECL|enumerator|GraphemeBreak_T
+name|GraphemeBreak_T
 block|,
-DECL|enumerator|GraphemeBreakLV
-name|GraphemeBreakLV
+DECL|enumerator|GraphemeBreak_LV
+name|GraphemeBreak_LV
 block|,
-DECL|enumerator|GraphemeBreakLVT
-name|GraphemeBreakLVT
+DECL|enumerator|GraphemeBreak_LVT
+name|GraphemeBreak_LVT
 block|,
 DECL|enumerator|GraphemeBreak_Unassigned
 name|GraphemeBreak_Unassigned
@@ -1238,7 +1238,7 @@ name|QHash
 argument_list|<
 name|QByteArray
 argument_list|,
-name|GraphemeBreak
+name|GraphemeBreakClass
 argument_list|>
 name|grapheme_break_map
 decl_stmt|;
@@ -1253,7 +1253,7 @@ block|{
 struct|struct
 name|GraphemeBreakList
 block|{
-name|GraphemeBreak
+name|GraphemeBreakClass
 name|brk
 decl_stmt|;
 specifier|const
@@ -1267,73 +1267,73 @@ index|[]
 init|=
 block|{
 block|{
-name|GraphemeBreakOther
+name|GraphemeBreak_Other
 block|,
 literal|"Other"
 block|}
 block|,
 block|{
-name|GraphemeBreakCR
+name|GraphemeBreak_CR
 block|,
 literal|"CR"
 block|}
 block|,
 block|{
-name|GraphemeBreakLF
+name|GraphemeBreak_LF
 block|,
 literal|"LF"
 block|}
 block|,
 block|{
-name|GraphemeBreakControl
+name|GraphemeBreak_Control
 block|,
 literal|"Control"
 block|}
 block|,
 block|{
-name|GraphemeBreakExtend
+name|GraphemeBreak_Extend
 block|,
 literal|"Extend"
 block|}
 block|,
 block|{
-name|GraphemeBreakPrepend
+name|GraphemeBreak_Prepend
 block|,
 literal|"Prepend"
 block|}
 block|,
 block|{
-name|GraphemeBreakSpacingMark
+name|GraphemeBreak_SpacingMark
 block|,
 literal|"SpacingMark"
 block|}
 block|,
 block|{
-name|GraphemeBreakL
+name|GraphemeBreak_L
 block|,
 literal|"L"
 block|}
 block|,
 block|{
-name|GraphemeBreakV
+name|GraphemeBreak_V
 block|,
 literal|"V"
 block|}
 block|,
 block|{
-name|GraphemeBreakT
+name|GraphemeBreak_T
 block|,
 literal|"T"
 block|}
 block|,
 block|{
-name|GraphemeBreakLV
+name|GraphemeBreak_LV
 block|,
 literal|"LV"
 block|}
 block|,
 block|{
-name|GraphemeBreakLVT
+name|GraphemeBreak_LVT
 block|,
 literal|"LVT"
 block|}
@@ -1378,69 +1378,69 @@ block|}
 block|}
 end_function
 begin_decl_stmt
-DECL|variable|word_break_string
+DECL|variable|word_break_class_string
 specifier|static
 specifier|const
 name|char
 modifier|*
-name|word_break_string
+name|word_break_class_string
 init|=
-literal|"enum WordBreak {\n"
-literal|"    WordBreakOther,\n"
-literal|"    WordBreakCR,\n"
-literal|"    WordBreakLF,\n"
-literal|"    WordBreakNewline,\n"
-literal|"    WordBreakFormat,\n"
-literal|"    WordBreakKatakana,\n"
-literal|"    WordBreakALetter,\n"
-literal|"    WordBreakMidNumLet,\n"
-literal|"    WordBreakMidLetter,\n"
-literal|"    WordBreakMidNum,\n"
-literal|"    WordBreakNumeric,\n"
-literal|"    WordBreakExtendNumLet\n"
+literal|"enum WordBreakClass {\n"
+literal|"    WordBreak_Other,\n"
+literal|"    WordBreak_CR,\n"
+literal|"    WordBreak_LF,\n"
+literal|"    WordBreak_Newline,\n"
+literal|"    WordBreak_Extend,\n"
+literal|"    WordBreak_Katakana,\n"
+literal|"    WordBreak_ALetter,\n"
+literal|"    WordBreak_MidNumLet,\n"
+literal|"    WordBreak_MidLetter,\n"
+literal|"    WordBreak_MidNum,\n"
+literal|"    WordBreak_Numeric,\n"
+literal|"    WordBreak_ExtendNumLet\n"
 literal|"};\n\n"
 decl_stmt|;
 end_decl_stmt
 begin_enum
-DECL|enum|WordBreak
+DECL|enum|WordBreakClass
 enum|enum
-name|WordBreak
+name|WordBreakClass
 block|{
-DECL|enumerator|WordBreakOther
-name|WordBreakOther
+DECL|enumerator|WordBreak_Other
+name|WordBreak_Other
 block|,
-DECL|enumerator|WordBreakCR
-name|WordBreakCR
+DECL|enumerator|WordBreak_CR
+name|WordBreak_CR
 block|,
-DECL|enumerator|WordBreakLF
-name|WordBreakLF
+DECL|enumerator|WordBreak_LF
+name|WordBreak_LF
 block|,
-DECL|enumerator|WordBreakNewline
-name|WordBreakNewline
+DECL|enumerator|WordBreak_Newline
+name|WordBreak_Newline
 block|,
-DECL|enumerator|WordBreakFormat
-name|WordBreakFormat
+DECL|enumerator|WordBreak_Extend
+name|WordBreak_Extend
 block|,
-DECL|enumerator|WordBreakKatakana
-name|WordBreakKatakana
+DECL|enumerator|WordBreak_Katakana
+name|WordBreak_Katakana
 block|,
-DECL|enumerator|WordBreakALetter
-name|WordBreakALetter
+DECL|enumerator|WordBreak_ALetter
+name|WordBreak_ALetter
 block|,
-DECL|enumerator|WordBreakMidNumLet
-name|WordBreakMidNumLet
+DECL|enumerator|WordBreak_MidNumLet
+name|WordBreak_MidNumLet
 block|,
-DECL|enumerator|WordBreakMidLetter
-name|WordBreakMidLetter
+DECL|enumerator|WordBreak_MidLetter
+name|WordBreak_MidLetter
 block|,
-DECL|enumerator|WordBreakMidNum
-name|WordBreakMidNum
+DECL|enumerator|WordBreak_MidNum
+name|WordBreak_MidNum
 block|,
-DECL|enumerator|WordBreakNumeric
-name|WordBreakNumeric
+DECL|enumerator|WordBreak_Numeric
+name|WordBreak_Numeric
 block|,
-DECL|enumerator|WordBreakExtendNumLet
-name|WordBreakExtendNumLet
+DECL|enumerator|WordBreak_ExtendNumLet
+name|WordBreak_ExtendNumLet
 block|,
 DECL|enumerator|WordBreak_Unassigned
 name|WordBreak_Unassigned
@@ -1454,7 +1454,7 @@ name|QHash
 argument_list|<
 name|QByteArray
 argument_list|,
-name|WordBreak
+name|WordBreakClass
 argument_list|>
 name|word_break_map
 decl_stmt|;
@@ -1469,7 +1469,7 @@ block|{
 struct|struct
 name|WordBreakList
 block|{
-name|WordBreak
+name|WordBreakClass
 name|brk
 decl_stmt|;
 specifier|const
@@ -1483,79 +1483,79 @@ index|[]
 init|=
 block|{
 block|{
-name|WordBreakOther
+name|WordBreak_Other
 block|,
 literal|"Other"
 block|}
 block|,
 block|{
-name|WordBreakCR
+name|WordBreak_CR
 block|,
 literal|"CR"
 block|}
 block|,
 block|{
-name|WordBreakLF
+name|WordBreak_LF
 block|,
 literal|"LF"
 block|}
 block|,
 block|{
-name|WordBreakNewline
+name|WordBreak_Newline
 block|,
 literal|"Newline"
 block|}
 block|,
 block|{
-name|WordBreakFormat
+name|WordBreak_Extend
 block|,
 literal|"Extend"
 block|}
 block|,
 block|{
-name|WordBreakFormat
+name|WordBreak_Extend
 block|,
 literal|"Format"
 block|}
 block|,
 block|{
-name|WordBreakKatakana
+name|WordBreak_Katakana
 block|,
 literal|"Katakana"
 block|}
 block|,
 block|{
-name|WordBreakALetter
+name|WordBreak_ALetter
 block|,
 literal|"ALetter"
 block|}
 block|,
 block|{
-name|WordBreakMidNumLet
+name|WordBreak_MidNumLet
 block|,
 literal|"MidNumLet"
 block|}
 block|,
 block|{
-name|WordBreakMidLetter
+name|WordBreak_MidLetter
 block|,
 literal|"MidLetter"
 block|}
 block|,
 block|{
-name|WordBreakMidNum
+name|WordBreak_MidNum
 block|,
 literal|"MidNum"
 block|}
 block|,
 block|{
-name|WordBreakNumeric
+name|WordBreak_Numeric
 block|,
 literal|"Numeric"
 block|}
 block|,
 block|{
-name|WordBreakExtendNumLet
+name|WordBreak_ExtendNumLet
 block|,
 literal|"ExtendNumLet"
 block|}
@@ -1600,77 +1600,77 @@ block|}
 block|}
 end_function
 begin_decl_stmt
-DECL|variable|sentence_break_string
+DECL|variable|sentence_break_class_string
 specifier|static
 specifier|const
 name|char
 modifier|*
-name|sentence_break_string
+name|sentence_break_class_string
 init|=
-literal|"enum SentenceBreak {\n"
-literal|"    SentenceBreakOther,\n"
-literal|"    SentenceBreakCR,\n"
-literal|"    SentenceBreakLF,\n"
-literal|"    SentenceBreakSep,\n"
-literal|"    SentenceBreakFormat,\n"
-literal|"    SentenceBreakSp,\n"
-literal|"    SentenceBreakLower,\n"
-literal|"    SentenceBreakUpper,\n"
-literal|"    SentenceBreakOLetter,\n"
-literal|"    SentenceBreakNumeric,\n"
-literal|"    SentenceBreakATerm,\n"
-literal|"    SentenceBreakSContinue,\n"
-literal|"    SentenceBreakSTerm,\n"
-literal|"    SentenceBreakClose\n"
+literal|"enum SentenceBreakClass {\n"
+literal|"    SentenceBreak_Other,\n"
+literal|"    SentenceBreak_CR,\n"
+literal|"    SentenceBreak_LF,\n"
+literal|"    SentenceBreak_Sep,\n"
+literal|"    SentenceBreak_Extend,\n"
+literal|"    SentenceBreak_Sp,\n"
+literal|"    SentenceBreak_Lower,\n"
+literal|"    SentenceBreak_Upper,\n"
+literal|"    SentenceBreak_OLetter,\n"
+literal|"    SentenceBreak_Numeric,\n"
+literal|"    SentenceBreak_ATerm,\n"
+literal|"    SentenceBreak_SContinue,\n"
+literal|"    SentenceBreak_STerm,\n"
+literal|"    SentenceBreak_Close\n"
 literal|"};\n\n"
 decl_stmt|;
 end_decl_stmt
 begin_enum
-DECL|enum|SentenceBreak
+DECL|enum|SentenceBreakClass
 enum|enum
-name|SentenceBreak
+name|SentenceBreakClass
 block|{
-DECL|enumerator|SentenceBreakOther
-name|SentenceBreakOther
+DECL|enumerator|SentenceBreak_Other
+name|SentenceBreak_Other
 block|,
-DECL|enumerator|SentenceBreakCR
-name|SentenceBreakCR
+DECL|enumerator|SentenceBreak_CR
+name|SentenceBreak_CR
 block|,
-DECL|enumerator|SentenceBreakLF
-name|SentenceBreakLF
+DECL|enumerator|SentenceBreak_LF
+name|SentenceBreak_LF
 block|,
-DECL|enumerator|SentenceBreakSep
-name|SentenceBreakSep
+DECL|enumerator|SentenceBreak_Sep
+name|SentenceBreak_Sep
 block|,
-DECL|enumerator|SentenceBreakFormat
-name|SentenceBreakFormat
+DECL|enumerator|SentenceBreak_Extend
+name|SentenceBreak_Extend
 block|,
-DECL|enumerator|SentenceBreakSp
-name|SentenceBreakSp
+DECL|enumerator|SentenceBreak_Sp
+name|SentenceBreak_Sp
 block|,
-DECL|enumerator|SentenceBreakLower
-name|SentenceBreakLower
+DECL|enumerator|SentenceBreak_Lower
+name|SentenceBreak_Lower
 block|,
-DECL|enumerator|SentenceBreakUpper
-name|SentenceBreakUpper
+DECL|enumerator|SentenceBreak_Upper
+name|SentenceBreak_Upper
 block|,
-DECL|enumerator|SentenceBreakOLetter
-name|SentenceBreakOLetter
+DECL|enumerator|SentenceBreak_OLetter
+name|SentenceBreak_OLetter
 block|,
-DECL|enumerator|SentenceBreakNumeric
-name|SentenceBreakNumeric
+DECL|enumerator|SentenceBreak_Numeric
+name|SentenceBreak_Numeric
 block|,
-DECL|enumerator|SentenceBreakATerm
-name|SentenceBreakATerm
+DECL|enumerator|SentenceBreak_ATerm
+name|SentenceBreak_ATerm
 block|,
-DECL|enumerator|SentenceBreakSContinue
-name|SentenceBreakSContinue
+DECL|enumerator|SentenceBreak_SContinue
+name|SentenceBreak_SContinue
 block|,
-DECL|enumerator|SentenceBreakSTerm
-name|SentenceBreakSTerm
+DECL|enumerator|SentenceBreak_STerm
+name|SentenceBreak_STerm
 block|,
-DECL|enumerator|SentenceBreakClose
-name|SentenceBreakClose
+DECL|enumerator|SentenceBreak_Close
+name|SentenceBreak_Close
 block|,
 DECL|enumerator|SentenceBreak_Unassigned
 name|SentenceBreak_Unassigned
@@ -1684,7 +1684,7 @@ name|QHash
 argument_list|<
 name|QByteArray
 argument_list|,
-name|SentenceBreak
+name|SentenceBreakClass
 argument_list|>
 name|sentence_break_map
 decl_stmt|;
@@ -1699,7 +1699,7 @@ block|{
 struct|struct
 name|SentenceBreakList
 block|{
-name|SentenceBreak
+name|SentenceBreakClass
 name|brk
 decl_stmt|;
 specifier|const
@@ -1713,91 +1713,91 @@ index|[]
 init|=
 block|{
 block|{
-name|SentenceBreakOther
+name|SentenceBreak_Other
 block|,
 literal|"Other"
 block|}
 block|,
 block|{
-name|SentenceBreakCR
+name|SentenceBreak_CR
 block|,
 literal|"CR"
 block|}
 block|,
 block|{
-name|SentenceBreakLF
+name|SentenceBreak_LF
 block|,
 literal|"LF"
 block|}
 block|,
 block|{
-name|SentenceBreakSep
+name|SentenceBreak_Sep
 block|,
 literal|"Sep"
 block|}
 block|,
 block|{
-name|SentenceBreakFormat
+name|SentenceBreak_Extend
 block|,
 literal|"Extend"
 block|}
 block|,
 block|{
-name|SentenceBreakFormat
+name|SentenceBreak_Extend
 block|,
 literal|"Format"
 block|}
 block|,
 block|{
-name|SentenceBreakSp
+name|SentenceBreak_Sp
 block|,
 literal|"Sp"
 block|}
 block|,
 block|{
-name|SentenceBreakLower
+name|SentenceBreak_Lower
 block|,
 literal|"Lower"
 block|}
 block|,
 block|{
-name|SentenceBreakUpper
+name|SentenceBreak_Upper
 block|,
 literal|"Upper"
 block|}
 block|,
 block|{
-name|SentenceBreakOLetter
+name|SentenceBreak_OLetter
 block|,
 literal|"OLetter"
 block|}
 block|,
 block|{
-name|SentenceBreakNumeric
+name|SentenceBreak_Numeric
 block|,
 literal|"Numeric"
 block|}
 block|,
 block|{
-name|SentenceBreakATerm
+name|SentenceBreak_ATerm
 block|,
 literal|"ATerm"
 block|}
 block|,
 block|{
-name|SentenceBreakSContinue
+name|SentenceBreak_SContinue
 block|,
 literal|"SContinue"
 block|}
 block|,
 block|{
-name|SentenceBreakSTerm
+name|SentenceBreak_STerm
 block|,
 literal|"STerm"
 block|}
 block|,
 block|{
-name|SentenceBreakClose
+name|SentenceBreak_Close
 block|,
 literal|"Close"
 block|}
@@ -2316,10 +2316,10 @@ literal|"    ushort upperCaseSpecial    : 1;\n"
 literal|"    ushort titleCaseSpecial    : 1;\n"
 literal|"    ushort caseFoldSpecial     : 1;\n"
 literal|"    ushort unicodeVersion      : 4;\n"
-literal|"    ushort graphemeBreak       : 8; /* 4 used */\n"
-literal|"    ushort wordBreak           : 8; /* 4 used */\n"
-literal|"    ushort sentenceBreak       : 8; /* 4 used */\n"
-literal|"    ushort line_break_class    : 8; /* 6 used */\n"
+literal|"    ushort graphemeBreakClass  : 8; /* 4 used */\n"
+literal|"    ushort wordBreakClass      : 8; /* 4 used */\n"
+literal|"    ushort sentenceBreakClass  : 8; /* 4 used */\n"
+literal|"    ushort lineBreakClass      : 8; /* 6 used */\n"
 literal|"    ushort script              : 8; /* 5 used */\n"
 literal|"};\n\n"
 literal|"Q_CORE_EXPORT const Properties * QT_FASTCALL properties(uint ucs4);\n"
@@ -2335,16 +2335,16 @@ name|char
 modifier|*
 name|methods
 init|=
-literal|"Q_CORE_EXPORT GraphemeBreak QT_FASTCALL graphemeBreakClass(uint ucs4);\n"
-literal|"inline GraphemeBreak graphemeBreakClass(QChar ch)\n"
+literal|"Q_CORE_EXPORT GraphemeBreakClass QT_FASTCALL graphemeBreakClass(uint ucs4);\n"
+literal|"inline GraphemeBreakClass graphemeBreakClass(QChar ch)\n"
 literal|"{ return graphemeBreakClass(ch.unicode()); }\n"
 literal|"\n"
-literal|"Q_CORE_EXPORT WordBreak QT_FASTCALL wordBreakClass(uint ucs4);\n"
-literal|"inline WordBreak wordBreakClass(QChar ch)\n"
+literal|"Q_CORE_EXPORT WordBreakClass QT_FASTCALL wordBreakClass(uint ucs4);\n"
+literal|"inline WordBreakClass wordBreakClass(QChar ch)\n"
 literal|"{ return wordBreakClass(ch.unicode()); }\n"
 literal|"\n"
-literal|"Q_CORE_EXPORT SentenceBreak QT_FASTCALL sentenceBreakClass(uint ucs4);\n"
-literal|"inline SentenceBreak sentenceBreakClass(QChar ch)\n"
+literal|"Q_CORE_EXPORT SentenceBreakClass QT_FASTCALL sentenceBreakClass(uint ucs4);\n"
+literal|"inline SentenceBreakClass sentenceBreakClass(QChar ch)\n"
 literal|"{ return sentenceBreakClass(ch.unicode()); }\n"
 literal|"\n"
 literal|"Q_CORE_EXPORT LineBreakClass QT_FASTCALL lineBreakClass(uint ucs4);\n"
@@ -2475,29 +2475,29 @@ name|o
 operator|.
 name|caseFoldSpecial
 operator|&&
-name|graphemeBreak
+name|graphemeBreakClass
 operator|==
 name|o
 operator|.
-name|graphemeBreak
+name|graphemeBreakClass
 operator|&&
-name|wordBreak
+name|wordBreakClass
 operator|==
 name|o
 operator|.
-name|wordBreak
+name|wordBreakClass
 operator|&&
-name|sentenceBreak
+name|sentenceBreakClass
 operator|==
 name|o
 operator|.
-name|sentenceBreak
+name|sentenceBreakClass
 operator|&&
-name|line_break_class
+name|lineBreakClass
 operator|==
 name|o
 operator|.
-name|line_break_class
+name|lineBreakClass
 operator|&&
 name|script
 operator|==
@@ -2590,21 +2590,21 @@ DECL|member|caseFoldSpecial
 name|bool
 name|caseFoldSpecial
 decl_stmt|;
-DECL|member|graphemeBreak
-name|GraphemeBreak
-name|graphemeBreak
+DECL|member|graphemeBreakClass
+name|GraphemeBreakClass
+name|graphemeBreakClass
 decl_stmt|;
-DECL|member|wordBreak
-name|WordBreak
-name|wordBreak
+DECL|member|wordBreakClass
+name|WordBreakClass
+name|wordBreakClass
 decl_stmt|;
-DECL|member|sentenceBreak
-name|SentenceBreak
-name|sentenceBreak
+DECL|member|sentenceBreakClass
+name|SentenceBreakClass
+name|sentenceBreakClass
 decl_stmt|;
-DECL|member|line_break_class
+DECL|member|lineBreakClass
 name|LineBreakClass
-name|line_break_class
+name|lineBreakClass
 decl_stmt|;
 DECL|member|script
 name|int
@@ -3028,7 +3028,7 @@ expr_stmt|;
 block|}
 name|p
 operator|.
-name|line_break_class
+name|lineBreakClass
 operator|=
 name|LineBreak_AL
 expr_stmt|;
@@ -3131,7 +3131,7 @@ condition|)
 block|{
 name|p
 operator|.
-name|line_break_class
+name|lineBreakClass
 operator|=
 name|LineBreak_ID
 expr_stmt|;
@@ -3225,21 +3225,21 @@ literal|0
 expr_stmt|;
 name|p
 operator|.
-name|graphemeBreak
+name|graphemeBreakClass
 operator|=
-name|GraphemeBreakOther
+name|GraphemeBreak_Other
 expr_stmt|;
 name|p
 operator|.
-name|wordBreak
+name|wordBreakClass
 operator|=
-name|WordBreakOther
+name|WordBreak_Other
 expr_stmt|;
 name|p
 operator|.
-name|sentenceBreak
+name|sentenceBreakClass
 operator|=
-name|SentenceBreakOther
+name|SentenceBreak_Other
 expr_stmt|;
 name|p
 operator|.
@@ -6786,7 +6786,7 @@ name|d
 operator|.
 name|p
 operator|.
-name|line_break_class
+name|lineBreakClass
 operator|=
 name|lb
 expr_stmt|;
@@ -8117,7 +8117,7 @@ name|ok
 argument_list|)
 expr_stmt|;
 block|}
-name|GraphemeBreak
+name|GraphemeBreakClass
 name|brk
 init|=
 name|grapheme_break_map
@@ -8181,7 +8181,7 @@ name|ud
 operator|.
 name|p
 operator|.
-name|graphemeBreak
+name|graphemeBreakClass
 operator|=
 name|brk
 expr_stmt|;
@@ -8427,7 +8427,7 @@ name|ok
 argument_list|)
 expr_stmt|;
 block|}
-name|WordBreak
+name|WordBreakClass
 name|brk
 init|=
 name|word_break_map
@@ -8491,7 +8491,7 @@ name|ud
 operator|.
 name|p
 operator|.
-name|wordBreak
+name|wordBreakClass
 operator|=
 name|brk
 expr_stmt|;
@@ -8737,7 +8737,7 @@ name|ok
 argument_list|)
 expr_stmt|;
 block|}
-name|SentenceBreak
+name|SentenceBreakClass
 name|brk
 init|=
 name|sentence_break_map
@@ -8801,7 +8801,7 @@ name|ud
 operator|.
 name|p
 operator|.
-name|sentenceBreak
+name|sentenceBreakClass
 operator|=
 name|brk
 expr_stmt|;
@@ -11009,10 +11009,10 @@ name|out
 operator|+=
 literal|", "
 expr_stmt|;
-comment|//     "        ushort graphemeBreak       : 8; /* 4 used */\n"
-comment|//     "        ushort wordBreak           : 8; /* 4 used */\n"
-comment|//     "        ushort sentenceBreak       : 8; /* 4 used */\n"
-comment|//     "        ushort line_break_class    : 8; /* 6 used */\n"
+comment|//     "        ushort graphemeBreakClass  : 8; /* 4 used */\n"
+comment|//     "        ushort wordBreakClass      : 8; /* 4 used */\n"
+comment|//     "        ushort sentenceBreakClass  : 8; /* 4 used */\n"
+comment|//     "        ushort lineBreakClass      : 8; /* 6 used */\n"
 name|out
 operator|+=
 name|QByteArray
@@ -11021,7 +11021,7 @@ name|number
 argument_list|(
 name|p
 operator|.
-name|graphemeBreak
+name|graphemeBreakClass
 argument_list|)
 expr_stmt|;
 name|out
@@ -11036,7 +11036,7 @@ name|number
 argument_list|(
 name|p
 operator|.
-name|wordBreak
+name|wordBreakClass
 argument_list|)
 expr_stmt|;
 name|out
@@ -11051,7 +11051,7 @@ name|number
 argument_list|(
 name|p
 operator|.
-name|sentenceBreak
+name|sentenceBreakClass
 argument_list|)
 expr_stmt|;
 name|out
@@ -11066,7 +11066,7 @@ name|number
 argument_list|(
 name|p
 operator|.
-name|line_break_class
+name|lineBreakClass
 argument_list|)
 expr_stmt|;
 name|out
@@ -11127,24 +11127,24 @@ literal|"}\n\n"
 expr_stmt|;
 name|out
 operator|+=
-literal|"Q_CORE_EXPORT GraphemeBreak QT_FASTCALL graphemeBreakClass(uint ucs4)\n"
+literal|"Q_CORE_EXPORT GraphemeBreakClass QT_FASTCALL graphemeBreakClass(uint ucs4)\n"
 literal|"{\n"
-literal|"    return (GraphemeBreak)qGetProp(ucs4)->graphemeBreak;\n"
+literal|"    return (GraphemeBreakClass)qGetProp(ucs4)->graphemeBreakClass;\n"
 literal|"}\n"
 literal|"\n"
-literal|"Q_CORE_EXPORT WordBreak QT_FASTCALL wordBreakClass(uint ucs4)\n"
+literal|"Q_CORE_EXPORT WordBreakClass QT_FASTCALL wordBreakClass(uint ucs4)\n"
 literal|"{\n"
-literal|"    return (WordBreak)qGetProp(ucs4)->wordBreak;\n"
+literal|"    return (WordBreakClass)qGetProp(ucs4)->wordBreakClass;\n"
 literal|"}\n"
 literal|"\n"
-literal|"Q_CORE_EXPORT SentenceBreak QT_FASTCALL sentenceBreakClass(uint ucs4)\n"
+literal|"Q_CORE_EXPORT SentenceBreakClass QT_FASTCALL sentenceBreakClass(uint ucs4)\n"
 literal|"{\n"
-literal|"    return (SentenceBreak)qGetProp(ucs4)->sentenceBreak;\n"
+literal|"    return (SentenceBreakClass)qGetProp(ucs4)->sentenceBreakClass;\n"
 literal|"}\n"
 literal|"\n"
 literal|"Q_CORE_EXPORT LineBreakClass QT_FASTCALL lineBreakClass(uint ucs4)\n"
 literal|"{\n"
-literal|"    return (LineBreakClass)qGetProp(ucs4)->line_break_class;\n"
+literal|"    return (LineBreakClass)qGetProp(ucs4)->lineBreakClass;\n"
 literal|"}\n"
 literal|"\n"
 literal|"Q_CORE_EXPORT Script QT_FASTCALL script(uint ucs4)\n"
@@ -14706,21 +14706,21 @@ name|f
 operator|.
 name|write
 argument_list|(
-name|grapheme_break_string
+name|grapheme_break_class_string
 argument_list|)
 expr_stmt|;
 name|f
 operator|.
 name|write
 argument_list|(
-name|word_break_string
+name|word_break_class_string
 argument_list|)
 expr_stmt|;
 name|f
 operator|.
 name|write
 argument_list|(
-name|sentence_break_string
+name|sentence_break_class_string
 argument_list|)
 expr_stmt|;
 name|f
