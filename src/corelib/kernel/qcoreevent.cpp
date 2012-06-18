@@ -125,15 +125,6 @@ operator|.
 name|m_accept
 argument_list|)
 block|{
-if|if
-condition|(
-name|t
-operator|!=
-name|QEvent
-operator|::
-name|DeferredDelete
-condition|)
-block|{
 comment|// if QEventPrivate becomes available, make sure to implement a
 comment|// virtual QEventPrivate *clone() const; function so we can copy here
 name|Q_ASSERT_X
@@ -146,7 +137,6 @@ argument_list|,
 literal|"Impossible, this can't happen: QEventPrivate isn't defined anywhere"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 end_constructor
 begin_comment
@@ -167,15 +157,6 @@ modifier|&
 name|other
 parameter_list|)
 block|{
-if|if
-condition|(
-name|t
-operator|!=
-name|QEvent
-operator|::
-name|DeferredDelete
-condition|)
-block|{
 comment|// if QEventPrivate becomes available, make sure to implement a
 comment|// virtual QEventPrivate *clone() const; function so we can copy here
 name|Q_ASSERT_X
@@ -190,7 +171,6 @@ argument_list|,
 literal|"Impossible, this can't happen: QEventPrivate isn't defined anywhere"
 argument_list|)
 expr_stmt|;
-block|}
 name|t
 operator|=
 name|other
@@ -248,14 +228,6 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|t
-operator|!=
-name|QEvent
-operator|::
-name|DeferredDelete
-condition|)
 name|Q_ASSERT_X
 argument_list|(
 operator|!
