@@ -2959,11 +2959,21 @@ end_comment
 begin_comment
 comment|/*!     \fn bool QUuid::operator!=(const GUID&guid) const      Returns true if this UUID is not equal to the Windows GUID \a     guid; otherwise returns false. */
 end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
 name|QT_NO_DEBUG_STREAM
-end_ifndef
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_QUUID_STRING
+argument_list|)
+end_if
 begin_function
 DECL|function|operator <<
 name|QDebug
