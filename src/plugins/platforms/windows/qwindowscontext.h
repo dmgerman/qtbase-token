@@ -526,6 +526,14 @@ parameter_list|)
 function_decl|;
 name|QWindowsWindow
 modifier|*
+name|findClosestPlatformWindow
+argument_list|(
+name|HWND
+argument_list|)
+decl|const
+decl_stmt|;
+name|QWindowsWindow
+modifier|*
 name|findPlatformWindow
 argument_list|(
 name|HWND

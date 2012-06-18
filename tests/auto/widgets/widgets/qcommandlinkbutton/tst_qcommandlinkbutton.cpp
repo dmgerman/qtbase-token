@@ -1515,6 +1515,17 @@ operator|->
 name|setFocus
 argument_list|()
 expr_stmt|;
+comment|// QWidget::isActiveWindow() can report window active before application
+comment|// has handled the asynchronous activation event on platforms that have
+comment|// implemented QPlatformWindow::isActive(), so process events to sync up.
+name|QApplication
+operator|::
+name|instance
+argument_list|()
+operator|->
+name|processEvents
+argument_list|()
+expr_stmt|;
 for|for
 control|(
 name|int
