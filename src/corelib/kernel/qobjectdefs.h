@@ -328,7 +328,7 @@ name|QT_NO_QOBJECT_CHECK
 argument_list|)
 end_if
 begin_comment
-comment|/* tmake ignore Q_OBJECT */
+comment|/* qmake ignore Q_OBJECT */
 end_comment
 begin_define
 DECL|macro|Q_OBJECT_CHECK
@@ -344,7 +344,7 @@ begin_comment
 comment|/* This is a compile time check that ensures that any class cast with qobject_cast    actually contains a Q_OBJECT macro. Note: qobject_cast will fail if a QObject    subclass doesn't contain Q_OBJECT.     In qt_check_for_QOBJECT_macro, we call a dummy templated function with two    parameters, the first being "this" and the other the target of the qobject    cast. If the types are not identical, we know that a Q_OBJECT macro is missing.     If you get a compiler error here, make sure that the class you are casting    to contains a Q_OBJECT macro. */
 end_comment
 begin_comment
-comment|/* tmake ignore Q_OBJECT */
+comment|/* qmake ignore Q_OBJECT */
 end_comment
 begin_define
 DECL|macro|Q_OBJECT_CHECK
@@ -418,14 +418,14 @@ name|Q_DECL_HIDDEN_STATIC_METACALL
 value|Q_DECL_HIDDEN
 endif|#
 directive|endif
-comment|/* tmake ignore Q_OBJECT */
+comment|/* qmake ignore Q_OBJECT */
 DECL|macro|Q_OBJECT
 define|#
 directive|define
 name|Q_OBJECT
 define|\
 value|public: \     Q_OBJECT_CHECK \     static const QMetaObject staticMetaObject; \     virtual const QMetaObject *metaObject() const; \     virtual void *qt_metacast(const char *); \     QT_TR_FUNCTIONS \     virtual int qt_metacall(QMetaObject::Call, int, void **); \ private: \     Q_DECL_HIDDEN_STATIC_METACALL static void qt_static_metacall(QObject *, QMetaObject::Call, int, void **);
-comment|/* tmake ignore Q_OBJECT */
+comment|/* qmake ignore Q_OBJECT */
 DECL|macro|Q_OBJECT_FAKE
 define|#
 directive|define
@@ -434,7 +434,7 @@ value|Q_OBJECT
 ifndef|#
 directive|ifndef
 name|QT_NO_META_MACROS
-comment|/* tmake ignore Q_GADGET */
+comment|/* qmake ignore Q_GADGET */
 DECL|macro|Q_GADGET
 define|#
 directive|define
@@ -535,19 +535,19 @@ parameter_list|(
 name|x
 parameter_list|)
 value|Q_FLAGS(x)
-comment|/* tmake ignore Q_OBJECT */
+comment|/* qmake ignore Q_OBJECT */
 DECL|macro|Q_OBJECT
 define|#
 directive|define
 name|Q_OBJECT
 value|Q_OBJECT
-comment|/* tmake ignore Q_OBJECT */
+comment|/* qmake ignore Q_OBJECT */
 DECL|macro|Q_OBJECT_FAKE
 define|#
 directive|define
 name|Q_OBJECT_FAKE
 value|Q_OBJECT_FAKE
-comment|/* tmake ignore Q_GADGET */
+comment|/* qmake ignore Q_GADGET */
 DECL|macro|Q_GADGET
 define|#
 directive|define
