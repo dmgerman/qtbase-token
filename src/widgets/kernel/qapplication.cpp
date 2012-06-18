@@ -9704,6 +9704,25 @@ operator|::
 name|WA_DontShowOnScreen
 argument_list|)
 decl_stmt|;
+name|bool
+name|widgetUnderMouse
+init|=
+name|QRectF
+argument_list|(
+name|receiver
+operator|->
+name|rect
+argument_list|()
+argument_list|)
+operator|.
+name|contains
+argument_list|(
+name|event
+operator|->
+name|localPos
+argument_list|()
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 operator|*
@@ -9772,6 +9791,8 @@ elseif|else
 if|if
 condition|(
 name|lastMouseReceiver
+operator|&&
+name|widgetUnderMouse
 condition|)
 block|{
 comment|// Dispatch enter/leave if we move:
