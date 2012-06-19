@@ -5,18 +5,18 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QWINDOWSYSTEMINTERFACE_QPA_P_H
+name|QWINDOWSYSTEMINTERFACE_P_H
 end_ifndef
 begin_define
-DECL|macro|QWINDOWSYSTEMINTERFACE_QPA_P_H
+DECL|macro|QWINDOWSYSTEMINTERFACE_P_H
 define|#
 directive|define
-name|QWINDOWSYSTEMINTERFACE_QPA_P_H
+name|QWINDOWSYSTEMINTERFACE_P_H
 end_define
 begin_include
 include|#
 directive|include
-file|"qwindowsysteminterface_qpa.h"
+file|"qwindowsysteminterface.h"
 end_include
 begin_include
 include|#
@@ -1576,6 +1576,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QWINDOWSYSTEMINTERFACE_QPA_P_H
+comment|// QWINDOWSYSTEMINTERFACE_P_H
 end_comment
 end_unit

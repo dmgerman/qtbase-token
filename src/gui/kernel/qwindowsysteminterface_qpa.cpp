@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qwindowsysteminterface_qpa.h"
+file|"qwindowsysteminterface.h"
 end_include
 begin_include
 include|#
@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qwindowsysteminterface_qpa_p.h"
+file|"qwindowsysteminterface_p.h"
 end_include
 begin_include
 include|#
