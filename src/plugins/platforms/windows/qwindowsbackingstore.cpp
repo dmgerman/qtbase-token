@@ -187,6 +187,9 @@ argument_list|(
 name|window
 argument_list|)
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
 if|if
 condition|(
 name|rw
@@ -438,6 +441,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
+endif|#
+directive|endif
 specifier|const
 name|HDC
 name|dc
@@ -529,7 +534,12 @@ operator|->
 name|releaseDC
 argument_list|()
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
 block|}
+endif|#
+directive|endif
 comment|// Write image for debug purposes.
 if|if
 condition|(
