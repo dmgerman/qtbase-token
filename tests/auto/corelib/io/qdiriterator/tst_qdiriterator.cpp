@@ -2992,9 +2992,9 @@ comment|// For that reason this test is not run in Windows.
 if|#
 directive|if
 name|defined
+argument_list|(
 name|Q_OS_WIN
-operator|||
-name|Q_OS_WINCE
+argument_list|)
 name|QSKIP
 argument_list|(
 literal|"To create hidden files a special call is required in Windows."
