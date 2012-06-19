@@ -79,12 +79,6 @@ name|bool
 name|writeProjectMakefile
 argument_list|()
 block|;
-name|QString
-name|findTemplate
-argument_list|(
-argument|QString file
-argument_list|)
-block|;
 name|void
 name|init
 argument_list|()

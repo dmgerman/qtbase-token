@@ -42,7 +42,7 @@ else|#
 directive|else
 ifdef|#
 directive|ifdef
-name|QTESTLIB_MAKEDLL
+name|QT_BUILD_TESTLIB_LIB
 define|#
 directive|define
 name|Q_TESTLIB_EXPORT

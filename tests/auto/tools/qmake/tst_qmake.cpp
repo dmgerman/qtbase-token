@@ -1282,6 +1282,13 @@ name|base_path
 operator|+
 literal|"/testdata/functions"
 decl_stmt|;
+name|QString
+name|buildDir
+init|=
+name|base_path
+operator|+
+literal|"/testdata/functions_build"
+decl_stmt|;
 name|QVERIFY
 argument_list|(
 name|test_compiler
@@ -1291,6 +1298,8 @@ argument_list|(
 name|workDir
 argument_list|,
 literal|"functions"
+argument_list|,
+name|buildDir
 argument_list|)
 argument_list|)
 expr_stmt|;
