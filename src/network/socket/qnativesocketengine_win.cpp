@@ -1507,6 +1507,16 @@ parameter_list|)
 block|{
 comment|//### no ip6 support on winsocket 1.1 but we will try not to use this !!!!!!!!!!!!1
 comment|/*     if (winsockVersion< 0x20&& socketProtocol == QAbstractSocket::IPv6Protocol) {         //### no ip6 support         return -1;     }     */
+name|QSysInfo
+operator|::
+name|WinVersion
+name|osver
+init|=
+name|QSysInfo
+operator|::
+name|windowsVersion
+argument_list|()
+decl_stmt|;
 comment|//Windows XP and 2003 support IPv6 but not dual stack sockets
 name|int
 name|protocol
@@ -1525,10 +1535,7 @@ name|QAbstractSocket
 operator|::
 name|AnyIPProtocol
 operator|&&
-name|QSysInfo
-operator|::
-name|windowsVersion
-argument_list|()
+name|osver
 operator|>=
 name|QSysInfo
 operator|::
@@ -1559,7 +1566,6 @@ comment|// MSDN KB179942 states that on winnt 4 WSA_FLAG_OVERLAPPED is needed if
 comment|// and recomends alwasy doing it for cross windows version comapablity.
 comment|// WSA_FLAG_NO_HANDLE_INHERIT is atomic (like linux O_CLOEXEC), but requires windows 7 SP 1 or later
 comment|// SetHandleInformation is supported since W2K but isn't atomic
-comment|// According to the MS docs, we can use the new flag and call GetHandleInformation to see if it was successful
 ifndef|#
 directive|ifndef
 name|WSA_FLAG_NO_HANDLE_INHERIT
@@ -1573,6 +1579,19 @@ directive|endif
 name|SOCKET
 name|socket
 init|=
+name|INVALID_SOCKET
+decl_stmt|;
+comment|// Windows 7 or later, try the new API
+if|if
+condition|(
+name|osver
+operator|>=
+name|QSysInfo
+operator|::
+name|WV_6_1
+condition|)
+name|socket
+operator|=
 operator|::
 name|WSASocket
 argument_list|(
@@ -1590,7 +1609,82 @@ name|WSA_FLAG_NO_HANDLE_INHERIT
 operator||
 name|WSA_FLAG_OVERLAPPED
 argument_list|)
+expr_stmt|;
+comment|// previous call fails if the windows 7 service pack 1 or hot fix isn't installed.
+comment|// Try the old API if the new one failed on Windows 7, or always on earlier versions
+if|if
+condition|(
+name|socket
+operator|==
+name|INVALID_SOCKET
+operator|&&
+name|osver
+operator|<=
+name|QSysInfo
+operator|::
+name|WV_6_1
+condition|)
+block|{
+name|socket
+operator|=
+operator|::
+name|WSASocket
+argument_list|(
+name|protocol
+argument_list|,
+name|type
+argument_list|,
+literal|0
+argument_list|,
+name|NULL
+argument_list|,
+literal|0
+argument_list|,
+name|WSA_FLAG_OVERLAPPED
+argument_list|)
+expr_stmt|;
+ifdef|#
+directive|ifdef
+name|HANDLE_FLAG_INHERIT
+if|if
+condition|(
+name|socket
+operator|!=
+name|INVALID_SOCKET
+condition|)
+block|{
+comment|// make non inheritable the old way
+name|BOOL
+name|handleFlags
+init|=
+name|SetHandleInformation
+argument_list|(
+operator|(
+name|HANDLE
+operator|)
+name|socket
+argument_list|,
+name|HANDLE_FLAG_INHERIT
+argument_list|,
+literal|0
+argument_list|)
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|QNATIVESOCKETENGINE_DEBUG
+name|qDebug
+argument_list|()
+operator|<<
+literal|"QNativeSocketEnginePrivate::createNewSocket - set inheritable"
+operator|<<
+name|handleFlags
+expr_stmt|;
+endif|#
+directive|endif
+block|}
+endif|#
+directive|endif
+block|}
 if|if
 condition|(
 name|socket
@@ -1664,69 +1758,6 @@ return|return
 literal|false
 return|;
 block|}
-ifdef|#
-directive|ifdef
-name|HANDLE_FLAG_INHERIT
-comment|// check if the WSASocket was successful or not at creating a non inheritable socket
-name|DWORD
-name|handleFlags
-init|=
-literal|0xFF
-decl_stmt|;
-if|if
-condition|(
-name|GetHandleInformation
-argument_list|(
-operator|(
-name|HANDLE
-operator|)
-name|socket
-argument_list|,
-operator|&
-name|handleFlags
-argument_list|)
-operator|&&
-operator|(
-name|handleFlags
-operator|&
-name|HANDLE_FLAG_INHERIT
-operator|)
-condition|)
-block|{
-comment|// make non inheritable the old way
-if|if
-condition|(
-name|SetHandleInformation
-argument_list|(
-operator|(
-name|HANDLE
-operator|)
-name|socket
-argument_list|,
-name|HANDLE_FLAG_INHERIT
-argument_list|,
-literal|0
-argument_list|)
-condition|)
-name|handleFlags
-operator|=
-literal|0
-expr_stmt|;
-block|}
-ifdef|#
-directive|ifdef
-name|QNATIVESOCKETENGINE_DEBUG
-name|qDebug
-argument_list|()
-operator|<<
-literal|"QNativeSocketEnginePrivate::createNewSocket - set inheritable"
-operator|<<
-name|handleFlags
-expr_stmt|;
-endif|#
-directive|endif
-endif|#
-directive|endif
 if|#
 directive|if
 operator|!
