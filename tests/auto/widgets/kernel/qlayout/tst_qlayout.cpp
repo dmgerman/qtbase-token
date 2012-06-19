@@ -551,10 +551,9 @@ decl_stmt|;
 name|QFile
 name|f
 argument_list|(
-name|QLatin1String
+name|QFINDTESTDATA
 argument_list|(
-name|SRCDIR
-literal|"/baseline/smartmaxsize"
+literal|"baseline/smartmaxsize"
 argument_list|)
 argument_list|)
 decl_stmt|;
