@@ -5948,6 +5948,12 @@ name|defined
 argument_list|(
 name|__PIC__
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|__PIE__
+argument_list|)
 end_if
 begin_error
 error|#
