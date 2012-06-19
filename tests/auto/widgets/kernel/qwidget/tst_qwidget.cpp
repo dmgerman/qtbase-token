@@ -2297,12 +2297,18 @@ specifier|const
 name|HWND
 name|handle
 init|=
-name|winHandleOf
+cast|reinterpret_cast
+argument_list|<
+name|HWND
+argument_list|>
 argument_list|(
-operator|&
 name|obj1
+operator|.
+name|winId
+argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// explicitly create window handle
 name|QVERIFY
 argument_list|(
 name|GetWindowLong
