@@ -3930,7 +3930,7 @@ operator|*
 operator|)
 name|image
 operator|.
-name|scanLine
+name|constScanLine
 argument_list|(
 name|y
 argument_list|)
@@ -3967,6 +3967,7 @@ modifier|*
 name|end
 decl_stmt|;
 specifier|register
+specifier|const
 name|uchar
 modifier|*
 name|p
@@ -4012,7 +4013,7 @@ name|p
 operator|=
 name|image
 operator|.
-name|scanLine
+name|constScanLine
 argument_list|(
 name|y
 argument_list|)
@@ -4087,21 +4088,24 @@ block|}
 else|else
 block|{
 comment|// 32 bits
+specifier|const
 name|QRgb
 modifier|*
 name|p
 init|=
 operator|(
+specifier|const
 name|QRgb
 operator|*
 operator|)
 name|image
 operator|.
-name|scanLine
+name|constScanLine
 argument_list|(
 name|y
 argument_list|)
 decl_stmt|;
+specifier|const
 name|QRgb
 modifier|*
 name|end
