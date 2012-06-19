@@ -3428,7 +3428,14 @@ block|{
 operator|::
 name|memcpy
 argument_list|(
+name|static_cast
+operator|<
+name|void
+operator|*
+operator|>
+operator|(
 name|dst
+operator|)
 argument_list|,
 name|srcBegin
 argument_list|,
