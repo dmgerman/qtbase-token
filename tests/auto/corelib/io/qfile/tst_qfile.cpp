@@ -18948,8 +18948,7 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-operator|::
-name|close
+name|QT_CLOSE
 argument_list|(
 name|fd_
 argument_list|)
@@ -18988,7 +18987,7 @@ expr_stmt|;
 name|int
 name|fd
 init|=
-name|fileno
+name|QT_FILENO
 argument_list|(
 name|stream_
 argument_list|)
@@ -19088,7 +19087,7 @@ operator|.
 name|handle
 argument_list|()
 argument_list|,
-name|fileno
+name|QT_FILENO
 argument_list|(
 name|stream_
 argument_list|)
