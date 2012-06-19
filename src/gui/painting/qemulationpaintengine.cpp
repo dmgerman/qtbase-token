@@ -172,6 +172,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+operator|(
 name|style
 operator|>=
 name|Qt
@@ -183,6 +184,15 @@ operator|<=
 name|Qt
 operator|::
 name|DiagCrossPattern
+operator|)
+operator|||
+operator|(
+name|style
+operator|==
+name|Qt
+operator|::
+name|TexturePattern
+operator|)
 condition|)
 name|real_engine
 operator|->
