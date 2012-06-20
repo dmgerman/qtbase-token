@@ -870,24 +870,6 @@ argument_list|(
 literal|"-callgrindchild"
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-operator|(
-name|defined
-name|Q_WS_QWS
-operator|)
-comment|// While running the child process, we aren't processing events, and hence aren't
-comment|// acting as the QWS server. Therefore it's necessary to tell the child to act
-comment|// as its own server instead of connecting to us.
-name|args
-operator|<<
-name|QLatin1String
-argument_list|(
-literal|"-qws"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 comment|// pass on original arguments that make sense (e.g. avoid wasting time producing output
 comment|// that will be ignored anyway) ...
 for|for

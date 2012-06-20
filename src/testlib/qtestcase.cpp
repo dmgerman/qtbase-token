@@ -5188,11 +5188,6 @@ operator|&
 name|oldact
 argument_list|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|Q_WS_QWS
-comment|// Don't overwrite any non-default handlers
-comment|// however, we need to replace the default QWS handlers
 if|if
 condition|(
 ifdef|#
@@ -5228,8 +5223,6 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
-endif|#
-directive|endif
 block|{
 name|sigaddset
 argument_list|(
