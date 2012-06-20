@@ -39926,16 +39926,6 @@ name|fnt
 operator|=
 name|font
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_WS_X11
-argument_list|)
-comment|// make sure the font set on this widget is associated with the correct screen
-comment|//w->data->fnt.x11SetScreen(w->d_func()->xinfo.screen());
-endif|#
-directive|endif
 name|QEvent
 name|e
 argument_list|(
