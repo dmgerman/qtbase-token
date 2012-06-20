@@ -480,9 +480,13 @@ literal|1000
 operator|)
 operator|+
 operator|(
+operator|(
 name|tv
 operator|.
 name|tv_usec
+operator|+
+literal|999
+operator|)
 operator|/
 literal|1000
 operator|)
