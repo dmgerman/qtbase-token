@@ -445,9 +445,14 @@ expr_stmt|;
 break|break;
 block|}
 block|}
-name|Q_ASSERT
-argument_list|(
+if|if
+condition|(
+operator|!
 name|valSeen
+condition|)
+name|qFatal
+argument_list|(
+literal|"Failed to extract result"
 argument_list|)
 expr_stmt|;
 return|return
