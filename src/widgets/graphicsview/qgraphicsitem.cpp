@@ -16419,7 +16419,7 @@ do|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal      Sets the focusProxy pointer to 0 for all items that have this item as their     focusProxy. ### Qt 5: Use QPointer instead. */
+comment|/*!     \internal      Sets the focusProxy pointer to 0 for all items that have this item as their     focusProxy. */
 end_comment
 begin_function
 DECL|function|resetFocusProxy
