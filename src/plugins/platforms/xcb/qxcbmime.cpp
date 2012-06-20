@@ -53,11 +53,22 @@ end_undef
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
-begin_ifndef
-ifndef|#
-directive|ifndef
+begin_if
+if|#
+directive|if
+operator|!
+operator|(
+name|defined
+argument_list|(
 name|QT_NO_DRAGANDDROP
-end_ifndef
+argument_list|)
+operator|&&
+name|defined
+argument_list|(
+name|QT_NO_CLIPBOARD
+argument_list|)
+operator|)
+end_if
 begin_constructor
 DECL|function|QXcbMime
 name|QXcbMime
@@ -1288,7 +1299,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_DRAGANDDROP
+comment|// !(defined(QT_NO_DRAGANDDROP)&& defined(QT_NO_CLIPBOARD))
 end_comment
 begin_macro
 name|QT_END_NAMESPACE

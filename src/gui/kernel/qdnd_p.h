@@ -112,11 +112,22 @@ name|class
 name|QPlatformDrag
 decl_stmt|;
 end_decl_stmt
-begin_ifndef
-ifndef|#
-directive|ifndef
+begin_if
+if|#
+directive|if
+operator|!
+operator|(
+name|defined
+argument_list|(
 name|QT_NO_DRAGANDDROP
-end_ifndef
+argument_list|)
+operator|&&
+name|defined
+argument_list|(
+name|QT_NO_CLIPBOARD
+argument_list|)
+operator|)
+end_if
 begin_decl_stmt
 name|class
 name|Q_GUI_EXPORT
@@ -240,6 +251,18 @@ literal|0
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !(defined(QT_NO_DRAGANDDROP)&& defined(QT_NO_CLIPBOARD))
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_DRAGANDDROP
+end_ifndef
 begin_decl_stmt
 name|class
 name|QDragPrivate

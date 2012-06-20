@@ -35,9 +35,20 @@ file|"qxcbconnection.h"
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-ifndef|#
-directive|ifndef
+if|#
+directive|if
+operator|!
+operator|(
+name|defined
+argument_list|(
 name|QT_NO_DRAGANDDROP
+argument_list|)
+operator|&&
+name|defined
+argument_list|(
+name|QT_NO_CLIPBOARD
+argument_list|)
+operator|)
 name|class
 name|QXcbMime
 range|:
@@ -136,7 +147,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_DRAGANDDROP
+comment|// !(defined(QT_NO_DRAGANDDROP)&& defined(QT_NO_CLIPBOARD))
 end_comment
 begin_macro
 name|QT_END_NAMESPACE
