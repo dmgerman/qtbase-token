@@ -250,6 +250,19 @@ parameter_list|)
 block|{
 if|if
 condition|(
+operator|!
+name|m_screenEventHandler
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QQNX: trying to register for screen events, but no handler provided."
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+if|if
+condition|(
 name|screen_request_events
 argument_list|(
 name|screen
@@ -284,6 +297,19 @@ modifier|*
 name|screen
 parameter_list|)
 block|{
+if|if
+condition|(
+operator|!
+name|m_screenEventHandler
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QQNX: trying to unregister for screen events, but no handler provided."
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 if|if
 condition|(
 name|screen_stop_events
@@ -492,6 +518,21 @@ name|screen_get_domain
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|m_screenEventHandler
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QQNX: registered for screen events, but no handler provided."
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
 name|screen_event_t
 name|screenEvent
 init|=

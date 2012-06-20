@@ -501,13 +501,11 @@ expr_stmt|;
 endif|#
 directive|endif
 comment|// Create/start event thread
-comment|// Not on BlackBerry, it has specialised event dispatcher which also handles screen events
 if|#
 directive|if
-operator|!
 name|defined
 argument_list|(
-name|Q_OS_BLACKBERRY
+name|QQNX_SCREENEVENTTHREAD
 argument_list|)
 name|m_screenEventThread
 operator|=
@@ -622,7 +620,13 @@ name|QQnxBpsEventFilter
 argument_list|(
 name|m_navigatorEventHandler
 argument_list|,
+operator|(
+name|m_screenEventThread
+condition|?
+literal|0
+else|:
 name|m_screenEventHandler
+operator|)
 argument_list|,
 name|virtualKeyboardBps
 argument_list|)
@@ -651,6 +655,12 @@ argument_list|()
 expr_stmt|;
 if|#
 directive|if
+operator|!
+name|defined
+argument_list|(
+name|QQNX_SCREENEVENTTHREAD
+argument_list|)
+operator|&&
 name|defined
 argument_list|(
 name|Q_OS_BLACKBERRY
@@ -788,17 +798,20 @@ name|m_navigatorEventHandler
 expr_stmt|;
 if|#
 directive|if
-operator|!
 name|defined
 argument_list|(
-name|Q_OS_BLACKBERRY
+name|QQNX_SCREENEVENTTHREAD
 argument_list|)
 comment|// Stop/destroy screen event thread
 operator|delete
 name|m_screenEventThread
 expr_stmt|;
-else|#
-directive|else
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|Q_OS_BLACKBERRY
+argument_list|)
 name|Q_FOREACH
 argument_list|(
 argument|QQnxScreen *screen
@@ -812,6 +825,14 @@ argument_list|(
 name|screen
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_BLACKBERRY
+argument_list|)
 operator|delete
 name|m_bpsEventFilter
 expr_stmt|;
