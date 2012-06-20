@@ -5579,6 +5579,11 @@ name|y
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|xcb_flush
+argument_list|(
+name|conn
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_macro
