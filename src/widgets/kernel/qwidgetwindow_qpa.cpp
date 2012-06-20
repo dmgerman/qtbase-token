@@ -580,7 +580,9 @@ argument_list|(
 name|event
 argument_list|)
 expr_stmt|;
-break|break;
+return|return
+literal|true
+return|;
 endif|#
 directive|endif
 case|case
