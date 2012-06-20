@@ -179,15 +179,15 @@ block|;
 name|QImage
 name|customCursorImage
 block|;
+name|QPoint
+name|pos
+block|;
+comment|// current cursor position
 name|uint
 name|customCursorTexture
 block|;     }
 name|m_cursor
 block|;
-name|QPoint
-name|m_pos
-block|;
-comment|// current cursor position
 name|private
 operator|:
 name|void

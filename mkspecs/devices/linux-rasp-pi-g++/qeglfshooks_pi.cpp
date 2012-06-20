@@ -937,7 +937,9 @@ name|pos
 parameter_list|)
 name|Q_DECL_OVERRIDE
 block|{
-name|m_pos
+name|m_cursor
+operator|.
+name|pos
 operator|=
 name|pos
 expr_stmt|;
@@ -975,7 +977,9 @@ operator|::
 name|MouseMove
 condition|)
 return|return;
-name|m_pos
+name|m_cursor
+operator|.
+name|pos
 operator|=
 name|event
 operator|.
