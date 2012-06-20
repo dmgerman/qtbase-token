@@ -215,6 +215,7 @@ name|DropAction
 name|action
 argument_list|)
 decl_stmt|;
+name|virtual
 name|Qt
 operator|::
 name|DropAction
