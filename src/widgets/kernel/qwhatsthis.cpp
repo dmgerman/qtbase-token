@@ -1042,11 +1042,6 @@ name|defined
 argument_list|(
 name|Q_WS_MAC
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_WS_QWS
-argument_list|)
 name|drawShadow
 operator|=
 literal|false

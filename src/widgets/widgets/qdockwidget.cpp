@@ -747,11 +747,6 @@ argument_list|)
 operator|||
 name|defined
 argument_list|(
-name|Q_WS_QWS
-argument_list|)
-operator|||
-name|defined
-argument_list|(
 name|Q_OS_WINCE
 argument_list|)
 name|Q_UNUSED

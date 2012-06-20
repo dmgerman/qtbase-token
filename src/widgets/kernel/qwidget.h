@@ -381,24 +381,6 @@ decl_stmt|;
 name|QFont
 name|fnt
 decl_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_WS_QWS
-argument_list|)
-comment|//    QRegion req_region;                 // Requested region
-comment|//     mutable QRegion paintable_region;   // Paintable region
-comment|//     mutable bool paintable_region_dirty;// needs to be recalculated
-comment|//     mutable QRegion alloc_region;       // Allocated region
-comment|//     mutable bool alloc_region_dirty;    // needs to be recalculated
-comment|//     mutable int overlapping_children;   // Handle overlapping children
-name|int
-name|alloc_region_index
-decl_stmt|;
-comment|//    int alloc_region_revision;
-endif|#
-directive|endif
 name|QRect
 name|wrect
 decl_stmt|;
@@ -2274,13 +2256,6 @@ name|bool
 name|enable
 parameter_list|)
 function_decl|;
-if|#
-directive|if
-literal|0
-comment|//def Q_WS_QWS
-block|void repaintUnclipped(const QRegion&, bool erase = true);
-endif|#
-directive|endif
 ifndef|#
 directive|ifndef
 name|QT_NO_GRAPHICSVIEW

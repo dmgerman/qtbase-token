@@ -21693,17 +21693,10 @@ argument_list|(
 name|QT_NO_IM
 argument_list|)
 operator|&&
-operator|(
 name|defined
 argument_list|(
 name|Q_WS_X11
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_WS_QWS
-argument_list|)
-operator|)
 if|if
 condition|(
 name|QWidget
