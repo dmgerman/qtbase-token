@@ -843,7 +843,12 @@ argument|const double namedArray[
 literal|3
 argument|]
 argument_list|)
-block|{}
+block|{
+name|Q_UNUSED
+argument_list|(
+name|namedArray
+argument_list|)
+block|; }
 DECL|function|slotWithMultiArray
 name|void
 name|slotWithMultiArray
@@ -8094,6 +8099,11 @@ name|int
 name|index
 parameter_list|)
 block|{
+name|Q_UNUSED
+argument_list|(
+name|index
+argument_list|)
+expr_stmt|;
 return|return
 name|QString
 operator|::
@@ -8112,6 +8122,11 @@ name|int
 name|index
 parameter_list|)
 block|{
+name|Q_UNUSED
+argument_list|(
+name|index
+argument_list|)
+expr_stmt|;
 return|return
 name|QString
 operator|::
