@@ -90,6 +90,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qstyleoption.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qstylefactory.h"
 end_include
 begin_include
