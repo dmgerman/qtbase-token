@@ -306,10 +306,6 @@ modifier|*
 name|argv
 parameter_list|)
 block|{
-name|useUnixSeparators
-operator|=
-literal|false
-expr_stmt|;
 comment|// Default values for indentation
 name|optionIndent
 operator|=
@@ -678,17 +674,20 @@ name|endl
 operator|<<
 literal|"call "
 operator|<<
-name|fixSeparators
+name|QDir
+operator|::
+name|toNativeSeparators
 argument_list|(
 name|sourcePath
+operator|+
+literal|"/bin/syncqt.bat"
 argument_list|)
 operator|<<
-name|fixSeparators
-argument_list|(
-literal|"/bin/syncqt.bat -qtdir \""
-argument_list|)
+literal|" -qtdir \""
 operator|<<
-name|fixSeparators
+name|QDir
+operator|::
+name|toNativeSeparators
 argument_list|(
 name|buildPath
 argument_list|)
@@ -826,30 +825,21 @@ index|[
 literal|"QT_SOURCE_TREE"
 index|]
 operator|=
-name|fixSeparators
-argument_list|(
 name|sourcePath
-argument_list|)
 expr_stmt|;
 name|dictionary
 index|[
 literal|"QT_BUILD_TREE"
 index|]
 operator|=
-name|fixSeparators
-argument_list|(
 name|buildPath
-argument_list|)
 expr_stmt|;
 name|dictionary
 index|[
 literal|"QT_INSTALL_PREFIX"
 index|]
 operator|=
-name|fixSeparators
-argument_list|(
 name|installPath
-argument_list|)
 expr_stmt|;
 name|dictionary
 index|[
@@ -1750,90 +1740,119 @@ block|}
 block|}
 end_destructor
 begin_function
-DECL|function|fixSeparators
+DECL|function|formatPath
 name|QString
 name|Configure
 operator|::
-name|fixSeparators
+name|formatPath
 parameter_list|(
 specifier|const
 name|QString
 modifier|&
-name|somePath
-parameter_list|,
-name|bool
-name|escape
+name|path
 parameter_list|)
 block|{
-if|if
-condition|(
-name|useUnixSeparators
-condition|)
-return|return
-name|QDir
-operator|::
-name|fromNativeSeparators
-argument_list|(
-name|somePath
-argument_list|)
-return|;
 name|QString
 name|ret
 init|=
 name|QDir
 operator|::
-name|toNativeSeparators
+name|cleanPath
 argument_list|(
-name|somePath
+name|path
 argument_list|)
 decl_stmt|;
-return|return
-name|escape
-condition|?
-name|escapeSeparators
-argument_list|(
+comment|// This amount of quoting is deemed sufficient. â¢
+if|if
+condition|(
 name|ret
+operator|.
+name|contains
+argument_list|(
+name|QLatin1Char
+argument_list|(
+literal|' '
 argument_list|)
-else|:
+argument_list|)
+condition|)
+block|{
+name|ret
+operator|.
+name|prepend
+argument_list|(
+name|QLatin1Char
+argument_list|(
+literal|'"'
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|ret
+operator|.
+name|append
+argument_list|(
+name|QLatin1Char
+argument_list|(
+literal|'"'
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+return|return
 name|ret
 return|;
 block|}
 end_function
 begin_function
-DECL|function|escapeSeparators
+DECL|function|formatPaths
 name|QString
 name|Configure
 operator|::
-name|escapeSeparators
+name|formatPaths
 parameter_list|(
 specifier|const
-name|QString
+name|QStringList
 modifier|&
-name|somePath
+name|paths
 parameter_list|)
 block|{
 name|QString
-name|out
-init|=
-name|somePath
+name|ret
 decl_stmt|;
-name|out
+foreach|foreach
+control|(
+specifier|const
+name|QString
+modifier|&
+name|path
+decl|,
+name|paths
+control|)
+block|{
+if|if
+condition|(
+operator|!
+name|ret
 operator|.
-name|replace
-argument_list|(
+name|isEmpty
+argument_list|()
+condition|)
+name|ret
+operator|+=
 name|QLatin1Char
 argument_list|(
-literal|'\\'
-argument_list|)
-argument_list|,
-name|QLatin1String
-argument_list|(
-literal|"\\\\"
-argument_list|)
+literal|' '
 argument_list|)
 expr_stmt|;
+name|ret
+operator|+=
+name|formatPath
+argument_list|(
+name|path
+argument_list|)
+expr_stmt|;
+block|}
 return|return
-name|out
+name|ret
 return|;
 block|}
 end_function
@@ -7199,8 +7218,6 @@ comment|// Ensure that QMAKESPEC exists in the mkspecs folder
 specifier|const
 name|QString
 name|mkspecPath
-init|=
-name|fixSeparators
 argument_list|(
 name|sourcePath
 operator|+
@@ -7855,17 +7872,6 @@ literal|"no"
 expr_stmt|;
 block|}
 block|}
-name|useUnixSeparators
-operator|=
-operator|(
-name|dictionary
-index|[
-literal|"QMAKESPEC"
-index|]
-operator|==
-literal|"win32-g++"
-operator|)
-expr_stmt|;
 comment|// Allow tests for private classes to be compiled against internal builds
 if|if
 condition|(
@@ -15046,14 +15052,9 @@ name|qmakeVars
 operator|+=
 literal|"LIBS           += "
 operator|+
-name|escapeSeparators
+name|formatPaths
 argument_list|(
 name|qmakeLibs
-operator|.
-name|join
-argument_list|(
-literal|" "
-argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -15071,7 +15072,7 @@ name|qmakeVars
 operator|+=
 literal|"QT_LFLAGS_SQLITE += "
 operator|+
-name|escapeSeparators
+name|formatPath
 argument_list|(
 name|dictionary
 index|[
@@ -15441,15 +15442,12 @@ name|qipempty
 condition|?
 literal|""
 else|:
-name|fixSeparators
-argument_list|(
 name|dictionary
 index|[
 literal|"QT_INSTALL_PREFIX"
 index|]
 operator|+
 literal|"/doc"
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -15471,15 +15469,12 @@ name|qipempty
 condition|?
 literal|""
 else|:
-name|fixSeparators
-argument_list|(
 name|dictionary
 index|[
 literal|"QT_INSTALL_PREFIX"
 index|]
 operator|+
 literal|"/include"
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -15501,15 +15496,12 @@ name|qipempty
 condition|?
 literal|""
 else|:
-name|fixSeparators
-argument_list|(
 name|dictionary
 index|[
 literal|"QT_INSTALL_PREFIX"
 index|]
 operator|+
 literal|"/lib"
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -15531,15 +15523,12 @@ name|qipempty
 condition|?
 literal|""
 else|:
-name|fixSeparators
-argument_list|(
 name|dictionary
 index|[
 literal|"QT_INSTALL_PREFIX"
 index|]
 operator|+
 literal|"/bin"
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -15561,15 +15550,12 @@ name|qipempty
 condition|?
 literal|""
 else|:
-name|fixSeparators
-argument_list|(
 name|dictionary
 index|[
 literal|"QT_INSTALL_PREFIX"
 index|]
 operator|+
 literal|"/plugins"
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -15591,15 +15577,12 @@ name|qipempty
 condition|?
 literal|""
 else|:
-name|fixSeparators
-argument_list|(
 name|dictionary
 index|[
 literal|"QT_INSTALL_PREFIX"
 index|]
 operator|+
 literal|"/imports"
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -15621,13 +15604,10 @@ name|qipempty
 condition|?
 literal|""
 else|:
-name|fixSeparators
-argument_list|(
 name|dictionary
 index|[
 literal|"QT_INSTALL_PREFIX"
 index|]
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -15649,15 +15629,12 @@ name|qipempty
 condition|?
 literal|""
 else|:
-name|fixSeparators
-argument_list|(
 name|dictionary
 index|[
 literal|"QT_INSTALL_PREFIX"
 index|]
 operator|+
 literal|"/translations"
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -15679,15 +15656,12 @@ name|qipempty
 condition|?
 literal|""
 else|:
-name|fixSeparators
-argument_list|(
 name|dictionary
 index|[
 literal|"QT_INSTALL_PREFIX"
 index|]
 operator|+
 literal|"/examples"
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -15709,15 +15683,12 @@ name|qipempty
 condition|?
 literal|""
 else|:
-name|fixSeparators
-argument_list|(
 name|dictionary
 index|[
 literal|"QT_INSTALL_PREFIX"
 index|]
 operator|+
 literal|"/tests"
-argument_list|)
 expr_stmt|;
 name|bool
 name|haveHpx
@@ -15766,15 +15737,12 @@ index|]
 operator|=
 name|haveHpx
 condition|?
-name|fixSeparators
-argument_list|(
 name|dictionary
 index|[
 literal|"QT_HOST_PREFIX"
 index|]
 operator|+
 literal|"/bin"
-argument_list|)
 else|:
 name|dictionary
 index|[
@@ -15844,7 +15812,7 @@ argument_list|(
 literal|"OBJECTS_DIR     = "
 argument_list|)
 operator|+
-name|fixSeparators
+name|formatPath
 argument_list|(
 literal|"tmp/obj/"
 operator|+
@@ -15852,8 +15820,6 @@ name|dictionary
 index|[
 literal|"QMAKE_OUTDIR"
 index|]
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 name|qmakeVars
@@ -15863,7 +15829,7 @@ argument_list|(
 literal|"MOC_DIR         = "
 argument_list|)
 operator|+
-name|fixSeparators
+name|formatPath
 argument_list|(
 literal|"tmp/moc/"
 operator|+
@@ -15871,8 +15837,6 @@ name|dictionary
 index|[
 literal|"QMAKE_OUTDIR"
 index|]
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 name|qmakeVars
@@ -15882,7 +15846,7 @@ argument_list|(
 literal|"RCC_DIR         = "
 argument_list|)
 operator|+
-name|fixSeparators
+name|formatPath
 argument_list|(
 literal|"tmp/rcc/"
 operator|+
@@ -15890,8 +15854,6 @@ name|dictionary
 index|[
 literal|"QMAKE_OUTDIR"
 index|]
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 if|if
@@ -15931,14 +15893,9 @@ argument_list|(
 literal|"INCLUDEPATH    += "
 argument_list|)
 operator|+
-name|escapeSeparators
+name|formatPaths
 argument_list|(
 name|qmakeIncludes
-operator|.
-name|join
-argument_list|(
-literal|" "
-argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -16013,7 +15970,7 @@ argument_list|(
 literal|"-L"
 argument_list|)
 operator|+
-name|fixSeparators
+name|formatPath
 argument_list|(
 name|sybase
 operator|.
@@ -16547,14 +16504,12 @@ name|moduleStream
 operator|<<
 literal|"QT_BUILD_TREE   = "
 operator|<<
-name|fixSeparators
+name|formatPath
 argument_list|(
 name|dictionary
 index|[
 literal|"QT_BUILD_TREE"
 index|]
-argument_list|,
-literal|true
 argument_list|)
 operator|<<
 name|endl
@@ -16563,14 +16518,12 @@ name|moduleStream
 operator|<<
 literal|"QT_SOURCE_TREE  = "
 operator|<<
-name|fixSeparators
+name|formatPath
 argument_list|(
 name|dictionary
 index|[
 literal|"QT_SOURCE_TREE"
 index|]
-argument_list|,
-literal|true
 argument_list|)
 operator|<<
 name|endl
@@ -16590,39 +16543,14 @@ name|endl
 operator|<<
 name|endl
 expr_stmt|;
-comment|//so that we can build without an install first (which would be impossible)
-name|moduleStream
-operator|<<
-literal|"#local paths that cannot be queried from the QT_INSTALL_* properties while building QTDIR"
-operator|<<
-name|endl
-expr_stmt|;
-name|moduleStream
-operator|<<
-literal|"QMAKE_INCDIR_QT = $$QT_BUILD_TREE"
-operator|<<
-name|fixSeparators
-argument_list|(
-literal|"/include"
-argument_list|,
-literal|true
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
-name|moduleStream
-operator|<<
-literal|"QMAKE_LIBDIR_QT = $$QT_BUILD_TREE"
-operator|<<
-name|fixSeparators
-argument_list|(
-literal|"/lib"
-argument_list|,
-literal|true
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
+name|QString
+name|hostSpec
+init|=
+name|dictionary
+index|[
+literal|"QMAKESPEC"
+index|]
+decl_stmt|;
 name|QString
 name|targetSpec
 init|=
@@ -16638,22 +16566,51 @@ index|[
 literal|"XQMAKESPEC"
 index|]
 else|:
-name|dictionary
-index|[
-literal|"QMAKESPEC"
-index|]
+name|hostSpec
 decl_stmt|;
 name|QString
-name|mkspec_path
+name|xmkspec_path
 init|=
-name|fixSeparators
-argument_list|(
 name|sourcePath
 operator|+
 literal|"/mkspecs/"
 operator|+
 name|targetSpec
+decl_stmt|;
+if|if
+condition|(
+name|QFile
+operator|::
+name|exists
+argument_list|(
+name|xmkspec_path
 argument_list|)
+condition|)
+name|moduleStream
+operator|<<
+literal|"XQMAKESPEC      = "
+operator|<<
+name|xmkspec_path
+operator|<<
+name|endl
+expr_stmt|;
+else|else
+name|moduleStream
+operator|<<
+literal|"XQMAKESPEC      = "
+operator|<<
+name|targetSpec
+operator|<<
+name|endl
+expr_stmt|;
+name|QString
+name|mkspec_path
+init|=
+name|sourcePath
+operator|+
+literal|"/mkspecs/"
+operator|+
+name|hostSpec
 decl_stmt|;
 if|if
 condition|(
@@ -16668,10 +16625,7 @@ name|moduleStream
 operator|<<
 literal|"QMAKESPEC       = "
 operator|<<
-name|escapeSeparators
-argument_list|(
 name|mkspec_path
-argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
@@ -16680,12 +16634,7 @@ name|moduleStream
 operator|<<
 literal|"QMAKESPEC       = "
 operator|<<
-name|fixSeparators
-argument_list|(
-name|targetSpec
-argument_list|,
-literal|true
-argument_list|)
+name|hostSpec
 operator|<<
 name|endl
 expr_stmt|;
@@ -16718,14 +16667,12 @@ name|moduleStream
 operator|<<
 literal|"QT_CE_RAPI_INC  = "
 operator|<<
-name|fixSeparators
+name|formatPath
 argument_list|(
 name|dictionary
 index|[
 literal|"QT_CE_RAPI_INC"
 index|]
-argument_list|,
-literal|true
 argument_list|)
 operator|<<
 name|endl
@@ -16734,14 +16681,12 @@ name|moduleStream
 operator|<<
 literal|"QT_CE_RAPI_LIB  = "
 operator|<<
-name|fixSeparators
+name|formatPath
 argument_list|(
 name|dictionary
 index|[
 literal|"QT_CE_RAPI_LIB"
 index|]
-argument_list|,
-literal|true
 argument_list|)
 operator|<<
 name|endl
@@ -16755,14 +16700,12 @@ name|endl
 operator|<<
 literal|"QT_CE_C_RUNTIME = "
 operator|<<
-name|fixSeparators
+name|formatPath
 argument_list|(
 name|dictionary
 index|[
 literal|"CE_CRT"
 index|]
-argument_list|,
-literal|true
 argument_list|)
 operator|<<
 name|endl
@@ -17106,8 +17049,6 @@ decl_stmt|;
 name|QString
 name|newpwd
 init|=
-name|fixSeparators
-argument_list|(
 name|QString
 argument_list|(
 literal|"%1/config.tests/arch"
@@ -17116,7 +17057,6 @@ operator|.
 name|arg
 argument_list|(
 name|buildPath
-argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
@@ -17146,7 +17086,12 @@ literal|"Failed to create directory "
 operator|<<
 name|qPrintable
 argument_list|(
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
 name|newpwd
+argument_list|)
 argument_list|)
 operator|<<
 name|endl
@@ -17177,7 +17122,12 @@ literal|"Failed to change working directory to "
 operator|<<
 name|qPrintable
 argument_list|(
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
 name|newpwd
+argument_list|)
 argument_list|)
 operator|<<
 name|endl
@@ -17292,20 +17242,36 @@ comment|// run qmake
 name|QString
 name|command
 init|=
-name|fixSeparators
-argument_list|(
 name|QString
 argument_list|(
-literal|"%1/bin/qmake.exe -spec %2 %3/config.tests/arch/arch.pro 2>&1"
+literal|"%1 -spec %2 %3 2>&1"
 argument_list|)
 operator|.
 name|arg
 argument_list|(
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
 name|buildPath
+operator|+
+literal|"/bin/qmake.exe"
+argument_list|)
 argument_list|,
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
 name|qmakespec
+argument_list|)
 argument_list|,
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
 name|sourcePath
+operator|+
+literal|"/config.tests/arch/arch.pro"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -17679,8 +17645,6 @@ decl_stmt|;
 name|QString
 name|newpwd
 init|=
-name|fixSeparators
-argument_list|(
 name|QString
 argument_list|(
 literal|"%1/config.tests/%2"
@@ -17691,7 +17655,6 @@ argument_list|(
 name|buildPath
 argument_list|,
 name|projectPath
-argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
@@ -17721,7 +17684,12 @@ literal|"Failed to create directory "
 operator|<<
 name|qPrintable
 argument_list|(
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
 name|newpwd
+argument_list|)
 argument_list|)
 operator|<<
 name|endl
@@ -17754,7 +17722,12 @@ literal|"Failed to change working directory to "
 operator|<<
 name|qPrintable
 argument_list|(
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
 name|newpwd
+argument_list|)
 argument_list|)
 operator|<<
 name|endl
@@ -17774,23 +17747,34 @@ comment|// run qmake
 name|QString
 name|command
 init|=
-name|fixSeparators
-argument_list|(
 name|QString
 argument_list|(
-literal|"%1/bin/qmake.exe %2/config.tests/%3 %4 2>&1"
+literal|"%1 %2 %3 2>&1"
 argument_list|)
 operator|.
 name|arg
 argument_list|(
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
 name|buildPath
+operator|+
+literal|"/bin/qmake.exe"
+argument_list|)
 argument_list|,
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
 name|sourcePath
-argument_list|,
+operator|+
+literal|"/config.tests/"
+operator|+
 name|projectPath
+argument_list|)
 argument_list|,
 name|extraOptions
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|int
@@ -18254,10 +18238,13 @@ name|configStream
 operator|<<
 literal|"QMAKE_RPATHDIR += "
 operator|<<
+name|formatPath
+argument_list|(
 name|dictionary
 index|[
 literal|"QMAKE_RPATHDIR"
 index|]
+argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
@@ -18354,51 +18341,21 @@ name|configStream
 operator|<<
 literal|"QMAKE_INCDIR_OPENGL_ES2 = "
 operator|<<
-name|fixSeparators
-argument_list|(
 name|angleDir
-operator|+
-name|QStringLiteral
-argument_list|(
-literal|"/include"
-argument_list|)
-argument_list|,
-literal|true
-argument_list|)
 operator|<<
-literal|'\n'
+literal|"/include\n"
 operator|<<
 literal|"QMAKE_LIBDIR_OPENGL_ES2_DEBUG = "
 operator|<<
-name|fixSeparators
-argument_list|(
 name|angleDir
-operator|+
-name|QStringLiteral
-argument_list|(
-literal|"/lib/Debug"
-argument_list|)
-argument_list|,
-literal|true
-argument_list|)
 operator|<<
-literal|'\n'
+literal|"/lib/Debug\n"
 operator|<<
 literal|"QMAKE_LIBDIR_OPENGL_ES2_RELEASE = "
 operator|<<
-name|fixSeparators
-argument_list|(
 name|angleDir
-operator|+
-name|QStringLiteral
-argument_list|(
-literal|"/lib/Release"
-argument_list|)
-argument_list|,
-literal|true
-argument_list|)
-operator|+
-literal|'\n'
+operator|<<
+literal|"/lib/Release\n"
 expr_stmt|;
 block|}
 block|}
@@ -19979,6 +19936,19 @@ literal|""
 argument_list|,
 name|spec
 argument_list|)
+operator|||
+operator|!
+name|copySpec
+argument_list|(
+literal|"default-host"
+argument_list|,
+literal|"host "
+argument_list|,
+name|dictionary
+index|[
+literal|"QMAKESPEC"
+index|]
+argument_list|)
 condition|)
 return|return;
 comment|// Generate the new qconfig.cpp file
@@ -20077,7 +20047,7 @@ name|endl
 operator|<<
 literal|"    \"qt_prfxpath="
 operator|<<
-name|escapeSeparators
+name|formatPath
 argument_list|(
 name|dictionary
 index|[
@@ -20091,7 +20061,7 @@ name|endl
 operator|<<
 literal|"    \"qt_docspath="
 operator|<<
-name|escapeSeparators
+name|formatPath
 argument_list|(
 name|dictionary
 index|[
@@ -20105,7 +20075,7 @@ name|endl
 operator|<<
 literal|"    \"qt_hdrspath="
 operator|<<
-name|escapeSeparators
+name|formatPath
 argument_list|(
 name|dictionary
 index|[
@@ -20119,7 +20089,7 @@ name|endl
 operator|<<
 literal|"    \"qt_libspath="
 operator|<<
-name|escapeSeparators
+name|formatPath
 argument_list|(
 name|dictionary
 index|[
@@ -20133,7 +20103,7 @@ name|endl
 operator|<<
 literal|"    \"qt_binspath="
 operator|<<
-name|escapeSeparators
+name|formatPath
 argument_list|(
 name|dictionary
 index|[
@@ -20147,7 +20117,7 @@ name|endl
 operator|<<
 literal|"    \"qt_plugpath="
 operator|<<
-name|escapeSeparators
+name|formatPath
 argument_list|(
 name|dictionary
 index|[
@@ -20161,7 +20131,7 @@ name|endl
 operator|<<
 literal|"    \"qt_impspath="
 operator|<<
-name|escapeSeparators
+name|formatPath
 argument_list|(
 name|dictionary
 index|[
@@ -20175,7 +20145,7 @@ name|endl
 operator|<<
 literal|"    \"qt_datapath="
 operator|<<
-name|escapeSeparators
+name|formatPath
 argument_list|(
 name|dictionary
 index|[
@@ -20189,7 +20159,7 @@ name|endl
 operator|<<
 literal|"    \"qt_trnspath="
 operator|<<
-name|escapeSeparators
+name|formatPath
 argument_list|(
 name|dictionary
 index|[
@@ -20203,7 +20173,7 @@ name|endl
 operator|<<
 literal|"    \"qt_xmplpath="
 operator|<<
-name|escapeSeparators
+name|formatPath
 argument_list|(
 name|dictionary
 index|[
@@ -20217,7 +20187,7 @@ name|endl
 operator|<<
 literal|"    \"qt_tstspath="
 operator|<<
-name|escapeSeparators
+name|formatPath
 argument_list|(
 name|dictionary
 index|[
@@ -20235,7 +20205,7 @@ name|endl
 operator|<<
 literal|"    \"qt_ssrtpath="
 operator|<<
-name|escapeSeparators
+name|formatPath
 argument_list|(
 name|dictionary
 index|[
@@ -20249,7 +20219,7 @@ name|endl
 operator|<<
 literal|"    \"qt_hpfxpath="
 operator|<<
-name|escapeSeparators
+name|formatPath
 argument_list|(
 name|dictionary
 index|[
@@ -20263,7 +20233,7 @@ name|endl
 operator|<<
 literal|"    \"qt_hbinpath="
 operator|<<
-name|escapeSeparators
+name|formatPath
 argument_list|(
 name|dictionary
 index|[
@@ -20277,7 +20247,7 @@ name|endl
 operator|<<
 literal|"    \"qt_hdatpath="
 operator|<<
-name|escapeSeparators
+name|formatPath
 argument_list|(
 name|dictionary
 index|[
@@ -20296,7 +20266,7 @@ operator|<<
 literal|"};"
 operator|<<
 name|endl
-comment|//<< "static const char qt_configure_settings_path_str [256] = \"qt_stngpath="<< escapeSeparators(dictionary["QT_INSTALL_SETTINGS"])<< "\";"<< endl
+comment|//<< "static const char qt_configure_settings_path_str [256] = \"qt_stngpath="<< formatPath(dictionary["QT_INSTALL_SETTINGS"])<< "\";"<< endl
 operator|<<
 name|endl
 operator|<<
@@ -21498,10 +21468,15 @@ name|sout
 operator|<<
 literal|"Sources are in.............."
 operator|<<
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
 name|dictionary
 index|[
 literal|"QT_SOURCE_TREE"
 index|]
+argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
@@ -21509,10 +21484,15 @@ name|sout
 operator|<<
 literal|"Build is done in............"
 operator|<<
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
 name|dictionary
 index|[
 literal|"QT_BUILD_TREE"
 index|]
+argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
@@ -21520,10 +21500,15 @@ name|sout
 operator|<<
 literal|"Install prefix.............."
 operator|<<
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
 name|dictionary
 index|[
 literal|"QT_INSTALL_PREFIX"
 index|]
+argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
@@ -21531,10 +21516,15 @@ name|sout
 operator|<<
 literal|"Headers installed to........"
 operator|<<
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
 name|dictionary
 index|[
 literal|"QT_INSTALL_HEADERS"
 index|]
+argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
@@ -21542,10 +21532,15 @@ name|sout
 operator|<<
 literal|"Libraries installed to......"
 operator|<<
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
 name|dictionary
 index|[
 literal|"QT_INSTALL_LIBS"
 index|]
+argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
@@ -21553,10 +21548,15 @@ name|sout
 operator|<<
 literal|"Plugins installed to........"
 operator|<<
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
 name|dictionary
 index|[
 literal|"QT_INSTALL_PLUGINS"
 index|]
+argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
@@ -21564,10 +21564,15 @@ name|sout
 operator|<<
 literal|"Imports installed to........"
 operator|<<
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
 name|dictionary
 index|[
 literal|"QT_INSTALL_IMPORTS"
 index|]
+argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
@@ -21575,10 +21580,15 @@ name|sout
 operator|<<
 literal|"Binaries installed to......."
 operator|<<
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
 name|dictionary
 index|[
 literal|"QT_INSTALL_BINS"
 index|]
+argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
@@ -21586,10 +21596,15 @@ name|sout
 operator|<<
 literal|"Docs installed to..........."
 operator|<<
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
 name|dictionary
 index|[
 literal|"QT_INSTALL_DOCS"
 index|]
+argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
@@ -21597,10 +21612,15 @@ name|sout
 operator|<<
 literal|"Data installed to..........."
 operator|<<
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
 name|dictionary
 index|[
 literal|"QT_INSTALL_DATA"
 index|]
+argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
@@ -21608,10 +21628,15 @@ name|sout
 operator|<<
 literal|"Translations installed to..."
 operator|<<
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
 name|dictionary
 index|[
 literal|"QT_INSTALL_TRANSLATIONS"
 index|]
+argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
@@ -21619,10 +21644,15 @@ name|sout
 operator|<<
 literal|"Examples installed to......."
 operator|<<
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
 name|dictionary
 index|[
 literal|"QT_INSTALL_EXAMPLES"
 index|]
+argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
@@ -21630,10 +21660,15 @@ name|sout
 operator|<<
 literal|"Tests installed to.........."
 operator|<<
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
 name|dictionary
 index|[
 literal|"QT_INSTALL_TESTS"
 index|]
+argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
@@ -22653,6 +22688,60 @@ name|pwd
 argument_list|)
 expr_stmt|;
 block|}
+comment|// Generate qt.conf
+name|QFile
+name|confFile
+argument_list|(
+name|buildPath
+operator|+
+literal|"/bin/qt.conf"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|confFile
+operator|.
+name|open
+argument_list|(
+name|QFile
+operator|::
+name|WriteOnly
+operator||
+name|QFile
+operator|::
+name|Text
+argument_list|)
+condition|)
+block|{
+comment|// Truncates any existing file.
+name|QTextStream
+name|confStream
+argument_list|(
+operator|&
+name|confFile
+argument_list|)
+decl_stmt|;
+name|confStream
+operator|<<
+literal|"[EffectivePaths]"
+operator|<<
+name|endl
+operator|<<
+literal|"Prefix=.."
+operator|<<
+name|endl
+expr_stmt|;
+name|confStream
+operator|.
+name|flush
+argument_list|()
+expr_stmt|;
+name|confFile
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 end_function
 begin_endif
@@ -23628,24 +23717,18 @@ decl_stmt|;
 name|QString
 name|dirPath
 init|=
-name|fixSeparators
-argument_list|(
 name|buildPath
 operator|+
 name|dirName
-argument_list|)
 decl_stmt|;
 name|QStringList
 name|args
 decl_stmt|;
 name|args
 operator|<<
-name|fixSeparators
-argument_list|(
 name|buildPath
 operator|+
 literal|"/bin/qmake"
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -23695,7 +23778,6 @@ literal|false
 expr_stmt|;
 comment|// Now Makefiles will be done
 block|}
-comment|// don't pass -spec - .qmake.cache has it already
 name|args
 operator|<<
 literal|"-r"
@@ -23738,10 +23820,7 @@ name|QDir
 operator|::
 name|setCurrent
 argument_list|(
-name|fixSeparators
-argument_list|(
 name|dirPath
-argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -23850,14 +23929,11 @@ comment|// don't overwrite our own Makefile
 name|QString
 name|dirPath
 init|=
-name|fixSeparators
-argument_list|(
 name|it
 operator|->
 name|directory
 operator|+
-literal|"/"
-argument_list|)
+literal|'/'
 decl_stmt|;
 name|QString
 name|projectName
@@ -23912,11 +23988,13 @@ name|args
 decl_stmt|;
 name|args
 operator|<<
-name|fixSeparators
+name|QDir
+operator|::
+name|toNativeSeparators
 argument_list|(
 name|buildPath
 operator|+
-literal|"/bin/qmake"
+literal|"/bin/qmake.exe"
 argument_list|)
 expr_stmt|;
 name|args
@@ -23942,9 +24020,14 @@ literal|"For "
 operator|<<
 name|qPrintable
 argument_list|(
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
 name|dirPath
 operator|+
 name|projectName
+argument_list|)
 argument_list|)
 operator|<<
 name|endl
@@ -23958,14 +24041,6 @@ operator|<<
 name|it
 operator|->
 name|target
-expr_stmt|;
-name|args
-operator|<<
-literal|"-spec"
-expr_stmt|;
-name|args
-operator|<<
-name|spec
 expr_stmt|;
 if|if
 condition|(
@@ -23989,10 +24064,7 @@ name|QDir
 operator|::
 name|setCurrent
 argument_list|(
-name|fixSeparators
-argument_list|(
 name|dirPath
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|QFile
@@ -24024,12 +24096,22 @@ literal|"failed on dirPath=%s, makefile=%s\n"
 argument_list|,
 name|qPrintable
 argument_list|(
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
 name|dirPath
+argument_list|)
 argument_list|)
 argument_list|,
 name|qPrintable
 argument_list|(
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
 name|makefileName
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -24061,7 +24143,7 @@ literal|"\n"
 expr_stmt|;
 name|txt
 operator|<<
-literal|"\t\"$(MAKE)\" -$(MAKEFLAGS) -f "
+literal|"\t$(MAKE) -$(MAKEFLAGS) -f "
 operator|<<
 name|it
 operator|->
