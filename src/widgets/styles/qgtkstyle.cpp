@@ -1670,6 +1670,9 @@ name|isKDE4Session
 argument_list|()
 condition|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_FILEDIALOG
 name|qt_filedialog_open_filename_hook
 operator|=
 operator|&
@@ -1698,6 +1701,8 @@ name|QGtkStylePrivate
 operator|::
 name|openDirectory
 expr_stmt|;
+endif|#
+directive|endif
 name|qApp
 operator|->
 name|installEventFilter
@@ -1763,6 +1768,9 @@ name|isKDE4Session
 argument_list|()
 condition|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_FILEDIALOG
 name|qt_filedialog_open_filename_hook
 operator|=
 literal|0
@@ -1779,6 +1787,8 @@ name|qt_filedialog_existing_directory_hook
 operator|=
 literal|0
 expr_stmt|;
+endif|#
+directive|endif
 name|qApp
 operator|->
 name|removeEventFilter
@@ -1920,6 +1930,9 @@ operator|::
 name|WA_Hover
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_TREEVIEW
 elseif|else
 if|if
 condition|(
@@ -1948,6 +1961,8 @@ operator|::
 name|WA_Hover
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_comment

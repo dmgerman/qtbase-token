@@ -6113,6 +6113,11 @@ name|filter
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_FILEDIALOG
+end_ifndef
 begin_function
 DECL|function|setupGtkFileChooser
 name|void
@@ -7559,6 +7564,10 @@ name|filename
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|getFilesystemIcon
 name|QIcon

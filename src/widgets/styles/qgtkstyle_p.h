@@ -2801,6 +2801,11 @@ end_typedef
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_FILEDIALOG
+end_ifndef
 begin_typedef
 DECL|typedef|_qt_filedialog_open_filenames_hook
 typedef|typedef
@@ -2972,6 +2977,13 @@ name|_qt_filedialog_existing_directory_hook
 name|qt_filedialog_existing_directory_hook
 decl_stmt|;
 end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|//!QT_NO_FILEDIALOG
+end_comment
 begin_decl_stmt
 DECL|variable|QGtkStylePrivate
 name|class
@@ -3271,6 +3283,9 @@ name|getSpinboxArrowSize
 argument_list|()
 specifier|const
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_FILEDIALOG
 specifier|static
 name|void
 name|setupGtkFileChooser
@@ -3359,6 +3374,8 @@ argument_list|,
 argument|QFileDialog::Options options
 argument_list|)
 block|;
+endif|#
+directive|endif
 specifier|static
 name|QIcon
 name|getFilesystemIcon
