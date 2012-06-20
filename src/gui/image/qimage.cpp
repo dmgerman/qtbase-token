@@ -2827,10 +2827,16 @@ block|{
 name|int
 name|bpl
 init|=
+name|qMin
+argument_list|(
+name|bytesPerLine
+argument_list|()
+argument_list|,
 name|image
 operator|.
 name|bytesPerLine
 argument_list|()
+argument_list|)
 decl_stmt|;
 for|for
 control|(
