@@ -1943,7 +1943,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QGuiApplication::platformName     \brief The name of the underlying platform plugin. */
+comment|/*!     \property QGuiApplication::platformName     \brief The name of the underlying platform plugin.      Examples: "xcb" (for X11), "Cocoa" (for Mac OS X), "windows", "qnx",        "directfb", "kms", "MinimalEgl", "LinuxFb", "EglFS", "OpenWFD"... */
 end_comment
 begin_function
 DECL|function|platformName
