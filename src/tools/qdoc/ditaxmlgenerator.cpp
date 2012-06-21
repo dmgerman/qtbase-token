@@ -24959,7 +24959,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!   Output the "[QmlGraphicsXxx is instantiated by QML element Xxx]"   line for the class, if there should be one.    If there is no QML element, or if the class node status   is set to Node::Internal, do nothing.  */
+comment|/*!   Output the "[QmlGraphicsXxx is instantiated by QML Type Xxx]"   line for the class, if there should be one.    If there is no QML element, or if the class node status   is set to Node::Internal, do nothing.  */
 end_comment
 begin_function
 DECL|function|generateInstantiatedBy
@@ -25084,7 +25084,7 @@ argument_list|)
 expr_stmt|;
 name|text
 operator|<<
-literal|" is instantiated by QML element "
+literal|" is instantiated by QML Type "
 expr_stmt|;
 name|text
 operator|<<
