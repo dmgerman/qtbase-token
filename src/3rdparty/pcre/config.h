@@ -82,7 +82,7 @@ directive|define
 name|SUPPORT_UTF16
 end_define
 begin_comment
-comment|/*     man 3 pcrejit for a list of supported platforms;     as PCRE 8.30, stable JIT support is available for:     - ARM v5, v7, and Thumb2     - x86/x86-64     - MIPS 32bit */
+comment|/*     man 3 pcrejit for a list of supported platforms;     as PCRE 8.30, stable JIT support is available for:     - ARM v5, v7, and Thumb2 (__GNUC__ compilers only)     - x86/x86-64     - MIPS 32bit (__GNUC__ compilers only) */
 end_comment
 begin_if
 if|#
@@ -90,6 +90,13 @@ directive|if
 if|\
 comment|/* ARM */
 if|\
+operator|(
+name|defined
+argument_list|(
+name|__GNUC__
+argument_list|)
+operator|&&
+operator|(
 name|defined
 argument_list|(
 name|__arm__
@@ -99,6 +106,8 @@ name|defined
 argument_list|(
 name|__TARGET_ARCH_ARM
 argument_list|)
+operator|)
+operator|)
 expr|\
 comment|/* x86 32/64 */
 expr|\
@@ -142,6 +151,14 @@ expr|\
 comment|/* MIPS32 */
 expr|\
 operator|||
+operator|(
+name|defined
+argument_list|(
+name|__GNUC__
+argument_list|)
+expr|\
+operator|&&
+operator|(
 name|defined
 argument_list|(
 name|__mips
@@ -151,11 +168,8 @@ name|defined
 argument_list|(
 name|__mips__
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|_M_MRX000
-argument_list|)
+operator|)
+expr|\
 operator|&&
 operator|!
 operator|(
@@ -168,6 +182,7 @@ name|defined
 argument_list|(
 name|__mips64
 argument_list|)
+operator|)
 operator|)
 end_if
 begin_define
