@@ -1121,7 +1121,7 @@ index|[
 literal|"LARGE_FILE"
 index|]
 operator|=
-literal|"no"
+literal|"yes"
 expr_stmt|;
 name|dictionary
 index|[
