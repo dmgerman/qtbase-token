@@ -154,6 +154,22 @@ literal|"</method>\n"
 literal|"</interface>\n"
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|peerInterfaceXml
+specifier|static
+specifier|const
+name|char
+name|peerInterfaceXml
+index|[]
+init|=
+literal|"<interface name=\"org.freedesktop.DBus.Peer\">\n"
+literal|"<method name=\"Ping\"/>\n"
+literal|"<method name=\"GetMachineId\">\n"
+literal|"<arg name=\"machine_uuid\" type=\"s\" direction=\"out\"/>\n"
+literal|"</method>\n"
+literal|"</interface>\n"
+decl_stmt|;
+end_decl_stmt
 begin_function
 DECL|function|generateSubObjectXml
 specifier|static
@@ -564,6 +580,13 @@ operator|+=
 name|QLatin1String
 argument_list|(
 name|introspectableInterfaceXml
+argument_list|)
+expr_stmt|;
+name|xml_data
+operator|+=
+name|QLatin1String
+argument_list|(
+name|peerInterfaceXml
 argument_list|)
 expr_stmt|;
 if|if
