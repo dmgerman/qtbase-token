@@ -5900,7 +5900,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QAbstractItemModel::setRoleNames(const QHash<int,QByteArray>&theRoleNames)     \since 4.6     \obsolete      Sets the model's role names to \a roleNames.      This function allows mapping of role identifiers to role property names in     scripting languages.      \sa roleNames() */
+comment|/*!     \fn void QAbstractItemModel::setRoleNames(const QHash<int,QByteArray>&theRoleNames)     \since 4.6     \obsolete      This function is obsolete. Reimplement roleNames() instead.      Sets the model's role names to \a roleNames.      This function allows mapping of role identifiers to role property names in     scripting languages.      \sa roleNames() */
 end_comment
 begin_comment
 comment|/*!     \internal  */
