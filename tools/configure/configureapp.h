@@ -139,10 +139,6 @@ name|void
 name|buildQmake
 parameter_list|()
 function_decl|;
-name|void
-name|buildHostTools
-parameter_list|()
-function_decl|;
 endif|#
 directive|endif
 name|void
