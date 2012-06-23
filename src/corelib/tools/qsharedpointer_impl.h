@@ -1032,8 +1032,13 @@ argument_list|(
 argument|ExternalRefCountWithContiguousData
 argument_list|)
 end_macro
-begin_expr_stmt
+begin_ifndef
 unit|};
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
+end_ifndef
+begin_expr_stmt
 name|Q_CORE_EXPORT
 name|QWeakPointer
 operator|<
@@ -1063,6 +1068,10 @@ name|variant
 argument_list|)
 expr_stmt|;
 end_expr_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 unit|}
 comment|// namespace QtSharedPointer
