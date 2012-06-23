@@ -1057,7 +1057,7 @@ parameter_list|,
 name|handler
 parameter_list|)
 define|\
-value|{ \     event_t *e = (event_t *)event; \     if (QXcbWindow *platformWindow = platformWindowFromId(e->windowMember))  { \         long result = 0; \         handled = QWindowSystemInterface::handleNativeEvent(platformWindow->window(), m_nativeInterface->genericEventFilterType(), event,&result); \         if (!handled) \             platformWindow->handler(e); \     } \ } \ break;
+value|{ \     event_t *e = (event_t *)event; \     if (QXcbWindow *platformWindow = platformWindowFromId(e->windowMember))  { \         handled = QWindowSystemInterface::handleNativeEvent(platformWindow->window(), m_nativeInterface->genericEventFilterType(), event,&result); \         if (!handled) \             platformWindow->handler(e); \     } \ } \ break;
 end_define
 begin_define
 DECL|macro|HANDLE_KEYBOARD_EVENT
@@ -1070,7 +1070,7 @@ parameter_list|,
 name|handler
 parameter_list|)
 define|\
-value|{ \     event_t *e = (event_t *)event; \     if (QXcbWindow *platformWindow = platformWindowFromId(e->event)) { \         long result = 0; \         handled = QWindowSystemInterface::handleNativeEvent(platformWindow->window(), m_nativeInterface->genericEventFilterType(), event,&result); \         if (!handled) \             m_keyboard->handler(platformWindow, e); \     } \ } \ break;
+value|{ \     event_t *e = (event_t *)event; \     if (QXcbWindow *platformWindow = platformWindowFromId(e->event)) { \         handled = QWindowSystemInterface::handleNativeEvent(platformWindow->window(), m_nativeInterface->genericEventFilterType(), event,&result); \         if (!handled) \             m_keyboard->handler(platformWindow, e); \     } \ } \ break;
 end_define
 begin_comment
 comment|//#define XCB_EVENT_DEBUG
@@ -2065,36 +2065,32 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
+name|long
+name|result
+init|=
+literal|0
+decl_stmt|;
 name|bool
 name|handled
 init|=
-literal|false
-decl_stmt|;
-if|if
-condition|(
-name|QPlatformNativeInterface
+name|QCoreApplication
 operator|::
-name|EventFilter
-name|filter
-init|=
+name|instance
+argument_list|()
+operator|->
+name|filterNativeEvent
+argument_list|(
 name|m_nativeInterface
 operator|->
-name|eventFilter
-argument_list|(
-name|QXcbNativeInterface
-operator|::
-name|GenericEventFilter
-argument_list|)
-condition|)
-name|handled
-operator|=
-name|filter
-argument_list|(
+name|genericEventFilterType
+argument_list|()
+argument_list|,
 name|event
 argument_list|,
-literal|0
+operator|&
+name|result
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|uint
 name|response_type
 init|=

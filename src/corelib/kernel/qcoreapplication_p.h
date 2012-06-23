@@ -313,11 +313,6 @@ directive|endif
 name|uint
 name|application_type
 block|;
-name|QCoreApplication
-operator|::
-name|EventFilter
-name|eventFilter
-block|;
 name|bool
 name|in_exec
 block|;

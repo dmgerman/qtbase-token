@@ -257,8 +257,12 @@ control|)
 block|{
 name|ed
 operator|->
-name|filterEvent
+name|filterNativeEvent
 argument_list|(
+literal|""
+argument_list|,
+literal|0
+argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;

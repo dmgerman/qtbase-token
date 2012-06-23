@@ -1682,8 +1682,13 @@ if|if
 condition|(
 name|app
 operator|->
-name|filterEvent
+name|filterNativeEvent
 argument_list|(
+name|QByteArrayLiteral
+argument_list|(
+literal|"windows_dispatcher_MSG"
+argument_list|)
+argument_list|,
 operator|&
 name|msg
 argument_list|,

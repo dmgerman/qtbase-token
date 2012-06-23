@@ -55,13 +55,6 @@ name|GraphicsDevice
 block|,
 name|EglContext
 block|}
-block|;      enum
-name|EventFilterType
-block|{
-name|GenericEventFilter
-block|,
-name|EventFilterCount
-block|}
 block|;
 name|QXcbNativeInterface
 argument_list|()
@@ -113,28 +106,6 @@ specifier|const
 block|{
 return|return
 name|m_genericEventFilterType
-return|;
-block|}
-name|EventFilter
-name|setEventFilter
-argument_list|(
-argument|const QByteArray&eventType
-argument_list|,
-argument|EventFilter filter
-argument_list|)
-block|;
-name|EventFilter
-name|eventFilter
-argument_list|(
-argument|EventFilterType type
-argument_list|)
-specifier|const
-block|{
-return|return
-name|m_eventFilters
-index|[
-name|type
-index|]
 return|;
 block|}
 name|void
@@ -197,12 +168,6 @@ operator|:
 specifier|const
 name|QByteArray
 name|m_genericEventFilterType
-block|;
-name|EventFilter
-name|m_eventFilters
-index|[
-name|EventFilterCount
-index|]
 block|;
 specifier|static
 name|QXcbScreen

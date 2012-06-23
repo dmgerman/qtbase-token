@@ -108,20 +108,6 @@ end_comment
 begin_comment
 comment|//! [3]
 end_comment
-begin_function_decl
-name|bool
-name|myEventFilter
-parameter_list|(
-name|void
-modifier|*
-name|message
-parameter_list|,
-name|long
-modifier|*
-name|result
-parameter_list|)
-function_decl|;
-end_function_decl
 begin_comment
 comment|//! [3]
 end_comment
