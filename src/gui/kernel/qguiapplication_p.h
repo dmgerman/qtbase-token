@@ -675,6 +675,13 @@ name|platform_name
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+specifier|static
+name|QString
+modifier|*
+name|displayName
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|QWindowList
 name|modalWindowList
 decl_stmt|;
