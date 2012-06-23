@@ -1712,12 +1712,6 @@ operator|&
 name|img
 argument_list|)
 block|;
-name|void
-name|setMouseTracking
-argument_list|(
-argument|bool enable
-argument_list|)
-block|;
 specifier|const
 name|QGLColormap
 operator|&

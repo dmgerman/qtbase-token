@@ -1591,24 +1591,6 @@ parameter_list|()
 block|{ }
 end_function
 begin_function
-DECL|function|setMouseTracking
-name|void
-name|QGLWidget
-operator|::
-name|setMouseTracking
-parameter_list|(
-name|bool
-name|enable
-parameter_list|)
-block|{
-name|Q_UNUSED
-argument_list|(
-name|enable
-argument_list|)
-expr_stmt|;
-block|}
-end_function
-begin_function
 DECL|function|event
 name|bool
 name|QGLWidget
