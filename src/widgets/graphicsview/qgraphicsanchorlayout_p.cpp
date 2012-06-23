@@ -9444,9 +9444,6 @@ decl|,
 name|c
 operator|->
 name|variables
-operator|.
-name|values
-argument_list|()
 control|)
 block|{
 name|multiplier
