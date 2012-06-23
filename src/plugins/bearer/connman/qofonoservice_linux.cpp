@@ -172,6 +172,7 @@ foreach|foreach
 control|(
 specifier|const
 name|QDBusObjectPath
+modifier|&
 name|modem
 decl|,
 name|modems

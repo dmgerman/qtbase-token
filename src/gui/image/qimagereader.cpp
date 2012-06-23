@@ -2354,7 +2354,9 @@ condition|)
 return|return;
 foreach|foreach
 control|(
+specifier|const
 name|QString
+modifier|&
 name|pair
 decl|,
 name|handler

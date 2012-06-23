@@ -567,7 +567,9 @@ argument_list|)
 decl_stmt|;
 foreach|foreach
 control|(
+specifier|const
 name|QFileInfo
+modifier|&
 name|fileInfo
 decl|,
 name|fiList
@@ -741,7 +743,9 @@ argument_list|)
 decl_stmt|;
 foreach|foreach
 control|(
+specifier|const
 name|QFileInfo
+modifier|&
 name|fileInfo
 decl|,
 name|fiList

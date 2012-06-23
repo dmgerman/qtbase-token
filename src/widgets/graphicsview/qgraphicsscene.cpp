@@ -17645,7 +17645,9 @@ argument_list|()
 decl_stmt|;
 foreach|foreach
 control|(
+specifier|const
 name|QRect
+modifier|&
 name|r
 decl|,
 name|scrollExposure

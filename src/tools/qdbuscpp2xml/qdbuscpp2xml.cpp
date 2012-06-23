@@ -1284,7 +1284,9 @@ name|interface
 decl_stmt|;
 foreach|foreach
 control|(
+specifier|const
 name|ClassInfoDef
+modifier|&
 name|cid
 decl|,
 name|mo

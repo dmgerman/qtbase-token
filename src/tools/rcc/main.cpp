@@ -164,7 +164,9 @@ argument_list|)
 decl_stmt|;
 foreach|foreach
 control|(
+specifier|const
 name|QFileInfo
+modifier|&
 name|entry
 decl|,
 name|entries

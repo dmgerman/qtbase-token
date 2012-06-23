@@ -2752,7 +2752,9 @@ name|endl
 expr_stmt|;
 foreach|foreach
 control|(
+specifier|const
 name|QString
+modifier|&
 name|include
 decl|,
 name|includes
@@ -4521,7 +4523,9 @@ name|endl
 expr_stmt|;
 foreach|foreach
 control|(
+specifier|const
 name|QString
+modifier|&
 name|include
 decl|,
 name|includes

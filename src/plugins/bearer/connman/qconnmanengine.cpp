@@ -177,6 +177,7 @@ foreach|foreach
 control|(
 specifier|const
 name|QString
+modifier|&
 name|techPath
 decl|,
 name|connmanManager
@@ -235,6 +236,7 @@ foreach|foreach
 control|(
 specifier|const
 name|QString
+modifier|&
 name|servPath
 decl|,
 name|connmanManager
@@ -588,6 +590,7 @@ foreach|foreach
 control|(
 specifier|const
 name|QDBusObjectPath
+modifier|&
 name|dcPath
 decl|,
 name|dc
@@ -742,6 +745,7 @@ foreach|foreach
 control|(
 specifier|const
 name|QDBusObjectPath
+modifier|&
 name|dcPath
 decl|,
 name|dc
@@ -851,6 +855,7 @@ foreach|foreach
 control|(
 specifier|const
 name|QString
+modifier|&
 name|service
 decl|,
 name|serviceNetworks
@@ -1447,6 +1452,7 @@ foreach|foreach
 control|(
 specifier|const
 name|QString
+modifier|&
 name|service
 decl|,
 name|list
@@ -1517,6 +1523,7 @@ foreach|foreach
 control|(
 specifier|const
 name|QString
+modifier|&
 name|listPath
 decl|,
 name|newlist
@@ -2223,6 +2230,7 @@ foreach|foreach
 control|(
 specifier|const
 name|QDBusObjectPath
+modifier|&
 name|op
 decl|,
 name|ofonoNetwork
@@ -2246,6 +2254,7 @@ foreach|foreach
 control|(
 specifier|const
 name|QString
+modifier|&
 name|opTech
 decl|,
 name|opIface
@@ -2373,6 +2382,7 @@ foreach|foreach
 control|(
 specifier|const
 name|QDBusObjectPath
+modifier|&
 name|dcPath
 decl|,
 name|dc

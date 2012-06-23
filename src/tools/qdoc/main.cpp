@@ -2384,7 +2384,9 @@ block|}
 comment|/*       Main loop.      */
 foreach|foreach
 control|(
+specifier|const
 name|QString
+modifier|&
 name|qf
 decl|,
 name|qdocFiles

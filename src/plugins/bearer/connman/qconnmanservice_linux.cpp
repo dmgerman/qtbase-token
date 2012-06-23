@@ -1515,6 +1515,7 @@ foreach|foreach
 control|(
 specifier|const
 name|QString
+modifier|&
 name|path
 decl|,
 name|getTechnologies

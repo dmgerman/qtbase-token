@@ -5357,7 +5357,9 @@ argument_list|()
 decl_stmt|;
 foreach|foreach
 control|(
+specifier|const
 name|FileInfo
+modifier|&
 name|fi
 decl|,
 name|allFiles
@@ -5422,7 +5424,9 @@ block|}
 comment|// set up symlinks
 foreach|foreach
 control|(
+specifier|const
 name|FileInfo
+modifier|&
 name|fi
 decl|,
 name|allFiles
@@ -5527,7 +5531,9 @@ block|}
 block|}
 foreach|foreach
 control|(
+specifier|const
 name|FileInfo
+modifier|&
 name|fi
 decl|,
 name|allFiles

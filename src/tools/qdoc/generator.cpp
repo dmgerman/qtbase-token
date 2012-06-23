@@ -9905,7 +9905,9 @@ condition|)
 block|{
 foreach|foreach
 control|(
+specifier|const
 name|QString
+modifier|&
 name|prefix
 decl|,
 name|prefixes

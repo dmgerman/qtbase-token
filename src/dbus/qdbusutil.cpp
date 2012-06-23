@@ -261,7 +261,9 @@ argument_list|()
 decl_stmt|;
 foreach|foreach
 control|(
+specifier|const
 name|QString
+modifier|&
 name|item
 decl|,
 name|list
@@ -421,7 +423,9 @@ argument_list|()
 decl_stmt|;
 foreach|foreach
 control|(
+specifier|const
 name|QVariant
+modifier|&
 name|item
 decl|,
 name|list

@@ -495,9 +495,11 @@ return|;
 block|}
 foreach|foreach
 control|(
+specifier|const
 name|QNetworkCacheMetaData
 operator|::
 name|RawHeader
+modifier|&
 name|header
 decl|,
 name|metaData
@@ -2686,9 +2688,11 @@ literal|false
 decl_stmt|;
 foreach|foreach
 control|(
+specifier|const
 name|QNetworkCacheMetaData
 operator|::
 name|RawHeader
+modifier|&
 name|header
 decl|,
 name|metaData

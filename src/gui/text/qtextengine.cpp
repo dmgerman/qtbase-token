@@ -17896,6 +17896,7 @@ foreach|foreach
 control|(
 specifier|const
 name|ItemDecoration
+modifier|&
 name|decoration
 decl|,
 name|decorationList

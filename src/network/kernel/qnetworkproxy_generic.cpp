@@ -59,6 +59,7 @@ foreach|foreach
 control|(
 specifier|const
 name|QByteArray
+modifier|&
 name|rawToken
 decl|,
 name|noProxyTokens
