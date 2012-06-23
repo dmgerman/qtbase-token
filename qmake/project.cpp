@@ -10996,10 +10996,6 @@ literal|"host_build"
 condition|)
 return|return
 name|host_build
-condition|?
-literal|"true"
-else|:
-literal|"false"
 return|;
 comment|//mkspecs
 specifier|static
