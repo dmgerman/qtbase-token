@@ -96,16 +96,7 @@ name|tst_QIODevice
 operator|::
 name|initTestCase
 parameter_list|()
-block|{
-name|QVERIFY
-argument_list|(
-name|QtNetworkSettings
-operator|::
-name|verifyTestNetworkSettings
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
+block|{ }
 end_function
 begin_comment
 comment|// Testing get/set functions
@@ -254,6 +245,19 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+if|if
+condition|(
+operator|!
+name|QtNetworkSettings
+operator|::
+name|verifyTestNetworkSettings
+argument_list|()
+condition|)
+name|QSKIP
+argument_list|(
+literal|"No network test server available"
+argument_list|)
+expr_stmt|;
 name|QTcpSocket
 name|socket
 decl_stmt|;
@@ -1341,6 +1345,19 @@ expr_stmt|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+operator|!
+name|QtNetworkSettings
+operator|::
+name|verifyTestNetworkSettings
+argument_list|()
+condition|)
+name|QSKIP
+argument_list|(
+literal|"No network test server available"
+argument_list|)
+expr_stmt|;
 name|socket
 operator|.
 name|connectToHost
