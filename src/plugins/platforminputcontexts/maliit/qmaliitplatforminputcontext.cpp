@@ -2515,14 +2515,7 @@ operator|.
 name|isConnected
 argument_list|()
 condition|)
-block|{
-name|qDebug
-argument_list|(
-literal|"QMaliitPlatformInputContext: not connected."
-argument_list|)
-expr_stmt|;
 return|return;
-block|}
 name|server
 operator|=
 operator|new
