@@ -90,6 +90,14 @@ parameter_list|,
 specifier|const
 name|EGLConfig
 name|config
+parameter_list|,
+specifier|const
+name|QSurfaceFormat
+modifier|&
+name|referenceFormat
+init|=
+name|QSurfaceFormat
+argument_list|()
 parameter_list|)
 function_decl|;
 end_function_decl
