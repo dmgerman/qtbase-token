@@ -411,11 +411,6 @@ name|void
 name|createEventDispatcher
 argument_list|()
 block|;
-name|QString
-name|appName
-argument_list|()
-specifier|const
-block|;
 specifier|static
 name|void
 name|dispatchEnterLeave

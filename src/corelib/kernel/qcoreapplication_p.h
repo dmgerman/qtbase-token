@@ -144,7 +144,6 @@ name|void
 name|_q_initializeProcessManager
 argument_list|()
 block|;
-name|virtual
 name|QString
 name|appName
 argument_list|()

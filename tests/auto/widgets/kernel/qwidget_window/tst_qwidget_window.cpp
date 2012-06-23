@@ -630,14 +630,6 @@ name|applicationFilePath
 argument_list|()
 decl_stmt|;
 name|QString
-name|appName
-init|=
-name|QLatin1String
-argument_list|(
-literal|"Killer App"
-argument_list|)
-decl_stmt|;
-name|QString
 name|fileNameOnly
 init|=
 name|QFileInfo
@@ -654,7 +646,7 @@ literal|"[*]"
 argument_list|)
 decl_stmt|;
 name|QString
-name|fileAndApp
+name|fileAndSep
 init|=
 name|fileNameOnly
 operator|+
@@ -672,8 +664,6 @@ name|QLatin1String
 argument_list|(
 literal|" "
 argument_list|)
-operator|+
-name|appName
 decl_stmt|;
 name|QString
 name|windowTitle
@@ -683,6 +673,23 @@ argument_list|(
 literal|"Here is a Window Title"
 argument_list|)
 decl_stmt|;
+name|QString
+name|defaultPlatString
+init|=
+if|#
+directive|if
+literal|0
+comment|// was ifdef Q_OS_MAC, but that code is disabled in qwidget.cpp and caption handling should move to QPA anyway
+init|fileNameOnly;
+else|#
+directive|else
+name|fileAndSep
+operator|+
+literal|"tst_qwidget_window"
+decl_stmt|;
+comment|// default app name in Qt5
+endif|#
+directive|endif
 name|QTest
 operator|::
 name|newRow
@@ -701,9 +708,9 @@ argument_list|()
 operator|<<
 name|windowTitle
 operator|<<
-name|fileNameOnly
+name|defaultPlatString
 operator|<<
-name|fileNameOnly
+name|defaultPlatString
 expr_stmt|;
 name|QTest
 operator|::
@@ -723,7 +730,7 @@ argument_list|()
 operator|<<
 name|windowTitle
 operator|<<
-name|fileNameOnly
+name|defaultPlatString
 operator|<<
 name|windowTitle
 expr_stmt|;
@@ -772,17 +779,27 @@ operator|<<
 name|windowTitle
 expr_stmt|;
 name|QString
+name|appName
+init|=
+name|QLatin1String
+argument_list|(
+literal|"Killer App"
+argument_list|)
+decl_stmt|;
+name|QString
 name|platString
 init|=
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-name|fileNameOnly
-decl_stmt|;
+if|#
+directive|if
+literal|0
+comment|// was ifdef Q_OS_MAC, but that code is disabled in qwidget.cpp and caption handling should move to QPA anyway
+init|fileNameOnly;
 else|#
 directive|else
-name|fileAndApp
-expr_stmt|;
+name|fileAndSep
+operator|+
+name|appName
+decl_stmt|;
 endif|#
 directive|endif
 name|QTest
@@ -986,37 +1003,14 @@ argument_list|(
 name|filePath
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-name|QEXPECT_FAIL
-argument_list|(
-literal|"never Set Title, yes AppName"
-argument_list|,
-literal|"QTBUG-23682"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"set title after only, yes AppName"
-argument_list|,
-literal|"QTBUG-23682"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
-name|finalTitleBefore
-argument_list|,
 name|widget
 operator|.
 name|windowTitle
 argument_list|()
+argument_list|,
+name|finalTitleBefore
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -1042,28 +1036,14 @@ name|indyWindowTitle
 argument_list|)
 expr_stmt|;
 block|}
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-name|QEXPECT_FAIL
-argument_list|(
-literal|"never Set Title, yes AppName"
-argument_list|,
-literal|"QTBUG-23682"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
-name|finalTitleAfter
-argument_list|,
 name|widget
 operator|.
 name|windowTitle
 argument_list|()
+argument_list|,
+name|finalTitleAfter
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
