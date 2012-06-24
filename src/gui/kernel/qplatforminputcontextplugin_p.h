@@ -70,7 +70,7 @@ value|"org.qt-project.Qt.QPlatformInputContextFactoryInterface"
 end_define
 begin_decl_stmt
 name|class
-name|Q_PLATFORMSUPPORT_EXPORT
+name|Q_GUI_EXPORT
 name|QPlatformInputContextPlugin
 range|:
 name|public
