@@ -569,7 +569,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Constructs an image plugin with the given \a parent. This is     invoked automatically by the Q_EXPORT_PLUGIN2() macro. */
+comment|/*!     Constructs an image plugin with the given \a parent. This is     invoked automatically by the moc generated code that exports the plugin. */
 end_comment
 begin_constructor
 DECL|function|QImageIOPlugin

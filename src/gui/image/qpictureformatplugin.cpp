@@ -37,7 +37,7 @@ begin_comment
 comment|/*!     \fn bool QPictureFormatPlugin::installIOHandler(const QString&format)      Installs a QPictureIO picture I/O handler for the picture format \a     format.      \sa keys() */
 end_comment
 begin_comment
-comment|/*!     Constructs an picture format plugin with the given \a parent.     This is invoked automatically by the Q_EXPORT_PLUGIN2() macro. */
+comment|/*!     Constructs an picture format plugin with the given \a parent.     This is invoked automatically by the moc generated code that exports the plugin. */
 end_comment
 begin_constructor
 DECL|function|QPictureFormatPlugin

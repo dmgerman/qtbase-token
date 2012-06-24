@@ -22,7 +22,7 @@ begin_comment
 comment|/*!     \fn QStyle *QStylePlugin::create(const QString& key)      Creates and returns a QStyle object for the given style \a key.     If a plugin cannot create a style, it should return 0 instead.      The style key is usually the class name of the required     style. Note that the keys are case insensitive. For example:      \snippet qstyleplugin/main.cpp 0     \codeline     \snippet qstyleplugin/main.cpp 1     \snippet qstyleplugin/main.cpp 2      \sa keys() */
 end_comment
 begin_comment
-comment|/*!     Constructs a style plugin with the given \a parent.      Note that this constructor is invoked automatically by the     Q_EXPORT_PLUGIN2() macro, so there is no need for calling it     explicitly. */
+comment|/*!     Constructs a style plugin with the given \a parent.      Note that this constructor is invoked automatically by the     moc generated code that exports the plugin, so there is no need for calling it     explicitly. */
 end_comment
 begin_constructor
 DECL|function|QStylePlugin

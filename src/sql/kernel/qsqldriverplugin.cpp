@@ -17,7 +17,7 @@ begin_comment
 comment|/*!     \fn QSqlDriver *QSqlDriverPlugin::create(const QString& key)      Creates and returns a QSqlDriver object for the driver called \a     key. The driver key is usually the class name of the required     driver. Keys are case sensitive.      \sa keys() */
 end_comment
 begin_comment
-comment|/*!     Constructs a SQL driver plugin and sets the parent to \a parent.     This is invoked automatically by the Q_EXPORT_PLUGIN2() macro. */
+comment|/*!     Constructs a SQL driver plugin and sets the parent to \a parent.     This is invoked automatically by the moc generated code that exports the plugin. */
 end_comment
 begin_constructor
 DECL|function|QSqlDriverPlugin
