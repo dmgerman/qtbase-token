@@ -14373,18 +14373,8 @@ name|feForEllipsis
 operator|=
 name|fe
 expr_stmt|;
-comment|// the lookup can be really slow when we use XLFD fonts
 if|if
 condition|(
-name|feForEllipsis
-operator|->
-name|type
-argument_list|()
-operator|!=
-name|QFontEngine
-operator|::
-name|XLFD
-operator|&&
 name|feForEllipsis
 operator|->
 name|canRender

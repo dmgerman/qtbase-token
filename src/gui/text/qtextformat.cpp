@@ -5261,7 +5261,7 @@ begin_comment
 comment|/*!     \fn qreal QTextCharFormat::fontWordSpacing() const     \since 4.4      Returns the current word spacing value. */
 end_comment
 begin_comment
-comment|/*!     \fn void QTextCharFormat::setFontStretch(int factor)     \since 5.0      Sets the stretch factor for the font.      The stretch factor changes the width of all characters in the font by factor percent. For example, setting factor to 150 results in all characters in the font being 1.5 times (ie. 150%) wider. The default stretch factor is 100. The minimum stretch factor is 1, and the maximum stretch factor is 4000.      The stretch factor is only applied to outline fonts. The stretch factor is ignored for bitmap fonts.      NOTE: QFont cannot stretch XLFD fonts. When loading XLFD fonts on X11, the stretch factor is matched against a predefined set of values for the SETWIDTH_NAME field of the XLFD.     \sa fontStretch() */
+comment|/*!     \fn void QTextCharFormat::setFontStretch(int factor)     \since 5.0      Sets the stretch factor for the font.      The stretch factor changes the width of all characters in the font by factor percent. For example, setting factor to 150 results in all characters in the font being 1.5 times (ie. 150%) wider. The default stretch factor is 100. The minimum stretch factor is 1, and the maximum stretch factor is 4000.      The stretch factor is only applied to outline fonts. The stretch factor is ignored for bitmap fonts.      \sa fontStretch() */
 end_comment
 begin_comment
 comment|/*!     \fn int QTextCharFormat::fontStretch() const     \since 5.0      Returns the current font stretching.     \sa setFontStretch() */

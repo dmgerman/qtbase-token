@@ -1523,10 +1523,10 @@ begin_comment
 comment|/*!     \fn FT_Face QFont::freetypeFace() const      Returns the handle to the primary FreeType face of the font. If font merging is not disabled a     QFont can contain several physical fonts.      Returns 0 if the font does not contain a FreeType face.      \note This function is only available on platforms that provide the FreeType library;     i.e., X11 and some Embedded Linux platforms. */
 end_comment
 begin_comment
-comment|/*!     \fn QString QFont::rawName() const      Returns the name of the font within the underlying window system.      On X11, this function will return an empty string if Qt is built with     FontConfig support; otherwise the XLFD (X Logical Font Description) is     returned.      Using the return value of this function is usually \e not \e     portable.      \sa setRawName() */
+comment|/*!     \fn QString QFont::rawName() const      Returns the name of the font within the underlying window system.      On X11, this function will return an empty string.      Using the return value of this function is usually \e not \e     portable.      \sa setRawName() */
 end_comment
 begin_comment
-comment|/*!     \fn void QFont::setRawName(const QString&name)      Sets a font by its system specific name. The function is     particularly useful under X, where system font settings (for     example X resources) are usually available in XLFD (X Logical Font     Description) form only. You can pass an XLFD as \a name to this     function.      A font set with setRawName() is still a full-featured QFont. It can     be queried (for example with italic()) or modified (for example with     setItalic()) and is therefore also suitable for rendering rich text.      If Qt's internal font database cannot resolve the raw name, the     font becomes a raw font with \a name as its family.      Note that the present implementation does not handle wildcards in     XLFDs well, and that font aliases (file \c fonts.alias in the font     directory on X11) are not supported.      \sa rawName(), setRawMode(), setFamily() */
+comment|/*!     \fn void QFont::setRawName(const QString&name)      Sets a font by its system specific name.      A font set with setRawName() is still a full-featured QFont. It can     be queried (for example with italic()) or modified (for example with     setItalic()) and is therefore also suitable for rendering rich text.      If Qt's internal font database cannot resolve the raw name, the     font becomes a raw font with \a name as its family.      \sa rawName(), setRawMode(), setFamily() */
 end_comment
 begin_comment
 comment|/*!     \fn QString QFont::lastResortFamily() const      Returns the "last resort" font family name.      The current implementation tries a wide variety of common fonts,     returning the first one it finds. Is is possible that no family is     found in which case an empty string is returned.      \sa lastResortFont() */
@@ -3065,7 +3065,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the stretch factor for the font.      The stretch factor changes the width of all characters in the font     by \a factor percent.  For example, setting \a factor to 150     results in all characters in the font being 1.5 times (ie. 150%)     wider.  The default stretch factor is 100.  The minimum stretch     factor is 1, and the maximum stretch factor is 4000.      The stretch factor is only applied to outline fonts.  The stretch     factor is ignored for bitmap fonts.      NOTE: QFont cannot stretch XLFD fonts.  When loading XLFD fonts on     X11, the stretch factor is matched against a predefined set of     values for the SETWIDTH_NAME field of the XLFD.      \sa stretch(), QFont::Stretch */
+comment|/*!     Sets the stretch factor for the font.      The stretch factor changes the width of all characters in the font     by \a factor percent.  For example, setting \a factor to 150     results in all characters in the font being 1.5 times (ie. 150%)     wider.  The default stretch factor is 100.  The minimum stretch     factor is 1, and the maximum stretch factor is 4000.      The stretch factor is only applied to outline fonts.  The stretch     factor is ignored for bitmap fonts.      \sa stretch(), QFont::Stretch */
 end_comment
 begin_function
 DECL|function|setStretch

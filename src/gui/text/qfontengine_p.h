@@ -149,9 +149,6 @@ name|Box
 block|,
 name|Multi
 block|,
-comment|// X11 types
-name|XLFD
-block|,
 comment|// MS Windows types
 name|Win
 block|,
