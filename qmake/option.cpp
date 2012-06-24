@@ -3658,7 +3658,8 @@ decl_stmt|;
 name|int
 name|lastSl
 init|=
-literal|0
+operator|-
+literal|1
 decl_stmt|;
 while|while
 condition|(
@@ -3697,7 +3698,7 @@ argument_list|)
 condition|)
 name|lastSl
 operator|=
-literal|1
+literal|0
 expr_stmt|;
 name|mkfile
 operator|::
