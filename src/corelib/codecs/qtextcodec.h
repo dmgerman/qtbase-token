@@ -153,10 +153,10 @@ block|{
 return|return
 name|codecForMib
 argument_list|(
-literal|4
+literal|106
 argument_list|)
 return|;
-comment|/* Latin1 */
+comment|/* Utf8 */
 block|}
 endif|#
 directive|endif
