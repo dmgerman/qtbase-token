@@ -23,6 +23,11 @@ super|:
 specifier|public
 name|QGenericPlugin
 block|{
+name|Q_PLUGIN_METADATA
+argument_list|(
+argument|IID
+literal|"org.qt-project.Qt.QGenericPluginFactoryInterface"
+argument_list|)
 public|public:
 name|QMeeGoIntegrationPlugin
 parameter_list|()
@@ -102,14 +107,6 @@ literal|0
 return|;
 block|}
 end_function
-begin_macro
-name|Q_EXPORT_PLUGIN2
-argument_list|(
-argument|qmeegointegrationplugin
-argument_list|,
-argument|QMeeGoIntegrationPlugin
-argument_list|)
-end_macro
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

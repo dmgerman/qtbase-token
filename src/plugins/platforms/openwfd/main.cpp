@@ -23,6 +23,11 @@ super|:
 specifier|public
 name|QPlatformIntegrationPlugin
 block|{
+name|Q_PLUGIN_METADATA
+argument_list|(
+argument|IID
+literal|"org.qt-project.Qt.QPlatformIntegrationFactoryInterface"
+argument_list|)
 public|public:
 name|QPlatformIntegration
 modifier|*
@@ -82,14 +87,6 @@ literal|0
 return|;
 block|}
 end_function
-begin_macro
-name|Q_EXPORT_PLUGIN2
-argument_list|(
-argument|openwfd
-argument_list|,
-argument|QOpenWFDIntegrationPlugin
-argument_list|)
-end_macro
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
