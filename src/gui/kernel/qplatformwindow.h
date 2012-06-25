@@ -104,6 +104,12 @@ name|QIcon
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QRegion
+name|class
+name|QRegion
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|Q_GUI_EXPORT
 name|QPlatformWindow
@@ -263,6 +269,16 @@ name|void
 name|setOpacity
 argument_list|(
 argument|qreal level
+argument_list|)
+block|;
+name|virtual
+name|void
+name|setMask
+argument_list|(
+specifier|const
+name|QRegion
+operator|&
+name|region
 argument_list|)
 block|;
 name|virtual

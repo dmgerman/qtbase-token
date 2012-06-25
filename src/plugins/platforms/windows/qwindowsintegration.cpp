@@ -1042,6 +1042,12 @@ comment|// QT_OPENGL_ES_2
 endif|#
 directive|endif
 comment|// !QT_NO_OPENGL
+case|case
+name|WindowMasks
+case|:
+return|return
+literal|true
+return|;
 default|default:
 return|return
 name|QPlatformIntegration

@@ -179,6 +179,10 @@ block|,
 name|BufferQueueingOpenGL
 init|=
 literal|5
+block|,
+name|WindowMasks
+init|=
+literal|6
 block|}
 enum|;
 name|virtual

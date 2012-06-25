@@ -561,6 +561,34 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
+comment|/*!   Reimplement to  be able to let Qt set the mask of a window */
+end_comment
+begin_function
+DECL|function|setMask
+name|void
+name|QPlatformWindow
+operator|::
+name|setMask
+parameter_list|(
+specifier|const
+name|QRegion
+modifier|&
+name|region
+parameter_list|)
+block|{
+name|Q_UNUSED
+argument_list|(
+name|region
+argument_list|)
+expr_stmt|;
+name|qWarning
+argument_list|(
+literal|"This plugin does not support setting window masks"
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_comment
 comment|/*!   Reimplement to let Qt be able to request activation/focus for a window    Some window systems will probably not have callbacks for this functionality,   and then calling QWindowSystemInterface::handleWindowActivated(QWindow *w)   would be sufficient.    If the window system has some event handling/callbacks then call   QWindowSystemInterface::handleWindowActivated(QWindow *w) when the window system   gives the notification.    Default implementation calls QWindowSystem::handleWindowActivated(QWindow *w) */
 end_comment
 begin_function
