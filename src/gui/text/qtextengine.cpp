@@ -350,7 +350,7 @@ name|flags
 operator|<
 name|QScriptAnalysis
 operator|::
-name|TabOrObject
+name|LineOrParagraphSeparator
 condition|)
 name|iter
 operator|->
