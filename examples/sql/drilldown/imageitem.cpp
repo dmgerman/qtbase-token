@@ -46,7 +46,7 @@ name|recordId
 operator|=
 name|id
 expr_stmt|;
-name|setAcceptsHoverEvents
+name|setAcceptHoverEvents
 argument_list|(
 literal|true
 argument_list|)
