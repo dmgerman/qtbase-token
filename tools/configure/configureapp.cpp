@@ -1812,7 +1812,7 @@ argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
-comment|// This amount of quoting is deemed sufficient. â¢
+comment|// This amount of quoting is deemed sufficient.
 if|if
 condition|(
 name|ret
