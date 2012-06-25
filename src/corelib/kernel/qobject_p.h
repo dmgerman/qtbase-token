@@ -437,6 +437,12 @@ block|;
 name|ushort
 name|method_relative
 block|;
+name|uint
+name|signal_index
+operator|:
+literal|27
+block|;
+comment|// In signal range (see QObjectPrivate::signalIndex())
 name|ushort
 name|connectionType
 operator|:
