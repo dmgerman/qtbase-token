@@ -581,6 +581,18 @@ argument_list|,
 argument|bool next
 argument_list|)
 block|;
+name|void
+name|handleAutomaticMouseGrab
+argument_list|(
+name|QWidget
+operator|*
+name|widget
+argument_list|,
+name|QMouseEvent
+operator|*
+name|e
+argument_list|)
+block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_SESSIONMANAGER

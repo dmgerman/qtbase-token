@@ -11878,6 +11878,15 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+name|d
+operator|->
+name|handleAutomaticMouseGrab
+argument_list|(
+name|w
+argument_list|,
+name|mouse
+argument_list|)
+expr_stmt|;
 block|}
 name|bool
 name|eventAccepted
