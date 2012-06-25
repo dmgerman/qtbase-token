@@ -4996,6 +4996,13 @@ argument_list|(
 name|QHeaderView
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|size
+operator|<
+literal|0
+condition|)
+return|return;
 name|d
 operator|->
 name|setDefaultSectionSize
@@ -5130,6 +5137,13 @@ argument_list|(
 name|QHeaderView
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|size
+operator|<
+literal|0
+condition|)
+return|return;
 name|d
 operator|->
 name|minimumSectionSize

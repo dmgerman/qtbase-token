@@ -1281,29 +1281,30 @@ name|obj1
 operator|.
 name|setDefaultSectionSize
 argument_list|(
-literal|0
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
-name|QCOMPARE
+name|QVERIFY
 argument_list|(
-literal|0
-argument_list|,
 name|obj1
 operator|.
 name|defaultSectionSize
 argument_list|()
+operator|>=
+literal|0
 argument_list|)
 expr_stmt|;
 name|obj1
 operator|.
 name|setDefaultSectionSize
 argument_list|(
-name|INT_MIN
+literal|0
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|INT_MIN
+literal|0
 argument_list|,
 name|obj1
 operator|.
@@ -1328,36 +1329,36 @@ name|defaultSectionSize
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// ### the test above does not make sense for values below 0
 comment|// int QHeaderView::minimumSectionSize()
 comment|// void QHeaderView::setMinimumSectionSize(int)
 name|obj1
 operator|.
 name|setMinimumSectionSize
 argument_list|(
-literal|0
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
-name|QCOMPARE
+name|QVERIFY
 argument_list|(
-literal|0
-argument_list|,
 name|obj1
 operator|.
 name|minimumSectionSize
 argument_list|()
+operator|>=
+literal|0
 argument_list|)
 expr_stmt|;
 name|obj1
 operator|.
 name|setMinimumSectionSize
 argument_list|(
-name|INT_MIN
+literal|0
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|INT_MIN
+literal|0
 argument_list|,
 name|obj1
 operator|.
@@ -1382,7 +1383,6 @@ name|minimumSectionSize
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// ### the test above does not make sense for values below 0
 comment|// int QHeaderView::offset()
 comment|// void QHeaderView::setOffset(int)
 name|obj1
