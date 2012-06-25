@@ -226,7 +226,11 @@ parameter_list|)
 block|{
 name|original
 operator|->
-name|scale
+name|setTransform
+argument_list|(
+name|QTransform
+operator|::
+name|fromScale
 argument_list|(
 name|rect
 operator|.
@@ -247,6 +251,9 @@ name|r
 operator|.
 name|height
 argument_list|()
+argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|original

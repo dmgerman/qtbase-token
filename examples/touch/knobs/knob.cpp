@@ -246,6 +246,11 @@ name|scenePos
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|setTransform
+argument_list|(
+name|QTransform
+argument_list|()
+operator|.
 name|rotate
 argument_list|(
 name|line2
@@ -254,6 +259,9 @@ name|angleTo
 argument_list|(
 name|line1
 argument_list|)
+argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
