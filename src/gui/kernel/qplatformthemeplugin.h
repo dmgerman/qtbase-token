@@ -60,7 +60,7 @@ DECL|macro|QPlatformThemeFactoryInterface_iid
 define|#
 directive|define
 name|QPlatformThemeFactoryInterface_iid
-value|"org.qt-project.Qt.QPlatformThemeFactoryInterface"
+value|"org.qt-project.Qt.QPA.QPlatformThemeFactoryInterface.5.1"
 end_define
 begin_decl_stmt
 name|class

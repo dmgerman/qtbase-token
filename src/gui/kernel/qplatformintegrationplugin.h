@@ -60,7 +60,7 @@ DECL|macro|QPlatformIntegrationFactoryInterface_iid
 define|#
 directive|define
 name|QPlatformIntegrationFactoryInterface_iid
-value|"org.qt-project.Qt.QPlatformIntegrationFactoryInterface"
+value|"org.qt-project.Qt.QPA.QPlatformIntegrationFactoryInterface.5.1"
 end_define
 begin_decl_stmt
 name|class
