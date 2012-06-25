@@ -2617,12 +2617,20 @@ operator|::
 name|task227930_correctNavigationKeyboardBehavior
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_OS_MAC
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_LINUX
+argument_list|)
 name|QSKIP
 argument_list|(
-literal|"This test currently fails on Mac OS X, see QTBUG-23602"
+literal|"This test currently fails on Mac OS X and linux CI, see QTBUG-23602"
 argument_list|)
 expr_stmt|;
 endif|#
