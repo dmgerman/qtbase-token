@@ -861,6 +861,10 @@ argument|bool escape=true
 argument_list|)
 specifier|const
 block|;
+name|QString
+name|specdir
+argument_list|()
+block|;
 comment|//subclasses can use these to query information about how the generator was "run"
 name|QString
 name|buildArgs
@@ -872,15 +876,6 @@ name|outdir
 operator|=
 name|QString
 argument_list|()
-argument_list|)
-block|;
-name|QString
-name|specdir
-argument_list|(
-argument|const QString&outdir = QString()
-argument_list|,
-argument|int host_build = -
-literal|1
 argument_list|)
 block|;
 name|QString
