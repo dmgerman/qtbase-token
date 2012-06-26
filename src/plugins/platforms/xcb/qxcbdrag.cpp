@@ -2385,12 +2385,6 @@ argument_list|)
 expr_stmt|;
 name|move
 operator|.
-name|window
-operator|=
-name|target
-expr_stmt|;
-name|move
-operator|.
 name|data
 operator|.
 name|data32
