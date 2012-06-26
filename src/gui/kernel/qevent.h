@@ -2166,41 +2166,6 @@ return|return
 name|replace_length
 return|;
 block|}
-if|#
-directive|if
-name|QT_DEPRECATED_SINCE
-argument_list|(
-literal|5
-operator|,
-literal|0
-argument_list|)
-name|QT_DEPRECATED
-specifier|inline
-name|void
-name|setTentativeCommitString
-argument_list|(
-argument|const QString&string
-argument_list|)
-block|{
-name|tentativeCommit
-operator|=
-name|string
-block|;  }
-name|QT_DEPRECATED
-specifier|inline
-specifier|const
-name|QString
-operator|&
-name|tentativeCommitString
-argument_list|()
-specifier|const
-block|{
-return|return
-name|tentativeCommit
-return|;
-block|}
-endif|#
-directive|endif
 name|QInputMethodEvent
 argument_list|(
 specifier|const
@@ -2228,9 +2193,6 @@ name|replace_from
 block|;
 name|int
 name|replace_length
-block|;
-name|QString
-name|tentativeCommit
 block|; }
 decl_stmt|;
 end_decl_stmt
