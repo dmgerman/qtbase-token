@@ -6569,6 +6569,16 @@ argument_list|,
 name|swpf
 argument_list|)
 expr_stmt|;
+name|QWindowSystemInterface
+operator|::
+name|handleSynchronousGeometryChange
+argument_list|(
+name|window
+argument_list|()
+argument_list|,
+name|r
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
