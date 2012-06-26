@@ -3505,7 +3505,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!   Returns the item's parent item, or 0 if the item has no parent.    \sa child() */
+comment|/*!   Returns the item's parent item, or 0 if the item has no parent.   \note For toplevel items parent() returns 0. To receive toplevel   item's parent use QStandardItemModel::invisibleRootItem() instead.    \sa child(), QStandardItemModel::invisibleRootItem() */
 end_comment
 begin_function
 DECL|function|parent
