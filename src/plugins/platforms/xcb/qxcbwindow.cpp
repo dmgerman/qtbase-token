@@ -9564,7 +9564,7 @@ index|[
 literal|3
 index|]
 operator|=
-name|Button1
+name|XCB_BUTTON_INDEX_1
 expr_stmt|;
 name|xev
 operator|.
