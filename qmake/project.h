@@ -582,6 +582,15 @@ return|return
 name|cachefile
 return|;
 block|}
+name|QString
+name|specDir
+argument_list|()
+specifier|const
+block|{
+return|return
+name|real_spec
+return|;
+block|}
 specifier|inline
 name|QMakeProperty
 modifier|*
