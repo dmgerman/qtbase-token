@@ -15953,7 +15953,23 @@ name|isSeparator
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//  item->setIcon(action->icon());
+if|if
+condition|(
+name|action
+operator|->
+name|isIconVisibleInMenu
+argument_list|()
+condition|)
+name|item
+operator|->
+name|setIcon
+argument_list|(
+name|action
+operator|->
+name|icon
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|item
 operator|->
 name|setVisible

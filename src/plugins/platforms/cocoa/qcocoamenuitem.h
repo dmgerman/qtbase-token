@@ -102,7 +102,7 @@ name|void
 name|setIcon
 argument_list|(
 specifier|const
-name|QImage
+name|QIcon
 operator|&
 name|icon
 argument_list|)
@@ -255,7 +255,7 @@ block|;
 name|QString
 name|m_text
 block|;
-name|QImage
+name|QIcon
 name|m_icon
 block|;
 name|QCocoaMenu
