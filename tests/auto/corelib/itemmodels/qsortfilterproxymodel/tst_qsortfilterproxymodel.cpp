@@ -25,7 +25,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtWidgets/QStandardItem>
+file|<QtGui/QStandardItem>
 end_include
 begin_include
 include|#

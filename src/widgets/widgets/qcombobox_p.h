@@ -71,7 +71,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtWidgets/qstandarditemmodel.h"
+file|"QtGui/qstandarditemmodel.h"
 end_include
 begin_include
 include|#
