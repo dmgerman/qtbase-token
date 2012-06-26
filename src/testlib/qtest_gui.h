@@ -125,9 +125,6 @@ name|QT_BEGIN_NAMESPACE
 name|namespace
 name|QTest
 block|{
-ifdef|#
-directive|ifdef
-name|QT_WIDGETS_LIB
 name|template
 operator|<
 operator|>
@@ -205,8 +202,6 @@ name|line
 operator|)
 return|;
 block|}
-endif|#
-directive|endif
 name|template
 operator|<
 operator|>
