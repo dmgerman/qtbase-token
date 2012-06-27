@@ -971,6 +971,15 @@ name|resizeMaximizedWindows
 argument_list|()
 expr_stmt|;
 block|}
+comment|// Flush everything, so that the windows rotations are applied properly.
+comment|// Needed for non-maximized windows
+name|screen_flush_context
+argument_list|(
+name|m_screenContext
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_function
