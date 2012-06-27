@@ -92,6 +92,11 @@ include|#
 directive|include
 file|"qstyleoption.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"qstylehints.h"
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -9669,8 +9674,10 @@ operator|::
 name|WindowFullScreen
 argument_list|)
 expr_stmt|;
-name|show
-argument_list|()
+name|setVisible
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 name|activateWindow
 argument_list|()
@@ -24882,7 +24889,37 @@ name|enable
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*!  \fn void QWidget::show()      Shows the widget and its child widgets. This function is     equivalent to setVisible(true).      \sa raise(), showEvent(), hide(), setVisible(), showMinimized(), showMaximized(),     showNormal(), isVisible() */
+comment|/*!     Shows the widget and its child widgets. This function is     equivalent to setVisible(true) in the normal case, and equivalent     to showFullScreen() if the QStyleHints::showIsFullScreen() hint     is true.      \sa raise(), showEvent(), hide(), setVisible(), showMinimized(), showMaximized(),     showNormal(), isVisible() */
+DECL|function|show
+name|void
+name|QWidget
+operator|::
+name|show
+parameter_list|()
+block|{
+if|if
+condition|(
+name|isWindow
+argument_list|()
+operator|&&
+name|qApp
+operator|->
+name|styleHints
+argument_list|()
+operator|->
+name|showIsFullScreen
+argument_list|()
+condition|)
+name|showFullScreen
+argument_list|()
+expr_stmt|;
+else|else
+name|setVisible
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 comment|/*! \internal     Makes the widget visible in the isVisible() meaning of the word.    It is only called for toplevels or widgets with visible parents.  */
 DECL|function|show_recursive
 name|void
@@ -25736,7 +25773,20 @@ literal|false
 expr_stmt|;
 comment|// reset qws optimization
 block|}
-comment|/*! \fn void QWidget::hide()      Hides the widget. This function is equivalent to     setVisible(false).       \note If you are working with QDialog or its subclasses and you invoke     the show() function after this function, the dialog will be displayed in     its original position.      \sa hideEvent(), isHidden(), show(), setVisible(), isVisible(), close() */
+comment|/*!     Hides the widget. This function is equivalent to     setVisible(false).       \note If you are working with QDialog or its subclasses and you invoke     the show() function after this function, the dialog will be displayed in     its original position.      \sa hideEvent(), isHidden(), show(), setVisible(), isVisible(), close() */
+DECL|function|hide
+name|void
+name|QWidget
+operator|::
+name|hide
+parameter_list|()
+block|{
+name|setVisible
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
 comment|/*!\internal  */
 DECL|function|hide_helper
 name|void
@@ -26679,7 +26729,24 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/*!\fn void QWidget::setHidden(bool hidden)      Convenience function, equivalent to setVisible(!\a hidden). */
+comment|/*!     Convenience function, equivalent to setVisible(!\a hidden). */
+DECL|function|setHidden
+name|void
+name|QWidget
+operator|::
+name|setHidden
+parameter_list|(
+name|bool
+name|hidden
+parameter_list|)
+block|{
+name|setVisible
+argument_list|(
+operator|!
+name|hidden
+argument_list|)
+expr_stmt|;
+block|}
 DECL|function|_q_showIfNotHidden
 name|void
 name|QWidgetPrivate
