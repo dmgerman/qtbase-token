@@ -6919,7 +6919,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.0     Returns true if the \a signal is connected to at least one receiver,     otherwise returns false.      \a signal must be a signal member of this object, otherwise the behaviour     is undefined.      \snippet code/src_corelib_kernel_qobject.cpp 21      As the code snippet above illustrates, you can use this function     to avoid emitting a signal that nobody listens to.      \warning This function violates the object-oriented principle of     modularity. However, it might be useful when you need to perform     expensive initialization only if something is connected to a     signal. */
+comment|/*!     \since 5.0     Returns true if the \a signal is connected to at least one receiver,     otherwise returns false.      \a signal must be a signal member of this object, otherwise the behaviour     is undefined.      \snippet code/src_corelib_kernel_qobject.cpp 49      As the code snippet above illustrates, you can use this function     to avoid emitting a signal that nobody listens to.      \warning This function violates the object-oriented principle of     modularity. However, it might be useful when you need to perform     expensive initialization only if something is connected to a     signal. */
 end_comment
 begin_function
 DECL|function|isSignalConnected
