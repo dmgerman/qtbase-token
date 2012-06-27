@@ -237,6 +237,14 @@ name|void
 name|requestActivateWindow
 argument_list|()
 block|;
+name|Qt
+operator|::
+name|WindowState
+name|setWindowState
+argument_list|(
+argument|Qt::WindowState state
+argument_list|)
+block|;
 name|void
 name|gainedFocus
 argument_list|()
@@ -404,6 +412,14 @@ name|m_parentWindow
 block|;
 name|bool
 name|m_visible
+block|;
+name|QRect
+name|m_unmaximizedGeometry
+block|;
+name|Qt
+operator|::
+name|WindowState
+name|m_windowState
 block|; }
 decl_stmt|;
 end_decl_stmt
