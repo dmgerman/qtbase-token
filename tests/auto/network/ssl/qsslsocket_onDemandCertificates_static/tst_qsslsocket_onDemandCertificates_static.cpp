@@ -621,7 +621,7 @@ block|{
 name|QString
 name|host
 argument_list|(
-literal|"qt.nokia.com"
+literal|"codereview.qt-project.org"
 argument_list|)
 decl_stmt|;
 comment|// not using any root certs -> should not work
@@ -702,15 +702,6 @@ argument_list|(
 name|host
 argument_list|,
 literal|443
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QTBUG-20983 fails"
-argument_list|,
-name|Abort
 argument_list|)
 expr_stmt|;
 name|QVERIFY2
