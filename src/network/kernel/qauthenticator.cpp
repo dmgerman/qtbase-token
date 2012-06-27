@@ -6567,12 +6567,6 @@ literal|L""
 comment|/* host */
 argument_list|,
 name|ISC_REQ_ALLOCATE_MEMORY
-operator||
-name|ISC_REQ_CONFIDENTIALITY
-operator||
-name|ISC_REQ_REPLAY_DETECT
-operator||
-name|ISC_REQ_CONNECTION
 argument_list|,
 literal|0
 argument_list|,
@@ -6885,12 +6879,6 @@ literal|L""
 comment|/* host */
 argument_list|,
 name|ISC_REQ_ALLOCATE_MEMORY
-operator||
-name|ISC_REQ_CONFIDENTIALITY
-operator||
-name|ISC_REQ_REPLAY_DETECT
-operator||
-name|ISC_REQ_CONNECTION
 argument_list|,
 literal|0
 argument_list|,
