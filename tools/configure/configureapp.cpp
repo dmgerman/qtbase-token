@@ -9414,6 +9414,13 @@ index|]
 operator|=
 literal|"no"
 expr_stmt|;
+name|dictionary
+index|[
+literal|"LARGE_FILE"
+index|]
+operator|=
+literal|"no"
+expr_stmt|;
 comment|// We only apply MMX/IWMMXT for mkspecs we know they work
 if|if
 condition|(
