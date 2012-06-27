@@ -8898,9 +8898,7 @@ name|dir
 operator|==
 name|superdir
 condition|)
-goto|goto
-name|no_cache
-goto|;
+break|break;
 name|QFileInfo
 name|qsdfi
 argument_list|(
@@ -8925,9 +8923,7 @@ operator|.
 name|isRoot
 argument_list|()
 condition|)
-goto|goto
-name|no_cache
-goto|;
+break|break;
 name|sdir
 operator|=
 name|qsdfi
@@ -9144,8 +9140,6 @@ operator|<<
 name|cachefile
 expr_stmt|;
 block|}
-name|no_cache
-label|:
 comment|// Look for mkspecs/ in source and build. First to win determines the root.
 name|QString
 name|sdir
