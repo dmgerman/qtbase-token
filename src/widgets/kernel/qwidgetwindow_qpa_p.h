@@ -124,6 +124,13 @@ operator|*
 argument_list|)
 block|;
 name|void
+name|handleNonClientAreaMouseEvent
+argument_list|(
+name|QMouseEvent
+operator|*
+argument_list|)
+block|;
+name|void
 name|handleTouchEvent
 argument_list|(
 name|QTouchEvent

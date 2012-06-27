@@ -347,6 +347,19 @@ argument_list|,
 argument|Qt::Corner corner
 argument_list|)
 block|;
+name|virtual
+name|void
+name|setFrameStrutEventsEnabled
+argument_list|(
+argument|bool enabled
+argument_list|)
+block|;
+name|virtual
+name|bool
+name|frameStrutEventsEnabled
+argument_list|()
+specifier|const
+block|;
 name|protected
 operator|:
 name|QScopedPointer

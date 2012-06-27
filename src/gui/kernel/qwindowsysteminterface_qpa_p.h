@@ -53,6 +53,8 @@ name|WindowStateChanged
 block|,
 name|Mouse
 block|,
+name|FrameStrutMouse
+block|,
 name|Wheel
 block|,
 name|Key
@@ -457,6 +459,49 @@ argument_list|,
 name|time
 argument_list|,
 name|Mouse
+argument_list|,
+name|mods
+argument_list|)
+block|,
+name|localPos
+argument_list|(
+name|local
+argument_list|)
+block|,
+name|globalPos
+argument_list|(
+name|global
+argument_list|)
+block|,
+name|buttons
+argument_list|(
+argument|b
+argument_list|)
+block|{ }
+name|MouseEvent
+argument_list|(
+argument|QWindow * w
+argument_list|,
+argument|ulong time
+argument_list|,
+argument|EventType t
+argument_list|,
+argument|const QPointF& local
+argument_list|,
+argument|const QPointF& global
+argument_list|,
+argument|Qt::MouseButtons b
+argument_list|,
+argument|Qt::KeyboardModifiers mods
+argument_list|)
+operator|:
+name|InputEvent
+argument_list|(
+name|w
+argument_list|,
+name|time
+argument_list|,
+name|t
 argument_list|,
 name|mods
 argument_list|)

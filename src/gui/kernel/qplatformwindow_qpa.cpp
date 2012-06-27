@@ -812,6 +812,48 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     Reimplement this method to set whether frame strut events     should be sent to \a enabled.      \sa frameStrutEventsEnabled */
+end_comment
+begin_function
+DECL|function|setFrameStrutEventsEnabled
+name|void
+name|QPlatformWindow
+operator|::
+name|setFrameStrutEventsEnabled
+parameter_list|(
+name|bool
+name|enabled
+parameter_list|)
+block|{
+if|if
+condition|(
+name|enabled
+condition|)
+name|qWarning
+argument_list|(
+literal|"This plugin does not support frame strut events."
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*!     Reimplement this method to return whether     frame strut events are enabled. */
+end_comment
+begin_function
+DECL|function|frameStrutEventsEnabled
+name|bool
+name|QPlatformWindow
+operator|::
+name|frameStrutEventsEnabled
+parameter_list|()
+specifier|const
+block|{
+return|return
+literal|false
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     \class QPlatformWindow     \since 4.8     \internal     \preliminary     \ingroup qpa      \brief The QPlatformWindow class provides an abstraction for top-level windows.      The QPlatformWindow abstraction is used by QWindow for all its top level windows. It is being     created by calling the createPlatformWindow function in the loaded QPlatformIntegration     instance.      QPlatformWindow is used to signal to the windowing system, how Qt perceives its frame.     However, it is not concerned with how Qt renders into the window it represents.      Visible QWindows will always have a QPlatformWindow. However, it is not necessary for     all windows to have a QBackingStore. This is the case for QOpenGLWidget. And could be the case for     windows where some  3.party renders into it.      The platform specific window handle can be retrieved by the winId function.      QPlatformWindow is also the way QPA defines how native child windows should be supported     through the setParent function.      The only way to retrieve a QPlatformOpenGLContext in QPA is by calling the glContext() function     on QPlatformWindow.      \sa QBackingStore, QWindow */
 end_comment
 begin_macro

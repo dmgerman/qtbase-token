@@ -135,6 +135,13 @@ operator|::
 name|MouseButtons
 argument_list|)
 decl_stmt|;
+specifier|static
+name|Qt
+operator|::
+name|MouseButtons
+name|queryMouseButtons
+argument_list|()
+expr_stmt|;
 name|QWindow
 operator|*
 name|windowUnderMouse
