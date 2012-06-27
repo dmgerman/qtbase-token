@@ -10095,7 +10095,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns whether this state machine is running.    start(), stop() */
+comment|/*!   Returns whether this state machine is running.    \sa start(), stop() */
 end_comment
 begin_function
 DECL|function|isRunning
