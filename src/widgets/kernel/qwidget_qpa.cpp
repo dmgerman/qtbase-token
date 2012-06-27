@@ -590,6 +590,25 @@ argument_list|(
 name|q
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|extra
+operator|&&
+operator|!
+name|extra
+operator|->
+name|mask
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|setMask_sys
+argument_list|(
+name|extra
+operator|->
+name|mask
+argument_list|)
+expr_stmt|;
 comment|// If widget is already shown, set window visible, too
 if|if
 condition|(
