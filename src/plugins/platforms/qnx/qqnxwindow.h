@@ -28,6 +28,11 @@ include|#
 directive|include
 file|<QtGui/QImage>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/QMutex>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -151,6 +156,12 @@ return|return
 name|m_window
 return|;
 block|}
+comment|// Called by QQnxGLContext::createSurface()
+name|QSize
+name|requestedBufferSize
+argument_list|()
+specifier|const
+block|;
 name|void
 name|setBufferSize
 argument_list|(
@@ -420,6 +431,19 @@ name|Qt
 operator|::
 name|WindowState
 name|m_windowState
+block|;
+comment|// This mutex is used to protect access to the m_requestedBufferSize
+comment|// member. This member is used in conjunction with QQnxGLContext::requestNewSurface()
+comment|// to coordinate recreating the EGL surface which involves destroying any
+comment|// existing EGL surface; resizing the native window buffers; and creating a new
+comment|// EGL surface. All of this has to be done from the thread that is calling
+comment|// QQnxGLContext::makeCurrent()
+name|mutable
+name|QMutex
+name|m_mutex
+block|;
+name|QSize
+name|m_requestedBufferSize
 block|; }
 decl_stmt|;
 end_decl_stmt

@@ -922,6 +922,12 @@ argument_list|)
 case|case
 name|OpenGL
 case|:
+case|case
+name|ThreadedOpenGL
+case|:
+case|case
+name|BufferQueueingOpenGL
+case|:
 return|return
 literal|true
 return|;

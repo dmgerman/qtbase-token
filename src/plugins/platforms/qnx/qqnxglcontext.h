@@ -26,6 +26,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/QAtomicInt>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/QSize>
 end_include
 begin_include
@@ -69,6 +74,10 @@ block|;
 specifier|static
 name|void
 name|shutdown
+argument_list|()
+block|;
+name|void
+name|requestSurfaceChange
 argument_list|()
 block|;
 name|bool
@@ -149,6 +158,9 @@ name|m_eglContext
 block|;
 name|EGLSurface
 name|m_eglSurface
+block|;
+name|QAtomicInt
+name|m_newSurfaceRequested
 block|;
 specifier|static
 name|EGLint

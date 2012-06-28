@@ -181,6 +181,12 @@ name|m_eglSurface
 argument_list|(
 name|EGL_NO_SURFACE
 argument_list|)
+member_init_list|,
+name|m_newSurfaceRequested
+argument_list|(
+literal|true
+argument_list|)
+comment|// Create a surface the first time makeCurrent() is called
 block|{
 name|qGLContextDebug
 argument_list|()
@@ -642,6 +648,30 @@ expr_stmt|;
 block|}
 end_function
 begin_function
+DECL|function|requestSurfaceChange
+name|void
+name|QQnxGLContext
+operator|::
+name|requestSurfaceChange
+parameter_list|()
+block|{
+name|qGLContextDebug
+argument_list|()
+operator|<<
+name|Q_FUNC_INFO
+expr_stmt|;
+name|m_newSurfaceRequested
+operator|.
+name|testAndSetRelease
+argument_list|(
+literal|false
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_function
 DECL|function|makeCurrent
 name|bool
 name|QQnxGLContext
@@ -700,15 +730,33 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|m_eglSurface
-operator|==
-name|EGL_NO_SURFACE
+name|m_newSurfaceRequested
+operator|.
+name|testAndSetOrdered
+argument_list|(
+literal|true
+argument_list|,
+literal|false
+argument_list|)
 condition|)
+block|{
+name|qGLContextDebug
+argument_list|()
+operator|<<
+literal|"New EGL surface requested"
+expr_stmt|;
+name|doneCurrent
+argument_list|()
+expr_stmt|;
+name|destroySurface
+argument_list|()
+expr_stmt|;
 name|createSurface
 argument_list|(
 name|surface
 argument_list|)
 expr_stmt|;
+block|}
 name|eglResult
 operator|=
 name|eglMakeCurrent
@@ -1071,19 +1119,7 @@ literal|"QQNX: unable to create EGLSurface without a QQnxWindow"
 argument_list|)
 expr_stmt|;
 block|}
-comment|// If the platform window does not yet have any buffers, we create
-comment|// a temporary set of buffers with a size of 1x1 pixels. This will
-comment|// suffice until such time as the platform window has obtained
-comment|// buffers of the proper size
-if|if
-condition|(
-operator|!
-name|platformWindow
-operator|->
-name|hasBuffers
-argument_list|()
-condition|)
-block|{
+comment|// Link the window and context
 name|platformWindow
 operator|->
 name|setPlatformOpenGLContext
@@ -1091,20 +1127,24 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+comment|// Fetch the surface size from the window and update
+comment|// the window's buffers before we create the EGL surface
+specifier|const
+name|QSize
+name|surfaceSize
+init|=
+name|platformWindow
+operator|->
+name|requestedBufferSize
+argument_list|()
+decl_stmt|;
 name|platformWindow
 operator|->
 name|setBufferSize
 argument_list|(
-name|platformWindow
-operator|->
-name|geometry
-argument_list|()
-operator|.
-name|size
-argument_list|()
+name|surfaceSize
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Obtain the native handle for our window
 name|screen_window_t
 name|handle
