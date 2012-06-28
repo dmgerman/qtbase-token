@@ -4596,6 +4596,13 @@ argument_list|)
 return|;
 block|}
 block|}
+name|Q_UNREACHABLE
+argument_list|()
+expr_stmt|;
+return|return
+name|QTime
+argument_list|()
+return|;
 block|}
 block|}
 end_namespace
