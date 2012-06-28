@@ -128,6 +128,12 @@ argument|fd_set *exceptfds
 argument_list|,
 argument|timeval *timeout
 argument_list|)
+block|;
+name|int
+name|ioEvents
+argument_list|(
+argument|int fd
+argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
