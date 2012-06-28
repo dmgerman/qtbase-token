@@ -18,36 +18,6 @@ ifndef|#
 directive|ifndef
 name|QT_NO_OPENGL
 end_ifndef
-begin_comment
-comment|//
-end_comment
-begin_comment
-comment|//  W A R N I N G
-end_comment
-begin_comment
-comment|//  -------------
-end_comment
-begin_comment
-comment|//
-end_comment
-begin_comment
-comment|// This file is not part of the Qt API.  It exists for the convenience
-end_comment
-begin_comment
-comment|// of the QtGui module.  This header file may change from
-end_comment
-begin_comment
-comment|// version to version without notice, or even be removed.
-end_comment
-begin_comment
-comment|//
-end_comment
-begin_comment
-comment|// We mean it.
-end_comment
-begin_comment
-comment|//
-end_comment
 begin_include
 include|#
 directive|include
