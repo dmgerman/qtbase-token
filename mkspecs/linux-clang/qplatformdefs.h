@@ -164,7 +164,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|"../../common/posix/qplatformdefs.h"
+file|"../common/posix/qplatformdefs.h"
 end_include
 begin_undef
 DECL|macro|QT_SOCKLEN_T
