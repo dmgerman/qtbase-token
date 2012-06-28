@@ -335,6 +335,11 @@ name|void
 name|terminate
 parameter_list|()
 function_decl|;
+specifier|static
+name|void
+name|writeOutFileNames
+parameter_list|()
+function_decl|;
 name|protected
 label|:
 name|virtual
