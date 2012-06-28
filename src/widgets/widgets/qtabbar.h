@@ -524,6 +524,18 @@ argument_list|,
 argument|int to
 argument_list|)
 block|;
+name|void
+name|tabBarClicked
+argument_list|(
+argument|int index
+argument_list|)
+block|;
+name|void
+name|tabBarDoubleClicked
+argument_list|(
+argument|int index
+argument_list|)
+block|;
 name|protected
 operator|:
 name|virtual
@@ -593,6 +605,13 @@ name|void
 name|paintEvent
 argument_list|(
 name|QPaintEvent
+operator|*
+argument_list|)
+block|;
+name|void
+name|mouseDoubleClickEvent
+argument_list|(
+name|QMouseEvent
 operator|*
 argument_list|)
 block|;
