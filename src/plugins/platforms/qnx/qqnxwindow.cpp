@@ -772,7 +772,7 @@ expr_stmt|;
 block|}
 name|QWindowSystemInterface
 operator|::
-name|handleGeometryChange
+name|handleSynchronousGeometryChange
 argument_list|(
 name|window
 argument_list|()
