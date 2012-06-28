@@ -3464,6 +3464,11 @@ literal|' '
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|bool
+name|ignoreCppClass
+init|=
+literal|false
+decl_stmt|;
 if|if
 condition|(
 name|names
@@ -3472,6 +3477,17 @@ name|size
 argument_list|()
 operator|>
 literal|1
+condition|)
+block|{
+comment|/*               If the second argument of the \\qmlclass command is 0 we should ignore the C++ class.               The second argument should only be 0 when you are documenting QML in a .qdoc file.              */
+if|if
+condition|(
+name|names
+index|[
+literal|1
+index|]
+operator|!=
+literal|"0"
 condition|)
 name|classNode
 operator|=
@@ -3490,6 +3506,12 @@ literal|"::"
 argument_list|)
 argument_list|)
 expr_stmt|;
+else|else
+name|ignoreCppClass
+operator|=
+literal|true
+expr_stmt|;
+block|}
 comment|/*           Search for a node with the same name. If there is one,           then there is a collision, so create a collision node           and make the existing node a child of the collision           node, and then create the new QML class node and make           it a child of the collision node as well. Return the           collision node.            If there is no collision, just create a new QML class           node and return that one.          */
 name|NameCollisionNode
 modifier|*
@@ -3544,11 +3566,9 @@ name|isParsingQdoc
 argument_list|()
 condition|)
 block|{
-name|qcn
-operator|->
-name|requireCppClass
-argument_list|()
-expr_stmt|;
+name|QString
+name|msg
+decl_stmt|;
 if|if
 condition|(
 name|names
@@ -3558,10 +3578,8 @@ argument_list|()
 operator|<
 literal|2
 condition|)
-block|{
-name|QString
 name|msg
-init|=
+operator|=
 literal|"C++ class name not specified for class documented as "
 literal|"QML type: '\\qmlclass "
 operator|+
@@ -3569,38 +3587,20 @@ name|arg
 operator|.
 name|first
 operator|+
-literal|"<class name>'"
-decl_stmt|;
-name|doc
-operator|.
-name|startLocation
-argument_list|()
-operator|.
-name|warning
-argument_list|(
-name|tr
-argument_list|(
-name|msg
-operator|.
-name|toLatin1
-argument_list|()
-operator|.
-name|data
-argument_list|()
-argument_list|)
-argument_list|)
+literal|"<class name>'."
+literal|" '0' should be used as second argument if there is no C++ class."
 expr_stmt|;
-block|}
 elseif|else
 if|if
 condition|(
 operator|!
 name|classNode
+operator|&&
+operator|!
+name|ignoreCppClass
 condition|)
-block|{
-name|QString
 name|msg
-init|=
+operator|=
 literal|"C++ class not found in any .h file for class documented "
 literal|"as QML type: '\\qmlclass "
 operator|+
@@ -3609,7 +3609,26 @@ operator|.
 name|first
 operator|+
 literal|"'"
-decl_stmt|;
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+operator|!
+name|ignoreCppClass
+condition|)
+name|qcn
+operator|->
+name|requireCppClass
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|msg
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
 name|doc
 operator|.
 name|startLocation
@@ -3629,7 +3648,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
