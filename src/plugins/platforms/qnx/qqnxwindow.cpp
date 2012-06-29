@@ -781,9 +781,6 @@ name|rect
 argument_list|)
 expr_stmt|;
 comment|// Now move all children.
-name|QPoint
-name|offset
-decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -793,20 +790,20 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+specifier|const
+name|QPoint
 name|offset
-operator|=
+init|=
 name|rect
 operator|.
 name|topLeft
 argument_list|()
-expr_stmt|;
-name|offset
-operator|-=
+operator|-
 name|oldGeometry
 operator|.
 name|topLeft
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|Q_FOREACH
 argument_list|(
 argument|QQnxWindow *childWindow
