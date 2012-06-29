@@ -3179,7 +3179,9 @@ argument_list|)
 argument_list|,
 name|QChar
 argument_list|(
-literal|0x00AD
+name|QChar
+operator|::
+name|SoftHyphen
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3278,7 +3280,9 @@ name|indexOf
 argument_list|(
 name|QChar
 argument_list|(
-literal|0x00AD
+name|QChar
+operator|::
+name|SoftHyphen
 argument_list|)
 argument_list|,
 name|i

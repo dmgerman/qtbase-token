@@ -4684,9 +4684,10 @@ if|if
 condition|(
 name|lucs4
 operator|==
-literal|0x00ad
+name|QChar
+operator|::
+name|SoftHyphen
 condition|)
-comment|// soft hyphen
 name|lineBreakType
 operator|=
 name|HB_SoftHyphen

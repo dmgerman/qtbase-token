@@ -119,6 +119,10 @@ name|Nbsp
 init|=
 literal|0x00a0
 block|,
+name|SoftHyphen
+init|=
+literal|0x00ad
+block|,
 name|ReplacementCharacter
 init|=
 literal|0xfffd

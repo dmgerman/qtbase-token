@@ -19464,8 +19464,13 @@ name|lineEnd
 operator|-
 literal|1
 argument_list|)
+operator|.
+name|unicode
+argument_list|()
 operator|==
-literal|0x00ad
+name|QChar
+operator|::
+name|SoftHyphen
 condition|)
 name|glyphs
 operator|.
