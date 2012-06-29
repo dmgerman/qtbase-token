@@ -9549,13 +9549,6 @@ literal|"4 8 16 24 32"
 expr_stmt|;
 name|dictionary
 index|[
-literal|"QT_SXE"
-index|]
-operator|=
-literal|"no"
-expr_stmt|;
-name|dictionary
-index|[
 literal|"QT_INOTIFY"
 index|]
 operator|=
@@ -20351,21 +20344,6 @@ condition|)
 name|tmpStream
 operator|<<
 literal|"#define QT_NO_INOTIFY"
-operator|<<
-name|endl
-expr_stmt|;
-if|if
-condition|(
-name|dictionary
-index|[
-literal|"QT_SXE"
-index|]
-operator|==
-literal|"no"
-condition|)
-name|tmpStream
-operator|<<
-literal|"#define QT_NO_SXE"
 operator|<<
 name|endl
 expr_stmt|;
