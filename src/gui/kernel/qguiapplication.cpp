@@ -5093,6 +5093,9 @@ modifier|*
 name|e
 parameter_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_WHEELEVENT
 name|QWindow
 modifier|*
 name|window
@@ -5248,6 +5251,9 @@ operator|&
 name|ev
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|/* ifndef QT_NO_WHEELEVENT */
 block|}
 end_function
 begin_comment
