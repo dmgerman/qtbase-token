@@ -1643,6 +1643,7 @@ label|:
 name|void
 name|parseOptions
 parameter_list|(
+specifier|const
 name|QStringList
 modifier|&
 name|options

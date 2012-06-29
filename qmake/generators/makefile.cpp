@@ -1746,6 +1746,38 @@ name|project
 operator|=
 name|p
 expr_stmt|;
+if|if
+condition|(
+name|project
+operator|->
+name|isActiveConfig
+argument_list|(
+literal|"win32"
+argument_list|)
+condition|)
+name|target_mode
+operator|=
+name|TARG_WIN_MODE
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|project
+operator|->
+name|isActiveConfig
+argument_list|(
+literal|"macx"
+argument_list|)
+condition|)
+name|target_mode
+operator|=
+name|TARG_MACX_MODE
+expr_stmt|;
+else|else
+name|target_mode
+operator|=
+name|TARG_UNIX_MODE
+expr_stmt|;
 name|init
 argument_list|()
 expr_stmt|;
@@ -1797,6 +1829,7 @@ block|{
 name|QStringList
 name|vpath
 decl_stmt|;
+specifier|const
 name|QHash
 argument_list|<
 name|QString
@@ -2765,10 +2798,7 @@ comment|//just to avoid an infinite loop here
 break|break;
 if|if
 condition|(
-name|project
-operator|->
-name|variables
-argument_list|()
+name|v
 operator|.
 name|contains
 argument_list|(
@@ -2788,10 +2818,7 @@ name|QStringList
 modifier|&
 name|outputs
 init|=
-name|project
-operator|->
-name|variables
-argument_list|()
+name|v
 operator|.
 name|value
 argument_list|(
@@ -2850,10 +2877,7 @@ condition|)
 continue|continue;
 if|if
 condition|(
-name|project
-operator|->
-name|variables
-argument_list|()
+name|v
 operator|.
 name|contains
 argument_list|(
@@ -2873,10 +2897,7 @@ name|QStringList
 modifier|&
 name|inputs
 init|=
-name|project
-operator|->
-name|variables
-argument_list|()
+name|v
 operator|.
 name|value
 argument_list|(
@@ -4580,6 +4601,7 @@ operator|-
 literal|1
 condition|)
 block|{
+specifier|const
 name|QStringList
 modifier|&
 name|compilerInputs
@@ -4690,10 +4712,7 @@ operator|)
 decl_stmt|;
 if|if
 condition|(
-name|project
-operator|->
-name|variables
-argument_list|()
+name|v
 operator|.
 name|contains
 argument_list|(
@@ -4711,10 +4730,7 @@ name|QStringList
 modifier|&
 name|var_out
 init|=
-name|project
-operator|->
-name|variables
-argument_list|()
+name|v
 operator|.
 name|value
 argument_list|(
@@ -4910,11 +4926,10 @@ name|list
 init|=
 name|project
 operator|->
-name|variables
-argument_list|()
-index|[
+name|values
+argument_list|(
 literal|"PRE_TARGETDEPS"
-index|]
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -4938,6 +4953,7 @@ block|}
 block|}
 else|else
 block|{
+specifier|const
 name|QStringList
 modifier|&
 name|tmp
@@ -4958,7 +4974,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|it2
 init|=
 name|tmp
@@ -5113,10 +5129,7 @@ operator|)
 decl_stmt|;
 if|if
 condition|(
-name|project
-operator|->
-name|variables
-argument_list|()
+name|v
 operator|.
 name|contains
 argument_list|(
@@ -5136,15 +5149,10 @@ name|var_out
 init|=
 name|project
 operator|->
-name|variables
-argument_list|()
-operator|.
-name|value
+name|values
 argument_list|(
-operator|(
 operator|*
 name|it
-operator|)
 operator|+
 literal|".variable_out"
 argument_list|)
@@ -5333,11 +5341,10 @@ name|list
 init|=
 name|project
 operator|->
-name|variables
-argument_list|()
-index|[
+name|values
+argument_list|(
 literal|"PRE_TARGETDEPS"
-index|]
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -8494,6 +8501,7 @@ modifier|&
 name|src
 parameter_list|)
 block|{
+specifier|const
 name|QStringList
 modifier|&
 name|srcl
@@ -8505,6 +8513,7 @@ argument_list|(
 name|src
 argument_list|)
 decl_stmt|;
+specifier|const
 name|QStringList
 name|objl
 init|=
@@ -8515,7 +8524,7 @@ argument_list|)
 decl_stmt|;
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|oit
 init|=
 name|objl
@@ -8525,7 +8534,7 @@ argument_list|()
 decl_stmt|;
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|sit
 init|=
 name|srcl
@@ -8986,6 +8995,7 @@ name|all_installs
 decl_stmt|,
 name|all_uninstalls
 decl_stmt|;
+specifier|const
 name|QStringList
 modifier|&
 name|l
@@ -9001,7 +9011,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|it
 init|=
 name|l
@@ -12800,6 +12810,7 @@ return|;
 block|}
 else|else
 block|{
+specifier|const
 name|QStringList
 modifier|&
 name|tmp
@@ -12817,7 +12828,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|it
 init|=
 name|tmp
@@ -12836,6 +12847,7 @@ operator|++
 name|it
 control|)
 block|{
+specifier|const
 name|QStringList
 modifier|&
 name|inputs
@@ -12854,7 +12866,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|input
 init|=
 name|inputs
@@ -13181,6 +13193,7 @@ return|;
 block|}
 else|else
 block|{
+specifier|const
 name|QStringList
 modifier|&
 name|tmp
@@ -13198,7 +13211,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|it
 init|=
 name|tmp
@@ -13217,6 +13230,7 @@ operator|++
 name|it
 control|)
 block|{
+specifier|const
 name|QStringList
 modifier|&
 name|inputs
@@ -13235,7 +13249,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|input
 init|=
 name|inputs
@@ -13357,6 +13371,7 @@ modifier|&
 name|t
 parameter_list|)
 block|{
+specifier|const
 name|QStringList
 modifier|&
 name|qut
@@ -13372,7 +13387,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|it
 init|=
 name|qut
@@ -13432,6 +13447,7 @@ operator|*
 name|it
 operator|)
 expr_stmt|;
+specifier|const
 name|QStringList
 modifier|&
 name|deplist
@@ -13452,7 +13468,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|dep_it
 init|=
 name|deplist
@@ -14012,6 +14028,7 @@ literal|"&& "
 argument_list|)
 expr_stmt|;
 block|}
+specifier|const
 name|QStringList
 modifier|&
 name|vars
@@ -16402,6 +16419,7 @@ expr_stmt|;
 name|QStringList
 name|outlist
 decl_stmt|;
+specifier|const
 name|QHash
 argument_list|<
 name|QString
@@ -16416,6 +16434,7 @@ operator|->
 name|variables
 argument_list|()
 decl_stmt|;
+specifier|const
 name|QStringList
 modifier|&
 name|exports
@@ -16436,7 +16455,7 @@ argument_list|,
 name|QStringList
 argument_list|>
 operator|::
-name|Iterator
+name|ConstIterator
 name|it
 init|=
 name|vars
@@ -16459,7 +16478,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|exp_it
 init|=
 name|exports
@@ -16586,6 +16605,7 @@ argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
+specifier|const
 name|QStringList
 modifier|&
 name|qut
@@ -16989,58 +17009,6 @@ argument_list|,
 name|outdir
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|Option
-operator|::
-name|target_mode_overridden
-condition|)
-block|{
-if|if
-condition|(
-name|Option
-operator|::
-name|target_mode
-operator|==
-name|Option
-operator|::
-name|TARG_MACX_MODE
-condition|)
-name|ret
-operator|+=
-literal|" -macx"
-expr_stmt|;
-elseif|else
-if|if
-condition|(
-name|Option
-operator|::
-name|target_mode
-operator|==
-name|Option
-operator|::
-name|TARG_UNIX_MODE
-condition|)
-name|ret
-operator|+=
-literal|" -unix"
-expr_stmt|;
-elseif|else
-if|if
-condition|(
-name|Option
-operator|::
-name|target_mode
-operator|==
-name|Option
-operator|::
-name|TARG_WIN_MODE
-condition|)
-name|ret
-operator|+=
-literal|" -win32"
-expr_stmt|;
-block|}
 comment|//arguments
 for|for
 control|(
@@ -18479,6 +18447,7 @@ name|flags
 parameter_list|)
 block|{
 comment|// blasted includes
+specifier|const
 name|QStringList
 modifier|&
 name|qeui
@@ -18494,7 +18463,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|qeui_it
 init|=
 name|qeui
@@ -19999,6 +19968,7 @@ expr_stmt|;
 block|}
 block|}
 comment|// user defined targets
+specifier|const
 name|QStringList
 modifier|&
 name|qut
@@ -20014,7 +19984,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|qut_it
 init|=
 name|qut
@@ -20078,6 +20048,7 @@ name|t
 operator|<<
 name|endl
 expr_stmt|;
+specifier|const
 name|QStringList
 modifier|&
 name|deplist
@@ -20098,7 +20069,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|dep_it
 init|=
 name|deplist
@@ -22491,6 +22462,7 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
+specifier|const
 name|QStringList
 modifier|&
 name|l
@@ -22506,7 +22478,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|val_it
 init|=
 name|l
@@ -22723,6 +22695,7 @@ name|found
 init|=
 literal|false
 decl_stmt|;
+specifier|const
 name|QStringList
 modifier|&
 name|nodeplist
@@ -22738,7 +22711,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|it
 init|=
 name|nodeplist
@@ -23080,6 +23053,7 @@ operator|-
 literal|1
 argument_list|)
 decl_stmt|;
+specifier|const
 name|QStringList
 modifier|&
 name|qut
@@ -23095,7 +23069,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|it
 init|=
 name|qut
@@ -23270,6 +23244,7 @@ name|isEmpty
 argument_list|()
 condition|)
 continue|continue;
+specifier|const
 name|QStringList
 modifier|&
 name|tmp
@@ -23290,7 +23265,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|it2
 init|=
 name|tmp
@@ -23309,6 +23284,7 @@ operator|++
 name|it2
 control|)
 block|{
+specifier|const
 name|QStringList
 modifier|&
 name|inputs
@@ -23327,7 +23303,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|input
 init|=
 name|inputs
@@ -23554,20 +23530,8 @@ name|fileFixify
 argument_list|(
 name|project
 operator|->
-name|isHostBuild
+name|specDir
 argument_list|()
-condition|?
-name|Option
-operator|::
-name|mkfile
-operator|::
-name|qmakespec
-else|:
-name|Option
-operator|::
-name|mkfile
-operator|::
-name|xqmakespec
 argument_list|)
 expr_stmt|;
 return|return
@@ -24899,12 +24863,8 @@ name|pkgConfiglibName
 decl_stmt|;
 if|if
 condition|(
-name|Option
-operator|::
 name|target_mode
 operator|==
-name|Option
-operator|::
 name|TARG_MACX_MODE
 operator|&&
 name|project

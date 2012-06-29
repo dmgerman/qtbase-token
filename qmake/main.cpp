@@ -779,8 +779,15 @@ name|mkfile
 operator|::
 name|do_preprocess
 condition|)
-comment|//no need to create makefile
+block|{
+name|project
+operator|.
+name|dump
+argument_list|()
+expr_stmt|;
 continue|continue;
+comment|//no need to create makefile
+block|}
 block|}
 name|bool
 name|success

@@ -77,6 +77,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+specifier|const
 name|QStringList
 modifier|&
 name|qut
