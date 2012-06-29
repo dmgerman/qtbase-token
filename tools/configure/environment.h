@@ -145,14 +145,6 @@ specifier|const
 name|QString
 modifier|&
 name|destDir
-parameter_list|,
-specifier|const
-name|QString
-modifier|&
-name|includeSrcDir
-init|=
-name|QString
-argument_list|()
 parameter_list|)
 function_decl|;
 specifier|static
