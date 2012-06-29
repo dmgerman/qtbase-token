@@ -470,6 +470,15 @@ return|return
 literal|0
 return|;
 comment|// no limit
+case|case
+name|UseRtlExtensions
+case|:
+return|return
+name|QVariant
+argument_list|(
+literal|false
+argument_list|)
+return|;
 block|}
 return|return
 literal|0

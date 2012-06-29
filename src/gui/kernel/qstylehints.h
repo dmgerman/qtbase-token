@@ -87,6 +87,11 @@ name|fontSmoothingGamma
 argument_list|()
 specifier|const
 block|;
+name|bool
+name|useRtlExtensions
+argument_list|()
+specifier|const
+block|;
 name|private
 operator|:
 name|friend

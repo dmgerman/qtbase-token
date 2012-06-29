@@ -629,6 +629,11 @@ name|systemInfo
 argument_list|()
 specifier|const
 expr_stmt|;
+name|bool
+name|useRTLExtensions
+argument_list|()
+specifier|const
+expr_stmt|;
 name|QWindowsMimeConverter
 operator|&
 name|mimeConverter

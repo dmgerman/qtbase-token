@@ -55,6 +55,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qstylehints.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qmenu.h"
 end_include
 begin_include
@@ -6840,29 +6845,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_if
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_WS_WIN
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_WS_X11
-argument_list|)
-end_if
-begin_decl_stmt
-specifier|extern
-name|bool
-name|qt_use_rtl_extensions
-decl_stmt|;
-end_decl_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|/*!  This function creates the standard context menu which is shown         when the user clicks on the line edit with the right mouse         button. It is called from the default contextMenuEvent() handler.         The popup menu's ownership is transferred to the caller. */
 end_comment
@@ -7388,17 +7370,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_WS_WIN
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_WS_X11
-argument_list|)
 if|if
 condition|(
 operator|!
@@ -7409,24 +7380,15 @@ operator|->
 name|isReadOnly
 argument_list|()
 operator|&&
-name|qt_use_rtl_extensions
-condition|)
-block|{
-else|#
-directive|else
-if|if
-condition|(
-operator|!
-name|d
+name|qApp
 operator|->
-name|control
+name|styleHints
+argument_list|()
 operator|->
-name|isReadOnly
+name|useRtlExtensions
 argument_list|()
 condition|)
 block|{
-endif|#
-directive|endif
 name|popup
 operator|->
 name|addSeparator
@@ -7456,10 +7418,18 @@ return|return
 name|popup
 return|;
 block|}
+end_function
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|// QT_NO_CONTEXTMENU
+end_comment
+begin_comment
 comment|/*! \reimp */
+end_comment
+begin_function
 DECL|function|changeEvent
 name|void
 name|QLineEdit
@@ -7579,31 +7549,79 @@ name|ev
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*!     \fn void QLineEdit::repaintArea(int a, int b)      Use update() instead. */
-comment|/*!     \fn void QLineEdit::cursorLeft(bool mark, int steps)      Use cursorForward() with a negative number of steps instead. For     example, cursorForward(mark, -steps). */
-comment|/*!     \fn void QLineEdit::cursorRight(bool mark, int steps)      Use cursorForward() instead. */
-comment|/*!     \fn bool QLineEdit::frame() const      Use hasFrame() instead. */
-comment|/*!     \fn void QLineEdit::clearValidator()      Use setValidator(0) instead. */
-comment|/*!     \fn bool QLineEdit::hasMarkedText() const      Use hasSelectedText() instead. */
-comment|/*!     \fn QString QLineEdit::markedText() const      Use selectedText() instead. */
-comment|/*!     \fn void QLineEdit::setFrameRect(QRect)     \internal */
-comment|/*!     \fn QRect QLineEdit::frameRect() const     \internal */
-comment|/*!     \enum QLineEdit::DummyFrame     \internal      \value Box     \value Sunken     \value Plain     \value Raised     \value MShadow     \value NoFrame     \value Panel     \value StyledPanel     \value HLine     \value VLine     \value GroupBoxPanel     \value WinPanel     \value ToolBarPanel     \value MenuBarPanel     \value PopupPanel     \value LineEditPanel     \value TabWidgetPanel     \value MShape */
-comment|/*!     \fn void QLineEdit::setFrameShadow(DummyFrame)     \internal */
-comment|/*!     \fn DummyFrame QLineEdit::frameShadow() const     \internal */
-comment|/*!     \fn void QLineEdit::setFrameShape(DummyFrame)     \internal */
-comment|/*!     \fn DummyFrame QLineEdit::frameShape() const     \internal */
-comment|/*!     \fn void QLineEdit::setFrameStyle(int)     \internal */
-comment|/*!     \fn int QLineEdit::frameStyle() const     \internal */
-comment|/*!     \fn int QLineEdit::frameWidth() const     \internal */
-comment|/*!     \fn void QLineEdit::setLineWidth(int)     \internal */
-comment|/*!     \fn int QLineEdit::lineWidth() const     \internal */
-comment|/*!     \fn void QLineEdit::setMargin(int margin)     Sets the width of the margin around the contents of the widget to \a margin.      Use QWidget::setContentsMargins() instead.     \sa margin(), QWidget::setContentsMargins() */
-comment|/*!     \fn int QLineEdit::margin() const     Returns the width of the margin around the contents of the widget.      Use QWidget::getContentsMargins() instead.     \sa setMargin(), QWidget::getContentsMargins() */
-comment|/*!     \fn void QLineEdit::setMidLineWidth(int)     \internal */
-comment|/*!     \fn int QLineEdit::midLineWidth() const     \internal */
-name|QT_END_NAMESPACE
 end_function
+begin_comment
+comment|/*!     \fn void QLineEdit::repaintArea(int a, int b)      Use update() instead. */
+end_comment
+begin_comment
+comment|/*!     \fn void QLineEdit::cursorLeft(bool mark, int steps)      Use cursorForward() with a negative number of steps instead. For     example, cursorForward(mark, -steps). */
+end_comment
+begin_comment
+comment|/*!     \fn void QLineEdit::cursorRight(bool mark, int steps)      Use cursorForward() instead. */
+end_comment
+begin_comment
+comment|/*!     \fn bool QLineEdit::frame() const      Use hasFrame() instead. */
+end_comment
+begin_comment
+comment|/*!     \fn void QLineEdit::clearValidator()      Use setValidator(0) instead. */
+end_comment
+begin_comment
+comment|/*!     \fn bool QLineEdit::hasMarkedText() const      Use hasSelectedText() instead. */
+end_comment
+begin_comment
+comment|/*!     \fn QString QLineEdit::markedText() const      Use selectedText() instead. */
+end_comment
+begin_comment
+comment|/*!     \fn void QLineEdit::setFrameRect(QRect)     \internal */
+end_comment
+begin_comment
+comment|/*!     \fn QRect QLineEdit::frameRect() const     \internal */
+end_comment
+begin_comment
+comment|/*!     \enum QLineEdit::DummyFrame     \internal      \value Box     \value Sunken     \value Plain     \value Raised     \value MShadow     \value NoFrame     \value Panel     \value StyledPanel     \value HLine     \value VLine     \value GroupBoxPanel     \value WinPanel     \value ToolBarPanel     \value MenuBarPanel     \value PopupPanel     \value LineEditPanel     \value TabWidgetPanel     \value MShape */
+end_comment
+begin_comment
+comment|/*!     \fn void QLineEdit::setFrameShadow(DummyFrame)     \internal */
+end_comment
+begin_comment
+comment|/*!     \fn DummyFrame QLineEdit::frameShadow() const     \internal */
+end_comment
+begin_comment
+comment|/*!     \fn void QLineEdit::setFrameShape(DummyFrame)     \internal */
+end_comment
+begin_comment
+comment|/*!     \fn DummyFrame QLineEdit::frameShape() const     \internal */
+end_comment
+begin_comment
+comment|/*!     \fn void QLineEdit::setFrameStyle(int)     \internal */
+end_comment
+begin_comment
+comment|/*!     \fn int QLineEdit::frameStyle() const     \internal */
+end_comment
+begin_comment
+comment|/*!     \fn int QLineEdit::frameWidth() const     \internal */
+end_comment
+begin_comment
+comment|/*!     \fn void QLineEdit::setLineWidth(int)     \internal */
+end_comment
+begin_comment
+comment|/*!     \fn int QLineEdit::lineWidth() const     \internal */
+end_comment
+begin_comment
+comment|/*!     \fn void QLineEdit::setMargin(int margin)     Sets the width of the margin around the contents of the widget to \a margin.      Use QWidget::setContentsMargins() instead.     \sa margin(), QWidget::setContentsMargins() */
+end_comment
+begin_comment
+comment|/*!     \fn int QLineEdit::margin() const     Returns the width of the margin around the contents of the widget.      Use QWidget::getContentsMargins() instead.     \sa setMargin(), QWidget::getContentsMargins() */
+end_comment
+begin_comment
+comment|/*!     \fn void QLineEdit::setMidLineWidth(int)     \internal */
+end_comment
+begin_comment
+comment|/*!     \fn int QLineEdit::midLineWidth() const     \internal */
+end_comment
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_include
 include|#
 directive|include

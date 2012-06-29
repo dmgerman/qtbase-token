@@ -373,6 +373,8 @@ block|,
 name|FontSmoothingGamma
 block|,
 name|StartDragVelocity
+block|,
+name|UseRtlExtensions
 block|}
 enum|;
 name|virtual
