@@ -24439,20 +24439,7 @@ argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
-comment|// non-standard entry. Provides useful info normally only
-comment|// contained in the internal .qmake.cache file
 name|t
-operator|<<
-name|varGlue
-argument_list|(
-literal|"CONFIG"
-argument_list|,
-literal|"qt_config="
-argument_list|,
-literal|" "
-argument_list|,
-literal|""
-argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
