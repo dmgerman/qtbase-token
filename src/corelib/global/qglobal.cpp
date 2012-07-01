@@ -2714,6 +2714,11 @@ parameter_list|()
 block|{
 if|#
 directive|if
+name|defined
+argument_list|(
+name|Q_OS_UNIX
+argument_list|)
+operator|&&
 operator|!
 name|defined
 argument_list|(

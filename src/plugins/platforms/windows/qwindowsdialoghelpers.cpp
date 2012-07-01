@@ -119,11 +119,18 @@ end_include
 begin_comment
 comment|// #define USE_NATIVE_COLOR_DIALOG /* Testing purposes only */
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_CC_MINGW
-end_ifdef
+argument_list|)
+operator|&&
+name|__MINGW64_VERSION_MAJOR
+operator|<
+literal|3
+end_if
 begin_comment
 comment|/* Add missing declarations for MinGW */
 end_comment
@@ -557,17 +564,9 @@ end_define
 begin_if
 if|#
 directive|if
-operator|!
-name|defined
-argument_list|(
-name|__MINGW64_VERSION_MAJOR
-argument_list|)
-operator|||
-operator|(
 name|__MINGW64_VERSION_MAJOR
 operator|<
 literal|2
-operator|)
 end_if
 begin_typedef
 DECL|typedef|GETPROPERTYSTOREFLAGS
@@ -1987,7 +1986,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// Q_CC_MINGW
+comment|// defined(Q_CC_MINGW)&& __MINGW64_VERSION_MAJOR< 3
 end_comment
 begin_function
 name|QT_BEGIN_NAMESPACE
