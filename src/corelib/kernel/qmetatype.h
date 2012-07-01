@@ -2094,6 +2094,7 @@ block|;
 DECL|function|qt_metatype_id
 specifier|static
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|int
 name|qt_metatype_id
 argument_list|()
@@ -2135,6 +2136,7 @@ name|QMetaTypeIdHelper
 block|{
 specifier|static
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|int
 name|qt_metatype_id
 argument_list|()
@@ -2166,6 +2168,7 @@ operator|>
 block|{
 specifier|static
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|int
 name|qt_metatype_id
 argument_list|()
@@ -2685,6 +2688,7 @@ name|typename
 name|T
 operator|>
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|int
 name|qMetaTypeId
 argument_list|(
@@ -3009,7 +3013,7 @@ parameter_list|,
 name|NAME
 parameter_list|)
 define|\
-value|QT_BEGIN_NAMESPACE \     template<> struct QMetaTypeId2<TYPE> \     { \         enum { Defined = 1, MetaType = QMetaType::NAME }; \         static inline int qt_metatype_id() { return QMetaType::NAME; } \     }; \     QT_END_NAMESPACE
+value|QT_BEGIN_NAMESPACE \     template<> struct QMetaTypeId2<TYPE> \     { \         enum { Defined = 1, MetaType = QMetaType::NAME }; \         static inline Q_DECL_CONSTEXPR int qt_metatype_id() { return QMetaType::NAME; } \     }; \     QT_END_NAMESPACE
 end_define
 begin_define
 DECL|macro|QT_FORWARD_DECLARE_STATIC_TYPES_ITER
