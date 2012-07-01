@@ -72,6 +72,21 @@ operator|~
 name|QCocoaScreen
 argument_list|()
 block|;
+name|QPixmap
+name|grabWindow
+argument_list|(
+argument|WId window
+argument_list|,
+argument|int x
+argument_list|,
+argument|int y
+argument_list|,
+argument|int width
+argument_list|,
+argument|int height
+argument_list|)
+specifier|const
+block|;
 name|QRect
 name|geometry
 argument_list|()
