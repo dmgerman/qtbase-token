@@ -71,6 +71,24 @@ block|{
 name|public
 operator|:
 comment|// Non-atomic API
+ifdef|#
+directive|ifdef
+name|Q_BASIC_ATOMIC_HAS_CONSTRUCTORS
+name|constexpr
+name|QAtomicInt
+argument_list|(
+argument|int value =
+literal|0
+argument_list|)
+name|Q_DECL_NOTHROW
+operator|:
+name|QBasicAtomicInt
+argument_list|(
+argument|value
+argument_list|)
+block|{}
+else|#
+directive|else
 specifier|inline
 name|QAtomicInt
 argument_list|(
@@ -83,6 +101,8 @@ name|_q_value
 operator|=
 name|value
 block|;     }
+endif|#
+directive|endif
 specifier|inline
 name|QAtomicInt
 argument_list|(
@@ -290,6 +310,27 @@ operator|>
 block|{
 name|public
 operator|:
+ifdef|#
+directive|ifdef
+name|QT_BASIC_ATOMIC_HAS_CONSTRUCTORS
+name|constexpr
+name|QAtomicPointer
+argument_list|(
+argument|T *value =
+literal|0
+argument_list|)
+name|Q_DECL_NOTHROW
+operator|:
+name|QBasicAtomicPointer
+operator|<
+name|T
+operator|>
+operator|(
+name|value
+operator|)
+block|{}
+else|#
+directive|else
 specifier|inline
 name|QAtomicPointer
 argument_list|(
@@ -305,6 +346,8 @@ argument_list|(
 name|value
 argument_list|)
 block|;     }
+endif|#
+directive|endif
 specifier|inline
 name|QAtomicPointer
 argument_list|(
@@ -582,6 +625,21 @@ name|GCC
 name|diagnostic
 name|pop
 end_pragma
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_BASIC_ATOMIC_HAS_CONSTRUCTORS
+end_ifdef
+begin_undef
+DECL|macro|QT_BASIC_ATOMIC_HAS_CONSTRUCTORS
+undef|#
+directive|undef
+name|QT_BASIC_ATOMIC_HAS_CONSTRUCTORS
+end_undef
 begin_endif
 endif|#
 directive|endif
