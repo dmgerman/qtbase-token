@@ -44,6 +44,10 @@ name|public
 name|QAbstractItemModel
 block|{
 name|Q_OBJECT
+name|Q_PROPERTY
+argument_list|(
+argument|QAbstractItemModel* sourceModel READ sourceModel WRITE setSourceModel NOTIFY sourceModelChanged
+argument_list|)
 name|public
 operator|:
 name|explicit
@@ -265,6 +269,12 @@ name|DropActions
 name|supportedDropActions
 argument_list|()
 specifier|const
+block|;
+name|Q_SIGNALS
+operator|:
+name|void
+name|sourceModelChanged
+argument_list|()
 block|;
 name|protected
 operator|:

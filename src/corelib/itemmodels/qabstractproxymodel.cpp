@@ -154,6 +154,15 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|sourceModel
+operator|!=
+name|d
+operator|->
+name|model
+condition|)
+block|{
+if|if
+condition|(
 name|d
 operator|->
 name|model
@@ -235,6 +244,11 @@ operator|->
 name|roleNames
 argument_list|()
 expr_stmt|;
+emit|emit
+name|sourceModelChanged
+argument_list|()
+emit|;
+block|}
 block|}
 end_function
 begin_comment
