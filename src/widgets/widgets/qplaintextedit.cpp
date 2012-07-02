@@ -8385,11 +8385,6 @@ modifier|*
 name|e
 parameter_list|)
 block|{
-name|Q_D
-argument_list|(
-name|QPlainTextEdit
-argument_list|)
-expr_stmt|;
 name|QPainter
 name|painter
 argument_list|(
