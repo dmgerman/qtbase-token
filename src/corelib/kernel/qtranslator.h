@@ -164,6 +164,8 @@ argument_list|(
 argument|const uchar *data
 argument_list|,
 argument|int len
+argument_list|,
+argument|const QString&directory = QString()
 argument_list|)
 block|;
 name|private
