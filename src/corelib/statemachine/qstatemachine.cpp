@@ -152,6 +152,35 @@ comment|/*!     \property QStateMachine::animated      \brief whether animations
 endif|#
 directive|endif
 comment|// #define QSTATEMACHINE_DEBUG
+specifier|template
+type|<class
+name|T
+function|> static
+DECL|function|qHash
+name|uint
+name|qHash
+parameter_list|(
+specifier|const
+name|QPointer
+argument_list|<
+name|T
+argument_list|>
+modifier|&
+name|p
+parameter_list|)
+block|{
+return|return
+name|qHash
+argument_list|(
+name|p
+operator|.
+name|data
+argument_list|()
+argument_list|)
+return|;
+block|}
+end_function
+begin_constructor
 DECL|function|QStateMachinePrivate
 name|QStateMachinePrivate
 operator|::
@@ -212,7 +241,7 @@ expr_stmt|;
 endif|#
 directive|endif
 block|}
-end_function
+end_constructor
 begin_destructor
 DECL|function|~QStateMachinePrivate
 name|QStateMachinePrivate
@@ -3584,10 +3613,12 @@ operator|!
 name|s
 condition|)
 continue|continue;
+block|{
 name|QList
 argument_list|<
 name|QPropertyAssignment
 argument_list|>
+modifier|&
 name|assignments
 init|=
 name|QStatePrivate
@@ -3629,6 +3660,25 @@ argument_list|(
 name|j
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|assn
+operator|.
+name|objectDeleted
+argument_list|()
+condition|)
+block|{
+name|assignments
+operator|.
+name|removeAt
+argument_list|(
+name|j
+operator|--
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 if|if
 condition|(
 name|globalRestorePolicy
@@ -3677,6 +3727,8 @@ name|assn
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
 comment|// Remove pending restorables for all parent states to avoid restoring properties
 comment|// before the state that assigned them is exited. If state does not explicitly
 comment|// assign a property which is assigned by the parent, it inherits the parent's assignment.
@@ -3700,8 +3752,13 @@ operator|!=
 literal|0
 condition|)
 block|{
+name|QList
+argument_list|<
+name|QPropertyAssignment
+argument_list|>
+modifier|&
 name|assignments
-operator|=
+init|=
 name|QStatePrivate
 operator|::
 name|get
@@ -3710,7 +3767,7 @@ name|parentState
 argument_list|)
 operator|->
 name|propertyAssignments
-expr_stmt|;
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -3741,6 +3798,25 @@ argument_list|(
 name|j
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|assn
+operator|.
+name|objectDeleted
+argument_list|()
+condition|)
+block|{
+name|assignments
+operator|.
+name|removeAt
+argument_list|(
+name|j
+operator|--
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|int
 name|c
 init|=
@@ -3776,6 +3852,7 @@ argument_list|(
 name|assn
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -5717,6 +5794,20 @@ name|it
 control|)
 block|{
 comment|//        qDebug()<< "restorable:"<< it.key().first<< it.key().second<< it.value();
+if|if
+condition|(
+operator|!
+name|it
+operator|.
+name|key
+argument_list|()
+operator|.
+name|first
+condition|)
+block|{
+comment|// Property object was deleted
+continue|continue;
+block|}
 name|result
 operator|.
 name|append

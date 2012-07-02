@@ -76,6 +76,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/qpointer.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/qset.h>
 end_include
 begin_include
@@ -743,8 +748,10 @@ name|QT_NO_PROPERTIES
 typedef|typedef
 name|QPair
 operator|<
+name|QPointer
+operator|<
 name|QObject
-operator|*
+operator|>
 operator|,
 name|QByteArray
 operator|>
