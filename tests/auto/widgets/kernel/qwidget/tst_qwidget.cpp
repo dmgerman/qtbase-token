@@ -12336,15 +12336,6 @@ argument_list|(
 name|waitTime
 argument_list|)
 expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QTBUG-26418"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|qApp
@@ -12391,15 +12382,6 @@ argument_list|(
 name|waitTime
 argument_list|)
 expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QTBUG-26418"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|qApp
@@ -12423,16 +12405,28 @@ argument_list|(
 name|waitTime
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-comment|// QTBUG-26418, widget2 is always set to active
 ifndef|#
 directive|ifndef
 name|Q_OS_WINCE
-block|if (QSysInfo::WindowsVersion>= QSysInfo::WV_VISTA)         QEXPECT_FAIL("", "MS introduced new behavior after XP", Continue);
-endif|#
-directive|endif
+if|if
+condition|(
+name|QSysInfo
+operator|::
+name|WindowsVersion
+operator|>=
+name|QSysInfo
+operator|::
+name|WV_VISTA
+condition|)
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"MS introduced new behavior after XP"
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
 endif|#
 directive|endif
 name|QTest
