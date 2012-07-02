@@ -15940,6 +15940,9 @@ argument_list|()
 operator|<
 literal|0
 condition|)
+block|{
+comment|// For grabbing widgets that haven't been shown yet,
+comment|// we trigger the layouting mechanism to determine the widget's size.
 name|r
 operator|=
 name|d
@@ -15955,6 +15958,17 @@ operator|.
 name|boundingRect
 argument_list|()
 expr_stmt|;
+name|r
+operator|.
+name|setTopLeft
+argument_list|(
+name|rectangle
+operator|.
+name|topLeft
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
