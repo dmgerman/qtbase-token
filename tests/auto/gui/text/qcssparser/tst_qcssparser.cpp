@@ -5548,6 +5548,26 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
+literal|"rgbaf"
+argument_list|)
+operator|<<
+literal|"color: rgba(10, 20, 30, 0.5)"
+operator|<<
+name|QColor
+argument_list|(
+literal|10
+argument_list|,
+literal|20
+argument_list|,
+literal|30
+argument_list|,
+literal|127
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
 literal|"rgb"
 argument_list|)
 operator|<<
