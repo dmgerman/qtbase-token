@@ -567,6 +567,22 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|SM_SWAPBUTTON
+end_ifndef
+begin_define
+DECL|macro|SM_SWAPBUTTON
+define|#
+directive|define
+name|SM_SWAPBUTTON
+value|23
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|// application defines
 end_comment
