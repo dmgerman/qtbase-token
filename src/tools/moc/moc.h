@@ -493,6 +493,7 @@ argument_list|)
 block|{}
 DECL|member|name
 DECL|member|type
+DECL|member|member
 DECL|member|read
 DECL|member|write
 DECL|member|reset
@@ -507,6 +508,8 @@ name|QByteArray
 name|name
 operator|,
 name|type
+operator|,
+name|member
 operator|,
 name|read
 operator|,

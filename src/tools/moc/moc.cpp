@@ -5522,6 +5522,28 @@ index|]
 condition|)
 block|{
 case|case
+literal|'M'
+case|:
+if|if
+condition|(
+name|l
+operator|==
+literal|"MEMBER"
+condition|)
+name|propDef
+operator|.
+name|member
+operator|=
+name|v
+expr_stmt|;
+else|else
+name|error
+argument_list|(
+literal|2
+argument_list|)
+expr_stmt|;
+break|break;
+case|case
 literal|'R'
 case|:
 if|if
@@ -5766,6 +5788,13 @@ name|read
 operator|.
 name|isNull
 argument_list|()
+operator|&&
+name|propDef
+operator|.
+name|member
+operator|.
+name|isNull
+argument_list|()
 condition|)
 block|{
 name|QByteArray
@@ -5783,7 +5812,7 @@ name|name
 expr_stmt|;
 name|msg
 operator|+=
-literal|" has no READ accessor function. The property will be invalid."
+literal|" has no READ accessor function or associated MEMBER variable. The property will be invalid."
 expr_stmt|;
 name|warning
 argument_list|(
@@ -7933,6 +7962,13 @@ condition|(
 name|p
 operator|.
 name|read
+operator|.
+name|isEmpty
+argument_list|()
+operator|&&
+name|p
+operator|.
+name|member
 operator|.
 name|isEmpty
 argument_list|()
