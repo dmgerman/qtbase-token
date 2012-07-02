@@ -3010,10 +3010,12 @@ name|Q_DECLARE_BUILTIN_METATYPE
 parameter_list|(
 name|TYPE
 parameter_list|,
+name|METATYPEID
+parameter_list|,
 name|NAME
 parameter_list|)
 define|\
-value|QT_BEGIN_NAMESPACE \     template<> struct QMetaTypeId2<TYPE> \     { \         enum { Defined = 1, MetaType = QMetaType::NAME }; \         static inline Q_DECL_CONSTEXPR int qt_metatype_id() { return QMetaType::NAME; } \     }; \     QT_END_NAMESPACE
+value|QT_BEGIN_NAMESPACE \     template<> struct QMetaTypeId2<NAME> \     { \         enum { Defined = 1, MetaType = METATYPEID }; \         static inline Q_DECL_CONSTEXPR int qt_metatype_id() { return METATYPEID; } \     }; \     QT_END_NAMESPACE
 end_define
 begin_define
 DECL|macro|QT_FORWARD_DECLARE_STATIC_TYPES_ITER
@@ -3738,34 +3740,13 @@ return|return
 name|m_metaObject
 return|;
 end_return
-begin_define
-DECL|macro|QT_DECLARE_BUILTIN_METATYPE_ITER
-unit|}  QT_END_NAMESPACE
-define|#
-directive|define
-name|QT_DECLARE_BUILTIN_METATYPE_ITER
-parameter_list|(
-name|MetaTypeName
-parameter_list|,
-name|MetaTypeId
-parameter_list|,
-name|Name
-parameter_list|)
-define|\
-value|Q_DECLARE_BUILTIN_METATYPE(Name, MetaTypeName)
-end_define
 begin_macro
+unit|}  QT_END_NAMESPACE
 name|QT_FOR_EACH_STATIC_TYPE
 argument_list|(
-argument|QT_DECLARE_BUILTIN_METATYPE_ITER
+argument|Q_DECLARE_BUILTIN_METATYPE
 argument_list|)
 end_macro
-begin_undef
-DECL|macro|QT_DECLARE_BUILTIN_METATYPE_ITER
-undef|#
-directive|undef
-name|QT_DECLARE_BUILTIN_METATYPE_ITER
-end_undef
 begin_macro
 name|QT_END_HEADER
 end_macro

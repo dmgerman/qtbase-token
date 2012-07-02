@@ -339,11 +339,15 @@ begin_decl_stmt
 name|QT_END_NAMESPACE
 name|Q_DECLARE_BUILTIN_METATYPE
 argument_list|(
+name|UInt
+argument_list|,
+name|QMetaType
+operator|::
+name|UInt
+argument_list|,
 name|QDBusConnectionInterface
 operator|::
 name|RegisterServiceReply
-argument_list|,
-name|UInt
 argument_list|)
 name|QT_END_HEADER
 end_decl_stmt
