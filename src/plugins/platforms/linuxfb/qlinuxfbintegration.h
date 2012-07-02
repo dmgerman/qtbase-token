@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QGRAPHICSSYSTEM_LINUXFB_H
+name|QLINUXFBINTEGRATION_H
 end_ifndef
 begin_define
-DECL|macro|QGRAPHICSSYSTEM_LINUXFB_H
+DECL|macro|QLINUXFBINTEGRATION_H
 define|#
 directive|define
-name|QGRAPHICSSYSTEM_LINUXFB_H
+name|QLINUXFBINTEGRATION_H
 end_define
 begin_include
 include|#
@@ -21,71 +21,10 @@ end_include
 begin_include
 include|#
 directive|include
-file|"../fb_base/fb_base.h"
+file|<QtPlatformSupport/private/qfbscreen_p.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-name|class
-name|QLinuxFbScreen
-range|:
-name|public
-name|QFbScreen
-block|{
-name|Q_OBJECT
-name|public
-operator|:
-name|QLinuxFbScreen
-argument_list|(
-argument|uchar * d
-argument_list|,
-argument|int w
-argument_list|,
-argument|int h
-argument_list|,
-argument|int lstep
-argument_list|,
-argument|QImage::Format screenFormat
-argument_list|)
-block|;
-name|void
-name|setGeometry
-argument_list|(
-argument|QRect rect
-argument_list|)
-block|;
-name|void
-name|setFormat
-argument_list|(
-argument|QImage::Format format
-argument_list|)
-block|;
-name|public
-name|slots
-operator|:
-name|QRegion
-name|doRedraw
-argument_list|()
-block|;
-name|private
-operator|:
-name|QImage
-operator|*
-name|mFbScreenImage
-block|;
-name|uchar
-operator|*
-name|data
-block|;
-name|int
-name|bytesPerLine
-block|;
-name|QPainter
-operator|*
-name|compositePainter
-block|; }
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|QLinuxFbIntegrationPrivate
 name|class
 name|QLinuxFbIntegrationPrivate
@@ -110,6 +49,12 @@ begin_decl_stmt
 DECL|variable|QAbstractEventDispatcher
 name|class
 name|QAbstractEventDispatcher
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|QLinuxFbScreen
+name|class
+name|QLinuxFbScreen
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -147,25 +92,21 @@ name|QPlatformWindow
 operator|*
 name|createPlatformWindow
 argument_list|(
-argument|QWidget *widget
-argument_list|,
-argument|WId WinId
+argument|QWindow *window
 argument_list|)
 specifier|const
 block|;
-name|QWindowSurface
+name|QPlatformBackingStore
 operator|*
-name|createWindowSurface
+name|createPlatformBackingStore
 argument_list|(
-argument|QWidget *widget
-argument_list|,
-argument|WId WinId
+argument|QWindow *window
 argument_list|)
 specifier|const
 block|;
 name|QAbstractEventDispatcher
 operator|*
-name|createEventDispatcher
+name|guiThreadEventDispatcher
 argument_list|()
 specifier|const
 block|;
@@ -335,4 +276,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// QLINUXFBINTEGRATION_H
+end_comment
 end_unit
