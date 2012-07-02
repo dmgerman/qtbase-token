@@ -3024,7 +3024,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/**     Returns a hash of the QUuid  */
+comment|/*!     \since 5.0     \relates QUuid     Returns a hash of the UUID \a uuid, using \a seed to seed the calculation. */
 end_comment
 begin_function
 DECL|function|qHash
@@ -3035,6 +3035,9 @@ specifier|const
 name|QUuid
 modifier|&
 name|uuid
+parameter_list|,
+name|uint
+name|seed
 parameter_list|)
 block|{
 return|return
@@ -3137,6 +3140,8 @@ index|[
 literal|7
 index|]
 operator|)
+operator|^
+name|seed
 return|;
 block|}
 end_function

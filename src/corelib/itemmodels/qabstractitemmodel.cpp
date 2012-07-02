@@ -9857,7 +9857,7 @@ begin_comment
 comment|/*!     \fn bool QModelIndex::operator<(const QModelIndex&other) const     \since 4.1      Returns true if this model index is smaller than the \a other     model index; otherwise returns false. */
 end_comment
 begin_comment
-comment|/*!     \fn uint qHash(const QPersistentModelIndex&index)     \since 4.5      Returns a hash of the QPersistentModelIndex  */
+comment|/*!     \fn uint qHash(const QPersistentModelIndex&index, uint seed = 0)     \since 5.0     \relates QPersistentModelIndex      Returns a hash of the QPersistentModelIndex \a index, using \a seed to     seed the calculation. */
 end_comment
 begin_comment
 comment|/*!     \internal     QHash::insertMulti insert the value before the old value. and find() return the new value.     We need insertMultiAtEnd because we don't want to overwrite the old one, which should be removed later      There should be only one instance QPersistentModelIndexData per index, but in some intermediate state there may be     severals of PersistantModelIndex pointing to the same index, but one is already updated, and the other one is not.     This make sure than when updating the first one we don't overwrite the second one in the hash, and the second one     will be updated right later.  */

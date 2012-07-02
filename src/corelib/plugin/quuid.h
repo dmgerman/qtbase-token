@@ -1130,6 +1130,11 @@ specifier|const
 name|QUuid
 modifier|&
 name|uuid
+parameter_list|,
+name|uint
+name|seed
+init|=
+literal|0
 parameter_list|)
 function_decl|;
 end_function_decl

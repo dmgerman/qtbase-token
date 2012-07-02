@@ -680,6 +680,9 @@ argument_list|(
 argument|const QPair<T1
 argument_list|,
 argument|T2>&key
+argument_list|,
+argument|uint seed =
+literal|0
 argument_list|)
 block|{
 name|uint
@@ -690,6 +693,8 @@ argument_list|(
 name|key
 operator|.
 name|first
+argument_list|,
+name|seed
 argument_list|)
 block|;
 name|uint
@@ -700,6 +705,8 @@ argument_list|(
 name|key
 operator|.
 name|second
+argument_list|,
+name|seed
 argument_list|)
 block|;
 return|return
@@ -718,6 +725,8 @@ operator|)
 operator|)
 operator|^
 name|h2
+operator|^
+name|seed
 return|;
 block|}
 end_expr_stmt

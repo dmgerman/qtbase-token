@@ -738,6 +738,11 @@ parameter_list|(
 specifier|const
 name|QPersistentModelIndex
 modifier|&
+parameter_list|,
+name|uint
+name|seed
+init|=
+literal|0
 parameter_list|)
 function_decl|;
 ifndef|#
@@ -779,6 +784,9 @@ specifier|const
 name|QPersistentModelIndex
 modifier|&
 name|index
+parameter_list|,
+name|uint
+name|seed
 parameter_list|)
 block|{
 return|return
@@ -787,6 +795,8 @@ argument_list|(
 name|index
 operator|.
 name|d
+argument_list|,
+name|seed
 argument_list|)
 return|;
 block|}
