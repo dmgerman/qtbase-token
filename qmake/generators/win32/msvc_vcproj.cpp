@@ -7413,22 +7413,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// foreach d in item.sources
-comment|// ### Qt 5: remove .sources, inconsistent with INSTALLS
+comment|// foreach d in item.files
 foreach|foreach
 control|(
 name|QString
 name|source
 decl|,
-name|project
-operator|->
-name|values
-argument_list|(
-name|item
-operator|+
-literal|".sources"
-argument_list|)
-operator|+
 name|project
 operator|->
 name|values
