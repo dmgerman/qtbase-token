@@ -30,7 +30,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qwindowsysteminterface_qpa.h>
+file|<qpa/qwindowsysteminterface.h>
 end_include
 begin_constructor
 DECL|function|QMeeGoIntegration

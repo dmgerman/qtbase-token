@@ -160,12 +160,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QWindowSystemInterface>
+file|<qpa/qwindowsysteminterface.h>
 end_include
 begin_include
 include|#
 directive|include
-file|"private/qwindowsysteminterface_qpa_p.h"
+file|<qpa/qwindowsysteminterface_p.h>
 end_include
 begin_include
 include|#
