@@ -18,26 +18,11 @@ ifndef|#
 directive|ifndef
 name|QT_NO_DIRECTWRITE
 end_ifndef
-begin_comment
-comment|// Enable access to HB_Face in harfbuzz includes included by qfontengine_p.h.
-end_comment
-begin_define
-DECL|macro|QT_BUILD_GUI_LIB
-define|#
-directive|define
-name|QT_BUILD_GUI_LIB
-end_define
 begin_include
 include|#
 directive|include
 file|<QtGui/private/qfontengine_p.h>
 end_include
-begin_undef
-DECL|macro|QT_BUILD_GUI_LIB
-undef|#
-directive|undef
-name|QT_BUILD_GUI_LIB
-end_undef
 begin_include
 include|#
 directive|include
