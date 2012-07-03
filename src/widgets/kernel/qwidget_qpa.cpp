@@ -5225,6 +5225,39 @@ argument_list|(
 literal|"QWidget::paintEngine: Should no longer be called"
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+comment|// We set this bit which is checked in setAttribute for
+comment|// Qt::WA_PaintOnScreen. We do this to allow these two scenarios:
+comment|//
+comment|// 1. Users accidentally set Qt::WA_PaintOnScreen on X and port to
+comment|// Windows which would mean suddenly their widgets stop working.
+comment|//
+comment|// 2. Users set paint on screen and subclass paintEngine() to
+comment|// return 0, in which case we have a "hole" in the backingstore
+comment|// allowing use of GDI or DirectX directly.
+comment|//
+comment|// 1 is WRONG, but to minimize silent failures, we have set this
+comment|// bit to ignore the setAttribute call. 2. needs to be
+comment|// supported because its our only means of embedding native
+comment|// graphics stuff.
+cast|const_cast
+argument_list|<
+name|QWidgetPrivate
+operator|*
+argument_list|>
+argument_list|(
+name|d_func
+argument_list|()
+argument_list|)
+operator|->
+name|noPaintOnScreen
+operator|=
+literal|1
+expr_stmt|;
+endif|#
+directive|endif
 return|return
 literal|0
 return|;

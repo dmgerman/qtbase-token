@@ -936,6 +936,19 @@ if|#
 directive|if
 name|defined
 argument_list|(
+name|Q_OS_WIN
+argument_list|)
+member_init_list|,
+name|noPaintOnScreen
+argument_list|(
+literal|0
+argument_list|)
+endif|#
+directive|endif
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_WS_X11
 argument_list|)
 member_init_list|,
@@ -948,11 +961,6 @@ directive|elif
 name|defined
 argument_list|(
 name|Q_WS_WIN
-argument_list|)
-member_init_list|,
-name|noPaintOnScreen
-argument_list|(
-literal|0
 argument_list|)
 ifndef|#
 directive|ifndef
@@ -35029,8 +35037,8 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
-comment|// ### Don't use PaintOnScreen+paintEngine() to do native painting in 5.0
+name|Q_OS_WIN
+comment|// ### Don't use PaintOnScreen+paintEngine() to do native painting in some future release
 if|if
 condition|(
 name|attribute
@@ -35048,7 +35056,7 @@ literal|"QGLWidget"
 argument_list|)
 condition|)
 block|{
-comment|// see qwidget_win.cpp, ::paintEngine for details
+comment|// see qwidget_qpa.cpp, ::paintEngine for details
 name|paintEngine
 argument_list|()
 expr_stmt|;

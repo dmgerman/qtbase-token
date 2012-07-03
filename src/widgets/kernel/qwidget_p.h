@@ -3379,6 +3379,28 @@ if|#
 directive|if
 name|defined
 argument_list|(
+name|Q_OS_WIN
+argument_list|)
+end_if
+begin_decl_stmt
+name|uint
+name|noPaintOnScreen
+range|:
+literal|1
+decl_stmt|;
+end_decl_stmt
+begin_comment
+comment|// see qwidget_qpa.cpp ::paintEngine()
+end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_WS_X11
 argument_list|)
 end_if
@@ -3483,16 +3505,6 @@ argument_list|)
 end_elif
 begin_comment
 comment|//<--------------------------------------------------------- WIN
-end_comment
-begin_decl_stmt
-name|uint
-name|noPaintOnScreen
-range|:
-literal|1
-decl_stmt|;
-end_decl_stmt
-begin_comment
-comment|// see qwidget_win.cpp ::paintEngine()
 end_comment
 begin_ifndef
 ifndef|#
