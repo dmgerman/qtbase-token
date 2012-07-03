@@ -571,6 +571,12 @@ argument_list|(
 literal|0
 argument_list|)
 block|,
+name|max_texture_size
+argument_list|(
+operator|-
+literal|1
+argument_list|)
+block|,
 name|workaround_brokenFBOReadBack
 argument_list|(
 name|false
@@ -639,6 +645,9 @@ block|;
 name|GLuint
 name|current_fbo
 block|;
+name|GLint
+name|max_texture_size
+block|;
 name|bool
 name|workaround_brokenFBOReadBack
 block|;
@@ -661,12 +670,7 @@ block|;
 name|int
 name|maxTextureSize
 argument_list|()
-specifier|const
-block|{
-return|return
-literal|1024
-return|;
-block|}
+block|;
 if|#
 directive|if
 operator|!
