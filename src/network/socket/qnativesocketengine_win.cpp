@@ -1679,6 +1679,13 @@ literal|"QNativeSocketEnginePrivate::createNewSocket - set inheritable"
 operator|<<
 name|handleFlags
 expr_stmt|;
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+name|handleFlags
+argument_list|)
+expr_stmt|;
 endif|#
 directive|endif
 block|}
