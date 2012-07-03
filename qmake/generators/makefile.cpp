@@ -3315,7 +3315,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|+
-literal|".config"
+literal|".CONFIG"
 decl_stmt|;
 name|bool
 name|verbatim
