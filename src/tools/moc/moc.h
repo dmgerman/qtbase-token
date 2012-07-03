@@ -21,11 +21,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"preprocessor.h"
-end_include
-begin_include
-include|#
-directive|include
 file|<QStringList>
 end_include
 begin_include
@@ -864,17 +859,8 @@ block|{
 name|public
 operator|:
 name|Moc
-argument_list|(
-name|Preprocessor
-operator|&
-name|p
-argument_list|)
+argument_list|()
 operator|:
-name|preprocessor
-argument_list|(
-name|p
-argument_list|)
-block|,
 name|noInclude
 argument_list|(
 name|false
@@ -892,10 +878,6 @@ argument_list|)
 block|{}
 name|QByteArray
 name|filename
-block|;
-name|Preprocessor
-operator|&
-name|preprocessor
 block|;
 name|bool
 name|noInclude
@@ -1199,41 +1181,6 @@ name|ClassDef
 operator|*
 name|cdef
 argument_list|)
-block|;
-name|QByteArray
-name|getSubstitution
-argument_list|(
-argument|const QByteArray&token
-argument_list|)
-specifier|const
-block|;
-name|QByteArray
-name|getTokenSubstitution
-argument_list|(
-argument|const QByteArray&token
-argument_list|)
-specifier|const
-block|;
-name|QByteArray
-name|getWordSubstitution
-argument_list|(
-argument|const QByteArray&word
-argument_list|)
-specifier|const
-block|;
-name|QByteArray
-name|getNameSubstitution
-argument_list|(
-argument|const QByteArray&name
-argument_list|)
-specifier|const
-block|;
-name|QByteArray
-name|getTypeSubstitution
-argument_list|(
-argument|const QByteArray&typeName
-argument_list|)
-specifier|const
 block|; }
 decl_stmt|;
 end_decl_stmt

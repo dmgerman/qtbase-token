@@ -139,6 +139,11 @@ include|#
 directive|include
 file|"generator.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"preprocessor.h"
+end_include
 begin_define
 DECL|macro|PROGRAMNAME
 define|#
@@ -1999,9 +2004,6 @@ name|pp
 decl_stmt|;
 name|Moc
 name|moc
-argument_list|(
-name|pp
-argument_list|)
 decl_stmt|;
 name|pp
 operator|.
