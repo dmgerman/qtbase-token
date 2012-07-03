@@ -21230,18 +21230,40 @@ expr_stmt|;
 comment|//See also task 147191
 endif|#
 directive|endif
-comment|/// ### fixme: Check platforms
+if|if
+condition|(
+operator|!
+name|QGuiApplication
+operator|::
+name|platformName
+argument_list|()
+operator|.
+name|compare
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"cocoa"
+argument_list|)
+argument_list|,
+name|Qt
+operator|::
+name|CaseInsensitive
+argument_list|)
+condition|)
 name|QEXPECT_FAIL
 argument_list|(
 literal|""
 argument_list|,
-literal|"Window mask not implemented on Lighthouse QTBUG-22326"
+literal|"Window mask not implemented on Mac QTBUG-22326"
 argument_list|,
 name|Continue
 argument_list|)
 expr_stmt|;
-name|QTRY_COMPARE
+name|QTRY_VERIFY
 argument_list|(
+operator|(
+name|wr
+operator|=
 name|QApplication
 operator|::
 name|widgetAt
@@ -21250,6 +21272,12 @@ literal|100
 argument_list|,
 literal|100
 argument_list|)
+operator|)
+argument_list|)
+expr_stmt|;
+name|QTRY_COMPARE
+argument_list|(
+name|wr
 operator|->
 name|objectName
 argument_list|()
@@ -21260,8 +21288,11 @@ name|objectName
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QTRY_COMPARE
+name|QTRY_VERIFY
 argument_list|(
+operator|(
+name|wr
+operator|=
 name|QApplication
 operator|::
 name|widgetAt
@@ -21270,6 +21301,12 @@ literal|101
 argument_list|,
 literal|101
 argument_list|)
+operator|)
+argument_list|)
+expr_stmt|;
+name|QTRY_COMPARE
+argument_list|(
+name|wr
 operator|->
 name|objectName
 argument_list|()
@@ -21378,12 +21415,31 @@ expr_stmt|;
 comment|//See also task 147191
 endif|#
 directive|endif
-comment|/// ### fixme: Check platforms
+if|if
+condition|(
+operator|!
+name|QGuiApplication
+operator|::
+name|platformName
+argument_list|()
+operator|.
+name|compare
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"cocoa"
+argument_list|)
+argument_list|,
+name|Qt
+operator|::
+name|CaseInsensitive
+argument_list|)
+condition|)
 name|QEXPECT_FAIL
 argument_list|(
 literal|""
 argument_list|,
-literal|"Window mask not implemented on Lighthouse  QTBUG-22326"
+literal|"Window mask not implemented on Mac QTBUG-22326"
 argument_list|,
 name|Continue
 argument_list|)
