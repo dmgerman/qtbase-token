@@ -3524,10 +3524,23 @@ name|TESTFONT_SIZE
 operator|*
 literal|8
 decl_stmt|;
+specifier|const
 name|QString
 name|linebreakText
+init|=
+name|QStringLiteral
 argument_list|(
-literal|"^%$&\u2028^%&*^$"
+literal|"^%$&"
+argument_list|)
+operator|+
+name|QChar
+argument_list|(
+literal|0x2028
+argument_list|)
+operator|+
+name|QStringLiteral
+argument_list|(
+literal|"^%&*^$"
 argument_list|)
 decl_stmt|;
 name|QString
@@ -4260,47 +4273,6 @@ operator|.
 name|naturalTextRect
 argument_list|()
 decl_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_WIN
-name|QEXPECT_FAIL
-argument_list|(
-literal|"ltr linebreak ralign"
-argument_list|,
-literal|"QTBUG-25924 fails on Windows"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"ltr linebreak calign"
-argument_list|,
-literal|"QTBUG-25924 fails on Windows"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"rtl linebreak ralign"
-argument_list|,
-literal|"QTBUG-25924 fails on Windows"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"rtl linebreak calign"
-argument_list|,
-literal|"QTBUG-25924 fails on Windows"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|rect
@@ -4311,29 +4283,6 @@ argument_list|,
 name|firstLeft
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_WIN
-name|QEXPECT_FAIL
-argument_list|(
-literal|"ltr linebreak lalign"
-argument_list|,
-literal|"QTBUG-25924 fails on Windows"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"rtl linebreak lalign"
-argument_list|,
-literal|"QTBUG-25924 fails on Windows"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|rect
