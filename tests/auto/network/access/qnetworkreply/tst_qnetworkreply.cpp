@@ -6514,6 +6514,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// disconnect manager signals
+ifndef|#
+directive|ifndef
+name|QT_NO_SSL
 name|manager
 operator|.
 name|disconnect
@@ -6533,6 +6536,8 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|manager
 operator|.
 name|disconnect
