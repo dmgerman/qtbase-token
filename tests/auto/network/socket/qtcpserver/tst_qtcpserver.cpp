@@ -4580,6 +4580,20 @@ operator|::
 name|IsUp
 condition|)
 block|{
+comment|// Do not connect to the Teredo Tunneling interface on Windows Xp.
+if|if
+condition|(
+name|iface
+operator|.
+name|humanReadableName
+argument_list|()
+operator|==
+name|QString
+argument_list|(
+literal|"Teredo Tunneling Pseudo-Interface"
+argument_list|)
+condition|)
+continue|continue;
 foreach|foreach
 control|(
 name|QNetworkAddressEntry
