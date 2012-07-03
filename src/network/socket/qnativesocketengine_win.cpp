@@ -3727,6 +3727,7 @@ expr_stmt|;
 else|else
 endif|#
 directive|endif
+block|{
 name|address
 operator|=
 name|QHostAddress
@@ -3737,6 +3738,13 @@ name|AnyIPv4
 argument_list|)
 expr_stmt|;
 comment|//xp/WS2003 and earlier don't support dual stack, so bind to IPv4
+name|socketProtocol
+operator|=
+name|QAbstractSocket
+operator|::
+name|IPv4Protocol
+expr_stmt|;
+block|}
 break|break;
 default|default:
 break|break;
