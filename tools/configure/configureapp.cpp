@@ -18554,26 +18554,6 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|QString
-name|targetSpec
-init|=
-name|dictionary
-operator|.
-name|contains
-argument_list|(
-literal|"XQMAKESPEC"
-argument_list|)
-condition|?
-name|dictionary
-index|[
-literal|"XQMAKESPEC"
-index|]
-else|:
-name|dictionary
-index|[
-literal|"QMAKESPEC"
-index|]
-decl_stmt|;
 name|configStream
 operator|<<
 name|endl
@@ -18582,9 +18562,7 @@ literal|"# sysroot"
 operator|<<
 name|endl
 operator|<<
-name|targetSpec
-operator|<<
-literal|" {"
+literal|"!host_build {"
 operator|<<
 name|endl
 operator|<<
