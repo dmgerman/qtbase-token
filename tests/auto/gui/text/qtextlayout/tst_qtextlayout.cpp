@@ -10246,6 +10246,15 @@ name|endLayout
 argument_list|()
 expr_stmt|;
 comment|// The second line will be "finish", with "fi" as a ligature
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"QTBUG-26403"
+argument_list|,
+name|Abort
+argument_list|)
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|line
