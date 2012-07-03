@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<qgenericplugin_qpa.h>
+file|<QtGui/qgenericplugin.h>
 end_include
 begin_include
 include|#

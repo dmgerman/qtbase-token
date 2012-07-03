@@ -54,11 +54,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qgenericpluginfactory_qpa.h"
-end_include
-begin_include
-include|#
-directive|include
 file|<qpa/qplatformintegrationfactory_p.h>
 end_include
 begin_include

@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QGENERICPLUGIN_QPA_H
+name|QGENERICPLUGIN_H
 end_ifndef
 begin_define
-DECL|macro|QGENERICPLUGIN_QPA_H
+DECL|macro|QGENERICPLUGIN_H
 define|#
 directive|define
-name|QGENERICPLUGIN_QPA_H
+name|QGENERICPLUGIN_H
 end_define
 begin_include
 include|#
@@ -94,6 +94,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QGENERICPLUGIN_QPA_H
+comment|// QGENERICPLUGIN_H
 end_comment
 end_unit
