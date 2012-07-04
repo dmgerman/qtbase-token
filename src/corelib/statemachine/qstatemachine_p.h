@@ -1069,6 +1069,19 @@ operator|>
 name|defaultAnimationsForTarget
 expr_stmt|;
 end_expr_stmt
+begin_expr_stmt
+name|QList
+operator|<
+name|QAbstractAnimation
+operator|*
+operator|>
+name|selectAnimations
+argument_list|(
+argument|const QList<QAbstractTransition *>&transitionList
+argument_list|)
+specifier|const
+expr_stmt|;
+end_expr_stmt
 begin_endif
 endif|#
 directive|endif
