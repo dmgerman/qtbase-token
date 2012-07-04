@@ -71,6 +71,11 @@ end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_PROPERTIES
+end_ifndef
 begin_struct
 DECL|struct|QPropertyAssignment
 struct|struct
@@ -177,6 +182,13 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_PROPERTIES
+end_comment
 begin_decl_stmt
 DECL|variable|QAbstractTransition
 name|class
@@ -327,12 +339,18 @@ operator|*
 operator|>
 name|transitionsList
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_PROPERTIES
 name|QList
 operator|<
 name|QPropertyAssignment
 operator|>
 name|propertyAssignments
-block|; }
+block|;
+endif|#
+directive|endif
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_macro
