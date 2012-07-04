@@ -185,6 +185,12 @@ name|MouseEventFlag
 operator|+
 literal|2
 block|,
+name|CursorEvent
+init|=
+name|MouseEventFlag
+operator|+
+literal|3
+block|,
 name|TouchEvent
 init|=
 name|TouchEventFlag
@@ -391,6 +397,14 @@ else|:
 name|QtWindows
 operator|::
 name|ActivateWindowEvent
+return|;
+case|case
+name|WM_SETCURSOR
+case|:
+return|return
+name|QtWindows
+operator|::
+name|CursorEvent
 return|;
 case|case
 name|WM_MOUSELEAVE

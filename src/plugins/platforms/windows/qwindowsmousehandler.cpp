@@ -755,9 +755,7 @@ operator|->
 name|applyCursor
 argument_list|()
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|Q_OS_WINCE
+comment|//#ifndef Q_OS_WINCE
 name|QWindowSystemInterface
 operator|::
 name|handleEnterEvent
@@ -765,6 +763,9 @@ argument_list|(
 name|window
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
 name|TRACKMOUSEEVENT
 name|tme
 decl_stmt|;
