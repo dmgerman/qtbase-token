@@ -14293,6 +14293,9 @@ begin_comment
 comment|/*!     \macro Q_INVOKABLE     \relates QObject      Apply this macro to definitions of member functions to allow them to     be invoked via the meta-object system. The macro is written before     the return type, as shown in the following example:      \snippet qmetaobject-invokable/window.h Window class with invokable method      The \c invokableMethod() function is marked up using Q_INVOKABLE, causing     it to be registered with the meta-object system and enabling it to be     invoked using QMetaObject::invokeMethod().     Since \c normalMethod() function is not registered in this way, it cannot     be invoked using QMetaObject::invokeMethod(). */
 end_comment
 begin_comment
+comment|/*!     \macro Q_SET_OBJECT_NAME(Object)     \relates QObject     \since 5.0      This macro assigns \a Object the objectName "Object".      It doesn't matter whether \a Object is a pointer or not, the     macro figures that out by itself.      \sa QObject::objectName() */
+end_comment
+begin_comment
 comment|/*!     \typedef QObjectList     \relates QObject      Synonym for QList<QObject *>. */
 end_comment
 begin_function
