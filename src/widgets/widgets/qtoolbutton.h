@@ -214,16 +214,6 @@ argument_list|)
 block|;
 name|protected
 operator|:
-name|QToolButton
-argument_list|(
-name|QToolButtonPrivate
-operator|&
-argument_list|,
-name|QWidget
-operator|*
-name|parent
-argument_list|)
-block|;
 name|bool
 name|event
 argument_list|(
