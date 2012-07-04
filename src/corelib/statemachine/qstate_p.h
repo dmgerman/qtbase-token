@@ -160,6 +160,26 @@ argument_list|,
 name|value
 argument_list|)
 block|; }
+DECL|function|hasTarget
+name|bool
+name|hasTarget
+argument_list|(
+argument|QObject *o
+argument_list|,
+argument|const QByteArray&pn
+argument_list|)
+specifier|const
+block|{
+return|return
+name|object
+operator|==
+name|o
+operator|&&
+name|propertyName
+operator|==
+name|pn
+return|;
+block|}
 DECL|member|object
 name|QPointer
 operator|<
