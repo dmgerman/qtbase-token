@@ -1520,6 +1520,15 @@ decl_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_NO_PROPERTIES
+if|if
+condition|(
+operator|!
+name|enteredStates
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+comment|// Ignore transitions with no targets
 name|applyProperties
 argument_list|(
 name|enabledTransitions
@@ -3552,6 +3561,15 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+name|Q_ASSERT
+argument_list|(
+operator|!
+name|enteredStates
+operator|.
+name|isEmpty
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// Process the property assignments of the entered states.
 name|QHash
 argument_list|<
@@ -3868,28 +3886,13 @@ block|{
 name|QAbstractState
 modifier|*
 name|s
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|enteredStates
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-name|s
-operator|=
+init|=
 name|enteredStates
 operator|.
 name|last
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 comment|// ### handle if parallel
-else|else
-name|s
-operator|=
-literal|0
-expr_stmt|;
 name|propertyAssignmentsForState
 index|[
 name|s
