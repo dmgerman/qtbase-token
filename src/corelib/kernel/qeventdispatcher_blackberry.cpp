@@ -20,6 +20,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qelapsedtimer.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<bps/bps.h>
 end_include
 begin_include
@@ -863,6 +868,16 @@ operator|/
 literal|1000
 operator|)
 expr_stmt|;
+name|QElapsedTimer
+name|timer
+decl_stmt|;
+name|timer
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+do|do
+block|{
 comment|// wait for event or file to be ready
 name|bps_event_t
 modifier|*
@@ -870,6 +885,12 @@ name|event
 init|=
 name|NULL
 decl_stmt|;
+comment|// \TODO Remove this when bps is fixed
+comment|// BPS has problems respecting timeouts.
+comment|// Replace the bps_get_event statement
+comment|// with the following commented version
+comment|// once bps is fixed.
+comment|// result = bps_get_event(&event, timeout_ms);
 name|result
 operator|=
 name|bps_get_event
@@ -877,7 +898,7 @@ argument_list|(
 operator|&
 name|event
 argument_list|,
-name|timeout_ms
+literal|0
 argument_list|)
 expr_stmt|;
 if|if
@@ -891,6 +912,12 @@ argument_list|(
 literal|"QEventDispatcherBlackberry::select: bps_get_event() failed"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|event
+condition|)
+break|break;
 comment|// pass all received events through filter - except IO ready events
 if|if
 condition|(
@@ -912,6 +939,17 @@ operator|)
 name|event
 argument_list|)
 expr_stmt|;
+block|}
+do|while
+condition|(
+name|timer
+operator|.
+name|elapsed
+argument_list|()
+operator|<
+name|timeout_ms
+condition|)
+do|;
 comment|// \TODO Remove this when bps is fixed (see comment above)
 name|result
 operator|=
