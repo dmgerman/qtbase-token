@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QOPENGLTRIANGULATINGSTROKER_P_H
+name|QTRIANGULATINGSTROKER_P_H
 end_ifndef
 begin_define
-DECL|macro|QOPENGLTRIANGULATINGSTROKER_P_H
+DECL|macro|QTRIANGULATINGSTROKER_P_H
 define|#
 directive|define
-name|QOPENGLTRIANGULATINGSTROKER_P_H
+name|QTRIANGULATINGSTROKER_P_H
 end_define
 begin_include
 include|#
@@ -320,6 +320,7 @@ empty_stmt|;
 end_empty_stmt
 begin_decl_stmt
 name|class
+name|Q_GUI_EXPORT
 name|QDashedStrokeProcessor
 block|{
 name|public

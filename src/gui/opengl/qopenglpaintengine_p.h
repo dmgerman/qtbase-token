@@ -81,7 +81,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qopengltriangulatingstroker_p.h>
+file|<private/qtriangulatingstroker_p.h>
 end_include
 begin_include
 include|#
