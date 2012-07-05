@@ -503,6 +503,17 @@ name|y2
 operator|-
 name|y1
 block|;
+name|Q_ASSERT
+argument_list|(
+name|dx
+operator|!=
+literal|0
+operator|||
+name|dy
+operator|!=
+literal|0
+argument_list|)
+block|;
 name|float
 name|pw
 block|;
