@@ -132,6 +132,12 @@ return|return
 name|mBackingStore
 return|;
 block|}
+name|QFbScreen
+operator|*
+name|platformScreen
+argument_list|()
+specifier|const
+block|;
 name|virtual
 name|void
 name|repaint
@@ -150,13 +156,6 @@ block|;
 name|QFbBackingStore
 operator|*
 name|mBackingStore
-block|;
-name|QList
-operator|<
-name|QFbScreen
-operator|*
-operator|>
-name|mScreens
 block|;
 name|QRect
 name|oldGeometry
