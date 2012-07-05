@@ -94,6 +94,15 @@ operator|*
 name|window
 argument_list|)
 block|;
+name|NativeResourceForContextFunction
+name|nativeResourceFunctionForContext
+argument_list|(
+specifier|const
+name|QByteArray
+operator|&
+name|resource
+argument_list|)
+block|;
 specifier|inline
 specifier|const
 name|QByteArray
@@ -173,6 +182,7 @@ operator|*
 name|window
 argument_list|)
 block|;
+specifier|static
 name|void
 operator|*
 name|eglContextForContext
