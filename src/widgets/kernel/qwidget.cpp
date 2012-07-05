@@ -3726,6 +3726,16 @@ name|setWindowIcon_sys
 argument_list|()
 expr_stmt|;
 block|}
+comment|// Frame strut update needed in cases where there are native widgets such as QGLWidget,
+comment|// as those force native window creation on their ancestors before they are shown.
+comment|// If the strut is not updated, any subsequent move of the top level window before show
+comment|// will cause window frame to be ignored when positioning the window.
+comment|// Note that this only helps on platforms that handle window creation synchronously.
+name|d
+operator|->
+name|updateFrameStrut
+argument_list|()
+expr_stmt|;
 block|}
 comment|/*!     Destroys the widget.      All this widget's children are deleted first. The application     exits if this widget is the main widget. */
 DECL|function|~QWidget
