@@ -238,9 +238,6 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-operator|delete
-name|m_blitProgram
-expr_stmt|;
 block|}
 end_destructor
 begin_function
