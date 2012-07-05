@@ -2775,17 +2775,9 @@ modifier|&
 name|string
 parameter_list|)
 block|{
-if|#
-directive|if
-literal|0
-block|QString result = string;      for (int i = string.size() - 1; i>= 0; --i) {         uint ch = string.at(i).unicode();         if (ch> 0xFF)             ch = '?';         if ((ch - '0')>= 10&& (ch - 'a')>= 26&& (ch - 'A')>= 26&& ch != '/'&& ch != '('&& ch != ')'&& ch != ','&& ch != '*'&& ch != '&'&& ch != '_'&& ch != '<'&& ch != '>'&& ch != ':'&& ch != '~')             result.replace(i, 1, QString("%") + QString("%1").arg(ch, 2, 16));     }     return result;
-else|#
-directive|else
 return|return
 name|string
 return|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -2837,12 +2829,6 @@ argument_list|(
 name|node
 argument_list|)
 decl_stmt|;
-if|#
-directive|if
-literal|0
-block|if (!classe->templateStuff().isEmpty()) {             result += QLatin1String("tmplt/");         }         else
-endif|#
-directive|endif
 block|{
 name|result
 operator|+=
@@ -3020,12 +3006,6 @@ argument_list|(
 literal|"macro/"
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block|}         else if (!func->templateStuff().isEmpty()) {             result += QLatin1String("ftmplt/");
-endif|#
-directive|endif
 block|}
 elseif|else
 if|if
@@ -3104,14 +3084,6 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-comment|// this code is too clever for the Xcode documentation
-comment|// browser and/or pbhelpindexer
-block|if (!isMacro) {             result += QLatin1Char('/') + QLatin1String(QMetaObject::normalizedSignature(func->returnType().toLatin1().constData())) + "/(";             const QList<Parameter>&params = func->parameters();             for (int i = 0; i< params.count(); ++i) {                 QString type = params.at(i).leftType() +                         params.at(i).rightType();                 type = QLatin1String(QMetaObject::normalizedSignature(type.toLatin1().constData()));                 if (i != 0)                     result += QLatin1Char(',');                 result += type;             }             result += QLatin1Char(')');         }
-endif|#
-directive|endif
 block|}
 break|break;
 case|case

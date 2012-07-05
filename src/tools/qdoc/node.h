@@ -1166,14 +1166,6 @@ decl_stmt|;
 name|bool
 name|indexNodeFlag_
 decl_stmt|;
-if|#
-directive|if
-literal|0
-comment|//ifdef Q_WS_WIN
-comment|//else
-block|Type nodeType_ : 4;     Access access_ : 2;     ThreadSafeness safeness_ : 2;     PageType pageType_ : 4;     Status status_ : 3;
-endif|#
-directive|endif
 name|InnerNode
 modifier|*
 name|parent_

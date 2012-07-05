@@ -1853,12 +1853,6 @@ operator|.
 name|value
 argument_list|()
 return|;
-if|#
-directive|if
-literal|0
-block|QString t = QUuid::createUuid().toString();     QString guid = "id-" + t.mid(1,t.length()-2);
-endif|#
-directive|endif
 name|QString
 name|guid
 init|=
@@ -1940,12 +1934,6 @@ operator|.
 name|value
 argument_list|()
 return|;
-if|#
-directive|if
-literal|0
-block|QString t = QUuid::createUuid().toString();     QString guid = "id-" + t.mid(1,t.length()-2);
-endif|#
-directive|endif
 name|QString
 name|guid
 init|=
@@ -2614,13 +2602,6 @@ name|hc
 decl_stmt|,
 name|attr
 decl_stmt|;
-if|#
-directive|if
-literal|0
-comment|// Leave this here for debugging.
-block|if (outFileName() == "modules.dita") {         QString comment = "ATOM:" + atom->typeString();         xmlWriter().writeComment(comment);     }
-endif|#
-directive|endif
 switch|switch
 condition|(
 name|atom
@@ -7393,14 +7374,6 @@ name|Atom
 operator|::
 name|SectionLeft
 case|:
-if|#
-directive|if
-literal|0
-block|if (inApiDesc) {             writeEndTag();
-comment|//</apiDesc>
-block|inApiDesc = false;         }
-endif|#
-directive|endif
 name|enterSection
 argument_list|(
 literal|"details"
@@ -7409,7 +7382,6 @@ name|QString
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//writeGuidAttribute(Doc::canonicalTitle(Text::sectionHeading(atom).toString()));
 break|break;
 case|case
 name|Atom
@@ -9026,17 +8998,6 @@ argument_list|,
 name|title
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-comment|// To be removed, if really not needed.
-block|Text brief = nsn->doc().briefText();
-comment|// zzz
-block|if (!brief.isEmpty()) {             writeStartTag(DT_p);             generateText(brief, nsn, marker);             writeEndTag();
-comment|//</p>
-block|}
-endif|#
-directive|endif
 name|generateStatus
 argument_list|(
 name|nsn
@@ -9841,17 +9802,6 @@ argument_list|,
 name|title
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-comment|// To be removed, if really not needed.
-block|Text brief = cn->doc().briefText();
-comment|// zzz
-block|if (!brief.isEmpty()) {             writeStartTag(DT_p);             generateText(brief, cn, marker);             writeEndTag();
-comment|//</p>
-block|}
-endif|#
-directive|endif
 name|generateStatus
 argument_list|(
 name|cn
@@ -10615,17 +10565,6 @@ argument_list|,
 name|title
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-comment|// To be removed, if really not needed.
-block|Text brief = fn->doc().briefText();
-comment|// zzz
-block|if (!brief.isEmpty()) {             writeStartTag(DT_p);             generateText(brief, fn, marker);             writeEndTag();
-comment|//</p>
-block|}
-endif|#
-directive|endif
 name|generateStatus
 argument_list|(
 name|fn
@@ -11419,17 +11358,6 @@ argument_list|,
 name|title
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-comment|// To be removed, if really not needed.
-block|Text brief = qcn->doc().briefText();
-comment|// zzz
-block|if (!brief.isEmpty()) {             writeStartTag(DT_p);             generateText(brief, qcn, marker);             writeEndTag();
-comment|//</p>
-block|}
-endif|#
-directive|endif
 name|enterSection
 argument_list|(
 name|QString
@@ -15440,13 +15368,6 @@ name|commonPrefixLen
 operator|=
 literal|1
 expr_stmt|;
-if|#
-directive|if
-literal|0
-comment|/*           The algorithm below eventually failed, so it was replaced           with the simple (perhaps too simple) algorithm above.            The caller didn't pass in a common prefix, so get the common           prefix by looking at the class names of the first and last           classes in the class map. Discard any namespace names and           just use the bare class names. For Qt, the prefix is "Q".            Note that the algorithm used here to derive the common prefix           from the first and last classes in alphabetical order (QAccel           and QXtWidget in Qt 2.1), fails if either class name does not           begin with Q.         */
-block|QString first;         QString last;         NodeMap::const_iterator iter = classMap.constBegin();         while (iter != classMap.constEnd()) {             if (!iter.key().contains("::")) {                 first = iter.key();                 break;             }             ++iter;         }          if (first.isEmpty())             first = classMap.constBegin().key();          iter = classMap.constEnd();         while (iter != classMap.constBegin()) {             --iter;             if (!iter.key().contains("::")) {                 last = iter.key();                 break;             }         }          if (last.isEmpty())             last = classMap.constBegin().key();          if (classMap.size()> 1) {             while (commonPrefixLen< first.length() + 1&&                    commonPrefixLen< last.length() + 1&&                    first[commonPrefixLen] == last[commonPrefixLen])                 ++commonPrefixLen;         }          commonPrefix = first.left(commonPrefixLen);
-endif|#
-directive|endif
 block|}
 comment|/*       Divide the data into 37 paragraphs: 0, ..., 9, A, ..., Z,       underscore (_). QAccel will fall in paragraph 10 (A) and       QXtWidget in paragraph 33 (X). This is the only place where we       assume that NumParagraphs is 37. Each paragraph is a NodeMap.     */
 name|NodeMap
@@ -16812,12 +16733,6 @@ argument_list|,
 literal|"<i>\\1<sub>\\2</sub></i>"
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block|marked.replace("<@param>", "<i>");     marked.replace("</@param>", "</i>");      marked.replace("<@extra>", "<tt>");     marked.replace("</@extra>", "</tt>");
-endif|#
-directive|endif
 if|if
 condition|(
 name|summary
@@ -18069,12 +17984,6 @@ argument_list|,
 literal|"<i> \\1<sub>\\2</sub></i>"
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block|marked.replace("<@param>","<i>");     marked.replace("</@param>","</i>");
-endif|#
-directive|endif
 if|if
 condition|(
 name|style
@@ -18131,12 +18040,6 @@ name|extraRegExp
 argument_list|)
 expr_stmt|;
 block|}
-if|#
-directive|if
-literal|0
-block|else {         marked.replace("<@extra>","<tt>");         marked.replace("</@extra>","</tt>");     }
-endif|#
-directive|endif
 if|if
 condition|(
 name|style
@@ -19735,14 +19638,6 @@ literal|"&quot;"
 argument_list|)
 expr_stmt|;
 block|}
-if|#
-directive|if
-literal|0
-if|else if ((outputEncoding == "ISO-8859-1"&& ch.unicode()> 0x007F) ||                  (ch == QLatin1Char('*')&& i + 1< n&& string.at(i) == QLatin1Char('/')) ||                  (ch == QLatin1Char('.')&& i> 2&& string.at(i - 2) == QLatin1Char('.'))) {
-comment|// we escape '*/' and the last dot in 'e.g.' and 'i.e.' for the Javadoc generator
-if|APPEND("&#x");             xml += QString::number(ch.unicode(), 16);             xml += QLatin1Char(';');         }
-endif|#
-directive|endif
 else|else
 block|{
 if|if
@@ -19808,12 +19703,6 @@ argument_list|(
 name|node
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block|if (!node->isInnerNode()) {         switch (node->status()) {         case Node::Compat:             result += "-qt3";             break;         case Node::Obsolete:             result += "-obsolete";             break;         default:             ;         }     }
-endif|#
-directive|endif
 return|return
 name|result
 return|;

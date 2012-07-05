@@ -1836,19 +1836,6 @@ name|uuid_
 return|;
 block|}
 end_function
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-begin_comment
-comment|// fossil
-end_comment
-begin_endif
-unit|QUuid quuid = QUuid::createUuid(); QString t = quuid.toString(); uuid = "id-" + t.mid(1,t.length()-2);
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|/*!   Composes a string to be used as an href attribute in DITA   XML. It is composed of the file name and the UUID separated   by a '#'. If this node is a class node, the file name is   taken from this node; if this node is a function node, the   file name is taken from the parent node of this node.  */
 end_comment
@@ -9460,16 +9447,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_constructor
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-begin_endif
-unit|const PropertyNode *correspondingProperty = 0;     ClassNode *correspondingClass = static_cast<QmlClassNode*>(qmlPropGroup->parent())->classNode();     if (correspondingClass) {         correspondingProperty = qmlPropNode->correspondingProperty(tree_);     }     if (correspondingProperty) {         bool writableList = type.startsWith("list")&& correspondingProperty->dataType().endsWith('*');         qmlPropNode->setReadOnly(!(writableList || correspondingProperty->isWritable()));     }      if (correspondingProperty) {         bool writableList = type.startsWith("list")&& correspondingProperty->dataType().endsWith('*');         qmlPropNode->setReadOnly(!(writableList || correspondingProperty->isWritable()));     }
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|/*!   Returns true if a QML property or attached property is   not read-only. The algorithm for figuring this out is long   amd tedious and almost certainly will break. It currently   doesn't work for the qmlproperty:    \code       bool PropertyChanges::explicit,   \endcode    ...because the tokenizer gets confused on \e{explicit}.  */
 end_comment

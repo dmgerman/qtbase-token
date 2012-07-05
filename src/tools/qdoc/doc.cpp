@@ -9966,19 +9966,6 @@ block|}
 block|}
 block|}
 end_function
-begin_comment
-comment|//static bool debug = false;
-end_comment
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-begin_endif
-unit|if (type == Atom::DivLeft) debug = true; if (debug) qDebug()<< type<< string; if (type == Atom::DivRight) debug = false;
-endif|#
-directive|endif
-end_endif
 begin_function
 DECL|function|append
 name|void

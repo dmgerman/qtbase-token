@@ -703,12 +703,6 @@ operator|.
 name|value
 argument_list|()
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block|if (v.key().startsWith(varDot)) {             QString subVar = v.key().mid(varDot.length());             int dot = subVar.indexOf(QLatin1Char('.'));             if (dot != -1)                 subVar.truncate(dot);             t.insert(subVar,v.value());         }
-endif|#
-directive|endif
 operator|++
 name|v
 expr_stmt|;

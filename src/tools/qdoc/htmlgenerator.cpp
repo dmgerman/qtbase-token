@@ -13908,13 +13908,6 @@ name|commonPrefixLen
 operator|=
 literal|1
 expr_stmt|;
-if|#
-directive|if
-literal|0
-comment|/*           The algorithm below eventually failed, so it was replaced           with the simple (perhaps too simple) algorithm above.            The caller didn't pass in a common prefix, so get the common           prefix by looking at the class names of the first and last           classes in the class map. Discard any namespace names and           just use the bare class names. For Qt, the prefix is "Q".            Note that the algorithm used here to derive the common prefix           from the first and last classes in alphabetical order (QAccel           and QXtWidget in Qt 2.1), fails if either class name does not           begin with Q.         */
-block|QString first;         QString last;         NodeMap::const_iterator iter = classMap.constBegin();         while (iter != classMap.constEnd()) {             if (!iter.key().contains("::")) {                 first = iter.key();                 break;             }             ++iter;         }          if (first.isEmpty())             first = classMap.constBegin().key();          iter = classMap.constEnd();         while (iter != classMap.constBegin()) {             --iter;             if (!iter.key().contains("::")) {                 last = iter.key();                 break;             }         }          if (last.isEmpty())             last = classMap.constBegin().key();          if (classMap.size()> 1) {             while (commonPrefixLen< first.length() + 1&&                    commonPrefixLen< last.length() + 1&&                    first[commonPrefixLen] == last[commonPrefixLen])                 ++commonPrefixLen;         }          commonPrefix = first.left(commonPrefixLen);
-endif|#
-directive|endif
 block|}
 comment|/*       Divide the data into 37 paragraphs: 0, ..., 9, A, ..., Z,       underscore (_). QAccel will fall in paragraph 10 (A) and       QXtWidget in paragraph 33 (X). This is the only place where we       assume that NumParagraphs is 37. Each paragraph is a NodeMap.     */
 name|NodeMap
