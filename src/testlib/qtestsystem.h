@@ -363,6 +363,15 @@ name|isExposed
 argument_list|()
 return|;
 block|}
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|6
+operator|,
+literal|0
+argument_list|)
+name|QT_DEPRECATED
 specifier|inline
 specifier|static
 name|bool
@@ -379,7 +388,7 @@ literal|1000
 parameter_list|)
 block|{
 return|return
-name|qWaitForWindowActive
+name|qWaitForWindowExposed
 argument_list|(
 name|window
 argument_list|,
@@ -387,6 +396,9 @@ name|timeout
 argument_list|)
 return|;
 block|}
+endif|#
+directive|endif
+comment|// QT_DEPRECATED_SINCE(6, 0)
 block|}
 end_decl_stmt
 begin_expr_stmt

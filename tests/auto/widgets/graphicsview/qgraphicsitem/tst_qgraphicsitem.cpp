@@ -84133,7 +84133,7 @@ argument_list|()
 expr_stmt|;
 name|QTest
 operator|::
-name|qWaitForWindowShown
+name|qWaitForWindowActive
 argument_list|(
 name|view
 operator|.
