@@ -908,7 +908,8 @@ index|[
 name|layerIndex
 index|]
 operator|->
-name|surface
+name|backingStore
+argument_list|()
 operator|->
 name|image
 argument_list|()

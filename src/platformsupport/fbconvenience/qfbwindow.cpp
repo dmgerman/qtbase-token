@@ -267,6 +267,11 @@ argument_list|(
 name|window
 argument_list|)
 member_init_list|,
+name|mBackingStore
+argument_list|(
+literal|0
+argument_list|)
+member_init_list|,
 name|visibleFlag
 argument_list|(
 literal|false

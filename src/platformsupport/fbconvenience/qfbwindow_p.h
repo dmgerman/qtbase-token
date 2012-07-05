@@ -112,6 +112,26 @@ return|return
 name|windowId
 return|;
 block|}
+name|void
+name|setBackingStore
+argument_list|(
+argument|QFbBackingStore *store
+argument_list|)
+block|{
+name|mBackingStore
+operator|=
+name|store
+block|; }
+name|QFbBackingStore
+operator|*
+name|backingStore
+argument_list|()
+specifier|const
+block|{
+return|return
+name|mBackingStore
+return|;
+block|}
 name|virtual
 name|void
 name|repaint
@@ -127,13 +147,9 @@ name|friend
 name|class
 name|QFbScreen
 block|;
-name|friend
-name|class
-name|QFbBackingStore
-block|;
 name|QFbBackingStore
 operator|*
-name|surface
+name|mBackingStore
 block|;
 name|QList
 operator|<
