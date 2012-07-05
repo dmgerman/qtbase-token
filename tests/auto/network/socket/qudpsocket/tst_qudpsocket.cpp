@@ -9471,6 +9471,20 @@ operator|::
 name|IsUp
 condition|)
 block|{
+comment|// Do not add the Teredo Tunneling Pseudo Interface on Windows.
+if|if
+condition|(
+name|iface
+operator|.
+name|humanReadableName
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"Teredo"
+argument_list|)
+condition|)
+continue|continue;
 foreach|foreach
 control|(
 name|QNetworkAddressEntry
@@ -9937,6 +9951,20 @@ operator|::
 name|IsUp
 condition|)
 block|{
+comment|// Do not add the Teredo Tunneling Pseudo Interface on Windows.
+if|if
+condition|(
+name|iface
+operator|.
+name|humanReadableName
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"Teredo"
+argument_list|)
+condition|)
+continue|continue;
 foreach|foreach
 control|(
 name|QNetworkAddressEntry
