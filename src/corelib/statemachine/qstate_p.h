@@ -199,6 +199,7 @@ DECL|member|explicitlySet
 name|bool
 name|explicitlySet
 decl_stmt|;
+comment|// false means the property is being restored to its old value
 block|}
 struct|;
 end_struct
