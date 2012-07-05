@@ -47,6 +47,8 @@ name|AutoLink
 block|,
 name|BaseName
 block|,
+name|BR
+block|,
 name|BriefLeft
 block|,
 name|BriefRight

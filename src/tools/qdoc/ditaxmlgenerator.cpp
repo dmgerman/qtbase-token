@@ -5866,6 +5866,13 @@ break|break;
 case|case
 name|Atom
 operator|::
+name|BR
+case|:
+comment|// DITA XML can't do<br>
+break|break;
+case|case
+name|Atom
+operator|::
 name|HR
 case|:
 comment|//<p outputclass="horizontal-rule" />

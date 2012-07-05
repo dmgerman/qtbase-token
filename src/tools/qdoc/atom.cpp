@@ -281,6 +281,14 @@ name|BaseName
 block|}
 block|,
 block|{
+literal|"br"
+block|,
+name|Atom
+operator|::
+name|BR
+block|}
+block|,
+block|{
 literal|"BriefLeft"
 block|,
 name|Atom
