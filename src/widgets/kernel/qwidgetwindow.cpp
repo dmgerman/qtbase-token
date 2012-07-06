@@ -2801,13 +2801,6 @@ name|geometry
 argument_list|()
 expr_stmt|;
 name|widgetState
-operator|&=
-operator|~
-name|Qt
-operator|::
-name|WindowFullScreen
-expr_stmt|;
-name|widgetState
 operator||=
 name|Qt
 operator|::
@@ -2852,13 +2845,6 @@ name|m_widget
 operator|->
 name|geometry
 argument_list|()
-expr_stmt|;
-name|widgetState
-operator|&=
-operator|~
-name|Qt
-operator|::
-name|WindowMaximized
 expr_stmt|;
 name|widgetState
 operator||=
