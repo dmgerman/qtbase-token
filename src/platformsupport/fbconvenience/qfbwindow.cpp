@@ -62,6 +62,14 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+name|platformScreen
+argument_list|()
+operator|->
+name|addWindow
+argument_list|(
+name|window
+argument_list|)
+expr_stmt|;
 block|}
 end_constructor
 begin_destructor
