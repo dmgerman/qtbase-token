@@ -6610,7 +6610,18 @@ name|r
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+operator|!
+operator|(
+name|newStates
+operator|&
+name|Qt
+operator|::
+name|WindowMinimized
+operator|)
+condition|)
 block|{
 comment|// Restore saved state.
 name|unsigned
