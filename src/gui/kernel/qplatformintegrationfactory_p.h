@@ -84,7 +84,12 @@ parameter_list|(
 specifier|const
 name|QString
 modifier|&
-name|key
+name|name
+parameter_list|,
+specifier|const
+name|QStringList
+modifier|&
+name|args
 parameter_list|,
 specifier|const
 name|QString
