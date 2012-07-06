@@ -26,12 +26,6 @@ include|#
 directive|include
 file|"tr.h"
 end_include
-begin_define
-DECL|macro|QDOC_QML
-define|#
-directive|define
-name|QDOC_QML
-end_define
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|Config
