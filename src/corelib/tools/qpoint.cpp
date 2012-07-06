@@ -45,6 +45,7 @@ comment|/*!     \fn const QPoint operator*(const QPoint&point, int factor)     \
 comment|/*!     \fn const QPoint operator*(float factor, const QPoint&point)     \overload     \relates QPoint      Returns a copy of the given \a point multiplied by the given \a factor.      Note that the result is rounded to the nearest integer as points     are held as integers. Use QPointF for floating point accuracy.      \sa QPoint::operator*=() */
 comment|/*!     \fn const QPoint operator*(double factor, const QPoint&point)     \overload     \relates QPoint      Returns a copy of the given \a point multiplied by the given \a factor.      Note that the result is rounded to the nearest integer as points     are held as integers. Use QPointF for floating point accuracy.      \sa QPoint::operator*=() */
 comment|/*!     \fn const QPoint operator*(int factor, const QPoint&point)     \overload     \relates QPoint      Returns a copy of the given \a point multiplied by the given \a factor.      \sa QPoint::operator*=() */
+comment|/*!     \fn const QPoint operator+(const QPoint&point)     \relates QPoint     \since 5.0      Returns \a point unmodified. */
 comment|/*!     \fn const QPoint operator-(const QPoint&point)     \overload     \relates QPoint      Returns a QPoint object that is formed by changing the sign of     both components of the given \a point.      Equivalent to \c{QPoint(0,0) - point}. */
 comment|/*!     \fn QPoint&QPoint::operator/=(qreal divisor)     \overload      Divides both x and y by the given \a divisor, and returns a reference to this     point. For example:      \snippet code/src_corelib_tools_qpoint.cpp 6      Note that the result is rounded to the nearest integer as points are held as     integers. Use QPointF for floating point accuracy.      \sa operator*=() */
 comment|/*!     \fn const QPoint operator/(const QPoint&point, qreal divisor)     \relates QPoint      Returns the QPoint formed by dividing both components of the given \a point     by the given \a divisor.      Note that the result is rounded to the nearest integer as points are held as     integers. Use QPointF for floating point accuracy.      \sa QPoint::operator/=() */
@@ -378,6 +379,9 @@ comment|/*!     \fn const QPointF operator*(const QPointF&point, qreal factor)  
 end_comment
 begin_comment
 comment|/*!     \fn const QPointF operator*(qreal factor, const QPointF&point)     \relates QPointF      \overload      Returns a copy of the given \a point, multiplied by the given \a factor. */
+end_comment
+begin_comment
+comment|/*!     \fn const QPointF operator+(const QPointF&point)     \relates QPointF     \since 5.0      Returns \a point unmodified. */
 end_comment
 begin_comment
 comment|/*!     \fn const QPointF operator-(const QPointF&point)     \relates QPointF     \overload      Returns a QPointF object that is formed by changing the sign of     both components of the given \a point.      Equivalent to \c {QPointF(0,0) - point}. */
