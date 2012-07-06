@@ -476,6 +476,12 @@ argument_list|(
 argument|Qt::TimeSpec
 argument_list|)
 end_macro
+begin_macro
+name|Q_DECLARE_METATYPE
+argument_list|(
+argument|Qt::DateFormat
+argument_list|)
+end_macro
 begin_constructor
 DECL|function|tst_QDateTime
 name|tst_QDateTime
@@ -15706,12 +15712,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|Qt::DateFormat
-argument_list|)
-end_macro
 begin_macro
 name|QTEST_APPLESS_MAIN
 argument_list|(
