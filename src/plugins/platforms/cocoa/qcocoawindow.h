@@ -60,11 +60,19 @@ name|m_cocoaPlatformWindow
 block|; }
 operator|-
 operator|(
+name|void
+operator|)
+name|clearPlatformWindow
+decl_stmt|;
+end_decl_stmt
+begin_expr_stmt
+operator|-
+operator|(
 name|BOOL
 operator|)
 name|canBecomeKeyWindow
-decl_stmt|;
-end_decl_stmt
+expr_stmt|;
+end_expr_stmt
 begin_expr_stmt
 unit|@
 name|end
@@ -82,6 +90,14 @@ argument_list|)
 operator|*
 name|m_cocoaPlatformWindow
 block|; }
+operator|-
+operator|(
+name|void
+operator|)
+name|clearPlatformWindow
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 operator|-
 operator|(
 name|BOOL
@@ -216,6 +232,11 @@ argument_list|(
 argument|bool grab
 argument_list|)
 block|;
+name|QMargins
+name|frameMargins
+argument_list|()
+specifier|const
+block|;
 name|WId
 name|winId
 argument_list|()
@@ -278,6 +299,21 @@ argument|bool modified
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
+name|void
+name|setFrameStrutEventsEnabled
+argument_list|(
+argument|bool enabled
+argument_list|)
+block|;
+name|bool
+name|frameStrutEventsEnabled
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_frameStrutEventsEnabled
+return|;
+block|}
 name|void
 name|setMenubar
 argument_list|(
@@ -392,6 +428,9 @@ name|m_menubar
 block|;
 name|bool
 name|m_hasModalSession
+block|;
+name|bool
+name|m_frameStrutEventsEnabled
 block|; }
 decl_stmt|;
 end_decl_stmt
