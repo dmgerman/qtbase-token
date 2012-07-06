@@ -2331,6 +2331,8 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
 name|QObject
 modifier|*
 name|nativeInterface
@@ -2341,7 +2343,8 @@ name|platform_integration
 operator|->
 name|nativeInterface
 argument_list|()
-decl_stmt|;
+condition|)
+block|{
 foreach|foreach
 control|(
 specifier|const
@@ -2428,6 +2431,7 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 endif|#
