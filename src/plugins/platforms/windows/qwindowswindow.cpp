@@ -6017,6 +6017,14 @@ name|creationData
 operator|.
 name|flags
 expr_stmt|;
+name|result
+operator|.
+name|embedded
+operator|=
+name|creationData
+operator|.
+name|embedded
+expr_stmt|;
 name|setFlag
 argument_list|(
 name|FrameDirty
