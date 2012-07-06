@@ -275,8 +275,22 @@ argument_list|()
 block|;
 name|bool
 name|windowIsPopupType
-argument_list|()
+argument_list|(
+argument|Qt::WindowType type = Qt::Widget
+argument_list|)
 specifier|const
+block|;
+name|NSInteger
+name|windowLevel
+argument_list|(
+argument|Qt::WindowFlags flags
+argument_list|)
+block|;
+name|NSUInteger
+name|windowStyleMask
+argument_list|(
+argument|Qt::WindowFlags flags
+argument_list|)
 block|;
 name|void
 name|setCurrentContext
