@@ -16904,7 +16904,7 @@ name|endl
 expr_stmt|;
 name|moduleStream
 operator|<<
-literal|"QT_BUILD_PARTS  = "
+literal|"QT_BUILD_PARTS += "
 operator|<<
 name|buildParts
 operator|.
