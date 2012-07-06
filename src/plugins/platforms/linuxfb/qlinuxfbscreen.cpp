@@ -2102,6 +2102,11 @@ decl_stmt|;
 name|QRect
 name|userGeometry
 decl_stmt|;
+name|bool
+name|doSwitchToGraphicsMode
+init|=
+literal|true
+decl_stmt|;
 comment|// Parse arguments
 foreach|foreach
 control|(
@@ -2113,6 +2118,20 @@ decl|,
 name|args
 control|)
 block|{
+if|if
+condition|(
+name|arg
+operator|==
+name|QLatin1String
+argument_list|(
+literal|"nographicsmodeswitch"
+argument_list|)
+condition|)
+name|doSwitchToGraphicsMode
+operator|=
+literal|false
+expr_stmt|;
+elseif|else
 if|if
 condition|(
 name|sizeRx
@@ -2613,6 +2632,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|doSwitchToGraphicsMode
+operator|&&
 operator|!
 name|switchToGraphicsMode
 argument_list|(
