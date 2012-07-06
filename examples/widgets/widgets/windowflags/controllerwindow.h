@@ -168,6 +168,10 @@ name|framelessWindowCheckBox
 block|;
 name|QCheckBox
 operator|*
+name|windowNoShadowCheckBox
+block|;
+name|QCheckBox
+operator|*
 name|windowTitleCheckBox
 block|;
 name|QCheckBox

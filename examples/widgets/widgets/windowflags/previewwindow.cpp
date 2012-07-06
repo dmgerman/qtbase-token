@@ -321,6 +321,18 @@ name|flags
 operator|&
 name|Qt
 operator|::
+name|NoDropShadowWindowHint
+condition|)
+name|text
+operator|+=
+literal|"\n| Qt::NoDropShadowWindowHint"
+expr_stmt|;
+if|if
+condition|(
+name|flags
+operator|&
+name|Qt
+operator|::
 name|WindowTitleHint
 condition|)
 name|text
