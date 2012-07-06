@@ -26,6 +26,12 @@ name|QPainter
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QFbCursor
+name|class
+name|QFbCursor
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QLinuxFbScreen
 range|:
@@ -36,28 +42,19 @@ name|Q_OBJECT
 name|public
 operator|:
 name|QLinuxFbScreen
-argument_list|(
-argument|uchar * d
-argument_list|,
-argument|int w
-argument_list|,
-argument|int h
-argument_list|,
-argument|int lstep
-argument_list|,
-argument|QImage::Format screenFormat
-argument_list|)
+argument_list|()
 block|;
-name|void
-name|setGeometry
-argument_list|(
-argument|QRect rect
-argument_list|)
+operator|~
+name|QLinuxFbScreen
+argument_list|()
 block|;
-name|void
-name|setFormat
+name|bool
+name|initialize
 argument_list|(
-argument|QImage::Format format
+specifier|const
+name|QStringList
+operator|&
+name|args
 argument_list|)
 block|;
 name|public
@@ -69,20 +66,36 @@ argument_list|()
 block|;
 name|private
 operator|:
+name|int
+name|mFbFd
+block|;
+name|int
+name|mTtyFd
+block|;
 name|QImage
-operator|*
 name|mFbScreenImage
 block|;
+name|int
+name|mBytesPerLine
+block|;
+name|int
+name|mOldTtyMode
+block|;      struct
+block|{
 name|uchar
 operator|*
 name|data
 block|;
 name|int
-name|bytesPerLine
+name|offset
+block|,
+name|size
+block|;     }
+name|mMmap
 block|;
 name|QPainter
 operator|*
-name|compositePainter
+name|mBlitter
 block|; }
 decl_stmt|;
 end_decl_stmt

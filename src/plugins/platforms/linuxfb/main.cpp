@@ -85,6 +85,9 @@ condition|)
 return|return
 operator|new
 name|QLinuxFbIntegration
+argument_list|(
+name|paramList
+argument_list|)
 return|;
 return|return
 literal|0
