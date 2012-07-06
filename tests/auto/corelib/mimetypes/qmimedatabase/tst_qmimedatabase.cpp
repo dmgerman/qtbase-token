@@ -3566,6 +3566,19 @@ literal|"*.kpr;*.kpt"
 operator|<<
 literal|"kpr"
 expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"jpeg"
+argument_list|)
+operator|<<
+literal|"image/jpeg"
+operator|<<
+literal|"*.jpe;*.jpg;*.jpeg"
+operator|<<
+literal|"jpeg"
+expr_stmt|;
 comment|//if (KMimeType::sharedMimeInfoVersion()> KDE_MAKE_VERSION(0, 60, 0)) {
 name|QTest
 operator|::

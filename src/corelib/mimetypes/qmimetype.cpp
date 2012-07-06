@@ -939,7 +939,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QStringList QMimeType::suffixes() const;     Returns the known suffixes for the MIME type.  */
+comment|/*!     Returns the known suffixes for the MIME type.     No leading dot is included, so for instance this would return "jpg", "jpeg" for image/jpeg.  */
 end_comment
 begin_function
 DECL|function|suffixes
@@ -1054,7 +1054,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QString QMimeType::preferredSuffix() const;     Returns the preferred suffix for the MIME type.  */
+comment|/*!     Returns the preferred suffix for the MIME type.     No leading dot is included, so for instance this would return "pdf" for application/pdf.     The return value can be empty, for mime types which do not have any suffixes associated.  */
 end_comment
 begin_function
 DECL|function|preferredSuffix
