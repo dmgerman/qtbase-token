@@ -1895,7 +1895,7 @@ parameter_list|,
 name|size
 parameter_list|)
 define|\
-value|Q_STATIC_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(size,\         (sizeof(QArrayData) + (Q_ALIGNOF(type) - 1)& ~(Q_ALIGNOF(type) - 1) ))
+value|Q_STATIC_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(size,\         ((sizeof(QArrayData) + (Q_ALIGNOF(type) - 1))& ~(Q_ALIGNOF(type) - 1) ))
 end_define
 begin_comment
 unit|\
