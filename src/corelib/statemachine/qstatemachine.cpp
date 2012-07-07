@@ -7806,6 +7806,12 @@ argument_list|)
 decl_stmt|;
 endif|#
 directive|endif
+comment|// enterStates() will set stopProcessingReason to Finished if a final
+comment|// state is entered.
+name|stopProcessingReason
+operator|=
+name|EventQueueEmpty
+expr_stmt|;
 name|enterStates
 argument_list|(
 operator|&
@@ -7850,9 +7856,38 @@ operator|->
 name|started
 argument_list|()
 emit|;
+if|if
+condition|(
+name|stopProcessingReason
+operator|==
+name|Finished
+condition|)
+block|{
+comment|// The state machine immediately reached a final state.
+name|processingScheduled
+operator|=
+literal|false
+expr_stmt|;
+name|state
+operator|=
+name|NotRunning
+expr_stmt|;
+name|unregisterAllTransitions
+argument_list|()
+expr_stmt|;
+emit|emit
+name|q
+operator|->
+name|finished
+argument_list|()
+emit|;
+block|}
+else|else
+block|{
 name|_q_process
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 end_function
 begin_function
