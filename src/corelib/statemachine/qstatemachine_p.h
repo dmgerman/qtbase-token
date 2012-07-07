@@ -330,6 +330,12 @@ name|void
 name|clearHistory
 argument_list|()
 block|;
+name|QAbstractTransition
+operator|*
+name|createInitialTransition
+argument_list|()
+specifier|const
+block|;
 name|void
 name|microstep
 argument_list|(
