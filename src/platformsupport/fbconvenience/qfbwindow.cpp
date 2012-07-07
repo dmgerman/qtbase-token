@@ -41,7 +41,7 @@ argument_list|(
 literal|0
 argument_list|)
 member_init_list|,
-name|visibleFlag
+name|mVisible
 argument_list|(
 literal|false
 argument_list|)
@@ -53,7 +53,7 @@ argument_list|(
 literal|1
 argument_list|)
 decl_stmt|;
-name|windowId
+name|mWindowId
 operator|=
 name|winIdGenerator
 operator|.
@@ -133,7 +133,7 @@ name|rect
 parameter_list|)
 block|{
 comment|// store previous geometry for screen update
-name|oldGeometry
+name|mOldGeometry
 operator|=
 name|geometry
 argument_list|()
@@ -165,7 +165,7 @@ name|bool
 name|visible
 parameter_list|)
 block|{
-name|visibleFlag
+name|mVisible
 operator|=
 name|visible
 expr_stmt|;
@@ -198,12 +198,12 @@ parameter_list|(
 name|Qt
 operator|::
 name|WindowFlags
-name|type
+name|flags
 parameter_list|)
 block|{
-name|flags
+name|mWindowFlags
 operator|=
-name|type
+name|flags
 expr_stmt|;
 name|platformScreen
 argument_list|()
@@ -212,7 +212,7 @@ name|invalidateRectCache
 argument_list|()
 expr_stmt|;
 return|return
-name|flags
+name|mWindowFlags
 return|;
 block|}
 end_function
@@ -228,7 +228,7 @@ parameter_list|()
 specifier|const
 block|{
 return|return
-name|flags
+name|mWindowFlags
 return|;
 block|}
 end_function
@@ -330,18 +330,18 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 name|QRect
-name|oldGeometryLocal
+name|mOldGeometryLocal
 init|=
-name|oldGeometry
+name|mOldGeometry
 decl_stmt|;
-name|oldGeometry
+name|mOldGeometry
 operator|=
 name|currentGeometry
 expr_stmt|;
 comment|// If this is a move, redraw the previous location
 if|if
 condition|(
-name|oldGeometryLocal
+name|mOldGeometryLocal
 operator|!=
 name|currentGeometry
 condition|)
@@ -350,7 +350,7 @@ argument_list|()
 operator|->
 name|setDirty
 argument_list|(
-name|oldGeometryLocal
+name|mOldGeometryLocal
 argument_list|)
 expr_stmt|;
 name|platformScreen

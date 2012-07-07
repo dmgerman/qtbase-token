@@ -64,7 +64,7 @@ name|isVisible
 argument_list|()
 block|{
 return|return
-name|visibleFlag
+name|mVisible
 return|;
 block|}
 name|virtual
@@ -109,7 +109,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|windowId
+name|mWindowId
 return|;
 block|}
 name|void
@@ -158,18 +158,18 @@ operator|*
 name|mBackingStore
 block|;
 name|QRect
-name|oldGeometry
+name|mOldGeometry
 block|;
 name|bool
-name|visibleFlag
+name|mVisible
 block|;
 name|Qt
 operator|::
 name|WindowFlags
-name|flags
+name|mWindowFlags
 block|;
 name|WId
-name|windowId
+name|mWindowId
 block|; }
 decl_stmt|;
 end_decl_stmt

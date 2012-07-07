@@ -67,7 +67,7 @@ argument_list|(
 literal|0
 argument_list|)
 member_init_list|,
-name|isUpToDate
+name|mIsUpToDate
 argument_list|(
 literal|false
 argument_list|)
@@ -110,14 +110,14 @@ argument_list|,
 name|mFormat
 argument_list|)
 expr_stmt|;
-name|redrawTimer
+name|mRedrawTimer
 operator|.
 name|setSingleShot
 argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-name|redrawTimer
+name|mRedrawTimer
 operator|.
 name|setInterval
 argument_list|(
@@ -127,7 +127,7 @@ expr_stmt|;
 name|connect
 argument_list|(
 operator|&
-name|redrawTimer
+name|mRedrawTimer
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -158,7 +158,7 @@ modifier|*
 name|window
 parameter_list|)
 block|{
-name|windowStack
+name|mWindowStack
 operator|.
 name|prepend
 argument_list|(
@@ -190,7 +190,7 @@ modifier|*
 name|window
 parameter_list|)
 block|{
-name|windowStack
+name|mWindowStack
 operator|.
 name|removeOne
 argument_list|(
@@ -225,7 +225,7 @@ block|{
 name|int
 name|index
 init|=
-name|windowStack
+name|mWindowStack
 operator|.
 name|indexOf
 argument_list|(
@@ -239,7 +239,7 @@ operator|<=
 literal|0
 condition|)
 return|return;
-name|windowStack
+name|mWindowStack
 operator|.
 name|move
 argument_list|(
@@ -276,7 +276,7 @@ block|{
 name|int
 name|index
 init|=
-name|windowStack
+name|mWindowStack
 operator|.
 name|indexOf
 argument_list|(
@@ -293,7 +293,7 @@ operator|||
 name|index
 operator|==
 operator|(
-name|windowStack
+name|mWindowStack
 operator|.
 name|size
 argument_list|()
@@ -302,13 +302,13 @@ literal|1
 operator|)
 condition|)
 return|return;
-name|windowStack
+name|mWindowStack
 operator|.
 name|move
 argument_list|(
 name|index
 argument_list|,
-name|windowStack
+name|mWindowStack
 operator|.
 name|size
 argument_list|()
@@ -352,7 +352,7 @@ expr_stmt|;
 if|#
 directive|if
 literal|0
-block|for (int i = 0; i< windowStack.size(); i++) {         if (windowStack[i]->geometry().contains(p, false)&&             windowStack[i]->visible()&&             !windowStack[i]->widget()->isMinimized()) {             return windowStack[i]->widget();         }     }
+block|for (int i = 0; i< mWindowStack.size(); i++) {         if (mWindowStack[i]->geometry().contains(p, false)&&             mWindowStack[i]->visible()&&             !mWindowStack[i]->widget()->isMinimized()) {             return mWindowStack[i]->widget();         }     }
 endif|#
 directive|endif
 return|return
@@ -391,7 +391,7 @@ operator|.
 name|topLeft
 argument_list|()
 decl_stmt|;
-name|repaintRegion
+name|mRepaintRegion
 operator|+=
 name|intersection
 operator|.
@@ -405,13 +405,13 @@ comment|// global to local translation
 if|if
 condition|(
 operator|!
-name|redrawTimer
+name|mRedrawTimer
 operator|.
 name|isActive
 argument_list|()
 condition|)
 block|{
-name|redrawTimer
+name|mRedrawTimer
 operator|.
 name|start
 argument_list|()
@@ -427,7 +427,7 @@ operator|::
 name|generateRects
 parameter_list|()
 block|{
-name|cachedRects
+name|mCachedRects
 operator|.
 name|clear
 argument_list|()
@@ -462,7 +462,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|windowStack
+name|mWindowStack
 operator|.
 name|length
 argument_list|()
@@ -482,9 +482,9 @@ break|break;
 if|#
 directive|if
 literal|0
-block|if (!windowStack[i]->isVisible())             continue;         if (windowStack[i]->isMinimized())             continue;          if (!windowStack[i]->testAttribute(Qt::WA_TranslucentBackground)) {             QRect localGeometry = windowStack.at(i)->geometry().translated(-screenOffset);
+block|if (!mWindowStack[i]->isVisible())             continue;         if (mWindowStack[i]->isMinimized())             continue;          if (!mWindowStack[i]->testAttribute(Qt::WA_TranslucentBackground)) {             QRect localGeometry = mWindowStack.at(i)->geometry().translated(-screenOffset);
 comment|// global to local translation
-block|remainingScreen -= localGeometry;             QRegion windowRegion(localGeometry);             windowRegion -= remainingScreen;             foreach (QRect rect, windowRegion.rects()) {                 cachedRects += QPair<QRect, int>(rect, i);             }         }
+block|remainingScreen -= localGeometry;             QRegion windowRegion(localGeometry);             windowRegion -= remainingScreen;             foreach (QRect rect, windowRegion.rects()) {                 mCachedRects += QPair<QRect, int>(rect, i);             }         }
 endif|#
 directive|endif
 block|}
@@ -498,7 +498,7 @@ operator|.
 name|rects
 argument_list|()
 control|)
-name|cachedRects
+name|mCachedRects
 operator|+=
 name|QPair
 argument_list|<
@@ -513,7 +513,7 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
-name|isUpToDate
+name|mIsUpToDate
 operator|=
 literal|true
 expr_stmt|;
@@ -562,14 +562,14 @@ operator|->
 name|dirtyRect
 argument_list|()
 decl_stmt|;
-name|repaintRegion
+name|mRepaintRegion
 operator|+=
 name|lastCursor
 expr_stmt|;
 block|}
 if|if
 condition|(
-name|repaintRegion
+name|mRepaintRegion
 operator|.
 name|isEmpty
 argument_list|()
@@ -596,7 +596,7 @@ name|QRect
 argument_list|>
 name|rects
 init|=
-name|repaintRegion
+name|mRepaintRegion
 operator|.
 name|rects
 argument_list|()
@@ -604,7 +604,7 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|isUpToDate
+name|mIsUpToDate
 condition|)
 name|generateRects
 argument_list|()
@@ -631,7 +631,7 @@ literal|0
 init|;
 name|rectIndex
 operator|<
-name|repaintRegion
+name|mRepaintRegion
 operator|.
 name|rectCount
 argument_list|()
@@ -657,7 +657,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|cachedRects
+name|mCachedRects
 operator|.
 name|length
 argument_list|()
@@ -669,7 +669,7 @@ block|{
 name|QRect
 name|screenSubRect
 init|=
-name|cachedRects
+name|mCachedRects
 index|[
 name|i
 index|]
@@ -679,7 +679,7 @@ decl_stmt|;
 name|int
 name|layer
 init|=
-name|cachedRects
+name|mCachedRects
 index|[
 name|i
 index|]
@@ -750,7 +750,7 @@ literal|false
 expr_stmt|;
 name|layer
 operator|=
-name|windowStack
+name|mWindowStack
 operator|.
 name|size
 argument_list|()
@@ -777,7 +777,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|windowStack
+name|mWindowStack
 index|[
 name|layerIndex
 index|]
@@ -786,12 +786,12 @@ name|isVisible
 argument_list|()
 condition|)
 continue|continue;
-comment|// if (windowStack[layerIndex]->isMinimized())
+comment|// if (mWindowStack[layerIndex]->isMinimized())
 comment|//     continue;
 name|QRect
 name|windowRect
 init|=
-name|windowStack
+name|mWindowStack
 index|[
 name|layerIndex
 index|]
@@ -831,7 +831,7 @@ name|drawImage
 argument_list|(
 name|rect
 argument_list|,
-name|windowStack
+name|mWindowStack
 index|[
 name|layerIndex
 index|]
@@ -872,7 +872,7 @@ operator|->
 name|isDirty
 argument_list|()
 operator|||
-name|repaintRegion
+name|mRepaintRegion
 operator|.
 name|intersects
 argument_list|(
@@ -901,14 +901,14 @@ expr_stmt|;
 block|}
 name|touchedRegion
 operator|+=
-name|repaintRegion
+name|mRepaintRegion
 expr_stmt|;
-name|repaintRegion
+name|mRepaintRegion
 operator|=
 name|QRegion
 argument_list|()
 expr_stmt|;
-comment|//    qDebug()<< "QFbScreen::doRedraw"<< windowStack.size()<< mScreenImage->size()<< touchedRegion;
+comment|//    qDebug()<< "QFbScreen::doRedraw"<< mWindowStack.size()<< mScreenImage->size()<< touchedRegion;
 return|return
 name|touchedRegion
 return|;
