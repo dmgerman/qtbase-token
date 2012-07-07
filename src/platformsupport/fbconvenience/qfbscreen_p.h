@@ -145,7 +145,7 @@ name|virtual
 name|void
 name|raise
 parameter_list|(
-name|QPlatformWindow
+name|QFbWindow
 modifier|*
 name|window
 parameter_list|)
@@ -154,7 +154,7 @@ name|virtual
 name|void
 name|lower
 parameter_list|(
-name|QPlatformWindow
+name|QFbWindow
 modifier|*
 name|window
 parameter_list|)

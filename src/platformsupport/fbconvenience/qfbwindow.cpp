@@ -67,7 +67,7 @@ argument_list|()
 operator|->
 name|addWindow
 argument_list|(
-name|window
+name|this
 argument_list|)
 expr_stmt|;
 block|}
