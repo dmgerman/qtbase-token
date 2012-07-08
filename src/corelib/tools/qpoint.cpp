@@ -338,10 +338,10 @@ begin_comment
 comment|/*!     \fn qreal QPointF::manhattanLength() const     \since 4.6      Returns the sum of the absolute values of x() and y(),     traditionally known as the "Manhattan length" of the vector from     the origin to the point.      \sa QPoint::manhattanLength() */
 end_comment
 begin_comment
-comment|/*!     \fn qreal QPointF::x() const      Returns the x-coordinate of this point.      \sa setX(), rx() */
+comment|/*!     \fn qreal QPointF::x() const      Returns the x coordinate of this point.      \sa setX(), rx() */
 end_comment
 begin_comment
-comment|/*!     \fn qreal QPointF::y() const      Returns the y-coordinate of this point.      \sa setY(), ry() */
+comment|/*!     \fn qreal QPointF::y() const      Returns the y coordinate of this point.      \sa setY(), ry() */
 end_comment
 begin_comment
 comment|/*!     \fn void QPointF::setX(qreal x)      Sets the x coordinate of this point to the given \a x coordinate.      \sa x(), setY() */
