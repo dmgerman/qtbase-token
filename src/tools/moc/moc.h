@@ -319,6 +319,11 @@ argument_list|(
 name|false
 argument_list|)
 operator|,
+name|isPrivateSignal
+argument_list|(
+name|false
+argument_list|)
+operator|,
 name|isConstructor
 argument_list|(
 name|false
@@ -427,6 +432,10 @@ decl_stmt|;
 DECL|member|isSignal
 name|bool
 name|isSignal
+decl_stmt|;
+DECL|member|isPrivateSignal
+name|bool
+name|isPrivateSignal
 decl_stmt|;
 DECL|member|isConstructor
 name|bool
