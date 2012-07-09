@@ -2999,6 +2999,11 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|__cplusplus
+end_ifdef
 begin_if
 if|#
 directive|if
@@ -3050,6 +3055,10 @@ undef|#
 directive|undef
 name|Q_COMPILER_INITIALIZER_LISTS
 end_undef
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_endif
 endif|#
 directive|endif
