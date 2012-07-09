@@ -1779,6 +1779,13 @@ return|return
 literal|false
 return|;
 block|}
+name|glyphs
+operator|->
+name|numGlyphs
+operator|=
+operator|*
+name|nglyphs
+expr_stmt|;
 operator|*
 name|nglyphs
 operator|=

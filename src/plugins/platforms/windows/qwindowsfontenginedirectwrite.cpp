@@ -1338,6 +1338,12 @@ name|nglyphs
 operator|=
 name|len
 expr_stmt|;
+name|glyphs
+operator|->
+name|numGlyphs
+operator|=
+name|len
+expr_stmt|;
 if|if
 condition|(
 operator|!
