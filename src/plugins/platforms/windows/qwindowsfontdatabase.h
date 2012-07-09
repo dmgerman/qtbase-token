@@ -277,6 +277,16 @@ name|qreal
 name|fontSmoothingGamma
 argument_list|()
 block|;
+specifier|static
+name|LOGFONT
+name|fontDefToLOGFONT
+argument_list|(
+specifier|const
+name|QFontDef
+operator|&
+name|fontDef
+argument_list|)
+block|;
 name|private
 operator|:
 name|void
