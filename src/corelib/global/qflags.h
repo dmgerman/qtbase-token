@@ -29,12 +29,14 @@ name|i
 decl_stmt|;
 name|public
 label|:
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QFlag
-argument_list|(
-argument|int i
-argument_list|)
-expr_stmt|;
+parameter_list|(
+name|int
+name|i
+parameter_list|)
+function_decl|;
 specifier|inline
 name|operator
 name|int
@@ -52,6 +54,7 @@ empty_stmt|;
 end_empty_stmt
 begin_expr_stmt
 DECL|function|QFlag
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QFlag
 operator|::
