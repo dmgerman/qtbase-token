@@ -677,6 +677,20 @@ name|void
 name|notifyThemeChanged
 argument_list|()
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_DRAGANDDROP
+name|void
+name|notifyDragStarted
+argument_list|(
+specifier|const
+name|QDrag
+operator|*
+argument_list|)
+block|;
+endif|#
+directive|endif
+comment|// QT_NO_DRAGANDDROP
 name|public
 operator|:
 specifier|static

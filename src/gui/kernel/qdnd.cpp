@@ -673,6 +673,16 @@ name|target
 operator|=
 literal|0
 expr_stmt|;
+name|QGuiApplicationPrivate
+operator|::
+name|instance
+argument_list|()
+operator|->
+name|notifyDragStarted
+argument_list|(
+name|o
+argument_list|)
+expr_stmt|;
 specifier|const
 name|Qt
 operator|::
