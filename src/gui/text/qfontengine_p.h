@@ -104,12 +104,6 @@ name|class
 name|QPainterPath
 decl_stmt|;
 end_decl_stmt
-begin_decl_stmt
-DECL|variable|QTextEngine
-name|class
-name|QTextEngine
-decl_stmt|;
-end_decl_stmt
 begin_struct_decl
 struct_decl|struct
 name|QGlyphLayout
@@ -185,7 +179,28 @@ name|Format_A8
 block|,
 name|Format_A32
 block|}
+block|;      enum
+name|ShaperFlag
+block|{
+name|RightToLeft
+operator|=
+literal|0x0001
+block|,
+name|DesignMetrics
+operator|=
+literal|0x0002
+block|,
+name|GlyphIndicesOnly
+operator|=
+literal|0x0004
+block|}
 block|;
+name|Q_DECLARE_FLAGS
+argument_list|(
+argument|ShaperFlags
+argument_list|,
+argument|ShaperFlag
+argument_list|)
 name|QFontEngine
 argument_list|()
 block|;
@@ -382,7 +397,7 @@ argument|QGlyphLayout *glyphs
 argument_list|,
 argument|int *nglyphs
 argument_list|,
-argument|QTextEngine::ShaperFlags flags
+argument|ShaperFlags flags
 argument_list|)
 specifier|const
 operator|=
@@ -395,7 +410,7 @@ name|recalcAdvances
 argument_list|(
 argument|QGlyphLayout *
 argument_list|,
-argument|QTextEngine::ShaperFlags
+argument|ShaperFlags
 argument_list|)
 specifier|const
 block|{}
@@ -405,7 +420,7 @@ name|doKerning
 argument_list|(
 argument|QGlyphLayout *
 argument_list|,
-argument|QTextEngine::ShaperFlags
+argument|ShaperFlags
 argument_list|)
 specifier|const
 block|;
@@ -1109,6 +1124,10 @@ operator|>
 name|m_glyphCaches
 block|; }
 block|;
+name|Q_DECLARE_OPERATORS_FOR_FLAGS
+argument_list|(
+argument|QFontEngine::ShaperFlags
+argument_list|)
 DECL|function|operator
 specifier|inline
 name|bool
@@ -1231,7 +1250,7 @@ argument|QGlyphLayout *glyphs
 argument_list|,
 argument|int *nglyphs
 argument_list|,
-argument|QTextEngine::ShaperFlags flags
+argument|ShaperFlags flags
 argument_list|)
 specifier|const
 block|;
@@ -1241,7 +1260,7 @@ name|recalcAdvances
 argument_list|(
 argument|QGlyphLayout *
 argument_list|,
-argument|QTextEngine::ShaperFlags
+argument|ShaperFlags
 argument_list|)
 specifier|const
 block|;
@@ -1424,7 +1443,7 @@ argument|QGlyphLayout *glyphs
 argument_list|,
 argument|int *nglyphs
 argument_list|,
-argument|QTextEngine::ShaperFlags flags
+argument|ShaperFlags flags
 argument_list|)
 specifier|const
 block|;
@@ -1451,7 +1470,7 @@ name|recalcAdvances
 argument_list|(
 argument|QGlyphLayout *
 argument_list|,
-argument|QTextEngine::ShaperFlags
+argument|ShaperFlags
 argument_list|)
 specifier|const
 block|;
@@ -1461,7 +1480,7 @@ name|doKerning
 argument_list|(
 argument|QGlyphLayout *
 argument_list|,
-argument|QTextEngine::ShaperFlags
+argument|ShaperFlags
 argument_list|)
 specifier|const
 block|;

@@ -1211,7 +1211,7 @@ argument_list|,
 operator|&
 name|nglyphs
 argument_list|,
-name|QTextEngine
+name|QFontEngine
 operator|::
 name|GlyphIndicesOnly
 argument_list|)

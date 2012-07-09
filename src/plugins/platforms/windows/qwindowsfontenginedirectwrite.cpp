@@ -1194,7 +1194,7 @@ name|int
 modifier|*
 name|nglyphs
 parameter_list|,
-name|QTextEngine
+name|QFontEngine
 operator|::
 name|ShaperFlags
 name|flags
@@ -1250,7 +1250,7 @@ if|if
 condition|(
 name|flags
 operator|&
-name|QTextEngine
+name|QFontEngine
 operator|::
 name|RightToLeft
 condition|)
@@ -1344,8 +1344,6 @@ operator|!
 operator|(
 name|flags
 operator|&
-name|QTextEngine
-operator|::
 name|GlyphIndicesOnly
 operator|)
 condition|)
@@ -1387,7 +1385,7 @@ name|QGlyphLayout
 modifier|*
 name|glyphs
 parameter_list|,
-name|QTextEngine
+name|QFontEngine
 operator|::
 name|ShaperFlags
 parameter_list|)

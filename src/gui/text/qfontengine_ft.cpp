@@ -4776,7 +4776,7 @@ operator|||
 operator|(
 name|flags
 operator|&
-name|HB_ShaperFlag_UseDesignMetrics
+name|DesignMetrics
 operator|)
 operator|||
 operator|(
@@ -7877,8 +7877,6 @@ argument_list|,
 operator|&
 name|ng
 argument_list|,
-name|QTextEngine
-operator|::
 name|GlyphIndicesOnly
 argument_list|)
 expr_stmt|;
@@ -8002,7 +8000,7 @@ name|QGlyphLayout
 modifier|*
 name|g
 parameter_list|,
-name|QTextEngine
+name|QFontEngine
 operator|::
 name|ShaperFlags
 name|flags
@@ -9305,7 +9303,7 @@ name|int
 modifier|*
 name|nglyphs
 parameter_list|,
-name|QTextEngine
+name|QFontEngine
 operator|::
 name|ShaperFlags
 name|flags
@@ -9334,7 +9332,7 @@ name|mirrored
 init|=
 name|flags
 operator|&
-name|QTextEngine
+name|QFontEngine
 operator|::
 name|RightToLeft
 decl_stmt|;
@@ -9698,15 +9696,13 @@ name|glyph_pos
 expr_stmt|;
 if|if
 condition|(
+operator|!
+operator|(
 name|flags
 operator|&
-name|QTextEngine
-operator|::
 name|GlyphIndicesOnly
+operator|)
 condition|)
-return|return
-literal|true
-return|;
 name|recalcAdvances
 argument_list|(
 name|glyphs
@@ -9730,7 +9726,7 @@ name|QGlyphLayout
 modifier|*
 name|glyphs
 parameter_list|,
-name|QTextEngine
+name|QFontEngine
 operator|::
 name|ShaperFlags
 name|flags
@@ -9757,7 +9753,7 @@ operator|||
 operator|(
 name|flags
 operator|&
-name|HB_ShaperFlag_UseDesignMetrics
+name|DesignMetrics
 operator|)
 operator|)
 operator|&&

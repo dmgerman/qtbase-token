@@ -204,7 +204,7 @@ argument|QGlyphLayout *glyphs
 argument_list|,
 argument|int *nglyphs
 argument_list|,
-argument|QTextEngine::ShaperFlags flags
+argument|ShaperFlags flags
 argument_list|)
 specifier|const
 block|;
@@ -214,7 +214,7 @@ name|recalcAdvances
 argument_list|(
 argument|QGlyphLayout *glyphs
 argument_list|,
-argument|QTextEngine::ShaperFlags
+argument|ShaperFlags
 argument_list|)
 specifier|const
 block|;

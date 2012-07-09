@@ -2953,7 +2953,7 @@ name|int
 modifier|*
 name|nglyphs
 parameter_list|,
-name|QTextEngine
+name|QFontEngine
 operator|::
 name|ShaperFlags
 name|flags
@@ -3067,8 +3067,6 @@ name|mirrored
 init|=
 name|flags
 operator|&
-name|QTextEngine
-operator|::
 name|RightToLeft
 decl_stmt|;
 name|int
@@ -3265,7 +3263,7 @@ name|QGlyphLayout
 modifier|*
 name|glyphs
 parameter_list|,
-name|QTextEngine
+name|QFontEngine
 operator|::
 name|ShaperFlags
 parameter_list|)
@@ -4837,7 +4835,7 @@ name|QGlyphLayout
 modifier|*
 name|g
 parameter_list|,
-name|QTextEngine
+name|QFontEngine
 operator|::
 name|ShaperFlags
 name|flags
