@@ -210,27 +210,13 @@ end_endif
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 end_ifdef
-begin_include
-include|#
-directive|include
-file|<Carbon/Carbon.h>
-end_include
-begin_comment
-comment|// for SetFrontProcess
-end_comment
 begin_include
 include|#
 directive|include
 file|<IOKit/pwr_mgt/IOPMLib.h>
 end_include
-begin_undef
-DECL|macro|verify
-undef|#
-directive|undef
-name|verify
-end_undef
 begin_endif
 endif|#
 directive|endif
@@ -5452,7 +5438,7 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|bool
 name|macNeedsActivate
 init|=
@@ -5529,38 +5515,30 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
-comment|// Starting with Qt 4.4, applications launched from the command line
-comment|// no longer get focus automatically. Since some tests might depend
-comment|// on this, call SetFrontProcess here to get the pre 4.4 behavior.
+name|Q_OS_MAC
 if|if
 condition|(
 name|macNeedsActivate
 condition|)
 block|{
-name|ProcessSerialNumber
-name|psn
+name|CFStringRef
+name|reasonForActivity
 init|=
-block|{
-literal|0
-block|,
-name|kCurrentProcess
-block|}
-decl_stmt|;
-name|SetFrontProcess
+name|CFSTR
 argument_list|(
-operator|&
-name|psn
+literal|"No Display Sleep"
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|IOReturn
 name|ok
 init|=
-name|IOPMAssertionCreate
+name|IOPMAssertionCreateWithName
 argument_list|(
 name|kIOPMAssertionTypeNoDisplaySleep
 argument_list|,
 name|kIOPMAssertionLevelOn
+argument_list|,
+name|reasonForActivity
 argument_list|,
 operator|&
 name|powerID
@@ -5784,7 +5762,7 @@ argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 if|if
 condition|(
 name|macNeedsActivate
@@ -5821,7 +5799,7 @@ argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 if|if
 condition|(
 name|macNeedsActivate
