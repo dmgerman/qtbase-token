@@ -34991,6 +34991,13 @@ name|WA_PaintOnScreen
 operator|&&
 name|on
 operator|&&
+name|windowType
+argument_list|()
+operator|!=
+name|Qt
+operator|::
+name|Desktop
+operator|&&
 operator|!
 name|inherits
 argument_list|(
