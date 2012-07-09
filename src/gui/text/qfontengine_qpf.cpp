@@ -3240,6 +3240,15 @@ name|numGlyphs
 operator|=
 name|glyph_pos
 expr_stmt|;
+if|if
+condition|(
+operator|!
+operator|(
+name|flags
+operator|&
+name|GlyphIndicesOnly
+operator|)
+condition|)
 name|recalcAdvances
 argument_list|(
 name|glyphs
