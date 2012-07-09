@@ -1476,24 +1476,6 @@ operator|(
 operator|)
 argument_list|)
 block|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_MOC_RUN
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|qdoc
-argument_list|)
-name|private
-operator|:
-comment|// can only be emitted by QAbstractItemModel
-endif|#
-directive|endif
 name|void
 name|rowsAboutToBeInserted
 argument_list|(
@@ -1502,6 +1484,17 @@ argument_list|,
 argument|int first
 argument_list|,
 argument|int last
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|qdoc
+argument_list|)
+argument_list|,
+argument|QPrivateSignal
+endif|#
+directive|endif
 argument_list|)
 block|;
 name|void
@@ -1512,6 +1505,17 @@ argument_list|,
 argument|int first
 argument_list|,
 argument|int last
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|qdoc
+argument_list|)
+argument_list|,
+argument|QPrivateSignal
+endif|#
+directive|endif
 argument_list|)
 block|;
 name|void
@@ -1522,6 +1526,17 @@ argument_list|,
 argument|int first
 argument_list|,
 argument|int last
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|qdoc
+argument_list|)
+argument_list|,
+argument|QPrivateSignal
+endif|#
+directive|endif
 argument_list|)
 block|;
 name|void
@@ -1532,6 +1547,17 @@ argument_list|,
 argument|int first
 argument_list|,
 argument|int last
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|qdoc
+argument_list|)
+argument_list|,
+argument|QPrivateSignal
+endif|#
+directive|endif
 argument_list|)
 block|;
 name|void
@@ -1542,6 +1568,17 @@ argument_list|,
 argument|int first
 argument_list|,
 argument|int last
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|qdoc
+argument_list|)
+argument_list|,
+argument|QPrivateSignal
+endif|#
+directive|endif
 argument_list|)
 block|;
 name|void
@@ -1552,6 +1589,17 @@ argument_list|,
 argument|int first
 argument_list|,
 argument|int last
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|qdoc
+argument_list|)
+argument_list|,
+argument|QPrivateSignal
+endif|#
+directive|endif
 argument_list|)
 block|;
 name|void
@@ -1562,6 +1610,17 @@ argument_list|,
 argument|int first
 argument_list|,
 argument|int last
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|qdoc
+argument_list|)
+argument_list|,
+argument|QPrivateSignal
+endif|#
+directive|endif
 argument_list|)
 block|;
 name|void
@@ -1572,15 +1631,48 @@ argument_list|,
 argument|int first
 argument_list|,
 argument|int last
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|qdoc
+argument_list|)
+argument_list|,
+argument|QPrivateSignal
+endif|#
+directive|endif
 argument_list|)
 block|;
 name|void
 name|modelAboutToBeReset
-argument_list|()
+argument_list|(
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|qdoc
+argument_list|)
+name|QPrivateSignal
+endif|#
+directive|endif
+argument_list|)
 block|;
 name|void
 name|modelReset
-argument_list|()
+argument_list|(
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|qdoc
+argument_list|)
+name|QPrivateSignal
+endif|#
+directive|endif
+argument_list|)
 block|;
 name|void
 name|rowsAboutToBeMoved
@@ -1594,6 +1686,17 @@ argument_list|,
 argument|const QModelIndex&destinationParent
 argument_list|,
 argument|int destinationRow
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|qdoc
+argument_list|)
+argument_list|,
+argument|QPrivateSignal
+endif|#
+directive|endif
 argument_list|)
 block|;
 name|void
@@ -1608,6 +1711,17 @@ argument_list|,
 argument|const QModelIndex&destination
 argument_list|,
 argument|int row
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|qdoc
+argument_list|)
+argument_list|,
+argument|QPrivateSignal
+endif|#
+directive|endif
 argument_list|)
 block|;
 name|void
@@ -1622,6 +1736,17 @@ argument_list|,
 argument|const QModelIndex&destinationParent
 argument_list|,
 argument|int destinationColumn
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|qdoc
+argument_list|)
+argument_list|,
+argument|QPrivateSignal
+endif|#
+directive|endif
 argument_list|)
 block|;
 name|void
@@ -1636,6 +1761,17 @@ argument_list|,
 argument|const QModelIndex&destination
 argument_list|,
 argument|int column
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|qdoc
+argument_list|)
+argument_list|,
+argument|QPrivateSignal
+endif|#
+directive|endif
 argument_list|)
 block|;
 name|public

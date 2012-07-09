@@ -6829,6 +6829,9 @@ argument_list|,
 name|first
 argument_list|,
 name|last
+argument_list|,
+name|QPrivateSignal
+argument_list|()
 argument_list|)
 emit|;
 name|d
@@ -6903,6 +6906,9 @@ argument_list|,
 name|change
 operator|.
 name|last
+argument_list|,
+name|QPrivateSignal
+argument_list|()
 argument_list|)
 emit|;
 block|}
@@ -6974,6 +6980,9 @@ argument_list|,
 name|first
 argument_list|,
 name|last
+argument_list|,
+name|QPrivateSignal
+argument_list|()
 argument_list|)
 emit|;
 name|d
@@ -7048,6 +7057,9 @@ argument_list|,
 name|change
 operator|.
 name|last
+argument_list|,
+name|QPrivateSignal
+argument_list|()
 argument_list|)
 emit|;
 block|}
@@ -7394,6 +7406,9 @@ argument_list|,
 name|destinationParent
 argument_list|,
 name|destinationChild
+argument_list|,
+name|QPrivateSignal
+argument_list|()
 argument_list|)
 emit|;
 name|d
@@ -7587,6 +7602,9 @@ argument_list|,
 name|insertChange
 operator|.
 name|first
+argument_list|,
+name|QPrivateSignal
+argument_list|()
 argument_list|)
 emit|;
 block|}
@@ -7658,6 +7676,9 @@ argument_list|,
 name|first
 argument_list|,
 name|last
+argument_list|,
+name|QPrivateSignal
+argument_list|()
 argument_list|)
 emit|;
 name|d
@@ -7732,6 +7753,9 @@ argument_list|,
 name|change
 operator|.
 name|last
+argument_list|,
+name|QPrivateSignal
+argument_list|()
 argument_list|)
 emit|;
 block|}
@@ -7803,6 +7827,9 @@ argument_list|,
 name|first
 argument_list|,
 name|last
+argument_list|,
+name|QPrivateSignal
+argument_list|()
 argument_list|)
 emit|;
 name|d
@@ -7877,6 +7904,9 @@ argument_list|,
 name|change
 operator|.
 name|last
+argument_list|,
+name|QPrivateSignal
+argument_list|()
 argument_list|)
 emit|;
 block|}
@@ -8094,6 +8124,9 @@ argument_list|,
 name|destinationParent
 argument_list|,
 name|destinationChild
+argument_list|,
+name|QPrivateSignal
+argument_list|()
 argument_list|)
 emit|;
 return|return
@@ -8268,6 +8301,9 @@ argument_list|,
 name|insertChange
 operator|.
 name|first
+argument_list|,
+name|QPrivateSignal
+argument_list|()
 argument_list|)
 emit|;
 block|}
@@ -8288,7 +8324,10 @@ parameter_list|()
 block|{
 emit|emit
 name|modelAboutToBeReset
+argument_list|(
+name|QPrivateSignal
 argument_list|()
+argument_list|)
 emit|;
 block|}
 end_function
@@ -8315,7 +8354,10 @@ argument_list|()
 expr_stmt|;
 emit|emit
 name|modelReset
+argument_list|(
+name|QPrivateSignal
 argument_list|()
+argument_list|)
 emit|;
 block|}
 end_function
