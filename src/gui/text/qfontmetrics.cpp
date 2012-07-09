@@ -1058,7 +1058,9 @@ argument_list|,
 operator|&
 name|nglyphs
 argument_list|,
-literal|0
+name|QFontEngine
+operator|::
+name|GlyphIndicesOnly
 argument_list|)
 expr_stmt|;
 comment|// ### can nglyphs != 1 happen at all? Not currently I think
@@ -1209,7 +1211,9 @@ argument_list|,
 operator|&
 name|nglyphs
 argument_list|,
-literal|0
+name|QFontEngine
+operator|::
+name|GlyphIndicesOnly
 argument_list|)
 expr_stmt|;
 comment|// ### can nglyphs != 1 happen at all? Not currently I think
@@ -2168,7 +2172,9 @@ argument_list|,
 operator|&
 name|nglyphs
 argument_list|,
-literal|0
+name|QFontEngine
+operator|::
+name|GlyphIndicesOnly
 argument_list|)
 expr_stmt|;
 name|glyph_metrics_t
@@ -3799,7 +3805,9 @@ argument_list|,
 operator|&
 name|nglyphs
 argument_list|,
-literal|0
+name|QFontEngine
+operator|::
+name|GlyphIndicesOnly
 argument_list|)
 expr_stmt|;
 comment|// ### can nglyphs != 1 happen at all? Not currently I think
@@ -3947,7 +3955,9 @@ argument_list|,
 operator|&
 name|nglyphs
 argument_list|,
-literal|0
+name|QFontEngine
+operator|::
+name|GlyphIndicesOnly
 argument_list|)
 expr_stmt|;
 comment|// ### can nglyphs != 1 happen at all? Not currently I think
@@ -4418,7 +4428,9 @@ argument_list|,
 operator|&
 name|nglyphs
 argument_list|,
-literal|0
+name|QFontEngine
+operator|::
+name|GlyphIndicesOnly
 argument_list|)
 expr_stmt|;
 name|glyph_metrics_t
