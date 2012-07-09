@@ -387,6 +387,10 @@ block|,
 name|FrameStrutEventsEnabled
 operator|=
 literal|0x200
+block|,
+name|SynchronousGeometryChangeEvent
+operator|=
+literal|0x400
 block|}
 decl_stmt|;
 end_decl_stmt
