@@ -165,7 +165,7 @@ DECL|macro|signals
 define|#
 directive|define
 name|signals
-value|protected
+value|public
 end_define
 begin_define
 DECL|macro|slots
