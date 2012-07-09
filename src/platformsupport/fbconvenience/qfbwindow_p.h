@@ -53,22 +53,6 @@ argument_list|()
 block|;
 name|virtual
 name|void
-name|setVisible
-argument_list|(
-argument|bool visible
-argument_list|)
-block|;
-name|virtual
-name|bool
-name|isVisible
-argument_list|()
-block|{
-return|return
-name|mVisible
-return|;
-block|}
-name|virtual
-name|void
 name|raise
 argument_list|()
 block|;
@@ -159,9 +143,6 @@ name|mBackingStore
 block|;
 name|QRect
 name|mOldGeometry
-block|;
-name|bool
-name|mVisible
 block|;
 name|Qt
 operator|::

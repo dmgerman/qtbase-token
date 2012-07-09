@@ -782,6 +782,9 @@ index|[
 name|layerIndex
 index|]
 operator|->
+name|window
+argument_list|()
+operator|->
 name|isVisible
 argument_list|()
 condition|)
