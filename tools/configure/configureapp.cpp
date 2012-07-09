@@ -817,6 +817,11 @@ argument_list|)
 operator|<<
 name|QStringLiteral
 argument_list|(
+literal|"tools"
+argument_list|)
+operator|<<
+name|QStringLiteral
+argument_list|(
 literal|"examples"
 argument_list|)
 expr_stmt|;
