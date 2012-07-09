@@ -2579,7 +2579,7 @@ name|metrics
 operator|.
 name|x
 operator|.
-name|round
+name|floor
 argument_list|()
 operator|+
 name|subPixelPosition
