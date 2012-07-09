@@ -191,7 +191,12 @@ emit|emit
 name|q
 operator|->
 name|triggered
+argument_list|(
+name|QAbstractTransition
+operator|::
+name|QPrivateSignal
 argument_list|()
+argument_list|)
 emit|;
 block|}
 end_function

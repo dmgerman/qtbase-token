@@ -236,7 +236,12 @@ emit|emit
 name|q
 operator|->
 name|entered
+argument_list|(
+name|QAbstractState
+operator|::
+name|QPrivateSignal
 argument_list|()
+argument_list|)
 emit|;
 block|}
 end_function
@@ -257,7 +262,12 @@ emit|emit
 name|q
 operator|->
 name|exited
+argument_list|(
+name|QAbstractState
+operator|::
+name|QPrivateSignal
 argument_list|()
+argument_list|)
 emit|;
 block|}
 end_function
