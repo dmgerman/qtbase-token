@@ -356,7 +356,7 @@ block|{
 name|QString
 name|qtconfig
 init|=
-name|QLatin1String
+name|QStringLiteral
 argument_list|(
 literal|":/qt/etc/qt.conf"
 argument_list|)

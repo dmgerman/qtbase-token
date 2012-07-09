@@ -1077,7 +1077,7 @@ operator|::
 name|C
 condition|)
 return|return
-name|QLatin1String
+name|QStringLiteral
 argument_list|(
 literal|"C"
 argument_list|)
@@ -1849,7 +1849,7 @@ specifier|const
 name|QString
 name|separators
 init|=
-name|QLatin1String
+name|QStringLiteral
 argument_list|(
 literal|"_-.@"
 argument_list|)
