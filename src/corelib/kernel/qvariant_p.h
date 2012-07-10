@@ -1397,7 +1397,7 @@ name|Value
 argument_list|)
 block|;     struct
 name|SelfTestFinal1
-name|Q_DECL_FINAL_CLASS
+name|Q_DECL_FINAL
 block|{
 name|bool
 name|isNull
@@ -1416,7 +1416,7 @@ name|Value
 argument_list|)
 block|;     struct
 name|SelfTestFinal2
-name|Q_DECL_FINAL_CLASS
+name|Q_DECL_FINAL
 block|{}
 block|;
 name|Q_STATIC_ASSERT
@@ -1431,7 +1431,7 @@ name|Value
 argument_list|)
 block|;     struct
 name|SelfTestFinal3
-name|Q_DECL_FINAL_CLASS
+name|Q_DECL_FINAL
 operator|:
 name|public
 name|SelfTest1
