@@ -9488,8 +9488,10 @@ operator|::
 name|WindowMinimized
 argument_list|)
 expr_stmt|;
-name|show
-argument_list|()
+name|setVisible
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 block|}
 comment|/*!     \property QWidget::maximized     \brief whether this widget is maximized      This property is only relevant for windows.      \note Due to limitations on some window systems, this does not always     report the expected results (e.g., if the user on X11 maximizes the     window via the window manager, Qt has no way of distinguishing this     from any other resize). This is expected to improve as window manager     protocols evolve.      By default, this property is false.      \sa windowState(), showMaximized(), visible, show(), hide(), showNormal(), minimized */
@@ -9798,8 +9800,10 @@ block|}
 endif|#
 directive|endif
 comment|// Q_WS_MAC
-name|show
-argument_list|()
+name|setVisible
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 block|}
 comment|/*!     Restores the widget after it has been maximized or minimized.      Calling this function only affects \l{isWindow()}{windows}.      \sa setWindowState(), showMinimized(), showMaximized(), show(), hide(), isVisible() */
@@ -9897,8 +9901,10 @@ block|}
 endif|#
 directive|endif
 comment|// Q_WS_MAC
-name|show
-argument_list|()
+name|setVisible
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 block|}
 comment|/*!     Returns true if this widget would become enabled if \a ancestor is     enabled; otherwise returns false.        This is the case if neither the widget itself nor every parent up     to but excluding \a ancestor has been explicitly disabled.      isEnabledTo(0) is equivalent to isEnabled().      \sa setEnabled(), enabled */
