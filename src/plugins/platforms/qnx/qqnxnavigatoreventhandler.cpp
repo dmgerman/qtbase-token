@@ -20,7 +20,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qpa/qwindowsysteminterface.h>
+file|<QtGui/qwindowsysteminterface.h>
 end_include
 begin_ifdef
 ifdef|#

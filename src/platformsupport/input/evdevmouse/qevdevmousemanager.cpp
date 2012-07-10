@@ -25,7 +25,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qpa/qwindowsysteminterface.h>
+file|<QtGui/qwindowsysteminterface.h>
 end_include
 begin_comment
 comment|//#define QT_QPA_MOUSEMANAGER_DEBUG

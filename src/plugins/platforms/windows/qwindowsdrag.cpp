@@ -79,7 +79,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qpa/qwindowsysteminterface_p.h>
+file|<private/qwindowsysteminterface_p.h>
 end_include
 begin_include
 include|#
