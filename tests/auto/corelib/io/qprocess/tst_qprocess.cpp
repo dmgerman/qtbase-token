@@ -11709,6 +11709,16 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+ifndef|#
+directive|ifndef
+name|Q_OS_WIN
+name|QSKIP
+argument_list|(
+literal|"setWorkingDirectory will chdir before starting the process on unices"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|process
 operator|=
 operator|new
@@ -11728,16 +11738,6 @@ argument_list|(
 literal|"testSetWorkingDirectory/testSetWorkingDirectory"
 argument_list|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|Q_OS_WIN
-name|QSKIP
-argument_list|(
-literal|"setWorkingDirectory will chdir before starting the process on unices"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QVERIFY
 argument_list|(
 name|process
@@ -12060,6 +12060,16 @@ operator|::
 name|onlyOneStartedSignal
 parameter_list|()
 block|{
+name|qRegisterMetaType
+argument_list|<
+name|QProcess
+operator|::
+name|ExitStatus
+argument_list|>
+argument_list|(
+literal|"QProcess::ExitStatus"
+argument_list|)
+expr_stmt|;
 name|QProcess
 name|process
 decl_stmt|;
