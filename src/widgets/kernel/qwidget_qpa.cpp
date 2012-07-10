@@ -3082,6 +3082,28 @@ operator|!
 name|supported
 condition|)
 block|{
+specifier|const
+name|bool
+name|wasResized
+init|=
+name|testAttribute
+argument_list|(
+name|Qt
+operator|::
+name|WA_Resized
+argument_list|)
+decl_stmt|;
+specifier|const
+name|bool
+name|wasMoved
+init|=
+name|testAttribute
+argument_list|(
+name|Qt
+operator|::
+name|WA_Moved
+argument_list|)
+decl_stmt|;
 comment|// undo the effects of the old emulated state
 if|if
 condition|(
@@ -3271,6 +3293,26 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// setWindowState() is not an explicit move/resize, same as the supported == true
+comment|// case
+name|setAttribute
+argument_list|(
+name|Qt
+operator|::
+name|WA_Resized
+argument_list|,
+name|wasResized
+argument_list|)
+expr_stmt|;
+name|setAttribute
+argument_list|(
+name|Qt
+operator|::
+name|WA_Moved
+argument_list|,
+name|wasMoved
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 name|data
