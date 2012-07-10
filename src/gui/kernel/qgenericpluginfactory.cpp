@@ -20,7 +20,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qgenericplugin_qpa.h"
+file|"qgenericplugin.h"
 end_include
 begin_include
 include|#
