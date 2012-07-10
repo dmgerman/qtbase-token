@@ -38414,6 +38414,14 @@ operator|::
 name|RightSide
 expr_stmt|;
 break|break;
+case|case
+name|SH_TabBar_ChangeCurrentDelay
+case|:
+name|ret
+operator|=
+literal|500
+expr_stmt|;
+break|break;
 endif|#
 directive|endif
 case|case

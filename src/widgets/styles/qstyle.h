@@ -1530,6 +1530,8 @@ name|SH_ComboBox_UseNativePopup
 block|,
 name|SH_LineEdit_PasswordMaskDelay
 block|,
+name|SH_TabBar_ChangeCurrentDelay
+block|,
 comment|// Add new style hint values here
 name|SH_CustomBase
 operator|=

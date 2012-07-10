@@ -105,6 +105,10 @@ name|Q_PROPERTY
 argument_list|(
 argument|bool autoHide READ autoHide WRITE setAutoHide
 argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|bool changeCurrentOnDrag READ changeCurrentOnDrag WRITE setChangeCurrentOnDrag
+argument_list|)
 name|public
 operator|:
 name|explicit
@@ -508,6 +512,17 @@ argument_list|(
 argument|bool hide
 argument_list|)
 block|;
+name|bool
+name|changeCurrentOnDrag
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setChangeCurrentOnDrag
+argument_list|(
+argument|bool change
+argument_list|)
+block|;
 name|public
 name|Q_SLOTS
 operator|:
@@ -669,6 +684,14 @@ name|changeEvent
 argument_list|(
 name|QEvent
 operator|*
+argument_list|)
+block|;
+name|void
+name|timerEvent
+argument_list|(
+name|QTimerEvent
+operator|*
+name|event
 argument_list|)
 block|;
 name|void
