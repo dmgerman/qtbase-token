@@ -99,6 +99,11 @@ name|lineThickness
 argument_list|()
 specifier|const
 block|;
+name|QFixed
+name|underlinePosition
+argument_list|()
+specifier|const
+block|;
 name|bool
 name|getSfntTableData
 argument_list|(
@@ -307,6 +312,9 @@ name|m_directWriteBitmapRenderTarget
 block|;
 name|QFixed
 name|m_lineThickness
+block|;
+name|QFixed
+name|m_underlinePosition
 block|;
 name|int
 name|m_unitsPerEm
