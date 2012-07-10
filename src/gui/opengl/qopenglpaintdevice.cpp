@@ -688,6 +688,18 @@ name|flipped
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     This virtual method is provided as a callback to allow re-binding a     target frame buffer object when different QOpenGLPaintDevice instances     are issuing draw calls alternately on the same OpenGL context.      QPainter::beginNativePainting will also trigger this method. */
+end_comment
+begin_function
+DECL|function|ensureActiveTarget
+name|void
+name|QOpenGLPaintDevice
+operator|::
+name|ensureActiveTarget
+parameter_list|()
+block|{ }
+end_function
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

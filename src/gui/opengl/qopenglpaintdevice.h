@@ -149,6 +149,11 @@ name|paintFlipped
 argument_list|()
 specifier|const
 block|;
+name|virtual
+name|void
+name|ensureActiveTarget
+argument_list|()
+block|;
 name|protected
 operator|:
 name|int

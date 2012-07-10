@@ -11703,6 +11703,13 @@ condition|)
 block|{
 name|d
 operator|->
+name|device
+operator|->
+name|ensureActiveTarget
+argument_list|()
+expr_stmt|;
+name|d
+operator|->
 name|transferMode
 argument_list|(
 name|BrushDrawingMode
