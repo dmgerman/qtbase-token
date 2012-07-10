@@ -9119,16 +9119,9 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|ttf
-operator|||
-operator|!
 name|useDirectWrite
 condition|)
 block|{
-name|useDirectWrite
-operator|=
-literal|false
-expr_stmt|;
 if|if
 condition|(
 name|hfont
