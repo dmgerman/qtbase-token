@@ -33,7 +33,7 @@ name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
-name|QT_NO_URLINFO
+name|QT_NO_FTP
 DECL|variable|QUrl
 name|class
 name|QUrl
@@ -454,7 +454,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_URLINFO
+comment|// QT_NO_FTP
 end_comment
 begin_expr_stmt
 name|QT_END_NAMESPACE
