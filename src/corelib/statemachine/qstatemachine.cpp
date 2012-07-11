@@ -2547,6 +2547,7 @@ argument_list|,
 name|statesForDefaultEntry
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|isParallel
@@ -2602,7 +2603,6 @@ argument_list|,
 name|statesForDefaultEntry
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
