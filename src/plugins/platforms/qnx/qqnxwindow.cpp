@@ -1601,6 +1601,27 @@ modifier|&
 name|dirty
 parameter_list|)
 block|{
+comment|// How double-buffering works
+comment|// --------------------------
+comment|//
+comment|// The are two buffers, the previous one and the current one.
+comment|// The previous buffer always contains the complete, full image of the whole window when it
+comment|// was last posted.
+comment|// The current buffer starts with the complete, full image of the second to last posting
+comment|// of the window.
+comment|//
+comment|// During painting, Qt paints on the current buffer. Thus, when Qt has finished painting, the
+comment|// current buffer contains the second to last image plus the newly painted regions.
+comment|// Since the second to last image is too old, we copy over the image from the previous buffer, but
+comment|// only for those regions that Qt didn't paint (because that would overwrite what Qt has just
+comment|// painted). This is the copyBack() call below.
+comment|//
+comment|// After the call to copyBack(), the current buffer contains the complete, full image of the
+comment|// whole window in its current state, and we call screen_post_window() to make the new buffer
+comment|// available to libscreen (called "posting"). There, only the regions that Qt painted on are
+comment|// posted, as nothing else has changed.
+comment|//
+comment|// After that, the previous and the current buffers are swapped, and the whole cycle starts anew.
 comment|// Check if render buffer exists and something was rendered
 if|if
 condition|(
