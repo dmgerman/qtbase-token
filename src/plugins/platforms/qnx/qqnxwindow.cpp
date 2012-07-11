@@ -1571,7 +1571,7 @@ operator|<<
 name|window
 argument_list|()
 expr_stmt|;
-name|copyBack
+name|blitPreviousToCurrent
 argument_list|(
 name|region
 argument_list|,
@@ -1614,9 +1614,9 @@ comment|// During painting, Qt paints on the current buffer. Thus, when Qt has f
 comment|// current buffer contains the second to last image plus the newly painted regions.
 comment|// Since the second to last image is too old, we copy over the image from the previous buffer, but
 comment|// only for those regions that Qt didn't paint (because that would overwrite what Qt has just
-comment|// painted). This is the copyBack() call below.
+comment|// painted). This is the copyPreviousToCurrent() call below.
 comment|//
-comment|// After the call to copyBack(), the current buffer contains the complete, full image of the
+comment|// After the call to copyPreviousToCurrent(), the current buffer contains the complete, full image of the
 comment|// whole window in its current state, and we call screen_post_window() to make the new buffer
 comment|// available to libscreen (called "posting"). There, only the regions that Qt painted on are
 comment|// posted, as nothing else has changed.
@@ -1667,7 +1667,7 @@ name|dirty
 operator|-
 name|m_scrolled
 decl_stmt|;
-name|copyBack
+name|blitPreviousToCurrent
 argument_list|(
 name|preserve
 argument_list|,
@@ -2881,11 +2881,11 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|copyBack
+DECL|function|blitPreviousToCurrent
 name|void
 name|QQnxWindow
 operator|::
-name|copyBack
+name|blitPreviousToCurrent
 parameter_list|(
 specifier|const
 name|QRegion

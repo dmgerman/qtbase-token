@@ -348,8 +348,9 @@ name|void
 name|fetchBuffers
 argument_list|()
 block|;
+comment|// Copies content from the previous buffer (back buffer) to the current buffer (front buffer)
 name|void
-name|copyBack
+name|blitPreviousToCurrent
 argument_list|(
 argument|const QRegion&region
 argument_list|,
