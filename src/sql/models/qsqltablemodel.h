@@ -124,6 +124,18 @@ argument|const QModelIndex&index
 argument_list|)
 specifier|const
 block|;
+name|QSqlRecord
+name|record
+argument_list|()
+specifier|const
+block|;
+name|QSqlRecord
+name|record
+argument_list|(
+argument|int row
+argument_list|)
+specifier|const
+block|;
 name|QVariant
 name|data
 argument_list|(
