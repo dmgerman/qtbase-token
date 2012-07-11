@@ -141,7 +141,7 @@ directive|ifdef
 name|XCB_USE_EGL
 end_ifdef
 begin_comment
-comment|//dont pull in eglext prototypes
+comment|//don't pull in eglext prototypes
 end_comment
 begin_include
 include|#

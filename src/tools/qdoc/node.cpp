@@ -8693,7 +8693,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   The name of this QML class node might be the same as the   name of some other QML class node. If so, then this node's   parent will be a NameCollisionNode.This function sets the   NameCollisionNode's current child to this node. This is   important when outputing the documentation for this node,   when, for example, the documentation contains a link to   the page being output. We don't want to generate a link   to the disambiguation page if we can avoid it, and to be   able to avoid it, the NameCollisionNode must maintain the   current child pointer. That's the purpose of this function.  */
+comment|/*!   The name of this QML class node might be the same as the   name of some other QML class node. If so, then this node's   parent will be a NameCollisionNode.This function sets the   NameCollisionNode's current child to this node. This is   important when outputting the documentation for this node,   when, for example, the documentation contains a link to   the page being output. We don't want to generate a link   to the disambiguation page if we can avoid it, and to be   able to avoid it, the NameCollisionNode must maintain the   current child pointer. That's the purpose of this function.  */
 end_comment
 begin_function
 DECL|function|setCurrentChild

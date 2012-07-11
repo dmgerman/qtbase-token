@@ -2221,7 +2221,7 @@ decl_stmt|;
 name|QScriptEngine
 name|engine
 decl_stmt|;
-comment|// the m flag doesnt actually work here; dunno
+comment|// the m flag doesn't actually work here; dunno
 name|engine
 operator|.
 name|globalObject

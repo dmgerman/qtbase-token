@@ -696,7 +696,7 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
-comment|//Location for Title text 5% width, 35% heigth of the background pixmap
+comment|//Location for Title text 5% width, 35% height of the background pixmap
 name|m_topBarTitlePoint
 operator|=
 name|QPoint

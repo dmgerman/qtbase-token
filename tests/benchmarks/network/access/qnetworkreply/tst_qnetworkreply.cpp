@@ -4150,7 +4150,7 @@ argument_list|(
 name|request
 argument_list|)
 expr_stmt|;
-comment|// Warm up DNS cache and then immediatly start HTTP
+comment|// Warm up DNS cache and then immediately start HTTP
 name|QHostInfo
 operator|::
 name|lookupHost

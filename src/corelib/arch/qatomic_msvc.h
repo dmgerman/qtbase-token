@@ -952,7 +952,7 @@ literal|4
 operator|>
 expr|>
 block|{
-comment|// The 32-bit Interlocked*() API takes paramters as longs.
+comment|// The 32-bit Interlocked*() API takes parameters as longs.
 DECL|typedef|Type
 typedef|typedef
 name|long

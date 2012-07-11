@@ -844,7 +844,7 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|Q_OS_WIN
-comment|//in Qt 4.8, "socks" would get the socks proxy, but we dont want to enforce that for all platforms
+comment|//in Qt 4.8, "socks" would get the socks proxy, but we don't want to enforce that for all platforms
 name|QTest
 operator|::
 name|newRow

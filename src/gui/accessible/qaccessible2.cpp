@@ -82,7 +82,7 @@ begin_comment
 comment|/*!     \fn void QAccessibleTextInterface::setSelection(int selectionIndex, int startOffset, int endOffset)      Set the selection \a selectionIndex to the range from \a startOffset to \a endOffset.      \sa addSelection(), removeSelection() */
 end_comment
 begin_comment
-comment|/*!     \fn int QAccessibleTextInterface::characterCount() const      Returns the lenght of the text (total size including spaces). */
+comment|/*!     \fn int QAccessibleTextInterface::characterCount() const      Returns the length of the text (total size including spaces). */
 end_comment
 begin_comment
 comment|/*!     \fn void QAccessibleTextInterface::scrollToSubstring(int startIndex, int endIndex)      Ensures that the text between \a startIndex and \a endIndex is visible. */

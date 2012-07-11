@@ -2838,10 +2838,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QAnimationDriver::started()      This signal is emitted by the animation framework to notify the driver     that continous animation has started.      \internal  */
+comment|/*!     \fn QAnimationDriver::started()      This signal is emitted by the animation framework to notify the driver     that continuous animation has started.      \internal  */
 end_comment
 begin_comment
-comment|/*!     \fn QAnimationDriver::stopped()      This signal is emitted by the animation framework to notify the driver     that continous animation has stopped.      \internal  */
+comment|/*!     \fn QAnimationDriver::stopped()      This signal is emitted by the animation framework to notify the driver     that continuous animation has stopped.      \internal  */
 end_comment
 begin_comment
 comment|/*!    The default animation driver just spins the timer...  */

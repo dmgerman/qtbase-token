@@ -4568,7 +4568,7 @@ parameter_list|)
 specifier|const
 block|{
 comment|// This is a reimplementation of QAbstractItemDelegate::destroyEditor just set the variable m_editor to 0
-comment|// The only reason we do this is to avoid the not recomended direct delete of editor (destroyEditor uses deleteLater)
+comment|// The only reason we do this is to avoid the not recommended direct delete of editor (destroyEditor uses deleteLater)
 name|QItemDelegate
 operator|::
 name|destroyEditor

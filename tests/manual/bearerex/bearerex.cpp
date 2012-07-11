@@ -3220,7 +3220,7 @@ argument_list|()
 expr_stmt|;
 comment|// Check if the networksession still exists - it may have gone after returning from
 comment|// the modal dialog (in the case that app has been closed, and deleting QHttp will
-comment|// trigger the done() invokation).
+comment|// trigger the done() invocation).
 if|if
 condition|(
 name|m_NetworkSession

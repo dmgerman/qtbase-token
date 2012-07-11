@@ -501,7 +501,7 @@ name|BigNumber
 condition|)
 block|{
 comment|// we are unlocking, and the thread that unlocks is about to change d to 0
-comment|// we try to aquire the mutex by changing to dummyLocked()
+comment|// we try to acquire the mutex by changing to dummyLocked()
 if|if
 condition|(
 name|d_ptr
@@ -515,7 +515,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|// Mutex aquired
+comment|// Mutex acquired
 name|Q_ASSERT
 argument_list|(
 name|d
@@ -920,7 +920,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|//The freelist managment
+comment|//The freelist management
 end_comment
 begin_namespace
 namespace|namespace
@@ -1155,7 +1155,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|// atomically substract "value" to the waiters, and remove the QMutexPrivate::BigNumber flag
+comment|// atomically subtract "value" to the waiters, and remove the QMutexPrivate::BigNumber flag
 end_comment
 begin_function
 DECL|function|derefWaiters

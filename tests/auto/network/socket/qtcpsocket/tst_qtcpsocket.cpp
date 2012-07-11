@@ -2180,7 +2180,7 @@ expr_stmt|;
 block|}
 block|}
 comment|// additionally, try bind to known-bad addresses, and make sure this doesn't work
-comment|// these ranges are guarenteed to be reserved for 'documentation purposes',
+comment|// these ranges are guaranteed to be reserved for 'documentation purposes',
 comment|// and thus, should be unused in the real world. Not that I'm assuming the
 comment|// world is full of competent administrators, or anything.
 name|QStringList

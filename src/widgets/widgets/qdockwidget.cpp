@@ -1322,7 +1322,7 @@ operator|&
 name|bottom
 argument_list|)
 expr_stmt|;
-comment|//we need to substract the contents margin (it will be added by the caller)
+comment|//we need to subtract the contents margin (it will be added by the caller)
 name|QSize
 name|min
 init|=

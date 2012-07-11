@@ -1007,7 +1007,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \enum QJsonValue::Type      This enum describes the type of the JSON value.      \value Null     A Null value     \value Bool     A boolean value. Use toBool() to convert to a bool.     \value Double   A double. Use toDouble() to convert to a double.     \value String   A string. Use toString() to convert to a QString.     \value Array    An array. Use toArray() to convert to a QJsonArray.     \value Object   An object. Use toObject() to convert to a QJsonObject.     \value Undefined The value is undefined. This is usually returned as an                     error condition, when trying to read an out of bounds value                     in an array or a non existant key in an object. */
+comment|/*!     \enum QJsonValue::Type      This enum describes the type of the JSON value.      \value Null     A Null value     \value Bool     A boolean value. Use toBool() to convert to a bool.     \value Double   A double. Use toDouble() to convert to a double.     \value String   A string. Use toString() to convert to a QString.     \value Array    An array. Use toArray() to convert to a QJsonArray.     \value Object   An object. Use toObject() to convert to a QJsonObject.     \value Undefined The value is undefined. This is usually returned as an                     error condition, when trying to read an out of bounds value                     in an array or a non existent key in an object. */
 end_comment
 begin_comment
 comment|/*!     Returns the type of the value.      \sa QJsonValue::Type  */

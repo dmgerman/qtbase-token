@@ -3991,7 +3991,7 @@ begin_comment
 comment|// These anonymous functions tidy up QDateTime::fromString()
 end_comment
 begin_comment
-comment|// and avoid confusion of reponsibility between it and QTime::fromString().
+comment|// and avoid confusion of responsibility between it and QTime::fromString().
 end_comment
 begin_namespace
 namespace|namespace

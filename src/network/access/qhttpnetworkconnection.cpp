@@ -2847,7 +2847,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 block|}
-comment|// For Happy Eyeballs the networkLayerState is set to Unkown
+comment|// For Happy Eyeballs the networkLayerState is set to Unknown
 comment|// untill we have started the first connection attempt. So no
 comment|// request will be started untill we know if IPv4 or IPv6
 comment|// should be used.
@@ -4953,7 +4953,7 @@ name|networkLayerState
 operator|=
 name|InProgress
 expr_stmt|;
-comment|// check if we already now can descide if this is IPv4 or IPv6
+comment|// check if we already now can decide if this is IPv4 or IPv6
 name|QString
 name|lookupHost
 init|=

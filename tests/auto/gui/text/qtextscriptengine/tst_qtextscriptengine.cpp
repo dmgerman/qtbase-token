@@ -7937,7 +7937,7 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Common: The smart quotes cannot be handled by thai, so should be a seperate item
+comment|// Common: The smart quotes cannot be handled by thai, so should be a separate item
 name|QCOMPARE
 argument_list|(
 name|e

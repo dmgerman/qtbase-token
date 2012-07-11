@@ -11260,7 +11260,7 @@ operator|->
 name|isEntity
 argument_list|()
 condition|)
-comment|// Dont use normal insert function since we would create infinite recursion
+comment|// Don't use normal insert function since we would create infinite recursion
 name|entities
 operator|->
 name|map
@@ -11282,7 +11282,7 @@ operator|->
 name|isNotation
 argument_list|()
 condition|)
-comment|// Dont use normal insert function since we would create infinite recursion
+comment|// Don't use normal insert function since we would create infinite recursion
 name|notations
 operator|->
 name|map
@@ -18519,7 +18519,7 @@ operator|==
 literal|'#'
 condition|)
 block|{
-comment|// Dont encode&lt; or&quot; or&custom;.
+comment|// Don't encode&lt; or&quot; or&custom;.
 comment|// Only encode character references
 name|tmp
 operator|.

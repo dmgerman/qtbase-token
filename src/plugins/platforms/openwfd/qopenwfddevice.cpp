@@ -1151,7 +1151,7 @@ block|{
 name|qDebug
 argument_list|()
 operator|<<
-literal|"PIPELINE_BIND_QUEUE_OVERFLOW event occured"
+literal|"PIPELINE_BIND_QUEUE_OVERFLOW event occurred"
 expr_stmt|;
 block|}
 name|WFDint

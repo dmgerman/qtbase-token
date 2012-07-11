@@ -3262,7 +3262,7 @@ name|Z_NO_FLUSH
 argument_list|)
 decl_stmt|;
 comment|//All negative return codes are errors, in the context of HTTP compression, Z_NEED_DICT is also an error.
-comment|// in the case where we get Z_DATA_ERROR this could be because we recieved raw deflate compressed data.
+comment|// in the case where we get Z_DATA_ERROR this could be because we received raw deflate compressed data.
 if|if
 condition|(
 name|ret

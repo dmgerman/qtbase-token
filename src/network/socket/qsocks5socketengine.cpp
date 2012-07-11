@@ -6599,7 +6599,7 @@ name|QHostAddress
 operator|::
 name|AnyIPv4
 expr_stmt|;
-comment|//SOCKS5 doesnt support dual stack, and there isn't any implementation of udp on ipv6 yet
+comment|//SOCKS5 doesn't support dual stack, and there isn't any implementation of udp on ipv6 yet
 else|else
 name|address
 operator|=

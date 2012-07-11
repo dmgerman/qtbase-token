@@ -1417,7 +1417,7 @@ argument_list|,
 literal|"key boolean not found"
 argument_list|)
 expr_stmt|;
-comment|// if we put a JsonValue into the JsonObject and retreive
+comment|// if we put a JsonValue into the JsonObject and retrieve
 comment|// it, it should be identical.
 name|QJsonValue
 name|value
@@ -1856,7 +1856,7 @@ argument_list|,
 literal|3
 argument_list|)
 expr_stmt|;
-comment|// if we put a JsonValue into the JsonArray and retreive
+comment|// if we put a JsonValue into the JsonArray and retrieve
 comment|// it, it should be identical.
 name|QJsonValue
 name|value

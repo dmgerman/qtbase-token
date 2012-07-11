@@ -2307,7 +2307,7 @@ block|{
 comment|// An exception was thrown when calling qt_plugin_query_verification_data().
 comment|// This usually happens when plugin is compiled with the /clr compiler flag,
 comment|//& will only work if the dependencies are loaded& DLLMain() is called.
-comment|// LoadLibrary() will do this, try once with this& if it fails dont load.
+comment|// LoadLibrary() will do this, try once with this& if it fails don't load.
 name|retryLoadLibrary
 operator|=
 operator|!

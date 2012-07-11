@@ -199,7 +199,7 @@ name|~
 name|QOpenWFDIntegration
 parameter_list|()
 block|{
-comment|//dont delete screens since they are deleted by the devices
+comment|//don't delete screens since they are deleted by the devices
 name|qDebug
 argument_list|()
 operator|<<

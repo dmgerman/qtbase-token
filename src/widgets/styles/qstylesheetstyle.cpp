@@ -16286,7 +16286,7 @@ name|finals
 decl_stmt|;
 comment|// indices in reverse order of each property's final occurrence
 block|{
-comment|// scan decls for final occurence of each "qproperty"
+comment|// scan decls for final occurrence of each "qproperty"
 name|QSet
 argument_list|<
 specifier|const

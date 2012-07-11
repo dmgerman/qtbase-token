@@ -16117,7 +16117,7 @@ expr_stmt|;
 name|int
 name|unusedSectionCount
 decl_stmt|;
-comment|// For compability
+comment|// For compatibility
 name|in
 operator|>>
 name|unusedSectionCount
@@ -16190,7 +16190,7 @@ name|sectionItems
 expr_stmt|;
 comment|// In Qt4 we had a vector of spans where one span could hold information on more sections.
 comment|// Now we have an itemvector where one items contains information about one section
-comment|// For backward compability with Qt4 we do the following
+comment|// For backward compatibility with Qt4 we do the following
 name|QVector
 argument_list|<
 name|SectionItem

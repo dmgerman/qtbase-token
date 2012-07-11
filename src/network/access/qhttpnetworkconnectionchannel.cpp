@@ -2168,7 +2168,7 @@ operator|-
 literal|1
 condition|)
 block|{
-comment|// Some error occured
+comment|// Some error occurred
 name|connection
 operator|->
 name|d_func
@@ -4912,7 +4912,7 @@ condition|)
 block|{
 comment|// Read everything from the socket into the reply buffer.
 comment|// we can ignore the readbuffersize as the data is already
-comment|// in memory and we will not recieve more data on the socket.
+comment|// in memory and we will not receive more data on the socket.
 name|reply
 operator|->
 name|setReadBufferSize

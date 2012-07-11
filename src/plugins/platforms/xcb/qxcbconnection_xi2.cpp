@@ -1064,7 +1064,7 @@ case|case
 name|XI_Motion
 case|:
 comment|// Report TabletMove only when the stylus is touching the tablet.
-comment|// No possiblity to report proximity motion (no suitable Qt event exists yet).
+comment|// No possibility to report proximity motion (no suitable Qt event exists yet).
 if|if
 condition|(
 name|tabletData

@@ -2194,8 +2194,8 @@ name|hostLookupId
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Only add the addresses for the prefered network layer.
-comment|// Or all if prefered network layer is not set.
+comment|// Only add the addresses for the preferred network layer.
+comment|// Or all if preferred network layer is not set.
 if|if
 condition|(
 name|preferredNetworkLayerProtocol

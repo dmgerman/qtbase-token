@@ -1908,7 +1908,7 @@ argument_list|(
 name|context
 argument_list|)
 decl_stmt|;
-comment|//Dont call create on context. This can cause the platformFormat to be set on the widget, which
+comment|//Don't call create on context. This can cause the platformFormat to be set on the widget, which
 comment|//will cause the platformWindow to be recreated.
 return|return
 name|glContext
