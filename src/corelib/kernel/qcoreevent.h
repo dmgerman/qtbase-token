@@ -837,6 +837,11 @@ name|ThemeChange
 operator|=
 literal|210
 block|,
+name|SockClose
+operator|=
+literal|211
+block|,
+comment|// socket closed
 comment|// 512 reserved for Qt Jambi's MetaCall event
 comment|// 513 reserved for Qt Jambi's DeleteOnMainThread event
 name|User

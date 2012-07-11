@@ -254,6 +254,11 @@ name|void
 name|writeNotification
 parameter_list|()
 block|{ }
+DECL|function|closeNotification
+name|void
+name|closeNotification
+parameter_list|()
+block|{ }
 DECL|function|exceptionNotification
 name|void
 name|exceptionNotification

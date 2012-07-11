@@ -160,6 +160,15 @@ name|void
 name|readNotification
 parameter_list|()
 function_decl|;
+DECL|function|closeNotification
+name|void
+name|closeNotification
+parameter_list|()
+block|{
+name|readNotification
+argument_list|()
+expr_stmt|;
+block|}
 DECL|function|writeNotification
 specifier|inline
 name|void

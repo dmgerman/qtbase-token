@@ -371,7 +371,7 @@ argument_list|(
 name|QSocketNotifier
 argument_list|)
 expr_stmt|;
-comment|// Emits the activated() signal when a QEvent::SockAct is
+comment|// Emits the activated() signal when a QEvent::SockAct or QEvent::SockClose is
 comment|// received.
 if|if
 condition|(
@@ -431,6 +431,7 @@ expr_stmt|;
 comment|// will activate filters
 if|if
 condition|(
+operator|(
 name|e
 operator|->
 name|type
@@ -439,6 +440,18 @@ operator|==
 name|QEvent
 operator|::
 name|SockAct
+operator|)
+operator|||
+operator|(
+name|e
+operator|->
+name|type
+argument_list|()
+operator|==
+name|QEvent
+operator|::
+name|SockClose
+operator|)
 condition|)
 block|{
 emit|emit

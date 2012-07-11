@@ -23479,26 +23479,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|//QTRY_VERIFY as a workaround for QTBUG-24451
-ifdef|#
-directive|ifdef
-name|Q_OS_WIN
-comment|//128k and 2M tests regularly fail. Assumed same characteristics as ioPostToHttpFromSocket
-if|if
-condition|(
-name|data
-operator|.
-name|size
-argument_list|()
-operator|>
-literal|1000
-condition|)
-name|QSKIP
-argument_list|(
-literal|"unstable on windows - QTBUG-25386"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|socketpair
 operator|.
 name|endPoints
@@ -25486,26 +25466,6 @@ argument_list|,
 name|proxy
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_WIN
-comment|//QTBUG-25386 hits one of the 128k tests 50% of the time, one of the 4k tests rarely (but at least 1%)
-if|if
-condition|(
-name|data
-operator|.
-name|size
-argument_list|()
-operator|>
-literal|1000
-condition|)
-name|QSKIP
-argument_list|(
-literal|"unstable on windows - QTBUG-25386"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|SocketPair
 name|socketpair
 decl_stmt|;

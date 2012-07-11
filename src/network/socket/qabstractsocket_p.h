@@ -139,6 +139,15 @@ name|void
 name|exceptionNotification
 parameter_list|()
 block|{}
+specifier|inline
+name|void
+name|closeNotification
+parameter_list|()
+block|{
+name|canCloseNotification
+argument_list|()
+expr_stmt|;
+block|}
 name|void
 name|connectionNotification
 parameter_list|()
@@ -183,6 +192,10 @@ parameter_list|()
 function_decl|;
 name|bool
 name|canWriteNotification
+parameter_list|()
+function_decl|;
+name|void
+name|canCloseNotification
 parameter_list|()
 function_decl|;
 comment|// slots

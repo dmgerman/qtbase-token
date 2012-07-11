@@ -119,6 +119,13 @@ literal|0
 function_decl|;
 name|virtual
 name|void
+name|closeNotification
+parameter_list|()
+init|=
+literal|0
+function_decl|;
+name|virtual
+name|void
 name|exceptionNotification
 parameter_list|()
 init|=
@@ -651,6 +658,10 @@ argument_list|()
 block|;
 name|void
 name|writeNotification
+argument_list|()
+block|;
+name|void
+name|closeNotification
 argument_list|()
 block|;
 name|void
