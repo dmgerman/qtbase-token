@@ -165,6 +165,9 @@ operator|<
 name|ScrollOp
 operator|>
 name|m_scrollOpList
+block|;
+name|bool
+name|m_hasUnflushedPaintOperations
 block|; }
 decl_stmt|;
 end_decl_stmt

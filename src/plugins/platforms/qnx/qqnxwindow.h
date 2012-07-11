@@ -319,6 +319,24 @@ argument_list|(
 argument|screen_window_t windowHandle
 argument_list|)
 block|;
+name|void
+name|blitFrom
+argument_list|(
+name|QQnxWindow
+operator|*
+name|sourceWindow
+argument_list|,
+specifier|const
+name|QPoint
+operator|&
+name|sourceOffset
+argument_list|,
+specifier|const
+name|QRegion
+operator|&
+name|targetRegion
+argument_list|)
+block|;
 name|private
 operator|:
 name|void
