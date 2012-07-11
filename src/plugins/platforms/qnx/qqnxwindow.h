@@ -360,6 +360,22 @@ argument_list|,
 argument|bool flush=false
 argument_list|)
 block|;
+name|void
+name|blitHelper
+argument_list|(
+argument|QQnxBuffer&source
+argument_list|,
+argument|QQnxBuffer&target
+argument_list|,
+argument|const QPoint&sourceOffset
+argument_list|,
+argument|const QPoint&targetOffset
+argument_list|,
+argument|const QRegion&region
+argument_list|,
+argument|bool flush = false
+argument_list|)
+block|;
 specifier|static
 name|int
 name|platformWindowFormatToNativeFormat
