@@ -53,6 +53,12 @@ block|{
 name|public
 label|:
 name|virtual
+operator|~
+name|QEglFSHooks
+argument_list|()
+block|{}
+expr_stmt|;
+name|virtual
 name|void
 name|platformInit
 parameter_list|()
