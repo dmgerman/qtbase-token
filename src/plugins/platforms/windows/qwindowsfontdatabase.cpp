@@ -4995,6 +4995,9 @@ name|registerFont
 argument_list|(
 name|familyName
 argument_list|,
+name|QString
+argument_list|()
+argument_list|,
 name|foundryName
 argument_list|,
 name|weight
@@ -5030,6 +5033,9 @@ operator|::
 name|registerFont
 argument_list|(
 name|familyName
+argument_list|,
+name|QString
+argument_list|()
 argument_list|,
 name|foundryName
 argument_list|,
@@ -5067,6 +5073,9 @@ operator|::
 name|registerFont
 argument_list|(
 name|familyName
+argument_list|,
+name|QString
+argument_list|()
 argument_list|,
 name|foundryName
 argument_list|,
@@ -5110,6 +5119,9 @@ operator|::
 name|registerFont
 argument_list|(
 name|familyName
+argument_list|,
+name|QString
+argument_list|()
 argument_list|,
 name|foundryName
 argument_list|,

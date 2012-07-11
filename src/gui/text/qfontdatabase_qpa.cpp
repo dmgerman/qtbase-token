@@ -52,6 +52,11 @@ parameter_list|,
 specifier|const
 name|QString
 modifier|&
+name|stylename
+parameter_list|,
+specifier|const
+name|QString
+modifier|&
 name|foundryname
 parameter_list|,
 name|int
@@ -219,8 +224,7 @@ name|style
 argument_list|(
 name|styleKey
 argument_list|,
-name|QString
-argument_list|()
+name|stylename
 argument_list|,
 literal|true
 argument_list|)

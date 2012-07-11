@@ -415,6 +415,11 @@ argument_list|,
 specifier|const
 name|QString
 operator|&
+name|stylename
+argument_list|,
+specifier|const
+name|QString
+operator|&
 name|foundryname
 argument_list|,
 name|QFont
