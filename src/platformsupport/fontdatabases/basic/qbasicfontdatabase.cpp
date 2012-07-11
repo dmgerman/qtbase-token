@@ -2041,6 +2041,15 @@ argument_list|(
 name|family
 argument_list|,
 name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+name|face
+operator|->
+name|style_name
+argument_list|)
+argument_list|,
+name|QString
 argument_list|()
 argument_list|,
 name|weight
