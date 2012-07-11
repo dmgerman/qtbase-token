@@ -264,12 +264,6 @@ begin_comment
 comment|//#define QT_NO_SHORTCUT
 end_comment
 begin_comment
-comment|// QSignalMapper
-end_comment
-begin_comment
-comment|//#define QT_NO_SIGNALMAPPER
-end_comment
-begin_comment
 comment|// QSizeGrip
 end_comment
 begin_comment

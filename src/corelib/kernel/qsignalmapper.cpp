@@ -7,11 +7,6 @@ include|#
 directive|include
 file|"qsignalmapper.h"
 end_include
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_SIGNALMAPPER
-end_ifndef
 begin_include
 include|#
 directive|include
@@ -723,11 +718,4 @@ include|#
 directive|include
 file|"moc_qsignalmapper.cpp"
 end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_NO_SIGNALMAPPER
-end_comment
 end_unit
