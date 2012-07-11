@@ -274,6 +274,10 @@ block|{
 name|WantVisibleCheckBox
 operator|=
 literal|0x1
+block|,
+name|WantActiveCheckBox
+operator|=
+literal|0x2
 block|}
 block|;
 name|explicit
@@ -309,6 +313,17 @@ argument_list|(
 name|bool
 argument_list|)
 block|;
+name|bool
+name|activeValue
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setActiveValue
+argument_list|(
+argument|bool v
+argument_list|)
+block|;
 name|signals
 operator|:
 name|void
@@ -320,6 +335,10 @@ operator|:
 name|QCheckBox
 operator|*
 name|visibleCheckBox
+block|;
+name|QCheckBox
+operator|*
+name|activeCheckBox
 block|;
 name|QCheckBox
 operator|*
