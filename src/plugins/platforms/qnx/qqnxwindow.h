@@ -163,6 +163,10 @@ argument_list|()
 specifier|const
 block|;
 name|void
+name|adjustBufferSize
+argument_list|()
+block|;
+name|void
 name|setBufferSize
 argument_list|(
 specifier|const
