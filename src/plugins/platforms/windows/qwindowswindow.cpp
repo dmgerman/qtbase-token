@@ -6505,6 +6505,10 @@ directive|endif
 comment|// Save geometry and style to be restored when fullscreen
 comment|// is turned off again, since on Windows, it is not a real
 comment|// Window state but emulated by changing geometry and style.
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+comment|// there is no style under wince
 if|if
 condition|(
 operator|!
@@ -6568,6 +6572,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+endif|#
+directive|endif
 if|if
 condition|(
 name|m_savedStyle
