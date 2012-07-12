@@ -134,15 +134,6 @@ name|bool
 name|findLibraries
 argument_list|()
 block|;
-name|bool
-name|findLibraries
-argument_list|(
-specifier|const
-name|QString
-operator|&
-name|where
-argument_list|)
-block|;
 name|void
 name|fixTargetExt
 argument_list|()
