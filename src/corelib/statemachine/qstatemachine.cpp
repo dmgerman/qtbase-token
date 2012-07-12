@@ -9598,6 +9598,10 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+name|originalSignalIndex
+operator|=
+name|signalIndex
+expr_stmt|;
 block|}
 comment|// The signal index we actually want to connect to is the one
 comment|// that is going to be sent, i.e. the non-cloned original index.
