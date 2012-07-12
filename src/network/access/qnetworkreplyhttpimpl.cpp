@@ -3622,7 +3622,6 @@ name|QNetworkReply
 operator|::
 name|NetworkError
 argument_list|,
-specifier|const
 name|QString
 argument_list|)
 argument_list|)
@@ -3777,12 +3776,10 @@ name|SLOT
 argument_list|(
 name|replySslErrors
 argument_list|(
-specifier|const
 name|QList
 argument_list|<
 name|QSslError
 argument_list|>
-operator|&
 argument_list|,
 name|bool
 operator|*

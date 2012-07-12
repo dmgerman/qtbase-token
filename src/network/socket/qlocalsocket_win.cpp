@@ -98,9 +98,7 @@ name|winError
 argument_list|(
 name|ulong
 argument_list|,
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -110,9 +108,7 @@ name|_q_winError
 argument_list|(
 name|ulong
 argument_list|,
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)

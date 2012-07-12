@@ -1148,7 +1148,6 @@ name|QNetworkReply
 operator|::
 name|NetworkError
 argument_list|,
-specifier|const
 name|QString
 argument_list|)
 argument_list|)
@@ -1285,7 +1284,6 @@ name|QNetworkReply
 operator|::
 name|NetworkError
 argument_list|,
-specifier|const
 name|QString
 argument_list|)
 argument_list|)
@@ -1363,7 +1361,6 @@ name|SIGNAL
 argument_list|(
 name|sslErrors
 argument_list|(
-specifier|const
 name|QList
 argument_list|<
 name|QSslError
