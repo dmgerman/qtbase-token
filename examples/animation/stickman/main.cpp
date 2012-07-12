@@ -266,14 +266,14 @@ name|cycle
 operator|.
 name|setDeathAnimation
 argument_list|(
-literal|":/animations/dead"
+literal|":/animations/dead.bin"
 argument_list|)
 expr_stmt|;
 name|cycle
 operator|.
 name|addActivity
 argument_list|(
-literal|":/animations/jumping"
+literal|":/animations/jumping.bin"
 argument_list|,
 name|Qt
 operator|::
@@ -284,7 +284,7 @@ name|cycle
 operator|.
 name|addActivity
 argument_list|(
-literal|":/animations/dancing"
+literal|":/animations/dancing.bin"
 argument_list|,
 name|Qt
 operator|::
@@ -295,7 +295,7 @@ name|cycle
 operator|.
 name|addActivity
 argument_list|(
-literal|":/animations/chilling"
+literal|":/animations/chilling.bin"
 argument_list|,
 name|Qt
 operator|::
