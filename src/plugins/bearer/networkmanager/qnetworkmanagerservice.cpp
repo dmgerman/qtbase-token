@@ -191,9 +191,7 @@ name|SIGNAL
 argument_list|(
 name|pathForPropertiesChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
 name|QMap
 argument_list|<
@@ -210,9 +208,7 @@ name|SIGNAL
 argument_list|(
 name|propertiesChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
 name|QMap
 argument_list|<
@@ -232,9 +228,7 @@ name|SIGNAL
 argument_list|(
 name|pathForStateChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
 name|quint32
 argument_list|)
@@ -246,9 +240,7 @@ name|SIGNAL
 argument_list|(
 name|stateChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
 name|quint32
 argument_list|)
@@ -941,9 +933,7 @@ name|SIGNAL
 argument_list|(
 name|pathForPropertiesChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
 name|QMap
 argument_list|<
@@ -960,9 +950,7 @@ name|SIGNAL
 argument_list|(
 name|propertiesChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
 name|QMap
 argument_list|<
@@ -1444,9 +1432,7 @@ name|SIGNAL
 argument_list|(
 name|pathForStateChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
 name|quint32
 argument_list|)
@@ -1458,9 +1444,7 @@ name|SIGNAL
 argument_list|(
 name|stateChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
 name|quint32
 argument_list|)
@@ -1870,9 +1854,7 @@ name|SIGNAL
 argument_list|(
 name|pathForPropertiesChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
 name|QMap
 argument_list|<
@@ -1889,9 +1871,7 @@ name|SIGNAL
 argument_list|(
 name|propertiesChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
 name|QMap
 argument_list|<
@@ -2231,9 +2211,7 @@ name|SIGNAL
 argument_list|(
 name|pathForPropertiesChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
 name|QMap
 argument_list|<
@@ -2250,9 +2228,7 @@ name|SIGNAL
 argument_list|(
 name|propertiesChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
 name|QMap
 argument_list|<
@@ -2272,9 +2248,7 @@ name|SIGNAL
 argument_list|(
 name|pathForAccessPointAdded
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
 name|QDBusObjectPath
 argument_list|)
@@ -2286,9 +2260,7 @@ name|SIGNAL
 argument_list|(
 name|accessPointAdded
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
 name|QDBusObjectPath
 argument_list|)
@@ -2303,9 +2275,7 @@ name|SIGNAL
 argument_list|(
 name|pathForAccessPointRemoved
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
 name|QDBusObjectPath
 argument_list|)
@@ -2317,9 +2287,7 @@ name|SIGNAL
 argument_list|(
 name|accessPointRemoved
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
 name|QDBusObjectPath
 argument_list|)
@@ -3189,9 +3157,7 @@ name|SIGNAL
 argument_list|(
 name|pathForSettingsRemoved
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -3201,9 +3167,7 @@ name|SIGNAL
 argument_list|(
 name|removed
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -3910,9 +3874,7 @@ name|SIGNAL
 argument_list|(
 name|pathForPropertiesChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
 name|QMap
 argument_list|<
@@ -3929,9 +3891,7 @@ name|SIGNAL
 argument_list|(
 name|propertiesChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
 name|QMap
 argument_list|<

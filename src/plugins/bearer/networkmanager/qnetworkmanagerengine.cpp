@@ -185,7 +185,7 @@ expr_stmt|;
 if|#
 directive|if
 literal|0
-block|connect(interface, SIGNAL(stateChanged(const QString,quint32)),             this, SIGNAL(configurationsChanged()));
+block|connect(interface, SIGNAL(stateChanged(QString,quint32)),             this, SIGNAL(configurationsChanged()));
 endif|#
 directive|endif
 name|connect
@@ -2115,9 +2115,7 @@ name|SIGNAL
 argument_list|(
 name|updated
 argument_list|(
-specifier|const
 name|QNmSettingsMap
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -2127,9 +2125,7 @@ name|SLOT
 argument_list|(
 name|updateConnection
 argument_list|(
-specifier|const
 name|QNmSettingsMap
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)

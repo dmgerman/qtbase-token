@@ -279,13 +279,9 @@ name|SIGNAL
 argument_list|(
 name|propertyChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
-specifier|const
 name|QDBusVariant
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -382,17 +378,11 @@ name|SIGNAL
 argument_list|(
 name|propertyChangedContext
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
-specifier|const
 name|QString
-operator|&
 argument_list|,
-specifier|const
 name|QDBusVariant
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -402,17 +392,11 @@ name|SIGNAL
 argument_list|(
 name|propertyChangedContext
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
-specifier|const
 name|QString
-operator|&
 argument_list|,
-specifier|const
 name|QDBusVariant
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1011,13 +995,9 @@ name|SIGNAL
 argument_list|(
 name|propertyChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
-specifier|const
 name|QDBusVariant
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1114,17 +1094,11 @@ name|SIGNAL
 argument_list|(
 name|propertyChangedContext
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
-specifier|const
 name|QString
-operator|&
 argument_list|,
-specifier|const
 name|QDBusVariant
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -1134,17 +1108,11 @@ name|SIGNAL
 argument_list|(
 name|propertyChangedContext
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
-specifier|const
 name|QString
-operator|&
 argument_list|,
-specifier|const
 name|QDBusVariant
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -1622,13 +1590,9 @@ name|SIGNAL
 argument_list|(
 name|propertyChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
-specifier|const
 name|QDBusVariant
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1725,17 +1689,11 @@ name|SIGNAL
 argument_list|(
 name|propertyChangedContext
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
-specifier|const
 name|QString
-operator|&
 argument_list|,
-specifier|const
 name|QDBusVariant
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -1745,17 +1703,11 @@ name|SIGNAL
 argument_list|(
 name|propertyChangedContext
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
-specifier|const
 name|QString
-operator|&
 argument_list|,
-specifier|const
 name|QDBusVariant
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -2100,7 +2052,7 @@ comment|//        if(!connection().connect(QLatin1String(OFONO_SERVICE),
 comment|//                               this->path(),
 comment|//                               QLatin1String(OFONO_NETWORK_OPERATOR_INTERFACE),
 comment|//                               QLatin1String("PropertyChanged"),
-comment|//                               this,SIGNAL(propertyChanged(const QString&, const QDBusVariant& )))) {
+comment|//                               this,SIGNAL(propertyChanged(QString,QDBusVariant)))) {
 comment|//            qWarning()<< "PropertyCHanged not connected";
 comment|//        }
 comment|//    }
@@ -2113,8 +2065,8 @@ comment|//                               this->path(),
 comment|//                               QLatin1String(OFONO_NETWORK_OPERATOR_INTERFACE),
 comment|//                               QLatin1String("PropertyChanged"),
 comment|//                               helper,SLOT(propertyChanged(QString,QDBusVariant)));
-comment|//        QObject::connect(helper,SIGNAL(propertyChangedContext(const QString&,const QString&,const QDBusVariant&)),
-comment|//                this,SIGNAL(propertyChangedContext(const QString&,const QString&,const QDBusVariant&)), Qt::UniqueConnection);
+comment|//        QObject::connect(helper,SIGNAL(propertyChangedContext(QString,QString,QDBusVariant)),
+comment|//                this,SIGNAL(propertyChangedContext(QString,QString,QDBusVariant)), Qt::UniqueConnection);
 comment|//    }
 block|}
 end_function
@@ -2469,7 +2421,7 @@ comment|//        if(!connection().connect(QLatin1String(OFONO_SERVICE),
 comment|//                               this->path(),
 comment|//                               QLatin1String(OFONO_SIM_MANAGER_INTERFACE),
 comment|//                               QLatin1String("PropertyChanged"),
-comment|//                               this,SIGNAL(propertyChanged(const QString&, const QDBusVariant& )))) {
+comment|//                               this,SIGNAL(propertyChanged(QString,QDBusVariant)))) {
 comment|//            qWarning()<< "PropertyCHanged not connected";
 comment|//        }
 comment|//    }
@@ -2482,8 +2434,8 @@ comment|//                               this->path(),
 comment|//                               QLatin1String(OFONO_SIM_MANAGER_INTERFACE),
 comment|//                               QLatin1String("PropertyChanged"),
 comment|//                               helper,SLOT(propertyChanged(QString,QDBusVariant)));
-comment|//        QObject::connect(helper,SIGNAL(propertyChangedContext(const QString&,const QString&,const QDBusVariant&)),
-comment|//                this,SIGNAL(propertyChangedContext(const QString&,const QString&,const QDBusVariant&)), Qt::UniqueConnection);
+comment|//        QObject::connect(helper,SIGNAL(propertyChangedContext(QString,QString,QDBusVariant)),
+comment|//                this,SIGNAL(propertyChangedContext(QString,QString,QDBusVariant)), Qt::UniqueConnection);
 comment|//    }
 block|}
 end_function
@@ -2784,7 +2736,7 @@ comment|//        if(!connection().connect(QLatin1String(OFONO_SERVICE),
 comment|//                               this->path(),
 comment|//                               QLatin1String(OFONO_DATA_CONNECTION_MANAGER_INTERFACE),
 comment|//                               QLatin1String("PropertyChanged"),
-comment|//                               this,SIGNAL(propertyChanged(const QString&, const QDBusVariant& )))) {
+comment|//                               this,SIGNAL(propertyChanged(QString,QDBusVariant)))) {
 comment|//            qWarning()<< "PropertyCHanged not connected";
 comment|//        }
 comment|//    }
@@ -2797,8 +2749,8 @@ comment|//                               this->path(),
 comment|//                               QLatin1String(OFONO_DATA_CONNECTION_MANAGER_INTERFACE),
 comment|//                               QLatin1String("PropertyChanged"),
 comment|//                               helper,SLOT(propertyChanged(QString,QDBusVariant)));
-comment|//        QObject::connect(helper,SIGNAL(propertyChangedContext(const QString&,const QString&,const QDBusVariant&)),
-comment|//                this,SIGNAL(propertyChangedContext(const QString&,const QString&,const QDBusVariant&)), Qt::UniqueConnection);
+comment|//        QObject::connect(helper,SIGNAL(propertyChangedContext(QString,QString,QDBusVariant)),
+comment|//                this,SIGNAL(propertyChangedContext(QString,QString,QDBusVariant)), Qt::UniqueConnection);
 comment|//    }
 block|}
 end_function
@@ -3229,7 +3181,7 @@ comment|//        if(!connection().connect(QLatin1String(OFONO_SERVICE),
 comment|//                               this->path(),
 comment|//                               QLatin1String(OFONO_DATA_CONTEXT_INTERFACE),
 comment|//                               QLatin1String("PropertyChanged"),
-comment|//                               this,SIGNAL(propertyChanged(const QString&, const QDBusVariant& )))) {
+comment|//                               this,SIGNAL(propertyChanged(QString,QDBusVariant)))) {
 comment|//            qWarning()<< "PropertyCHanged not connected";
 comment|//        }
 comment|//    }
@@ -3242,8 +3194,8 @@ comment|//                               this->path(),
 comment|//                               QLatin1String(OFONO_DATA_CONTEXT_INTERFACE),
 comment|//                               QLatin1String("PropertyChanged"),
 comment|//                               helper,SLOT(propertyChanged(QString,QDBusVariant)));
-comment|//        QObject::connect(helper,SIGNAL(propertyChangedContext(const QString&,const QString&,const QDBusVariant&)),
-comment|//                this,SIGNAL(propertyChangedContext(const QString&,const QString&,const QDBusVariant&)), Qt::UniqueConnection);
+comment|//        QObject::connect(helper,SIGNAL(propertyChangedContext(QString,QString,QDBusVariant)),
+comment|//                this,SIGNAL(propertyChangedContext(QString,QString,QDBusVariant)), Qt::UniqueConnection);
 comment|//    }
 block|}
 end_function
@@ -3580,13 +3532,9 @@ name|SIGNAL
 argument_list|(
 name|propertyChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
-specifier|const
 name|QDBusVariant
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -3683,17 +3631,11 @@ name|SIGNAL
 argument_list|(
 name|propertyChangedContext
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
-specifier|const
 name|QString
-operator|&
 argument_list|,
-specifier|const
 name|QDBusVariant
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -3703,17 +3645,11 @@ name|SIGNAL
 argument_list|(
 name|propertyChangedContext
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
-specifier|const
 name|QString
-operator|&
 argument_list|,
-specifier|const
 name|QDBusVariant
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)

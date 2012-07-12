@@ -197,13 +197,9 @@ name|SIGNAL
 argument_list|(
 name|propertyChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
-specifier|const
 name|QDBusVariant
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -272,9 +268,7 @@ name|SIGNAL
 argument_list|(
 name|stateChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -368,17 +362,11 @@ name|SIGNAL
 argument_list|(
 name|propertyChangedContext
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
-specifier|const
 name|QString
-operator|&
 argument_list|,
-specifier|const
 name|QDBusVariant
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -388,17 +376,11 @@ name|SIGNAL
 argument_list|(
 name|propertyChangedContext
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
-specifier|const
 name|QString
-operator|&
 argument_list|,
-specifier|const
 name|QDBusVariant
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -2067,17 +2049,11 @@ name|SIGNAL
 argument_list|(
 name|propertyChangedContext
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
-specifier|const
 name|QString
-operator|&
 argument_list|,
-specifier|const
 name|QDBusVariant
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -2087,17 +2063,11 @@ name|SIGNAL
 argument_list|(
 name|propertyChangedContext
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
-specifier|const
 name|QString
-operator|&
 argument_list|,
-specifier|const
 name|QDBusVariant
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -3613,17 +3583,11 @@ name|SIGNAL
 argument_list|(
 name|propertyChangedContext
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
-specifier|const
 name|QString
-operator|&
 argument_list|,
-specifier|const
 name|QDBusVariant
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -3633,17 +3597,11 @@ name|SIGNAL
 argument_list|(
 name|propertyChangedContext
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
-specifier|const
 name|QString
-operator|&
 argument_list|,
-specifier|const
 name|QDBusVariant
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -3927,7 +3885,7 @@ comment|//        dbusConnection.connect(QLatin1String(CONNMAN_SERVICE),
 comment|//                               this->path(),
 comment|//                               QLatin1String(CONNMAN_NETWORK_INTERFACE),
 comment|//                               QLatin1String("PropertyChanged"),
-comment|//                               this,SIGNAL(propertyChanged(const QString&, QVariant&)));
+comment|//                               this,SIGNAL(propertyChanged(QString,QVariant&)));
 comment|//    }
 block|}
 end_function
