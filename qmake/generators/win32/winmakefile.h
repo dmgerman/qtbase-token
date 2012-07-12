@@ -20,20 +20,6 @@ file|"makefile.h"
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-comment|// In the Qt evaluation and educational version, we have a postfix in the
-comment|// library name (e.g. qtmteval301.dll). QTDLL_POSTFIX is used for this.
-comment|// A script modifies these lines when building eval/edu version, so be careful
-comment|// when changing them.
-ifndef|#
-directive|ifndef
-name|QTDLL_POSTFIX
-DECL|macro|QTDLL_POSTFIX
-define|#
-directive|define
-name|QTDLL_POSTFIX
-value|""
-endif|#
-directive|endif
 name|class
 name|Win32MakefileGenerator
 range|:

@@ -118,13 +118,6 @@ return|return
 operator|-
 literal|1
 return|;
-name|QString
-name|dllStem
-init|=
-name|stem
-operator|+
-name|QTDLL_POSTFIX
-decl_stmt|;
 name|QMakeMetaInfo
 name|libinfo
 decl_stmt|;
@@ -141,7 +134,7 @@ name|Option
 operator|::
 name|dir_sep
 operator|+
-name|dllStem
+name|stem
 argument_list|)
 decl_stmt|;
 comment|// If the library, for which we're trying to find the highest version
@@ -284,7 +277,7 @@ argument_list|)
 operator|.
 name|arg
 argument_list|(
-name|dllStem
+name|stem
 argument_list|)
 operator|.
 name|arg
