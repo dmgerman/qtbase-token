@@ -9510,6 +9510,14 @@ if|if
 condition|(
 name|signal
 operator|.
+name|isEmpty
+argument_list|()
+condition|)
+return|return;
+if|if
+condition|(
+name|signal
+operator|.
 name|startsWith
 argument_list|(
 literal|'0'
