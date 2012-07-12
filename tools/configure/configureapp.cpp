@@ -1163,6 +1163,13 @@ index|]
 operator|=
 literal|"auto"
 expr_stmt|;
+name|dictionary
+index|[
+literal|"CFG_GCC_SYSROOT"
+index|]
+operator|=
+literal|"yes"
+expr_stmt|;
 comment|//Only used when cross compiling.
 name|dictionary
 index|[
@@ -7022,6 +7029,27 @@ argument_list|(
 name|i
 argument_list|)
 operator|==
+literal|"-no-gcc-sysroot"
+condition|)
+block|{
+name|dictionary
+index|[
+literal|"CFG_GCC_SYSROOT"
+index|]
+operator|=
+literal|"no"
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|configCmdLine
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+operator|==
 literal|"-hostprefix"
 condition|)
 block|{
@@ -10612,7 +10640,14 @@ name|desc
 argument_list|(
 literal|"-sysroot<dir>"
 argument_list|,
-literal|"Sets<dir> as the target compiler's and qmake's sysroot."
+literal|"Sets<dir> as the target compiler's and qmake's sysroot and also sets pkg-config paths."
+argument_list|)
+expr_stmt|;
+name|desc
+argument_list|(
+literal|"-no-gcc-sysroot"
+argument_list|,
+literal|"When using -sysroot, it disables the passing of --sysroot to the compiler "
 argument_list|)
 expr_stmt|;
 name|desc
@@ -18711,6 +18746,13 @@ index|]
 operator|.
 name|isEmpty
 argument_list|()
+operator|&&
+name|dictionary
+index|[
+literal|"CFG_GCC_SYSROOT"
+index|]
+operator|==
+literal|"yes"
 condition|)
 block|{
 name|configStream
