@@ -3175,6 +3175,23 @@ argument_list|(
 name|value
 argument_list|)
 decl_stmt|;
+name|bool
+name|tryAgain
+init|=
+literal|false
+decl_stmt|;
+name|bool
+name|errorDetected
+init|=
+literal|false
+decl_stmt|;
+name|int
+name|tries
+init|=
+literal|0
+decl_stmt|;
+do|do
+block|{
 if|if
 condition|(
 operator|::
@@ -3222,6 +3239,10 @@ name|QAbstractSocket
 operator|::
 name|UnconnectedState
 expr_stmt|;
+name|errorDetected
+operator|=
+literal|true
+expr_stmt|;
 break|break;
 block|}
 if|if
@@ -3245,6 +3266,10 @@ operator|=
 name|QAbstractSocket
 operator|::
 name|UnconnectedState
+expr_stmt|;
+name|errorDetected
+operator|=
+literal|true
 expr_stmt|;
 break|break;
 block|}
@@ -3270,6 +3295,10 @@ name|QAbstractSocket
 operator|::
 name|UnconnectedState
 expr_stmt|;
+name|errorDetected
+operator|=
+literal|true
+expr_stmt|;
 break|break;
 block|}
 if|if
@@ -3294,9 +3323,50 @@ name|QAbstractSocket
 operator|::
 name|UnconnectedState
 expr_stmt|;
+name|errorDetected
+operator|=
+literal|true
+expr_stmt|;
 break|break;
 block|}
+if|if
+condition|(
+name|value
+operator|==
+name|NOERROR
+condition|)
+block|{
+comment|// When we get WSAEWOULDBLOCK the outcome was not known, so a
+comment|// NOERROR might indicate that the result of the operation
+comment|// is still unknown. We try again to increase the chance that we did
+comment|// get the correct result.
+name|tryAgain
+operator|=
+operator|!
+name|tryAgain
+expr_stmt|;
 block|}
+block|}
+name|tries
+operator|++
+expr_stmt|;
+block|}
+do|while
+condition|(
+name|tryAgain
+operator|&&
+operator|(
+name|tries
+operator|<
+literal|2
+operator|)
+condition|)
+do|;
+if|if
+condition|(
+name|errorDetected
+condition|)
+break|break;
 comment|// fall through
 block|}
 case|case
