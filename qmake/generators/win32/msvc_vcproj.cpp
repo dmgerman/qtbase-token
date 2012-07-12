@@ -6314,10 +6314,6 @@ operator|::
 name|initLinkerTool
 parameter_list|()
 block|{
-name|findLibraries
-argument_list|()
-expr_stmt|;
-comment|// Need to add the highest version of the libs
 name|VCConfiguration
 modifier|&
 name|conf
