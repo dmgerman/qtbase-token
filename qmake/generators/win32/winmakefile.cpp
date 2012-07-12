@@ -5931,6 +5931,17 @@ expr_stmt|;
 name|t
 operator|<<
 literal|"LFLAGS        = "
+operator|<<
+name|var
+argument_list|(
+literal|"QMAKE_LFLAGS"
+argument_list|)
+operator|<<
+name|endl
+expr_stmt|;
+name|t
+operator|<<
+literal|"LIBS          = "
 expr_stmt|;
 if|if
 condition|(
@@ -5951,17 +5962,6 @@ name|t
 argument_list|)
 expr_stmt|;
 name|t
-operator|<<
-name|var
-argument_list|(
-literal|"QMAKE_LFLAGS"
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
-name|t
-operator|<<
-literal|"LIBS          = "
 operator|<<
 name|var
 argument_list|(
