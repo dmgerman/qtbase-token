@@ -75,7 +75,7 @@ literal|0
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|/*!   \class Location    \brief The Location class keeps track of where we are in a file.    It maintains a stack of file positions. A file position   consists of the file path, line number, and column number.   The location is used for printing error messages that are   tied to a location in a file.  */
+comment|/*!   \class Location    \brief The Location class provides a way to mark a location in a file.    It maintains a stack of file positions. A file position   consists of the file path, line number, and column number.   The location is used for printing error messages that are   tied to a location in a file.  */
 end_comment
 begin_comment
 comment|/*!   Constructs an empty location.  */

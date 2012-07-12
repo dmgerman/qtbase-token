@@ -4002,7 +4002,7 @@ parameter_list|(
 specifier|const
 name|QString
 modifier|&
-name|dir
+name|uncleanDir
 parameter_list|,
 specifier|const
 name|QString
@@ -4026,6 +4026,16 @@ modifier|&
 name|excludedFiles
 parameter_list|)
 block|{
+name|QString
+name|dir
+init|=
+name|QDir
+operator|::
+name|cleanPath
+argument_list|(
+name|uncleanDir
+argument_list|)
+decl_stmt|;
 name|QStringList
 name|result
 decl_stmt|;
