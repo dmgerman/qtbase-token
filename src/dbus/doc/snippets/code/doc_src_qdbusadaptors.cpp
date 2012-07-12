@@ -577,7 +577,7 @@ argument|application
 argument_list|,
 argument|SIGNAL(aboutToQuit())
 argument_list|,
-argument|SIGNAL(aboutToQuit());     connect(application, SIGNAL(focusChanged(QWidget*, QWidget*)),             SLOT(focusChangedSlot(QWidget*, QWidget*))); }
+argument|SIGNAL(aboutToQuit());     connect(application, SIGNAL(focusChanged(QWidget*,QWidget*)),             SLOT(focusChangedSlot(QWidget*,QWidget*))); }
 comment|//! [6]
 comment|//! [7]
 argument|public slots:     Q_NOREPLY void quit()     { app->quit(); }      void reparseConfiguration()     { app->reparseConfiguration(); }      QString mainWindowObject()     {         if (app->hasMainWindow())             return QString(

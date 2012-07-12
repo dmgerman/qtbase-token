@@ -136,9 +136,7 @@ name|SIGNAL
 argument_list|(
 name|mapped
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -149,9 +147,7 @@ name|SIGNAL
 argument_list|(
 name|clicked
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)

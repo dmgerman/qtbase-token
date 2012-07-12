@@ -133,9 +133,7 @@ name|SIGNAL
 argument_list|(
 name|readyRead
 argument_list|(
-specifier|const
 name|QHttpResponseHeader
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -145,9 +143,7 @@ name|SLOT
 argument_list|(
 name|readData
 argument_list|(
-specifier|const
 name|QHttpResponseHeader
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
