@@ -248,6 +248,11 @@ name|signal
 operator|=
 name|signal
 expr_stmt|;
+name|d
+operator|->
+name|maybeRegister
+argument_list|()
+expr_stmt|;
 block|}
 end_constructor
 begin_comment

@@ -255,6 +255,11 @@ name|eventType
 operator|=
 name|type
 expr_stmt|;
+name|d
+operator|->
+name|maybeRegister
+argument_list|()
+expr_stmt|;
 block|}
 end_constructor
 begin_comment
@@ -339,6 +344,11 @@ operator|->
 name|eventType
 operator|=
 name|type
+expr_stmt|;
+name|d
+operator|->
+name|maybeRegister
+argument_list|()
 expr_stmt|;
 block|}
 end_constructor
