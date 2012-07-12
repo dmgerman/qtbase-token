@@ -3526,8 +3526,6 @@ literal|"QMAKE_LIBDIR_FLAGS"
 block|,
 literal|"QMAKE_FRAMEWORKPATH_FLAGS"
 block|,
-literal|"QMAKE_LFLAGS"
-block|,
 literal|"QMAKE_LIBS"
 block|,
 literal|"QMAKE_LIBS_PRIVATE"
@@ -4414,8 +4412,6 @@ block|{
 literal|"QMAKE_LIBDIR_FLAGS"
 block|,
 literal|"QMAKE_FRAMEWORKPATH_FLAGS"
-block|,
-literal|"QMAKE_LFLAGS"
 block|,
 literal|"QMAKE_LIBS"
 block|,
