@@ -89,11 +89,25 @@ argument_list|)
 block|{}
 specifier|inline
 name|void
+name|enterLoopMSecs
+argument_list|(
+argument|int ms
+argument_list|)
+block|;
+specifier|inline
+name|void
 name|enterLoop
 argument_list|(
 argument|int secs
 argument_list|)
-block|;
+block|{
+name|enterLoopMSecs
+argument_list|(
+name|secs
+operator|*
+literal|1000
+argument_list|)
+block|; }
 specifier|inline
 name|void
 name|changeInterval
@@ -222,14 +236,14 @@ decl_stmt|;
 end_decl_stmt
 begin_expr_stmt
 unit|};
-DECL|function|enterLoop
+DECL|function|enterLoopMSecs
 specifier|inline
 name|void
 name|QTestEventLoop
 operator|::
-name|enterLoop
+name|enterLoopMSecs
 argument_list|(
-argument|int secs
+argument|int ms
 argument_list|)
 block|{
 name|Q_ASSERT
@@ -253,9 +267,7 @@ name|timerId
 operator|=
 name|startTimer
 argument_list|(
-name|secs
-operator|*
-literal|1000
+name|ms
 argument_list|)
 block|;
 name|loop
