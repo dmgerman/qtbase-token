@@ -76,6 +76,7 @@ name|i
 block|;
 name|public
 operator|:
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|explicit
 name|QIncompatibleFlag
@@ -97,6 +98,7 @@ end_expr_stmt
 begin_expr_stmt
 unit|};
 DECL|function|QIncompatibleFlag
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QIncompatibleFlag
 operator|::
@@ -634,7 +636,7 @@ parameter_list|(
 name|Flags
 parameter_list|)
 define|\
-value|inline QIncompatibleFlag operator|(Flags::enum_type f1, int f2) \ { return QIncompatibleFlag(int(f1) | f2); }
+value|Q_DECL_CONSTEXPR inline QIncompatibleFlag operator|(Flags::enum_type f1, int f2) \ { return QIncompatibleFlag(int(f1) | f2); }
 end_define
 begin_define
 DECL|macro|Q_DECLARE_OPERATORS_FOR_FLAGS
