@@ -69,7 +69,7 @@ argument|ChildMode childMode READ childMode WRITE setChildMode
 argument_list|)
 name|Q_ENUMS
 argument_list|(
-argument|ChildMode
+argument|ChildMode RestorePolicy
 argument_list|)
 name|public
 operator|:
@@ -79,6 +79,13 @@ block|{
 name|ExclusiveStates
 block|,
 name|ParallelStates
+block|}
+block|;      enum
+name|RestorePolicy
+block|{
+name|DontRestoreProperties
+block|,
+name|RestoreProperties
 block|}
 block|;
 name|QState

@@ -5932,7 +5932,7 @@ operator|.
 name|globalRestorePolicy
 argument_list|()
 argument_list|,
-name|QStateMachine
+name|QState
 operator|::
 name|DontRestoreProperties
 argument_list|)
@@ -5941,7 +5941,7 @@ name|machine
 operator|.
 name|setGlobalRestorePolicy
 argument_list|(
-name|QStateMachine
+name|QState
 operator|::
 name|RestoreProperties
 argument_list|)
@@ -20091,7 +20091,7 @@ name|machine
 operator|.
 name|setGlobalRestorePolicy
 argument_list|(
-name|QStateMachine
+name|QState
 operator|::
 name|DontRestoreProperties
 argument_list|)
@@ -20370,7 +20370,7 @@ name|machine
 operator|.
 name|setGlobalRestorePolicy
 argument_list|(
-name|QStateMachine
+name|QState
 operator|::
 name|RestoreProperties
 argument_list|)
@@ -22823,7 +22823,7 @@ name|machine
 operator|.
 name|setGlobalRestorePolicy
 argument_list|(
-name|QStateMachine
+name|QState
 operator|::
 name|RestoreProperties
 argument_list|)
@@ -25184,7 +25184,7 @@ name|machine
 operator|.
 name|setGlobalRestorePolicy
 argument_list|(
-name|QStateMachine
+name|QState
 operator|::
 name|RestoreProperties
 argument_list|)
@@ -25594,7 +25594,7 @@ name|machine
 operator|.
 name|setGlobalRestorePolicy
 argument_list|(
-name|QStateMachine
+name|QState
 operator|::
 name|RestoreProperties
 argument_list|)
@@ -28492,7 +28492,7 @@ name|machine
 operator|.
 name|setGlobalRestorePolicy
 argument_list|(
-name|QStateMachine
+name|QState
 operator|::
 name|RestoreProperties
 argument_list|)
@@ -28762,7 +28762,7 @@ name|machine
 operator|.
 name|setGlobalRestorePolicy
 argument_list|(
-name|QStateMachine
+name|QState
 operator|::
 name|RestoreProperties
 argument_list|)
@@ -29106,7 +29106,7 @@ argument_list|)
 operator|<<
 name|int
 argument_list|(
-name|QStateMachine
+name|QState
 operator|::
 name|DontRestoreProperties
 argument_list|)
@@ -29120,7 +29120,7 @@ argument_list|)
 operator|<<
 name|int
 argument_list|(
-name|QStateMachine
+name|QState
 operator|::
 name|RestoreProperties
 argument_list|)
@@ -29151,7 +29151,7 @@ name|setGlobalRestorePolicy
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QStateMachine
+name|QState
 operator|::
 name|RestorePolicy
 argument_list|>
@@ -29638,7 +29638,7 @@ name|machine
 operator|.
 name|setGlobalRestorePolicy
 argument_list|(
-name|QStateMachine
+name|QState
 operator|::
 name|RestoreProperties
 argument_list|)
@@ -30128,7 +30128,7 @@ name|machine
 operator|.
 name|setGlobalRestorePolicy
 argument_list|(
-name|QStateMachine
+name|QState
 operator|::
 name|RestoreProperties
 argument_list|)
@@ -30775,7 +30775,7 @@ name|machine
 operator|.
 name|setGlobalRestorePolicy
 argument_list|(
-name|QStateMachine
+name|QState
 operator|::
 name|RestoreProperties
 argument_list|)
@@ -31150,7 +31150,7 @@ name|machine
 operator|.
 name|setGlobalRestorePolicy
 argument_list|(
-name|QStateMachine
+name|QState
 operator|::
 name|RestoreProperties
 argument_list|)
@@ -31737,7 +31737,7 @@ name|machine
 operator|.
 name|setGlobalRestorePolicy
 argument_list|(
-name|QStateMachine
+name|QState
 operator|::
 name|RestoreProperties
 argument_list|)
@@ -32027,7 +32027,7 @@ name|machine
 operator|.
 name|setGlobalRestorePolicy
 argument_list|(
-name|QStateMachine
+name|QState
 operator|::
 name|RestoreProperties
 argument_list|)
@@ -32597,7 +32597,7 @@ argument_list|)
 operator|<<
 name|int
 argument_list|(
-name|QStateMachine
+name|QState
 operator|::
 name|DontRestoreProperties
 argument_list|)
@@ -32611,7 +32611,7 @@ argument_list|)
 operator|<<
 name|int
 argument_list|(
-name|QStateMachine
+name|QState
 operator|::
 name|RestoreProperties
 argument_list|)
@@ -32642,7 +32642,7 @@ name|setGlobalRestorePolicy
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QStateMachine
+name|QState
 operator|::
 name|RestorePolicy
 argument_list|>

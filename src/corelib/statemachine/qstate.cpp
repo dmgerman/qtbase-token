@@ -70,6 +70,9 @@ end_comment
 begin_comment
 comment|/*!   \enum QState::ChildMode    This enum specifies how a state's child states are treated.    \value ExclusiveStates The child states are mutually exclusive and an   initial state must be set by calling QState::setInitialState().    \value ParallelStates The child states are parallel. When the parent state   is entered, all its child states are entered in parallel. */
 end_comment
+begin_comment
+comment|/*!    \enum QState::RestorePolicy     This enum specifies the restore policy type. The restore policy    takes effect when the machine enters a state which sets one or more    properties. If the restore policy is set to RestoreProperties,    the state machine will save the original value of the property before the    new value is set.     Later, when the machine either enters a state which does not set    a value for the given property, the property will automatically be restored    to its initial value.     Only one initial value will be saved for any given property. If a value for a property has    already been saved by the state machine, it will not be overwritten until the property has been    successfully restored.     \value DontRestoreProperties The state machine should not save the initial values of properties           and restore them later.    \value RestoreProperties The state machine should save the initial values of properties           and restore them later.     \sa QStateMachine::globalRestorePolicy, QState::assignProperty() */
+end_comment
 begin_constructor
 DECL|function|QStatePrivate
 name|QStatePrivate

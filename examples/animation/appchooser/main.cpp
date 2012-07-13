@@ -633,7 +633,7 @@ name|machine
 operator|.
 name|setGlobalRestorePolicy
 argument_list|(
-name|QStateMachine
+name|QState
 operator|::
 name|RestoreProperties
 argument_list|)

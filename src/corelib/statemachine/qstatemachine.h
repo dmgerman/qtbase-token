@@ -75,11 +75,7 @@ argument|QString errorString READ errorString
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|RestorePolicy globalRestorePolicy READ globalRestorePolicy WRITE setGlobalRestorePolicy
-argument_list|)
-name|Q_ENUMS
-argument_list|(
-argument|RestorePolicy
+argument|QState::RestorePolicy globalRestorePolicy READ globalRestorePolicy WRITE setGlobalRestorePolicy
 argument_list|)
 ifndef|#
 directive|ifndef
@@ -232,13 +228,6 @@ block|,
 name|HighPriority
 block|}
 block|;      enum
-name|RestorePolicy
-block|{
-name|DontRestoreProperties
-block|,
-name|RestoreProperties
-block|}
-block|;      enum
 name|Error
 block|{
 name|NoError
@@ -349,7 +338,7 @@ block|;
 endif|#
 directive|endif
 comment|// QT_NO_ANIMATION
-name|QStateMachine
+name|QState
 operator|::
 name|RestorePolicy
 name|globalRestorePolicy
@@ -359,7 +348,7 @@ block|;
 name|void
 name|setGlobalRestorePolicy
 argument_list|(
-argument|QStateMachine::RestorePolicy restorePolicy
+argument|QState::RestorePolicy restorePolicy
 argument_list|)
 block|;
 name|void

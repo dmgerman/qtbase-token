@@ -1108,7 +1108,7 @@ name|error
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-name|QStateMachine
+name|QState
 operator|::
 name|RestorePolicy
 name|globalRestorePolicy
