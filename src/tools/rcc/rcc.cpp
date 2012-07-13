@@ -4498,6 +4498,7 @@ name|offset
 operator|==
 literal|0
 condition|)
+block|{
 name|m_errorDevice
 operator|->
 name|write
@@ -4508,6 +4509,10 @@ name|toUtf8
 argument_list|()
 argument_list|)
 expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
 block|}
 block|}
 block|}
