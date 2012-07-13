@@ -3577,8 +3577,6 @@ operator|.
 name|end
 argument_list|()
 condition|;
-operator|++
-name|it
 control|)
 block|{
 name|bool
@@ -3641,7 +3639,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-operator|!
 name|libdirs
 operator|.
 name|contains
@@ -3649,6 +3646,18 @@ argument_list|(
 name|f
 argument_list|)
 condition|)
+block|{
+name|it
+operator|=
+name|l
+operator|.
+name|erase
+argument_list|(
+name|it
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
 name|libdirs
 operator|.
 name|append
@@ -4292,6 +4301,9 @@ block|}
 block|}
 block|}
 block|}
+operator|++
+name|it
+expr_stmt|;
 block|}
 block|}
 return|return
