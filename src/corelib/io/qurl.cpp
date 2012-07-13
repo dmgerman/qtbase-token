@@ -7253,6 +7253,11 @@ name|t
 operator|=
 name|relative
 expr_stmt|;
+name|t
+operator|.
+name|detach
+argument_list|()
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -7269,6 +7274,11 @@ block|{
 name|t
 operator|=
 name|relative
+expr_stmt|;
+name|t
+operator|.
+name|detach
+argument_list|()
 expr_stmt|;
 block|}
 else|else
