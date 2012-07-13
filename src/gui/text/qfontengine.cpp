@@ -9477,6 +9477,11 @@ argument_list|(
 name|glyph
 argument_list|)
 decl_stmt|;
+name|ensureEngineAt
+argument_list|(
+name|which
+argument_list|)
+expr_stmt|;
 name|engine
 argument_list|(
 name|which
