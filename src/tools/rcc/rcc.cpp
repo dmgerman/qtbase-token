@@ -2884,7 +2884,7 @@ operator|==
 name|Binary
 condition|)
 block|{
-comment|// create dummy entry, otherwise loading qith QResource will crash
+comment|// create dummy entry, otherwise loading with QResource will crash
 name|m_root
 operator|=
 operator|new
