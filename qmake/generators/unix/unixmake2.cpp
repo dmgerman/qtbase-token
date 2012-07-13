@@ -736,20 +736,6 @@ literal|"$(SUBLIBS) "
 operator|<<
 name|var
 argument_list|(
-literal|"QMAKE_FRAMEWORKPATH_FLAGS"
-argument_list|)
-operator|<<
-literal|" "
-operator|<<
-name|var
-argument_list|(
-literal|"QMAKE_LIBDIR_FLAGS"
-argument_list|)
-operator|<<
-literal|" "
-operator|<<
-name|var
-argument_list|(
 literal|"QMAKE_LIBS"
 argument_list|)
 operator|<<
