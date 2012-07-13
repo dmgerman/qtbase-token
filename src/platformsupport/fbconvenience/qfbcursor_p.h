@@ -20,6 +20,12 @@ file|<qpa/qplatformcursor.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+DECL|variable|QFbScreen
+name|class
+name|QFbScreen
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QFbCursor
 range|:
@@ -30,9 +36,9 @@ name|public
 operator|:
 name|QFbCursor
 argument_list|(
-name|QPlatformScreen
+name|QFbScreen
 operator|*
-name|scr
+name|screen
 argument_list|)
 block|;
 comment|// output methods
@@ -78,7 +84,7 @@ name|void
 name|setDirty
 argument_list|()
 block|{
-name|dirty
+name|mDirty
 operator|=
 name|true
 block|;
@@ -88,35 +94,32 @@ name|virtual
 name|bool
 name|isDirty
 argument_list|()
+specifier|const
 block|{
 return|return
-name|dirty
+name|mDirty
 return|;
 block|}
 name|virtual
 name|bool
 name|isOnScreen
 argument_list|()
+specifier|const
 block|{
 return|return
-name|onScreen
+name|mOnScreen
 return|;
 block|}
 name|virtual
 name|QRect
 name|lastPainted
 argument_list|()
+specifier|const
 block|{
 return|return
-name|prevRect
+name|mPrevRect
 return|;
 block|}
-name|protected
-operator|:
-name|QPlatformCursorImage
-operator|*
-name|graphic
-block|;
 name|private
 operator|:
 name|void
@@ -151,27 +154,31 @@ argument_list|,
 argument|int hoty
 argument_list|)
 block|;
-name|QPlatformScreen
-operator|*
-name|screen
-block|;
-name|QRect
-name|currentRect
-block|;
-comment|// next place to draw the cursor
-name|QRect
-name|prevRect
-block|;
-comment|// last place the cursor was drawn
 name|QRect
 name|getCurrentRect
 argument_list|()
 block|;
+name|QFbScreen
+operator|*
+name|mScreen
+block|;
+name|QRect
+name|mCurrentRect
+block|;
+comment|// next place to draw the cursor
+name|QRect
+name|mPrevRect
+block|;
+comment|// last place the cursor was drawn
 name|bool
-name|dirty
+name|mDirty
 block|;
 name|bool
-name|onScreen
+name|mOnScreen
+block|;
+name|QPlatformCursorImage
+operator|*
+name|mGraphic
 block|; }
 decl_stmt|;
 end_decl_stmt
