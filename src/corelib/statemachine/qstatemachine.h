@@ -260,6 +260,14 @@ operator|=
 literal|0
 argument_list|)
 block|;
+name|QStateMachine
+argument_list|(
+argument|QState::ChildMode childMode
+argument_list|,
+argument|QObject *parent =
+literal|0
+argument_list|)
+block|;
 operator|~
 name|QStateMachine
 argument_list|()
