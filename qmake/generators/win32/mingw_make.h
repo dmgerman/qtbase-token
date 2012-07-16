@@ -134,10 +134,6 @@ name|bool
 name|findLibraries
 argument_list|()
 block|;
-name|void
-name|fixTargetExt
-argument_list|()
-block|;
 name|bool
 name|init_flag
 block|;

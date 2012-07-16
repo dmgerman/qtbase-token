@@ -172,7 +172,6 @@ name|void
 name|processVars
 argument_list|()
 block|;
-name|virtual
 name|void
 name|fixTargetExt
 argument_list|()
