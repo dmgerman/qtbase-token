@@ -643,7 +643,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_OS_WIN
 name|QSKIP
 argument_list|(
 literal|"Exact matching on windows misses a lot because of the sample chars"
@@ -651,9 +651,19 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-ifdef|#
-directive|ifdef
-name|Q_WS_X11
+if|if
+condition|(
+name|QGuiApplication
+operator|::
+name|platformName
+argument_list|()
+operator|==
+name|QLatin1String
+argument_list|(
+literal|"xcb"
+argument_list|)
+condition|)
+block|{
 name|QVERIFY
 argument_list|(
 name|QFont
@@ -698,8 +708,7 @@ name|exactMatch
 argument_list|()
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
+block|}
 name|QSKIP
 argument_list|(
 literal|"This test is bogus on Unix with support for font aliases in fontconfig"
@@ -933,7 +942,7 @@ continue|continue;
 block|}
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN32
+name|Q_OS_WIN
 if|if
 condition|(
 name|font

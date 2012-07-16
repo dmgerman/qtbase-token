@@ -14213,7 +14213,7 @@ name|NO_PIXMAP_TESTS
 if|#
 directive|if
 name|defined
-name|Q_WS_WIN
+name|Q_OS_WIN
 name|QTest
 operator|::
 name|addColumn
@@ -14271,7 +14271,7 @@ name|NO_PIXMAP_TESTS
 if|#
 directive|if
 name|defined
-name|Q_WS_WIN
+name|Q_OS_WIN
 name|QTEST
 argument_list|(
 name|testWidget
@@ -14306,7 +14306,7 @@ name|NO_PIXMAP_TESTS
 if|#
 directive|if
 name|defined
-name|Q_WS_WIN
+name|Q_OS_WIN
 name|QTEST
 argument_list|(
 name|testWidget
@@ -14342,7 +14342,7 @@ name|NO_PIXMAP_TESTS
 if|#
 directive|if
 name|defined
-name|Q_WS_WIN
+name|Q_OS_WIN
 name|QTest
 operator|::
 name|addColumn
@@ -14428,7 +14428,7 @@ name|NO_PIXMAP_TESTS
 if|#
 directive|if
 name|defined
-name|Q_WS_WIN
+name|Q_OS_WIN
 name|QTEST
 argument_list|(
 name|testWidget
@@ -14474,7 +14474,7 @@ name|NO_PIXMAP_TESTS
 if|#
 directive|if
 name|defined
-name|Q_WS_WIN
+name|Q_OS_WIN
 name|QTEST
 argument_list|(
 name|testWidget
@@ -14520,7 +14520,7 @@ name|NO_PIXMAP_TESTS
 if|#
 directive|if
 name|defined
-name|Q_WS_WIN
+name|Q_OS_WIN
 name|QTEST
 argument_list|(
 name|testWidget

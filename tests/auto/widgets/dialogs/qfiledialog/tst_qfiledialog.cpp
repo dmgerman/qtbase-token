@@ -5845,23 +5845,6 @@ name|i
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_WS_WIN
-argument_list|)
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"This test does not work on Windows"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QTRY_VERIFY
 argument_list|(
 operator|!

@@ -462,16 +462,6 @@ operator|::
 name|fixedPitch
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_WS_QWS
-name|QSKIP
-argument_list|(
-literal|"fixedPitch not implemented for Qtopia Core"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QFETCH
 argument_list|(
 name|QString

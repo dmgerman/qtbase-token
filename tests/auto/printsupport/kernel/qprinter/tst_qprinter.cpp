@@ -6784,7 +6784,7 @@ name|painter
 decl_stmt|;
 ifndef|#
 directive|ifndef
-name|Q_WS_WIN
+name|Q_OS_WIN
 comment|// not sure how to choose a never-writable file on windows.  But its QFile behavior anyway, so lets rely on it failing elsewhere
 name|p
 operator|.

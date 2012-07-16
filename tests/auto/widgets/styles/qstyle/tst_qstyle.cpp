@@ -174,7 +174,7 @@ end_endif
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_OS_WIN
 end_ifdef
 begin_include
 include|#
@@ -708,7 +708,7 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_OS_WIN
 if|if
 condition|(
 name|QSysInfo
@@ -2018,7 +2018,7 @@ parameter_list|()
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_OS_WIN
 name|QWindowsXPStyle
 name|xpstyle
 decl_stmt|;
@@ -2130,7 +2130,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_OS_WIN
 argument_list|)
 operator|&&
 operator|!
