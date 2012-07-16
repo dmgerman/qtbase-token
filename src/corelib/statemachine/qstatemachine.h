@@ -249,6 +249,7 @@ operator|=
 literal|0
 argument_list|)
 block|;
+name|explicit
 name|QStateMachine
 argument_list|(
 argument|QState::ChildMode childMode
