@@ -101,23 +101,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_if
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_WS_X11
-argument_list|)
-end_if
-begin_include
-include|#
-directive|include
-file|<limits.h>
-end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|//#define QABSTRACTSPINBOX_QSBDEBUG
 end_comment
@@ -3138,10 +3121,6 @@ block|}
 return|return;
 endif|#
 directive|endif
-ifdef|#
-directive|ifdef
-name|Q_WS_X11
-comment|// only X11
 case|case
 name|Qt
 operator|::
@@ -3157,8 +3136,19 @@ operator|&
 name|Qt
 operator|::
 name|ControlModifier
+operator|&&
+name|QGuiApplication
+operator|::
+name|platformName
+argument_list|()
+operator|==
+name|QLatin1String
+argument_list|(
+literal|"xcb"
+argument_list|)
 condition|)
 block|{
+comment|// only X11
 name|event
 operator|->
 name|accept
@@ -3176,8 +3166,6 @@ expr_stmt|;
 return|return;
 block|}
 break|break;
-endif|#
-directive|endif
 case|case
 name|Qt
 operator|::

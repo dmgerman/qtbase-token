@@ -1236,10 +1236,21 @@ name|globalPos
 operator|-
 name|moveOffset
 decl_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_WS_X11
 comment|// Workaround for window managers which refuse to move a tool window partially offscreen.
+if|if
+condition|(
+name|QGuiApplication
+operator|::
+name|platformName
+argument_list|()
+operator|==
+name|QLatin1String
+argument_list|(
+literal|"xcb"
+argument_list|)
+condition|)
+block|{
+specifier|const
 name|QRect
 name|desktop
 init|=
@@ -1325,8 +1336,7 @@ name|bottom
 argument_list|()
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
+block|}
 name|QSize
 name|ms
 init|=
