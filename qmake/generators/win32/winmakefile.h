@@ -168,7 +168,6 @@ name|void
 name|processPrlFiles
 argument_list|()
 block|;
-name|virtual
 name|void
 name|processVars
 argument_list|()
@@ -178,12 +177,10 @@ name|void
 name|fixTargetExt
 argument_list|()
 block|;
-name|virtual
 name|void
 name|processRcFileVar
 argument_list|()
 block|;
-name|virtual
 name|void
 name|processFileTagsVar
 argument_list|()
