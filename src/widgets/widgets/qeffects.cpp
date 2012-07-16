@@ -253,7 +253,7 @@ argument_list|)
 block|{
 ifndef|#
 directive|ifndef
-name|Q_WS_WIN
+name|Q_OS_WIN
 name|setEnabled
 argument_list|(
 literal|false
@@ -292,7 +292,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_OS_WIN
 argument_list|)
 operator|&&
 operator|!
@@ -1022,7 +1022,7 @@ condition|)
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_OS_WIN
 name|setEnabled
 argument_list|(
 literal|true
@@ -1033,7 +1033,7 @@ argument_list|()
 expr_stmt|;
 endif|#
 directive|endif
-comment|// Q_WS_WIN
+comment|// Q_OS_WIN
 name|widget
 operator|->
 name|hide
@@ -1521,7 +1521,7 @@ argument_list|)
 block|{
 ifndef|#
 directive|ifndef
-name|Q_WS_WIN
+name|Q_OS_WIN
 name|setEnabled
 argument_list|(
 literal|false
@@ -1638,10 +1638,7 @@ operator|=
 name|widget
 operator|->
 name|grab
-argument_list|(
-name|QRect
 argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 end_constructor
@@ -2304,7 +2301,7 @@ condition|)
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_OS_WIN
 name|setEnabled
 argument_list|(
 literal|true
