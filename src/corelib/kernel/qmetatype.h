@@ -245,7 +245,7 @@ comment|// If we are using QDoc it fakes the Type enum looks like this.
 enum|enum
 name|Type
 block|{
-name|Void
+name|UnknownType
 init|=
 literal|0
 block|,
@@ -428,6 +428,10 @@ block|,
 name|QWidgetStar
 init|=
 literal|40
+block|,
+name|Void
+init|=
+literal|43
 block|,
 name|QVariantMap
 init|=
