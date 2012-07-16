@@ -15,6 +15,10 @@ operator|::
 name|QPaintDevice
 parameter_list|()
 block|{
+name|reserved
+operator|=
+literal|0
+expr_stmt|;
 name|painters
 operator|=
 literal|0

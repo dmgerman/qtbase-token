@@ -32,6 +32,12 @@ name|QPaintEngine
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QPaintDevicePrivate
+name|class
+name|QPaintDevicePrivate
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|Q_GUI_EXPORT
 name|QPaintDevice
@@ -262,6 +268,10 @@ name|Q_DISABLE_COPY
 argument_list|(
 argument|QPaintDevice
 argument_list|)
+name|QPaintDevicePrivate
+modifier|*
+name|reserved
+decl_stmt|;
 name|friend
 name|class
 name|QPainter
