@@ -107,17 +107,6 @@ include|#
 directive|include
 file|<qmacstyle_mac.h>
 end_include
-begin_elif
-elif|#
-directive|elif
-name|defined
-name|Q_WS_X11
-end_elif
-begin_include
-include|#
-directive|include
-file|<private/qt_x11_p.h>
-end_include
 begin_endif
 endif|#
 directive|endif
