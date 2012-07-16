@@ -3028,6 +3028,24 @@ operator|!=
 name|oldEffectiveState
 condition|)
 block|{
+comment|// Ensure the initial size is valid, since we store it as normalGeometry below.
+if|if
+condition|(
+operator|!
+name|testAttribute
+argument_list|(
+name|Qt
+operator|::
+name|WA_Resized
+argument_list|)
+operator|&&
+operator|!
+name|isVisible
+argument_list|()
+condition|)
+name|adjustSize
+argument_list|()
+expr_stmt|;
 name|d
 operator|->
 name|createTLExtra
