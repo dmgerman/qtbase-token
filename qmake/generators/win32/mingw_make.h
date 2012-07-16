@@ -85,14 +85,6 @@ name|t
 argument_list|)
 block|;
 name|void
-name|writeLibDirPart
-argument_list|(
-name|QTextStream
-operator|&
-name|t
-argument_list|)
-block|;
-name|void
 name|writeObjectsPart
 argument_list|(
 name|QTextStream

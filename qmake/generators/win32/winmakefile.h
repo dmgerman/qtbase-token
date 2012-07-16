@@ -75,15 +75,6 @@ argument_list|)
 block|;
 name|virtual
 name|void
-name|writeLibDirPart
-argument_list|(
-name|QTextStream
-operator|&
-name|t
-argument_list|)
-block|;
-name|virtual
-name|void
 name|writeLibsPart
 argument_list|(
 name|QTextStream
