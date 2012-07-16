@@ -2882,6 +2882,9 @@ block|,
 literal|0
 block|}
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
 name|style
 operator|&=
 operator|~
@@ -2890,6 +2893,8 @@ name|WS_OVERLAPPED
 operator|)
 expr_stmt|;
 comment|// Not permitted, see docs.
+endif|#
+directive|endif
 if|if
 condition|(
 operator|!
