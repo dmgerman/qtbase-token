@@ -2116,7 +2116,7 @@ begin_comment
 comment|// QT_NO_LIBRARY
 end_comment
 begin_comment
-comment|/*!     Returns the list of image formats supported by QImageWriter.      By default, Qt can write the following formats:      \table     \header \li Format \li Description     \row    \li BMP    \li Windows Bitmap     \row    \li JPG    \li Joint Photographic Experts Group     \row    \li JPEG   \li Joint Photographic Experts Group     \row    \li PNG    \li Portable Network Graphics     \row    \li PPM    \li Portable Pixmap     \row    \li XBM    \li X11 Bitmap     \row    \li XPM    \li X11 Pixmap     \endtable      Reading and writing SVG files is supported through Qt's     \l{QtSvg Module}{SVG Module}. The \l{QtImageFormats Module}{Image Formats Module}     provides support for additional image formats.      Note that the QApplication instance must be created before this function is     called.      \sa setFormat(), QImageReader::supportedImageFormats(), QImageIOPlugin */
+comment|/*!     Returns the list of image formats supported by QImageWriter.      By default, Qt can write the following formats:      \table     \header \li Format \li Description     \row    \li BMP    \li Windows Bitmap     \row    \li JPG    \li Joint Photographic Experts Group     \row    \li JPEG   \li Joint Photographic Experts Group     \row    \li PNG    \li Portable Network Graphics     \row    \li PBM    \li Portable Bitmap     \row    \li PGM    \li Portable Graymap     \row    \li PPM    \li Portable Pixmap     \row    \li XBM    \li X11 Bitmap     \row    \li XPM    \li X11 Pixmap     \endtable      Reading and writing SVG files is supported through Qt's     \l{QtSvg Module}{SVG Module}. The \l{QtImageFormats Module}{Image Formats Module}     provides support for additional image formats.      Note that the QApplication instance must be created before this function is     called.      \sa setFormat(), QImageReader::supportedImageFormats(), QImageIOPlugin */
 end_comment
 begin_function
 DECL|function|supportedImageFormats
@@ -2143,6 +2143,10 @@ ifndef|#
 directive|ifndef
 name|QT_NO_IMAGEFORMAT_PPM
 name|formats
+operator|<<
+literal|"pbm"
+operator|<<
+literal|"pgm"
 operator|<<
 literal|"ppm"
 expr_stmt|;
