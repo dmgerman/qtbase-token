@@ -391,7 +391,7 @@ begin_comment
 comment|/*!     \fn void QLineEdit::textChanged(const QString&text)      This signal is emitted whenever the text changes. The \a text     argument is the new text.      Unlike textEdited(), this signal is also emitted when the text is     changed programmatically, for example, by calling setText(). */
 end_comment
 begin_comment
-comment|/*!     \fn void QLineEdit::textEdited(const QString&text)      This signal is emitted whenever the text is edited. The \a text     argument is the next text.      Unlike textChanged(), this signal is not emitted when the text is     changed programmatically, for example, by calling setText(). */
+comment|/*!     \fn void QLineEdit::textEdited(const QString&text)      This signal is emitted whenever the text is edited. The \a text     argument is the new text.      Unlike textChanged(), this signal is not emitted when the text is     changed programmatically, for example, by calling setText(). */
 end_comment
 begin_comment
 comment|/*!     \fn void QLineEdit::cursorPositionChanged(int old, int new)      This signal is emitted whenever the cursor moves. The previous     position is given by \a old, and the new position by \a new.      \sa setCursorPosition(), cursorPosition() */
