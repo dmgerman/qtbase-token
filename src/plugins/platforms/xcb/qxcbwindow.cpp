@@ -9750,6 +9750,16 @@ parameter_list|)
 block|{
 if|if
 condition|(
+operator|!
+name|connection
+argument_list|()
+operator|->
+name|hasXShape
+argument_list|()
+condition|)
+return|return;
+if|if
+condition|(
 name|region
 operator|.
 name|isEmpty
