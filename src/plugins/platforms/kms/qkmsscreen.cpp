@@ -780,7 +780,7 @@ decl_stmt|;
 name|uint32_t
 name|stride
 init|=
-name|gbm_bo_get_pitch
+name|gbm_bo_get_stride
 argument_list|(
 name|m_next_bo
 argument_list|)
