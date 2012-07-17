@@ -274,11 +274,6 @@ argument_list|)
 decl_stmt|;
 if|#
 directive|if
-name|defined
-argument_list|(
-name|XCB_USE_XLIB
-argument_list|)
-operator|&&
 operator|!
 name|defined
 argument_list|(
@@ -295,7 +290,7 @@ parameter_list|)
 function_decl|;
 endif|#
 directive|endif
-comment|// XCB_USE_XLIB&& !QT_NO_SHAPE
+comment|// !QT_NO_SHAPE
 name|xcb_window_t
 name|xcb_window
 argument_list|()
