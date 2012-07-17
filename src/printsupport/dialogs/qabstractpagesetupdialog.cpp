@@ -20,7 +20,7 @@ end_ifndef
 begin_include
 include|#
 directive|include
-file|<QtCore/qcoreapplication.h>
+file|<QtGui/qguiapplication.h>
 end_include
 begin_include
 include|#
@@ -231,9 +231,6 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-ifndef|#
-directive|ifndef
-name|Q_WS_X11
 if|if
 condition|(
 name|printer
@@ -244,14 +241,22 @@ operator|!=
 name|QPrinter
 operator|::
 name|NativeFormat
+operator|&&
+name|QGuiApplication
+operator|::
+name|platformName
+argument_list|()
+operator|==
+name|QLatin1String
+argument_list|(
+literal|"xcb"
+argument_list|)
 condition|)
 name|qWarning
 argument_list|(
 literal|"QPageSetupDialog: Cannot be used on non-native printers"
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_comment

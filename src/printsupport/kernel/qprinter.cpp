@@ -57,23 +57,6 @@ include|#
 directive|include
 file|<private/qpagedpaintdevice_p.h>
 end_include
-begin_if
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_WS_X11
-argument_list|)
-end_if
-begin_include
-include|#
-directive|include
-file|<private/qt_x11_p.h>
-end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -961,13 +944,6 @@ name|PrinterMode
 name|mode
 parameter_list|)
 block|{
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_WS_X11
-argument_list|)
 if|if
 condition|(
 operator|!
@@ -977,22 +953,6 @@ name|instance
 argument_list|()
 condition|)
 block|{
-else|#
-directive|else
-if|if
-condition|(
-operator|!
-name|QCoreApplication
-operator|::
-name|instance
-argument_list|()
-operator|||
-operator|!
-name|X11
-condition|)
-block|{
-endif|#
-directive|endif
 name|qFatal
 argument_list|(
 literal|"QPrinter: Must construct a QApplication before a QPaintDevice"
@@ -1031,7 +991,11 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!     This function is used by subclasses of QPrinter to specify custom     print and paint engines (\a printEngine and \a paintEngine,     respectively).      QPrinter does not take ownership of the engines, so you need to     manage these engine instances yourself.      Note that changing the engines will reset the printer state and     all its properties.      \sa printEngine(), paintEngine(), setOutputFormat()      \since 4.1 */
+end_comment
+begin_function
 DECL|function|setEngines
 name|void
 name|QPrinter
@@ -1082,7 +1046,11 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!     Destroys the printer object and frees any allocated resources. If     the printer is destroyed while a print job is in progress this may     or may not affect the print job. */
+end_comment
+begin_destructor
 DECL|function|~QPrinter
 name|QPrinter
 operator|::
@@ -1117,8 +1085,14 @@ expr_stmt|;
 endif|#
 directive|endif
 block|}
+end_destructor
+begin_comment
 comment|/*!     \enum QPrinter::OutputFormat      The OutputFormat enum is used to describe the format QPrinter should     use for printing.      \value NativeFormat QPrinter will print output using a method defined     by the platform it is running on. This mode is the default when printing     directly to a printer.      \value PdfFormat QPrinter will generate its output as a searchable PDF file.     This mode is the default when printing to a file.      \sa outputFormat(), setOutputFormat(), setOutputFileName() */
+end_comment
+begin_comment
 comment|/*!     \since 4.1      Sets the output format for this printer to \a format. */
+end_comment
+begin_function
 DECL|function|setOutputFormat
 name|void
 name|QPrinter
@@ -1304,7 +1278,11 @@ expr_stmt|;
 endif|#
 directive|endif
 block|}
+end_function
+begin_comment
 comment|/*!     \since 4.1      Returns the output format for this printer. */
+end_comment
+begin_function
 DECL|function|outputFormat
 name|QPrinter
 operator|::
@@ -1327,7 +1305,11 @@ operator|->
 name|outputFormat
 return|;
 block|}
+end_function
+begin_comment
 comment|/*! \internal */
+end_comment
+begin_function
 DECL|function|devType
 name|int
 name|QPrinter
@@ -1342,7 +1324,11 @@ operator|::
 name|Printer
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!     Returns the printer name. This value is initially set to the name     of the default printer.      \sa setPrinterName() */
+end_comment
+begin_function
 DECL|function|printerName
 name|QString
 name|QPrinter
@@ -1373,7 +1359,11 @@ name|toString
 argument_list|()
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!     Sets the printer name to \a name.      \sa printerName(), isValid() */
+end_comment
+begin_function
 DECL|function|setPrinterName
 name|void
 name|QPrinter
@@ -1500,7 +1490,11 @@ name|PPK_PrinterName
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!   \since 4.4    Returns true if the printer currently selected is a valid printer   in the system, or a pure PDF printer; otherwise returns false.    To detect other failures check the output of QPainter::begin() or QPrinter::newPage().    \snippet printing-qprinter/errors.cpp 0    \sa setPrinterName() */
+end_comment
+begin_function
 DECL|function|isValid
 name|bool
 name|QPrinter
@@ -1515,36 +1509,31 @@ specifier|const
 name|QPrinter
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_WS_X11
-argument_list|)
 if|if
 condition|(
 operator|!
 name|qApp
-operator|||
-operator|!
-name|X11
 condition|)
-block|{
 return|return
 literal|false
 return|;
-block|}
-endif|#
-directive|endif
 return|return
 name|d
 operator|->
 name|validPrinter
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!   \fn bool QPrinter::outputToFile() const    Returns true if the output should be written to a file, or false   if the output should be sent directly to the printer. The default   setting is false.    \sa setOutputToFile(), setOutputFileName() */
+end_comment
+begin_comment
 comment|/*!   \fn void QPrinter::setOutputToFile(bool enable)    Specifies whether the output should be written to a file or sent   directly to the printer.    Will output to a file if \a enable is true, or will output   directly to the printer if \a enable is false.    \sa outputToFile(), setOutputFileName() */
+end_comment
+begin_comment
 comment|/*!   \fn QString QPrinter::outputFileName() const    Returns the name of the output file. By default, this is an empty string   (indicating that the printer shouldn't print to file).    \sa QPrintEngine::PrintEnginePropertyKey  */
+end_comment
+begin_function
 DECL|function|outputFileName
 name|QString
 name|QPrinter
@@ -1575,7 +1564,11 @@ name|toString
 argument_list|()
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!     Sets the name of the output file to \a fileName.      Setting a null or empty name (0 or "") disables printing to a file.     Setting a non-empty name enables printing to a file.      This can change the value of outputFormat().     If the file name has the ".pdf" suffix PDF is generated. If the file name     has a suffix other than ".pdf", the output format used is the     one set with setOutputFormat().      QPrinter uses Qt's cross-platform PDF print engines     respectively. If you can produce this format natively, for example     Mac OS X can generate PDF's from its print engine, set the output format     back to NativeFormat.      \sa outputFileName(), setOutputToFile(), setOutputFormat() */
+end_comment
+begin_function
 DECL|function|setOutputFileName
 name|void
 name|QPrinter
@@ -1669,7 +1662,11 @@ name|PPK_OutputFileName
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!   Returns the name of the program that sends the print output to the   printer.    The default is to return an empty string; meaning that QPrinter will try to   be smart in a system-dependent way. On X11 only, you can set it to something   different to use a specific print program. On the other platforms, this   returns an empty string.    \sa setPrintProgram(), setPrinterSelectionOption() */
+end_comment
+begin_function
 DECL|function|printProgram
 name|QString
 name|QPrinter
@@ -1700,7 +1697,11 @@ name|toString
 argument_list|()
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!   Sets the name of the program that should do the print job to \a   printProg.    On X11, this function sets the program to call with the PDF   output. On other platforms, it has no effect.    \sa printProgram() */
+end_comment
+begin_function
 DECL|function|setPrintProgram
 name|void
 name|QPrinter
@@ -1746,7 +1747,11 @@ name|PPK_PrinterProgram
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!   Returns the document name.    \sa setDocName(), QPrintEngine::PrintEnginePropertyKey */
+end_comment
+begin_function
 DECL|function|docName
 name|QString
 name|QPrinter
@@ -1777,7 +1782,11 @@ name|toString
 argument_list|()
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!   Sets the document name to \a name.    On X11, the document name is for example used as the default   output filename in QPrintDialog. Note that the document name does   not affect the file name if the printer is printing to a file.   Use the setOutputFile() function for this.    \sa docName(), QPrintEngine::PrintEnginePropertyKey */
+end_comment
+begin_function
 DECL|function|setDocName
 name|void
 name|QPrinter
@@ -1823,7 +1832,11 @@ name|PPK_DocumentName
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!   Returns the name of the application that created the document.    \sa setCreator() */
+end_comment
+begin_function
 DECL|function|creator
 name|QString
 name|QPrinter
@@ -1854,7 +1867,11 @@ name|toString
 argument_list|()
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!   Sets the name of the application that created the document to \a   creator.    This function is only applicable to the X11 version of Qt. If no   creator name is specified, the creator will be set to "Qt"   followed by some version number.    \sa creator() */
+end_comment
+begin_function
 DECL|function|setCreator
 name|void
 name|QPrinter
@@ -1900,7 +1917,11 @@ name|PPK_Creator
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!   Returns the orientation setting. This is driver-dependent, but is usually   QPrinter::Portrait.    \sa setOrientation() */
+end_comment
+begin_function
 DECL|function|orientation
 name|QPrinter
 operator|::
@@ -1938,7 +1959,11 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!   Sets the print orientation to \a orientation.    The orientation can be either QPrinter::Portrait or   QPrinter::Landscape.    The printer driver reads this setting and prints using the   specified orientation.    On Windows, this option can be changed while printing and will   take effect from the next call to newPage().    On Mac OS X, changing the orientation during a print job has no effect.    \sa orientation() */
+end_comment
+begin_function
 DECL|function|setOrientation
 name|void
 name|QPrinter
@@ -1977,7 +2002,11 @@ name|PPK_Orientation
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!     \since 4.4     Returns the printer paper size. The default value is driver-dependent.      \sa setPaperSize(), pageRect(), paperRect() */
+end_comment
+begin_function
 DECL|function|paperSize
 name|QPrinter
 operator|::
@@ -2015,7 +2044,11 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!     \since 4.4      Sets the printer paper size to \a newPaperSize if that size is     supported. The result is undefined if \a newPaperSize is not     supported.      The default paper size is driver-dependent.      This function is useful mostly for setting a default value that     the user can override in the print dialog.      \sa paperSize(), PaperSize, setFullPage(), setResolution(), pageRect(), paperRect() */
+end_comment
+begin_function
 DECL|function|setPaperSize
 name|void
 name|QPrinter
@@ -2032,7 +2065,11 @@ name|newPaperSize
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!     \obsolete      Returns the printer page size. The default value is driver-dependent.      Use paperSize() instead. */
+end_comment
+begin_function
 DECL|function|pageSize
 name|QPrinter
 operator|::
@@ -2048,7 +2085,11 @@ name|paperSize
 argument_list|()
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!     \obsolete      Sets the printer page size based on \a newPageSize.      Use setPaperSize() instead. */
+end_comment
+begin_function
 DECL|function|setPageSize
 name|void
 name|QPrinter
@@ -2138,7 +2179,11 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!     \since 4.4      Sets the paper size based on \a paperSize in \a unit.      \sa paperSize() */
+end_comment
+begin_function
 DECL|function|setPaperSize
 name|void
 name|QPrinter
@@ -2223,7 +2268,11 @@ name|size
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!   \reimp   */
+end_comment
+begin_function
 DECL|function|setPageSizeMM
 name|void
 name|QPrinter
@@ -2286,7 +2335,11 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!     \since 4.4      Returns the paper size in \a unit.      \sa setPaperSize() */
+end_comment
+begin_function
 DECL|function|paperSize
 name|QSizeF
 name|QPrinter
@@ -2387,7 +2440,11 @@ argument_list|)
 return|;
 block|}
 block|}
+end_function
+begin_comment
 comment|/*!     Sets the page order to \a pageOrder.      The page order can be QPrinter::FirstPageFirst or     QPrinter::LastPageFirst. The application is responsible for     reading the page order and printing accordingly.      This function is mostly useful for setting a default value that     the user can override in the print dialog.      This function is only supported under X11. */
+end_comment
+begin_function
 DECL|function|setPageOrder
 name|void
 name|QPrinter
@@ -2441,7 +2498,11 @@ name|PPK_PageOrder
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!   Returns the current page order.    The default page order is \c FirstPageFirst. */
+end_comment
+begin_function
 DECL|function|pageOrder
 name|QPrinter
 operator|::
@@ -2479,7 +2540,11 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!   Sets the printer's color mode to \a newColorMode, which can be   either \c Color or \c GrayScale.    \sa colorMode() */
+end_comment
+begin_function
 DECL|function|setColorMode
 name|void
 name|QPrinter
@@ -2523,7 +2588,11 @@ name|PPK_ColorMode
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!   Returns the current color mode.    \sa setColorMode() */
+end_comment
+begin_function
 DECL|function|colorMode
 name|QPrinter
 operator|::
@@ -2561,7 +2630,11 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!   \obsolete   Returns the number of copies to be printed. The default value is 1.    On Windows, Mac OS X and X11 systems that support CUPS, this will always   return 1 as these operating systems can internally handle the number   of copies.    On X11, this value will return the number of times the application is   required to print in order to match the number specified in the printer setup   dialog. This has been done since some printer drivers are not capable of   buffering up the copies and in those cases the application must make an   explicit call to the print code for each copy.    Use copyCount() in conjunction with supportsMultipleCopies() instead.    \sa setNumCopies(), actualNumCopies() */
+end_comment
+begin_function
 DECL|function|numCopies
 name|int
 name|QPrinter
@@ -2592,7 +2665,11 @@ name|toInt
 argument_list|()
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!     \obsolete     \since 4.6      Returns the number of copies that will be printed. The default     value is 1.      This function always returns the actual value specified in the print     dialog or using setNumCopies().      Use copyCount() instead.      \sa setNumCopies(), numCopies() */
+end_comment
+begin_function
 DECL|function|actualNumCopies
 name|int
 name|QPrinter
@@ -2606,7 +2683,11 @@ name|copyCount
 argument_list|()
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!   \obsolete   Sets the number of copies to be printed to \a numCopies.    The printer driver reads this setting and prints the specified   number of copies.    Use setCopyCount() instead.    \sa numCopies() */
+end_comment
+begin_function
 DECL|function|setNumCopies
 name|void
 name|QPrinter
@@ -2650,7 +2731,11 @@ name|PPK_NumberOfCopies
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!     \since 4.7      Sets the number of copies to be printed to \a count.      The printer driver reads this setting and prints the specified number of     copies.      \sa copyCount(), supportsMultipleCopies() */
+end_comment
+begin_function
 DECL|function|setCopyCount
 name|void
 name|QPrinter
@@ -2694,7 +2779,11 @@ name|PPK_CopyCount
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!     \since 4.7      Returns the number of copies that will be printed. The default value is 1.      \sa setCopyCount(), supportsMultipleCopies() */
+end_comment
+begin_function
 DECL|function|copyCount
 name|int
 name|QPrinter
@@ -2725,7 +2814,11 @@ name|toInt
 argument_list|()
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!     \since 4.7      Returns true if the printer supports printing multiple copies of the same     document in one job; otherwise false is returned.      On most systems this function will return true. However, on X11 systems     that do not support CUPS, this function will return false. That means the     application has to handle the number of copies by printing the same     document the required number of times.      \sa setCopyCount(), copyCount() */
+end_comment
+begin_function
 DECL|function|supportsMultipleCopies
 name|bool
 name|QPrinter
@@ -2756,7 +2849,11 @@ name|toBool
 argument_list|()
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!     \since 4.1      Returns true if collation is turned on when multiple copies is selected.     Returns false if it is turned off when multiple copies is selected.     When collating is turned off the printing of each individual page will be repeated     the numCopies() amount before the next page is started. With collating turned on     all pages are printed before the next copy of those pages is started.      \sa setCollateCopies() */
+end_comment
+begin_function
 DECL|function|collateCopies
 name|bool
 name|QPrinter
@@ -2787,7 +2884,11 @@ name|toBool
 argument_list|()
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!     \since 4.1      Sets the default value for collation checkbox when the print     dialog appears.  If \a collate is true, it will enable     setCollateCopiesEnabled().  The default value is false. This value     will be changed by what the user presses in the print dialog.      \sa collateCopies() */
+end_comment
+begin_function
 DECL|function|setCollateCopies
 name|void
 name|QPrinter
@@ -2831,7 +2932,11 @@ name|PPK_CollateCopies
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!   If \a fp is true, enables support for painting over the entire page;   otherwise restricts painting to the printable area reported by the   device.    By default, full page printing is disabled. In this case, the origin   of the QPrinter's coordinate system coincides with the top-left   corner of the printable area.    If full page printing is enabled, the origin of the QPrinter's   coordinate system coincides with the top-left corner of the paper   itself. In this case, the   \l{QPaintDevice::PaintDeviceMetric}{device metrics} will report   the exact same dimensions as indicated by \l{PaperSize}. It may not   be possible to print on the entire physical page because of the   printer's margins, so the application must account for the margins   itself.    \sa fullPage(), setPaperSize(), width(), height(), {Printing with Qt} */
+end_comment
+begin_function
 DECL|function|setFullPage
 name|void
 name|QPrinter
@@ -2870,7 +2975,11 @@ name|PPK_FullPage
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!   Returns true if the origin of the printer's coordinate system is   at the corner of the page and false if it is at the edge of the   printable area.    See setFullPage() for details and caveats.    \sa setFullPage(), PaperSize */
+end_comment
+begin_function
 DECL|function|fullPage
 name|bool
 name|QPrinter
@@ -2901,7 +3010,11 @@ name|toBool
 argument_list|()
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!   Requests that the printer prints at \a dpi or as near to \a dpi as   possible.    This setting affects the coordinate system as returned by, for   example QPainter::viewport().    This function must be called before QPainter::begin() to have an effect on   all platforms.    \sa resolution(), setPaperSize() */
+end_comment
+begin_function
 DECL|function|setResolution
 name|void
 name|QPrinter
@@ -2945,7 +3058,11 @@ name|PPK_Resolution
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!   Returns the current assumed resolution of the printer, as set by   setResolution() or by the printer driver.    \sa setResolution() */
+end_comment
+begin_function
 DECL|function|resolution
 name|int
 name|QPrinter
@@ -2976,7 +3093,11 @@ name|toInt
 argument_list|()
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!   Sets the paper source setting to \a source.    Windows only: This option can be changed while printing and will   take effect from the next call to newPage()    \sa paperSource() */
+end_comment
+begin_function
 DECL|function|setPaperSource
 name|void
 name|QPrinter
@@ -3015,7 +3136,11 @@ name|PPK_PaperSource
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!     Returns the printer's paper source. This is \c Manual or a printer     tray or paper cassette. */
+end_comment
+begin_function
 DECL|function|paperSource
 name|QPrinter
 operator|::
@@ -3053,7 +3178,11 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!   \since 4.1    Enabled or disables font embedding depending on \a enable.    Currently this option is only supported on X11.    \sa fontEmbeddingEnabled() */
+end_comment
+begin_function
 DECL|function|setFontEmbeddingEnabled
 name|void
 name|QPrinter
@@ -3092,7 +3221,11 @@ name|PPK_FontEmbedding
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!   \since 4.1    Returns true if font embedding is enabled.    Currently this option is only supported on X11.    \sa setFontEmbeddingEnabled() */
+end_comment
+begin_function
 DECL|function|fontEmbeddingEnabled
 name|bool
 name|QPrinter
@@ -3123,8 +3256,14 @@ name|toBool
 argument_list|()
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!     \enum QPrinter::DuplexMode     \since 4.4      This enum is used to indicate whether printing will occur on one or both sides     of each sheet of paper (simplex or duplex printing).      \value DuplexNone       Single sided (simplex) printing only.     \value DuplexAuto       The printer's default setting is used to determine whether                             duplex printing is used.     \value DuplexLongSide   Both sides of each sheet of paper are used for printing.                             The paper is turned over its longest edge before the second                             side is printed     \value DuplexShortSide  Both sides of each sheet of paper are used for printing.                             The paper is turned over its shortest edge before the second                             side is printed */
+end_comment
+begin_comment
 comment|/*!   \since 4.2    Enables double sided printing if \a doubleSided is true; otherwise disables it.    Currently this option is only supported on X11. */
+end_comment
+begin_function
 DECL|function|setDoubleSidedPrinting
 name|void
 name|QPrinter
@@ -3145,7 +3284,11 @@ name|DuplexNone
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!   \since 4.2    Returns true if double side printing is enabled.    Currently this option is only supported on X11. */
+end_comment
+begin_function
 DECL|function|doubleSidedPrinting
 name|bool
 name|QPrinter
@@ -3161,7 +3304,11 @@ operator|!=
 name|DuplexNone
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!   \since 4.4    Enables double sided printing based on the \a duplex mode.    Currently this option is only supported on X11. */
+end_comment
+begin_function
 DECL|function|setDuplex
 name|void
 name|QPrinter
@@ -3200,7 +3347,11 @@ name|PPK_Duplex
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!   \since 4.4    Returns the current duplex mode.    Currently this option is only supported on X11. */
+end_comment
+begin_function
 DECL|function|duplex
 name|QPrinter
 operator|::
@@ -3239,7 +3390,11 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!     \since 4.4      Returns the page's rectangle in \a unit; this is usually smaller     than the paperRect() since the page normally has margins between     its borders and the paper.      \sa paperSize() */
+end_comment
+begin_function
 DECL|function|pageRect
 name|QRectF
 name|QPrinter
@@ -3375,7 +3530,11 @@ name|multiplier
 argument_list|)
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!     \since 4.4      Returns the paper's rectangle in \a unit; this is usually larger     than the pageRect().     \sa pageRect() */
+end_comment
+begin_function
 DECL|function|paperRect
 name|QRectF
 name|QPrinter
@@ -3512,7 +3671,11 @@ name|multiplier
 argument_list|)
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!     Returns the page's rectangle; this is usually smaller than the     paperRect() since the page normally has margins between its     borders and the paper.      The unit of the returned rectangle is DevicePixel.      \sa paperSize() */
+end_comment
+begin_function
 DECL|function|pageRect
 name|QRect
 name|QPrinter
@@ -3543,7 +3706,11 @@ name|toRect
 argument_list|()
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!     Returns the paper's rectangle; this is usually larger than the     pageRect().      The unit of the returned rectangle is DevicePixel.      \sa pageRect() */
+end_comment
+begin_function
 DECL|function|paperRect
 name|QRect
 name|QPrinter
@@ -3574,7 +3741,11 @@ name|toRect
 argument_list|()
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!     \since 4.4      This function sets the \a left, \a top, \a right and \a bottom     page margins for this printer. The unit of the margins are     specified with the \a unit parameter.      \sa getPageMargins */
+end_comment
+begin_function
 DECL|function|setPageMargins
 name|void
 name|QPrinter
@@ -3642,7 +3813,11 @@ name|m
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!   reimp   */
+end_comment
+begin_function
 DECL|function|setMargins
 name|void
 name|QPrinter
@@ -3737,7 +3912,11 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!     \since 4.4      Returns the page margins for this printer in \a left, \a top, \a     right, \a bottom. The unit of the returned margins are specified     with the \a unit parameter.      \sa setPageMargins */
+end_comment
+begin_function
 DECL|function|getPageMargins
 name|void
 name|QPrinter
@@ -3878,7 +4057,11 @@ operator|/
 name|multiplier
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!     \internal      Returns the metric for the given \a id. */
+end_comment
+begin_function
 DECL|function|metric
 name|int
 name|QPrinter
@@ -3907,7 +4090,11 @@ name|id
 argument_list|)
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!     Returns the paint engine used by the printer. */
+end_comment
+begin_function
 DECL|function|paintEngine
 name|QPaintEngine
 modifier|*
@@ -3929,7 +4116,11 @@ operator|->
 name|paintEngine
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!     \since 4.1      Returns the print engine used by the printer. */
+end_comment
+begin_function
 DECL|function|printEngine
 name|QPrintEngine
 modifier|*
@@ -3951,13 +4142,19 @@ operator|->
 name|printEngine
 return|;
 block|}
+end_function
+begin_if
 if|#
 directive|if
 name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
+end_if
+begin_comment
 comment|/*!     Sets the page size to be used by the printer under Windows to \a     pageSize.      \warning This function is not portable so you may prefer to use     setPaperSize() instead.      \sa winPageSize() */
+end_comment
+begin_function
 DECL|function|setWinPageSize
 name|void
 name|QPrinter
@@ -4001,7 +4198,11 @@ name|PPK_WindowsPageSize
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!     Returns the page size used by the printer under Windows.      \warning This function is not portable so you may prefer to use     paperSize() instead.      \sa setWinPageSize() */
+end_comment
+begin_function
 DECL|function|winPageSize
 name|int
 name|QPrinter
@@ -4032,10 +4233,18 @@ name|toInt
 argument_list|()
 return|;
 block|}
+end_function
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|// Q_OS_WIN
+end_comment
+begin_comment
 comment|/*!     Returns a list of the resolutions (a list of dots-per-inch     integers) that the printer says it supports.      For X11 where all printing is directly to PDF, this     function will always return a one item list containing only the     PDF resolution, i.e., 72 (72 dpi -- but see PrinterMode). */
+end_comment
+begin_function
 DECL|function|supportedResolutions
 name|QList
 argument_list|<
@@ -4112,7 +4321,11 @@ return|return
 name|intlist
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!     Tells the printer to eject the current page and to continue     printing on a new page. Returns true if this was successful;     otherwise returns false.      Calling newPage() on an inactive QPrinter object will always     fail. */
+end_comment
+begin_function
 DECL|function|newPage
 name|bool
 name|QPrinter
@@ -4150,7 +4363,11 @@ name|newPage
 argument_list|()
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!     Aborts the current print run. Returns true if the print run was     successfully aborted and printerState() will return QPrinter::Aborted; otherwise     returns false.      It is not always possible to abort a print job. For example,     all the data has gone to the printer but the printer cannot or     will not cancel the job when asked to. */
+end_comment
+begin_function
 DECL|function|abort
 name|bool
 name|QPrinter
@@ -4172,7 +4389,11 @@ name|abort
 argument_list|()
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!     Returns the current state of the printer. This may not always be     accurate (for example if the printer doesn't have the capability     of reporting its state to the operating system). */
+end_comment
+begin_function
 DECL|function|printerState
 name|QPrinter
 operator|::
@@ -4198,13 +4419,25 @@ name|printerState
 argument_list|()
 return|;
 block|}
+end_function
+begin_comment
 comment|/*! \fn void QPrinter::margins(uint *top, uint *left, uint *bottom, uint *right) const      Sets *\a top, *\a left, *\a bottom, *\a right to be the top,     left, bottom, and right margins.      This function has been superseded by paperRect() and pageRect().     Use paperRect().top() - pageRect().top() for the top margin,     paperRect().left() - pageRect().left() for the left margin,     paperRect().bottom() - pageRect().bottom() for the bottom margin,     and papaerRect().right() - pageRect().right() for the right     margin.      \oldcode         uint rightMargin;         uint bottomMargin;         printer->margins(0, 0,&bottomMargin,&rightMargin);     \newcode         int rightMargin = printer->paperRect().right() - printer->pageRect().right();         int bottomMargin = printer->paperRect().bottom() - printer->pageRect().bottom();     \endcode */
+end_comment
+begin_comment
 comment|/*! \fn QSize QPrinter::margins() const      \overload      Returns a QSize containing the left margin and the top margin.      This function has been superseded by paperRect() and pageRect().     Use paperRect().left() - pageRect().left() for the left margin,     and paperRect().top() - pageRect().top() for the top margin.      \oldcode         QSize margins = printer->margins();         int leftMargin = margins.width();         int topMargin = margins.height();     \newcode         int leftMargin = printer->paperRect().left() - printer->pageRect().left();         int topMargin = printer->paperRect().top() - printer->pageRect().top();     \endcode */
+end_comment
+begin_comment
 comment|/*! \fn bool QPrinter::aborted()      Use printerState() == QPrinter::Aborted instead. */
+end_comment
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|Q_OS_WIN
+end_ifdef
+begin_comment
 comment|/*!     Returns the supported paper sizes for this printer.      The values will be either a value that matches an entry in the     QPrinter::PaperSource enum or a driver spesific value. The driver     spesific values are greater than the constant DMBIN_USER declared     in wingdi.h.      \warning This function is only available in windows. */
+end_comment
+begin_function
 DECL|function|supportedPaperSources
 name|QList
 argument_list|<
@@ -4295,14 +4528,26 @@ return|return
 name|int_list
 return|;
 block|}
+end_function
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|// Q_OS_WIN
+end_comment
+begin_comment
 comment|/*!     \fn QString QPrinter::printerSelectionOption() const      Returns the printer options selection string. This is useful only     if the print command has been explicitly set.      The default value (an empty string) implies that the printer should     be selected in a system-dependent manner.      Any other value implies that the given value should be used.      \warning This function is not available on Windows.      \sa setPrinterSelectionOption() */
+end_comment
+begin_comment
 comment|/*!     \fn void QPrinter::setPrinterSelectionOption(const QString&option)      Sets the printer to use \a option to select the printer. \a option     is null by default (which implies that Qt should be smart enough     to guess correctly), but it can be set to other values to use a     specific printer selection option.      If the printer selection option is changed while the printer is     active, the current print job may or may not be affected.      \warning This function is not available on Windows.      \sa printerSelectionOption() */
+end_comment
+begin_ifndef
 ifndef|#
 directive|ifndef
 name|Q_OS_WIN
+end_ifndef
+begin_function
 DECL|function|printerSelectionOption
 name|QString
 name|QPrinter
@@ -4333,6 +4578,8 @@ name|toString
 argument_list|()
 return|;
 block|}
+end_function
+begin_function
 DECL|function|setPrinterSelectionOption
 name|void
 name|QPrinter
@@ -4373,9 +4620,15 @@ name|PPK_SelectionOption
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|/*!     \since 4.1     \fn int QPrinter::fromPage() const      Returns the number of the first page in a range of pages to be printed     (the "from page" setting). Pages in a document are numbered according to     the convention that the first page is page 1.      By default, this function returns a special value of 0, meaning that     the "from page" setting is unset.      \note If fromPage() and toPage() both return 0, this indicates that     \e{the whole document will be printed}.      \sa setFromTo(), toPage() */
+end_comment
+begin_function
 DECL|function|fromPage
 name|int
 name|QPrinter
@@ -4390,7 +4643,11 @@ operator|->
 name|fromPage
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!     \since 4.1      Returns the number of the last page in a range of pages to be printed     (the "to page" setting). Pages in a document are numbered according to     the convention that the first page is page 1.      By default, this function returns a special value of 0, meaning that     the "to page" setting is unset.      \note If fromPage() and toPage() both return 0, this indicates that     \e{the whole document will be printed}.      The programmer is responsible for reading this setting and     printing accordingly.      \sa setFromTo(), fromPage() */
+end_comment
+begin_function
 DECL|function|toPage
 name|int
 name|QPrinter
@@ -4405,7 +4662,11 @@ operator|->
 name|toPage
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!     \since 4.1      Sets the range of pages to be printed to cover the pages with numbers     specified by \a from and \a to, where \a from corresponds to the first     page in the range and \a to corresponds to the last.      \note Pages in a document are numbered according to the convention that     the first page is page 1. However, if \a from and \a to are both set to 0,     the \e{whole document will be printed}.      This function is mostly used to set a default value that the user can     override in the print dialog when you call setup().      \sa fromPage(), toPage() */
+end_comment
+begin_function
 DECL|function|setFromTo
 name|void
 name|QPrinter
@@ -4449,7 +4710,11 @@ operator|=
 name|to
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!     \since 4.1      Sets the print range option in to be \a range. */
+end_comment
+begin_function
 DECL|function|setPrintRange
 name|void
 name|QPrinter
@@ -4482,7 +4747,11 @@ operator|=
 name|range
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!     \since 4.1      Returns the page range of the QPrinter. After the print setup     dialog has been opened, this function returns the value selected     by the user.      \sa setPrintRange() */
+end_comment
+begin_function
 DECL|function|printRange
 name|QPrinter
 operator|::
@@ -4505,16 +4774,38 @@ operator|->
 name|printRange
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!     \class QPrintEngine     \reentrant      \ingroup printing     \inmodule QtPrintSupport      \brief The QPrintEngine class defines an interface for how QPrinter     interacts with a given printing subsystem.      The common case when creating your own print engine is to derive from both     QPaintEngine and QPrintEngine. Various properties of a print engine are     given with property() and set with setProperty().      \sa QPaintEngine */
+end_comment
+begin_comment
 comment|/*!     \enum QPrintEngine::PrintEnginePropertyKey      This enum is used to communicate properties between the print     engine and QPrinter. A property may or may not be supported by a     given print engine.      \value PPK_CollateCopies A boolean value indicating whether the     printout should be collated or not.      \value PPK_ColorMode Refers to QPrinter::ColorMode, either color or     monochrome.      \value PPK_Creator A string describing the document's creator.      \value PPK_Duplex A boolean value indicating whether both sides of     the printer paper should be used for the printout.      \value PPK_DocumentName A string describing the document name in     the spooler.      \value PPK_FontEmbedding A boolean value indicating whether data for     the document's fonts should be embedded in the data sent to the     printer.      \value PPK_FullPage A boolean describing if the printer should be     full page or not.      \value PPK_NumberOfCopies Obsolete. An integer specifying the number of     copies. Use PPK_CopyCount instead.      \value PPK_Orientation Specifies a QPrinter::Orientation value.      \value PPK_OutputFileName The output file name as a string. An     empty file name indicates that the printer should not print to a file.      \value PPK_PageOrder Specifies a QPrinter::PageOrder value.      \value PPK_PageRect A QRect specifying the page rectangle      \value PPK_PageSize Obsolete. Use PPK_PaperSize instead.      \value PPK_PaperRect A QRect specifying the paper rectangle.      \value PPK_PaperSource Specifies a QPrinter::PaperSource value.      \value PPK_PaperSources Specifies more than one QPrinter::PaperSource value.      \value PPK_PaperSize Specifies a QPrinter::PaperSize value.      \value PPK_PrinterName A string specifying the name of the printer.      \value PPK_PrinterProgram A string specifying the name of the     printer program used for printing,      \value PPK_Resolution An integer describing the dots per inch for     this printer.      \value PPK_SelectionOption      \value PPK_SupportedResolutions A list of integer QVariants     describing the set of supported resolutions that the printer has.      \value PPK_SuppressSystemPrintStatus Suppress the built-in dialog for showing     printing progress. As of 4.1 this only has effect on Mac OS X where, by default,     a status dialog is shown.      \value PPK_WindowsPageSize An integer specifying a DM_PAPER entry     on Windows.      \value PPK_CustomPaperSize A QSizeF specifying a custom paper size     in the QPrinter::Point unit.      \value PPK_PageMargins A QList<QVariant> containing the left, top,     right and bottom margin values.      \value PPK_CopyCount An integer specifying the number of copies to print.      \value PPK_SupportsMultipleCopies A boolean value indicating whether or not     the printer supports printing multiple copies in one job.      \value PPK_CustomBase Basis for extension. */
+end_comment
+begin_comment
 comment|/*!     \fn QPrintEngine::~QPrintEngine()      Destroys the print engine. */
+end_comment
+begin_comment
 comment|/*!     \fn void QPrintEngine::setProperty(PrintEnginePropertyKey key, const QVariant&value)      Sets the print engine's property specified by \a key to the given \a value.      \sa property() */
+end_comment
+begin_comment
 comment|/*!     \fn void QPrintEngine::property(PrintEnginePropertyKey key) const      Returns the print engine's property specified by \a key.      \sa setProperty() */
+end_comment
+begin_comment
 comment|/*!     \fn bool QPrintEngine::newPage()      Instructs the print engine to start a new page. Returns true if     the printer was able to create the new page; otherwise returns false. */
+end_comment
+begin_comment
 comment|/*!     \fn bool QPrintEngine::abort()      Instructs the print engine to abort the printing process. Returns     true if successful; otherwise returns false. */
+end_comment
+begin_comment
 comment|/*!     \fn int QPrintEngine::metric(QPaintDevice::PaintDeviceMetric id) const      Returns the metric for the given \a id. */
+end_comment
+begin_comment
 comment|/*!     \fn QPrinter::PrinterState QPrintEngine::printerState() const      Returns the current state of the printer being used by the print engine. */
+end_comment
+begin_comment
 comment|/*     Returns the dimensions for the given paper size, \a size, in millimeters. */
+end_comment
+begin_function
 DECL|function|qt_paperSizeToQSizeF
 name|QSizeF
 name|qt_paperSizeToQSizeF
@@ -4562,7 +4853,11 @@ index|]
 argument_list|)
 return|;
 block|}
+end_function
+begin_comment
 comment|/*     Returns the PaperSize type that matches \a size, where \a size     is in millimeters.      Because dimensions may not always be completely accurate (for     example when converting between units), a particular PaperSize     will be returned if it matches within -1/+1 millimeters. */
+end_comment
+begin_function
 DECL|function|qSizeFTopaperSize
 name|QPrinter
 operator|::
@@ -4677,8 +4972,10 @@ operator|::
 name|Custom
 return|;
 block|}
-name|QT_END_NAMESPACE
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
 endif|#
 directive|endif
