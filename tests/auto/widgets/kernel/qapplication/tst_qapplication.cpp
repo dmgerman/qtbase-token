@@ -10225,12 +10225,12 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-operator|!
 name|window
 operator|.
 name|seenMouseEvent
 argument_list|)
 expr_stmt|;
+comment|// Since QApplication transforms ignored touch events in mouse events
 name|window
 operator|.
 name|reset
@@ -10305,7 +10305,6 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-operator|!
 name|window
 operator|.
 name|seenMouseEvent
@@ -10529,7 +10528,6 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-operator|!
 name|widget
 operator|.
 name|seenMouseEvent
@@ -10545,7 +10543,6 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-operator|!
 name|window
 operator|.
 name|seenMouseEvent
@@ -10630,7 +10627,6 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-operator|!
 name|widget
 operator|.
 name|seenMouseEvent
@@ -10646,7 +10642,6 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-operator|!
 name|window
 operator|.
 name|seenMouseEvent
@@ -10728,7 +10723,6 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-operator|!
 name|widget
 operator|.
 name|seenMouseEvent
@@ -10939,7 +10933,6 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-operator|!
 name|widget
 operator|.
 name|seenMouseEvent
@@ -10954,7 +10947,6 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-operator|!
 name|window
 operator|.
 name|seenMouseEvent
@@ -11037,7 +11029,6 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-operator|!
 name|widget
 operator|.
 name|seenMouseEvent
@@ -11074,7 +11065,7 @@ name|acceptMouseEvent
 operator|=
 literal|true
 expr_stmt|;
-comment|// doesn't matter, touch events are propagated first
+comment|// it matters, touch events are propagated in parallel to synthesized mouse events
 name|window
 operator|.
 name|acceptTouchEvent
@@ -11142,7 +11133,6 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-operator|!
 name|widget
 operator|.
 name|seenMouseEvent
@@ -11150,6 +11140,7 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|window
 operator|.
 name|seenTouchEvent
