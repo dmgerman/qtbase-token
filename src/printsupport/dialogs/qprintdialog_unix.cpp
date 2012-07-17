@@ -4881,9 +4881,19 @@ name|cur
 operator|=
 name|home
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_WS_X11
+if|if
+condition|(
+name|QGuiApplication
+operator|::
+name|platformName
+argument_list|()
+operator|==
+name|QLatin1String
+argument_list|(
+literal|"xcb"
+argument_list|)
+condition|)
+block|{
 if|if
 condition|(
 name|p
@@ -4953,8 +4963,8 @@ literal|".pdf"
 argument_list|)
 expr_stmt|;
 block|}
-endif|#
-directive|endif
+block|}
+comment|// xcb
 name|widget
 operator|.
 name|filename
