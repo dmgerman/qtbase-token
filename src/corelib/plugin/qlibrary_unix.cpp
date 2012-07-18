@@ -20,12 +20,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qfileinfo.h>
+file|<qcoreapplication.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<qcoreapplication.h>
+file|<private/qfilesystementry_p.h>
 end_include
 begin_ifndef
 ifndef|#
@@ -199,8 +199,8 @@ name|defined
 argument_list|(
 name|QT_NO_DYNAMIC_LIBRARY
 argument_list|)
-name|QFileInfo
-name|fi
+name|QFileSystemEntry
+name|fsEntry
 argument_list|(
 name|fileName
 argument_list|)
@@ -208,7 +208,7 @@ decl_stmt|;
 name|QString
 name|path
 init|=
-name|fi
+name|fsEntry
 operator|.
 name|path
 argument_list|()
@@ -216,7 +216,7 @@ decl_stmt|;
 name|QString
 name|name
 init|=
-name|fi
+name|fsEntry
 operator|.
 name|fileName
 argument_list|()
