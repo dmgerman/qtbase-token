@@ -251,24 +251,11 @@ argument_list|(
 literal|'/'
 argument_list|)
 expr_stmt|;
-comment|// The first filename we want to attempt to load is the filename as the callee specified.
-comment|// Thus, the first attempt we do must be with an empty prefix and empty suffix.
 name|QStringList
 name|suffixes
-argument_list|(
-name|QLatin1String
-argument_list|(
-literal|""
-argument_list|)
-argument_list|)
-decl_stmt|,
+decl_stmt|;
+name|QStringList
 name|prefixes
-argument_list|(
-name|QLatin1String
-argument_list|(
-literal|""
-argument_list|)
-argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -655,6 +642,53 @@ directive|endif
 endif|#
 directive|endif
 comment|// QT_HPUX_LD
+comment|// If the filename is an absolute path then we want to try that first as it is most likely
+comment|// what the callee wants. If we have been given a non-absolute path then lets try the
+comment|// native library name first to avoid unnecessary calls to dlopen().
+if|if
+condition|(
+name|fsEntry
+operator|.
+name|isAbsolute
+argument_list|()
+condition|)
+block|{
+name|suffixes
+operator|.
+name|prepend
+argument_list|(
+name|QString
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|prefixes
+operator|.
+name|prepend
+argument_list|(
+name|QString
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|suffixes
+operator|.
+name|append
+argument_list|(
+name|QString
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|prefixes
+operator|.
+name|append
+argument_list|(
+name|QString
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|bool
 name|retry
 init|=

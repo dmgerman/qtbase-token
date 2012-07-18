@@ -32,6 +32,11 @@ include|#
 directive|include
 file|"qdir.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<private/qfilesystementry_p.h>
+end_include
 begin_if
 if|#
 directive|if
@@ -87,29 +92,6 @@ operator|::
 name|load_sys
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QString
-name|attempt
-init|=
-name|QFileInfo
-argument_list|(
-name|fileName
-argument_list|)
-operator|.
-name|absoluteFilePath
-argument_list|()
-decl_stmt|;
-else|#
-directive|else
-name|QString
-name|attempt
-init|=
-name|fileName
-decl_stmt|;
-endif|#
-directive|endif
 comment|//avoid 'Bad Image' message box
 name|UINT
 name|oldmode
@@ -121,96 +103,109 @@ operator||
 name|SEM_NOOPENFILEERRORBOX
 argument_list|)
 decl_stmt|;
-name|pHnd
-operator|=
-name|LoadLibrary
-argument_list|(
-operator|(
-name|wchar_t
-operator|*
-operator|)
-name|QDir
-operator|::
-name|toNativeSeparators
-argument_list|(
-name|attempt
-argument_list|)
-operator|.
-name|utf16
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|// We make the following attempts at locating the library:
+comment|//
+comment|// WinCE
+comment|// if (absolute)
+comment|//     fileName
+comment|//     fileName + ".dll"
+comment|// else
+comment|//     fileName + ".dll"
+comment|//     fileName
+comment|//     QFileInfo(fileName).absoluteFilePath()
+comment|//
+comment|// Windows
+comment|// if (absolute)
+comment|//     fileName
+comment|//     fileName + ".dll"
+comment|// else
+comment|//     fileName + ".dll"
+comment|//     fileName
+comment|//
+comment|// NB If it's a plugin we do not ever try the ".dll" extension
+name|QStringList
+name|attempts
+decl_stmt|;
 if|if
 condition|(
 name|pluginState
 operator|!=
 name|IsAPlugin
 condition|)
+name|attempts
+operator|.
+name|append
+argument_list|(
+name|fileName
+operator|+
+name|QLatin1String
+argument_list|(
+literal|".dll"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// If the fileName is an absolute path we try that first, otherwise we
+comment|// use the system-specific suffix first
+name|QFileSystemEntry
+name|fsEntry
+argument_list|(
+name|fileName
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|fsEntry
+operator|.
+name|isAbsolute
+argument_list|()
+condition|)
 block|{
+name|attempts
+operator|.
+name|prepend
+argument_list|(
+name|fileName
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|attempts
+operator|.
+name|append
+argument_list|(
+name|fileName
+argument_list|)
+expr_stmt|;
 if|#
 directive|if
 name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
-if|if
-condition|(
-operator|!
-name|pHnd
-operator|&&
-operator|::
-name|GetLastError
-argument_list|()
-operator|==
-name|ERROR_MOD_NOT_FOUND
-condition|)
-block|{
-name|QString
-name|secondAttempt
-init|=
+name|attempts
+operator|.
+name|append
+argument_list|(
+name|QFileInfo
+argument_list|(
 name|fileName
-decl_stmt|;
-name|pHnd
-operator|=
-name|LoadLibrary
-argument_list|(
-operator|(
-name|wchar_t
-operator|*
-operator|)
-name|QDir
-operator|::
-name|toNativeSeparators
-argument_list|(
-name|secondAttempt
 argument_list|)
 operator|.
-name|utf16
+name|absoluteFilePath
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 endif|#
 directive|endif
-if|if
-condition|(
-operator|!
-name|pHnd
-operator|&&
-operator|::
-name|GetLastError
-argument_list|()
-operator|==
-name|ERROR_MOD_NOT_FOUND
-condition|)
-block|{
-name|attempt
-operator|+=
-name|QLatin1String
+block|}
+name|Q_FOREACH
 argument_list|(
-literal|".dll"
+argument|const QString&attempt
+argument_list|,
+argument|attempts
 argument_list|)
-expr_stmt|;
+block|{
 name|pHnd
 operator|=
 name|LoadLibrary
@@ -230,7 +225,19 @@ name|utf16
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
+comment|// If we have a handle or the last error is something other than "unable
+comment|// to find the module", then bail out
+if|if
+condition|(
+name|pHnd
+operator|||
+operator|::
+name|GetLastError
+argument_list|()
+operator|!=
+name|ERROR_MOD_NOT_FOUND
+condition|)
+break|break;
 block|}
 name|SetErrorMode
 argument_list|(
@@ -264,11 +271,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|pHnd
-condition|)
+else|else
 block|{
+comment|// Query the actual name of the library that was loaded
 name|errorString
 operator|.
 name|clear
@@ -290,36 +295,25 @@ argument_list|,
 name|MAX_PATH
 argument_list|)
 expr_stmt|;
-name|attempt
-operator|=
+name|QString
+name|moduleFileName
+init|=
 name|QString
 operator|::
 name|fromWCharArray
 argument_list|(
 name|buffer
 argument_list|)
-expr_stmt|;
-specifier|const
-name|QDir
-name|dir
-init|=
-name|QFileInfo
-argument_list|(
-name|fileName
-argument_list|)
-operator|.
-name|dir
-argument_list|()
 decl_stmt|;
-specifier|const
-name|QString
-name|realfilename
-init|=
-name|attempt
+name|moduleFileName
 operator|.
-name|mid
+name|remove
 argument_list|(
-name|attempt
+literal|0
+argument_list|,
+literal|1
+operator|+
+name|moduleFileName
 operator|.
 name|lastIndexOf
 argument_list|(
@@ -328,8 +322,16 @@ argument_list|(
 literal|'\\'
 argument_list|)
 argument_list|)
-operator|+
-literal|1
+argument_list|)
+expr_stmt|;
+specifier|const
+name|QDir
+name|dir
+argument_list|(
+name|fsEntry
+operator|.
+name|path
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -346,7 +348,7 @@ argument_list|)
 condition|)
 name|qualifiedFileName
 operator|=
-name|realfilename
+name|moduleFileName
 expr_stmt|;
 else|else
 name|qualifiedFileName
@@ -355,7 +357,7 @@ name|dir
 operator|.
 name|filePath
 argument_list|(
-name|realfilename
+name|moduleFileName
 argument_list|)
 expr_stmt|;
 block|}
