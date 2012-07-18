@@ -581,7 +581,7 @@ begin_comment
 comment|// QT_NO_DATASTREAM
 end_comment
 begin_comment
-comment|/*!     Returns the type name associated with the given \a type, or 0 if no     matching type was found. The returned pointer must not be deleted.      \sa type(), isRegistered(), Type */
+comment|/*!     Returns the type name associated with the given \a typeId, or 0 if no     matching type was found. The returned pointer must not be deleted.      \sa type(), isRegistered(), Type */
 end_comment
 begin_function
 DECL|function|typeName
