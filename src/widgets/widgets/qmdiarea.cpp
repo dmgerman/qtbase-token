@@ -2843,7 +2843,7 @@ name|setVisible
 argument_list|(
 name|QMdiSubWindowPrivate
 operator|::
-name|MaximizeAction
+name|RestoreAction
 argument_list|,
 literal|false
 argument_list|)
