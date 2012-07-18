@@ -89,11 +89,11 @@ argument|int count READ count
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|QString currentText READ currentText
+argument|QString currentText READ currentText USER true
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|int currentIndex READ currentIndex WRITE setCurrentIndex NOTIFY currentIndexChanged USER true
+argument|int currentIndex READ currentIndex WRITE setCurrentIndex NOTIFY currentIndexChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
