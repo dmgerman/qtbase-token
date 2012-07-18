@@ -5176,7 +5176,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     On models that support this, moves \a count rows starting with the given     \a sourceRow under parent \a sourceParent to row \a destinationChild under     \a parent \a destinationParent.      Returns true if the rows were successfully moved; otherwise returns     false.      The base class implementation does nothing and returns false.      If you implement your own model, you can reimplement this function if you     want to support moving. Alternatively, you can provide your own API for     altering the data.      \sa beginMoveRows(), endMoveRows() */
+comment|/*!     On models that support this, moves \a count rows starting with the given     \a sourceRow under parent \a sourceParent to row \a destinationChild under     parent \a destinationParent.      Returns true if the rows were successfully moved; otherwise returns     false.      The base class implementation does nothing and returns false.      If you implement your own model, you can reimplement this function if you     want to support moving. Alternatively, you can provide your own API for     altering the data.      \sa beginMoveRows(), endMoveRows() */
 end_comment
 begin_function
 DECL|function|moveRows
@@ -5206,7 +5206,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     On models that support this, moves \a count columns starting with the given     \a sourceColumn under parent \a sourceParent to column \a destinationChild under     \a parent \a destinationParent.      Returns true if the columns were successfully moved; otherwise returns     false.      The base class implementation does nothing and returns false.      If you implement your own model, you can reimplement this function if you     want to support moving. Alternatively, you can provide your own API for     altering the data.      \sa beginMoveColumns(), endMoveColumns() */
+comment|/*!     On models that support this, moves \a count columns starting with the given     \a sourceColumn under parent \a sourceParent to column \a destinationChild under     parent \a destinationParent.      Returns true if the columns were successfully moved; otherwise returns     false.      The base class implementation does nothing and returns false.      If you implement your own model, you can reimplement this function if you     want to support moving. Alternatively, you can provide your own API for     altering the data.      \sa beginMoveColumns(), endMoveColumns() */
 end_comment
 begin_function
 DECL|function|moveColumns
@@ -5903,7 +5903,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QAbstractItemModel::setRoleNames(const QHash<int,QByteArray>&theRoleNames)     \since 4.6     \obsolete      This function is obsolete. Reimplement roleNames() instead.      Sets the model's role names to \a roleNames.      This function allows mapping of role identifiers to role property names in     scripting languages.      \sa roleNames() */
+comment|/*!     \fn void QAbstractItemModel::setRoleNames(const QHash<int,QByteArray>&roleNames)     \since 4.6     \obsolete      This function is obsolete. Reimplement roleNames() instead.      Sets the model's role names to \a roleNames.      This function allows mapping of role identifiers to role property names in     scripting languages.      \sa roleNames() */
 end_comment
 begin_comment
 comment|/*!     \internal  */
