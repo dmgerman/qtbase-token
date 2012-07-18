@@ -261,13 +261,7 @@ case|case
 name|ThreadedOpenGL
 case|:
 return|return
-literal|true
-return|;
-case|case
-name|BufferQueueingOpenGL
-case|:
-return|return
-literal|true
+literal|false
 return|;
 default|default:
 return|return
