@@ -9382,7 +9382,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the value derived from combining together the values of     the \a keys using the OR operator, or -1 if \a keys is not     defined. Note that the strings in \a keys must be '|'-separated.      If \a key is not defined, *\a{ok} is set to false; otherwise     *\a{ok} is set to true.      \sa isFlag(), valueToKey(), valueToKeys() */
+comment|/*!     Returns the value derived from combining together the values of     the \a keys using the OR operator, or -1 if \a keys is not     defined. Note that the strings in \a keys must be '|'-separated.      If \a keys is not defined, *\a{ok} is set to false; otherwise     *\a{ok} is set to true.      \sa isFlag(), valueToKey(), valueToKeys() */
 end_comment
 begin_function
 DECL|function|keysToValue
