@@ -9343,7 +9343,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.7     Returns true if this URL is pointing to a local file path. A URL is a     local file path if the scheme is "file".      Note that this function considers URLs with hostnames to be local file     paths, even if the eventual file path cannot be opened with     QFile::open().      \sa fromLocalFile(), toLocalFile() */
+comment|/*!     \since 4.8     Returns true if this URL is pointing to a local file path. A URL is a     local file path if the scheme is "file".      Note that this function considers URLs with hostnames to be local file     paths, even if the eventual file path cannot be opened with     QFile::open().      \sa fromLocalFile(), toLocalFile() */
 end_comment
 begin_function
 DECL|function|isLocalFile
