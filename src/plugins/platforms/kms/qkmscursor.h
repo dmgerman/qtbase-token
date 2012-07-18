@@ -105,6 +105,9 @@ block|;
 name|QPlatformCursorImage
 operator|*
 name|m_cursorImage
+block|;
+name|bool
+name|m_moved
 block|; }
 decl_stmt|;
 end_decl_stmt
