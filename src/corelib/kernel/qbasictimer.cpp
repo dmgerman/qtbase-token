@@ -107,7 +107,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Starts (or restarts) the timer with a \a msec milliseconds timeout and the     given \a timerType. See Qt::TimerType for information on the different     timer types.      The given \a object will receive timer events.      \sa stop(), isActive(), QObject::timerEvent(), Qt::TimerType  */
+comment|/*!     \overload      Starts (or restarts) the timer with a \a msec milliseconds timeout and the     given \a timerType. See Qt::TimerType for information on the different     timer types.      \a obj will receive timer events.      \sa stop(), isActive(), QObject::timerEvent(), Qt::TimerType  */
 end_comment
 begin_function
 DECL|function|start
