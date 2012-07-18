@@ -1081,11 +1081,6 @@ modifier|*
 name|metaObject
 parameter_list|)
 block|{
-name|Q_UNUSED
-argument_list|(
-name|metaObject
-argument_list|)
-expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QT_NO_QOBJECT
@@ -1183,11 +1178,6 @@ operator|*
 name|metaObject
 argument_list|)
 argument_list|{
-name|Q_UNUSED
-argument_list|(
-name|metaObject
-argument_list|)
-argument_list|;
 name|QVector
 argument_list|<
 name|QCustomTypeInfo
