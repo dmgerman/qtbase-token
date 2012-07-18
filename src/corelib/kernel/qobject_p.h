@@ -717,6 +717,28 @@ argument|uint signalIdx
 argument_list|)
 specifier|const
 block|;
+comment|// To allow abitrary objects to call connectNotify()/disconnectNotify() without making
+comment|// the API public in QObject. This is used by QQmlNotifierEndpoint.
+specifier|inline
+name|void
+name|connectNotify
+argument_list|(
+specifier|const
+name|QMetaMethod
+operator|&
+name|signal
+argument_list|)
+block|;
+specifier|inline
+name|void
+name|disconnectNotify
+argument_list|(
+specifier|const
+name|QMetaMethod
+operator|&
+name|signal
+argument_list|)
+block|;
 name|public
 operator|:
 name|ExtraData
@@ -942,14 +964,48 @@ name|ref
 expr_stmt|;
 end_if
 begin_expr_stmt
-unit|}   Q_DECLARE_TYPEINFO
-operator|(
+unit|}  inline
+DECL|function|connectNotify
+name|void
+name|QObjectPrivate
+operator|::
+name|connectNotify
+argument_list|(
+argument|const QMetaMethod&signal
+argument_list|)
+block|{
+name|q_ptr
+operator|->
+name|connectNotify
+argument_list|(
+name|signal
+argument_list|)
+block|; }
+DECL|function|disconnectNotify
+specifier|inline
+name|void
+name|QObjectPrivate
+operator|::
+name|disconnectNotify
+argument_list|(
+argument|const QMetaMethod&signal
+argument_list|)
+block|{
+name|q_ptr
+operator|->
+name|disconnectNotify
+argument_list|(
+name|signal
+argument_list|)
+block|; }
+name|Q_DECLARE_TYPEINFO
+argument_list|(
 name|QObjectPrivate
 operator|::
 name|Connection
-operator|,
+argument_list|,
 name|Q_MOVABLE_TYPE
-operator|)
+argument_list|)
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
