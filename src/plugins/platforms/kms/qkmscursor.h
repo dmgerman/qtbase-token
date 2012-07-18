@@ -64,6 +64,10 @@ operator|*
 name|screen
 argument_list|)
 block|;
+operator|~
+name|QKmsCursor
+argument_list|()
+block|;
 name|void
 name|pointerEvent
 argument_list|(
