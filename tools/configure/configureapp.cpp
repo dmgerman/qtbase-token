@@ -12543,6 +12543,13 @@ literal|"STYLE_WINDOWSXP"
 condition|)
 name|available
 operator|=
+operator|(
+name|platform
+argument_list|()
+operator|==
+name|WINDOWS
+operator|)
+operator|&&
 name|findFile
 argument_list|(
 literal|"uxtheme.h"
