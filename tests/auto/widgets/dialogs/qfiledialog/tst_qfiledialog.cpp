@@ -2626,6 +2626,17 @@ argument_list|()
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+name|QTest
+operator|::
+name|qWaitForWindowExposed
+argument_list|(
+operator|&
+name|fd
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
 name|fd
 operator|.
 name|isVisible

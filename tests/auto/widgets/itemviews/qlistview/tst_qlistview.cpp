@@ -9866,11 +9866,23 @@ operator|.
 name|show
 argument_list|()
 expr_stmt|;
+name|qApp
+operator|->
+name|setActiveWindow
+argument_list|(
+operator|&
+name|view
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
 name|QTest
 operator|::
-name|qWait
+name|qWaitForWindowActive
 argument_list|(
-literal|30
+operator|&
+name|view
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|//    QCOMPARE(view.currentIndex() , model.index(0,0));

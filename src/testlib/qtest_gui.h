@@ -727,28 +727,8 @@ name|line
 argument_list|)
 return|;
 end_return
-begin_ifdef
-unit|}  }
-ifdef|#
-directive|ifdef
-name|Q_WS_X11
-end_ifdef
-begin_function_decl
-specifier|extern
-name|void
-name|qt_x11_wait_for_window_manager
-parameter_list|(
-name|QWidget
-modifier|*
-name|w
-parameter_list|)
-function_decl|;
-end_function_decl
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_expr_stmt
+unit|}  }
 name|QT_END_NAMESPACE
 name|QT_END_HEADER
 end_expr_stmt

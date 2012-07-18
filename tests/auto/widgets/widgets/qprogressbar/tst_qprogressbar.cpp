@@ -925,18 +925,16 @@ operator|.
 name|show
 argument_list|()
 expr_stmt|;
+name|QVERIFY
+argument_list|(
 name|QTest
 operator|::
-name|qWaitForWindowShown
+name|qWaitForWindowActive
 argument_list|(
 operator|&
 name|pbar
 argument_list|)
-expr_stmt|;
-name|QApplication
-operator|::
-name|processEvents
-argument_list|()
+argument_list|)
 expr_stmt|;
 comment|// No repaint when setting minimum to the current minimum
 name|pbar

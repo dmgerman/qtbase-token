@@ -1266,7 +1266,17 @@ operator|.
 name|show
 argument_list|()
 expr_stmt|;
-comment|/*#if defined(Q_WS_X11)     qt_x11_wait_for_window_manager(&w);     // wait for the show #endif*/
+name|QVERIFY
+argument_list|(
+name|QTest
+operator|::
+name|qWaitForWindowExposed
+argument_list|(
+operator|&
+name|w
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|int
 name|l
 decl_stmt|,
