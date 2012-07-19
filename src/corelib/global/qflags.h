@@ -37,6 +37,7 @@ name|int
 name|i
 parameter_list|)
 function_decl|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|operator
 name|int
@@ -84,6 +85,7 @@ argument_list|(
 argument|int i
 argument_list|)
 block|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|operator
 name|int
@@ -209,6 +211,7 @@ argument_list|(
 literal|0
 argument_list|)
 block|{}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QFlags
 argument_list|(
@@ -580,6 +583,7 @@ return|;
 block|}
 end_expr_stmt
 begin_decl_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|testFlag
