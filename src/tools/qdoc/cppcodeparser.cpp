@@ -4822,6 +4822,23 @@ block|{
 if|if
 condition|(
 name|node
+operator|->
+name|parent
+argument_list|()
+operator|&&
+operator|!
+name|node
+operator|->
+name|parent
+argument_list|()
+operator|->
+name|isInternal
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|node
 operator|!=
 literal|0
 operator|&&
@@ -4889,13 +4906,14 @@ argument_list|)
 argument_list|,
 name|tr
 argument_list|(
-literal|"The function either doesn't exist in any base class "
-literal|"with the same signature or it exists but isn't virtual."
+literal|"The function either doesn't exist in any "
+literal|"base class with the same signature or it "
+literal|"exists but isn't virtual."
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*               Ideally, we would enable this check to warn whenever               \reimp is used incorrectly, and only make the node               internal if the function is a reimplementation of               another function in a base class.             */
+comment|/*                   Ideally, we would enable this check to warn whenever                   \reimp is used incorrectly, and only make the node                   internal if the function is a reimplementation of                   another function in a base class.                 */
 elseif|else
 if|if
 condition|(
@@ -4930,7 +4948,9 @@ name|warning
 argument_list|(
 name|tr
 argument_list|(
-literal|"'\\%1' in %2() should be '\\internal' because its base function is private or internal"
+literal|"'\\%1' in %2() should be '\\internal' "
+literal|"because its base function is private "
+literal|"or internal"
 argument_list|)
 operator|.
 name|arg
@@ -4984,6 +5004,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 elseif|else
