@@ -295,7 +295,7 @@ begin_comment
 comment|/*! \enum QJsonDocument::DataValidation    This value is used to tell QJsonDocument whether to validate the binary data   when converting to a QJsonDocument using fromBinaryData() or fromRawData().    \value Validate Validate the data before using it. This is the default.   \value BypassValidation Bypasses data validation. Only use if you received the   data from a trusted place and know it's valid, as using of invalid data can crash   the application.   */
 end_comment
 begin_comment
-comment|/*!  Creates a QJsonDocument that uses the first \a size bytes from  \a data. It assumes \a data contains a binary encoded JSON document.  The created document does not take ownership of \a data and the caller  has to guarantee that \a data will not be deleted or modified as long as  any QJsonDocument, QJsonObject or QJsonArray still references the data.   \a data has to be aligned to a 4 byte boundary.   \a validation decides whether the data is checked for validity before being used.  By default the data is validated. If the \a data is not valid, the method returns  a null document.   Returns a QJsonDocument representing the data.   \sa rawData, fromBinaryData, isNull, DataValidation  */
+comment|/*!  Creates a QJsonDocument that uses the first \a size bytes from  \a data. It assumes \a data contains a binary encoded JSON document.  The created document does not take ownership of \a data and the caller  has to guarantee that \a data will not be deleted or modified as long as  any QJsonDocument, QJsonObject or QJsonArray still references the data.   \a data has to be aligned to a 4 byte boundary.   \a validation decides whether the data is checked for validity before being used.  By default the data is validated. If the \a data is not valid, the method returns  a null document.   Returns a QJsonDocument representing the data.   \sa rawData(), fromBinaryData(), isNull(), DataValidation  */
 end_comment
 begin_function
 DECL|function|fromRawData
@@ -392,7 +392,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns the raw binary representation of the data   \a size will contain the size of the \a data.    This method is useful to e.g. stream the JSON document   in it's binary form to a file.  */
+comment|/*!   Returns the raw binary representation of the data   \a size will contain the size of the returned data.    This method is useful to e.g. stream the JSON document   in it's binary form to a file.  */
 end_comment
 begin_function
 DECL|function|rawData
@@ -439,7 +439,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!  Creates a QJsonDocument from \a data.   \a validation decides whether the data is checked for validity before being used.  By default the data is validated. If the \a data is not valid, the method returns  a null document.   \sa toBinaryData, fromRawData, isNull, DataValidation  */
+comment|/*!  Creates a QJsonDocument from \a data.   \a validation decides whether the data is checked for validity before being used.  By default the data is validated. If the \a data is not valid, the method returns  a null document.   \sa toBinaryData(), fromRawData(), isNull(), DataValidation  */
 end_comment
 begin_function
 DECL|function|fromBinaryData
@@ -675,7 +675,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!  Creates a QJsonDocument from the QVariant \a variant.   If the \a variant contains any other type than a QVariant::Map,  QVariant::List or QVariant::StringList, the returned document  document is invalid.   \sa toVariant  */
+comment|/*!  Creates a QJsonDocument from the QVariant \a variant.   If the \a variant contains any other type than a QVariant::Map,  QVariant::List or QVariant::StringList, the returned document  document is invalid.   \sa toVariant()  */
 end_comment
 begin_function
 DECL|function|fromVariant
@@ -785,7 +785,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!  Returns a QVariant representing the Json document.   The returned variant will be a QVariantList if the document is  a QJsonArray and a QVariantMap if the document is a QJsonObject.   \sa fromVariant, QJsonValue::toVariant()  */
+comment|/*!  Returns a QVariant representing the Json document.   The returned variant will be a QVariantList if the document is  a QJsonArray and a QVariantMap if the document is a QJsonObject.   \sa fromVariant(), QJsonValue::toVariant()  */
 end_comment
 begin_function
 DECL|function|toVariant
@@ -871,7 +871,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!  Converts the QJsonDocument to a UTF-8 encoded JSON document.   \sa fromJson  */
+comment|/*!  Converts the QJsonDocument to a UTF-8 encoded JSON document.   \sa fromJson()  */
 end_comment
 begin_function
 DECL|function|toJson
@@ -967,7 +967,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!  Parses a UTF-8 encoded JSON document and creates a QJsonDocument  from it. isNull() will return \c false if no error was encountered during  parsing.   \sa toJson  */
+comment|/*!  Parses a UTF-8 encoded JSON document and creates a QJsonDocument  from it.   \a json contains the json document to be parsed.   The optional \a error variable can be used to pass in a QJsonParseError data  structure that will contain information about possible errors encountered during  parsing.   \sa toJson(), QJsonParseError  */
 end_comment
 begin_function
 DECL|function|fromJson
@@ -1038,7 +1038,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!  Returns a binary representation of the document.   The binary representation is also the native format used internally in Qt,  and is very efficient and fast to convert to and from.   The binary format can be stored on disk and interchanged with other applications  or computers. fromBinaryData() can be used to convert it back into a  JSON document.   \sa fromBinaryData  */
+comment|/*!  Returns a binary representation of the document.   The binary representation is also the native format used internally in Qt,  and is very efficient and fast to convert to and from.   The binary format can be stored on disk and interchanged with other applications  or computers. fromBinaryData() can be used to convert it back into a  JSON document.   \sa fromBinaryData()  */
 end_comment
 begin_function
 DECL|function|toBinaryData
@@ -1184,7 +1184,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the QJsonObject contained in the document.      Returns an empty object if the document contains an     array.      \sa isObject, array, setObject  */
+comment|/*!     Returns the QJsonObject contained in the document.      Returns an empty object if the document contains an     array.      \sa isObject(), array(), setObject()  */
 end_comment
 begin_function
 DECL|function|object
@@ -1245,7 +1245,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the QJsonArray contained in the document.      Returns an empty array if the document contains an     object.      \sa isArray, object, setArray  */
+comment|/*!     Returns the QJsonArray contained in the document.      Returns an empty array if the document contains an     object.      \sa isArray(), object(), setArray()  */
 end_comment
 begin_function
 DECL|function|array
@@ -1306,7 +1306,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets \a object as the main object of this document.      \sa setArray, object  */
+comment|/*!     Sets \a object as the main object of this document.      \sa setArray(), object()  */
 end_comment
 begin_function
 DECL|function|setObject
@@ -1430,7 +1430,7 @@ constructor_decl|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets \a array as the main object of this document.      \sa setObject, array  */
+comment|/*!     Sets \a array as the main object of this document.      \sa setObject(), array()  */
 end_comment
 begin_function
 DECL|function|setArray

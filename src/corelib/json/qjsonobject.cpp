@@ -49,6 +49,21 @@ begin_comment
 comment|/*!     \class QJsonObject     \ingroup json     \reentrant     \since 5.0      \brief The QJsonObject class encapsulates a JSON object.      A JSON object is a list of key value pairs, where the keys are unique strings     and the values are represented by a QJsonValue.      A QJsonObject can be converted to and from a QVariantMap. You can query the     number of (key, value) pairs with size(), insert(), and remove() entries from it     and iterate over its content using the standard C++ iterator pattern.      QJsonObject is an implicitly shared class, and shares the data with the document     it has been created from as long as it is not being modified.      You can convert the array to and from text based JSON through QJsonDocument. */
 end_comment
 begin_comment
+comment|/*!     \typedef QJsonObject::Iterator      Qt-style synonym for QJsonObject::iterator. */
+end_comment
+begin_comment
+comment|/*!     \typedef QJsonObject::ConstIterator      Qt-style synonym for QJsonObject::const_iterator. */
+end_comment
+begin_comment
+comment|/*!     \typedef QJsonObject::key_type      Typedef for QString. Provided for STL compatibility. */
+end_comment
+begin_comment
+comment|/*!     \typedef QJsonObject::mapped_type      Typedef for QJsonValue. Provided for STL compatibility. */
+end_comment
+begin_comment
+comment|/*!     \typedef QJsonObject::size_type      Typedef for int. Provided for STL compatibility. */
+end_comment
+begin_comment
 comment|/*!     Constructs an empty JSON object      \sa isEmpty()  */
 end_comment
 begin_constructor
@@ -1742,7 +1757,7 @@ begin_comment
 comment|/*! \fn QJsonObject::iterator&QJsonObject::iterator::operator-=(int j)      Makes the iterator go back by \a j items. If \a j is negative,     the iterator goes forward.      \sa operator+=(), operator-() */
 end_comment
 begin_comment
-comment|/*!     \class QJsonObject::const_iterator     \brief The QJsonObject::const_iterator class provides an STL-style const iterator for QJsonObject.      QJsonObject::const_iterator allows you to iterate over a QJsonObject.     If you want to modify the QJsonObject as you iterate     over it, you must use QJsonObject::iterator instead. It is generally     good practice to use QJsonObject::const_iterator on a non-const QJsonObject as     well, unless you need to change the QJsonObject through the iterator.     Const iterators are slightly faster and improves code     readability.      The default QJsonObject::const_iterator constructor creates an     uninitialized iterator. You must initialize it using a QJsonObject     function like QJsonObject::constBegin(), QJsonObject::constEnd(), or     QJsonObject::find() before you can start iterating.      Multiple iterators can be used on the same object. Existing iterators     will however become dangling if the object gets modified.      \sa QJsonObject::iterator, QJsonObjectIterator */
+comment|/*!     \class QJsonObject::const_iterator     \brief The QJsonObject::const_iterator class provides an STL-style const iterator for QJsonObject.      QJsonObject::const_iterator allows you to iterate over a QJsonObject.     If you want to modify the QJsonObject as you iterate     over it, you must use QJsonObject::iterator instead. It is generally     good practice to use QJsonObject::const_iterator on a non-const QJsonObject as     well, unless you need to change the QJsonObject through the iterator.     Const iterators are slightly faster and improves code     readability.      The default QJsonObject::const_iterator constructor creates an     uninitialized iterator. You must initialize it using a QJsonObject     function like QJsonObject::constBegin(), QJsonObject::constEnd(), or     QJsonObject::find() before you can start iterating.      Multiple iterators can be used on the same object. Existing iterators     will however become dangling if the object gets modified.      \sa QJsonObject::iterator */
 end_comment
 begin_comment
 comment|/*! \typedef QJsonObject::const_iterator::difference_type      \internal */
@@ -1772,10 +1787,10 @@ begin_comment
 comment|/*! \fn QJsonValue QJsonObject::const_iterator::operator*() const      Returns the current item's value.      Same as value().      \sa key() */
 end_comment
 begin_comment
-comment|/*! \fn bool QJsonObject::const_iterator::operator==(const const_iterator&other) const      Returns \c true if \a other points to the same item as this     iterator; otherwise returns \c false.      \sa operator!=() */
+comment|/*! \fn bool QJsonObject::const_iterator::operator==(const const_iterator&other) const     \fn bool QJsonObject::const_iterator::operator==(const iterator&other) const      Returns \c true if \a other points to the same item as this     iterator; otherwise returns \c false.      \sa operator!=() */
 end_comment
 begin_comment
-comment|/*! \fn bool QJsonObject::const_iterator::operator!=(const const_iterator&other) const      Returns \c true if \a other points to a different item than this     iterator; otherwise returns \c false.      \sa operator==() */
+comment|/*! \fn bool QJsonObject::const_iterator::operator!=(const const_iterator&other) const     \fn bool QJsonObject::const_iterator::operator!=(const iterator&other) const      Returns \c true if \a other points to a different item than this     iterator; otherwise returns \c false.      \sa operator==() */
 end_comment
 begin_comment
 comment|/*! \fn QJsonObject::const_iterator QJsonObject::const_iterator::operator++()      The prefix ++ operator, \c{++i}, advances the iterator to the     next item in the object and returns an iterator to the new current     item.      Calling this function on QJsonObject::end() leads to undefined results.      \sa operator--() */
@@ -2171,12 +2186,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|/*! \typedef QJsonObject::Iterator      Qt-style synonym for QJsonObject::iterator. */
-end_comment
-begin_comment
-comment|/*! \typedef QJsonObject::ConstIterator      Qt-style synonym for QJsonObject::const_iterator. */
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef

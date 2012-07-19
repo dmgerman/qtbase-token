@@ -1380,18 +1380,18 @@ name|iterator
 name|erase
 parameter_list|(
 name|iterator
-name|pos
+name|it
 parameter_list|)
 block|{
 name|removeAt
 argument_list|(
-name|pos
+name|it
 operator|.
 name|i
 argument_list|)
 expr_stmt|;
 return|return
-name|pos
+name|it
 return|;
 block|}
 comment|// more Qt

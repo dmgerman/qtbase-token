@@ -54,6 +54,33 @@ begin_comment
 comment|/*!     \class QJsonArray     \ingroup json     \reentrant     \since 5.0      \brief The QJsonArray class encapsulates a JSON array.      A JSON array is a list of values. The list can be manipulated by inserting and     removing QJsonValue's from the array.      A QJsonArray can be converted to and from a QVariantList. You can query the     number of entries with size(), insert(), and remove() entries from it     and iterate over its content using the standard C++ iterator pattern.      QJsonArray is an implicitly shared class and shares the data with the document     it has been created from as long as it is not being modified.      You can convert the array to and from text based JSON through QJsonDocument. */
 end_comment
 begin_comment
+comment|/*!     \typedef QJsonArray::Iterator      Qt-style synonym for QJsonArray::iterator. */
+end_comment
+begin_comment
+comment|/*!     \typedef QJsonArray::ConstIterator      Qt-style synonym for QJsonArray::const_iterator. */
+end_comment
+begin_comment
+comment|/*!     \typedef QJsonArray::size_type      Typedef for int. Provided for STL compatibility. */
+end_comment
+begin_comment
+comment|/*!     \typedef QJsonArray::value_type      Typedef for QJsonValue. Provided for STL compatibility. */
+end_comment
+begin_comment
+comment|/*!     \typedef QJsonArray::difference_type      Typedef for int. Provided for STL compatibility. */
+end_comment
+begin_comment
+comment|/*!     \typedef QJsonArray::pointer      Typedef for QJsonValue *. Provided for STL compatibility. */
+end_comment
+begin_comment
+comment|/*!     \typedef QJsonArray::const_pointer      Typedef for const QJsonValue *. Provided for STL compatibility. */
+end_comment
+begin_comment
+comment|/*!     \typedef QJsonArray::reference      Typedef for QJsonValue&. Provided for STL compatibility. */
+end_comment
+begin_comment
+comment|/*!     \typedef QJsonArray::const_reference      Typedef for const QJsonValue&. Provided for STL compatibility. */
+end_comment
+begin_comment
 comment|/*!     Creates an empty array.  */
 end_comment
 begin_constructor
@@ -266,7 +293,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Converts the string list \a list to a QJsonArray.      The values in \a list will be converted to JSON values.      \sa toVariantList, QJsonValue::fromString  */
+comment|/*!     Converts the string list \a list to a QJsonArray.      The values in \a list will be converted to JSON values.      \sa toVariantList(), QJsonValue::fromVariant()  */
 end_comment
 begin_function
 DECL|function|fromStringList
@@ -323,7 +350,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Converts the variant list \a list to a QJsonArray.      The QVariant values in \a list will be converted to JSON values.      \sa toVariantList, QJsonValue::fromVariant  */
+comment|/*!     Converts the variant list \a list to a QJsonArray.      The QVariant values in \a list will be converted to JSON values.      \sa toVariantList(), QJsonValue::fromVariant()  */
 end_comment
 begin_function
 DECL|function|fromVariantList
@@ -479,7 +506,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns \c true if the object is empty. This is the same as size() == 0.      \sa size  */
+comment|/*!     \fn QJsonArray::count() const      Same as size().      \sa size() */
+end_comment
+begin_comment
+comment|/*!     Returns \c true if the object is empty. This is the same as size() == 0.      \sa size()  */
 end_comment
 begin_function
 DECL|function|isEmpty
@@ -565,7 +595,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the first value stored in the array.      Same as \c at(0).      \sa at  */
+comment|/*!     Returns the first value stored in the array.      Same as \c at(0).      \sa at()  */
 end_comment
 begin_function
 DECL|function|first
@@ -585,7 +615,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the last value stored in the array.      Same as \c{at(size() - 1)}.      \sa at  */
+comment|/*!     Returns the last value stored in the array.      Same as \c{at(size() - 1)}.      \sa at()  */
 end_comment
 begin_function
 DECL|function|last
@@ -750,10 +780,10 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn void QJsonArray::removeFirst()      Removes the first item in the array. Calling this function is     equivalent to calling \c{removeAt(0)}. The array must not be empty. If     the array can be empty, call isEmpty() before calling this     function.      \sa removeAt(), takeFirst() */
+comment|/*! \fn void QJsonArray::removeFirst()      Removes the first item in the array. Calling this function is     equivalent to calling \c{removeAt(0)}. The array must not be empty. If     the array can be empty, call isEmpty() before calling this     function.      \sa removeAt(), removeLast() */
 end_comment
 begin_comment
-comment|/*! \fn void QJsonArray::removeLast()      Removes the last item in the array. Calling this function is     equivalent to calling \c{removeAt(size() - 1)}. The array must not be     empty. If the array can be empty, call isEmpty() before calling     this function.      \sa removeAt(), takeLast() */
+comment|/*! \fn void QJsonArray::removeLast()      Removes the last item in the array. Calling this function is     equivalent to calling \c{removeAt(size() - 1)}. The array must not be     empty. If the array can be empty, call isEmpty() before calling     this function.      \sa removeAt(), removeFirst() */
 end_comment
 begin_comment
 comment|/*!     Removes the item at index position \a i and returns it. \a i must     be a valid index position in the array (i.e., \c{0<= \a i< size()}).      If you don't use the return value, removeAt() is more efficient.      \sa removeAt()  */
@@ -1022,6 +1052,12 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn QJsonArray::iterator QJsonArray::insert(iterator before, const QJsonValue&value)      Inserts \a value before the position pointed to by \a before, and returns an iterator     pointing to the newly inserted item.      \sa erase(), insert() */
+end_comment
+begin_comment
+comment|/*!     \fn QJsonArray::iterator QJsonArray::erase(iterator it)      Removes the item pointed to by \a it, and returns an iterator pointing to the     next item.      \sa removeAt() */
+end_comment
+begin_comment
 comment|/*!     Replaces the item at index position \a i with \a value. \a i must     be a valid index position in the array (i.e., \c{0<= \a i< size()}).      \sa operator[](), removeAt()  */
 end_comment
 begin_function
@@ -1286,7 +1322,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the value at index position \a i as a modifiable reference.     \a i must be a valid index position in the array (i.e., \c{0<= \a i<     size()}).      The return value is of type QJsonValueRef, a helper class for QJsonArray     and QJsonObject. When you get an object of type QJsonValueRef, you can     use it as if it were a reference to a QJsonValue. If you assign to it,     the assignment will apply to the character in the QJsonArray of QJsonObject     from which you got the reference.      \sa at(), value()  */
+comment|/*!     Returns the value at index position \a i as a modifiable reference.     \a i must be a valid index position in the array (i.e., \c{0<= \a i<     size()}).      The return value is of type QJsonValueRef, a helper class for QJsonArray     and QJsonObject. When you get an object of type QJsonValueRef, you can     use it as if it were a reference to a QJsonValue. If you assign to it,     the assignment will apply to the character in the QJsonArray of QJsonObject     from which you got the reference.      \sa at()  */
 end_comment
 begin_function
 DECL|function|operator []
@@ -1619,7 +1655,7 @@ begin_comment
 comment|/*! \fn int QJsonArray::iterator::operator-(iterator other) const      Returns the number of items between the item pointed to by \a     other and the item pointed to by this iterator. */
 end_comment
 begin_comment
-comment|/*! \class QJsonArray::const_iterator     \brief The QJsonArray::const_iterator class provides an STL-style const iterator for QJsonArray.      QJsonArray::const_iterator allows you to iterate over a     QJsonArray. If you want to modify the QJsonArray as     you iterate over it, use QJsonArray::iterator instead. It is generally a     good practice to use QJsonArray::const_iterator on a non-const QJsonArray     as well, unless you need to change the QJsonArray through the     iterator. Const iterators are slightly faster and improves     code readability.      The default QJsonArray::const_iterator constructor creates an     uninitialized iterator. You must initialize it using a QJsonArray     function like QJsonArray::constBegin(), QJsonArray::constEnd(), or     QJsonArray::insert() before you can start iterating.      Most QJsonArray functions accept an integer index rather than an     iterator. For that reason, iterators are rarely useful in     connection with QJsonArray. One place where STL-style iterators do     make sense is as arguments to \l{generic algorithms}.      Multiple iterators can be used on the same array. However, be     aware that any non-const function call performed on the QJsonArray     will render all existing iterators undefined.      \sa QJsonArray::iterator, QJsonArrayIterator */
+comment|/*! \class QJsonArray::const_iterator     \brief The QJsonArray::const_iterator class provides an STL-style const iterator for QJsonArray.      QJsonArray::const_iterator allows you to iterate over a     QJsonArray. If you want to modify the QJsonArray as     you iterate over it, use QJsonArray::iterator instead. It is generally a     good practice to use QJsonArray::const_iterator on a non-const QJsonArray     as well, unless you need to change the QJsonArray through the     iterator. Const iterators are slightly faster and improves     code readability.      The default QJsonArray::const_iterator constructor creates an     uninitialized iterator. You must initialize it using a QJsonArray     function like QJsonArray::constBegin(), QJsonArray::constEnd(), or     QJsonArray::insert() before you can start iterating.      Most QJsonArray functions accept an integer index rather than an     iterator. For that reason, iterators are rarely useful in     connection with QJsonArray. One place where STL-style iterators do     make sense is as arguments to \l{generic algorithms}.      Multiple iterators can be used on the same array. However, be     aware that any non-const function call performed on the QJsonArray     will render all existing iterators undefined.      \sa QJsonArray::iterator */
 end_comment
 begin_comment
 comment|/*! \fn QJsonArray::const_iterator::const_iterator()      Constructs an uninitialized iterator.      Functions like operator*() and operator++() should not be called     on an uninitialized iterator. Use operator=() to assign a value     to it before using it.      \sa QJsonArray::constBegin(), QJsonArray::constEnd() */

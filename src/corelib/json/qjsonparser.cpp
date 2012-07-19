@@ -178,7 +178,9 @@ name|JSONERR_DEEP_NEST
 value|QT_TRANSLATE_NOOP("QJsonParseError", "too deeply nested document")
 comment|/*!     \class QJsonParseError     \ingroup json     \reentrant     \since 5.0      \brief The QJsonParseError class is used to report errors during JSON parsing. */
 comment|/*!     \enum QJsonParseError::ParseError      This enum describes the type of error that occurred during the parsing of a JSON document.      \value NoError                  No error occurred     \value UnterminatedObject       An object is not correctly terminated with a closing curly bracket     \value MissingNameSeparator     A comma separating different items is missing     \value UnterminatedArray        The array is not correctly terminated with a closing square bracket     \value MissingValueSeparator    A colon separating keys from values inside objects is missing     \value IllegalValue             The value is illegal     \value TerminationByNumber      The input stream ended while parsing a number     \value IllegalNumber            The number is not well formed     \value IllegalEscapeSequence    An illegal escape sequence occurred in the input     \value IllegalUTF8String        An illegal UTF8 sequence occurred in the input     \value UnterminatedString       A string wasn't terminated with a quote     \value MissingObject            An object was expected but couldn't be found     \value DeepNesting              The JSON document is too deeply nested for the parser to parse it */
-comment|/*!   Returns the human-readable message appropriate to the reported JSON parsing error.  */
+comment|/*!     \variable QJsonParseError::error      Contains the type of the parse error. Is equal to QJsonParseError::NoError if the document     was parsed correctly.      \sa ParseError, errorString() */
+comment|/*!     \variable QJsonParseError::offset      Contains the offset in the input string where the parse error occurred.      \sa error, errorString() */
+comment|/*!   Returns the human-readable message appropriate to the reported JSON parsing error.    \sa error  */
 DECL|function|errorString
 name|QString
 name|QJsonParseError
