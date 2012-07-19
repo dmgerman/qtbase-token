@@ -4356,6 +4356,16 @@ literal|"/System/Library/Frameworks"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|frameworkdirs
+operator|.
+name|append
+argument_list|(
+name|QMakeLocalFileName
+argument_list|(
+literal|"/Library/Frameworks"
+argument_list|)
+argument_list|)
+expr_stmt|;
 specifier|const
 name|QString
 name|lflags
