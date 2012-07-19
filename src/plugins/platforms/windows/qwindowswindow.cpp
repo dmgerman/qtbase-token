@@ -5241,6 +5241,15 @@ operator|::
 name|handleGeometryChange
 parameter_list|()
 block|{
+comment|//Prevent recursive resizes for Windows CE
+if|if
+condition|(
+name|testFlag
+argument_list|(
+name|WithinSetStyle
+argument_list|)
+condition|)
+return|return;
 name|m_data
 operator|.
 name|geometry
@@ -6905,6 +6914,11 @@ argument_list|)
 expr_stmt|;
 name|setFlag
 argument_list|(
+name|WithinSetStyle
+argument_list|)
+expr_stmt|;
+name|setFlag
+argument_list|(
 name|FrameDirty
 argument_list|)
 expr_stmt|;
@@ -6917,6 +6931,11 @@ argument_list|,
 name|GWL_STYLE
 argument_list|,
 name|s
+argument_list|)
+expr_stmt|;
+name|clearFlag
+argument_list|(
+name|WithinSetStyle
 argument_list|)
 expr_stmt|;
 block|}

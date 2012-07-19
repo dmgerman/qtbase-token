@@ -391,6 +391,10 @@ block|,
 name|SynchronousGeometryChangeEvent
 operator|=
 literal|0x400
+block|,
+name|WithinSetStyle
+operator|=
+literal|0x800
 block|}
 decl_stmt|;
 end_decl_stmt
