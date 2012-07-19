@@ -41,7 +41,7 @@ argument_list|)
 decl_stmt|;
 name|QPlatformScreen
 modifier|*
-name|handle
+name|screenHandle
 init|=
 name|app
 operator|.
@@ -54,6 +54,11 @@ operator|->
 name|handle
 argument_list|()
 decl_stmt|;
+name|screenHandle
+operator|->
+name|geometry
+argument_list|()
+expr_stmt|;
 return|return
 literal|0
 return|;
