@@ -93,6 +93,7 @@ begin_expr_stmt
 name|Q_STATIC_ASSERT
 argument_list|(
 operator|(
+operator|!
 name|QMetaTypeId2
 argument_list|<
 name|QWidget
@@ -156,9 +157,12 @@ name|QMetaType
 operator|::
 name|metaObjectForType
 argument_list|(
-name|QMetaType
-operator|::
-name|QWidgetStar
+name|qMetaTypeId
+argument_list|<
+name|QWidget
+operator|*
+argument_list|>
+argument_list|()
 argument_list|)
 argument_list|,
 operator|&

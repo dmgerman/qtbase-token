@@ -83,7 +83,16 @@ parameter_list|(
 name|F
 parameter_list|)
 define|\
-value|F(Void, 43, void) \     F(Bool, 1, bool) \     F(Int, 2, int) \     F(UInt, 3, uint) \     F(LongLong, 4, qlonglong) \     F(ULongLong, 5, qulonglong) \     F(Double, 6, double) \     F(Long, 32, long) \     F(Short, 33, short) \     F(Char, 34, char) \     F(ULong, 35, ulong) \     F(UShort, 36, ushort) \     F(UChar, 37, uchar) \     F(Float, 38, float) \     F(SChar, 49, signed char) \  #define QT_FOR_EACH_STATIC_PRIMITIVE_POINTER(F)\     F(VoidStar, 31, void*) \  #define QT_FOR_EACH_STATIC_CORE_CLASS(F)\     F(QChar, 7, QChar) \     F(QString, 10, QString) \     F(QStringList, 11, QStringList) \     F(QByteArray, 12, QByteArray) \     F(QBitArray, 13, QBitArray) \     F(QDate, 14, QDate) \     F(QTime, 15, QTime) \     F(QDateTime, 16, QDateTime) \     F(QUrl, 17, QUrl) \     F(QLocale, 18, QLocale) \     F(QRect, 19, QRect) \     F(QRectF, 20, QRectF) \     F(QSize, 21, QSize) \     F(QSizeF, 22, QSizeF) \     F(QLine, 23, QLine) \     F(QLineF, 24, QLineF) \     F(QPoint, 25, QPoint) \     F(QPointF, 26, QPointF) \     F(QRegExp, 27, QRegExp) \     F(QEasingCurve, 29, QEasingCurve) \     F(QUuid, 30, QUuid) \     F(QVariant, 41, QVariant) \     F(QModelIndex, 42, QModelIndex) \     F(QRegularExpression, 44, QRegularExpression) \     F(QJsonValue, 45, QJsonValue) \     F(QJsonObject, 46, QJsonObject) \     F(QJsonArray, 47, QJsonArray) \     F(QJsonDocument, 48, QJsonDocument) \  #define QT_FOR_EACH_STATIC_CORE_POINTER(F)\     F(QObjectStar, 39, QObject*) \     F(QWidgetStar, 40, QWidget*) \  #define QT_FOR_EACH_STATIC_CORE_TEMPLATE(F)\     F(QVariantMap, 8, QVariantMap) \     F(QVariantList, 9, QVariantList) \     F(QVariantHash, 28, QVariantHash) \  #define QT_FOR_EACH_STATIC_GUI_CLASS(F)\     F(QFont, 64, QFont) \     F(QPixmap, 65, QPixmap) \     F(QBrush, 66, QBrush) \     F(QColor, 67, QColor) \     F(QPalette, 68, QPalette) \     F(QIcon, 69, QIcon) \     F(QImage, 70, QImage) \     F(QPolygon, 71, QPolygon) \     F(QRegion, 72, QRegion) \     F(QBitmap, 73, QBitmap) \     F(QCursor, 74, QCursor) \     F(QKeySequence, 75, QKeySequence) \     F(QPen, 76, QPen) \     F(QTextLength, 77, QTextLength) \     F(QTextFormat, 78, QTextFormat) \     F(QMatrix, 79, QMatrix) \     F(QTransform, 80, QTransform) \     F(QMatrix4x4, 81, QMatrix4x4) \     F(QVector2D, 82, QVector2D) \     F(QVector3D, 83, QVector3D) \     F(QVector4D, 84, QVector4D) \     F(QQuaternion, 85, QQuaternion) \     F(QPolygonF, 86, QPolygonF) \   #define QT_FOR_EACH_STATIC_WIDGETS_CLASS(F)\     F(QSizePolicy, 121, QSizePolicy)
+value|F(Void, 43, void) \     F(Bool, 1, bool) \     F(Int, 2, int) \     F(UInt, 3, uint) \     F(LongLong, 4, qlonglong) \     F(ULongLong, 5, qulonglong) \     F(Double, 6, double) \     F(Long, 32, long) \     F(Short, 33, short) \     F(Char, 34, char) \     F(ULong, 35, ulong) \     F(UShort, 36, ushort) \     F(UChar, 37, uchar) \     F(Float, 38, float) \     F(SChar, 49, signed char) \  #define QT_FOR_EACH_STATIC_PRIMITIVE_POINTER(F)\     F(VoidStar, 31, void*) \  #define QT_FOR_EACH_STATIC_CORE_CLASS(F)\     F(QChar, 7, QChar) \     F(QString, 10, QString) \     F(QStringList, 11, QStringList) \     F(QByteArray, 12, QByteArray) \     F(QBitArray, 13, QBitArray) \     F(QDate, 14, QDate) \     F(QTime, 15, QTime) \     F(QDateTime, 16, QDateTime) \     F(QUrl, 17, QUrl) \     F(QLocale, 18, QLocale) \     F(QRect, 19, QRect) \     F(QRectF, 20, QRectF) \     F(QSize, 21, QSize) \     F(QSizeF, 22, QSizeF) \     F(QLine, 23, QLine) \     F(QLineF, 24, QLineF) \     F(QPoint, 25, QPoint) \     F(QPointF, 26, QPointF) \     F(QRegExp, 27, QRegExp) \     F(QEasingCurve, 29, QEasingCurve) \     F(QUuid, 30, QUuid) \     F(QVariant, 41, QVariant) \     F(QModelIndex, 42, QModelIndex) \     F(QRegularExpression, 44, QRegularExpression) \     F(QJsonValue, 45, QJsonValue) \     F(QJsonObject, 46, QJsonObject) \     F(QJsonArray, 47, QJsonArray) \     F(QJsonDocument, 48, QJsonDocument) \  #define QT_FOR_EACH_STATIC_CORE_POINTER(F)\     F(QObjectStar, 39, QObject*)
+DECL|macro|QT_FOR_EACH_STATIC_CORE_TEMPLATE
+define|#
+directive|define
+name|QT_FOR_EACH_STATIC_CORE_TEMPLATE
+parameter_list|(
+name|F
+parameter_list|)
+define|\
+value|F(QVariantMap, 8, QVariantMap) \     F(QVariantList, 9, QVariantList) \     F(QVariantHash, 28, QVariantHash) \  #define QT_FOR_EACH_STATIC_GUI_CLASS(F)\     F(QFont, 64, QFont) \     F(QPixmap, 65, QPixmap) \     F(QBrush, 66, QBrush) \     F(QColor, 67, QColor) \     F(QPalette, 68, QPalette) \     F(QIcon, 69, QIcon) \     F(QImage, 70, QImage) \     F(QPolygon, 71, QPolygon) \     F(QRegion, 72, QRegion) \     F(QBitmap, 73, QBitmap) \     F(QCursor, 74, QCursor) \     F(QKeySequence, 75, QKeySequence) \     F(QPen, 76, QPen) \     F(QTextLength, 77, QTextLength) \     F(QTextFormat, 78, QTextFormat) \     F(QMatrix, 79, QMatrix) \     F(QTransform, 80, QTransform) \     F(QMatrix4x4, 81, QMatrix4x4) \     F(QVector2D, 82, QVector2D) \     F(QVector3D, 83, QVector3D) \     F(QVector4D, 84, QVector4D) \     F(QQuaternion, 85, QQuaternion) \     F(QPolygonF, 86, QPolygonF) \   #define QT_FOR_EACH_STATIC_WIDGETS_CLASS(F)\     F(QSizePolicy, 121, QSizePolicy)
 type|\
 comment|// ### FIXME kill that set
 DECL|macro|QT_FOR_EACH_STATIC_HACKS_TYPE
@@ -424,10 +433,6 @@ block|,
 name|QObjectStar
 init|=
 literal|39
-block|,
-name|QWidgetStar
-init|=
-literal|40
 block|,
 name|Void
 init|=
@@ -1732,23 +1737,6 @@ block|;     }
 expr_stmt|;
 name|template
 operator|<
-operator|>
-expr|struct
-name|IsPointerToTypeDerivedFromQObject
-operator|<
-name|QWidget
-operator|*
-operator|>
-block|{         enum
-block|{
-name|Value
-operator|=
-name|true
-block|}
-block|;     }
-expr_stmt|;
-name|template
-operator|<
 name|typename
 name|T
 operator|>
@@ -1888,43 +1876,6 @@ operator|&
 name|T
 operator|::
 name|staticMetaObject
-return|;
-block|}
-end_expr_stmt
-begin_function_decl
-unit|};
-name|Q_CORE_EXPORT
-specifier|const
-name|QMetaObject
-modifier|*
-name|metaObjectForQWidget
-parameter_list|()
-function_decl|;
-end_function_decl
-begin_expr_stmt
-name|template
-operator|<
-operator|>
-expr|struct
-name|MetaObjectForType
-operator|<
-name|QWidget
-operator|*
-operator|,
-comment|/* isPointerToTypeDerivedFromQObject = */
-name|true
-operator|>
-block|{
-specifier|static
-specifier|const
-name|QMetaObject
-operator|*
-name|value
-argument_list|()
-block|{
-return|return
-name|metaObjectForQWidget
-argument_list|()
 return|;
 block|}
 end_expr_stmt

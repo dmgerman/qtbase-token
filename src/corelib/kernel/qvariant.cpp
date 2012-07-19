@@ -5097,7 +5097,7 @@ begin_comment
 comment|/*!     \fn QVariant::QVariant()      Constructs an invalid variant. */
 end_comment
 begin_comment
-comment|/*!     \fn QVariant::QVariant(int typeId, const void *copy)      Constructs variant of type \a typeId, and initializes with     \a copy if \a copy is not 0.      Note that you have to pass the address of the variable you want stored.      Usually, you never have to use this constructor, use QVariant::fromValue()     instead to construct variants from the pointer types represented by     \c QMetaType::VoidStar, \c QMetaType::QObjectStar and     \c QMetaType::QWidgetStar.      \sa QVariant::fromValue(), Type */
+comment|/*!     \fn QVariant::QVariant(int typeId, const void *copy)      Constructs variant of type \a typeId, and initializes with     \a copy if \a copy is not 0.      Note that you have to pass the address of the variable you want stored.      Usually, you never have to use this constructor, use QVariant::fromValue()     instead to construct variants from the pointer types represented by     \c QMetaType::VoidStar, and \c QMetaType::QObjectStar.      \sa QVariant::fromValue(), Type */
 end_comment
 begin_comment
 comment|/*!     \fn QVariant::QVariant(Type type)      Constructs a null variant of type \a type. */
@@ -10674,11 +10674,6 @@ name|QVariant
 operator|::
 name|Int
 return|;
-case|case
-name|QMetaType
-operator|::
-name|QWidgetStar
-case|:
 case|case
 name|QMetaType
 operator|::
