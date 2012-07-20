@@ -2305,11 +2305,6 @@ name|QSurfaceFormat
 operator|::
 name|DefaultSwapBehavior
 case|:
-case|case
-name|QSurfaceFormat
-operator|::
-name|TripleBuffer
-case|:
 break|break;
 case|case
 name|QSurfaceFormat
@@ -2337,6 +2332,11 @@ case|case
 name|QSurfaceFormat
 operator|::
 name|DoubleBuffer
+case|:
+case|case
+name|QSurfaceFormat
+operator|::
+name|TripleBuffer
 case|:
 name|iAttributes
 index|[
