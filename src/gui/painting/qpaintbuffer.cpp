@@ -14221,7 +14221,7 @@ name|void
 name|qRegisterPaintBufferMetaTypes
 argument_list|()
 argument_list|{
-name|qRegisterMetaType
+name|qRegisterMetaTypeStreamOperators
 argument_list|<
 name|QPaintBufferCacheEntry
 argument_list|>
@@ -14229,25 +14229,9 @@ argument_list|()
 argument_list|;
 name|qRegisterMetaTypeStreamOperators
 argument_list|<
-name|QPaintBufferCacheEntry
-argument_list|>
-argument_list|(
-literal|"QPaintBufferCacheEntry"
-argument_list|)
-argument_list|;
-name|qRegisterMetaType
-argument_list|<
 name|QPaintBufferCacheEntryV2
 argument_list|>
 argument_list|()
-argument_list|;
-name|qRegisterMetaTypeStreamOperators
-argument_list|<
-name|QPaintBufferCacheEntryV2
-argument_list|>
-argument_list|(
-literal|"QPaintBufferCacheEntryV2"
-argument_list|)
 argument_list|; }
 name|Q_CONSTRUCTOR_FUNCTION
 argument_list|(
