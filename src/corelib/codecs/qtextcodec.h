@@ -518,14 +518,9 @@ expr_stmt|;
 name|private
 label|:
 name|friend
-name|class
-name|QTextCodecCleanup
-decl_stmt|;
-specifier|static
-name|bool
-name|validCodecs
-parameter_list|()
-function_decl|;
+struct_decl|struct
+name|QCoreGlobalData
+struct_decl|;
 block|}
 end_decl_stmt
 begin_empty_stmt
