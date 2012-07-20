@@ -1815,6 +1815,14 @@ argument_list|(
 name|filename
 argument_list|)
 expr_stmt|;
+name|moc
+operator|.
+name|includes
+operator|=
+name|pp
+operator|.
+name|includes
+expr_stmt|;
 comment|// 1. preprocess
 name|moc
 operator|.
