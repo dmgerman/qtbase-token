@@ -79,12 +79,10 @@ name|window
 parameter_list|)
 block|{
 return|return
-name|QPixmap
-operator|::
-name|grabWidget
-argument_list|(
 name|window
-argument_list|)
+operator|->
+name|grab
+argument_list|()
 operator|.
 name|toImage
 argument_list|()
@@ -12787,10 +12785,6 @@ parameter_list|()
 specifier|const
 block|{
 return|return
-name|QPixmap
-operator|::
-name|grabWidget
-argument_list|(
 cast|const_cast
 argument_list|<
 name|TestWizard
@@ -12799,7 +12793,9 @@ argument_list|>
 argument_list|(
 name|this
 argument_list|)
-argument_list|)
+operator|->
+name|grab
+argument_list|()
 operator|.
 name|toImage
 argument_list|()
