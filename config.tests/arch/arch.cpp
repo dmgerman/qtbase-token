@@ -435,7 +435,18 @@ directive|endif
 endif|#
 directive|endif
 comment|// -- MIPS --
-comment|// Wikipedia says there are extensions, but GCC installs no headers
+if|#
+directive|if
+name|__mips_dsp
+literal|" dsp"
+endif|#
+directive|endif
+if|#
+directive|if
+name|__mips_dspr2
+literal|" dspr2"
+endif|#
+directive|endif
 comment|// -- POWER, PowerPC --
 ifdef|#
 directive|ifdef
