@@ -124,6 +124,9 @@ endif|#
 directive|endif
 block|}
 enum|;
+name|QDBusError
+argument_list|()
+expr_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_BOOTSTRAPPED
@@ -134,8 +137,6 @@ specifier|const
 name|DBusError
 modifier|*
 name|error
-init|=
-literal|0
 parameter_list|)
 function_decl|;
 comment|/*implicit*/
@@ -262,10 +263,14 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_expr_stmt
+begin_decl_stmt
 name|QT_END_NAMESPACE
+name|Q_DECLARE_METATYPE
+argument_list|(
+name|QDBusError
+argument_list|)
 name|QT_END_HEADER
-end_expr_stmt
+end_decl_stmt
 begin_endif
 endif|#
 directive|endif

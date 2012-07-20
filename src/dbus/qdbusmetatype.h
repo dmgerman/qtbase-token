@@ -236,7 +236,7 @@ block|;
 name|int
 name|id
 operator|=
-name|qRegisterMetaType
+name|qMetaTypeId
 operator|<
 name|T
 operator|>
