@@ -1642,11 +1642,11 @@ name|lParam
 operator|=
 name|lp
 expr_stmt|;
-name|QCoreApplication
+name|QAbstractEventDispatcher
 modifier|*
-name|app
+name|dispatcher
 init|=
-name|QCoreApplication
+name|QAbstractEventDispatcher
 operator|::
 name|instance
 argument_list|()
@@ -1657,7 +1657,7 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|app
+name|dispatcher
 condition|)
 block|{
 if|if
@@ -1680,7 +1680,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|app
+name|dispatcher
 operator|->
 name|filterNativeEvent
 argument_list|(

@@ -492,35 +492,6 @@ argument_list|(
 name|prevInstance
 argument_list|)
 argument_list|; }
-comment|/*!     The message procedure calls this function for every message     received. Reimplement this function if you want to process window     messages \a msg that are not processed by Qt. If you don't want     the event to be processed by Qt, then return true and set \a result     to the value that the window procedure should return. Otherwise     return false. */
-DECL|function|winEventFilter
-name|bool
-name|QCoreApplication
-operator|::
-name|winEventFilter
-argument_list|(
-name|MSG
-operator|*
-name|msg
-argument_list|,
-name|long
-operator|*
-name|result
-argument_list|)
-comment|// Windows event filter
-argument_list|{
-name|Q_UNUSED
-argument_list|(
-name|msg
-argument_list|)
-argument_list|;
-name|Q_UNUSED
-argument_list|(
-name|result
-argument_list|)
-argument_list|;     return
-literal|false
-argument_list|; }
 DECL|function|removePostedTimerEvent
 name|void
 name|QCoreApplicationPrivate
