@@ -432,7 +432,7 @@ if|#
 directive|if
 name|QT_DEPRECATED_SINCE
 argument_list|(
-literal|6
+literal|5
 operator|,
 literal|0
 argument_list|)
@@ -461,6 +461,17 @@ name|timeout
 argument_list|)
 return|;
 block|}
+endif|#
+directive|endif
+comment|// QT_DEPRECATED_SINCE(5, 0)
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|6
+operator|,
+literal|0
+argument_list|)
 ifdef|#
 directive|ifdef
 name|QT_WIDGETS_LIB
