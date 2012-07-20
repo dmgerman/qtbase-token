@@ -319,12 +319,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QFileInfo
-argument_list|)
-end_macro
 begin_function
 DECL|function|iconInfo_data
 name|void

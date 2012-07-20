@@ -9436,9 +9436,7 @@ name|QFileInfo
 argument_list|>
 argument_list|>
 argument_list|>
-argument_list|(
-literal|"QList<QPair<QString,QFileInfo>>"
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|q
 operator|->
