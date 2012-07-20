@@ -24,7 +24,7 @@ block|{
 comment|// Compile error if the resource file was not created.
 name|Q_INIT_RESOURCE
 argument_list|(
-name|test_add_resources_delyed_file
+name|test_add_resources_delayed_file
 argument_list|)
 expr_stmt|;
 return|return
