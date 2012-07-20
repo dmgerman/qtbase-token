@@ -22,12 +22,6 @@ include|#
 directive|include
 file|<QtWidgets>
 end_include
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QNetworkConfiguration
-argument_list|)
-end_macro
 begin_constructor
 DECL|function|BearerEx
 name|BearerEx

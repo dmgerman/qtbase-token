@@ -877,6 +877,10 @@ block|;
 endif|#
 directive|endif
 name|QT_END_NAMESPACE
+name|Q_DECLARE_METATYPE
+argument_list|(
+argument|QSharedPointer<char>
+argument_list|)
 end_decl_stmt
 begin_endif
 endif|#

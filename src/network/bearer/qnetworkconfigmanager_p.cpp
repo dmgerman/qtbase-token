@@ -104,17 +104,13 @@ name|qRegisterMetaType
 argument_list|<
 name|QNetworkConfiguration
 argument_list|>
-argument_list|(
-literal|"QNetworkConfiguration"
-argument_list|)
+argument_list|()
 argument_list|;
 name|qRegisterMetaType
 argument_list|<
 name|QNetworkConfigurationPrivatePointer
 argument_list|>
-argument_list|(
-literal|"QNetworkConfigurationPrivatePointer"
-argument_list|)
+argument_list|()
 argument_list|; }
 DECL|function|initialize
 name|void

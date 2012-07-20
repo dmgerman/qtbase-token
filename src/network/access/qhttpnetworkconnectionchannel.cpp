@@ -363,9 +363,7 @@ name|QAbstractSocket
 operator|::
 name|SocketError
 argument_list|>
-argument_list|(
-literal|"QAbstractSocket::SocketError"
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|QObject
 operator|::

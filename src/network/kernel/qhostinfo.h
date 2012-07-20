@@ -224,10 +224,14 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
-begin_expr_stmt
+begin_decl_stmt
 name|QT_END_NAMESPACE
+name|Q_DECLARE_METATYPE
+argument_list|(
+name|QHostInfo
+argument_list|)
 name|QT_END_HEADER
-end_expr_stmt
+end_decl_stmt
 begin_endif
 endif|#
 directive|endif

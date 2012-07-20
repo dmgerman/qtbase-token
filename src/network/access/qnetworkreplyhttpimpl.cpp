@@ -99,12 +99,6 @@ begin_comment
 comment|// for strchr
 end_comment
 begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QSharedPointer<char>
-argument_list|)
-end_macro
-begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_class_decl

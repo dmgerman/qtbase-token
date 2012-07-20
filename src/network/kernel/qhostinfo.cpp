@@ -169,9 +169,7 @@ name|qRegisterMetaType
 argument_list|<
 name|QHostInfo
 argument_list|>
-argument_list|(
-literal|"QHostInfo"
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|int
 name|id

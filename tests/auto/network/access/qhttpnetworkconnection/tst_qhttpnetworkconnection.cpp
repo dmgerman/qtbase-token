@@ -4394,12 +4394,6 @@ ifdef|#
 directive|ifdef
 name|QT_NO_SSL
 end_ifdef
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QNetworkReply::NetworkError
-argument_list|)
-end_macro
 begin_function
 DECL|function|nossl_data
 name|void

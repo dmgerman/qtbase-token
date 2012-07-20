@@ -247,9 +247,7 @@ name|QBearerEngineImpl
 operator|::
 name|ConnectionError
 argument_list|>
-argument_list|(
-literal|"QBearerEngineImpl::ConnectionError"
-argument_list|)
+argument_list|()
 expr_stmt|;
 switch|switch
 condition|(
@@ -287,9 +285,7 @@ name|qRegisterMetaType
 argument_list|<
 name|QNetworkConfigurationPrivatePointer
 argument_list|>
-argument_list|(
-literal|"QNetworkConfigurationPrivatePointer"
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|connect
 argument_list|(

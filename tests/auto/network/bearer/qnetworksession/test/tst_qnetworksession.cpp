@@ -61,10 +61,6 @@ name|QT_NO_BEARERMANAGEMENT
 name|Q_DECLARE_METATYPE
 argument_list|(
 name|QNetworkConfiguration
-argument_list|)
-name|Q_DECLARE_METATYPE
-argument_list|(
-name|QNetworkConfiguration
 operator|::
 name|Type
 argument_list|)

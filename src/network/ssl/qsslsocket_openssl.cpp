@@ -93,23 +93,6 @@ end_include
 begin_comment
 comment|// for loading the security lib for the CA store
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_WIN
-end_ifdef
-begin_expr_stmt
-DECL|variable|QSslCertificate
-name|Q_DECLARE_METATYPE
-argument_list|(
-name|QSslCertificate
-argument_list|)
-expr_stmt|;
-end_expr_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 if|#
