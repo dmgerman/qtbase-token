@@ -4344,6 +4344,8 @@ init|=
 block|{
 literal|"QMAKE_LIBS"
 block|,
+literal|"QMAKE_LIBS_PRIVATE"
+block|,
 name|QString
 argument_list|()
 block|}
