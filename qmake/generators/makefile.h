@@ -979,7 +979,6 @@ name|QString
 operator|&
 argument_list|)
 block|;
-name|virtual
 name|void
 name|processPrlVariable
 argument_list|(
