@@ -2108,6 +2108,7 @@ DECL|struct|QMetaTypeId2
 name|QMetaTypeId2
 block|{     enum
 DECL|enumerator|Defined
+DECL|enumerator|IsBuiltIn
 block|{
 name|Defined
 operator|=
@@ -2117,6 +2118,10 @@ name|T
 operator|>
 operator|::
 name|Defined
+block|,
+name|IsBuiltIn
+operator|=
+name|false
 block|}
 block|;
 DECL|function|qt_metatype_id
@@ -3044,7 +3049,7 @@ parameter_list|,
 name|NAME
 parameter_list|)
 define|\
-value|QT_BEGIN_NAMESPACE \     template<> struct QMetaTypeId2<NAME> \     { \         enum { Defined = 1, MetaType = METATYPEID }; \         static inline Q_DECL_CONSTEXPR int qt_metatype_id() { return METATYPEID; } \     }; \     QT_END_NAMESPACE
+value|QT_BEGIN_NAMESPACE \     template<> struct QMetaTypeId2<NAME> \     { \         enum { Defined = 1, IsBuiltIn = true, MetaType = METATYPEID };   \         static inline Q_DECL_CONSTEXPR int qt_metatype_id() { return METATYPEID; } \     }; \     QT_END_NAMESPACE
 end_define
 begin_define
 DECL|macro|QT_FORWARD_DECLARE_STATIC_TYPES_ITER
