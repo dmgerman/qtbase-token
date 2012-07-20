@@ -496,11 +496,15 @@ operator|.
 name|show
 argument_list|()
 expr_stmt|;
+name|QVERIFY
+argument_list|(
 name|QTest
 operator|::
-name|qWait
+name|qWaitForWindowExposed
 argument_list|(
-literal|20
+operator|&
+name|dlg
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|int
