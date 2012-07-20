@@ -150,20 +150,19 @@ name|mibEnum
 argument_list|()
 specifier|const
 block|;
-specifier|static
+name|void
+name|init
+argument_list|()
+specifier|const
+block|;
 name|iconv_t
 name|createIconv_t
 argument_list|(
-specifier|const
-name|char
-operator|*
-name|to
+argument|const char *to
 argument_list|,
-specifier|const
-name|char
-operator|*
-name|from
+argument|const char *from
 argument_list|)
+specifier|const
 block|;
 name|class
 name|IconvState

@@ -322,6 +322,16 @@ name|utf16Codec
 argument_list|(
 literal|0
 argument_list|)
+block|{ }
+end_constructor
+begin_function
+DECL|function|init
+name|void
+name|QIconvCodec
+operator|::
+name|init
+parameter_list|()
+specifier|const
 block|{
 name|utf16Codec
 operator|=
@@ -549,7 +559,7 @@ block|}
 endif|#
 directive|endif
 block|}
-end_constructor
+end_function
 begin_destructor
 DECL|function|~QIconvCodec
 name|QIconvCodec
@@ -916,8 +926,6 @@ comment|// first time, create the state
 name|iconv_t
 name|cd
 init|=
-name|QIconvCodec
-operator|::
 name|createIconv_t
 argument_list|(
 name|UTF16
@@ -1654,8 +1662,6 @@ block|{
 name|iconv_t
 name|cd
 init|=
-name|QIconvCodec
-operator|::
 name|createIconv_t
 argument_list|(
 literal|0
@@ -2224,6 +2230,7 @@ name|char
 modifier|*
 name|from
 parameter_list|)
+specifier|const
 block|{
 name|Q_ASSERT
 argument_list|(
@@ -2247,6 +2254,14 @@ operator|==
 literal|0
 operator|)
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|utf16Codec
+condition|)
+name|init
+argument_list|()
 expr_stmt|;
 name|iconv_t
 name|cd
