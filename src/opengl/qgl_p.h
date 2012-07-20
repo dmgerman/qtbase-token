@@ -1351,6 +1351,13 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 unit|};
+name|QT_END_NAMESPACE
+DECL|function|Q_DECLARE_METATYPE
+name|Q_DECLARE_METATYPE
+argument_list|(
+name|GLuint
+argument_list|)
+name|QT_BEGIN_NAMESPACE
 name|class
 name|Q_OPENGL_EXPORT
 name|QGLTextureDestroyer
@@ -1372,7 +1379,6 @@ operator|<
 name|GLuint
 operator|>
 operator|(
-literal|"GLuint"
 operator|)
 block|;
 name|connect
