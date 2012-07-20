@@ -27,12 +27,6 @@ include|#
 directive|include
 file|"dynamictreemodel.h"
 end_include
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QModelIndex
-argument_list|)
-end_macro
 begin_comment
 comment|/*!     Note that this doesn't test models, but any functionality that QAbstractItemModel should provide  */
 end_comment
@@ -48,10 +42,6 @@ name|Q_OBJECT
 public|public
 name|slots
 public|:
-name|void
-name|initTestCase
-parameter_list|()
-function_decl|;
 name|void
 name|init
 parameter_list|()
@@ -1840,27 +1830,6 @@ literal|2
 operator|==
 literal|0
 return|;
-block|}
-end_function
-begin_comment
-comment|/**  * The source Model *must* be initialized before the _data function, since the _data function uses QModelIndexes to reference the items in the tables.  * Therefore, we must initialize it globally.  */
-end_comment
-begin_function
-DECL|function|initTestCase
-name|void
-name|tst_QAbstractItemModel
-operator|::
-name|initTestCase
-parameter_list|()
-block|{
-name|qRegisterMetaType
-argument_list|<
-name|QModelIndex
-argument_list|>
-argument_list|(
-literal|"QModelIndex"
-argument_list|)
-expr_stmt|;
 block|}
 end_function
 begin_function

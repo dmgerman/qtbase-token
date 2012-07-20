@@ -27,12 +27,6 @@ include|#
 directive|include
 file|<QMetaType>
 end_include
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QModelIndex
-argument_list|)
-end_macro
 begin_comment
 comment|/*!     See modelstotest.cpp for instructions on how to have your model tested with these tests.      Each test such as rowCount have a _data() function which populate the QTest data with     the tests specified by modelstotest.cpp and any extra data needed for that particular test.      setupWithNoTestData() fills the QTest data with just the tests and is used by most tests.  */
 end_comment
@@ -2810,14 +2804,6 @@ argument_list|(
 name|currentModel
 argument_list|)
 expr_stmt|;
-name|qRegisterMetaType
-argument_list|<
-name|QModelIndex
-argument_list|>
-argument_list|(
-literal|"QModelIndex"
-argument_list|)
-expr_stmt|;
 name|QSignalSpy
 name|spy
 argument_list|(
@@ -4578,14 +4564,6 @@ return|return;
 block|}
 comment|// When a row or column is removed there should be two signals.
 comment|// Watch to make sure they are emitted and get the row/column count when they do get emitted by connecting them to a slot
-name|qRegisterMetaType
-argument_list|<
-name|QModelIndex
-argument_list|>
-argument_list|(
-literal|"QModelIndex"
-argument_list|)
-expr_stmt|;
 name|QSignalSpy
 name|columnsAboutToBeRemovedSpy
 argument_list|(
@@ -7221,14 +7199,6 @@ return|return;
 block|}
 comment|// When a row or column is inserted there should be two signals.
 comment|// Watch to make sure they are emitted and get the row/column count when they do get emitted by connecting them to a slot
-name|qRegisterMetaType
-argument_list|<
-name|QModelIndex
-argument_list|>
-argument_list|(
-literal|"QModelIndex"
-argument_list|)
-expr_stmt|;
 name|QSignalSpy
 name|columnsAboutToBeInsertedSpy
 argument_list|(

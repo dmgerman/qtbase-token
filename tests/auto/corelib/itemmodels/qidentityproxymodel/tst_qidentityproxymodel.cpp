@@ -27,12 +27,6 @@ include|#
 directive|include
 file|"qidentityproxymodel.h"
 end_include
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QModelIndex
-argument_list|)
-end_macro
 begin_class
 DECL|class|tst_QIdentityProxyModel
 class|class
@@ -137,14 +131,6 @@ operator|::
 name|initTestCase
 parameter_list|()
 block|{
-name|qRegisterMetaType
-argument_list|<
-name|QModelIndex
-argument_list|>
-argument_list|(
-literal|"QModelIndex"
-argument_list|)
-expr_stmt|;
 name|m_model
 operator|=
 operator|new
