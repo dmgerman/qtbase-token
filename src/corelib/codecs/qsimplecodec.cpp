@@ -7154,10 +7154,10 @@ block|}
 block|}
 block|,
 block|{
-literal|"Apple Roman"
+literal|"macintosh"
 block|,
 block|{
-literal|"macintosh"
+literal|"Apple Roman"
 block|,
 literal|"MacRoman"
 block|,
@@ -7977,10 +7977,10 @@ block|}
 block|,
 comment|/*       Name: hp-roman8                                  [HP-PCL5,RFC1345,KXS2]       MIBenum: 2004       Source: LaserJet IIP Printer User's Manual,       HP part no 33471-90901, Hewlet-Packard, June 1989.       Alias: roman8       Alias: r8       Alias: csHPRoman8     */
 block|{
-literal|"roman8"
+literal|"hp-roman8"
 block|,
 block|{
-literal|"hp-roman8"
+literal|"roman8"
 block|,
 literal|"csHPRoman8"
 block|,
