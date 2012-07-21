@@ -530,6 +530,16 @@ name|minorVersion
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|m_format
+operator|.
+name|setProfile
+argument_list|(
+name|format
+operator|.
+name|profile
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 else|else
