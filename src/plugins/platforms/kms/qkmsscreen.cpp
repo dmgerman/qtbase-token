@@ -959,6 +959,7 @@ if|if
 condition|(
 name|pageFlipStatus
 condition|)
+block|{
 name|qWarning
 argument_list|(
 literal|"Pageflip status: %d"
@@ -966,6 +967,18 @@ argument_list|,
 name|pageFlipStatus
 argument_list|)
 expr_stmt|;
+name|gbm_surface_release_buffer
+argument_list|(
+name|m_gbmSurface
+argument_list|,
+name|m_next_bo
+argument_list|)
+expr_stmt|;
+name|m_next_bo
+operator|=
+literal|0
+expr_stmt|;
+block|}
 block|}
 end_function
 begin_function
