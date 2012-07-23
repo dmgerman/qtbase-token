@@ -1680,11 +1680,6 @@ name|QWindowSystemInterface
 operator|::
 name|sendWindowSystemEvents
 argument_list|(
-name|app
-operator|.
-name|eventDispatcher
-argument_list|()
-argument_list|,
 name|QEventLoop
 operator|::
 name|AllEvents
@@ -1725,11 +1720,6 @@ name|QWindowSystemInterface
 operator|::
 name|sendWindowSystemEvents
 argument_list|(
-name|app
-operator|.
-name|eventDispatcher
-argument_list|()
-argument_list|,
 name|QEventLoop
 operator|::
 name|AllEvents
@@ -1770,11 +1760,6 @@ name|QWindowSystemInterface
 operator|::
 name|sendWindowSystemEvents
 argument_list|(
-name|app
-operator|.
-name|eventDispatcher
-argument_list|()
-argument_list|,
 name|QEventLoop
 operator|::
 name|AllEvents

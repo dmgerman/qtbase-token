@@ -2930,10 +2930,6 @@ name|QWindowSystemInterface
 operator|::
 name|sendWindowSystemEvents
 parameter_list|(
-name|QAbstractEventDispatcher
-modifier|*
-name|eventDispatcher
-parameter_list|,
 name|QEventLoop
 operator|::
 name|ProcessEventsFlags

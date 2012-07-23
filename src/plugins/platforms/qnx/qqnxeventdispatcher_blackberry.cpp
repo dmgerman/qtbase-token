@@ -59,6 +59,7 @@ name|ProcessEventsFlags
 name|flags
 parameter_list|)
 block|{
+specifier|const
 name|bool
 name|didSendEvents
 init|=
@@ -66,8 +67,6 @@ name|QWindowSystemInterface
 operator|::
 name|sendWindowSystemEvents
 argument_list|(
-name|this
-argument_list|,
 name|flags
 argument_list|)
 decl_stmt|;

@@ -3148,10 +3148,6 @@ name|QWindowSystemInterface
 operator|::
 name|sendWindowSystemEvents
 argument_list|(
-name|QCoreApplicationPrivate
-operator|::
-name|eventDispatcher
-argument_list|,
 name|QEventLoop
 operator|::
 name|AllEvents

@@ -1415,10 +1415,6 @@ specifier|static
 name|bool
 name|sendWindowSystemEvents
 argument_list|(
-name|QAbstractEventDispatcher
-operator|*
-name|eventDispatcher
-argument_list|,
 name|QEventLoop
 operator|::
 name|ProcessEventsFlags
