@@ -242,13 +242,6 @@ argument|ReduceFunctor reduce
 argument_list|)
 block|{
 typedef|typedef
-name|typename
-name|Sequence
-operator|::
-name|const_iterator
-name|Iterator
-expr_stmt|;
-typedef|typedef
 name|FilterKernel
 operator|<
 name|Sequence
