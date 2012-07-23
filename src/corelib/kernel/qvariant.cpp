@@ -9113,7 +9113,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the variant as a bool if the variant has type() Bool.      Returns true if the variant has type() \l Bool, \l Char, \l Double,     \l Int, \l LongLong, \l UInt, or \l ULongLong and the value is     non-zero, or if the variant has type \l String or \l ByteArray and     its lower-case content is not empty, "0" or "false"; otherwise     returns false.      \sa canConvert(), convert() */
+comment|/*!     Returns the variant as a bool if the variant has type() Bool.      Returns true if the variant has type() \l Bool, \l Char, \l Double,     \l Int, \l LongLong, \l UInt, or \l ULongLong and the value is     non-zero, or if the variant has type \l String or \l ByteArray and     its lower-case content is not one of the following: empty, "0"     or "false"; otherwise returns false.      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toBool
