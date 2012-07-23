@@ -9843,7 +9843,7 @@ begin_comment
 comment|/*!     \fn bool QTransform::isScaling() const      Returns true if the matrix represents a scaling     transformation, otherwise returns false.      \sa reset() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTransform::isRotating() const      Returns true if the matrix represents some kind of a     rotating transformation, otherwise returns false.      \sa reset() */
+comment|/*!     \fn bool QTransform::isRotating() const      Returns true if the matrix represents some kind of a     rotating transformation, otherwise returns false.      \note A rotation transformation of 180 degrees and/or 360 degrees is treated as a scaling transformation.      \sa reset() */
 end_comment
 begin_comment
 comment|/*!     \fn bool QTransform::isTranslating() const      Returns true if the matrix represents a translating     transformation, otherwise returns false.      \sa reset() */
