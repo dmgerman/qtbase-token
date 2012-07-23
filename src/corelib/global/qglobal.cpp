@@ -1602,7 +1602,7 @@ begin_comment
 comment|/*!     \macro void Q_CHECK_PTR(void *pointer)     \relates<QtGlobal>      If \a pointer is 0, prints a warning message containing the source     code's file name and line number, saying that the program ran out     of memory.      Q_CHECK_PTR does nothing if \c QT_NO_DEBUG was defined during     compilation.      Example:      \snippet code/src_corelib_global_qglobal.cpp 21      \sa qWarning(), {Debugging Techniques} */
 end_comment
 begin_comment
-comment|/*!     \fn T *q_check_ptr(T *pointer)     \relates<QtGlobal>      Users Q_CHECK_PTR on \a pointer, then returns \a pointer.      This can be used as an inline version of Q_CHECK_PTR. */
+comment|/*!     \fn T *q_check_ptr(T *pointer)     \relates<QtGlobal>      Uses Q_CHECK_PTR on \a pointer, then returns \a pointer.      This can be used as an inline version of Q_CHECK_PTR. */
 end_comment
 begin_comment
 comment|/*!     \macro const char* Q_FUNC_INFO()     \relates<QtGlobal>      Expands to a string that describe the function the macro resides in. How this string looks     more specifically is compiler dependent. With GNU GCC it is typically the function signature,     while with other compilers it might be the line and column number.      Q_FUNC_INFO can be conveniently used with qDebug(). For example, this function:      \snippet code/src_corelib_global_qglobal.cpp 22      when instantiated with the integer type, will with the GCC compiler produce:      \tt{const TInputType& myMin(const TInputType&, const TInputType&) [with TInputType = int] was called with value1: 3 value2: 4}      If this macro is used outside a function, the behavior is undefined.  */
