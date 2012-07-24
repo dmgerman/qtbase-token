@@ -540,10 +540,6 @@ name|Q_DECLARE_METATYPE
 argument_list|(
 name|QFileInfo
 argument_list|)
-DECL|macro|QT_QFILEINFO_METATYPE_DEFINED
-define|#
-directive|define
-name|QT_QFILEINFO_METATYPE_DEFINED
 name|QT_END_HEADER
 end_decl_stmt
 begin_endif
