@@ -8612,11 +8612,14 @@ operator|->
 name|show
 argument_list|()
 expr_stmt|;
+name|QVERIFY
+argument_list|(
 name|QTest
 operator|::
-name|qWaitForWindowShown
+name|qWaitForWindowExposed
 argument_list|(
 name|textEdit
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|table

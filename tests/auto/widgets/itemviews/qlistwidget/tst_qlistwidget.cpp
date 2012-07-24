@@ -10934,12 +10934,15 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|QVERIFY
+argument_list|(
 name|QTest
 operator|::
-name|qWaitForWindowShown
+name|qWaitForWindowExposed
 argument_list|(
 operator|&
 name|win
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
