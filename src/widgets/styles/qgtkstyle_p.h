@@ -148,7 +148,6 @@ value|QLatin1String(x)
 end_define
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-comment|// ### Qt 4.7 - merge with QLatin1Literal
 name|class
 name|QHashableLatin1Literal
 block|{
