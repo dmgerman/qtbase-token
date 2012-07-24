@@ -376,13 +376,6 @@ name|Q_DECLARE_METATYPE
 argument_list|(
 name|QNetworkCookie
 argument_list|)
-name|Q_DECLARE_METATYPE
-argument_list|(
-name|QList
-operator|<
-name|QNetworkCookie
-operator|>
-argument_list|)
 name|QT_END_HEADER
 end_decl_stmt
 begin_endif

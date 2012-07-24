@@ -919,9 +919,6 @@ end_empty_stmt
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
-begin_comment
-comment|//Q_DECLARE_METATYPE(QHttpNetworkReply)
-end_comment
 begin_endif
 endif|#
 directive|endif

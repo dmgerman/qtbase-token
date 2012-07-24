@@ -401,16 +401,9 @@ name|mutex
 block|; }
 decl_stmt|;
 end_decl_stmt
-begin_decl_stmt
+begin_macro
 name|QT_END_NAMESPACE
-name|Q_DECLARE_METATYPE
-argument_list|(
-name|QSharedPointer
-operator|<
-name|QNetworkSession
-operator|>
-argument_list|)
-end_decl_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

@@ -424,9 +424,6 @@ end_decl_stmt
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
-begin_comment
-comment|//Q_DECLARE_METATYPE(QHttpNetworkRequest)
-end_comment
 begin_endif
 endif|#
 directive|endif
