@@ -1401,7 +1401,7 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-name|setLineSpacingAct
+name|setParagraphSpacingAct
 operator|->
 name|setStatusTip
 argument_list|(
