@@ -10,11 +10,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qdebug.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<qpoint.h>
 end_include
 begin_class
