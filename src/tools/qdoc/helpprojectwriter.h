@@ -45,6 +45,12 @@ name|class
 name|Tree
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|Generator
+name|class
+name|Generator
+decl_stmt|;
+end_decl_stmt
 begin_typedef
 DECL|typedef|QString
 DECL|typedef|QStringNodePair
@@ -237,6 +243,10 @@ specifier|const
 name|QString
 operator|&
 name|defaultFileName
+argument_list|,
+name|Generator
+operator|*
+name|g
 argument_list|)
 expr_stmt|;
 name|void
@@ -266,7 +276,7 @@ parameter_list|(
 specifier|const
 name|Tree
 modifier|*
-name|tre
+name|t
 parameter_list|)
 function_decl|;
 name|private
@@ -357,6 +367,10 @@ specifier|const
 name|Tree
 modifier|*
 name|tree
+decl_stmt|;
+name|Generator
+modifier|*
+name|gen_
 decl_stmt|;
 name|QString
 name|outputDir

@@ -47,8 +47,10 @@ include|#
 directive|include
 file|<qdebug.h>
 end_include
-begin_function
+begin_macro
 name|QT_BEGIN_NAMESPACE
+end_macro
+begin_constructor
 DECL|function|HelpProjectWriter
 name|HelpProjectWriter
 operator|::
@@ -63,7 +65,16 @@ specifier|const
 name|QString
 modifier|&
 name|defaultFileName
+parameter_list|,
+name|Generator
+modifier|*
+name|g
 parameter_list|)
+member_init_list|:
+name|gen_
+argument_list|(
+name|g
+argument_list|)
 block|{
 comment|// The output directory should already have been checked by the calling
 comment|// generator.
@@ -521,7 +532,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
+end_constructor
 begin_function
 DECL|function|readSelectors
 name|void
@@ -1308,8 +1319,8 @@ expr_stmt|;
 block|}
 name|details
 operator|<<
-name|Generator
-operator|::
+name|gen_
+operator|->
 name|fullDocumentLocation
 argument_list|(
 name|node
@@ -1675,8 +1686,8 @@ name|files
 operator|.
 name|insert
 argument_list|(
-name|Generator
-operator|::
+name|gen_
+operator|->
 name|fullDocumentLocation
 argument_list|(
 name|node
@@ -1709,8 +1720,8 @@ name|files
 operator|.
 name|insert
 argument_list|(
-name|Generator
-operator|::
+name|gen_
+operator|->
 name|fullDocumentLocation
 argument_list|(
 name|node
@@ -1859,8 +1870,8 @@ comment|// "id"
 block|}
 name|details
 operator|<<
-name|Generator
-operator|::
+name|gen_
+operator|->
 name|fullDocumentLocation
 argument_list|(
 name|node
@@ -2001,8 +2012,8 @@ name|files
 operator|.
 name|insert
 argument_list|(
-name|Generator
-operator|::
+name|gen_
+operator|->
 name|fullDocumentLocation
 argument_list|(
 name|node
@@ -2093,8 +2104,8 @@ index|[
 literal|2
 index|]
 operator|=
-name|Generator
-operator|::
+name|gen_
+operator|->
 name|fullDocumentLocation
 argument_list|(
 name|enumNode
@@ -2122,8 +2133,8 @@ block|{
 name|QString
 name|location
 init|=
-name|Generator
-operator|::
+name|gen_
+operator|->
 name|fullDocumentLocation
 argument_list|(
 name|node
@@ -2277,8 +2288,8 @@ operator|->
 name|string
 argument_list|()
 operator|<<
-name|Generator
-operator|::
+name|gen_
+operator|->
 name|fullDocumentLocation
 argument_list|(
 name|node
@@ -2329,8 +2340,8 @@ argument_list|)
 operator|.
 name|arg
 argument_list|(
-name|Generator
-operator|::
+name|gen_
+operator|->
 name|fullDocumentLocation
 argument_list|(
 name|node
@@ -2355,15 +2366,14 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*                 if (fakeNode->doc().hasTableOfContents()) {                     foreach (const Atom *item, fakeNode->doc().tableOfContents()) {                         QString title = Text::sectionHeading(item).toString();                         if (!title.isEmpty()) {                             QStringList details;                             details<< title<< title<< HtmlGenerator::fullDocumentLocation(node,true) +                                     QLatin1Char('#') + Doc::canonicalTitle(title);                             project.keywords.append(details);                         } else                             fakeNode->doc().location().warning(                              tr("Bad contents item in %1").arg(HtmlGenerator::fullDocumentLocation(node,true)));                     }                 } */
 name|project
 operator|.
 name|files
 operator|.
 name|insert
 argument_list|(
-name|Generator
-operator|::
+name|gen_
+operator|->
 name|fullDocumentLocation
 argument_list|(
 name|node
@@ -2738,14 +2748,14 @@ parameter_list|(
 specifier|const
 name|Tree
 modifier|*
-name|tre
+name|t
 parameter_list|)
 block|{
 name|this
 operator|->
 name|tree
 operator|=
-name|tre
+name|t
 expr_stmt|;
 for|for
 control|(
@@ -2798,8 +2808,8 @@ block|{
 name|QString
 name|href
 init|=
-name|Generator
-operator|::
+name|gen_
+operator|->
 name|fullDocumentLocation
 argument_list|(
 name|node
@@ -3877,8 +3887,8 @@ name|node
 condition|)
 name|indexPath
 operator|=
-name|Generator
-operator|::
+name|gen_
+operator|->
 name|fullDocumentLocation
 argument_list|(
 name|node
@@ -3917,8 +3927,8 @@ name|files
 operator|.
 name|insert
 argument_list|(
-name|Generator
-operator|::
+name|gen_
+operator|->
 name|fullDocumentLocation
 argument_list|(
 name|rootNode
@@ -4139,8 +4149,8 @@ expr_stmt|;
 name|QString
 name|indexPath
 init|=
-name|Generator
-operator|::
+name|gen_
+operator|->
 name|fullDocumentLocation
 argument_list|(
 name|page
@@ -4255,8 +4265,8 @@ expr_stmt|;
 name|QString
 name|indexPath
 init|=
-name|Generator
-operator|::
+name|gen_
+operator|->
 name|fullDocumentLocation
 argument_list|(
 name|tree

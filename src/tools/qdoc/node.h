@@ -902,21 +902,12 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-name|virtual
-name|QString
-name|fileBase
-argument_list|()
-specifier|const
-expr_stmt|;
+comment|//virtual QString fileBase() const;
 name|QString
 name|guid
 argument_list|()
 specifier|const
 expr_stmt|;
-name|QString
-name|ditaXmlHref
-parameter_list|()
-function_decl|;
 name|QString
 name|extractClassName
 argument_list|(
@@ -2605,12 +2596,7 @@ return|return
 name|cnode_
 return|;
 block|}
-name|virtual
-name|QString
-name|fileBase
-argument_list|()
-specifier|const
-block|;
+comment|//virtual QString fileBase() const;
 name|virtual
 name|void
 name|setCurrentChild

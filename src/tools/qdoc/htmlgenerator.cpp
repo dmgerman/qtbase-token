@@ -902,6 +902,8 @@ name|toLower
 argument_list|()
 operator|+
 literal|".qhp"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 comment|// Documentation template handling
@@ -22515,6 +22517,8 @@ argument_list|,
 name|url
 argument_list|,
 name|title
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 block|}
@@ -25280,10 +25284,10 @@ name|docUrl
 init|=
 name|manifestDir
 operator|+
-name|en
-operator|->
 name|fileBase
-argument_list|()
+argument_list|(
+name|en
+argument_list|)
 operator|+
 literal|".html"
 decl_stmt|;

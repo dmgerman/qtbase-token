@@ -2694,20 +2694,20 @@ comment|// an attribute containing the location of any documentation.
 if|if
 condition|(
 operator|!
-name|node
-operator|->
 name|fileBase
-argument_list|()
+argument_list|(
+name|node
+argument_list|)
 operator|.
 name|isEmpty
 argument_list|()
 condition|)
 name|parentName
 operator|=
-name|node
-operator|->
 name|fileBase
-argument_list|()
+argument_list|(
+name|node
+argument_list|)
 operator|+
 name|QLatin1Char
 argument_list|(
@@ -2767,10 +2767,10 @@ block|{
 name|QString
 name|fb
 init|=
-name|node
-operator|->
 name|fileBase
-argument_list|()
+argument_list|(
+name|node
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -2868,10 +2868,10 @@ argument_list|)
 operator|+
 name|mq
 operator|+
-name|node
-operator|->
 name|fileBase
-argument_list|()
+argument_list|(
+name|node
+argument_list|)
 operator|+
 name|QLatin1Char
 argument_list|(
@@ -2887,12 +2887,13 @@ return|;
 block|}
 block|}
 else|else
+block|{
 name|parentName
 operator|=
-name|node
-operator|->
 name|fileBase
-argument_list|()
+argument_list|(
+name|node
+argument_list|)
 operator|+
 name|QLatin1Char
 argument_list|(
@@ -2906,13 +2907,14 @@ name|fileExtension
 argument_list|()
 expr_stmt|;
 block|}
+block|}
 elseif|else
 if|if
 condition|(
-name|node
-operator|->
 name|fileBase
-argument_list|()
+argument_list|(
+name|node
+argument_list|)
 operator|.
 name|isEmpty
 argument_list|()
@@ -2991,6 +2993,7 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
+block|{
 name|parentName
 operator|=
 name|fullDocumentLocation
@@ -3001,6 +3004,7 @@ name|parent
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 switch|switch
 condition|(
@@ -3057,10 +3061,10 @@ argument_list|(
 literal|'-'
 argument_list|)
 operator|+
-name|node
-operator|->
 name|fileBase
-argument_list|()
+argument_list|(
+name|node
+argument_list|)
 operator|.
 name|toLower
 argument_list|()
@@ -3081,10 +3085,10 @@ else|else
 block|{
 name|parentName
 operator|=
-name|node
-operator|->
 name|fileBase
-argument_list|()
+argument_list|(
+name|node
+argument_list|)
 operator|+
 name|QLatin1Char
 argument_list|(
@@ -3105,7 +3109,6 @@ operator|::
 name|Function
 case|:
 block|{
-comment|/*                   Functions can be destructors, overloaded, or                   have associated properties.                 */
 specifier|const
 name|FunctionNode
 modifier|*
@@ -3213,9 +3216,9 @@ operator|->
 name|name
 argument_list|()
 expr_stmt|;
-block|}
-comment|/*               Use node->name() instead of node->fileBase() as               the latter returns the name in lower-case. For               HTML anchors, we need to preserve the case.             */
 break|break;
+block|}
+comment|/*       Use node->name() instead of fileBase(node) as       the latter returns the name in lower-case. For       HTML anchors, we need to preserve the case.     */
 case|case
 name|Node
 operator|::
@@ -3382,13 +3385,13 @@ operator|::
 name|Fake
 case|:
 block|{
-comment|/*               Use node->fileBase() for fake nodes because they are represented               by pages whose file names are lower-case.             */
+comment|/*               Use fileBase(node) for fake nodes because they are represented               by pages whose file names are lower-case.             */
 name|parentName
 operator|=
-name|node
-operator|->
 name|fileBase
-argument_list|()
+argument_list|(
+name|node
+argument_list|)
 expr_stmt|;
 name|parentName
 operator|.

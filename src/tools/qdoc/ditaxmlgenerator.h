@@ -2006,6 +2006,14 @@ operator|&
 name|t
 argument_list|)
 block|;
+name|QString
+name|ditaXmlHref
+argument_list|(
+name|Node
+operator|*
+name|n
+argument_list|)
+block|;
 name|private
 operator|:
 comment|/*       These flags indicate which elements the generator       is currently outputting.      */

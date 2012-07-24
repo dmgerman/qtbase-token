@@ -8135,8 +8135,8 @@ name|href
 operator|.
 name|append
 argument_list|(
-name|Generator
-operator|::
+name|gen_
+operator|->
 name|fullDocumentLocation
 argument_list|(
 name|node
@@ -10701,6 +10701,10 @@ name|QString
 modifier|&
 name|title
 parameter_list|,
+name|Generator
+modifier|*
+name|g
+parameter_list|,
 name|bool
 name|generateInternalNodes
 parameter_list|)
@@ -10728,6 +10732,10 @@ name|Text
 argument_list|)
 condition|)
 return|return ;
+name|gen_
+operator|=
+name|g
+expr_stmt|;
 name|QXmlStreamWriter
 name|writer
 argument_list|(
@@ -11035,8 +11043,8 @@ name|writeTextElement
 argument_list|(
 literal|"filename"
 argument_list|,
-name|Generator
-operator|::
+name|gen_
+operator|->
 name|fullDocumentLocation
 argument_list|(
 name|node
@@ -11161,8 +11169,8 @@ name|writeTextElement
 argument_list|(
 literal|"filename"
 argument_list|,
-name|Generator
-operator|::
+name|gen_
+operator|->
 name|fullDocumentLocation
 argument_list|(
 name|node
@@ -11644,8 +11652,8 @@ expr_stmt|;
 name|QStringList
 name|pieces
 init|=
-name|Generator
-operator|::
+name|gen_
+operator|->
 name|fullDocumentLocation
 argument_list|(
 name|node
@@ -11974,8 +11982,8 @@ expr_stmt|;
 name|QStringList
 name|pieces
 init|=
-name|Generator
-operator|::
+name|gen_
+operator|->
 name|fullDocumentLocation
 argument_list|(
 name|node
@@ -12065,8 +12073,8 @@ expr_stmt|;
 name|QStringList
 name|pieces
 init|=
-name|Generator
-operator|::
+name|gen_
+operator|->
 name|fullDocumentLocation
 argument_list|(
 name|node
@@ -12255,8 +12263,8 @@ expr_stmt|;
 name|QStringList
 name|pieces
 init|=
-name|Generator
-operator|::
+name|gen_
+operator|->
 name|fullDocumentLocation
 argument_list|(
 name|node
