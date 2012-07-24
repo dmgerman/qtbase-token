@@ -92,6 +92,12 @@ return|;
 if|if
 condition|(
 name|typeId
+operator|>=
+name|QMetaType
+operator|::
+name|FirstGuiType
+operator|&&
+name|typeId
 operator|<=
 name|QMetaType
 operator|::
@@ -102,6 +108,12 @@ name|Gui
 return|;
 if|if
 condition|(
+name|typeId
+operator|>=
+name|QMetaType
+operator|::
+name|FirstWidgetsType
+operator|&&
 name|typeId
 operator|<=
 name|QMetaType
