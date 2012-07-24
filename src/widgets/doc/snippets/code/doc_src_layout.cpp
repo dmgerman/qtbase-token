@@ -107,8 +107,7 @@ name|minimumSize
 parameter_list|()
 specifier|const
 function_decl|;
-name|QLayoutItem
-modifier|*
+name|int
 name|count
 parameter_list|()
 specifier|const
@@ -170,8 +169,7 @@ comment|//! [2]
 end_comment
 begin_function
 DECL|function|count
-name|QLayoutItem
-modifier|*
+name|int
 name|CardLayout
 operator|::
 name|count
