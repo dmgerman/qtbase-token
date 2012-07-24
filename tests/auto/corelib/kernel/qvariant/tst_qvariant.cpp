@@ -27063,7 +27063,7 @@ argument_list|()
 decl_stmt|;
 specifier|static
 name|QVariant
-name|pallete
+name|palette
 init|=
 name|QPalette
 argument_list|()
@@ -27090,7 +27090,7 @@ argument_list|)
 expr_stmt|;
 name|Q_UNUSED
 argument_list|(
-name|pallete
+name|palette
 argument_list|)
 expr_stmt|;
 name|QVERIFY
