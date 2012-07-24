@@ -640,6 +640,11 @@ name|other
 argument_list|)
 block|; }
 comment|// prevent QVector<QPointF><->QPolygonF swaps
+name|operator
+name|QVariant
+argument_list|()
+specifier|const
+block|;
 specifier|inline
 name|void
 name|translate

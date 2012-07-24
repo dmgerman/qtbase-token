@@ -2735,6 +2735,27 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_function
+DECL|function|operator QVariant
+name|QPolygonF
+operator|::
+name|operator
+name|QVariant
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|QVariant
+argument_list|(
+name|QMetaType
+operator|::
+name|QPolygonF
+argument_list|,
+name|this
+argument_list|)
+return|;
+block|}
+end_function
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
