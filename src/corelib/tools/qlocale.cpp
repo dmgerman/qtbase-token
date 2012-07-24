@@ -3510,7 +3510,7 @@ argument_list|)
 block|{ }
 end_constructor
 begin_comment
-comment|/*!     Constructs a QLocale object initialized with the default locale. If     no default locale was set using setDefaultLocale(), this locale will     be the same as the one returned by system().      \sa setDefault() */
+comment|/*!     Constructs a QLocale object initialized with the default locale. If     no default locale was set using setDefault(), this locale will     be the same as the one returned by system().      \sa setDefault() */
 end_comment
 begin_constructor
 DECL|function|QLocale
