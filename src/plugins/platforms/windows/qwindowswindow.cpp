@@ -4165,7 +4165,7 @@ argument_list|()
 expr_stmt|;
 name|QWindowSystemInterface
 operator|::
-name|handleSynchronousExposeEvent
+name|handleExposeEvent
 argument_list|(
 name|window
 argument_list|()
@@ -4191,7 +4191,7 @@ argument_list|()
 expr_stmt|;
 name|QWindowSystemInterface
 operator|::
-name|handleSynchronousExposeEvent
+name|handleExposeEvent
 argument_list|(
 name|window
 argument_list|()
