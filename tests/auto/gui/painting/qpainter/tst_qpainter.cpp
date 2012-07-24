@@ -21079,7 +21079,7 @@ name|dest
 operator|.
 name|fill
 argument_list|(
-literal|0x0000ff
+literal|0xff0000
 argument_list|)
 expr_stmt|;
 name|QPainter

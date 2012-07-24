@@ -3926,6 +3926,8 @@ operator|=
 name|uchar
 argument_list|(
 name|value
+operator|>>
+literal|16
 argument_list|)
 block|;
 name|data
@@ -3948,8 +3950,6 @@ operator|=
 name|uchar
 argument_list|(
 name|value
-operator|>>
-literal|16
 argument_list|)
 block|; }
 DECL|function|uint
@@ -3964,7 +3964,7 @@ block|{
 return|return
 name|data
 index|[
-literal|0
+literal|2
 index|]
 operator||
 operator|(
@@ -3979,7 +3979,7 @@ operator||
 operator|(
 name|data
 index|[
-literal|2
+literal|0
 index|]
 operator|<<
 literal|16
