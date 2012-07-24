@@ -997,6 +997,15 @@ end_comment
 begin_comment
 comment|/*!     \fn QItemEditorCreatorBase::~QItemEditorCreatorBase()      Destroys the editor creator object. */
 end_comment
+begin_destructor
+DECL|function|~QItemEditorCreatorBase
+name|QItemEditorCreatorBase
+operator|::
+name|~
+name|QItemEditorCreatorBase
+parameter_list|()
+block|{  }
+end_destructor
 begin_comment
 comment|/*!     \fn QWidget *QItemEditorCreatorBase::createWidget(QWidget *parent) const      Returns an editor widget with the given \a parent.      When implementing this function in subclasses of this class, you must     construct and return new editor widgets with the parent widget specified. */
 end_comment

@@ -55,18 +55,20 @@ name|virtual
 operator|~
 name|QItemEditorCreatorBase
 argument_list|()
-block|{}
+expr_stmt|;
 name|virtual
 name|QWidget
-operator|*
+modifier|*
 name|createWidget
 argument_list|(
-argument|QWidget *parent
+name|QWidget
+operator|*
+name|parent
 argument_list|)
-specifier|const
-operator|=
+decl|const
+init|=
 literal|0
-expr_stmt|;
+decl_stmt|;
 name|virtual
 name|QByteArray
 name|valuePropertyName
