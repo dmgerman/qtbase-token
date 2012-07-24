@@ -125,6 +125,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qjsondocument.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<limits.h>
 end_include
 begin_include
@@ -22631,14 +22636,19 @@ operator|::
 name|setValue
 parameter_list|()
 block|{
-name|QTransform
+name|QJsonDocument
 name|t
 decl_stmt|;
 comment|//we just take a value so that we're sure that it will be shared
 name|QVariant
 name|v1
 init|=
+name|QVariant
+operator|::
+name|fromValue
+argument_list|(
 name|t
+argument_list|)
 decl_stmt|;
 name|QVERIFY
 argument_list|(
