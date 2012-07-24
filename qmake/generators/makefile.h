@@ -160,17 +160,17 @@ name|qHash
 argument_list|(
 name|var
 argument_list|)
-operator||
+operator|^
 name|qHash
 argument_list|(
 name|in
 argument_list|)
-operator||
+operator|^
 name|qHash
 argument_list|(
 name|out
 argument_list|)
-comment|/*| qHash(pwd)*/
+comment|/*^ qHash(pwd)*/
 expr_stmt|;
 return|return
 name|hash

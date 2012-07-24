@@ -156,12 +156,12 @@ name|qHash
 argument_list|(
 name|string
 argument_list|)
-operator||
+operator|^
 name|qHash
 argument_list|(
 name|flags
 argument_list|)
-comment|/*| qHash(pwd)*/
+comment|/*^ qHash(pwd)*/
 expr_stmt|;
 return|return
 name|hash
@@ -290,7 +290,7 @@ name|qHash
 argument_list|(
 name|file
 argument_list|)
-comment|/*| qHash(pwd)*/
+comment|/*^ qHash(pwd)*/
 expr_stmt|;
 return|return
 name|hash
