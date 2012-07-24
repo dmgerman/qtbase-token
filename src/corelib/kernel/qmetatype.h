@@ -2759,6 +2759,7 @@ name|typename
 name|T
 operator|>
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|int
 name|qRegisterMetaType
 argument_list|(
