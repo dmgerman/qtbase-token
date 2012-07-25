@@ -581,10 +581,13 @@ name|void
 name|processKeyEvent
 argument_list|(
 name|int
+name|nativecode
+argument_list|,
+name|int
 name|unicode
 argument_list|,
 name|int
-name|keycode
+name|qtcode
 argument_list|,
 name|Qt
 operator|::

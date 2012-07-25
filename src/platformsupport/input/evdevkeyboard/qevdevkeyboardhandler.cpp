@@ -928,10 +928,13 @@ operator|::
 name|processKeyEvent
 parameter_list|(
 name|int
+name|nativecode
+parameter_list|,
+name|int
 name|unicode
 parameter_list|,
 name|int
-name|keycode
+name|qtcode
 parameter_list|,
 name|Qt
 operator|::
@@ -947,7 +950,7 @@ parameter_list|)
 block|{
 name|QWindowSystemInterface
 operator|::
-name|handleKeyEvent
+name|handleExtendedKeyEvent
 argument_list|(
 literal|0
 argument_list|,
@@ -963,9 +966,20 @@ operator|::
 name|KeyRelease
 operator|)
 argument_list|,
-name|keycode
+name|qtcode
 argument_list|,
 name|modifiers
+argument_list|,
+name|nativecode
+operator|+
+literal|8
+argument_list|,
+literal|0
+argument_list|,
+name|int
+argument_list|(
+name|modifiers
+argument_list|)
 argument_list|,
 name|QString
 argument_list|(
@@ -1930,6 +1944,8 @@ directive|endif
 comment|// send the result to the server
 name|processKeyEvent
 argument_list|(
+name|keycode
+argument_list|,
 name|unicode
 argument_list|,
 name|qtcode
