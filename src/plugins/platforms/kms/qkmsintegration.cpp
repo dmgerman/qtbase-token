@@ -50,6 +50,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qkmsvthandler.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<QtPlatformSupport/private/qgenericunixeventdispatcher_p.h>
 end_include
 begin_include
@@ -129,6 +134,11 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
+name|m_vtHandler
+operator|=
+operator|new
+name|QKmsVTHandler
+expr_stmt|;
 name|m_drmHandler
 operator|=
 operator|new
@@ -185,6 +195,9 @@ name|m_fontDatabase
 expr_stmt|;
 operator|delete
 name|m_udevListener
+expr_stmt|;
+operator|delete
+name|m_vtHandler
 expr_stmt|;
 block|}
 end_destructor

@@ -49,6 +49,12 @@ name|QKmsUdevDRMHandler
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QKmsVTHandler
+name|class
+name|QKmsVTHandler
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QKmsIntegration
 range|:
@@ -169,6 +175,10 @@ block|;
 name|QKmsUdevDRMHandler
 operator|*
 name|m_drmHandler
+block|;
+name|QKmsVTHandler
+operator|*
+name|m_vtHandler
 block|; }
 decl_stmt|;
 end_decl_stmt
