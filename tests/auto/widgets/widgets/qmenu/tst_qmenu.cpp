@@ -3565,14 +3565,7 @@ argument_list|,
 literal|10
 argument_list|)
 expr_stmt|;
-name|QTest
-operator|::
-name|qWait
-argument_list|(
-literal|100
-argument_list|)
-expr_stmt|;
-name|QVERIFY
+name|QTRY_VERIFY
 argument_list|(
 name|menu
 operator|->
