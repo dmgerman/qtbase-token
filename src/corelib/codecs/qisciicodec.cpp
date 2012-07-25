@@ -144,8 +144,7 @@ control|)
 block|{
 if|if
 condition|(
-operator|!
-name|qstricmp
+name|qTextCodecNameMatch
 argument_list|(
 name|name
 argument_list|,
