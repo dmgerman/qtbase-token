@@ -4055,17 +4055,6 @@ name|Void
 argument_list|>
 parameter_list|()
 block|{
-typedef|typedef
-name|MetaEnumToType
-argument_list|<
-name|QMetaType
-operator|::
-name|Void
-argument_list|>
-operator|::
-name|Type
-name|Type
-typedef|;
 name|void
 modifier|*
 name|actual
@@ -6369,17 +6358,6 @@ name|Void
 argument_list|>
 parameter_list|()
 block|{
-typedef|typedef
-name|MetaEnumToType
-argument_list|<
-name|QMetaType
-operator|::
-name|Void
-argument_list|>
-operator|::
-name|Type
-name|Type
-typedef|;
 comment|/*int size = */
 name|QMetaType
 operator|::
@@ -6433,7 +6411,8 @@ operator|::
 name|IsInitialized
 condition|)
 block|{
-comment|/*Type *expected = */
+name|QVERIFY
+argument_list|(
 name|DefaultValueFactory
 argument_list|<
 name|QMetaType
@@ -6443,6 +6422,7 @@ argument_list|>
 operator|::
 name|create
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 name|QMetaType
