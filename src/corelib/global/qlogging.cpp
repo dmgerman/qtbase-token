@@ -525,6 +525,7 @@ name|msg
 parameter_list|,
 modifier|...
 parameter_list|)
+specifier|const
 block|{
 name|va_list
 name|ap
@@ -570,6 +571,7 @@ name|QMessageLogger
 operator|::
 name|debug
 parameter_list|()
+specifier|const
 block|{
 name|QDebug
 name|dbg
@@ -611,6 +613,7 @@ name|QMessageLogger
 operator|::
 name|noDebug
 parameter_list|()
+specifier|const
 block|{
 return|return
 name|QNoDebug
@@ -645,6 +648,7 @@ name|msg
 parameter_list|,
 modifier|...
 parameter_list|)
+specifier|const
 block|{
 name|va_list
 name|ap
@@ -690,6 +694,7 @@ name|QMessageLogger
 operator|::
 name|warning
 parameter_list|()
+specifier|const
 block|{
 name|QDebug
 name|dbg
@@ -748,6 +753,7 @@ name|msg
 parameter_list|,
 modifier|...
 parameter_list|)
+specifier|const
 block|{
 name|va_list
 name|ap
@@ -793,6 +799,7 @@ name|QMessageLogger
 operator|::
 name|critical
 parameter_list|()
+specifier|const
 block|{
 name|QDebug
 name|dbg
@@ -850,6 +857,7 @@ name|msg
 parameter_list|,
 modifier|...
 parameter_list|)
+specifier|const
 name|Q_DECL_NOTHROW
 block|{
 name|va_list
