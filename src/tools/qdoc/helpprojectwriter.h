@@ -223,6 +223,10 @@ operator|>
 expr|>
 name|memberStatus
 expr_stmt|;
+DECL|member|includeIndexNodes
+name|bool
+name|includeIndexNodes
+decl_stmt|;
 block|}
 struct|;
 end_struct
