@@ -76,6 +76,17 @@ operator|~
 name|QIsciiCodec
 argument_list|()
 block|;
+specifier|static
+name|QTextCodec
+operator|*
+name|create
+argument_list|(
+specifier|const
+name|char
+operator|*
+name|name
+argument_list|)
+block|;
 name|QByteArray
 name|name
 argument_list|()
