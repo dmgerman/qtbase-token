@@ -89,6 +89,12 @@ block|;
 specifier|static
 name|QTextCodec
 operator|*
+name|defaultCodec
+argument_list|()
+block|;
+specifier|static
+name|QTextCodec
+operator|*
 name|codecForName
 argument_list|(
 specifier|const
