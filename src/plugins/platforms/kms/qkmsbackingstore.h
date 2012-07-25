@@ -120,6 +120,9 @@ block|;
 name|QOpenGLShaderProgram
 operator|*
 name|m_program
+block|;
+name|QRegion
+name|m_dirty
 block|; }
 decl_stmt|;
 end_decl_stmt
