@@ -14504,7 +14504,7 @@ literal|"yes"
 else|:
 literal|"no"
 expr_stmt|;
-comment|// Detection of iconv support
+comment|// Detection of cups support
 if|if
 condition|(
 name|dictionary
