@@ -55,10 +55,10 @@ file|<QtNetwork/qssl.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
-name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
 name|QT_NO_SSL
+name|QT_BEGIN_NAMESPACE
 DECL|variable|QDateTime
 name|class
 name|QDateTime
@@ -588,19 +588,15 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_NO_SSL
-end_comment
 begin_decl_stmt
 name|QT_END_NAMESPACE
 name|Q_DECLARE_METATYPE
 argument_list|(
 name|QSslCertificate
 argument_list|)
+endif|#
+directive|endif
+comment|// QT_NO_SSL
 name|QT_END_HEADER
 end_decl_stmt
 begin_endif

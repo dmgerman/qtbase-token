@@ -33,10 +33,10 @@ file|<QtNetwork/qssl.h>
 end_include
 begin_expr_stmt
 name|QT_BEGIN_HEADER
-name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
 name|QT_NO_SSL
+name|QT_BEGIN_NAMESPACE
 DECL|variable|QList
 name|template
 operator|<
@@ -361,19 +361,15 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_NO_SSL
-end_comment
 begin_decl_stmt
 name|QT_END_NAMESPACE
 name|Q_DECLARE_METATYPE
 argument_list|(
 name|QSslConfiguration
 argument_list|)
+endif|#
+directive|endif
+comment|// QT_NO_SSL
 name|QT_END_HEADER
 end_decl_stmt
 begin_endif
