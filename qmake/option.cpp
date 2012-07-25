@@ -3400,17 +3400,6 @@ argument_list|(
 literal|"QMAKE_MOD_YACC"
 argument_list|)
 expr_stmt|;
-name|Option
-operator|::
-name|dir_sep
-operator|=
-name|project
-operator|->
-name|first
-argument_list|(
-literal|"QMAKE_DIR_SEP"
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|Option
