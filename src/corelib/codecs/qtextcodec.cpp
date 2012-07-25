@@ -667,6 +667,26 @@ operator|::
 name|instance
 argument_list|()
 decl_stmt|;
+name|QTextCodec
+modifier|*
+name|locale
+init|=
+name|globalData
+operator|->
+name|codecForLocale
+operator|.
+name|loadAcquire
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|locale
+condition|)
+comment|// already setup
+return|return
+name|locale
+return|;
+block|{
 name|QMutexLocker
 name|locker
 argument_list|(
@@ -678,17 +698,15 @@ if|if
 condition|(
 name|globalData
 operator|->
-name|codecForLocale
+name|allCodecs
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
-comment|// already setup
-return|return
-name|globalData
-operator|->
-name|codecForLocale
-return|;
 name|setup
 argument_list|()
 expr_stmt|;
+block|}
 if|#
 directive|if
 operator|!
@@ -714,9 +732,7 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
-name|globalData
-operator|->
-name|codecForLocale
+name|locale
 operator|=
 name|QTextCodec
 operator|::
@@ -746,9 +762,7 @@ name|defined
 argument_list|(
 name|Q_OS_QNX
 argument_list|)
-name|globalData
-operator|->
-name|codecForLocale
+name|locale
 operator|=
 name|QTextCodec
 operator|::
@@ -789,9 +803,7 @@ if|if
 condition|(
 name|charset
 condition|)
-name|globalData
-operator|->
-name|codecForLocale
+name|locale
 operator|=
 name|QTextCodec
 operator|::
@@ -818,9 +830,7 @@ argument_list|)
 if|if
 condition|(
 operator|!
-name|globalData
-operator|->
-name|codecForLocale
+name|locale
 condition|)
 block|{
 comment|// no builtin codec for the locale found, let's try using iconv
@@ -831,9 +841,7 @@ operator|new
 name|QIconvCodec
 argument_list|()
 expr_stmt|;
-name|globalData
-operator|->
-name|codecForLocale
+name|locale
 operator|=
 name|QTextCodec
 operator|::
@@ -848,9 +856,7 @@ directive|endif
 if|if
 condition|(
 operator|!
-name|globalData
-operator|->
-name|codecForLocale
+name|locale
 condition|)
 block|{
 comment|// Very poorly defined and followed standards causes lots of
@@ -949,9 +955,7 @@ operator|!=
 operator|-
 literal|1
 condition|)
-name|globalData
-operator|->
-name|codecForLocale
+name|locale
 operator|=
 name|checkForCodec
 argument_list|(
@@ -969,9 +973,7 @@ comment|// 2. CODESET from lang if it contains a .CODESET part
 if|if
 condition|(
 operator|!
-name|globalData
-operator|->
-name|codecForLocale
+name|locale
 condition|)
 block|{
 name|indexOfDot
@@ -990,9 +992,7 @@ operator|!=
 operator|-
 literal|1
 condition|)
-name|globalData
-operator|->
-name|codecForLocale
+name|locale
 operator|=
 name|checkForCodec
 argument_list|(
@@ -1011,9 +1011,7 @@ comment|// 3. ctype (maybe the locale is named "ISO-8859-1" or something)
 if|if
 condition|(
 operator|!
-name|globalData
-operator|->
-name|codecForLocale
+name|locale
 operator|&&
 operator|!
 name|ctype
@@ -1025,9 +1023,7 @@ name|ctype
 operator|!=
 literal|"C"
 condition|)
-name|globalData
-operator|->
-name|codecForLocale
+name|locale
 operator|=
 name|checkForCodec
 argument_list|(
@@ -1038,9 +1034,7 @@ comment|// 4. locale (ditto)
 if|if
 condition|(
 operator|!
-name|globalData
-operator|->
-name|codecForLocale
+name|locale
 operator|&&
 operator|!
 name|lang
@@ -1048,9 +1042,7 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
-name|globalData
-operator|->
-name|codecForLocale
+name|locale
 operator|=
 name|checkForCodec
 argument_list|(
@@ -1062,9 +1054,7 @@ if|if
 condition|(
 operator|(
 operator|!
-name|globalData
-operator|->
-name|codecForLocale
+name|locale
 operator|&&
 name|ctype
 operator|.
@@ -1081,9 +1071,7 @@ argument_list|(
 literal|"@euro"
 argument_list|)
 condition|)
-name|globalData
-operator|->
-name|codecForLocale
+name|locale
 operator|=
 name|checkForCodec
 argument_list|(
@@ -1095,13 +1083,9 @@ comment|// If everything failed, we default to 8859-1
 if|if
 condition|(
 operator|!
-name|globalData
-operator|->
-name|codecForLocale
+name|locale
 condition|)
-name|globalData
-operator|->
-name|codecForLocale
+name|locale
 operator|=
 name|QTextCodec
 operator|::
@@ -1112,10 +1096,17 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-return|return
 name|globalData
 operator|->
 name|codecForLocale
+operator|.
+name|storeRelease
+argument_list|(
+name|locale
+argument_list|)
+expr_stmt|;
+return|return
+name|locale
 return|;
 block|}
 end_function
@@ -1210,9 +1201,12 @@ name|defined
 argument_list|(
 name|QT_NO_BIG_CODECS
 argument_list|)
-ifndef|#
-directive|ifndef
+operator|&&
+operator|!
+name|defined
+argument_list|(
 name|Q_OS_INTEGRITY
+argument_list|)
 operator|(
 name|void
 operator|)
@@ -1275,22 +1269,10 @@ name|QBig5hkscsCodec
 expr_stmt|;
 endif|#
 directive|endif
-comment|// !Q_OS_INTEGRITY
+comment|// !QT_NO_BIG_CODECS&& !Q_OS_INTEGRITY
 endif|#
 directive|endif
-comment|// !QT_NO_BIG_CODECS
-endif|#
-directive|endif
-comment|// !QT_NO_CODECS&& !QT_BOOTSTRAPPED
-endif|#
-directive|endif
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_BOOTSTRAPPED
-argument_list|)
+comment|// QT_USE_ICU
 if|#
 directive|if
 operator|!
@@ -1328,6 +1310,7 @@ directive|endif
 comment|// Q_OS_WIN32
 endif|#
 directive|endif
+comment|// !QT_NO_CODECS&& !QT_BOOTSTRAPPED
 operator|(
 name|void
 operator|)
@@ -2145,8 +2128,11 @@ name|instance
 argument_list|()
 operator|->
 name|codecForLocale
-operator|=
+operator|.
+name|storeRelease
+argument_list|(
 name|c
+argument_list|)
 expr_stmt|;
 block|}
 end_function
@@ -2186,13 +2172,14 @@ init|=
 name|globalData
 operator|->
 name|codecForLocale
+operator|.
+name|loadAcquire
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
 operator|!
-name|globalData
-operator|->
-name|codecForLocale
+name|codec
 condition|)
 name|codec
 operator|=

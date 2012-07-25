@@ -130,10 +130,12 @@ operator|>
 name|allCodecs
 expr_stmt|;
 DECL|member|codecForLocale
+name|QAtomicPointer
+operator|<
 name|QTextCodec
-modifier|*
+operator|>
 name|codecForLocale
-decl_stmt|;
+expr_stmt|;
 DECL|member|codecCache
 name|QTextCodecCache
 name|codecCache
