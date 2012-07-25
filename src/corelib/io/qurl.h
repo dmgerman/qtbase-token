@@ -2255,6 +2255,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|operator
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QIncompatibleFlag
 name|operator
