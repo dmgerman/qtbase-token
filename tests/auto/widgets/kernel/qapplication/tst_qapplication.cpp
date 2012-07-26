@@ -117,7 +117,7 @@ end_endif
 begin_include
 include|#
 directive|include
-file|<QtGui/QWindowSystemInterface>
+file|<qpa/qwindowsysteminterface.h>
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE

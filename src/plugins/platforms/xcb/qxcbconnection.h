@@ -56,7 +56,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qwindowsysteminterface.h>
+file|<qpa/qwindowsysteminterface.h>
 end_include
 begin_ifndef
 ifndef|#
