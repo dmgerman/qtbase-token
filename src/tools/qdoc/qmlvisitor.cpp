@@ -119,6 +119,13 @@ name|COMMAND_QMLCLASS
 value|Doc::alias(QLatin1String("qmlclass"))
 end_define
 begin_define
+DECL|macro|COMMAND_QMLTYPE
+define|#
+directive|define
+name|COMMAND_QMLTYPE
+value|Doc::alias(QLatin1String("qmltype"))
+end_define
+begin_define
 DECL|macro|COMMAND_QMLMODULE
 define|#
 directive|define
@@ -145,6 +152,13 @@ define|#
 directive|define
 name|COMMAND_QMLINHERITS
 value|Doc::alias(QLatin1String("inherits"))
+end_define
+begin_define
+DECL|macro|COMMAND_QMLINSTANTIATES
+define|#
+directive|define
+name|COMMAND_QMLINSTANTIATES
+value|Doc::alias(QLatin1String("instantiates"))
 end_define
 begin_define
 DECL|macro|COMMAND_INQMLMODULE
@@ -1238,9 +1252,17 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|(
 name|topic
 operator|==
 name|COMMAND_QMLCLASS
+operator|)
+operator|||
+operator|(
+name|topic
+operator|==
+name|COMMAND_QMLTYPE
+operator|)
 condition|)
 block|{
 comment|// do nothing.
@@ -2010,8 +2032,6 @@ argument_list|(
 name|current
 argument_list|,
 name|name
-argument_list|,
-literal|0
 argument_list|)
 decl_stmt|;
 name|component

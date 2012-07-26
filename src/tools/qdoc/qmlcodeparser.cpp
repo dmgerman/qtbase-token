@@ -102,6 +102,11 @@ define|#
 directive|define
 name|COMMAND_QMLCLASS
 value|Doc::alias("qmlclass")
+DECL|macro|COMMAND_QMLTYPE
+define|#
+directive|define
+name|COMMAND_QMLTYPE
+value|Doc::alias("qmltype")
 DECL|macro|COMMAND_QMLMODULE
 define|#
 directive|define
@@ -122,6 +127,11 @@ define|#
 directive|define
 name|COMMAND_QMLINHERITS
 value|Doc::alias("inherits")
+DECL|macro|COMMAND_QMLINSTANTIATES
+define|#
+directive|define
+name|COMMAND_QMLINSTANTIATES
+value|Doc::alias("instantiates")
 DECL|macro|COMMAND_INQMLMODULE
 define|#
 directive|define
@@ -578,6 +588,8 @@ operator|<<
 name|COMMAND_VARIABLE
 operator|<<
 name|COMMAND_QMLCLASS
+operator|<<
+name|COMMAND_QMLTYPE
 operator|<<
 name|COMMAND_QMLPROPERTY
 operator|<<

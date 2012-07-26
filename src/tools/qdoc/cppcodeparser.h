@@ -905,6 +905,13 @@ name|COMMAND_QMLCLASS
 value|Doc::alias("qmlclass")
 end_define
 begin_define
+DECL|macro|COMMAND_QMLTYPE
+define|#
+directive|define
+name|COMMAND_QMLTYPE
+value|Doc::alias("qmltype")
+end_define
+begin_define
 DECL|macro|COMMAND_QMLPROPERTY
 define|#
 directive|define
@@ -924,6 +931,13 @@ define|#
 directive|define
 name|COMMAND_QMLINHERITS
 value|Doc::alias("inherits")
+end_define
+begin_define
+DECL|macro|COMMAND_QMLINSTANTIATES
+define|#
+directive|define
+name|COMMAND_QMLINSTANTIATES
+value|Doc::alias("instantiates")
 end_define
 begin_define
 DECL|macro|COMMAND_QMLSIGNAL

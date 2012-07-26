@@ -902,7 +902,6 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-comment|//virtual QString fileBase() const;
 name|QString
 name|guid
 argument_list|()
@@ -983,6 +982,14 @@ return|return
 literal|0
 return|;
 block|}
+name|virtual
+name|void
+name|setClassNode
+parameter_list|(
+name|ClassNode
+modifier|*
+parameter_list|)
+block|{ }
 name|virtual
 name|void
 name|clearCurrentChild
@@ -2547,10 +2554,6 @@ specifier|const
 name|QString
 operator|&
 name|name
-argument_list|,
-name|ClassNode
-operator|*
-name|cn
 argument_list|)
 block|;
 name|virtual
@@ -2596,7 +2599,17 @@ return|return
 name|cnode_
 return|;
 block|}
-comment|//virtual QString fileBase() const;
+name|virtual
+name|void
+name|setClassNode
+argument_list|(
+argument|ClassNode* cn
+argument_list|)
+block|{
+name|cnode_
+operator|=
+name|cn
+block|; }
 name|virtual
 name|void
 name|setCurrentChild

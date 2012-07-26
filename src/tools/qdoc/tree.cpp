@@ -5292,8 +5292,6 @@ argument_list|(
 name|parent
 argument_list|,
 name|name
-argument_list|,
-literal|0
 argument_list|)
 decl_stmt|;
 name|qcn

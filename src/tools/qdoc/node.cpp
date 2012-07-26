@@ -8079,7 +8079,7 @@ name|qmlModuleMemberMap_
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|/*!   Constructs a Qml class node (i.e. a Fake node with the   subtype QmlClass. The new node has the given \a parent   and \a name and is associated with the C++ class node   specified by \a cn which may be null if the the Qml   class node is not associated with a C++ class node.  */
+comment|/*!   Constructs a Qml class node (i.e. a Fake node with the   subtype QmlClass. The new node has the given \a parent   and \a name.  */
 end_comment
 begin_constructor
 DECL|function|QmlClassNode
@@ -8095,10 +8095,6 @@ specifier|const
 name|QString
 modifier|&
 name|name
-parameter_list|,
-name|ClassNode
-modifier|*
-name|cn
 parameter_list|)
 member_init_list|:
 name|FakeNode
@@ -8126,7 +8122,7 @@ argument_list|)
 member_init_list|,
 name|cnode_
 argument_list|(
-name|cn
+literal|0
 argument_list|)
 member_init_list|,
 name|base_
