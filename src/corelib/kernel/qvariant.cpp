@@ -11740,6 +11740,9 @@ end_comment
 begin_comment
 comment|/*!     \fn DataPtr&QVariant::data_ptr()     \internal */
 end_comment
+begin_comment
+comment|/*!     \fn const DataPtr&QVariant::data_ptr() const     \internal */
+end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
