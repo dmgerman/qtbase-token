@@ -2245,6 +2245,15 @@ name|Target
 argument_list|>
 name|bestTargetList
 decl_stmt|;
+if|if
+condition|(
+name|priv
+operator|==
+literal|0
+condition|)
+return|return
+literal|0
+return|;
 for|for
 control|(
 name|int
@@ -2474,6 +2483,8 @@ name|node
 decl_stmt|;
 if|if
 condition|(
+name|n
+operator|&&
 name|relative
 operator|->
 name|qmlModuleIdentifier
