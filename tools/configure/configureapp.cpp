@@ -19610,15 +19610,6 @@ operator|<<
 name|endl
 expr_stmt|;
 block|}
-comment|// ### For compatibility only, should be removed later.
-name|tmpStream
-operator|<<
-name|endl
-operator|<<
-literal|"#define Q_WS_QPA"
-operator|<<
-name|endl
-expr_stmt|;
 name|tmpStream
 operator|<<
 name|endl
