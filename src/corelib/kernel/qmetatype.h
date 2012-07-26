@@ -548,7 +548,7 @@ literal|121
 block|,
 name|User
 init|=
-literal|256
+literal|1024
 block|}
 enum|;
 endif|#
