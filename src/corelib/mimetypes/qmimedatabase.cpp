@@ -962,7 +962,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a MIME type for \a fileInfo.      A valid MIME type is always returned.      The default matching algorithm looks at both the file name and the file     contents, if necessary. The file extension has priority over the contents,     but the contents will be used if the file extension is unknown, or     matches multiple MIME types.     If \a fileInfo is a Unix symbolic link, the file that it refers to     will be used instead.     If the file doesn't match any known pattern or data, the default MIME type     (application/octet-stream) is returned.      When \a mode is set to MatchExtension, only the file name is used, not     the file contents. The file doesn't even have to exist. If the file name     doesn't match any known pattern, the default MIME type (application/octet-stream)     is returned.     If multiple MIME types match this file, the first one (alphabetically) is returned.      When \a mode is set to MatchContent, and the file is readable, only the     file contents are used to determine the MIME type. This is equivalent to     calling mimeTypeForData with a QFile as input device.      \a fileInfo may refer to an absolute or relative path.      \sa isDefault, mimeTypeForData */
+comment|/*!     Returns a MIME type for \a fileInfo.      A valid MIME type is always returned.      The default matching algorithm looks at both the file name and the file     contents, if necessary. The file extension has priority over the contents,     but the contents will be used if the file extension is unknown, or     matches multiple MIME types.     If \a fileInfo is a Unix symbolic link, the file that it refers to     will be used instead.     If the file doesn't match any known pattern or data, the default MIME type     (application/octet-stream) is returned.      When \a mode is set to MatchExtension, only the file name is used, not     the file contents. The file doesn't even have to exist. If the file name     doesn't match any known pattern, the default MIME type (application/octet-stream)     is returned.     If multiple MIME types match this file, the first one (alphabetically) is returned.      When \a mode is set to MatchContent, and the file is readable, only the     file contents are used to determine the MIME type. This is equivalent to     calling mimeTypeForData with a QFile as input device.      \a fileInfo may refer to an absolute or relative path.      \sa QMimeType::isDefault(), mimeTypeForData() */
 end_comment
 begin_function
 DECL|function|mimeTypeForFile
@@ -1393,7 +1393,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the MIME types for the file name \a fileName.      If the file name doesn't match any known pattern, an empty list is returned.     If multiple MIME types match this file, they are all returned.      This function does not try to open the file. To also use the content     when determining the MIME type, use mimeTypeForFile() or     mimeTypeForFileNameAndData() instead.      \sa mimeTypeForFile */
+comment|/*!     Returns the MIME types for the file name \a fileName.      If the file name doesn't match any known pattern, an empty list is returned.     If multiple MIME types match this file, they are all returned.      This function does not try to open the file. To also use the content     when determining the MIME type, use mimeTypeForFile() or     mimeTypeForFileNameAndData() instead.      \sa mimeTypeForFile() */
 end_comment
 begin_function
 DECL|function|mimeTypesForFileName
@@ -1914,6 +1914,15 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \enum QMimeDatabase::MatchMode      This enum specifies how matching a file to a MIME type is performed.      \value MatchDefault Both the file name and content are used to look for a match      \value MatchExtension Only the file name is used to look for a match      \value MatchContent The file content is used to look for a match */
+end_comment
+begin_comment
+comment|/*!     \fn QMimeType QMimeDatabase::mimeTypeForNameAndData(const QString&fileName, QIODevice *device) const     \obsolete      This function is replaced by \l mimeTypeForFileNameAndData() */
+end_comment
+begin_comment
+comment|/*!     \fn QMimeType QMimeDatabase::mimeTypeForNameAndData(const QString&fileName, const QByteArray&data) const     \obsolete      This function is replaced by \l mimeTypeForFileNameAndData() */
+end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
