@@ -376,6 +376,12 @@ name|QString
 name|opensslLibs
 decl_stmt|;
 name|QString
+name|opensslLibsDebug
+decl_stmt|;
+name|QString
+name|opensslLibsRelease
+decl_stmt|;
+name|QString
 name|psqlLibs
 decl_stmt|;
 name|QString
