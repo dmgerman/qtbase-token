@@ -23939,16 +23939,6 @@ operator|::
 name|linearGradientSymmetry
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_WS_QWS
-name|QSKIP
-argument_list|(
-literal|"QWS has limited resolution in the gradient color table"
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|QFETCH
 argument_list|(
 name|QGradientStops
@@ -24094,8 +24084,6 @@ argument_list|,
 name|b
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function

@@ -451,12 +451,6 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_QWS
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
 name|Q_OS_WINCE
 argument_list|)
 name|QT_TRY
@@ -493,12 +487,6 @@ argument_list|()
 expr_stmt|;
 if|#
 directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_WS_QWS
-argument_list|)
-operator|&&
 operator|!
 name|defined
 argument_list|(

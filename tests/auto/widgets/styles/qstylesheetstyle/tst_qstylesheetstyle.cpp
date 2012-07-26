@@ -4706,27 +4706,6 @@ argument_list|(
 literal|"TESTING TESTING"
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_WS_QWS
-comment|// QWS has its own special focus logic which is slightly different
-comment|// and I don't dare change it at this point, because someone will
-comment|// be relying on it. It means that setFocus() on a NoFocus widget (i.e.
-comment|// a QLabel) will not work before the window is activated.
-name|widgets
-index|[
-literal|2
-index|]
-operator|->
-name|setFocusPolicy
-argument_list|(
-name|Qt
-operator|::
-name|StrongFocus
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 foreach|foreach
 control|(
 name|QWidget
@@ -5151,24 +5130,6 @@ operator|.
 name|show
 argument_list|()
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_WS_QWS
-comment|//QWS does not implement enter/leave when windows are shown underneath the cursor
-name|QCursor
-operator|::
-name|setPos
-argument_list|(
-name|QPoint
-argument_list|(
-literal|0
-argument_list|,
-literal|0
-argument_list|)
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QApplication
 operator|::
 name|setActiveWindow

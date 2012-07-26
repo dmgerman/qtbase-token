@@ -475,17 +475,6 @@ argument_list|(
 name|def
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_WS_QWS
-name|QApplication
-operator|::
-name|processEvents
-argument_list|()
-expr_stmt|;
-comment|//wait for the window system to show the tool button
-endif|#
-directive|endif
 name|def
 operator|->
 name|trigger

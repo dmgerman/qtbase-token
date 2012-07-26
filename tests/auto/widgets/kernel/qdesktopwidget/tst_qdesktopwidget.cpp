@@ -484,20 +484,6 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_WS_QWS
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"Task 151710"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QVERIFY
 argument_list|(
 name|screen

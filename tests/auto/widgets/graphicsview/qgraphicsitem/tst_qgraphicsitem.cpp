@@ -14757,17 +14757,6 @@ operator|::
 name|processEvents
 argument_list|()
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_WS_QWS
-name|QApplication
-operator|::
-name|sendPostedEvents
-argument_list|()
-expr_stmt|;
-comment|//glib workaround
-endif|#
-directive|endif
 name|QTRY_VERIFY
 argument_list|(
 operator|!

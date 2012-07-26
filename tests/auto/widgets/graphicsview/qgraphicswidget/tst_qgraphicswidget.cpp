@@ -19418,14 +19418,9 @@ name|defined
 argument_list|(
 name|Q_OS_MAC
 argument_list|)
-operator|||
-name|defined
+name|QSKIP
 argument_list|(
-name|Q_WS_QWS
-argument_list|)
-name|qDebug
-argument_list|(
-literal|"This test is platform dependent, it fails on wince, mac and qws. Please fix."
+literal|"This test is platform dependent, it fails on wince and mac. Please fix."
 argument_list|)
 expr_stmt|;
 else|#
