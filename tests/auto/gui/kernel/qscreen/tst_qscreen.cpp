@@ -10,6 +10,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtGui/QWindowSystemInterface>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtTest/QtTest>
 end_include
 begin_class

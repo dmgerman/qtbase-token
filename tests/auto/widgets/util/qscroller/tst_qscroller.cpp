@@ -17,6 +17,11 @@ include|#
 directive|include
 file|<QtTest>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtGui/QWindowSystemInterface>
+end_include
 begin_comment
 comment|// #include<QDebug>
 end_comment

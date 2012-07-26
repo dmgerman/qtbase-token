@@ -20,6 +20,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtGui/QWindowSystemInterface>
+end_include
+begin_include
+include|#
+directive|include
 file|<QDebug>
 end_include
 begin_class
