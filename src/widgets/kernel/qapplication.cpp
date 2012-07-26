@@ -16059,7 +16059,7 @@ name|mapFromGlobal
 argument_list|(
 name|p
 operator|.
-name|scenePos
+name|screenPos
 argument_list|()
 operator|.
 name|toPoint
