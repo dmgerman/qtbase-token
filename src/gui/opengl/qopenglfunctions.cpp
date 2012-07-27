@@ -875,7 +875,7 @@ name|extensionMatcher
 operator|.
 name|match
 argument_list|(
-literal|"GL_EXT_pakced_depth_stencil"
+literal|"GL_EXT_packed_depth_stencil"
 argument_list|)
 condition|)
 name|extensions
