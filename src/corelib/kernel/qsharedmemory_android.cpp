@@ -96,9 +96,6 @@ literal|"Not yet implemented on Android"
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|/*!     \internal      If not already made create the handle used for accessing the shared memory. */
-end_comment
 begin_function
 DECL|function|handle
 name|key_t
@@ -142,9 +139,6 @@ name|QT_NO_SYSTEMSEMAPHORE
 argument_list|)
 operator|)
 end_if
-begin_comment
-comment|/*!     \internal     Creates the unix file if needed.     returns true if the unix file was created.      -1 error      0 already existed      1 created   */
-end_comment
 begin_function
 DECL|function|createUnixKeyFile
 name|int

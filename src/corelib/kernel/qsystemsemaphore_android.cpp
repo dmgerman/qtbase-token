@@ -84,9 +84,6 @@ literal|"Not yet implemented on Android"
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|/*!     \internal      Setup unix_key  */
-end_comment
 begin_function
 DECL|function|handle
 name|key_t
@@ -113,9 +110,6 @@ literal|1
 return|;
 block|}
 end_function
-begin_comment
-comment|/*!     \internal      Cleanup the unix_key  */
-end_comment
 begin_function
 DECL|function|cleanHandle
 name|void
@@ -133,9 +127,6 @@ literal|"Not yet implemented on Android"
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|/*!     \internal  */
-end_comment
 begin_function
 DECL|function|modifySemaphore
 name|bool
