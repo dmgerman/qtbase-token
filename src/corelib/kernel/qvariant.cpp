@@ -10437,6 +10437,15 @@ operator|::
 name|PointerToQObject
 operator|)
 condition|)
+block|{
+if|if
+condition|(
+operator|!
+name|fromObject
+condition|)
+return|return
+literal|true
+return|;
 return|return
 name|canConvertMetaObject
 argument_list|(
@@ -10451,6 +10460,7 @@ name|metaObject
 argument_list|()
 argument_list|)
 return|;
+block|}
 else|#
 directive|else
 name|Q_UNUSED
