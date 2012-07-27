@@ -24805,7 +24805,7 @@ literal|"first: all\n"
 expr_stmt|;
 name|txt
 operator|<<
-literal|"qmake:\n"
+literal|"qmake: FORCE\n"
 expr_stmt|;
 name|txt
 operator|<<
@@ -24819,6 +24819,10 @@ literal|" "
 argument_list|)
 operator|<<
 literal|"\n"
+expr_stmt|;
+name|txt
+operator|<<
+literal|"FORCE:\n"
 expr_stmt|;
 block|}
 block|}
