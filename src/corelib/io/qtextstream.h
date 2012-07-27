@@ -819,6 +819,10 @@ name|Q_DISABLE_COPY
 argument_list|(
 argument|QTextStream
 argument_list|)
+name|friend
+name|class
+name|QDebugStateSaverPrivate
+decl_stmt|;
 name|QScopedPointer
 operator|<
 name|QTextStreamPrivate
