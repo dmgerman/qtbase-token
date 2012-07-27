@@ -175,7 +175,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Enters the main event loop and waits until exit() is called.     Returns the value that was passed to exit().      If \a flags are specified, only events of the types allowed by     the \a flags will be processed.      It is necessary to call this function to start event handling. The     main event loop receives events from the window system and     dispatches these to the application widgets.      Generally speaking, no user interaction can take place before     calling exec(). As a special case, modal widgets like QMessageBox     can be used before calling exec(), because modal widgets     use their own local event loop.      To make your application perform idle processing (i.e. executing a     special function whenever there are no pending events), use a     QTimer with 0 timeout. More sophisticated idle processing schemes     can be achieved using processEvents().      \sa QApplication::quit(), exit(), processEvents() */
+comment|/*!     Enters the main event loop and waits until exit() is called.     Returns the value that was passed to exit().      If \a flags are specified, only events of the types allowed by     the \a flags will be processed.      It is necessary to call this function to start event handling. The     main event loop receives events from the window system and     dispatches these to the application widgets.      Generally speaking, no user interaction can take place before     calling exec(). As a special case, modal widgets like QMessageBox     can be used before calling exec(), because modal widgets     use their own local event loop.      To make your application perform idle processing (i.e. executing a     special function whenever there are no pending events), use a     QTimer with 0 timeout. More sophisticated idle processing schemes     can be achieved using processEvents().      \sa QCoreApplication::quit(), exit(), processEvents() */
 end_comment
 begin_function
 DECL|function|exec
@@ -649,6 +649,9 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!     \reimp */
+end_comment
 begin_function
 DECL|function|event
 name|bool
@@ -910,7 +913,7 @@ argument_list|)
 block|{  }
 end_constructor
 begin_comment
-comment|/*!     Creates an event locker operating on the \p loop.      This particular QEventLoop will quit when there are no more QEventLoopLockers operating on it.      \sa QEventLoop::quit()  */
+comment|/*!     Creates an event locker operating on the \a loop.      This particular QEventLoop will quit when there are no more QEventLoopLockers operating on it.      \sa QEventLoop::quit()  */
 end_comment
 begin_constructor
 DECL|function|QEventLoopLocker
@@ -946,7 +949,7 @@ argument_list|)
 block|{  }
 end_constructor
 begin_comment
-comment|/*!     Creates an event locker operating on the \p thread.      This particular QThread will quit when there are no more QEventLoopLockers operating on it.      \sa QThread::quit()  */
+comment|/*!     Creates an event locker operating on the \a thread.      This particular QThread will quit when there are no more QEventLoopLockers operating on it.      \sa QThread::quit()  */
 end_comment
 begin_constructor
 DECL|function|QEventLoopLocker
