@@ -83,8 +83,6 @@ name|PPK_WindowsPageSize
 block|,
 name|PPK_FontEmbedding
 block|,
-name|PPK_SuppressSystemPrintStatus
-block|,
 name|PPK_Duplex
 block|,
 name|PPK_PaperSources
