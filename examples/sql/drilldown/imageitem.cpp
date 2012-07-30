@@ -27,10 +27,6 @@ parameter_list|,
 name|QGraphicsItem
 modifier|*
 name|parent
-parameter_list|,
-name|QGraphicsScene
-modifier|*
-name|scene
 parameter_list|)
 member_init_list|:
 name|QGraphicsPixmapItem
@@ -38,8 +34,6 @@ argument_list|(
 name|pixmap
 argument_list|,
 name|parent
-argument_list|,
-name|scene
 argument_list|)
 block|{
 name|recordId

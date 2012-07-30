@@ -1115,8 +1115,6 @@ argument|QGraphicsWidgetPrivate&
 argument_list|,
 argument|QGraphicsItem *parent
 argument_list|,
-argument|QGraphicsScene *
-argument_list|,
 argument|Qt::WindowFlags wFlags =
 literal|0
 argument_list|)

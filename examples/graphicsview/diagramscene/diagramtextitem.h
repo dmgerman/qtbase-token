@@ -76,12 +76,6 @@ operator|*
 name|parent
 operator|=
 literal|0
-argument_list|,
-name|QGraphicsScene
-operator|*
-name|scene
-operator|=
-literal|0
 argument_list|)
 block|;
 name|int

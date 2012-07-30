@@ -24,17 +24,11 @@ parameter_list|,
 name|QGraphicsItem
 modifier|*
 name|item
-parameter_list|,
-name|QGraphicsScene
-modifier|*
-name|scene
 parameter_list|)
 member_init_list|:
 name|QGraphicsPolygonItem
 argument_list|(
 name|item
-argument_list|,
-name|scene
 argument_list|)
 block|{
 if|if

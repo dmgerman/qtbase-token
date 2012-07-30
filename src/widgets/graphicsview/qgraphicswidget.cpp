@@ -147,8 +147,6 @@ operator|new
 name|QGraphicsWidgetPrivate
 argument_list|,
 literal|0
-argument_list|,
-literal|0
 argument_list|)
 member_init_list|,
 name|QGraphicsLayoutItem
@@ -191,10 +189,6 @@ name|QGraphicsItem
 modifier|*
 name|parent
 parameter_list|,
-name|QGraphicsScene
-modifier|*
-name|scene
-parameter_list|,
 name|Qt
 operator|::
 name|WindowFlags
@@ -206,8 +200,6 @@ argument_list|(
 name|dd
 argument_list|,
 literal|0
-argument_list|,
-name|scene
 argument_list|)
 member_init_list|,
 name|QGraphicsLayoutItem

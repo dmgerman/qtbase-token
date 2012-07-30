@@ -1594,8 +1594,6 @@ name|QGraphicsProxyWidgetPrivate
 argument_list|,
 name|parent
 argument_list|,
-literal|0
-argument_list|,
 name|wFlags
 argument_list|)
 block|{

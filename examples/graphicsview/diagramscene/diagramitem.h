@@ -137,9 +137,6 @@ argument|QMenu *contextMenu
 argument_list|,
 argument|QGraphicsItem *parent =
 literal|0
-argument_list|,
-argument|QGraphicsScene *scene =
-literal|0
 argument_list|)
 block|;
 name|void

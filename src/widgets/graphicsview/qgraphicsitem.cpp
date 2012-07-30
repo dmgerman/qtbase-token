@@ -3368,16 +3368,6 @@ parameter_list|(
 name|QGraphicsItem
 modifier|*
 name|parent
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// obsolete argument
-parameter_list|,
-name|QGraphicsScene
-modifier|*
-name|scene
-endif|#
-directive|endif
 parameter_list|)
 member_init_list|:
 name|d_ptr
@@ -3395,49 +3385,6 @@ expr_stmt|;
 name|setParentItem
 argument_list|(
 name|parent
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|scene
-operator|&&
-name|parent
-operator|&&
-name|parent
-operator|->
-name|scene
-argument_list|()
-operator|!=
-name|scene
-condition|)
-block|{
-name|qWarning
-argument_list|(
-literal|"QGraphicsItem::QGraphicsItem: ignoring scene (%p), which is"
-literal|" different from parent's scene (%p)"
-argument_list|,
-name|scene
-argument_list|,
-name|parent
-operator|->
-name|scene
-argument_list|()
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
-if|if
-condition|(
-name|scene
-operator|&&
-operator|!
-name|parent
-condition|)
-name|scene
-operator|->
-name|addItem
-argument_list|(
-name|this
 argument_list|)
 expr_stmt|;
 block|}
@@ -3458,10 +3405,6 @@ parameter_list|,
 name|QGraphicsItem
 modifier|*
 name|parent
-parameter_list|,
-name|QGraphicsScene
-modifier|*
-name|scene
 parameter_list|)
 member_init_list|:
 name|d_ptr
@@ -3479,49 +3422,6 @@ expr_stmt|;
 name|setParentItem
 argument_list|(
 name|parent
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|scene
-operator|&&
-name|parent
-operator|&&
-name|parent
-operator|->
-name|scene
-argument_list|()
-operator|!=
-name|scene
-condition|)
-block|{
-name|qWarning
-argument_list|(
-literal|"QGraphicsItem::QGraphicsItem: ignoring scene (%p), which is"
-literal|" different from parent's scene (%p)"
-argument_list|,
-name|scene
-argument_list|,
-name|parent
-operator|->
-name|scene
-argument_list|()
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
-if|if
-condition|(
-name|scene
-operator|&&
-operator|!
-name|parent
-condition|)
-name|scene
-operator|->
-name|addItem
-argument_list|(
-name|this
 argument_list|)
 expr_stmt|;
 block|}
@@ -22667,10 +22567,6 @@ parameter_list|,
 name|QGraphicsItem
 modifier|*
 name|parent
-parameter_list|,
-name|QGraphicsScene
-modifier|*
-name|scene
 parameter_list|)
 member_init_list|:
 name|QGraphicsItem
@@ -22678,8 +22574,6 @@ argument_list|(
 name|dd
 argument_list|,
 name|parent
-argument_list|,
-name|scene
 argument_list|)
 block|{
 name|QGraphicsItem
@@ -23475,16 +23369,6 @@ parameter_list|(
 name|QGraphicsItem
 modifier|*
 name|parent
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// obsolete argument
-parameter_list|,
-name|QGraphicsScene
-modifier|*
-name|scene
-endif|#
-directive|endif
 parameter_list|)
 member_init_list|:
 name|QGraphicsItem
@@ -23494,8 +23378,6 @@ operator|new
 name|QAbstractGraphicsShapeItemPrivate
 argument_list|,
 name|parent
-argument_list|,
-name|scene
 argument_list|)
 block|{ }
 end_constructor
@@ -23515,10 +23397,6 @@ parameter_list|,
 name|QGraphicsItem
 modifier|*
 name|parent
-parameter_list|,
-name|QGraphicsScene
-modifier|*
-name|scene
 parameter_list|)
 member_init_list|:
 name|QGraphicsItem
@@ -23526,8 +23404,6 @@ argument_list|(
 name|dd
 argument_list|,
 name|parent
-argument_list|,
-name|scene
 argument_list|)
 block|{ }
 end_constructor
@@ -23798,16 +23674,6 @@ parameter_list|,
 name|QGraphicsItem
 modifier|*
 name|parent
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// obsolete argument
-parameter_list|,
-name|QGraphicsScene
-modifier|*
-name|scene
-endif|#
-directive|endif
 parameter_list|)
 member_init_list|:
 name|QAbstractGraphicsShapeItem
@@ -23817,8 +23683,6 @@ operator|new
 name|QGraphicsPathItemPrivate
 argument_list|,
 name|parent
-argument_list|,
-name|scene
 argument_list|)
 block|{
 if|if
@@ -23848,16 +23712,6 @@ parameter_list|(
 name|QGraphicsItem
 modifier|*
 name|parent
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// obsolete argument
-parameter_list|,
-name|QGraphicsScene
-modifier|*
-name|scene
-endif|#
-directive|endif
 parameter_list|)
 member_init_list|:
 name|QAbstractGraphicsShapeItem
@@ -23867,8 +23721,6 @@ operator|new
 name|QGraphicsPathItemPrivate
 argument_list|,
 name|parent
-argument_list|,
-name|scene
 argument_list|)
 block|{ }
 end_constructor
@@ -24365,16 +24217,6 @@ parameter_list|,
 name|QGraphicsItem
 modifier|*
 name|parent
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// obsolete argument
-parameter_list|,
-name|QGraphicsScene
-modifier|*
-name|scene
-endif|#
-directive|endif
 parameter_list|)
 member_init_list|:
 name|QAbstractGraphicsShapeItem
@@ -24384,8 +24226,6 @@ operator|new
 name|QGraphicsRectItemPrivate
 argument_list|,
 name|parent
-argument_list|,
-name|scene
 argument_list|)
 block|{
 name|setRect
@@ -24419,16 +24259,6 @@ parameter_list|,
 name|QGraphicsItem
 modifier|*
 name|parent
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// obsolete argument
-parameter_list|,
-name|QGraphicsScene
-modifier|*
-name|scene
-endif|#
-directive|endif
 parameter_list|)
 member_init_list|:
 name|QAbstractGraphicsShapeItem
@@ -24438,8 +24268,6 @@ operator|new
 name|QGraphicsRectItemPrivate
 argument_list|,
 name|parent
-argument_list|,
-name|scene
 argument_list|)
 block|{
 name|setRect
@@ -24470,16 +24298,6 @@ parameter_list|(
 name|QGraphicsItem
 modifier|*
 name|parent
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// obsolete argument
-parameter_list|,
-name|QGraphicsScene
-modifier|*
-name|scene
-endif|#
-directive|endif
 parameter_list|)
 member_init_list|:
 name|QAbstractGraphicsShapeItem
@@ -24489,8 +24307,6 @@ operator|new
 name|QGraphicsRectItemPrivate
 argument_list|,
 name|parent
-argument_list|,
-name|scene
 argument_list|)
 block|{ }
 end_constructor
@@ -25028,16 +24844,6 @@ parameter_list|,
 name|QGraphicsItem
 modifier|*
 name|parent
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// obsolete argument
-parameter_list|,
-name|QGraphicsScene
-modifier|*
-name|scene
-endif|#
-directive|endif
 parameter_list|)
 member_init_list|:
 name|QAbstractGraphicsShapeItem
@@ -25047,8 +24853,6 @@ operator|new
 name|QGraphicsEllipseItemPrivate
 argument_list|,
 name|parent
-argument_list|,
-name|scene
 argument_list|)
 block|{
 name|setRect
@@ -25082,16 +24886,6 @@ parameter_list|,
 name|QGraphicsItem
 modifier|*
 name|parent
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// obsolete argument
-parameter_list|,
-name|QGraphicsScene
-modifier|*
-name|scene
-endif|#
-directive|endif
 parameter_list|)
 member_init_list|:
 name|QAbstractGraphicsShapeItem
@@ -25101,8 +24895,6 @@ operator|new
 name|QGraphicsEllipseItemPrivate
 argument_list|,
 name|parent
-argument_list|,
-name|scene
 argument_list|)
 block|{
 name|setRect
@@ -25130,16 +24922,6 @@ parameter_list|(
 name|QGraphicsItem
 modifier|*
 name|parent
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// obsolete argument
-parameter_list|,
-name|QGraphicsScene
-modifier|*
-name|scene
-endif|#
-directive|endif
 parameter_list|)
 member_init_list|:
 name|QAbstractGraphicsShapeItem
@@ -25149,8 +24931,6 @@ operator|new
 name|QGraphicsEllipseItemPrivate
 argument_list|,
 name|parent
-argument_list|,
-name|scene
 argument_list|)
 block|{ }
 end_constructor
@@ -25933,16 +25713,6 @@ parameter_list|,
 name|QGraphicsItem
 modifier|*
 name|parent
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// obsolete argument
-parameter_list|,
-name|QGraphicsScene
-modifier|*
-name|scene
-endif|#
-directive|endif
 parameter_list|)
 member_init_list|:
 name|QAbstractGraphicsShapeItem
@@ -25952,8 +25722,6 @@ operator|new
 name|QGraphicsPolygonItemPrivate
 argument_list|,
 name|parent
-argument_list|,
-name|scene
 argument_list|)
 block|{
 name|setPolygon
@@ -25975,16 +25743,6 @@ parameter_list|(
 name|QGraphicsItem
 modifier|*
 name|parent
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// obsolete argument
-parameter_list|,
-name|QGraphicsScene
-modifier|*
-name|scene
-endif|#
-directive|endif
 parameter_list|)
 member_init_list|:
 name|QAbstractGraphicsShapeItem
@@ -25994,8 +25752,6 @@ operator|new
 name|QGraphicsPolygonItemPrivate
 argument_list|,
 name|parent
-argument_list|,
-name|scene
 argument_list|)
 block|{ }
 end_constructor
@@ -26577,16 +26333,6 @@ parameter_list|,
 name|QGraphicsItem
 modifier|*
 name|parent
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// obsolete argument
-parameter_list|,
-name|QGraphicsScene
-modifier|*
-name|scene
-endif|#
-directive|endif
 parameter_list|)
 member_init_list|:
 name|QGraphicsItem
@@ -26596,8 +26342,6 @@ operator|new
 name|QGraphicsLineItemPrivate
 argument_list|,
 name|parent
-argument_list|,
-name|scene
 argument_list|)
 block|{
 name|setLine
@@ -26631,16 +26375,6 @@ parameter_list|,
 name|QGraphicsItem
 modifier|*
 name|parent
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// obsolete argument
-parameter_list|,
-name|QGraphicsScene
-modifier|*
-name|scene
-endif|#
-directive|endif
 parameter_list|)
 member_init_list|:
 name|QGraphicsItem
@@ -26650,8 +26384,6 @@ operator|new
 name|QGraphicsLineItemPrivate
 argument_list|,
 name|parent
-argument_list|,
-name|scene
 argument_list|)
 block|{
 name|setLine
@@ -26679,16 +26411,6 @@ parameter_list|(
 name|QGraphicsItem
 modifier|*
 name|parent
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// obsolete argument
-parameter_list|,
-name|QGraphicsScene
-modifier|*
-name|scene
-endif|#
-directive|endif
 parameter_list|)
 member_init_list|:
 name|QGraphicsItem
@@ -26698,8 +26420,6 @@ operator|new
 name|QGraphicsLineItemPrivate
 argument_list|,
 name|parent
-argument_list|,
-name|scene
 argument_list|)
 block|{ }
 end_constructor
@@ -27586,16 +27306,6 @@ parameter_list|,
 name|QGraphicsItem
 modifier|*
 name|parent
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// obsolete argument
-parameter_list|,
-name|QGraphicsScene
-modifier|*
-name|scene
-endif|#
-directive|endif
 parameter_list|)
 member_init_list|:
 name|QGraphicsItem
@@ -27605,8 +27315,6 @@ operator|new
 name|QGraphicsPixmapItemPrivate
 argument_list|,
 name|parent
-argument_list|,
-name|scene
 argument_list|)
 block|{
 name|setPixmap
@@ -27628,16 +27336,6 @@ parameter_list|(
 name|QGraphicsItem
 modifier|*
 name|parent
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// obsolete argument
-parameter_list|,
-name|QGraphicsScene
-modifier|*
-name|scene
-endif|#
-directive|endif
 parameter_list|)
 member_init_list|:
 name|QGraphicsItem
@@ -27647,8 +27345,6 @@ operator|new
 name|QGraphicsPixmapItemPrivate
 argument_list|,
 name|parent
-argument_list|,
-name|scene
 argument_list|)
 block|{ }
 end_constructor
@@ -28537,16 +28233,6 @@ parameter_list|,
 name|QGraphicsItem
 modifier|*
 name|parent
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// obsolete argument
-parameter_list|,
-name|QGraphicsScene
-modifier|*
-name|scene
-endif|#
-directive|endif
 parameter_list|)
 member_init_list|:
 name|QGraphicsObject
@@ -28556,8 +28242,6 @@ operator|new
 name|QGraphicsItemPrivate
 argument_list|,
 name|parent
-argument_list|,
-name|scene
 argument_list|)
 member_init_list|,
 name|dd
@@ -28614,16 +28298,6 @@ parameter_list|(
 name|QGraphicsItem
 modifier|*
 name|parent
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// obsolete argument
-parameter_list|,
-name|QGraphicsScene
-modifier|*
-name|scene
-endif|#
-directive|endif
 parameter_list|)
 member_init_list|:
 name|QGraphicsObject
@@ -28633,8 +28307,6 @@ operator|new
 name|QGraphicsItemPrivate
 argument_list|,
 name|parent
-argument_list|,
-name|scene
 argument_list|)
 member_init_list|,
 name|dd
@@ -31732,16 +31404,6 @@ parameter_list|(
 name|QGraphicsItem
 modifier|*
 name|parent
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// obsolete argument
-parameter_list|,
-name|QGraphicsScene
-modifier|*
-name|scene
-endif|#
-directive|endif
 parameter_list|)
 member_init_list|:
 name|QAbstractGraphicsShapeItem
@@ -31751,8 +31413,6 @@ operator|new
 name|QGraphicsSimpleTextItemPrivate
 argument_list|,
 name|parent
-argument_list|,
-name|scene
 argument_list|)
 block|{ }
 end_constructor
@@ -31773,16 +31433,6 @@ parameter_list|,
 name|QGraphicsItem
 modifier|*
 name|parent
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// obsolete argument
-parameter_list|,
-name|QGraphicsScene
-modifier|*
-name|scene
-endif|#
-directive|endif
 parameter_list|)
 member_init_list|:
 name|QAbstractGraphicsShapeItem
@@ -31792,8 +31442,6 @@ operator|new
 name|QGraphicsSimpleTextItemPrivate
 argument_list|,
 name|parent
-argument_list|,
-name|scene
 argument_list|)
 block|{
 name|setText
@@ -32460,16 +32108,6 @@ parameter_list|(
 name|QGraphicsItem
 modifier|*
 name|parent
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// obsolete argument
-parameter_list|,
-name|QGraphicsScene
-modifier|*
-name|scene
-endif|#
-directive|endif
 parameter_list|)
 member_init_list|:
 name|QGraphicsItem
@@ -32479,8 +32117,6 @@ operator|new
 name|QGraphicsItemGroupPrivate
 argument_list|,
 name|parent
-argument_list|,
-name|scene
 argument_list|)
 block|{
 name|setHandlesChildEvents

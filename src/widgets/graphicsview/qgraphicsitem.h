@@ -407,18 +407,6 @@ operator|*
 name|parent
 operator|=
 literal|0
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// ### obsolete argument
-argument_list|,
-name|QGraphicsScene
-operator|*
-name|scene
-operator|=
-literal|0
-endif|#
-directive|endif
 argument_list|)
 expr_stmt|;
 name|virtual
@@ -2699,10 +2687,6 @@ argument_list|,
 name|QGraphicsItem
 operator|*
 name|parent
-argument_list|,
-name|QGraphicsScene
-operator|*
-name|scene
 argument_list|)
 expr_stmt|;
 name|QScopedPointer
@@ -3950,10 +3934,6 @@ argument_list|,
 name|QGraphicsItem
 operator|*
 name|parent
-argument_list|,
-name|QGraphicsScene
-operator|*
-name|scene
 argument_list|)
 expr_stmt|;
 name|private
@@ -3994,18 +3974,6 @@ operator|*
 name|parent
 operator|=
 literal|0
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// ### obsolete argument
-argument_list|,
-name|QGraphicsScene
-operator|*
-name|scene
-operator|=
-literal|0
-endif|#
-directive|endif
 argument_list|)
 block|;
 operator|~
@@ -4063,10 +4031,6 @@ argument_list|,
 name|QGraphicsItem
 operator|*
 name|parent
-argument_list|,
-name|QGraphicsScene
-operator|*
-name|scene
 argument_list|)
 block|;
 name|private
@@ -4105,18 +4069,6 @@ operator|*
 name|parent
 operator|=
 literal|0
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// ### obsolete argument
-argument_list|,
-name|QGraphicsScene
-operator|*
-name|scene
-operator|=
-literal|0
-endif|#
-directive|endif
 argument_list|)
 block|;
 name|QGraphicsPathItem
@@ -4131,18 +4083,6 @@ operator|*
 name|parent
 operator|=
 literal|0
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// ### obsolete argument
-argument_list|,
-name|QGraphicsScene
-operator|*
-name|scene
-operator|=
-literal|0
-endif|#
-directive|endif
 argument_list|)
 block|;
 operator|~
@@ -4282,18 +4222,6 @@ operator|*
 name|parent
 operator|=
 literal|0
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// ### obsolete argument
-argument_list|,
-name|QGraphicsScene
-operator|*
-name|scene
-operator|=
-literal|0
-endif|#
-directive|endif
 argument_list|)
 block|;
 name|QGraphicsRectItem
@@ -4308,18 +4236,6 @@ operator|*
 name|parent
 operator|=
 literal|0
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// ### obsolete argument
-argument_list|,
-name|QGraphicsScene
-operator|*
-name|scene
-operator|=
-literal|0
-endif|#
-directive|endif
 argument_list|)
 block|;
 name|QGraphicsRectItem
@@ -4334,15 +4250,6 @@ argument|qreal h
 argument_list|,
 argument|QGraphicsItem *parent =
 literal|0
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// ### obsolete argument
-argument_list|,
-argument|QGraphicsScene *scene =
-literal|0
-endif|#
-directive|endif
 argument_list|)
 block|;
 operator|~
@@ -4525,18 +4432,6 @@ operator|*
 name|parent
 operator|=
 literal|0
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// ### obsolete argument
-argument_list|,
-name|QGraphicsScene
-operator|*
-name|scene
-operator|=
-literal|0
-endif|#
-directive|endif
 argument_list|)
 block|;
 name|QGraphicsEllipseItem
@@ -4551,18 +4446,6 @@ operator|*
 name|parent
 operator|=
 literal|0
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// ### obsolete argument
-argument_list|,
-name|QGraphicsScene
-operator|*
-name|scene
-operator|=
-literal|0
-endif|#
-directive|endif
 argument_list|)
 block|;
 name|QGraphicsEllipseItem
@@ -4577,15 +4460,6 @@ argument|qreal h
 argument_list|,
 argument|QGraphicsItem *parent =
 literal|0
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// ### obsolete argument
-argument_list|,
-argument|QGraphicsScene *scene =
-literal|0
-endif|#
-directive|endif
 argument_list|)
 block|;
 operator|~
@@ -4790,18 +4664,6 @@ operator|*
 name|parent
 operator|=
 literal|0
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// ### obsolete argument
-argument_list|,
-name|QGraphicsScene
-operator|*
-name|scene
-operator|=
-literal|0
-endif|#
-directive|endif
 argument_list|)
 block|;
 name|QGraphicsPolygonItem
@@ -4816,18 +4678,6 @@ operator|*
 name|parent
 operator|=
 literal|0
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// ### obsolete argument
-argument_list|,
-name|QGraphicsScene
-operator|*
-name|scene
-operator|=
-literal|0
-endif|#
-directive|endif
 argument_list|)
 block|;
 operator|~
@@ -4980,18 +4830,6 @@ operator|*
 name|parent
 operator|=
 literal|0
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// ### obsolete argument
-argument_list|,
-name|QGraphicsScene
-operator|*
-name|scene
-operator|=
-literal|0
-endif|#
-directive|endif
 argument_list|)
 block|;
 name|QGraphicsLineItem
@@ -5006,18 +4844,6 @@ operator|*
 name|parent
 operator|=
 literal|0
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// ### obsolete argument
-argument_list|,
-name|QGraphicsScene
-operator|*
-name|scene
-operator|=
-literal|0
-endif|#
-directive|endif
 argument_list|)
 block|;
 name|QGraphicsLineItem
@@ -5032,15 +4858,6 @@ argument|qreal y2
 argument_list|,
 argument|QGraphicsItem *parent =
 literal|0
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// ### obsolete argument
-argument_list|,
-argument|QGraphicsScene *scene =
-literal|0
-endif|#
-directive|endif
 argument_list|)
 block|;
 operator|~
@@ -5231,18 +5048,6 @@ operator|*
 name|parent
 operator|=
 literal|0
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// ### obsolete argument
-argument_list|,
-name|QGraphicsScene
-operator|*
-name|scene
-operator|=
-literal|0
-endif|#
-directive|endif
 argument_list|)
 block|;
 name|QGraphicsPixmapItem
@@ -5257,18 +5062,6 @@ operator|*
 name|parent
 operator|=
 literal|0
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// ### obsolete argument
-argument_list|,
-name|QGraphicsScene
-operator|*
-name|scene
-operator|=
-literal|0
-endif|#
-directive|endif
 argument_list|)
 block|;
 operator|~
@@ -5496,18 +5289,6 @@ operator|*
 name|parent
 operator|=
 literal|0
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// ### obsolete argument
-argument_list|,
-name|QGraphicsScene
-operator|*
-name|scene
-operator|=
-literal|0
-endif|#
-directive|endif
 argument_list|)
 block|;
 name|QGraphicsTextItem
@@ -5522,18 +5303,6 @@ operator|*
 name|parent
 operator|=
 literal|0
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// ### obsolete argument
-argument_list|,
-name|QGraphicsScene
-operator|*
-name|scene
-operator|=
-literal|0
-endif|#
-directive|endif
 argument_list|)
 block|;
 operator|~
@@ -5981,18 +5750,6 @@ operator|*
 name|parent
 operator|=
 literal|0
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// ### obsolete argument
-argument_list|,
-name|QGraphicsScene
-operator|*
-name|scene
-operator|=
-literal|0
-endif|#
-directive|endif
 argument_list|)
 block|;
 name|QGraphicsSimpleTextItem
@@ -6007,18 +5764,6 @@ operator|*
 name|parent
 operator|=
 literal|0
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// ### obsolete argument
-argument_list|,
-name|QGraphicsScene
-operator|*
-name|scene
-operator|=
-literal|0
-endif|#
-directive|endif
 argument_list|)
 block|;
 operator|~
@@ -6170,18 +5915,6 @@ operator|*
 name|parent
 operator|=
 literal|0
-ifndef|#
-directive|ifndef
-name|Q_QDOC
-comment|// ### obsolete argument
-argument_list|,
-name|QGraphicsScene
-operator|*
-name|scene
-operator|=
-literal|0
-endif|#
-directive|endif
 argument_list|)
 block|;
 operator|~
