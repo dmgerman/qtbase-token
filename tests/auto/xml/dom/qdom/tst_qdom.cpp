@@ -470,12 +470,12 @@ modifier|&
 name|node
 parameter_list|)
 function_decl|;
-DECL|member|m_excludedCodecs
+DECL|member|m_testCodecs
 name|QList
 argument_list|<
 name|QByteArray
 argument_list|>
-name|m_excludedCodecs
+name|m_testCodecs
 decl_stmt|;
 block|}
 class|;
@@ -1849,7 +1849,7 @@ name|testFile
 init|=
 name|QFINDTESTDATA
 argument_list|(
-literal|"testdata/excludedCodecs.txt"
+literal|"testdata/testCodecs.txt"
 argument_list|)
 decl_stmt|;
 if|if
@@ -1861,7 +1861,7 @@ argument_list|()
 condition|)
 name|QFAIL
 argument_list|(
-literal|"Cannot find testdata/excludedCodecs.txt"
+literal|"Cannot find testdata/testCodecs.txt"
 argument_list|)
 expr_stmt|;
 name|QFile
@@ -1889,7 +1889,7 @@ expr_stmt|;
 name|QByteArray
 name|codecName
 decl_stmt|;
-name|m_excludedCodecs
+name|m_testCodecs
 operator|=
 name|file
 operator|.
@@ -1900,6 +1900,21 @@ name|split
 argument_list|(
 literal|'\n'
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|m_testCodecs
+operator|.
+name|last
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|m_testCodecs
+operator|.
+name|removeLast
+argument_list|()
 expr_stmt|;
 block|}
 end_function
@@ -1952,19 +1967,6 @@ name|f
 argument_list|)
 argument_list|)
 expr_stmt|;
-specifier|const
-name|QList
-argument_list|<
-name|QByteArray
-argument_list|>
-name|codecs
-argument_list|(
-name|QTextCodec
-operator|::
-name|availableCodecs
-argument_list|()
-argument_list|)
-decl_stmt|;
 name|QByteArray
 name|codecName
 decl_stmt|;
@@ -1972,23 +1974,9 @@ foreach|foreach
 control|(
 name|codecName
 init|,
-name|codecs
+name|m_testCodecs
 control|)
 block|{
-comment|/* Avoid codecs that can't handle the files we have. */
-if|if
-condition|(
-name|m_excludedCodecs
-operator|.
-name|contains
-argument_list|(
-name|codecName
-operator|.
-name|toLower
-argument_list|()
-argument_list|)
-condition|)
-continue|continue;
 comment|/* Write out doc in the specified codec. */
 name|QByteArray
 name|storage
@@ -2040,7 +2028,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"Failed to load codec %1, even though it was in QTextCodec::availableCodecs()"
+literal|"Failed to load codec %1"
 argument_list|)
 operator|.
 name|arg
