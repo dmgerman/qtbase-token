@@ -3571,11 +3571,14 @@ operator|->
 name|show
 argument_list|()
 expr_stmt|;
+name|QVERIFY
+argument_list|(
 name|QTest
 operator|::
-name|qWaitForWindowShown
+name|qWaitForWindowExposed
 argument_list|(
 name|messageBox
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// verify that all windows are visible
@@ -3697,11 +3700,14 @@ operator|->
 name|show
 argument_list|()
 expr_stmt|;
+name|QVERIFY
+argument_list|(
 name|QTest
 operator|::
-name|qWaitForWindowShown
+name|qWaitForWindowExposed
 argument_list|(
 name|w
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3784,11 +3790,14 @@ operator|->
 name|show
 argument_list|()
 expr_stmt|;
+name|QVERIFY
+argument_list|(
 name|QTest
 operator|::
-name|qWaitForWindowShown
+name|qWaitForWindowExposed
 argument_list|(
 name|w
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -10114,12 +10123,15 @@ expr_stmt|;
 comment|// Must have an explicitly specified QWindow for handleTouchEvent,
 comment|// passing 0 would result in using topLevelAt() which is not ok in this case
 comment|// as the screen position in the point is bogus.
+name|QVERIFY
+argument_list|(
 name|QTest
 operator|::
-name|qWaitForWindowShown
+name|qWaitForWindowExposed
 argument_list|(
 operator|&
 name|window
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// QPA always takes screen positions and since we map the TouchPoint back to QPA's structure first,
@@ -10419,12 +10431,15 @@ operator|.
 name|show
 argument_list|()
 expr_stmt|;
+name|QVERIFY
+argument_list|(
 name|QTest
 operator|::
-name|qWaitForWindowShown
+name|qWaitForWindowExposed
 argument_list|(
 operator|&
 name|window
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|pressedTouchPoints

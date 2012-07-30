@@ -1583,12 +1583,15 @@ operator|->
 name|show
 argument_list|()
 expr_stmt|;
+name|QVERIFY
+argument_list|(
 name|QTest
 operator|::
-name|qWaitForWindowShown
+name|qWaitForWindowExposed
 argument_list|(
 operator|&
 name|view
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QApplication
@@ -4087,12 +4090,15 @@ name|show
 argument_list|()
 expr_stmt|;
 comment|//QTest::qWait(1000);
+name|QVERIFY
+argument_list|(
 name|QTest
 operator|::
-name|qWaitForWindowShown
+name|qWaitForWindowExposed
 argument_list|(
 operator|&
 name|view
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|qApp
@@ -7399,7 +7405,7 @@ argument_list|()
 expr_stmt|;
 comment|//view->setSceneRect(-50, -50, 800, 800);
 comment|//view->show();
-comment|//QTest::qWaitForWindowShown(view);
+comment|//QVERIFY(QTest::qWaitForWindowExposed(view));
 comment|//QTest::qWait(5000);
 name|QCOMPARE
 argument_list|(

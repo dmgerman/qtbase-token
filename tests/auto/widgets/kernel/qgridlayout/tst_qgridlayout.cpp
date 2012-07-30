@@ -3982,12 +3982,15 @@ operator|::
 name|processEvents
 argument_list|()
 expr_stmt|;
+name|QVERIFY
+argument_list|(
 name|QTest
 operator|::
-name|qWaitForWindowShown
+name|qWaitForWindowExposed
 argument_list|(
 operator|&
 name|toplevel
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QSize
