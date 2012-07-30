@@ -46260,7 +46260,7 @@ name|window
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QTRY_VERIFY
 argument_list|(
 name|child
 operator|.
