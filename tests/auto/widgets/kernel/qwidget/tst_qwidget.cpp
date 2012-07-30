@@ -57127,7 +57127,7 @@ operator|::
 name|activateWindow
 parameter_list|()
 block|{
-comment|// Test case for task 260685
+comment|// Test case for QTBUG-26711
 comment|// Create first mainwindow and set it active
 name|QScopedPointer
 argument_list|<
