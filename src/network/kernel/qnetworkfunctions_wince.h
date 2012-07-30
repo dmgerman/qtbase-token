@@ -23,14 +23,14 @@ include|#
 directive|include
 file|<qt_windows.h>
 end_include
-begin_expr_stmt
-DECL|variable|SC_HANDLE
+begin_function_decl
+name|QT_BEGIN_HEADER
 name|DECLARE_HANDLE
-argument_list|(
+parameter_list|(
 name|SC_HANDLE
-argument_list|)
-expr_stmt|;
-end_expr_stmt
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_typedef
 DECL|enum|_SC_ENUM_TYPE
 typedef|typedef
@@ -237,6 +237,9 @@ end_endif
 begin_comment
 comment|// UNICODE
 end_comment
+begin_macro
+name|QT_END_HEADER
+end_macro
 begin_endif
 endif|#
 directive|endif
