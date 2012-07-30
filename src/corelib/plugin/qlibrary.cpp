@@ -1316,6 +1316,10 @@ name|pHnd
 operator|=
 literal|0
 expr_stmt|;
+name|instance
+operator|=
+literal|0
+expr_stmt|;
 block|}
 block|}
 return|return
