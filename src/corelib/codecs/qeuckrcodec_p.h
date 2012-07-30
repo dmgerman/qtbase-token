@@ -174,16 +174,7 @@ name|QByteArray
 operator|>
 name|_aliases
 argument_list|()
-block|{
-return|return
-name|QList
-operator|<
-name|QByteArray
-operator|>
-operator|(
-operator|)
-return|;
-block|}
+block|;
 specifier|static
 name|int
 name|_mibEnum
