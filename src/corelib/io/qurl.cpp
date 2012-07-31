@@ -1455,14 +1455,8 @@ if|if
 condition|(
 name|Q_LIKELY
 argument_list|(
-name|userName
-operator|.
-name|isEmpty
-argument_list|()
-operator|&&
-name|password
-operator|.
-name|isEmpty
+operator|!
+name|hasUserInfo
 argument_list|()
 argument_list|)
 condition|)
