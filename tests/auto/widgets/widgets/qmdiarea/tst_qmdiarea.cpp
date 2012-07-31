@@ -2733,17 +2733,14 @@ argument_list|()
 expr_stmt|;
 comment|// For this test, the QMdiArea widget must be active after minimizing and
 comment|// showing it again. QMdiArea has no active sub window if it is inactive itself.
-name|qApp
-operator|->
-name|setActiveWindow
-argument_list|(
-operator|&
-name|mdiArea
-argument_list|)
-expr_stmt|;
 name|mdiArea
 operator|.
 name|showNormal
+argument_list|()
+expr_stmt|;
+name|mdiArea
+operator|.
+name|activateWindow
 argument_list|()
 expr_stmt|;
 name|QVERIFY
