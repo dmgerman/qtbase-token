@@ -339,6 +339,15 @@ argument_list|)
 block|;
 name|private
 operator|:
+name|QRect
+name|setGeometryHelper
+argument_list|(
+specifier|const
+name|QRect
+operator|&
+name|rect
+argument_list|)
+block|;
 name|void
 name|removeFromParent
 argument_list|()
