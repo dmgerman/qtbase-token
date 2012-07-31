@@ -296,6 +296,10 @@ operator|(
 operator|)
 argument_list|)
 decl_stmt|;
+name|QStringList
+name|getExampleQdocFiles
+parameter_list|()
+function_decl|;
 specifier|static
 name|QStringList
 name|getFilesHere
