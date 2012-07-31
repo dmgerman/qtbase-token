@@ -1951,9 +1951,6 @@ name|value
 parameter_list|,
 name|int
 name|len
-parameter_list|,
-name|bool
-name|decoded
 parameter_list|)
 block|{
 comment|// schemes are strictly RFC-compliant:
@@ -2117,74 +2114,6 @@ operator|==
 literal|'.'
 condition|)
 continue|continue;
-if|if
-condition|(
-name|p
-index|[
-name|i
-index|]
-operator|==
-literal|'%'
-condition|)
-block|{
-comment|// found a percent-encoded sign
-comment|// if we haven't decoded yet, decode and try again
-name|errorSupplement
-operator|=
-literal|'%'
-expr_stmt|;
-if|if
-condition|(
-name|decoded
-condition|)
-return|return
-literal|false
-return|;
-name|QString
-name|decodedScheme
-decl_stmt|;
-if|if
-condition|(
-name|qt_urlRecode
-argument_list|(
-name|decodedScheme
-argument_list|,
-name|value
-operator|.
-name|constData
-argument_list|()
-argument_list|,
-name|value
-operator|.
-name|constData
-argument_list|()
-operator|+
-name|len
-argument_list|,
-literal|0
-argument_list|,
-literal|0
-argument_list|)
-operator|==
-literal|0
-condition|)
-return|return
-literal|false
-return|;
-return|return
-name|setScheme
-argument_list|(
-name|decodedScheme
-argument_list|,
-name|decodedScheme
-operator|.
-name|length
-argument_list|()
-argument_list|,
-literal|true
-argument_list|)
-return|;
-block|}
 comment|// found something else
 name|errorSupplement
 operator|=
@@ -5664,7 +5593,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the scheme of the URL to \a scheme. As a scheme can only     contain ASCII characters, no conversion or encoding is done on the     input. It must also start with an ASCII letter.      The scheme describes the type (or protocol) of the URL. It's     represented by one or more ASCII characters at the start the URL,     and is followed by a ':'. The following example shows a URL where     the scheme is "ftp":      \image qurl-authority2.png      The scheme can also be empty, in which case the URL is interpreted     as relative.      \sa scheme(), isRelative() */
+comment|/*!     Sets the scheme of the URL to \a scheme. As a scheme can only     contain ASCII characters, no conversion or decoding is done on the     input. It must also start with an ASCII letter.      The scheme describes the type (or protocol) of the URL. It's     represented by one or more ASCII characters at the start the URL,     and is followed by a ':'. The following example shows a URL where     the scheme is "ftp":      \image qurl-authority2.png      The scheme can also be empty, in which case the URL is interpreted     as relative.      \sa scheme(), isRelative() */
 end_comment
 begin_function
 DECL|function|setScheme

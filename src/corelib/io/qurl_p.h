@@ -368,11 +368,6 @@ name|value
 parameter_list|,
 name|int
 name|len
-parameter_list|,
-name|bool
-name|decoded
-init|=
-name|false
 parameter_list|)
 function_decl|;
 name|bool

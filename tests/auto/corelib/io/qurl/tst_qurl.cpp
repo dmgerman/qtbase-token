@@ -13593,9 +13593,28 @@ argument_list|(
 literal|"needle"
 argument_list|)
 expr_stmt|;
-comment|// cannot test bad schemes here, as they are parsed as paths instead
-comment|//QTest::newRow("invalid-scheme")<< "ht%://example.com"<< "Invalid scheme";
-comment|//QTest::newRow("empty-scheme")<< ":/"<< "Empty scheme";
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"invalid-scheme"
+argument_list|)
+operator|<<
+literal|"ht%://example.com"
+operator|<<
+literal|"Invalid scheme"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"empty-scheme"
+argument_list|)
+operator|<<
+literal|":/"
+operator|<<
+literal|"Empty scheme"
+expr_stmt|;
 name|QTest
 operator|::
 name|newRow
@@ -13819,6 +13838,15 @@ operator|::
 name|StrictMode
 argument_list|)
 decl_stmt|;
+name|QEXPECT_FAIL
+argument_list|(
+literal|"empty-scheme"
+argument_list|,
+literal|"QUrl does not forbid paths with a colon before the first slash yet"
+argument_list|,
+name|Abort
+argument_list|)
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
@@ -22204,6 +22232,35 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
+literal|"invalid-scheme-3"
+argument_list|)
+operator|<<
+name|QUrl
+argument_list|(
+literal|"http://example.com"
+argument_list|)
+operator|<<
+name|int
+argument_list|(
+name|Scheme
+argument_list|)
+operator|<<
+literal|"http%61"
+operator|<<
+name|Strict
+operator|<<
+literal|false
+operator|<<
+name|PrettyDecoded
+operator|<<
+literal|""
+operator|<<
+literal|""
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
 literal|"invalid-host-1"
 argument_list|)
 operator|<<
@@ -22259,6 +22316,36 @@ operator|<<
 literal|""
 expr_stmt|;
 comment|// -- test decoded behaviour --
+comment|// '%' characters are not permitted in the scheme, this tests that it fails to set anything
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"invalid-scheme-encode"
+argument_list|)
+operator|<<
+name|QUrl
+argument_list|(
+literal|"http://example.com"
+argument_list|)
+operator|<<
+name|int
+argument_list|(
+name|Scheme
+argument_list|)
+operator|<<
+literal|"http%61"
+operator|<<
+name|Decoded
+operator|<<
+literal|false
+operator|<<
+name|PrettyDecoded
+operator|<<
+literal|""
+operator|<<
+literal|""
+expr_stmt|;
 name|QTest
 operator|::
 name|newRow
@@ -22704,6 +22791,7 @@ block|{
 case|case
 name|Scheme
 case|:
+comment|// scheme is only parsed in strict mode
 name|copy
 operator|.
 name|setScheme
