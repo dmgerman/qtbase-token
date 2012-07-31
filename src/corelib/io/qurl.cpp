@@ -2233,6 +2233,11 @@ name|from
 parameter_list|,
 name|int
 name|end
+parameter_list|,
+name|QUrl
+operator|::
+name|ParsingMode
+name|mode
 parameter_list|)
 block|{
 name|sectionHasError
@@ -2582,6 +2587,8 @@ name|end
 argument_list|,
 name|colonIndex
 argument_list|)
+argument_list|,
+name|mode
 argument_list|)
 operator|&&
 operator|!
@@ -3605,8 +3612,10 @@ parameter_list|,
 name|int
 name|iend
 parameter_list|,
-name|bool
-name|maybePercentEncoded
+name|QUrl
+operator|::
+name|ParsingMode
+name|mode
 parameter_list|)
 block|{
 specifier|const
@@ -3865,7 +3874,11 @@ name|s
 decl_stmt|;
 if|if
 condition|(
-name|maybePercentEncoded
+name|mode
+operator|==
+name|QUrl
+operator|::
+name|TolerantMode
 operator|&&
 name|qt_urlRecode
 argument_list|(
@@ -3924,7 +3937,9 @@ operator|.
 name|length
 argument_list|()
 argument_list|,
-literal|false
+name|QUrl
+operator|::
+name|StrictMode
 argument_list|)
 return|;
 block|}
@@ -4319,6 +4334,8 @@ operator|+
 literal|2
 argument_list|,
 name|authorityEnd
+argument_list|,
+name|parsingMode
 argument_list|)
 expr_stmt|;
 comment|// even if we failed to set the authority properly, let's try to recover
@@ -5747,6 +5764,8 @@ name|data
 operator|.
 name|length
 argument_list|()
+argument_list|,
+name|mode
 argument_list|)
 expr_stmt|;
 if|if
@@ -6236,6 +6255,8 @@ name|data
 operator|.
 name|length
 argument_list|()
+argument_list|,
+name|mode
 argument_list|)
 condition|)
 block|{
@@ -6321,6 +6342,8 @@ name|data
 operator|.
 name|length
 argument_list|()
+argument_list|,
+name|mode
 argument_list|)
 condition|)
 block|{
