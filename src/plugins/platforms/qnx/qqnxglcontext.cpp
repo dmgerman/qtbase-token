@@ -1138,6 +1138,22 @@ operator|->
 name|requestedBufferSize
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|surfaceSize
+operator|.
+name|isValid
+argument_list|()
+condition|)
+block|{
+name|qFatal
+argument_list|(
+literal|"QQNX: Trying to create 0 size EGL surface. "
+literal|"Please set a valid window size before calling QOpenGLContext::makeCurrent()"
+argument_list|)
+expr_stmt|;
+block|}
 name|platformWindow
 operator|->
 name|setBufferSize
