@@ -51,7 +51,7 @@ end_endif
 begin_include
 include|#
 directive|include
-file|<qtest_gui.h>
+file|<QtTest/qtest_gui.h>
 end_include
 begin_if
 if|#
@@ -70,6 +70,12 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_expr_stmt
+name|QT_BEGIN_HEADER
+name|QT_BEGIN_NAMESPACE
+name|QT_END_NAMESPACE
+name|QT_END_HEADER
+end_expr_stmt
 begin_endif
 endif|#
 directive|endif
