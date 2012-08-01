@@ -1791,7 +1791,7 @@ begin_comment
 comment|/*!     \fn QRegion QRegion::united(const QRect&rect) const     \since 4.4      Returns a region which is the union of this region and the given \a rect.      \sa intersected(), subtracted(), xored() */
 end_comment
 begin_comment
-comment|/*!     \fn QRegion QRegion::united(const QRegion&r) const     \since 4.2      Returns a region which is the union of this region and \a r.      \img runion.png Region Union      The figure shows the union of two elliptical regions.      \sa intersected(), subtracted(), xored() */
+comment|/*!     \fn QRegion QRegion::united(const QRegion&r) const     \since 4.2      Returns a region which is the union of this region and \a r.      \image runion.png Region Union      The figure shows the union of two elliptical regions.      \sa intersected(), subtracted(), xored() */
 end_comment
 begin_comment
 comment|/*!     \fn QRegion QRegion::intersect(const QRegion&r) const     \obsolete      Use intersected(\a r) instead. */
@@ -1803,19 +1803,19 @@ begin_comment
 comment|/*!     \fn QRegion QRegion::intersected(const QRect&rect) const     \since 4.4      Returns a region which is the intersection of this region and the given \a rect.      \sa subtracted(), united(), xored() */
 end_comment
 begin_comment
-comment|/*!     \fn QRegion QRegion::intersected(const QRegion&r) const     \since 4.2      Returns a region which is the intersection of this region and \a r.      \img rintersect.png Region Intersection      The figure shows the intersection of two elliptical regions.      \sa subtracted(), united(), xored() */
+comment|/*!     \fn QRegion QRegion::intersected(const QRegion&r) const     \since 4.2      Returns a region which is the intersection of this region and \a r.      \image rintersect.png Region Intersection      The figure shows the intersection of two elliptical regions.      \sa subtracted(), united(), xored() */
 end_comment
 begin_comment
 comment|/*!     \fn QRegion QRegion::subtract(const QRegion&r) const     \obsolete      Use subtracted(\a r) instead. */
 end_comment
 begin_comment
-comment|/*!     \fn QRegion QRegion::subtracted(const QRegion&r) const     \since 4.2      Returns a region which is \a r subtracted from this region.      \img rsubtract.png Region Subtraction      The figure shows the result when the ellipse on the right is     subtracted from the ellipse on the left (\c {left - right}).      \sa intersected(), united(), xored() */
+comment|/*!     \fn QRegion QRegion::subtracted(const QRegion&r) const     \since 4.2      Returns a region which is \a r subtracted from this region.      \image rsubtract.png Region Subtraction      The figure shows the result when the ellipse on the right is     subtracted from the ellipse on the left (\c {left - right}).      \sa intersected(), united(), xored() */
 end_comment
 begin_comment
 comment|/*!     \fn QRegion QRegion::eor(const QRegion&r) const     \obsolete      Use xored(\a r) instead. */
 end_comment
 begin_comment
-comment|/*!     \fn QRegion QRegion::xored(const QRegion&r) const     \since 4.2      Returns a region which is the exclusive or (XOR) of this region     and \a r.      \img rxor.png Region XORed      The figure shows the exclusive or of two elliptical regions.      \sa intersected(), united(), subtracted() */
+comment|/*!     \fn QRegion QRegion::xored(const QRegion&r) const     \since 4.2      Returns a region which is the exclusive or (XOR) of this region     and \a r.      \image rxor.png Region XORed      The figure shows the exclusive or of two elliptical regions.      \sa intersected(), united(), subtracted() */
 end_comment
 begin_comment
 comment|/*!     \fn QRect QRegion::boundingRect() const      Returns the bounding rectangle of this region. An empty region     gives a rectangle that is QRect::isNull(). */

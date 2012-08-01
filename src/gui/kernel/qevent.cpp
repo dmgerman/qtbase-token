@@ -2497,7 +2497,7 @@ begin_comment
 comment|/*!     \fn qreal QTabletEvent::pressure() const      Returns the pressure for the device. 0.0 indicates that the stylus is not     on the tablet, 1.0 indicates the maximum amount of pressure for the stylus.      \sa tangentialPressure() */
 end_comment
 begin_comment
-comment|/*!     \fn int QTabletEvent::xTilt() const      Returns the angle between the device (a pen, for example) and the     perpendicular in the direction of the x axis.     Positive values are towards the tablet's physical right. The angle     is in the range -60 to +60 degrees.      \img qtabletevent-tilt.png      \sa yTilt() */
+comment|/*!     \fn int QTabletEvent::xTilt() const      Returns the angle between the device (a pen, for example) and the     perpendicular in the direction of the x axis.     Positive values are towards the tablet's physical right. The angle     is in the range -60 to +60 degrees.      \image qtabletevent-tilt.png      \sa yTilt() */
 end_comment
 begin_comment
 comment|/*!     \fn int QTabletEvent::yTilt() const      Returns the angle between the device (a pen, for example) and the     perpendicular in the direction of the y axis.     Positive values are towards the bottom of the tablet. The angle is     within the range -60 to +60 degrees.      \sa xTilt() */
