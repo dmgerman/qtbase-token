@@ -308,10 +308,32 @@ argument_list|(
 name|m
 argument_list|)
 expr_stmt|;
-comment|// relock() here ensures that we call QMutex::lock() instead of QBasicMutex::lock()
-name|relock
+if|if
+condition|(
+name|Q_LIKELY
+argument_list|(
+name|m
+argument_list|)
+condition|)
+block|{
+comment|// call QMutex::lock() instead of QBasicMutex::lock()
+name|static_cast
+operator|<
+name|QMutex
+operator|*
+operator|>
+operator|(
+name|m
+operator|)
+operator|->
+name|lock
 argument_list|()
 expr_stmt|;
+name|val
+operator||=
+literal|1
+expr_stmt|;
+block|}
 block|}
 specifier|inline
 operator|~
