@@ -195,6 +195,19 @@ name|testMode
 expr_stmt|;
 block|}
 end_function
+begin_function
+DECL|function|isTestModeEnabled
+name|bool
+name|QStandardPaths
+operator|::
+name|isTestModeEnabled
+parameter_list|()
+block|{
+return|return
+name|qsp_testMode
+return|;
+block|}
+end_function
 begin_comment
 comment|/*     Constructs a full unicode path from a FSRef. */
 end_comment

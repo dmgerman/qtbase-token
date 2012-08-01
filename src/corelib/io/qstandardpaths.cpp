@@ -927,6 +927,9 @@ end_endif
 begin_comment
 comment|/*!   \fn void QStandardPaths::enableTestMode(bool testMode)    Enables "test mode" in QStandardPaths, which changes writable locations   to point to test directories, in order to prevent auto tests from reading from   or writing to the current user's configuration.    This affects the locations into which test programs might write files:   GenericDataLocation, DataLocation, ConfigLocation,   GenericCacheLocation, CacheLocation.   Other locations are not affected.    On Unix, XDG_DATA_HOME is set to ~/.qttest/share, XDG_CONFIG_HOME is   set to ~/.qttest/config, and XDG_CACHE_HOME is set to ~/.qttest/cache.    On Mac, data goes to "~/.qttest/Application Support", cache goes to   ~/.qttest/Cache, and config goes to ~/.qttest/Preferences.    On Windows, everything goes to a "qttest" directory under Application Data. */
 end_comment
+begin_comment
+comment|/*!   \fn void QStandardPaths::isTestModeEnabled()    \internal    Returns true if test mode is enabled in QStandardPaths; otherwise returns false. */
+end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

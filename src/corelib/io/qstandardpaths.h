@@ -177,6 +177,11 @@ name|bool
 name|testMode
 parameter_list|)
 function_decl|;
+specifier|static
+name|bool
+name|isTestModeEnabled
+parameter_list|()
+function_decl|;
 name|private
 label|:
 comment|// prevent construction
