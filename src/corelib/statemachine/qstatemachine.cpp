@@ -705,7 +705,7 @@ argument_list|()
 condition|)
 block|{
 return|return
-name|s1
+name|s2
 operator|->
 name|parent
 argument_list|()
@@ -715,10 +715,10 @@ argument_list|()
 operator|.
 name|indexOf
 argument_list|(
-name|s1
+name|s2
 argument_list|)
 operator|<
-name|s2
+name|s1
 operator|->
 name|parent
 argument_list|()
@@ -728,7 +728,7 @@ argument_list|()
 operator|.
 name|indexOf
 argument_list|(
-name|s2
+name|s1
 argument_list|)
 return|;
 block|}
@@ -821,14 +821,14 @@ name|indexOfDescendant
 argument_list|(
 name|lca
 argument_list|,
-name|s1
+name|s2
 argument_list|)
 operator|<
 name|indexOfDescendant
 argument_list|(
 name|lca
 argument_list|,
-name|s2
+name|s1
 argument_list|)
 operator|)
 return|;
