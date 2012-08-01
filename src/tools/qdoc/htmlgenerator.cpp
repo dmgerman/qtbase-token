@@ -722,7 +722,7 @@ name|outputEncoding
 operator|=
 name|QLatin1String
 argument_list|(
-literal|"ISO-8859-1"
+literal|"UTF-8"
 argument_list|)
 expr_stmt|;
 name|outputCodec
