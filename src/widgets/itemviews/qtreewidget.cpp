@@ -9521,7 +9521,7 @@ begin_comment
 comment|/*!     \property QTreeWidget::columnCount     \brief the number of columns displayed in the tree widget      By default, this property has a value of 1. */
 end_comment
 begin_comment
-comment|/*!     \fn void QTreeWidget::itemActivated(QTreeWidgetItem *item, int column)      This signal is emitted when the user activates an item by single-     or double-clicking (depending on the platform, i.e. on the     QStyle::SH_ItemView_ActivateItemOnSingleClick style hint) or     pressing a special key (e.g., \key Enter).      The specified \a item is the item that was clicked, or 0 if no     item was clicked. The \a column is the item's column that was     clicked, or -1 if no item was clicked. */
+comment|/*!     \fn void QTreeWidget::itemActivated(QTreeWidgetItem *item, int column)      This signal is emitted when the user activates an item by single-     or double-clicking (depending on the platform, i.e. on the     QStyle::SH_ItemView_ActivateItemOnSingleClick style hint) or     pressing a special key (e.g., \uicontrol Enter).      The specified \a item is the item that was clicked, or 0 if no     item was clicked. The \a column is the item's column that was     clicked, or -1 if no item was clicked. */
 end_comment
 begin_comment
 comment|/*!     \fn void QTreeWidget::itemPressed(QTreeWidgetItem *item, int column)      This signal is emitted when the user presses a mouse button inside     the widget.      The specified \a item is the item that was clicked, or 0 if no     item was clicked. The \a column is the item's column that was     clicked, or -1 if no item was clicked. */

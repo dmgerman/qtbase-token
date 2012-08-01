@@ -757,7 +757,7 @@ directive|endif
 block|}
 end_function
 begin_comment
-comment|/*!     \property QGroupBox::title     \brief the group box title text      The group box title text will have a keyboard shortcut if the title     contains an ampersand ('&') followed by a letter.      \snippet code/src_gui_widgets_qgroupbox.cpp 0      In the example above, \key Alt+U moves the keyboard focus to the     group box. See the \l {QShortcut#mnemonic}{QShortcut}     documentation for details (to display an actual ampersand, use     '&&').      There is no default title text.      \sa alignment */
+comment|/*!     \property QGroupBox::title     \brief the group box title text      The group box title text will have a keyboard shortcut if the title     contains an ampersand ('&') followed by a letter.      \snippet code/src_gui_widgets_qgroupbox.cpp 0      In the example above, \uicontrol Alt+U moves the keyboard focus to the     group box. See the \l {QShortcut#mnemonic}{QShortcut}     documentation for details (to display an actual ampersand, use     '&&').      There is no default title text.      \sa alignment */
 end_comment
 begin_function
 DECL|function|title
