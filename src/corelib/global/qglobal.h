@@ -3720,7 +3720,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*    This function tests a double for a null value. It doesn't    check whether the actual value is 0 or close to 0, but whether    it is binary 0. */
+comment|/*    This function tests a double for a null value. It doesn't    check whether the actual value is 0 or close to 0, but whether    it is binary 0, disregarding sign. */
 end_comment
 begin_function
 DECL|function|qIsNull
@@ -3754,19 +3754,23 @@ operator|=
 name|d
 expr_stmt|;
 return|return
+operator|(
 name|val
 operator|.
 name|u
-operator|==
-name|quint64
+operator|&
+name|Q_UINT64_C
 argument_list|(
-literal|0
+literal|0x7fffffffffffffff
 argument_list|)
+operator|)
+operator|==
+literal|0
 return|;
 block|}
 end_function
 begin_comment
-comment|/*    This function tests a float for a null value. It doesn't    check whether the actual value is 0 or close to 0, but whether    it is binary 0. */
+comment|/*    This function tests a float for a null value. It doesn't    check whether the actual value is 0 or close to 0, but whether    it is binary 0, disregarding sign. */
 end_comment
 begin_function
 DECL|function|qIsNull
@@ -3800,11 +3804,15 @@ operator|=
 name|f
 expr_stmt|;
 return|return
+operator|(
 name|val
 operator|.
 name|u
+operator|&
+literal|0x7fffffff
+operator|)
 operator|==
-literal|0u
+literal|0
 return|;
 block|}
 end_function
