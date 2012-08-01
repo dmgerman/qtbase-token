@@ -8496,33 +8496,7 @@ return|return
 literal|true
 return|;
 block|}
-else|else
-name|arg
-operator|.
-name|second
-operator|.
-name|warning
-argument_list|(
-name|tr
-argument_list|(
-literal|"Minor version number must be included in second arg of '\\qmlmodule' and '\\inqmlmodule'; '.0' assumed."
-argument_list|)
-argument_list|)
-expr_stmt|;
 block|}
-else|else
-name|arg
-operator|.
-name|second
-operator|.
-name|warning
-argument_list|(
-name|tr
-argument_list|(
-literal|"Module version number 'major.minor' must be second arg of '\\qmlmodule' and '\\inqmlmodule'; '1.0' assumed."
-argument_list|)
-argument_list|)
-expr_stmt|;
 return|return
 literal|false
 return|;
