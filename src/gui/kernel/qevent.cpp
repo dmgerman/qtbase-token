@@ -633,7 +633,7 @@ argument_list|)
 block|{}
 end_constructor
 begin_comment
-comment|/*!     Constructs a wheel event object.      The \a pos provides the location of the mouse cursor     within the window. The position in global coordinates is specified     by \a globalPos. \pixelDelta contains the scrolling distance     in pixels on screen, \a angleDelta contains the wheel rotation distance.     \pixelDelta is optional and can be null.      \a modifiers holds the keyboard modifier flags at the time of the event.      \a pixelDelta contains the scrolling delta in pixels,     \a angleDelta contains the rotation distance, and     \a orient holds the wheel's orientation.      \sa pos(), globalPos(), delta(), state() */
+comment|/*!     Constructs a wheel event object.      The \a pos provides the location of the mouse cursor     within the window. The position in global coordinates is specified     by \a globalPos. \a pixelDelta contains the scrolling distance     in pixels on screen, \a angleDelta contains the wheel rotation distance.     \a pixelDelta is optional and can be null.      \a modifiers holds the keyboard modifier flags at the time of the event.      \a pixelDelta contains the scrolling delta in pixels,     \a angleDelta contains the rotation distance, and     \a orient holds the wheel's orientation.      \sa pos(), globalPos(), delta(), state() */
 end_comment
 begin_constructor
 DECL|function|QWheelEvent
