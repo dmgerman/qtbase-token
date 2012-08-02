@@ -9952,36 +9952,7 @@ condition|)
 block|{
 name|desc
 argument_list|(
-literal|"Usage: configure\n"
-literal|"[-release] [-debug] [-debug-and-release] [-shared] [-static]\n"
-literal|"[-no-fast] [-fast] \n"
-literal|"[-no-accessibility] [-accessibility] [-no-rtti] [-rtti]\n"
-literal|"[-no-sql-<driver>] [-qt-sql-<driver>]\n"
-literal|"[-plugin-sql-<driver>] [-system-sqlite]\n"
-literal|"[-D<define>] [-I<includepath>] [-L<librarypath>]\n"
-literal|"[-help] [-no-dsp] [-dsp] [-no-vcproj] [-vcproj]\n"
-literal|"[-no-qmake] [-qmake] [-dont-process] [-process]\n"
-literal|"[-no-style-<style>] [-qt-style-<style>] [-redo]\n"
-literal|"[-saveconfig<config>] [-loadconfig<config>]\n"
-literal|"[-qt-zlib] [-system-zlib] [-qt-pcre] [-system-pcre] [-no-gif]\n"
-literal|"[-no-libpng] [-qt-libpng] [-system-libpng]\n"
-literal|"[-no-libjpeg] [-qt-libjpeg] [-system-libjpeg]\n"
-literal|"[-sse2] [-no-sse2] [-sse3] [-no-sse3]\n"
-literal|"[-ssse3] [-no-ssse3]\n"
-literal|"[-sse4.1] [-no-sse4.1] [-sse4.2] [-no-sse4.2]\n"
-literal|"[-avx] [-no-avx] [-avx2] [-no-avx2]\n"
-literal|"[-no-iwmmxt] [-iwmmxt] [-openssl] [-openssl-linked]\n"
-literal|"[-no-openssl] [-no-dbus] [-dbus] [-dbus-linked] [-platform<spec>]\n"
-literal|"[-qtnamespace<namespace>] [-qtlibinfix<infix>] [-no-phonon]\n"
-literal|"[-phonon] [-no-phonon-backend] [-phonon-backend]\n"
-literal|"[-no-multimedia] [-multimedia] [-no-audio-backend] [-audio-backend]\n"
-literal|"[-no-script] [-script] [-no-scripttools] [-scripttools]\n"
-literal|"[-no-webkit] [-webkit] [-webkit-debug]\n"
-literal|"[-no-directwrite] [-directwrite] [-no-widgets] [-icu]\n"
-literal|"[-no-nis] [-nis] [-no-cups] [-cups] [-no-iconv]\n"
-literal|"[-iconv] [-sun-iconv] [-gnu-iconv] [-neon] [-no-neon]\n"
-literal|"[-largefile] [-font-config] [-no-fontconfig] [-posix-ipc]\n"
-literal|"[-glib] [-sysconfdir<dir>]\n\n"
+literal|"Usage: configure [options]\n\n"
 argument_list|,
 literal|0
 argument_list|,
