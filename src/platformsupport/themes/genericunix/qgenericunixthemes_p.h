@@ -28,6 +28,11 @@ include|#
 directive|include
 file|<QtCore/QStringList>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtGui/QFont>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
@@ -84,7 +89,7 @@ name|public
 operator|:
 name|QGenericUnixTheme
 argument_list|()
-block|{}
+block|;
 specifier|static
 name|QPlatformTheme
 operator|*
@@ -100,6 +105,16 @@ specifier|static
 name|QStringList
 name|themeNames
 argument_list|()
+block|;
+name|virtual
+specifier|const
+name|QFont
+operator|*
+name|font
+argument_list|(
+argument|Font type
+argument_list|)
+specifier|const
 block|;
 name|virtual
 name|QVariant
@@ -119,6 +134,12 @@ specifier|const
 name|char
 operator|*
 name|name
+block|;
+name|private
+operator|:
+specifier|const
+name|QFont
+name|m_systemFont
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -258,12 +279,22 @@ name|public
 operator|:
 name|QGnomeTheme
 argument_list|()
-block|{}
+block|;
 name|virtual
 name|QVariant
 name|themeHint
 argument_list|(
 argument|ThemeHint hint
+argument_list|)
+specifier|const
+block|;
+name|virtual
+specifier|const
+name|QFont
+operator|*
+name|font
+argument_list|(
+argument|Font type
 argument_list|)
 specifier|const
 block|;
@@ -275,7 +306,10 @@ name|name
 block|;
 name|private
 operator|:
-block|}
+specifier|const
+name|QFont
+name|m_systemFont
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_function_decl
