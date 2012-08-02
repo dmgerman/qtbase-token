@@ -381,12 +381,12 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|wakeUp
 name|void
 name|QMutexPrivate
 operator|::
 name|wakeUp
 parameter_list|()
+name|Q_DECL_NOTHROW
 block|{
 name|report_error
 argument_list|(

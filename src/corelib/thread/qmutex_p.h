@@ -170,6 +170,7 @@ block|;
 name|void
 name|wakeUp
 argument_list|()
+name|Q_DECL_NOTHROW
 block|;
 comment|// Conrol the lifetime of the privates
 name|QAtomicInt
@@ -320,15 +321,16 @@ end_enum
 begin_comment
 comment|//Must be bigger than the possible number of waiters (number of threads)
 end_comment
-begin_function_decl
+begin_decl_stmt
 name|void
 name|derefWaiters
-parameter_list|(
+argument_list|(
 name|int
 name|value
-parameter_list|)
-function_decl|;
-end_function_decl
+argument_list|)
+name|Q_DECL_NOTHROW
+decl_stmt|;
+end_decl_stmt
 begin_comment
 comment|//platform specific stuff
 end_comment
@@ -440,10 +442,12 @@ name|lock
 argument_list|(
 argument|int timeout
 argument_list|)
+name|QT_MUTEX_LOCK_NOEXCEPT
 block|;
 name|void
 name|unlock
 argument_list|()
+name|Q_DECL_NOTHROW
 block|; }
 decl_stmt|;
 end_decl_stmt

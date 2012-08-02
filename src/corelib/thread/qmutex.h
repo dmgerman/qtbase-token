@@ -44,6 +44,21 @@ name|defined
 argument_list|(
 name|qdoc
 argument_list|)
+ifdef|#
+directive|ifdef
+name|Q_OS_LINUX
+DECL|macro|QT_MUTEX_LOCK_NOEXCEPT
+define|#
+directive|define
+name|QT_MUTEX_LOCK_NOEXCEPT
+value|Q_DECL_NOTHROW
+else|#
+directive|else
+define|#
+directive|define
+name|QT_MUTEX_LOCK_NOEXCEPT
+endif|#
+directive|endif
 DECL|variable|QMutexData
 name|class
 name|QMutexData
@@ -60,6 +75,7 @@ specifier|inline
 name|void
 name|lock
 parameter_list|()
+function|QT_MUTEX_LOCK_NOEXCEPT
 block|{
 if|if
 condition|(
@@ -75,6 +91,7 @@ specifier|inline
 name|void
 name|unlock
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 name|Q_ASSERT
 argument_list|(
@@ -110,6 +127,7 @@ name|timeout
 init|=
 literal|0
 parameter_list|)
+function|QT_MUTEX_LOCK_NOEXCEPT
 block|{
 return|return
 name|fastTryLock
@@ -131,6 +149,7 @@ specifier|inline
 name|bool
 name|fastTryLock
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|d_ptr
@@ -146,18 +165,20 @@ return|;
 block|}
 name|bool
 name|lockInternal
-parameter_list|(
+argument_list|(
 name|int
 name|timeout
-init|=
+operator|=
 operator|-
 literal|1
-parameter_list|)
-function_decl|;
+argument_list|)
+name|QT_MUTEX_LOCK_NOEXCEPT
+decl_stmt|;
 name|void
 name|unlockInternal
-parameter_list|()
-function_decl|;
+argument_list|()
+name|Q_DECL_NOTHROW
+expr_stmt|;
 name|QBasicAtomicPointer
 operator|<
 name|QMutexData
@@ -229,6 +250,7 @@ block|;
 name|void
 name|lock
 argument_list|()
+name|QT_MUTEX_LOCK_NOEXCEPT
 block|;
 name|bool
 name|tryLock
@@ -236,10 +258,12 @@ argument_list|(
 argument|int timeout =
 literal|0
 argument_list|)
+name|QT_MUTEX_LOCK_NOEXCEPT
 block|;
 name|void
 name|unlock
 argument_list|()
+name|Q_DECL_NOTHROW
 block|;
 name|using
 name|QBasicMutex
@@ -273,6 +297,7 @@ name|QBasicMutex
 modifier|*
 name|m
 parameter_list|)
+function|QT_MUTEX_LOCK_NOEXCEPT
 block|{
 name|Q_ASSERT_X
 argument_list|(
@@ -347,6 +372,7 @@ specifier|inline
 name|void
 name|unlock
 argument_list|()
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -385,6 +411,7 @@ specifier|inline
 name|void
 name|relock
 argument_list|()
+name|QT_MUTEX_LOCK_NOEXCEPT
 block|{
 if|if
 condition|(

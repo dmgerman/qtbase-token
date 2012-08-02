@@ -186,7 +186,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|_q_futex
 specifier|static
 specifier|inline
 name|int
@@ -208,6 +207,7 @@ name|timespec
 modifier|*
 name|timeout
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 specifier|volatile
 name|int
@@ -300,7 +300,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|lockInternal
 name|bool
 name|QBasicMutex
 operator|::
@@ -309,6 +308,7 @@ parameter_list|(
 name|int
 name|timeout
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|QElapsedTimer
 name|elapsedTimer
@@ -540,12 +540,12 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|unlockInternal
 name|void
 name|QBasicMutex
 operator|::
 name|unlockInternal
 parameter_list|()
+name|Q_DECL_NOTHROW
 block|{
 name|QMutexData
 modifier|*

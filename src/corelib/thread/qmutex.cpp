@@ -185,12 +185,12 @@ begin_comment
 comment|/*! \fn void QMutex::lock()     Locks the mutex. If another thread has locked the mutex then this     call will block until that thread has unlocked it.      Calling this function multiple times on the same mutex from the     same thread is allowed if this mutex is a     \l{QMutex::Recursive}{recursive mutex}. If this mutex is a     \l{QMutex::NonRecursive}{non-recursive mutex}, this function will     \e dead-lock when the mutex is locked recursively.      \sa unlock() */
 end_comment
 begin_function
-DECL|function|lock
 name|void
 name|QMutex
 operator|::
 name|lock
 parameter_list|()
+name|QT_MUTEX_LOCK_NOEXCEPT
 block|{
 name|QBasicMutex
 operator|::
@@ -203,7 +203,6 @@ begin_comment
 comment|/*! \fn bool QMutex::tryLock(int timeout)      Attempts to lock the mutex. This function returns true if the lock     was obtained; otherwise it returns false. If another thread has     locked the mutex, this function will wait for at most \a timeout     milliseconds for the mutex to become available.      Note: Passing a negative number as the \a timeout is equivalent to     calling lock(), i.e. this function will wait forever until mutex     can be locked if \a timeout is negative.      If the lock was obtained, the mutex must be unlocked with unlock()     before another thread can successfully lock it.      Calling this function multiple times on the same mutex from the     same thread is allowed if this mutex is a     \l{QMutex::Recursive}{recursive mutex}. If this mutex is a     \l{QMutex::NonRecursive}{non-recursive mutex}, this function will     \e always return false when attempting to lock the mutex     recursively.      \sa lock(), unlock() */
 end_comment
 begin_function
-DECL|function|tryLock
 name|bool
 name|QMutex
 operator|::
@@ -212,6 +211,7 @@ parameter_list|(
 name|int
 name|timeout
 parameter_list|)
+name|QT_MUTEX_LOCK_NOEXCEPT
 block|{
 return|return
 name|QBasicMutex
@@ -227,12 +227,12 @@ begin_comment
 comment|/*! \fn void QMutex::unlock()     Unlocks the mutex. Attempting to unlock a mutex in a different     thread to the one that locked it results in an error. Unlocking a     mutex that is not locked results in undefined behavior.      \sa lock() */
 end_comment
 begin_function
-DECL|function|unlock
 name|void
 name|QMutex
 operator|::
 name|unlock
 parameter_list|()
+name|Q_DECL_NOTHROW
 block|{
 name|QBasicMutex
 operator|::
@@ -307,7 +307,6 @@ begin_comment
 comment|/*!     \internal helper for lock()  */
 end_comment
 begin_function
-DECL|function|lockInternal
 name|bool
 name|QBasicMutex
 operator|::
@@ -316,6 +315,7 @@ parameter_list|(
 name|int
 name|timeout
 parameter_list|)
+name|QT_MUTEX_LOCK_NOEXCEPT
 block|{
 while|while
 condition|(
@@ -767,12 +767,12 @@ begin_comment
 comment|/*!     \internal */
 end_comment
 begin_function
-DECL|function|unlockInternal
 name|void
 name|QBasicMutex
 operator|::
 name|unlockInternal
 parameter_list|()
+name|Q_DECL_NOTHROW
 block|{
 name|QMutexData
 modifier|*
@@ -1158,7 +1158,6 @@ begin_comment
 comment|// atomically subtract "value" to the waiters, and remove the QMutexPrivate::BigNumber flag
 end_comment
 begin_function
-DECL|function|derefWaiters
 name|void
 name|QMutexPrivate
 operator|::
@@ -1167,6 +1166,7 @@ parameter_list|(
 name|int
 name|value
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|int
 name|old_waiters
@@ -1229,7 +1229,6 @@ begin_comment
 comment|/*!    \internal  */
 end_comment
 begin_function
-DECL|function|lock
 name|bool
 name|QRecursiveMutexPrivate
 operator|::
@@ -1238,6 +1237,7 @@ parameter_list|(
 name|int
 name|timeout
 parameter_list|)
+name|QT_MUTEX_LOCK_NOEXCEPT
 block|{
 name|Qt
 operator|::
@@ -1322,12 +1322,12 @@ begin_comment
 comment|/*!    \internal  */
 end_comment
 begin_function
-DECL|function|unlock
 name|void
 name|QRecursiveMutexPrivate
 operator|::
 name|unlock
 parameter_list|()
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
