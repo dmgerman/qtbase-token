@@ -40,6 +40,11 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_include
+include|#
+directive|include
+file|<string.h>
+end_include
 begin_function
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
