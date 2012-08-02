@@ -1124,6 +1124,8 @@ name|qColorDialogStaticData
 argument_list|()
 operator|->
 name|customSet
+operator|=
+literal|true
 expr_stmt|;
 name|qColorDialogStaticData
 argument_list|()
