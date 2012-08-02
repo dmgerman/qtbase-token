@@ -10093,7 +10093,6 @@ begin_comment
 comment|/*!     Returns the hash value for the \a url. If specified, \a seed is used to     initialize the hash.      \relates QHash     \since 5.0 */
 end_comment
 begin_function
-DECL|function|qHash
 name|uint
 name|qHash
 parameter_list|(
@@ -10105,6 +10104,7 @@ parameter_list|,
 name|uint
 name|seed
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(

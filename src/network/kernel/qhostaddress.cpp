@@ -3702,6 +3702,7 @@ name|uint
 name|seed
 parameter_list|)
 block|{
+comment|// both lines might throw
 name|QT_ENSURE_PARSED
 argument_list|(
 operator|&

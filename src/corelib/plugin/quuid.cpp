@@ -3027,7 +3027,6 @@ begin_comment
 comment|/*!     \since 5.0     \relates QUuid     Returns a hash of the UUID \a uuid, using \a seed to seed the calculation. */
 end_comment
 begin_function
-DECL|function|qHash
 name|uint
 name|qHash
 parameter_list|(
@@ -3039,6 +3038,7 @@ parameter_list|,
 name|uint
 name|seed
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|uuid

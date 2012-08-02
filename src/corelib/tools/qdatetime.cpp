@@ -13162,7 +13162,6 @@ begin_comment
 comment|/*! \fn uint qHash(const QDate&key, uint seed = 0)     \relates QHash     \since 5.0      Returns the hash value for the \a key, using \a seed to seed the calculation. */
 end_comment
 begin_function
-DECL|function|qHash
 name|uint
 name|qHash
 parameter_list|(
@@ -13174,6 +13173,7 @@ parameter_list|,
 name|uint
 name|seed
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|qHash
@@ -13192,7 +13192,6 @@ begin_comment
 comment|/*! \fn uint qHash(const QTime&key, uint seed = 0)     \relates QHash     \since 5.0      Returns the hash value for the \a key, using \a seed to seed the calculation. */
 end_comment
 begin_function
-DECL|function|qHash
 name|uint
 name|qHash
 parameter_list|(
@@ -13204,8 +13203,11 @@ parameter_list|,
 name|uint
 name|seed
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
+name|qHash
+argument_list|(
 name|QTime
 argument_list|(
 literal|0
@@ -13221,8 +13223,9 @@ name|msecsTo
 argument_list|(
 name|key
 argument_list|)
-operator|^
+argument_list|,
 name|seed
+argument_list|)
 return|;
 block|}
 end_function

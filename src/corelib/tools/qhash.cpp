@@ -125,7 +125,6 @@ end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 comment|/*     The Java's hashing algorithm for strings is a variation of D. J. Bernstein     hashing algorithm appeared here http://cr.yp.to/cdb/cdb.txt     and informally known as DJB33XX - DJB's 33 Times Xor.     Java uses DJB31XA, that is, 31 Times Add.      The original algorithm was a loop around         (h<< 5) + h ^ c     (which is indeed h*33 ^ c); it was then changed to         (h<< 5) - h ^ c     (so h*31^c: DJB31XX), and the XOR changed to a sum:         (h<< 5) - h + c     (DJB31XA), which can save some assembly instructions.      Still, we can avoid writing the multiplication as "(h<< 5) - h"     -- the compiler will turn it into a shift and an addition anyway     (for instance, gcc 4.4 does that even at -O0). */
-DECL|function|hash
 specifier|static
 specifier|inline
 name|uint
@@ -142,6 +141,7 @@ parameter_list|,
 name|uint
 name|seed
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|uint
 name|h
@@ -179,7 +179,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|hash
 specifier|static
 specifier|inline
 name|uint
@@ -196,6 +195,7 @@ parameter_list|,
 name|uint
 name|seed
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|uint
 name|h
@@ -236,7 +236,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|qHash
 name|uint
 name|qHash
 parameter_list|(
@@ -248,6 +247,7 @@ parameter_list|,
 name|uint
 name|seed
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|hash
@@ -276,7 +276,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|qHash
 name|uint
 name|qHash
 parameter_list|(
@@ -288,6 +287,7 @@ parameter_list|,
 name|uint
 name|seed
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|hash
@@ -308,7 +308,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|qHash
 name|uint
 name|qHash
 parameter_list|(
@@ -320,6 +319,7 @@ parameter_list|,
 name|uint
 name|seed
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|hash
@@ -340,7 +340,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|qHash
 name|uint
 name|qHash
 parameter_list|(
@@ -352,6 +351,7 @@ parameter_list|,
 name|uint
 name|seed
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|int
 name|m
@@ -446,7 +446,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|qHash
 name|uint
 name|qHash
 parameter_list|(
@@ -456,6 +455,7 @@ parameter_list|,
 name|uint
 name|seed
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|hash
@@ -787,7 +787,6 @@ begin_comment
 comment|/*!     \internal      Private copy of the implementation of the Qt 4 qHash algorithm for strings,     to be used wherever the result is somehow stored or reused across multiple     Qt versions. The public qHash implementation can change at any time,     therefore one must not rely on the fact that it will always give the same     results.      This function must *never* change its results. */
 end_comment
 begin_function
-DECL|function|qt_hash
 name|uint
 name|qt_hash
 parameter_list|(
@@ -796,6 +795,7 @@ name|QString
 modifier|&
 name|key
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 specifier|const
 name|QChar
