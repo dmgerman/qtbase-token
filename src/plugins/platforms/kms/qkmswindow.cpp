@@ -17,6 +17,11 @@ include|#
 directive|include
 file|<qpa/qwindowsysteminterface.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<qpa/qplatformwindow_p.h>
+end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
@@ -36,6 +41,11 @@ argument_list|(
 name|window
 argument_list|)
 block|{
+name|Q_D
+argument_list|(
+name|QPlatformWindow
+argument_list|)
+expr_stmt|;
 name|m_screen
 operator|=
 name|QPlatformScreen
@@ -62,6 +72,14 @@ name|requestedFormat
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|setGeometry
+argument_list|(
+name|d
+operator|->
+name|rect
+argument_list|)
+expr_stmt|;
+comment|// rect is set to window->geometry() in base ctor
 block|}
 end_constructor
 begin_function
@@ -77,11 +95,7 @@ modifier|&
 name|rect
 parameter_list|)
 block|{
-name|Q_UNUSED
-argument_list|(
-argument|rect
-argument_list|)
-comment|//All Windows must be fullscreen
+comment|// All windows must be fullscreen
 name|QRect
 name|fullscreenRect
 init|=
@@ -90,6 +104,12 @@ operator|->
 name|availableGeometry
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|rect
+operator|!=
+name|fullscreenRect
+condition|)
 name|QWindowSystemInterface
 operator|::
 name|handleGeometryChange

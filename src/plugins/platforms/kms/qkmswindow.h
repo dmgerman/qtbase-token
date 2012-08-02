@@ -26,6 +26,10 @@ range|:
 name|public
 name|QPlatformWindow
 block|{
+name|Q_DECLARE_PRIVATE
+argument_list|(
+argument|QPlatformWindow
+argument_list|)
 name|public
 operator|:
 name|QKmsWindow
