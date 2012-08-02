@@ -8,13 +8,13 @@ directive|include
 file|"car_interface.h"
 end_include
 begin_comment
-comment|/*  * Implementation of interface class ComTrolltechExamplesCarInterfaceInterface  */
+comment|/*  * Implementation of interface class OrgExampleExamplesCarInterfaceInterface  */
 end_comment
 begin_constructor
-DECL|function|ComTrolltechExamplesCarInterfaceInterface
-name|ComTrolltechExamplesCarInterfaceInterface
+DECL|function|OrgExampleExamplesCarInterfaceInterface
+name|OrgExampleExamplesCarInterfaceInterface
 operator|::
-name|ComTrolltechExamplesCarInterfaceInterface
+name|OrgExampleExamplesCarInterfaceInterface
 parameter_list|(
 specifier|const
 name|QString
@@ -52,11 +52,11 @@ argument_list|)
 block|{ }
 end_constructor
 begin_destructor
-DECL|function|~ComTrolltechExamplesCarInterfaceInterface
-name|ComTrolltechExamplesCarInterfaceInterface
+DECL|function|~OrgExampleExamplesCarInterfaceInterface
+name|OrgExampleExamplesCarInterfaceInterface
 operator|::
 name|~
-name|ComTrolltechExamplesCarInterfaceInterface
+name|OrgExampleExamplesCarInterfaceInterface
 parameter_list|()
 block|{ }
 end_destructor

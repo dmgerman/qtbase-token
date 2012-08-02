@@ -8,13 +8,13 @@ directive|include
 file|"chat_interface.h"
 end_include
 begin_comment
-comment|/*  * Implementation of interface class ComTrolltechChatInterface  */
+comment|/*  * Implementation of interface class OrgExampleChatInterface  */
 end_comment
 begin_constructor
-DECL|function|ComTrolltechChatInterface
-name|ComTrolltechChatInterface
+DECL|function|OrgExampleChatInterface
+name|OrgExampleChatInterface
 operator|::
-name|ComTrolltechChatInterface
+name|OrgExampleChatInterface
 parameter_list|(
 specifier|const
 name|QString
@@ -52,11 +52,11 @@ argument_list|)
 block|{ }
 end_constructor
 begin_destructor
-DECL|function|~ComTrolltechChatInterface
-name|ComTrolltechChatInterface
+DECL|function|~OrgExampleChatInterface
+name|OrgExampleChatInterface
 operator|::
 name|~
-name|ComTrolltechChatInterface
+name|OrgExampleChatInterface
 parameter_list|()
 block|{ }
 end_destructor

@@ -78,9 +78,9 @@ operator|::
 name|Controller
 name|ui
 block|;
-name|com
+name|org
 operator|::
-name|trolltech
+name|example
 operator|::
 name|Examples
 operator|::

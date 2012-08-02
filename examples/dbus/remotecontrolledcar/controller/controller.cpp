@@ -43,9 +43,9 @@ expr_stmt|;
 name|car
 operator|=
 operator|new
-name|com
+name|org
 operator|::
-name|trolltech
+name|example
 operator|::
 name|Examples
 operator|::

@@ -58,7 +58,7 @@ comment|/*  * Proxy class for interface org.example.chat  */
 end_comment
 begin_decl_stmt
 name|class
-name|ComTrolltechChatInterface
+name|OrgExampleChatInterface
 range|:
 name|public
 name|QDBusAbstractInterface
@@ -80,7 +80,7 @@ return|;
 block|}
 name|public
 operator|:
-name|ComTrolltechChatInterface
+name|OrgExampleChatInterface
 argument_list|(
 specifier|const
 name|QString
@@ -105,7 +105,7 @@ literal|0
 argument_list|)
 block|;
 operator|~
-name|ComTrolltechChatInterface
+name|OrgExampleChatInterface
 argument_list|()
 block|;
 name|public
@@ -147,14 +147,14 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|namespace
-name|com
+name|org
 block|{
 name|namespace
-name|trolltech
+name|example
 block|{
 typedef|typedef
 operator|::
-name|ComTrolltechChatInterface
+name|OrgExampleChatInterface
 name|chat
 expr_stmt|;
 block|}

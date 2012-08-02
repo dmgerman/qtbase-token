@@ -58,7 +58,7 @@ comment|/*  * Proxy class for interface org.example.Examples.CarInterface  */
 end_comment
 begin_decl_stmt
 name|class
-name|ComTrolltechExamplesCarInterfaceInterface
+name|OrgExampleExamplesCarInterfaceInterface
 range|:
 name|public
 name|QDBusAbstractInterface
@@ -80,7 +80,7 @@ return|;
 block|}
 name|public
 operator|:
-name|ComTrolltechExamplesCarInterfaceInterface
+name|OrgExampleExamplesCarInterfaceInterface
 argument_list|(
 specifier|const
 name|QString
@@ -105,7 +105,7 @@ literal|0
 argument_list|)
 block|;
 operator|~
-name|ComTrolltechExamplesCarInterfaceInterface
+name|OrgExampleExamplesCarInterfaceInterface
 argument_list|()
 block|;
 name|public
@@ -223,17 +223,17 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|namespace
-name|com
+name|org
 block|{
 name|namespace
-name|trolltech
+name|example
 block|{
 name|namespace
 name|Examples
 block|{
 typedef|typedef
 operator|::
-name|ComTrolltechExamplesCarInterfaceInterface
+name|OrgExampleExamplesCarInterfaceInterface
 name|CarInterface
 expr_stmt|;
 block|}

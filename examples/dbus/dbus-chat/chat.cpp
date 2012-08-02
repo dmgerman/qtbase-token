@@ -178,9 +178,9 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-name|com
+name|org
 operator|::
-name|trolltech
+name|example
 operator|::
 name|chat
 modifier|*
@@ -189,9 +189,9 @@ decl_stmt|;
 name|iface
 operator|=
 operator|new
-name|com
+name|org
 operator|::
-name|trolltech
+name|example
 operator|::
 name|chat
 argument_list|(
