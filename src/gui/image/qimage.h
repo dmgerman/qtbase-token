@@ -94,12 +94,6 @@ name|class
 name|QVariant
 decl_stmt|;
 end_decl_stmt
-begin_decl_stmt
-DECL|variable|QColorProfile
-name|class
-name|QColorProfile
-decl_stmt|;
-end_decl_stmt
 begin_expr_stmt
 DECL|variable|QList
 name|template
@@ -376,9 +370,6 @@ argument_list|(
 argument|const QSize&size
 argument_list|,
 argument|Format format
-argument_list|,
-argument|QColorProfile *profile =
-literal|0
 argument_list|)
 block|;
 name|QImage
@@ -388,9 +379,6 @@ argument_list|,
 argument|int height
 argument_list|,
 argument|Format format
-argument_list|,
-argument|QColorProfile *profile =
-literal|0
 argument_list|)
 block|;
 name|QImage
@@ -408,9 +396,6 @@ literal|0
 argument_list|,
 argument|void *cleanupInfo =
 literal|0
-argument_list|,
-argument|QColorProfile *profile =
-literal|0
 argument_list|)
 block|;
 name|QImage
@@ -427,9 +412,6 @@ argument|QImageCleanupFunction cleanupFunction =
 literal|0
 argument_list|,
 argument|void *cleanupInfo =
-literal|0
-argument_list|,
-argument|QColorProfile *profile =
 literal|0
 argument_list|)
 block|;
@@ -450,9 +432,6 @@ literal|0
 argument_list|,
 argument|void *cleanupInfo =
 literal|0
-argument_list|,
-argument|QColorProfile *profile =
-literal|0
 argument_list|)
 block|;
 name|QImage
@@ -471,9 +450,6 @@ argument|QImageCleanupFunction cleanupFunction =
 literal|0
 argument_list|,
 argument|void *cleanupInfo =
-literal|0
-argument_list|,
-argument|QColorProfile *profile =
 literal|0
 argument_list|)
 block|;
