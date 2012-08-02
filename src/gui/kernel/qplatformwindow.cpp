@@ -10,6 +10,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qplatformwindow_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<QtGui/qwindowsysteminterface.h>
 end_include
 begin_include
@@ -25,22 +30,6 @@ end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
-begin_class
-DECL|class|QPlatformWindowPrivate
-class|class
-name|QPlatformWindowPrivate
-block|{
-DECL|member|rect
-name|QRect
-name|rect
-decl_stmt|;
-friend|friend
-class_decl|class
-name|QPlatformWindow
-class_decl|;
-block|}
-class|;
-end_class
 begin_comment
 comment|/*!     Constructs a platform window with the given top level window. */
 end_comment
