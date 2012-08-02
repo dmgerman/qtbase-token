@@ -153,6 +153,17 @@ name|Qt
 operator|::
 name|WindowNoState
 argument_list|)
+member_init_list|,
+name|m_requestedBufferSize
+argument_list|(
+name|window
+operator|->
+name|geometry
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|)
 block|{
 name|qWindowDebug
 argument_list|()
