@@ -1387,6 +1387,20 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_WINCE
+end_ifdef
+begin_decl_stmt
+name|bool
+name|m_previouslyHidden
+decl_stmt|;
+end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 unit|};
 comment|// Conveniences for window frames.
