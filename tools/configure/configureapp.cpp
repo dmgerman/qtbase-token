@@ -24135,21 +24135,6 @@ operator|==
 literal|"no"
 condition|)
 block|{
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|EVAL
-argument_list|)
-name|cout
-operator|<<
-literal|"Creating makefiles in src..."
-operator|<<
-name|endl
-expr_stmt|;
-endif|#
-directive|endif
 name|QString
 name|spec
 init|=
