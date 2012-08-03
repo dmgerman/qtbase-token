@@ -820,7 +820,6 @@ directive|undef
 name|qFatal
 end_undef
 begin_function
-DECL|function|fatal
 name|void
 name|QMessageLogger
 operator|::
@@ -833,6 +832,7 @@ name|msg
 parameter_list|,
 modifier|...
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|va_list
 name|ap
@@ -845,6 +845,8 @@ name|msg
 argument_list|)
 expr_stmt|;
 comment|// use variable arg list
+name|QT_TERMINATE_ON_EXCEPTION
+argument_list|(
 name|qt_message
 argument_list|(
 name|QtFatalMsg
@@ -854,6 +856,7 @@ argument_list|,
 name|msg
 argument_list|,
 name|ap
+argument_list|)
 argument_list|)
 expr_stmt|;
 ifndef|#

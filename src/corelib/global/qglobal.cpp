@@ -1655,10 +1655,26 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
+comment|/* \internal    Allows you to call std::terminate() without including<exception>.    Called internally from QT_TERMINATE_ON_EXCEPTION */
+end_comment
+begin_function
+name|Q_NORETURN
+name|void
+name|qTerminate
+parameter_list|()
+name|Q_DECL_NOTHROW
+block|{
+name|std
+operator|::
+name|terminate
+argument_list|()
+expr_stmt|;
+block|}
+end_function
+begin_comment
 comment|/*   The Q_ASSERT macro calls this function when the test fails. */
 end_comment
 begin_function
-DECL|function|qt_assert
 name|void
 name|qt_assert
 parameter_list|(
@@ -1675,6 +1691,7 @@ parameter_list|,
 name|int
 name|line
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|qFatal
 argument_list|(
@@ -1693,7 +1710,6 @@ begin_comment
 comment|/*   The Q_ASSERT_X macro calls this function when the test fails. */
 end_comment
 begin_function
-DECL|function|qt_assert_x
 name|void
 name|qt_assert_x
 parameter_list|(
@@ -1715,6 +1731,7 @@ parameter_list|,
 name|int
 name|line
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|qFatal
 argument_list|(
@@ -3202,6 +3219,9 @@ comment|/*!     \macro qMove(x)     \relates<QtGlobal>      It expands to "std::
 end_comment
 begin_comment
 comment|/*!     \macro Q_DECL_NOTHROW     \relates<QtGlobal>     \since 5.0      This macro marks a function as never throwing, under no     circumstances. If the function does nevertheless throw, the     behaviour is undefined.      The macro expands to either "throw()", if that has some benefit on     the compiler, or to C++11 noexcept, if available, or to nothing     otherwise.      If you need C++11 noexcept semantics, don't use this macro, use     Q_DECL_NOEXCEPT/Q_DECL_NOEXCEPT_EXPR instead.      \sa Q_DECL_NOEXCEPT, Q_DECL_NOEXCEPT_EXPR */
+end_comment
+begin_comment
+comment|/*!     \macro QT_TERMINATE_ON_EXCEPTION(expr)     \relates<QtGlobal>     \internal      In general, use of the Q_DECL_NOEXCEPT macro is preferred over     Q_DECL_NOTHROW, because it exhibits well-defined behavior and     supports the more powerful Q_DECL_NOEXCEPT_EXPR variant. However,     use of Q_DECL_NOTHROW has the advantage that Windows builds     benefit on a wide range or compiler versions that do not yet     support the C++11 noexcept feature.      It may therefore be beneficial to use Q_DECL_NOTHROW and emulate     the C++11 behavior manually with an embedded try/catch.      Qt provides the QT_TERMINATE_ON_EXCEPTION(expr) macro for this     purpose. It either expands to \c expr (if Qt is compiled without     exception support or the compiler supports C++11 noexcept     semantics) or to     \code     try { expr; } catch(...) { qTerminate(); }     \endocde     otherwise.      Since this macro expands to just \c expr if the compiler supports     C++11 noexcept, expecting the compiler to take over responsibility     of calling std::terminate() in that case, it should not be used     outside Q_DECL_NOTHROW functions.      \sa Q_DECL_NOEXCEPT, Q_DECL_NOTHROW, qTerminate() */
 end_comment
 begin_comment
 comment|/*!     \macro Q_DECL_NOEXCEPT     \relates<QtGlobal>     \since 5.0      This macro marks a function as never throwing. If the function     does nevertheless throw, the behaviour is defined:     std::terminate() is called.      The macro expands to C++11 noexcept, if available, or to nothing     otherwise.      If you need the operator version of C++11 noexcept, use     Q_DECL_NOEXCEPT_EXPR(x).      If you don't need C++11 noexcept semantics, e.g. because your     function can't possibly throw, don't use this macro, use     Q_DECL_NOTHROW instead.      \sa Q_DECL_NOTHROW, Q_DECL_NOEXCEPT_EXPR */
