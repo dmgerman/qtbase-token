@@ -84,6 +84,7 @@ argument|QMessageLogContext
 argument_list|)
 name|public
 label|:
+name|Q_DECL_CONSTEXPR
 name|QMessageLogContext
 argument_list|()
 operator|:
@@ -205,6 +206,7 @@ argument|QMessageLogger
 argument_list|)
 name|public
 label|:
+name|Q_DECL_CONSTEXPR
 name|QMessageLogger
 argument_list|()
 operator|:
