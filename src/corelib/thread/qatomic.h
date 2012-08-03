@@ -77,6 +77,7 @@ argument_list|(
 argument|int value =
 literal|0
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|_q_value
 operator|=
@@ -87,6 +88,7 @@ name|QAtomicInt
 argument_list|(
 argument|const QAtomicInt&other
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|store
 argument_list|(
@@ -107,6 +109,7 @@ name|QAtomicInt
 operator|&
 name|other
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|this
 operator|->
@@ -285,6 +288,7 @@ argument_list|(
 argument|T *value =
 literal|0
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|this
 operator|->
@@ -298,6 +302,7 @@ name|QAtomicPointer
 argument_list|(
 argument|const QAtomicPointer<T>&other
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|this
 operator|->
@@ -326,6 +331,7 @@ operator|>
 operator|&
 name|other
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|this
 operator|->

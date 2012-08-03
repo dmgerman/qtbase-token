@@ -397,6 +397,7 @@ name|T
 name|load
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -413,6 +414,7 @@ parameter_list|(
 name|T
 name|newValue
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 name|Ops
 operator|::
@@ -429,6 +431,7 @@ name|T
 name|loadAcquire
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -445,6 +448,7 @@ parameter_list|(
 name|T
 name|newValue
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 name|Ops
 operator|::
@@ -460,6 +464,7 @@ specifier|static
 name|bool
 name|isReferenceCountingNative
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -472,6 +477,7 @@ specifier|static
 name|bool
 name|isReferenceCountingWaitFree
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -483,6 +489,7 @@ block|}
 name|bool
 name|ref
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -496,6 +503,7 @@ block|}
 name|bool
 name|deref
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -510,6 +518,7 @@ specifier|static
 name|bool
 name|isTestAndSetNative
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -522,6 +531,7 @@ specifier|static
 name|bool
 name|isTestAndSetWaitFree
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -539,6 +549,7 @@ parameter_list|,
 name|T
 name|newValue
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -562,6 +573,7 @@ parameter_list|,
 name|T
 name|newValue
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -585,6 +597,7 @@ parameter_list|,
 name|T
 name|newValue
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -608,6 +621,7 @@ parameter_list|,
 name|T
 name|newValue
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -626,6 +640,7 @@ specifier|static
 name|bool
 name|isFetchAndStoreNative
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -638,6 +653,7 @@ specifier|static
 name|bool
 name|isFetchAndStoreWaitFree
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -652,6 +668,7 @@ parameter_list|(
 name|T
 name|newValue
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -670,6 +687,7 @@ parameter_list|(
 name|T
 name|newValue
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -688,6 +706,7 @@ parameter_list|(
 name|T
 name|newValue
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -706,6 +725,7 @@ parameter_list|(
 name|T
 name|newValue
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -722,6 +742,7 @@ specifier|static
 name|bool
 name|isFetchAndAddNative
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -734,6 +755,7 @@ specifier|static
 name|bool
 name|isFetchAndAddWaitFree
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -748,6 +770,7 @@ parameter_list|(
 name|T
 name|valueToAdd
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -766,6 +789,7 @@ parameter_list|(
 name|T
 name|valueToAdd
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -784,6 +808,7 @@ parameter_list|(
 name|T
 name|valueToAdd
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -802,6 +827,7 @@ parameter_list|(
 name|T
 name|valueToAdd
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -838,9 +864,11 @@ expr_stmt|;
 name|constexpr
 name|QBasicAtomicInteger
 argument_list|(
-argument|T value
+name|T
+name|value
 argument_list|)
-block|:
+name|Q_DECL_NOTHROW
+range|:
 name|_q_value
 argument_list|(
 argument|value
@@ -854,7 +882,7 @@ operator|&
 argument_list|)
 operator|=
 name|delete
-expr_stmt|;
+decl_stmt|;
 name|QBasicAtomicInteger
 modifier|&
 name|operator
@@ -945,6 +973,7 @@ name|Type
 name|load
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|_q_value
@@ -958,6 +987,7 @@ parameter_list|(
 name|Type
 name|newValue
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 name|_q_value
 operator|=
@@ -973,6 +1003,7 @@ name|Type
 name|loadAcquire
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -991,6 +1022,7 @@ parameter_list|(
 name|Type
 name|newValue
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 name|Ops
 operator|::
@@ -1008,6 +1040,7 @@ specifier|static
 name|bool
 name|isTestAndSetNative
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -1022,6 +1055,7 @@ specifier|static
 name|bool
 name|isTestAndSetWaitFree
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -1041,6 +1075,7 @@ parameter_list|,
 name|Type
 name|newValue
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -1066,6 +1101,7 @@ parameter_list|,
 name|Type
 name|newValue
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -1091,6 +1127,7 @@ parameter_list|,
 name|Type
 name|newValue
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -1116,6 +1153,7 @@ parameter_list|,
 name|Type
 name|newValue
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -1136,6 +1174,7 @@ specifier|static
 name|bool
 name|isFetchAndStoreNative
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -1150,6 +1189,7 @@ specifier|static
 name|bool
 name|isFetchAndStoreWaitFree
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -1166,6 +1206,7 @@ parameter_list|(
 name|Type
 name|newValue
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -1186,6 +1227,7 @@ parameter_list|(
 name|Type
 name|newValue
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -1206,6 +1248,7 @@ parameter_list|(
 name|Type
 name|newValue
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -1226,6 +1269,7 @@ parameter_list|(
 name|Type
 name|newValue
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -1244,6 +1288,7 @@ specifier|static
 name|bool
 name|isFetchAndAddNative
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -1258,6 +1303,7 @@ specifier|static
 name|bool
 name|isFetchAndAddWaitFree
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -1274,6 +1320,7 @@ parameter_list|(
 name|qptrdiff
 name|valueToAdd
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -1294,6 +1341,7 @@ parameter_list|(
 name|qptrdiff
 name|valueToAdd
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -1314,6 +1362,7 @@ parameter_list|(
 name|qptrdiff
 name|valueToAdd
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -1334,6 +1383,7 @@ parameter_list|(
 name|qptrdiff
 name|valueToAdd
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|Ops
@@ -1372,26 +1422,20 @@ operator|=
 expr|default
 expr_stmt|;
 end_expr_stmt
-begin_macro
+begin_decl_stmt
 name|constexpr
-end_macro
-begin_macro
 name|QBasicAtomicPointer
 argument_list|(
-argument|Type value
+name|Type
+name|value
 argument_list|)
-end_macro
-begin_macro
-unit|:
+name|Q_DECL_NOTHROW
+range|:
 name|_q_value
 argument_list|(
 argument|value
 argument_list|)
-end_macro
-begin_block
 block|{}
-end_block
-begin_expr_stmt
 name|QBasicAtomicPointer
 argument_list|(
 specifier|const
@@ -1400,8 +1444,8 @@ operator|&
 argument_list|)
 operator|=
 name|delete
-expr_stmt|;
-end_expr_stmt
+decl_stmt|;
+end_decl_stmt
 begin_decl_stmt
 name|QBasicAtomicPointer
 modifier|&
