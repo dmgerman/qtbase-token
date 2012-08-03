@@ -133,10 +133,19 @@ name|size
 operator|>
 expr|>
 block|{
+name|template
+operator|<
+name|typename
+name|T
+operator|>
 specifier|static
 name|void
 name|orderedMemoryFence
-argument_list|()
+argument_list|(
+specifier|const
+name|T
+operator|&
+argument_list|)
 block|;
 DECL|function|isReferenceCountingNative
 specifier|static
@@ -2870,6 +2879,11 @@ operator|<
 name|int
 name|size
 operator|>
+name|template
+operator|<
+name|typename
+name|T
+operator|>
 specifier|inline
 DECL|function|orderedMemoryFence
 name|void
@@ -2879,7 +2893,9 @@ name|size
 operator|>
 operator|::
 name|orderedMemoryFence
-argument_list|()
+argument_list|(
+argument|const T&
+argument_list|)
 block|{
 name|Q_DATA_MEMORY_BARRIER
 block|; }

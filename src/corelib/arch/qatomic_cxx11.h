@@ -433,30 +433,6 @@ name|AddScale
 decl_stmt|;
 end_decl_stmt
 begin_function
-DECL|function|acquireMemoryFence
-specifier|static
-name|void
-name|acquireMemoryFence
-parameter_list|()
-block|{ }
-end_function
-begin_function
-DECL|function|releaseMemoryFence
-specifier|static
-name|void
-name|releaseMemoryFence
-parameter_list|()
-block|{ }
-end_function
-begin_function
-DECL|function|orderedMemoryFence
-specifier|static
-name|void
-name|orderedMemoryFence
-parameter_list|()
-block|{ }
-end_function
-begin_function
 specifier|static
 specifier|inline
 DECL|function|load

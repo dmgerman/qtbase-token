@@ -422,10 +422,19 @@ name|size
 operator|>
 expr|>
 block|{
+name|template
+operator|<
+name|typename
+name|T
+operator|>
 specifier|static
 name|void
 name|orderedMemoryFence
-argument_list|()
+argument_list|(
+specifier|const
+name|T
+operator|&
+argument_list|)
 block|;
 name|template
 operator|<
@@ -927,6 +936,11 @@ operator|<
 name|int
 name|size
 operator|>
+name|template
+operator|<
+name|typename
+name|T
+operator|>
 specifier|inline
 DECL|function|orderedMemoryFence
 name|void
@@ -936,7 +950,9 @@ name|size
 operator|>
 operator|::
 name|orderedMemoryFence
-argument_list|()
+argument_list|(
+argument|const T&
+argument_list|)
 block|{
 name|__memory_barrier
 argument_list|()
@@ -1650,6 +1666,11 @@ operator|<
 name|int
 name|size
 operator|>
+name|template
+operator|<
+name|typename
+name|T
+operator|>
 specifier|inline
 DECL|function|orderedMemoryFence
 name|void
@@ -1659,7 +1680,9 @@ name|size
 operator|>
 operator|::
 name|orderedMemoryFence
-argument_list|()
+argument_list|(
+argument|const T&
+argument_list|)
 block|{
 name|asm
 specifier|volatile
@@ -5334,7 +5357,9 @@ argument|T newValue
 argument_list|)
 block|{
 name|orderedMemoryFence
-argument_list|()
+argument_list|(
+name|_q_value
+argument_list|)
 block|;
 return|return
 name|testAndSetAcquire
@@ -5411,7 +5436,9 @@ argument|T newValue
 argument_list|)
 block|{
 name|orderedMemoryFence
-argument_list|()
+argument_list|(
+name|_q_value
+argument_list|)
 block|;
 return|return
 name|fetchAndStoreAcquire
@@ -5522,7 +5549,9 @@ argument|typename QAtomicAdditiveType<T>::AdditiveT valueToAdd
 argument_list|)
 block|{
 name|orderedMemoryFence
-argument_list|()
+argument_list|(
+name|_q_value
+argument_list|)
 block|;
 return|return
 name|fetchAndAddRelease

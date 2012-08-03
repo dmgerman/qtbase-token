@@ -230,19 +230,23 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
-begin_function
+begin_expr_stmt
+name|template
+operator|<
+name|typename
+name|T
+operator|>
 DECL|function|orderedMemoryFence
 specifier|static
 name|void
 name|orderedMemoryFence
-parameter_list|()
+argument_list|(
+argument|const T&
+argument_list|)
 block|{
 name|_q_dmb
 argument_list|()
-expr_stmt|;
-block|}
-end_function
-begin_expr_stmt
+block|; }
 name|template
 operator|<
 name|typename
