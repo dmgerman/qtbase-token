@@ -999,21 +999,6 @@ name|public
 label|:
 specifier|inline
 name|QNoDebug
-argument_list|()
-block|{}
-specifier|inline
-name|QNoDebug
-argument_list|(
-argument|const QDebug&
-argument_list|)
-block|{}
-specifier|inline
-operator|~
-name|QNoDebug
-argument_list|()
-block|{}
-specifier|inline
-name|QNoDebug
 operator|&
 name|operator
 operator|<<
