@@ -89,13 +89,13 @@ block|;
 specifier|static
 name|QTextCodec
 operator|*
-name|defaultCodec
+name|defaultCodecUnlocked
 argument_list|()
 block|;
 specifier|static
 name|QTextCodec
 operator|*
-name|codecForName
+name|codecForNameUnlocked
 argument_list|(
 specifier|const
 name|char
@@ -106,7 +106,7 @@ block|;
 specifier|static
 name|QTextCodec
 operator|*
-name|codecForMib
+name|codecForMibUnlocked
 argument_list|(
 argument|int mib
 argument_list|)

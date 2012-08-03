@@ -610,6 +610,9 @@ parameter_list|()
 function_decl|;
 end_function_decl
 begin_comment
+comment|// \threadsafe
+end_comment
+begin_comment
 comment|// this returns the codec the method sets up as locale codec to
 end_comment
 begin_comment
@@ -1435,7 +1438,7 @@ begin_comment
 comment|/*!     \fn QTextCodec *QTextCodec::codecForName(const char *name)      Searches all installed QTextCodec objects and returns the one     which best matches \a name; the match is case-insensitive. Returns     0 if no codec matching the name \a name could be found. */
 end_comment
 begin_comment
-comment|/*!     Searches all installed QTextCodec objects and returns the one     which best matches \a name; the match is case-insensitive. Returns     0 if no codec matching the name \a name could be found. */
+comment|/*!     \threadsafe     Searches all installed QTextCodec objects and returns the one     which best matches \a name; the match is case-insensitive. Returns     0 if no codec matching the name \a name could be found. */
 end_comment
 begin_function
 DECL|function|codecForName
@@ -1658,7 +1661,7 @@ directive|else
 return|return
 name|QIcuCodec
 operator|::
-name|codecForName
+name|codecForNameUnlocked
 argument_list|(
 name|name
 argument_list|)
@@ -1668,7 +1671,7 @@ directive|endif
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the QTextCodec which matches the     \l{QTextCodec::mibEnum()}{MIBenum} \a mib. */
+comment|/*!     \threadsafe     Returns the QTextCodec which matches the     \l{QTextCodec::mibEnum()}{MIBenum} \a mib. */
 end_comment
 begin_function
 DECL|function|codecForMib
@@ -1841,7 +1844,7 @@ name|QT_USE_ICU
 return|return
 name|QIcuCodec
 operator|::
-name|codecForMib
+name|codecForMibUnlocked
 argument_list|(
 name|mib
 argument_list|)
@@ -1854,7 +1857,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the list of all available codecs, by name. Call     QTextCodec::codecForName() to obtain the QTextCodec for the name.      The list may contain many mentions of the same codec     if the codec has aliases.      \sa availableMibs(), name(), aliases() */
+comment|/*!     \threadsafe     Returns the list of all available codecs, by name. Call     QTextCodec::codecForName() to obtain the QTextCodec for the name.      The list may contain many mentions of the same codec     if the codec has aliases.      \sa availableMibs(), name(), aliases() */
 end_comment
 begin_function
 DECL|function|availableCodecs
@@ -1969,7 +1972,7 @@ directive|endif
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the list of MIBs for all available codecs. Call     QTextCodec::codecForMib() to obtain the QTextCodec for the MIB.      \sa availableCodecs(), mibEnum() */
+comment|/*!     \threadsafe     Returns the list of MIBs for all available codecs. Call     QTextCodec::codecForMib() to obtain the QTextCodec for the MIB.      \sa availableCodecs(), mibEnum() */
 end_comment
 begin_function
 DECL|function|availableMibs
@@ -2097,7 +2100,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a pointer to the codec most suitable for this locale.      On Windows, the codec will be based on a system locale. On Unix     systems, the codec will might fall back to using the \e iconv     library if no builtin codec for the locale can be found.      Note that in these cases the codec's name will be "System". */
+comment|/*!     \threadsafe     Returns a pointer to the codec most suitable for this locale.      On Windows, the codec will be based on a system locale. On Unix     systems, the codec will might fall back to using the \e iconv     library if no builtin codec for the locale can be found.      Note that in these cases the codec's name will be "System". */
 end_comment
 begin_function
 DECL|function|codecForLocale
@@ -2149,11 +2152,12 @@ name|codec
 operator|=
 name|QIcuCodec
 operator|::
-name|defaultCodec
+name|defaultCodecUnlocked
 argument_list|()
 expr_stmt|;
 else|#
 directive|else
+comment|// setupLocaleMapper locks as necessary
 name|codec
 operator|=
 name|setupLocaleMapper

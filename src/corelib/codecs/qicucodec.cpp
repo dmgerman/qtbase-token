@@ -47,16 +47,8 @@ include|#
 directive|include
 file|"unicode/ucnv.h"
 end_include
-begin_function_decl
-name|QT_BEGIN_NAMESPACE
-specifier|extern
-name|QMutex
-modifier|*
-name|qTextCodecsMutex
-parameter_list|()
-function_decl|;
-end_function_decl
 begin_function
+name|QT_BEGIN_NAMESPACE
 DECL|function|qIcuCodecStateFree
 specifier|static
 name|void
@@ -1102,6 +1094,9 @@ literal|0
 return|;
 block|}
 end_function
+begin_comment
+comment|/// \threadsafe
+end_comment
 begin_function
 DECL|function|availableCodecs
 name|QList
@@ -1288,6 +1283,9 @@ name|codecs
 return|;
 block|}
 end_function
+begin_comment
+comment|/// \threadsafe
+end_comment
 begin_function
 DECL|function|availableMibs
 name|QList
@@ -1340,12 +1338,12 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|defaultCodec
+DECL|function|defaultCodecUnlocked
 name|QTextCodec
 modifier|*
 name|QIcuCodec
 operator|::
-name|defaultCodec
+name|defaultCodecUnlocked
 parameter_list|()
 block|{
 name|QCoreGlobalData
@@ -1410,7 +1408,7 @@ endif|#
 directive|endif
 name|c
 operator|=
-name|codecForName
+name|codecForNameUnlocked
 argument_list|(
 name|name
 argument_list|)
@@ -1430,12 +1428,12 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|codecForName
+DECL|function|codecForNameUnlocked
 name|QTextCodec
 modifier|*
 name|QIcuCodec
 operator|::
-name|codecForName
+name|codecForNameUnlocked
 parameter_list|(
 specifier|const
 name|char
@@ -1870,12 +1868,12 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|codecForMib
+DECL|function|codecForMibUnlocked
 name|QTextCodec
 modifier|*
 name|QIcuCodec
 operator|::
-name|codecForMib
+name|codecForMibUnlocked
 parameter_list|(
 name|int
 name|mib
@@ -1908,7 +1906,7 @@ operator|==
 name|mib
 condition|)
 return|return
-name|codecForName
+name|codecForNameUnlocked
 argument_list|(
 name|mibToNameTable
 operator|+
