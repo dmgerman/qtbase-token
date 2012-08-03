@@ -193,6 +193,13 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+name|Option
+operator|::
+name|postProcessProject
+argument_list|(
+name|project
+argument_list|)
+expr_stmt|;
 name|QHash
 argument_list|<
 name|QString

@@ -9681,6 +9681,50 @@ name|setupProject
 argument_list|()
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|cmd
+operator|&
+name|ReadFeatures
+condition|)
+block|{
+comment|// Even when ReadSetup is not set, but ReadFeatures is,
+comment|// we still need to process spec_pre.prf to load some
+comment|// default values and other settings.
+name|debug_msg
+argument_list|(
+literal|1
+argument_list|,
+literal|"Processing spec_pre (but skipping actual spec): %s"
+argument_list|,
+name|vars
+index|[
+literal|"CONFIG"
+index|]
+operator|.
+name|join
+argument_list|(
+literal|"::"
+argument_list|)
+operator|.
+name|toLatin1
+argument_list|()
+operator|.
+name|constData
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|doProjectInclude
+argument_list|(
+literal|"spec_pre"
+argument_list|,
+name|IncludeFlagFeature
+argument_list|,
+name|vars
+argument_list|)
+expr_stmt|;
+block|}
 for|for
 control|(
 name|QHash
