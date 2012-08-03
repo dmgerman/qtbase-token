@@ -2596,6 +2596,11 @@ argument_list|()
 operator|&&
 name|m_widget
 operator|->
+name|isVisible
+argument_list|()
+operator|&&
+name|m_widget
+operator|->
 name|updatesEnabled
 argument_list|()
 condition|)
