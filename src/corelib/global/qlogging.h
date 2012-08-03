@@ -725,8 +725,8 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_expr_stmt
-name|QT_END_HEADER
 name|QT_END_NAMESPACE
+name|QT_END_HEADER
 end_expr_stmt
 begin_endif
 endif|#
