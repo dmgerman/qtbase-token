@@ -607,13 +607,13 @@ begin_comment
 comment|/*!     \internal      Returns a QNoDebug object, which is used to ignore debugging output.      \sa QNoDebug, qDebug() */
 end_comment
 begin_function
-DECL|function|noDebug
 name|QNoDebug
 name|QMessageLogger
 operator|::
 name|noDebug
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QNoDebug

@@ -477,6 +477,7 @@ name|QNoDebug
 name|noDebug
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 expr_stmt|;
 endif|#
 directive|endif
