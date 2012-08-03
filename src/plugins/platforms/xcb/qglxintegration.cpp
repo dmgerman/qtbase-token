@@ -339,7 +339,7 @@ name|m_format
 operator|.
 name|majorVersion
 argument_list|()
-operator|>=
+operator|>
 literal|3
 operator|||
 operator|(
