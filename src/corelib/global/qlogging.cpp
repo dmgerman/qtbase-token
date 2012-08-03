@@ -113,7 +113,6 @@ begin_comment
 comment|/*!     \internal     Uses a local buffer to output the message. Not locale safe + cuts off     everything after character 255, but will work in out of memory situations.     Stop the execution afterwards. */
 end_comment
 begin_function
-DECL|function|qEmergencyOut
 specifier|static
 name|void
 name|qEmergencyOut
@@ -129,6 +128,7 @@ parameter_list|,
 name|va_list
 name|ap
 parameter_list|)
+name|Q_DECL_NOEXCEPT
 block|{
 name|char
 name|emergency_buf
