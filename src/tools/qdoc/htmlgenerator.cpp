@@ -5076,11 +5076,9 @@ else|else
 block|{
 comment|// (atom->string() == ATOM_LIST_VALUE)
 comment|// ### Trenton
-name|out
-argument_list|()
-operator|<<
-literal|"<tr><td class=\"topAlign\"><tt>"
-operator|<<
+name|QString
+name|t
+init|=
 name|protectEnc
 argument_list|(
 name|plainCode
@@ -5101,6 +5099,13 @@ name|relative
 argument_list|)
 argument_list|)
 argument_list|)
+decl_stmt|;
+name|out
+argument_list|()
+operator|<<
+literal|"<tr><td class=\"topAlign\"><tt>"
+operator|<<
+name|t
 operator|<<
 literal|"</tt></td><td class=\"topAlign\">"
 expr_stmt|;
