@@ -1209,13 +1209,10 @@ argument_list|)
 block|{
 if|if
 condition|(
-name|qgetenv
+name|qEnvironmentVariableIsEmpty
 argument_list|(
 literal|"QT_NO_THREADED_GLIB"
 argument_list|)
-operator|.
-name|isEmpty
-argument_list|()
 condition|)
 block|{
 specifier|static

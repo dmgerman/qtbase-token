@@ -41,13 +41,10 @@ name|Q_OS_WIN
 argument_list|)
 if|if
 condition|(
-name|qgetenv
+name|qEnvironmentVariableIsEmpty
 argument_list|(
 literal|"QT_NO_GLIB"
 argument_list|)
-operator|.
-name|isEmpty
-argument_list|()
 operator|&&
 name|QEventDispatcherGlib
 operator|::
