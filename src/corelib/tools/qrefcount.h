@@ -33,6 +33,7 @@ specifier|inline
 name|bool
 name|ref
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 name|int
 name|count
@@ -73,6 +74,7 @@ specifier|inline
 name|bool
 name|deref
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 name|int
 name|count
@@ -116,6 +118,7 @@ parameter_list|(
 name|bool
 name|sharable
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 name|Q_ASSERT
 argument_list|(
@@ -154,6 +157,7 @@ name|bool
 name|isStatic
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 comment|// Persistent object, never deleted
 return|return
@@ -170,6 +174,7 @@ name|bool
 name|isSharable
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 comment|// Sharable === Shared ownership.
 return|return
@@ -185,6 +190,7 @@ name|bool
 name|isShared
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 name|int
 name|count
@@ -211,6 +217,7 @@ block|}
 name|void
 name|initializeOwned
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 name|atomic
 operator|.
@@ -223,6 +230,7 @@ block|}
 name|void
 name|initializeUnsharable
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 name|atomic
 operator|.
