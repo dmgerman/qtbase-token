@@ -1603,7 +1603,6 @@ begin_comment
 comment|/**************************************************************************  ** QThread  *************************************************************************/
 end_comment
 begin_function
-DECL|function|currentThreadId
 name|Qt
 operator|::
 name|HANDLE
@@ -1611,6 +1610,7 @@ name|QThread
 operator|::
 name|currentThreadId
 parameter_list|()
+name|Q_DECL_NOTHROW
 block|{
 comment|// requires a C cast here otherwise we run into trouble on AIX
 return|return
@@ -1653,12 +1653,12 @@ endif|#
 directive|endif
 end_endif
 begin_function
-DECL|function|idealThreadCount
 name|int
 name|QThread
 operator|::
 name|idealThreadCount
 parameter_list|()
+name|Q_DECL_NOTHROW
 block|{
 name|int
 name|cores

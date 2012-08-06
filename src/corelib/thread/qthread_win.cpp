@@ -1669,7 +1669,6 @@ begin_comment
 comment|/**************************************************************************  ** QThread  *************************************************************************/
 end_comment
 begin_function
-DECL|function|currentThreadId
 name|Qt
 operator|::
 name|HANDLE
@@ -1677,6 +1676,7 @@ name|QThread
 operator|::
 name|currentThreadId
 parameter_list|()
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|(
@@ -1690,12 +1690,12 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|idealThreadCount
 name|int
 name|QThread
 operator|::
 name|idealThreadCount
 parameter_list|()
+name|Q_DECL_NOTHROW
 block|{
 name|SYSTEM_INFO
 name|sysinfo

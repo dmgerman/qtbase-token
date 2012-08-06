@@ -64,6 +64,7 @@ operator|::
 name|HANDLE
 name|currentThreadId
 argument_list|()
+name|Q_DECL_NOTHROW
 block|;
 specifier|static
 name|QThread
@@ -75,6 +76,7 @@ specifier|static
 name|int
 name|idealThreadCount
 argument_list|()
+name|Q_DECL_NOTHROW
 block|;
 specifier|static
 name|void
