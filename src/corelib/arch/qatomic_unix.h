@@ -117,6 +117,7 @@ name|Type
 typedef|;
 specifier|static
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isTestAndSetNative
 argument_list|()
@@ -128,6 +129,7 @@ return|;
 block|}
 specifier|static
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isTestAndSetWaitFree
 argument_list|()
@@ -179,6 +181,7 @@ name|Type
 typedef|;
 specifier|static
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isTestAndSetNative
 argument_list|()
@@ -190,6 +193,7 @@ return|;
 block|}
 specifier|static
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isTestAndSetWaitFree
 argument_list|()
@@ -276,6 +280,7 @@ return|;
 block|}
 specifier|static
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isTestAndSetNative
 argument_list|()
@@ -287,6 +292,7 @@ return|;
 block|}
 specifier|static
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isTestAndSetWaitFree
 argument_list|()

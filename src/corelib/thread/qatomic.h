@@ -130,11 +130,13 @@ ifdef|#
 directive|ifdef
 name|qdoc
 specifier|static
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isReferenceCountingNative
 argument_list|()
 block|;
 specifier|static
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isReferenceCountingWaitFree
 argument_list|()
@@ -148,11 +150,13 @@ name|deref
 argument_list|()
 block|;
 specifier|static
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isTestAndSetNative
 argument_list|()
 block|;
 specifier|static
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isTestAndSetWaitFree
 argument_list|()
@@ -190,11 +194,13 @@ argument|int newValue
 argument_list|)
 block|;
 specifier|static
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isFetchAndStoreNative
 argument_list|()
 block|;
 specifier|static
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isFetchAndStoreWaitFree
 argument_list|()
@@ -224,11 +230,13 @@ argument|int newValue
 argument_list|)
 block|;
 specifier|static
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isFetchAndAddNative
 argument_list|()
 block|;
 specifier|static
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isFetchAndAddWaitFree
 argument_list|()
@@ -352,6 +360,7 @@ ifdef|#
 directive|ifdef
 name|qdoc
 specifier|static
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isTestAndSetNative
 argument_list|()
@@ -359,6 +368,7 @@ expr_stmt|;
 end_expr_stmt
 begin_function_decl
 specifier|static
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isTestAndSetWaitFree
 parameter_list|()
@@ -422,6 +432,7 @@ function_decl|;
 end_function_decl
 begin_function_decl
 specifier|static
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isFetchAndStoreNative
 parameter_list|()
@@ -429,6 +440,7 @@ function_decl|;
 end_function_decl
 begin_function_decl
 specifier|static
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isFetchAndStoreWaitFree
 parameter_list|()
@@ -480,6 +492,7 @@ function_decl|;
 end_function_decl
 begin_function_decl
 specifier|static
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isFetchAndAddNative
 parameter_list|()
@@ -487,6 +500,7 @@ function_decl|;
 end_function_decl
 begin_function_decl
 specifier|static
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isFetchAndAddWaitFree
 parameter_list|()

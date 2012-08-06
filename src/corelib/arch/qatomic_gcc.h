@@ -215,6 +215,7 @@ block|;     }
 endif|#
 directive|endif
 specifier|static
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isTestAndSetNative
 argument_list|()
@@ -227,6 +228,7 @@ block|}
 end_expr_stmt
 begin_function
 specifier|static
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isTestAndSetWaitFree
 parameter_list|()

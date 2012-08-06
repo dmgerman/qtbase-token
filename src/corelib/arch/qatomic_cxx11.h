@@ -593,6 +593,7 @@ end_function
 begin_function
 specifier|static
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isReferenceCountingNative
 parameter_list|()
@@ -606,6 +607,7 @@ end_function
 begin_function
 specifier|static
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isReferenceCountingWaitFree
 parameter_list|()
@@ -659,6 +661,7 @@ end_function
 begin_function
 specifier|static
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isTestAndSetNative
 parameter_list|()
@@ -672,6 +675,7 @@ end_function
 begin_function
 specifier|static
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isTestAndSetWaitFree
 parameter_list|()
@@ -817,6 +821,7 @@ end_function
 begin_function
 specifier|static
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isFetchAndStoreNative
 parameter_list|()
@@ -830,6 +835,7 @@ end_function
 begin_function
 specifier|static
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isFetchAndStoreWaitFree
 parameter_list|()
@@ -955,6 +961,7 @@ end_function
 begin_function
 specifier|static
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isFetchAndAddNative
 parameter_list|()
@@ -968,6 +975,7 @@ end_function
 begin_function
 specifier|static
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isFetchAndAddWaitFree
 parameter_list|()

@@ -280,6 +280,7 @@ expr_stmt|;
 end_expr_stmt
 begin_function
 specifier|static
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isTestAndSetNative
 parameter_list|()
@@ -292,6 +293,7 @@ block|}
 end_function
 begin_function
 specifier|static
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isTestAndSetWaitFree
 parameter_list|()

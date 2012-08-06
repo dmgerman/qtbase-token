@@ -960,6 +960,7 @@ name|Type
 typedef|;
 specifier|static
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isReferenceCountingNative
 argument_list|()
@@ -971,6 +972,7 @@ return|;
 block|}
 specifier|static
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isReferenceCountingWaitFree
 argument_list|()
@@ -1006,6 +1008,7 @@ end_decl_stmt
 begin_function
 specifier|static
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isTestAndSetNative
 parameter_list|()
@@ -1019,6 +1022,7 @@ end_function
 begin_function
 specifier|static
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isTestAndSetWaitFree
 parameter_list|()
@@ -1051,6 +1055,7 @@ end_decl_stmt
 begin_function
 specifier|static
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isFetchAndStoreNative
 parameter_list|()
@@ -1064,6 +1069,7 @@ end_function
 begin_function
 specifier|static
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isFetchAndStoreWaitFree
 parameter_list|()
@@ -1093,6 +1099,7 @@ end_decl_stmt
 begin_function
 specifier|static
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isFetchAndAddNative
 parameter_list|()
@@ -1106,6 +1113,7 @@ end_function
 begin_function
 specifier|static
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isFetchAndAddWaitFree
 parameter_list|()
@@ -1337,6 +1345,7 @@ name|Type
 typedef|;
 specifier|static
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isTestAndSetNative
 argument_list|()
@@ -1348,6 +1357,7 @@ return|;
 block|}
 specifier|static
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isTestAndSetWaitFree
 argument_list|()
@@ -1374,6 +1384,7 @@ end_expr_stmt
 begin_function
 specifier|static
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isFetchAndStoreNative
 parameter_list|()
@@ -1387,6 +1398,7 @@ end_function
 begin_function
 specifier|static
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isFetchAndStoreWaitFree
 parameter_list|()
@@ -1419,6 +1431,7 @@ end_decl_stmt
 begin_function
 specifier|static
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isFetchAndAddNative
 parameter_list|()
@@ -1432,6 +1445,7 @@ end_function
 begin_function
 specifier|static
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isFetchAndAddWaitFree
 parameter_list|()
