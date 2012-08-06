@@ -9109,13 +9109,10 @@ specifier|static
 name|bool
 name|simplificationEnabled
 init|=
-name|qgetenv
+name|qEnvironmentVariableIsEmpty
 argument_list|(
 literal|"QT_ANCHORLAYOUT_NO_SIMPLIFICATION"
 argument_list|)
-operator|.
-name|isEmpty
-argument_list|()
 decl_stmt|;
 comment|// Reset the nominal sizes of each anchor based on the current item sizes
 name|refreshAllSizeHints
