@@ -10742,7 +10742,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QPainter::rotate(qreal angle)      Rotates the coordinate system the given \a angle clockwise.      \sa setWorldTransform(), {QPainter#Coordinate Transformations}{Coordinate Transformations} */
+comment|/*!     \fn void QPainter::rotate(qreal angle)      Rotates the coordinate system clockwise. The given \a angle parameter uses degree unit.      \sa setWorldTransform(), {QPainter#Coordinate Transformations}{Coordinate Transformations} */
 end_comment
 begin_function
 DECL|function|rotate
