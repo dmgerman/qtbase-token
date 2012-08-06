@@ -508,6 +508,9 @@ undef|#
 directive|undef
 name|qDebug
 end_undef
+begin_comment
+comment|/*!     Logs a debug message specified with format \a msg. Additional     parameters, specified by \a msg, may be used.      \sa qDebug() */
+end_comment
 begin_function
 DECL|function|debug
 name|void
@@ -557,6 +560,9 @@ ifndef|#
 directive|ifndef
 name|QT_NO_DEBUG_STREAM
 end_ifndef
+begin_comment
+comment|/*!     Logs a debug message using a QDebug stream      \sa qDebug(), QDebug */
+end_comment
 begin_function
 DECL|function|debug
 name|QDebug
@@ -595,6 +601,9 @@ name|dbg
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \internal      Returns a QNoDebug object, which is used to ignore debugging output.      \sa QNoDebug, qDebug() */
+end_comment
 begin_function
 DECL|function|noDebug
 name|QNoDebug
@@ -619,6 +628,9 @@ undef|#
 directive|undef
 name|qWarning
 end_undef
+begin_comment
+comment|/*!     Logs a warning message specified with format \a msg. Additional     parameters, specified by \a msg, may be used.      \sa qWarning() */
+end_comment
 begin_function
 DECL|function|warning
 name|void
@@ -668,6 +680,9 @@ ifndef|#
 directive|ifndef
 name|QT_NO_DEBUG_STREAM
 end_ifndef
+begin_comment
+comment|/*!     Logs a debug message using a QDebug stream      \sa qWarning(), QDebug */
+end_comment
 begin_function
 DECL|function|warning
 name|QDebug
@@ -716,6 +731,9 @@ undef|#
 directive|undef
 name|qCritical
 end_undef
+begin_comment
+comment|/*!     Logs a critical message specified with format \a msg. Additional     parameters, specified by \a msg, may be used.      \sa qCritical() */
+end_comment
 begin_function
 DECL|function|critical
 name|void
@@ -765,6 +783,9 @@ ifndef|#
 directive|ifndef
 name|QT_NO_DEBUG_STREAM
 end_ifndef
+begin_comment
+comment|/*!     Logs a critical message using a QDebug stream      \sa qCritical(), QDebug */
+end_comment
 begin_function
 DECL|function|critical
 name|QDebug
@@ -813,6 +834,9 @@ undef|#
 directive|undef
 name|qFatal
 end_undef
+begin_comment
+comment|/*!     Logs a fatal message specified with format \a msg. Additional     parameters, specified by \a msg, may be used.      \sa qFatal() */
+end_comment
 begin_function
 name|void
 name|QMessageLogger
@@ -3560,10 +3584,10 @@ begin_comment
 comment|/*!     \fn QtMessageHandler qInstallMessageHandler(QtMessageHandler handler)     \relates<QtGlobal>     \since 5.0      Installs a Qt message \a handler which has been defined     previously. Returns a pointer to the previous message handler     (which may be 0).      The message handler is a function that prints out debug messages,     warnings, critical and fatal error messages. The Qt library (debug     mode) contains hundreds of warning messages that are printed     when internal errors (usually invalid function arguments)     occur. Qt built in release mode also contains such warnings unless     QT_NO_WARNING_OUTPUT and/or QT_NO_DEBUG_OUTPUT have been set during     compilation. If you implement your own message handler, you get total     control of these messages.      The default message handler prints the message to the standard     output under X11 or to the debugger under Windows. If it is a     fatal message, the application aborts immediately.      Only one message handler can be defined, since this is usually     done on an application-wide basis to control debug output.      To restore the message handler, call \c qInstallMessageHandler(0).      Example:      \snippet code/src_corelib_global_qglobal.cpp 23      \sa QtMessageHandler, QtMsgType, qDebug(), qWarning(), qCritical(), qFatal(),     {Debugging Techniques} */
 end_comment
 begin_comment
-comment|/*!     \fn QtMsgHandler qInstallMsgHandler(QtMsgHandler handler)     \relates<QtGlobal>     \deprecated      Installs a Qt message \a handler which has been defined     previously. This method is deprecated, use qInstallMessageHandler     instead.     \sa QtMsgHandler, qInstallMessageHandler */
+comment|/*!     \fn QtMsgHandler qInstallMsgHandler(QtMsgHandler handler)     \relates<QtGlobal>     \deprecated      Installs a Qt message \a handler which has been defined     previously. This method is deprecated, use qInstallMessageHandler     instead.     \sa QtMsgHandler, qInstallMessageHandler() */
 end_comment
 begin_comment
-comment|/*!     \fn void qSetMessagePattern(const QString&pattern)     \relates<QtGlobal>     \since 5.0      \brief Changes the output of the default message handler.      Allows to tweak the output of qDebug(), qWarning(), qCritical() and qFatal().      Following placeholders are supported:      \table     \header \li Placeholder \li Description     \row \li \c %{appname} \li QCoreApplication::applicationName()     \row \li \c %{file} \li Path to source file     \row \li \c %{function} \li Function     \row \li \c %{line} \li Line in source file     \row \li \c %{message} \li The actual message     \row \li \c %{pid} \li QCoreApplication::applicationPid()     \row \li \c %{threadid} \li ID of current thread     \row \li \c %{type} \li "debug", "warning", "critical" or "fatal"     \endtable      The default pattern is "%{message}".      The pattern can also be changed at runtime by setting the QT_MESSAGE_PATTERN     environment variable; if both qSetMessagePattern() is called and QT_MESSAGE_PATTERN is     set, the environment variable takes precedence.      qSetMessagePattern() has no effect if a custom message handler is installed.      \sa qInstallMessageHandler, {Debugging Techniques}  */
+comment|/*!     \fn void qSetMessagePattern(const QString&pattern)     \relates<QtGlobal>     \since 5.0      \brief Changes the output of the default message handler.      Allows to tweak the output of qDebug(), qWarning(), qCritical() and qFatal().      Following placeholders are supported:      \table     \header \li Placeholder \li Description     \row \li \c %{appname} \li QCoreApplication::applicationName()     \row \li \c %{file} \li Path to source file     \row \li \c %{function} \li Function     \row \li \c %{line} \li Line in source file     \row \li \c %{message} \li The actual message     \row \li \c %{pid} \li QCoreApplication::applicationPid()     \row \li \c %{threadid} \li ID of current thread     \row \li \c %{type} \li "debug", "warning", "critical" or "fatal"     \endtable      The default \a pattern is "%{message}".      The \a pattern can also be changed at runtime by setting the QT_MESSAGE_PATTERN     environment variable; if both qSetMessagePattern() is called and QT_MESSAGE_PATTERN is     set, the environment variable takes precedence.      qSetMessagePattern() has no effect if a custom message handler is installed.      \sa qInstallMessageHandler(), {Debugging Techniques}  */
 end_comment
 begin_function
 DECL|function|qInstallMessageHandler
@@ -3669,6 +3693,9 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!     Copies context information from \a logContext into this QMessageLogContext     \internal */
+end_comment
 begin_function
 DECL|function|copy
 name|void
@@ -3716,6 +3743,24 @@ name|function
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!     \fn QMessageLogger::QMessageLogger()      Constructs a default QMessageLogger. See the other constructors to specify     context information. */
+end_comment
+begin_comment
+comment|/*!     \fn QMessageLogger::QMessageLogger(const char *file, int line, const char *function)      Constructs a QMessageLogger to record log messages for \a file at \a line     in \a function. The is equivalent to QMessageLogger(file, line, function, "default") */
+end_comment
+begin_comment
+comment|/*!     \fn QMessageLogger::QMessageLogger(const char *file, int line, const char *function, const char *category)      Constructs a QMessageLogger to record \a category messages for \a file at \a line     in \a function. */
+end_comment
+begin_comment
+comment|/*!     \fn void QMessageLogger::noDebug(const char *, ...)     \internal      Ignores logging output      \sa QNoDebug, qDebug() */
+end_comment
+begin_comment
+comment|/*!     \fn QMessageLogContext::QMessageLogContext()     \internal      Constructs a QMessageLogContext */
+end_comment
+begin_comment
+comment|/*!     \fn QMessageLogContext::QMessageLogContext(const char *fileName, int lineNumber, const char *functionName, const char *categoryName)     \internal      Constructs a QMessageLogContext with for file \a fileName at line     \a lineNumber, in function \a functionName, and category \a CategoryName. */
+end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
