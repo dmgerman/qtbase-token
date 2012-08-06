@@ -29,12 +29,12 @@ begin_comment
 comment|/*!     Marks this QElapsedTimer object as invalid.      An invalid object can be checked with isValid(). Calculations of timer     elapsed since invalid data are undefined and will likely produce bizarre     results.      \sa isValid(), start(), restart() */
 end_comment
 begin_function
-DECL|function|invalidate
 name|void
 name|QElapsedTimer
 operator|::
 name|invalidate
 parameter_list|()
+name|Q_DECL_NOTHROW
 block|{
 name|t1
 operator|=
@@ -48,13 +48,13 @@ begin_comment
 comment|/*!     Returns false if this object was invalidated by a call to invalidate() and     has not been restarted since.      \sa invalidate(), start(), restart() */
 end_comment
 begin_function
-DECL|function|isValid
 name|bool
 name|QElapsedTimer
 operator|::
 name|isValid
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|t1
@@ -71,7 +71,6 @@ begin_comment
 comment|/*!     Returns true if this QElapsedTimer has already expired by \a timeout     milliseconds (that is, more than \a timeout milliseconds have elapsed).     The value of \a timeout can be -1 to indicate that this timer does not     expire, in which case this function will always return false.      \sa elapsed() */
 end_comment
 begin_function
-DECL|function|hasExpired
 name|bool
 name|QElapsedTimer
 operator|::
@@ -81,6 +80,7 @@ name|qint64
 name|timeout
 parameter_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 comment|// if timeout is -1, quint64(timeout) is LLINT_MAX, so this will be
 comment|// considered as never expired

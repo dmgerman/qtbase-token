@@ -24,7 +24,6 @@ file|<mach/mach_time.h>
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
-DECL|function|clockType
 name|QElapsedTimer
 operator|::
 name|ClockType
@@ -32,6 +31,7 @@ name|QElapsedTimer
 operator|::
 name|clockType
 parameter_list|()
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|MachAbsoluteTime
@@ -39,12 +39,12 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|isMonotonic
 name|bool
 name|QElapsedTimer
 operator|::
 name|isMonotonic
 parameter_list|()
+name|Q_DECL_NOTHROW
 block|{
 return|return
 literal|true
@@ -127,10 +127,10 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|qt_gettime
 name|timeval
 name|qt_gettime
 parameter_list|()
+name|Q_DECL_NOTHROW
 block|{
 name|timeval
 name|tv
@@ -181,12 +181,12 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|start
 name|void
 name|QElapsedTimer
 operator|::
 name|start
 parameter_list|()
+name|Q_DECL_NOTHROW
 block|{
 name|t1
 operator|=
@@ -200,12 +200,12 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|restart
 name|qint64
 name|QElapsedTimer
 operator|::
 name|restart
 parameter_list|()
+name|Q_DECL_NOTHROW
 block|{
 name|qint64
 name|old
@@ -232,13 +232,13 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|nsecsElapsed
 name|qint64
 name|QElapsedTimer
 operator|::
 name|nsecsElapsed
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 name|uint64_t
 name|cpu_time
@@ -257,13 +257,13 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|elapsed
 name|qint64
 name|QElapsedTimer
 operator|::
 name|elapsed
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 name|uint64_t
 name|cpu_time
@@ -282,13 +282,13 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|msecsSinceReference
 name|qint64
 name|QElapsedTimer
 operator|::
 name|msecsSinceReference
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|absoluteToMSecs
@@ -299,7 +299,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|msecsTo
 name|qint64
 name|QElapsedTimer
 operator|::
@@ -311,6 +310,7 @@ modifier|&
 name|other
 parameter_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|absoluteToMSecs
@@ -325,7 +325,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|secsTo
 name|qint64
 name|QElapsedTimer
 operator|::
@@ -337,6 +336,7 @@ modifier|&
 name|other
 parameter_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|msecsTo
@@ -349,7 +349,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|operator <
 name|bool
 name|operator
 name|<
@@ -364,6 +363,7 @@ name|QElapsedTimer
 modifier|&
 name|v2
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|v1

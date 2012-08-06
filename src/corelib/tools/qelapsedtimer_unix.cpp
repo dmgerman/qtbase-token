@@ -273,12 +273,12 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|isMonotonic
 name|bool
 name|QElapsedTimer
 operator|::
 name|isMonotonic
 parameter_list|()
+name|Q_DECL_NOTHROW
 block|{
 name|unixCheckClockType
 argument_list|()
@@ -289,7 +289,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|clockType
 name|QElapsedTimer
 operator|::
 name|ClockType
@@ -297,6 +296,7 @@ name|QElapsedTimer
 operator|::
 name|clockType
 parameter_list|()
+name|Q_DECL_NOTHROW
 block|{
 name|unixCheckClockType
 argument_list|()
@@ -408,10 +408,10 @@ begin_comment
 comment|// used in qcore_unix.cpp and qeventdispatcher_unix.cpp
 end_comment
 begin_function
-DECL|function|qt_gettime
 name|timeval
 name|qt_gettime
 parameter_list|()
+name|Q_DECL_NOTHROW
 block|{
 name|qint64
 name|sec
@@ -515,12 +515,12 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|start
 name|void
 name|QElapsedTimer
 operator|::
 name|start
 parameter_list|()
+name|Q_DECL_NOTHROW
 block|{
 name|do_gettime
 argument_list|(
@@ -534,12 +534,12 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|restart
 name|qint64
 name|QElapsedTimer
 operator|::
 name|restart
 parameter_list|()
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|elapsedAndRestart
@@ -558,13 +558,13 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|nsecsElapsed
 name|qint64
 name|QElapsedTimer
 operator|::
 name|nsecsElapsed
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 name|qint64
 name|sec
@@ -614,13 +614,13 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|elapsed
 name|qint64
 name|QElapsedTimer
 operator|::
 name|elapsed
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 name|qint64
 name|sec
@@ -644,13 +644,13 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|msecsSinceReference
 name|qint64
 name|QElapsedTimer
 operator|::
 name|msecsSinceReference
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|t1
@@ -668,7 +668,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|msecsTo
 name|qint64
 name|QElapsedTimer
 operator|::
@@ -680,6 +679,7 @@ modifier|&
 name|other
 parameter_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 name|qint64
 name|secs
@@ -715,7 +715,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|secsTo
 name|qint64
 name|QElapsedTimer
 operator|::
@@ -727,6 +726,7 @@ modifier|&
 name|other
 parameter_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|other
@@ -738,7 +738,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|operator <
 name|bool
 name|operator
 name|<
@@ -753,6 +752,7 @@ name|QElapsedTimer
 modifier|&
 name|v2
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|v1

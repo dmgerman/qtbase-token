@@ -15,7 +15,6 @@ end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 comment|/*!     Returns the clock type that this QElapsedTimer implementation uses.      \sa isMonotonic() */
-DECL|function|clockType
 name|QElapsedTimer
 operator|::
 name|ClockType
@@ -23,6 +22,7 @@ name|QElapsedTimer
 operator|::
 name|clockType
 parameter_list|()
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|SystemTime
@@ -33,12 +33,12 @@ begin_comment
 comment|/*!     Returns true if this is a monotonic clock, false otherwise. See the     information on the different clock types to understand which ones are     monotonic.      \sa clockType(), QElapsedTimer::ClockType */
 end_comment
 begin_function
-DECL|function|isMonotonic
 name|bool
 name|QElapsedTimer
 operator|::
 name|isMonotonic
 parameter_list|()
+name|Q_DECL_NOTHROW
 block|{
 return|return
 literal|false
@@ -49,12 +49,12 @@ begin_comment
 comment|/*!     Starts this timer. Once started, a timer value can be checked with elapsed() or msecsSinceReference().      Normally, a timer is started just before a lengthy operation, such as:     \snippet qelapsedtimer/main.cpp 0      Also, starting a timer makes it valid again.      \sa restart(), invalidate(), elapsed() */
 end_comment
 begin_function
-DECL|function|start
 name|void
 name|QElapsedTimer
 operator|::
 name|start
 parameter_list|()
+name|Q_DECL_NOTHROW
 block|{
 name|restart
 argument_list|()
@@ -65,12 +65,12 @@ begin_comment
 comment|/*!     Restarts the timer and returns the time elapsed since the previous start.     This function is equivalent to obtaining the elapsed time with elapsed()     and then starting the timer again with restart(), but it does so in one     single operation, avoiding the need to obtain the clock value twice.      The following example illustrates how to use this function to calibrate a     parameter to a slow operation (for example, an iteration count) so that     this operation takes at least 250 milliseconds:      \snippet qelapsedtimer/main.cpp 3      \sa start(), invalidate(), elapsed() */
 end_comment
 begin_function
-DECL|function|restart
 name|qint64
 name|QElapsedTimer
 operator|::
 name|restart
 parameter_list|()
+name|Q_DECL_NOTHROW
 block|{
 name|qint64
 name|old
@@ -99,13 +99,13 @@ begin_comment
 comment|/*! \since 4.8      Returns the number of nanoseconds since this QElapsedTimer was last     started. Calling this function in a QElapsedTimer that was invalidated     will result in undefined results.      On platforms that do not provide nanosecond resolution, the value returned     will be the best estimate available.      \sa start(), restart(), hasExpired(), invalidate() */
 end_comment
 begin_function
-DECL|function|nsecsElapsed
 name|qint64
 name|QElapsedTimer
 operator|::
 name|nsecsElapsed
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|elapsed
@@ -119,13 +119,13 @@ begin_comment
 comment|/*!     Returns the number of milliseconds since this QElapsedTimer was last     started. Calling this function in a QElapsedTimer that was invalidated     will result in undefined results.      \sa start(), restart(), hasExpired(), invalidate() */
 end_comment
 begin_function
-DECL|function|elapsed
 name|qint64
 name|QElapsedTimer
 operator|::
 name|elapsed
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QDateTime
@@ -141,13 +141,13 @@ begin_comment
 comment|/*!     Returns the number of milliseconds between last time this QElapsedTimer     object was started and its reference clock's start.      This number is usually arbitrary for all clocks except the     QElapsedTimer::SystemTime clock. For that clock type, this number is the     number of milliseconds since January 1st, 1970 at 0:00 UTC (that is, it     is the Unix time expressed in milliseconds).      \sa clockType(), elapsed() */
 end_comment
 begin_function
-DECL|function|msecsSinceReference
 name|qint64
 name|QElapsedTimer
 operator|::
 name|msecsSinceReference
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|t1
@@ -158,7 +158,6 @@ begin_comment
 comment|/*!     Returns the number of milliseconds between this QElapsedTimer and \a     other. If \a other was started before this object, the returned value     will be negative. If it was started later, the returned value will be     positive.      The return value is undefined if this object or \a other were invalidated.      \sa secsTo(), elapsed() */
 end_comment
 begin_function
-DECL|function|msecsTo
 name|qint64
 name|QElapsedTimer
 operator|::
@@ -170,6 +169,7 @@ modifier|&
 name|other
 parameter_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 name|qint64
 name|diff
@@ -189,7 +189,6 @@ begin_comment
 comment|/*!     Returns the number of seconds between this QElapsedTimer and \a other. If     \a other was started before this object, the returned value will be     negative. If it was started later, the returned value will be positive.      The return value is undefined if this object or \a other were invalidated.      \sa msecsTo(), elapsed() */
 end_comment
 begin_function
-DECL|function|secsTo
 name|qint64
 name|QElapsedTimer
 operator|::
@@ -201,6 +200,7 @@ modifier|&
 name|other
 parameter_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|msecsTo
@@ -216,7 +216,6 @@ begin_comment
 comment|/*!     \relates QElapsedTimer      Returns true if \a v1 was started before \a v2, false otherwise.      The returned value is undefined if one of the two parameters is invalid     and the other isn't. However, two invalid timers are equal and thus this     function will return false. */
 end_comment
 begin_function
-DECL|function|operator <
 name|bool
 name|operator
 name|<
@@ -231,6 +230,7 @@ name|QElapsedTimer
 modifier|&
 name|v2
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|v1

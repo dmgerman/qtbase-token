@@ -7751,12 +7751,12 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|currentMSecsSinceEpoch
 name|qint64
 name|QDateTime
 operator|::
 name|currentMSecsSinceEpoch
 parameter_list|()
+name|Q_DECL_NOTHROW
 block|{
 name|QDate
 name|d
@@ -8388,12 +8388,12 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|currentMSecsSinceEpoch
 name|qint64
 name|QDateTime
 operator|::
 name|currentMSecsSinceEpoch
 parameter_list|()
+name|Q_DECL_NOTHROW
 block|{
 comment|// posix compliant system
 comment|// we have milliseconds

@@ -1611,8 +1611,9 @@ function_decl|;
 specifier|static
 name|qint64
 name|currentMSecsSinceEpoch
-parameter_list|()
-function_decl|;
+argument_list|()
+name|Q_DECL_NOTHROW
+expr_stmt|;
 name|private
 label|:
 name|friend
