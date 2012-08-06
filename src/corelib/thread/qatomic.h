@@ -63,7 +63,6 @@ endif|#
 directive|endif
 comment|// High-level atomic integer operations
 name|class
-name|Q_CORE_EXPORT
 name|QAtomicInt
 range|:
 name|public
