@@ -1332,13 +1332,10 @@ comment|// we must force a certain hash order when testing or tst_rcc will fail,
 if|if
 condition|(
 operator|!
-name|qgetenv
+name|qEnvironmentVariableIsEmpty
 argument_list|(
 literal|"QT_RCC_TEST"
 argument_list|)
-operator|.
-name|isEmpty
-argument_list|()
 operator|&&
 operator|!
 name|qt_qhash_seed
