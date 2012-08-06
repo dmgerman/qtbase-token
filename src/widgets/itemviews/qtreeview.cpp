@@ -7805,6 +7805,14 @@ name|state
 operator|=
 name|oldState
 expr_stmt|;
+if|if
+condition|(
+name|d
+operator|->
+name|indent
+operator|!=
+literal|0
+condition|)
 name|drawBranches
 argument_list|(
 name|painter
