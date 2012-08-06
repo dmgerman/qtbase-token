@@ -920,6 +920,35 @@ block|}
 block|; }
 expr_stmt|;
 end_expr_stmt
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_UNICODE_STRINGS
+end_ifdef
+begin_expr_stmt
+DECL|struct|char32_t
+DECL|enumerator|IsInteger
+name|template
+operator|<
+operator|>
+expr|struct
+name|QAtomicIntegerTraits
+operator|<
+name|char32_t
+operator|>
+block|{ enum
+block|{
+name|IsInteger
+operator|=
+literal|1
+block|}
+block|; }
+expr_stmt|;
+end_expr_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|// No definition, needs specialization
 end_comment

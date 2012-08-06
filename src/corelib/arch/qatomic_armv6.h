@@ -115,6 +115,66 @@ block|}
 block|; }
 expr_stmt|;
 end_expr_stmt
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_COMPILER_UNICODE_STRINGS
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_PROCESSOR_ARM_V6
+argument_list|)
+end_if
+begin_comment
+comment|// for ARMv5, ensure that char32_t (an uint_least32_t), is 32-bit
+end_comment
+begin_comment
+comment|// it's extremely unlikely it won't be on a 32-bit ARM, but just to be sure
+end_comment
+begin_comment
+comment|// For ARMv6 and up, we're sure it works, but the definition is below
+end_comment
+begin_expr_stmt
+DECL|struct|char32_t
+name|template
+operator|<
+operator|>
+expr|struct
+name|QAtomicIntegerTraits
+operator|<
+name|char32_t
+operator|>
+DECL|enumerator|IsInteger
+block|{ enum
+block|{
+name|IsInteger
+operator|=
+sizeof|sizeof
+argument_list|(
+name|char32_t
+argument_list|)
+operator|==
+sizeof|sizeof
+argument_list|(
+name|int
+argument_list|)
+operator|?
+literal|1
+operator|:
+operator|-
+literal|1
+block|}
+block|; }
+expr_stmt|;
+end_expr_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_expr_stmt
 DECL|struct|size
 name|template
@@ -1019,6 +1079,55 @@ block|}
 block|; }
 expr_stmt|;
 end_expr_stmt
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_UNICODE_STRINGS
+end_ifdef
+begin_expr_stmt
+DECL|struct|char16_t
+DECL|enumerator|IsInteger
+name|template
+operator|<
+operator|>
+expr|struct
+name|QAtomicIntegerTraits
+operator|<
+name|char16_t
+operator|>
+block|{ enum
+block|{
+name|IsInteger
+operator|=
+literal|1
+block|}
+block|; }
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+DECL|struct|char32_t
+DECL|enumerator|IsInteger
+name|template
+operator|<
+operator|>
+expr|struct
+name|QAtomicIntegerTraits
+operator|<
+name|char32_t
+operator|>
+block|{ enum
+block|{
+name|IsInteger
+operator|=
+literal|1
+block|}
+block|; }
+expr_stmt|;
+end_expr_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_define
 DECL|macro|Q_ATOMIC_INT8_IS_SUPPORTED
 define|#
