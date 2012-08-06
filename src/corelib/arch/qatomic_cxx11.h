@@ -435,7 +435,6 @@ end_decl_stmt
 begin_function
 specifier|static
 specifier|inline
-DECL|function|load
 name|T
 name|load
 parameter_list|(
@@ -444,6 +443,7 @@ name|Type
 modifier|&
 name|_q_value
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|_q_value
@@ -460,7 +460,6 @@ end_function
 begin_function
 specifier|static
 specifier|inline
-DECL|function|load
 name|T
 name|load
 parameter_list|(
@@ -470,6 +469,7 @@ name|Type
 modifier|&
 name|_q_value
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|_q_value
@@ -486,7 +486,6 @@ end_function
 begin_function
 specifier|static
 specifier|inline
-DECL|function|loadAcquire
 name|T
 name|loadAcquire
 parameter_list|(
@@ -495,6 +494,7 @@ name|Type
 modifier|&
 name|_q_value
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|_q_value
@@ -511,7 +511,6 @@ end_function
 begin_function
 specifier|static
 specifier|inline
-DECL|function|loadAcquire
 name|T
 name|loadAcquire
 parameter_list|(
@@ -521,6 +520,7 @@ name|Type
 modifier|&
 name|_q_value
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|_q_value
@@ -537,7 +537,6 @@ end_function
 begin_function
 specifier|static
 specifier|inline
-DECL|function|store
 name|void
 name|store
 parameter_list|(
@@ -548,6 +547,7 @@ parameter_list|,
 name|T
 name|newValue
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 name|_q_value
 operator|.
@@ -565,7 +565,6 @@ end_function
 begin_function
 specifier|static
 specifier|inline
-DECL|function|storeRelease
 name|void
 name|storeRelease
 parameter_list|(
@@ -576,6 +575,7 @@ parameter_list|,
 name|T
 name|newValue
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 name|_q_value
 operator|.
@@ -591,12 +591,12 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|isReferenceCountingNative
 specifier|static
 specifier|inline
 name|bool
 name|isReferenceCountingNative
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|true
@@ -604,12 +604,12 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|isReferenceCountingWaitFree
 specifier|static
 specifier|inline
 name|bool
 name|isReferenceCountingWaitFree
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|false
@@ -637,7 +637,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|deref
 specifier|static
 specifier|inline
 name|bool
@@ -647,6 +646,7 @@ name|Type
 modifier|&
 name|_q_value
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 operator|--
@@ -657,12 +657,12 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|isTestAndSetNative
 specifier|static
 specifier|inline
 name|bool
 name|isTestAndSetNative
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|false
@@ -670,12 +670,12 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|isTestAndSetWaitFree
 specifier|static
 specifier|inline
 name|bool
 name|isTestAndSetWaitFree
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|false
@@ -684,7 +684,6 @@ block|}
 end_function
 begin_function
 specifier|static
-DECL|function|testAndSetRelaxed
 name|bool
 name|testAndSetRelaxed
 parameter_list|(
@@ -698,6 +697,7 @@ parameter_list|,
 name|T
 name|newValue
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|_q_value
@@ -716,7 +716,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|testAndSetAcquire
 specifier|static
 name|bool
 name|testAndSetAcquire
@@ -731,6 +730,7 @@ parameter_list|,
 name|T
 name|newValue
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|_q_value
@@ -749,7 +749,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|testAndSetRelease
 specifier|static
 name|bool
 name|testAndSetRelease
@@ -764,6 +763,7 @@ parameter_list|,
 name|T
 name|newValue
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|_q_value
@@ -782,7 +782,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|testAndSetOrdered
 specifier|static
 name|bool
 name|testAndSetOrdered
@@ -797,6 +796,7 @@ parameter_list|,
 name|T
 name|newValue
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|_q_value
@@ -815,12 +815,12 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|isFetchAndStoreNative
 specifier|static
 specifier|inline
 name|bool
 name|isFetchAndStoreNative
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|false
@@ -828,12 +828,12 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|isFetchAndStoreWaitFree
 specifier|static
 specifier|inline
 name|bool
 name|isFetchAndStoreWaitFree
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|false
@@ -841,7 +841,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|fetchAndStoreRelaxed
 specifier|static
 name|T
 name|fetchAndStoreRelaxed
@@ -853,6 +852,7 @@ parameter_list|,
 name|T
 name|newValue
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|_q_value
@@ -869,7 +869,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|fetchAndStoreAcquire
 specifier|static
 name|T
 name|fetchAndStoreAcquire
@@ -881,6 +880,7 @@ parameter_list|,
 name|T
 name|newValue
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|_q_value
@@ -897,7 +897,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|fetchAndStoreRelease
 specifier|static
 name|T
 name|fetchAndStoreRelease
@@ -909,6 +908,7 @@ parameter_list|,
 name|T
 name|newValue
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|_q_value
@@ -925,7 +925,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|fetchAndStoreOrdered
 specifier|static
 name|T
 name|fetchAndStoreOrdered
@@ -937,6 +936,7 @@ parameter_list|,
 name|T
 name|newValue
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|_q_value
@@ -953,12 +953,12 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|isFetchAndAddNative
 specifier|static
 specifier|inline
 name|bool
 name|isFetchAndAddNative
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|false
@@ -966,12 +966,12 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|isFetchAndAddWaitFree
 specifier|static
 specifier|inline
 name|bool
 name|isFetchAndAddWaitFree
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|false
@@ -980,7 +980,6 @@ block|}
 end_function
 begin_function
 specifier|static
-DECL|function|fetchAndAddRelaxed
 name|T
 name|fetchAndAddRelaxed
 parameter_list|(
@@ -991,6 +990,7 @@ parameter_list|,
 name|_AdditiveType
 name|valueToAdd
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|_q_value
@@ -1010,7 +1010,6 @@ block|}
 end_function
 begin_function
 specifier|static
-DECL|function|fetchAndAddAcquire
 name|T
 name|fetchAndAddAcquire
 parameter_list|(
@@ -1021,6 +1020,7 @@ parameter_list|,
 name|_AdditiveType
 name|valueToAdd
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|_q_value
@@ -1040,7 +1040,6 @@ block|}
 end_function
 begin_function
 specifier|static
-DECL|function|fetchAndAddRelease
 name|T
 name|fetchAndAddRelease
 parameter_list|(
@@ -1051,6 +1050,7 @@ parameter_list|,
 name|_AdditiveType
 name|valueToAdd
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|_q_value
@@ -1070,7 +1070,6 @@ block|}
 end_function
 begin_function
 specifier|static
-DECL|function|fetchAndAddOrdered
 name|T
 name|fetchAndAddOrdered
 parameter_list|(
@@ -1081,6 +1080,7 @@ parameter_list|,
 name|_AdditiveType
 name|valueToAdd
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|_q_value

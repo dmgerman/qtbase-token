@@ -175,13 +175,13 @@ typedef|;
 ifndef|#
 directive|ifndef
 name|__ia64__
-DECL|function|loadAcquire
 specifier|static
 name|T
 name|loadAcquire
 argument_list|(
 argument|const T&_q_value
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|T
 name|tmp
@@ -195,7 +195,6 @@ return|return
 name|tmp
 return|;
 block|}
-DECL|function|storeRelease
 specifier|static
 name|void
 name|storeRelease
@@ -204,6 +203,7 @@ argument|T&_q_value
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|__sync_synchronize
 argument_list|()
@@ -214,11 +214,11 @@ name|newValue
 block|;     }
 endif|#
 directive|endif
-DECL|function|isTestAndSetNative
 specifier|static
 name|bool
 name|isTestAndSetNative
 argument_list|()
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|false
@@ -226,11 +226,11 @@ return|;
 block|}
 end_expr_stmt
 begin_function
-DECL|function|isTestAndSetWaitFree
 specifier|static
 name|bool
 name|isTestAndSetWaitFree
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|false
@@ -238,7 +238,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|testAndSetRelaxed
 specifier|static
 name|bool
 name|testAndSetRelaxed
@@ -253,6 +252,7 @@ parameter_list|,
 name|T
 name|newValue
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|__sync_bool_compare_and_swap
@@ -268,7 +268,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|fetchAndStoreRelaxed
 specifier|static
 name|T
 name|fetchAndStoreRelaxed
@@ -280,6 +279,7 @@ parameter_list|,
 name|T
 name|newValue
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|__sync_lock_test_and_set
@@ -293,7 +293,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|fetchAndStoreRelease
 specifier|static
 name|T
 name|fetchAndStoreRelease
@@ -305,6 +304,7 @@ parameter_list|,
 name|T
 name|newValue
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 name|__sync_synchronize
 argument_list|()
@@ -321,7 +321,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|fetchAndStoreOrdered
 specifier|static
 name|T
 name|fetchAndStoreOrdered
@@ -333,6 +332,7 @@ parameter_list|,
 name|T
 name|newValue
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|fetchAndStoreRelease
@@ -346,7 +346,6 @@ block|}
 end_function
 begin_decl_stmt
 specifier|static
-DECL|function|fetchAndAddRelaxed
 name|T
 name|fetchAndAddRelaxed
 argument_list|(
@@ -363,6 +362,7 @@ operator|::
 name|AdditiveT
 name|valueToAdd
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|__sync_fetch_and_add

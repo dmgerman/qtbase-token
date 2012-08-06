@@ -427,14 +427,14 @@ operator|<
 name|typename
 name|T
 operator|>
+DECL|member|Q_DECL_NOTHROW
 specifier|static
 name|void
 name|orderedMemoryFence
 argument_list|(
-specifier|const
-name|T
-operator|&
+argument|const T&
 argument_list|)
+name|Q_DECL_NOTHROW
 block|;
 name|template
 operator|<
@@ -443,12 +443,12 @@ name|T
 operator|>
 specifier|static
 specifier|inline
-DECL|function|loadAcquire
 name|T
 name|loadAcquire
 argument_list|(
 argument|const T&_q_value
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|*
@@ -472,7 +472,6 @@ name|T
 operator|>
 specifier|static
 specifier|inline
-DECL|function|storeRelease
 name|void
 name|storeRelease
 argument_list|(
@@ -480,6 +479,7 @@ argument|T&_q_value
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 operator|*
 name|static_cast
@@ -495,12 +495,12 @@ operator|)
 operator|=
 name|newValue
 block|;     }
-DECL|function|isReferenceCountingNative
 specifier|static
 specifier|inline
 name|bool
 name|isReferenceCountingNative
 argument_list|()
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|true
@@ -508,12 +508,12 @@ return|;
 block|}
 end_expr_stmt
 begin_function
-DECL|function|isReferenceCountingWaitFree
 specifier|static
 specifier|inline
 name|bool
 name|isReferenceCountingWaitFree
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|size
@@ -527,6 +527,7 @@ return|;
 block|}
 end_function
 begin_expr_stmt
+DECL|member|Q_DECL_NOTHROW
 name|template
 operator|<
 name|typename
@@ -536,13 +537,13 @@ specifier|static
 name|bool
 name|ref
 argument_list|(
-name|T
-operator|&
-name|_q_value
+argument|T&_q_value
 argument_list|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
+DECL|member|Q_DECL_NOTHROW
 name|template
 operator|<
 name|typename
@@ -552,19 +553,18 @@ specifier|static
 name|bool
 name|deref
 argument_list|(
-name|T
-operator|&
-name|_q_value
+argument|T&_q_value
 argument_list|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 end_expr_stmt
 begin_function
-DECL|function|isTestAndSetNative
 specifier|static
 specifier|inline
 name|bool
 name|isTestAndSetNative
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|true
@@ -572,12 +572,12 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|isTestAndSetWaitFree
 specifier|static
 specifier|inline
 name|bool
 name|isTestAndSetWaitFree
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|true
@@ -585,6 +585,7 @@ return|;
 block|}
 end_function
 begin_expr_stmt
+DECL|member|Q_DECL_NOTHROW
 name|template
 operator|<
 name|typename
@@ -600,9 +601,11 @@ argument|T expectedValue
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
+DECL|member|Q_DECL_NOTHROW
 name|template
 operator|<
 name|typename
@@ -618,9 +621,11 @@ argument|T expectedValue
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
+DECL|member|Q_DECL_NOTHROW
 name|template
 operator|<
 name|typename
@@ -636,9 +641,11 @@ argument|T expectedValue
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
+DECL|member|Q_DECL_NOTHROW
 name|template
 operator|<
 name|typename
@@ -654,15 +661,16 @@ argument|T expectedValue
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 end_expr_stmt
 begin_function
-DECL|function|isFetchAndStoreNative
 specifier|static
 specifier|inline
 name|bool
 name|isFetchAndStoreNative
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|true
@@ -670,12 +678,12 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|isFetchAndStoreWaitFree
 specifier|static
 specifier|inline
 name|bool
 name|isFetchAndStoreWaitFree
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|true
@@ -683,6 +691,7 @@ return|;
 block|}
 end_function
 begin_expr_stmt
+DECL|member|Q_DECL_NOTHROW
 name|template
 operator|<
 name|typename
@@ -696,9 +705,11 @@ argument|T&_q_value
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
+DECL|member|Q_DECL_NOTHROW
 name|template
 operator|<
 name|typename
@@ -712,9 +723,11 @@ argument|T&_q_value
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
+DECL|member|Q_DECL_NOTHROW
 name|template
 operator|<
 name|typename
@@ -728,9 +741,11 @@ argument|T&_q_value
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
+DECL|member|Q_DECL_NOTHROW
 name|template
 operator|<
 name|typename
@@ -744,15 +759,16 @@ argument|T&_q_value
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 end_expr_stmt
 begin_function
-DECL|function|isFetchAndAddNative
 specifier|static
 specifier|inline
 name|bool
 name|isFetchAndAddNative
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|true
@@ -760,12 +776,12 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|isFetchAndAddWaitFree
 specifier|static
 specifier|inline
 name|bool
 name|isFetchAndAddWaitFree
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|false
@@ -779,6 +795,7 @@ name|typename
 name|T
 operator|>
 specifier|static
+DECL|member|Q_DECL_NOTHROW
 name|T
 name|fetchAndAddRelaxed
 argument_list|(
@@ -786,6 +803,7 @@ argument|T&_q_value
 argument_list|,
 argument|typename QAtomicAdditiveType<T>::AdditiveT valueToAdd
 argument_list|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
@@ -795,6 +813,7 @@ name|typename
 name|T
 operator|>
 specifier|static
+DECL|member|Q_DECL_NOTHROW
 name|T
 name|fetchAndAddAcquire
 argument_list|(
@@ -802,6 +821,7 @@ argument|T&_q_value
 argument_list|,
 argument|typename QAtomicAdditiveType<T>::AdditiveT valueToAdd
 argument_list|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
@@ -811,6 +831,7 @@ name|typename
 name|T
 operator|>
 specifier|static
+DECL|member|Q_DECL_NOTHROW
 name|T
 name|fetchAndAddRelease
 argument_list|(
@@ -818,6 +839,7 @@ argument|T&_q_value
 argument_list|,
 argument|typename QAtomicAdditiveType<T>::AdditiveT valueToAdd
 argument_list|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
@@ -827,6 +849,7 @@ name|typename
 name|T
 operator|>
 specifier|static
+DECL|member|Q_DECL_NOTHROW
 name|T
 name|fetchAndAddOrdered
 argument_list|(
@@ -834,9 +857,11 @@ argument|T&_q_value
 argument_list|,
 argument|typename QAtomicAdditiveType<T>::AdditiveT valueToAdd
 argument_list|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
+DECL|member|Q_DECL_NOTHROW
 unit|};
 DECL|function|sizeof
 name|template
@@ -1672,7 +1697,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|orderedMemoryFence
 name|void
 name|QBasicAtomicOps
 operator|<
@@ -1683,6 +1707,7 @@ name|orderedMemoryFence
 argument_list|(
 argument|const T&
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|asm
 specifier|volatile
@@ -1702,7 +1727,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|ref
 name|bool
 name|QBasicAtomicOps
 operator|<
@@ -1713,6 +1737,7 @@ name|ref
 argument_list|(
 argument|T&_q_value
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|T
 name|ret
@@ -1754,7 +1779,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|deref
 name|bool
 name|QBasicAtomicOps
 operator|<
@@ -1765,6 +1789,7 @@ name|deref
 argument_list|(
 argument|T&_q_value
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|T
 name|ret
@@ -1805,7 +1830,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|ref
 name|bool
 name|QBasicAtomicOps
 operator|<
@@ -1816,6 +1840,7 @@ name|ref
 argument_list|(
 argument|T&_q_value
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|T
 name|ret
@@ -1857,7 +1882,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|deref
 name|bool
 name|QBasicAtomicOps
 operator|<
@@ -1868,6 +1892,7 @@ name|deref
 argument_list|(
 argument|T&_q_value
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|T
 name|ret
@@ -1908,7 +1933,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|testAndSetAcquire
 name|bool
 name|QBasicAtomicOps
 operator|<
@@ -1923,6 +1947,7 @@ argument|T expectedValue
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|T
 name|ret
@@ -1974,7 +1999,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|testAndSetRelease
 name|bool
 name|QBasicAtomicOps
 operator|<
@@ -1989,6 +2013,7 @@ argument|T expectedValue
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|T
 name|ret
@@ -2040,7 +2065,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|testAndSetAcquire
 name|bool
 name|QBasicAtomicOps
 operator|<
@@ -2055,6 +2079,7 @@ argument|T expectedValue
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|T
 name|ret
@@ -2106,7 +2131,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|testAndSetRelease
 name|bool
 name|QBasicAtomicOps
 operator|<
@@ -2121,6 +2145,7 @@ argument|T expectedValue
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|T
 name|ret
@@ -2172,7 +2197,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|testAndSetAcquire
 name|bool
 name|QBasicAtomicOps
 operator|<
@@ -2187,6 +2211,7 @@ argument|T expectedValue
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|T
 name|ret
@@ -2238,7 +2263,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|testAndSetRelease
 name|bool
 name|QBasicAtomicOps
 operator|<
@@ -2253,6 +2277,7 @@ argument|T expectedValue
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|T
 name|ret
@@ -2304,7 +2329,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|testAndSetAcquire
 name|bool
 name|QBasicAtomicOps
 operator|<
@@ -2319,6 +2343,7 @@ argument|T expectedValue
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|T
 name|ret
@@ -2370,7 +2395,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|testAndSetRelease
 name|bool
 name|QBasicAtomicOps
 operator|<
@@ -2385,6 +2409,7 @@ argument|T expectedValue
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|T
 name|ret
@@ -2436,7 +2461,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|fetchAndStoreAcquire
 name|T
 name|QBasicAtomicOps
 operator|<
@@ -2449,6 +2473,7 @@ argument|T&_q_value
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|T
 name|ret
@@ -2491,7 +2516,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|fetchAndStoreAcquire
 name|T
 name|QBasicAtomicOps
 operator|<
@@ -2504,6 +2528,7 @@ argument|T&_q_value
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|T
 name|ret
@@ -2546,7 +2571,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|fetchAndStoreAcquire
 name|T
 name|QBasicAtomicOps
 operator|<
@@ -2559,6 +2583,7 @@ argument|T&_q_value
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|T
 name|ret
@@ -2601,7 +2626,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|fetchAndStoreAcquire
 name|T
 name|QBasicAtomicOps
 operator|<
@@ -2614,6 +2638,7 @@ argument|T&_q_value
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|T
 name|ret
@@ -2656,7 +2681,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|fetchAndAddAcquire
 name|T
 name|QBasicAtomicOps
 operator|<
@@ -2669,6 +2693,7 @@ argument|T&_q_value
 argument_list|,
 argument|typename QAtomicAdditiveType<T>::AdditiveT valueToAdd
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|T
 name|ret
@@ -2737,7 +2762,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|fetchAndAddRelease
 name|T
 name|QBasicAtomicOps
 operator|<
@@ -2750,6 +2774,7 @@ argument|T&_q_value
 argument_list|,
 argument|typename QAtomicAdditiveType<T>::AdditiveT valueToAdd
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|T
 name|ret
@@ -2818,7 +2843,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|fetchAndAddAcquire
 name|T
 name|QBasicAtomicOps
 operator|<
@@ -2831,6 +2855,7 @@ argument|T&_q_value
 argument_list|,
 argument|typename QAtomicAdditiveType<T>::AdditiveT valueToAdd
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|T
 name|ret
@@ -2899,7 +2924,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|fetchAndAddRelease
 name|T
 name|QBasicAtomicOps
 operator|<
@@ -2912,6 +2936,7 @@ argument|T&_q_value
 argument_list|,
 argument|typename QAtomicAdditiveType<T>::AdditiveT valueToAdd
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|T
 name|ret
@@ -2980,7 +3005,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|fetchAndAddAcquire
 name|T
 name|QBasicAtomicOps
 operator|<
@@ -2993,6 +3017,7 @@ argument|T&_q_value
 argument_list|,
 argument|typename QAtomicAdditiveType<T>::AdditiveT valueToAdd
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|T
 name|ret
@@ -3062,7 +3087,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|fetchAndAddRelease
 name|T
 name|QBasicAtomicOps
 operator|<
@@ -3075,6 +3099,7 @@ argument|T&_q_value
 argument_list|,
 argument|typename QAtomicAdditiveType<T>::AdditiveT valueToAdd
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|T
 name|ret
@@ -3144,7 +3169,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|fetchAndAddAcquire
 name|T
 name|QBasicAtomicOps
 operator|<
@@ -3157,6 +3181,7 @@ argument|T&_q_value
 argument_list|,
 argument|typename QAtomicAdditiveType<T>::AdditiveT valueToAdd
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|T
 name|ret
@@ -3226,7 +3251,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|fetchAndAddRelease
 name|T
 name|QBasicAtomicOps
 operator|<
@@ -3239,6 +3263,7 @@ argument|T&_q_value
 argument_list|,
 argument|typename QAtomicAdditiveType<T>::AdditiveT valueToAdd
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|T
 name|ret
@@ -3324,7 +3349,6 @@ name|int
 name|size
 operator|>
 specifier|inline
-DECL|function|orderedMemoryFence
 name|void
 name|QBasicAtomicOps
 operator|<
@@ -3333,6 +3357,7 @@ operator|>
 operator|::
 name|orderedMemoryFence
 argument_list|()
+name|Q_DECL_NOTHROW
 block|{
 name|_Asm_mf
 argument_list|(
@@ -3348,7 +3373,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|ref
 name|bool
 name|QBasicAtomicOps
 operator|<
@@ -3359,6 +3383,7 @@ name|ref
 argument_list|(
 argument|T&_q_value
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|(
@@ -3404,7 +3429,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|deref
 name|bool
 name|QBasicAtomicOps
 operator|<
@@ -3415,6 +3439,7 @@ name|deref
 argument_list|(
 argument|T&_q_value
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|(
@@ -3460,7 +3485,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|ref
 name|bool
 name|QBasicAtomicOps
 operator|<
@@ -3471,6 +3495,7 @@ name|ref
 argument_list|(
 argument|T&_q_value
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|(
@@ -3516,7 +3541,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|deref
 name|bool
 name|QBasicAtomicOps
 operator|<
@@ -3527,6 +3551,7 @@ name|deref
 argument_list|(
 argument|T&_q_value
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|(
@@ -3572,7 +3597,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|testAndSetAcquire
 name|bool
 name|QBasicAtomicOps
 operator|<
@@ -3587,6 +3611,7 @@ argument|T expectedValue
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|_Asm_mov_to_ar
 argument_list|(
@@ -3652,7 +3677,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|testAndSetRelease
 name|bool
 name|QBasicAtomicOps
 operator|<
@@ -3667,6 +3691,7 @@ argument|T expectedValue
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|_Asm_mov_to_ar
 argument_list|(
@@ -3732,7 +3757,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|testAndSetAcquire
 name|bool
 name|QBasicAtomicOps
 operator|<
@@ -3747,6 +3771,7 @@ argument|T expectedValue
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|_Asm_mov_to_ar
 argument_list|(
@@ -3812,7 +3837,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|testAndSetRelease
 name|bool
 name|QBasicAtomicOps
 operator|<
@@ -3827,6 +3851,7 @@ argument|T expectedValue
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|_Asm_mov_to_ar
 argument_list|(
@@ -3892,7 +3917,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|testAndSetAcquire
 name|bool
 name|QBasicAtomicOps
 operator|<
@@ -3907,6 +3931,7 @@ argument|T expectedValue
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|_Asm_mov_to_ar
 argument_list|(
@@ -3972,7 +3997,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|testAndSetRelease
 name|bool
 name|QBasicAtomicOps
 operator|<
@@ -3987,6 +4011,7 @@ argument|T expectedValue
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|_Asm_mov_to_ar
 argument_list|(
@@ -4049,7 +4074,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|testAndSetAcquire
 name|bool
 name|QBasicAtomicOps
 operator|<
@@ -4064,6 +4088,7 @@ argument|T expectedValue
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|_Asm_mov_to_ar
 argument_list|(
@@ -4129,7 +4154,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|testAndSetRelease
 name|bool
 name|QBasicAtomicOps
 operator|<
@@ -4144,6 +4168,7 @@ argument|T expectedValue
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|_Asm_mov_to_ar
 argument_list|(
@@ -4209,7 +4234,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|fetchAndStoreAcquire
 name|T
 name|QBasicAtomicOps
 operator|<
@@ -4222,6 +4246,7 @@ argument|T&_q_value
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|(
@@ -4262,7 +4287,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|fetchAndStoreAcquire
 name|T
 name|QBasicAtomicOps
 operator|<
@@ -4275,6 +4299,7 @@ argument|T&_q_value
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|(
@@ -4315,7 +4340,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|fetchAndStoreAcquire
 name|T
 name|QBasicAtomicOps
 operator|<
@@ -4328,6 +4352,7 @@ argument|T&_q_value
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|(
@@ -4368,7 +4393,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|fetchAndStoreAcquire
 name|T
 name|QBasicAtomicOps
 operator|<
@@ -4381,6 +4405,7 @@ argument|T&_q_value
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|(
@@ -4421,7 +4446,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|fetchAndAddAcquire
 name|T
 name|QBasicAtomicOps
 operator|<
@@ -4434,6 +4458,7 @@ argument|T&_q_value
 argument_list|,
 argument|typename QAtomicAdditiveType<T>::AdditiveT valueToAdd
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|valueToAdd
 operator|*=
@@ -4525,7 +4550,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|fetchAndAddRelaxed
 name|T
 name|QBasicAtomicOps
 operator|<
@@ -4538,6 +4562,7 @@ argument|T&_q_value
 argument_list|,
 argument|typename QAtomicAdditiveType<T>::AdditiveT valueToAdd
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 comment|// implement the test-and-set loop
 specifier|register
@@ -4620,7 +4645,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|fetchAndAddAcquire
 name|T
 name|QBasicAtomicOps
 operator|<
@@ -4633,6 +4657,7 @@ argument|T&_q_value
 argument_list|,
 argument|typename QAtomicAdditiveType<T>::AdditiveT valueToAdd
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|valueToAdd
 operator|*=
@@ -4724,7 +4749,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|fetchAndAddRelaxed
 name|T
 name|QBasicAtomicOps
 operator|<
@@ -4737,6 +4761,7 @@ argument|T&_q_value
 argument_list|,
 argument|typename QAtomicAdditiveType<T>::AdditiveT valueToAdd
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 comment|// implement the test-and-set loop
 specifier|register
@@ -4819,7 +4844,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|fetchAndAddAcquire
 name|T
 name|QBasicAtomicOps
 operator|<
@@ -4832,6 +4856,7 @@ argument|T&_q_value
 argument_list|,
 argument|typename QAtomicAdditiveType<T>::AdditiveT valueToAdd
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|valueToAdd
 operator|*=
@@ -4923,7 +4948,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|fetchAndAddRelaxed
 name|T
 name|QBasicAtomicOps
 operator|<
@@ -4936,6 +4960,7 @@ argument|T&_q_value
 argument_list|,
 argument|typename QAtomicAdditiveType<T>::AdditiveT valueToAdd
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 comment|// implement the test-and-set loop
 specifier|register
@@ -5018,7 +5043,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|fetchAndAddAcquire
 name|T
 name|QBasicAtomicOps
 operator|<
@@ -5031,6 +5055,7 @@ argument|T&_q_value
 argument_list|,
 argument|typename QAtomicAdditiveType<T>::AdditiveT valueToAdd
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|valueToAdd
 operator|*=
@@ -5122,7 +5147,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|fetchAndAddRelaxed
 name|T
 name|QBasicAtomicOps
 operator|<
@@ -5135,6 +5159,7 @@ argument|T&_q_value
 argument_list|,
 argument|typename QAtomicAdditiveType<T>::AdditiveT valueToAdd
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 comment|// implement the test-and-set loop
 specifier|register
@@ -5224,7 +5249,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|ref
 name|bool
 name|QBasicAtomicOps
 operator|<
@@ -5235,6 +5259,7 @@ name|ref
 argument_list|(
 argument|T&_q_value
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 comment|// no fetchadd for 1 or 2 bytes
 return|return
@@ -5262,7 +5287,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|deref
 name|bool
 name|QBasicAtomicOps
 operator|<
@@ -5273,6 +5297,7 @@ name|deref
 argument_list|(
 argument|T&_q_value
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 comment|// no fetchadd for 1 or 2 bytes
 return|return
@@ -5300,7 +5325,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|testAndSetRelaxed
 name|bool
 name|QBasicAtomicOps
 operator|<
@@ -5315,6 +5339,7 @@ argument|T expectedValue
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|testAndSetAcquire
@@ -5340,7 +5365,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|testAndSetOrdered
 name|bool
 name|QBasicAtomicOps
 operator|<
@@ -5355,6 +5379,7 @@ argument|T expectedValue
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|orderedMemoryFence
 argument_list|(
@@ -5385,7 +5410,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|fetchAndStoreRelaxed
 name|T
 name|QBasicAtomicOps
 operator|<
@@ -5398,6 +5422,7 @@ argument|T&_q_value
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|fetchAndStoreAcquire
@@ -5421,7 +5446,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|fetchAndStoreRelease
 name|T
 name|QBasicAtomicOps
 operator|<
@@ -5434,6 +5458,7 @@ argument|T&_q_value
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|orderedMemoryFence
 argument_list|(
@@ -5462,7 +5487,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|fetchAndStoreOrdered
 name|T
 name|QBasicAtomicOps
 operator|<
@@ -5475,6 +5499,7 @@ argument|T&_q_value
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|fetchAndStoreRelease
@@ -5498,7 +5523,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|fetchAndAddRelaxed
 name|T
 name|QBasicAtomicOps
 operator|<
@@ -5511,6 +5535,7 @@ argument|T&_q_value
 argument_list|,
 argument|typename QAtomicAdditiveType<T>::AdditiveT valueToAdd
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|fetchAndAddAcquire
@@ -5534,7 +5559,6 @@ name|typename
 name|T
 operator|>
 specifier|inline
-DECL|function|fetchAndAddOrdered
 name|T
 name|QBasicAtomicOps
 operator|<
@@ -5547,6 +5571,7 @@ argument|T&_q_value
 argument_list|,
 argument|typename QAtomicAdditiveType<T>::AdditiveT valueToAdd
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|orderedMemoryFence
 argument_list|(

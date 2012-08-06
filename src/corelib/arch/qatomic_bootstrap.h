@@ -71,13 +71,13 @@ typedef|typedef
 name|T
 name|Type
 typedef|;
-DECL|function|ref
 specifier|static
 name|bool
 name|ref
 argument_list|(
 argument|T&_q_value
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|++
@@ -86,13 +86,13 @@ operator|!=
 literal|0
 return|;
 block|}
-DECL|function|deref
 specifier|static
 name|bool
 name|deref
 argument_list|(
 argument|T&_q_value
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|--
@@ -101,7 +101,6 @@ operator|!=
 literal|0
 return|;
 block|}
-DECL|function|testAndSetRelaxed
 specifier|static
 name|bool
 name|testAndSetRelaxed
@@ -112,6 +111,7 @@ argument|T expectedValue
 argument_list|,
 argument|T newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -136,7 +136,6 @@ return|;
 end_return
 begin_function
 unit|}      static
-DECL|function|fetchAndStoreRelaxed
 name|T
 name|fetchAndStoreRelaxed
 parameter_list|(
@@ -147,6 +146,7 @@ parameter_list|,
 name|T
 name|newValue
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 name|T
 name|tmp
@@ -164,7 +164,6 @@ block|}
 end_function
 begin_decl_stmt
 specifier|static
-DECL|function|fetchAndAddRelaxed
 name|T
 name|fetchAndAddRelaxed
 argument_list|(
@@ -181,6 +180,7 @@ operator|::
 name|AdditiveT
 name|valueToAdd
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|T
 name|returnValue

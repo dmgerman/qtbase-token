@@ -165,7 +165,6 @@ DECL|typedef|PointerType
 empty_stmt|;
 end_empty_stmt
 begin_expr_stmt
-DECL|function|acquireMemoryFence
 name|template
 operator|<
 name|typename
@@ -177,6 +176,7 @@ name|acquireMemoryFence
 argument_list|(
 argument|const T&_q_value
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|BaseClass
 operator|::
@@ -185,7 +185,6 @@ argument_list|(
 name|_q_value
 argument_list|)
 block|;     }
-DECL|function|releaseMemoryFence
 name|template
 operator|<
 name|typename
@@ -197,6 +196,7 @@ name|releaseMemoryFence
 argument_list|(
 argument|const T&_q_value
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|BaseClass
 operator|::
@@ -205,7 +205,6 @@ argument_list|(
 name|_q_value
 argument_list|)
 block|;     }
-DECL|function|orderedMemoryFence
 name|template
 operator|<
 name|typename
@@ -217,6 +216,7 @@ name|orderedMemoryFence
 argument_list|(
 argument|const T&
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{     }
 name|template
 operator|<
@@ -226,12 +226,12 @@ operator|>
 specifier|static
 specifier|inline
 name|always_inline
-DECL|function|load
 name|T
 name|load
 argument_list|(
 argument|const T&_q_value
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|_q_value
@@ -251,7 +251,6 @@ operator|>
 specifier|static
 specifier|inline
 name|always_inline
-DECL|function|store
 name|void
 name|store
 argument_list|(
@@ -259,6 +258,7 @@ argument|T&_q_value
 argument_list|,
 argument|X newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|_q_value
 operator|=
@@ -272,12 +272,12 @@ operator|>
 specifier|static
 specifier|inline
 name|always_inline
-DECL|function|loadAcquire
 name|T
 name|loadAcquire
 argument_list|(
 argument|const T&_q_value
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|T
 name|tmp
@@ -320,7 +320,6 @@ operator|>
 specifier|static
 specifier|inline
 name|always_inline
-DECL|function|storeRelease
 name|void
 name|storeRelease
 argument_list|(
@@ -328,6 +327,7 @@ argument|T&_q_value
 argument_list|,
 argument|X newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|BaseClass
 operator|::
@@ -350,12 +350,12 @@ operator|)
 operator|=
 name|newValue
 block|;     }
-DECL|function|isReferenceCountingNative
 specifier|static
 specifier|inline
 name|bool
 name|isReferenceCountingNative
 argument_list|()
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|BaseClass
@@ -366,12 +366,12 @@ return|;
 block|}
 end_expr_stmt
 begin_function
-DECL|function|isReferenceCountingWaitFree
 specifier|static
 specifier|inline
 name|bool
 name|isReferenceCountingWaitFree
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|BaseClass
@@ -390,12 +390,12 @@ operator|>
 specifier|static
 specifier|inline
 name|always_inline
-DECL|function|ref
 name|bool
 name|ref
 argument_list|(
 argument|T&_q_value
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|BaseClass
@@ -424,12 +424,12 @@ operator|>
 specifier|static
 specifier|inline
 name|always_inline
-DECL|function|deref
 name|bool
 name|deref
 argument_list|(
 argument|T&_q_value
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|BaseClass
@@ -458,7 +458,7 @@ begin_comment
 comment|// Archictectures must implement them
 end_comment
 begin_endif
-unit|static inline bool isTestAndSetNative();     static inline bool isTestAndSetWaitFree();     template<typename T, typename X> static inline     bool testAndSetRelaxed(T&_q_value, X expectedValue, X newValue);
+unit|static inline bool isTestAndSetNative() Q_DECL_NOTHROW;     static inline bool isTestAndSetWaitFree() Q_DECL_NOTHROW;     template<typename T, typename X> static inline     bool testAndSetRelaxed(T&_q_value, X expectedValue, X newValue) Q_DECL_NOTHROW;
 endif|#
 directive|endif
 end_endif
@@ -475,7 +475,6 @@ operator|>
 specifier|static
 specifier|inline
 name|always_inline
-DECL|function|testAndSetAcquire
 name|bool
 name|testAndSetAcquire
 argument_list|(
@@ -485,6 +484,7 @@ argument|X expectedValue
 argument_list|,
 argument|X newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|bool
 name|tmp
@@ -525,7 +525,6 @@ operator|>
 specifier|static
 specifier|inline
 name|always_inline
-DECL|function|testAndSetRelease
 name|bool
 name|testAndSetRelease
 argument_list|(
@@ -535,6 +534,7 @@ argument|X expectedValue
 argument_list|,
 argument|X newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|BaseClass
 operator|::
@@ -570,7 +570,6 @@ operator|>
 specifier|static
 specifier|inline
 name|always_inline
-DECL|function|testAndSetOrdered
 name|bool
 name|testAndSetOrdered
 argument_list|(
@@ -580,6 +579,7 @@ argument|X expectedValue
 argument_list|,
 argument|X newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|BaseClass
 operator|::
@@ -603,12 +603,12 @@ return|;
 block|}
 end_expr_stmt
 begin_function
-DECL|function|isFetchAndStoreNative
 specifier|static
 specifier|inline
 name|bool
 name|isFetchAndStoreNative
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|false
@@ -616,12 +616,12 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|isFetchAndStoreWaitFree
 specifier|static
 specifier|inline
 name|bool
 name|isFetchAndStoreWaitFree
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|false
@@ -641,7 +641,6 @@ operator|>
 specifier|static
 specifier|inline
 name|always_inline
-DECL|function|fetchAndStoreRelaxed
 name|T
 name|fetchAndStoreRelaxed
 argument_list|(
@@ -649,6 +648,7 @@ argument|T&_q_value
 argument_list|,
 argument|X newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 comment|// implement fetchAndStore on top of testAndSet
 name|Q_FOREVER
@@ -693,7 +693,6 @@ operator|>
 specifier|static
 specifier|inline
 name|always_inline
-DECL|function|fetchAndStoreAcquire
 name|T
 name|fetchAndStoreAcquire
 argument_list|(
@@ -701,6 +700,7 @@ argument|T&_q_value
 argument_list|,
 argument|X newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|T
 name|tmp
@@ -739,7 +739,6 @@ operator|>
 specifier|static
 specifier|inline
 name|always_inline
-DECL|function|fetchAndStoreRelease
 name|T
 name|fetchAndStoreRelease
 argument_list|(
@@ -747,6 +746,7 @@ argument|T&_q_value
 argument_list|,
 argument|X newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|BaseClass
 operator|::
@@ -780,7 +780,6 @@ operator|>
 specifier|static
 specifier|inline
 name|always_inline
-DECL|function|fetchAndStoreOrdered
 name|T
 name|fetchAndStoreOrdered
 argument_list|(
@@ -788,6 +787,7 @@ argument|T&_q_value
 argument_list|,
 argument|X newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|BaseClass
 operator|::
@@ -809,12 +809,12 @@ return|;
 block|}
 end_expr_stmt
 begin_function
-DECL|function|isFetchAndAddNative
 specifier|static
 specifier|inline
 name|bool
 name|isFetchAndAddNative
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|false
@@ -822,12 +822,12 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|isFetchAndAddWaitFree
 specifier|static
 specifier|inline
 name|bool
 name|isFetchAndAddWaitFree
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|false
@@ -843,7 +843,6 @@ operator|>
 specifier|static
 specifier|inline
 name|always_inline
-DECL|function|fetchAndAddRelaxed
 name|T
 name|fetchAndAddRelaxed
 argument_list|(
@@ -851,6 +850,7 @@ argument|T&_q_value
 argument_list|,
 argument|typename QAtomicAdditiveType<T>::AdditiveT valueToAdd
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 comment|// implement fetchAndAdd on top of testAndSet
 name|Q_FOREVER
@@ -898,7 +898,6 @@ operator|>
 specifier|static
 specifier|inline
 name|always_inline
-DECL|function|fetchAndAddAcquire
 name|T
 name|fetchAndAddAcquire
 argument_list|(
@@ -906,6 +905,7 @@ argument|T&_q_value
 argument_list|,
 argument|typename QAtomicAdditiveType<T>::AdditiveT valueToAdd
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|T
 name|tmp
@@ -940,7 +940,6 @@ operator|>
 specifier|static
 specifier|inline
 name|always_inline
-DECL|function|fetchAndAddRelease
 name|T
 name|fetchAndAddRelease
 argument_list|(
@@ -948,6 +947,7 @@ argument|T&_q_value
 argument_list|,
 argument|typename QAtomicAdditiveType<T>::AdditiveT valueToAdd
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|BaseClass
 operator|::
@@ -977,7 +977,6 @@ operator|>
 specifier|static
 specifier|inline
 name|always_inline
-DECL|function|fetchAndAddOrdered
 name|T
 name|fetchAndAddOrdered
 argument_list|(
@@ -985,6 +984,7 @@ argument|T&_q_value
 argument_list|,
 argument|typename QAtomicAdditiveType<T>::AdditiveT valueToAdd
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|BaseClass
 operator|::

@@ -38,7 +38,6 @@ decl_stmt|;
 end_decl_stmt
 begin_function
 name|Q_CORE_EXPORT
-DECL|function|testAndSetRelaxed
 name|bool
 name|QAtomicOps
 argument_list|<
@@ -57,6 +56,7 @@ parameter_list|,
 name|int
 name|newValue
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|bool
 name|returnValue
@@ -98,7 +98,6 @@ block|}
 end_function
 begin_function
 name|Q_CORE_EXPORT
-DECL|function|testAndSetRelaxed
 name|bool
 name|QAtomicOps
 argument_list|<
@@ -121,6 +120,7 @@ name|void
 modifier|*
 name|newValue
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|bool
 name|returnValue

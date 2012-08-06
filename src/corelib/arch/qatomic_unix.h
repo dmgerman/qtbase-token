@@ -120,6 +120,7 @@ specifier|inline
 name|bool
 name|isTestAndSetNative
 argument_list|()
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|false
@@ -130,6 +131,7 @@ specifier|inline
 name|bool
 name|isTestAndSetWaitFree
 argument_list|()
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|false
@@ -146,6 +148,7 @@ argument|int expectedValue
 argument_list|,
 argument|int newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
@@ -179,6 +182,7 @@ specifier|inline
 name|bool
 name|isTestAndSetNative
 argument_list|()
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|false
@@ -189,6 +193,7 @@ specifier|inline
 name|bool
 name|isTestAndSetWaitFree
 argument_list|()
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|false
@@ -199,19 +204,13 @@ specifier|static
 name|bool
 name|testAndSetRelaxed
 argument_list|(
-name|void
-operator|*
-operator|&
-name|_q_value
+argument|void *&_q_value
 argument_list|,
-name|void
-operator|*
-name|expectedValue
+argument|void *expectedValue
 argument_list|,
-name|void
-operator|*
-name|newValue
+argument|void *newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
@@ -275,29 +274,28 @@ operator|)
 operator|)
 return|;
 block|}
-DECL|function|isTestAndSetNative
 specifier|static
 specifier|inline
 name|bool
 name|isTestAndSetNative
 argument_list|()
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|false
 return|;
 block|}
-DECL|function|isTestAndSetWaitFree
 specifier|static
 specifier|inline
 name|bool
 name|isTestAndSetWaitFree
 argument_list|()
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|false
 return|;
 block|}
-DECL|function|testAndSetRelaxed
 specifier|static
 specifier|inline
 name|bool
@@ -309,6 +307,7 @@ argument|T *expectedValue
 argument_list|,
 argument|T *newValue
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 comment|// forward to the void* specialization
 name|void
