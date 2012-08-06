@@ -1287,11 +1287,9 @@ parameter_list|)
 specifier|const
 block|{
 return|return
-name|tableItems
-operator|.
-name|value
+name|item
 argument_list|(
-name|tableIndex
+name|index
 argument_list|(
 name|row
 argument_list|,
