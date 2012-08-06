@@ -460,6 +460,9 @@ argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue =
+literal|0
 argument_list|)
 name|Q_DECL_NOTHROW
 expr_stmt|;
@@ -480,6 +483,9 @@ argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue =
+literal|0
 argument_list|)
 name|Q_DECL_NOTHROW
 expr_stmt|;
@@ -500,6 +506,9 @@ argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue =
+literal|0
 argument_list|)
 name|Q_DECL_NOTHROW
 expr_stmt|;
@@ -520,6 +529,9 @@ argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue =
+literal|0
 argument_list|)
 name|Q_DECL_NOTHROW
 expr_stmt|;
@@ -1803,6 +1815,8 @@ argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
@@ -1839,15 +1853,25 @@ operator|:
 literal|"memory"
 operator|)
 block|;
+if|if
+condition|(
+name|currentValue
+condition|)
+operator|*
+name|currentValue
+operator|=
+name|ret
+expr_stmt|;
+end_expr_stmt
+begin_return
 return|return
 name|ret
 operator|==
 name|expectedValue
 return|;
-block|}
-end_expr_stmt
+end_return
 begin_expr_stmt
-name|template
+unit|}  template
 operator|<
 operator|>
 name|template
@@ -1869,6 +1893,8 @@ argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
@@ -1905,15 +1931,25 @@ operator|:
 literal|"memory"
 operator|)
 block|;
+if|if
+condition|(
+name|currentValue
+condition|)
+operator|*
+name|currentValue
+operator|=
+name|ret
+expr_stmt|;
+end_expr_stmt
+begin_return
 return|return
 name|ret
 operator|==
 name|expectedValue
 return|;
-block|}
-end_expr_stmt
+end_return
 begin_expr_stmt
-name|template
+unit|}  template
 operator|<
 operator|>
 name|template
@@ -1935,6 +1971,8 @@ argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
@@ -1971,15 +2009,25 @@ operator|:
 literal|"memory"
 operator|)
 block|;
+if|if
+condition|(
+name|currentValue
+condition|)
+operator|*
+name|currentValue
+operator|=
+name|ret
+expr_stmt|;
+end_expr_stmt
+begin_return
 return|return
 name|ret
 operator|==
 name|expectedValue
 return|;
-block|}
-end_expr_stmt
+end_return
 begin_expr_stmt
-name|template
+unit|}  template
 operator|<
 operator|>
 name|template
@@ -2001,6 +2049,8 @@ argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
@@ -2037,15 +2087,25 @@ operator|:
 literal|"memory"
 operator|)
 block|;
+if|if
+condition|(
+name|currentValue
+condition|)
+operator|*
+name|currentValue
+operator|=
+name|ret
+expr_stmt|;
+end_expr_stmt
+begin_return
 return|return
 name|ret
 operator|==
 name|expectedValue
 return|;
-block|}
-end_expr_stmt
+end_return
 begin_expr_stmt
-name|template
+unit|}  template
 operator|<
 operator|>
 name|template
@@ -2067,6 +2127,8 @@ argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
@@ -2103,15 +2165,25 @@ operator|:
 literal|"memory"
 operator|)
 block|;
+if|if
+condition|(
+name|currentValue
+condition|)
+operator|*
+name|currentValue
+operator|=
+name|ret
+expr_stmt|;
+end_expr_stmt
+begin_return
 return|return
 name|ret
 operator|==
 name|expectedValue
 return|;
-block|}
-end_expr_stmt
+end_return
 begin_expr_stmt
-name|template
+unit|}  template
 operator|<
 operator|>
 name|template
@@ -2133,6 +2205,8 @@ argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
@@ -2169,15 +2243,25 @@ operator|:
 literal|"memory"
 operator|)
 block|;
+if|if
+condition|(
+name|currentValue
+condition|)
+operator|*
+name|currentValue
+operator|=
+name|ret
+expr_stmt|;
+end_expr_stmt
+begin_return
 return|return
 name|ret
 operator|==
 name|expectedValue
 return|;
-block|}
-end_expr_stmt
+end_return
 begin_expr_stmt
-name|template
+unit|}  template
 operator|<
 operator|>
 name|template
@@ -2199,6 +2283,8 @@ argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
@@ -2235,15 +2321,25 @@ operator|:
 literal|"memory"
 operator|)
 block|;
+if|if
+condition|(
+name|currentValue
+condition|)
+operator|*
+name|currentValue
+operator|=
+name|ret
+expr_stmt|;
+end_expr_stmt
+begin_return
 return|return
 name|ret
 operator|==
 name|expectedValue
 return|;
-block|}
-end_expr_stmt
+end_return
 begin_expr_stmt
-name|template
+unit|}  template
 operator|<
 operator|>
 name|template
@@ -2265,6 +2361,8 @@ argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
@@ -2301,15 +2399,25 @@ operator|:
 literal|"memory"
 operator|)
 block|;
+if|if
+condition|(
+name|currentValue
+condition|)
+operator|*
+name|currentValue
+operator|=
+name|ret
+expr_stmt|;
+end_expr_stmt
+begin_return
 return|return
 name|ret
 operator|==
 name|expectedValue
 return|;
-block|}
-end_expr_stmt
+end_return
 begin_expr_stmt
-name|template
+unit|}  template
 operator|<
 operator|>
 name|template

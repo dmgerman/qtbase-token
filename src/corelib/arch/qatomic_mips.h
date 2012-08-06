@@ -212,7 +212,6 @@ return|;
 block|}
 end_function
 begin_expr_stmt
-DECL|member|Q_DECL_NOTHROW
 name|template
 operator|<
 name|typename
@@ -220,6 +219,7 @@ name|T
 operator|>
 specifier|static
 name|bool
+DECL|member|Q_DECL_NOTHROW
 name|testAndSetRelaxed
 argument_list|(
 argument|T&_q_value
@@ -227,6 +227,9 @@ argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue =
+literal|0
 argument_list|)
 name|Q_DECL_NOTHROW
 expr_stmt|;
@@ -655,6 +658,8 @@ argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
@@ -668,8 +673,8 @@ name|asm
 specifier|volatile
 operator|(
 literal|"0:\n"
-literal|"ll %[result], %[_q_value]\n"
-literal|"xor %[result], %[result], %[expectedValue]\n"
+literal|"ll %[tempValue], %[_q_value]\n"
+literal|"xor %[result], %[tempValue], %[expectedValue]\n"
 literal|"bnez %[result], 0f\n"
 literal|"nop\n"
 literal|"move %[tempValue], %[newValue]\n"
@@ -723,15 +728,25 @@ operator|,
 literal|"memory"
 operator|)
 block|;
+if|if
+condition|(
+name|currentValue
+condition|)
+operator|*
+name|currentValue
+operator|=
+name|tempValue
+expr_stmt|;
+end_expr_stmt
+begin_return
 return|return
 name|result
 operator|==
 literal|0
 return|;
-block|}
-end_expr_stmt
+end_return
 begin_expr_stmt
-name|template
+unit|}  template
 operator|<
 operator|>
 name|template
@@ -1151,6 +1166,8 @@ argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
@@ -1164,8 +1181,8 @@ name|asm
 specifier|volatile
 operator|(
 literal|"0:\n"
-literal|"lld %[result], %[_q_value]\n"
-literal|"xor %[result], %[result], %[expectedValue]\n"
+literal|"lld %[tempValue], %[_q_value]\n"
+literal|"xor %[result], %[tempValue], %[expectedValue]\n"
 literal|"bnez %[result], 0f\n"
 literal|"nop\n"
 literal|"move %[tempValue], %[newValue]\n"
@@ -1219,15 +1236,25 @@ operator|,
 literal|"memory"
 operator|)
 block|;
+if|if
+condition|(
+name|currentValue
+condition|)
+operator|*
+name|currentValue
+operator|=
+name|tempValue
+expr_stmt|;
+end_expr_stmt
+begin_return
 return|return
 name|result
 operator|==
 literal|0
 return|;
-block|}
-end_expr_stmt
+end_return
 begin_expr_stmt
-name|template
+unit|}  template
 operator|<
 operator|>
 name|template
