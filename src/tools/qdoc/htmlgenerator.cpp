@@ -22411,6 +22411,16 @@ block|}
 comment|/*           If the output is going to subdirectories, then if the           two nodes will be output to different directories, then           the link must go up to the parent directory and then           back down into the other subdirectory.         */
 if|if
 condition|(
+operator|!
+name|baseDir
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
 name|link
 operator|.
 name|startsWith
@@ -22485,6 +22495,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
