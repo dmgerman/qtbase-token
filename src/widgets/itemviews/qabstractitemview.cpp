@@ -1063,7 +1063,7 @@ begin_comment
 comment|/*!     \fn void QAbstractItemView::pressed(const QModelIndex&index)      This signal is emitted when a mouse button is pressed. The item     the mouse was pressed on is specified by \a index. The signal is     only emitted when the index is valid.      Use the QApplication::mouseButtons() function to get the state     of the mouse buttons.      \sa activated(), clicked(), doubleClicked(), entered() */
 end_comment
 begin_comment
-comment|/*!     \fn void QAbstractItemView::clicked(const QModelIndex&index)      This signal is emitted when a mouse button is clicked. The item     the mouse was clicked on is specified by \a index. The signal is     only emitted when the index is valid.      \sa activated(), doubleClicked(), entered(), pressed() */
+comment|/*!     \fn void QAbstractItemView::clicked(const QModelIndex&index)      This signal is emitted when a mouse button is left-clicked. The item     the mouse was clicked on is specified by \a index. The signal is     only emitted when the index is valid.      \sa activated(), doubleClicked(), entered(), pressed() */
 end_comment
 begin_comment
 comment|/*!     \fn void QAbstractItemView::doubleClicked(const QModelIndex&index)      This signal is emitted when a mouse button is double-clicked. The     item the mouse was double-clicked on is specified by \a index.     The signal is only emitted when the index is valid.      \sa clicked(), activated() */
@@ -6546,6 +6546,17 @@ condition|(
 name|click
 condition|)
 block|{
+if|if
+condition|(
+name|event
+operator|->
+name|button
+argument_list|()
+operator|==
+name|Qt
+operator|::
+name|LeftButton
+condition|)
 emit|emit
 name|clicked
 argument_list|(
