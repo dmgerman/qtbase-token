@@ -6461,7 +6461,7 @@ name|event
 operator|->
 name|button
 argument_list|()
-operator|&
+operator|==
 name|Qt
 operator|::
 name|LeftButton
@@ -6726,7 +6726,7 @@ name|event
 operator|->
 name|button
 argument_list|()
-operator|&
+operator|==
 name|Qt
 operator|::
 name|LeftButton
