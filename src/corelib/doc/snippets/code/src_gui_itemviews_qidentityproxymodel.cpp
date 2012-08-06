@@ -41,6 +41,7 @@ parameter_list|,
 name|int
 name|role
 parameter_list|)
+specifier|const
 block|{
 if|if
 condition|(
