@@ -347,7 +347,7 @@ name|extensions
 operator|.
 name|match
 argument_list|(
-literal|"GL_OES_texture_npot"
+literal|"GL_IMG_texture_npot"
 argument_list|)
 condition|)
 name|features
@@ -362,7 +362,7 @@ name|extensions
 operator|.
 name|match
 argument_list|(
-literal|"GL_IMG_texture_npot"
+literal|"GL_OES_texture_npot"
 argument_list|)
 condition|)
 name|features
@@ -370,6 +370,10 @@ operator||=
 name|QOpenGLFunctions
 operator|::
 name|NPOTTextures
+operator||
+name|QOpenGLFunctions
+operator|::
+name|NPOTTextureRepeat
 expr_stmt|;
 return|return
 name|features

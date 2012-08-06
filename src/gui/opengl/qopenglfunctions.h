@@ -851,6 +851,10 @@ block|,
 name|NPOTTextures
 operator|=
 literal|0x1000
+block|,
+name|NPOTTextureRepeat
+operator|=
+literal|0x2000
 block|}
 expr_stmt|;
 name|Q_DECLARE_FLAGS
