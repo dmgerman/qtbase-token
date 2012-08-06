@@ -5899,6 +5899,21 @@ operator|::
 name|Horizontal
 argument_list|)
 decl_stmt|;
+comment|// We need to iterate over a copy of m->mapped_children because otherwise it may be changed by other code, invalidating
+comment|// the iterator it2.
+comment|// The m->mapped_children vector can be appended to when this function recurses for child indexes.
+comment|// The handle_filter_changed implementation can cause source_parent.parent() to be called, which will create
+comment|// a mapping (and do appending) while we are invalidating the filter.
+name|QVector
+argument_list|<
+name|QModelIndex
+argument_list|>
+name|mappedChildren
+init|=
+name|m
+operator|->
+name|mapped_children
+decl_stmt|;
 name|QVector
 argument_list|<
 name|QModelIndex
@@ -5907,9 +5922,7 @@ operator|::
 name|iterator
 name|it2
 init|=
-name|m
-operator|->
-name|mapped_children
+name|mappedChildren
 operator|.
 name|end
 argument_list|()
@@ -5918,9 +5931,7 @@ while|while
 condition|(
 name|it2
 operator|!=
-name|m
-operator|->
-name|mapped_children
+name|mappedChildren
 operator|.
 name|begin
 argument_list|()
@@ -5961,9 +5972,7 @@ condition|)
 block|{
 name|it2
 operator|=
-name|m
-operator|->
-name|mapped_children
+name|mappedChildren
 operator|.
 name|erase
 argument_list|(
