@@ -6290,7 +6290,6 @@ specifier|const
 name|Qt
 operator|::
 name|WindowState
-modifier|&
 name|oldState
 init|=
 name|m_windowState
