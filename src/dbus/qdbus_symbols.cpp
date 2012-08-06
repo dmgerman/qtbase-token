@@ -109,13 +109,10 @@ comment|// this is to simulate a library load failure for our autotest suite.
 if|if
 condition|(
 operator|!
-name|qgetenv
+name|qEnvironmentVariableIsEmpty
 argument_list|(
 literal|"QT_SIMULATE_DBUS_LIBFAIL"
 argument_list|)
-operator|.
-name|isEmpty
-argument_list|()
 condition|)
 return|return
 literal|false
