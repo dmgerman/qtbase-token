@@ -8888,13 +8888,6 @@ operator|::
 name|dir_sep
 expr_stmt|;
 block|}
-name|dst
-operator|=
-name|escapeFilePath
-argument_list|(
-name|dst
-argument_list|)
-expr_stmt|;
 name|QStringList
 name|tmp
 decl_stmt|,
