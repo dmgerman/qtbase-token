@@ -497,13 +497,10 @@ block|}
 if|if
 condition|(
 operator|!
-name|qgetenv
+name|qEnvironmentVariableIsEmpty
 argument_list|(
 literal|"QT_QPA_EGLFS_MULTISAMPLE"
 argument_list|)
-operator|.
-name|isEmpty
-argument_list|()
 condition|)
 name|platformFormat
 operator|.

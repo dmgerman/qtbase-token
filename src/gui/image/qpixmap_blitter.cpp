@@ -858,13 +858,10 @@ name|bool
 name|showRasterOverlay
 init|=
 operator|!
-name|qgetenv
+name|qEnvironmentVariableIsEmpty
 argument_list|(
 literal|"QT_BLITTER_RASTEROVERLAY"
 argument_list|)
-operator|.
-name|isEmpty
-argument_list|()
 decl_stmt|;
 end_decl_stmt
 begin_function
