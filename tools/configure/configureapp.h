@@ -382,6 +382,15 @@ name|QString
 name|opensslLibsRelease
 decl_stmt|;
 name|QString
+name|opensslPath
+decl_stmt|;
+name|QString
+name|dbusPath
+decl_stmt|;
+name|QString
+name|mysqlPath
+decl_stmt|;
+name|QString
 name|psqlLibs
 decl_stmt|;
 name|QString
