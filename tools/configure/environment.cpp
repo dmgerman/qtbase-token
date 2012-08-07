@@ -248,9 +248,9 @@ block|}
 block|,
 comment|// link.exe, lib.exe
 block|{
-name|CC_NET11
+name|CC_NET2012
 block|,
-literal|"Microsoft (R) 32-bit C/C++ Optimizing Compiler.NET 11 (11.0)"
+literal|"Microsoft (R) 32-bit C/C++ Optimizing Compiler.NET 2012 (11.0)"
 block|,
 literal|"Software\\Microsoft\\VisualStudio\\SxS\\VC7\\11.0"
 block|,
@@ -259,9 +259,9 @@ block|}
 block|,
 comment|// link.exe, lib.exe
 block|{
-name|CC_NET11
+name|CC_NET2012
 block|,
-literal|"Microsoft (R) 32-bit C/C++ Optimizing Compiler.NET 11 (11.0)"
+literal|"Microsoft (R) 32-bit C/C++ Optimizing Compiler.NET 2012 (11.0)"
 block|,
 literal|"Software\\Wow6432Node\\Microsoft\\VisualStudio\\SxS\\VC7\\11.0"
 block|,
@@ -369,11 +369,11 @@ argument_list|()
 condition|)
 block|{
 case|case
-name|CC_NET11
+name|CC_NET2012
 case|:
 name|spec
 operator|=
-literal|"win32-msvc11"
+literal|"win32-msvc2012"
 expr_stmt|;
 break|break;
 case|case

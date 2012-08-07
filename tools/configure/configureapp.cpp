@@ -7945,7 +7945,7 @@ index|]
 operator|.
 name|endsWith
 argument_list|(
-literal|"-msvc11"
+literal|"-msvc2012"
 argument_list|)
 condition|)
 block|{

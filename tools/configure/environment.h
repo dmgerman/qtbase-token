@@ -58,8 +58,8 @@ name|CC_NET2010
 operator|=
 literal|0xA0
 operator|,
-DECL|enumerator|CC_NET11
-name|CC_NET11
+DECL|enumerator|CC_NET2012
+name|CC_NET2012
 operator|=
 literal|0xB0
 block|}
