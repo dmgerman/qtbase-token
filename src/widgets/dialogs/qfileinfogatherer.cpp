@@ -265,13 +265,6 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|Q_OS_WIN
-name|QMutexLocker
-name|locker
-argument_list|(
-operator|&
-name|mutex
-argument_list|)
-decl_stmt|;
 name|m_resolveSymlinks
 operator|=
 name|enable
@@ -306,13 +299,6 @@ modifier|*
 name|provider
 parameter_list|)
 block|{
-name|QMutexLocker
-name|locker
-argument_list|(
-operator|&
-name|mutex
-argument_list|)
-decl_stmt|;
 name|m_iconProvider
 operator|=
 name|provider

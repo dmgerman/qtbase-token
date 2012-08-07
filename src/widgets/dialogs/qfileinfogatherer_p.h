@@ -682,10 +682,12 @@ directive|endif
 name|bool
 name|m_resolveSymlinks
 block|;
+comment|// not accessed by run()
 name|QFileIconProvider
 operator|*
 name|m_iconProvider
 block|;
+comment|// not accessed by run()
 name|QFileIconProvider
 name|defaultProvider
 block|; }
