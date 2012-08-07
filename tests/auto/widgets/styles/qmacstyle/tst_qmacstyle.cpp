@@ -518,7 +518,7 @@ argument_list|()
 argument_list|,
 name|SIZE
 argument_list|(
-literal|22
+literal|21
 argument_list|,
 literal|19
 argument_list|,
@@ -615,15 +615,6 @@ operator|&
 name|w
 argument_list|)
 decl_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QTBUG-25296"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|sh
@@ -637,7 +628,7 @@ argument_list|()
 argument_list|,
 name|SIZE
 argument_list|(
-literal|15
+literal|14
 argument_list|,
 literal|12
 argument_list|,
@@ -668,7 +659,7 @@ argument_list|()
 argument_list|,
 name|SIZE
 argument_list|(
-literal|14
+literal|13
 argument_list|,
 literal|12
 argument_list|,
@@ -753,7 +744,7 @@ argument_list|()
 argument_list|,
 name|SIZE
 argument_list|(
-literal|20
+literal|22
 argument_list|,
 literal|17
 argument_list|,
@@ -1206,7 +1197,7 @@ argument_list|()
 argument_list|,
 name|SIZE
 argument_list|(
-literal|17
+literal|16
 argument_list|,
 literal|14
 argument_list|,
