@@ -348,7 +348,7 @@ operator|&
 name|mutex
 argument_list|)
 decl_stmt|;
-comment|// See if we already have this dir/file in our que
+comment|// See if we already have this dir/file in our queue
 name|int
 name|loc
 init|=
@@ -804,9 +804,8 @@ block|}
 end_function
 begin_function
 DECL|function|translateDriveName
+specifier|static
 name|QString
-name|QFileInfoGatherer
-operator|::
 name|translateDriveName
 parameter_list|(
 specifier|const
@@ -814,7 +813,6 @@ name|QFileInfo
 modifier|&
 name|drive
 parameter_list|)
-specifier|const
 block|{
 name|QString
 name|driveName
@@ -1000,6 +998,16 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|infoList
+operator|.
+name|reserve
+argument_list|(
+name|files
+operator|.
+name|count
+argument_list|()
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int

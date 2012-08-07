@@ -492,6 +492,7 @@ argument_list|)
 block|;
 name|public
 operator|:
+name|explicit
 name|QFileInfoGatherer
 argument_list|(
 name|QObject
@@ -505,6 +506,7 @@ operator|~
 name|QFileInfoGatherer
 argument_list|()
 block|;
+comment|// only callable from this->thread():
 name|void
 name|clear
 argument_list|()
@@ -523,6 +525,17 @@ name|getInfo
 argument_list|(
 argument|const QFileInfo&info
 argument_list|)
+specifier|const
+block|;
+name|QFileIconProvider
+operator|*
+name|iconProvider
+argument_list|()
+specifier|const
+block|;
+name|bool
+name|resolveSymlinks
+argument_list|()
 specifier|const
 block|;
 name|public
@@ -566,11 +579,6 @@ argument_list|(
 argument|bool enable
 argument_list|)
 block|;
-name|bool
-name|resolveSymlinks
-argument_list|()
-specifier|const
-block|;
 name|void
 name|setIconProvider
 argument_list|(
@@ -579,18 +587,14 @@ operator|*
 name|provider
 argument_list|)
 block|;
-name|QFileIconProvider
-operator|*
-name|iconProvider
-argument_list|()
-specifier|const
-block|;
-name|protected
+name|private
 operator|:
 name|void
 name|run
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
+comment|// called by run():
 name|void
 name|getFileInfos
 argument_list|(
@@ -605,8 +609,6 @@ operator|&
 name|files
 argument_list|)
 block|;
-name|private
-operator|:
 name|void
 name|fetch
 argument_list|(
@@ -641,22 +643,15 @@ operator|&
 name|path
 argument_list|)
 block|;
-name|QString
-name|translateDriveName
-argument_list|(
-argument|const QFileInfo&drive
-argument_list|)
-specifier|const
-block|;
+name|private
+operator|:
 name|mutable
 name|QMutex
 name|mutex
 block|;
+comment|// begin protected by mutex
 name|QWaitCondition
 name|condition
-block|;
-name|QAtomicInt
-name|abort
 block|;
 name|QStack
 operator|<
@@ -669,6 +664,10 @@ operator|<
 name|QStringList
 operator|>
 name|files
+block|;
+comment|// end protected by mutex
+name|QAtomicInt
+name|abort
 block|;
 ifndef|#
 directive|ifndef
