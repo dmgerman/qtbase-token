@@ -3041,6 +3041,24 @@ operator|::
 name|RightToLeft
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+block|}
+elseif|else
+if|if
+condition|(
+name|arg
+operator|.
+name|startsWith
+argument_list|(
+literal|"-psn_"
+argument_list|)
+condition|)
+block|{
+comment|// eat "-psn_xxxx" on Mac
+endif|#
+directive|endif
 block|}
 else|else
 block|{
