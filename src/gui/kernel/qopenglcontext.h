@@ -330,6 +330,21 @@ name|functions
 argument_list|()
 specifier|const
 block|;
+name|QSet
+operator|<
+name|QByteArray
+operator|>
+name|extensions
+argument_list|()
+specifier|const
+block|;
+name|bool
+name|hasExtension
+argument_list|(
+argument|const QByteArray&extension
+argument_list|)
+specifier|const
+block|;
 name|Q_SIGNALS
 operator|:
 name|void
