@@ -1723,9 +1723,6 @@ argument_list|,
 name|info
 argument_list|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_FILESYSTEMWATCHER
 name|node
 operator|->
 name|populate
@@ -1738,8 +1735,6 @@ name|info
 argument_list|)
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 else|else
 block|{
