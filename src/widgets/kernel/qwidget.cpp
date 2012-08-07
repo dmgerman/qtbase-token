@@ -8938,6 +8938,13 @@ condition|(
 name|propagate
 condition|)
 block|{
+comment|// We copy the list because the order may be modified
+specifier|const
+name|QObjectList
+name|childrenList
+init|=
+name|children
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -8947,7 +8954,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|children
+name|childrenList
 operator|.
 name|size
 argument_list|()
@@ -8966,7 +8973,7 @@ name|QWidget
 operator|*
 argument_list|>
 argument_list|(
-name|children
+name|childrenList
 operator|.
 name|at
 argument_list|(
