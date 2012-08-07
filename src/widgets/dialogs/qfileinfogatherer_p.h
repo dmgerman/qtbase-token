@@ -648,14 +648,14 @@ argument|const QFileInfo&drive
 argument_list|)
 specifier|const
 block|;
+name|mutable
 name|QMutex
 name|mutex
 block|;
 name|QWaitCondition
 name|condition
 block|;
-specifier|volatile
-name|bool
+name|QAtomicInt
 name|abort
 block|;
 name|QStack
