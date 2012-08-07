@@ -405,12 +405,12 @@ begin_comment
 comment|/*!     \relates<QtGlobal>      Returns the version number of Qt at run-time as a string (for     example, "4.1.2"). This may be a different version than the     version the application was compiled against.      \sa QT_VERSION_STR */
 end_comment
 begin_function
-DECL|function|qVersion
 specifier|const
 name|char
 modifier|*
 name|qVersion
 parameter_list|()
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QT_VERSION_STR
@@ -418,10 +418,10 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|qSharedBuild
 name|bool
 name|qSharedBuild
 parameter_list|()
+name|Q_DECL_NOTHROW
 block|{
 ifdef|#
 directive|ifdef
