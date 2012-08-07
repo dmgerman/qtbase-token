@@ -688,19 +688,7 @@ name|m_iconProvider
 block|;
 name|QFileIconProvider
 name|defaultProvider
-block|;
-ifndef|#
-directive|ifndef
-name|Q_OS_WIN
-name|uint
-name|userId
-block|;
-name|uint
-name|groupId
-block|;
-endif|#
-directive|endif
-block|}
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_endif
