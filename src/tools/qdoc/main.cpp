@@ -1590,6 +1590,20 @@ operator|++
 name|i
 control|)
 block|{
+if|if
+condition|(
+operator|!
+name|sources
+operator|.
+name|contains
+argument_list|(
+name|exampleQdocList
+index|[
+name|i
+index|]
+argument_list|)
+condition|)
+block|{
 name|sources
 operator|.
 name|insert
@@ -1637,6 +1651,7 @@ argument_list|,
 name|t
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/*       Parse each header file in the set using the appropriate parser and add it       to the big tree.      */
 name|QSet
