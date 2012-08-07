@@ -897,6 +897,16 @@ argument_list|,
 argument|bool fileAllreadyAdded
 argument_list|)
 block|;
+specifier|static
+name|QString
+name|generateCondition
+argument_list|(
+specifier|const
+name|VCConfiguration
+operator|&
+name|config
+argument_list|)
+block|;
 name|friend
 name|class
 name|XTreeNode
