@@ -678,10 +678,15 @@ name|watcher
 block|;
 endif|#
 directive|endif
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
 name|bool
 name|m_resolveSymlinks
 block|;
 comment|// not accessed by run()
+endif|#
+directive|endif
 name|QFileIconProvider
 operator|*
 name|m_iconProvider
