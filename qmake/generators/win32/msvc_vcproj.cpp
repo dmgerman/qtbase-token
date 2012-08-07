@@ -5581,6 +5581,17 @@ literal|"TARGET_VERSION_EXT"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|conf
+operator|.
+name|PrimaryOutputExtension
+operator|=
+name|project
+operator|->
+name|first
+argument_list|(
+literal|"TARGET_EXT"
+argument_list|)
+expr_stmt|;
 block|}
 name|conf
 operator|.
