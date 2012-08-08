@@ -2311,10 +2311,10 @@ error|#
 directive|error
 literal|"Both QT_SHARED and QT_STATIC defined, please make up your mind"
 end_error
-begin_else
-else|#
-directive|else
-end_else
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -2446,10 +2446,6 @@ directive|define
 name|Q_NETWORK_EXPORT
 value|Q_DECL_IMPORT
 end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_endif
 endif|#
 directive|endif
