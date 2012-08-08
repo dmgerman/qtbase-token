@@ -917,12 +917,6 @@ operator|.
 name|isNull
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-operator|!
-name|hasPixmap
-condition|)
-return|return;
 name|QList
 argument_list|<
 name|Qt
