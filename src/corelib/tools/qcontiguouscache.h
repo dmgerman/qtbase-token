@@ -79,7 +79,7 @@ comment|//  (such as long double on 64-bit platforms, __int128, __float128)
 specifier|static
 name|QContiguousCacheData
 operator|*
-name|allocate
+name|allocateData
 argument_list|(
 argument|int size
 argument_list|,
@@ -88,7 +88,7 @@ argument_list|)
 block|;
 specifier|static
 name|void
-name|free
+name|freeData
 argument_list|(
 name|QContiguousCacheData
 operator|*
@@ -129,18 +129,18 @@ index|[
 literal|1
 index|]
 block|;
-DECL|function|free
+DECL|function|freeData
 specifier|static
 specifier|inline
 name|void
-name|free
+name|freeData
 argument_list|(
 argument|QContiguousCacheTypedData *data
 argument_list|)
 block|{
 name|QContiguousCacheData
 operator|::
-name|free
+name|freeData
 argument_list|(
 name|data
 argument_list|)
@@ -305,7 +305,7 @@ operator|.
 name|deref
 argument_list|()
 condition|)
-name|free
+name|freeData
 argument_list|(
 name|p
 argument_list|)
@@ -995,7 +995,7 @@ end_expr_stmt
 begin_function_decl
 name|QContiguousCacheData
 modifier|*
-name|malloc
+name|allocateData
 parameter_list|(
 name|int
 name|aalloc
@@ -1004,7 +1004,7 @@ function_decl|;
 end_function_decl
 begin_function_decl
 name|void
-name|free
+name|freeData
 parameter_list|(
 name|Data
 modifier|*
@@ -1120,7 +1120,7 @@ name|x
 operator|.
 name|d
 operator|=
-name|malloc
+name|allocateData
 argument_list|(
 name|d
 operator|->
@@ -1337,7 +1337,7 @@ operator|.
 name|deref
 argument_list|()
 operator|)
-name|free
+name|freeData
 argument_list|(
 name|p
 argument_list|)
@@ -1405,7 +1405,7 @@ name|x
 operator|.
 name|d
 operator|=
-name|malloc
+name|allocateData
 argument_list|(
 name|asize
 argument_list|)
@@ -1657,7 +1657,7 @@ begin_comment
 comment|/* free old */
 end_comment
 begin_expr_stmt
-name|free
+name|freeData
 argument_list|(
 name|p
 argument_list|)
@@ -1808,7 +1808,7 @@ name|x
 operator|.
 name|d
 operator|=
-name|malloc
+name|allocateData
 argument_list|(
 name|d
 operator|->
@@ -1874,7 +1874,7 @@ operator|.
 name|deref
 argument_list|()
 condition|)
-name|free
+name|freeData
 argument_list|(
 name|p
 argument_list|)
@@ -1893,7 +1893,7 @@ operator|<
 name|typename
 name|T
 operator|>
-DECL|function|malloc
+DECL|function|allocateData
 specifier|inline
 name|QContiguousCacheData
 operator|*
@@ -1902,7 +1902,7 @@ operator|<
 name|T
 operator|>
 operator|::
-name|malloc
+name|allocateData
 argument_list|(
 argument|int aalloc
 argument_list|)
@@ -1910,7 +1910,7 @@ block|{
 return|return
 name|QContiguousCacheData
 operator|::
-name|allocate
+name|allocateData
 argument_list|(
 name|sizeOfTypedData
 argument_list|()
@@ -1951,7 +1951,7 @@ argument_list|)
 block|{
 name|d
 operator|=
-name|malloc
+name|allocateData
 argument_list|(
 name|cap
 argument_list|)
@@ -2037,7 +2037,7 @@ operator|.
 name|deref
 argument_list|()
 condition|)
-name|free
+name|freeData
 argument_list|(
 name|d
 argument_list|)
@@ -2206,7 +2206,7 @@ operator|<
 name|T
 operator|>
 operator|::
-name|free
+name|freeData
 argument_list|(
 argument|Data *x
 argument_list|)
@@ -2284,7 +2284,7 @@ end_expr_stmt
 begin_expr_stmt
 unit|}     x
 operator|->
-name|free
+name|freeData
 argument_list|(
 name|x
 argument_list|)
