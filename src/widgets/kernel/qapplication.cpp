@@ -15959,6 +15959,28 @@ argument_list|(
 name|QApplication
 argument_list|)
 expr_stmt|;
+comment|// Check if the platform wants synthesized mouse events.
+if|if
+condition|(
+operator|!
+name|QGuiApplicationPrivate
+operator|::
+name|platformIntegration
+argument_list|()
+operator|->
+name|styleHint
+argument_list|(
+name|QPlatformIntegration
+operator|::
+name|SynthesizeMouseFromTouchEvents
+argument_list|)
+operator|.
+name|toBool
+argument_list|()
+condition|)
+return|return
+literal|false
+return|;
 name|Q_FOREACH
 argument_list|(
 argument|const QTouchEvent::TouchPoint&p

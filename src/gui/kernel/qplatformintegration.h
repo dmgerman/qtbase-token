@@ -375,6 +375,8 @@ block|,
 name|StartDragVelocity
 block|,
 name|UseRtlExtensions
+block|,
+name|SynthesizeMouseFromTouchEvents
 block|}
 enum|;
 name|virtual

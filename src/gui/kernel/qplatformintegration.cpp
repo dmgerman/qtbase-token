@@ -539,6 +539,12 @@ argument_list|(
 literal|false
 argument_list|)
 return|;
+case|case
+name|SynthesizeMouseFromTouchEvents
+case|:
+return|return
+literal|true
+return|;
 block|}
 return|return
 literal|0

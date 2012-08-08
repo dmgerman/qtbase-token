@@ -60227,6 +60227,26 @@ operator|::
 name|touchEventSynthesizedMouseEvent
 parameter_list|()
 block|{
+comment|// Pass if the platform does not want mouse event synhesizing
+if|if
+condition|(
+operator|!
+name|QGuiApplicationPrivate
+operator|::
+name|platformIntegration
+argument_list|()
+operator|->
+name|styleHint
+argument_list|(
+name|QPlatformIntegration
+operator|::
+name|SynthesizeMouseFromTouchEvents
+argument_list|)
+operator|.
+name|toBool
+argument_list|()
+condition|)
+return|return;
 block|{
 comment|// Simple case, we ignore the touch events, we get mouse events instead
 name|QTouchDevice
