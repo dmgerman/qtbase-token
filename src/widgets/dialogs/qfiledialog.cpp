@@ -12182,6 +12182,17 @@ argument_list|()
 condition|)
 block|{
 comment|// file context menu
+specifier|const
+name|bool
+name|ro
+init|=
+name|model
+operator|&&
+name|model
+operator|->
+name|isReadOnly
+argument_list|()
+decl_stmt|;
 name|QFile
 operator|::
 name|Permissions
@@ -12207,6 +12218,9 @@ name|renameAction
 operator|->
 name|setEnabled
 argument_list|(
+operator|!
+name|ro
+operator|&&
 name|p
 operator|&
 name|QFile
@@ -12225,6 +12239,9 @@ name|deleteAction
 operator|->
 name|setEnabled
 argument_list|(
+operator|!
+name|ro
+operator|&&
 name|p
 operator|&
 name|QFile
