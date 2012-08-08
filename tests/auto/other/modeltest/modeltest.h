@@ -137,6 +137,30 @@ argument_list|,
 argument|int end
 argument_list|)
 block|;
+name|void
+name|dataChanged
+argument_list|(
+specifier|const
+name|QModelIndex
+operator|&
+name|topLeft
+argument_list|,
+specifier|const
+name|QModelIndex
+operator|&
+name|bottomRight
+argument_list|)
+block|;
+name|void
+name|headerDataChanged
+argument_list|(
+argument|Qt::Orientation orientation
+argument_list|,
+argument|int start
+argument_list|,
+argument|int end
+argument_list|)
+block|;
 name|private
 operator|:
 name|void
