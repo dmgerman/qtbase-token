@@ -4673,11 +4673,6 @@ name|newParent
 expr_stmt|;
 if|if
 condition|(
-name|newParent
-operator|!=
-name|parent
-argument_list|()
-operator|&&
 name|m_data
 operator|.
 name|hwnd
@@ -4703,8 +4698,21 @@ name|parent
 parameter_list|)
 specifier|const
 block|{
+comment|// Use GetAncestor instead of GetParent, as GetParent can return owner window for toplevels
 name|HWND
-name|parentHWND
+name|oldParentHWND
+init|=
+name|GetAncestor
+argument_list|(
+name|m_data
+operator|.
+name|hwnd
+argument_list|,
+name|GA_PARENT
+argument_list|)
+decl_stmt|;
+name|HWND
+name|newParentHWND
 init|=
 literal|0
 decl_stmt|;
@@ -4728,7 +4736,7 @@ argument_list|(
 name|parent
 argument_list|)
 decl_stmt|;
-name|parentHWND
+name|newParentHWND
 operator|=
 name|parentW
 operator|->
@@ -4736,6 +4744,13 @@ name|handle
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|newParentHWND
+operator|!=
+name|oldParentHWND
+condition|)
+block|{
 specifier|const
 name|bool
 name|wasTopLevel
@@ -4750,7 +4765,7 @@ specifier|const
 name|bool
 name|isTopLevel
 init|=
-name|parentHWND
+name|newParentHWND
 operator|==
 literal|0
 decl_stmt|;
@@ -4765,7 +4780,7 @@ name|m_data
 operator|.
 name|hwnd
 argument_list|,
-name|parentHWND
+name|newParentHWND
 argument_list|)
 expr_stmt|;
 name|clearFlag
@@ -4811,6 +4826,7 @@ argument_list|,
 name|flags
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_function
