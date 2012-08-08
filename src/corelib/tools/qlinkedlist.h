@@ -2164,7 +2164,7 @@ function_decl|;
 end_function_decl
 begin_function_decl
 name|void
-name|free
+name|freeData
 parameter_list|(
 name|QLinkedListData
 modifier|*
@@ -2199,7 +2199,7 @@ operator|.
 name|deref
 argument_list|()
 condition|)
-name|free
+name|freeData
 argument_list|(
 name|d
 argument_list|)
@@ -2353,7 +2353,7 @@ argument_list|()
 argument_list|)
 block|;
 comment|// Don't trigger assert in free
-name|free
+name|freeData
 argument_list|(
 name|x
 operator|.
@@ -2394,7 +2394,7 @@ operator|.
 name|deref
 argument_list|()
 condition|)
-name|free
+name|freeData
 argument_list|(
 name|d
 argument_list|)
@@ -2414,14 +2414,14 @@ operator|<
 name|typename
 name|T
 operator|>
-DECL|function|free
+DECL|function|freeData
 name|void
 name|QLinkedList
 operator|<
 name|T
 operator|>
 operator|::
-name|free
+name|freeData
 argument_list|(
 argument|QLinkedListData *x
 argument_list|)
@@ -2575,7 +2575,7 @@ operator|.
 name|deref
 argument_list|()
 condition|)
-name|free
+name|freeData
 argument_list|(
 name|d
 argument_list|)
