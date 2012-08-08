@@ -178,12 +178,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_define
-DECL|macro|Q_FS_FAT
-define|#
-directive|define
-name|Q_FS_FAT
-end_define
 begin_ifdef
 ifdef|#
 directive|ifdef
