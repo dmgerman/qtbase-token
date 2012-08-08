@@ -1844,10 +1844,10 @@ argument_list|)
 expr_stmt|;
 name|contacts
 operator|.
-name|empty
+name|clear
 argument_list|()
 expr_stmt|;
-comment|// empty existing contacts
+comment|// clear existing contacts
 name|in
 operator|>>
 name|contacts
