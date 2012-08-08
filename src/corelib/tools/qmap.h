@@ -1439,9 +1439,9 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|free
+DECL|function|destroy
 name|void
-name|free
+name|destroy
 parameter_list|()
 block|{
 if|if
@@ -2099,7 +2099,7 @@ argument_list|()
 condition|)
 name|d
 operator|->
-name|free
+name|destroy
 argument_list|()
 expr_stmt|;
 block|}
@@ -5645,7 +5645,7 @@ argument_list|()
 condition|)
 name|d
 operator|->
-name|free
+name|destroy
 argument_list|()
 expr_stmt|;
 end_if
