@@ -13325,6 +13325,10 @@ name|mode
 operator|!=
 name|SingleSelection
 operator|&&
+name|mode
+operator|!=
+name|NoSelection
+operator|&&
 operator|!
 name|d
 operator|->
