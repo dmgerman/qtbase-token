@@ -767,11 +767,9 @@ specifier|static
 name|int
 name|parseCommandLine
 parameter_list|(
-name|int
-parameter_list|,
-name|char
-modifier|*
-modifier|*
+name|QStringList
+modifier|&
+name|args
 parameter_list|)
 function_decl|;
 block|}
