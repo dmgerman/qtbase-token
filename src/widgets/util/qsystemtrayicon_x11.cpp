@@ -702,8 +702,14 @@ name|CurrentTime
 block|,
 name|SYSTEM_TRAY_REQUEST_DOCK
 block|,
+cast|static_cast
+argument_list|<
+name|long
+argument_list|>
+argument_list|(
 name|winId
 argument_list|()
+argument_list|)
 block|,
 literal|0
 block|,
