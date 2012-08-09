@@ -7206,6 +7206,9 @@ name|ReadOnly
 argument_list|)
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WIN
 name|QEXPECT_FAIL
 argument_list|(
 literal|""
@@ -7215,6 +7218,8 @@ argument_list|,
 name|Abort
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|QCOMPARE
 argument_list|(
 name|file1
