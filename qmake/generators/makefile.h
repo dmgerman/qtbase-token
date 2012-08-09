@@ -869,15 +869,7 @@ block|;
 comment|//subclasses can use these to query information about how the generator was "run"
 name|QString
 name|buildArgs
-argument_list|(
-specifier|const
-name|QString
-operator|&
-name|outdir
-operator|=
-name|QString
 argument_list|()
-argument_list|)
 block|;
 name|QString
 name|fixifySpecdir
