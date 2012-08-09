@@ -772,10 +772,6 @@ parameter_list|,
 name|char
 modifier|*
 modifier|*
-parameter_list|,
-name|int
-init|=
-literal|0
 parameter_list|)
 function_decl|;
 block|}

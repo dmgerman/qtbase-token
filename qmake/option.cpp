@@ -918,9 +918,6 @@ name|char
 modifier|*
 modifier|*
 name|argv
-parameter_list|,
-name|int
-name|skip
 parameter_list|)
 block|{
 name|QStringList
@@ -936,7 +933,7 @@ control|(
 name|int
 name|x
 init|=
-name|skip
+literal|0
 init|;
 name|x
 operator|<
@@ -2802,6 +2799,12 @@ operator|&&
 name|argv
 condition|)
 block|{
+name|argv
+operator|++
+operator|,
+name|argc
+operator|--
+expr_stmt|;
 name|int
 name|ret
 init|=
@@ -2810,8 +2813,6 @@ argument_list|(
 name|argc
 argument_list|,
 name|argv
-argument_list|,
-literal|1
 argument_list|)
 decl_stmt|;
 if|if
