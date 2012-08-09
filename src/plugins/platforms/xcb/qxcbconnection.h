@@ -87,6 +87,11 @@ elif|#
 directive|elif
 name|XCB_USE_XINPUT2
 end_elif
+begin_include
+include|#
+directive|include
+file|<X11/extensions/XI2.h>
+end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
