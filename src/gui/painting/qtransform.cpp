@@ -109,7 +109,7 @@ begin_comment
 comment|/*!     \fn QTransform::QTransform(Qt::Initialization)     \internal */
 end_comment
 begin_comment
-comment|/*!     Constructs an identity matrix.      All elements are set to zero except \c m11 and \c m22 (specifying     the scale) and \c m13 which are set to 1.      \sa reset() */
+comment|/*!     Constructs an identity matrix.      All elements are set to zero except \c m11 and \c m22 (specifying     the scale) and \c m33 which are set to 1.      \sa reset() */
 end_comment
 begin_constructor
 DECL|function|QTransform
