@@ -2,6 +2,16 @@ begin_unit
 begin_comment
 comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
+begin_comment
+comment|// ask for the latest POSIX, just in case
+end_comment
+begin_define
+DECL|macro|_POSIX_C_SOURCE
+define|#
+directive|define
+name|_POSIX_C_SOURCE
+value|200809L
+end_define
 begin_include
 include|#
 directive|include
@@ -214,29 +224,11 @@ name|qint64
 name|fractionAdjustment
 parameter_list|()
 block|{
-comment|// disabled, but otherwise indicates bad usage of QElapsedTimer
-comment|//Q_ASSERT(monotonicClockChecked);
-if|if
-condition|(
-name|monotonicClockAvailable
-condition|)
-block|{
-comment|// the monotonic timer is measured in nanoseconds
-comment|// 1 ms = 1000000 ns
 return|return
 literal|1000
 operator|*
 literal|1000ull
 return|;
-block|}
-else|else
-block|{
-comment|// gettimeofday is measured in microseconds
-comment|// 1 ms = 1000 us
-return|return
-literal|1000
-return|;
-block|}
 block|}
 end_function
 begin_function
@@ -342,6 +334,38 @@ return|return;
 block|}
 endif|#
 directive|endif
+ifdef|#
+directive|ifdef
+name|CLOCK_REALTIME
+comment|// even if we don't have a monotonic clock,
+comment|// we can use clock_gettime -> nanosecond resolution
+name|timespec
+name|ts
+decl_stmt|;
+name|clock_gettime
+argument_list|(
+name|CLOCK_REALTIME
+argument_list|,
+operator|&
+name|ts
+argument_list|)
+expr_stmt|;
+operator|*
+name|sec
+operator|=
+name|ts
+operator|.
+name|tv_sec
+expr_stmt|;
+operator|*
+name|frac
+operator|=
+name|ts
+operator|.
+name|tv_nsec
+expr_stmt|;
+else|#
+directive|else
 comment|// use gettimeofday
 name|timeval
 name|tv
@@ -368,7 +392,11 @@ operator|=
 name|tv
 operator|.
 name|tv_usec
+operator|*
+literal|1000
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_comment
@@ -408,15 +436,7 @@ operator|.
 name|tv_usec
 operator|=
 name|frac
-expr_stmt|;
-if|if
-condition|(
-name|monotonicClockAvailable
-condition|)
-name|tv
-operator|.
-name|tv_usec
-operator|/=
+operator|/
 literal|1000
 expr_stmt|;
 return|return
@@ -558,15 +578,6 @@ operator|=
 name|frac
 operator|-
 name|t2
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|monotonicClockAvailable
-condition|)
-name|frac
-operator|*=
-literal|1000
 expr_stmt|;
 return|return
 name|sec
