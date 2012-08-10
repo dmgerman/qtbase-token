@@ -1500,12 +1500,8 @@ name|rc
 return|;
 block|}
 end_function
-begin_endif
-unit|};
-endif|#
-directive|endif
-end_endif
 begin_expr_stmt
+unit|};
 name|QT_END_NAMESPACE
 name|QT_END_HEADER
 end_expr_stmt
@@ -1513,4 +1509,14 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// QT_NO_ACCESSIBILITY
+end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QTESTACCESSIBLE_H
+end_comment
 end_unit
