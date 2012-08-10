@@ -110,6 +110,21 @@ operator|&
 name|workPath
 argument_list|)
 block|;
+comment|// executes a qmake -project on the specified workDir
+name|bool
+name|qmakeProject
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|workDir
+argument_list|,
+specifier|const
+name|QString
+operator|&
+name|proName
+argument_list|)
+block|;
 comment|// executes a qmake on proName in the specified workDir, output goes to buildDir or workDir if it's null
 name|bool
 name|qmake
@@ -165,6 +180,36 @@ specifier|const
 name|QString
 operator|&
 name|workPath
+argument_list|)
+block|;
+comment|// removes the project file specified by 'project' on the 'workPath'
+name|bool
+name|removeProject
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|workPath
+argument_list|,
+specifier|const
+name|QString
+operator|&
+name|project
+argument_list|)
+block|;
+comment|// removes the file specified by 'fileName' on the 'workPath'
+name|bool
+name|removeFile
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|workPath
+argument_list|,
+specifier|const
+name|QString
+operator|&
+name|fileName
 argument_list|)
 block|;
 comment|// returns each line of stdout of the last command append with a "new line" character(s) to suit the platform
