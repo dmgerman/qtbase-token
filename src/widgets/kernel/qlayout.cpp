@@ -5497,7 +5497,15 @@ operator|<<
 literal|14
 operator||
 comment|// [14]
-comment|//policy.bits.padding<< 15 |     // [15]
+name|policy
+operator|.
+name|bits
+operator|.
+name|retainSizeWhenHidden
+operator|<<
+literal|15
+operator||
+comment|// [15]
 name|policy
 operator|.
 name|bits
@@ -5643,9 +5651,16 @@ name|policy
 operator|.
 name|bits
 operator|.
-name|padding
+name|retainSizeWhenHidden
 operator|=
-literal|0
+name|VALUE_OF_BITS
+argument_list|(
+name|data
+argument_list|,
+literal|15
+argument_list|,
+literal|1
+argument_list|)
 expr_stmt|;
 name|policy
 operator|.

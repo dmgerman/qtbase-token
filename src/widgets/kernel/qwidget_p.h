@@ -3360,6 +3360,13 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|uint
+name|retainSizeWhenHiddenChanged
+range|:
+literal|1
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|uint
 name|inDirtyList
 range|:
 literal|1
