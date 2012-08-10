@@ -399,7 +399,7 @@ block|{
 name|StaticMetaCallFunction
 name|callFunction
 block|;
-name|QObject
+name|QtPrivate
 operator|::
 name|QSlotObjectBase
 operator|*
@@ -1063,7 +1063,7 @@ block|;
 comment|/*! \internal         \a signalId is in the signal index range (see QObjectPrivate::signalIndex()).     */
 name|QMetaCallEvent
 argument_list|(
-argument|QObject::QSlotObjectBase *slotObj
+argument|QtPrivate::QSlotObjectBase *slotObj
 argument_list|,
 argument|const QObject *sender
 argument_list|,
@@ -1143,7 +1143,7 @@ argument_list|)
 block|;
 name|private
 operator|:
-name|QObject
+name|QtPrivate
 operator|::
 name|QSlotObjectBase
 operator|*
