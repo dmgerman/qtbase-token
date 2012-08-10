@@ -5181,7 +5181,7 @@ literal|0
 argument_list|)
 return|;
 name|struct
-name|timeval
+name|timespec
 name|tv
 decl_stmt|;
 name|tv
@@ -5194,13 +5194,15 @@ literal|1000
 expr_stmt|;
 name|tv
 operator|.
-name|tv_usec
+name|tv_nsec
 operator|=
 operator|(
 name|timeout
 operator|%
 literal|1000
 operator|)
+operator|*
+literal|1000
 operator|*
 literal|1000
 expr_stmt|;

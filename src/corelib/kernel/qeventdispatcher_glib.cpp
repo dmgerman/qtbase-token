@@ -437,7 +437,7 @@ modifier|*
 name|timeout
 parameter_list|)
 block|{
-name|timeval
+name|timespec
 name|tv
 init|=
 block|{
@@ -483,10 +483,12 @@ operator|(
 operator|(
 name|tv
 operator|.
-name|tv_usec
+name|tv_nsec
 operator|+
-literal|999
+literal|999999
 operator|)
+operator|/
+literal|1000
 operator|/
 literal|1000
 operator|)

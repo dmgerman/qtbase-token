@@ -470,7 +470,8 @@ begin_comment
 comment|// used in qcore_unix.cpp and qeventdispatcher_unix.cpp
 end_comment
 begin_function
-name|timeval
+name|struct
+name|timespec
 name|qt_gettime
 parameter_list|()
 name|Q_DECL_NOTHROW
@@ -489,7 +490,7 @@ operator|&
 name|frac
 argument_list|)
 expr_stmt|;
-name|timeval
+name|timespec
 name|tv
 decl_stmt|;
 name|tv
@@ -500,11 +501,9 @@ name|sec
 expr_stmt|;
 name|tv
 operator|.
-name|tv_usec
+name|tv_nsec
 operator|=
 name|frac
-operator|/
-literal|1000
 expr_stmt|;
 return|return
 name|tv

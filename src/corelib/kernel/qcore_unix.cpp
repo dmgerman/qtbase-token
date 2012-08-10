@@ -95,19 +95,19 @@ name|bool
 name|time_update
 parameter_list|(
 name|struct
-name|timeval
+name|timespec
 modifier|*
 name|tv
 parameter_list|,
 specifier|const
 name|struct
-name|timeval
+name|timespec
 modifier|&
 name|start
 parameter_list|,
 specifier|const
 name|struct
-name|timeval
+name|timespec
 modifier|&
 name|timeout
 parameter_list|)
@@ -128,7 +128,7 @@ return|;
 block|}
 comment|// clock source is monotonic, so we can recalculate how much timeout is left
 name|struct
-name|timeval
+name|timespec
 name|now
 init|=
 name|qt_gettime
@@ -174,7 +174,7 @@ name|fdexcept
 parameter_list|,
 specifier|const
 name|struct
-name|timeval
+name|timespec
 modifier|*
 name|orig_timeout
 parameter_list|)
@@ -212,13 +212,13 @@ return|return
 name|ret
 return|;
 block|}
-name|timeval
+name|timespec
 name|start
 init|=
 name|qt_gettime
 argument_list|()
 decl_stmt|;
-name|timeval
+name|timespec
 name|timeout
 init|=
 operator|*
@@ -233,7 +233,7 @@ block|{
 name|ret
 operator|=
 operator|::
-name|select
+name|pselect
 argument_list|(
 name|nfds
 argument_list|,
@@ -245,6 +245,8 @@ name|fdexcept
 argument_list|,
 operator|&
 name|timeout
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 if|if

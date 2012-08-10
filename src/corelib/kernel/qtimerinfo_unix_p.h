@@ -88,7 +88,7 @@ name|timerType
 expr_stmt|;
 comment|// - timer type
 DECL|member|timeout
-name|timeval
+name|timespec
 name|timeout
 decl_stmt|;
 comment|// - when to actually fire
@@ -160,7 +160,7 @@ name|defined
 argument_list|(
 name|QT_BOOTSTRAPPED
 argument_list|)
-name|timeval
+name|timespec
 name|previousTime
 block|;
 name|clock_t
@@ -175,7 +175,7 @@ block|;
 name|bool
 name|timeChanged
 argument_list|(
-name|timeval
+name|timespec
 operator|*
 name|delta
 argument_list|)
@@ -184,7 +184,7 @@ name|void
 name|timerRepair
 argument_list|(
 specifier|const
-name|timeval
+name|timespec
 operator|&
 argument_list|)
 block|;
@@ -200,10 +200,10 @@ operator|:
 name|QTimerInfoList
 argument_list|()
 block|;
-name|timeval
+name|timespec
 name|currentTime
 block|;
-name|timeval
+name|timespec
 name|updateCurrentTime
 argument_list|()
 block|;
@@ -215,7 +215,7 @@ block|;
 name|bool
 name|timerWait
 argument_list|(
-name|timeval
+name|timespec
 operator|&
 argument_list|)
 block|;

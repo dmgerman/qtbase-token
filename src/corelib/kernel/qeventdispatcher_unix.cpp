@@ -678,7 +678,7 @@ operator|::
 name|ProcessEventsFlags
 name|flags
 parameter_list|,
-name|timeval
+name|timespec
 modifier|*
 name|timeout
 parameter_list|)
@@ -1589,7 +1589,7 @@ name|fd_set
 modifier|*
 name|exceptfds
 parameter_list|,
-name|timeval
+name|timespec
 modifier|*
 name|timeout
 parameter_list|)
@@ -3018,13 +3018,13 @@ name|interrupt
 condition|)
 block|{
 comment|// return the maximum time we can wait for an event.
-name|timeval
+name|timespec
 modifier|*
 name|tm
 init|=
 literal|0
 decl_stmt|;
-name|timeval
+name|timespec
 name|wait_tm
 init|=
 block|{
@@ -3087,7 +3087,7 @@ literal|0l
 expr_stmt|;
 name|tm
 operator|->
-name|tv_usec
+name|tv_nsec
 operator|=
 literal|0l
 expr_stmt|;

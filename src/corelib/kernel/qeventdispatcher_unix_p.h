@@ -350,7 +350,7 @@ argument|fd_set *writefds
 argument_list|,
 argument|fd_set *exceptfds
 argument_list|,
-argument|timeval *timeout
+argument|timespec *timeout
 argument_list|)
 block|; }
 decl_stmt|;
@@ -381,7 +381,7 @@ name|doSelect
 argument_list|(
 argument|QEventLoop::ProcessEventsFlags flags
 argument_list|,
-argument|timeval *timeout
+argument|timespec *timeout
 argument_list|)
 block|;
 name|virtual
