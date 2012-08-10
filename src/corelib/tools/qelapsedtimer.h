@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QTIMESTAMP_H
+name|QELAPSEDTIMER_H
 end_ifndef
 begin_define
-DECL|macro|QTIMESTAMP_H
+DECL|macro|QELAPSEDTIMER_H
 define|#
 directive|define
-name|QTIMESTAMP_H
+name|QELAPSEDTIMER_H
 end_define
 begin_include
 include|#
@@ -211,6 +211,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QTIMESTAMP_H
+comment|// QELAPSEDTIMER_H
 end_comment
 end_unit
