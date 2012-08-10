@@ -187,11 +187,6 @@ argument_list|,
 name|QString
 argument_list|>
 name|PluginKeyMap
-argument_list|;     typedef
-name|PluginKeyMap
-operator|::
-name|const_iterator
-name|PluginKeyMapConstIterator
 argument_list|;
 comment|// check if any plugins can write the image
 name|QFactoryLoader

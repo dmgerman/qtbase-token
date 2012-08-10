@@ -438,12 +438,6 @@ name|QString
 argument_list|>
 name|PluginKeyMap
 typedef|;
-typedef|typedef
-name|PluginKeyMap
-operator|::
-name|const_iterator
-name|PluginKeyMapConstIterator
-typedef|;
 comment|// check if we have plugins that support the image format
 name|QFactoryLoader
 modifier|*
