@@ -18,14 +18,6 @@ include|#
 directive|include
 file|<QtCore/qglobal.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<limits.h>
-end_include
-begin_comment
-comment|// ### Qt 5: remove
-end_comment
 begin_expr_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
