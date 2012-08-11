@@ -744,7 +744,7 @@ argument_list|)
 expr_stmt|;
 name|d_ptr
 operator|.
-name|fetchAndStoreRelease
+name|storeRelease
 argument_list|(
 literal|0
 argument_list|)
