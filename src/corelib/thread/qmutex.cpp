@@ -466,6 +466,25 @@ begin_comment
 comment|/*!     \internal helper for lock()  */
 end_comment
 begin_function
+name|void
+name|QBasicMutex
+operator|::
+name|lockInternal
+parameter_list|()
+name|QT_MUTEX_LOCK_NOEXCEPT
+block|{
+name|lockInternal
+argument_list|(
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*!     \internal helper for lock(int)  */
+end_comment
+begin_function
 name|bool
 name|QBasicMutex
 operator|::
