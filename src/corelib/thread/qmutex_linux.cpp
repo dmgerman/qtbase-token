@@ -364,27 +364,6 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-while|while
-condition|(
-operator|!
-name|fastTryLock
-argument_list|()
-condition|)
-block|{
-name|d
-operator|=
-name|d_ptr
-operator|.
-name|load
-argument_list|()
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|d
-condition|)
-comment|// if d is 0, the mutex is unlocked
-continue|continue;
 comment|// the mutex is locked already, set a bit indicating we're waiting
 while|while
 condition|(
@@ -518,10 +497,9 @@ condition|)
 return|return
 literal|false
 return|;
-block|}
-return|return
-literal|true
-return|;
+comment|// we got woken up, so try to acquire the mutex
+comment|// note we must set to dummyFutexValue because there could be other threads
+comment|// also waiting
 block|}
 name|Q_ASSERT
 argument_list|(
