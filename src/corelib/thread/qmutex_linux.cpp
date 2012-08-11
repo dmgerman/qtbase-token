@@ -377,6 +377,15 @@ name|timeout
 argument_list|)
 return|;
 block|}
+if|if
+condition|(
+name|timeout
+operator|==
+literal|0
+condition|)
+return|return
+literal|false
+return|;
 name|QElapsedTimer
 name|elapsedTimer
 decl_stmt|;
@@ -412,15 +421,6 @@ name|d
 condition|)
 comment|// if d is 0, the mutex is unlocked
 continue|continue;
-if|if
-condition|(
-name|timeout
-operator|==
-literal|0
-condition|)
-return|return
-literal|false
-return|;
 comment|// the mutex is locked already, set a bit indicating we're waiting
 while|while
 condition|(
