@@ -1504,15 +1504,16 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_function_decl
-name|timeval
-name|qt_gettime
-parameter_list|()
-function_decl|;
-end_function_decl
 begin_comment
 comment|// in qelapsedtimer_mac.cpp or qtimestamp_unix.cpp
 end_comment
+begin_expr_stmt
+name|timeval
+name|qt_gettime
+argument_list|()
+name|Q_DECL_NOTHROW
+expr_stmt|;
+end_expr_stmt
 begin_function_decl
 name|Q_CORE_EXPORT
 name|int
