@@ -450,6 +450,41 @@ return|;
 block|}
 end_function
 begin_function
+DECL|function|qt_nanosleep
+name|void
+name|qt_nanosleep
+parameter_list|(
+name|timespec
+name|amount
+parameter_list|)
+block|{
+comment|// We'd like to use clock_nanosleep.
+comment|//
+comment|// But clock_nanosleep is from POSIX.1-2001 and both are *not*
+comment|// affected by clock changes when using relative sleeps, even for
+comment|// CLOCK_REALTIME.
+comment|//
+comment|// nanosleep is POSIX.1-1993
+name|int
+name|r
+decl_stmt|;
+name|EINTR_LOOP
+argument_list|(
+name|r
+argument_list|,
+name|nanosleep
+argument_list|(
+operator|&
+name|amount
+argument_list|,
+operator|&
+name|amount
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_function
 DECL|function|elapsedAndRestart
 specifier|static
 name|qint64

@@ -1515,6 +1515,15 @@ name|Q_DECL_NOTHROW
 expr_stmt|;
 end_expr_stmt
 begin_function_decl
+name|void
+name|qt_nanosleep
+parameter_list|(
+name|timespec
+name|amount
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
 name|Q_CORE_EXPORT
 name|int
 name|qt_safe_select
