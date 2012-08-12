@@ -13415,7 +13415,7 @@ specifier|const
 name|int
 name|step
 init|=
-literal|1
+literal|5
 decl_stmt|;
 endif|#
 directive|endif
