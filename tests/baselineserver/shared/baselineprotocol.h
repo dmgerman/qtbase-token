@@ -73,6 +73,13 @@ begin_decl_stmt
 specifier|extern
 specifier|const
 name|QString
+name|PI_Project
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+specifier|extern
+specifier|const
+name|QString
 name|PI_TestCase
 decl_stmt|;
 end_decl_stmt
@@ -382,6 +389,16 @@ DECL|enumerator|Mismatch
 name|Mismatch
 init|=
 literal|3
+block|,
+DECL|enumerator|FuzzyMatch
+name|FuzzyMatch
+init|=
+literal|4
+block|,
+DECL|enumerator|Error
+name|Error
+init|=
+literal|5
 block|}
 enum|;
 DECL|member|testFunction
@@ -546,6 +563,10 @@ name|RequestBaselineChecksums
 init|=
 literal|2
 block|,
+name|AcceptMatch
+init|=
+literal|3
+block|,
 name|AcceptNewBaseline
 init|=
 literal|4
@@ -566,6 +587,10 @@ block|,
 name|DoDryRun
 init|=
 literal|130
+block|,
+name|FuzzyMatch
+init|=
+literal|131
 block|}
 enum|;
 comment|// For client:
@@ -594,6 +619,10 @@ argument_list|()
 parameter_list|)
 function_decl|;
 name|bool
+name|disconnect
+parameter_list|()
+function_decl|;
+name|bool
 name|requestBaselineChecksums
 parameter_list|(
 specifier|const
@@ -604,6 +633,19 @@ parameter_list|,
 name|ImageItemList
 modifier|*
 name|itemList
+parameter_list|)
+function_decl|;
+name|bool
+name|submitMatch
+parameter_list|(
+specifier|const
+name|ImageItem
+modifier|&
+name|item
+parameter_list|,
+name|QByteArray
+modifier|*
+name|serverMsg
 parameter_list|)
 function_decl|;
 name|bool
@@ -630,6 +672,12 @@ parameter_list|,
 name|QByteArray
 modifier|*
 name|serverMsg
+parameter_list|,
+name|bool
+modifier|*
+name|fuzzyMatch
+init|=
+literal|0
 parameter_list|)
 function_decl|;
 comment|// For server:
