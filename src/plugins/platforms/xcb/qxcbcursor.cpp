@@ -78,6 +78,11 @@ modifier|*
 parameter_list|)
 function_decl|;
 end_typedef
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|XCB_USE_XLIB
+end_ifdef
 begin_decl_stmt
 DECL|variable|ptrXcursorLibraryLoadCursor
 specifier|static
@@ -87,6 +92,10 @@ init|=
 literal|0
 decl_stmt|;
 end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_decl_stmt
 DECL|variable|cursorFont
 specifier|static
