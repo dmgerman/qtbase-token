@@ -222,12 +222,7 @@ name|cmd
 init|=
 name|QString
 argument_list|(
-literal|"%2/qmake \"QT_VERSION=%1\""
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|QT_VERSION
+literal|"%1/qmake"
 argument_list|)
 operator|.
 name|arg
