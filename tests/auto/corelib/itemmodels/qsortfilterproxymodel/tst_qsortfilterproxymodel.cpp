@@ -14701,19 +14701,18 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|//update one item.
-name|model
+name|items
 operator|.
-name|setItem
-argument_list|(
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-operator|new
-name|QStandardItem
+name|first
+argument_list|()
+operator|->
+name|setData
 argument_list|(
 literal|"girafe"
-argument_list|)
+argument_list|,
+name|Qt
+operator|::
+name|DisplayRole
 argument_list|)
 expr_stmt|;
 comment|// make sure the proxy is updated but not sorted
