@@ -1584,7 +1584,13 @@ decl_stmt|;
 comment|// Windows 7 or later, try the new API
 if|if
 condition|(
+operator|(
 name|osver
+operator|&
+name|QSysInfo
+operator|::
+name|WV_NT_based
+operator|)
 operator|>=
 name|QSysInfo
 operator|::
@@ -1618,11 +1624,19 @@ name|socket
 operator|==
 name|INVALID_SOCKET
 operator|&&
+operator|(
+operator|(
 name|osver
+operator|&
+name|QSysInfo
+operator|::
+name|WV_NT_based
+operator|)
 operator|<=
 name|QSysInfo
 operator|::
 name|WV_6_1
+operator|)
 condition|)
 block|{
 name|socket
