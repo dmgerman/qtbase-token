@@ -3699,8 +3699,8 @@ literal|5
 operator|,
 literal|0
 argument_list|)
+block|enum
 name|QT_DEPRECATED
-expr|enum
 name|DeviceType
 block|{
 name|TouchScreen

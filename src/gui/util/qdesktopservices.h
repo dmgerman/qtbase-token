@@ -101,8 +101,8 @@ operator|,
 literal|0
 argument_list|)
 comment|//Must match QStandardPaths::StandardLocation
-name|QT_DEPRECATED
 name|enum
+name|QT_DEPRECATED
 name|StandardLocation
 block|{
 name|DesktopLocation
