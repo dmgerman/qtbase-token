@@ -104,7 +104,7 @@ name|parent
 parameter_list|,
 name|Qt
 operator|::
-name|WFlags
+name|WindowFlags
 name|f
 parameter_list|)
 member_init_list|:

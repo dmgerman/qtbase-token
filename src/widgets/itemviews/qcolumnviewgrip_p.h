@@ -108,7 +108,7 @@ argument_list|,
 argument|QWidget *parent =
 literal|0
 argument_list|,
-argument|Qt::WFlags f =
+argument|Qt::WindowFlags f =
 literal|0
 argument_list|)
 block|;
