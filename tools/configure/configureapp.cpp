@@ -18410,6 +18410,43 @@ name|endl
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|dictionary
+index|[
+literal|"XQMAKESPEC"
+index|]
+operator|.
+name|isEmpty
+argument_list|()
+operator|&&
+operator|!
+name|dictionary
+index|[
+literal|"XQMAKESPEC"
+index|]
+operator|.
+name|startsWith
+argument_list|(
+literal|"wince"
+argument_list|)
+condition|)
+block|{
+comment|// FIXME: add detection
+name|configStream
+operator|<<
+literal|"QMAKE_DEFAULT_LIBDIRS = /lib /usr/lib"
+operator|<<
+name|endl
+expr_stmt|;
+name|configStream
+operator|<<
+literal|"QMAKE_DEFAULT_INCDIRS = /usr/include /usr/local/include"
+operator|<<
+name|endl
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|dictionary
 index|[
 literal|"QT_EDITION"
