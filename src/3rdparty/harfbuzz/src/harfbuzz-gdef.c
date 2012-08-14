@@ -237,6 +237,8 @@ parameter_list|)
 block|{
 name|HB_Error
 name|error
+init|=
+name|HB_Err_Ok
 decl_stmt|;
 name|HB_UInt
 name|cur_offset

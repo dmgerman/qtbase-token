@@ -199,6 +199,8 @@ name|gpos
 decl_stmt|;
 name|HB_Error
 name|error
+init|=
+name|HB_Err_Ok
 decl_stmt|;
 if|if
 condition|(
