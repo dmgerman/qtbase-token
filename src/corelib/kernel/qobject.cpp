@@ -2103,8 +2103,11 @@ argument_list|)
 member_init_list|,
 name|method_relative_
 argument_list|(
+name|ushort
+argument_list|(
 operator|-
 literal|1
+argument_list|)
 argument_list|)
 block|{
 if|if
