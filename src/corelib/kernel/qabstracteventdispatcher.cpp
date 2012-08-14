@@ -62,7 +62,7 @@ DECL|enumerator|BlockCount
 name|BlockCount
 init|=
 literal|6
-block|,     }
+block|}
 enum|;
 DECL|member|Sizes
 specifier|static

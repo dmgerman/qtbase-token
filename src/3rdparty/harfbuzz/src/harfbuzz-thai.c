@@ -1413,7 +1413,7 @@ name|WIN
 block|,
 DECL|enumerator|MAC
 name|MAC
-block|, }
+block|}
 enum|;
 end_enum
 begin_function
