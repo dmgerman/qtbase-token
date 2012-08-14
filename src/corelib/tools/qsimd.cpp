@@ -1307,6 +1307,64 @@ name|void
 name|qDetectCpuFeatures
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_CC_GNU
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_CC_CLANG
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_CC_INTEL
+argument_list|)
+if|#
+directive|if
+operator|(
+name|__GNUC__
+operator|*
+literal|100
+operator|+
+name|__GNUC_MINOR__
+operator|)
+operator|<
+literal|403
+comment|// GCC 4.2 (at least the one that comes with Apple's XCode, on Mac) is
+comment|// known to be broken beyond repair in dealing with the inline assembly
+comment|// above. It will generate bad code that could corrupt important registers
+comment|// like the PIC register. The behaviour of code after this function would
+comment|// be totally unpredictable.
+comment|//
+comment|// For that reason, simply forego the CPUID check at all and return the set
+comment|// of features that we found at compile time, through the #defines from the
+comment|// compiler. This should at least allow code to execute, even if none of
+comment|// the specialised code found in QtGui and elsewhere will ever be enabled
+comment|// (it's the user's fault for using a broken compiler).
+comment|//
+comment|// This also disables the runtime checking that the processor actually
+comment|// contains all the features that the code required. Qt 4 ran for years
+comment|// like that, so it shouldn't be a problem.
+name|qt_cpu_features
+operator|.
+name|store
+argument_list|(
+name|minFeature
+operator||
+name|QSimdInitialized
+argument_list|)
+expr_stmt|;
+return|return;
+endif|#
+directive|endif
+endif|#
+directive|endif
 name|uint
 name|f
 init|=
