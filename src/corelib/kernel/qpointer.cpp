@@ -12,13 +12,7 @@ begin_comment
 comment|/*!     \fn QPointer::QPointer(T* p)      Constructs a guarded pointer that points to same object that \a p     points to. */
 end_comment
 begin_comment
-comment|/*!     \fn QPointer::QPointer(const QPointer<T>&p)      Copies one guarded pointer from another. The constructed guarded     pointer points to the same object that \a p points to (which may     be 0). */
-end_comment
-begin_comment
 comment|/*!     \fn QPointer::~QPointer()      Destroys the guarded pointer. Just like a normal pointer,     destroying a guarded pointer does \e not destroy the object being     pointed to. */
-end_comment
-begin_comment
-comment|/*!     \fn QPointer<T>& QPointer::operator=(const QPointer<T>&p)      Assignment operator. This guarded pointer will now point to the     same object that \a p points to. */
 end_comment
 begin_comment
 comment|/*!     \fn QPointer<T>& QPointer::operator=(T* p)      Assignment operator. This guarded pointer will now point to the     same object that \a p points to. */
