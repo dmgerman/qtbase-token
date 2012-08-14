@@ -188,7 +188,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     \fn void QAbstractTextDocumentLayout::registerHandler(int objectType, QObject *component)      Registers the given \a component as a handler for items of the given \a objectType.      \note registerHandler() has to be called once for each object type. This     means that there is only one handler for multiple replacement characters     of the same object type. */
+comment|/*!     \fn void QAbstractTextDocumentLayout::registerHandler(int objectType, QObject *component)      Registers the given \a component as a handler for items of the given \a objectType.      \note registerHandler() has to be called once for each object type. This     means that there is only one handler for multiple replacement characters     of the same object type.      The text document layout does not take ownership of \c component. */
 end_comment
 begin_function
 DECL|function|registerHandler
