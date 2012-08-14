@@ -1753,6 +1753,29 @@ name|ptr
 operator|=
 literal|0
 block|; }
+comment|// Internal constructor for initialized variants.
+name|explicit
+specifier|inline
+name|Private
+argument_list|(
+argument|uint variantType
+argument_list|)
+operator|:
+name|type
+argument_list|(
+name|variantType
+argument_list|)
+block|,
+name|is_shared
+argument_list|(
+name|false
+argument_list|)
+block|,
+name|is_null
+argument_list|(
+argument|false
+argument_list|)
+block|{}
 specifier|inline
 name|Private
 argument_list|(
