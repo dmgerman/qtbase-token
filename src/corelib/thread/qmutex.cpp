@@ -1289,6 +1289,8 @@ condition|)
 block|{
 name|mutex
 operator|.
+name|QBasicMutex
+operator|::
 name|lock
 argument_list|()
 expr_stmt|;
@@ -1348,6 +1350,8 @@ literal|0
 expr_stmt|;
 name|mutex
 operator|.
+name|QBasicMutex
+operator|::
 name|unlock
 argument_list|()
 expr_stmt|;
