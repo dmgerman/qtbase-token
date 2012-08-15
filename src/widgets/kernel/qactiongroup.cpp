@@ -1106,15 +1106,6 @@ end_comment
 begin_comment
 comment|/*!     \fn void QActionGroup::hovered(QAction *action)      This signal is emitted when the given \a action in the action     group is highlighted by the user; for example, when the user     pauses with the cursor over a menu option, toolbar button, or     presses an action's shortcut key combination.      \sa QAction::activate() */
 end_comment
-begin_comment
-comment|/*!     \fn void QActionGroup::add(QAction* a)      Use addAction() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QActionGroup::addSeparator()      Normally you add a separator to the menus or widgets to which     actions are added, so this function is very rarely needed.      \oldcode     actionGroup->addSeparator();     \newcode     QAction *separator = new QAction(this);     separator->setSeparator(true);     actionGroup->addAction(separator);     \endcode */
-end_comment
-begin_comment
-comment|/*!     \fn bool QActionGroup::addTo(QWidget *widget)      \oldcode     actionGroup->addTo(widget);     \newcode     widget->addActions(actionGroup->actions());     \endcode */
-end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
