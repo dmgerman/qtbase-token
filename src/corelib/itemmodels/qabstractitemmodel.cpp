@@ -4136,12 +4136,6 @@ begin_comment
 comment|/*!     \fn QModelIndex::QModelIndex(int row, int column, void *data, const QAbstractItemModel *model)      \internal      Creates a new model index at the given \a row and \a column,     pointing to some \a data. */
 end_comment
 begin_comment
-comment|/*!     \fn QModelIndex::QModelIndex(const QModelIndex&other)      Creates a new model index that is a copy of the \a other model     index. */
-end_comment
-begin_comment
-comment|/*!     \fn QModelIndex::~QModelIndex()      Destroys the model index. */
-end_comment
-begin_comment
 comment|/*!     \fn int QModelIndex::row() const      Returns the row this model index refers to. */
 end_comment
 begin_comment

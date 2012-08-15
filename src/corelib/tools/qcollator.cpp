@@ -228,7 +228,7 @@ begin_comment
 comment|/*!     \class QCollator     \brief The QCollator class compares strings according to a localized collation algorithm.      \internal      \reentrant     \ingroup i18n     \ingroup string-processing     \ingroup shared      QCollator is initialized with a QLocale and an optional collation strategy. It tries to     initialize the collator with the specified values. The collator can then be used to compare     and sort strings in a locale dependent fashion.      A QCollator object can be used together with template based sorting algorithms such as qSort     to sort a list of QStrings.      In addition to the locale and collation strategy, several optional flags can be set that influence     the result of the collation. */
 end_comment
 begin_comment
-comment|/*!     Constructs a QCollator from \a locale and \a collation. If \a collation is not     specified the default collation algorithm for the locale is being used. If     \a locale is not specified QLocale::default() is being used.      \sa setLocale setCollation setOptions  */
+comment|/*!     Constructs a QCollator from \a locale and \a collation. If \a collation is not     specified the default collation algorithm for the locale is being used. If     \a locale is not specified QLocale::default() is being used.      \sa setLocale, setCollation, setOptions  */
 end_comment
 begin_constructor
 DECL|function|QCollator
@@ -681,7 +681,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \enum QCollator::collation      This enum can be used to specify an alternate collation algorithm to be used instead     of the default algorithm for the locale.      Possible values are:      \value Default Use the default algorithm for the locale     \value Big5Han     \value Dictionary     \value Direct     \value GB2312Han     \value PhoneBook     \value Pinyin     \value Phonetic     \value Reformed     \value Standard     \value Stroke     \value Traditional     \value UniHan */
+comment|/*!     \enum QCollator::Collation      This enum can be used to specify an alternate collation algorithm to be used instead     of the default algorithm for the locale.      Possible values are:      \value Default Use the default algorithm for the locale     \value Big5Han     \value Direct     \value GB2312Han     \value PhoneBook     \value Pinyin     \value Phonetic     \value Reformed     \value Standard     \value Stroke     \value Traditional     \value UniHan */
 end_comment
 begin_comment
 comment|/*!     Sets the collation algorithm to be used.      \sa QCollator::Collation  */

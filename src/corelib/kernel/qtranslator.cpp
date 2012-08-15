@@ -2459,7 +2459,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \overload load()   \fn bool QTranslator::load(const uchar *data, int len)    Loads the QM file data \a data of length \a len into the   translator.    The data is not copied. The caller must be able to guarantee that \a data   will not be deleted or modified.    \a directory is only used to specify the base directory when loading the dependencies   of a QM file. If the file does not have dependencies, this argument is ignored. */
+comment|/*!   \overload load()    Loads the QM file data \a data of length \a len into the   translator.    The data is not copied. The caller must be able to guarantee that \a data   will not be deleted or modified.    \a directory is only used to specify the base directory when loading the dependencies   of a QM file. If the file does not have dependencies, this argument is ignored. */
 end_comment
 begin_function
 DECL|function|load

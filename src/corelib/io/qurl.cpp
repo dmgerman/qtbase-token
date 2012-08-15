@@ -10003,7 +10003,7 @@ begin_comment
 comment|/*!     \fn DataPtr&QUrl::data_ptr()     \internal */
 end_comment
 begin_comment
-comment|/*! \fn uint qHash(const QUrl&url, uint seed = 0)     \relates QHash     \since 5.0      Returns the hash value for the \a url. If specified, \a seed is used to     initialize the hash.  */
+comment|/*!     \relates QHash     \since 5.0      Returns the hash value for the \a url. If specified, \a seed is used to     initialize the hash.  */
 end_comment
 begin_function
 DECL|function|qHash

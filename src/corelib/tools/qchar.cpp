@@ -678,7 +678,7 @@ begin_comment
 comment|/*!     \fn bool QChar::isSurrogate() const     \since 5.0      Returns true if the QChar contains a code point that is in either     the high or the low part of the UTF-16 surrogate range     (i.e. if its code point is in range [0xd800..0xdfff]); false otherwise. */
 end_comment
 begin_comment
-comment|/*!     \fn static bool isNonCharacter(uint ucs4)     \overload     \since 5.0      Returns true if the UCS-4-encoded character specified by \a ucs4     is a non-character; false otherwise.      Unicode has a certain number of code points that are classified     as "non-characters:" that is, they can be used for internal purposes     in applications but cannot be used for text interchange.     Those are the last two entries each Unicode Plane ([0xfffe..0xffff],     [0x1fffe..0x1ffff], etc.) as well as the entries in range [0xfdd0..0xfdef]. */
+comment|/*!     \fn static bool QChar::isNonCharacter(uint ucs4)     \overload     \since 5.0      Returns true if the UCS-4-encoded character specified by \a ucs4     is a non-character; false otherwise.      Unicode has a certain number of code points that are classified     as "non-characters:" that is, they can be used for internal purposes     in applications but cannot be used for text interchange.     Those are the last two entries each Unicode Plane ([0xfffe..0xffff],     [0x1fffe..0x1ffff], etc.) as well as the entries in range [0xfdd0..0xfdef]. */
 end_comment
 begin_comment
 comment|/*!     \fn static bool QChar::isHighSurrogate(uint ucs4)     \overload      Returns true if the UCS-4-encoded character specified by \a ucs4     is the high part of a UTF16 surrogate     (i.e. if its code point is in range [0xd800..0xdbff]); false otherwise. */
