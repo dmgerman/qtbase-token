@@ -2718,9 +2718,6 @@ begin_comment
 comment|/*!     \fn QWidget *QApplication::widgetAt(int x, int y)      \overload      Returns the widget at global screen position (\a x, \a y), or 0 if there is     no Qt widget there. */
 end_comment
 begin_comment
-comment|/*!     \fn void QApplication::setArgs(int argc, char **argv)     \internal */
-end_comment
-begin_comment
 comment|/*!     \internal */
 end_comment
 begin_function
@@ -6985,9 +6982,6 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \fn Qt::WindowsVersion QApplication::winVersion()      Use \l QSysInfo::WindowsVersion instead. */
-end_comment
-begin_comment
 comment|/*!     \fn void QApplication::setActiveWindow(QWidget* active)      Sets the active window to the \a active widget in response to a system     event. The function is called from the platform specific event handlers.      \warning This function does \e not set the keyboard focus to the active     widget. Call QWidget::activateWindow() instead.      It sets the activeWindow() and focusWidget() attributes and sends proper     \l{QEvent::WindowActivate}{WindowActivate}/\l{QEvent::WindowDeactivate}     {WindowDeactivate} and \l{QEvent::FocusIn}{FocusIn}/\l{QEvent::FocusOut}     {FocusOut} events to all appropriate widgets. The window will then be     painted in active state (e.g. cursors in line edits will blink), and it     will have tool tips enabled.      \sa activeWindow(), QWidget::activateWindow() */
 end_comment
 begin_function
@@ -10768,15 +10762,6 @@ argument_list|()
 return|;
 block|}
 end_function
-begin_comment
-comment|/*!     \fn void QApplication::setReverseLayout(bool reverse)      Use setLayoutDirection() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QApplication::reverseLayout()      Use layoutDirection() instead. */
-end_comment
-begin_comment
-comment|/*!     \obsolete      Strips out vertical alignment flags and transforms an alignment \a align     of Qt::AlignLeft into Qt::AlignLeft or Qt::AlignRight according to the     language used. */
-end_comment
 begin_comment
 comment|/*!     Enters the main event loop and waits until exit() is called, then returns     the value that was set to exit() (which is 0 if exit() is called via     quit()).      It is necessary to call this function to start event handling. The main     event loop receives events from the window system and dispatches these to     the application widgets.      Generally, no user interaction can take place before calling exec(). As a     special case, modal widgets like QMessageBox can be used before calling     exec(), because modal widgets call exec() to start a local event loop.      To make your application perform idle processing, i.e., executing a special     function whenever there are no pending events, use a QTimer with 0 timeout.     More advanced idle processing schemes can be achieved using processEvents().      We recommend that you connect clean-up code to the     \l{QCoreApplication::}{aboutToQuit()} signal, instead of putting it in your     application's \c{main()} function. This is because, on some platforms the     QApplication::exec() call may not return. For example, on the Windows     platform, when the user logs off, the system terminates the process after Qt     closes all top-level windows. Hence, there is \e{no guarantee} that the     application will have time to exit its event loop and execute code at the     end of the \c{main()} function, after the QApplication::exec() call.      \sa quitOnLastWindowClosed, quit(), exit(), processEvents(),         QCoreApplication::exec() */
 end_comment
