@@ -1850,6 +1850,9 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Returns the control type associated with the widget for which     this size policy applies.      \sa QSizePolicy::controlType()  */
+end_comment
 begin_function
 DECL|function|controlTypes
 name|QSizePolicy
