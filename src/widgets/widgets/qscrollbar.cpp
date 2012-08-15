@@ -3011,9 +3011,6 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QScrollBar::draggingSlider()      Use isSliderDown() instead. */
-end_comment
-begin_comment
 comment|/*! \internal     Returns the style option for scroll bar. */
 end_comment
 begin_function
