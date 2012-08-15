@@ -5318,12 +5318,6 @@ name|result
 return|;
 block|}
 end_function
-begin_comment
-comment|/*!     \fn void QLayout::setResizeMode(SizeConstraint constraint)      Use setSizeConstraint(\a constraint) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QLayout::SizeConstraint QLayout::resizeMode() const      Use sizeConstraint() instead. */
-end_comment
 begin_function
 DECL|function|setControlType
 name|void

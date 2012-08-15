@@ -4895,9 +4895,6 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn int QBoxLayout::findWidget(QWidget *widget)      Use indexOf(\a widget) instead. */
-end_comment
-begin_comment
 comment|/*!     Sets the stretch factor for \a widget to \a stretch and returns     true if \a widget is found in this layout (not including child     layouts); otherwise returns false.      \sa setAlignment() */
 end_comment
 begin_function
@@ -5580,21 +5577,6 @@ name|QVBoxLayout
 parameter_list|()
 block|{ }
 end_destructor
-begin_comment
-comment|/*!     \fn QWidget *QLayout::mainWidget() const      Use parentWidget() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QLayout::remove(QWidget *widget)      Use removeWidget(\a widget) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QLayout::add(QWidget *widget)      Use addWidget(\a widget) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QLayoutIterator QLayout::iterator()      Use a QLayoutIterator() constructor instead. */
-end_comment
-begin_comment
-comment|/*!     \fn int QLayout::defaultBorder() const      Use spacing() instead. */
-end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

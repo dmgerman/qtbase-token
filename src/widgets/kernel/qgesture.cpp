@@ -1960,7 +1960,7 @@ directive|ifndef
 name|QT_NO_GRAPHICSVIEW
 end_ifndef
 begin_comment
-comment|/*!     Returns the scene-local coordinates if the \a gesturePoint is inside a     graphics view.      This functional might be useful when the gesture event is delivered to a     QGraphicsObject to translate a point in screen coordinates to scene-local     coordinates.      \sa QPointF::isNull(). */
+comment|/*!     Returns the scene-local coordinates if the \a gesturePoint is inside a     graphics view.      This functional might be useful when the gesture event is delivered to a     QGraphicsObject to translate a point in screen coordinates to scene-local     coordinates.      \sa QPointF::isNull() */
 end_comment
 begin_function
 DECL|function|mapToGraphicsScene

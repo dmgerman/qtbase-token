@@ -8703,54 +8703,6 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|/*!     \fn void QGridLayout::addRowSpacing(int row, int minsize)      Use addItem(new QSpacerItem(0, minsize), row, 0) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QGridLayout::addColSpacing(int col, int minsize)      Use addItem(new QSpacerItem(minsize, 0), 0, col) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QGridLayout::addMultiCellWidget(QWidget *widget, int fromRow, int toRow, int fromCol, int toCol, Qt::Alignment align = 0)      Use an addWidget() overload that allows you to specify row and     column spans instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QGridLayout::addMultiCell(QLayoutItem *l, int fromRow, int toRow, int fromCol, int toCol, Qt::Alignment align = 0)      Use an addItem() overload that allows you to specify row and     column spans instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QGridLayout::addMultiCellLayout(QLayout *layout, int fromRow, int toRow, int fromCol, int toCol, Qt::Alignment align = 0)      Use an addLayout() overload that allows you to specify row and     column spans instead. */
-end_comment
-begin_comment
-comment|/*!     \fn int QGridLayout::numRows() const      Use rowCount() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn int QGridLayout::numCols() const      Use columnCount() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QGridLayout::setColStretch(int col, int stretch)      Use setColumnStretch() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn int QGridLayout::colStretch(int col) const      Use columnStretch() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QGridLayout::setColSpacing(int col, int minSize)      Use setColumnMinimumWidth() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn int QGridLayout::colSpacing(int col) const      Use columnMinimumWidth() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QGridLayout::setRowSpacing(int row, int minSize)      Use setRowMinimumHeight(\a row, \a minSize) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn int QGridLayout::rowSpacing(int row) const      Use rowMinimumHeight(\a row) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QRect QGridLayout::cellGeometry(int row, int column) const      Use cellRect(\a row, \a column) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QGridLayout::setOrigin(Qt::Corner corner)      Use setOriginCorner(\a corner) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn Qt::Corner QGridLayout::origin() const      Use originCorner() instead. */
-end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
