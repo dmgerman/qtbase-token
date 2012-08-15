@@ -1296,7 +1296,7 @@ name|position
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*!  Sets action \a action to be triggered repetitively in intervals of \a repeatTime, after an initial delay of \a thresholdTime.  \sa triggerAction() repeatAction()  */
+comment|/*!  Sets action \a action to be triggered repetitively in intervals of \a repeatTime, after an initial delay of \a thresholdTime.  \sa triggerAction(), repeatAction()  */
 DECL|function|setRepeatAction
 name|void
 name|QAbstractSlider
