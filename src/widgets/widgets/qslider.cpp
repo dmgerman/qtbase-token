@@ -979,7 +979,7 @@ begin_comment
 comment|/*!     \class QSlider     \brief The QSlider widget provides a vertical or horizontal slider.      \ingroup basicwidgets     \inmodule QtWidgets      The slider is the classic widget for controlling a bounded value.     It lets the user move a slider handle along a horizontal or vertical     groove and translates the handle's position into an integer value     within the legal range.      QSlider has very few of its own functions; most of the functionality is in     QAbstractSlider. The most useful functions are setValue() to set     the slider directly to some value; triggerAction() to simulate     the effects of clicking (useful for shortcut keys);     setSingleStep(), setPageStep() to set the steps; and setMinimum()     and setMaximum() to define the range of the scroll bar.      QSlider provides methods for controlling tickmarks.  You can use     setTickPosition() to indicate where you want the tickmarks to be,     setTickInterval() to indicate how many of them you want. the     currently set tick position and interval can be queried using the     tickPosition() and tickInterval() functions, respectively.      QSlider inherits a comprehensive set of signals:     \table     \header \li Signal \li Description     \row \li \l valueChanged()     \li Emitted when the slider's value has changed. The tracking()        determines whether this signal is emitted during user        interaction.     \row \li \l sliderPressed()     \li Emitted when the user starts to drag the slider.     \row \li \l sliderMoved()     \li Emitted when the user drags the slider.     \row \li \l sliderReleased()     \li Emitted when the user releases the slider.     \endtable      QSlider only provides integer ranges. Note that although     QSlider handles very large numbers, it becomes difficult for users     to use a slider accurately for very large ranges.      A slider accepts focus on Tab and provides both a mouse wheel and a     keyboard interface. The keyboard interface is the following:      \list         \li Left/Right move a horizontal slider by one single step.         \li Up/Down move a vertical slider by one single step.         \li PageUp moves up one page.         \li PageDown moves down one page.         \li Home moves to the start (mininum).         \li End moves to the end (maximum).     \endlist      \table 100%     \row \li \inlineimage macintosh-slider.png Screenshot of a Macintosh slider          \li A slider shown in the \l{Macintosh Style Widget Gallery}{Macintosh widget style}.     \row \li \inlineimage windows-slider.png Screenshot of a Windows XP slider          \li A slider shown in the \l{Windows XP Style Widget Gallery}{Windows XP widget style}.     \row \li \inlineimage plastique-slider.png Screenshot of a Plastique slider          \li A slider shown in the \l{Plastique Style Widget Gallery}{Plastique widget style}.     \endtable      \sa QScrollBar, QSpinBox, QDial, {fowler}{GUI Design Handbook: Slider}, {Sliders Example} */
 end_comment
 begin_comment
-comment|/*!     \enum QSlider::TickPosition      This enum specifies where the tick marks are to be drawn relative     to the slider's groove and the handle the user moves.      \value NoTicks Do not draw any tick marks.     \value TicksBothSides Draw tick marks on both sides of the groove.     \value TicksAbove Draw tick marks above the (horizontal) slider     \value TicksBelow Draw tick marks below the (horizontal) slider     \value TicksLeft Draw tick marks to the left of the (vertical) slider     \value TicksRight Draw tick marks to the right of the (vertical) slider      \omitvalue NoMarks     \omitvalue Above     \omitvalue Left     \omitvalue Below     \omitvalue Right     \omitvalue Both */
+comment|/*!     \enum QSlider::TickPosition      This enum specifies where the tick marks are to be drawn relative     to the slider's groove and the handle the user moves.      \value NoTicks Do not draw any tick marks.     \value TicksBothSides Draw tick marks on both sides of the groove.     \value TicksAbove Draw tick marks above the (horizontal) slider     \value TicksBelow Draw tick marks below the (horizontal) slider     \value TicksLeft Draw tick marks to the left of the (vertical) slider     \value TicksRight Draw tick marks to the right of the (vertical) slider */
 end_comment
 begin_comment
 comment|/*!     Constructs a vertical slider with the given \a parent. */
@@ -2231,7 +2231,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QSlider::tickInterval     \brief the interval between tickmarks      This is a value interval, not a pixel interval. If it is 0, the     slider will choose between singleStep() and pageStep().      The default value is 0.      \sa tickPosition, lineStep(), pageStep() */
+comment|/*!     \property QSlider::tickInterval     \brief the interval between tickmarks      This is a value interval, not a pixel interval. If it is 0, the     slider will choose between singleStep and pageStep.      The default value is 0.      \sa tickPosition, singleStep, pageStep */
 end_comment
 begin_function
 DECL|function|setTickInterval
@@ -2278,15 +2278,6 @@ name|tickInterval
 return|;
 block|}
 end_function
-begin_comment
-comment|/*!     \fn void QSlider::addStep()      Use setValue() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QSlider::subtractStep()      Use setValue() instead. */
-end_comment
-begin_comment
-comment|/*! \internal     Returns the style option for slider. */
-end_comment
 begin_function
 DECL|function|qt_qsliderStyleOption
 name|Q_WIDGETS_EXPORT
