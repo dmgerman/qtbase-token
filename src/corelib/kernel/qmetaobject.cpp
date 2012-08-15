@@ -2041,7 +2041,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/** \internal * helper function for indexOf{Method,Slot,Signal}, returns the relative index of the method within * the baseObject * \a MethodType might be MethodSignal or MethodSlot, or 0 to match everything. */
+comment|/** * \internal * helper function for indexOf{Method,Slot,Signal}, returns the relative index of the method within * the baseObject * \a MethodType might be MethodSignal or MethodSlot, or 0 to match everything. */
 end_comment
 begin_function
 template|template
@@ -2740,7 +2740,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal     Same as QMetaObject::indexOfSignal, but the result is the local offset to the base object.      \a baseObject will be adjusted to the enclosing QMetaObject, or 0 if the signal is not found */
+comment|/*!     \internal     Same as QMetaObject::indexOfSignal, but the result is the local offset to the base object.      \a baseObject will be adjusted to the enclosing QMetaObject, or 0 if the signal is not found */
 end_comment
 begin_function
 DECL|function|indexOfSignalRelative
@@ -3513,7 +3513,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal     \since 5.0      Returns the signal for the given meta-object \a m at \a signal_index.      It it different from QMetaObject::method(); the index should not include     non-signal methods. */
+comment|/*!     \internal     \since 5.0      Returns the signal for the given meta-object \a m at \a signal_index.      It it different from QMetaObject::method(); the index should not include     non-signal methods. */
 end_comment
 begin_function
 DECL|function|signal
@@ -7455,7 +7455,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal  */
 end_comment
 begin_function
 DECL|function|attributes
@@ -7745,7 +7745,7 @@ begin_comment
 comment|/*!     \fn QMetaMethod QMetaMethod::fromSignal(PointerToMemberFunction signal)     \since 5.0      Returns the meta-method that corresponds to the given \a signal, or an     invalid QMetaMethod if \a signal is not a signal of the class.      Example:      \snippet code/src_corelib_kernel_qmetaobject.cpp 9 */
 end_comment
 begin_comment
-comment|/*! \internal      Implementation of the fromSignal() function.      \a metaObject is the class's meta-object     \a signal is a pointer to a pointer to a member signal of the class */
+comment|/*!     \internal      Implementation of the fromSignal() function.      \a metaObject is the class's meta-object     \a signal is a pointer to a pointer to a member signal of the class */
 end_comment
 begin_function
 DECL|function|fromSignalImpl
@@ -12608,7 +12608,7 @@ begin_comment
 comment|/*!     \fn QGenericReturnArgument::QGenericReturnArgument(const char *name, void *data)      Constructs a QGenericReturnArgument object with the given \a name     and \a data. */
 end_comment
 begin_comment
-comment|/*! \internal     If the local_method_index is a cloned method, return the index of the original.      Example: if the index of "destroyed()" is passed, the index of "destroyed(QObject*)" is returned  */
+comment|/*!     \internal     If the local_method_index is a cloned method, return the index of the original.      Example: if the index of "destroyed()" is passed, the index of "destroyed(QObject*)" is returned  */
 end_comment
 begin_function
 DECL|function|originalClone

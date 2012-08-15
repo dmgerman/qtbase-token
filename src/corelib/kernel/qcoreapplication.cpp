@@ -1906,7 +1906,7 @@ begin_comment
 comment|/*!     \fn static QCoreApplication *QCoreApplication::instance()      Returns a pointer to the application's QCoreApplication (or     QApplication) instance.      If no instance has been allocated, \c null is returned. */
 end_comment
 begin_comment
-comment|/*!\internal  */
+comment|/*!     \internal  */
 end_comment
 begin_constructor
 DECL|function|QCoreApplication
@@ -2830,7 +2830,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!\internal    Helper function called by notify()  */
+comment|/*!   \internal    Helper function called by notify()  */
 end_comment
 begin_function
 DECL|function|notify_helper

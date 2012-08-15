@@ -445,7 +445,7 @@ argument_list|)
 block|{}
 end_constructor
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_destructor
 DECL|function|~QTimerEvent
@@ -491,7 +491,7 @@ argument_list|)
 block|{}
 end_constructor
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_destructor
 DECL|function|~QChildEvent
@@ -584,7 +584,7 @@ argument_list|)
 block|{ }
 end_constructor
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_destructor
 DECL|function|~QDeferredDeleteEvent

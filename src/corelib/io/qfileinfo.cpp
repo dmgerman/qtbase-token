@@ -3977,7 +3977,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|d_func

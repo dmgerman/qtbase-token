@@ -459,7 +459,7 @@ directive|ifndef
 name|QT_NO_DATASTREAM
 end_ifndef
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|registerStreamOperators
@@ -495,7 +495,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|registerStreamOperators
@@ -793,7 +793,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal     Similar to QMetaType::type(), but only looks in the static set of types. */
+comment|/*!     \internal     Similar to QMetaType::type(), but only looks in the static set of types. */
 end_comment
 begin_function
 DECL|function|qMetaTypeStaticType
@@ -866,7 +866,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal     Similar to QMetaType::type(), but only looks in the custom set of     types, and doesn't lock the mutex. */
+comment|/*!     \internal     Similar to QMetaType::type(), but only looks in the custom set of     types, and doesn't lock the mutex. */
 end_comment
 begin_function
 DECL|function|qMetaTypeCustomType_unlocked
@@ -992,7 +992,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal      This function is needed until existing code outside of qtbase     has been changed to call the new version of registerType().  */
+comment|/*!     \internal      This function is needed until existing code outside of qtbase     has been changed to call the new version of registerType().  */
 end_comment
 begin_function
 DECL|function|registerType
@@ -1043,7 +1043,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal     \since 5.0      Registers a user type for marshalling, with \a typeName, a \a     deleter, a \a creator, a \a destructor, a \a constructor, and     a \a size. Returns the type's handle, or -1 if the type could     not be registered.  */
+comment|/*!     \internal     \since 5.0      Registers a user type for marshalling, with \a typeName, a \a     deleter, a \a creator, a \a destructor, a \a constructor, and     a \a size. Returns the type's handle, or -1 if the type could     not be registered.  */
 end_comment
 begin_function
 DECL|function|registerType
@@ -1132,7 +1132,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal     \since 5.0      Registers a user type for marshalling, with \a normalizedTypeName, a \a     deleter, a \a creator, a \a destructor, a \a constructor, and     a \a size. Returns the type's handle, or -1 if the type could     not be registered.  Note that normalizedTypeName is not checked for     conformance with Qt's normalized format, so it must already     conform.  */
+comment|/*!     \internal     \since 5.0      Registers a user type for marshalling, with \a normalizedTypeName, a \a     deleter, a \a creator, a \a destructor, a \a constructor, and     a \a size. Returns the type's handle, or -1 if the type could     not be registered.  Note that normalizedTypeName is not checked for     conformance with Qt's normalized format, so it must already     conform.  */
 end_comment
 begin_decl_stmt
 DECL|variable|deleter
@@ -1508,7 +1508,7 @@ return|;
 end_return
 begin_comment
 unit|}
-comment|/*! \internal     \since 4.7      Registers a user type for marshalling, as an alias of another type (typedef) */
+comment|/*!     \internal     \since 4.7      Registers a user type for marshalling, as an alias of another type (typedef) */
 end_comment
 begin_macro
 unit|int
@@ -1568,7 +1568,7 @@ return|;
 block|}
 end_expr_stmt
 begin_comment
-comment|/*! \internal     \since 5.0      Registers a user type for marshalling, as an alias of another type (typedef).     Note that normalizedTypeName is not checked for conformance with Qt's normalized format,     so it must already conform. */
+comment|/*!     \internal     \since 5.0      Registers a user type for marshalling, as an alias of another type (typedef).     Note that normalizedTypeName is not checked for conformance with Qt's normalized format,     so it must already conform. */
 end_comment
 begin_decl_stmt
 name|int

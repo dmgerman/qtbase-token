@@ -847,7 +847,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal  */
+comment|/*!     \internal  */
 end_comment
 begin_function
 DECL|function|qFindByteArrayBoyerMoore
@@ -945,7 +945,7 @@ define|\
 value|if (sl_minus_1< sizeof(uint) * CHAR_BIT) \         hashHaystack -= (a)<< sl_minus_1; \     hashHaystack<<= 1
 end_define
 begin_comment
-comment|/*! \internal  */
+comment|/*!     \internal  */
 end_comment
 begin_function
 DECL|function|qFindByteArray

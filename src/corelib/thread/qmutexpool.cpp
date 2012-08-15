@@ -131,7 +131,7 @@ name|globalMutexPool
 argument_list|()
 argument_list|; }
 comment|/*!     \fn QMutexPool::get(const void *address)     Returns a QMutex from the pool. QMutexPool uses the value \a address     to determine which mutex is returned from the pool. */
-comment|/*! \internal   create the mutex for the given index  */
+comment|/*!     \internal   create the mutex for the given index  */
 DECL|function|createMutex
 name|QMutex
 modifier|*

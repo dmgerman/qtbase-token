@@ -3180,7 +3180,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*! \internal     convert the pattern string to the RegExp syntax.      This is also used by QScriptEngine::newRegExp to convert to a pattern that JavaScriptCore can understan  */
+comment|/*!     \internal     convert the pattern string to the RegExp syntax.      This is also used by QScriptEngine::newRegExp to convert to a pattern that JavaScriptCore can understan  */
 end_comment
 begin_function
 DECL|function|qt_regexp_toCanonical

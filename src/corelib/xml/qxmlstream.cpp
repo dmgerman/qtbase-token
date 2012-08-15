@@ -135,7 +135,7 @@ name|QXmlStreamEntityResolver
 operator|(
 operator|)
 block|{ }
-comment|/*! \internal  This function is a stub for later functionality. */
+comment|/*!   \internal  This function is a stub for later functionality. */
 DECL|function|resolveEntity
 name|QString
 name|QXmlStreamEntityResolver

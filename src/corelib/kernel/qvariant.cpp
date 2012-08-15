@@ -5532,7 +5532,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*! \internal     flags is true if it is a pointer type  */
+comment|/*!     \internal     flags is true if it is a pointer type  */
 end_comment
 begin_constructor
 DECL|function|QVariant
@@ -11037,7 +11037,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal  */
+comment|/*!     \internal  */
 end_comment
 begin_function
 DECL|function|cmp
@@ -11179,7 +11179,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal  */
+comment|/*!     \internal  */
 end_comment
 begin_function
 DECL|function|constData
@@ -11226,7 +11226,7 @@ begin_comment
 comment|/*!     \fn const void* QVariant::data() const      \internal */
 end_comment
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|data

@@ -1447,7 +1447,7 @@ begin_comment
 comment|/*!     \internal     \typedef QVariantAnimation::Interpolator      This is a typedef for a pointer to a function with the following     signature:     \code     QVariant myInterpolator(const QVariant&from, const QVariant&to, qreal progress);     \endcode  */
 end_comment
 begin_comment
-comment|/*! \internal  * Registers a custom interpolator \a func for the specific \a interpolationType.  * The interpolator has to be registered before the animation is constructed.  * To unregister (and use the default interpolator) set \a func to 0.  */
+comment|/*!  * \internal  * Registers a custom interpolator \a func for the specific \a interpolationType.  * The interpolator has to be registered before the animation is constructed.  * To unregister (and use the default interpolator) set \a func to 0.  */
 end_comment
 begin_function
 DECL|function|registerInterpolator

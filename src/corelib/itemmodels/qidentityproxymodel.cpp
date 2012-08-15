@@ -339,7 +339,7 @@ argument_list|)
 block|{  }
 end_constructor
 begin_comment
-comment|/*! \internal  */
+comment|/*!     \internal  */
 end_comment
 begin_constructor
 DECL|function|QIdentityProxyModel

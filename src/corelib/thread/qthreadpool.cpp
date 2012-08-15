@@ -71,7 +71,7 @@ begin_comment
 comment|/*     QThreadPool private class. */
 end_comment
 begin_comment
-comment|/*!\internal  */
+comment|/*!     \internal */
 end_comment
 begin_constructor
 DECL|function|QThreadPoolThread
@@ -96,7 +96,7 @@ argument_list|)
 block|{ }
 end_constructor
 begin_comment
-comment|/* \internal  */
+comment|/*     \internal */
 end_comment
 begin_function
 DECL|function|run
@@ -364,7 +364,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/* \internal  */
+comment|/*     \internal */
 end_comment
 begin_constructor
 DECL|function|QThreadPoolPrivate
@@ -820,7 +820,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal  */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|startThread
@@ -899,7 +899,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal     Makes all threads exit, waits for each tread to exit and deletes it. */
+comment|/*!     \internal     Makes all threads exit, waits for each tread to exit and deletes it. */
 end_comment
 begin_function
 DECL|function|reset
@@ -1114,7 +1114,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal     Seaches for \a runnable in the queue, removes it from the queue and     runs it if found. This functon does not return until the runnable     has completed. */
+comment|/*!     \internal     Seaches for \a runnable in the queue, removes it from the queue and     runs it if found. This functon does not return until the runnable     has completed. */
 end_comment
 begin_function
 DECL|function|stealRunnable

@@ -9964,7 +9964,7 @@ begin_comment
 comment|/*!     \fn QDateTime QDateTime::toUTC() const      Returns a datetime containing the date and time information in     this datetime, but specified using the Qt::UTC definition.      \sa toTimeSpec() */
 end_comment
 begin_comment
-comment|/*! \internal  */
+comment|/*!     \internal  */
 end_comment
 begin_function
 DECL|function|detach
@@ -14342,7 +14342,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \internal helper function for parseFormat. removes quotes that are   not escaped and removes the escaping on those that are escaped  */
+comment|/*!   \internal    helper function for parseFormat. removes quotes that are   not escaped and removes the escaping on those that are escaped  */
 end_comment
 begin_function
 DECL|function|unquote
@@ -19704,7 +19704,7 @@ directive|ifndef
 name|QT_NO_TEXTDATE
 end_ifndef
 begin_comment
-comment|/*!   \internal finds the first possible monthname that \a str1 can   match. Starting from \a index; str should already by lowered */
+comment|/*!   \internal   finds the first possible monthname that \a str1 can   match. Starting from \a index; str should already by lowered */
 end_comment
 begin_function
 DECL|function|findMonth
@@ -21380,7 +21380,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \internal Get a number that str can become which is between min   and max or -1 if this is not possible. */
+comment|/*!   \internal    Get a number that str can become which is between min   and max or -1 if this is not possible. */
 end_comment
 begin_function
 DECL|function|sectionFormat
@@ -21608,7 +21608,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal Returns true if str can be modified to represent a   number that is within min and max. */
+comment|/*!   \internal    Returns true if str can be modified to represent a   number that is within min and max. */
 end_comment
 begin_function
 DECL|function|potentialValue

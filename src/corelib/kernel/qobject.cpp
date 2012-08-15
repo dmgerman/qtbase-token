@@ -450,7 +450,7 @@ index|]
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|/** \internal  * mutex to be locked when accessing the connectionlists or the senders list  */
+comment|/**  * \internal  * mutex to be locked when accessing the connectionlists or the senders list  */
 end_comment
 begin_function
 DECL|function|signalSlotLock
@@ -1062,7 +1062,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*!\internal   For a given metaobject, compute the signal offset, and the method offset (including signals) */
+comment|/*!   \internal   For a given metaobject, compute the signal offset, and the method offset (including signals) */
 end_comment
 begin_function
 DECL|function|computeOffsets
@@ -1540,7 +1540,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal   Add the connection \a c to to the list of connections of the sender's object   for the specified \a signal    The signalSlotLock() of the sender and receiver must be locked while calling   this function    Will also add the connection in the sender's list of the receiver.  */
+comment|/*!   \internal   Add the connection \a c to to the list of connections of the sender's object   for the specified \a signal    The signalSlotLock() of the sender and receiver must be locked while calling   this function    Will also add the connection in the sender's list of the receiver.  */
 end_comment
 begin_function
 DECL|function|addConnection
@@ -1911,7 +1911,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*! \internal  */
+comment|/*!     \internal  */
 end_comment
 begin_constructor
 DECL|function|QMetaCallEvent
@@ -2012,7 +2012,7 @@ argument_list|)
 block|{ }
 end_constructor
 begin_comment
-comment|/*! \internal  */
+comment|/*!     \internal  */
 end_comment
 begin_constructor
 DECL|function|QMetaCallEvent
@@ -2124,7 +2124,7 @@ constructor_decl|;
 block|}
 end_constructor
 begin_comment
-comment|/*! \internal  */
+comment|/*!     \internal  */
 end_comment
 begin_destructor
 DECL|function|~QMetaCallEvent
@@ -2225,7 +2225,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*! \internal  */
+comment|/*!     \internal  */
 end_comment
 begin_function
 DECL|function|placeMetaCall
@@ -2638,7 +2638,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*! \internal  */
+comment|/*!     \internal  */
 end_comment
 begin_constructor
 DECL|function|QObject
@@ -5268,7 +5268,7 @@ begin_comment
 comment|// QT_NO_REGEXP
 end_comment
 begin_comment
-comment|/*! \internal  */
+comment|/*!     \internal  */
 end_comment
 begin_function
 DECL|function|qt_qFindChild_helper
@@ -9765,7 +9765,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/* \internal     convert a signal index from the method range to the signal range  */
+comment|/*     \internal     convert a signal index from the method range to the signal range  */
 end_comment
 begin_function
 DECL|function|methodIndexToSignalIndex
@@ -9884,7 +9884,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!\internal    \a types is a 0-terminated vector of meta types for queued    connections.     if \a signal_index is -1, then we effectively connect *all* signals    from the sender to the receiver's slot  */
+comment|/*!    \internal    \a types is a 0-terminated vector of meta types for queued    connections.     if \a signal_index is -1, then we effectively connect *all* signals    from the sender to the receiver's slot  */
 end_comment
 begin_function
 DECL|function|connect
@@ -9968,7 +9968,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal    Same as the QMetaObject::connect, but \a signal_index must be the result of QObjectPrivate::signalIndex      method_index is relative to the rmeta metaobject, if rmeta is null, then it is absolute index      the QObjectPrivate::Connection* has a refcount of 2, so it must be passed to a QMetaObject::Connection  */
+comment|/*!     \internal    Same as the QMetaObject::connect, but \a signal_index must be the result of QObjectPrivate::signalIndex      method_index is relative to the rmeta metaobject, if rmeta is null, then it is absolute index      the QObjectPrivate::Connection* has a refcount of 2, so it must be passed to a QMetaObject::Connection  */
 end_comment
 begin_function
 DECL|function|connect
@@ -10330,7 +10330,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!\internal  */
+comment|/*!     \internal  */
 end_comment
 begin_function
 DECL|function|disconnect
@@ -10397,7 +10397,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!\internal  Disconnect a single signal connection.  If QMetaObject::connect() has been called  multiple times for the same sender, signal_index, receiver and method_index only  one of these connections will be removed.  */
+comment|/*!     \internal  Disconnect a single signal connection.  If QMetaObject::connect() has been called  multiple times for the same sender, signal_index, receiver and method_index only  one of these connections will be removed.  */
 end_comment
 begin_function
 DECL|function|disconnectOne
@@ -10468,7 +10468,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal     Helper function to remove the connection from the senders list and setting the receivers to 0  */
+comment|/*!     \internal     Helper function to remove the connection from the senders list and setting the receivers to 0  */
 end_comment
 begin_function
 DECL|function|disconnectHelper
@@ -10683,7 +10683,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal     Same as the QMetaObject::disconnect, but \a signal_index must be the result of QObjectPrivate::signalIndex  */
+comment|/*!     \internal     Same as the QMetaObject::disconnect, but \a signal_index must be the result of QObjectPrivate::signalIndex  */
 end_comment
 begin_function
 DECL|function|disconnect
@@ -11434,7 +11434,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*! \internal      \a signal must be in the signal index range (see QObjectPrivate::signalIndex()). */
+comment|/*!     \internal      \a signal must be in the signal index range (see QObjectPrivate::signalIndex()). */
 end_comment
 begin_function
 DECL|function|queued_activate
@@ -11758,7 +11758,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!\internal  */
+comment|/*!     \internal  */
 end_comment
 begin_function
 DECL|function|activate
@@ -11804,7 +11804,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!\internal  */
+comment|/*!     \internal  */
 end_comment
 begin_function
 DECL|function|activate
@@ -12695,7 +12695,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!\internal    signal_index comes from indexOfMethod() */
+comment|/*!     \internal    signal_index comes from indexOfMethod() */
 end_comment
 begin_function
 DECL|function|activate
@@ -12762,7 +12762,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal     Implementation of QObject::senderSignalIndex() */
+comment|/*!     \internal     Implementation of QObject::senderSignalIndex() */
 end_comment
 begin_function
 DECL|function|senderSignalIndex
@@ -12839,7 +12839,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal     Returns the signal index used in the internal connectionLists vector.      It is different from QMetaObject::indexOfSignal():  indexOfSignal is the same as indexOfMethod     while QObjectPrivate::signalIndex is smaller because it doesn't give index to slots.      If \a meta is not 0, it is set to the meta-object where the signal was found. */
+comment|/*!     \internal     Returns the signal index used in the internal connectionLists vector.      It is different from QMetaObject::indexOfSignal():  indexOfSignal is the same as indexOfMethod     while QObjectPrivate::signalIndex is smaller because it doesn't give index to slots.      If \a meta is not 0, it is set to the meta-object where the signal was found. */
 end_comment
 begin_function
 DECL|function|signalIndex
@@ -13982,7 +13982,7 @@ directive|ifndef
 name|QT_NO_USERDATA
 end_ifndef
 begin_comment
-comment|/*!\internal  */
+comment|/*!     \internal  */
 end_comment
 begin_function
 DECL|function|registerUserData
@@ -14005,7 +14005,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!\internal  */
+comment|/*!     \internal  */
 end_comment
 begin_destructor
 DECL|function|~QObjectUserData
@@ -14017,7 +14017,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!\internal  */
+comment|/*!     \internal  */
 end_comment
 begin_function
 DECL|function|setUserData
@@ -14101,7 +14101,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!\internal  */
+comment|/*!     \internal  */
 end_comment
 begin_function
 DECL|function|userData
@@ -14323,7 +14323,7 @@ begin_comment
 comment|/*!     \fn QMetaObject::Connection QObject::connect(const QObject *sender, PointerToMemberFunction signal, Functor functor)      \threadsafe     \overload connect()      Creates a connection from \a signal in     \a sender object to \a functor, and returns a handle to the connection      The signal must be a function declared as a signal in the header.     The slot function can be any function or functor that can be connected     to the signal.     A function can be connected to a given signal if the signal as at     least as many argument as the slot. A functor can be connected to a signal     if they have exactly the same number of arguments. There must exist implicit     conversion between the types of the corresponding arguments in the     signal and the slot.      Example:      \snippet code/src_corelib_kernel_qobject.cpp 45      If your compiler support C++11 lambda expressions, you can use them:      \snippet code/src_corelib_kernel_qobject.cpp 46      The connection will automatically disconnect if the sender is destroyed.  */
 end_comment
 begin_comment
-comment|/** \internal      Implementation of the template version of connect      \a sender is the sender object     \a signal is a pointer to a pointer to a member signal of the sender     \a receiver is the receiver object, may not be null, will be equal to sender when                 connecting to a static function or a functor     \a slot a pointer only used when using Qt::UniqueConnection     \a type the Qt::ConnctionType passed as argument to connect     \a types an array of integer with the metatype id of the parametter of the signal              to be used with queued connection              must stay valid at least for the whole time of the connection, this function              do not take ownership. typically static data.              If null, then the types will be computed when the signal is emit in a queued              connection from the types from the signature.     \a senderMetaObject is the metaobject used to lookup the signal, the signal must be in                         this metaobject  */
+comment|/**     \internal      Implementation of the template version of connect      \a sender is the sender object     \a signal is a pointer to a pointer to a member signal of the sender     \a receiver is the receiver object, may not be null, will be equal to sender when                 connecting to a static function or a functor     \a slot a pointer only used when using Qt::UniqueConnection     \a type the Qt::ConnctionType passed as argument to connect     \a types an array of integer with the metatype id of the parametter of the signal              to be used with queued connection              must stay valid at least for the whole time of the connection, this function              do not take ownership. typically static data.              If null, then the types will be computed when the signal is emit in a queued              connection from the types from the signature.     \a senderMetaObject is the metaobject used to lookup the signal, the signal must be in                         this metaobject  */
 end_comment
 begin_function
 DECL|function|connectImpl

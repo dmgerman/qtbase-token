@@ -8924,7 +8924,7 @@ begin_comment
 comment|/*!     \fn void QUrl::swap(QUrl&other)     \since 4.8      Swaps URL \a other with this URL. This operation is very     fast and never fails. */
 end_comment
 begin_comment
-comment|/*! \internal      Forces a detach. */
+comment|/*!     \internal      Forces a detach. */
 end_comment
 begin_function
 DECL|function|detach

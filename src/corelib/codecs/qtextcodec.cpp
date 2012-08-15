@@ -2544,7 +2544,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*! \internal     \since 4.5     Determines whether the eecoder encountered a failure while decoding the input. If     an error was encountered, the produced result is undefined, and gets converted as according     to the conversion flags.  */
+comment|/*!     \internal     \since 4.5     Determines whether the eecoder encountered a failure while decoding the input. If     an error was encountered, the produced result is undefined, and gets converted as according     to the conversion flags.  */
 end_comment
 begin_function
 DECL|function|hasFailure
@@ -3420,7 +3420,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal     \since 4.3     Determines whether the decoder encountered a failure while decoding the input. If     an error was encountered, the produced result is undefined, and gets converted as according     to the conversion flags.  */
+comment|/*!     \internal     \since 4.3     Determines whether the decoder encountered a failure while decoding the input. If     an error was encountered, the produced result is undefined, and gets converted as according     to the conversion flags.  */
 end_comment
 begin_function
 DECL|function|hasFailure

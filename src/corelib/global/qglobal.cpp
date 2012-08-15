@@ -1636,7 +1636,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/* \internal    Allows you to throw an exception without including<new>    Called internally from Q_CHECK_PTR on certain OS combinations */
+comment|/*    \internal    Allows you to throw an exception without including<new>    Called internally from Q_CHECK_PTR on certain OS combinations */
 end_comment
 begin_function
 DECL|function|qBadAlloc
@@ -1655,7 +1655,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/* \internal    Allows you to call std::terminate() without including<exception>.    Called internally from QT_TERMINATE_ON_EXCEPTION */
+comment|/*    \internal    Allows you to call std::terminate() without including<exception>.    Called internally from QT_TERMINATE_ON_EXCEPTION */
 end_comment
 begin_function
 name|Q_NORETURN

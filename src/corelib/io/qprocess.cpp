@@ -1227,7 +1227,7 @@ begin_comment
 comment|/*!     \fn void QProcess::readyReadStandardError()      This signal is emitted when the process has made new data     available through its standard error channel (\c stderr). It is     emitted regardless of the current \l{readChannel()}{read     channel}.      \sa readAllStandardError(), readChannel() */
 end_comment
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_constructor
 DECL|function|QProcessPrivate
@@ -1372,7 +1372,7 @@ directive|endif
 block|}
 end_constructor
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_destructor
 DECL|function|~QProcessPrivate
@@ -1415,7 +1415,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|cleanup
@@ -1695,7 +1695,7 @@ directive|endif
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|_q_canReadStandardOutput
@@ -1948,7 +1948,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|_q_canReadStandardError
@@ -2163,7 +2163,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|_q_canWrite
@@ -2370,7 +2370,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|_q_processDied
@@ -2580,7 +2580,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|_q_startupNotification
@@ -2686,7 +2686,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|closeWriteChannel

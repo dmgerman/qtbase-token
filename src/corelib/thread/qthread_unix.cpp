@@ -1884,7 +1884,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*  \internal     helper function to do thread sleeps, since usleep()/nanosleep()     aren't reliable enough (in terms of behavior and availability) */
+comment|/*     \internal     helper function to do thread sleeps, since usleep()/nanosleep()     aren't reliable enough (in terms of behavior and availability) */
 end_comment
 begin_function
 DECL|function|thread_sleep

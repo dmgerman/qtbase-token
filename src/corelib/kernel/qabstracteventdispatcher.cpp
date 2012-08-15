@@ -453,7 +453,7 @@ begin_comment
 comment|// when the current _event loop_ starts/stops?
 end_comment
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|startingUp
@@ -465,7 +465,7 @@ parameter_list|()
 block|{ }
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|closingDown

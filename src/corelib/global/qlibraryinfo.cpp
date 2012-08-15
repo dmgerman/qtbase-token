@@ -537,7 +537,7 @@ directive|ifndef
 name|QT_BUILD_QMAKE
 end_ifndef
 begin_comment
-comment|/*! \internal     You cannot create a QLibraryInfo, instead only the static functions are available to query    information. */
+comment|/*!     \internal     You cannot create a QLibraryInfo, instead only the static functions are available to query    information. */
 end_comment
 begin_constructor
 DECL|function|QLibraryInfo

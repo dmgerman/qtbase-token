@@ -290,7 +290,7 @@ block|}
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_constructor
 DECL|function|QJisCodec
@@ -313,7 +313,7 @@ argument_list|)
 block|{ }
 end_constructor
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_destructor
 DECL|function|~QJisCodec
@@ -1544,7 +1544,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|_mibEnum
@@ -1560,7 +1560,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|_name

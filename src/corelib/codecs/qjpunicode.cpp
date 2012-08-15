@@ -242,7 +242,7 @@ begin_comment
 comment|/*!   \fn QJpUnicodeConv::QJpUnicodeConv (int r)   \internal */
 end_comment
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|asciiToUnicode
@@ -284,7 +284,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|jisx0201ToUnicode
@@ -350,7 +350,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|jisx0201LatinToUnicode
@@ -396,7 +396,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|jisx0201KanaToUnicode
@@ -442,7 +442,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|jisx0208ToUnicode
@@ -552,7 +552,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|jisx0212ToUnicode
@@ -684,7 +684,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|unicodeToAscii
@@ -726,7 +726,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|unicodeToJisx0201
@@ -793,7 +793,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|unicodeToJisx0201Latin
@@ -838,7 +838,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|unicodeToJisx0201Kana
@@ -883,7 +883,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|unicodeToJisx0208
@@ -1009,7 +1009,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|unicodeToJisx0212
@@ -1151,7 +1151,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|sjisToUnicode
@@ -1216,7 +1216,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|unicodeToSjis
@@ -1563,7 +1563,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|unicodeToJisx0212
@@ -2316,7 +2316,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|unicodeToJisx0212
@@ -2775,7 +2775,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|unicodeToJisx0212
@@ -3506,7 +3506,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|newConverter

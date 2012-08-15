@@ -734,7 +734,7 @@ block|}
 class|;
 end_class
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_constructor
 DECL|function|QTextStreamPrivate
@@ -782,7 +782,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_destructor
 DECL|function|~QTextStreamPrivate
@@ -952,7 +952,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|reset
@@ -1077,7 +1077,7 @@ directive|endif
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|fillReadBuffer
@@ -1678,7 +1678,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|resetReadBuffer
@@ -1713,7 +1713,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|flushWriteBuffer
@@ -2169,7 +2169,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal      Scans no more than \a maxlen QChars in the current buffer for the     first \a delimiter. Stores a pointer to the start offset of the     token in \a ptr, and the length in QChars in \a length. */
+comment|/*!     \internal      Scans no more than \a maxlen QChars in the current buffer for the     first \a delimiter. Stores a pointer to the start offset of the     token in \a ptr, and the length in QChars in \a length. */
 end_comment
 begin_function
 DECL|function|scan
@@ -2634,7 +2634,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|readPtr
@@ -2681,7 +2681,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|consumeLastToken
@@ -2708,7 +2708,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|consume
@@ -2829,7 +2829,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|saveConverterState
@@ -2890,7 +2890,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|restoreToSavedConverterState
@@ -2936,7 +2936,7 @@ directive|endif
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|write
@@ -2988,7 +2988,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|getChar
@@ -3065,7 +3065,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|ungetChar
@@ -3138,7 +3138,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|putString
@@ -5440,7 +5440,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|getNumber
@@ -6275,7 +6275,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal     (hihi) */
+comment|/*!     \internal     (hihi) */
 end_comment
 begin_function
 DECL|function|getReal
@@ -7922,7 +7922,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal  */
+comment|/*!     \internal  */
 end_comment
 begin_function
 DECL|function|putNumber

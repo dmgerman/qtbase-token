@@ -484,7 +484,7 @@ literal|0
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|/*! \internal     Adds an adopted thread to the list of threads that Qt watches to make sure     the thread data is properly cleaned up. This function starts the watcher     thread if necessary. */
+comment|/*!     \internal     Adds an adopted thread to the list of threads that Qt watches to make sure     the thread data is properly cleaned up. This function starts the watcher     thread if necessary. */
 end_comment
 begin_function
 DECL|function|qt_watch_adopted_thread

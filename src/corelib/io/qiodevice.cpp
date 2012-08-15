@@ -323,7 +323,7 @@ define|\
 value|do { \        if ((d->openMode& ReadOnly) == 0) { \            if (d->openMode == NotOpen) \                return returnType; \            qWarning("QIODevice::"#function": WriteOnly device"); \            return returnType; \        } \    } while (0)
 end_define
 begin_comment
-comment|/*! \internal  */
+comment|/*!     \internal  */
 end_comment
 begin_constructor
 DECL|function|QIODevicePrivate
@@ -398,7 +398,7 @@ directive|endif
 block|{ }
 end_constructor
 begin_comment
-comment|/*! \internal  */
+comment|/*!     \internal  */
 end_comment
 begin_destructor
 DECL|function|~QIODevicePrivate
@@ -454,7 +454,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_constructor
 DECL|function|QIODevice
@@ -598,7 +598,7 @@ directive|endif
 block|}
 end_constructor
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal */
 end_comment
 begin_constructor
 DECL|function|QIODevice
