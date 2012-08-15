@@ -540,7 +540,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Sets the root accessible object of this application to \a object.   All other accessible objects in the application can be reached by the   client using object navigation.    You should never need to call this function. Qt sets the QApplication   object as the root object immediately before the event loop is entered   in QApplication::exec().    Use QAccessible::installRootObjectHandler() to redirect the function   call to a customized handler function.    \sa queryAccessibleInterface() */
+comment|/*!   Sets the root object of the accessible objects of this application   to \a object.  All other accessible objects are reachable using object   navigation from the root object.    Normally, it isn't necessary to call this function, because Qt sets   the QApplication object as the root object immediately before the   event loop is entered in QApplication::exec().    Use QAccessible::installRootObjectHandler() to redirect the function   call to a customized handler function.    \sa queryAccessibleInterface() */
 end_comment
 begin_function
 DECL|function|setRootObject
@@ -585,10 +585,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \fn void QAccessible::updateAccessibility(QObject *object, int child, Event reason)   \deprecated    Use the version with a single \l QAccessibleEvent paremeter instead. */
-end_comment
-begin_comment
-comment|/*!   Notifies about a change that might be relevant for accessibility clients.    \a event gives the details about the change.   This includes the source of the change and what the actual change is.   There should be sufficient details delivered with this event to give meaningful notifications.    For example, the type \c ValueChange indicates that the position of   a slider has been changed.    Call this function whenever the state of your accessible object or   one of its sub-elements has been changed either programmatically   (e.g. by calling QLabel::setText()) or by user interaction.    If there are no accessibility tools listening to this event, the   performance penalty for calling this function is small, but if determining   the parameters of the call is expensive you can test isActive() to   avoid unnecessary computations. */
+comment|/*!   Notifies about a change that might be relevant for accessibility clients.    \a event provides details about the change. These include the source   of the change and the nature of the change.  The \a event should   contain enough information give meaningful notifications.    For example, the type \c ValueChange indicates that the position of   a slider has been changed.    Call this function whenever the state of your accessible object or   one of its sub-elements has been changed either programmatically   (e.g. by calling QLabel::setText()) or by user interaction.    If there are no accessibility tools listening to this event, the   performance penalty for calling this function is small, but if   determining the parameters of the call is expensive you can test   isActive() to avoid unnecessary computation. */
 end_comment
 begin_function
 DECL|function|updateAccessibility
@@ -637,98 +634,6 @@ argument_list|(
 name|event
 argument_list|)
 expr_stmt|;
-block|}
-end_function
-begin_comment
-comment|/*!     \class QAccessibleEvent     \brief The QAccessibleEvent is use to notify about changes that are     relevant for accessibility in the application.     \internal      \ingroup accessibility     \inmodule QtGui      This class should be created on the stack and used as parameter for     \l QAccessible::updateAccessibility().     \sa QAccessibleStateChangedEvent */
-end_comment
-begin_comment
-comment|/*!     \class QAccessibleStateChangedEvent     \brief This subclass of QAccessibleEvent is used to inform about state changes.     \internal      \ingroup accessibility     \inmodule QtGui      This class should be created on the stack and used as parameter for     \l QAccessible::updateAccessibility().     In addition to the regular \l QAccessibleEvent it contains details about which states     changed.     \sa QAccessibleEvent */
-end_comment
-begin_comment
-comment|/*!     \fn QAccessibleStateChangeEvent::changedStates() const     All states that have changed are set to true. This does not reflect the state of the object,     but indicates which states are changed.     Use the \l QAccessibleInterface::state() function to get the current state.  */
-end_comment
-begin_comment
-comment|/*!     Returns the QAccessibleInterface associated with the event.      The caller of this function takes ownership of the returned interface. */
-end_comment
-begin_function
-DECL|function|accessibleInterface
-name|QAccessibleInterface
-modifier|*
-name|QAccessibleEvent
-operator|::
-name|accessibleInterface
-parameter_list|()
-specifier|const
-block|{
-name|QAccessibleInterface
-modifier|*
-name|iface
-init|=
-name|QAccessible
-operator|::
-name|queryAccessibleInterface
-argument_list|(
-name|m_object
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|iface
-condition|)
-return|return
-literal|0
-return|;
-if|if
-condition|(
-name|m_child
-operator|>=
-literal|0
-condition|)
-block|{
-name|QAccessibleInterface
-modifier|*
-name|child
-init|=
-name|iface
-operator|->
-name|child
-argument_list|(
-name|m_child
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|child
-condition|)
-block|{
-operator|delete
-name|iface
-expr_stmt|;
-name|iface
-operator|=
-name|child
-expr_stmt|;
-block|}
-else|else
-block|{
-name|qWarning
-argument_list|()
-operator|<<
-literal|"Cannot creat accessible child interface for object: "
-operator|<<
-name|m_object
-operator|<<
-literal|" index: "
-operator|<<
-name|m_child
-expr_stmt|;
-block|}
-block|}
-return|return
-name|iface
-return|;
 block|}
 end_function
 begin_comment
@@ -891,11 +796,109 @@ begin_comment
 comment|/*!     \fn QAccessibleImageInterface *QAccessibleInterface::imageInterface()     \internal */
 end_comment
 begin_comment
-comment|/*!     \class QAccessibleEvent      \brief The QAccessibleEvent class is used to give detailed updates to the     accessibility framework. It is used together with \l QAccessible::updateAccessibility.      The event is one of the \l QAccessible::Event which depending on the type of event needs to use     one of the subclasses of QAccessibleEvent.      \ingroup accessibility     \inmodule QtGui */
+comment|/*!     \class QAccessibleEvent     \internal      \brief The QAccessibleEvent class provides detailed updates to the     accessibility framework.      This class is used with \l QAccessible::updateAccessibility().      The event type is one of the values of \l QAccessible::Event, which     determines the subclass of QAccessibleEvent that applies.      \ingroup accessibility     \inmodule QtGui */
 end_comment
 begin_comment
-comment|/*!     \fn QAccessibleEvent::QAccessibleEvent(QAccessible::Event type, QObject *object, int child = -1)      Constructs an accessibility event of the given \a type.     It also requires an \a object as source of the event and optionally a \a child index,     if the event comes from a child of the object.      Using a \a child index maybe more efficient than creating the accessible interface for the child. */
+comment|/*! \fn QAccessibleEvent::QAccessibleEvent(QObject *obj, QAccessible::Event type)   Constructs a QAccessibleEvent of the specified \a type. It also   expects an \a object, which is the source of the event.  */
 end_comment
+begin_comment
+comment|/*! \fn QAccessibleEvent::~QAccessibleEvent()   Destroys the event. */
+end_comment
+begin_comment
+comment|/*! \fn QAccessible::Event QAccessibleEvent::type() const   Returns the event type. */
+end_comment
+begin_comment
+comment|/*! \fn QObject* QAccessibleEvent::object() const   Returns the event object. */
+end_comment
+begin_comment
+comment|/*! \fn void QAccessibleEvent::setChild(int child)   Sets the child index to \a child. */
+end_comment
+begin_comment
+comment|/*! \fn int QAccessibleEvent::child() const   Returns the child index. */
+end_comment
+begin_comment
+comment|/*!     Returns the QAccessibleInterface associated with the event.     The caller of this function takes ownership of the returned interface. */
+end_comment
+begin_function
+DECL|function|accessibleInterface
+name|QAccessibleInterface
+modifier|*
+name|QAccessibleEvent
+operator|::
+name|accessibleInterface
+parameter_list|()
+specifier|const
+block|{
+name|QAccessibleInterface
+modifier|*
+name|iface
+init|=
+name|QAccessible
+operator|::
+name|queryAccessibleInterface
+argument_list|(
+name|m_object
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|iface
+condition|)
+return|return
+literal|0
+return|;
+if|if
+condition|(
+name|m_child
+operator|>=
+literal|0
+condition|)
+block|{
+name|QAccessibleInterface
+modifier|*
+name|child
+init|=
+name|iface
+operator|->
+name|child
+argument_list|(
+name|m_child
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|child
+condition|)
+block|{
+operator|delete
+name|iface
+expr_stmt|;
+name|iface
+operator|=
+name|child
+expr_stmt|;
+block|}
+else|else
+block|{
+name|qWarning
+argument_list|()
+operator|<<
+literal|"Cannot creat accessible child interface for object: "
+operator|<<
+name|m_object
+operator|<<
+literal|" index: "
+operator|<<
+name|m_child
+expr_stmt|;
+block|}
+block|}
+return|return
+name|iface
+return|;
+block|}
+end_function
 begin_comment
 comment|/*!     Returns the window associated with the underlying object.     For instance, QAccessibleWidget reimplements this and returns     the windowHandle() of the QWidget.      It is used on some platforms to be able to notify the AT client about     state changes.     The backend will traverse up all ancestors until it finds a window.     (This means that at least one interface among the ancestors should     return a valid QWindow pointer).      The default implementation of this returns 0.     \preliminary   */
 end_comment
@@ -914,9 +917,6 @@ literal|0
 return|;
 block|}
 end_function
-begin_comment
-comment|/*!     \since 4.2      Invokes a \a method on \a child with the given parameters \a params     and returns the result of the operation as QVariant.      Note that the type of the returned QVariant depends on the action.      Returns an invalid QVariant if the object doesn't support the action. */
-end_comment
 begin_comment
 comment|/*!     \internal     Method to allow extending this class without breaking binary compatibility.     The actual behavior and format of \a data depends on \a id argument     which must be defined if the class is to be extended with another virtual     function.     Currently, this is unused. */
 end_comment
@@ -937,7 +937,7 @@ parameter_list|)
 block|{ }
 end_function
 begin_comment
-comment|/*!     \fn void *QAccessibleInterface::interface_cast(QAccessible::InterfaceType type)      \brief Returns a specialized accessibility interface \a type from the generic QAccessibleInterface.      This function must be reimplemented when providing more information about a widget or object through the     specialized interfaces. For example a line edit should implement the QAccessibleTextInterface and QAccessibleEditableTextInterface.      Qt's QLineEdit for example has its accessibility support implemented in QAccessibleLineEdit.     \code void *QAccessibleLineEdit::interface_cast(QAccessible::InterfaceType t) {     if (t == QAccessible::TextInterface)         return static_cast<QAccessibleTextInterface*>(this);     else if (t == QAccessible::EditableTextInterface)         return static_cast<QAccessibleEditableTextInterface*>(this);     return QAccessibleWidget::interface_cast(t); }     \endcode      \sa QAccessible::InterfaceType, QAccessibleTextInterface, QAccessibleEditableTextInterface, QAccessibleValueInterface, QAccessibleActionInterface, QAccessibleTableInterface, QAccessibleTableCellInterface   */
+comment|/*!     \fn void *QAccessibleInterface::interface_cast(QAccessible::InterfaceType type)      Returns a specialized accessibility interface \a type from the     generic QAccessibleInterface.      This function must be reimplemented when providing more     information about a widget or object through the specialized     interfaces. For example a line edit should implement the     QAccessibleTextInterface and QAccessibleEditableTextInterface.      Qt's QLineEdit for example has its accessibility support     implemented in QAccessibleLineEdit.      \code void *QAccessibleLineEdit::interface_cast(QAccessible::InterfaceType t) {     if (t == QAccessible::TextInterface)         return static_cast<QAccessibleTextInterface*>(this);     else if (t == QAccessible::EditableTextInterface)         return static_cast<QAccessibleEditableTextInterface*>(this);     return QAccessibleWidget::interface_cast(t); }     \endcode      \sa QAccessible::InterfaceType, QAccessibleTextInterface,     QAccessibleEditableTextInterface, QAccessibleValueInterface,     QAccessibleActionInterface, QAccessibleTableInterface,     QAccessibleTableCellInterface */
 end_comment
 begin_comment
 comment|/*! \internal */

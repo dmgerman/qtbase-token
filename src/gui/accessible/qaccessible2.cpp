@@ -49,13 +49,13 @@ begin_comment
 comment|/*!     \fn int QAccessibleTextInterface::cursorPosition() const      Returns the current cursor position. */
 end_comment
 begin_comment
-comment|/*!     \fn QRect QAccessibleTextInterface::characterRect(int offset, QAccessible2::CoordinateType coordType) const */
+comment|/*!     \fn QRect QAccessibleTextInterface::characterRect(int offset) const */
 end_comment
 begin_comment
 comment|/*!     \fn int QAccessibleTextInterface::selectionCount() const      Returns the number of selections in this text. */
 end_comment
 begin_comment
-comment|/*!     \fn int QAccessibleTextInterface::offsetAtPoint(const QPoint&point, QAccessible2::CoordinateType coordType) const */
+comment|/*!     \fn int QAccessibleTextInterface::offsetAtPoint(const QPoint&point) const */
 end_comment
 begin_comment
 comment|/*!     \fn void QAccessibleTextInterface::selection(int selectionIndex, int *startOffset, int *endOffset) const */
