@@ -610,7 +610,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Sends \a message through the event filters that were set by     installNativeEventFilter().  This function returns true as soon as an     event filter returns true, and false otherwise to indicate that     the processing of the event should continue.      Subclasses of QAbstractEventDispatcher \e must call this function     for \e all messages received from the system to ensure     compatibility with any extensions that may be used in the     application.      Note that the type of \a message is platform dependent. See     QAbstractNativeEventFilter for details.      \sa installNativeEventFilter()     \since 5.0 */
+comment|/*!     Sends \a message through the event filters that were set by     installNativeEventFilter().  This function returns true as soon as an     event filter returns true, and false otherwise to indicate that     the processing of the event should continue.      Subclasses of QAbstractEventDispatcher \e must call this function     for \e all messages received from the system to ensure     compatibility with any extensions that may be used in the     application. The type of event \a eventType is specific to the platform     plugin chosen at run-time, and can be used to cast message to the right type.     The result pointer is only used on Windows, and corresponds to the LRESULT pointer.      Note that the type of \a message is platform dependent. See     QAbstractNativeEventFilter for details.      \sa installNativeEventFilter(), QAbstractNativeEventFilter::nativeEventFilter()     \since 5.0 */
 end_comment
 begin_function
 DECL|function|filterNativeEvent
