@@ -15864,7 +15864,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/*!     \since 5.0      Renders the widget into a pixmap restricted by the     given \a rectangle. If the \a widget has any children, then     they are also painted in the appropriate positions.      If a rectangle with an invalid size is specified  (the default),     the entire widget is painted.      \sa render(), QPixmap */
+comment|/*!     \since 5.0      Renders the widget into a pixmap restricted by the     given \a rectangle. If the widget has any children, then     they are also painted in the appropriate positions.      If a rectangle with an invalid size is specified  (the default),     the entire widget is painted.      \sa render(), QPixmap */
 comment|/* INVOKABLE since used by QPixmap::grabWidget(). */
 DECL|function|grab
 name|QPixmap
@@ -39061,6 +39061,7 @@ comment|/*!     \fn QWidget *QWidget::mouseGrabber()      Returns the widget tha
 comment|/*!     \fn QWidget *QWidget::keyboardGrabber()      Returns the widget that is currently grabbing the keyboard input.      If no widget in this application is currently grabbing the     keyboard, 0 is returned.      \sa grabMouse(), mouseGrabber() */
 comment|/*!     \fn void QWidget::activateWindow()      Sets the top-level widget containing this widget to be the active     window.      An active window is a visible top-level window that has the     keyboard input focus.      This function performs the same operation as clicking the mouse on     the title bar of a top-level window. On X11, the result depends on     the Window Manager. If you want to ensure that the window is     stacked on top as well you should also call raise(). Note that the     window must be visible, otherwise activateWindow() has no effect.      On Windows, if you are calling this when the application is not     currently the active one then it will not make it the active     window.  It will change the color of the taskbar entry to indicate     that the window has changed in some way. This is because Microsoft     does not allow an application to interrupt what the user is currently     doing in another application.      \sa isActiveWindow(), window(), show() */
 comment|/*!     \fn int QWidget::metric(PaintDeviceMetric m) const      Internal implementation of the virtual QPaintDevice::metric()     function.      \a m is the metric to get. */
+comment|/*!     Initializes the \a painter pen, background and font to the same as     the given widget's. This function is called automatically when the     painter is opened on a QWidget. */
 DECL|function|init
 name|void
 name|QWidget
