@@ -1547,177 +1547,151 @@ end_function
 begin_comment
 comment|/*!     Initializes the window system and constructs an application object with     \a argc command line arguments in \a argv.      \warning The data referred to by \a argc and \a argv must stay valid for     the entire lifetime of the QApplication object. In addition, \a argc must     be greater than zero and \a argv must contain at least one valid character     string.      The global \c qApp pointer refers to this application object. Only one     application object should be created.      This application object must be constructed before any \l{QPaintDevice}     {paint devices} (including widgets, pixmaps, bitmaps etc.).      \note \a argc and \a argv might be changed as Qt removes command line     arguments that it recognizes.      All Qt programs automatically support the following command line options:     \list         \li  -style= \e style, sets the application GUI style. Possible values             are \c motif, \c windows, and \c platinum. If you compiled Qt with             additional styles or have additional styles as plugins these will             be available to the \c -style command line option.         \li  -style \e style, is the same as listed above.         \li  -stylesheet= \e stylesheet, sets the application \l styleSheet. The             value must be a path to a file that contains the Style Sheet.             \note Relative URLs in the Style Sheet file are relative to the             Style Sheet file's path.         \li  -stylesheet \e stylesheet, is the same as listed above.         \li  -session= \e session, restores the application from an earlier             \l{Session Management}{session}.         \li  -session \e session, is the same as listed above.         \li  -widgetcount, prints debug message at the end about number of             widgets left undestroyed and maximum number of widgets existed at             the same time         \li  -reverse, sets the application's layout direction to             Qt::RightToLeft         \li  -qmljsdebugger=, activates the QML/JS debugger with a specified port.             The value must be of format port:1234[,block], where block is optional             and will make the application wait until a debugger connects to it.     \endlist      \sa arguments() */
 end_comment
-begin_constructor
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_QDOC
+end_ifdef
+begin_macro
 DECL|function|QApplication
+name|QApplication
+end_macro
+begin_expr_stmt
+DECL|function|QApplication
+operator|::
+name|QApplication
+operator|(
+name|int
+operator|&
+name|argc
+operator|,
+name|char
+operator|*
+operator|*
+name|argv
+operator|)
+else|#
+directive|else
 name|QApplication
 operator|::
 name|QApplication
-parameter_list|(
+operator|(
 name|int
-modifier|&
+operator|&
 name|argc
-parameter_list|,
+operator|,
 name|char
-modifier|*
-modifier|*
+operator|*
+operator|*
 name|argv
-parameter_list|,
+operator|,
 name|int
 name|_internal
-parameter_list|)
-member_init_list|:
+operator|)
+endif|#
+directive|endif
+operator|:
 name|QGuiApplication
 argument_list|(
-operator|*
-operator|new
-name|QApplicationPrivate
-argument_list|(
-name|argc
-argument_list|,
-name|argv
-argument_list|,
-name|GuiClient
-argument_list|,
-name|_internal
-argument_list|)
+argument|*new QApplicationPrivate(argc, argv, GuiClient, _internal)
 argument_list|)
 block|{
 name|Q_D
 argument_list|(
 name|QApplication
 argument_list|)
-expr_stmt|;
+block|;
 name|d
 operator|->
 name|construct
 argument_list|()
-expr_stmt|;
-block|}
-end_constructor
-begin_comment
+block|; }
 comment|/*!     Constructs an application object with \a argc command line arguments in     \a argv.      \warning The data referred to by \a argc and \a argv must stay valid for     the entire lifetime of the QApplication object. In addition, \a argc must     be greater than zero and \a argv must contain at least one valid character     string.      The following example shows how to create an application that uses a     graphical interface when available.      \obsolete      \snippet code/src_gui_kernel_qapplication.cpp 0 */
-end_comment
-begin_constructor
 DECL|function|QApplication
 name|QApplication
 operator|::
 name|QApplication
-parameter_list|(
+operator|(
 name|int
-modifier|&
+operator|&
 name|argc
-parameter_list|,
+operator|,
 name|char
-modifier|*
-modifier|*
+operator|*
+operator|*
 name|argv
-parameter_list|,
+operator|,
 name|bool
 name|GUIenabled
-parameter_list|,
+operator|,
 name|int
 name|_internal
-parameter_list|)
-member_init_list|:
+operator|)
+operator|:
 name|QGuiApplication
 argument_list|(
-operator|*
-operator|new
-name|QApplicationPrivate
-argument_list|(
-name|argc
-argument_list|,
-name|argv
-argument_list|,
-name|GUIenabled
-condition|?
-name|GuiClient
-else|:
-name|Tty
-argument_list|,
-name|_internal
-argument_list|)
+argument|*new QApplicationPrivate(argc, argv, GUIenabled ? GuiClient : Tty, _internal)
 argument_list|)
 block|{
 name|Q_D
 argument_list|(
 name|QApplication
 argument_list|)
-expr_stmt|;
+block|;
 name|d
 operator|->
 name|construct
 argument_list|()
-expr_stmt|;
-block|}
-end_constructor
-begin_comment
+block|;}
 comment|/*!     Constructs an application object with \a argc command line arguments in     \a argv.      \warning The data referred to by \a argc and \a argv must stay valid for     the entire lifetime of the QApplication object. In addition, \a argc must     be greater than zero and \a argv must contain at least one valid character     string. */
-end_comment
-begin_constructor
 DECL|function|QApplication
 name|QApplication
 operator|::
 name|QApplication
-parameter_list|(
+operator|(
 name|int
-modifier|&
+operator|&
 name|argc
-parameter_list|,
+operator|,
 name|char
-modifier|*
-modifier|*
+operator|*
+operator|*
 name|argv
-parameter_list|,
+operator|,
 name|Type
 name|type
-parameter_list|,
+operator|,
 name|int
 name|_internal
-parameter_list|)
-member_init_list|:
+operator|)
+operator|:
 name|QGuiApplication
 argument_list|(
-operator|*
-operator|new
-name|QApplicationPrivate
-argument_list|(
-name|argc
-argument_list|,
-name|argv
-argument_list|,
-name|type
-argument_list|,
-name|_internal
-argument_list|)
+argument|*new QApplicationPrivate(argc, argv, type, _internal)
 argument_list|)
 block|{
 name|Q_D
 argument_list|(
 name|QApplication
 argument_list|)
-expr_stmt|;
+block|;
 name|d
 operator|->
 name|construct
 argument_list|()
-expr_stmt|;
-block|}
-end_constructor
-begin_comment
+block|; }
 comment|/*!     \internal */
-end_comment
-begin_function
 DECL|function|construct
 name|void
 name|QApplicationPrivate
 operator|::
 name|construct
-parameter_list|()
+operator|(
+operator|)
 block|{
 name|initResources
 argument_list|()
-expr_stmt|;
+block|;
 name|qt_is_gui_used
 operator|=
 operator|(
@@ -1727,10 +1701,10 @@ name|QApplication
 operator|::
 name|Tty
 operator|)
-expr_stmt|;
+block|;
 name|process_cmdline
 argument_list|()
-expr_stmt|;
+block|;
 comment|// Must be called before initialize()
 name|qt_init
 argument_list|(
@@ -1738,15 +1712,15 @@ name|this
 argument_list|,
 name|application_type
 argument_list|)
-expr_stmt|;
+block|;
 name|initialize
 argument_list|()
-expr_stmt|;
+block|;
 name|eventDispatcher
 operator|->
 name|startingUp
 argument_list|()
-expr_stmt|;
+block|;
 ifdef|#
 directive|ifdef
 name|QT_EVAL
@@ -1756,12 +1730,12 @@ name|qt_gui_eval_init
 argument_list|(
 name|uint
 argument_list|)
-decl_stmt|;
+block|;
 name|qt_gui_eval_init
 argument_list|(
 name|application_type
 argument_list|)
-expr_stmt|;
+block|;
 endif|#
 directive|endif
 ifndef|#
@@ -1821,6 +1795,8 @@ name|initFunction
 argument_list|()
 expr_stmt|;
 block|}
+end_expr_stmt
+begin_else
 else|else
 block|{
 name|qCritical
@@ -1829,8 +1805,9 @@ literal|"Library qttestability resolve failed!"
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-else|else
+end_else
+begin_block
+unit|} else
 block|{
 name|qCritical
 argument_list|(
@@ -1838,12 +1815,14 @@ literal|"Library qttestability load failed!"
 argument_list|)
 expr_stmt|;
 block|}
-block|}
+end_block
+begin_endif
+unit|}
 endif|#
 directive|endif
-block|}
-end_function
+end_endif
 begin_ifndef
+unit|}
 ifndef|#
 directive|ifndef
 name|QT_NO_STATEMACHINE
@@ -14953,42 +14932,6 @@ name|consumed
 return|;
 block|}
 end_function
-begin_comment
-comment|/*!     \fn Qt::MacintoshVersion QApplication::macVersion()      Use QSysInfo::MacintoshVersion instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QApplication::ColorMode QApplication::colorMode()      Use colorSpec() instead, and use ColorSpec as the enum type. */
-end_comment
-begin_comment
-comment|/*!     \fn void QApplication::setColorMode(ColorMode mode)      Use setColorSpec() instead, and pass a ColorSpec value instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QApplication::hasGlobalMouseTracking()      This feature does not exist anymore. This function always returns true     in Qt 4. */
-end_comment
-begin_comment
-comment|/*!     \fn void QApplication::setGlobalMouseTracking(bool dummy)      This function does nothing in Qt 4. The \a dummy parameter is ignored. */
-end_comment
-begin_comment
-comment|/*!     \fn void QApplication::flushX()      Use flush() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QApplication::setWinStyleHighlightColor(const QColor&c)      Use the palette instead.      \oldcode     app.setWinStyleHighlightColor(color);     \newcode     QPalette palette(QApplication::palette());     palette.setColor(QPalette::Highlight, color);     QApplication::setPalette(palette);     \endcode */
-end_comment
-begin_comment
-comment|/*!     \fn void QApplication::setPalette(const QPalette&pal, bool b, const char* className = 0)      Use the two-argument overload instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QApplication::setFont(const QFont&font, bool b, const char* className = 0)      Use the two-argument overload instead. */
-end_comment
-begin_comment
-comment|/*!     \fn const QColor&QApplication::winStyleHighlightColor()      Use QApplication::palette().color(QPalette::Active, QPalette::Highlight) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QWidget *QApplication::widgetAt(int x, int y, bool child)      Use the two-argument widgetAt() overload to get the child widget. To get     the top-level widget do this:      \snippet code/src_gui_kernel_qapplication.cpp 12 */
-end_comment
-begin_comment
-comment|/*!     \fn QWidget *QApplication::widgetAt(const QPoint&point, bool child)      Use the single-argument widgetAt() overload to get the child widget. To get     the top-level widget do this:      \snippet code/src_gui_kernel_qapplication.cpp 13 */
-end_comment
 begin_function
 DECL|function|inPopupMode
 name|bool
@@ -15268,12 +15211,6 @@ begin_comment
 comment|/*!     \fn bool QApplication::isEffectEnabled(Qt::UIEffect effect)      Returns true if \a effect is enabled; otherwise returns false.      By default, Qt will try to use the desktop settings. To prevent this, call     setDesktopSettingsAware(false).      \note All effects are disabled on screens running at less than 16-bit color     depth.      \sa setEffectEnabled(), Qt::UIEffect */
 end_comment
 begin_comment
-comment|/*!     \fn QWidget *QApplication::mainWidget()      Returns the main application widget, or 0 if there is no main widget. */
-end_comment
-begin_comment
-comment|/*!     \fn void QApplication::setMainWidget(QWidget *mainWidget)      Sets the application's main widget to \a mainWidget.      In most respects the main widget is like any other widget, except that if     it is closed, the application exits. QApplication does \e not take     ownership of the \a mainWidget, so if you create your main widget on the     heap you must delete it yourself.      You need not have a main widget; connecting lastWindowClosed() to quit()     is an alternative.      On X11, this function also resizes and moves the main widget according     to the \e -geometry command-line option, so you should set the default     geometry (using \l QWidget::setGeometry()) before calling setMainWidget().      \sa mainWidget(), exec(), quit() */
-end_comment
-begin_comment
 comment|/*!     \fn void QApplication::beep()      Sounds the bell, using the default volume and sound. The function is \e not     available in Qt for Embedded Linux. */
 end_comment
 begin_comment
@@ -15283,7 +15220,7 @@ begin_comment
 comment|/*!     \fn QLocale QApplication::keyboardInputLocale()     \since 4.2     \obsolete      Returns the current keyboard input locale. Replaced with QInputMethod::locale() */
 end_comment
 begin_comment
-comment|/*!     \fn Qt::LayoutDirection QApplication::keyboardInputDirection()*     \since 4.2     \obsolete      Returns the current keyboard input direction. Replaced with QInputMethod::inputDirection() */
+comment|/*!     \fn Qt::LayoutDirection QApplication::keyboardInputDirection()     \since 4.2     \obsolete      Returns the current keyboard input direction. Replaced with QInputMethod::inputDirection() */
 end_comment
 begin_function
 DECL|function|qt_sendSpontaneousEvent
@@ -15481,12 +15418,6 @@ literal|true
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \fn void QApplication::winFocus(QWidget *widget, bool gotFocus)     \internal     \since 4.1      If \a gotFocus is true, \a widget will become the active window.     Otherwise the active window is reset to 0. */
-end_comment
-begin_comment
-comment|/*! \fn void QApplication::winMouseButtonUp()   \internal  */
-end_comment
 begin_function
 DECL|function|updateTouchPointsForWidget
 name|void
