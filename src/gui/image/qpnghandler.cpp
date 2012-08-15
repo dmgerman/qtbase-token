@@ -558,6 +558,7 @@ name|QImage
 modifier|&
 name|img
 parameter_list|,
+specifier|volatile
 name|int
 name|quality
 parameter_list|,
@@ -4464,6 +4465,7 @@ name|QImage
 modifier|&
 name|image
 parameter_list|,
+specifier|volatile
 name|int
 name|quality_in
 parameter_list|,

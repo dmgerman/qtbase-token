@@ -1152,6 +1152,7 @@ parameter_list|,
 name|QRect
 name|clipRect
 parameter_list|,
+specifier|volatile
 name|int
 name|inQuality
 parameter_list|,
@@ -2972,6 +2973,7 @@ name|QIODevice
 modifier|*
 name|device
 parameter_list|,
+specifier|volatile
 name|int
 name|sourceQuality
 parameter_list|,
@@ -3420,7 +3422,10 @@ literal|0
 condition|?
 name|qMin
 argument_list|(
+name|int
+argument_list|(
 name|sourceQuality
+argument_list|)
 argument_list|,
 literal|100
 argument_list|)
