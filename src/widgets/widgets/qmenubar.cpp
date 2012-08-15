@@ -9198,7 +9198,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QMenuBar::nativeMenuBar     \brief Whether or not a menubar will be used as a native menubar on platforms that support it     \since 4.6      This property specifies whether or not the menubar should be used as a native menubar on platforms     that support it. The currently supported platforms are Mac OS X and Windows CE. On these platforms     if this property is true, the menubar is used in the native menubar and is not in the window of     its parent, if false the menubar remains in the window. On other platforms the value of this     attribute has no effect.      The default is to follow whether the Qt::AA_DontUseNativeMenuBar attribute     is set for the application. Explicitly settings this property overrides     the presence (or abscence) of the attribute.      \sa void-qt-mac-set-native-menubar-bool-enable */
+comment|/*!     \property QMenuBar::nativeMenuBar     \brief Whether or not a menubar will be used as a native menubar on platforms that support it     \since 4.6      This property specifies whether or not the menubar should be used as a native menubar on platforms     that support it. The currently supported platforms are Mac OS X and Windows CE. On these platforms     if this property is true, the menubar is used in the native menubar and is not in the window of     its parent, if false the menubar remains in the window. On other platforms the value of this     attribute has no effect.      The default is to follow whether the Qt::AA_DontUseNativeMenuBar attribute     is set for the application. Explicitly settings this property overrides     the presence (or abscence) of the attribute. */
 end_comment
 begin_function
 DECL|function|setNativeMenuBar
@@ -9353,6 +9353,9 @@ name|nativeMenuBar
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \internal */
+end_comment
 begin_function
 DECL|function|platformMenuBar
 name|QPlatformMenuBar
@@ -9575,45 +9578,6 @@ comment|/*!     \fn void QMenuBar::hovered(QAction *action)      This signal is 
 end_comment
 begin_comment
 comment|/*!     \fn void QMenuBar::addAction(QAction *action)     \overload      Appends the action \a action to the menu bar's list of actions.      \sa QMenu::addAction(), QWidget::addAction(), QWidget::actions() */
-end_comment
-begin_comment
-comment|/*!     \fn void QMenuBar::setFrameRect(QRect)     \internal */
-end_comment
-begin_comment
-comment|/*!     \fn QRect QMenuBar::frameRect() const     \internal */
-end_comment
-begin_comment
-comment|/*!     \enum QMenuBar::DummyFrame     \internal      \value Box     \value Sunken     \value Plain     \value Raised     \value MShadow     \value NoFrame     \value Panel     \value StyledPanel     \value HLine     \value VLine     \value GroupBoxPanel     \value WinPanel     \value ToolBarPanel     \value MenuBarPanel     \value PopupPanel     \value LineEditPanel     \value TabWidgetPanel     \value MShape */
-end_comment
-begin_comment
-comment|/*!     \fn void QMenuBar::setFrameShadow(DummyFrame)     \internal */
-end_comment
-begin_comment
-comment|/*!     \fn DummyFrame QMenuBar::frameShadow() const     \internal */
-end_comment
-begin_comment
-comment|/*!     \fn void QMenuBar::setFrameShape(DummyFrame)     \internal */
-end_comment
-begin_comment
-comment|/*!     \fn DummyFrame QMenuBar::frameShape() const     \internal */
-end_comment
-begin_comment
-comment|/*!     \fn void QMenuBar::setFrameStyle(int)     \internal */
-end_comment
-begin_comment
-comment|/*!     \fn int QMenuBar::frameStyle() const     \internal */
-end_comment
-begin_comment
-comment|/*!     \fn void QMenuBar::setLineWidth(int)     \internal */
-end_comment
-begin_comment
-comment|/*!     \fn int QMenuBar::lineWidth() const     \internal */
-end_comment
-begin_comment
-comment|/*!     \fn void QMenuBar::setMidLineWidth(int)     \internal */
-end_comment
-begin_comment
-comment|/*!     \fn int QMenuBar::midLineWidth() const     \internal */
 end_comment
 begin_comment
 comment|// for private slots
