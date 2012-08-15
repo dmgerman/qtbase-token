@@ -2332,15 +2332,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|/*!     \fn void QToolTip::add(QWidget *widget, const QString&text)      Use QWidget::setToolTip() instead.      \oldcode     tip->add(widget, text);     \newcode     widget->setToolTip(text);     \endcode */
-end_comment
-begin_comment
-comment|/*!     \fn void QToolTip::add(QWidget *widget, const QRect&rect, const QString&text)      Intercept the QEvent::ToolTip events in your widget's     QWidget::event() function and call QToolTip::showText() with the     text you want to display. The \l{widgets/tooltips}{Tooltips}     example illustrates this technique. */
-end_comment
-begin_comment
-comment|/*!     \fn void QToolTip::remove(QWidget *widget)      Use QWidget::setToolTip() instead.      \oldcode     tip->remove(widget);     \newcode     widget->setToolTip("");     \endcode */
-end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
