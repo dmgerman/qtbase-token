@@ -949,7 +949,7 @@ name|NumOperations
 block|}
 block|;
 typedef|typedef
-name|bool
+name|void
 function_decl|(
 modifier|*
 name|ImplFn
@@ -970,6 +970,10 @@ name|void
 modifier|*
 modifier|*
 name|args
+parameter_list|,
+name|bool
+modifier|*
+name|ret
 parameter_list|)
 function_decl|;
 specifier|const
@@ -1007,6 +1011,8 @@ argument_list|,
 literal|0
 argument_list|,
 literal|0
+argument_list|,
+literal|0
 argument_list|)
 block|; }
 specifier|inline
@@ -1016,7 +1022,9 @@ argument_list|(
 argument|void **a
 argument_list|)
 block|{
-return|return
+name|bool
+name|ret
+block|;
 name|impl
 argument_list|(
 name|Compare
@@ -1026,7 +1034,13 @@ argument_list|,
 literal|0
 argument_list|,
 name|a
+argument_list|,
+operator|&
+name|ret
 argument_list|)
+block|;
+return|return
+name|ret
 return|;
 block|}
 specifier|inline
@@ -1047,6 +1061,8 @@ argument_list|,
 name|r
 argument_list|,
 name|a
+argument_list|,
+literal|0
 argument_list|)
 block|; }
 name|protected
@@ -1089,7 +1105,7 @@ name|Func
 name|function
 block|;
 specifier|static
-name|bool
+name|void
 name|impl
 argument_list|(
 argument|int which
@@ -1099,6 +1115,8 @@ argument_list|,
 argument|QObject *r
 argument_list|,
 argument|void **a
+argument_list|,
+argument|bool *ret
 argument_list|)
 block|{
 switch|switch
@@ -1119,9 +1137,7 @@ operator|(
 name|this_
 operator|)
 expr_stmt|;
-return|return
-name|true
-return|;
+break|break;
 case|case
 name|Call
 case|:
@@ -1161,13 +1177,13 @@ operator|,
 name|a
 operator|)
 expr_stmt|;
-return|return
-name|true
-return|;
+break|break;
 case|case
 name|Compare
 case|:
-return|return
+operator|*
+name|ret
+operator|=
 operator|*
 name|reinterpret_cast
 operator|<
@@ -1188,15 +1204,13 @@ name|this_
 operator|)
 operator|->
 name|function
-return|;
+expr_stmt|;
+break|break;
 case|case
 name|NumOperations
 case|:
 empty_stmt|;
 block|}
-return|return
-name|false
-return|;
 block|}
 name|public
 operator|:
@@ -1251,7 +1265,7 @@ name|Func
 name|function
 block|;
 specifier|static
-name|bool
+name|void
 name|impl
 argument_list|(
 argument|int which
@@ -1261,6 +1275,8 @@ argument_list|,
 argument|QObject *r
 argument_list|,
 argument|void **a
+argument_list|,
+argument|bool *ret
 argument_list|)
 block|{
 switch|switch
@@ -1281,9 +1297,7 @@ operator|(
 name|this_
 operator|)
 expr_stmt|;
-return|return
-name|true
-return|;
+break|break;
 case|case
 name|Call
 case|:
@@ -1313,24 +1327,22 @@ operator|,
 name|a
 operator|)
 expr_stmt|;
-return|return
-name|true
-return|;
+break|break;
 case|case
 name|Compare
 case|:
-return|return
+operator|*
+name|ret
+operator|=
 name|false
-return|;
+expr_stmt|;
 comment|// not implemented
+break|break;
 case|case
 name|NumOperations
 case|:
 empty_stmt|;
 block|}
-return|return
-name|false
-return|;
 block|}
 name|public
 operator|:
@@ -1391,7 +1403,7 @@ name|Func
 name|function
 block|;
 specifier|static
-name|bool
+name|void
 name|impl
 argument_list|(
 argument|int which
@@ -1401,6 +1413,8 @@ argument_list|,
 argument|QObject *r
 argument_list|,
 argument|void **a
+argument_list|,
+argument|bool *ret
 argument_list|)
 block|{
 switch|switch
@@ -1421,9 +1435,7 @@ operator|(
 name|this_
 operator|)
 expr_stmt|;
-return|return
-name|true
-return|;
+break|break;
 case|case
 name|Call
 case|:
@@ -1453,24 +1465,22 @@ operator|,
 name|a
 operator|)
 expr_stmt|;
-return|return
-name|true
-return|;
+break|break;
 case|case
 name|Compare
 case|:
-return|return
+operator|*
+name|ret
+operator|=
 name|false
-return|;
+expr_stmt|;
 comment|// not implemented
+break|break;
 case|case
 name|NumOperations
 case|:
 empty_stmt|;
 block|}
-return|return
-name|false
-return|;
 block|}
 name|public
 operator|:
