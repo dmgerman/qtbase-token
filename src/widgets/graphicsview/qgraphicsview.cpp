@@ -4977,7 +4977,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QGraphicsView::resizeAnchor     \brief how the view should position the scene when the view is resized.      QGraphicsView uses this property to decide how to position the scene in     the viewport when the viewport widget's size changes. The default     behavior, NoAnchor, leaves the scene's position unchanged during a resize;     the top-left corner of the view will appear to be anchored while resizing.      Note that the effect of this property is noticeable when only a part of the     scene is visible (i.e., when there are scroll bars). Otherwise, if the     whole scene fits in the view, QGraphicsScene uses the view \l alignment to     position the scene in the view.      \sa alignment, transformationAnchor, Qt::WNorthWestGravity */
+comment|/*!     \property QGraphicsView::resizeAnchor     \brief how the view should position the scene when the view is resized.      QGraphicsView uses this property to decide how to position the scene in     the viewport when the viewport widget's size changes. The default     behavior, NoAnchor, leaves the scene's position unchanged during a resize;     the top-left corner of the view will appear to be anchored while resizing.      Note that the effect of this property is noticeable when only a part of the     scene is visible (i.e., when there are scroll bars). Otherwise, if the     whole scene fits in the view, QGraphicsScene uses the view \l alignment to     position the scene in the view.      \sa alignment, transformationAnchor */
 end_comment
 begin_function
 DECL|function|resizeAnchor

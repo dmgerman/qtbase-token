@@ -14539,7 +14539,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QGraphicsItem::isObscured(qreal x, qreal y, qreal w, qreal h) const     \since 4.3      This convenience function is equivalent to calling isObscured(QRectF(\a x, \a y, \a w, \a h)). */
+comment|/*!     \fn bool QGraphicsItem::isObscured(qreal x, qreal y, qreal w, qreal h) const     \overload     \since 4.3      This convenience function is equivalent to calling isObscured(QRectF(\a x, \a y, \a w, \a h)). */
 end_comment
 begin_comment
 comment|/*!     Returns true if this item's bounding rect is completely obscured by the     opaque shape of \a item.      The base implementation maps \a item's opaqueArea() to this item's     coordinate system, and then checks if this item's boundingRect() is fully     contained within the mapped shape.      You can reimplement this function to provide a custom algorithm for     determining whether this item is obscured by \a item.      \sa opaqueArea(), isObscured() */
@@ -23264,19 +23264,19 @@ begin_comment
 comment|/*!   \property QGraphicsObject::pos   \brief the position of the item    Describes the items position.    \sa QGraphicsItem::setPos(), QGraphicsItem::pos() */
 end_comment
 begin_comment
-comment|/*!   \property QGraphicsObject::x   \brief the x position of the item    Describes the items x position.    \sa QGraphicsItem::setX(), setPos(), xChanged() */
+comment|/*!   \property QGraphicsObject::x   \brief the x position of the item    Describes the items x position.    \sa QGraphicsItem::setX(), setPos() */
 end_comment
 begin_comment
 comment|/*!   \fn QGraphicsObject::xChanged()    This signal gets emitted whenever the x position of the item changes    \sa pos() */
 end_comment
 begin_comment
-comment|/*!   \property QGraphicsObject::y   \brief the y position of the item    Describes the items y position.    \sa QGraphicsItem::setY(), setPos(), yChanged() */
+comment|/*!   \property QGraphicsObject::y   \brief the y position of the item    Describes the items y position.    \sa QGraphicsItem::setY(), setPos() */
 end_comment
 begin_comment
 comment|/*!   \fn QGraphicsObject::yChanged()    This signal gets emitted whenever the y position of the item changes.    \sa pos() */
 end_comment
 begin_comment
-comment|/*!   \property QGraphicsObject::z   \brief the z value of the item    Describes the items z value.    \sa QGraphicsItem::setZValue(), zValue(), zChanged() */
+comment|/*!   \property QGraphicsObject::z   \brief the z value of the item    Describes the items z value.    \sa QGraphicsItem::setZValue(), zValue() */
 end_comment
 begin_comment
 comment|/*!   \fn QGraphicsObject::zChanged()    This signal gets emitted whenever the z value of the item changes.    \sa pos() */
@@ -23294,13 +23294,13 @@ begin_comment
 comment|/*!   \fn void QGraphicsObject::scaleChanged()    This signal is emitted when the scale of the item changes. */
 end_comment
 begin_comment
-comment|/*!   \property QGraphicsObject::enabled   \brief whether the item is enabled or not    This property is declared in QGraphicsItem.    By default, this property is true.    \sa QGraphicsItem::isEnabled(), QGraphicsItem::setEnabled()   \sa QGraphicsObject::enabledChanged() */
+comment|/*!   \property QGraphicsObject::enabled   \brief whether the item is enabled or not    This property is declared in QGraphicsItem.    By default, this property is true.    \sa QGraphicsItem::isEnabled(), QGraphicsItem::setEnabled() */
 end_comment
 begin_comment
 comment|/*!   \fn void QGraphicsObject::enabledChanged()    This signal gets emitted whenever the item get's enabled or disabled.    \sa isEnabled() */
 end_comment
 begin_comment
-comment|/*!   \property QGraphicsObject::visible   \brief whether the item is visible or not    This property is declared in QGraphicsItem.    By default, this property is true.    \sa QGraphicsItem::isVisible(), QGraphicsItem::setVisible(), visibleChanged() */
+comment|/*!   \property QGraphicsObject::visible   \brief whether the item is visible or not    This property is declared in QGraphicsItem.    By default, this property is true.    \sa QGraphicsItem::isVisible(), QGraphicsItem::setVisible() */
 end_comment
 begin_comment
 comment|/*!   \fn QGraphicsObject::visibleChanged()    This signal gets emitted whenever the visibility of the item changes    \sa visible */
@@ -31464,7 +31464,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     Sets the item's text to \a text. The text will be displayed as     plain text. Newline characters ('\n') as well as characters of     type QChar::LineSeparator will cause item to break the text into     multiple lines. */
+comment|/*!     Sets the item's text to \a text. The text will be displayed as     plain text. Newline characters ('\\n') as well as characters of     type QChar::LineSeparator will cause item to break the text into     multiple lines. */
 end_comment
 begin_function
 DECL|function|setText
