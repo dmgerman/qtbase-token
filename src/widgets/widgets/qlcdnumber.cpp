@@ -160,7 +160,7 @@ begin_comment
 comment|/*!     \class QLCDNumber      \brief The QLCDNumber widget displays a number with LCD-like digits.      \ingroup basicwidgets     \inmodule QtWidgets      It can display a number in just about any size. It can display     decimal, hexadecimal, octal or binary numbers. It is easy to     connect to data sources using the display() slot, which is     overloaded to take any of five argument types.      There are also slots to change the base with setMode() and the     decimal point with setSmallDecimalPoint().      QLCDNumber emits the overflow() signal when it is asked to display     something beyond its range. The range is set by setDigitCount(),     but setSmallDecimalPoint() also influences it. If the display is     set to hexadecimal, octal or binary, the integer equivalent of the     value is displayed.      These digits and other symbols can be shown: 0/O, 1, 2, 3, 4, 5/S,     6, 7, 8, 9/g, minus, decimal point, A, B, C, D, E, F, h, H, L, o,     P, r, u, U, Y, colon, degree sign (which is specified as single     quote in the string) and space. QLCDNumber substitutes spaces for     illegal characters.      It is not possible to retrieve the contents of a QLCDNumber     object, although you can retrieve the numeric value with value().     If you really need the text, we recommend that you connect the     signals that feed the display() slot to another slot as well and     store the value there.      Incidentally, QLCDNumber is the very oldest part of Qt, tracing     its roots back to a BASIC program on the \l{Sinclair Spectrum}{Sinclair Spectrum}.      \table     \row \li \inlineimage motif-lcdnumber.png Screenshot of a Motif style LCD number widget     \inlineimage cde-lcdnumber.png Screenshot of a CDE style LCD number widget     \inlineimage windows-lcdnumber.png Screenshot of a Windows style LCD number widget     \inlineimage windowsxp-lcdnumber.png Screenshot of a Windows XP style LCD number widget     \inlineimage macintosh-lcdnumber.png Screenshot of a Macintosh style LCD number widget     \inlineimage plastique-lcdnumber.png Screenshot of a Plastique style LCD number widget     \row \li LCD number widgets shown in various widget styles (from left to right):     \l{Motif Style Widget Gallery}{Motif}, \l{CDE Style Widget Gallery}{CDE},     \l{Windows Style Widget Gallery}{Windows}, \l{Windows XP Style Widget Gallery}{Windows XP},     \l{Macintosh Style Widget Gallery}{Macintosh}, \l{Plastique Style Widget Gallery}{Plastique}.     \endtable      \sa QLabel, QFrame, {Digital Clock Example}, {Tetrix Example} */
 end_comment
 begin_comment
-comment|/*!     \enum QLCDNumber::Mode      This type determines how numbers are shown.      \value Hex  Hexadecimal     \value Dec  Decimal     \value Oct  Octal     \value Bin  Binary     \omitvalue HEX     \omitvalue DEC     \omitvalue OCT     \omitvalue BIN      If the display is set to hexadecimal, octal or binary, the integer     equivalent of the value is displayed. */
+comment|/*!     \enum QLCDNumber::Mode      This type determines how numbers are shown.      \value Hex  Hexadecimal     \value Dec  Decimal     \value Oct  Octal     \value Bin  Binary      If the display is set to hexadecimal, octal or binary, the integer     equivalent of the value is displayed. */
 end_comment
 begin_comment
 comment|/*!     \enum QLCDNumber::SegmentStyle      This type determines the visual appearance of the QLCDNumber     widget.      \value Outline gives raised segments filled with the background color.     \value Filled gives raised segments filled with the windowText color.     \value Flat gives flat segments filled with the windowText color. */
@@ -5512,12 +5512,6 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_comment
-comment|/*!     \fn void QLCDNumber::setMargin(int margin)     Sets the width of the margin around the contents of the widget to \a margin.          Use QWidget::setContentsMargins() instead.     \sa margin(), QWidget::setContentsMargins() */
-end_comment
-begin_comment
-comment|/*!     \fn int QLCDNumber::margin() const     Returns the width of the margin around the contents of the widget.          Use QWidget::getContentsMargins() instead.     \sa setMargin(), QWidget::getContentsMargins() */
-end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

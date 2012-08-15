@@ -54,10 +54,6 @@ argument|bool smallDecimalPoint READ smallDecimalPoint WRITE setSmallDecimalPoin
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|int numDigits READ digitCount WRITE setDigitCount
-argument_list|)
-name|Q_PROPERTY
-argument_list|(
 argument|int digitCount READ digitCount WRITE setDigitCount
 argument_list|)
 name|Q_PROPERTY
