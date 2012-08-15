@@ -1932,13 +1932,6 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-name|qApp
-operator|->
-name|installEventFilter
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
 name|showWidget
 operator|=
 literal|true
@@ -2280,13 +2273,6 @@ name|anim
 operator|.
 name|stop
 argument_list|()
-expr_stmt|;
-name|qApp
-operator|->
-name|removeEventFilter
-argument_list|(
-name|this
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
