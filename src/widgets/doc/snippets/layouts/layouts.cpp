@@ -568,6 +568,29 @@ argument_list|()
 expr_stmt|;
 comment|//! [23]
 block|}
+block|{
+comment|//! [24]
+name|QVBoxLayout
+modifier|*
+name|layout
+init|=
+operator|new
+name|QVBoxLayout
+decl_stmt|;
+name|layout
+operator|->
+name|addWidget
+argument_list|(
+name|formWidget
+argument_list|)
+expr_stmt|;
+name|setLayout
+argument_list|(
+name|layout
+argument_list|)
+expr_stmt|;
+comment|//! [24]
+block|}
 return|return
 name|app
 operator|.
