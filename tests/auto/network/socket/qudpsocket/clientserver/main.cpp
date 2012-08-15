@@ -503,7 +503,7 @@ condition|)
 block|{
 name|qDebug
 argument_list|(
-literal|"usage: ./%s [ConnectedClient<server><port>|UnconnectedClient<server><port>|Server]"
+literal|"usage: %s [ConnectedClient<server><port>|UnconnectedClient<server><port>|Server]"
 argument_list|,
 name|argv
 index|[
@@ -582,7 +582,7 @@ else|else
 block|{
 name|qDebug
 argument_list|(
-literal|"usage: ./%s [ConnectedClient<server><port>|UnconnectedClient<server><port>|Server]"
+literal|"usage: %s [ConnectedClient<server><port>|UnconnectedClient<server><port>|Server]"
 argument_list|,
 name|argv
 index|[
