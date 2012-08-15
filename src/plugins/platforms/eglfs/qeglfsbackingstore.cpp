@@ -345,6 +345,10 @@ decl_stmt|;
 name|GLfloat
 name|y1
 init|=
+operator|-
+literal|1
+operator|*
+operator|(
 operator|(
 name|r
 operator|.
@@ -360,10 +364,15 @@ operator|*
 literal|2
 operator|-
 literal|1
+operator|)
 decl_stmt|;
 name|GLfloat
 name|y2
 init|=
+operator|-
+literal|1
+operator|*
+operator|(
 operator|(
 name|r
 operator|.
@@ -379,6 +388,7 @@ operator|*
 literal|2
 operator|-
 literal|1
+operator|)
 decl_stmt|;
 specifier|const
 name|GLfloat
