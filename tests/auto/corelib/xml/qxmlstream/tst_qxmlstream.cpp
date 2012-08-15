@@ -207,7 +207,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/**  *  Opens @p filename and returns content produced as per  *  xmlconf/xmltest/canonxml.html.  *  *  @p docType is the DOCTYPE name that the returned output should  *  have, if it doesn't already have one.  */
+comment|/**  *  Opens \a filename and returns content produced as per  *  xmlconf/xmltest/canonxml.html.  *  *  \a docType is the DOCTYPE name that the returned output should  *  have, if it doesn't already have one.  */
 end_comment
 begin_function
 DECL|function|makeCanonical
@@ -900,7 +900,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/**  * @short Returns the lexical QName of the document element in  * @p document.  *  * It is assumed that @p document is a well-formed XML document.  */
+comment|/**  * \brief Returns the lexical QName of the document element in  * \a document.  *  * It is assumed that \a document is a well-formed XML document.  */
 end_comment
 begin_function
 DECL|function|documentElement
@@ -968,7 +968,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/**  * @short Loads W3C's XML conformance test suite and runs it on QXmlStreamReader.  *  * Since this suite is fairly large, it runs the tests sequentially in order to not  * have them all loaded into memory at once. In this way, the maximum memory usage stays  * low, which means one can run valgrind on this test. However, the drawback is that  * QTestLib's usual error reporting and testing mechanisms are slightly bypassed.  *  * Part of this code is a manual, ad-hoc implementation of xml:base.  *  * @see<a href="http://www.w3.org/XML/Test/">Extensible  * Markup Language (XML) Conformance Test Suites</a>  */
+comment|/**  * \brief Loads W3C's XML conformance test suite and runs it on QXmlStreamReader.  *  * Since this suite is fairly large, it runs the tests sequentially in order to not  * have them all loaded into memory at once. In this way, the maximum memory usage stays  * low, which means one can run valgrind on this test. However, the drawback is that  * QTestLib's usual error reporting and testing mechanisms are slightly bypassed.  *  * Part of this code is a manual, ad-hoc implementation of xml:base.  *  * See \l {http://www.w3.org/XML/Test/} {Extensible Markup Language (XML) Conformance Test Suites}  */
 end_comment
 begin_class
 DECL|class|TestSuiteHandler
@@ -1087,7 +1087,7 @@ DECL|member|skipCount
 name|int
 name|skipCount
 decl_stmt|;
-comment|/**      * @p baseURI is the the URI of where the catalog file resides.      */
+comment|/**      * \a baseURI is the the URI of where the catalog file resides.      */
 DECL|function|TestSuiteHandler
 name|TestSuiteHandler
 parameter_list|(

@@ -332,7 +332,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Appens the entry given by @p key to the end of the linked list.     (i.e., makes it the newest entry)  */
+comment|/*!     Appends the entry given by \a key to the end of the linked list.     (i.e., makes it the newest entry)  */
 end_comment
 begin_function
 DECL|function|linkEntry
@@ -475,7 +475,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Removes the entry pointed by @p key from the linked list.     Returns true if the entry removed was the oldest one.  */
+comment|/*!     Removes the entry pointed by \a key from the linked list.     Returns true if the entry removed was the oldest one.  */
 end_comment
 begin_function
 DECL|function|unlinkEntry
