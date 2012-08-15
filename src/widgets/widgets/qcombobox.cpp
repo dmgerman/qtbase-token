@@ -4294,7 +4294,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \enum QComboBox::InsertPolicy      This enum specifies what the QComboBox should do when a new string is     entered by the user.      \value NoInsert             The string will not be inserted into the combobox.     \value InsertAtTop          The string will be inserted as the first item in the combobox.     \value InsertAtCurrent      The current item will be \e replaced by the string.     \value InsertAtBottom       The string will be inserted after the last item in the combobox.     \value InsertAfterCurrent   The string is inserted after the current item in the combobox.     \value InsertBeforeCurrent  The string is inserted before the current item in the combobox.     \value InsertAlphabetically The string is inserted in the alphabetic order in the combobox.     \omitvalue NoInsertion     \omitvalue AtTop     \omitvalue AtCurrent     \omitvalue AtBottom     \omitvalue AfterCurrent     \omitvalue BeforeCurrent */
+comment|/*!     \enum QComboBox::InsertPolicy      This enum specifies what the QComboBox should do when a new string is     entered by the user.      \value NoInsert             The string will not be inserted into the combobox.     \value InsertAtTop          The string will be inserted as the first item in the combobox.     \value InsertAtCurrent      The current item will be \e replaced by the string.     \value InsertAtBottom       The string will be inserted after the last item in the combobox.     \value InsertAfterCurrent   The string is inserted after the current item in the combobox.     \value InsertBeforeCurrent  The string is inserted before the current item in the combobox.     \value InsertAlphabetically The string is inserted in the alphabetic order in the combobox. */
 end_comment
 begin_comment
 comment|/*!     \enum QComboBox::SizeAdjustPolicy      This enum specifies how the size hint of the QComboBox should     adjust when new content is added or content changes.      \value AdjustToContents              The combobox will always adjust to the contents     \value AdjustToContentsOnFirstShow   The combobox will adjust to its contents the first time it is shown.     \value AdjustToMinimumContentsLength Use AdjustToContents or AdjustToContentsOnFirstShow instead.     \value AdjustToMinimumContentsLengthWithIcon The combobox will adjust to \l minimumContentsLength plus space for an icon. For performance reasons use this policy on large models. */
@@ -4395,7 +4395,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     \class QComboBox     \brief The QComboBox widget is a combined button and popup list.      \ingroup basicwidgets     \inmodule QtWidgets      A QComboBox provides a means of presenting a list of options to the user     in a way that takes up the minimum amount of screen space.      A combobox is a selection widget that displays the current item,     and can pop up a list of selectable items. A combobox may be editable,     allowing the user to modify each item in the list.      Comboboxes can contain pixmaps as well as strings; the     insertItem() and setItemText() functions are suitably overloaded.     For editable comboboxes, the function clearEditText() is provided,     to clear the displayed string without changing the combobox's     contents.      There are two signals emitted if the current item of a combobox     changes, currentIndexChanged() and activated().     currentIndexChanged() is always emitted regardless if the change     was done programmatically or by user interaction, while     activated() is only emitted when the change is caused by user     interaction. The highlighted() signal is emitted when the user     highlights an item in the combobox popup list. All three signals     exist in two versions, one with a QString argument and one with an     \c int argument. If the user selects or highlights a pixmap, only     the \c int signals are emitted. Whenever the text of an editable     combobox is changed the editTextChanged() signal is emitted.      When the user enters a new string in an editable combobox, the     widget may or may not insert it, and it can insert it in several     locations. The default policy is is \l AtBottom but you can change     this using setInsertPolicy().      It is possible to constrain the input to an editable combobox     using QValidator; see setValidator(). By default, any input is     accepted.      A combobox can be populated using the insert functions,     insertItem() and insertItems() for example. Items can be     changed with setItemText(). An item can be removed with     removeItem() and all items can be removed with clear(). The text     of the current item is returned by currentText(), and the text of     a numbered item is returned with text(). The current item can be     set with setCurrentIndex(). The number of items in the combobox is     returned by count(); the maximum number of items can be set with     setMaxCount(). You can allow editing using setEditable(). For     editable comboboxes you can set auto-completion using     setCompleter() and whether or not the user can add duplicates     is set with setDuplicatesEnabled().      QComboBox uses the \l{Model/View Programming}{model/view     framework} for its popup list and to store its items.  By default     a QStandardItemModel stores the items and a QListView subclass     displays the popuplist. You can access the model and view directly     (with model() and view()), but QComboBox also provides functions     to set and get item data (e.g., setItemData() and itemText()). You     can also set a new model and view (with setModel() and setView()).     For the text and icon in the combobox label, the data in the model     that has the Qt::DisplayRole and Qt::DecorationRole is used.  Note     that you cannot alter the \l{QAbstractItemView::}{SelectionMode}     of the view(), e.g., by using     \l{QAbstractItemView::}{setSelectionMode()}.      \image qstyle-comboboxes.png Comboboxes in the different built-in styles.      \sa QLineEdit, QSpinBox, QRadioButton, QButtonGroup,         {fowler}{GUI Design Handbook: Combo Box, Drop-Down List Box} */
+comment|/*!     \class QComboBox     \brief The QComboBox widget is a combined button and popup list.      \ingroup basicwidgets     \inmodule QtWidgets      A QComboBox provides a means of presenting a list of options to the user     in a way that takes up the minimum amount of screen space.      A combobox is a selection widget that displays the current item,     and can pop up a list of selectable items. A combobox may be editable,     allowing the user to modify each item in the list.      Comboboxes can contain pixmaps as well as strings; the     insertItem() and setItemText() functions are suitably overloaded.     For editable comboboxes, the function clearEditText() is provided,     to clear the displayed string without changing the combobox's     contents.      There are two signals emitted if the current item of a combobox     changes, currentIndexChanged() and activated().     currentIndexChanged() is always emitted regardless if the change     was done programmatically or by user interaction, while     activated() is only emitted when the change is caused by user     interaction. The highlighted() signal is emitted when the user     highlights an item in the combobox popup list. All three signals     exist in two versions, one with a QString argument and one with an     \c int argument. If the user selects or highlights a pixmap, only     the \c int signals are emitted. Whenever the text of an editable     combobox is changed the editTextChanged() signal is emitted.      When the user enters a new string in an editable combobox, the     widget may or may not insert it, and it can insert it in several     locations. The default policy is is \l InsertAtBottom but you can change     this using setInsertPolicy().      It is possible to constrain the input to an editable combobox     using QValidator; see setValidator(). By default, any input is     accepted.      A combobox can be populated using the insert functions,     insertItem() and insertItems() for example. Items can be     changed with setItemText(). An item can be removed with     removeItem() and all items can be removed with clear(). The text     of the current item is returned by currentText(), and the text of     a numbered item is returned with text(). The current item can be     set with setCurrentIndex(). The number of items in the combobox is     returned by count(); the maximum number of items can be set with     setMaxCount(). You can allow editing using setEditable(). For     editable comboboxes you can set auto-completion using     setCompleter() and whether or not the user can add duplicates     is set with setDuplicatesEnabled().      QComboBox uses the \l{Model/View Programming}{model/view     framework} for its popup list and to store its items.  By default     a QStandardItemModel stores the items and a QListView subclass     displays the popuplist. You can access the model and view directly     (with model() and view()), but QComboBox also provides functions     to set and get item data (e.g., setItemData() and itemText()). You     can also set a new model and view (with setModel() and setView()).     For the text and icon in the combobox label, the data in the model     that has the Qt::DisplayRole and Qt::DecorationRole is used.  Note     that you cannot alter the \l{QAbstractItemView::}{SelectionMode}     of the view(), e.g., by using     \l{QAbstractItemView::}{setSelectionMode()}.      \image qstyle-comboboxes.png Comboboxes in the different built-in styles.      \sa QLineEdit, QSpinBox, QRadioButton, QButtonGroup,         {fowler}{GUI Design Handbook: Combo Box, Drop-Down List Box} */
 end_comment
 begin_function
 DECL|function|init
@@ -6930,7 +6930,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QComboBox::insertPolicy     \brief the policy used to determine where user-inserted items should     appear in the combobox      The default value is \l AtBottom, indicating that new items will appear     at the bottom of the list of items.      \sa InsertPolicy */
+comment|/*!     \property QComboBox::insertPolicy     \brief the policy used to determine where user-inserted items should     appear in the combobox      The default value is \l InsertAtBottom, indicating that new items will appear     at the bottom of the list of items.      \sa InsertPolicy */
 end_comment
 begin_function
 DECL|function|insertPolicy
@@ -12404,9 +12404,6 @@ directive|endif
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QComboBox::clearValidator()      Use setValidator(0) instead. */
-end_comment
-begin_comment
 comment|/*!     Clears the contents of the line edit used for editing in the combobox. */
 end_comment
 begin_function
@@ -14598,24 +14595,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QComboBox::editable() const      Use isEditable() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QComboBox::insertItem(const QPixmap&pixmap, int index)      Use an insertItem() function that takes a QIcon instead, for     example, insertItem(index, QIcon(pixmap)). */
-end_comment
-begin_comment
-comment|/*!     \fn void QComboBox::insertItem(const QPixmap&pixmap, const QString&text, int index)      Use an insertItem() function that takes a QIcon instead, for     example, insertItem(index, QIcon(pixmap), text).      \sa insertItems() */
-end_comment
-begin_comment
-comment|/*!     \fn void QComboBox::changeItem(const QString&text, int index)      Use setItemText() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QComboBox::changeItem(const QPixmap&pixmap, int index)      Use setItemIcon() instead, for example,     setItemIcon(index, QIcon(pixmap)). */
-end_comment
-begin_comment
-comment|/*!     \fn void QComboBox::changeItem(const QPixmap&pixmap, const QString&text, int index)      Use setItem() instead, for example, setItem(index, QIcon(pixmap),text). */
-end_comment
-begin_comment
 comment|/*!     \fn void QComboBox::addItem(const QString&text, const QVariant&userData)      Adds an item to the combobox with the given \a text, and     containing the specified \a userData (stored in the Qt::UserRole).     The item is appended to the list of existing items. */
 end_comment
 begin_comment
@@ -14809,18 +14788,6 @@ expr_stmt|;
 comment|//update the text to the text of the new column;
 block|}
 end_function
-begin_comment
-comment|/*!     \fn int QComboBox::currentItem() const      Use currentIndex() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QComboBox::setCurrentItem(int)      Use setCurrentIndex(int) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QComboBox::popup()      Use showPopup() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QComboBox::textChanged(const QString&text)      Use the editTextChanged(const QString&text) signal instead. */
-end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
