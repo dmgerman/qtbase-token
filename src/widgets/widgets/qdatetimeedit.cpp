@@ -5695,6 +5695,7 @@ argument_list|,
 name|parent
 argument_list|)
 block|{ }
+comment|/*!   \property QTimeEdit::time   \internal   \sa QDateTimeEdit::time */
 comment|/*!   \fn void QTimeEdit::userTimeChanged(const QTime&time)    This signal only exists to fully implement the time Q_PROPERTY on the class.   Normally timeChanged should be used instead.    \internal */
 comment|/*!   \class QDateEdit   \brief The QDateEdit class provides a widget for editing dates based on   the QDateTimeEdit widget.    \ingroup basicwidgets   \inmodule QtWidgets    Many of the properties and functions provided by QDateEdit are implemented in   QDateTimeEdit. The following properties are most relevant to users of this   class:    \list   \li \l{QDateTimeEdit::date}{date} holds the date displayed by the widget.   \li \l{QDateTimeEdit::minimumDate}{minimumDate} defines the minimum (earliest)      date that can be set by the user.   \li \l{QDateTimeEdit::maximumDate}{maximumDate} defines the maximum (latest) date      that can be set by the user.   \li \l{QDateTimeEdit::displayFormat}{displayFormat} contains a string that is used      to format the date displayed in the widget.   \endlist    \table 100%   \row \li \inlineimage windowsxp-dateedit.png Screenshot of a Windows XP style date editing widget        \li A date editing widget shown in the \l{Windows XP Style Widget Gallery}{Windows XP widget style}.   \row \li \inlineimage macintosh-dateedit.png Screenshot of a Macintosh style date editing widget        \li A date editing widget shown in the \l{Macintosh Style Widget Gallery}{Macintosh widget style}.   \row \li \inlineimage plastique-dateedit.png Screenshot of a Plastique style date editing widget        \li A date editing widget shown in the \l{Plastique Style Widget Gallery}{Plastique widget style}.   \endtable    \sa QTimeEdit, QDateTimeEdit */
 comment|/*!   Constructs an empty date editor with a \a parent. */
@@ -5768,6 +5769,7 @@ argument_list|,
 name|parent
 argument_list|)
 block|{ }
+comment|/*!   \property QDateEdit::date   \internal   \sa QDateTimeEdit::date */
 comment|/*!   \fn void QDateEdit::userDateChanged(const QDate&date)    This signal only exists to fully implement the date Q_PROPERTY on the class.   Normally dateChanged should be used instead.    \internal */
 comment|// --- QDateTimeEditPrivate ---
 comment|/*!   \internal   Constructs a QDateTimeEditPrivate object */
