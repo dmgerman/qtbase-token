@@ -7466,6 +7466,7 @@ condition|)
 block|{
 name|DeleteObject
 argument_list|(
+operator|*
 name|winRegion
 argument_list|)
 expr_stmt|;
