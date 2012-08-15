@@ -1452,7 +1452,7 @@ begin_comment
 comment|// Corrupt data causes this test to lock up on HP-UX / PA-RISC with gcc,
 end_comment
 begin_comment
-comment|// SOLARIS, QNX and Windows.
+comment|// SOLARIS, and Windows.
 end_comment
 begin_comment
 comment|// This test is expected to produce some warning messages in the test output.
@@ -1490,12 +1490,6 @@ operator|!
 name|defined
 argument_list|(
 name|Q_OS_SOLARIS
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_QNX
 argument_list|)
 operator|&&
 operator|!
@@ -14708,7 +14702,7 @@ literal|'1'
 decl_stmt|;
 end_decl_stmt
 begin_macro
-name|QTEST_APPLESS_MAIN
+name|QTEST_MAIN
 argument_list|(
 argument|tst_QByteArray
 argument_list|)
