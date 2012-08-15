@@ -83,12 +83,6 @@ name|cursor
 argument_list|()
 specifier|const
 block|;
-name|QPlatformOpenGLContext
-operator|*
-name|platformContext
-argument_list|()
-specifier|const
-block|;
 name|EGLDisplay
 name|display
 argument_list|()

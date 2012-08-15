@@ -78,7 +78,7 @@ name|setFormat
 argument_list|(
 name|window
 operator|->
-name|format
+name|requestedFormat
 argument_list|()
 argument_list|)
 expr_stmt|;
