@@ -171,10 +171,6 @@ name|void
 name|processRcFileVar
 argument_list|()
 block|;
-name|void
-name|processFileTagsVar
-argument_list|()
-block|;
 name|virtual
 name|QString
 name|getLibTarget
