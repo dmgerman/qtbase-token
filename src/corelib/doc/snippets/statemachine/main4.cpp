@@ -67,6 +67,7 @@ super|:
 specifier|public
 name|QAbstractTransition
 block|{
+name|Q_OBJECT
 public|public:
 DECL|function|StringTransition
 name|StringTransition
@@ -92,7 +93,6 @@ name|QEvent
 modifier|*
 name|e
 parameter_list|)
-specifier|const
 block|{
 if|if
 condition|(
