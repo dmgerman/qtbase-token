@@ -2029,6 +2029,9 @@ name|CreateInstance
 block|,
 DECL|enumerator|IndexOfMethod
 name|IndexOfMethod
+block|,
+DECL|enumerator|RegisterPropertyMetaType
+name|RegisterPropertyMetaType
 block|}
 enum|;
 name|int

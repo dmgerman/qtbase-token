@@ -4431,6 +4431,8 @@ index|]
 argument_list|,
 name|metaTypes
 argument_list|,
+name|knownQObjectClasses
+argument_list|,
 name|out
 argument_list|)
 decl_stmt|;
