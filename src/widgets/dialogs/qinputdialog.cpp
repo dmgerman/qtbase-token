@@ -4729,15 +4729,6 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QString QInputDialog::getText(const QString&title, const QString&label,                                       QLineEdit::EchoMode echo = QLineEdit::Normal,                                       const QString&text = QString(), bool *ok = 0,                                       QWidget *parent = 0, const char *name = 0, Qt::WindowFlags flags = 0)      Call getText(\a parent, \a title, \a label, \a echo, \a text, \a     ok, \a flags) instead.      The \a name parameter is ignored. */
-end_comment
-begin_comment
-comment|/*!     \fn double QInputDialog::getDouble(const QString&title, const QString&label, double value = 0,                                        double min = -2147483647, double max = 2147483647,                                        int decimals = 1, bool *ok = 0,                                        QWidget *parent = 0, const char *name = 0, Qt::WindowFlags flags = 0)      Call getDouble(\a parent, \a title, \a label, \a value, \a     min, \a max, \a decimals, \a ok, \a flags).      The \a name parameter is ignored. */
-end_comment
-begin_comment
-comment|/*!     \fn QString QInputDialog::getItem(const QString&title, const QString&label, const QStringList&list,                                       int current = 0, bool editable = true, bool *ok = 0,                                       QWidget *parent = 0, const char *name = 0, Qt::WindowFlags flags = 0)      Call getItem(\a parent, \a title, \a label, \a list, \a current,     \a editable, \a ok, \a flags) instead.      The \a name parameter is ignored. */
-end_comment
-begin_comment
 comment|/*!     \fn void QInputDialog::doubleValueChanged(double value)      This signal is emitted whenever the double value changes in the dialog.     The current value is specified by \a value.      This signal is only relevant when the input dialog is used in     DoubleInput mode. */
 end_comment
 begin_comment

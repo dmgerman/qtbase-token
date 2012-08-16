@@ -1539,9 +1539,6 @@ endif|#
 directive|endif
 block|}
 end_function
-begin_comment
-comment|/*!     \fn void QErrorMessage::message(const QString& message)      Use showMessage(\a message) instead. */
-end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
