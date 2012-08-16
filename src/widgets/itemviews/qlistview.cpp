@@ -12118,6 +12118,11 @@ argument_list|()
 operator|->
 name|width
 argument_list|()
+operator|-
+literal|2
+operator|*
+name|spacing
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
