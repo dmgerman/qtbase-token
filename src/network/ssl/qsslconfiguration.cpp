@@ -769,7 +769,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Enables or disables an SSL compatibility option.    \sa testSSlOption() */
+comment|/*!   Enables or disables an SSL compatibility \a option. If \a on   is true, the \a option is enabled. If \a on is false, the   \a option is disabled.    \sa testSslOption() */
 end_comment
 begin_function
 DECL|function|setSslOption
@@ -808,7 +808,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \since 4.8    Returns true if the specified SSL compatibility option is enabled.    \sa testSSlOption() */
+comment|/*!   \since 4.8    Returns true if the specified SSL compatibility \a option is enabled.    \sa setSslOption() */
 end_comment
 begin_function
 DECL|function|testSslOption
