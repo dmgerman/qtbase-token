@@ -118,6 +118,9 @@ name|determineScreenSize
 parameter_list|(
 name|screen_display_t
 name|display
+parameter_list|,
+name|bool
+name|primaryScreen
 parameter_list|)
 block|{
 name|int
@@ -356,6 +359,10 @@ name|defSize
 return|;
 else|#
 directive|else
+if|if
+condition|(
+name|primaryScreen
+condition|)
 name|qFatal
 argument_list|(
 literal|"QQnxScreen: QQNX_PHYSICAL_SCREEN_SIZE variable not set. Could not determine physical screen size."
@@ -540,6 +547,8 @@ init|=
 name|determineScreenSize
 argument_list|(
 name|m_display
+argument_list|,
+name|primaryScreen
 argument_list|)
 decl_stmt|;
 name|m_nativeOrientation
