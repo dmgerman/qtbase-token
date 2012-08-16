@@ -37,7 +37,7 @@ name|shared_null
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|/*!     \class QPrinterInfo      \brief The QPrinterInfo class gives access to information about     existing printers.          \ingroup printing     \inmodule QtPrintSupport      Use the static functions to generate a list of QPrinterInfo     objects. Each QPrinterInfo object in the list represents a single     printer and can be queried for name, supported paper sizes, and     whether or not it is the default printer.      \since 4.4 */
+comment|/*!     \class QPrinterInfo      \brief The QPrinterInfo class gives access to information about     existing printers.      \ingroup printing     \inmodule QtPrintSupport      Use the static functions to generate a list of QPrinterInfo     objects. Each QPrinterInfo object in the list represents a single     printer and can be queried for name, supported paper sizes, and     whether or not it is the default printer.      \since 4.4 */
 end_comment
 begin_comment
 comment|/*!     \fn QList<QPrinterInfo> QPrinterInfo::availablePrinters()      Returns a list of available printers on the system. */
@@ -265,7 +265,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QString QPrinterInfo::description()     \since 5.0      Returns the human-readable description of the printer.      \sa QPrinterInfo::printerName() */
+comment|/*!     Returns the human-readable description of the printer.      \since 5.0     \sa QPrinterInfo::printerName() */
 end_comment
 begin_function
 DECL|function|description
@@ -290,7 +290,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QString QPrinterInfo::location()     \since 5.0      Returns the human-readable location of the printer. */
+comment|/*!     Returns the human-readable location of the printer.      \since 5.0 */
 end_comment
 begin_function
 DECL|function|location
@@ -315,7 +315,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QString QPrinterInfo::makeAndModel()     \since 5.0      Returns the human-readable make and model of the printer. */
+comment|/*!     Returns the human-readable make and model of the printer.      \since 5.0 */
 end_comment
 begin_function
 DECL|function|makeAndModel
@@ -393,7 +393,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QList< QPrinter::PaperSize> QPrinterInfo::supportedPaperSizes() const     \since 4.4      Returns a list of supported paper sizes by the printer.      Not all printer drivers support this query, so the list may be empty.     On Mac OS X 10.3, this function always returns an empty list. */
+comment|/*!     Returns a list of supported paper sizes by the printer.      Not all printer drivers support this query, so the list may be empty.     On Mac OS X 10.3, this function always returns an empty list.      \since 4.4 */
 end_comment
 begin_function
 DECL|function|supportedPaperSizes
@@ -531,7 +531,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QPrinterInfo QPrinterInfo::printerInfo()     \since 5.0      Returns the named printer.      The return value should be checked using isNull() before being     used, in case the named printer does not exist.      \sa isNull() */
+comment|/*!     Returns the named printer.      The return value should be checked using isNull() before being     used, in case the named printer does not exist.      \since 5.0     \sa isNull() */
 end_comment
 begin_function
 DECL|function|printerInfo

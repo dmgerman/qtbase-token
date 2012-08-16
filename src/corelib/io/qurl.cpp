@@ -10090,7 +10090,7 @@ begin_comment
 comment|/*!     \fn DataPtr&QUrl::data_ptr()     \internal */
 end_comment
 begin_comment
-comment|/*!     \relates QHash     \since 5.0      Returns the hash value for the \a url. If specified, \a seed is used to     initialize the hash.  */
+comment|/*!     Returns the hash value for the \a url. If specified, \a seed is used to     initialize the hash.      \relates QHash     \since 5.0 */
 end_comment
 begin_function
 DECL|function|qHash
