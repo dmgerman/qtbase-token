@@ -115,7 +115,7 @@ argument_list|)
 block|{}
 end_constructor
 begin_comment
-comment|/*!     Constructs an event notifier with the given \a parent. It enables     the \a notifier, and watches for the event \a hEvent.      The notifier is enabled by default, i.e. it emits the activated() signal     whenever the corresponding event is signalled. However, it is generally     advisable to explicitly enable or disable the event notifier.      \sa setEnabled(), isEnabled() */
+comment|/*!     Constructs an event notifier with the given \a parent. It enables     the notifier, and watches for the event \a hEvent.      The notifier is enabled by default, i.e. it emits the activated() signal     whenever the corresponding event is signalled. However, it is generally     advisable to explicitly enable or disable the event notifier.      \sa setEnabled(), isEnabled() */
 end_comment
 begin_constructor
 DECL|function|QWinEventNotifier

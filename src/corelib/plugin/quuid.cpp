@@ -1068,10 +1068,10 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!   \since 5.0   \fn QUuid QUuid::createUuidV3(const QUuid&ns, const QByteArray&baseData);    This functions returns a new UUID with variant QUuid::DCE and version QUuid::MD5.   \a ns is the namespace and \a name is the name as described by RFC 4122.    \sa variant(), version(), createUuidV5() */
+comment|/*!   \since 5.0   \fn QUuid QUuid::createUuidV3(const QUuid&ns, const QByteArray&baseData);    This functions returns a new UUID with variant QUuid::DCE and version QUuid::Md5.   \a ns is the namespace and \a baseData is the basic data as described by RFC 4122.    \sa variant(), version(), createUuidV5() */
 end_comment
 begin_comment
-comment|/*!   \since 5.0   \fn QUuid QUuid::createUuidV5(const QUuid&ns, const QByteArray&baseData);    This functions returns a new UUID with variant QUuid::DCE and version QUuid::SHA1.   \a ns is the namespace and \a name is the name as described by RFC 4122.    \sa variant(), version(), createUuidV3() */
+comment|/*!   \since 5.0   \fn QUuid QUuid::createUuidV5(const QUuid&ns, const QByteArray&baseData);    This functions returns a new UUID with variant QUuid::DCE and version QUuid::Sha1.   \a ns is the namespace and \a baseData is the basic data as described by RFC 4122.    \sa variant(), version(), createUuidV3() */
 end_comment
 begin_ifndef
 ifndef|#
@@ -1151,7 +1151,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!   Creates a QUuid object from the binary representation of the UUID, as   specified by RFC 4122 section 4.1.2. See toRfc4122() for a further   explanation of the order of bytes required.    The byte array accepted is NOT a human readable format.    If the conversion fails, a null UUID is created.      \since 4.8      \sa toRfc4122(), QUuid() */
+comment|/*!   Creates a QUuid object from the binary representation of the UUID, as   specified by RFC 4122 section 4.1.2. See toRfc4122() for a further   explanation of the order of \a bytes required.    The byte array accepted is NOT a human readable format.    If the conversion fails, a null UUID is created.      \since 4.8      \sa toRfc4122(), QUuid() */
 end_comment
 begin_function
 DECL|function|fromRfc4122
@@ -2059,7 +2059,7 @@ begin_comment
 comment|/*!     \enum QUuid::Variant      This enum defines the values used in the \l{Variant field}     {variant field} of the UUID. The value in the variant field     determines the layout of the 128-bit value.      \value VarUnknown Variant is unknown     \value NCS Reserved for NCS (Network Computing System) backward compatibility     \value DCE Distributed Computing Environment, the scheme used by QUuid     \value Microsoft Reserved for Microsoft backward compatibility (GUID)     \value Reserved Reserved for future definition */
 end_comment
 begin_comment
-comment|/*!     \enum QUuid::Version      This enum defines the values used in the \l{Version field}     {version field} of the UUID. The version field is meaningful     only if the value in the \l{Variant field} {variant field}     is QUuid::DCE.      \value VerUnknown Version is unknown     \value Time Time-based, by using timestamp, clock sequence, and     MAC network card address (if available) for the node sections     \value EmbeddedPOSIX DCE Security version, with embedded POSIX UUIDs     \value Name Name-based, by using values from a name for all sections     \value Random Random-based, by using random numbers for all sections */
+comment|/*!     \enum QUuid::Version      This enum defines the values used in the \l{Version field}     {version field} of the UUID. The version field is meaningful     only if the value in the \l{Variant field} {variant field}     is QUuid::DCE.      \value VerUnknown Version is unknown     \value Time Time-based, by using timestamp, clock sequence, and     MAC network card address (if available) for the node sections     \value EmbeddedPOSIX DCE Security version, with embedded POSIX UUIDs     \value Name Name-based, by using values from a name for all sections     \value Md5 Alias for Name     \value Random Random-based, by using random numbers for all sections     \value Sha1 */
 end_comment
 begin_comment
 comment|/*!     \fn QUuid::Variant QUuid::variant() const      Returns the value in the \l{Variant field} {variant field} of the     UUID. If the return value is QUuid::DCE, call version() to see     which layout it uses. The null UUID is considered to be of an     unknown variant.      \sa version() */
