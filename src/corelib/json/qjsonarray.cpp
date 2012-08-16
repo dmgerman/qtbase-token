@@ -1604,6 +1604,9 @@ begin_comment
 comment|/*! \fn QJsonArray::iterator::iterator()      Constructs an uninitialized iterator.      Functions like operator*() and operator++() should not be called     on an uninitialized iterator. Use operator=() to assign a value     to it before using it.      \sa QJsonArray::begin(), QJsonArray::end() */
 end_comment
 begin_comment
+comment|/*! \fn QJsonArray::iterator::iterator(QJsonArray *array, int index)     \internal */
+end_comment
+begin_comment
 comment|/*! \fn QJsonValueRef QJsonArray::iterator::operator*() const      Returns a modifiable reference to the current item.      You can change the value of an item by using operator*() on the     left side of an assignment.      The return value is of type QJsonValueRef, a helper class for QJsonArray     and QJsonObject. When you get an object of type QJsonValueRef, you can     use it as if it were a reference to a QJsonValue. If you assign to it,     the assignment will apply to the character in the QJsonArray of QJsonObject     from which you got the reference. */
 end_comment
 begin_comment
@@ -1659,6 +1662,9 @@ comment|/*! \class QJsonArray::const_iterator     \brief The QJsonArray::const_i
 end_comment
 begin_comment
 comment|/*! \fn QJsonArray::const_iterator::const_iterator()      Constructs an uninitialized iterator.      Functions like operator*() and operator++() should not be called     on an uninitialized iterator. Use operator=() to assign a value     to it before using it.      \sa QJsonArray::constBegin(), QJsonArray::constEnd() */
+end_comment
+begin_comment
+comment|/*! \fn QJsonArray::const_iterator::const_iterator(const QJsonArray *array, int index)     \internal */
 end_comment
 begin_comment
 comment|/*! \typedef QJsonArray::const_iterator::iterator_category    A synonym for \e {std::random_access_iterator_tag} indicating   this iterator is a random access iterator. */

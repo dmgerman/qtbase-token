@@ -1718,6 +1718,9 @@ begin_comment
 comment|/*! \fn QJsonObject::iterator::iterator()      Constructs an uninitialized iterator.      Functions like key(), value(), and operator++() must not be     called on an uninitialized iterator. Use operator=() to assign a     value to it before using it.      \sa QJsonObject::begin(), QJsonObject::end() */
 end_comment
 begin_comment
+comment|/*! \fn QJsonObject::iterator::iterator(QJsonObject *obj, int index)     \internal */
+end_comment
+begin_comment
 comment|/*! \fn QString QJsonObject::iterator::key() const      Returns the current item's key.      There is no direct way of changing an item's key through an     iterator, although it can be done by calling QJsonObject::erase()     followed by QJsonObject::insert().      \sa value() */
 end_comment
 begin_comment
@@ -1773,6 +1776,9 @@ comment|/*! \typedef QJsonObject::const_iterator::value_type      \internal */
 end_comment
 begin_comment
 comment|/*! \fn QJsonObject::const_iterator::const_iterator()      Constructs an uninitialized iterator.      Functions like key(), value(), and operator++() must not be     called on an uninitialized iterator. Use operator=() to assign a     value to it before using it.      \sa QJsonObject::constBegin(), QJsonObject::constEnd() */
+end_comment
+begin_comment
+comment|/*! \fn QJsonObject::const_iterator::const_iterator(const QJsonObject *obj, int index)     \internal */
 end_comment
 begin_comment
 comment|/*! \fn QJsonObject::const_iterator::const_iterator(const iterator&other)      Constructs a copy of \a other. */
