@@ -427,7 +427,7 @@ name|errno
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Not on BlackBerry, it has specialised event dispatcher which also handles navigator events
+comment|// Not on BlackBerry, it has specialized event dispatcher which also handles navigator events
 if|#
 directive|if
 operator|!
@@ -505,7 +505,7 @@ argument_list|()
 expr_stmt|;
 endif|#
 directive|endif
-comment|// Not on BlackBerry, it has specialised event dispatcher which also handles virtual keyboard events
+comment|// Not on BlackBerry, it has specialized event dispatcher which also handles virtual keyboard events
 if|#
 directive|if
 operator|!

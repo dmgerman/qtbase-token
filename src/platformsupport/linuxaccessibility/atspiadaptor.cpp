@@ -58,7 +58,7 @@ directive|include
 file|"application_p.h"
 end_include
 begin_comment
-comment|/*!     \class AtSpiAdaptor      \brief AtSpiAdaptor is the main class to forward between QAccessibleInterface and AT-SPI DBus      AtSpiAdaptor implements the functions specified in all at-spi interfaces.     It sends notifications comming from Qt via dbus and listens to incoming dbus requests. */
+comment|/*!     \class AtSpiAdaptor      \brief AtSpiAdaptor is the main class to forward between QAccessibleInterface and AT-SPI DBus      AtSpiAdaptor implements the functions specified in all at-spi interfaces.     It sends notifications coming from Qt via dbus and listens to incoming dbus requests. */
 end_comment
 begin_macro
 name|QT_BEGIN_NAMESPACE

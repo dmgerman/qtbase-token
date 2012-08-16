@@ -6807,7 +6807,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"/invalid/no path name speficied"
+literal|"/invalid/no path name specified"
 argument_list|)
 operator|<<
 literal|true
