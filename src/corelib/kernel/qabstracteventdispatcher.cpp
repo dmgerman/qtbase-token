@@ -542,7 +542,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Removes an event filter object \a obj from this object. The     request is ignored if such an event filter has not been installed.      All event filters for this object are automatically removed when     this object is destroyed.      It is always safe to remove an event filter, even during event     filter activation (i.e. from the nativeEventFilter() function).      \sa installNativeEventFilter(), QAbstractNativeEventFilter     \since 5.0 */
+comment|/*!     Removes the event filter \a filter from this object. The     request is ignored if such an event filter has not been installed.      All event filters for this object are automatically removed when     this object is destroyed.      It is always safe to remove an event filter, even during event     filter activation (i.e. from the nativeEventFilter() function).      \sa installNativeEventFilter(), QAbstractNativeEventFilter     \since 5.0 */
 end_comment
 begin_function
 DECL|function|removeNativeEventFilter
@@ -553,7 +553,7 @@ name|removeNativeEventFilter
 parameter_list|(
 name|QAbstractNativeEventFilter
 modifier|*
-name|filterObj
+name|filter
 parameter_list|)
 block|{
 name|Q_D
@@ -592,7 +592,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|==
-name|filterObj
+name|filter
 condition|)
 block|{
 name|d
@@ -610,7 +610,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Sends \a message through the event filters that were set by     installNativeEventFilter().  This function returns true as soon as an     event filter returns true, and false otherwise to indicate that     the processing of the event should continue.      Subclasses of QAbstractEventDispatcher \e must call this function     for \e all messages received from the system to ensure     compatibility with any extensions that may be used in the     application. The type of event \a eventType is specific to the platform     plugin chosen at run-time, and can be used to cast message to the right type.     The result pointer is only used on Windows, and corresponds to the LRESULT pointer.      Note that the type of \a message is platform dependent. See     QAbstractNativeEventFilter for details.      \sa installNativeEventFilter(), QAbstractNativeEventFilter::nativeEventFilter()     \since 5.0 */
+comment|/*!     Sends \a message through the event filters that were set by     installNativeEventFilter().  This function returns true as soon as an     event filter returns true, and false otherwise to indicate that     the processing of the event should continue.      Subclasses of QAbstractEventDispatcher \e must call this function     for \e all messages received from the system to ensure     compatibility with any extensions that may be used in the     application. The type of event \a eventType is specific to the platform     plugin chosen at run-time, and can be used to cast message to the right type.     The \a result pointer is only used on Windows, and corresponds to the LRESULT pointer.      Note that the type of \a message is platform dependent. See     QAbstractNativeEventFilter for details.      \sa installNativeEventFilter(), QAbstractNativeEventFilter::nativeEventFilter()     \since 5.0 */
 end_comment
 begin_function
 DECL|function|filterNativeEvent
@@ -721,6 +721,15 @@ literal|false
 return|;
 block|}
 end_function
+begin_comment
+comment|/*! \fn bool QAbstractEventDispatcher::filterEvent(void *message)   \deprecated    Simply calls filterNativeEvent() with an empty eventType and \a message. */
+end_comment
+begin_comment
+comment|/*! \fn bool QAbstractEventDispatcher::registerEventNotifier(QWinEventNotifier *notifier);    This pure virtual method exists on windows only and has to be reimplemented by a Windows specific   event dispatcher implementation. \a notifier is the QWinEventNotifier instance to be registered.    QWinEventNotifier calls this method in it's constructor and there should never be a need to call this   method directly.    \sa QWinEventNotifier, unregisterEventNotifier() */
+end_comment
+begin_comment
+comment|/*! \fn bool QAbstractEventDispatcher::unregisterEventNotifier(QWinEventNotifier *notifier);    This pure virtual method exists on windows only and has to be reimplemented by a Windows specific   event dispatcher implementation. \a notifier is the QWinEventNotifier instance to be unregistered.    QWinEventNotifier calls this method in it's destructor and there should never be a need to call this   method directly.    \sa QWinEventNotifier, registerEventNotifier() */
+end_comment
 begin_comment
 comment|/*! \fn void QAbstractEventDispatcher::awake()      This signal is emitted after the event loop returns from a     function that could block.      \sa wakeUp(), aboutToBlock() */
 end_comment
