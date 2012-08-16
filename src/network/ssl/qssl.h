@@ -100,6 +100,10 @@ name|TlsV1_0
 block|,
 endif|#
 directive|endif
+name|TlsV1_1
+block|,
+name|TlsV1_2
+block|,
 name|AnyProtocol
 block|,
 name|TlsV1SslV3
