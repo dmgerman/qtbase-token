@@ -8297,6 +8297,30 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \internal     \since 5.0     Used in the setEncodedXXX compatibility functions. Converts \a ba to     QString form. */
+end_comment
+begin_function
+DECL|function|fromEncodedComponent_helper
+name|QString
+name|QUrl
+operator|::
+name|fromEncodedComponent_helper
+parameter_list|(
+specifier|const
+name|QByteArray
+modifier|&
+name|ba
+parameter_list|)
+block|{
+return|return
+name|qt_urlRecodeByteArray
+argument_list|(
+name|ba
+argument_list|)
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     \fn QByteArray QUrl::toPunycode(const QString&uc)     \obsolete     Returns a \a uc in Punycode encoding.      Punycode is a Unicode encoding used for internationalized domain     names, as defined in RFC3492. If you want to convert a domain name from     Unicode to its ASCII-compatible representation, use toAce(). */
 end_comment
 begin_comment
