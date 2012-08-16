@@ -5173,7 +5173,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \enum QCoreApplication::Encoding     \obsolete      This enum type used to define the 8-bit encoding of character string     arguments to translate(). This enum is now obsolete and UTF-8 will be     used in all cases.      \value UnicodeUTF8   UTF-8.     \value Latin1        UTF-8.     \value DefaultCodec  UTF-8.      \sa QObject::tr(), QString::fromUtf8() */
+comment|/*! \enum QCoreApplication::Encoding     \obsolete      This enum type used to define the 8-bit encoding of character string     arguments to translate(). This enum is now obsolete and UTF-8 will be     used in all cases.      \value UnicodeUTF8   UTF-8.     \omitvalue Latin1     \omitvalue DefaultCodec  UTF-8.     \omitvalue CodecForTr      \sa QObject::tr(), QString::fromUtf8() */
 end_comment
 begin_function
 DECL|function|ref
@@ -5774,6 +5774,9 @@ name|result
 return|;
 block|}
 end_function
+begin_comment
+comment|/*! \fn static QString QCoreApplication::translate(const char * context, const char * key, const char * disambiguation, Encoding, int n = -1)    \obsolete */
+end_comment
 begin_comment
 comment|// Declared in qglobal.h
 end_comment
