@@ -9851,6 +9851,25 @@ literal|"Data *aData = new Data;\n"
 literal|"QSharedPointer<Data> ptr1 = QSharedPointer<Data>(aData);\n"
 literal|"QSharedPointer<Data> ptr2 = QSharedPointer<Data>(aData);\n"
 expr_stmt|;
+comment|// two QObjects with the same pointer
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"same-pointer-to-qobject"
+argument_list|)
+operator|<<
+operator|&
+name|QTest
+operator|::
+name|QExternalTest
+operator|::
+name|tryRunFail
+operator|<<
+literal|"QObject *anObj = new QObject;\n"
+literal|"QSharedPointer<QObject> ptr1 = QSharedPointer<QObject>(anObj);\n"
+literal|"QSharedPointer<QObject> ptr2 = QSharedPointer<QObject>(anObj);\n"
+expr_stmt|;
 comment|// re-creation:
 name|QTest
 operator|::
