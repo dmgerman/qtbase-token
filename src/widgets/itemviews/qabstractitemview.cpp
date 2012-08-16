@@ -12868,7 +12868,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     This slot is called when items are changed in the model. The     changed items are those from \a topLeft to \a bottomRight     inclusive. If just one item is changed \a topLeft == \a     bottomRight. */
+comment|/*!     This slot is called when items are changed in the model. The     changed items are those from \a topLeft to \a bottomRight     inclusive. If just one item is changed \a topLeft == \a     bottomRight.      The \a roles which have been changed can either be an empty container (meaning everything     has changed), or a non-empty container with the subset of roles which have changed. */
 end_comment
 begin_function
 DECL|function|dataChanged
@@ -12893,8 +12893,14 @@ argument_list|<
 name|int
 argument_list|>
 modifier|&
+name|roles
 parameter_list|)
 block|{
+name|Q_UNUSED
+argument_list|(
+name|roles
+argument_list|)
+expr_stmt|;
 comment|// Single item changed
 name|Q_D
 argument_list|(

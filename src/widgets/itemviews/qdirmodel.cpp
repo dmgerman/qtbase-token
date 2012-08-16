@@ -2309,7 +2309,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Handles the \a data supplied by a drag and drop operation that ended with     the given \a action over the row in the model specified by the \a row and     \a column and by the \a parent index.      \sa supportedDropActions() */
+comment|/*!     Handles the \a data supplied by a drag and drop operation that ended with     the given \a action over the row in the model specified by the \a row and     \a column and by the \a parent index.      Returns true if the drop was successful, and false otherwise.      \sa supportedDropActions() */
 end_comment
 begin_function
 DECL|function|dropMimeData

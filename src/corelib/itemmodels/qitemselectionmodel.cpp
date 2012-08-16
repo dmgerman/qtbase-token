@@ -293,6 +293,9 @@ begin_comment
 comment|/*!     \fn bool QItemSelectionRange::operator!=(const QItemSelectionRange&other) const      Returns true if the selection range differs from the \a other range given;     otherwise returns false.  */
 end_comment
 begin_comment
+comment|/*!     \fn bool QItemSelectionRange::operator<(const QItemSelectionRange&other) const      Returns true if the selection range is less than the \a other     range given; otherwise returns false.      The less than calculation is not directly useful to developers - the way that ranges     with different parents compare is not defined. This operator only exists so that the     class can be used with QMap.  */
+end_comment
+begin_comment
 comment|/*!     \fn bool QItemSelectionRange::isValid() const      Returns true if the selection range is valid; otherwise returns false.  */
 end_comment
 begin_comment

@@ -1402,7 +1402,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2     Sets the offset to the start of the section at the given \a visualSectionNumber.     \a visualSectionNumber is the actual visible section when hiddenSections are     not considered. That is not always the same as \a visualIndex.      \sa setOffset(), sectionPosition() */
+comment|/*!     \since 4.2     Sets the offset to the start of the section at the given \a visualSectionNumber.     \a visualSectionNumber is the actual visible section when hiddenSections are     not considered. That is not always the same as visualIndex().      \sa setOffset(), sectionPosition() */
 end_comment
 begin_function
 DECL|function|setOffsetToSectionPosition
@@ -4084,7 +4084,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     If \a sectionsMovable is true, the header may be moved by the user; otherwise it     is fixed in place.      \sa sectionsMovable(), sectionMoved() */
+comment|/*!     If \a movable is true, the header may be moved by the user; otherwise it     is fixed in place.      \sa sectionsMovable(), sectionMoved() */
 end_comment
 begin_function
 DECL|function|setSectionsMovable
@@ -4145,7 +4145,7 @@ begin_comment
 comment|// ### Qt 6 - remove this obsolete function
 end_comment
 begin_comment
-comment|/*!     \obsolete     \fn bool QHeaderView::isMovable(bool movable)      Use sectionsMovable instead.      \sa sectionsMovable() */
+comment|/*!     \obsolete     \fn bool QHeaderView::isMovable(bool movable) const      Use sectionsMovable instead.      \sa sectionsMovable() */
 end_comment
 begin_comment
 comment|/*!     If \a clickable is true, the header will respond to single clicks.      \sa sectionsClickable(), sectionClicked(), sectionPressed(),     setSortIndicatorShown() */
