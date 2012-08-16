@@ -1785,7 +1785,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the name of the file, excluding the path.      Example:     \snippet code/src_corelib_io_qfileinfo.cpp 3      Note that, if this QFileInfo object is given a path ending in a     slash, the name of the file is considered empty.      \sa isRelative(), filePath(), baseName(), extension() */
+comment|/*!     Returns the name of the file, excluding the path.      Example:     \snippet code/src_corelib_io_qfileinfo.cpp 3      Note that, if this QFileInfo object is given a path ending in a     slash, the name of the file is considered empty.      \sa isRelative(), filePath(), baseName(), suffix() */
 end_comment
 begin_function
 DECL|function|fileName
@@ -1825,7 +1825,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.3     Returns the name of the bundle.      On Mac OS X this returns the proper localized name for a bundle if the     path isBundle(). On all other platforms an empty QString is returned.      Example:     \snippet code/src_corelib_io_qfileinfo.cpp 4      \sa isBundle(), filePath(), baseName(), extension() */
+comment|/*!     \since 4.3     Returns the name of the bundle.      On Mac OS X this returns the proper localized name for a bundle if the     path isBundle(). On all other platforms an empty QString is returned.      Example:     \snippet code/src_corelib_io_qfileinfo.cpp 4      \sa isBundle(), filePath(), baseName(), suffix() */
 end_comment
 begin_function
 DECL|function|bundleName

@@ -723,7 +723,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Removes the temporary directory, including all its contents. */
+comment|/*!     Removes the temporary directory, including all its contents.      Returns true if removing was successful. */
 end_comment
 begin_function
 DECL|function|remove
