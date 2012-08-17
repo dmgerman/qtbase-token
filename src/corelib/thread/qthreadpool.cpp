@@ -934,20 +934,20 @@ name|empty
 argument_list|()
 condition|)
 block|{
-comment|// make a copy of the set so that we can iterate without the lock
+comment|// move the contents of the set out so that we can iterate without the lock
 name|QSet
 argument_list|<
 name|QThreadPoolThread
 modifier|*
 argument_list|>
 name|allThreadsCopy
-init|=
-name|allThreads
 decl_stmt|;
-name|allThreads
+name|allThreadsCopy
 operator|.
-name|clear
-argument_list|()
+name|swap
+argument_list|(
+name|allThreads
+argument_list|)
 expr_stmt|;
 name|locker
 operator|.
