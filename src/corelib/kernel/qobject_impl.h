@@ -936,18 +936,6 @@ block|;
 comment|// don't use virtual functions here; we don't want the
 comment|// compiler to create tons of per-polymorphic-class stuff that
 comment|// we'll never need. We just use one function pointer.
-block|enum
-name|Operation
-block|{
-name|Destroy
-block|,
-name|Call
-block|,
-name|Compare
-block|,
-name|NumOperations
-block|}
-block|;
 typedef|typedef
 name|void
 function_decl|(
@@ -980,6 +968,22 @@ specifier|const
 name|ImplFn
 name|impl
 block|;
+name|protected
+operator|:
+expr|enum
+name|Operation
+block|{
+name|Destroy
+block|,
+name|Call
+block|,
+name|Compare
+block|,
+name|NumOperations
+block|}
+block|;
+name|public
+operator|:
 name|explicit
 name|QSlotObjectBase
 argument_list|(
