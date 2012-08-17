@@ -56,6 +56,9 @@ name|QTouchDevicePrivate
 argument_list|)
 block|{ }
 end_constructor
+begin_comment
+comment|/*!   Destroys a touch device instance.   */
+end_comment
 begin_destructor
 DECL|function|~QTouchDevice
 name|QTouchDevice
@@ -131,7 +134,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Sets the device type.   */
+comment|/*!   Sets the device type \a devType.   */
 end_comment
 begin_function
 DECL|function|setType
@@ -153,7 +156,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Sets the capabilities supported by the device and its driver.   */
+comment|/*!   Sets the capabilities \a caps supported by the device and its driver.   */
 end_comment
 begin_function
 DECL|function|setCapabilities
@@ -175,7 +178,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Sets the name (a unique identifier) for the device. In most systems it is   enough to leave this unset and keep the default empty name. This identifier   becomes important when having multiple touch devices and a need to   differentiate between them.   */
+comment|/*!   Sets the \a name (a unique identifier) for the device. In most systems it is   enough to leave this unset and keep the default empty name. This identifier   becomes important when having multiple touch devices and a need to   differentiate between them.   */
 end_comment
 begin_function
 DECL|function|setName
