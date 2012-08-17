@@ -1131,11 +1131,6 @@ condition|(
 name|runnable
 operator|==
 literal|0
-operator|||
-name|queue
-operator|.
-name|isEmpty
-argument_list|()
 condition|)
 return|return;
 name|bool
