@@ -88,7 +88,7 @@ begin_comment
 comment|/*!     \class QWindow     \inmodule QtGui     \since 5.0     \brief The QWindow class represents a window in the underlying windowing system.      A window that is supplied a parent becomes a native child window of     their parent window.      \section1 Resource management      Windows can potentially use a lot of memory. A usual measurement is     width times height times color depth. A window might also include multiple     buffers to support double and triple buffering, as well as depth and stencil     buffers. To release a window's memory resources, call the destroy() function.      \section1 Window and content orientation      QWindow has reportContentOrientationChange() and     requestWindowOrientation() that can be used to specify the     layout of the window contents in relation to the screen. The     window orientation determines the actual buffer layout of the     window, and the windowing system uses this value to rotate the     window before it ends up on the display, and to ensure that input     coordinates are in the correct coordinate space relative to the     application.      On the other hand, the content orientation is simply a hint to the     windowing system about which orientation the window contents are in.     It's useful when you wish to keep the same buffer layout, but rotate     the contents instead, especially when doing rotation animations     between different orientations. The windowing system might use this     value to determine the layout of system popups or dialogs.      \section1 Visibility and Windowing system exposure.      By default, the window is not visible, and you must call setVisible(true),     or show() or similar to make it visible. To make a window hidden again,     call setVisible(false) or hide(). The visible property describes the state     the application wants the window to be in. Depending on the underlying     system, a visible window might still not be shown on the screen. It could,     for instance, be covered by other opaque windows or moved outside the     physical area of the screen. On windowing systems that have exposure     notifications, the isExposed() accessor describes whether the window should     be treated as directly visible on screen. The exposeEvent() function is     called whenever the windows exposure in the windowing system changes.  On     windowing systems that do not make this information visible to the     application, isExposed() will simply return the same value as isVisible().      \section1 Rendering      There are two Qt APIs that can be used to render content into a window,     QBackingStore for rendering with a QPainter and flushing the contents     to a window with type QSurface::RasterSurface, and QOpenGLContext for     rendering with OpenGL to a window with type QSurface::OpenGLSurface.      The application can start rendering as soon as isExposed() returns true,     and can keep rendering until it isExposed() returns false. To find out when     isExposed() changes, reimplement exposeEvent(). The window will always get     a resize event before the first expose event. */
 end_comment
 begin_comment
-comment|/*!     Creates a window as a top level on the given screen.      The window is not shown until setVisible(true), show(), or similar is called.      \sa setScreen() */
+comment|/*!     Creates a window as a top level on the \a targetScreen.      The window is not shown until setVisible(true), show(), or similar is called.      \sa setScreen() */
 end_comment
 begin_constructor
 DECL|function|QWindow
@@ -193,7 +193,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     Creates a window as a child of the given \a parent window.      The window will be embedded inside the parent window, its coordinates relative to the parent.      The screen is inherited from the parent.      \sa setParent() */
+comment|/*!     Creates a window as a child of the given \a parent window.      The window will be embedded inside the parent window, its coordinates     relative to the parent.      The screen is inherited from the parent.      \sa setParent() */
 end_comment
 begin_constructor
 DECL|function|QWindow
@@ -274,6 +274,9 @@ argument_list|)
 expr_stmt|;
 block|}
 end_constructor
+begin_comment
+comment|/*!     Creates a window as a child of the given \a parent window with the \a dd     private implementation.      The window will be embedded inside the parent window, its coordinates     relative to the parent.      The screen is inherited from the parent.      \internal     \sa setParent() */
+end_comment
 begin_constructor
 DECL|function|QWindow
 name|QWindow
@@ -819,7 +822,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the parent Window. This will lead to the windowing system managing the clip of the window, so it will be clipped to the parent window.      Setting parent to be 0 will make the window become a top level window. */
+comment|/*!     Sets the \a parent Window. This will lead to the windowing system managing     the clip of the window, so it will be clipped to the \a parent window.      Setting \a parent to be 0 will make the window become a top level window. */
 end_comment
 begin_function
 DECL|function|setParent
@@ -1312,7 +1315,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the window icon to the given \a icon.      The window icon might be used by the windowing system for example to decorate the window,     or in the task switcher. */
+comment|/*!     \property QWindow::windowIcon     \brief the window's icon in the windowing system      The window icon might be used by the windowing system for example to     decorate the window, and/or in the task switcher. */
 end_comment
 begin_function
 DECL|function|setWindowIcon
@@ -1729,7 +1732,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Requests the given window orientation.    The window orientation specifies how the window should be rotated   by the window manager in order to be displayed. Input events will   be correctly mapped to the given orientation.    The return value is false if the system doesn't support the given   orientation (for example when requesting a portrait orientation   on a device that only handles landscape buffers, typically a desktop   system).    If the return value is false, call windowOrientation() to get the actual   supported orientation.    \sa windowOrientation(), reportContentOrientationChange(), QScreen::orientation() */
+comment|/*!   Requests the given window \a orientation.    The window \a orientation specifies how the window should be rotated   by the window manager in order to be displayed. Input events will   be correctly mapped to the given \a orientation.    The return value is false if the system doesn't support the given   \a orientation (for example when requesting a portrait orientation   on a device that only handles landscape buffers, typically a desktop   system).    If the return value is false, call windowOrientation() to get the actual   supported orientation.    \sa windowOrientation(), reportContentOrientationChange(), QScreen::orientation() */
 end_comment
 begin_function
 DECL|function|requestWindowOrientation
@@ -1908,7 +1911,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the transient parent      This is a hint to the window manager that this window is a dialog or pop-up on behalf of the given window.      \sa transientParent(), parent() */
+comment|/*!     Sets the transient \a parent      This is a hint to the window manager that this window is a dialog or pop-up     on behalf of the given window.      \sa transientParent(), parent() */
 end_comment
 begin_function
 DECL|function|setTransientParent
@@ -1975,7 +1978,7 @@ begin_comment
 comment|/*!     \enum QWindow::AncestorMode      This enum is used to control whether or not transient parents     should be considered ancestors.      \value ExcludeTransients Transient parents are not considered ancestors.     \value IncludeTransients Transient parents are considered ancestors. */
 end_comment
 begin_comment
-comment|/*!     Returns true if the window is an ancestor of the given child. If mode is     IncludeTransients transient parents are also considered ancestors. */
+comment|/*!     Returns true if the window is an ancestor of the given \a child. If \a mode     is IncludeTransients, then transient parents are also considered ancestors. */
 end_comment
 begin_function
 DECL|function|isAncestorOf
@@ -2329,7 +2332,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the base size of the window.      The base size is used to calculate a proper window size if the     window defines sizeIncrement().      \sa setMinimumSize(), setMaximumSize(), setSizeIncrement(), baseSize() */
+comment|/*!     Sets the base \a size of the window.      The base size is used to calculate a proper window size if the     window defines sizeIncrement().      \sa setMinimumSize(), setMaximumSize(), setSizeIncrement(), baseSize() */
 end_comment
 begin_function
 DECL|function|setBaseSize
@@ -2383,7 +2386,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the size increment of the window.      When the user resizes the window, the size will move in steps of     sizeIncrement().width() pixels horizontally and     sizeIncrement().height() pixels vertically, with baseSize() as the     basis.      By default, this property contains a size with zero width and height.      The windowing system might not support size increments.      \sa setBaseSize(), setMinimumSize(), setMaximumSize() */
+comment|/*!     Sets the size increment (\a size) of the window.      When the user resizes the window, the size will move in steps of     sizeIncrement().width() pixels horizontally and     sizeIncrement().height() pixels vertically, with baseSize() as the     basis.      By default, this property contains a size with zero width and height.      The windowing system might not support size increments.      \sa setBaseSize(), setMinimumSize(), setMaximumSize() */
 end_comment
 begin_function
 DECL|function|setSizeIncrement
@@ -2437,7 +2440,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the geometry of the window, excluding its window frame, to \a rect.      To make sure the window is visible, make sure the geometry is within     the virtual geometry of its screen.      \sa geometry(), screen(), QScreen::virtualGeometry() */
+comment|/*!     \fn void QWindow::setGeometry(int posx, int posy, int w, int h)      Sets the geometry of the window, excluding its window frame, to a     rectangle constructed from \a posx, \a posy, \a w and \a h.      \sa geometry */
 end_comment
 begin_function
 DECL|function|setGeometry
@@ -2819,7 +2822,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the upper left position of the window including its window frame.      \sa setGeometry(), frameGeometry() */
+comment|/*!     Sets the upper left position of the window (\a point) including its window frame.      \sa setGeometry(), frameGeometry() */
 end_comment
 begin_function
 DECL|function|setFramePos
@@ -2885,7 +2888,13 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the size of the window to be \a newSize.      \sa setGeometry() */
+comment|/*!     \property QWindow::pos     \brief the position of the window on the desktop      \sa geometry */
+end_comment
+begin_comment
+comment|/*!     \property QWindow::size     \brief the size of the window excluding any window frame      \sa geometry */
+end_comment
+begin_comment
+comment|/*!     \property QWindow::geometry     \brief the geometry of the window excluding any window frame      To make sure the window is visible, make sure the geometry is within     the virtual geometry of its screen.      See the \l{Window Geometry} documentation for an overview of geometry     issues with windows.      By default, this property contains a value that depends on the user's     platform and screen geometry.      \sa size, pos */
 end_comment
 begin_function
 DECL|function|resize
@@ -3119,7 +3128,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Set whether keyboard grab should be enabled or not.      If the return value is true, the window receives all key events until setKeyboardGrabEnabled(false) is     called; other windows get no key events at all. Mouse events are not affected.     Use setMouseGrabEnabled() if you want to grab that.      \sa setMouseGrabEnabled() */
+comment|/*!     Set whether keyboard grab should be enabled or not (\a grab).      If the return value is true, the window receives all key events until     setKeyboardGrabEnabled(false) is called; other windows get no key events at     all. Mouse events are not affected. Use setMouseGrabEnabled() if you want     to grab that.      \sa setMouseGrabEnabled() */
 end_comment
 begin_function
 DECL|function|setKeyboardGrabEnabled
@@ -3159,7 +3168,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets whether mouse grab should be enabled or not.      If the return value is true, the window receives all mouse events until setMouseGrabEnabled(false) is     called; other windows get no mouse events at all. Keyboard events are not affected.     Use setKeyboardGrabEnabled() if you want to grab that.      \sa setKeyboardGrabEnabled() */
+comment|/*!     Sets whether mouse grab should be enabled or not (\a grab).      If the return value is true, the window receives all mouse events until setMouseGrabEnabled(false) is     called; other windows get no mouse events at all. Keyboard events are not affected.     Use setKeyboardGrabEnabled() if you want to grab that.      \sa setKeyboardGrabEnabled() */
 end_comment
 begin_function
 DECL|function|setMouseGrabEnabled
@@ -3225,7 +3234,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the screen on which the window should be shown.      If the window has been created, it will be recreated on the new screen.      Note that if the screen is part of a virtual desktop of multiple screens,     the window can appear on any of the screens returned by QScreen::virtualSiblings().      \sa screen(), QScreen::virtualSiblings() */
+comment|/*!     Sets the screen on which the window should be shown.      If the window has been created, it will be recreated on the \a newScreen.      Note that if the screen is part of a virtual desktop of multiple screens,     the window can appear on any of the screens returned by QScreen::virtualSiblings().      \sa screen(), QScreen::virtualSiblings() */
 end_comment
 begin_function
 DECL|function|setScreen
@@ -3409,7 +3418,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QWindow::screenChanged(QScreen *screen)      This signal is emitted when a window's screen changes, either     by being set explicitly with setScreen(), or automatically when     the window's screen is removed. */
+comment|/*!     \fn QWindow::screenChanged(QScreen *screen)      This signal is emitted when a window's \a screen changes, either     by being set explicitly with setScreen(), or automatically when     the window's screen is removed. */
 end_comment
 begin_comment
 comment|/*!   Returns the accessibility interface for the object that the window represents   \internal   \sa QAccessible   */
@@ -3430,7 +3439,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QWindow::focusObjectChanged(QObject *focusObject)      This signal is emitted when final receiver of events tied to focus is changed.     \sa focusObject() */
+comment|/*!     \fn QWindow::focusObjectChanged(QObject *focusObject)      This signal is emitted when final receiver of events tied to focus is     changed to \a focusObject.      \sa focusObject() */
 end_comment
 begin_comment
 comment|/*!     Returns the QObject that will be the final receiver of events tied focus, such     as key events. */
@@ -3609,7 +3618,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Close the window.      This closes the window, effectively calling destroy(), and     potentially quitting the application      \sa destroy(), QGuiApplication::quitOnLastWindowClosed() */
+comment|/*!     Close the window.      This closes the window, effectively calling destroy(), and potentially     quitting the application. Returns true on success, false if it has a parent     window (in which case the top level window should be closed instead).      \sa destroy(), QGuiApplication::quitOnLastWindowClosed() */
 end_comment
 begin_function
 DECL|function|close
@@ -3670,7 +3679,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     The expose event is sent by the window system whenever the window's     exposure on screen changes.      The application can start rendering into the window with QBackingStore     and QOpenGLContext as soon as it gets an exposeEvent() such that     isExposed() is true.      If the window is moved off screen, is made totally obscured by another     window, iconified or similar, this function might be called and the     value of isExposed() might change to false. When this happens,     an application should stop its rendering as it is no longer visible     to the user.      A resize event will always be sent before the expose event the first time     a window is shown.      \sa isExposed() */
+comment|/*!     The expose event (\a ev) is sent by the window system whenever the window's     exposure on screen changes.      The application can start rendering into the window with QBackingStore     and QOpenGLContext as soon as it gets an exposeEvent() such that     isExposed() is true.      If the window is moved off screen, is made totally obscured by another     window, iconified or similar, this function might be called and the     value of isExposed() might change to false. When this happens,     an application should stop its rendering as it is no longer visible     to the user.      A resize event will always be sent before the expose event the first time     a window is shown.      \sa isExposed() */
 end_comment
 begin_function
 DECL|function|exposeEvent
@@ -3692,7 +3701,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Override this to handle mouse events. */
+comment|/*!     Override this to handle mouse events (\a ev). */
 end_comment
 begin_function
 DECL|function|moveEvent
@@ -3714,7 +3723,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Override this to handle resize events.      The resize event is called whenever the window is resized in the windowing system,     either directly through the windowing system acknowledging a setGeometry() or resize() request,     or indirectly through the user resizing the window manually. */
+comment|/*!     Override this to handle resize events (\a ev).      The resize event is called whenever the window is resized in the windowing system,     either directly through the windowing system acknowledging a setGeometry() or resize() request,     or indirectly through the user resizing the window manually. */
 end_comment
 begin_function
 DECL|function|resizeEvent
@@ -3736,7 +3745,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Override this to handle show events.      The function is called when the window has requested becoming visible.      If the window is successfully shown by the windowing system, this will     be followed by a resize and an expose event. */
+comment|/*!     Override this to handle show events (\a ev).      The function is called when the window has requested becoming visible.      If the window is successfully shown by the windowing system, this will     be followed by a resize and an expose event. */
 end_comment
 begin_function
 DECL|function|showEvent
@@ -3758,7 +3767,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Override this to handle hide evens.      The function is called when the window has requested being hidden in the     windowing system. */
+comment|/*!     Override this to handle hide events (\a ev).      The function is called when the window has requested being hidden in the     windowing system. */
 end_comment
 begin_function
 DECL|function|hideEvent
@@ -3780,7 +3789,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Override this to handle any event sent to the window.      Remember to call the base class version if you wish for mouse events,     key events, resize events, etc to be dispatched as usual. */
+comment|/*!     Override this to handle any event (\a ev) sent to the window.      Remember to call the base class version if you wish for mouse events,     key events, resize events, etc to be dispatched as usual. */
 end_comment
 begin_function
 DECL|function|event
@@ -4240,7 +4249,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Override this to handle key press events.      \sa keyReleaseEvent */
+comment|/*!     Override this to handle key press events (\a ev).      \sa keyReleaseEvent() */
 end_comment
 begin_function
 DECL|function|keyPressEvent
@@ -4262,7 +4271,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Override this to handle key release events.      \sa keyPressEvent */
+comment|/*!     Override this to handle key release events (\a ev).      \sa keyPressEvent() */
 end_comment
 begin_function
 DECL|function|keyReleaseEvent
@@ -4284,7 +4293,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Override this to handle focus in events.      Focus in events are sent when the window receives keyboard focus.      \sa focusOutEvent */
+comment|/*!     Override this to handle focus in events (\a ev).      Focus in events are sent when the window receives keyboard focus.      \sa focusOutEvent() */
 end_comment
 begin_function
 DECL|function|focusInEvent
@@ -4306,7 +4315,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Override this to handle focus out events.      Focus out events are sent when the window loses keyboard focus.      \sa focusInEvent */
+comment|/*!     Override this to handle focus out events (\a ev).      Focus out events are sent when the window loses keyboard focus.      \sa focusInEvent() */
 end_comment
 begin_function
 DECL|function|focusOutEvent
@@ -4328,7 +4337,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Override this to handle mouse press events.      \sa mouseReleaseEvent() */
+comment|/*!     Override this to handle mouse press events (\a ev).      \sa mouseReleaseEvent() */
 end_comment
 begin_function
 DECL|function|mousePressEvent
@@ -4350,7 +4359,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Override this to handle mouse release events.      \sa mousePressEvent() */
+comment|/*!     Override this to handle mouse release events (\a ev).      \sa mousePressEvent() */
 end_comment
 begin_function
 DECL|function|mouseReleaseEvent
@@ -4372,7 +4381,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Override this to handle mouse double click events.      \sa mousePressEvent(), QStyleHints::mouseDoubleClickInterval() */
+comment|/*!     Override this to handle mouse double click events (\a ev).      \sa mousePressEvent(), QStyleHints::mouseDoubleClickInterval() */
 end_comment
 begin_function
 DECL|function|mouseDoubleClickEvent
@@ -4394,7 +4403,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Override this to handle mouse move events. */
+comment|/*!     Override this to handle mouse move events (\a ev). */
 end_comment
 begin_function
 DECL|function|mouseMoveEvent
@@ -4421,7 +4430,7 @@ directive|ifndef
 name|QT_NO_WHEELEVENT
 end_ifndef
 begin_comment
-comment|/*!     Override this to handle mouse wheel or other wheel events. */
+comment|/*!     Override this to handle mouse wheel or other wheel events (\a ev). */
 end_comment
 begin_function
 DECL|function|wheelEvent
@@ -4450,7 +4459,7 @@ begin_comment
 comment|//QT_NO_WHEELEVENT
 end_comment
 begin_comment
-comment|/*!     Override this to handle touch events. */
+comment|/*!     Override this to handle touch events (\a ev). */
 end_comment
 begin_function
 DECL|function|touchEvent
@@ -4477,7 +4486,7 @@ directive|ifndef
 name|QT_NO_TABLETEVENT
 end_ifndef
 begin_comment
-comment|/*!     Override this to handle tablet press, move, and release events.      Proximity enter and leave events are not sent to windows, they are     delivered to the application instance. */
+comment|/*!     Override this to handle tablet press, move, and release events (\a ev).      Proximity enter and leave events are not sent to windows, they are     delivered to the application instance. */
 end_comment
 begin_function
 DECL|function|tabletEvent
@@ -4503,7 +4512,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     Override this to handle platform dependent events.      This might make your application non-portable. */
+comment|/*!     Override this to handle platform dependent events.     Will be given \a eventType, \a message and \a result.      This might make your application non-portable.      Should return true only if the event was handled. */
 end_comment
 begin_function
 DECL|function|nativeEvent
