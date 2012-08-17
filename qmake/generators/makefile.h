@@ -247,18 +247,6 @@ name|QString
 argument_list|()
 argument_list|)
 block|;
-name|void
-name|checkMultipleDefinition
-argument_list|(
-specifier|const
-name|QString
-operator|&
-argument_list|,
-specifier|const
-name|QString
-operator|&
-argument_list|)
-block|;
 comment|//internal caches
 name|mutable
 name|QHash
