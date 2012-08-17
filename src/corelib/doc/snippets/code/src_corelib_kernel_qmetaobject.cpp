@@ -52,9 +52,9 @@ name|QMetaObject
 operator|::
 name|invokeMethod
 argument_list|(
-name|pushButton
+name|thread
 argument_list|,
-literal|"animateClick"
+literal|"quit"
 argument_list|,
 name|Qt
 operator|::
