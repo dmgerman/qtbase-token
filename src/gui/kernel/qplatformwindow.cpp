@@ -359,6 +359,33 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     Returns true if the window is a descendant of an embedded non-Qt window.     Example of an embedded non-Qt window is the parent window of an in-process QAxServer.      If \a parentWindow is nonzero, only check if the window is embedded in the     specified \a parentWindow. */
+end_comment
+begin_function
+DECL|function|isEmbedded
+name|bool
+name|QPlatformWindow
+operator|::
+name|isEmbedded
+parameter_list|(
+specifier|const
+name|QPlatformWindow
+modifier|*
+name|parentWindow
+parameter_list|)
+specifier|const
+block|{
+name|Q_UNUSED
+argument_list|(
+name|parentWindow
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     Requests setting the window state of this surface     to \a type. Returns the actual state set.      Qt::WindowActive can be ignored. */
 end_comment
 begin_function

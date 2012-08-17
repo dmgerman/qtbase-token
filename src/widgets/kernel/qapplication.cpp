@@ -305,6 +305,11 @@ include|#
 directive|include
 file|"qdatetime.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<qpa/qplatformwindow.h>
+end_include
 begin_comment
 comment|//#define ALIEN_DEBUG
 end_comment
@@ -8964,6 +8969,44 @@ operator|=
 name|p
 expr_stmt|;
 block|}
+comment|// Embedded in-process windows are not visible in normal parent-child chain,
+comment|// so check the native parent chain, too.
+specifier|const
+name|QPlatformWindow
+modifier|*
+name|platWin
+init|=
+name|window
+operator|->
+name|handle
+argument_list|()
+decl_stmt|;
+specifier|const
+name|QPlatformWindow
+modifier|*
+name|modalPlatWin
+init|=
+name|modalWindow
+operator|->
+name|handle
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|platWin
+operator|&&
+name|modalPlatWin
+operator|&&
+name|platWin
+operator|->
+name|isEmbedded
+argument_list|(
+name|modalPlatWin
+argument_list|)
+condition|)
+return|return
+literal|false
+return|;
 block|}
 name|Qt
 operator|::
