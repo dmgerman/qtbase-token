@@ -5670,6 +5670,13 @@ condition|)
 empty_stmt|;
 block|}
 block|}
+name|qDBusDebug
+argument_list|()
+operator|<<
+name|this
+operator|<<
+literal|"Disconnected"
+expr_stmt|;
 block|}
 end_function
 begin_function
