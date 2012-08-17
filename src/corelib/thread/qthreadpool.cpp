@@ -925,7 +925,14 @@ operator|.
 name|wakeAll
 argument_list|()
 expr_stmt|;
-do|do
+while|while
+condition|(
+operator|!
+name|allThreads
+operator|.
+name|empty
+argument_list|()
+condition|)
 block|{
 comment|// make a copy of the set so that we can iterate without the lock
 name|QSet
@@ -972,15 +979,6 @@ argument_list|()
 expr_stmt|;
 comment|// repeat until all newly arrived threads have also completed
 block|}
-do|while
-condition|(
-operator|!
-name|allThreads
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-do|;
 name|waitingThreads
 operator|=
 literal|0
