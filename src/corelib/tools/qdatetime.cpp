@@ -6853,7 +6853,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the number of seconds from this datetime to the \a other     datetime. If the \a other datetime is earlier than this datetime,     the value returned is negative.      Before performing the comparison, the two datetimes are converted     to Qt::UTC to ensure that the result is correct if one of the two     datetimes has daylight saving time (DST) and the other doesn't.      Returns 0 if either time is invalid.      Example:     \snippet code/src_corelib_tools_qdatetime.cpp 11      \sa addSecs(), daysTo(), QTime::secsTo() */
+comment|/*!     Returns the number of seconds from this datetime to the \a other     datetime. If the \a other datetime is earlier than this datetime,     the value returned is negative.      Before performing the comparison, the two datetimes are converted     to Qt::UTC to ensure that the result is correct if one of the two     datetimes has daylight saving time (DST) and the other doesn't.      Returns 0 if either datetime is invalid.      Example:     \snippet code/src_corelib_tools_qdatetime.cpp 11      \sa addSecs(), daysTo(), QTime::secsTo() */
 end_comment
 begin_function
 DECL|function|secsTo
@@ -6936,7 +6936,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the number of milliseconds from this datetime to the \a other     datetime. If the \a other datetime is earlier than this datetime,     the value returned is negative.      Before performing the comparison, the two datetimes are converted     to Qt::UTC to ensure that the result is correct if one of the two     datetimes has daylight saving time (DST) and the other doesn't.      Returns 0 if either time is null.      \sa addMSecs(), daysTo(), QTime::msecsTo() */
+comment|/*!     Returns the number of milliseconds from this datetime to the \a other     datetime. If the \a other datetime is earlier than this datetime,     the value returned is negative.      Before performing the comparison, the two datetimes are converted     to Qt::UTC to ensure that the result is correct if one of the two     datetimes has daylight saving time (DST) and the other doesn't.      Returns 0 if either datetime is invalid.      \sa addMSecs(), daysTo(), QTime::msecsTo() */
 end_comment
 begin_function
 DECL|function|msecsTo
