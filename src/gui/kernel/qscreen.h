@@ -336,13 +336,17 @@ name|grabWindow
 argument_list|(
 argument|WId window
 argument_list|,
-argument|int x
+argument|int x =
+literal|0
 argument_list|,
-argument|int y
+argument|int y =
+literal|0
 argument_list|,
-argument|int w
+argument|int w = -
+literal|1
 argument_list|,
-argument|int h
+argument|int h = -
+literal|1
 argument_list|)
 block|;
 name|qreal

@@ -1083,6 +1083,7 @@ name|height
 parameter_list|)
 specifier|const
 block|{
+comment|// TODO: handle window==0, i.e. grab whole screen
 if|if
 condition|(
 name|QWindowsContext

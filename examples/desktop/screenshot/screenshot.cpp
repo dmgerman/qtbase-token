@@ -369,19 +369,26 @@ expr_stmt|;
 comment|// clear image for low memory situations
 comment|// on embedded devices.
 comment|//! [5]
+name|QScreen
+modifier|*
+name|screen
+init|=
+name|QGuiApplication
+operator|::
+name|primaryScreen
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|screen
+condition|)
 name|originalPixmap
 operator|=
-name|QPixmap
-operator|::
+name|screen
+operator|->
 name|grabWindow
 argument_list|(
-name|QApplication
-operator|::
-name|desktop
-argument_list|()
-operator|->
-name|winId
-argument_list|()
+literal|0
 argument_list|)
 expr_stmt|;
 name|updateScreenshotLabel
