@@ -110,6 +110,12 @@ parameter_list|()
 function_decl|;
 end_function_decl
 begin_decl_stmt
+DECL|variable|QLibraryStore
+name|class
+name|QLibraryStore
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QLibraryPrivate
 block|{
@@ -338,7 +344,7 @@ name|pluginState
 enum|;
 name|friend
 name|class
-name|QLibraryPrivateHasFriends
+name|QLibraryStore
 decl_stmt|;
 block|}
 end_decl_stmt
