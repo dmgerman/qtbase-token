@@ -17,10 +17,22 @@ begin_comment
 comment|/*!     \enum QSurface::SurfaceClass      The SurfaceClass enum describes the actual subclass of the surface.      \value Window The surface is an instance of QWindow.  */
 end_comment
 begin_comment
-comment|/*!     \enum QSurface::SurfaceType      The SurfaceType enum describes what type of surface the.      \value RasterSurface The surface is is composed of pixels and can be rendered to using     a software rasterizer like Qt's raster paint engine.     \value OpenGLSurface The surface is an OpenGL compatible surface and can be used     in conjunction with QOpenGLContext.  */
+comment|/*!     \enum QSurface::SurfaceType      The SurfaceType enum describes what type of surface this is.      \value RasterSurface The surface is is composed of pixels and can be rendered to using     a software rasterizer like Qt's raster paint engine.     \value OpenGLSurface The surface is an OpenGL compatible surface and can be used     in conjunction with QOpenGLContext.  */
 end_comment
 begin_comment
-comment|/*!     QSize QSurface::size() const      Returns the size of the surface in pixels.  */
+comment|/*!     \fn QSize QSurface::format() const      Returns the format of the surface.  */
+end_comment
+begin_comment
+comment|/*!     \fn QPlatformSurface *QSurface::surfaceHandle() const      Returns a handle to the platform-specific implementation of the surface.  */
+end_comment
+begin_comment
+comment|/*!     \fn SurfaceType QSurface::surfaceType() const      Returns the type of the surface.  */
+end_comment
+begin_comment
+comment|/*!     \fn QSize QSurface::size() const      Returns the size of the surface in pixels.  */
+end_comment
+begin_comment
+comment|/*!     Creates a surface with the given \a type. */
 end_comment
 begin_constructor
 DECL|function|QSurface
@@ -43,6 +55,9 @@ literal|0
 argument_list|)
 block|{ }
 end_constructor
+begin_comment
+comment|/*!     Destroys the surface. */
+end_comment
 begin_destructor
 DECL|function|~QSurface
 name|QSurface
@@ -52,6 +67,9 @@ name|QSurface
 parameter_list|()
 block|{ }
 end_destructor
+begin_comment
+comment|/*!    Returns the surface class of this surface.  */
+end_comment
 begin_function
 DECL|function|surfaceClass
 name|QSurface

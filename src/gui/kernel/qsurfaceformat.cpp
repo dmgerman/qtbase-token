@@ -333,6 +333,9 @@ begin_comment
 comment|/*!     \enum QSurfaceFormat::SwapBehavior      This enum is used by QSurfaceFormat to specify the swap behaviour of a surface. The swap behaviour     is mostly transparent to the application, but it affects factors such as rendering latency and     throughput.      \value DefaultSwapBehavior The default, unspecified swap behaviour of the platform.     \value SingleBuffer Used to request single buffering, which might result in flickering         when OpenGL rendering is done directly to screen without an intermediate offscreen         buffer.     \value DoubleBuffer This is typically the default swap behaviour on desktop platforms,         consisting of one back buffer and one front buffer. Rendering is done to the back         buffer, and then the back buffer and front buffer are swapped, or the contents of         the back buffer are copied to the front buffer, depending on the implementation.     \value TripleBuffer This swap behaviour is sometimes used in order to decrease the         risk of skipping a frame when the rendering rate is just barely keeping up with         the screen refresh rate. Depending on the platform it might also lead to slightly         more efficient use of the GPU due to improved pipelining behaviour. Triple buffering         comes at the cost of an extra frame of memory usage and latency, and might not be         supported depending on the underlying platform. */
 end_comment
 begin_comment
+comment|/*!     \enum QSurfaceFormat::RenderableType      This enum specifies the rendering backend for the surface.      \value DefaultRenderableType The default, unspecified rendering method     \value OpenGL Desktop OpenGL rendering     \value OpenGLES OpenGL ES 2.0 rendering     \value OpenVG Open Vector Graphics rendering */
+end_comment
+begin_comment
 comment|/*!     \enum QSurfaceFormat::OpenGLContextProfile      This enum is used to specify the OpenGL context profile, in     conjunction with QSurfaceFormat::setMajorVersion() and     QSurfaceFormat::setMinorVersion().      Profiles are exposed in OpenGL 3.2 and above, and are used     to choose between a restricted core profile, and a compatibility     profile which might contain deprecated support functionality.      Note that the core profile might still contain functionality that     is deprecated and scheduled for removal in a higher version. To     get access to the deprecated functionality for the core profile     in the set OpenGL version you can use the QSurfaceFormat format option     QSurfaceFormat::DeprecatedFunctions.      \value NoProfile            OpenGL version is lower than 3.2.     \value CoreProfile          Functionality deprecated in OpenGL version 3.0 is not available.     \value CompatibilityProfile Functionality from earlier OpenGL versions is available. */
 end_comment
 begin_comment
@@ -794,7 +797,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the depth buffer size.      \sa depth(), setDepth(), setDepthBufferSize() */
+comment|/*!     Returns the depth buffer size.      \sa setDepthBufferSize(), setDepth(), depth() */
 end_comment
 begin_function
 DECL|function|depthBufferSize
@@ -813,7 +816,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Set the swap behaviour of the surface.      The swap behaviour specifies whether single, double, or triple     buffering is desired. The default, SwapBehavior::DefaultSwapBehavior,     gives the default swap behavior of the platform. */
+comment|/*!     Set the swap \a behavior of the surface.      The swap behavior specifies whether single, double, or triple     buffering is desired. The default, SwapBehavior::DefaultSwapBehavior,     gives the default swap behavior of the platform. */
 end_comment
 begin_function
 DECL|function|setSwapBehavior
@@ -1020,7 +1023,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Set the desired size in bits of the red channel of the color buffer. */
+comment|/*!     Set the desired \a size in bits of the red channel of the color buffer. */
 end_comment
 begin_function
 DECL|function|setRedBufferSize
@@ -1055,7 +1058,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Set the desired size in bits of the green channel of the color buffer. */
+comment|/*!     Set the desired \a size in bits of the green channel of the color buffer. */
 end_comment
 begin_function
 DECL|function|setGreenBufferSize
@@ -1090,7 +1093,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Set the desired size in bits of the blue channel of the color buffer. */
+comment|/*!     Set the desired \a size in bits of the blue channel of the color buffer. */
 end_comment
 begin_function
 DECL|function|setBlueBufferSize
@@ -1125,7 +1128,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Set the desired size in bits of the alpha channel of the color buffer. */
+comment|/*!     Set the desired \a size in bits of the alpha channel of the color buffer. */
 end_comment
 begin_function
 DECL|function|setAlphaBufferSize
@@ -1160,7 +1163,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the desired renderable type.      Chooses between desktop OpenGL, OpenGL ES, and OpenVG. */
+comment|/*!     Sets the desired renderable \a type.      Chooses between desktop OpenGL, OpenGL ES, and OpenVG. */
 end_comment
 begin_function
 DECL|function|setRenderableType
@@ -1216,7 +1219,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the desired OpenGL context profile.      This setting is ignored if the requested OpenGL version is     less than 3.2. */
+comment|/*!     Sets the desired OpenGL context \a profile.      This setting is ignored if the requested OpenGL version is     less than 3.2. */
 end_comment
 begin_function
 DECL|function|setProfile
@@ -1272,7 +1275,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the desired major OpenGL version. */
+comment|/*!     Sets the desired \a major OpenGL version. */
 end_comment
 begin_function
 DECL|function|setMajorVersion
@@ -1326,7 +1329,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the desired minor OpenGL version.      The default version is 2.0. */
+comment|/*!     Sets the desired \a minor OpenGL version.      The default version is 2.0. */
 end_comment
 begin_function
 DECL|function|setMinorVersion
@@ -1380,7 +1383,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if all the options of the two QSurfaceFormat objects     are equal.      \relates QSurfaceFormat */
+comment|/*!     Returns true if all the options of the two QSurfaceFormat objects     \a a and \a b are equal.      \relates QSurfaceFormat */
 end_comment
 begin_function
 DECL|function|operator ==
