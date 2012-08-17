@@ -1442,6 +1442,7 @@ begin_function
 name|void
 name|reportFinished
 parameter_list|(
+specifier|const
 name|void
 modifier|*
 init|=
