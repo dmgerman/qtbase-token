@@ -15930,6 +15930,14 @@ name|QWidget
 operator|::
 name|IgnoreMask
 decl_stmt|;
+specifier|const
+name|bool
+name|oldDirtyOpaqueChildren
+init|=
+name|d
+operator|->
+name|dirtyOpaqueChildren
+decl_stmt|;
 name|QRect
 name|r
 argument_list|(
@@ -16036,6 +16044,12 @@ argument_list|)
 argument_list|,
 name|renderFlags
 argument_list|)
+expr_stmt|;
+name|d
+operator|->
+name|dirtyOpaqueChildren
+operator|=
+name|oldDirtyOpaqueChildren
 expr_stmt|;
 return|return
 name|res

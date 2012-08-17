@@ -11783,11 +11783,6 @@ endif|#
 directive|endif
 if|#
 directive|if
-name|defined
-argument_list|(
-name|Q_WS_WIN
-argument_list|)
-operator|&&
 operator|!
 name|defined
 argument_list|(

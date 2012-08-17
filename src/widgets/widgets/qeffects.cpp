@@ -529,10 +529,7 @@ operator|=
 name|widget
 operator|->
 name|grab
-argument_list|(
-name|QRect
 argument_list|()
-argument_list|)
 operator|.
 name|toImage
 argument_list|()
