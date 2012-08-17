@@ -626,6 +626,13 @@ name|modifiedState
 operator|=
 literal|0
 expr_stmt|;
+name|qRegisterMetaType
+argument_list|<
+name|QTextDocument
+operator|*
+argument_list|>
+argument_list|()
+expr_stmt|;
 block|}
 end_function
 begin_function

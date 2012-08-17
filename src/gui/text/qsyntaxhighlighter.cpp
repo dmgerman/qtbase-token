@@ -977,12 +977,6 @@ name|QTextDocument
 modifier|*
 name|doc
 init|=
-name|qobject_cast
-argument_list|<
-name|QTextDocument
-operator|*
-argument_list|>
-argument_list|(
 name|parent
 operator|->
 name|property
@@ -992,11 +986,10 @@ argument_list|)
 operator|.
 name|value
 argument_list|<
-name|QObject
+name|QTextDocument
 operator|*
 argument_list|>
 argument_list|()
-argument_list|)
 decl_stmt|;
 if|if
 condition|(
