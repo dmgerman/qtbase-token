@@ -2294,7 +2294,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Makes \a document the new document of the text editor.      \note The editor \e{does not take ownership of the document} unless it     is the document's parent object. The parent object of the provided document     remains the owner of the object.      The editor does not delete the current document, even if it is a child of the editor.      \sa document() */
+comment|/*!     \property QTextEdit::document     \brief the underlying document of the text editor.      \note The editor \e{does not take ownership of the document} unless it     is the document's parent object. The parent object of the provided document     remains the owner of the object. The editor does not delete any previously     assigned document, even if it is a child of the editor. */
 end_comment
 begin_function
 DECL|function|setDocument
@@ -2334,9 +2334,6 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|/*!     Returns a pointer to the underlying document.      \sa setDocument() */
-end_comment
 begin_function
 DECL|function|document
 name|QTextDocument
