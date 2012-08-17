@@ -531,7 +531,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the named printer.      The return value should be checked using isNull() before being     used, in case the named printer does not exist.      \since 5.0     \sa isNull() */
+comment|/*!     Returns the printer \a printerName.      The return value should be checked using isNull() before being     used, in case the named printer does not exist.      \since 5.0     \sa isNull() */
 end_comment
 begin_function
 DECL|function|printerInfo
