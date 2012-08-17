@@ -718,7 +718,7 @@ begin_comment
 comment|/*!     \fn bool QDate::isNull() const      Returns true if the date is null; otherwise returns false. A null     date is invalid.      \note The behavior of this function is equivalent to isValid().      \sa isValid() */
 end_comment
 begin_comment
-comment|/*!     \fn bool isValid() const      Returns true if this date is valid; otherwise returns false.      \sa isNull() */
+comment|/*!     \fn bool QDate::isValid() const      Returns true if this date is valid; otherwise returns false.      \sa isNull() */
 end_comment
 begin_comment
 comment|/*!     Returns the year of this date. Negative numbers indicate years     before 1 CE, such that year -44 is 44 BCE.      Returns 0 if the date is invalid.      \sa month(), day() */

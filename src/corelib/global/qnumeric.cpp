@@ -14,7 +14,7 @@ file|"qnumeric_p.h"
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
-comment|/*!     Returns true if the double \a {d} is equivalent to infinity. */
+comment|/*!     Returns true if the double \a {d} is equivalent to infinity.     \relates<QtGlobal> */
 DECL|function|qIsInf
 name|Q_CORE_EXPORT
 name|bool
@@ -33,7 +33,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the double \a {d} is not a number (NaN). */
+comment|/*!     Returns true if the double \a {d} is not a number (NaN).     \relates<QtGlobal> */
 end_comment
 begin_function
 DECL|function|qIsNaN
@@ -54,7 +54,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the double \a {d} is a finite number. */
+comment|/*!     Returns true if the double \a {d} is a finite number.     \relates<QtGlobal> */
 end_comment
 begin_function
 DECL|function|qIsFinite
@@ -75,7 +75,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the float \a {f} is equivalent to infinity. */
+comment|/*!     Returns true if the float \a {f} is equivalent to infinity.     \relates<QtGlobal> */
 end_comment
 begin_function
 DECL|function|qIsInf
@@ -96,7 +96,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the float \a {f} is not a number (NaN). */
+comment|/*!     Returns true if the float \a {f} is not a number (NaN).     \relates<QtGlobal> */
 end_comment
 begin_function
 DECL|function|qIsNaN
@@ -117,7 +117,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the float \a {f} is a finite number. */
+comment|/*!     Returns true if the float \a {f} is a finite number.     \relates<QtGlobal> */
 end_comment
 begin_function
 DECL|function|qIsFinite
@@ -138,7 +138,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the bit pattern of a signalling NaN as a double. */
+comment|/*!     Returns the bit pattern of a signalling NaN as a double.     \relates<QtGlobal> */
 end_comment
 begin_function
 DECL|function|qSNaN
@@ -154,7 +154,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the bit pattern of a quiet NaN as a double. */
+comment|/*!     Returns the bit pattern of a quiet NaN as a double.     \relates<QtGlobal> */
 end_comment
 begin_function
 DECL|function|qQNaN
@@ -170,7 +170,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the bit pattern for an infinite number as a double. */
+comment|/*!     Returns the bit pattern for an infinite number as a double.     \relates<QtGlobal> */
 end_comment
 begin_function
 DECL|function|qInf
