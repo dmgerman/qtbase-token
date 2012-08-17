@@ -10148,9 +10148,6 @@ return|;
 comment|// document went away
 block|}
 end_function
-begin_comment
-comment|/*!     \enum Qt::CursorMoveStyle      This enum describes the movement style available to text cursors. The options     are:      \value LogicalMoveStyle Within a left-to-right text block, decrease cursor     position when pressing left arrow key, increase cursor position when pressing     the right arrow key. If the text block is right-to-left, the opposite behavior     applies.     \value VisualMoveStyle Pressing the left arrow key will always cause the cursor     to move left, regardless of the text's writing direction. Pressing the right     arrow key will always cause the cursor to move right. */
-end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
