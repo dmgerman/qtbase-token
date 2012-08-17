@@ -1299,7 +1299,7 @@ name|excludedDirsList
 operator|=
 name|config
 operator|.
-name|getCleanPathList
+name|getCanonicalRelativePathList
 argument_list|(
 name|CONFIG_EXCLUDEDIRS
 argument_list|)

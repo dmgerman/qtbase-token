@@ -204,6 +204,16 @@ name|fileName
 argument_list|()
 specifier|const
 expr_stmt|;
+name|QString
+name|canonicalRelativePath
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|path
+argument_list|)
+decl|const
+decl_stmt|;
 name|int
 name|lineNo
 argument_list|()
