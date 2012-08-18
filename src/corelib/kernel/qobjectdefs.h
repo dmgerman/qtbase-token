@@ -2032,6 +2032,9 @@ name|IndexOfMethod
 block|,
 DECL|enumerator|RegisterPropertyMetaType
 name|RegisterPropertyMetaType
+block|,
+DECL|enumerator|RegisterMethodArgumentMetaType
+name|RegisterMethodArgumentMetaType
 block|}
 enum|;
 name|int
