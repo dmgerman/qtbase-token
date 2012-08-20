@@ -927,11 +927,11 @@ block|;
 endif|#
 directive|endif
 comment|// internal base class (interface) containing functions required to call a slot managed by a pointer to function.
-block|struct
+name|class
 name|QSlotObjectBase
 block|{
 name|QAtomicInt
-name|ref
+name|m_ref
 block|;
 comment|// don't use virtual functions here; we don't want the
 comment|// compiler to create tons of per-polymorphic-class stuff that
@@ -966,7 +966,7 @@ parameter_list|)
 function_decl|;
 specifier|const
 name|ImplFn
-name|impl
+name|m_impl
 block|;
 name|protected
 operator|:
@@ -990,22 +990,44 @@ argument_list|(
 argument|ImplFn fn
 argument_list|)
 operator|:
-name|ref
+name|m_ref
 argument_list|(
 literal|1
 argument_list|)
 block|,
-name|impl
+name|m_impl
 argument_list|(
 argument|fn
 argument_list|)
 block|{}
 specifier|inline
-name|void
-name|destroy
+name|int
+name|ref
 argument_list|()
+name|Q_DECL_NOTHROW
 block|{
-name|impl
+return|return
+name|m_ref
+operator|.
+name|ref
+argument_list|()
+return|;
+block|}
+specifier|inline
+name|void
+name|destroyIfLastRef
+argument_list|()
+name|Q_DECL_NOTHROW
+block|{
+if|if
+condition|(
+operator|!
+name|m_ref
+operator|.
+name|deref
+argument_list|()
+condition|)
+name|m_impl
 argument_list|(
 name|Destroy
 argument_list|,
@@ -1017,7 +1039,8 @@ literal|0
 argument_list|,
 literal|0
 argument_list|)
-block|; }
+expr_stmt|;
+block|}
 specifier|inline
 name|bool
 name|compare
@@ -1028,7 +1051,7 @@ block|{
 name|bool
 name|ret
 block|;
-name|impl
+name|m_impl
 argument_list|(
 name|Compare
 argument_list|,
@@ -1055,7 +1078,7 @@ argument_list|,
 argument|void **a
 argument_list|)
 block|{
-name|impl
+name|m_impl
 argument_list|(
 name|Call
 argument_list|,
