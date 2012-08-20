@@ -203,17 +203,20 @@ parameter_list|()
 member_init_list|:
 name|m_lastSeparator
 argument_list|(
-literal|0
+operator|-
+literal|1
 argument_list|)
 member_init_list|,
 name|m_firstDotInFileName
 argument_list|(
-literal|0
+operator|-
+literal|1
 argument_list|)
 member_init_list|,
 name|m_lastDotInFileName
 argument_list|(
-literal|0
+operator|-
+literal|1
 argument_list|)
 block|{ }
 end_constructor
