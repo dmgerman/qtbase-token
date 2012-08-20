@@ -160,7 +160,7 @@ end_class
 begin_decl_stmt
 DECL|variable|generalValues
 specifier|static
-name|qreal
+name|float
 specifier|const
 name|generalValues
 index|[
@@ -445,7 +445,7 @@ name|QMatrix4x4
 name|m3
 decl_stmt|;
 specifier|const
-name|qreal
+name|float
 modifier|*
 name|m1data
 init|=
@@ -455,7 +455,7 @@ name|constData
 argument_list|()
 decl_stmt|;
 specifier|const
-name|qreal
+name|float
 modifier|*
 name|m2data
 init|=
@@ -464,7 +464,7 @@ operator|.
 name|constData
 argument_list|()
 decl_stmt|;
-name|qreal
+name|float
 modifier|*
 name|m3data
 init|=
@@ -861,7 +861,7 @@ name|m1
 argument_list|)
 expr_stmt|;
 specifier|const
-name|qreal
+name|float
 modifier|*
 name|m1data
 init|=
@@ -870,7 +870,7 @@ operator|.
 name|constData
 argument_list|()
 decl_stmt|;
-name|qreal
+name|float
 name|v
 index|[
 literal|4
@@ -887,7 +887,7 @@ block|,
 literal|1.0f
 block|}
 decl_stmt|;
-name|qreal
+name|float
 name|result
 index|[
 literal|4
@@ -1152,7 +1152,7 @@ argument_list|,
 name|translation
 argument_list|)
 expr_stmt|;
-name|qreal
+name|float
 name|x
 init|=
 name|translation
@@ -1160,7 +1160,7 @@ operator|.
 name|x
 argument_list|()
 decl_stmt|;
-name|qreal
+name|float
 name|y
 init|=
 name|translation
@@ -1168,7 +1168,7 @@ operator|.
 name|y
 argument_list|()
 decl_stmt|;
-name|qreal
+name|float
 name|z
 init|=
 name|translation
@@ -1284,7 +1284,7 @@ argument_list|,
 name|translation
 argument_list|)
 expr_stmt|;
-name|qreal
+name|float
 name|x
 init|=
 name|translation
@@ -1292,7 +1292,7 @@ operator|.
 name|x
 argument_list|()
 decl_stmt|;
-name|qreal
+name|float
 name|y
 init|=
 name|translation
@@ -1300,7 +1300,7 @@ operator|.
 name|y
 argument_list|()
 decl_stmt|;
-name|qreal
+name|float
 name|z
 init|=
 name|translation
@@ -1445,7 +1445,7 @@ argument_list|,
 name|translation
 argument_list|)
 expr_stmt|;
-name|qreal
+name|float
 name|x
 init|=
 name|translation
@@ -1453,7 +1453,7 @@ operator|.
 name|x
 argument_list|()
 decl_stmt|;
-name|qreal
+name|float
 name|y
 init|=
 name|translation
@@ -1461,7 +1461,7 @@ operator|.
 name|y
 argument_list|()
 decl_stmt|;
-name|qreal
+name|float
 name|z
 init|=
 name|translation
@@ -1735,7 +1735,7 @@ argument_list|,
 name|scale
 argument_list|)
 expr_stmt|;
-name|qreal
+name|float
 name|x
 init|=
 name|scale
@@ -1743,7 +1743,7 @@ operator|.
 name|x
 argument_list|()
 decl_stmt|;
-name|qreal
+name|float
 name|y
 init|=
 name|scale
@@ -1751,7 +1751,7 @@ operator|.
 name|y
 argument_list|()
 decl_stmt|;
-name|qreal
+name|float
 name|z
 init|=
 name|scale
@@ -1867,7 +1867,7 @@ argument_list|,
 name|scale
 argument_list|)
 expr_stmt|;
-name|qreal
+name|float
 name|x
 init|=
 name|scale
@@ -1875,7 +1875,7 @@ operator|.
 name|x
 argument_list|()
 decl_stmt|;
-name|qreal
+name|float
 name|y
 init|=
 name|scale
@@ -1883,7 +1883,7 @@ operator|.
 name|y
 argument_list|()
 decl_stmt|;
-name|qreal
+name|float
 name|z
 init|=
 name|scale
@@ -2028,7 +2028,7 @@ argument_list|,
 name|scale
 argument_list|)
 expr_stmt|;
-name|qreal
+name|float
 name|x
 init|=
 name|scale
@@ -2036,7 +2036,7 @@ operator|.
 name|x
 argument_list|()
 decl_stmt|;
-name|qreal
+name|float
 name|y
 init|=
 name|scale
@@ -2044,7 +2044,7 @@ operator|.
 name|y
 argument_list|()
 decl_stmt|;
-name|qreal
+name|float
 name|z
 init|=
 name|scale
@@ -2180,7 +2180,7 @@ name|QTest
 operator|::
 name|addColumn
 argument_list|<
-name|qreal
+name|float
 argument_list|>
 argument_list|(
 literal|"angle"
@@ -2215,10 +2215,7 @@ argument_list|)
 operator|<<
 literal|true
 operator|<<
-name|qreal
-argument_list|(
 literal|0.0f
-argument_list|)
 operator|<<
 name|QVector3D
 argument_list|(
@@ -2245,10 +2242,7 @@ argument_list|)
 operator|<<
 literal|false
 operator|<<
-name|qreal
-argument_list|(
 literal|0.0f
-argument_list|)
 operator|<<
 name|QVector3D
 argument_list|(
@@ -2275,10 +2269,7 @@ argument_list|)
 operator|<<
 literal|true
 operator|<<
-name|qreal
-argument_list|(
 literal|45.0f
-argument_list|)
 operator|<<
 name|QVector3D
 argument_list|(
@@ -2305,10 +2296,7 @@ argument_list|)
 operator|<<
 literal|false
 operator|<<
-name|qreal
-argument_list|(
 literal|45.0f
-argument_list|)
 operator|<<
 name|QVector3D
 argument_list|(
@@ -2335,10 +2323,7 @@ argument_list|)
 operator|<<
 literal|true
 operator|<<
-name|qreal
-argument_list|(
 literal|90.0f
-argument_list|)
 operator|<<
 name|QVector3D
 argument_list|(
@@ -2365,10 +2350,7 @@ argument_list|)
 operator|<<
 literal|false
 operator|<<
-name|qreal
-argument_list|(
 literal|90.0f
-argument_list|)
 operator|<<
 name|QVector3D
 argument_list|(
@@ -2395,10 +2377,7 @@ argument_list|)
 operator|<<
 literal|true
 operator|<<
-name|qreal
-argument_list|(
 literal|0.0f
-argument_list|)
 operator|<<
 name|QVector3D
 argument_list|(
@@ -2425,10 +2404,7 @@ argument_list|)
 operator|<<
 literal|false
 operator|<<
-name|qreal
-argument_list|(
 literal|0.0f
-argument_list|)
 operator|<<
 name|QVector3D
 argument_list|(
@@ -2455,10 +2431,7 @@ argument_list|)
 operator|<<
 literal|true
 operator|<<
-name|qreal
-argument_list|(
 literal|45.0f
-argument_list|)
 operator|<<
 name|QVector3D
 argument_list|(
@@ -2485,10 +2458,7 @@ argument_list|)
 operator|<<
 literal|false
 operator|<<
-name|qreal
-argument_list|(
 literal|45.0f
-argument_list|)
 operator|<<
 name|QVector3D
 argument_list|(
@@ -2515,10 +2485,7 @@ argument_list|)
 operator|<<
 literal|true
 operator|<<
-name|qreal
-argument_list|(
 literal|90.0f
-argument_list|)
 operator|<<
 name|QVector3D
 argument_list|(
@@ -2545,10 +2512,7 @@ argument_list|)
 operator|<<
 literal|false
 operator|<<
-name|qreal
-argument_list|(
 literal|90.0f
-argument_list|)
 operator|<<
 name|QVector3D
 argument_list|(
@@ -2575,10 +2539,7 @@ argument_list|)
 operator|<<
 literal|true
 operator|<<
-name|qreal
-argument_list|(
 literal|0.0f
-argument_list|)
 operator|<<
 name|QVector3D
 argument_list|(
@@ -2605,10 +2566,7 @@ argument_list|)
 operator|<<
 literal|false
 operator|<<
-name|qreal
-argument_list|(
 literal|0.0f
-argument_list|)
 operator|<<
 name|QVector3D
 argument_list|(
@@ -2635,10 +2593,7 @@ argument_list|)
 operator|<<
 literal|true
 operator|<<
-name|qreal
-argument_list|(
 literal|45.0f
-argument_list|)
 operator|<<
 name|QVector3D
 argument_list|(
@@ -2665,10 +2620,7 @@ argument_list|)
 operator|<<
 literal|false
 operator|<<
-name|qreal
-argument_list|(
 literal|45.0f
-argument_list|)
 operator|<<
 name|QVector3D
 argument_list|(
@@ -2695,10 +2647,7 @@ argument_list|)
 operator|<<
 literal|true
 operator|<<
-name|qreal
-argument_list|(
 literal|90.0f
-argument_list|)
 operator|<<
 name|QVector3D
 argument_list|(
@@ -2725,10 +2674,7 @@ argument_list|)
 operator|<<
 literal|false
 operator|<<
-name|qreal
-argument_list|(
 literal|90.0f
-argument_list|)
 operator|<<
 name|QVector3D
 argument_list|(
@@ -2765,7 +2711,7 @@ argument_list|)
 expr_stmt|;
 name|QFETCH
 argument_list|(
-name|qreal
+name|float
 argument_list|,
 name|angle
 argument_list|)
@@ -2784,7 +2730,7 @@ argument_list|,
 name|axis
 argument_list|)
 expr_stmt|;
-name|qreal
+name|float
 name|x
 init|=
 name|rotation
@@ -2792,7 +2738,7 @@ operator|.
 name|x
 argument_list|()
 decl_stmt|;
-name|qreal
+name|float
 name|y
 init|=
 name|rotation
@@ -2800,7 +2746,7 @@ operator|.
 name|y
 argument_list|()
 decl_stmt|;
-name|qreal
+name|float
 name|z
 init|=
 name|rotation
@@ -2894,7 +2840,7 @@ argument_list|)
 expr_stmt|;
 name|QFETCH
 argument_list|(
-name|qreal
+name|float
 argument_list|,
 name|angle
 argument_list|)
@@ -2913,7 +2859,7 @@ argument_list|,
 name|axis
 argument_list|)
 expr_stmt|;
-name|qreal
+name|float
 name|x
 init|=
 name|rotation
@@ -2921,7 +2867,7 @@ operator|.
 name|x
 argument_list|()
 decl_stmt|;
-name|qreal
+name|float
 name|y
 init|=
 name|rotation
@@ -2929,7 +2875,7 @@ operator|.
 name|y
 argument_list|()
 decl_stmt|;
-name|qreal
+name|float
 name|z
 init|=
 name|rotation
@@ -3043,7 +2989,7 @@ argument_list|)
 expr_stmt|;
 name|QFETCH
 argument_list|(
-name|qreal
+name|float
 argument_list|,
 name|angle
 argument_list|)
@@ -3062,7 +3008,7 @@ argument_list|,
 name|axis
 argument_list|)
 expr_stmt|;
-name|qreal
+name|float
 name|x
 init|=
 name|rotation
@@ -3070,7 +3016,7 @@ operator|.
 name|x
 argument_list|()
 decl_stmt|;
-name|qreal
+name|float
 name|y
 init|=
 name|rotation
@@ -3078,7 +3024,7 @@ operator|.
 name|y
 argument_list|()
 decl_stmt|;
-name|qreal
+name|float
 name|z
 init|=
 name|rotation

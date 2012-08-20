@@ -42,9 +42,9 @@ name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
 name|QT_NO_VECTOR2D
-comment|/*!     \class QVector2D     \brief The QVector2D class represents a vector or vertex in 2D space.     \since 4.6     \ingroup painting     \ingroup painting-3D     \inmodule QtGui      The QVector2D class can also be used to represent vertices in 2D space.     We therefore do not need to provide a separate vertex class.      \b{Note:} By design values in the QVector2D instance are stored as \c float.     This means that on platforms where the \c qreal arguments to QVector2D     functions are represented by \c double values, it is possible to     lose precision.      \sa QVector3D, QVector4D, QQuaternion */
+comment|/*!     \class QVector2D     \brief The QVector2D class represents a vector or vertex in 2D space.     \since 4.6     \ingroup painting     \ingroup painting-3D     \inmodule QtGui      The QVector2D class can also be used to represent vertices in 2D space.     We therefore do not need to provide a separate vertex class.      \sa QVector3D, QVector4D, QQuaternion */
 comment|/*!     \fn QVector2D::QVector2D()      Constructs a null vector, i.e. with coordinates (0, 0, 0). */
-comment|/*!     \fn QVector2D::QVector2D(qreal xpos, qreal ypos)      Constructs a vector with coordinates (\a xpos, \a ypos). */
+comment|/*!     \fn QVector2D::QVector2D(float xpos, float ypos)      Constructs a vector with coordinates (\a xpos, \a ypos). */
 comment|/*!     \fn QVector2D::QVector2D(const QPoint& point)      Constructs a vector with x and y coordinates from a 2D \a point. */
 comment|/*!     \fn QVector2D::QVector2D(const QPointF& point)      Constructs a vector with x and y coordinates from a 2D \a point. */
 ifndef|#
@@ -122,39 +122,60 @@ begin_comment
 comment|/*!     \fn bool QVector2D::isNull() const      Returns true if the x and y coordinates are set to 0.0,     otherwise returns false. */
 end_comment
 begin_comment
-comment|/*!     \fn qreal QVector2D::x() const      Returns the x coordinate of this point.      \sa setX(), y() */
+comment|/*!     \fn float QVector2D::x() const      Returns the x coordinate of this point.      \sa setX(), y() */
 end_comment
 begin_comment
-comment|/*!     \fn qreal QVector2D::y() const      Returns the y coordinate of this point.      \sa setY(), x() */
+comment|/*!     \fn float QVector2D::y() const      Returns the y coordinate of this point.      \sa setY(), x() */
 end_comment
 begin_comment
-comment|/*!     \fn void QVector2D::setX(qreal x)      Sets the x coordinate of this point to the given \a x coordinate.      \sa x(), setY() */
+comment|/*!     \fn void QVector2D::setX(float x)      Sets the x coordinate of this point to the given \a x coordinate.      \sa x(), setY() */
 end_comment
 begin_comment
-comment|/*!     \fn void QVector2D::setY(qreal y)      Sets the y coordinate of this point to the given \a y coordinate.      \sa y(), setX() */
+comment|/*!     \fn void QVector2D::setY(float y)      Sets the y coordinate of this point to the given \a y coordinate.      \sa y(), setX() */
 end_comment
 begin_comment
 comment|/*!     Returns the length of the vector from the origin.      \sa lengthSquared(), normalized() */
 end_comment
 begin_function
 DECL|function|length
-name|qreal
+name|float
 name|QVector2D
 operator|::
 name|length
 parameter_list|()
 specifier|const
 block|{
-return|return
-name|qSqrt
+comment|// Need some extra precision if the length is very small.
+name|double
+name|len
+init|=
+name|double
 argument_list|(
 name|xp
+argument_list|)
 operator|*
+name|double
+argument_list|(
 name|xp
+argument_list|)
 operator|+
+name|double
+argument_list|(
 name|yp
+argument_list|)
 operator|*
+name|double
+argument_list|(
 name|yp
+argument_list|)
+decl_stmt|;
+return|return
+name|float
+argument_list|(
+name|sqrt
+argument_list|(
+name|len
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -164,7 +185,7 @@ comment|/*!     Returns the squared length of the vector from the origin.     Th
 end_comment
 begin_function
 DECL|function|lengthSquared
-name|qreal
+name|float
 name|QVector2D
 operator|::
 name|lengthSquared
@@ -227,10 +248,12 @@ operator|-
 literal|1.0f
 argument_list|)
 condition|)
+block|{
 return|return
 operator|*
 name|this
 return|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -240,20 +263,47 @@ argument_list|(
 name|len
 argument_list|)
 condition|)
-return|return
-operator|*
-name|this
-operator|/
-name|qSqrt
+block|{
+name|double
+name|sqrtLen
+init|=
+name|sqrt
 argument_list|(
 name|len
 argument_list|)
+decl_stmt|;
+return|return
+name|QVector2D
+argument_list|(
+name|float
+argument_list|(
+name|double
+argument_list|(
+name|xp
+argument_list|)
+operator|/
+name|sqrtLen
+argument_list|)
+argument_list|,
+name|float
+argument_list|(
+name|double
+argument_list|(
+name|yp
+argument_list|)
+operator|/
+name|sqrtLen
+argument_list|)
+argument_list|)
 return|;
+block|}
 else|else
+block|{
 return|return
 name|QVector2D
 argument_list|()
 return|;
+block|}
 block|}
 end_function
 begin_comment
@@ -308,18 +358,34 @@ condition|)
 return|return;
 name|len
 operator|=
-name|qSqrt
+name|sqrt
 argument_list|(
 name|len
 argument_list|)
 expr_stmt|;
 name|xp
-operator|/=
+operator|=
+name|float
+argument_list|(
+name|double
+argument_list|(
+name|xp
+argument_list|)
+operator|/
 name|len
+argument_list|)
 expr_stmt|;
 name|yp
-operator|/=
+operator|=
+name|float
+argument_list|(
+name|double
+argument_list|(
+name|yp
+argument_list|)
+operator|/
 name|len
+argument_list|)
 expr_stmt|;
 block|}
 end_function
@@ -330,20 +396,20 @@ begin_comment
 comment|/*!     \fn QVector2D&QVector2D::operator-=(const QVector2D&vector)      Subtracts the given \a vector from this vector and returns a reference to     this vector.      \sa operator+=() */
 end_comment
 begin_comment
-comment|/*!     \fn QVector2D&QVector2D::operator*=(qreal factor)      Multiplies this vector's coordinates by the given \a factor, and     returns a reference to this vector.      \sa operator/=() */
+comment|/*!     \fn QVector2D&QVector2D::operator*=(float factor)      Multiplies this vector's coordinates by the given \a factor, and     returns a reference to this vector.      \sa operator/=() */
 end_comment
 begin_comment
 comment|/*!     \fn QVector2D&QVector2D::operator*=(const QVector2D&vector)      Multiplies the components of this vector by the corresponding     components in \a vector. */
 end_comment
 begin_comment
-comment|/*!     \fn QVector2D&QVector2D::operator/=(qreal divisor)      Divides this vector's coordinates by the given \a divisor, and     returns a reference to this vector.      \sa operator*=() */
+comment|/*!     \fn QVector2D&QVector2D::operator/=(float divisor)      Divides this vector's coordinates by the given \a divisor, and     returns a reference to this vector.      \sa operator*=() */
 end_comment
 begin_comment
 comment|/*!     Returns the dot product of \a v1 and \a v2. */
 end_comment
 begin_function
 DECL|function|dotProduct
-name|qreal
+name|float
 name|QVector2D
 operator|::
 name|dotProduct
@@ -391,10 +457,10 @@ begin_comment
 comment|/*!     \fn const QVector2D operator-(const QVector2D&v1, const QVector2D&v2)     \relates QVector2D      Returns a QVector2D object that is formed by subtracting \a v2 from \a v1;     each component is subtracted separately.      \sa QVector2D::operator-=() */
 end_comment
 begin_comment
-comment|/*!     \fn const QVector2D operator*(qreal factor, const QVector2D&vector)     \relates QVector2D      Returns a copy of the given \a vector,  multiplied by the given \a factor.      \sa QVector2D::operator*=() */
+comment|/*!     \fn const QVector2D operator*(float factor, const QVector2D&vector)     \relates QVector2D      Returns a copy of the given \a vector,  multiplied by the given \a factor.      \sa QVector2D::operator*=() */
 end_comment
 begin_comment
-comment|/*!     \fn const QVector2D operator*(const QVector2D&vector, qreal factor)     \relates QVector2D      Returns a copy of the given \a vector,  multiplied by the given \a factor.      \sa QVector2D::operator*=() */
+comment|/*!     \fn const QVector2D operator*(const QVector2D&vector, float factor)     \relates QVector2D      Returns a copy of the given \a vector,  multiplied by the given \a factor.      \sa QVector2D::operator*=() */
 end_comment
 begin_comment
 comment|/*!     \fn const QVector2D operator*(const QVector2D&v1, const QVector2D&v2)     \relates QVector2D      Multiplies the components of \a v1 by the corresponding     components in \a v2. */
@@ -403,7 +469,7 @@ begin_comment
 comment|/*!     \fn const QVector2D operator-(const QVector2D&vector)     \relates QVector2D     \overload      Returns a QVector2D object that is formed by changing the sign of     the components of the given \a vector.      Equivalent to \c {QVector2D(0,0) - vector}. */
 end_comment
 begin_comment
-comment|/*!     \fn const QVector2D operator/(const QVector2D&vector, qreal divisor)     \relates QVector2D      Returns the QVector2D object formed by dividing all three components of     the given \a vector by the given \a divisor.      \sa QVector2D::operator/=() */
+comment|/*!     \fn const QVector2D operator/(const QVector2D&vector, float divisor)     \relates QVector2D      Returns the QVector2D object formed by dividing all three components of     the given \a vector by the given \a divisor.      \sa QVector2D::operator/=() */
 end_comment
 begin_comment
 comment|/*!     \fn bool qFuzzyCompare(const QVector2D& v1, const QVector2D& v2)     \relates QVector2D      Returns true if \a v1 and \a v2 are equal, allowing for a small     fuzziness factor for floating-point comparisons; false otherwise. */
@@ -433,8 +499,6 @@ argument_list|,
 name|yp
 argument_list|,
 literal|0.0f
-argument_list|,
-literal|1
 argument_list|)
 return|;
 block|}
@@ -470,8 +534,6 @@ argument_list|,
 literal|0.0f
 argument_list|,
 literal|0.0f
-argument_list|,
-literal|1
 argument_list|)
 return|;
 block|}
@@ -590,21 +652,15 @@ parameter_list|)
 block|{
 name|stream
 operator|<<
-name|double
-argument_list|(
 name|vector
 operator|.
 name|x
 argument_list|()
-argument_list|)
 operator|<<
-name|double
-argument_list|(
 name|vector
 operator|.
 name|y
 argument_list|()
-argument_list|)
 expr_stmt|;
 return|return
 name|stream
@@ -630,7 +686,7 @@ modifier|&
 name|vector
 parameter_list|)
 block|{
-name|double
+name|float
 name|x
 decl_stmt|,
 name|y
@@ -647,20 +703,14 @@ name|vector
 operator|.
 name|setX
 argument_list|(
-name|qreal
-argument_list|(
 name|x
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|vector
 operator|.
 name|setY
 argument_list|(
-name|qreal
-argument_list|(
 name|y
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return

@@ -60,9 +60,9 @@ argument_list|()
 expr_stmt|;
 name|QVector2D
 argument_list|(
-argument|qreal xpos
+argument|float xpos
 argument_list|,
-argument|qreal ypos
+argument|float ypos
 argument_list|)
 empty_stmt|;
 name|explicit
@@ -116,12 +116,12 @@ name|isNull
 argument_list|()
 specifier|const
 expr_stmt|;
-name|qreal
+name|float
 name|x
 argument_list|()
 specifier|const
 expr_stmt|;
-name|qreal
+name|float
 name|y
 argument_list|()
 specifier|const
@@ -129,23 +129,23 @@ expr_stmt|;
 name|void
 name|setX
 parameter_list|(
-name|qreal
+name|float
 name|x
 parameter_list|)
 function_decl|;
 name|void
 name|setY
 parameter_list|(
-name|qreal
+name|float
 name|y
 parameter_list|)
 function_decl|;
-name|qreal
+name|float
 name|length
 argument_list|()
 specifier|const
 expr_stmt|;
-name|qreal
+name|float
 name|lengthSquared
 argument_list|()
 specifier|const
@@ -186,7 +186,7 @@ operator|&
 name|operator
 operator|*=
 operator|(
-name|qreal
+name|float
 name|factor
 operator|)
 expr_stmt|;
@@ -206,12 +206,12 @@ operator|&
 name|operator
 operator|/=
 operator|(
-name|qreal
+name|float
 name|divisor
 operator|)
 expr_stmt|;
 specifier|static
-name|qreal
+name|float
 name|dotProduct
 parameter_list|(
 specifier|const
@@ -302,7 +302,7 @@ name|QVector2D
 name|operator
 modifier|*
 parameter_list|(
-name|qreal
+name|float
 name|factor
 parameter_list|,
 specifier|const
@@ -323,7 +323,7 @@ name|QVector2D
 modifier|&
 name|vector
 parameter_list|,
-name|qreal
+name|float
 name|factor
 parameter_list|)
 function_decl|;
@@ -370,7 +370,7 @@ name|QVector2D
 operator|&
 name|vector
 operator|,
-name|qreal
+name|float
 name|divisor
 operator|)
 expr_stmt|;
@@ -432,15 +432,6 @@ name|xp
 decl_stmt|,
 name|yp
 decl_stmt|;
-name|QVector2D
-argument_list|(
-argument|float xpos
-argument_list|,
-argument|float ypos
-argument_list|,
-argument|int dummy
-argument_list|)
-empty_stmt|;
 name|friend
 name|class
 name|QVector3D
@@ -490,29 +481,6 @@ argument_list|(
 argument|float xpos
 argument_list|,
 argument|float ypos
-argument_list|,
-argument|int
-argument_list|)
-operator|:
-name|xp
-argument_list|(
-name|xpos
-argument_list|)
-operator|,
-name|yp
-argument_list|(
-argument|ypos
-argument_list|)
-block|{}
-DECL|function|QVector2D
-specifier|inline
-name|QVector2D
-operator|::
-name|QVector2D
-argument_list|(
-argument|qreal xpos
-argument_list|,
-argument|qreal ypos
 argument_list|)
 operator|:
 name|xp
@@ -600,7 +568,7 @@ end_expr_stmt
 begin_expr_stmt
 DECL|function|x
 specifier|inline
-name|qreal
+name|float
 name|QVector2D
 operator|::
 name|x
@@ -608,17 +576,14 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|qreal
-argument_list|(
 name|xp
-argument_list|)
 return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|y
 specifier|inline
-name|qreal
+name|float
 name|QVector2D
 operator|::
 name|y
@@ -626,10 +591,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|qreal
-argument_list|(
 name|yp
-argument_list|)
 return|;
 block|}
 end_expr_stmt
@@ -641,7 +603,7 @@ name|QVector2D
 operator|::
 name|setX
 argument_list|(
-argument|qreal aX
+argument|float aX
 argument_list|)
 block|{
 name|xp
@@ -655,7 +617,7 @@ name|QVector2D
 operator|::
 name|setY
 argument_list|(
-argument|qreal aY
+argument|float aY
 argument_list|)
 block|{
 name|yp
@@ -737,7 +699,7 @@ operator|::
 name|operator
 operator|*=
 operator|(
-name|qreal
+name|float
 name|factor
 operator|)
 block|{
@@ -797,7 +759,7 @@ operator|::
 name|operator
 operator|/=
 operator|(
-name|qreal
+name|float
 name|divisor
 operator|)
 block|{
@@ -923,8 +885,6 @@ operator|+
 name|v2
 operator|.
 name|yp
-argument_list|,
-literal|1
 argument_list|)
 return|;
 block|}
@@ -965,8 +925,6 @@ operator|-
 name|v2
 operator|.
 name|yp
-argument_list|,
-literal|1
 argument_list|)
 return|;
 block|}
@@ -978,7 +936,7 @@ name|QVector2D
 name|operator
 modifier|*
 parameter_list|(
-name|qreal
+name|float
 name|factor
 parameter_list|,
 specifier|const
@@ -1001,8 +959,6 @@ operator|.
 name|yp
 operator|*
 name|factor
-argument_list|,
-literal|1
 argument_list|)
 return|;
 block|}
@@ -1019,7 +975,7 @@ name|QVector2D
 modifier|&
 name|vector
 parameter_list|,
-name|qreal
+name|float
 name|factor
 parameter_list|)
 block|{
@@ -1037,8 +993,6 @@ operator|.
 name|yp
 operator|*
 name|factor
-argument_list|,
-literal|1
 argument_list|)
 return|;
 block|}
@@ -1079,8 +1033,6 @@ operator|*
 name|v2
 operator|.
 name|yp
-argument_list|,
-literal|1
 argument_list|)
 return|;
 block|}
@@ -1110,8 +1062,6 @@ operator|-
 name|vector
 operator|.
 name|yp
-argument_list|,
-literal|1
 argument_list|)
 return|;
 block|}
@@ -1128,7 +1078,7 @@ name|QVector2D
 operator|&
 name|vector
 operator|,
-name|qreal
+name|float
 name|divisor
 operator|)
 block|{
@@ -1146,8 +1096,6 @@ operator|.
 name|yp
 operator|/
 name|divisor
-argument_list|,
-literal|1
 argument_list|)
 return|;
 block|}

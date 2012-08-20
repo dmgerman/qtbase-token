@@ -60,11 +60,11 @@ argument_list|()
 expr_stmt|;
 name|QVector3D
 argument_list|(
-argument|qreal xpos
+argument|float xpos
 argument_list|,
-argument|qreal ypos
+argument|float ypos
 argument_list|,
-argument|qreal zpos
+argument|float zpos
 argument_list|)
 empty_stmt|;
 name|explicit
@@ -100,7 +100,7 @@ name|QVector3D
 argument_list|(
 argument|const QVector2D& vector
 argument_list|,
-argument|qreal zpos
+argument|float zpos
 argument_list|)
 empty_stmt|;
 endif|#
@@ -124,17 +124,17 @@ name|isNull
 argument_list|()
 specifier|const
 expr_stmt|;
-name|qreal
+name|float
 name|x
 argument_list|()
 specifier|const
 expr_stmt|;
-name|qreal
+name|float
 name|y
 argument_list|()
 specifier|const
 expr_stmt|;
-name|qreal
+name|float
 name|z
 argument_list|()
 specifier|const
@@ -142,30 +142,30 @@ expr_stmt|;
 name|void
 name|setX
 parameter_list|(
-name|qreal
+name|float
 name|x
 parameter_list|)
 function_decl|;
 name|void
 name|setY
 parameter_list|(
-name|qreal
+name|float
 name|y
 parameter_list|)
 function_decl|;
 name|void
 name|setZ
 parameter_list|(
-name|qreal
+name|float
 name|z
 parameter_list|)
 function_decl|;
-name|qreal
+name|float
 name|length
 argument_list|()
 specifier|const
 expr_stmt|;
-name|qreal
+name|float
 name|lengthSquared
 argument_list|()
 specifier|const
@@ -206,7 +206,7 @@ operator|&
 name|operator
 operator|*=
 operator|(
-name|qreal
+name|float
 name|factor
 operator|)
 expr_stmt|;
@@ -226,12 +226,12 @@ operator|&
 name|operator
 operator|/=
 operator|(
-name|qreal
+name|float
 name|divisor
 operator|)
 expr_stmt|;
 specifier|static
-name|qreal
+name|float
 name|dotProduct
 parameter_list|(
 specifier|const
@@ -295,7 +295,7 @@ modifier|&
 name|v3
 parameter_list|)
 function_decl|;
-name|qreal
+name|float
 name|distanceToPlane
 argument_list|(
 specifier|const
@@ -310,7 +310,7 @@ name|normal
 argument_list|)
 decl|const
 decl_stmt|;
-name|qreal
+name|float
 name|distanceToPlane
 argument_list|(
 specifier|const
@@ -330,7 +330,7 @@ name|plane3
 argument_list|)
 decl|const
 decl_stmt|;
-name|qreal
+name|float
 name|distanceToLine
 argument_list|(
 specifier|const
@@ -422,7 +422,7 @@ name|QVector3D
 name|operator
 modifier|*
 parameter_list|(
-name|qreal
+name|float
 name|factor
 parameter_list|,
 specifier|const
@@ -443,7 +443,7 @@ name|QVector3D
 modifier|&
 name|vector
 parameter_list|,
-name|qreal
+name|float
 name|factor
 parameter_list|)
 function_decl|;
@@ -489,7 +489,7 @@ name|QVector3D
 operator|&
 name|vector
 operator|,
-name|qreal
+name|float
 name|divisor
 operator|)
 expr_stmt|;
@@ -553,17 +553,6 @@ name|yp
 decl_stmt|,
 name|zp
 decl_stmt|;
-name|QVector3D
-argument_list|(
-argument|float xpos
-argument_list|,
-argument|float ypos
-argument_list|,
-argument|float zpos
-argument_list|,
-argument|int dummy
-argument_list|)
-empty_stmt|;
 name|friend
 name|class
 name|QVector2D
@@ -652,41 +641,11 @@ name|QVector3D
 operator|::
 name|QVector3D
 argument_list|(
-argument|qreal xpos
-argument_list|,
-argument|qreal ypos
-argument_list|,
-argument|qreal zpos
-argument_list|)
-operator|:
-name|xp
-argument_list|(
-name|xpos
-argument_list|)
-operator|,
-name|yp
-argument_list|(
-name|ypos
-argument_list|)
-operator|,
-name|zp
-argument_list|(
-argument|zpos
-argument_list|)
-block|{}
-DECL|function|QVector3D
-specifier|inline
-name|QVector3D
-operator|::
-name|QVector3D
-argument_list|(
 argument|float xpos
 argument_list|,
 argument|float ypos
 argument_list|,
 argument|float zpos
-argument_list|,
-argument|int
 argument_list|)
 operator|:
 name|xp
@@ -800,7 +759,7 @@ end_expr_stmt
 begin_expr_stmt
 DECL|function|x
 specifier|inline
-name|qreal
+name|float
 name|QVector3D
 operator|::
 name|x
@@ -808,17 +767,14 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|qreal
-argument_list|(
 name|xp
-argument_list|)
 return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|y
 specifier|inline
-name|qreal
+name|float
 name|QVector3D
 operator|::
 name|y
@@ -826,17 +782,14 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|qreal
-argument_list|(
 name|yp
-argument_list|)
 return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|z
 specifier|inline
-name|qreal
+name|float
 name|QVector3D
 operator|::
 name|z
@@ -844,10 +797,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|qreal
-argument_list|(
 name|zp
-argument_list|)
 return|;
 block|}
 end_expr_stmt
@@ -859,7 +809,7 @@ name|QVector3D
 operator|::
 name|setX
 argument_list|(
-argument|qreal aX
+argument|float aX
 argument_list|)
 block|{
 name|xp
@@ -873,7 +823,7 @@ name|QVector3D
 operator|::
 name|setY
 argument_list|(
-argument|qreal aY
+argument|float aY
 argument_list|)
 block|{
 name|yp
@@ -887,7 +837,7 @@ name|QVector3D
 operator|::
 name|setZ
 argument_list|(
-argument|qreal aZ
+argument|float aZ
 argument_list|)
 block|{
 name|zp
@@ -981,7 +931,7 @@ operator|::
 name|operator
 operator|*=
 operator|(
-name|qreal
+name|float
 name|factor
 operator|)
 block|{
@@ -1051,7 +1001,7 @@ operator|::
 name|operator
 operator|/=
 operator|(
-name|qreal
+name|float
 name|divisor
 operator|)
 block|{
@@ -1205,8 +1155,6 @@ operator|+
 name|v2
 operator|.
 name|zp
-argument_list|,
-literal|1
 argument_list|)
 return|;
 block|}
@@ -1255,8 +1203,6 @@ operator|-
 name|v2
 operator|.
 name|zp
-argument_list|,
-literal|1
 argument_list|)
 return|;
 block|}
@@ -1268,7 +1214,7 @@ name|QVector3D
 name|operator
 modifier|*
 parameter_list|(
-name|qreal
+name|float
 name|factor
 parameter_list|,
 specifier|const
@@ -1297,8 +1243,6 @@ operator|.
 name|zp
 operator|*
 name|factor
-argument_list|,
-literal|1
 argument_list|)
 return|;
 block|}
@@ -1315,7 +1259,7 @@ name|QVector3D
 modifier|&
 name|vector
 parameter_list|,
-name|qreal
+name|float
 name|factor
 parameter_list|)
 block|{
@@ -1339,8 +1283,6 @@ operator|.
 name|zp
 operator|*
 name|factor
-argument_list|,
-literal|1
 argument_list|)
 return|;
 block|}
@@ -1389,8 +1331,6 @@ operator|*
 name|v2
 operator|.
 name|zp
-argument_list|,
-literal|1
 argument_list|)
 return|;
 block|}
@@ -1425,8 +1365,6 @@ operator|-
 name|vector
 operator|.
 name|zp
-argument_list|,
-literal|1
 argument_list|)
 return|;
 block|}
@@ -1443,7 +1381,7 @@ name|QVector3D
 operator|&
 name|vector
 operator|,
-name|qreal
+name|float
 name|divisor
 operator|)
 block|{
@@ -1467,8 +1405,6 @@ operator|.
 name|zp
 operator|/
 name|divisor
-argument_list|,
-literal|1
 argument_list|)
 return|;
 block|}

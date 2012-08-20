@@ -42,9 +42,9 @@ name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
 name|QT_NO_VECTOR4D
-comment|/*!     \class QVector4D     \brief The QVector4D class represents a vector or vertex in 4D space.     \since 4.6     \ingroup painting-3D     \inmodule QtGui      The QVector4D class can also be used to represent vertices in 4D space.     We therefore do not need to provide a separate vertex class.      \b{Note:} By design values in the QVector4D instance are stored as \c float.     This means that on platforms where the \c qreal arguments to QVector4D     functions are represented by \c double values, it is possible to     lose precision.      \sa QQuaternion, QVector2D, QVector3D */
+comment|/*!     \class QVector4D     \brief The QVector4D class represents a vector or vertex in 4D space.     \since 4.6     \ingroup painting-3D     \inmodule QtGui      The QVector4D class can also be used to represent vertices in 4D space.     We therefore do not need to provide a separate vertex class.      \sa QQuaternion, QVector2D, QVector3D */
 comment|/*!     \fn QVector4D::QVector4D()      Constructs a null vector, i.e. with coordinates (0, 0, 0, 0). */
-comment|/*!     \fn QVector4D::QVector4D(qreal xpos, qreal ypos, qreal zpos, qreal wpos)      Constructs a vector with coordinates (\a xpos, \a ypos, \a zpos, \a wpos). */
+comment|/*!     \fn QVector4D::QVector4D(float xpos, float ypos, float zpos, float wpos)      Constructs a vector with coordinates (\a xpos, \a ypos, \a zpos, \a wpos). */
 comment|/*!     \fn QVector4D::QVector4D(const QPoint& point)      Constructs a vector with x and y coordinates from a 2D \a point, and     z and w coordinates of 0. */
 comment|/*!     \fn QVector4D::QVector4D(const QPointF& point)      Constructs a vector with x and y coordinates from a 2D \a point, and     z and w coordinates of 0. */
 ifndef|#
@@ -98,10 +98,10 @@ name|QVector2D
 modifier|&
 name|vector
 parameter_list|,
-name|qreal
+name|float
 name|zpos
 parameter_list|,
-name|qreal
+name|float
 name|wpos
 parameter_list|)
 block|{
@@ -189,7 +189,7 @@ name|QVector3D
 modifier|&
 name|vector
 parameter_list|,
-name|qreal
+name|float
 name|wpos
 parameter_list|)
 block|{
@@ -225,59 +225,92 @@ begin_comment
 comment|/*!     \fn bool QVector4D::isNull() const      Returns true if the x, y, z, and w coordinates are set to 0.0,     otherwise returns false. */
 end_comment
 begin_comment
-comment|/*!     \fn qreal QVector4D::x() const      Returns the x coordinate of this point.      \sa setX(), y(), z(), w() */
+comment|/*!     \fn float QVector4D::x() const      Returns the x coordinate of this point.      \sa setX(), y(), z(), w() */
 end_comment
 begin_comment
-comment|/*!     \fn qreal QVector4D::y() const      Returns the y coordinate of this point.      \sa setY(), x(), z(), w() */
+comment|/*!     \fn float QVector4D::y() const      Returns the y coordinate of this point.      \sa setY(), x(), z(), w() */
 end_comment
 begin_comment
-comment|/*!     \fn qreal QVector4D::z() const      Returns the z coordinate of this point.      \sa setZ(), x(), y(), w() */
+comment|/*!     \fn float QVector4D::z() const      Returns the z coordinate of this point.      \sa setZ(), x(), y(), w() */
 end_comment
 begin_comment
-comment|/*!     \fn qreal QVector4D::w() const      Returns the w coordinate of this point.      \sa setW(), x(), y(), z() */
+comment|/*!     \fn float QVector4D::w() const      Returns the w coordinate of this point.      \sa setW(), x(), y(), z() */
 end_comment
 begin_comment
-comment|/*!     \fn void QVector4D::setX(qreal x)      Sets the x coordinate of this point to the given \a x coordinate.      \sa x(), setY(), setZ(), setW() */
+comment|/*!     \fn void QVector4D::setX(float x)      Sets the x coordinate of this point to the given \a x coordinate.      \sa x(), setY(), setZ(), setW() */
 end_comment
 begin_comment
-comment|/*!     \fn void QVector4D::setY(qreal y)      Sets the y coordinate of this point to the given \a y coordinate.      \sa y(), setX(), setZ(), setW() */
+comment|/*!     \fn void QVector4D::setY(float y)      Sets the y coordinate of this point to the given \a y coordinate.      \sa y(), setX(), setZ(), setW() */
 end_comment
 begin_comment
-comment|/*!     \fn void QVector4D::setZ(qreal z)      Sets the z coordinate of this point to the given \a z coordinate.      \sa z(), setX(), setY(), setW() */
+comment|/*!     \fn void QVector4D::setZ(float z)      Sets the z coordinate of this point to the given \a z coordinate.      \sa z(), setX(), setY(), setW() */
 end_comment
 begin_comment
-comment|/*!     \fn void QVector4D::setW(qreal w)      Sets the w coordinate of this point to the given \a w coordinate.      \sa w(), setX(), setY(), setZ() */
+comment|/*!     \fn void QVector4D::setW(float w)      Sets the w coordinate of this point to the given \a w coordinate.      \sa w(), setX(), setY(), setZ() */
 end_comment
 begin_comment
 comment|/*!     Returns the length of the vector from the origin.      \sa lengthSquared(), normalized() */
 end_comment
 begin_function
 DECL|function|length
-name|qreal
+name|float
 name|QVector4D
 operator|::
 name|length
 parameter_list|()
 specifier|const
 block|{
-return|return
-name|qSqrt
+comment|// Need some extra precision if the length is very small.
+name|double
+name|len
+init|=
+name|double
 argument_list|(
 name|xp
+argument_list|)
 operator|*
+name|double
+argument_list|(
 name|xp
+argument_list|)
 operator|+
+name|double
+argument_list|(
 name|yp
+argument_list|)
 operator|*
+name|double
+argument_list|(
 name|yp
+argument_list|)
 operator|+
+name|double
+argument_list|(
 name|zp
+argument_list|)
 operator|*
+name|double
+argument_list|(
 name|zp
+argument_list|)
 operator|+
+name|double
+argument_list|(
 name|wp
+argument_list|)
 operator|*
+name|double
+argument_list|(
 name|wp
+argument_list|)
+decl_stmt|;
+return|return
+name|float
+argument_list|(
+name|sqrt
+argument_list|(
+name|len
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -287,7 +320,7 @@ comment|/*!     Returns the squared length of the vector from the origin.     Th
 end_comment
 begin_function
 DECL|function|lengthSquared
-name|qreal
+name|float
 name|QVector4D
 operator|::
 name|lengthSquared
@@ -378,10 +411,12 @@ operator|-
 literal|1.0f
 argument_list|)
 condition|)
+block|{
 return|return
 operator|*
 name|this
 return|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -391,20 +426,67 @@ argument_list|(
 name|len
 argument_list|)
 condition|)
-return|return
-operator|*
-name|this
-operator|/
-name|qSqrt
+block|{
+name|double
+name|sqrtLen
+init|=
+name|sqrt
 argument_list|(
 name|len
 argument_list|)
+decl_stmt|;
+return|return
+name|QVector4D
+argument_list|(
+name|float
+argument_list|(
+name|double
+argument_list|(
+name|xp
+argument_list|)
+operator|/
+name|sqrtLen
+argument_list|)
+argument_list|,
+name|float
+argument_list|(
+name|double
+argument_list|(
+name|yp
+argument_list|)
+operator|/
+name|sqrtLen
+argument_list|)
+argument_list|,
+name|float
+argument_list|(
+name|double
+argument_list|(
+name|zp
+argument_list|)
+operator|/
+name|sqrtLen
+argument_list|)
+argument_list|,
+name|float
+argument_list|(
+name|double
+argument_list|(
+name|wp
+argument_list|)
+operator|/
+name|sqrtLen
+argument_list|)
+argument_list|)
 return|;
+block|}
 else|else
+block|{
 return|return
 name|QVector4D
 argument_list|()
 return|;
+block|}
 block|}
 end_function
 begin_comment
@@ -479,26 +561,58 @@ condition|)
 return|return;
 name|len
 operator|=
-name|qSqrt
+name|sqrt
 argument_list|(
 name|len
 argument_list|)
 expr_stmt|;
 name|xp
-operator|/=
+operator|=
+name|float
+argument_list|(
+name|double
+argument_list|(
+name|xp
+argument_list|)
+operator|/
 name|len
+argument_list|)
 expr_stmt|;
 name|yp
-operator|/=
+operator|=
+name|float
+argument_list|(
+name|double
+argument_list|(
+name|yp
+argument_list|)
+operator|/
 name|len
+argument_list|)
 expr_stmt|;
 name|zp
-operator|/=
+operator|=
+name|float
+argument_list|(
+name|double
+argument_list|(
+name|zp
+argument_list|)
+operator|/
 name|len
+argument_list|)
 expr_stmt|;
 name|wp
-operator|/=
+operator|=
+name|float
+argument_list|(
+name|double
+argument_list|(
+name|wp
+argument_list|)
+operator|/
 name|len
+argument_list|)
 expr_stmt|;
 block|}
 end_function
@@ -509,20 +623,20 @@ begin_comment
 comment|/*!     \fn QVector4D&QVector4D::operator-=(const QVector4D&vector)      Subtracts the given \a vector from this vector and returns a reference to     this vector.      \sa operator+=() */
 end_comment
 begin_comment
-comment|/*!     \fn QVector4D&QVector4D::operator*=(qreal factor)      Multiplies this vector's coordinates by the given \a factor, and     returns a reference to this vector.      \sa operator/=() */
+comment|/*!     \fn QVector4D&QVector4D::operator*=(float factor)      Multiplies this vector's coordinates by the given \a factor, and     returns a reference to this vector.      \sa operator/=() */
 end_comment
 begin_comment
 comment|/*!     \fn QVector4D&QVector4D::operator*=(const QVector4D&vector)      Multiplies the components of this vector by the corresponding     components in \a vector. */
 end_comment
 begin_comment
-comment|/*!     \fn QVector4D&QVector4D::operator/=(qreal divisor)      Divides this vector's coordinates by the given \a divisor, and     returns a reference to this vector.      \sa operator*=() */
+comment|/*!     \fn QVector4D&QVector4D::operator/=(float divisor)      Divides this vector's coordinates by the given \a divisor, and     returns a reference to this vector.      \sa operator*=() */
 end_comment
 begin_comment
 comment|/*!     Returns the dot product of \a v1 and \a v2. */
 end_comment
 begin_function
 DECL|function|dotProduct
-name|qreal
+name|float
 name|QVector4D
 operator|::
 name|dotProduct
@@ -586,10 +700,10 @@ begin_comment
 comment|/*!     \fn const QVector4D operator-(const QVector4D&v1, const QVector4D&v2)     \relates QVector4D      Returns a QVector4D object that is formed by subtracting \a v2 from \a v1;     each component is subtracted separately.      \sa QVector4D::operator-=() */
 end_comment
 begin_comment
-comment|/*!     \fn const QVector4D operator*(qreal factor, const QVector4D&vector)     \relates QVector4D      Returns a copy of the given \a vector,  multiplied by the given \a factor.      \sa QVector4D::operator*=() */
+comment|/*!     \fn const QVector4D operator*(float factor, const QVector4D&vector)     \relates QVector4D      Returns a copy of the given \a vector,  multiplied by the given \a factor.      \sa QVector4D::operator*=() */
 end_comment
 begin_comment
-comment|/*!     \fn const QVector4D operator*(const QVector4D&vector, qreal factor)     \relates QVector4D      Returns a copy of the given \a vector,  multiplied by the given \a factor.      \sa QVector4D::operator*=() */
+comment|/*!     \fn const QVector4D operator*(const QVector4D&vector, float factor)     \relates QVector4D      Returns a copy of the given \a vector,  multiplied by the given \a factor.      \sa QVector4D::operator*=() */
 end_comment
 begin_comment
 comment|/*!     \fn const QVector4D operator*(const QVector4D&v1, const QVector4D& v2)     \relates QVector4D      Returns the vector consisting of the multiplication of the     components from \a v1 and \a v2.      \sa QVector4D::operator*=() */
@@ -598,7 +712,7 @@ begin_comment
 comment|/*!     \fn const QVector4D operator-(const QVector4D&vector)     \relates QVector4D     \overload      Returns a QVector4D object that is formed by changing the sign of     all three components of the given \a vector.      Equivalent to \c {QVector4D(0,0,0,0) - vector}. */
 end_comment
 begin_comment
-comment|/*!     \fn const QVector4D operator/(const QVector4D&vector, qreal divisor)     \relates QVector4D      Returns the QVector4D object formed by dividing all four components of     the given \a vector by the given \a divisor.      \sa QVector4D::operator/=() */
+comment|/*!     \fn const QVector4D operator/(const QVector4D&vector, float divisor)     \relates QVector4D      Returns the QVector4D object formed by dividing all four components of     the given \a vector by the given \a divisor.      \sa QVector4D::operator/=() */
 end_comment
 begin_comment
 comment|/*!     \fn bool qFuzzyCompare(const QVector4D& v1, const QVector4D& v2)     \relates QVector4D      Returns true if \a v1 and \a v2 are equal, allowing for a small     fuzziness factor for floating-point comparisons; false otherwise. */
@@ -626,8 +740,6 @@ argument_list|(
 name|xp
 argument_list|,
 name|yp
-argument_list|,
-literal|1
 argument_list|)
 return|;
 block|}
@@ -665,8 +777,6 @@ argument_list|,
 name|yp
 operator|/
 name|wp
-argument_list|,
-literal|1
 argument_list|)
 return|;
 block|}
@@ -700,8 +810,6 @@ argument_list|,
 name|yp
 argument_list|,
 name|zp
-argument_list|,
-literal|1
 argument_list|)
 return|;
 block|}
@@ -743,8 +851,6 @@ argument_list|,
 name|zp
 operator|/
 name|wp
-argument_list|,
-literal|1
 argument_list|)
 return|;
 block|}
@@ -877,37 +983,25 @@ parameter_list|)
 block|{
 name|stream
 operator|<<
-name|double
-argument_list|(
 name|vector
 operator|.
 name|x
 argument_list|()
-argument_list|)
 operator|<<
-name|double
-argument_list|(
 name|vector
 operator|.
 name|y
 argument_list|()
-argument_list|)
 operator|<<
-name|double
-argument_list|(
 name|vector
 operator|.
 name|z
 argument_list|()
-argument_list|)
 operator|<<
-name|double
-argument_list|(
 name|vector
 operator|.
 name|w
 argument_list|()
-argument_list|)
 expr_stmt|;
 return|return
 name|stream
@@ -933,7 +1027,7 @@ modifier|&
 name|vector
 parameter_list|)
 block|{
-name|double
+name|float
 name|x
 decl_stmt|,
 name|y
@@ -962,40 +1056,28 @@ name|vector
 operator|.
 name|setX
 argument_list|(
-name|qreal
-argument_list|(
 name|x
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|vector
 operator|.
 name|setY
 argument_list|(
-name|qreal
-argument_list|(
 name|y
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|vector
 operator|.
 name|setZ
 argument_list|(
-name|qreal
-argument_list|(
 name|z
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|vector
 operator|.
 name|setW
 argument_list|(
-name|qreal
-argument_list|(
 name|w
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return

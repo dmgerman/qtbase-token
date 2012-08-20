@@ -43,14 +43,14 @@ comment|/*!     \fn QDataStream&operator<<(QDataStream&stream, const QGenericMat
 comment|/*!     \fn QDataStream&operator>>(QDataStream&stream, QGenericMatrix<N, M, T>&matrix)     \relates QGenericMatrix      Reads a NxM matrix from the given \a stream into the given \a matrix     and returns a reference to the stream.      \sa {Serializing Qt Data Types} */
 endif|#
 directive|endif
-comment|/*!     \typedef QMatrix2x2     \relates QGenericMatrix      The QMatrix2x2 type defines a convenient instantiation of the     QGenericMatrix template for 2 columns, 2 rows, and qreal as     the element type. */
-comment|/*!     \typedef QMatrix2x3     \relates QGenericMatrix      The QMatrix2x3 type defines a convenient instantiation of the     QGenericMatrix template for 2 columns, 3 rows, and qreal as     the element type. */
-comment|/*!     \typedef QMatrix2x4     \relates QGenericMatrix      The QMatrix2x4 type defines a convenient instantiation of the     QGenericMatrix template for 2 columns, 4 rows, and qreal as     the element type. */
-comment|/*!     \typedef QMatrix3x2     \relates QGenericMatrix      The QMatrix3x2 type defines a convenient instantiation of the     QGenericMatrix template for 3 columns, 2 rows, and qreal as     the element type. */
-comment|/*!     \typedef QMatrix3x3     \relates QGenericMatrix      The QMatrix3x3 type defines a convenient instantiation of the     QGenericMatrix template for 3 columns, 3 rows, and qreal as     the element type. */
-comment|/*!     \typedef QMatrix3x4     \relates QGenericMatrix      The QMatrix3x4 type defines a convenient instantiation of the     QGenericMatrix template for 3 columns, 4 rows, and qreal as     the element type. */
-comment|/*!     \typedef QMatrix4x2     \relates QGenericMatrix      The QMatrix4x2 type defines a convenient instantiation of the     QGenericMatrix template for 4 columns, 2 rows, and qreal as     the element type. */
-comment|/*!     \typedef QMatrix4x3     \relates QGenericMatrix      The QMatrix4x3 type defines a convenient instantiation of the     QGenericMatrix template for 4 columns, 3 rows, and qreal as     the element type. */
+comment|/*!     \typedef QMatrix2x2     \relates QGenericMatrix      The QMatrix2x2 type defines a convenient instantiation of the     QGenericMatrix template for 2 columns, 2 rows, and float as     the element type. */
+comment|/*!     \typedef QMatrix2x3     \relates QGenericMatrix      The QMatrix2x3 type defines a convenient instantiation of the     QGenericMatrix template for 2 columns, 3 rows, and float as     the element type. */
+comment|/*!     \typedef QMatrix2x4     \relates QGenericMatrix      The QMatrix2x4 type defines a convenient instantiation of the     QGenericMatrix template for 2 columns, 4 rows, and float as     the element type. */
+comment|/*!     \typedef QMatrix3x2     \relates QGenericMatrix      The QMatrix3x2 type defines a convenient instantiation of the     QGenericMatrix template for 3 columns, 2 rows, and float as     the element type. */
+comment|/*!     \typedef QMatrix3x3     \relates QGenericMatrix      The QMatrix3x3 type defines a convenient instantiation of the     QGenericMatrix template for 3 columns, 3 rows, and float as     the element type. */
+comment|/*!     \typedef QMatrix3x4     \relates QGenericMatrix      The QMatrix3x4 type defines a convenient instantiation of the     QGenericMatrix template for 3 columns, 4 rows, and float as     the element type. */
+comment|/*!     \typedef QMatrix4x2     \relates QGenericMatrix      The QMatrix4x2 type defines a convenient instantiation of the     QGenericMatrix template for 4 columns, 2 rows, and float as     the element type. */
+comment|/*!     \typedef QMatrix4x3     \relates QGenericMatrix      The QMatrix4x3 type defines a convenient instantiation of the     QGenericMatrix template for 4 columns, 3 rows, and float as     the element type. */
 name|QT_END_NAMESPACE
 end_decl_stmt
 end_unit

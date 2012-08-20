@@ -2962,7 +2962,7 @@ literal|2
 operator|,
 literal|2
 operator|,
-name|qreal
+name|float
 operator|>
 name|QMatrix2x2
 expr_stmt|;
@@ -2977,7 +2977,7 @@ literal|2
 operator|,
 literal|3
 operator|,
-name|qreal
+name|float
 operator|>
 name|QMatrix2x3
 expr_stmt|;
@@ -2992,7 +2992,7 @@ literal|2
 operator|,
 literal|4
 operator|,
-name|qreal
+name|float
 operator|>
 name|QMatrix2x4
 expr_stmt|;
@@ -3007,7 +3007,7 @@ literal|3
 operator|,
 literal|2
 operator|,
-name|qreal
+name|float
 operator|>
 name|QMatrix3x2
 expr_stmt|;
@@ -3022,7 +3022,7 @@ literal|3
 operator|,
 literal|3
 operator|,
-name|qreal
+name|float
 operator|>
 name|QMatrix3x3
 expr_stmt|;
@@ -3037,7 +3037,7 @@ literal|3
 operator|,
 literal|4
 operator|,
-name|qreal
+name|float
 operator|>
 name|QMatrix3x4
 expr_stmt|;
@@ -3052,7 +3052,7 @@ literal|4
 operator|,
 literal|2
 operator|,
-name|qreal
+name|float
 operator|>
 name|QMatrix4x2
 expr_stmt|;
@@ -3067,7 +3067,7 @@ literal|4
 operator|,
 literal|3
 operator|,
-name|qreal
+name|float
 operator|>
 name|QMatrix4x3
 expr_stmt|;

@@ -79,45 +79,55 @@ name|explicit
 name|QMatrix4x4
 argument_list|(
 specifier|const
-name|qreal
+name|float
 operator|*
 name|values
 argument_list|)
 expr_stmt|;
+comment|// ###TODO This is temporary to get through the CI's revdep qtdeclarative tests. Remove it!
+name|explicit
+name|QMatrix4x4
+parameter_list|(
+specifier|const
+name|double
+modifier|*
+name|values
+parameter_list|)
+function_decl|;
 specifier|inline
 name|QMatrix4x4
 argument_list|(
-argument|qreal m11
+argument|float m11
 argument_list|,
-argument|qreal m12
+argument|float m12
 argument_list|,
-argument|qreal m13
+argument|float m13
 argument_list|,
-argument|qreal m14
+argument|float m14
 argument_list|,
-argument|qreal m21
+argument|float m21
 argument_list|,
-argument|qreal m22
+argument|float m22
 argument_list|,
-argument|qreal m23
+argument|float m23
 argument_list|,
-argument|qreal m24
+argument|float m24
 argument_list|,
-argument|qreal m31
+argument|float m31
 argument_list|,
-argument|qreal m32
+argument|float m32
 argument_list|,
-argument|qreal m33
+argument|float m33
 argument_list|,
-argument|qreal m34
+argument|float m34
 argument_list|,
-argument|qreal m41
+argument|float m41
 argument_list|,
-argument|qreal m42
+argument|float m42
 argument_list|,
-argument|qreal m43
+argument|float m43
 argument_list|,
-argument|qreal m44
+argument|float m44
 argument_list|)
 expr_stmt|;
 name|template
@@ -138,7 +148,7 @@ name|N
 argument_list|,
 name|M
 argument_list|,
-name|qreal
+name|float
 operator|>
 operator|&
 name|matrix
@@ -146,7 +156,7 @@ argument_list|)
 expr_stmt|;
 name|QMatrix4x4
 argument_list|(
-argument|const qreal *values
+argument|const float *values
 argument_list|,
 argument|int cols
 argument_list|,
@@ -171,7 +181,7 @@ argument_list|)
 expr_stmt|;
 specifier|inline
 specifier|const
-name|qreal
+name|float
 operator|&
 name|operator
 argument_list|()
@@ -185,7 +195,7 @@ operator|)
 specifier|const
 expr_stmt|;
 specifier|inline
-name|qreal
+name|float
 operator|&
 name|operator
 argument_list|()
@@ -261,11 +271,11 @@ specifier|inline
 name|void
 name|fill
 parameter_list|(
-name|qreal
+name|float
 name|value
 parameter_list|)
 function_decl|;
-name|qreal
+name|double
 name|determinant
 argument_list|()
 specifier|const
@@ -333,7 +343,7 @@ operator|&
 name|operator
 operator|*=
 operator|(
-name|qreal
+name|float
 name|factor
 operator|)
 expr_stmt|;
@@ -342,7 +352,7 @@ operator|&
 name|operator
 operator|/=
 operator|(
-name|qreal
+name|float
 name|divisor
 operator|)
 expr_stmt|;
@@ -572,7 +582,7 @@ name|QMatrix4x4
 name|operator
 modifier|*
 parameter_list|(
-name|qreal
+name|float
 name|factor
 parameter_list|,
 specifier|const
@@ -591,7 +601,7 @@ name|QMatrix4x4
 modifier|&
 name|matrix
 parameter_list|,
-name|qreal
+name|float
 name|factor
 parameter_list|)
 function_decl|;
@@ -606,7 +616,7 @@ name|QMatrix4x4
 operator|&
 name|matrix
 operator|,
-name|qreal
+name|float
 name|divisor
 operator|)
 expr_stmt|;
@@ -650,7 +660,7 @@ function_decl|;
 name|void
 name|rotate
 parameter_list|(
-name|qreal
+name|float
 name|angle
 parameter_list|,
 specifier|const
@@ -664,69 +674,69 @@ directive|endif
 name|void
 name|scale
 parameter_list|(
-name|qreal
+name|float
 name|x
 parameter_list|,
-name|qreal
+name|float
 name|y
 parameter_list|)
 function_decl|;
 name|void
 name|scale
 parameter_list|(
-name|qreal
+name|float
 name|x
 parameter_list|,
-name|qreal
+name|float
 name|y
 parameter_list|,
-name|qreal
+name|float
 name|z
 parameter_list|)
 function_decl|;
 name|void
 name|scale
 parameter_list|(
-name|qreal
+name|float
 name|factor
 parameter_list|)
 function_decl|;
 name|void
 name|translate
 parameter_list|(
-name|qreal
+name|float
 name|x
 parameter_list|,
-name|qreal
+name|float
 name|y
 parameter_list|)
 function_decl|;
 name|void
 name|translate
 parameter_list|(
-name|qreal
+name|float
 name|x
 parameter_list|,
-name|qreal
+name|float
 name|y
 parameter_list|,
-name|qreal
+name|float
 name|z
 parameter_list|)
 function_decl|;
 name|void
 name|rotate
 parameter_list|(
-name|qreal
+name|float
 name|angle
 parameter_list|,
-name|qreal
+name|float
 name|x
 parameter_list|,
-name|qreal
+name|float
 name|y
 parameter_list|,
-name|qreal
+name|float
 name|z
 init|=
 literal|0.0f
@@ -767,60 +777,60 @@ function_decl|;
 name|void
 name|ortho
 parameter_list|(
-name|qreal
+name|float
 name|left
 parameter_list|,
-name|qreal
+name|float
 name|right
 parameter_list|,
-name|qreal
+name|float
 name|bottom
 parameter_list|,
-name|qreal
+name|float
 name|top
 parameter_list|,
-name|qreal
+name|float
 name|nearPlane
 parameter_list|,
-name|qreal
+name|float
 name|farPlane
 parameter_list|)
 function_decl|;
 name|void
 name|frustum
 parameter_list|(
-name|qreal
+name|float
 name|left
 parameter_list|,
-name|qreal
+name|float
 name|right
 parameter_list|,
-name|qreal
+name|float
 name|bottom
 parameter_list|,
-name|qreal
+name|float
 name|top
 parameter_list|,
-name|qreal
+name|float
 name|nearPlane
 parameter_list|,
-name|qreal
+name|float
 name|farPlane
 parameter_list|)
 function_decl|;
 name|void
 name|perspective
 parameter_list|(
-name|qreal
+name|float
 name|angle
 parameter_list|,
-name|qreal
+name|float
 name|aspect
 parameter_list|,
-name|qreal
+name|float
 name|nearPlane
 parameter_list|,
-name|qreal
+name|float
 name|farPlane
 parameter_list|)
 function_decl|;
@@ -855,7 +865,7 @@ function_decl|;
 name|void
 name|copyDataTo
 argument_list|(
-name|qreal
+name|float
 operator|*
 name|values
 argument_list|)
@@ -874,7 +884,7 @@ expr_stmt|;
 name|QTransform
 name|toTransform
 argument_list|(
-name|qreal
+name|float
 name|distanceToPlane
 argument_list|)
 decl|const
@@ -973,21 +983,21 @@ name|N
 operator|,
 name|M
 operator|,
-name|qreal
+name|float
 operator|>
 name|toGenericMatrix
 argument_list|()
 specifier|const
 expr_stmt|;
 specifier|inline
-name|qreal
+name|float
 modifier|*
 name|data
 parameter_list|()
 function_decl|;
 specifier|inline
 specifier|const
-name|qreal
+name|float
 operator|*
 name|data
 argument_list|()
@@ -1000,7 +1010,7 @@ return|;
 block|}
 specifier|inline
 specifier|const
-name|qreal
+name|float
 operator|*
 name|constData
 argument_list|()
@@ -1042,7 +1052,7 @@ endif|#
 directive|endif
 name|private
 label|:
-name|qreal
+name|float
 name|m
 index|[
 literal|4
@@ -1110,16 +1120,16 @@ expr_stmt|;
 name|void
 name|projectedRotate
 parameter_list|(
-name|qreal
+name|float
 name|angle
 parameter_list|,
-name|qreal
+name|float
 name|x
 parameter_list|,
-name|qreal
+name|float
 name|y
 parameter_list|,
-name|qreal
+name|float
 name|z
 parameter_list|)
 function_decl|;
@@ -1148,37 +1158,37 @@ name|QMatrix4x4
 operator|::
 name|QMatrix4x4
 argument_list|(
-argument|qreal m11
+argument|float m11
 argument_list|,
-argument|qreal m12
+argument|float m12
 argument_list|,
-argument|qreal m13
+argument|float m13
 argument_list|,
-argument|qreal m14
+argument|float m14
 argument_list|,
-argument|qreal m21
+argument|float m21
 argument_list|,
-argument|qreal m22
+argument|float m22
 argument_list|,
-argument|qreal m23
+argument|float m23
 argument_list|,
-argument|qreal m24
+argument|float m24
 argument_list|,
-argument|qreal m31
+argument|float m31
 argument_list|,
-argument|qreal m32
+argument|float m32
 argument_list|,
-argument|qreal m33
+argument|float m33
 argument_list|,
-argument|qreal m34
+argument|float m34
 argument_list|,
-argument|qreal m41
+argument|float m41
 argument_list|,
-argument|qreal m42
+argument|float m42
 argument_list|,
-argument|qreal m43
+argument|float m43
 argument_list|,
-argument|qreal m44
+argument|float m44
 argument_list|)
 block|{
 name|m
@@ -1364,11 +1374,11 @@ argument|const QGenericMatrix<N
 argument_list|,
 argument|M
 argument_list|,
-argument|qreal>& matrix
+argument|float>& matrix
 argument_list|)
 block|{
 specifier|const
-name|qreal
+name|float
 operator|*
 name|values
 operator|=
@@ -1489,7 +1499,7 @@ name|N
 operator|,
 name|M
 operator|,
-name|qreal
+name|float
 operator|>
 name|QMatrix4x4
 operator|::
@@ -1503,11 +1513,11 @@ name|N
 block|,
 name|M
 block|,
-name|qreal
+name|float
 operator|>
 name|result
 block|;
-name|qreal
+name|float
 operator|*
 name|values
 operator|=
@@ -1614,7 +1624,7 @@ begin_expr_stmt
 unit|}  inline
 DECL|function|operator
 specifier|const
-name|qreal
+name|float
 operator|&
 name|QMatrix4x4
 operator|::
@@ -1662,7 +1672,7 @@ end_expr_stmt
 begin_expr_stmt
 DECL|function|operator
 specifier|inline
-name|qreal
+name|float
 operator|&
 name|QMatrix4x4
 operator|::
@@ -2008,7 +2018,7 @@ name|QMatrix4x4
 operator|&
 name|matrix
 operator|,
-name|qreal
+name|float
 name|divisor
 operator|)
 expr_stmt|;
@@ -2413,7 +2423,7 @@ name|QMatrix4x4
 operator|::
 name|fill
 argument_list|(
-argument|qreal value
+argument|float value
 argument_list|)
 block|{
 name|m
@@ -3371,7 +3381,7 @@ operator|*
 name|this
 return|;
 block|}
-name|qreal
+name|float
 name|m0
 operator|,
 name|m1
@@ -4778,7 +4788,7 @@ operator|::
 name|operator
 operator|*=
 operator|(
-name|qreal
+name|float
 name|factor
 operator|)
 block|{
@@ -8277,7 +8287,7 @@ modifier|&
 name|matrix
 parameter_list|)
 block|{
-name|qreal
+name|float
 name|x
 decl_stmt|,
 name|y
@@ -8566,7 +8576,7 @@ modifier|&
 name|vector
 parameter_list|)
 block|{
-name|qreal
+name|float
 name|x
 decl_stmt|,
 name|y
@@ -9098,7 +9108,7 @@ modifier|&
 name|matrix
 parameter_list|)
 block|{
-name|qreal
+name|float
 name|x
 decl_stmt|,
 name|y
@@ -9386,7 +9396,7 @@ modifier|&
 name|vector
 parameter_list|)
 block|{
-name|qreal
+name|float
 name|x
 decl_stmt|,
 name|y
@@ -9678,12 +9688,12 @@ modifier|&
 name|matrix
 parameter_list|)
 block|{
-name|qreal
+name|float
 name|xin
 decl_stmt|,
 name|yin
 decl_stmt|;
-name|qreal
+name|float
 name|x
 decl_stmt|,
 name|y
@@ -9870,12 +9880,12 @@ modifier|&
 name|matrix
 parameter_list|)
 block|{
-name|qreal
+name|float
 name|xin
 decl_stmt|,
 name|yin
 decl_stmt|;
-name|qreal
+name|float
 name|x
 decl_stmt|,
 name|y
@@ -10014,12 +10024,12 @@ block|{
 return|return
 name|QPointF
 argument_list|(
-name|qreal
+name|float
 argument_list|(
 name|x
 argument_list|)
 argument_list|,
-name|qreal
+name|float
 argument_list|(
 name|y
 argument_list|)
@@ -10031,14 +10041,14 @@ block|{
 return|return
 name|QPointF
 argument_list|(
-name|qreal
+name|float
 argument_list|(
 name|x
 operator|/
 name|w
 argument_list|)
 argument_list|,
-name|qreal
+name|float
 argument_list|(
 name|y
 operator|/
@@ -10066,12 +10076,12 @@ modifier|&
 name|point
 parameter_list|)
 block|{
-name|qreal
+name|float
 name|xin
 decl_stmt|,
 name|yin
 decl_stmt|;
-name|qreal
+name|float
 name|x
 decl_stmt|,
 name|y
@@ -10435,12 +10445,12 @@ modifier|&
 name|point
 parameter_list|)
 block|{
-name|qreal
+name|float
 name|xin
 decl_stmt|,
 name|yin
 decl_stmt|;
-name|qreal
+name|float
 name|x
 decl_stmt|,
 name|y
@@ -10743,12 +10753,12 @@ block|{
 return|return
 name|QPointF
 argument_list|(
-name|qreal
+name|float
 argument_list|(
 name|x
 argument_list|)
 argument_list|,
-name|qreal
+name|float
 argument_list|(
 name|y
 argument_list|)
@@ -10760,14 +10770,14 @@ block|{
 return|return
 name|QPointF
 argument_list|(
-name|qreal
+name|float
 argument_list|(
 name|x
 operator|/
 name|w
 argument_list|)
 argument_list|,
-name|qreal
+name|float
 argument_list|(
 name|y
 operator|/
@@ -11152,7 +11162,7 @@ name|QMatrix4x4
 name|operator
 modifier|*
 parameter_list|(
-name|qreal
+name|float
 name|factor
 parameter_list|,
 specifier|const
@@ -11543,7 +11553,7 @@ name|QMatrix4x4
 modifier|&
 name|matrix
 parameter_list|,
-name|qreal
+name|float
 name|factor
 parameter_list|)
 block|{
@@ -12607,7 +12617,7 @@ directive|endif
 end_endif
 begin_expr_stmt
 specifier|inline
-name|qreal
+name|float
 operator|*
 name|QMatrix4x4
 operator|::
@@ -12720,7 +12730,7 @@ argument|const QGenericMatrix<N
 argument_list|,
 argument|M
 argument_list|,
-argument|qreal>& matrix
+argument|float>& matrix
 argument_list|)
 block|{
 return|return
@@ -12758,7 +12768,7 @@ name|N
 operator|,
 name|M
 operator|,
-name|qreal
+name|float
 operator|>
 name|qGenericMatrixFromMatrix4x4
 argument_list|(
@@ -12771,12 +12781,12 @@ name|N
 block|,
 name|M
 block|,
-name|qreal
+name|float
 operator|>
 name|result
 block|;
 specifier|const
-name|qreal
+name|float
 operator|*
 name|m
 operator|=
@@ -12785,7 +12795,7 @@ operator|.
 name|constData
 argument_list|()
 block|;
-name|qreal
+name|float
 operator|*
 name|values
 operator|=

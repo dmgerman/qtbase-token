@@ -34,16 +34,16 @@ directive|ifndef
 name|QT_NO_QUATERNION
 comment|/*!     \class QQuaternion     \brief The QQuaternion class represents a quaternion consisting of a vector and scalar.     \since 4.6     \ingroup painting-3D     \inmodule QtGui      Quaternions are used to represent rotations in 3D space, and     consist of a 3D rotation axis specified by the x, y, and z     coordinates, and a scalar representing the rotation angle. */
 comment|/*!     \fn QQuaternion::QQuaternion()      Constructs an identity quaternion, i.e. with coordinates (1, 0, 0, 0). */
-comment|/*!     \fn QQuaternion::QQuaternion(qreal scalar, qreal xpos, qreal ypos, qreal zpos)      Constructs a quaternion with the vector (\a xpos, \a ypos, \a zpos)     and \a scalar. */
+comment|/*!     \fn QQuaternion::QQuaternion(float scalar, float xpos, float ypos, float zpos)      Constructs a quaternion with the vector (\a xpos, \a ypos, \a zpos)     and \a scalar. */
 ifndef|#
 directive|ifndef
 name|QT_NO_VECTOR3D
-comment|/*!     \fn QQuaternion::QQuaternion(qreal scalar, const QVector3D& vector)      Constructs a quaternion vector from the specified \a vector and     \a scalar.      \sa vector(), scalar() */
+comment|/*!     \fn QQuaternion::QQuaternion(float scalar, const QVector3D& vector)      Constructs a quaternion vector from the specified \a vector and     \a scalar.      \sa vector(), scalar() */
 comment|/*!     \fn QVector3D QQuaternion::vector() const      Returns the vector component of this quaternion.      \sa setVector(), scalar() */
 comment|/*!     \fn void QQuaternion::setVector(const QVector3D& vector)      Sets the vector component of this quaternion to \a vector.      \sa vector(), setScalar() */
 endif|#
 directive|endif
-comment|/*!     \fn void QQuaternion::setVector(qreal x, qreal y, qreal z)      Sets the vector component of this quaternion to (\a x, \a y, \a z).      \sa vector(), setScalar() */
+comment|/*!     \fn void QQuaternion::setVector(float x, float y, float z)      Sets the vector component of this quaternion to (\a x, \a y, \a z).      \sa vector(), setScalar() */
 ifndef|#
 directive|ifndef
 name|QT_NO_VECTOR4D
@@ -53,17 +53,17 @@ endif|#
 directive|endif
 comment|/*!     \fn bool QQuaternion::isNull() const      Returns true if the x, y, z, and scalar components of this     quaternion are set to 0.0; otherwise returns false. */
 comment|/*!     \fn bool QQuaternion::isIdentity() const      Returns true if the x, y, and z components of this     quaternion are set to 0.0, and the scalar component is set     to 1.0; otherwise returns false. */
-comment|/*!     \fn qreal QQuaternion::x() const      Returns the x coordinate of this quaternion's vector.      \sa setX(), y(), z(), scalar() */
-comment|/*!     \fn qreal QQuaternion::y() const      Returns the y coordinate of this quaternion's vector.      \sa setY(), x(), z(), scalar() */
-comment|/*!     \fn qreal QQuaternion::z() const      Returns the z coordinate of this quaternion's vector.      \sa setZ(), x(), y(), scalar() */
-comment|/*!     \fn qreal QQuaternion::scalar() const      Returns the scalar component of this quaternion.      \sa setScalar(), x(), y(), z() */
-comment|/*!     \fn void QQuaternion::setX(qreal x)      Sets the x coordinate of this quaternion's vector to the given     \a x coordinate.      \sa x(), setY(), setZ(), setScalar() */
-comment|/*!     \fn void QQuaternion::setY(qreal y)      Sets the y coordinate of this quaternion's vector to the given     \a y coordinate.      \sa y(), setX(), setZ(), setScalar() */
-comment|/*!     \fn void QQuaternion::setZ(qreal z)      Sets the z coordinate of this quaternion's vector to the given     \a z coordinate.      \sa z(), setX(), setY(), setScalar() */
-comment|/*!     \fn void QQuaternion::setScalar(qreal scalar)      Sets the scalar component of this quaternion to \a scalar.      \sa scalar(), setX(), setY(), setZ() */
+comment|/*!     \fn float QQuaternion::x() const      Returns the x coordinate of this quaternion's vector.      \sa setX(), y(), z(), scalar() */
+comment|/*!     \fn float QQuaternion::y() const      Returns the y coordinate of this quaternion's vector.      \sa setY(), x(), z(), scalar() */
+comment|/*!     \fn float QQuaternion::z() const      Returns the z coordinate of this quaternion's vector.      \sa setZ(), x(), y(), scalar() */
+comment|/*!     \fn float QQuaternion::scalar() const      Returns the scalar component of this quaternion.      \sa setScalar(), x(), y(), z() */
+comment|/*!     \fn void QQuaternion::setX(float x)      Sets the x coordinate of this quaternion's vector to the given     \a x coordinate.      \sa x(), setY(), setZ(), setScalar() */
+comment|/*!     \fn void QQuaternion::setY(float y)      Sets the y coordinate of this quaternion's vector to the given     \a y coordinate.      \sa y(), setX(), setZ(), setScalar() */
+comment|/*!     \fn void QQuaternion::setZ(float z)      Sets the z coordinate of this quaternion's vector to the given     \a z coordinate.      \sa z(), setX(), setY(), setScalar() */
+comment|/*!     \fn void QQuaternion::setScalar(float scalar)      Sets the scalar component of this quaternion to \a scalar.      \sa scalar(), setX(), setY(), setZ() */
 comment|/*!     Returns the length of the quaternion.  This is also called the "norm".      \sa lengthSquared(), normalized() */
 DECL|function|length
-name|qreal
+name|float
 name|QQuaternion
 operator|::
 name|length
@@ -97,7 +97,7 @@ comment|/*!     Returns the squared length of the quaternion.      \sa length() 
 end_comment
 begin_function
 DECL|function|lengthSquared
-name|qreal
+name|float
 name|QQuaternion
 operator|::
 name|lengthSquared
@@ -368,13 +368,13 @@ begin_comment
 comment|/*!     \fn QQuaternion&QQuaternion::operator-=(const QQuaternion&quaternion)      Subtracts the given \a quaternion from this quaternion and returns a     reference to this quaternion.      \sa operator+=() */
 end_comment
 begin_comment
-comment|/*!     \fn QQuaternion&QQuaternion::operator*=(qreal factor)      Multiplies this quaternion's components by the given \a factor, and     returns a reference to this quaternion.      \sa operator/=() */
+comment|/*!     \fn QQuaternion&QQuaternion::operator*=(float factor)      Multiplies this quaternion's components by the given \a factor, and     returns a reference to this quaternion.      \sa operator/=() */
 end_comment
 begin_comment
 comment|/*!     \fn QQuaternion&QQuaternion::operator*=(const QQuaternion&quaternion)      Multiplies this quaternion by \a quaternion and returns a reference     to this quaternion. */
 end_comment
 begin_comment
-comment|/*!     \fn QQuaternion&QQuaternion::operator/=(qreal divisor)      Divides this quaternion's components by the given \a divisor, and     returns a reference to this quaternion.      \sa operator*=() */
+comment|/*!     \fn QQuaternion&QQuaternion::operator/=(float divisor)      Divides this quaternion's components by the given \a divisor, and     returns a reference to this quaternion.      \sa operator*=() */
 end_comment
 begin_ifndef
 ifndef|#
@@ -396,7 +396,7 @@ name|QVector3D
 modifier|&
 name|axis
 parameter_list|,
-name|qreal
+name|float
 name|angle
 parameter_list|)
 block|{
@@ -404,7 +404,7 @@ comment|// Algorithm from:
 comment|// http://www.j3d.org/matrix_faq/matrfaq_latest.html#Q56
 comment|// We normalize the result just in case the values are close
 comment|// to zero, as suggested in the above FAQ.
-name|qreal
+name|float
 name|a
 init|=
 operator|(
@@ -417,18 +417,18 @@ name|M_PI
 operator|/
 literal|180.0f
 decl_stmt|;
-name|qreal
+name|float
 name|s
 init|=
-name|qSin
+name|sinf
 argument_list|(
 name|a
 argument_list|)
 decl_stmt|;
-name|qreal
+name|float
 name|c
 init|=
-name|qCos
+name|cosf
 argument_list|(
 name|a
 argument_list|)
@@ -487,20 +487,20 @@ name|QQuaternion
 operator|::
 name|fromAxisAndAngle
 parameter_list|(
-name|qreal
+name|float
 name|x
 parameter_list|,
-name|qreal
+name|float
 name|y
 parameter_list|,
-name|qreal
+name|float
 name|z
 parameter_list|,
-name|qreal
+name|float
 name|angle
 parameter_list|)
 block|{
-name|qreal
+name|float
 name|length
 init|=
 name|qSqrt
@@ -548,7 +548,7 @@ operator|/=
 name|length
 expr_stmt|;
 block|}
-name|qreal
+name|float
 name|a
 init|=
 operator|(
@@ -561,7 +561,7 @@ name|M_PI
 operator|/
 literal|180.0f
 decl_stmt|;
-name|qreal
+name|float
 name|s
 init|=
 name|qSin
@@ -569,7 +569,7 @@ argument_list|(
 name|a
 argument_list|)
 decl_stmt|;
-name|qreal
+name|float
 name|c
 init|=
 name|qCos
@@ -613,10 +613,10 @@ begin_comment
 comment|/*!     \fn const QQuaternion operator-(const QQuaternion&q1, const QQuaternion&q2)     \relates QQuaternion      Returns a QQuaternion object that is formed by subtracting     \a q2 from \a q1; each component is subtracted separately.      \sa QQuaternion::operator-=() */
 end_comment
 begin_comment
-comment|/*!     \fn const QQuaternion operator*(qreal factor, const QQuaternion&quaternion)     \relates QQuaternion      Returns a copy of the given \a quaternion,  multiplied by the     given \a factor.      \sa QQuaternion::operator*=() */
+comment|/*!     \fn const QQuaternion operator*(float factor, const QQuaternion&quaternion)     \relates QQuaternion      Returns a copy of the given \a quaternion,  multiplied by the     given \a factor.      \sa QQuaternion::operator*=() */
 end_comment
 begin_comment
-comment|/*!     \fn const QQuaternion operator*(const QQuaternion&quaternion, qreal factor)     \relates QQuaternion      Returns a copy of the given \a quaternion,  multiplied by the     given \a factor.      \sa QQuaternion::operator*=() */
+comment|/*!     \fn const QQuaternion operator*(const QQuaternion&quaternion, float factor)     \relates QQuaternion      Returns a copy of the given \a quaternion,  multiplied by the     given \a factor.      \sa QQuaternion::operator*=() */
 end_comment
 begin_comment
 comment|/*!     \fn const QQuaternion operator*(const QQuaternion&q1, const QQuaternion& q2)     \relates QQuaternion      Multiplies \a q1 and \a q2 using quaternion multiplication.     The result corresponds to applying both of the rotations specified     by \a q1 and \a q2.      \sa QQuaternion::operator*=() */
@@ -625,7 +625,7 @@ begin_comment
 comment|/*!     \fn const QQuaternion operator-(const QQuaternion&quaternion)     \relates QQuaternion     \overload      Returns a QQuaternion object that is formed by changing the sign of     all three components of the given \a quaternion.      Equivalent to \c {QQuaternion(0,0,0,0) - quaternion}. */
 end_comment
 begin_comment
-comment|/*!     \fn const QQuaternion operator/(const QQuaternion&quaternion, qreal divisor)     \relates QQuaternion      Returns the QQuaternion object formed by dividing all components of     the given \a quaternion by the given \a divisor.      \sa QQuaternion::operator/=() */
+comment|/*!     \fn const QQuaternion operator/(const QQuaternion&quaternion, float divisor)     \relates QQuaternion      Returns the QQuaternion object formed by dividing all components of     the given \a quaternion by the given \a divisor.      \sa QQuaternion::operator/=() */
 end_comment
 begin_comment
 comment|/*!     \fn bool qFuzzyCompare(const QQuaternion& q1, const QQuaternion& q2)     \relates QQuaternion      Returns true if \a q1 and \a q2 are equal, allowing for a small     fuzziness factor for floating-point comparisons; false otherwise. */
@@ -650,7 +650,7 @@ name|QQuaternion
 modifier|&
 name|q2
 parameter_list|,
-name|qreal
+name|float
 name|t
 parameter_list|)
 block|{
@@ -678,7 +678,7 @@ comment|// Determine the angle between the two quaternions.
 name|QQuaternion
 name|q2b
 decl_stmt|;
-name|qreal
+name|float
 name|dot
 decl_stmt|;
 name|dot
@@ -742,14 +742,14 @@ expr_stmt|;
 block|}
 comment|// Get the scale factors.  If they are too small,
 comment|// then revert to simple linear interpolation.
-name|qreal
+name|float
 name|factor1
 init|=
 literal|1.0f
 operator|-
 name|t
 decl_stmt|;
-name|qreal
+name|float
 name|factor2
 init|=
 name|t
@@ -765,10 +765,10 @@ operator|>
 literal|0.0000001
 condition|)
 block|{
-name|qreal
+name|float
 name|angle
 init|=
-name|qreal
+name|float
 argument_list|(
 name|qAcos
 argument_list|(
@@ -776,10 +776,10 @@ name|dot
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|qreal
+name|float
 name|sinOfAngle
 init|=
-name|qreal
+name|float
 argument_list|(
 name|qSin
 argument_list|(
@@ -796,7 +796,7 @@ condition|)
 block|{
 name|factor1
 operator|=
-name|qreal
+name|float
 argument_list|(
 name|qSin
 argument_list|(
@@ -814,7 +814,7 @@ name|sinOfAngle
 expr_stmt|;
 name|factor2
 operator|=
-name|qreal
+name|float
 argument_list|(
 name|qSin
 argument_list|(
@@ -860,7 +860,7 @@ name|QQuaternion
 modifier|&
 name|q2
 parameter_list|,
-name|qreal
+name|float
 name|t
 parameter_list|)
 block|{
@@ -888,7 +888,7 @@ comment|// Determine the angle between the two quaternions.
 name|QQuaternion
 name|q2b
 decl_stmt|;
-name|qreal
+name|float
 name|dot
 decl_stmt|;
 name|dot
@@ -1080,37 +1080,25 @@ parameter_list|)
 block|{
 name|stream
 operator|<<
-name|double
-argument_list|(
 name|quaternion
 operator|.
 name|scalar
 argument_list|()
-argument_list|)
 operator|<<
-name|double
-argument_list|(
 name|quaternion
 operator|.
 name|x
 argument_list|()
-argument_list|)
 operator|<<
-name|double
-argument_list|(
 name|quaternion
 operator|.
 name|y
 argument_list|()
-argument_list|)
 operator|<<
-name|double
-argument_list|(
 name|quaternion
 operator|.
 name|z
 argument_list|()
-argument_list|)
 expr_stmt|;
 return|return
 name|stream
@@ -1136,7 +1124,7 @@ modifier|&
 name|quaternion
 parameter_list|)
 block|{
-name|double
+name|float
 name|scalar
 decl_stmt|,
 name|x
@@ -1165,40 +1153,28 @@ name|quaternion
 operator|.
 name|setScalar
 argument_list|(
-name|qreal
-argument_list|(
 name|scalar
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|quaternion
 operator|.
 name|setX
 argument_list|(
-name|qreal
-argument_list|(
 name|x
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|quaternion
 operator|.
 name|setY
 argument_list|(
-name|qreal
-argument_list|(
 name|y
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|quaternion
 operator|.
 name|setZ
 argument_list|(
-name|qreal
-argument_list|(
 name|z
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return

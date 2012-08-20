@@ -52,13 +52,13 @@ argument_list|()
 expr_stmt|;
 name|QQuaternion
 argument_list|(
-argument|qreal scalar
+argument|float scalar
 argument_list|,
-argument|qreal xpos
+argument|float xpos
 argument_list|,
-argument|qreal ypos
+argument|float ypos
 argument_list|,
-argument|qreal zpos
+argument|float zpos
 argument_list|)
 empty_stmt|;
 ifndef|#
@@ -66,7 +66,7 @@ directive|ifndef
 name|QT_NO_VECTOR3D
 name|QQuaternion
 argument_list|(
-argument|qreal scalar
+argument|float scalar
 argument_list|,
 argument|const QVector3D& vector
 argument_list|)
@@ -119,32 +119,32 @@ directive|endif
 name|void
 name|setVector
 parameter_list|(
-name|qreal
+name|float
 name|x
 parameter_list|,
-name|qreal
+name|float
 name|y
 parameter_list|,
-name|qreal
+name|float
 name|z
 parameter_list|)
 function_decl|;
-name|qreal
+name|float
 name|x
 argument_list|()
 specifier|const
 expr_stmt|;
-name|qreal
+name|float
 name|y
 argument_list|()
 specifier|const
 expr_stmt|;
-name|qreal
+name|float
 name|z
 argument_list|()
 specifier|const
 expr_stmt|;
-name|qreal
+name|float
 name|scalar
 argument_list|()
 specifier|const
@@ -152,37 +152,37 @@ expr_stmt|;
 name|void
 name|setX
 parameter_list|(
-name|qreal
+name|float
 name|x
 parameter_list|)
 function_decl|;
 name|void
 name|setY
 parameter_list|(
-name|qreal
+name|float
 name|y
 parameter_list|)
 function_decl|;
 name|void
 name|setZ
 parameter_list|(
-name|qreal
+name|float
 name|z
 parameter_list|)
 function_decl|;
 name|void
 name|setScalar
 parameter_list|(
-name|qreal
+name|float
 name|scalar
 parameter_list|)
 function_decl|;
-name|qreal
+name|float
 name|length
 argument_list|()
 specifier|const
 expr_stmt|;
-name|qreal
+name|float
 name|lengthSquared
 argument_list|()
 specifier|const
@@ -238,7 +238,7 @@ operator|&
 name|operator
 operator|*=
 operator|(
-name|qreal
+name|float
 name|factor
 operator|)
 expr_stmt|;
@@ -258,7 +258,7 @@ operator|&
 name|operator
 operator|/=
 operator|(
-name|qreal
+name|float
 name|divisor
 operator|)
 expr_stmt|;
@@ -339,7 +339,7 @@ name|QQuaternion
 name|operator
 modifier|*
 parameter_list|(
-name|qreal
+name|float
 name|factor
 parameter_list|,
 specifier|const
@@ -360,7 +360,7 @@ name|QQuaternion
 modifier|&
 name|quaternion
 parameter_list|,
-name|qreal
+name|float
 name|factor
 parameter_list|)
 function_decl|;
@@ -407,7 +407,7 @@ name|QQuaternion
 operator|&
 name|quaternion
 operator|,
-name|qreal
+name|float
 name|divisor
 operator|)
 expr_stmt|;
@@ -454,7 +454,7 @@ name|QVector3D
 modifier|&
 name|axis
 parameter_list|,
-name|qreal
+name|float
 name|angle
 parameter_list|)
 function_decl|;
@@ -464,16 +464,16 @@ specifier|static
 name|QQuaternion
 name|fromAxisAndAngle
 parameter_list|(
-name|qreal
+name|float
 name|x
 parameter_list|,
-name|qreal
+name|float
 name|y
 parameter_list|,
-name|qreal
+name|float
 name|z
 parameter_list|,
-name|qreal
+name|float
 name|angle
 parameter_list|)
 function_decl|;
@@ -491,7 +491,7 @@ name|QQuaternion
 modifier|&
 name|q2
 parameter_list|,
-name|qreal
+name|float
 name|t
 parameter_list|)
 function_decl|;
@@ -509,13 +509,13 @@ name|QQuaternion
 modifier|&
 name|q2
 parameter_list|,
-name|qreal
+name|float
 name|t
 parameter_list|)
 function_decl|;
 name|private
 label|:
-name|qreal
+name|float
 name|wp
 decl_stmt|,
 name|xp
@@ -572,13 +572,13 @@ name|QQuaternion
 operator|::
 name|QQuaternion
 argument_list|(
-argument|qreal aScalar
+argument|float aScalar
 argument_list|,
-argument|qreal xpos
+argument|float xpos
 argument_list|,
-argument|qreal ypos
+argument|float ypos
 argument_list|,
-argument|qreal zpos
+argument|float zpos
 argument_list|)
 operator|:
 name|wp
@@ -668,7 +668,7 @@ end_expr_stmt
 begin_expr_stmt
 DECL|function|x
 specifier|inline
-name|qreal
+name|float
 name|QQuaternion
 operator|::
 name|x
@@ -676,17 +676,14 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|qreal
-argument_list|(
 name|xp
-argument_list|)
 return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|y
 specifier|inline
-name|qreal
+name|float
 name|QQuaternion
 operator|::
 name|y
@@ -694,17 +691,14 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|qreal
-argument_list|(
 name|yp
-argument_list|)
 return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|z
 specifier|inline
-name|qreal
+name|float
 name|QQuaternion
 operator|::
 name|z
@@ -712,17 +706,14 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|qreal
-argument_list|(
 name|zp
-argument_list|)
 return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|scalar
 specifier|inline
-name|qreal
+name|float
 name|QQuaternion
 operator|::
 name|scalar
@@ -730,10 +721,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|qreal
-argument_list|(
 name|wp
-argument_list|)
 return|;
 block|}
 end_expr_stmt
@@ -745,7 +733,7 @@ name|QQuaternion
 operator|::
 name|setX
 argument_list|(
-argument|qreal aX
+argument|float aX
 argument_list|)
 block|{
 name|xp
@@ -759,7 +747,7 @@ name|QQuaternion
 operator|::
 name|setY
 argument_list|(
-argument|qreal aY
+argument|float aY
 argument_list|)
 block|{
 name|yp
@@ -773,7 +761,7 @@ name|QQuaternion
 operator|::
 name|setZ
 argument_list|(
-argument|qreal aZ
+argument|float aZ
 argument_list|)
 block|{
 name|zp
@@ -787,7 +775,7 @@ name|QQuaternion
 operator|::
 name|setScalar
 argument_list|(
-argument|qreal aScalar
+argument|float aScalar
 argument_list|)
 block|{
 name|wp
@@ -920,7 +908,7 @@ operator|::
 name|operator
 operator|*=
 operator|(
-name|qreal
+name|float
 name|factor
 operator|)
 block|{
@@ -964,7 +952,7 @@ modifier|&
 name|q2
 parameter_list|)
 block|{
-name|qreal
+name|float
 name|ww
 init|=
 operator|(
@@ -987,7 +975,7 @@ operator|.
 name|yp
 operator|)
 decl_stmt|;
-name|qreal
+name|float
 name|yy
 init|=
 operator|(
@@ -1010,7 +998,7 @@ operator|.
 name|zp
 operator|)
 decl_stmt|;
-name|qreal
+name|float
 name|zz
 init|=
 operator|(
@@ -1033,7 +1021,7 @@ operator|.
 name|zp
 operator|)
 decl_stmt|;
-name|qreal
+name|float
 name|xx
 init|=
 name|ww
@@ -1042,7 +1030,7 @@ name|yy
 operator|+
 name|zz
 decl_stmt|;
-name|qreal
+name|float
 name|qq
 init|=
 literal|0.5
@@ -1071,7 +1059,7 @@ name|yp
 operator|)
 operator|)
 decl_stmt|;
-name|qreal
+name|float
 name|w
 init|=
 name|qq
@@ -1098,7 +1086,7 @@ operator|.
 name|zp
 operator|)
 decl_stmt|;
-name|qreal
+name|float
 name|x
 init|=
 name|qq
@@ -1125,7 +1113,7 @@ operator|.
 name|wp
 operator|)
 decl_stmt|;
-name|qreal
+name|float
 name|y
 init|=
 name|qq
@@ -1152,7 +1140,7 @@ operator|.
 name|zp
 operator|)
 decl_stmt|;
-name|qreal
+name|float
 name|z
 init|=
 name|qq
@@ -1231,7 +1219,7 @@ operator|::
 name|operator
 operator|/=
 operator|(
-name|qreal
+name|float
 name|divisor
 operator|)
 block|{
@@ -1480,7 +1468,7 @@ name|QQuaternion
 name|operator
 modifier|*
 parameter_list|(
-name|qreal
+name|float
 name|factor
 parameter_list|,
 specifier|const
@@ -1531,7 +1519,7 @@ name|QQuaternion
 modifier|&
 name|quaternion
 parameter_list|,
-name|qreal
+name|float
 name|factor
 parameter_list|)
 block|{
@@ -1616,7 +1604,7 @@ name|QQuaternion
 operator|&
 name|quaternion
 operator|,
-name|qreal
+name|float
 name|divisor
 operator|)
 block|{
@@ -1724,7 +1712,7 @@ name|QQuaternion
 operator|::
 name|QQuaternion
 argument_list|(
-argument|qreal aScalar
+argument|float aScalar
 argument_list|,
 argument|const QVector3D& aVector
 argument_list|)
@@ -1820,11 +1808,11 @@ name|QQuaternion
 operator|::
 name|setVector
 argument_list|(
-argument|qreal aX
+argument|float aX
 argument_list|,
-argument|qreal aY
+argument|float aY
 argument_list|,
-argument|qreal aZ
+argument|float aZ
 argument_list|)
 block|{
 name|xp

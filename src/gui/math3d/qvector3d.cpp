@@ -42,9 +42,9 @@ name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
 name|QT_NO_VECTOR3D
-comment|/*!     \class QVector3D     \brief The QVector3D class represents a vector or vertex in 3D space.     \since 4.6     \ingroup painting-3D     \inmodule QtGui      Vectors are one of the main building blocks of 3D representation and     drawing.  They consist of three coordinates, traditionally called     x, y, and z.      The QVector3D class can also be used to represent vertices in 3D space.     We therefore do not need to provide a separate vertex class.      \b{Note:} By design values in the QVector3D instance are stored as \c float.     This means that on platforms where the \c qreal arguments to QVector3D     functions are represented by \c double values, it is possible to     lose precision.      \sa QVector2D, QVector4D, QQuaternion */
+comment|/*!     \class QVector3D     \brief The QVector3D class represents a vector or vertex in 3D space.     \since 4.6     \ingroup painting-3D     \inmodule QtGui      Vectors are one of the main building blocks of 3D representation and     drawing.  They consist of three coordinates, traditionally called     x, y, and z.      The QVector3D class can also be used to represent vertices in 3D space.     We therefore do not need to provide a separate vertex class.      \sa QVector2D, QVector4D, QQuaternion */
 comment|/*!     \fn QVector3D::QVector3D()      Constructs a null vector, i.e. with coordinates (0, 0, 0). */
-comment|/*!     \fn QVector3D::QVector3D(qreal xpos, qreal ypos, qreal zpos)      Constructs a vector with coordinates (\a xpos, \a ypos, \a zpos). */
+comment|/*!     \fn QVector3D::QVector3D(float xpos, float ypos, float zpos)      Constructs a vector with coordinates (\a xpos, \a ypos, \a zpos). */
 comment|/*!     \fn QVector3D::QVector3D(const QPoint& point)      Constructs a vector with x and y coordinates from a 2D \a point, and a     z coordinate of 0. */
 comment|/*!     \fn QVector3D::QVector3D(const QPointF& point)      Constructs a vector with x and y coordinates from a 2D \a point, and a     z coordinate of 0. */
 ifndef|#
@@ -94,7 +94,7 @@ name|QVector2D
 modifier|&
 name|vector
 parameter_list|,
-name|qreal
+name|float
 name|zpos
 parameter_list|)
 block|{
@@ -168,22 +168,22 @@ begin_comment
 comment|/*!     \fn bool QVector3D::isNull() const      Returns true if the x, y, and z coordinates are set to 0.0,     otherwise returns false. */
 end_comment
 begin_comment
-comment|/*!     \fn qreal QVector3D::x() const      Returns the x coordinate of this point.      \sa setX(), y(), z() */
+comment|/*!     \fn float QVector3D::x() const      Returns the x coordinate of this point.      \sa setX(), y(), z() */
 end_comment
 begin_comment
-comment|/*!     \fn qreal QVector3D::y() const      Returns the y coordinate of this point.      \sa setY(), x(), z() */
+comment|/*!     \fn float QVector3D::y() const      Returns the y coordinate of this point.      \sa setY(), x(), z() */
 end_comment
 begin_comment
-comment|/*!     \fn qreal QVector3D::z() const      Returns the z coordinate of this point.      \sa setZ(), x(), y() */
+comment|/*!     \fn float QVector3D::z() const      Returns the z coordinate of this point.      \sa setZ(), x(), y() */
 end_comment
 begin_comment
-comment|/*!     \fn void QVector3D::setX(qreal x)      Sets the x coordinate of this point to the given \a x coordinate.      \sa x(), setY(), setZ() */
+comment|/*!     \fn void QVector3D::setX(float x)      Sets the x coordinate of this point to the given \a x coordinate.      \sa x(), setY(), setZ() */
 end_comment
 begin_comment
-comment|/*!     \fn void QVector3D::setY(qreal y)      Sets the y coordinate of this point to the given \a y coordinate.      \sa y(), setX(), setZ() */
+comment|/*!     \fn void QVector3D::setY(float y)      Sets the y coordinate of this point to the given \a y coordinate.      \sa y(), setX(), setZ() */
 end_comment
 begin_comment
-comment|/*!     \fn void QVector3D::setZ(qreal z)      Sets the z coordinate of this point to the given \a z coordinate.      \sa z(), setX(), setY() */
+comment|/*!     \fn void QVector3D::setZ(float z)      Sets the z coordinate of this point to the given \a z coordinate.      \sa z(), setX(), setY() */
 end_comment
 begin_comment
 comment|/*!     Returns the normalized unit vector form of this vector.      If this vector is null, then a null vector is returned.  If the length     of the vector is very close to 1, then the vector will be returned as-is.     Otherwise the normalized form of the vector of length 1 will be returned.      \sa length(), normalize() */
@@ -240,10 +240,12 @@ operator|-
 literal|1.0f
 argument_list|)
 condition|)
+block|{
 return|return
 operator|*
 name|this
 return|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -253,20 +255,57 @@ argument_list|(
 name|len
 argument_list|)
 condition|)
-return|return
-operator|*
-name|this
-operator|/
-name|qSqrt
+block|{
+name|double
+name|sqrtLen
+init|=
+name|sqrt
 argument_list|(
 name|len
 argument_list|)
+decl_stmt|;
+return|return
+name|QVector3D
+argument_list|(
+name|float
+argument_list|(
+name|double
+argument_list|(
+name|xp
+argument_list|)
+operator|/
+name|sqrtLen
+argument_list|)
+argument_list|,
+name|float
+argument_list|(
+name|double
+argument_list|(
+name|yp
+argument_list|)
+operator|/
+name|sqrtLen
+argument_list|)
+argument_list|,
+name|float
+argument_list|(
+name|double
+argument_list|(
+name|zp
+argument_list|)
+operator|/
+name|sqrtLen
+argument_list|)
+argument_list|)
 return|;
+block|}
 else|else
+block|{
 return|return
 name|QVector3D
 argument_list|()
 return|;
+block|}
 block|}
 end_function
 begin_comment
@@ -331,22 +370,46 @@ condition|)
 return|return;
 name|len
 operator|=
-name|qSqrt
+name|sqrt
 argument_list|(
 name|len
 argument_list|)
 expr_stmt|;
 name|xp
-operator|/=
+operator|=
+name|float
+argument_list|(
+name|double
+argument_list|(
+name|xp
+argument_list|)
+operator|/
 name|len
+argument_list|)
 expr_stmt|;
 name|yp
-operator|/=
+operator|=
+name|float
+argument_list|(
+name|double
+argument_list|(
+name|yp
+argument_list|)
+operator|/
 name|len
+argument_list|)
 expr_stmt|;
 name|zp
-operator|/=
+operator|=
+name|float
+argument_list|(
+name|double
+argument_list|(
+name|zp
+argument_list|)
+operator|/
 name|len
+argument_list|)
 expr_stmt|;
 block|}
 end_function
@@ -357,20 +420,20 @@ begin_comment
 comment|/*!     \fn QVector3D&QVector3D::operator-=(const QVector3D&vector)      Subtracts the given \a vector from this vector and returns a reference to     this vector.      \sa operator+=() */
 end_comment
 begin_comment
-comment|/*!     \fn QVector3D&QVector3D::operator*=(qreal factor)      Multiplies this vector's coordinates by the given \a factor, and     returns a reference to this vector.      \sa operator/=() */
+comment|/*!     \fn QVector3D&QVector3D::operator*=(float factor)      Multiplies this vector's coordinates by the given \a factor, and     returns a reference to this vector.      \sa operator/=() */
 end_comment
 begin_comment
 comment|/*!     \fn QVector3D&QVector3D::operator*=(const QVector3D& vector)     \overload      Multiplies the components of this vector by the corresponding     components in \a vector.      Note: this is not the same as the crossProduct() of this     vector and \a vector.      \sa crossProduct() */
 end_comment
 begin_comment
-comment|/*!     \fn QVector3D&QVector3D::operator/=(qreal divisor)      Divides this vector's coordinates by the given \a divisor, and     returns a reference to this vector.      \sa operator*=() */
+comment|/*!     \fn QVector3D&QVector3D::operator/=(float divisor)      Divides this vector's coordinates by the given \a divisor, and     returns a reference to this vector.      \sa operator*=() */
 end_comment
 begin_comment
 comment|/*!     Returns the dot product of \a v1 and \a v2. */
 end_comment
 begin_function
 DECL|function|dotProduct
-name|qreal
+name|float
 name|QVector3D
 operator|::
 name|dotProduct
@@ -484,8 +547,6 @@ operator|*
 name|v2
 operator|.
 name|xp
-argument_list|,
-literal|1
 argument_list|)
 return|;
 block|}
@@ -576,7 +637,7 @@ comment|/*!     Returns the distance from this vertex to a plane defined by     
 end_comment
 begin_function
 DECL|function|distanceToPlane
-name|qreal
+name|float
 name|QVector3D
 operator|::
 name|distanceToPlane
@@ -611,7 +672,7 @@ comment|/*!     \overload      Returns the distance from this vertex a plane def
 end_comment
 begin_function
 DECL|function|distanceToPlane
-name|qreal
+name|float
 name|QVector3D
 operator|::
 name|distanceToPlane
@@ -665,7 +726,7 @@ comment|/*!     Returns the distance that this vertex is from a line defined    
 end_comment
 begin_function
 DECL|function|distanceToLine
-name|qreal
+name|float
 name|QVector3D
 operator|::
 name|distanceToLine
@@ -743,10 +804,10 @@ begin_comment
 comment|/*!     \fn const QVector3D operator-(const QVector3D&v1, const QVector3D&v2)     \relates QVector3D      Returns a QVector3D object that is formed by subtracting \a v2 from \a v1;     each component is subtracted separately.      \sa QVector3D::operator-=() */
 end_comment
 begin_comment
-comment|/*!     \fn const QVector3D operator*(qreal factor, const QVector3D&vector)     \relates QVector3D      Returns a copy of the given \a vector,  multiplied by the given \a factor.      \sa QVector3D::operator*=() */
+comment|/*!     \fn const QVector3D operator*(float factor, const QVector3D&vector)     \relates QVector3D      Returns a copy of the given \a vector,  multiplied by the given \a factor.      \sa QVector3D::operator*=() */
 end_comment
 begin_comment
-comment|/*!     \fn const QVector3D operator*(const QVector3D&vector, qreal factor)     \relates QVector3D      Returns a copy of the given \a vector,  multiplied by the given \a factor.      \sa QVector3D::operator*=() */
+comment|/*!     \fn const QVector3D operator*(const QVector3D&vector, float factor)     \relates QVector3D      Returns a copy of the given \a vector,  multiplied by the given \a factor.      \sa QVector3D::operator*=() */
 end_comment
 begin_comment
 comment|/*!     \fn const QVector3D operator*(const QVector3D&v1, const QVector3D& v2)     \relates QVector3D      Multiplies the components of \a v1 by the corresponding components in \a v2.      Note: this is not the same as the crossProduct() of \a v1 and \a v2.      \sa QVector3D::crossProduct() */
@@ -755,7 +816,7 @@ begin_comment
 comment|/*!     \fn const QVector3D operator-(const QVector3D&vector)     \relates QVector3D     \overload      Returns a QVector3D object that is formed by changing the sign of     all three components of the given \a vector.      Equivalent to \c {QVector3D(0,0,0) - vector}. */
 end_comment
 begin_comment
-comment|/*!     \fn const QVector3D operator/(const QVector3D&vector, qreal divisor)     \relates QVector3D      Returns the QVector3D object formed by dividing all three components of     the given \a vector by the given \a divisor.      \sa QVector3D::operator/=() */
+comment|/*!     \fn const QVector3D operator/(const QVector3D&vector, float divisor)     \relates QVector3D      Returns the QVector3D object formed by dividing all three components of     the given \a vector by the given \a divisor.      \sa QVector3D::operator/=() */
 end_comment
 begin_comment
 comment|/*!     \fn bool qFuzzyCompare(const QVector3D& v1, const QVector3D& v2)     \relates QVector3D      Returns true if \a v1 and \a v2 are equal, allowing for a small     fuzziness factor for floating-point comparisons; false otherwise. */
@@ -783,8 +844,6 @@ argument_list|(
 name|xp
 argument_list|,
 name|yp
-argument_list|,
-literal|1
 argument_list|)
 return|;
 block|}
@@ -820,8 +879,6 @@ argument_list|,
 name|zp
 argument_list|,
 literal|0.0f
-argument_list|,
-literal|1
 argument_list|)
 return|;
 block|}
@@ -865,27 +922,54 @@ comment|/*!     Returns the length of the vector from the origin.      \sa lengt
 end_comment
 begin_function
 DECL|function|length
-name|qreal
+name|float
 name|QVector3D
 operator|::
 name|length
 parameter_list|()
 specifier|const
 block|{
-return|return
-name|qSqrt
+comment|// Need some extra precision if the length is very small.
+name|double
+name|len
+init|=
+name|double
 argument_list|(
 name|xp
+argument_list|)
 operator|*
+name|double
+argument_list|(
 name|xp
+argument_list|)
 operator|+
+name|double
+argument_list|(
 name|yp
+argument_list|)
 operator|*
+name|double
+argument_list|(
 name|yp
+argument_list|)
 operator|+
+name|double
+argument_list|(
 name|zp
+argument_list|)
 operator|*
+name|double
+argument_list|(
 name|zp
+argument_list|)
+decl_stmt|;
+return|return
+name|float
+argument_list|(
+name|sqrt
+argument_list|(
+name|len
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -895,7 +979,7 @@ comment|/*!     Returns the squared length of the vector from the origin.     Th
 end_comment
 begin_function
 DECL|function|lengthSquared
-name|qreal
+name|float
 name|QVector3D
 operator|::
 name|lengthSquared
@@ -1004,29 +1088,20 @@ parameter_list|)
 block|{
 name|stream
 operator|<<
-name|double
-argument_list|(
 name|vector
 operator|.
 name|x
 argument_list|()
-argument_list|)
 operator|<<
-name|double
-argument_list|(
 name|vector
 operator|.
 name|y
 argument_list|()
-argument_list|)
 operator|<<
-name|double
-argument_list|(
 name|vector
 operator|.
 name|z
 argument_list|()
-argument_list|)
 expr_stmt|;
 return|return
 name|stream
@@ -1052,7 +1127,7 @@ modifier|&
 name|vector
 parameter_list|)
 block|{
-name|double
+name|float
 name|x
 decl_stmt|,
 name|y
@@ -1075,30 +1150,21 @@ name|vector
 operator|.
 name|setX
 argument_list|(
-name|qreal
-argument_list|(
 name|x
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|vector
 operator|.
 name|setY
 argument_list|(
-name|qreal
-argument_list|(
 name|y
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|vector
 operator|.
 name|setZ
 argument_list|(
-name|qreal
-argument_list|(
 name|z
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
