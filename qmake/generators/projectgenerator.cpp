@@ -1676,7 +1676,10 @@ name|no_qt_files
 init|=
 literal|true
 decl_stmt|;
-name|QString
+specifier|static
+specifier|const
+name|char
+modifier|*
 name|srcs
 index|[]
 init|=
@@ -1689,8 +1692,7 @@ literal|"LEXSOURCES"
 block|,
 literal|"FORMS"
 block|,
-name|QString
-argument_list|()
+literal|0
 block|}
 decl_stmt|;
 for|for
@@ -1700,14 +1702,10 @@ name|i
 init|=
 literal|0
 init|;
-operator|!
 name|srcs
 index|[
 name|i
 index|]
-operator|.
-name|isNull
-argument_list|()
 condition|;
 name|i
 operator|++

@@ -6726,7 +6726,11 @@ argument_list|(
 literal|"QMAKE_FRAMEWORKPATH"
 argument_list|)
 decl_stmt|;
-name|QString
+specifier|static
+specifier|const
+name|char
+modifier|*
+specifier|const
 name|libs
 index|[]
 init|=
@@ -6737,8 +6741,7 @@ literal|"QMAKE_LIBS"
 block|,
 literal|"QMAKE_LIBS_PRIVATE"
 block|,
-name|QString
-argument_list|()
+literal|0
 block|}
 decl_stmt|;
 for|for
@@ -6748,14 +6751,10 @@ name|i
 init|=
 literal|0
 init|;
-operator|!
 name|libs
 index|[
 name|i
 index|]
-operator|.
-name|isNull
-argument_list|()
 condition|;
 name|i
 operator|++

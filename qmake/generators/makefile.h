@@ -305,8 +305,8 @@ name|QTextStream
 operator|&
 argument_list|,
 specifier|const
-name|QString
-operator|&
+name|char
+operator|*
 name|src
 argument_list|)
 block|;
@@ -902,8 +902,8 @@ name|void
 name|filterIncludedFiles
 argument_list|(
 specifier|const
-name|QString
-operator|&
+name|char
+operator|*
 argument_list|)
 block|;
 name|virtual

@@ -2150,7 +2150,11 @@ name|endl
 operator|<<
 name|endl
 expr_stmt|;
-name|QString
+specifier|static
+specifier|const
+name|char
+modifier|*
+specifier|const
 name|src
 index|[]
 init|=
@@ -2159,8 +2163,7 @@ literal|"SOURCES"
 block|,
 literal|"GENERATED_SOURCES"
 block|,
-name|QString
-argument_list|()
+literal|0
 block|}
 decl_stmt|;
 for|for
@@ -2170,14 +2173,10 @@ name|x
 init|=
 literal|0
 init|;
-operator|!
 name|src
 index|[
 name|x
 index|]
-operator|.
-name|isNull
-argument_list|()
 condition|;
 name|x
 operator|++

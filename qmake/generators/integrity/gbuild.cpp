@@ -1307,7 +1307,11 @@ literal|"app"
 condition|)
 block|{
 comment|/* include linker flags if it's an application */
-name|QString
+specifier|static
+specifier|const
+name|char
+modifier|*
+specifier|const
 name|src
 index|[]
 init|=
@@ -1318,8 +1322,7 @@ literal|"QMAKE_LIBS"
 block|,
 literal|"LIBS"
 block|,
-name|QString
-argument_list|()
+literal|0
 block|}
 decl_stmt|;
 for|for
@@ -1329,14 +1332,10 @@ name|i
 init|=
 literal|0
 init|;
-operator|!
 name|src
 index|[
 name|i
 index|]
-operator|.
-name|isNull
-argument_list|()
 condition|;
 name|i
 operator|++
@@ -1874,7 +1873,11 @@ expr_stmt|;
 block|}
 block|}
 comment|/* source files for this project */
-name|QString
+specifier|static
+specifier|const
+name|char
+modifier|*
+specifier|const
 name|src
 index|[]
 init|=
@@ -1883,8 +1886,7 @@ literal|"HEADERS"
 block|,
 literal|"SOURCES"
 block|,
-name|QString
-argument_list|()
+literal|0
 block|}
 decl_stmt|;
 for|for
@@ -1894,14 +1896,10 @@ name|i
 init|=
 literal|0
 init|;
-operator|!
 name|src
 index|[
 name|i
 index|]
-operator|.
-name|isNull
-argument_list|()
 condition|;
 name|i
 operator|++
