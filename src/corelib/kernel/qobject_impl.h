@@ -996,7 +996,6 @@ argument_list|(
 argument|fn
 argument_list|)
 block|{}
-comment|// ### make constexpr once QAtomicInt's ctor is, too
 specifier|inline
 name|void
 name|destroy
