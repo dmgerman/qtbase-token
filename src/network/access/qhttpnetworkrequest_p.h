@@ -53,6 +53,11 @@ include|#
 directive|include
 file|<private/qhttpnetworkheader_p.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<qmetatype.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QNonContiguousByteDevice
