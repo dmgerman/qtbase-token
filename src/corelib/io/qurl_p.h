@@ -715,6 +715,8 @@ specifier|const
 name|ushort
 operator|*
 name|tableModifications
+operator|=
+literal|0
 argument_list|)
 decl_stmt|;
 end_decl_stmt
