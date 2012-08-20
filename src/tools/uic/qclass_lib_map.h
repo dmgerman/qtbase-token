@@ -6942,16 +6942,6 @@ end_macro
 begin_macro
 name|QT_CLASS_LIB
 argument_list|(
-argument|QProxyModel
-argument_list|,
-argument|QtWidgets
-argument_list|,
-argument|qproxymodel.h
-argument_list|)
-end_macro
-begin_macro
-name|QT_CLASS_LIB
-argument_list|(
 argument|QSortFilterProxyModel
 argument_list|,
 argument|QtWidgets

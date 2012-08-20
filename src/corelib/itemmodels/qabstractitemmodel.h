@@ -56,10 +56,6 @@ name|friend
 name|class
 name|QAbstractItemModel
 decl_stmt|;
-name|friend
-name|class
-name|QProxyModel
-decl_stmt|;
 name|public
 label|:
 specifier|inline
