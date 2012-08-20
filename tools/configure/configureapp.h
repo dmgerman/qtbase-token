@@ -394,6 +394,9 @@ name|QString
 name|psqlLibs
 decl_stmt|;
 name|QString
+name|zlibLibs
+decl_stmt|;
+name|QString
 name|sybase
 decl_stmt|;
 name|QString
