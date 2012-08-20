@@ -10954,13 +10954,13 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool operator==(const QVariant&v1, const QVariant&v2)      \relates QVariant      Returns true if \a v1 and \a v2 are equal; otherwise returns false.      \warning This function doesn't support custom types registered     with qRegisterMetaType(). */
+comment|/*!     \fn bool operator==(const QVariant&v1, const QVariant&v2)      \relates QVariant      Returns true if \a v1 and \a v2 are equal; otherwise returns false.      If \a v1 and \a v2 have the same \l{QVariant::}{type()}, the     type's equality operator is used for comparison. If not, it is     attempted to \l{QVariant::}{convert()} \a v2 to the same type as     \a v1. See \l{QVariant::}{canConvert()} for a list of possible     conversions.      \warning This function doesn't support custom types registered     with qRegisterMetaType(). */
 end_comment
 begin_comment
 comment|/*!     \fn bool operator!=(const QVariant&v1, const QVariant&v2)      \relates QVariant      Returns false if \a v1 and \a v2 are equal; otherwise returns true.      \warning This function doesn't support custom types registered     with qRegisterMetaType(). */
 end_comment
 begin_comment
-comment|/*! \fn bool QVariant::operator==(const QVariant&v) const      Compares this QVariant with \a v and returns true if they are     equal; otherwise returns false.      In the case of custom types, their equalness operators are not called.     Instead the values' addresses are compared. */
+comment|/*! \fn bool QVariant::operator==(const QVariant&v) const      Compares this QVariant with \a v and returns true if they are     equal; otherwise returns false.      QVariant uses the equality operator of the type() it contains to     check for equality. QVariant will try to convert() \a v if its     type is not the same as this variant's type. See canConvert() for     a list of possible conversions.      \warning This function doesn't support custom types registered     with qRegisterMetaType(). */
 end_comment
 begin_comment
 comment|/*!     \fn bool QVariant::operator!=(const QVariant&v) const      Compares this QVariant with \a v and returns true if they are not     equal; otherwise returns false.      \warning This function doesn't support custom types registered     with qRegisterMetaType(). */
