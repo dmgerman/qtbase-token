@@ -9415,11 +9415,6 @@ argument_list|)
 condition|)
 block|{
 comment|//real file or target
-name|QString
-name|file
-init|=
-name|wild
-decl_stmt|;
 name|QFileInfo
 name|fi
 argument_list|(
@@ -14037,21 +14032,6 @@ operator|++
 name|input
 control|)
 block|{
-name|QString
-name|in
-init|=
-name|Option
-operator|::
-name|fixPathToTargetOS
-argument_list|(
-operator|(
-operator|*
-name|input
-operator|)
-argument_list|,
-literal|false
-argument_list|)
-decl_stmt|;
 name|t
 operator|<<
 literal|" "

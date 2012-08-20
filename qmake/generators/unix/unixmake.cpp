@@ -1503,16 +1503,6 @@ else|else
 block|{
 comment|// gcc style (including clang_pch_style)
 name|QString
-name|headerPrefix
-init|=
-name|project
-operator|->
-name|first
-argument_list|(
-literal|"QMAKE_PRECOMP_PREFIX"
-argument_list|)
-decl_stmt|;
-name|QString
 name|headerSuffix
 decl_stmt|;
 if|if
