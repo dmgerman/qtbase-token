@@ -1696,7 +1696,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QFontComboBox::currentFont     \brief the currently selected font      \sa currentFontChanged(), currentIndex, currentText */
+comment|/*!     \property QFontComboBox::currentFont     \brief the currently selected font      \sa currentIndex, currentText */
 end_comment
 begin_function
 DECL|function|currentFont
