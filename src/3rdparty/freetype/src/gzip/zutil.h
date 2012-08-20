@@ -969,11 +969,20 @@ end_endif
 begin_comment
 comment|/* Diagnostic functions */
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
 name|DEBUG
-end_ifdef
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|_WIN32_WCE
+argument_list|)
+end_if
 begin_include
 include|#
 directive|include

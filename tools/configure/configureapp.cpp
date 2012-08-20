@@ -9395,13 +9395,6 @@ literal|"no"
 expr_stmt|;
 name|dictionary
 index|[
-literal|"FREETYPE"
-index|]
-operator|=
-literal|"no"
-expr_stmt|;
-name|dictionary
-index|[
 literal|"OPENGL"
 index|]
 operator|=
