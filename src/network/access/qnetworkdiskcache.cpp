@@ -520,6 +520,7 @@ operator|==
 literal|"content-length"
 condition|)
 block|{
+specifier|const
 name|qint64
 name|size
 init|=
@@ -527,7 +528,7 @@ name|header
 operator|.
 name|second
 operator|.
-name|toInt
+name|toLongLong
 argument_list|()
 decl_stmt|;
 if|if
