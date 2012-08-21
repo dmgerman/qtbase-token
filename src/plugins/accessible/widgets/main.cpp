@@ -761,13 +761,9 @@ block|{
 name|iface
 operator|=
 operator|new
-name|QAccessibleWidget
+name|QAccessibleDisplay
 argument_list|(
 name|widget
-argument_list|,
-name|QAccessible
-operator|::
-name|StatusBar
 argument_list|)
 expr_stmt|;
 ifndef|#
