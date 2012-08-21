@@ -75,12 +75,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|"../../../../src/plugins/platforms/linuxaccessibility/dbusconnection.h"
+file|"../../../../src/platformsupport/linuxaccessibility/dbusconnection_p.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"../../../../src/plugins/platforms/linuxaccessibility/struct_marshallers.h"
+file|"../../../../src/platformsupport/linuxaccessibility/struct_marshallers_p.h"
 end_include
 begin_define
 DECL|macro|COMPARE3
