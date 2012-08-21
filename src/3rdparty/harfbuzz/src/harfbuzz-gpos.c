@@ -4440,9 +4440,6 @@ name|m
 decl_stmt|,
 name|count
 decl_stmt|;
-name|HB_UInt
-name|base_offset
-decl_stmt|;
 ifdef|#
 directive|ifdef
 name|HB_USE_FLEXIBLE_VALUE_RECORD
@@ -4457,17 +4454,20 @@ name|vr
 decl_stmt|;
 else|#
 directive|else
+name|HB_UInt
+name|base_offset
+decl_stmt|;
 name|HB_PairValueRecord
 modifier|*
 name|pvr
 decl_stmt|;
-endif|#
-directive|endif
 name|base_offset
 operator|=
 name|FILE_Pos
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|ACCESS_Frame
@@ -4923,6 +4923,18 @@ expr_stmt|;
 block|}
 else|#
 directive|else
+operator|(
+name|void
+operator|)
+name|format1
+expr_stmt|;
+comment|// unused
+operator|(
+name|void
+operator|)
+name|format2
+expr_stmt|;
+comment|// unused
 if|if
 condition|(
 name|ps
