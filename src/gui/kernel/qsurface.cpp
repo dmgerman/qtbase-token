@@ -20,7 +20,7 @@ begin_comment
 comment|/*!     \enum QSurface::SurfaceType      The SurfaceType enum describes what type of surface this is.      \value RasterSurface The surface is is composed of pixels and can be rendered to using     a software rasterizer like Qt's raster paint engine.     \value OpenGLSurface The surface is an OpenGL compatible surface and can be used     in conjunction with QOpenGLContext.  */
 end_comment
 begin_comment
-comment|/*!     \fn QSize QSurface::format() const      Returns the format of the surface.  */
+comment|/*!     \fn QSurfaceFormat QSurface::format() const      Returns the format of the surface.  */
 end_comment
 begin_comment
 comment|/*!     \fn QPlatformSurface *QSurface::surfaceHandle() const      Returns a handle to the platform-specific implementation of the surface.  */
