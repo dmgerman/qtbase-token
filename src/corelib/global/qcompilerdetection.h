@@ -2817,12 +2817,6 @@ directive|define
 name|Q_COMPILER_CONSTEXPR
 end_define
 begin_define
-DECL|macro|Q_COMPILER_NOEXCEPT
-define|#
-directive|define
-name|Q_COMPILER_NOEXCEPT
-end_define
-begin_define
 DECL|macro|Q_COMPILER_NULLPTR
 define|#
 directive|define
@@ -2840,34 +2834,6 @@ define|#
 directive|define
 name|Q_COMPILER_RANGE_FOR
 end_define
-begin_if
-if|#
-directive|if
-name|__GNUC__
-operator|==
-literal|4
-operator|&&
-name|__GNUC_MINOR__
-operator|==
-literal|6
-operator|&&
-name|__GNUC_PATCHLEVEL__
-operator|<
-literal|2
-end_if
-begin_comment
-comment|/* GCC 4.6.0 and 4.6.1 have a problem dealing with noexcept expressions,           * so turn the feature off for those versions */
-end_comment
-begin_undef
-DECL|macro|Q_COMPILER_NOEXCEPT
-undef|#
-directive|undef
-name|Q_COMPILER_NOEXCEPT
-end_undef
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_endif
 endif|#
 directive|endif
@@ -2885,6 +2851,15 @@ operator|)
 operator|>=
 literal|407
 end_if
+begin_comment
+comment|/* GCC 4.6.x has problems dealing with noexcept expressions,         * so turn the feature on for 4.7 and above, only */
+end_comment
+begin_define
+DECL|macro|Q_COMPILER_NOEXCEPT
+define|#
+directive|define
+name|Q_COMPILER_NOEXCEPT
+end_define
 begin_comment
 comment|/* C++11 features supported in GCC 4.7: */
 end_comment
