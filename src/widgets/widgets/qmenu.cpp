@@ -7535,7 +7535,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*!     \overload      This convenience function creates a new action with \a text.     The function adds the newly created action to the menu's     list of actions, and returns it.      \sa QWidget::addAction() */
+comment|/*!     \overload      This convenience function creates a new action with \a text.     The function adds the newly created action to the menu's     list of actions, and returns it.      QMenu takes ownership of the returned QAction.      \sa QWidget::addAction() */
 end_comment
 begin_function
 DECL|function|addAction
@@ -7574,7 +7574,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      This convenience function creates a new action with an \a icon     and some \a text. The function adds the newly created action to     the menu's list of actions, and returns it.      \sa QWidget::addAction() */
+comment|/*!     \overload      This convenience function creates a new action with an \a icon     and some \a text. The function adds the newly created action to     the menu's list of actions, and returns it.      QMenu takes ownership of the returned QAction.      \sa QWidget::addAction() */
 end_comment
 begin_function
 DECL|function|addAction
@@ -7620,7 +7620,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      This convenience function creates a new action with the text \a     text and an optional shortcut \a shortcut. The action's     \l{QAction::triggered()}{triggered()} signal is connected to the     \a receiver's \a member slot. The function adds the newly created     action to the menu's list of actions and returns it.      \sa QWidget::addAction() */
+comment|/*!     \overload      This convenience function creates a new action with the text \a     text and an optional shortcut \a shortcut. The action's     \l{QAction::triggered()}{triggered()} signal is connected to the     \a receiver's \a member slot. The function adds the newly created     action to the menu's list of actions and returns it.      QMenu takes ownership of the returned QAction.      \sa QWidget::addAction() */
 end_comment
 begin_function
 DECL|function|addAction
@@ -7712,7 +7712,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      This convenience function creates a new action with an \a icon and     some \a text and an optional shortcut \a shortcut. The action's     \l{QAction::triggered()}{triggered()} signal is connected to the     \a member slot of the \a receiver object. The function adds the     newly created action to the menu's list of actions, and returns it.      \sa QWidget::addAction() */
+comment|/*!     \overload      This convenience function creates a new action with an \a icon and     some \a text and an optional shortcut \a shortcut. The action's     \l{QAction::triggered()}{triggered()} signal is connected to the     \a member slot of the \a receiver object. The function adds the     newly created action to the menu's list of actions, and returns it.      QMenu takes ownership of the returned QAction.      \sa QWidget::addAction() */
 end_comment
 begin_function
 DECL|function|addAction
@@ -7942,7 +7942,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     This convenience function creates a new separator action, i.e. an     action with QAction::isSeparator() returning true, and adds the new     action to this menu's list of actions. It returns the newly     created action.      \sa QWidget::addAction() */
+comment|/*!     This convenience function creates a new separator action, i.e. an     action with QAction::isSeparator() returning true, and adds the new     action to this menu's list of actions. It returns the newly     created action.      QMenu takes ownership of the returned QAction.      \sa QWidget::addAction() */
 end_comment
 begin_function
 DECL|function|addSeparator
@@ -8022,7 +8022,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     This convenience function creates a new separator action, i.e. an     action with QAction::isSeparator() returning true. The function inserts     the newly created action into this menu's list of actions before     action \a before and returns it.      \sa QWidget::insertAction(), addSeparator() */
+comment|/*!     This convenience function creates a new separator action, i.e. an     action with QAction::isSeparator() returning true. The function inserts     the newly created action into this menu's list of actions before     action \a before and returns it.      QMenu takes ownership of the returned QAction.      \sa QWidget::insertAction(), addSeparator() */
 end_comment
 begin_function
 DECL|function|insertSeparator
