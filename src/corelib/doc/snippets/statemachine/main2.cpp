@@ -134,6 +134,13 @@ argument_list|(
 name|s2
 argument_list|)
 expr_stmt|;
+name|machine
+operator|.
+name|setInitialState
+argument_list|(
+name|s1
+argument_list|)
+expr_stmt|;
 name|QObject
 operator|::
 name|connect
