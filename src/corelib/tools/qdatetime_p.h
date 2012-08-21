@@ -383,6 +383,12 @@ operator|=
 operator|-
 literal|1
 block|;
+name|first
+operator|.
+name|zeroesAdded
+operator|=
+literal|0
+block|;
 name|last
 operator|.
 name|type
@@ -403,6 +409,12 @@ operator|=
 operator|-
 literal|1
 block|;
+name|last
+operator|.
+name|zeroesAdded
+operator|=
+literal|0
+block|;
 name|none
 operator|.
 name|type
@@ -422,6 +434,12 @@ name|count
 operator|=
 operator|-
 literal|1
+block|;
+name|none
+operator|.
+name|zeroesAdded
+operator|=
+literal|0
 block|;     }
 name|virtual
 operator|~
@@ -599,6 +617,9 @@ name|pos
 decl_stmt|;
 name|int
 name|count
+decl_stmt|;
+name|int
+name|zeroesAdded
 decl_stmt|;
 block|}
 struct|;
