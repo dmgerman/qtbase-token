@@ -59,7 +59,7 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!     \internal     \class QGraphicsEffectSource     \brief The QGraphicsEffectSource class represents the source on which a            QGraphicsEffect is installed on.      When a QGraphicsEffect is installed on a QGraphicsItem, for example, this     class will act as a wrapper around QGraphicsItem. Then, calling update() is     effectively the same as calling QGraphicsItem::update().      QGraphicsEffectSource also provides a pixmap() function which creates a     pixmap with the source painted into it.      \sa QGraphicsItem::setGraphicsEffect(), QWidget::setGraphicsEffect(). */
+comment|/*!     \internal     \class QGraphicsEffectSource     \brief The QGraphicsEffectSource class represents the source on which a            QGraphicsEffect is installed on.      When a QGraphicsEffect is installed on a QGraphicsItem, for example, this     class will act as a wrapper around QGraphicsItem. Then, calling update() is     effectively the same as calling QGraphicsItem::update().      QGraphicsEffectSource also provides a pixmap() function which creates a     pixmap with the source painted into it.      \sa QGraphicsItem::setGraphicsEffect(), QWidget::setGraphicsEffect() */
 end_comment
 begin_comment
 comment|/*!     \internal */
@@ -2042,7 +2042,7 @@ begin_comment
 comment|/*!     \fn void QGraphicsDropShadowEffect::offsetChanged(const QPointF&offset)      This signal is emitted whenever the effect's shadow offset changes.     The \a offset parameter holds the effect's new shadow offset. */
 end_comment
 begin_comment
-comment|/*!     \property QGraphicsDropShadowEffect::blurRadius     \brief the blur radius in pixels of the drop shadow.      Using a smaller radius results in a sharper shadow, whereas using a bigger     radius results in a more blurred shadow.      By default, the blur radius is 1 pixel.      \sa color(), offset(). */
+comment|/*!     \property QGraphicsDropShadowEffect::blurRadius     \brief the blur radius in pixels of the drop shadow.      Using a smaller radius results in a sharper shadow, whereas using a bigger     radius results in a more blurred shadow.      By default, the blur radius is 1 pixel.      \sa color(), offset() */
 end_comment
 begin_function
 DECL|function|blurRadius
