@@ -57566,7 +57566,7 @@ name|QCOMPARE
 argument_list|(
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|inputItem
@@ -57594,7 +57594,7 @@ argument_list|(
 operator|!
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|inputItem
@@ -57616,7 +57616,7 @@ name|QCOMPARE
 argument_list|(
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|inputItem

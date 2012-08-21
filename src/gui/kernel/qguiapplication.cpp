@@ -135,7 +135,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qinputpanel.h>
+file|<QtGui/qinputmethod.h>
 end_include
 begin_include
 include|#
@@ -10464,7 +10464,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   returns the input method.    The input method returns properties about the state and position of   the virtual keyboard. It also provides information about the position of the   current focused input element.    \sa QInputPanel   */
+comment|/*!   returns the input method.    The input method returns properties about the state and position of   the virtual keyboard. It also provides information about the position of the   current focused input element.    \sa QInputMethod   */
 end_comment
 begin_function
 DECL|function|inputMethod
@@ -10506,9 +10506,6 @@ name|inputMethod
 return|;
 block|}
 end_function
-begin_comment
-comment|/*!   \fn QInputPanel *QGuiApplication::inputPanel() const   returns the input panel.    The input panel returns properties about the state and position of   the virtual keyboard. It also provides information about the position of the   current focused input element.    \obsolete    \sa inputMethod()   */
-end_comment
 begin_comment
 comment|/*!     \fn void QGuiApplication::fontDatabaseChanged()      This signal is emitted when application fonts are loaded or removed.      \sa QFontDatabase::addApplicationFont(),     QFontDatabase::addApplicationFontFromData(),     QFontDatabase::removeAllApplicationFonts(),     QFontDatabase::removeApplicationFont() */
 end_comment

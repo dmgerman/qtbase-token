@@ -40,7 +40,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtGui/qinputpanel.h>
+file|<QtGui/qinputmethod.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
