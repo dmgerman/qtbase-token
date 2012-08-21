@@ -1480,10 +1480,12 @@ name|isEmpty
 parameter_list|()
 specifier|const
 block|{
-name|resolveNativeFilePath
-argument_list|()
-expr_stmt|;
 return|return
+name|m_filePath
+operator|.
+name|isEmpty
+argument_list|()
+operator|&&
 name|m_nativeFilePath
 operator|.
 name|isEmpty
