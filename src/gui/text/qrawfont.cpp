@@ -203,7 +203,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \fn void QRawFont::operator=(QRawFont&other)   \since 5.0    Swaps this raw font with \a other. This function is very fast and   never fails. */
+comment|/*!   \fn void QRawFont::swap(QRawFont&other)   \since 5.0    Swaps this raw font with \a other. This function is very fast and   never fails. */
 end_comment
 begin_comment
 comment|/*!    Returns true if the QRawFont is valid and false otherwise. */
@@ -1121,7 +1121,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!    Converts a string of unicode points to glyph indexes using the CMAP table in the    underlying font. The function works like glyphIndexesForString() except it take    an array (\a chars), the results will be returned though \a glyphIndexes array    and number of glyphs will be set in \a numGlyphs. The size of \a glyphIndexes array    must be at least \a numChars, if that's still not enough, this function will return    false, then you can resize \a glyphIndexes from the size returned in \a numGlyphs.     \sa glyphIndexesForString(), advancesForGlyphIndexes(), QGlyphs, QTextLayout::glyphs(), QTextFragment::glyphs() */
+comment|/*!    Converts a string of unicode points to glyph indexes using the CMAP table in the    underlying font. The function works like glyphIndexesForString() except it take    an array (\a chars), the results will be returned though \a glyphIndexes array    and number of glyphs will be set in \a numGlyphs. The size of \a glyphIndexes array    must be at least \a numChars, if that's still not enough, this function will return    false, then you can resize \a glyphIndexes from the size returned in \a numGlyphs.     \sa glyphIndexesForString(), advancesForGlyphIndexes(), QGlyphRun, QTextLayout::glyphRuns(), QTextFragment::glyphRuns() */
 end_comment
 begin_function
 DECL|function|glyphIndexesForChars
