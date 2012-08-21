@@ -169,7 +169,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.0      A function called when the \a editor is no longer needed for \a index and should be     destroyed. The default behavior is a call to deleteLater on the editor.     It possible e.g. to avoid this delete by reimplementing this function.      \sa createEditor() */
+comment|/*!     Called when the \a editor is no longer needed for editing the data item     with the given \a index and should be destroyed. The default behavior is a     call to deleteLater on the editor. It is possible e.g. to avoid this delete by     reimplementing this function.      \since 5.0     \sa createEditor() */
 end_comment
 begin_function
 DECL|function|destroyEditor
