@@ -25697,6 +25697,18 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|/*!     \fn void QImage::setNumColors(int n)     \obsolete      Resizes the color table to contain \a n entries.      \sa setColorCount()  */
+end_comment
+begin_comment
+comment|/*!     \fn int QImage::numBytes() const     \obsolete      Returns the number of bytes occupied by the image data.      \sa byteCount()  */
+end_comment
+begin_comment
+comment|/*!     \fn QStringList QImage::textLanguages() const     \obsolete      Returns the language identifiers for which some texts are recorded.     Note that if you want to iterate over the list, you should iterate over a copy.      The language the text is recorded in is no longer relevant since the text is     always set using QString and UTF-8 representation.      \sa textKeys()  */
+end_comment
+begin_comment
+comment|/*!     \fn QList<QImageTextKeyLang> QImage::textList() const     \obsolete      Returns a list of QImageTextKeyLang objects that enumerate all the texts     key/language pairs set for this image.      The language the text is recorded in is no longer relevant since the text     is always set using QString and UTF-8 representation.      \sa textKeys()  */
+end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
