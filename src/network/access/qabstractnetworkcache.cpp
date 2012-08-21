@@ -1049,7 +1049,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QAbstractNetworkCache     \since 4.5     \inmodule QtNetwork      \brief The QAbstractNetworkCache class provides the interface for cache implementations.      QAbstractNetworkCache is the base class for every standard cache that is used be     QNetworkAccessManager.  QAbstractNetworkCache is an abstract class and cannot be     instantiated.      \sa QNetworkDiskCache */
+comment|/*!     \class QAbstractNetworkCache     \since 4.5     \inmodule QtNetwork      \brief The QAbstractNetworkCache class provides the interface for cache implementations.      QAbstractNetworkCache is the base class for every standard cache that is used by     QNetworkAccessManager.  QAbstractNetworkCache is an abstract class and cannot be     instantiated.      \sa QNetworkDiskCache */
 end_comment
 begin_comment
 comment|/*!     Constructs an abstract network cache with the given \a parent. */
