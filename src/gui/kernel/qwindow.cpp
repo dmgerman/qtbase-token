@@ -1038,7 +1038,7 @@ begin_comment
 comment|/*! \fn void QWindow::windowModalityChanged(Qt::WindowModality windowModality)      This signal is emitted when the Qwindow::windowModality property changes to \a windowModality. */
 end_comment
 begin_comment
-comment|/*!     Sets the window's surface \a format.      The format determines properties such as color depth, alpha,     depth and stencil buffer size, etc.      The surface format will be resolved in the create() function. Calling     this function after create() has been called will not re-resolve the     surface format of the native surface.      \sa create(), destroy() */
+comment|/*!     Sets the window's surface \a format.      The format determines properties such as color depth, alpha, depth and     stencil buffer size, etc. For example, to give a window a transparent     background (provided that the window system supports compositing, and     provided that other content in the window does not make it opaque again):      \code     QSurfaceFormat format;     format.setAlphaBufferSize(8);     window.setFormat(format);     \endcode      The surface format will be resolved in the create() function. Calling     this function after create() has been called will not re-resolve the     surface format of the native surface.      \sa create(), destroy() */
 end_comment
 begin_function
 DECL|function|setFormat
