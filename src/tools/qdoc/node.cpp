@@ -877,10 +877,10 @@ return|return
 literal|"class"
 return|;
 case|case
-name|Fake
+name|Document
 case|:
 return|return
-literal|"fake"
+literal|"document"
 return|;
 case|case
 name|Enum
@@ -946,7 +946,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns this node's subtype as a string for use as an   attribute value in XML or HTML. This is only useful   in the case where the node type is Fake.  */
+comment|/*!   Returns this node's subtype as a string for use as an   attribute value in XML or HTML. This is only useful   in the case where the node type is Document.  */
 end_comment
 begin_function
 DECL|function|nodeSubtypeString
@@ -967,7 +967,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns the node subtype \a t as a string for use as an   attribute value in XML or HTML. This is only useful   in the case where the node type is Fake.  */
+comment|/*!   Returns the node subtype \a t as a string for use as an   attribute value in XML or HTML. This is only useful   in the case where the node type is Document.  */
 end_comment
 begin_function
 DECL|function|nodeSubtypeString
@@ -2009,7 +2009,7 @@ operator|(
 name|type
 argument_list|()
 operator|==
-name|Fake
+name|Document
 operator|)
 operator|&&
 operator|(
@@ -2156,7 +2156,7 @@ operator|(
 name|type
 argument_list|()
 operator|==
-name|Fake
+name|Document
 operator|)
 operator|&&
 operator|(
@@ -2467,7 +2467,7 @@ operator|(
 name|type
 argument_list|()
 operator|==
-name|Fake
+name|Document
 operator|)
 operator|&&
 operator|(
@@ -5804,25 +5804,25 @@ name|QMap
 argument_list|<
 name|QString
 argument_list|,
-name|FakeNode
+name|DocNode
 modifier|*
 argument_list|>
-name|FakeNode
+name|DocNode
 operator|::
 name|qmlModuleMap_
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|/*!   \class FakeNode  */
+comment|/*!   \class DocNode  */
 end_comment
 begin_comment
-comment|/*!   The type of a FakeNode is Fake, and it has a \a subtype,   which specifies the type of FakeNode. The page type for   the page index is set here.  */
+comment|/*!   The type of a DocNode is Document, and it has a \a subtype,   which specifies the type of DocNode. The page type for   the page index is set here.  */
 end_comment
 begin_constructor
-DECL|function|FakeNode
-name|FakeNode
+DECL|function|DocNode
+name|DocNode
 operator|::
-name|FakeNode
+name|DocNode
 parameter_list|(
 name|InnerNode
 modifier|*
@@ -5844,7 +5844,7 @@ parameter_list|)
 member_init_list|:
 name|InnerNode
 argument_list|(
-name|Fake
+name|Document
 argument_list|,
 name|parent
 argument_list|,
@@ -5936,12 +5936,12 @@ block|}
 block|}
 end_constructor
 begin_comment
-comment|/*!   Returns the fake node's title. This is used for the page title. */
+comment|/*!   Returns the document node's title. This is used for the page title. */
 end_comment
 begin_function
 DECL|function|title
 name|QString
-name|FakeNode
+name|DocNode
 operator|::
 name|title
 parameter_list|()
@@ -5953,12 +5953,12 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns the fake node's full title, which is usually   just title(), but for some SubType values is different   from title()  */
+comment|/*!   Returns the document node's full title, which is usually   just title(), but for some SubType values is different   from title()  */
 end_comment
 begin_function
 DECL|function|fullTitle
 name|QString
-name|FakeNode
+name|DocNode
 operator|::
 name|fullTitle
 parameter_list|()
@@ -6104,7 +6104,7 @@ end_comment
 begin_function
 DECL|function|subTitle
 name|QString
-name|FakeNode
+name|DocNode
 operator|::
 name|subTitle
 parameter_list|()
@@ -6172,7 +6172,7 @@ end_comment
 begin_function
 DECL|function|insertQmlModuleNode
 name|void
-name|FakeNode
+name|DocNode
 operator|::
 name|insertQmlModuleNode
 parameter_list|(
@@ -6181,7 +6181,7 @@ name|QString
 modifier|&
 name|qmid
 parameter_list|,
-name|FakeNode
+name|DocNode
 modifier|*
 name|fn
 parameter_list|)
@@ -6208,13 +6208,13 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns a pointer to the QML module node (FakeNode) that is   mapped to the QML module identifier constructed from \a arg.   If that QML module node does not yet exist, it is constructed   and inserted into the QML module map mapped to the QML module   identifier constructed from \a arg.  */
+comment|/*!   Returns a pointer to the QML module node (DocNode) that is   mapped to the QML module identifier constructed from \a arg.   If that QML module node does not yet exist, it is constructed   and inserted into the QML module map mapped to the QML module   identifier constructed from \a arg.  */
 end_comment
 begin_function
 DECL|function|lookupQmlModuleNode
-name|FakeNode
+name|DocNode
 modifier|*
-name|FakeNode
+name|DocNode
 operator|::
 name|lookupQmlModuleNode
 parameter_list|(
@@ -6287,7 +6287,7 @@ literal|0
 index|]
 expr_stmt|;
 block|}
-name|FakeNode
+name|DocNode
 modifier|*
 name|fn
 init|=
@@ -6320,7 +6320,7 @@ block|{
 name|fn
 operator|=
 operator|new
-name|FakeNode
+name|DocNode
 argument_list|(
 name|tree
 operator|->
@@ -6366,7 +6366,7 @@ end_comment
 begin_function
 DECL|function|hasProperty
 name|bool
-name|FakeNode
+name|DocNode
 operator|::
 name|hasProperty
 parameter_list|(
@@ -6396,7 +6396,7 @@ argument_list|()
 operator|==
 name|Node
 operator|::
-name|Fake
+name|Document
 operator|&&
 name|child
 operator|->
@@ -6454,7 +6454,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   The constructor calls the FakeNode constructor with   \a parent, \a name, and Node::Example.  */
+comment|/*!   The constructor calls the DocNode constructor with   \a parent, \a name, and Node::Example.  */
 end_comment
 begin_constructor
 DECL|function|ExampleNode
@@ -6472,7 +6472,7 @@ modifier|&
 name|name
 parameter_list|)
 member_init_list|:
-name|FakeNode
+name|DocNode
 argument_list|(
 name|parent
 argument_list|,
@@ -8079,7 +8079,7 @@ name|qmlModuleMemberMap_
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|/*!   Constructs a Qml class node (i.e. a Fake node with the   subtype QmlClass. The new node has the given \a parent   and \a name.  */
+comment|/*!   Constructs a Qml class node (i.e. a Document node with the   subtype QmlClass. The new node has the given \a parent   and \a name.  */
 end_comment
 begin_constructor
 DECL|function|QmlClassNode
@@ -8097,7 +8097,7 @@ modifier|&
 name|name
 parameter_list|)
 member_init_list|:
-name|FakeNode
+name|DocNode
 argument_list|(
 name|parent
 argument_list|,
@@ -8675,7 +8675,7 @@ name|base_
 operator|=
 cast|static_cast
 argument_list|<
-name|FakeNode
+name|DocNode
 operator|*
 argument_list|>
 argument_list|(
@@ -8814,7 +8814,7 @@ name|base_
 operator|=
 cast|static_cast
 argument_list|<
-name|FakeNode
+name|DocNode
 operator|*
 argument_list|>
 argument_list|(
@@ -8924,7 +8924,7 @@ return|return;
 block|}
 end_function
 begin_comment
-comment|/*!   Constructs a Qml basic type node (i.e. a Fake node with   the subtype QmlBasicType. The new node has the given   \a parent and \a name.  */
+comment|/*!   Constructs a Qml basic type node (i.e. a Document node with   the subtype QmlBasicType. The new node has the given   \a parent and \a name.  */
 end_comment
 begin_constructor
 DECL|function|QmlBasicTypeNode
@@ -8942,7 +8942,7 @@ modifier|&
 name|name
 parameter_list|)
 member_init_list|:
-name|FakeNode
+name|DocNode
 argument_list|(
 name|parent
 argument_list|,
@@ -8981,7 +8981,7 @@ modifier|&
 name|name
 parameter_list|)
 member_init_list|:
-name|FakeNode
+name|DocNode
 argument_list|(
 name|parent
 argument_list|,
@@ -9717,7 +9717,7 @@ modifier|*
 name|child
 parameter_list|)
 member_init_list|:
-name|FakeNode
+name|DocNode
 argument_list|(
 name|child
 operator|->
@@ -10055,7 +10055,7 @@ argument_list|()
 operator|==
 name|Node
 operator|::
-name|Fake
+name|Document
 operator|&&
 operator|(
 operator|*
@@ -10146,7 +10146,7 @@ argument_list|()
 operator|!=
 name|Node
 operator|::
-name|Fake
+name|Document
 operator|)
 operator|||
 operator|(
@@ -10183,7 +10183,7 @@ argument_list|()
 operator|==
 name|Node
 operator|::
-name|Fake
+name|Document
 operator|)
 operator|&&
 operator|(
@@ -10273,7 +10273,7 @@ argument_list|()
 operator|==
 name|Node
 operator|::
-name|Fake
+name|Document
 operator|)
 operator|&&
 operator|(
@@ -11215,7 +11215,7 @@ operator|->
 name|type
 argument_list|()
 operator|==
-name|Fake
+name|Document
 condition|)
 block|{
 if|if
@@ -11311,7 +11311,7 @@ break|break;
 case|case
 name|Node
 operator|::
-name|Fake
+name|Document
 case|:
 block|{
 switch|switch

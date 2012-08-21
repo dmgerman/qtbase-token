@@ -597,9 +597,9 @@ block|;
 name|void
 name|createExampleFileNodes
 argument_list|(
-name|FakeNode
+name|DocNode
 operator|*
-name|fake
+name|dn
 argument_list|)
 block|;
 name|protected

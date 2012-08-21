@@ -74,12 +74,6 @@ name|Text
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|FakeNode
-name|class
-name|FakeNode
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|DitaRef
 name|class
 name|DitaRef

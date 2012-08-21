@@ -172,7 +172,7 @@ name|Namespace
 block|,
 name|Class
 block|,
-name|Fake
+name|Document
 block|,
 name|Enum
 block|,
@@ -2095,14 +2095,14 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|FakeNode
+name|DocNode
 range|:
 name|public
 name|InnerNode
 block|{
 name|public
 operator|:
-name|FakeNode
+name|DocNode
 argument_list|(
 argument|InnerNode* parent
 argument_list|,
@@ -2115,7 +2115,7 @@ argument_list|)
 block|;
 name|virtual
 operator|~
-name|FakeNode
+name|DocNode
 argument_list|()
 block|{ }
 name|void
@@ -2275,13 +2275,13 @@ name|QString
 operator|&
 name|qmid
 argument_list|,
-name|FakeNode
+name|DocNode
 operator|*
 name|fn
 argument_list|)
 block|;
 specifier|static
-name|FakeNode
+name|DocNode
 operator|*
 name|lookupQmlModuleNode
 argument_list|(
@@ -2315,7 +2315,7 @@ name|QMap
 operator|<
 name|QString
 block|,
-name|FakeNode
+name|DocNode
 operator|*
 operator|>
 name|qmlModuleMap_
@@ -2327,7 +2327,7 @@ name|class
 name|NameCollisionNode
 range|:
 name|public
-name|FakeNode
+name|DocNode
 block|{
 name|public
 operator|:
@@ -2470,7 +2470,7 @@ name|class
 name|ExampleNode
 range|:
 name|public
-name|FakeNode
+name|DocNode
 block|{
 name|public
 operator|:
@@ -2540,7 +2540,7 @@ name|class
 name|QmlClassNode
 range|:
 name|public
-name|FakeNode
+name|DocNode
 block|{
 name|public
 operator|:
@@ -2666,7 +2666,7 @@ operator|=
 name|b
 block|; }
 specifier|const
-name|FakeNode
+name|DocNode
 operator|*
 name|qmlBase
 argument_list|()
@@ -2802,7 +2802,7 @@ name|ClassNode
 operator|*
 name|cnode_
 block|;
-name|FakeNode
+name|DocNode
 operator|*
 name|base_
 block|;
@@ -2816,7 +2816,7 @@ name|class
 name|QmlBasicTypeNode
 range|:
 name|public
-name|FakeNode
+name|DocNode
 block|{
 name|public
 operator|:
@@ -2853,7 +2853,7 @@ name|class
 name|QmlPropGroupNode
 operator|:
 name|public
-name|FakeNode
+name|DocNode
 block|{
 name|public
 operator|:
@@ -5170,7 +5170,7 @@ name|class
 name|DitaMapNode
 operator|:
 name|public
-name|FakeNode
+name|DocNode
 block|{
 name|public
 operator|:
@@ -5186,7 +5186,7 @@ operator|&
 name|name
 argument_list|)
 operator|:
-name|FakeNode
+name|DocNode
 argument_list|(
 argument|parent
 argument_list|,

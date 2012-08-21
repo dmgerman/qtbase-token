@@ -189,16 +189,16 @@ name|PropertyMap
 typedef|;
 end_typedef
 begin_typedef
-DECL|typedef|FakeNodeHash
+DECL|typedef|DocNodeHash
 typedef|typedef
 name|QMultiHash
 argument_list|<
 name|QString
 argument_list|,
-name|FakeNode
+name|DocNode
 modifier|*
 argument_list|>
-name|FakeNodeHash
+name|DocNodeHash
 typedef|;
 end_typedef
 begin_typedef
@@ -249,9 +249,9 @@ name|QString
 argument_list|>
 name|publicGroupMap
 decl_stmt|;
-DECL|member|fakeNodesByTitle
-name|FakeNodeHash
-name|fakeNodesByTitle
+DECL|member|docNodesByTitle
+name|DocNodeHash
+name|docNodesByTitle
 decl_stmt|;
 DECL|member|targetHash
 name|TargetHash
@@ -884,7 +884,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Find the QML class node for the specified \a module and \a name   identifiers. The \a module identifier may be empty. If the module   identifier is empty, then begin by finding the FakeNode that has   the specified \a name. If that FakeNode is a QML class, return it.   If it is a collision node, return its current child, if the current   child is a QML class. If the collision node does not have a child   that is a QML class node, return 0.  */
+comment|/*!   Find the QML class node for the specified \a module and \a name   identifiers. The \a module identifier may be empty. If the module   identifier is empty, then begin by finding the DocNode that has   the specified \a name. If that DocNode is a QML class, return it.   If it is a collision node, return its current child, if the current   child is a QML class. If the collision node does not have a child   that is a QML class node, return 0.  */
 end_comment
 begin_function
 DECL|function|findQmlClassNode
@@ -992,7 +992,7 @@ name|findAny
 argument_list|(
 name|Node
 operator|::
-name|Fake
+name|Document
 argument_list|,
 name|Node
 operator|::
@@ -1841,13 +1841,13 @@ begin_comment
 comment|/*!   This function searches for a node with the specified \a title.   If \a relative node is provided, it is used to disambiguate if   it has a QML module identifier.  */
 end_comment
 begin_function
-DECL|function|findFakeNodeByTitle
+DECL|function|findDocNodeByTitle
 specifier|const
-name|FakeNode
+name|DocNode
 modifier|*
 name|Tree
 operator|::
-name|findFakeNodeByTitle
+name|findDocNodeByTitle
 parameter_list|(
 specifier|const
 name|QString
@@ -1876,14 +1876,14 @@ operator|++
 name|pass
 control|)
 block|{
-name|FakeNodeHash
+name|DocNodeHash
 operator|::
 name|const_iterator
 name|i
 init|=
 name|priv
 operator|->
-name|fakeNodesByTitle
+name|docNodesByTitle
 operator|.
 name|constFind
 argument_list|(
@@ -1906,7 +1906,7 @@ name|i
 operator|!=
 name|priv
 operator|->
-name|fakeNodesByTitle
+name|docNodesByTitle
 operator|.
 name|constEnd
 argument_list|()
@@ -1927,9 +1927,9 @@ argument_list|()
 condition|)
 block|{
 specifier|const
-name|FakeNode
+name|DocNode
 modifier|*
-name|fn
+name|dn
 init|=
 name|i
 operator|.
@@ -1940,7 +1940,7 @@ name|InnerNode
 modifier|*
 name|parent
 init|=
-name|fn
+name|dn
 operator|->
 name|parent
 argument_list|()
@@ -1956,7 +1956,7 @@ argument_list|()
 operator|==
 name|Node
 operator|::
-name|Fake
+name|Document
 operator|&&
 name|parent
 operator|->
@@ -2015,12 +2015,12 @@ argument_list|()
 condition|)
 block|{
 comment|/*                               By returning here, we avoid printing all the duplicate                               header warnings, which are not really duplicates now,                               because of the QML module identifier being used as a                               namespace qualifier.                              */
-name|fn
+name|dn
 operator|=
 cast|static_cast
 argument_list|<
 specifier|const
-name|FakeNode
+name|DocNode
 operator|*
 argument_list|>
 argument_list|(
@@ -2029,7 +2029,7 @@ name|it
 argument_list|)
 expr_stmt|;
 return|return
-name|fn
+name|dn
 return|;
 block|}
 operator|++
@@ -2039,7 +2039,7 @@ block|}
 block|}
 block|}
 comment|/*               Reporting all these duplicate section titles is probably               overkill. We should report the duplicate file and let               that suffice.              */
-name|FakeNodeHash
+name|DocNodeHash
 operator|::
 name|const_iterator
 name|j
@@ -2055,7 +2055,7 @@ name|j
 operator|!=
 name|priv
 operator|->
-name|fakeNodesByTitle
+name|docNodesByTitle
 operator|.
 name|constEnd
 argument_list|()
@@ -2083,7 +2083,7 @@ name|j
 operator|!=
 name|priv
 operator|->
-name|fakeNodesByTitle
+name|docNodesByTitle
 operator|.
 name|constEnd
 argument_list|()
@@ -3787,16 +3787,16 @@ argument_list|()
 operator|==
 name|Node
 operator|::
-name|Fake
+name|Document
 condition|)
 block|{
-name|FakeNode
+name|DocNode
 modifier|*
 name|node
 init|=
 cast|static_cast
 argument_list|<
-name|FakeNode
+name|DocNode
 operator|*
 argument_list|>
 argument_list|(
@@ -3816,7 +3816,7 @@ argument_list|()
 condition|)
 name|priv
 operator|->
-name|fakeNodesByTitle
+name|docNodesByTitle
 operator|.
 name|insert
 argument_list|(
@@ -4190,7 +4190,7 @@ argument_list|()
 operator|==
 name|Node
 operator|::
-name|Fake
+name|Document
 operator|&&
 name|child
 operator|->
@@ -4278,7 +4278,7 @@ argument_list|()
 operator|==
 name|Node
 operator|::
-name|Fake
+name|Document
 condition|)
 block|{
 if|if
@@ -4361,7 +4361,7 @@ argument_list|()
 operator|==
 name|Node
 operator|::
-name|Fake
+name|Document
 condition|)
 block|{
 if|if
@@ -5764,12 +5764,12 @@ expr_stmt|;
 block|}
 else|else
 return|return;
-name|FakeNode
+name|DocNode
 modifier|*
-name|fakeNode
+name|docNode
 init|=
 operator|new
-name|FakeNode
+name|DocNode
 argument_list|(
 name|parent
 argument_list|,
@@ -5780,7 +5780,7 @@ argument_list|,
 name|ptype
 argument_list|)
 decl_stmt|;
-name|fakeNode
+name|docNode
 operator|->
 name|setTitle
 argument_list|(
@@ -5852,7 +5852,7 @@ argument_list|)
 expr_stmt|;
 name|section
 operator|=
-name|fakeNode
+name|docNode
 expr_stmt|;
 block|}
 elseif|else
@@ -7672,7 +7672,7 @@ break|break;
 case|case
 name|Node
 operator|::
-name|Fake
+name|Document
 case|:
 name|nodeName
 operator|=
@@ -7924,7 +7924,7 @@ argument_list|()
 operator|!=
 name|Node
 operator|::
-name|Fake
+name|Document
 condition|)
 block|{
 name|QString
@@ -8171,7 +8171,7 @@ argument_list|()
 operator|!=
 name|Node
 operator|::
-name|Fake
+name|Document
 operator|)
 operator|&&
 operator|(
@@ -8328,19 +8328,19 @@ break|break;
 case|case
 name|Node
 operator|::
-name|Fake
+name|Document
 case|:
 block|{
-comment|/*               Fake nodes (such as manual pages) contain subtypes,               titles and other attributes.             */
+comment|/*               Document nodes (such as manual pages) contain subtypes,               titles and other attributes.             */
 specifier|const
-name|FakeNode
+name|DocNode
 modifier|*
-name|fakeNode
+name|docNode
 init|=
 cast|static_cast
 argument_list|<
 specifier|const
-name|FakeNode
+name|DocNode
 operator|*
 argument_list|>
 argument_list|(
@@ -8349,7 +8349,7 @@ argument_list|)
 decl_stmt|;
 switch|switch
 condition|(
-name|fakeNode
+name|docNode
 operator|->
 name|subType
 argument_list|()
@@ -8483,7 +8483,7 @@ name|writeAttribute
 argument_list|(
 literal|"title"
 argument_list|,
-name|fakeNode
+name|docNode
 operator|->
 name|title
 argument_list|()
@@ -8495,7 +8495,7 @@ name|writeAttribute
 argument_list|(
 literal|"fulltitle"
 argument_list|,
-name|fakeNode
+name|docNode
 operator|->
 name|fullTitle
 argument_list|()
@@ -8507,7 +8507,7 @@ name|writeAttribute
 argument_list|(
 literal|"subtitle"
 argument_list|,
-name|fakeNode
+name|docNode
 operator|->
 name|subTitle
 argument_list|()
@@ -8519,7 +8519,7 @@ name|writeAttribute
 argument_list|(
 literal|"location"
 argument_list|,
-name|fakeNode
+name|docNode
 operator|->
 name|doc
 argument_list|()
@@ -9315,18 +9315,18 @@ argument_list|()
 operator|==
 name|Node
 operator|::
-name|Fake
+name|Document
 condition|)
 block|{
 specifier|const
-name|FakeNode
+name|DocNode
 modifier|*
-name|fakeNode
+name|docNode
 init|=
 cast|static_cast
 argument_list|<
 specifier|const
-name|FakeNode
+name|DocNode
 operator|*
 argument_list|>
 argument_list|(
@@ -9335,7 +9335,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|fakeNode
+name|docNode
 operator|->
 name|subType
 argument_list|()
@@ -10445,7 +10445,7 @@ argument_list|()
 operator|==
 name|Node
 operator|::
-name|Fake
+name|Document
 operator|&&
 name|n2
 operator|->
@@ -10454,18 +10454,18 @@ argument_list|()
 operator|==
 name|Node
 operator|::
-name|Fake
+name|Document
 condition|)
 block|{
 specifier|const
-name|FakeNode
+name|DocNode
 modifier|*
 name|f1
 init|=
 cast|static_cast
 argument_list|<
 specifier|const
-name|FakeNode
+name|DocNode
 operator|*
 argument_list|>
 argument_list|(
@@ -10473,14 +10473,14 @@ name|n1
 argument_list|)
 decl_stmt|;
 specifier|const
-name|FakeNode
+name|DocNode
 modifier|*
 name|f2
 init|=
 cast|static_cast
 argument_list|<
 specifier|const
-name|FakeNode
+name|DocNode
 operator|*
 argument_list|>
 argument_list|(
@@ -12453,12 +12453,12 @@ modifier|*
 name|relative
 parameter_list|)
 block|{
-name|FakeNode
+name|DocNode
 modifier|*
-name|fakeNode
+name|docNode
 init|=
 operator|new
-name|FakeNode
+name|DocNode
 argument_list|(
 name|root
 argument_list|()
@@ -12474,7 +12474,7 @@ operator|::
 name|ArticlePage
 argument_list|)
 decl_stmt|;
-name|fakeNode
+name|docNode
 operator|->
 name|setAccess
 argument_list|(
@@ -12515,7 +12515,7 @@ name|emptySet
 argument_list|)
 decl_stmt|;
 comment|// placeholder
-name|fakeNode
+name|docNode
 operator|->
 name|setDoc
 argument_list|(
@@ -12525,7 +12525,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Find the node with the specified \a path name that is of   the specified \a type and \a subtype. Begin the search at   the \a start node. If the \a start node is 0, begin the   search at the tree root. \a subtype is not used unless   \a type is \c{Fake}.  */
+comment|/*!   Find the node with the specified \a path name that is of   the specified \a type and \a subtype. Begin the search at   the \a start node. If the \a start node is 0, begin the   search at the tree root. \a subtype is not used unless   \a type is \c{Document}.  */
 end_comment
 begin_function
 DECL|function|findNodeByNameAndType
@@ -12600,7 +12600,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Recursive search for a node identified by \a path. Each   path element is a name. \a pathIndex specifies the index   of the name in \a path to try to match. \a start is the   node whose children shoulod be searched for one that has   that name. Each time a match is found, increment the   \a pathIndex and call this function recursively.    If the end of the path is reached (i.e. if a matching   node is found for each name in the \a path), the \a type   must match the type of the last matching node, and if the   type is \e{Fake}, the \a subtype must match as well.    If the algorithm is successful, the pointer to the final   node is returned. Otherwise 0 is returned.  */
+comment|/*!   Recursive search for a node identified by \a path. Each   path element is a name. \a pathIndex specifies the index   of the name in \a path to try to match. \a start is the   node whose children shoulod be searched for one that has   that name. Each time a match is found, increment the   \a pathIndex and call this function recursively.    If the end of the path is reached (i.e. if a matching   node is found for each name in the \a path), the \a type   must match the type of the last matching node, and if the   type is \e{Document}, the \a subtype must match as well.    If the algorithm is successful, the pointer to the final   node is returned. Otherwise 0 is returned.  */
 end_comment
 begin_function
 DECL|function|findNodeRecursive
@@ -12839,7 +12839,7 @@ name|type
 operator|==
 name|Node
 operator|::
-name|Fake
+name|Document
 condition|)
 block|{
 if|if
@@ -13187,7 +13187,7 @@ name|start
 argument_list|,
 name|Node
 operator|::
-name|Fake
+name|Document
 argument_list|,
 name|Node
 operator|::
@@ -13267,7 +13267,7 @@ comment|/*!   Find the Group node named \a path. Begin the search at the   \a st
 end_comment
 begin_function
 DECL|function|findGroupNode
-name|FakeNode
+name|DocNode
 modifier|*
 name|Tree
 operator|::
@@ -13303,7 +13303,7 @@ expr_stmt|;
 return|return
 cast|static_cast
 argument_list|<
-name|FakeNode
+name|DocNode
 operator|*
 argument_list|>
 argument_list|(
@@ -13317,7 +13317,7 @@ name|start
 argument_list|,
 name|Node
 operator|::
-name|Fake
+name|Document
 argument_list|,
 name|Node
 operator|::
@@ -13332,7 +13332,7 @@ comment|/*!   Find the Qml module node named \a path. Begin the search at the   
 end_comment
 begin_function
 DECL|function|findQmlModuleNode
-name|FakeNode
+name|DocNode
 modifier|*
 name|Tree
 operator|::
@@ -13368,7 +13368,7 @@ expr_stmt|;
 return|return
 cast|static_cast
 argument_list|<
-name|FakeNode
+name|DocNode
 operator|*
 argument_list|>
 argument_list|(
@@ -13382,7 +13382,7 @@ name|start
 argument_list|,
 name|Node
 operator|::
-name|Fake
+name|Document
 argument_list|,
 name|Node
 operator|::

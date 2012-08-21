@@ -1156,7 +1156,7 @@ break|break;
 case|case
 name|Node
 operator|::
-name|Fake
+name|Document
 case|:
 comment|/*           Remove the "QML:" prefix, if present.           There shouldn't be any of these "QML:"           prefixes in the documentation sources           after the switch to using QML module           qualifiers, but this code is kept to           be backward compatible.         */
 if|if
@@ -2340,7 +2340,7 @@ argument_list|()
 operator|==
 name|Node
 operator|::
-name|Fake
+name|Document
 operator|)
 operator|&&
 operator|(
@@ -2432,7 +2432,7 @@ argument_list|()
 operator|==
 name|Node
 operator|::
-name|Fake
+name|Document
 operator|)
 operator|&&
 operator|(
@@ -3158,7 +3158,7 @@ case|:
 case|case
 name|Node
 operator|::
-name|Fake
+name|Document
 case|:
 default|default:
 return|return

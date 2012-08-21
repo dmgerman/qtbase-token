@@ -89,7 +89,7 @@ name|Type
 operator|,
 name|QSet
 operator|<
-name|FakeNode
+name|DocNode
 operator|::
 name|SubType
 operator|>

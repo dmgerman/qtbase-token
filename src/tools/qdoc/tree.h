@@ -143,7 +143,7 @@ init|=
 literal|0
 parameter_list|)
 function_decl|;
-name|FakeNode
+name|DocNode
 modifier|*
 name|findGroupNode
 parameter_list|(
@@ -159,7 +159,7 @@ init|=
 literal|0
 parameter_list|)
 function_decl|;
-name|FakeNode
+name|DocNode
 modifier|*
 name|findQmlModuleNode
 parameter_list|(
@@ -606,9 +606,9 @@ argument_list|)
 decl|const
 decl_stmt|;
 specifier|const
-name|FakeNode
+name|DocNode
 modifier|*
-name|findFakeNodeByTitle
+name|findDocNodeByTitle
 argument_list|(
 specifier|const
 name|QString

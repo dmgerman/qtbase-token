@@ -598,7 +598,7 @@ index|]
 operator|=
 name|Node
 operator|::
-name|Fake
+name|Document
 expr_stmt|;
 name|typeHash
 index|[
@@ -1237,18 +1237,18 @@ argument_list|()
 operator|==
 name|Node
 operator|::
-name|Fake
+name|Document
 condition|)
 block|{
 specifier|const
-name|FakeNode
+name|DocNode
 modifier|*
 name|fake
 init|=
 cast|static_cast
 argument_list|<
 specifier|const
-name|FakeNode
+name|DocNode
 operator|*
 argument_list|>
 argument_list|(
@@ -1481,18 +1481,18 @@ argument_list|()
 operator|==
 name|Node
 operator|::
-name|Fake
+name|Document
 condition|)
 block|{
 specifier|const
-name|FakeNode
+name|DocNode
 modifier|*
 name|fake
 init|=
 cast|static_cast
 argument_list|<
 specifier|const
-name|FakeNode
+name|DocNode
 operator|*
 argument_list|>
 argument_list|(
@@ -1594,7 +1594,7 @@ argument_list|()
 operator|!=
 name|Node
 operator|::
-name|Fake
+name|Document
 condition|)
 name|project
 operator|.
@@ -1615,14 +1615,14 @@ block|{
 comment|// Accept only fake nodes with subtypes contained in the selector's
 comment|// mask.
 specifier|const
-name|FakeNode
+name|DocNode
 modifier|*
-name|fakeNode
+name|docNode
 init|=
 cast|static_cast
 argument_list|<
 specifier|const
-name|FakeNode
+name|DocNode
 operator|*
 argument_list|>
 argument_list|(
@@ -1643,13 +1643,13 @@ index|]
 operator|.
 name|contains
 argument_list|(
-name|fakeNode
+name|docNode
 operator|->
 name|subType
 argument_list|()
 argument_list|)
 operator|&&
-name|fakeNode
+name|docNode
 operator|->
 name|subType
 argument_list|()
@@ -1659,7 +1659,7 @@ operator|::
 name|ExternalPage
 operator|&&
 operator|!
-name|fakeNode
+name|docNode
 operator|->
 name|fullTitle
 argument_list|()
@@ -2209,23 +2209,23 @@ argument_list|)
 expr_stmt|;
 block|}
 break|break;
-comment|// Fake nodes (such as manual pages) contain subtypes, titles and other
+comment|// Document nodes (such as manual pages) contain subtypes, titles and other
 comment|// attributes.
 case|case
 name|Node
 operator|::
-name|Fake
+name|Document
 case|:
 block|{
 specifier|const
-name|FakeNode
+name|DocNode
 modifier|*
-name|fakeNode
+name|docNode
 init|=
 cast|static_cast
 argument_list|<
 specifier|const
-name|FakeNode
+name|DocNode
 operator|*
 argument_list|>
 argument_list|(
@@ -2234,7 +2234,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|fakeNode
+name|docNode
 operator|->
 name|subType
 argument_list|()
@@ -2244,7 +2244,7 @@ operator|::
 name|ExternalPage
 operator|&&
 operator|!
-name|fakeNode
+name|docNode
 operator|->
 name|fullTitle
 argument_list|()
@@ -2255,7 +2255,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|fakeNode
+name|docNode
 operator|->
 name|subType
 argument_list|()
@@ -2267,7 +2267,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|fakeNode
+name|docNode
 operator|->
 name|doc
 argument_list|()
@@ -2283,7 +2283,7 @@ name|Atom
 modifier|*
 name|keyword
 decl|,
-name|fakeNode
+name|docNode
 operator|->
 name|doc
 argument_list|()
@@ -2354,7 +2354,7 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
-name|fakeNode
+name|docNode
 operator|->
 name|doc
 argument_list|()
@@ -2610,7 +2610,7 @@ argument_list|()
 operator|==
 name|Node
 operator|::
-name|Fake
+name|Document
 condition|)
 block|{
 comment|/*                   Don't visit QML property group nodes,                   but visit their children, which are all                   QML property nodes.                  */
@@ -2684,7 +2684,7 @@ index|[
 cast|static_cast
 argument_list|<
 specifier|const
-name|FakeNode
+name|DocNode
 operator|*
 argument_list|>
 argument_list|(
@@ -3230,20 +3230,20 @@ break|break;
 case|case
 name|Node
 operator|::
-name|Fake
+name|Document
 case|:
 block|{
-comment|// Fake nodes (such as manual pages) contain subtypes, titles and other
+comment|// Document nodes (such as manual pages) contain subtypes, titles and other
 comment|// attributes.
 specifier|const
-name|FakeNode
+name|DocNode
 modifier|*
-name|fakeNode
+name|docNode
 init|=
 cast|static_cast
 argument_list|<
 specifier|const
-name|FakeNode
+name|DocNode
 operator|*
 argument_list|>
 argument_list|(
@@ -3268,7 +3268,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|fakeNode
+name|docNode
 operator|->
 name|subType
 argument_list|()
@@ -3290,7 +3290,7 @@ argument_list|)
 operator|.
 name|arg
 argument_list|(
-name|fakeNode
+name|docNode
 operator|->
 name|fullTitle
 argument_list|()
@@ -3304,7 +3304,7 @@ name|writeAttribute
 argument_list|(
 literal|"title"
 argument_list|,
-name|fakeNode
+name|docNode
 operator|->
 name|fullTitle
 argument_list|()
@@ -3313,7 +3313,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|(
-name|fakeNode
+name|docNode
 operator|->
 name|subType
 argument_list|()
@@ -3324,7 +3324,7 @@ name|HeaderFile
 operator|)
 operator|||
 operator|(
-name|fakeNode
+name|docNode
 operator|->
 name|subType
 argument_list|()
@@ -3351,7 +3351,7 @@ name|isEmpty
 argument_list|()
 operator|||
 operator|(
-name|fakeNode
+name|docNode
 operator|->
 name|subType
 argument_list|()
@@ -3624,7 +3624,7 @@ name|rootNode
 operator|=
 name|tree
 operator|->
-name|findFakeNodeByTitle
+name|findDocNodeByTitle
 argument_list|(
 name|project
 operator|.
@@ -3884,7 +3884,7 @@ name|node
 init|=
 name|tree
 operator|->
-name|findFakeNodeByTitle
+name|findDocNodeByTitle
 argument_list|(
 name|project
 operator|.
@@ -4013,13 +4013,13 @@ argument_list|)
 condition|)
 block|{
 specifier|const
-name|FakeNode
+name|DocNode
 modifier|*
 name|indexPage
 init|=
 name|tree
 operator|->
-name|findFakeNodeByTitle
+name|findDocNodeByTitle
 argument_list|(
 name|subproject
 operator|.
@@ -4156,13 +4156,13 @@ argument_list|()
 expr_stmt|;
 comment|// section
 specifier|const
-name|FakeNode
+name|DocNode
 modifier|*
 name|page
 init|=
 name|tree
 operator|->
-name|findFakeNodeByTitle
+name|findDocNodeByTitle
 argument_list|(
 name|atom
 operator|->
@@ -4302,7 +4302,7 @@ name|fullDocumentLocation
 argument_list|(
 name|tree
 operator|->
-name|findFakeNodeByTitle
+name|findDocNodeByTitle
 argument_list|(
 name|subproject
 operator|.
@@ -4454,19 +4454,19 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|FakeNode
+name|DocNode
 modifier|*
 name|nextPage
 init|=
 cast|const_cast
 argument_list|<
-name|FakeNode
+name|DocNode
 operator|*
 argument_list|>
 argument_list|(
 name|tree
 operator|->
-name|findFakeNodeByTitle
+name|findDocNodeByTitle
 argument_list|(
 name|nextTitle
 argument_list|)
@@ -4531,13 +4531,13 @@ name|nextPage
 operator|=
 cast|const_cast
 argument_list|<
-name|FakeNode
+name|DocNode
 operator|*
 argument_list|>
 argument_list|(
 name|tree
 operator|->
-name|findFakeNodeByTitle
+name|findDocNodeByTitle
 argument_list|(
 name|nextTitle
 argument_list|)

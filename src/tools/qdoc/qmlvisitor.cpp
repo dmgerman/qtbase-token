@@ -1495,7 +1495,7 @@ argument_list|()
 operator|==
 name|Node
 operator|::
-name|Fake
+name|Document
 operator|)
 operator|&&
 operator|(
@@ -1555,11 +1555,11 @@ literal|0
 index|]
 argument_list|)
 expr_stmt|;
-name|FakeNode
+name|DocNode
 modifier|*
-name|fn
+name|dn
 init|=
-name|FakeNode
+name|DocNode
 operator|::
 name|lookupQmlModuleNode
 argument_list|(
@@ -1571,7 +1571,7 @@ literal|0
 index|]
 argument_list|)
 decl_stmt|;
-name|fn
+name|dn
 operator|->
 name|addQmlModuleMember
 argument_list|(
@@ -2379,7 +2379,7 @@ argument_list|()
 operator|==
 name|Node
 operator|::
-name|Fake
+name|Document
 condition|)
 block|{
 name|QmlClassNode
@@ -2560,7 +2560,7 @@ argument_list|()
 operator|==
 name|Node
 operator|::
-name|Fake
+name|Document
 condition|)
 block|{
 name|QmlClassNode
@@ -2739,7 +2739,7 @@ argument_list|()
 operator|==
 name|Node
 operator|::
-name|Fake
+name|Document
 condition|)
 block|{
 name|QmlClassNode
@@ -3020,7 +3020,7 @@ argument_list|()
 operator|==
 name|Node
 operator|::
-name|Fake
+name|Document
 condition|)
 block|{
 name|QString

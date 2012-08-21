@@ -244,11 +244,11 @@ argument_list|)
 block|;
 name|virtual
 name|void
-name|generateFakeNode
+name|generateDocNode
 argument_list|(
-name|FakeNode
+name|DocNode
 operator|*
-name|fake
+name|dn
 argument_list|,
 name|CodeMarker
 operator|*
