@@ -2210,6 +2210,18 @@ argument|void *
 argument_list|)
 name|Q_DECL_EQ_DELETE
 expr_stmt|;
+comment|// QVariant::Type is marked as \obsolete, but we don't want to
+comment|// provide a constructor from its intended replacement,
+comment|// QMetaType::Type, instead, because the idea behind these
+comment|// constructors is flawed in the first place. But we also don't
+comment|// want QVariant(QMetaType::String) to compile and falsely be an
+comment|// int variant, so delete this constructor:
+name|QVariant
+argument_list|(
+argument|QMetaType::Type
+argument_list|)
+name|Q_DECL_EQ_DELETE
+expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QT_NO_CAST_FROM_ASCII
