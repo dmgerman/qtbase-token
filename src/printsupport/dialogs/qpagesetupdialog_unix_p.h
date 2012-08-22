@@ -130,11 +130,7 @@ specifier|const
 block|;
 name|void
 name|selectPrinter
-argument_list|(
-name|QCUPSSupport
-operator|*
-name|m_cups
-argument_list|)
+argument_list|()
 block|;
 name|void
 name|selectPdfPsPrinter
@@ -222,8 +218,7 @@ block|;
 name|bool
 name|m_blockSignals
 block|;
-name|QCUPSSupport
-operator|*
+name|bool
 name|m_cups
 block|; }
 decl_stmt|;
