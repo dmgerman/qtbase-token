@@ -3700,7 +3700,6 @@ operator|,
 literal|0
 argument_list|)
 block|enum
-name|QT_DEPRECATED
 name|DeviceType
 block|{
 name|TouchScreen
