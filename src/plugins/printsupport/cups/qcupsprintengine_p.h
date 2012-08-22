@@ -173,6 +173,14 @@ name|void
 name|updatePaperSize
 argument_list|()
 block|;
+name|void
+name|setPaperSize
+argument_list|()
+block|;
+name|void
+name|setCupsDefaults
+argument_list|()
+block|;
 name|private
 operator|:
 name|Q_DISABLE_COPY
