@@ -2805,7 +2805,16 @@ name|manifest_rc
 operator|<<
 literal|" echo 1 /* CREATEPROCESS_MANIFEST_RESOURCE_ID */ 24 /* RT_MANIFEST */ "
 operator|<<
+name|QFileInfo
+argument_list|(
+name|unescapeFilePath
+argument_list|(
 name|manifest
+argument_list|)
+argument_list|)
+operator|.
+name|fileName
+argument_list|()
 operator|<<
 literal|">"
 operator|<<
