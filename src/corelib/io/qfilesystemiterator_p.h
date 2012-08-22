@@ -147,11 +147,9 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
-name|QFileSystemEntry
-operator|::
-name|NativePath
+name|QString
 name|dirPath
-expr_stmt|;
+decl_stmt|;
 name|HANDLE
 name|findFileHandle
 decl_stmt|;
