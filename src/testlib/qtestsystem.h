@@ -432,7 +432,7 @@ if|#
 directive|if
 name|QT_DEPRECATED_SINCE
 argument_list|(
-literal|6
+literal|5
 operator|,
 literal|0
 argument_list|)
@@ -469,7 +469,7 @@ directive|endif
 comment|// QT_WIDGETS_LIB
 endif|#
 directive|endif
-comment|// QT_DEPRECATED_SINCE(6, 0)
+comment|// QT_DEPRECATED_SINCE(5, 0)
 block|}
 end_decl_stmt
 begin_expr_stmt
