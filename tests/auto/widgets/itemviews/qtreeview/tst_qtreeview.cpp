@@ -14043,9 +14043,9 @@ name|i1
 operator|++
 control|)
 block|{
-name|QModelIndex
-name|index2
-init|=
+operator|(
+name|void
+operator|)
 name|model
 operator|.
 name|index
@@ -14056,7 +14056,7 @@ literal|0
 argument_list|,
 name|index
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 block|}
 block|}
 name|QTreeView
