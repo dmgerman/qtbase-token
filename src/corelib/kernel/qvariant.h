@@ -857,29 +857,7 @@ name|QVariant
 argument_list|(
 argument|float f
 argument_list|)
-block|{
-name|d
-operator|.
-name|is_null
-operator|=
-name|false
 block|;
-name|d
-operator|.
-name|type
-operator|=
-name|QMetaType
-operator|::
-name|Float
-block|;
-name|d
-operator|.
-name|data
-operator|.
-name|f
-operator|=
-name|f
-block|; }
 ifndef|#
 directive|ifndef
 name|QT_NO_CAST_FROM_ASCII
