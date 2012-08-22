@@ -30,6 +30,12 @@ file|<qstring.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+DECL|variable|QMakeProject
+name|class
+name|QMakeProject
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QMakeMetaInfo
 block|{
@@ -51,6 +57,10 @@ modifier|&
 name|f
 parameter_list|)
 function_decl|;
+name|QMakeProject
+modifier|*
+name|conf
+decl_stmt|;
 name|QHash
 operator|<
 name|QString
@@ -83,7 +93,11 @@ function_decl|;
 name|public
 label|:
 name|QMakeMetaInfo
-argument_list|()
+argument_list|(
+name|QMakeProject
+operator|*
+name|_conf
+argument_list|)
 expr_stmt|;
 name|bool
 name|readLib

@@ -120,6 +120,9 @@ literal|1
 return|;
 name|QMakeMetaInfo
 name|libinfo
+argument_list|(
+name|project
+argument_list|)
 decl_stmt|;
 name|bool
 name|libInfoRead
