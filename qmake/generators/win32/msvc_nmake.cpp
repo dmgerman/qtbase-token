@@ -2874,21 +2874,13 @@ argument_list|,
 name|extraInlineFileContent
 argument_list|)
 expr_stmt|;
-specifier|const
-name|QString
-name|check_manifest_bak_existence
-init|=
-literal|"\n\tif exist "
-operator|+
-name|manifest_bak
-operator|+
-literal|' '
-decl_stmt|;
 name|t
 operator|<<
-name|check_manifest_bak_existence
+literal|"\n\tif exist "
 operator|<<
-literal|"fc "
+name|manifest_bak
+operator|<<
+literal|" fc /b "
 operator|<<
 name|manifest
 operator|<<
@@ -2896,15 +2888,17 @@ literal|' '
 operator|<<
 name|manifest_bak
 operator|<<
-literal|"&& del "
+literal|">NUL || del "
 operator|<<
 name|manifest_bak
 expr_stmt|;
 name|t
 operator|<<
-name|check_manifest_bak_existence
+literal|"\n\tif not exist "
 operator|<<
-literal|"rc.exe /fo"
+name|manifest_bak
+operator|<<
+literal|" rc.exe /fo"
 operator|<<
 name|manifest_res
 operator|<<
@@ -2914,7 +2908,11 @@ name|manifest_rc
 expr_stmt|;
 name|t
 operator|<<
-name|check_manifest_bak_existence
+literal|"\n\tif not exist "
+operator|<<
+name|manifest_bak
+operator|<<
+literal|' '
 expr_stmt|;
 name|writeLinkCommand
 argument_list|(
@@ -2927,9 +2925,11 @@ argument_list|)
 expr_stmt|;
 name|t
 operator|<<
-name|check_manifest_bak_existence
+literal|"\n\tif exist "
 operator|<<
-literal|"del "
+name|manifest_bak
+operator|<<
+literal|" del "
 operator|<<
 name|manifest_bak
 expr_stmt|;
