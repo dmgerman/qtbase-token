@@ -155,6 +155,7 @@ operator|.
 name|release
 argument_list|()
 expr_stmt|;
+comment|// TEST 1: thread can't acquire lock
 name|threadsTurn
 operator|.
 name|acquire
@@ -174,6 +175,7 @@ operator|.
 name|release
 argument_list|()
 expr_stmt|;
+comment|// TEST 2: thread can acquire lock
 name|threadsTurn
 operator|.
 name|acquire
@@ -230,6 +232,7 @@ operator|.
 name|release
 argument_list|()
 expr_stmt|;
+comment|// TEST 3: thread can't acquire lock, timeout = waitTime
 name|threadsTurn
 operator|.
 name|acquire
@@ -269,6 +272,7 @@ operator|.
 name|release
 argument_list|()
 expr_stmt|;
+comment|// TEST 4: thread can acquire lock, timeout = waitTime
 name|threadsTurn
 operator|.
 name|acquire
@@ -316,6 +320,7 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+comment|// it's non-recursive, so the following lock needs to fail
 name|QVERIFY
 argument_list|(
 operator|!
@@ -359,6 +364,7 @@ operator|.
 name|release
 argument_list|()
 expr_stmt|;
+comment|// TEST 5: thread can't acquire lock, timeout = 0
 name|threadsTurn
 operator|.
 name|acquire
@@ -380,6 +386,7 @@ operator|.
 name|release
 argument_list|()
 expr_stmt|;
+comment|// TEST 6: thread can acquire lock, timeout = 0
 name|threadsTurn
 operator|.
 name|acquire
@@ -471,7 +478,7 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-comment|// thread can't acquire lock
+comment|// TEST 1: thread can't acquire lock
 name|testsTurn
 operator|.
 name|acquire
@@ -499,7 +506,7 @@ operator|.
 name|release
 argument_list|()
 expr_stmt|;
-comment|// thread can acquire lock
+comment|// TEST 2: thread can acquire lock
 name|testsTurn
 operator|.
 name|acquire
@@ -527,7 +534,7 @@ operator|.
 name|release
 argument_list|()
 expr_stmt|;
-comment|// thread can't acquire lock, timeout = waitTime
+comment|// TEST 3: thread can't acquire lock, timeout = waitTime
 name|testsTurn
 operator|.
 name|acquire
@@ -555,7 +562,7 @@ operator|.
 name|release
 argument_list|()
 expr_stmt|;
-comment|// thread can acquire lock, timeout = waitTime
+comment|// TEST 4: thread can acquire lock, timeout = waitTime
 name|testsTurn
 operator|.
 name|acquire
@@ -583,7 +590,7 @@ operator|.
 name|release
 argument_list|()
 expr_stmt|;
-comment|// thread can't acquire lock, timeout = 0
+comment|// TEST 5: thread can't acquire lock, timeout = 0
 name|testsTurn
 operator|.
 name|acquire
@@ -611,7 +618,7 @@ operator|.
 name|release
 argument_list|()
 expr_stmt|;
-comment|// thread can acquire lock, timeout = 0
+comment|// TEST 6: thread can acquire lock, timeout = 0
 name|testsTurn
 operator|.
 name|acquire
