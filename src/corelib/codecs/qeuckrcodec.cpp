@@ -9,10 +9,10 @@ begin_comment
 comment|// in Qt with the author's permission and the grateful thanks of the Qt team.
 end_comment
 begin_comment
-comment|/*! \class QEucKrCodec     \reentrant     \internal */
+comment|/*! \class QEucKrCodec     \inmodule QtCore     \reentrant     \internal */
 end_comment
 begin_comment
-comment|/*!     \class QCP949Codec     \internal     \brief The QCP949Codec class handles encoding and decoding of text in CP949 encoding.      CP949 stands for code page 949, default code page for Korean text on Windows. */
+comment|/*!     \class QCP949Codec     \inmodule QtCore     \internal     \brief The QCP949Codec class handles encoding and decoding of text in CP949 encoding.      CP949 stands for code page 949, default code page for Korean text on Windows. */
 end_comment
 begin_comment
 comment|/* these must be made \internal     virtual int mibEnum() const;     const char* name() const;      QTextDecoder* makeDecoder() const;      QByteArray fromUnicode(const QString& uc, int& lenInOut) const;     QString toUnicode(const char* chars, int len) const; */

@@ -71,7 +71,7 @@ parameter_list|)
 value|(((c)>= 0x80)&& ((c)<= 0xfd))
 end_define
 begin_comment
-comment|/*! \class QTsciiCodec     \reentrant     \internal */
+comment|/*! \class QTsciiCodec     \inmodule QtCore     \reentrant     \internal */
 end_comment
 begin_comment
 comment|/*!     Destroys the text codec object. */

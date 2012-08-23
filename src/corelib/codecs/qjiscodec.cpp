@@ -12,7 +12,7 @@ begin_comment
 comment|// and the grateful thanks of the Qt team.
 end_comment
 begin_comment
-comment|/*! \class QJisCodec     \reentrant     \internal */
+comment|/*! \class QJisCodec     \inmodule QtCore     \reentrant     \internal */
 end_comment
 begin_include
 include|#

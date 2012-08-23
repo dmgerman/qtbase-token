@@ -24,7 +24,7 @@ file|<stdlib.h>
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
-comment|/*!     \class QMetaObjectBuilder     \internal     \brief The QMetaObjectBuilder class supports building QMetaObject objects at runtime.  */
+comment|/*!     \class QMetaObjectBuilder     \inmodule QtCore     \internal     \brief The QMetaObjectBuilder class supports building QMetaObject objects at runtime.  */
 comment|/*!     \enum QMetaObjectBuilder::AddMember     This enum defines which members of QMetaObject should be copied by QMetaObjectBuilder::addMetaObject()      \value ClassName Add the class name.     \value SuperClass Add the super class.     \value Methods Add methods that aren't signals or slots.     \value Signals Add signals.     \value Slots Add slots.     \value Constructors Add constructors.     \value Properties Add properties.     \value Enumerators Add enumerators.     \value ClassInfos Add items of class information.     \value RelatedMetaObjects Add related meta objects.     \value StaticMetacall Add the static metacall function.     \value PublicMethods Add public methods (ignored for signals).     \value ProtectedMethods Add protected methods (ignored for signals).     \value PrivateMethods All private methods (ignored for signals).     \value AllMembers Add all members.     \value AllPrimaryMembers Add everything except the class name, super class, and static metacall function. */
 comment|// copied from moc's generator.cpp
 DECL|function|isBuiltinType
@@ -3921,7 +3921,7 @@ define|\
 value|(size) = ((size) + sizeof(type) - 1)& ~(sizeof(type) - 1)
 end_define
 begin_comment
-comment|/*!     \class QMetaStringTable     \internal     \brief The QMetaStringTable class can generate a meta-object string table at runtime. */
+comment|/*!     \class QMetaStringTable     \inmodule QtCore     \internal     \brief The QMetaStringTable class can generate a meta-object string table at runtime. */
 end_comment
 begin_constructor
 DECL|function|QMetaStringTable
@@ -8277,7 +8277,7 @@ begin_comment
 comment|// !QT_NO_DATASTREAM
 end_comment
 begin_comment
-comment|/*!     \class QMetaMethodBuilder     \internal     \brief The QMetaMethodBuilder class enables modifications to a method definition on a meta object builder. */
+comment|/*!     \class QMetaMethodBuilder     \inmodule QtCore     \internal     \brief The QMetaMethodBuilder class enables modifications to a method definition on a meta object builder. */
 end_comment
 begin_function
 DECL|function|d_func
@@ -9001,7 +9001,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \class QMetaPropertyBuilder     \internal     \brief The QMetaPropertyBuilder class enables modifications to a property definition on a meta object builder. */
+comment|/*!     \class QMetaPropertyBuilder     \inmodule QtCore     \internal     \brief The QMetaPropertyBuilder class enables modifications to a property definition on a meta object builder. */
 end_comment
 begin_function
 DECL|function|d_func
@@ -10283,7 +10283,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \class QMetaEnumBuilder     \internal     \brief The QMetaEnumBuilder class enables modifications to an enumerator definition on a meta object builder. */
+comment|/*!     \class QMetaEnumBuilder     \inmodule QtCore     \internal     \brief The QMetaEnumBuilder class enables modifications to an enumerator definition on a meta object builder. */
 end_comment
 begin_function
 DECL|function|d_func

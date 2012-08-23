@@ -22,7 +22,7 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!     \internal     \class QMimeMagicRuleMatcher      \brief The QMimeMagicRuleMatcher class checks a number of rules based on operator "or".      It is used for rules parsed from XML files.      \sa QMimeType, QMimeDatabase, MagicRule, MagicStringRule, MagicByteRule, GlobPattern     \sa QMimeTypeParserBase, MimeTypeParser */
+comment|/*!     \internal     \class QMimeMagicRuleMatcher     \inmodule QtCore      \brief The QMimeMagicRuleMatcher class checks a number of rules based on operator "or".      It is used for rules parsed from XML files.      \sa QMimeType, QMimeDatabase, MagicRule, MagicStringRule, MagicByteRule, GlobPattern     \sa QMimeTypeParserBase, MimeTypeParser */
 end_comment
 begin_constructor
 DECL|function|QMimeMagicRuleMatcher

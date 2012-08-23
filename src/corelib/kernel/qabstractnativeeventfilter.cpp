@@ -14,7 +14,7 @@ file|"qabstracteventdispatcher.h"
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
-comment|/*!     \class QAbstractNativeEventFilter     \since 5.0      \brief The QAbstractNativeEventFilter class provides an interface for receiving native     events, such as MSG or XCB event structs. */
+comment|/*!     \class QAbstractNativeEventFilter     \inmodule QtCore     \since 5.0      \brief The QAbstractNativeEventFilter class provides an interface for receiving native     events, such as MSG or XCB event structs. */
 comment|/*!     Creates a native event filter.      By default this doesn't do anything. Remember to install it on the application     object. */
 DECL|function|QAbstractNativeEventFilter
 name|QAbstractNativeEventFilter

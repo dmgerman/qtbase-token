@@ -24,7 +24,7 @@ file|<QDebug>
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
-comment|/*!     \internal     \class QMimeGlobMatchResult     \brief The QMimeGlobMatchResult class accumulates results from glob matching.      Handles glob weights, and preferring longer matches over shorter matches. */
+comment|/*!     \internal     \class QMimeGlobMatchResult     \inmodule QtCore     \brief The QMimeGlobMatchResult class accumulates results from glob matching.      Handles glob weights, and preferring longer matches over shorter matches. */
 DECL|function|addMatch
 name|void
 name|QMimeGlobMatchResult
@@ -150,7 +150,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal     \class QMimeGlobPattern     \brief The QMimeGlobPattern class contains the glob pattern for file names for MIME type matching.      \sa QMimeType, QMimeDatabase, QMimeMagicRuleMatcher, QMimeMagicRule */
+comment|/*!     \internal     \class QMimeGlobPattern     \inmodule QtCore     \brief The QMimeGlobPattern class contains the glob pattern for file names for MIME type matching.      \sa QMimeType, QMimeDatabase, QMimeMagicRuleMatcher, QMimeMagicRule */
 end_comment
 begin_function
 DECL|function|matchFileName

@@ -26,7 +26,7 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!     \class QIsciiCodec     \brief The QIsciiCodec class provides conversion to and from the ISCII encoding.      \internal */
+comment|/*!     \class QIsciiCodec     \inmodule QtCore     \brief The QIsciiCodec class provides conversion to and from the ISCII encoding.      \internal */
 end_comment
 begin_struct
 DECL|struct|Codecs

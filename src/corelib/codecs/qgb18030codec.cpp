@@ -3,7 +3,7 @@ begin_comment
 comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_comment
-comment|/*! \class QGb18030Codec   \reentrant   \internal */
+comment|/*! \class QGb18030Codec     \inmodule QtCore   \reentrant   \internal */
 end_comment
 begin_include
 include|#
@@ -1239,7 +1239,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \class QGbkCodec     \reentrant     \internal    \brief The QGbkCodec class provides conversion to and from the Chinese   GBK encoding.    GBK, formally the Chinese Internal Code Specification, is a commonly   used extension of GB 2312-80. Microsoft Windows uses it under the   name code page 936.    The GBK encoding has been superseded by the GB18030 encoding and   GB18030 is backward compatible to GBK.  For this reason the QGbkCodec class   is implemented in terms of the GB18030 codec and uses its 1-byte and   2-byte portion for conversion from and to Unicode.    The QGbkCodec is kept mainly for compatibility reasons with older software. */
+comment|/*! \class QGbkCodec     \inmodule QtCore     \reentrant     \internal    \brief The QGbkCodec class provides conversion to and from the Chinese   GBK encoding.    GBK, formally the Chinese Internal Code Specification, is a commonly   used extension of GB 2312-80. Microsoft Windows uses it under the   name code page 936.    The GBK encoding has been superseded by the GB18030 encoding and   GB18030 is backward compatible to GBK.  For this reason the QGbkCodec class   is implemented in terms of the GB18030 codec and uses its 1-byte and   2-byte portion for conversion from and to Unicode.    The QGbkCodec is kept mainly for compatibility reasons with older software. */
 end_comment
 begin_comment
 comment|/*!     Constructs a QGbkCodec object. */
@@ -1910,7 +1910,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \class QGb2312Codec     \internal    \brief The QGb2312Codec class provides conversion to and from the Chinese   GB2312 encoding.    The GB2312 encoding has been superseded by the GB18030 encoding and   GB18030 is backward compatible to GB2312.  For this reason the QGb2312Codec   class is implemented in terms of the GB18030 codec and uses its   0xA1A1-0xFEFE subset for conversion from and to Unicode.    The QGb2312Codec is kept mainly for compatibility reasons with older software. */
+comment|/*! \class QGb2312Codec     \inmodule QtCore     \internal    \brief The QGb2312Codec class provides conversion to and from the Chinese   GB2312 encoding.    The GB2312 encoding has been superseded by the GB18030 encoding and   GB18030 is backward compatible to GB2312.  For this reason the QGb2312Codec   class is implemented in terms of the GB18030 codec and uses its   0xA1A1-0xFEFE subset for conversion from and to Unicode.    The QGb2312Codec is kept mainly for compatibility reasons with older software. */
 end_comment
 begin_comment
 comment|/*!     Constructs a QGb2312Codec object. */

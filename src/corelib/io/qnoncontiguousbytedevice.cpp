@@ -26,7 +26,7 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!     \class QNonContiguousByteDevice     \brief A QNonContiguousByteDevice is a representation of a     file, array or buffer that allows access with a read pointer.     \since 4.6      \inmodule QtCore      The goal of this class is to have a data representation that     allows us to avoid doing a memcpy as we have to do with QIODevice.      \sa QNonContiguousByteDeviceFactory      \internal */
+comment|/*!     \class QNonContiguousByteDevice     \inmodule QtCore     \brief A QNonContiguousByteDevice is a representation of a     file, array or buffer that allows access with a read pointer.     \since 4.6      The goal of this class is to have a data representation that     allows us to avoid doing a memcpy as we have to do with QIODevice.      \sa QNonContiguousByteDeviceFactory      \internal */
 end_comment
 begin_comment
 comment|/*!     \fn virtual const char* QNonContiguousByteDevice::readPointer(qint64 maximumLength, qint64&len)      Return a byte pointer for at most \a maximumLength bytes of that device.     if \a maximumLength is -1, the caller does not care about the length and     the device may return what it desires to.     The actual number of bytes the pointer is valid for is returned in     the \a len variable.     \a len will be -1 if EOF or an error occurs.     If it was really EOF can then afterwards be checked with atEnd()     Returns 0 if it is not possible to read at that position.      \sa atEnd()      \internal */
@@ -1430,7 +1430,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QNonContiguousByteDeviceFactory     \since 4.6      \inmodule QtCore      Creates a QNonContiguousByteDevice out of a QIODevice,     QByteArray etc.      \sa QNonContiguousByteDevice      \internal */
+comment|/*!     \class QNonContiguousByteDeviceFactory     \inmodule QtCore     \since 4.6      Creates a QNonContiguousByteDevice out of a QIODevice,     QByteArray etc.      \sa QNonContiguousByteDevice      \internal */
 end_comment
 begin_comment
 comment|/*!     \fn static QNonContiguousByteDevice* QNonContiguousByteDeviceFactory::create(QIODevice *device)      Create a QNonContiguousByteDevice out of a QIODevice.     For QFile, QBuffer and all other QIoDevice, sequential or not.      \internal */

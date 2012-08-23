@@ -292,10 +292,10 @@ literal|"mask"
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|/*!     \class QMimeTypeParser     \internal     \brief The QMimeTypeParser class parses MIME types, and builds a MIME database hierarchy by adding to QMimeDatabasePrivate.      Populates QMimeDataBase      \sa QMimeDatabase, QMimeMagicRuleMatcher, MagicRule, MagicStringRule, MagicByteRule, GlobPattern     \sa QMimeTypeParser */
+comment|/*!     \class QMimeTypeParser     \inmodule QtCore     \internal     \brief The QMimeTypeParser class parses MIME types, and builds a MIME database hierarchy by adding to QMimeDatabasePrivate.      Populates QMimeDataBase      \sa QMimeDatabase, QMimeMagicRuleMatcher, MagicRule, MagicStringRule, MagicByteRule, GlobPattern     \sa QMimeTypeParser */
 end_comment
 begin_comment
-comment|/*!     \class QMimeTypeParserBase     \internal     \brief The QMimeTypeParserBase class parses for a sequence of<mime-type> in a generic way.      Calls abstract handler function process for QMimeType it finds.      \sa QMimeDatabase, QMimeMagicRuleMatcher, MagicRule, MagicStringRule, MagicByteRule, GlobPattern     \sa QMimeTypeParser */
+comment|/*!     \class QMimeTypeParserBase     \inmodule QtCore     \internal     \brief The QMimeTypeParserBase class parses for a sequence of<mime-type> in a generic way.      Calls abstract handler function process for QMimeType it finds.      \sa QMimeDatabase, QMimeMagicRuleMatcher, MagicRule, MagicStringRule, MagicByteRule, GlobPattern     \sa QMimeTypeParser */
 end_comment
 begin_comment
 comment|/*!     \fn virtual bool QMimeTypeParserBase::process(const QMimeType&t, QString *errorMessage) = 0;     Overwrite to process the sequence of parsed data */

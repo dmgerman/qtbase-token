@@ -529,7 +529,7 @@ begin_comment
 comment|// QT_NO_SETTINGS
 end_comment
 begin_comment
-comment|/*!     \class QLibraryInfo     \brief The QLibraryInfo class provides information about the Qt library.      Many pieces of information are established when Qt is configured and built.     This class provides an abstraction for accessing that information.     By using the static functions of this class, an application can obtain     information about the instance of the Qt library which the application     is using at run-time.      You can also use a \c qt.conf file to override the hard-coded paths     that are compiled into the Qt library. For more information, see     the \l {Using qt.conf} documentation.      \sa QSysInfo, {Using qt.conf} */
+comment|/*!     \class QLibraryInfo     \inmodule QtCore     \brief The QLibraryInfo class provides information about the Qt library.      Many pieces of information are established when Qt is configured and built.     This class provides an abstraction for accessing that information.     By using the static functions of this class, an application can obtain     information about the instance of the Qt library which the application     is using at run-time.      You can also use a \c qt.conf file to override the hard-coded paths     that are compiled into the Qt library. For more information, see     the \l {Using qt.conf} documentation.      \sa QSysInfo, {Using qt.conf} */
 end_comment
 begin_ifndef
 ifndef|#
