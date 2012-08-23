@@ -3940,7 +3940,7 @@ begin_comment
 comment|/*!     \fn QMessageLogger::QMessageLogger(const char *file, int line, const char *function, const char *category)      Constructs a QMessageLogger to record \a category messages for \a file at \a line     in \a function. */
 end_comment
 begin_comment
-comment|/*!     \fn void QMessageLogger::noDebug(const char *, ...)     \internal      Ignores logging output      \sa QNoDebug, qDebug() */
+comment|/*!     \fn void QMessageLogger::noDebug(const char *, ...) const     \internal      Ignores logging output      \sa QNoDebug, qDebug() */
 end_comment
 begin_comment
 comment|/*!     \fn QMessageLogContext::QMessageLogContext()     \internal      Constructs a QMessageLogContext */

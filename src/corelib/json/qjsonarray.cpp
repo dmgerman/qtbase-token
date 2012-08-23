@@ -645,7 +645,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Inserts \a value at the beginning of the array.      This is the same as \c{insert(0, \a value)}.      \sa append(), insert()  */
+comment|/*!     Inserts \a value at the beginning of the array.      This is the same as \c{insert(0, value)} and will prepend \a value to the array.      \sa append(), insert()  */
 end_comment
 begin_function
 DECL|function|prepend
@@ -704,7 +704,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Removes the value at index position \a i. \a i must be a valid     index position in the array (i.e., \c{0<= \a i< size()}).      \sa insert(), replace()  */
+comment|/*!     Removes the value at index position \a i. \a i must be a valid     index position in the array (i.e., \c{0<= i< size()}).      \sa insert(), replace()  */
 end_comment
 begin_function
 DECL|function|removeAt
@@ -786,7 +786,7 @@ begin_comment
 comment|/*! \fn void QJsonArray::removeLast()      Removes the last item in the array. Calling this function is     equivalent to calling \c{removeAt(size() - 1)}. The array must not be     empty. If the array can be empty, call isEmpty() before calling     this function.      \sa removeAt(), removeFirst() */
 end_comment
 begin_comment
-comment|/*!     Removes the item at index position \a i and returns it. \a i must     be a valid index position in the array (i.e., \c{0<= \a i< size()}).      If you don't use the return value, removeAt() is more efficient.      \sa removeAt()  */
+comment|/*!     Removes the item at index position \a i and returns it. \a i must     be a valid index position in the array (i.e., \c{0<= i< size()}).      If you don't use the return value, removeAt() is more efficient.      \sa removeAt()  */
 end_comment
 begin_function
 DECL|function|takeAt
@@ -1058,7 +1058,7 @@ begin_comment
 comment|/*!     \fn QJsonArray::iterator QJsonArray::erase(iterator it)      Removes the item pointed to by \a it, and returns an iterator pointing to the     next item.      \sa removeAt() */
 end_comment
 begin_comment
-comment|/*!     Replaces the item at index position \a i with \a value. \a i must     be a valid index position in the array (i.e., \c{0<= \a i< size()}).      \sa operator[](), removeAt()  */
+comment|/*!     Replaces the item at index position \a i with \a value. \a i must     be a valid index position in the array (i.e., \c{0<= i< size()}).      \sa operator[](), removeAt()  */
 end_comment
 begin_function
 DECL|function|replace
@@ -1322,7 +1322,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the value at index position \a i as a modifiable reference.     \a i must be a valid index position in the array (i.e., \c{0<= \a i<     size()}).      The return value is of type QJsonValueRef, a helper class for QJsonArray     and QJsonObject. When you get an object of type QJsonValueRef, you can     use it as if it were a reference to a QJsonValue. If you assign to it,     the assignment will apply to the character in the QJsonArray of QJsonObject     from which you got the reference.      \sa at()  */
+comment|/*!     Returns the value at index position \a i as a modifiable reference.     \a i must be a valid index position in the array (i.e., \c{0<= i<     size()}).      The return value is of type QJsonValueRef, a helper class for QJsonArray     and QJsonObject. When you get an object of type QJsonValueRef, you can     use it as if it were a reference to a QJsonValue. If you assign to it,     the assignment will apply to the character in the QJsonArray of QJsonObject     from which you got the reference.      \sa at()  */
 end_comment
 begin_function
 DECL|function|operator []
@@ -1571,10 +1571,10 @@ begin_comment
 comment|/*! \fn QJsonArray::const_iterator QJsonArray::constEnd() const      Returns a const \l{STL-style iterator} pointing to the imaginary     item after the last item in the array.      \sa constBegin(), end() */
 end_comment
 begin_comment
-comment|/*! \fn void QJsonArray::push_back(const QJsonValue&value)      This function is provided for STL compatibility. It is equivalent     to \l{QJsonArray::append()}{append(\a value)}. */
+comment|/*! \fn void QJsonArray::push_back(const QJsonValue&value)      This function is provided for STL compatibility. It is equivalent     to \l{QJsonArray::append()}{append(value)} and will append \a value to the array. */
 end_comment
 begin_comment
-comment|/*! \fn void QJsonArray::push_front(const QJsonValue&value)      This function is provided for STL compatibility. It is equivalent     to \l{QJsonArray::prepend()}{prepend(\a value)}. */
+comment|/*! \fn void QJsonArray::push_front(const QJsonValue&value)      This function is provided for STL compatibility. It is equivalent     to \l{QJsonArray::prepend()}{prepend(value)} and will prepend \a value to the array. */
 end_comment
 begin_comment
 comment|/*! \fn void QJsonArray::pop_front()      This function is provided for STL compatibility. It is equivalent     to removeFirst(). The array must not be empty. If the array can be     empty, call isEmpty() before calling this function. */
@@ -1610,7 +1610,7 @@ begin_comment
 comment|/*! \fn QJsonValueRef QJsonArray::iterator::operator*() const      Returns a modifiable reference to the current item.      You can change the value of an item by using operator*() on the     left side of an assignment.      The return value is of type QJsonValueRef, a helper class for QJsonArray     and QJsonObject. When you get an object of type QJsonValueRef, you can     use it as if it were a reference to a QJsonValue. If you assign to it,     the assignment will apply to the character in the QJsonArray of QJsonObject     from which you got the reference. */
 end_comment
 begin_comment
-comment|/*! \fn QJsonValueRef QJsonArray::iterator::operator[](int j) const      Returns a modifiable reference to the item at position \c{*this + j}.      This function is provided to make QJsonArray iterators behave like C++     pointers.      The return value is of type QJsonValueRef, a helper class for QJsonArray     and QJsonObject. When you get an object of type QJsonValueRef, you can     use it as if it were a reference to a QJsonValue. If you assign to it,     the assignment will apply to the character in the QJsonArray of QJsonObject     from which you got the reference.      \sa operator+() */
+comment|/*! \fn QJsonValueRef QJsonArray::iterator::operator[](int j) const      Returns a modifiable reference to the item at offset \a j from the     item pointed to by this iterator (the item at position \c{*this + j}).      This function is provided to make QJsonArray iterators behave like C++     pointers.      The return value is of type QJsonValueRef, a helper class for QJsonArray     and QJsonObject. When you get an object of type QJsonValueRef, you can     use it as if it were a reference to a QJsonValue. If you assign to it,     the assignment will apply to the character in the QJsonArray of QJsonObject     from which you got the reference.      \sa operator+() */
 end_comment
 begin_comment
 comment|/*!     \fn bool QJsonArray::iterator::operator==(const iterator&other) const     \fn bool QJsonArray::iterator::operator==(const const_iterator&other) const      Returns \c true if \a other points to the same item as this     iterator; otherwise returns \c false.      \sa operator!=() */
@@ -1688,7 +1688,7 @@ begin_comment
 comment|/*! \fn QJsonValue QJsonArray::const_iterator::operator*() const      Returns the current item. */
 end_comment
 begin_comment
-comment|/*! \fn QJsonValue QJsonArray::const_iterator::operator[](int j) const      Returns the item at position \c{*this + j}.      This function is provided to make QJsonArray iterators behave like C++     pointers.      \sa operator+() */
+comment|/*! \fn QJsonValue QJsonArray::const_iterator::operator[](int j) const      Returns the item at offset \a j from the item pointed to by this iterator (the item at     position \c{*this + j}).      This function is provided to make QJsonArray iterators behave like C++     pointers.      \sa operator+() */
 end_comment
 begin_comment
 comment|/*! \fn bool QJsonArray::const_iterator::operator==(const const_iterator&other) const      Returns \c true if \a other points to the same item as this     iterator; otherwise returns \c false.      \sa operator!=() */
