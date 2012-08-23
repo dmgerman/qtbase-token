@@ -4091,14 +4091,6 @@ name|decorations
 operator||=
 name|MWM_DECOR_RESIZEH
 expr_stmt|;
-if|if
-condition|(
-name|flags
-operator|&
-name|Qt
-operator|::
-name|WindowTitleHint
-condition|)
 name|mwmhints
 operator|.
 name|decorations
