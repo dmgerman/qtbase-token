@@ -2805,6 +2805,8 @@ name|manifest_rc
 operator|<<
 literal|" echo 1 /* CREATEPROCESS_MANIFEST_RESOURCE_ID */ 24 /* RT_MANIFEST */ "
 operator|<<
+literal|'"'
+operator|<<
 name|QFileInfo
 argument_list|(
 name|unescapeFilePath
@@ -2816,7 +2818,7 @@ operator|.
 name|fileName
 argument_list|()
 operator|<<
-literal|">"
+literal|"\">"
 operator|<<
 name|manifest_rc
 expr_stmt|;
