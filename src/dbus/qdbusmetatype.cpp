@@ -565,8 +565,8 @@ argument_list|()
 expr_stmt|;
 endif|#
 directive|endif
-if|#
-directive|if
+ifdef|#
+directive|ifdef
 name|QT_BOOTSTRAPPED
 specifier|const
 name|int
