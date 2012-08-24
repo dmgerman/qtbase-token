@@ -120,7 +120,6 @@ return|;
 endif|#
 directive|endif
 specifier|static
-specifier|volatile
 name|bool
 name|triedToLoadLibrary
 init|=
