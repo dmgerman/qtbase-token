@@ -270,6 +270,13 @@ name|deref
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|d
+operator|->
+name|isMutable
+argument_list|()
+condition|)
 operator|(
 operator|*
 name|this
