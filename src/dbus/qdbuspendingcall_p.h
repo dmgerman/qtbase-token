@@ -171,14 +171,14 @@ name|DBusPendingCall
 operator|*
 name|pending
 block|;
-name|bool
-name|waitingForFinished
-block|;
 name|QString
 name|expectedReplySignature
 block|;
 name|int
 name|expectedReplyCount
+block|;
+name|bool
+name|waitingForFinished
 block|;
 comment|// }
 name|QDBusPendingCallPrivate
