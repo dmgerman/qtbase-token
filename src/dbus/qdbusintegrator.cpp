@@ -9668,6 +9668,13 @@ operator|.
 name|lock
 argument_list|()
 expr_stmt|;
+name|pcall
+operator|->
+name|waitForFinishedCondition
+operator|.
+name|wakeAll
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_function
