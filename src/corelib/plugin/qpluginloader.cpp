@@ -453,6 +453,12 @@ argument_list|(
 literal|"The shared library was not found."
 argument_list|)
 expr_stmt|;
+else|else
+name|d
+operator|->
+name|updatePluginState
+argument_list|()
+expr_stmt|;
 else|#
 directive|else
 if|if

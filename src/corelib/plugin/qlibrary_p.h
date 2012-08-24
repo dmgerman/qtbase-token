@@ -207,6 +207,10 @@ operator|::
 name|LoadHints
 name|loadHints
 expr_stmt|;
+name|void
+name|updatePluginState
+parameter_list|()
+function_decl|;
 name|bool
 name|isPlugin
 parameter_list|()
