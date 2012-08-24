@@ -4567,14 +4567,12 @@ name|q_resolveOpenSslSymbols
 parameter_list|()
 block|{
 specifier|static
-specifier|volatile
 name|bool
 name|symbolsResolved
 init|=
 literal|false
 decl_stmt|;
 specifier|static
-specifier|volatile
 name|bool
 name|triedToResolveSymbols
 init|=
