@@ -2175,7 +2175,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!/     Returns true if position \a pos is a valid cursor position.      In a Unicode context some positions in the text are not valid     cursor positions, because the position is inside a Unicode     surrogate or a grapheme cluster.      A grapheme cluster is a sequence of two or more Unicode characters     that form one indivisible entity on the screen. For example the     latin character `\Auml' can be represented in Unicode by two     characters, `A' (0x41), and the combining diaresis (0x308). A text     cursor can only validly be positioned before or after these two     characters, never between them since that wouldn't make sense. In     indic languages every syllable forms a grapheme cluster. */
+comment|/*!/     Returns true if position \a pos is a valid cursor position.      In a Unicode context some positions in the text are not valid     cursor positions, because the position is inside a Unicode     surrogate or a grapheme cluster.      A grapheme cluster is a sequence of two or more Unicode characters     that form one indivisible entity on the screen. For example the     latin character `\unicode{0xC4}' can be represented in Unicode by two     characters, `A' (0x41), and the combining diaresis (0x308). A text     cursor can only validly be positioned before or after these two     characters, never between them since that wouldn't make sense. In     indic languages every syllable forms a grapheme cluster. */
 end_comment
 begin_function
 DECL|function|isValidCursorPosition
@@ -3214,7 +3214,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the glyph indexes and positions for all glyphs in this QTextLayout. This is an     expensive function, and should not be called in a time sensitive context.      \since 4.8      \sa draw(), QPainter::drawGlyphRun() */
+comment|/*!     Returns the glyph indexes and positions for all glyphs corresponding to the \a length characters     starting at the position \a from in this QTextLayout. This is an expensive function, and should     not be called in a time sensitive context.      If \a from is less than zero, then the glyph run will begin at the first character in the     layout. If \a length is less than zero, it will span the entire string from the start position.      \since 4.8      \sa draw(), QPainter::drawGlyphRun() */
 end_comment
 begin_if
 if|#
