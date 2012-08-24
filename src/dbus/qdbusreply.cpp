@@ -185,6 +185,7 @@ operator|==
 name|QDBusMetaTypeId
 operator|::
 name|argument
+argument_list|()
 condition|)
 block|{
 comment|// compare signatures instead

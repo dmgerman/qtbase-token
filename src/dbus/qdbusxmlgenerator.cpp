@@ -862,6 +862,7 @@ operator|==
 name|QDBusMetaTypeId
 operator|::
 name|message
+argument_list|()
 condition|)
 continue|continue;
 comment|// signal with QDBusMessage argument?
@@ -925,6 +926,7 @@ operator|==
 name|QDBusMetaTypeId
 operator|::
 name|message
+argument_list|()
 condition|)
 block|{
 name|isScriptable

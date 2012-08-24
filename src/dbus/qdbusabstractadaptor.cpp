@@ -1084,6 +1084,7 @@ operator|==
 name|QDBusMetaTypeId
 operator|::
 name|message
+argument_list|()
 condition|)
 block|{
 comment|// invalid signal signature

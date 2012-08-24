@@ -320,6 +320,7 @@ operator|==
 name|QDBusMetaTypeId
 operator|::
 name|message
+argument_list|()
 condition|)
 block|{
 comment|// wildcard slot, can receive anything, so don't set the signature
@@ -339,6 +340,7 @@ operator|==
 name|QDBusMetaTypeId
 operator|::
 name|message
+argument_list|()
 condition|)
 operator|--
 name|count

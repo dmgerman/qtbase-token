@@ -3669,6 +3669,7 @@ operator|==
 name|QDBusMetaTypeId
 operator|::
 name|message
+argument_list|()
 condition|)
 block|{
 comment|// "no input parameters" is allowed as long as the message meta type is there
@@ -4018,6 +4019,7 @@ operator|==
 name|QDBusMetaTypeId
 operator|::
 name|message
+argument_list|()
 condition|)
 operator|--
 name|n
@@ -4553,6 +4555,7 @@ operator|!=
 name|QDBusMetaTypeId
 operator|::
 name|message
+argument_list|()
 condition|)
 block|{
 comment|// not found
@@ -4833,6 +4836,7 @@ operator|==
 name|QDBusMetaTypeId
 operator|::
 name|message
+argument_list|()
 condition|)
 break|break;
 specifier|const
@@ -5050,6 +5054,7 @@ operator|==
 name|QDBusMetaTypeId
 operator|::
 name|message
+argument_list|()
 condition|)
 block|{
 name|params
@@ -7178,6 +7183,7 @@ operator|!=
 name|QDBusMetaTypeId
 operator|::
 name|message
+argument_list|()
 condition|)
 name|hook
 operator|.

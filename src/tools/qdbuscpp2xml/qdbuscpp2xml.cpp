@@ -532,6 +532,7 @@ operator|==
 name|QDBusMetaTypeId
 operator|::
 name|message
+argument_list|()
 condition|)
 return|return
 name|QString
@@ -576,6 +577,7 @@ operator|==
 name|QDBusMetaTypeId
 operator|::
 name|message
+argument_list|()
 condition|)
 block|{
 name|isScriptable

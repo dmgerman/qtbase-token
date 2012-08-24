@@ -346,6 +346,7 @@ operator|==
 name|QDBusMetaTypeId
 operator|::
 name|variant
+argument_list|()
 condition|)
 block|{
 operator|*
@@ -376,6 +377,7 @@ operator|==
 name|QDBusMetaTypeId
 operator|::
 name|objectpath
+argument_list|()
 condition|)
 block|{
 operator|*
@@ -406,6 +408,7 @@ operator|==
 name|QDBusMetaTypeId
 operator|::
 name|signature
+argument_list|()
 condition|)
 block|{
 operator|*
@@ -447,6 +450,7 @@ operator|!=
 name|QDBusMetaTypeId
 operator|::
 name|argument
+argument_list|()
 condition|)
 block|{
 comment|// it's a mismatch

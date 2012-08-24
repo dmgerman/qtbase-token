@@ -1693,6 +1693,7 @@ operator|==
 name|QDBusMetaTypeId
 operator|::
 name|argument
+argument_list|()
 condition|)
 block|{
 comment|// we have to demarshall before writing

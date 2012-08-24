@@ -787,6 +787,7 @@ operator|==
 name|QDBusMetaTypeId
 operator|::
 name|argument
+argument_list|()
 condition|)
 block|{
 comment|// take the signature from the QDBusArgument object we're marshalling
@@ -1730,6 +1731,7 @@ operator|==
 name|QDBusMetaTypeId
 operator|::
 name|argument
+argument_list|()
 condition|)
 block|{
 name|QDBusArgument
