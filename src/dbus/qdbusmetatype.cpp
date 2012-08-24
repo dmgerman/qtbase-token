@@ -244,11 +244,13 @@ name|init
 parameter_list|()
 block|{
 specifier|static
-specifier|volatile
-name|bool
+name|QBasicAtomicInt
 name|initialized
 init|=
+name|Q_BASIC_ATOMIC_INITIALIZER
+argument_list|(
 literal|false
+argument_list|)
 decl_stmt|;
 comment|// reentrancy is not a problem since everything else is locked on their own
 comment|// set the guard variable at the end
@@ -256,6 +258,9 @@ if|if
 condition|(
 operator|!
 name|initialized
+operator|.
+name|load
+argument_list|()
 condition|)
 block|{
 comment|// register our types with QtCore (calling qMetaTypeId<T>() does this implicitly)
@@ -491,8 +496,11 @@ expr_stmt|;
 endif|#
 directive|endif
 name|initialized
-operator|=
+operator|.
+name|store
+argument_list|(
 literal|true
+argument_list|)
 expr_stmt|;
 block|}
 block|}
