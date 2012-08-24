@@ -1704,6 +1704,7 @@ specifier|const
 operator|=
 literal|0
 block|;
+name|virtual
 name|QIcon
 name|standardIcon
 argument_list|(
@@ -1716,6 +1717,8 @@ argument|const QWidget *widget =
 literal|0
 argument_list|)
 specifier|const
+operator|=
+literal|0
 block|;
 name|virtual
 name|QPixmap
@@ -1807,6 +1810,7 @@ argument_list|,
 argument|const QRect&rectangle
 argument_list|)
 block|;
+name|virtual
 name|int
 name|layoutSpacing
 argument_list|(
@@ -1823,6 +1827,8 @@ argument|const QWidget *widget =
 literal|0
 argument_list|)
 specifier|const
+operator|=
+literal|0
 block|;
 name|int
 name|combinedLayoutSpacing
@@ -1846,39 +1852,6 @@ name|QStyle
 operator|*
 name|proxy
 argument_list|()
-specifier|const
-block|;
-name|protected
-name|Q_SLOTS
-operator|:
-name|QIcon
-name|standardIconImplementation
-argument_list|(
-argument|StandardPixmap standardIcon
-argument_list|,
-argument|const QStyleOption *opt =
-literal|0
-argument_list|,
-argument|const QWidget *widget =
-literal|0
-argument_list|)
-specifier|const
-block|;
-name|int
-name|layoutSpacingImplementation
-argument_list|(
-argument|QSizePolicy::ControlType control1
-argument_list|,
-argument|QSizePolicy::ControlType control2
-argument_list|,
-argument|Qt::Orientation orientation
-argument_list|,
-argument|const QStyleOption *option =
-literal|0
-argument_list|,
-argument|const QWidget *widget =
-literal|0
-argument_list|)
 specifier|const
 block|;
 name|private
