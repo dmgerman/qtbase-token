@@ -100,12 +100,7 @@ block|;
 name|virtual
 name|void
 name|endPaint
-argument_list|(
-specifier|const
-name|QRegion
-operator|&
-name|region
-argument_list|)
+argument_list|()
 block|;
 name|virtual
 name|void
