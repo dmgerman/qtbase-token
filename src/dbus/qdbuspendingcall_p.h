@@ -171,7 +171,6 @@ name|DBusPendingCall
 operator|*
 name|pending
 block|;
-specifier|volatile
 name|bool
 name|waitingForFinished
 block|;
