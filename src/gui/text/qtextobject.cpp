@@ -4271,7 +4271,7 @@ begin_comment
 comment|/*!     \fn bool QTextFragment::operator<(const QTextFragment&other) const      Returns true if this text fragment appears earlier in the document     than the \a other text fragment; otherwise returns false. */
 end_comment
 begin_comment
-comment|/*!     Returns the glyphs of this text fragment. The positions of the glyphs are     relative to the position of the QTextBlock's layout.      \sa QGlyphRun, QTextBlock::layout(), QTextLayout::position(), QPainter::drawGlyphRun() */
+comment|/*!     Returns the glyphs corresponding to \a len characters of this text fragment starting at     position \a pos. The positions of the glyphs are relative to the position of the QTextBlock's     layout.      If \a pos is less than zero, it will default to the start of the QTextFragment. If \a len     is less than zero, it will default to the length of the fragment.      \sa QGlyphRun, QTextBlock::layout(), QTextLayout::position(), QPainter::drawGlyphRun() */
 end_comment
 begin_if
 if|#

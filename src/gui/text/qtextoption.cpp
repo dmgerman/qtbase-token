@@ -670,7 +670,7 @@ begin_comment
 comment|/*!     \fn bool Tab::operator!=(const Tab&other) const      Returns true if tab \a other is not equal to this tab;     otherwise returns false. */
 end_comment
 begin_comment
-comment|/*!   \fn void setTabs(QList<Tab> tabStops)   Set the Tab properties to \a tabStops.    \sa tabStop(), tabs() */
+comment|/*!   \fn void setTabs(const QList<Tab>&tabStops)   Set the Tab properties to \a tabStops.    \sa tabStop(), tabs() */
 end_comment
 begin_comment
 comment|/*!   \since 4.4   \fn QList<QTextOption::Tab> QTextOption::tabs() const   Returns a list of tab positions defined for the text layout.    \sa tabStop(), setTabs(), setTabStop() */
