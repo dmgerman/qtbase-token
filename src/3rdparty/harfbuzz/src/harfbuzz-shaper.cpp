@@ -4424,6 +4424,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|NO_OPENTYPE
+end_ifndef
 begin_function
 DECL|function|HB_SelectScript
 name|HB_Bool
@@ -6371,6 +6376,13 @@ literal|true
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// NO_OPENTYPE
+end_comment
 begin_function
 DECL|function|HB_ShapeItem
 name|HB_Bool

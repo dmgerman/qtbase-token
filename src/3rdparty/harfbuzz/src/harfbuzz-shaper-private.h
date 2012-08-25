@@ -587,6 +587,11 @@ name|attributes
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|NO_OPENTYPE
+end_ifndef
 begin_typedef
 typedef|typedef
 struct|struct
@@ -657,6 +662,13 @@ name|doLogClusters
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// NO_OPENTYPE
+end_comment
 begin_function_decl
 name|void
 name|HB_HeuristicPosition

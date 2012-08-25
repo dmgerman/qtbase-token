@@ -327,6 +327,11 @@ parameter_list|)
 define|\
 value|(TibetanForm)tibetanForm[c - 0x0f40]
 end_define
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|NO_OPENTYPE
+end_ifndef
 begin_decl_stmt
 DECL|variable|tibetan_features
 specifier|static
@@ -404,6 +409,10 @@ block|}
 block|}
 decl_stmt|;
 end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|tibetan_shape_syllable
 specifier|static
@@ -950,7 +959,7 @@ argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENTYPE
+name|NO_OPENTYPE
 name|openType
 operator|=
 name|HB_SelectScript
