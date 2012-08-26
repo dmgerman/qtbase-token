@@ -1758,7 +1758,7 @@ parameter_list|)
 specifier|const
 block|{
 specifier|const
-name|HB_CharAttributes
+name|QCharAttributes
 modifier|*
 name|attributes
 init|=
@@ -1847,7 +1847,7 @@ index|[
 name|oldPos
 index|]
 operator|.
-name|charStop
+name|graphemeBoundary
 condition|)
 name|oldPos
 operator|++
@@ -1958,7 +1958,7 @@ parameter_list|)
 specifier|const
 block|{
 specifier|const
-name|HB_CharAttributes
+name|QCharAttributes
 modifier|*
 name|attributes
 init|=
@@ -2010,7 +2010,7 @@ index|[
 name|oldPos
 index|]
 operator|.
-name|charStop
+name|graphemeBoundary
 condition|)
 name|oldPos
 operator|--
@@ -2190,7 +2190,7 @@ parameter_list|)
 specifier|const
 block|{
 specifier|const
-name|HB_CharAttributes
+name|QCharAttributes
 modifier|*
 name|attributes
 init|=
@@ -2231,7 +2231,7 @@ index|[
 name|pos
 index|]
 operator|.
-name|charStop
+name|graphemeBoundary
 return|;
 block|}
 end_function
@@ -6724,7 +6724,7 @@ name|alignment
 argument_list|()
 decl_stmt|;
 specifier|const
-name|HB_CharAttributes
+name|QCharAttributes
 modifier|*
 name|attributes
 init|=
@@ -7594,9 +7594,7 @@ operator|.
 name|currentPosition
 index|]
 operator|.
-name|lineBreakType
-operator|!=
-name|HB_NoBreak
+name|lineBreak
 condition|)
 block|{
 name|sb_or_ws
@@ -7617,7 +7615,7 @@ operator|.
 name|currentPosition
 index|]
 operator|.
-name|charStop
+name|graphemeBoundary
 condition|)
 block|{
 break|break;
@@ -7670,9 +7668,29 @@ operator|.
 name|currentPosition
 index|]
 operator|.
-name|lineBreakType
+name|lineBreak
+operator|&&
+name|eng
+operator|->
+name|layoutData
+operator|->
+name|string
+operator|.
+name|at
+argument_list|(
+name|lbh
+operator|.
+name|currentPosition
+operator|-
+literal|1
+argument_list|)
+operator|.
+name|unicode
+argument_list|()
 operator|==
-name|HB_SoftHyphen
+name|QChar
+operator|::
+name|SoftHyphen
 condition|)
 block|{
 comment|// if we are splitting up a word because of
@@ -12432,7 +12450,7 @@ name|int
 name|itm
 decl_stmt|;
 specifier|const
-name|HB_CharAttributes
+name|QCharAttributes
 modifier|*
 name|attributes
 init|=
@@ -12471,7 +12489,7 @@ index|[
 name|pos
 index|]
 operator|.
-name|charStop
+name|graphemeBoundary
 condition|)
 name|pos
 operator|++

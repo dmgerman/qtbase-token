@@ -175,7 +175,7 @@ name|boundingRectTopLeft
 parameter_list|()
 function_decl|;
 name|void
-name|charStopForSurrogatePairs
+name|graphemeBoundaryForSurrogatePairs
 parameter_list|()
 function_decl|;
 name|void
@@ -652,7 +652,7 @@ block|{
 if|#
 directive|if
 literal|0
-block|struct Breaks { 	const char *utf8; 	uchar breaks[32];     };     Breaks brks[] = { 	{ "11", { false, 0xff } }, 	{ "aa", { false, 0xff } }, 	{ "++", { false, 0xff } }, 	{ "--", { false, 0xff } }, 	{ "((", { false, 0xff } }, 	{ "))", { false, 0xff } }, 	{ "..", { false, 0xff } }, 	{ "\"\"", { false, 0xff } }, 	{ "$$", { false, 0xff } }, 	{ "!!", { false, 0xff } }, 	{ "??", { false, 0xff } }, 	{ ",,", { false, 0xff } },  	{ ")()", { true, false, 0xff } }, 	{ "?!?", { false, false, 0xff } }, 	{ ".,.", { false, false, 0xff } }, 	{ "+-+", { false, false, 0xff } }, 	{ "+=+", { false, false, 0xff } }, 	{ "+(+", { false, false, 0xff } }, 	{ "+)+", { false, false, 0xff } },  	{ "a b", { false, true, 0xff } }, 	{ "a(b", { false, false, 0xff } }, 	{ "a)b", { false, false, 0xff } }, 	{ "a-b", { false, true, 0xff } }, 	{ "a.b", { false, false, 0xff } }, 	{ "a+b", { false, false, 0xff } }, 	{ "a?b", { false, false, 0xff } }, 	{ "a!b", { false, false, 0xff } }, 	{ "a$b", { false, false, 0xff } }, 	{ "a,b", { false, false, 0xff } }, 	{ "a/b", { false, false, 0xff } }, 	{ "1/2", { false, false, 0xff } }, 	{ "./.", { false, false, 0xff } }, 	{ ",/,", { false, false, 0xff } }, 	{ "!/!", { false, false, 0xff } }, 	{ "\\/\\", { false, false, 0xff } }, 	{ "1 2", { false, true, 0xff } }, 	{ "1(2", { false, false, 0xff } }, 	{ "1)2", { false, false, 0xff } }, 	{ "1-2", { false, false, 0xff } }, 	{ "1.2", { false, false, 0xff } }, 	{ "1+2", { false, false, 0xff } }, 	{ "1?2", { false, true, 0xff } }, 	{ "1!2", { false, true, 0xff } }, 	{ "1$2", { false, false, 0xff } }, 	{ "1,2", { false, false, 0xff } }, 	{ "1/2", { false, false, 0xff } }, 	{ "\330\260\331\216\331\204\331\220\331\203\331\216", { false, false, false, false, false, 0xff } }, 	{ "\330\247\331\204\331\205 \330\247\331\204\331\205", { false, false, false, true, false, false, 0xff } }, 	{ "1#2", { false, false, 0xff } }, 	{ "!#!", { false, false, 0xff } }, 	{ 0, {} }     };     Breaks *b = brks;     while (b->utf8) {         QString str = QString::fromUtf8(b->utf8);         QTextEngine engine(str, QFont());         const HB_CharAttributes *attrs = engine.attributes();         QVERIFY(attrs[0].lineBreakType == HB_NoBreak);         int i;         for (i = 0; i< (int)str.length() - 1; ++i) {             QVERIFY(b->breaks[i] != 0xff);             if ( (attrs[i + 1].lineBreakType != HB_NoBreak) != (bool)b->breaks[i] ) {                 qDebug("test case \"%s\" failed at char %d; break type: %d", b->utf8, i, attrs[i + 1].lineBreakType);                 QCOMPARE( (attrs[i + 1].lineBreakType != HB_NoBreak), (bool)b->breaks[i] );             }         }         QCOMPARE(b->breaks[i], (uchar)0xff);         ++b;     }
+block|struct Breaks { 	const char *utf8; 	uchar breaks[32];     };     Breaks brks[] = { 	{ "11", { false, 0xff } }, 	{ "aa", { false, 0xff } }, 	{ "++", { false, 0xff } }, 	{ "--", { false, 0xff } }, 	{ "((", { false, 0xff } }, 	{ "))", { false, 0xff } }, 	{ "..", { false, 0xff } }, 	{ "\"\"", { false, 0xff } }, 	{ "$$", { false, 0xff } }, 	{ "!!", { false, 0xff } }, 	{ "??", { false, 0xff } }, 	{ ",,", { false, 0xff } },  	{ ")()", { true, false, 0xff } }, 	{ "?!?", { false, false, 0xff } }, 	{ ".,.", { false, false, 0xff } }, 	{ "+-+", { false, false, 0xff } }, 	{ "+=+", { false, false, 0xff } }, 	{ "+(+", { false, false, 0xff } }, 	{ "+)+", { false, false, 0xff } },  	{ "a b", { false, true, 0xff } }, 	{ "a(b", { false, false, 0xff } }, 	{ "a)b", { false, false, 0xff } }, 	{ "a-b", { false, true, 0xff } }, 	{ "a.b", { false, false, 0xff } }, 	{ "a+b", { false, false, 0xff } }, 	{ "a?b", { false, false, 0xff } }, 	{ "a!b", { false, false, 0xff } }, 	{ "a$b", { false, false, 0xff } }, 	{ "a,b", { false, false, 0xff } }, 	{ "a/b", { false, false, 0xff } }, 	{ "1/2", { false, false, 0xff } }, 	{ "./.", { false, false, 0xff } }, 	{ ",/,", { false, false, 0xff } }, 	{ "!/!", { false, false, 0xff } }, 	{ "\\/\\", { false, false, 0xff } }, 	{ "1 2", { false, true, 0xff } }, 	{ "1(2", { false, false, 0xff } }, 	{ "1)2", { false, false, 0xff } }, 	{ "1-2", { false, false, 0xff } }, 	{ "1.2", { false, false, 0xff } }, 	{ "1+2", { false, false, 0xff } }, 	{ "1?2", { false, true, 0xff } }, 	{ "1!2", { false, true, 0xff } }, 	{ "1$2", { false, false, 0xff } }, 	{ "1,2", { false, false, 0xff } }, 	{ "1/2", { false, false, 0xff } }, 	{ "\330\260\331\216\331\204\331\220\331\203\331\216", { false, false, false, false, false, 0xff } }, 	{ "\330\247\331\204\331\205 \330\247\331\204\331\205", { false, false, false, true, false, false, 0xff } }, 	{ "1#2", { false, false, 0xff } }, 	{ "!#!", { false, false, 0xff } }, 	{ 0, {} }     };     Breaks *b = brks;     while (b->utf8) {         QString str = QString::fromUtf8(b->utf8);         QTextEngine engine(str, QFont());         const QCharAttributes *attrs = engine.attributes();         QVERIFY(!attrs[0].lineBreak);         int i;         for (i = 0; i< (int)str.length() - 1; ++i) {             QVERIFY(b->breaks[i] != 0xff);             if ( attrs[i + 1].lineBreak != (bool)b->breaks[i] ) {                 qDebug("test case \"%s\" failed at char %d; break type: %d", b->utf8, i, attrs[i + 1].lineBreak);                 QCOMPARE( attrs[i + 1].lineBreak, (bool)b->breaks[i] );             }         }         QCOMPARE(b->breaks[i], (uchar)0xff);         ++b;     }
 endif|#
 directive|endif
 block|}
@@ -4851,7 +4851,7 @@ name|engine
 argument_list|()
 decl_stmt|;
 specifier|const
-name|HB_CharAttributes
+name|QCharAttributes
 modifier|*
 name|attrs
 init|=
@@ -4872,7 +4872,7 @@ index|[
 literal|1
 index|]
 operator|.
-name|charStop
+name|graphemeBoundary
 argument_list|)
 expr_stmt|;
 block|}
@@ -5170,11 +5170,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|charStopForSurrogatePairs
+DECL|function|graphemeBoundaryForSurrogatePairs
 name|void
 name|tst_QTextLayout
 operator|::
-name|charStopForSurrogatePairs
+name|graphemeBoundaryForSurrogatePairs
 parameter_list|()
 block|{
 name|QString
@@ -5226,7 +5226,7 @@ name|engine
 argument_list|()
 decl_stmt|;
 specifier|const
-name|HB_CharAttributes
+name|QCharAttributes
 modifier|*
 name|attrs
 init|=
@@ -5247,7 +5247,7 @@ index|[
 literal|0
 index|]
 operator|.
-name|charStop
+name|graphemeBoundary
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -5257,7 +5257,7 @@ index|[
 literal|1
 index|]
 operator|.
-name|charStop
+name|graphemeBoundary
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -5268,7 +5268,7 @@ index|[
 literal|2
 index|]
 operator|.
-name|charStop
+name|graphemeBoundary
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -5278,7 +5278,7 @@ index|[
 literal|3
 index|]
 operator|.
-name|charStop
+name|graphemeBoundary
 argument_list|)
 expr_stmt|;
 block|}

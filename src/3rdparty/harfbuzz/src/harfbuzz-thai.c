@@ -2643,16 +2643,16 @@ index|[
 name|i
 index|]
 operator|.
-name|lineBreakType
+name|lineBreak
 operator|=
-name|HB_NoBreak
+name|FALSE
 expr_stmt|;
 name|attributes
 index|[
 name|i
 index|]
 operator|.
-name|wordBoundary
+name|wordBreak
 operator|=
 name|FALSE
 expr_stmt|;
@@ -2720,7 +2720,7 @@ index|[
 literal|0
 index|]
 operator|.
-name|wordBoundary
+name|wordBreak
 operator|=
 name|TRUE
 expr_stmt|;
@@ -2763,7 +2763,7 @@ name|i
 index|]
 index|]
 operator|.
-name|wordBoundary
+name|wordBreak
 operator|=
 name|TRUE
 expr_stmt|;
@@ -2775,9 +2775,9 @@ name|i
 index|]
 index|]
 operator|.
-name|lineBreakType
+name|lineBreak
 operator|=
-name|HB_Break
+name|TRUE
 expr_stmt|;
 block|}
 if|if
@@ -2792,7 +2792,7 @@ name|break_positions
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* manage charStop */
+comment|/* manage grapheme boundaries */
 name|i
 operator|=
 literal|0
@@ -2833,7 +2833,7 @@ index|[
 name|i
 index|]
 operator|.
-name|charStop
+name|graphemeBoundary
 operator|=
 name|true
 expr_stmt|;
@@ -2857,11 +2857,11 @@ operator|+
 name|j
 index|]
 operator|.
-name|charStop
+name|graphemeBoundary
 operator|=
 name|false
 expr_stmt|;
-comment|/* Set charStop for SARA AM */
+comment|/* Set graphemeBoundary for SARA AM */
 if|if
 condition|(
 name|cstr
@@ -2887,7 +2887,7 @@ operator|-
 literal|1
 index|]
 operator|.
-name|charStop
+name|graphemeBoundary
 operator|=
 name|true
 expr_stmt|;

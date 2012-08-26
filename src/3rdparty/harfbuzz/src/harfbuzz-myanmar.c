@@ -4114,7 +4114,7 @@ index|[
 name|i
 index|]
 operator|.
-name|charStop
+name|graphemeBoundary
 operator|=
 name|TRUE
 expr_stmt|;
@@ -4123,9 +4123,9 @@ index|[
 name|i
 index|]
 operator|.
-name|lineBreakType
+name|lineBreak
 operator|=
-name|HB_Break
+name|TRUE
 expr_stmt|;
 if|if
 condition|(
@@ -4154,7 +4154,7 @@ index|[
 name|i
 index|]
 operator|.
-name|charStop
+name|graphemeBoundary
 operator|=
 name|FALSE
 expr_stmt|;

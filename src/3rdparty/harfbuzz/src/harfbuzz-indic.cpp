@@ -10689,7 +10689,7 @@ index|[
 name|i
 index|]
 operator|.
-name|charStop
+name|graphemeBoundary
 operator|=
 literal|true
 expr_stmt|;
@@ -10720,7 +10720,7 @@ index|[
 name|i
 index|]
 operator|.
-name|charStop
+name|graphemeBoundary
 operator|=
 literal|false
 expr_stmt|;

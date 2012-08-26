@@ -140,6 +140,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<private/qunicodetools_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<stdlib.h>
 end_include
 begin_decl_stmt
@@ -2402,7 +2407,7 @@ name|visualOrder
 parameter_list|)
 function_decl|;
 specifier|const
-name|HB_CharAttributes
+name|QCharAttributes
 operator|*
 name|attributes
 argument_list|()
@@ -3642,7 +3647,7 @@ modifier|*
 name|logClusters
 parameter_list|,
 specifier|const
-name|HB_CharAttributes
+name|QCharAttributes
 modifier|*
 name|attributes
 parameter_list|,
