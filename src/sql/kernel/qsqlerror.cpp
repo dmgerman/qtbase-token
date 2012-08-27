@@ -75,7 +75,7 @@ begin_comment
 comment|/*!     \class QSqlError     \brief The QSqlError class provides SQL database error information.      \ingroup database     \inmodule QtSql      A QSqlError object can provide database-specific error data,     including the driverText() and databaseText() messages (or both     concatenated together as text()), and the error number() and     type(). The functions all have setters so that you can create and     return QSqlError objects from your own classes, for example from     your own SQL drivers.      \sa QSqlDatabase::lastError(), QSqlQuery::lastError() */
 end_comment
 begin_comment
-comment|/*!     \enum QSqlError::ErrorType      This enum type describes the context in which the error occurred, e.g., a connection error, a statement error, etc.      \value NoError  No error occurred.     \value ConnectionError  Connection error.     \value StatementError  SQL statement syntax error.     \value TransactionError  Transaction failed error.     \value UnknownError  Unknown error.      \omitvalue None     \omitvalue Connection     \omitvalue Statement     \omitvalue Transaction     \omitvalue Unknown */
+comment|/*!     \enum QSqlError::ErrorType      This enum type describes the context in which the error occurred, e.g., a connection error, a statement error, etc.      \value NoError  No error occurred.     \value ConnectionError  Connection error.     \value StatementError  SQL statement syntax error.     \value TransactionError  Transaction failed error.     \value UnknownError  Unknown error. */
 end_comment
 begin_comment
 comment|/*!     Constructs an error containing the driver error text \a     driverText, the database-specific error text \a databaseText, the     type \a type and the optional error number \a number. */

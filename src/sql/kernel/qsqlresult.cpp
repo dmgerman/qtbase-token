@@ -974,7 +974,7 @@ begin_comment
 comment|/*!     \class QSqlResult     \brief The QSqlResult class provides an abstract interface for     accessing data from specific SQL databases.      \ingroup database     \inmodule QtSql      Normally, you would use QSqlQuery instead of QSqlResult, since     QSqlQuery provides a generic wrapper for database-specific     implementations of QSqlResult.      If you are implementing your own SQL driver (by subclassing     QSqlDriver), you will need to provide your own QSqlResult     subclass that implements all the pure virtual functions and other     virtual functions that you need.      \sa QSqlDriver */
 end_comment
 begin_comment
-comment|/*!     \enum QSqlResult::BindingSyntax      This enum type specifies the different syntaxes for specifying     placeholders in prepared queries.      \value PositionalBinding Use the ODBC-style positional syntax, with "?" as placeholders.     \value NamedBinding Use the Oracle-style syntax with named placeholders (e.g., ":id")     \omitvalue BindByPosition     \omitvalue BindByName      \sa bindingSyntax() */
+comment|/*!     \enum QSqlResult::BindingSyntax      This enum type specifies the different syntaxes for specifying     placeholders in prepared queries.      \value PositionalBinding Use the ODBC-style positional syntax, with "?" as placeholders.     \value NamedBinding Use the Oracle-style syntax with named placeholders (e.g., ":id")      \sa bindingSyntax() */
 end_comment
 begin_comment
 comment|/*!     \enum QSqlResult::VirtualHookOperation     \internal */
