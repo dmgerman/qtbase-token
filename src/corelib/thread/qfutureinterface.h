@@ -16,11 +16,6 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtConcurrent/qtconcurrent_global.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtCore/qrunnable.h>
 end_include
 begin_ifndef
@@ -76,7 +71,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_CONCURRENT_EXPORT
+name|Q_CORE_EXPORT
 name|QFutureInterfaceBase
 block|{
 name|public
@@ -1462,7 +1457,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_CONCURRENT
+comment|// QT_NO_QFUTURE
 end_comment
 begin_endif
 endif|#

@@ -21,15 +21,6 @@ end_include
 begin_expr_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-ifdef|#
-directive|ifdef
-name|QT_NO_CONCURRENT
-DECL|macro|QT_NO_QFUTURE
-define|#
-directive|define
-name|QT_NO_QFUTURE
-endif|#
-directive|endif
 ifndef|#
 directive|ifndef
 name|QT_STATIC

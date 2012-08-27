@@ -21,7 +21,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtConcurrent/qfuture.h>
+file|<QtCore/qfuture.h>
 end_include
 begin_ifndef
 ifndef|#

@@ -2654,6 +2654,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_CONCURRENT
+comment|// QT_NO_QFUTURE
 end_comment
 end_unit

@@ -46,11 +46,6 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtConcurrent/qtconcurrent_global.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtCore/qelapsedtimer.h>
 end_include
 begin_include
@@ -344,7 +339,9 @@ empty_stmt|;
 end_empty_stmt
 begin_decl_stmt
 name|class
+name|Q_CORE_EXPORT
 name|QFutureInterfaceBasePrivate
+comment|// ### temporary
 block|{
 name|public
 label|:
