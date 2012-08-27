@@ -2992,45 +2992,39 @@ return|return
 name|id
 return|;
 specifier|const
-name|int
-name|len
+name|char
+operator|*
+specifier|const
+name|cName
 operator|=
-name|int
+name|T
+operator|::
+name|staticMetaObject
+operator|.
+name|className
+argument_list|()
+block|;
+name|QByteArray
+name|typeName
+block|;
+name|typeName
+operator|.
+name|reserve
 argument_list|(
 name|strlen
 argument_list|(
-name|T
-operator|::
-name|staticMetaObject
-operator|.
-name|className
-argument_list|()
+name|cName
 argument_list|)
+operator|+
+literal|1
 argument_list|)
 block|;
-name|QVarLengthArray
-operator|<
-name|char
-block|,
-literal|16
-operator|>
-name|classNameStar
-block|;
-name|classNameStar
+name|typeName
 operator|.
 name|append
 argument_list|(
-name|T
-operator|::
-name|staticMetaObject
-operator|.
-name|className
-argument_list|()
-argument_list|,
-name|len
+name|cName
 argument_list|)
-block|;
-name|classNameStar
 operator|.
 name|append
 argument_list|(
@@ -3047,19 +3041,7 @@ name|T
 operator|*
 operator|>
 operator|(
-expr|\
-name|QByteArray
-argument_list|(
-name|classNameStar
-operator|.
-name|constData
-argument_list|()
-argument_list|,
-name|classNameStar
-operator|.
-name|size
-argument_list|()
-argument_list|)
+name|typeName
 operator|,
 name|reinterpret_cast
 operator|<
@@ -3276,7 +3258,7 @@ parameter_list|(
 name|SINGLE_ARG_TEMPLATE
 parameter_list|)
 define|\
-value|template<typename T> \ struct QMetaTypeId< SINGLE_ARG_TEMPLATE<T>> \ { \     enum { \         Defined = QMetaTypeId2<T>::Defined \     }; \     static int qt_metatype_id() \     { \         static QBasicAtomicInt metatype_id = Q_BASIC_ATOMIC_INITIALIZER(0); \         if (const int id = metatype_id.load()) \             return id; \         QVarLengthArray<char, 24> name; \         name.append(#SINGLE_ARG_TEMPLATE, int(sizeof(#SINGLE_ARG_TEMPLATE)) - 1); \         name.append('<'); \         const char *tName = QMetaType::typeName(qMetaTypeId<T>()); \         Q_ASSERT(tName); \         name.append(tName, int(strlen(tName))); \         if (name.last() == '>') \             name.append(' '); \         name.append('>'); \         const int newId = qRegisterNormalizedMetaType< SINGLE_ARG_TEMPLATE<T>>(     \                         QByteArray(name.constData(), name.size()), \                         reinterpret_cast< SINGLE_ARG_TEMPLATE<T> *>(quintptr(-1))); \         metatype_id.storeRelease(newId); \         return newId; \     } \ };
+value|template<typename T> \ struct QMetaTypeId< SINGLE_ARG_TEMPLATE<T>> \ { \     enum { \         Defined = QMetaTypeId2<T>::Defined \     }; \     static int qt_metatype_id() \     { \         static QBasicAtomicInt metatype_id = Q_BASIC_ATOMIC_INITIALIZER(0); \         if (const int id = metatype_id.load()) \             return id; \         const char *tName = QMetaType::typeName(qMetaTypeId<T>()); \         Q_ASSERT(tName); \         const int tNameLen = qstrlen(tName); \         QByteArray typeName; \         typeName.reserve(sizeof(#SINGLE_ARG_TEMPLATE) + 1 + tNameLen + 1 + 1); \         typeName.append(#SINGLE_ARG_TEMPLATE, sizeof(#SINGLE_ARG_TEMPLATE) - 1) \             .append('<').append(tName, tNameLen); \         if (typeName.endsWith('>')) \             typeName.append(' '); \         typeName.append('>'); \         const int newId = qRegisterNormalizedMetaType< SINGLE_ARG_TEMPLATE<T>>( \                         typeName, \                         reinterpret_cast< SINGLE_ARG_TEMPLATE<T> *>(quintptr(-1))); \         metatype_id.storeRelease(newId); \         return newId; \     } \ };
 end_define
 begin_define
 DECL|macro|Q_DECLARE_METATYPE_TEMPLATE_2ARG
@@ -3287,7 +3269,7 @@ parameter_list|(
 name|DOUBLE_ARG_TEMPLATE
 parameter_list|)
 define|\
-value|template<typename T, typename U> \ struct QMetaTypeId< DOUBLE_ARG_TEMPLATE<T, U>> \ { \     enum { \         Defined = QMetaTypeId2<T>::Defined&& QMetaTypeId2<U>::Defined \     }; \     static int qt_metatype_id() \     { \         static QBasicAtomicInt metatype_id = Q_BASIC_ATOMIC_INITIALIZER(0); \         if (const int id = metatype_id.loadAcquire()) \             return id; \         QVarLengthArray<char, 24> name; \         name.append(#DOUBLE_ARG_TEMPLATE, sizeof(#DOUBLE_ARG_TEMPLATE) - 1); \         name.append('<'); \         const char *tName = QMetaType::typeName(qMetaTypeId<T>()); \         Q_ASSERT(tName); \         name.append(tName, int(strlen(tName))); \         name.append(','); \         const char *uName = QMetaType::typeName(qMetaTypeId<U>()); \         Q_ASSERT(uName); \         name.append(uName, int(strlen(uName))); \         if (name.last() == '>') \             name.append(' '); \         name.append('>'); \         const int newId = qRegisterNormalizedMetaType< DOUBLE_ARG_TEMPLATE<T, U>>(\                         QByteArray(name.constData(), name.size()), \                         reinterpret_cast< DOUBLE_ARG_TEMPLATE<T, U> *>(quintptr(-1))); \         metatype_id.storeRelease(newId); \         return newId; \     } \ };
+value|template<typename T, typename U> \ struct QMetaTypeId< DOUBLE_ARG_TEMPLATE<T, U>> \ { \     enum { \         Defined = QMetaTypeId2<T>::Defined&& QMetaTypeId2<U>::Defined \     }; \     static int qt_metatype_id() \     { \         static QBasicAtomicInt metatype_id = Q_BASIC_ATOMIC_INITIALIZER(0); \         if (const int id = metatype_id.loadAcquire()) \             return id; \         const char *tName = QMetaType::typeName(qMetaTypeId<T>()); \         const char *uName = QMetaType::typeName(qMetaTypeId<U>()); \         Q_ASSERT(tName); \         Q_ASSERT(uName); \         const int tNameLen = qstrlen(tName); \         const int uNameLen = qstrlen(uName); \         QByteArray typeName; \         typeName.reserve(sizeof(#DOUBLE_ARG_TEMPLATE) + 1 + tNameLen + 1 + uNameLen + 1 + 1); \         typeName.append(#DOUBLE_ARG_TEMPLATE, sizeof(#DOUBLE_ARG_TEMPLATE) - 1) \             .append('<').append(tName, tNameLen).append(',').append(uName, uNameLen); \         if (typeName.endsWith('>')) \             typeName.append(' '); \         typeName.append('>'); \         const int newId = qRegisterNormalizedMetaType< DOUBLE_ARG_TEMPLATE<T, U>>(\                         typeName, \                         reinterpret_cast< DOUBLE_ARG_TEMPLATE<T, U> *>(quintptr(-1))); \         metatype_id.storeRelease(newId); \         return newId; \     } \ };
 end_define
 begin_define
 DECL|macro|Q_DECLARE_SMART_POINTER_METATYPE
@@ -3298,7 +3280,7 @@ parameter_list|(
 name|SMART_POINTER
 parameter_list|)
 define|\
-value|template<typename T, bool = QtPrivate::IsPointerToTypeDerivedFromQObject<T*>::Value> \ struct QMetaTypeId_ ## SMART_POINTER ## _QObjectStar \ { \     enum { \         Defined = 0 \     }; \ };\  \ template<typename T> \ struct QMetaTypeId_ ## SMART_POINTER ## _QObjectStar<T, true> \ { \     enum { \         Defined = 1 \     }; \     static int qt_metatype_id() \     { \         static QBasicAtomicInt metatype_id = Q_BASIC_ATOMIC_INITIALIZER(0); \         if (const int id = metatype_id.loadAcquire()) \             return id; \         const int newId = qRegisterNormalizedMetaType< SMART_POINTER<T>>( #SMART_POINTER "<" + QByteArray(T::staticMetaObject.className()) + ">", \                         reinterpret_cast< SMART_POINTER<T> *>(quintptr(-1))); \         metatype_id.storeRelease(newId); \         return newId; \     } \ }; \ \ template<typename T> \ struct QMetaTypeId< SMART_POINTER<T>> : public QMetaTypeId_ ## SMART_POINTER ## _QObjectStar<T> \ { \ };
+value|template<typename T, bool = QtPrivate::IsPointerToTypeDerivedFromQObject<T*>::Value> \ struct QMetaTypeId_ ## SMART_POINTER ## _QObjectStar \ { \     enum { \         Defined = 0 \     }; \ };\  \ template<typename T> \ struct QMetaTypeId_ ## SMART_POINTER ## _QObjectStar<T, true> \ { \     enum { \         Defined = 1 \     }; \     static int qt_metatype_id() \     { \         static QBasicAtomicInt metatype_id = Q_BASIC_ATOMIC_INITIALIZER(0); \         if (const int id = metatype_id.loadAcquire()) \             return id; \         const char * const cName = T::staticMetaObject.className(); \         QByteArray typeName; \         typeName.reserve(sizeof(#SMART_POINTER) + 1 + strlen(cName) + 1); \         typeName.append(#SMART_POINTER, sizeof(#SMART_POINTER) - 1) \             .append('<').append(cName).append('>'); \         const int newId = qRegisterNormalizedMetaType< SMART_POINTER<T>>( \                         typeName, \                         reinterpret_cast< SMART_POINTER<T> *>(quintptr(-1))); \         metatype_id.storeRelease(newId); \         return newId; \     } \ }; \ \ template<typename T> \ struct QMetaTypeId< SMART_POINTER<T>> : public QMetaTypeId_ ## SMART_POINTER ## _QObjectStar<T> \ { \ };
 end_define
 begin_define
 DECL|macro|QT_FOR_EACH_AUTOMATIC_TEMPLATE_1ARG
