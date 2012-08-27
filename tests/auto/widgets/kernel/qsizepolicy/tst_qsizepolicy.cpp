@@ -232,7 +232,7 @@ name|ITEMCOUNT
 parameter_list|(
 name|arr
 parameter_list|)
-value|sizeof(arr)/sizeof(arr[0])
+value|int(sizeof(arr)/sizeof(arr[0]))
 name|QSizePolicy
 name|sp
 decl_stmt|,
