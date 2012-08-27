@@ -38582,11 +38582,11 @@ begin_comment
 comment|/*!     \internal */
 end_comment
 begin_function
-DECL|function|standardIconImplementation
+DECL|function|standardIcon
 name|QIcon
 name|QCommonStyle
 operator|::
-name|standardIconImplementation
+name|standardIcon
 parameter_list|(
 name|StandardPixmap
 name|standardIcon
@@ -39350,7 +39350,9 @@ condition|(
 name|rtl
 condition|)
 return|return
-name|standardIconImplementation
+name|QCommonStyle
+operator|::
+name|standardIcon
 argument_list|(
 name|SP_ArrowLeft
 argument_list|,
@@ -39360,7 +39362,9 @@ name|widget
 argument_list|)
 return|;
 return|return
-name|standardIconImplementation
+name|QCommonStyle
+operator|::
+name|standardIcon
 argument_list|(
 name|SP_ArrowRight
 argument_list|,
@@ -39377,7 +39381,9 @@ condition|(
 name|rtl
 condition|)
 return|return
-name|standardIconImplementation
+name|QCommonStyle
+operator|::
+name|standardIcon
 argument_list|(
 name|SP_ArrowRight
 argument_list|,
@@ -39387,7 +39393,9 @@ name|widget
 argument_list|)
 return|;
 return|return
-name|standardIconImplementation
+name|QCommonStyle
+operator|::
+name|standardIcon
 argument_list|(
 name|SP_ArrowLeft
 argument_list|,
@@ -39425,7 +39433,9 @@ block|{
 name|QIcon
 name|baseIcon
 init|=
-name|standardIconImplementation
+name|QCommonStyle
+operator|::
+name|standardIcon
 argument_list|(
 name|SP_FileIcon
 argument_list|,
@@ -39567,7 +39577,9 @@ block|{
 name|QIcon
 name|baseIcon
 init|=
-name|standardIconImplementation
+name|QCommonStyle
+operator|::
+name|standardIcon
 argument_list|(
 name|SP_DirIcon
 argument_list|,
@@ -40287,7 +40299,9 @@ case|case
 name|SP_FileDialogBack
 case|:
 return|return
-name|standardIconImplementation
+name|QCommonStyle
+operator|::
+name|standardIcon
 argument_list|(
 name|SP_ArrowBack
 argument_list|,
@@ -40300,7 +40314,9 @@ case|case
 name|SP_FileDialogToParent
 case|:
 return|return
-name|standardIconImplementation
+name|QCommonStyle
+operator|::
+name|standardIcon
 argument_list|(
 name|SP_ArrowUp
 argument_list|,
@@ -41142,7 +41158,9 @@ condition|(
 name|rtl
 condition|)
 return|return
-name|standardIconImplementation
+name|QCommonStyle
+operator|::
+name|standardIcon
 argument_list|(
 name|SP_ArrowLeft
 argument_list|,
@@ -41152,7 +41170,9 @@ name|widget
 argument_list|)
 return|;
 return|return
-name|standardIconImplementation
+name|QCommonStyle
+operator|::
+name|standardIcon
 argument_list|(
 name|SP_ArrowRight
 argument_list|,
@@ -41169,7 +41189,9 @@ condition|(
 name|rtl
 condition|)
 return|return
-name|standardIconImplementation
+name|QCommonStyle
+operator|::
+name|standardIcon
 argument_list|(
 name|SP_ArrowRight
 argument_list|,
@@ -41179,7 +41201,9 @@ name|widget
 argument_list|)
 return|;
 return|return
-name|standardIconImplementation
+name|QCommonStyle
+operator|::
+name|standardIcon
 argument_list|(
 name|SP_ArrowLeft
 argument_list|,
@@ -42874,6 +42898,49 @@ break|break;
 block|}
 return|return
 name|pixmap
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!   \reimp */
+end_comment
+begin_function
+DECL|function|layoutSpacing
+name|int
+name|QCommonStyle
+operator|::
+name|layoutSpacing
+parameter_list|(
+name|QSizePolicy
+operator|::
+name|ControlType
+comment|/* control1 */
+parameter_list|,
+name|QSizePolicy
+operator|::
+name|ControlType
+comment|/* control2 */
+parameter_list|,
+name|Qt
+operator|::
+name|Orientation
+comment|/* orientation */
+parameter_list|,
+specifier|const
+name|QStyleOption
+modifier|*
+comment|/* option */
+parameter_list|,
+specifier|const
+name|QWidget
+modifier|*
+comment|/* widget */
+parameter_list|)
+specifier|const
+block|{
+return|return
+operator|-
+literal|1
 return|;
 block|}
 end_function

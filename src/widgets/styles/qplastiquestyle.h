@@ -232,11 +232,8 @@ name|standardPalette
 argument_list|()
 specifier|const
 block|;
-name|protected
-name|Q_SLOTS
-operator|:
 name|QIcon
-name|standardIconImplementation
+name|standardIcon
 argument_list|(
 argument|StandardPixmap standardIcon
 argument_list|,
@@ -249,7 +246,7 @@ argument_list|)
 specifier|const
 block|;
 name|int
-name|layoutSpacingImplementation
+name|layoutSpacing
 argument_list|(
 argument|QSizePolicy::ControlType control1
 argument_list|,

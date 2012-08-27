@@ -169,6 +169,19 @@ literal|0
 argument_list|)
 specifier|const
 block|;
+name|QIcon
+name|standardIcon
+argument_list|(
+argument|StandardPixmap standardIcon
+argument_list|,
+argument|const QStyleOption *opt =
+literal|0
+argument_list|,
+argument|const QWidget *widget =
+literal|0
+argument_list|)
+specifier|const
+block|;
 name|QPixmap
 name|standardPixmap
 argument_list|(
@@ -190,6 +203,23 @@ argument_list|,
 argument|const QPixmap&pixmap
 argument_list|,
 argument|const QStyleOption *opt
+argument_list|)
+specifier|const
+block|;
+name|int
+name|layoutSpacing
+argument_list|(
+argument|QSizePolicy::ControlType control1
+argument_list|,
+argument|QSizePolicy::ControlType control2
+argument_list|,
+argument|Qt::Orientation orientation
+argument_list|,
+argument|const QStyleOption *option =
+literal|0
+argument_list|,
+argument|const QWidget *widget =
+literal|0
 argument_list|)
 specifier|const
 block|;
@@ -231,22 +261,6 @@ name|QApplication
 operator|*
 name|application
 argument_list|)
-block|;
-name|protected
-name|Q_SLOTS
-operator|:
-name|QIcon
-name|standardIconImplementation
-argument_list|(
-argument|StandardPixmap standardIcon
-argument_list|,
-argument|const QStyleOption *opt =
-literal|0
-argument_list|,
-argument|const QWidget *widget =
-literal|0
-argument_list|)
-specifier|const
 block|;
 name|protected
 operator|:

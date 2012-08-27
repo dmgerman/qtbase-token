@@ -22712,14 +22712,14 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal */
+comment|/*!     \reimp */
 end_comment
 begin_function
-DECL|function|standardIconImplementation
+DECL|function|standardIcon
 name|QIcon
 name|QGtkStyle
 operator|::
-name|standardIconImplementation
+name|standardIcon
 parameter_list|(
 name|StandardPixmap
 name|standardIcon
@@ -22753,7 +22753,7 @@ condition|)
 return|return
 name|QCleanlooksStyle
 operator|::
-name|standardIconImplementation
+name|standardIcon
 argument_list|(
 name|standardIcon
 argument_list|,
@@ -22922,7 +22922,7 @@ default|default:
 return|return
 name|QCleanlooksStyle
 operator|::
-name|standardIconImplementation
+name|standardIcon
 argument_list|(
 name|standardIcon
 argument_list|,

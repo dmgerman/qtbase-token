@@ -1492,14 +1492,14 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns an icon for the given \a standardIcon.    Reimplement this slot to provide your own icons in a QStyle   subclass. The \a option argument can be used to pass extra   information required to find the appropriate icon. The \a widget   argument is optional and can also be used to help find the icon.    \note Because of binary compatibility constraints, standardIcon()   introduced in Qt 4.1 is not virtual. Therefore it must dynamically   detect and call \e this slot.  This default implementation simply   calls standardIcon() with the given parameters.    \sa standardIcon()  */
+comment|/*!   Returns an icon for the given \a standardIcon.    Reimplement this slot to provide your own icons in a QStyle   subclass. The \a option argument can be used to pass extra   information required to find the appropriate icon. The \a widget   argument is optional and can also be used to help find the icon.  */
 end_comment
 begin_function
-DECL|function|standardIconImplementation
+DECL|function|standardIcon
 name|QIcon
 name|QProxyStyle
 operator|::
-name|standardIconImplementation
+name|standardIcon
 parameter_list|(
 name|StandardPixmap
 name|standardIcon
@@ -1544,14 +1544,14 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   This slot is called by layoutSpacing() to determine the spacing that   should be used between \a control1 and \a control2 in a layout. \a   orientation specifies whether the controls are laid out side by side   or stacked vertically. The \a option parameter can be used to pass   extra information about the parent widget.  The \a widget parameter   is optional and can also be used if \a option is 0.    The default implementation returns -1.    \sa layoutSpacing(), combinedLayoutSpacing()  */
+comment|/*!   This slot is called by layoutSpacing() to determine the spacing that   should be used between \a control1 and \a control2 in a layout. \a   orientation specifies whether the controls are laid out side by side   or stacked vertically. The \a option parameter can be used to pass   extra information about the parent widget.  The \a widget parameter   is optional and can also be used if \a option is 0.    The default implementation returns -1.    \sa combinedLayoutSpacing()  */
 end_comment
 begin_function
-DECL|function|layoutSpacingImplementation
+DECL|function|layoutSpacing
 name|int
 name|QProxyStyle
 operator|::
-name|layoutSpacingImplementation
+name|layoutSpacing
 parameter_list|(
 name|QSizePolicy
 operator|::

@@ -221,15 +221,13 @@ literal|0
 argument_list|)
 specifier|const
 block|;
-name|protected
-name|Q_SLOTS
-operator|:
 name|QIcon
-name|standardIconImplementation
+name|standardIcon
 argument_list|(
 argument|StandardPixmap standardIcon
 argument_list|,
-argument|const QStyleOption *option
+argument|const QStyleOption *option =
+literal|0
 argument_list|,
 argument|const QWidget *widget =
 literal|0

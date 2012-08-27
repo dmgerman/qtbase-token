@@ -45804,14 +45804,14 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal */
+comment|/*!     \reimp */
 end_comment
 begin_function
-DECL|function|standardIconImplementation
+DECL|function|standardIcon
 name|QIcon
 name|QPlastiqueStyle
 operator|::
-name|standardIconImplementation
+name|standardIcon
 parameter_list|(
 name|StandardPixmap
 name|standardIcon
@@ -45831,7 +45831,7 @@ block|{
 return|return
 name|QWindowsStyle
 operator|::
-name|standardIconImplementation
+name|standardIcon
 argument_list|(
 name|standardIcon
 argument_list|,
@@ -45907,14 +45907,14 @@ parameter_list|)
 value|(((uint)c1<< 16) | (uint)c2)
 end_define
 begin_comment
-comment|/*!     \internal */
+comment|/*!     \reimp */
 end_comment
 begin_function
-DECL|function|layoutSpacingImplementation
+DECL|function|layoutSpacing
 name|int
 name|QPlastiqueStyle
 operator|::
-name|layoutSpacingImplementation
+name|layoutSpacing
 parameter_list|(
 name|QSizePolicy
 operator|::

@@ -248,6 +248,19 @@ argument|const QWidget *widget
 argument_list|)
 specifier|const
 block|;
+name|QIcon
+name|standardIcon
+argument_list|(
+argument|StandardPixmap standardIcon
+argument_list|,
+argument|const QStyleOption *option =
+literal|0
+argument_list|,
+argument|const QWidget *widget =
+literal|0
+argument_list|)
+specifier|const
+block|;
 name|QPixmap
 name|standardPixmap
 argument_list|(
@@ -337,21 +350,6 @@ operator|=
 name|QString
 argument_list|()
 argument_list|)
-block|;
-name|protected
-name|Q_SLOTS
-operator|:
-name|QIcon
-name|standardIconImplementation
-argument_list|(
-argument|StandardPixmap standardIcon
-argument_list|,
-argument|const QStyleOption *option
-argument_list|,
-argument|const QWidget *widget =
-literal|0
-argument_list|)
-specifier|const
 block|; }
 decl_stmt|;
 end_decl_stmt
