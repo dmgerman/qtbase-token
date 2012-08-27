@@ -393,7 +393,7 @@ decl_stmt|;
 name|int
 name|pendingResults
 decl_stmt|;
-name|QtConcurrent
+name|QtPrivate
 operator|::
 name|ResultStoreBase
 name|m_results

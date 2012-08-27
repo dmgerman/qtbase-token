@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qtconcurrentresultstore.h"
+file|"qresultstore.h"
 end_include
 begin_ifndef
 ifndef|#
@@ -16,9 +16,9 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_namespace
-DECL|namespace|QtConcurrent
+DECL|namespace|QtPrivate
 namespace|namespace
-name|QtConcurrent
+name|QtPrivate
 block|{
 DECL|function|ResultIteratorBase
 name|ResultIteratorBase
@@ -1010,7 +1010,7 @@ block|}
 block|}
 end_namespace
 begin_comment
-comment|// namespace QtConcurrent
+comment|// namespace QtPrivate
 end_comment
 begin_macro
 name|QT_END_NAMESPACE
@@ -1020,6 +1020,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_CONCURRENT
+comment|// QT_NO_QFUTURE
 end_comment
 end_unit

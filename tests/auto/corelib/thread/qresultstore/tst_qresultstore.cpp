@@ -10,12 +10,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qtconcurrentresultstore.h>
+file|<qresultstore.h>
 end_include
 begin_using
 using|using
 namespace|namespace
-name|QtConcurrent
+name|QtPrivate
 namespace|;
 end_using
 begin_class
@@ -2997,6 +2997,6 @@ end_macro
 begin_include
 include|#
 directive|include
-file|"tst_qtconcurrentresultstore.moc"
+file|"tst_qresultstore.moc"
 end_include
 end_unit

@@ -1794,7 +1794,7 @@ block|}
 end_function
 begin_function
 DECL|function|resultStoreBase
-name|QtConcurrent
+name|QtPrivate
 operator|::
 name|ResultStoreBase
 modifier|&
@@ -1813,7 +1813,7 @@ end_function
 begin_function
 DECL|function|resultStoreBase
 specifier|const
-name|QtConcurrent
+name|QtPrivate
 operator|::
 name|ResultStoreBase
 modifier|&
@@ -2444,7 +2444,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|QtConcurrent
+name|QtPrivate
 operator|::
 name|ResultIteratorBase
 name|it

@@ -5,18 +5,18 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QTCONCURRENT_RESULTSTORE_H
+name|QTCORE_RESULTSTORE_H
 end_ifndef
 begin_define
-DECL|macro|QTCONCURRENT_RESULTSTORE_H
+DECL|macro|QTCORE_RESULTSTORE_H
 define|#
 directive|define
-name|QTCONCURRENT_RESULTSTORE_H
+name|QTCORE_RESULTSTORE_H
 end_define
 begin_include
 include|#
 directive|include
-file|<QtConcurrent/qtconcurrent_global.h>
+file|<QtCore/qglobal.h>
 end_include
 begin_ifndef
 ifndef|#
@@ -41,7 +41,7 @@ ifndef|#
 directive|ifndef
 name|qdoc
 name|namespace
-name|QtConcurrent
+name|QtPrivate
 block|{
 name|class
 name|ResultItem
@@ -150,7 +150,7 @@ comment|// if count is 0 it's a result, otherwise it's a vector.
 block|}
 empty_stmt|;
 name|class
-name|Q_CONCURRENT_EXPORT
+name|Q_CORE_EXPORT
 name|ResultIteratorBase
 block|{
 name|public
@@ -346,7 +346,7 @@ block|}
 expr|}
 block|;
 name|class
-name|Q_CONCURRENT_EXPORT
+name|Q_CORE_EXPORT
 name|ResultStoreBase
 block|{
 name|public
@@ -819,7 +819,7 @@ expr_stmt|;
 block|}
 end_decl_stmt
 begin_comment
-comment|// namespace QtConcurrent
+comment|// namespace QtPrivate
 end_comment
 begin_endif
 endif|#
@@ -837,7 +837,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_CONCURRENT
+comment|// QT_NO_QFUTURE
 end_comment
 begin_endif
 endif|#

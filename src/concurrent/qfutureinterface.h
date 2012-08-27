@@ -41,7 +41,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtConcurrent/qtconcurrentresultstore.h>
+file|<QtCore/qresultstore.h>
 end_include
 begin_expr_stmt
 name|QT_BEGIN_HEADER
@@ -353,7 +353,7 @@ operator|&
 name|exceptionStore
 argument_list|()
 expr_stmt|;
-name|QtConcurrent
+name|QtPrivate
 operator|::
 name|ResultStoreBase
 operator|&
@@ -361,7 +361,7 @@ name|resultStoreBase
 argument_list|()
 expr_stmt|;
 specifier|const
-name|QtConcurrent
+name|QtPrivate
 operator|::
 name|ResultStoreBase
 operator|&
@@ -697,7 +697,7 @@ name|private
 label|:
 end_label
 begin_expr_stmt
-name|QtConcurrent
+name|QtPrivate
 operator|::
 name|ResultStore
 operator|<
@@ -710,7 +710,7 @@ block|{
 return|return
 name|static_cast
 operator|<
-name|QtConcurrent
+name|QtPrivate
 operator|::
 name|ResultStore
 operator|<
@@ -727,7 +727,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 specifier|const
-name|QtConcurrent
+name|QtPrivate
 operator|::
 name|ResultStore
 operator|<
@@ -742,7 +742,7 @@ return|return
 name|static_cast
 operator|<
 specifier|const
-name|QtConcurrent
+name|QtPrivate
 operator|::
 name|ResultStore
 operator|<
@@ -805,7 +805,7 @@ condition|)
 block|{
 return|return;
 block|}
-name|QtConcurrent
+name|QtPrivate
 operator|::
 name|ResultStore
 operator|<
@@ -964,7 +964,7 @@ condition|)
 block|{
 return|return;
 block|}
-name|QtConcurrent
+name|QtPrivate
 operator|::
 name|ResultStore
 operator|<
@@ -1244,7 +1244,7 @@ argument_list|)
 decl_stmt|;
 end_decl_stmt
 begin_expr_stmt
-name|QtConcurrent
+name|QtPrivate
 operator|::
 name|ResultIterator
 operator|<

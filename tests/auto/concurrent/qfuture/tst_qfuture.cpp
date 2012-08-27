@@ -36,24 +36,18 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qtconcurrentresultstore.h>
+file|<qresultstore.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<qtconcurrentexception.h>
+file|<qexception.h>
 end_include
 begin_include
 include|#
 directive|include
 file|<private/qfutureinterface_p.h>
 end_include
-begin_using
-using|using
-namespace|namespace
-name|QtConcurrent
-namespace|;
-end_using
 begin_comment
 comment|// COM interface macro.
 end_comment
@@ -200,6 +194,8 @@ init|=
 literal|2
 decl_stmt|;
 block|{
+name|QtPrivate
+operator|::
 name|ResultStore
 argument_list|<
 name|int
@@ -251,6 +247,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|{
+name|QtPrivate
+operator|::
 name|ResultStoreBase
 name|store
 decl_stmt|;
@@ -277,6 +275,8 @@ name|int1
 argument_list|)
 expr_stmt|;
 comment|// ResultStoreBase does not take ownership, only ResultStore<> does.
+name|QtPrivate
+operator|::
 name|ResultIteratorBase
 name|it
 init|=
@@ -405,6 +405,8 @@ operator|<<
 literal|5
 decl_stmt|;
 block|{
+name|QtPrivate
+operator|::
 name|ResultStoreBase
 name|store
 decl_stmt|;
@@ -438,6 +440,8 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
+name|QtPrivate
+operator|::
 name|ResultIteratorBase
 name|it
 init|=
@@ -550,6 +554,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|{
+name|QtPrivate
+operator|::
 name|ResultStoreBase
 name|store
 decl_stmt|;
@@ -590,6 +596,8 @@ operator|&
 name|int1
 argument_list|)
 expr_stmt|;
+name|QtPrivate
+operator|::
 name|ResultIteratorBase
 name|it
 init|=
@@ -797,6 +805,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|{
+name|QtPrivate
+operator|::
 name|ResultStore
 argument_list|<
 name|int
@@ -836,6 +846,8 @@ operator|&
 name|int1
 argument_list|)
 expr_stmt|;
+name|QtPrivate
+operator|::
 name|ResultIteratorBase
 name|it
 init|=
@@ -1034,6 +1046,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|{
+name|QtPrivate
+operator|::
 name|ResultStore
 argument_list|<
 name|int
@@ -1140,6 +1154,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|{
+name|QtPrivate
+operator|::
 name|ResultStore
 argument_list|<
 name|int
@@ -1224,6 +1240,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|{
+name|QtPrivate
+operator|::
 name|ResultStore
 argument_list|<
 name|int
@@ -1269,6 +1287,8 @@ expr_stmt|;
 block|}
 block|{
 comment|// Test filter mode, where "gaps" in the result array aren't allowed.
+name|QtPrivate
+operator|::
 name|ResultStore
 argument_list|<
 name|int
@@ -1526,6 +1546,8 @@ expr_stmt|;
 block|}
 block|{
 comment|// test canceled results
+name|QtPrivate
+operator|::
 name|ResultStore
 argument_list|<
 name|int
@@ -1773,6 +1795,8 @@ expr_stmt|;
 block|}
 block|{
 comment|// test addResult return value
+name|QtPrivate
+operator|::
 name|ResultStore
 argument_list|<
 name|int
@@ -2098,6 +2122,8 @@ block|}
 block|{
 comment|// test resultCount in non-filtered mode. It should always be possible
 comment|// to iterate through the results 0 to resultCount.
+name|QtPrivate
+operator|::
 name|ResultStore
 argument_list|<
 name|int
@@ -2166,6 +2192,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|{
+name|QtPrivate
+operator|::
 name|ResultStore
 argument_list|<
 name|int
@@ -2234,6 +2262,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|{
+name|QtPrivate
+operator|::
 name|ResultStore
 argument_list|<
 name|int
@@ -2302,6 +2332,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|{
+name|QtPrivate
+operator|::
 name|ResultStore
 argument_list|<
 name|int
@@ -2350,6 +2382,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|{
+name|QtPrivate
+operator|::
 name|ResultStore
 argument_list|<
 name|int
@@ -2418,6 +2452,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|{
+name|QtPrivate
+operator|::
 name|ResultStore
 argument_list|<
 name|int
@@ -2490,6 +2526,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|{
+name|QtPrivate
+operator|::
 name|ResultStore
 argument_list|<
 name|int
@@ -2544,6 +2582,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|{
+name|QtPrivate
+operator|::
 name|ResultStore
 argument_list|<
 name|int
@@ -2620,6 +2660,8 @@ expr_stmt|;
 comment|// result 5 becomes available at index 2
 block|}
 block|{
+name|QtPrivate
+operator|::
 name|ResultStore
 argument_list|<
 name|int
@@ -2754,6 +2796,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|{
+name|QtPrivate
+operator|::
 name|ResultStore
 argument_list|<
 name|int
@@ -3014,6 +3058,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|{
+name|QtPrivate
+operator|::
 name|ResultStore
 argument_list|<
 name|int
