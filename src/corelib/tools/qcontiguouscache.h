@@ -2607,6 +2607,23 @@ operator|>
 operator|::
 name|isComplex
 condition|)
+block|{
+operator|(
+name|p
+operator|->
+name|array
+operator|+
+name|pos
+operator|%
+name|d
+operator|->
+name|alloc
+operator|)
+operator|->
+operator|~
+name|T
+argument_list|()
+expr_stmt|;
 name|new
 argument_list|(
 argument|p->array + pos % d->alloc
@@ -2616,7 +2633,11 @@ argument_list|(
 name|value
 argument_list|)
 expr_stmt|;
+block|}
+end_expr_stmt
+begin_else
 else|else
+block|{
 name|p
 operator|->
 name|array
@@ -2631,9 +2652,9 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-end_expr_stmt
-begin_elseif
-elseif|else
+end_else
+begin_if
+unit|} else
 if|if
 condition|(
 name|pos
@@ -2649,8 +2670,6 @@ argument_list|(
 name|value
 argument_list|)
 expr_stmt|;
-end_elseif
-begin_elseif
 elseif|else
 if|if
 condition|(
@@ -2669,8 +2688,6 @@ argument_list|(
 name|value
 argument_list|)
 expr_stmt|;
-end_elseif
-begin_else
 else|else
 block|{
 comment|// we don't leave gaps.
@@ -2730,7 +2747,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-end_else
+end_if
 begin_expr_stmt
 unit|}  template
 operator|<
