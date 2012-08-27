@@ -968,9 +968,7 @@ operator|::
 name|reportException
 parameter_list|(
 specifier|const
-name|QtConcurrent
-operator|::
-name|Exception
+name|QException
 modifier|&
 name|exception
 parameter_list|)
@@ -1778,9 +1776,7 @@ block|}
 end_function
 begin_function
 DECL|function|exceptionStore
-name|QtConcurrent
-operator|::
-name|internal
+name|QtPrivate
 operator|::
 name|ExceptionStore
 modifier|&

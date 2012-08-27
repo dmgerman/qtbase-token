@@ -404,9 +404,7 @@ decl_stmt|;
 name|int
 name|m_expectedResultCount
 decl_stmt|;
-name|QtConcurrent
-operator|::
-name|internal
+name|QtPrivate
 operator|::
 name|ExceptionStore
 name|m_exceptionStore

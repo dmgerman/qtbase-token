@@ -6753,7 +6753,7 @@ operator|.
 name|future
 argument_list|()
 decl_stmt|;
-name|Exception
+name|QException
 name|e
 decl_stmt|;
 name|i
@@ -6816,7 +6816,7 @@ argument_list|(
 name|r
 argument_list|)
 expr_stmt|;
-name|Exception
+name|QException
 name|e
 decl_stmt|;
 name|i
@@ -6842,7 +6842,7 @@ class|class
 name|DerivedException
 super|:
 specifier|public
-name|Exception
+name|QException
 block|{
 public|public:
 DECL|function|raise
@@ -6857,7 +6857,7 @@ name|this
 throw|;
 block|}
 DECL|function|clone
-name|Exception
+name|DerivedException
 modifier|*
 name|clone
 parameter_list|()
@@ -6960,7 +6960,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|QException
 modifier|&
 parameter_list|)
 block|{
@@ -7001,7 +7001,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|QException
 modifier|&
 parameter_list|)
 block|{
@@ -7034,7 +7034,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|QException
 modifier|&
 parameter_list|)
 block|{
@@ -7075,7 +7075,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|QException
 modifier|&
 parameter_list|)
 block|{
@@ -7133,7 +7133,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|QException
 modifier|&
 parameter_list|)
 block|{
@@ -7166,7 +7166,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|QException
 modifier|&
 parameter_list|)
 block|{
@@ -7245,7 +7245,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|QException
 modifier|&
 parameter_list|)
 block|{

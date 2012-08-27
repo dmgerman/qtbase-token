@@ -41,7 +41,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtConcurrent/qtconcurrentexception.h>
+file|<QtCore/qexception.h>
 end_include
 begin_include
 include|#
@@ -274,9 +274,7 @@ name|void
 name|handleException
 argument_list|(
 specifier|const
-name|QtConcurrent
-operator|::
-name|Exception
+name|QException
 operator|&
 name|exception
 argument_list|)
@@ -296,9 +294,7 @@ block|;
 name|ThreadEngineBarrier
 name|barrier
 block|;
-name|QtConcurrent
-operator|::
-name|internal
+name|QtPrivate
 operator|::
 name|ExceptionStore
 name|exceptionStore

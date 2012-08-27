@@ -6,9 +6,6 @@ begin_comment
 comment|/*!     \namespace QtConcurrent     \inmodule QtCore     \since 4.4     \brief The QtConcurrent namespace provides high-level APIs that make it     possible to write multi-threaded programs without using low-level     threading primitives.      See the \l {Concurrent Programming}{Qt Concurrent} chapter in     the \l{threads.html}{threading} documentation.      \inheaderfile QtCore     \ingroup thread */
 end_comment
 begin_comment
-comment|/*!     \namespace QtConcurrent::internal     \internal      \brief The QtConcurrent::internal namespace contains QtConcurrent     implementation details. */
-end_comment
-begin_comment
 comment|/*!     \enum QtConcurrent::ReduceOption     This enum specifies the order of which results from the map or filter      function are passed to the reduce function.      \value UnorderedReduce Reduction is done in an arbitrary order.     \value OrderedReduce Reduction is done in the order of the     original sequence.     \value SequentialReduce Reduction is done sequentially: only one     thread will enter the reduce function at a time. (Parallel reduction     might be supported in a future version of Qt Concurrent.) */
 end_comment
 begin_comment

@@ -11,9 +11,7 @@ class|class
 name|MyException
 super|:
 specifier|public
-name|QtConcurrent
-operator|::
-name|Exception
+name|QException
 block|{
 public|public:
 DECL|function|raise
@@ -28,7 +26,7 @@ name|this
 throw|;
 block|}
 DECL|function|clone
-name|Exception
+name|MyException
 modifier|*
 name|clone
 parameter_list|()

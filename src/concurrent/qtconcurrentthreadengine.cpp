@@ -449,9 +449,7 @@ name|QT_NO_EXCEPTIONS
 block|}
 catch|catch
 parameter_list|(
-name|QtConcurrent
-operator|::
-name|Exception
+name|QException
 modifier|&
 name|e
 parameter_list|)
@@ -469,9 +467,7 @@ parameter_list|)
 block|{
 name|handleException
 argument_list|(
-name|QtConcurrent
-operator|::
-name|UnhandledException
+name|QUnhandledException
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -809,9 +805,7 @@ name|QT_NO_EXCEPTIONS
 block|}
 catch|catch
 parameter_list|(
-name|QtConcurrent
-operator|::
-name|Exception
+name|QException
 modifier|&
 name|e
 parameter_list|)
@@ -829,9 +823,7 @@ parameter_list|)
 block|{
 name|handleException
 argument_list|(
-name|QtConcurrent
-operator|::
-name|UnhandledException
+name|QUnhandledException
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -852,9 +844,7 @@ operator|::
 name|handleException
 parameter_list|(
 specifier|const
-name|QtConcurrent
-operator|::
-name|Exception
+name|QException
 modifier|&
 name|exception
 parameter_list|)

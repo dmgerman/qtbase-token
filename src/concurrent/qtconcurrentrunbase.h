@@ -231,7 +231,7 @@ name|QT_NO_EXCEPTIONS
 block|}
 name|catch
 argument_list|(
-argument|QtConcurrent::Exception&e
+argument|QException&e
 argument_list|)
 block|{
 name|QFutureInterface
@@ -257,9 +257,7 @@ operator|>
 operator|::
 name|reportException
 argument_list|(
-name|QtConcurrent
-operator|::
-name|UnhandledException
+name|QUnhandledException
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -341,7 +339,7 @@ name|QT_NO_EXCEPTIONS
 block|}
 name|catch
 argument_list|(
-argument|QtConcurrent::Exception&e
+argument|QException&e
 argument_list|)
 block|{
 name|QFutureInterface
@@ -366,9 +364,7 @@ operator|>
 operator|::
 name|reportException
 argument_list|(
-name|QtConcurrent
-operator|::
-name|UnhandledException
+name|QUnhandledException
 argument_list|()
 argument_list|)
 block|;         }

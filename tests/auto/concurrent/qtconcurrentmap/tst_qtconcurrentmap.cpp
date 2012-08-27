@@ -16205,9 +16205,7 @@ name|e
 argument_list|)
 expr_stmt|;
 throw|throw
-name|QtConcurrent
-operator|::
-name|Exception
+name|QException
 argument_list|()
 throw|;
 block|}
@@ -16261,7 +16259,7 @@ block|}
 catch|catch
 parameter_list|(
 specifier|const
-name|Exception
+name|QException
 modifier|&
 parameter_list|)
 block|{

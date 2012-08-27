@@ -1621,9 +1621,7 @@ name|throwFunction
 parameter_list|()
 block|{
 throw|throw
-name|QtConcurrent
-operator|::
-name|Exception
+name|QException
 argument_list|()
 throw|;
 block|}
@@ -1635,9 +1633,7 @@ name|throwFunctionReturn
 parameter_list|()
 block|{
 throw|throw
-name|QtConcurrent
-operator|::
-name|Exception
+name|QException
 argument_list|()
 throw|;
 return|return
@@ -1673,7 +1669,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|QException
 modifier|&
 parameter_list|)
 block|{
@@ -1711,7 +1707,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|QException
 modifier|&
 parameter_list|)
 block|{
