@@ -339,9 +339,7 @@ empty_stmt|;
 end_empty_stmt
 begin_decl_stmt
 name|class
-name|Q_CORE_EXPORT
 name|QFutureInterfaceBasePrivate
-comment|// ### temporary
 block|{
 name|public
 label|:

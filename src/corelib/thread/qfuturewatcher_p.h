@@ -46,12 +46,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtConcurrent/qtconcurrent_global.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<private/qfutureinterface_p.h>
+file|"qfutureinterface_p.h"
 end_include
 begin_include
 include|#
