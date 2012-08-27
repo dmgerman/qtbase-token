@@ -16,17 +16,12 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtConcurrent/qtconcurrent_global.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtCore/qfuture.h>
 end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_CONCURRENT
+name|QT_NO_QFUTURE
 end_ifndef
 begin_expr_stmt
 name|QT_BEGIN_HEADER
@@ -267,7 +262,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_CONCURRENT
+comment|// QT_NO_QFUTURE
 end_comment
 begin_endif
 endif|#
