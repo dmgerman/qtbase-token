@@ -1083,7 +1083,6 @@ name|height
 parameter_list|)
 specifier|const
 block|{
-comment|// TODO: handle window==0, i.e. grab whole screen
 if|if
 condition|(
 name|QWindowsContext
@@ -1111,10 +1110,15 @@ decl_stmt|;
 name|HWND
 name|hwnd
 init|=
+name|window
+condition|?
 operator|(
 name|HWND
 operator|)
 name|window
+else|:
+name|GetDesktopWindow
+argument_list|()
 decl_stmt|;
 name|GetClientRect
 argument_list|(
