@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Copyright (C) 2012 Intel Corporation ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Copyright (C) 2012 Intel Corporation ** Copyright (C) 2012 Olivier Goffart<ogoffart@woboq.com> ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -525,6 +525,9 @@ begin_comment
 comment|//linux implementation is in qmutex_linux.cpp
 end_comment
 begin_comment
+comment|/*   For a rough introduction on how this works, refer to   http://woboq.com/blog/internals-of-qmutex-in-qt5.html   which explains a slightly simplified version of it.   The differences are that here we try to work with timeout (requires the   possiblyUnlocked flag) and that we only wake one thread when unlocking   (requires maintaining the waiters count)   We also support recursive mutexes which always have a valid d_ptr.    The waiters flag represents the number of threads that are waiting or about   to wait on the mutex. There are two tricks to keep in mind:   We don't want to increment waiters after we checked no threads are waiting   (waiters == 0). That's why we atomically set the BigNumber flag on waiters when   we check waiters. Similarily, if waiters is decremented right after we checked,   the mutex would be unlocked (d->wakeUp() has (or will) be called), but there is   no thread waiting. This is only happening if there was a timeout in tryLock at the   same time as the mutex is unlocked. So when there was a timeout, we set the   possiblyUnlocked flag. */
+end_comment
+begin_comment
 comment|/*!     \internal helper for lock()  */
 end_comment
 begin_function
@@ -604,6 +607,8 @@ condition|)
 return|return
 literal|false
 return|;
+comment|// The mutex is locked but does not have a QMutexPrivate yet.
+comment|// we need to allocate a QMutexPrivate
 name|QMutexPrivate
 modifier|*
 name|newD
@@ -671,6 +676,10 @@ condition|)
 return|return
 literal|false
 return|;
+comment|// At this point we have a pointer to a QMutexPrivate. But the other thread
+comment|// may unlock the mutex at any moment and release the QMutexPrivate to the pool.
+comment|// We will try to reference it to avoid unlock to release it to the pool to make
+comment|// sure it won't be released. But if the refcount is already 0 it has been released.
 if|if
 condition|(
 operator|!
@@ -681,6 +690,9 @@ argument_list|()
 condition|)
 continue|continue;
 comment|//that QMutexData was already released
+comment|// We now hold a reference to the QMutexPrivate. It won't be released and re-used.
+comment|// But it is still possible that it was already re-used by another QMutex right before
+comment|// we did the ref(). So check if we still hold a pointer to the right mutex.
 if|if
 condition|(
 name|d
@@ -699,6 +711,9 @@ argument_list|()
 expr_stmt|;
 continue|continue;
 block|}
+comment|// In this part, we will try to increment the waiters count.
+comment|// We just need to take care of the case in which the old_waiters
+comment|// is set to the BigNumber magic value set in unlockInternal()
 name|int
 name|old_waiters
 decl_stmt|;
@@ -833,7 +848,7 @@ name|loadAcquire
 argument_list|()
 condition|)
 block|{
-comment|// Mutex was unlocked.
+comment|// The mutex was unlocked before we incremented waiters.
 if|if
 condition|(
 name|old_waiters
@@ -881,6 +896,7 @@ name|timeout
 argument_list|)
 condition|)
 block|{
+comment|// reset the possiblyUnlocked flag if needed (and deref its corresponding reference)
 if|if
 condition|(
 name|d
@@ -947,6 +963,7 @@ argument_list|)
 expr_stmt|;
 comment|//There may be a race in which the mutex is unlocked right after we timed out,
 comment|// and before we deref the waiters, so maybe the mutex is actually unlocked.
+comment|// Set the possiblyUnlocked flag to indicate this possibility.
 if|if
 condition|(
 operator|!
@@ -961,11 +978,15 @@ argument_list|,
 literal|true
 argument_list|)
 condition|)
+block|{
+comment|// We keep a reference when possiblyUnlocked is true.
+comment|// but if possiblyUnlocked was already true, we don't need to keep the reference.
 name|d
 operator|->
 name|deref
 argument_list|()
 expr_stmt|;
+block|}
 return|return
 literal|false
 return|;
@@ -1041,6 +1062,11 @@ argument_list|(
 name|copy
 argument_list|)
 decl_stmt|;
+comment|// If no one is waiting for the lock anymore, we shoud reset d to 0x0.
+comment|// Using fetchAndAdd, we atomically check that waiters was equal to 0, and add a flag
+comment|// to the waiters variable (BigNumber). That way, we avoid the race in which waiters is
+comment|// incremented right after we checked, because we won't increment waiters if is
+comment|// equal to -BigNumber
 if|if
 condition|(
 name|d
@@ -1071,6 +1097,7 @@ literal|0
 argument_list|)
 condition|)
 block|{
+comment|// reset the possiblyUnlocked flag if needed (and deref its corresponding reference)
 if|if
 condition|(
 name|d
