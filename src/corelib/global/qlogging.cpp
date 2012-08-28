@@ -3260,18 +3260,6 @@ condition|)
 endif|#
 directive|endif
 block|{
-comment|// OutputDebugString is not threadsafe.
-specifier|static
-name|QBasicMutex
-name|outputDebugStringMutex
-decl_stmt|;
-name|QMutexLocker
-name|locker
-argument_list|(
-operator|&
-name|outputDebugStringMutex
-argument_list|)
-decl_stmt|;
 name|OutputDebugString
 argument_list|(
 cast|reinterpret_cast
