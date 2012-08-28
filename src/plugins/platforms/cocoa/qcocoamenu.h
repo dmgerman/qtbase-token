@@ -65,6 +65,10 @@ operator|:
 name|QCocoaMenu
 argument_list|()
 block|;
+operator|~
+name|QCocoaMenu
+argument_list|()
+block|;
 specifier|inline
 name|virtual
 name|void
