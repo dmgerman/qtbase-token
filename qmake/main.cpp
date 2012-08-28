@@ -731,15 +731,6 @@ name|stderr
 argument_list|,
 literal|"Error processing project file: %s\n"
 argument_list|,
-name|fn
-operator|==
-name|QLatin1String
-argument_list|(
-literal|"-"
-argument_list|)
-condition|?
-literal|"(stdin)"
-else|:
 name|QDir
 operator|::
 name|toNativeSeparators

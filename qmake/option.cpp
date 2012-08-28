@@ -2944,12 +2944,6 @@ block|{
 name|QString
 name|srcpath
 init|=
-operator|(
-name|pfile
-operator|!=
-literal|"-"
-operator|)
-condition|?
 name|QDir
 operator|::
 name|cleanPath
@@ -2962,9 +2956,6 @@ operator|.
 name|absolutePath
 argument_list|()
 argument_list|)
-else|:
-name|qmake_getpwd
-argument_list|()
 decl_stmt|;
 if|if
 condition|(
