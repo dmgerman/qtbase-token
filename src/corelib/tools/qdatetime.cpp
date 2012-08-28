@@ -10092,11 +10092,23 @@ name|in
 operator|>>
 name|jd
 expr_stmt|;
+comment|// Older versions consider 0 an invalid jd.
 name|date
 operator|.
 name|jd
 operator|=
+operator|(
 name|jd
+operator|!=
+literal|0
+condition|?
+name|jd
+else|:
+name|QDate
+operator|::
+name|nullJd
+argument_list|()
+operator|)
 expr_stmt|;
 block|}
 else|else
