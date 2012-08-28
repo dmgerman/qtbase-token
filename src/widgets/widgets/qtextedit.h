@@ -1152,6 +1152,16 @@ argument_list|,
 argument|int dy
 argument_list|)
 block|;
+name|virtual
+name|void
+name|doSetTextCursor
+argument_list|(
+specifier|const
+name|QTextCursor
+operator|&
+name|cursor
+argument_list|)
+block|;
 name|private
 operator|:
 name|Q_DISABLE_COPY
