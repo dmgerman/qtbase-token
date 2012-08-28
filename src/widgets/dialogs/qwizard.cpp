@@ -8449,6 +8449,10 @@ argument_list|<
 name|QWizard
 operator|::
 name|WizardButton
+argument_list|,
+name|QWizard
+operator|::
+name|NButtons
 argument_list|>
 name|array
 argument_list|(
