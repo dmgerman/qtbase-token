@@ -518,7 +518,7 @@ index|]
 argument_list|)
 expr_stmt|;
 return|return
-name|strdup
+name|qstrdup
 argument_list|(
 name|buf
 argument_list|)
