@@ -125,6 +125,10 @@ name|bool
 name|test
 argument_list|(
 argument|const QString&v
+argument_list|,
+argument|const QString&file
+argument_list|,
+argument|int line
 argument_list|)
 block|{
 name|m_current
@@ -137,10 +141,9 @@ name|evaluateConditional
 argument_list|(
 name|v
 argument_list|,
-name|QStringLiteral
-argument_list|(
-literal|"(generator)"
-argument_list|)
+name|file
+argument_list|,
+name|line
 argument_list|)
 return|;
 block|}

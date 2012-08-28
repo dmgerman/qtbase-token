@@ -3490,6 +3490,10 @@ operator|->
 name|test
 argument_list|(
 name|test
+argument_list|,
+name|inn
+argument_list|,
+name|count
 argument_list|)
 condition|)
 name|state
@@ -3598,6 +3602,10 @@ operator|->
 name|test
 argument_list|(
 name|test
+argument_list|,
+name|inn
+argument_list|,
+name|count
 argument_list|)
 condition|)
 block|{
