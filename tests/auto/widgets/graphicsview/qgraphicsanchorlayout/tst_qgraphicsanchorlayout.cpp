@@ -9468,11 +9468,8 @@ DECL|member|vspacing
 name|int
 name|vspacing
 decl_stmt|;
-protected|protected
-name|slots
-protected|:
 name|int
-name|layoutSpacingImplementation
+name|layoutSpacing
 parameter_list|(
 name|QSizePolicy
 operator|::
@@ -9531,11 +9528,11 @@ parameter_list|)
 value|((uint)c1<< 16) | (uint)c2
 end_define
 begin_function
-DECL|function|layoutSpacingImplementation
+DECL|function|layoutSpacing
 name|int
 name|CustomLayoutStyle
 operator|::
-name|layoutSpacingImplementation
+name|layoutSpacing
 parameter_list|(
 name|QSizePolicy
 operator|::
@@ -9882,7 +9879,7 @@ operator|::
 name|Window
 argument_list|)
 decl_stmt|;
-comment|// Test layoutSpacingImplementation
+comment|// Test layoutSpacing
 name|CustomLayoutStyle
 modifier|*
 name|style

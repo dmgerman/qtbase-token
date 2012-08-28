@@ -150,11 +150,11 @@ name|styleDependentSpacingsAndMargins
 parameter_list|()
 function_decl|;
 name|void
-name|layoutSpacingImplementation_data
+name|layoutSpacing_data
 parameter_list|()
 function_decl|;
 name|void
-name|layoutSpacingImplementation
+name|layoutSpacing
 parameter_list|()
 function_decl|;
 name|void
@@ -5830,11 +5830,8 @@ DECL|member|reimplementSubelementRect
 name|bool
 name|reimplementSubelementRect
 decl_stmt|;
-protected|protected
-name|slots
-protected|:
 name|int
-name|layoutSpacingImplementation
+name|layoutSpacing
 parameter_list|(
 name|QSizePolicy
 operator|::
@@ -6006,11 +6003,11 @@ parameter_list|)
 value|((uint)c1<< 16) | (uint)c2
 end_define
 begin_function
-DECL|function|layoutSpacingImplementation
+DECL|function|layoutSpacing
 name|int
 name|CustomLayoutStyle
 operator|::
-name|layoutSpacingImplementation
+name|layoutSpacing
 parameter_list|(
 name|QSizePolicy
 operator|::
@@ -6751,11 +6748,11 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|layoutSpacingImplementation_data
+DECL|function|layoutSpacing_data
 name|void
 name|tst_QGridLayout
 operator|::
-name|layoutSpacingImplementation_data
+name|layoutSpacing_data
 parameter_list|()
 block|{
 name|QTest
@@ -6820,7 +6817,7 @@ argument_list|()
 decl_stmt|;
 block|{
 comment|// If the layoutSpacing is negative, the layouting code will call
-comment|// layoutSpacingImplementation()
+comment|// layoutSpacing()
 name|style
 operator|->
 name|hspacing
@@ -9630,11 +9627,11 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|layoutSpacingImplementation
+DECL|function|layoutSpacing
 name|void
 name|tst_QGridLayout
 operator|::
-name|layoutSpacingImplementation
+name|layoutSpacing
 parameter_list|()
 block|{
 name|QFETCH
