@@ -784,6 +784,92 @@ block|}
 block|}
 end_function
 begin_function
+DECL|function|updateTimeout
+specifier|static
+specifier|inline
+name|bool
+name|updateTimeout
+parameter_list|(
+name|int
+modifier|*
+name|timeout
+parameter_list|,
+specifier|const
+name|struct
+name|timeval
+modifier|&
+name|start
+parameter_list|)
+block|{
+if|if
+condition|(
+name|Q_UNLIKELY
+argument_list|(
+operator|!
+name|QElapsedTimer
+operator|::
+name|isMonotonic
+argument_list|()
+argument_list|)
+condition|)
+block|{
+comment|// we cannot recalculate the timeout without a monotonic clock as the time may have changed
+return|return
+literal|false
+return|;
+block|}
+comment|// clock source is monotonic, so we can recalculate how much timeout is left
+name|timeval
+name|t2
+init|=
+name|qt_gettime
+argument_list|()
+decl_stmt|;
+name|int
+name|elapsed
+init|=
+operator|(
+name|t2
+operator|.
+name|tv_sec
+operator|*
+literal|1000
+operator|+
+name|t2
+operator|.
+name|tv_usec
+operator|/
+literal|1000
+operator|)
+operator|-
+operator|(
+name|start
+operator|.
+name|tv_sec
+operator|*
+literal|1000
+operator|+
+name|start
+operator|.
+name|tv_usec
+operator|/
+literal|1000
+operator|)
+decl_stmt|;
+operator|*
+name|timeout
+operator|-=
+name|elapsed
+expr_stmt|;
+return|return
+operator|*
+name|timeout
+operator|>=
+literal|0
+return|;
+block|}
+end_function
+begin_function
 DECL|function|select
 name|int
 name|QEventDispatcherBlackberry
@@ -815,6 +901,13 @@ argument_list|(
 name|nfds
 argument_list|)
 expr_stmt|;
+comment|// Make a note of the start time
+name|timeval
+name|startTime
+init|=
+name|qt_gettime
+argument_list|()
+decl_stmt|;
 comment|// prepare file sets for bps callback
 name|Q_D
 argument_list|(
@@ -935,9 +1028,9 @@ argument_list|(
 name|exceptfds
 argument_list|)
 expr_stmt|;
-comment|// convert timeout to milliseconds
+comment|// Convert timeout to milliseconds
 name|int
-name|timeout_ms
+name|timeout_bps
 init|=
 operator|-
 literal|1
@@ -946,7 +1039,7 @@ if|if
 condition|(
 name|timeout
 condition|)
-name|timeout_ms
+name|timeout_bps
 operator|=
 operator|(
 name|timeout
@@ -964,29 +1057,18 @@ operator|/
 literal|1000
 operator|)
 expr_stmt|;
-name|QElapsedTimer
-name|timer
-decl_stmt|;
-name|timer
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
-do|do
+comment|// This loop exists such that we can drain the bps event queue of all native events
+comment|// more efficiently than if we were to return control to Qt after each event. This
+comment|// is important for handling touch events which can come in rapidly.
+forever|forever
 block|{
-comment|// wait for event or file to be ready
+comment|// Wait for event or file to be ready
 name|bps_event_t
 modifier|*
 name|event
 init|=
 name|NULL
 decl_stmt|;
-comment|// \TODO Remove this when bps is fixed
-comment|// BPS has problems respecting timeouts.
-comment|// Replace the bps_get_event statement
-comment|// with the following commented version
-comment|// once bps is fixed.
-comment|// result = bps_get_event(&event, timeout_ms);
 name|result
 operator|=
 name|bps_get_event
@@ -994,7 +1076,7 @@ argument_list|(
 operator|&
 name|event
 argument_list|,
-literal|0
+name|timeout_bps
 argument_list|)
 expr_stmt|;
 if|if
@@ -1008,24 +1090,26 @@ argument_list|(
 literal|"QEventDispatcherBlackberry::select: bps_get_event() failed"
 argument_list|)
 expr_stmt|;
+comment|// In the case of !event, we break out of the loop to let Qt process the timers
+comment|// that are now ready (since timeout has expired).
+comment|// In the case of bpsIOReadyDomain, we break out to let Qt process the FDs that
+comment|// are ready. If we do not do this activation of QSocketNotifiers etc would be
+comment|// delayed.
 if|if
 condition|(
 operator|!
 name|event
-condition|)
-break|break;
-comment|// pass all received events through filter - except IO ready events
-if|if
-condition|(
-name|event
-operator|&&
+operator|||
 name|bps_event_get_domain
 argument_list|(
 name|event
 argument_list|)
-operator|!=
+operator|==
 name|bpsIOReadyDomain
 condition|)
+break|break;
+comment|// Any other events must be bps native events so we pass all such received
+comment|// events through the native event filter chain
 name|filterNativeEvent
 argument_list|(
 name|QByteArrayLiteral
@@ -1045,17 +1129,21 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-block|}
-do|while
+comment|// Update the timeout. If this fails we have exceeded our alloted time or the system
+comment|// clock has changed time and we cannot calculate a new timeout so we bail out.
+if|if
 condition|(
-name|timer
-operator|.
-name|elapsed
-argument_list|()
-operator|<
-name|timeout_ms
+operator|!
+name|updateTimeout
+argument_list|(
+operator|&
+name|timeout_bps
+argument_list|,
+name|startTime
+argument_list|)
 condition|)
-do|;
+break|break;
+block|}
 comment|// \TODO Remove this when bps is fixed (see comment above)
 name|result
 operator|=
