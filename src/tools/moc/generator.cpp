@@ -9160,7 +9160,7 @@ literal|"QT_MOC_EXPORT_PLUGIN(%s)\n\n"
 argument_list|,
 name|cdef
 operator|->
-name|classname
+name|qualified
 operator|.
 name|constData
 argument_list|()
