@@ -66,7 +66,7 @@ begin_comment
 comment|/*!     \fn QSize QSize::scaled(int width, int height, Qt::AspectRatioMode mode) const     \since 5.0      Return a size scaled to a rectangle with the given \a width and \a     height, according to the specified \a mode.      \sa scale() */
 end_comment
 begin_comment
-comment|/*!   \overload   \since 5.0 */
+comment|/*!     \overload     \since 5.0      Return a size scaled to a rectangle with the given size \a s,     according to the specified \a mode. */
 end_comment
 begin_function
 DECL|function|scaled
@@ -571,7 +571,7 @@ begin_comment
 comment|/*!     \fn QSizeF QSizeF::scaled(qreal width, qreal height, Qt::AspectRatioMode mode) const     \since 5.0      Returns a size scaled to a rectangle with the given \a width and     \a height, according to the specified \a mode.      \sa scale() */
 end_comment
 begin_comment
-comment|/*!   \overload   \since 5.0 */
+comment|/*!     \overload     \since 5.0      Returns a size scaled to a rectangle with the given size \a s,     according to the specified \a mode. */
 end_comment
 begin_function
 DECL|function|scaled

@@ -1017,7 +1017,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QPcreJitStackPointer     \inmodule QtCore     \internal      Simple "smartpointer" wrapper around a pcre_jit_stack, to be used with     QThreadStorage. */
+comment|/*     Simple "smartpointer" wrapper around a pcre_jit_stack, to be used with     QThreadStorage. */
 end_comment
 begin_class
 DECL|class|QPcreJitStackPointer
