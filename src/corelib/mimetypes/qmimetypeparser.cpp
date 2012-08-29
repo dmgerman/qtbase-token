@@ -609,6 +609,11 @@ end_comment
 begin_comment
 comment|//<match value="0x9501" type="big16" offset="0:64"/>
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_XMLSTREAMREADER
+end_ifndef
 begin_function
 DECL|function|createMagicMatchRule
 specifier|static
@@ -877,6 +882,10 @@ literal|true
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|parse
 name|bool
@@ -898,6 +907,28 @@ modifier|*
 name|errorMessage
 parameter_list|)
 block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_XMLSTREAMREADER
+if|if
+condition|(
+name|errorMessage
+condition|)
+operator|*
+name|errorMessage
+operator|=
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"QXmlStreamReader is not available, cannot parse."
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+else|#
+directive|else
 name|QMimeTypePrivate
 name|data
 decl_stmt|;
@@ -1691,6 +1722,9 @@ block|}
 return|return
 literal|true
 return|;
+endif|#
+directive|endif
+comment|//QT_NO_XMLSTREAMREADER
 block|}
 end_function
 begin_macro

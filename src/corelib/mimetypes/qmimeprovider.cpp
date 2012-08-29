@@ -2989,6 +2989,17 @@ modifier|&
 name|data
 parameter_list|)
 block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_XMLSTREAMREADER
+name|qWarning
+argument_list|()
+operator|<<
+literal|"Cannot load mime type since QXmlStreamReader is not available."
+expr_stmt|;
+return|return;
+else|#
+directive|else
 if|if
 condition|(
 name|data
@@ -3587,6 +3598,9 @@ comment|// But is this really worth the effort?
 block|}
 endif|#
 directive|endif
+endif|#
+directive|endif
+comment|//QT_NO_XMLSTREAMREADER
 block|}
 end_function
 begin_comment
