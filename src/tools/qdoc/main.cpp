@@ -1570,7 +1570,11 @@ init|=
 name|config
 operator|.
 name|getExampleQdocFiles
-argument_list|()
+argument_list|(
+name|excludedDirs
+argument_list|,
+name|excludedFiles
+argument_list|)
 decl_stmt|;
 for|for
 control|(
