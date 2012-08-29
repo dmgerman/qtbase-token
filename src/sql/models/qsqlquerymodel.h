@@ -220,6 +220,62 @@ block|;
 name|protected
 operator|:
 name|void
+name|beginInsertRows
+argument_list|(
+argument|const QModelIndex&parent
+argument_list|,
+argument|int first
+argument_list|,
+argument|int last
+argument_list|)
+block|;
+name|void
+name|endInsertRows
+argument_list|()
+block|;
+name|void
+name|beginRemoveRows
+argument_list|(
+argument|const QModelIndex&parent
+argument_list|,
+argument|int first
+argument_list|,
+argument|int last
+argument_list|)
+block|;
+name|void
+name|endRemoveRows
+argument_list|()
+block|;
+name|void
+name|beginInsertColumns
+argument_list|(
+argument|const QModelIndex&parent
+argument_list|,
+argument|int first
+argument_list|,
+argument|int last
+argument_list|)
+block|;
+name|void
+name|endInsertColumns
+argument_list|()
+block|;
+name|void
+name|beginRemoveColumns
+argument_list|(
+argument|const QModelIndex&parent
+argument_list|,
+argument|int first
+argument_list|,
+argument|int last
+argument_list|)
+block|;
+name|void
+name|endRemoveColumns
+argument_list|()
+block|;
+name|void
 name|beginResetModel
 argument_list|()
 block|;
