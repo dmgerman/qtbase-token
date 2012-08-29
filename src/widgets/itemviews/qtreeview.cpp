@@ -14919,6 +14919,15 @@ expr_stmt|;
 endif|#
 directive|endif
 comment|//QT_NO_ANIMATION
+comment|//if already animating, stateBeforeAnimation is set to the correct value
+if|if
+condition|(
+name|state
+operator|!=
+name|QAbstractItemView
+operator|::
+name|AnimatingState
+condition|)
 name|stateBeforeAnimation
 operator|=
 name|state
@@ -15327,6 +15336,15 @@ expr_stmt|;
 endif|#
 directive|endif
 comment|//QT_NO_ANIMATION
+comment|//if already animating, stateBeforeAnimation is set to the correct value
+if|if
+condition|(
+name|state
+operator|!=
+name|QAbstractItemView
+operator|::
+name|AnimatingState
+condition|)
 name|stateBeforeAnimation
 operator|=
 name|state
