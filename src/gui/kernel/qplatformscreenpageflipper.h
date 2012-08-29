@@ -139,7 +139,7 @@ argument_list|)
 operator|=
 literal|0
 block|;
-name|signals
+name|Q_SIGNALS
 operator|:
 name|void
 name|bufferDisplayed
