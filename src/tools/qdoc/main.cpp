@@ -845,6 +845,11 @@ name|relativeFilePath
 argument_list|(
 name|prevCurrentDir
 argument_list|)
+operator|+
+name|QLatin1Char
+argument_list|(
+literal|'/'
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
