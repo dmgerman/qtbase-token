@@ -12045,9 +12045,11 @@ operator|->
 name|location
 argument_list|()
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|text
@@ -13423,8 +13425,6 @@ condition|)
 return|return;
 name|QString
 name|nodeName
-init|=
-literal|""
 decl_stmt|;
 if|if
 condition|(

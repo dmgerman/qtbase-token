@@ -2481,7 +2481,8 @@ name|classe
 argument_list|,
 literal|"Private Functions"
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|,
 literal|"private function"
 argument_list|,
@@ -2495,7 +2496,8 @@ name|classe
 argument_list|,
 literal|"Private Slots"
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|,
 literal|"private slot"
 argument_list|,
@@ -2509,7 +2511,8 @@ name|classe
 argument_list|,
 literal|"Private Types"
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|,
 literal|"private type"
 argument_list|,
@@ -2523,7 +2526,8 @@ name|classe
 argument_list|,
 literal|"Protected Functions"
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|,
 literal|"protected function"
 argument_list|,
@@ -2537,7 +2541,8 @@ name|classe
 argument_list|,
 literal|"Protected Slots"
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|,
 literal|"protected slot"
 argument_list|,
@@ -2551,7 +2556,8 @@ name|classe
 argument_list|,
 literal|"Protected Types"
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|,
 literal|"protected type"
 argument_list|,
@@ -2565,7 +2571,8 @@ name|classe
 argument_list|,
 literal|"Protected Variables"
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|,
 literal|"protected type"
 argument_list|,
@@ -2579,7 +2586,8 @@ name|classe
 argument_list|,
 literal|"Public Functions"
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|,
 literal|"public function"
 argument_list|,
@@ -2593,7 +2601,8 @@ name|classe
 argument_list|,
 literal|"Signals"
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|,
 literal|"signal"
 argument_list|,
@@ -2607,7 +2616,8 @@ name|classe
 argument_list|,
 literal|"Public Slots"
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|,
 literal|"public slot"
 argument_list|,
@@ -2621,7 +2631,8 @@ name|classe
 argument_list|,
 literal|"Public Types"
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|,
 literal|"public type"
 argument_list|,
@@ -2635,7 +2646,8 @@ name|classe
 argument_list|,
 literal|"Public Variables"
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|,
 literal|"public variable"
 argument_list|,
@@ -2649,7 +2661,8 @@ name|classe
 argument_list|,
 literal|"Properties"
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|,
 literal|"property"
 argument_list|,
@@ -2663,7 +2676,8 @@ name|classe
 argument_list|,
 literal|"Related Non-Members"
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|,
 literal|"related non-member"
 argument_list|,
@@ -2677,7 +2691,8 @@ name|classe
 argument_list|,
 literal|"Static Private Members"
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|,
 literal|"static private member"
 argument_list|,
@@ -2691,7 +2706,8 @@ name|classe
 argument_list|,
 literal|"Static Protected Members"
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|,
 literal|"static protected member"
 argument_list|,
@@ -2705,7 +2721,8 @@ name|classe
 argument_list|,
 literal|"Static Public Members"
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|,
 literal|"static public member"
 argument_list|,
@@ -2719,7 +2736,8 @@ name|inner
 argument_list|,
 literal|"Macros"
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|,
 literal|"macro"
 argument_list|,
@@ -4180,9 +4198,11 @@ name|all
 argument_list|(
 name|classe
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|,
 literal|"member"
 argument_list|,
@@ -4372,7 +4392,8 @@ name|Detailed
 condition|?
 literal|"nmspace"
 else|:
-literal|""
+name|QString
+argument_list|()
 argument_list|,
 literal|"namespace"
 argument_list|,
@@ -4392,7 +4413,8 @@ name|Detailed
 condition|?
 literal|"classes"
 else|:
-literal|""
+name|QString
+argument_list|()
 argument_list|,
 literal|"class"
 argument_list|,
@@ -4418,7 +4440,8 @@ name|Detailed
 condition|?
 literal|"types"
 else|:
-literal|""
+name|QString
+argument_list|()
 argument_list|,
 literal|"type"
 argument_list|,
@@ -4444,7 +4467,8 @@ name|Detailed
 condition|?
 literal|"func"
 else|:
-literal|""
+name|QString
+argument_list|()
 argument_list|,
 literal|"function"
 argument_list|,
@@ -4470,7 +4494,8 @@ name|Detailed
 condition|?
 literal|"macros"
 else|:
-literal|""
+name|QString
+argument_list|()
 argument_list|,
 literal|"macro"
 argument_list|,
@@ -5219,9 +5244,6 @@ expr_stmt|;
 block|}
 name|QString
 name|out
-argument_list|(
-literal|""
-argument_list|)
 decl_stmt|;
 name|int
 name|braceDepth
@@ -6130,7 +6152,8 @@ name|qmlClassNode
 argument_list|,
 literal|"Properties"
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|,
 literal|"property"
 argument_list|,
@@ -6144,7 +6167,8 @@ name|qmlClassNode
 argument_list|,
 literal|"Attached Properties"
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|,
 literal|"property"
 argument_list|,
@@ -6158,7 +6182,8 @@ name|qmlClassNode
 argument_list|,
 literal|"Signals"
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|,
 literal|"signal"
 argument_list|,
@@ -6172,7 +6197,8 @@ name|qmlClassNode
 argument_list|,
 literal|"Signal Handlers"
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|,
 literal|"signal handler"
 argument_list|,
@@ -6186,7 +6212,8 @@ name|qmlClassNode
 argument_list|,
 literal|"Attached Signals"
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|,
 literal|"signal"
 argument_list|,
@@ -6200,7 +6227,8 @@ name|qmlClassNode
 argument_list|,
 literal|"Methods"
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|,
 literal|"method"
 argument_list|,
@@ -6214,7 +6242,8 @@ name|qmlClassNode
 argument_list|,
 literal|"Attached Methods"
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|,
 literal|"method"
 argument_list|,
@@ -7435,9 +7464,11 @@ name|all
 argument_list|(
 name|qmlClassNode
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|,
 literal|"member"
 argument_list|,

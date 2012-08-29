@@ -1834,8 +1834,7 @@ argument|Node::Access access0
 argument_list|,
 argument|ClassNode* node0
 argument_list|,
-argument|const QString& dataTypeWithTemplateArgs0 =
-literal|""
+argument|const QString& dataTypeWithTemplateArgs0 = QString()
 argument_list|)
 block|:
 name|access
@@ -1915,8 +1914,7 @@ argument|Access access
 argument_list|,
 argument|ClassNode* node
 argument_list|,
-argument|const QString&dataTypeWithTemplateArgs =
-literal|""
+argument|const QString&dataTypeWithTemplateArgs = QString()
 argument_list|)
 block|;
 name|void
@@ -3684,21 +3682,24 @@ name|QString
 operator|&
 name|rightType
 operator|=
-literal|""
+name|QString
+argument_list|()
 argument_list|,
 specifier|const
 name|QString
 operator|&
 name|name
 operator|=
-literal|""
+name|QString
+argument_list|()
 argument_list|,
 specifier|const
 name|QString
 operator|&
 name|defaultValue
 operator|=
-literal|""
+name|QString
+argument_list|()
 argument_list|)
 block|;
 name|Parameter

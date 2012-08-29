@@ -2488,7 +2488,8 @@ operator|.
 name|toString
 argument_list|()
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|,
 name|it
 operator|->
@@ -2893,14 +2894,10 @@ argument_list|(
 name|Parameter
 argument_list|(
 name|QString
-argument_list|(
-literal|""
-argument_list|)
+argument_list|()
 argument_list|,
 name|QString
-argument_list|(
-literal|""
-argument_list|)
+argument_list|()
 argument_list|,
 name|fpl
 operator|->

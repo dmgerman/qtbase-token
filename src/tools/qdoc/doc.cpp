@@ -1686,7 +1686,8 @@ name|QString
 modifier|&
 name|source
 init|=
-literal|""
+name|QString
+argument_list|()
 parameter_list|)
 constructor_decl|;
 name|~
@@ -2292,7 +2293,8 @@ name|QString
 modifier|&
 name|string
 init|=
-literal|""
+name|QString
+argument_list|()
 parameter_list|)
 function_decl|;
 name|void
@@ -2383,7 +2385,8 @@ name|QString
 modifier|&
 name|string
 init|=
-literal|""
+name|QString
+argument_list|()
 parameter_list|)
 function_decl|;
 name|void
@@ -5697,7 +5700,8 @@ argument_list|()
 argument_list|,
 name|cmdStr
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

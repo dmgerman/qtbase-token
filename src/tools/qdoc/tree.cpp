@@ -303,7 +303,8 @@ name|roo
 argument_list|(
 literal|0
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|)
 block|{
 name|priv
@@ -4930,7 +4931,8 @@ name|attribute
 argument_list|(
 literal|"url"
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -5334,7 +5336,8 @@ name|attribute
 argument_list|(
 literal|"location"
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -5432,7 +5435,8 @@ name|attribute
 argument_list|(
 literal|"location"
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -5809,7 +5813,8 @@ name|attribute
 argument_list|(
 literal|"location"
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -6537,7 +6542,8 @@ argument_list|(
 literal|"name"
 argument_list|)
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// child.attribute("default")
@@ -12038,7 +12044,8 @@ name|writeTextElement
 argument_list|(
 literal|"arglist"
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -12115,7 +12122,8 @@ name|writeTextElement
 argument_list|(
 literal|"arglist"
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|writer
@@ -12195,7 +12203,8 @@ name|writeTextElement
 argument_list|(
 literal|"arglist"
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|writer
@@ -12257,7 +12266,8 @@ name|writeAttribute
 argument_list|(
 literal|"type"
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|writer
@@ -12319,7 +12329,8 @@ name|writeTextElement
 argument_list|(
 literal|"arglist"
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

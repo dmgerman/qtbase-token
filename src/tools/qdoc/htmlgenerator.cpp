@@ -4364,8 +4364,6 @@ else|else
 block|{
 name|QString
 name|prefix
-init|=
-literal|""
 decl_stmt|;
 if|if
 condition|(
