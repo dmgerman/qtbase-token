@@ -4620,7 +4620,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \reimp \since 5.0     Returns the record at \a row in the model.      If \a row is the index of a valid row, the record     will be populated with values from that row.      If the model is not initialized, an empty record will be     returned.      \sa QSqlRecord::isEmpty() */
+comment|/*! \since 5.0     Returns the record at \a row in the model.      If \a row is the index of a valid row, the record     will be populated with values from that row.      If the model is not initialized, an empty record will be     returned.      \sa QSqlRecord::isEmpty() */
 end_comment
 begin_function
 DECL|function|record

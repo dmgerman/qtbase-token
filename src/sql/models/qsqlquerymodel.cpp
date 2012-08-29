@@ -453,7 +453,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \reimp  */
+comment|/*! \internal  */
 end_comment
 begin_function
 DECL|function|beginResetModel
@@ -491,7 +491,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*! \reimp  */
+comment|/*! \internal  */
 end_comment
 begin_function
 DECL|function|endResetModel
