@@ -100,9 +100,9 @@ argument_list|(
 name|false
 argument_list|)
 block|,
-name|resetting
+name|nestedResetLevel
 argument_list|(
-argument|false
+literal|0
 argument_list|)
 block|{}
 operator|~
@@ -160,8 +160,8 @@ operator|>
 name|colOffsets
 block|;
 comment|// used to calculate indexInQuery of columns
-name|bool
-name|resetting
+name|int
+name|nestedResetLevel
 block|; }
 decl_stmt|;
 end_decl_stmt
