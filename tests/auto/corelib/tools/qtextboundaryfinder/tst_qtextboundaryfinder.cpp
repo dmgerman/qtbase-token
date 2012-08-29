@@ -320,6 +320,9 @@ comment|// namespace QTest
 end_comment
 begin_function
 name|QT_END_NAMESPACE
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
 DECL|function|generateDataFromFile
 specifier|static
 name|void
@@ -838,11 +841,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|QT_BUILD_INTERNAL
-end_ifdef
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 specifier|extern
