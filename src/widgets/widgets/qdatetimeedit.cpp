@@ -7746,7 +7746,9 @@ operator|&
 operator|(
 name|DaySection
 operator||
-name|DayOfWeekSection
+name|DayOfWeekSectionShort
+operator||
+name|DayOfWeekSectionLong
 operator|)
 operator|)
 operator|&&
@@ -7877,7 +7879,9 @@ operator|&
 operator|(
 name|DaySection
 operator||
-name|DayOfWeekSection
+name|DayOfWeekSectionShort
+operator||
+name|DayOfWeekSectionLong
 operator|)
 operator|)
 operator|&&
@@ -8032,7 +8036,9 @@ operator|&
 operator|(
 name|DaySection
 operator||
-name|DayOfWeekSection
+name|DayOfWeekSectionShort
+operator||
+name|DayOfWeekSectionLong
 operator|)
 operator|)
 condition|)
@@ -8982,7 +8988,10 @@ operator|::
 name|MinuteSection
 return|;
 case|case
-name|DayOfWeekSection
+name|DayOfWeekSectionShort
+case|:
+case|case
+name|DayOfWeekSectionLong
 case|:
 case|case
 name|DaySection
@@ -9147,7 +9156,11 @@ name|DaySection
 operator||
 name|QDateTimeParser
 operator|::
-name|DayOfWeekSection
+name|DayOfWeekSectionShort
+operator||
+name|QDateTimeParser
+operator|::
+name|DayOfWeekSectionLong
 operator|)
 condition|)
 name|ret

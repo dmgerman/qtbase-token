@@ -541,9 +541,13 @@ name|YearSection2Digits
 init|=
 literal|0x00800
 block|,
-name|DayOfWeekSection
+name|DayOfWeekSectionShort
 init|=
 literal|0x01000
+block|,
+name|DayOfWeekSectionLong
+init|=
+literal|0x20000
 block|,
 name|DateSectionMask
 init|=
@@ -556,7 +560,9 @@ name|YearSection
 operator||
 name|YearSection2Digits
 operator||
-name|DayOfWeekSection
+name|DayOfWeekSectionShort
+operator||
+name|DayOfWeekSectionLong
 operator|)
 block|,
 name|FirstSection

@@ -27909,6 +27909,12 @@ end_typedef
 begin_macro
 name|Q_DECLARE_METATYPE
 argument_list|(
+argument|QLocale
+argument_list|)
+end_macro
+begin_macro
+name|Q_DECLARE_METATYPE
+argument_list|(
 argument|KeyPair
 argument_list|)
 end_macro
@@ -27965,6 +27971,16 @@ name|QTest
 operator|::
 name|addColumn
 argument_list|<
+name|QLocale
+argument_list|>
+argument_list|(
+literal|"locale"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|addColumn
+argument_list|<
 name|QDate
 argument_list|>
 argument_list|(
@@ -28010,6 +28026,19 @@ argument_list|,
 literal|1
 argument_list|,
 literal|1
+argument_list|)
+decl_stmt|;
+specifier|const
+name|QLocale
+name|defaultLocale
+argument_list|(
+name|QLocale
+operator|::
+name|English
+argument_list|,
+name|QLocale
+operator|::
+name|Australia
 argument_list|)
 decl_stmt|;
 name|KeyPairList
@@ -28744,12 +28773,128 @@ operator|::
 name|Key_Up
 argument_list|)
 expr_stmt|;
+name|KeyPairList
+name|shortAndLongNameIssueKeypresses
+decl_stmt|;
+name|shortAndLongNameIssueKeypresses
+operator|<<
+name|key
+argument_list|(
+name|Qt
+operator|::
+name|Key_Tab
+argument_list|)
+operator|<<
+name|key
+argument_list|(
+name|Qt
+operator|::
+name|Key_3
+argument_list|)
+operator|<<
+name|key
+argument_list|(
+name|Qt
+operator|::
+name|Key_1
+argument_list|)
+operator|<<
+name|key
+argument_list|(
+name|Qt
+operator|::
+name|Key_Up
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"no fixday, leap, yy/M/dddd"
+argument_list|)
+operator|<<
+name|defaultLocale
+operator|<<
+name|defaultDate
+operator|<<
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"yy/M/dddd"
+argument_list|)
+operator|<<
+name|threeDigitDayIssueKeypresses_DayName
+operator|<<
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"00/2/Tuesday"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"no fixday, leap, yy/M/ddd"
+argument_list|)
+operator|<<
+name|defaultLocale
+operator|<<
+name|defaultDate
+operator|<<
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"yy/M/ddd"
+argument_list|)
+operator|<<
+name|threeDigitDayIssueKeypresses_DayName
+operator|<<
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"00/2/Tue"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"no fixday, leap, yy/MM/dddd"
+argument_list|)
+operator|<<
+name|defaultLocale
+operator|<<
+name|defaultDate
+operator|<<
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"yy/MM/dddd"
+argument_list|)
+operator|<<
+name|threeDigitDayIssueKeypresses_DayName
+operator|<<
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"00/02/Tuesday"
+argument_list|)
+expr_stmt|;
 name|QTest
 operator|::
 name|newRow
 argument_list|(
 literal|"fixday, leap, yy/MM/dd"
 argument_list|)
+operator|<<
+name|defaultLocale
 operator|<<
 name|defaultDate
 operator|<<
@@ -28776,6 +28921,8 @@ argument_list|(
 literal|"fixday, leap, yy/MM/d"
 argument_list|)
 operator|<<
+name|defaultLocale
+operator|<<
 name|defaultDate
 operator|<<
 name|QString
@@ -28801,6 +28948,8 @@ argument_list|(
 literal|"fixday, leap, yyyy/M/d"
 argument_list|)
 operator|<<
+name|defaultLocale
+operator|<<
 name|defaultDate
 operator|<<
 name|QString
@@ -28825,6 +28974,8 @@ name|newRow
 argument_list|(
 literal|"no fixday, yyyy/M/d"
 argument_list|)
+operator|<<
+name|defaultLocale
 operator|<<
 name|defaultDate
 operator|.
@@ -28856,6 +29007,8 @@ argument_list|(
 literal|"fixday, leap, 2-digit month, yyyy/M/dd"
 argument_list|)
 operator|<<
+name|defaultLocale
+operator|<<
 name|defaultDate
 operator|<<
 name|QString
@@ -28880,6 +29033,8 @@ name|newRow
 argument_list|(
 literal|"no fixday, leap, 1-digit day, yyyy/M/dd"
 argument_list|)
+operator|<<
+name|defaultLocale
 operator|<<
 name|defaultDate
 operator|<<
@@ -28906,6 +29061,8 @@ argument_list|(
 literal|"fixday, leap, yyyy/MM/dd"
 argument_list|)
 operator|<<
+name|defaultLocale
+operator|<<
 name|defaultDate
 operator|<<
 name|QString
@@ -28930,6 +29087,8 @@ name|newRow
 argument_list|(
 literal|"no fixday, yyyy/MM/dd"
 argument_list|)
+operator|<<
+name|defaultLocale
 operator|<<
 name|defaultDate
 operator|.
@@ -28961,6 +29120,8 @@ argument_list|(
 literal|"fixday, leap, 2-digit month, yyyy/MM/dd"
 argument_list|)
 operator|<<
+name|defaultLocale
+operator|<<
 name|defaultDate
 operator|<<
 name|QString
@@ -28983,8 +29144,64 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
+literal|"no fixday, leap, yyyy/M/dddd"
+argument_list|)
+operator|<<
+name|defaultLocale
+operator|<<
+name|defaultDate
+operator|<<
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"yyyy/M/dddd"
+argument_list|)
+operator|<<
+name|threeDigitDayIssueKeypresses_DayName
+operator|<<
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"2000/2/Tuesday"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"no fixday, leap, yyyy/MM/dddd"
+argument_list|)
+operator|<<
+name|defaultLocale
+operator|<<
+name|defaultDate
+operator|<<
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"yyyy/MM/dddd"
+argument_list|)
+operator|<<
+name|threeDigitDayIssueKeypresses_DayName
+operator|<<
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"2000/02/Tuesday"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
 literal|"fixday, leap, yyyy/dd/MM"
 argument_list|)
+operator|<<
+name|defaultLocale
 operator|<<
 name|defaultDate
 operator|<<
@@ -29011,6 +29228,8 @@ argument_list|(
 literal|"fixday, leap, yyyy/dd/M"
 argument_list|)
 operator|<<
+name|defaultLocale
+operator|<<
 name|defaultDate
 operator|<<
 name|QString
@@ -29035,6 +29254,8 @@ name|newRow
 argument_list|(
 literal|"fixday, leap, yyyy/d/M"
 argument_list|)
+operator|<<
+name|defaultLocale
 operator|<<
 name|defaultDate
 operator|<<
@@ -29061,6 +29282,8 @@ argument_list|(
 literal|"fixday, leap, yyyy/MMM/dd"
 argument_list|)
 operator|<<
+name|defaultLocale
+operator|<<
 name|defaultDate
 operator|<<
 name|QString
@@ -29085,6 +29308,8 @@ name|newRow
 argument_list|(
 literal|"fixday, leap, yyyy/MMM/d"
 argument_list|)
+operator|<<
+name|defaultLocale
 operator|<<
 name|defaultDate
 operator|<<
@@ -29111,6 +29336,8 @@ argument_list|(
 literal|"fixday, leap, yy/MMM/dd"
 argument_list|)
 operator|<<
+name|defaultLocale
+operator|<<
 name|defaultDate
 operator|<<
 name|QString
@@ -29133,8 +29360,64 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
+literal|"fixday, leap, yyyy/dddd/M"
+argument_list|)
+operator|<<
+name|defaultLocale
+operator|<<
+name|defaultDate
+operator|<<
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"yyyy/dddd/M"
+argument_list|)
+operator|<<
+name|threeDigitDayIssueKeypresses_DayName_YearDayMonth
+operator|<<
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"2000/Tuesday/2"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"fixday, leap, yyyy/dddd/MM"
+argument_list|)
+operator|<<
+name|defaultLocale
+operator|<<
+name|defaultDate
+operator|<<
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"yyyy/dddd/MM"
+argument_list|)
+operator|<<
+name|threeDigitDayIssueKeypresses_DayName_YearDayMonth
+operator|<<
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"2000/Tuesday/02"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
 literal|"fixday, leap, d/M/yyyy"
 argument_list|)
+operator|<<
+name|defaultLocale
 operator|<<
 name|defaultDate
 operator|<<
@@ -29161,6 +29444,8 @@ argument_list|(
 literal|"fixday, leap, dd/MM/yyyy"
 argument_list|)
 operator|<<
+name|defaultLocale
+operator|<<
 name|defaultDate
 operator|<<
 name|QString
@@ -29185,6 +29470,8 @@ name|newRow
 argument_list|(
 literal|"fixday, dd/MM/yyyy"
 argument_list|)
+operator|<<
+name|defaultLocale
 operator|<<
 name|defaultDate
 operator|.
@@ -29213,8 +29500,37 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
+literal|"fixday, leap, dddd/MM/yyyy"
+argument_list|)
+operator|<<
+name|defaultLocale
+operator|<<
+name|defaultDate
+operator|<<
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"dddd/MM/yyyy"
+argument_list|)
+operator|<<
+name|threeDigitDayIssueKeypresses_DayName_DayMonthYear
+operator|<<
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"Tuesday/02/2000"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
 literal|"fixday, leap, d/yy/M"
 argument_list|)
+operator|<<
+name|defaultLocale
 operator|<<
 name|defaultDate
 operator|<<
@@ -29241,6 +29557,8 @@ argument_list|(
 literal|"fixday, leap, d/yyyy/M"
 argument_list|)
 operator|<<
+name|defaultLocale
+operator|<<
 name|defaultDate
 operator|<<
 name|QString
@@ -29265,6 +29583,8 @@ name|newRow
 argument_list|(
 literal|"fixday, leap, d/yyyy/MM"
 argument_list|)
+operator|<<
+name|defaultLocale
 operator|<<
 name|defaultDate
 operator|<<
@@ -29291,6 +29611,8 @@ argument_list|(
 literal|"fixday, leap, dd/yy/MM"
 argument_list|)
 operator|<<
+name|defaultLocale
+operator|<<
 name|defaultDate
 operator|<<
 name|QString
@@ -29315,6 +29637,8 @@ name|newRow
 argument_list|(
 literal|"fixday, leap, dd/yyyy/M"
 argument_list|)
+operator|<<
+name|defaultLocale
 operator|<<
 name|defaultDate
 operator|<<
@@ -29341,6 +29665,8 @@ argument_list|(
 literal|"fixday, leap, dd/yyyy/MM"
 argument_list|)
 operator|<<
+name|defaultLocale
+operator|<<
 name|defaultDate
 operator|<<
 name|QString
@@ -29363,8 +29689,64 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
+literal|"fixday, leap, dddd/yy/M"
+argument_list|)
+operator|<<
+name|defaultLocale
+operator|<<
+name|defaultDate
+operator|<<
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"dddd/yy/M"
+argument_list|)
+operator|<<
+name|threeDigitDayIssueKeypresses_DayName_DayYearMonth
+operator|<<
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"Tuesday/00/2"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"fixday, leap, dddd/yy/MM"
+argument_list|)
+operator|<<
+name|defaultLocale
+operator|<<
+name|defaultDate
+operator|<<
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"dddd/yy/MM"
+argument_list|)
+operator|<<
+name|threeDigitDayIssueKeypresses_DayName_DayYearMonth
+operator|<<
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"Tuesday/00/02"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
 literal|"fixday, leap, M/d/yy"
 argument_list|)
+operator|<<
+name|defaultLocale
 operator|<<
 name|defaultDate
 operator|<<
@@ -29391,6 +29773,8 @@ argument_list|(
 literal|"fixday, leap, M/d/yyyy"
 argument_list|)
 operator|<<
+name|defaultLocale
+operator|<<
 name|defaultDate
 operator|<<
 name|QString
@@ -29416,6 +29800,8 @@ argument_list|(
 literal|"fixday, leap, M/dd/yyyy"
 argument_list|)
 operator|<<
+name|defaultLocale
+operator|<<
 name|defaultDate
 operator|<<
 name|QString
@@ -29438,8 +29824,37 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
+literal|"fixday, leap, M/dddd/yyyy"
+argument_list|)
+operator|<<
+name|defaultLocale
+operator|<<
+name|defaultDate
+operator|<<
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"M/dddd/yyyy"
+argument_list|)
+operator|<<
+name|threeDigitDayIssueKeypresses_DayName_MonthDayYear
+operator|<<
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"2/Tuesday/2000"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
 literal|"fixday, leap, MM/dd/yyyy"
 argument_list|)
+operator|<<
+name|defaultLocale
 operator|<<
 name|defaultDate
 operator|<<
@@ -29463,8 +29878,37 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
+literal|"fixday, leap, MM/dddd/yyyy"
+argument_list|)
+operator|<<
+name|defaultLocale
+operator|<<
+name|defaultDate
+operator|<<
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"MM/dddd/yyyy"
+argument_list|)
+operator|<<
+name|threeDigitDayIssueKeypresses_DayName_MonthDayYear
+operator|<<
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"02/Tuesday/2000"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
 literal|"fixday, leap, M/yyyy/dd"
 argument_list|)
+operator|<<
+name|defaultLocale
 operator|<<
 name|defaultDate
 operator|<<
@@ -29491,6 +29935,8 @@ argument_list|(
 literal|"fixday, leap, M/yy/dd"
 argument_list|)
 operator|<<
+name|defaultLocale
+operator|<<
 name|defaultDate
 operator|<<
 name|QString
@@ -29515,6 +29961,8 @@ name|newRow
 argument_list|(
 literal|"fixday, leap, M/yy/d"
 argument_list|)
+operator|<<
+name|defaultLocale
 operator|<<
 name|defaultDate
 operator|<<
@@ -29541,6 +29989,8 @@ argument_list|(
 literal|"fixday, leap, MM/yyyy/dd"
 argument_list|)
 operator|<<
+name|defaultLocale
+operator|<<
 name|defaultDate
 operator|<<
 name|QString
@@ -29565,6 +30015,8 @@ name|newRow
 argument_list|(
 literal|"fixday, leap, MMM/yy/d"
 argument_list|)
+operator|<<
+name|defaultLocale
 operator|<<
 name|defaultDate
 operator|<<
@@ -29591,6 +30043,8 @@ argument_list|(
 literal|"fixday, leap, MMM/yyyy/d"
 argument_list|)
 operator|<<
+name|defaultLocale
+operator|<<
 name|defaultDate
 operator|<<
 name|QString
@@ -29615,6 +30069,8 @@ name|newRow
 argument_list|(
 literal|"fixday, MMM/yyyy/d"
 argument_list|)
+operator|<<
+name|defaultLocale
 operator|<<
 name|defaultDate
 operator|.
@@ -29646,6 +30102,8 @@ argument_list|(
 literal|"fixday, leap, MMM/yyyy/dd"
 argument_list|)
 operator|<<
+name|defaultLocale
+operator|<<
 name|defaultDate
 operator|<<
 name|QString
@@ -29664,6 +30122,69 @@ argument_list|(
 literal|"Feb/2000/29"
 argument_list|)
 expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"fixday, leap, dddd, dd. MMMM yyyy"
+argument_list|)
+operator|<<
+name|defaultLocale
+operator|<<
+name|defaultDate
+operator|<<
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"dddd, dd. MMMM yyyy"
+argument_list|)
+operator|<<
+name|shortAndLongNameIssueKeypresses
+operator|<<
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"Tuesday, 29. February 2000"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"fixday, leap, german, dddd, dd. MMMM yyyy"
+argument_list|)
+operator|<<
+name|QLocale
+argument_list|(
+name|QLocale
+operator|::
+name|German
+argument_list|,
+name|QLocale
+operator|::
+name|Germany
+argument_list|)
+operator|<<
+name|defaultDate
+operator|<<
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"dddd, dd. MMMM yyyy"
+argument_list|)
+operator|<<
+name|shortAndLongNameIssueKeypresses
+operator|<<
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"Dienstag, 29. Februar 2000"
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function
@@ -29674,6 +30195,13 @@ operator|::
 name|dateEditCorrectSectionSize
 parameter_list|()
 block|{
+name|QFETCH
+argument_list|(
+name|QLocale
+argument_list|,
+name|locale
+argument_list|)
+expr_stmt|;
 name|QFETCH
 argument_list|(
 name|QDate
@@ -29705,6 +30233,13 @@ expr_stmt|;
 name|QDateEdit
 name|edit
 decl_stmt|;
+name|edit
+operator|.
+name|setLocale
+argument_list|(
+name|locale
+argument_list|)
+expr_stmt|;
 name|edit
 operator|.
 name|setDate
