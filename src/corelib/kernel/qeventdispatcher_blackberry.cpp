@@ -32,6 +32,36 @@ include|#
 directive|include
 file|<bps/event.h>
 end_include
+begin_comment
+comment|//#define QEVENTDISPATCHERBLACKBERRY_DEBUG
+end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QEVENTDISPATCHERBLACKBERRY_DEBUG
+end_ifdef
+begin_define
+DECL|macro|qEventDispatcherDebug
+define|#
+directive|define
+name|qEventDispatcherDebug
+value|qDebug()<< QThread::currentThread()
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|qEventDispatcherDebug
+define|#
+directive|define
+name|qEventDispatcherDebug
+value|QT_NO_QDEBUG_MACRO()
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_struct
 DECL|struct|bpsIOHandlerData
 struct|struct
@@ -110,6 +140,10 @@ modifier|*
 name|data
 parameter_list|)
 block|{
+name|qEventDispatcherDebug
+operator|<<
+name|Q_FUNC_INFO
+expr_stmt|;
 comment|// decode callback payload
 name|bpsIOHandlerData
 modifier|*
@@ -144,6 +178,12 @@ operator|&
 name|BPS_IO_INPUT
 condition|)
 block|{
+name|qEventDispatcherDebug
+operator|<<
+name|fd
+operator|<<
+literal|"ready for Read"
+expr_stmt|;
 name|FD_SET
 argument_list|(
 name|fd
@@ -166,6 +206,12 @@ operator|&
 name|BPS_IO_OUTPUT
 condition|)
 block|{
+name|qEventDispatcherDebug
+operator|<<
+name|fd
+operator|<<
+literal|"ready for Write"
+expr_stmt|;
 name|FD_SET
 argument_list|(
 name|fd
@@ -188,6 +234,12 @@ operator|&
 name|BPS_IO_EXCEPT
 condition|)
 block|{
+name|qEventDispatcherDebug
+operator|<<
+name|fd
+operator|<<
+literal|"ready for Exception"
+expr_stmt|;
 name|FD_SET
 argument_list|(
 name|fd
@@ -210,6 +262,10 @@ condition|(
 name|firstReady
 condition|)
 block|{
+name|qEventDispatcherDebug
+operator|<<
+literal|"Sending bpsIOReadyDomain event"
+expr_stmt|;
 comment|// create IO ready event
 name|bps_event_t
 modifier|*
@@ -450,6 +506,14 @@ operator|->
 name|type
 argument_list|()
 decl_stmt|;
+name|qEventDispatcherDebug
+operator|<<
+name|Q_FUNC_INFO
+operator|<<
+literal|"fd ="
+operator|<<
+name|sockfd
+expr_stmt|;
 name|int
 name|io_events
 init|=
@@ -485,6 +549,14 @@ name|QSocketNotifier
 operator|::
 name|Read
 case|:
+name|qEventDispatcherDebug
+operator|<<
+literal|"Registering"
+operator|<<
+name|sockfd
+operator|<<
+literal|"for Reads"
+expr_stmt|;
 name|io_events
 operator||=
 name|BPS_IO_INPUT
@@ -495,6 +567,14 @@ name|QSocketNotifier
 operator|::
 name|Write
 case|:
+name|qEventDispatcherDebug
+operator|<<
+literal|"Registering"
+operator|<<
+name|sockfd
+operator|<<
+literal|"for Writes"
+expr_stmt|;
 name|io_events
 operator||=
 name|BPS_IO_OUTPUT
@@ -506,6 +586,14 @@ operator|::
 name|Exception
 case|:
 default|default:
+name|qEventDispatcherDebug
+operator|<<
+literal|"Registering"
+operator|<<
+name|sockfd
+operator|<<
+literal|"for Exceptions"
+expr_stmt|;
 name|io_events
 operator||=
 name|BPS_IO_EXCEPT
@@ -594,6 +682,14 @@ operator|->
 name|socket
 argument_list|()
 decl_stmt|;
+name|qEventDispatcherDebug
+operator|<<
+name|Q_FUNC_INFO
+operator|<<
+literal|"fd ="
+operator|<<
+name|sockfd
+expr_stmt|;
 specifier|const
 name|int
 name|io_events
