@@ -25,6 +25,7 @@ file|<qt_windows.h>
 end_include
 begin_function_decl
 name|QT_BEGIN_HEADER
+name|QT_BEGIN_NAMESPACE
 name|DECLARE_HANDLE
 parameter_list|(
 name|SC_HANDLE
@@ -237,9 +238,10 @@ end_endif
 begin_comment
 comment|// UNICODE
 end_comment
-begin_macro
+begin_expr_stmt
+name|QT_END_NAMESPACE
 name|QT_END_HEADER
-end_macro
+end_expr_stmt
 begin_endif
 endif|#
 directive|endif
