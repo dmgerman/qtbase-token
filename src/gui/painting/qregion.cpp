@@ -1764,9 +1764,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     \obsolete     \fn int QRegion::numRects() const     \since 4.4      Returns the number of rectangles that will be returned in rects(). */
-end_comment
-begin_comment
 comment|/*!     \fn int QRegion::rectCount() const     \since 4.6      Returns the number of rectangles that will be returned in rects(). */
 end_comment
 begin_comment
