@@ -87,7 +87,7 @@ parameter_list|()
 block|{ }
 end_function
 begin_comment
-comment|/*!     \class QPlatformScreenPageFlipper     \since 5.0     \internal     \preliminary     \ingroup qpa      \brief The QPlatformScreenPageFlipper class provides an abstraction for flipping the screen     page.  */
+comment|/*!     \class QPlatformScreenPageFlipper     \since 5.0     \internal     \preliminary     \ingroup qpa      \brief The QPlatformScreenPageFlipper class provides an abstract interface for display buffer swapping      Implement the displayBuffer() function to initiate a buffer swap. The     bufferDisplayed() signal should be emitted once the buffer is actually displayed on     the screen. The bufferReleased() signal should be emitted when the buffer data is no     longer owned by the display hardware. */
 end_comment
 begin_constructor
 DECL|function|QPlatformScreenPageFlipper
@@ -106,6 +106,9 @@ name|parent
 argument_list|)
 block|{  }
 end_constructor
+begin_comment
+comment|/*!     \fn bool QPlatformScreenPageFlipper::displayBuffer(QPlatformScreenBuffer *buffer)      Implemented in subclasses to display \a buffer directly on the screen. Returns \c true     if it is possible to display the buffer, and \c false if the buffer cannot be displayed.      If this function returns true, the buffer must not be modified or destroyed before the     bufferReleased() signal is emitted.  The signal bufferDisplayed() is emitted when the buffer     is displayed on the screen. The two signals may be emitted in either order.      This function is allowed to block. */
+end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

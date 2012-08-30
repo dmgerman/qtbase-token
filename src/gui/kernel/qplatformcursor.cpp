@@ -109,7 +109,7 @@ begin_comment
 comment|/*!     \fn virtual void QPlatformCursor::changeCursor(QCursor * windowCursor, QWindow * window)      \brief This method is called by Qt whenever the cursor graphic should be changed.      Implementation of this method is mandatory for a subclass of QPlatformCursor.      \a windowCursor is a pointer to the QCursor that should be displayed.      \a window is a pointer to the window currently displayed at QCursor::pos(). Note     that this may be 0 if the current position is not occupied by a displayed widget.      \sa QCursor::pos() */
 end_comment
 begin_comment
-comment|/*!     \fn QPlatformCursor::QPlatformCursor(QPlatformScreen *screen)      Constructs a QPlatformCursor for the given \a screen. */
+comment|/*!     \fn QPlatformCursor::QPlatformCursor()      Constructs a QPlatformCursor. */
 end_comment
 begin_constructor
 DECL|function|QPlatformCursor
@@ -6836,7 +6836,7 @@ begin_comment
 comment|/*!   \fn QImage *QPlatformCursorImage::image()    \brief Return the cursor graphic as a pointer to a QImage */
 end_comment
 begin_comment
-comment|/*!     \fn QPoint QPlatformCursorImage::hotspot()      \brief Return the cursor's hotspot */
+comment|/*!     \fn QPoint QPlatformCursorImage::hotspot() const      \brief Return the cursor's hotspot */
 end_comment
 begin_macro
 name|QT_END_NAMESPACE

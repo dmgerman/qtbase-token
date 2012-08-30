@@ -87,7 +87,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!  * \brief QPlatformServices::desktopEnvironment returns the active desktop environment.  * \return On Unix this function returns KDE, GNOME or UNKNOWN.  */
+comment|/*!  * \brief QPlatformServices::desktopEnvironment returns the active desktop environment.  *  * On Unix this function returns KDE, GNOME or UNKNOWN.  */
 end_comment
 begin_function
 DECL|function|desktopEnvironment

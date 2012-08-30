@@ -49,16 +49,16 @@ begin_comment
 comment|/*!     \fn QRect QPlatformSystemTrayIcon::geometry() const     This method returns the geometry of the platform dependent system tray icon on the screen. */
 end_comment
 begin_comment
-comment|/*!     \fn void QPlatformSystemTrayIcon::showMessage(const QString&msg, const QString&title,                                                   const QIcon&icon, MessageIcon iconType, int secs)     Shows a balloon message for the entry with the given \a title, message \msg and \a icon for     the time specified in \secs. \a iconType is used as a hint for the implementing platform.     \sa QSystemTrayIcon::showMessage */
+comment|/*!     \fn void QPlatformSystemTrayIcon::showMessage(const QString&msg, const QString&title,                                                   const QIcon&icon, MessageIcon iconType, int secs)     Shows a balloon message for the entry with the given \a title, message \a msg and \a icon for     the time specified in \a secs. \a iconType is used as a hint for the implementing platform.     \sa QSystemTrayIcon::showMessage */
 end_comment
 begin_comment
-comment|/*!     \fn bool QPlatformSystemTrayIcon::isSystemTrayAvailable()     Returns true if the system tray is available on the platform. */
+comment|/*!     \fn bool QPlatformSystemTrayIcon::isSystemTrayAvailable() const     Returns true if the system tray is available on the platform. */
 end_comment
 begin_comment
-comment|/*!     bool QPlatformSystemTrayIcon::supportsMessages()     Returns true if the system tray supports messages on the platform. */
+comment|/*!     \fn bool QPlatformSystemTrayIcon::supportsMessages() const     Returns true if the system tray supports messages on the platform. */
 end_comment
 begin_comment
-comment|/*!     \fn void activated(QPlatformSystemTrayIcon::ActivationReason reason)     This signal is emitted when the user activates the system tray icon.     \a reason specifies the reason for activation.     \sa QSystemTrayIcon::ActivationReason. */
+comment|/*!     \fn void QPlatformSystemTrayIcon::activated(QPlatformSystemTrayIcon::ActivationReason reason)     This signal is emitted when the user activates the system tray icon.     \a reason specifies the reason for activation.     \sa QSystemTrayIcon::ActivationReason */
 end_comment
 begin_macro
 name|QT_END_NAMESPACE
