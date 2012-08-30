@@ -411,7 +411,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the two contexts are sharing OpenGL resources. */
+comment|/*!     Returns true if the \a first and \a second contexts are sharing OpenGL resources. */
 end_comment
 begin_function
 DECL|function|areSharing
@@ -507,7 +507,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Creates a new OpenGL context instance.      Before it can be used you need to set the proper format and call create().      \sa create(), makeCurrent() */
+comment|/*!     Creates a new OpenGL context instance with parent object \a parent.      Before it can be used you need to set the proper format and call create().      \sa create(), makeCurrent() */
 end_comment
 begin_constructor
 DECL|function|QOpenGLContext
@@ -576,7 +576,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the context to share textures, shaders, and other OpenGL resources     with. You need to call create() before it takes effect. */
+comment|/*!     Makes this context share textures, shaders, and other OpenGL resources     with \a shareContext. You need to call create() before it takes effect. */
 end_comment
 begin_function
 DECL|function|setShareContext
@@ -1097,7 +1097,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Makes the context current in the current thread, against the given     \a surface.      If \a surface is 0 this is equivalent to calling doneCurrent().      Do not call this function from a different thread than the one the     QOpenGLContext instance lives in. If you wish to use QOpenGLContext from a     different thread you should first call make sure it's not current in the     current thread, by calling doneCurrent() if necessary. Then call     moveToThread(otherThread) before using it in the other thread.      \sa functions(), doneCurrent() */
+comment|/*!     Makes the context current in the current thread, against the given     \a surface. Returns true if successful.      If \a surface is 0 this is equivalent to calling doneCurrent().      Do not call this function from a different thread than the one the     QOpenGLContext instance lives in. If you wish to use QOpenGLContext from a     different thread you should first call make sure it's not current in the     current thread, by calling doneCurrent() if necessary. Then call     moveToThread(otherThread) before using it in the other thread.      \sa functions(), doneCurrent() */
 end_comment
 begin_function
 DECL|function|makeCurrent
@@ -1341,7 +1341,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Swap the back and front buffers of the given surface.      Call this to finish a frame of OpenGL rendering, and make sure to     call makeCurrent() again before you begin a new frame.      If you have bound a non-default framebuffer object, you need to     use bindDefaultFramebufferObject() to make sure that the default     framebuffer object is bound before calling swapBuffers(), as     some Qt platforms assume that the default framebuffer object is bound. */
+comment|/*!     Swap the back and front buffers of \a surface.      Call this to finish a frame of OpenGL rendering, and make sure to     call makeCurrent() again before you begin a new frame.      If you have bound a non-default framebuffer object, you need to     use bindDefaultFramebufferObject() to make sure that the default     framebuffer object is bound before calling swapBuffers(), as     some Qt platforms assume that the default framebuffer object is bound. */
 end_comment
 begin_function
 DECL|function|swapBuffers

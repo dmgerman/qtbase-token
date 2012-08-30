@@ -146,7 +146,7 @@ argument_list|)
 block|{ }
 end_constructor
 begin_comment
-comment|/*!     Constructs a QOpenGLPaintDevice with the given \a size and \a ctx.      The QOpenGLPaintDevice is only valid for the current context.      \sa QOpenGLContext::currentContext() */
+comment|/*!     Constructs a QOpenGLPaintDevice with the given \a width and \a height.      The QOpenGLPaintDevice is only valid for the current context.      \sa QOpenGLContext::currentContext() */
 end_comment
 begin_constructor
 DECL|function|QOpenGLPaintDevice
@@ -176,6 +176,9 @@ argument_list|)
 argument_list|)
 block|{ }
 end_constructor
+begin_comment
+comment|/*!     Destroys the QOpenGLPaintDevice. */
+end_comment
 begin_destructor
 DECL|function|~QOpenGLPaintDevice
 name|QOpenGLPaintDevice
@@ -191,6 +194,9 @@ name|engine
 expr_stmt|;
 block|}
 end_destructor
+begin_comment
+comment|/*!     \fn int QOpenGLPaintDevice::devType() const     \internal     \reimp */
+end_comment
 begin_constructor
 DECL|function|QOpenGLPaintDevicePrivate
 name|QOpenGLPaintDevicePrivate
@@ -303,6 +309,9 @@ argument_list|,
 argument|qt_opengl_engine
 argument_list|)
 end_macro
+begin_comment
+comment|/*!     \reimp */
+end_comment
 begin_function
 DECL|function|paintEngine
 name|QPaintEngine
@@ -367,6 +376,9 @@ name|engine
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Returns the OpenGL context associated with the paint device. */
+end_comment
 begin_function
 DECL|function|context
 name|QOpenGLContext
@@ -384,6 +396,9 @@ name|ctx
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Returns the pixel size of the paint device.      \sa setSize() */
+end_comment
 begin_function
 DECL|function|size
 name|QSize
@@ -400,6 +415,9 @@ name|size
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Sets the pixel size of the paint device to \a size.      \sa size() */
+end_comment
 begin_function
 DECL|function|setSize
 name|void
@@ -421,6 +439,9 @@ name|size
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!     \reimp */
+end_comment
 begin_function
 DECL|function|metric
 name|int
@@ -580,6 +601,9 @@ return|;
 block|}
 block|}
 end_function
+begin_comment
+comment|/*!     Returns the number of pixels per meter horizontally.      \sa setDotsPerMeterX() */
+end_comment
 begin_function
 DECL|function|dotsPerMeterX
 name|qreal
@@ -596,6 +620,9 @@ name|dpmx
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Returns the number of pixels per meter vertically.      \sa setDotsPerMeterY() */
+end_comment
 begin_function
 DECL|function|dotsPerMeterY
 name|qreal
@@ -612,6 +639,9 @@ name|dpmy
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Sets the number of pixels per meter horizontally to \a dpmx.      \sa dotsPerMeterX() */
+end_comment
 begin_function
 DECL|function|setDotsPerMeterX
 name|void
@@ -631,6 +661,9 @@ name|dpmx
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!     Sets the number of pixels per meter vertically to \a dpmy.      \sa dotsPerMeterY() */
+end_comment
 begin_function
 DECL|function|setDotsPerMeterY
 name|void
@@ -651,7 +684,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Specifies whether painting should be flipped around the Y-axis or not. */
+comment|/*!     Sets whether painting should be flipped around the Y-axis or not to \a flipped.      \sa paintFlipped() */
 end_comment
 begin_function
 DECL|function|setPaintFlipped
@@ -672,6 +705,9 @@ name|flipped
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!     Returns true if painting is flipped around the Y-axis.      \sa setPaintFlipped() */
+end_comment
 begin_function
 DECL|function|paintFlipped
 name|bool

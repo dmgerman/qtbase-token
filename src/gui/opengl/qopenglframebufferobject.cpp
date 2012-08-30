@@ -3867,7 +3867,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the attachments of the framebuffer object.      This can be used to free or reattach the depth and stencil buffer     attachments as needed.  */
+comment|/*!     Sets the attachments of the framebuffer object to \a attachment.      This can be used to free or reattach the depth and stencil buffer     attachments as needed.  */
 end_comment
 begin_function
 DECL|function|setAttachment
