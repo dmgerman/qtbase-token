@@ -103,10 +103,7 @@ begin_comment
 comment|/*!     \fn void QAccessibleEditableTextInterface::replaceText(int startOffset, int endOffset, const QString&text)      Removes the text from \a startOffset to \a endOffset and instead inserts \a text. */
 end_comment
 begin_comment
-comment|/*!     \fn void QAccessibleEditableTextInterface::setAttributes(int startOffset, int endOffset, const QString&attributes)      \sa QAccessibleTextInterface::attributes() */
-end_comment
-begin_comment
-comment|/*!     \class QAccessibleValueInterface     \class QAccessibleValueInterface     \inmodule QtGui     \ingroup accessibility     \internal      \brief The QAccessibleValueInterface class implements support for objects that manipulate a value.      This interface should be implemented by accessible objects that represent a value.     Examples are spinner, slider, dial and scroll bar.      Instead of forcing the user to deal with the individual parts of the widgets, this interface     gives an easier approach to the kind of widget it represents.      Usually this interface is implemented by classes that also implement \l QAccessibleInterface.      \l{IAccessible2 Specification} */
+comment|/*!     \class QAccessibleValueInterface     \inmodule QtGui     \ingroup accessibility     \internal      \brief The QAccessibleValueInterface class implements support for objects that manipulate a value.      This interface should be implemented by accessible objects that represent a value.     Examples are spinner, slider, dial and scroll bar.      Instead of forcing the user to deal with the individual parts of the widgets, this interface     gives an easier approach to the kind of widget it represents.      Usually this interface is implemented by classes that also implement \l QAccessibleInterface.      \l{IAccessible2 Specification} */
 end_comment
 begin_comment
 comment|/*!     \fn QAccessibleValueInterface::~QAccessibleValueInterface()     Destructor. */

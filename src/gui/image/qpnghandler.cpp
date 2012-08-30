@@ -2608,9 +2608,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|/*!     \internal */
-end_comment
 begin_function
 DECL|function|readPngTexts
 name|void
@@ -2771,9 +2768,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_comment
-comment|/*!     \internal */
-end_comment
 begin_function
 DECL|function|readPngHeader
 name|bool
@@ -2943,9 +2937,6 @@ literal|true
 return|;
 block|}
 end_function
-begin_comment
-comment|/*!     \internal */
-end_comment
 begin_function
 DECL|function|readPngImage
 name|bool
