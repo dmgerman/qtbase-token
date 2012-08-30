@@ -31,9 +31,6 @@ end_comment
 begin_comment
 comment|/*! \enum QSessionManager::RestartHint      This enum type defines the circumstances under which this application wants     to be restarted by the session manager. The current values are:      \value  RestartIfRunning    If the application is still running when the                                 session is shut down, it wants to be restarted                                 at the start of the next session.      \value  RestartAnyway       The application wants to be started at the                                 start of the next session, no matter what.                                 (This is useful for utilities that run just                                 after startup and then quit.)      \value  RestartImmediately  The application wants to be started immediately                                 whenever it is not running.      \value  RestartNever        The application does not want to be restarted                                 automatically.      The default hint is \c RestartIfRunning. */
 end_comment
-begin_comment
-comment|/*!     \fn void* QSessionManager::handle() const      \internal */
-end_comment
 begin_class
 DECL|class|QSessionManagerPrivate
 class|class

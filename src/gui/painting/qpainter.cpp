@@ -20434,7 +20434,7 @@ begin_comment
 comment|/*!     \fn void QPainter::drawStaticText(int left, int top, const QStaticText&staticText)     \since 4.7     \overload      Draws the \a staticText at coordinates \a left and \a top.      \note The y-position is used as the top of the font. */
 end_comment
 begin_comment
-comment|/*!     \fn void QPainter::drawText(const QPointF&position, const QString&text)      Draws the given \a text with the currently defined text direction,     beginning at the given \a position.      This function does not handle the newline character (\n), as it cannot     break text into multiple lines, and it cannot display the newline character.     Use the QPainter::drawText() overload that takes a rectangle instead     if you want to draw multiple lines of text with the newline character, or     if you want the text to be wrapped.      By default, QPainter draws text anti-aliased.      \note The y-position is used as the baseline of the font.      \sa setFont(), setPen() */
+comment|/*!     \fn void QPainter::drawText(const QPointF&position, const QString&text)      Draws the given \a text with the currently defined text direction,     beginning at the given \a position.      This function does not handle the newline character (\\n), as it cannot     break text into multiple lines, and it cannot display the newline character.     Use the QPainter::drawText() overload that takes a rectangle instead     if you want to draw multiple lines of text with the newline character, or     if you want the text to be wrapped.      By default, QPainter draws text anti-aliased.      \note The y-position is used as the baseline of the font.      \sa setFont(), setPen() */
 end_comment
 begin_function
 DECL|function|drawText

@@ -3992,6 +3992,12 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|/*!     \fn QPixmap QPixmap::alphaChannel() const      Use QImage::alphaChannel() instead. */
+end_comment
+begin_comment
+comment|/*!     \fn void QPixmap::setAlphaChannel(const QPixmap&p)      Use QImage::setAlphaChannel() for \a p instead. */
+end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

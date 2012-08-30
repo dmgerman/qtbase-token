@@ -19717,9 +19717,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|/*!     \internal */
-end_comment
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -28572,9 +28569,6 @@ block|}
 end_function
 begin_comment
 comment|/*!     \fn void QRasterPaintEngine::drawPoints(const QPoint *points, int pointCount)     \overload      Draws the first \a pointCount points in the buffer \a points      The default implementation converts the first \a pointCount QPoints in \a points     to QPointFs and calls the floating point version of drawPoints. */
-end_comment
-begin_comment
-comment|/*!     \fn void QRasterPaintEngine::drawEllipse(const QRect&rect)     \overload      Reimplement this function to draw the largest ellipse that can be     contained within rectangle \a rect. */
 end_comment
 begin_ifdef
 ifdef|#

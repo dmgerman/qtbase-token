@@ -894,6 +894,9 @@ argument_list|()
 expr_stmt|;
 block|}
 end_constructor
+begin_comment
+comment|/*!     \internal */
+end_comment
 begin_constructor
 DECL|function|QGuiApplication
 name|QGuiApplication
@@ -1748,10 +1751,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QGuiApplication::focusObjectChanged(QObject *focusObject)      This signal is emitted when final receiver of events tied to focus is changed.     \sa focusObject() */
+comment|/*!     \fn QGuiApplication::focusObjectChanged(QObject *focusObject)      This signal is emitted when final receiver of events tied to focus is changed.     \a focusObject is the new receiver.      \sa focusObject() */
 end_comment
 begin_comment
-comment|/*!     \fn QGuiApplication::focusWindowChanged(QWindow *focusWindow)      This signal is emitted when the focused window changes.     \sa focusWindow() */
+comment|/*!     \fn QGuiApplication::focusWindowChanged(QWindow *focusWindow)      This signal is emitted when the focused window changes.     \a focusWindow is the new focused window.      \sa focusWindow() */
 end_comment
 begin_comment
 comment|/*!     Returns the QObject in currently active window that will be final receiver of events     tied to focus, such as key events.  */
@@ -1969,7 +1972,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the top level window at the given position, if any. */
+comment|/*!     Returns the top level window at the given position \a pos, if any. */
 end_comment
 begin_function
 DECL|function|topLevelAt
@@ -9676,7 +9679,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Changes the default application palette to \a palette.      \sa palette() */
+comment|/*!     Changes the default application palette to \a pal.      \sa palette() */
 end_comment
 begin_function
 DECL|function|setPalette

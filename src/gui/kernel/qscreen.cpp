@@ -579,7 +579,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \property QScreen::virtualGeometry   \brief the pixel geometry of the virtual desktop corresponding to this screen    This is the union of the virtual siblings' individual geometries.    \sa virtualSiblings() */
+comment|/*!   Returns the pixel geometry of the virtual desktop corresponding to this screen.    This is the union of the virtual siblings' individual geometries.    \sa virtualSiblings() */
 end_comment
 begin_function
 DECL|function|virtualGeometry
