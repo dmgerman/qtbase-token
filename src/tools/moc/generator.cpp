@@ -9156,11 +9156,18 @@ name|fprintf
 argument_list|(
 name|out
 argument_list|,
-literal|"QT_MOC_EXPORT_PLUGIN(%s)\n\n"
+literal|"QT_MOC_EXPORT_PLUGIN(%s, %s)\n\n"
 argument_list|,
 name|cdef
 operator|->
 name|qualified
+operator|.
+name|constData
+argument_list|()
+argument_list|,
+name|cdef
+operator|->
+name|classname
 operator|.
 name|constData
 argument_list|()
