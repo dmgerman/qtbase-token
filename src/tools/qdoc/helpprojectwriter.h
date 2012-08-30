@@ -338,6 +338,14 @@ argument_list|)
 decl|const
 decl_stmt|;
 name|void
+name|writeHashFile
+parameter_list|(
+name|QFile
+modifier|&
+name|file
+parameter_list|)
+function_decl|;
+name|void
 name|writeNode
 parameter_list|(
 name|HelpProject
