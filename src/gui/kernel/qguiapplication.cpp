@@ -5682,7 +5682,7 @@ name|qApp
 argument_list|,
 name|SLOT
 argument_list|(
-name|q_updateFocusObject
+name|_q_updateFocusObject
 argument_list|(
 name|QObject
 operator|*
@@ -5760,7 +5760,7 @@ name|qApp
 argument_list|,
 name|SLOT
 argument_list|(
-name|q_updateFocusObject
+name|_q_updateFocusObject
 argument_list|(
 name|QObject
 operator|*
@@ -5813,7 +5813,7 @@ argument_list|()
 condition|)
 name|self
 operator|->
-name|q_updateFocusObject
+name|_q_updateFocusObject
 argument_list|(
 name|qApp
 operator|->
@@ -10915,11 +10915,11 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|q_updateFocusObject
+DECL|function|_q_updateFocusObject
 name|void
 name|QGuiApplicationPrivate
 operator|::
-name|q_updateFocusObject
+name|_q_updateFocusObject
 parameter_list|(
 name|QObject
 modifier|*

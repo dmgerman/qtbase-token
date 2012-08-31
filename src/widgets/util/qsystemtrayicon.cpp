@@ -661,11 +661,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|emitActivated
+DECL|function|_q_emitActivated
 name|void
 name|QSystemTrayIconPrivate
 operator|::
-name|emitActivated
+name|_q_emitActivated
 parameter_list|(
 name|QPlatformSystemTrayIcon
 operator|::

@@ -141,13 +141,13 @@ name|inputItemChanged
 argument_list|()
 block|;     }
 name|void
-name|q_connectFocusObject
+name|_q_connectFocusObject
 argument_list|()
 decl_stmt|;
 end_decl_stmt
 begin_function_decl
 name|void
-name|q_checkFocusObject
+name|_q_checkFocusObject
 parameter_list|(
 name|QObject
 modifier|*

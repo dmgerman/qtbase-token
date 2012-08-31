@@ -176,7 +176,7 @@ name|supportsMessages_sys
 argument_list|()
 block|;
 name|void
-name|emitActivated
+name|_q_emitActivated
 argument_list|(
 argument|QPlatformSystemTrayIcon::ActivationReason reason
 argument_list|)

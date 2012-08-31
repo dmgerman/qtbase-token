@@ -58,7 +58,7 @@ name|this
 argument_list|,
 name|SLOT
 argument_list|(
-name|q_connectFocusObject
+name|_q_connectFocusObject
 argument_list|()
 argument_list|)
 argument_list|)
@@ -855,11 +855,11 @@ begin_comment
 comment|// temporary handlers for updating focus item based on application focus
 end_comment
 begin_function
-DECL|function|q_connectFocusObject
+DECL|function|_q_connectFocusObject
 name|void
 name|QInputMethodPrivate
 operator|::
-name|q_connectFocusObject
+name|_q_connectFocusObject
 parameter_list|()
 block|{
 name|Q_Q
@@ -886,7 +886,7 @@ name|q
 argument_list|,
 name|SLOT
 argument_list|(
-name|q_checkFocusObject
+name|_q_checkFocusObject
 argument_list|(
 name|QObject
 operator|*
@@ -894,7 +894,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|q_checkFocusObject
+name|_q_checkFocusObject
 argument_list|(
 name|qApp
 operator|->
@@ -905,11 +905,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|q_checkFocusObject
+DECL|function|_q_checkFocusObject
 name|void
 name|QInputMethodPrivate
 operator|::
-name|q_checkFocusObject
+name|_q_checkFocusObject
 parameter_list|(
 name|QObject
 modifier|*

@@ -285,7 +285,7 @@ name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
 argument_list|,
-argument|void emitActivated(QPlatformSystemTrayIcon::ActivationReason)
+argument|void _q_emitActivated(QPlatformSystemTrayIcon::ActivationReason)
 argument_list|)
 name|friend
 name|class

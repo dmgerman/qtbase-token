@@ -527,7 +527,7 @@ name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
 argument_list|,
-argument|void q_updateFocusObject(QObject *object)
+argument|void _q_updateFocusObject(QObject *object)
 argument_list|)
 ifndef|#
 directive|ifndef

@@ -665,7 +665,7 @@ decl_stmt|;
 end_decl_stmt
 begin_function_decl
 name|void
-name|q_updateFocusObject
+name|_q_updateFocusObject
 parameter_list|(
 name|QObject
 modifier|*
