@@ -83,7 +83,7 @@ parameter_list|(
 name|F
 parameter_list|)
 define|\
-value|F(Void, 43, void) \     F(Bool, 1, bool) \     F(Int, 2, int) \     F(UInt, 3, uint) \     F(LongLong, 4, qlonglong) \     F(ULongLong, 5, qulonglong) \     F(Double, 6, double) \     F(Long, 32, long) \     F(Short, 33, short) \     F(Char, 34, char) \     F(ULong, 35, ulong) \     F(UShort, 36, ushort) \     F(UChar, 37, uchar) \     F(Float, 38, float) \     F(SChar, 49, signed char) \  #define QT_FOR_EACH_STATIC_PRIMITIVE_POINTER(F)\     F(VoidStar, 31, void*) \  #define QT_FOR_EACH_STATIC_CORE_CLASS(F)\     F(QChar, 7, QChar) \     F(QString, 10, QString) \     F(QStringList, 11, QStringList) \     F(QByteArray, 12, QByteArray) \     F(QBitArray, 13, QBitArray) \     F(QDate, 14, QDate) \     F(QTime, 15, QTime) \     F(QDateTime, 16, QDateTime) \     F(QUrl, 17, QUrl) \     F(QLocale, 18, QLocale) \     F(QRect, 19, QRect) \     F(QRectF, 20, QRectF) \     F(QSize, 21, QSize) \     F(QSizeF, 22, QSizeF) \     F(QLine, 23, QLine) \     F(QLineF, 24, QLineF) \     F(QPoint, 25, QPoint) \     F(QPointF, 26, QPointF) \     F(QRegExp, 27, QRegExp) \     F(QEasingCurve, 29, QEasingCurve) \     F(QUuid, 30, QUuid) \     F(QVariant, 41, QVariant) \     F(QModelIndex, 42, QModelIndex) \     F(QRegularExpression, 44, QRegularExpression) \     F(QJsonValue, 45, QJsonValue) \     F(QJsonObject, 46, QJsonObject) \     F(QJsonArray, 47, QJsonArray) \     F(QJsonDocument, 48, QJsonDocument) \  #define QT_FOR_EACH_STATIC_CORE_POINTER(F)\     F(QObjectStar, 39, QObject*)
+value|F(Void, 43, void) \     F(Bool, 1, bool) \     F(Int, 2, int) \     F(UInt, 3, uint) \     F(LongLong, 4, qlonglong) \     F(ULongLong, 5, qulonglong) \     F(Double, 6, double) \     F(Long, 32, long) \     F(Short, 33, short) \     F(Char, 34, char) \     F(ULong, 35, ulong) \     F(UShort, 36, ushort) \     F(UChar, 37, uchar) \     F(Float, 38, float) \     F(SChar, 40, signed char) \  #define QT_FOR_EACH_STATIC_PRIMITIVE_POINTER(F)\     F(VoidStar, 31, void*) \  #define QT_FOR_EACH_STATIC_CORE_CLASS(F)\     F(QChar, 7, QChar) \     F(QString, 10, QString) \     F(QStringList, 11, QStringList) \     F(QByteArray, 12, QByteArray) \     F(QBitArray, 13, QBitArray) \     F(QDate, 14, QDate) \     F(QTime, 15, QTime) \     F(QDateTime, 16, QDateTime) \     F(QUrl, 17, QUrl) \     F(QLocale, 18, QLocale) \     F(QRect, 19, QRect) \     F(QRectF, 20, QRectF) \     F(QSize, 21, QSize) \     F(QSizeF, 22, QSizeF) \     F(QLine, 23, QLine) \     F(QLineF, 24, QLineF) \     F(QPoint, 25, QPoint) \     F(QPointF, 26, QPointF) \     F(QRegExp, 27, QRegExp) \     F(QEasingCurve, 29, QEasingCurve) \     F(QUuid, 30, QUuid) \     F(QVariant, 41, QVariant) \     F(QModelIndex, 42, QModelIndex) \     F(QRegularExpression, 44, QRegularExpression) \     F(QJsonValue, 45, QJsonValue) \     F(QJsonObject, 46, QJsonObject) \     F(QJsonArray, 47, QJsonArray) \     F(QJsonDocument, 48, QJsonDocument) \  #define QT_FOR_EACH_STATIC_CORE_POINTER(F)\     F(QObjectStar, 39, QObject*)
 DECL|macro|QT_FOR_EACH_STATIC_CORE_TEMPLATE
 define|#
 directive|define
@@ -201,7 +201,7 @@ name|Bool
 block|,
 name|LastCoreType
 init|=
-name|SChar
+name|QJsonDocument
 block|,
 name|FirstGuiType
 init|=
@@ -426,13 +426,13 @@ name|QJsonDocument
 init|=
 literal|48
 block|,
-name|SChar
-init|=
-literal|49
-block|,
 name|QObjectStar
 init|=
 literal|39
+block|,
+name|SChar
+init|=
+literal|40
 block|,
 name|Void
 init|=

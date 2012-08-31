@@ -1781,12 +1781,7 @@ operator|&&
 name|type
 operator|<=
 name|LastCoreType
-operator|&&
-name|type
-operator|!=
-literal|40
 operator|)
-comment|// 40 is the type that QWidgetStar used to be
 operator|||
 operator|(
 name|type
