@@ -2776,12 +2776,15 @@ literal|":0"
 expr_stmt|;
 if|if
 condition|(
+name|strcmp
+argument_list|(
 name|libtoolify
 index|[
 name|i
 index|]
-operator|!=
+argument_list|,
 literal|"QMAKE_AR_CMD"
+argument_list|)
 condition|)
 block|{
 name|QString
