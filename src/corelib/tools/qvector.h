@@ -5569,10 +5569,7 @@ begin_expr_stmt
 name|QT_BEGIN_INCLUDE_NAMESPACE
 include|#
 directive|include
-file|<QtCore/QPointF>
-include|#
-directive|include
-file|<QtCore/QPoint>
+file|<QtCore/qpoint.h>
 name|QT_END_INCLUDE_NAMESPACE
 if|#
 directive|if

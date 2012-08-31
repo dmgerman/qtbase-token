@@ -29,7 +29,7 @@ end_endif
 begin_include
 include|#
 directive|include
-file|<QDate>
+file|<qdatetime.h>
 end_include
 begin_include
 include|#

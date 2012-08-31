@@ -21,7 +21,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/QDate>
+file|<QtCore/qdatetime.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER

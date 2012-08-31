@@ -10,17 +10,17 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QDir>
+file|<qdir.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QFile>
+file|<qfile.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QByteArray>
+file|<qbytearray.h>
 end_include
 begin_comment
 comment|// std stuff ------------------------------------

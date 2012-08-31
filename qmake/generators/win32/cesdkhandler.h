@@ -16,12 +16,12 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QStringList>
+file|<qstringlist.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QDir>
+file|<qdir.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
