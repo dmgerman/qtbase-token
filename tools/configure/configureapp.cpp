@@ -22288,6 +22288,10 @@ literal|"/bin/syncqt.bat"
 expr_stmt|;
 name|args
 operator|+=
+literal|"-minimal"
+expr_stmt|;
+name|args
+operator|+=
 name|sourcePath
 expr_stmt|;
 name|int
