@@ -28568,7 +28568,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QRasterPaintEngine::drawPoints(const QPoint *points, int pointCount)     \overload      Draws the first \a pointCount points in the buffer \a points      The default implementation converts the first \a pointCount QPoints in \a points     to QPointFs and calls the floating point version of drawPoints. */
+comment|/*!     \fn void QRasterPaintEngine::drawPoints(const QPoint *points, int pointCount)     \overload     \reimp */
 end_comment
 begin_ifdef
 ifdef|#

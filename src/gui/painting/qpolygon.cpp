@@ -2735,6 +2735,9 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!    Returns the polygon as a QVariant. */
+end_comment
 begin_function
 DECL|function|operator QVariant
 name|QPolygonF

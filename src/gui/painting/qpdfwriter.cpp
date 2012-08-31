@@ -200,7 +200,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Sets the title of the document being created.   */
+comment|/*!   Sets the title of the document being created to \a title.   */
 end_comment
 begin_function
 DECL|function|setTitle
@@ -264,7 +264,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Sets the creator of the document.   */
+comment|/*!   Sets the creator of the document to \a creator.   */
 end_comment
 begin_function
 DECL|function|setCreator

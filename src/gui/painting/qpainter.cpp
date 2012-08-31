@@ -5305,7 +5305,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Initializes the painters pen, background and font to the same as     the given \a paint device.      \obsolete      \sa begin(), {QPainter#Settings}{Settings} */
+comment|/*!     Initializes the painters pen, background and font to the same as     the given \a device.      \obsolete      \sa begin(), {QPainter#Settings}{Settings} */
 end_comment
 begin_function
 DECL|function|initFrom
