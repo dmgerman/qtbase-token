@@ -672,7 +672,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the orientations that the application is interested in receiving     updates for in conjunction with this screen.      For example, to receive orientation() updates and thus have     orientationChanged() signals being emitted for LandscapeOrientation and     InvertedLandscapeOrientation, call setOrientationUpdateMask() with the     argument Qt::LandscapeOrientation | Qt::InvertedLandscapeOrientation.      The default, 0, means no orientationChanged() signals are fired. */
+comment|/*!     Sets the orientations that the application is interested in receiving     updates for in conjunction with this screen.      For example, to receive orientation() updates and thus have     orientationChanged() signals being emitted for LandscapeOrientation and     InvertedLandscapeOrientation, call setOrientationUpdateMask() with     \a{mask} set to Qt::LandscapeOrientation | Qt::InvertedLandscapeOrientation.      The default, 0, means no orientationChanged() signals are fired. */
 end_comment
 begin_function
 DECL|function|setOrientationUpdateMask
@@ -737,7 +737,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QScreen::orientation     \brief the screen orientation      The screen orientation represents the physical orientation     of the display. For example, the screen orientation of a mobile device     will change based on the device is being held, and a desktop display     might be rotated so that it's in portrait mode.      Changes to this property will be filtered by orientationUpdateMask(),     so in order to receive orientation updates the application must first     call setOrientationUpdateMask() with a mask of the orientations it wants     to receive.      Qt::PrimaryOrientation is never returned.      \sa primaryOrientation(), orientationChanged() */
+comment|/*!     \property QScreen::orientation     \brief the screen orientation      The screen orientation represents the physical orientation     of the display. For example, the screen orientation of a mobile device     will change based on the device is being held, and a desktop display     might be rotated so that it's in portrait mode.      Changes to this property will be filtered by orientationUpdateMask(),     so in order to receive orientation updates the application must first     call setOrientationUpdateMask() with a mask of the orientations it wants     to receive.      Qt::PrimaryOrientation is never returned.      \sa primaryOrientation() */
 end_comment
 begin_function
 DECL|function|orientation
@@ -789,7 +789,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QScreen::primaryOrientation     \brief the primary screen orientation      The primary screen orientation is Qt::LandscapeOrientation     if the screen geometry's width is greater than or equal to its     height, or Qt::PortraitOrientation otherwise.      \sa primaryOrientationChanged() */
+comment|/*!     \property QScreen::primaryOrientation     \brief the primary screen orientation      The primary screen orientation is Qt::LandscapeOrientation     if the screen geometry's width is greater than or equal to its     height, or Qt::PortraitOrientation otherwise. */
 end_comment
 begin_function
 DECL|function|primaryOrientation
@@ -1138,7 +1138,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Maps the rect between two screen orientations.      This will flip the x and y dimensions of the rectangle if orientation \a is     Qt::PortraitOrientation or Qt::InvertedPortraitOrientation and orientation \b is     Qt::LandscapeOrientation or Qt::InvertedLandscapeOrientation, or vice versa.      Qt::PrimaryOrientation is interpreted as the screen's primaryOrientation(). */
+comment|/*!     Maps the rect between two screen orientations.      This will flip the x and y dimensions of the rectangle \a{rect} if the orientation \a{a} is     Qt::PortraitOrientation or Qt::InvertedPortraitOrientation and orientation \a{b} is     Qt::LandscapeOrientation or Qt::InvertedLandscapeOrientation, or vice versa.      Qt::PrimaryOrientation is interpreted as the screen's primaryOrientation(). */
 end_comment
 begin_function
 DECL|function|mapBetween
@@ -1261,7 +1261,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Convenience function to check if a screen orientation is either portrait     or inverted portrait.      Qt::PrimaryOrientation is interpreted as the screen's primaryOrientation(). */
+comment|/*!     Convenience function that returns true if \a o is either portrait or inverted portrait;     otherwise returns false.      Qt::PrimaryOrientation is interpreted as the screen's primaryOrientation(). */
 end_comment
 begin_function
 DECL|function|isPortrait
@@ -1308,7 +1308,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Convenience function to check if a screen orientation is either landscape     or inverted landscape.      Qt::PrimaryOrientation is interpreted as the screen's primaryOrientation(). */
+comment|/*!     Convenience function that returns true if \a o is either landscape or inverted landscape;     otherwise returns false.      Qt::PrimaryOrientation is interpreted as the screen's primaryOrientation(). */
 end_comment
 begin_function
 DECL|function|isLandscape
@@ -1355,10 +1355,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QScreen::orientationChanged(Qt::ScreenOrientation orientation)      This signal is emitted when the orientation of the screen     changes.      \sa orientation() */
+comment|/*!     \fn void QScreen::orientationChanged(Qt::ScreenOrientation orientation)      This signal is emitted when the orientation of the screen     changes.      \sa orientation() */
 end_comment
 begin_comment
-comment|/*!     \fn QScreen::primaryOrientationChanged(Qt::ScreenOrientation orientation)      This signal is emitted when the primary orientation of the screen     changes.      \sa primaryOrientation() */
+comment|/*!     \fn void QScreen::primaryOrientationChanged(Qt::ScreenOrientation orientation)      This signal is emitted when the primary orientation of the screen     changes.      \sa primaryOrientation() */
 end_comment
 begin_function
 DECL|function|updatePrimaryOrientation
@@ -1410,10 +1410,10 @@ name|int
 name|y
 parameter_list|,
 name|int
-name|w
+name|width
 parameter_list|,
 name|int
-name|h
+name|height
 parameter_list|)
 block|{
 specifier|const
@@ -1453,9 +1453,9 @@ name|x
 argument_list|,
 name|y
 argument_list|,
-name|w
+name|width
 argument_list|,
-name|h
+name|height
 argument_list|)
 return|;
 block|}
