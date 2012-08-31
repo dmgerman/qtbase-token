@@ -527,6 +527,12 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_LOCALE_IS_UTF8
+argument_list|)
 end_if
 begin_function
 DECL|function|checkForCodec
