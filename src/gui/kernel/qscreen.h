@@ -147,7 +147,7 @@ argument|QRect availableGeometry READ availableGeometry NOTIFY availableGeometry
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|Qt::ScreenOrientation primaryOrientation READ orientation NOTIFY primaryOrientationChanged
+argument|Qt::ScreenOrientation primaryOrientation READ primaryOrientation NOTIFY primaryOrientationChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
