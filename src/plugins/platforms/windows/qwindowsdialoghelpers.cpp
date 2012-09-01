@@ -127,6 +127,11 @@ end_ifdef
 begin_comment
 comment|/* Add missing declarations for MinGW */
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|__IShellLibrary_FWD_DEFINED__
+end_ifndef
 begin_comment
 comment|/* Constants obtained by running the below stream operator for  * CLSID, IID on the constants in the Windows SDK libraries. */
 end_comment
@@ -388,11 +393,6 @@ block|}
 block|}
 decl_stmt|;
 end_decl_stmt
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|__IShellLibrary_FWD_DEFINED__
-end_ifndef
 begin_typedef
 DECL|struct|_COMDLG_FILTERSPEC
 typedef|typedef
