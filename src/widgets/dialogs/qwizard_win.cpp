@@ -887,6 +887,16 @@ literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|member|instanceCount
+name|int
+name|QVistaHelper
+operator|::
+name|instanceCount
+init|=
+literal|0
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|member|is_vista
 name|bool
 name|QVistaHelper
@@ -1274,6 +1284,9 @@ argument_list|(
 literal|0
 argument_list|)
 block|{
+operator|++
+name|instanceCount
+expr_stmt|;
 name|is_vista
 operator|=
 name|resolveSymbols
@@ -1329,7 +1342,11 @@ operator|::
 name|~
 name|QVistaHelper
 parameter_list|()
-block|{ }
+block|{
+operator|--
+name|instanceCount
+expr_stmt|;
+block|}
 end_destructor
 begin_function
 DECL|function|isCompositionEnabled
@@ -1408,6 +1425,10 @@ parameter_list|()
 block|{
 if|if
 condition|(
+name|instanceCount
+operator|==
+literal|0
+operator|||
 name|cachedVistaState
 operator|==
 name|Dirty

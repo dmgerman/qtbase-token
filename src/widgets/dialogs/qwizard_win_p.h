@@ -558,6 +558,10 @@ name|event
 argument_list|)
 block|;
 specifier|static
+name|int
+name|instanceCount
+block|;
+specifier|static
 name|bool
 name|is_vista
 block|;
