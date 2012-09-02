@@ -12993,7 +12993,9 @@ operator|!
 name|sequentialOrdering
 condition|)
 block|{
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|children
 operator|.

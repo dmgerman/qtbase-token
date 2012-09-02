@@ -4154,7 +4154,9 @@ name|isEmpty
 argument_list|()
 condition|)
 return|return;
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|children
 operator|.

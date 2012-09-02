@@ -728,7 +728,9 @@ name|d_ptr
 operator|->
 name|children
 decl_stmt|;
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|childList
 operator|.
@@ -984,7 +986,9 @@ operator|<<
 name|item
 expr_stmt|;
 block|}
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|topLevels
 operator|.
@@ -1738,7 +1742,9 @@ name|Qt
 operator|::
 name|DescendingOrder
 condition|)
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|itemList
 operator|->
@@ -1762,7 +1768,9 @@ name|Qt
 operator|::
 name|AscendingOrder
 condition|)
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|itemList
 operator|->
@@ -1793,7 +1801,9 @@ operator|::
 name|DescendingOrder
 condition|)
 block|{
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|itemList
 operator|->
@@ -1819,7 +1829,9 @@ operator|::
 name|AscendingOrder
 condition|)
 block|{
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|itemList
 operator|->
@@ -1847,7 +1859,9 @@ operator|::
 name|DescendingOrder
 condition|)
 block|{
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|itemList
 operator|->
@@ -1873,7 +1887,9 @@ operator|::
 name|AscendingOrder
 condition|)
 block|{
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|itemList
 operator|->

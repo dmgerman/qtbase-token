@@ -6200,7 +6200,9 @@ operator|!
 name|topLevelSequentialOrdering
 condition|)
 block|{
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|topLevelItems
 operator|.
@@ -25438,7 +25440,9 @@ operator|.
 name|keys
 argument_list|()
 expr_stmt|;
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|cachedTargetItems
 operator|.
@@ -26009,7 +26013,9 @@ name|sceneHotSpot
 expr_stmt|;
 block|}
 block|}
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|cachedTargetItems
 operator|.
@@ -26476,7 +26482,9 @@ operator|.
 name|toList
 argument_list|()
 expr_stmt|;
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|cachedTargetItems
 operator|.

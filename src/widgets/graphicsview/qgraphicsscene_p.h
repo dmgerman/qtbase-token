@@ -1170,7 +1170,9 @@ condition|(
 name|needSortTopLevelItems
 condition|)
 block|{
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|topLevelItems
 operator|.
