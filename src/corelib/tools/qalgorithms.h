@@ -24,6 +24,14 @@ comment|/*     Warning: The contents of QAlgorithmsPrivate is not a part of the 
 name|namespace
 name|QAlgorithmsPrivate
 block|{
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|2
+argument_list|)
 name|template
 operator|<
 name|typename
@@ -35,6 +43,7 @@ operator|,
 name|typename
 name|LessThan
 operator|>
+name|QT_DEPRECATED
 name|Q_OUTOFLINE_TEMPLATE
 name|void
 name|qSortHelper
@@ -56,6 +65,7 @@ operator|,
 name|typename
 name|T
 operator|>
+name|QT_DEPRECATED
 specifier|inline
 name|void
 name|qSortHelper
@@ -78,6 +88,7 @@ operator|,
 name|typename
 name|LessThan
 operator|>
+name|QT_DEPRECATED
 name|Q_OUTOFLINE_TEMPLATE
 name|void
 name|qStableSortHelper
@@ -99,6 +110,7 @@ operator|,
 name|typename
 name|T
 operator|>
+name|QT_DEPRECATED
 specifier|inline
 name|void
 name|qStableSortHelper
@@ -123,6 +135,7 @@ operator|,
 name|typename
 name|LessThan
 operator|>
+name|QT_DEPRECATED
 name|Q_OUTOFLINE_TEMPLATE
 name|RandomAccessIterator
 name|qLowerBoundHelper
@@ -147,6 +160,7 @@ operator|,
 name|typename
 name|LessThan
 operator|>
+name|QT_DEPRECATED
 name|Q_OUTOFLINE_TEMPLATE
 name|RandomAccessIterator
 name|qUpperBoundHelper
@@ -171,6 +185,7 @@ operator|,
 name|typename
 name|LessThan
 operator|>
+name|QT_DEPRECATED
 name|Q_OUTOFLINE_TEMPLATE
 name|RandomAccessIterator
 name|qBinaryFindHelper
@@ -184,8 +199,21 @@ argument_list|,
 argument|LessThan lessThan
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|// QT_DEPRECATED_SINCE(5, 2)
 block|}
 end_decl_stmt
+begin_if
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|2
+argument_list|)
+end_if
 begin_expr_stmt
 DECL|variable|InputIterator
 name|template
@@ -197,6 +225,7 @@ name|typename
 name|OutputIterator
 operator|>
 DECL|function|qCopy
+name|QT_DEPRECATED
 specifier|inline
 name|OutputIterator
 name|qCopy
@@ -239,6 +268,7 @@ name|typename
 name|BiIterator2
 operator|>
 DECL|function|qCopyBackward
+name|QT_DEPRECATED
 specifier|inline
 name|BiIterator2
 name|qCopyBackward
@@ -281,6 +311,7 @@ name|typename
 name|InputIterator2
 operator|>
 DECL|function|qEqual
+name|QT_DEPRECATED
 specifier|inline
 name|bool
 name|qEqual
@@ -336,6 +367,7 @@ name|typename
 name|T
 operator|>
 DECL|function|qFill
+name|QT_DEPRECATED
 specifier|inline
 name|void
 name|qFill
@@ -375,6 +407,7 @@ name|typename
 name|T
 operator|>
 DECL|function|qFill
+name|QT_DEPRECATED
 specifier|inline
 name|void
 name|qFill
@@ -409,6 +442,7 @@ name|typename
 name|T
 operator|>
 DECL|function|qFind
+name|QT_DEPRECATED
 specifier|inline
 name|InputIterator
 name|qFind
@@ -454,6 +488,7 @@ name|typename
 name|T
 operator|>
 DECL|function|qFind
+name|QT_DEPRECATED
 specifier|inline
 name|typename
 name|Container
@@ -499,6 +534,7 @@ name|typename
 name|Size
 operator|>
 DECL|function|qCount
+name|QT_DEPRECATED
 specifier|inline
 name|void
 name|qCount
@@ -549,6 +585,7 @@ name|typename
 name|Size
 operator|>
 DECL|function|qCount
+name|QT_DEPRECATED
 specifier|inline
 name|void
 name|qCount
@@ -608,6 +645,7 @@ name|typename
 name|T
 operator|>
 name|class
+name|QT_DEPRECATED
 name|qLess
 block|{
 name|public
@@ -646,6 +684,7 @@ name|typename
 name|T
 operator|>
 name|class
+name|QT_DEPRECATED
 name|qGreater
 block|{
 name|public
@@ -688,6 +727,7 @@ name|typename
 name|RandomAccessIterator
 operator|>
 DECL|function|qSort
+name|QT_DEPRECATED
 specifier|inline
 name|void
 name|qSort
@@ -728,6 +768,7 @@ name|typename
 name|LessThan
 operator|>
 DECL|function|qSort
+name|QT_DEPRECATED
 specifier|inline
 name|void
 name|qSort
@@ -768,6 +809,7 @@ name|typename
 name|Container
 operator|>
 DECL|function|qSort
+name|QT_DEPRECATED
 specifier|inline
 name|void
 name|qSort
@@ -824,6 +866,7 @@ name|typename
 name|RandomAccessIterator
 operator|>
 DECL|function|qStableSort
+name|QT_DEPRECATED
 specifier|inline
 name|void
 name|qStableSort
@@ -864,6 +907,7 @@ name|typename
 name|LessThan
 operator|>
 DECL|function|qStableSort
+name|QT_DEPRECATED
 specifier|inline
 name|void
 name|qStableSort
@@ -904,6 +948,7 @@ name|typename
 name|Container
 operator|>
 DECL|function|qStableSort
+name|QT_DEPRECATED
 specifier|inline
 name|void
 name|qStableSort
@@ -964,6 +1009,7 @@ name|typename
 name|T
 operator|>
 DECL|function|qLowerBound
+name|QT_DEPRECATED
 name|Q_OUTOFLINE_TEMPLATE
 name|RandomAccessIterator
 name|qLowerBound
@@ -1061,6 +1107,7 @@ name|typename
 name|LessThan
 operator|>
 DECL|function|qLowerBound
+name|QT_DEPRECATED
 name|Q_OUTOFLINE_TEMPLATE
 name|RandomAccessIterator
 name|qLowerBound
@@ -1101,6 +1148,7 @@ name|typename
 name|T
 operator|>
 DECL|function|qLowerBound
+name|QT_DEPRECATED
 name|Q_OUTOFLINE_TEMPLATE
 name|typename
 name|Container
@@ -1151,6 +1199,7 @@ name|typename
 name|T
 operator|>
 DECL|function|qUpperBound
+name|QT_DEPRECATED
 name|Q_OUTOFLINE_TEMPLATE
 name|RandomAccessIterator
 name|qUpperBound
@@ -1246,6 +1295,7 @@ name|typename
 name|LessThan
 operator|>
 DECL|function|qUpperBound
+name|QT_DEPRECATED
 name|Q_OUTOFLINE_TEMPLATE
 name|RandomAccessIterator
 name|qUpperBound
@@ -1286,6 +1336,7 @@ name|typename
 name|T
 operator|>
 DECL|function|qUpperBound
+name|QT_DEPRECATED
 name|Q_OUTOFLINE_TEMPLATE
 name|typename
 name|Container
@@ -1336,6 +1387,7 @@ name|typename
 name|T
 operator|>
 DECL|function|qBinaryFind
+name|QT_DEPRECATED
 name|Q_OUTOFLINE_TEMPLATE
 name|RandomAccessIterator
 name|qBinaryFind
@@ -1395,6 +1447,7 @@ name|typename
 name|LessThan
 operator|>
 DECL|function|qBinaryFind
+name|QT_DEPRECATED
 name|Q_OUTOFLINE_TEMPLATE
 name|RandomAccessIterator
 name|qBinaryFind
@@ -1435,6 +1488,7 @@ name|typename
 name|T
 operator|>
 DECL|function|qBinaryFind
+name|QT_DEPRECATED
 name|Q_OUTOFLINE_TEMPLATE
 name|typename
 name|Container
@@ -1474,6 +1528,13 @@ argument_list|)
 return|;
 block|}
 end_expr_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_DEPRECATED_SINCE(5, 2)
+end_comment
 begin_expr_stmt
 name|template
 operator|<
@@ -1537,6 +1598,14 @@ comment|/*     Warning: The contents of QAlgorithmsPrivate is not a part of the 
 name|namespace
 name|QAlgorithmsPrivate
 block|{
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|2
+argument_list|)
 name|template
 operator|<
 name|typename
@@ -1548,6 +1617,7 @@ block|,
 name|typename
 name|LessThan
 operator|>
+name|QT_DEPRECATED
 name|Q_OUTOFLINE_TEMPLATE
 name|void
 name|qSortHelper
@@ -1837,6 +1907,7 @@ operator|,
 name|typename
 name|T
 operator|>
+name|QT_DEPRECATED
 specifier|inline
 name|void
 name|qSortHelper
@@ -1869,6 +1940,7 @@ operator|<
 name|typename
 name|RandomAccessIterator
 operator|>
+name|QT_DEPRECATED
 name|Q_OUTOFLINE_TEMPLATE
 name|void
 name|qReverse
@@ -1906,6 +1978,7 @@ operator|<
 name|typename
 name|RandomAccessIterator
 operator|>
+name|QT_DEPRECATED
 name|Q_OUTOFLINE_TEMPLATE
 name|void
 name|qRotate
@@ -1949,6 +2022,7 @@ operator|,
 name|typename
 name|LessThan
 operator|>
+name|QT_DEPRECATED
 name|Q_OUTOFLINE_TEMPLATE
 name|void
 name|qMerge
@@ -2186,6 +2260,7 @@ operator|,
 name|typename
 name|LessThan
 operator|>
+name|QT_DEPRECATED
 name|Q_OUTOFLINE_TEMPLATE
 name|void
 name|qStableSortHelper
@@ -2275,6 +2350,7 @@ operator|,
 name|typename
 name|T
 operator|>
+name|QT_DEPRECATED
 specifier|inline
 name|void
 name|qStableSortHelper
@@ -2313,6 +2389,7 @@ operator|,
 name|typename
 name|LessThan
 operator|>
+name|QT_DEPRECATED
 name|Q_OUTOFLINE_TEMPLATE
 name|RandomAccessIterator
 name|qLowerBoundHelper
@@ -2412,6 +2489,7 @@ operator|,
 name|typename
 name|LessThan
 operator|>
+name|QT_DEPRECATED
 name|Q_OUTOFLINE_TEMPLATE
 name|RandomAccessIterator
 name|qUpperBoundHelper
@@ -2508,6 +2586,7 @@ operator|,
 name|typename
 name|LessThan
 operator|>
+name|QT_DEPRECATED
 name|Q_OUTOFLINE_TEMPLATE
 name|RandomAccessIterator
 name|qBinaryFindHelper
@@ -2558,8 +2637,16 @@ return|return
 name|it
 return|;
 end_return
+begin_endif
+unit|}
+endif|#
+directive|endif
+end_endif
 begin_comment
-unit|}  }
+comment|// QT_DEPRECATED_SINCE(5, 2)
+end_comment
+begin_comment
+unit|}
 comment|//namespace QAlgorithmsPrivate
 end_comment
 begin_comment
