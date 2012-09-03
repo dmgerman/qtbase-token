@@ -229,10 +229,12 @@ name|QT_BEGIN_INCLUDE_NAMESPACE
 include|#
 directive|include
 file|<winsock.h>
+name|QT_END_INCLUDE_NAMESPACE
 comment|// Asynchronous Winsocks ------------------------------------------
 ifndef|#
 directive|ifndef
 name|QT_NO_THREAD
+name|QT_BEGIN_INCLUDE_NAMESPACE
 include|#
 directive|include
 file|<qthread.h>
