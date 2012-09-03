@@ -1421,8 +1421,6 @@ name|SH_TitleBar_ModifyNotification
 block|,
 name|SH_Button_FocusPolicy
 block|,
-name|SH_MenuBar_DismissOnSecondClick
-block|,
 name|SH_MessageBox_UseBorderForButtonSpacing
 block|,
 name|SH_TitleBar_AutoRaise

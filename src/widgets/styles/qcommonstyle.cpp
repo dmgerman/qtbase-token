@@ -35869,14 +35869,6 @@ name|StrongFocus
 expr_stmt|;
 break|break;
 case|case
-name|SH_MenuBar_DismissOnSecondClick
-case|:
-name|ret
-operator|=
-literal|1
-expr_stmt|;
-break|break;
-case|case
 name|SH_MessageBox_UseBorderForButtonSpacing
 case|:
 name|ret
