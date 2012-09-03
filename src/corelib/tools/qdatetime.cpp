@@ -5398,7 +5398,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the time specification used in this datetime to \a spec.      \sa timeSpec(), setDate(), setTime(), Qt::TimeSpec */
+comment|/*!     Sets the time specification used in this datetime to \a spec.     The datetime will refer to a different point in time.      Example:     \snippet code/src_corelib_tools_qdatetime.cpp 19      \sa timeSpec(), setDate(), setTime(), Qt::TimeSpec */
 end_comment
 begin_function
 DECL|function|setTimeSpec
@@ -7039,7 +7039,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QDateTime QDateTime::toTimeSpec(Qt::TimeSpec specification) const      Returns a copy of this datetime configured to use the given time     \a specification.      \sa timeSpec(), toUTC(), toLocalTime() */
+comment|/*!     \fn QDateTime QDateTime::toTimeSpec(Qt::TimeSpec specification) const      Returns a copy of this datetime converted to the given time     \a specification.      Example:     \snippet code/src_corelib_tools_qdatetime.cpp 16      \sa timeSpec(), toUTC(), toLocalTime() */
 end_comment
 begin_function
 DECL|function|toTimeSpec
@@ -9969,10 +9969,10 @@ begin_comment
 comment|// QT_NO_DATESTRING
 end_comment
 begin_comment
-comment|/*!     \fn QDateTime QDateTime::toLocalTime() const      Returns a datetime containing the date and time information in     this datetime, but specified using the Qt::LocalTime definition.      \sa toTimeSpec() */
+comment|/*!     \fn QDateTime QDateTime::toLocalTime() const      Returns a datetime containing the date and time information in     this datetime, but specified using the Qt::LocalTime definition.      Example:      \snippet code/src_corelib_tools_qdatetime.cpp 17      \sa toTimeSpec() */
 end_comment
 begin_comment
-comment|/*!     \fn QDateTime QDateTime::toUTC() const      Returns a datetime containing the date and time information in     this datetime, but specified using the Qt::UTC definition.      \sa toTimeSpec() */
+comment|/*!     \fn QDateTime QDateTime::toUTC() const      Returns a datetime containing the date and time information in     this datetime, but specified using the Qt::UTC definition.      Example:      \snippet code/src_corelib_tools_qdatetime.cpp 18      \sa toTimeSpec() */
 end_comment
 begin_comment
 comment|/*!     \internal  */
