@@ -2799,6 +2799,13 @@ return|;
 comment|// Compat should never reference this symbol
 else|#
 directive|else
+if|if
+condition|(
+name|block
+operator|.
+name|docHandle
+argument_list|()
+condition|)
 return|return
 name|block
 operator|.
@@ -2807,6 +2814,22 @@ argument_list|()
 operator|->
 name|formatCollection
 argument_list|()
+return|;
+elseif|else
+if|if
+condition|(
+name|specialData
+condition|)
+return|return
+name|specialData
+operator|->
+name|formats
+operator|.
+name|data
+argument_list|()
+return|;
+return|return
+literal|0
 return|;
 endif|#
 directive|endif
@@ -3182,6 +3205,13 @@ operator|<
 name|int
 operator|>
 name|resolvedFormatIndices
+expr_stmt|;
+comment|// only used when no docHandle is available
+name|QScopedPointer
+operator|<
+name|QTextFormatCollection
+operator|>
+name|formats
 expr_stmt|;
 block|}
 struct|;
