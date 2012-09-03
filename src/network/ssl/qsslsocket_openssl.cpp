@@ -3076,6 +3076,9 @@ expr_stmt|;
 name|resetDefaultCiphers
 argument_list|()
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_LIBRARY
 comment|//load symbols needed to receive certificates from system store
 if|#
 directive|if
@@ -3393,6 +3396,9 @@ block|}
 block|}
 endif|#
 directive|endif
+endif|#
+directive|endif
+comment|//QT_NO_LIBRARY
 comment|// if on-demand loading was not enabled, load the certs now
 if|if
 condition|(
