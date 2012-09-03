@@ -944,29 +944,21 @@ block|;
 name|ProStringList
 name|evaluateBuiltinExpand
 argument_list|(
-specifier|const
-name|ProKey
-operator|&
-name|function
+argument|int func_t
 argument_list|,
-specifier|const
-name|ProStringList
-operator|&
-name|args
+argument|const ProKey&function
+argument_list|,
+argument|const ProStringList&args
 argument_list|)
 block|;
 name|VisitReturn
 name|evaluateBuiltinConditional
 argument_list|(
-specifier|const
-name|ProKey
-operator|&
-name|function
+argument|int func_t
 argument_list|,
-specifier|const
-name|ProStringList
-operator|&
-name|args
+argument|const ProKey&function
+argument_list|,
+argument|const ProStringList&args
 argument_list|)
 block|;
 name|bool
