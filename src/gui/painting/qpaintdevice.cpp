@@ -46,6 +46,9 @@ argument_list|)
 expr_stmt|;
 block|}
 end_destructor
+begin_comment
+comment|/*!     \internal */
+end_comment
 begin_function
 DECL|function|init
 name|void
@@ -59,6 +62,9 @@ parameter_list|)
 specifier|const
 block|{ }
 end_function
+begin_comment
+comment|/*!     \internal */
+end_comment
 begin_function
 DECL|function|redirected
 name|QPaintDevice
@@ -77,6 +83,9 @@ literal|0
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \internal */
+end_comment
 begin_function
 DECL|function|sharedPainter
 name|QPainter

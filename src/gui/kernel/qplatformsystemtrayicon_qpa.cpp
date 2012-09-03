@@ -10,6 +10,8 @@ end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 comment|/*!     \class QPlatformSystemTrayIcon     \brief The QPlatformSystemTrayIcon class abstracts the system tray icon and interaction.      \sa QSystemTray */
+comment|/*!     \enum QPlatformSystemTrayIcon::MessageIcon      This enum describes the icon that is shown when a balloon message is displayed.      \value NoIcon      No icon is shown.     \value Information An information icon is shown.     \value Warning     A standard warning icon is shown.     \value Critical    A critical warning icon is shown.      \sa updateIcon(), showMessage(), QMessageBox */
+comment|/*!     \enum QPlatformSystemTrayIcon::ActivationReason       This enum describes the reason the system tray was activated.       \value Unknown     Unknown reason      \value Context     The context menu for the system tray entry was requested      \value DoubleClick The system tray entry was double clicked      \value Trigger     The system tray entry was clicked      \value MiddleClick The system tray entry was clicked with the middle mouse button       \sa activated() */
 comment|/*!     \internal  */
 DECL|function|QPlatformSystemTrayIcon
 name|QPlatformSystemTrayIcon
@@ -59,6 +61,9 @@ comment|/*!     \fn bool QPlatformSystemTrayIcon::supportsMessages() const     R
 end_comment
 begin_comment
 comment|/*!     \fn void QPlatformSystemTrayIcon::activated(QPlatformSystemTrayIcon::ActivationReason reason)     This signal is emitted when the user activates the system tray icon.     \a reason specifies the reason for activation.     \sa QSystemTrayIcon::ActivationReason */
+end_comment
+begin_comment
+comment|/*!     \fn void QPlatformSystemTrayIcon::messageClicked()      This signal is emitted when the message displayed using showMessage()     was clicked by the user.      \sa activated() */
 end_comment
 begin_macro
 name|QT_END_NAMESPACE
