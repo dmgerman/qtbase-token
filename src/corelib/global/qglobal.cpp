@@ -375,7 +375,7 @@ begin_comment
 comment|/*!     \typedef qulonglong     \relates<QtGlobal>      Typedef for \c{unsigned long long int} (\c{unsigned __int64} on     Windows). This is the same as \l quint64.      \sa quint64, qlonglong */
 end_comment
 begin_comment
-comment|/*! \fn const T&qAbs(const T&value)     \relates<QtGlobal>      Compares \a value to the 0 of type T and returns the absolute     value. Thus if T is \e {double}, then \a value is compared to     \e{(double) 0}.      Example:      \snippet code/src_corelib_global_qglobal.cpp 10 */
+comment|/*! \fn T qAbs(const T&value)     \relates<QtGlobal>      Compares \a value to the 0 of type T and returns the absolute     value. Thus if T is \e {double}, then \a value is compared to     \e{(double) 0}.      Example:      \snippet code/src_corelib_global_qglobal.cpp 10 */
 end_comment
 begin_comment
 comment|/*! \fn int qRound(qreal value)     \relates<QtGlobal>      Rounds \a value to the nearest integer.      Example:      \snippet code/src_corelib_global_qglobal.cpp 11 */
