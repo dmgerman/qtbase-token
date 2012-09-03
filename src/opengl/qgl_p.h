@@ -103,6 +103,11 @@ include|#
 directive|include
 file|<QtGui/QOpenGLContext>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtOpenGL/private/qglextensions_p.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QGLContext
@@ -123,11 +128,6 @@ name|QPixmap
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-name|QT_BEGIN_INCLUDE_NAMESPACE
-include|#
-directive|include
-file|<QtOpenGL/private/qglextensions_p.h>
-name|QT_END_INCLUDE_NAMESPACE
 name|class
 name|QGLFormatPrivate
 block|{

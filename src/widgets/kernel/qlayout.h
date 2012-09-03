@@ -574,19 +574,15 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
-begin_comment
-comment|//### support old includes
-end_comment
 begin_expr_stmt
-name|QT_BEGIN_INCLUDE_NAMESPACE
+name|QT_END_NAMESPACE
+comment|//### support old includes
 include|#
 directive|include
 file|<QtWidgets/qboxlayout.h>
 include|#
 directive|include
 file|<QtWidgets/qgridlayout.h>
-name|QT_END_INCLUDE_NAMESPACE
-name|QT_END_NAMESPACE
 name|QT_END_HEADER
 end_expr_stmt
 begin_endif

@@ -445,13 +445,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_function
-name|QT_BEGIN_INCLUDE_NAMESPACE
-include|#
-directive|include
-file|"qtimer.moc"
-name|QT_END_INCLUDE_NAMESPACE
+begin_comment
 comment|/*!     \reentrant     This static function calls a slot after a given time interval.      It is very convenient to use this function because you do not need     to bother with a \l{QObject::timerEvent()}{timerEvent} or     create a local QTimer object.      Example:     \snippet code/src_corelib_kernel_qtimer.cpp 0      This sample program automatically terminates after 10 minutes     (600,000 milliseconds).      The \a receiver is the receiving object and the \a member is the     slot. The time interval is \a msec milliseconds.      \sa start() */
+end_comment
+begin_function
 DECL|function|singleShot
 name|void
 name|QTimer
@@ -732,4 +729,9 @@ end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
+begin_include
+include|#
+directive|include
+file|"qtimer.moc"
+end_include
 end_unit
