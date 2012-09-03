@@ -22208,6 +22208,9 @@ expr_stmt|;
 while|while
 condition|(
 name|sout
+operator|.
+name|good
+argument_list|()
 condition|)
 block|{
 name|string
