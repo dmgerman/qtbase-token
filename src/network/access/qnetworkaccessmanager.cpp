@@ -3059,6 +3059,9 @@ expr_stmt|;
 return|return;
 block|}
 block|}
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 if|#
 directive|if
 name|defined
@@ -3132,6 +3135,9 @@ return|return;
 block|}
 endif|#
 directive|endif
+endif|#
+directive|endif
+comment|//QT_NO_NETWORKPROXY
 comment|// if we emit a signal here in synchronous mode, the user might spin
 comment|// an event loop, which might recurse and lead to problems
 if|if
