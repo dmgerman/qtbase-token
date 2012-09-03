@@ -1562,12 +1562,6 @@ literal|0
 decl_stmt|;
 comment|// Previous line's indentation, to detect accidental continuation abuse
 name|bool
-name|putSpace
-init|=
-literal|false
-decl_stmt|;
-comment|// Only ever true inside quoted string
-name|bool
 name|lineMarked
 init|=
 literal|true
@@ -1578,7 +1572,7 @@ name|needSep
 init|=
 name|TokNewStr
 decl_stmt|;
-comment|// Complementary to putSpace: separator outside quotes
+comment|// Met unquoted whitespace
 name|ushort
 name|quote
 init|=
@@ -2014,22 +2008,6 @@ comment|// may be EOF, EOL, WS, '#' or '\\' if past end
 name|cur
 operator|++
 expr_stmt|;
-if|if
-condition|(
-name|putSpace
-condition|)
-block|{
-name|putSpace
-operator|=
-literal|false
-expr_stmt|;
-operator|*
-name|ptr
-operator|++
-operator|=
-literal|' '
-expr_stmt|;
-block|}
 name|FLUSH_LITERAL
 argument_list|()
 expr_stmt|;
@@ -2732,48 +2710,6 @@ block|{
 name|quote
 operator|=
 literal|0
-expr_stmt|;
-if|if
-condition|(
-name|putSpace
-condition|)
-block|{
-name|putSpace
-operator|=
-literal|false
-expr_stmt|;
-operator|*
-name|ptr
-operator|++
-operator|=
-literal|' '
-expr_stmt|;
-block|}
-goto|goto
-name|nextChr
-goto|;
-block|}
-elseif|else
-if|if
-condition|(
-operator|(
-name|c
-operator|==
-literal|' '
-operator|||
-name|c
-operator|==
-literal|'\t'
-operator|)
-operator|&&
-name|context
-operator|!=
-name|CtxPureValue
-condition|)
-block|{
-name|putSpace
-operator|=
-literal|true
 expr_stmt|;
 goto|goto
 name|nextChr
@@ -3685,22 +3621,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-if|if
-condition|(
-name|putSpace
-condition|)
-block|{
-name|putSpace
-operator|=
-literal|false
-expr_stmt|;
-operator|*
-name|ptr
-operator|++
-operator|=
-literal|' '
-expr_stmt|;
-block|}
 operator|*
 name|ptr
 operator|++
@@ -3737,9 +3657,11 @@ condition|(
 name|quote
 condition|)
 block|{
-name|putSpace
+operator|*
+name|ptr
+operator|++
 operator|=
-literal|true
+literal|' '
 expr_stmt|;
 block|}
 else|else
