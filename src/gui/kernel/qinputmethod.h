@@ -62,10 +62,6 @@ argument|QInputMethod
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|QObject *inputItem READ inputItem WRITE setInputItem NOTIFY inputItemChanged
-argument_list|)
-name|Q_PROPERTY
-argument_list|(
 argument|QRectF cursorRectangle READ cursorRectangle NOTIFY cursorRectangleChanged
 argument_list|)
 name|Q_PROPERTY
@@ -94,35 +90,6 @@ argument|Action
 argument_list|)
 name|public
 operator|:
-ifdef|#
-directive|ifdef
-name|QT_DEPRECATED
-name|QT_DEPRECATED
-name|QObject
-operator|*
-name|inputItem
-argument_list|()
-specifier|const
-block|;
-name|QT_DEPRECATED
-name|void
-name|setInputItem
-argument_list|(
-name|QObject
-operator|*
-name|inputItemChanged
-argument_list|)
-block|;
-comment|// the window containing the editor
-name|QT_DEPRECATED
-name|QWindow
-operator|*
-name|inputWindow
-argument_list|()
-specifier|const
-block|;
-endif|#
-directive|endif
 name|QTransform
 name|inputItemTransform
 argument_list|()
@@ -242,10 +209,6 @@ block|;
 name|Q_SIGNALS
 operator|:
 name|void
-name|inputItemChanged
-argument_list|()
-block|;
-name|void
 name|cursorRectangleChanged
 argument_list|()
 block|;
@@ -291,20 +254,7 @@ block|;
 operator|~
 name|QInputMethod
 argument_list|()
-block|;
-name|Q_PRIVATE_SLOT
-argument_list|(
-argument|d_func()
-argument_list|,
-argument|void _q_connectFocusObject()
-argument_list|)
-name|Q_PRIVATE_SLOT
-argument_list|(
-argument|d_func()
-argument_list|,
-argument|void _q_checkFocusObject(QObject* object)
-argument_list|)
-block|}
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_expr_stmt
