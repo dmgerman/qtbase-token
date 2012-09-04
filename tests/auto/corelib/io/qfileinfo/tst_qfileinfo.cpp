@@ -10132,7 +10132,7 @@ argument_list|)
 condition|)
 name|b
 operator|=
-name|FALSE
+literal|false
 expr_stmt|;
 name|FreeSid
 argument_list|(

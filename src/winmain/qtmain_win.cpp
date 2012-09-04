@@ -368,7 +368,7 @@ name|CreateMutex
 argument_list|(
 name|NULL
 argument_list|,
-name|TRUE
+literal|true
 argument_list|,
 operator|(
 name|LPCWSTR

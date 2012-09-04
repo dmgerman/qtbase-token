@@ -3542,7 +3542,7 @@ name|GetSystemMenu
 argument_list|(
 name|topLevelHwnd
 argument_list|,
-name|FALSE
+literal|false
 argument_list|)
 decl_stmt|;
 if|if
@@ -3713,7 +3713,7 @@ name|menu
 argument_list|,
 name|SC_CLOSE
 argument_list|,
-name|FALSE
+literal|false
 argument_list|,
 operator|&
 name|closeItem

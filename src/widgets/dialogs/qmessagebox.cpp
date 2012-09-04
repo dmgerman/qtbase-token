@@ -193,7 +193,7 @@ argument_list|(
 name|handle
 argument_list|)
 argument_list|,
-name|FALSE
+literal|false
 argument_list|)
 return|;
 return|return

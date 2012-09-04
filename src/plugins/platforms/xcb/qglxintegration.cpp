@@ -429,7 +429,7 @@ name|GLX_RGBA_TYPE
 argument_list|,
 name|m_shareContext
 argument_list|,
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 if|if
@@ -456,7 +456,7 @@ name|GLX_RGBA_TYPE
 argument_list|,
 literal|0
 argument_list|,
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 if|if

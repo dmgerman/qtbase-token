@@ -1680,7 +1680,7 @@ name|info
 operator|->
 name|do_fancy_upsampling
 operator|=
-name|FALSE
+literal|false
 expr_stmt|;
 block|}
 operator|(

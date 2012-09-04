@@ -604,7 +604,7 @@ name|i
 operator|+
 literal|1
 argument_list|,
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 block|}

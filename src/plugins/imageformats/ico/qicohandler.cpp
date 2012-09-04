@@ -2095,13 +2095,13 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|TRUE
+literal|true
 return|;
 block|}
 block|}
 block|}
 return|return
-name|FALSE
+literal|false
 return|;
 block|}
 end_function

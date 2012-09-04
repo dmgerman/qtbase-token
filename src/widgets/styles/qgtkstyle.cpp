@@ -4228,7 +4228,7 @@ name|state
 argument_list|,
 name|GTK_SHADOW_NONE
 argument_list|,
-name|FALSE
+literal|false
 argument_list|,
 name|style
 argument_list|)
@@ -5356,7 +5356,7 @@ name|state
 argument_list|,
 name|shadow
 argument_list|,
-name|FALSE
+literal|false
 argument_list|,
 name|gtkArrow
 operator|->
@@ -5572,7 +5572,7 @@ literal|"transparent-bg-hint"
 argument_list|,
 name|GINT_TO_POINTER
 argument_list|(
-name|TRUE
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -9358,7 +9358,7 @@ name|state
 argument_list|,
 name|GTK_SHADOW_NONE
 argument_list|,
-name|TRUE
+literal|true
 argument_list|,
 name|style
 argument_list|,
@@ -10941,7 +10941,7 @@ name|state
 argument_list|,
 name|GTK_SHADOW_NONE
 argument_list|,
-name|FALSE
+literal|false
 argument_list|,
 name|style
 argument_list|)
@@ -11142,7 +11142,7 @@ name|state
 argument_list|,
 name|GTK_SHADOW_NONE
 argument_list|,
-name|FALSE
+literal|false
 argument_list|,
 name|style
 argument_list|)
@@ -12255,7 +12255,7 @@ name|state
 argument_list|,
 name|GTK_SHADOW_NONE
 argument_list|,
-name|FALSE
+literal|false
 argument_list|,
 name|style
 argument_list|)
@@ -12312,7 +12312,7 @@ name|state
 argument_list|,
 name|GTK_SHADOW_NONE
 argument_list|,
-name|FALSE
+literal|false
 argument_list|,
 name|style
 argument_list|)
@@ -18859,7 +18859,7 @@ name|state
 argument_list|,
 name|shadowType
 argument_list|,
-name|FALSE
+literal|false
 argument_list|,
 name|style
 argument_list|)

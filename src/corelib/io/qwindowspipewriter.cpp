@@ -82,7 +82,7 @@ name|writePipe
 argument_list|,
 literal|0
 argument_list|,
-name|FALSE
+literal|false
 argument_list|,
 name|DUPLICATE_SAME_ACCESS
 argument_list|)
@@ -311,9 +311,9 @@ name|CreateEvent
 argument_list|(
 name|NULL
 argument_list|,
-name|TRUE
+literal|true
 argument_list|,
-name|FALSE
+literal|false
 argument_list|,
 name|NULL
 argument_list|)
@@ -494,7 +494,7 @@ argument_list|,
 operator|&
 name|written
 argument_list|,
-name|TRUE
+literal|true
 argument_list|)
 condition|)
 block|{

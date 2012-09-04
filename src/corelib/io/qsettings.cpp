@@ -5285,7 +5285,7 @@ name|path
 argument_list|,
 name|type
 argument_list|,
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|result

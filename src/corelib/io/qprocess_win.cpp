@@ -387,7 +387,7 @@ index|]
 argument_list|,
 literal|0
 argument_list|,
-name|TRUE
+literal|true
 argument_list|,
 name|DUPLICATE_SAME_ACCESS
 argument_list|)
@@ -455,7 +455,7 @@ index|]
 argument_list|,
 literal|0
 argument_list|,
-name|TRUE
+literal|true
 argument_list|,
 name|DUPLICATE_SAME_ACCESS
 argument_list|)
@@ -678,7 +678,7 @@ argument_list|)
 block|,
 name|NULL
 block|,
-name|TRUE
+literal|true
 block|}
 decl_stmt|;
 if|if
@@ -998,7 +998,7 @@ index|]
 argument_list|,
 literal|0
 argument_list|,
-name|TRUE
+literal|true
 argument_list|,
 name|DUPLICATE_SAME_ACCESS
 argument_list|)
@@ -1142,7 +1142,7 @@ index|]
 argument_list|,
 literal|0
 argument_list|,
-name|TRUE
+literal|true
 argument_list|,
 name|DUPLICATE_SAME_ACCESS
 argument_list|)
@@ -2512,7 +2512,7 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
-name|TRUE
+literal|true
 argument_list|,
 name|dwCreationFlags
 argument_list|,
@@ -3060,7 +3060,7 @@ literal|0
 argument_list|)
 expr_stmt|;
 return|return
-name|TRUE
+literal|true
 return|;
 block|}
 end_function
@@ -4228,7 +4228,7 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
-name|FALSE
+literal|false
 argument_list|,
 name|CREATE_UNICODE_ENVIRONMENT
 operator||

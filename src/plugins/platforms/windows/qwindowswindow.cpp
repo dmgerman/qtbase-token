@@ -2691,7 +2691,7 @@ name|GetSystemMenu
 argument_list|(
 name|hwnd
 argument_list|,
-name|FALSE
+literal|false
 argument_list|)
 decl_stmt|;
 if|if
@@ -2911,7 +2911,7 @@ name|rect
 argument_list|,
 name|style
 argument_list|,
-name|FALSE
+literal|false
 argument_list|,
 name|exStyle
 argument_list|)
@@ -4562,7 +4562,7 @@ condition|)
 block|{
 name|fakedMaximize
 operator|=
-name|TRUE
+literal|true
 expr_stmt|;
 name|setStyle
 argument_list|(
@@ -5790,7 +5790,7 @@ name|hwnd
 argument_list|,
 literal|0
 argument_list|,
-name|FALSE
+literal|false
 argument_list|)
 condition|)
 return|return
@@ -8141,7 +8141,7 @@ name|m_data
 operator|.
 name|hwnd
 argument_list|,
-name|FALSE
+literal|false
 argument_list|)
 condition|)
 return|return

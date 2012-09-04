@@ -625,7 +625,7 @@ name|NULL
 argument_list|,
 name|NULL
 argument_list|,
-name|FALSE
+literal|false
 argument_list|,
 literal|0
 argument_list|,

@@ -2258,7 +2258,7 @@ name|i
 operator|++
 index|]
 operator|=
-name|TRUE
+literal|true
 expr_stmt|;
 name|iAttributes
 index|[
@@ -2274,7 +2274,7 @@ name|i
 operator|++
 index|]
 operator|=
-name|TRUE
+literal|true
 expr_stmt|;
 name|iAttributes
 index|[
@@ -2325,7 +2325,7 @@ name|i
 operator|++
 index|]
 operator|=
-name|FALSE
+literal|false
 expr_stmt|;
 break|break;
 case|case
@@ -2352,7 +2352,7 @@ name|i
 operator|++
 index|]
 operator|=
-name|TRUE
+literal|true
 expr_stmt|;
 break|break;
 block|}
@@ -2378,7 +2378,7 @@ name|i
 operator|++
 index|]
 operator|=
-name|TRUE
+literal|true
 expr_stmt|;
 block|}
 if|if
@@ -2665,7 +2665,7 @@ name|i
 operator|++
 index|]
 operator|=
-name|TRUE
+literal|true
 expr_stmt|;
 name|iAttributes
 index|[
@@ -2717,7 +2717,7 @@ name|i
 operator|++
 index|]
 operator|=
-name|FALSE
+literal|false
 expr_stmt|;
 block|}
 comment|// If sample buffer request cannot be satisfied, reduce request.

@@ -109,7 +109,7 @@ name|sa
 operator|.
 name|bInheritHandle
 operator|=
-name|FALSE
+literal|false
 expr_stmt|;
 comment|//non inheritable handle, same as default
 name|sa
@@ -838,7 +838,7 @@ name|User
 operator|.
 name|Sid
 argument_list|,
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|SetSecurityDescriptorGroup
@@ -852,7 +852,7 @@ name|pTokenGroup
 operator|->
 name|PrimaryGroup
 argument_list|,
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 if|if
@@ -865,11 +865,11 @@ operator|.
 name|data
 argument_list|()
 argument_list|,
-name|TRUE
+literal|false
 argument_list|,
 name|acl
 argument_list|,
-name|FALSE
+literal|false
 argument_list|)
 condition|)
 block|{
@@ -1238,9 +1238,9 @@ name|CreateEvent
 argument_list|(
 name|NULL
 argument_list|,
-name|TRUE
+literal|true
 argument_list|,
-name|FALSE
+literal|false
 argument_list|,
 name|NULL
 argument_list|)
@@ -1401,7 +1401,7 @@ argument_list|,
 operator|&
 name|dummy
 argument_list|,
-name|FALSE
+literal|false
 argument_list|)
 condition|)
 block|{
