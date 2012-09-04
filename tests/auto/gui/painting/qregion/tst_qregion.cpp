@@ -190,6 +190,9 @@ name|void
 name|regionFromPath
 parameter_list|()
 function_decl|;
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
 name|void
 name|regionToPath_data
 parameter_list|()
@@ -198,6 +201,8 @@ name|void
 name|regionToPath
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 block|}
 class|;
 end_class
@@ -6503,6 +6508,11 @@ argument_list|(
 argument|QPainterPath
 argument_list|)
 end_macro
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
+end_ifdef
 begin_function
 DECL|function|regionToPath_data
 name|void
@@ -6788,6 +6798,10 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -6810,6 +6824,9 @@ begin_function
 name|QT_END_NAMESPACE
 endif|#
 directive|endif
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
 DECL|function|regionToPath
 name|void
 name|tst_QRegion
@@ -6817,9 +6834,6 @@ operator|::
 name|regionToPath
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QT_BUILD_INTERNAL
 name|QFETCH
 argument_list|(
 name|QPainterPath
@@ -7040,10 +7054,12 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|QTEST_MAIN
 argument_list|(

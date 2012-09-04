@@ -498,10 +498,15 @@ name|void
 name|fileEngineHandler
 argument_list|()
 block|;
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
 name|void
 name|useQFileInAFileHandler
 argument_list|()
 block|;
+endif|#
+directive|endif
 name|void
 name|getCharFF
 argument_list|()
@@ -11842,6 +11847,11 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
+end_ifdef
 begin_function
 DECL|function|useQFileInAFileHandler
 name|void
@@ -11850,9 +11860,6 @@ operator|::
 name|useQFileInAFileHandler
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QT_BUILD_INTERNAL
 comment|// This test should not dead-lock
 name|MyRecursiveHandler
 name|handler
@@ -11871,17 +11878,12 @@ name|exists
 argument_list|()
 argument_list|)
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"This test requires -developer-build."
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|getCharFF
 name|void

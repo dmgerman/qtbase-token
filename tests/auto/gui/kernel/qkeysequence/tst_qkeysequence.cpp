@@ -463,10 +463,15 @@ name|void
 name|fromString
 parameter_list|()
 function_decl|;
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
 name|void
 name|ensureSorted
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|standardKeys_data
 parameter_list|()
@@ -1768,6 +1773,11 @@ end_function
 begin_comment
 comment|/* * We must ensure that the keyBindings data is always sorted * so that we can safely perform binary searches. */
 end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
+end_ifdef
 begin_function
 DECL|function|ensureSorted
 name|void
@@ -1776,12 +1786,6 @@ operator|::
 name|ensureSorted
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QT_BUILD_INTERNAL
-argument_list|)
 name|uint
 name|N
 init|=
@@ -1853,10 +1857,12 @@ operator|=
 name|nextval
 expr_stmt|;
 block|}
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|standardKeys_data
 name|void

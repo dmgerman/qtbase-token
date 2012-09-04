@@ -61,6 +61,9 @@ name|void
 name|installBothHandler
 parameter_list|()
 function_decl|;
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
 name|void
 name|cleanupFuncinfo_data
 parameter_list|()
@@ -69,6 +72,8 @@ name|void
 name|cleanupFuncinfo
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|qMessagePattern
 parameter_list|()
@@ -1884,6 +1889,11 @@ block|}
 block|}
 class|;
 end_class
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
+end_ifdef
 begin_function
 DECL|function|cleanupFuncinfo_data
 name|void
@@ -1892,16 +1902,6 @@ operator|::
 name|cleanupFuncinfo_data
 parameter_list|()
 block|{
-ifndef|#
-directive|ifndef
-name|QT_BUILD_INTERNAL
-name|QSKIP
-argument_list|(
-literal|"Requires -developer-build"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QTest
 operator|::
 name|addColumn
@@ -2785,6 +2785,10 @@ literal|"TestClass1::operator>"
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -2804,6 +2808,9 @@ begin_function
 name|QT_END_NAMESPACE
 endif|#
 directive|endif
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
 DECL|function|cleanupFuncinfo
 name|void
 name|tst_qmessagehandler
@@ -2811,9 +2818,6 @@ operator|::
 name|cleanupFuncinfo
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QT_BUILD_INTERNAL
 name|QFETCH
 argument_list|(
 name|QString
@@ -2845,10 +2849,12 @@ argument_list|,
 literal|"expected"
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|qMessagePattern
 name|void

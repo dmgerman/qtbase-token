@@ -280,10 +280,15 @@ name|void
 name|currentChangedSignal
 parameter_list|()
 function_decl|;
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
 name|void
 name|directoryEnteredSignal
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|filesSelectedSignal_data
 parameter_list|()
@@ -435,6 +440,9 @@ function_decl|;
 ifdef|#
 directive|ifdef
 name|Q_OS_UNIX
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
 name|void
 name|tildeExpansion_data
 parameter_list|()
@@ -443,6 +451,9 @@ name|void
 name|tildeExpansion
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
+comment|// QT_BUILD_INTERNAL
 endif|#
 directive|endif
 private|private:
@@ -836,6 +847,12 @@ end_function
 begin_comment
 comment|// only emitted from the views, sidebar, or lookin combo
 end_comment
+begin_if
+if|#
+directive|if
+name|defined
+name|QT_BUILD_INTERNAL
+end_if
 begin_function
 DECL|function|directoryEnteredSignal
 name|void
@@ -844,10 +861,6 @@ operator|::
 name|directoryEnteredSignal
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-name|QT_BUILD_INTERNAL
 name|QNonNativeFileDialog
 name|fd
 argument_list|(
@@ -1068,10 +1081,12 @@ argument_list|()
 expr_stmt|;
 comment|// view
 comment|/*     // platform specific     fd.setViewMode(QFileDialog::ViewMode(QFileDialog::List));     QListView* listView = qFindChild<QListView*>(&fd, "listView");     QVERIFY(listView);     QModelIndex root = listView->rootIndex();     QTRY_COMPARE(listView->model()->rowCount(root)> 0, true);      QModelIndex folder;     for (int i = 0; i< listView->model()->rowCount(root); ++i) {         folder = listView->model()->index(i, 0, root);         if (listView->model()->hasChildren(folder))             break;     }     QVERIFY(listView->model()->hasChildren(folder));     listView->setCurrentIndex(folder);     QTRY_COMPARE((listView->indexAt(listView->visualRect(folder).center())), folder);     QTest::mouseDClick(listView->viewport(), Qt::LeftButton, 0, listView->visualRect(folder).center());     QTRY_COMPARE(spyDirectoryEntered.count(), 1);     */
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|Q_DECLARE_METATYPE
 argument_list|(
@@ -9071,6 +9086,11 @@ ifdef|#
 directive|ifdef
 name|Q_OS_UNIX
 end_ifdef
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
+end_ifdef
 begin_function
 DECL|function|tildeExpansion_data
 name|void
@@ -9212,6 +9232,18 @@ name|invalid
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_BUILD_INTERNAL
+end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
+end_ifdef
 begin_function
 DECL|function|tildeExpansion
 name|void
@@ -9220,16 +9252,6 @@ operator|::
 name|tildeExpansion
 parameter_list|()
 block|{
-ifndef|#
-directive|ifndef
-name|QT_BUILD_INTERNAL
-name|QSKIP
-argument_list|(
-literal|"Test case relies on developer build (AUTOTEST_EXPORT)"
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|QFETCH
 argument_list|(
 name|QString
@@ -9254,10 +9276,15 @@ argument_list|,
 name|expandedPath
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_BUILD_INTERNAL
+end_comment
 begin_endif
 endif|#
 directive|endif

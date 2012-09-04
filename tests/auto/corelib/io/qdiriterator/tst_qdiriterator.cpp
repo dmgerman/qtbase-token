@@ -280,10 +280,15 @@ name|void
 name|stopLinkLoop
 parameter_list|()
 function_decl|;
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
 name|void
 name|engineWithNoIterator
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|absoluteFilePathsFromRelativeIteratorPath
 parameter_list|()
@@ -2284,6 +2289,11 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
+end_ifdef
 begin_function
 DECL|function|engineWithNoIterator
 name|void
@@ -2292,9 +2302,6 @@ operator|::
 name|engineWithNoIterator
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QT_BUILD_INTERNAL
 name|EngineWithNoIteratorHandler
 name|handler
 decl_stmt|;
@@ -2312,17 +2319,12 @@ literal|true
 argument_list|)
 expr_stmt|;
 comment|// test that the above line doesn't crash
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"This test requires -developer-build."
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|absoluteFilePathsFromRelativeIteratorPath
 name|void

@@ -235,10 +235,15 @@ name|void
 name|machineWithParent
 parameter_list|()
 function_decl|;
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
 name|void
 name|addAndRemoveState
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|stateEntryAndExit
 parameter_list|()
@@ -6439,6 +6444,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
+end_ifdef
 begin_function
 DECL|function|addAndRemoveState
 name|void
@@ -6447,9 +6457,6 @@ operator|::
 name|addAndRemoveState
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QT_BUILD_INTERNAL
 name|QStateMachine
 name|machine
 decl_stmt|;
@@ -6919,10 +6926,12 @@ name|s2
 expr_stmt|;
 comment|// ### how to deal with this?
 comment|// machine.removeState(machine.errorState());
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|stateEntryAndExit
 name|void
