@@ -7283,7 +7283,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Removes an event filter object \a obj from this object. The     request is ignored if such an event filter has not been installed.      All event filters for this object are automatically removed when     this object is destroyed.      It is always safe to remove an event filter, even during event     filter activation (i.e. from the nativeEventFilter() function).      \sa installNativeEventFilter(), QAbstractNativeEventFilter     \since 5.0 */
+comment|/*!     Removes an event filter object \a obj from this object. The     request is ignored if such an event filter has not been installed.      All event filters for this object are automatically removed when     this object is destroyed.      It is always safe to remove an event filter, even during event     filter activation (i.e. from the nativeEventFilter() function).      \sa installNativeEventFilter()     \since 5.0 */
 end_comment
 begin_function
 DECL|function|removeNativeEventFilter
