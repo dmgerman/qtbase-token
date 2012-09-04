@@ -5584,6 +5584,12 @@ name|className
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|argc
+operator|>
+literal|0
+condition|)
 name|QTestResult
 operator|::
 name|setCurrentAppname
