@@ -254,9 +254,11 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|!
 name|fileName
-operator|!=
-literal|""
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 name|QFile
@@ -354,9 +356,11 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|!
 name|fileName
-operator|!=
-literal|""
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 name|QFile
