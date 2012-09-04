@@ -118,6 +118,11 @@ end_if
 begin_include
 include|#
 directive|include
+file|"qqnxbuttoneventnotifier.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qqnxnavigatoreventnotifier.h"
 end_include
 begin_include
@@ -319,6 +324,13 @@ member_init_list|,
 name|m_inputContext
 argument_list|(
 literal|0
+argument_list|)
+member_init_list|,
+name|m_buttonsNotifier
+argument_list|(
+operator|new
+name|QQnxButtonEventNotifier
+argument_list|()
 argument_list|)
 endif|#
 directive|endif
@@ -713,6 +725,29 @@ expr_stmt|;
 endif|#
 directive|endif
 block|}
+if|#
+directive|if
+name|defined
+argument_list|(
+name|QQNX_PPS
+argument_list|)
+comment|// delay invocation of start() to the time the event loop is up and running
+comment|// needed to have the QThread internals of the main thread properly initialized
+name|QMetaObject
+operator|::
+name|invokeMethod
+argument_list|(
+name|m_buttonsNotifier
+argument_list|,
+literal|"start"
+argument_list|,
+name|Qt
+operator|::
+name|QueuedConnection
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_constructor
 begin_destructor
@@ -739,6 +774,10 @@ name|defined
 argument_list|(
 name|QQNX_PPS
 argument_list|)
+comment|// Destroy the hardware button notifier
+operator|delete
+name|m_buttonsNotifier
+expr_stmt|;
 comment|// Destroy input context
 operator|delete
 name|m_inputContext

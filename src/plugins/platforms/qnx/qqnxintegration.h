@@ -115,6 +115,12 @@ name|class
 name|QQnxNavigatorEventNotifier
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|QQnxButtonEventNotifier
+name|class
+name|QQnxButtonEventNotifier
+decl_stmt|;
+end_decl_stmt
 begin_endif
 endif|#
 directive|endif
@@ -394,6 +400,10 @@ block|;
 name|QQnxInputContext
 operator|*
 name|m_inputContext
+block|;
+name|QQnxButtonEventNotifier
+operator|*
+name|m_buttonsNotifier
 block|;
 endif|#
 directive|endif
