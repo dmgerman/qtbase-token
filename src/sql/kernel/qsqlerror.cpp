@@ -232,6 +232,7 @@ name|QSqlError
 modifier|&
 name|other
 parameter_list|)
+specifier|const
 block|{
 return|return
 operator|(
@@ -260,6 +261,7 @@ name|QSqlError
 modifier|&
 name|other
 parameter_list|)
+specifier|const
 block|{
 return|return
 operator|(

@@ -63,6 +63,7 @@ name|QMimeMagicRuleMatcher
 operator|&
 name|other
 operator|)
+specifier|const
 expr_stmt|;
 name|void
 name|addRule

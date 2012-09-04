@@ -86,6 +86,7 @@ name|QSqlError
 operator|&
 name|other
 operator|)
+specifier|const
 expr_stmt|;
 name|bool
 name|operator
@@ -96,6 +97,7 @@ name|QSqlError
 operator|&
 name|other
 operator|)
+specifier|const
 expr_stmt|;
 operator|~
 name|QSqlError

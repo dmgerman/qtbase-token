@@ -66,6 +66,7 @@ name|QMimeMagicRuleMatcher
 modifier|&
 name|other
 parameter_list|)
+specifier|const
 block|{
 return|return
 name|m_list
