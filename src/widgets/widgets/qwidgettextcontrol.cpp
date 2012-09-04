@@ -6951,14 +6951,13 @@ if|if
 condition|(
 name|QGuiApplication
 operator|::
-name|platformName
+name|clipboard
 argument_list|()
-operator|==
-name|QLatin1String
-argument_list|(
-literal|"xcb"
-argument_list|)
+operator|->
+name|supportsSelection
+argument_list|()
 condition|)
+block|{
 if|if
 condition|(
 name|e
@@ -6991,6 +6990,7 @@ name|QClipboard
 operator|::
 name|Selection
 expr_stmt|;
+block|}
 name|q
 operator|->
 name|paste
