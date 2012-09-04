@@ -339,9 +339,6 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QInputMethod::visible() const     \obsolete      Use isVisible() instead. */
-end_comment
-begin_comment
 comment|/*!     \property QInputMethod::visible     \brief Virtual keyboard's visibility on the screen      Input method visibility remains false for devices     with no virtual keyboards.      \sa show(), hide() */
 end_comment
 begin_function
