@@ -12595,11 +12595,12 @@ argument_list|(
 name|q_func
 argument_list|()
 argument_list|,
-name|q_func
-argument_list|()
-operator|->
-name|windowTitle
-argument_list|()
+name|QFileDialog
+operator|::
+name|tr
+argument_list|(
+literal|"Delete"
+argument_list|)
 argument_list|,
 name|QFileDialog
 operator|::
@@ -12642,17 +12643,18 @@ argument_list|(
 name|q_func
 argument_list|()
 argument_list|,
-name|q_func
-argument_list|()
-operator|->
-name|windowTitle
-argument_list|()
+name|QFileDialog
+operator|::
+name|tr
+argument_list|(
+literal|"Delete"
+argument_list|)
 argument_list|,
 name|QFileDialog
 operator|::
 name|tr
 argument_list|(
-literal|"Are sure you want to delete '%1'?"
+literal|"Are you sure you want to delete '%1'?"
 argument_list|)
 operator|.
 name|arg
