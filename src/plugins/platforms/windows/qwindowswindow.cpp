@@ -1099,7 +1099,7 @@ block|,
 literal|0
 block|,
 call|(
-name|int
+name|BYTE
 call|)
 argument_list|(
 literal|255.0
