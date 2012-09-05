@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QMLVISITOR_H
+name|QMLMARKUPVISITOR_H
 end_ifndef
 begin_define
-DECL|macro|QMLVISITOR_H
+DECL|macro|QMLMARKUPVISITOR_H
 define|#
 directive|define
-name|QMLVISITOR_H
+name|QMLMARKUPVISITOR_H
 end_define
 begin_include
 include|#
