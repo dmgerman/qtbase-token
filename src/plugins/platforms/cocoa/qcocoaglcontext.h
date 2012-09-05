@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtCore/QWeakPointer>
+file|<QtCore/QPointer>
 end_include
 begin_include
 include|#
@@ -156,7 +156,7 @@ block|;
 name|QSurfaceFormat
 name|m_format
 block|;
-name|QWeakPointer
+name|QPointer
 operator|<
 name|QWindow
 operator|>
