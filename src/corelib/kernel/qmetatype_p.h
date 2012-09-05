@@ -468,7 +468,7 @@ value|{ \
 comment|/*creator*/
 value|0, \
 comment|/*deleter*/
-value|0, \     QT_METATYPE_INTERFACE_INIT_EMPTY_DATASTREAM_IMPL() \
+value|0, \     QT_METATYPE_INTERFACE_INIT_EMPTY_DATASTREAM_IMPL(void) \
 comment|/*constructor*/
 value|0, \
 comment|/*destructor*/
