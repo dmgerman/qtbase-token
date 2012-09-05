@@ -373,9 +373,10 @@ block|{
 ifdef|#
 directive|ifdef
 name|Q_OS_MAC
+comment|// The test is crashing but there are risks of reboot so keeping QSKIP here.
 name|QSKIP
 argument_list|(
-literal|"OpenGL threading tests are currently disabled on mac as they were causing reboots"
+literal|"QTBUG-22361"
 argument_list|)
 expr_stmt|;
 endif|#
@@ -841,9 +842,10 @@ block|{
 ifdef|#
 directive|ifdef
 name|Q_OS_MAC
+comment|// The test is crashing but there are risks of reboot so keeping QSKIP here.
 name|QSKIP
 argument_list|(
-literal|"OpenGL threading tests are currently disabled on mac as they were causing reboots"
+literal|"QTBUG-22361"
 argument_list|)
 expr_stmt|;
 endif|#
@@ -1651,9 +1653,10 @@ block|{
 ifdef|#
 directive|ifdef
 name|Q_OS_MAC
+comment|// The test is crashing but there are risks of reboot so keeping QSKIP here.
 name|QSKIP
 argument_list|(
-literal|"OpenGL threading tests are currently disabled on Mac as they were causing reboots"
+literal|"QTBUG-22361"
 argument_list|)
 expr_stmt|;
 endif|#
@@ -2711,9 +2714,10 @@ block|{
 ifdef|#
 directive|ifdef
 name|Q_OS_MAC
+comment|// The test is crashing but there are risks of reboot so keeping QSKIP here.
 name|QSKIP
 argument_list|(
-literal|"OpenGL threading tests are currently disabled on Mac as they were causing reboots"
+literal|"QTBUG-22361"
 argument_list|)
 expr_stmt|;
 endif|#
@@ -2811,6 +2815,17 @@ parameter_list|()
 block|{
 ifdef|#
 directive|ifdef
+name|Q_OS_MAC
+comment|// The test is crashing but there are risks of reboot so keeping QSKIP here.
+name|QSKIP
+argument_list|(
+literal|"QTBUG-22361"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
 name|Q_WS_X11
 name|QSKIP
 argument_list|(
@@ -2879,9 +2894,10 @@ block|{
 ifdef|#
 directive|ifdef
 name|Q_OS_MAC
+comment|// The test is crashing but there are risks of reboot so keeping QSKIP here.
 name|QSKIP
 argument_list|(
-literal|"OpenGL threading tests are currently disabled on Mac as they were causing reboots"
+literal|"QTBUG-22361"
 argument_list|)
 expr_stmt|;
 endif|#
@@ -2995,9 +3011,10 @@ block|{
 ifdef|#
 directive|ifdef
 name|Q_OS_MAC
+comment|// The test is crashing but there are risks of reboot so keeping QSKIP here.
 name|QSKIP
 argument_list|(
-literal|"OpenGL threading tests are currently disabled on Mac as they were causing reboots"
+literal|"QTBUG-22361"
 argument_list|)
 expr_stmt|;
 endif|#
