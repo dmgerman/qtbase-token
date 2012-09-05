@@ -10134,6 +10134,17 @@ argument_list|)
 expr_stmt|;
 name|desc
 argument_list|(
+literal|"BUILDDEV"
+argument_list|,
+literal|"yes"
+argument_list|,
+literal|"-developer-build"
+argument_list|,
+literal|"Compile and link Qt with Qt developer options (including auto-tests exporting)\n"
+argument_list|)
+expr_stmt|;
+name|desc
+argument_list|(
 literal|"OPENSOURCE"
 argument_list|,
 literal|"opensource"
@@ -10152,17 +10163,6 @@ argument_list|,
 literal|"-commercial"
 argument_list|,
 literal|"Compile and link the Commercial Edition of Qt.\n"
-argument_list|)
-expr_stmt|;
-name|desc
-argument_list|(
-literal|"BUILDDEV"
-argument_list|,
-literal|"yes"
-argument_list|,
-literal|"-developer-build"
-argument_list|,
-literal|"Compile and link Qt with Qt developer options (including auto-tests exporting)\n"
 argument_list|)
 expr_stmt|;
 name|desc
