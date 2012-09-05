@@ -1158,12 +1158,6 @@ name|build_proj
 init|=
 operator|new
 name|QMakeProject
-argument_list|(
-name|project
-operator|->
-name|properties
-argument_list|()
-argument_list|)
 decl_stmt|;
 name|build_proj
 operator|->
@@ -1671,12 +1665,6 @@ name|sub_proj
 init|=
 operator|new
 name|QMakeProject
-argument_list|(
-name|project
-operator|->
-name|properties
-argument_list|()
-argument_list|)
 decl_stmt|;
 for|for
 control|(

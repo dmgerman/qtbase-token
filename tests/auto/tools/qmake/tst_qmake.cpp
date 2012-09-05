@@ -2717,10 +2717,10 @@ name|base_path
 operator|+
 literal|"/testdata/include_function"
 decl_stmt|;
-name|QString
+name|QRegExp
 name|warningMsg
 argument_list|(
-literal|"Unable to find file for inclusion"
+literal|"Include file .* not found"
 argument_list|)
 decl_stmt|;
 name|QVERIFY

@@ -881,8 +881,8 @@ if|if
 condition|(
 name|Option
 operator|::
-name|mkfile
-operator|::
+name|globals
+operator|->
 name|do_cache
 operator|&&
 operator|!
@@ -6347,6 +6347,8 @@ name|fixPathToTargetOS
 argument_list|(
 name|Option
 operator|::
+name|globals
+operator|->
 name|qmake_abslocation
 argument_list|,
 literal|false
@@ -20486,8 +20488,8 @@ if|if
 condition|(
 name|Option
 operator|::
-name|mkfile
-operator|::
+name|globals
+operator|->
 name|do_cache
 condition|)
 block|{

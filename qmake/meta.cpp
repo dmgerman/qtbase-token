@@ -197,9 +197,9 @@ argument_list|(
 name|meta_file
 argument_list|)
 argument_list|,
-name|QMakeProject
+name|QMakeEvaluator
 operator|::
-name|ReadProFile
+name|LoadProOnly
 argument_list|)
 condition|)
 return|return
@@ -558,9 +558,9 @@ name|read
 argument_list|(
 name|nf
 argument_list|,
-name|QMakeProject
+name|QMakeEvaluator
 operator|::
-name|ReadProFile
+name|LoadProOnly
 argument_list|)
 condition|)
 return|return

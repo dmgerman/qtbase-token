@@ -2420,20 +2420,24 @@ decl_stmt|;
 comment|// Make sure that all temp projects are configured
 comment|// for release so that the depends are created
 comment|// without the debug<lib>dxxx.lib name mangling
-name|QStringList
+name|QString
 name|old_after_vars
 init|=
 name|Option
 operator|::
-name|after_user_vars
+name|globals
+operator|->
+name|postcmds
 decl_stmt|;
 name|Option
 operator|::
-name|after_user_vars
+name|globals
+operator|->
+name|postcmds
 operator|.
 name|append
 argument_list|(
-literal|"CONFIG+=release"
+literal|"\nCONFIG+=release"
 argument_list|)
 expr_stmt|;
 name|QStringList
@@ -3834,7 +3838,9 @@ expr_stmt|;
 comment|// Restore previous after_user_var options
 name|Option
 operator|::
-name|after_user_vars
+name|globals
+operator|->
+name|postcmds
 operator|=
 name|old_after_vars
 expr_stmt|;
