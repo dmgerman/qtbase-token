@@ -51,7 +51,7 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!     \class QSpiAccessibleBridge      \brief QSpiAccessibleBridge      QSpiAccessibleBridge */
+comment|/*!     \class QSpiAccessibleBridge     \internal */
 end_comment
 begin_constructor
 DECL|function|QSpiAccessibleBridge

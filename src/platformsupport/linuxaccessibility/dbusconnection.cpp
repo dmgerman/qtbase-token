@@ -17,14 +17,11 @@ include|#
 directive|include
 file|<qdebug.h>
 end_include
-begin_comment
-comment|/*!     \class DBusConnection      \brief DBusConnection      DBusConnection */
-end_comment
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!   Connects to the accessibility dbus.    This is usually a different bus from the session bus. */
+comment|/*!     \class DBusConnection     \internal     \brief Connects to the accessibility dbus.      This is usually a different bus from the session bus. */
 end_comment
 begin_constructor
 DECL|function|DBusConnection

@@ -34,7 +34,7 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!     \class QSpiApplicationAdaptor      \brief QSpiApplicationAdaptor      QSpiApplicationAdaptor */
+comment|/*!     \class QSpiApplicationAdaptor     \internal      \brief QSpiApplicationAdaptor      QSpiApplicationAdaptor */
 end_comment
 begin_constructor
 DECL|function|QSpiApplicationAdaptor
