@@ -5351,7 +5351,7 @@ return|return;
 block|}
 name|device
 operator|->
-name|init
+name|initPainter
 argument_list|(
 name|this
 argument_list|)

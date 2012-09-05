@@ -39083,11 +39083,11 @@ comment|/*!     \fn QWidget *QWidget::keyboardGrabber()      Returns the widget 
 comment|/*!     \fn void QWidget::activateWindow()      Sets the top-level widget containing this widget to be the active     window.      An active window is a visible top-level window that has the     keyboard input focus.      This function performs the same operation as clicking the mouse on     the title bar of a top-level window. On X11, the result depends on     the Window Manager. If you want to ensure that the window is     stacked on top as well you should also call raise(). Note that the     window must be visible, otherwise activateWindow() has no effect.      On Windows, if you are calling this when the application is not     currently the active one then it will not make it the active     window.  It will change the color of the taskbar entry to indicate     that the window has changed in some way. This is because Microsoft     does not allow an application to interrupt what the user is currently     doing in another application.      \sa isActiveWindow(), window(), show() */
 comment|/*!     \fn int QWidget::metric(PaintDeviceMetric m) const      Internal implementation of the virtual QPaintDevice::metric()     function.      \a m is the metric to get. */
 comment|/*!     Initializes the \a painter pen, background and font to the same as     the given widget's. This function is called automatically when the     painter is opened on a QWidget. */
-DECL|function|init
+DECL|function|initPainter
 name|void
 name|QWidget
 operator|::
-name|init
+name|initPainter
 parameter_list|(
 name|QPainter
 modifier|*

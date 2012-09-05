@@ -232,7 +232,7 @@ decl|const
 decl_stmt|;
 name|virtual
 name|void
-name|init
+name|initPainter
 argument_list|(
 name|QPainter
 operator|*

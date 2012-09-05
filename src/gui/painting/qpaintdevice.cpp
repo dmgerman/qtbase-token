@@ -50,11 +50,11 @@ begin_comment
 comment|/*!     \internal */
 end_comment
 begin_function
-DECL|function|init
+DECL|function|initPainter
 name|void
 name|QPaintDevice
 operator|::
-name|init
+name|initPainter
 parameter_list|(
 name|QPainter
 modifier|*

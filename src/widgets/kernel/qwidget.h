@@ -3303,7 +3303,7 @@ argument_list|)
 decl|const
 decl_stmt|;
 name|void
-name|init
+name|initPainter
 argument_list|(
 name|QPainter
 operator|*
