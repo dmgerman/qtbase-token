@@ -558,7 +558,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns the pixel size of the virtual desktop corresponding to this screen.    This is the combined size of the virtual siblings' individual geometries.    \sa virtualSiblings() */
+comment|/*!     \property QScreen::virtualSize     \brief the pixel size of the virtual desktop to which this screen belongs    Returns the pixel size of the virtual desktop corresponding to this screen.    This is the combined size of the virtual siblings' individual geometries.    \sa virtualSiblings() */
 end_comment
 begin_function
 DECL|function|virtualSize
@@ -579,7 +579,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns the pixel geometry of the virtual desktop corresponding to this screen.    This is the union of the virtual siblings' individual geometries.    \sa virtualSiblings() */
+comment|/*!     \property QScreen::virtualGeometry     \brief the pixel geometry of the virtual desktop to which this screen belongs    Returns the pixel geometry of the virtual desktop corresponding to this screen.    This is the union of the virtual siblings' individual geometries.    \sa virtualSiblings() */
 end_comment
 begin_function
 DECL|function|virtualGeometry
@@ -615,7 +615,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns the available pixel size of the virtual desktop corresponding to this screen.    This is the combined size of the virtual siblings' individual available geometries.    \sa availableSize(), virtualSiblings() */
+comment|/*!     \property QScreen::availableVirtualSize     \brief the available size of the virtual desktop to which this screen belongs    Returns the available pixel size of the virtual desktop corresponding to this screen.    This is the combined size of the virtual siblings' individual available geometries.    \sa availableSize(), virtualSiblings() */
 end_comment
 begin_function
 DECL|function|availableVirtualSize
@@ -636,7 +636,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns the available size of the virtual desktop corresponding to this screen.    This is the union of the virtual siblings' individual available geometries.    \sa availableGeometry(), virtualSiblings() */
+comment|/*!     \property QScreen::availableVirtualGeometry     \brief the available geometry of the virtual desktop to which this screen belongs    Returns the available geometry of the virtual desktop corresponding to this screen.    This is the union of the virtual siblings' individual available geometries.    \sa availableGeometry(), virtualSiblings() */
 end_comment
 begin_function
 DECL|function|availableVirtualGeometry

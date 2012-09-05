@@ -107,7 +107,31 @@ argument|QSize size READ size NOTIFY sizeChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
+argument|QSize availableSize READ availableSize NOTIFY availableSizeChanged
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|QSize virtualSize READ virtualSize NOTIFY sizeChanged
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|QSize availableVirtualSize READ availableVirtualSize NOTIFY availableSizeChanged
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
 argument|QRect geometry READ geometry NOTIFY geometryChanged
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|QRect availableGeometry READ availableGeometry NOTIFY availableGeometryChanged
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|QRect virtualGeometry READ virtualGeometry NOTIFY sizeChanged
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|QRect availableVirtualGeometry READ availableVirtualGeometry NOTIFY availableGeometryChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
@@ -136,14 +160,6 @@ argument_list|)
 name|Q_PROPERTY
 argument_list|(
 argument|qreal logicalDotsPerInch READ logicalDotsPerInch NOTIFY logicalDotsPerInchChanged
-argument_list|)
-name|Q_PROPERTY
-argument_list|(
-argument|QSize availableSize READ availableSize NOTIFY availableSizeChanged
-argument_list|)
-name|Q_PROPERTY
-argument_list|(
-argument|QRect availableGeometry READ availableGeometry NOTIFY availableGeometryChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
