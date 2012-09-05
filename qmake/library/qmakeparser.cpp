@@ -1415,12 +1415,12 @@ decl_stmt|;
 comment|// Worst-case size calculations:
 comment|// - line marker adds 1 (2-nl) to 1st token of each line
 comment|// - empty assignment "A=":2 =>
-comment|//   TokHashLiteral(1) + hash(2) + len(1) + "A"(1) + TokAssign(1) +
-comment|//   TokValueTerminator(1) == 7 (8)
+comment|//   TokHashLiteral(1) + hash(2) + len(1) + "A"(1) + TokAssign(1) + 0(1) +
+comment|//   TokValueTerminator(1) == 8 (9)
 comment|// - non-empty assignment "A=B C":5 =>
-comment|//   TokHashLiteral(1) + hash(2) + len(1) + "A"(1) + TokAssign(1) +
+comment|//   TokHashLiteral(1) + hash(2) + len(1) + "A"(1) + TokAssign(1) + 2(1) +
 comment|//   TokLiteral(1) + len(1) + "B"(1) +
-comment|//   TokLiteral(1) + len(1) + "C"(1) + TokValueTerminator(1) == 13 (14)
+comment|//   TokLiteral(1) + len(1) + "C"(1) + TokValueTerminator(1) == 14 (15)
 comment|// - variable expansion: "$$f":3 =>
 comment|//   TokVariable(1) + hash(2) + len(1) + "f"(1) = 5
 comment|// - function expansion: "$$f()":5 =>
