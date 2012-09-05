@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QFILESYSTEMMETADATA_P_H_INCLUDED
+name|QFILESYSTEMMETADATA_P_H
 end_ifndef
 begin_define
-DECL|macro|QFILESYSTEMMETADATA_P_H_INCLUDED
+DECL|macro|QFILESYSTEMMETADATA_P_H
 define|#
 directive|define
-name|QFILESYSTEMMETADATA_P_H_INCLUDED
+name|QFILESYSTEMMETADATA_P_H
 end_define
 begin_comment
 comment|//

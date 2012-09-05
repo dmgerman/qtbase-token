@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QANIMATION_H
+name|QVARIANTANIMATION_H
 end_ifndef
 begin_define
-DECL|macro|QANIMATION_H
+DECL|macro|QVARIANTANIMATION_H
 define|#
 directive|define
-name|QANIMATION_H
+name|QVARIANTANIMATION_H
 end_define
 begin_include
 include|#
@@ -466,6 +466,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|//QANIMATION_H
+comment|//QVARIANTANIMATION_H
 end_comment
 end_unit

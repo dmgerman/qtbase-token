@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QCOLLATOR_H
+name|QCOLLATOR_P_H
 end_ifndef
 begin_define
-DECL|macro|QCOLLATOR_H
+DECL|macro|QCOLLATOR_P_H
 define|#
 directive|define
-name|QCOLLATOR_H
+name|QCOLLATOR_P_H
 end_define
 begin_include
 include|#
@@ -310,6 +310,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QCOLLATOR_H
+comment|// QCOLLATOR_P_H
 end_comment
 end_unit

@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QDIR_PRIVATE_H
+name|QDIR_P_H
 end_ifndef
 begin_define
-DECL|macro|QDIR_PRIVATE_H
+DECL|macro|QDIR_P_H
 define|#
 directive|define
-name|QDIR_PRIVATE_H
+name|QDIR_P_H
 end_define
 begin_include
 include|#

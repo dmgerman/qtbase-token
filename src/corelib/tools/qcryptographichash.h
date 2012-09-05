@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QCRYPTOGRAPHICSHASH_H
+name|QCRYPTOGRAPHICHASH_H
 end_ifndef
 begin_define
-DECL|macro|QCRYPTOGRAPHICSHASH_H
+DECL|macro|QCRYPTOGRAPHICHASH_H
 define|#
 directive|define
-name|QCRYPTOGRAPHICSHASH_H
+name|QCRYPTOGRAPHICHASH_H
 end_define
 begin_include
 include|#

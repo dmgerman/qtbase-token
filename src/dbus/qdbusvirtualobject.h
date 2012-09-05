@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QDBUSTREENODE_H
+name|QDBUSVIRTUALOBJECT_H
 end_ifndef
 begin_define
-DECL|macro|QDBUSTREENODE_H
+DECL|macro|QDBUSVIRTUALOBJECT_H
 define|#
 directive|define
-name|QDBUSTREENODE_H
+name|QDBUSVIRTUALOBJECT_H
 end_define
 begin_include
 include|#

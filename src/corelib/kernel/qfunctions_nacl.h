@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QNACLUNIMPLEMENTED_H
+name|QFUNCTIONS_NACL_H
 end_ifndef
 begin_define
-DECL|macro|QNACLUNIMPLEMENTED_H
+DECL|macro|QFUNCTIONS_NACL_H
 define|#
 directive|define
-name|QNACLUNIMPLEMENTED_H
+name|QFUNCTIONS_NACL_H
 end_define
 begin_ifdef
 ifdef|#
@@ -233,6 +233,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|//QNACLUNIMPLEMENTED_H
+comment|//QFUNCTIONS_NACL_H
 end_comment
 end_unit

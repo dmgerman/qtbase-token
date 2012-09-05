@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QFILESYSTEMENTRY_P_H_INCLUDED
+name|QFILESYSTEMENTRY_P_H
 end_ifndef
 begin_define
-DECL|macro|QFILESYSTEMENTRY_P_H_INCLUDED
+DECL|macro|QFILESYSTEMENTRY_P_H
 define|#
 directive|define
-name|QFILESYSTEMENTRY_P_H_INCLUDED
+name|QFILESYSTEMENTRY_P_H
 end_define
 begin_comment
 comment|//

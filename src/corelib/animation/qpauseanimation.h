@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QPAUSEANIMATION_P_H
+name|QPAUSEANIMATION_H
 end_ifndef
 begin_define
-DECL|macro|QPAUSEANIMATION_P_H
+DECL|macro|QPAUSEANIMATION_H
 define|#
 directive|define
-name|QPAUSEANIMATION_P_H
+name|QPAUSEANIMATION_H
 end_define
 begin_include
 include|#
@@ -121,6 +121,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QPAUSEANIMATION_P_H
+comment|// QPAUSEANIMATION_H
 end_comment
 end_unit

@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|FILEWATCHER_KQUEUE_P_H
+name|QFILESYSTEMWATCHER_KQUEUE_P_H
 end_ifndef
 begin_define
-DECL|macro|FILEWATCHER_KQUEUE_P_H
+DECL|macro|QFILESYSTEMWATCHER_KQUEUE_P_H
 define|#
 directive|define
-name|FILEWATCHER_KQUEUE_P_H
+name|QFILESYSTEMWATCHER_KQUEUE_P_H
 end_define
 begin_comment
 comment|//
@@ -197,6 +197,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// FILEWATCHER_KQUEUE_P_H
+comment|// QFILESYSTEMWATCHER_KQUEUE_P_H
 end_comment
 end_unit

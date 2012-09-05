@@ -38,13 +38,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QDBUSINTERFACEPRIVATE_H
+name|QDBUSINTERFACE_P_H
 end_ifndef
 begin_define
-DECL|macro|QDBUSINTERFACEPRIVATE_H
+DECL|macro|QDBUSINTERFACE_P_H
 define|#
 directive|define
-name|QDBUSINTERFACEPRIVATE_H
+name|QDBUSINTERFACE_P_H
 end_define
 begin_include
 include|#

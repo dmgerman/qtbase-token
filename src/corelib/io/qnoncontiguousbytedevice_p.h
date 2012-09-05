@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QNONCONTIGUOUSBYTEDEVICE_H
+name|QNONCONTIGUOUSBYTEDEVICE_P_H
 end_ifndef
 begin_define
-DECL|macro|QNONCONTIGUOUSBYTEDEVICE_H
+DECL|macro|QNONCONTIGUOUSBYTEDEVICE_P_H
 define|#
 directive|define
-name|QNONCONTIGUOUSBYTEDEVICE_H
+name|QNONCONTIGUOUSBYTEDEVICE_P_H
 end_define
 begin_comment
 comment|//

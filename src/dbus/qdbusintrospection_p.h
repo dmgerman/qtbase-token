@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QDBUSINTROSPECTION_H
+name|QDBUSINTROSPECTION_P_H
 end_ifndef
 begin_define
-DECL|macro|QDBUSINTROSPECTION_H
+DECL|macro|QDBUSINTROSPECTION_P_H
 define|#
 directive|define
-name|QDBUSINTROSPECTION_H
+name|QDBUSINTROSPECTION_P_H
 end_define
 begin_comment
 comment|//

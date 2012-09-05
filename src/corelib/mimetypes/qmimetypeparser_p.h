@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|MIMETYPEPARSER_P_H
+name|QMIMETYPEPARSER_P_H
 end_ifndef
 begin_define
-DECL|macro|MIMETYPEPARSER_P_H
+DECL|macro|QMIMETYPEPARSER_P_H
 define|#
 directive|define
-name|MIMETYPEPARSER_P_H
+name|QMIMETYPEPARSER_P_H
 end_define
 begin_include
 include|#

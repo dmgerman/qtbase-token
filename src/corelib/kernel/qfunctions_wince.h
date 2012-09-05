@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QFUNCTIONS_WCE_H
+name|QFUNCTIONS_WINCE_H
 end_ifndef
 begin_define
-DECL|macro|QFUNCTIONS_WCE_H
+DECL|macro|QFUNCTIONS_WINCE_H
 define|#
 directive|define
-name|QFUNCTIONS_WCE_H
+name|QFUNCTIONS_WINCE_H
 end_define
 begin_ifdef
 ifdef|#
@@ -1966,6 +1966,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QFUNCTIONS_WCE_H
+comment|// QFUNCTIONS_WINCE_H
 end_comment
 end_unit

@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QDBUSBUS_H
+name|QDBUSCONNECTIONINTERFACE_H
 end_ifndef
 begin_define
-DECL|macro|QDBUSBUS_H
+DECL|macro|QDBUSCONNECTIONINTERFACE_H
 define|#
 directive|define
-name|QDBUSBUS_H
+name|QDBUSCONNECTIONINTERFACE_H
 end_define
 begin_include
 include|#

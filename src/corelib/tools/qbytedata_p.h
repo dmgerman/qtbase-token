@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QBYTEDATA_H
+name|QBYTEDATA_P_H
 end_ifndef
 begin_define
-DECL|macro|QBYTEDATA_H
+DECL|macro|QBYTEDATA_P_H
 define|#
 directive|define
-name|QBYTEDATA_H
+name|QBYTEDATA_P_H
 end_define
 begin_comment
 comment|//
@@ -669,6 +669,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QBYTEDATA_H
+comment|// QBYTEDATA_P_H
 end_comment
 end_unit

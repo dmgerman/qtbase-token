@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QDBUSXMLPARSER_H
+name|QDBUSXMLPARSER_P_H
 end_ifndef
 begin_define
-DECL|macro|QDBUSXMLPARSER_H
+DECL|macro|QDBUSXMLPARSER_P_H
 define|#
 directive|define
-name|QDBUSXMLPARSER_H
+name|QDBUSXMLPARSER_P_H
 end_define
 begin_comment
 comment|//

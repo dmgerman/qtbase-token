@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QMETAOBJECTBUILDER_H
+name|QMETAOBJECTBUILDER_P_H
 end_ifndef
 begin_define
-DECL|macro|QMETAOBJECTBUILDER_H
+DECL|macro|QMETAOBJECTBUILDER_P_H
 define|#
 directive|define
-name|QMETAOBJECTBUILDER_H
+name|QMETAOBJECTBUILDER_P_H
 end_define
 begin_comment
 comment|//
