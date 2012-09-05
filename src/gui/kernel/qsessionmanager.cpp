@@ -394,7 +394,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the discard command to the given \a list.      \sa discardCommand(), setRestartCommand() */
+comment|/*!     Sets the discard command to the given \a command.      \sa discardCommand(), setRestartCommand() */
 end_comment
 begin_function
 DECL|function|setDiscardCommand

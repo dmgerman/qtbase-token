@@ -182,7 +182,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the transformation from input item coordinates to the window coordinates.     Item transform needs to be updated by the focused window like QQuickCanvas whenever     item is moved inside the scene. */
+comment|/*!     Sets the transformation from input item coordinates to window coordinates to be \a transform.     Item transform needs to be updated by the focused window like QQuickCanvas whenever     item is moved inside the scene. */
 end_comment
 begin_function
 DECL|function|setInputItemTransform
@@ -475,7 +475,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Controls the keyboard visibility. Equivalent     to calling show() and hide() functions.      \sa show(), hide() */
+comment|/*!     Controls the keyboard visibility. Equivalent     to calling show() (if \a visible is \c true)     or hide() (if \a visible is \c false).      \sa show(), hide() */
 end_comment
 begin_function
 DECL|function|setVisible
@@ -806,7 +806,10 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Called by the input item when the word currently being composed is tapped by     the user. Input methods often use this information to offer more word     suggestions to the user. */
+comment|/*!     \enum QInputMethod::Action      Indicates the kind of action performed by the user.      \value Click        A normal click/tap     \value ContextMenu  A context menu click/tap (e.g. right-button or tap-and-hold)      \sa invokeAction() */
+end_comment
+begin_comment
+comment|/*!     Called by the input item when the word currently being composed is tapped by     the user, as indicated by the action \a a and the given \a cursorPosition.     Input methods often use this information to offer more word suggestions to the user. */
 end_comment
 begin_function
 DECL|function|invokeAction

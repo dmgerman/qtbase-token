@@ -116,7 +116,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QStyleHints     \since 5.0     \brief The QStyleHints class contains platform specific hints and settings.     \inmodule QtGui  */
+comment|/*!     \class QStyleHints     \since 5.0     \brief The QStyleHints class contains platform specific hints and settings.     \inmodule QtGui      An object of this class, obtained from QGuiApplication, provides access to certain global     user interface parameters of the current platform.      Access is read only; typically the platform itself provides the user a way to tune these     parameters.      Access to these parameters are useful when implementing custom user interface components, in that     they allow the components to exhibit the same behaviour and feel as other components.      \sa QGuiApplication::styleHints(), QPlatformTheme  */
 end_comment
 begin_constructor
 DECL|function|QStyleHints
@@ -129,6 +129,9 @@ name|QObject
 argument_list|()
 block|{ }
 end_constructor
+begin_comment
+comment|/*!     Returns the time limit in milliseconds that distinguishes a double click     from two consecutive mouse clicks. */
+end_comment
 begin_function
 DECL|function|mouseDoubleClickInterval
 name|int
@@ -155,6 +158,9 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Returns the distance, in pixels, that the mouse must be moved with a button     held down before a drag and drop operation will begin.      If you support drag and drop in your application, and want to start a drag     and drop operation after the user has moved the cursor a certain distance     with a button held down, you should use this property's value as the     minimum distance required.      For example, if the mouse position of the click is stored in \c startPos     and the current position (e.g. in the mouse move event) is \c currentPos,     you can find out if a drag should be started with code like this:      \snippet code/src_gui_kernel_qapplication.cpp 7      \sa startDragTime(), QPoint::manhattanLength(), {Drag and Drop} */
+end_comment
 begin_function
 DECL|function|startDragDistance
 name|int
@@ -181,6 +187,9 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Returns the time, in milliseconds, that a mouse button must be held down     before a drag and drop operation will begin.      If you support drag and drop in your application, and want to start a drag     and drop operation after the user has held down a mouse button for a     certain amount of time, you should use this property's value as the delay.      \sa startDragDistance(), {Drag and Drop} */
+end_comment
 begin_function
 DECL|function|startDragTime
 name|int
@@ -207,6 +216,9 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Returns the limit for the velocity, in pixels per second, that the mouse may     be moved, with a button held down, for a drag and drop operation to begin.     A value of 0 means there is no such limit.      \sa startDragDistance(), {Drag and Drop} */
+end_comment
 begin_function
 DECL|function|startDragVelocity
 name|int
@@ -233,6 +245,9 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Returns the time limit, in milliseconds, that distinguishes a key press     from two consecutive key presses. */
+end_comment
 begin_function
 DECL|function|keyboardInputInterval
 name|int
@@ -259,6 +274,9 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Returns the rate, in events per second,  in which additional repeated key     presses will automatically be generated if a key is being held down. */
+end_comment
 begin_function
 DECL|function|keyboardAutoRepeatRate
 name|int
@@ -285,6 +303,9 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Returns the text cursor's flash (blink) time in milliseconds.      The flash time is the time used to display, invert and restore the     caret display. Usually the text cursor is displayed for half the cursor     flash time, then hidden for the same amount of time. */
+end_comment
 begin_function
 DECL|function|cursorFlashTime
 name|int
@@ -311,6 +332,9 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Returns \c true if the platform defaults to windows being fullscreen,     otherwise \c false.      \sa QWindow::show() */
+end_comment
 begin_function
 DECL|function|showIsFullScreen
 name|bool
@@ -333,6 +357,9 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Returns the time, in milliseconds, a typed letter is displayed unshrouded     in a text input field in password mode. */
+end_comment
 begin_function
 DECL|function|passwordMaskDelay
 name|int
@@ -359,6 +386,9 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Returns the gamma value used in font smoothing. */
+end_comment
 begin_function
 DECL|function|fontSmoothingGamma
 name|qreal
@@ -381,6 +411,9 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Returns \c true if right-to-left writing direction is enabled,     otherwise \c false. */
+end_comment
 begin_function
 DECL|function|useRtlExtensions
 name|bool
