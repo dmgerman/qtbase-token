@@ -306,6 +306,19 @@ name|void
 name|readAllBuffer
 argument_list|()
 block|;
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINCE
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_PROCESS
+argument_list|)
 name|void
 name|readAllStdin
 argument_list|()
@@ -318,6 +331,8 @@ name|void
 name|readLineStdin_lineByLine
 argument_list|()
 block|;
+endif|#
+directive|endif
 name|void
 name|text
 argument_list|()
@@ -450,10 +465,15 @@ name|void
 name|bufferedRead
 argument_list|()
 block|;
+ifdef|#
+directive|ifdef
+name|Q_OS_UNIX
 name|void
 name|isSequential
 argument_list|()
 block|;
+endif|#
+directive|endif
 name|void
 name|encodeName
 argument_list|()
@@ -616,6 +636,9 @@ name|void
 name|mapOpenMode
 argument_list|()
 block|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
 name|void
 name|openStandardStreamsFileDescriptors
 argument_list|()
@@ -624,6 +647,8 @@ name|void
 name|openStandardStreamsBufferedStreams
 argument_list|()
 block|;
+endif|#
+directive|endif
 name|void
 name|resize_data
 argument_list|()
@@ -4329,6 +4354,21 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINCE
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_PROCESS
+argument_list|)
+end_if
 begin_function
 DECL|function|readAllStdin
 name|void
@@ -4337,32 +4377,6 @@ operator|::
 name|readAllStdin
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_WINCE
-argument_list|)
-name|QSKIP
-argument_list|(
-literal|"Currently no stdin/out supported for Windows CE"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QT_NO_PROCESS
-argument_list|)
-name|QSKIP
-argument_list|(
-literal|"Qt was compiled with QT_NO_PROCESS"
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|QByteArray
 name|lotsOfData
 argument_list|(
@@ -4467,8 +4481,6 @@ operator|*
 literal|5
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -4479,32 +4491,6 @@ operator|::
 name|readLineStdin
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_WINCE
-argument_list|)
-name|QSKIP
-argument_list|(
-literal|"Currently no stdin/out supported for Windows CE"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QT_NO_PROCESS
-argument_list|)
-name|QSKIP
-argument_list|(
-literal|"Qt was compiled with QT_NO_PROCESS"
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|QByteArray
 name|lotsOfData
 argument_list|(
@@ -4759,8 +4745,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -4771,32 +4755,6 @@ operator|::
 name|readLineStdin_lineByLine
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_WINCE
-argument_list|)
-name|QSKIP
-argument_list|(
-literal|"Currently no stdin/out supported for Windows CE"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QT_NO_PROCESS
-argument_list|)
-name|QSKIP
-argument_list|(
-literal|"Qt was compiled with QT_NO_PROCESS"
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 for|for
 control|(
 name|int
@@ -4949,10 +4907,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|text
 name|void
@@ -9281,6 +9241,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_UNIX
+end_ifdef
 begin_function
 DECL|function|isSequential
 name|void
@@ -9289,16 +9254,6 @@ operator|::
 name|isSequential
 parameter_list|()
 block|{
-ifndef|#
-directive|ifndef
-name|Q_OS_UNIX
-name|QSKIP
-argument_list|(
-literal|"Unix only test."
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QFile
 name|zero
 argument_list|(
@@ -9327,6 +9282,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|encodeName
 name|void
@@ -17959,6 +17918,20 @@ init|=
 literal|0
 decl_stmt|;
 end_decl_stmt
+begin_comment
+comment|//allthough Windows CE (not mobile!) has functions that allow redirecting
+end_comment
+begin_comment
+comment|//the standard file descriptors to a file (see SetStdioPathW/GetStdioPathW)
+end_comment
+begin_comment
+comment|//it does not have functions to simply open them like below .
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
 begin_function
 DECL|function|openStandardStreamsFileDescriptors
 name|void
@@ -17967,19 +17940,6 @@ operator|::
 name|openStandardStreamsFileDescriptors
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-comment|//allthough Windows CE (not mobile!) has functions that allow redirecting
-comment|//the standard file descriptors to a file (see SetStdioPathW/GetStdioPathW)
-comment|//it does not have functions to simply open them like below .
-name|QSKIP
-argument_list|(
-literal|"Opening standard streams on Windows CE via descriptor not implemented"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 comment|// Check that QIODevice::seek() isn't called when opening a sequential device (QFile).
 name|MessageHandler
 name|msgHandler
@@ -18131,16 +18091,6 @@ operator|::
 name|openStandardStreamsBufferedStreams
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Not tested on Windows CE."
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 comment|// Check that QIODevice::seek() isn't called when opening a sequential device (QFile).
 name|MessageHandler
 name|msgHandler
@@ -18291,6 +18241,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|writeNothing
 name|void
