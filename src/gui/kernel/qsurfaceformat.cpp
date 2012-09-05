@@ -627,7 +627,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the number of samples per pixel when multisampling is     enabled. By default, multisampling is disabled.      \sa setSampleBuffers(), sampleBuffers(), setSamples() */
+comment|/*!     Returns the number of samples per pixel when multisampling is     enabled. By default, multisampling is disabled.      \sa setSamples() */
 end_comment
 begin_function
 DECL|function|samples
@@ -646,7 +646,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Set the preferred number of samples per pixel when multisampling     is enabled to \a numSamples. By default, multisampling is disabled.      \sa setSampleBuffers(), sampleBuffers(), samples() */
+comment|/*!     Set the preferred number of samples per pixel when multisampling     is enabled to \a numSamples. By default, multisampling is disabled.      \sa samples() */
 end_comment
 begin_function
 DECL|function|setSamples
