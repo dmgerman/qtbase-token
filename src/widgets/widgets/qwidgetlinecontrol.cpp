@@ -2913,6 +2913,7 @@ operator|!=
 name|m_text
 operator|)
 expr_stmt|;
+specifier|const
 name|bool
 name|changed
 init|=
@@ -3037,6 +3038,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+argument|changed
+argument_list|)
 endif|#
 directive|endif
 block|}

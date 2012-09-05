@@ -5492,7 +5492,7 @@ directive|ifndef
 name|QT_NO_DEBUG
 name|qWarning
 argument_list|(
-literal|"QEventDispatcherWin32::remainingTime: timer id %s not found"
+literal|"QEventDispatcherWin32::remainingTime: timer id %d not found"
 argument_list|,
 name|timerId
 argument_list|)

@@ -2392,10 +2392,20 @@ modifier|&
 name|p
 parameter_list|)
 block|{
+name|Q_UNUSED
+argument_list|(
+argument|device
+argument_list|)
+name|Q_UNUSED
+argument_list|(
+argument|p
+argument_list|)
 name|qWarning
-argument_list|()
-operator|<<
-literal|"QPixmap::fill(const QPaintDevice *device, const QPoint&offset) is deprecated, ignored"
+argument_list|(
+literal|"%s is deprecated, ignored"
+argument_list|,
+name|Q_FUNC_INFO
+argument_list|)
 expr_stmt|;
 block|}
 end_function
