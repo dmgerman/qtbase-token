@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QPAGESETUPWIDGET_H
+name|QPAGESETUPDIALOG_UNIX_P_H
 end_ifndef
 begin_define
-DECL|macro|QPAGESETUPWIDGET_H
+DECL|macro|QPAGESETUPDIALOG_UNIX_P_H
 define|#
 directive|define
-name|QPAGESETUPWIDGET_H
+name|QPAGESETUPDIALOG_UNIX_P_H
 end_define
 begin_comment
 comment|//

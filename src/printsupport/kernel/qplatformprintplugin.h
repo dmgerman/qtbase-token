@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QPLATFORMPRINTERSUPPORTPLUGIN_H
+name|QPLATFORMPRINTPLUGIN_H
 end_ifndef
 begin_define
-DECL|macro|QPLATFORMPRINTERSUPPORTPLUGIN_H
+DECL|macro|QPLATFORMPRINTPLUGIN_H
 define|#
 directive|define
-name|QPLATFORMPRINTERSUPPORTPLUGIN_H
+name|QPLATFORMPRINTPLUGIN_H
 end_define
 begin_comment
 comment|//
@@ -122,6 +122,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QPLATFORMPRINTERSUPPORTPLUGIN_H
+comment|// QPLATFORMPRINTPLUGIN_H
 end_comment
 end_unit

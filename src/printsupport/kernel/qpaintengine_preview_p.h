@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QPREVIEWPAINTENGINE_P_H
+name|QPAINTENGINE_PREVIEW_P_H
 end_ifndef
 begin_define
-DECL|macro|QPREVIEWPAINTENGINE_P_H
+DECL|macro|QPAINTENGINE_PREVIEW_P_H
 define|#
 directive|define
-name|QPREVIEWPAINTENGINE_P_H
+name|QPAINTENGINE_PREVIEW_P_H
 end_define
 begin_comment
 comment|//
