@@ -40,11 +40,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qmainwindowlayout_p.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"qtoolbar.h"
 end_include
 begin_include
@@ -61,11 +56,6 @@ begin_include
 include|#
 directive|include
 file|"qrubberband.h"
-end_include
-begin_include
-include|#
-directive|include
-file|"qdockwidget_p.h"
 end_include
 begin_include
 include|#

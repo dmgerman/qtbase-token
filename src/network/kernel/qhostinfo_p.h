@@ -91,11 +91,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtCore/qmutex.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"QtCore/qrunnable.h"
 end_include
 begin_include

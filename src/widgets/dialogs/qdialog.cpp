@@ -77,11 +77,6 @@ include|#
 directive|include
 file|"private/qguiapplication_p.h"
 end_include
-begin_include
-include|#
-directive|include
-file|<qpa/qplatformtheme.h>
-end_include
 begin_ifndef
 ifndef|#
 directive|ifndef

@@ -82,11 +82,6 @@ include|#
 directive|include
 file|"private/qlabel_p.h"
 end_include
-begin_include
-include|#
-directive|include
-file|"qapplication.h"
-end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro

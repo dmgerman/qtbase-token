@@ -125,11 +125,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qpa/qplatformintegration.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtGui/qstylehints.h>
 end_include
 begin_include
@@ -141,11 +136,6 @@ begin_include
 include|#
 directive|include
 file|<QtGui/qpixmapcache.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qpa/qplatformtheme.h>
 end_include
 begin_include
 include|#
@@ -186,11 +176,6 @@ begin_include
 include|#
 directive|include
 file|<qpa/qplatformthemefactory_p.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qpa/qplatformdrag.h>
 end_include
 begin_ifndef
 ifndef|#

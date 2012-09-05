@@ -36,11 +36,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/qobject.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtGui/qimagereader.h>
 end_include
 begin_decl_stmt

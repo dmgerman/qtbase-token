@@ -70,11 +70,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtPlatformSupport/private/qgenericunixfontdatabase_p.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtPlatformSupport/private/qgenericunixservices_p.h>
 end_include
 begin_include

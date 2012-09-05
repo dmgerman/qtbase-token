@@ -32,11 +32,6 @@ include|#
 directive|include
 file|"private/qpaintengine_raster_p.h"
 end_include
-begin_include
-include|#
-directive|include
-file|"private/qguiapplication_p.h"
-end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro

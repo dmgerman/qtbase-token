@@ -96,11 +96,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtWidgets/qlineedit.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"private/qwidgetlinecontrol_p.h"
 end_include
 begin_decl_stmt

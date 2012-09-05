@@ -91,11 +91,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtGui/qpainter.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"QtCore/qbasictimer.h"
 end_include
 begin_include

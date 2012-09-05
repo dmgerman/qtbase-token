@@ -45,11 +45,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QDir>
-end_include
-begin_include
-include|#
-directive|include
 file|<QFile>
 end_include
 begin_include

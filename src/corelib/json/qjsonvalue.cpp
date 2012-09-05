@@ -20,11 +20,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qjsonarray.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<qvariant.h>
 end_include
 begin_include

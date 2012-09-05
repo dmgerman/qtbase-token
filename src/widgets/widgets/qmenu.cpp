@@ -144,11 +144,6 @@ include|#
 directive|include
 file|<private/qguiapplication_p.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<qpa/qplatformtheme.h>
-end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|member|mouseDown

@@ -155,11 +155,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qtabbar.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<qfileinfo.h>
 end_include
 begin_include

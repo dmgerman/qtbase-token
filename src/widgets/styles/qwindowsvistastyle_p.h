@@ -190,16 +190,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qtreeview.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qlistview.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<qtableview.h>
 end_include
 begin_include

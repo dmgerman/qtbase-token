@@ -114,16 +114,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qabstractscrollarea.h"
-end_include
-begin_include
-include|#
-directive|include
-file|"qframe.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"qscrollbar.h"
 end_include
 begin_include

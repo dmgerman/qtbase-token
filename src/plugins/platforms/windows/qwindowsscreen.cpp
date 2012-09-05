@@ -30,11 +30,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qwindowscontext.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"qtwindows_additional.h"
 end_include
 begin_include

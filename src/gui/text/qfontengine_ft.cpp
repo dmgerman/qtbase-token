@@ -60,11 +60,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qfontengine_ft_p.h"
-end_include
-begin_include
-include|#
-directive|include
 file|<ft2build.h>
 end_include
 begin_include
