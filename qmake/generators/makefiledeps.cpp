@@ -1586,7 +1586,7 @@ operator|::
 name|addSourceFiles
 parameter_list|(
 specifier|const
-name|QStringList
+name|ProStringList
 modifier|&
 name|l
 parameter_list|,
@@ -1624,6 +1624,9 @@ name|at
 argument_list|(
 name|i
 argument_list|)
+operator|.
+name|toQString
+argument_list|()
 argument_list|,
 name|seek
 argument_list|,

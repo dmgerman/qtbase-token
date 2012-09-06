@@ -102,7 +102,7 @@ return|return
 name|true
 return|;
 block|}
-name|QStringList
+name|ProStringList
 name|nativebins
 block|;  }
 decl_stmt|;

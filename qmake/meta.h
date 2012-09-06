@@ -16,6 +16,11 @@ end_define
 begin_include
 include|#
 directive|include
+file|"project.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<qhash.h>
 end_include
 begin_include
@@ -61,14 +66,9 @@ name|QMakeProject
 modifier|*
 name|conf
 decl_stmt|;
-name|QHash
-operator|<
-name|QString
-operator|,
-name|QStringList
-operator|>
+name|ProValueMap
 name|vars
-expr_stmt|;
+decl_stmt|;
 name|QString
 name|meta_type
 decl_stmt|;
@@ -77,13 +77,8 @@ name|QHash
 operator|<
 name|QString
 operator|,
-name|QHash
-operator|<
-name|QString
-operator|,
-name|QStringList
+name|ProValueMap
 operator|>
-expr|>
 name|cache_vars
 expr_stmt|;
 name|void
@@ -131,40 +126,35 @@ name|bool
 name|isEmpty
 parameter_list|(
 specifier|const
-name|QString
+name|ProKey
 modifier|&
 name|v
 parameter_list|)
 function_decl|;
-name|QStringList
+name|ProStringList
 modifier|&
 name|values
 parameter_list|(
 specifier|const
-name|QString
+name|ProKey
 modifier|&
 name|v
 parameter_list|)
 function_decl|;
-name|QString
+name|ProString
 name|first
 parameter_list|(
 specifier|const
-name|QString
+name|ProKey
 modifier|&
 name|v
 parameter_list|)
 function_decl|;
-name|QHash
-operator|<
-name|QString
-operator|,
-name|QStringList
-operator|>
-operator|&
+name|ProValueMap
+modifier|&
 name|variables
-argument_list|()
-expr_stmt|;
+parameter_list|()
+function_decl|;
 block|}
 end_decl_stmt
 begin_empty_stmt
@@ -178,7 +168,7 @@ name|QMakeMetaInfo
 operator|::
 name|isEmpty
 argument_list|(
-argument|const QString&v
+argument|const ProKey&v
 argument_list|)
 block|{
 return|return
@@ -218,13 +208,13 @@ end_expr_stmt
 begin_expr_stmt
 DECL|function|values
 specifier|inline
-name|QStringList
+name|ProStringList
 operator|&
 name|QMakeMetaInfo
 operator|::
 name|values
 argument_list|(
-argument|const QString&v
+argument|const ProKey&v
 argument_list|)
 block|{
 return|return
@@ -238,12 +228,12 @@ end_expr_stmt
 begin_expr_stmt
 DECL|function|first
 specifier|inline
-name|QString
+name|ProString
 name|QMakeMetaInfo
 operator|::
 name|first
 argument_list|(
-argument|const QString&v
+argument|const ProKey&v
 argument_list|)
 block|{
 if|#
@@ -272,7 +262,7 @@ name|v
 argument_list|)
 condition|)
 return|return
-name|QString
+name|ProString
 argument_list|(
 literal|""
 argument_list|)
@@ -299,7 +289,7 @@ argument_list|(
 name|v
 argument_list|)
 condition|?
-name|QString
+name|ProString
 argument_list|(
 literal|""
 argument_list|)
@@ -319,14 +309,8 @@ directive|endif
 end_endif
 begin_expr_stmt
 unit|}  inline
-DECL|variable|QString
 DECL|function|variables
-name|QHash
-operator|<
-name|QString
-operator|,
-name|QStringList
-operator|>
+name|ProValueMap
 operator|&
 name|QMakeMetaInfo
 operator|::

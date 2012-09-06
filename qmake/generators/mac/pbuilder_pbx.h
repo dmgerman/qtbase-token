@@ -83,7 +83,7 @@ name|QString
 name|findProgram
 argument_list|(
 specifier|const
-name|QString
+name|ProString
 operator|&
 name|prog
 argument_list|)
@@ -97,12 +97,12 @@ operator|&
 name|file
 argument_list|)
 block|;
-name|QStringList
+name|ProStringList
 name|fixListForOutput
 argument_list|(
 specifier|const
-name|QString
-operator|&
+name|char
+operator|*
 name|where
 argument_list|)
 block|;
@@ -134,9 +134,9 @@ specifier|inline
 name|QString
 name|writeSettings
 argument_list|(
-argument|QString var
+argument|const QString&var
 argument_list|,
-argument|QString val
+argument|const char *val
 argument_list|,
 argument|int flags=
 literal|0
@@ -145,31 +145,90 @@ argument|int indent_level=
 literal|0
 argument_list|)
 block|{
-name|Q_UNUSED
-argument_list|(
-name|indent_level
-argument_list|)
-block|;
 return|return
 name|writeSettings
 argument_list|(
 name|var
 argument_list|,
-name|QStringList
+name|ProString
 argument_list|(
 name|val
 argument_list|)
 argument_list|,
 name|flags
+argument_list|,
+name|indent_level
+argument_list|)
+return|;
+block|}
+specifier|inline
+name|QString
+name|writeSettings
+argument_list|(
+argument|const QString&var
+argument_list|,
+argument|const QString&val
+argument_list|,
+argument|int flags=
+literal|0
+argument_list|,
+argument|int indent_level=
+literal|0
+argument_list|)
+block|{
+return|return
+name|writeSettings
+argument_list|(
+name|var
+argument_list|,
+name|ProString
+argument_list|(
+name|val
+argument_list|)
+argument_list|,
+name|flags
+argument_list|,
+name|indent_level
+argument_list|)
+return|;
+block|}
+specifier|inline
+name|QString
+name|writeSettings
+argument_list|(
+argument|const QString&var
+argument_list|,
+argument|const ProString&val
+argument_list|,
+argument|int flags=
+literal|0
+argument_list|,
+argument|int indent_level=
+literal|0
+argument_list|)
+block|{
+return|return
+name|writeSettings
+argument_list|(
+name|var
+argument_list|,
+name|ProStringList
+argument_list|(
+name|val
+argument_list|)
+argument_list|,
+name|flags
+argument_list|,
+name|indent_level
 argument_list|)
 return|;
 block|}
 name|QString
 name|writeSettings
 argument_list|(
-argument|QString var
+argument|const QString&var
 argument_list|,
-argument|QStringList vals
+argument|const ProStringList&vals
 argument_list|,
 argument|int flags=
 literal|0
@@ -216,6 +275,22 @@ argument|const QString&path
 argument_list|)
 specifier|const
 block|;
+name|ProString
+name|escapeFilePath
+argument_list|(
+argument|const ProString&path
+argument_list|)
+specifier|const
+block|{
+return|return
+name|MakefileGenerator
+operator|::
+name|escapeFilePath
+argument_list|(
+name|path
+argument_list|)
+return|;
+block|}
 name|bool
 name|doPrecompiledHeaders
 argument_list|()

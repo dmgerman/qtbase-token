@@ -138,7 +138,7 @@ name|QString
 name|var
 argument_list|(
 specifier|const
-name|QString
+name|ProKey
 operator|&
 name|value
 argument_list|)

@@ -149,6 +149,9 @@ name|first
 argument_list|(
 literal|"TARGET"
 argument_list|)
+operator|.
+name|toQString
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|bool
@@ -920,6 +923,9 @@ name|at
 argument_list|(
 literal|0
 argument_list|)
+operator|.
+name|toQString
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|pathtoremove
@@ -1160,7 +1166,7 @@ operator|<<
 literal|"\t"
 expr_stmt|;
 specifier|const
-name|QStringList
+name|ProStringList
 modifier|&
 name|l
 init|=
@@ -1173,7 +1179,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|QStringList
+name|ProStringList
 operator|::
 name|ConstIterator
 name|it
@@ -1358,7 +1364,7 @@ operator|<<
 literal|"\t"
 expr_stmt|;
 specifier|const
-name|QStringList
+name|ProStringList
 modifier|&
 name|l
 init|=
@@ -1374,7 +1380,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|QStringList
+name|ProStringList
 operator|::
 name|ConstIterator
 name|it
@@ -1438,7 +1444,7 @@ block|}
 comment|/* first subdirectories/subprojects */
 block|{
 specifier|const
-name|QStringList
+name|ProStringList
 modifier|&
 name|l
 init|=
@@ -1451,7 +1457,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|QStringList
+name|ProStringList
 operator|::
 name|ConstIterator
 name|it
@@ -1479,6 +1485,9 @@ operator|(
 operator|*
 name|it
 operator|)
+operator|.
+name|toQString
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|/* avoid native tools */
@@ -1500,6 +1509,16 @@ argument_list|)
 argument_list|)
 condition|)
 continue|continue;
+specifier|const
+name|ProKey
+name|skey
+argument_list|(
+operator|*
+name|it
+operator|+
+literal|".subdir"
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -1507,12 +1526,7 @@ name|project
 operator|->
 name|first
 argument_list|(
-operator|(
-operator|*
-name|it
-operator|)
-operator|+
-literal|".subdir"
+name|skey
 argument_list|)
 operator|.
 name|isEmpty
@@ -1524,13 +1538,11 @@ name|project
 operator|->
 name|first
 argument_list|(
-operator|(
-operator|*
-name|it
-operator|)
-operator|+
-literal|".subdir"
+name|skey
 argument_list|)
+operator|.
+name|toQString
+argument_list|()
 expr_stmt|;
 else|else
 name|gpjname
@@ -1618,7 +1630,7 @@ block|}
 block|}
 block|{
 specifier|const
-name|QStringList
+name|ProStringList
 modifier|&
 name|l
 init|=
@@ -1631,7 +1643,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|QStringList
+name|ProStringList
 operator|::
 name|ConstIterator
 name|it
@@ -1655,8 +1667,13 @@ block|{
 name|QString
 name|tmpstr
 argument_list|(
+operator|(
 operator|*
 name|it
+operator|)
+operator|.
+name|toQString
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|tmpstr
@@ -1751,7 +1768,7 @@ block|}
 block|}
 block|{
 specifier|const
-name|QStringList
+name|ProStringList
 modifier|&
 name|l
 init|=
@@ -1764,7 +1781,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|QStringList
+name|ProStringList
 operator|::
 name|ConstIterator
 name|it
@@ -1788,8 +1805,13 @@ block|{
 name|QString
 name|tmpstr
 argument_list|(
+operator|(
 operator|*
 name|it
+operator|)
+operator|.
+name|toQString
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|tmpstr
@@ -1906,7 +1928,7 @@ operator|++
 control|)
 block|{
 specifier|const
-name|QStringList
+name|ProStringList
 modifier|&
 name|l
 init|=
@@ -1922,7 +1944,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|QStringList
+name|ProStringList
 operator|::
 name|ConstIterator
 name|it
@@ -1968,6 +1990,9 @@ operator|(
 operator|*
 name|it
 operator|)
+operator|.
+name|toQString
+argument_list|()
 argument_list|,
 name|pathtoremove
 argument_list|)
@@ -1975,11 +2000,13 @@ expr_stmt|;
 else|else
 name|t
 operator|<<
-name|QString
-argument_list|(
+operator|(
 operator|*
 name|it
-argument_list|)
+operator|)
+operator|.
+name|toQString
+argument_list|()
 operator|.
 name|remove
 argument_list|(
@@ -1996,7 +2023,7 @@ literal|"\n"
 expr_stmt|;
 block|{
 specifier|const
-name|QStringList
+name|ProStringList
 modifier|&
 name|l
 init|=
@@ -2009,7 +2036,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|QStringList
+name|ProStringList
 operator|::
 name|ConstIterator
 name|it
@@ -2038,6 +2065,9 @@ operator|(
 operator|*
 name|it
 operator|)
+operator|.
+name|toQString
+argument_list|()
 operator|.
 name|section
 argument_list|(
@@ -2303,12 +2333,12 @@ name|remove
 argument_list|(
 name|project
 operator|->
-name|values
+name|first
 argument_list|(
 literal|"QT_SOURCE_TREE"
 argument_list|)
 operator|.
-name|first
+name|toQString
 argument_list|()
 argument_list|)
 expr_stmt|;

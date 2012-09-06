@@ -3131,6 +3131,9 @@ name|values
 argument_list|(
 literal|"QMAKE_EXT_CPP"
 argument_list|)
+operator|.
+name|toQStringList
+argument_list|()
 expr_stmt|;
 name|Option
 operator|::
@@ -3142,6 +3145,9 @@ name|values
 argument_list|(
 literal|"QMAKE_EXT_H"
 argument_list|)
+operator|.
+name|toQStringList
+argument_list|()
 expr_stmt|;
 name|Option
 operator|::
@@ -3153,6 +3159,9 @@ name|values
 argument_list|(
 literal|"QMAKE_EXT_C"
 argument_list|)
+operator|.
+name|toQStringList
+argument_list|()
 expr_stmt|;
 name|Option
 operator|::
@@ -3164,6 +3173,9 @@ name|first
 argument_list|(
 literal|"QMAKE_EXT_RES"
 argument_list|)
+operator|.
+name|toQString
+argument_list|()
 expr_stmt|;
 name|Option
 operator|::
@@ -3175,6 +3187,9 @@ name|first
 argument_list|(
 literal|"QMAKE_EXT_PKGCONFIG"
 argument_list|)
+operator|.
+name|toQString
+argument_list|()
 expr_stmt|;
 name|Option
 operator|::
@@ -3186,6 +3201,9 @@ name|first
 argument_list|(
 literal|"QMAKE_EXT_LIBTOOL"
 argument_list|)
+operator|.
+name|toQString
+argument_list|()
 expr_stmt|;
 name|Option
 operator|::
@@ -3197,6 +3215,9 @@ name|first
 argument_list|(
 literal|"QMAKE_EXT_PRL"
 argument_list|)
+operator|.
+name|toQString
+argument_list|()
 expr_stmt|;
 name|Option
 operator|::
@@ -3208,6 +3229,9 @@ name|first
 argument_list|(
 literal|"QMAKE_EXT_UI"
 argument_list|)
+operator|.
+name|toQString
+argument_list|()
 expr_stmt|;
 name|Option
 operator|::
@@ -3219,6 +3243,9 @@ name|first
 argument_list|(
 literal|"QMAKE_EXT_CPP_MOC"
 argument_list|)
+operator|.
+name|toQString
+argument_list|()
 expr_stmt|;
 name|Option
 operator|::
@@ -3230,6 +3257,9 @@ name|first
 argument_list|(
 literal|"QMAKE_EXT_LEX"
 argument_list|)
+operator|.
+name|toQString
+argument_list|()
 expr_stmt|;
 name|Option
 operator|::
@@ -3241,6 +3271,9 @@ name|first
 argument_list|(
 literal|"QMAKE_EXT_YACC"
 argument_list|)
+operator|.
+name|toQString
+argument_list|()
 expr_stmt|;
 name|Option
 operator|::
@@ -3252,6 +3285,9 @@ name|first
 argument_list|(
 literal|"QMAKE_EXT_OBJ"
 argument_list|)
+operator|.
+name|toQString
+argument_list|()
 expr_stmt|;
 name|Option
 operator|::
@@ -3263,6 +3299,9 @@ name|first
 argument_list|(
 literal|"QMAKE_H_MOD_MOC"
 argument_list|)
+operator|.
+name|toQString
+argument_list|()
 expr_stmt|;
 name|Option
 operator|::
@@ -3274,6 +3313,9 @@ name|first
 argument_list|(
 literal|"QMAKE_MOD_LEX"
 argument_list|)
+operator|.
+name|toQString
+argument_list|()
 expr_stmt|;
 name|Option
 operator|::
@@ -3285,6 +3327,9 @@ name|first
 argument_list|(
 literal|"QMAKE_MOD_YACC"
 argument_list|)
+operator|.
+name|toQString
+argument_list|()
 expr_stmt|;
 if|if
 condition|(

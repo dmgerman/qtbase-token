@@ -16,6 +16,11 @@ end_define
 begin_include
 include|#
 directive|include
+file|<proitems.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<qstringlist.h>
 end_include
 begin_include
@@ -354,7 +359,7 @@ name|void
 name|addSourceFiles
 parameter_list|(
 specifier|const
-name|QStringList
+name|ProStringList
 modifier|&
 parameter_list|,
 name|uchar

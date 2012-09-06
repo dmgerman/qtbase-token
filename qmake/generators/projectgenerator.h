@@ -46,7 +46,7 @@ block|;
 name|QString
 name|getWritableVar
 argument_list|(
-argument|const QString&
+argument|const char *
 argument_list|,
 argument|bool fixPath=true
 argument_list|)

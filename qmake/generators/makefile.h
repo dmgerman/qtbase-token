@@ -288,11 +288,11 @@ name|TARG_WIN_MODE
 block|}
 name|target_mode
 block|;
-name|QStringList
+name|ProStringList
 name|createObjectList
 argument_list|(
 specifier|const
-name|QStringList
+name|ProStringList
 operator|&
 name|sources
 argument_list|)
@@ -314,8 +314,6 @@ name|void
 name|writeInstalls
 argument_list|(
 argument|QTextStream&t
-argument_list|,
-argument|const QString&installs
 argument_list|,
 argument|bool noBuild=false
 argument_list|)
@@ -436,7 +434,7 @@ name|target
 block|,
 name|makefile
 block|;
-name|QStringList
+name|ProStringList
 name|depends
 block|;     }
 block|;     enum
@@ -546,7 +544,7 @@ name|bool
 name|verifyExtraCompiler
 argument_list|(
 specifier|const
-name|QString
+name|ProString
 operator|&
 name|c
 argument_list|,
@@ -645,11 +643,25 @@ argument|const QString&path
 argument_list|)
 specifier|const
 block|;
+name|ProString
+name|unescapeFilePath
+argument_list|(
+argument|const ProString&path
+argument_list|)
+specifier|const
+block|;
 name|virtual
 name|QStringList
 name|unescapeFilePaths
 argument_list|(
 argument|const QStringList&path
+argument_list|)
+specifier|const
+block|;
+name|ProStringList
+name|unescapeFilePaths
+argument_list|(
+argument|const ProStringList&path
 argument_list|)
 specifier|const
 block|;
@@ -665,6 +677,27 @@ return|return
 name|path
 return|;
 block|}
+name|ProString
+name|escapeFilePath
+argument_list|(
+argument|const ProString&path
+argument_list|)
+specifier|const
+block|;
+name|QStringList
+name|escapeFilePaths
+argument_list|(
+argument|const QStringList&paths
+argument_list|)
+specifier|const
+block|;
+name|ProStringList
+name|escapeFilePaths
+argument_list|(
+argument|const ProStringList&paths
+argument_list|)
+specifier|const
+block|;
 name|virtual
 name|QString
 name|escapeDependencyPath
@@ -681,16 +714,16 @@ argument_list|)
 return|;
 block|}
 name|QStringList
-name|escapeFilePaths
+name|escapeDependencyPaths
 argument_list|(
 argument|const QStringList&paths
 argument_list|)
 specifier|const
 block|;
-name|QStringList
+name|ProStringList
 name|escapeDependencyPaths
 argument_list|(
-argument|const QStringList&paths
+argument|const ProStringList&paths
 argument_list|)
 specifier|const
 block|;
@@ -770,10 +803,10 @@ operator|=
 literal|0x04
 block|}
 block|;
-name|QStringList
+name|ProStringList
 name|findFilesInVPATH
 argument_list|(
-argument|QStringList l
+argument|ProStringList l
 argument_list|,
 argument|uchar flags
 argument_list|,
@@ -974,7 +1007,7 @@ name|QString
 name|var
 argument_list|(
 specifier|const
-name|QString
+name|ProKey
 operator|&
 name|var
 argument_list|)
@@ -983,7 +1016,7 @@ name|QString
 name|varGlue
 argument_list|(
 specifier|const
-name|QString
+name|ProKey
 operator|&
 name|var
 argument_list|,
@@ -1007,7 +1040,7 @@ name|QString
 name|fileVarGlue
 argument_list|(
 specifier|const
-name|QString
+name|ProKey
 operator|&
 name|var
 argument_list|,
@@ -1031,9 +1064,18 @@ name|QString
 name|varList
 argument_list|(
 specifier|const
-name|QString
+name|ProKey
 operator|&
 name|var
+argument_list|)
+block|;
+name|QString
+name|val
+argument_list|(
+specifier|const
+name|ProStringList
+operator|&
+name|varList
 argument_list|)
 block|;
 name|QString
@@ -1070,10 +1112,43 @@ name|after
 argument_list|)
 block|;
 name|QString
+name|valGlue
+argument_list|(
+specifier|const
+name|ProStringList
+operator|&
+name|varList
+argument_list|,
+specifier|const
+name|QString
+operator|&
+name|before
+argument_list|,
+specifier|const
+name|QString
+operator|&
+name|glue
+argument_list|,
+specifier|const
+name|QString
+operator|&
+name|after
+argument_list|)
+block|;
+name|QString
 name|valList
 argument_list|(
 specifier|const
 name|QStringList
+operator|&
+name|varList
+argument_list|)
+block|;
+name|QString
+name|valList
+argument_list|(
+specifier|const
+name|ProStringList
 operator|&
 name|varList
 argument_list|)
