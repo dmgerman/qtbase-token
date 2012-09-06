@@ -416,9 +416,9 @@ name|CreateEvent
 argument_list|(
 name|NULL
 argument_list|,
-literal|true
+name|TRUE
 argument_list|,
-literal|false
+name|FALSE
 argument_list|,
 name|NULL
 argument_list|)

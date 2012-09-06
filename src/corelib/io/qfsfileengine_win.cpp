@@ -384,7 +384,7 @@ argument_list|)
 block|,
 name|NULL
 block|,
-literal|false
+name|FALSE
 block|}
 decl_stmt|;
 comment|// WriteOnly can create files, ReadOnly cannot.
@@ -2873,7 +2873,7 @@ operator|.
 name|utf16
 argument_list|()
 argument_list|,
-literal|true
+name|TRUE
 argument_list|)
 expr_stmt|;
 if|if

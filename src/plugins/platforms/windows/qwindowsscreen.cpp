@@ -363,10 +363,10 @@ operator|&
 name|info
 argument_list|)
 operator|==
-literal|false
+name|FALSE
 condition|)
 return|return
-literal|true
+name|TRUE
 return|;
 name|WindowsScreenDataList
 modifier|*
@@ -744,7 +744,7 @@ name|data
 argument_list|)
 expr_stmt|;
 return|return
-literal|true
+name|TRUE
 return|;
 block|}
 end_function

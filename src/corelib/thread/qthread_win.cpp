@@ -378,7 +378,7 @@ name|realHandle
 argument_list|,
 literal|0
 argument_list|,
-literal|false
+name|FALSE
 argument_list|,
 name|DUPLICATE_SAME_ACCESS
 argument_list|)

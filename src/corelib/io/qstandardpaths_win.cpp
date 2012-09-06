@@ -283,7 +283,7 @@ name|path
 argument_list|,
 name|CSIDL_APPDATA
 argument_list|,
-literal|false
+name|FALSE
 argument_list|)
 condition|)
 else|#
@@ -298,7 +298,7 @@ name|path
 argument_list|,
 name|CSIDL_LOCAL_APPDATA
 argument_list|,
-literal|false
+name|FALSE
 argument_list|)
 condition|)
 endif|#
@@ -390,7 +390,7 @@ name|path
 argument_list|,
 name|CSIDL_DESKTOPDIRECTORY
 argument_list|,
-literal|false
+name|FALSE
 argument_list|)
 condition|)
 name|result
@@ -418,7 +418,7 @@ name|path
 argument_list|,
 name|CSIDL_PERSONAL
 argument_list|,
-literal|false
+name|FALSE
 argument_list|)
 condition|)
 name|result
@@ -442,7 +442,7 @@ name|path
 argument_list|,
 name|CSIDL_FONTS
 argument_list|,
-literal|false
+name|FALSE
 argument_list|)
 condition|)
 name|result
@@ -466,7 +466,7 @@ name|path
 argument_list|,
 name|CSIDL_PROGRAMS
 argument_list|,
-literal|false
+name|FALSE
 argument_list|)
 condition|)
 name|result
@@ -490,7 +490,7 @@ name|path
 argument_list|,
 name|CSIDL_MYMUSIC
 argument_list|,
-literal|false
+name|FALSE
 argument_list|)
 condition|)
 name|result
@@ -514,7 +514,7 @@ name|path
 argument_list|,
 name|CSIDL_MYVIDEO
 argument_list|,
-literal|false
+name|FALSE
 argument_list|)
 condition|)
 name|result
@@ -538,7 +538,7 @@ name|path
 argument_list|,
 name|CSIDL_MYPICTURES
 argument_list|,
-literal|false
+name|FALSE
 argument_list|)
 condition|)
 name|result
@@ -672,7 +672,7 @@ name|path
 argument_list|,
 name|CSIDL_COMMON_APPDATA
 argument_list|,
-literal|false
+name|FALSE
 argument_list|)
 condition|)
 block|{

@@ -5295,7 +5295,7 @@ argument_list|()
 argument_list|,
 literal|0
 argument_list|,
-literal|true
+name|TRUE
 argument_list|)
 operator|==
 name|WAIT_OBJECT_0
