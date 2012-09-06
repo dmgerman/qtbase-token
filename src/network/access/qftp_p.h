@@ -51,7 +51,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qurlinfo_p.h>
+file|<private/qurlinfo_p.h>
 end_include
 begin_include
 include|#
