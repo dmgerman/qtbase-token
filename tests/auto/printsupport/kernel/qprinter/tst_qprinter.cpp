@@ -7160,13 +7160,13 @@ block|{
 name|TempFileCleanup
 name|tmpFile1
 argument_list|(
-literal|"out1.ps"
+literal|"out1.pdf"
 argument_list|)
 decl_stmt|;
 name|TempFileCleanup
 name|tmpFile2
 argument_list|(
-literal|"out2.ps"
+literal|"out2.pdf"
 argument_list|)
 decl_stmt|;
 name|QPrinter
@@ -7177,7 +7177,7 @@ name|printer
 operator|.
 name|setOutputFileName
 argument_list|(
-literal|"out1.ps"
+literal|"out1.pdf"
 argument_list|)
 expr_stmt|;
 name|QPainter
@@ -7199,7 +7199,7 @@ name|printer
 operator|.
 name|setOutputFileName
 argument_list|(
-literal|"out2.ps"
+literal|"out2.pdf"
 argument_list|)
 expr_stmt|;
 name|QPainter
@@ -7219,7 +7219,7 @@ block|}
 name|QFile
 name|file1
 argument_list|(
-literal|"out1.ps"
+literal|"out1.pdf"
 argument_list|)
 decl_stmt|;
 name|QVERIFY
@@ -7237,7 +7237,7 @@ expr_stmt|;
 name|QFile
 name|file2
 argument_list|(
-literal|"out2.ps"
+literal|"out2.pdf"
 argument_list|)
 decl_stmt|;
 name|QVERIFY
