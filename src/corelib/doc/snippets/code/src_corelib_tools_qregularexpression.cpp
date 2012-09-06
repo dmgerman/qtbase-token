@@ -1337,7 +1337,7 @@ end_comment
 begin_expr_stmt
 name|QRegularExpression
 argument_list|(
-literal|"(\d\d) (?<name>\w+)"
+literal|"(\\d\\d) (?<name>\\w+)"
 argument_list|)
 expr_stmt|;
 end_expr_stmt
@@ -1400,7 +1400,7 @@ begin_decl_stmt
 name|QRegularExpression
 name|re
 argument_list|(
-literal|"(\w+)"
+literal|"(\\w+)"
 argument_list|)
 decl_stmt|;
 end_decl_stmt
