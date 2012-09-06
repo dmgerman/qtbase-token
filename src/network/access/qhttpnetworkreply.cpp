@@ -1750,7 +1750,10 @@ name|haveRead
 operator|==
 literal|1
 operator|&&
-name|bytes
+name|fragment
+operator|.
+name|size
+argument_list|()
 operator|==
 literal|0
 operator|&&
