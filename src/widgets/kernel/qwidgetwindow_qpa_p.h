@@ -151,6 +151,9 @@ name|QResizeEvent
 operator|*
 argument_list|)
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_WHEELEVENT
 name|void
 name|handleWheelEvent
 argument_list|(
@@ -158,6 +161,8 @@ name|QWheelEvent
 operator|*
 argument_list|)
 block|;
+endif|#
+directive|endif
 ifndef|#
 directive|ifndef
 name|QT_NO_DRAGANDDROP

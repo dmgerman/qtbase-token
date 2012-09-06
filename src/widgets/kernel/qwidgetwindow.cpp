@@ -567,6 +567,9 @@ expr_stmt|;
 return|return
 literal|true
 return|;
+ifndef|#
+directive|ifndef
+name|QT_NO_WHEELEVENT
 case|case
 name|QEvent
 operator|::
@@ -587,6 +590,8 @@ expr_stmt|;
 return|return
 literal|true
 return|;
+endif|#
+directive|endif
 ifndef|#
 directive|ifndef
 name|QT_NO_DRAGANDDROP
@@ -2011,6 +2016,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_WHEELEVENT
+end_ifndef
 begin_function
 DECL|function|handleWheelEvent
 name|void
@@ -2137,6 +2147,13 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_WHEELEVENT
+end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
