@@ -7687,7 +7687,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.5      Returns this item's local opacity, which is between 0.0 (transparent) and     1.0 (opaque). This value is combined with parent and ancestor values into     the effectiveOpacity(). The effective opacity decides how the item is     rendered.      The opacity property decides the state of the painter passed to the     paint() function. If the item is cached, i.e., ItemCoordinateCache or     DeviceCoordinateCache, the effective property will be applied to the item's     cache as it is rendered.      The default opacity is 1.0; fully opaque.      \sa setOpacity(), paint(), ItemIgnoresParentOpacity,     ItemDoesntPropagateOpacityToChildren */
+comment|/*!     \since 4.5      Returns this item's local opacity, which is between 0.0 (transparent) and     1.0 (opaque). This value is combined with parent and ancestor values into     the effectiveOpacity(). The effective opacity decides how the item is     rendered and also affects its visibility when queried by functions such as     QGraphicsView::items().      The opacity property decides the state of the painter passed to the     paint() function. If the item is cached, i.e., ItemCoordinateCache or     DeviceCoordinateCache, the effective property will be applied to the item's     cache as it is rendered.      The default opacity is 1.0; fully opaque.      \sa setOpacity(), paint(), ItemIgnoresParentOpacity,     ItemDoesntPropagateOpacityToChildren */
 end_comment
 begin_function
 DECL|function|opacity
