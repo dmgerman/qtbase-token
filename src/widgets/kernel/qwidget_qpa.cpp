@@ -3416,6 +3416,28 @@ name|QWidget
 argument_list|)
 expr_stmt|;
 comment|// Embedded native widget may have taken the focus; get it back to toplevel if that is the case
+specifier|const
+name|QWidget
+modifier|*
+name|topLevel
+init|=
+name|q
+operator|->
+name|window
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|topLevel
+operator|->
+name|windowType
+argument_list|()
+operator|!=
+name|Qt
+operator|::
+name|Popup
+condition|)
+block|{
 if|if
 condition|(
 name|QWindow
@@ -3455,6 +3477,7 @@ operator|->
 name|requestActivateWindow
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
