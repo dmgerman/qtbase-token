@@ -68,7 +68,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<sys/kd.h>
+file|<linux/kd.h>
 end_include
 begin_include
 include|#
