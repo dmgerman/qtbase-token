@@ -10880,6 +10880,46 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_function
+DECL|function|closeAllPopups
+specifier|static
+specifier|inline
+name|void
+name|closeAllPopups
+parameter_list|()
+block|{
+comment|// Close all popups: In case some popup refuses to close,
+comment|// we give up after 1024 attempts (to avoid an infinite loop).
+name|int
+name|maxiter
+init|=
+literal|1024
+decl_stmt|;
+name|QWidget
+modifier|*
+name|popup
+decl_stmt|;
+while|while
+condition|(
+operator|(
+name|popup
+operator|=
+name|QApplication
+operator|::
+name|activePopupWidget
+argument_list|()
+operator|)
+operator|&&
+name|maxiter
+operator|--
+condition|)
+name|popup
+operator|->
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+end_function
 begin_comment
 comment|/*! \reimp  */
 end_comment
@@ -11237,7 +11277,6 @@ block|}
 endif|#
 directive|endif
 comment|// QT_NO_GESTURES
-comment|// User input and window activation makes tooltips sleep
 switch|switch
 condition|(
 name|e
@@ -11249,8 +11288,20 @@ block|{
 case|case
 name|QEvent
 operator|::
+name|ApplicationDeactivate
+case|:
+comment|// Close all popups (triggers when switching applications
+comment|// by pressing ALT-TAB on Windows, which is not receive as key event.
+name|closeAllPopups
+argument_list|()
+expr_stmt|;
+break|break;
+case|case
+name|QEvent
+operator|::
 name|Wheel
 case|:
+comment|// User input and window activation makes tooltips sleep
 case|case
 name|QEvent
 operator|::
