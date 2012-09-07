@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QItemDelegate>
+file|<QStyledItemDelegate>
 end_include
 begin_include
 include|#
@@ -46,7 +46,7 @@ name|class
 name|SpinBoxDelegate
 range|:
 name|public
-name|QItemDelegate
+name|QStyledItemDelegate
 block|{
 name|Q_OBJECT
 name|public

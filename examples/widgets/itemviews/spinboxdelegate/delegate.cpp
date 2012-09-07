@@ -29,7 +29,7 @@ modifier|*
 name|parent
 parameter_list|)
 member_init_list|:
-name|QItemDelegate
+name|QStyledItemDelegate
 argument_list|(
 name|parent
 argument_list|)
@@ -75,6 +75,13 @@ argument_list|(
 name|parent
 argument_list|)
 decl_stmt|;
+name|editor
+operator|->
+name|setFrame
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|editor
 operator|->
 name|setMinimum
