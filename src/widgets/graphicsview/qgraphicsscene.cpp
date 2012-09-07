@@ -11496,7 +11496,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     This slot \e advances the scene by one step, by calling     QGraphicsItem::advance() for all items on the scene. This is done in two     phases: in the first phase, all items are notified that the scene is about     to change, and in the second phase all items are notified that they can     move. In the first phase, QGraphicsItem::advance() is called passing a     value of 0 as an argument, and 1 is passed in the second phase.      \sa QGraphicsItem::advance(), QGraphicsItemAnimation, QTimeLine */
+comment|/*!     This slot \e advances the scene by one step, by calling     QGraphicsItem::advance() for all items on the scene. This is done in two     phases: in the first phase, all items are notified that the scene is about     to change, and in the second phase all items are notified that they can     move. In the first phase, QGraphicsItem::advance() is called passing a     value of 0 as an argument, and 1 is passed in the second phase.      Note that you can also use the \l{The Animation Framework}{Animation     Framework} for animations.      \sa QGraphicsItem::advance(), QTimeLine */
 end_comment
 begin_function
 DECL|function|advance
