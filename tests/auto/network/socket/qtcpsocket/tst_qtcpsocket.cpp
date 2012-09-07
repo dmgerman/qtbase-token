@@ -3196,7 +3196,7 @@ name|socket
 operator|->
 name|connectToHost
 argument_list|(
-literal|"nosuchserver.troll.no"
+literal|"nosuchserver.qt-project.org"
 argument_list|,
 literal|80
 argument_list|)
@@ -8179,14 +8179,14 @@ parameter_list|()
 block|{
 name|QTcpSocket
 modifier|*
-name|smtp
+name|testSocket
 init|=
 name|newSocket
 argument_list|()
 decl_stmt|;
 name|connect
 argument_list|(
-name|smtp
+name|testSocket
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -8203,7 +8203,7 @@ argument_list|)
 expr_stmt|;
 name|connect
 argument_list|(
-name|smtp
+name|testSocket
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -8220,12 +8220,12 @@ argument_list|)
 expr_stmt|;
 name|tmpSocket
 operator|=
-name|smtp
+name|testSocket
 expr_stmt|;
 name|QSignalSpy
 name|spy
 argument_list|(
-name|smtp
+name|testSocket
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -8234,11 +8234,14 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|smtp
+name|testSocket
 operator|->
 name|connectToHost
 argument_list|(
-literal|"smtp.trolltech.com"
+name|QtNetworkSettings
+operator|::
+name|serverName
+argument_list|()
 argument_list|,
 literal|25
 argument_list|)
@@ -8254,7 +8257,7 @@ operator|!
 name|timeout
 argument_list|()
 argument_list|,
-literal|"Timed out when connecting to smtp.trolltech.com:25"
+literal|"Timed out when connecting to QtNetworkSettings::serverName()."
 argument_list|)
 expr_stmt|;
 name|enterLoop
@@ -8268,7 +8271,7 @@ operator|!
 name|timeout
 argument_list|()
 argument_list|,
-literal|"Timed out when waiting for the readyRead() signal"
+literal|"Timed out when waiting for the readyRead() signal."
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -8282,7 +8285,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 operator|delete
-name|smtp
+name|testSocket
 expr_stmt|;
 block|}
 end_function
@@ -9598,12 +9601,11 @@ name|socket
 operator|->
 name|connectToHost
 argument_list|(
-literal|"hostnotfoundhostnotfound.troll.no"
+literal|"hostnotfoundhostnotfound.qt-project.org"
 argument_list|,
 literal|9999
 argument_list|)
 expr_stmt|;
-comment|// Host not found, fyi
 name|enterLoop
 argument_list|(
 literal|30
@@ -12272,7 +12274,7 @@ name|socket
 operator|->
 name|connectToHost
 argument_list|(
-literal|"multi.dev.troll.no"
+literal|"multi.dev.qt-project.org"
 argument_list|,
 literal|80
 argument_list|)
@@ -12311,7 +12313,7 @@ name|socket
 operator|->
 name|connectToHost
 argument_list|(
-literal|"multi.dev.troll.no"
+literal|"multi.dev.qt-project.org"
 argument_list|,
 literal|81
 argument_list|)
@@ -13526,7 +13528,7 @@ operator|::
 name|Socks5Proxy
 argument_list|)
 operator|<<
-literal|"this-host-will-never-exist.troll.no"
+literal|"this-host-will-never-exist.qt-project.org"
 operator|<<
 literal|1080
 operator|<<
@@ -13553,7 +13555,7 @@ operator|::
 name|HttpProxy
 argument_list|)
 operator|<<
-literal|"this-host-will-never-exist.troll.no"
+literal|"this-host-will-never-exist.qt-project.org"
 operator|<<
 literal|3128
 operator|<<
