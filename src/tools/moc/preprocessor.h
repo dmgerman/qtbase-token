@@ -187,6 +187,16 @@ argument_list|,
 argument|MacroSafeSet safeset = MacroSafeSet()
 argument_list|)
 block|;
+name|void
+name|macroExpandIdentifier
+argument_list|(
+argument|const Symbol&s
+argument_list|,
+argument|Symbols&preprocessed
+argument_list|,
+argument|MacroSafeSet safeset = MacroSafeSet()
+argument_list|)
+block|;
 name|int
 name|evaluateCondition
 argument_list|()
