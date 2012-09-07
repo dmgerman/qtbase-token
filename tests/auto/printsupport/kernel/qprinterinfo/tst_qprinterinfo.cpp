@@ -61,19 +61,12 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public
-name|slots
-public|:
-name|void
-name|initTestCase
-parameter_list|()
-function_decl|;
-ifndef|#
-directive|ifndef
-name|QT_NO_PRINTER
 private|private
 name|slots
 private|:
+ifndef|#
+directive|ifndef
+name|Q_OS_WIN32
 name|void
 name|testForDefaultPrinter
 parameter_list|()
@@ -82,6 +75,8 @@ name|void
 name|testForPrinters
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|testForPaperSizes
 parameter_list|()
@@ -122,38 +117,9 @@ function_decl|;
 endif|#
 directive|endif
 comment|// Q_OS_UNIX
-endif|#
-directive|endif
-comment|// QT_NO_PRINTER
 block|}
 class|;
 end_class
-begin_function
-DECL|function|initTestCase
-name|void
-name|tst_QPrinterInfo
-operator|::
-name|initTestCase
-parameter_list|()
-block|{
-ifdef|#
-directive|ifdef
-name|QT_NO_PRINTER
-name|QSKIP
-argument_list|(
-literal|"This test requires printing support"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-comment|// QT_NO_PRINTER
-block|}
-end_function
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_PRINTER
-end_ifndef
 begin_function
 DECL|function|getDefaultPrinterFromSystem
 name|QString
@@ -726,6 +692,14 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// Windows test support not yet implemented
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WIN32
+end_ifndef
 begin_function
 DECL|function|testForDefaultPrinter
 name|void
@@ -734,17 +708,6 @@ operator|::
 name|testForDefaultPrinter
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WIN32
-name|QSKIP
-argument_list|(
-literal|"Windows test support not yet implemented"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-comment|// Q_OS_WIN32
 name|QString
 name|testPrinter
 init|=
@@ -879,6 +842,18 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// Windows test support not yet implemented
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WIN32
+end_ifndef
 begin_function
 DECL|function|testForPrinters
 name|void
@@ -887,17 +862,6 @@ operator|::
 name|testForPrinters
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WIN32
-name|QSKIP
-argument_list|(
-literal|"Windows test support not yet implemented"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-comment|// Q_OS_WIN32
 name|QStringList
 name|testPrinters
 init|=
@@ -1023,6 +987,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|testForPaperSizes
 name|void
@@ -1686,13 +1654,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_NO_PRINTER
-end_comment
 begin_macro
 name|QTEST_MAIN
 argument_list|(
