@@ -84,16 +84,6 @@ operator|*
 name|values
 argument_list|)
 expr_stmt|;
-comment|// ###TODO This is temporary to get through the CI's revdep qtdeclarative tests. Remove it!
-name|explicit
-name|QMatrix4x4
-parameter_list|(
-specifier|const
-name|double
-modifier|*
-name|values
-parameter_list|)
-function_decl|;
 specifier|inline
 name|QMatrix4x4
 argument_list|(
