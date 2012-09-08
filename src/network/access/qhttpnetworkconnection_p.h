@@ -186,6 +186,7 @@ operator|:
 ifndef|#
 directive|ifndef
 name|QT_NO_BEARERMANAGEMENT
+name|explicit
 name|QHttpNetworkConnection
 argument_list|(
 argument|const QString&hostName
@@ -220,6 +221,7 @@ argument_list|)
 block|;
 else|#
 directive|else
+name|explicit
 name|QHttpNetworkConnection
 argument_list|(
 argument|const QString&hostName

@@ -76,6 +76,7 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+name|explicit
 name|QEvdevTouchScreenHandler
 argument_list|(
 specifier|const
@@ -138,6 +139,7 @@ name|QThread
 block|{
 name|public
 operator|:
+name|explicit
 name|QEvdevTouchScreenHandlerThread
 argument_list|(
 specifier|const

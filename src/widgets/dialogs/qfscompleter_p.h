@@ -68,6 +68,7 @@ name|QCompleter
 block|{
 name|public
 operator|:
+name|explicit
 name|QFSCompleter
 argument_list|(
 name|QFileSystemModel

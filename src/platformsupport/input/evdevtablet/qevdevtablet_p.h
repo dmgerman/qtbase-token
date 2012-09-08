@@ -46,6 +46,7 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+name|explicit
 name|QEvdevTabletHandler
 argument_list|(
 specifier|const
@@ -91,6 +92,7 @@ name|QThread
 block|{
 name|public
 operator|:
+name|explicit
 name|QEvdevTabletHandlerThread
 argument_list|(
 specifier|const

@@ -2674,13 +2674,20 @@ label|:
 name|Parser
 argument_list|()
 expr_stmt|;
+name|explicit
 name|Parser
-argument_list|(
-argument|const QString&css
-argument_list|,
-argument|bool file = false
-argument_list|)
-empty_stmt|;
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|css
+parameter_list|,
+name|bool
+name|file
+init|=
+name|false
+parameter_list|)
+function_decl|;
 name|void
 name|init
 parameter_list|(

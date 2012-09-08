@@ -775,6 +775,7 @@ name|XPThemeData
 block|{
 name|public
 label|:
+name|explicit
 name|XPThemeData
 argument_list|(
 argument|const QWidget *w =

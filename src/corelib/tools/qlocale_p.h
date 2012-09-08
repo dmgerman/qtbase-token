@@ -652,6 +652,7 @@ name|QSharedData
 block|{
 name|public
 operator|:
+name|explicit
 name|QLocalePrivate
 argument_list|(
 argument|int index

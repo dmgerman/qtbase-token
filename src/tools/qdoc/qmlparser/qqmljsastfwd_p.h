@@ -66,6 +66,7 @@ name|SourceLocation
 block|{
 name|public
 label|:
+name|explicit
 name|SourceLocation
 argument_list|(
 argument|quint32 offset =

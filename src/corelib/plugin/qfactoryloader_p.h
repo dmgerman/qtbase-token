@@ -95,6 +95,7 @@ argument|QFactoryLoader
 argument_list|)
 name|public
 operator|:
+name|explicit
 name|QFactoryLoader
 argument_list|(
 specifier|const

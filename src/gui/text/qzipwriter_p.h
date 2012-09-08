@@ -72,13 +72,30 @@ name|QZipWriter
 block|{
 name|public
 label|:
+name|explicit
 name|QZipWriter
 argument_list|(
-argument|const QString&fileName
+specifier|const
+name|QString
+operator|&
+name|fileName
 argument_list|,
-argument|QIODevice::OpenMode mode = (QIODevice::WriteOnly | QIODevice::Truncate)
+name|QIODevice
+operator|::
+name|OpenMode
+name|mode
+operator|=
+operator|(
+name|QIODevice
+operator|::
+name|WriteOnly
+operator||
+name|QIODevice
+operator|::
+name|Truncate
+operator|)
 argument_list|)
-empty_stmt|;
+decl_stmt|;
 name|explicit
 name|QZipWriter
 parameter_list|(

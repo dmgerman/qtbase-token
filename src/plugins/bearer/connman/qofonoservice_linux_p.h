@@ -383,6 +383,7 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+name|explicit
 name|QOfonoModemInterface
 argument_list|(
 specifier|const
@@ -518,6 +519,7 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+name|explicit
 name|QOfonoNetworkRegistrationInterface
 argument_list|(
 specifier|const
@@ -648,6 +650,7 @@ name|Q_OBJECT
 name|public
 operator|:
 comment|//modem or operator paths
+name|explicit
 name|QOfonoNetworkOperatorInterface
 argument_list|(
 specifier|const
@@ -732,6 +735,7 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+name|explicit
 name|QOfonoSimInterface
 argument_list|(
 specifier|const
@@ -821,6 +825,7 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+name|explicit
 name|QOfonoDataConnectionManagerInterface
 argument_list|(
 specifier|const
@@ -909,6 +914,7 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+name|explicit
 name|QOfonoPrimaryDataContextInterface
 argument_list|(
 specifier|const
@@ -1028,6 +1034,7 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+name|explicit
 name|QOfonoSmsInterface
 argument_list|(
 specifier|const

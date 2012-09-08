@@ -277,6 +277,7 @@ argument_list|)
 block|;
 name|public
 operator|:
+name|explicit
 name|QWindowsPipeWriter
 argument_list|(
 argument|HANDLE writePipe

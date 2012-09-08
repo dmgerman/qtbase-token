@@ -90,6 +90,7 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+name|explicit
 name|QPageSetupWidget
 argument_list|(
 name|QWidget
@@ -99,6 +100,7 @@ operator|=
 literal|0
 argument_list|)
 block|;
+name|explicit
 name|QPageSetupWidget
 argument_list|(
 name|QPrinter

@@ -55,6 +55,7 @@ name|QFontSubset
 block|{
 name|public
 label|:
+name|explicit
 name|QFontSubset
 argument_list|(
 argument|QFontEngine *fe

@@ -489,6 +489,7 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+name|explicit
 name|QConnmanProfileInterface
 argument_list|(
 specifier|const
@@ -585,6 +586,7 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+name|explicit
 name|QConnmanServiceInterface
 argument_list|(
 specifier|const
@@ -818,6 +820,7 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+name|explicit
 name|QConnmanTechnologyInterface
 argument_list|(
 specifier|const
@@ -924,6 +927,7 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+name|explicit
 name|QConnmanAgentInterface
 argument_list|(
 specifier|const
@@ -1002,6 +1006,7 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+name|explicit
 name|QConnmanCounterInterface
 argument_list|(
 specifier|const

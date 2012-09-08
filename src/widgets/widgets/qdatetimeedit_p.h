@@ -591,6 +591,7 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+name|explicit
 name|QCalendarPopup
 argument_list|(
 name|QWidget

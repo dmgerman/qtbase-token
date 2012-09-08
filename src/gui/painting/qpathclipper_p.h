@@ -286,15 +286,22 @@ block|,
 name|Curve
 block|}
 enum|;
+name|explicit
 name|QPathEdge
-argument_list|(
-argument|int a = -
+parameter_list|(
+name|int
+name|a
+init|=
+operator|-
 literal|1
-argument_list|,
-argument|int b = -
+parameter_list|,
+name|int
+name|b
+init|=
+operator|-
 literal|1
-argument_list|)
-empty_stmt|;
+parameter_list|)
+function_decl|;
 name|mutable
 name|int
 name|flag

@@ -5472,6 +5472,7 @@ name|QQMLJS_DECLARE_AST_NODE
 argument_list|(
 argument|CaseBlock
 argument_list|)
+name|explicit
 name|CaseBlock
 argument_list|(
 name|CaseClauses

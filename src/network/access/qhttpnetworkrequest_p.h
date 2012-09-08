@@ -112,6 +112,7 @@ block|,
 name|LowPriority
 block|}
 block|;
+name|explicit
 name|QHttpNetworkRequest
 argument_list|(
 argument|const QUrl&url = QUrl()

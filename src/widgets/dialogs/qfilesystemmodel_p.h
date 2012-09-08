@@ -136,6 +136,7 @@ name|QFileSystemNode
 block|{
 name|public
 operator|:
+name|explicit
 name|QFileSystemNode
 argument_list|(
 specifier|const

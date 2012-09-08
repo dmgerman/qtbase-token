@@ -33,6 +33,7 @@ name|QSharedData
 block|{
 name|public
 operator|:
+name|explicit
 name|QDirPrivate
 argument_list|(
 argument|const QString&path
@@ -44,6 +45,7 @@ argument_list|,
 argument|QDir::Filters filters_ = QDir::AllEntries
 argument_list|)
 block|;
+name|explicit
 name|QDirPrivate
 argument_list|(
 specifier|const

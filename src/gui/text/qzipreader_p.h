@@ -77,13 +77,24 @@ name|QZipReader
 block|{
 name|public
 label|:
+name|explicit
 name|QZipReader
 argument_list|(
-argument|const QString&fileName
+specifier|const
+name|QString
+operator|&
+name|fileName
 argument_list|,
-argument|QIODevice::OpenMode mode = QIODevice::ReadOnly
+name|QIODevice
+operator|::
+name|OpenMode
+name|mode
+operator|=
+name|QIODevice
+operator|::
+name|ReadOnly
 argument_list|)
-empty_stmt|;
+decl_stmt|;
 name|explicit
 name|QZipReader
 parameter_list|(
