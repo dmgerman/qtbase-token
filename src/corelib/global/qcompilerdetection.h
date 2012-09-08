@@ -1938,6 +1938,35 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_if
+if|#
+directive|if
+name|__INTEL_COMPILER
+operator|>=
+literal|1300
+end_if
+begin_comment
+comment|//       constexpr support is only partial
+end_comment
+begin_comment
+comment|//#      define Q_COMPILER_CONSTEXPR
+end_comment
+begin_define
+DECL|macro|Q_COMPILER_INITIALIZER_LISTS
+define|#
+directive|define
+name|Q_COMPILER_INITIALIZER_LISTS
+end_define
+begin_define
+DECL|macro|Q_COMPILER_NOEXCEPT
+define|#
+directive|define
+name|Q_COMPILER_NOEXCEPT
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_endif
 endif|#
 directive|endif
