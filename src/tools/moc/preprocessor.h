@@ -41,10 +41,24 @@ DECL|struct|Macro
 struct|struct
 name|Macro
 block|{
+DECL|function|Macro
+name|Macro
+argument_list|()
+operator|:
+name|isFunction
+argument_list|(
+name|false
+argument_list|)
+operator|,
+name|isVariadic
+argument_list|(
+argument|false
+argument_list|)
+block|{}
 DECL|member|isFunction
 name|bool
 name|isFunction
-decl_stmt|;
+expr_stmt|;
 DECL|member|isVariadic
 name|bool
 name|isVariadic
@@ -210,11 +224,23 @@ block|;
 name|void
 name|macroExpandIdentifier
 argument_list|(
-argument|const Symbol&s
+argument|int lineNum
 argument_list|,
 argument|Symbols&preprocessed
 argument_list|,
 argument|MacroSafeSet safeset = MacroSafeSet()
+argument_list|)
+block|;
+name|void
+name|macroExpandSymbols
+argument_list|(
+argument|int lineNum
+argument_list|,
+argument|const Symbols&symbols
+argument_list|,
+argument|Symbols&expanded
+argument_list|,
+argument|MacroSafeSet safeset
 argument_list|)
 block|;
 name|int
