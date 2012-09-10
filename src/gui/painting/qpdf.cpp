@@ -8717,6 +8717,12 @@ literal|0
 expr_stmt|;
 name|d
 operator|->
+name|simplePen
+operator|=
+literal|false
+expr_stmt|;
+name|d
+operator|->
 name|pages
 operator|.
 name|clear
