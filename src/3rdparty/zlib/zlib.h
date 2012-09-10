@@ -21,7 +21,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qconfig.h"
+file|<qglobal.h>
 end_include
 begin_if
 if|#
@@ -44,14 +44,10 @@ directive|define
 name|ZEXTERN
 value|__attribute__((visibility("default")))
 end_define
-begin_elif
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|QT_MAKEDLL
-argument_list|)
-end_elif
+begin_else
+else|#
+directive|else
+end_else
 begin_undef
 DECL|macro|ZEXTERN
 undef|#
@@ -63,7 +59,7 @@ DECL|macro|ZEXTERN
 define|#
 directive|define
 name|ZEXTERN
-value|__declspec(dllexport)
+value|Q_DECL_EXPORT
 end_define
 begin_endif
 endif|#

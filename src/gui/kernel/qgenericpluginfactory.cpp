@@ -39,7 +39,7 @@ argument_list|)
 operator|||
 name|defined
 argument_list|(
-name|QT_MAKEDLL
+name|QT_SHARED
 argument_list|)
 ifndef|#
 directive|ifndef
@@ -68,7 +68,7 @@ directive|endif
 comment|//QT_NO_LIBRARY
 endif|#
 directive|endif
-comment|//QT_MAKEDLL
+comment|//QT_SHARED
 comment|/*!     \class QGenericPluginFactory     \ingroup plugins      \brief The QGenericPluginFactory class creates plugin drivers.      \sa QGenericPlugin */
 comment|/*!     Creates the driver specified by \a key, using the given \a specification.      Note that the keys are case-insensitive.      \sa keys() */
 DECL|function|create
@@ -108,7 +108,7 @@ argument_list|)
 operator|||
 name|defined
 argument_list|(
-name|QT_MAKEDLL
+name|QT_SHARED
 argument_list|)
 ifndef|#
 directive|ifndef
@@ -180,7 +180,7 @@ argument_list|)
 operator|||
 name|defined
 argument_list|(
-name|QT_MAKEDLL
+name|QT_SHARED
 argument_list|)
 ifndef|#
 directive|ifndef
@@ -276,9 +276,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|//QT_MAKEDLL
-end_comment
 begin_return
 return|return
 name|list
