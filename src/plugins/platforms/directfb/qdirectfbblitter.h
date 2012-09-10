@@ -97,6 +97,16 @@ operator|&
 name|subrect
 argument_list|)
 block|;
+name|void
+name|alphaFillRect
+argument_list|(
+argument|const QRectF&rect
+argument_list|,
+argument|const QColor&color
+argument_list|,
+argument|QPainter::CompositionMode cmode
+argument_list|)
+block|;
 name|IDirectFBSurface
 operator|*
 name|dfbSurface
@@ -145,6 +155,11 @@ block|;
 name|friend
 name|class
 name|QDirectFbConvenience
+block|;
+name|private
+operator|:
+name|bool
+name|m_premult
 block|; }
 decl_stmt|;
 end_decl_stmt
