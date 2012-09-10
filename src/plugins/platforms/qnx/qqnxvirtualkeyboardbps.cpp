@@ -366,7 +366,7 @@ name|language
 init|=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|locale_event_get_language
 argument_list|(
@@ -380,7 +380,7 @@ name|country
 init|=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|locale_event_get_country
 argument_list|(
