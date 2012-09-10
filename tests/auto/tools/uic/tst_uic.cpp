@@ -423,16 +423,6 @@ operator|::
 name|stdOut
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WIN
-name|QSKIP
-argument_list|(
-literal|"QTBUG-26730"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 comment|// Checks of everything works when using stdout and whether
 comment|// the OS file format conventions regarding newlines are met.
 name|QDir
