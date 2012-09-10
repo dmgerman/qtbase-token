@@ -11358,11 +11358,6 @@ block|{
 ifdef|#
 directive|ifdef
 name|Q_OS_WIN
-name|QSKIP
-argument_list|(
-literal|"This test currently fails - QTBUG-24543"
-argument_list|)
-expr_stmt|;
 name|RestoreLocaleHelper
 name|systemLocale
 decl_stmt|;
