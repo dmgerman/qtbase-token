@@ -1281,6 +1281,12 @@ literal|"HASH"
 block|}
 block|,
 block|{
+literal|"##"
+block|,
+literal|"PP_HASHHASH"
+block|}
+block|,
+block|{
 literal|"\\"
 block|,
 literal|"BACKSLASH"
