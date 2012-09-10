@@ -65,7 +65,7 @@ name|CustomGroup
 modifier|*
 name|group
 init|=
-cast|dynamic_cast
+name|qgraphicsitem_cast
 argument_list|<
 name|CustomGroup
 operator|*
@@ -134,7 +134,7 @@ name|CustomItem
 modifier|*
 name|citem
 init|=
-cast|dynamic_cast
+name|qgraphicsitem_cast
 argument_list|<
 name|CustomItem
 operator|*
