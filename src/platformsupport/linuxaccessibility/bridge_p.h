@@ -75,7 +75,7 @@ name|virtual
 name|void
 name|setRootObject
 parameter_list|(
-name|QAccessibleInterface
+name|QObject
 modifier|*
 name|obj
 parameter_list|)

@@ -212,21 +212,14 @@ name|QSpiAccessibleBridge
 operator|::
 name|setRootObject
 parameter_list|(
-name|QAccessibleInterface
+name|QObject
 modifier|*
-name|interface
+name|obj
 parameter_list|)
 block|{
-comment|// the interface we get will be for the QApplication object.
-comment|// we already cache it in the constructor.
-name|Q_ASSERT
+name|Q_UNUSED
 argument_list|(
-name|interface
-operator|->
-name|object
-argument_list|()
-operator|==
-name|qApp
+name|obj
 argument_list|)
 expr_stmt|;
 name|dbusAdaptor
