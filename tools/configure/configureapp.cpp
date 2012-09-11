@@ -703,49 +703,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-name|QFile
-name|configtests
-argument_list|(
-name|buildPath
-operator|+
-literal|"/bin/qtmodule-configtests"
-argument_list|)
-decl_stmt|;
-comment|// no QFile::Text, just in case the perl interpreter can't cope with them (unlikely)
-if|if
-condition|(
-name|configtests
-operator|.
-name|open
-argument_list|(
-name|QFile
-operator|::
-name|WriteOnly
-argument_list|)
-condition|)
-block|{
-name|QTextStream
-name|stream
-argument_list|(
-operator|&
-name|configtests
-argument_list|)
-decl_stmt|;
-name|stream
-operator|<<
-literal|"#!/usr/bin/perl -w"
-operator|<<
-name|endl
-operator|<<
-literal|"require \""
-operator|<<
-name|sourcePath
-operator|+
-literal|"/bin/qtmodule-configtests\";"
-operator|<<
-name|endl
-expr_stmt|;
-block|}
 comment|// For Windows CE and shadow builds we need to copy these to the
 comment|// build directory.
 name|QFile
