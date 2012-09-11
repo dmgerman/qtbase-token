@@ -209,7 +209,7 @@ name|QMouseEvent
 argument_list|(
 argument|Type type
 argument_list|,
-argument|const QPointF&pos
+argument|const QPointF&localPos
 argument_list|,
 argument|Qt::MouseButton button
 argument_list|,
@@ -222,9 +222,9 @@ name|QMouseEvent
 argument_list|(
 argument|Type type
 argument_list|,
-argument|const QPointF&pos
+argument|const QPointF&localPos
 argument_list|,
-argument|const QPointF&globalPos
+argument|const QPointF&screenPos
 argument_list|,
 argument|Qt::MouseButton button
 argument_list|,
@@ -237,11 +237,11 @@ name|QMouseEvent
 argument_list|(
 argument|Type type
 argument_list|,
-argument|const QPointF&pos
+argument|const QPointF&localPos
 argument_list|,
 argument|const QPointF&windowPos
 argument_list|,
-argument|const QPointF&globalPos
+argument|const QPointF&screenPos
 argument_list|,
 argument|Qt::MouseButton button
 argument_list|,
@@ -889,7 +889,6 @@ name|QTabletEvent
 argument_list|()
 block|;
 specifier|inline
-specifier|const
 name|QPoint
 name|pos
 argument_list|()
@@ -903,7 +902,6 @@ argument_list|()
 return|;
 block|}
 specifier|inline
-specifier|const
 name|QPoint
 name|globalPos
 argument_list|()
@@ -2327,7 +2325,6 @@ name|QDropEvent
 argument_list|()
 block|;
 specifier|inline
-specifier|const
 name|QPoint
 name|pos
 argument_list|()

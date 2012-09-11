@@ -383,7 +383,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.3      Starts the drag and drop operation and returns a value indicating the requested     drop action when it is completed. The drop actions that the user can choose     from are specified in \a supportedActions. The default proposed action will be selected     among the allowed actions in the following order: Move, Copy and Link.      \b{Note:} On Linux and Mac OS X, the drag and drop operation     can take some time, but this function does not block the event     loop. Other events are still delivered to the application while     the operation is performed. On Windows, the Qt event loop is     blocked while during the operation. */
+comment|/*!     \since 4.3      Starts the drag and drop operation and returns a value indicating the requested     drop action when it is completed. The drop actions that the user can choose     from are specified in \a supportedActions. The default proposed action will be selected     among the allowed actions in the following order: Move, Copy and Link.      \b{Note:} On Linux and Mac OS X, the drag and drop operation     can take some time, but this function does not block the event     loop. Other events are still delivered to the application while     the operation is performed. On Windows, the Qt event loop is     blocked during the operation. */
 end_comment
 begin_function
 DECL|function|exec
@@ -861,6 +861,9 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Returns the set of possible drop actions for this drag operation.      \sa exec(), defaultAction() */
+end_comment
 begin_function
 DECL|function|supportedActions
 name|Qt
@@ -885,6 +888,9 @@ name|supported_actions
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Returns the default proposed drop action for this drag operation.      \sa exec(), supportedActions() */
+end_comment
 begin_function
 DECL|function|defaultAction
 name|Qt
