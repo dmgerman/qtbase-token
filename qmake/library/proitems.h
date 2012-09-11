@@ -2457,6 +2457,18 @@ block|,
 comment|// previous literal/expansion is a test function call
 comment|// - ((nested expansion + TokArgSeparator)* + nested expansion)?
 comment|// - TokFuncTerminator
+DECL|enumerator|TokReturn
+name|TokReturn
+block|,
+comment|// previous literal/expansion is a return value
+DECL|enumerator|TokBreak
+name|TokBreak
+block|,
+comment|// break loop
+DECL|enumerator|TokNext
+name|TokNext
+block|,
+comment|// shortcut to next loop iteration
 DECL|enumerator|TokNot
 name|TokNot
 block|,

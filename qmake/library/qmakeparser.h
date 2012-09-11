@@ -233,6 +233,22 @@ parameter_list|)
 function_decl|;
 name|private
 label|:
+enum|enum
+name|ScopeNesting
+block|{
+name|NestNone
+init|=
+literal|0
+block|,
+name|NestLoop
+init|=
+literal|1
+block|,
+name|NestFunction
+init|=
+literal|2
+block|}
+enum|;
 struct|struct
 name|BlockScope
 block|{
@@ -256,7 +272,12 @@ argument_list|)
 operator|,
 name|inBranch
 argument_list|(
-argument|false
+name|false
+argument_list|)
+operator|,
+name|nest
+argument_list|(
+argument|NestNone
 argument_list|)
 block|{}
 name|BlockScope
@@ -286,6 +307,10 @@ name|bool
 name|inBranch
 decl_stmt|;
 comment|// The 'else' branch of the previous TokBranch is still open
+name|uchar
+name|nest
+decl_stmt|;
+comment|// Into what control structures we are nested
 block|}
 struct|;
 enum|enum

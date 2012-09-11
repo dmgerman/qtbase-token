@@ -1078,10 +1078,6 @@ name|QMakeEvaluator
 operator|*
 name|m_caller
 block|;
-name|int
-name|m_loopLevel
-block|;
-comment|// To report unexpected break() and next()s
 ifdef|#
 directive|ifdef
 name|PROEVALUATOR_CUMULATIVE
