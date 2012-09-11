@@ -997,16 +997,9 @@ else|#
 directive|else
 if|#
 directive|if
-operator|(
 name|_POSIX_VERSION
 operator|>=
 literal|200801L
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_QNX
-argument_list|)
-operator|)
 name|ret
 operator|=
 name|realpath
