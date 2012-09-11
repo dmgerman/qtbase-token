@@ -1030,6 +1030,8 @@ operator|)
 name|malloc
 argument_list|(
 name|PATH_MAX
+operator|+
+literal|1
 argument_list|)
 expr_stmt|;
 if|if
