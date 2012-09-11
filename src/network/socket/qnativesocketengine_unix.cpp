@@ -272,16 +272,16 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|!
 name|atom
 operator|.
-name|testAndSetRelaxed
-argument_list|(
-literal|0
-argument_list|,
-literal|1
-argument_list|)
+name|load
+argument_list|()
 condition|)
 block|{
+comment|// More than one thread could turn off SIGPIPE at the same time
+comment|// But that's acceptable because they all would be doing the same
+comment|// action
 name|struct
 name|sigaction
 name|noaction
@@ -314,6 +314,13 @@ operator|&
 name|noaction
 argument_list|,
 literal|0
+argument_list|)
+expr_stmt|;
+name|atom
+operator|.
+name|store
+argument_list|(
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
