@@ -60,6 +60,12 @@ name|defined
 argument_list|(
 name|QT_BUILD_MOC
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_BUILD_QMAKE
+argument_list|)
 end_if
 begin_include
 include|#
