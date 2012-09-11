@@ -1184,7 +1184,7 @@ operator|&
 name|flag
 return|;
 block|}
-comment|// Methods used for future binary compatibile extensions
+comment|// Methods used for future binary compatible extensions
 name|void
 name|ctor
 parameter_list|(

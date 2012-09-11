@@ -218,19 +218,49 @@ begin_comment
 comment|// namespace
 end_comment
 begin_comment
-comment|/*!     \macro Q_DECLARE_OPAQUE_POINTER(Pointer)     \relates QMetaType      This macro enables pointers to forward-declared types to be registered with     QMetaType using either Q_DECLARE_METATYPE() or qRegisterMetaType().      \sa Q_DECLARE_METATYPE(), qRegisterMetaType()  */
+comment|/*!     \macro Q_DECLARE_OPAQUE_POINTER(PointerType)     \relates QMetaType      This macro enables pointers to forward-declared types (\a PointerType)     to be registered with QMetaType using either Q_DECLARE_METATYPE()     or qRegisterMetaType().      \sa Q_DECLARE_METATYPE(), qRegisterMetaType() */
 end_comment
 begin_comment
 comment|/*!     \macro Q_DECLARE_METATYPE(Type)     \relates QMetaType      This macro makes the type \a Type known to QMetaType as long as it     provides a public default constructor, a public copy constructor and     a public destructor.     It is needed to use the type \a Type as a custom type in QVariant.      This macro requires that \a Type is a fully defined type at the point where     it is used. For pointer types, it also requires that the pointed to type is     fully defined. Use in conjunction with Q_DECLARE_OPAQUE_POINTER() to     register pointers to forward declared types.      Ideally, this macro should be placed below the declaration of     the class or struct. If that is not possible, it can be put in     a private header file which has to be included every time that     type is used in a QVariant.      Adding a Q_DECLARE_METATYPE() makes the type known to all template     based functions, including QVariant. Note that if you intend to     use the type in \e queued signal and slot connections or in     QObject's property system, you also have to call     qRegisterMetaType() since the names are resolved at runtime.      This example shows a typical use case of Q_DECLARE_METATYPE():      \snippet code/src_corelib_kernel_qmetatype.cpp 0      If \c MyStruct is in a namespace, the Q_DECLARE_METATYPE() macro     has to be outside the namespace:      \snippet code/src_corelib_kernel_qmetatype.cpp 1      Since \c{MyStruct} is now known to QMetaType, it can be used in QVariant:      \snippet code/src_corelib_kernel_qmetatype.cpp 2      \sa qRegisterMetaType() */
 end_comment
 begin_comment
-comment|/*!     \enum QMetaType::Type      These are the built-in types supported by QMetaType:      \value Void \c void     \value Bool \c bool     \value Int \c int     \value UInt \c{unsigned int}     \value Double \c double     \value QChar QChar     \value QString QString     \value QByteArray QByteArray      \value VoidStar \c{void *}     \value Long \c{long}     \value LongLong LongLong     \value Short \c{short}     \value Char \c{char}     \value ULong \c{unsigned long}     \value ULongLong ULongLong     \value UShort \c{unsigned short}     \value SChar \c{signed char}     \value UChar \c{unsigned char}     \value Float \c float     \value QObjectStar QObject *     \value QVariant QVariant      \value QCursor QCursor     \value QDate QDate     \value QSize QSize     \value QTime QTime     \value QVariantList QVariantList     \value QPolygon QPolygon     \value QPolygonF QPolygonF     \value QColor QColor     \value QSizeF QSizeF     \value QRectF QRectF     \value QLine QLine     \value QTextLength QTextLength     \value QStringList QStringList     \value QVariantMap QVariantMap     \value QVariantHash QVariantHash     \value QIcon QIcon     \value QPen QPen     \value QLineF QLineF     \value QTextFormat QTextFormat     \value QRect QRect     \value QPoint QPoint     \value QUrl QUrl     \value QRegExp QRegExp     \value QRegularExpression QRegularExpression     \value QDateTime QDateTime     \value QPointF QPointF     \value QPalette QPalette     \value QFont QFont     \value QBrush QBrush     \value QRegion QRegion     \value QBitArray QBitArray     \value QImage QImage     \value QKeySequence QKeySequence     \value QSizePolicy QSizePolicy     \value QPixmap QPixmap     \value QLocale QLocale     \value QBitmap QBitmap     \value QMatrix QMatrix     \value QTransform QTransform     \value QMatrix4x4 QMatrix4x4     \value QVector2D QVector2D     \value QVector3D QVector3D     \value QVector4D QVector4D     \value QQuaternion QQuaternion     \value QEasingCurve QEasingCurve     \value QJsonValue QJsonValue     \value QJsonObject QJsonObject     \value QJsonArray QJsonArray     \value QJsonDocument QJsonDocument      \value User  Base value for user types     \value UnknownType This is an invalid type id. It is returned from QMetaType for types that are not registered      Additional types can be registered using Q_DECLARE_METATYPE().      \sa type(), typeName() */
+comment|/*!     \enum QMetaType::Type      These are the built-in types supported by QMetaType:      \value Void \c void     \value Bool \c bool     \value Int \c int     \value UInt \c{unsigned int}     \value Double \c double     \value QChar QChar     \value QString QString     \value QByteArray QByteArray      \value VoidStar \c{void *}     \value Long \c{long}     \value LongLong LongLong     \value Short \c{short}     \value Char \c{char}     \value ULong \c{unsigned long}     \value ULongLong ULongLong     \value UShort \c{unsigned short}     \value SChar \c{signed char}     \value UChar \c{unsigned char}     \value Float \c float     \value QObjectStar QObject *     \value QVariant QVariant      \value QCursor QCursor     \value QDate QDate     \value QSize QSize     \value QTime QTime     \value QVariantList QVariantList     \value QPolygon QPolygon     \value QPolygonF QPolygonF     \value QColor QColor     \value QSizeF QSizeF     \value QRectF QRectF     \value QLine QLine     \value QTextLength QTextLength     \value QStringList QStringList     \value QVariantMap QVariantMap     \value QVariantHash QVariantHash     \value QIcon QIcon     \value QPen QPen     \value QLineF QLineF     \value QTextFormat QTextFormat     \value QRect QRect     \value QPoint QPoint     \value QUrl QUrl     \value QRegExp QRegExp     \value QRegularExpression QRegularExpression     \value QDateTime QDateTime     \value QPointF QPointF     \value QPalette QPalette     \value QFont QFont     \value QBrush QBrush     \value QRegion QRegion     \value QBitArray QBitArray     \value QImage QImage     \value QKeySequence QKeySequence     \value QSizePolicy QSizePolicy     \value QPixmap QPixmap     \value QLocale QLocale     \value QBitmap QBitmap     \value QMatrix QMatrix     \value QTransform QTransform     \value QMatrix4x4 QMatrix4x4     \value QVector2D QVector2D     \value QVector3D QVector3D     \value QVector4D QVector4D     \value QQuaternion QQuaternion     \value QEasingCurve QEasingCurve     \value QJsonValue QJsonValue     \value QJsonObject QJsonObject     \value QJsonArray QJsonArray     \value QJsonDocument QJsonDocument     \value QModelIndex QModelIndex     \value QUuid QUuid      \value User  Base value for user types     \value UnknownType This is an invalid type id. It is returned from QMetaType for types that are not registered      Additional types can be registered using Q_DECLARE_METATYPE().      \sa type(), typeName() */
 end_comment
 begin_comment
-comment|/*!     \enum QMetaType::TypeFlag      The enum describes attributes of a type supported by QMetaType.      \value NeedsConstruction This type has non-trivial constructors. If the flag is not set instances can be safely initialized with memset to 0.     \value NeedsDestruction This type has a non-trivial destructor. If the flag is not set calls to the destructor are not necessary before discarding objects.     \value MovableType An instance of a type having this attribute can be safely moved by memcpy. */
+comment|/*!     \enum QMetaType::TypeFlag      The enum describes attributes of a type supported by QMetaType.      \value NeedsConstruction This type has non-trivial constructors. If the flag is not set instances can be safely initialized with memset to 0.     \value NeedsDestruction This type has a non-trivial destructor. If the flag is not set calls to the destructor are not necessary before discarding objects.     \value MovableType An instance of a type having this attribute can be safely moved by memcpy.     \omitvalue SharedPointerToQObject     \omitvalue IsEnumeration     \omitvalue PointerToQObject     \omitvalue WeakPointerToQObject     \omitvalue TrackingPointerToQObject */
 end_comment
 begin_comment
 comment|/*!     \class QMetaType     \inmodule QtCore     \brief The QMetaType class manages named types in the meta-object system.      \ingroup objectmodel     \threadsafe      The class is used as a helper to marshall types in QVariant and     in queued signals and slots connections. It associates a type     name to a type so that it can be created and destructed     dynamically at run-time. Declare new types with Q_DECLARE_METATYPE()     to make them available to QVariant and other template-based functions.     Call qRegisterMetaType() to make type available to non-template based     functions, such as the queued signal and slot connections.      Any class or struct that has a public default     constructor, a public copy constructor, and a public destructor     can be registered.      The following code allocates and destructs an instance of     \c{MyClass}:      \snippet code/src_corelib_kernel_qmetatype.cpp 3      If we want the stream operators \c operator<<() and \c     operator>>() to work on QVariant objects that store custom types,     the custom type must provide \c operator<<() and \c operator>>()     operators.      \sa Q_DECLARE_METATYPE(), QVariant::setValue(), QVariant::value(), QVariant::fromValue() */
+end_comment
+begin_comment
+comment|/*!     \fn bool QMetaType::isValid() const     \since 5.0      Returns true if this QMetaType object contains valid     information about a type, false otherwise. */
+end_comment
+begin_comment
+comment|/*!     \fn bool QMetaType::isRegistered() const     \since 5.0      Returns true if this QMetaType object contains valid     information about a type, false otherwise. */
+end_comment
+begin_comment
+comment|/*!     \fn bool QMetaType::sizeOf() const     \since 5.0      Returns the size of the type in bytes (i.e. sizeof(T),     where T is the actual type for which this QMetaType instance     was constructed for).      This function is typically used together with construct()     to perform low-level management of the memory used by a type.      \sa QMetaType::construct(void *where, const void *copy), QMetaType::sizeOf(int) */
+end_comment
+begin_comment
+comment|/*!     \fn TypeFlags QMetaType::flags() const     \since 5.0      Returns flags of the type for which this QMetaType instance was constructed.      \sa QMetaType::TypeFlags, QMetaType::typeFlags(int type) */
+end_comment
+begin_comment
+comment|/*!     \fn const QMetaObject *QMetaType::metaObject() const     \since 5.0     \internal */
+end_comment
+begin_comment
+comment|/*!     \fn void *QMetaType::create(const void *copy = 0) const     \since 5.0      Returns a copy of \a copy, assuming it is of the type that this     QMetaType instance was created for. If \a copy is null, creates     a default constructed instance.      \sa QMetaType::destroy(void*) */
+end_comment
+begin_comment
+comment|/*!     \fn void QMetaType::destroy(void *data) const     \since 5.0      Destroys the \a data, assuming it is of the type that this     QMetaType instance was created for.      \sa QMetaType::create(const void *) */
+end_comment
+begin_comment
+comment|/*!     \fn void *QMetaType::construct(void *where, const void *copy = 0) const     \since 5.0      Constructs a value of the type that this QMetaType instance     was constructed for in the existing memory addressed by \a where,     that is a copy of \a copy, and returns \a where. If \a copy is     zero, the value is default constructed.      This is a low-level function for explicitly managing the memory     used to store the type. Consider calling create() if you don't     need this level of control (that is, use "new" rather than     "placement new").      You must ensure that \a where points to a location where the new     value can be stored and that \a where is suitably aligned.     The type's size can be queried by calling sizeOf().      The rule of thumb for alignment is that a type is aligned to its     natural boundary, which is the smallest power of 2 that is bigger     than the type, unless that alignment is larger than the maximum     useful alignment for the platform. For practical purposes,     alignment larger than 2 * sizeof(void*) is only necessary for     special hardware instructions (e.g., aligned SSE loads and stores     on x86). */
+end_comment
+begin_comment
+comment|/*!     \fn void QMetaType::destruct(void *data) const     \since 5.0      Destructs the value, located at \a data, assuming that it is     of the type for which this QMetaType instance was constructed for.      Unlike destroy(), this function only invokes the type's     destructor, it doesn't invoke the delete operator.     \sa QMetaType::construct() */
+end_comment
+begin_comment
+comment|/*!     \fn QMetaType::~QMetaType()      Destructs this object. */
 end_comment
 begin_define
 DECL|macro|QT_ADD_STATIC_METATYPE
@@ -1871,7 +1901,7 @@ return|;
 end_return
 begin_comment
 unit|}
-comment|/*!     \internal      Implementation of QMetaType::type(). */
+comment|/*!     \fn int qMetaTypeTypeImpl(const char *typeName)     \internal      Implementation of QMetaType::type(). */
 end_comment
 begin_expr_stmt
 unit|template
@@ -4872,7 +4902,7 @@ begin_comment
 comment|// namespace
 end_comment
 begin_comment
-comment|/*!     Returns a copy of \a copy, assuming it is of type \a type. If \a     copy is zero, creates a default type.      \sa destroy(), isRegistered(), Type */
+comment|/*!     Returns a copy of \a copy, assuming it is of type \a type. If \a     copy is zero, creates a default constructed instance.      \sa destroy(), isRegistered(), Type */
 end_comment
 begin_function
 DECL|function|create
@@ -6485,7 +6515,7 @@ begin_comment
 comment|// namespace
 end_comment
 begin_comment
-comment|/*!     \since 5.0      Returns the size of the given \a type in bytes (i.e., sizeof(T),     where T is the actual type identified by the \a type argument).      This function is typically used together with construct()     to perform low-level management of the memory used by a type.      \sa construct() */
+comment|/*!     \since 5.0      Returns the size of the given \a type in bytes (i.e. sizeof(T),     where T is the actual type identified by the \a type argument).      This function is typically used together with construct()     to perform low-level management of the memory used by a type.      \sa construct() */
 end_comment
 begin_function
 DECL|function|sizeOf
@@ -6845,7 +6875,7 @@ begin_comment
 comment|// namespace
 end_comment
 begin_comment
-comment|/*!     \since 5.0      Returns flags of the given \a type.      \sa TypeFlags() */
+comment|/*!     \since 5.0      Returns flags of the given \a type.      \sa QMetaType::TypeFlags */
 end_comment
 begin_function
 DECL|function|typeFlags
@@ -7156,7 +7186,7 @@ begin_comment
 comment|/*!     \fn int qRegisterMetaType(const char *typeName)     \relates QMetaType     \threadsafe      Registers the type name \a typeName for the type \c{T}. Returns     the internal ID used by QMetaType. Any class or struct that has a     public default constructor, a public copy constructor and a public     destructor can be registered.      This function requires that \c{T} is a fully defined type at the point     where the function is called. For pointer types, it also requires that the     pointed to type is fully defined. Use Q_DECLARE_OPAQUE_POINTER() to be able     to register pointers to forward declared types.      After a type has been registered, you can create and destroy     objects of that type dynamically at run-time.      This example registers the class \c{MyClass}:      \snippet code/src_corelib_kernel_qmetatype.cpp 4      This function is useful to register typedefs so they can be used     by QMetaProperty, or in QueuedConnections      \snippet code/src_corelib_kernel_qmetatype.cpp 9      \sa qRegisterMetaTypeStreamOperators(), QMetaType::isRegistered(),         Q_DECLARE_METATYPE() */
 end_comment
 begin_comment
-comment|/*!     \fn int qRegisterMetaTypeStreamOperators(const char *typeName)     \relates QMetaType     \threadsafe      Registers the stream operators for the type \c{T} called \a     typeName.      Afterward, the type can be streamed using QMetaType::load() and     QMetaType::save(). These functions are used when streaming a     QVariant.      \snippet code/src_corelib_kernel_qmetatype.cpp 5      The stream operators should have the following signatures:      \snippet code/src_corelib_kernel_qmetatype.cpp 6      \sa qRegisterMetaType(), QMetaType::isRegistered(), Q_DECLARE_METATYPE() */
+comment|/*!     \fn void qRegisterMetaTypeStreamOperators(const char *typeName)     \relates QMetaType     \threadsafe      Registers the stream operators for the type \c{T} called \a     typeName.      Afterward, the type can be streamed using QMetaType::load() and     QMetaType::save(). These functions are used when streaming a     QVariant.      \snippet code/src_corelib_kernel_qmetatype.cpp 5      The stream operators should have the following signatures:      \snippet code/src_corelib_kernel_qmetatype.cpp 6      \sa qRegisterMetaType(), QMetaType::isRegistered(), Q_DECLARE_METATYPE() */
 end_comment
 begin_comment
 comment|/*! \typedef QMetaType::Deleter     \internal */
@@ -7177,10 +7207,10 @@ begin_comment
 comment|/*! \typedef QMetaType::Constructor     \internal */
 end_comment
 begin_comment
-comment|/*!     \fn int qRegisterMetaType()     \relates QMetaType     \threadsafe     \since 4.2      Call this function to register the type \c T. \c T must be declared with     Q_DECLARE_METATYPE(). Returns the meta type Id.      Example:      \snippet code/src_corelib_kernel_qmetatype.cpp 7      To use the type \c T in QVariant, using Q_DECLARE_METATYPE() is     sufficient. To use the type \c T in queued signal and slot connections,     \c{qRegisterMetaType<T>()} must be called before the first connection     is established.      Also, to use type \c T with the QObject::property() API,     \c{qRegisterMetaType<T>()} must be called before it is used, typically     in the constructor of the class that uses \c T, or in the \c{main()}     function.      \sa Q_DECLARE_METATYPE()  */
+comment|/*!     \fn int qRegisterMetaType(const char *typeName)     \relates QMetaType     \threadsafe     \since 4.2      Call this function to register the type \c T. \c T must be declared with     Q_DECLARE_METATYPE(). Returns the meta type Id.      Example:      \snippet code/src_corelib_kernel_qmetatype.cpp 7      To use the type \c T in QVariant, using Q_DECLARE_METATYPE() is     sufficient. To use the type \c T in queued signal and slot connections,     \c{qRegisterMetaType<T>()} must be called before the first connection     is established.      Also, to use type \c T with the QObject::property() API,     \c{qRegisterMetaType<T>()} must be called before it is used, typically     in the constructor of the class that uses \c T, or in the \c{main()}     function.      \sa Q_DECLARE_METATYPE()  */
 end_comment
 begin_comment
-comment|/*! \fn int qMetaTypeId()     \relates QMetaType     \threadsafe     \since 4.1      Returns the meta type id of type \c T at compile time. If the     type was not declared with Q_DECLARE_METATYPE(), compilation will     fail.      Typical usage:      \snippet code/src_corelib_kernel_qmetatype.cpp 8      QMetaType::type() returns the same ID as qMetaTypeId(), but does     a lookup at runtime based on the name of the type.     QMetaType::type() is a bit slower, but compilation succeeds if a     type is not registered.      \sa Q_DECLARE_METATYPE(), QMetaType::type() */
+comment|/*!     \fn int qMetaTypeId()     \relates QMetaType     \threadsafe     \since 4.1      Returns the meta type id of type \c T at compile time. If the     type was not declared with Q_DECLARE_METATYPE(), compilation will     fail.      Typical usage:      \snippet code/src_corelib_kernel_qmetatype.cpp 8      QMetaType::type() returns the same ID as qMetaTypeId(), but does     a lookup at runtime based on the name of the type.     QMetaType::type() is a bit slower, but compilation succeeds if a     type is not registered.      \sa Q_DECLARE_METATYPE(), QMetaType::type() */
 end_comment
 begin_namespace
 namespace|namespace
@@ -7496,6 +7526,9 @@ end_namespace
 begin_comment
 comment|// namespace
 end_comment
+begin_comment
+comment|/*!     \fn QMetaType QMetaType::typeInfo(const int type)     \internal */
+end_comment
 begin_function
 DECL|function|typeInfo
 name|QMetaType
@@ -7616,6 +7649,9 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!      \fn QMetaType::QMetaType(const int typeId)      \since 5.0       Constructs a QMetaType object that contains all information about type \a typeId. */
+end_comment
 begin_constructor
 DECL|function|QMetaType
 name|QMetaType
@@ -7700,6 +7736,9 @@ expr_stmt|;
 block|}
 block|}
 end_constructor
+begin_comment
+comment|/*!      \fn QMetaType::QMetaType(const QMetaType&other)      \since 5.0       Copy constructs a QMetaType object. */
+end_comment
 begin_constructor
 DECL|function|QMetaType
 name|QMetaType
@@ -7892,6 +7931,9 @@ name|this
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \fn void QMetaType::ctor(const QMetaTypeInterface *info)     \internal      Method used for future binary compatible extensions.  The function may be     called from within QMetaType's constructor to force a library call from     inlined code. */
+end_comment
 begin_function
 DECL|function|ctor
 name|void
@@ -7934,6 +7976,9 @@ name|DestructEx
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!     \fn void QMetaType::dtor()     \internal      Method used for future binary compatible extensions.  The function may be     called from within QMetaType's destructor to force a library call from     inlined code. */
+end_comment
 begin_function
 DECL|function|dtor
 name|void
@@ -7943,6 +7988,9 @@ name|dtor
 parameter_list|()
 block|{}
 end_function
+begin_comment
+comment|/*!     \fn void *QMetaType::createExtended(const void *copy) const     \internal      Method used for future binary compatible extensions. The function may be called     during QMetaType::create to force library call from inlined code. */
+end_comment
 begin_function
 DECL|function|createExtended
 name|void
@@ -7968,6 +8016,9 @@ literal|0
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \fn void QMetaType::destroyExtended(void *data) const     \internal      Method used for future binary compatible extensions. The function may be called     during QMetaType::destroy to force library call from inlined code. */
+end_comment
 begin_function
 DECL|function|destroyExtended
 name|void
@@ -7988,6 +8039,9 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!     \fn void *QMetaType::constructExtended(void *where, const void *copy) const     \internal      Method used for future binary compatible extensions. The function may be called     during QMetaType::construct to force library call from inlined code. */
+end_comment
 begin_function
 DECL|function|constructExtended
 name|void
@@ -8022,6 +8076,9 @@ literal|0
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \fn void QMetaType::destructExtended(void *data) const     \internal      Method used for future binary compatible extensions. The function may be called     during QMetaType::destruct to force library call from inlined code. */
+end_comment
 begin_function
 DECL|function|destructExtended
 name|void
@@ -8042,6 +8099,9 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!     \fn uint QMetaType::sizeExtended() const     \internal      Method used for future binary compatible extensions. The function may be     called from within QMetaType::size to force a library call from     inlined code. */
+end_comment
 begin_function
 DECL|function|sizeExtended
 name|uint
@@ -8056,6 +8116,9 @@ literal|0
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \fn QMetaType::TypeFlags QMetaType::flagsExtended() const     \internal      Method used for future binary compatible extensions.  The function may be     called from within QMetaType::flags to force a library call from     inlined code. */
+end_comment
 begin_function
 DECL|function|flagsExtended
 name|QMetaType
@@ -8072,6 +8135,9 @@ literal|0
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \brief QMetaType::metaObjectExtended     \internal      Method used for future binary compatible extensions. The function may be     called from within QMetaType::metaObject to force a library call from     inlined code. */
+end_comment
 begin_function
 DECL|function|metaObjectExtended
 specifier|const
