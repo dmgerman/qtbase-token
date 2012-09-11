@@ -703,21 +703,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|// For Windows CE and shadow builds we need to copy these to the
-comment|// build directory.
-name|QFile
-operator|::
-name|copy
-argument_list|(
-name|sourcePath
-operator|+
-literal|"/bin/setcepaths.bat"
-argument_list|,
-name|buildPath
-operator|+
-literal|"/bin/setcepaths.bat"
-argument_list|)
-expr_stmt|;
 comment|//copy the mkspecs
 name|buildDir
 operator|.
