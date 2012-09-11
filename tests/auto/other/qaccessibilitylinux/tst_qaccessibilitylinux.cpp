@@ -170,7 +170,7 @@ argument_list|()
 expr_stmt|;
 name|QTest
 operator|::
-name|qWaitForWindowShown
+name|qWaitForWindowExposed
 argument_list|(
 name|widget
 argument_list|)
@@ -587,7 +587,7 @@ argument_list|)
 expr_stmt|;
 name|QTest
 operator|::
-name|qWaitForWindowShown
+name|qWaitForWindowExposed
 argument_list|(
 name|m_window
 argument_list|)
