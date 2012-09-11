@@ -107,6 +107,20 @@ argument_list|,
 argument|QPainter::CompositionMode cmode
 argument_list|)
 block|;
+name|void
+name|drawPixmapOpacity
+argument_list|(
+argument|const QRectF&rect
+argument_list|,
+argument|const QPixmap&pixmap
+argument_list|,
+argument|const QRectF&subrect
+argument_list|,
+argument|QPainter::CompositionMode cmode
+argument_list|,
+argument|qreal opacity
+argument_list|)
+block|;
 name|IDirectFBSurface
 operator|*
 name|dfbSurface
