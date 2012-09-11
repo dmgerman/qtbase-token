@@ -45,6 +45,10 @@ operator||
 name|QSsl
 operator|::
 name|SslOptionDisableLegacyRenegotiation
+operator||
+name|QSsl
+operator|::
+name|SslOptionDisableCompression
 decl_stmt|;
 end_decl_stmt
 begin_comment
