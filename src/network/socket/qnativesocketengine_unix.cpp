@@ -250,88 +250,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_function
-DECL|function|qt_ignore_sigpipe
-specifier|static
-name|void
-name|qt_ignore_sigpipe
-parameter_list|()
-block|{
-ifndef|#
-directive|ifndef
-name|Q_NO_POSIX_SIGNALS
-comment|// Set to ignore SIGPIPE once only.
-specifier|static
-name|QBasicAtomicInt
-name|atom
-init|=
-name|Q_BASIC_ATOMIC_INITIALIZER
-argument_list|(
-literal|0
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|atom
-operator|.
-name|load
-argument_list|()
-condition|)
-block|{
-comment|// More than one thread could turn off SIGPIPE at the same time
-comment|// But that's acceptable because they all would be doing the same
-comment|// action
-name|struct
-name|sigaction
-name|noaction
-decl_stmt|;
-name|memset
-argument_list|(
-operator|&
-name|noaction
-argument_list|,
-literal|0
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|noaction
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|noaction
-operator|.
-name|sa_handler
-operator|=
-name|SIG_IGN
-expr_stmt|;
-operator|::
-name|sigaction
-argument_list|(
-name|SIGPIPE
-argument_list|,
-operator|&
-name|noaction
-argument_list|,
-literal|0
-argument_list|)
-expr_stmt|;
-name|atom
-operator|.
-name|store
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
-block|}
-else|#
-directive|else
-comment|// Posix signals are not supported by the underlying platform
-comment|// so we don't need to ignore sigpipe signal explicitly
-endif|#
-directive|endif
-block|}
-end_function
 begin_comment
 comment|/*     Extracts the port and address from a sockaddr, and stores them in     \a port and \a addr if they are non-null. */
 end_comment
@@ -4314,10 +4232,6 @@ operator|&
 name|sockAddrIPv4
 expr_stmt|;
 block|}
-comment|// ignore the SIGPIPE signal
-name|qt_ignore_sigpipe
-argument_list|()
-expr_stmt|;
 name|ssize_t
 name|sentBytes
 init|=
@@ -4959,16 +4873,12 @@ argument_list|(
 name|QNativeSocketEngine
 argument_list|)
 expr_stmt|;
-comment|// ignore the SIGPIPE signal
-name|qt_ignore_sigpipe
-argument_list|()
-expr_stmt|;
 name|ssize_t
 name|writtenBytes
 decl_stmt|;
 name|writtenBytes
 operator|=
-name|qt_safe_write
+name|qt_safe_write_nosignal
 argument_list|(
 name|socketDescriptor
 argument_list|,

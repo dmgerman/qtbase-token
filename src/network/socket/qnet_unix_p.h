@@ -773,6 +773,11 @@ name|flags
 operator||=
 name|MSG_NOSIGNAL
 expr_stmt|;
+else|#
+directive|else
+name|qt_ignore_sigpipe
+argument_list|()
+expr_stmt|;
 endif|#
 directive|endif
 specifier|register
