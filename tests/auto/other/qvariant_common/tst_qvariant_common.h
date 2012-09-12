@@ -29,7 +29,7 @@ argument_list|()
 operator|:
 name|oldMsgHandler
 argument_list|(
-argument|qInstallMsgHandler(handler)
+argument|qInstallMessageHandler(handler)
 argument_list|)
 block|{
 name|ok
@@ -41,13 +41,13 @@ operator|~
 name|MessageHandlerInvalidType
 argument_list|()
 block|{
-name|qInstallMsgHandler
+name|qInstallMessageHandler
 argument_list|(
 name|oldMsgHandler
 argument_list|)
 block|;     }
 DECL|member|oldMsgHandler
-name|QtMsgHandler
+name|QtMessageHandler
 name|oldMsgHandler
 expr_stmt|;
 DECL|function|handler
@@ -59,9 +59,14 @@ name|QtMsgType
 name|type
 parameter_list|,
 specifier|const
-name|char
-modifier|*
-name|txt
+name|QMessageLogContext
+modifier|&
+comment|/*ctxt*/
+parameter_list|,
+specifier|const
+name|QString
+modifier|&
+name|msg
 parameter_list|)
 block|{
 name|Q_UNUSED
@@ -69,16 +74,6 @@ argument_list|(
 name|type
 argument_list|)
 expr_stmt|;
-name|QString
-name|msg
-init|=
-name|QString
-operator|::
-name|fromLatin1
-argument_list|(
-name|txt
-argument_list|)
-decl_stmt|;
 comment|// uint(-1) can be platform dependent so we check only beginning of the message.
 name|ok
 operator|=
@@ -140,12 +135,12 @@ name|MessageHandler
 argument_list|(
 argument|const int typeId
 argument_list|,
-argument|QtMsgHandler msgHandler = handler
+argument|QtMessageHandler msgHandler = handler
 argument_list|)
 block|:
 name|oldMsgHandler
 argument_list|(
-argument|qInstallMsgHandler(msgHandler)
+argument|qInstallMessageHandler(msgHandler)
 argument_list|)
 block|{
 name|currentId
@@ -157,7 +152,7 @@ operator|~
 name|MessageHandler
 argument_list|()
 block|{
-name|qInstallMsgHandler
+name|qInstallMessageHandler
 argument_list|(
 name|oldMsgHandler
 argument_list|)
@@ -180,21 +175,15 @@ parameter_list|(
 name|QtMsgType
 parameter_list|,
 specifier|const
-name|char
-modifier|*
-name|txt
+name|QMessageLogContext
+modifier|&
+parameter_list|,
+specifier|const
+name|QString
+modifier|&
+name|msg
 parameter_list|)
 block|{
-name|QString
-name|msg
-init|=
-name|QString
-operator|::
-name|fromLatin1
-argument_list|(
-name|txt
-argument_list|)
-decl_stmt|;
 comment|// Format itself is not important, but basic data as a type name should be included in the output
 name|ok
 operator|=
@@ -386,7 +375,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|QtMsgHandler
+name|QtMessageHandler
 name|oldMsgHandler
 decl_stmt|;
 specifier|static

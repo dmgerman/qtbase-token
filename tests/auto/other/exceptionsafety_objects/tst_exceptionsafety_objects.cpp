@@ -112,7 +112,7 @@ function_decl|;
 private|private:
 DECL|member|testMessageHandler
 specifier|static
-name|QtMsgHandler
+name|QtMessageHandler
 name|testMessageHandler
 decl_stmt|;
 specifier|static
@@ -122,8 +122,12 @@ parameter_list|(
 name|QtMsgType
 parameter_list|,
 specifier|const
-name|char
-modifier|*
+name|QMessageLogContext
+modifier|&
+parameter_list|,
+specifier|const
+name|QString
+modifier|&
 parameter_list|)
 function_decl|;
 endif|#
@@ -1082,7 +1086,7 @@ class|;
 end_class
 begin_decl_stmt
 DECL|member|testMessageHandler
-name|QtMsgHandler
+name|QtMessageHandler
 name|tst_ExceptionSafety_Objects
 operator|::
 name|testMessageHandler
@@ -1099,8 +1103,13 @@ name|QtMsgType
 name|type
 parameter_list|,
 specifier|const
-name|char
-modifier|*
+name|QMessageLogContext
+modifier|&
+name|ctxt
+parameter_list|,
+specifier|const
+name|QString
+modifier|&
 name|msg
 parameter_list|)
 block|{
@@ -1127,6 +1136,8 @@ name|testMessageHandler
 call|)
 argument_list|(
 name|type
+argument_list|,
+name|ctxt
 argument_list|,
 name|msg
 argument_list|)
@@ -1224,7 +1235,7 @@ argument_list|)
 expr_stmt|;
 name|testMessageHandler
 operator|=
-name|qInstallMsgHandler
+name|qInstallMessageHandler
 argument_list|(
 name|safeMessageHandler
 argument_list|)
@@ -1386,7 +1397,7 @@ operator|::
 name|cleanupTestCase
 parameter_list|()
 block|{
-name|qInstallMsgHandler
+name|qInstallMessageHandler
 argument_list|(
 name|testMessageHandler
 argument_list|)

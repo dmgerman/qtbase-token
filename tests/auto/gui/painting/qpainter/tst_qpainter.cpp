@@ -16323,8 +16323,12 @@ name|QtMsgType
 name|type
 parameter_list|,
 specifier|const
-name|char
-modifier|*
+name|QMessageLogContext
+modifier|&
+parameter_list|,
+specifier|const
+name|QString
+modifier|&
 name|msg
 parameter_list|)
 block|{
@@ -16355,10 +16359,10 @@ operator|::
 name|porterDuff_warning
 parameter_list|()
 block|{
-name|QtMsgHandler
+name|QtMessageHandler
 name|old
 init|=
-name|qInstallMsgHandler
+name|qInstallMessageHandler
 argument_list|(
 name|porterDuff_warningChecker
 argument_list|)
@@ -16430,7 +16434,7 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-name|qInstallMsgHandler
+name|qInstallMessageHandler
 argument_list|(
 name|old
 argument_list|)
