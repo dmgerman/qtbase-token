@@ -54,7 +54,7 @@ DECL|macro|QMAKE_VERSION_STR
 define|#
 directive|define
 name|QMAKE_VERSION_STR
-value|"2.01a"
+value|"3.0"
 name|QString
 name|qmake_getpwd
 parameter_list|()
