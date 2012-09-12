@@ -7419,6 +7419,10 @@ argument_list|(
 literal|"px;"
 argument_list|)
 expr_stmt|;
+name|attributesEmitted
+operator|=
+literal|true
+expr_stmt|;
 block|}
 if|if
 condition|(
