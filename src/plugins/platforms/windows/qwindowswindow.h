@@ -351,10 +351,11 @@ directive|endif
 block|enum
 name|Flags
 block|{
-name|DCFromBeginPaint
+name|AutoMouseCapture
 operator|=
 literal|0x1
 block|,
+comment|//! Automatic mouse capture on button press.
 name|WithinSetParent
 operator|=
 literal|0x2
@@ -395,11 +396,6 @@ block|,
 name|WithinSetStyle
 operator|=
 literal|0x800
-block|,
-name|AutoMouseCapture
-operator|=
-literal|0x1000
-comment|//! Automatic mouse capture on button press.
 block|}
 decl_stmt|;
 end_decl_stmt
