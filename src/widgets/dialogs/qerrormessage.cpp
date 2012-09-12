@@ -399,7 +399,7 @@ comment|//Q_OS_WINCE
 block|}
 end_function
 begin_comment
-comment|/*!     \class QErrorMessage      \brief The QErrorMessage class provides an error message display dialog.      \ingroup standard-dialog     \inmodule QtWidgets      An error message widget consists of a text label and a checkbox. The     checkbox lets the user control whether the same error message will be     displayed again in the future, typically displaying the text,     "Show this message again" translated into the appropriate local     language.      For production applications, the class can be used to display messages which     the user only needs to see once. To use QErrorMessage like this, you create     the dialog in the usual way, and show it by calling the showMessage() slot or     connecting signals to it.      The static qtHandler() function installs a message handler     using qInstallMsgHandler() and creates a QErrorMessage that displays     qDebug(), qWarning() and qFatal() messages. This is most useful in     environments where no console is available to display warnings and     error messages.      In both cases QErrorMessage will queue pending messages and display     them in order, with each new message being shown as soon as the user     has accepted the previous message. Once the user has specified that a     message is not to be shown again it is automatically skipped, and the     dialog will show the next appropriate message in the queue.      The \l{dialogs/standarddialogs}{Standard Dialogs} example shows     how to use QErrorMessage as well as other built-in Qt dialogs.      \image qerrormessage.png      \sa QMessageBox, QStatusBar::showMessage(), {Standard Dialogs Example} */
+comment|/*!     \class QErrorMessage      \brief The QErrorMessage class provides an error message display dialog.      \ingroup standard-dialog     \inmodule QtWidgets      An error message widget consists of a text label and a checkbox. The     checkbox lets the user control whether the same error message will be     displayed again in the future, typically displaying the text,     "Show this message again" translated into the appropriate local     language.      For production applications, the class can be used to display messages which     the user only needs to see once. To use QErrorMessage like this, you create     the dialog in the usual way, and show it by calling the showMessage() slot or     connecting signals to it.      The static qtHandler() function installs a message handler     using qInstallMessageHandler() and creates a QErrorMessage that displays     qDebug(), qWarning() and qFatal() messages. This is most useful in     environments where no console is available to display warnings and     error messages.      In both cases QErrorMessage will queue pending messages and display     them in order, with each new message being shown as soon as the user     has accepted the previous message. Once the user has specified that a     message is not to be shown again it is automatically skipped, and the     dialog will show the next appropriate message in the queue.      The \l{dialogs/standarddialogs}{Standard Dialogs} example shows     how to use QErrorMessage as well as other built-in Qt dialogs.      \image qerrormessage.png      \sa QMessageBox, QStatusBar::showMessage(), {Standard Dialogs Example} */
 end_comment
 begin_decl_stmt
 DECL|variable|qtMessageHandler
@@ -453,8 +453,13 @@ name|QtMsgType
 name|t
 parameter_list|,
 specifier|const
-name|char
-modifier|*
+name|QMessageLogContext
+modifier|&
+comment|/*context*/
+parameter_list|,
+specifier|const
+name|QString
+modifier|&
 name|m
 parameter_list|)
 block|{
@@ -532,10 +537,7 @@ name|Qt
 operator|::
 name|convertFromPlainText
 argument_list|(
-name|QLatin1String
-argument_list|(
 name|m
-argument_list|)
 argument_list|,
 name|Qt
 operator|::
@@ -964,10 +966,10 @@ name|qtMessageHandler
 operator|=
 literal|0
 expr_stmt|;
-name|QtMsgHandler
+name|QtMessageHandler
 name|tmp
 init|=
-name|qInstallMsgHandler
+name|qInstallMessageHandler
 argument_list|(
 literal|0
 argument_list|)
@@ -979,7 +981,7 @@ name|tmp
 operator|!=
 name|jump
 condition|)
-name|qInstallMsgHandler
+name|qInstallMessageHandler
 argument_list|(
 name|tmp
 argument_list|)
@@ -1163,7 +1165,7 @@ name|applicationName
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|qInstallMsgHandler
+name|qInstallMessageHandler
 argument_list|(
 name|jump
 argument_list|)
