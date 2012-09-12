@@ -1654,6 +1654,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_EXCEPTIONS
+end_ifndef
 begin_comment
 comment|/*    \internal    Allows you to call std::terminate() without including<exception>.    Called internally from QT_TERMINATE_ON_EXCEPTION */
 end_comment
@@ -1671,6 +1676,10 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*   The Q_ASSERT macro calls this function when the test fails. */
 end_comment
