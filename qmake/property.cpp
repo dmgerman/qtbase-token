@@ -384,8 +384,7 @@ index|]
 operator|=
 name|ProString
 argument_list|(
-name|qmake_version
-argument_list|()
+name|QMAKE_VERSION_STR
 argument_list|)
 expr_stmt|;
 ifdef|#
