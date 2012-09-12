@@ -338,7 +338,7 @@ name|function
 argument_list|)
 expr_stmt|;
 return|return
-literal|false
+literal|0
 return|;
 block|}
 ifndef|#
@@ -404,7 +404,7 @@ name|function
 argument_list|)
 expr_stmt|;
 return|return
-literal|false
+literal|0
 return|;
 block|}
 block|}
