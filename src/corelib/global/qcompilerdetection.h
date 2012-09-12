@@ -227,6 +227,11 @@ end_comment
 begin_comment
 comment|/* might get overridden further down when Q_COMPILER_NOEXCEPT is detected */
 end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|__cplusplus
+end_ifdef
 begin_define
 DECL|macro|Q_DECL_NOTHROW
 define|#
@@ -234,6 +239,10 @@ directive|define
 name|Q_DECL_NOTHROW
 value|throw()
 end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_elif
 elif|#
 directive|elif
