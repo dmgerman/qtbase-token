@@ -3989,48 +3989,6 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_comment
-comment|/*!     \fn void QToolButton::setPixmap(const QPixmap&pixmap)      Use setIcon(QIcon(pixmap)) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QToolButton::setIconSet(const QIcon&icon)      Use setIcon() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QToolButton::setTextLabel(const QString&text, bool tooltip)      Use setText() and setToolTip() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QString QToolButton::textLabel() const      Use text() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QIcon QToolButton::iconSet() const      Use icon() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QToolButton::openPopup()      Use showMenu() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QToolButton::setPopup(QMenu* popup)      Use setMenu() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QMenu* QToolButton::popup() const      Use menu() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn TextPosition QToolButton::textPosition() const      Use toolButtonStyle() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QToolButton::setTextPosition(QToolButton::TextPosition pos)      Use setToolButtonStyle() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QToolButton::usesBigPixmap() const      Use iconSize() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QToolButton::setUsesBigPixmap(bool enable)      Use setIconSize() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QToolButton::usesTextLabel() const      Use toolButtonStyle() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QToolButton::setUsesTextLabel(bool enable)      Use setToolButtonStyle() instead. */
-end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
