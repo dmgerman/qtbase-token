@@ -2663,7 +2663,7 @@ DECL|function|FLAG_STRING
 name|FLAG_STRING_STRUCT
 name|FLAG_STRING
 parameter_list|(
-name|int
+name|uint
 name|value
 init|=
 literal|0
