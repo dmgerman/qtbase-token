@@ -3064,36 +3064,6 @@ argument_list|)
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QToolBox::setItemLabel(int index, const QString&text)      Use setItemText() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QString QToolBox::itemLabel(int index) const      Use itemText() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QWidget *QToolBox::currentItem() const      Use widget(currentIndex()) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QToolBox::setCurrentItem(QWidget *widget)      Use setCurrentIndex(indexOf(widget)) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QToolBox::setItemIconSet(int index, const QIcon&icon)      Use setItemIcon() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QIcon QToolBox::itemIconSet(int index) const      Use itemIcon() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn int QToolBox::removeItem(QWidget *widget)      Use toolbox->removeItem(toolbox->indexOf(widget)) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QWidget *QToolBox::item(int index) const      Use widget() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QToolBox::setMargin(int margin)     Sets the width of the margin around the contents of the widget to \a margin.      Use QWidget::setContentsMargins() instead.     \sa margin(), QWidget::setContentsMargins() */
-end_comment
-begin_comment
-comment|/*!     \fn int QToolBox::margin() const     Returns the width of the margin around the contents of the widget.      Use QWidget::getContentsMargins() instead.     \sa setMargin(), QWidget::getContentsMargins() */
-end_comment
-begin_comment
 comment|/*! \reimp */
 end_comment
 begin_function
