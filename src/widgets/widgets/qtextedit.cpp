@@ -2753,9 +2753,6 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QTextEdit::undo() const     \fn void QTextEdit::redo() const     \overload      Use the non-const overload instead. */
-end_comment
-begin_comment
 comment|/*!     \fn void QTextEdit::redo()     \since 4.2      Redoes the last operation.      If there is no operation to redo, i.e. there is no redo step in     the undo/redo history, nothing happens.      \sa undo() */
 end_comment
 begin_ifndef
@@ -8554,63 +8551,6 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QTextEdit::find(const QString&exp, bool cs, bool wo)      Use the find() overload that takes a QTextDocument::FindFlags     argument. */
-end_comment
-begin_comment
-comment|/*!     \fn void QTextEdit::sync()      Does nothing. */
-end_comment
-begin_comment
-comment|/*!     \fn void QTextEdit::setBold(bool b)      Use setFontWeight() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QTextEdit::setUnderline(bool b)      Use setFontUnderline() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QTextEdit::setItalic(bool i)      Use setFontItalic() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QTextEdit::setFamily(const QString&family)      Use setFontFamily() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QTextEdit::setPointSize(int size)      Use setFontPointSize() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QTextEdit::italic() const      Use fontItalic() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QTextEdit::bold() const      Use fontWeight()>= QFont::Bold instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QTextEdit::underline() const      Use fontUnderline() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QString QTextEdit::family() const      Use fontFamily() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn int QTextEdit::pointSize() const      Use int(fontPointSize()+0.5) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QTextEdit::hasSelectedText() const      Use textCursor().hasSelection() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QString QTextEdit::selectedText() const      Use textCursor().selectedText() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QTextEdit::isUndoAvailable() const      Use document()->isUndoAvailable() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QTextEdit::isRedoAvailable() const      Use document()->isRedoAvailable() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QTextEdit::insert(const QString&text)      Use insertPlainText() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QTextEdit::isModified() const      Use document()->isModified() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QColor QTextEdit::color() const      Use textColor() instead. */
-end_comment
-begin_comment
 comment|/*!     \fn void QTextEdit::textChanged()      This signal is emitted whenever the document's content changes; for     example, when text is inserted or deleted, or when formatting is applied. */
 end_comment
 begin_comment
@@ -8618,18 +8558,6 @@ comment|/*!     \fn void QTextEdit::undoAvailable(bool available)      This sign
 end_comment
 begin_comment
 comment|/*!     \fn void QTextEdit::redoAvailable(bool available)      This signal is emitted whenever redo operations become available     (\a available is true) or unavailable (\a available is false). */
-end_comment
-begin_comment
-comment|/*!     \fn void QTextEdit::currentFontChanged(const QFont&font)      Use currentCharFormatChanged() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QTextEdit::currentColorChanged(const QColor&color)      Use currentCharFormatChanged() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QTextEdit::setModified(bool m)      Use document->setModified() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QTextEdit::setColor(const QColor&color)      Use setTextColor() instead. */
 end_comment
 begin_endif
 endif|#
