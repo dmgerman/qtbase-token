@@ -856,7 +856,7 @@ comment|// so we permit the elapsed times to be up to this far from the expected
 name|int
 name|fuzz
 init|=
-literal|10
+literal|50
 decl_stmt|;
 name|QSemaphore
 name|semaphore
