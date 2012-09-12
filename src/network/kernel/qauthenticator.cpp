@@ -6563,7 +6563,14 @@ name|credHandle
 argument_list|,
 name|NULL
 argument_list|,
+cast|const_cast
+argument_list|<
+name|SEC_WCHAR
+operator|*
+argument_list|>
+argument_list|(
 literal|L""
+argument_list|)
 comment|/* host */
 argument_list|,
 name|ISC_REQ_ALLOCATE_MEMORY
@@ -6875,7 +6882,14 @@ name|ntlmWindowsHandles
 operator|->
 name|ctxHandle
 argument_list|,
+cast|const_cast
+argument_list|<
+name|SEC_WCHAR
+operator|*
+argument_list|>
+argument_list|(
 literal|L""
+argument_list|)
 comment|/* host */
 argument_list|,
 name|ISC_REQ_ALLOCATE_MEMORY
