@@ -861,7 +861,7 @@ decl_stmt|;
 name|QSemaphore
 name|semaphore
 decl_stmt|;
-name|QTime
+name|QElapsedTimer
 name|time
 decl_stmt|;
 DECL|macro|FUZZYCOMPARE
