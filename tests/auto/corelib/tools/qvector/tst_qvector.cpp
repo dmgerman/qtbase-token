@@ -14664,7 +14664,7 @@ argument_list|)
 operator|.
 name|arg
 argument_list|(
-name|vector
+name|copy
 operator|.
 name|capacity
 argument_list|()
