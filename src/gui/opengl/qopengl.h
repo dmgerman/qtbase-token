@@ -60,6 +60,16 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|/*    Some GLES2 implementations (like the one on Harmattan) are missing the    typedef for GLchar. Work around it here by adding it. The Kkronos headers    specify GLChar as a typedef to char, so if an implementation already    provides it, then this doesn't do any harm. */
+end_comment
+begin_typedef
+DECL|typedef|GLchar
+typedef|typedef
+name|char
+name|GLchar
+typedef|;
+end_typedef
 begin_include
 include|#
 directive|include
