@@ -170,7 +170,7 @@ name|singleShot
 argument_list|(
 argument|int msec
 argument_list|,
-argument|QObject *receiver
+argument|const QObject *receiver
 argument_list|,
 argument|const char *member
 argument_list|)
@@ -183,7 +183,7 @@ argument|int msec
 argument_list|,
 argument|Qt::TimerType timerType
 argument_list|,
-argument|QObject *receiver
+argument|const QObject *receiver
 argument_list|,
 argument|const char *member
 argument_list|)

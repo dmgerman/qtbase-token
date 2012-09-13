@@ -296,6 +296,7 @@ operator|::
 name|TimerType
 name|timerType
 parameter_list|,
+specifier|const
 name|QObject
 modifier|*
 name|r
@@ -337,6 +338,7 @@ operator|::
 name|TimerType
 name|timerType
 parameter_list|,
+specifier|const
 name|QObject
 modifier|*
 name|receiver
@@ -458,6 +460,7 @@ parameter_list|(
 name|int
 name|msec
 parameter_list|,
+specifier|const
 name|QObject
 modifier|*
 name|receiver
@@ -512,6 +515,7 @@ operator|::
 name|TimerType
 name|timerType
 parameter_list|,
+specifier|const
 name|QObject
 modifier|*
 name|receiver
@@ -598,7 +602,14 @@ name|QMetaObject
 operator|::
 name|invokeMethod
 argument_list|(
+cast|const_cast
+argument_list|<
+name|QObject
+operator|*
+argument_list|>
+argument_list|(
 name|receiver
+argument_list|)
 argument_list|,
 name|methodName
 operator|.
