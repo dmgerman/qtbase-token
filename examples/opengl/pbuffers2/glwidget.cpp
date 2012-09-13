@@ -810,8 +810,6 @@ expr_stmt|;
 name|glFlush
 argument_list|()
 expr_stmt|;
-comment|// rendering directly to a texture is not supported on X11 and
-comment|// some Windows implementations, unfortunately
 if|if
 condition|(
 operator|!

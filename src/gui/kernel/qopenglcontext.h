@@ -359,6 +359,10 @@ name|QGLContext
 block|;
 name|friend
 name|class
+name|QGLPixelBuffer
+block|;
+name|friend
+name|class
 name|QOpenGLContextResourceBase
 block|;
 name|friend
