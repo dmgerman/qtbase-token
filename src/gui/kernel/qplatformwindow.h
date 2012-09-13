@@ -274,6 +274,22 @@ argument_list|)
 specifier|const
 block|;
 name|virtual
+name|QPoint
+name|mapToGlobal
+argument_list|(
+argument|const QPoint&pos
+argument_list|)
+specifier|const
+block|;
+name|virtual
+name|QPoint
+name|mapFromGlobal
+argument_list|(
+argument|const QPoint&pos
+argument_list|)
+specifier|const
+block|;
+name|virtual
 name|void
 name|propagateSizeHints
 argument_list|()
