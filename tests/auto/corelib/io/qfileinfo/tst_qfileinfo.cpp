@@ -6432,14 +6432,50 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_OS_WINCE
+argument_list|)
 name|QEXPECT_FAIL
 argument_list|(
 literal|"simple"
 argument_list|,
 literal|"WinCE only stores date of access data, not the time"
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|Q_OS_BLACKBERRY
+argument_list|)
+name|QEXPECT_FAIL
+argument_list|(
+literal|"simple"
+argument_list|,
+literal|"Blackberry OS uses the noatime filesystem option"
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+name|QEXPECT_FAIL
+argument_list|(
+literal|"longfile"
+argument_list|,
+literal|"Blackberry OS uses the noatime filesystem option"
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+name|QEXPECT_FAIL
+argument_list|(
+literal|"longfile absolutepath"
+argument_list|,
+literal|"Blackberry OS uses the noatime filesystem option"
 argument_list|,
 name|Continue
 argument_list|)
