@@ -294,6 +294,10 @@ name|format
 argument_list|)
 block|;
 name|void
+name|_q_cursorPositionChanged
+argument_list|()
+block|;
+name|void
 name|updateDefaultTextOption
 argument_list|()
 block|;
