@@ -449,7 +449,7 @@ specifier|const
 name|int
 name|numCompositionFunctions
 init|=
-literal|33
+literal|38
 decl_stmt|;
 end_decl_stmt
 begin_macro

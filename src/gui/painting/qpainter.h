@@ -432,6 +432,16 @@ block|,
 name|RasterOp_NotSourceAndDestination
 block|,
 name|RasterOp_SourceAndNotDestination
+block|,
+name|RasterOp_NotSourceOrDestination
+block|,
+name|RasterOp_SourceOrNotDestination
+block|,
+name|RasterOp_ClearDestination
+block|,
+name|RasterOp_SetDestination
+block|,
+name|RasterOp_NotDestination
 block|}
 enum|;
 name|void
