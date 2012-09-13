@@ -59,6 +59,7 @@ argument_list|)
 block|;
 name|QSignalTransition
 argument_list|(
+specifier|const
 name|QObject
 operator|*
 name|sender
@@ -88,6 +89,7 @@ block|;
 name|void
 name|setSenderObject
 argument_list|(
+specifier|const
 name|QObject
 operator|*
 name|sender

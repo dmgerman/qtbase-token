@@ -9730,6 +9730,7 @@ literal|1
 condition|)
 return|return;
 comment|// already registered
+specifier|const
 name|QObject
 modifier|*
 name|sender

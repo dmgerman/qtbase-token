@@ -98,6 +98,7 @@ operator|*
 name|e
 argument_list|)
 block|;
+specifier|const
 name|QObject
 operator|*
 name|sender

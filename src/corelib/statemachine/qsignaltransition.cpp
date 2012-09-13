@@ -196,6 +196,7 @@ name|QSignalTransition
 operator|::
 name|QSignalTransition
 parameter_list|(
+specifier|const
 name|QObject
 modifier|*
 name|sender
@@ -275,9 +276,16 @@ name|QSignalTransition
 argument_list|)
 expr_stmt|;
 return|return
+cast|const_cast
+argument_list|<
+name|QObject
+operator|*
+argument_list|>
+argument_list|(
 name|d
 operator|->
 name|sender
+argument_list|)
 return|;
 block|}
 end_function
@@ -291,6 +299,7 @@ name|QSignalTransition
 operator|::
 name|setSenderObject
 parameter_list|(
+specifier|const
 name|QObject
 modifier|*
 name|sender

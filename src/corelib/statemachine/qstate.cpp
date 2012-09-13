@@ -964,6 +964,7 @@ name|QState
 operator|::
 name|addTransition
 parameter_list|(
+specifier|const
 name|QObject
 modifier|*
 name|sender

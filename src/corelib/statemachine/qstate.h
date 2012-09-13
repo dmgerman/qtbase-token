@@ -135,6 +135,7 @@ name|QSignalTransition
 operator|*
 name|addTransition
 argument_list|(
+specifier|const
 name|QObject
 operator|*
 name|sender
