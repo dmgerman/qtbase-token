@@ -1525,12 +1525,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \fn bool QPrinter::outputToFile() const    Returns true if the output should be written to a file, or false   if the output should be sent directly to the printer. The default   setting is false.    \sa setOutputToFile(), setOutputFileName() */
-end_comment
-begin_comment
-comment|/*!   \fn void QPrinter::setOutputToFile(bool enable)    Specifies whether the output should be written to a file or sent   directly to the printer.    Will output to a file if \a enable is true, or will output   directly to the printer if \a enable is false.    \sa outputToFile(), setOutputFileName() */
-end_comment
-begin_comment
 comment|/*!   \fn QString QPrinter::outputFileName() const    Returns the name of the output file. By default, this is an empty string   (indicating that the printer shouldn't print to file).    \sa QPrintEngine::PrintEnginePropertyKey  */
 end_comment
 begin_function
@@ -1566,7 +1560,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the name of the output file to \a fileName.      Setting a null or empty name (0 or "") disables printing to a file.     Setting a non-empty name enables printing to a file.      This can change the value of outputFormat().     If the file name has the ".pdf" suffix PDF is generated. If the file name     has a suffix other than ".pdf", the output format used is the     one set with setOutputFormat().      QPrinter uses Qt's cross-platform PDF print engines     respectively. If you can produce this format natively, for example     Mac OS X can generate PDF's from its print engine, set the output format     back to NativeFormat.      \sa outputFileName(), setOutputToFile(), setOutputFormat() */
+comment|/*!     Sets the name of the output file to \a fileName.      Setting a null or empty name (0 or "") disables printing to a file.     Setting a non-empty name enables printing to a file.      This can change the value of outputFormat().     If the file name has the ".pdf" suffix PDF is generated. If the file name     has a suffix other than ".pdf", the output format used is the     one set with setOutputFormat().      QPrinter uses Qt's cross-platform PDF print engines     respectively. If you can produce this format natively, for example     Mac OS X can generate PDF's from its print engine, set the output format     back to NativeFormat.      \sa outputFileName(), setOutputFormat() */
 end_comment
 begin_function
 DECL|function|setOutputFileName
@@ -3743,7 +3737,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.4      This function sets the \a left, \a top, \a right and \a bottom     page margins for this printer. The unit of the margins are     specified with the \a unit parameter.      \sa getPageMargins */
+comment|/*!     \since 4.4      This function sets the \a left, \a top, \a right and \a bottom     page margins for this printer. The unit of the margins are     specified with the \a unit parameter.      \sa getPageMargins() */
 end_comment
 begin_function
 DECL|function|setPageMargins
@@ -3922,7 +3916,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.4      Returns the page margins for this printer in \a left, \a top, \a     right, \a bottom. The unit of the returned margins are specified     with the \a unit parameter.      \sa setPageMargins */
+comment|/*!     \since 4.4      Returns the page margins for this printer in \a left, \a top, \a     right, \a bottom. The unit of the returned margins are specified     with the \a unit parameter.      \sa setPageMargins() */
 end_comment
 begin_function
 DECL|function|getPageMargins
@@ -4428,15 +4422,6 @@ argument_list|()
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \fn void QPrinter::margins(uint *top, uint *left, uint *bottom, uint *right) const      Sets *\a top, *\a left, *\a bottom, *\a right to be the top,     left, bottom, and right margins.      This function has been superseded by paperRect() and pageRect().     Use paperRect().top() - pageRect().top() for the top margin,     paperRect().left() - pageRect().left() for the left margin,     paperRect().bottom() - pageRect().bottom() for the bottom margin,     and papaerRect().right() - pageRect().right() for the right     margin.      \oldcode         uint rightMargin;         uint bottomMargin;         printer->margins(0, 0,&bottomMargin,&rightMargin);     \newcode         int rightMargin = printer->paperRect().right() - printer->pageRect().right();         int bottomMargin = printer->paperRect().bottom() - printer->pageRect().bottom();     \endcode */
-end_comment
-begin_comment
-comment|/*! \fn QSize QPrinter::margins() const      \overload      Returns a QSize containing the left margin and the top margin.      This function has been superseded by paperRect() and pageRect().     Use paperRect().left() - pageRect().left() for the left margin,     and paperRect().top() - pageRect().top() for the top margin.      \oldcode         QSize margins = printer->margins();         int leftMargin = margins.width();         int topMargin = margins.height();     \newcode         int leftMargin = printer->paperRect().left() - printer->pageRect().left();         int topMargin = printer->paperRect().top() - printer->pageRect().top();     \endcode */
-end_comment
-begin_comment
-comment|/*! \fn bool QPrinter::aborted()      Use printerState() == QPrinter::Aborted instead. */
-end_comment
 begin_ifdef
 ifdef|#
 directive|ifdef
