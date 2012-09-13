@@ -9221,6 +9221,25 @@ if|#
 directive|if
 name|defined
 argument_list|(
+name|Q_OS_BLACKBERRY
+argument_list|)
+comment|// The Blackberry filesystem is read-only
+name|QVERIFY
+argument_list|(
+operator|!
+name|QFileInfo
+argument_list|(
+literal|"/etc/passwd"
+argument_list|)
+operator|.
+name|isWritable
+argument_list|()
+argument_list|)
+expr_stmt|;
+elif|#
+directive|elif
+name|defined
+argument_list|(
 name|Q_OS_UNIX
 argument_list|)
 if|if
