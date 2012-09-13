@@ -5901,9 +5901,9 @@ argument_list|)
 decl_stmt|;
 comment|// We need to iterate over a copy of m->mapped_children because otherwise it may be changed by other code, invalidating
 comment|// the iterator it2.
-comment|// The m->mapped_children vector can be appended to when this function recurses for child indexes.
-comment|// The handle_filter_changed implementation can cause source_parent.parent() to be called, which will create
-comment|// a mapping (and do appending) while we are invalidating the filter.
+comment|// The m->mapped_children vector can be appended to with indexes which are no longer filtered
+comment|// out (in create_mapping) when this function recurses for child indexes.
+specifier|const
 name|QVector
 argument_list|<
 name|QModelIndex
@@ -5916,36 +5916,38 @@ name|mapped_children
 decl_stmt|;
 name|QVector
 argument_list|<
-name|QModelIndex
+name|int
 argument_list|>
-operator|::
-name|iterator
-name|it2
-init|=
-name|mappedChildren
-operator|.
-name|end
-argument_list|()
+name|indexesToRemove
 decl_stmt|;
-while|while
-condition|(
-name|it2
-operator|!=
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
 name|mappedChildren
 operator|.
-name|begin
+name|size
 argument_list|()
-condition|)
+condition|;
+operator|++
+name|i
+control|)
 block|{
-operator|--
-name|it2
-expr_stmt|;
 specifier|const
 name|QModelIndex
 name|source_child_index
 init|=
-operator|*
-name|it2
+name|mappedChildren
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -5970,13 +5972,11 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|it2
-operator|=
-name|mappedChildren
+name|indexesToRemove
 operator|.
-name|erase
+name|push_back
 argument_list|(
-name|it2
+name|i
 argument_list|)
 expr_stmt|;
 name|remove_from_mapping
@@ -5993,6 +5993,59 @@ name|source_child_index
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+name|QVector
+argument_list|<
+name|int
+argument_list|>
+operator|::
+name|const_iterator
+name|removeIt
+init|=
+name|indexesToRemove
+operator|.
+name|constEnd
+argument_list|()
+decl_stmt|;
+specifier|const
+name|QVector
+argument_list|<
+name|int
+argument_list|>
+operator|::
+name|const_iterator
+name|removeBegin
+init|=
+name|indexesToRemove
+operator|.
+name|constBegin
+argument_list|()
+decl_stmt|;
+comment|// We can't just remove these items from mappedChildren while iterating above and then
+comment|// do something like m->mapped_children = mappedChildren, because mapped_children might
+comment|// be appended to in create_mapping, and we would lose those new items.
+comment|// Because they are always appended in create_mapping, we can still remove them by
+comment|// position here.
+while|while
+condition|(
+name|removeIt
+operator|!=
+name|removeBegin
+condition|)
+block|{
+operator|--
+name|removeIt
+expr_stmt|;
+name|m
+operator|->
+name|mapped_children
+operator|.
+name|remove
+argument_list|(
+operator|*
+name|removeIt
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_function
