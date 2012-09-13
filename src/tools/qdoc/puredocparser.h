@@ -91,10 +91,6 @@ specifier|const
 name|QString
 operator|&
 name|filePath
-argument_list|,
-name|Tree
-operator|*
-name|tree
 argument_list|)
 block|;
 name|private

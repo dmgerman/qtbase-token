@@ -50,7 +50,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|"tree.h"
+file|"qdocdatabase.h"
+end_include
+begin_include
+include|#
+directive|include
+file|<qdebug.h>
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
@@ -81,6 +86,14 @@ argument_list|(
 name|g
 argument_list|)
 block|{
+comment|/*       Get the pointer to the singleton for the qdoc database and       store it locally. This replaces all the local accesses to       the node tree, which are now private.      */
+name|qdb_
+operator|=
+name|QDocDatabase
+operator|::
+name|qdocDB
+argument_list|()
+expr_stmt|;
 comment|// The output directory should already have been checked by the calling
 comment|// generator.
 name|outputDir
@@ -2780,19 +2793,8 @@ name|void
 name|HelpProjectWriter
 operator|::
 name|generate
-parameter_list|(
-specifier|const
-name|Tree
-modifier|*
-name|t
-parameter_list|)
+parameter_list|()
 block|{
-name|this
-operator|->
-name|tree
-operator|=
-name|t
-expr_stmt|;
 for|for
 control|(
 name|int
@@ -3703,7 +3705,7 @@ argument_list|()
 condition|)
 name|rootNode
 operator|=
-name|tree
+name|qdb_
 operator|->
 name|findDocNodeByTitle
 argument_list|(
@@ -3715,9 +3717,9 @@ expr_stmt|;
 else|else
 name|rootNode
 operator|=
-name|tree
+name|qdb_
 operator|->
-name|root
+name|treeRoot
 argument_list|()
 expr_stmt|;
 if|if
@@ -3963,7 +3965,7 @@ name|Node
 modifier|*
 name|node
 init|=
-name|tree
+name|qdb_
 operator|->
 name|findDocNodeByTitle
 argument_list|(
@@ -3980,7 +3982,7 @@ literal|0
 condition|)
 name|node
 operator|=
-name|tree
+name|qdb_
 operator|->
 name|findNode
 argument_list|(
@@ -4098,7 +4100,7 @@ name|DocNode
 modifier|*
 name|indexPage
 init|=
-name|tree
+name|qdb_
 operator|->
 name|findDocNodeByTitle
 argument_list|(
@@ -4241,7 +4243,7 @@ name|DocNode
 modifier|*
 name|page
 init|=
-name|tree
+name|qdb_
 operator|->
 name|findDocNodeByTitle
 argument_list|(
@@ -4381,7 +4383,7 @@ name|gen_
 operator|->
 name|fullDocumentLocation
 argument_list|(
-name|tree
+name|qdb_
 operator|->
 name|findDocNodeByTitle
 argument_list|(
@@ -4545,7 +4547,7 @@ name|DocNode
 operator|*
 argument_list|>
 argument_list|(
-name|tree
+name|qdb_
 operator|->
 name|findDocNodeByTitle
 argument_list|(
@@ -4616,7 +4618,7 @@ name|DocNode
 operator|*
 argument_list|>
 argument_list|(
-name|tree
+name|qdb_
 operator|->
 name|findDocNodeByTitle
 argument_list|(

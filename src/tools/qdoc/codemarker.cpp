@@ -3249,10 +3249,10 @@ block|}
 else|else
 block|{
 return|return
-name|plainFullName
-argument_list|(
 name|node
-argument_list|)
+operator|->
+name|plainFullName
+argument_list|()
 operator|+
 name|QLatin1Char
 argument_list|(
@@ -3268,7 +3268,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!   Get the list of documentation sections for the children of   the specified QmlClassNode.  */
+comment|/*!   Returns an empty list of documentation sections.  */
 end_comment
 begin_function
 DECL|function|qmlSections
@@ -3293,38 +3293,6 @@ argument_list|<
 name|Section
 argument_list|>
 argument_list|()
-return|;
-block|}
-end_function
-begin_function
-DECL|function|resolveTarget
-specifier|const
-name|Node
-modifier|*
-name|CodeMarker
-operator|::
-name|resolveTarget
-parameter_list|(
-specifier|const
-name|QString
-modifier|&
-comment|/* target */
-parameter_list|,
-specifier|const
-name|Tree
-modifier|*
-parameter_list|,
-specifier|const
-name|Node
-modifier|*
-parameter_list|,
-specifier|const
-name|Node
-modifier|*
-parameter_list|)
-block|{
-return|return
-literal|0
 return|;
 block|}
 end_function

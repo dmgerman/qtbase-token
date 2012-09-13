@@ -28,11 +28,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"tree.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"config.h"
 end_include
 begin_include
@@ -177,6 +172,7 @@ define|#
 directive|define
 name|COMMAND_QMLMODULE
 value|Doc::alias("qmlmodule")
+comment|/*!   Constructs the QML code parser.  */
 DECL|function|QmlCodeParser
 name|QmlCodeParser
 operator|::
@@ -184,6 +180,9 @@ name|QmlCodeParser
 parameter_list|()
 block|{ }
 end_function
+begin_comment
+comment|/*!   Destroys the QML code parser.  */
+end_comment
 begin_destructor
 DECL|function|~QmlCodeParser
 name|QmlCodeParser
@@ -241,7 +240,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Deletes the lexer and parser created by the constructor.  */
+comment|/*!   Terminates the QML code parser. Deletes the lexer and parser   created by the constructor.  */
 end_comment
 begin_function
 DECL|function|terminateParser
@@ -276,7 +275,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns a filter string of "*.qml".  */
+comment|/*!   Returns a string list containing "*.qml". This is the only   file type parsed by the QMLN parser.  */
 end_comment
 begin_function
 DECL|function|sourceFileNameFilter
@@ -295,7 +294,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Parses the source file at \a filePath, creating nodes as   needed and inserting them into the \a tree. \a location is   used for error reporting.    If it can't open the file at \a filePath, it reports an   error and returns without doing anything.  */
+comment|/*!   Parses the source file at \a filePath and inserts the contents   into the database. The \a location is used for error reporting.    If it can't open the file at \a filePath, it reports an error   and returns without doing anything.  */
 end_comment
 begin_function
 DECL|function|parseSourceFile
@@ -313,10 +312,6 @@ specifier|const
 name|QString
 modifier|&
 name|filePath
-parameter_list|,
-name|Tree
-modifier|*
-name|tree
 parameter_list|)
 block|{
 name|QFile
@@ -468,8 +463,6 @@ argument_list|,
 operator|&
 name|engine
 argument_list|,
-name|tree
-argument_list|,
 name|metacommandsAllowed
 argument_list|,
 name|topicCommandsAllowed
@@ -550,7 +543,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   This function is called when the parser finishes parsing   the file, but in this case the function does nothing.  */
+comment|/*!   Performs cleanup after qdoc is done parsing all the QML files.   Currently, no cleanup is required.  */
 end_comment
 begin_function
 DECL|function|doneParsingSourceFiles
@@ -558,10 +551,7 @@ name|void
 name|QmlCodeParser
 operator|::
 name|doneParsingSourceFiles
-parameter_list|(
-name|Tree
-modifier|*
-parameter_list|)
+parameter_list|()
 block|{ }
 end_function
 begin_comment

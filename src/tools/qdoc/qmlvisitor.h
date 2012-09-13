@@ -117,10 +117,6 @@ name|Engine
 operator|*
 name|engine
 argument_list|,
-name|Tree
-operator|*
-name|tree
-argument_list|,
 name|QSet
 operator|<
 name|QString

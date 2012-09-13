@@ -38,12 +38,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|"tree.h"
+file|<qdebug.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<qdebug.h>
+file|"qdocdatabase.h"
 end_include
 begin_include
 include|#
@@ -52,6 +52,7 @@ file|"puredocparser.h"
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
+comment|/*!   Constructs the pure doc parser. */
 DECL|function|PureDocParser
 name|PureDocParser
 operator|::
@@ -59,6 +60,9 @@ name|PureDocParser
 parameter_list|()
 block|{ }
 end_function
+begin_comment
+comment|/*!   Destroys the pure doc parser.  */
+end_comment
 begin_destructor
 DECL|function|~PureDocParser
 name|PureDocParser
@@ -68,6 +72,9 @@ name|PureDocParser
 parameter_list|()
 block|{ }
 end_destructor
+begin_comment
+comment|/*!   Returns a list of the kinds of files that the pure doc   parser is meant to parse. The elements of the list are   file suffixes.  */
+end_comment
 begin_function
 DECL|function|sourceFileNameFilter
 name|QStringList
@@ -91,7 +98,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Parse the source file identified by \a filePath and add its   parsed contents to the big \a tree. \a location is used for   reporting errors.  */
+comment|/*!   Parses the source file identified by \a filePath and adds its   parsed contents to the database. The \a location is used for   reporting errors.  */
 end_comment
 begin_function
 DECL|function|parseSourceFile
@@ -109,10 +116,6 @@ specifier|const
 name|QString
 modifier|&
 name|filePath
-parameter_list|,
-name|Tree
-modifier|*
-name|tree
 parameter_list|)
 block|{
 name|QFile
@@ -176,9 +179,7 @@ name|filePath
 argument_list|)
 expr_stmt|;
 name|reset
-argument_list|(
-name|tree
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|Location
 name|fileLocation
@@ -540,6 +541,18 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|Node
+modifier|*
+name|treeRoot
+init|=
+name|QDocDatabase
+operator|::
+name|qdocDB
+argument_list|()
+operator|->
+name|treeRoot
+argument_list|()
+decl_stmt|;
 name|NodeList
 operator|::
 name|Iterator
@@ -639,11 +652,13 @@ name|m
 operator|->
 name|parent
 argument_list|()
-operator|!=
-name|tree_
+operator|&&
+name|m
 operator|->
-name|root
+name|parent
 argument_list|()
+operator|!=
+name|treeRoot
 condition|)
 name|m
 operator|=

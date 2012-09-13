@@ -121,20 +121,12 @@ specifier|const
 name|QString
 operator|&
 name|filePath
-argument_list|,
-name|Tree
-operator|*
-name|tree
 argument_list|)
 block|;
 name|virtual
 name|void
 name|doneParsingSourceFiles
-argument_list|(
-name|Tree
-operator|*
-name|tree
-argument_list|)
+argument_list|()
 block|;
 comment|/* Copied from src/declarative/qml/qdeclarativescriptparser.cpp */
 name|void
