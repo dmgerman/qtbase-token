@@ -3533,11 +3533,14 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY
+argument_list|(
 name|QTest
 operator|::
-name|qWait
+name|qWaitForWindowActive
 argument_list|(
-literal|50
+name|menu
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -5043,7 +5046,7 @@ argument_list|(
 literal|30
 argument_list|)
 expr_stmt|;
-name|QCOMPARE
+name|QTRY_COMPARE
 argument_list|(
 name|action
 argument_list|,
@@ -5092,7 +5095,7 @@ argument_list|(
 literal|30
 argument_list|)
 expr_stmt|;
-name|QCOMPARE
+name|QTRY_COMPARE
 argument_list|(
 cast|static_cast
 argument_list|<
@@ -5109,7 +5112,7 @@ name|activeAction
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QTRY_VERIFY
 argument_list|(
 name|menu
 operator|.
