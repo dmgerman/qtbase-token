@@ -2808,13 +2808,7 @@ name|manifest_res
 expr_stmt|;
 name|t
 operator|<<
-literal|"\n\t"
-operator|<<
-literal|"@if not exist "
-operator|<<
-name|manifest_rc
-operator|<<
-literal|" echo 1 /* CREATEPROCESS_MANIFEST_RESOURCE_ID */ 24 /* RT_MANIFEST */ "
+literal|"\n\techo 1 /* CREATEPROCESS_MANIFEST_RESOURCE_ID */ 24 /* RT_MANIFEST */ "
 operator|<<
 literal|'"'
 operator|<<
