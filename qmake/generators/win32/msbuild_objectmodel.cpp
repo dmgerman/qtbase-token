@@ -5,12 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"msvc_objectmodel.h"
+file|"msbuild_objectmodel.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"msbuild_objectmodel.h"
+file|"msvc_objectmodel.h"
 end_include
 begin_include
 include|#
