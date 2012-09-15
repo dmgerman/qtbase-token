@@ -18,6 +18,11 @@ end_ifndef
 begin_include
 include|#
 directive|include
+file|"qfutureinterface_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/qatomic.h>
 end_include
 begin_include
@@ -34,11 +39,6 @@ begin_include
 include|#
 directive|include
 file|<private/qthreadpool_p.h>
-end_include
-begin_include
-include|#
-directive|include
-file|"qfutureinterface_p.h"
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
