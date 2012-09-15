@@ -1489,11 +1489,6 @@ block|{
 name|QTabBar
 name|tabBar
 decl_stmt|;
-name|QSKIP
-argument_list|(
-literal|"To be fixed on Mac (font size below not large enough) and Linux QWS (probably too large for the screen)."
-argument_list|)
-expr_stmt|;
 name|tabBar
 operator|.
 name|setFont
@@ -1587,6 +1582,20 @@ name|ElideNone
 argument_list|)
 expr_stmt|;
 comment|//    qDebug()<< tabBar.minimumSizeHint()<< tabBar.sizeHint();
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"QTBUG-27230"
+argument_list|,
+name|Abort
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QVERIFY
 argument_list|(
 name|tabBar
