@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QPIXMAPDATA_P_H
+name|QPLATFORMPIXMAP_H
 end_ifndef
 begin_define
-DECL|macro|QPIXMAPDATA_P_H
+DECL|macro|QPLATFORMPIXMAP_H
 define|#
 directive|define
-name|QPIXMAPDATA_P_H
+name|QPLATFORMPIXMAP_H
 end_define
 begin_comment
 comment|//
@@ -634,6 +634,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QPIXMAPDATA_P_H
+comment|// QPLATFORMPIXMAP_H
 end_comment
 end_unit

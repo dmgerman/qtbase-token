@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QDRAWHELPER_MIPS_P_H
+name|QDRAWHELPER_MIPS_DSP_P_H
 end_ifndef
 begin_define
-DECL|macro|QDRAWHELPER_MIPS_P_H
+DECL|macro|QDRAWHELPER_MIPS_DSP_P_H
 define|#
 directive|define
-name|QDRAWHELPER_MIPS_P_H
+name|QDRAWHELPER_MIPS_DSP_P_H
 end_define
 begin_include
 include|#
@@ -1110,6 +1110,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QDRAWHELPER_MIPS_P_H
+comment|// QDRAWHELPER_MIPS_DSP_P_H
 end_comment
 end_unit

@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QGRAPHICSCONTEXT_OPENGL2_P_H
+name|QPAINTENGINEEX_OPENGL2_P_H
 end_ifndef
 begin_define
-DECL|macro|QGRAPHICSCONTEXT_OPENGL2_P_H
+DECL|macro|QPAINTENGINEEX_OPENGL2_P_H
 define|#
 directive|define
-name|QGRAPHICSCONTEXT_OPENGL2_P_H
+name|QPAINTENGINEEX_OPENGL2_P_H
 end_define
 begin_comment
 comment|//
@@ -1229,4 +1229,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// QPAINTENGINEEX_OPENGL2_P_H
+end_comment
 end_unit

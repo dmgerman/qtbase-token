@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QPLATFORMWINDOW_QPA_P_H
+name|QPLATFORMWINDOW_P_H
 end_ifndef
 begin_define
-DECL|macro|QPLATFORMWINDOW_QPA_P_H
+DECL|macro|QPLATFORMWINDOW_P_H
 define|#
 directive|define
-name|QPLATFORMWINDOW_QPA_P_H
+name|QPLATFORMWINDOW_P_H
 end_define
 begin_comment
 comment|//
@@ -70,6 +70,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QPLATFORMWINDOW_QPA_P_H
+comment|// QPLATFORMWINDOW_P_H
 end_comment
 end_unit

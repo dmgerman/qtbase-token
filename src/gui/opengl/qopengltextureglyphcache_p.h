@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QOPENTEXTUREGLYPHCACHE_P_H
+name|QOPENGLTEXTUREGLYPHCACHE_P_H
 end_ifndef
 begin_define
-DECL|macro|QOPENTEXTUREGLYPHCACHE_P_H
+DECL|macro|QOPENGLTEXTUREGLYPHCACHE_P_H
 define|#
 directive|define
-name|QOPENTEXTUREGLYPHCACHE_P_H
+name|QOPENGLTEXTUREGLYPHCACHE_P_H
 end_define
 begin_comment
 comment|//
@@ -549,4 +549,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// QOPENGLTEXTUREGLYPHCACHE_P_H
+end_comment
 end_unit

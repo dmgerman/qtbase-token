@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_MIPS_DSP_H__
+name|QT_MIPS_ASM_DSP_H
 end_ifndef
 begin_define
-DECL|macro|QT_MIPS_DSP_H__
+DECL|macro|QT_MIPS_ASM_DSP_H
 define|#
 directive|define
-name|QT_MIPS_DSP_H__
+name|QT_MIPS_ASM_DSP_H
 end_define
 begin_define
 DECL|macro|zero
@@ -1014,6 +1014,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|//QT_MIPS_DSP_H__
+comment|// QT_MIPS_ASM_DSP_H
 end_comment
 end_unit

@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QGUIGLCONTEXT_P_H
+name|QOPENGLCONTEXT_P_H
 end_ifndef
 begin_define
-DECL|macro|QGUIGLCONTEXT_P_H
+DECL|macro|QOPENGLCONTEXT_P_H
 define|#
 directive|define
-name|QGUIGLCONTEXT_P_H
+name|QOPENGLCONTEXT_P_H
 end_define
 begin_ifndef
 ifndef|#
@@ -792,6 +792,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QGUIGLCONTEXT_P_H
+comment|// QOPENGLCONTEXT_P_H
 end_comment
 end_unit

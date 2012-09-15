@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QPLATFORMSCREEN_QPA_P_H
+name|QPLATFORMSCREEN_P_H
 end_ifndef
 begin_define
-DECL|macro|QPLATFORMSCREEN_QPA_P_H
+DECL|macro|QPLATFORMSCREEN_P_H
 define|#
 directive|define
-name|QPLATFORMSCREEN_QPA_P_H
+name|QPLATFORMSCREEN_P_H
 end_define
 begin_comment
 comment|//
@@ -67,6 +67,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QPLATFORMSCREEN_QPA_P_H
+comment|// QPLATFORMSCREEN_P_H
 end_comment
 end_unit

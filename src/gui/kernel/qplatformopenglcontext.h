@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QPLATFORMGLCONTEXT_H
+name|QPLATFORMOPENGLCONTEXT_H
 end_ifndef
 begin_define
-DECL|macro|QPLATFORMGLCONTEXT_H
+DECL|macro|QPLATFORMOPENGLCONTEXT_H
 define|#
 directive|define
-name|QPLATFORMGLCONTEXT_H
+name|QPLATFORMOPENGLCONTEXT_H
 end_define
 begin_comment
 comment|//
@@ -219,6 +219,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QPLATFORMGLCONTEXT_H
+comment|// QPLATFORMOPENGLCONTEXT_H
 end_comment
 end_unit
