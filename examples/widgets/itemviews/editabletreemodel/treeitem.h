@@ -37,6 +37,7 @@ name|TreeItem
 block|{
 name|public
 label|:
+name|explicit
 name|TreeItem
 argument_list|(
 specifier|const
@@ -53,7 +54,7 @@ name|parent
 operator|=
 literal|0
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 operator|~
 name|TreeItem
 argument_list|()

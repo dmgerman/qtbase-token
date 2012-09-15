@@ -51,6 +51,7 @@ block|,
 name|Center
 block|}
 block|;
+name|explicit
 name|BorderLayout
 argument_list|(
 argument|QWidget *parent

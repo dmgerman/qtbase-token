@@ -95,6 +95,7 @@ block|,
 name|MoveItem
 block|}
 block|;
+name|explicit
 name|DiagramScene
 argument_list|(
 name|QMenu

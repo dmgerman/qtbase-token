@@ -33,6 +33,7 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+name|explicit
 name|CustomProxy
 argument_list|(
 argument|QGraphicsItem *parent =

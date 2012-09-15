@@ -94,18 +94,25 @@ block|{
 name|public
 label|:
 comment|// 0< r< 0.5, 0<= n<= 125
+name|explicit
 name|GLRoundedBox
-argument_list|(
-argument|float r =
+parameter_list|(
+name|float
+name|r
+init|=
 literal|0.25f
-argument_list|,
-argument|float scale =
+parameter_list|,
+name|float
+name|scale
+init|=
 literal|1.0f
-argument_list|,
-argument|int n =
+parameter_list|,
+name|int
+name|n
+init|=
 literal|10
-argument_list|)
-empty_stmt|;
+parameter_list|)
+function_decl|;
 block|}
 end_decl_stmt
 begin_empty_stmt

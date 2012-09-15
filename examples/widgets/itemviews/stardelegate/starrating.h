@@ -45,15 +45,20 @@ block|,
 name|ReadOnly
 block|}
 enum|;
+name|explicit
 name|StarRating
-argument_list|(
-argument|int starCount =
+parameter_list|(
+name|int
+name|starCount
+init|=
 literal|1
-argument_list|,
-argument|int maxStarCount =
+parameter_list|,
+name|int
+name|maxStarCount
+init|=
 literal|5
-argument_list|)
-empty_stmt|;
+parameter_list|)
+function_decl|;
 name|void
 name|paint
 argument_list|(

@@ -47,6 +47,7 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+name|explicit
 name|TreeModel
 argument_list|(
 specifier|const

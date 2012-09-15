@@ -40,6 +40,7 @@ name|QLayout
 block|{
 name|public
 operator|:
+name|explicit
 name|FlowLayout
 argument_list|(
 argument|QWidget *parent
@@ -54,6 +55,7 @@ argument|int vSpacing = -
 literal|1
 argument_list|)
 block|;
+name|explicit
 name|FlowLayout
 argument_list|(
 argument|int margin = -

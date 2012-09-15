@@ -309,17 +309,23 @@ block|,
 name|tl
 block|}
 enum|;
+name|explicit
 name|TileBuilder
-argument_list|(
-argument|Geometry *
-argument_list|,
-argument|qreal depth =
+parameter_list|(
+name|Geometry
+modifier|*
+parameter_list|,
+name|qreal
+name|depth
+init|=
 literal|0.0f
-argument_list|,
-argument|qreal size =
+parameter_list|,
+name|qreal
+name|size
+init|=
 literal|1.0f
-argument_list|)
-empty_stmt|;
+parameter_list|)
+function_decl|;
 name|Tile
 modifier|*
 name|newTile
@@ -552,6 +558,7 @@ name|TileBuilder
 block|{
 name|public
 operator|:
+name|explicit
 name|CubeBuilder
 argument_list|(
 argument|Geometry *

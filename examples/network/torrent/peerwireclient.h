@@ -163,6 +163,7 @@ argument|PeerWireState
 argument_list|,
 argument|PeerWireStateFlag
 argument_list|)
+name|explicit
 name|PeerWireClient
 argument_list|(
 specifier|const

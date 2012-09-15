@@ -46,6 +46,7 @@ name|QObject
 block|{
 name|public
 operator|:
+name|explicit
 name|QtLogo
 argument_list|(
 argument|QObject *parent

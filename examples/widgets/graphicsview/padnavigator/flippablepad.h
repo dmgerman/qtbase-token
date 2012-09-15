@@ -45,6 +45,7 @@ name|RoundRectItem
 block|{
 name|public
 operator|:
+name|explicit
 name|FlippablePad
 argument_list|(
 specifier|const

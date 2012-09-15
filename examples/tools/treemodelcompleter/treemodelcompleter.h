@@ -35,6 +35,7 @@ argument|QString separator READ separator WRITE setSeparator
 argument_list|)
 name|public
 operator|:
+name|explicit
 name|TreeModelCompleter
 argument_list|(
 name|QObject
@@ -44,6 +45,7 @@ operator|=
 literal|0
 argument_list|)
 block|;
+name|explicit
 name|TreeModelCompleter
 argument_list|(
 name|QAbstractItemModel

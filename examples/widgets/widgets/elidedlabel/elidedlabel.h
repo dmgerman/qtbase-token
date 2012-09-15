@@ -59,6 +59,7 @@ argument|bool isElided READ isElided
 argument_list|)
 name|public
 operator|:
+name|explicit
 name|ElidedLabel
 argument_list|(
 specifier|const

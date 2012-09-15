@@ -115,6 +115,7 @@ name|QUndoCommand
 block|{
 name|public
 operator|:
+name|explicit
 name|DeleteCommand
 argument_list|(
 name|QGraphicsScene

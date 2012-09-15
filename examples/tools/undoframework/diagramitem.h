@@ -69,6 +69,7 @@ block|,
 name|Triangle
 block|}
 block|;
+name|explicit
 name|DiagramItem
 argument_list|(
 argument|DiagramType diagramType

@@ -49,6 +49,7 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+name|explicit
 name|GeneralTab
 argument_list|(
 specifier|const
@@ -81,6 +82,7 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+name|explicit
 name|PermissionsTab
 argument_list|(
 specifier|const
@@ -113,6 +115,7 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+name|explicit
 name|ApplicationsTab
 argument_list|(
 specifier|const
@@ -145,6 +148,7 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+name|explicit
 name|TabDialog
 argument_list|(
 specifier|const

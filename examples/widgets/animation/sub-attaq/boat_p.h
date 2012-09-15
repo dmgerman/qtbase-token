@@ -454,6 +454,7 @@ name|QState
 block|{
 name|public
 operator|:
+name|explicit
 name|MoveStateRight
 argument_list|(
 name|Boat
@@ -519,6 +520,7 @@ name|QState
 block|{
 name|public
 operator|:
+name|explicit
 name|MoveStateLeft
 argument_list|(
 name|Boat
@@ -584,6 +586,7 @@ name|QState
 block|{
 name|public
 operator|:
+name|explicit
 name|StopState
 argument_list|(
 name|Boat
@@ -656,6 +659,7 @@ name|QState
 block|{
 name|public
 operator|:
+name|explicit
 name|LaunchStateRight
 argument_list|(
 name|Boat
@@ -782,6 +786,7 @@ name|QState
 block|{
 name|public
 operator|:
+name|explicit
 name|LaunchStateLeft
 argument_list|(
 name|Boat

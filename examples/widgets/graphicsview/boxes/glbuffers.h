@@ -228,6 +228,7 @@ argument_list|,
 argument|int height
 argument_list|)
 block|;
+name|explicit
 name|GLTexture2D
 argument_list|(
 argument|const QString& fileName
@@ -319,6 +320,7 @@ argument_list|(
 argument|int size
 argument_list|)
 block|;
+name|explicit
 name|GLTextureCube
 argument_list|(
 argument|const QStringList& fileNames

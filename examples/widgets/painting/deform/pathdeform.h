@@ -63,6 +63,7 @@ argument|QString text READ text WRITE setText
 argument_list|)
 name|public
 operator|:
+name|explicit
 name|PathDeformRenderer
 argument_list|(
 argument|QWidget *widget

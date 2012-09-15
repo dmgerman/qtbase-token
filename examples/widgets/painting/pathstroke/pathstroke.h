@@ -49,6 +49,7 @@ block|,
 name|LineMode
 block|}
 block|;
+name|explicit
 name|PathStrokeRenderer
 argument_list|(
 argument|QWidget *parent

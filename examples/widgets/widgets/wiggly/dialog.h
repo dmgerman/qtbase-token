@@ -31,6 +31,7 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+name|explicit
 name|Dialog
 argument_list|(
 argument|QWidget *parent =

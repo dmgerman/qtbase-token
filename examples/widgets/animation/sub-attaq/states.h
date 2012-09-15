@@ -76,6 +76,7 @@ name|QState
 block|{
 name|public
 operator|:
+name|explicit
 name|PlayState
 argument_list|(
 name|GraphicsScene
@@ -212,6 +213,7 @@ name|QState
 block|{
 name|public
 operator|:
+name|explicit
 name|PauseState
 argument_list|(
 name|GraphicsScene

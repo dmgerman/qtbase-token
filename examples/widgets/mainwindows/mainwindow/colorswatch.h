@@ -127,6 +127,7 @@ name|windowModifiedAction
 block|;
 name|public
 operator|:
+name|explicit
 name|ColorSwatch
 argument_list|(
 argument|const QString&colorName

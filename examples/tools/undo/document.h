@@ -47,15 +47,32 @@ block|,
 name|Triangle
 block|}
 enum|;
+name|explicit
 name|Shape
-argument_list|(
-argument|Type type = Rectangle
-argument_list|,
-argument|const QColor&color = Qt::red
-argument_list|,
-argument|const QRect&rect = QRect()
-argument_list|)
-empty_stmt|;
+parameter_list|(
+name|Type
+name|type
+init|=
+name|Rectangle
+parameter_list|,
+specifier|const
+name|QColor
+modifier|&
+name|color
+init|=
+name|Qt
+operator|::
+name|red
+parameter_list|,
+specifier|const
+name|QRect
+modifier|&
+name|rect
+init|=
+name|QRect
+argument_list|()
+parameter_list|)
+function_decl|;
 name|Type
 name|type
 argument_list|()
