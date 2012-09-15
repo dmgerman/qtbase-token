@@ -10,6 +10,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qnetworksession_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qbearerengine_p.h"
 end_include
 begin_include
@@ -36,11 +41,6 @@ begin_include
 include|#
 directive|include
 file|"qnetworkconfigmanager_p.h"
-end_include
-begin_include
-include|#
-directive|include
-file|"qnetworksession_p.h"
 end_include
 begin_ifndef
 ifndef|#

@@ -32,12 +32,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qsslcipher.h"
+file|"qsslsocket.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"qsslsocket.h"
+file|"qsslcipher.h"
 end_include
 begin_include
 include|#

@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QNETWORKCONFIGURATIONMANAGER_H
+name|QNETWORKCONFIGMANAGER_H
 end_ifndef
 begin_define
-DECL|macro|QNETWORKCONFIGURATIONMANAGER_H
+DECL|macro|QNETWORKCONFIGMANAGER_H
 define|#
 directive|define
-name|QNETWORKCONFIGURATIONMANAGER_H
+name|QNETWORKCONFIGMANAGER_H
 end_define
 begin_include
 include|#
@@ -212,6 +212,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QNETWORKCONFIGURATIONMANAGER_H
+comment|// QNETWORKCONFIGMANAGER_H
 end_comment
 end_unit

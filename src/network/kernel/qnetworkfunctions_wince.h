@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|Q_NETWORK_FUNCTIONS_WCE_H
+name|QNETWORKFUNCTIONS_WINCE_H
 end_ifndef
 begin_define
-DECL|macro|Q_NETWORK_FUNCTIONS_WCE_H
+DECL|macro|QNETWORKFUNCTIONS_WINCE_H
 define|#
 directive|define
-name|Q_NETWORK_FUNCTIONS_WCE_H
+name|QNETWORKFUNCTIONS_WINCE_H
 end_define
 begin_ifdef
 ifdef|#
@@ -254,6 +254,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// Q_NETWORK_FUNCTIONS_WCE_H
+comment|// QNETWORKFUNCTIONS_WINCE_H
 end_comment
 end_unit

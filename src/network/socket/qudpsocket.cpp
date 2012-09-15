@@ -11,6 +11,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|"qudpsocket.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qhostaddress.h"
 end_include
 begin_include
@@ -22,11 +27,6 @@ begin_include
 include|#
 directive|include
 file|"qabstractsocket_p.h"
-end_include
-begin_include
-include|#
-directive|include
-file|"qudpsocket.h"
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE

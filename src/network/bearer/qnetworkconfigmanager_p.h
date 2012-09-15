@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QNETWORKCONFIGURATIONMANAGERPRIVATE_H
+name|QNETWORKCONFIGMANAGER_P_H
 end_ifndef
 begin_define
-DECL|macro|QNETWORKCONFIGURATIONMANAGERPRIVATE_H
+DECL|macro|QNETWORKCONFIGMANAGER_P_H
 define|#
 directive|define
-name|QNETWORKCONFIGURATIONMANAGERPRIVATE_H
+name|QNETWORKCONFIGMANAGER_P_H
 end_define
 begin_comment
 comment|//
@@ -321,6 +321,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QNETWORKCONFIGURATIONMANAGERPRIVATE_H
+comment|// QNETWORKCONFMANAGER_P_H
 end_comment
 end_unit

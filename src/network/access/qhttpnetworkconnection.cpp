@@ -5,12 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<private/qabstractsocket_p.h>
+file|"qhttpnetworkconnection_p.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"qhttpnetworkconnection_p.h"
+file|<private/qabstractsocket_p.h>
 end_include
 begin_include
 include|#

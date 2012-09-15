@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QSSLCERTIFICATEEXTESNION_P_H
+name|QSSLCERTIFICATEEXTENSION_P_H
 end_ifndef
 begin_define
-DECL|macro|QSSLCERTIFICATEEXTESNION_P_H
+DECL|macro|QSSLCERTIFICATEEXTENSION_P_H
 define|#
 directive|define
-name|QSSLCERTIFICATEEXTESNION_P_H
+name|QSSLCERTIFICATEEXTENSION_P_H
 end_define
 begin_include
 include|#
@@ -67,6 +67,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QSSLCERTIFICATEEXTESNION_P_H
+comment|// QSSLCERTIFICATEEXTENSION_P_H
 end_comment
 end_unit

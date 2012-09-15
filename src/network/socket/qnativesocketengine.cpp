@@ -11,6 +11,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|"qnativesocketengine_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<qabstracteventdispatcher.h>
 end_include
 begin_include
@@ -22,11 +27,6 @@ begin_include
 include|#
 directive|include
 file|<qnetworkinterface.h>
-end_include
-begin_include
-include|#
-directive|include
-file|"qnativesocketengine_p.h"
 end_include
 begin_include
 include|#

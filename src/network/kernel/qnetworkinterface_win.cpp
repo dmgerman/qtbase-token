@@ -5,6 +5,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|"qnetworkinterface_win_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qnetworkinterface.h"
 end_include
 begin_include
@@ -17,11 +22,6 @@ ifndef|#
 directive|ifndef
 name|QT_NO_NETWORKINTERFACE
 end_ifndef
-begin_include
-include|#
-directive|include
-file|"qnetworkinterface_win_p.h"
-end_include
 begin_include
 include|#
 directive|include

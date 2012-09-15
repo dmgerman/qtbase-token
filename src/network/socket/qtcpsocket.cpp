@@ -11,7 +11,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qlist.h"
+file|"qtcpsocket.h"
 end_include
 begin_include
 include|#
@@ -21,7 +21,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qtcpsocket.h"
+file|"qlist.h"
 end_include
 begin_include
 include|#

@@ -14,6 +14,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|"qtcpserver.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"private/qobject_p.h"
 end_include
 begin_include
@@ -40,11 +45,6 @@ begin_include
 include|#
 directive|include
 file|"qabstractsocketengine_p.h"
-end_include
-begin_include
-include|#
-directive|include
-file|"qtcpserver.h"
 end_include
 begin_include
 include|#
