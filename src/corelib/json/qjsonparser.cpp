@@ -1305,7 +1305,12 @@ literal|0
 init|;
 name|i
 operator|<
-name|tableSize
+name|parsedObject
+operator|.
+name|offsets
+operator|.
+name|size
+argument_list|()
 condition|;
 operator|++
 name|i
