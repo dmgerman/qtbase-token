@@ -1397,7 +1397,7 @@ expr_stmt|;
 name|xcb_atom_t
 name|properties
 index|[
-literal|4
+literal|5
 index|]
 decl_stmt|;
 name|int
