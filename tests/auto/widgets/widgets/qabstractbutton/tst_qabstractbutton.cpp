@@ -2368,12 +2368,14 @@ block|{
 name|QKeySequence
 name|sequence
 decl_stmt|;
+comment|// Default shortcutId for QAbstractButton is 0, so the shortcut event will work.
 name|QShortcutEvent
 name|event
 argument_list|(
 name|sequence
 argument_list|,
-literal|false
+comment|/*shortcutId*/
+literal|0
 argument_list|)
 decl_stmt|;
 name|QApplication
