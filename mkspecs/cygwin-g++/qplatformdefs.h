@@ -155,6 +155,13 @@ undef|#
 directive|undef
 name|QT_OPEN_LARGEFILE
 end_undef
+begin_define
+DECL|macro|QT_OPEN_LARGEFILE
+define|#
+directive|define
+name|QT_OPEN_LARGEFILE
+value|0
+end_define
 begin_if
 if|#
 directive|if
