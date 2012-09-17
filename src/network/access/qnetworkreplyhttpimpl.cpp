@@ -9309,11 +9309,13 @@ name|bytesDownloaded
 condition|)
 block|{
 name|qDebug
-argument_list|(
-literal|"setCachingEnabled: %lld bytesDownloaded"
-argument_list|,
+argument_list|()
+operator|<<
+literal|"setCachingEnabled: "
+operator|<<
 name|bytesDownloaded
-argument_list|)
+operator|<<
+literal|" bytesDownloaded"
 expr_stmt|;
 comment|// refuse to enable in this case
 name|qCritical
