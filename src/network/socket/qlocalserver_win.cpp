@@ -540,7 +540,9 @@ directive|endif
 name|SID_IDENTIFIER_AUTHORITY
 name|WorldAuth
 init|=
+block|{
 name|SECURITY_WORLD_SID_AUTHORITY
+block|}
 decl_stmt|;
 if|if
 condition|(
