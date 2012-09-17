@@ -50,6 +50,7 @@ DECL|macro|NOMINMAX
 define|#
 directive|define
 name|NOMINMAX
+value|1
 end_define
 begin_if
 if|#
