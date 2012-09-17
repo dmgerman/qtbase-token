@@ -1490,6 +1490,7 @@ name|filter
 operator|=
 name|table_filter
 expr_stmt|;
+block|{
 name|QSqlQuery
 name|q
 argument_list|(
@@ -1543,6 +1544,7 @@ name|record
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 emit|emit
 name|headerDataChanged
 argument_list|(
