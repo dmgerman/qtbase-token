@@ -717,6 +717,34 @@ argument_list|(
 argument|const QUrl&uri
 argument_list|)
 block|{
+if|if
+condition|(
+operator|!
+name|uri
+operator|.
+name|isValid
+argument_list|()
+condition|)
+return|return
+name|qstrdup
+argument_list|(
+name|QByteArray
+argument_list|(
+literal|"Invalid URL: "
+operator|+
+name|uri
+operator|.
+name|errorString
+argument_list|()
+operator|.
+name|toLatin1
+argument_list|()
+argument_list|)
+operator|.
+name|constData
+argument_list|()
+argument_list|)
+return|;
 return|return
 name|qstrdup
 argument_list|(
@@ -730,6 +758,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+end_decl_stmt
+begin_expr_stmt
 name|template
 operator|<
 operator|>
@@ -792,6 +822,8 @@ argument_list|(
 name|type
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+begin_if
 if|if
 condition|(
 operator|!
@@ -848,14 +880,17 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-name|vstring
+end_if
+begin_expr_stmt
+unit|}     vstring
 operator|.
 name|append
 argument_list|(
 literal|')'
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+begin_return
 return|return
 name|qstrdup
 argument_list|(
@@ -865,10 +900,9 @@ name|constData
 argument_list|()
 argument_list|)
 return|;
-block|}
-end_decl_stmt
+end_return
 begin_expr_stmt
-name|template
+unit|}  template
 operator|<
 operator|>
 specifier|inline
