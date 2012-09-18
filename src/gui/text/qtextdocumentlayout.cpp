@@ -6508,7 +6508,9 @@ expr_stmt|;
 block|}
 name|rowIt
 operator|=
-name|qUpperBound
+name|std
+operator|::
+name|upper_bound
 argument_list|(
 name|td
 operator|->

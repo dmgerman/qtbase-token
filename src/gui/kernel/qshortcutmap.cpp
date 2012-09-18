@@ -557,7 +557,9 @@ operator|::
 name|iterator
 name|it
 init|=
-name|qUpperBound
+name|std
+operator|::
+name|upper_bound
 argument_list|(
 name|d
 operator|->

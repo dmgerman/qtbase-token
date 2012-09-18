@@ -86,6 +86,11 @@ include|#
 directive|include
 file|"private/qobject_p.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QAbstractEventDispatcher
@@ -335,7 +340,9 @@ operator|::
 name|iterator
 name|at
 operator|=
-name|qUpperBound
+name|std
+operator|::
+name|upper_bound
 argument_list|(
 name|begin
 argument_list|()

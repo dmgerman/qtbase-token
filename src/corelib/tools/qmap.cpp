@@ -2139,7 +2139,7 @@ begin_comment
 comment|/*! \fn QMap::const_iterator QMap::lowerBound(const Key&key) const      \overload */
 end_comment
 begin_comment
-comment|/*! \fn QMap::iterator QMap::upperBound(const Key&key)      Returns an iterator pointing to the item that immediately follows     the last item with key \a key in the map. If the map contains no     item with key \a key, the function returns an iterator to the     nearest item with a greater key.      Example:     \snippet code/src_corelib_tools_qmap.cpp 17      \sa qUpperBound(), lowerBound(), find() */
+comment|/*! \fn QMap::iterator QMap::upperBound(const Key&key)      Returns an iterator pointing to the item that immediately follows     the last item with key \a key in the map. If the map contains no     item with key \a key, the function returns an iterator to the     nearest item with a greater key.      Example:     \snippet code/src_corelib_tools_qmap.cpp 17      \sa lowerBound(), find() */
 end_comment
 begin_comment
 comment|/*! \fn QMap::const_iterator QMap::upperBound(const Key&key) const      \overload */

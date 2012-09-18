@@ -100,6 +100,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<algorithm>
+end_include
+begin_include
+include|#
+directive|include
 file|<stdlib.h>
 end_include
 begin_include
@@ -15130,7 +15135,9 @@ name|QScriptItem
 modifier|*
 name|it
 init|=
-name|qUpperBound
+name|std
+operator|::
+name|upper_bound
 argument_list|(
 name|layoutData
 operator|->
@@ -16567,7 +16574,9 @@ name|currentFormats
 operator|.
 name|insert
 argument_list|(
-name|qUpperBound
+name|std
+operator|::
+name|upper_bound
 argument_list|(
 name|currentFormats
 operator|.

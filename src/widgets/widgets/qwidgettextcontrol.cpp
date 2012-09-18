@@ -7869,7 +7869,9 @@ operator|::
 name|ConstIterator
 name|lastFrame
 init|=
-name|qUpperBound
+name|std
+operator|::
+name|upper_bound
 argument_list|(
 name|children
 operator|.
