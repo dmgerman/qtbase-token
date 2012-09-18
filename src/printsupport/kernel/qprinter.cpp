@@ -5,12 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qprinter_p.h"
+file|"qprinter.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"qprinter.h"
+file|"qprinter_p.h"
 end_include
 begin_ifndef
 ifndef|#

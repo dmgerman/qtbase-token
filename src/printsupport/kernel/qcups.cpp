@@ -5,12 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<qdebug.h>
+file|"qcups_p.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"qcups_p.h"
+file|<qdebug.h>
 end_include
 begin_ifndef
 ifndef|#
