@@ -21,12 +21,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QList>
+file|<qlist.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QSet>
+file|<qset.h>
 end_include
 begin_include
 include|#

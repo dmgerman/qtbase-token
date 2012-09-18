@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QRegExp>
+file|<qregexp.h>
 end_include
 begin_include
 include|#

@@ -20,12 +20,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QHash>
+file|<qhash.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QDebug>
+file|<qdebug.h>
 end_include
 begin_macro
 name|QT_QML_BEGIN_NAMESPACE

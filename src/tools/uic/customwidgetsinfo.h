@@ -21,12 +21,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/QStringList>
+file|<qstringlist.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/QMap>
+file|<qmap.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE

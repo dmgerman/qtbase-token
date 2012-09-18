@@ -8,7 +8,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QDomDocument>
+file|<qdom.h>
 end_include
 begin_include
 include|#

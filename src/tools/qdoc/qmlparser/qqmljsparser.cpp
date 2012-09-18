@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtCore/QtDebug>
+file|<qdebug.h>
 end_include
 begin_ifdef
 ifdef|#
@@ -31,7 +31,7 @@ end_else
 begin_include
 include|#
 directive|include
-file|<QtCore/QCoreApplication>
+file|<qcoreapplication.h>
 end_include
 begin_define
 DECL|macro|tr
@@ -82,7 +82,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QVarLengthArray>
+file|<qvarlengtharray.h>
 end_include
 begin_comment
 comment|//

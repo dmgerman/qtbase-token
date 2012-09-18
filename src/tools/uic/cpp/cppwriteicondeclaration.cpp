@@ -25,7 +25,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/QTextStream>
+file|<qtextstream.h>
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE

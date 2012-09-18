@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QStack>
+file|<qstack.h>
 end_include
 begin_include
 include|#

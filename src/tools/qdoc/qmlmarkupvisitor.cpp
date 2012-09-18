@@ -5,12 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QStringList>
+file|<qstringlist.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGlobal>
+file|<qglobal.h>
 end_include
 begin_include
 include|#

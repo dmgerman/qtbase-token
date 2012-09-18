@@ -16,12 +16,12 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtCore/QString>
+file|<qstring.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/QDir>
+file|<qdir.h>
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE

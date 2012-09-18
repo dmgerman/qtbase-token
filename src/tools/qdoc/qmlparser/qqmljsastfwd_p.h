@@ -21,7 +21,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/qglobal.h>
+file|<qglobal.h>
 end_include
 begin_comment
 comment|//

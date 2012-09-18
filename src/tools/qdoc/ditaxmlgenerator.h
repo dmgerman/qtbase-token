@@ -26,7 +26,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QXmlStreamWriter>
+file|<qxmlstream.h>
 end_include
 begin_include
 include|#

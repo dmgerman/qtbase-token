@@ -20,12 +20,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/QFileInfo>
+file|<qfileinfo.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/QDebug>
+file|<qdebug.h>
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE

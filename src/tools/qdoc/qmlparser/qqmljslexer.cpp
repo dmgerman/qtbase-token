@@ -41,7 +41,7 @@ end_else
 begin_include
 include|#
 directive|include
-file|<QtCore/QCoreApplication>
+file|<qcoreapplication.h>
 end_include
 begin_define
 DECL|macro|tr
@@ -62,12 +62,12 @@ end_endif
 begin_include
 include|#
 directive|include
-file|<QtCore/QVarLengthArray>
+file|<qvarlengtharray.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/QDebug>
+file|<qdebug.h>
 end_include
 begin_function_decl
 name|QT_BEGIN_NAMESPACE

@@ -73,7 +73,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QUuid>
+file|<quuid.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE

@@ -19,12 +19,12 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QSet>
+file|<qset.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QString>
+file|<qstring.h>
 end_include
 begin_function_decl
 name|QT_BEGIN_NAMESPACE

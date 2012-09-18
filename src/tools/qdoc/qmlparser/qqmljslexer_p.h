@@ -56,7 +56,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/QString>
+file|<qstring.h>
 end_include
 begin_decl_stmt
 name|QT_QML_BEGIN_NAMESPACE

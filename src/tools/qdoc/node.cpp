@@ -25,7 +25,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QUuid>
+file|<quuid.h>
 end_include
 begin_include
 include|#

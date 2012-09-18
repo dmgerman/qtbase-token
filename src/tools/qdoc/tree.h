@@ -24,12 +24,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QDomElement>
+file|<qdom.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QXmlStreamWriter>
+file|<qxmlstream.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE

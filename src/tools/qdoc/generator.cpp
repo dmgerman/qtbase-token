@@ -8,12 +8,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QDir>
+file|<qdir.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QDebug>
+file|<qdebug.h>
 end_include
 begin_include
 include|#

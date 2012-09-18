@@ -7,11 +7,6 @@ include|#
 directive|include
 file|"qdbusunixfiledescriptor.h"
 end_include
-begin_include
-include|#
-directive|include
-file|<QSharedData>
-end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
