@@ -97,6 +97,11 @@ include|#
 directive|include
 file|"private/qfunctions_p.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_comment
 comment|// #define LAYOUT_DEBUG
 end_comment
@@ -2722,7 +2727,9 @@ operator|::
 name|ConstIterator
 name|checkPoint
 init|=
-name|qLowerBound
+name|std
+operator|::
+name|lower_bound
 argument_list|(
 name|checkPoints
 operator|.
@@ -3829,7 +3836,9 @@ operator|::
 name|ConstIterator
 name|rowIt
 init|=
-name|qLowerBound
+name|std
+operator|::
+name|lower_bound
 argument_list|(
 name|td
 operator|->
@@ -3899,7 +3908,9 @@ operator|::
 name|ConstIterator
 name|colIt
 init|=
-name|qLowerBound
+name|std
+operator|::
+name|lower_bound
 argument_list|(
 name|td
 operator|->
@@ -6423,7 +6434,9 @@ operator|::
 name|ConstIterator
 name|rowIt
 init|=
-name|qLowerBound
+name|std
+operator|::
+name|lower_bound
 argument_list|(
 name|td
 operator|->
@@ -7640,7 +7653,9 @@ condition|)
 block|{
 name|lastVisibleCheckPoint
 operator|=
-name|qLowerBound
+name|std
+operator|::
+name|lower_bound
 argument_list|(
 name|checkPoints
 operator|.
@@ -14729,7 +14744,9 @@ operator|::
 name|Iterator
 name|checkPoint
 init|=
-name|qLowerBound
+name|std
+operator|::
+name|lower_bound
 argument_list|(
 name|checkPoints
 operator|.

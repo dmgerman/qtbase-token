@@ -42,6 +42,11 @@ include|#
 directive|include
 file|<private/qkeymapper_p.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -1816,7 +1821,9 @@ operator|::
 name|ConstIterator
 name|it
 init|=
-name|qLowerBound
+name|std
+operator|::
+name|lower_bound
 argument_list|(
 name|d
 operator|->
@@ -2085,7 +2092,9 @@ operator|::
 name|ConstIterator
 name|it
 init|=
-name|qLowerBound
+name|std
+operator|::
+name|lower_bound
 argument_list|(
 name|d
 operator|->

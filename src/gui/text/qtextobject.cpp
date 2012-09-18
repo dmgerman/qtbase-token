@@ -52,6 +52,11 @@ include|#
 directive|include
 file|"qdebug.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
@@ -484,7 +489,9 @@ operator|::
 name|Iterator
 name|it
 init|=
-name|qLowerBound
+name|std
+operator|::
+name|lower_bound
 argument_list|(
 name|d
 operator|->

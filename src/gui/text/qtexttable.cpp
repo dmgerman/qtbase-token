@@ -40,6 +40,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<algorithm>
+end_include
+begin_include
+include|#
+directive|include
 file|<stdlib.h>
 end_include
 begin_function
@@ -1319,7 +1324,9 @@ operator|::
 name|Iterator
 name|it
 init|=
-name|qLowerBound
+name|std
+operator|::
+name|lower_bound
 argument_list|(
 name|cells
 operator|.
@@ -2070,7 +2077,9 @@ operator|::
 name|ConstIterator
 name|it
 init|=
-name|qLowerBound
+name|std
+operator|::
+name|lower_bound
 argument_list|(
 name|d
 operator|->

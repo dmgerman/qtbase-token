@@ -27,6 +27,11 @@ include|#
 directive|include
 file|<private/qtablewidget_p.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
@@ -4000,7 +4005,9 @@ operator|::
 name|AscendingOrder
 condition|)
 return|return
-name|qLowerBound
+name|std
+operator|::
+name|lower_bound
 argument_list|(
 name|begin
 argument_list|,
@@ -4013,7 +4020,9 @@ argument_list|()
 argument_list|)
 return|;
 return|return
-name|qLowerBound
+name|std
+operator|::
+name|lower_bound
 argument_list|(
 name|begin
 argument_list|,

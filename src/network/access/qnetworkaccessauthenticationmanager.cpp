@@ -42,6 +42,11 @@ include|#
 directive|include
 file|"QtNetwork/qauthenticator.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
@@ -96,7 +101,9 @@ block|{
 name|iterator
 name|it
 init|=
-name|qLowerBound
+name|std
+operator|::
+name|lower_bound
 argument_list|(
 name|begin
 argument_list|()

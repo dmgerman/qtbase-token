@@ -250,6 +250,11 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 comment|// could go into QTextCursor...
@@ -7832,7 +7837,9 @@ operator|::
 name|ConstIterator
 name|firstFrame
 init|=
-name|qLowerBound
+name|std
+operator|::
+name|lower_bound
 argument_list|(
 name|children
 operator|.

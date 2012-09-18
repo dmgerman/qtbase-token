@@ -82,6 +82,11 @@ include|#
 directive|include
 file|"qdbusvirtualobject.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -1052,7 +1057,9 @@ name|it
 decl_stmt|;
 name|it
 operator|=
-name|qLowerBound
+name|std
+operator|::
+name|lower_bound
 argument_list|(
 name|connector
 operator|->
@@ -1993,7 +2000,9 @@ name|it
 decl_stmt|;
 name|it
 operator|=
-name|qLowerBound
+name|std
+operator|::
+name|lower_bound
 argument_list|(
 name|connector
 operator|->
@@ -2581,7 +2590,9 @@ name|it
 decl_stmt|;
 name|it
 operator|=
-name|qLowerBound
+name|std
+operator|::
+name|lower_bound
 argument_list|(
 name|connector
 operator|->
