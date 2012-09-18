@@ -293,7 +293,7 @@ begin_comment
 comment|/*!     \fn QSplashScreen::messageChanged(const QString&message)      This signal is emitted when the message on the splash screen     changes. \a message is the new message and is a null-string     when the message has been removed.      \sa showMessage(), clearMessage() */
 end_comment
 begin_comment
-comment|/*!     Draws the \a message text onto the splash screen with color \a     color and aligns the text according to the flags in \a alignment.      To make sure the splash screen is repainted immediately, you can     call \l{QCoreApplication}'s     \l{QCoreApplication::}{processEvents()} after the call to     showMessage(). You usually want this to make sure that the message     is kept up to date with what your application is doing (e.g.,     loading files).      \sa Qt::Alignment, clearMessage() */
+comment|/*!     Draws the \a message text onto the splash screen with color \a     color and aligns the text according to the flags in \a alignment.      To make sure the splash screen is repainted immediately, you can     call \l{QCoreApplication}'s     \l{QCoreApplication::}{processEvents()} after the call to     showMessage(). You usually want this to make sure that the message     is kept up to date with what your application is doing (e.g.,     loading files).      \sa Qt::Alignment, clearMessage(), message() */
 end_comment
 begin_function
 DECL|function|showMessage
@@ -350,6 +350,31 @@ emit|;
 name|repaint
 argument_list|()
 expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*!     \since 5.2      Returns the message that is currently displayed on the splash screen.      \sa showMessage(), clearMessage() */
+end_comment
+begin_function
+DECL|function|message
+name|QString
+name|QSplashScreen
+operator|::
+name|message
+parameter_list|()
+specifier|const
+block|{
+name|Q_D
+argument_list|(
+specifier|const
+name|QSplashScreen
+argument_list|)
+expr_stmt|;
+return|return
+name|d
+operator|->
+name|currStatus
+return|;
 block|}
 end_function
 begin_comment

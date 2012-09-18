@@ -95,6 +95,11 @@ name|void
 name|repaint
 argument_list|()
 block|;
+name|QString
+name|message
+argument_list|()
+specifier|const
+block|;
 name|public
 name|Q_SLOTS
 operator|:
