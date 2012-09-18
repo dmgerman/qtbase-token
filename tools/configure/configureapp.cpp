@@ -22420,8 +22420,12 @@ operator|+
 literal|"/bin/syncqt.bat"
 expr_stmt|;
 name|args
-operator|+=
+operator|<<
 literal|"-minimal"
+operator|<<
+literal|"-module"
+operator|<<
+literal|"QtCore"
 expr_stmt|;
 name|args
 operator|+=
