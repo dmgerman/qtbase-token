@@ -1048,6 +1048,15 @@ name|data
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|visualInfo
+condition|)
+operator|*
+name|format
+operator|=
+name|reducedFormat
+expr_stmt|;
 name|reducedFormat
 operator|=
 name|qglx_reduceSurfaceFormat
