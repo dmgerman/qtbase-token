@@ -637,6 +637,16 @@ modifier|...
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_if
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|0
+argument_list|)
+end_if
 begin_comment
 comment|// deprecated. Use qInstallMessageHandler instead!
 end_comment
@@ -659,6 +669,7 @@ function_decl|;
 end_typedef
 begin_function_decl
 name|Q_CORE_EXPORT
+name|QT_DEPRECATED
 name|QtMsgHandler
 name|qInstallMsgHandler
 parameter_list|(
@@ -666,6 +677,10 @@ name|QtMsgHandler
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_typedef
 DECL|typedef|QtMessageHandler
 typedef|typedef

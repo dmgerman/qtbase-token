@@ -143,6 +143,47 @@ endif|#
 directive|endif
 block|}
 end_function
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// declare deprecated API from qlogging.h locally
+end_comment
+begin_comment
+comment|// (we can't use qInstallMessageHandler because it would break
+end_comment
+begin_comment
+comment|// tests that (still) rely on qInstallMsgHandler.)
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_typedef
+DECL|typedef|QtMsgHandler
+typedef|typedef
+name|void
+function_decl|(
+modifier|*
+name|QtMsgHandler
+function_decl|)
+parameter_list|(
+name|QtMsgType
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+parameter_list|)
+function_decl|;
+end_typedef
+begin_function_decl
+name|Q_CORE_EXPORT
+name|QtMsgHandler
+name|qInstallMsgHandler
+parameter_list|(
+name|QtMsgHandler
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_namespace
 DECL|namespace|QTest
 namespace|namespace
