@@ -10,6 +10,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qdbusargument_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<qatomic.h>
 end_include
 begin_include
@@ -56,11 +61,6 @@ begin_include
 include|#
 directive|include
 file|<qline.h>
-end_include
-begin_include
-include|#
-directive|include
-file|"qdbusargument_p.h"
 end_include
 begin_include
 include|#

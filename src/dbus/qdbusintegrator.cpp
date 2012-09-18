@@ -5,6 +5,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|"qdbusintegrator_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<qcoreapplication.h>
 end_include
 begin_include
@@ -111,11 +116,6 @@ begin_include
 include|#
 directive|include
 file|"qdbuspendingcall_p.h"
-end_include
-begin_include
-include|#
-directive|include
-file|"qdbusintegrator_p.h"
 end_include
 begin_include
 include|#

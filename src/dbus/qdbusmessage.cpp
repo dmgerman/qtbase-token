@@ -10,6 +10,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qdbusmessage_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<qdebug.h>
 end_include
 begin_include
@@ -31,11 +36,6 @@ begin_include
 include|#
 directive|include
 file|"qdbuserror.h"
-end_include
-begin_include
-include|#
-directive|include
-file|"qdbusmessage_p.h"
 end_include
 begin_include
 include|#

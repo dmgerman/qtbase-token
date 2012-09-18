@@ -10,6 +10,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qdbusinterface_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qdbus_symbols_p.h"
 end_include
 begin_include
@@ -26,11 +31,6 @@ begin_include
 include|#
 directive|include
 file|"qdbusmetatype_p.h"
-end_include
-begin_include
-include|#
-directive|include
-file|"qdbusinterface_p.h"
 end_include
 begin_include
 include|#

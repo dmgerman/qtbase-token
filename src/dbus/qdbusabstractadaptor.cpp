@@ -10,6 +10,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qdbusabstractadaptor_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/qcoreapplication.h>
 end_include
 begin_include
@@ -45,11 +50,6 @@ end_include
 begin_comment
 comment|// for qDBusParametersForMethod
 end_comment
-begin_include
-include|#
-directive|include
-file|"qdbusabstractadaptor_p.h"
-end_include
 begin_include
 include|#
 directive|include
