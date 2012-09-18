@@ -91,7 +91,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|m_qmakespecFull
+name|m_qmakespec
 return|;
 block|}
 name|ProString

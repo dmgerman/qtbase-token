@@ -867,12 +867,6 @@ name|other
 operator|.
 name|m_qmakespec
 expr_stmt|;
-name|m_qmakespecFull
-operator|=
-name|other
-operator|.
-name|m_qmakespecFull
-expr_stmt|;
 name|m_qmakespecName
 operator|=
 name|other
@@ -6291,7 +6285,7 @@ block|}
 ifdef|#
 directive|ifdef
 name|Q_OS_UNIX
-name|m_qmakespecFull
+name|m_qmakespec
 operator|=
 name|QFileInfo
 argument_list|(
@@ -6319,15 +6313,16 @@ literal|"QMAKESPEC_ORIGINAL"
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|m_qmakespecFull
-operator|=
+if|if
+condition|(
+operator|!
 name|orig_spec
 operator|.
 name|isEmpty
 argument_list|()
-condition|?
+condition|)
 name|m_qmakespec
-else|:
+operator|=
 name|orig_spec
 operator|.
 name|toQString
@@ -6345,7 +6340,7 @@ argument_list|)
 operator|<<
 name|ProString
 argument_list|(
-name|m_qmakespecFull
+name|m_qmakespec
 argument_list|)
 expr_stmt|;
 name|m_qmakespecName
@@ -6354,7 +6349,7 @@ name|IoUtils
 operator|::
 name|fileName
 argument_list|(
-name|m_qmakespecFull
+name|m_qmakespec
 argument_list|)
 operator|.
 name|toString
@@ -7999,7 +7994,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|m_qmakespecFull
+name|m_qmakespec
 operator|.
 name|isEmpty
 argument_list|()
@@ -8009,7 +8004,7 @@ comment|// The spec is already platform-dependent, so no subdirs here.
 name|feature_roots
 operator|<<
 operator|(
-name|m_qmakespecFull
+name|m_qmakespec
 operator|+
 name|features_concat
 operator|)
@@ -8018,7 +8013,7 @@ comment|// Also check directly under the root directory of the mkspecs collectio
 name|QDir
 name|specdir
 argument_list|(
-name|m_qmakespecFull
+name|m_qmakespec
 argument_list|)
 decl_stmt|;
 while|while

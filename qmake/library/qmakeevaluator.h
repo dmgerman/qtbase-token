@@ -1286,9 +1286,6 @@ name|QString
 name|m_qmakespec
 block|;
 name|QString
-name|m_qmakespecFull
-block|;
-name|QString
 name|m_qmakespecName
 block|;
 name|QString
