@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QMotifStyle>
+file|<QWindowsStyle>
 end_include
 begin_include
 include|#
@@ -37,7 +37,7 @@ name|class
 name|NorwegianWoodStyle
 range|:
 name|public
-name|QMotifStyle
+name|QWindowsStyle
 block|{
 name|Q_OBJECT
 name|public

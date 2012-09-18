@@ -453,7 +453,7 @@ case|case
 name|PM_ScrollBarExtent
 case|:
 return|return
-name|QMotifStyle
+name|QWindowsStyle
 operator|::
 name|pixelMetric
 argument_list|(
@@ -468,7 +468,7 @@ literal|4
 return|;
 default|default:
 return|return
-name|QMotifStyle
+name|QWindowsStyle
 operator|::
 name|pixelMetric
 argument_list|(
@@ -540,7 +540,7 @@ argument_list|)
 return|;
 default|default:
 return|return
-name|QMotifStyle
+name|QWindowsStyle
 operator|::
 name|styleHint
 argument_list|(
@@ -1162,7 +1162,7 @@ break|break;
 comment|//! [32] //! [33]
 default|default:
 comment|//! [33] //! [34]
-name|QMotifStyle
+name|QWindowsStyle
 operator|::
 name|drawPrimitive
 argument_list|(
@@ -1296,7 +1296,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-name|QMotifStyle
+name|QWindowsStyle
 operator|::
 name|drawControl
 argument_list|(
@@ -1313,7 +1313,7 @@ expr_stmt|;
 block|}
 break|break;
 default|default:
-name|QMotifStyle
+name|QWindowsStyle
 operator|::
 name|drawControl
 argument_list|(

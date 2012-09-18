@@ -11,7 +11,7 @@ operator|/
 name|myapplication
 operator|-
 name|style
-name|motif
+name|windows
 comment|//! [0]
 comment|//! [1]
 operator|.

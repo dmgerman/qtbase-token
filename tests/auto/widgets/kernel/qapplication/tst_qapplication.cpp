@@ -1815,7 +1815,7 @@ argument_list|)
 operator|<<
 literal|3
 operator|<<
-literal|"/usr/bin/appname -style motif"
+literal|"/usr/bin/appname -style windows"
 operator|<<
 literal|1
 operator|<<
@@ -1830,7 +1830,7 @@ argument_list|)
 operator|<<
 literal|5
 operator|<<
-literal|"/usr/bin/appname -style motif -arbitrary -reverse"
+literal|"/usr/bin/appname -style windows -arbitrary -reverse"
 operator|<<
 literal|2
 operator|<<

@@ -306,12 +306,6 @@ begin_comment
 comment|//#define QT_NO_STATUSTIP
 end_comment
 begin_comment
-comment|// QMotifStyle
-end_comment
-begin_comment
-comment|//#define QT_NO_STYLE_MOTIF
-end_comment
-begin_comment
 comment|// QWindowsStyle
 end_comment
 begin_comment
@@ -947,35 +941,6 @@ DECL|macro|QT_NO_STATEMACHINE
 define|#
 directive|define
 name|QT_NO_STATEMACHINE
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QCDEStyle
-end_comment
-begin_if
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_STYLE_CDE
-argument_list|)
-operator|&&
-operator|(
-name|defined
-argument_list|(
-name|QT_NO_STYLE_MOTIF
-argument_list|)
-operator|)
-end_if
-begin_define
-DECL|macro|QT_NO_STYLE_CDE
-define|#
-directive|define
-name|QT_NO_STYLE_CDE
 end_define
 begin_endif
 endif|#

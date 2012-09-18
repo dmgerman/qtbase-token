@@ -35,6 +35,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QPlastiqueStyle>
+end_include
+begin_include
+include|#
+directive|include
 file|<private/qstylesheetstyle_p.h>
 end_include
 begin_include
@@ -10041,7 +10046,7 @@ modifier|*
 name|style
 init|=
 operator|new
-name|QMotifStyle
+name|QPlastiqueStyle
 decl_stmt|;
 name|style
 operator|->
