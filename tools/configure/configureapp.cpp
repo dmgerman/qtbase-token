@@ -17149,12 +17149,6 @@ operator|&
 name|cacheFile
 argument_list|)
 decl_stmt|;
-name|cacheStream
-operator|<<
-literal|"include($$PWD/mkspecs/qmodule.pri)"
-operator|<<
-name|endl
-expr_stmt|;
 for|for
 control|(
 name|QStringList
