@@ -10,6 +10,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qsqlquerymodel_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<qdebug.h>
 end_include
 begin_include
@@ -21,11 +26,6 @@ begin_include
 include|#
 directive|include
 file|<qsqlfield.h>
-end_include
-begin_include
-include|#
-directive|include
-file|"qsqlquerymodel_p.h"
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE

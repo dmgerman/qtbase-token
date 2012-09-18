@@ -5,6 +5,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|"qsqlresult.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qvariant.h"
 end_include
 begin_include
@@ -31,11 +36,6 @@ begin_include
 include|#
 directive|include
 file|"qsqlrecord.h"
-end_include
-begin_include
-include|#
-directive|include
-file|"qsqlresult.h"
 end_include
 begin_include
 include|#
