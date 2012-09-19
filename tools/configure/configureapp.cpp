@@ -9952,7 +9952,7 @@ name|desc
 argument_list|(
 literal|"-prefix<dir>"
 argument_list|,
-literal|"This will install everything relative to<dir> (default $QT_INSTALL_PREFIX)\n\n"
+literal|"This will install everything relative to<dir> (default $QT_INSTALL_PREFIX)\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -9972,84 +9972,84 @@ name|desc
 argument_list|(
 literal|"-bindir<dir>"
 argument_list|,
-literal|"Executables will be installed to<dir> (default PREFIX/bin)"
+literal|"Executables will be installed to<dir>\n(default PREFIX/bin)"
 argument_list|)
 expr_stmt|;
 name|desc
 argument_list|(
 literal|"-libdir<dir>"
 argument_list|,
-literal|"Libraries will be installed to<dir> (default PREFIX/lib)"
+literal|"Libraries will be installed to<dir>\n(default PREFIX/lib)"
 argument_list|)
 expr_stmt|;
 name|desc
 argument_list|(
 literal|"-docdir<dir>"
 argument_list|,
-literal|"Documentation will be installed to<dir> (default PREFIX/doc)"
+literal|"Documentation will be installed to<dir>\n(default PREFIX/doc)"
 argument_list|)
 expr_stmt|;
 name|desc
 argument_list|(
 literal|"-headerdir<dir>"
 argument_list|,
-literal|"Headers will be installed to<dir> (default PREFIX/include)"
+literal|"Headers will be installed to<dir>\n(default PREFIX/include)"
 argument_list|)
 expr_stmt|;
 name|desc
 argument_list|(
 literal|"-plugindir<dir>"
 argument_list|,
-literal|"Plugins will be installed to<dir> (default PREFIX/plugins)"
+literal|"Plugins will be installed to<dir>\n(default PREFIX/plugins)"
 argument_list|)
 expr_stmt|;
 name|desc
 argument_list|(
 literal|"-importdir<dir>"
 argument_list|,
-literal|"Imports for QML will be installed to<dir> (default PREFIX/imports)"
+literal|"Imports for QML will be installed to<dir>\n(default PREFIX/imports)"
 argument_list|)
 expr_stmt|;
 name|desc
 argument_list|(
 literal|"-datadir<dir>"
 argument_list|,
-literal|"Data used by Qt programs will be installed to<dir> (default PREFIX)"
+literal|"Data used by Qt programs will be installed to<dir>\n(default PREFIX)"
 argument_list|)
 expr_stmt|;
 name|desc
 argument_list|(
 literal|"-translationdir<dir>"
 argument_list|,
-literal|"Translations of Qt programs will be installed to<dir> (default PREFIX/translations)"
+literal|"Translations of Qt programs will be installed to<dir>\n(default PREFIX/translations)"
 argument_list|)
 expr_stmt|;
 name|desc
 argument_list|(
 literal|"-examplesdir<dir>"
 argument_list|,
-literal|"Examples will be installed to<dir> (default PREFIX/examples)"
+literal|"Examples will be installed to<dir>\n(default PREFIX/examples)"
 argument_list|)
 expr_stmt|;
 name|desc
 argument_list|(
 literal|"-testsdir<dir>"
 argument_list|,
-literal|"Tests will be installed to<dir> (default PREFIX/tests)"
+literal|"Tests will be installed to<dir>\n(default PREFIX/tests)\n"
 argument_list|)
 expr_stmt|;
 name|desc
 argument_list|(
 literal|"-hostbindir<dir>"
 argument_list|,
-literal|"Host executables will be installed to<dir> (default HOSTPREFIX/bin)"
+literal|"Host executables will be installed to<dir>\n(default HOSTPREFIX/bin)"
 argument_list|)
 expr_stmt|;
 name|desc
 argument_list|(
 literal|"-hostdatadir<dir>"
 argument_list|,
-literal|"Data used by qmake will be installed to<dir> (default HOSTPREFIX)"
+literal|"Data used by qmake will be installed to<dir>\n(default HOSTPREFIX)"
 argument_list|)
 expr_stmt|;
 if|#
@@ -10061,7 +10061,7 @@ name|EVAL
 argument_list|)
 name|desc
 argument_list|(
-literal|"Configure options:\n\n"
+literal|"\nConfigure options:\n\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -10239,14 +10239,14 @@ literal|"-fast"
 argument_list|,
 literal|"Configure Qt quickly by generating Makefiles only for library and "
 literal|"subdirectory targets.  All other Makefiles are created as wrappers "
-literal|"which will in turn run qmake\n"
+literal|"which will in turn run qmake.\n"
 argument_list|)
 expr_stmt|;
 name|desc
 argument_list|(
 literal|"-make<part>"
 argument_list|,
-literal|"Add part to the list of parts to be built at make time."
+literal|"Add part to the list of parts to be built at make time"
 argument_list|)
 expr_stmt|;
 for|for
@@ -10308,7 +10308,7 @@ literal|"no"
 argument_list|,
 literal|"-no-widgets"
 argument_list|,
-literal|"Disable QtWidgets module\n"
+literal|"Disable QtWidgets module.\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -10498,7 +10498,7 @@ literal|"no"
 argument_list|,
 literal|"-no-opengl"
 argument_list|,
-literal|"Disables OpenGL functionality\n"
+literal|"Do not support OpenGL."
 argument_list|)
 expr_stmt|;
 name|desc
@@ -10547,7 +10547,7 @@ literal|"no"
 argument_list|,
 literal|""
 argument_list|,
-literal|"  es2 - Enable support for OpenGL ES 2.0"
+literal|"  es2 - Enable support for OpenGL ES 2.0\n"
 argument_list|,
 literal|' '
 argument_list|)
@@ -10560,7 +10560,7 @@ literal|"no"
 argument_list|,
 literal|"-no-openvg"
 argument_list|,
-literal|"Disables OpenVG functionality\n"
+literal|"Disables OpenVG functionality."
 argument_list|)
 expr_stmt|;
 name|desc
@@ -10571,7 +10571,7 @@ literal|"yes"
 argument_list|,
 literal|"-openvg"
 argument_list|,
-literal|"Enables OpenVG functionality"
+literal|"Enables OpenVG functionality.\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -10619,7 +10619,7 @@ name|desc
 argument_list|(
 literal|"-no-gcc-sysroot"
 argument_list|,
-literal|"When using -sysroot, it disables the passing of --sysroot to the compiler "
+literal|"When using -sysroot, it disables the passing of --sysroot to the compiler.\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -10630,7 +10630,7 @@ literal|"no"
 argument_list|,
 literal|"-no-nis"
 argument_list|,
-literal|"Do not build NIS support."
+literal|"Do not compile NIS support."
 argument_list|)
 expr_stmt|;
 name|desc
@@ -10641,7 +10641,7 @@ literal|"yes"
 argument_list|,
 literal|"-nis"
 argument_list|,
-literal|"Build NIS support."
+literal|"Compile NIS support.\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -10663,7 +10663,7 @@ literal|"no"
 argument_list|,
 literal|"-no-neon"
 argument_list|,
-literal|"Do not enable the use of NEON instructions."
+literal|"Do not enable the use of NEON instructions.\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -10707,7 +10707,7 @@ literal|"yes"
 argument_list|,
 literal|"-gnu-iconv"
 argument_list|,
-literal|"Enable support for iconv(3) using gnu-libiconv"
+literal|"Enable support for iconv(3) using gnu-libiconv.\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -10718,7 +10718,7 @@ literal|"yes"
 argument_list|,
 literal|"-largefile"
 argument_list|,
-literal|"Enables Qt to access files larger than 4 GB."
+literal|"Enables Qt to access files larger than 4 GB.\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -10740,7 +10740,7 @@ literal|"no"
 argument_list|,
 literal|"-no-fontconfig"
 argument_list|,
-literal|"Do not build with FontConfig support."
+literal|"Do not build with FontConfig support.\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -10751,7 +10751,7 @@ literal|"yes"
 argument_list|,
 literal|"-posix-ipc"
 argument_list|,
-literal|"Enable POSIX IPC."
+literal|"Enable POSIX IPC.\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -10762,7 +10762,7 @@ literal|"yes"
 argument_list|,
 literal|"-glib"
 argument_list|,
-literal|"Enable Glib support."
+literal|"Compile Glib support.\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -10771,9 +10771,9 @@ literal|"QT_INSTALL_SETTINGS"
 argument_list|,
 literal|"auto"
 argument_list|,
-literal|"-sysconfdir"
+literal|"-sysconfdir<dir>"
 argument_list|,
-literal|"Settings used by Qt programs will be looked for in<dir>."
+literal|"Settings used by Qt programs will be looked for in\n<dir>.\n"
 argument_list|)
 expr_stmt|;
 if|#
@@ -10785,16 +10785,16 @@ name|EVAL
 argument_list|)
 name|desc
 argument_list|(
-literal|"-qtnamespace<namespace>"
+literal|"-qtnamespace<name>"
 argument_list|,
-literal|"Wraps all Qt library code in 'namespace name {...}"
+literal|"Wraps all Qt library code in 'namespace name {...}'."
 argument_list|)
 expr_stmt|;
 name|desc
 argument_list|(
 literal|"-qtlibinfix<infix>"
 argument_list|,
-literal|"Renames all Qt* libs to Qt*<infix>\n"
+literal|"Renames all Qt* libs to Qt*<infix>.\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -10921,7 +10921,7 @@ literal|"no"
 argument_list|,
 literal|"-no-gif"
 argument_list|,
-literal|"Do not compile GIF reading support."
+literal|"Do not compile GIF reading support.\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11028,7 +11028,7 @@ directive|endif
 comment|// Qt\Windows only options go below here --------------------------------------------------------------------------------
 name|desc
 argument_list|(
-literal|"Qt for Windows only:\n\n"
+literal|"\nQt for Windows only:\n\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11141,7 +11141,7 @@ literal|"partial"
 argument_list|,
 literal|"-process"
 argument_list|,
-literal|"Generate top-level Makefiles/Project files.\n"
+literal|"Generate top-level Makefiles/Project files."
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11152,7 +11152,7 @@ literal|"full"
 argument_list|,
 literal|"-fully-process"
 argument_list|,
-literal|"Generate Makefiles/Project files for the entire Qt tree.\n"
+literal|"Generate Makefiles/Project files for the entire Qt\ntree."
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11163,7 +11163,7 @@ literal|"no"
 argument_list|,
 literal|"-dont-process"
 argument_list|,
-literal|"Do not generate Makefiles/Project files. This will override -no-fast if specified."
+literal|"Do not generate Makefiles/Project files. This will override -no-fast if specified.\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11196,7 +11196,7 @@ literal|"no"
 argument_list|,
 literal|"-no-sse2"
 argument_list|,
-literal|"Do not compile with use of SSE2 instructions"
+literal|"Do not compile with use of SSE2 instructions."
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11207,7 +11207,7 @@ literal|"yes"
 argument_list|,
 literal|"-sse2"
 argument_list|,
-literal|"Compile with use of SSE2 instructions"
+literal|"Compile with use of SSE2 instructions."
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11218,7 +11218,7 @@ literal|"no"
 argument_list|,
 literal|"-no-sse3"
 argument_list|,
-literal|"Do not compile with use of SSE3 instructions"
+literal|"Do not compile with use of SSE3 instructions."
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11229,7 +11229,7 @@ literal|"yes"
 argument_list|,
 literal|"-sse3"
 argument_list|,
-literal|"Compile with use of SSE3 instructions"
+literal|"Compile with use of SSE3 instructions."
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11240,7 +11240,7 @@ literal|"no"
 argument_list|,
 literal|"-no-ssse3"
 argument_list|,
-literal|"Do not compile with use of SSSE3 instructions"
+literal|"Do not compile with use of SSSE3 instructions."
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11251,7 +11251,7 @@ literal|"yes"
 argument_list|,
 literal|"-ssse3"
 argument_list|,
-literal|"Compile with use of SSSE3 instructions"
+literal|"Compile with use of SSSE3 instructions."
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11262,7 +11262,7 @@ literal|"no"
 argument_list|,
 literal|"-no-sse4.1"
 argument_list|,
-literal|"Do not compile with use of SSE4.1 instructions"
+literal|"Do not compile with use of SSE4.1 instructions."
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11273,7 +11273,7 @@ literal|"yes"
 argument_list|,
 literal|"-sse4.1"
 argument_list|,
-literal|"Compile with use of SSE4.1 instructions"
+literal|"Compile with use of SSE4.1 instructions."
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11284,7 +11284,7 @@ literal|"no"
 argument_list|,
 literal|"-no-sse4.2"
 argument_list|,
-literal|"Do not compile with use of SSE4.2 instructions"
+literal|"Do not compile with use of SSE4.2 instructions."
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11295,7 +11295,7 @@ literal|"yes"
 argument_list|,
 literal|"-sse4.2"
 argument_list|,
-literal|"Compile with use of SSE4.2 instructions"
+literal|"Compile with use of SSE4.2 instructions."
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11306,7 +11306,7 @@ literal|"no"
 argument_list|,
 literal|"-no-avx"
 argument_list|,
-literal|"Do not compile with use of AVX instructions"
+literal|"Do not compile with use of AVX instructions."
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11317,7 +11317,7 @@ literal|"yes"
 argument_list|,
 literal|"-avx"
 argument_list|,
-literal|"Compile with use of AVX instructions"
+literal|"Compile with use of AVX instructions."
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11328,7 +11328,7 @@ literal|"no"
 argument_list|,
 literal|"-no-avx2"
 argument_list|,
-literal|"Do not compile with use of AVX2 instructions"
+literal|"Do not compile with use of AVX2 instructions."
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11339,7 +11339,7 @@ literal|"yes"
 argument_list|,
 literal|"-avx2"
 argument_list|,
-literal|"Compile with use of AVX2 instructions"
+literal|"Compile with use of AVX2 instructions.\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11350,7 +11350,7 @@ literal|"no"
 argument_list|,
 literal|"-no-openssl"
 argument_list|,
-literal|"Do not compile in OpenSSL support"
+literal|"Do not compile support for OpenSSL."
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11361,7 +11361,7 @@ literal|"yes"
 argument_list|,
 literal|"-openssl"
 argument_list|,
-literal|"Compile in run-time OpenSSL support"
+literal|"Enable run-time OpenSSL support."
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11372,7 +11372,7 @@ literal|"linked"
 argument_list|,
 literal|"-openssl-linked"
 argument_list|,
-literal|"Compile in linked OpenSSL support"
+literal|"Enable linked OpenSSL support.\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11383,7 +11383,7 @@ literal|"no"
 argument_list|,
 literal|"-no-dbus"
 argument_list|,
-literal|"Do not compile in D-Bus support"
+literal|"Do not compile in D-Bus support."
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11394,7 +11394,7 @@ literal|"yes"
 argument_list|,
 literal|"-dbus"
 argument_list|,
-literal|"Compile in D-Bus support and load libdbus-1 dynamically"
+literal|"Compile in D-Bus support and load libdbus-1\ndynamically."
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11405,7 +11405,7 @@ literal|"linked"
 argument_list|,
 literal|"-dbus-linked"
 argument_list|,
-literal|"Compile in D-Bus support and link to libdbus-1"
+literal|"Compile in D-Bus support and link to libdbus-1.\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11416,7 +11416,7 @@ literal|"no"
 argument_list|,
 literal|"-no-audio-backend"
 argument_list|,
-literal|"Do not compile in the platform audio backend into QtMultimedia"
+literal|"Do not compile in the platform audio backend into\nQtMultimedia."
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11427,7 +11427,7 @@ literal|"yes"
 argument_list|,
 literal|"-audio-backend"
 argument_list|,
-literal|"Compile in the platform audio backend into QtMultimedia"
+literal|"Compile in the platform audio backend into QtMultimedia.\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11438,7 +11438,7 @@ literal|"no"
 argument_list|,
 literal|"-no-qml-debug"
 argument_list|,
-literal|"Do not build the QML debugging support"
+literal|"Do not build the in-process QML debugging support."
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11449,7 +11449,7 @@ literal|"yes"
 argument_list|,
 literal|"-qml-debug"
 argument_list|,
-literal|"Build the QML debugging support"
+literal|"Build the in-process QML debugging support.\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11460,7 +11460,7 @@ literal|"no"
 argument_list|,
 literal|"-no-directwrite"
 argument_list|,
-literal|"Do not build support for DirectWrite font rendering"
+literal|"Do not build support for DirectWrite font rendering."
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11471,7 +11471,7 @@ literal|"yes"
 argument_list|,
 literal|"-directwrite"
 argument_list|,
-literal|"Build support for DirectWrite font rendering (experimental, requires DirectWrite availability on target systems, e.g. Windows Vista with Platform Update, Windows 7, etc.)"
+literal|"Build support for DirectWrite font rendering (experimental, requires DirectWrite availability on target systems, e.g. Windows Vista with Platform Update, Windows 7, etc.)\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11600,7 +11600,7 @@ literal|"yes"
 argument_list|,
 literal|""
 argument_list|,
-literal|"  windowsmobile"
+literal|"  windowsmobile\n"
 argument_list|,
 literal|' '
 argument_list|)
@@ -11624,7 +11624,7 @@ literal|"yes"
 argument_list|,
 literal|"-native-gestures"
 argument_list|,
-literal|"Use native gestures on Windows 7."
+literal|"Use native gestures on Windows 7.\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11646,7 +11646,7 @@ literal|"yes"
 argument_list|,
 literal|"-mp"
 argument_list|,
-literal|"Use multiple processors for compiling with MSVC (-MP)"
+literal|"Use multiple processors for compiling with MSVC (-MP).\n"
 argument_list|)
 expr_stmt|;
 comment|/*      We do not support -qconfig on Windows yet          desc(                   "-qconfig<local>",     "Use src/tools/qconfig-local.h rather than the default.\nPossible values for local:");         for (int i=0; i<allConfigs.size(); ++i)             desc(               "",                     qPrintable(QString("  %1").arg(allConfigs.at(i))), false, ' ');         printf("\n"); */
@@ -11687,7 +11687,7 @@ literal|"no"
 argument_list|,
 literal|"-no-iwmmxt"
 argument_list|,
-literal|"Do not compile with use of IWMMXT instructions"
+literal|"Do not compile with use of IWMMXT instructions."
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11698,7 +11698,7 @@ literal|"yes"
 argument_list|,
 literal|"-iwmmxt"
 argument_list|,
-literal|"Do compile with use of IWMMXT instructions (Qt for Windows CE on Arm only)"
+literal|"Do compile with use of IWMMXT instructions. (Qt for Windows CE on Arm only)\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11709,7 +11709,7 @@ literal|"no"
 argument_list|,
 literal|"-no-crt"
 argument_list|,
-literal|"Do not add the C runtime to default deployment rules"
+literal|"Do not add the C runtime to default deployment rules."
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11720,14 +11720,14 @@ literal|"yes"
 argument_list|,
 literal|"-qt-crt"
 argument_list|,
-literal|"Qt identifies C runtime during project generation"
+literal|"Qt identifies C runtime during project generation."
 argument_list|)
 expr_stmt|;
 name|desc
 argument_list|(
 literal|"-crt<path>"
 argument_list|,
-literal|"Specify path to C runtime used for project generation."
+literal|"Specify path to C runtime used for project generation.\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11738,7 +11738,7 @@ literal|"no"
 argument_list|,
 literal|"-no-cetest"
 argument_list|,
-literal|"Do not compile Windows CE remote test application"
+literal|"Do not compile Windows CE remote test application."
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11749,14 +11749,14 @@ literal|"yes"
 argument_list|,
 literal|"-cetest"
 argument_list|,
-literal|"Compile Windows CE remote test application"
+literal|"Compile Windows CE remote test application.\n"
 argument_list|)
 expr_stmt|;
 name|desc
 argument_list|(
 literal|"-signature<file>"
 argument_list|,
-literal|"Use file for signing the target project"
+literal|"Use<file> for signing the target project."
 argument_list|)
 expr_stmt|;
 return|return
