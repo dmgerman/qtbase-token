@@ -3564,7 +3564,6 @@ condition|)
 name|attributes
 index|[
 name|attribIndex
-operator|++
 index|]
 operator||=
 name|WGL_CONTEXT_DEBUG_BIT_ARB
