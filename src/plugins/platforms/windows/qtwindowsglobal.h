@@ -307,6 +307,12 @@ name|DisplayChangedEvent
 init|=
 literal|437
 block|,
+name|SettingChangedEvent
+init|=
+name|DisplayChangedEvent
+operator|+
+literal|1
+block|,
 name|UnknownEvent
 init|=
 literal|542
@@ -638,6 +644,27 @@ return|return
 name|QtWindows
 operator|::
 name|FocusOutEvent
+return|;
+end_return
+begin_comment
+comment|// Among other things, WM_SETTINGCHANGE happens when the taskbar is moved
+end_comment
+begin_comment
+comment|// and therefore the "working area" changes.
+end_comment
+begin_comment
+comment|// http://msdn.microsoft.com/en-us/library/ms695534(v=vs.85).aspx
+end_comment
+begin_case
+case|case
+name|WM_SETTINGCHANGE
+case|:
+end_case
+begin_return
+return|return
+name|QtWindows
+operator|::
+name|SettingChangedEvent
 return|;
 end_return
 begin_case

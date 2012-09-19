@@ -509,7 +509,7 @@ name|takeLast
 parameter_list|()
 function_decl|;
 block|}
-name|void
+name|bool
 name|handleScreenChanges
 parameter_list|()
 function_decl|;
