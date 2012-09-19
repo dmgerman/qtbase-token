@@ -14531,6 +14531,8 @@ expr_stmt|;
 block|{
 name|GLboolean
 name|srgbCapableFramebuffers
+init|=
+literal|false
 decl_stmt|;
 name|glGetBooleanv
 argument_list|(
