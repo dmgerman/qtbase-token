@@ -6821,7 +6821,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"index.html"
+literal|"/index.html"
 argument_list|)
 operator|<<
 name|QByteArray
@@ -9719,7 +9719,7 @@ literal|1
 operator|<<
 name|QString
 argument_list|(
-literal|"path"
+literal|"/path"
 argument_list|)
 operator|<<
 operator|(
@@ -9756,7 +9756,7 @@ literal|1
 operator|<<
 name|QString
 argument_list|(
-literal|"path"
+literal|"/path"
 argument_list|)
 operator|<<
 operator|(
@@ -9796,7 +9796,7 @@ literal|1
 operator|<<
 name|QString
 argument_list|(
-literal|"path"
+literal|"/path"
 argument_list|)
 operator|<<
 operator|(
@@ -13188,6 +13188,85 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|{
+name|QUrl
+name|url
+argument_list|(
+literal|"http://example.com"
+argument_list|)
+decl_stmt|;
+name|QVERIFY
+argument_list|(
+name|url
+operator|.
+name|isValid
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|url
+operator|.
+name|setPath
+argument_list|(
+literal|"relative"
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+operator|!
+name|url
+operator|.
+name|isValid
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|url
+operator|.
+name|errorString
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"Path component is relative and authority is present"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|{
+name|QUrl
+name|url
+decl_stmt|;
+name|url
+operator|.
+name|setPath
+argument_list|(
+literal|"http://example.com"
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+operator|!
+name|url
+operator|.
+name|isValid
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|url
+operator|.
+name|errorString
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"':' before any '/'"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_function
 begin_function
@@ -13677,6 +13756,8 @@ argument_list|(
 literal|"needle"
 argument_list|)
 expr_stmt|;
+comment|// QUrl doesn't detect an error in the scheme when parsing because
+comment|// it falls back to parsing as a path. So, these errors are path errors
 name|QTest
 operator|::
 name|newRow
@@ -13686,7 +13767,7 @@ argument_list|)
 operator|<<
 literal|"ht%://example.com"
 operator|<<
-literal|"Invalid scheme"
+literal|"character '%' not permitted"
 expr_stmt|;
 name|QTest
 operator|::
@@ -13697,7 +13778,7 @@ argument_list|)
 operator|<<
 literal|":/"
 operator|<<
-literal|"Empty scheme"
+literal|"':' before any '/'"
 expr_stmt|;
 name|QTest
 operator|::
@@ -13875,8 +13956,6 @@ literal|"foo:/path%\x1F"
 operator|<<
 literal|"Invalid path"
 expr_stmt|;
-comment|// not yet checked:
-comment|//QTest::newRow("path-colon-before-slash")<< "foo::/"<< "':' before any '/'";
 name|QTest
 operator|::
 name|newRow
@@ -13933,15 +14012,6 @@ operator|::
 name|StrictMode
 argument_list|)
 decl_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"empty-scheme"
-argument_list|,
-literal|"QUrl does not forbid paths with a colon before the first slash yet"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
@@ -19552,7 +19622,7 @@ name|url
 operator|.
 name|setEncodedPath
 argument_list|(
-literal|"test.txt"
+literal|"/test.txt"
 argument_list|)
 expr_stmt|;
 name|url
@@ -22641,6 +22711,8 @@ literal|""
 operator|<<
 literal|""
 expr_stmt|;
+comment|// these test cases are "compound invalid":
+comment|// they produces isValid == false, but the original is still available
 name|QTest
 operator|::
 name|newRow
@@ -22666,7 +22738,36 @@ literal|false
 operator|<<
 name|PrettyDecoded
 operator|<<
-literal|""
+literal|"c:/"
+operator|<<
+literal|"c:/"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"invalid-path-2"
+argument_list|)
+operator|<<
+name|QUrl
+argument_list|(
+literal|"http://example.com"
+argument_list|)
+operator|<<
+name|int
+argument_list|(
+name|Path
+argument_list|)
+operator|<<
+literal|"relative"
+operator|<<
+name|Strict
+operator|<<
+literal|false
+operator|<<
+name|PrettyDecoded
+operator|<<
+literal|"relative"
 operator|<<
 literal|""
 expr_stmt|;
@@ -22864,7 +22965,7 @@ argument_list|(
 name|Path
 argument_list|)
 operator|<<
-literal|"bar%23"
+literal|"/bar%23"
 operator|<<
 name|Decoded
 operator|<<
@@ -22872,7 +22973,7 @@ literal|true
 operator|<<
 name|PrettyDecoded
 operator|<<
-literal|"bar%2523"
+literal|"/bar%2523"
 operator|<<
 literal|"http://example.com/bar%2523"
 expr_stmt|;
@@ -23209,15 +23310,6 @@ name|ParsingMode
 argument_list|(
 name|parsingMode
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"invalid-path-1"
-argument_list|,
-literal|"QUrl does not forbid paths with a colon before the first slash yet"
-argument_list|,
-name|Abort
 argument_list|)
 expr_stmt|;
 name|QCOMPARE

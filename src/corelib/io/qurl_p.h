@@ -167,8 +167,6 @@ name|Path
 operator|<<
 literal|8
 block|,
-name|PathContainsColonBeforeSlash
-block|,
 name|InvalidQueryError
 init|=
 name|Query
@@ -180,6 +178,36 @@ init|=
 name|Fragment
 operator|<<
 literal|8
+block|,
+comment|// the following two cases are only possible in combination
+comment|// with presence/absence of the authority and scheme. See validityError().
+name|AuthorityPresentAndPathIsRelative
+init|=
+name|Authority
+operator|<<
+literal|8
+operator||
+name|Path
+operator|<<
+literal|8
+operator||
+literal|0x10000
+block|,
+name|RelativeUrlPathContainsColonBeforeSlash
+init|=
+name|Scheme
+operator|<<
+literal|8
+operator||
+name|Authority
+operator|<<
+literal|8
+operator||
+name|Path
+operator|<<
+literal|8
+operator||
+literal|0x10000
 block|,
 name|NoError
 init|=
@@ -232,6 +260,11 @@ name|isEmpty
 argument_list|()
 return|;
 block|}
+name|ErrorCode
+name|validityError
+argument_list|()
+specifier|const
+expr_stmt|;
 comment|// no QString scheme() const;
 name|void
 name|appendAuthority

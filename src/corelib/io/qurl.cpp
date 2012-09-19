@@ -2823,10 +2823,6 @@ argument_list|,
 name|end
 argument_list|)
 expr_stmt|;
-comment|// ### FIXME?
-comment|// check for the "path-noscheme" case
-comment|// if the path contains a ":" before the first "/", it could be misinterpreted
-comment|// as a scheme
 block|}
 end_function
 begin_function
@@ -5300,6 +5296,144 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_function
+DECL|function|validityError
+name|QUrlPrivate
+operator|::
+name|ErrorCode
+name|QUrlPrivate
+operator|::
+name|validityError
+parameter_list|()
+specifier|const
+block|{
+if|if
+condition|(
+name|sectionHasError
+condition|)
+return|return
+name|ErrorCode
+argument_list|(
+name|errorCode
+argument_list|)
+return|;
+comment|// There are two more cases of invalid URLs that QUrl recognizes and they
+comment|// are only possible with constructed URLs (setXXX methods), not with
+comment|// parsing. Therefore, they are tested here.
+comment|//
+comment|// The two cases are a non-empty path that doesn't start with a slash and:
+comment|//  - with an authority
+comment|//  - without an authority, without scheme but the path with a colon before
+comment|//    the first slash
+comment|// Those cases are considered invalid because toString() would produce a URL
+comment|// that wouldn't be parsed back to the same QUrl.
+if|if
+condition|(
+name|path
+operator|.
+name|isEmpty
+argument_list|()
+operator|||
+name|path
+operator|.
+name|at
+argument_list|(
+literal|0
+argument_list|)
+operator|==
+name|QLatin1Char
+argument_list|(
+literal|'/'
+argument_list|)
+condition|)
+return|return
+name|NoError
+return|;
+if|if
+condition|(
+name|sectionIsPresent
+operator|&
+name|QUrlPrivate
+operator|::
+name|Host
+condition|)
+return|return
+name|AuthorityPresentAndPathIsRelative
+return|;
+if|if
+condition|(
+name|sectionIsPresent
+operator|&
+name|QUrlPrivate
+operator|::
+name|Scheme
+condition|)
+return|return
+name|NoError
+return|;
+comment|// check for a path of "text:text/"
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|path
+operator|.
+name|length
+argument_list|()
+condition|;
+operator|++
+name|i
+control|)
+block|{
+specifier|register
+name|ushort
+name|c
+init|=
+name|path
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+operator|.
+name|unicode
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|c
+operator|==
+literal|'/'
+condition|)
+block|{
+comment|// found the slash before the colon
+return|return
+name|NoError
+return|;
+block|}
+if|if
+condition|(
+name|c
+operator|==
+literal|':'
+condition|)
+block|{
+comment|// found the colon before the slash, it's invalid
+return|return
+name|RelativeUrlPathContainsColonBeforeSlash
+return|;
+block|}
+block|}
+return|return
+name|NoError
+return|;
+block|}
+end_function
 begin_if
 if|#
 directive|if
@@ -5488,15 +5622,21 @@ condition|(
 name|isEmpty
 argument_list|()
 condition|)
+block|{
+comment|// also catches d == 0
 return|return
 literal|false
 return|;
+block|}
 return|return
 name|d
 operator|->
-name|sectionHasError
+name|validityError
+argument_list|()
 operator|==
-literal|0
+name|QUrlPrivate
+operator|::
+name|NoError
 return|;
 block|}
 end_function
@@ -9814,19 +9954,30 @@ return|return
 name|QString
 argument_list|()
 return|;
-if|if
-condition|(
+name|QUrlPrivate
+operator|::
+name|ErrorCode
+name|errorCode
+init|=
 name|d
 operator|->
-name|sectionHasError
+name|validityError
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|errorCode
 operator|==
-literal|0
+name|QUrlPrivate
+operator|::
+name|NoError
 condition|)
 return|return
 name|QString
 argument_list|()
 return|;
 comment|// check if the error code matches a section with error
+comment|// unless it's a compound error (0x10000)
 if|if
 condition|(
 operator|(
@@ -9835,12 +9986,18 @@ operator|->
 name|sectionHasError
 operator|&
 operator|(
-name|d
-operator|->
 name|errorCode
 operator|>>
 literal|8
 operator|)
+operator|)
+operator|==
+literal|0
+operator|&&
+operator|(
+name|errorCode
+operator|&
+literal|0x10000
 operator|)
 operator|==
 literal|0
@@ -9858,14 +10015,7 @@ name|errorSupplement
 decl_stmt|;
 switch|switch
 condition|(
-name|QUrlPrivate
-operator|::
-name|ErrorCode
-argument_list|(
-name|d
-operator|->
 name|errorCode
-argument_list|)
 condition|)
 block|{
 case|case
@@ -10062,17 +10212,6 @@ return|;
 case|case
 name|QUrlPrivate
 operator|::
-name|PathContainsColonBeforeSlash
-case|:
-return|return
-name|QStringLiteral
-argument_list|(
-literal|"Path component contains ':' before any '/'"
-argument_list|)
-return|;
-case|case
-name|QUrlPrivate
-operator|::
 name|InvalidQueryError
 case|:
 return|return
@@ -10106,6 +10245,28 @@ operator|.
 name|arg
 argument_list|(
 name|c
+argument_list|)
+return|;
+case|case
+name|QUrlPrivate
+operator|::
+name|AuthorityPresentAndPathIsRelative
+case|:
+return|return
+name|QStringLiteral
+argument_list|(
+literal|"Path component is relative and authority is present"
+argument_list|)
+return|;
+case|case
+name|QUrlPrivate
+operator|::
+name|RelativeUrlPathContainsColonBeforeSlash
+case|:
+return|return
+name|QStringLiteral
+argument_list|(
+literal|"Relative URL's path component contains ':' before any '/'"
 argument_list|)
 return|;
 block|}
