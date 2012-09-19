@@ -317,7 +317,7 @@ block|;
 name|void
 name|adjustViewOptionsForIndex
 argument_list|(
-argument|QStyleOptionViewItemV4 *option
+argument|QStyleOptionViewItem *option
 argument_list|,
 argument|const QModelIndex&current
 argument_list|)
@@ -720,7 +720,7 @@ name|paintAlternatingRowColors
 argument_list|(
 argument|QPainter *painter
 argument_list|,
-argument|QStyleOptionViewItemV4 *option
+argument|QStyleOptionViewItem *option
 argument_list|,
 argument|int y
 argument_list|,
@@ -735,7 +735,7 @@ name|calcLogicalIndices
 argument_list|(
 argument|QVector<int> *logicalIndices
 argument_list|,
-argument|QVector<QStyleOptionViewItemV4::ViewItemPosition> *itemPositions
+argument|QVector<QStyleOptionViewItem::ViewItemPosition> *itemPositions
 argument_list|,
 argument|int left
 argument_list|,

@@ -5171,7 +5171,7 @@ name|QPainter
 modifier|*
 name|painter
 parameter_list|,
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 modifier|*
 name|option
 parameter_list|,
@@ -5284,7 +5284,7 @@ name|option
 operator|->
 name|features
 operator||=
-name|QStyleOptionViewItemV2
+name|QStyleOptionViewItem
 operator|::
 name|Alternate
 expr_stmt|;
@@ -5296,7 +5296,7 @@ operator|->
 name|features
 operator|&=
 operator|~
-name|QStyleOptionViewItemV2
+name|QStyleOptionViewItem
 operator|::
 name|Alternate
 expr_stmt|;
@@ -5596,7 +5596,7 @@ name|QTreeViewPrivate
 operator|::
 name|adjustViewOptionsForIndex
 parameter_list|(
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 modifier|*
 name|option
 parameter_list|,
@@ -5707,7 +5707,7 @@ decl_stmt|;
 comment|// index = visual index of visible columns only. data = logical index.
 name|QVector
 argument_list|<
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 operator|::
 name|ViewItemPosition
 argument_list|>
@@ -5879,12 +5879,12 @@ name|d
 operator|->
 name|viewItems
 decl_stmt|;
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 name|option
 init|=
 name|d
 operator|->
-name|viewOptionsV4
+name|viewOptions
 argument_list|()
 decl_stmt|;
 specifier|const
@@ -6451,7 +6451,7 @@ name|logicalIndices
 parameter_list|,
 name|QVector
 argument_list|<
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 operator|::
 name|ViewItemPosition
 argument_list|>
@@ -6475,7 +6475,7 @@ operator|->
 name|count
 argument_list|()
 decl_stmt|;
-comment|/* 'left' and 'right' are the left-most and right-most visible visual indices.        Compute the first visible logical indices before and after the left and right.        We will use these values to determine the QStyleOptionViewItemV4::viewItemPosition. */
+comment|/* 'left' and 'right' are the left-most and right-most visible visual indices.        Compute the first visible logical indices before and after the left and right.        We will use these values to determine the QStyleOptionViewItem::viewItemPosition. */
 name|int
 name|logicalIndexBeforeLeft
 init|=
@@ -6673,7 +6673,7 @@ operator|-
 literal|1
 argument_list|)
 decl_stmt|;
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 operator|::
 name|ViewItemPosition
 name|pos
@@ -6710,7 +6710,7 @@ name|spanning
 condition|)
 name|pos
 operator|=
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 operator|::
 name|OnlyOne
 expr_stmt|;
@@ -6734,7 +6734,7 @@ operator|)
 condition|)
 name|pos
 operator|=
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 operator|::
 name|Beginning
 expr_stmt|;
@@ -6752,14 +6752,14 @@ literal|1
 condition|)
 name|pos
 operator|=
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 operator|::
 name|End
 expr_stmt|;
 else|else
 name|pos
 operator|=
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 operator|::
 name|Middle
 expr_stmt|;
@@ -6808,7 +6808,7 @@ specifier|const
 name|QTreeView
 argument_list|)
 expr_stmt|;
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 name|opt
 init|=
 name|option
@@ -7286,7 +7286,7 @@ name|logicalIndices
 decl_stmt|;
 name|QVector
 argument_list|<
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 operator|::
 name|ViewItemPosition
 argument_list|>
@@ -7670,7 +7670,7 @@ name|opt
 operator|.
 name|features
 operator||=
-name|QStyleOptionViewItemV2
+name|QStyleOptionViewItem
 operator|::
 name|Alternate
 expr_stmt|;
@@ -7682,7 +7682,7 @@ operator|.
 name|features
 operator|&=
 operator|~
-name|QStyleOptionViewItemV2
+name|QStyleOptionViewItem
 operator|::
 name|Alternate
 expr_stmt|;
@@ -8353,7 +8353,7 @@ operator|.
 name|parent
 argument_list|()
 decl_stmt|;
-name|QStyleOptionViewItemV2
+name|QStyleOptionViewItem
 name|opt
 init|=
 name|viewOptions
@@ -8443,7 +8443,7 @@ name|opt
 operator|.
 name|features
 operator||=
-name|QStyleOptionViewItemV2
+name|QStyleOptionViewItem
 operator|::
 name|Alternate
 expr_stmt|;
@@ -8455,7 +8455,7 @@ operator|.
 name|features
 operator|&=
 operator|~
-name|QStyleOptionViewItemV2
+name|QStyleOptionViewItem
 operator|::
 name|Alternate
 expr_stmt|;
@@ -13960,12 +13960,12 @@ name|w
 init|=
 literal|0
 decl_stmt|;
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 name|option
 init|=
 name|d
 operator|->
-name|viewOptionsV4
+name|viewOptions
 argument_list|()
 decl_stmt|;
 specifier|const
@@ -14401,12 +14401,12 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 name|option
 init|=
 name|d
 operator|->
-name|viewOptionsV4
+name|viewOptions
 argument_list|()
 decl_stmt|;
 comment|// ### If we want word wrapping in the items,
@@ -16033,10 +16033,10 @@ name|end
 argument_list|()
 expr_stmt|;
 comment|//and now let's render the editors the editors
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 name|option
 init|=
-name|viewOptionsV4
+name|viewOptions
 argument_list|()
 decl_stmt|;
 for|for

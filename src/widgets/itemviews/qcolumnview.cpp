@@ -5539,7 +5539,7 @@ literal|3
 operator|)
 decl_stmt|;
 comment|// Modify the options to give us room to add an arrow
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 name|opt
 init|=
 name|option

@@ -4463,7 +4463,7 @@ name|PE_PanelItemViewItem
 case|:
 block|{
 specifier|const
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 modifier|*
 name|vopt
 decl_stmt|;
@@ -4515,7 +4515,7 @@ operator|=
 name|qstyleoption_cast
 argument_list|<
 specifier|const
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 operator|*
 argument_list|>
 argument_list|(
@@ -4563,7 +4563,7 @@ name|vopt
 operator|->
 name|features
 operator|&
-name|QStyleOptionViewItemV2
+name|QStyleOptionViewItem
 operator|::
 name|Alternate
 condition|)
@@ -5066,7 +5066,7 @@ name|vopt
 operator|->
 name|viewItemPosition
 operator|==
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 operator|::
 name|Beginning
 decl_stmt|;
@@ -5077,7 +5077,7 @@ name|vopt
 operator|->
 name|viewItemPosition
 operator|==
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 operator|::
 name|End
 decl_stmt|;
@@ -5087,7 +5087,7 @@ name|vopt
 operator|->
 name|viewItemPosition
 operator|==
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 operator|::
 name|OnlyOne
 operator|||
@@ -5095,7 +5095,7 @@ name|vopt
 operator|->
 name|viewItemPosition
 operator|==
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 operator|::
 name|Invalid
 condition|)
@@ -5313,7 +5313,7 @@ name|vopt
 operator|->
 name|viewItemPosition
 operator|==
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 operator|::
 name|Middle
 condition|)
@@ -10650,7 +10650,7 @@ name|CE_ItemViewItem
 case|:
 block|{
 specifier|const
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 modifier|*
 name|vopt
 decl_stmt|;
@@ -10702,7 +10702,7 @@ operator|=
 name|qstyleoption_cast
 argument_list|<
 specifier|const
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 operator|*
 argument_list|>
 argument_list|(
@@ -10772,7 +10772,7 @@ literal|108
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 name|adjustedOption
 init|=
 operator|*
@@ -14892,7 +14892,7 @@ condition|(
 name|qstyleoption_cast
 argument_list|<
 specifier|const
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 operator|*
 argument_list|>
 argument_list|(
@@ -14920,14 +14920,14 @@ case|:
 if|if
 condition|(
 specifier|const
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 modifier|*
 name|vopt
 init|=
 name|qstyleoption_cast
 argument_list|<
 specifier|const
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 operator|*
 argument_list|>
 argument_list|(

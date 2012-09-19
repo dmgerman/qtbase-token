@@ -3330,12 +3330,12 @@ operator|->
 name|itemDelegate
 condition|)
 return|return;
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 name|option
 init|=
 name|d
 operator|->
-name|viewOptionsV4
+name|viewOptions
 argument_list|()
 decl_stmt|;
 name|QPainter
@@ -3897,7 +3897,7 @@ name|option
 operator|.
 name|features
 operator||=
-name|QStyleOptionViewItemV2
+name|QStyleOptionViewItem
 operator|::
 name|Alternate
 expr_stmt|;
@@ -3909,7 +3909,7 @@ operator|.
 name|features
 operator|&=
 operator|~
-name|QStyleOptionViewItemV2
+name|QStyleOptionViewItem
 operator|::
 name|Alternate
 expr_stmt|;
@@ -6841,12 +6841,12 @@ operator|->
 name|root
 argument_list|)
 decl_stmt|;
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 name|option
 init|=
 name|d
 operator|->
-name|viewOptionsV4
+name|viewOptions
 argument_list|()
 decl_stmt|;
 name|QSize
@@ -11994,7 +11994,7 @@ operator|-
 literal|1
 argument_list|)
 decl_stmt|;
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 name|options
 init|=
 name|viewOptions
@@ -12450,7 +12450,7 @@ argument_list|(
 name|info
 argument_list|)
 decl_stmt|;
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 name|option
 init|=
 name|viewOptions
@@ -14463,7 +14463,7 @@ name|draggedItemsDelta
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 name|option
 init|=
 name|viewOptions
@@ -15495,7 +15495,7 @@ name|column
 argument_list|()
 condition|)
 block|{
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 name|option
 init|=
 name|viewOptions
@@ -15586,7 +15586,7 @@ argument_list|()
 condition|)
 block|{
 comment|//first we create the items
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 name|option
 init|=
 name|viewOptions

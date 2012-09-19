@@ -4583,14 +4583,14 @@ case|:
 if|if
 condition|(
 specifier|const
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 modifier|*
 name|vopt
 init|=
 name|qstyleoption_cast
 argument_list|<
 specifier|const
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 operator|*
 argument_list|>
 argument_list|(
@@ -4716,7 +4716,7 @@ name|vopt
 operator|->
 name|features
 operator|&
-name|QStyleOptionViewItemV2
+name|QStyleOptionViewItem
 operator|::
 name|Alternate
 condition|)

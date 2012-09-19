@@ -725,7 +725,7 @@ argument|const QRegion&area
 argument_list|,
 argument|QPainter *painter
 argument_list|,
-argument|const QStyleOptionViewItemV4&option
+argument|const QStyleOptionViewItem&option
 argument_list|,
 argument|QBitArray *drawn
 argument_list|,
@@ -746,7 +746,7 @@ operator|*
 name|painter
 argument_list|,
 specifier|const
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 operator|&
 name|option
 argument_list|,

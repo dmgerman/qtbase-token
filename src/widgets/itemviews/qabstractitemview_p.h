@@ -928,7 +928,7 @@ name|virtual
 name|void
 name|adjustViewOptionsForIndex
 argument_list|(
-argument|QStyleOptionViewItemV4*
+argument|QStyleOptionViewItem*
 argument_list|,
 argument|const QModelIndex&
 argument_list|)
@@ -1758,8 +1758,8 @@ specifier|const
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-name|QStyleOptionViewItemV4
-name|viewOptionsV4
+name|QStyleOptionViewItem
+name|viewOptions
 argument_list|()
 specifier|const
 expr_stmt|;

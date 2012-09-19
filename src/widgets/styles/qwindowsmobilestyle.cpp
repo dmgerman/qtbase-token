@@ -10605,7 +10605,7 @@ modifier|*
 name|painter
 parameter_list|,
 specifier|const
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 modifier|*
 name|option
 parameter_list|,
@@ -10673,7 +10673,7 @@ name|option
 operator|->
 name|viewItemPosition
 operator|==
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 operator|::
 name|Middle
 condition|)
@@ -10695,7 +10695,7 @@ name|option
 operator|->
 name|viewItemPosition
 operator|==
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 operator|::
 name|Beginning
 condition|)
@@ -10728,7 +10728,7 @@ name|option
 operator|->
 name|viewItemPosition
 operator|==
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 operator|::
 name|End
 condition|)
@@ -10875,7 +10875,7 @@ name|option
 operator|->
 name|viewItemPosition
 operator|==
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 operator|::
 name|Beginning
 operator|)
@@ -10885,7 +10885,7 @@ name|option
 operator|->
 name|viewItemPosition
 operator|==
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 operator|::
 name|OnlyOne
 operator|)
@@ -10916,7 +10916,7 @@ name|option
 operator|->
 name|viewItemPosition
 operator|==
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 operator|::
 name|End
 operator|)
@@ -10926,7 +10926,7 @@ name|option
 operator|->
 name|viewItemPosition
 operator|==
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 operator|::
 name|OnlyOne
 operator|)
@@ -19560,14 +19560,14 @@ case|:
 if|if
 condition|(
 specifier|const
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 modifier|*
 name|vopt
 init|=
 name|qstyleoption_cast
 argument_list|<
 specifier|const
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 operator|*
 argument_list|>
 argument_list|(
@@ -19663,7 +19663,7 @@ name|vopt
 operator|->
 name|features
 operator|&
-name|QStyleOptionViewItemV2
+name|QStyleOptionViewItem
 operator|::
 name|Alternate
 condition|)
@@ -19733,14 +19733,14 @@ case|:
 if|if
 condition|(
 specifier|const
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 modifier|*
 name|vopt
 init|=
 name|qstyleoption_cast
 argument_list|<
 specifier|const
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 operator|*
 argument_list|>
 argument_list|(

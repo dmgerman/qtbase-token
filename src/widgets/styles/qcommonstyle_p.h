@@ -90,7 +90,7 @@ name|viewItemDrawText
 argument_list|(
 argument|QPainter *p
 argument_list|,
-argument|const QStyleOptionViewItemV4 *option
+argument|const QStyleOptionViewItem *option
 argument_list|,
 argument|const QRect&rect
 argument_list|)
@@ -99,7 +99,7 @@ block|;
 name|void
 name|viewItemLayout
 argument_list|(
-argument|const QStyleOptionViewItemV4 *opt
+argument|const QStyleOptionViewItem *opt
 argument_list|,
 argument|QRect *checkRect
 argument_list|,
@@ -114,7 +114,7 @@ block|;
 name|QSize
 name|viewItemSize
 argument_list|(
-argument|const QStyleOptionViewItemV4 *option
+argument|const QStyleOptionViewItem *option
 argument_list|,
 argument|int role
 argument_list|)
@@ -129,14 +129,14 @@ block|,
 name|checkRect
 block|;
 name|mutable
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 operator|*
 name|cachedOption
 block|;
 name|bool
 name|isViewItemCached
 argument_list|(
-argument|const QStyleOptionViewItemV4&option
+argument|const QStyleOptionViewItem&option
 argument_list|)
 specifier|const
 block|{

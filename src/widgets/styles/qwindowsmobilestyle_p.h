@@ -294,7 +294,7 @@ name|drawPanelItemViewSelected
 argument_list|(
 argument|QPainter *painter
 argument_list|,
-argument|const QStyleOptionViewItemV4 *option
+argument|const QStyleOptionViewItem *option
 argument_list|,
 argument|QRect rect = QRect()
 argument_list|)

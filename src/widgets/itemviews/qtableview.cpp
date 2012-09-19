@@ -4239,7 +4239,7 @@ modifier|*
 name|painter
 parameter_list|,
 specifier|const
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 modifier|&
 name|option
 parameter_list|,
@@ -4476,7 +4476,7 @@ name|rect
 argument_list|)
 condition|)
 continue|continue;
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 name|opt
 init|=
 name|option
@@ -4508,7 +4508,7 @@ name|opt
 operator|.
 name|features
 operator||=
-name|QStyleOptionViewItemV2
+name|QStyleOptionViewItem
 operator|::
 name|Alternate
 expr_stmt|;
@@ -4518,7 +4518,7 @@ operator|.
 name|features
 operator|&=
 operator|~
-name|QStyleOptionViewItemV2
+name|QStyleOptionViewItem
 operator|::
 name|Alternate
 expr_stmt|;
@@ -4815,7 +4815,7 @@ modifier|*
 name|painter
 parameter_list|,
 specifier|const
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 modifier|&
 name|option
 parameter_list|,
@@ -4830,7 +4830,7 @@ argument_list|(
 name|QTableView
 argument_list|)
 expr_stmt|;
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 name|opt
 init|=
 name|option
@@ -6799,12 +6799,12 @@ name|QTableView
 argument_list|)
 expr_stmt|;
 comment|// setup temp variables for the painting
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 name|option
 init|=
 name|d
 operator|->
-name|viewOptionsV4
+name|viewOptions
 argument_list|()
 decl_stmt|;
 specifier|const
@@ -7743,7 +7743,7 @@ name|option
 operator|.
 name|features
 operator||=
-name|QStyleOptionViewItemV2
+name|QStyleOptionViewItem
 operator|::
 name|Alternate
 expr_stmt|;
@@ -7753,7 +7753,7 @@ operator|.
 name|features
 operator|&=
 operator|~
-name|QStyleOptionViewItemV2
+name|QStyleOptionViewItem
 operator|::
 name|Alternate
 expr_stmt|;
@@ -12976,12 +12976,12 @@ argument_list|)
 operator|-
 literal|1
 expr_stmt|;
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 name|option
 init|=
 name|d
 operator|->
-name|viewOptionsV4
+name|viewOptions
 argument_list|()
 decl_stmt|;
 name|int
@@ -13327,12 +13327,12 @@ argument_list|)
 operator|-
 literal|1
 expr_stmt|;
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 name|option
 init|=
 name|d
 operator|->
-name|viewOptionsV4
+name|viewOptions
 argument_list|()
 decl_stmt|;
 name|int

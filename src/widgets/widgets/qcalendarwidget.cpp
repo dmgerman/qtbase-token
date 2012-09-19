@@ -7938,7 +7938,7 @@ name|calendarWidgetPrivate
 decl_stmt|;
 DECL|member|storedOption
 specifier|mutable
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 name|storedOption
 decl_stmt|;
 block|}

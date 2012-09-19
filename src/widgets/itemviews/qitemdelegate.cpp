@@ -388,7 +388,7 @@ modifier|&
 name|value
 parameter_list|,
 specifier|const
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 modifier|&
 name|option
 parameter_list|)
@@ -414,7 +414,7 @@ name|QRect
 name|textLayoutBounds
 parameter_list|(
 specifier|const
-name|QStyleOptionViewItemV2
+name|QStyleOptionViewItem
 modifier|&
 name|options
 parameter_list|)
@@ -451,31 +451,10 @@ name|option
 parameter_list|)
 specifier|const
 block|{
-if|if
-condition|(
-specifier|const
-name|QStyleOptionViewItemV3
-modifier|*
-name|v3
-init|=
-name|qstyleoption_cast
-argument_list|<
-specifier|const
-name|QStyleOptionViewItemV3
-operator|*
-argument_list|>
-argument_list|(
-operator|&
+return|return
 name|option
-argument_list|)
-condition|)
-return|return
-name|v3
-operator|->
+operator|.
 name|widget
-return|;
-return|return
-literal|0
 return|;
 block|}
 comment|// ### temporary hack until we have QStandardItemDelegate
@@ -554,7 +533,7 @@ operator|::
 name|textLayoutBounds
 parameter_list|(
 specifier|const
-name|QStyleOptionViewItemV2
+name|QStyleOptionViewItem
 modifier|&
 name|option
 parameter_list|)
@@ -575,7 +554,7 @@ name|option
 operator|.
 name|features
 operator|&
-name|QStyleOptionViewItemV2
+name|QStyleOptionViewItem
 operator|::
 name|WrapText
 decl_stmt|;
@@ -858,7 +837,7 @@ modifier|&
 name|value
 parameter_list|,
 specifier|const
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 modifier|&
 name|option
 parameter_list|)
@@ -2461,7 +2440,7 @@ argument_list|()
 expr_stmt|;
 block|}
 specifier|const
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 name|opt
 init|=
 name|option
@@ -2539,7 +2518,7 @@ name|opt
 operator|.
 name|features
 operator|&
-name|QStyleOptionViewItemV2
+name|QStyleOptionViewItem
 operator|::
 name|WrapText
 decl_stmt|;

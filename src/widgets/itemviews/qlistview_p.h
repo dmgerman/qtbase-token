@@ -987,7 +987,7 @@ argument_list|()
 specifier|const
 expr_stmt|;
 specifier|inline
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 name|viewOptions
 argument_list|()
 specifier|const
@@ -1027,7 +1027,7 @@ name|QSize
 name|itemSize
 argument_list|(
 specifier|const
-name|QStyleOptionViewItemV2
+name|QStyleOptionViewItem
 operator|&
 name|opt
 argument_list|,
@@ -3096,7 +3096,7 @@ end_expr_stmt
 begin_expr_stmt
 DECL|function|viewOptions
 specifier|inline
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 name|QCommonListViewBase
 operator|::
 name|viewOptions
@@ -3106,7 +3106,7 @@ block|{
 return|return
 name|dd
 operator|->
-name|viewOptionsV4
+name|viewOptions
 argument_list|()
 return|;
 block|}
@@ -3194,7 +3194,7 @@ name|QCommonListViewBase
 operator|::
 name|itemSize
 argument_list|(
-argument|const QStyleOptionViewItemV2&opt
+argument|const QStyleOptionViewItem&opt
 argument_list|,
 argument|const QModelIndex&idx
 argument_list|)
