@@ -185,10 +185,10 @@ name|fonts
 operator|.
 name|join
 argument_list|(
-literal|","
+literal|", "
 argument_list|)
 decl_stmt|;
-comment|// str == "Arial,Helvetica,Times,Courier"
+comment|// str == "Arial, Helvetica, Times, Courier"
 comment|//! [4]
 comment|//! [5] //! [6]
 name|QStringList
