@@ -10739,6 +10739,7 @@ argument_list|,
 literal|"no"
 argument_list|,
 literal|"-no-fontconfig"
+argument_list|,
 literal|"Do not build with FontConfig support."
 argument_list|)
 expr_stmt|;
