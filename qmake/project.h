@@ -253,6 +253,11 @@ block|;
 name|using
 name|QMakeEvaluator
 operator|::
+name|VisitReturn
+block|;
+name|using
+name|QMakeEvaluator
+operator|::
 name|setExtraVars
 block|;
 name|using
@@ -304,6 +309,15 @@ name|using
 name|QMakeEvaluator
 operator|::
 name|dirSep
+block|;
+name|private
+operator|:
+specifier|static
+name|bool
+name|boolRet
+argument_list|(
+argument|VisitReturn vr
+argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt

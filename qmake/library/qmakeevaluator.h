@@ -755,7 +755,7 @@ name|fileName
 argument_list|)
 return|;
 block|}
-name|bool
+name|VisitReturn
 name|evaluateFile
 argument_list|(
 argument|const QString&fileName
@@ -765,7 +765,7 @@ argument_list|,
 argument|LoadFlags flags
 argument_list|)
 block|;
-name|bool
+name|VisitReturn
 name|evaluateFileChecked
 argument_list|(
 argument|const QString&fileName
@@ -775,7 +775,7 @@ argument_list|,
 argument|LoadFlags flags
 argument_list|)
 block|;
-name|bool
+name|VisitReturn
 name|evaluateFeatureFile
 argument_list|(
 argument|const QString&fileName
@@ -783,7 +783,7 @@ argument_list|,
 argument|bool silent = false
 argument_list|)
 block|;
-name|bool
+name|VisitReturn
 name|evaluateFileInto
 argument_list|(
 argument|const QString&fileName
@@ -794,7 +794,7 @@ comment|// output-only
 argument|LoadFlags flags
 argument_list|)
 block|;
-name|void
+name|VisitReturn
 name|evaluateConfigFeatures
 argument_list|()
 block|;
@@ -884,7 +884,7 @@ operator|>
 operator|&
 name|argumentsList
 argument_list|,
-name|bool
+name|VisitReturn
 operator|*
 name|ok
 argument_list|)
