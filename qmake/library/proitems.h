@@ -2224,6 +2224,13 @@ argument|const QString&sep
 argument_list|)
 specifier|const
 block|;
+name|QString
+name|join
+argument_list|(
+argument|QChar sep
+argument_list|)
+specifier|const
+block|;
 name|void
 name|removeAll
 argument_list|(
