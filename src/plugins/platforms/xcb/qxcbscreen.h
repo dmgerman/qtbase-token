@@ -157,6 +157,11 @@ return|return
 name|m_sizeMillimeters
 return|;
 block|}
+name|QDpi
+name|logicalDpi
+argument_list|()
+specifier|const
+expr_stmt|;
 name|QPlatformCursor
 operator|*
 name|cursor

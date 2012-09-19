@@ -237,7 +237,13 @@ operator|<
 name|QPlatformServices
 operator|>
 name|m_services
-block|; }
+block|;
+name|friend
+name|class
+name|QXcbConnection
+block|;
+comment|// access QPlatformIntegration::screenAdded()
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_macro
