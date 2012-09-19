@@ -212,7 +212,7 @@ literal|false
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|/* \internal      From OpenSSL's thread(3) manual page:      OpenSSL can safely be used in multi-threaded applications provided that at     least two callback functions are set.      locking_function(int mode, int n, const char *file, int line) is needed to     perform locking on shared data structures.  (Note that OpenSSL uses a     number of global data structures that will be implicitly shared     when-whenever ever multiple threads use OpenSSL.)  Multi-threaded     applications will crash at random if it is not set.  ...     ...     id_function(void) is a function that returns a thread ID. It is not     needed on Windows nor on platforms where getpid() returns a different     ID for each thread (most notably Linux) */
+comment|/* \internal      From OpenSSL's thread(3) manual page:      OpenSSL can safely be used in multi-threaded applications provided that at     least two callback functions are set.      locking_function(int mode, int n, const char *file, int line) is needed to     perform locking on shared data structures.  (Note that OpenSSL uses a     number of global data structures that will be implicitly shared     whenever multiple threads use OpenSSL.)  Multi-threaded     applications will crash at random if it is not set.  ...     ...     id_function(void) is a function that returns a thread ID. It is not     needed on Windows nor on platforms where getpid() returns a different     ID for each thread (most notably Linux) */
 end_comment
 begin_class
 DECL|class|QOpenSslLocks
