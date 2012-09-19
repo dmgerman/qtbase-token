@@ -51,6 +51,14 @@ end_comment
 begin_include
 include|#
 directive|include
+file|"qsslsocket_p.h"
+end_include
+begin_comment
+comment|// includes wincrypt.h
+end_comment
+begin_include
+include|#
+directive|include
 file|<openssl/rsa.h>
 end_include
 begin_include
