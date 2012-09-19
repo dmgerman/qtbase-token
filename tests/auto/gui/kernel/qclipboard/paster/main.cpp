@@ -79,7 +79,14 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-return|return
+name|QString
+name|actual
+decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
+name|actual
+operator|=
 name|QGuiApplication
 operator|::
 name|clipboard
@@ -87,6 +94,11 @@ argument_list|()
 operator|->
 name|text
 argument_list|()
+expr_stmt|;
+endif|#
+directive|endif
+return|return
+name|actual
 operator|==
 name|expected
 condition|?

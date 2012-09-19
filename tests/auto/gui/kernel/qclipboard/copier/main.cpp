@@ -79,6 +79,9 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
 name|QGuiApplication
 operator|::
 name|clipboard
@@ -89,6 +92,8 @@ argument_list|(
 name|paste
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 return|return
 literal|0
 return|;
