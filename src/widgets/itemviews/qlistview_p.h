@@ -2584,6 +2584,13 @@ expr_stmt|;
 block|}
 block|}
 end_decl_stmt
+begin_expr_stmt
+name|QStyleOptionViewItem
+name|viewOptions
+argument_list|()
+specifier|const
+expr_stmt|;
+end_expr_stmt
 begin_function_decl
 name|void
 name|scrollElasticBandBy
