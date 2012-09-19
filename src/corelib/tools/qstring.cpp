@@ -22005,6 +22005,7 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
+operator|(
 name|locale
 operator|.
 name|numberOptions
@@ -22013,6 +22014,7 @@ operator|&
 name|QLocale
 operator|::
 name|OmitGroupSeparator
+operator|)
 condition|)
 name|flags
 operator||=
@@ -22195,6 +22197,7 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
+operator|(
 name|locale
 operator|.
 name|numberOptions
@@ -22203,6 +22206,7 @@ operator|&
 name|QLocale
 operator|::
 name|OmitGroupSeparator
+operator|)
 condition|)
 name|flags
 operator||=
@@ -22559,6 +22563,7 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
+operator|(
 name|locale
 operator|.
 name|numberOptions
@@ -22567,6 +22572,7 @@ operator|&
 name|QLocale
 operator|::
 name|OmitGroupSeparator
+operator|)
 condition|)
 name|flags
 operator||=
