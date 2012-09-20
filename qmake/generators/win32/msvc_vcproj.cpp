@@ -150,6 +150,8 @@ directive|include
 file|<windows/registry_p.h>
 name|QT_BEGIN_NAMESPACE
 expr|struct
+DECL|struct|DotNetCombo
+name|DotNetCombo
 block|{
 DECL|member|version
 name|DotNET
