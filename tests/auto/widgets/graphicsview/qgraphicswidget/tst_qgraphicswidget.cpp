@@ -62,6 +62,11 @@ include|#
 directive|include
 file|<qwidgetaction.h>
 end_include
+begin_include
+include|#
+directive|include
+file|"../../../qtest-config.h"
+end_include
 begin_class
 DECL|class|EventSpy
 class|class
@@ -20807,6 +20812,9 @@ argument_list|)
 expr_stmt|;
 break|break;
 block|}
+ifndef|#
+directive|ifndef
+name|QTEST_NO_CURSOR
 case|case
 name|QEvent
 operator|::
@@ -20833,6 +20841,8 @@ argument_list|)
 expr_stmt|;
 break|break;
 block|}
+endif|#
+directive|endif
 case|case
 name|QEvent
 operator|::
@@ -21094,6 +21104,9 @@ name|toBool
 argument_list|()
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QTEST_NO_CURSOR
 comment|// CursorChange should be triggered after the cursor has changed
 name|item
 operator|->
@@ -21132,6 +21145,8 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 comment|// ToolTipChange should be triggered after the tooltip has changed
 name|item
 operator|->

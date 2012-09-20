@@ -107,6 +107,11 @@ include|#
 directive|include
 file|"tst_qvariant_common.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"../../../../qtest-config.h"
+end_include
 begin_class
 DECL|class|tst_QGuiVariant
 class|class
@@ -736,7 +741,7 @@ name|N
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_CURSOR
+name|QTEST_NO_CURSOR
 name|var
 operator|=
 name|QVariant
@@ -3521,7 +3526,7 @@ literal|false
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_CURSOR
+name|QTEST_NO_CURSOR
 name|QTest
 operator|::
 name|newRow
@@ -4479,6 +4484,9 @@ name|guiVariantAtExit
 parameter_list|()
 block|{
 comment|// crash test, it should not crash at QGuiApplication exit
+ifndef|#
+directive|ifndef
+name|QTEST_NO_CURSOR
 specifier|static
 name|QVariant
 name|cursor
@@ -4486,6 +4494,8 @@ init|=
 name|QCursor
 argument_list|()
 decl_stmt|;
+endif|#
+directive|endif
 specifier|static
 name|QVariant
 name|point
@@ -4514,11 +4524,16 @@ init|=
 name|QPalette
 argument_list|()
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QTEST_NO_CURSOR
 name|Q_UNUSED
 argument_list|(
 name|cursor
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|Q_UNUSED
 argument_list|(
 name|point

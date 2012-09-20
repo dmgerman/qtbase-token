@@ -17,6 +17,11 @@ include|#
 directive|include
 file|<QtTest/QtTest>
 end_include
+begin_include
+include|#
+directive|include
+file|"../../../qtest-config.h"
+end_include
 begin_macro
 name|Q_DECLARE_METATYPE
 argument_list|(
@@ -368,6 +373,11 @@ block|}
 block|}
 struct|;
 end_struct
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QTEST_NO_CURSOR
+end_ifndef
 begin_struct
 DECL|struct|TypeComparator
 template|template
@@ -411,6 +421,10 @@ block|}
 block|}
 struct|;
 end_struct
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_struct
 template|template
 parameter_list|<
@@ -774,6 +788,11 @@ block|}
 block|}
 struct|;
 end_struct
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QTEST_NO_CURSOR
+end_ifndef
 begin_struct
 DECL|struct|TestValueFactory
 template|template
@@ -806,6 +825,10 @@ block|}
 block|}
 struct|;
 end_struct
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_struct
 DECL|struct|TestValueFactory
 template|template

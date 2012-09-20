@@ -45,7 +45,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"../../../platformquirks.h"
+file|"../../../qtest-config.h"
 end_include
 begin_class
 DECL|class|tst_QStyleSheetStyle
@@ -145,10 +145,15 @@ name|void
 name|focusColors
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QTEST_NO_CURSOR
 name|void
 name|hoverColors
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|background
 parameter_list|()
@@ -4955,6 +4960,11 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QTEST_NO_CURSOR
+end_ifndef
 begin_function
 DECL|function|hoverColors
 name|void
@@ -4963,19 +4973,6 @@ operator|::
 name|hoverColors
 parameter_list|()
 block|{
-if|if
-condition|(
-operator|!
-name|PlatformQuirks
-operator|::
-name|haveMouseCursor
-argument_list|()
-condition|)
-name|QSKIP
-argument_list|(
-literal|"No mouse Cursor on this platform"
-argument_list|)
-expr_stmt|;
 name|QList
 argument_list|<
 name|QWidget
@@ -5598,6 +5595,10 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_class
 DECL|class|SingleInheritanceDialog
 class|class

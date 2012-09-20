@@ -53,6 +53,11 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_include
+include|#
+directive|include
+file|"../../../qtest-config.h"
+end_include
 begin_function
 DECL|function|sendMouseMove
 specifier|static
@@ -272,6 +277,9 @@ name|void
 name|focusOutEvent
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QTEST_NO_CURSOR
 name|void
 name|hoverEnterLeaveEvent_data
 parameter_list|()
@@ -280,6 +288,8 @@ name|void
 name|hoverEnterLeaveEvent
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|hoverMoveEvent_data
 parameter_list|()
@@ -428,10 +438,15 @@ name|void
 name|popup_subwidget
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QTEST_NO_CURSOR
 name|void
 name|changingCursor_basic
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|tooltip_basic
 parameter_list|()
@@ -1988,7 +2003,7 @@ name|QWidget
 decl_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_CURSOR
+name|QTEST_NO_CURSOR
 name|widget
 operator|->
 name|setCursor
@@ -2256,7 +2271,7 @@ argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_CURSOR
+name|QTEST_NO_CURSOR
 name|QVERIFY
 argument_list|(
 name|proxy
@@ -4960,6 +4975,11 @@ block|}
 block|}
 class|;
 end_class
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QTEST_NO_CURSOR
+end_ifndef
 begin_function
 DECL|function|hoverEnterLeaveEvent_data
 name|void
@@ -5059,32 +5079,6 @@ argument_list|,
 name|hoverEnabled
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_WINCE
-argument_list|)
-operator|&&
-operator|(
-operator|!
-name|defined
-argument_list|(
-name|GWES_ICONCURS
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|QT_NO_CURSOR
-argument_list|)
-operator|)
-name|QSKIP
-argument_list|(
-literal|"hover events not supported on this platform"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 comment|// proxy should translate this into events that the widget would expect
 name|QGraphicsScene
 name|scene
@@ -5363,6 +5357,10 @@ name|widget
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|hoverMoveEvent_data
 name|void
@@ -8673,7 +8671,7 @@ comment|// QCOMPARE(proxy.focusPolicy(), lineEdit->focusPolicy());
 comment|// QCOMPARE(proxy.palette(), lineEdit->palette());
 ifndef|#
 directive|ifndef
-name|QT_NO_CURSOR
+name|QTEST_NO_CURSOR
 name|QCOMPARE
 argument_list|(
 name|proxy
@@ -15614,6 +15612,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QTEST_NO_CURSOR
+end_ifndef
 begin_function
 DECL|function|changingCursor_basic
 name|void
@@ -15622,35 +15625,6 @@ operator|::
 name|changingCursor_basic
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_WINCE
-argument_list|)
-operator|&&
-operator|(
-operator|!
-name|defined
-argument_list|(
-name|GWES_ICONCURS
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|QT_NO_CURSOR
-argument_list|)
-operator|)
-name|QSKIP
-argument_list|(
-literal|"hover events not supported on this platform"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-ifndef|#
-directive|ifndef
-name|QT_NO_CURSOR
 comment|// Confirm that mouse events are working properly by checking that
 comment|// when moving the mouse over a line edit it will change the cursor into the I
 name|QGraphicsScene
@@ -15852,10 +15826,12 @@ operator|::
 name|ArrowCursor
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|tooltip_basic
 name|void
@@ -23087,7 +23063,7 @@ argument_list|)
 operator|||
 name|defined
 argument_list|(
-name|QT_NO_CURSOR
+name|QTEST_NO_CURSOR
 argument_list|)
 name|QSKIP
 argument_list|(

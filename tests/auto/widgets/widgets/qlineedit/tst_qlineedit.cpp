@@ -144,6 +144,11 @@ include|#
 directive|include
 file|<private/qinputmethod_p.h>
 end_include
+begin_include
+include|#
+directive|include
+file|"../../../qtest-config.h"
+end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
@@ -616,7 +621,7 @@ parameter_list|()
 function_decl|;
 ifndef|#
 directive|ifndef
-name|QT_NO_CURSOR
+name|QTEST_NO_CURSOR
 name|void
 name|cursor
 parameter_list|()
@@ -19011,7 +19016,7 @@ end_function
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_CURSOR
+name|QTEST_NO_CURSOR
 end_ifndef
 begin_function
 DECL|function|cursor

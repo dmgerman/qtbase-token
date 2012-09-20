@@ -77,6 +77,11 @@ include|#
 directive|include
 file|"../../../shared/platformclipboard.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"../../../qtest-config.h"
+end_include
 begin_comment
 comment|//Used in copyAvailable
 end_comment
@@ -298,10 +303,15 @@ name|void
 name|lineWrapModes
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QTEST_NO_CURSOR
 name|void
 name|mouseCursorShape
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|implicitClear
 parameter_list|()
@@ -4696,6 +4706,11 @@ name|window
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QTEST_NO_CURSOR
+end_ifndef
 begin_function
 DECL|function|mouseCursorShape
 name|void
@@ -4704,9 +4719,6 @@ operator|::
 name|mouseCursorShape
 parameter_list|()
 block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_CURSOR
 comment|// always show an IBeamCursor, see change 170146
 name|QVERIFY
 argument_list|(
@@ -4785,10 +4797,12 @@ operator|::
 name|IBeamCursor
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|implicitClear
 name|void
