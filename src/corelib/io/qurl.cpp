@@ -2210,7 +2210,8 @@ block|}
 end_function
 begin_function
 DECL|function|setAuthority
-name|bool
+specifier|inline
+name|void
 name|QUrlPrivate
 operator|::
 name|setAuthority
@@ -2273,9 +2274,7 @@ operator|=
 operator|-
 literal|1
 expr_stmt|;
-return|return
-literal|true
-return|;
+return|return;
 block|}
 name|int
 name|userInfoIndex
@@ -2563,7 +2562,6 @@ operator|-
 literal|1
 expr_stmt|;
 block|}
-return|return
 name|setHost
 argument_list|(
 name|auth
@@ -2582,14 +2580,7 @@ argument_list|)
 argument_list|,
 name|mode
 argument_list|)
-operator|&&
-operator|!
-operator|(
-name|sectionHasError
-operator|&
-name|Port
-operator|)
-return|;
+expr_stmt|;
 block|}
 end_function
 begin_function

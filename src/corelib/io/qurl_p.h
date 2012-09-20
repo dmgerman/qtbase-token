@@ -401,7 +401,7 @@ name|int
 name|len
 parameter_list|)
 function_decl|;
-name|bool
+name|void
 name|setAuthority
 argument_list|(
 specifier|const
