@@ -10525,7 +10525,7 @@ name|a
 decl_stmt|;
 name|QSKIP
 argument_list|(
-literal|"This test crashes on many of our machines."
+literal|"QTBUG-27285 - This test crashes on many of our machines."
 argument_list|)
 expr_stmt|;
 name|a
