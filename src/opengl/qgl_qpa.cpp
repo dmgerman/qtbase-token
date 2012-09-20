@@ -1553,6 +1553,40 @@ comment|// On desktop, request latest released version
 name|QSurfaceFormat
 name|format
 decl_stmt|;
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_MAC
+argument_list|)
+comment|// OS X is limited to OpenGL 3.2 Core Profile at present
+comment|// so set that here. If we use compatibility profile it
+comment|// only reports 2.x contexts.
+name|format
+operator|.
+name|setMajorVersion
+argument_list|(
+literal|3
+argument_list|)
+expr_stmt|;
+name|format
+operator|.
+name|setMinorVersion
+argument_list|(
+literal|2
+argument_list|)
+expr_stmt|;
+name|format
+operator|.
+name|setProfile
+argument_list|(
+name|QSurfaceFormat
+operator|::
+name|CoreProfile
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|format
 operator|.
 name|setMajorVersion
@@ -1567,6 +1601,8 @@ argument_list|(
 literal|3
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|d
 operator|->
 name|context
