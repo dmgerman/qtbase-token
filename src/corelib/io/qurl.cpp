@@ -10629,6 +10629,18 @@ name|QUrlPrivate
 operator|::
 name|NoError
 case|:
+name|Q_ASSERT_X
+argument_list|(
+literal|false
+argument_list|,
+literal|"QUrl::errorString"
+argument_list|,
+literal|"Impossible: QUrl::errorString should have treated this condition"
+argument_list|)
+expr_stmt|;
+name|Q_UNREACHABLE
+argument_list|()
+expr_stmt|;
 return|return
 name|QString
 argument_list|()
@@ -10867,11 +10879,21 @@ literal|"Relative URL's path component contains ':' before any '/'"
 argument_list|)
 return|;
 block|}
-return|return
-name|QStringLiteral
+name|Q_ASSERT_X
 argument_list|(
-literal|"<unknown error>"
+literal|false
+argument_list|,
+literal|"QUrl::errorString"
+argument_list|,
+literal|"Cannot happen, unknown error"
 argument_list|)
+expr_stmt|;
+name|Q_UNREACHABLE
+argument_list|()
+expr_stmt|;
+return|return
+name|QString
+argument_list|()
 return|;
 block|}
 end_function
