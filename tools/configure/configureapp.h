@@ -526,6 +526,15 @@ name|QString
 argument_list|()
 parameter_list|)
 function_decl|;
+name|bool
+name|compilerSupportsFlag
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|compilerAndArgs
+parameter_list|)
+function_decl|;
 name|void
 name|desc
 parameter_list|(
