@@ -17828,7 +17828,7 @@ name|command
 init|=
 name|QString
 argument_list|(
-literal|"%1 -spec %2 %3 2>&1"
+literal|"%1 -spec %2 %3"
 argument_list|)
 operator|.
 name|arg
@@ -17859,13 +17859,43 @@ literal|"/config.tests/arch/arch.pro"
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|int
+name|returnValue
+init|=
+literal|0
+decl_stmt|;
 name|Environment
 operator|::
 name|execute
 argument_list|(
 name|command
+argument_list|,
+operator|&
+name|returnValue
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|returnValue
+operator|!=
+literal|0
+condition|)
+block|{
+name|cout
+operator|<<
+literal|"QMake failed!"
+operator|<<
+name|endl
+expr_stmt|;
+name|dictionary
+index|[
+literal|"DONE"
+index|]
+operator|=
+literal|"error"
+expr_stmt|;
+return|return;
+block|}
 comment|// compile
 name|command
 operator|=
