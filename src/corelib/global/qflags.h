@@ -147,13 +147,18 @@ name|Enum
 operator|>
 name|class
 name|QFlags
-block|{
+block|{     struct
+name|Private
+block|;
 typedef|typedef
-name|void
-modifier|*
-modifier|*
+name|int
+argument_list|(
+name|Private
+operator|::
+operator|*
 name|Zero
-typedef|;
+argument_list|)
+expr_stmt|;
 name|int
 name|i
 expr_stmt|;
