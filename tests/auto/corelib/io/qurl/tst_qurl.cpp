@@ -14066,7 +14066,7 @@ argument_list|)
 operator|<<
 literal|"http://bad<user_name>@ok-hostname"
 operator|<<
-literal|"Invalid user name"
+literal|"Invalid user name (character '<' not permitted)"
 expr_stmt|;
 name|QTest
 operator|::
@@ -14077,7 +14077,7 @@ argument_list|)
 operator|<<
 literal|"http://bad%@ok-hostname"
 operator|<<
-literal|"Invalid user name"
+literal|"Invalid user name (character '%' not permitted)"
 expr_stmt|;
 name|QTest
 operator|::
@@ -14088,7 +14088,7 @@ argument_list|)
 operator|<<
 literal|"http://user:pass\x7F@ok-hostname"
 operator|<<
-literal|"Invalid password"
+literal|"Invalid password (character '\x7F' not permitted)"
 expr_stmt|;
 name|QTest
 operator|::
@@ -14099,7 +14099,7 @@ argument_list|)
 operator|<<
 literal|"http://bad<hostname>"
 operator|<<
-literal|"Invalid hostname"
+literal|"Invalid hostname (contains invalid characters)"
 expr_stmt|;
 name|QTest
 operator|::
@@ -14110,7 +14110,7 @@ argument_list|)
 operator|<<
 literal|"http://b%61d"
 operator|<<
-literal|"Invalid hostname"
+literal|"Invalid hostname (contains invalid characters)"
 expr_stmt|;
 name|QTest
 operator|::
@@ -14165,7 +14165,7 @@ argument_list|)
 operator|<<
 literal|"http://[ff02::1"
 operator|<<
-literal|"Expected ']'"
+literal|"Expected ']' to match '[' in hostname"
 expr_stmt|;
 comment|// port errors happen in TolerantMode too
 name|QTest
@@ -14177,7 +14177,7 @@ argument_list|)
 operator|<<
 literal|"http://example.com:"
 operator|<<
-literal|"empty"
+literal|"Port field was empty"
 expr_stmt|;
 name|QTest
 operator|::
@@ -14188,7 +14188,7 @@ argument_list|)
 operator|<<
 literal|"http://example.com:/"
 operator|<<
-literal|"empty"
+literal|"Port field was empty"
 expr_stmt|;
 name|QTest
 operator|::
@@ -14243,7 +14243,7 @@ argument_list|)
 operator|<<
 literal|"foo:/path%\x1F"
 operator|<<
-literal|"Invalid path"
+literal|"Invalid path (character '%' not permitted)"
 expr_stmt|;
 name|QTest
 operator|::
@@ -14254,7 +14254,7 @@ argument_list|)
 operator|<<
 literal|"foo:?\\#"
 operator|<<
-literal|"Invalid query"
+literal|"Invalid query (character '\\' not permitted)"
 expr_stmt|;
 name|QTest
 operator|::
@@ -14265,7 +14265,7 @@ argument_list|)
 operator|<<
 literal|"#{}"
 operator|<<
-literal|"Invalid fragment"
+literal|"Invalid fragment (character '{' not permitted)"
 expr_stmt|;
 block|}
 end_function
@@ -14333,6 +14333,37 @@ name|isEmpty
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|QVERIFY2
+argument_list|(
+name|url
+operator|.
+name|errorString
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+name|input
+argument_list|)
+argument_list|,
+literal|"Error string does not contain the original input (\""
+operator|+
+name|input
+operator|.
+name|toLatin1
+argument_list|()
+operator|+
+literal|"\"): "
+operator|+
+name|url
+operator|.
+name|errorString
+argument_list|()
+operator|.
+name|toLatin1
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// Note: if the following fails due to changes in the parser, simply update the test data
 name|QVERIFY2
 argument_list|(
 name|url
