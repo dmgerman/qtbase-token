@@ -3770,9 +3770,6 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal      Used when acceleration is turned on. We need to get the     keyboard auto repeat rate from OS. This value is used as     argument when starting acceleration related timers.      Every platform should, either, use native calls to obtain     the value or hard code some reasonable rate.      Remember that time value should be given in msecs. */
-end_comment
-begin_comment
 comment|/*!     \reimp */
 end_comment
 begin_function

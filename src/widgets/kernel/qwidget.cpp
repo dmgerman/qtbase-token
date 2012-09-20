@@ -38973,7 +38973,6 @@ return|;
 block|}
 endif|#
 directive|endif
-comment|/*!     \typedef QWidgetList     \relates QWidget      Synonym for QList<QWidget *>. */
 ifndef|#
 directive|ifndef
 name|QT_NO_GESTURES
@@ -39076,7 +39075,6 @@ block|}
 endif|#
 directive|endif
 comment|// QT_NO_GESTURES
-comment|/*!     \typedef WId     \relates QWidget      Platform dependent window identifier. */
 comment|/*!     \fn void QWidget::destroy(bool destroyWindow, bool destroySubWindows)      Frees up window system resources. Destroys the widget window if \a     destroyWindow is true.      destroy() calls itself recursively for all the child widgets,     passing \a destroySubWindows for the \a destroyWindow parameter.     To have more control over destruction of subwidgets, destroy     subwidgets selectively first.      This function is usually called from the QWidget destructor. */
 comment|/*!     \fn QPaintEngine *QWidget::paintEngine() const      Returns the widget's paint engine.      Note that this function should not be called explicitly by the     user, since it's meant for reimplementation purposes only. The     function is called by Qt internally, and the default     implementation may not always return a valid pointer. */
 comment|/*!     \fn QPoint QWidget::mapToGlobal(const QPoint&pos) const      Translates the widget coordinate \a pos to global screen     coordinates. For example, \c{mapToGlobal(QPoint(0,0))} would give     the global coordinates of the top-left pixel of the widget.      \sa mapFromGlobal(), mapTo(), mapToParent() */
@@ -39537,7 +39535,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*! \fn Qt::HANDLE QWidget::x11PictureHandle() const     Returns the X11 Picture handle of the widget for XRender     support. Use of this function is not portable. This function will     return 0 if XRender support is not compiled into Qt, if the     XRender extension is not supported on the X11 display, or if the     handle could not be created. */
 ifdef|#
 directive|ifdef
 name|Q_WS_MAC

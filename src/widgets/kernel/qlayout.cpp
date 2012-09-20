@@ -918,9 +918,6 @@ begin_comment
 comment|/*!     \fn void QLayout::setAlignment(Qt::Alignment alignment)      Sets the alignment of this item to \a alignment.      \sa QLayoutItem::setAlignment() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QLayout::isTopLevel() const      Returns true if this layout is a top-level layout, i.e. not a     child of another layout; otherwise returns false. */
-end_comment
-begin_comment
 comment|/*!     \property QLayout::margin     \brief the width of the outside border of the layout     \obsolete      Use setContentsMargins() and getContentsMargins() instead.      \sa contentsRect(), spacing */
 end_comment
 begin_comment

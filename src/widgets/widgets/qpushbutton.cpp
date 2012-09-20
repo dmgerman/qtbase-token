@@ -2431,18 +2431,6 @@ end_endif
 begin_comment
 comment|// Q_WS_MAC
 end_comment
-begin_comment
-comment|/*!     \fn void QPushButton::openPopup()      Use showMenu() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QPushButton::isMenuButton() const      Use menu() != 0 instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QPushButton::setPopup(QMenu* popup)      Use setMenu() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QMenu* QPushButton::popup() const      Use menu() instead. */
-end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

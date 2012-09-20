@@ -4145,7 +4145,7 @@ begin_comment
 comment|// ### Qt 6 - remove this obsolete function
 end_comment
 begin_comment
-comment|/*!     \obsolete     \fn bool QHeaderView::isMovable(bool movable) const      Use sectionsMovable instead.      \sa sectionsMovable() */
+comment|/*!     \obsolete     \fn bool QHeaderView::isMovable() const      Use sectionsMovable instead.      \sa sectionsMovable() */
 end_comment
 begin_comment
 comment|/*!     If \a clickable is true, the header will respond to single clicks.      \sa sectionsClickable(), sectionClicked(), sectionPressed(),     setSortIndicatorShown() */

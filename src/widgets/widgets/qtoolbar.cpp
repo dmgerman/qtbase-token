@@ -4768,12 +4768,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QToolBar::setLabel(const QString&label)      Use setWindowTitle() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QString QToolBar::label() const      Use windowTitle() instead. */
-end_comment
-begin_comment
 comment|/*!     \since 4.2      Returns the widget associated with the specified \a action.      \sa addWidget() */
 end_comment
 begin_function

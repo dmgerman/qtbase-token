@@ -1938,12 +1938,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QStatusBar::message(const QString&message, int timeout)      Use the showMessage() function instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QStatusBar::clear()      Use the clearMessage() function instead. */
-end_comment
-begin_comment
 comment|/*!     \fn QStatusBar::messageChanged(const QString&message)      This signal is emitted whenever the temporary status message     changes. The new temporary message is passed in the \a message     parameter which is a null-string when the message has been     removed.      \sa showMessage(), clearMessage() */
 end_comment
 begin_comment
