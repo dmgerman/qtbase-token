@@ -125,8 +125,6 @@ name|Scheme
 operator|<<
 literal|8
 block|,
-name|SchemeEmptyError
-block|,
 name|InvalidUserNameError
 init|=
 name|UserName

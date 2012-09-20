@@ -1955,26 +1955,14 @@ parameter_list|)
 block|{
 comment|// schemes are strictly RFC-compliant:
 comment|//    scheme        = ALPHA *( ALPHA / DIGIT / "+" / "-" / "." )
-comment|// but we need to decode any percent-encoding sequences that fall on
-comment|// those characters
 comment|// we also lowercase the scheme
+comment|// schemes in URLs are not allowed to be empty, but they can be in
+comment|// "Relative URIs" which QUrl also supports. QUrl::setScheme does
+comment|// not call us with len == 0, so this can only be from parse()
 name|scheme
 operator|.
 name|clear
 argument_list|()
-expr_stmt|;
-name|sectionIsPresent
-operator||=
-name|Scheme
-expr_stmt|;
-name|sectionHasError
-operator||=
-name|Scheme
-expr_stmt|;
-comment|// assume it has errors, we'll clear before returning true
-name|errorCode
-operator|=
-name|SchemeEmptyError
 expr_stmt|;
 if|if
 condition|(
@@ -1985,6 +1973,10 @@ condition|)
 return|return
 literal|false
 return|;
+name|sectionIsPresent
+operator||=
+name|Scheme
+expr_stmt|;
 comment|// validate it:
 name|errorCode
 operator|=
@@ -9951,17 +9943,6 @@ name|c
 argument_list|)
 return|;
 block|}
-case|case
-name|QUrlPrivate
-operator|::
-name|SchemeEmptyError
-case|:
-return|return
-name|QStringLiteral
-argument_list|(
-literal|"Empty scheme"
-argument_list|)
-return|;
 case|case
 name|QUrlPrivate
 operator|::
