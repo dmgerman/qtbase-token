@@ -1063,6 +1063,12 @@ modifier|*
 comment|/*lpmat2*/
 parameter_list|)
 block|{
+name|qFatal
+argument_list|(
+literal|"GetGlyphOutline not supported under Windows CE. Please try using freetype fontrendering, by"
+literal|"passing -platform windows:freetype as arguments to the application."
+argument_list|)
+expr_stmt|;
 return|return
 name|GDI_ERROR
 return|;
