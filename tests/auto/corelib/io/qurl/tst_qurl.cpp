@@ -12336,6 +12336,14 @@ name|host
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|url
+operator|.
+name|isValid
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|url
@@ -13180,7 +13188,7 @@ name|isEmpty
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QVERIFY2
 argument_list|(
 name|url
 operator|.
@@ -13189,7 +13197,15 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Hostname contains invalid characters"
+literal|"Invalid hostname"
+argument_list|)
+argument_list|,
+name|qPrintable
+argument_list|(
+name|url
+operator|.
+name|errorString
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -13328,7 +13344,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Hostname contains invalid characters"
+literal|"Invalid hostname"
 argument_list|)
 argument_list|,
 name|qPrintable
@@ -14083,7 +14099,7 @@ argument_list|)
 operator|<<
 literal|"http://bad<hostname>"
 operator|<<
-literal|"Hostname contains invalid characters"
+literal|"Invalid hostname"
 expr_stmt|;
 name|QTest
 operator|::
@@ -14094,7 +14110,7 @@ argument_list|)
 operator|<<
 literal|"http://b%61d"
 operator|<<
-literal|"Hostname contains invalid characters"
+literal|"Invalid hostname"
 expr_stmt|;
 name|QTest
 operator|::
@@ -14151,16 +14167,28 @@ literal|"http://[ff02::1"
 operator|<<
 literal|"Expected ']'"
 expr_stmt|;
+comment|// port errors happen in TolerantMode too
 name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"empty-port"
+literal|"empty-port-1"
 argument_list|)
 operator|<<
 literal|"http://example.com:"
 operator|<<
-literal|"Invalid port"
+literal|"empty"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"empty-port-2"
+argument_list|)
+operator|<<
+literal|"http://example.com:/"
+operator|<<
+literal|"empty"
 expr_stmt|;
 name|QTest
 operator|::
@@ -14305,9 +14333,8 @@ name|isEmpty
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
+name|QVERIFY2
+argument_list|(
 name|url
 operator|.
 name|errorString
@@ -14317,23 +14344,23 @@ name|contains
 argument_list|(
 name|needle
 argument_list|)
-condition|)
-name|qWarning
-argument_list|(
-literal|"Error string changed and does not contain \"%s\" anymore: %s"
 argument_list|,
-name|qPrintable
-argument_list|(
+literal|"Error string changed and does not contain \""
+operator|+
 name|needle
-argument_list|)
-argument_list|,
-name|qPrintable
-argument_list|(
+operator|.
+name|toLatin1
+argument_list|()
+operator|+
+literal|"\" anymore: "
+operator|+
 name|url
 operator|.
 name|errorString
 argument_list|()
-argument_list|)
+operator|.
+name|toLatin1
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

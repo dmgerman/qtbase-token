@@ -10737,7 +10737,7 @@ else|else
 return|return
 name|QStringLiteral
 argument_list|(
-literal|"Hostname contains invalid characters"
+literal|"Invalid hostname (contains invalid characters)"
 argument_list|)
 return|;
 case|case
@@ -10788,6 +10788,12 @@ name|QUrlPrivate
 operator|::
 name|InvalidPortError
 case|:
+return|return
+name|QStringLiteral
+argument_list|(
+literal|"Invalid port or port number out of range"
+argument_list|)
+return|;
 case|case
 name|QUrlPrivate
 operator|::
@@ -10796,7 +10802,7 @@ case|:
 return|return
 name|QStringLiteral
 argument_list|(
-literal|"Invalid port or port number out of range"
+literal|"Port field was empty"
 argument_list|)
 return|;
 case|case
