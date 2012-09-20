@@ -7324,20 +7324,14 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn bool QTest::qCompare<float>(float const&t1, float const&t2, const char *actual, const char *expected, const char *file, int line) \internal  */
+comment|/*! \fn bool QTest::qCompare(float const&t1, float const&t2, const char *actual, const char *expected, const char *file, int line) \internal  */
 end_comment
 begin_function
-template|template
-parameter_list|<>
 DECL|function|qCompare
-name|Q_TESTLIB_EXPORT
 name|bool
 name|QTest
 operator|::
 name|qCompare
-argument_list|<
-name|float
-argument_list|>
 parameter_list|(
 name|float
 specifier|const
@@ -7402,20 +7396,14 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn bool QTest::qCompare<double>(double const&t1, double const&t2, const char *actual, const char *expected, const char *file, int line) \internal  */
+comment|/*! \fn bool QTest::qCompare(double const&t1, double const&t2, const char *actual, const char *expected, const char *file, int line) \internal  */
 end_comment
 begin_function
-template|template
-parameter_list|<>
 DECL|function|qCompare
-name|Q_TESTLIB_EXPORT
 name|bool
 name|QTest
 operator|::
 name|qCompare
-argument_list|<
-name|double
-argument_list|>
 parameter_list|(
 name|double
 specifier|const
