@@ -3900,7 +3900,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.0      Controls whether to pause upon receiving a notification. The \pauseMode parameter     specifies the conditions in which the socket should be paused. The only notification     currently supported is QSslSocket::sslErrors(). If set to PauseOnSslErrors,     data transfer on the socket will be paused and needs to be enabled explicitly     again by calling resume().     By default this option is set to PauseNever.     This option must be called before connecting to the server, otherwise it will     result in undefined behavior.      \sa pauseMode(), resume() */
+comment|/*!     \since 5.0      Controls whether to pause upon receiving a notification. The \a pauseMode parameter     specifies the conditions in which the socket should be paused. The only notification     currently supported is QSslSocket::sslErrors(). If set to PauseOnSslErrors,     data transfer on the socket will be paused and needs to be enabled explicitly     again by calling resume().     By default this option is set to PauseNever.     This option must be called before connecting to the server, otherwise it will     result in undefined behavior.      \sa pauseMode(), resume() */
 end_comment
 begin_function
 DECL|function|setPauseMode
