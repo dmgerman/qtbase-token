@@ -551,15 +551,6 @@ name|port
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QTest
-operator|::
-name|ignoreMessage
-argument_list|(
-name|QtWarningMsg
-argument_list|,
-literal|"QUrl::setPort: Out of range"
-argument_list|)
-expr_stmt|;
 name|obj1
 operator|.
 name|setPort
@@ -579,15 +570,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Out of range, -1
-name|QTest
-operator|::
-name|ignoreMessage
-argument_list|(
-name|QtWarningMsg
-argument_list|,
-literal|"QUrl::setPort: Out of range"
-argument_list|)
-expr_stmt|;
 name|obj1
 operator|.
 name|setPort
@@ -18549,15 +18531,6 @@ operator|.
 name|setPort
 argument_list|(
 literal|80
-argument_list|)
-expr_stmt|;
-name|QTest
-operator|::
-name|ignoreMessage
-argument_list|(
-name|QtWarningMsg
-argument_list|,
-literal|"QUrl::setPort: Out of range"
 argument_list|)
 expr_stmt|;
 name|url

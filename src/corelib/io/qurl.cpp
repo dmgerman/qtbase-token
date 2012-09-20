@@ -6629,11 +6629,6 @@ argument_list|>
 literal|65535
 condition|)
 block|{
-name|qWarning
-argument_list|(
-literal|"QUrl::setPort: Out of range"
-argument_list|)
-expr_stmt|;
 name|port
 operator|=
 operator|-
