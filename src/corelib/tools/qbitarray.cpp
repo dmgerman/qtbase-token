@@ -811,7 +811,7 @@ begin_comment
 comment|/*! \fn bool QBitArray::operator[](int i) const      \overload */
 end_comment
 begin_comment
-comment|/*! \fn bool QBitArray::operator[](uint i)      \overload */
+comment|/*! \fn QBitRef QBitArray::operator[](uint i)      \overload */
 end_comment
 begin_comment
 comment|/*! \fn bool QBitArray::operator[](uint i) const      \overload */
@@ -821,6 +821,9 @@ comment|/*! \fn QBitArray::QBitArray(const QBitArray&other)      Constructs a co
 end_comment
 begin_comment
 comment|/*! \fn QBitArray&QBitArray::operator=(const QBitArray&other)      Assigns \a other to this bit array and returns a reference to     this bit array. */
+end_comment
+begin_comment
+comment|/*! \fn QBitArray&QBitArray::operator=(QBitArray&&other)      Moves \a other to this bit array and returns a reference to     this bit array. */
 end_comment
 begin_comment
 comment|/*! \fn void QBitArray::swap(QBitArray&other)     \since 4.8      Swaps bit array \a other with this bit array. This operation is very     fast and never fails. */
