@@ -1126,6 +1126,7 @@ begin_comment
 comment|// used for drawing hilighted expand/collapse indicators
 end_comment
 begin_decl_stmt
+name|mutable
 name|int
 name|hoverBranch
 decl_stmt|;
