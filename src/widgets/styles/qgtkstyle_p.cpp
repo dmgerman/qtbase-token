@@ -3651,22 +3651,6 @@ expr_stmt|;
 if|if
 condition|(
 name|themeName
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
-name|qWarning
-argument_list|(
-literal|"QGtkStyle was unable to detect the current GTK+ theme."
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
-elseif|else
-if|if
-condition|(
-name|themeName
 operator|==
 name|QLS
 argument_list|(
