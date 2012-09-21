@@ -163,11 +163,20 @@ include|#
 directive|include
 file|<algorithm>
 end_include
-begin_ifndef
-ifndef|#
-directive|ifndef
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
 name|QT_NAMESPACE
-end_ifndef
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_MOC_RUN
+argument_list|)
+end_if
 begin_comment
 comment|/* user namespace */
 end_comment
