@@ -7203,6 +7203,26 @@ literal|"hh:mm:ss.zzz ap d'd'dd/M/yy"
 operator|<<
 literal|"hh:mm:ss.zzz ap 1d01/12/74"
 expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"dd MMMM yyyy"
+argument_list|)
+operator|<<
+name|QDate
+argument_list|(
+literal|1
+argument_list|,
+literal|1
+argument_list|,
+literal|1
+argument_list|)
+operator|<<
+literal|"dd MMMM yyyy"
+operator|<<
+literal|"01 January 0001"
+expr_stmt|;
 block|}
 end_function
 begin_function
@@ -8404,6 +8424,40 @@ operator|<<
 literal|"d'd'dd/M/yyh"
 operator|<<
 literal|"1d01/12/7415"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"dd MMMM yyyy, hh:mm:ss"
+argument_list|)
+operator|<<
+literal|"C"
+operator|<<
+name|QDateTime
+argument_list|(
+name|QDate
+argument_list|(
+literal|1
+argument_list|,
+literal|1
+argument_list|,
+literal|1
+argument_list|)
+argument_list|,
+name|QTime
+argument_list|(
+literal|12
+argument_list|,
+literal|00
+argument_list|,
+literal|00
+argument_list|)
+argument_list|)
+operator|<<
+literal|"dd MMMM yyyy, hh:mm:ss"
+operator|<<
+literal|"01 January 0001, 12:00:00"
 expr_stmt|;
 name|QTest
 operator|::

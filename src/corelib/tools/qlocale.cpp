@@ -9287,6 +9287,17 @@ name|date
 operator|->
 name|year
 argument_list|()
+argument_list|,
+operator|-
+literal|1
+argument_list|,
+literal|10
+argument_list|,
+literal|4
+argument_list|,
+name|QLocalePrivate
+operator|::
+name|ZeroPadded
 argument_list|)
 argument_list|)
 expr_stmt|;
