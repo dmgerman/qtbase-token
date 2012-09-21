@@ -176,6 +176,22 @@ ifdef|#
 directive|ifdef
 name|Q_OS_WIN64
 block|{
+name|NET2012
+block|,
+literal|"MSVC.NET 2012 (11.0)"
+block|,
+literal|"Software\\Wow6432Node\\Microsoft\\VisualStudio\\11.0\\Setup\\VC\\ProductDir"
+block|}
+block|,
+block|{
+name|NET2012
+block|,
+literal|"MSVC.NET 2012 Express Edition (11.0)"
+block|,
+literal|"Software\\Wow6432Node\\Microsoft\\VCExpress\\11.0\\Setup\\VC\\ProductDir"
+block|}
+block|,
+block|{
 name|NET2010
 block|,
 literal|"MSVC.NET 2010 (10.0)"
@@ -241,6 +257,22 @@ block|}
 block|,
 else|#
 directive|else
+block|{
+name|NET2012
+block|,
+literal|"MSVC.NET 2012 (11.0)"
+block|,
+literal|"Software\\Microsoft\\VisualStudio\\11.0\\Setup\\VC\\ProductDir"
+block|}
+block|,
+block|{
+name|NET2012
+block|,
+literal|"MSVC.NET 2012 Express Edition (11.0)"
+block|,
+literal|"Software\\Microsoft\\VCExpress\\11.0\\Setup\\VC\\ProductDir"
+block|}
+block|,
 block|{
 name|NET2010
 block|,
@@ -745,6 +777,17 @@ index|[]
 init|=
 literal|"Microsoft Visual Studio Solution File, Format Version 11.00"
 literal|"\n# Visual Studio 2010"
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|_slnHeader110
+specifier|const
+name|char
+name|_slnHeader110
+index|[]
+init|=
+literal|"Microsoft Visual Studio Solution File, Format Version 12.00"
+literal|"\n# Visual Studio 2012"
 decl_stmt|;
 end_decl_stmt
 begin_comment
@@ -2338,6 +2381,14 @@ name|which_dotnet_version
 argument_list|()
 condition|)
 block|{
+case|case
+name|NET2012
+case|:
+name|t
+operator|<<
+name|_slnHeader110
+expr_stmt|;
+break|break;
 case|case
 name|NET2010
 case|:
@@ -5223,6 +5274,16 @@ name|which_dotnet_version
 argument_list|()
 condition|)
 block|{
+case|case
+name|NET2012
+case|:
+name|vcProject
+operator|.
+name|Version
+operator|=
+literal|"12.00"
+expr_stmt|;
+break|break;
 case|case
 name|NET2010
 case|:
