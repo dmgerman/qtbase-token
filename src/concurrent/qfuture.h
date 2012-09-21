@@ -33,11 +33,6 @@ include|#
 directive|include
 file|<QtCore/qstring.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<QtConcurrent/qtconcurrentcompilertest.h>
-end_include
 begin_expr_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE

@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtConcurrent/qtconcurrent_global.h>
+file|<QtConcurrent/qtconcurrentcompilertest.h>
 end_include
 begin_ifndef
 ifndef|#
