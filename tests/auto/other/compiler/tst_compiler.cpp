@@ -1124,10 +1124,14 @@ parameter_list|()
 block|{
 return|return
 operator|::
-name|qMetaTypeSaveHelper
+name|QtMetaTypePrivate
+operator|::
+name|QMetaTypeFunctionHelper
 argument_list|<
 name|T
 argument_list|>
+operator|::
+name|Save
 return|;
 block|}
 block|}

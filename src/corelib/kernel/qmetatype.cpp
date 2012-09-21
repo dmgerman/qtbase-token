@@ -1052,15 +1052,23 @@ name|deleter
 argument_list|,
 name|creator
 argument_list|,
-name|qMetaTypeDestructHelper
+name|QtMetaTypePrivate
+operator|::
+name|QMetaTypeFunctionHelper
 argument_list|<
 name|void
 argument_list|>
+operator|::
+name|Destruct
 argument_list|,
-name|qMetaTypeConstructHelper
+name|QtMetaTypePrivate
+operator|::
+name|QMetaTypeFunctionHelper
 argument_list|<
 name|void
 argument_list|>
+operator|::
+name|Construct
 argument_list|,
 literal|0
 argument_list|,
@@ -4580,7 +4588,7 @@ modifier|*
 name|copy
 parameter_list|)
 block|{
-comment|// Using qMetaTypeCreateHelper<T> adds function call cost, even if it is a template (gcc).
+comment|// Using QMetaTypeFunctionHelper<T>::Create adds function call cost, even if it is a template (gcc).
 comment|// This "copy" check is moved out from the switcher by compiler (at least by gcc)
 return|return
 name|copy
@@ -4987,10 +4995,14 @@ modifier|*
 name|where
 parameter_list|)
 block|{
-name|qMetaTypeDeleteHelper
+name|QtMetaTypePrivate
+operator|::
+name|QMetaTypeFunctionHelper
 argument_list|<
 name|T
 argument_list|>
+operator|::
+name|Delete
 argument_list|(
 name|where
 argument_list|)
@@ -5393,10 +5405,14 @@ name|copy
 parameter_list|)
 block|{
 return|return
-name|qMetaTypeConstructHelper
+name|QtMetaTypePrivate
+operator|::
+name|QMetaTypeFunctionHelper
 argument_list|<
 name|T
 argument_list|>
+operator|::
+name|Construct
 argument_list|(
 name|where
 argument_list|,
@@ -5853,10 +5869,14 @@ modifier|*
 name|where
 parameter_list|)
 block|{
-name|qMetaTypeDestructHelper
+name|QtMetaTypePrivate
+operator|::
+name|QMetaTypeFunctionHelper
 argument_list|<
 name|T
 argument_list|>
+operator|::
+name|Destruct
 argument_list|(
 name|where
 argument_list|)

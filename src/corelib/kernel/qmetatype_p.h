@@ -323,9 +323,9 @@ name|Type
 parameter_list|)
 define|\
 comment|/*saveOp*/
-value|(qMetaTypeSaveHelper<Type>), \
+value|(QtMetaTypePrivate::QMetaTypeFunctionHelper<Type, QtMetaTypePrivate::TypeDefinition<Type>::IsAvailable>::Save), \
 comment|/*loadOp*/
-value|(qMetaTypeLoadHelper<Type>),
+value|(QtMetaTypePrivate::QMetaTypeFunctionHelper<Type, QtMetaTypePrivate::TypeDefinition<Type>::IsAvailable>::Load),
 end_define
 begin_define
 DECL|macro|QT_METATYPE_INTERFACE_INIT_EMPTY_DATASTREAM_IMPL
@@ -420,13 +420,13 @@ parameter_list|)
 define|\
 value|{ \
 comment|/*creator*/
-value|(qMetaTypeCreateHelper<Type>), \
+value|(QtMetaTypePrivate::QMetaTypeFunctionHelper<Type, QtMetaTypePrivate::TypeDefinition<Type>::IsAvailable>::Create), \
 comment|/*deleter*/
-value|(qMetaTypeDeleteHelper<Type>), \     DATASTREAM_DELEGATE(Type) \
+value|(QtMetaTypePrivate::QMetaTypeFunctionHelper<Type, QtMetaTypePrivate::TypeDefinition<Type>::IsAvailable>::Delete), \     DATASTREAM_DELEGATE(Type) \
 comment|/*constructor*/
-value|(qMetaTypeConstructHelper<Type>), \
+value|(QtMetaTypePrivate::QMetaTypeFunctionHelper<Type, QtMetaTypePrivate::TypeDefinition<Type>::IsAvailable>::Construct), \
 comment|/*destructor*/
-value|(qMetaTypeDestructHelper<Type>), \
+value|(QtMetaTypePrivate::QMetaTypeFunctionHelper<Type, QtMetaTypePrivate::TypeDefinition<Type>::IsAvailable>::Destruct), \
 comment|/*size*/
 value|(QTypeInfo<Type>::sizeOf), \
 comment|/*flags*/
