@@ -616,13 +616,9 @@ block|{
 name|QDir
 name|configFileDir
 argument_list|(
-name|QFileInfo
-argument_list|(
-name|filePath
-argument_list|()
-argument_list|)
-operator|.
-name|dir
+name|QDir
+operator|::
+name|current
 argument_list|()
 argument_list|)
 decl_stmt|;
