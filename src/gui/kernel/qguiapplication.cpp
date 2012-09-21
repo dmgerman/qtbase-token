@@ -1328,6 +1328,11 @@ name|window
 argument_list|)
 expr_stmt|;
 block|}
+name|updateBlockedStatus
+argument_list|(
+name|modal
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function
