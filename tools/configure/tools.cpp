@@ -1088,7 +1088,7 @@ name|endl
 expr_stmt|;
 name|cout
 operator|<<
-literal|"Please contact qt-info@nokia.com to upgrade your license"
+literal|"Please use the contact form at http://qt.digia.com/contact-us to upgrade your license"
 operator|<<
 name|endl
 expr_stmt|;
