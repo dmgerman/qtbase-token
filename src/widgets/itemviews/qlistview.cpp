@@ -17974,8 +17974,6 @@ name|visualIndex
 argument_list|(
 name|current
 argument_list|)
-operator|+
-literal|1
 decl_stmt|;
 name|QAccessibleEvent
 name|event
@@ -18078,8 +18076,6 @@ name|visualIndex
 argument_list|(
 name|sel
 argument_list|)
-operator|+
-literal|1
 decl_stmt|;
 name|QAccessibleEvent
 name|event
@@ -18135,8 +18131,6 @@ name|visualIndex
 argument_list|(
 name|desel
 argument_list|)
-operator|+
-literal|1
 decl_stmt|;
 name|QAccessibleEvent
 name|event

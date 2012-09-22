@@ -15202,7 +15202,7 @@ name|selectionEvent
 operator|.
 name|setChild
 argument_list|(
-literal|2
+literal|1
 argument_list|)
 expr_stmt|;
 name|QAccessibleEvent
@@ -15219,7 +15219,7 @@ name|focusEvent
 operator|.
 name|setChild
 argument_list|(
-literal|2
+literal|1
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -15289,7 +15289,7 @@ name|selectionEvent2
 operator|.
 name|setChild
 argument_list|(
-literal|3
+literal|2
 argument_list|)
 expr_stmt|;
 name|QAccessibleEvent
@@ -15306,7 +15306,7 @@ name|focusEvent2
 operator|.
 name|setChild
 argument_list|(
-literal|3
+literal|2
 argument_list|)
 expr_stmt|;
 name|QVERIFY
