@@ -639,6 +639,26 @@ block|{
 comment|//do not delete the QOpenGLContext handle here as it is deleted in
 comment|//QWidgetPrivate::deleteTLSysExtra()
 block|}
+name|mutable
+name|QHash
+operator|<
+name|QOpenGLVersionProfile
+block|,
+name|QAbstractOpenGLFunctions
+operator|*
+operator|>
+name|versionFunctions
+block|;
+name|mutable
+name|QHash
+operator|<
+name|QOpenGLVersionStatus
+block|,
+name|QOpenGLVersionFunctionsBackend
+operator|*
+operator|>
+name|versionFunctionsBackend
+block|;
 name|void
 operator|*
 name|qGLContextHandle
