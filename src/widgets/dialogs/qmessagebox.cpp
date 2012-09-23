@@ -5925,10 +5925,10 @@ literal|"appropriate for the development of Qt applications where you wish to "
 literal|"use such applications in combination with software subject to the "
 literal|"terms of the GNU GPL version 3.0 or where you are otherwise willing "
 literal|"to comply with the terms of the GNU GPL version 3.0.</p>"
-literal|"<p>Please see<a href=\"http://qt.nokia.com/products/licensing\">qt.nokia.com/products/licensing</a> "
+literal|"<p>Please see<a href=\"http://qt.digia.com/Product/Licensing/\">qt.digia.com/Product/Licensing</a> "
 literal|"for an overview of Qt licensing.</p>"
 literal|"<p>Copyright (C) 2012 Digia Plc and/or its subsidiary(-ies).</p>"
-literal|"<p>Qt is a Nokia product. See<a href=\"http://qt.nokia.com/\">qt.nokia.com</a> "
+literal|"<p>Qt is a Digia product. See<a href=\"http://qt.digia.com/\">qt.digia.com</a> "
 literal|"for more information.</p>"
 argument_list|)
 expr_stmt|;
