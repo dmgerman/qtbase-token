@@ -20,8 +20,10 @@ DECL|namespace|QJsonPrivate
 namespace|namespace
 name|QJsonPrivate
 block|{
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|Q_BYTE_ORDER
+operator|==
 name|Q_LITTLE_ENDIAN
 DECL|macro|Q_TO_LITTLE_ENDIAN
 define|#
