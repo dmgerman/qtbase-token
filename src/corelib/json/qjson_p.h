@@ -3027,6 +3027,8 @@ argument_list|(
 name|ushort
 argument_list|)
 operator|+
+name|qFromLittleEndian
+argument_list|(
 operator|*
 operator|(
 name|ushort
@@ -3045,6 +3047,7 @@ argument_list|(
 name|Entry
 argument_list|)
 operator|)
+argument_list|)
 expr_stmt|;
 else|else
 name|s
@@ -3054,6 +3057,8 @@ argument_list|(
 name|uint
 argument_list|)
 operator|+
+name|qFromLittleEndian
+argument_list|(
 operator|*
 operator|(
 name|int
@@ -3072,6 +3077,7 @@ argument_list|(
 name|Entry
 argument_list|)
 operator|)
+argument_list|)
 expr_stmt|;
 return|return
 name|alignedSize
