@@ -77,6 +77,8 @@ name|PluginsPath
 block|,
 name|ImportsPath
 block|,
+name|ArchDataPath
+block|,
 name|DataPath
 block|,
 name|TranslationsPath

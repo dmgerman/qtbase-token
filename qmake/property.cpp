@@ -80,6 +80,16 @@ literal|false
 block|}
 block|,
 block|{
+literal|"QT_INSTALL_ARCHDATA"
+block|,
+name|QLibraryInfo
+operator|::
+name|ArchDataPath
+block|,
+literal|false
+block|}
+block|,
+block|{
 literal|"QT_INSTALL_DATA"
 block|,
 name|QLibraryInfo

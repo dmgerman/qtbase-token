@@ -778,6 +778,7 @@ block|,
 literal|"doc"
 block|}
 block|,
+comment|// should be ${Data}/doc
 block|{
 literal|"Headers"
 block|,
@@ -802,10 +803,18 @@ block|,
 literal|"plugins"
 block|}
 block|,
+comment|// should be ${ArchData}/plugins
 block|{
 literal|"Imports"
 block|,
 literal|"imports"
+block|}
+block|,
+comment|// should be ${ArchData}/imports
+block|{
+literal|"ArchData"
+block|,
+literal|"."
 block|}
 block|,
 block|{
@@ -820,6 +829,7 @@ block|,
 literal|"translations"
 block|}
 block|,
+comment|// should be ${Data}/translations
 block|{
 literal|"Examples"
 block|,
@@ -1695,7 +1705,7 @@ return|return
 name|ret
 return|;
 block|}
-comment|/*!     \enum QLibraryInfo::LibraryLocation      \keyword library location      This enum type is used to specify a specific location     specifier:      \value PrefixPath The default prefix for all paths.     \value DocumentationPath The location for documentation upon install.     \value HeadersPath The location for all headers.     \value LibrariesPath The location of installed libraries.     \value BinariesPath The location of installed Qt binaries (tools and applications).     \value PluginsPath The location of installed Qt plugins.     \value ImportsPath The location of installed QML extensions to import.     \value DataPath The location of general Qt data.     \value TranslationsPath The location of translation information for Qt strings.     \value ExamplesPath The location for examples upon install.     \value TestsPath The location of installed Qt testcases.     \value SettingsPath The location for Qt settings. Not applicable on Windows.      \sa location() */
+comment|/*!     \enum QLibraryInfo::LibraryLocation      \keyword library location      This enum type is used to specify a specific location     specifier:      \value PrefixPath The default prefix for all paths.     \value DocumentationPath The location for documentation upon install.     \value HeadersPath The location for all headers.     \value LibrariesPath The location of installed libraries.     \value BinariesPath The location of installed Qt binaries (tools and applications).     \value PluginsPath The location of installed Qt plugins.     \value ImportsPath The location of installed QML extensions to import.     \value ArchDataPath The location of general architecture-dependent Qt data.     \value DataPath The location of general architecture-independent Qt data.     \value TranslationsPath The location of translation information for Qt strings.     \value ExamplesPath The location for examples upon install.     \value TestsPath The location of installed Qt testcases.     \value SettingsPath The location for Qt settings. Not applicable on Windows.      \sa location() */
 name|QT_END_NAMESPACE
 if|#
 directive|if

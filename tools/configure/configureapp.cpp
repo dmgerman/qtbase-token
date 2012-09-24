@@ -6973,6 +6973,42 @@ argument_list|(
 name|i
 argument_list|)
 operator|==
+literal|"-archdatadir"
+condition|)
+block|{
+operator|++
+name|i
+expr_stmt|;
+if|if
+condition|(
+name|i
+operator|==
+name|argCount
+condition|)
+break|break;
+name|dictionary
+index|[
+literal|"QT_INSTALL_ARCHDATA"
+index|]
+operator|=
+name|configCmdLine
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|configCmdLine
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+operator|==
 literal|"-datadir"
 condition|)
 block|{
@@ -10000,13 +10036,6 @@ argument_list|)
 expr_stmt|;
 name|desc
 argument_list|(
-literal|"-docdir<dir>"
-argument_list|,
-literal|"Documentation will be installed to<dir>\n(default PREFIX/doc)"
-argument_list|)
-expr_stmt|;
-name|desc
-argument_list|(
 literal|"-headerdir<dir>"
 argument_list|,
 literal|"Headers will be installed to<dir>\n(default PREFIX/include)"
@@ -10014,16 +10043,23 @@ argument_list|)
 expr_stmt|;
 name|desc
 argument_list|(
+literal|"-archdatadir<dir>"
+argument_list|,
+literal|"Architecture-dependent data used by Qt will be installed to<dir>\n(default PREFIX)"
+argument_list|)
+expr_stmt|;
+name|desc
+argument_list|(
 literal|"-plugindir<dir>"
 argument_list|,
-literal|"Plugins will be installed to<dir>\n(default PREFIX/plugins)"
+literal|"Plugins will be installed to<dir>\n(default ARCHDATADIR/plugins)"
 argument_list|)
 expr_stmt|;
 name|desc
 argument_list|(
 literal|"-importdir<dir>"
 argument_list|,
-literal|"Imports for QML will be installed to<dir>\n(default PREFIX/imports)"
+literal|"Imports for QML1 will be installed to<dir>\n(default ARCHDATADIR/imports)"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -10035,9 +10071,16 @@ argument_list|)
 expr_stmt|;
 name|desc
 argument_list|(
+literal|"-docdir<dir>"
+argument_list|,
+literal|"Documentation will be installed to<dir>\n(default DATADIR/doc)"
+argument_list|)
+expr_stmt|;
+name|desc
+argument_list|(
 literal|"-translationdir<dir>"
 argument_list|,
-literal|"Translations of Qt programs will be installed to<dir>\n(default PREFIX/translations)"
+literal|"Translations of Qt programs will be installed to<dir>\n(default DATADIR/translations)"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -21863,6 +21906,22 @@ name|endl
 expr_stmt|;
 name|sout
 operator|<<
+literal|"Arch-dep. data to..........."
+operator|<<
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
+name|dictionary
+index|[
+literal|"QT_INSTALL_ARCHDATA"
+index|]
+argument_list|)
+operator|<<
+name|endl
+expr_stmt|;
+name|sout
+operator|<<
 literal|"Plugins installed to........"
 operator|<<
 name|QDir
@@ -21911,6 +21970,22 @@ name|endl
 expr_stmt|;
 name|sout
 operator|<<
+literal|"Arch-indep. data to........."
+operator|<<
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
+name|dictionary
+index|[
+literal|"QT_INSTALL_DATA"
+index|]
+argument_list|)
+operator|<<
+name|endl
+expr_stmt|;
+name|sout
+operator|<<
 literal|"Docs installed to..........."
 operator|<<
 name|QDir
@@ -21920,22 +21995,6 @@ argument_list|(
 name|dictionary
 index|[
 literal|"QT_INSTALL_DOCS"
-index|]
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
-name|sout
-operator|<<
-literal|"Data installed to..........."
-operator|<<
-name|QDir
-operator|::
-name|toNativeSeparators
-argument_list|(
-name|dictionary
-index|[
-literal|"QT_INSTALL_DATA"
 index|]
 argument_list|)
 operator|<<
@@ -22711,33 +22770,6 @@ condition|(
 operator|!
 name|dictionary
 index|[
-literal|"QT_INSTALL_DOCS"
-index|]
-operator|.
-name|size
-argument_list|()
-condition|)
-name|dictionary
-index|[
-literal|"QT_INSTALL_DOCS"
-index|]
-operator|=
-name|qipempty
-condition|?
-literal|""
-else|:
-name|dictionary
-index|[
-literal|"QT_INSTALL_PREFIX"
-index|]
-operator|+
-literal|"/doc"
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|dictionary
-index|[
 literal|"QT_INSTALL_HEADERS"
 index|]
 operator|.
@@ -22792,6 +22824,31 @@ condition|(
 operator|!
 name|dictionary
 index|[
+literal|"QT_INSTALL_ARCHDATA"
+index|]
+operator|.
+name|size
+argument_list|()
+condition|)
+name|dictionary
+index|[
+literal|"QT_INSTALL_ARCHDATA"
+index|]
+operator|=
+name|qipempty
+condition|?
+literal|""
+else|:
+name|dictionary
+index|[
+literal|"QT_INSTALL_PREFIX"
+index|]
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|dictionary
+index|[
 literal|"QT_INSTALL_BINS"
 index|]
 operator|.
@@ -22836,7 +22893,7 @@ literal|""
 else|:
 name|dictionary
 index|[
-literal|"QT_INSTALL_PREFIX"
+literal|"QT_INSTALL_ARCHDATA"
 index|]
 operator|+
 literal|"/plugins"
@@ -22863,7 +22920,7 @@ literal|""
 else|:
 name|dictionary
 index|[
-literal|"QT_INSTALL_PREFIX"
+literal|"QT_INSTALL_ARCHDATA"
 index|]
 operator|+
 literal|"/imports"
@@ -22898,6 +22955,33 @@ condition|(
 operator|!
 name|dictionary
 index|[
+literal|"QT_INSTALL_DOCS"
+index|]
+operator|.
+name|size
+argument_list|()
+condition|)
+name|dictionary
+index|[
+literal|"QT_INSTALL_DOCS"
+index|]
+operator|=
+name|qipempty
+condition|?
+literal|""
+else|:
+name|dictionary
+index|[
+literal|"QT_INSTALL_DATA"
+index|]
+operator|+
+literal|"/doc"
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|dictionary
+index|[
 literal|"QT_INSTALL_TRANSLATIONS"
 index|]
 operator|.
@@ -22915,7 +22999,7 @@ literal|""
 else|:
 name|dictionary
 index|[
-literal|"QT_INSTALL_PREFIX"
+literal|"QT_INSTALL_DATA"
 index|]
 operator|+
 literal|"/translations"
@@ -23057,7 +23141,7 @@ index|]
 else|:
 name|dictionary
 index|[
-literal|"QT_INSTALL_DATA"
+literal|"QT_INSTALL_ARCHDATA"
 index|]
 expr_stmt|;
 comment|// Generate the new qconfig.cpp file
@@ -23292,6 +23376,20 @@ argument_list|(
 name|dictionary
 index|[
 literal|"QT_INSTALL_IMPORTS"
+index|]
+argument_list|)
+operator|<<
+literal|"\","
+operator|<<
+name|endl
+operator|<<
+literal|"    \"qt_adatpath="
+operator|<<
+name|formatPath
+argument_list|(
+name|dictionary
+index|[
+literal|"QT_INSTALL_ARCHDATA"
 index|]
 argument_list|)
 operator|<<
