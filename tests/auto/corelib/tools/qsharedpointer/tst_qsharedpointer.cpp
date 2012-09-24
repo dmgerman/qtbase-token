@@ -7521,6 +7521,33 @@ expr_stmt|;
 name|safetyCheck
 argument_list|()
 expr_stmt|;
+comment|// a custom deleter with a different pointer parameter
+block|{
+name|QSharedPointer
+argument_list|<
+name|char
+argument_list|>
+name|ptr
+argument_list|(
+cast|static_cast
+argument_list|<
+name|char
+operator|*
+argument_list|>
+argument_list|(
+name|malloc
+argument_list|(
+literal|1
+argument_list|)
+argument_list|)
+argument_list|,
+name|free
+argument_list|)
+decl_stmt|;
+block|}
+name|safetyCheck
+argument_list|()
+expr_stmt|;
 block|}
 end_function
 begin_function
@@ -9998,6 +10025,61 @@ operator|<<
 literal|"Data *ptr = 0;\n"
 literal|"QSharedPointer<Data> weakptr = Qt::Uninitialized;\n"
 expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"incompatible-custom-deleter1"
+argument_list|)
+operator|<<
+operator|&
+name|QTest
+operator|::
+name|QExternalTest
+operator|::
+name|tryCompileFail
+operator|<<
+literal|"extern void incompatibleCustomDeleter(int *);\n"
+literal|"QSharedPointer<Data> ptr(new Data, incompatibleCustomDeleter);\n"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"incompatible-custom-deleter2"
+argument_list|)
+operator|<<
+operator|&
+name|QTest
+operator|::
+name|QExternalTest
+operator|::
+name|tryCompileFail
+operator|<<
+literal|"struct IncompatibleCustomDeleter { void operator()(int *); };\n"
+literal|"QSharedPointer<Data> ptr(new Data, IncompatibleCustomDeleter());\n"
+expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_LAMBDA
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"incompatible-custom-lambda-deleter"
+argument_list|)
+operator|<<
+operator|&
+name|QTest
+operator|::
+name|QExternalTest
+operator|::
+name|tryCompileFail
+operator|<<
+literal|"QSharedPointer<Data> ptr(new Data, [](int *) {});\n"
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
