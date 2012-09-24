@@ -1938,19 +1938,6 @@ operator|++
 name|of
 expr_stmt|;
 block|}
-comment|/*       Generate the XML tag file, if it was requested.      */
-name|qdb
-operator|->
-name|generateTagFile
-argument_list|(
-name|config
-operator|.
-name|getString
-argument_list|(
-name|CONFIG_TAGFILE
-argument_list|)
-argument_list|)
-expr_stmt|;
 comment|//Generator::writeOutFileNames();
 name|QDocDatabase
 operator|::

@@ -8002,7 +8002,8 @@ argument_list|(
 name|tr
 argument_list|(
 literal|"\"basedir\" specified in config file. "
-literal|"All output will be in module directories of the output directory"
+literal|"All output will be in module directories "
+literal|"of the output directory"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -8022,7 +8023,8 @@ name|fatal
 argument_list|(
 name|tr
 argument_list|(
-literal|"No output directory specified in configuration file or on the command line"
+literal|"No output directory specified in "
+literal|"configuration file or on the command line"
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -926,6 +926,9 @@ decl_stmt|;
 name|QString
 name|outputEncoding
 decl_stmt|;
+name|QString
+name|tagFile_
+decl_stmt|;
 name|QStack
 operator|<
 name|QTextStream
