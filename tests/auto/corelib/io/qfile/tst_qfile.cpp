@@ -660,9 +660,6 @@ name|void
 name|writeNothing
 argument_list|()
 block|;
-specifier|public
-operator|:
-comment|// disabled this test for the moment... it hangs
 name|void
 name|invalidFile_data
 argument_list|()
@@ -5757,6 +5754,15 @@ argument_list|(
 name|fileName
 argument_list|)
 decl_stmt|;
+name|QEXPECT_FAIL
+argument_list|(
+literal|"colon1"
+argument_list|,
+literal|"QTBUG-27306"
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
