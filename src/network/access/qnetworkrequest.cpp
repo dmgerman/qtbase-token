@@ -417,7 +417,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the URL this network request is referring to to be \a url.      \sa url() */
+comment|/*!     Sets the URL this network request is referring to be \a url.      \sa url() */
 end_comment
 begin_function
 DECL|function|setUrl

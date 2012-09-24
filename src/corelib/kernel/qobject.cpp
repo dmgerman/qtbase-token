@@ -1571,7 +1571,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \internal   Add the connection \a c to to the list of connections of the sender's object   for the specified \a signal    The signalSlotLock() of the sender and receiver must be locked while calling   this function    Will also add the connection in the sender's list of the receiver.  */
+comment|/*!   \internal   Add the connection \a c to the list of connections of the sender's object   for the specified \a signal    The signalSlotLock() of the sender and receiver must be locked while calling   this function    Will also add the connection in the sender's list of the receiver.  */
 end_comment
 begin_function
 DECL|function|addConnection

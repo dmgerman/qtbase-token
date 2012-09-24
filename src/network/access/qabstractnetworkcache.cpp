@@ -405,7 +405,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the URL this network cache meta data to to be \a url.      The password and fragment are removed from the url.      \sa url()  */
+comment|/*!     Sets the URL this network cache meta data to be \a url.      The password and fragment are removed from the url.      \sa url()  */
 end_comment
 begin_function
 DECL|function|setUrl

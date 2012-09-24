@@ -989,7 +989,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a multi font engine in the specified \a script to encapsulate \a fontEngine with the     option to fall back to to the fonts given by \a fallbacks if \a fontEngine does not support     a certain character. */
+comment|/*!     Returns a multi font engine in the specified \a script to encapsulate \a fontEngine with the     option to fall back to the fonts given by \a fallbacks if \a fontEngine does not support     a certain character. */
 end_comment
 begin_function
 DECL|function|fontEngineMulti
