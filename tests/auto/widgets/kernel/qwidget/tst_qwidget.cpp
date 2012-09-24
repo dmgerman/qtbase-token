@@ -18249,16 +18249,6 @@ literal|1
 else|:
 literal|0
 decl_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-name|QSKIP
-argument_list|(
-literal|"Not yet sure why this fails."
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QTRY_COMPARE
 argument_list|(
 name|child
