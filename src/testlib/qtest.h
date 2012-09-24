@@ -162,6 +162,9 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+ifndef|#
+directive|ifndef
+name|QT_NO_DATESTRING
 name|template
 operator|<
 operator|>
@@ -311,6 +314,9 @@ literal|"Invalid QDateTime"
 argument_list|)
 return|;
 block|}
+endif|#
+directive|endif
+comment|// QT_NO_DATESTRING
 name|template
 operator|<
 operator|>
