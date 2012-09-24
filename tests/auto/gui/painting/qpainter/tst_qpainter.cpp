@@ -20548,11 +20548,6 @@ operator|::
 name|outlineFillConsistency
 parameter_list|()
 block|{
-name|QSKIP
-argument_list|(
-literal|"currently broken..."
-argument_list|)
-expr_stmt|;
 name|QImage
 name|dst
 argument_list|(
