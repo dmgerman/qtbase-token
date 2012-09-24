@@ -84,10 +84,6 @@ block|,
 name|Fragment
 operator|=
 literal|0x0002
-block|,
-name|Geometry
-operator|=
-literal|0x0004
 block|}
 block|;
 name|Q_DECLARE_FLAGS
@@ -324,44 +320,6 @@ argument_list|()
 block|;
 name|GLuint
 name|programId
-argument_list|()
-specifier|const
-block|;
-name|int
-name|maxGeometryOutputVertices
-argument_list|()
-specifier|const
-block|;
-name|void
-name|setGeometryOutputVertexCount
-argument_list|(
-argument|int count
-argument_list|)
-block|;
-name|int
-name|geometryOutputVertexCount
-argument_list|()
-specifier|const
-block|;
-name|void
-name|setGeometryInputType
-argument_list|(
-argument|GLenum inputType
-argument_list|)
-block|;
-name|GLenum
-name|geometryInputType
-argument_list|()
-specifier|const
-block|;
-name|void
-name|setGeometryOutputType
-argument_list|(
-argument|GLenum outputType
-argument_list|)
-block|;
-name|GLenum
-name|geometryOutputType
 argument_list|()
 specifier|const
 block|;
