@@ -10563,7 +10563,7 @@ operator|::
 name|Int
 argument_list|)
 operator|<<
-literal|false
+literal|true
 expr_stmt|;
 comment|// LongLong and ULongLong
 name|QVariant
@@ -12094,15 +12094,6 @@ argument_list|(
 name|bool
 argument_list|,
 name|equal
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"nullint"
-argument_list|,
-literal|"See QTBUG-22933"
-argument_list|,
-name|Continue
 argument_list|)
 expr_stmt|;
 name|QCOMPARE

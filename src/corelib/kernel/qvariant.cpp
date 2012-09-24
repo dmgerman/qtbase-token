@@ -10981,7 +10981,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool operator==(const QVariant&v1, const QVariant&v2)      \relates QVariant      Returns true if \a v1 and \a v2 are equal; otherwise returns false.      If \a v1 and \a v2 have the same \l{QVariant::}{type()}, the     type's equality operator is used for comparison. If not, it is     attempted to \l{QVariant::}{convert()} \a v2 to the same type as     \a v1. See \l{QVariant::}{canConvert()} for a list of possible     conversions.      \warning This function doesn't support custom types registered     with qRegisterMetaType(). */
+comment|/*!     \fn bool operator==(const QVariant&v1, const QVariant&v2)      \relates QVariant      Returns true if \a v1 and \a v2 are equal; otherwise returns false.      If \a v1 and \a v2 have the same \l{QVariant::}{type()}, the     type's equality operator is used for comparison. If not, it is     attempted to \l{QVariant::}{convert()} \a v2 to the same type as     \a v1. See \l{QVariant::}{canConvert()} for a list of possible     conversions.      The result of the function is not affected by the result of QVariant::isNull,     which means that two values can be equal even if one of them is null and     another is not.      \warning This function doesn't support custom types registered     with qRegisterMetaType(). */
 end_comment
 begin_comment
 comment|/*!     \fn bool operator!=(const QVariant&v1, const QVariant&v2)      \relates QVariant      Returns false if \a v1 and \a v2 are equal; otherwise returns true.      \warning This function doesn't support custom types registered     with qRegisterMetaType(). */
@@ -11276,7 +11276,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if this is a NULL variant, false otherwise. */
+comment|/*!     Returns true if this is a null variant, false otherwise. A variant is     considered null if it contains a default constructed value or a built-in     type instance that has an isNull method, in which case the result     would be the same as calling isNull on the wrapped object.      \warning The result of the function doesn't affect == operator, which means     that two values can be equal even if one of them is null and another is not. */
 end_comment
 begin_function
 DECL|function|isNull
