@@ -116,6 +116,15 @@ name|where
 argument_list|)
 block|;
 name|QString
+name|sourceTreeForFile
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|where
+argument_list|)
+block|;
+name|QString
 name|projectSuffix
 argument_list|()
 specifier|const
