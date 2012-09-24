@@ -1370,7 +1370,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Set the timeout, in milliseconds, before the gesture triggers.      The recognizer will detect a touch down and and if \a msecs     later the touch is still down, it will trigger the QTapAndHoldGesture.     The default value is 700 milliseconds. */
+comment|/*!     Set the timeout, in milliseconds, before the gesture triggers.      The recognizer will detect a touch down and if \a msecs     later the touch is still down, it will trigger the QTapAndHoldGesture.     The default value is 700 milliseconds. */
 end_comment
 begin_comment
 comment|// static
@@ -1395,7 +1395,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Gets the timeout, in milliseconds, before the gesture triggers.      The recognizer will detect a touch down and and if timeout()     later the touch is still down, it will trigger the QTapAndHoldGesture.     The default value is 700 milliseconds. */
+comment|/*!     Gets the timeout, in milliseconds, before the gesture triggers.      The recognizer will detect a touch down and if timeout()     later the touch is still down, it will trigger the QTapAndHoldGesture.     The default value is 700 milliseconds. */
 end_comment
 begin_comment
 comment|// static

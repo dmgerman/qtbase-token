@@ -494,7 +494,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the the number of (key, value) pairs stored in the object.  */
+comment|/*!     Returns the number of (key, value) pairs stored in the object.  */
 end_comment
 begin_function
 DECL|function|size

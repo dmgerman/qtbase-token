@@ -979,7 +979,7 @@ operator|->
 name|globPatterns
 control|)
 block|{
-comment|// Not a simple suffix if if looks like: README or *. or *.* or *.JP*G or *.JP?
+comment|// Not a simple suffix if it looks like: README or *. or *.* or *.JP*G or *.JP?
 if|if
 condition|(
 name|pattern

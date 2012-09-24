@@ -3510,7 +3510,7 @@ literal|0
 argument_list|)
 expr_stmt|;
 comment|// failure here means the timer above didn't fire, and the
-comment|// quit was caused the the dialog being closed (not the window)
+comment|// quit was caused the dialog being closed (not the window)
 name|QCOMPARE
 argument_list|(
 name|timerSpy

@@ -131,7 +131,7 @@ comment|// a) the XSI/POSIX.1 version, which returns an int,
 comment|//    indicating success or not
 comment|// b) the GNU version, which returns a char*, which may or may not
 comment|//    be the beginning of the buffer we used
-comment|// The GNU libc manpage for strerror_r says you should use the the XSI
+comment|// The GNU libc manpage for strerror_r says you should use the XSI
 comment|// version in portable code. However, it's impossible to do that if
 comment|// _GNU_SOURCE is defined so we use C++ overloading to decide what to do
 comment|// depending on the return type

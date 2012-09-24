@@ -3377,7 +3377,7 @@ comment|// this behaviour works. While working on this test I realized that we a
 comment|// don't (and never have) respected this flag for raw key events. Only for
 comment|// menus, through QKeySequence. I don't want to change this behaviour now, at
 comment|// least not until someone complains. So I choose to let the test just stop
-comment|// any unintended regressions instead. If we decide to resepect the the flag at one
+comment|// any unintended regressions instead. If we decide to resepect the flag at one
 comment|// point, fix the test.
 name|QCoreApplication
 operator|::

@@ -286,7 +286,7 @@ directive|ifndef
 name|QT_NO_NETWORKINTERFACE
 end_ifndef
 begin_comment
-comment|/*!     \since 4.8      Joins the the multicast group specified by \a groupAddress on the default     interface chosen by the operating system. The socket must be in BoundState,     otherwise an error occurs.      Note that if you are attempting to join an IPv4 group, your socket must not     be bound using IPv6 (or in dual mode, using QHostAddress::Any). You must use     QHostAddress::AnyIPv4 instead.      This function returns true if successful; otherwise it returns false     and sets the socket error accordingly.      \sa leaveMulticastGroup() */
+comment|/*!     \since 4.8      Joins the multicast group specified by \a groupAddress on the default     interface chosen by the operating system. The socket must be in BoundState,     otherwise an error occurs.      Note that if you are attempting to join an IPv4 group, your socket must not     be bound using IPv6 (or in dual mode, using QHostAddress::Any). You must use     QHostAddress::AnyIPv4 instead.      This function returns true if successful; otherwise it returns false     and sets the socket error accordingly.      \sa leaveMulticastGroup() */
 end_comment
 begin_function
 DECL|function|joinMulticastGroup

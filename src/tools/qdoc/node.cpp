@@ -2022,7 +2022,7 @@ directive|if
 literal|0
 end_if
 begin_comment
-comment|/*!   Returns the sanitized file name without the path.   If the the file is an html file, the html suffix   is removed. Why?  */
+comment|/*!   Returns the sanitized file name without the path.   If the file is an html file, the html suffix   is removed. Why?  */
 end_comment
 begin_endif
 unit|QString Node::fileBase() const {     QString base = name();     if (base.endsWith(".html"))         base.chop(5);     base.replace(QRegExp("[^A-Za-z0-9]+"), " ");     base = base.trimmed();     base.replace(QLatin1Char(' '), QLatin1Char('-'));     return base.toLower(); }

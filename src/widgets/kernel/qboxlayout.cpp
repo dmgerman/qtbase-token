@@ -2140,7 +2140,7 @@ name|spacing
 operator|=
 literal|0
 expr_stmt|;
-comment|// might be be initialized with a non-zero value in a later iteration
+comment|// might be initialized with a non-zero value in a later iteration
 name|hasHfw
 operator|=
 name|hasHfw

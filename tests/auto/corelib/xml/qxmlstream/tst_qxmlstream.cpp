@@ -1087,7 +1087,7 @@ DECL|member|skipCount
 name|int
 name|skipCount
 decl_stmt|;
-comment|/**      * \a baseURI is the the URI of where the catalog file resides.      */
+comment|/**      * \a baseURI is the URI of where the catalog file resides.      */
 DECL|function|TestSuiteHandler
 name|TestSuiteHandler
 parameter_list|(

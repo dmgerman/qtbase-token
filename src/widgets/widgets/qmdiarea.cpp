@@ -11362,7 +11362,7 @@ ifdef|#
 directive|ifdef
 name|Q_WS_WIN
 comment|// QWidgetPrivate::hide_helper activates another sub-window when closing a
-comment|// modal dialog on Windows (see activateWindow() inside the the ifdef).
+comment|// modal dialog on Windows (see activateWindow() inside the ifdef).
 case|case
 name|QEvent
 operator|::

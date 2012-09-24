@@ -3298,7 +3298,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Clones the database connection \a other and and stores it as \a     connectionName. All the settings from the original database, e.g.     databaseName(), hostName(), etc., are copied across. Does nothing     if \a other is an invalid database. Returns the newly created     database connection.      \note The new connection has not been opened. Before using the new     connection, you must call open(). */
+comment|/*!     Clones the database connection \a other and stores it as \a     connectionName. All the settings from the original database, e.g.     databaseName(), hostName(), etc., are copied across. Does nothing     if \a other is an invalid database. Returns the newly created     database connection.      \note The new connection has not been opened. Before using the new     connection, you must call open(). */
 end_comment
 begin_function
 DECL|function|cloneDatabase

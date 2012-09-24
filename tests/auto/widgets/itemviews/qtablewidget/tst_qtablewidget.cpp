@@ -9884,7 +9884,7 @@ operator|&
 name|item
 argument_list|)
 expr_stmt|;
-comment|//we put the item in the the second last row
+comment|//we put the item in the second last row
 name|testWidget
 operator|->
 name|openPersistentEditor

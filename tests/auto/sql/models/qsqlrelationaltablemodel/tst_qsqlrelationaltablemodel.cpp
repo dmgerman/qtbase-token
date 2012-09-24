@@ -8862,7 +8862,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|// For task 140782 and 176374: If the main table and the the related tables uses the same
+comment|// For task 140782 and 176374: If the main table and the related tables uses the same
 end_comment
 begin_comment
 comment|// name for a column or display column then insertRecord() would return true though it

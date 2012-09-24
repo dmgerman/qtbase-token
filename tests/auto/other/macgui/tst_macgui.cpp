@@ -379,7 +379,7 @@ argument_list|,
 name|delay
 argument_list|)
 expr_stmt|;
-comment|// Show dialog and and enter event loop.
+comment|// Show dialog and enter event loop.
 name|connect
 argument_list|(
 name|wn
@@ -507,7 +507,7 @@ argument_list|,
 name|delay
 argument_list|)
 expr_stmt|;
-comment|// Show dialog and and enter event loop.
+comment|// Show dialog and enter event loop.
 name|connect
 argument_list|(
 name|wn
