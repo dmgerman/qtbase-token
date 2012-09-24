@@ -20161,15 +20161,6 @@ argument_list|,
 name|after
 argument_list|)
 expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"overflow"
-argument_list|,
-literal|"QTBUG-22967: integer overflow if (index + len)> INT_MAX"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
 name|QString
 name|s1
 init|=

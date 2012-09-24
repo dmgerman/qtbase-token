@@ -4165,7 +4165,7 @@ begin_comment
 comment|/*!   \fn QString&QString::remove(const QRegularExpression&re)   \since 5.0    Removes every occurrence of the regular expression \a re in the   string, and returns a reference to the string. For example:    \snippet qstring/main.cpp 96    \sa indexOf(), lastIndexOf(), replace() */
 end_comment
 begin_comment
-comment|/*!   \fn QString&QString::replace(int position, int n, const QString&after)    Replaces \a n characters beginning at index \a position with   the string \a after and returns a reference to this string.    Example:    \snippet qstring/main.cpp 40    \sa insert(), remove() */
+comment|/*!   \fn QString&QString::replace(int position, int n, const QString&after)    Replaces \a n characters beginning at index \a position with   the string \a after and returns a reference to this string.    \note If the specified \a position index is within the string,   but \a position + \a n goes outside the strings range,   then \a n will be adjusted to stop at the end of the string.    Example:    \snippet qstring/main.cpp 40    \sa insert(), remove() */
 end_comment
 begin_function
 DECL|function|replace
@@ -4256,13 +4256,13 @@ name|this
 return|;
 if|if
 condition|(
-name|pos
-operator|+
 name|len
 operator|>
 name|d
 operator|->
 name|size
+operator|-
+name|pos
 condition|)
 name|len
 operator|=
