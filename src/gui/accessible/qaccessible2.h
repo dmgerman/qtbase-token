@@ -714,7 +714,7 @@ decl|const
 init|=
 literal|0
 decl_stmt|;
-comment|// Selects a row and unselects all previously selected rows.
+comment|// Selects a row and it might unselect all previously selected rows.
 name|virtual
 name|bool
 name|selectRow
@@ -725,7 +725,7 @@ parameter_list|)
 init|=
 literal|0
 function_decl|;
-comment|// Selects a column and unselects all previously selected columns.
+comment|// Selects a column it might unselect all previously selected columns.
 name|virtual
 name|bool
 name|selectColumn
