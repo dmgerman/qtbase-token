@@ -1978,18 +1978,24 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \fn QTemporaryFile *QTemporaryFile::createLocalFile(const QString&fileName)   \overload    Works on the given \a fileName rather than an existing QFile   object. */
+comment|/*!   \fn QTemporaryFile *QTemporaryFile::createLocalFile(const QString&fileName)   \overload   \obsolete    Use QTemporaryFile::createNativeFile(const QString&fileName) instead. */
 end_comment
 begin_comment
-comment|/*!   If \a file is not on a local disk, a temporary file is created   on a local disk, \a file is copied into the temporary local file,   and a pointer to the temporary local file is returned. If \a file   is already on a local disk, a copy is not created and 0 is returned. */
+comment|/*!   \fn QTemporaryFile *QTemporaryFile::createLocalFile(QFile&file)   \obsolete    Use QTemporaryFile::createNativeFile(QFile&file) instead. */
+end_comment
+begin_comment
+comment|/*!   \fn QTemporaryFile *QTemporaryFile::createNativeFile(const QString&fileName)   \overload    Works on the given \a fileName rather than an existing QFile   object. */
+end_comment
+begin_comment
+comment|/*!   If \a file is not already a native file then a QTemporaryFile is created   in the tempPath() and \a file is copied into the temporary file, then a   pointer to the temporary file is returned. If \a file is already a native   file, a QTemporaryFile is not created, no copy is made and 0 is returned.    For example:    QFile f(":/resources/file.txt");   QTemporaryFile::createNativeFile(f); // Returns a pointer to a temporary file    QFile f("/users/qt/file.txt");   QTemporaryFile::createNativeFile(f); // Returns 0    \sa QFileInfo::isNativePath() */
 end_comment
 begin_function
-DECL|function|createLocalFile
+DECL|function|createNativeFile
 name|QTemporaryFile
 modifier|*
 name|QTemporaryFile
 operator|::
-name|createLocalFile
+name|createNativeFile
 parameter_list|(
 name|QFile
 modifier|&
@@ -2029,7 +2035,7 @@ condition|)
 return|return
 literal|0
 return|;
-comment|//local already
+comment|//native already
 comment|//cache
 name|bool
 name|wasOpen
