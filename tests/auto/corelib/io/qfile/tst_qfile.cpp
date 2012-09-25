@@ -12903,9 +12903,8 @@ argument_list|)
 if|if
 condition|(
 name|fileWriteOriginalData
-operator|==
-operator|-
-literal|1
+operator|!=
+name|originalDataSize
 condition|)
 block|{
 name|qWarning
