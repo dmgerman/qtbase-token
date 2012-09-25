@@ -1585,24 +1585,10 @@ operator|->
 name|ignore
 argument_list|()
 expr_stmt|;
-comment|// override wheel event without adding virtual function override
-name|QWheelEvent
-modifier|*
-name|ev
-init|=
-cast|static_cast
-argument_list|<
-name|QWheelEvent
-operator|*
-argument_list|>
-argument_list|(
-name|event
-argument_list|)
-decl_stmt|;
 name|int
 name|delta
 init|=
-name|ev
+name|event
 operator|->
 name|delta
 argument_list|()
@@ -1614,7 +1600,7 @@ comment|// inverted by default, we need to inverse the delta value for the
 comment|// horizontal orientation.
 if|if
 condition|(
-name|ev
+name|event
 operator|->
 name|orientation
 argument_list|()
@@ -1639,12 +1625,12 @@ name|d
 operator|->
 name|scrollByDelta
 argument_list|(
-name|ev
+name|event
 operator|->
 name|orientation
 argument_list|()
 argument_list|,
-name|ev
+name|event
 operator|->
 name|modifiers
 argument_list|()
