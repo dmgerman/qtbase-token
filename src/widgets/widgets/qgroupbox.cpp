@@ -483,7 +483,7 @@ emit|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QGroupBox     \brief The QGroupBox widget provides a group box frame with a title.      \ingroup organizers     \ingroup geomanagement     \inmodule QtWidgets      A group box provides a frame, a title and a keyboard shortcut, and     displays various other widgets inside itself. The title is on top,     the keyboard shortcut moves keyboard focus to one of the group     box's child widgets.      QGroupBox also lets you set the \l title (normally set in the     constructor) and the title's \l alignment. Group boxes can be     \l checkable; child widgets in checkable group boxes are enabled or     disabled depending on whether or not the group box is \l checked.      You can minimize the space consumption of a group box by enabling     the \l flat property. In most \l{QStyle}{styles}, enabling this     property results in the removal of the left, right and bottom     edges of the frame.      QGroupBox doesn't automatically lay out the child widgets (which     are often \l{QCheckBox}es or \l{QRadioButton}s but can be any     widgets). The following example shows how we can set up a     QGroupBox with a layout:      \snippet widgets/groupbox/window.cpp 2      \table 100%     \row \li \inlineimage windowsxp-groupbox.png Screenshot of a Windows XP style group box          \li \inlineimage macintosh-groupbox.png Screenshot of a Macintosh style group box          \li \inlineimage plastique-groupbox.png Screenshot of a Plastique style group box     \row \li A \l{Windows XP Style Widget Gallery}{Windows XP style} group box.          \li A \l{Macintosh Style Widget Gallery}{Macintosh style} group box.          \li A \l{Plastique Style Widget Gallery}{Plastique style} group box.     \endtable      \sa QButtonGroup, {Group Box Example} */
+comment|/*!     \class QGroupBox     \brief The QGroupBox widget provides a group box frame with a title.      \ingroup organizers     \ingroup geomanagement     \inmodule QtWidgets      A group box provides a frame, a title on top, a keyboard shortcut, and     displays various other widgets inside itself. The keyboard shortcut moves     keyboard focus to one of the group box's child widgets.      QGroupBox also lets you set the \l title (normally set in the     constructor) and the title's \l alignment. Group boxes can be     \l checkable. Child widgets in checkable group boxes are enabled or     disabled depending on whether or not the group box is \l checked.      You can minimize the space consumption of a group box by enabling     the \l flat property. In most \l{QStyle}{styles}, enabling this     property results in the removal of the left, right and bottom     edges of the frame.      QGroupBox doesn't automatically lay out the child widgets (which     are often \l{QCheckBox}es or \l{QRadioButton}s but can be any     widgets). The following example shows how we can set up a     QGroupBox with a layout:      \snippet widgets/groupbox/window.cpp 2      \table 100%     \row \li \inlineimage windowsxp-groupbox.png Screenshot of a Windows XP style group box          \li \inlineimage macintosh-groupbox.png Screenshot of a Macintosh style group box          \li \inlineimage plastique-groupbox.png Screenshot of a Plastique style group box     \row \li A \l{Windows XP Style Widget Gallery}{Windows XP style} group box.          \li A \l{Macintosh Style Widget Gallery}{Macintosh style} group box.          \li A \l{Plastique Style Widget Gallery}{Plastique style} group box.     \endtable      \sa QButtonGroup, {Group Box Example} */
 end_comment
 begin_comment
 comment|/*!     Constructs a group box widget with the given \a parent but with no title. */
@@ -2034,7 +2034,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QGroupBox::flat     \brief whether the group box is painted flat or has a frame      A group box usually consists of a surrounding frame with a title     at the top. If this property is enabled, only the top part of the frame is     drawn in most styles; otherwise the whole frame is drawn.      By default, this property is disabled; i.e. group boxes are not flat unless     explicitly specified.      \b{Note:} In some styles, flat and non-flat group boxes have similar     representations and may not be as distinguishable as they are in other     styles.      \sa title */
+comment|/*!     \property QGroupBox::flat     \brief whether the group box is painted flat or has a frame      A group box usually consists of a surrounding frame with a title     at the top. If this property is enabled, only the top part of the frame is     drawn in most styles; otherwise, the whole frame is drawn.      By default, this property is disabled, i.e., group boxes are not flat unless     explicitly specified.      \b{Note:} In some styles, flat and non-flat group boxes have similar     representations and may not be as distinguishable as they are in other     styles.      \sa title */
 end_comment
 begin_function
 DECL|function|isFlat
@@ -2098,7 +2098,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QGroupBox::checkable     \brief whether the group box has a checkbox in its title      If this property is true, the group box displays its title using     a checkbox in place of an ordinary label. If the checkbox is checked,     the group box's children are enabled; otherwise they are disabled and     inaccessible.      By default, group boxes are not checkable.      If this property is enabled for a group box, it will also be initially     checked to ensure that its contents are enabled.      \sa checked */
+comment|/*!     \property QGroupBox::checkable     \brief whether the group box has a checkbox in its title      If this property is true, the group box displays its title using     a checkbox in place of an ordinary label. If the checkbox is checked,     the group box's children are enabled; otherwise, they are disabled and     inaccessible.      By default, group boxes are not checkable.      If this property is enabled for a group box, it will also be initially     checked to ensure that its contents are enabled.      \sa checked */
 end_comment
 begin_function
 DECL|function|setCheckable
@@ -2264,13 +2264,13 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QGroupBox::toggled(bool on)      If the group box is checkable, this signal is emitted when the check box     is toggled. \a on is true if the check box is checked; otherwise it is false.      \sa checkable */
+comment|/*!     \fn void QGroupBox::toggled(bool on)      If the group box is checkable, this signal is emitted when the check box     is toggled. \a on is true if the check box is checked; otherwise, it is false.      \sa checkable */
 end_comment
 begin_comment
-comment|/*!     \fn void QGroupBox::clicked(bool checked)     \since 4.2      This signal is emitted when the check box is activated (i.e. pressed down     then released while the mouse cursor is inside the button), or when the     shortcut key is typed, Notably, this signal is \e not emitted if you call     setChecked().      If the check box is checked \a checked is true; it is false if the check     box is unchecked.      \sa checkable, toggled(), checked */
+comment|/*!     \fn void QGroupBox::clicked(bool checked)     \since 4.2      This signal is emitted when the check box is activated (i.e., pressed down     then released while the mouse cursor is inside the button), or when the     shortcut key is typed. Notably, this signal is \e not emitted if you call     setChecked().      If the check box is checked, \a checked is true; it is false if the check     box is unchecked.      \sa checkable, toggled(), checked */
 end_comment
 begin_comment
-comment|/*!     \property QGroupBox::checked     \brief whether the group box is checked      If the group box is checkable, it is displayed with a check box.     If the check box is checked, the group box's children are enabled;     otherwise the children are disabled and are inaccessible to the user.      By default, checkable group boxes are also checked.      \sa checkable */
+comment|/*!     \property QGroupBox::checked     \brief whether the group box is checked      If the group box is checkable, it is displayed with a check box.     If the check box is checked, the group box's children are enabled;     otherwise, the children are disabled and are inaccessible to the user.      By default, checkable group boxes are also checked.      \sa checkable */
 end_comment
 begin_function
 DECL|function|setChecked
