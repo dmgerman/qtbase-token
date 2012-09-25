@@ -85,10 +85,22 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_function
+begin_macro
 name|QT_BEGIN_NAMESPACE
+end_macro
+begin_comment
 comment|//#define GENERATE_AGGREGRATE_SUBDIR
+end_comment
+begin_comment
 comment|// Note: this is fairly hacky, but it does the job...
+end_comment
+begin_using
+using|using
+namespace|namespace
+name|QMakeInternal
+namespace|;
+end_using
+begin_function
 DECL|function|qtMD5
 specifier|static
 name|QString
@@ -4148,24 +4160,23 @@ name|writeSettings
 argument_list|(
 literal|"shellScript"
 argument_list|,
-name|fixForOutput
-argument_list|(
 literal|"make -C "
 operator|+
-name|escapeFilePath
+name|IoUtils
+operator|::
+name|shellQuoteUnix
 argument_list|(
 name|qmake_getpwd
 argument_list|()
 argument_list|)
 operator|+
-literal|" -f '"
+literal|" -f "
 operator|+
-name|escapeFilePath
+name|IoUtils
+operator|::
+name|shellQuoteUnix
 argument_list|(
 name|mkfile
-argument_list|)
-operator|+
-literal|"'"
 argument_list|)
 argument_list|)
 operator|<<
@@ -6641,24 +6652,23 @@ name|writeSettings
 argument_list|(
 literal|"shellScript"
 argument_list|,
-name|fixForOutput
-argument_list|(
 literal|"make -C "
 operator|+
-name|escapeFilePath
+name|IoUtils
+operator|::
+name|shellQuoteUnix
 argument_list|(
 name|qmake_getpwd
 argument_list|()
 argument_list|)
 operator|+
-literal|" -f '"
+literal|" -f "
 operator|+
-name|escapeFilePath
+name|IoUtils
+operator|::
+name|shellQuoteUnix
 argument_list|(
 name|mkfile
-argument_list|)
-operator|+
-literal|"'"
 argument_list|)
 argument_list|)
 operator|<<
@@ -8250,24 +8260,23 @@ name|writeSettings
 argument_list|(
 literal|"shellScript"
 argument_list|,
-name|fixForOutput
-argument_list|(
 literal|"make -C "
 operator|+
-name|escapeFilePath
+name|IoUtils
+operator|::
+name|shellQuoteUnix
 argument_list|(
 name|qmake_getpwd
 argument_list|()
 argument_list|)
 operator|+
-literal|" -f '"
+literal|" -f "
 operator|+
-name|escapeFilePath
+name|IoUtils
+operator|::
+name|shellQuoteUnix
 argument_list|(
 name|mkfile
-argument_list|)
-operator|+
-literal|"'"
 argument_list|)
 argument_list|)
 operator|<<
