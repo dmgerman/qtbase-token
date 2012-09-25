@@ -603,6 +603,12 @@ operator|::
 name|WriteOnly
 argument_list|)
 expr_stmt|;
+name|fd
+operator|=
+name|ret
+operator|.
+name|first
+expr_stmt|;
 block|}
 return|return
 literal|true
