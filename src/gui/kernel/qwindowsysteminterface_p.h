@@ -92,6 +92,8 @@ block|,
 name|TabletEnterProximity
 block|,
 name|TabletLeaveProximity
+block|,
+name|PlatformPanel
 block|}
 enum|;
 name|class
@@ -1508,6 +1510,39 @@ name|pointerType
 block|;
 name|qint64
 name|uid
+block|;     }
+decl_stmt|;
+name|class
+name|PlatformPanelEvent
+range|:
+name|public
+name|WindowSystemEvent
+block|{
+name|public
+operator|:
+name|explicit
+name|PlatformPanelEvent
+argument_list|(
+name|QWindow
+operator|*
+name|w
+argument_list|)
+operator|:
+name|WindowSystemEvent
+argument_list|(
+name|PlatformPanel
+argument_list|)
+block|,
+name|window
+argument_list|(
+argument|w
+argument_list|)
+block|{ }
+name|QPointer
+operator|<
+name|QWindow
+operator|>
+name|window
 block|;     }
 decl_stmt|;
 name|class

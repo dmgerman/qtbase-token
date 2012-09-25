@@ -842,6 +842,10 @@ operator|=
 literal|211
 block|,
 comment|// socket closed
+name|PlatformPanel
+operator|=
+literal|212
+block|,
 comment|// 512 reserved for Qt Jambi's MetaCall event
 comment|// 513 reserved for Qt Jambi's DeleteOnMainThread event
 name|User

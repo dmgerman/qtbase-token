@@ -491,6 +491,17 @@ operator|*
 name|e
 argument_list|)
 block|;
+specifier|static
+name|void
+name|processPlatformPanelEvent
+argument_list|(
+name|QWindowSystemInterfacePrivate
+operator|::
+name|PlatformPanelEvent
+operator|*
+name|e
+argument_list|)
+block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_DRAGANDDROP

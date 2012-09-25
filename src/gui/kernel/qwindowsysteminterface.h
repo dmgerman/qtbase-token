@@ -1410,6 +1410,15 @@ name|qint64
 name|uid
 parameter_list|)
 function_decl|;
+specifier|static
+name|void
+name|handlePlatformPanelEvent
+parameter_list|(
+name|QWindow
+modifier|*
+name|w
+parameter_list|)
+function_decl|;
 comment|// For event dispatcher implementations
 specifier|static
 name|bool
