@@ -438,6 +438,11 @@ operator|::
 name|WindowState
 name|m_synchedWindowState
 block|;
+name|Qt
+operator|::
+name|WindowModality
+name|m_windowModality
+block|;
 name|QPointer
 operator|<
 name|QWindow
