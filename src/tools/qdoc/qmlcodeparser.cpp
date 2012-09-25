@@ -359,13 +359,6 @@ argument_list|()
 expr_stmt|;
 return|return;
 block|}
-name|createOutputSubdirectory
-argument_list|(
-name|location
-argument_list|,
-name|filePath
-argument_list|)
-expr_stmt|;
 name|QString
 name|document
 init|=

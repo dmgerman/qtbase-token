@@ -454,13 +454,6 @@ argument_list|()
 expr_stmt|;
 return|return;
 block|}
-name|createOutputSubdirectory
-argument_list|(
-name|location
-argument_list|,
-name|filePath
-argument_list|)
-expr_stmt|;
 name|reset
 argument_list|()
 expr_stmt|;
@@ -617,13 +610,6 @@ argument_list|()
 expr_stmt|;
 return|return;
 block|}
-name|createOutputSubdirectory
-argument_list|(
-name|location
-argument_list|,
-name|filePath
-argument_list|)
-expr_stmt|;
 name|reset
 argument_list|()
 expr_stmt|;

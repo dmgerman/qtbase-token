@@ -72,14 +72,6 @@ file|"qdocdatabase.h"
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-DECL|member|baseDir_
-name|QString
-name|Generator
-operator|::
-name|baseDir_
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|member|currentGenerator_
 name|Generator
 modifier|*
@@ -7974,38 +7966,6 @@ name|config
 operator|.
 name|getOutputDir
 argument_list|()
-expr_stmt|;
-name|baseDir_
-operator|=
-name|config
-operator|.
-name|getString
-argument_list|(
-name|CONFIG_BASEDIR
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|baseDir_
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-name|config
-operator|.
-name|location
-argument_list|()
-operator|.
-name|warning
-argument_list|(
-name|tr
-argument_list|(
-literal|"\"basedir\" specified in config file. "
-literal|"All output will be in module directories "
-literal|"of the output directory"
-argument_list|)
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
