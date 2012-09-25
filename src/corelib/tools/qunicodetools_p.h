@@ -87,11 +87,23 @@ name|whiteSpace
 range|:
 literal|1
 decl_stmt|;
+DECL|member|wordStart
+name|uchar
+name|wordStart
+range|:
+literal|1
+decl_stmt|;
+DECL|member|wordEnd
+name|uchar
+name|wordEnd
+range|:
+literal|1
+decl_stmt|;
 DECL|member|unused
 name|uchar
 name|unused
 range|:
-literal|3
+literal|1
 decl_stmt|;
 block|}
 struct|;
@@ -164,6 +176,7 @@ argument|CharAttributeOptions
 argument_list|,
 argument|CharAttributeOption
 argument_list|)
+comment|// attributes buffer has to have a length of string length + 1
 name|Q_CORE_EXPORT
 name|void
 name|initCharAttributes

@@ -237,11 +237,23 @@ range|:
 literal|1
 decl_stmt|;
 comment|/* A unicode whitespace character */
+DECL|member|wordStart
+name|hb_bitfield
+name|wordStart
+range|:
+literal|1
+decl_stmt|;
+DECL|member|wordEnd
+name|hb_bitfield
+name|wordEnd
+range|:
+literal|1
+decl_stmt|;
 DECL|member|unused
 name|hb_bitfield
 name|unused
 range|:
-literal|3
+literal|1
 decl_stmt|;
 block|}
 DECL|typedef|HB_CharAttributes
