@@ -2568,7 +2568,7 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 name|int
-name|old_source_sort_colum
+name|old_source_sort_column
 init|=
 name|source_sort_column
 decl_stmt|;
@@ -2585,7 +2585,7 @@ name|column
 argument_list|()
 expr_stmt|;
 return|return
-name|old_source_sort_colum
+name|old_source_sort_column
 operator|!=
 name|source_sort_column
 return|;
