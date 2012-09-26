@@ -342,11 +342,11 @@ name|cache
 operator|->
 name|setCacheDirectory
 argument_list|(
-name|QDesktopServices
+name|QStandardPaths
 operator|::
-name|storageLocation
+name|writableLocation
 argument_list|(
-name|QDesktopServices
+name|QStandardPaths
 operator|::
 name|CacheLocation
 argument_list|)
