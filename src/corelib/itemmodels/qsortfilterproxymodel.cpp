@@ -6647,7 +6647,7 @@ name|QModelIndex
 argument_list|>
 operator|::
 name|iterator
-name|it
+name|childIt
 init|=
 name|m
 operator|->
@@ -6658,7 +6658,7 @@ argument_list|()
 decl_stmt|;
 while|while
 condition|(
-name|it
+name|childIt
 operator|!=
 name|m
 operator|->
@@ -6669,14 +6669,14 @@ argument_list|()
 condition|)
 block|{
 operator|--
-name|it
+name|childIt
 expr_stmt|;
 specifier|const
 name|QModelIndex
 name|source_child_index
 init|=
 operator|*
-name|it
+name|childIt
 decl_stmt|;
 if|if
 condition|(
@@ -6691,7 +6691,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|it
+name|childIt
 operator|=
 name|m
 operator|->
@@ -6699,7 +6699,7 @@ name|mapped_children
 operator|.
 name|erase
 argument_list|(
-name|it
+name|childIt
 argument_list|)
 expr_stmt|;
 name|remove_from_mapping
