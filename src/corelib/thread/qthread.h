@@ -198,7 +198,7 @@ argument_list|()
 block|;
 name|public
 operator|:
-comment|// default argument causes thread to block indefinately
+comment|// default argument causes thread to block indefinetely
 name|bool
 name|wait
 argument_list|(
