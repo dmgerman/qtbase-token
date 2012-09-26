@@ -2158,6 +2158,19 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|(
+name|row
+operator|<
+literal|0
+operator|)
+operator|||
+operator|(
+name|column
+operator|<
+literal|0
+operator|)
+operator|||
+operator|(
 name|treeView
 operator|->
 name|d_func
@@ -2169,6 +2182,7 @@ name|count
 argument_list|()
 operator|<=
 name|row
+operator|)
 condition|)
 block|{
 name|qWarning
