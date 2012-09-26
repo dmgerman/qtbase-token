@@ -330,6 +330,15 @@ name|model
 argument_list|()
 condition|)
 block|{
+specifier|const
+name|QModelIndex
+name|parent
+init|=
+name|range
+operator|.
+name|parent
+argument_list|()
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -386,10 +395,7 @@ name|row
 argument_list|,
 name|column
 argument_list|,
-name|range
-operator|.
 name|parent
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|Qt
