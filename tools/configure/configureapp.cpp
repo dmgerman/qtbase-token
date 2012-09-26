@@ -12568,6 +12568,26 @@ condition|)
 return|return
 literal|"no"
 return|;
+comment|// keep 'auto' default for msvc, since we can't set the language supported
+if|if
+condition|(
+name|option
+operator|==
+literal|"C++11"
+operator|&&
+name|dictionary
+index|[
+literal|"QMAKESPEC"
+index|]
+operator|.
+name|contains
+argument_list|(
+literal|"msvc"
+argument_list|)
+condition|)
+return|return
+literal|"auto"
+return|;
 if|if
 condition|(
 name|option
