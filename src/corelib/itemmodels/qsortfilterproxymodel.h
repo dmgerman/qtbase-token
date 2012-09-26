@@ -380,6 +380,17 @@ argument|const QModelIndex&child
 argument_list|)
 specifier|const
 block|;
+name|QModelIndex
+name|sibling
+argument_list|(
+argument|int row
+argument_list|,
+argument|int column
+argument_list|,
+argument|const QModelIndex&idx
+argument_list|)
+specifier|const
+block|;
 name|int
 name|rowCount
 argument_list|(

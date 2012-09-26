@@ -127,6 +127,17 @@ argument_list|,
 argument|const QModelIndex& parent
 argument_list|)
 block|;
+name|QModelIndex
+name|sibling
+argument_list|(
+argument|int row
+argument_list|,
+argument|int column
+argument_list|,
+argument|const QModelIndex&idx
+argument_list|)
+specifier|const
+block|;
 name|QItemSelection
 name|mapSelectionFromSource
 argument_list|(

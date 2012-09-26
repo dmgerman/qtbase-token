@@ -1702,6 +1702,17 @@ argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
 specifier|const
 block|;
+name|QModelIndex
+name|sibling
+argument_list|(
+argument|int row
+argument_list|,
+argument|int column
+argument_list|,
+argument|const QModelIndex&idx
+argument_list|)
+specifier|const
+block|;
 name|QVariant
 name|data
 argument_list|(
