@@ -12935,7 +12935,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"unc file"
 argument_list|,
-literal|"QTBUG-26906"
+literal|"QTBUG-26906 writing"
 argument_list|,
 name|Abort
 argument_list|)
@@ -13011,6 +13011,55 @@ operator|.
 name|readAll
 argument_list|()
 expr_stmt|;
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_WIN
+argument_list|)
+if|if
+condition|(
+name|readData
+operator|!=
+name|originalData
+condition|)
+block|{
+name|qWarning
+argument_list|()
+operator|<<
+name|qPrintable
+argument_list|(
+name|QString
+argument_list|(
+literal|"Error reading a large data block from [%1]: %2"
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|fileName
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|file
+operator|.
+name|errorString
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QEXPECT_FAIL
+argument_list|(
+literal|"unc file"
+argument_list|,
+literal|"QTBUG-26906 reading"
+argument_list|,
+name|Abort
+argument_list|)
+expr_stmt|;
+block|}
+endif|#
+directive|endif
 name|closeFile
 argument_list|(
 name|file
