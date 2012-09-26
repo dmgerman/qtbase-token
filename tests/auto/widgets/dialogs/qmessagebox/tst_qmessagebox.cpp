@@ -198,10 +198,15 @@ name|void
 name|detailsButtonText
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|Q_OS_MAC
 name|void
 name|shortcut
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|staticSourceCompat
 parameter_list|()
@@ -1784,6 +1789,14 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_comment
+comment|// shortcuts are not used on MAC OS X
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_MAC
+end_ifndef
 begin_function
 DECL|function|shortcut
 name|void
@@ -1792,16 +1805,6 @@ operator|::
 name|shortcut
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-name|QSKIP
-argument_list|(
-literal|"shortcuts are not used on MAC OS X"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QMessageBox
 name|msgBox
 decl_stmt|;
@@ -1855,6 +1858,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|about
 name|void
