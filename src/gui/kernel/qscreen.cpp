@@ -20,6 +20,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qguiapplication_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<qpa/qplatformscreen.h>
 end_include
 begin_include
@@ -705,6 +710,13 @@ operator|->
 name|setOrientationUpdateMask
 argument_list|(
 name|mask
+argument_list|)
+expr_stmt|;
+name|QGuiApplicationPrivate
+operator|::
+name|updateFilteredScreenOrientation
+argument_list|(
+name|this
 argument_list|)
 expr_stmt|;
 block|}
