@@ -12717,11 +12717,19 @@ argument_list|(
 literal|"unicode/ustring.h"
 argument_list|)
 operator|&&
+operator|(
 name|findFile
 argument_list|(
 literal|"icuin.lib"
 argument_list|)
+operator|||
+name|findFile
+argument_list|(
+literal|"libicuin.lib"
+argument_list|)
+operator|)
 expr_stmt|;
+comment|// libicun.lib if compiled with mingw
 elseif|else
 if|if
 condition|(
