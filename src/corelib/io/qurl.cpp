@@ -5384,228 +5384,81 @@ operator|::
 name|TolerantMode
 condition|)
 return|return;
-comment|// The parsing so far was tolerant of errors, so the StrictMode
-comment|// parsing is actually implemented here, as an extra post-check.
-comment|// We only execute it if we haven't found any errors so far.
-comment|// What we need to look out for, that the regular parser tolerates:
-comment|//  - percent signs not followed by two hex digits
-comment|//  - forbidden characters, which should always appear encoded
-comment|//    '"' / '<' / '>' / '\' / '^' / '`' / '{' / '|' / '}' / BKSP
-comment|//    control characters
-comment|//  - delimiters not allowed in certain positions
-comment|//    . scheme: parser is already strict
-comment|//    . user info: gen-delims (except for ':') disallowed
-comment|//    . host: parser is stricter than the standard
-comment|//    . port: parser is stricter than the standard
-comment|//    . path: all delimiters allowed
-comment|//    . fragment: all delimiters allowed
-comment|//    . query: all delimiters allowed
-comment|//    We would only need to check the user-info. However, the presence
-comment|//    of the disallowed gen-delims changes the parsing, so we don't
-comment|//    actually need to do anything
-specifier|static
-specifier|const
-name|char
-name|forbidden
-index|[]
-init|=
-literal|"\"<>\\^`{|}\x7F"
-decl_stmt|;
-for|for
-control|(
-name|uint
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-name|uint
-argument_list|(
-name|len
-argument_list|)
-condition|;
-operator|++
-name|i
-control|)
-block|{
-specifier|register
-name|uint
-name|uc
-init|=
-name|data
-index|[
-name|i
-index|]
-decl_stmt|;
+comment|// The parsing so far was partially tolerant of errors, except for the
+comment|// scheme parser (which is always strict) and the authority (which was
+comment|// executed in strict mode).
+comment|// If we haven't found any errors so far, continue the strict-mode parsing
+comment|// from the path component onwards.
 if|if
 condition|(
-name|uc
-operator|>=
-literal|0x80
-condition|)
-continue|continue;
-if|if
-condition|(
-operator|(
-name|uc
-operator|==
-literal|'%'
-operator|&&
-operator|(
-name|uint
-argument_list|(
-name|len
-argument_list|)
-operator|<
-name|i
-operator|+
-literal|2
-operator|||
 operator|!
-name|isHex
+name|validateComponent
 argument_list|(
-name|data
-index|[
-name|i
-operator|+
-literal|1
-index|]
-argument_list|)
-operator|||
-operator|!
-name|isHex
-argument_list|(
-name|data
-index|[
-name|i
-operator|+
-literal|2
-index|]
-argument_list|)
-operator|)
-operator|)
-operator|||
-name|uc
-operator|<=
-literal|0x20
-operator|||
-name|strchr
-argument_list|(
-name|forbidden
+name|Path
 argument_list|,
-name|uc
+name|url
+argument_list|,
+name|pathStart
+argument_list|,
+name|hierEnd
 argument_list|)
 condition|)
-block|{
-comment|// found an error
-name|ErrorCode
-name|errorCode
-decl_stmt|;
-comment|// where are we?
+return|return;
 if|if
 condition|(
-name|i
-operator|>
-name|uint
-argument_list|(
-name|hash
-argument_list|)
-condition|)
-block|{
-name|errorCode
-operator|=
-name|InvalidFragmentError
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|i
-operator|>
 name|uint
 argument_list|(
 name|question
 argument_list|)
-condition|)
-block|{
-name|errorCode
-operator|=
-name|InvalidQueryError
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|i
-operator|>
+operator|<
 name|uint
 argument_list|(
-name|pathStart
+name|hash
 argument_list|)
-condition|)
-block|{
-comment|// pathStart is never -1
-name|errorCode
-operator|=
-name|InvalidPathError
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|// It must be in the authority, since the scheme is strict.
-comment|// Since the port and hostname parsers are also strict,
-comment|// the error can only have happened in the user info.
-name|int
-name|pos
-init|=
-name|url
-operator|.
-name|indexOf
+operator|&&
+operator|!
+name|validateComponent
 argument_list|(
-name|QLatin1Char
-argument_list|(
-literal|':'
-argument_list|)
-argument_list|,
-name|hierStart
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|i
-operator|>
-name|uint
-argument_list|(
-name|pos
-argument_list|)
-condition|)
-block|{
-name|errorCode
-operator|=
-name|InvalidPasswordError
-expr_stmt|;
-block|}
-else|else
-block|{
-name|errorCode
-operator|=
-name|InvalidUserNameError
-expr_stmt|;
-block|}
-block|}
-name|setError
-argument_list|(
-name|errorCode
+name|Query
 argument_list|,
 name|url
 argument_list|,
-name|i
+name|question
+operator|+
+literal|1
+argument_list|,
+name|qMin
+argument_list|<
+name|uint
+argument_list|>
+argument_list|(
+name|hash
+argument_list|,
+name|len
 argument_list|)
-expr_stmt|;
+argument_list|)
+condition|)
 return|return;
-block|}
-block|}
+if|if
+condition|(
+name|hash
+operator|!=
+operator|-
+literal|1
+condition|)
+name|validateComponent
+argument_list|(
+name|Fragment
+argument_list|,
+name|url
+argument_list|,
+name|hash
+operator|+
+literal|1
+argument_list|,
+name|len
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_comment
