@@ -10582,13 +10582,7 @@ specifier|const
 name|int
 name|indent
 init|=
-name|painter
-operator|->
-name|fontMetrics
-argument_list|()
-operator|.
-name|descent
-argument_list|()
+literal|4
 decl_stmt|;
 name|drawItemText
 argument_list|(
