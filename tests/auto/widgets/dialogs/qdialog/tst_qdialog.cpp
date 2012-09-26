@@ -109,6 +109,9 @@ name|void
 name|showFullScreen
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
 name|void
 name|showAsTool
 parameter_list|()
@@ -117,6 +120,8 @@ name|void
 name|toolDialogPosition
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|deleteMainDefault
 parameter_list|()
@@ -125,10 +130,15 @@ name|void
 name|deleteInExec
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_SIZEGRIP
 name|void
 name|showSizeGrip
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|setVisible
 parameter_list|()
@@ -1026,6 +1036,9 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_SIZEGRIP
 name|QSizeGrip
 modifier|*
 name|sizeGrip
@@ -1045,6 +1058,8 @@ argument_list|(
 name|sizeGrip
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|dialog
 operator|.
 name|showMaximized
@@ -1068,6 +1083,12 @@ argument_list|)
 expr_stmt|;
 if|#
 directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_SIZEGRIP
+argument_list|)
+operator|&&
 operator|!
 name|defined
 argument_list|(
@@ -1118,6 +1139,9 @@ name|isVisible
 argument_list|()
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_SIZEGRIP
 name|QVERIFY
 argument_list|(
 name|sizeGrip
@@ -1126,6 +1150,8 @@ name|isVisible
 argument_list|()
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|dialog
 operator|.
 name|showMaximized
@@ -1426,6 +1452,9 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_SIZEGRIP
 name|QSizeGrip
 modifier|*
 name|sizeGrip
@@ -1445,6 +1474,8 @@ argument_list|(
 name|sizeGrip
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|qApp
 operator|->
 name|syncX
@@ -1471,6 +1502,9 @@ name|isVisible
 argument_list|()
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_SIZEGRIP
 name|QVERIFY
 argument_list|(
 operator|!
@@ -1480,6 +1514,8 @@ name|isVisible
 argument_list|()
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|qApp
 operator|->
 name|syncX
@@ -1507,6 +1543,9 @@ name|isVisible
 argument_list|()
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_SIZEGRIP
 name|QVERIFY
 argument_list|(
 name|sizeGrip
@@ -1515,6 +1554,8 @@ name|isVisible
 argument_list|()
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|qApp
 operator|->
 name|syncX
@@ -1676,6 +1717,14 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|// No real support for Qt::Tool on WinCE
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
 begin_function
 DECL|function|showAsTool
 name|void
@@ -1693,17 +1742,6 @@ argument_list|)
 name|QSKIP
 argument_list|(
 literal|"Qt/X11: Skipped since activeWindow() is not respected by all window managers"
-argument_list|)
-expr_stmt|;
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|Q_OS_WINCE
-argument_list|)
-name|QSKIP
-argument_list|(
-literal|"No real support for Qt::Tool on WinCE"
 argument_list|)
 expr_stmt|;
 endif|#
@@ -1776,6 +1814,18 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// No real support for Qt::Tool on WinCE
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
 begin_comment
 comment|// Verify that pos() returns the same before and after show()
 end_comment
@@ -1790,19 +1840,6 @@ operator|::
 name|toolDialogPosition
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_WINCE
-argument_list|)
-name|QSKIP
-argument_list|(
-literal|"No real support for Qt::Tool on WinCE"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QDialog
 name|dialog
 argument_list|(
@@ -1857,6 +1894,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_class
 DECL|class|Dialog
 class|class
@@ -1980,6 +2021,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_SIZEGRIP
+end_ifndef
 begin_comment
 comment|// From Task 124269
 end_comment
@@ -1991,9 +2037,6 @@ operator|::
 name|showSizeGrip
 parameter_list|()
 block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_SIZEGRIP
 name|QDialog
 name|dialog
 argument_list|(
@@ -2350,10 +2393,12 @@ name|isVisible
 argument_list|()
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|setVisible
 name|void
