@@ -147,7 +147,25 @@ name|Enum
 operator|>
 name|class
 name|QFlags
-block|{     struct
+block|{
+name|Q_STATIC_ASSERT_X
+argument_list|(
+operator|(
+sizeof|sizeof
+argument_list|(
+name|Enum
+argument_list|)
+operator|<=
+sizeof|sizeof
+argument_list|(
+name|int
+argument_list|)
+operator|)
+argument_list|,
+literal|"QFlags uses an int as storage, so an enum with underlying "
+literal|"long long would overflow. Qt 5.1 will have support for 64bit enums."
+argument_list|)
+block|;     struct
 name|Private
 block|;
 typedef|typedef
