@@ -524,6 +524,15 @@ else|:
 name|STD_ERROR_HANDLE
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|processChannelMode
+operator|!=
+name|QProcess
+operator|::
+name|ForwardedChannels
+condition|)
+block|{
 name|QWindowsPipeReader
 modifier|*
 name|pipeReader
@@ -649,6 +658,7 @@ operator|->
 name|startAsyncRead
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 return|return
 literal|true
@@ -2413,10 +2423,22 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+comment|// Forwarded channels must not set the CREATE_NO_WINDOW flag because this
+comment|// will render the stdout/stderr handles we're passing useless.
 name|DWORD
 name|dwCreationFlags
 init|=
+operator|(
+name|processChannelMode
+operator|==
+name|QProcess
+operator|::
+name|ForwardedChannels
+condition|?
+literal|0
+else|:
 name|CREATE_NO_WINDOW
+operator|)
 decl_stmt|;
 name|dwCreationFlags
 operator||=
