@@ -49,7 +49,8 @@ name|QUnicodeTools
 block|{
 comment|// -----------------------------------------------------------------------------------------------------
 comment|//
-comment|// The text boundaries determination algorithm. See http://www.unicode.org/reports/tr29/tr29-19.html
+comment|// The text boundaries determination algorithm.
+comment|// See http://www.unicode.org/reports/tr29/tr29-21.html
 comment|//
 comment|// -----------------------------------------------------------------------------------------------------
 DECL|namespace|GB
@@ -77,7 +78,7 @@ literal|1
 index|]
 init|=
 block|{
-comment|//    Other   CR     LF  Control Extend Prepend S-Mark   L     V      T      LV    LVT
+comment|//    Other   CR     LF  Control Extend   RI  Prepend S-Mark   L      V      T      LV    LVT
 block|{
 literal|true
 block|,
@@ -88,6 +89,8 @@ block|,
 literal|true
 block|,
 literal|false
+block|,
+literal|true
 block|,
 literal|true
 block|,
@@ -129,10 +132,14 @@ block|,
 literal|true
 block|,
 literal|true
+block|,
+literal|true
 block|}
 block|,
 comment|// CR
 block|{
+literal|true
+block|,
 literal|true
 block|,
 literal|true
@@ -183,6 +190,8 @@ block|,
 literal|true
 block|,
 literal|true
+block|,
+literal|true
 block|}
 block|,
 comment|// Control
@@ -196,6 +205,8 @@ block|,
 literal|true
 block|,
 literal|false
+block|,
+literal|true
 block|,
 literal|true
 block|,
@@ -214,6 +225,20 @@ block|}
 block|,
 comment|// Extend
 block|{
+literal|true
+block|,
+literal|true
+block|,
+literal|true
+block|,
+literal|true
+block|,
+literal|false
+block|,
+literal|false
+block|,
+literal|true
+block|,
 literal|false
 block|,
 literal|true
@@ -221,6 +246,23 @@ block|,
 literal|true
 block|,
 literal|true
+block|,
+literal|true
+block|,
+literal|true
+block|}
+block|,
+comment|// RegionalIndicator
+block|{
+literal|false
+block|,
+literal|true
+block|,
+literal|true
+block|,
+literal|true
+block|,
+literal|false
 block|,
 literal|false
 block|,
@@ -253,6 +295,8 @@ literal|false
 block|,
 literal|true
 block|,
+literal|true
+block|,
 literal|false
 block|,
 literal|true
@@ -277,6 +321,8 @@ block|,
 literal|true
 block|,
 literal|false
+block|,
+literal|true
 block|,
 literal|true
 block|,
@@ -307,6 +353,8 @@ literal|false
 block|,
 literal|true
 block|,
+literal|true
+block|,
 literal|false
 block|,
 literal|true
@@ -331,6 +379,8 @@ block|,
 literal|true
 block|,
 literal|false
+block|,
+literal|true
 block|,
 literal|true
 block|,
@@ -361,6 +411,8 @@ literal|false
 block|,
 literal|true
 block|,
+literal|true
+block|,
 literal|false
 block|,
 literal|true
@@ -385,6 +437,8 @@ block|,
 literal|true
 block|,
 literal|false
+block|,
+literal|true
 block|,
 literal|true
 block|,
@@ -627,7 +681,7 @@ literal|1
 index|]
 init|=
 block|{
-comment|//    Other      CR       LF    Newline   Extend  Katakana ALetter MidNumLet MidLetter MidNum  Numeric  ExtendNumLet
+comment|//    Other      CR       LF    Newline   Extend    RI    Katakana ALetter MidNumLet MidLetter MidNum  Numeric  ExtendNumLet
 block|{
 name|Break
 block|,
@@ -638,6 +692,8 @@ block|,
 name|Break
 block|,
 name|NoBreak
+block|,
+name|Break
 block|,
 name|Break
 block|,
@@ -679,10 +735,14 @@ block|,
 name|Break
 block|,
 name|Break
+block|,
+name|Break
 block|}
 block|,
 comment|// CR
 block|{
+name|Break
+block|,
 name|Break
 block|,
 name|Break
@@ -733,6 +793,8 @@ block|,
 name|Break
 block|,
 name|Break
+block|,
+name|Break
 block|}
 block|,
 comment|// Newline
@@ -746,6 +808,8 @@ block|,
 name|Break
 block|,
 name|NoBreak
+block|,
+name|Break
 block|,
 name|Break
 block|,
@@ -786,6 +850,37 @@ name|Break
 block|,
 name|Break
 block|,
+name|Break
+block|,
+name|Break
+block|}
+block|,
+comment|// RegionalIndicator
+block|{
+name|Break
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|NoBreak
+block|,
+name|Break
+block|,
+name|NoBreak
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|Break
+block|,
 name|NoBreak
 block|}
 block|,
@@ -800,6 +895,8 @@ block|,
 name|Break
 block|,
 name|NoBreak
+block|,
+name|Break
 block|,
 name|Break
 block|,
@@ -841,6 +938,8 @@ block|,
 name|Break
 block|,
 name|Break
+block|,
+name|Break
 block|}
 block|,
 comment|// MidNumLet
@@ -854,6 +953,8 @@ block|,
 name|Break
 block|,
 name|NoBreak
+block|,
+name|Break
 block|,
 name|Break
 block|,
@@ -895,6 +996,8 @@ block|,
 name|Break
 block|,
 name|Break
+block|,
+name|Break
 block|}
 block|,
 comment|// MidNum
@@ -908,6 +1011,8 @@ block|,
 name|Break
 block|,
 name|NoBreak
+block|,
+name|Break
 block|,
 name|Break
 block|,
@@ -935,6 +1040,8 @@ block|,
 name|Break
 block|,
 name|NoBreak
+block|,
+name|Break
 block|,
 name|NoBreak
 block|,
@@ -2216,7 +2323,8 @@ comment|// SB2
 block|}
 comment|// -----------------------------------------------------------------------------------------------------
 comment|//
-comment|// The line breaking algorithm. See http://www.unicode.org/reports/tr14/tr14-28.html
+comment|// The line breaking algorithm.
+comment|// See http://www.unicode.org/reports/tr14/tr14-30.html
 comment|//
 comment|// -----------------------------------------------------------------------------------------------------
 DECL|namespace|LB
@@ -2560,7 +2668,7 @@ literal|1
 index|]
 init|=
 block|{
-comment|/*         OP  CL  CP  QU  GL  NS  EX  SY  IS  PR  PO  NU  AL  HL  ID  IN  HY  BA  BB  B2  ZW  CM  WJ  H2  H3  JL  JV  JT  CB */
+comment|/*         OP  CL  CP  QU  GL  NS  EX  SY  IS  PR  PO  NU  AL  HL  ID  IN  HY  BA  BB  B2  ZW  CM  WJ  H2  H3  JL  JV  JT  RI  CB */
 comment|/* OP */
 block|{
 name|PB
@@ -2606,6 +2714,8 @@ block|,
 name|PB
 block|,
 name|CP
+block|,
+name|PB
 block|,
 name|PB
 block|,
@@ -2681,6 +2791,8 @@ block|,
 name|DB
 block|,
 name|DB
+block|,
+name|DB
 block|}
 block|,
 comment|/* CP */
@@ -2730,6 +2842,8 @@ block|,
 name|CI
 block|,
 name|PB
+block|,
+name|DB
 block|,
 name|DB
 block|,
@@ -2803,6 +2917,8 @@ block|,
 name|IB
 block|,
 name|IB
+block|,
+name|IB
 block|}
 block|,
 comment|/* GL */
@@ -2852,6 +2968,8 @@ block|,
 name|CI
 block|,
 name|PB
+block|,
+name|IB
 block|,
 name|IB
 block|,
@@ -2925,6 +3043,8 @@ block|,
 name|DB
 block|,
 name|DB
+block|,
+name|DB
 block|}
 block|,
 comment|/* EX */
@@ -2974,6 +3094,8 @@ block|,
 name|CI
 block|,
 name|PB
+block|,
+name|DB
 block|,
 name|DB
 block|,
@@ -3047,6 +3169,8 @@ block|,
 name|DB
 block|,
 name|DB
+block|,
+name|DB
 block|}
 block|,
 comment|/* IS */
@@ -3096,6 +3220,8 @@ block|,
 name|CI
 block|,
 name|PB
+block|,
+name|DB
 block|,
 name|DB
 block|,
@@ -3169,6 +3295,8 @@ block|,
 name|IB
 block|,
 name|DB
+block|,
+name|DB
 block|}
 block|,
 comment|/* PO */
@@ -3218,6 +3346,8 @@ block|,
 name|CI
 block|,
 name|PB
+block|,
+name|DB
 block|,
 name|DB
 block|,
@@ -3291,6 +3421,8 @@ block|,
 name|DB
 block|,
 name|DB
+block|,
+name|DB
 block|}
 block|,
 comment|/* AL */
@@ -3340,6 +3472,8 @@ block|,
 name|CI
 block|,
 name|PB
+block|,
+name|DB
 block|,
 name|DB
 block|,
@@ -3413,6 +3547,8 @@ block|,
 name|DB
 block|,
 name|DB
+block|,
+name|DB
 block|}
 block|,
 comment|/* ID */
@@ -3462,6 +3598,8 @@ block|,
 name|CI
 block|,
 name|PB
+block|,
+name|DB
 block|,
 name|DB
 block|,
@@ -3535,6 +3673,8 @@ block|,
 name|DB
 block|,
 name|DB
+block|,
+name|DB
 block|}
 block|,
 comment|/* HY */
@@ -3584,6 +3724,8 @@ block|,
 name|CI
 block|,
 name|PB
+block|,
+name|DB
 block|,
 name|DB
 block|,
@@ -3657,6 +3799,8 @@ block|,
 name|DB
 block|,
 name|DB
+block|,
+name|DB
 block|}
 block|,
 comment|/* BB */
@@ -3706,6 +3850,8 @@ block|,
 name|CI
 block|,
 name|PB
+block|,
+name|IB
 block|,
 name|IB
 block|,
@@ -3779,6 +3925,8 @@ block|,
 name|DB
 block|,
 name|DB
+block|,
+name|DB
 block|}
 block|,
 comment|/* ZW */
@@ -3824,6 +3972,8 @@ block|,
 name|DB
 block|,
 name|PB
+block|,
+name|DB
 block|,
 name|DB
 block|,
@@ -3901,6 +4051,8 @@ block|,
 name|DB
 block|,
 name|DB
+block|,
+name|DB
 block|}
 block|,
 comment|/* WJ */
@@ -3950,6 +4102,8 @@ block|,
 name|CI
 block|,
 name|PB
+block|,
+name|IB
 block|,
 name|IB
 block|,
@@ -4023,6 +4177,8 @@ block|,
 name|IB
 block|,
 name|DB
+block|,
+name|DB
 block|}
 block|,
 comment|/* H3 */
@@ -4084,6 +4240,8 @@ block|,
 name|IB
 block|,
 name|DB
+block|,
+name|DB
 block|}
 block|,
 comment|/* JL */
@@ -4141,6 +4299,8 @@ block|,
 name|IB
 block|,
 name|IB
+block|,
+name|DB
 block|,
 name|DB
 block|,
@@ -4206,6 +4366,8 @@ block|,
 name|IB
 block|,
 name|DB
+block|,
+name|DB
 block|}
 block|,
 comment|/* JT */
@@ -4267,6 +4429,71 @@ block|,
 name|IB
 block|,
 name|DB
+block|,
+name|DB
+block|}
+block|,
+comment|/* RI */
+block|{
+name|DB
+block|,
+name|PB
+block|,
+name|PB
+block|,
+name|IB
+block|,
+name|IB
+block|,
+name|IB
+block|,
+name|PB
+block|,
+name|PB
+block|,
+name|PB
+block|,
+name|DB
+block|,
+name|DB
+block|,
+name|DB
+block|,
+name|DB
+block|,
+name|DB
+block|,
+name|DB
+block|,
+name|DB
+block|,
+name|IB
+block|,
+name|IB
+block|,
+name|DB
+block|,
+name|DB
+block|,
+name|PB
+block|,
+name|CI
+block|,
+name|PB
+block|,
+name|DB
+block|,
+name|DB
+block|,
+name|DB
+block|,
+name|DB
+block|,
+name|DB
+block|,
+name|IB
+block|,
+name|DB
 block|}
 block|,
 comment|/* CB */
@@ -4316,6 +4543,8 @@ block|,
 name|CI
 block|,
 name|PB
+block|,
+name|DB
 block|,
 name|DB
 block|,

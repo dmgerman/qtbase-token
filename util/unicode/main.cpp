@@ -61,14 +61,14 @@ DECL|macro|DATA_VERSION_S
 define|#
 directive|define
 name|DATA_VERSION_S
-value|"6.1"
+value|"6.2"
 end_define
 begin_define
 DECL|macro|DATA_VERSION_STR
 define|#
 directive|define
 name|DATA_VERSION_STR
-value|"QChar::Unicode_6_1"
+value|"QChar::Unicode_6_2"
 end_define
 begin_decl_stmt
 DECL|variable|age_map
@@ -212,6 +212,14 @@ operator|::
 name|Unicode_6_1
 block|,
 literal|"6.1"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Unicode_6_2
+block|,
+literal|"6.2"
 block|}
 block|,
 block|{
@@ -1175,6 +1183,7 @@ literal|"    GraphemeBreak_CR,\n"
 literal|"    GraphemeBreak_LF,\n"
 literal|"    GraphemeBreak_Control,\n"
 literal|"    GraphemeBreak_Extend,\n"
+literal|"    GraphemeBreak_RegionalIndicator,\n"
 literal|"    GraphemeBreak_Prepend,\n"
 literal|"    GraphemeBreak_SpacingMark,\n"
 literal|"    GraphemeBreak_L,\n"
@@ -1204,6 +1213,9 @@ name|GraphemeBreak_Control
 block|,
 DECL|enumerator|GraphemeBreak_Extend
 name|GraphemeBreak_Extend
+block|,
+DECL|enumerator|GraphemeBreak_RegionalIndicator
+name|GraphemeBreak_RegionalIndicator
 block|,
 DECL|enumerator|GraphemeBreak_Prepend
 name|GraphemeBreak_Prepend
@@ -1294,6 +1306,12 @@ block|{
 name|GraphemeBreak_Extend
 block|,
 literal|"Extend"
+block|}
+block|,
+block|{
+name|GraphemeBreak_RegionalIndicator
+block|,
+literal|"Regional_Indicator"
 block|}
 block|,
 block|{
@@ -1391,6 +1409,7 @@ literal|"    WordBreak_CR,\n"
 literal|"    WordBreak_LF,\n"
 literal|"    WordBreak_Newline,\n"
 literal|"    WordBreak_Extend,\n"
+literal|"    WordBreak_RegionalIndicator,\n"
 literal|"    WordBreak_Katakana,\n"
 literal|"    WordBreak_ALetter,\n"
 literal|"    WordBreak_MidNumLet,\n"
@@ -1420,6 +1439,9 @@ name|WordBreak_Newline
 block|,
 DECL|enumerator|WordBreak_Extend
 name|WordBreak_Extend
+block|,
+DECL|enumerator|WordBreak_RegionalIndicator
+name|WordBreak_RegionalIndicator
 block|,
 DECL|enumerator|WordBreak_Katakana
 name|WordBreak_Katakana
@@ -1516,6 +1538,12 @@ block|{
 name|WordBreak_Extend
 block|,
 literal|"Format"
+block|}
+block|,
+block|{
+name|WordBreak_RegionalIndicator
+block|,
+literal|"Regional_Indicator"
 block|}
 block|,
 block|{
@@ -1849,7 +1877,7 @@ name|char
 modifier|*
 name|line_break_class_string
 init|=
-literal|"// see http://www.unicode.org/reports/tr14/tr14-28.html\n"
+literal|"// see http://www.unicode.org/reports/tr14/tr14-30.html\n"
 literal|"// we don't use the XX and AI classes and map them to AL instead.\n"
 literal|"enum LineBreakClass {\n"
 literal|"    LineBreak_OP, LineBreak_CL, LineBreak_CP, LineBreak_QU, LineBreak_GL,\n"
@@ -1857,8 +1885,9 @@ literal|"    LineBreak_NS, LineBreak_EX, LineBreak_SY, LineBreak_IS, LineBreak_P
 literal|"    LineBreak_PO, LineBreak_NU, LineBreak_AL, LineBreak_HL, LineBreak_ID,\n"
 literal|"    LineBreak_IN, LineBreak_HY, LineBreak_BA, LineBreak_BB, LineBreak_B2,\n"
 literal|"    LineBreak_ZW, LineBreak_CM, LineBreak_WJ, LineBreak_H2, LineBreak_H3,\n"
-literal|"    LineBreak_JL, LineBreak_JV, LineBreak_JT, LineBreak_CB, LineBreak_SA,\n"
-literal|"    LineBreak_SG, LineBreak_SP, LineBreak_CR, LineBreak_LF, LineBreak_BK\n"
+literal|"    LineBreak_JL, LineBreak_JV, LineBreak_JT, LineBreak_RI, LineBreak_CB,\n"
+literal|"    LineBreak_SA, LineBreak_SG, LineBreak_SP, LineBreak_CR, LineBreak_LF,\n"
+literal|"    LineBreak_BK\n"
 literal|"};\n\n"
 decl_stmt|;
 end_decl_stmt
@@ -1945,23 +1974,25 @@ block|,
 DECL|enumerator|LineBreak_JL
 DECL|enumerator|LineBreak_JV
 DECL|enumerator|LineBreak_JT
+DECL|enumerator|LineBreak_RI
 DECL|enumerator|LineBreak_CB
-DECL|enumerator|LineBreak_SA
 name|LineBreak_JL
 block|,
 name|LineBreak_JV
 block|,
 name|LineBreak_JT
 block|,
+name|LineBreak_RI
+block|,
 name|LineBreak_CB
 block|,
-name|LineBreak_SA
-block|,
+DECL|enumerator|LineBreak_SA
 DECL|enumerator|LineBreak_SG
 DECL|enumerator|LineBreak_SP
 DECL|enumerator|LineBreak_CR
 DECL|enumerator|LineBreak_LF
-DECL|enumerator|LineBreak_BK
+name|LineBreak_SA
+block|,
 name|LineBreak_SG
 block|,
 name|LineBreak_SP
@@ -1970,6 +2001,7 @@ name|LineBreak_CR
 block|,
 name|LineBreak_LF
 block|,
+DECL|enumerator|LineBreak_BK
 name|LineBreak_BK
 block|,
 DECL|enumerator|LineBreak_Unassigned
@@ -2239,6 +2271,12 @@ literal|"JT"
 block|}
 block|,
 block|{
+name|LineBreak_RI
+block|,
+literal|"RI"
+block|}
+block|,
+block|{
 name|LineBreak_SA
 block|,
 literal|"SA"
@@ -2382,6 +2420,7 @@ name|PropertyFlags
 modifier|&
 name|o
 parameter_list|)
+specifier|const
 block|{
 return|return
 operator|(

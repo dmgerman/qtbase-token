@@ -580,6 +580,8 @@ block|,
 name|Unicode_6_0
 block|,
 name|Unicode_6_1
+block|,
+name|Unicode_6_2
 block|}
 enum|;
 comment|// ****** WHEN ADDING FUNCTIONS, CONSIDER ADDING TO QCharRef TOO
