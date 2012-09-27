@@ -7378,7 +7378,7 @@ condition|)
 block|{
 name|parents
 operator|<<
-name|QModelIndex
+name|QPersistentModelIndex
 argument_list|()
 expr_stmt|;
 continue|continue;
@@ -7537,7 +7537,7 @@ condition|)
 block|{
 name|parents
 operator|<<
-name|QModelIndex
+name|QPersistentModelIndex
 argument_list|()
 expr_stmt|;
 continue|continue;
