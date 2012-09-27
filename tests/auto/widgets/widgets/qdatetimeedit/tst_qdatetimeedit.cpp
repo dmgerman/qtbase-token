@@ -1266,7 +1266,7 @@ operator|::
 name|~
 name|tst_QDateTimeEdit
 parameter_list|()
-block|{  }
+block|{ }
 end_destructor
 begin_function
 DECL|function|initTestCase
@@ -4110,7 +4110,6 @@ if|if
 condition|(
 name|valid
 condition|)
-block|{
 name|QCOMPARE
 argument_list|(
 name|testWidget
@@ -4121,7 +4120,6 @@ argument_list|,
 name|minimumDate
 argument_list|)
 expr_stmt|;
-block|}
 name|testWidget
 operator|->
 name|clearMinimumDate
@@ -4495,7 +4493,6 @@ if|if
 condition|(
 name|valid
 condition|)
-block|{
 name|QCOMPARE
 argument_list|(
 name|testWidget
@@ -4506,7 +4503,6 @@ argument_list|,
 name|minimumDateTime
 argument_list|)
 expr_stmt|;
-block|}
 name|testWidget
 operator|->
 name|clearMinimumDateTime
@@ -4851,7 +4847,6 @@ if|if
 condition|(
 name|valid
 condition|)
-block|{
 name|QCOMPARE
 argument_list|(
 name|testWidget
@@ -4862,7 +4857,6 @@ argument_list|,
 name|maximumDateTime
 argument_list|)
 expr_stmt|;
-block|}
 name|testWidget
 operator|->
 name|clearMaximumDateTime
@@ -5095,7 +5089,6 @@ if|if
 condition|(
 name|valid
 condition|)
-block|{
 name|QCOMPARE
 argument_list|(
 name|testWidget
@@ -5106,7 +5099,6 @@ argument_list|,
 name|maximumDate
 argument_list|)
 expr_stmt|;
-block|}
 name|testWidget
 operator|->
 name|clearMaximumDate
@@ -6966,7 +6958,6 @@ condition|;
 name|i
 operator|++
 control|)
-block|{
 name|QTest
 operator|::
 name|keyClick
@@ -6982,7 +6973,6 @@ operator|::
 name|ShiftModifier
 argument_list|)
 expr_stmt|;
-block|}
 name|QTest
 operator|::
 name|keyClick
