@@ -449,6 +449,14 @@ name|window
 operator|->
 name|parent
 argument_list|()
+operator|&&
+name|window
+operator|->
+name|parent
+argument_list|()
+operator|->
+name|handle
+argument_list|()
 condition|)
 name|setParent
 argument_list|(
