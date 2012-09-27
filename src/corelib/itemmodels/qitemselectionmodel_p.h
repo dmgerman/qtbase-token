@@ -154,11 +154,19 @@ argument_list|)
 block|;
 name|void
 name|_q_layoutAboutToBeChanged
-argument_list|()
+argument_list|(
+argument|const QList<QPersistentModelIndex>&parents = QList<QPersistentModelIndex>()
+argument_list|,
+argument|QAbstractItemModel::LayoutChangeHint hint = QAbstractItemModel::NoLayoutChangeHint
+argument_list|)
 block|;
 name|void
 name|_q_layoutChanged
-argument_list|()
+argument_list|(
+argument|const QList<QPersistentModelIndex>&parents = QList<QPersistentModelIndex>()
+argument_list|,
+argument|QAbstractItemModel::LayoutChangeHint hint = QAbstractItemModel::NoLayoutChangeHint
+argument_list|)
 block|;
 specifier|inline
 name|void
@@ -262,6 +270,28 @@ operator|<
 name|QPersistentModelIndex
 operator|>
 name|savedPersistentCurrentIndexes
+block|;
+name|QVector
+operator|<
+name|QPair
+operator|<
+name|QPersistentModelIndex
+block|,
+name|uint
+operator|>
+expr|>
+name|savedPersistentRowLengths
+block|;
+name|QVector
+operator|<
+name|QPair
+operator|<
+name|QPersistentModelIndex
+block|,
+name|uint
+operator|>
+expr|>
+name|savedPersistentCurrentRowLengths
 block|;
 comment|// optimization when all indexes are selected
 name|bool
