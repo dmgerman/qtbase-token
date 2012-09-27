@@ -1069,10 +1069,6 @@ argument|bool
 argument_list|)
 specifier|const
 block|;
-name|void
-name|resetModel
-argument_list|()
-block|;
 name|QModelIndex
 name|index
 argument_list|(
