@@ -292,12 +292,9 @@ name|priority
 operator|>=
 name|priority
 operator|||
-name|begin
-argument_list|()
-operator|+
 name|insertionOffset
 operator|>=
-name|end
+name|size
 argument_list|()
 condition|)
 block|{
