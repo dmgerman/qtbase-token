@@ -1355,7 +1355,7 @@ expr_stmt|;
 comment|// shortcut events
 name|QWindowSystemInterface
 operator|::
-name|tryHandleSynchronousShortcutEvent
+name|tryHandleShortcutEvent
 argument_list|(
 name|window
 argument_list|,
@@ -1382,7 +1382,7 @@ argument_list|)
 expr_stmt|;
 name|QWindowSystemInterface
 operator|::
-name|tryHandleSynchronousShortcutEvent
+name|tryHandleShortcutEvent
 argument_list|(
 name|window
 argument_list|,
@@ -1409,7 +1409,7 @@ argument_list|)
 expr_stmt|;
 name|QWindowSystemInterface
 operator|::
-name|tryHandleSynchronousShortcutEvent
+name|tryHandleShortcutEvent
 argument_list|(
 name|window
 argument_list|,

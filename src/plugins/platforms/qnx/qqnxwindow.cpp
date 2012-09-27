@@ -608,13 +608,18 @@ block|}
 comment|// Send a geometry change event to Qt (triggers resizeEvent() in QWindow/QWidget)
 name|QWindowSystemInterface
 operator|::
-name|handleSynchronousGeometryChange
+name|handleGeometryChange
 argument_list|(
 name|window
 argument_list|()
 argument_list|,
 name|rect
 argument_list|)
+expr_stmt|;
+name|QWindowSystemInterface
+operator|::
+name|flushWindowSystemEvents
+argument_list|()
 expr_stmt|;
 comment|// Now move all children.
 if|if

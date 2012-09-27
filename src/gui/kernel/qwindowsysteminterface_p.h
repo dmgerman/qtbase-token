@@ -1710,7 +1710,7 @@ parameter_list|()
 function_decl|;
 specifier|static
 name|void
-name|queueWindowSystemEvent
+name|handleWindowSystemEvent
 parameter_list|(
 name|WindowSystemEvent
 modifier|*
@@ -1720,6 +1720,10 @@ function_decl|;
 specifier|static
 name|QElapsedTimer
 name|eventTime
+decl_stmt|;
+specifier|static
+name|bool
+name|synchronousWindowsSystemEvents
 decl_stmt|;
 specifier|static
 name|QList

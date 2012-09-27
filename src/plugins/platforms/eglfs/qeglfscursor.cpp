@@ -1155,7 +1155,7 @@ parameter_list|)
 block|{
 name|QWindowSystemInterface
 operator|::
-name|handleSynchronousExposeEvent
+name|handleExposeEvent
 argument_list|(
 name|m_screen
 operator|->
@@ -1168,6 +1168,11 @@ argument_list|)
 argument_list|,
 name|rgn
 argument_list|)
+expr_stmt|;
+name|QWindowSystemInterface
+operator|::
+name|flushWindowSystemEvents
+argument_list|()
 expr_stmt|;
 block|}
 end_function
