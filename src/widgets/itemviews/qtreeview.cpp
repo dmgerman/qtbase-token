@@ -5418,7 +5418,7 @@ operator|::
 name|_q_modelDestroyed
 parameter_list|()
 block|{
-comment|//we need to clear that list because it contais QModelIndex to
+comment|//we need to clear the viewItems because it contains QModelIndexes to
 comment|//the model currently being destroyed
 name|viewItems
 operator|.
