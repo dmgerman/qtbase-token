@@ -74,6 +74,10 @@ name|void
 name|last
 parameter_list|()
 function_decl|;
+name|void
+name|outOfMemory
+parameter_list|()
+function_decl|;
 block|}
 class|;
 end_class
@@ -1098,12 +1102,21 @@ literal|5
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+end_function
+begin_function
+DECL|function|outOfMemory
+name|void
+name|tst_QVarLengthArray
+operator|::
+name|outOfMemory
+parameter_list|()
+block|{
 name|QSKIP
 argument_list|(
-literal|"This test causes the machine to crash when allocating too much memory."
+literal|"QTBUG-27361"
 argument_list|)
 expr_stmt|;
-block|{
 name|QVarLengthArray
 argument_list|<
 name|Foo
@@ -1429,7 +1442,6 @@ operator|+
 literal|6
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_function
