@@ -3446,10 +3446,16 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// We limit the requested version by the version of the static context as
+comment|// wglCreateContextAttribsARB fails and returns NULL if the requested context
+comment|// version is not supported. This means that we will get the closest supported
+comment|// context format that that which was requested and is supported by the driver
 specifier|const
 name|int
 name|requestedVersion
 init|=
+name|qMin
+argument_list|(
 operator|(
 name|format
 operator|.
@@ -3463,6 +3469,29 @@ name|format
 operator|.
 name|minorVersion
 argument_list|()
+argument_list|,
+name|staticContext
+operator|.
+name|defaultFormat
+operator|.
+name|version
+argument_list|)
+decl_stmt|;
+specifier|const
+name|int
+name|majorVersion
+init|=
+name|requestedVersion
+operator|>>
+literal|8
+decl_stmt|;
+specifier|const
+name|int
+name|minorVersion
+init|=
+name|requestedVersion
+operator|&
+literal|0xFF
 decl_stmt|;
 if|if
 condition|(
@@ -3485,10 +3514,7 @@ name|attribIndex
 operator|++
 index|]
 operator|=
-name|format
-operator|.
 name|majorVersion
-argument_list|()
 expr_stmt|;
 name|attributes
 index|[
@@ -3504,10 +3530,7 @@ name|attribIndex
 operator|++
 index|]
 operator|=
-name|format
-operator|.
 name|minorVersion
-argument_list|()
 expr_stmt|;
 block|}
 if|if
@@ -3651,15 +3674,9 @@ literal|"%s: Creating context version %d.%d with %d attributes"
 argument_list|,
 name|__FUNCTION__
 argument_list|,
-name|format
-operator|.
 name|majorVersion
-argument_list|()
 argument_list|,
-name|format
-operator|.
 name|minorVersion
-argument_list|()
 argument_list|,
 name|attribIndex
 operator|/

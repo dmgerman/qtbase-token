@@ -146,7 +146,7 @@ operator|::
 name|parseOpenGLVersion
 parameter_list|(
 specifier|const
-name|QString
+name|QByteArray
 modifier|&
 name|versionString
 parameter_list|,
@@ -169,17 +169,17 @@ name|minorOk
 init|=
 literal|false
 decl_stmt|;
-name|QStringList
+name|QList
+argument_list|<
+name|QByteArray
+argument_list|>
 name|parts
 init|=
 name|versionString
 operator|.
 name|split
 argument_list|(
-name|QLatin1Char
-argument_list|(
 literal|' '
-argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
@@ -188,7 +188,7 @@ name|versionString
 operator|.
 name|startsWith
 argument_list|(
-name|QLatin1String
+name|QByteArrayLiteral
 argument_list|(
 literal|"OpenGL ES"
 argument_list|)
@@ -205,7 +205,10 @@ operator|>=
 literal|3
 condition|)
 block|{
-name|QStringList
+name|QList
+argument_list|<
+name|QByteArray
+argument_list|>
 name|versionParts
 init|=
 name|parts
@@ -217,10 +220,7 @@ argument_list|)
 operator|.
 name|split
 argument_list|(
-name|QLatin1Char
-argument_list|(
 literal|'.'
-argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
@@ -286,7 +286,10 @@ block|}
 else|else
 block|{
 comment|// Not OpenGL ES, but regular OpenGL, the version numbers are first in the string
-name|QStringList
+name|QList
+argument_list|<
+name|QByteArray
+argument_list|>
 name|versionParts
 init|=
 name|parts
@@ -298,10 +301,7 @@ argument_list|)
 operator|.
 name|split
 argument_list|(
-name|QLatin1Char
-argument_list|(
 literal|'.'
-argument_list|)
 argument_list|)
 decl_stmt|;
 if|if

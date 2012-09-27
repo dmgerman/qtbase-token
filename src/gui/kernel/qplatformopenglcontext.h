@@ -179,7 +179,7 @@ name|bool
 name|parseOpenGLVersion
 parameter_list|(
 specifier|const
-name|QString
+name|QByteArray
 modifier|&
 name|versionString
 parameter_list|,

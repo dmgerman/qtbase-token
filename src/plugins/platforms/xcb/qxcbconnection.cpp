@@ -938,6 +938,7 @@ condition|;
 operator|--
 name|i
 control|)
+block|{
 if|if
 condition|(
 operator|!
@@ -952,6 +953,25 @@ index|]
 argument_list|)
 condition|)
 block|{
+operator|(
+operator|(
+name|QXcbIntegration
+operator|*
+operator|)
+name|QGuiApplicationPrivate
+operator|::
+name|platformIntegration
+argument_list|()
+operator|)
+operator|->
+name|removeDefaultOpenGLContextInfo
+argument_list|(
+name|m_screens
+index|[
+name|i
+index|]
+argument_list|)
+expr_stmt|;
 operator|delete
 name|m_screens
 index|[
@@ -965,6 +985,7 @@ argument_list|(
 name|i
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// Add any new screens, and make sure the primary screen comes first
 comment|// since it is used by QGuiApplication::primaryScreen()

@@ -648,7 +648,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Attempts to create the OpenGL context with the current configuration.      The current configuration includes the format, the share context, and the     screen.      Returns true if the native context was successfully created and is ready to     be used with makeCurrent(), swapBuffers(), etc.      \sa makeCurrent(), destroy() */
+comment|/*!     Attempts to create the OpenGL context with the current configuration.      The current configuration includes the format, the share context, and the     screen.      If the OpenGL implementation on your system does not support the requested     version of OpenGL context, then QOpenGLContext will try to create the closest     matching version. The actual created context properties can be queried     using the QSurfaceFormat returned by the format() function. For example, if     you request a context that supports OpenGL 4.3 Core profile but the driver     and/or hardware only supports version 3.2 Core profile contexts then you will     get a 3.2 Core profile context.      Returns true if the native context was successfully created and is ready to     be used with makeCurrent(), swapBuffers(), etc.      \sa makeCurrent(), destroy(), format() */
 end_comment
 begin_function
 DECL|function|create
