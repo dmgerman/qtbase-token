@@ -19804,12 +19804,6 @@ literal|"[*]"
 argument_list|)
 decl_stmt|;
 name|int
-name|placeHolderLength
-init|=
-literal|3
-decl_stmt|;
-comment|// QLatin1String doesn't have length()
-name|int
 name|index
 init|=
 name|cap
@@ -19830,7 +19824,10 @@ condition|)
 block|{
 name|index
 operator|+=
-name|placeHolderLength
+name|placeHolder
+operator|.
+name|size
+argument_list|()
 expr_stmt|;
 name|int
 name|count
@@ -19856,7 +19853,10 @@ name|count
 expr_stmt|;
 name|index
 operator|+=
-name|placeHolderLength
+name|placeHolder
+operator|.
+name|size
+argument_list|()
 expr_stmt|;
 block|}
 if|if
