@@ -162,10 +162,15 @@ name|void
 name|setTextFormat
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|Q_OS_MAC
 name|void
 name|setBuddy
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|setNum
 parameter_list|()
@@ -589,6 +594,14 @@ comment|// this should delete tst_labl and test_edit as well.
 block|}
 block|}
 end_function
+begin_comment
+comment|// Set buddy doesn't make much sense on Mac OS X
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_MAC
+end_ifndef
 begin_function
 DECL|function|setBuddy
 name|void
@@ -597,16 +610,6 @@ operator|::
 name|setBuddy
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-name|QSKIP
-argument_list|(
-literal|"Set buddy doesn't make much sense on Mac OS X"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|testWidget
 operator|->
 name|hide
@@ -731,6 +734,10 @@ name|test_box
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|setText_data
 name|void
