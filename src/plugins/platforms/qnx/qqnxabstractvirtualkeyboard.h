@@ -125,6 +125,14 @@ argument_list|(
 argument|KeyboardMode mode
 argument_list|)
 block|;
+name|void
+name|setInputHintsFromObject
+argument_list|(
+name|QObject
+operator|*
+name|focusObject
+argument_list|)
+block|;
 name|KeyboardMode
 name|keyboardMode
 argument_list|()
