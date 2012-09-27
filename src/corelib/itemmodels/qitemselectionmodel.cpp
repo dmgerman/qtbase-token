@@ -978,7 +978,7 @@ end_function
 begin_function
 DECL|function|qSelectionPersistentindexes
 specifier|static
-name|QList
+name|QVector
 argument_list|<
 name|QPersistentModelIndex
 argument_list|>
@@ -990,7 +990,7 @@ modifier|&
 name|sel
 parameter_list|)
 block|{
-name|QList
+name|QVector
 argument_list|<
 name|QPersistentModelIndex
 argument_list|>
@@ -3803,7 +3803,7 @@ name|QItemSelection
 name|mergeIndexes
 parameter_list|(
 specifier|const
-name|QList
+name|QVector
 argument_list|<
 name|QPersistentModelIndex
 argument_list|>

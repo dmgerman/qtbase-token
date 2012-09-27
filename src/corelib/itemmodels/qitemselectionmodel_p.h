@@ -251,13 +251,13 @@ operator|::
 name|SelectionFlags
 name|currentCommand
 block|;
-name|QList
+name|QVector
 operator|<
 name|QPersistentModelIndex
 operator|>
 name|savedPersistentIndexes
 block|;
-name|QList
+name|QVector
 operator|<
 name|QPersistentModelIndex
 operator|>
