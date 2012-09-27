@@ -17738,7 +17738,7 @@ name|row
 argument_list|()
 decl_stmt|;
 specifier|const
-name|qint64
+name|quintptr
 name|internalId
 init|=
 name|index
