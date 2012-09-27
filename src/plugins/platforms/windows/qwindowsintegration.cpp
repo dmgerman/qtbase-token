@@ -1875,6 +1875,11 @@ name|QPlatformIntegration
 operator|::
 name|StartDragVelocity
 case|:
+case|case
+name|QPlatformIntegration
+operator|::
+name|SynthesizeMouseFromTouchEvents
+case|:
 break|break;
 comment|// Not implemented
 case|case

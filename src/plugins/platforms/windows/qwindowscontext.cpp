@@ -2682,8 +2682,6 @@ name|w
 argument_list|)
 control|)
 block|{
-if|if
-condition|(
 name|window
 operator|=
 name|d
@@ -2694,10 +2692,12 @@ name|value
 argument_list|(
 name|w
 argument_list|)
-condition|)
-return|return
+expr_stmt|;
+if|if
+condition|(
 name|window
-return|;
+condition|)
+break|break;
 block|}
 block|}
 return|return
