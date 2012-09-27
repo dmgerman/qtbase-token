@@ -497,6 +497,17 @@ operator|<<
 name|window
 argument_list|()
 expr_stmt|;
+comment|// Qt should have already deleted the children before deleting the parent.
+name|Q_ASSERT
+argument_list|(
+name|m_childWindows
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
 comment|// Remove from plugin's window mapper
 name|QQnxIntegration
 operator|::
@@ -513,22 +524,6 @@ name|m_screen
 operator|->
 name|updateHierarchy
 argument_list|()
-expr_stmt|;
-comment|// We shouldn't allow this case unless QT allows it. Does it? Or should we send the
-comment|// handleCloseEvent on all children when this window is deleted?
-if|if
-condition|(
-name|m_childWindows
-operator|.
-name|size
-argument_list|()
-operator|>
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQnxWindow: window destroyed before children!"
-argument_list|)
 expr_stmt|;
 comment|// Cleanup QNX window and its buffers
 name|screen_destroy_window
