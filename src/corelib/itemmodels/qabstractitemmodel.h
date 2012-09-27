@@ -873,6 +873,10 @@ name|public
 name|QObject
 block|{
 name|Q_OBJECT
+name|Q_ENUMS
+argument_list|(
+argument|LayoutChangeHints
+argument_list|)
 name|friend
 name|class
 name|QPersistentModelIndexData
@@ -1385,6 +1389,16 @@ name|parent
 block|;
 endif|#
 directive|endif
+block|enum
+name|LayoutChangeHint
+block|{
+name|NoLayoutChangeHint
+block|,
+name|VerticalSortHint
+block|,
+name|HorizontalSortHint
+block|}
+block|;
 name|Q_SIGNALS
 operator|:
 name|void
@@ -1429,39 +1443,17 @@ block|;
 name|void
 name|layoutChanged
 argument_list|(
-specifier|const
-name|QList
-operator|<
-name|QPersistentModelIndex
-operator|>
-operator|&
-name|parents
-operator|=
-name|QList
-operator|<
-name|QPersistentModelIndex
-operator|>
-operator|(
-operator|)
+argument|const QList<QPersistentModelIndex>&parents = QList<QPersistentModelIndex>()
+argument_list|,
+argument|QAbstractItemModel::LayoutChangeHint hint = QAbstractItemModel::NoLayoutChangeHint
 argument_list|)
 block|;
 name|void
 name|layoutAboutToBeChanged
 argument_list|(
-specifier|const
-name|QList
-operator|<
-name|QPersistentModelIndex
-operator|>
-operator|&
-name|parents
-operator|=
-name|QList
-operator|<
-name|QPersistentModelIndex
-operator|>
-operator|(
-operator|)
+argument|const QList<QPersistentModelIndex>&parents = QList<QPersistentModelIndex>()
+argument_list|,
+argument|QAbstractItemModel::LayoutChangeHint hint = QAbstractItemModel::NoLayoutChangeHint
 argument_list|)
 block|;
 name|void
