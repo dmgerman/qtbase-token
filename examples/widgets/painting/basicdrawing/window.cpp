@@ -314,9 +314,15 @@ argument_list|(
 literal|"Solid"
 argument_list|)
 argument_list|,
+cast|static_cast
+argument_list|<
+name|int
+argument_list|>
+argument_list|(
 name|Qt
 operator|::
 name|SolidLine
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|penStyleComboBox
@@ -328,9 +334,15 @@ argument_list|(
 literal|"Dash"
 argument_list|)
 argument_list|,
+cast|static_cast
+argument_list|<
+name|int
+argument_list|>
+argument_list|(
 name|Qt
 operator|::
 name|DashLine
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|penStyleComboBox
@@ -342,9 +354,15 @@ argument_list|(
 literal|"Dot"
 argument_list|)
 argument_list|,
+cast|static_cast
+argument_list|<
+name|int
+argument_list|>
+argument_list|(
 name|Qt
 operator|::
 name|DotLine
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|penStyleComboBox
@@ -356,9 +374,15 @@ argument_list|(
 literal|"Dash Dot"
 argument_list|)
 argument_list|,
+cast|static_cast
+argument_list|<
+name|int
+argument_list|>
+argument_list|(
 name|Qt
 operator|::
 name|DashDotLine
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|penStyleComboBox
@@ -370,9 +394,15 @@ argument_list|(
 literal|"Dash Dot Dot"
 argument_list|)
 argument_list|,
+cast|static_cast
+argument_list|<
+name|int
+argument_list|>
+argument_list|(
 name|Qt
 operator|::
 name|DashDotDotLine
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|penStyleComboBox
@@ -384,9 +414,15 @@ argument_list|(
 literal|"None"
 argument_list|)
 argument_list|,
+cast|static_cast
+argument_list|<
+name|int
+argument_list|>
+argument_list|(
 name|Qt
 operator|::
 name|NoPen
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|penStyleLabel
@@ -553,9 +589,15 @@ argument_list|(
 literal|"Linear Gradient"
 argument_list|)
 argument_list|,
+cast|static_cast
+argument_list|<
+name|int
+argument_list|>
+argument_list|(
 name|Qt
 operator|::
 name|LinearGradientPattern
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|brushStyleComboBox
@@ -567,9 +609,15 @@ argument_list|(
 literal|"Radial Gradient"
 argument_list|)
 argument_list|,
+cast|static_cast
+argument_list|<
+name|int
+argument_list|>
+argument_list|(
 name|Qt
 operator|::
 name|RadialGradientPattern
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|brushStyleComboBox
@@ -581,9 +629,15 @@ argument_list|(
 literal|"Conical Gradient"
 argument_list|)
 argument_list|,
+cast|static_cast
+argument_list|<
+name|int
+argument_list|>
+argument_list|(
 name|Qt
 operator|::
 name|ConicalGradientPattern
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|brushStyleComboBox
@@ -595,9 +649,15 @@ argument_list|(
 literal|"Texture"
 argument_list|)
 argument_list|,
+cast|static_cast
+argument_list|<
+name|int
+argument_list|>
+argument_list|(
 name|Qt
 operator|::
 name|TexturePattern
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|brushStyleComboBox
@@ -609,9 +669,15 @@ argument_list|(
 literal|"Solid"
 argument_list|)
 argument_list|,
+cast|static_cast
+argument_list|<
+name|int
+argument_list|>
+argument_list|(
 name|Qt
 operator|::
 name|SolidPattern
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|brushStyleComboBox
@@ -623,9 +689,15 @@ argument_list|(
 literal|"Horizontal"
 argument_list|)
 argument_list|,
+cast|static_cast
+argument_list|<
+name|int
+argument_list|>
+argument_list|(
 name|Qt
 operator|::
 name|HorPattern
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|brushStyleComboBox
@@ -637,9 +709,15 @@ argument_list|(
 literal|"Vertical"
 argument_list|)
 argument_list|,
+cast|static_cast
+argument_list|<
+name|int
+argument_list|>
+argument_list|(
 name|Qt
 operator|::
 name|VerPattern
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|brushStyleComboBox
@@ -651,9 +729,15 @@ argument_list|(
 literal|"Cross"
 argument_list|)
 argument_list|,
+cast|static_cast
+argument_list|<
+name|int
+argument_list|>
+argument_list|(
 name|Qt
 operator|::
 name|CrossPattern
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|brushStyleComboBox
@@ -665,9 +749,15 @@ argument_list|(
 literal|"Backward Diagonal"
 argument_list|)
 argument_list|,
+cast|static_cast
+argument_list|<
+name|int
+argument_list|>
+argument_list|(
 name|Qt
 operator|::
 name|BDiagPattern
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|brushStyleComboBox
@@ -679,9 +769,15 @@ argument_list|(
 literal|"Forward Diagonal"
 argument_list|)
 argument_list|,
+cast|static_cast
+argument_list|<
+name|int
+argument_list|>
+argument_list|(
 name|Qt
 operator|::
 name|FDiagPattern
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|brushStyleComboBox
@@ -693,9 +789,15 @@ argument_list|(
 literal|"Diagonal Cross"
 argument_list|)
 argument_list|,
+cast|static_cast
+argument_list|<
+name|int
+argument_list|>
+argument_list|(
 name|Qt
 operator|::
 name|DiagCrossPattern
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|brushStyleComboBox
@@ -707,9 +809,15 @@ argument_list|(
 literal|"Dense 1"
 argument_list|)
 argument_list|,
+cast|static_cast
+argument_list|<
+name|int
+argument_list|>
+argument_list|(
 name|Qt
 operator|::
 name|Dense1Pattern
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|brushStyleComboBox
@@ -721,9 +829,15 @@ argument_list|(
 literal|"Dense 2"
 argument_list|)
 argument_list|,
+cast|static_cast
+argument_list|<
+name|int
+argument_list|>
+argument_list|(
 name|Qt
 operator|::
 name|Dense2Pattern
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|brushStyleComboBox
@@ -735,9 +849,15 @@ argument_list|(
 literal|"Dense 3"
 argument_list|)
 argument_list|,
+cast|static_cast
+argument_list|<
+name|int
+argument_list|>
+argument_list|(
 name|Qt
 operator|::
 name|Dense3Pattern
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|brushStyleComboBox
@@ -749,9 +869,15 @@ argument_list|(
 literal|"Dense 4"
 argument_list|)
 argument_list|,
+cast|static_cast
+argument_list|<
+name|int
+argument_list|>
+argument_list|(
 name|Qt
 operator|::
 name|Dense4Pattern
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|brushStyleComboBox
@@ -763,9 +889,15 @@ argument_list|(
 literal|"Dense 5"
 argument_list|)
 argument_list|,
+cast|static_cast
+argument_list|<
+name|int
+argument_list|>
+argument_list|(
 name|Qt
 operator|::
 name|Dense5Pattern
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|brushStyleComboBox
@@ -777,9 +909,15 @@ argument_list|(
 literal|"Dense 6"
 argument_list|)
 argument_list|,
+cast|static_cast
+argument_list|<
+name|int
+argument_list|>
+argument_list|(
 name|Qt
 operator|::
 name|Dense6Pattern
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|brushStyleComboBox
@@ -791,9 +929,15 @@ argument_list|(
 literal|"Dense 7"
 argument_list|)
 argument_list|,
+cast|static_cast
+argument_list|<
+name|int
+argument_list|>
+argument_list|(
 name|Qt
 operator|::
 name|Dense7Pattern
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|brushStyleComboBox
@@ -805,9 +949,15 @@ argument_list|(
 literal|"None"
 argument_list|)
 argument_list|,
+cast|static_cast
+argument_list|<
+name|int
+argument_list|>
+argument_list|(
 name|Qt
 operator|::
 name|NoBrush
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|brushStyleLabel

@@ -2222,6 +2222,35 @@ argument|QMetaType::Type
 argument_list|)
 name|Q_DECL_EQ_DELETE
 expr_stmt|;
+comment|// These constructors don't create QVariants of the type associcated
+comment|// with the enum, as expected, but they would create a QVariant of
+comment|// type int with the value of the enum value.
+comment|// Use QVariant v = QColor(Qt::red) instead of QVariant v = Qt::red for
+comment|// example.
+name|QVariant
+argument_list|(
+argument|Qt::GlobalColor
+argument_list|)
+name|Q_DECL_EQ_DELETE
+expr_stmt|;
+name|QVariant
+argument_list|(
+argument|Qt::BrushStyle
+argument_list|)
+name|Q_DECL_EQ_DELETE
+expr_stmt|;
+name|QVariant
+argument_list|(
+argument|Qt::PenStyle
+argument_list|)
+name|Q_DECL_EQ_DELETE
+expr_stmt|;
+name|QVariant
+argument_list|(
+argument|Qt::CursorShape
+argument_list|)
+name|Q_DECL_EQ_DELETE
+expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QT_NO_CAST_FROM_ASCII
