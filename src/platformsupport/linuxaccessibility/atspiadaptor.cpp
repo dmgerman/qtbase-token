@@ -6518,7 +6518,7 @@ block|{
 name|qAtspiDebug
 argument_list|()
 operator|<<
-literal|"WARNING: AtSpiAdaptor::handleMessage does not implement "
+literal|"WARNING: AtSpiAdaptor::accessibleInterface does not implement "
 operator|<<
 name|function
 operator|<<
@@ -8262,7 +8262,7 @@ block|{
 name|qAtspiDebug
 argument_list|()
 operator|<<
-literal|"WARNING: AtSpiAdaptor::handleMessage does not implement "
+literal|"WARNING: AtSpiAdaptor::componentInterface does not implement "
 operator|<<
 name|function
 operator|<<
@@ -8783,7 +8783,7 @@ block|{
 name|qAtspiDebug
 argument_list|()
 operator|<<
-literal|"WARNING: AtSpiAdaptor::handleMessage does not implement "
+literal|"WARNING: AtSpiAdaptor::actionInterface does not implement "
 operator|<<
 name|function
 operator|<<
@@ -10499,7 +10499,7 @@ block|{
 name|qAtspiDebug
 argument_list|()
 operator|<<
-literal|"WARNING: AtSpiAdaptor::handleMessage does not implement "
+literal|"WARNING: AtSpiAdaptor::textInterface does not implement "
 operator|<<
 name|function
 operator|<<
@@ -11943,7 +11943,7 @@ block|{
 name|qAtspiDebug
 argument_list|()
 operator|<<
-literal|"WARNING: AtSpiAdaptor::handleMessage does not implement "
+literal|"WARNING: AtSpiAdaptor::editableTextInterface does not implement "
 operator|<<
 name|function
 operator|<<
@@ -12311,7 +12311,7 @@ block|{
 name|qAtspiDebug
 argument_list|()
 operator|<<
-literal|"WARNING: AtSpiAdaptor::handleMessage does not implement "
+literal|"WARNING: AtSpiAdaptor::valueInterface does not implement "
 operator|<<
 name|function
 operator|<<
@@ -14404,7 +14404,7 @@ block|{
 name|qAtspiDebug
 argument_list|()
 operator|<<
-literal|"WARNING: AtSpiAdaptor::handleMessage does not implement "
+literal|"WARNING: AtSpiAdaptor::tableInterface does not implement "
 operator|<<
 name|function
 operator|<<
