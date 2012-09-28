@@ -31,6 +31,11 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_include
+include|#
+directive|include
+file|<GL/glxext.h>
+end_include
 begin_enum
 enum|enum
 block|{
@@ -1230,7 +1235,7 @@ name|display
 argument_list|,
 name|config
 argument_list|,
-name|GLX_SAMPLES
+name|GLX_SAMPLES_ARB
 argument_list|,
 operator|&
 name|sampleBuffers
