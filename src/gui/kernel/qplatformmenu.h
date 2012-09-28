@@ -331,6 +331,15 @@ operator|=
 literal|0
 block|;
 name|virtual
+name|void
+name|setVisible
+argument_list|(
+argument|bool visible
+argument_list|)
+operator|=
+literal|0
+block|;
+name|virtual
 name|QPlatformMenuItem
 operator|*
 name|menuItemAt

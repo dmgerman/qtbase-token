@@ -127,6 +127,12 @@ argument|bool enabled
 argument_list|)
 block|;
 name|void
+name|setVisible
+argument_list|(
+argument|bool visible
+argument_list|)
+block|;
+name|void
 name|syncSeparatorsCollapsible
 argument_list|(
 argument|bool enable
