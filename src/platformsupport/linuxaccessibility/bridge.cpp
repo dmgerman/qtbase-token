@@ -111,9 +111,6 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-name|bool
-name|reg
-init|=
 name|dBusConnection
 argument_list|()
 operator|.
@@ -130,13 +127,6 @@ name|QDBusConnection
 operator|::
 name|ExportAdaptors
 argument_list|)
-decl_stmt|;
-name|qDebug
-argument_list|()
-operator|<<
-literal|"Registered DEC: "
-operator|<<
-name|reg
 expr_stmt|;
 name|dbusAdaptor
 operator|=

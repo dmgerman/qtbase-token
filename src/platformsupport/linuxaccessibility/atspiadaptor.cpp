@@ -60,9 +60,23 @@ end_include
 begin_comment
 comment|/*!     \class AtSpiAdaptor     \internal      \brief AtSpiAdaptor is the main class to forward between QAccessibleInterface and AT-SPI DBus      AtSpiAdaptor implements the functions specified in all at-spi interfaces.     It sends notifications coming from Qt via dbus and listens to incoming dbus requests. */
 end_comment
-begin_macro
+begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-end_macro
+DECL|variable|isDebugging
+specifier|static
+name|bool
+name|isDebugging
+init|=
+literal|false
+decl_stmt|;
+end_decl_stmt
+begin_define
+DECL|macro|qAtspiDebug
+define|#
+directive|define
+name|qAtspiDebug
+value|if (!::isDebugging); else qDebug
+end_define
 begin_constructor
 DECL|function|AtSpiAdaptor
 name|AtSpiAdaptor
@@ -349,6 +363,14 @@ argument_list|(
 literal|0
 argument_list|)
 block|{
+operator|::
+name|isDebugging
+operator|=
+name|qEnvironmentVariableIsSet
+argument_list|(
+literal|"QT_DEBUG_ACCESSIBILITY"
+argument_list|)
+expr_stmt|;
 name|m_applicationAdaptor
 operator|=
 operator|new
@@ -898,7 +920,7 @@ operator|!
 name|interface
 condition|)
 block|{
-name|qWarning
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"WARNING Qt AtSpiAdaptor: Could not find accessible on path: "
@@ -1180,7 +1202,7 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QT_ATSPI_DEBUG
-name|qDebug
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"Registered event listener change listener: "
@@ -1865,7 +1887,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|qWarning
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"WARNING: subscription string not handled:"
@@ -2233,7 +2255,7 @@ comment|// ignore this one
 block|}
 else|else
 block|{
-name|qWarning
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"WARNING: subscription string not handled:"
@@ -2276,7 +2298,7 @@ comment|// mouse* is handled in a different way by the gnome atspi stack
 break|break;
 block|}
 default|default:
-name|qWarning
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"WARNING: subscription string not handled:"
@@ -2387,7 +2409,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|qWarning
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"Could not query active accessibility event listeners."
@@ -2413,7 +2435,7 @@ modifier|&
 comment|/*path*/
 parameter_list|)
 block|{
-comment|//    qDebug()<< "AtSpiAdaptor::eventListenerDeregistered: "<< bus<< path;
+comment|//    qAtspiDebug()<< "AtSpiAdaptor::eventListenerDeregistered: "<< bus<< path;
 name|updateEventListeners
 argument_list|()
 expr_stmt|;
@@ -2437,7 +2459,7 @@ modifier|&
 comment|/*path*/
 parameter_list|)
 block|{
-comment|//    qDebug()<< "AtSpiAdaptor::eventListenerRegistered: "<< bus<< path;
+comment|//    qAtspiDebug()<< "AtSpiAdaptor::eventListenerRegistered: "<< bus<< path;
 name|updateEventListeners
 argument_list|()
 expr_stmt|;
@@ -2848,7 +2870,7 @@ operator|<=
 literal|5
 condition|)
 block|{
-name|qWarning
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"invalid path: "
@@ -2972,7 +2994,7 @@ operator|<
 literal|0
 condition|)
 block|{
-name|qWarning
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"Invalid child index"
@@ -4435,7 +4457,7 @@ name|accessibleInterface
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|qWarning
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"QSpiAccessible::accessibleEvent not handled: "
@@ -4677,7 +4699,7 @@ operator|!
 name|parent
 condition|)
 block|{
-name|qWarning
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"AtSpiAdaptor::notifyAboutCreation: Could not find parent for "
@@ -4790,7 +4812,7 @@ operator|!
 name|parent
 condition|)
 block|{
-name|qWarning
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"AtSpiAdaptor::notifyAboutDestruction: Could not find parent for "
@@ -4911,7 +4933,7 @@ operator|!
 name|accessible
 condition|)
 block|{
-name|qWarning
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"WARNING Qt AtSpiAdaptor: Could not find accessible on path: "
@@ -4941,7 +4963,7 @@ operator|.
 name|member
 argument_list|()
 decl_stmt|;
-comment|// qDebug()<< "AtSpiAdaptor::handleMessage: "<< interface<< function;
+comment|// qAtspiDebug()<< "AtSpiAdaptor::handleMessage: "<< interface<< function;
 if|if
 condition|(
 name|function
@@ -5174,7 +5196,7 @@ argument_list|,
 name|connection
 argument_list|)
 return|;
-name|qWarning
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"AtSpiAdaptor::handleMessage with unknown interface: "
@@ -5237,7 +5259,7 @@ name|ATSPI_DBUS_PATH_ROOT
 argument_list|)
 condition|)
 block|{
-name|qWarning
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"WARNING Qt AtSpiAdaptor: Could not find application interface for: "
@@ -5412,7 +5434,7 @@ name|reply
 argument_list|)
 return|;
 block|}
-name|qDebug
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"AtSpiAdaptor::applicationInterface "
@@ -5532,13 +5554,10 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|qWarning
+name|qAtspiDebug
 argument_list|()
 operator|<<
-literal|"Error in contacting registry"
-expr_stmt|;
-name|qWarning
-argument_list|()
+literal|"Error in contacting registry: "
 operator|<<
 name|reply
 operator|.
@@ -5546,9 +5565,6 @@ name|error
 argument_list|()
 operator|.
 name|name
-argument_list|()
-expr_stmt|;
-name|qWarning
 argument_list|()
 operator|<<
 name|reply
@@ -5804,7 +5820,8 @@ name|childIndex
 operator|<
 literal|0
 condition|)
-name|qWarning
+block|{
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"GetIndexInParent get invalid index: "
@@ -5813,6 +5830,7 @@ name|childIndex
 operator|<<
 name|interface
 expr_stmt|;
+block|}
 block|}
 name|sendReply
 argument_list|(
@@ -6356,7 +6374,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|qWarning
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"WARNING: AtSpiAdaptor::handleMessage does not implement "
@@ -6451,7 +6469,7 @@ decl_stmt|;
 ifdef|#
 directive|ifdef
 name|ACCESSIBLE_CREATION_DEBUG
-name|qDebug
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"AtSpiAdaptor::accessibleInterfaces create: "
@@ -6573,7 +6591,7 @@ directive|ifdef
 name|ACCESSIBLE_CREATION_DEBUG
 else|else
 block|{
-name|qDebug
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|" IS NOT a component"
@@ -6870,7 +6888,7 @@ operator|==
 literal|0
 condition|)
 block|{
-name|qDebug
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"AtSpiAdaptor::pathForObject: warning: creating path with QAction as object."
@@ -7096,7 +7114,7 @@ operator|<
 literal|0
 condition|)
 block|{
-name|qWarning
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"Object claims to have child that we cannot navigate to. FIX IT!"
@@ -8008,7 +8026,7 @@ comment|//        int y = message.arguments().at(1).toInt();
 comment|//        int width = message.arguments().at(2).toInt();
 comment|//        int height = message.arguments().at(3).toInt();
 comment|//        uint coordinateType = message.arguments().at(4).toUInt();
-name|qWarning
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"SetExtents is not implemented."
@@ -8037,7 +8055,7 @@ block|{
 comment|//        int x = message.arguments().at(0).toInt();
 comment|//        int y = message.arguments().at(1).toInt();
 comment|//        uint coordinateType = message.arguments().at(2).toUInt();
-name|qWarning
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"SetPosition is not implemented."
@@ -8065,7 +8083,7 @@ condition|)
 block|{
 comment|//        int width = message.arguments().at(0).toInt();
 comment|//        int height = message.arguments().at(1).toInt();
-name|qWarning
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"SetSize is not implemented."
@@ -8082,7 +8100,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|qWarning
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"WARNING: AtSpiAdaptor::handleMessage does not implement "
@@ -8603,7 +8621,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|qWarning
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"WARNING: AtSpiAdaptor::handleMessage does not implement "
@@ -9248,7 +9266,7 @@ name|Q_UNUSED
 argument_list|(
 argument|yClipType
 argument_list|)
-name|qWarning
+name|qAtspiDebug
 argument_list|(
 literal|"Not implemented: QSpiAdaptor::GetBoundedRanges"
 argument_list|)
@@ -9481,7 +9499,7 @@ literal|"GetOffsetAtPoint"
 argument_list|)
 condition|)
 block|{
-name|qDebug
+name|qAtspiDebug
 argument_list|()
 operator|<<
 name|message
@@ -10319,7 +10337,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|qWarning
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"WARNING: AtSpiAdaptor::handleMessage does not implement "
@@ -11763,7 +11781,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|qWarning
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"WARNING: AtSpiAdaptor::handleMessage does not implement "
@@ -11921,11 +11939,13 @@ condition|(
 operator|!
 name|success
 condition|)
-name|qWarning
+block|{
+name|qAtspiDebug
 argument_list|(
 literal|"AtSpiAdaptor::valueInterface: Could not convert current value to double."
 argument_list|)
 expr_stmt|;
+block|}
 name|connection
 operator|.
 name|send
@@ -11988,11 +12008,13 @@ condition|(
 operator|!
 name|success
 condition|)
-name|qWarning
+block|{
+name|qAtspiDebug
 argument_list|(
 literal|"AtSpiAdaptor::valueInterface: Could not convert current value to double."
 argument_list|)
 expr_stmt|;
+block|}
 name|connection
 operator|.
 name|send
@@ -12092,11 +12114,13 @@ condition|(
 operator|!
 name|success
 condition|)
-name|qWarning
+block|{
+name|qAtspiDebug
 argument_list|(
 literal|"AtSpiAdaptor::valueInterface: Could not convert current value to double."
 argument_list|)
 expr_stmt|;
+block|}
 name|connection
 operator|.
 name|send
@@ -12125,7 +12149,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|qWarning
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"WARNING: AtSpiAdaptor::handleMessage does not implement "
@@ -12193,7 +12217,7 @@ argument_list|()
 operator|)
 condition|)
 block|{
-name|qWarning
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"WARNING Qt AtSpiAdaptor: Could not find table interface for: "
@@ -12632,7 +12656,7 @@ argument_list|()
 operator|)
 condition|)
 block|{
-name|qWarning
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"WARNING: invalid index for tableInterface GetAccessibleAt ("
@@ -12691,7 +12715,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|qWarning
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"WARNING: no cell interface returned for "
@@ -12794,7 +12818,7 @@ operator|!
 name|cell
 condition|)
 block|{
-name|qWarning
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"WARNING: AtSpiAdaptor::GetIndexAt("
@@ -12823,7 +12847,7 @@ argument_list|(
 name|cell
 argument_list|)
 decl_stmt|;
-name|qDebug
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"QSpiAdaptor::GetIndexAt row:"
@@ -12987,7 +13011,7 @@ name|tableCellInterface
 argument_list|()
 condition|)
 block|{
-name|qWarning
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"WARNING: AtSpiAdaptor::"
@@ -13071,7 +13095,7 @@ name|tableCellInterface
 argument_list|()
 condition|)
 block|{
-name|qWarning
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"WARNING: AtSpiAdaptor::"
@@ -13101,7 +13125,7 @@ block|}
 block|}
 else|else
 block|{
-name|qWarning
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"WARNING: AtSpiAdaptor::"
@@ -14218,7 +14242,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|qWarning
+name|qAtspiDebug
 argument_list|()
 operator|<<
 literal|"WARNING: AtSpiAdaptor::handleMessage does not implement "

@@ -5092,7 +5092,7 @@ argument_list|()
 expr_stmt|;
 break|break;
 default|default:
-name|qDebug
+name|qWarning
 argument_list|(
 literal|"QAccessibleTextWidget::getBoundaries: Unknown boundary type %d"
 argument_list|,

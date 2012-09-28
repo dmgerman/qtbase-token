@@ -237,13 +237,6 @@ operator|.
 name|toString
 argument_list|()
 decl_stmt|;
-name|qDebug
-argument_list|()
-operator|<<
-literal|"Got bus address: "
-operator|<<
-name|busAddress
-expr_stmt|;
 return|return
 name|busAddress
 return|;
