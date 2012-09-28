@@ -5753,10 +5753,6 @@ modifier|*
 name|parent
 parameter_list|)
 block|{
-comment|// re-create for compatibility
-name|create
-argument_list|()
-expr_stmt|;
 name|QPoint
 name|topLeft
 init|=
