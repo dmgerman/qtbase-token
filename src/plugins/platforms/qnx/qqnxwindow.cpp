@@ -504,7 +504,7 @@ name|m_childWindows
 operator|.
 name|size
 argument_list|()
-operator|>
+operator|==
 literal|0
 argument_list|)
 expr_stmt|;
