@@ -2001,7 +2001,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the data for the item \a index for the role \a role to \a     value.      For edit strategy OnFieldChange, an index may receive a change     only if no other index has a cached change. Changes are     submitted immediately. However, rows that have not yet been     inserted in the database may be freely changed and are not     submitted automatically. Submitted changes are not reverted upon     failure.      For OnRowChange, an index may receive a change only if no other     row has a cached change. Changes are not submitted automatically.      Returns true if the value could be set or false on error, for     example if \a index is out of bounds.      \sa editStrategy(), data(), submit(), submitAll(), revertRow() */
+comment|/*!     Sets the data for the item \a index for the role \a role to \a     value.      For edit strategy OnFieldChange, an index may receive a change     only if no other index has a cached change. Changes are     submitted immediately. However, rows that have not yet been     inserted in the database may be freely changed and are not     submitted automatically. Submitted changes are not reverted upon     failure.      For OnRowChange, an index may receive a change only if no other     row has a cached change. Changes are not submitted automatically.      Returns true if \a value is equal to the current value. However,     the value will not be submitted to the database.      Returns true if the value could be set or false on error, for     example if \a index is out of bounds.      \sa editStrategy(), data(), submit(), submitAll(), revertRow() */
 end_comment
 begin_function
 DECL|function|setData
@@ -2105,6 +2105,22 @@ operator|)
 condition|)
 return|return
 literal|false
+return|;
+if|if
+condition|(
+name|QSqlTableModel
+operator|::
+name|data
+argument_list|(
+name|index
+argument_list|,
+name|role
+argument_list|)
+operator|==
+name|value
+condition|)
+return|return
+literal|true
 return|;
 name|QSqlTableModelPrivate
 operator|::
