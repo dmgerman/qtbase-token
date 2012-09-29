@@ -53,6 +53,11 @@ include|#
 directive|include
 file|<qt_windows.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<qqueue.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
@@ -109,6 +114,8 @@ name|bool
 name|waitForNotified
 argument_list|(
 argument|int msecs
+argument_list|,
+argument|OVERLAPPED *overlapped
 argument_list|)
 block|;
 name|Q_SIGNALS
@@ -119,6 +126,8 @@ argument_list|(
 argument|DWORD numberOfBytes
 argument_list|,
 argument|DWORD errorCode
+argument_list|,
+argument|OVERLAPPED *overlapped
 argument_list|)
 block|;
 name|void
@@ -128,7 +137,8 @@ block|;
 name|private
 name|Q_SLOTS
 operator|:
-name|void
+name|OVERLAPPED
+operator|*
 name|_q_notified
 argument_list|()
 block|;
@@ -140,6 +150,8 @@ argument_list|(
 argument|DWORD numberOfBytes
 argument_list|,
 argument|DWORD errorCode
+argument_list|,
+argument|OVERLAPPED *overlapped
 argument_list|)
 block|;
 name|private
@@ -148,13 +160,56 @@ name|HANDLE
 name|hHandle
 block|;
 name|HANDLE
-name|hEvent
+name|hSemaphore
+block|;
+name|HANDLE
+name|hResultsMutex
+block|;      struct
+name|IOResult
+block|{
+name|IOResult
+argument_list|(
+argument|DWORD n =
+literal|0
+argument_list|,
+argument|DWORD e =
+literal|0
+argument_list|,
+argument|OVERLAPPED *p =
+literal|0
+argument_list|)
+operator|:
+name|numberOfBytes
+argument_list|(
+name|n
+argument_list|)
+block|,
+name|errorCode
+argument_list|(
+name|e
+argument_list|)
+block|,
+name|overlapped
+argument_list|(
+argument|p
+argument_list|)
+block|{}
+name|DWORD
+name|numberOfBytes
 block|;
 name|DWORD
-name|lastNumberOfBytes
+name|errorCode
 block|;
-name|DWORD
-name|lastErrorCode
+name|OVERLAPPED
+operator|*
+name|overlapped
+block|;     }
+block|;
+name|QQueue
+operator|<
+name|IOResult
+operator|>
+name|results
 block|;
 name|friend
 name|class

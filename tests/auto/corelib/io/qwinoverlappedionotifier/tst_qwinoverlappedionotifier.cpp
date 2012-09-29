@@ -596,6 +596,8 @@ operator|.
 name|waitForNotified
 argument_list|(
 literal|0
+argument_list|,
+literal|0
 argument_list|)
 argument_list|,
 literal|false
@@ -622,6 +624,8 @@ operator|.
 name|waitForNotified
 argument_list|(
 literal|100
+argument_list|,
+literal|0
 argument_list|)
 argument_list|,
 literal|false
@@ -682,6 +686,9 @@ operator|.
 name|waitForNotified
 argument_list|(
 literal|3000
+argument_list|,
+operator|&
+name|overlapped
 argument_list|)
 argument_list|,
 literal|true
@@ -729,6 +736,9 @@ operator|.
 name|waitForNotified
 argument_list|(
 literal|100
+argument_list|,
+operator|&
+name|overlapped
 argument_list|)
 argument_list|,
 literal|false

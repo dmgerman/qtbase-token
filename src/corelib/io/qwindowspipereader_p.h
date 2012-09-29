@@ -211,6 +211,8 @@ argument_list|(
 argument|DWORD numberOfBytesRead
 argument_list|,
 argument|DWORD errorCode
+argument_list|,
+argument|OVERLAPPED *notifiedOverlapped
 argument_list|)
 block|;
 name|private
