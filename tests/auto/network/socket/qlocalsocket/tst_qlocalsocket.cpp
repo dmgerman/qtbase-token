@@ -1715,15 +1715,7 @@ argument_list|,
 name|canListen
 argument_list|)
 expr_stmt|;
-name|QTest
-operator|::
-name|qWait
-argument_list|(
-literal|1000
-argument_list|)
-expr_stmt|;
-comment|//QVERIFY(!server.errorString().isEmpty());
-name|QCOMPARE
+name|QTRY_COMPARE
 argument_list|(
 name|server
 operator|.
