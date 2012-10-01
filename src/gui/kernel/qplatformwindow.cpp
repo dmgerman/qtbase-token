@@ -535,6 +535,29 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
+comment|/*!   Reimplement to set the window file path to \a filePath */
+end_comment
+begin_function
+DECL|function|setWindowFilePath
+name|void
+name|QPlatformWindow
+operator|::
+name|setWindowFilePath
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|filePath
+parameter_list|)
+block|{
+name|Q_UNUSED
+argument_list|(
+name|filePath
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_comment
 comment|/*!   Reimplement to set the window icon to \a icon */
 end_comment
 begin_function

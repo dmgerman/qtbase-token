@@ -288,6 +288,11 @@ name|windowTitle
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+name|QString
+name|windowFilePath
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|QIcon
 name|windowIcon
 decl_stmt|;

@@ -235,6 +235,16 @@ argument_list|)
 block|;
 name|virtual
 name|void
+name|setWindowFilePath
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|title
+argument_list|)
+block|;
+name|virtual
+name|void
 name|setWindowIcon
 argument_list|(
 specifier|const
