@@ -8162,13 +8162,13 @@ name|s
 operator|->
 name|matrix
 argument_list|)
-operator|||
+operator|&&
 name|det
-argument_list|<
+operator|>=
 literal|0.25f
-operator|||
+operator|&&
 name|det
-argument_list|>
+operator|<=
 literal|4.f
 condition|)
 block|{
@@ -8505,6 +8505,7 @@ decl_stmt|;
 comment|// don't try to cache huge fonts or vastly transformed fonts
 if|if
 condition|(
+operator|!
 name|shouldDrawCachedGlyphs
 argument_list|(
 name|ti
