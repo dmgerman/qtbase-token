@@ -182,6 +182,12 @@ name|QWindow
 operator|>
 name|m_windowUnderMouse
 expr_stmt|;
+name|QPointer
+operator|<
+name|QWindow
+operator|>
+name|m_trackedWindow
+expr_stmt|;
 name|QHash
 operator|<
 name|DWORD

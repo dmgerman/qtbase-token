@@ -30,6 +30,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qwindowsscreen.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<qpa/qwindowsysteminterface.h>
 end_include
 begin_include
@@ -333,6 +338,11 @@ argument_list|(
 literal|0
 argument_list|)
 member_init_list|,
+name|m_trackedWindow
+argument_list|(
+literal|0
+argument_list|)
+member_init_list|,
 name|m_touchDevice
 argument_list|(
 literal|0
@@ -569,8 +579,6 @@ operator|==
 name|WM_MOUSELEAVE
 condition|)
 block|{
-comment|// When moving out of a child, MouseMove within parent is received first
-comment|// (see below)
 if|if
 condition|(
 name|QWindowsContext
@@ -584,23 +592,57 @@ literal|"WM_MOUSELEAVE for "
 operator|<<
 name|window
 operator|<<
-literal|" current= "
+literal|" previous window under mouse = "
 operator|<<
 name|m_windowUnderMouse
+operator|<<
+literal|" tracked window ="
+operator|<<
+name|m_trackedWindow
 expr_stmt|;
+comment|// When moving out of a window, WM_MOUSEMOVE within the moved-to window is received first,
+comment|// so if m_trackedWindow is not the window here, it means the cursor has left the
+comment|// application.
 if|if
 condition|(
 name|window
 operator|==
-name|m_windowUnderMouse
+name|m_trackedWindow
 condition|)
 block|{
+name|QWindow
+modifier|*
+name|leaveTarget
+init|=
+name|m_windowUnderMouse
+condition|?
+name|m_windowUnderMouse
+else|:
+name|m_trackedWindow
+decl_stmt|;
+if|if
+condition|(
+name|QWindowsContext
+operator|::
+name|verboseEvents
+condition|)
+name|qDebug
+argument_list|()
+operator|<<
+literal|"Generating leave event for "
+operator|<<
+name|leaveTarget
+expr_stmt|;
 name|QWindowSystemInterface
 operator|::
 name|handleLeaveEvent
 argument_list|(
-name|window
+name|leaveTarget
 argument_list|)
+expr_stmt|;
+name|m_trackedWindow
+operator|=
+literal|0
 expr_stmt|;
 name|m_windowUnderMouse
 operator|=
@@ -611,12 +653,6 @@ return|return
 literal|true
 return|;
 block|}
-name|compressMouseMove
-argument_list|(
-operator|&
-name|msg
-argument_list|)
-expr_stmt|;
 name|QWindowsWindow
 modifier|*
 name|platformWindow
@@ -633,6 +669,43 @@ name|handle
 argument_list|()
 argument_list|)
 decl_stmt|;
+specifier|const
+name|QPoint
+name|globalPosition
+init|=
+name|QWindowsGeometryHint
+operator|::
+name|mapToGlobal
+argument_list|(
+name|hwnd
+argument_list|,
+name|winEventPosition
+argument_list|)
+decl_stmt|;
+name|QWindow
+modifier|*
+name|currentWindowUnderMouse
+init|=
+name|platformWindow
+operator|->
+name|hasMouseCapture
+argument_list|()
+condition|?
+name|QWindowsScreen
+operator|::
+name|windowAt
+argument_list|(
+name|globalPosition
+argument_list|)
+else|:
+name|window
+decl_stmt|;
+name|compressMouseMove
+argument_list|(
+operator|&
+name|msg
+argument_list|)
+expr_stmt|;
 comment|// Qt expects the platform plugin to capture the mouse on
 comment|// any button press until release.
 if|if
@@ -812,80 +885,20 @@ literal|true
 return|;
 block|}
 block|}
-comment|// Enter new window: track to generate leave event.
-if|if
-condition|(
-name|m_windowUnderMouse
-operator|!=
-name|window
-condition|)
-block|{
-comment|// The tracking on m_windowUnderMouse might still be active and
-comment|// trigger later on.
-if|if
-condition|(
-name|m_windowUnderMouse
-condition|)
-block|{
-if|if
-condition|(
-name|QWindowsContext
-operator|::
-name|verboseEvents
-condition|)
-name|qDebug
-argument_list|()
-operator|<<
-literal|"Synthetic leave for "
-operator|<<
-name|m_windowUnderMouse
-expr_stmt|;
-name|QWindowSystemInterface
-operator|::
-name|handleLeaveEvent
-argument_list|(
-name|m_windowUnderMouse
-argument_list|)
-expr_stmt|;
-block|}
-name|m_windowUnderMouse
-operator|=
-name|window
-expr_stmt|;
-if|if
-condition|(
-name|QWindowsContext
-operator|::
-name|verboseEvents
-condition|)
-name|qDebug
-argument_list|()
-operator|<<
-literal|"Entering "
-operator|<<
-name|window
-expr_stmt|;
-name|QWindowsWindow
-operator|::
-name|baseWindowOf
-argument_list|(
-name|window
-argument_list|)
-operator|->
-name|applyCursor
-argument_list|()
-expr_stmt|;
-comment|//#ifndef Q_OS_WINCE
-name|QWindowSystemInterface
-operator|::
-name|handleEnterEvent
-argument_list|(
-name|window
-argument_list|)
-expr_stmt|;
 ifndef|#
 directive|ifndef
 name|Q_OS_WINCE
+comment|// Enter new window: track to generate leave event.
+comment|// If there is an active capture, we must track the actual capture window instead of window
+comment|// under cursor or leaves will trigger constantly, so always track the window we got
+comment|// native mouse event for.
+if|if
+condition|(
+name|window
+operator|!=
+name|m_trackedWindow
+condition|)
+block|{
 name|TRACKMOUSEEVENT
 name|tme
 decl_stmt|;
@@ -931,32 +944,134 @@ argument_list|(
 literal|"TrackMouseEvent failed."
 argument_list|)
 expr_stmt|;
+name|m_trackedWindow
+operator|=
+name|window
+expr_stmt|;
+block|}
 endif|#
 directive|endif
 comment|// !Q_OS_WINCE
+comment|// Qt expects enter/leave events for windows even when some window is capturing mouse input,
+comment|// except for automatic capture when mouse button is pressed - in that case enter/leave
+comment|// should be sent only after the last button is released.
+comment|// We need to track m_windowUnderMouse separately from m_trackedWindow, as
+comment|// Windows mouse tracking will not trigger WM_MOUSELEAVE for leaving window when
+comment|// mouse capture is set.
+if|if
+condition|(
+operator|!
+name|platformWindow
+operator|->
+name|hasMouseCapture
+argument_list|()
+operator|||
+operator|!
+name|platformWindow
+operator|->
+name|testFlag
+argument_list|(
+name|QWindowsWindow
+operator|::
+name|AutoMouseCapture
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|m_windowUnderMouse
+operator|!=
+name|currentWindowUnderMouse
+condition|)
+block|{
+if|if
+condition|(
+name|m_windowUnderMouse
+condition|)
+block|{
+if|if
+condition|(
+name|QWindowsContext
+operator|::
+name|verboseEvents
+condition|)
+name|qDebug
+argument_list|()
+operator|<<
+literal|"Synthetic leave for "
+operator|<<
+name|m_windowUnderMouse
+expr_stmt|;
+name|QWindowSystemInterface
+operator|::
+name|handleLeaveEvent
+argument_list|(
+name|m_windowUnderMouse
+argument_list|)
+expr_stmt|;
+comment|// Clear tracking if we are no longer over application,
+comment|// since we have already sent the leave.
+if|if
+condition|(
+operator|!
+name|currentWindowUnderMouse
+condition|)
+name|m_trackedWindow
+operator|=
+literal|0
+expr_stmt|;
 block|}
-specifier|const
-name|QPoint
-name|clientPosition
-init|=
-name|winEventPosition
-decl_stmt|;
+if|if
+condition|(
+name|currentWindowUnderMouse
+condition|)
+block|{
+if|if
+condition|(
+name|QWindowsContext
+operator|::
+name|verboseEvents
+condition|)
+name|qDebug
+argument_list|()
+operator|<<
+literal|"Entering "
+operator|<<
+name|currentWindowUnderMouse
+expr_stmt|;
+name|QWindowsWindow
+operator|::
+name|baseWindowOf
+argument_list|(
+name|currentWindowUnderMouse
+argument_list|)
+operator|->
+name|applyCursor
+argument_list|()
+expr_stmt|;
+name|QWindowSystemInterface
+operator|::
+name|handleEnterEvent
+argument_list|(
+name|currentWindowUnderMouse
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+name|m_windowUnderMouse
+operator|=
+name|currentWindowUnderMouse
+expr_stmt|;
+block|}
 name|QWindowSystemInterface
 operator|::
 name|handleMouseEvent
 argument_list|(
 name|window
 argument_list|,
-name|clientPosition
+name|winEventPosition
 argument_list|,
-name|QWindowsGeometryHint
-operator|::
-name|mapToGlobal
-argument_list|(
-name|hwnd
-argument_list|,
-name|clientPosition
-argument_list|)
+name|globalPosition
 argument_list|,
 name|keyStateToMouseButtons
 argument_list|(
