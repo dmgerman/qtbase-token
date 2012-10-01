@@ -6758,7 +6758,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"absrtact"
+literal|"abstract"
 argument_list|)
 operator|<<
 name|QString
