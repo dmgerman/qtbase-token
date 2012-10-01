@@ -462,12 +462,7 @@ operator|::
 name|initTextures
 parameter_list|()
 block|{
-comment|// Loading cube.png to texture unit 0
-name|glActiveTexture
-argument_list|(
-name|GL_TEXTURE0
-argument_list|)
-expr_stmt|;
+comment|// Loading cube.png
 name|glEnable
 argument_list|(
 name|GL_TEXTURE_2D
