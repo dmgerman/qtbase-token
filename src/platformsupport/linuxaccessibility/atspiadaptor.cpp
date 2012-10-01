@@ -1878,8 +1878,19 @@ argument_list|(
 literal|"VisibleDataChanged"
 argument_list|)
 argument_list|)
+operator|||
+name|right
+operator|.
+name|startsWith
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"VisibledataChanged"
+argument_list|)
+argument_list|)
 condition|)
 block|{
+comment|// typo in libatspi
 name|sendObject_visible_data_changed
 operator|=
 literal|1
