@@ -94,11 +94,6 @@ block|{
 if|if
 condition|(
 name|focusObject
-operator|&&
-name|focusObject
-operator|->
-name|isWidgetType
-argument_list|()
 condition|)
 block|{
 specifier|const
