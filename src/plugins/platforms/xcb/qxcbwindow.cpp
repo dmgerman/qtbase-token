@@ -946,11 +946,6 @@ name|QPlatformIntegration
 operator|::
 name|OpenGL
 argument_list|)
-operator|||
-name|m_format
-operator|.
-name|hasAlpha
-argument_list|()
 condition|)
 block|{
 if|#
