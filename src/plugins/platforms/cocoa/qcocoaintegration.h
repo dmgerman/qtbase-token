@@ -72,6 +72,8 @@ operator|~
 name|QCocoaScreen
 argument_list|()
 block|;
+comment|// ----------------------------------------------------
+comment|// Virtual methods overridden from QPlatformScreen
 name|QPixmap
 name|grabWindow
 argument_list|(
@@ -134,6 +136,33 @@ return|return
 name|m_physicalSize
 return|;
 block|}
+name|QDpi
+name|logicalDpi
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_logicalDpi
+return|;
+block|}
+name|qreal
+name|refreshRate
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_refreshRate
+return|;
+block|}
+name|QString
+name|name
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_name
+return|;
+block|}
 name|QPlatformCursor
 operator|*
 name|cursor
@@ -144,6 +173,45 @@ return|return
 name|m_cursor
 return|;
 block|}
+name|QList
+operator|<
+name|QPlatformScreen
+operator|*
+operator|>
+name|virtualSiblings
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_siblings
+return|;
+block|}
+comment|// ----------------------------------------------------
+comment|// Additional methods
+name|void
+name|setVirtualSiblings
+argument_list|(
+argument|QList<QPlatformScreen *> siblings
+argument_list|)
+block|{
+name|m_siblings
+operator|=
+name|siblings
+block|; }
+name|NSScreen
+operator|*
+name|osScreen
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_screen
+return|;
+block|}
+name|void
+name|updateGeometry
+argument_list|()
+block|;
 name|public
 operator|:
 name|NSScreen
@@ -156,8 +224,17 @@ block|;
 name|QRect
 name|m_availableGeometry
 block|;
+name|QDpi
+name|m_logicalDpi
+block|;
+name|qreal
+name|m_refreshRate
+block|;
 name|int
 name|m_depth
+block|;
+name|QString
+name|m_name
 block|;
 name|QImage
 operator|::
@@ -170,6 +247,13 @@ block|;
 name|QCocoaCursor
 operator|*
 name|m_cursor
+block|;
+name|QList
+operator|<
+name|QPlatformScreen
+operator|*
+operator|>
+name|m_siblings
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -287,6 +371,10 @@ argument_list|(
 argument|StyleHint hint
 argument_list|)
 specifier|const
+block|;
+name|void
+name|updateScreens
+argument_list|()
 block|;
 name|private
 operator|:
