@@ -5483,7 +5483,7 @@ name|event
 operator|->
 name|time
 expr_stmt|;
-comment|// which transaction do we use? (note: -2 means use current manager->object)
+comment|// which transaction do we use? (note: -2 means use current currentDrag())
 name|int
 name|at
 init|=
@@ -5513,7 +5513,7 @@ block|}
 else|else
 block|{
 comment|// if someone has requested data in response to XdndDrop, find the corresponding transaction. the
-comment|// spec says to call XConvertSelection() using the timestamp from the XdndDrop
+comment|// spec says to call xcb_convert_selection() using the timestamp from the XdndDrop
 name|at
 operator|=
 name|findTransactionByTime
@@ -5531,8 +5531,8 @@ operator|-
 literal|1
 condition|)
 block|{
-comment|// no dice, perhaps the client was nice enough to use the same window id in XConvertSelection()
-comment|// that we sent the XdndDrop event to.
+comment|// no dice, perhaps the client was nice enough to use the same window id in
+comment|// xcb_convert_selection() that we sent the XdndDrop event to.
 name|at
 operator|=
 name|findTransactionByWindow
@@ -5581,6 +5581,21 @@ name|at
 argument_list|)
 operator|.
 name|drag
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|at
+operator|==
+operator|-
+literal|2
+condition|)
+block|{
+name|transactionDrag
+operator|=
+name|currentDrag
+argument_list|()
 expr_stmt|;
 block|}
 if|if
