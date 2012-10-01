@@ -66,6 +66,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qdatetime.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<qpixmap.h>
 end_include
 begin_include
@@ -425,6 +430,17 @@ comment|// timer used when target wants "continuous" move messages (eg. scroll)
 name|int
 name|heartbeat
 decl_stmt|;
+comment|// 10 minute timer used to discard old XdndDrop transactions
+enum|enum
+block|{
+name|XdndDropTransactionTimeout
+init|=
+literal|600000
+block|}
+enum|;
+name|int
+name|cleanup_timer
+decl_stmt|;
 name|QVector
 operator|<
 name|xcb_atom_t
@@ -451,6 +467,9 @@ comment|//        QWidget *embedding_widget;
 name|QDrag
 modifier|*
 name|drag
+decl_stmt|;
+name|QTime
+name|time
 decl_stmt|;
 block|}
 struct|;
