@@ -20571,7 +20571,7 @@ condition|)
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|setWindowTitle_helper
 argument_list|(
 name|QFileInfo
@@ -20608,7 +20608,7 @@ directive|endif
 block|}
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|setWindowFilePath_sys
 argument_list|(
 name|filePath

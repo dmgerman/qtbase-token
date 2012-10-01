@@ -203,6 +203,15 @@ name|title
 argument_list|)
 block|;
 name|void
+name|setWindowFilePath
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|filePath
+argument_list|)
+block|;
+name|void
 name|raise
 argument_list|()
 block|;
