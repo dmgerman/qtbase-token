@@ -6664,6 +6664,11 @@ name|map
 operator|.
 name|insert
 argument_list|(
+name|map
+operator|.
+name|begin
+argument_list|()
+argument_list|,
 name|std
 operator|::
 name|pair
