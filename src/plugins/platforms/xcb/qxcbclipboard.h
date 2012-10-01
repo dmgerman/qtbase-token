@@ -248,6 +248,11 @@ name|target
 parameter_list|,
 name|xcb_atom_t
 name|property
+parameter_list|,
+name|xcb_timestamp_t
+name|t
+init|=
+literal|0
 parameter_list|)
 function_decl|;
 name|private

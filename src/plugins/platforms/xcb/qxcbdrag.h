@@ -283,6 +283,14 @@ name|void
 name|updatePixmap
 parameter_list|()
 function_decl|;
+name|xcb_timestamp_t
+name|targetTime
+parameter_list|()
+block|{
+return|return
+name|target_time
+return|;
+block|}
 name|protected
 label|:
 name|void
@@ -387,6 +395,7 @@ name|xcb_atom_t
 operator|>
 name|xdnd_types
 expr_stmt|;
+comment|// timestamp from XdndPosition and XdndDroptime for retrieving the data
 name|xcb_timestamp_t
 name|target_time
 decl_stmt|;

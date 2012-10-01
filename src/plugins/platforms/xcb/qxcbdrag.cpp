@@ -6305,6 +6305,11 @@ argument_list|,
 name|a
 argument_list|,
 name|xdnd_selection
+argument_list|,
+name|drag
+operator|->
+name|targetTime
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
