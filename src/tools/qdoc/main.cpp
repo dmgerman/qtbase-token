@@ -1306,6 +1306,13 @@ decl_stmt|;
 name|QStringList
 name|excludedFilesList
 decl_stmt|;
+name|Generator
+operator|::
+name|debugSegfault
+argument_list|(
+literal|"Reading excludedirs"
+argument_list|)
+expr_stmt|;
 name|excludedDirsList
 operator|=
 name|config
@@ -1343,6 +1350,13 @@ name|p
 argument_list|)
 expr_stmt|;
 block|}
+name|Generator
+operator|::
+name|debugSegfault
+argument_list|(
+literal|"Reading excludefiles"
+argument_list|)
+expr_stmt|;
 name|excludedFilesList
 operator|=
 name|config
@@ -1380,6 +1394,13 @@ name|p
 argument_list|)
 expr_stmt|;
 block|}
+name|Generator
+operator|::
+name|debugSegfault
+argument_list|(
+literal|"Reading headerdirs"
+argument_list|)
+expr_stmt|;
 name|headerList
 operator|=
 name|config
@@ -1477,6 +1498,13 @@ name|t
 argument_list|)
 expr_stmt|;
 block|}
+name|Generator
+operator|::
+name|debugSegfault
+argument_list|(
+literal|"Reading sourcedirs"
+argument_list|)
+expr_stmt|;
 name|sourceList
 operator|=
 name|config
@@ -1575,6 +1603,13 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*       Find all the qdoc files in the example dirs, and add       them to the source files to be parsed.      */
+name|Generator
+operator|::
+name|debugSegfault
+argument_list|(
+literal|"Reading exampledirs"
+argument_list|)
+expr_stmt|;
 name|QStringList
 name|exampleQdocList
 init|=
@@ -1668,6 +1703,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|Generator
+operator|::
+name|debugSegfault
+argument_list|(
+literal|"Adding doc/image dirs found in exampledirs to imagedirs"
+argument_list|)
+expr_stmt|;
 name|QSet
 argument_list|<
 name|QString
@@ -1776,6 +1818,13 @@ modifier|*
 argument_list|>
 name|usedParsers
 decl_stmt|;
+name|Generator
+operator|::
+name|debugSegfault
+argument_list|(
+literal|"Parsing header files"
+argument_list|)
+expr_stmt|;
 name|int
 name|parsed
 init|=
@@ -1878,6 +1927,13 @@ name|parsed
 operator|=
 literal|0
 expr_stmt|;
+name|Generator
+operator|::
+name|debugSegfault
+argument_list|(
+literal|"Parsing source files"
+argument_list|)
+expr_stmt|;
 name|QMap
 argument_list|<
 name|QString
@@ -1966,12 +2022,26 @@ name|doneParsingSourceFiles
 argument_list|()
 expr_stmt|;
 comment|/*       Now the big tree has been built from all the header and       source files. Resolve all the class names, function names,       targets, URLs, links, and other stuff that needs resolving.      */
+name|Generator
+operator|::
+name|debugSegfault
+argument_list|(
+literal|"Resolving stuff prior to generating docs"
+argument_list|)
+expr_stmt|;
 name|qdb
 operator|->
 name|resolveIssues
 argument_list|()
 expr_stmt|;
 comment|/*       The tree is built and all the stuff that needed resolving       has been resolved. Now traverse the tree and generate the       documentation output. More than one output format can be       requested. The tree is traversed for each one.      */
+name|Generator
+operator|::
+name|debugSegfault
+argument_list|(
+literal|"Generating docs"
+argument_list|)
+expr_stmt|;
 name|QSet
 argument_list|<
 name|QString
@@ -2039,6 +2109,13 @@ name|of
 expr_stmt|;
 block|}
 comment|//Generator::writeOutFileNames();
+name|Generator
+operator|::
+name|debugSegfault
+argument_list|(
+literal|"Shutting down qdoc"
+argument_list|)
+expr_stmt|;
 name|QDocDatabase
 operator|::
 name|qdocDB
@@ -2122,6 +2199,13 @@ literal|"main(): qdoc database deleted"
 expr_stmt|;
 endif|#
 directive|endif
+name|Generator
+operator|::
+name|debugSegfault
+argument_list|(
+literal|"qdoc finished!"
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function
@@ -2479,6 +2563,22 @@ argument_list|)
 expr_stmt|;
 name|i
 operator|++
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|opt
+operator|==
+literal|"-debug"
+condition|)
+block|{
+name|Generator
+operator|::
+name|setDebugSegfaultFlag
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 block|}
 else|else
