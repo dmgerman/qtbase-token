@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtWidgets/QCleanlooksStyle>
+file|<QtWidgets/QWindowsStyle>
 end_include
 begin_include
 include|#
@@ -60,7 +60,7 @@ name|Q_WIDGETS_EXPORT
 name|QGtkStyle
 range|:
 name|public
-name|QCleanlooksStyle
+name|QWindowsStyle
 block|{
 name|Q_OBJECT
 name|Q_DECLARE_PRIVATE

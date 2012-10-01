@@ -85,7 +85,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qcleanlooksstyle_p.h>
+file|<private/qwindowsstyle_p.h>
 end_include
 begin_undef
 DECL|macro|signals
@@ -3143,7 +3143,7 @@ name|class
 name|QGtkStylePrivate
 range|:
 name|public
-name|QCleanlooksStylePrivate
+name|QWindowsStylePrivate
 block|{
 name|Q_DECLARE_PUBLIC
 argument_list|(

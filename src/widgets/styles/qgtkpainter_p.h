@@ -60,11 +60,6 @@ end_if
 begin_include
 include|#
 directive|include
-file|<QtWidgets/QCleanlooksStyle>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtGui/QPainter>
 end_include
 begin_include

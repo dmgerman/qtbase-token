@@ -1752,7 +1752,7 @@ operator|::
 name|QGtkStylePrivate
 parameter_list|()
 member_init_list|:
-name|QCleanlooksStylePrivate
+name|QWindowsStylePrivate
 argument_list|()
 member_init_list|,
 name|filter
