@@ -4648,7 +4648,7 @@ name|filterSeparatorRE
 argument_list|(
 name|QStringLiteral
 argument_list|(
-literal|"; *"
+literal|"[;\\s]+"
 argument_list|)
 argument_list|)
 decl_stmt|;
