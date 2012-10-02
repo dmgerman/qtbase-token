@@ -15066,7 +15066,41 @@ operator|.
 name|position
 return|;
 block|}
-comment|//bool operator()(const QScriptItem&a, int p) { return a.position< p; }
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_CC_MSVC
+argument_list|)
+operator|&&
+name|_MSC_VER
+operator|<
+literal|1600
+comment|//The STL implementation of MSVC 2008 requires the definition
+DECL|function|operator ()
+name|bool
+name|operator
+name|()
+parameter_list|(
+specifier|const
+name|QScriptItem
+modifier|&
+name|a
+parameter_list|,
+name|int
+name|p
+parameter_list|)
+block|{
+return|return
+name|a
+operator|.
+name|position
+operator|<
+name|p
+return|;
+block|}
+endif|#
+directive|endif
 block|}
 struct|;
 block|}
