@@ -17488,12 +17488,21 @@ operator|.
 name|parent
 argument_list|()
 decl_stmt|;
+comment|// QTBUG-25370: We need to copy the indexEditorHash, because while we're
+comment|// iterating over it, we are calling methods which can allow user code to
+comment|// call a method on *this which can modify the member indexEditorHash.
+specifier|const
+name|QIndexEditorHash
+name|indexEditorHashCopy
+init|=
+name|indexEditorHash
+decl_stmt|;
 name|QIndexEditorHash
 operator|::
 name|const_iterator
 name|it
 init|=
-name|indexEditorHash
+name|indexEditorHashCopy
 operator|.
 name|constBegin
 argument_list|()
@@ -17503,7 +17512,7 @@ control|(
 init|;
 name|it
 operator|!=
-name|indexEditorHash
+name|indexEditorHashCopy
 operator|.
 name|constEnd
 argument_list|()
