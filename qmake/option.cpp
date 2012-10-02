@@ -3746,9 +3746,9 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|qmake_libraryInfoFile
+DECL|function|qt_libraryInfoFile
 name|QString
-name|qmake_libraryInfoFile
+name|qt_libraryInfoFile
 parameter_list|()
 block|{
 if|if

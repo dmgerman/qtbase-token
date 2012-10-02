@@ -88,7 +88,7 @@ block|,
 comment|// Insert new values above this line
 ifdef|#
 directive|ifdef
-name|QT_BUILD_QMAKE
+name|QT_BOOTSTRAPPED
 comment|// These are not subject to binary compatibility constraints
 name|SysrootPath
 block|,
@@ -119,7 +119,7 @@ function_decl|;
 comment|// ### Qt 6: consider renaming it to path()
 ifdef|#
 directive|ifdef
-name|QT_BUILD_QMAKE
+name|QT_BOOTSTRAPPED
 enum|enum
 name|PathGroup
 block|{
