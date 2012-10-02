@@ -196,14 +196,24 @@ name|void
 name|initTestCase
 parameter_list|()
 function_decl|;
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
 name|void
 name|windowsDefaultLocale
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
 name|void
 name|macDefaultLocale
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|ctor
 parameter_list|()
@@ -10205,6 +10215,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+end_ifdef
 begin_function
 DECL|function|macDefaultLocale
 name|void
@@ -10213,16 +10228,6 @@ operator|::
 name|macDefaultLocale
 parameter_list|()
 block|{
-ifndef|#
-directive|ifndef
-name|Q_OS_MAC
-name|QSKIP
-argument_list|(
-literal|"This is a Mac OS X-only test"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QLocale
 name|locale
 init|=
@@ -11061,6 +11066,13 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// Q_OS_MAC
+end_comment
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -11347,6 +11359,11 @@ end_endif
 begin_comment
 comment|// Q_OS_WIN
 end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+end_ifdef
 begin_function
 DECL|function|windowsDefaultLocale
 name|void
@@ -11355,9 +11372,6 @@ operator|::
 name|windowsDefaultLocale
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WIN
 name|RestoreLocaleHelper
 name|systemLocale
 decl_stmt|;
@@ -11912,11 +11926,15 @@ literal|"1^2^3"
 argument_list|)
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
-comment|// #ifdef Q_OS_WIN
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// #ifdef Q_OS_WIN
+end_comment
 begin_function
 DECL|function|numberOptions
 name|void
