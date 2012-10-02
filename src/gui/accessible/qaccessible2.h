@@ -29,12 +29,6 @@ name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
 name|QT_NO_ACCESSIBILITY
-DECL|variable|QModelIndex
-name|class
-name|QModelIndex
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|namespace
 name|QAccessible2
 block|{
