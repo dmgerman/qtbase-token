@@ -82,18 +82,9 @@ operator|.
 name|isConnected
 argument_list|()
 condition|)
-block|{
-name|qDebug
-argument_list|()
-operator|<<
-literal|"Connected to accessibility bus at: "
-operator|<<
-name|address
-expr_stmt|;
 return|return
 name|c
 return|;
-block|}
 name|qWarning
 argument_list|(
 literal|"Found Accessibility DBus address but cannot connect. Falling back to session bus."
