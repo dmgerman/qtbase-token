@@ -346,6 +346,11 @@ modifier|&
 name|message
 parameter_list|)
 block|{
+if|if
+condition|(
+name|debugging
+argument_list|()
+condition|)
 name|qDebug
 argument_list|()
 operator|<<
