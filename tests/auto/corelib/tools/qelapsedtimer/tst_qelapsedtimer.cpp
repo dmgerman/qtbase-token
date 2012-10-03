@@ -328,18 +328,6 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//    QCOMPARE(t1 + 0, t1);
-comment|//    QCOMPARE(t1 - 0, t1);
-if|#
-directive|if
-literal|0
-block|QElapsedTimer t2 = t1;     t2 += 1000;
-comment|// so we can use secsTo
-block|QVERIFY(t1 != t2);     QVERIFY(!(t1 == t2));     QVERIFY(t1< t2);     QVERIFY(!(t2< t1));     QCOMPARE(t1.msecsTo(t2), qint64(1000));     QCOMPARE(t1.secsTo(t2), qint64(1));
-comment|//    QCOMPARE(t2 - t1, qint64(1000));
-comment|//    QCOMPARE(t1 - t2, qint64(-1000));
-endif|#
-directive|endif
 name|quint64
 name|value1
 init|=
@@ -351,7 +339,11 @@ decl_stmt|;
 name|qDebug
 argument_list|()
 operator|<<
+literal|"value1:"
+operator|<<
 name|value1
+operator|<<
+literal|"t1:"
 operator|<<
 name|t1
 expr_stmt|;
@@ -398,11 +390,19 @@ decl_stmt|;
 name|qDebug
 argument_list|()
 operator|<<
+literal|"value2:"
+operator|<<
 name|value2
+operator|<<
+literal|"t1:"
 operator|<<
 name|t1
 operator|<<
+literal|"elapsed:"
+operator|<<
 name|elapsed
+operator|<<
+literal|"nsecs:"
 operator|<<
 name|nsecs
 expr_stmt|;
@@ -497,8 +497,6 @@ operator|>
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// don't check: t1.secsTo(t2)
-comment|//    QVERIFY(t1 - t2< 0);
 name|QVERIFY
 argument_list|(
 name|t1
