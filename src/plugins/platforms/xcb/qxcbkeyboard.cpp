@@ -6617,7 +6617,7 @@ name|modifiers
 argument_list|,
 name|code
 argument_list|,
-literal|0
+name|sym
 argument_list|,
 name|state
 argument_list|,
@@ -6767,7 +6767,7 @@ name|modifiers
 argument_list|,
 name|code
 argument_list|,
-literal|0
+name|sym
 argument_list|,
 name|state
 argument_list|,
