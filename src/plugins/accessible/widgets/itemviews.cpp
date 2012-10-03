@@ -4373,6 +4373,15 @@ expr_stmt|;
 endif|#
 directive|endif
 block|}
+if|if
+condition|(
+operator|!
+name|header
+condition|)
+return|return
+name|QRect
+argument_list|()
+return|;
 name|QPoint
 name|zero
 init|=
