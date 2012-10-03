@@ -1019,6 +1019,12 @@ name|has_input_shape
 return|;
 block|}
 end_expr_stmt
+begin_function_decl
+name|xcb_timestamp_t
+name|getTimestamp
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_decl_stmt
 name|private
 name|slots
