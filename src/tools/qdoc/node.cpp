@@ -1325,7 +1325,7 @@ case|case
 name|QmlClass
 case|:
 return|return
-literal|"QML class"
+literal|"QML type"
 return|;
 case|case
 name|QmlPropertyGroup
