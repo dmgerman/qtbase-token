@@ -210,6 +210,15 @@ name|filePath
 argument_list|)
 block|;
 name|void
+name|setWindowIcon
+argument_list|(
+specifier|const
+name|QIcon
+operator|&
+name|icon
+argument_list|)
+block|;
+name|void
 name|raise
 argument_list|()
 block|;
