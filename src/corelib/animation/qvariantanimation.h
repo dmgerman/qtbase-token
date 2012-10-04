@@ -336,8 +336,6 @@ name|QVariant
 modifier|&
 name|value
 parameter_list|)
-init|=
-literal|0
 function_decl|;
 end_function_decl
 begin_decl_stmt
