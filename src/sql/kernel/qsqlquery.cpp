@@ -763,9 +763,8 @@ operator|&&
 operator|(
 name|index
 operator|>
-name|QSql
-operator|::
-name|BeforeFirstRow
+operator|-
+literal|1
 operator|)
 condition|)
 return|return
