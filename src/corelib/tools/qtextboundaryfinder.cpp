@@ -373,7 +373,7 @@ begin_comment
 comment|/*!     \enum QTextBoundaryFinder::BoundaryType      \value Grapheme Finds a grapheme which is the smallest boundary. It     including letters, punctation marks, numerals and more.     \value Word Finds a word.     \value Line Finds possible positions for breaking the text into multiple     lines.     \value Sentence Finds sentence boundaries. These include periods, question     marks etc. */
 end_comment
 begin_comment
-comment|/*!   \enum QTextBoundaryFinder::BoundaryReason    \value NotAtBoundary  The boundary finder is not at a boundary position.   \value StartWord  The boundary finder is at the start of a word.   \value EndWord  The boundary finder is at the end of a word.   \value SoftHyphen  The boundary finder is at the soft hyphen                      (can occur for a Line boundary type only). */
+comment|/*!   \enum QTextBoundaryFinder::BoundaryReason    \value NotAtBoundary  The boundary finder is not at a boundary position.   \value StartWord  The boundary finder is at the start of a word.   \value EndWord  The boundary finder is at the end of a word.   \value MandatoryBreak  Since 5.0. The boundary finder is at the end of line                          (can occur for a Line boundary type only).   \value SoftHyphen  The boundary finder is at the soft hyphen                      (can occur for a Line boundary type only). */
 end_comment
 begin_comment
 comment|/*!   Constructs an invalid QTextBoundaryFinder object. */
@@ -1542,6 +1542,27 @@ break|break;
 case|case
 name|Line
 case|:
+comment|// ### TR#14 LB2 prohibits break at sot
+if|if
+condition|(
+name|d
+operator|->
+name|attributes
+index|[
+name|pos
+index|]
+operator|.
+name|mandatoryBreak
+operator|||
+name|pos
+operator|==
+literal|0
+condition|)
+name|reasons
+operator||=
+name|MandatoryBreak
+expr_stmt|;
+elseif|else
 if|if
 condition|(
 name|pos

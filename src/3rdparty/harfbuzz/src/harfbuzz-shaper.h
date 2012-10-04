@@ -249,9 +249,9 @@ name|wordEnd
 range|:
 literal|1
 decl_stmt|;
-DECL|member|unused
+DECL|member|mandatoryBreak
 name|hb_bitfield
-name|unused
+name|mandatoryBreak
 range|:
 literal|1
 decl_stmt|;

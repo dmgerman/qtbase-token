@@ -99,9 +99,9 @@ name|wordEnd
 range|:
 literal|1
 decl_stmt|;
-DECL|member|unused
+DECL|member|mandatoryBreak
 name|uchar
-name|unused
+name|mandatoryBreak
 range|:
 literal|1
 decl_stmt|;

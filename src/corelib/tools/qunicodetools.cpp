@@ -4965,6 +4965,13 @@ index|]
 operator|.
 name|lineBreak
 operator|=
+name|attributes
+index|[
+name|pos
+index|]
+operator|.
+name|mandatoryBreak
+operator|=
 literal|true
 expr_stmt|;
 goto|goto
@@ -5207,6 +5214,13 @@ index|]
 operator|.
 name|lineBreak
 operator|=
+name|attributes
+index|[
+literal|0
+index|]
+operator|.
+name|mandatoryBreak
+operator|=
 literal|false
 expr_stmt|;
 comment|// LB2
@@ -5216,6 +5230,13 @@ name|len
 index|]
 operator|.
 name|lineBreak
+operator|=
+name|attributes
+index|[
+name|len
+index|]
+operator|.
+name|mandatoryBreak
 operator|=
 literal|true
 expr_stmt|;
