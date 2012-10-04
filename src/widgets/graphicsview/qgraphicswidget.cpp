@@ -4224,6 +4224,11 @@ name|QEvent
 operator|::
 name|WindowDeactivate
 case|:
+case|case
+name|QEvent
+operator|::
+name|StyleAnimationUpdate
+case|:
 name|update
 argument_list|()
 expr_stmt|;

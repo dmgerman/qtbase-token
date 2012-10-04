@@ -30020,6 +30020,15 @@ break|break;
 case|case
 name|QEvent
 operator|::
+name|StyleAnimationUpdate
+case|:
+name|update
+argument_list|()
+expr_stmt|;
+break|break;
+case|case
+name|QEvent
+operator|::
 name|WindowBlocked
 case|:
 case|case
