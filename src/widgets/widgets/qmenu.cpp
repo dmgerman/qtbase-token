@@ -8869,6 +8869,21 @@ name|scroll
 condition|)
 block|{
 comment|// reset scroll state from last popup
+if|if
+condition|(
+name|d
+operator|->
+name|scroll
+operator|->
+name|scrollOffset
+condition|)
+name|d
+operator|->
+name|itemsDirty
+operator|=
+literal|1
+expr_stmt|;
+comment|// sizeHint will be incorrect if there is previous scroll
 name|d
 operator|->
 name|scroll
@@ -9527,6 +9542,14 @@ name|mouse
 argument_list|)
 operator|)
 decl_stmt|;
+specifier|const
+name|QSize
+name|menuSize
+argument_list|(
+name|sizeHint
+argument_list|()
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|adjustToDesktop
@@ -9910,7 +9933,7 @@ operator|.
 name|y
 argument_list|()
 operator|+
-name|size
+name|menuSize
 operator|.
 name|height
 argument_list|()
@@ -10021,14 +10044,6 @@ argument_list|,
 literal|0
 argument_list|,
 name|this
-argument_list|)
-decl_stmt|;
-specifier|const
-name|QSize
-name|menuSize
-argument_list|(
-name|sizeHint
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|QMenu
