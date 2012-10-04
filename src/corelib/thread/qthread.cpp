@@ -507,7 +507,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*!     \class QThread     \inmodule QtCore     \brief The QThread class provides platform-independent threads.      \ingroup thread      A QThread represents a separate thread of control within the     program; it shares data with all the other threads within the     process but executes independently in the way that a separate     program does on a multitasking operating system. Instead of     starting in \c main(), QThreads begin executing in run().  By     default, run() starts the event loop by calling exec() (see     below). To create your own threads, subclass QThread and     reimplement run(). For example:      \snippet code/src_corelib_thread_qthread.cpp 0      This will create a QTcpSocket in the thread and then execute the     thread's event loop. Use the start() method to begin execution.     Execution ends when you return from run(), just as an application     does when it leaves main(). QThread will notifiy you via a signal     when the thread is started(), finished(), and terminated(), or     you can use isFinished() and isRunning() to query the state of     the thread. Use wait() to block until the thread has finished     execution.      Each thread gets its own stack from the operating system. The     operating system also determines the default size of the stack.     You can use setStackSize() to set a custom stack size.      Each QThread can have its own event loop. You can start the event     loop by calling exec(); you can stop it by calling exit() or     quit(). Having an event loop in a thread makes it possible to     connect signals from other threads to slots in this thread, using     a mechanism called \l{Qt::QueuedConnection}{queued     connections}. It also makes it possible to use classes that     require the event loop, such as QTimer and QTcpSocket, in the     thread. Note, however, that it is not possible to use any widget     classes in the thread.      In extreme cases, you may want to forcibly terminate() an     executing thread. However, doing so is dangerous and discouraged.     Please read the documentation for terminate() and     setTerminationEnabled() for detailed information.      The static functions currentThreadId() and currentThread() return     identifiers for the currently executing thread. The former     returns a platform specific ID for the thread; the latter returns     a QThread pointer.      QThread also provides platform independent sleep functions in     varying resolutions. Use sleep() for full second resolution,     msleep() for millisecond resolution, and usleep() for microsecond     resolution.      \sa {Thread Support in Qt}, QThreadStorage, QMutex, QSemaphore, QWaitCondition,         {Mandelbrot Example}, {Semaphores Example}, {Wait Conditions Example} */
+comment|/*!     \class QThread     \inmodule QtCore     \brief The QThread class provides a platform-independent way to     manage threads.      \ingroup thread      A QThread object manages one thread of control within the     program. To make code run in a separate thread, simply create a     QThread, change the thread affinity of the QObject(s) that     contain the code, and start() the new event loop. For example:      \snippet code/src_corelib_thread_qthread.cpp 0      The code inside the Worker's slot would then execute in a     separate thread. In this example, the QThread triggers the     Worker's doWork() slot upon starting, and frees the Worker's     memory upon terminating. However, you are free to connect the     Worker's slots to any signal, from any object, in any thread. It     is safe to connect signals and slots across different threads,     thanks to a mechanism called \l{Qt::QueuedConnection}{queued     connections}.      \note If you interact with an object, using any technique other     than queued signal/slot connections (e.g. direct function calls),     then the usual multithreading precautions need to be taken.      \note It is not possible to change the thread affinity of GUI     objects; they must remain in the main thread.       \section1 Managing threads      QThread will notifiy you via a signal     when the thread is started(), finished(), and terminated(), or     you can use isFinished() and isRunning() to query the state of     the thread.      You can stop the thread by calling exit() or quit(). In extreme     cases, you may want to forcibly terminate() an executing thread.     However, doing so is dangerous and discouraged. Please read the     documentation for terminate() and setTerminationEnabled() for     detailed information.      From Qt 4.8 onwards, it is possible to deallocate objects that     live in a thread that has just ended, by connecting the     finished() signal to QObject::deleteLater().      Use wait() to block the calling thread, until the other thread     has finished execution (or until a specified time has passed).      QThread also provides static, platform independent sleep     functions: sleep(), msleep(), and usleep() allow full second,     millisecond, and microsecond resolution respectively. These     functions were made public in Qt 5.0.      \note wait() and the sleep() functions should be unnecessary in     general, since Qt is an event-driven framework. Instead of     wait(), consider listening for the finished() signal. Instead of     the sleep() functions, consider using QTimer.      The static functions currentThreadId() and currentThread() return     identifiers for the currently executing thread. The former     returns a platform specific ID for the thread; the latter returns     a QThread pointer.       \section1 Subclassing QThread      Subclassing QThread is unnecessary for most purposes, since     QThread provides fully-functional thread management capabilities.     Nonetheless, QThread can be subclassed if you wish to implement     advanced thread management. This is done by adding new member     functions to the subclass, and/or by reimplementing run().     QThread's run() function is analogous to an application's main()     function -- it is executed when the thread is started, and the     thread will end when it returns.      \note Prior to Qt 4.4, the only way to use QThread for parallel     processing was to subclass it and implement the processing code     inside run(). This approach is now considered \b {bad practice};     a QThread should only manage a thread, not process data.      If you require event handling and signal/slot connections to     work in your thread, and if you reimplement run(), you must     explicitly call exec() at the end of your reimplementation:      \snippet code/src_corelib_thread_qthread.cpp 1      It is important to remember that a QThread object usually lives     in the thread where it was created, not in the thread that it     manages. This oft-overlooked detail means that a QThread's slots     will be executed in the context of its home thread, not in the     context of the thread it is managing. For this reason,     implementing new slots in a QThread subclass is error-prone and     discouraged.      \sa {Thread Support in Qt}, QThreadStorage, QMutex, QSemaphore, QWaitCondition,         {Mandelbrot Example}, {Semaphores Example}, {Wait Conditions Example} */
 end_comment
 begin_comment
 comment|/*!     \fn Qt::HANDLE QThread::currentThreadId()      Returns the thread handle of the currently executing thread.      \warning The handle returned by this function is used for internal     purposes and should not be used in any application code.      \warning On Windows, the returned value is a pseudo-handle for the     current thread. It can't be used for numerical comparison. i.e.,     this function returns the DWORD (Windows-Thread ID) returned by     the Win32 function getCurrentThreadId(), not the HANDLE     (Windows-Thread HANDLE) returned by the Win32 function     getCurrentThread(). */
@@ -519,7 +519,7 @@ begin_comment
 comment|/*!     \fn void QThread::yieldCurrentThread()      Yields execution of the current thread to another runnable thread,     if any. Note that the operating system decides to which thread to     switch. */
 end_comment
 begin_comment
-comment|/*!     \fn void QThread::start(Priority priority)      Begins execution of the thread by calling run(), which should be     reimplemented in a QThread subclass to contain your code. The     operating system will schedule the thread according to the \a     priority parameter. If the thread is already running, this     function does nothing.      The effect of the \a priority parameter is dependent on the     operating system's scheduling policy. In particular, the \a priority     will be ignored on systems that do not support thread priorities     (such as on Linux, see http://linux.die.net/man/2/sched_setscheduler     for more details).      \sa run(), terminate() */
+comment|/*!     \fn void QThread::start(Priority priority)      Begins execution of the thread by calling run(). The     operating system will schedule the thread according to the \a     priority parameter. If the thread is already running, this     function does nothing.      The effect of the \a priority parameter is dependent on the     operating system's scheduling policy. In particular, the \a priority     will be ignored on systems that do not support thread priorities     (such as on Linux, see http://linux.die.net/man/2/sched_setscheduler     for more details).      \sa run(), terminate() */
 end_comment
 begin_comment
 comment|/*!     \fn void QThread::started()      This signal is emitted when the thread starts executing.      \sa finished(), terminated() */
@@ -534,7 +534,7 @@ begin_comment
 comment|/*!     \enum QThread::Priority      This enum type indicates how the operating system should schedule     newly created threads.      \value IdlePriority scheduled only when no other threads are            running.      \value LowestPriority scheduled less often than LowPriority.     \value LowPriority scheduled less often than NormalPriority.      \value NormalPriority the default priority of the operating            system.      \value HighPriority scheduled more often than NormalPriority.     \value HighestPriority scheduled more often than HighPriority.      \value TimeCriticalPriority scheduled as often as possible.      \value InheritPriority use the same priority as the creating            thread. This is the default. */
 end_comment
 begin_comment
-comment|/*!     Returns a pointer to a QThread which represents the currently     executing thread. */
+comment|/*!     Returns a pointer to a QThread which manages the currently     executing thread. */
 end_comment
 begin_function
 DECL|function|currentThread
@@ -569,7 +569,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Constructs a new thread with the given \a parent. The thread does     not begin executing until start() is called.      \sa start() */
+comment|/*!     Constructs a new QThread to manage a new thread. The \a parent     takes ownership of the QThread. The thread does not begin     executing until start() is called.      \sa start() */
 end_comment
 begin_constructor
 DECL|function|QThread
@@ -651,7 +651,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     Destroys the thread.      Note that deleting a QThread object will not stop the execution     of the thread it represents. Deleting a running QThread (i.e.     isFinished() returns false) will probably result in a program     crash. You can wait() on a thread to make sure that it has     finished. */
+comment|/*!     Destroys the QThread.      Note that deleting a QThread object will not stop the execution     of the thread it manages. Deleting a running QThread (i.e.     isFinished() returns false) will probably result in a program     crash. Wait for the finished() signal before deleting the     QThread. */
 end_comment
 begin_destructor
 DECL|function|~QThread
@@ -1093,7 +1093,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     The starting point for the thread. After calling start(), the     newly created thread calls this function. The default     implementation simply calls exec().      You can reimplemented this function to do other useful     work. Returning from this method will end the execution of the     thread.      \sa start(), wait() */
+comment|/*!     The starting point for the thread. After calling start(), the     newly created thread calls this function. The default     implementation simply calls exec().      You can reimplement this function to facilitate advanced thread     management. Returning from this method will end the execution of     the thread.      \sa start(), wait() */
 end_comment
 begin_function
 DECL|function|run
@@ -1160,13 +1160,13 @@ begin_comment
 comment|/*!     \fn void QThread::sleep(unsigned long secs)      Forces the current thread to sleep for \a secs seconds.      \sa msleep(), usleep() */
 end_comment
 begin_comment
-comment|/*!     \fn void QThread::msleep(unsigned long msecs)      Causes the current thread to sleep for \a msecs milliseconds.      \sa sleep(), usleep() */
+comment|/*!     \fn void QThread::msleep(unsigned long msecs)      Forces the current thread to sleep for \a msecs milliseconds.      \sa sleep(), usleep() */
 end_comment
 begin_comment
-comment|/*!     \fn void QThread::usleep(unsigned long usecs)      Causes the current thread to sleep for \a usecs microseconds.      \sa sleep(), msleep() */
+comment|/*!     \fn void QThread::usleep(unsigned long usecs)      Forces the current thread to sleep for \a usecs microseconds.      \sa sleep(), msleep() */
 end_comment
 begin_comment
-comment|/*!     \fn void QThread::terminate()      Terminates the execution of the thread. The thread may or may not     be terminated immediately, depending on the operating systems     scheduling policies. Use QThread::wait() after terminate() for     synchronous termination.      When the thread is terminated, all threads waiting for the thread     to finish will be woken up.      \warning This function is dangerous and its use is discouraged.     The thread can be terminated at any point in its code path.     Threads can be terminated while modifying data. There is no     chance for the thread to clean up after itself, unlock any held     mutexes, etc. In short, use this function only if absolutely     necessary.      Termination can be explicitly enabled or disabled by calling     QThread::setTerminationEnabled(). Calling this function while     termination is disabled results in the termination being     deferred, until termination is re-enabled. See the documentation     of QThread::setTerminationEnabled() for more information.      \sa setTerminationEnabled() */
+comment|/*!     \fn void QThread::terminate()      Terminates the execution of the thread. The thread may or may not     be terminated immediately, depending on the operating system's     scheduling policies. Listen for the terminated() signal, or use     QThread::wait() after terminate(), to be sure.      When the thread is terminated, all threads waiting for the thread     to finish will be woken up.      \warning This function is dangerous and its use is discouraged.     The thread can be terminated at any point in its code path.     Threads can be terminated while modifying data. There is no     chance for the thread to clean up after itself, unlock any held     mutexes, etc. In short, use this function only if absolutely     necessary.      Termination can be explicitly enabled or disabled by calling     QThread::setTerminationEnabled(). Calling this function while     termination is disabled results in the termination being     deferred, until termination is re-enabled. See the documentation     of QThread::setTerminationEnabled() for more information.      \sa setTerminationEnabled() */
 end_comment
 begin_comment
 comment|/*!     \fn bool QThread::wait(unsigned long time)      Blocks the thread until either of these conditions is met:      \list     \li The thread associated with this QThread object has finished        execution (i.e. when it returns from \l{run()}). This function        will return true if the thread has finished. It also returns        true if the thread has not been started yet.     \li \a time milliseconds has elapsed. If \a time is ULONG_MAX (the         default), then the wait will never timeout (the thread must         return from \l{run()}). This function will return false if the         wait timed out.     \endlist      This provides similar functionality to the POSIX \c     pthread_join() function.      \sa sleep(), terminate() */
@@ -1354,7 +1354,7 @@ begin_comment
 comment|// QT_NO_THREAD
 end_comment
 begin_comment
-comment|/*!     Returns a pointer to the event dispatcher object for the thread. If no event     dispatcher exists for the thread, this function returns 0. */
+comment|/*!     \since 5.0      Returns a pointer to the event dispatcher object for the thread. If no event     dispatcher exists for the thread, this function returns 0. */
 end_comment
 begin_function
 DECL|function|eventDispatcher
@@ -1382,7 +1382,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the event dispatcher for the thread to \a eventDispatcher. This is     only possible as long as there is no event dispatcher installed for the     thread yet. That is, before the thread has been started with start() or, in     case of the main thread, before QCoreApplication has been instantiated.     This method takes ownership of the object. */
+comment|/*!     \since 5.0      Sets the event dispatcher for the thread to \a eventDispatcher. This is     only possible as long as there is no event dispatcher installed for the     thread yet. That is, before the thread has been started with start() or, in     case of the main thread, before QCoreApplication has been instantiated.     This method takes ownership of the object. */
 end_comment
 begin_function
 DECL|function|setEventDispatcher
@@ -1454,6 +1454,9 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_comment
+comment|/*!     \reimp */
+end_comment
 begin_function
 DECL|function|event
 name|bool
