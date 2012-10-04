@@ -3268,7 +3268,7 @@ condition|)
 block|{
 name|qErrnoWarning
 argument_list|(
-literal|"%s: Unable to obtain IFileDialogEvents"
+literal|"Unable to obtain IFileDialogEvents"
 argument_list|)
 expr_stmt|;
 return|return
@@ -3762,7 +3762,7 @@ condition|)
 block|{
 name|qErrnoWarning
 argument_list|(
-literal|"%s: CoCreateInstance failed"
+literal|"CoCreateInstance failed"
 argument_list|)
 expr_stmt|;
 return|return
@@ -3809,7 +3809,7 @@ condition|)
 block|{
 name|qErrnoWarning
 argument_list|(
-literal|"%s: IFileDialog::Advise failed"
+literal|"IFileDialog::Advise failed"
 argument_list|)
 expr_stmt|;
 return|return
