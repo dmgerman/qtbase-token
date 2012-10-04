@@ -32,6 +32,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qwindowsstyle_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<private/qapplication_p.h>
 end_include
 begin_include
@@ -400,17 +405,16 @@ name|class
 name|QMacStylePrivate
 range|:
 name|public
-name|QObject
+name|QWindowsStylePrivate
 block|{
-name|Q_OBJECT
+name|Q_DECLARE_PUBLIC
+argument_list|(
+argument|QMacStyle
+argument_list|)
 name|public
 operator|:
 name|QMacStylePrivate
-argument_list|(
-name|QMacStyle
-operator|*
-name|style
-argument_list|)
+argument_list|()
 block|;
 comment|// Ideally these wouldn't exist, but since they already exist we need some accessors.
 specifier|static
@@ -559,6 +563,11 @@ argument|HIThemeTrackDrawInfo *tdi
 argument_list|,
 argument|const QWidget *needToRemoveMe
 argument_list|)
+specifier|const
+block|;
+name|void
+name|animate
+argument_list|()
 block|;
 name|bool
 name|doAnimate
@@ -611,25 +620,15 @@ block|;
 name|void
 name|initComboboxBdi
 argument_list|(
-specifier|const
-name|QStyleOptionComboBox
-operator|*
-name|combo
+argument|const QStyleOptionComboBox *combo
 argument_list|,
-name|HIThemeButtonDrawInfo
-operator|*
-name|bdi
+argument|HIThemeButtonDrawInfo *bdi
 argument_list|,
-specifier|const
-name|QWidget
-operator|*
-name|widget
+argument|const QWidget *widget
 argument_list|,
-specifier|const
-name|ThemeDrawState
-operator|&
-name|tds
+argument|const ThemeDrawState&tds
 argument_list|)
+specifier|const
 block|;
 specifier|static
 name|HIRect
@@ -718,28 +717,6 @@ name|generateBackgroundPattern
 argument_list|()
 specifier|const
 block|;
-name|protected
-operator|:
-name|bool
-name|eventFilter
-argument_list|(
-name|QObject
-operator|*
-argument_list|,
-name|QEvent
-operator|*
-argument_list|)
-block|;
-name|void
-name|timerEvent
-argument_list|(
-name|QTimerEvent
-operator|*
-argument_list|)
-block|;
-name|private
-name|slots
-operator|:
 name|void
 name|startAnimationTimer
 argument_list|()
@@ -853,6 +830,7 @@ name|bool
 name|cleared
 block|;     }
 block|;
+name|mutable
 name|QMap
 operator|<
 specifier|const
@@ -880,6 +858,7 @@ block|;
 name|UInt8
 name|progressFrame
 block|;
+name|mutable
 name|QPointer
 operator|<
 name|QFocusFrame
@@ -888,10 +867,6 @@ name|focusWidget
 block|;
 name|CFAbsoluteTime
 name|defaultButtonStart
-block|;
-name|QMacStyle
-operator|*
-name|q
 block|;
 name|bool
 name|mouseDown
