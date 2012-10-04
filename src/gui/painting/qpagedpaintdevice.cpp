@@ -430,7 +430,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   returns the current margins of the paint device. The default is 0.    /sa setMargins   */
+comment|/*!   returns the current margins of the paint device. The default is 0.    \sa setMargins   */
 end_comment
 begin_function
 DECL|function|margins
