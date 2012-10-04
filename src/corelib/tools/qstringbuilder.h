@@ -2581,7 +2581,6 @@ argument_list|,
 argument|QChar
 argument_list|)
 block|{
-comment|// append UTF-16 data to the byte array
 return|return
 name|a
 operator|+=
@@ -2589,6 +2588,9 @@ name|QString
 argument_list|(
 name|b
 argument_list|)
+operator|.
+name|toUtf8
+argument_list|()
 return|;
 block|}
 endif|#
