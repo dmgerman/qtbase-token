@@ -240,6 +240,16 @@ name|i
 argument_list|)
 decl|const
 decl_stmt|;
+name|QVariant
+name|value
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|name
+argument_list|)
+decl|const
+decl_stmt|;
 name|void
 name|setNumericalPrecisionPolicy
 argument_list|(
