@@ -9042,9 +9042,11 @@ name|QTableWidget
 operator|::
 name|selectedItems
 parameter_list|()
+specifier|const
 block|{
 name|Q_D
 argument_list|(
+specifier|const
 name|QTableWidget
 argument_list|)
 expr_stmt|;

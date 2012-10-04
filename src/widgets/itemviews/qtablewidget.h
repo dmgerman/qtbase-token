@@ -1413,6 +1413,7 @@ operator|*
 operator|>
 name|selectedItems
 argument_list|()
+specifier|const
 block|;
 name|QList
 operator|<
