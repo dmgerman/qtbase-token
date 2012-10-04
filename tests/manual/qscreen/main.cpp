@@ -160,6 +160,17 @@ operator|.
 name|count
 argument_list|()
 argument_list|,
+operator|(
+name|screen
+operator|->
+name|virtualSiblings
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+condition|?
+literal|"none"
+else|:
 name|qPrintable
 argument_list|(
 name|screen
@@ -173,6 +184,7 @@ operator|->
 name|name
 argument_list|()
 argument_list|)
+operator|)
 argument_list|)
 expr_stmt|;
 name|PropertyWatcher

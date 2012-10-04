@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|WIDGET_H
+name|PROPERTY_WATCHER_H
 end_ifndef
 begin_define
-DECL|macro|WIDGET_H
+DECL|macro|PROPERTY_WATCHER_H
 define|#
 directive|define
-name|WIDGET_H
+name|PROPERTY_WATCHER_H
 end_define
 begin_include
 include|#
@@ -110,6 +110,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// WIDGET_H
+comment|// PROPERTY_WATCHER_H
 end_comment
 end_unit
