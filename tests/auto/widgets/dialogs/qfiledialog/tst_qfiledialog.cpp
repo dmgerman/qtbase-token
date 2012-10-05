@@ -2336,6 +2336,9 @@ block|{
 if|if
 condition|(
 name|list
+index|[
+name|i
+index|]
 operator|.
 name|at
 argument_list|(
