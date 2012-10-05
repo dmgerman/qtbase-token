@@ -140,7 +140,7 @@ operator|>=
 literal|0
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
+name|Q_ASSERT_X
 argument_list|(
 name|alloc
 operator|<
@@ -151,6 +151,10 @@ literal|30
 operator|)
 operator|-
 name|extra
+argument_list|,
+literal|"qAllocMore"
+argument_list|,
+literal|"Requested size is too large!"
 argument_list|)
 expr_stmt|;
 name|unsigned
