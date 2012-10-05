@@ -1095,6 +1095,65 @@ return|;
 block|}
 end_function
 begin_function
+DECL|function|isValidWheelReceiver
+specifier|static
+name|bool
+name|isValidWheelReceiver
+parameter_list|(
+name|QWindow
+modifier|*
+name|candidate
+parameter_list|)
+block|{
+if|if
+condition|(
+name|candidate
+condition|)
+block|{
+specifier|const
+name|QWindow
+modifier|*
+name|toplevel
+init|=
+name|QWindowsWindow
+operator|::
+name|topLevelOf
+argument_list|(
+name|candidate
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+specifier|const
+name|QWindowsWindow
+modifier|*
+name|ww
+init|=
+name|QWindowsWindow
+operator|::
+name|baseWindowOf
+argument_list|(
+name|toplevel
+argument_list|)
+condition|)
+return|return
+operator|!
+name|ww
+operator|->
+name|testFlag
+argument_list|(
+name|QWindowsWindow
+operator|::
+name|BlockedByModal
+argument_list|)
+return|;
+block|}
+return|return
+literal|false
+return|;
+block|}
+end_function
+begin_function
 DECL|function|translateMouseWheelEvent
 name|bool
 name|QWindowsMouseHandler
@@ -1231,6 +1290,10 @@ operator|=
 operator|-
 name|delta
 expr_stmt|;
+comment|// Redirect wheel event to one of the following, in order of preference:
+comment|// 1) The window under mouse
+comment|// 2) The window receiving the event
+comment|// If a window is blocked by modality, it can't get the event.
 specifier|const
 name|QPoint
 name|globalPos
@@ -1250,18 +1313,53 @@ name|lParam
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// TODO: if there is a widget under the mouse and it is not shadowed
-comment|// QWindow *receiver = windowAt(pos);
-comment|// by modality, we send the event to it first.
-comment|//synaptics touchpad shows its own widget at this position
-comment|//so widgetAt() will fail with that HWND, try child of this widget
-comment|// if (!receiver) receiver = window->childAt(pos);
 name|QWindow
 modifier|*
 name|receiver
 init|=
-name|window
+name|QWindowsScreen
+operator|::
+name|windowAt
+argument_list|(
+name|globalPos
+argument_list|)
 decl_stmt|;
+name|bool
+name|handleEvent
+init|=
+literal|true
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|isValidWheelReceiver
+argument_list|(
+name|receiver
+argument_list|)
+condition|)
+block|{
+name|receiver
+operator|=
+name|window
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|isValidWheelReceiver
+argument_list|(
+name|receiver
+argument_list|)
+condition|)
+name|handleEvent
+operator|=
+literal|false
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|handleEvent
+condition|)
+block|{
 name|QWindowSystemInterface
 operator|::
 name|handleWheelEvent
@@ -1286,6 +1384,7 @@ argument_list|,
 name|mods
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 literal|true
 return|;
