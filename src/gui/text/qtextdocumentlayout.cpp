@@ -1707,12 +1707,12 @@ parameter_list|(
 specifier|const
 name|QCheckPoint
 modifier|&
-name|checkPoint2
+name|checkPoint1
 parameter_list|,
 specifier|const
 name|QCheckPoint
 modifier|&
-name|checkPoint1
+name|checkPoint2
 parameter_list|)
 block|{
 return|return
