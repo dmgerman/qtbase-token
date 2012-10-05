@@ -863,6 +863,22 @@ modifier|&
 name|start
 parameter_list|)
 block|{
+comment|// A timeout of -1 means we should block indefinitely. If we get here, we got woken up by a
+comment|// non-IO BPS event, and that event has been processed already. This means we can go back and
+comment|// block in bps_get_event().
+comment|// Note that processing the BPS event might have triggered a wakeup, in that case we get a
+comment|// IO event in the next bps_get_event() right away.
+if|if
+condition|(
+operator|*
+name|timeout
+operator|==
+operator|-
+literal|1
+condition|)
+return|return
+literal|true
+return|;
 if|if
 condition|(
 name|Q_UNLIKELY
