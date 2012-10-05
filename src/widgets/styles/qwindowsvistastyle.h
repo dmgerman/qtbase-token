@@ -232,14 +232,6 @@ operator|*
 name|app
 argument_list|)
 block|;
-name|bool
-name|event
-argument_list|(
-name|QEvent
-operator|*
-name|event
-argument_list|)
-block|;
 name|QPalette
 name|standardPalette
 argument_list|()
