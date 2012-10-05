@@ -34,6 +34,7 @@ literal|0x13
 argument_list|,
 literal|0xee
 argument_list|)
+decl_stmt|;
 end_decl_stmt
 begin_comment
 comment|//! [0]
