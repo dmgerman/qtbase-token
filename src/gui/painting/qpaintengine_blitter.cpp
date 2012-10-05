@@ -3001,6 +3001,7 @@ block|}
 elseif|else
 if|if
 condition|(
+operator|(
 name|brush
 operator|.
 name|style
@@ -3009,6 +3010,21 @@ operator|==
 name|Qt
 operator|::
 name|TexturePattern
+operator|)
+operator|&&
+operator|(
+name|brush
+operator|.
+name|transform
+argument_list|()
+operator|.
+name|type
+argument_list|()
+operator|<=
+name|QTransform
+operator|::
+name|TxTranslate
+operator|)
 operator|&&
 operator|(
 operator|(
@@ -3109,6 +3125,14 @@ name|brushOrigin
 operator|.
 name|x
 argument_list|()
+operator|-
+name|brush
+operator|.
+name|transform
+argument_list|()
+operator|.
+name|dx
+argument_list|()
 argument_list|)
 operator|%
 name|pm
@@ -3153,6 +3177,14 @@ operator|->
 name|brushOrigin
 operator|.
 name|y
+argument_list|()
+operator|-
+name|brush
+operator|.
+name|transform
+argument_list|()
+operator|.
+name|dy
 argument_list|()
 argument_list|)
 operator|%
@@ -4083,7 +4115,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|// Overridden methods to lock the graphics memory
+comment|// Overriden methods to lock the graphics memory
 end_comment
 begin_function
 DECL|function|drawPolygon
