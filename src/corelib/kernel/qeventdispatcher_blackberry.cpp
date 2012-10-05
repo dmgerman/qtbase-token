@@ -397,9 +397,45 @@ literal|"QEventDispatcherBlackberryPrivate::QEventDispatcherBlackberry: bps_regi
 argument_list|)
 expr_stmt|;
 block|}
-comment|// \TODO Reinstate this when bps is fixed. See comment in select() below.
 comment|// Register thread_pipe[0] with bps
-comment|/*     int io_events = BPS_IO_INPUT;     result = bps_add_fd(thread_pipe[0], io_events,&bpsIOHandler, ioData.data());     if (result != BPS_SUCCESS)         qWarning()<< Q_FUNC_INFO<< "bps_add_fd() failed";     */
+name|int
+name|io_events
+init|=
+name|BPS_IO_INPUT
+decl_stmt|;
+name|result
+operator|=
+name|bps_add_fd
+argument_list|(
+name|thread_pipe
+index|[
+literal|0
+index|]
+argument_list|,
+name|io_events
+argument_list|,
+operator|&
+name|bpsIOHandler
+argument_list|,
+name|ioData
+operator|.
+name|data
+argument_list|()
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|result
+operator|!=
+name|BPS_SUCCESS
+condition|)
+name|qWarning
+argument_list|()
+operator|<<
+name|Q_FUNC_INFO
+operator|<<
+literal|"bps_add_fd() failed"
+expr_stmt|;
 block|}
 end_constructor
 begin_destructor
@@ -410,6 +446,32 @@ name|~
 name|QEventDispatcherBlackberryPrivate
 parameter_list|()
 block|{
+comment|// Unregister thread_pipe[0] from bps
+specifier|const
+name|int
+name|result
+init|=
+name|bps_remove_fd
+argument_list|(
+name|thread_pipe
+index|[
+literal|0
+index|]
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|result
+operator|!=
+name|BPS_SUCCESS
+condition|)
+name|qWarning
+argument_list|()
+operator|<<
+name|Q_FUNC_INFO
+operator|<<
+literal|"bps_remove_fd() failed"
+expr_stmt|;
 comment|// we're done using BPS
 name|bps_shutdown
 argument_list|()
@@ -946,60 +1008,6 @@ name|exceptfds
 operator|=
 name|exceptfds
 expr_stmt|;
-comment|// \TODO Remove this when bps is fixed
-comment|//
-comment|// Work around a bug in BPS with which if we register the thread_pipe[0] fd with bps in the
-comment|// private class' ctor once only then we get spurious notifications that thread_pipe[0] is
-comment|// ready for reading. The first time the notification is correct and the pipe is emptied in
-comment|// the calling doSelect() function. The 2nd notification is an error and the resulting attempt
-comment|// to read and call to wakeUps.testAndSetRelease(1, 0) fails as there has been no intervening
-comment|// call to QEventDispatcherUNIX::wakeUp().
-comment|//
-comment|// Registering thread_pipe[0] here and unregistering it at the end of this call works around
-comment|// this issue.
-name|int
-name|io_events
-init|=
-name|BPS_IO_INPUT
-decl_stmt|;
-name|int
-name|result
-init|=
-name|bps_add_fd
-argument_list|(
-name|d
-operator|->
-name|thread_pipe
-index|[
-literal|0
-index|]
-argument_list|,
-name|io_events
-argument_list|,
-operator|&
-name|bpsIOHandler
-argument_list|,
-name|d
-operator|->
-name|ioData
-operator|.
-name|data
-argument_list|()
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-name|BPS_SUCCESS
-condition|)
-name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|"bps_add_fd() failed"
-expr_stmt|;
 comment|// reset all file sets
 if|if
 condition|(
@@ -1069,8 +1077,10 @@ name|event
 init|=
 name|NULL
 decl_stmt|;
+specifier|const
+name|int
 name|result
-operator|=
+init|=
 name|bps_get_event
 argument_list|(
 operator|&
@@ -1078,7 +1088,7 @@ name|event
 argument_list|,
 name|timeout_bps
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|result
@@ -1144,32 +1154,6 @@ argument_list|)
 condition|)
 break|break;
 block|}
-comment|// \TODO Remove this when bps is fixed (see comment above)
-name|result
-operator|=
-name|bps_remove_fd
-argument_list|(
-name|d
-operator|->
-name|thread_pipe
-index|[
-literal|0
-index|]
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-name|BPS_SUCCESS
-condition|)
-name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|"bps_remove_fd() failed"
-expr_stmt|;
 comment|// the number of bits set in the file sets
 return|return
 name|d
