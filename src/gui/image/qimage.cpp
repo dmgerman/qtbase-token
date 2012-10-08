@@ -20086,7 +20086,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Loads an image from the file with the given \a fileName. Returns true if     the image was successfully loaded; otherwise returns false.      The loader attempts to read the image using the specified \a format, e.g.,     PNG or JPG. If \a format is not specified (which is the default), the     loader probes the file for a header to guess the file format.      The file name can either refer to an actual file on disk or to one     of the application's embedded resources. See the     \l{resources.html}{Resource System} overview for details on how to     embed images and other resource files in the application's     executable.      \sa {QImage#Reading and Writing Image Files}{Reading and Writing Image Files} */
+comment|/*!     Loads an image from the file with the given \a fileName. Returns true if     the image was successfully loaded; otherwise invalidates the image     and returns false.      The loader attempts to read the image using the specified \a format, e.g.,     PNG or JPG. If \a format is not specified (which is the default), the     loader probes the file for a header to guess the file format.      The file name can either refer to an actual file on disk or to one     of the application's embedded resources. See the     \l{resources.html}{Resource System} overview for details on how to     embed images and other resource files in the application's     executable.      \sa {QImage#Reading and Writing Image Files}{Reading and Writing Image Files} */
 end_comment
 begin_function
 DECL|function|load
@@ -20106,16 +20106,6 @@ modifier|*
 name|format
 parameter_list|)
 block|{
-if|if
-condition|(
-name|fileName
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-return|return
-literal|false
-return|;
 name|QImage
 name|image
 init|=
@@ -20129,15 +20119,6 @@ operator|.
 name|read
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-operator|!
-name|image
-operator|.
-name|isNull
-argument_list|()
-condition|)
-block|{
 name|operator
 name|=
 parameter_list|(
@@ -20145,11 +20126,9 @@ name|image
 parameter_list|)
 function_decl|;
 return|return
-literal|true
-return|;
-block|}
-return|return
-literal|false
+operator|!
+name|isNull
+argument_list|()
 return|;
 block|}
 end_function
@@ -20186,15 +20165,6 @@ operator|.
 name|read
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-operator|!
-name|image
-operator|.
-name|isNull
-argument_list|()
-condition|)
-block|{
 name|operator
 name|=
 parameter_list|(
@@ -20202,16 +20172,14 @@ name|image
 parameter_list|)
 function_decl|;
 return|return
-literal|true
-return|;
-block|}
-return|return
-literal|false
+operator|!
+name|isNull
+argument_list|()
 return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QImage::loadFromData(const uchar *data, int len, const char *format)      Loads an image from the first \a len bytes of the given binary \a     data. Returns true if the image was successfully loaded; otherwise     returns false.      The loader attempts to read the image using the specified \a format, e.g.,     PNG or JPG. If \a format is not specified (which is the default), the     loader probes the file for a header to guess the file format.      \sa {QImage#Reading and Writing Image Files}{Reading and Writing Image Files} */
+comment|/*!     \fn bool QImage::loadFromData(const uchar *data, int len, const char *format)      Loads an image from the first \a len bytes of the given binary \a     data. Returns true if the image was successfully loaded; otherwise     invalidates the image and returns false.      The loader attempts to read the image using the specified \a format, e.g.,     PNG or JPG. If \a format is not specified (which is the default), the     loader probes the file for a header to guess the file format.      \sa {QImage#Reading and Writing Image Files}{Reading and Writing Image Files} */
 end_comment
 begin_function
 DECL|function|loadFromData
@@ -20246,15 +20214,6 @@ argument_list|,
 name|format
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-operator|!
-name|image
-operator|.
-name|isNull
-argument_list|()
-condition|)
-block|{
 name|operator
 name|=
 parameter_list|(
@@ -20262,11 +20221,9 @@ name|image
 parameter_list|)
 function_decl|;
 return|return
-literal|true
-return|;
-block|}
-return|return
-literal|false
+operator|!
+name|isNull
+argument_list|()
 return|;
 block|}
 end_function
