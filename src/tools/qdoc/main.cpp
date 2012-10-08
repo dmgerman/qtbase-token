@@ -237,6 +237,15 @@ literal|false
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|noLinkErrors
+specifier|static
+name|bool
+name|noLinkErrors
+init|=
+literal|false
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|obsoleteLinks
 specifier|static
 name|bool
@@ -298,6 +307,8 @@ literal|"    -installdir    "
 literal|"Specify the directory where the output will be after running \"make install\"\n"
 literal|"    -no-examples   "
 literal|"Do not generate documentation for examples\n"
+literal|"    -no-link-errors   "
+literal|"Do not print link errors (i.e. missing targets)\n"
 literal|"    -obsoletelinks "
 literal|"Report links from obsolete items to non-obsolete items\n"
 literal|"    -outputdir     "
@@ -448,6 +459,22 @@ argument_list|,
 name|QStringList
 argument_list|(
 name|showInternal
+condition|?
+literal|"true"
+else|:
+literal|"false"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|config
+operator|.
+name|setStringList
+argument_list|(
+name|CONFIG_NOLINKERRORS
+argument_list|,
+name|QStringList
+argument_list|(
+name|noLinkErrors
 condition|?
 literal|"true"
 else|:
@@ -2563,6 +2590,19 @@ argument_list|)
 expr_stmt|;
 name|i
 operator|++
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|opt
+operator|==
+literal|"-no-link-errors"
+condition|)
+block|{
+name|noLinkErrors
+operator|=
+literal|true
 expr_stmt|;
 block|}
 elseif|else

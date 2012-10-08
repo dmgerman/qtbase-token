@@ -298,6 +298,15 @@ return|return
 name|debugging_
 return|;
 block|}
+specifier|static
+name|bool
+name|noLinkErrors
+parameter_list|()
+block|{
+return|return
+name|noLinkErrors_
+return|;
+block|}
 name|protected
 label|:
 name|virtual
@@ -1075,6 +1084,10 @@ decl_stmt|;
 specifier|static
 name|bool
 name|debugging_
+decl_stmt|;
+specifier|static
+name|bool
+name|noLinkErrors_
 decl_stmt|;
 name|void
 name|appendFullName

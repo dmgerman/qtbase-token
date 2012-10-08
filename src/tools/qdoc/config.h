@@ -816,6 +816,13 @@ name|CONFIG_NATURALLANGUAGE
 value|"naturallanguage"
 end_define
 begin_define
+DECL|macro|CONFIG_NOLINKERRORS
+define|#
+directive|define
+name|CONFIG_NOLINKERRORS
+value|"nolinkerrors"
+end_define
+begin_define
 DECL|macro|CONFIG_OBSOLETELINKS
 define|#
 directive|define

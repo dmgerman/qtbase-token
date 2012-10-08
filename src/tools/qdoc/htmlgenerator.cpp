@@ -4461,6 +4461,10 @@ name|myLink
 operator|.
 name|isEmpty
 argument_list|()
+operator|&&
+operator|!
+name|noLinkErrors
+argument_list|()
 condition|)
 block|{
 name|relative
@@ -4475,7 +4479,7 @@ name|warning
 argument_list|(
 name|tr
 argument_list|(
-literal|"Can't create link to '%1'"
+literal|"Can't link to '%1'"
 argument_list|)
 operator|.
 name|arg

@@ -6260,6 +6260,10 @@ name|myLink
 operator|.
 name|isEmpty
 argument_list|()
+operator|&&
+operator|!
+name|noLinkErrors
+argument_list|()
 condition|)
 name|relative
 operator|->
