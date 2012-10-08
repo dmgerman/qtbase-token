@@ -10,6 +10,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qlibraryinfo.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<stdlib.h>
 end_include
 begin_include
@@ -498,6 +503,33 @@ literal|"false"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QString
+name|documentationPath
+init|=
+name|QLibraryInfo
+operator|::
+name|rawLocation
+argument_list|(
+name|QLibraryInfo
+operator|::
+name|DocumentationPath
+argument_list|,
+name|QLibraryInfo
+operator|::
+name|EffectivePaths
+argument_list|)
+decl_stmt|;
+comment|// Set a few environment variables that can be used from the qdocconf file
+name|qputenv
+argument_list|(
+literal|"QT_INSTALL_DOCS"
+argument_list|,
+name|documentationPath
+operator|.
+name|toLatin1
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|/*       With the default configuration values in place, load       the qdoc configuration file. Note that the configuration       file may include other configuration files.        The Location class keeps track of the current location       in the file being processed, mainly for error reporting       purposes.      */
 name|Location
 operator|::
@@ -794,6 +826,25 @@ operator|.
 name|getStringList
 argument_list|(
 name|CONFIG_DEPENDS
+argument_list|)
+expr_stmt|;
+comment|// Allow modules and third-party application/libraries to link
+comment|// to the Qt docs without having to explicitly pass --indexdir.
+if|if
+condition|(
+operator|!
+name|indexDirs
+operator|.
+name|contains
+argument_list|(
+name|documentationPath
+argument_list|)
+condition|)
+name|indexDirs
+operator|.
+name|append
+argument_list|(
+name|documentationPath
 argument_list|)
 expr_stmt|;
 if|if
