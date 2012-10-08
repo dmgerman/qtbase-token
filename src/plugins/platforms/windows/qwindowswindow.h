@@ -396,6 +396,10 @@ block|,
 name|WithinSetStyle
 operator|=
 literal|0x800
+block|,
+name|WithinDestroy
+operator|=
+literal|0x1000
 block|}
 decl_stmt|;
 end_decl_stmt

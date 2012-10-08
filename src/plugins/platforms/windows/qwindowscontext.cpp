@@ -3663,6 +3663,21 @@ condition|(
 name|platformWindow
 condition|)
 block|{
+comment|// Suppress events sent during DestroyWindow() for native children.
+if|if
+condition|(
+name|platformWindow
+operator|->
+name|testFlag
+argument_list|(
+name|QWindowsWindow
+operator|::
+name|WithinDestroy
+argument_list|)
+condition|)
+return|return
+literal|false
+return|;
 if|if
 condition|(
 name|QWindowsContext
