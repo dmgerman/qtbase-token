@@ -340,6 +340,30 @@ argument_list|(
 argument|screen_window_t qnxWindow
 argument_list|)
 block|;
+name|QQnxScreen
+operator|*
+name|screenForNative
+argument_list|(
+argument|screen_display_t qnxScreen
+argument_list|)
+specifier|const
+block|;
+name|void
+name|createDisplay
+argument_list|(
+argument|screen_display_t display
+argument_list|,
+argument|bool isPrimary
+argument_list|)
+block|;
+name|void
+name|removeDisplay
+argument_list|(
+name|QQnxScreen
+operator|*
+name|screen
+argument_list|)
+block|;
 name|private
 operator|:
 name|void

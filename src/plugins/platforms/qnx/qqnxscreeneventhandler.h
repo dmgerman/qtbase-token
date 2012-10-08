@@ -25,6 +25,12 @@ file|<screen/screen.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+DECL|variable|QQnxIntegration
+name|class
+name|QQnxIntegration
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QQnxScreenEventHandler
 range|:
@@ -34,8 +40,13 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+name|explicit
 name|QQnxScreenEventHandler
-argument_list|()
+argument_list|(
+name|QQnxIntegration
+operator|*
+name|integration
+argument_list|)
 block|;
 name|bool
 name|handleEvent
@@ -118,6 +129,12 @@ argument_list|(
 argument|screen_event_t event
 argument_list|)
 block|;
+name|void
+name|handleDisplayEvent
+argument_list|(
+argument|screen_event_t event
+argument_list|)
+block|;
 name|private
 operator|:
 expr|enum
@@ -126,6 +143,10 @@ name|MaximumTouchPoints
 operator|=
 literal|10
 block|}
+block|;
+name|QQnxIntegration
+operator|*
+name|m_qnxIntegration
 block|;
 name|QPoint
 name|m_lastGlobalMousePoint
