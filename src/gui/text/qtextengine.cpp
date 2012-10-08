@@ -606,9 +606,8 @@ argument_list|()
 operator|&
 name|QTextBoundaryFinder
 operator|::
-name|StartWord
+name|StartOfItem
 condition|)
-block|{
 name|itemAnalysis
 operator|.
 name|flags
@@ -622,7 +621,6 @@ operator|->
 name|toNextBoundary
 argument_list|()
 expr_stmt|;
-block|}
 specifier|const
 name|int
 name|end
@@ -649,7 +647,7 @@ name|i
 control|)
 block|{
 name|bool
-name|atWordBoundary
+name|atWordStart
 init|=
 literal|false
 decl_stmt|;
@@ -672,8 +670,11 @@ argument_list|()
 operator|&
 name|QTextBoundaryFinder
 operator|::
-name|StartWord
-operator|&&
+name|StartOfItem
+condition|)
+block|{
+name|Q_ASSERT
+argument_list|(
 name|m_analysis
 index|[
 name|i
@@ -684,11 +685,13 @@ operator|<
 name|QScriptAnalysis
 operator|::
 name|TabOrObject
-condition|)
-name|atWordBoundary
+argument_list|)
+expr_stmt|;
+name|atWordStart
 operator|=
 literal|true
 expr_stmt|;
+block|}
 name|m_splitter
 operator|->
 name|toNextBoundary
@@ -716,7 +719,7 @@ operator|::
 name|TabOrObject
 operator|&&
 operator|!
-name|atWordBoundary
+name|atWordStart
 operator|&&
 name|i
 operator|-
@@ -750,7 +753,7 @@ index|]
 expr_stmt|;
 if|if
 condition|(
-name|atWordBoundary
+name|atWordStart
 condition|)
 name|itemAnalysis
 operator|.
