@@ -755,27 +755,6 @@ name|connection
 argument_list|()
 argument_list|)
 return|;
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|XCB_USE_DRI2
-argument_list|)
-return|return
-operator|new
-name|QDri2Context
-argument_list|(
-name|context
-operator|->
-name|format
-argument_list|()
-argument_list|,
-name|context
-operator|->
-name|shareHandle
-argument_list|()
-argument_list|)
-return|;
 else|#
 directive|else
 name|Q_UNUSED
@@ -785,7 +764,7 @@ argument_list|)
 expr_stmt|;
 name|qWarning
 argument_list|(
-literal|"QXcbIntegration: Cannot create platform OpenGL context, none of GLX, EGL, or DRI2 are enabled"
+literal|"QXcbIntegration: Cannot create platform OpenGL context, neither GLX nor EGL are enabled"
 argument_list|)
 expr_stmt|;
 return|return
@@ -872,11 +851,6 @@ directive|elif
 name|defined
 argument_list|(
 name|XCB_USE_EGL
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|XCB_USE_DRI2
 argument_list|)
 case|case
 name|OpenGL
