@@ -1855,11 +1855,13 @@ argument_list|(
 name|mib
 argument_list|)
 return|;
-endif|#
-directive|endif
+else|#
+directive|else
 return|return
 literal|0
 return|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_comment

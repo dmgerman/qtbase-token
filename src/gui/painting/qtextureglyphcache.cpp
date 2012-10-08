@@ -1247,7 +1247,6 @@ argument_list|,
 name|m_transform
 argument_list|)
 return|;
-else|else
 return|return
 name|m_current_fontengine
 operator|->
@@ -1259,10 +1258,6 @@ name|subPixelPosition
 argument_list|,
 name|m_transform
 argument_list|)
-return|;
-return|return
-name|QImage
-argument_list|()
 return|;
 block|}
 end_function

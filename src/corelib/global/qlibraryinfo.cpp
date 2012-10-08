@@ -726,11 +726,13 @@ name|QT_DEBUG
 return|return
 literal|true
 return|;
-endif|#
-directive|endif
+else|#
+directive|else
 return|return
 literal|false
 return|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_endif

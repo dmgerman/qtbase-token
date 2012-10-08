@@ -2084,9 +2084,6 @@ name|effect
 argument_list|)
 operator|)
 return|;
-return|return
-literal|false
-return|;
 block|}
 end_function
 begin_function
