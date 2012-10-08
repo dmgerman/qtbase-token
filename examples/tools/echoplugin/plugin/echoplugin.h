@@ -26,11 +26,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"echoplugin.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"echointerface.h"
 end_include
 begin_comment
