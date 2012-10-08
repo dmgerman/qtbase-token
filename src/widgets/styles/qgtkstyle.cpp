@@ -5591,9 +5591,12 @@ name|d
 operator|->
 name|gtk_widget_style_get
 argument_list|(
-name|gtkStatusbarFrame
+name|d
 operator|->
-name|parent
+name|gtk_widget_get_parent
+argument_list|(
+name|gtkStatusbarFrame
+argument_list|)
 argument_list|,
 literal|"shadow-type"
 argument_list|,
