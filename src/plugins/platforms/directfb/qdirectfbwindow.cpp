@@ -576,9 +576,7 @@ block|}
 end_function
 begin_function
 DECL|function|setWindowFlags
-name|Qt
-operator|::
-name|WindowFlags
+name|void
 name|QDirectFbWindow
 operator|::
 name|setWindowFlags
@@ -666,9 +664,6 @@ else|:
 name|DWSC_MIDDLE
 argument_list|)
 expr_stmt|;
-return|return
-name|flags
-return|;
 block|}
 end_function
 begin_function

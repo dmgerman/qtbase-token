@@ -151,9 +151,7 @@ block|}
 end_function
 begin_function
 DECL|function|setWindowFlags
-name|Qt
-operator|::
-name|WindowFlags
+name|void
 name|QFbWindow
 operator|::
 name|setWindowFlags
@@ -174,9 +172,6 @@ operator|->
 name|invalidateRectCache
 argument_list|()
 expr_stmt|;
-return|return
-name|mWindowFlags
-return|;
 block|}
 end_function
 begin_function

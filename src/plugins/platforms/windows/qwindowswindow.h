@@ -578,17 +578,18 @@ argument_list|)
 decl|const
 decl_stmt|;
 end_decl_stmt
-begin_expr_stmt
+begin_decl_stmt
 name|virtual
+name|void
+name|setWindowFlags
+argument_list|(
 name|Qt
 operator|::
 name|WindowFlags
-name|setWindowFlags
-argument_list|(
-argument|Qt::WindowFlags flags
+name|flags
 argument_list|)
-expr_stmt|;
-end_expr_stmt
+decl_stmt|;
+end_decl_stmt
 begin_expr_stmt
 name|virtual
 name|Qt
