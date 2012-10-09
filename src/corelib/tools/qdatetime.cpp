@@ -6768,7 +6768,7 @@ name|QDateTime
 operator|::
 name|addSecs
 parameter_list|(
-name|int
+name|qint64
 name|s
 parameter_list|)
 specifier|const
@@ -6781,10 +6781,7 @@ argument_list|(
 operator|*
 name|this
 argument_list|,
-name|qint64
-argument_list|(
 name|s
-argument_list|)
 operator|*
 literal|1000
 argument_list|)
@@ -6857,7 +6854,7 @@ comment|/*!     Returns the number of seconds from this datetime to the \a other
 end_comment
 begin_function
 DECL|function|secsTo
-name|int
+name|qint64
 name|QDateTime
 operator|::
 name|secsTo

@@ -8686,6 +8686,9 @@ argument_list|(
 name|result
 argument_list|)
 argument_list|,
+operator|(
+name|qint64
+operator|)
 name|nsecs
 argument_list|)
 expr_stmt|;
@@ -8698,6 +8701,9 @@ argument_list|(
 name|dt
 argument_list|)
 argument_list|,
+operator|(
+name|qint64
+operator|)
 operator|-
 name|nsecs
 argument_list|)

@@ -1344,7 +1344,7 @@ decl_stmt|;
 name|QDateTime
 name|addSecs
 argument_list|(
-name|int
+name|qint64
 name|secs
 argument_list|)
 decl|const
@@ -1406,7 +1406,7 @@ operator|&
 argument_list|)
 decl|const
 decl_stmt|;
-name|int
+name|qint64
 name|secsTo
 argument_list|(
 specifier|const
