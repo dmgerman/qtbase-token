@@ -21586,6 +21586,13 @@ operator|->
 name|maybeTopData
 argument_list|()
 condition|)
+block|{
+if|if
+condition|(
+name|extra
+operator|->
+name|window
+condition|)
 emit|emit
 name|extra
 operator|->
@@ -21596,6 +21603,7 @@ argument_list|(
 name|f
 argument_list|)
 emit|;
+block|}
 block|}
 comment|// updates focus_child on parent widgets to point into this widget
 DECL|function|updateFocusChild
