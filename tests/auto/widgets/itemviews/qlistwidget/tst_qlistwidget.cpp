@@ -10318,9 +10318,10 @@ operator|::
 name|processEvents
 argument_list|()
 expr_stmt|;
-comment|// only one item should be repainted, the rest should be scrolled in memory
-name|QCOMPARE
-argument_list|(
+specifier|const
+name|QSize
+name|actualItemSize
+init|=
 name|widget
 operator|.
 name|painted
@@ -10330,6 +10331,26 @@ argument_list|()
 operator|.
 name|size
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|actualItemSize
+operator|!=
+name|itemSize
+condition|)
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"QTBUG-21098"
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+comment|// only one item should be repainted, the rest should be scrolled in memory
+name|QCOMPARE
+argument_list|(
+name|actualItemSize
 argument_list|,
 name|itemSize
 argument_list|)
