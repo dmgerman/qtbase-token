@@ -1081,18 +1081,82 @@ operator|/
 literal|1000
 operator|)
 expr_stmt|;
+name|bool
+name|hasProcessedEventsOnce
+init|=
+literal|false
+decl_stmt|;
+name|bps_event_t
+modifier|*
+name|event
+init|=
+literal|0
+decl_stmt|;
 comment|// This loop exists such that we can drain the bps event queue of all native events
 comment|// more efficiently than if we were to return control to Qt after each event. This
 comment|// is important for handling touch events which can come in rapidly.
 forever|forever
 block|{
-comment|// Wait for event or file to be ready
-name|bps_event_t
-modifier|*
+name|Q_ASSERT
+argument_list|(
+operator|!
+name|hasProcessedEventsOnce
+operator|||
 name|event
-init|=
-name|NULL
-decl_stmt|;
+argument_list|)
+expr_stmt|;
+comment|// Only emit the awake() and aboutToBlock() signals in the second iteration. For the first
+comment|// iteration, the UNIX event dispatcher will have taken care of that already.
+if|if
+condition|(
+name|hasProcessedEventsOnce
+condition|)
+emit|emit
+name|awake
+argument_list|()
+emit|;
+comment|// Filtering the native event should happen between the awake() and aboutToBlock() signal
+comment|// emissions. The calls awake() - filterNativeEvent() - aboutToBlock() - bps_get_event()
+comment|// need not to be interrupted by a break or return statement.
+comment|//
+comment|// Because of this, the native event is actually processed one loop iteration
+comment|// after it was retrieved with bps_get_event().
+if|if
+condition|(
+name|event
+condition|)
+name|filterNativeEvent
+argument_list|(
+name|QByteArrayLiteral
+argument_list|(
+literal|"bps_event_t"
+argument_list|)
+argument_list|,
+cast|static_cast
+argument_list|<
+name|void
+operator|*
+argument_list|>
+argument_list|(
+name|event
+argument_list|)
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|hasProcessedEventsOnce
+condition|)
+emit|emit
+name|aboutToBlock
+argument_list|()
+emit|;
+comment|// Wait for event or file to be ready
+name|event
+operator|=
+literal|0
+expr_stmt|;
 specifier|const
 name|int
 name|result
@@ -1134,8 +1198,21 @@ operator|==
 name|bpsIOReadyDomain
 condition|)
 break|break;
-comment|// Any other events must be bps native events so we pass all such received
-comment|// events through the native event filter chain
+comment|// Update the timeout. If this fails we have exceeded our alloted time or the system
+comment|// clock has changed time and we cannot calculate a new timeout so we bail out.
+if|if
+condition|(
+operator|!
+name|updateTimeout
+argument_list|(
+operator|&
+name|timeout_bps
+argument_list|,
+name|startTime
+argument_list|)
+condition|)
+block|{
+comment|// No more loop iteration, so we need to filter the event here.
 name|filterNativeEvent
 argument_list|(
 name|QByteArrayLiteral
@@ -1155,20 +1232,12 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// Update the timeout. If this fails we have exceeded our alloted time or the system
-comment|// clock has changed time and we cannot calculate a new timeout so we bail out.
-if|if
-condition|(
-operator|!
-name|updateTimeout
-argument_list|(
-operator|&
-name|timeout_bps
-argument_list|,
-name|startTime
-argument_list|)
-condition|)
 break|break;
+block|}
+name|hasProcessedEventsOnce
+operator|=
+literal|true
+expr_stmt|;
 block|}
 comment|// the number of bits set in the file sets
 return|return
