@@ -6494,6 +6494,10 @@ specifier|const
 name|QString
 name|dst_pc_dir
 init|=
+name|Option
+operator|::
+name|fixPathToTargetOS
+argument_list|(
 name|fileInfo
 argument_list|(
 name|dst_pc
@@ -6501,6 +6505,9 @@ argument_list|)
 operator|.
 name|path
 argument_list|()
+argument_list|,
+literal|false
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
