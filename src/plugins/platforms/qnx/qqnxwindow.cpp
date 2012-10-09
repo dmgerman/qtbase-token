@@ -2436,9 +2436,7 @@ block|}
 end_function
 begin_function
 DECL|function|setWindowState
-name|Qt
-operator|::
-name|WindowState
+name|void
 name|QQnxWindow
 operator|::
 name|setWindowState
@@ -2465,9 +2463,7 @@ name|m_windowState
 operator|==
 name|state
 condition|)
-return|return
-name|state
-return|;
+return|return;
 switch|switch
 condition|(
 name|state
@@ -2485,9 +2481,7 @@ name|Qt
 operator|::
 name|WindowActive
 case|:
-return|return
-name|m_windowState
-return|;
+return|return;
 case|case
 name|Qt
 operator|::
@@ -2546,9 +2540,6 @@ name|m_windowState
 operator|=
 name|state
 expr_stmt|;
-return|return
-name|state
-return|;
 block|}
 end_function
 begin_function

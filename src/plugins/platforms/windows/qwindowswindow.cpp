@@ -6508,9 +6508,7 @@ block|}
 end_function
 begin_function
 DECL|function|setWindowState
-name|Qt
-operator|::
-name|WindowState
+name|void
 name|QWindowsWindow
 operator|::
 name|setWindowState
@@ -6538,9 +6536,6 @@ operator|=
 name|state
 expr_stmt|;
 block|}
-return|return
-name|state
-return|;
 block|}
 end_function
 begin_function

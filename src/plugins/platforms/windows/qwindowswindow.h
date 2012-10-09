@@ -590,17 +590,18 @@ name|flags
 argument_list|)
 decl_stmt|;
 end_decl_stmt
-begin_expr_stmt
+begin_decl_stmt
 name|virtual
+name|void
+name|setWindowState
+argument_list|(
 name|Qt
 operator|::
 name|WindowState
-name|setWindowState
-argument_list|(
-argument|Qt::WindowState state
+name|state
 argument_list|)
-expr_stmt|;
-end_expr_stmt
+decl_stmt|;
+end_decl_stmt
 begin_expr_stmt
 name|HWND
 name|handle

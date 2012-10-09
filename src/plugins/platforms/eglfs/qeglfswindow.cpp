@@ -387,9 +387,7 @@ block|}
 end_function
 begin_function
 DECL|function|setWindowState
-name|Qt
-operator|::
-name|WindowState
+name|void
 name|QEglFSWindow
 operator|::
 name|setWindowState
@@ -405,11 +403,6 @@ name|QRect
 argument_list|()
 argument_list|)
 expr_stmt|;
-return|return
-name|Qt
-operator|::
-name|WindowFullScreen
-return|;
 block|}
 end_function
 begin_function

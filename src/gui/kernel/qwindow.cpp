@@ -2019,10 +2019,6 @@ name|platformWindow
 condition|)
 name|d
 operator|->
-name|windowState
-operator|=
-name|d
-operator|->
 name|platformWindow
 operator|->
 name|setWindowState
@@ -2030,7 +2026,6 @@ argument_list|(
 name|state
 argument_list|)
 expr_stmt|;
-else|else
 name|d
 operator|->
 name|windowState
