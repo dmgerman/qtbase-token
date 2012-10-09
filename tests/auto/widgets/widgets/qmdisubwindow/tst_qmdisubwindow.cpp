@@ -110,7 +110,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_decl_stmt
+begin_function_decl
 name|QT_BEGIN_NAMESPACE
 if|#
 directive|if
@@ -122,8 +122,9 @@ argument_list|)
 specifier|extern
 name|bool
 name|qt_tab_all_widgets
-decl_stmt|;
-end_decl_stmt
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_endif
 endif|#
 directive|endif
@@ -158,6 +159,7 @@ argument_list|)
 condition|)
 return|return
 name|qt_tab_all_widgets
+argument_list|()
 return|;
 endif|#
 directive|endif

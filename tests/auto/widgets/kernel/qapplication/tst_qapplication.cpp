@@ -273,13 +273,14 @@ name|newList
 return|;
 block|}
 end_function
-begin_decl_stmt
+begin_function_decl
 specifier|extern
 name|bool
 name|Q_GUI_EXPORT
 name|qt_tab_all_widgets
-decl_stmt|;
-end_decl_stmt
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_comment
 comment|// from qapplication.cpp
 end_comment
@@ -8099,29 +8100,13 @@ operator|&
 literal|0x2
 operator|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|tabAllControls
-condition|)
-block|{
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QTBUG-24372 Mac tab key \"Text boxes and lists only\" vs "
-literal|"\"All controls\" setting is not respected in Qt5"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-block|}
 endif|#
 directive|endif
 comment|// make sure Qt's idea of tabbing between widgets matches what we think it should
 name|QCOMPARE
 argument_list|(
 name|qt_tab_all_widgets
+argument_list|()
 argument_list|,
 name|tabAllControls
 argument_list|)

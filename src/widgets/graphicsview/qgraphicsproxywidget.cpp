@@ -108,13 +108,14 @@ modifier|*
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_decl_stmt
+begin_function_decl
 name|Q_WIDGETS_EXPORT
 specifier|extern
 name|bool
 name|qt_tab_all_widgets
-decl_stmt|;
-end_decl_stmt
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_comment
 comment|/*!     \internal */
 end_comment
@@ -958,6 +959,7 @@ name|uint
 name|focus_flag
 init|=
 name|qt_tab_all_widgets
+argument_list|()
 condition|?
 name|Qt
 operator|::

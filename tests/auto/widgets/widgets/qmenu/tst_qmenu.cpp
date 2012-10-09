@@ -2340,13 +2340,14 @@ ifdef|#
 directive|ifdef
 name|Q_OS_MAC
 end_ifdef
-begin_decl_stmt
+begin_function_decl
 name|QT_BEGIN_NAMESPACE
 specifier|extern
 name|bool
 name|qt_tab_all_widgets
-decl_stmt|;
-end_decl_stmt
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_comment
 comment|// from qapplication.cpp
 end_comment
@@ -2392,6 +2393,7 @@ if|if
 condition|(
 operator|!
 name|qt_tab_all_widgets
+argument_list|()
 condition|)
 name|QSKIP
 argument_list|(

@@ -163,6 +163,8 @@ block|,
 name|UiEffects
 block|,
 name|SpellCheckUnderlineStyle
+block|,
+name|TabAllWidgets
 block|}
 enum|;
 enum|enum
