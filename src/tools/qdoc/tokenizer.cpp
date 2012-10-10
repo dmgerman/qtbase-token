@@ -959,6 +959,21 @@ operator|=
 name|getChar
 argument_list|()
 expr_stmt|;
+comment|/*                   Allow empty character literal. QTBUG-25775                  */
+if|if
+condition|(
+name|yyCh
+operator|==
+literal|'\''
+condition|)
+block|{
+name|yyCh
+operator|=
+name|getChar
+argument_list|()
+expr_stmt|;
+break|break;
+block|}
 if|if
 condition|(
 name|yyCh
@@ -1002,8 +1017,7 @@ name|warning
 argument_list|(
 name|tr
 argument_list|(
-literal|"Unterminated C++ character"
-literal|" literal"
+literal|"Unterminated C++ character literal"
 argument_list|)
 argument_list|)
 expr_stmt|;
