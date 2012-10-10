@@ -277,6 +277,12 @@ define|#
 directive|define
 name|QT_OPENGL_3
 end_define
+begin_define
+DECL|macro|QT_OPENGL_3_2
+define|#
+directive|define
+name|QT_OPENGL_3_2
+end_define
 begin_endif
 endif|#
 directive|endif

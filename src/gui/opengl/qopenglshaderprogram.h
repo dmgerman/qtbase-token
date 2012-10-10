@@ -83,6 +83,10 @@ block|,
 name|Fragment
 operator|=
 literal|0x0002
+block|,
+name|Geometry
+operator|=
+literal|0x0004
 block|}
 block|;
 name|Q_DECLARE_FLAGS
@@ -319,6 +323,11 @@ argument_list|()
 block|;
 name|GLuint
 name|programId
+argument_list|()
+specifier|const
+block|;
+name|int
+name|maxGeometryOutputVertices
 argument_list|()
 specifier|const
 block|;
