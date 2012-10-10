@@ -1625,8 +1625,10 @@ operator|!=
 name|a
 condition|)
 block|{
-name|ptr
-operator|=
+name|T
+modifier|*
+name|newPtr
+init|=
 name|reinterpret_cast
 operator|<
 name|T
@@ -1643,17 +1645,18 @@ name|T
 argument_list|)
 argument_list|)
 operator|)
-expr_stmt|;
+decl_stmt|;
 name|Q_CHECK_PTR
 argument_list|(
-name|ptr
+name|newPtr
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
+comment|// could throw
+comment|// by design: in case of QT_NO_EXCEPTIONS malloc must not fail or it crashes here
 name|ptr
-condition|)
-block|{
+operator|=
+name|newPtr
+expr_stmt|;
 name|s
 operator|=
 literal|0
@@ -1772,7 +1775,7 @@ name|QT_RETHROW
 expr_stmt|;
 end_expr_stmt
 begin_else
-unit|}             }
+unit|}         }
 else|else
 block|{
 name|memcpy
@@ -1791,16 +1794,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_else
-begin_block
-unit|} else
-block|{
-name|ptr
-operator|=
-name|oldPtr
-expr_stmt|;
-return|return;
-block|}
-end_block
 begin_expr_stmt
 unit|}     s
 operator|=
