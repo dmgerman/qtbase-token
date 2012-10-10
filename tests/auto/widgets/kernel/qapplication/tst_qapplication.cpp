@@ -2163,6 +2163,14 @@ operator|delete
 index|[]
 name|argv
 expr_stmt|;
+comment|// Make sure we switch back to native style.
+name|QApplicationPrivate
+operator|::
+name|styleOverride
+operator|=
+name|QString
+argument_list|()
+expr_stmt|;
 block|}
 end_function
 begin_function
