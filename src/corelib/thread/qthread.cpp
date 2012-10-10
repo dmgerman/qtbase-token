@@ -522,13 +522,13 @@ begin_comment
 comment|/*!     \fn void QThread::start(Priority priority)      Begins execution of the thread by calling run(). The     operating system will schedule the thread according to the \a     priority parameter. If the thread is already running, this     function does nothing.      The effect of the \a priority parameter is dependent on the     operating system's scheduling policy. In particular, the \a priority     will be ignored on systems that do not support thread priorities     (such as on Linux, see http://linux.die.net/man/2/sched_setscheduler     for more details).      \sa run(), terminate() */
 end_comment
 begin_comment
-comment|/*!     \fn void QThread::started()      This signal is emitted when the thread starts executing.      \sa finished(), terminated() */
+comment|/*!     \fn void QThread::started()      This signal is emitted from the associated thread when it starts executing,     before the run() function is called.      \sa finished(), terminated() */
 end_comment
 begin_comment
-comment|/*!     \fn void QThread::finished()      This signal is emitted when the thread has finished executing.      \sa started(), terminated() */
+comment|/*!     \fn void QThread::finished()      This signal is emitted from the associated thread right before it finishes executing.      When this signal is emitted, the event loop has already stopped running.     No more events will be processed in the thread, except for deferred deletion events.     This signal can be connected to QObject::deleteLater(), to free objects in that thread.      \note If the associated thread was terminated using terminate(), it is undefined from     which thread this signal is emitted.      \sa started(), terminated() */
 end_comment
 begin_comment
-comment|/*!     \fn void QThread::terminated()      This signal is emitted when the thread is terminated.      \sa started(), finished() */
+comment|/*!     \fn void QThread::terminated()      This signal is emitted when the thread is terminated.      It is undefined from which thread this signal is emitted.      \sa started(), finished() */
 end_comment
 begin_comment
 comment|/*!     \enum QThread::Priority      This enum type indicates how the operating system should schedule     newly created threads.      \value IdlePriority scheduled only when no other threads are            running.      \value LowestPriority scheduled less often than LowPriority.     \value LowPriority scheduled less often than NormalPriority.      \value NormalPriority the default priority of the operating            system.      \value HighPriority scheduled more often than NormalPriority.     \value HighestPriority scheduled more often than HighPriority.      \value TimeCriticalPriority scheduled as often as possible.      \value InheritPriority use the same priority as the creating            thread. This is the default. */
