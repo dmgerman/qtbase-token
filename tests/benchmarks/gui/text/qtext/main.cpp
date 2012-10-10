@@ -1555,7 +1555,7 @@ argument_list|(
 literal|"long-many"
 argument_list|)
 operator|<<
-name|text
+name|m_shortLorem
 operator|<<
 name|ranges
 expr_stmt|;
