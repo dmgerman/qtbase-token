@@ -1059,6 +1059,12 @@ name|defined
 argument_list|(
 name|Q_OS_MAC
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_QNX
+argument_list|)
 name|QSKIP
 argument_list|(
 literal|"This test does not make sense on X11 and embedded, copied data disappears from the clipboard when the application exits "
