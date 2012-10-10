@@ -3414,8 +3414,6 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|keyLayout
-operator|&&
 operator|(
 name|vk_key
 operator|<
