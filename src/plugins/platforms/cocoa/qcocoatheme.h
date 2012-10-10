@@ -111,6 +111,24 @@ argument|Font type = SystemFont
 argument_list|)
 specifier|const
 block|;
+name|QPixmap
+name|standardPixmap
+argument_list|(
+argument|StandardPixmap sp
+argument_list|,
+argument|const QSizeF&size
+argument_list|)
+specifier|const
+block|;
+name|QPixmap
+name|fileIconPixmap
+argument_list|(
+argument|const QFileInfo&fileInfo
+argument_list|,
+argument|const QSizeF&size
+argument_list|)
+specifier|const
+block|;
 name|QVariant
 name|themeHint
 argument_list|(

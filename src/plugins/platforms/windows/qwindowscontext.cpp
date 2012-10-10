@@ -849,6 +849,11 @@ name|sHCreateItemFromParsingName
 argument_list|(
 literal|0
 argument_list|)
+member_init_list|,
+name|sHGetStockIconInfo
+argument_list|(
+literal|0
+argument_list|)
 block|{ }
 end_constructor
 begin_function
@@ -880,6 +885,18 @@ name|resolve
 argument_list|(
 literal|"SHCreateItemFromParsingName"
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|sHGetStockIconInfo
+operator|=
+operator|(
+name|SHGetStockIconInfo
+operator|)
+name|library
+operator|.
+name|resolve
+argument_list|(
+literal|"SHGetStockIconInfo"
 argument_list|)
 expr_stmt|;
 block|}
