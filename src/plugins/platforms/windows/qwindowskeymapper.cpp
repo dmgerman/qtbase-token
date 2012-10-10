@@ -1811,6 +1811,21 @@ comment|// Fall-back to raw Key_*
 block|}
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|NumMods
+specifier|static
+specifier|const
+name|size_t
+name|NumMods
+init|=
+sizeof|sizeof
+name|ModsTbl
+operator|/
+sizeof|sizeof
+expr|*
+name|ModsTbl
+decl_stmt|;
+end_decl_stmt
 begin_comment
 comment|/**   Remap return or action key to select key for windows mobile. */
 end_comment
@@ -2292,7 +2307,7 @@ DECL|member|qtKey
 name|quint32
 name|qtKey
 index|[
-literal|9
+name|NumMods
 index|]
 decl_stmt|;
 comment|// Can by any Qt::Key_<foo>, or unicode character
@@ -3295,14 +3310,14 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|int
+name|size_t
 name|i
 init|=
 literal|0
 init|;
 name|i
 operator|<
-literal|9
+name|NumMods
 condition|;
 operator|++
 name|i
@@ -3312,7 +3327,10 @@ name|qDebug
 argument_list|(
 literal|"    [%d] (%d,0x%02x,'%c')  %s"
 argument_list|,
+name|int
+argument_list|(
 name|i
+argument_list|)
 argument_list|,
 name|keyLayout
 index|[
@@ -3413,14 +3431,14 @@ block|{
 for|for
 control|(
 specifier|register
-name|int
+name|size_t
 name|i
 init|=
 literal|0
 init|;
 name|i
 operator|<
-literal|9
+name|NumMods
 condition|;
 operator|++
 name|i
@@ -6254,7 +6272,7 @@ literal|1
 init|;
 name|i
 operator|<
-literal|9
+name|NumMods
 condition|;
 operator|++
 name|i
