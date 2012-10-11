@@ -1031,6 +1031,13 @@ operator|->
 name|buildCollections
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|runPrepareOnly
+argument_list|()
+condition|)
+block|{
 name|Generator
 operator|::
 name|generateTree
@@ -1039,6 +1046,14 @@ expr_stmt|;
 name|generateCollisionPages
 argument_list|()
 expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|runGenerateOnly
+argument_list|()
+condition|)
+block|{
 name|QString
 name|fileBase
 init|=
@@ -1086,6 +1101,14 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|runPrepareOnly
+argument_list|()
+condition|)
+block|{
 name|helpProjectWriter
 operator|->
 name|generate
@@ -1094,7 +1117,7 @@ expr_stmt|;
 name|generateManifestFiles
 argument_list|()
 expr_stmt|;
-comment|/*       Generate the XML tag file, if it was requested.      */
+comment|/*           Generate the XML tag file, if it was requested.         */
 name|qdb_
 operator|->
 name|generateTagFile
@@ -1104,6 +1127,7 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 end_function
 begin_comment
