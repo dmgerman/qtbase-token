@@ -8471,6 +8471,9 @@ name|value
 argument_list|()
 operator|->
 name|ref
+operator|.
+name|load
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
