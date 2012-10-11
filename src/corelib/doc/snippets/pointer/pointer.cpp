@@ -62,7 +62,8 @@ if|if
 condition|(
 name|label
 condition|)
-comment|//! [1] //! [2]
+comment|//! [1]
+comment|//! [2]
 name|label
 operator|->
 name|show
