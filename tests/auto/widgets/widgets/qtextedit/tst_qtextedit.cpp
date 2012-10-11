@@ -12310,7 +12310,9 @@ name|compareWidgetAndImage
 argument_list|(
 name|widget
 argument_list|,
-literal|"fullWidthSelection/nowrap_long.png"
+name|m_fullWidthSelectionImagesFolder
+operator|+
+literal|"/nowrap_long.png"
 argument_list|)
 expr_stmt|;
 block|}
