@@ -320,6 +320,10 @@ literal|"    -outputdir     "
 literal|"Specify output directory, overrides setting in qdocconf file\n"
 literal|"    -outputformat  "
 literal|"Specify output format, overrides setting in qdocconf file\n"
+literal|"    -prepare        "
+literal|"Run qdoc only to generate an index file, not the docs\n"
+literal|"    -generate        "
+literal|"Run qdoc to read the index files and generate the docs\n"
 literal|"    -showinternal  "
 literal|"Include content marked internal\n"
 literal|"    -version       "
@@ -2669,6 +2673,42 @@ operator|::
 name|setDebugSegfaultFlag
 argument_list|(
 literal|true
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|opt
+operator|==
+literal|"-prepare"
+condition|)
+block|{
+name|Generator
+operator|::
+name|setQDocPass
+argument_list|(
+name|Generator
+operator|::
+name|Prepare
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|opt
+operator|==
+literal|"-generate"
+condition|)
+block|{
+name|Generator
+operator|::
+name|setQDocPass
+argument_list|(
+name|Generator
+operator|::
+name|Generate
 argument_list|)
 expr_stmt|;
 block|}
