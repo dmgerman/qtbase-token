@@ -47,11 +47,12 @@ operator|.
 name|show
 argument_list|()
 expr_stmt|;
+return|return
 name|app
 operator|.
 name|exec
 argument_list|()
-expr_stmt|;
+return|;
 block|}
 end_function
 end_unit
