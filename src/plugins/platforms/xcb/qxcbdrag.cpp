@@ -3832,6 +3832,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// action
+name|accepted_drop_action
+operator|=
+name|qt_response
+operator|.
+name|acceptedAction
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|answerRect
@@ -3926,23 +3933,6 @@ operator|.
 name|setHeight
 argument_list|(
 literal|0
-argument_list|)
-expr_stmt|;
-name|response
-operator|.
-name|data
-operator|.
-name|data32
-index|[
-literal|4
-index|]
-operator|=
-name|toXdndAction
-argument_list|(
-name|qt_response
-operator|.
-name|acceptedAction
-argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// reset
@@ -4893,19 +4883,10 @@ index|[
 literal|2
 index|]
 expr_stmt|;
-comment|// this could be a same-application drop, just proxied due to
-comment|// some XEMBEDding, so try to find the real QMimeData used
-comment|// based on the timestamp for this drop.
 name|Qt
 operator|::
 name|DropActions
 name|supported_drop_actions
-argument_list|(
-name|l
-index|[
-literal|4
-index|]
-argument_list|)
 decl_stmt|;
 name|QMimeData
 modifier|*
@@ -4927,6 +4908,18 @@ operator|->
 name|mimeData
 argument_list|()
 expr_stmt|;
+name|supported_drop_actions
+operator|=
+name|Qt
+operator|::
+name|DropActions
+argument_list|(
+name|l
+index|[
+literal|4
+index|]
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -4934,6 +4927,10 @@ name|dropData
 operator|=
 name|platformDropData
 argument_list|()
+expr_stmt|;
+name|supported_drop_actions
+operator|=
+name|accepted_drop_action
 expr_stmt|;
 block|}
 if|if
