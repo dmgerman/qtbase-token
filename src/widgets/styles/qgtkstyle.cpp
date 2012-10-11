@@ -13111,12 +13111,6 @@ argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
-name|GtkStyle
-modifier|*
-name|gtkToggleButtonStyle
-init|=
-name|gtkToggleButtonStyle
-decl_stmt|;
 name|int
 name|xt
 init|=
