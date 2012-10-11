@@ -85,6 +85,12 @@ name|class
 name|QPoint
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|QKeyEvent
+name|class
+name|QKeyEvent
+decl_stmt|;
+end_decl_stmt
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -604,6 +610,16 @@ expr_stmt|;
 name|bool
 name|useRTLExtensions
 argument_list|()
+specifier|const
+expr_stmt|;
+name|QList
+operator|<
+name|int
+operator|>
+name|possibleKeys
+argument_list|(
+argument|const QKeyEvent *e
+argument_list|)
 specifier|const
 expr_stmt|;
 name|QWindowsMimeConverter
