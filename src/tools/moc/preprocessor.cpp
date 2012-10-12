@@ -784,10 +784,19 @@ operator|==
 name|NOTOKEN
 condition|)
 block|{
-comment|// an error really
 operator|++
 name|data
 expr_stmt|;
+comment|// an error really, but let's ignore this input
+comment|// to not confuse moc later. However in pre-processor
+comment|// only mode let's continue.
+if|if
+condition|(
+operator|!
+name|Preprocessor
+operator|::
+name|preprocessOnly
+condition|)
 continue|continue;
 block|}
 operator|++
