@@ -207,6 +207,11 @@ name|NSMenuItem
 operator|*
 operator|)
 name|appSpecificMenuItem
+operator|:
+operator|(
+name|NSInteger
+operator|)
+name|tag
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
