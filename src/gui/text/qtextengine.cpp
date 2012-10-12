@@ -16556,7 +16556,7 @@ name|startIt
 operator|!=
 name|addFormatSortedByStart
 operator|.
-name|end
+name|constEnd
 argument_list|()
 operator|&&
 name|specialData
@@ -16612,7 +16612,7 @@ name|endIt
 operator|!=
 name|addFormatSortedByEnd
 operator|.
-name|end
+name|constEnd
 argument_list|()
 operator|&&
 name|specialData
