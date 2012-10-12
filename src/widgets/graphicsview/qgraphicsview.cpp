@@ -5698,7 +5698,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the current scene to \a scene. If \a scene is already being     viewed, this function does nothing.      When a scene is set on a view, the QGraphicsScene::changed() signal     is automatically connected to this view's updateScene() slot, and the     view's scroll bars are adjusted to fit the size of the scene. */
+comment|/*!     Sets the current scene to \a scene. If \a scene is already being     viewed, this function does nothing.      When a scene is set on a view, the QGraphicsScene::changed() signal     is automatically connected to this view's updateScene() slot, and the     view's scroll bars are adjusted to fit the size of the scene.      The view does not take ownership of \a scene. */
 end_comment
 begin_function
 DECL|function|setScene
