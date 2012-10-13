@@ -335,7 +335,7 @@ name|pps_decoder_initialize
 argument_list|(
 name|m_decoder
 argument_list|,
-name|NULL
+literal|0
 argument_list|)
 expr_stmt|;
 name|errno
@@ -623,7 +623,7 @@ name|pps_decoder_push
 argument_list|(
 name|m_decoder
 argument_list|,
-name|NULL
+literal|0
 argument_list|)
 expr_stmt|;
 if|#

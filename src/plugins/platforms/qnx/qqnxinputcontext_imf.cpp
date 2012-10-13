@@ -2413,7 +2413,7 @@ name|pString
 operator|->
 name|spans
 operator|=
-name|NULL
+literal|0
 expr_stmt|;
 name|pString
 operator|->
@@ -2604,7 +2604,7 @@ argument_list|(
 literal|"DISABLE_IMF"
 argument_list|)
 operator|!=
-name|NULL
+literal|0
 decl_stmt|;
 specifier|static
 name|bool
@@ -2637,7 +2637,7 @@ if|if
 condition|(
 name|p_imf_client_init
 operator|==
-name|NULL
+literal|0
 condition|)
 block|{
 name|void
@@ -2815,11 +2815,11 @@ else|else
 block|{
 name|p_ictrl_open_session
 operator|=
-name|NULL
+literal|0
 expr_stmt|;
 name|p_ictrl_dispatch_event
 operator|=
-name|NULL
+literal|0
 expr_stmt|;
 name|s_imfDisabled
 operator|=

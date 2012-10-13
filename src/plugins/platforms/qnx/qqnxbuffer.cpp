@@ -215,7 +215,7 @@ if|if
 condition|(
 name|dataPtr
 operator|==
-name|NULL
+literal|0
 condition|)
 block|{
 name|qFatal
