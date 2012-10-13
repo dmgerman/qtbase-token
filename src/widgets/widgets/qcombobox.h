@@ -89,7 +89,7 @@ argument|int count READ count
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|QString currentText READ currentText USER true
+argument|QString currentText READ currentText WRITE setCurrentText USER true
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
@@ -698,6 +698,15 @@ name|void
 name|setCurrentIndex
 argument_list|(
 argument|int index
+argument_list|)
+block|;
+name|void
+name|setCurrentText
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|text
 argument_list|)
 block|;
 name|Q_SIGNALS

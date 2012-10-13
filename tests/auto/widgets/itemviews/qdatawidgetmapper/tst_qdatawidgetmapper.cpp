@@ -2228,6 +2228,7 @@ operator|.
 name|toFirst
 argument_list|()
 expr_stmt|;
+comment|// setCurrentIndex caused the value at index 0 to be displayed
 name|QCOMPARE
 argument_list|(
 name|readOnlyBox
@@ -2241,6 +2242,7 @@ literal|"read only item 0"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// setCurrentText set the value in the line edit since the combobox is editable
 name|QCOMPARE
 argument_list|(
 name|readWriteBox
@@ -2250,7 +2252,7 @@ argument_list|()
 argument_list|,
 name|QString
 argument_list|(
-literal|"read write item 0"
+literal|"item 0 1"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2374,15 +2376,6 @@ name|currentIndex
 argument_list|()
 argument_list|,
 literal|2
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"See task 125493 and QTBUG-428"
-argument_list|,
-name|Abort
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
