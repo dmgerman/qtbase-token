@@ -10613,11 +10613,6 @@ DECL|member|glyph
 name|QGlyphLayout
 name|glyph
 decl_stmt|;
-DECL|member|fontEngine
-name|QFontEngine
-modifier|*
-name|fontEngine
-decl_stmt|;
 block|}
 struct|;
 end_struct
@@ -10664,12 +10659,6 @@ operator|->
 name|glyph
 operator|=
 name|glyph
-expr_stmt|;
-name|point
-operator|->
-name|fontEngine
-operator|=
-name|fe
 expr_stmt|;
 if|if
 condition|(
