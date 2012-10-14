@@ -817,11 +817,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_REGEXP
-end_ifndef
 begin_comment
 comment|/*!     \internal */
 end_comment
@@ -874,6 +869,11 @@ name|parent
 argument_list|)
 block|{ }
 end_constructor
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_REGEXP
+end_ifndef
 begin_class
 DECL|class|QDoubleValidatorPrivate
 class|class
@@ -1831,7 +1831,7 @@ end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_REGEXP
+name|QT_NO_REGULAREXPRESSION
 end_ifndef
 begin_comment
 comment|/*!     \class QRegularExpressionValidator     \brief The QRegularExpressionValidator class is used to check a string     against a regular expression.      \since 5.1      QRegularExpressionValidator uses a regular expression (regexp) to     determine whether an input string is \l Acceptable, \l     Intermediate, or \l Invalid. The regexp can either be supplied     when the QRegularExpressionValidator is constructed, or at a later time.      If the regexp partially matches against the string, the result is     considered \l Intermediate. For example, "" and "A" are \l Intermediate for     the regexp \b{[A-Z][0-9]} (whereas "_" would be \l Invalid).      QRegularExpressionValidator automatically wraps the regular expression in     the \c{\\A} and \c{\\z} anchors; in other words, it always attempts to do     an exact match.      Example of use:     \snippet code/src_gui_util_qvalidator.cpp 5      Below we present some examples of validators. In practice they would     normally be associated with a widget as in the example above.      \snippet code/src_gui_util_qvalidator.cpp 6      \sa QRegularExpression, QIntValidator, QDoubleValidator, QRegExpValidator */
@@ -2187,7 +2187,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_REGEXP
+comment|// QT_NO_REGULAREXPRESSION
 end_comment
 begin_macro
 name|QT_END_NAMESPACE

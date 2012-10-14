@@ -375,7 +375,7 @@ directive|ifndef
 name|QT_BOOTSTRAPPED
 ifndef|#
 directive|ifndef
-name|QT_NO_REGEXP
+name|QT_NO_REGULAREXPRESSION
 specifier|inline
 name|QStringList
 name|filter
@@ -424,7 +424,7 @@ specifier|const
 block|;
 endif|#
 directive|endif
-comment|// QT_NO_REGEXP
+comment|// QT_NO_REGULAREXPRESSION
 endif|#
 directive|endif
 comment|// QT_BOOTSTRAPPED
@@ -669,7 +669,7 @@ directive|ifndef
 name|QT_BOOTSTRAPPED
 ifndef|#
 directive|ifndef
-name|QT_NO_REGEXP
+name|QT_NO_REGULAREXPRESSION
 name|void
 name|Q_CORE_EXPORT
 name|QStringList_replaceInStrings
@@ -728,7 +728,7 @@ argument_list|)
 block|;
 endif|#
 directive|endif
-comment|// QT_NO_REGEXP
+comment|// QT_NO_REGULAREXPRESSION
 endif|#
 directive|endif
 comment|// QT_BOOTSTRAPPED
@@ -1074,7 +1074,7 @@ directive|ifndef
 name|QT_BOOTSTRAPPED
 ifndef|#
 directive|ifndef
-name|QT_NO_REGEXP
+name|QT_NO_REGULAREXPRESSION
 DECL|function|replaceInStrings
 specifier|inline
 name|QStringList
@@ -1180,7 +1180,7 @@ return|;
 block|}
 endif|#
 directive|endif
-comment|// QT_NO_REGEXP
+comment|// QT_NO_REGULAREXPRESSION
 endif|#
 directive|endif
 comment|// QT_BOOTSTRAPPED

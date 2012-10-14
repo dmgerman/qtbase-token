@@ -8035,11 +8035,22 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_ifndef
-ifndef|#
-directive|ifndef
+begin_if
+if|#
+directive|if
+operator|!
+operator|(
+name|defined
+argument_list|(
 name|QT_NO_REGEXP
-end_ifndef
+argument_list|)
+operator|&&
+name|defined
+argument_list|(
+name|QT_NO_REGULAREXPRESSION
+argument_list|)
+operator|)
+end_if
 begin_struct
 DECL|struct|QStringCapture
 struct|struct
@@ -8060,6 +8071,15 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_REGEXP
+end_ifndef
 begin_comment
 comment|/*!   \overload replace()    Replaces every occurrence of the regular expression \a rx in the   string with \a after. Returns a reference to the string. For   example:    \snippet qstring/main.cpp 42    For regular expressions containing \l{capturing parentheses},   occurrences of \b{\\1}, \b{\\2}, ..., in \a after are replaced   with \a{rx}.cap(1), cap(2), ...    \snippet qstring/main.cpp 43    \sa indexOf(), lastIndexOf(), remove(), QRegExp::cap() */
 end_comment
@@ -8856,7 +8876,7 @@ end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_REGEXP
+name|QT_NO_REGULAREXPRESSION
 end_ifndef
 begin_ifndef
 ifndef|#
@@ -9447,7 +9467,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_REGEXP
+comment|// QT_NO_REGULAREXPRESSION
 end_comment
 begin_comment
 comment|/*!     Returns the number of (potentially overlapping) occurrences of     the string \a str in this string.      If \a cs is Qt::CaseSensitive (default), the search is     case sensitive; otherwise the search is case insensitive.      \sa contains(), indexOf() */
@@ -9830,7 +9850,7 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_REGEXP
+name|QT_NO_REGULAREXPRESSION
 end_ifndef
 begin_ifndef
 ifndef|#
@@ -10197,7 +10217,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_REGEXP
+comment|// QT_NO_REGULAREXPRESSION
 end_comment
 begin_comment
 comment|/*! \fn int QString::count() const      \overload count()      Same as size(). */
@@ -10537,11 +10557,22 @@ name|ret
 return|;
 block|}
 end_function
-begin_ifndef
-ifndef|#
-directive|ifndef
+begin_if
+if|#
+directive|if
+operator|!
+operator|(
+name|defined
+argument_list|(
 name|QT_NO_REGEXP
-end_ifndef
+argument_list|)
+operator|&&
+name|defined
+argument_list|(
+name|QT_NO_REGULAREXPRESSION
+argument_list|)
+operator|)
+end_if
 begin_class
 DECL|class|qt_section_chunk
 class|class
@@ -10872,6 +10903,15 @@ name|ret
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_REGEXP
+end_ifndef
 begin_comment
 comment|/*!     \overload section()      This string is treated as a sequence of fields separated by the     regular expression, \a reg.      \snippet qstring/main.cpp 55      \warning Using this QRegExp version is much more expensive than     the overloaded string and character versions.      \sa split(), simplified() */
 end_comment
@@ -11071,7 +11111,7 @@ end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_REGEXP
+name|QT_NO_REGULAREXPRESSION
 end_ifndef
 begin_ifndef
 ifndef|#
@@ -11304,7 +11344,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_REGEXP
+comment|// QT_NO_REGULAREXPRESSION
 end_comment
 begin_comment
 comment|/*!     Returns a substring that contains the \a n leftmost characters     of the string.      The entire string is returned if \a n is greater than size() or     less than zero.      \snippet qstring/main.cpp 31      \sa right(), mid(), startsWith() */
@@ -20024,7 +20064,7 @@ end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_REGEXP
+name|QT_NO_REGULAREXPRESSION
 end_ifndef
 begin_ifndef
 ifndef|#
@@ -20186,7 +20226,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_REGEXP
+comment|// QT_NO_REGULAREXPRESSION
 end_comment
 begin_comment
 comment|/*!     \enum QString::NormalizationForm      This enum describes the various normalized forms of Unicode text.      \value NormalizationForm_D  Canonical Decomposition     \value NormalizationForm_C  Canonical Decomposition followed by Canonical Composition     \value NormalizationForm_KD  Compatibility Decomposition     \value NormalizationForm_KC  Compatibility Decomposition followed by Canonical Composition      \sa normalized(),         {http://www.unicode.org/reports/tr15/}{Unicode Standard Annex #15} */

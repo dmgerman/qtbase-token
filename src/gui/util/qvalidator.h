@@ -597,7 +597,7 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_REGEXP
+name|QT_NO_REGULAREXPRESSION
 end_ifndef
 begin_decl_stmt
 DECL|variable|QRegularExpressionValidatorPrivate
@@ -708,7 +708,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_REGEXP
+comment|// QT_NO_REGULAREXPRESSION
 end_comment
 begin_endif
 endif|#

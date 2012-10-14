@@ -140,7 +140,7 @@ end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_REGEXP
+name|QT_NO_REGULAREXPRESSION
 end_ifndef
 begin_decl_stmt
 DECL|variable|QRegularExpression
@@ -896,7 +896,7 @@ endif|#
 directive|endif
 ifndef|#
 directive|ifndef
-name|QT_NO_REGEXP
+name|QT_NO_REGULAREXPRESSION
 name|template
 operator|<
 name|typename

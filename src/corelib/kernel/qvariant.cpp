@@ -6529,10 +6529,22 @@ argument_list|)
 expr_stmt|;
 block|}
 end_constructor
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_REGEXP
+end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_BOOTSTRAPPED
+end_ifndef
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_REGULAREXPRESSION
 end_ifndef
 begin_constructor
 DECL|function|QVariant
@@ -6564,6 +6576,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_constructor
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_constructor
 DECL|function|QVariant
 name|QVariant
@@ -6758,13 +6774,6 @@ directive|endif
 end_endif
 begin_comment
 comment|// QT_BOOTSTRAPPED
-end_comment
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_NO_REGEXP
 end_comment
 begin_comment
 comment|/*!     Returns the storage type of the value stored in the variant.     Although this function is declared as returning QVariant::Type,     the return value should be interpreted as QMetaType::Type. In     particular, QVariant::UserType is returned here only if the value     is equal or greater than QMetaType::User.      Note that return values in the ranges QVariant::Char through     QVariant::RegExp and QVariant::Font through QVariant::Transform     correspond to the values in the ranges QMetaType::QChar through     QMetaType::QRegExp and QMetaType::QFont through QMetaType::QQuaternion.      Pay particular attention when working with char and QChar     variants.  Note that there is no QVariant constructor specifically     for type char, but there is one for QChar. For a variant of type     QChar, this function returns QVariant::Char, which is the same as     QMetaType::QChar, but for a variant of type \c char, this function     returns QMetaType::Char, which is \e not the same as     QVariant::Char.      Also note that the types \c void*, \c long, \c short, \c unsigned     \c long, \c unsigned \c short, \c unsigned \c char, \c float, \c     QObject*, and \c QWidget* are represented in QMetaType::Type but     not in QVariant::Type, and they can be returned by this function.     However, they are considered to be user defined types when tested     against QVariant::Type.      To test whether an instance of QVariant contains a data type that     is compatible with the data type you are interested in, use     canConvert(). */
@@ -8765,18 +8774,18 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_BOOTSTRAPPED
+end_ifndef
 begin_comment
 comment|/*!     \fn QRegularExpression QVariant::toRegularExpression() const     \since 5.0      Returns the variant as a QRegularExpression if the variant has type() \l     QRegularExpression; otherwise returns an empty QRegularExpression.      \sa canConvert(), convert() */
 end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_BOOTSTRAPPED
-end_ifndef
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_REGEXP
+name|QT_NO_REGULAREXPRESSION
 end_ifndef
 begin_function
 DECL|function|toRegularExpression
@@ -8804,6 +8813,9 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// QT_NO_REGULAREXPRESSION
+end_comment
 begin_comment
 comment|/*!     \since 5.0      Returns the variant as a QUuid if the variant has type() \l     QUuid; otherwise returns a default constructed QUuid.      \sa canConvert(), convert() */
 end_comment

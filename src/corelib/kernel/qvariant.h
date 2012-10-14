@@ -174,6 +174,18 @@ name|class
 name|QRegExp
 decl_stmt|;
 end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_REGEXP
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_REGULAREXPRESSION
+end_ifndef
 begin_decl_stmt
 DECL|variable|QRegularExpression
 name|class
@@ -185,7 +197,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_REGEXP
+comment|// QT_NO_REGULAREXPRESSION
 end_comment
 begin_decl_stmt
 DECL|variable|QTextFormat
@@ -1063,9 +1075,15 @@ operator|&
 name|regExp
 argument_list|)
 block|;
+endif|#
+directive|endif
+comment|// QT_NO_REGEXP
 ifndef|#
 directive|ifndef
-name|QT_BOOTSRAPPED
+name|QT_BOOTSTRAPPED
+ifndef|#
+directive|ifndef
+name|QT_NO_REGULAREXPRESSION
 name|QVariant
 argument_list|(
 specifier|const
@@ -1076,13 +1094,7 @@ argument_list|)
 block|;
 endif|#
 directive|endif
-comment|// QT_BOOTSTRAPPED
-endif|#
-directive|endif
-comment|// QT_NO_REGEXP
-ifndef|#
-directive|ifndef
-name|QT_BOOTSTRAPPED
+comment|// QT_NO_REGULAREXPRESSION
 name|QVariant
 argument_list|(
 specifier|const
@@ -1149,6 +1161,7 @@ argument_list|)
 block|;
 endif|#
 directive|endif
+comment|// QT_BOOTSTRAPPED
 name|QVariant
 operator|&
 name|operator
@@ -1468,9 +1481,15 @@ name|toRegExp
 argument_list|()
 specifier|const
 block|;
+endif|#
+directive|endif
+comment|// QT_NO_REGEXP
 ifndef|#
 directive|ifndef
 name|QT_BOOTSTRAPPED
+ifndef|#
+directive|ifndef
+name|QT_NO_REGULAREXPRESSION
 name|QRegularExpression
 name|toRegularExpression
 argument_list|()
@@ -1478,13 +1497,7 @@ specifier|const
 block|;
 endif|#
 directive|endif
-comment|// QT_BOOTSTRAPPED
-endif|#
-directive|endif
-comment|// QT_NO_REGEXP
-ifndef|#
-directive|ifndef
-name|QT_BOOTSTRAPPED
+comment|// QT_NO_REGULAREXPRESSION
 name|QUrl
 name|toUrl
 argument_list|()
@@ -1527,6 +1540,7 @@ specifier|const
 block|;
 endif|#
 directive|endif
+comment|// QT_BOOTSTRAPPED
 ifndef|#
 directive|ifndef
 name|QT_NO_DATASTREAM
