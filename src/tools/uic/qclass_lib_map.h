@@ -4584,7 +4584,7 @@ name|QT_CLASS_LIB
 argument_list|(
 argument|QGraphicsWebView
 argument_list|,
-argument|QtWebKit
+argument|QtWebKitWidgets
 argument_list|,
 argument|qgraphicswebview.h
 argument_list|)
@@ -4724,7 +4724,7 @@ name|QT_CLASS_LIB
 argument_list|(
 argument|QWebView
 argument_list|,
-argument|QtWebKit
+argument|QtWebKitWidgets
 argument_list|,
 argument|qwebview.h
 argument_list|)
