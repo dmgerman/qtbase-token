@@ -2757,6 +2757,19 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+ifndef|#
+directive|ifndef
+name|QT_NO_CURSOR
+name|qt_qpa_set_cursor
+argument_list|(
+name|q
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+comment|// Needed in case cursor was set before show
+endif|#
+directive|endif
 name|invalidateBuffer
 argument_list|(
 name|q
