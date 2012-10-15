@@ -5474,7 +5474,10 @@ if|if
 condition|(
 name|function
 operator|==
+name|QLatin1String
+argument_list|(
 literal|"GetVersion"
+argument_list|)
 condition|)
 block|{
 name|Q_ASSERT
@@ -5484,7 +5487,10 @@ operator|.
 name|signature
 argument_list|()
 operator|==
+name|QLatin1String
+argument_list|(
 literal|"ss"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QDBusMessage
@@ -5522,7 +5528,10 @@ if|if
 condition|(
 name|function
 operator|==
+name|QLatin1String
+argument_list|(
 literal|"GetLocale"
+argument_list|)
 condition|)
 block|{
 name|Q_ASSERT
@@ -5532,7 +5541,10 @@ operator|.
 name|signature
 argument_list|()
 operator|==
+name|QLatin1String
+argument_list|(
 literal|"u"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QDBusMessage
