@@ -3936,6 +3936,14 @@ operator|*
 name|parent
 argument_list|)
 expr_stmt|;
+name|bool
+name|event
+parameter_list|(
+name|QEvent
+modifier|*
+name|ev
+parameter_list|)
+function_decl|;
 name|private
 label|:
 name|friend
