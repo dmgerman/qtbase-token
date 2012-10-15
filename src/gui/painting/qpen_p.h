@@ -66,6 +66,8 @@ argument_list|,
 argument|Qt::PenCapStyle
 argument_list|,
 argument|Qt::PenJoinStyle _joinStyle
+argument_list|,
+argument|bool defaultWidth = true
 argument_list|)
 empty_stmt|;
 name|QAtomicInt
@@ -110,6 +112,12 @@ name|cosmetic
 range|:
 literal|1
 decl_stmt|;
+name|uint
+name|defaultWidth
+range|:
+literal|1
+decl_stmt|;
+comment|// default-constructed width? used for cosmetic pen compatibility
 block|}
 end_decl_stmt
 begin_empty_stmt

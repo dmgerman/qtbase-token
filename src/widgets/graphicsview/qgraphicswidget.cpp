@@ -6972,15 +6972,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|painter
-operator|->
-name|setRenderHint
-argument_list|(
-name|QPainter
-operator|::
-name|NonCosmeticDefaultPen
-argument_list|)
-expr_stmt|;
 comment|// Draw title
 name|int
 name|height

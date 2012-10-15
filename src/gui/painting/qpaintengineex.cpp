@@ -2588,10 +2588,15 @@ condition|)
 block|{
 if|if
 condition|(
+name|qt_pen_is_cosmetic
+argument_list|(
 name|pen
-operator|.
-name|isCosmetic
+argument_list|,
+name|state
 argument_list|()
+operator|->
+name|renderHints
+argument_list|)
 condition|)
 block|{
 name|d
@@ -2758,10 +2763,15 @@ comment|// ### Perspective Xforms are currently not supported...
 if|if
 condition|(
 operator|!
+name|qt_pen_is_cosmetic
+argument_list|(
 name|pen
-operator|.
-name|isCosmetic
+argument_list|,
+name|state
 argument_list|()
+operator|->
+name|renderHints
+argument_list|)
 condition|)
 block|{
 comment|// We include cosmetic pens in this case to avoid having to

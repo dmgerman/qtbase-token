@@ -10050,6 +10050,15 @@ argument_list|)
 decl_stmt|;
 name|painter
 operator|.
+name|setRenderHint
+argument_list|(
+name|QPainter
+operator|::
+name|Qt4CompatiblePainting
+argument_list|)
+expr_stmt|;
+name|painter
+operator|.
 name|setWindow
 argument_list|(
 literal|0

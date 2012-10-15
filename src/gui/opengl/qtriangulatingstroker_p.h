@@ -62,20 +62,13 @@ block|{}
 name|void
 name|process
 argument_list|(
-specifier|const
-name|QVectorPath
-operator|&
-name|path
+argument|const QVectorPath&path
 argument_list|,
-specifier|const
-name|QPen
-operator|&
-name|pen
+argument|const QPen&pen
 argument_list|,
-specifier|const
-name|QRectF
-operator|&
-name|clip
+argument|const QRectF&clip
+argument_list|,
+argument|QPainter::RenderHints hints
 argument_list|)
 expr_stmt|;
 specifier|inline
@@ -330,23 +323,28 @@ argument_list|()
 expr_stmt|;
 name|void
 name|process
-parameter_list|(
+argument_list|(
 specifier|const
 name|QVectorPath
-modifier|&
+operator|&
 name|path
-parameter_list|,
+argument_list|,
 specifier|const
 name|QPen
-modifier|&
+operator|&
 name|pen
-parameter_list|,
+argument_list|,
 specifier|const
 name|QRectF
-modifier|&
+operator|&
 name|clip
-parameter_list|)
-function_decl|;
+argument_list|,
+name|QPainter
+operator|::
+name|RenderHints
+name|hints
+argument_list|)
+decl_stmt|;
 specifier|inline
 name|void
 name|addElement
