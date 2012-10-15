@@ -683,7 +683,7 @@ operator|+
 literal|"/bin/syncqt.bat"
 argument_list|)
 operator|<<
-literal|" -qtdir \""
+literal|" -mkspecsdir \""
 operator|<<
 name|QDir
 operator|::
@@ -692,7 +692,7 @@ argument_list|(
 name|buildPath
 argument_list|)
 operator|<<
-literal|"\" %*"
+literal|"/mkspecs\" %*"
 operator|<<
 name|endl
 expr_stmt|;
