@@ -230,7 +230,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*!     \class QWindowsEGLContext     \brief Open EGL context.      \section1 Using QWindowsEGLContext for Desktop with ANGLE     \section2 Build Instructions     \list     \o Install the Direct X SDK     \o Checkout and build ANGLE (SVN repository) as explained here:        \l{http://code.google.com/p/angleproject/wiki/DevSetup}{ANGLE-Project}.        When building for 64bit, de-activate the "WarnAsError" option        in every project file (as otherwise integer conversion        warnings will break the build).     \o Run configure.exe with the options "-opengl es2 -angle<path>".     \o Build qtbase and test some examples.     \endlist      \internal     \ingroup qt-lighthouse-win */
+comment|/*!     \class QWindowsEGLContext     \brief Open EGL context.      \section1 Using QWindowsEGLContext for Desktop with ANGLE     \section2 Build Instructions     \list     \o Install the Direct X SDK     \o Checkout and build ANGLE (SVN repository) as explained here:        \l{http://code.google.com/p/angleproject/wiki/DevSetup}{ANGLE-Project}.        When building for 64bit, de-activate the "WarnAsError" option        in every project file (as otherwise integer conversion        warnings will break the build).     \o Run configure.exe with the options "-opengl es2".     \o Build qtbase and test some examples.     \endlist      \internal     \ingroup qt-lighthouse-win */
 end_comment
 begin_constructor
 DECL|function|QWindowsEGLContext
