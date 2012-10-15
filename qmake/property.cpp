@@ -170,6 +170,16 @@ literal|false
 block|}
 block|,
 block|{
+literal|"QT_INSTALL_QML"
+block|,
+name|QLibraryInfo
+operator|::
+name|Qml2ImportsPath
+block|,
+literal|false
+block|}
+block|,
+block|{
 literal|"QT_INSTALL_TRANSLATIONS"
 block|,
 name|QLibraryInfo

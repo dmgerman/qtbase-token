@@ -742,6 +742,9 @@ end_endif
 begin_comment
 comment|// QT_BOOTSTRAPPED
 end_comment
+begin_comment
+comment|/*  * To add a new entry in QLibrary::LibraryLocation, add it to the enum above the bootstrapped values and:  * - add its relative path in the qtConfEntries[] array below  *   (the key is what appears in a qt.conf file)  * - add a property name in qmake/property.cpp propList[] array  *   (it's used with qmake -query)  * - add to qt_config.prf, qt_module.prf, qt_module_fwdpri.prf  */
+end_comment
 begin_struct
 specifier|static
 specifier|const
@@ -811,6 +814,13 @@ literal|"imports"
 block|}
 block|,
 comment|// should be ${ArchData}/imports
+block|{
+literal|"Qml2Imports"
+block|,
+literal|"qml"
+block|}
+block|,
+comment|// should be ${ArchData}/qml
 block|{
 literal|"ArchData"
 block|,
@@ -1705,7 +1715,7 @@ return|return
 name|ret
 return|;
 block|}
-comment|/*!     \enum QLibraryInfo::LibraryLocation      \keyword library location      This enum type is used to specify a specific location     specifier:      \value PrefixPath The default prefix for all paths.     \value DocumentationPath The location for documentation upon install.     \value HeadersPath The location for all headers.     \value LibrariesPath The location of installed libraries.     \value BinariesPath The location of installed Qt binaries (tools and applications).     \value PluginsPath The location of installed Qt plugins.     \value ImportsPath The location of installed QML extensions to import.     \value ArchDataPath The location of general architecture-dependent Qt data.     \value DataPath The location of general architecture-independent Qt data.     \value TranslationsPath The location of translation information for Qt strings.     \value ExamplesPath The location for examples upon install.     \value TestsPath The location of installed Qt testcases.     \value SettingsPath The location for Qt settings. Not applicable on Windows.      \sa location() */
+comment|/*!     \enum QLibraryInfo::LibraryLocation      \keyword library location      This enum type is used to specify a specific location     specifier:      \value PrefixPath The default prefix for all paths.     \value DocumentationPath The location for documentation upon install.     \value HeadersPath The location for all headers.     \value LibrariesPath The location of installed libraries.     \value BinariesPath The location of installed Qt binaries (tools and applications).     \value PluginsPath The location of installed Qt plugins.     \value ImportsPath The location of installed QML extensions to import (QML 1.x).     \value Qml2ImportsPath The location of installed QML extensions to import (QML 2.x).     \value ArchDataPath The location of general architecture-dependent Qt data.     \value DataPath The location of general architecture-independent Qt data.     \value TranslationsPath The location of translation information for Qt strings.     \value ExamplesPath The location for examples upon install.     \value TestsPath The location of installed Qt testcases.     \value SettingsPath The location for Qt settings. Not applicable on Windows.      \sa location() */
 name|QT_END_NAMESPACE
 if|#
 directive|if

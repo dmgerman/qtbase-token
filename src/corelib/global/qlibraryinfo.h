@@ -77,6 +77,8 @@ name|PluginsPath
 block|,
 name|ImportsPath
 block|,
+name|Qml2ImportsPath
+block|,
 name|ArchDataPath
 block|,
 name|DataPath
@@ -88,6 +90,7 @@ block|,
 name|TestsPath
 block|,
 comment|// Insert new values above this line
+comment|// Please read the comments in qlibraryinfo.cpp before adding
 ifdef|#
 directive|ifdef
 name|QT_BOOTSTRAPPED
