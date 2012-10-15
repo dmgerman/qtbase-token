@@ -195,6 +195,10 @@ decl_stmt|;
 name|QPalette
 name|palette
 decl_stmt|;
+name|QObject
+modifier|*
+name|styleObject
+decl_stmt|;
 name|QStyleOption
 argument_list|(
 argument|int version = QStyleOption::Version
