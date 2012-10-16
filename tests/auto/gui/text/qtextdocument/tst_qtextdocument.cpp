@@ -9437,9 +9437,7 @@ name|SIGNAL
 argument_list|(
 name|cursorPositionChanged
 argument_list|(
-specifier|const
 name|QTextCursor
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -9449,9 +9447,7 @@ name|SLOT
 argument_list|(
 name|cursorPositionChanged
 argument_list|(
-specifier|const
 name|QTextCursor
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)

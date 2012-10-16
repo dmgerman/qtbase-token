@@ -410,9 +410,7 @@ name|SIGNAL
 argument_list|(
 name|regExpChanged
 argument_list|(
-specifier|const
 name|QRegExp
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)

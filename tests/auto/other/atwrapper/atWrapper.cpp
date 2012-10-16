@@ -187,9 +187,7 @@ name|SIGNAL
 argument_list|(
 name|listInfo
 argument_list|(
-specifier|const
 name|QUrlInfo
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -199,9 +197,7 @@ name|SLOT
 argument_list|(
 name|ftpMgetAddToList
 argument_list|(
-specifier|const
 name|QUrlInfo
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1104,9 +1100,7 @@ name|SIGNAL
 argument_list|(
 name|listInfo
 argument_list|(
-specifier|const
 name|QUrlInfo
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -1116,9 +1110,7 @@ name|SLOT
 argument_list|(
 name|ftpRmDirAddToList
 argument_list|(
-specifier|const
 name|QUrlInfo
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
