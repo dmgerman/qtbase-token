@@ -1437,7 +1437,7 @@ comment|// Load base settings (last working directory, upload/download limits).
 name|QSettings
 name|settings
 argument_list|(
-literal|"Trolltech"
+literal|"QtProject"
 argument_list|,
 literal|"Torrent"
 argument_list|)
@@ -2556,7 +2556,7 @@ comment|// Prepare and reset the settings
 name|QSettings
 name|settings
 argument_list|(
-literal|"Trolltech"
+literal|"QtProject"
 argument_list|,
 literal|"Torrent"
 argument_list|)
