@@ -3827,9 +3827,7 @@ name|SIGNAL
 argument_list|(
 name|clicked
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)

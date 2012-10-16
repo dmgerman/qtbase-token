@@ -487,8 +487,6 @@ argument_list|(
 name|currentFontChanged
 argument_list|(
 name|QFont
-specifier|const
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -794,8 +792,6 @@ argument_list|(
 name|currentFontChanged
 argument_list|(
 name|QFont
-specifier|const
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1307,8 +1303,6 @@ argument_list|(
 name|currentFontChanged
 argument_list|(
 name|QFont
-specifier|const
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1435,8 +1429,6 @@ argument_list|(
 name|currentFontChanged
 argument_list|(
 name|QFont
-specifier|const
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)

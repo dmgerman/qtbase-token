@@ -795,9 +795,7 @@ name|SIGNAL
 argument_list|(
 name|rootPathChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2963,9 +2961,7 @@ name|SIGNAL
 argument_list|(
 name|rowsInserted
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
@@ -2983,9 +2979,7 @@ name|SIGNAL
 argument_list|(
 name|rowsAboutToBeInserted
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
@@ -3295,9 +3289,7 @@ name|SIGNAL
 argument_list|(
 name|rowsInserted
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
@@ -3315,9 +3307,7 @@ name|SIGNAL
 argument_list|(
 name|rowsAboutToBeInserted
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
@@ -3811,9 +3801,7 @@ name|SIGNAL
 argument_list|(
 name|rowsRemoved
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
@@ -3831,9 +3819,7 @@ name|SIGNAL
 argument_list|(
 name|rowsAboutToBeRemoved
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
@@ -4253,7 +4239,7 @@ parameter_list|()
 block|{
 comment|// This can't be tested right now sense we don't watch files, only directories
 return|return;
-comment|/*     QString tmp = flatDirTestPath;     rowCount();     QModelIndex root = model->index(model->rootPath());      QFETCH(int, count);     QFETCH(int, assending);     model->sort(0, (Qt::SortOrder)assending);      QSignalSpy spy(model, SIGNAL(dataChanged (const QModelIndex&, const QModelIndex&)));     QStringList files;     for (int i = 0; i< count; ++i)         files.append(model->index(i, 0, root).data().toString());     createFiles(tmp, files);      QTest::qWait(WAITTIME);      if (count != 0) QVERIFY(spy.count()>= 1); else QVERIFY(spy.count() == 0);     */
+comment|/*     QString tmp = flatDirTestPath;     rowCount();     QModelIndex root = model->index(model->rootPath());      QFETCH(int, count);     QFETCH(int, assending);     model->sort(0, (Qt::SortOrder)assending);      QSignalSpy spy(model, SIGNAL(dataChanged(QModelIndex,QModelIndex)));     QStringList files;     for (int i = 0; i< count; ++i)         files.append(model->index(i, 0, root).data().toString());     createFiles(tmp, files);      QTest::qWait(WAITTIME);      if (count != 0) QVERIFY(spy.count()>= 1); else QVERIFY(spy.count() == 0);     */
 block|}
 end_function
 begin_function
@@ -6454,17 +6440,11 @@ name|SIGNAL
 argument_list|(
 name|fileRenamed
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
-specifier|const
 name|QString
-operator|&
 argument_list|,
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)

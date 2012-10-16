@@ -1843,9 +1843,7 @@ name|SLOT
 argument_list|(
 name|valueChangedHelper
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)

@@ -17317,12 +17317,10 @@ name|SIGNAL
 argument_list|(
 name|changed
 argument_list|(
-specifier|const
 name|QList
 argument_list|<
 name|QRectF
 argument_list|>
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)

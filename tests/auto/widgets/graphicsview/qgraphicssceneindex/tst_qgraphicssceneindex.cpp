@@ -1112,9 +1112,7 @@ name|SIGNAL
 argument_list|(
 name|sceneRectChanged
 argument_list|(
-specifier|const
 name|QRectF
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1142,9 +1140,7 @@ name|SIGNAL
 argument_list|(
 name|sceneRectChanged
 argument_list|(
-specifier|const
 name|QRectF
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
