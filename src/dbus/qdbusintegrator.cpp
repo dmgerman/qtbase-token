@@ -368,7 +368,6 @@ block|}
 end_function
 begin_function
 DECL|function|qdbusDefaultThreadDebug
-name|Q_AUTOTEST_EXPORT
 name|void
 name|qdbusDefaultThreadDebug
 parameter_list|(
@@ -503,7 +502,6 @@ block|}
 end_function
 begin_decl_stmt
 DECL|variable|qdbusThreadDebug
-name|Q_AUTOTEST_EXPORT
 name|qdbusThreadDebugFunc
 name|qdbusThreadDebug
 init|=
