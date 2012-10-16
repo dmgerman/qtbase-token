@@ -3270,7 +3270,7 @@ name|StyleChange
 case|:
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 case|case
 name|QEvent
 operator|::

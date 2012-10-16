@@ -15,13 +15,8 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 end_ifdef
-begin_include
-include|#
-directive|include
-file|"private/qt_mac_p.h"
-end_include
 begin_include
 include|#
 directive|include
@@ -269,6 +264,11 @@ name|QStyle
 operator|::
 name|State_Enabled
 expr_stmt|;
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
 switch|switch
 condition|(
 name|QMacStyle

@@ -3608,11 +3608,28 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 end_elif
 begin_comment
 comment|//<--------------------------------------------------------- MAC
+end_comment
+begin_function_decl
+name|void
+name|macUpdateSizeAttribute
+parameter_list|()
+function_decl|;
+end_function_decl
+begin_elif
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|Q_WS_MAC
+argument_list|)
+end_elif
+begin_comment
+comment|//<--------------------------------------------------------- MAC (old stuff)
 end_comment
 begin_comment
 comment|// This is new stuff
@@ -3729,12 +3746,6 @@ name|HANDLE
 name|qd_hd
 expr_stmt|;
 end_expr_stmt
-begin_function_decl
-name|void
-name|macUpdateSizeAttribute
-parameter_list|()
-function_decl|;
-end_function_decl
 begin_function_decl
 name|void
 name|macUpdateHideOnSuspend
