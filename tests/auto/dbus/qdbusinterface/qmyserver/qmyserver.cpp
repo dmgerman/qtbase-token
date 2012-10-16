@@ -107,9 +107,7 @@ name|SIGNAL
 argument_list|(
 name|newConnection
 argument_list|(
-specifier|const
 name|QDBusConnection
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -117,9 +115,7 @@ name|SLOT
 argument_list|(
 name|handleConnection
 argument_list|(
-specifier|const
 name|QDBusConnection
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
