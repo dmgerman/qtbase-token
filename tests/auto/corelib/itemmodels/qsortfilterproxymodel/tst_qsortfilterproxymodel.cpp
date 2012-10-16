@@ -12458,9 +12458,7 @@ name|SIGNAL
 argument_list|(
 name|columnsInserted
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
@@ -12479,9 +12477,7 @@ name|SIGNAL
 argument_list|(
 name|rowsInserted
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
@@ -13082,9 +13078,7 @@ name|SIGNAL
 argument_list|(
 name|rowsInserted
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
@@ -13254,9 +13248,7 @@ name|SIGNAL
 argument_list|(
 name|rowsRemoved
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
@@ -13275,9 +13267,7 @@ name|SIGNAL
 argument_list|(
 name|rowsInserted
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,

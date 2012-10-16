@@ -351,9 +351,7 @@ name|SIGNAL
 argument_list|(
 name|fileChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1079,9 +1077,7 @@ name|SIGNAL
 argument_list|(
 name|directoryChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2014,9 +2010,7 @@ name|SIGNAL
 argument_list|(
 name|fileChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2031,9 +2025,7 @@ name|SIGNAL
 argument_list|(
 name|directoryChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)

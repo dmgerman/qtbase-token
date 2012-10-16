@@ -16401,13 +16401,9 @@ name|SIGNAL
 argument_list|(
 name|selectionChanged
 argument_list|(
-specifier|const
 name|QItemSelection
-operator|&
 argument_list|,
-specifier|const
 name|QItemSelection
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)

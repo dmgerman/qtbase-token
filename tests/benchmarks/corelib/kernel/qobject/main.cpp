@@ -981,6 +981,7 @@ argument_list|(  )
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// sic: non-normalised
 name|QObject
 operator|::
 name|disconnect
@@ -1004,6 +1005,7 @@ argument_list|(  )
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// sic: non-normalised
 block|}
 block|}
 break|break;
@@ -1138,6 +1140,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// sic: non-normalised
 block|}
 block|}
 break|break;
