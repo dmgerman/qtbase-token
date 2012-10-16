@@ -4967,9 +4967,7 @@ name|SIGNAL
 argument_list|(
 name|rowsInserted
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
@@ -5296,9 +5294,7 @@ name|SIGNAL
 argument_list|(
 name|rowsAboutToBeInserted
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
@@ -5317,9 +5313,7 @@ name|SIGNAL
 argument_list|(
 name|rowsInserted
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
