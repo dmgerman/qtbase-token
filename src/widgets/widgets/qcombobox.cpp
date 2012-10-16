@@ -7269,7 +7269,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QComboBox::editable     \brief whether the combo box can be edited by the user      By default, this property is false. */
+comment|/*!     \property QComboBox::editable     \brief whether the combo box can be edited by the user      By default, this property is false. The effect of editing depends     on the insert policy.      \sa InsertPolicy */
 end_comment
 begin_function
 DECL|function|isEditable
