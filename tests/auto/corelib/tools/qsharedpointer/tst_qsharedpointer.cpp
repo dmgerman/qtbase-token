@@ -190,10 +190,15 @@ name|void
 name|customDeleter
 parameter_list|()
 function_decl|;
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_LAMBDA
 name|void
 name|lambdaCustomDeleter
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|creating
 parameter_list|()
@@ -7550,6 +7555,14 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_LAMBDA
+end_ifdef
+begin_comment
+comment|// The compiler needs to be in C++11 mode and to support lambdas
+end_comment
 begin_function
 DECL|function|lambdaCustomDeleter
 name|void
@@ -7558,16 +7571,6 @@ operator|::
 name|lambdaCustomDeleter
 parameter_list|()
 block|{
-ifndef|#
-directive|ifndef
-name|Q_COMPILER_LAMBDA
-name|QSKIP
-argument_list|(
-literal|"This compiler is not in C++11 mode or does not support lambdas"
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 block|{
 comment|// stateless, one-argument
 name|QSharedPointer
@@ -7714,10 +7717,12 @@ block|}
 name|safetyCheck
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|customQObjectDeleterFn
 name|void
