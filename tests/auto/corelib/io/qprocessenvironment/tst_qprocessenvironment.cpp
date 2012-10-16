@@ -65,10 +65,15 @@ name|void
 name|systemEnvironment
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
 name|void
 name|putenv
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 block|}
 class|;
 end_class
@@ -1413,6 +1418,14 @@ endif|#
 directive|endif
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
+begin_comment
+comment|//Windows CE has no environment
+end_comment
 begin_function
 DECL|function|putenv
 name|void
@@ -1421,16 +1434,6 @@ operator|::
 name|putenv
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Windows CE has no environment"
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 specifier|static
 specifier|const
 name|char
@@ -1610,10 +1613,12 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|QTEST_MAIN
 argument_list|(
