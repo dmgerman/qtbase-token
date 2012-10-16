@@ -200,7 +200,7 @@ literal|1
 block|;
 name|majorVersion
 operator|=
-literal|1
+literal|2
 block|;
 name|minorVersion
 operator|=
