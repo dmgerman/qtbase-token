@@ -4244,7 +4244,9 @@ name|size
 argument_list|()
 operator|>
 literal|6
+operator|)
 operator|&&
+operator|(
 name|s
 index|[
 literal|5
@@ -4254,7 +4256,6 @@ name|QLatin1Char
 argument_list|(
 literal|','
 argument_list|)
-operator|)
 operator|||
 name|s
 index|[
@@ -4265,6 +4266,7 @@ name|QLatin1Char
 argument_list|(
 literal|'.'
 argument_list|)
+operator|)
 condition|)
 block|{
 comment|// Possibly specifying fraction of a minute.
