@@ -240,6 +240,15 @@ name|qreal
 name|value
 parameter_list|)
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+comment|// On mac the DPI is allways 72 so we should not scale it
+return|return
+name|value
+return|;
+else|#
+directive|else
 specifier|static
 specifier|const
 name|qreal
@@ -258,6 +267,8 @@ name|value
 operator|*
 name|scale
 return|;
+endif|#
+directive|endif
 block|}
 ifndef|#
 directive|ifndef
