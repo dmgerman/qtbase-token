@@ -3204,8 +3204,6 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-comment|//    motifdnd_active = false;
-comment|//    last_enter_event.xclient = xe->xclient;
 name|int
 name|version
 init|=
@@ -6151,7 +6149,6 @@ decl_stmt|;
 name|QVariant
 name|data
 init|=
-comment|/*X11->motifdnd_active                       ? X11->motifdndObtainData(mime)                       :*/
 name|xdndObtainData
 argument_list|(
 name|mime
@@ -6428,14 +6425,6 @@ block|{
 name|QStringList
 name|formats
 decl_stmt|;
-comment|//    if (X11->motifdnd_active) {
-comment|//        int i = 0;
-comment|//        QByteArray fmt;
-comment|//        while (!(fmt = X11->motifdndFormat(i)).isEmpty()) {
-comment|//            formats.append(QLatin1String(fmt));
-comment|//            ++i;
-comment|//        }
-comment|//    } else {
 for|for
 control|(
 name|int
@@ -6494,7 +6483,6 @@ name|f
 argument_list|)
 expr_stmt|;
 block|}
-comment|//    }
 return|return
 name|formats
 return|;
