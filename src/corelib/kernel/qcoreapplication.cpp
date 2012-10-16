@@ -2140,9 +2140,14 @@ name|char
 modifier|*
 modifier|*
 name|argv
+ifndef|#
+directive|ifndef
+name|Q_QDOC
 parameter_list|,
 name|int
 name|_internal
+endif|#
+directive|endif
 parameter_list|)
 member_init_list|:
 name|QObject
@@ -2553,7 +2558,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!/     Returns true if the use of the QEventLoopLocker feature can cause the     application to quit, otherwise returns false.      \sa QEventLoopLocker  */
+comment|/*!     \property QCoreApplication::quitLockEnabled      Returns true if the use of the QEventLoopLocker feature can cause the     application to quit, otherwise returns false.      \sa QEventLoopLocker */
+end_comment
+begin_comment
+comment|/*!     Returns true if the use of the QEventLoopLocker feature can cause the     application to quit, otherwise returns false.      \sa QEventLoopLocker  */
 end_comment
 begin_function
 DECL|function|isQuitLockEnabled
@@ -7551,7 +7559,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Removes an event filter object \a obj from this object. The     request is ignored if such an event filter has not been installed.      All event filters for this object are automatically removed when     this object is destroyed.      It is always safe to remove an event filter, even during event     filter activation (i.e. from the nativeEventFilter() function).      \sa installNativeEventFilter()     \since 5.0 */
+comment|/*!     Removes an event \a filterObject from this object. The     request is ignored if such an event filter has not been installed.      All event filters for this object are automatically removed when     this object is destroyed.      It is always safe to remove an event filter, even during event     filter activation (i.e. from the nativeEventFilter() function).      \sa installNativeEventFilter()     \since 5.0 */
 end_comment
 begin_function
 DECL|function|removeNativeEventFilter
@@ -7562,7 +7570,7 @@ name|removeNativeEventFilter
 parameter_list|(
 name|QAbstractNativeEventFilter
 modifier|*
-name|filterObj
+name|filterObject
 parameter_list|)
 block|{
 name|QAbstractEventDispatcher
@@ -7577,7 +7585,7 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|filterObj
+name|filterObject
 operator|||
 operator|!
 name|eventDispatcher
@@ -7587,7 +7595,7 @@ name|eventDispatcher
 operator|->
 name|removeNativeEventFilter
 argument_list|(
-name|filterObj
+name|filterObject
 argument_list|)
 expr_stmt|;
 block|}

@@ -167,10 +167,15 @@ name|char
 operator|*
 operator|*
 name|argv
+ifndef|#
+directive|ifndef
+name|Q_QDOC
 argument_list|,
 name|int
 operator|=
 name|ApplicationFlags
+endif|#
+directive|endif
 argument_list|)
 block|;
 operator|~
