@@ -812,6 +812,14 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+name|option
+operator|->
+name|features
+operator||=
+name|QStyleOptionTab
+operator|::
+name|HasFrame
+expr_stmt|;
 if|if
 condition|(
 name|tw

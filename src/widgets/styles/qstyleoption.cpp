@@ -1267,6 +1267,13 @@ name|documentMode
 argument_list|(
 literal|false
 argument_list|)
+member_init_list|,
+name|features
+argument_list|(
+name|QStyleOptionTab
+operator|::
+name|None
+argument_list|)
 block|{ }
 end_constructor
 begin_comment
@@ -1322,6 +1329,13 @@ name|documentMode
 argument_list|(
 literal|false
 argument_list|)
+member_init_list|,
+name|features
+argument_list|(
+name|QStyleOptionTab
+operator|::
+name|None
+argument_list|)
 block|{ }
 end_constructor
 begin_comment
@@ -1368,6 +1382,9 @@ comment|/*!     \variable QStyleOptionTab::iconSize     \brief the size for the 
 end_comment
 begin_comment
 comment|/*!     \variable QStyleOptionTab::documentMode     \brief whether the tabbar is in document mode.      The default value is false; */
+end_comment
+begin_comment
+comment|/*!     \enum QStyleOptionTab::TabFeature      Describes the various features that a tab button can have.      \value None A normal tab button.     \value HasFrame The tab button is positioned on a tab frame      \sa features */
 end_comment
 begin_comment
 comment|/*!     \variable QStyleOptionTab::leftButtonSize     \brief the size for the left widget on the tab.      The default value is QSize(-1, -1), i.e. an invalid size; */
