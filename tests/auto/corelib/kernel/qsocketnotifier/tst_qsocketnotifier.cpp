@@ -130,10 +130,15 @@ name|void
 name|mixingWithTimers
 parameter_list|()
 function_decl|;
+ifdef|#
+directive|ifdef
+name|Q_OS_UNIX
 name|void
 name|posixSockets
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 block|}
 class|;
 end_class
@@ -960,6 +965,14 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_UNIX
+end_ifdef
+begin_comment
+comment|// test only for posix
+end_comment
 begin_function
 DECL|function|posixSockets
 name|void
@@ -968,16 +981,6 @@ operator|::
 name|posixSockets
 parameter_list|()
 block|{
-ifndef|#
-directive|ifndef
-name|Q_OS_UNIX
-name|QSKIP
-argument_list|(
-literal|"test only for posix"
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|QTcpServer
 name|server
 decl_stmt|;
@@ -1434,10 +1437,12 @@ argument_list|(
 name|posixSocket
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|QTEST_MAIN
 argument_list|(
