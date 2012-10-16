@@ -140,10 +140,6 @@ name|QEvent
 operator|*
 argument_list|)
 block|;
-name|void
-name|_q_initializeProcessManager
-argument_list|()
-block|;
 name|QString
 name|appName
 argument_list|()

@@ -151,6 +151,12 @@ name|QPlatformServices
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QKeyEvent
+name|class
+name|QKeyEvent
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|Q_GUI_EXPORT
 name|QPlatformIntegration
@@ -394,6 +400,17 @@ operator|::
 name|KeyboardModifiers
 name|queryKeyboardModifiers
 argument_list|()
+specifier|const
+expr_stmt|;
+name|virtual
+name|QList
+operator|<
+name|int
+operator|>
+name|possibleKeys
+argument_list|(
+argument|const QKeyEvent *
+argument_list|)
 specifier|const
 expr_stmt|;
 name|virtual

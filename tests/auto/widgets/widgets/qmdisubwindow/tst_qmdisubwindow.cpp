@@ -110,6 +110,11 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_include
+include|#
+directive|include
+file|"../../../qtest-config.h"
+end_include
 begin_function_decl
 name|QT_BEGIN_NAMESPACE
 if|#
@@ -843,6 +848,9 @@ name|void
 name|showNormal
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QTEST_NO_CURSOR
 name|void
 name|setOpaqueResizeAndMove_data
 parameter_list|()
@@ -851,6 +859,8 @@ name|void
 name|setOpaqueResizeAndMove
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|setWindowFlags_data
 parameter_list|()
@@ -4090,6 +4100,11 @@ decl_stmt|;
 block|}
 class|;
 end_class
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QTEST_NO_CURSOR
+end_ifndef
 begin_function
 DECL|function|setOpaqueResizeAndMove_data
 name|void
@@ -4212,25 +4227,6 @@ operator|::
 name|setOpaqueResizeAndMove
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QT_NO_CURSOR
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_WINCE_WM
-argument_list|)
-comment|//For Windows CE we will set QT_NO_CURSOR if there is no cursor support
-name|QSKIP
-argument_list|(
-literal|"No cursor available"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QFETCH
 argument_list|(
 name|bool
@@ -4895,6 +4891,10 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|setWindowFlags_data
 name|void

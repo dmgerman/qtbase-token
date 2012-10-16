@@ -303,13 +303,11 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Requests setting the window flags of this surface     to \a type. Returns the actual flags set. */
+comment|/*!     Requests setting the window flags of this surface     to \a flags. */
 end_comment
 begin_function
 DECL|function|setWindowFlags
-name|Qt
-operator|::
-name|WindowFlags
+name|void
 name|QPlatformWindow
 operator|::
 name|setWindowFlags
@@ -320,9 +318,11 @@ name|WindowFlags
 name|flags
 parameter_list|)
 block|{
-return|return
+name|Q_UNUSED
+argument_list|(
 name|flags
-return|;
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_comment

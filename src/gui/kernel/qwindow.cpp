@@ -1213,10 +1213,6 @@ name|platformWindow
 condition|)
 name|d
 operator|->
-name|windowFlags
-operator|=
-name|d
-operator|->
 name|platformWindow
 operator|->
 name|setWindowFlags
@@ -1224,7 +1220,6 @@ argument_list|(
 name|flags
 argument_list|)
 expr_stmt|;
-else|else
 name|d
 operator|->
 name|windowFlags

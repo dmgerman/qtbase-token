@@ -185,8 +185,6 @@ operator|*
 name|endOffset
 argument_list|)
 decl|const
-init|=
-literal|0
 decl_stmt|;
 name|virtual
 name|QString
@@ -209,8 +207,6 @@ operator|*
 name|endOffset
 argument_list|)
 decl|const
-init|=
-literal|0
 decl_stmt|;
 name|virtual
 name|QString
@@ -233,8 +229,6 @@ operator|*
 name|endOffset
 argument_list|)
 decl|const
-init|=
-literal|0
 decl_stmt|;
 name|virtual
 name|int

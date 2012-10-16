@@ -71,9 +71,7 @@ name|rect
 argument_list|)
 block|;
 name|virtual
-name|Qt
-operator|::
-name|WindowFlags
+name|void
 name|setWindowFlags
 argument_list|(
 argument|Qt::WindowFlags type

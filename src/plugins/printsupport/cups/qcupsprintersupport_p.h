@@ -13,6 +13,14 @@ define|#
 directive|define
 name|QCUPSPRINTERSUPPORT_H
 end_define
+begin_include
+include|#
+directive|include
+file|<QtCore/qfeatures.h>
+end_include
+begin_comment
+comment|// Some feature dependencies might define QT_NO_PRINTER
+end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef

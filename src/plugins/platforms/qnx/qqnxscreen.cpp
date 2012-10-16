@@ -2553,7 +2553,7 @@ decl_stmt|;
 name|screen_display_t
 name|display
 init|=
-name|NULL
+literal|0
 decl_stmt|;
 if|if
 condition|(

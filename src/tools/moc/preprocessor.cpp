@@ -784,10 +784,19 @@ operator|==
 name|NOTOKEN
 condition|)
 block|{
-comment|// an error really
 operator|++
 name|data
 expr_stmt|;
+comment|// an error really, but let's ignore this input
+comment|// to not confuse moc later. However in pre-processor
+comment|// only mode let's continue.
+if|if
+condition|(
+operator|!
+name|Preprocessor
+operator|::
+name|preprocessOnly
+condition|)
 continue|continue;
 block|}
 operator|++
@@ -5463,9 +5472,49 @@ break|break;
 if|if
 condition|(
 name|t
-operator|!=
+operator|==
 name|PP_COMMA
 condition|)
+continue|continue;
+if|if
+condition|(
+name|lexem
+argument_list|()
+operator|==
+literal|"..."
+condition|)
+block|{
+comment|//GCC extension:    #define FOO(x, y...) x(y)
+comment|// The last argument was already parsed. Just mark the macro as variadic.
+name|m
+operator|->
+name|isVariadic
+operator|=
+literal|true
+expr_stmt|;
+while|while
+condition|(
+name|test
+argument_list|(
+name|PP_WHITESPACE
+argument_list|)
+condition|)
+empty_stmt|;
+if|if
+condition|(
+operator|!
+name|test
+argument_list|(
+name|PP_RPAREN
+argument_list|)
+condition|)
+name|error
+argument_list|(
+literal|"missing ')' in macro argument list"
+argument_list|)
+expr_stmt|;
+break|break;
+block|}
 name|error
 argument_list|(
 literal|"Unexpected character in macro argument list."

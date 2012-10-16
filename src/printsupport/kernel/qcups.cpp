@@ -816,6 +816,8 @@ name|isAvailable
 argument_list|()
 condition|)
 return|return;
+name|qt_cups_num_printers
+operator|=
 name|prnCount
 operator|=
 name|_cupsGetDests

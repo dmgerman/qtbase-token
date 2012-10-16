@@ -4927,10 +4927,16 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
+operator|(
 name|sentenceFinder
 operator|.
-name|isAtBoundary
+name|boundaryReasons
 argument_list|()
+operator|&
+name|QTextBoundaryFinder
+operator|::
+name|StartOfItem
+operator|)
 condition|)
 name|prevBoundary
 operator|=

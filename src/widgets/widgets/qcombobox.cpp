@@ -9253,7 +9253,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \property QComboBox::currentText     \brief the text of the current item      By default, for an empty combo box or a combo box in which no current     item is set, this property contains an empty string. */
+comment|/*!     \property QComboBox::currentText     \brief the current text      If the combo box is editable, the current text is the value displayed     by the line edit. Otherwise, it is the value of the current item or     an empty string if the combo box is empty or no current item is set.      \sa editable */
 end_comment
 begin_function
 DECL|function|currentText

@@ -2069,7 +2069,7 @@ comment|/*!     \brief Synchronizes the screen list, adds new screens, removes d
 end_comment
 begin_function
 DECL|function|handleScreenChanges
-name|void
+name|bool
 name|QWindowsScreenManager
 operator|::
 name|handleScreenChanges
@@ -2250,6 +2250,9 @@ block|}
 comment|// not found
 block|}
 comment|// for existing screens
+return|return
+literal|true
+return|;
 block|}
 end_function
 begin_macro

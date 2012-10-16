@@ -73,7 +73,7 @@ end_typedef
 begin_include
 include|#
 directive|include
-file|"qopengles2ext.h"
+file|<QtGui/qopengles2ext.h>
 end_include
 begin_ifndef
 ifndef|#
@@ -218,7 +218,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qopenglext.h"
+file|<QtGui/qopenglext.h>
 end_include
 begin_endif
 endif|#

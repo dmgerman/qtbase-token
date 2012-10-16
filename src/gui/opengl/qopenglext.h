@@ -20,6 +20,11 @@ pragma|#
 directive|pragma
 name|qt_no_master_include
 end_pragma
+begin_pragma
+pragma|#
+directive|pragma
+name|qt_sync_stop_processing
+end_pragma
 begin_endif
 endif|#
 directive|endif

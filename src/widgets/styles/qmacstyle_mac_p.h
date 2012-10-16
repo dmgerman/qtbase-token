@@ -781,7 +781,7 @@ name|lastUpdate
 argument_list|(
 name|QDateTime
 operator|::
-name|currentDateTime
+name|currentMSecsSinceEpoch
 argument_list|()
 argument_list|)
 block|,
@@ -792,12 +792,7 @@ argument_list|)
 block|,
 name|lastHovered
 argument_list|(
-name|QDateTime
-operator|::
-name|fromTime_t
-argument_list|(
 literal|0
-argument_list|)
 argument_list|)
 block|,
 name|cleared
@@ -817,13 +812,13 @@ block|;
 name|QSize
 name|lastSize
 block|;
-name|QDateTime
+name|qint64
 name|lastUpdate
 block|;
 name|bool
 name|hovered
 block|;
-name|QDateTime
+name|qint64
 name|lastHovered
 block|;
 name|bool

@@ -2773,7 +2773,7 @@ expr_stmt|;
 block|}
 end_function
 begin_macro
-name|QTEST_MAIN
+name|QTEST_APPLESS_MAIN
 argument_list|(
 argument|tst_QIntValidator
 argument_list|)

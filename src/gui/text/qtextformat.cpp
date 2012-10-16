@@ -5648,7 +5648,7 @@ name|i
 init|=
 name|hashes
 operator|.
-name|find
+name|constFind
 argument_list|(
 name|hash
 argument_list|)
@@ -5659,7 +5659,7 @@ name|i
 operator|!=
 name|hashes
 operator|.
-name|end
+name|constEnd
 argument_list|()
 operator|&&
 name|i

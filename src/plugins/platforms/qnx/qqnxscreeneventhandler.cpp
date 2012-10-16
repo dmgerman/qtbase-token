@@ -2048,7 +2048,7 @@ block|{
 name|screen_display_t
 name|nativeDisplay
 init|=
-name|NULL
+literal|0
 decl_stmt|;
 if|if
 condition|(

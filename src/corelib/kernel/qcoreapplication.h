@@ -636,12 +636,6 @@ argument_list|)
 block|;
 name|private
 operator|:
-name|Q_PRIVATE_SLOT
-argument_list|(
-argument|d_func()
-argument_list|,
-argument|void _q_initializeProcessManager()
-argument_list|)
 specifier|static
 name|bool
 name|sendSpontaneousEvent

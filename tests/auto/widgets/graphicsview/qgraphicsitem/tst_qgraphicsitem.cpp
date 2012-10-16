@@ -160,7 +160,7 @@ end_macro
 begin_include
 include|#
 directive|include
-file|"../../../platformquirks.h"
+file|"../../../qtest-config.h"
 end_include
 begin_if
 if|#
@@ -1525,10 +1525,15 @@ name|void
 name|ensureVisible
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QTEST_NO_CURSOR
 name|void
 name|cursor
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 comment|//void textControlGetterSetter();
 name|void
 name|defaultItemTest_QGraphicsLineItem
@@ -31864,6 +31869,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QTEST_NO_CURSOR
+end_ifndef
 begin_function
 DECL|function|cursor
 name|void
@@ -31872,9 +31882,6 @@ operator|::
 name|cursor
 parameter_list|()
 block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_CURSOR
 name|QGraphicsScene
 name|scene
 decl_stmt|;
@@ -32259,35 +32266,6 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-operator|!
-name|PlatformQuirks
-operator|::
-name|haveMouseCursor
-argument_list|()
-condition|)
-return|return;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_WINCE
-argument_list|)
-name|QTest
-operator|::
-name|qWait
-argument_list|(
-literal|250
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
-comment|// Test environment does not have any cursor, therefore no shape
-return|return;
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|view
@@ -32488,10 +32466,12 @@ name|shape
 argument_list|()
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/* void tst_QGraphicsItem::textControlGetterSetter() {     QGraphicsTextItem *item = new QGraphicsTextItem;     QVERIFY(item->textControl()->parent() == item);     QPointer<QWidgetTextControl> control = item->textControl();     delete item;     QVERIFY(!control);      item = new QGraphicsTextItem;      QPointer<QWidgetTextControl> oldControl = control;     control = new QWidgetTextControl;      item->setTextControl(control);     QVERIFY(item->textControl() == control);     QVERIFY(!control->parent());     QVERIFY(!oldControl);      // set some text to give it a size, to test that     // setTextControl (re)connects signals     const QRectF oldBoundingRect = item->boundingRect();     QVERIFY(oldBoundingRect.isValid());     item->setPlainText("Some text");     item->adjustSize();     QVERIFY(item->boundingRect().isValid());     QVERIFY(item->boundingRect() != oldBoundingRect);      // test that on setting a control the item size     // is adjusted     oldControl = control;     control = new QWidgetTextControl;     control->setPlainText("foo!");     item->setTextControl(control);     QCOMPARE(item->boundingRect().size(), control->document()->documentLayout()->documentSize());      QVERIFY(oldControl);     delete oldControl;      delete item;     QVERIFY(control);     delete control; } */
 end_comment
@@ -34038,7 +34018,7 @@ name|ItemCursorChange
 case|:
 ifndef|#
 directive|ifndef
-name|QT_NO_CURSOR
+name|QTEST_NO_CURSOR
 name|oldValues
 operator|<<
 name|cursor

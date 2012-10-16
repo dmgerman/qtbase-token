@@ -566,6 +566,34 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!   Should be used to obtain a list of possible shortcuts for the given key   event. As that needs system functionality it cannot be done in qkeymapper.    One example for more than 1 possibility is the key combination of Shift+5.   That one might trigger a shortcut which is set as "Shift+5" as well as one   using %. These combinations depend on the currently set keyboard layout   which cannot be obtained by Qt functionality. */
+end_comment
+begin_function
+DECL|function|possibleKeys
+name|QList
+argument_list|<
+name|int
+argument_list|>
+name|QPlatformIntegration
+operator|::
+name|possibleKeys
+parameter_list|(
+specifier|const
+name|QKeyEvent
+modifier|*
+parameter_list|)
+specifier|const
+block|{
+return|return
+name|QList
+argument_list|<
+name|int
+argument_list|>
+argument_list|()
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!   Should be called by the implementation whenever a new screen is added.    The first screen added will be the primary screen, used for default-created   windows, GL contexts, and other resources unless otherwise specified.    This adds the screen to QGuiApplication::screens(), and emits the   QGuiApplication::screenAdded() signal.    The screen is automatically removed when the QPlatformScreen is destroyed. */
 end_comment
 begin_function

@@ -276,7 +276,7 @@ operator|::
 name|A
 argument_list|)
 operator|<<
-literal|"invalid."
+literal|"invalid.invalid"
 operator|<<
 name|int
 argument_list|(
@@ -471,7 +471,7 @@ operator|::
 name|AAAA
 argument_list|)
 operator|<<
-literal|"invalid."
+literal|"invalid.invalid"
 operator|<<
 name|int
 argument_list|(
@@ -623,7 +623,7 @@ operator|::
 name|ANY
 argument_list|)
 operator|<<
-literal|"invalid."
+literal|"invalid.invalid"
 operator|<<
 name|int
 argument_list|(
@@ -737,7 +737,7 @@ operator|::
 name|MX
 argument_list|)
 operator|<<
-literal|"invalid."
+literal|"invalid.invalid"
 operator|<<
 name|int
 argument_list|(
@@ -858,7 +858,7 @@ operator|::
 name|NS
 argument_list|)
 operator|<<
-literal|"invalid."
+literal|"invalid.invalid"
 operator|<<
 name|int
 argument_list|(
@@ -972,7 +972,7 @@ operator|::
 name|PTR
 argument_list|)
 operator|<<
-literal|"invalid."
+literal|"invalid.invalid"
 operator|<<
 name|int
 argument_list|(
@@ -1087,7 +1087,7 @@ operator|::
 name|SRV
 argument_list|)
 operator|<<
-literal|"invalid."
+literal|"invalid.invalid"
 operator|<<
 name|int
 argument_list|(
@@ -1170,7 +1170,7 @@ operator|::
 name|TXT
 argument_list|)
 operator|<<
-literal|"invalid."
+literal|"invalid.invalid"
 operator|<<
 name|int
 argument_list|(

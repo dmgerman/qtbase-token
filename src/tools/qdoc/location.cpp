@@ -1052,7 +1052,24 @@ name|prepend
 argument_list|(
 name|tr
 argument_list|(
-literal|"error: "
+literal|": error: "
+argument_list|)
+argument_list|)
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|type
+operator|==
+name|Warning
+condition|)
+name|result
+operator|.
+name|prepend
+argument_list|(
+name|tr
+argument_list|(
+literal|": warning: "
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1222,13 +1239,6 @@ name|top
 argument_list|()
 expr_stmt|;
 block|}
-name|str
-operator|+=
-name|QLatin1String
-argument_list|(
-literal|": "
-argument_list|)
-expr_stmt|;
 return|return
 name|str
 return|;

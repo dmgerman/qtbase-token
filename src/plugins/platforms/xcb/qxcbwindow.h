@@ -149,14 +149,15 @@ name|bool
 name|visible
 parameter_list|)
 function_decl|;
+name|void
+name|setWindowFlags
+argument_list|(
 name|Qt
 operator|::
 name|WindowFlags
-name|setWindowFlags
-argument_list|(
-argument|Qt::WindowFlags flags
+name|flags
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|Qt
 operator|::
 name|WindowState

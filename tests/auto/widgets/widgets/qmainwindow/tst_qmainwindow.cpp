@@ -72,6 +72,11 @@ include|#
 directive|include
 file|<private/qdockarealayout_p.h>
 end_include
+begin_include
+include|#
+directive|include
+file|"../../../qtest-config.h"
+end_include
 begin_decl_stmt
 DECL|variable|restoreData41
 specifier|static
@@ -4607,7 +4612,7 @@ parameter_list|()
 function_decl|;
 ifndef|#
 directive|ifndef
-name|QT_NO_CURSOR
+name|QTEST_NO_CURSOR
 name|void
 name|setCursor
 parameter_list|()
@@ -14485,7 +14490,7 @@ end_class
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_CURSOR
+name|QTEST_NO_CURSOR
 end_ifndef
 begin_function
 DECL|function|setCursor

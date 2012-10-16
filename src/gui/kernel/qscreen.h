@@ -103,19 +103,19 @@ argument|int depth READ depth CONSTANT
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|QSize size READ size NOTIFY sizeChanged
+argument|QSize size READ size NOTIFY geometryChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|QSize availableSize READ availableSize NOTIFY availableSizeChanged
+argument|QSize availableSize READ availableSize NOTIFY virtualGeometryChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|QSize virtualSize READ virtualSize NOTIFY sizeChanged
+argument|QSize virtualSize READ virtualSize NOTIFY virtualGeometryChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|QSize availableVirtualSize READ availableVirtualSize NOTIFY availableSizeChanged
+argument|QSize availableVirtualSize READ availableVirtualSize NOTIFY virtualGeometryChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
@@ -123,27 +123,27 @@ argument|QRect geometry READ geometry NOTIFY geometryChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|QRect availableGeometry READ availableGeometry NOTIFY availableGeometryChanged
+argument|QRect availableGeometry READ availableGeometry NOTIFY virtualGeometryChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|QRect virtualGeometry READ virtualGeometry NOTIFY sizeChanged
+argument|QRect virtualGeometry READ virtualGeometry NOTIFY virtualGeometryChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|QRect availableVirtualGeometry READ availableVirtualGeometry NOTIFY availableGeometryChanged
+argument|QRect availableVirtualGeometry READ availableVirtualGeometry NOTIFY virtualGeometryChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|QSizeF physicalSize READ physicalSize CONSTANT
+argument|QSizeF physicalSize READ physicalSize NOTIFY physicalSizeChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|qreal physicalDotsPerInchX READ physicalDotsPerInchX NOTIFY physicalDotsPerInchXChanged
+argument|qreal physicalDotsPerInchX READ physicalDotsPerInchX NOTIFY physicalDotsPerInchChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|qreal physicalDotsPerInchY READ physicalDotsPerInchY NOTIFY physicalDotsPerInchYChanged
+argument|qreal physicalDotsPerInchY READ physicalDotsPerInchY NOTIFY physicalDotsPerInchChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
@@ -151,11 +151,11 @@ argument|qreal physicalDotsPerInch READ physicalDotsPerInch NOTIFY physicalDotsP
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|qreal logicalDotsPerInchX READ logicalDotsPerInchX NOTIFY logicalDotsPerInchXChanged
+argument|qreal logicalDotsPerInchX READ logicalDotsPerInchX NOTIFY logicalDotsPerInchChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|qreal logicalDotsPerInchY READ logicalDotsPerInchY NOTIFY logicalDotsPerInchYChanged
+argument|qreal logicalDotsPerInchY READ logicalDotsPerInchY NOTIFY logicalDotsPerInchChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
@@ -373,15 +373,6 @@ block|;
 name|Q_SIGNALS
 operator|:
 name|void
-name|sizeChanged
-argument_list|(
-specifier|const
-name|QSize
-operator|&
-name|size
-argument_list|)
-block|;
-name|void
 name|geometryChanged
 argument_list|(
 specifier|const
@@ -391,31 +382,16 @@ name|geometry
 argument_list|)
 block|;
 name|void
-name|physicalDotsPerInchXChanged
+name|physicalSizeChanged
 argument_list|(
-argument|qreal dpi
-argument_list|)
-block|;
-name|void
-name|physicalDotsPerInchYChanged
-argument_list|(
-argument|qreal dpi
+specifier|const
+name|QSizeF
+operator|&
+name|size
 argument_list|)
 block|;
 name|void
 name|physicalDotsPerInchChanged
-argument_list|(
-argument|qreal dpi
-argument_list|)
-block|;
-name|void
-name|logicalDotsPerInchXChanged
-argument_list|(
-argument|qreal dpi
-argument_list|)
-block|;
-name|void
-name|logicalDotsPerInchYChanged
 argument_list|(
 argument|qreal dpi
 argument_list|)
@@ -427,16 +403,7 @@ argument|qreal dpi
 argument_list|)
 block|;
 name|void
-name|availableSizeChanged
-argument_list|(
-specifier|const
-name|QSize
-operator|&
-name|size
-argument_list|)
-block|;
-name|void
-name|availableGeometryChanged
+name|virtualGeometryChanged
 argument_list|(
 specifier|const
 name|QRect

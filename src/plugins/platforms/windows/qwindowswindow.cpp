@@ -6192,9 +6192,7 @@ block|}
 end_function
 begin_function
 DECL|function|setWindowFlags
-name|Qt
-operator|::
-name|WindowFlags
+name|void
 name|QWindowsWindow
 operator|::
 name|setWindowFlags
@@ -6331,11 +6329,6 @@ literal|"->"
 operator|<<
 name|newGeometry
 expr_stmt|;
-return|return
-name|m_data
-operator|.
-name|flags
-return|;
 block|}
 end_function
 begin_function

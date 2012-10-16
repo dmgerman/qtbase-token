@@ -186,7 +186,7 @@ begin_comment
 comment|/*!     \enum QMutex::RecursionMode      \value Recursive  In this mode, a thread can lock the same mutex                       multiple times and the mutex won't be unlocked                       until a corresponding number of unlock() calls                       have been made.      \value NonRecursive  In this mode, a thread may only lock a mutex                          once.      \sa QMutex() */
 end_comment
 begin_comment
-comment|/*!     Constructs a new mutex. The mutex is created in an unlocked state.      If \a mode is QMutex::Recursive, a thread can lock the same mutex     multiple times and the mutex won't be unlocked until a     corresponding number of unlock() calls have been made. The     default is QMutex::NonRecursive.      \sa lock(), unlock() */
+comment|/*!     Constructs a new mutex. The mutex is created in an unlocked state.      If \a mode is QMutex::Recursive, a thread can lock the same mutex     multiple times and the mutex won't be unlocked until a     corresponding number of unlock() calls have been made. Otherwise     a thread may only lock a mutex once. The default is     QMutex::NonRecursive.      \sa lock(), unlock() */
 end_comment
 begin_constructor
 DECL|function|QMutex
@@ -515,6 +515,9 @@ comment|/*!     \fn void QMutexLocker::unlock()      Unlocks this mutex locker. 
 end_comment
 begin_comment
 comment|/*!     \fn void QMutexLocker::relock()      Relocks an unlocked mutex locker.      \sa unlock() */
+end_comment
+begin_comment
+comment|/*!     \fn QMutex *QMutexLocker::mutex()      Returns the mutex on which the QMutexLocker is operating.  */
 end_comment
 begin_ifndef
 ifndef|#

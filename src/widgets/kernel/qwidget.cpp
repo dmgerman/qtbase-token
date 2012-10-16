@@ -28288,7 +28288,7 @@ argument_list|(
 name|QWidget
 argument_list|)
 expr_stmt|;
-comment|// ignore mouse events when disabled
+comment|// ignore mouse and key events when disabled
 if|if
 condition|(
 operator|!
@@ -28363,6 +28363,16 @@ case|case
 name|QEvent
 operator|::
 name|ContextMenu
+case|:
+case|case
+name|QEvent
+operator|::
+name|KeyPress
+case|:
+case|case
+name|QEvent
+operator|::
+name|KeyRelease
 case|:
 ifndef|#
 directive|ifndef
