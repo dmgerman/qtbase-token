@@ -35,9 +35,6 @@ comment|// without notice, or even be removed.
 comment|//
 comment|// We mean it.
 comment|//
-ifndef|#
-directive|ifndef
-name|QT_NO_ANIMATION
 name|class
 name|QStyleAnimation
 range|:
@@ -164,13 +161,6 @@ name|_step
 block|; }
 decl_stmt|;
 end_decl_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_NO_ANIMATION
-end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

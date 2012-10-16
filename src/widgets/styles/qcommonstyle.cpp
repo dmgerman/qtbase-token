@@ -8103,12 +8103,11 @@ name|QStyleAnimation
 modifier|*
 name|animation
 parameter_list|)
+specifier|const
 block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_ANIMATION
 name|Q_Q
 argument_list|(
+specifier|const
 name|QCommonStyle
 argument_list|)
 expr_stmt|;
@@ -8183,9 +8182,6 @@ operator|->
 name|start
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
-comment|// QT_NO_ANIMATION
 block|}
 end_function
 begin_comment
@@ -8203,10 +8199,8 @@ name|QObject
 modifier|*
 name|target
 parameter_list|)
+specifier|const
 block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_ANIMATION
 name|QStyleAnimation
 modifier|*
 name|animation
@@ -8251,9 +8245,6 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
-endif|#
-directive|endif
-comment|// QT_NO_ANIMATION
 block|}
 end_function
 begin_comment
@@ -8267,9 +8258,6 @@ operator|::
 name|_q_removeAnimation
 parameter_list|()
 block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_ANIMATION
 name|Q_Q
 argument_list|(
 name|QCommonStyle
@@ -8305,9 +8293,6 @@ name|deleteLater
 argument_list|()
 expr_stmt|;
 block|}
-endif|#
-directive|endif
-comment|// QT_NO_ANIMATION
 block|}
 end_function
 begin_comment

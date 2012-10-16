@@ -89,16 +89,11 @@ operator|~
 name|QCommonStylePrivate
 argument_list|()
 block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_ANIMATION
 name|qDeleteAll
 argument_list|(
 name|animations
 argument_list|)
 block|;
-endif|#
-directive|endif
 ifndef|#
 directive|ifndef
 name|QT_NO_ITEMVIEWS
@@ -342,22 +337,20 @@ block|;
 name|void
 name|startAnimation
 argument_list|(
-name|QStyleAnimation
-operator|*
-name|animation
+argument|QStyleAnimation *animation
 argument_list|)
+specifier|const
 block|;
 name|void
 name|stopAnimation
 argument_list|(
-specifier|const
-name|QObject
-operator|*
-name|target
+argument|const QObject *target
 argument_list|)
+specifier|const
 block|;
 name|private
 operator|:
+name|mutable
 name|QHash
 operator|<
 specifier|const

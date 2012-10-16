@@ -503,7 +503,7 @@ name|animatable
 argument_list|(
 argument|Animates
 argument_list|,
-argument|const QWidget *
+argument|const QObject *
 argument_list|)
 specifier|const
 block|;
@@ -512,7 +512,7 @@ name|stopAnimate
 argument_list|(
 name|Animates
 argument_list|,
-name|QWidget
+name|QObject
 operator|*
 argument_list|)
 block|;
@@ -521,7 +521,7 @@ name|startAnimate
 argument_list|(
 name|Animates
 argument_list|,
-name|QWidget
+name|QObject
 operator|*
 argument_list|)
 block|;
