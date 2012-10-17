@@ -3754,12 +3754,12 @@ parameter_list|()
 specifier|const
 block|{
 return|return
-cast|reinterpret_cast
-argument_list|<
 name|T
-argument_list|>
+argument_list|(
+name|qintptr
 argument_list|(
 name|this
+argument_list|)
 argument_list|)
 return|;
 block|}

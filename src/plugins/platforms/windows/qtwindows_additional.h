@@ -223,7 +223,7 @@ end_define
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|SIID_SHIELD
+name|SHGFI_ADDOVERLAYS
 end_ifndef
 begin_comment
 comment|// Shell structures for icons.

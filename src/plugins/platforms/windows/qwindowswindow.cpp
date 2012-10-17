@@ -3714,12 +3714,12 @@ argument_list|)
 member_init_list|,
 endif|#
 directive|endif
-name|m_iconBig
+name|m_iconSmall
 argument_list|(
 literal|0
 argument_list|)
 member_init_list|,
-name|m_iconSmall
+name|m_iconBig
 argument_list|(
 literal|0
 argument_list|)
