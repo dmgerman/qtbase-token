@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtWidgets/qwindowsstyle.h>
+file|<QtWidgets/qcommonstyle.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
@@ -91,7 +91,7 @@ name|Q_WIDGETS_EXPORT_STYLE_MAC
 name|QMacStyle
 range|:
 name|public
-name|QWindowsStyle
+name|QCommonStyle
 block|{
 name|Q_OBJECT
 name|public

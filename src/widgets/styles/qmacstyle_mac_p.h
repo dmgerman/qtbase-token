@@ -32,7 +32,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qwindowsstyle_p.h"
+file|"qcommonstyle_p.h"
 end_include
 begin_include
 include|#
@@ -405,7 +405,7 @@ name|class
 name|QMacStylePrivate
 range|:
 name|public
-name|QWindowsStylePrivate
+name|QCommonStylePrivate
 block|{
 name|Q_DECLARE_PUBLIC
 argument_list|(
