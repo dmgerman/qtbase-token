@@ -6222,13 +6222,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-else|else
-block|{
-return|return
-name|QString
-argument_list|()
-return|;
-block|}
 elif|#
 directive|elif
 name|defined
