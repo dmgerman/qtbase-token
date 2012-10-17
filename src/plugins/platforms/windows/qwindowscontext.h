@@ -372,7 +372,7 @@ init|=
 literal|0x2
 block|}
 enum|;
-comment|// Verbose flag set by environment variable QT_LIGHTHOUSE_WINDOWS_VERBOSE
+comment|// Verbose flag set by environment variable QT_QPA_VERBOSE
 specifier|static
 name|int
 name|verboseIntegration
