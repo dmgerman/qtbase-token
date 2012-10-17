@@ -795,6 +795,25 @@ literal|true
 return|;
 endif|#
 directive|endif
+comment|// Handing show events to widgets (see below) here would cause them to be triggered twice
+case|case
+name|QEvent
+operator|::
+name|Show
+case|:
+case|case
+name|QEvent
+operator|::
+name|Hide
+case|:
+return|return
+name|QWindow
+operator|::
+name|event
+argument_list|(
+name|event
+argument_list|)
+return|;
 default|default:
 break|break;
 block|}

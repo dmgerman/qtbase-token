@@ -7705,7 +7705,7 @@ argument_list|()
 argument_list|,
 name|QLatin1String
 argument_list|(
-literal|"1.00"
+literal|"1"
 argument_list|)
 argument_list|)
 expr_stmt|;
