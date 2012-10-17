@@ -45,8 +45,31 @@ name|QPlatformIntegration
 block|{
 name|public
 operator|:
+expr|enum
+name|Options
+block|{
+comment|// Options to be passed on command line.
+name|FontDatabaseFreeType
+operator|=
+literal|0x1
+block|,
+name|FontDatabaseNative
+operator|=
+literal|0x2
+block|,
+name|DisableArb
+operator|=
+literal|0x4
+block|}
+block|;
+name|explicit
 name|QWindowsIntegration
-argument_list|()
+argument_list|(
+specifier|const
+name|QStringList
+operator|&
+name|paramList
+argument_list|)
 block|;
 name|virtual
 operator|~
@@ -224,6 +247,11 @@ argument_list|(
 name|s
 argument_list|)
 block|; }
+name|unsigned
+name|options
+argument_list|()
+specifier|const
+block|;
 name|private
 operator|:
 name|QScopedPointer
