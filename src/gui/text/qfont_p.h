@@ -734,6 +734,15 @@ modifier|*
 name|other
 parameter_list|)
 function_decl|;
+specifier|static
+name|void
+name|detachButKeepEngineData
+parameter_list|(
+name|QFont
+modifier|*
+name|font
+parameter_list|)
+function_decl|;
 name|private
 label|:
 name|QFontPrivate
