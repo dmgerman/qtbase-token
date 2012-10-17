@@ -85,7 +85,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qwindowsstyle_p.h>
+file|<private/qcommonstyle_p.h>
 end_include
 begin_undef
 DECL|macro|signals
@@ -3208,7 +3208,7 @@ name|class
 name|QGtkStylePrivate
 range|:
 name|public
-name|QWindowsStylePrivate
+name|QCommonStylePrivate
 block|{
 name|Q_DECLARE_PUBLIC
 argument_list|(
@@ -4088,6 +4088,41 @@ name|init
 parameter_list|()
 function_decl|;
 end_function_decl
+begin_enum
+enum|enum
+block|{
+name|menuItemFrame
+init|=
+literal|2
+block|,
+comment|// menu item frame width
+name|menuItemHMargin
+init|=
+literal|3
+block|,
+comment|// menu item hor text margin
+name|menuArrowHMargin
+init|=
+literal|6
+block|,
+comment|// menu arrow horizontal margin
+name|menuItemVMargin
+init|=
+literal|2
+block|,
+comment|// menu item ver text margin
+name|menuRightBorder
+init|=
+literal|15
+block|,
+comment|// right border on menus
+name|menuCheckMarkWidth
+init|=
+literal|12
+comment|// checkmarks width on menus
+block|}
+enum|;
+end_enum
 begin_label
 name|private
 label|:
