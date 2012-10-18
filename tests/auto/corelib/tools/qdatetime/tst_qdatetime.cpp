@@ -314,10 +314,15 @@ name|void
 name|fromStringStringFormat
 parameter_list|()
 function_decl|;
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
 name|void
 name|fromString_LOCALE_ILDATE
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|fromStringToStringLocale_data
 parameter_list|()
@@ -15208,6 +15213,14 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+end_ifdef
+begin_comment
+comment|// Windows only
+end_comment
 begin_function
 DECL|function|fromString_LOCALE_ILDATE
 name|void
@@ -15216,9 +15229,6 @@ operator|::
 name|fromString_LOCALE_ILDATE
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WIN
 name|QString
 name|date1
 init|=
@@ -15287,17 +15297,12 @@ name|TextDate
 argument_list|)
 argument_list|)
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Windows only"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|fromStringToStringLocale_data
 name|void
