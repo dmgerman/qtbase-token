@@ -30,11 +30,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtWidgets/qwidget.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<qclipboard.h>
 end_include
 begin_include

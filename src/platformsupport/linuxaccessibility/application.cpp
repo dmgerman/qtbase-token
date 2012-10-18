@@ -10,7 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtWidgets/qapplication.h>
+file|<QtCore/qcoreapplication.h>
 end_include
 begin_include
 include|#
@@ -1196,7 +1196,7 @@ operator|.
 name|dequeue
 argument_list|()
 decl_stmt|;
-name|QApplication
+name|QCoreApplication
 operator|::
 name|postEvent
 argument_list|(
@@ -1272,7 +1272,7 @@ operator|.
 name|dequeue
 argument_list|()
 decl_stmt|;
-name|QApplication
+name|QCoreApplication
 operator|::
 name|postEvent
 argument_list|(
