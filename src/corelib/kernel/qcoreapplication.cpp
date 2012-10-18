@@ -3376,7 +3376,10 @@ emit|emit
 name|self
 operator|->
 name|aboutToQuit
+argument_list|(
+name|QPrivateSignal
 argument_list|()
+argument_list|)
 emit|;
 name|self
 operator|->

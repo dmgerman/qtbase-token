@@ -455,6 +455,9 @@ argument_list|(
 name|d
 operator|->
 name|handleToEvent
+argument_list|,
+name|QPrivateSignal
+argument_list|()
 argument_list|)
 emit|;
 return|return

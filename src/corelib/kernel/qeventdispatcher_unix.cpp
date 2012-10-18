@@ -720,6 +720,11 @@ operator|->
 name|unixSignal
 argument_list|(
 name|i
+argument_list|,
+name|QCoreApplication
+operator|::
+name|QPrivateSignal
+argument_list|()
 argument_list|)
 emit|;
 block|}

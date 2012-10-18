@@ -95,6 +95,17 @@ name|void
 name|activated
 argument_list|(
 argument|int socket
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|qdoc
+argument_list|)
+argument_list|,
+argument|QPrivateSignal
+endif|#
+directive|endif
 argument_list|)
 block|;
 name|protected

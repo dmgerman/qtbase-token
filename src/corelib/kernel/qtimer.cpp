@@ -263,7 +263,10 @@ argument_list|()
 expr_stmt|;
 emit|emit
 name|timeout
+argument_list|(
+name|QPrivateSignal
 argument_list|()
+argument_list|)
 emit|;
 block|}
 block|}

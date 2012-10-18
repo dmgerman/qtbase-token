@@ -5073,7 +5073,7 @@ name|Name
 parameter_list|,
 name|Arguments
 parameter_list|)
-value|{ \         void (ObjectType::*signal)Arguments =&ObjectType::Name; \         const QMetaObject *signalMeta =&ObjectType::staticMetaObject; \         QCOMPARE(QMetaMethod::fromSignal(signal), \             signalMeta->method(signalMeta->indexOfSignal(QMetaObject::normalizedSignature(#Name #Arguments)))); \     }
+value|{ \         const QMetaObject *signalMeta =&ObjectType::staticMetaObject; \         QCOMPARE(QMetaMethod::fromSignal(&ObjectType::Name), \             signalMeta->method(signalMeta->indexOfSignal(QMetaObject::normalizedSignature(#Name #Arguments)))); \     }
 name|FROMSIGNAL_HELPER
 argument_list|(
 argument|MethodTestObject

@@ -460,6 +460,9 @@ argument_list|(
 name|d
 operator|->
 name|sockfd
+argument_list|,
+name|QPrivateSignal
+argument_list|()
 argument_list|)
 emit|;
 return|return

@@ -1471,6 +1471,9 @@ begin_struct
 DECL|struct|MenuCloser
 struct|struct
 name|MenuCloser
+super|:
+specifier|public
+name|QObject
 block|{
 DECL|member|w
 name|QWidget
@@ -1491,12 +1494,10 @@ argument_list|(
 name|w
 argument_list|)
 block|{}
-DECL|function|operator ()
+DECL|function|close
 name|void
-name|operator
-name|()
+name|close
 parameter_list|()
-specifier|const
 block|{
 name|QMenu
 modifier|*
@@ -1606,6 +1607,13 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+name|MenuCloser
+name|closer
+argument_list|(
+operator|&
+name|fd
+argument_list|)
+decl_stmt|;
 name|QObject
 operator|::
 name|connect
@@ -1618,11 +1626,13 @@ name|QTimer
 operator|::
 name|timeout
 argument_list|,
-name|MenuCloser
-argument_list|(
 operator|&
-name|fd
-argument_list|)
+name|closer
+argument_list|,
+operator|&
+name|MenuCloser
+operator|::
+name|close
 argument_list|)
 expr_stmt|;
 name|timer
