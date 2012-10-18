@@ -406,9 +406,6 @@ name|bool
 name|finished
 block|;
 name|bool
-name|terminated
-block|;
-name|bool
 name|isInFinish
 block|;
 comment|//when in QThreadPrivate::finish

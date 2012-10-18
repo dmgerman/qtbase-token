@@ -236,10 +236,6 @@ name|void
 name|finished
 argument_list|()
 block|;
-name|void
-name|terminated
-argument_list|()
-block|;
 name|protected
 operator|:
 name|virtual
