@@ -35,7 +35,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QPlastiqueStyle>
+file|<QFusionStyle>
 end_include
 begin_include
 include|#
@@ -10022,15 +10022,14 @@ modifier|*
 name|style
 init|=
 operator|new
-name|QPlastiqueStyle
-decl_stmt|;
+name|QFusionStyle
 name|style
 operator|->
 name|setParent
 argument_list|(
 name|this
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|setStyle
 argument_list|(
 name|style

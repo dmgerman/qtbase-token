@@ -1986,7 +1986,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     \class QFusionStyle     \brief The QFusionStyle class provides a custom widget style      \inmodule QtWidgets      The Fusion style provides a custom look and feel that is not     tied to a particular platform.     //{Fusion Style Widget Gallery}     \sa QWindowsXPStyle, QMacStyle, QCommonStyle, QPlastiqueStyle */
+comment|/*!     \class QFusionStyle     \brief The QFusionStyle class provides a custom widget style      \inmodule QtWidgets      The Fusion style provides a custom look and feel that is not     tied to a particular platform.     //{Fusion Style Widget Gallery}     \sa QWindowsStyle, QWindowsVistaStyle, QMacStyle, QCommonStyle */
 end_comment
 begin_comment
 comment|/*!     Constructs a QFusionStyle object. */
@@ -24728,7 +24728,7 @@ argument_list|(
 literal|0
 argument_list|,
 operator|-
-literal|2
+literal|3
 argument_list|)
 expr_stmt|;
 break|break;
@@ -27620,6 +27620,8 @@ name|SH_Table_GridLineColor
 case|:
 return|return
 name|option
+condition|?
+name|option
 operator|->
 name|palette
 operator|.
@@ -27636,6 +27638,8 @@ argument_list|)
 operator|.
 name|rgb
 argument_list|()
+else|:
+literal|0
 return|;
 case|case
 name|SH_MessageBox_TextInteractionFlags

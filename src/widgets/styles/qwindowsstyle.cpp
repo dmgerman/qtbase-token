@@ -806,7 +806,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QWindowsStyle     \brief The QWindowsStyle class provides a Microsoft Windows-like look and feel.      \ingroup appearance     \inmodule QtWidgets      This style is Qt's default GUI style on Windows.      \image qwindowsstyle.png     \sa QWindowsXPStyle, QMacStyle, QPlastiqueStyle */
+comment|/*!     \class QWindowsStyle     \brief The QWindowsStyle class provides a Microsoft Windows-like look and feel.      \ingroup appearance     \inmodule QtWidgets      This style is Qt's default GUI style on Windows.      \image qwindowsstyle.png     \sa QWindowsVistaStyle, QMacStyle, QFusionStyle */
 end_comment
 begin_comment
 comment|/*!     Constructs a QWindowsStyle object. */

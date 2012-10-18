@@ -4142,7 +4142,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Requests a QStyle object for \a style from the QStyleFactory.      The string must be one of the QStyleFactory::keys(), typically one of     "windows", "cleanlooks", "plastique", "windowsxp", or "macintosh". Style     names are case insensitive.      Returns 0 if an unknown \a style is passed, otherwise the QStyle object     returned is set as the application's GUI style.      \warning To ensure that the application's style is set correctly, it is     best to call this function before the QApplication constructor, if     possible. */
+comment|/*!     \overload      Requests a QStyle object for \a style from the QStyleFactory.      The string must be one of the QStyleFactory::keys(), typically one of     "windows", "fusion", "windowsxp", or "macintosh". Style     names are case insensitive.      Returns 0 if an unknown \a style is passed, otherwise the QStyle object     returned is set as the application's GUI style.      \warning To ensure that the application's style is set correctly, it is     best to call this function before the QApplication constructor, if     possible. */
 end_comment
 begin_function
 DECL|function|setStyle
