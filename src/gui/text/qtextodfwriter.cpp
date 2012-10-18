@@ -5194,7 +5194,7 @@ name|hasProperty
 argument_list|(
 name|QTextFormat
 operator|::
-name|BlockTopMargin
+name|FrameTopMargin
 argument_list|)
 condition|)
 name|writer
@@ -5235,7 +5235,7 @@ name|hasProperty
 argument_list|(
 name|QTextFormat
 operator|::
-name|BlockBottomMargin
+name|FrameBottomMargin
 argument_list|)
 condition|)
 name|writer
@@ -5276,7 +5276,7 @@ name|hasProperty
 argument_list|(
 name|QTextFormat
 operator|::
-name|BlockLeftMargin
+name|FrameLeftMargin
 argument_list|)
 condition|)
 name|writer
@@ -5317,7 +5317,7 @@ name|hasProperty
 argument_list|(
 name|QTextFormat
 operator|::
-name|BlockRightMargin
+name|FrameRightMargin
 argument_list|)
 condition|)
 name|writer
