@@ -7343,6 +7343,7 @@ condition|(
 operator|!
 name|inDestructor
 operator|&&
+operator|(
 operator|!
 name|m_handledObjects
 operator|.
@@ -7350,6 +7351,16 @@ name|contains
 argument_list|(
 name|uintptr
 argument_list|)
+operator|||
+name|m_handledObjects
+operator|.
+name|value
+argument_list|(
+name|uintptr
+argument_list|)
+operator|==
+literal|0
+operator|)
 condition|)
 name|m_handledObjects
 index|[
