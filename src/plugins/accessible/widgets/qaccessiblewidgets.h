@@ -1064,13 +1064,6 @@ name|rect
 argument_list|()
 specifier|const
 block|;
-name|QAccessible
-operator|::
-name|Role
-name|role
-argument_list|()
-specifier|const
-block|;
 name|QDockWidget
 operator|*
 name|dockWidget
