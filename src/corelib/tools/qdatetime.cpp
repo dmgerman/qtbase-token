@@ -9382,6 +9382,7 @@ literal|2
 operator|)
 condition|)
 block|{
+comment|// Year is after time, e.g. "Sun Dec 1 13:02:00 1974"
 name|year
 operator|=
 name|parts
@@ -9409,6 +9410,7 @@ return|;
 block|}
 else|else
 block|{
+comment|// Year is before time, e.g. "Sun Dec 1 1974 13:02:00"
 name|timeParts
 operator|=
 name|parts
