@@ -312,15 +312,15 @@ literal|false
 return|;
 block|}
 comment|// Verify that we get a valid QAccessibleInterface for the child.
-name|QAccessibleInterface
-modifier|*
+name|QAIPtr
 name|childInterface
-init|=
+argument_list|(
 name|QAccessible
 operator|::
 name|queryAccessibleInterface
 argument_list|(
 name|child
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
@@ -348,6 +348,9 @@ operator|->
 name|indexOfChild
 argument_list|(
 name|childInterface
+operator|.
+name|data
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -381,22 +384,21 @@ literal|false
 return|;
 block|}
 comment|// Navigate to child, compare its object and role with the interface from queryAccessibleInterface(child).
-name|QAccessibleInterface
-modifier|*
+name|QAIPtr
 name|navigatedChildInterface
-init|=
+argument_list|(
 name|interface
 operator|->
 name|child
 argument_list|(
 name|index
 argument_list|)
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|!
 name|navigatedChildInterface
-operator|==
-literal|0
 condition|)
 return|return
 literal|false
@@ -410,9 +412,6 @@ operator|->
 name|rect
 argument_list|()
 decl_stmt|;
-operator|delete
-name|navigatedChildInterface
-expr_stmt|;
 comment|// QAccessibleInterface::childAt():
 comment|// Calculate global child position and check that the interface
 comment|// returns the correct index for that position.
@@ -431,10 +430,9 @@ literal|0
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|QAccessibleInterface
-modifier|*
+name|QAIPtr
 name|childAtInterface
-init|=
+argument_list|(
 name|interface
 operator|->
 name|childAt
@@ -448,6 +446,7 @@ name|globalChildPos
 operator|.
 name|y
 argument_list|()
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
@@ -513,12 +512,6 @@ return|return
 literal|false
 return|;
 block|}
-operator|delete
-name|childInterface
-expr_stmt|;
-operator|delete
-name|childAtInterface
-expr_stmt|;
 comment|// QAccessibleInterface::rect():
 comment|// Calculate global child geometry and check that the interface
 comment|// returns a QRect which is equal to the calculated QRect.
@@ -620,15 +613,15 @@ return|return
 operator|-
 literal|1
 return|;
-name|QAccessibleInterface
-modifier|*
+name|QAIPtr
 name|childInterface
-init|=
+argument_list|(
 name|QAccessible
 operator|::
 name|queryAccessibleInterface
 argument_list|(
 name|childWidget
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
@@ -640,21 +633,16 @@ return|return
 operator|-
 literal|1
 return|;
-name|int
-name|index
-init|=
+return|return
 name|parentInterface
 operator|->
 name|indexOfChild
 argument_list|(
 name|childInterface
+operator|.
+name|data
+argument_list|()
 argument_list|)
-decl_stmt|;
-operator|delete
-name|childInterface
-expr_stmt|;
-return|return
-name|index
 return|;
 block|}
 end_function
@@ -692,17 +680,12 @@ init|=
 literal|0
 decl_stmt|;
 comment|// for error diagnostics
-name|QAccessibleInterface
-modifier|*
+name|QAIPtr
 name|middleChild
-decl_stmt|,
-modifier|*
+decl_stmt|;
+name|QAIPtr
 name|if2
 decl_stmt|;
-name|middleChild
-operator|=
-literal|0
-expr_stmt|;
 operator|++
 name|treelevel
 expr_stmt|;
@@ -730,6 +713,8 @@ condition|)
 block|{
 name|middleChild
 operator|=
+name|QAIPtr
+argument_list|(
 name|iface
 operator|->
 name|child
@@ -737,6 +722,7 @@ argument_list|(
 name|middle
 operator|-
 literal|1
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -763,11 +749,14 @@ control|)
 block|{
 name|if2
 operator|=
+name|QAIPtr
+argument_list|(
 name|iface
 operator|->
 name|child
 argument_list|(
 name|i
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|EXPECT
@@ -777,15 +766,15 @@ operator|!=
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// navigate Ancestor...
-name|QAccessibleInterface
-modifier|*
+comment|// navigate Ancestor
+name|QAIPtr
 name|parent
-init|=
+argument_list|(
 name|if2
 operator|->
 name|parent
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|EXPECT
 argument_list|(
@@ -800,18 +789,7 @@ name|object
 argument_list|()
 argument_list|)
 expr_stmt|;
-operator|delete
-name|parent
-expr_stmt|;
-comment|// navigate Sibling...
-comment|//            if (middleChild) {
-comment|//                entry = if2->navigate(QAccessible::Sibling, middle,&if3);
-comment|//                EXPECT(entry == 0&& if3->object() == middleChild->object());
-comment|//                if (entry == 0)
-comment|//                    delete if3;
-comment|//                EXPECT(iface->indexOfChild(middleChild) == middle);
-comment|//            }
-comment|// verify children...
+comment|// verify children
 if|if
 condition|(
 operator|!
@@ -822,15 +800,12 @@ operator|=
 name|verifyHierarchy
 argument_list|(
 name|if2
+operator|.
+name|data
+argument_list|()
 argument_list|)
 expr_stmt|;
-operator|delete
-name|if2
-expr_stmt|;
 block|}
-operator|delete
-name|middleChild
-expr_stmt|;
 operator|--
 name|treelevel
 expr_stmt|;
@@ -854,30 +829,19 @@ init|=
 literal|0
 parameter_list|)
 block|{
-name|QAccessibleInterface
-modifier|*
-name|child
-init|=
+return|return
+name|QAIPtr
+argument_list|(
 name|iface
 operator|->
 name|child
 argument_list|(
 name|index
 argument_list|)
-decl_stmt|;
-name|QRect
-name|rect
-init|=
-name|child
+argument_list|)
 operator|->
 name|rect
 argument_list|()
-decl_stmt|;
-operator|delete
-name|child
-expr_stmt|;
-return|return
-name|rect
 return|;
 block|}
 end_function
@@ -1114,15 +1078,15 @@ specifier|const
 name|widget
 parameter_list|)
 block|{
-name|QAccessibleInterface
-modifier|*
+name|QAIPtr
 name|iface
-init|=
+argument_list|(
 name|QAccessible
 operator|::
 name|queryAccessibleInterface
 argument_list|(
 name|widget
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
@@ -1130,35 +1094,24 @@ condition|(
 operator|!
 name|iface
 condition|)
+block|{
 name|qWarning
 argument_list|()
 operator|<<
 literal|"Cannot get QAccessibleInterface for widget"
 expr_stmt|;
+return|return
 name|QAccessible
 operator|::
 name|State
-name|state
-init|=
-operator|(
-name|iface
-condition|?
+argument_list|()
+return|;
+block|}
+return|return
 name|iface
 operator|->
 name|state
 argument_list|()
-else|:
-name|QAccessible
-operator|::
-name|State
-argument_list|()
-operator|)
-decl_stmt|;
-operator|delete
-name|iface
-expr_stmt|;
-return|return
-name|state
 return|;
 block|}
 end_function
