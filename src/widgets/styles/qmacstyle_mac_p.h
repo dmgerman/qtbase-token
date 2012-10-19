@@ -760,6 +760,11 @@ argument_list|)
 block|,
 name|cleared
 argument_list|(
+name|false
+argument_list|)
+block|,
+name|animating
+argument_list|(
 argument|false
 argument_list|)
 block|{}
@@ -786,6 +791,9 @@ name|lastHovered
 block|;
 name|bool
 name|cleared
+block|;
+name|bool
+name|animating
 block|;     }
 block|;
 name|mutable
