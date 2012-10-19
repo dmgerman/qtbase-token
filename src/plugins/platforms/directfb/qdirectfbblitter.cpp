@@ -989,6 +989,14 @@ argument_list|,
 name|porterDuff
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|cmode
+operator|==
+name|QPainter
+operator|::
+name|CompositionMode_SourceOver
+condition|)
 name|m_surface
 operator|->
 name|SetDstBlendFunction
