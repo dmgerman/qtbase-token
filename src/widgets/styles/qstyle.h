@@ -1590,6 +1590,8 @@ name|SP_DirClosedIcon
 block|,
 name|SP_DirLinkIcon
 block|,
+name|SP_DirLinkOpenIcon
+block|,
 name|SP_FileIcon
 block|,
 name|SP_FileLinkIcon

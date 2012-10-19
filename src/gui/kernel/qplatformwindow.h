@@ -197,9 +197,7 @@ argument|Qt::WindowFlags flags
 argument_list|)
 block|;
 name|virtual
-name|Qt
-operator|::
-name|WindowState
+name|void
 name|setWindowState
 argument_list|(
 argument|Qt::WindowState state

@@ -1237,7 +1237,7 @@ block|{
 name|QSettings
 name|settings
 argument_list|(
-literal|"Trolltech"
+literal|"QtProject"
 argument_list|,
 literal|"Application Example"
 argument_list|)
@@ -1312,7 +1312,7 @@ block|{
 name|QSettings
 name|settings
 argument_list|(
-literal|"Trolltech"
+literal|"QtProject"
 argument_list|,
 literal|"Application Example"
 argument_list|)

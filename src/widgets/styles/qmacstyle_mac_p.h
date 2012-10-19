@@ -503,7 +503,7 @@ name|animatable
 argument_list|(
 argument|Animates
 argument_list|,
-argument|const QWidget *
+argument|const QObject *
 argument_list|)
 specifier|const
 block|;
@@ -512,7 +512,7 @@ name|stopAnimate
 argument_list|(
 name|Animates
 argument_list|,
-name|QWidget
+name|QObject
 operator|*
 argument_list|)
 block|;
@@ -521,7 +521,7 @@ name|startAnimate
 argument_list|(
 name|Animates
 argument_list|,
-name|QWidget
+name|QObject
 operator|*
 argument_list|)
 block|;
@@ -564,16 +564,6 @@ argument_list|,
 argument|const QWidget *needToRemoveMe
 argument_list|)
 specifier|const
-block|;
-name|void
-name|animate
-argument_list|()
-block|;
-name|bool
-name|doAnimate
-argument_list|(
-name|Animates
-argument_list|)
 block|;
 specifier|inline
 name|int
@@ -717,10 +707,6 @@ name|generateBackgroundPattern
 argument_list|()
 specifier|const
 block|;
-name|void
-name|startAnimationTimer
-argument_list|()
-block|;
 name|public
 operator|:
 name|QPointer
@@ -730,29 +716,6 @@ operator|>
 name|defaultButton
 block|;
 comment|//default push buttons
-name|int
-name|timerID
-block|;
-name|QList
-operator|<
-name|QPointer
-operator|<
-name|QWidget
-operator|>
-expr|>
-name|progressBars
-block|;
-comment|//existing progress bars that need animation
-name|QList
-operator|<
-name|QPointer
-operator|<
-name|QWidget
-operator|>
-expr|>
-name|scrollBars
-block|;
-comment|//existing scroll bars that need animation
 block|struct
 name|OverlayScrollBarInfo
 block|{
@@ -849,9 +812,6 @@ block|}
 name|dir
 block|;     }
 name|buttonState
-block|;
-name|UInt8
-name|progressFrame
 block|;
 name|mutable
 name|QPointer

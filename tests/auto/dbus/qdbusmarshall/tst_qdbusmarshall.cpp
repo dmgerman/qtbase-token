@@ -174,6 +174,9 @@ name|void
 name|sendCallErrors
 parameter_list|()
 function_decl|;
+ifdef|#
+directive|ifdef
+name|DBUS_TYPE_UNIX_FD
 name|void
 name|receiveUnknownType_data
 parameter_list|()
@@ -182,6 +185,8 @@ name|void
 name|receiveUnknownType
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|demarshallPrimitives_data
 parameter_list|()
@@ -7337,6 +7342,14 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|DBUS_TYPE_UNIX_FD
+end_ifdef
+begin_comment
+comment|// If DBUS_TYPE_UNIX_FD is not defined, it means the current system's D-Bus library is too old for this test
+end_comment
 begin_function
 DECL|function|receiveUnknownType_data
 name|void
@@ -7619,16 +7632,6 @@ operator|::
 name|receiveUnknownType
 parameter_list|()
 block|{
-ifndef|#
-directive|ifndef
-name|DBUS_TYPE_UNIX_FD
-name|QSKIP
-argument_list|(
-literal|"Your system's D-Bus library is too old for this test"
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|QDBusConnection
 name|con
 init|=
@@ -8404,10 +8407,12 @@ name|receivedTypeId
 argument_list|)
 expr_stmt|;
 block|}
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|demarshallPrimitives_data
 name|void

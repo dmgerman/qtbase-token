@@ -1281,9 +1281,7 @@ name|SIGNAL
 argument_list|(
 name|sourceChanged
 argument_list|(
-specifier|const
 name|QUrl
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -4315,9 +4313,7 @@ name|SIGNAL
 argument_list|(
 name|anchorClicked
 argument_list|(
-specifier|const
 name|QUrl
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)

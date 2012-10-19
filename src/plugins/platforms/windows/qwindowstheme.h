@@ -120,6 +120,26 @@ name|type
 index|]
 return|;
 block|}
+name|virtual
+name|QPixmap
+name|standardPixmap
+argument_list|(
+argument|StandardPixmap sp
+argument_list|,
+argument|const QSizeF&size
+argument_list|)
+specifier|const
+block|;
+name|virtual
+name|QPixmap
+name|fileIconPixmap
+argument_list|(
+argument|const QFileInfo&fileInfo
+argument_list|,
+argument|const QSizeF&size
+argument_list|)
+specifier|const
+block|;
 name|void
 name|windowsThemeChanged
 argument_list|(

@@ -1780,7 +1780,7 @@ operator|::
 name|QGtkStylePrivate
 parameter_list|()
 member_init_list|:
-name|QWindowsStylePrivate
+name|QCommonStylePrivate
 argument_list|()
 member_init_list|,
 name|filter
@@ -1794,6 +1794,10 @@ name|append
 argument_list|(
 name|this
 argument_list|)
+expr_stmt|;
+name|animationFps
+operator|=
+literal|60
 expr_stmt|;
 block|}
 end_constructor

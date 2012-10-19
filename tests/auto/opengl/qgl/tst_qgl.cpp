@@ -2715,7 +2715,7 @@ operator|.
 name|majorVersion
 argument_list|()
 argument_list|,
-literal|1
+literal|2
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -14768,9 +14768,7 @@ name|SIGNAL
 argument_list|(
 name|imageReady
 argument_list|(
-specifier|const
 name|QImage
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -14780,9 +14778,7 @@ name|SLOT
 argument_list|(
 name|setImage
 argument_list|(
-specifier|const
 name|QImage
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)

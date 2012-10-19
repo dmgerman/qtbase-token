@@ -38,6 +38,11 @@ struct_decl|struct
 name|IBindCtx
 struct_decl|;
 end_struct_decl
+begin_struct_decl
+struct_decl|struct
+name|_SHSTOCKICONINFO
+struct_decl|;
+end_struct_decl
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QWindow
@@ -310,9 +315,30 @@ modifier|*
 modifier|*
 parameter_list|)
 function_decl|;
+DECL|typedef|SHGetStockIconInfo
+typedef|typedef
+name|HRESULT
+function_decl|(
+name|WINAPI
+modifier|*
+name|SHGetStockIconInfo
+function_decl|)
+parameter_list|(
+name|int
+parameter_list|,
+name|int
+parameter_list|,
+name|_SHSTOCKICONINFO
+modifier|*
+parameter_list|)
+function_decl|;
 DECL|member|sHCreateItemFromParsingName
 name|SHCreateItemFromParsingName
 name|sHCreateItemFromParsingName
+decl_stmt|;
+DECL|member|sHGetStockIconInfo
+name|SHGetStockIconInfo
+name|sHGetStockIconInfo
 decl_stmt|;
 block|}
 struct|;
@@ -346,7 +372,7 @@ init|=
 literal|0x2
 block|}
 enum|;
-comment|// Verbose flag set by environment variable QT_LIGHTHOUSE_WINDOWS_VERBOSE
+comment|// Verbose flag set by environment variable QT_QPA_VERBOSE
 specifier|static
 name|int
 name|verboseIntegration

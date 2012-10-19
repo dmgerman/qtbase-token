@@ -60,7 +60,7 @@ name|Q_WIDGETS_EXPORT
 name|QGtkStyle
 range|:
 name|public
-name|QWindowsStyle
+name|QCommonStyle
 block|{
 name|Q_OBJECT
 name|Q_DECLARE_PRIVATE

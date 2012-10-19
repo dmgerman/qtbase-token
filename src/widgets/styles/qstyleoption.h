@@ -195,6 +195,10 @@ decl_stmt|;
 name|QPalette
 name|palette
 decl_stmt|;
+name|QObject
+modifier|*
+name|styleObject
+decl_stmt|;
 name|QStyleOption
 argument_list|(
 argument|int version = QStyleOption::Version
@@ -909,12 +913,29 @@ name|RightCornerWidget
 operator|=
 literal|0x02
 block|}
+block|;     enum
+name|TabFeature
+block|{
+name|None
+operator|=
+literal|0x00
+block|,
+name|HasFrame
+operator|=
+literal|0x01
+block|}
 block|;
 name|Q_DECLARE_FLAGS
 argument_list|(
 argument|CornerWidgets
 argument_list|,
 argument|CornerWidget
+argument_list|)
+name|Q_DECLARE_FLAGS
+argument_list|(
+argument|TabFeatures
+argument_list|,
+argument|TabFeature
 argument_list|)
 name|QTabBar
 operator|::
@@ -950,6 +971,9 @@ name|leftButtonSize
 block|;
 name|QSize
 name|rightButtonSize
+block|;
+name|TabFeatures
+name|features
 block|;
 name|QStyleOptionTab
 argument_list|()

@@ -1954,7 +1954,7 @@ begin_comment
 comment|//QT_NO_DATESTRING
 end_comment
 begin_comment
-comment|/*!     \fn bool QDate::setYMD(int y, int m, int d)      \deprecated in 5.0, use setDate() instead.      Sets the date's year \a y, month \a m, and day \a d.      If \a y is in the range 0 to 99, it is interpreted as 1900 to     1999.      Use setDate() instead. */
+comment|/*!     \fn bool QDate::setYMD(int y, int m, int d)      \deprecated in 5.0, use setDate() instead.      Sets the date's year \a y, month \a m, and day \a d.      If \a y is in the range 0 to 99, it is interpreted as 1900 to     1999.     Returns \c false if the date is invalid.      Use setDate() instead. */
 end_comment
 begin_comment
 comment|/*!     \since 4.2      Sets the date's \a year, \a month, and \a day. Returns true if     the date is valid; otherwise returns false.      If the specified date is invalid, the QDate object is set to be     invalid.      Note that any date before 4800 BCE or after about 1.4 million CE     may not be accurately stored.      \sa isValid() */

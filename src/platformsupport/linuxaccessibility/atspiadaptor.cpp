@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtWidgets/qapplication.h>
+file|<QtGui/qguiapplication.h>
 end_include
 begin_include
 include|#
@@ -26,11 +26,6 @@ begin_include
 include|#
 directive|include
 file|<qdbusreply.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<QtWidgets/qwidget.h>
 end_include
 begin_include
 include|#
@@ -6518,7 +6513,7 @@ block|{
 name|qAtspiDebug
 argument_list|()
 operator|<<
-literal|"WARNING: AtSpiAdaptor::handleMessage does not implement "
+literal|"WARNING: AtSpiAdaptor::accessibleInterface does not implement "
 operator|<<
 name|function
 operator|<<
@@ -7161,16 +7156,35 @@ decl_stmt|;
 name|QString
 name|path
 decl_stmt|;
-if|if
-condition|(
+name|QAccessible
+operator|::
+name|Role
+name|role
+init|=
 name|interface
 operator|->
 name|role
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+operator|(
+operator|(
+name|role
 operator|==
 name|QAccessible
 operator|::
 name|MenuItem
+operator|)
+operator|||
+operator|(
+name|role
+operator|==
+name|QAccessible
+operator|::
+name|Separator
+operator|)
+operator|)
 operator|&&
 name|interface
 operator|->
@@ -7348,6 +7362,7 @@ condition|(
 operator|!
 name|inDestructor
 operator|&&
+operator|(
 operator|!
 name|m_handledObjects
 operator|.
@@ -7355,6 +7370,16 @@ name|contains
 argument_list|(
 name|uintptr
 argument_list|)
+operator|||
+name|m_handledObjects
+operator|.
+name|value
+argument_list|(
+name|uintptr
+argument_list|)
+operator|==
+literal|0
+operator|)
 condition|)
 name|m_handledObjects
 index|[
@@ -8262,7 +8287,7 @@ block|{
 name|qAtspiDebug
 argument_list|()
 operator|<<
-literal|"WARNING: AtSpiAdaptor::handleMessage does not implement "
+literal|"WARNING: AtSpiAdaptor::componentInterface does not implement "
 operator|<<
 name|function
 operator|<<
@@ -8783,7 +8808,7 @@ block|{
 name|qAtspiDebug
 argument_list|()
 operator|<<
-literal|"WARNING: AtSpiAdaptor::handleMessage does not implement "
+literal|"WARNING: AtSpiAdaptor::actionInterface does not implement "
 operator|<<
 name|function
 operator|<<
@@ -10499,7 +10524,7 @@ block|{
 name|qAtspiDebug
 argument_list|()
 operator|<<
-literal|"WARNING: AtSpiAdaptor::handleMessage does not implement "
+literal|"WARNING: AtSpiAdaptor::textInterface does not implement "
 operator|<<
 name|function
 operator|<<
@@ -11943,7 +11968,7 @@ block|{
 name|qAtspiDebug
 argument_list|()
 operator|<<
-literal|"WARNING: AtSpiAdaptor::handleMessage does not implement "
+literal|"WARNING: AtSpiAdaptor::editableTextInterface does not implement "
 operator|<<
 name|function
 operator|<<
@@ -12311,7 +12336,7 @@ block|{
 name|qAtspiDebug
 argument_list|()
 operator|<<
-literal|"WARNING: AtSpiAdaptor::handleMessage does not implement "
+literal|"WARNING: AtSpiAdaptor::valueInterface does not implement "
 operator|<<
 name|function
 operator|<<
@@ -14404,7 +14429,7 @@ block|{
 name|qAtspiDebug
 argument_list|()
 operator|<<
-literal|"WARNING: AtSpiAdaptor::handleMessage does not implement "
+literal|"WARNING: AtSpiAdaptor::tableInterface does not implement "
 operator|<<
 name|function
 operator|<<

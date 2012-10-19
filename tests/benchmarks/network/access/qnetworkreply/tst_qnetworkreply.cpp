@@ -2376,12 +2376,10 @@ name|SIGNAL
 argument_list|(
 name|sslErrors
 argument_list|(
-specifier|const
 name|QList
 argument_list|<
 name|QSslError
 argument_list|>
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -4041,12 +4039,10 @@ name|SIGNAL
 argument_list|(
 name|sslErrors
 argument_list|(
-specifier|const
 name|QList
 argument_list|<
 name|QSslError
 argument_list|>
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,

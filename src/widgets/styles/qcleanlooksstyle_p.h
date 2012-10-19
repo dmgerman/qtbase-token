@@ -77,11 +77,7 @@ argument_list|()
 operator|:
 name|QWindowsStylePrivate
 argument_list|()
-block|{
-name|animationFps
-operator|=
-literal|24
-block|;     }
+block|{     }
 operator|~
 name|QCleanlooksStylePrivate
 argument_list|()

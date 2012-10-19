@@ -846,108 +846,6 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|updateTimeout
-specifier|static
-specifier|inline
-name|bool
-name|updateTimeout
-parameter_list|(
-name|int
-modifier|*
-name|timeout
-parameter_list|,
-specifier|const
-name|struct
-name|timeval
-modifier|&
-name|start
-parameter_list|)
-block|{
-comment|// A timeout of -1 means we should block indefinitely. If we get here, we got woken up by a
-comment|// non-IO BPS event, and that event has been processed already. This means we can go back and
-comment|// block in bps_get_event().
-comment|// Note that processing the BPS event might have triggered a wakeup, in that case we get a
-comment|// IO event in the next bps_get_event() right away.
-if|if
-condition|(
-operator|*
-name|timeout
-operator|==
-operator|-
-literal|1
-condition|)
-return|return
-literal|true
-return|;
-if|if
-condition|(
-name|Q_UNLIKELY
-argument_list|(
-operator|!
-name|QElapsedTimer
-operator|::
-name|isMonotonic
-argument_list|()
-argument_list|)
-condition|)
-block|{
-comment|// we cannot recalculate the timeout without a monotonic clock as the time may have changed
-return|return
-literal|false
-return|;
-block|}
-comment|// clock source is monotonic, so we can recalculate how much timeout is left
-name|timeval
-name|t2
-init|=
-name|qt_gettime
-argument_list|()
-decl_stmt|;
-name|int
-name|elapsed
-init|=
-operator|(
-name|t2
-operator|.
-name|tv_sec
-operator|*
-literal|1000
-operator|+
-name|t2
-operator|.
-name|tv_usec
-operator|/
-literal|1000
-operator|)
-operator|-
-operator|(
-name|start
-operator|.
-name|tv_sec
-operator|*
-literal|1000
-operator|+
-name|start
-operator|.
-name|tv_usec
-operator|/
-literal|1000
-operator|)
-decl_stmt|;
-operator|*
-name|timeout
-operator|-=
-name|elapsed
-expr_stmt|;
-return|return
-operator|*
-name|timeout
-operator|>=
-literal|0
-return|;
-block|}
-end_function
-begin_function
 DECL|function|select
 name|int
 name|QEventDispatcherBlackberry
@@ -1054,7 +952,7 @@ argument_list|)
 expr_stmt|;
 comment|// Convert timeout to milliseconds
 name|int
-name|timeout_bps
+name|timeoutTotal
 init|=
 operator|-
 literal|1
@@ -1063,7 +961,7 @@ if|if
 condition|(
 name|timeout
 condition|)
-name|timeout_bps
+name|timeoutTotal
 operator|=
 operator|(
 name|timeout
@@ -1081,14 +979,20 @@ operator|/
 literal|1000
 operator|)
 expr_stmt|;
-name|bool
-name|hasProcessedEventsOnce
+name|int
+name|timeoutLeft
 init|=
-literal|false
+name|timeoutTotal
 decl_stmt|;
 name|bps_event_t
 modifier|*
 name|event
+init|=
+literal|0
+decl_stmt|;
+name|unsigned
+name|int
+name|eventCount
 init|=
 literal|0
 decl_stmt|;
@@ -1097,34 +1001,29 @@ comment|// more efficiently than if we were to return control to Qt after each e
 comment|// is important for handling touch events which can come in rapidly.
 forever|forever
 block|{
-name|Q_ASSERT
-argument_list|(
-operator|!
-name|hasProcessedEventsOnce
-operator|||
-name|event
-argument_list|)
-expr_stmt|;
-comment|// Only emit the awake() and aboutToBlock() signals in the second iteration. For the first
-comment|// iteration, the UNIX event dispatcher will have taken care of that already.
+comment|// Only emit the awake() and aboutToBlock() signals in the second iteration. For the
+comment|// first iteration, the UNIX event dispatcher will have taken care of that already.
+comment|// Also native events are actually processed one loop iteration after they were
+comment|// retrieved with bps_get_event().
+comment|// Filtering the native event should happen between the awake() and aboutToBlock()
+comment|// signal emissions. The calls awake() - filterNativeEvent() - aboutToBlock() -
+comment|// bps_get_event() need not to be interrupted by a break or return statement.
 if|if
 condition|(
-name|hasProcessedEventsOnce
+name|eventCount
+operator|>
+literal|0
 condition|)
+block|{
+if|if
+condition|(
+name|event
+condition|)
+block|{
 emit|emit
 name|awake
 argument_list|()
 emit|;
-comment|// Filtering the native event should happen between the awake() and aboutToBlock() signal
-comment|// emissions. The calls awake() - filterNativeEvent() - aboutToBlock() - bps_get_event()
-comment|// need not to be interrupted by a break or return statement.
-comment|//
-comment|// Because of this, the native event is actually processed one loop iteration
-comment|// after it was retrieved with bps_get_event().
-if|if
-condition|(
-name|event
-condition|)
 name|filterNativeEvent
 argument_list|(
 name|QByteArrayLiteral
@@ -1144,14 +1043,73 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|hasProcessedEventsOnce
-condition|)
 emit|emit
 name|aboutToBlock
 argument_list|()
 emit|;
+block|}
+comment|// Update the timeout
+comment|// Clock source is monotonic, so we can recalculate how much timeout is left
+if|if
+condition|(
+name|timeoutTotal
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
+name|timeval
+name|t2
+init|=
+name|qt_gettime
+argument_list|()
+decl_stmt|;
+name|timeoutLeft
+operator|=
+name|timeoutTotal
+operator|-
+operator|(
+operator|(
+name|t2
+operator|.
+name|tv_sec
+operator|*
+literal|1000
+operator|+
+name|t2
+operator|.
+name|tv_usec
+operator|/
+literal|1000
+operator|)
+operator|-
+operator|(
+name|startTime
+operator|.
+name|tv_sec
+operator|*
+literal|1000
+operator|+
+name|startTime
+operator|.
+name|tv_usec
+operator|/
+literal|1000
+operator|)
+operator|)
+expr_stmt|;
+if|if
+condition|(
+name|timeoutLeft
+operator|<
+literal|0
+condition|)
+name|timeoutLeft
+operator|=
+literal|0
+expr_stmt|;
+block|}
+block|}
 comment|// Wait for event or file to be ready
 name|event
 operator|=
@@ -1166,7 +1124,7 @@ argument_list|(
 operator|&
 name|event
 argument_list|,
-name|timeout_bps
+name|timeoutLeft
 argument_list|)
 decl_stmt|;
 if|if
@@ -1180,16 +1138,16 @@ argument_list|(
 literal|"QEventDispatcherBlackberry::select: bps_get_event() failed"
 argument_list|)
 expr_stmt|;
-comment|// In the case of !event, we break out of the loop to let Qt process the timers
-comment|// that are now ready (since timeout has expired).
-comment|// In the case of bpsIOReadyDomain, we break out to let Qt process the FDs that
-comment|// are ready. If we do not do this activation of QSocketNotifiers etc would be
-comment|// delayed.
 if|if
 condition|(
 operator|!
 name|event
-operator|||
+condition|)
+comment|// In case of !event, we break out of the loop to let Qt process the timers
+break|break;
+comment|// (since timeout has expired) and socket notifiers that are now ready.
+if|if
+condition|(
 name|bps_event_get_domain
 argument_list|(
 name|event
@@ -1197,22 +1155,56 @@ argument_list|)
 operator|==
 name|bpsIOReadyDomain
 condition|)
-break|break;
-comment|// Update the timeout. If this fails we have exceeded our alloted time or the system
-comment|// clock has changed time and we cannot calculate a new timeout so we bail out.
+block|{
+name|timeoutTotal
+operator|=
+literal|0
+expr_stmt|;
+comment|// in order to immediately drain the event queue of native events
+name|event
+operator|=
+literal|0
+expr_stmt|;
+comment|// (especially touch move events) we don't break out here
+block|}
+operator|++
+name|eventCount
+expr_stmt|;
+comment|// Make sure we are not trapped in this loop due to continuous native events
+comment|// also we cannot recalculate the timeout without a monotonic clock as the time may have changed
+specifier|const
+name|unsigned
+name|int
+name|maximumEventCount
+init|=
+literal|12
+decl_stmt|;
 if|if
 condition|(
-operator|!
-name|updateTimeout
+name|Q_UNLIKELY
 argument_list|(
-operator|&
-name|timeout_bps
-argument_list|,
-name|startTime
+operator|(
+name|eventCount
+operator|>
+name|maximumEventCount
+operator|&&
+name|timeoutLeft
+operator|==
+literal|0
+operator|)
+operator|||
+operator|!
+name|QElapsedTimer
+operator|::
+name|isMonotonic
+argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|// No more loop iteration, so we need to filter the event here.
+if|if
+condition|(
+name|event
+condition|)
 name|filterNativeEvent
 argument_list|(
 name|QByteArrayLiteral
@@ -1234,10 +1226,6 @@ argument_list|)
 expr_stmt|;
 break|break;
 block|}
-name|hasProcessedEventsOnce
-operator|=
-literal|true
-expr_stmt|;
 block|}
 comment|// the number of bits set in the file sets
 return|return

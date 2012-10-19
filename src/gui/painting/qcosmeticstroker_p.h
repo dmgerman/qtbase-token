@@ -191,6 +191,11 @@ argument_list|(
 literal|0
 argument_list|)
 operator|,
+name|legacyRounding
+argument_list|(
+name|false
+argument_list|)
+operator|,
 name|current_span
 argument_list|(
 literal|0
@@ -222,6 +227,16 @@ name|free
 argument_list|(
 name|reversePattern
 argument_list|)
+block|; }
+name|void
+name|setLegacyRoundingEnabled
+argument_list|(
+argument|bool legacyRoundingEnabled
+argument_list|)
+block|{
+name|legacyRounding
+operator|=
+name|legacyRoundingEnabled
 block|; }
 name|void
 name|drawLine
@@ -310,6 +325,9 @@ name|patternLength
 decl_stmt|;
 name|int
 name|patternOffset
+decl_stmt|;
+name|bool
+name|legacyRounding
 decl_stmt|;
 enum|enum
 block|{

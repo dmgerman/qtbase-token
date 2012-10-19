@@ -1167,9 +1167,7 @@ name|SLOT
 argument_list|(
 name|resultsReady
 argument_list|(
-specifier|const
 name|QHostInfo
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1549,9 +1547,7 @@ name|SLOT
 argument_list|(
 name|resultsReady
 argument_list|(
-specifier|const
 name|QHostInfo
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2408,9 +2404,7 @@ name|SLOT
 argument_list|(
 name|resultsReady
 argument_list|(
-specifier|const
 name|QHostInfo
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2719,7 +2713,6 @@ name|SLOT
 argument_list|(
 name|resultsReady
 argument_list|(
-specifier|const
 name|QHostInfo
 argument_list|)
 argument_list|)
@@ -2936,7 +2929,6 @@ name|SLOT
 argument_list|(
 name|resultsReady
 argument_list|(
-specifier|const
 name|QHostInfo
 argument_list|)
 argument_list|)

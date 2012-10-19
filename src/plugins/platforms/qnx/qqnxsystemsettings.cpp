@@ -36,9 +36,11 @@ modifier|*
 name|fontDatabase
 parameter_list|)
 block|{
-comment|// See http://docs.blackberry.com/en/developers/deliverables/27299/Text_tablet_1526156_11.jsp
-comment|// which recommends using normal font size of 21 pixels and 36 pixels for titles (not covered
-comment|// by the theme system).
+comment|// See http://docs.blackberry.com/en/developers/deliverables/41577/typography.jsp
+comment|// which recommends using
+comment|// - small font size of 6 points
+comment|// - normal font size of 8 points
+comment|// - 11 points for titles (not covered by the theme system).
 name|QFont
 name|baseFont
 init|=
@@ -49,9 +51,9 @@ argument_list|()
 decl_stmt|;
 name|baseFont
 operator|.
-name|setPixelSize
+name|setPointSize
 argument_list|(
-literal|21
+literal|8
 argument_list|)
 expr_stmt|;
 name|QHash
@@ -268,9 +270,9 @@ argument_list|)
 decl_stmt|;
 name|smallFont
 operator|.
-name|setPixelSize
+name|setPointSize
 argument_list|(
-literal|15
+literal|6
 argument_list|)
 expr_stmt|;
 name|fonts

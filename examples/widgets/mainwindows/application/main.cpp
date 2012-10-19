@@ -46,7 +46,7 @@ name|app
 operator|.
 name|setOrganizationName
 argument_list|(
-literal|"Trolltech"
+literal|"QtProject"
 argument_list|)
 expr_stmt|;
 name|app

@@ -75,9 +75,7 @@ name|SIGNAL
 argument_list|(
 name|configurationAdded
 argument_list|(
-specifier|const
 name|QNetworkConfiguration
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -87,9 +85,7 @@ name|SLOT
 argument_list|(
 name|configurationAdded
 argument_list|(
-specifier|const
 name|QNetworkConfiguration
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -103,9 +99,7 @@ name|SIGNAL
 argument_list|(
 name|configurationRemoved
 argument_list|(
-specifier|const
 name|QNetworkConfiguration
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -115,9 +109,7 @@ name|SLOT
 argument_list|(
 name|configurationRemoved
 argument_list|(
-specifier|const
 name|QNetworkConfiguration
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -155,9 +147,7 @@ name|SIGNAL
 argument_list|(
 name|configurationChanged
 argument_list|(
-specifier|const
 name|QNetworkConfiguration
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -167,9 +157,7 @@ name|SLOT
 argument_list|(
 name|configurationChanged
 argument_list|(
-specifier|const
 name|QNetworkConfiguration
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2065,9 +2053,7 @@ name|SIGNAL
 argument_list|(
 name|preferredConfigurationChanged
 argument_list|(
-specifier|const
 name|QNetworkConfiguration
-operator|&
 argument_list|,
 name|bool
 argument_list|)
@@ -2079,9 +2065,7 @@ name|SLOT
 argument_list|(
 name|preferredConfigurationChanged
 argument_list|(
-specifier|const
 name|QNetworkConfiguration
-operator|&
 argument_list|,
 name|bool
 argument_list|)
@@ -2110,9 +2094,7 @@ name|SIGNAL
 argument_list|(
 name|preferredConfigurationChanged
 argument_list|(
-specifier|const
 name|QNetworkConfiguration
-operator|&
 argument_list|,
 name|bool
 argument_list|)

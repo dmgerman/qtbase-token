@@ -263,12 +263,6 @@ name|char
 modifier|*
 name|name
 decl_stmt|;
-DECL|member|localizedName
-specifier|const
-name|char
-modifier|*
-name|localizedName
-decl_stmt|;
 block|}
 struct|;
 end_struct
@@ -287,8 +281,6 @@ name|NoRole
 block|,
 name|ATSPI_ROLE_INVALID
 block|,
-literal|"invalid"
-block|,
 name|QT_TR_NOOP
 argument_list|(
 literal|"invalid role"
@@ -301,8 +293,6 @@ operator|::
 name|TitleBar
 block|,
 name|ATSPI_ROLE_TEXT
-block|,
-literal|"text"
 block|,
 name|QT_TR_NOOP
 argument_list|(
@@ -317,8 +307,6 @@ name|MenuBar
 block|,
 name|ATSPI_ROLE_MENU_BAR
 block|,
-literal|"menu bar"
-block|,
 name|QT_TR_NOOP
 argument_list|(
 literal|"menu bar"
@@ -331,8 +319,6 @@ operator|::
 name|ScrollBar
 block|,
 name|ATSPI_ROLE_SCROLL_BAR
-block|,
-literal|"scroll bar"
 block|,
 name|QT_TR_NOOP
 argument_list|(
@@ -347,8 +333,6 @@ name|Grip
 block|,
 name|ATSPI_ROLE_UNKNOWN
 block|,
-literal|"unknown"
-block|,
 name|QT_TR_NOOP
 argument_list|(
 literal|"grip"
@@ -362,8 +346,6 @@ name|Sound
 block|,
 name|ATSPI_ROLE_UNKNOWN
 block|,
-literal|"unknown"
-block|,
 name|QT_TR_NOOP
 argument_list|(
 literal|"sound"
@@ -375,9 +357,7 @@ name|QAccessible
 operator|::
 name|Cursor
 block|,
-name|ATSPI_ROLE_ARROW
-block|,
-literal|"arrow"
+name|ATSPI_ROLE_UNKNOWN
 block|,
 name|QT_TR_NOOP
 argument_list|(
@@ -392,11 +372,9 @@ name|Caret
 block|,
 name|ATSPI_ROLE_UNKNOWN
 block|,
-literal|"unknown"
-block|,
 name|QT_TR_NOOP
 argument_list|(
-literal|"caret"
+literal|"cursor"
 argument_list|)
 block|}
 block|,
@@ -406,8 +384,6 @@ operator|::
 name|AlertMessage
 block|,
 name|ATSPI_ROLE_ALERT
-block|,
-literal|"alert"
 block|,
 name|QT_TR_NOOP
 argument_list|(
@@ -422,8 +398,6 @@ name|Window
 block|,
 name|ATSPI_ROLE_WINDOW
 block|,
-literal|"window"
-block|,
 name|QT_TR_NOOP
 argument_list|(
 literal|"window"
@@ -436,8 +410,6 @@ operator|::
 name|Client
 block|,
 name|ATSPI_ROLE_FILLER
-block|,
-literal|"filler"
 block|,
 name|QT_TR_NOOP
 argument_list|(
@@ -452,8 +424,6 @@ name|PopupMenu
 block|,
 name|ATSPI_ROLE_POPUP_MENU
 block|,
-literal|"popup menu"
-block|,
 name|QT_TR_NOOP
 argument_list|(
 literal|"popup menu"
@@ -466,8 +436,6 @@ operator|::
 name|MenuItem
 block|,
 name|ATSPI_ROLE_MENU_ITEM
-block|,
-literal|"menu item"
 block|,
 name|QT_TR_NOOP
 argument_list|(
@@ -482,8 +450,6 @@ name|ToolTip
 block|,
 name|ATSPI_ROLE_TOOL_TIP
 block|,
-literal|"tool tip"
-block|,
 name|QT_TR_NOOP
 argument_list|(
 literal|"tool tip"
@@ -496,8 +462,6 @@ operator|::
 name|Application
 block|,
 name|ATSPI_ROLE_APPLICATION
-block|,
-literal|"application"
 block|,
 name|QT_TR_NOOP
 argument_list|(
@@ -512,8 +476,6 @@ name|Document
 block|,
 name|ATSPI_ROLE_DOCUMENT_FRAME
 block|,
-literal|"document frame"
-block|,
 name|QT_TR_NOOP
 argument_list|(
 literal|"document"
@@ -527,11 +489,9 @@ name|Pane
 block|,
 name|ATSPI_ROLE_PANEL
 block|,
-literal|"panel"
-block|,
 name|QT_TR_NOOP
 argument_list|(
-literal|"pane"
+literal|"panel"
 argument_list|)
 block|}
 block|,
@@ -541,8 +501,6 @@ operator|::
 name|Chart
 block|,
 name|ATSPI_ROLE_CHART
-block|,
-literal|"chart"
 block|,
 name|QT_TR_NOOP
 argument_list|(
@@ -557,8 +515,6 @@ name|Dialog
 block|,
 name|ATSPI_ROLE_DIALOG
 block|,
-literal|"dialog"
-block|,
 name|QT_TR_NOOP
 argument_list|(
 literal|"dialog"
@@ -572,11 +528,9 @@ name|Border
 block|,
 name|ATSPI_ROLE_FRAME
 block|,
-literal|"frame"
-block|,
 name|QT_TR_NOOP
 argument_list|(
-literal|"border"
+literal|"frame"
 argument_list|)
 block|}
 block|,
@@ -587,11 +541,9 @@ name|Grouping
 block|,
 name|ATSPI_ROLE_PANEL
 block|,
-literal|"panel"
-block|,
 name|QT_TR_NOOP
 argument_list|(
-literal|"grouping"
+literal|"panel"
 argument_list|)
 block|}
 block|,
@@ -601,8 +553,6 @@ operator|::
 name|Separator
 block|,
 name|ATSPI_ROLE_SEPARATOR
-block|,
-literal|"separator"
 block|,
 name|QT_TR_NOOP
 argument_list|(
@@ -617,8 +567,6 @@ name|ToolBar
 block|,
 name|ATSPI_ROLE_TOOL_BAR
 block|,
-literal|"tool bar"
-block|,
 name|QT_TR_NOOP
 argument_list|(
 literal|"tool bar"
@@ -631,8 +579,6 @@ operator|::
 name|StatusBar
 block|,
 name|ATSPI_ROLE_STATUS_BAR
-block|,
-literal|"statusbar"
 block|,
 name|QT_TR_NOOP
 argument_list|(
@@ -647,8 +593,6 @@ name|Table
 block|,
 name|ATSPI_ROLE_TABLE
 block|,
-literal|"table"
-block|,
 name|QT_TR_NOOP
 argument_list|(
 literal|"table"
@@ -661,8 +605,6 @@ operator|::
 name|ColumnHeader
 block|,
 name|ATSPI_ROLE_TABLE_COLUMN_HEADER
-block|,
-literal|"column header"
 block|,
 name|QT_TR_NOOP
 argument_list|(
@@ -677,8 +619,6 @@ name|RowHeader
 block|,
 name|ATSPI_ROLE_TABLE_ROW_HEADER
 block|,
-literal|"row header"
-block|,
 name|QT_TR_NOOP
 argument_list|(
 literal|"row header"
@@ -692,8 +632,6 @@ name|Column
 block|,
 name|ATSPI_ROLE_TABLE_CELL
 block|,
-literal|"table cell"
-block|,
 name|QT_TR_NOOP
 argument_list|(
 literal|"column"
@@ -705,9 +643,7 @@ name|QAccessible
 operator|::
 name|Row
 block|,
-name|ATSPI_ROLE_TABLE_CELL
-block|,
-literal|"table cell"
+name|ATSPI_ROLE_TABLE_ROW
 block|,
 name|QT_TR_NOOP
 argument_list|(
@@ -722,8 +658,6 @@ name|Cell
 block|,
 name|ATSPI_ROLE_TABLE_CELL
 block|,
-literal|"table cell"
-block|,
 name|QT_TR_NOOP
 argument_list|(
 literal|"cell"
@@ -736,8 +670,6 @@ operator|::
 name|Link
 block|,
 name|ATSPI_ROLE_LINK
-block|,
-literal|"link"
 block|,
 name|QT_TR_NOOP
 argument_list|(
@@ -752,8 +684,6 @@ name|HelpBalloon
 block|,
 name|ATSPI_ROLE_DIALOG
 block|,
-literal|"dialog"
-block|,
 name|QT_TR_NOOP
 argument_list|(
 literal|"help balloon"
@@ -766,8 +696,6 @@ operator|::
 name|Assistant
 block|,
 name|ATSPI_ROLE_DIALOG
-block|,
-literal|"dialog"
 block|,
 name|QT_TR_NOOP
 argument_list|(
@@ -782,8 +710,6 @@ name|List
 block|,
 name|ATSPI_ROLE_LIST
 block|,
-literal|"list"
-block|,
 name|QT_TR_NOOP
 argument_list|(
 literal|"list"
@@ -796,8 +722,6 @@ operator|::
 name|ListItem
 block|,
 name|ATSPI_ROLE_LIST_ITEM
-block|,
-literal|"list item"
 block|,
 name|QT_TR_NOOP
 argument_list|(
@@ -812,8 +736,6 @@ name|Tree
 block|,
 name|ATSPI_ROLE_TREE
 block|,
-literal|"tree"
-block|,
 name|QT_TR_NOOP
 argument_list|(
 literal|"tree"
@@ -826,8 +748,6 @@ operator|::
 name|TreeItem
 block|,
 name|ATSPI_ROLE_TABLE_CELL
-block|,
-literal|"tree item"
 block|,
 name|QT_TR_NOOP
 argument_list|(
@@ -842,8 +762,6 @@ name|PageTab
 block|,
 name|ATSPI_ROLE_PAGE_TAB
 block|,
-literal|"page tab"
-block|,
 name|QT_TR_NOOP
 argument_list|(
 literal|"page tab"
@@ -856,8 +774,6 @@ operator|::
 name|PropertyPage
 block|,
 name|ATSPI_ROLE_PAGE_TAB
-block|,
-literal|"page tab"
 block|,
 name|QT_TR_NOOP
 argument_list|(
@@ -872,8 +788,6 @@ name|Indicator
 block|,
 name|ATSPI_ROLE_UNKNOWN
 block|,
-literal|"unknown"
-block|,
 name|QT_TR_NOOP
 argument_list|(
 literal|"indicator"
@@ -886,8 +800,6 @@ operator|::
 name|Graphic
 block|,
 name|ATSPI_ROLE_IMAGE
-block|,
-literal|"image"
 block|,
 name|QT_TR_NOOP
 argument_list|(
@@ -902,8 +814,6 @@ name|StaticText
 block|,
 name|ATSPI_ROLE_LABEL
 block|,
-literal|"label"
-block|,
 name|QT_TR_NOOP
 argument_list|(
 literal|"label"
@@ -916,8 +826,6 @@ operator|::
 name|EditableText
 block|,
 name|ATSPI_ROLE_TEXT
-block|,
-literal|"text"
 block|,
 name|QT_TR_NOOP
 argument_list|(
@@ -932,8 +840,6 @@ name|PushButton
 block|,
 name|ATSPI_ROLE_PUSH_BUTTON
 block|,
-literal|"push button"
-block|,
 name|QT_TR_NOOP
 argument_list|(
 literal|"push button"
@@ -946,8 +852,6 @@ operator|::
 name|CheckBox
 block|,
 name|ATSPI_ROLE_CHECK_BOX
-block|,
-literal|"check box"
 block|,
 name|QT_TR_NOOP
 argument_list|(
@@ -962,11 +866,9 @@ name|RadioButton
 block|,
 name|ATSPI_ROLE_RADIO_BUTTON
 block|,
-literal|"radio button"
-block|,
 name|QT_TR_NOOP
 argument_list|(
-literal|"radio box"
+literal|"radio button"
 argument_list|)
 block|}
 block|,
@@ -976,8 +878,6 @@ operator|::
 name|ComboBox
 block|,
 name|ATSPI_ROLE_COMBO_BOX
-block|,
-literal|"combo box"
 block|,
 name|QT_TR_NOOP
 argument_list|(
@@ -992,8 +892,6 @@ name|ProgressBar
 block|,
 name|ATSPI_ROLE_PROGRESS_BAR
 block|,
-literal|"progress bar"
-block|,
 name|QT_TR_NOOP
 argument_list|(
 literal|"progress bar"
@@ -1006,8 +904,6 @@ operator|::
 name|Dial
 block|,
 name|ATSPI_ROLE_DIAL
-block|,
-literal|"accelerator label"
 block|,
 name|QT_TR_NOOP
 argument_list|(
@@ -1022,23 +918,18 @@ name|HotkeyField
 block|,
 name|ATSPI_ROLE_TEXT
 block|,
-literal|"text"
-block|,
 name|QT_TR_NOOP
 argument_list|(
 literal|"hotkey field"
 argument_list|)
 block|}
 block|,
-comment|//FIXME text?
 block|{
 name|QAccessible
 operator|::
 name|Slider
 block|,
 name|ATSPI_ROLE_SLIDER
-block|,
-literal|"slider"
 block|,
 name|QT_TR_NOOP
 argument_list|(
@@ -1053,8 +944,6 @@ name|SpinBox
 block|,
 name|ATSPI_ROLE_SPIN_BUTTON
 block|,
-literal|"spin button"
-block|,
 name|QT_TR_NOOP
 argument_list|(
 literal|"spin box"
@@ -1067,8 +956,6 @@ operator|::
 name|Canvas
 block|,
 name|ATSPI_ROLE_CANVAS
-block|,
-literal|"canvas"
 block|,
 name|QT_TR_NOOP
 argument_list|(
@@ -1083,8 +970,6 @@ name|Animation
 block|,
 name|ATSPI_ROLE_ANIMATION
 block|,
-literal|"animation"
-block|,
 name|QT_TR_NOOP
 argument_list|(
 literal|"animation"
@@ -1097,8 +982,6 @@ operator|::
 name|Equation
 block|,
 name|ATSPI_ROLE_TEXT
-block|,
-literal|"text"
 block|,
 name|QT_TR_NOOP
 argument_list|(
@@ -1113,8 +996,6 @@ name|ButtonDropDown
 block|,
 name|ATSPI_ROLE_PUSH_BUTTON
 block|,
-literal|"push button"
-block|,
 name|QT_TR_NOOP
 argument_list|(
 literal|"button drop down"
@@ -1127,8 +1008,6 @@ operator|::
 name|ButtonMenu
 block|,
 name|ATSPI_ROLE_PUSH_BUTTON
-block|,
-literal|"push button"
 block|,
 name|QT_TR_NOOP
 argument_list|(
@@ -1143,8 +1022,6 @@ name|ButtonDropGrid
 block|,
 name|ATSPI_ROLE_PUSH_BUTTON
 block|,
-literal|"push button"
-block|,
 name|QT_TR_NOOP
 argument_list|(
 literal|"button drop grid"
@@ -1157,8 +1034,6 @@ operator|::
 name|Whitespace
 block|,
 name|ATSPI_ROLE_FILLER
-block|,
-literal|"filler"
 block|,
 name|QT_TR_NOOP
 argument_list|(
@@ -1173,8 +1048,6 @@ name|PageTabList
 block|,
 name|ATSPI_ROLE_PAGE_TAB_LIST
 block|,
-literal|"page tab list"
-block|,
 name|QT_TR_NOOP
 argument_list|(
 literal|"page tab list"
@@ -1187,8 +1060,6 @@ operator|::
 name|Clock
 block|,
 name|ATSPI_ROLE_UNKNOWN
-block|,
-literal|"unknown"
 block|,
 name|QT_TR_NOOP
 argument_list|(
@@ -1203,8 +1074,6 @@ name|Splitter
 block|,
 name|ATSPI_ROLE_SPLIT_PANE
 block|,
-literal|"split pane"
-block|,
 name|QT_TR_NOOP
 argument_list|(
 literal|"splitter"
@@ -1217,8 +1086,6 @@ operator|::
 name|LayeredPane
 block|,
 name|ATSPI_ROLE_LAYERED_PANE
-block|,
-literal|"layered pane"
 block|,
 name|QT_TR_NOOP
 argument_list|(
@@ -1233,11 +1100,9 @@ name|UserRole
 block|,
 name|ATSPI_ROLE_UNKNOWN
 block|,
-literal|"unknown"
-block|,
 name|QT_TR_NOOP
 argument_list|(
-literal|"user role"
+literal|"unknown"
 argument_list|)
 block|}
 block|}
@@ -1310,7 +1175,7 @@ index|[
 name|i
 index|]
 operator|.
-name|localizedName
+name|name
 argument_list|)
 argument_list|)
 argument_list|)

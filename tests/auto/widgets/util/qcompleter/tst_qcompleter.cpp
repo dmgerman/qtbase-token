@@ -7948,9 +7948,7 @@ name|SIGNAL
 argument_list|(
 name|activated
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -8172,7 +8170,6 @@ name|SIGNAL
 argument_list|(
 name|activated
 argument_list|(
-specifier|const
 name|QString
 argument_list|)
 argument_list|)

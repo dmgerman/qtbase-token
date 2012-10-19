@@ -10447,9 +10447,7 @@ name|SIGNAL
 argument_list|(
 name|currentCharFormatChanged
 argument_list|(
-specifier|const
 name|QTextCharFormat
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -10460,9 +10458,7 @@ name|SLOT
 argument_list|(
 name|charFormatChanged
 argument_list|(
-specifier|const
 name|QTextCharFormat
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)

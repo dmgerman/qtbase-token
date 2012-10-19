@@ -4426,9 +4426,7 @@ block|}
 end_function
 begin_function
 DECL|function|setWindowState
-name|Qt
-operator|::
-name|WindowState
+name|void
 name|QXcbWindow
 operator|::
 name|setWindowState
@@ -4445,9 +4443,7 @@ name|state
 operator|==
 name|m_windowState
 condition|)
-return|return
-name|state
-return|;
+return|return;
 comment|// unset old state
 switch|switch
 condition|(
@@ -4708,9 +4704,6 @@ name|m_windowState
 operator|=
 name|state
 expr_stmt|;
-return|return
-name|m_windowState
-return|;
 block|}
 end_function
 begin_function

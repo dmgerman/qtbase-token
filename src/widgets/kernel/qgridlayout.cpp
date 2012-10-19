@@ -1471,7 +1471,7 @@ name|bottomMargin
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|int
 name|leftMost
 init|=

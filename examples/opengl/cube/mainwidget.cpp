@@ -75,6 +75,11 @@ argument_list|(
 operator|new
 name|GeometryEngine
 argument_list|)
+member_init_list|,
+name|angularSpeed
+argument_list|(
+literal|0
+argument_list|)
 block|{ }
 end_constructor
 begin_destructor

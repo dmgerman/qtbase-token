@@ -2811,9 +2811,7 @@ name|SIGNAL
 argument_list|(
 name|messageChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -2821,9 +2819,7 @@ name|SLOT
 argument_list|(
 name|onStatusMessageChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)

@@ -3848,7 +3848,7 @@ operator|::
 name|StyleChange
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 operator|||
 name|event
 operator|->

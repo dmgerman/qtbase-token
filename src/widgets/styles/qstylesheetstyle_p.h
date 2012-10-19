@@ -803,7 +803,7 @@ name|QRenderRule
 name|renderRule
 argument_list|(
 specifier|const
-name|QWidget
+name|QObject
 operator|*
 argument_list|,
 name|int
@@ -820,7 +820,7 @@ name|QRenderRule
 name|renderRule
 argument_list|(
 specifier|const
-name|QWidget
+name|QObject
 operator|*
 argument_list|,
 specifier|const
@@ -965,7 +965,7 @@ name|StyleRule
 operator|>
 name|styleRules
 argument_list|(
-argument|const QWidget *w
+argument|const QObject *obj
 argument_list|)
 specifier|const
 expr_stmt|;
@@ -975,9 +975,9 @@ name|bool
 name|hasStyleRule
 argument_list|(
 specifier|const
-name|QWidget
+name|QObject
 operator|*
-name|w
+name|obj
 argument_list|,
 name|int
 name|part
@@ -1035,20 +1035,20 @@ name|bool
 name|isNaturalChild
 parameter_list|(
 specifier|const
-name|QWidget
+name|QObject
 modifier|*
-name|w
+name|obj
 parameter_list|)
 function_decl|;
 end_function_decl
 begin_decl_stmt
 name|bool
-name|initWidget
+name|initObject
 argument_list|(
 specifier|const
-name|QWidget
+name|QObject
 operator|*
-name|w
+name|obj
 argument_list|)
 decl|const
 decl_stmt|;
@@ -1092,7 +1092,7 @@ name|public
 name|Q_SLOTS
 operator|:
 name|void
-name|widgetDestroyed
+name|objectDestroyed
 argument_list|(
 name|QObject
 operator|*
@@ -1110,7 +1110,7 @@ operator|:
 name|QHash
 operator|<
 specifier|const
-name|QWidget
+name|QObject
 operator|*
 block|,
 name|QVector
@@ -1125,7 +1125,7 @@ block|;
 name|QHash
 operator|<
 specifier|const
-name|QWidget
+name|QObject
 operator|*
 block|,
 name|QHash
@@ -1154,7 +1154,7 @@ expr_stmt|;
 name|QHash
 operator|<
 specifier|const
-name|QWidget
+name|QObject
 operator|*
 block|,
 name|QRenderRules

@@ -332,10 +332,15 @@ parameter_list|()
 function_decl|;
 endif|#
 directive|endif
+ifndef|#
+directive|ifndef
+name|Q_OS_WIN
 name|void
 name|hiddenDirs_hiddenFiles
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 block|}
 class|;
 end_class
@@ -2979,6 +2984,23 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WIN
+end_ifndef
+begin_comment
+comment|// In Unix it is easy to create hidden files, but in Windows it requires
+end_comment
+begin_comment
+comment|// a special call since hidden files need to be "marked" while in Unix
+end_comment
+begin_comment
+comment|// anything starting by a '.' is a hidden file.
+end_comment
+begin_comment
+comment|// For that reason this test is not run in Windows.
+end_comment
 begin_function
 DECL|function|hiddenDirs_hiddenFiles
 name|void
@@ -2987,23 +3009,6 @@ operator|::
 name|hiddenDirs_hiddenFiles
 parameter_list|()
 block|{
-comment|// In Unix it is easy to create hidden files, but in Windows it requires
-comment|// a special call since hidden files need to be "marked" while in Unix
-comment|// anything starting by a '.' is a hidden file.
-comment|// For that reason this test is not run in Windows.
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_WIN
-argument_list|)
-name|QSKIP
-argument_list|(
-literal|"To create hidden files a special call is required in Windows."
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 comment|// Only files
 block|{
 name|int
@@ -3171,11 +3176,15 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-endif|#
-directive|endif
-comment|// Q_OS_WIN || Q_OS_WINCE
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// Q_OS_WIN
+end_comment
 begin_macro
 name|QTEST_MAIN
 argument_list|(

@@ -219,6 +219,11 @@ operator|:
 literal|1
 block|;
 name|uint
+name|legacy_rounding
+operator|:
+literal|1
+block|;
+name|uint
 name|fast_text
 operator|:
 literal|1
@@ -895,6 +900,15 @@ argument_list|(
 argument|const QRect&r
 argument_list|,
 argument|Qt::ClipOperation op
+argument_list|)
+block|;
+name|QRect
+name|toNormalizedFillRect
+argument_list|(
+specifier|const
+name|QRectF
+operator|&
+name|rect
 argument_list|)
 block|;
 specifier|inline

@@ -24646,9 +24646,7 @@ name|SIGNAL
 argument_list|(
 name|entered
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -24658,9 +24656,7 @@ name|SLOT
 argument_list|(
 name|openEditor
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)

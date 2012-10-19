@@ -252,9 +252,7 @@ name|void
 name|requestActivateWindow
 argument_list|()
 block|;
-name|Qt
-operator|::
-name|WindowState
+name|void
 name|setWindowState
 argument_list|(
 argument|Qt::WindowState state

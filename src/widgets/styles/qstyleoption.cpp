@@ -15,13 +15,8 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 end_ifdef
-begin_include
-include|#
-directive|include
-file|"private/qt_mac_p.h"
-end_include
 begin_include
 include|#
 directive|include
@@ -96,6 +91,11 @@ argument_list|(
 name|QFont
 argument_list|()
 argument_list|)
+member_init_list|,
+name|styleObject
+argument_list|(
+literal|0
+argument_list|)
 block|{ }
 end_constructor
 begin_comment
@@ -111,7 +111,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     \fn void QStyleOption::initFrom(const QWidget *widget)     \since 4.1      Initializes the \l state, \l direction, \l rect, \l palette, and     \l fontMetrics member variables based on the specified \a widget.      This is a convenience function; the member variables can also be     initialized manually.      \sa QWidget::layoutDirection(), QWidget::rect(),         QWidget::palette(), QWidget::fontMetrics() */
+comment|/*!     \fn void QStyleOption::initFrom(const QWidget *widget)     \since 4.1      Initializes the \l state, \l direction, \l rect, \l palette, \l fontMetrics     and \l styleObject member variables based on the specified \a widget.      This is a convenience function; the member variables can also be     initialized manually.      \sa QWidget::layoutDirection(), QWidget::rect(),         QWidget::palette(), QWidget::fontMetrics() */
 end_comment
 begin_comment
 comment|/*!     \obsolete      Use initFrom(\a widget) instead. */
@@ -264,6 +264,11 @@ name|QStyle
 operator|::
 name|State_Enabled
 expr_stmt|;
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
 switch|switch
 condition|(
 name|QMacStyle
@@ -349,6 +354,17 @@ operator|->
 name|fontMetrics
 argument_list|()
 expr_stmt|;
+name|styleObject
+operator|=
+cast|const_cast
+argument_list|<
+name|QWidget
+operator|*
+argument_list|>
+argument_list|(
+name|widget
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -410,6 +426,13 @@ name|other
 operator|.
 name|palette
 argument_list|)
+member_init_list|,
+name|styleObject
+argument_list|(
+name|other
+operator|.
+name|styleObject
+argument_list|)
 block|{ }
 end_constructor
 begin_comment
@@ -460,6 +483,12 @@ name|other
 operator|.
 name|palette
 expr_stmt|;
+name|styleObject
+operator|=
+name|other
+operator|.
+name|styleObject
+expr_stmt|;
 return|return
 operator|*
 name|this
@@ -480,6 +509,9 @@ comment|/*!     \variable QStyleOption::direction     \brief the text layout dir
 end_comment
 begin_comment
 comment|/*!     \variable QStyleOption::fontMetrics     \brief the font metrics that should be used when drawing text in the control      By default, the application's default font is used.      \sa initFrom() */
+end_comment
+begin_comment
+comment|/*!     \variable QStyleOption::styleObject     \brief the object being styled      The built-in styles support the following types: QWidget, QGraphicsObject and QQuickItem.      \sa initFrom() */
 end_comment
 begin_comment
 comment|/*!     \variable QStyleOption::rect     \brief the area that should be used for various calculations and painting      This can have different meanings for different types of elements.     For example, for a \l QStyle::CE_PushButton element it would be     the rectangle for the entire button, while for a \l     QStyle::CE_PushButtonLabel element it would be just the area for     the push button label.      The default value is a null rectangle, i.e. a rectangle with both     the width and the height set to 0.      \sa initFrom() */
@@ -1267,6 +1299,13 @@ name|documentMode
 argument_list|(
 literal|false
 argument_list|)
+member_init_list|,
+name|features
+argument_list|(
+name|QStyleOptionTab
+operator|::
+name|None
+argument_list|)
 block|{ }
 end_constructor
 begin_comment
@@ -1322,6 +1361,13 @@ name|documentMode
 argument_list|(
 literal|false
 argument_list|)
+member_init_list|,
+name|features
+argument_list|(
+name|QStyleOptionTab
+operator|::
+name|None
+argument_list|)
 block|{ }
 end_constructor
 begin_comment
@@ -1368,6 +1414,9 @@ comment|/*!     \variable QStyleOptionTab::iconSize     \brief the size for the 
 end_comment
 begin_comment
 comment|/*!     \variable QStyleOptionTab::documentMode     \brief whether the tabbar is in document mode.      The default value is false; */
+end_comment
+begin_comment
+comment|/*!     \enum QStyleOptionTab::TabFeature      Describes the various features that a tab button can have.      \value None A normal tab button.     \value HasFrame The tab button is positioned on a tab frame      \sa features */
 end_comment
 begin_comment
 comment|/*!     \variable QStyleOptionTab::leftButtonSize     \brief the size for the left widget on the tab.      The default value is QSize(-1, -1), i.e. an invalid size; */
@@ -3875,6 +3924,14 @@ operator|<<
 name|option
 operator|.
 name|rect
+expr_stmt|;
+name|debug
+operator|<<
+literal|','
+operator|<<
+name|option
+operator|.
+name|styleObject
 expr_stmt|;
 name|debug
 operator|<<

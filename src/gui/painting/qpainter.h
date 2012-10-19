@@ -222,6 +222,10 @@ block|,
 name|NonCosmeticDefaultPen
 operator|=
 literal|0x10
+block|,
+name|Qt4CompatiblePainting
+operator|=
+literal|0x20
 block|}
 decl_stmt|;
 name|Q_DECLARE_FLAGS

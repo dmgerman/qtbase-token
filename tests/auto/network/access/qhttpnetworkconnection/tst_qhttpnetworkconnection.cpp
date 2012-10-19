@@ -1743,9 +1743,7 @@ name|QNetworkReply
 operator|::
 name|NetworkError
 argument_list|,
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -1757,9 +1755,7 @@ name|QNetworkReply
 operator|::
 name|NetworkError
 argument_list|,
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -3162,9 +3158,7 @@ name|SIGNAL
 argument_list|(
 name|authenticationRequired
 argument_list|(
-specifier|const
 name|QHttpNetworkRequest
-operator|&
 argument_list|,
 name|QAuthenticator
 operator|*
@@ -3175,9 +3169,7 @@ name|SLOT
 argument_list|(
 name|challenge401
 argument_list|(
-specifier|const
 name|QHttpNetworkRequest
-operator|&
 argument_list|,
 name|QAuthenticator
 operator|*
@@ -3222,9 +3214,7 @@ name|QNetworkReply
 operator|::
 name|NetworkError
 argument_list|,
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -3236,9 +3226,7 @@ name|QNetworkReply
 operator|::
 name|NetworkError
 argument_list|,
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -4280,12 +4268,10 @@ name|SIGNAL
 argument_list|(
 name|sslErrors
 argument_list|(
-specifier|const
 name|QList
 argument_list|<
 name|QSslError
 argument_list|>
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -4293,12 +4279,10 @@ name|SLOT
 argument_list|(
 name|sslErrors
 argument_list|(
-specifier|const
 name|QList
 argument_list|<
 name|QSslError
 argument_list|>
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -4635,9 +4619,7 @@ name|QNetworkReply
 operator|::
 name|NetworkError
 argument_list|,
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -4649,9 +4631,7 @@ name|QNetworkReply
 operator|::
 name|NetworkError
 argument_list|,
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)

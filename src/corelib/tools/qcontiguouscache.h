@@ -2307,9 +2307,20 @@ argument_list|(
 argument|const T&value
 argument_list|)
 block|{
+if|if
+condition|(
+operator|!
+name|d
+operator|->
+name|alloc
+condition|)
+return|return;
+comment|// zero capacity
 name|detach
 argument_list|()
-block|;
+expr_stmt|;
+end_expr_stmt
+begin_if
 if|if
 condition|(
 name|QTypeInfo
@@ -2364,8 +2375,6 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-end_expr_stmt
-begin_else
 else|else
 block|{
 name|p
@@ -2390,7 +2399,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-end_else
+end_if
 begin_if
 if|if
 condition|(
@@ -2448,9 +2457,20 @@ argument_list|(
 argument|const T&value
 argument_list|)
 block|{
+if|if
+condition|(
+operator|!
+name|d
+operator|->
+name|alloc
+condition|)
+return|return;
+comment|// zero capacity
 name|detach
 argument_list|()
-block|;
+expr_stmt|;
+end_expr_stmt
+begin_if
 if|if
 condition|(
 name|d
@@ -2473,6 +2493,8 @@ name|alloc
 operator|-
 literal|1
 expr_stmt|;
+end_if
+begin_expr_stmt
 name|d
 operator|->
 name|offset
@@ -2587,9 +2609,20 @@ argument_list|,
 literal|"index out of range"
 argument_list|)
 block|;
+if|if
+condition|(
+operator|!
+name|d
+operator|->
+name|alloc
+condition|)
+return|return;
+comment|// zero capacity
 name|detach
 argument_list|()
-block|;
+expr_stmt|;
+end_expr_stmt
+begin_if
 if|if
 condition|(
 name|containsIndex
@@ -2634,8 +2667,6 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-end_expr_stmt
-begin_else
 else|else
 block|{
 name|p
@@ -2652,9 +2683,8 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-end_else
-begin_if
-unit|} else
+block|}
+elseif|else
 if|if
 condition|(
 name|pos

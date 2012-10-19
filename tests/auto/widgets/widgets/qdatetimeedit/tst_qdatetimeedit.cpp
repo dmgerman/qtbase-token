@@ -8469,9 +8469,7 @@ name|SIGNAL
 argument_list|(
 name|dateChanged
 argument_list|(
-specifier|const
 name|QDate
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -15837,9 +15835,7 @@ name|SIGNAL
 argument_list|(
 name|dateChanged
 argument_list|(
-specifier|const
 name|QDate
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -15853,9 +15849,7 @@ name|SIGNAL
 argument_list|(
 name|dateTimeChanged
 argument_list|(
-specifier|const
 name|QDateTime
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -15869,9 +15863,7 @@ name|SIGNAL
 argument_list|(
 name|timeChanged
 argument_list|(
-specifier|const
 name|QTime
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -16105,9 +16097,7 @@ name|SIGNAL
 argument_list|(
 name|dateChanged
 argument_list|(
-specifier|const
 name|QDate
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -16121,9 +16111,7 @@ name|SIGNAL
 argument_list|(
 name|dateTimeChanged
 argument_list|(
-specifier|const
 name|QDateTime
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -16137,9 +16125,7 @@ name|SIGNAL
 argument_list|(
 name|timeChanged
 argument_list|(
-specifier|const
 name|QTime
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -16573,9 +16559,7 @@ name|SIGNAL
 argument_list|(
 name|dateChanged
 argument_list|(
-specifier|const
 name|QDate
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -16589,9 +16573,7 @@ name|SIGNAL
 argument_list|(
 name|timeChanged
 argument_list|(
-specifier|const
 name|QTime
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -16605,9 +16587,7 @@ name|SIGNAL
 argument_list|(
 name|dateTimeChanged
 argument_list|(
-specifier|const
 name|QDateTime
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -24381,9 +24361,7 @@ name|SIGNAL
 argument_list|(
 name|dateTimeChanged
 argument_list|(
-specifier|const
 name|QDateTime
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -24397,9 +24375,7 @@ name|SIGNAL
 argument_list|(
 name|dateChanged
 argument_list|(
-specifier|const
 name|QDate
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -24413,9 +24389,7 @@ name|SIGNAL
 argument_list|(
 name|timeChanged
 argument_list|(
-specifier|const
 name|QTime
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)

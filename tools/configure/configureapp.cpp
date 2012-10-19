@@ -683,7 +683,7 @@ operator|+
 literal|"/bin/syncqt.bat"
 argument_list|)
 operator|<<
-literal|" -qtdir \""
+literal|" -mkspecsdir \""
 operator|<<
 name|QDir
 operator|::
@@ -692,7 +692,7 @@ argument_list|(
 name|buildPath
 argument_list|)
 operator|<<
-literal|"\" %*"
+literal|"/mkspecs\" %*"
 operator|<<
 name|endl
 expr_stmt|;
@@ -1548,6 +1548,13 @@ expr_stmt|;
 name|dictionary
 index|[
 literal|"STYLE_CLEANLOOKS"
+index|]
+operator|=
+literal|"yes"
+expr_stmt|;
+name|dictionary
+index|[
+literal|"STYLE_FUSION"
 index|]
 operator|=
 literal|"yes"
@@ -3740,6 +3747,44 @@ condition|)
 name|dictionary
 index|[
 literal|"STYLE_CLEANLOOKS"
+index|]
+operator|=
+literal|"no"
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|configCmdLine
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+operator|==
+literal|"-qt-style-fusion"
+condition|)
+name|dictionary
+index|[
+literal|"STYLE_FUSION"
+index|]
+operator|=
+literal|"yes"
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|configCmdLine
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+operator|==
+literal|"-no-style-fusion"
+condition|)
+name|dictionary
+index|[
+literal|"STYLE_FUSION"
 index|]
 operator|=
 literal|"no"
@@ -9434,6 +9479,13 @@ literal|"no"
 expr_stmt|;
 name|dictionary
 index|[
+literal|"STYLE_FUSION"
+index|]
+operator|=
+literal|"no"
+expr_stmt|;
+name|dictionary
+index|[
 literal|"STYLE_WINDOWSCE"
 index|]
 operator|=
@@ -11679,6 +11731,19 @@ argument_list|,
 literal|""
 argument_list|,
 literal|"  cleanlooks"
+argument_list|,
+literal|' '
+argument_list|)
+expr_stmt|;
+name|desc
+argument_list|(
+literal|"STYLE_FUSION"
+argument_list|,
+literal|"yes"
+argument_list|,
+literal|""
+argument_list|,
+literal|"  fusion"
 argument_list|,
 literal|' '
 argument_list|)
@@ -15451,6 +15516,19 @@ if|if
 condition|(
 name|dictionary
 index|[
+literal|"STYLE_FUSION"
+index|]
+operator|==
+literal|"yes"
+condition|)
+name|qmakeStyles
+operator|+=
+literal|"fusion"
+expr_stmt|;
+if|if
+condition|(
+name|dictionary
+index|[
 literal|"STYLE_WINDOWSXP"
 index|]
 operator|==
@@ -17149,12 +17227,6 @@ operator|&
 name|cacheFile
 argument_list|)
 decl_stmt|;
-name|cacheStream
-operator|<<
-literal|"include($$PWD/mkspecs/qmodule.pri)"
-operator|<<
-name|endl
-expr_stmt|;
 for|for
 control|(
 name|QStringList
@@ -20100,6 +20172,19 @@ if|if
 condition|(
 name|dictionary
 index|[
+literal|"STYLE_FUSION"
+index|]
+operator|!=
+literal|"yes"
+condition|)
+name|qconfigList
+operator|+=
+literal|"QT_NO_STYLE_FUSION"
+expr_stmt|;
+if|if
+condition|(
+name|dictionary
+index|[
 literal|"STYLE_WINDOWSXP"
 index|]
 operator|!=
@@ -21861,6 +21946,17 @@ operator|<<
 name|dictionary
 index|[
 literal|"STYLE_CLEANLOOKS"
+index|]
+operator|<<
+name|endl
+expr_stmt|;
+name|sout
+operator|<<
+literal|"    Fusion.................."
+operator|<<
+name|dictionary
+index|[
+literal|"STYLE_FUSION"
 index|]
 operator|<<
 name|endl

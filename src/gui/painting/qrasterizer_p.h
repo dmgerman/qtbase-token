@@ -113,6 +113,13 @@ name|clipRect
 parameter_list|)
 function_decl|;
 name|void
+name|setLegacyRoundingEnabled
+parameter_list|(
+name|bool
+name|legacyRoundingEnabled
+parameter_list|)
+function_decl|;
+name|void
 name|initialize
 parameter_list|(
 name|ProcessSpans

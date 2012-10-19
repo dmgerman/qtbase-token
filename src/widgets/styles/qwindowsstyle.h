@@ -222,14 +222,6 @@ operator|*
 name|e
 argument_list|)
 block|;
-name|void
-name|timerEvent
-argument_list|(
-name|QTimerEvent
-operator|*
-name|event
-argument_list|)
-block|;
 name|QWindowsStyle
 argument_list|(
 name|QWindowsStylePrivate

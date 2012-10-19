@@ -9,7 +9,7 @@ begin_comment
 comment|/*!     \fn QPointer::QPointer()      Constructs a 0 guarded pointer.      \sa isNull() */
 end_comment
 begin_comment
-comment|/*!     \fn QPointer::QPointer(T* p)      Constructs a guarded pointer that points to same object that \a p     points to. */
+comment|/*!     \fn QPointer::QPointer(T* p)      Constructs a guarded pointer that points to the same object that \a p     points to. */
 end_comment
 begin_comment
 comment|/*!     \fn QPointer::~QPointer()      Destroys the guarded pointer. Just like a normal pointer,     destroying a guarded pointer does \e not destroy the object being     pointed to. */
@@ -64,5 +64,8 @@ comment|/*!     \fn bool operator!=(const QPointer<T>&p, T *o)     \relates QPoi
 end_comment
 begin_comment
 comment|/*!     \fn bool operator!=(const QPointer<T>&p1, const QPointer<T>&p2)     \relates QPointer      Inequality operator. Returns true if  the guarded pointers \a p1 and     \a p2 are not pointing to the same object, otherwise     returns false. */
+end_comment
+begin_comment
+comment|/*!     \fn QPointer<T> qPointerFromVariant(const QVariant&variant)      \internal      Returns a guarded pointer that points to the same object that     \a variant holds. */
 end_comment
 end_unit

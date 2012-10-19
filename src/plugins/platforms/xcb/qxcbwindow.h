@@ -158,14 +158,15 @@ name|WindowFlags
 name|flags
 argument_list|)
 decl_stmt|;
+name|void
+name|setWindowState
+argument_list|(
 name|Qt
 operator|::
 name|WindowState
-name|setWindowState
-argument_list|(
-argument|Qt::WindowState state
+name|state
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|WId
 name|winId
 argument_list|()

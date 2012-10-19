@@ -8798,13 +8798,9 @@ name|SIGNAL
 argument_list|(
 name|dataChanged
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)

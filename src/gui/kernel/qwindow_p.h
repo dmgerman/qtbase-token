@@ -189,6 +189,15 @@ name|void
 name|maybeQuitOnLastWindowClosed
 argument_list|()
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CURSOR
+name|void
+name|applyCursor
+argument_list|()
+block|;
+endif|#
+directive|endif
 name|QPoint
 name|globalPosition
 argument_list|()

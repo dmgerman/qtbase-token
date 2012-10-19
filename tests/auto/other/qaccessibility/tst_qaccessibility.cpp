@@ -10184,6 +10184,15 @@ argument_list|)
 decl_stmt|;
 name|window
 operator|->
+name|setAttribute
+argument_list|(
+name|Qt
+operator|::
+name|WA_LayoutUsesWidgetRect
+argument_list|)
+expr_stmt|;
+name|window
+operator|->
 name|show
 argument_list|()
 expr_stmt|;
@@ -10745,13 +10754,9 @@ decl_stmt|;
 ifdef|#
 directive|ifdef
 name|Q_OS_MAC
-name|QEXPECT_FAIL
+name|QSKIP
 argument_list|(
-literal|""
-argument_list|,
 literal|"QTBUG-22812"
-argument_list|,
-name|Abort
 argument_list|)
 expr_stmt|;
 endif|#
@@ -15197,7 +15202,7 @@ name|selectionEvent
 operator|.
 name|setChild
 argument_list|(
-literal|2
+literal|1
 argument_list|)
 expr_stmt|;
 name|QAccessibleEvent
@@ -15214,7 +15219,7 @@ name|focusEvent
 operator|.
 name|setChild
 argument_list|(
-literal|2
+literal|1
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -15284,7 +15289,7 @@ name|selectionEvent2
 operator|.
 name|setChild
 argument_list|(
-literal|3
+literal|2
 argument_list|)
 expr_stmt|;
 name|QAccessibleEvent
@@ -15301,7 +15306,7 @@ name|focusEvent2
 operator|.
 name|setChild
 argument_list|(
-literal|3
+literal|2
 argument_list|)
 expr_stmt|;
 name|QVERIFY

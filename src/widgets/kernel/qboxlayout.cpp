@@ -590,7 +590,7 @@ name|bottomMargin
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|Q_Q
 argument_list|(
 specifier|const
@@ -1539,7 +1539,7 @@ literal|0
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 if|if
 condition|(
 operator|!

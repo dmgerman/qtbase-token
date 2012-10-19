@@ -106,9 +106,7 @@ name|SIGNAL
 argument_list|(
 name|proxyAuthenticationRequired
 argument_list|(
-specifier|const
 name|QNetworkProxy
-operator|&
 argument_list|,
 name|QAuthenticator
 operator|*
@@ -121,9 +119,7 @@ name|SLOT
 argument_list|(
 name|proxyAuthenticationRequired
 argument_list|(
-specifier|const
 name|QNetworkProxy
-operator|&
 argument_list|,
 name|QAuthenticator
 operator|*
@@ -146,12 +142,10 @@ argument_list|(
 name|QNetworkReply
 operator|*
 argument_list|,
-specifier|const
 name|QList
 argument_list|<
 name|QSslError
 argument_list|>
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -164,12 +158,10 @@ argument_list|(
 name|QNetworkReply
 operator|*
 argument_list|,
-specifier|const
 name|QList
 argument_list|<
 name|QSslError
 argument_list|>
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)

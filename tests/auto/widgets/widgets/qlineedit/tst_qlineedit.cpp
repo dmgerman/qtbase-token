@@ -1174,9 +1174,7 @@ name|SIGNAL
 argument_list|(
 name|textChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -1186,9 +1184,7 @@ name|SLOT
 argument_list|(
 name|onTextChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1201,9 +1197,7 @@ name|SIGNAL
 argument_list|(
 name|textEdited
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -1213,9 +1207,7 @@ name|SLOT
 argument_list|(
 name|onTextEdited
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -18387,9 +18379,7 @@ name|SIGNAL
 argument_list|(
 name|textEdited
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)

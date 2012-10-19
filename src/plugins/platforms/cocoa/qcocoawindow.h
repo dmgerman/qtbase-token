@@ -183,9 +183,7 @@ argument_list|(
 argument|Qt::WindowFlags flags
 argument_list|)
 block|;
-name|Qt
-operator|::
-name|WindowState
+name|void
 name|setWindowState
 argument_list|(
 argument|Qt::WindowState state
@@ -207,6 +205,15 @@ specifier|const
 name|QString
 operator|&
 name|filePath
+argument_list|)
+block|;
+name|void
+name|setWindowIcon
+argument_list|(
+specifier|const
+name|QIcon
+operator|&
+name|icon
 argument_list|)
 block|;
 name|void

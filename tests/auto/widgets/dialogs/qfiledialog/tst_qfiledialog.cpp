@@ -693,9 +693,7 @@ name|SIGNAL
 argument_list|(
 name|currentChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -911,9 +909,7 @@ name|SIGNAL
 argument_list|(
 name|directoryEntered
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1241,9 +1237,7 @@ name|SIGNAL
 argument_list|(
 name|filesSelected
 argument_list|(
-specifier|const
 name|QStringList
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1544,9 +1538,7 @@ name|SIGNAL
 argument_list|(
 name|filterSelected
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1803,9 +1795,7 @@ name|SIGNAL
 argument_list|(
 name|currentChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1820,9 +1810,7 @@ name|SIGNAL
 argument_list|(
 name|directoryEntered
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1837,9 +1825,7 @@ name|SIGNAL
 argument_list|(
 name|filesSelected
 argument_list|(
-specifier|const
 name|QStringList
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1854,9 +1840,7 @@ name|SIGNAL
 argument_list|(
 name|filterSelected
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -3184,9 +3168,7 @@ name|SIGNAL
 argument_list|(
 name|currentChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -3201,9 +3183,7 @@ name|SIGNAL
 argument_list|(
 name|directoryEntered
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -3218,9 +3198,7 @@ name|SIGNAL
 argument_list|(
 name|filesSelected
 argument_list|(
-specifier|const
 name|QStringList
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -3235,9 +3213,7 @@ name|SIGNAL
 argument_list|(
 name|filterSelected
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -3813,9 +3789,7 @@ name|SIGNAL
 argument_list|(
 name|currentChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -3830,9 +3804,7 @@ name|SIGNAL
 argument_list|(
 name|directoryEntered
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -3847,9 +3819,7 @@ name|SIGNAL
 argument_list|(
 name|filesSelected
 argument_list|(
-specifier|const
 name|QStringList
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -3864,9 +3834,7 @@ name|SIGNAL
 argument_list|(
 name|filterSelected
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -4234,9 +4202,7 @@ name|SIGNAL
 argument_list|(
 name|filterSelected
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -4448,9 +4414,7 @@ name|SIGNAL
 argument_list|(
 name|currentChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -4465,9 +4429,7 @@ name|SIGNAL
 argument_list|(
 name|directoryEntered
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -4482,9 +4444,7 @@ name|SIGNAL
 argument_list|(
 name|filesSelected
 argument_list|(
-specifier|const
 name|QStringList
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -4499,9 +4459,7 @@ name|SIGNAL
 argument_list|(
 name|filterSelected
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -5645,9 +5603,7 @@ name|SIGNAL
 argument_list|(
 name|currentChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -5662,9 +5618,7 @@ name|SIGNAL
 argument_list|(
 name|directoryEntered
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -5679,9 +5633,7 @@ name|SIGNAL
 argument_list|(
 name|filesSelected
 argument_list|(
-specifier|const
 name|QStringList
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -5696,9 +5648,7 @@ name|SIGNAL
 argument_list|(
 name|filterSelected
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -6896,9 +6846,7 @@ name|SIGNAL
 argument_list|(
 name|rootPathChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -7262,9 +7210,7 @@ name|SIGNAL
 argument_list|(
 name|rootPathChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)

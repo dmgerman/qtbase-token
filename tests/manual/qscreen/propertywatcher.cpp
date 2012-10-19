@@ -208,6 +208,15 @@ argument_list|,
 name|updateButton
 argument_list|)
 expr_stmt|;
+name|m_layout
+operator|->
+name|setFieldGrowthPolicy
+argument_list|(
+name|QFormLayout
+operator|::
+name|ExpandingFieldsGrow
+argument_list|)
+expr_stmt|;
 name|setLayout
 argument_list|(
 name|m_layout

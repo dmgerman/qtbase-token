@@ -294,9 +294,7 @@ name|SIGNAL
 argument_list|(
 name|goToUrl
 argument_list|(
-specifier|const
 name|QUrl
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1015,9 +1013,7 @@ name|SIGNAL
 argument_list|(
 name|goToUrl
 argument_list|(
-specifier|const
 name|QUrl
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)

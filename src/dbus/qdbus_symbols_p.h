@@ -1120,18 +1120,6 @@ end_comment
 begin_macro
 name|DEFINEFUNC
 argument_list|(
-argument|void
-argument_list|,
-argument|dbus_get_version
-argument_list|,
-argument|(int *major_version_p,                                                    int *minor_version_p,                                                    int *micro_version_p)
-argument_list|,
-argument|(major_version_p, minor_version_p, micro_version_p)
-argument_list|, )
-end_macro
-begin_macro
-name|DEFINEFUNC
-argument_list|(
 argument|char*
 argument_list|,
 argument|dbus_get_local_machine_id
@@ -1380,42 +1368,6 @@ argument_list|,
 argument|return
 argument_list|)
 end_macro
-begin_comment
-comment|/* D-Bus 1.4 symbols */
-end_comment
-begin_if
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_LINKED_LIBDBUS
-argument_list|)
-operator|||
-operator|(
-name|DBUS_VERSION
-operator|>=
-literal|0x010400
-operator|)
-end_if
-begin_macro
-name|DEFINEFUNC
-argument_list|(
-argument|dbus_bool_t
-argument_list|,
-argument|dbus_connection_can_send_type
-argument_list|,
-argument|(DBusConnection             *connection,                                                                             int                         type)
-argument_list|,
-argument|(connection, type)
-argument_list|,
-argument|return
-argument_list|)
-end_macro
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
