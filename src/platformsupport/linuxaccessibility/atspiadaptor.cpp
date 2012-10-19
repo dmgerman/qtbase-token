@@ -7083,6 +7083,15 @@ name|contains
 argument_list|(
 name|uintptr
 argument_list|)
+operator|||
+name|m_handledObjects
+operator|.
+name|value
+argument_list|(
+name|uintptr
+argument_list|)
+operator|==
+literal|0
 condition|)
 name|m_handledObjects
 index|[
