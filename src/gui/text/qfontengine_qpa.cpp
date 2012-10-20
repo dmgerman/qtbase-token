@@ -4135,6 +4135,13 @@ index|]
 operator|=
 name|fe
 expr_stmt|;
+name|fe
+operator|->
+name|ref
+operator|.
+name|ref
+parameter_list|()
+constructor_decl|;
 block|}
 name|fallbacksQueried
 operator|=
