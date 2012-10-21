@@ -264,10 +264,15 @@ name|void
 name|testResourceFiles
 parameter_list|()
 function_decl|;
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
 name|void
 name|fileName
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|isWritable_data
 parameter_list|()
@@ -19090,6 +19095,14 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+end_ifdef
+begin_comment
+comment|// Please write a fileName() test for the other platforms
+end_comment
 begin_function
 DECL|function|fileName
 name|void
@@ -19098,9 +19111,6 @@ operator|::
 name|fileName
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
 name|QSettings
 name|s1
 argument_list|(
@@ -19687,17 +19697,12 @@ literal|"/Library/Preferences/com.foo-bar-baz.Console.plist"
 argument_list|)
 argument_list|)
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Please write a fileName() test for the other platforms"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|isWritable_data
 name|void
