@@ -1102,9 +1102,13 @@ parameter_list|()
 block|{
 return|return
 name|m_image
+condition|?
+name|m_image
 operator|->
 name|image
 argument_list|()
+else|:
+literal|0
 return|;
 block|}
 end_function
@@ -1121,6 +1125,12 @@ modifier|&
 name|region
 parameter_list|)
 block|{
+if|if
+condition|(
+operator|!
+name|m_image
+condition|)
+return|return;
 name|m_image
 operator|->
 name|preparePaint
