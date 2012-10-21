@@ -41,6 +41,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/qvector.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtTest/qtesteventloop.h>
 end_include
 begin_decl_stmt
@@ -69,8 +74,10 @@ decl|>>
 block|{
 name|public
 label|:
+name|explicit
 name|QSignalSpy
 argument_list|(
+specifier|const
 name|QObject
 operator|*
 name|obj
@@ -167,6 +174,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+specifier|const
 name|QByteArray
 name|ba
 init|=
@@ -182,6 +190,7 @@ decl_stmt|;
 specifier|const
 name|QMetaObject
 operator|*
+specifier|const
 name|mo
 operator|=
 name|obj
@@ -189,6 +198,7 @@ operator|->
 name|metaObject
 argument_list|()
 expr_stmt|;
+specifier|const
 name|int
 name|sigIndex
 init|=
@@ -358,6 +368,7 @@ operator|*
 operator|*
 name|a
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|methodId
 operator|=
@@ -426,6 +437,7 @@ modifier|&
 name|member
 parameter_list|)
 block|{
+specifier|const
 name|QList
 operator|<
 name|QByteArray
@@ -436,6 +448,16 @@ name|member
 operator|.
 name|parameterTypes
 argument_list|()
+expr_stmt|;
+name|args
+operator|.
+name|reserve
+argument_list|(
+name|params
+operator|.
+name|size
+argument_list|()
+argument_list|)
 expr_stmt|;
 for|for
 control|(
@@ -455,6 +477,7 @@ operator|++
 name|i
 control|)
 block|{
+specifier|const
 name|int
 name|tp
 init|=
@@ -531,6 +554,16 @@ name|QVariant
 operator|>
 name|list
 expr_stmt|;
+name|list
+operator|.
+name|reserve
+argument_list|(
+name|args
+operator|.
+name|count
+argument_list|()
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -549,6 +582,7 @@ operator|++
 name|i
 control|)
 block|{
+specifier|const
 name|QMetaType
 operator|::
 name|Type
@@ -638,7 +672,7 @@ begin_comment
 comment|// holds the QMetaType types for the argument list of the signal
 end_comment
 begin_expr_stmt
-name|QList
+name|QVector
 operator|<
 name|int
 operator|>
