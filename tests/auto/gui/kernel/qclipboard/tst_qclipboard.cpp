@@ -66,10 +66,28 @@ name|void
 name|init
 parameter_list|()
 function_decl|;
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_WIN
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_MAC
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_QNX
+argument_list|)
 name|void
 name|copy_exit_paste
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|capabilityFunctions
 parameter_list|()
@@ -815,6 +833,24 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_WIN
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_MAC
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_QNX
+argument_list|)
+end_if
 begin_function
 DECL|function|runHelper
 specifier|static
@@ -1035,6 +1071,9 @@ end_function
 begin_comment
 comment|// Test that pasted text remains on the clipboard after a Qt application exits.
 end_comment
+begin_comment
+comment|// This test does not make sense on X11 and embedded, copied data disappears from the clipboard when the application exits
+end_comment
 begin_function
 DECL|function|copy_exit_paste
 name|void
@@ -1046,33 +1085,7 @@ block|{
 ifndef|#
 directive|ifndef
 name|QT_NO_PROCESS
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_WIN
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_MAC
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_QNX
-argument_list|)
-name|QSKIP
-argument_list|(
-literal|"This test does not make sense on X11 and embedded, copied data disappears from the clipboard when the application exits "
-argument_list|)
-expr_stmt|;
 comment|// ### It's still possible to test copy/paste - just keep the apps running
-endif|#
-directive|endif
 if|if
 condition|(
 operator|!
@@ -1133,6 +1146,7 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+comment|// Q_OS_MAC
 name|QVERIFY2
 argument_list|(
 name|runHelper
@@ -1156,8 +1170,16 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+comment|// QT_NO_PROCESS
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// Q_OS_WIN || Q_OS_MAC || Q_OS_QNX
+end_comment
 begin_function
 DECL|function|setMimeData
 name|void
