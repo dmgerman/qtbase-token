@@ -352,10 +352,15 @@ name|void
 name|task180459_lastDirectory
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|Q_OS_MAC
 name|void
 name|task227930_correctNavigationKeyboardBehavior
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 if|#
 directive|if
 name|defined
@@ -3271,6 +3276,20 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_MAC
+end_ifndef
+begin_comment
+comment|// The following test implies the folder created will appear first in
+end_comment
+begin_comment
+comment|// the list. On Mac files sorting depends on the locale and the order
+end_comment
+begin_comment
+comment|// displayed cannot be known for sure.
+end_comment
 begin_function
 DECL|function|task227930_correctNavigationKeyboardBehavior
 name|void
@@ -3279,24 +3298,6 @@ operator|::
 name|task227930_correctNavigationKeyboardBehavior
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_MAC
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_LINUX
-argument_list|)
-name|QSKIP
-argument_list|(
-literal|"This test currently fails on Mac OS X and linux CI, see QTBUG-23602"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QDir
 name|current
 init|=
@@ -3592,6 +3593,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_if
 if|#
 directive|if
