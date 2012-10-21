@@ -1509,7 +1509,7 @@ argument_list|()
 argument_list|,
 name|context
 operator|->
-name|handle
+name|shareHandle
 argument_list|()
 argument_list|)
 return|;
