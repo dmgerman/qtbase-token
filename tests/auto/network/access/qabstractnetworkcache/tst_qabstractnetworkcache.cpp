@@ -349,12 +349,17 @@ operator|::
 name|initTestCase
 parameter_list|()
 block|{
-name|QVERIFY
-argument_list|(
+if|if
+condition|(
+operator|!
 name|QtNetworkSettings
 operator|::
 name|verifyTestNetworkSettings
 argument_list|()
+condition|)
+name|QSKIP
+argument_list|(
+literal|"No network test server available"
 argument_list|)
 expr_stmt|;
 ifndef|#
