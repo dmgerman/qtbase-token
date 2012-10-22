@@ -17557,7 +17557,7 @@ name|endl
 expr_stmt|;
 name|moduleStream
 operator|<<
-literal|"CONFIG += create_prl link_prl"
+literal|"CONFIG += create_prl link_prl prepare_docs"
 expr_stmt|;
 if|if
 condition|(
