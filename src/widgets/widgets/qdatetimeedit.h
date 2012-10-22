@@ -760,6 +760,7 @@ argument|QTime time READ time WRITE setTime NOTIFY userTimeChanged USER true
 argument_list|)
 name|public
 operator|:
+name|explicit
 name|QTimeEdit
 argument_list|(
 name|QWidget
@@ -769,6 +770,7 @@ operator|=
 literal|0
 argument_list|)
 block|;
+name|explicit
 name|QTimeEdit
 argument_list|(
 specifier|const
@@ -811,6 +813,7 @@ argument|QDate date READ date WRITE setDate NOTIFY userDateChanged USER true
 argument_list|)
 name|public
 operator|:
+name|explicit
 name|QDateEdit
 argument_list|(
 name|QWidget
@@ -820,6 +823,7 @@ operator|=
 literal|0
 argument_list|)
 block|;
+name|explicit
 name|QDateEdit
 argument_list|(
 specifier|const

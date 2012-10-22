@@ -400,15 +400,16 @@ block|,
 name|SceneModal
 block|}
 enum|;
+name|explicit
 name|QGraphicsItem
-argument_list|(
+parameter_list|(
 name|QGraphicsItem
-operator|*
+modifier|*
 name|parent
-operator|=
+init|=
 literal|0
-argument_list|)
-expr_stmt|;
+parameter_list|)
+function_decl|;
 name|virtual
 operator|~
 name|QGraphicsItem
@@ -3798,6 +3799,7 @@ name|QGraphicsItem
 argument_list|)
 name|public
 range|:
+name|explicit
 name|QGraphicsObject
 argument_list|(
 name|QGraphicsItem
@@ -3975,6 +3977,7 @@ name|QGraphicsItem
 block|{
 name|public
 operator|:
+name|explicit
 name|QAbstractGraphicsShapeItem
 argument_list|(
 name|QGraphicsItem
@@ -4070,6 +4073,7 @@ name|QAbstractGraphicsShapeItem
 block|{
 name|public
 operator|:
+name|explicit
 name|QGraphicsPathItem
 argument_list|(
 name|QGraphicsItem
@@ -4079,6 +4083,7 @@ operator|=
 literal|0
 argument_list|)
 block|;
+name|explicit
 name|QGraphicsPathItem
 argument_list|(
 specifier|const
@@ -4223,6 +4228,7 @@ name|QAbstractGraphicsShapeItem
 block|{
 name|public
 operator|:
+name|explicit
 name|QGraphicsRectItem
 argument_list|(
 name|QGraphicsItem
@@ -4232,6 +4238,7 @@ operator|=
 literal|0
 argument_list|)
 block|;
+name|explicit
 name|QGraphicsRectItem
 argument_list|(
 specifier|const
@@ -4246,6 +4253,7 @@ operator|=
 literal|0
 argument_list|)
 block|;
+name|explicit
 name|QGraphicsRectItem
 argument_list|(
 argument|qreal x
@@ -4433,6 +4441,7 @@ name|QAbstractGraphicsShapeItem
 block|{
 name|public
 operator|:
+name|explicit
 name|QGraphicsEllipseItem
 argument_list|(
 name|QGraphicsItem
@@ -4442,6 +4451,7 @@ operator|=
 literal|0
 argument_list|)
 block|;
+name|explicit
 name|QGraphicsEllipseItem
 argument_list|(
 specifier|const
@@ -4456,6 +4466,7 @@ operator|=
 literal|0
 argument_list|)
 block|;
+name|explicit
 name|QGraphicsEllipseItem
 argument_list|(
 argument|qreal x
@@ -4665,6 +4676,7 @@ name|QAbstractGraphicsShapeItem
 block|{
 name|public
 operator|:
+name|explicit
 name|QGraphicsPolygonItem
 argument_list|(
 name|QGraphicsItem
@@ -4674,6 +4686,7 @@ operator|=
 literal|0
 argument_list|)
 block|;
+name|explicit
 name|QGraphicsPolygonItem
 argument_list|(
 specifier|const
@@ -4831,6 +4844,7 @@ name|QGraphicsItem
 block|{
 name|public
 operator|:
+name|explicit
 name|QGraphicsLineItem
 argument_list|(
 name|QGraphicsItem
@@ -4840,6 +4854,7 @@ operator|=
 literal|0
 argument_list|)
 block|;
+name|explicit
 name|QGraphicsLineItem
 argument_list|(
 specifier|const
@@ -4854,6 +4869,7 @@ operator|=
 literal|0
 argument_list|)
 block|;
+name|explicit
 name|QGraphicsLineItem
 argument_list|(
 argument|qreal x1
@@ -5049,6 +5065,7 @@ block|,
 name|HeuristicMaskShape
 block|}
 block|;
+name|explicit
 name|QGraphicsPixmapItem
 argument_list|(
 name|QGraphicsItem
@@ -5058,6 +5075,7 @@ operator|=
 literal|0
 argument_list|)
 block|;
+name|explicit
 name|QGraphicsPixmapItem
 argument_list|(
 specifier|const
@@ -5290,6 +5308,7 @@ argument|QTextCursor textCursor READ textCursor WRITE setTextCursor
 argument_list|)
 name|public
 operator|:
+name|explicit
 name|QGraphicsTextItem
 argument_list|(
 name|QGraphicsItem
@@ -5299,6 +5318,7 @@ operator|=
 literal|0
 argument_list|)
 block|;
+name|explicit
 name|QGraphicsTextItem
 argument_list|(
 specifier|const
@@ -5751,6 +5771,7 @@ name|QAbstractGraphicsShapeItem
 block|{
 name|public
 operator|:
+name|explicit
 name|QGraphicsSimpleTextItem
 argument_list|(
 name|QGraphicsItem
@@ -5760,6 +5781,7 @@ operator|=
 literal|0
 argument_list|)
 block|;
+name|explicit
 name|QGraphicsSimpleTextItem
 argument_list|(
 specifier|const
@@ -5916,6 +5938,7 @@ name|QGraphicsItem
 block|{
 name|public
 operator|:
+name|explicit
 name|QGraphicsItemGroup
 argument_list|(
 name|QGraphicsItem

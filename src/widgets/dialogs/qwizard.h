@@ -685,6 +685,7 @@ argument|QString subTitle READ subTitle WRITE setSubTitle
 argument_list|)
 name|public
 operator|:
+name|explicit
 name|QWizardPage
 argument_list|(
 name|QWidget

@@ -420,6 +420,7 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+name|explicit
 name|QSplitterHandle
 argument_list|(
 argument|Qt::Orientation o

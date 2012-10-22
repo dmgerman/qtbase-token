@@ -261,6 +261,7 @@ argument|qreal verticalVelocity READ verticalVelocity WRITE setVerticalVelocity
 argument_list|)
 name|public
 operator|:
+name|explicit
 name|QPanGesture
 argument_list|(
 name|QObject
@@ -417,6 +418,7 @@ argument|QPointF centerPoint READ centerPoint WRITE setCenterPoint
 argument_list|)
 name|public
 operator|:
+name|explicit
 name|QPinchGesture
 argument_list|(
 name|QObject
@@ -633,6 +635,7 @@ block|,
 name|Down
 block|}
 block|;
+name|explicit
 name|QSwipeGesture
 argument_list|(
 name|QObject
@@ -694,6 +697,7 @@ argument|QPointF position READ position WRITE setPosition
 argument_list|)
 name|public
 operator|:
+name|explicit
 name|QTapGesture
 argument_list|(
 name|QObject
@@ -748,6 +752,7 @@ argument|QPointF position READ position WRITE setPosition
 argument_list|)
 name|public
 operator|:
+name|explicit
 name|QTapAndHoldGesture
 argument_list|(
 name|QObject
