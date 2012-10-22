@@ -645,7 +645,19 @@ name|extension
 index|]
 decl_stmt|;
 comment|// find or create
-comment|// This would just slow things down: if (!patterns.contains(glob.mimeType()))
+if|if
+condition|(
+operator|!
+name|patterns
+operator|.
+name|contains
+argument_list|(
+name|glob
+operator|.
+name|mimeType
+argument_list|()
+argument_list|)
+condition|)
 name|patterns
 operator|.
 name|append
@@ -669,7 +681,24 @@ operator|>
 literal|50
 condition|)
 block|{
-comment|// This would just slow things down: if (!m_highWeightGlobs.hasPattern(glob.mimeType(), glob.pattern()))
+if|if
+condition|(
+operator|!
+name|m_highWeightGlobs
+operator|.
+name|hasPattern
+argument_list|(
+name|glob
+operator|.
+name|mimeType
+argument_list|()
+argument_list|,
+name|glob
+operator|.
+name|pattern
+argument_list|()
+argument_list|)
+condition|)
 name|m_highWeightGlobs
 operator|.
 name|append
@@ -680,7 +709,24 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|//This would just slow things down: if (!m_lowWeightGlobs.hasPattern(glob.mimeType(), glob.pattern()))
+if|if
+condition|(
+operator|!
+name|m_lowWeightGlobs
+operator|.
+name|hasPattern
+argument_list|(
+name|glob
+operator|.
+name|mimeType
+argument_list|()
+argument_list|,
+name|glob
+operator|.
+name|pattern
+argument_list|()
+argument_list|)
+condition|)
 name|m_lowWeightGlobs
 operator|.
 name|append

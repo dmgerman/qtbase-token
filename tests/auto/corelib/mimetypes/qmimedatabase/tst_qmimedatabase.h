@@ -169,6 +169,9 @@ block|;
 name|QString
 name|m_yastMimeTypes
 block|;
+name|QString
+name|m_qmlAgainFileName
+block|;
 name|QTemporaryDir
 name|m_temporaryDir
 block|;
