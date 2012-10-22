@@ -139,7 +139,12 @@ emit|emit
 name|q
 operator|->
 name|finished
+argument_list|(
+name|QState
+operator|::
+name|QPrivateSignal
 argument_list|()
+argument_list|)
 emit|;
 block|}
 end_function
@@ -160,7 +165,12 @@ emit|emit
 name|q
 operator|->
 name|propertiesAssigned
+argument_list|(
+name|QState
+operator|::
+name|QPrivateSignal
 argument_list|()
+argument_list|)
 emit|;
 block|}
 end_function

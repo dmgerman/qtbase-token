@@ -445,6 +445,11 @@ operator|->
 name|fileChanged
 argument_list|(
 name|path
+argument_list|,
+name|QFileSystemWatcher
+operator|::
+name|QPrivateSignal
+argument_list|()
 argument_list|)
 emit|;
 block|}
@@ -501,6 +506,11 @@ operator|->
 name|directoryChanged
 argument_list|(
 name|path
+argument_list|,
+name|QFileSystemWatcher
+operator|::
+name|QPrivateSignal
+argument_list|()
 argument_list|)
 emit|;
 block|}

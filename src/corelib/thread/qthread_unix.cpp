@@ -1358,7 +1358,12 @@ emit|emit
 name|thr
 operator|->
 name|started
+argument_list|(
+name|QThread
+operator|::
+name|QPrivateSignal
 argument_list|()
+argument_list|)
 emit|;
 if|#
 directive|if
@@ -1471,7 +1476,12 @@ emit|emit
 name|thr
 operator|->
 name|finished
+argument_list|(
+name|QThread
+operator|::
+name|QPrivateSignal
 argument_list|()
+argument_list|)
 emit|;
 name|QCoreApplication
 operator|::
