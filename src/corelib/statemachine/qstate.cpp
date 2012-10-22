@@ -660,7 +660,7 @@ begin_comment
 comment|// QT_NO_PROPERTIES
 end_comment
 begin_comment
-comment|/*!   Returns this state's error state.     \sa QStateMachine::error() */
+comment|/*!   Returns this state's error state.    \sa QStateMachine::error() */
 end_comment
 begin_function
 DECL|function|errorState
@@ -686,7 +686,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Sets this state's error state to be the given \a state. If the error state   is not set, or if it is set to 0, the state will inherit its parent's error   state recursively. If no error state is set for the state itself or any of    its ancestors, an error will cause the machine to stop executing and an error   will be printed to the console. */
+comment|/*!   Sets this state's error state to be the given \a state. If the error state   is not set, or if it is set to 0, the state will inherit its parent's error   state recursively. If no error state is set for the state itself or any of   its ancestors, an error will cause the machine to stop executing and an error   will be printed to the console. */
 end_comment
 begin_function
 DECL|function|setErrorState
@@ -782,7 +782,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Adds the given \a transition. The transition has this state as the source.   This state takes ownership of the transition.  */
+comment|/*!   Adds the given \a transition. The transition has this state as the source.   This state takes ownership of the transition. */
 end_comment
 begin_function
 DECL|function|addTransition
