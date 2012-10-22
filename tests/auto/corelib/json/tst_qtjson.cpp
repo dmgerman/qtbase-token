@@ -50,16 +50,16 @@ DECL|macro|UNICODE_DJE
 comment|// Character from the Serbian Cyrillic alphabet
 end_comment
 begin_class
-DECL|class|TestQtJson
+DECL|class|tst_QtJson
 class|class
-name|TestQtJson
+name|tst_QtJson
 super|:
 specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
 public|public:
-name|TestQtJson
+name|tst_QtJson
 parameter_list|(
 name|QObject
 modifier|*
@@ -296,10 +296,10 @@ block|}
 class|;
 end_class
 begin_constructor
-DECL|function|TestQtJson
-name|TestQtJson
+DECL|function|tst_QtJson
+name|tst_QtJson
 operator|::
-name|TestQtJson
+name|tst_QtJson
 parameter_list|(
 name|QObject
 modifier|*
@@ -315,7 +315,7 @@ end_constructor
 begin_function
 DECL|function|initTestCase
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|initTestCase
 parameter_list|()
@@ -352,7 +352,7 @@ end_function
 begin_function
 DECL|function|cleanupTestCase
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|cleanupTestCase
 parameter_list|()
@@ -361,7 +361,7 @@ end_function
 begin_function
 DECL|function|init
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|init
 parameter_list|()
@@ -370,7 +370,7 @@ end_function
 begin_function
 DECL|function|cleanup
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|cleanup
 parameter_list|()
@@ -379,7 +379,7 @@ end_function
 begin_function
 DECL|function|testValueSimple
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|testValueSimple
 parameter_list|()
@@ -810,7 +810,7 @@ end_function
 begin_function
 DECL|function|testNumbers
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|testNumbers
 parameter_list|()
@@ -1251,7 +1251,7 @@ end_function
 begin_function
 DECL|function|testObjectSimple
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|testObjectSimple
 parameter_list|()
@@ -1562,7 +1562,7 @@ end_function
 begin_function
 DECL|function|testObjectSmallKeys
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|testObjectSmallKeys
 parameter_list|()
@@ -1754,7 +1754,7 @@ end_function
 begin_function
 DECL|function|testArraySimple
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|testArraySimple
 parameter_list|()
@@ -2178,7 +2178,7 @@ end_function
 begin_function
 DECL|function|testValueObject
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|testValueObject
 parameter_list|()
@@ -2267,7 +2267,7 @@ end_function
 begin_function
 DECL|function|testValueArray
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|testValueArray
 parameter_list|()
@@ -2345,7 +2345,7 @@ end_function
 begin_function
 DECL|function|testObjectNested
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|testObjectNested
 parameter_list|()
@@ -2613,7 +2613,7 @@ end_function
 begin_function
 DECL|function|testArrayNested
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|testArrayNested
 parameter_list|()
@@ -2851,7 +2851,7 @@ end_function
 begin_function
 DECL|function|testArrayNestedEmpty
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|testArrayNestedEmpty
 parameter_list|()
@@ -2995,7 +2995,7 @@ end_function
 begin_function
 DECL|function|testObjectNestedEmpty
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|testObjectNestedEmpty
 parameter_list|()
@@ -3242,7 +3242,7 @@ end_function
 begin_function
 DECL|function|testValueRef
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|testValueRef
 parameter_list|()
@@ -3535,7 +3535,7 @@ end_function
 begin_function
 DECL|function|testObjectIteration
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|testObjectIteration
 parameter_list|()
@@ -4055,7 +4055,7 @@ end_function
 begin_function
 DECL|function|testArrayIteration
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|testArrayIteration
 parameter_list|()
@@ -4494,7 +4494,7 @@ end_function
 begin_function
 DECL|function|testObjectFind
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|testObjectFind
 parameter_list|()
@@ -4673,7 +4673,7 @@ end_function
 begin_function
 DECL|function|testDocument
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|testDocument
 parameter_list|()
@@ -5308,7 +5308,7 @@ end_function
 begin_function
 DECL|function|nullValues
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|nullValues
 parameter_list|()
@@ -5403,7 +5403,7 @@ end_function
 begin_function
 DECL|function|nullArrays
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|nullArrays
 parameter_list|()
@@ -5612,7 +5612,7 @@ end_function
 begin_function
 DECL|function|nullObject
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|nullObject
 parameter_list|()
@@ -5814,7 +5814,7 @@ end_function
 begin_function
 DECL|function|keySorting
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|keySorting
 parameter_list|()
@@ -5908,7 +5908,7 @@ end_function
 begin_function
 DECL|function|undefinedValues
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|undefinedValues
 parameter_list|()
@@ -6119,7 +6119,7 @@ end_function
 begin_function
 DECL|function|fromVariantMap
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|fromVariantMap
 parameter_list|()
@@ -6491,7 +6491,7 @@ end_function
 begin_function
 DECL|function|toVariantMap
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|toVariantMap
 parameter_list|()
@@ -6735,7 +6735,7 @@ end_function
 begin_function
 DECL|function|toVariantList
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|toVariantList
 parameter_list|()
@@ -6965,7 +6965,7 @@ end_function
 begin_function
 DECL|function|toJson
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|toJson
 parameter_list|()
@@ -7142,7 +7142,7 @@ end_function
 begin_function
 DECL|function|fromJson
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|fromJson
 parameter_list|()
@@ -8039,7 +8039,7 @@ end_function
 begin_function
 DECL|function|fromJsonErrors
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|fromJsonErrors
 parameter_list|()
@@ -9079,7 +9079,7 @@ end_function
 begin_function
 DECL|function|fromBinary
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|fromBinary
 parameter_list|()
@@ -9217,7 +9217,7 @@ end_function
 begin_function
 DECL|function|toAndFromBinary_data
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|toAndFromBinary_data
 parameter_list|()
@@ -9263,7 +9263,7 @@ end_function
 begin_function
 DECL|function|toAndFromBinary
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|toAndFromBinary
 parameter_list|()
@@ -9354,7 +9354,7 @@ end_function
 begin_function
 DECL|function|parseNumbers
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|parseNumbers
 parameter_list|()
@@ -9860,7 +9860,7 @@ end_function
 begin_function
 DECL|function|parseStrings
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|parseStrings
 parameter_list|()
@@ -10230,7 +10230,7 @@ end_function
 begin_function
 DECL|function|parseDuplicateKeys
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|parseDuplicateKeys
 parameter_list|()
@@ -10348,7 +10348,7 @@ end_function
 begin_function
 DECL|function|testParser
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|testParser
 parameter_list|()
@@ -10402,7 +10402,7 @@ end_function
 begin_function
 DECL|function|compactArray
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|compactArray
 parameter_list|()
@@ -10618,7 +10618,7 @@ end_function
 begin_function
 DECL|function|compactObject
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|compactObject
 parameter_list|()
@@ -10858,7 +10858,7 @@ end_function
 begin_function
 DECL|function|validation
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|validation
 parameter_list|()
@@ -11144,7 +11144,7 @@ end_function
 begin_function
 DECL|function|assignToDocument
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|assignToDocument
 parameter_list|()
@@ -11286,7 +11286,7 @@ end_function
 begin_function
 DECL|function|testDuplicateKeys
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|testDuplicateKeys
 parameter_list|()
@@ -11360,7 +11360,7 @@ end_function
 begin_function
 DECL|function|testCompaction
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|testCompaction
 parameter_list|()
@@ -11511,7 +11511,7 @@ end_function
 begin_function
 DECL|function|testDebugStream
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|testDebugStream
 parameter_list|()
@@ -11920,7 +11920,7 @@ end_function
 begin_function
 DECL|function|testCompactionError
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|testCompactionError
 parameter_list|()
@@ -12140,7 +12140,7 @@ end_function
 begin_function
 DECL|function|parseUnicodeEscapes
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|parseUnicodeEscapes
 parameter_list|()
@@ -12209,7 +12209,7 @@ end_function
 begin_function
 DECL|function|assignObjects
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|assignObjects
 parameter_list|()
@@ -12299,7 +12299,7 @@ end_function
 begin_function
 DECL|function|assignArrays
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|assignArrays
 parameter_list|()
@@ -12389,7 +12389,7 @@ end_function
 begin_function
 DECL|function|testTrailingComma
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|testTrailingComma
 parameter_list|()
@@ -12468,7 +12468,7 @@ end_function
 begin_function
 DECL|function|testDetachBug
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|testDetachBug
 parameter_list|()
@@ -12619,7 +12619,7 @@ end_function
 begin_function
 DECL|function|valueEquals
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|valueEquals
 parameter_list|()
@@ -13099,7 +13099,7 @@ end_function
 begin_function
 DECL|function|bom
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|bom
 parameter_list|()
@@ -13171,7 +13171,7 @@ end_function
 begin_function
 DECL|function|nesting
 name|void
-name|TestQtJson
+name|tst_QtJson
 operator|::
 name|nesting
 parameter_list|()
@@ -13407,7 +13407,7 @@ end_function
 begin_macro
 name|QTEST_MAIN
 argument_list|(
-argument|TestQtJson
+argument|tst_QtJson
 argument_list|)
 end_macro
 begin_include
