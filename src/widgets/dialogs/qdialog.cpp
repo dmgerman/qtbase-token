@@ -1282,17 +1282,6 @@ if|if
 condition|(
 name|showSystemDialogFullScreen
 condition|)
-block|{
-name|setWindowFlags
-argument_list|(
-name|windowFlags
-argument_list|()
-operator||
-name|Qt
-operator|::
-name|WindowSoftkeysVisibleHint
-argument_list|)
-expr_stmt|;
 name|setWindowState
 argument_list|(
 name|Qt
@@ -1300,7 +1289,6 @@ operator|::
 name|WindowFullScreen
 argument_list|)
 expr_stmt|;
-block|}
 name|show
 argument_list|()
 expr_stmt|;

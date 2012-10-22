@@ -976,21 +976,7 @@ block|;
 name|QComboBoxPrivateScroller
 operator|*
 name|bottom
-block|;
-ifdef|#
-directive|ifdef
-name|QT_SOFTKEYS_ENABLED
-name|QAction
-operator|*
-name|selectAction
-block|;
-name|QAction
-operator|*
-name|cancelAction
-block|;
-endif|#
-directive|endif
-block|}
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt

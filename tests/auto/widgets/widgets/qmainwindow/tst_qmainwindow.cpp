@@ -12556,25 +12556,6 @@ operator|&
 name|dockwidget4
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|QT_SOFTKEYS_ENABLED
-comment|// Softkeys add extra "Select" and "Back" actions to menu by default.
-comment|// Two first actions will be Select and Back when softkeys are enabled
-name|int
-name|numSoftkeyActions
-init|=
-literal|2
-decl_stmt|;
-else|#
-directive|else
-name|int
-name|numSoftkeyActions
-init|=
-literal|0
-decl_stmt|;
-endif|#
-directive|endif
 name|QMenu
 modifier|*
 name|menu
@@ -12611,8 +12592,6 @@ name|size
 argument_list|()
 argument_list|,
 literal|7
-operator|+
-name|numSoftkeyActions
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -12622,8 +12601,6 @@ operator|.
 name|at
 argument_list|(
 literal|0
-operator|+
-name|numSoftkeyActions
 argument_list|)
 argument_list|,
 name|dockwidget1
@@ -12639,8 +12616,6 @@ operator|.
 name|at
 argument_list|(
 literal|1
-operator|+
-name|numSoftkeyActions
 argument_list|)
 argument_list|,
 name|dockwidget2
@@ -12656,8 +12631,6 @@ operator|.
 name|at
 argument_list|(
 literal|2
-operator|+
-name|numSoftkeyActions
 argument_list|)
 argument_list|,
 name|dockwidget3
@@ -12673,8 +12646,6 @@ operator|.
 name|at
 argument_list|(
 literal|3
-operator|+
-name|numSoftkeyActions
 argument_list|)
 argument_list|,
 name|dockwidget4
@@ -12690,8 +12661,6 @@ operator|.
 name|at
 argument_list|(
 literal|4
-operator|+
-name|numSoftkeyActions
 argument_list|)
 operator|->
 name|isSeparator
@@ -12705,8 +12674,6 @@ operator|.
 name|at
 argument_list|(
 literal|5
-operator|+
-name|numSoftkeyActions
 argument_list|)
 argument_list|,
 name|toolbar1
@@ -12722,8 +12689,6 @@ operator|.
 name|at
 argument_list|(
 literal|6
-operator|+
-name|numSoftkeyActions
 argument_list|)
 argument_list|,
 name|toolbar2
@@ -12788,8 +12753,6 @@ name|size
 argument_list|()
 argument_list|,
 literal|4
-operator|+
-name|numSoftkeyActions
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -12799,8 +12762,6 @@ operator|.
 name|at
 argument_list|(
 literal|0
-operator|+
-name|numSoftkeyActions
 argument_list|)
 argument_list|,
 name|dockwidget2
@@ -12816,8 +12777,6 @@ operator|.
 name|at
 argument_list|(
 literal|1
-operator|+
-name|numSoftkeyActions
 argument_list|)
 argument_list|,
 name|dockwidget3
@@ -12833,8 +12792,6 @@ operator|.
 name|at
 argument_list|(
 literal|2
-operator|+
-name|numSoftkeyActions
 argument_list|)
 operator|->
 name|isSeparator
@@ -12848,8 +12805,6 @@ operator|.
 name|at
 argument_list|(
 literal|3
-operator|+
-name|numSoftkeyActions
 argument_list|)
 argument_list|,
 name|toolbar2

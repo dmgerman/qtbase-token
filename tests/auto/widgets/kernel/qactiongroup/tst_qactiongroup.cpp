@@ -703,25 +703,6 @@ operator|.
 name|show
 argument_list|()
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|QT_SOFTKEYS_ENABLED
-comment|// Softkeys add extra "Select" and "Back" actions to menu by default.
-comment|// Two first actions will be Select and Back when softkeys are enabled
-name|int
-name|numSoftkeyActions
-init|=
-literal|2
-decl_stmt|;
-else|#
-directive|else
-name|int
-name|numSoftkeyActions
-init|=
-literal|0
-decl_stmt|;
-endif|#
-directive|endif
 name|QAction
 modifier|*
 name|action
@@ -809,8 +790,6 @@ name|size
 argument_list|()
 argument_list|,
 literal|2
-operator|+
-name|numSoftkeyActions
 argument_list|)
 expr_stmt|;
 name|it
@@ -858,8 +837,6 @@ name|size
 argument_list|()
 argument_list|,
 literal|0
-operator|+
-name|numSoftkeyActions
 argument_list|)
 expr_stmt|;
 name|action
@@ -923,8 +900,6 @@ name|size
 argument_list|()
 argument_list|,
 literal|3
-operator|+
-name|numSoftkeyActions
 argument_list|)
 expr_stmt|;
 block|}

@@ -685,15 +685,6 @@ argument_list|)
 block|;
 endif|#
 directive|endif
-ifdef|#
-directive|ifdef
-name|QT_SOFTKEYS_ENABLED
-name|QAction
-operator|*
-name|menuBarAction
-block|;
-endif|#
-directive|endif
 block|}
 block|;
 endif|#

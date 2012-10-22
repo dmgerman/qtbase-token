@@ -1187,25 +1187,6 @@ operator|::
 name|addActionsAndClear
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QT_SOFTKEYS_ENABLED
-comment|// Softkeys add extra "Select" and "Back" actions to menu by default.
-comment|// Two first actions will be Select and Back when softkeys are enabled
-name|int
-name|numSoftkeyActions
-init|=
-literal|2
-decl_stmt|;
-else|#
-directive|else
-name|int
-name|numSoftkeyActions
-init|=
-literal|0
-decl_stmt|;
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|menus
@@ -1220,8 +1201,6 @@ name|count
 argument_list|()
 argument_list|,
 literal|0
-operator|+
-name|numSoftkeyActions
 argument_list|)
 expr_stmt|;
 name|createActions
@@ -1241,8 +1220,6 @@ name|count
 argument_list|()
 argument_list|,
 literal|8
-operator|+
-name|numSoftkeyActions
 argument_list|)
 expr_stmt|;
 name|menus
@@ -4661,32 +4638,6 @@ name|actions
 argument_list|()
 control|)
 block|{
-ifdef|#
-directive|ifdef
-name|QT_SOFTKEYS_ENABLED
-comment|// Softkey actions are not widgets and have no geometry.
-if|if
-condition|(
-name|menu
-operator|.
-name|actionGeometry
-argument_list|(
-name|action
-argument_list|)
-operator|.
-name|topLeft
-argument_list|()
-operator|==
-name|QPoint
-argument_list|(
-literal|0
-argument_list|,
-literal|0
-argument_list|)
-condition|)
-continue|continue;
-endif|#
-directive|endif
 name|maxWidth
 operator|=
 name|qMax
