@@ -105,9 +105,16 @@ operator|)
 name|canBecomeKeyWindow
 expr_stmt|;
 end_expr_stmt
-begin_decl_stmt
+begin_expr_stmt
 unit|@
 name|end
+expr|@
+DECL|variable|QNSWindowDelegate
+name|class
+name|QNSWindowDelegate
+expr_stmt|;
+end_expr_stmt
+begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 comment|// QCocoaWindow
 comment|//
@@ -441,6 +448,10 @@ block|;
 name|NSWindow
 operator|*
 name|m_nsWindow
+block|;
+name|QNSWindowDelegate
+operator|*
+name|m_nsWindowDelegate
 block|;
 name|Qt
 operator|::
