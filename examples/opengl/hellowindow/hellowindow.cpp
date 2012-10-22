@@ -135,7 +135,7 @@ operator|::
 name|OpenGLSurface
 argument_list|)
 expr_stmt|;
-name|setWindowFlags
+name|setFlags
 argument_list|(
 name|Qt
 operator|::

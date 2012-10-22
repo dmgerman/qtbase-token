@@ -528,7 +528,7 @@ if|if
 condition|(
 name|w
 operator|->
-name|windowType
+name|type
 argument_list|()
 operator|!=
 name|Qt
@@ -537,7 +537,7 @@ name|Popup
 operator|&&
 name|w
 operator|->
-name|windowType
+name|type
 argument_list|()
 operator|!=
 name|Qt

@@ -1597,7 +1597,7 @@ name|w
 condition|?
 name|w
 operator|->
-name|windowFlags
+name|flags
 argument_list|()
 else|:
 operator|(

@@ -856,7 +856,7 @@ argument_list|)
 expr_stmt|;
 name|window
 operator|.
-name|requestActivateWindow
+name|requestActivate
 argument_list|()
 expr_stmt|;
 name|QTRY_COMPARE
@@ -1515,7 +1515,7 @@ argument_list|)
 expr_stmt|;
 name|window
 operator|.
-name|requestActivateWindow
+name|requestActivate
 argument_list|()
 expr_stmt|;
 name|QTRY_COMPARE

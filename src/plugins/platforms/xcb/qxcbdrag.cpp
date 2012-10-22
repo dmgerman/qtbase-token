@@ -1928,7 +1928,7 @@ operator|->
 name|window
 argument_list|()
 operator|->
-name|windowType
+name|type
 argument_list|()
 operator|==
 name|Qt
@@ -2713,7 +2713,7 @@ operator|->
 name|window
 argument_list|()
 operator|->
-name|windowType
+name|type
 argument_list|()
 operator|==
 name|Qt
@@ -3534,7 +3534,7 @@ operator|||
 operator|(
 name|w
 operator|->
-name|windowType
+name|type
 argument_list|()
 operator|==
 name|Qt
@@ -4729,7 +4729,7 @@ operator|->
 name|window
 argument_list|()
 operator|->
-name|windowType
+name|type
 argument_list|()
 operator|==
 name|Qt
@@ -5831,7 +5831,7 @@ operator|->
 name|window
 argument_list|()
 operator|->
-name|windowType
+name|type
 argument_list|()
 operator|==
 name|Qt
@@ -6042,7 +6042,7 @@ operator|->
 name|window
 argument_list|()
 operator|->
-name|windowType
+name|type
 argument_list|()
 operator|==
 name|Qt
@@ -6219,7 +6219,7 @@ operator|->
 name|window
 argument_list|()
 operator|->
-name|windowType
+name|type
 argument_list|()
 operator|!=
 name|Qt

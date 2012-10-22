@@ -1029,7 +1029,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns whether the window is modal.      A modal window prevents other windows from getting any input.      \sa QWindow::windowModality */
+comment|/*!     Returns whether the window is modal.      A modal window prevents other windows from getting any input.      \sa QWindow::modality */
 end_comment
 begin_function
 DECL|function|isModal
@@ -1058,16 +1058,16 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \property QWindow::windowModality     \brief the modality of the window      A modal window prevents other windows from receiving input events. Qt     supports two types of modality: Qt::WindowModal and Qt::ApplicationModal.      By default, this property is Qt::NonModal      \sa Qt::WindowModality */
+comment|/*! \property QWindow::modality     \brief the modality of the window      A modal window prevents other windows from receiving input events. Qt     supports two types of modality: Qt::WindowModal and Qt::ApplicationModal.      By default, this property is Qt::NonModal      \sa Qt::WindowModality */
 end_comment
 begin_function
-DECL|function|windowModality
+DECL|function|modality
 name|Qt
 operator|::
 name|WindowModality
 name|QWindow
 operator|::
-name|windowModality
+name|modality
 parameter_list|()
 specifier|const
 block|{
@@ -1085,11 +1085,11 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|setWindowModality
+DECL|function|setModality
 name|void
 name|QWindow
 operator|::
-name|setWindowModality
+name|setModality
 parameter_list|(
 name|Qt
 operator|::
@@ -1118,7 +1118,7 @@ operator|=
 name|modality
 expr_stmt|;
 emit|emit
-name|windowModalityChanged
+name|modalityChanged
 argument_list|(
 name|modality
 argument_list|)
@@ -1126,7 +1126,7 @@ emit|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn void QWindow::windowModalityChanged(Qt::WindowModality windowModality)      This signal is emitted when the Qwindow::windowModality property changes to \a windowModality. */
+comment|/*! \fn void QWindow::modalityChanged(Qt::WindowModality modality)      This signal is emitted when the Qwindow::modality property changes to \a modality. */
 end_comment
 begin_comment
 comment|/*!     Sets the window's surface \a format.      The format determines properties such as color depth, alpha, depth and     stencil buffer size, etc. For example, to give a window a transparent     background (provided that the window system supports compositing, and     provided that other content in the window does not make it opaque again):      \code     QSurfaceFormat format;     format.setAlphaBufferSize(8);     window.setFormat(format);     \endcode      The surface format will be resolved in the create() function. Calling     this function after create() has been called will not re-resolve the     surface format of the native surface.      \sa create(), destroy() */
@@ -1222,14 +1222,14 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the window flags of the window to \a flags.      The window flags control the window's appearance in the windowing system,     whether it's a dialog, popup, or a regular window, and whether it should     have a title bar, etc.      \sa windowFlags() */
+comment|/*!     \property QWindow::flags     \brief the window flags of the window      The window flags control the window's appearance in the windowing system,     whether it's a dialog, popup, or a regular window, and whether it should     have a title bar, etc.      The actual window flags might differ from the flags set with setFlags()     if the requested flags could not be fulfilled. */
 end_comment
 begin_function
-DECL|function|setWindowFlags
+DECL|function|setFlags
 name|void
 name|QWindow
 operator|::
-name|setWindowFlags
+name|setFlags
 parameter_list|(
 name|Qt
 operator|::
@@ -1265,17 +1265,14 @@ name|flags
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|/*!     Returns the window flags of the window.      This might differ from the flags set with setWindowFlags() if the     requested flags could not be fulfilled.      \sa setWindowFlags() */
-end_comment
 begin_function
-DECL|function|windowFlags
+DECL|function|flags
 name|Qt
 operator|::
 name|WindowFlags
 name|QWindow
 operator|::
-name|windowFlags
+name|flags
 parameter_list|()
 specifier|const
 block|{
@@ -1293,16 +1290,16 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the type of the window.      This returns the part of the window flags that represents     whether the window is a dialog, tooltip, popup, regular window, etc.      \sa windowFlags(), setWindowFlags() */
+comment|/*!     Returns the type of the window.      This returns the part of the window flags that represents     whether the window is a dialog, tooltip, popup, regular window, etc.      \sa flags(), setFlags() */
 end_comment
 begin_function
-DECL|function|windowType
+DECL|function|type
 name|Qt
 operator|::
 name|WindowType
 name|QWindow
 operator|::
-name|windowType
+name|type
 parameter_list|()
 specifier|const
 block|{
@@ -1335,14 +1332,14 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QWindow::windowTitle     \brief the window's title in the windowing system      The window title might appear in the title area of the window decorations,     depending on the windowing system and the window flags. It might also     be used by the windowing system to identify the window in other contexts,     such as in the task switcher.      \sa windowFlags() */
+comment|/*!     \property QWindow::title     \brief the window's title in the windowing system      The window title might appear in the title area of the window decorations,     depending on the windowing system and the window flags. It might also     be used by the windowing system to identify the window in other contexts,     such as in the task switcher.      \sa flags() */
 end_comment
 begin_function
-DECL|function|setWindowTitle
+DECL|function|setTitle
 name|void
 name|QWindow
 operator|::
-name|setWindowTitle
+name|setTitle
 parameter_list|(
 specifier|const
 name|QString
@@ -1379,11 +1376,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|windowTitle
+DECL|function|title
 name|QString
 name|QWindow
 operator|::
-name|windowTitle
+name|title
 parameter_list|()
 specifier|const
 block|{
@@ -1401,14 +1398,14 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QWindow::windowFilePath     \brief the file name this window is representing.      This property might be used by the windowing system to display the file     path of the document this window is representing in the tile bar. */
+comment|/*!     \brief set the file name this window is representing.      The windowing system might use \a filePath to display the     path of the document this window is representing in the tile bar.  */
 end_comment
 begin_function
-DECL|function|setWindowFilePath
+DECL|function|setFilePath
 name|void
 name|QWindow
 operator|::
-name|setWindowFilePath
+name|setFilePath
 parameter_list|(
 specifier|const
 name|QString
@@ -1444,12 +1441,15 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!     \brief the file name this window is representing.      \sa setFilePath() */
+end_comment
 begin_function
-DECL|function|windowFilePath
+DECL|function|filePath
 name|QString
 name|QWindow
 operator|::
-name|windowFilePath
+name|filePath
 parameter_list|()
 specifier|const
 block|{
@@ -1467,14 +1467,14 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QWindow::windowIcon     \brief the window's icon in the windowing system      The window icon might be used by the windowing system for example to     decorate the window, and/or in the task switcher. */
+comment|/*!     \brief set the window's \a icon in the windowing system      The window icon might be used by the windowing system for example to     decorate the window, and/or in the task switcher. */
 end_comment
 begin_function
-DECL|function|setWindowIcon
+DECL|function|setIcon
 name|void
 name|QWindow
 operator|::
-name|setWindowIcon
+name|setIcon
 parameter_list|(
 specifier|const
 name|QIcon
@@ -1510,12 +1510,15 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!     \brief set the window's icon in the windowing system      \sa setIcon() */
+end_comment
 begin_function
-DECL|function|windowIcon
+DECL|function|icon
 name|QIcon
 name|QWindow
 operator|::
-name|windowIcon
+name|icon
 parameter_list|()
 specifier|const
 block|{
@@ -1636,11 +1639,11 @@ begin_comment
 comment|/*!     Requests the window to be activated, i.e. receive keyboard focus.      \sa isActive(), QGuiApplication::focusWindow() */
 end_comment
 begin_function
-DECL|function|requestActivateWindow
+DECL|function|requestActivate
 name|void
 name|QWindow
 operator|::
-name|requestActivateWindow
+name|requestActivate
 parameter_list|()
 block|{
 name|Q_D
@@ -1790,7 +1793,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \property QWindow::contentOrientation     \brief the orientation of the window's contents      This is a hint to the window manager in case it needs to display     additional content like popups, dialogs, status bars, or similar     in relation to the window.      The recommended orientation is QScreen::orientation() but     an application doesn't have to support all possible orientations,     and thus can opt to ignore the current screen orientation.      The difference between the window and the content orientation     determines how much to rotate the content by. QScreen::angleBetween(),     QScreen::transformBetween(), and QScreen::mapBetween() can be used     to compute the necessary transform.      The default value is Qt::PrimaryOrientation      \sa requestWindowOrientation(), QScreen::orientation() */
+comment|/*!     \property QWindow::contentOrientation     \brief the orientation of the window's contents      This is a hint to the window manager in case it needs to display     additional content like popups, dialogs, status bars, or similar     in relation to the window.      The recommended orientation is QScreen::orientation() but     an application doesn't have to support all possible orientations,     and thus can opt to ignore the current screen orientation.      The difference between the window and the content orientation     determines how much to rotate the content by. QScreen::angleBetween(),     QScreen::transformBetween(), and QScreen::mapBetween() can be used     to compute the necessary transform.      The default value is Qt::PrimaryOrientation      \sa requestOrientation(), QScreen::orientation() */
 end_comment
 begin_function
 DECL|function|reportContentOrientationChange
@@ -1884,14 +1887,14 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Requests the given window \a orientation.    The window \a orientation specifies how the window should be rotated   by the window manager in order to be displayed. Input events will   be correctly mapped to the given \a orientation.    The return value is false if the system doesn't support the given   \a orientation (for example when requesting a portrait orientation   on a device that only handles landscape buffers, typically a desktop   system).    If the return value is false, call windowOrientation() to get the actual   supported orientation.    \sa windowOrientation(), reportContentOrientationChange(), QScreen::orientation() */
+comment|/*!   Requests the given window \a orientation.    The window \a orientation specifies how the window should be rotated   by the window manager in order to be displayed. Input events will   be correctly mapped to the given \a orientation.    The return value is false if the system doesn't support the given   \a orientation (for example when requesting a portrait orientation   on a device that only handles landscape buffers, typically a desktop   system).    If the return value is false, call \l orientation() to get the actual   supported orientation.    \sa orientation(), reportContentOrientationChange(), QScreen::orientation() */
 end_comment
 begin_function
-DECL|function|requestWindowOrientation
+DECL|function|requestOrientation
 name|bool
 name|QWindow
 operator|::
-name|requestWindowOrientation
+name|requestOrientation
 parameter_list|(
 name|Qt
 operator|::
@@ -1944,16 +1947,16 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns the actual window orientation.    The default value is Qt::PrimaryOrientation.    \sa requestWindowOrientation() */
+comment|/*!   Returns the actual window orientation.    The default value is Qt::PrimaryOrientation.    \sa requestOrientation() */
 end_comment
 begin_function
-DECL|function|windowOrientation
+DECL|function|orientation
 name|Qt
 operator|::
 name|ScreenOrientation
 name|QWindow
 operator|::
-name|windowOrientation
+name|orientation
 parameter_list|()
 specifier|const
 block|{
@@ -1971,34 +1974,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the window state.      \sa setWindowState() */
-end_comment
-begin_function
-DECL|function|windowState
-name|Qt
-operator|::
-name|WindowState
-name|QWindow
-operator|::
-name|windowState
-parameter_list|()
-specifier|const
-block|{
-name|Q_D
-argument_list|(
-specifier|const
-name|QWindow
-argument_list|)
-expr_stmt|;
-return|return
-name|d
-operator|->
-name|windowState
-return|;
-block|}
-end_function
-begin_comment
-comment|/*!     Sets the desired window \a state.      The window state represents whether the window appears in the     windowing system as maximized, minimized, fullscreen, or normal.      The enum value Qt::WindowActive is not an accepted parameter.      \sa windowState(), showNormal(), showFullScreen(), showMinimized(), showMaximized() */
+comment|/*!     \brief set the screen-occupation state of the window      The window \a state represents whether the window appears in the     windowing system as maximized, minimized, fullscreen, or normal.      The enum value Qt::WindowActive is not an accepted parameter.      \sa showNormal(), showFullScreen(), showMinimized(), showMaximized() */
 end_comment
 begin_function
 DECL|function|setWindowState
@@ -2055,8 +2031,46 @@ name|windowState
 operator|=
 name|state
 expr_stmt|;
+emit|emit
+name|windowStateChanged
+argument_list|(
+name|d
+operator|->
+name|windowState
+argument_list|)
+emit|;
 block|}
 end_function
+begin_comment
+comment|/*!     \brief the screen-occupation state of the window      \sa setWindowState() */
+end_comment
+begin_function
+DECL|function|windowState
+name|Qt
+operator|::
+name|WindowState
+name|QWindow
+operator|::
+name|windowState
+parameter_list|()
+specifier|const
+block|{
+name|Q_D
+argument_list|(
+specifier|const
+name|QWindow
+argument_list|)
+expr_stmt|;
+return|return
+name|d
+operator|->
+name|windowState
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     \fn QWindow::windowStateChanged(Qt::WindowState windowState)      This signal is emitted when the \a windowState changes, either     by being set explicitly with setWindowState(), or automatically when     the user clicks one of the titlebar buttons or by other means. */
+end_comment
 begin_comment
 comment|/*!     Sets the transient \a parent      This is a hint to the window manager that this window is a dialog or pop-up     on behalf of the given window.      \sa transientParent(), parent() */
 end_comment
@@ -3956,7 +3970,7 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-name|requestActivateWindow
+name|requestActivate
 argument_list|()
 expr_stmt|;
 block|}
@@ -4583,6 +4597,26 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 break|break;
+case|case
+name|QEvent
+operator|::
+name|WindowStateChange
+case|:
+block|{
+name|Q_D
+argument_list|(
+name|QWindow
+argument_list|)
+expr_stmt|;
+emit|emit
+name|windowStateChanged
+argument_list|(
+name|d
+operator|->
+name|windowState
+argument_list|)
+emit|;
+block|}
 ifndef|#
 directive|ifndef
 name|QT_NO_TABLETEVENT
@@ -5213,36 +5247,14 @@ block|}
 block|}
 block|}
 end_function
-begin_comment
-comment|/*!     \property QWindow::cursor     \brief the cursor shape for this window      The mouse cursor will assume this shape when it is over this     window, unless an override cursor is set.     See the \l{Qt::CursorShape}{list of predefined cursor objects} for a     range of useful shapes.      By default, this property contains a cursor with the Qt::ArrowCursor     shape.      Some underlying window implementations will reset the cursor if it     leaves a window even if the mouse is grabbed. If you want to have     a cursor set for all windows, even when outside the window, consider     QGuiApplication::setOverrideCursor().      \sa QGuiApplication::setOverrideCursor() */
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_NO_CURSOR
 end_ifndef
-begin_function
-DECL|function|cursor
-name|QCursor
-name|QWindow
-operator|::
-name|cursor
-parameter_list|()
-specifier|const
-block|{
-name|Q_D
-argument_list|(
-specifier|const
-name|QWindow
-argument_list|)
-expr_stmt|;
-return|return
-name|d
-operator|->
-name|cursor
-return|;
-block|}
-end_function
+begin_comment
+comment|/*!     \brief set the cursor shape for this window      The mouse \a cursor will assume this shape when it is over this     window, unless an override cursor is set.     See the \l{Qt::CursorShape}{list of predefined cursor objects} for a     range of useful shapes.      By default, the cursor has the Qt::ArrowCursor shape.      Some underlying window implementations will reset the cursor if it     leaves a window even if the mouse is grabbed. If you want to have     a cursor set for all windows, even when outside the window, consider     QGuiApplication::setOverrideCursor().      \sa QGuiApplication::setOverrideCursor() */
+end_comment
 begin_function
 DECL|function|setCursor
 name|void
@@ -5327,6 +5339,31 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!     \brief the cursor shape for this window      \sa setCursor(), unsetCursor() */
+end_comment
+begin_function
+DECL|function|cursor
+name|QCursor
+name|QWindow
+operator|::
+name|cursor
+parameter_list|()
+specifier|const
+block|{
+name|Q_D
+argument_list|(
+specifier|const
+name|QWindow
+argument_list|)
+expr_stmt|;
+return|return
+name|d
+operator|->
+name|cursor
+return|;
+block|}
+end_function
 begin_function
 DECL|function|applyCursor
 name|void
@@ -5397,6 +5434,9 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// QT_NO_CURSOR
+end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

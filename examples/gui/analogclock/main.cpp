@@ -64,7 +64,7 @@ operator|::
 name|AnalogClockWindow
 parameter_list|()
 block|{
-name|setWindowTitle
+name|setTitle
 argument_list|(
 literal|"Analog Clock"
 argument_list|)

@@ -348,7 +348,7 @@ expr_stmt|;
 block|}
 name|win
 operator|->
-name|setWindowFlags
+name|setFlags
 argument_list|(
 name|data
 operator|.
@@ -518,7 +518,7 @@ name|window_flags
 operator|=
 name|win
 operator|->
-name|windowFlags
+name|flags
 argument_list|()
 expr_stmt|;
 name|QBackingStore
@@ -1005,7 +1005,7 @@ operator|->
 name|windowHandle
 argument_list|()
 operator|->
-name|setWindowFlags
+name|setFlags
 argument_list|(
 name|f
 argument_list|)
@@ -1754,7 +1754,7 @@ argument_list|()
 condition|)
 name|window
 operator|->
-name|setWindowTitle
+name|setTitle
 argument_list|(
 name|caption
 argument_list|)
@@ -1801,7 +1801,7 @@ argument_list|()
 condition|)
 name|window
 operator|->
-name|setWindowFilePath
+name|setFilePath
 argument_list|(
 name|filePath
 argument_list|)
@@ -1834,7 +1834,7 @@ argument_list|()
 condition|)
 name|window
 operator|->
-name|setWindowIcon
+name|setIcon
 argument_list|(
 name|q
 operator|->
@@ -2284,7 +2284,7 @@ name|wnd
 condition|)
 name|wnd
 operator|->
-name|requestActivateWindow
+name|requestActivate
 argument_list|()
 expr_stmt|;
 block|}
@@ -3243,7 +3243,7 @@ condition|)
 block|{
 name|nativeWindow
 operator|->
-name|requestActivateWindow
+name|requestActivate
 argument_list|()
 expr_stmt|;
 block|}
@@ -5282,7 +5282,7 @@ operator|->
 name|windowHandle
 argument_list|()
 operator|->
-name|setWindowModality
+name|setModality
 argument_list|(
 name|q
 operator|->

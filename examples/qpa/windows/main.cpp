@@ -73,7 +73,7 @@ argument_list|)
 expr_stmt|;
 name|a
 operator|.
-name|setWindowTitle
+name|setTitle
 argument_list|(
 name|QStringLiteral
 argument_list|(
@@ -87,7 +87,7 @@ name|setObjectName
 argument_list|(
 name|a
 operator|.
-name|windowTitle
+name|title
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -115,7 +115,7 @@ argument_list|)
 expr_stmt|;
 name|b
 operator|.
-name|setWindowTitle
+name|setTitle
 argument_list|(
 name|QStringLiteral
 argument_list|(
@@ -129,7 +129,7 @@ name|setObjectName
 argument_list|(
 name|b
 operator|.
-name|windowTitle
+name|title
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -249,7 +249,7 @@ argument_list|)
 expr_stmt|;
 name|window
 operator|->
-name|setWindowTitle
+name|setTitle
 argument_list|(
 name|screen
 operator|->
@@ -263,7 +263,7 @@ name|setObjectName
 argument_list|(
 name|window
 operator|->
-name|windowTitle
+name|title
 argument_list|()
 argument_list|)
 expr_stmt|;

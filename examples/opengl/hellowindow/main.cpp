@@ -211,7 +211,7 @@ argument_list|)
 expr_stmt|;
 name|windowA
 operator|->
-name|setWindowTitle
+name|setTitle
 argument_list|(
 name|QLatin1String
 argument_list|(
@@ -314,7 +314,7 @@ argument_list|)
 expr_stmt|;
 name|windowB
 operator|->
-name|setWindowTitle
+name|setTitle
 argument_list|(
 name|QLatin1String
 argument_list|(
@@ -378,7 +378,7 @@ argument_list|)
 expr_stmt|;
 name|windowC
 operator|->
-name|setWindowTitle
+name|setTitle
 argument_list|(
 name|QLatin1String
 argument_list|(
@@ -560,7 +560,7 @@ argument_list|)
 decl_stmt|;
 name|window
 operator|->
-name|setWindowTitle
+name|setTitle
 argument_list|(
 name|QLatin1String
 argument_list|(

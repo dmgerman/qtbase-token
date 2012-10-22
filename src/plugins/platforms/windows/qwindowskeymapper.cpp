@@ -3554,7 +3554,7 @@ argument_list|,
 operator|(
 name|topLevel
 operator|->
-name|windowFlags
+name|flags
 argument_list|()
 operator|&
 name|Qt
@@ -3585,7 +3585,7 @@ operator|!
 operator|(
 name|topLevel
 operator|->
-name|windowFlags
+name|flags
 argument_list|()
 operator|&
 name|Qt
@@ -3625,7 +3625,7 @@ argument_list|,
 operator|(
 name|topLevel
 operator|->
-name|windowFlags
+name|flags
 argument_list|()
 operator|&
 name|Qt

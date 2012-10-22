@@ -308,7 +308,7 @@ decl_stmt|;
 comment|// verify active window focus propagates to qguiapplication
 name|window1
 operator|.
-name|requestActivateWindow
+name|requestActivate
 argument_list|()
 expr_stmt|;
 name|QVERIFY
@@ -1101,7 +1101,7 @@ argument_list|)
 expr_stmt|;
 name|window1
 operator|.
-name|requestActivateWindow
+name|requestActivate
 argument_list|()
 expr_stmt|;
 name|QTRY_COMPARE
@@ -1117,7 +1117,7 @@ argument_list|)
 expr_stmt|;
 name|window2
 operator|.
-name|requestActivateWindow
+name|requestActivate
 argument_list|()
 expr_stmt|;
 name|QTRY_COMPARE
@@ -2069,7 +2069,7 @@ argument_list|)
 expr_stmt|;
 name|windowModalWindow1
 operator|->
-name|setWindowModality
+name|setModality
 argument_list|(
 name|Qt
 operator|::
@@ -2092,7 +2092,7 @@ argument_list|)
 expr_stmt|;
 name|windowModalWindow2
 operator|->
-name|setWindowModality
+name|setModality
 argument_list|(
 name|Qt
 operator|::
@@ -2108,7 +2108,7 @@ name|BlockableWindow
 decl_stmt|;
 name|applicationModalWindow1
 operator|->
-name|setWindowModality
+name|setModality
 argument_list|(
 name|Qt
 operator|::

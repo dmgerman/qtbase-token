@@ -138,9 +138,9 @@ argument_list|)
 expr_stmt|;
 else|else
 block|{
-name|setWindowFlags
+name|setFlags
 argument_list|(
-name|windowFlags
+name|flags
 argument_list|()
 operator||
 name|Qt

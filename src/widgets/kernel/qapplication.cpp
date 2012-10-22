@@ -8982,7 +8982,7 @@ name|windowModality
 init|=
 name|modalWindow
 operator|->
-name|windowModality
+name|modality
 argument_list|()
 decl_stmt|;
 name|QWidgetWindow

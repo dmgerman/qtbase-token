@@ -1135,7 +1135,7 @@ return|;
 block|}
 end_expr_stmt
 begin_comment
-comment|/*!     Returns the most recently shown modal window. If no modal windows are     visible, this function returns zero.      A modal window is a window which has its     \l{QWindow::windowModality}{windowModality} property set to Qt::WindowModal     or Qt::ApplicationModal. A modal window must be closed before the user can     continue with other parts of the program.      Modal window are organized in a stack. This function returns the modal     window at the top of the stack.      \sa Qt::WindowModality, QWindow::setWindowModality() */
+comment|/*!     Returns the most recently shown modal window. If no modal windows are     visible, this function returns zero.      A modal window is a window which has its     \l{QWindow::modality}{modality} property set to Qt::WindowModal     or Qt::ApplicationModal. A modal window must be closed before the user can     continue with other parts of the program.      Modal window are organized in a stack. This function returns the modal     window at the top of the stack.      \sa Qt::WindowModality, QWindow::setModality() */
 end_comment
 begin_function
 DECL|function|modalWindow
@@ -1194,7 +1194,7 @@ condition|(
 operator|(
 name|window
 operator|->
-name|windowType
+name|type
 argument_list|()
 operator|&
 name|Qt
@@ -1300,7 +1300,7 @@ operator|&&
 operator|(
 name|currentMouseWindow
 operator|->
-name|windowType
+name|type
 argument_list|()
 operator|&
 name|Qt
@@ -1650,7 +1650,7 @@ name|windowModality
 init|=
 name|modalWindow
 operator|->
-name|windowModality
+name|modality
 argument_list|()
 decl_stmt|;
 switch|switch
@@ -10600,7 +10600,7 @@ argument_list|()
 operator|&&
 name|w
 operator|->
-name|windowType
+name|type
 argument_list|()
 operator|!=
 name|Qt
@@ -10672,7 +10672,7 @@ argument_list|()
 operator|&&
 name|w
 operator|->
-name|windowType
+name|type
 argument_list|()
 operator|!=
 name|Qt

@@ -3766,7 +3766,7 @@ switch|switch
 condition|(
 name|aWindow
 operator|->
-name|windowType
+name|type
 argument_list|()
 condition|)
 block|{
@@ -4687,7 +4687,7 @@ name|flags
 init|=
 name|w
 operator|->
-name|windowFlags
+name|flags
 argument_list|()
 decl_stmt|;
 specifier|const
@@ -4698,7 +4698,7 @@ name|type
 init|=
 name|w
 operator|->
-name|windowType
+name|type
 argument_list|()
 decl_stmt|;
 if|if
@@ -4902,7 +4902,7 @@ init|=
 name|window
 argument_list|()
 operator|->
-name|windowFlags
+name|flags
 argument_list|()
 decl_stmt|;
 if|if
@@ -5163,7 +5163,7 @@ argument_list|(
 name|window
 argument_list|()
 operator|->
-name|windowFlags
+name|flags
 argument_list|()
 argument_list|,
 name|flags

@@ -203,7 +203,7 @@ operator|&&
 operator|(
 name|window
 operator|->
-name|windowFlags
+name|flags
 argument_list|()
 operator|&
 name|Qt

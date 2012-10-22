@@ -1350,7 +1350,7 @@ name|flags
 operator|=
 name|window
 operator|->
-name|windowFlags
+name|flags
 argument_list|()
 expr_stmt|;
 name|requested
@@ -1380,7 +1380,7 @@ name|requested
 argument_list|,
 name|window
 operator|->
-name|windowTitle
+name|title
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1489,7 +1489,7 @@ name|flags
 condition|)
 name|window
 operator|->
-name|setWindowFlags
+name|setFlags
 argument_list|(
 name|obtained
 operator|.

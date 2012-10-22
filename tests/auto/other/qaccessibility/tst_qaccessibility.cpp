@@ -4513,7 +4513,7 @@ argument_list|()
 expr_stmt|;
 name|child
 operator|.
-name|requestActivateWindow
+name|requestActivate
 argument_list|()
 expr_stmt|;
 name|QTRY_VERIFY

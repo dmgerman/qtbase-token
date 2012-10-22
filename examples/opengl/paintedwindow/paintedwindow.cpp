@@ -73,7 +73,7 @@ operator|::
 name|OpenGLSurface
 argument_list|)
 expr_stmt|;
-name|setWindowFlags
+name|setFlags
 argument_list|(
 name|Qt
 operator|::
@@ -157,7 +157,7 @@ argument_list|(
 literal|500
 argument_list|)
 expr_stmt|;
-name|requestWindowOrientation
+name|requestOrientation
 argument_list|(
 name|Qt
 operator|::
@@ -189,7 +189,7 @@ argument_list|()
 operator|->
 name|isLandscape
 argument_list|(
-name|windowOrientation
+name|orientation
 argument_list|()
 argument_list|)
 condition|?
@@ -567,7 +567,7 @@ argument_list|(
 name|contentOrientation
 argument_list|()
 argument_list|,
-name|windowOrientation
+name|orientation
 argument_list|()
 argument_list|,
 name|rect
@@ -587,7 +587,7 @@ argument_list|(
 name|contentOrientation
 argument_list|()
 argument_list|,
-name|windowOrientation
+name|orientation
 argument_list|()
 argument_list|,
 name|rect
@@ -618,7 +618,7 @@ name|transformBetween
 argument_list|(
 name|newOrientation
 argument_list|,
-name|windowOrientation
+name|orientation
 argument_list|()
 argument_list|,
 name|rect
@@ -637,7 +637,7 @@ name|mapBetween
 argument_list|(
 name|newOrientation
 argument_list|,
-name|windowOrientation
+name|orientation
 argument_list|()
 argument_list|,
 name|rect
@@ -1011,7 +1011,7 @@ argument_list|(
 name|contentOrientation
 argument_list|()
 argument_list|,
-name|windowOrientation
+name|orientation
 argument_list|()
 argument_list|,
 name|rect
@@ -1029,7 +1029,7 @@ argument_list|(
 name|contentOrientation
 argument_list|()
 argument_list|,
-name|windowOrientation
+name|orientation
 argument_list|()
 argument_list|,
 name|rect
