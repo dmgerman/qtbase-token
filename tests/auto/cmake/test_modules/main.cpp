@@ -47,6 +47,11 @@ include|#
 directive|include
 file|<QDomDocument>
 end_include
+begin_include
+include|#
+directive|include
+file|<QPrintDialog>
+end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -113,6 +118,9 @@ name|widget
 decl_stmt|;
 name|QDomDocument
 name|domDocument
+decl_stmt|;
+name|QPrintDialog
+name|printDialog
 decl_stmt|;
 ifdef|#
 directive|ifdef
