@@ -2458,14 +2458,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_constructor
-DECL|function|QWhatsThis
-name|QWhatsThis
-operator|::
-name|QWhatsThis
-parameter_list|()
-block|{ }
-end_constructor
 begin_comment
 comment|/*!     This function switches the user interface into "What's This?"     mode. The user interface can be switched back into normal mode by     the user (e.g. by them clicking or pressing Esc), or     programmatically by calling leaveWhatsThisMode().      When entering "What's This?" mode, a QEvent of type     Qt::EnterWhatsThisMode is sent to all toplevel widgets.      \sa inWhatsThisMode(), leaveWhatsThisMode() */
 end_comment

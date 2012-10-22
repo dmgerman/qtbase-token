@@ -30,6 +30,7 @@ name|QToolTip
 block|{
 name|QToolTip
 argument_list|()
+name|Q_DECL_EQ_DELETE
 expr_stmt|;
 name|public
 label|:
