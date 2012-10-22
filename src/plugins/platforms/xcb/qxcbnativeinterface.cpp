@@ -666,6 +666,11 @@ operator|->
 name|eglContext
 argument_list|()
 return|;
+else|#
+directive|else
+return|return
+literal|0
+return|;
 endif|#
 directive|endif
 block|}
