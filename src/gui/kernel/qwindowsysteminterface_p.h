@@ -95,6 +95,8 @@ block|,
 name|TabletLeaveProximity
 block|,
 name|PlatformPanel
+block|,
+name|ContextMenu
 block|}
 enum|;
 name|class
@@ -1546,6 +1548,86 @@ operator|>
 name|window
 block|;     }
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CONTEXTMENU
+name|class
+name|ContextMenuEvent
+range|:
+name|public
+name|WindowSystemEvent
+block|{
+name|public
+operator|:
+name|explicit
+name|ContextMenuEvent
+argument_list|(
+argument|QWindow *w
+argument_list|,
+argument|bool mouseTriggered
+argument_list|,
+argument|const QPoint&pos
+argument_list|,
+argument|const QPoint&globalPos
+argument_list|,
+argument|Qt::KeyboardModifiers modifiers
+argument_list|)
+operator|:
+name|WindowSystemEvent
+argument_list|(
+name|ContextMenu
+argument_list|)
+block|,
+name|window
+argument_list|(
+name|w
+argument_list|)
+block|,
+name|mouseTriggered
+argument_list|(
+name|mouseTriggered
+argument_list|)
+block|,
+name|pos
+argument_list|(
+name|pos
+argument_list|)
+block|,
+name|globalPos
+argument_list|(
+name|globalPos
+argument_list|)
+block|,
+name|modifiers
+argument_list|(
+argument|modifiers
+argument_list|)
+block|{ }
+name|QPointer
+operator|<
+name|QWindow
+operator|>
+name|window
+block|;
+name|bool
+name|mouseTriggered
+block|;
+name|QPoint
+name|pos
+block|;
+comment|// Only valid if triggered by mouse
+name|QPoint
+name|globalPos
+block|;
+comment|// Only valid if triggered by mouse
+name|Qt
+operator|::
+name|KeyboardModifiers
+name|modifiers
+block|;     }
+decl_stmt|;
+endif|#
+directive|endif
 name|class
 name|WindowSystemEventList
 block|{
