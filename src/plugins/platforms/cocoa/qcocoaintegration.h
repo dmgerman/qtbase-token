@@ -46,6 +46,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qcocoakeymapper.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/QScopedPointer>
 end_include
 begin_include
@@ -377,6 +382,16 @@ argument|StyleHint hint
 argument_list|)
 specifier|const
 block|;
+name|QList
+operator|<
+name|int
+operator|>
+name|possibleKeys
+argument_list|(
+argument|const QKeyEvent *event
+argument_list|)
+specifier|const
+block|;
 name|void
 name|updateScreens
 argument_list|()
@@ -444,6 +459,12 @@ operator|<
 name|QCocoaServices
 operator|>
 name|mServices
+block|;
+name|QScopedPointer
+operator|<
+name|QCocoaKeyMapper
+operator|>
+name|mKeyboardMapper
 block|; }
 decl_stmt|;
 end_decl_stmt
