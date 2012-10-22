@@ -733,7 +733,7 @@ name|QCOMPARE
 argument_list|(
 name|window
 operator|.
-name|pos
+name|position
 argument_list|()
 argument_list|,
 name|window
@@ -776,7 +776,7 @@ name|originalPos
 init|=
 name|window
 operator|.
-name|pos
+name|position
 argument_list|()
 decl_stmt|;
 name|QPoint
@@ -849,7 +849,7 @@ name|originalPos
 argument_list|,
 name|window
 operator|.
-name|pos
+name|position
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -957,7 +957,7 @@ name|QCOMPARE
 argument_list|(
 name|window
 operator|.
-name|pos
+name|position
 argument_list|()
 argument_list|,
 name|window
@@ -987,7 +987,7 @@ argument_list|()
 expr_stmt|;
 name|window
 operator|.
-name|setPos
+name|setPosition
 argument_list|(
 name|originalPos
 argument_list|)
@@ -1010,7 +1010,7 @@ name|originalPos
 argument_list|,
 name|window
 operator|.
-name|pos
+name|position
 argument_list|()
 argument_list|)
 expr_stmt|;

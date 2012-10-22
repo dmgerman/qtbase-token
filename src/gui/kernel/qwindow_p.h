@@ -221,7 +221,7 @@ name|offset
 operator|=
 name|q
 operator|->
-name|pos
+name|position
 argument_list|()
 block|;
 for|for
@@ -249,7 +249,7 @@ name|offset
 operator|+=
 name|p
 operator|->
-name|pos
+name|position
 argument_list|()
 expr_stmt|;
 return|return

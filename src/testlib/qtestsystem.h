@@ -239,7 +239,7 @@ while|while
 condition|(
 name|window
 operator|->
-name|pos
+name|position
 argument_list|()
 operator|.
 name|isNull
