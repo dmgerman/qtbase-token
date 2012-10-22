@@ -13578,7 +13578,7 @@ directive|else
 name|QString
 name|pathinroot
 argument_list|(
-literal|"/sbin/.."
+literal|"/usr/.."
 argument_list|)
 decl_stmt|;
 endif|#
