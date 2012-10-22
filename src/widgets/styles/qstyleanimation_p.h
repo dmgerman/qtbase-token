@@ -81,6 +81,10 @@ operator|&
 name|time
 argument_list|)
 block|;
+name|void
+name|updateTarget
+argument_list|()
+block|;
 name|protected
 operator|:
 name|virtual
