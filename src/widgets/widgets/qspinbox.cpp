@@ -339,6 +339,18 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
+comment|/*!     Destructor. */
+end_comment
+begin_destructor
+DECL|function|~QSpinBox
+name|QSpinBox
+operator|::
+name|~
+name|QSpinBox
+parameter_list|()
+block|{}
+end_destructor
+begin_comment
 comment|/*!     \property QSpinBox::value     \brief the value of the spin box      setValue() will emit valueChanged() if the new value is different     from the old one. The value property has a second notifier     signal which includes the spin box's prefix and suffix. */
 end_comment
 begin_function
@@ -1076,6 +1088,18 @@ argument_list|()
 expr_stmt|;
 block|}
 end_constructor
+begin_comment
+comment|/*!     Destructor. */
+end_comment
+begin_destructor
+DECL|function|~QDoubleSpinBox
+name|QDoubleSpinBox
+operator|::
+name|~
+name|QDoubleSpinBox
+parameter_list|()
+block|{}
+end_destructor
 begin_comment
 comment|/*!     \property QDoubleSpinBox::value     \brief the value of the spin box      setValue() will emit valueChanged() if the new value is different     from the old one. The value property has a second notifier     signal which includes the spin box's prefix and suffix.      Note: The value will be rounded so it can be displayed with the     current setting of decimals.      \sa decimals */
 end_comment

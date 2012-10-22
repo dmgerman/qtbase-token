@@ -428,6 +428,10 @@ argument_list|,
 argument|QSplitter *parent
 argument_list|)
 block|;
+operator|~
+name|QSplitterHandle
+argument_list|()
+block|;
 name|void
 name|setOrientation
 argument_list|(

@@ -3809,6 +3809,10 @@ operator|=
 literal|0
 argument_list|)
 decl_stmt|;
+operator|~
+name|QGraphicsObject
+argument_list|()
+expr_stmt|;
 ifdef|#
 directive|ifdef
 name|Q_NO_USING_KEYWORD

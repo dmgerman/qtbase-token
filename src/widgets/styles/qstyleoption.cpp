@@ -3500,6 +3500,18 @@ argument_list|)
 block|{ }
 end_constructor
 begin_comment
+comment|/*!     Destructor. */
+end_comment
+begin_destructor
+DECL|function|~QStyleHintReturnMask
+name|QStyleHintReturnMask
+operator|::
+name|~
+name|QStyleHintReturnMask
+parameter_list|()
+block|{ }
+end_destructor
+begin_comment
 comment|/*!     \enum QStyleHintReturnMask::StyleOptionType      This enum is used to hold information about the type of the style option, and     is defined for each QStyleHintReturn subclass.      \value Type The type of style option provided (\l{SH_Mask} for            this class).      The type is used internally by QStyleHintReturn, its subclasses, and     qstyleoption_cast() to determine the type of style option. In     general you do not need to worry about this unless you want to     create your own QStyleHintReturn subclass and your own styles.      \sa StyleOptionVersion */
 end_comment
 begin_comment
@@ -3529,6 +3541,18 @@ name|Type
 argument_list|)
 block|{ }
 end_constructor
+begin_comment
+comment|/*!     Destructor. */
+end_comment
+begin_destructor
+DECL|function|~QStyleHintReturnVariant
+name|QStyleHintReturnVariant
+operator|::
+name|~
+name|QStyleHintReturnVariant
+parameter_list|()
+block|{ }
+end_destructor
 begin_comment
 comment|/*!     \enum QStyleHintReturnVariant::StyleOptionType      This enum is used to hold information about the type of the style option, and     is defined for each QStyleHintReturn subclass.      \value Type The type of style option provided (\l{SH_Variant} for            this class).      The type is used internally by QStyleHintReturn, its subclasses, and     qstyleoption_cast() to determine the type of style option. In     general you do not need to worry about this unless you want to     create your own QStyleHintReturn subclass and your own styles.      \sa StyleOptionVersion */
 end_comment

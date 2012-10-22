@@ -359,6 +359,18 @@ name|PanGesture
 expr_stmt|;
 block|}
 end_constructor
+begin_comment
+comment|/*!     Destructor. */
+end_comment
+begin_destructor
+DECL|function|~QPanGesture
+name|QPanGesture
+operator|::
+name|~
+name|QPanGesture
+parameter_list|()
+block|{ }
+end_destructor
 begin_function
 DECL|function|lastOffset
 name|QPointF
@@ -573,6 +585,18 @@ name|PinchGesture
 expr_stmt|;
 block|}
 end_constructor
+begin_comment
+comment|/*!     Destructor. */
+end_comment
+begin_destructor
+DECL|function|~QPinchGesture
+name|QPinchGesture
+operator|::
+name|~
+name|QPinchGesture
+parameter_list|()
+block|{ }
+end_destructor
 begin_function
 DECL|function|totalChangeFlags
 name|QPinchGesture
@@ -1046,6 +1070,18 @@ name|SwipeGesture
 expr_stmt|;
 block|}
 end_constructor
+begin_comment
+comment|/*!     Destructor. */
+end_comment
+begin_destructor
+DECL|function|~QSwipeGesture
+name|QSwipeGesture
+operator|::
+name|~
+name|QSwipeGesture
+parameter_list|()
+block|{ }
+end_destructor
 begin_function
 DECL|function|horizontalDirection
 name|QSwipeGesture
@@ -1251,6 +1287,18 @@ name|TapGesture
 expr_stmt|;
 block|}
 end_constructor
+begin_comment
+comment|/*!     Destructor. */
+end_comment
+begin_destructor
+DECL|function|~QTapGesture
+name|QTapGesture
+operator|::
+name|~
+name|QTapGesture
+parameter_list|()
+block|{ }
+end_destructor
 begin_function
 DECL|function|position
 name|QPointF
@@ -1330,6 +1378,18 @@ name|TapAndHoldGesture
 expr_stmt|;
 block|}
 end_constructor
+begin_comment
+comment|/*!     Destructor. */
+end_comment
+begin_destructor
+DECL|function|~QTapAndHoldGesture
+name|QTapAndHoldGesture
+operator|::
+name|~
+name|QTapAndHoldGesture
+parameter_list|()
+block|{ }
+end_destructor
 begin_function
 DECL|function|position
 name|QPointF

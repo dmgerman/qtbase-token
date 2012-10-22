@@ -271,6 +271,10 @@ operator|=
 literal|0
 argument_list|)
 block|;
+operator|~
+name|QPanGesture
+argument_list|()
+block|;
 name|QPointF
 name|lastOffset
 argument_list|()
@@ -427,6 +431,10 @@ name|parent
 operator|=
 literal|0
 argument_list|)
+block|;
+operator|~
+name|QPinchGesture
+argument_list|()
 block|;
 name|ChangeFlags
 name|totalChangeFlags
@@ -645,6 +653,10 @@ operator|=
 literal|0
 argument_list|)
 block|;
+operator|~
+name|QSwipeGesture
+argument_list|()
+block|;
 name|SwipeDirection
 name|horizontalDirection
 argument_list|()
@@ -707,6 +719,10 @@ operator|=
 literal|0
 argument_list|)
 block|;
+operator|~
+name|QTapGesture
+argument_list|()
+block|;
 name|QPointF
 name|position
 argument_list|()
@@ -761,6 +777,10 @@ name|parent
 operator|=
 literal|0
 argument_list|)
+block|;
+operator|~
+name|QTapAndHoldGesture
+argument_list|()
 block|;
 name|QPointF
 name|position

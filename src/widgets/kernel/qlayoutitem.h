@@ -296,6 +296,10 @@ argument_list|,
 argument|vData
 argument_list|)
 block|{ }
+operator|~
+name|QSpacerItem
+argument_list|()
+block|;
 name|void
 name|changeSize
 argument_list|(
@@ -396,6 +400,10 @@ argument_list|(
 argument|w
 argument_list|)
 block|{ }
+operator|~
+name|QWidgetItem
+argument_list|()
+block|;
 name|QSize
 name|sizeHint
 argument_list|()

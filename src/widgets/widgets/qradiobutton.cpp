@@ -186,6 +186,18 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
+comment|/*!     Destructor. */
+end_comment
+begin_destructor
+DECL|function|~QRadioButton
+name|QRadioButton
+operator|::
+name|~
+name|QRadioButton
+parameter_list|()
+block|{ }
+end_destructor
+begin_comment
 comment|/*!     Constructs a radio button with the given \a parent and a \a text string.      The \a parent argument is passed on to the QAbstractButton constructor. */
 end_comment
 begin_constructor

@@ -395,6 +395,18 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
+comment|/*!     Destructor. */
+end_comment
+begin_destructor
+DECL|function|~QDateTimeEdit
+name|QDateTimeEdit
+operator|::
+name|~
+name|QDateTimeEdit
+parameter_list|()
+block|{ }
+end_destructor
+begin_comment
 comment|/*!   \property QDateTimeEdit::dateTime   \brief the QDateTime that is set in the QDateTimeEdit    When setting this property the timespec of the QDateTimeEdit remains the same   and the timespec of the new QDateTime is ignored.    By default, this property contains a date that refers to January 1,   2000 and a time of 00:00:00 and 0 milliseconds.    \sa date, time */
 end_comment
 begin_function
@@ -5760,6 +5772,18 @@ argument_list|)
 block|{ }
 end_constructor
 begin_comment
+comment|/*!   Destructor. */
+end_comment
+begin_destructor
+DECL|function|~QTimeEdit
+name|QTimeEdit
+operator|::
+name|~
+name|QTimeEdit
+parameter_list|()
+block|{ }
+end_destructor
+begin_comment
 comment|/*!   \property QTimeEdit::time   \internal   \sa QDateTimeEdit::time */
 end_comment
 begin_comment
@@ -5847,6 +5871,18 @@ name|parent
 argument_list|)
 block|{ }
 end_constructor
+begin_comment
+comment|/*!   Destructor. */
+end_comment
+begin_destructor
+DECL|function|~QDateEdit
+name|QDateEdit
+operator|::
+name|~
+name|QDateEdit
+parameter_list|()
+block|{ }
+end_destructor
 begin_comment
 comment|/*!   \property QDateEdit::date   \internal   \sa QDateTimeEdit::date */
 end_comment

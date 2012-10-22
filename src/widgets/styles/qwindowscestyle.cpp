@@ -303,6 +303,15 @@ argument_list|)
 expr_stmt|;
 block|}
 end_constructor
+begin_destructor
+DECL|function|~QWindowsCEStyle
+name|QWindowsCEStyle
+operator|::
+name|~
+name|QWindowsCEStyle
+parameter_list|()
+block|{ }
+end_destructor
 begin_function
 DECL|function|drawPrimitive
 name|void

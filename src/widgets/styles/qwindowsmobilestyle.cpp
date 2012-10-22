@@ -13122,6 +13122,15 @@ argument_list|)
 expr_stmt|;
 block|}
 end_constructor
+begin_destructor
+DECL|function|~QWindowsMobileStyle
+name|QWindowsMobileStyle
+operator|::
+name|~
+name|QWindowsMobileStyle
+parameter_list|()
+block|{ }
+end_destructor
 begin_constructor
 DECL|function|QWindowsMobileStylePrivate
 name|QWindowsMobileStylePrivate

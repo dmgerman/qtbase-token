@@ -41,6 +41,10 @@ operator|:
 name|QWindowsCEStyle
 argument_list|()
 block|;
+operator|~
+name|QWindowsCEStyle
+argument_list|()
+block|;
 name|void
 name|drawPrimitive
 argument_list|(

@@ -14212,6 +14212,18 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
+comment|/*!     Destructor. */
+end_comment
+begin_destructor
+DECL|function|~QWizardPage
+name|QWizardPage
+operator|::
+name|~
+name|QWizardPage
+parameter_list|()
+block|{ }
+end_destructor
+begin_comment
 comment|/*!     \property QWizardPage::title     \brief the title of the page      The title is shown by the QWizard, above the actual page. All     pages should have a title.      The title may be plain text or HTML, depending on the value of the     \l{QWizard::titleFormat} property.      By default, this property contains an empty string.      \sa subTitle, {Elements of a Wizard Page} */
 end_comment
 begin_function

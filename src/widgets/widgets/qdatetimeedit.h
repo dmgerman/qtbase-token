@@ -255,6 +255,10 @@ operator|=
 literal|0
 argument_list|)
 block|;
+operator|~
+name|QDateTimeEdit
+argument_list|()
+block|;
 name|QDateTime
 name|dateTime
 argument_list|()
@@ -785,6 +789,10 @@ operator|=
 literal|0
 argument_list|)
 block|;
+operator|~
+name|QTimeEdit
+argument_list|()
+block|;
 name|Q_SIGNALS
 operator|:
 name|void
@@ -837,6 +845,10 @@ name|parent
 operator|=
 literal|0
 argument_list|)
+block|;
+operator|~
+name|QDateEdit
+argument_list|()
 block|;
 name|Q_SIGNALS
 operator|:

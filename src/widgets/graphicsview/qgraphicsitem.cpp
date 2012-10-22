@@ -22600,6 +22600,18 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
+comment|/*!   Destructor. */
+end_comment
+begin_destructor
+DECL|function|~QGraphicsObject
+name|QGraphicsObject
+operator|::
+name|~
+name|QGraphicsObject
+parameter_list|()
+block|{ }
+end_destructor
+begin_comment
 comment|/*!   \reimp */
 end_comment
 begin_function

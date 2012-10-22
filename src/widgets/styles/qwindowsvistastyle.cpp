@@ -1488,6 +1488,18 @@ argument_list|)
 block|{ }
 end_constructor
 begin_comment
+comment|/*!   Destructor. */
+end_comment
+begin_destructor
+DECL|function|~QWindowsVistaStyle
+name|QWindowsVistaStyle
+operator|::
+name|~
+name|QWindowsVistaStyle
+parameter_list|()
+block|{ }
+end_destructor
+begin_comment
 comment|//convert Qt state flags to uxtheme button states
 end_comment
 begin_function

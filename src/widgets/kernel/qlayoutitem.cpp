@@ -305,6 +305,18 @@ begin_comment
 comment|/*!     \fn QSpacerItem::QSpacerItem(int w, int h, QSizePolicy::Policy hPolicy, QSizePolicy::Policy vPolicy)      Constructs a spacer item with preferred width \a w, preferred     height \a h, horizontal size policy \a hPolicy and vertical size     policy \a vPolicy.      The default values provide a gap that is able to stretch if     nothing else wants the space. */
 end_comment
 begin_comment
+comment|/*!     Destructor. */
+end_comment
+begin_destructor
+DECL|function|~QSpacerItem
+name|QSpacerItem
+operator|::
+name|~
+name|QSpacerItem
+parameter_list|()
+block|{}
+end_destructor
+begin_comment
 comment|/*!     Changes this spacer item to have preferred width \a w, preferred     height \a h, horizontal size policy \a hPolicy and vertical size     policy \a vPolicy.      The default values provide a gap that is able to stretch if     nothing else wants the space.      Note that if changeSize() is called after the spacer item has been added     to a layout, it is necessary to invalidate the layout in order for the     spacer item's new size to take effect.      \sa QSpacerItem::invalidate() */
 end_comment
 begin_function
@@ -353,6 +365,18 @@ end_function
 begin_comment
 comment|/*!     \fn QWidgetItem::QWidgetItem(QWidget *widget)      Creates an item containing the given \a widget. */
 end_comment
+begin_comment
+comment|/*!     Destructor. */
+end_comment
+begin_destructor
+DECL|function|~QWidgetItem
+name|QWidgetItem
+operator|::
+name|~
+name|QWidgetItem
+parameter_list|()
+block|{}
+end_destructor
 begin_comment
 comment|/*!     Destroys the QLayoutItem. */
 end_comment

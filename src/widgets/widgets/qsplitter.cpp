@@ -160,6 +160,18 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
+comment|/*!     Destructor. */
+end_comment
+begin_destructor
+DECL|function|~QSplitterHandle
+name|QSplitterHandle
+operator|::
+name|~
+name|QSplitterHandle
+parameter_list|()
+block|{ }
+end_destructor
+begin_comment
 comment|/*!     Sets the orientation of the splitter handle to \a orientation.     This is usually propagated from the QSplitter.      \sa QSplitter::setOrientation() */
 end_comment
 begin_function

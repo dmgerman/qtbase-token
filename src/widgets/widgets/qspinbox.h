@@ -78,6 +78,10 @@ operator|=
 literal|0
 argument_list|)
 block|;
+operator|~
+name|QSpinBox
+argument_list|()
+block|;
 name|int
 name|value
 argument_list|()
@@ -299,6 +303,10 @@ name|parent
 operator|=
 literal|0
 argument_list|)
+block|;
+operator|~
+name|QDoubleSpinBox
+argument_list|()
 block|;
 name|double
 name|value

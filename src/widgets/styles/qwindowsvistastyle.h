@@ -47,6 +47,10 @@ operator|:
 name|QWindowsVistaStyle
 argument_list|()
 block|;
+operator|~
+name|QWindowsVistaStyle
+argument_list|()
+block|;
 name|void
 name|drawPrimitive
 argument_list|(

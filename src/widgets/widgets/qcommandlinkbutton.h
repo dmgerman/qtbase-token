@@ -90,6 +90,10 @@ operator|=
 literal|0
 argument_list|)
 block|;
+operator|~
+name|QCommandLinkButton
+argument_list|()
+block|;
 name|QString
 name|description
 argument_list|()

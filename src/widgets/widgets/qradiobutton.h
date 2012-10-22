@@ -68,6 +68,10 @@ operator|=
 literal|0
 argument_list|)
 block|;
+operator|~
+name|QRadioButton
+argument_list|()
+block|;
 name|QSize
 name|sizeHint
 argument_list|()

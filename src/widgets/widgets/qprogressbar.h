@@ -108,6 +108,10 @@ operator|=
 literal|0
 argument_list|)
 block|;
+operator|~
+name|QProgressBar
+argument_list|()
+block|;
 name|int
 name|minimum
 argument_list|()

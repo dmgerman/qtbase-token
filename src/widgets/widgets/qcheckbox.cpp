@@ -405,6 +405,18 @@ argument_list|)
 expr_stmt|;
 block|}
 end_constructor
+begin_comment
+comment|/*!     Destructor. */
+end_comment
+begin_destructor
+DECL|function|~QCheckBox
+name|QCheckBox
+operator|::
+name|~
+name|QCheckBox
+parameter_list|()
+block|{ }
+end_destructor
 begin_function
 DECL|function|setTristate
 name|void

@@ -2880,6 +2880,10 @@ block|;
 name|QStyleHintReturnMask
 argument_list|()
 block|;
+operator|~
+name|QStyleHintReturnMask
+argument_list|()
+block|;
 name|QRegion
 name|region
 block|; }
@@ -2910,6 +2914,10 @@ operator|=
 literal|1
 block|}
 block|;
+name|QStyleHintReturnVariant
+argument_list|()
+block|;
+operator|~
 name|QStyleHintReturnVariant
 argument_list|()
 block|;

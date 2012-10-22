@@ -695,6 +695,10 @@ operator|=
 literal|0
 argument_list|)
 block|;
+operator|~
+name|QWizardPage
+argument_list|()
+block|;
 name|void
 name|setTitle
 argument_list|(

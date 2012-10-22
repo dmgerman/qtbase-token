@@ -1183,6 +1183,18 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
+comment|/*!     Destructor. */
+end_comment
+begin_destructor
+DECL|function|~QCommandLinkButton
+name|QCommandLinkButton
+operator|::
+name|~
+name|QCommandLinkButton
+parameter_list|()
+block|{ }
+end_destructor
+begin_comment
 comment|/*! \reimp */
 end_comment
 begin_function
