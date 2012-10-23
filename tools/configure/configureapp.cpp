@@ -17391,21 +17391,6 @@ name|endl
 expr_stmt|;
 block|}
 name|cacheStream
-operator|<<
-literal|"CONFIG         += "
-operator|<<
-name|qmakeConfig
-operator|.
-name|join
-argument_list|(
-literal|' '
-argument_list|)
-operator|<<
-literal|"no_private_qt_headers_warning QTDIR_build"
-operator|<<
-name|endl
-expr_stmt|;
-name|cacheStream
 operator|.
 name|flush
 argument_list|()
@@ -17687,7 +17672,16 @@ name|endl
 expr_stmt|;
 name|moduleStream
 operator|<<
-literal|"CONFIG += create_prl link_prl"
+literal|"CONFIG += "
+operator|<<
+name|qmakeConfig
+operator|.
+name|join
+argument_list|(
+literal|' '
+argument_list|)
+operator|<<
+literal|" create_prl link_prl no_private_qt_headers_warning QTDIR_build"
 expr_stmt|;
 if|if
 condition|(
