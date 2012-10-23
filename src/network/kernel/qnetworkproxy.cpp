@@ -145,6 +145,17 @@ argument_list|)
 endif|#
 directive|endif
 block|{
+ifdef|#
+directive|ifdef
+name|QT_USE_SYSTEM_PROXIES
+name|setApplicationProxyFactory
+argument_list|(
+operator|new
+name|QSystemConfigurationProxyFactory
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 ifndef|#
 directive|ifndef
 name|QT_NO_SOCKS5
