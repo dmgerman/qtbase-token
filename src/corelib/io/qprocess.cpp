@@ -5,17 +5,22 @@ end_comment
 begin_comment
 comment|//#define QPROCESS_DEBUG
 end_comment
+begin_include
+include|#
+directive|include
+file|<qdebug.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<qdir.h>
+end_include
 begin_if
 if|#
 directive|if
 name|defined
 name|QPROCESS_DEBUG
 end_if
-begin_include
-include|#
-directive|include
-file|<qdebug.h>
-end_include
 begin_include
 include|#
 directive|include
@@ -2836,9 +2841,22 @@ name|NotRunning
 condition|)
 block|{
 name|qWarning
+argument_list|()
+operator|.
+name|nospace
+argument_list|()
+operator|<<
+literal|"QProcess: Destroyed while process ("
+operator|<<
+name|QDir
+operator|::
+name|toNativeSeparators
 argument_list|(
-literal|"QProcess: Destroyed while process is still running."
+name|program
+argument_list|()
 argument_list|)
+operator|<<
+literal|") is still running."
 expr_stmt|;
 name|kill
 argument_list|()
