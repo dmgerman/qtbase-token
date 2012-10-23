@@ -6747,13 +6747,10 @@ block|}
 block|}
 block|}
 end_function
-begin_comment
-comment|/*!   \reimp */
-end_comment
 begin_function
 DECL|function|viewOptions
 name|QStyleOptionViewItem
-name|QTableView
+name|QTableViewPrivate
 operator|::
 name|viewOptions
 parameter_list|()
@@ -6762,7 +6759,7 @@ block|{
 name|QStyleOptionViewItem
 name|option
 init|=
-name|QAbstractItemView
+name|QAbstractItemViewPrivate
 operator|::
 name|viewOptions
 argument_list|()
@@ -6775,6 +6772,32 @@ literal|true
 expr_stmt|;
 return|return
 name|option
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!   \reimp */
+end_comment
+begin_function
+DECL|function|viewOptions
+name|QStyleOptionViewItem
+name|QTableView
+operator|::
+name|viewOptions
+parameter_list|()
+specifier|const
+block|{
+name|Q_D
+argument_list|(
+specifier|const
+name|QTableView
+argument_list|)
+expr_stmt|;
+return|return
+name|d
+operator|->
+name|viewOptions
+argument_list|()
 return|;
 block|}
 end_function
