@@ -10877,7 +10877,15 @@ name|QGLWidget
 operator|::
 name|paintGL
 parameter_list|()
-block|{ }
+block|{
+name|glClear
+argument_list|(
+name|GL_COLOR_BUFFER_BIT
+operator||
+name|GL_DEPTH_BUFFER_BIT
+argument_list|)
+expr_stmt|;
+block|}
 end_function
 begin_comment
 comment|/*!     \fn void QGLWidget::resizeGL(int width , int height)      This virtual function is called whenever the widget has been     resized. The new size is passed in \a width and \a height.     Reimplement it in a subclass.      There is no need to call makeCurrent() because this has already     been done when this function is called. */
