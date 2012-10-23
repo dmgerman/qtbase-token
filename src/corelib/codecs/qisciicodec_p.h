@@ -52,7 +52,7 @@ begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
-name|QT_NO_BIG_CODECS
+name|QT_NO_CODECS
 name|class
 name|QIsciiCodec
 range|:

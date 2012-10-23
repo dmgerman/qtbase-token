@@ -20,7 +20,7 @@ end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_BIG_CODECS
+name|QT_NO_CODECS
 end_ifndef
 begin_macro
 name|QT_BEGIN_NAMESPACE
@@ -1356,6 +1356,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_BIG_CODECS
+comment|// QT_NO_CODECS
 end_comment
 end_unit
