@@ -5238,6 +5238,8 @@ block|{
 comment|// Ignore mouse events that don't change the current state.
 return|return;
 block|}
+name|mouse_buttons
+operator|=
 name|buttons
 operator|=
 name|e
@@ -7026,6 +7028,12 @@ operator|.
 name|data
 argument_list|()
 decl_stmt|;
+name|modifier_buttons
+operator|=
+name|e
+operator|->
+name|modifiers
+expr_stmt|;
 name|bool
 name|localValid
 init|=
@@ -7206,7 +7214,7 @@ name|z
 argument_list|,
 name|e
 operator|->
-name|mods
+name|modifiers
 argument_list|,
 name|e
 operator|->
