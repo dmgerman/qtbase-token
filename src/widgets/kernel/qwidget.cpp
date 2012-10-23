@@ -39295,7 +39295,7 @@ name|foregroundRole
 argument_list|()
 argument_list|)
 argument_list|,
-literal|0
+literal|1
 argument_list|)
 expr_stmt|;
 name|painter
