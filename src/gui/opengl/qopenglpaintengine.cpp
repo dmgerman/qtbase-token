@@ -9287,7 +9287,7 @@ decl_stmt|;
 name|int
 name|y
 init|=
-name|qFloor
+name|qRound
 argument_list|(
 name|staticTextItem
 operator|->

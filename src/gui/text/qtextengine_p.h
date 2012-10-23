@@ -2002,14 +2002,9 @@ argument_list|()
 specifier|const
 block|{
 return|return
-operator|(
 name|ascent
 operator|+
 name|descent
-operator|)
-operator|.
-name|ceil
-argument_list|()
 operator|+
 operator|(
 name|leadingIncluded
