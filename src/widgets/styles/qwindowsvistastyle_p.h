@@ -437,35 +437,31 @@ name|class
 name|QWindowsVistaAnimation
 range|:
 name|public
-name|QStyleAnimation
+name|QBlendStyleAnimation
 block|{
 name|Q_OBJECT
 name|public
 operator|:
 name|QWindowsVistaAnimation
 argument_list|(
-name|QObject
-operator|*
-name|target
+argument|Type type
+argument_list|,
+argument|QObject *target
 argument_list|)
 operator|:
-name|QStyleAnimation
+name|QBlendStyleAnimation
 argument_list|(
-name|target
-argument_list|)
-block|,
-name|_duration
-argument_list|(
-argument|-
-literal|1
+argument|type
+argument_list|,
+argument|target
 argument_list|)
 block|{ }
 name|virtual
-operator|~
-name|QWindowsVistaAnimation
+name|bool
+name|isUpdateNeeded
 argument_list|()
-block|{ }
-name|virtual
+specifier|const
+block|;
 name|void
 name|paint
 argument_list|(
@@ -478,57 +474,6 @@ name|QStyleOption
 operator|*
 name|option
 argument_list|)
-block|;
-name|virtual
-name|bool
-name|isUpdateNeeded
-argument_list|()
-specifier|const
-block|;
-name|virtual
-name|int
-name|duration
-argument_list|()
-specifier|const
-block|{
-return|return
-name|_duration
-return|;
-block|}
-comment|//set time in ms to complete a state transition / pulse cycle
-name|void
-name|setDuration
-argument_list|(
-argument|int duration
-argument_list|)
-block|{
-name|_duration
-operator|=
-name|duration
-block|; }
-name|protected
-operator|:
-name|void
-name|drawBlendedImage
-argument_list|(
-argument|QPainter *painter
-argument_list|,
-argument|QRect rect
-argument_list|,
-argument|float value
-argument_list|)
-block|;
-name|QImage
-name|_primaryImage
-block|;
-name|QImage
-name|_secondaryImage
-block|;
-name|QImage
-name|_tempImage
-block|;
-name|int
-name|_duration
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -554,48 +499,12 @@ argument_list|)
 operator|:
 name|QWindowsVistaAnimation
 argument_list|(
+argument|Transition
+argument_list|,
 argument|target
 argument_list|)
 block|{}
-name|virtual
-operator|~
-name|QWindowsVistaTransition
-argument_list|()
-block|{ }
-name|void
-name|setStartImage
-argument_list|(
-argument|const QImage&image
-argument_list|)
-block|{
-name|_primaryImage
-operator|=
-name|image
-block|; }
-name|void
-name|setEndImage
-argument_list|(
-argument|const QImage&image
-argument_list|)
-block|{
-name|_secondaryImage
-operator|=
-name|image
-block|; }
-name|virtual
-name|void
-name|paint
-argument_list|(
-name|QPainter
-operator|*
-name|painter
-argument_list|,
-specifier|const
-name|QStyleOption
-operator|*
-name|option
-argument_list|)
-block|; }
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_comment
@@ -620,48 +529,12 @@ argument_list|)
 operator|:
 name|QWindowsVistaAnimation
 argument_list|(
+argument|Pulse
+argument_list|,
 argument|target
 argument_list|)
 block|{}
-name|virtual
-operator|~
-name|QWindowsVistaPulse
-argument_list|()
-block|{ }
-name|void
-name|setPrimaryImage
-argument_list|(
-argument|const QImage&image
-argument_list|)
-block|{
-name|_primaryImage
-operator|=
-name|image
-block|; }
-name|void
-name|setAlternateImage
-argument_list|(
-argument|const QImage&image
-argument_list|)
-block|{
-name|_secondaryImage
-operator|=
-name|image
-block|; }
-name|virtual
-name|void
-name|paint
-argument_list|(
-name|QPainter
-operator|*
-name|painter
-argument_list|,
-specifier|const
-name|QStyleOption
-operator|*
-name|option
-argument_list|)
-block|; }
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
