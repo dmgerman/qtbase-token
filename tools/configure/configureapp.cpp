@@ -17680,8 +17680,6 @@ name|join
 argument_list|(
 literal|' '
 argument_list|)
-operator|<<
-literal|" create_prl link_prl no_private_qt_headers_warning QTDIR_build"
 expr_stmt|;
 if|if
 condition|(
