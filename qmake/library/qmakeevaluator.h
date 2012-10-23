@@ -319,9 +319,6 @@ operator|~
 name|QMakeEvaluator
 argument_list|()
 block|;
-ifdef|#
-directive|ifdef
-name|QT_BUILD_QMAKE
 name|void
 name|setExtraVars
 argument_list|(
@@ -342,8 +339,6 @@ name|m_extraConfigs
 operator|=
 name|extraConfigs
 block|; }
-endif|#
-directive|endif
 name|void
 name|setOutputDir
 argument_list|(
@@ -1261,17 +1256,12 @@ operator|>
 name|m_profileStack
 block|;
 comment|// Includes only
-ifdef|#
-directive|ifdef
-name|QT_BUILD_QMAKE
 name|ProValueMap
 name|m_extraVars
 block|;
 name|ProStringList
 name|m_extraConfigs
 block|;
-endif|#
-directive|endif
 name|QString
 name|m_outputDir
 block|;

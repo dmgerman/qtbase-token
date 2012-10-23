@@ -7519,9 +7519,6 @@ name|loadDefaults
 argument_list|()
 expr_stmt|;
 block|}
-ifdef|#
-directive|ifdef
-name|QT_BUILD_QMAKE
 for|for
 control|(
 name|ProValueMap
@@ -7562,8 +7559,6 @@ name|value
 argument_list|()
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|VisitReturn
 name|vr
 decl_stmt|;
@@ -7644,9 +7639,6 @@ literal|"(command line)"
 argument_list|)
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|QT_BUILD_QMAKE
 comment|// After user configs, to override them
 if|if
 condition|(
@@ -7658,13 +7650,19 @@ argument_list|()
 condition|)
 name|evaluateCommand
 argument_list|(
+name|fL1S
+argument_list|(
 literal|"CONFIG += "
+argument_list|)
 operator|+
 name|m_extraConfigs
 operator|.
 name|join
 argument_list|(
+name|QLatin1Char
+argument_list|(
 literal|' '
+argument_list|)
 argument_list|)
 argument_list|,
 name|fL1S
@@ -7673,8 +7671,6 @@ literal|"(extra configs)"
 argument_list|)
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 name|debugMsg
 argument_list|(
@@ -7746,9 +7742,6 @@ literal|"(command line -after)"
 argument_list|)
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|QT_BUILD_QMAKE
 comment|// Again, to ensure the project does not mess with us.
 comment|// Specifically, do not allow a project to override debug/release within a
 comment|// debug_and_release build pass - it's too late for that at this point anyway.
@@ -7762,13 +7755,19 @@ argument_list|()
 condition|)
 name|evaluateCommand
 argument_list|(
+name|fL1S
+argument_list|(
 literal|"CONFIG += "
+argument_list|)
 operator|+
 name|m_extraConfigs
 operator|.
 name|join
 argument_list|(
+name|QLatin1Char
+argument_list|(
 literal|' '
+argument_list|)
 argument_list|)
 argument_list|,
 name|fL1S
@@ -7777,8 +7776,6 @@ literal|"(extra configs)"
 argument_list|)
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 operator|(
