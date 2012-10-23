@@ -1129,9 +1129,6 @@ operator|::
 name|queryPointer
 argument_list|(
 name|conn
-operator|->
-name|xcb_connection
-argument_list|()
 argument_list|,
 literal|0
 argument_list|,

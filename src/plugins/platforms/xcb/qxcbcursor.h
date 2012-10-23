@@ -82,9 +82,9 @@ specifier|static
 name|void
 name|queryPointer
 parameter_list|(
-name|xcb_connection_t
+name|QXcbConnection
 modifier|*
-name|conn
+name|c
 parameter_list|,
 name|xcb_window_t
 modifier|*
