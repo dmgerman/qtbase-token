@@ -20,6 +20,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"generator.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<qdir.h>
 end_include
 begin_include
@@ -654,7 +659,7 @@ begin_comment
 comment|/*! \fn int Location::columnNo() const   Returns the current column number.   Must not be called on an empty Location object.    \sa filePath(), lineNo() */
 end_comment
 begin_comment
-comment|/*!   Writes \a message and \a detals to stderr as a formatted   warning message.  */
+comment|/*!   Writes \a message and \a detals to stderr as a formatted   warning message. Does not write the message if qdoc is in   the Prepare phase.  */
 end_comment
 begin_function
 DECL|function|warning
@@ -675,6 +680,14 @@ name|details
 parameter_list|)
 specifier|const
 block|{
+if|if
+condition|(
+operator|!
+name|Generator
+operator|::
+name|runPrepareOnly
+argument_list|()
+condition|)
 name|emitMessage
 argument_list|(
 name|Warning
@@ -687,7 +700,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Writes \a message and \a detals to stderr as a formatted   error message.  */
+comment|/*!   Writes \a message and \a detals to stderr as a formatted   error message. Does not write the message if qdoc is in   the Prepare phase.  */
 end_comment
 begin_function
 DECL|function|error
@@ -708,6 +721,14 @@ name|details
 parameter_list|)
 specifier|const
 block|{
+if|if
+condition|(
+operator|!
+name|Generator
+operator|::
+name|runPrepareOnly
+argument_list|()
+condition|)
 name|emitMessage
 argument_list|(
 name|Error
@@ -720,7 +741,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Writes \a message and \a detals to stderr as a formatted   error message and then exits the program.  */
+comment|/*!   Writes \a message and \a detals to stderr as a formatted   error message and then exits the program. qdoc prints fatal   errors in either phase (Prepare or Generate).  */
 end_comment
 begin_function
 DECL|function|fatal

@@ -8107,6 +8107,13 @@ block|{
 if|if
 condition|(
 operator|!
+name|runGenerateOnly
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+operator|!
 name|Config
 operator|::
 name|removeDirContents
@@ -8132,6 +8139,7 @@ name|outDir_
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -8169,6 +8177,16 @@ condition|(
 operator|!
 name|dirInfo
 operator|.
+name|exists
+argument_list|(
+name|outDir_
+operator|+
+literal|"/images"
+argument_list|)
+operator|&&
+operator|!
+name|dirInfo
+operator|.
 name|mkdir
 argument_list|(
 name|outDir_
@@ -8185,7 +8203,7 @@ name|fatal
 argument_list|(
 name|tr
 argument_list|(
-literal|"Cannot create output directory '%1'"
+literal|"Cannot create images directory '%1'"
 argument_list|)
 operator|.
 name|arg
@@ -8198,6 +8216,16 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|dirInfo
+operator|.
+name|exists
+argument_list|(
+name|outDir_
+operator|+
+literal|"/images/used-in-examples"
+argument_list|)
+operator|&&
 operator|!
 name|dirInfo
 operator|.
@@ -8217,7 +8245,7 @@ name|fatal
 argument_list|(
 name|tr
 argument_list|(
-literal|"Cannot create output directory '%1'"
+literal|"Cannot create images used in examples directory '%1'"
 argument_list|)
 operator|.
 name|arg
@@ -8230,6 +8258,16 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|dirInfo
+operator|.
+name|exists
+argument_list|(
+name|outDir_
+operator|+
+literal|"/scripts"
+argument_list|)
+operator|&&
 operator|!
 name|dirInfo
 operator|.
@@ -8249,7 +8287,7 @@ name|fatal
 argument_list|(
 name|tr
 argument_list|(
-literal|"Cannot create output directory '%1'"
+literal|"Cannot create scripts directory '%1'"
 argument_list|)
 operator|.
 name|arg
@@ -8262,6 +8300,16 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|dirInfo
+operator|.
+name|exists
+argument_list|(
+name|outDir_
+operator|+
+literal|"/style"
+argument_list|)
+operator|&&
 operator|!
 name|dirInfo
 operator|.
@@ -8281,7 +8329,7 @@ name|fatal
 argument_list|(
 name|tr
 argument_list|(
-literal|"Cannot create output directory '%1'"
+literal|"Cannot create style directory '%1'"
 argument_list|)
 operator|.
 name|arg
