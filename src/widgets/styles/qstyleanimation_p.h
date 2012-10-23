@@ -56,16 +56,33 @@ operator|~
 name|QStyleAnimation
 argument_list|()
 block|;
-name|int
-name|duration
-argument_list|()
-specifier|const
-block|;
 name|QObject
 operator|*
 name|target
 argument_list|()
 specifier|const
+block|;
+name|int
+name|duration
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setDuration
+argument_list|(
+argument|int duration
+argument_list|)
+block|;
+name|int
+name|delay
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setDelay
+argument_list|(
+argument|int delay
+argument_list|)
 block|;
 name|QTime
 name|startTime
@@ -102,6 +119,12 @@ argument_list|)
 block|;
 name|private
 operator|:
+name|int
+name|_delay
+block|;
+name|int
+name|_duration
+block|;
 name|QTime
 name|_startTime
 block|; }
