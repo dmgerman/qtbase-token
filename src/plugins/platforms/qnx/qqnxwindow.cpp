@@ -1559,6 +1559,57 @@ operator|-
 literal|1
 condition|)
 block|{
+comment|// check if there are any buffers available
+name|int
+name|bufferCount
+init|=
+literal|0
+decl_stmt|;
+name|int
+name|result
+init|=
+name|screen_get_window_property_iv
+argument_list|(
+name|m_window
+argument_list|,
+name|SCREEN_PROPERTY_RENDER_BUFFER_COUNT
+argument_list|,
+operator|&
+name|bufferCount
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|result
+operator|!=
+literal|0
+condition|)
+block|{
+name|qFatal
+argument_list|(
+literal|"QQnxWindow: failed to query window buffer count, errno=%d"
+argument_list|,
+name|errno
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|bufferCount
+operator|!=
+name|MAX_BUFFER_COUNT
+condition|)
+block|{
+name|qFatal
+argument_list|(
+literal|"QQnxWindow: invalid buffer count. Expected = %d, got = %d"
+argument_list|,
+name|MAX_BUFFER_COUNT
+argument_list|,
+name|bufferCount
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Get all buffers available for rendering
 name|errno
 operator|=
@@ -1570,9 +1621,8 @@ index|[
 name|MAX_BUFFER_COUNT
 index|]
 decl_stmt|;
-name|int
 name|result
-init|=
+operator|=
 name|screen_get_window_property_pv
 argument_list|(
 name|m_window
@@ -1586,7 +1636,7 @@ operator|*
 operator|)
 name|buffers
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|result
