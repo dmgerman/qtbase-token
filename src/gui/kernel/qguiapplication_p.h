@@ -962,6 +962,12 @@ name|obey_desktop_settings
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+specifier|static
+name|bool
+name|noGrab
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|QInputMethod
 modifier|*
 name|inputMethod
