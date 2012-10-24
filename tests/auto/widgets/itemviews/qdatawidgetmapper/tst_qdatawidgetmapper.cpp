@@ -2198,7 +2198,7 @@ argument_list|(
 literal|"read write item 2"
 argument_list|)
 expr_stmt|;
-comment|// populat the combo boxes with data
+comment|// populate the combo boxes with data
 name|mapper
 operator|.
 name|addMapping
