@@ -392,6 +392,18 @@ argument_list|,
 argument|timeval *timeout
 argument_list|)
 block|;
+name|virtual
+name|int
+name|initThreadWakeUp
+argument_list|()
+block|;
+name|virtual
+name|int
+name|processThreadWakeUp
+argument_list|(
+argument|int nsel
+argument_list|)
+block|;
 name|bool
 name|mainThread
 block|;
