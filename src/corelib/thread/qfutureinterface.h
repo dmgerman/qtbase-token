@@ -422,6 +422,16 @@ name|referenceCountIsOne
 argument_list|()
 specifier|const
 expr_stmt|;
+name|bool
+name|refT
+argument_list|()
+specifier|const
+expr_stmt|;
+name|bool
+name|derefT
+argument_list|()
+specifier|const
+expr_stmt|;
 name|public
 label|:
 ifndef|#
@@ -473,7 +483,10 @@ name|QFutureInterfaceBase
 argument_list|(
 argument|initialState
 argument_list|)
-block|{ }
+block|{
+name|refT
+argument_list|()
+block|;     }
 name|QFutureInterface
 argument_list|(
 specifier|const
@@ -486,14 +499,18 @@ name|QFutureInterfaceBase
 argument_list|(
 argument|other
 argument_list|)
-block|{ }
+block|{
+name|refT
+argument_list|()
+block|;     }
 operator|~
 name|QFutureInterface
 argument_list|()
 block|{
 if|if
 condition|(
-name|referenceCountIsOne
+operator|!
+name|derefT
 argument_list|()
 condition|)
 name|resultStore
@@ -535,9 +552,15 @@ operator|&
 name|other
 operator|)
 block|{
+name|other
+operator|.
+name|refT
+argument_list|()
+block|;
 if|if
 condition|(
-name|referenceCountIsOne
+operator|!
+name|derefT
 argument_list|()
 condition|)
 name|resultStore
