@@ -3365,6 +3365,9 @@ operator|=
 literal|191
 expr_stmt|;
 break|break;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
 case|case
 name|MessageBoxInformation
 case|:
@@ -3520,6 +3523,8 @@ return|;
 block|}
 block|}
 break|break;
+endif|#
+directive|endif
 default|default:
 break|break;
 block|}
