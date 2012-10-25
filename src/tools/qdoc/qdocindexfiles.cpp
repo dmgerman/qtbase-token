@@ -47,6 +47,11 @@ include|#
 directive|include
 file|"generator.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<qdebug.h>
+end_include
 begin_comment
 comment|//include "doc.h"
 end_comment
@@ -192,11 +197,27 @@ name|indexFile
 decl|,
 name|indexFiles
 control|)
+block|{
+name|QString
+name|msg
+init|=
+literal|"  Loading index file: "
+operator|+
+name|indexFile
+decl_stmt|;
+name|Location
+operator|::
+name|logToStdErr
+argument_list|(
+name|msg
+argument_list|)
+expr_stmt|;
 name|readIndexFile
 argument_list|(
 name|indexFile
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 end_function
 begin_comment
@@ -5924,6 +5945,20 @@ name|Text
 argument_list|)
 condition|)
 return|return;
+name|QString
+name|msg
+init|=
+literal|"  Writing index file: "
+operator|+
+name|fileName
+decl_stmt|;
+name|Location
+operator|::
+name|logToStdErr
+argument_list|(
+name|msg
+argument_list|)
+expr_stmt|;
 name|gen_
 operator|=
 name|g

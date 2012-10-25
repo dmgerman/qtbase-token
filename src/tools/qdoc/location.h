@@ -338,6 +338,16 @@ modifier|&
 name|hint
 parameter_list|)
 function_decl|;
+specifier|static
+name|void
+name|logToStdErr
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|message
+parameter_list|)
+function_decl|;
 name|private
 label|:
 enum|enum
