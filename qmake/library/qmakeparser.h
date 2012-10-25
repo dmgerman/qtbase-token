@@ -231,6 +231,15 @@ init|=
 name|FullGrammar
 parameter_list|)
 function_decl|;
+name|void
+name|discardFileFromCache
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|fileName
+parameter_list|)
+function_decl|;
 name|private
 label|:
 enum|enum

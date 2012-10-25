@@ -1697,6 +1697,16 @@ return|return
 name|ReturnFalse
 return|;
 block|}
+name|m_parser
+operator|->
+name|discardFileFromCache
+argument_list|(
+name|qfi
+operator|.
+name|filePath
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|ReturnTrue
 return|;
