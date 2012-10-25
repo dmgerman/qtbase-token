@@ -407,6 +407,8 @@ block|;
 name|bool
 name|mainThread
 block|;
+comment|// note for eventfd(7) support:
+comment|// if thread_pipe[1] is -1, then eventfd(7) is in use and is stored in thread_pipe[0]
 name|int
 name|thread_pipe
 index|[
