@@ -48,6 +48,19 @@ argument_list|,
 argument|EGLenum eglApi = EGL_OPENGL_ES_API
 argument_list|)
 block|;
+name|QEGLPlatformContext
+argument_list|(
+argument|const QSurfaceFormat&format
+argument_list|,
+argument|QPlatformOpenGLContext *share
+argument_list|,
+argument|EGLDisplay display
+argument_list|,
+argument|EGLConfig config
+argument_list|,
+argument|EGLenum eglApi = EGL_OPENGL_ES_API
+argument_list|)
+block|;
 operator|~
 name|QEGLPlatformContext
 argument_list|()
@@ -142,6 +155,19 @@ literal|0
 block|;
 name|private
 operator|:
+name|void
+name|init
+argument_list|(
+specifier|const
+name|QSurfaceFormat
+operator|&
+name|format
+argument_list|,
+name|QPlatformOpenGLContext
+operator|*
+name|share
+argument_list|)
+block|;
 name|EGLContext
 name|m_eglContext
 block|;
@@ -157,7 +183,6 @@ block|;
 name|EGLConfig
 name|m_eglConfig
 block|;
-specifier|const
 name|QSurfaceFormat
 name|m_format
 block|; }

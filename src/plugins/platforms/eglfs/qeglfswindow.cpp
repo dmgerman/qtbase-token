@@ -209,7 +209,9 @@ decl_stmt|;
 name|EGLConfig
 name|config
 init|=
-name|q_configFromGLFormat
+name|QEglFSIntegration
+operator|::
+name|chooseConfig
 argument_list|(
 name|display
 argument_list|,
