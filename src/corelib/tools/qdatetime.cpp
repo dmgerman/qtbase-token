@@ -5564,7 +5564,7 @@ name|d
 operator|->
 name|spec
 decl_stmt|;
-name|int
+name|qint64
 name|ddays
 init|=
 name|msecs
