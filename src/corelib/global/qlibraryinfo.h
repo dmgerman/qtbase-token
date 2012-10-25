@@ -71,6 +71,8 @@ name|HeadersPath
 block|,
 name|LibrariesPath
 block|,
+name|LibraryExecutablesPath
+block|,
 name|BinariesPath
 block|,
 name|PluginsPath

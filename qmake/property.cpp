@@ -130,6 +130,16 @@ literal|false
 block|}
 block|,
 block|{
+literal|"QT_INSTALL_LIBEXECS"
+block|,
+name|QLibraryInfo
+operator|::
+name|LibraryExecutablesPath
+block|,
+literal|false
+block|}
+block|,
+block|{
 literal|"QT_INSTALL_BINS"
 block|,
 name|QLibraryInfo
