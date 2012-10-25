@@ -201,7 +201,7 @@ block|{
 name|QString
 name|msg
 init|=
-literal|"  Loading index file: "
+literal|"Loading index file: "
 operator|+
 name|indexFile
 decl_stmt|;
@@ -5948,7 +5948,7 @@ return|return;
 name|QString
 name|msg
 init|=
-literal|"  Writing index file: "
+literal|"Writing index file: "
 operator|+
 name|fileName
 decl_stmt|;

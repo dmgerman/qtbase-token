@@ -1201,7 +1201,7 @@ argument_list|()
 condition|)
 name|phase
 operator|=
-literal|"in -prepare mode "
+literal|" in -prepare mode "
 expr_stmt|;
 elseif|else
 if|if
@@ -1213,16 +1213,12 @@ argument_list|()
 condition|)
 name|phase
 operator|=
-literal|"in -generate mode "
+literal|" in -generate mode "
 expr_stmt|;
 name|QString
 name|msg
 init|=
-literal|"Running qdoc "
-operator|+
-name|phase
-operator|+
-literal|"for "
+literal|"Running qdoc for "
 operator|+
 name|config
 operator|.
@@ -1230,6 +1226,8 @@ name|getString
 argument_list|(
 name|CONFIG_PROJECT
 argument_list|)
+operator|+
+name|phase
 decl_stmt|;
 name|Location
 operator|::
@@ -2799,6 +2797,20 @@ name|Generator
 operator|::
 name|Generate
 argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|opt
+operator|==
+literal|"-log-progress"
+condition|)
+block|{
+name|Location
+operator|::
+name|startLoggingProgress
+argument_list|()
 expr_stmt|;
 block|}
 else|else

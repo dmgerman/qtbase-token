@@ -84,6 +84,16 @@ init|=
 literal|0
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|member|logProgress_
+name|bool
+name|Location
+operator|::
+name|logProgress_
+init|=
+literal|false
+decl_stmt|;
+end_decl_stmt
 begin_comment
 comment|/*!   \class Location    \brief The Location class provides a way to mark a location in a file.    It maintains a stack of file positions. A file position   consists of the file path, line number, and column number.   The location is used for printing error messages that are   tied to a location in a file.  */
 end_comment
@@ -935,7 +945,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Prints \a message to \c stderr followed by a \c{'\n'}.  */
+comment|/*!   Prints \a message to \c stderr followed by a \c{'\n'},   but only if the -log-progress option is set.  */
 end_comment
 begin_function
 DECL|function|logToStdErr
@@ -950,11 +960,16 @@ modifier|&
 name|message
 parameter_list|)
 block|{
+if|if
+condition|(
+name|logProgress_
+condition|)
+block|{
 name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"%s\n"
+literal|"LOG: %s\n"
 argument_list|,
 name|message
 operator|.
@@ -970,6 +985,7 @@ argument_list|(
 name|stderr
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 end_function
 begin_comment
