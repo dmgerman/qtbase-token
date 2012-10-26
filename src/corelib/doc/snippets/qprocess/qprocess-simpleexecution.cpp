@@ -64,7 +64,7 @@ name|arguments
 operator|<<
 literal|"-style"
 operator|<<
-literal|"motif"
+literal|"fusion"
 expr_stmt|;
 name|QProcess
 modifier|*
