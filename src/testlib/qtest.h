@@ -1318,6 +1318,276 @@ argument_list|)
 return|;
 block|}
 end_expr_stmt
+begin_expr_stmt
+name|template
+operator|<
+operator|>
+specifier|inline
+name|bool
+name|qCompare
+argument_list|(
+argument|qint64 const&t1
+argument_list|,
+argument|qint32 const&t2
+argument_list|,
+argument|const char *actual
+argument_list|,
+argument|const char *expected
+argument_list|,
+argument|const char *file
+argument_list|,
+argument|int line
+argument_list|)
+block|{
+return|return
+name|qCompare
+argument_list|(
+name|t1
+argument_list|,
+name|static_cast
+operator|<
+name|qint64
+operator|>
+operator|(
+name|t2
+operator|)
+argument_list|,
+name|actual
+argument_list|,
+name|expected
+argument_list|,
+name|file
+argument_list|,
+name|line
+argument_list|)
+return|;
+block|}
+end_expr_stmt
+begin_expr_stmt
+name|template
+operator|<
+operator|>
+specifier|inline
+name|bool
+name|qCompare
+argument_list|(
+argument|qint64 const&t1
+argument_list|,
+argument|quint32 const&t2
+argument_list|,
+argument|const char *actual
+argument_list|,
+argument|const char *expected
+argument_list|,
+argument|const char *file
+argument_list|,
+argument|int line
+argument_list|)
+block|{
+return|return
+name|qCompare
+argument_list|(
+name|t1
+argument_list|,
+name|static_cast
+operator|<
+name|qint64
+operator|>
+operator|(
+name|t2
+operator|)
+argument_list|,
+name|actual
+argument_list|,
+name|expected
+argument_list|,
+name|file
+argument_list|,
+name|line
+argument_list|)
+return|;
+block|}
+end_expr_stmt
+begin_expr_stmt
+name|template
+operator|<
+operator|>
+specifier|inline
+name|bool
+name|qCompare
+argument_list|(
+argument|quint64 const&t1
+argument_list|,
+argument|quint32 const&t2
+argument_list|,
+argument|const char *actual
+argument_list|,
+argument|const char *expected
+argument_list|,
+argument|const char *file
+argument_list|,
+argument|int line
+argument_list|)
+block|{
+return|return
+name|qCompare
+argument_list|(
+name|t1
+argument_list|,
+name|static_cast
+operator|<
+name|quint64
+operator|>
+operator|(
+name|t2
+operator|)
+argument_list|,
+name|actual
+argument_list|,
+name|expected
+argument_list|,
+name|file
+argument_list|,
+name|line
+argument_list|)
+return|;
+block|}
+end_expr_stmt
+begin_expr_stmt
+name|template
+operator|<
+operator|>
+specifier|inline
+name|bool
+name|qCompare
+argument_list|(
+argument|qint32 const&t1
+argument_list|,
+argument|qint64 const&t2
+argument_list|,
+argument|const char *actual
+argument_list|,
+argument|const char *expected
+argument_list|,
+argument|const char *file
+argument_list|,
+argument|int line
+argument_list|)
+block|{
+return|return
+name|qCompare
+argument_list|(
+name|static_cast
+operator|<
+name|qint64
+operator|>
+operator|(
+name|t1
+operator|)
+argument_list|,
+name|t2
+argument_list|,
+name|actual
+argument_list|,
+name|expected
+argument_list|,
+name|file
+argument_list|,
+name|line
+argument_list|)
+return|;
+block|}
+end_expr_stmt
+begin_expr_stmt
+name|template
+operator|<
+operator|>
+specifier|inline
+name|bool
+name|qCompare
+argument_list|(
+argument|quint32 const&t1
+argument_list|,
+argument|qint64 const&t2
+argument_list|,
+argument|const char *actual
+argument_list|,
+argument|const char *expected
+argument_list|,
+argument|const char *file
+argument_list|,
+argument|int line
+argument_list|)
+block|{
+return|return
+name|qCompare
+argument_list|(
+name|static_cast
+operator|<
+name|qint64
+operator|>
+operator|(
+name|t1
+operator|)
+argument_list|,
+name|t2
+argument_list|,
+name|actual
+argument_list|,
+name|expected
+argument_list|,
+name|file
+argument_list|,
+name|line
+argument_list|)
+return|;
+block|}
+end_expr_stmt
+begin_expr_stmt
+name|template
+operator|<
+operator|>
+specifier|inline
+name|bool
+name|qCompare
+argument_list|(
+argument|quint32 const&t1
+argument_list|,
+argument|quint64 const&t2
+argument_list|,
+argument|const char *actual
+argument_list|,
+argument|const char *expected
+argument_list|,
+argument|const char *file
+argument_list|,
+argument|int line
+argument_list|)
+block|{
+return|return
+name|qCompare
+argument_list|(
+name|static_cast
+operator|<
+name|quint64
+operator|>
+operator|(
+name|t1
+operator|)
+argument_list|,
+name|t2
+argument_list|,
+name|actual
+argument_list|,
+name|expected
+argument_list|,
+name|file
+argument_list|,
+name|line
+argument_list|)
+return|;
+block|}
+end_expr_stmt
 begin_define
 DECL|macro|QTEST_APPLESS_MAIN
 unit|} QT_END_NAMESPACE

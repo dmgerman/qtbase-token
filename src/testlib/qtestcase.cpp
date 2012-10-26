@@ -7855,6 +7855,24 @@ begin_comment
 comment|/*! \fn bool QTest::qCompare(QFlags<T> const&t1, int const&t2, const char *actual, const char *expected, const char *file, int line)     \internal */
 end_comment
 begin_comment
+comment|/*! \fn bool QTest::qCompare(qint64 const&t1, qint32 const&t2, const char *actual, const char *expected, const char *file, int line)     \internal */
+end_comment
+begin_comment
+comment|/*! \fn bool QTest::qCompare(qint64 const&t1, quint32 const&t2, const char *actual, const char *expected, const char *file, int line)     \internal */
+end_comment
+begin_comment
+comment|/*! \fn bool QTest::qCompare(quint64 const&t1, quint32 const&t2, const char *actual, const char *expected, const char *file, int line)     \internal */
+end_comment
+begin_comment
+comment|/*! \fn bool QTest::qCompare(qint32 const&t1, qint64 const&t2, const char *actual, const char *expected, const char *file, int line)     \internal */
+end_comment
+begin_comment
+comment|/*! \fn bool QTest::qCompare(quint32 const&t1, qint64 const&t2, const char *actual, const char *expected, const char *file, int line)     \internal */
+end_comment
+begin_comment
+comment|/*! \fn bool QTest::qCompare(quint32 const&t1, quint64 const&t2, const char *actual, const char *expected, const char *file, int line)     \internal */
+end_comment
+begin_comment
 comment|/*! \fn bool QTest::qCompare(bool const&t1, int const&t2, const char *actual, const char *expected, const char *file, int line)   \internal  */
 end_comment
 begin_comment
