@@ -481,6 +481,16 @@ argument|QObject *object
 argument_list|)
 specifier|const
 block|;
+name|void
+name|notifyStateChange
+argument_list|(
+argument|const QAIPointer& interface
+argument_list|,
+argument|const QString& state
+argument_list|,
+argument|int value
+argument_list|)
+block|;
 comment|// accessible helper functions
 name|AtspiRole
 name|getRole
