@@ -1821,7 +1821,7 @@ block|{
 comment|// don't know which driver versions exhibit this bug, so be conservative for now
 specifier|const
 name|QByteArray
-name|versionString
+name|vendorString
 argument_list|(
 cast|reinterpret_cast
 argument_list|<
@@ -1832,7 +1832,7 @@ argument_list|>
 argument_list|(
 name|glGetString
 argument_list|(
-name|GL_VERSION
+name|GL_VENDOR
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1843,7 +1843,7 @@ name|d_ptr
 operator|->
 name|workaround_brokenAlphaTexSubImage
 operator|=
-name|versionString
+name|vendorString
 operator|.
 name|indexOf
 argument_list|(
