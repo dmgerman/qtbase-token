@@ -6832,7 +6832,7 @@ begin_comment
 comment|// ------------------------------------------------------------------------------------------------
 end_comment
 begin_comment
-comment|/*!     \class QWindowsXPStyle     \brief The QWindowsXPStyle class provides a Microsoft Windows XP-like look and feel.      \ingroup appearance     \inmodule QtWidgets      \warning This style is only available on the Windows XP platform     because it makes use of Windows XP's style engine.      Most of the functions are documented in the base classes     QWindowsStyle, QCommonStyle, and QStyle, but the     QWindowsXPStyle overloads of drawComplexControl(), drawControl(),     drawControlMask(), drawPrimitive(), proxy()->subControlRect(), and     sizeFromContents(), are documented here.      \image qwindowsxpstyle.png     \sa QMacStyle, QWindowsStyle, QPlastiqueStyle */
+comment|/*!     \class QWindowsXPStyle     \brief The QWindowsXPStyle class provides a Microsoft Windows XP-like look and feel.      \ingroup appearance     \inmodule QtWidgets      \warning This style is only available on the Windows XP platform     because it makes use of Windows XP's style engine.      Most of the functions are documented in the base classes     QWindowsStyle, QCommonStyle, and QStyle, but the     QWindowsXPStyle overloads of drawComplexControl(), drawControl(),     drawControlMask(), drawPrimitive(), proxy()->subControlRect(), and     sizeFromContents(), are documented here.      \image qwindowsxpstyle.png     \sa QMacStyle, QWindowsStyle, QFusionStyle */
 end_comment
 begin_comment
 comment|/*!     Constructs a QWindowsStyle */

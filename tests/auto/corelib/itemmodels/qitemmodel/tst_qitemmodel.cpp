@@ -2813,13 +2813,9 @@ name|SIGNAL
 argument_list|(
 name|dataChanged
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -4573,9 +4569,7 @@ name|SIGNAL
 argument_list|(
 name|columnsAboutToBeRemoved
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
@@ -4593,9 +4587,7 @@ name|SIGNAL
 argument_list|(
 name|rowsAboutToBeRemoved
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
@@ -4613,9 +4605,7 @@ name|SIGNAL
 argument_list|(
 name|columnsRemoved
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
@@ -4633,9 +4623,7 @@ name|SIGNAL
 argument_list|(
 name|rowsRemoved
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
@@ -4755,9 +4743,7 @@ name|SIGNAL
 argument_list|(
 name|rowsAboutToBeRemoved
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
@@ -4771,9 +4757,7 @@ name|SLOT
 argument_list|(
 name|slot_rowsAboutToRemove
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -4786,9 +4770,7 @@ name|SIGNAL
 argument_list|(
 name|rowsRemoved
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
@@ -4802,9 +4784,7 @@ name|SLOT
 argument_list|(
 name|slot_rowsRemoved
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -5285,9 +5265,7 @@ name|SIGNAL
 argument_list|(
 name|rowsAboutToBeRemoved
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
@@ -5301,9 +5279,7 @@ name|SLOT
 argument_list|(
 name|slot_rowsAboutToRemove
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -5316,9 +5292,7 @@ name|SIGNAL
 argument_list|(
 name|rowsRemoved
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
@@ -5332,9 +5306,7 @@ name|SLOT
 argument_list|(
 name|slot_rowsRemoved
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -5365,9 +5337,7 @@ name|SIGNAL
 argument_list|(
 name|columnsAboutToBeRemoved
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
@@ -5381,9 +5351,7 @@ name|SLOT
 argument_list|(
 name|slot_columnsAboutToRemove
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -5396,9 +5364,7 @@ name|SIGNAL
 argument_list|(
 name|columnsRemoved
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
@@ -5412,9 +5378,7 @@ name|SLOT
 argument_list|(
 name|slot_columnsRemoved
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -5631,9 +5595,7 @@ name|SIGNAL
 argument_list|(
 name|columnsAboutToBeRemoved
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
@@ -5647,9 +5609,7 @@ name|SLOT
 argument_list|(
 name|slot_columnsAboutToRemove
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -5662,9 +5622,7 @@ name|SIGNAL
 argument_list|(
 name|columnsRemoved
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
@@ -5678,9 +5636,7 @@ name|SLOT
 argument_list|(
 name|slot_columnsRemoved
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -7208,9 +7164,7 @@ name|SIGNAL
 argument_list|(
 name|columnsAboutToBeInserted
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
@@ -7228,9 +7182,7 @@ name|SIGNAL
 argument_list|(
 name|rowsAboutToBeInserted
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
@@ -7248,9 +7200,7 @@ name|SIGNAL
 argument_list|(
 name|columnsInserted
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
@@ -7268,9 +7218,7 @@ name|SIGNAL
 argument_list|(
 name|rowsInserted
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
@@ -7390,9 +7338,7 @@ name|SIGNAL
 argument_list|(
 name|rowsAboutToBeInserted
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
@@ -7406,9 +7352,7 @@ name|SLOT
 argument_list|(
 name|slot_rowsAboutToInserted
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -7421,9 +7365,7 @@ name|SIGNAL
 argument_list|(
 name|rowsInserted
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
@@ -7437,9 +7379,7 @@ name|SLOT
 argument_list|(
 name|slot_rowsInserted
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -7881,9 +7821,7 @@ name|SIGNAL
 argument_list|(
 name|rowsAboutToBeInserted
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
@@ -7897,9 +7835,7 @@ name|SLOT
 argument_list|(
 name|slot_rowsAboutToInserted
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -7912,9 +7848,7 @@ name|SIGNAL
 argument_list|(
 name|rowsInserted
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
@@ -7928,9 +7862,7 @@ name|SLOT
 argument_list|(
 name|slot_rowsInserted
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -7951,9 +7883,7 @@ name|SIGNAL
 argument_list|(
 name|columnsAboutToBeInserted
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
@@ -7967,9 +7897,7 @@ name|SLOT
 argument_list|(
 name|slot_columnsAboutToInserted
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -7982,9 +7910,7 @@ name|SIGNAL
 argument_list|(
 name|columnsInserted
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
@@ -7998,9 +7924,7 @@ name|SLOT
 argument_list|(
 name|slot_columnsInserted
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -8218,9 +8142,7 @@ name|SIGNAL
 argument_list|(
 name|columnsAboutToBeInserted
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
@@ -8234,9 +8156,7 @@ name|SLOT
 argument_list|(
 name|slot_columnsAboutToInserted
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -8249,9 +8169,7 @@ name|SIGNAL
 argument_list|(
 name|columnsInserted
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|,
 name|int
 argument_list|,
@@ -8265,9 +8183,7 @@ name|SLOT
 argument_list|(
 name|slot_columnsInserted
 argument_list|(
-specifier|const
 name|QModelIndex
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)

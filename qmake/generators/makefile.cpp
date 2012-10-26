@@ -15489,6 +15489,8 @@ expr_stmt|;
 name|QString
 name|out
 init|=
+name|unescapeFilePath
+argument_list|(
 name|replaceExtraCompilerVariables
 argument_list|(
 name|tmp_out
@@ -15497,6 +15499,7 @@ name|inpf
 argument_list|,
 name|QString
 argument_list|()
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if

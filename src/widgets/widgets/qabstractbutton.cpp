@@ -4065,6 +4065,12 @@ operator|->
 name|down
 condition|)
 block|{
+comment|// refresh is required by QMacStyle to resume the default button animation
+name|d
+operator|->
+name|refresh
+argument_list|()
+expr_stmt|;
 name|e
 operator|->
 name|ignore

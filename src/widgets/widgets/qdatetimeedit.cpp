@@ -3030,12 +3030,9 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
-block|{
-else|#
-directive|else
-block|{
 endif|#
 directive|endif
+block|{
 name|QSize
 name|extra
 argument_list|(
@@ -3185,7 +3182,11 @@ operator|->
 name|cachedSizeHint
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!   \reimp */
+end_comment
+begin_function
 DECL|function|event
 name|bool
 name|QDateTimeEdit
@@ -3300,7 +3301,11 @@ name|event
 argument_list|)
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!   \reimp */
+end_comment
+begin_function
 DECL|function|clear
 name|void
 name|QDateTimeEdit
@@ -3323,7 +3328,11 @@ name|currentSectionIndex
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!   \reimp */
+end_comment
+begin_function
 DECL|function|keyPressEvent
 name|void
 name|QDateTimeEdit
@@ -4254,10 +4263,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+begin_comment
 comment|/*!   \reimp */
+end_comment
+begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_NO_WHEELEVENT
+end_ifndef
+begin_function
 DECL|function|wheelEvent
 name|void
 name|QDateTimeEdit
@@ -4277,9 +4292,15 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|/*!   \reimp */
+end_comment
+begin_function
 DECL|function|focusInEvent
 name|void
 name|QDateTimeEdit
@@ -4537,7 +4558,11 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!   \reimp */
+end_comment
+begin_function
 DECL|function|focusNextPrevChild
 name|bool
 name|QDateTimeEdit
@@ -4646,7 +4671,11 @@ literal|false
 return|;
 block|}
 block|}
+end_function
+begin_comment
 comment|/*!   \reimp */
+end_comment
+begin_function
 DECL|function|stepBy
 name|void
 name|QDateTimeEdit
@@ -4976,7 +5005,11 @@ name|updateTimeSpec
 argument_list|()
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!   This virtual function is used by the date time edit whenever it   needs to display \a dateTime.    If you reimplement this, you may also need to reimplement validate().    \sa dateTimeFromText(), validate() */
+end_comment
+begin_function
 DECL|function|textFromDateTime
 name|QString
 name|QDateTimeEdit
@@ -5010,7 +5043,11 @@ name|displayFormat
 argument_list|)
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!   Returns an appropriate datetime for the given \a text.    This virtual function is used by the datetime edit whenever it   needs to interpret text entered by the user as a value.    \sa textFromDateTime(), validate() */
+end_comment
+begin_function
 DECL|function|dateTimeFromText
 name|QDateTime
 name|QDateTimeEdit
@@ -5067,7 +5104,11 @@ name|state
 argument_list|)
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!   \reimp */
+end_comment
+begin_function
 DECL|function|validate
 name|QValidator
 operator|::
@@ -5112,7 +5153,11 @@ return|return
 name|state
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!   \reimp */
+end_comment
+begin_function
 DECL|function|fixup
 name|void
 name|QDateTimeEdit
@@ -5160,7 +5205,11 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!   \reimp */
+end_comment
+begin_function
 DECL|function|stepEnabled
 name|QDateTimeEdit
 operator|::
@@ -5514,7 +5563,11 @@ return|return
 name|ret
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!   \reimp */
+end_comment
+begin_function
 DECL|function|mousePressEvent
 name|void
 name|QDateTimeEdit
@@ -5623,8 +5676,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+begin_comment
 comment|/*!   \class QTimeEdit   \brief The QTimeEdit class provides a widget for editing times based on   the QDateTimeEdit widget.    \ingroup basicwidgets   \inmodule QtWidgets    Many of the properties and functions provided by QTimeEdit are implemented in   QDateTimeEdit. These are the relevant properties of this class:    \list   \li \l{QDateTimeEdit::time}{time} holds the time displayed by the widget.   \li \l{QDateTimeEdit::minimumTime}{minimumTime} defines the minimum (earliest) time      that can be set by the user.   \li \l{QDateTimeEdit::maximumTime}{maximumTime} defines the maximum (latest) time      that can be set by the user.   \li \l{QDateTimeEdit::displayFormat}{displayFormat} contains a string that is used      to format the time displayed in the widget.   \endlist    \table 100%   \row \li \inlineimage windowsxp-timeedit.png Screenshot of a Windows XP style time editing widget        \li A time editing widget shown in the \l{Windows XP Style Widget Gallery}{Windows XP widget style}.   \row \li \inlineimage macintosh-timeedit.png Screenshot of a Macintosh style time editing widget        \li A time editing widget shown in the \l{Macintosh Style Widget Gallery}{Macintosh widget style}.   \row \li \inlineimage plastique-timeedit.png Screenshot of a Plastique style time editing widget        \li A time editing widget shown in the \l{Plastique Style Widget Gallery}{Plastique widget style}.   \endtable    \sa QDateEdit, QDateTimeEdit */
+end_comment
+begin_comment
 comment|/*!   Constructs an empty time editor with a \a parent. */
+end_comment
+begin_constructor
 DECL|function|QTimeEdit
 name|QTimeEdit
 operator|::
@@ -5668,7 +5727,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+end_constructor
+begin_comment
 comment|/*!   Constructs an empty time editor with a \a parent. The time is set   to \a time. */
+end_comment
+begin_constructor
 DECL|function|QTimeEdit
 name|QTimeEdit
 operator|::
@@ -5695,10 +5758,20 @@ argument_list|,
 name|parent
 argument_list|)
 block|{ }
+end_constructor
+begin_comment
 comment|/*!   \property QTimeEdit::time   \internal   \sa QDateTimeEdit::time */
+end_comment
+begin_comment
 comment|/*!   \fn void QTimeEdit::userTimeChanged(const QTime&time)    This signal only exists to fully implement the time Q_PROPERTY on the class.   Normally timeChanged should be used instead.    \internal */
+end_comment
+begin_comment
 comment|/*!   \class QDateEdit   \brief The QDateEdit class provides a widget for editing dates based on   the QDateTimeEdit widget.    \ingroup basicwidgets   \inmodule QtWidgets    Many of the properties and functions provided by QDateEdit are implemented in   QDateTimeEdit. These are the relevant properties of this class:    \list   \li \l{QDateTimeEdit::date}{date} holds the date displayed by the widget.   \li \l{QDateTimeEdit::minimumDate}{minimumDate} defines the minimum (earliest)      date that can be set by the user.   \li \l{QDateTimeEdit::maximumDate}{maximumDate} defines the maximum (latest) date      that can be set by the user.   \li \l{QDateTimeEdit::displayFormat}{displayFormat} contains a string that is used      to format the date displayed in the widget.   \endlist    \table 100%   \row \li \inlineimage windowsxp-dateedit.png Screenshot of a Windows XP style date editing widget        \li A date editing widget shown in the \l{Windows XP Style Widget Gallery}{Windows XP widget style}.   \row \li \inlineimage macintosh-dateedit.png Screenshot of a Macintosh style date editing widget        \li A date editing widget shown in the \l{Macintosh Style Widget Gallery}{Macintosh widget style}.   \row \li \inlineimage plastique-dateedit.png Screenshot of a Plastique style date editing widget        \li A date editing widget shown in the \l{Plastique Style Widget Gallery}{Plastique widget style}.   \endtable    \sa QTimeEdit, QDateTimeEdit */
+end_comment
+begin_comment
 comment|/*!   Constructs an empty date editor with a \a parent. */
+end_comment
+begin_constructor
 DECL|function|QDateEdit
 name|QDateEdit
 operator|::
@@ -5742,7 +5815,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+end_constructor
+begin_comment
 comment|/*!   Constructs an empty date editor with a \a parent. The date is set   to \a date. */
+end_comment
+begin_constructor
 DECL|function|QDateEdit
 name|QDateEdit
 operator|::
@@ -5769,10 +5846,20 @@ argument_list|,
 name|parent
 argument_list|)
 block|{ }
+end_constructor
+begin_comment
 comment|/*!   \property QDateEdit::date   \internal   \sa QDateTimeEdit::date */
+end_comment
+begin_comment
 comment|/*!   \fn void QDateEdit::userDateChanged(const QDate&date)    This signal only exists to fully implement the date Q_PROPERTY on the class.   Normally dateChanged should be used instead.    \internal */
+end_comment
+begin_comment
 comment|// --- QDateTimeEditPrivate ---
+end_comment
+begin_comment
 comment|/*!   \internal   Constructs a QDateTimeEditPrivate object */
+end_comment
+begin_constructor
 DECL|function|QDateTimeEditPrivate
 name|QDateTimeEditPrivate
 operator|::
@@ -5902,6 +5989,8 @@ expr_stmt|;
 endif|#
 directive|endif
 block|}
+end_constructor
+begin_function
 DECL|function|updateTimeSpec
 name|void
 name|QDateTimeEditPrivate
@@ -6008,6 +6097,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+end_function
+begin_function
 DECL|function|updateEdit
 name|void
 name|QDateTimeEditPrivate
@@ -6175,7 +6266,11 @@ name|sb
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!   \internal    Selects the section \a s. If \a forward is false selects backwards. */
+end_comment
+begin_function
 DECL|function|setSelected
 name|void
 name|QDateTimeEditPrivate
@@ -6307,7 +6402,11 @@ expr_stmt|;
 block|}
 block|}
 block|}
+end_function
+begin_comment
 comment|/*!   \internal    Returns the section at index \a index or NoSection if there are no sections there. */
+end_comment
+begin_function
 DECL|function|sectionAt
 name|int
 name|QDateTimeEditPrivate
@@ -6470,7 +6569,11 @@ operator|-
 literal|1
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!   \internal    Returns the closest section of index \a index. Searches forward   for a section if \a forward is true. Otherwise searches backwards. */
+end_comment
+begin_function
 DECL|function|closestSection
 name|int
 name|QDateTimeEditPrivate
@@ -6651,7 +6754,11 @@ return|return
 name|NoSectionIndex
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!   \internal    Returns a copy of the section that is before or after \a current, depending on \a forward. */
+end_comment
+begin_function
 DECL|function|nextPrevSection
 name|int
 name|QDateTimeEditPrivate
@@ -6780,7 +6887,11 @@ return|return
 name|current
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!   \internal    Clears the text of section \a s. */
+end_comment
+begin_function
 DECL|function|clearSection
 name|void
 name|QDateTimeEditPrivate
@@ -6906,7 +7017,11 @@ name|blocked
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!   \internal    updates the cached values */
+end_comment
+begin_function
 DECL|function|updateCache
 name|void
 name|QDateTimeEditPrivate
@@ -6975,7 +7090,11 @@ literal|false
 expr_stmt|;
 block|}
 block|}
+end_function
+begin_comment
 comment|/*!   \internal    parses and validates \a input */
+end_comment
+begin_function
 DECL|function|validateAndInterpret
 name|QDateTime
 name|QDateTimeEditPrivate
@@ -7360,7 +7479,11 @@ name|value
 operator|)
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!   \internal */
+end_comment
+begin_function
 DECL|function|textFromValue
 name|QString
 name|QDateTimeEditPrivate
@@ -7392,7 +7515,11 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!   \internal    This function's name is slightly confusing; it is not to be confused   with QAbstractSpinBox::valueFromText(). */
+end_comment
+begin_function
 DECL|function|valueFromText
 name|QVariant
 name|QDateTimeEditPrivate
@@ -7426,7 +7553,11 @@ name|spec
 argument_list|)
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!   \internal    Internal function called by QDateTimeEdit::stepBy(). Also takes a   Section for which section to step on and a bool \a test for   whether or not to modify the internal cachedDay variable. This is   necessary because the function is called from the const function   QDateTimeEdit::stepEnabled() as well as QDateTimeEdit::stepBy(). */
+end_comment
+begin_function
 DECL|function|stepBy
 name|QDateTime
 name|QDateTimeEditPrivate
@@ -8323,7 +8454,11 @@ return|return
 name|ret
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!   \internal */
+end_comment
+begin_function
 DECL|function|emitSignals
 name|void
 name|QDateTimeEditPrivate
@@ -8496,7 +8631,11 @@ argument_list|()
 argument_list|)
 emit|;
 block|}
+end_function
+begin_comment
 comment|/*!   \internal */
+end_comment
+begin_function
 DECL|function|_q_editorCursorPositionChanged
 name|void
 name|QDateTimeEditPrivate
@@ -8887,7 +9026,11 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!   \internal    Try to get the format from the local settings */
+end_comment
+begin_function
 DECL|function|readLocaleSettings
 name|void
 name|QDateTimeEditPrivate
@@ -8933,6 +9076,8 @@ name|ShortFormat
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_function
 DECL|function|convertToPublic
 name|QDateTimeEdit
 operator|::
@@ -9048,6 +9193,8 @@ operator|::
 name|NoSection
 return|;
 block|}
+end_function
+begin_function
 DECL|function|convertSections
 name|QDateTimeEdit
 operator|::
@@ -9207,7 +9354,11 @@ return|return
 name|ret
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!     \reimp */
+end_comment
+begin_function
 DECL|function|paintEvent
 name|void
 name|QDateTimeEdit
@@ -9341,6 +9492,8 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_function
 DECL|function|getAmPmText
 name|QString
 name|QDateTimeEditPrivate
@@ -9409,6 +9562,8 @@ operator|)
 return|;
 block|}
 block|}
+end_function
+begin_function
 DECL|function|absoluteIndex
 name|int
 name|QDateTimeEditPrivate
@@ -9474,6 +9629,8 @@ return|return
 name|NoSectionIndex
 return|;
 block|}
+end_function
+begin_function
 DECL|function|absoluteIndex
 name|int
 name|QDateTimeEditPrivate
@@ -9496,6 +9653,8 @@ name|s
 argument_list|)
 return|;
 block|}
+end_function
+begin_function
 DECL|function|interpret
 name|void
 name|QDateTimeEditPrivate
@@ -9595,6 +9754,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+begin_function
 DECL|function|clearCache
 name|void
 name|QDateTimeEditPrivate
@@ -9614,7 +9775,11 @@ operator|-
 literal|1
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!     Initialize \a option with the values from this QDataTimeEdit. This method     is useful for subclasses when they need a QStyleOptionSpinBox, but don't want     to fill in all the information themselves.      \sa QStyleOption::initFrom() */
+end_comment
+begin_function
 DECL|function|initStyleOption
 name|void
 name|QDateTimeEdit
@@ -9700,6 +9865,8 @@ name|State_Sunken
 expr_stmt|;
 block|}
 block|}
+end_function
+begin_function
 DECL|function|init
 name|void
 name|QDateTimeEditPrivate
@@ -9897,6 +10064,8 @@ name|SE_DateTimeEditLayoutItem
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_function
 DECL|function|_q_resetButton
 name|void
 name|QDateTimeEditPrivate
@@ -9912,6 +10081,8 @@ name|State_None
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_function
 DECL|function|updateArrow
 name|void
 name|QDateTimeEditPrivate
@@ -9971,7 +10142,11 @@ name|update
 argument_list|()
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!     \internal     Returns the hover control at \a pos.     This will update the hoverRect and hoverControl. */
+end_comment
+begin_function
 DECL|function|newHoverControl
 name|QStyle
 operator|::
@@ -10054,6 +10229,8 @@ return|return
 name|hoverControl
 return|;
 block|}
+end_function
+begin_function
 DECL|function|updateEditFieldGeometry
 name|void
 name|QDateTimeEditPrivate
@@ -10131,6 +10308,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_function
 DECL|function|getZeroVariant
 name|QVariant
 name|QDateTimeEditPrivate
@@ -10160,6 +10339,8 @@ name|spec
 argument_list|)
 return|;
 block|}
+end_function
+begin_function
 DECL|function|setRange
 name|void
 name|QDateTimeEditPrivate
@@ -10190,6 +10371,8 @@ name|syncCalendarWidget
 argument_list|()
 expr_stmt|;
 block|}
+end_function
+begin_function
 DECL|function|isSeparatorKey
 name|bool
 name|QDateTimeEditPrivate
@@ -10301,6 +10484,8 @@ return|return
 literal|false
 return|;
 block|}
+end_function
+begin_function
 DECL|function|initCalendarPopup
 name|void
 name|QDateTimeEditPrivate
@@ -10481,6 +10666,8 @@ name|syncCalendarWidget
 argument_list|()
 expr_stmt|;
 block|}
+end_function
+begin_function
 DECL|function|positionCalendarPopup
 name|void
 name|QDateTimeEditPrivate
@@ -10882,6 +11069,8 @@ name|pos
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_function
 DECL|function|calendarPopupEnabled
 name|bool
 name|QDateTimeEditPrivate
@@ -10904,6 +11093,8 @@ operator|)
 operator|)
 return|;
 block|}
+end_function
+begin_function
 DECL|function|syncCalendarWidget
 name|void
 name|QDateTimeEditPrivate
@@ -10966,6 +11157,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+begin_constructor
 DECL|function|QCalendarPopup
 name|QCalendarPopup
 operator|::
@@ -11019,6 +11212,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_constructor
+begin_function
 DECL|function|verifyCalendarInstance
 name|QCalendarWidget
 modifier|*
@@ -11094,6 +11289,8 @@ argument_list|()
 return|;
 block|}
 block|}
+end_function
+begin_function
 DECL|function|setCalendarWidget
 name|void
 name|QCalendarPopup
@@ -11247,6 +11444,8 @@ name|setFocus
 argument_list|()
 expr_stmt|;
 block|}
+end_function
+begin_function
 DECL|function|setDate
 name|void
 name|QCalendarPopup
@@ -11272,6 +11471,8 @@ name|date
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_function
 DECL|function|setDateRange
 name|void
 name|QCalendarPopup
@@ -11311,6 +11512,8 @@ name|max
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_function
 DECL|function|mousePressEvent
 name|void
 name|QCalendarPopup
@@ -11429,6 +11632,8 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_function
 DECL|function|mouseReleaseEvent
 name|void
 name|QCalendarPopup
@@ -11444,6 +11649,8 @@ name|resetButton
 argument_list|()
 emit|;
 block|}
+end_function
+begin_function
 DECL|function|event
 name|bool
 name|QCalendarPopup
@@ -11505,6 +11712,8 @@ name|event
 argument_list|)
 return|;
 block|}
+end_function
+begin_function
 DECL|function|dateSelectionChanged
 name|void
 name|QCalendarPopup
@@ -11527,6 +11736,8 @@ argument_list|()
 argument_list|)
 emit|;
 block|}
+end_function
+begin_function
 DECL|function|dateSelected
 name|void
 name|QCalendarPopup
@@ -11553,6 +11764,8 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+end_function
+begin_function
 DECL|function|hideEvent
 name|void
 name|QCalendarPopup
@@ -11579,8 +11792,10 @@ name|oldDate
 argument_list|)
 emit|;
 block|}
-name|QT_END_NAMESPACE
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_include
 include|#
 directive|include

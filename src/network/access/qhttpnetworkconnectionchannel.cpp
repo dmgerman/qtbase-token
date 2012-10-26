@@ -4479,12 +4479,6 @@ block|{
 comment|// For the Happy Eyeballs we need to check if this is the first channel to connect.
 if|if
 condition|(
-operator|!
-name|pendingEncrypt
-condition|)
-block|{
-if|if
-condition|(
 name|connection
 operator|->
 name|d_func
@@ -4680,7 +4674,6 @@ expr_stmt|;
 return|return;
 block|}
 comment|//The connections networkLayerState had already been decided.
-block|}
 block|}
 comment|// improve performance since we get the request sent by the kernel ASAP
 comment|//socket->setSocketOption(QAbstractSocket::LowDelayOption, 1);

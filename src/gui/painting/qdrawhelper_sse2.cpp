@@ -3336,8 +3336,10 @@ argument_list|)
 return|;
 block|}
 comment|// pre-VS 2008 doesn't have cast intrinsics, whereas 2008 and later requires it
+comment|// (same deal with gcc prior to 4.0)
 if|#
 directive|if
+operator|(
 name|defined
 argument_list|(
 name|Q_CC_MSVC
@@ -3346,6 +3348,18 @@ operator|&&
 name|_MSC_VER
 operator|<
 literal|1500
+operator|)
+operator|||
+operator|(
+name|defined
+argument_list|(
+name|Q_CC_GNU
+argument_list|)
+operator|&&
+name|__GNUC__
+operator|<
+literal|4
+operator|)
 DECL|function|v_greaterOrEqual
 specifier|static
 specifier|inline

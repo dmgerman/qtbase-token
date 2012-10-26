@@ -496,10 +496,6 @@ if|if
 condition|(
 name|autoDefault
 argument_list|()
-operator|||
-name|d
-operator|->
-name|defaultButton
 condition|)
 name|option
 operator|->

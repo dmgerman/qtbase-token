@@ -484,7 +484,7 @@ name|styleNames
 operator|<<
 name|QStringLiteral
 argument_list|(
-literal|"Plastique"
+literal|"Fusion"
 argument_list|)
 operator|<<
 name|QStringLiteral
@@ -1090,7 +1090,7 @@ argument_list|)
 operator|<<
 name|QStringLiteral
 argument_list|(
-literal|"plastique"
+literal|"fusion"
 argument_list|)
 operator|<<
 name|QStringLiteral

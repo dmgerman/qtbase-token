@@ -16010,7 +16010,7 @@ argument_list|,
 name|SIGNAL
 argument_list|(
 name|signalWithNoArg
-argument_list|( )
+argument_list|()
 argument_list|)
 argument_list|,
 name|s1
@@ -16035,7 +16035,7 @@ argument_list|(
 name|SIGNAL
 argument_list|(
 name|signalWithNoArg
-argument_list|( )
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -16055,9 +16055,7 @@ name|SIGNAL
 argument_list|(
 name|signalWithStringArg
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -16084,9 +16082,7 @@ name|SIGNAL
 argument_list|(
 name|signalWithStringArg
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -33244,7 +33240,7 @@ argument_list|,
 name|SIGNAL
 argument_list|(
 name|signalWithNoArg
-argument_list|( )
+argument_list|()
 argument_list|)
 argument_list|,
 name|s1

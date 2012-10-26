@@ -218,10 +218,25 @@ name|void
 name|ctor
 parameter_list|()
 function_decl|;
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINCE
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_PROCESS
+argument_list|)
 name|void
 name|emptyCtor
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|unixLocaleName
 parameter_list|()
@@ -1838,6 +1853,30 @@ directive|undef
 name|TEST_CTOR
 block|}
 end_function
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINCE
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_PROCESS
+argument_list|)
+end_if
+begin_comment
+comment|// Not when Q_OS_WINCE is defined because the test uses unsupported
+end_comment
+begin_comment
+comment|// Windows CE QProcess functionality (std streams, env)
+end_comment
+begin_comment
+comment|// Also Qt needs to be compiled without QT_NO_PROCESS
+end_comment
 begin_function
 DECL|function|runSysApp
 specifier|static
@@ -2110,32 +2149,7 @@ operator|::
 name|emptyCtor
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_WINCE
-argument_list|)
-name|QSKIP
-argument_list|(
-literal|"Uses unsupported Windows CE QProcess functionality (std streams, env)"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QT_NO_PROCESS
-argument_list|)
-name|QSKIP
-argument_list|(
-literal|"Qt was compiled with QT_NO_PROCESS"
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
+DECL|macro|TEST_CTOR
 define|#
 directive|define
 name|TEST_CTOR
@@ -2443,13 +2457,16 @@ name|toLatin1
 argument_list|()
 argument_list|)
 expr_stmt|;
+DECL|macro|TEST_CTOR
 undef|#
 directive|undef
 name|TEST_CTOR
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|unixLocaleName
 name|void
@@ -7186,6 +7203,26 @@ literal|"hh:mm:ss.zzz ap d'd'dd/M/yy"
 operator|<<
 literal|"hh:mm:ss.zzz ap 1d01/12/74"
 expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"dd MMMM yyyy"
+argument_list|)
+operator|<<
+name|QDate
+argument_list|(
+literal|1
+argument_list|,
+literal|1
+argument_list|,
+literal|1
+argument_list|)
+operator|<<
+literal|"dd MMMM yyyy"
+operator|<<
+literal|"01 January 0001"
+expr_stmt|;
 block|}
 end_function
 begin_function
@@ -8387,6 +8424,40 @@ operator|<<
 literal|"d'd'dd/M/yyh"
 operator|<<
 literal|"1d01/12/7415"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"dd MMMM yyyy, hh:mm:ss"
+argument_list|)
+operator|<<
+literal|"C"
+operator|<<
+name|QDateTime
+argument_list|(
+name|QDate
+argument_list|(
+literal|1
+argument_list|,
+literal|1
+argument_list|,
+literal|1
+argument_list|)
+argument_list|,
+name|QTime
+argument_list|(
+literal|12
+argument_list|,
+literal|00
+argument_list|,
+literal|00
+argument_list|)
+argument_list|)
+operator|<<
+literal|"dd MMMM yyyy, hh:mm:ss"
+operator|<<
+literal|"01 January 0001, 12:00:00"
 expr_stmt|;
 name|QTest
 operator|::

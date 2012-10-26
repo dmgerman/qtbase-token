@@ -196,6 +196,23 @@ name|QScopedPointerPodDeleter
 operator|>
 name|mt_file
 expr_stmt|;
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_QNX
+argument_list|)
+operator|&&
+name|defined
+argument_list|(
+name|__EXT_QNX__READDIR_R
+argument_list|)
+comment|// for _readdir_r
+name|size_t
+name|direntSize
+decl_stmt|;
+endif|#
+directive|endif
 endif|#
 directive|endif
 name|int

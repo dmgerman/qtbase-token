@@ -75,6 +75,27 @@ end_include
 begin_if
 if|#
 directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_STYLE_WINDOWS
+argument_list|)
+end_if
+begin_include
+include|#
+directive|include
+file|<qwindowsstyle.h>
+end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_STYLE_WINDOWS
+end_comment
+begin_if
+if|#
+directive|if
 name|defined
 argument_list|(
 name|Q_OS_WIN
@@ -13437,6 +13458,26 @@ comment|// create listview
 name|QListView
 name|lv
 decl_stmt|;
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_STYLE_WINDOWS
+argument_list|)
+comment|// The test fails on Fusion style
+comment|// See https://bugreports.qt-project.org/browse/QTBUG-27675
+name|lv
+operator|.
+name|setStyle
+argument_list|(
+operator|new
+name|QWindowsStyle
+argument_list|()
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|lv
 operator|.
 name|setFlow

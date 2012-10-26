@@ -4128,10 +4128,15 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
+name|qt_pen_is_cosmetic
+argument_list|(
 name|pen
-operator|.
-name|isCosmetic
+argument_list|,
+name|state
 argument_list|()
+operator|->
+name|renderHints
+argument_list|)
 condition|)
 name|transformedWidth
 operator|=

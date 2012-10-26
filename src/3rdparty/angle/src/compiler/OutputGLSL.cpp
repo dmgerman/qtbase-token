@@ -1,0 +1,54 @@
+begin_unit
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// Copyright (c) 2002-2011 The ANGLE Project Authors. All rights reserved.
+end_comment
+begin_comment
+comment|// Use of this source code is governed by a BSD-style license that can be
+end_comment
+begin_comment
+comment|// found in the LICENSE file.
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_include
+include|#
+directive|include
+file|"compiler/OutputGLSL.h"
+end_include
+begin_constructor
+DECL|function|TOutputGLSL
+name|TOutputGLSL
+operator|::
+name|TOutputGLSL
+parameter_list|(
+name|TInfoSinkBase
+modifier|&
+name|objSink
+parameter_list|)
+member_init_list|:
+name|TOutputGLSLBase
+argument_list|(
+name|objSink
+argument_list|)
+block|{ }
+end_constructor
+begin_function
+DECL|function|writeVariablePrecision
+name|bool
+name|TOutputGLSL
+operator|::
+name|writeVariablePrecision
+parameter_list|(
+name|TPrecision
+parameter_list|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+end_function
+end_unit

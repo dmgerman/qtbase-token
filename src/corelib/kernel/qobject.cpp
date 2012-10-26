@@ -3568,6 +3568,9 @@ operator|->
 name|extraData
 operator|->
 name|objectName
+argument_list|,
+name|QPrivateSignal
+argument_list|()
 argument_list|)
 emit|;
 block|}

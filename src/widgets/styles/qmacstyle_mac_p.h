@@ -32,7 +32,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qwindowsstyle_p.h"
+file|"qcommonstyle_p.h"
 end_include
 begin_include
 include|#
@@ -405,7 +405,7 @@ name|class
 name|QMacStylePrivate
 range|:
 name|public
-name|QWindowsStylePrivate
+name|QCommonStylePrivate
 block|{
 name|Q_DECLARE_PUBLIC
 argument_list|(
@@ -479,13 +479,6 @@ argument_list|(
 name|QWidget
 operator|*
 argument_list|)
-block|;
-name|void
-name|removeWidget
-argument_list|(
-name|QWidget
-operator|*
-argument_list|)
 block|;      enum
 name|Animates
 block|{
@@ -497,33 +490,6 @@ name|AquaListViewItemOpen
 block|,
 name|AquaScrollBar
 block|}
-block|;
-name|bool
-name|animatable
-argument_list|(
-argument|Animates
-argument_list|,
-argument|const QObject *
-argument_list|)
-specifier|const
-block|;
-name|void
-name|stopAnimate
-argument_list|(
-name|Animates
-argument_list|,
-name|QObject
-operator|*
-argument_list|)
-block|;
-name|void
-name|startAnimate
-argument_list|(
-name|Animates
-argument_list|,
-name|QObject
-operator|*
-argument_list|)
 block|;
 specifier|static
 name|ThemeDrawState
@@ -709,14 +675,27 @@ specifier|const
 block|;
 name|public
 operator|:
+name|mutable
 name|QPointer
 operator|<
-name|QPushButton
+name|QObject
+operator|>
+name|pressedButton
+block|;
+name|mutable
+name|QPointer
+operator|<
+name|QObject
 operator|>
 name|defaultButton
 block|;
-comment|//default push buttons
-block|struct
+name|mutable
+name|QPointer
+operator|<
+name|QObject
+operator|>
+name|autoDefaultButton
+block|;      struct
 name|OverlayScrollBarInfo
 block|{
 name|OverlayScrollBarInfo
@@ -760,6 +739,11 @@ argument_list|)
 block|,
 name|cleared
 argument_list|(
+name|false
+argument_list|)
+block|,
+name|animating
+argument_list|(
 argument|false
 argument_list|)
 block|{}
@@ -786,6 +770,9 @@ name|lastHovered
 block|;
 name|bool
 name|cleared
+block|;
+name|bool
+name|animating
 block|;     }
 block|;
 name|mutable

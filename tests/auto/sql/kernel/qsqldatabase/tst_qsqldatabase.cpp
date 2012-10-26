@@ -15394,9 +15394,7 @@ name|SIGNAL
 argument_list|(
 name|notification
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -15566,17 +15564,13 @@ name|SIGNAL
 argument_list|(
 name|notification
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|,
 name|QSqlDriver
 operator|::
 name|NotificationSource
 argument_list|,
-specifier|const
 name|QVariant
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)

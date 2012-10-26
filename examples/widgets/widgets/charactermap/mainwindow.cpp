@@ -180,9 +180,9 @@ operator|::
 name|clipboard
 argument_list|()
 expr_stmt|;
+comment|//! [3]
 endif|#
 directive|endif
-comment|//! [3]
 comment|//! [4]
 name|connect
 argument_list|(

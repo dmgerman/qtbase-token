@@ -539,13 +539,13 @@ comment|// Oxygen style creates many extra items, it's simply unusable here
 name|qDebug
 argument_list|()
 operator|<<
-literal|"Using plastique style..."
+literal|"Using fusion style..."
 expr_stmt|;
 name|qApp
 operator|->
 name|setStyle
 argument_list|(
-literal|"plastique"
+literal|"fusion"
 argument_list|)
 expr_stmt|;
 name|qApp

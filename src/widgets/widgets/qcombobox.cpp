@@ -4410,6 +4410,33 @@ argument_list|(
 name|QComboBox
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+comment|// On Mac, only line edits and list views always get tab focus. It's only
+comment|// when we enable full keyboard access that other controls can get tab focus.
+comment|// When it's not editable, a combobox looks like a button, and it behaves as
+comment|// such in this respect.
+if|if
+condition|(
+operator|!
+name|q
+operator|->
+name|isEditable
+argument_list|()
+condition|)
+name|q
+operator|->
+name|setFocusPolicy
+argument_list|(
+name|Qt
+operator|::
+name|TabFocus
+argument_list|)
+expr_stmt|;
+else|else
+endif|#
+directive|endif
 name|q
 operator|->
 name|setFocusPolicy
@@ -7573,6 +7600,19 @@ argument_list|(
 name|le
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+comment|// See comment in QComboBoxPrivate::init()
+name|setFocusPolicy
+argument_list|(
+name|Qt
+operator|::
+name|WheelFocus
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 else|else
 block|{
@@ -7642,6 +7682,19 @@ name|lineEdit
 operator|=
 literal|0
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+comment|// See comment in QComboBoxPrivate::init()
+name|setFocusPolicy
+argument_list|(
+name|Qt
+operator|::
+name|TabFocus
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 name|d
 operator|->

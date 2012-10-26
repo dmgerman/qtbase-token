@@ -112,6 +112,12 @@ name|QMainWindow
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QPlainTextEdit
+name|class
+name|QPlainTextEdit
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QTextCursor
 name|class
 name|QTextCursor
@@ -402,7 +408,7 @@ specifier|const
 expr_stmt|;
 name|virtual
 name|QPoint
-name|scrollBarsCurrentPosition
+name|scrollBarPosition
 argument_list|()
 specifier|const
 expr_stmt|;
@@ -460,6 +466,102 @@ ifndef|#
 directive|ifndef
 name|QT_NO_TEXTEDIT
 end_ifndef
+begin_decl_stmt
+name|class
+name|QAccessiblePlainTextEdit
+range|:
+name|public
+name|QAccessibleTextWidget
+block|{
+name|public
+operator|:
+name|explicit
+name|QAccessiblePlainTextEdit
+argument_list|(
+name|QWidget
+operator|*
+name|o
+argument_list|)
+block|;
+name|QString
+name|text
+argument_list|(
+argument|QAccessible::Text t
+argument_list|)
+specifier|const
+block|;
+name|void
+name|setText
+argument_list|(
+argument|QAccessible::Text t
+argument_list|,
+argument|const QString&text
+argument_list|)
+block|;
+name|QAccessible
+operator|::
+name|State
+name|state
+argument_list|()
+specifier|const
+block|;
+name|void
+operator|*
+name|interface_cast
+argument_list|(
+argument|QAccessible::InterfaceType t
+argument_list|)
+block|;
+comment|// QAccessibleTextInterface
+name|void
+name|scrollToSubstring
+argument_list|(
+argument|int startIndex
+argument_list|,
+argument|int endIndex
+argument_list|)
+block|;
+name|protected
+operator|:
+name|QPlainTextEdit
+operator|*
+name|plainTextEdit
+argument_list|()
+specifier|const
+block|;
+name|QPoint
+name|scrollBarPosition
+argument_list|()
+specifier|const
+block|;
+name|QTextCursor
+name|textCursor
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setTextCursor
+argument_list|(
+specifier|const
+name|QTextCursor
+operator|&
+name|textCursor
+argument_list|)
+block|;
+name|QTextDocument
+operator|*
+name|textDocument
+argument_list|()
+specifier|const
+block|;
+name|QWidget
+operator|*
+name|viewport
+argument_list|()
+specifier|const
+block|; }
+decl_stmt|;
+end_decl_stmt
 begin_decl_stmt
 name|class
 name|QAccessibleTextEdit
@@ -524,7 +626,7 @@ argument_list|()
 specifier|const
 block|;
 name|QPoint
-name|scrollBarsCurrentPosition
+name|scrollBarPosition
 argument_list|()
 specifier|const
 block|;
@@ -553,11 +655,6 @@ operator|*
 name|viewport
 argument_list|()
 specifier|const
-block|;
-name|private
-operator|:
-name|int
-name|childOffset
 block|; }
 decl_stmt|;
 end_decl_stmt

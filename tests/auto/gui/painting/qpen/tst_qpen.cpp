@@ -693,7 +693,7 @@ operator|::
 name|black
 argument_list|)
 operator|<<
-literal|0.
+literal|1.
 operator|<<
 operator|(
 name|int
@@ -737,7 +737,7 @@ operator|::
 name|red
 argument_list|)
 operator|<<
-literal|0.
+literal|1.
 operator|<<
 operator|(
 name|int

@@ -1709,7 +1709,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     Returns \l Acceptable if \a input is matched by the regular     expression for this validator, \l Intermediate if it has matched     partially (i.e. could be a valid match if additional valid     characters are added), and \l Invalid if \a input is not matched.      The \a pos parameter is set to the length of the \a input parameter.      For example, if the regular expression is \b{\\w\\d\\d}     (word-character, digit, digit) then "A57" is \l Acceptable,     "E5" is \l Intermediate, and "+9" is \l Invalid.      \sa QRegExp::exactMatch() */
+comment|/*!     Returns \l Acceptable if \a input is matched by the regular     expression for this validator, \l Intermediate if it has matched     partially (i.e. could be a valid match if additional valid     characters are added), and \l Invalid if \a input is not matched.      Additionally, if \a input is not matched, the \a pos parameter is set to     the length of the \a input parameter.      For example, if the regular expression is \b{\\w\\d\\d}     (word-character, digit, digit) then "A57" is \l Acceptable,     "E5" is \l Intermediate, and "+9" is \l Invalid.      \sa QRegExp::exactMatch() */
 end_comment
 begin_function
 DECL|function|validate

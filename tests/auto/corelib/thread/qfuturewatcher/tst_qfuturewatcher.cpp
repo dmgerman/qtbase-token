@@ -2986,9 +2986,7 @@ name|SIGNAL
 argument_list|(
 name|progressTextChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -2999,9 +2997,7 @@ name|SLOT
 argument_list|(
 name|printText
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -3046,9 +3042,7 @@ name|SIGNAL
 argument_list|(
 name|progressTextChanged
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -3059,9 +3053,7 @@ name|SLOT
 argument_list|(
 name|registerText
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)

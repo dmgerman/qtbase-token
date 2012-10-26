@@ -93,11 +93,17 @@ argument_list|(
 name|it
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|anim
+condition|)
+block|{
 name|anim
 operator|->
 name|stop
 argument_list|()
 expr_stmt|;
+block|}
 ifndef|#
 directive|ifndef
 name|QT_NO_MAINWINDOW

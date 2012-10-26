@@ -2088,6 +2088,17 @@ specifier|const
 name|QString
 modifier|&
 name|objectName
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|qdoc
+argument_list|)
+parameter_list|,
+name|QPrivateSignal
+endif|#
+directive|endif
 parameter_list|)
 function_decl|;
 end_function_decl

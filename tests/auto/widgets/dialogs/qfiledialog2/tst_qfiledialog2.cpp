@@ -352,10 +352,15 @@ name|void
 name|task180459_lastDirectory
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|Q_OS_MAC
 name|void
 name|task227930_correctNavigationKeyboardBehavior
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 if|#
 directive|if
 name|defined
@@ -1471,6 +1476,9 @@ begin_struct
 DECL|struct|MenuCloser
 struct|struct
 name|MenuCloser
+super|:
+specifier|public
+name|QObject
 block|{
 DECL|member|w
 name|QWidget
@@ -1491,12 +1499,10 @@ argument_list|(
 name|w
 argument_list|)
 block|{}
-DECL|function|operator ()
+DECL|function|close
 name|void
-name|operator
-name|()
+name|close
 parameter_list|()
-specifier|const
 block|{
 name|QMenu
 modifier|*
@@ -1606,6 +1612,13 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+name|MenuCloser
+name|closer
+argument_list|(
+operator|&
+name|fd
+argument_list|)
+decl_stmt|;
 name|QObject
 operator|::
 name|connect
@@ -1618,11 +1631,13 @@ name|QTimer
 operator|::
 name|timeout
 argument_list|,
-name|MenuCloser
-argument_list|(
 operator|&
-name|fd
-argument_list|)
+name|closer
+argument_list|,
+operator|&
+name|MenuCloser
+operator|::
+name|close
 argument_list|)
 expr_stmt|;
 name|timer
@@ -3261,6 +3276,20 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_MAC
+end_ifndef
+begin_comment
+comment|// The following test implies the folder created will appear first in
+end_comment
+begin_comment
+comment|// the list. On Mac files sorting depends on the locale and the order
+end_comment
+begin_comment
+comment|// displayed cannot be known for sure.
+end_comment
 begin_function
 DECL|function|task227930_correctNavigationKeyboardBehavior
 name|void
@@ -3269,24 +3298,6 @@ operator|::
 name|task227930_correctNavigationKeyboardBehavior
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_MAC
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_LINUX
-argument_list|)
-name|QSKIP
-argument_list|(
-literal|"This test currently fails on Mac OS X and linux CI, see QTBUG-23602"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QDir
 name|current
 init|=
@@ -3582,6 +3593,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_if
 if|#
 directive|if

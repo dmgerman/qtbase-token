@@ -40,7 +40,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qplastiquestyle.h>
+file|<qwindowsstyle.h>
 end_include
 begin_class
 DECL|class|tst_QGraphicsLinearLayout
@@ -404,12 +404,6 @@ parameter_list|()
 block|{
 comment|// since the style will influence the results, we have to ensure
 comment|// that the tests are run using the same style on all platforms
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_WINCE
-argument_list|)
 name|QApplication
 operator|::
 name|setStyle
@@ -418,18 +412,6 @@ operator|new
 name|QWindowsStyle
 argument_list|)
 expr_stmt|;
-else|#
-directive|else
-name|QApplication
-operator|::
-name|setStyle
-argument_list|(
-operator|new
-name|QPlastiqueStyle
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_comment

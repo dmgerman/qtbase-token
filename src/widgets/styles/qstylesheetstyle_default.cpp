@@ -819,7 +819,7 @@ expr_stmt|;
 name|ADD_STYLE_RULE
 expr_stmt|;
 block|}
-comment|/*QComboBox[style="QPlastiqueStyle"][readOnly="true"],     QComboBox[style="QCleanlooksStyle"][readOnly="true"]     {         -qt-background-role: button;     }*/
+comment|/*QComboBox[style="QPlastiqueStyle"][readOnly="true"],     QComboBox[style="QFusionStyle"][readOnly="true"],     QComboBox[style="QCleanlooksStyle"][readOnly="true"]     {         -qt-background-role: button;     }*/
 if|if
 condition|(
 name|baseStyle
@@ -836,6 +836,14 @@ operator|->
 name|inherits
 argument_list|(
 literal|"QCleanlooksStyle"
+argument_list|)
+operator|||
+name|baseStyle
+argument_list|()
+operator|->
+name|inherits
+argument_list|(
+literal|"QFusionStyle"
 argument_list|)
 condition|)
 block|{

@@ -980,20 +980,6 @@ condition|)
 return|return
 literal|29
 return|;
-elseif|else
-if|if
-condition|(
-name|m
-argument_list|<
-literal|1
-operator|||
-name|m
-argument_list|>
-literal|12
-condition|)
-return|return
-literal|0
-return|;
 else|else
 return|return
 name|monthDays
@@ -2857,22 +2843,20 @@ expr_stmt|;
 break|break;
 block|}
 block|}
-block|}
 if|if
 condition|(
 name|month
-argument_list|<
+operator|==
+operator|-
 literal|1
-operator|||
-name|month
-argument_list|>
-literal|12
 condition|)
 block|{
+comment|// Month name matches neither English nor other localised name.
 return|return
 name|QDate
 argument_list|()
 return|;
+block|}
 block|}
 name|bool
 name|ok
@@ -4260,7 +4244,9 @@ name|size
 argument_list|()
 operator|>
 literal|6
+operator|)
 operator|&&
+operator|(
 name|s
 index|[
 literal|5
@@ -4270,7 +4256,6 @@ name|QLatin1Char
 argument_list|(
 literal|','
 argument_list|)
-operator|)
 operator|||
 name|s
 index|[
@@ -4281,6 +4266,7 @@ name|QLatin1Char
 argument_list|(
 literal|'.'
 argument_list|)
+operator|)
 condition|)
 block|{
 comment|// Possibly specifying fraction of a minute.
@@ -6478,6 +6464,18 @@ name|qint64
 name|msecs
 parameter_list|)
 block|{
+if|if
+condition|(
+operator|!
+name|dt
+operator|.
+name|isValid
+argument_list|()
+condition|)
+return|return
+name|QDateTime
+argument_list|()
+return|;
 name|QDate
 name|utcDate
 decl_stmt|;
@@ -6715,7 +6713,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a QDateTime object containing a datetime \a s seconds     later than the datetime of this object (or earlier if \a s is     negative).      \sa addMSecs(), secsTo(), addDays(), addMonths(), addYears() */
+comment|/*!     Returns a QDateTime object containing a datetime \a s seconds     later than the datetime of this object (or earlier if \a s is     negative).      If this datetime is invalid, an invalid datetime will be returned.      \sa addMSecs(), secsTo(), addDays(), addMonths(), addYears() */
 end_comment
 begin_function
 DECL|function|addSecs
@@ -6745,7 +6743,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a QDateTime object containing a datetime \a msecs miliseconds     later than the datetime of this object (or earlier if \a msecs is     negative).      \sa addSecs(), msecsTo(), addDays(), addMonths(), addYears() */
+comment|/*!     Returns a QDateTime object containing a datetime \a msecs miliseconds     later than the datetime of this object (or earlier if \a msecs is     negative).      If this datetime is invalid, an invalid datetime will be returned.      \sa addSecs(), msecsTo(), addDays(), addMonths(), addYears() */
 end_comment
 begin_function
 DECL|function|addMSecs

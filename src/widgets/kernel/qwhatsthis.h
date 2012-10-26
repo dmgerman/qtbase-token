@@ -41,6 +41,7 @@ name|QWhatsThis
 block|{
 name|QWhatsThis
 argument_list|()
+name|Q_DECL_EQ_DELETE
 expr_stmt|;
 name|public
 label|:

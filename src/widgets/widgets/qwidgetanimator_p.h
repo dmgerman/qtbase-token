@@ -53,6 +53,11 @@ include|#
 directive|include
 file|<qhash.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<qpointer.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QWidget
@@ -138,9 +143,11 @@ operator|<
 name|QWidget
 operator|*
 operator|,
+name|QPointer
+operator|<
 name|QPropertyAnimation
-operator|*
 operator|>
+expr|>
 name|AnimationMap
 expr_stmt|;
 name|AnimationMap

@@ -84,10 +84,15 @@ name|Q_ENUMS
 argument_list|(
 argument|MenuRole
 argument_list|)
+ifndef|#
+directive|ifndef
+name|qdoc
 name|Q_ENUMS
 argument_list|(
 argument|SoftKeyRole
 argument_list|)
+endif|#
+directive|endif
 name|Q_ENUMS
 argument_list|(
 argument|Priority
@@ -157,10 +162,15 @@ name|Q_PROPERTY
 argument_list|(
 argument|MenuRole menuRole READ menuRole WRITE setMenuRole NOTIFY changed
 argument_list|)
+ifndef|#
+directive|ifndef
+name|qdoc
 name|Q_PROPERTY
 argument_list|(
 argument|SoftKeyRole softKeyRole READ softKeyRole WRITE setSoftKeyRole NOTIFY changed
 argument_list|)
+endif|#
+directive|endif
 name|Q_PROPERTY
 argument_list|(
 argument|bool iconVisibleInMenu READ isIconVisibleInMenu WRITE setIconVisibleInMenu NOTIFY changed
@@ -191,7 +201,11 @@ name|PreferencesRole
 block|,
 name|QuitRole
 block|}
-block|;     enum
+block|;
+ifndef|#
+directive|ifndef
+name|qdoc
+block|enum
 name|SoftKeyRole
 block|{
 name|NoSoftKey
@@ -202,7 +216,10 @@ name|NegativeSoftKey
 block|,
 name|SelectSoftKey
 block|}
-block|;     enum
+block|;
+endif|#
+directive|endif
+block|enum
 name|Priority
 block|{
 name|LowPriority
@@ -557,6 +574,9 @@ name|menuRole
 argument_list|()
 specifier|const
 block|;
+ifndef|#
+directive|ifndef
+name|qdoc
 name|void
 name|setSoftKeyRole
 argument_list|(
@@ -568,6 +588,8 @@ name|softKeyRole
 argument_list|()
 specifier|const
 block|;
+endif|#
+directive|endif
 name|void
 name|setIconVisibleInMenu
 argument_list|(

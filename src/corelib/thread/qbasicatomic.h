@@ -329,19 +329,14 @@ ifndef|#
 directive|ifndef
 name|QOLDBASICATOMIC_H
 end_ifndef
-begin_decl_stmt
+begin_expr_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-argument_list|(
-name|Core
-argument_list|)
 if|#
 directive|if
 literal|0
 comment|// silence syncqt warnings
-decl|QT_END_NAMESPACE QT_END_HEADER
+expr|QT_END_NAMESPACE QT_END_HEADER
 pragma|#
 directive|pragma
 name|qt_no_master_include
@@ -374,15 +369,15 @@ name|QT_BASIC_ATOMIC_HAS_CONSTRUCTORS
 endif|#
 directive|endif
 name|template
-decl|<
+operator|<
 name|typename
 name|T
-decl|>
+operator|>
 name|class
 name|QBasicAtomicInteger
 block|{
 name|public
-label|:
+operator|:
 typedef|typedef
 name|QAtomicOps
 operator|<
@@ -390,7 +385,11 @@ name|T
 operator|>
 name|Ops
 expr_stmt|;
+end_expr_stmt
+begin_comment
 comment|// static check that this is a valid integer
+end_comment
+begin_typedef
 typedef|typedef
 name|char
 name|PermittedIntegerType
@@ -408,13 +407,19 @@ operator|-
 literal|1
 index|]
 typedef|;
+end_typedef
+begin_expr_stmt
 name|typename
 name|Ops
 operator|::
 name|Type
 name|_q_value
 expr_stmt|;
+end_expr_stmt
+begin_comment
 comment|// Non-atomic API
+end_comment
+begin_expr_stmt
 name|T
 name|load
 argument_list|()
@@ -430,6 +435,8 @@ name|_q_value
 argument_list|)
 return|;
 block|}
+end_expr_stmt
+begin_function
 name|void
 name|store
 parameter_list|(
@@ -448,7 +455,11 @@ name|newValue
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|// Atomic API, implemented in qatomic_XXX.h
+end_comment
+begin_expr_stmt
 name|T
 name|loadAcquire
 argument_list|()
@@ -464,6 +475,8 @@ name|_q_value
 argument_list|)
 return|;
 block|}
+end_expr_stmt
+begin_function
 name|void
 name|storeRelease
 parameter_list|(
@@ -482,6 +495,8 @@ name|newValue
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_function
 specifier|static
 name|Q_DECL_CONSTEXPR
 name|bool
@@ -496,6 +511,8 @@ name|isReferenceCountingNative
 argument_list|()
 return|;
 block|}
+end_function
+begin_function
 specifier|static
 name|Q_DECL_CONSTEXPR
 name|bool
@@ -510,6 +527,8 @@ name|isReferenceCountingWaitFree
 argument_list|()
 return|;
 block|}
+end_function
+begin_function
 name|bool
 name|ref
 parameter_list|()
@@ -524,6 +543,8 @@ name|_q_value
 argument_list|)
 return|;
 block|}
+end_function
+begin_function
 name|bool
 name|deref
 parameter_list|()
@@ -538,6 +559,8 @@ name|_q_value
 argument_list|)
 return|;
 block|}
+end_function
+begin_function
 specifier|static
 name|Q_DECL_CONSTEXPR
 name|bool
@@ -552,6 +575,8 @@ name|isTestAndSetNative
 argument_list|()
 return|;
 block|}
+end_function
+begin_function
 specifier|static
 name|Q_DECL_CONSTEXPR
 name|bool
@@ -566,6 +591,8 @@ name|isTestAndSetWaitFree
 argument_list|()
 return|;
 block|}
+end_function
+begin_function
 name|bool
 name|testAndSetRelaxed
 parameter_list|(
@@ -590,6 +617,8 @@ name|newValue
 argument_list|)
 return|;
 block|}
+end_function
+begin_function
 name|bool
 name|testAndSetAcquire
 parameter_list|(
@@ -614,6 +643,8 @@ name|newValue
 argument_list|)
 return|;
 block|}
+end_function
+begin_function
 name|bool
 name|testAndSetRelease
 parameter_list|(
@@ -638,6 +669,8 @@ name|newValue
 argument_list|)
 return|;
 block|}
+end_function
+begin_function
 name|bool
 name|testAndSetOrdered
 parameter_list|(
@@ -662,6 +695,8 @@ name|newValue
 argument_list|)
 return|;
 block|}
+end_function
+begin_function
 specifier|static
 name|Q_DECL_CONSTEXPR
 name|bool
@@ -676,6 +711,8 @@ name|isFetchAndStoreNative
 argument_list|()
 return|;
 block|}
+end_function
+begin_function
 specifier|static
 name|Q_DECL_CONSTEXPR
 name|bool
@@ -690,6 +727,8 @@ name|isFetchAndStoreWaitFree
 argument_list|()
 return|;
 block|}
+end_function
+begin_function
 name|T
 name|fetchAndStoreRelaxed
 parameter_list|(
@@ -709,6 +748,8 @@ name|newValue
 argument_list|)
 return|;
 block|}
+end_function
+begin_function
 name|T
 name|fetchAndStoreAcquire
 parameter_list|(
@@ -728,6 +769,8 @@ name|newValue
 argument_list|)
 return|;
 block|}
+end_function
+begin_function
 name|T
 name|fetchAndStoreRelease
 parameter_list|(
@@ -747,6 +790,8 @@ name|newValue
 argument_list|)
 return|;
 block|}
+end_function
+begin_function
 name|T
 name|fetchAndStoreOrdered
 parameter_list|(
@@ -766,6 +811,8 @@ name|newValue
 argument_list|)
 return|;
 block|}
+end_function
+begin_function
 specifier|static
 name|Q_DECL_CONSTEXPR
 name|bool
@@ -780,6 +827,8 @@ name|isFetchAndAddNative
 argument_list|()
 return|;
 block|}
+end_function
+begin_function
 specifier|static
 name|Q_DECL_CONSTEXPR
 name|bool
@@ -794,6 +843,8 @@ name|isFetchAndAddWaitFree
 argument_list|()
 return|;
 block|}
+end_function
+begin_function
 name|T
 name|fetchAndAddRelaxed
 parameter_list|(
@@ -813,6 +864,8 @@ name|valueToAdd
 argument_list|)
 return|;
 block|}
+end_function
+begin_function
 name|T
 name|fetchAndAddAcquire
 parameter_list|(
@@ -832,6 +885,8 @@ name|valueToAdd
 argument_list|)
 return|;
 block|}
+end_function
+begin_function
 name|T
 name|fetchAndAddRelease
 parameter_list|(
@@ -851,6 +906,8 @@ name|valueToAdd
 argument_list|)
 return|;
 block|}
+end_function
+begin_function
 name|T
 name|fetchAndAddOrdered
 parameter_list|(
@@ -870,14 +927,20 @@ name|valueToAdd
 argument_list|)
 return|;
 block|}
+end_function
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|QT_BASIC_ATOMIC_HAS_CONSTRUCTORS
+end_ifdef
+begin_expr_stmt
 name|QBasicAtomicInteger
 argument_list|()
 operator|=
 expr|default
 expr_stmt|;
+end_expr_stmt
+begin_decl_stmt
 name|constexpr
 name|QBasicAtomicInteger
 argument_list|(
@@ -900,6 +963,8 @@ argument_list|)
 operator|=
 name|delete
 decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|QBasicAtomicInteger
 modifier|&
 name|operator
@@ -912,6 +977,8 @@ operator|)
 operator|=
 name|delete
 decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|QBasicAtomicInteger
 modifier|&
 name|operator
@@ -925,15 +992,14 @@ specifier|volatile
 operator|=
 name|delete
 decl_stmt|;
+end_decl_stmt
+begin_endif
 endif|#
 directive|endif
-block|}
-end_decl_stmt
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
+end_endif
 begin_typedef
 DECL|typedef|QBasicAtomicInt
+unit|};
 typedef|typedef
 name|QBasicAtomicInteger
 operator|<

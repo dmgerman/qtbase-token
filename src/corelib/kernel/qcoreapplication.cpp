@@ -3376,7 +3376,10 @@ emit|emit
 name|self
 operator|->
 name|aboutToQuit
+argument_list|(
+name|QPrivateSignal
 argument_list|()
+argument_list|)
 emit|;
 name|self
 operator|->
@@ -6220,13 +6223,6 @@ operator|.
 name|first
 argument_list|()
 argument_list|)
-return|;
-block|}
-else|else
-block|{
-return|return
-name|QString
-argument_list|()
 return|;
 block|}
 elif|#

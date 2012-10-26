@@ -6225,35 +6225,6 @@ name|isEmpty
 argument_list|()
 condition|)
 return|return;
-comment|// Disable QPainter's default pen being cosmetic. This allows widgets and
-comment|// styles to follow Qt's existing defaults without getting ugly cosmetic
-comment|// lines when scaled.
-name|bool
-name|restore
-init|=
-operator|!
-operator|(
-name|painter
-operator|->
-name|renderHints
-argument_list|()
-operator|&
-name|QPainter
-operator|::
-name|NonCosmeticDefaultPen
-operator|)
-decl_stmt|;
-name|painter
-operator|->
-name|setRenderHints
-argument_list|(
-name|QPainter
-operator|::
-name|NonCosmeticDefaultPen
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
 name|d
 operator|->
 name|widget
@@ -6268,22 +6239,6 @@ name|topLeft
 argument_list|()
 argument_list|,
 name|exposedWidgetRect
-argument_list|)
-expr_stmt|;
-comment|// Restore the render hints if necessary.
-if|if
-condition|(
-name|restore
-condition|)
-name|painter
-operator|->
-name|setRenderHints
-argument_list|(
-name|QPainter
-operator|::
-name|NonCosmeticDefaultPen
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}

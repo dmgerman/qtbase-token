@@ -164,6 +164,7 @@ name|void
 name|terminated
 parameter_list|()
 function_decl|;
+comment|// Named after a signal that was removed in Qt 5.0
 name|void
 name|exec
 parameter_list|()
@@ -2671,7 +2672,7 @@ name|thread
 argument_list|,
 name|SIGNAL
 argument_list|(
-name|terminated
+name|finished
 argument_list|()
 argument_list|)
 argument_list|,

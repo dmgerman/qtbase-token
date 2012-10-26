@@ -154,12 +154,12 @@ end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_STYLE_CLEANLOOKS
+name|QT_NO_STYLE_FUSION
 end_ifndef
 begin_include
 include|#
 directive|include
-file|<qcleanlooksstyle.h>
+file|<qfusionstyle.h>
 end_include
 begin_endif
 endif|#
@@ -378,7 +378,7 @@ parameter_list|()
 function_decl|;
 ifndef|#
 directive|ifndef
-name|QT_NO_STYLE_CLEANLOOKS
+name|QT_NO_STYLE_FUSION
 name|void
 name|task190351_layout
 parameter_list|()
@@ -12730,12 +12730,12 @@ block|}
 block|}
 end_function
 begin_comment
-comment|// This test requires the Cleanlooks style
+comment|// This test requires the Fusionstyle
 end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_STYLE_CLEANLOOKS
+name|QT_NO_STYLE_FUSION
 end_ifndef
 begin_function
 DECL|function|task190351_layout
@@ -12762,7 +12762,7 @@ operator|::
 name|setStyle
 argument_list|(
 operator|new
-name|QCleanlooksStyle
+name|QFusionStyle
 argument_list|)
 expr_stmt|;
 name|QComboBox
@@ -13167,12 +13167,12 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|// This test requires the Cleanlooks style.
+comment|// This test requires the Fusion style.
 end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_STYLE_CLEANLOOKS
+name|QT_NO_STYLE_FUSION
 end_ifndef
 begin_function
 DECL|function|task191329_size
@@ -13199,7 +13199,7 @@ operator|::
 name|setStyle
 argument_list|(
 operator|new
-name|QCleanlooksStyle
+name|QFusionStyle
 argument_list|)
 expr_stmt|;
 name|QComboBox
