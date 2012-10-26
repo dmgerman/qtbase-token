@@ -1106,17 +1106,6 @@ operator|!=
 name|Node
 operator|::
 name|Private
-operator|&&
-operator|(
-operator|*
-name|c
-operator|)
-operator|->
-name|url
-argument_list|()
-operator|.
-name|isEmpty
-argument_list|()
 condition|)
 block|{
 if|if
