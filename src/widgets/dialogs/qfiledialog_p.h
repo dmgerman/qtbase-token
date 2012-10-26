@@ -394,6 +394,11 @@ argument_list|()
 specifier|const
 block|;
 name|QStringList
+name|userSelectedFiles
+argument_list|()
+specifier|const
+block|;
+name|QStringList
 name|addDefaultSuffixToFiles
 argument_list|(
 argument|const QStringList filesToFix
