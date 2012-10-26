@@ -761,7 +761,10 @@ name|cleanPath
 operator|.
 name|endsWith
 argument_list|(
+name|QLatin1Char
+argument_list|(
 literal|'/'
+argument_list|)
 argument_list|)
 condition|)
 name|cleanPath
