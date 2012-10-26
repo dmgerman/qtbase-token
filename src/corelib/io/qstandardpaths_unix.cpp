@@ -30,11 +30,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qcoreapplication.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<private/qfilesystemengine_p.h>
 end_include
 begin_include
@@ -47,6 +42,20 @@ include|#
 directive|include
 file|<stdlib.h>
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_BOOTSTRAPPED
+end_ifndef
+begin_include
+include|#
+directive|include
+file|<qcoreapplication.h>
+end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -64,6 +73,9 @@ modifier|&
 name|path
 parameter_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_BOOTSTRAPPED
 specifier|const
 name|QString
 name|org
@@ -116,6 +128,15 @@ argument_list|)
 operator|+
 name|appName
 expr_stmt|;
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+name|path
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -571,6 +592,9 @@ block|}
 default|default:
 break|break;
 block|}
+ifndef|#
+directive|ifndef
+name|QT_BOOTSTRAPPED
 comment|// http://www.freedesktop.org/wiki/Software/xdg-user-dirs
 name|QString
 name|xdgConfigHome
@@ -911,6 +935,8 @@ return|;
 block|}
 block|}
 block|}
+endif|#
+directive|endif
 name|QString
 name|path
 decl_stmt|;
