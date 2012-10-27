@@ -22831,7 +22831,6 @@ argument_list|,
 name|widget
 argument_list|)
 return|;
-break|break;
 case|case
 name|QFrame
 operator|::

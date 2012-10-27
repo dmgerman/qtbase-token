@@ -868,7 +868,6 @@ operator|.
 name|toByteArray
 argument_list|()
 return|;
-break|break;
 case|case
 name|QVariant
 operator|::
@@ -883,7 +882,6 @@ operator|.
 name|toUtf8
 argument_list|()
 return|;
-break|break;
 case|case
 name|QVariant
 operator|::
@@ -898,7 +896,6 @@ operator|.
 name|toEncoded
 argument_list|()
 return|;
-break|break;
 case|case
 name|QVariant
 operator|::

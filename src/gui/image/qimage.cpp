@@ -21599,7 +21599,6 @@ name|d
 operator|->
 name|width
 return|;
-break|break;
 case|case
 name|PdmHeight
 case|:
@@ -21608,7 +21607,6 @@ name|d
 operator|->
 name|height
 return|;
-break|break;
 case|case
 name|PdmWidthMM
 case|:
@@ -21626,7 +21624,6 @@ operator|->
 name|dpmx
 argument_list|)
 return|;
-break|break;
 case|case
 name|PdmHeightMM
 case|:
@@ -21644,7 +21641,6 @@ operator|->
 name|dpmy
 argument_list|)
 return|;
-break|break;
 case|case
 name|PdmNumColors
 case|:
@@ -21656,7 +21652,6 @@ operator|.
 name|size
 argument_list|()
 return|;
-break|break;
 case|case
 name|PdmDepth
 case|:
@@ -21665,7 +21660,6 @@ name|d
 operator|->
 name|depth
 return|;
-break|break;
 case|case
 name|PdmDpiX
 case|:
@@ -21679,7 +21673,6 @@ operator|*
 literal|0.0254
 argument_list|)
 return|;
-break|break;
 case|case
 name|PdmDpiY
 case|:
@@ -21693,7 +21686,6 @@ operator|*
 literal|0.0254
 argument_list|)
 return|;
-break|break;
 case|case
 name|PdmPhysicalDpiX
 case|:
@@ -21707,7 +21699,6 @@ operator|*
 literal|0.0254
 argument_list|)
 return|;
-break|break;
 case|case
 name|PdmPhysicalDpiY
 case|:
@@ -21721,7 +21712,6 @@ operator|*
 literal|0.0254
 argument_list|)
 return|;
-break|break;
 default|default:
 name|qWarning
 argument_list|(

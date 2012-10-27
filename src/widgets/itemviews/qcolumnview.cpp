@@ -1440,7 +1440,6 @@ else|else
 return|return
 name|current
 return|;
-break|break;
 case|case
 name|MoveRight
 case|:
@@ -1486,7 +1485,6 @@ name|column
 argument_list|()
 argument_list|)
 return|;
-break|break;
 default|default:
 break|break;
 block|}

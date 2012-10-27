@@ -170,7 +170,6 @@ operator|*
 name|e
 argument_list|)
 return|;
-break|break;
 case|case
 name|QEvent
 operator|::
