@@ -225,7 +225,7 @@ parameter_list|)
 value|(data + (y) * bpl)
 end_define
 begin_comment
-comment|/*   All PNG files load to the minimal QImage equivalent.    All QImage formats output to reasonably efficient PNG equivalents.   Never to grayscale. */
+comment|/*   All PNG files load to the minimal QImage equivalent.    All QImage formats output to reasonably efficient PNG equivalents. */
 end_comment
 begin_class
 DECL|class|QPngHandlerPrivate
@@ -4655,10 +4655,24 @@ operator|.
 name|colorCount
 argument_list|()
 condition|)
+block|{
+if|if
+condition|(
+name|image
+operator|.
+name|isGrayscale
+argument_list|()
+condition|)
+name|color_type
+operator|=
+name|PNG_COLOR_TYPE_GRAY
+expr_stmt|;
+else|else
 name|color_type
 operator|=
 name|PNG_COLOR_TYPE_PALETTE
 expr_stmt|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -4751,10 +4765,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|image
-operator|.
-name|colorCount
-argument_list|()
+name|color_type
+operator|==
+name|PNG_COLOR_TYPE_PALETTE
 condition|)
 block|{
 comment|// Paletted
