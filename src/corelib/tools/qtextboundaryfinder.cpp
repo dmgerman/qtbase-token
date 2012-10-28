@@ -373,7 +373,7 @@ begin_comment
 comment|/*!     \enum QTextBoundaryFinder::BoundaryType      \value Grapheme Finds a grapheme which is the smallest boundary. It                     including letters, punctuation marks, numerals and more.     \value Word Finds a word.     \value Line Finds possible positions for breaking the text into multiple     lines.     \value Sentence Finds sentence boundaries. These include periods, question     marks etc. */
 end_comment
 begin_comment
-comment|/*!   \enum QTextBoundaryFinder::BoundaryReason    \value NotAtBoundary  The boundary finder is not at a boundary position.   \value BreakOpportunity  The boundary finder is at a break opportunity position.                            Such a break opportunity might also be an item boundary                            (either StartOfItem, EndOfItem, or combination of both),                            a mandatory line break, or a soft hyphen.   \value StartOfItem  Since 5.0. The boundary finder is at the start of                       a grapheme, a word, a sentence, or a line.   \value EndOfItem  Since 5.0. The boundary finder is at the end of                     a grapheme, a word, a sentence, or a line.   \value MandatoryBreak  Since 5.0. The boundary finder is at the end of line                          (can occur for a Line boundary type only).   \value SoftHyphen  The boundary finder is at the soft hyphen                      (can occur for a Line boundary type only).    \value StartWord  Deprecated since 5.0. Use StartOfItem instead.                     The boundary finder is at the start of a word.                     (can occur for a Word boundary type only).   \value EndWord  Deprecated since 5.0. Use EndOfItem instead.                   The boundary finder is at the end of a word.                   (can occur for a Word boundary type only). */
+comment|/*!   \enum QTextBoundaryFinder::BoundaryReason    \value NotAtBoundary  The boundary finder is not at a boundary position.   \value BreakOpportunity  The boundary finder is at a break opportunity position.                            Such a break opportunity might also be an item boundary                            (either StartOfItem, EndOfItem, or combination of both),                            a mandatory line break, or a soft hyphen.   \value StartOfItem  Since 5.0. The boundary finder is at the start of                       a grapheme, a word, a sentence, or a line.   \value EndOfItem  Since 5.0. The boundary finder is at the end of                     a grapheme, a word, a sentence, or a line.   \value MandatoryBreak  Since 5.0. The boundary finder is at the end of line                          (can occur for a Line boundary type only).   \value SoftHyphen  The boundary finder is at the soft hyphen                      (can occur for a Line boundary type only). */
 end_comment
 begin_comment
 comment|/*!   Constructs an invalid QTextBoundaryFinder object. */
@@ -1614,8 +1614,6 @@ condition|)
 name|reasons
 operator||=
 name|StartOfItem
-operator||
-name|StartWord
 expr_stmt|;
 if|if
 condition|(
@@ -1626,8 +1624,6 @@ condition|)
 name|reasons
 operator||=
 name|EndOfItem
-operator||
-name|EndWord
 expr_stmt|;
 block|}
 break|break;

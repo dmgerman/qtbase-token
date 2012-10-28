@@ -102,15 +102,6 @@ block|,
 name|SoftHyphen
 init|=
 literal|0x100
-block|,
-comment|// ### Qt6: remove
-name|StartWord
-init|=
-literal|0x1000
-block|,
-name|EndWord
-init|=
-literal|0x2000
 block|}
 enum|;
 name|Q_DECLARE_FLAGS
