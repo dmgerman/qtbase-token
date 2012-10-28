@@ -207,9 +207,9 @@ block|}
 class|;
 end_class
 begin_class
-DECL|class|tst_QtAtSpi
+DECL|class|tst_QAccessibilityLinux
 class|class
-name|tst_QtAtSpi
+name|tst_QAccessibilityLinux
 super|:
 specifier|public
 name|QObject
@@ -330,7 +330,7 @@ end_comment
 begin_function
 DECL|function|getChildren
 name|QStringList
-name|tst_QtAtSpi
+name|tst_QAccessibilityLinux
 operator|::
 name|getChildren
 parameter_list|(
@@ -411,7 +411,7 @@ end_function
 begin_function
 DECL|function|getParent
 name|QString
-name|tst_QtAtSpi
+name|tst_QAccessibilityLinux
 operator|::
 name|getParent
 parameter_list|(
@@ -492,7 +492,7 @@ begin_function
 DECL|function|getInterface
 name|QDBusInterface
 modifier|*
-name|tst_QtAtSpi
+name|tst_QAccessibilityLinux
 operator|::
 name|getInterface
 parameter_list|(
@@ -530,7 +530,7 @@ end_function
 begin_function
 DECL|function|initTestCase
 name|void
-name|tst_QtAtSpi
+name|tst_QAccessibilityLinux
 operator|::
 name|initTestCase
 parameter_list|()
@@ -552,7 +552,7 @@ name|qApp
 operator|->
 name|setApplicationName
 argument_list|(
-literal|"tst_QtAtSpi app"
+literal|"tst_QAccessibilityLinux app"
 argument_list|)
 expr_stmt|;
 name|dbus
@@ -634,7 +634,7 @@ end_function
 begin_function
 DECL|function|cleanupTestCase
 name|void
-name|tst_QtAtSpi
+name|tst_QAccessibilityLinux
 operator|::
 name|cleanupTestCase
 parameter_list|()
@@ -656,7 +656,7 @@ end_function
 begin_function
 DECL|function|registerDbus
 name|void
-name|tst_QtAtSpi
+name|tst_QAccessibilityLinux
 operator|::
 name|registerDbus
 parameter_list|()
@@ -745,7 +745,7 @@ end_define
 begin_function
 DECL|function|testLabel
 name|void
-name|tst_QtAtSpi
+name|tst_QAccessibilityLinux
 operator|::
 name|testLabel
 parameter_list|()
@@ -955,7 +955,7 @@ end_function
 begin_function
 DECL|function|testLineEdit
 name|void
-name|tst_QtAtSpi
+name|tst_QAccessibilityLinux
 operator|::
 name|testLineEdit
 parameter_list|()
@@ -1608,7 +1608,7 @@ end_function
 begin_function
 DECL|function|testListWidget
 name|void
-name|tst_QtAtSpi
+name|tst_QAccessibilityLinux
 operator|::
 name|testListWidget
 parameter_list|()
@@ -1926,7 +1926,7 @@ end_function
 begin_function
 DECL|function|testTreeWidget
 name|void
-name|tst_QtAtSpi
+name|tst_QAccessibilityLinux
 operator|::
 name|testTreeWidget
 parameter_list|()
@@ -2868,7 +2868,7 @@ end_function
 begin_function
 DECL|function|testTextEdit
 name|void
-name|tst_QtAtSpi
+name|tst_QAccessibilityLinux
 operator|::
 name|testTextEdit
 parameter_list|()
@@ -3245,7 +3245,7 @@ end_function
 begin_function
 DECL|function|testSlider
 name|void
-name|tst_QtAtSpi
+name|tst_QAccessibilityLinux
 operator|::
 name|testSlider
 parameter_list|()
@@ -3418,7 +3418,7 @@ end_function
 begin_macro
 name|QTEST_MAIN
 argument_list|(
-argument|tst_QtAtSpi
+argument|tst_QAccessibilityLinux
 argument_list|)
 end_macro
 begin_include
