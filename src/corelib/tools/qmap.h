@@ -6609,7 +6609,9 @@ block|{
 operator|--
 name|it
 expr_stmt|;
-name|insert
+name|d
+operator|->
+name|createNode
 argument_list|(
 operator|(
 operator|*
@@ -6624,8 +6626,16 @@ name|it
 operator|)
 operator|.
 name|second
+argument_list|,
+name|d
+operator|->
+name|begin
+argument_list|()
+argument_list|,
+name|true
 argument_list|)
 expr_stmt|;
+comment|// insert on most left node.
 block|}
 end_expr_stmt
 begin_expr_stmt
