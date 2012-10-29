@@ -1360,6 +1360,40 @@ argument_list|(
 name|extra
 argument_list|)
 decl_stmt|;
+comment|// Remember whether this was a link or not, this saves an lstat() call later.
+if|if
+condition|(
+name|extra
+operator|->
+name|d_type
+operator|==
+name|_DTYPE_LSTAT
+condition|)
+block|{
+name|knownFlagsMask
+operator||=
+name|QFileSystemMetaData
+operator|::
+name|LinkType
+expr_stmt|;
+if|if
+condition|(
+name|S_ISLNK
+argument_list|(
+name|extra_stat
+operator|->
+name|d_stat
+operator|.
+name|st_mode
+argument_list|)
+condition|)
+name|entryFlags
+operator||=
+name|QFileSystemMetaData
+operator|::
+name|LinkType
+expr_stmt|;
+block|}
 comment|// For symlinks, the extra type _DTYPE_LSTAT doesn't work for filling out the meta data,
 comment|// as we need the stat() information there, not the lstat() information.
 comment|// In this case, don't use the extra information.
