@@ -199,6 +199,10 @@ name|void
 name|generateQConfigPri
 parameter_list|()
 function_decl|;
+name|void
+name|generateSystemVars
+parameter_list|()
+function_decl|;
 endif|#
 directive|endif
 name|void
