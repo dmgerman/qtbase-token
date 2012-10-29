@@ -2796,6 +2796,9 @@ name|si
 operator|.
 name|height
 argument_list|()
+operator|.
+name|ceil
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -5526,6 +5529,9 @@ name|index
 index|]
 operator|.
 name|height
+argument_list|()
+operator|.
+name|ceil
 argument_list|()
 operator|.
 name|toReal
