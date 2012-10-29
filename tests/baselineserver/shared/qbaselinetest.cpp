@@ -55,6 +55,13 @@ specifier|static
 name|PlatformInfo
 name|customInfo
 decl_stmt|;
+DECL|member|customAutoModeSet
+specifier|static
+name|bool
+name|customAutoModeSet
+init|=
+literal|false
+decl_stmt|;
 DECL|member|proto
 specifier|static
 name|BaselineProtocol
@@ -71,6 +78,13 @@ DECL|member|triedConnecting
 specifier|static
 name|bool
 name|triedConnecting
+init|=
+literal|false
+decl_stmt|;
+DECL|member|dryRunMode
+specifier|static
+name|bool
+name|dryRunMode
 init|=
 literal|false
 decl_stmt|;
@@ -208,6 +222,10 @@ operator|==
 literal|"-auto"
 condition|)
 block|{
+name|customAutoModeSet
+operator|=
+literal|true
+expr_stmt|;
 name|customInfo
 operator|.
 name|setAdHocRun
@@ -224,6 +242,10 @@ operator|==
 literal|"-adhoc"
 condition|)
 block|{
+name|customAutoModeSet
+operator|=
+literal|true
+expr_stmt|;
 name|customInfo
 operator|.
 name|setAdHocRun
@@ -462,7 +484,7 @@ name|script
 init|=
 literal|"hostinfo.sh"
 decl_stmt|;
-comment|//### TBD: better name
+comment|//### TBD: Windows implementation (hostinfo.bat)
 name|QProcess
 name|runScript
 decl_stmt|;
@@ -770,6 +792,21 @@ block|}
 if|if
 condition|(
 operator|!
+name|customAutoModeSet
+condition|)
+name|clientInfo
+operator|.
+name|setAdHocRun
+argument_list|(
+name|defaultInfo
+operator|.
+name|isAdHocRun
+argument_list|()
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
 name|definedTestProject
 operator|.
 name|isEmpty
@@ -842,10 +879,6 @@ return|return
 literal|false
 return|;
 block|}
-name|bool
-name|dummy
-decl_stmt|;
-comment|// ### TBD: dryrun handling
 if|if
 condition|(
 operator|!
@@ -856,7 +889,7 @@ argument_list|(
 name|testCase
 argument_list|,
 operator|&
-name|dummy
+name|dryRunMode
 argument_list|,
 name|clientInfo
 argument_list|)
@@ -984,6 +1017,10 @@ argument_list|(
 operator|!
 name|mode
 argument_list|)
+expr_stmt|;
+name|customAutoModeSet
+operator|=
+literal|true
 expr_stmt|;
 block|}
 DECL|function|setSimFail
@@ -1247,7 +1284,27 @@ name|ImageItem
 operator|::
 name|BaselineNotFound
 case|:
-comment|// ### TBD: don't submit if have overrides; will be rejected anyway
+if|if
+condition|(
+operator|!
+name|customInfo
+operator|.
+name|overrides
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|qWarning
+argument_list|()
+operator|<<
+literal|"Cannot compare to other system's baseline: No such baseline found on server."
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
 if|if
 condition|(
 name|proto
@@ -1398,6 +1455,23 @@ literal|"Mismatch. See report:\n   "
 operator|+
 name|srvMsg
 expr_stmt|;
+if|if
+condition|(
+name|dryRunMode
+condition|)
+block|{
+name|qDebug
+argument_list|()
+operator|<<
+literal|"Dryrun, so ignoring"
+operator|<<
+operator|*
+name|msg
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
 return|return
 literal|false
 return|;
