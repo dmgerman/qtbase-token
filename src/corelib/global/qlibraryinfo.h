@@ -98,9 +98,13 @@ name|HostBinariesPath
 block|,
 name|HostDataPath
 block|,
+name|TargetSpecPath
+block|,
+name|HostSpecPath
+block|,
 name|LastHostPath
 init|=
-name|HostDataPath
+name|HostSpecPath
 block|,
 endif|#
 directive|endif

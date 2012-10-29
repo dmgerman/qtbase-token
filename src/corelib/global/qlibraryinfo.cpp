@@ -859,6 +859,18 @@ block|,
 literal|"."
 block|}
 block|,
+block|{
+literal|"TargetSpec"
+block|,
+literal|""
+block|}
+block|,
+block|{
+literal|"HostSpec"
+block|,
+literal|""
+block|}
+block|,
 endif|#
 directive|endif
 block|}
@@ -1428,6 +1440,25 @@ endif|#
 directive|endif
 comment|// QT_NO_SETTINGS
 block|}
+ifdef|#
+directive|ifdef
+name|QT_BOOTSTRAPPED
+comment|// The specs need to be returned verbatim.
+if|if
+condition|(
+name|loc
+operator|==
+name|TargetSpecPath
+operator|||
+name|loc
+operator|==
+name|HostSpecPath
+condition|)
+return|return
+name|ret
+return|;
+endif|#
+directive|endif
 if|if
 condition|(
 operator|!
