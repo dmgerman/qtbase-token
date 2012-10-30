@@ -9732,6 +9732,27 @@ name|localPos
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// Clear the obsolete leaveAfterRelease value, if mouse button has been released but
+comment|// leaveAfterRelease has not been updated.
+comment|// This happens e.g. when modal dialog or popup is shown as a response to button click.
+if|if
+condition|(
+name|leaveAfterRelease
+operator|&&
+operator|!
+operator|*
+name|buttonDown
+operator|&&
+operator|!
+name|event
+operator|->
+name|buttons
+argument_list|()
+condition|)
+name|leaveAfterRelease
+operator|=
+literal|0
+expr_stmt|;
 if|if
 condition|(
 operator|*
