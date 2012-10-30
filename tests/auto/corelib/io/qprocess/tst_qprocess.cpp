@@ -2872,9 +2872,7 @@ argument_list|(
 literal|"simple"
 argument_list|)
 operator|<<
-name|QString
-operator|::
-name|fromLatin1
+name|QFINDTESTDATA
 argument_list|(
 literal|"testBatFiles/simple.bat"
 argument_list|)
@@ -2891,9 +2889,7 @@ argument_list|(
 literal|"with space"
 argument_list|)
 operator|<<
-name|QString
-operator|::
-name|fromLatin1
+name|QFINDTESTDATA
 argument_list|(
 literal|"testBatFiles/with space.bat"
 argument_list|)
