@@ -3008,7 +3008,7 @@ condition|)
 name|pos
 operator|++
 expr_stmt|;
-comment|// qDebug("adding family %s at %d total=%d", f.latin1(), pos, count);
+comment|// qDebug()<< "adding family "<< f.toLatin1()<< " at "<< pos<< " total="<< count;
 if|if
 condition|(
 operator|!
