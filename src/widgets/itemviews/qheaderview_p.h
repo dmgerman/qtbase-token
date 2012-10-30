@@ -202,6 +202,12 @@ argument_list|(
 name|false
 argument_list|)
 block|,
+name|allowUserMoveOfSection0
+argument_list|(
+name|true
+argument_list|)
+block|,
+comment|// will be false for QTreeView and true for QTableView
 name|stretchSections
 argument_list|(
 literal|0
@@ -998,6 +1004,17 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+specifier|inline
+name|void
+name|setAllowUserMoveOfSection0
+argument_list|(
+argument|bool b
+argument_list|)
+block|{
+name|allowUserMoveOfSection0
+operator|=
+name|b
+block|;     }
 name|void
 name|clear
 argument_list|()
@@ -1154,6 +1171,9 @@ name|cascadingResizing
 block|;
 name|bool
 name|resizeRecursionBlock
+block|;
+name|bool
+name|allowUserMoveOfSection0
 block|;
 name|int
 name|stretchSections

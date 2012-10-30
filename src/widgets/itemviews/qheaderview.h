@@ -965,6 +965,14 @@ argument|QStyleOptionHeader *option
 argument_list|)
 specifier|const
 block|;
+name|friend
+name|class
+name|QTableView
+block|;
+name|friend
+name|class
+name|QTreeView
+block|;
 name|private
 operator|:
 name|Q_PRIVATE_SLOT
