@@ -953,6 +953,12 @@ operator|==
 name|enterParent
 condition|)
 block|{
+name|QGuiApplicationPrivate
+operator|::
+name|currentMouseWindow
+operator|=
+name|enterWindow
+expr_stmt|;
 name|enter
 operator|=
 name|enterWindow
