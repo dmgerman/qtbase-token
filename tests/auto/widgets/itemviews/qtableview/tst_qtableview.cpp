@@ -16046,9 +16046,9 @@ argument_list|(
 literal|"no hidden, no span, scroll (5,0), at (20,20)"
 argument_list|)
 operator|<<
-literal|10
+literal|20
 operator|<<
-literal|10
+literal|20
 comment|// dim
 operator|<<
 literal|40
@@ -16097,9 +16097,9 @@ argument_list|(
 literal|"no hidden, no span, scroll (0,5), at (20,20)"
 argument_list|)
 operator|<<
-literal|10
+literal|20
 operator|<<
-literal|10
+literal|20
 comment|// dim
 operator|<<
 literal|40
@@ -16148,9 +16148,9 @@ argument_list|(
 literal|"no hidden, no span, scroll (5,5), at (20,20)"
 argument_list|)
 operator|<<
-literal|10
+literal|20
 operator|<<
-literal|10
+literal|20
 comment|// dim
 operator|<<
 literal|40

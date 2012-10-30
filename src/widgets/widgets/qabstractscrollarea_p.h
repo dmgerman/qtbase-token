@@ -184,6 +184,18 @@ name|startPos
 argument_list|)
 block|;
 name|void
+name|flashScrollBars
+argument_list|()
+block|;
+name|void
+name|setScrollBarTransient
+argument_list|(
+argument|QScrollBar *scrollBar
+argument_list|,
+argument|bool transient
+argument_list|)
+block|;
+name|void
 name|_q_hslide
 argument_list|(
 name|int

@@ -235,6 +235,16 @@ name|margins
 argument_list|)
 block|;
 name|bool
+name|eventFilter
+argument_list|(
+name|QObject
+operator|*
+argument_list|,
+name|QEvent
+operator|*
+argument_list|)
+block|;
+name|bool
 name|event
 argument_list|(
 name|QEvent

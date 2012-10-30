@@ -37575,6 +37575,14 @@ operator|=
 name|RSIP_OnMouseClickAndAlreadyFocused
 expr_stmt|;
 break|break;
+case|case
+name|SH_ScrollBar_Transient
+case|:
+name|ret
+operator|=
+literal|false
+expr_stmt|;
+break|break;
 default|default:
 name|ret
 operator|=

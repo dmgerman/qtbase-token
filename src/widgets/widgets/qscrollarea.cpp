@@ -1029,7 +1029,14 @@ name|updateScrollBars
 argument_list|()
 expr_stmt|;
 return|return
-literal|false
+name|QAbstractScrollArea
+operator|::
+name|eventFilter
+argument_list|(
+name|o
+argument_list|,
+name|e
+argument_list|)
 return|;
 block|}
 end_function

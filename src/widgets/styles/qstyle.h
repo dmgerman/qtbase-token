@@ -1515,6 +1515,8 @@ name|SH_ToolButtonStyle
 block|,
 name|SH_RequestSoftwareInputPanel
 block|,
+name|SH_ScrollBar_Transient
+block|,
 comment|// Add new style hint values here
 name|SH_CustomBase
 operator|=
