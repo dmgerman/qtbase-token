@@ -1647,6 +1647,8 @@ name|QT_POPEN
 argument_list|(
 name|QString
 argument_list|(
+name|QMakeInternal
+operator|::
 name|IoUtils
 operator|::
 name|shellQuote
