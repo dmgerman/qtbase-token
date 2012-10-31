@@ -2172,7 +2172,7 @@ name|QHostInfo
 operator|::
 name|fromName
 argument_list|(
-literal|"qt.nokia.com"
+literal|"qt-project.org"
 argument_list|)
 decl_stmt|;
 name|QCOMPARE
@@ -2217,7 +2217,7 @@ argument_list|()
 argument_list|,
 name|QString
 argument_list|(
-literal|"87.238.50.178"
+literal|"87.238.53.172"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2395,7 +2395,7 @@ name|lookupHost
 argument_list|(
 name|QString
 argument_list|(
-literal|"qt.nokia.com"
+literal|"qt-project.org"
 argument_list|)
 argument_list|,
 name|this
@@ -2647,7 +2647,7 @@ argument_list|()
 argument_list|,
 name|QString
 argument_list|(
-literal|"87.238.50.178"
+literal|"87.238.53.172"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2839,7 +2839,7 @@ literal|"www.ovi.com"
 operator|<<
 literal|"www.nokia.com"
 operator|<<
-literal|"qt.nokia.com"
+literal|"qt-project.org"
 operator|<<
 literal|"www.trolltech.com"
 operator|<<
@@ -3276,7 +3276,7 @@ name|result
 init|=
 name|qt_qhostinfo_lookup
 argument_list|(
-literal|"qt.nokia.com"
+literal|"qt-project.org"
 argument_list|,
 name|this
 argument_list|,
@@ -3398,7 +3398,7 @@ name|result
 init|=
 name|qt_qhostinfo_lookup
 argument_list|(
-literal|"qt.nokia.com"
+literal|"qt-project.org"
 argument_list|,
 name|this
 argument_list|,
