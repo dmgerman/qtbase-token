@@ -880,6 +880,12 @@ case|:
 return|return
 literal|true
 return|;
+case|case
+name|MultipleWindows
+case|:
+return|return
+literal|true
+return|;
 default|default:
 return|return
 name|QPlatformIntegration
