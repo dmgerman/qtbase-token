@@ -1859,17 +1859,6 @@ operator|)
 operator|->
 name|isInnerNode
 argument_list|()
-operator|&&
-operator|(
-operator|*
-name|c
-operator|)
-operator|->
-name|url
-argument_list|()
-operator|.
-name|isEmpty
-argument_list|()
 condition|)
 block|{
 name|findAllNamespaces
