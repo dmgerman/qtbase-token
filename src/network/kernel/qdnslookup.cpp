@@ -32,6 +32,11 @@ include|#
 directive|include
 file|<qurl.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_function_decl
 name|QT_BEGIN_NAMESPACE
 name|Q_GLOBAL_STATIC
@@ -115,7 +120,9 @@ literal|1
 condition|)
 return|return;
 comment|// Order the records by preference.
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|records
 operator|.
@@ -331,7 +338,9 @@ condition|)
 return|return;
 comment|// Order the records by priority, and for records with an equal
 comment|// priority, put records with a zero weight first.
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|records
 operator|.
