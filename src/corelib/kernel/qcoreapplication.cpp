@@ -5628,7 +5628,10 @@ name|removeAll
 argument_list|(
 name|translationFile
 argument_list|)
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
 operator|!
 name|self
 operator|->
@@ -5654,6 +5657,7 @@ operator|&
 name|ev
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 literal|true
 return|;
