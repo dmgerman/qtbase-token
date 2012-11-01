@@ -138,6 +138,13 @@ operator|::
 name|PrimaryOrientation
 argument_list|)
 block|,
+name|minimumSize
+argument_list|(
+literal|0
+argument_list|,
+literal|0
+argument_list|)
+block|,
 name|maximumSize
 argument_list|(
 name|QWINDOWSIZE_MAX
