@@ -991,19 +991,31 @@ name|mouseGrabber
 argument_list|()
 condition|)
 block|{
+comment|// Preferred leave target is the last mouse receiver, unless it has native window,
+comment|// in which case it is assumed to receive it's own leave event when relevant.
 name|QWidget
 modifier|*
 name|leave
 init|=
+name|m_widget
+decl_stmt|;
+if|if
+condition|(
 name|qt_last_mouse_receiver
-condition|?
+operator|&&
+operator|!
+name|qt_last_mouse_receiver
+operator|->
+name|internalWinId
+argument_list|()
+condition|)
+name|leave
+operator|=
 name|qt_last_mouse_receiver
 operator|.
 name|data
 argument_list|()
-else|:
-name|m_widget
-decl_stmt|;
+expr_stmt|;
 name|QApplicationPrivate
 operator|::
 name|dispatchEnterLeave
