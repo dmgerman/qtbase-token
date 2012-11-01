@@ -38,6 +38,11 @@ include|#
 directive|include
 file|<list>
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -639,7 +644,9 @@ argument_list|(
 argument|const_cast<QListData::Data *>(&QListData::shared_null)
 argument_list|)
 block|{
-name|qCopy
+name|std
+operator|::
+name|copy
 argument_list|(
 name|args
 operator|.
@@ -3101,7 +3108,9 @@ name|T
 operator|>
 name|tmp
 block|;
-name|qCopy
+name|std
+operator|::
+name|copy
 argument_list|(
 name|list
 operator|.
@@ -3146,7 +3155,9 @@ name|T
 operator|>
 name|tmp
 block|;
-name|qCopy
+name|std
+operator|::
+name|copy
 argument_list|(
 name|constBegin
 argument_list|()
