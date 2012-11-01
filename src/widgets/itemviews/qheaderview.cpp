@@ -9866,6 +9866,10 @@ name|headerSectionPosition
 argument_list|(
 name|visual
 argument_list|)
+operator|-
+name|d
+operator|->
+name|offset
 operator|+
 name|d
 operator|->
