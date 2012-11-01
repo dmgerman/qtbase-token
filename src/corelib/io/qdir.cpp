@@ -69,11 +69,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qalgorithms.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"qvarlengtharray.h"
 end_include
 begin_include
@@ -115,6 +110,11 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_include
 include|#
 directive|include
@@ -1637,7 +1637,9 @@ argument_list|(
 name|i
 argument_list|)
 expr_stmt|;
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|si
 operator|.
