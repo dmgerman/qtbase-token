@@ -274,6 +274,16 @@ operator|&
 name|a
 argument_list|)
 decl_stmt|;
+name|XFreeColormap
+argument_list|(
+name|DISPLAY_FROM_XCB
+argument_list|(
+name|screen
+argument_list|)
+argument_list|,
+name|cmap
+argument_list|)
+expr_stmt|;
 return|return
 name|window
 return|;
