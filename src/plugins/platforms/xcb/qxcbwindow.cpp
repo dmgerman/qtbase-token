@@ -8907,12 +8907,12 @@ name|Qt
 operator|::
 name|WindowMinimized
 expr_stmt|;
+block|}
 name|free
 argument_list|(
 name|reply
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|// WM_STATE: Quick check for 'Minimize'.
 if|if
