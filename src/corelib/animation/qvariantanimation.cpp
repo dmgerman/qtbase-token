@@ -2130,7 +2130,9 @@ name|keyValues
 operator|=
 name|keyValues
 expr_stmt|;
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|d
 operator|->
