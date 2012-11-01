@@ -2013,11 +2013,6 @@ name|v
 index|[
 literal|"QMAKE_ABSOLUTE_SOURCE_PATH"
 index|]
-operator|+
-name|v
-index|[
-literal|"DEPENDPATH"
-index|]
 expr_stmt|;
 if|if
 condition|(
