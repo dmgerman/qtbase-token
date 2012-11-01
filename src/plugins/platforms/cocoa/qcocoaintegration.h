@@ -394,12 +394,17 @@ name|QPlatformInputContext
 operator|>
 name|mInputContext
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_ACCESSIBILITY
 name|QScopedPointer
 operator|<
 name|QPlatformAccessibility
 operator|>
 name|mAccessibility
 block|;
+endif|#
+directive|endif
 name|QScopedPointer
 operator|<
 name|QPlatformTheme
