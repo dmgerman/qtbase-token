@@ -14561,6 +14561,9 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+name|invalidateCachedSizeHint
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_function
