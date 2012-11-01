@@ -2063,6 +2063,14 @@ block|}
 comment|// TARGET_VERSION_EXT will be used to add a version number onto the target name
 if|if
 condition|(
+operator|!
+name|project
+operator|->
+name|isActiveConfig
+argument_list|(
+literal|"skip_target_version_ext"
+argument_list|)
+operator|&&
 name|project
 operator|->
 name|values
