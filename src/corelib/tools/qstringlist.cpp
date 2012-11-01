@@ -17,6 +17,11 @@ include|#
 directive|include
 file|<qregularexpression.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 comment|/*! \typedef QStringListIterator     \relates QStringList      The QStringListIterator type definition provides a Java-style const     iterator for QStringList.      QStringList provides both \l{Java-style iterators} and     \l{STL-style iterators}. The Java-style const iterator is simply     a type definition for QListIterator<QString>.      \sa QMutableStringListIterator, QStringList::const_iterator */
@@ -26,7 +31,7 @@ comment|/*!     \fn QStringList::QStringList()      Constructs an empty string l
 comment|/*!     \fn QStringList::QStringList(const QString&str)      Constructs a string list that contains the given string, \a     str. Longer lists are easily created like this:      \snippet qstringlist/main.cpp 9      \sa append() */
 comment|/*!     \fn QStringList::QStringList(const QStringList&other)      Constructs a copy of the \a other string list.      This operation takes \l{constant time} because QStringList is     \l{implicitly shared}, making the process of returning a     QStringList from a function very fast. If a shared instance is     modified, it will be copied (copy-on-write), and that takes     \l{linear time}.      \sa operator=() */
 comment|/*!     \fn QStringList::QStringList(const QList<QString>&other)      Constructs a copy of \a other.      This operation takes \l{constant time}, because QStringList is     \l{implicitly shared}. This makes returning a QStringList from a     function very fast. If a shared instance is modified, it will be     copied (copy-on-write), and that takes \l{linear time}.      \sa operator=() */
-comment|/*!     \fn void QStringList::sort(Qt::CaseSensitivity cs)      Sorts the list of strings in ascending order.     If \a cs is \l Qt::CaseSensitive (the default), the string comparison     is case sensitive; otherwise the comparison is case insensitive.      Sorting is performed using Qt's qSort() algorithm,     which operates in \l{linear-logarithmic time}, i.e. O(\e{n} log \e{n}).      If you want to sort your strings in an arbitrary order, consider     using the QMap class. For example, you could use a QMap<QString,     QString> to create a case-insensitive ordering (e.g. with the keys     being lower-case versions of the strings, and the values being the     strings), or a QMap<int, QString> to sort the strings by some     integer index.      \sa qSort() */
+comment|/*!     \fn void QStringList::sort(Qt::CaseSensitivity cs)      Sorts the list of strings in ascending order.     If \a cs is \l Qt::CaseSensitive (the default), the string comparison     is case sensitive; otherwise the comparison is case insensitive.      Sorting is performed using the STL's std::sort() algorithm,     which averages \l{linear-logarithmic time}, i.e. O(\e{n} log \e{n}).      If you want to sort your strings in an arbitrary order, consider     using the QMap class. For example, you could use a QMap<QString,     QString> to create a case-insensitive ordering (e.g. with the keys     being lower-case versions of the strings, and the values being the     strings), or a QMap<int, QString> to sort the strings by some     integer index. */
 DECL|function|caseInsensitiveLessThan
 specifier|static
 specifier|inline
@@ -85,7 +90,9 @@ name|Qt
 operator|::
 name|CaseSensitive
 condition|)
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|that
 operator|->
@@ -99,7 +106,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 else|else
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|that
 operator|->
