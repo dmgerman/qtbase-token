@@ -52,6 +52,11 @@ include|#
 directive|include
 file|<private/qabstractproxymodel_p.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
@@ -2679,7 +2684,9 @@ argument_list|,
 name|q
 argument_list|)
 decl_stmt|;
-name|qStableSort
+name|std
+operator|::
+name|stable_sort
 argument_list|(
 name|source_rows
 operator|.
@@ -2709,7 +2716,9 @@ argument_list|,
 name|q
 argument_list|)
 decl_stmt|;
-name|qStableSort
+name|std
+operator|::
+name|stable_sort
 argument_list|(
 name|source_rows
 operator|.
@@ -2729,7 +2738,9 @@ block|}
 else|else
 block|{
 comment|// restore the source model order
-name|qStableSort
+name|std
+operator|::
+name|stable_sort
 argument_list|(
 name|source_rows
 operator|.
@@ -2905,7 +2916,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|qStableSort
+name|std
+operator|::
+name|stable_sort
 argument_list|(
 name|proxy_intervals
 operator|.
@@ -7205,9 +7218,19 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|proxy_positions
+operator|.
+name|begin
+argument_list|()
+argument_list|,
+name|proxy_positions
+operator|.
+name|end
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|int
@@ -11781,7 +11804,9 @@ name|i
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|rows
 operator|.

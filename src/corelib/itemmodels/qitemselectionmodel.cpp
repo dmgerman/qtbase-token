@@ -17,6 +17,11 @@ include|#
 directive|include
 file|<qdebug.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -4848,7 +4853,9 @@ name|VerticalSortHint
 condition|)
 block|{
 comment|// sort the "new" selection, as preparation for merging
-name|qStableSort
+name|std
+operator|::
+name|stable_sort
 argument_list|(
 name|savedPersistentIndexes
 operator|.
@@ -4861,7 +4868,9 @@ name|end
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|qStableSort
+name|std
+operator|::
+name|stable_sort
 argument_list|(
 name|savedPersistentCurrentIndexes
 operator|.
@@ -4904,7 +4913,9 @@ block|}
 else|else
 block|{
 comment|// sort the "new" selection, as preparation for merging
-name|qStableSort
+name|std
+operator|::
+name|stable_sort
 argument_list|(
 name|savedPersistentRowLengths
 operator|.
@@ -4917,7 +4928,9 @@ name|end
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|qStableSort
+name|std
+operator|::
+name|stable_sort
 argument_list|(
 name|savedPersistentCurrentRowLengths
 operator|.

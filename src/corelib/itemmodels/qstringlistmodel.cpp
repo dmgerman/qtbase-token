@@ -15,6 +15,11 @@ include|#
 directive|include
 file|<QtCore/qvector.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -733,7 +738,9 @@ name|Qt
 operator|::
 name|AscendingOrder
 condition|)
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|list
 operator|.
@@ -749,7 +756,9 @@ name|ascendingLessThan
 argument_list|)
 expr_stmt|;
 else|else
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|list
 operator|.
