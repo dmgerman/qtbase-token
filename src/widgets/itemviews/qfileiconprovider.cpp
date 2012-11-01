@@ -111,7 +111,7 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!   \class QFileIconProvider    \inmodule QtWidgets     \brief The QFileIconProvider class provides file icons for the QDirModel and the QFileSystemModel classes. */
+comment|/*!   \class QFileIconProvider    \inmodule QtWidgets    \brief The QFileIconProvider class provides file icons for the QDirModel and the QFileSystemModel classes. */
 end_comment
 begin_comment
 comment|/*!   \enum QFileIconProvider::IconType   \value Computer   \value Desktop   \value Trashcan   \value Network   \value Drive   \value Folder   \value File */
