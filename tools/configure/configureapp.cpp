@@ -184,6 +184,34 @@ parameter_list|)
 value|( dictionary[ #x ] == #y ? "*" : " " )
 end_define
 begin_function
+DECL|function|promptKeyPress
+specifier|static
+specifier|inline
+name|void
+name|promptKeyPress
+parameter_list|()
+block|{
+name|cout
+operator|<<
+literal|"(Press any key to continue...)"
+expr_stmt|;
+if|if
+condition|(
+name|_getch
+argument_list|()
+operator|==
+literal|3
+condition|)
+comment|// _Any_ keypress w/no echo(eat<Enter> for stdout)
+name|exit
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+comment|// Exit cleanly for Ctrl+C
+block|}
+end_function
+begin_function
 DECL|function|writeToFile
 name|bool
 name|writeToFile
@@ -14059,6 +14087,11 @@ operator|::
 name|verifyConfiguration
 parameter_list|()
 block|{
+name|bool
+name|prompt
+init|=
+literal|false
+decl_stmt|;
 if|if
 condition|(
 name|dictionary
@@ -14144,23 +14177,7 @@ operator|<<
 literal|"Configure will therefore continue with the SQLite3 lib bundled with Qt."
 operator|<<
 name|endl
-operator|<<
-literal|"(Press any key to continue..)"
 expr_stmt|;
-if|if
-condition|(
-name|_getch
-argument_list|()
-operator|==
-literal|3
-condition|)
-comment|// _Any_ keypress w/no echo(eat<Enter> for stdout)
-name|exit
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
-comment|// Exit cleanly for Ctrl+C
 name|dictionary
 index|[
 literal|"SQL_SQLITE_LIB"
@@ -14169,6 +14186,10 @@ operator|=
 literal|"qt"
 expr_stmt|;
 comment|// Set to Qt's bundled lib an continue
+name|prompt
+operator|=
+literal|true
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -14204,24 +14225,10 @@ literal|"Oracle driver, as the current build will most likely fail."
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
-operator|<<
-literal|"(Press any key to continue..)"
+name|prompt
+operator|=
+literal|true
 expr_stmt|;
-if|if
-condition|(
-name|_getch
-argument_list|()
-operator|==
-literal|3
-condition|)
-comment|// _Any_ keypress w/no echo(eat<Enter> for stdout)
-name|exit
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
-comment|// Exit cleanly for Ctrl+C
 block|}
 if|if
 condition|(
@@ -14246,24 +14253,10 @@ literal|"win32-msvc2002 or win32-msvc2003 instead."
 operator|<<
 name|endl
 expr_stmt|;
-name|cout
-operator|<<
-literal|"(Press any key to continue..)"
+name|prompt
+operator|=
+literal|true
 expr_stmt|;
-if|if
-condition|(
-name|_getch
-argument_list|()
-operator|==
-literal|3
-condition|)
-comment|// _Any_ keypress w/no echo(eat<Enter> for stdout)
-name|exit
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
-comment|// Exit cleanly for Ctrl+C
 block|}
 if|if
 condition|(
@@ -14352,24 +14345,19 @@ operator|<<
 literal|"files such as headers and libraries."
 operator|<<
 name|endl
-operator|<<
-literal|"(Press any key to continue..)"
 expr_stmt|;
+name|prompt
+operator|=
+literal|true
+expr_stmt|;
+block|}
 if|if
 condition|(
-name|_getch
-argument_list|()
-operator|==
-literal|3
+name|prompt
 condition|)
-comment|// _Any_ keypress w/no echo(eat<Enter> for stdout)
-name|exit
-argument_list|(
-literal|0
-argument_list|)
+name|promptKeyPress
+argument_list|()
 expr_stmt|;
-comment|// Exit cleanly for Ctrl+C
-block|}
 return|return
 literal|true
 return|;
@@ -24966,24 +24954,9 @@ operator|==
 literal|0
 condition|)
 block|{
-name|cout
-operator|<<
-literal|"(Press any key for more..)"
-expr_stmt|;
-if|if
-condition|(
-name|_getch
+name|promptKeyPress
 argument_list|()
-operator|==
-literal|3
-condition|)
-comment|// _Any_ keypress w/no echo(eat<Enter> for stdout)
-name|exit
-argument_list|(
-literal|0
-argument_list|)
 expr_stmt|;
-comment|// Exit cleanly for Ctrl+C
 name|cout
 operator|<<
 literal|"\r"
