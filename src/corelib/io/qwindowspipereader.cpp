@@ -746,10 +746,16 @@ return|return;
 block|}
 else|else
 block|{
-switch|switch
-condition|(
+specifier|const
+name|DWORD
+name|dwError
+init|=
 name|GetLastError
 argument_list|()
+decl_stmt|;
+switch|switch
+condition|(
+name|dwError
 condition|)
 block|{
 case|case
@@ -766,11 +772,18 @@ comment|// didn't fit into the pipe's system buffer.
 comment|// We're getting notified by the QWinOverlappedIoNotifier.
 break|break;
 case|case
+name|ERROR_BROKEN_PIPE
+case|:
+case|case
 name|ERROR_PIPE_NOT_CONNECTED
 case|:
 block|{
 comment|// It may happen, that the other side closes the connection directly
 comment|// after writing data. Then we must set the appropriate socket state.
+name|readSequenceStarted
+operator|=
+literal|false
+expr_stmt|;
 name|pipeBroken
 operator|=
 literal|true
@@ -782,11 +795,14 @@ emit|;
 return|return;
 block|}
 default|default:
+name|readSequenceStarted
+operator|=
+literal|false
+expr_stmt|;
 emit|emit
 name|winError
 argument_list|(
-name|GetLastError
-argument_list|()
+name|dwError
 argument_list|,
 name|QLatin1String
 argument_list|(
