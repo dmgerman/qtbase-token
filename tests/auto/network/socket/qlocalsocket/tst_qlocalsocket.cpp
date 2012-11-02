@@ -3260,11 +3260,23 @@ argument_list|,
 name|dataBufferSize
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WIN
+comment|// The data is not immediately sent, but buffered.
+comment|// On Windows, the flushing is done asynchronously by a separate thread.
+comment|// However, this operation will never complete as long as the data is not
+comment|// read by the other end, so the call below always times out.
+comment|// On Unix, the flushing is synchronous and thus needs to be done before
+comment|// attempting to read the data in the same thread. Buffering by the OS
+comment|// prevents the deadlock seen on Windows.
 name|serverSocket
 operator|->
 name|waitForBytesWritten
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 comment|// wait until the first 128 bytes are ready to read
 name|QVERIFY
 argument_list|(
