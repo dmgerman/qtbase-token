@@ -274,6 +274,17 @@ specifier|const
 expr_stmt|;
 name|private
 label|:
+name|bool
+name|checkAngleAvailability
+argument_list|(
+name|QString
+operator|*
+name|errorMessage
+operator|=
+literal|0
+argument_list|)
+decl|const
+decl_stmt|;
 comment|// Our variable dictionaries
 name|QMap
 operator|<
