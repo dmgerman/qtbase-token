@@ -329,6 +329,13 @@ specifier|const
 name|QWidget
 operator|*
 name|w
+argument_list|,
+specifier|const
+name|QStyleOption
+operator|*
+name|opt
+operator|=
+literal|0
 argument_list|)
 block|;
 name|QPixmap
