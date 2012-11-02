@@ -953,6 +953,12 @@ operator|==
 name|enterParent
 condition|)
 block|{
+name|QGuiApplicationPrivate
+operator|::
+name|currentMouseWindow
+operator|=
+name|enterWindow
+expr_stmt|;
 name|enter
 operator|=
 name|enterWindow
@@ -970,6 +976,21 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|// Enter-leave between sibling widgets is ignored when there is a mousegrabber - this makes
+comment|// both native and non-native widgets work similarly.
+comment|// When mousegrabbing, leaves are only generated if leaving the parent window.
+if|if
+condition|(
+operator|!
+name|enter
+operator|||
+operator|!
+name|QWidget
+operator|::
+name|mouseGrabber
+argument_list|()
+condition|)
+block|{
 name|QWidget
 modifier|*
 name|leave
@@ -996,6 +1017,7 @@ name|qt_last_mouse_receiver
 operator|=
 name|enter
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{

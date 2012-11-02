@@ -47,6 +47,14 @@ include|#
 directive|include
 file|<qvarlengtharray.h>
 end_include
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_LINUX
+argument_list|)
+end_if
 begin_include
 include|#
 directive|include
@@ -67,6 +75,10 @@ include|#
 directive|include
 file|<fcntl.h>
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_if
 if|#
 directive|if
@@ -75,6 +87,26 @@ argument_list|(
 name|QT_NO_INOTIFY
 argument_list|)
 end_if
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_QNX
+argument_list|)
+end_if
+begin_comment
+comment|// These files should only be compiled on QNX if the inotify headers are found
+end_comment
+begin_error
+error|#
+directive|error
+literal|"Should not get here."
+end_error
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_include
 include|#
 directive|include

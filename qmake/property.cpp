@@ -229,6 +229,26 @@ name|HostBinariesPath
 block|,
 literal|true
 block|}
+block|,
+block|{
+literal|"QMAKE_SPEC"
+block|,
+name|QLibraryInfo
+operator|::
+name|HostSpecPath
+block|,
+literal|true
+block|}
+block|,
+block|{
+literal|"QMAKE_XSPEC"
+block|,
+name|QLibraryInfo
+operator|::
+name|TargetSpecPath
+block|,
+literal|true
+block|}
 block|, }
 expr_stmt|;
 end_expr_stmt

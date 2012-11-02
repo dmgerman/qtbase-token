@@ -65,31 +65,6 @@ argument_list|(
 name|Q_OS_WIN
 argument_list|)
 end_if
-begin_if
-if|#
-directive|if
-name|defined
-argument_list|(
-name|_WIN32_IE
-argument_list|)
-end_if
-begin_undef
-DECL|macro|_WIN32_IE
-undef|#
-directive|undef
-name|_WIN32_IE
-end_undef
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_define
-DECL|macro|_WIN32_IE
-define|#
-directive|define
-name|_WIN32_IE
-value|0x0500
-end_define
 begin_include
 include|#
 directive|include
@@ -136,7 +111,7 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!   \class QFileIconProvider    \inmodule QtWidgets     \brief The QFileIconProvider class provides file icons for the QDirModel and the QFileSystemModel classes. */
+comment|/*!   \class QFileIconProvider    \inmodule QtWidgets    \brief The QFileIconProvider class provides file icons for the QDirModel and the QFileSystemModel classes. */
 end_comment
 begin_comment
 comment|/*!   \enum QFileIconProvider::IconType   \value Computer   \value Desktop   \value Trashcan   \value Network   \value Drive   \value Folder   \value File */

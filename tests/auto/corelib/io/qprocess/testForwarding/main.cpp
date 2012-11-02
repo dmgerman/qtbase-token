@@ -13,6 +13,9 @@ name|int
 name|main
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_PROCESS
 name|QProcess
 name|process
 decl_stmt|;
@@ -108,6 +111,8 @@ argument_list|(
 literal|5000
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 return|return
 literal|0
 return|;

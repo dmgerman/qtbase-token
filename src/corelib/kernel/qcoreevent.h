@@ -786,11 +786,6 @@ name|CloseSoftwareInputPanel
 operator|=
 literal|200
 block|,
-name|UpdateSoftKeys
-operator|=
-literal|201
-block|,
-comment|// Internal for compressing soft key updates
 name|WinIdChange
 operator|=
 literal|203

@@ -1276,7 +1276,6 @@ expr_stmt|;
 return|return
 literal|false
 return|;
-break|break;
 block|}
 elseif|else
 if|if

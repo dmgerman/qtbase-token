@@ -410,6 +410,9 @@ name|QSizeF
 name|customPaperSize
 block|;
 comment|// in postscript points
+name|bool
+name|pageMarginsSet
+block|;
 name|int
 name|fd
 block|; }

@@ -128,6 +128,13 @@ operator|::
 name|paintDevice
 parameter_list|()
 block|{
+if|if
+condition|(
+name|m_platformWindow
+operator|->
+name|hasBuffers
+argument_list|()
+condition|)
 return|return
 name|m_platformWindow
 operator|->
@@ -136,6 +143,9 @@ argument_list|()
 operator|.
 name|image
 argument_list|()
+return|;
+return|return
+literal|0
 return|;
 block|}
 end_function

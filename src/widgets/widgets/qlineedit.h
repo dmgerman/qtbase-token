@@ -795,6 +795,10 @@ name|friend
 name|class
 name|QAbstractSpinBox
 block|;
+name|friend
+name|class
+name|QAccessibleLineEdit
+block|;
 ifdef|#
 directive|ifdef
 name|QT_KEYPAD_NAVIGATION

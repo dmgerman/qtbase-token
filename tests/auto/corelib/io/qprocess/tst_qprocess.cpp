@@ -140,6 +140,10 @@ name|void
 name|initTestCase
 parameter_list|()
 function_decl|;
+name|void
+name|cleanupTestCase
+parameter_list|()
+function_decl|;
 ifndef|#
 directive|ifndef
 name|QT_NO_PROCESS
@@ -174,6 +178,9 @@ name|void
 name|crashTest2
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
 name|void
 name|echoTest_data
 parameter_list|()
@@ -186,9 +193,8 @@ name|void
 name|echoTest2
 parameter_list|()
 function_decl|;
-if|#
-directive|if
-name|defined
+ifdef|#
+directive|ifdef
 name|Q_OS_WIN
 name|void
 name|echoTestGui
@@ -205,23 +211,11 @@ function_decl|;
 endif|#
 directive|endif
 name|void
-name|exitStatus_data
-parameter_list|()
-function_decl|;
-name|void
-name|exitStatus
-parameter_list|()
-function_decl|;
-name|void
 name|loopBackTest
 parameter_list|()
 function_decl|;
 name|void
 name|readTimeoutAndThenCrash
-parameter_list|()
-function_decl|;
-name|void
-name|waitForFinished
 parameter_list|()
 function_decl|;
 name|void
@@ -246,14 +240,6 @@ parameter_list|()
 function_decl|;
 name|void
 name|emitReadyReadOnlyWhenNewDataArrives
-parameter_list|()
-function_decl|;
-name|void
-name|hardExit
-parameter_list|()
-function_decl|;
-name|void
-name|softExit
 parameter_list|()
 function_decl|;
 name|void
@@ -285,14 +271,6 @@ name|atEnd2
 parameter_list|()
 function_decl|;
 name|void
-name|processInAThread
-parameter_list|()
-function_decl|;
-name|void
-name|processesInMultipleThreads
-parameter_list|()
-function_decl|;
-name|void
 name|waitForFinishedWithTimeout
 parameter_list|()
 function_decl|;
@@ -302,30 +280,6 @@ parameter_list|()
 function_decl|;
 name|void
 name|waitForBytesWrittenInABytesWrittenSlot
-parameter_list|()
-function_decl|;
-name|void
-name|spaceArgsTest_data
-parameter_list|()
-function_decl|;
-name|void
-name|spaceArgsTest
-parameter_list|()
-function_decl|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_WIN
-argument_list|)
-name|void
-name|nativeArguments
-parameter_list|()
-function_decl|;
-endif|#
-directive|endif
-name|void
-name|exitCodeTest
 parameter_list|()
 function_decl|;
 name|void
@@ -345,19 +299,7 @@ name|setProcessEnvironment
 parameter_list|()
 function_decl|;
 name|void
-name|systemEnvironment
-parameter_list|()
-function_decl|;
-name|void
 name|spaceInName
-parameter_list|()
-function_decl|;
-name|void
-name|lockupsInStartDetached
-parameter_list|()
-function_decl|;
-name|void
-name|waitForReadyReadForNonexistantProcess
 parameter_list|()
 function_decl|;
 name|void
@@ -389,15 +331,88 @@ name|fileWriterProcess
 parameter_list|()
 function_decl|;
 name|void
-name|detachedWorkingDirectoryAndPid
-parameter_list|()
-function_decl|;
-name|void
 name|switchReadChannels
 parameter_list|()
 function_decl|;
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
 name|void
 name|setWorkingDirectory
+parameter_list|()
+function_decl|;
+endif|#
+directive|endif
+comment|// Q_OS_WIN
+endif|#
+directive|endif
+comment|// not Q_OS_WINCE
+name|void
+name|exitStatus_data
+parameter_list|()
+function_decl|;
+name|void
+name|exitStatus
+parameter_list|()
+function_decl|;
+name|void
+name|waitForFinished
+parameter_list|()
+function_decl|;
+name|void
+name|hardExit
+parameter_list|()
+function_decl|;
+name|void
+name|softExit
+parameter_list|()
+function_decl|;
+name|void
+name|processInAThread
+parameter_list|()
+function_decl|;
+name|void
+name|processesInMultipleThreads
+parameter_list|()
+function_decl|;
+name|void
+name|spaceArgsTest_data
+parameter_list|()
+function_decl|;
+name|void
+name|spaceArgsTest
+parameter_list|()
+function_decl|;
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_WIN
+argument_list|)
+name|void
+name|nativeArguments
+parameter_list|()
+function_decl|;
+endif|#
+directive|endif
+name|void
+name|exitCodeTest
+parameter_list|()
+function_decl|;
+name|void
+name|systemEnvironment
+parameter_list|()
+function_decl|;
+name|void
+name|lockupsInStartDetached
+parameter_list|()
+function_decl|;
+name|void
+name|waitForReadyReadForNonexistantProcess
+parameter_list|()
+function_decl|;
+name|void
+name|detachedWorkingDirectoryAndPid
 parameter_list|()
 function_decl|;
 name|void
@@ -441,6 +456,9 @@ name|void
 name|exitLoopSlot
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
 name|void
 name|restartProcess
 parameter_list|()
@@ -453,6 +471,8 @@ name|void
 name|waitForBytesWrittenInABytesWrittenSlotSlot
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 private|private:
 DECL|member|process
 name|QProcess
@@ -465,6 +485,7 @@ name|bytesAvailable
 decl_stmt|;
 endif|#
 directive|endif
+comment|//QT_NO_PROCESS
 block|}
 class|;
 end_class
@@ -516,6 +537,26 @@ literal|"Could not chdir to "
 operator|+
 name|testdata_dir
 argument_list|)
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+block|}
+end_function
+begin_function
+DECL|function|cleanupTestCase
+name|void
+name|tst_QProcess
+operator|::
+name|cleanupTestCase
+parameter_list|()
+block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_PROCESS
+name|QSKIP
+argument_list|(
+literal|"This test requires QProcess support"
 argument_list|)
 expr_stmt|;
 endif|#
@@ -1410,16 +1451,6 @@ argument_list|(
 literal|"QProcess::ProcessState"
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_WIN
-name|QSKIP
-argument_list|(
-literal|"This test opens a crash dialog on Windows"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|process
 operator|=
 operator|new
@@ -1755,16 +1786,6 @@ operator|::
 name|crashTest2
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WIN
-name|QSKIP
-argument_list|(
-literal|"This test opens a crash dialog on Windows"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|process
 operator|=
 operator|new
@@ -2012,6 +2033,14 @@ literal|0
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
+begin_comment
+comment|//Reading and writing to a process is not supported on Qt/CE
+end_comment
 begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
@@ -2148,16 +2177,6 @@ operator|::
 name|echoTest
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Reading and writing to a process is not supported on Qt/CE"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QFETCH
 argument_list|(
 name|QByteArray
@@ -2385,6 +2404,10 @@ literal|0
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
@@ -2409,6 +2432,14 @@ end_function
 begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
+begin_comment
+comment|// Reading and writing to a process is not supported on Qt/CE
+end_comment
 begin_function
 DECL|function|echoTest2
 name|void
@@ -2417,16 +2448,6 @@ operator|::
 name|echoTest2
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Reading and writing to a process is not supported on Qt/CE"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|process
 operator|=
 operator|new
@@ -2692,12 +2713,30 @@ literal|0
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_if
 if|#
 directive|if
 name|defined
+argument_list|(
 name|Q_OS_WIN
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINCE
+argument_list|)
 end_if
+begin_comment
+comment|//Batch files are not supported on Winfows CE
+end_comment
+begin_comment
+comment|// Reading and writing to a process is not supported on Qt/CE
+end_comment
 begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
@@ -2709,16 +2748,6 @@ operator|::
 name|echoTestGui
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Reading and writing to a process is not supported on Qt/CE"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QProcess
 name|process
 decl_stmt|;
@@ -2781,8 +2810,32 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !Q_OS_WINCE&& Q_OS_WIN
+end_comment
 begin_comment
 comment|//-----------------------------------------------------------------------------
+end_comment
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_WIN
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINCE
+argument_list|)
+end_if
+begin_comment
+comment|//Batch files are not supported on Winfows CE
 end_comment
 begin_function
 DECL|function|batFiles_data
@@ -2819,9 +2872,7 @@ argument_list|(
 literal|"simple"
 argument_list|)
 operator|<<
-name|QString
-operator|::
-name|fromLatin1
+name|QFINDTESTDATA
 argument_list|(
 literal|"testBatFiles/simple.bat"
 argument_list|)
@@ -2838,9 +2889,7 @@ argument_list|(
 literal|"with space"
 argument_list|)
 operator|<<
-name|QString
-operator|::
-name|fromLatin1
+name|QFINDTESTDATA
 argument_list|(
 literal|"testBatFiles/with space.bat"
 argument_list|)
@@ -2860,19 +2909,6 @@ operator|::
 name|batFiles
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_WINCE
-argument_list|)
-name|QSKIP
-argument_list|(
-literal|"Batch files are not supported on Windows CE"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QFETCH
 argument_list|(
 name|QString
@@ -2939,6 +2975,9 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// !Q_OS_WINCE&& Q_OS_WIN
+end_comment
 begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
@@ -3133,27 +3172,6 @@ argument_list|,
 name|exitStatus
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_WIN
-if|if
-condition|(
-name|exitStatus
-operator|.
-name|contains
-argument_list|(
-name|QProcess
-operator|::
-name|CrashExit
-argument_list|)
-condition|)
-name|QSKIP
-argument_list|(
-literal|"This test opens a crash dialog on Windows"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|exitStatus
@@ -3247,6 +3265,14 @@ end_function
 begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
+begin_comment
+comment|// Reading and writing to a process is not supported on Qt/CE
+end_comment
 begin_function
 DECL|function|loopBackTest
 name|void
@@ -3255,16 +3281,6 @@ operator|::
 name|loopBackTest
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Reading and writing to a process is not supported on Qt/CE"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|process
 operator|=
 operator|new
@@ -3374,8 +3390,20 @@ literal|0
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//-----------------------------------------------------------------------------
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
+begin_comment
+comment|// Reading and writing to a process is not supported on Qt/CE
 end_comment
 begin_function
 DECL|function|readTimeoutAndThenCrash
@@ -3385,16 +3413,6 @@ operator|::
 name|readTimeoutAndThenCrash
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Reading and writing to a process is not supported on Qt/CE"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|process
 operator|=
 operator|new
@@ -3588,6 +3606,10 @@ literal|0
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|waitForFinished
 name|void
@@ -3718,6 +3740,14 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
+begin_comment
+comment|// Reading and writing to a process is not supported on Qt/CE
+end_comment
 begin_function
 DECL|function|deadWhileReading
 name|void
@@ -3726,16 +3756,6 @@ operator|::
 name|deadWhileReading
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Reading and writing to a process is not supported on Qt/CE"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QProcess
 name|process
 decl_stmt|;
@@ -3796,8 +3816,20 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//-----------------------------------------------------------------------------
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
+begin_comment
+comment|// Reading and writing to a process is not supported on Qt/CE
 end_comment
 begin_function
 DECL|function|restartProcessDeadlock
@@ -3807,16 +3839,6 @@ operator|::
 name|restartProcessDeadlock
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Reading and writing to a process is not supported on Qt/CE"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 comment|// The purpose of this test is to detect whether restarting a
 comment|// process in the finished() connected slot causes a deadlock
 comment|// because of the way QProcessManager uses its locks.
@@ -3942,8 +3964,20 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//-----------------------------------------------------------------------------
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
+begin_comment
+comment|// Reading and writing to a process is not supported on Qt/CE
 end_comment
 begin_function
 DECL|function|closeWriteChannel
@@ -3953,16 +3987,6 @@ operator|::
 name|closeWriteChannel
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Reading and writing to a process is not supported on Qt/CE"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QProcess
 name|more
 decl_stmt|;
@@ -4100,8 +4124,20 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//-----------------------------------------------------------------------------
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
+begin_comment
+comment|// Reading and writing to a process is not supported on Qt/CE"
 end_comment
 begin_function
 DECL|function|closeReadChannel
@@ -4111,16 +4147,6 @@ operator|::
 name|closeReadChannel
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Reading and writing to a process is not supported on Qt/CE"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 for|for
 control|(
 name|int
@@ -4294,8 +4320,20 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//-----------------------------------------------------------------------------
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
+begin_comment
+comment|// Reading and writing to a process is not supported on Qt/CE
 end_comment
 begin_function
 DECL|function|openModes
@@ -4305,16 +4343,6 @@ operator|::
 name|openModes
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Reading and writing to a process is not supported on Qt/CE"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QProcess
 name|proc
 decl_stmt|;
@@ -4564,8 +4592,20 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//-----------------------------------------------------------------------------
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
+begin_comment
+comment|// Reading and writing to a process is not supported on Qt/CE
 end_comment
 begin_function
 DECL|function|emitReadyReadOnlyWhenNewDataArrives
@@ -4575,16 +4615,6 @@ operator|::
 name|emitReadyReadOnlyWhenNewDataArrives
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Reading and writing to a process is not supported on Qt/CE"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QProcess
 name|proc
 decl_stmt|;
@@ -4776,6 +4806,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
@@ -4997,6 +5031,14 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
+begin_comment
+comment|// Reading and writing to a process is not supported on Qt/CE
+end_comment
 begin_class
 DECL|class|SoftExitProcess
 class|class
@@ -5434,16 +5476,6 @@ operator|::
 name|softExitInSlots
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Reading and writing to a process is not supported on Qt/CE"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QFETCH
 argument_list|(
 name|QString
@@ -5511,8 +5543,20 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//-----------------------------------------------------------------------------
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
+begin_comment
+comment|// Reading and writing to a process is not supported on Qt/CE
 end_comment
 begin_function
 DECL|function|mergedChannels
@@ -5522,16 +5566,6 @@ operator|::
 name|mergedChannels
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Reading and writing to a process is not supported on Qt/CE"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QProcess
 name|process
 decl_stmt|;
@@ -5653,8 +5687,20 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//-----------------------------------------------------------------------------
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
+begin_comment
+comment|// Reading and writing to a process is not supported on Qt/CE
 end_comment
 begin_function
 DECL|function|forwardedChannels
@@ -5664,16 +5710,6 @@ operator|::
 name|forwardedChannels
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Reading and writing to a process is not supported on Qt/CE"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QProcess
 name|process
 decl_stmt|;
@@ -5771,6 +5807,18 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
+begin_comment
+comment|// Reading and writing to a process is not supported on Qt/CE
+end_comment
 begin_function
 DECL|function|forwardedChannelsOutput
 name|void
@@ -5779,16 +5827,6 @@ operator|::
 name|forwardedChannelsOutput
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Reading and writing to a process is not supported on Qt/CE"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QProcess
 name|process
 decl_stmt|;
@@ -5857,8 +5895,20 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//-----------------------------------------------------------------------------
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
+begin_comment
+comment|// Reading and writing to a process is not supported on Qt/CE
 end_comment
 begin_function
 DECL|function|atEnd
@@ -5868,16 +5918,6 @@ operator|::
 name|atEnd
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Reading and writing to a process is not supported on Qt/CE"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QProcess
 name|process
 decl_stmt|;
@@ -5979,6 +6019,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_class
 DECL|class|TestThread
 class|class
@@ -6285,6 +6329,14 @@ end_function
 begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
+begin_comment
+comment|// Reading and writing to a process is not supported on Qt/CE
+end_comment
 begin_function
 DECL|function|waitForFinishedWithTimeout
 name|void
@@ -6293,16 +6345,6 @@ operator|::
 name|waitForFinishedWithTimeout
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Reading and writing to a process is not supported on Qt/CE"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|process
 operator|=
 operator|new
@@ -6365,8 +6407,20 @@ literal|0
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//-----------------------------------------------------------------------------
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
+begin_comment
+comment|// Reading and writing to a process is not supported on Qt/CE
 end_comment
 begin_function
 DECL|function|waitForReadyReadInAReadyReadSlot
@@ -6376,16 +6430,6 @@ operator|::
 name|waitForReadyReadInAReadyReadSlot
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Reading and writing to a process is not supported on Qt/CE"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|process
 operator|=
 operator|new
@@ -6548,8 +6592,20 @@ literal|0
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//-----------------------------------------------------------------------------
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
+begin_comment
+comment|// Reading and writing to a process is not supported on Qt/CE
 end_comment
 begin_function
 DECL|function|waitForReadyReadInAReadyReadSlotSlot
@@ -6559,16 +6615,6 @@ operator|::
 name|waitForReadyReadInAReadyReadSlotSlot
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Reading and writing to a process is not supported on Qt/CE"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|bytesAvailable
 operator|=
 name|process
@@ -6605,8 +6651,20 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//-----------------------------------------------------------------------------
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
+begin_comment
+comment|// Reading and writing to a process is not supported on Qt/CE
 end_comment
 begin_function
 DECL|function|waitForBytesWrittenInABytesWrittenSlot
@@ -6616,16 +6674,6 @@ operator|::
 name|waitForBytesWrittenInABytesWrittenSlot
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Reading and writing to a process is not supported on Qt/CE"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|process
 operator|=
 operator|new
@@ -6776,8 +6824,20 @@ literal|0
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//-----------------------------------------------------------------------------
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
+begin_comment
+comment|// Reading and writing to a process is not supported on Qt/CE
 end_comment
 begin_function
 DECL|function|waitForBytesWrittenInABytesWrittenSlotSlot
@@ -6787,16 +6847,6 @@ operator|::
 name|waitForBytesWrittenInABytesWrittenSlotSlot
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Reading and writing to a process is not supported on Qt/CE"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|process
 operator|->
 name|write
@@ -6824,6 +6874,10 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
@@ -8814,6 +8868,14 @@ end_function
 begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
+begin_comment
+comment|// Reading and writing to a process is not supported on Qt/CE
+end_comment
 begin_function
 DECL|function|removeFileWhileProcessIsRunning
 name|void
@@ -8822,16 +8884,6 @@ operator|::
 name|removeFileWhileProcessIsRunning
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Reading and writing to a process is not supported on Qt/CE"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QFile
 name|file
 argument_list|(
@@ -8899,8 +8951,20 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//-----------------------------------------------------------------------------
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
+begin_comment
+comment|// OS doesn't support environment variables
 end_comment
 begin_function
 DECL|function|setEnvironment_data
@@ -9015,19 +9079,6 @@ operator|::
 name|setEnvironment
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_WINCE
-argument_list|)
-name|QSKIP
-argument_list|(
-literal|"OS doesn't support environment variables"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 comment|// make sure our environment variables are correct
 name|QVERIFY
 argument_list|(
@@ -9357,8 +9408,20 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//-----------------------------------------------------------------------------
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
+begin_comment
+comment|// OS doesn't support environment variables
 end_comment
 begin_function
 DECL|function|setProcessEnvironment_data
@@ -9381,19 +9444,6 @@ operator|::
 name|setProcessEnvironment
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_WINCE
-argument_list|)
-name|QSKIP
-argument_list|(
-literal|"OS doesn't support environment variables"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 comment|// make sure our environment variables are correct
 name|QVERIFY
 argument_list|(
@@ -9574,6 +9624,10 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
@@ -9684,6 +9738,14 @@ end_function
 begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
+begin_comment
+comment|// Reading and writing to a process is not supported on Qt/CE
+end_comment
 begin_function
 DECL|function|spaceInName
 name|void
@@ -9692,16 +9754,6 @@ operator|::
 name|spaceInName
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Reading and writing to a process is not supported on Qt/CE"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QProcess
 name|process
 decl_stmt|;
@@ -9742,6 +9794,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
@@ -9804,6 +9860,14 @@ end_function
 begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
+begin_comment
+comment|// Reading and writing to a process is not supported on Qt/CE
+end_comment
 begin_function
 DECL|function|atEnd2
 name|void
@@ -9812,16 +9876,6 @@ operator|::
 name|atEnd2
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Reading and writing to a process is not supported on Qt/CE"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QProcess
 name|process
 decl_stmt|;
@@ -9889,6 +9943,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
@@ -10080,6 +10138,14 @@ end_function
 begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
+begin_comment
+comment|// Reading and writing to a process is not supported on Qt/CE
+end_comment
 begin_function
 DECL|function|setStandardInputFile
 name|void
@@ -10088,16 +10154,6 @@ operator|::
 name|setStandardInputFile
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Reading and writing to a process is not supported on Qt/CE"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 specifier|static
 specifier|const
 name|char
@@ -10198,8 +10254,20 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//-----------------------------------------------------------------------------
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
+begin_comment
+comment|// Reading and writing to a process is not supported on Qt/CE
 end_comment
 begin_function
 DECL|function|setStandardOutputFile_data
@@ -10387,16 +10455,6 @@ operator|::
 name|setStandardOutputFile
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Reading and writing to a process is not supported on Qt/CE"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 specifier|static
 specifier|const
 name|char
@@ -10663,8 +10721,20 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//-----------------------------------------------------------------------------
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
+begin_comment
+comment|// Reading and writing to a process is not supported on Qt/CE
 end_comment
 begin_function
 DECL|function|setStandardOutputProcess_data
@@ -10712,16 +10782,6 @@ operator|::
 name|setStandardOutputProcess
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Reading and writing to a process is not supported on Qt/CE"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QProcess
 name|source
 decl_stmt|;
@@ -10839,8 +10899,20 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//-----------------------------------------------------------------------------
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
+begin_comment
+comment|// Reading and writing to a process is not supported on Qt/CE
 end_comment
 begin_function
 DECL|function|fileWriterProcess
@@ -10850,16 +10922,6 @@ operator|::
 name|fileWriterProcess
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Reading and writing to a process is not supported on Qt/CE"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QString
 name|stdinStr
 decl_stmt|;
@@ -11010,6 +11072,10 @@ condition|)
 do|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
@@ -11257,6 +11323,14 @@ end_function
 begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
+begin_comment
+comment|// Reading and writing to a process is not supported on Qt/CE
+end_comment
 begin_function
 DECL|function|switchReadChannels
 name|void
@@ -11265,16 +11339,6 @@ operator|::
 name|switchReadChannels
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Reading and writing to a process is not supported on Qt/CE"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 specifier|const
 name|char
 name|data
@@ -11463,8 +11527,32 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//-----------------------------------------------------------------------------
+end_comment
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_WIN
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINCE
+argument_list|)
+end_if
+begin_comment
+comment|// Q_OS_WIN - setWorkingDirectory will chdir before starting the process on unices
+end_comment
+begin_comment
+comment|// Windows CE does not support working directory logic
 end_comment
 begin_function
 DECL|function|setWorkingDirectory
@@ -11474,26 +11562,6 @@ operator|::
 name|setWorkingDirectory
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Windows CE does not support working directory logic"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-ifndef|#
-directive|ifndef
-name|Q_OS_WIN
-name|QSKIP
-argument_list|(
-literal|"setWorkingDirectory will chdir before starting the process on unices"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|process
 operator|=
 operator|new
@@ -11560,6 +11628,10 @@ literal|0
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
@@ -11996,6 +12068,9 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|//QT_NO_PROCESS
+end_comment
 begin_macro
 name|QTEST_MAIN
 argument_list|(

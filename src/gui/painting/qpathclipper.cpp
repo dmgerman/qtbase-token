@@ -9685,7 +9685,6 @@ return|return
 name|result
 return|;
 block|}
-break|break;
 case|case
 name|BoolAnd
 case|:

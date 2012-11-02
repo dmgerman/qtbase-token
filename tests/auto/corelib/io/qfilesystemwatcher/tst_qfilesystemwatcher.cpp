@@ -683,6 +683,14 @@ operator|::
 name|ReadOwner
 argument_list|)
 expr_stmt|;
+comment|// IN_ATTRIB doesn't work on QNX, so skip this test
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_QNX
+argument_list|)
 comment|// waiting max 5 seconds for notification for file permission modification to trigger
 name|QTRY_COMPARE
 argument_list|(
@@ -736,6 +744,8 @@ name|fileName
 argument_list|()
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|changedSpy
 operator|.
 name|clear

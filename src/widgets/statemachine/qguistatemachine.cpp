@@ -170,7 +170,6 @@ operator|*
 name|e
 argument_list|)
 return|;
-break|break;
 case|case
 name|QEvent
 operator|::
@@ -2641,19 +2640,6 @@ expr_stmt|;
 break|break;
 endif|#
 directive|endif
-case|case
-name|QEvent
-operator|::
-name|UpdateSoftKeys
-case|:
-return|return
-operator|new
-name|QEvent
-argument_list|(
-operator|*
-name|e
-argument_list|)
-return|;
 case|case
 name|QEvent
 operator|::

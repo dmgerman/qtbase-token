@@ -28,6 +28,11 @@ include|#
 directive|include
 file|<QtGui/QPixmap>
 end_include
+begin_struct_decl
+struct_decl|struct
+name|IDropTargetHelper
+struct_decl|;
+end_struct_decl
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
@@ -286,6 +291,11 @@ operator|*
 name|dropData
 argument_list|()
 block|;
+name|IDropTargetHelper
+operator|*
+name|dropHelper
+argument_list|()
+block|;
 name|QPixmap
 name|defaultCursor
 argument_list|(
@@ -301,6 +311,10 @@ block|;
 name|IDataObject
 operator|*
 name|m_dropDataObject
+block|;
+name|IDropTargetHelper
+operator|*
+name|m_cachedDropTargetHelper
 block|;
 name|mutable
 name|QPixmap

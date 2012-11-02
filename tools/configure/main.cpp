@@ -129,6 +129,22 @@ condition|)
 return|return
 literal|3
 return|;
+name|app
+operator|.
+name|generateSystemVars
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|app
+operator|.
+name|isOk
+argument_list|()
+condition|)
+return|return
+literal|3
+return|;
 comment|// Auto-detect modules and settings.
 name|app
 operator|.

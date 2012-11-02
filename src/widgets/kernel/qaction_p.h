@@ -234,17 +234,6 @@ name|fontSet
 operator|:
 literal|1
 block|;
-comment|//for soft keys management
-name|uint
-name|forceEnabledInSoftkeys
-operator|:
-literal|1
-block|;
-name|uint
-name|menuActionSoftkeys
-operator|:
-literal|1
-block|;
 name|int
 name|iconVisibleInMenu
 operator|:
@@ -255,11 +244,6 @@ name|QAction
 operator|::
 name|MenuRole
 name|menuRole
-block|;
-name|QAction
-operator|::
-name|SoftKeyRole
-name|softKeyRole
 block|;
 name|QAction
 operator|::

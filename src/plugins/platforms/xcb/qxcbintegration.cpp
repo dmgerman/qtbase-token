@@ -880,6 +880,12 @@ case|:
 return|return
 literal|true
 return|;
+case|case
+name|MultipleWindows
+case|:
+return|return
+literal|true
+return|;
 default|default:
 return|return
 name|QPlatformIntegration
@@ -1129,9 +1135,6 @@ operator|::
 name|queryPointer
 argument_list|(
 name|conn
-operator|->
-name|xcb_connection
-argument_list|()
 argument_list|,
 literal|0
 argument_list|,

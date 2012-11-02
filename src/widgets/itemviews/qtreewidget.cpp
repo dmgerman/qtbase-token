@@ -5061,7 +5061,7 @@ block|}
 block|}
 end_constructor
 begin_comment
-comment|/*!   Destroys this tree widget item.      The item will be removed from \l{QTreeWidget}s to which it has   been added. This makes it safe to delete an item at any time.  */
+comment|/*!   Destroys this tree widget item.    The item will be removed from \l{QTreeWidget}s to which it has   been added. This makes it safe to delete an item at any time.  */
 end_comment
 begin_destructor
 DECL|function|~QTreeWidgetItem

@@ -304,6 +304,12 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_QSETTINGS_ALWAYS_CASE_SENSITIVE_AND_FORGET_ORIGINAL_KEY_ORDER
+argument_list|)
 name|void
 name|dontReorderIniKeysNeedlessly
 parameter_list|()
@@ -21961,7 +21967,16 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_QSETTINGS_ALWAYS_CASE_SENSITIVE_AND_FORGET_ORIGINAL_KEY_ORDER
+argument_list|)
 end_if
+begin_comment
+comment|// This Qt build does not preserve ordering, as a code size optimization.
+end_comment
 begin_function
 DECL|function|dontReorderIniKeysNeedlessly
 name|void
@@ -21970,16 +21985,6 @@ operator|::
 name|dontReorderIniKeysNeedlessly
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QT_QSETTINGS_ALWAYS_CASE_SENSITIVE_AND_FORGET_ORIGINAL_KEY_ORDER
-name|QSKIP
-argument_list|(
-literal|"This Qt build does not preserve ordering, as a code size optimization."
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 comment|/*         This is a very strong test. It asserts that modifying         resourcefile2.ini will lead to the exact contents of         resourcefile3.ini. Right now it's run only on Unix         systems, but that should be enough since the INI         code (unlike this test) is platform-agnostic.          Things that are tested:              * keys are written in the same order that they were               read in              * new keys are put at the end of their respective               sections     */
 name|QFile
 name|inFile

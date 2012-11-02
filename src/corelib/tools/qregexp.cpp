@@ -3220,7 +3220,6 @@ argument_list|,
 literal|false
 argument_list|)
 return|;
-break|break;
 case|case
 name|QRegExp
 operator|::
@@ -3234,7 +3233,6 @@ argument_list|,
 literal|true
 argument_list|)
 return|;
-break|break;
 endif|#
 directive|endif
 case|case
@@ -3250,7 +3248,6 @@ argument_list|(
 name|pattern
 argument_list|)
 return|;
-break|break;
 case|case
 name|QRegExp
 operator|::

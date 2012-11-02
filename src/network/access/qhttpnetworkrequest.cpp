@@ -226,7 +226,6 @@ case|:
 return|return
 literal|"GET"
 return|;
-break|break;
 case|case
 name|QHttpNetworkRequest
 operator|::
@@ -235,7 +234,6 @@ case|:
 return|return
 literal|"HEAD"
 return|;
-break|break;
 case|case
 name|QHttpNetworkRequest
 operator|::
@@ -244,7 +242,6 @@ case|:
 return|return
 literal|"POST"
 return|;
-break|break;
 case|case
 name|QHttpNetworkRequest
 operator|::
@@ -253,7 +250,6 @@ case|:
 return|return
 literal|"OPTIONS"
 return|;
-break|break;
 case|case
 name|QHttpNetworkRequest
 operator|::
@@ -262,7 +258,6 @@ case|:
 return|return
 literal|"PUT"
 return|;
-break|break;
 case|case
 name|QHttpNetworkRequest
 operator|::
@@ -271,7 +266,6 @@ case|:
 return|return
 literal|"DELETE"
 return|;
-break|break;
 case|case
 name|QHttpNetworkRequest
 operator|::
@@ -280,7 +274,6 @@ case|:
 return|return
 literal|"TRACE"
 return|;
-break|break;
 case|case
 name|QHttpNetworkRequest
 operator|::
@@ -289,7 +282,6 @@ case|:
 return|return
 literal|"CONNECT"
 return|;
-break|break;
 case|case
 name|QHttpNetworkRequest
 operator|::
@@ -298,7 +290,6 @@ case|:
 return|return
 name|customVerb
 return|;
-break|break;
 default|default:
 break|break;
 block|}

@@ -10023,13 +10023,14 @@ name|style
 init|=
 operator|new
 name|QFusionStyle
+decl_stmt|;
 name|style
 operator|->
 name|setParent
 argument_list|(
 name|this
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|setStyle
 argument_list|(
 name|style

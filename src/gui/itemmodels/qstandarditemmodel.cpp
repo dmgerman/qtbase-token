@@ -10394,7 +10394,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/* \internal     Used by QStandardItemModel::dropMimeData     stream out an item and his children   */
+comment|/* \internal     Used by QStandardItemModel::dropMimeData     stream out an item and his children  */
 end_comment
 begin_function
 DECL|function|decodeDataRecursive

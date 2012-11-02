@@ -259,6 +259,12 @@ operator|==
 name|EGL_NO_SURFACE
 condition|)
 block|{
+name|EGLint
+name|error
+init|=
+name|eglGetError
+argument_list|()
+decl_stmt|;
 name|eglTerminate
 argument_list|(
 name|display
@@ -268,8 +274,7 @@ name|qFatal
 argument_list|(
 literal|"EGL Error : Could not create the egl surface: error = 0x%x\n"
 argument_list|,
-name|eglGetError
-argument_list|()
+name|error
 argument_list|)
 expr_stmt|;
 block|}

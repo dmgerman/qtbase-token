@@ -60,6 +60,14 @@ block|,
 name|DisableArb
 operator|=
 literal|0x4
+block|,
+name|NoNativeDialogs
+operator|=
+literal|0x8
+block|,
+name|XpNativeDialogs
+operator|=
+literal|0x10
 block|}
 block|;
 name|explicit

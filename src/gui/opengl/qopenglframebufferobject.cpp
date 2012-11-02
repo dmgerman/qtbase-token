@@ -677,7 +677,6 @@ case|:
 return|return
 literal|true
 return|;
-break|break;
 case|case
 name|GL_FRAMEBUFFER_UNSUPPORTED
 case|:

@@ -7032,34 +7032,25 @@ condition|(
 name|guidService
 operator|==
 name|IID_IAccessible
-operator|&&
-name|riid
-operator|==
-name|IID_IAccessible2
 condition|)
 block|{
-comment|// The conditions for entering here should be ok (from _dicoveringInterfaces in IAccessible2.idl)
+if|if
+condition|(
+name|riid
+operator|==
+name|IID_IServiceProvider
+condition|)
+block|{
+comment|// do not end up calling QueryInterface for IID_IServiceProvider
 operator|*
 name|iface
 operator|=
-cast|static_cast
-argument_list|<
-name|IAccessible2
-operator|*
-argument_list|>
-argument_list|(
-name|this
-argument_list|)
+literal|0
 expr_stmt|;
 block|}
 elseif|else
 if|if
 condition|(
-name|guidService
-operator|==
-name|IID_IAccessible
-operator|&&
-operator|(
 name|riid
 operator|==
 name|IID_IAccessible
@@ -7071,7 +7062,6 @@ operator|||
 name|riid
 operator|==
 name|IID_IDispatch
-operator|)
 condition|)
 block|{
 comment|// The above conditions works with AccProbe and NVDA.
@@ -7088,7 +7078,23 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
+else|else
+block|{
+comment|// According to _dicoveringInterfaces Discovery of Interfaces, we should really only
+comment|// enter here if riid == IID_IAccessible2, but some screen readers does not like that,
+comment|// and other servers seems to have realized that. (Chrome and Mozilla for instance,
+comment|// calls QueryInterface more or less in the same way)
+comment|// For instance, accProbe discovers IID_IAccessibleTable2 by a QueryService only.
+return|return
+name|QueryInterface
+argument_list|(
+name|riid
+argument_list|,
+name|iface
+argument_list|)
+return|;
+block|}
+block|}
 if|if
 condition|(
 name|riid

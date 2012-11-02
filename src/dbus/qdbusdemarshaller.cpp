@@ -992,7 +992,6 @@ argument_list|(
 name|ptr
 argument_list|)
 return|;
-break|break;
 block|}
 empty_stmt|;
 block|}

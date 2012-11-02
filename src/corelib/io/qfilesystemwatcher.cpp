@@ -47,6 +47,37 @@ include|#
 directive|include
 file|<qtimer.h>
 end_include
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_LINUX
+argument_list|)
+operator|||
+operator|(
+name|defined
+argument_list|(
+name|Q_OS_QNX
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_INOTIFY
+argument_list|)
+operator|)
+end_if
+begin_define
+DECL|macro|USE_INOTIFY
+define|#
+directive|define
+name|USE_INOTIFY
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_include
 include|#
 directive|include
@@ -70,7 +101,7 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|Q_OS_LINUX
+name|USE_INOTIFY
 argument_list|)
 end_elif
 begin_include
@@ -131,7 +162,7 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|Q_OS_LINUX
+name|USE_INOTIFY
 argument_list|)
 comment|// there is a chance that inotify may fail on Linux pre-2.6.13 (August
 comment|// 2005), so we can't just new inotify directly.

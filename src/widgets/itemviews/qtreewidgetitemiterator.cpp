@@ -31,7 +31,7 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!   \class QTreeWidgetItemIterator   \ingroup model-view   \inmodule QtWidgets     \brief The QTreeWidgetItemIterator class provides a way to iterate over the   items in a QTreeWidget instance.    The iterator will walk the items in a pre-order traversal order, thus visiting the   parent node \e before it continues to the child nodes.    For example, the following code examples each item in a tree, checking the   text in the first column against a user-specified search string:    \snippet qtreewidgetitemiterator-using/mainwindow.cpp 0    It is also possible to filter out certain types of node by passing certain   \l{IteratorFlag}{flags} to the constructor of QTreeWidgetItemIterator.    \sa QTreeWidget, {Model/View Programming}, QTreeWidgetItem */
+comment|/*!   \class QTreeWidgetItemIterator   \ingroup model-view   \inmodule QtWidgets    \brief The QTreeWidgetItemIterator class provides a way to iterate over the   items in a QTreeWidget instance.    The iterator will walk the items in a pre-order traversal order, thus visiting the   parent node \e before it continues to the child nodes.    For example, the following code examples each item in a tree, checking the   text in the first column against a user-specified search string:    \snippet qtreewidgetitemiterator-using/mainwindow.cpp 0    It is also possible to filter out certain types of node by passing certain   \l{IteratorFlag}{flags} to the constructor of QTreeWidgetItemIterator.    \sa QTreeWidget, {Model/View Programming}, QTreeWidgetItem */
 end_comment
 begin_comment
 comment|/*!     Constructs an iterator for the same QTreeWidget as \a it. The     current iterator item is set to point on the current item of \a it. */

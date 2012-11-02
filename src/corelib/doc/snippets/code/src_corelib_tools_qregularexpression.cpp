@@ -2,30 +2,52 @@ begin_unit
 begin_comment
 comment|/**************************************************************************** ** ** Copyright (C) 2012 Giuseppe D'Angelo<dangelog@gmail.com>. ** Contact: http://www.qt-project.org/legal ** ** This file is part of the documentation of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:BSD$ ** You may use this file under the terms of the BSD license as follows: ** ** "Redistribution and use in source and binary forms, with or without ** modification, are permitted provided that the following conditions are ** met: **   * Redistributions of source code must retain the above copyright **     notice, this list of conditions and the following disclaimer. **   * Redistributions in binary form must reproduce the above copyright **     notice, this list of conditions and the following disclaimer in **     the documentation and/or other materials provided with the **     distribution. **   * Neither the name of Digia Plc and its Subsidiary(-ies) nor the names **     of its contributors may be used to endorse or promote products derived **     from this software without specific prior written permission. ** ** ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS ** "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE." ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
-begin_comment
+begin_include
+include|#
+directive|include
+file|<QString>
+end_include
+begin_include
+include|#
+directive|include
+file|<QStringList>
+end_include
+begin_include
+include|#
+directive|include
+file|<QRegularExpression>
+end_include
+begin_include
+include|#
+directive|include
+file|<QRegularExpressionMatch>
+end_include
+begin_include
+include|#
+directive|include
+file|<QRegularExpressionMatchIterator>
+end_include
+begin_function
+DECL|function|main
+name|int
+name|main
+parameter_list|()
+block|{
+block|{
 comment|//! [0]
-end_comment
-begin_decl_stmt
 name|QRegularExpression
 name|re
 argument_list|(
 literal|"a pattern"
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_comment
 comment|//! [0]
-end_comment
-begin_comment
+block|}
+block|{
 comment|//! [1]
-end_comment
-begin_decl_stmt
-DECL|variable|re
 name|QRegularExpression
 name|re
 decl_stmt|;
-end_decl_stmt
-begin_expr_stmt
 name|re
 operator|.
 name|setPattern
@@ -33,51 +55,34 @@ argument_list|(
 literal|"another pattern"
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_comment
 comment|//! [1]
-end_comment
-begin_comment
+block|}
+block|{
 comment|//! [2]
-end_comment
-begin_comment
 comment|// matches two digits followed by a space and a word
-end_comment
-begin_decl_stmt
 name|QRegularExpression
 name|re
 argument_list|(
 literal|"\\d\\d \\w+"
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_comment
 comment|// matches a backslash
-end_comment
-begin_decl_stmt
 name|QRegularExpression
 name|re2
 argument_list|(
 literal|"\\\\"
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_comment
 comment|//! [2]
-end_comment
-begin_comment
+block|}
+block|{
 comment|//! [3]
-end_comment
-begin_decl_stmt
 name|QRegularExpression
 name|re
 argument_list|(
 literal|"a third pattern"
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|pattern
 name|QString
 name|pattern
 init|=
@@ -86,21 +91,12 @@ operator|.
 name|pattern
 argument_list|()
 decl_stmt|;
-end_decl_stmt
-begin_comment
-DECL|variable|pattern
 comment|// pattern == "a third pattern"
-end_comment
-begin_comment
 comment|//! [3]
-end_comment
-begin_comment
+block|}
+block|{
 comment|//! [4]
-end_comment
-begin_comment
 comment|// matches "Qt rocks", but also "QT rocks", "QT ROCKS", "qT rOcKs", etc.
-end_comment
-begin_decl_stmt
 name|QRegularExpression
 name|re
 argument_list|(
@@ -111,22 +107,16 @@ operator|::
 name|CaseInsensitiveOption
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_comment
 comment|//! [4]
-end_comment
-begin_comment
+block|}
+block|{
 comment|//! [5]
-end_comment
-begin_decl_stmt
 name|QRegularExpression
 name|re
 argument_list|(
 literal|"^\\d+$"
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_expr_stmt
 name|re
 operator|.
 name|setPatternOptions
@@ -136,18 +126,11 @@ operator|::
 name|MultilineOption
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_comment
 comment|// re matches any line in the subject string that contains only digits (but at least one)
-end_comment
-begin_comment
 comment|//! [5]
-end_comment
-begin_comment
+block|}
+block|{
 comment|//! [6]
-end_comment
-begin_decl_stmt
-DECL|variable|re
 name|QRegularExpression
 name|re
 init|=
@@ -164,9 +147,6 @@ operator|::
 name|DotMatchesEverythingOption
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|options
 name|QRegularExpression
 operator|::
 name|PatternOptions
@@ -177,29 +157,18 @@ operator|.
 name|patternOptions
 argument_list|()
 decl_stmt|;
-end_decl_stmt
-begin_comment
 comment|// options == QRegularExpression::MultilineOption | QRegularExpression::DotMatchesEverythingOption
-end_comment
-begin_comment
 comment|//! [6]
-end_comment
-begin_comment
+block|}
+block|{
 comment|//! [7]
-end_comment
-begin_comment
 comment|// match two digits followed by a space and a word
-end_comment
-begin_decl_stmt
 name|QRegularExpression
 name|re
 argument_list|(
 literal|"\\d\\d \\w+"
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|match
 name|QRegularExpressionMatch
 name|match
 init|=
@@ -210,9 +179,6 @@ argument_list|(
 literal|"abc123 def"
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|hasMatch
 name|bool
 name|hasMatch
 init|=
@@ -221,27 +187,17 @@ operator|.
 name|hasMatch
 argument_list|()
 decl_stmt|;
-end_decl_stmt
-begin_comment
-DECL|variable|hasMatch
 comment|// true
-end_comment
-begin_comment
 comment|//! [7]
-end_comment
-begin_comment
+block|}
+block|{
 comment|//! [8]
-end_comment
-begin_decl_stmt
 name|QRegularExpression
 name|re
 argument_list|(
 literal|"\\d\\d \\w+"
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|match
 name|QRegularExpressionMatch
 name|match
 init|=
@@ -252,8 +208,6 @@ argument_list|(
 literal|"abc123 def"
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_if
 if|if
 condition|(
 name|match
@@ -275,23 +229,16 @@ decl_stmt|;
 comment|// matched == "23 def"
 comment|// ...
 block|}
-end_if
-begin_comment
 comment|//! [8]
-end_comment
-begin_comment
+block|}
+block|{
 comment|//! [9]
-end_comment
-begin_decl_stmt
 name|QRegularExpression
 name|re
 argument_list|(
 literal|"\\d\\d \\w+"
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|match
 name|QRegularExpressionMatch
 name|match
 init|=
@@ -304,8 +251,6 @@ argument_list|,
 literal|1
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_if
 if|if
 condition|(
 name|match
@@ -327,23 +272,16 @@ decl_stmt|;
 comment|// matched == "45 def"
 comment|// ...
 block|}
-end_if
-begin_comment
 comment|//! [9]
-end_comment
-begin_comment
+block|}
+block|{
 comment|//! [10]
-end_comment
-begin_decl_stmt
 name|QRegularExpression
 name|re
 argument_list|(
 literal|"^(\\d\\d)/(\\d\\d)/(\\d\\d\\d\\d)$"
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|match
 name|QRegularExpressionMatch
 name|match
 init|=
@@ -354,8 +292,6 @@ argument_list|(
 literal|"08/12/1985"
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_if
 if|if
 condition|(
 name|match
@@ -367,7 +303,7 @@ block|{
 name|QString
 name|day
 init|=
-name|re
+name|match
 operator|.
 name|captured
 argument_list|(
@@ -378,7 +314,7 @@ comment|// day == "08"
 name|QString
 name|month
 init|=
-name|re
+name|match
 operator|.
 name|captured
 argument_list|(
@@ -389,7 +325,7 @@ comment|// month == "12"
 name|QString
 name|year
 init|=
-name|re
+name|match
 operator|.
 name|captured
 argument_list|(
@@ -399,23 +335,16 @@ decl_stmt|;
 comment|// year == "1985"
 comment|// ...
 block|}
-end_if
-begin_comment
 comment|//! [10]
-end_comment
-begin_comment
+block|}
+block|{
 comment|//! [11]
-end_comment
-begin_decl_stmt
 name|QRegularExpression
 name|re
 argument_list|(
 literal|"abc(\\d+)def"
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|match
 name|QRegularExpressionMatch
 name|match
 init|=
@@ -426,8 +355,6 @@ argument_list|(
 literal|"XYZabc123defXYZ"
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_if
 if|if
 condition|(
 name|match
@@ -439,7 +366,7 @@ block|{
 name|int
 name|startOffset
 init|=
-name|re
+name|match
 operator|.
 name|capturedStart
 argument_list|(
@@ -450,7 +377,7 @@ comment|// startOffset == 6
 name|int
 name|endOffset
 init|=
-name|re
+name|match
 operator|.
 name|capturedEnd
 argument_list|(
@@ -460,23 +387,16 @@ decl_stmt|;
 comment|// endOffset == 9
 comment|// ...
 block|}
-end_if
-begin_comment
 comment|//! [11]
-end_comment
-begin_comment
+block|}
+block|{
 comment|//! [12]
-end_comment
-begin_decl_stmt
 name|QRegularExpression
 name|re
 argument_list|(
 literal|"^(?<date>\\d\\d)/(?<month>\\d\\d)/(?<year>\\d\\d\\d\\d)$"
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|match
 name|QRegularExpressionMatch
 name|match
 init|=
@@ -487,8 +407,6 @@ argument_list|(
 literal|"08/12/1985"
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_if
 if|if
 condition|(
 name|match
@@ -531,23 +449,16 @@ argument_list|)
 decl_stmt|;
 comment|// year == 1985
 block|}
-end_if
-begin_comment
 comment|//! [12]
-end_comment
-begin_comment
+block|}
+block|{
 comment|//! [13]
-end_comment
-begin_decl_stmt
 name|QRegularExpression
 name|re
 argument_list|(
 literal|"(\\w+)"
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|i
 name|QRegularExpressionMatchIterator
 name|i
 init|=
@@ -558,20 +469,11 @@ argument_list|(
 literal|"the quick fox"
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_comment
 comment|//! [13]
-end_comment
-begin_comment
 comment|//! [14]
-end_comment
-begin_decl_stmt
-DECL|variable|words
 name|QStringList
 name|words
 decl_stmt|;
-end_decl_stmt
-begin_while
 while|while
 condition|(
 name|i
@@ -603,42 +505,29 @@ operator|<<
 name|word
 expr_stmt|;
 block|}
-end_while
-begin_comment
 comment|// words contains "the", "quick", "fox"
-end_comment
-begin_comment
 comment|//! [14]
-end_comment
-begin_comment
+block|}
+block|{
 comment|//! [15]
-end_comment
-begin_decl_stmt
 name|QString
 name|pattern
 argument_list|(
 literal|"^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \\d\\d?, \\d\\d\\d\\d$"
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_function_decl
 name|QRegularExpression
 name|re
-parameter_list|(
+argument_list|(
 name|pattern
-parameter_list|)
-function_decl|;
-end_function_decl
-begin_decl_stmt
+argument_list|)
+decl_stmt|;
 name|QString
 name|input
 argument_list|(
 literal|"Jan 21,"
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|match
 name|QRegularExpressionMatch
 name|match
 init|=
@@ -650,14 +539,11 @@ name|input
 argument_list|,
 literal|0
 argument_list|,
-name|QRegularExpressionMatch
+name|QRegularExpression
 operator|::
 name|PartialPreferCompleteMatch
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|hasMatch
 name|bool
 name|hasMatch
 init|=
@@ -666,13 +552,7 @@ operator|.
 name|hasMatch
 argument_list|()
 decl_stmt|;
-end_decl_stmt
-begin_comment
-DECL|variable|hasMatch
 comment|// false
-end_comment
-begin_decl_stmt
-DECL|variable|hasPartialMatch
 name|bool
 name|hasPartialMatch
 init|=
@@ -681,27 +561,29 @@ operator|.
 name|hasPartialMatch
 argument_list|()
 decl_stmt|;
-end_decl_stmt
-begin_comment
-DECL|variable|hasPartialMatch
 comment|// true
-end_comment
-begin_comment
 comment|//! [15]
-end_comment
-begin_comment
+block|}
+block|{
+name|QString
+name|pattern
+argument_list|(
+literal|"^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \\d\\d?, \\d\\d\\d\\d$"
+argument_list|)
+decl_stmt|;
+name|QRegularExpression
+name|re
+argument_list|(
+name|pattern
+argument_list|)
+decl_stmt|;
 comment|//! [16]
-end_comment
-begin_decl_stmt
 name|QString
 name|input
 argument_list|(
 literal|"Dec 8, 1985"
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|match
 name|QRegularExpressionMatch
 name|match
 init|=
@@ -713,14 +595,11 @@ name|input
 argument_list|,
 literal|0
 argument_list|,
-name|QRegularExpressionMatch
+name|QRegularExpression
 operator|::
 name|PartialPreferCompleteMatch
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|hasMatch
 name|bool
 name|hasMatch
 init|=
@@ -729,13 +608,7 @@ operator|.
 name|hasMatch
 argument_list|()
 decl_stmt|;
-end_decl_stmt
-begin_comment
-DECL|variable|hasMatch
 comment|// true
-end_comment
-begin_decl_stmt
-DECL|variable|hasPartialMatch
 name|bool
 name|hasPartialMatch
 init|=
@@ -744,27 +617,17 @@ operator|.
 name|hasPartialMatch
 argument_list|()
 decl_stmt|;
-end_decl_stmt
-begin_comment
-DECL|variable|hasPartialMatch
 comment|// false
-end_comment
-begin_comment
 comment|//! [16]
-end_comment
-begin_comment
+block|}
+block|{
 comment|//! [17]
-end_comment
-begin_decl_stmt
 name|QRegularExpression
 name|re
 argument_list|(
 literal|"abc\\w+X|def"
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|match
 name|QRegularExpressionMatch
 name|match
 init|=
@@ -776,14 +639,11 @@ literal|"abcdef"
 argument_list|,
 literal|0
 argument_list|,
-name|QRegularExpressionMatch
+name|QRegularExpression
 operator|::
 name|PartialPreferCompleteMatch
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|hasMatch
 name|bool
 name|hasMatch
 init|=
@@ -792,13 +652,7 @@ operator|.
 name|hasMatch
 argument_list|()
 decl_stmt|;
-end_decl_stmt
-begin_comment
-DECL|variable|hasMatch
 comment|// true
-end_comment
-begin_decl_stmt
-DECL|variable|hasPartialMatch
 name|bool
 name|hasPartialMatch
 init|=
@@ -807,13 +661,7 @@ operator|.
 name|hasPartialMatch
 argument_list|()
 decl_stmt|;
-end_decl_stmt
-begin_comment
-DECL|variable|hasPartialMatch
 comment|// false
-end_comment
-begin_decl_stmt
-DECL|variable|captured
 name|QString
 name|captured
 init|=
@@ -824,27 +672,17 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_comment
-DECL|variable|captured
 comment|// captured == "def"
-end_comment
-begin_comment
 comment|//! [17]
-end_comment
-begin_comment
+block|}
+block|{
 comment|//! [18]
-end_comment
-begin_decl_stmt
 name|QRegularExpression
 name|re
 argument_list|(
 literal|"abc\\w+X|defY"
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|match
 name|QRegularExpressionMatch
 name|match
 init|=
@@ -856,14 +694,11 @@ literal|"abcdef"
 argument_list|,
 literal|0
 argument_list|,
-name|QRegularExpressionMatch
+name|QRegularExpression
 operator|::
 name|PartialPreferCompleteMatch
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|hasMatch
 name|bool
 name|hasMatch
 init|=
@@ -872,13 +707,7 @@ operator|.
 name|hasMatch
 argument_list|()
 decl_stmt|;
-end_decl_stmt
-begin_comment
-DECL|variable|hasMatch
 comment|// false
-end_comment
-begin_decl_stmt
-DECL|variable|hasPartialMatch
 name|bool
 name|hasPartialMatch
 init|=
@@ -887,13 +716,7 @@ operator|.
 name|hasPartialMatch
 argument_list|()
 decl_stmt|;
-end_decl_stmt
-begin_comment
-DECL|variable|hasPartialMatch
 comment|// true
-end_comment
-begin_decl_stmt
-DECL|variable|captured
 name|QString
 name|captured
 init|=
@@ -904,27 +727,17 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_comment
-DECL|variable|captured
 comment|// captured == "abcdef"
-end_comment
-begin_comment
 comment|//! [18]
-end_comment
-begin_comment
+block|}
+block|{
 comment|//! [19]
-end_comment
-begin_decl_stmt
 name|QRegularExpression
 name|re
 argument_list|(
 literal|"abc|ab"
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|match
 name|QRegularExpressionMatch
 name|match
 init|=
@@ -936,14 +749,11 @@ literal|"ab"
 argument_list|,
 literal|0
 argument_list|,
-name|QRegularExpressionMatch
+name|QRegularExpression
 operator|::
 name|PartialPreferFirstMatch
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|hasMatch
 name|bool
 name|hasMatch
 init|=
@@ -952,13 +762,7 @@ operator|.
 name|hasMatch
 argument_list|()
 decl_stmt|;
-end_decl_stmt
-begin_comment
-DECL|variable|hasMatch
 comment|// false
-end_comment
-begin_decl_stmt
-DECL|variable|hasPartialMatch
 name|bool
 name|hasPartialMatch
 init|=
@@ -967,27 +771,17 @@ operator|.
 name|hasPartialMatch
 argument_list|()
 decl_stmt|;
-end_decl_stmt
-begin_comment
-DECL|variable|hasPartialMatch
 comment|// true
-end_comment
-begin_comment
 comment|//! [19]
-end_comment
-begin_comment
+block|}
+block|{
 comment|//! [20]
-end_comment
-begin_decl_stmt
 name|QRegularExpression
 name|re
 argument_list|(
 literal|"abc(def)?"
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|match
 name|QRegularExpressionMatch
 name|match
 init|=
@@ -999,14 +793,11 @@ literal|"abc"
 argument_list|,
 literal|0
 argument_list|,
-name|QRegularExpressionMatch
+name|QRegularExpression
 operator|::
 name|PartialPreferFirstMatch
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|hasMatch
 name|bool
 name|hasMatch
 init|=
@@ -1015,13 +806,7 @@ operator|.
 name|hasMatch
 argument_list|()
 decl_stmt|;
-end_decl_stmt
-begin_comment
-DECL|variable|hasMatch
 comment|// false
-end_comment
-begin_decl_stmt
-DECL|variable|hasPartialMatch
 name|bool
 name|hasPartialMatch
 init|=
@@ -1030,27 +815,17 @@ operator|.
 name|hasPartialMatch
 argument_list|()
 decl_stmt|;
-end_decl_stmt
-begin_comment
-DECL|variable|hasPartialMatch
 comment|// true
-end_comment
-begin_comment
 comment|//! [20]
-end_comment
-begin_comment
+block|}
+block|{
 comment|//! [21]
-end_comment
-begin_decl_stmt
 name|QRegularExpression
 name|re
 argument_list|(
 literal|"(abc)*"
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|match
 name|QRegularExpressionMatch
 name|match
 init|=
@@ -1062,14 +837,11 @@ literal|"abc"
 argument_list|,
 literal|0
 argument_list|,
-name|QRegularExpressionMatch
+name|QRegularExpression
 operator|::
 name|PartialPreferFirstMatch
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|hasMatch
 name|bool
 name|hasMatch
 init|=
@@ -1078,13 +850,7 @@ operator|.
 name|hasMatch
 argument_list|()
 decl_stmt|;
-end_decl_stmt
-begin_comment
-DECL|variable|hasMatch
 comment|// false
-end_comment
-begin_decl_stmt
-DECL|variable|hasPartialMatch
 name|bool
 name|hasPartialMatch
 init|=
@@ -1093,27 +859,17 @@ operator|.
 name|hasPartialMatch
 argument_list|()
 decl_stmt|;
-end_decl_stmt
-begin_comment
-DECL|variable|hasPartialMatch
 comment|// true
-end_comment
-begin_comment
 comment|//! [21]
-end_comment
-begin_comment
+block|}
+block|{
 comment|//! [22]
-end_comment
-begin_decl_stmt
 name|QRegularExpression
 name|invalidRe
 argument_list|(
 literal|"(unmatched|parenthesis"
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|isValid
 name|bool
 name|isValid
 init|=
@@ -1122,26 +878,17 @@ operator|.
 name|isValid
 argument_list|()
 decl_stmt|;
-end_decl_stmt
-begin_comment
-DECL|variable|isValid
 comment|// false
-end_comment
-begin_comment
 comment|//! [22]
-end_comment
-begin_comment
+block|}
+block|{
 comment|//! [23]
-end_comment
-begin_decl_stmt
 name|QRegularExpression
 name|invalidRe
 argument_list|(
 literal|"(unmatched|parenthesis"
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_if
 if|if
 condition|(
 operator|!
@@ -1171,36 +918,26 @@ decl_stmt|;
 comment|// errorOffset == 22
 comment|// ...
 block|}
-end_if
-begin_comment
 comment|//! [23]
-end_comment
-begin_comment
+block|}
+block|{
 comment|//! [24]
-end_comment
-begin_decl_stmt
 name|QRegularExpression
 name|re
 argument_list|(
 literal|"^this pattern must match exactly$"
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_comment
 comment|//! [24]
-end_comment
-begin_comment
+block|}
+block|{
 comment|//! [25]
-end_comment
-begin_decl_stmt
 name|QString
 name|p
 argument_list|(
 literal|"a .*|pattern"
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|QRegularExpression
 name|re
 argument_list|(
@@ -1211,18 +948,11 @@ operator|+
 literal|")\\z"
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_comment
 comment|// re matches exactly the pattern string p
-end_comment
-begin_comment
 comment|//! [25]
-end_comment
-begin_comment
+block|}
+block|{
 comment|//! [26]
-end_comment
-begin_decl_stmt
-DECL|variable|escaped
 name|QString
 name|escaped
 init|=
@@ -1233,18 +963,17 @@ argument_list|(
 literal|"a(x) = f(x) + g(x)"
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_comment
 comment|// escaped == "a\\(x\\)\\ \\=\\ f\\(x\\)\\ \\+\\ g\\(x\\)"
-end_comment
-begin_comment
 comment|//! [26]
-end_comment
-begin_comment
+block|}
+block|{
+name|QString
+name|name
+decl_stmt|;
+name|QString
+name|nickname
+decl_stmt|;
 comment|//! [27]
-end_comment
-begin_decl_stmt
-DECL|variable|pattern
 name|QString
 name|pattern
 init|=
@@ -1268,23 +997,22 @@ argument_list|)
 operator|+
 literal|")"
 decl_stmt|;
-end_decl_stmt
-begin_function_decl
 name|QRegularExpression
 name|re
-parameter_list|(
+argument_list|(
 name|pattern
-parameter_list|)
-function_decl|;
-end_function_decl
-begin_comment
+argument_list|)
+decl_stmt|;
 comment|//! [27]
-end_comment
-begin_comment
+block|}
+block|{
+name|QString
+name|string
+decl_stmt|;
+name|QRegularExpression
+name|re
+decl_stmt|;
 comment|//! [28]
-end_comment
-begin_decl_stmt
-DECL|variable|match
 name|QRegularExpressionMatch
 name|match
 init|=
@@ -1292,11 +1020,9 @@ name|re
 operator|.
 name|match
 argument_list|(
-operator|...
+name|string
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_for
 for|for
 control|(
 name|int
@@ -1327,22 +1053,16 @@ argument_list|)
 decl_stmt|;
 comment|// ...
 block|}
-end_for
-begin_comment
 comment|//! [28]
-end_comment
-begin_comment
+block|}
+block|{
 comment|//! [29]
-end_comment
-begin_expr_stmt
 name|QRegularExpression
+name|re
 argument_list|(
 literal|"(\\d\\d) (?<name>\\w+)"
 argument_list|)
-expr_stmt|;
-end_expr_stmt
-begin_decl_stmt
-DECL|variable|match
+decl_stmt|;
 name|QRegularExpressionMatch
 name|match
 init|=
@@ -1353,8 +1073,6 @@ argument_list|(
 literal|"23 Jordan"
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_if
 if|if
 condition|(
 name|match
@@ -1386,34 +1104,23 @@ argument_list|)
 decl_stmt|;
 comment|// name == "Jordan"
 block|}
-end_if
-begin_comment
 comment|//! [29]
-end_comment
-begin_comment
+block|}
+block|{
 comment|//! [30]
-end_comment
-begin_comment
 comment|// extracts the words
-end_comment
-begin_decl_stmt
 name|QRegularExpression
 name|re
 argument_list|(
 literal|"(\\w+)"
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|QString
 name|subject
 argument_list|(
 literal|"the quick fox"
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|i
 name|QRegularExpressionMatchIterator
 name|i
 init|=
@@ -1424,8 +1131,6 @@ argument_list|(
 name|subject
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_while
 while|while
 condition|(
 name|i
@@ -1444,8 +1149,8 @@ argument_list|()
 decl_stmt|;
 comment|// ...
 block|}
-end_while
-begin_comment
 comment|//! [30]
-end_comment
+block|}
+block|}
+end_function
 end_unit

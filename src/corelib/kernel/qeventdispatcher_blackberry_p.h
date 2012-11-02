@@ -100,6 +100,10 @@ operator|*
 name|notifier
 argument_list|)
 block|;
+name|void
+name|wakeUp
+argument_list|()
+block|;
 name|protected
 operator|:
 name|QEventDispatcherBlackberry
@@ -162,6 +166,19 @@ block|;
 operator|~
 name|QEventDispatcherBlackberryPrivate
 argument_list|()
+block|;
+name|int
+name|initThreadWakeUp
+argument_list|()
+block|;
+name|int
+name|processThreadWakeUp
+argument_list|(
+argument|int nsel
+argument_list|)
+block|;
+name|int
+name|bps_channel
 block|;
 name|QScopedPointer
 operator|<

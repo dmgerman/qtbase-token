@@ -104,10 +104,6 @@ name|allMimeTypes
 argument_list|()
 block|;
 name|void
-name|inheritsPerformance
-argument_list|()
-block|;
-name|void
 name|suffixes_data
 argument_list|()
 block|;

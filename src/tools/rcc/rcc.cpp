@@ -2724,6 +2724,15 @@ name|language
 argument_list|,
 name|country
 argument_list|,
+name|child
+operator|.
+name|isDir
+argument_list|()
+condition|?
+name|RCCFileInfo
+operator|::
+name|Directory
+else|:
 name|RCCFileInfo
 operator|::
 name|NoFlags

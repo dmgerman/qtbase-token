@@ -54,6 +54,8 @@ block|,
 name|GraphicsDevice
 block|,
 name|EglContext
+block|,
+name|GLXContext
 block|}
 block|;
 name|QXcbNativeInterface
@@ -157,6 +159,16 @@ specifier|static
 name|void
 operator|*
 name|eglContextForContext
+argument_list|(
+name|QOpenGLContext
+operator|*
+name|context
+argument_list|)
+block|;
+specifier|static
+name|void
+operator|*
+name|glxContextForContext
 argument_list|(
 name|QOpenGLContext
 operator|*

@@ -234,6 +234,15 @@ argument_list|(
 argument|qreal level
 argument_list|)
 block|;
+name|void
+name|setMask
+argument_list|(
+specifier|const
+name|QRegion
+operator|&
+name|region
+argument_list|)
+block|;
 name|bool
 name|setKeyboardGrabEnabled
 argument_list|(
