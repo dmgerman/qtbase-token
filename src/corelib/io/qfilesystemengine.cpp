@@ -1421,7 +1421,12 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|__EXT_LF64SRC
+name|QT_USE_XOPEN_LFS_EXTENSIONS
+argument_list|)
+operator|&&
+name|defined
+argument_list|(
+name|QT_LARGEFILE_SUPPORT
 argument_list|)
 comment|// Even with large file support, d_stat is always of type struct stat, not struct stat64,
 comment|// so it needs to be converted
