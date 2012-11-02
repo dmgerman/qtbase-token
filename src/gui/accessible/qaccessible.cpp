@@ -141,6 +141,11 @@ init|=
 literal|false
 decl_stmt|;
 end_decl_stmt
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_ACCESSIBILITY
+end_ifndef
 begin_function
 DECL|function|platformAccessibility
 specifier|static
@@ -170,6 +175,10 @@ literal|0
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*!     \internal */
 end_comment
@@ -181,6 +190,9 @@ operator|::
 name|cleanup
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_ACCESSIBILITY
 if|if
 condition|(
 name|QPlatformAccessibility
@@ -195,6 +207,8 @@ operator|->
 name|cleanup
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -503,6 +517,9 @@ name|superClass
 argument_list|()
 expr_stmt|;
 block|}
+ifndef|#
+directive|ifndef
+name|QT_NO_ACCESSIBILITY
 if|if
 condition|(
 name|object
@@ -513,6 +530,8 @@ return|return
 operator|new
 name|QAccessibleApplication
 return|;
+endif|#
+directive|endif
 return|return
 literal|0
 return|;
@@ -561,6 +580,9 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+ifndef|#
+directive|ifndef
+name|QT_NO_ACCESSIBILITY
 if|if
 condition|(
 name|QPlatformAccessibility
@@ -577,6 +599,8 @@ argument_list|(
 name|object
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_comment
@@ -613,6 +637,9 @@ name|isActive
 argument_list|()
 condition|)
 return|return;
+ifndef|#
+directive|ifndef
+name|QT_NO_ACCESSIBILITY
 if|if
 condition|(
 name|QPlatformAccessibility
@@ -629,6 +656,8 @@ argument_list|(
 name|event
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_comment
