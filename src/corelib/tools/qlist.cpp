@@ -2258,7 +2258,7 @@ begin_comment
 comment|/*! \fn QVector<T> QList<T>::toVector() const      Returns a QVector object with the data contained in this QList.      Example:      \snippet code/src_corelib_tools_qlistdata.cpp 22      \sa toSet(), fromVector(), QVector::fromList() */
 end_comment
 begin_comment
-comment|/*! \fn QList<T> QList<T>::fromSet(const QSet<T>&set)      Returns a QList object with the data contained in \a set. The     order of the elements in the QList is undefined.      Example:      \snippet code/src_corelib_tools_qlistdata.cpp 23      \sa fromVector(), toSet(), QSet::toList(), qSort() */
+comment|/*! \fn QList<T> QList<T>::fromSet(const QSet<T>&set)      Returns a QList object with the data contained in \a set. The     order of the elements in the QList is undefined.      Example:      \snippet code/src_corelib_tools_qlistdata.cpp 23      \sa fromVector(), toSet(), QSet::toList() */
 end_comment
 begin_comment
 comment|/*! \fn QSet<T> QList<T>::toSet() const      Returns a QSet object with the data contained in this QList.     Since QSet doesn't allow duplicates, the resulting QSet might be     smaller than the original list was.      Example:      \snippet code/src_corelib_tools_qlistdata.cpp 24      \sa toVector(), fromSet(), QSet::fromList() */
