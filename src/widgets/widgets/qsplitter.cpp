@@ -4449,7 +4449,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QSplitter     \brief The QSplitter class implements a splitter widget.      \ingroup organizers     \inmodule QtWidgets       A splitter lets the user control the size of child widgets by dragging the     boundary between the children. Any number of widgets may be controlled by a     single splitter. The typical use of a QSplitter is to create several     widgets and add them using insertWidget() or addWidget().      The following example will show a QListView, QTreeView, and     QTextEdit side by side, with two splitter handles:      \snippet splitter/splitter.cpp 0      If a widget is already inside a QSplitter when insertWidget() or     addWidget() is called, it will move to the new position. This can be used     to reorder widgets in the splitter later. You can use indexOf(),     widget(), and count() to get access to the widgets inside the splitter.      A default QSplitter lays out its children horizontally (side by side); you     can use setOrientation(Qt::Vertical) to lay its     children out vertically.      By default, all widgets can be as large or as small as the user     wishes, between the \l minimumSizeHint() (or \l minimumSize())     and \l maximumSize() of the widgets.      QSplitter resizes its children dynamically by default. If you     would rather have QSplitter resize the children only at the end of     a resize operation, call setOpaqueResize(false).      The initial distribution of size between the widgets is determined by     multiplying the initial size with the stretch factor.     You can also use setSizes() to set the sizes     of all the widgets. The function sizes() returns the sizes set by the user.     Alternatively, you can save and restore the sizes of the widgets from a     QByteArray using saveState() and restoreState() respectively.      When you hide() a child its space will be distributed among the     other children. It will be reinstated when you show() it again.      \sa QSplitterHandle, QHBoxLayout, QVBoxLayout, QTabWidget */
+comment|/*!     \class QSplitter     \brief The QSplitter class implements a splitter widget.      \ingroup organizers     \inmodule QtWidgets       A splitter lets the user control the size of child widgets by dragging the     boundary between the children. Any number of widgets may be controlled by a     single splitter. The typical use of a QSplitter is to create several     widgets and add them using insertWidget() or addWidget().      The following example will show a QListView, QTreeView, and     QTextEdit side by side, with two splitter handles:      \snippet splitter/splitter.cpp 0      If a widget is already inside a QSplitter when insertWidget() or     addWidget() is called, it will move to the new position. This can be used     to reorder widgets in the splitter later. You can use indexOf(),     widget(), and count() to get access to the widgets inside the splitter.      A default QSplitter lays out its children horizontally (side by side); you     can use setOrientation(Qt::Vertical) to lay its     children out vertically.      By default, all widgets can be as large or as small as the user     wishes, between the \l minimumSizeHint() (or \l minimumSize())     and \l maximumSize() of the widgets.      QSplitter resizes its children dynamically by default. If you     would rather have QSplitter resize the children only at the end of     a resize operation, call setOpaqueResize(false).      The initial distribution of size between the widgets is determined by     multiplying the initial size with the stretch factor.     You can also use setSizes() to set the sizes     of all the widgets. The function sizes() returns the sizes set by the user.     Alternatively, you can save and restore the sizes of the widgets from a     QByteArray using saveState() and restoreState() respectively.      When you hide() a child its space will be distributed among the     other children. It will be reinstated when you show() it again.      \note Adding a QLayout to a QSplitter is not supported (either through     setLayout() or making the QSplitter a parent of the QLayout); use addWidget()     instead (see example above).      \sa QSplitterHandle, QHBoxLayout, QVBoxLayout, QTabWidget */
 end_comment
 begin_comment
 comment|/*!     Constructs a horizontal splitter with the \a parent     argument passed on to the QFrame constructor.      \sa setOrientation() */
@@ -5305,7 +5305,37 @@ operator|->
 name|isWidgetType
 argument_list|()
 condition|)
+block|{
+if|if
+condition|(
+name|c
+operator|->
+name|type
+argument_list|()
+operator|==
+name|QEvent
+operator|::
+name|ChildAdded
+operator|&&
+name|qobject_cast
+argument_list|<
+name|QLayout
+operator|*
+argument_list|>
+argument_list|(
+name|c
+operator|->
+name|child
+argument_list|()
+argument_list|)
+condition|)
+name|qWarning
+argument_list|(
+literal|"Adding a QLayout to a QSplitter is not supported."
+argument_list|)
+expr_stmt|;
 return|return;
+block|}
 name|QWidget
 modifier|*
 name|w
