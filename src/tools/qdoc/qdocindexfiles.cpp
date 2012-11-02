@@ -52,24 +52,6 @@ include|#
 directive|include
 file|<qdebug.h>
 end_include
-begin_comment
-comment|//include "doc.h"
-end_comment
-begin_comment
-comment|//include "htmlgenerator.h"
-end_comment
-begin_comment
-comment|//include "node.h"
-end_comment
-begin_comment
-comment|//include "text.h"
-end_comment
-begin_comment
-comment|//include<limits.h>
-end_comment
-begin_comment
-comment|//include<qdebug.h>
-end_comment
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 comment|/*!   \class QDocIndexFiles    This class handles qdoc index files.  */
@@ -2479,6 +2461,33 @@ name|href
 argument_list|)
 expr_stmt|;
 block|}
+name|QString
+name|since
+init|=
+name|element
+operator|.
+name|attribute
+argument_list|(
+literal|"since"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|since
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|section
+operator|->
+name|setSince
+argument_list|(
+name|since
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Create some content for the node.
 name|QSet
 argument_list|<
@@ -2834,15 +2843,6 @@ parameter_list|)
 block|{
 if|if
 condition|(
-operator|!
-name|node
-operator|->
-name|url
-argument_list|()
-operator|.
-name|isEmpty
-argument_list|()
-operator|||
 name|node
 operator|->
 name|subType
@@ -3416,6 +3416,31 @@ name|fileName
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|node
+operator|->
+name|since
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|writer
+operator|.
+name|writeAttribute
+argument_list|(
+literal|"since"
+argument_list|,
+name|node
+operator|->
+name|since
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 switch|switch
 condition|(
 name|node

@@ -931,7 +931,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|sinc
+name|since_
 return|;
 block|}
 name|QString
@@ -1263,7 +1263,7 @@ name|QString
 name|url_
 decl_stmt|;
 name|QString
-name|sinc
+name|since_
 decl_stmt|;
 name|QString
 name|templateStuff_
