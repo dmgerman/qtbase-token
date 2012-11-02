@@ -668,6 +668,8 @@ name|QIdentityProxyModel
 argument_list|)
 expr_stmt|;
 return|return
+name|mapFromSource
+argument_list|(
 name|d
 operator|->
 name|model
@@ -681,6 +683,7 @@ argument_list|,
 name|mapToSource
 argument_list|(
 name|idx
+argument_list|)
 argument_list|)
 argument_list|)
 return|;
