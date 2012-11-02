@@ -73,10 +73,15 @@ name|void
 name|setValueRepaint
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|Q_OS_MAC
 name|void
 name|setMinMaxRepaint
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|sizeHint
 parameter_list|()
@@ -894,6 +899,17 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_comment
+comment|// This test is invalid on Mac, since progressbars
+end_comment
+begin_comment
+comment|// are animated there
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_MAC
+end_ifndef
 begin_function
 DECL|function|setMinMaxRepaint
 name|void
@@ -1076,6 +1092,13 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|//Q_OS_MAC
+end_comment
 begin_function
 DECL|function|sizeHint
 name|void
