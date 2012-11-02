@@ -6732,11 +6732,13 @@ argument_list|()
 condition|)
 name|qmakespec
 operator|=
+name|m_hostBuild
+condition|?
 name|QLatin1String
 argument_list|(
 literal|"default-host"
 argument_list|)
-operator|:
+else|:
 name|QLatin1String
 argument_list|(
 literal|"default"
