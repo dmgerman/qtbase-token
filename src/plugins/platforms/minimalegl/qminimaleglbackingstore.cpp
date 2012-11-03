@@ -41,6 +41,11 @@ argument_list|(
 operator|new
 name|QOpenGLContext
 argument_list|)
+member_init_list|,
+name|m_device
+argument_list|(
+literal|0
+argument_list|)
 block|{
 name|m_context
 operator|->
