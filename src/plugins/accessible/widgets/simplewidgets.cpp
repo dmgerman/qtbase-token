@@ -3940,6 +3940,37 @@ return|;
 block|}
 end_function
 begin_function
+DECL|function|minimumStepSize
+name|QVariant
+name|QAccessibleProgressBar
+operator|::
+name|minimumStepSize
+parameter_list|()
+specifier|const
+block|{
+comment|// This is arbitrary since any value between min and max is valid.
+comment|// Some screen readers (orca use it to calculate how many digits to display though,
+comment|// so it makes sense to return a "sensible" value. Providing 100 increments seems ok.
+return|return
+operator|(
+name|progressBar
+argument_list|()
+operator|->
+name|maximum
+argument_list|()
+operator|-
+name|progressBar
+argument_list|()
+operator|->
+name|minimum
+argument_list|()
+operator|)
+operator|/
+literal|100.0
+return|;
+block|}
+end_function
+begin_function
 DECL|function|progressBar
 name|QProgressBar
 modifier|*

@@ -981,6 +981,9 @@ begin_comment
 comment|/*!     \fn QVariant QAccessibleValueInterface::minimumValue() const      Returns the minimum value this object accepts.     \sa maximumValue(), currentValue() */
 end_comment
 begin_comment
+comment|/*!     \fn QVariant QAccessibleValueInterface::minimumStepSize() const      Returns the minimum step size for the accessible.     This is the smalles increment that makes sense when changing the value.     When programatically changing the value it should always be a multiple     of the minimum step size.      Some tools use this value even when the setCurrentValue does not     perform any action. Progress bars for example are read-only but     should return their range divided by 100. */
+end_comment
+begin_comment
 comment|/*!     \class QAccessibleImageInterface     \inmodule QtGui     \ingroup accessibility     \internal     \preliminary      \brief The QAccessibleImageInterface class implements support for     the IAccessibleImage interface.      \l{IAccessible2 Specification} */
 end_comment
 begin_comment

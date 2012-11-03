@@ -403,6 +403,14 @@ specifier|const
 operator|=
 literal|0
 expr_stmt|;
+name|virtual
+name|QVariant
+name|minimumStepSize
+argument_list|()
+specifier|const
+operator|=
+literal|0
+expr_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt
