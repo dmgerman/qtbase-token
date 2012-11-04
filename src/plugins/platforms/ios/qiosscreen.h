@@ -35,12 +35,19 @@ name|public
 operator|:
 name|QIOSScreen
 argument_list|(
-argument|int screenIndex
+argument|unsigned int screenIndex
 argument_list|)
 block|;
 operator|~
 name|QIOSScreen
 argument_list|()
+block|;      enum
+name|ScreenIndex
+block|{
+name|MainScreen
+operator|=
+literal|0
+block|}
 block|;
 name|QRect
 name|geometry
@@ -92,6 +99,10 @@ argument_list|()
 block|;
 name|private
 operator|:
+name|UIScreen
+operator|*
+name|m_uiScreen
+block|;
 name|QRect
 name|m_geometry
 block|;
@@ -105,9 +116,6 @@ name|m_format
 block|;
 name|QSize
 name|m_physicalSize
-block|;
-name|int
-name|m_index
 block|; }
 decl_stmt|;
 end_decl_stmt
