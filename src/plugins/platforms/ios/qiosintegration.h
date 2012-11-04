@@ -35,12 +35,6 @@ operator|~
 name|QIOSIntegration
 argument_list|()
 block|;
-specifier|static
-name|QIOSIntegration
-operator|*
-name|instance
-argument_list|()
-block|;
 name|QPlatformPixmap
 operator|*
 name|createPlatformPixmap
