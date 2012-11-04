@@ -869,9 +869,18 @@ condition|(
 operator|!
 name|iface
 condition|)
+block|{
+name|qWarning
+argument_list|()
+operator|<<
+literal|"Cannot create accessible interface for object: "
+operator|<<
+name|m_object
+expr_stmt|;
 return|return
 literal|0
 return|;
+block|}
 if|if
 condition|(
 name|m_child
