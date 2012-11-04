@@ -93,11 +93,11 @@ operator|<
 name|QPlatformScreen
 operator|*
 operator|>
-name|mScreens
+name|m_screens
 block|;
 name|QPlatformFontDatabase
 operator|*
-name|mFontDb
+name|m_fontDb
 block|; }
 decl_stmt|;
 end_decl_stmt

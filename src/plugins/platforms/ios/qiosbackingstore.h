@@ -81,7 +81,7 @@ name|private
 operator|:
 name|QPaintDevice
 operator|*
-name|mPaintDevice
+name|m_paintDevice
 block|; }
 decl_stmt|;
 end_decl_stmt

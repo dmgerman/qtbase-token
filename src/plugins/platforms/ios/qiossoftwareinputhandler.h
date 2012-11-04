@@ -42,12 +42,12 @@ operator|:
 name|QIOSSoftwareInputHandler
 argument_list|()
 operator|:
-name|mCurrentFocusWidget
+name|m_CurrentFocusWidget
 argument_list|(
 literal|0
 argument_list|)
 block|,
-name|mCurrentFocusObject
+name|m_CurrentFocusObject
 argument_list|(
 literal|0
 argument_list|)
@@ -87,13 +87,13 @@ name|QPointer
 operator|<
 name|QWidget
 operator|>
-name|mCurrentFocusWidget
+name|m_currentFocusWidget
 block|;
 name|QPointer
 operator|<
 name|QObject
 operator|>
-name|mCurrentFocusObject
+name|m_currentFocusObject
 block|; }
 decl_stmt|;
 end_decl_stmt
