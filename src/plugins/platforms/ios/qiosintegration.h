@@ -75,7 +75,7 @@ name|private
 operator|:
 name|QPlatformFontDatabase
 operator|*
-name|m_fontDb
+name|m_fontDatabase
 block|;
 name|QPlatformScreen
 operator|*
