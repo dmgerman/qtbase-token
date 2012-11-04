@@ -59,15 +59,6 @@ argument|QWindow *window
 argument_list|)
 specifier|const
 block|;
-name|QList
-operator|<
-name|QPlatformScreen
-operator|*
-operator|>
-name|screens
-argument_list|()
-specifier|const
-block|;
 name|QPlatformFontDatabase
 operator|*
 name|fontDatabase
@@ -82,16 +73,13 @@ specifier|const
 block|;
 name|private
 operator|:
-name|QList
-operator|<
-name|QPlatformScreen
-operator|*
-operator|>
-name|m_screens
-block|;
 name|QPlatformFontDatabase
 operator|*
 name|m_fontDb
+block|;
+name|QPlatformScreen
+operator|*
+name|m_screen
 block|; }
 decl_stmt|;
 end_decl_stmt
