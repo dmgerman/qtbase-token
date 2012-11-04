@@ -1761,6 +1761,7 @@ return|return
 name|m_child
 return|;
 block|}
+name|virtual
 name|QAccessibleInterface
 operator|*
 name|accessibleInterface
