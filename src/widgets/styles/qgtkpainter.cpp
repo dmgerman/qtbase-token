@@ -600,9 +600,12 @@ name|GtkStyle
 modifier|*
 name|style
 init|=
+name|QGtkStylePrivate
+operator|::
+name|gtk_widget_get_style
+argument_list|(
 name|gtkWidget
-operator|->
-name|style
+argument_list|)
 decl_stmt|;
 name|Q_ASSERT
 argument_list|(
