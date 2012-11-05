@@ -7143,10 +7143,10 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QGraphicsItem::hide()      Hides the item. (Items are visible by default.)      This convenience function is equivalent to calling \c setVisible(false).      \sa show(), setVisible() */
+comment|/*!     \fn void QGraphicsItem::hide()      Hides the item (items are visible by default).      This convenience function is equivalent to calling \c setVisible(false).      \sa show(), setVisible() */
 end_comment
 begin_comment
-comment|/*!     \fn void QGraphicsItem::show()      Shows the item. (Items are visible by default.)      This convenience function is equivalent to calling \c setVisible(true).      \sa hide(), setVisible() */
+comment|/*!     \fn void QGraphicsItem::show()      Shows the item (items are visible by default).      This convenience function is equivalent to calling \c setVisible(true).      \sa hide(), setVisible() */
 end_comment
 begin_comment
 comment|/*!     Returns true if the item is enabled; otherwise, false is returned.      \sa setEnabled() */
@@ -10630,7 +10630,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QGraphicsItem::ensureVisible(qreal x, qreal y, qreal w, qreal h,     int xmargin = 50, int ymargin = 50)      This convenience function is equivalent to calling     ensureVisible(QRectF(\a x, \a y, \a w, \a h), \a xmargin, \a ymargin): */
+comment|/*!     \fn void QGraphicsItem::ensureVisible(qreal x, qreal y, qreal w, qreal h,     int xmargin = 50, int ymargin = 50)      This convenience function is equivalent to calling     ensureVisible(QRectF(\a x, \a y, \a w, \a h), \a xmargin, \a ymargin). */
 end_comment
 begin_comment
 comment|/*!     \obsolete      Returns the item's affine transformation matrix. This is a subset or the     item's full transformation matrix, and might not represent the item's full     transformation.      Use transform() instead.      \sa setTransform(), sceneTransform() */
@@ -13497,7 +13497,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn virtual QRectF QGraphicsItem::boundingRect() const = 0      This pure virtual function defines the outer bounds of the item as     a rectangle; all painting must be restricted to inside an item's     bounding rect. QGraphicsView uses this to determine whether the     item requires redrawing.      Although the item's shape can be arbitrary, the bounding rect is     always rectangular, and it is unaffected by the items'     transformation.      If you want to change the item's bounding rectangle, you must first call     prepareGeometryChange(). This notifies the scene of the imminent change,     so that its can update its item geometry index; otherwise, the scene will     be unaware of the item's new geometry, and the results are undefined     (typically, rendering artifacts are left around in the view).      Reimplement this function to let QGraphicsView determine what     parts of the widget, if any, need to be redrawn.      Note: For shapes that paint an outline / stroke, it is important     to include half the pen width in the bounding rect. It is not     necessary to compensate for antialiasing, though.      Example:      \snippet code/src_gui_graphicsview_qgraphicsitem.cpp 8      \sa boundingRegion(), shape(), contains(), {The Graphics View Coordinate     System}, prepareGeometryChange() */
+comment|/*!     \fn virtual QRectF QGraphicsItem::boundingRect() const = 0      This pure virtual function defines the outer bounds of the item as     a rectangle; all painting must be restricted to inside an item's     bounding rect. QGraphicsView uses this to determine whether the     item requires redrawing.      Although the item's shape can be arbitrary, the bounding rect is     always rectangular, and it is unaffected by the items'     transformation.      If you want to change the item's bounding rectangle, you must first call     prepareGeometryChange(). This notifies the scene of the imminent change,     so that it can update its item geometry index; otherwise, the scene will     be unaware of the item's new geometry, and the results are undefined     (typically, rendering artifacts are left within the view).      Reimplement this function to let QGraphicsView determine what     parts of the widget, if any, need to be redrawn.      Note: For shapes that paint an outline / stroke, it is important     to include half the pen width in the bounding rect. It is not     necessary to compensate for antialiasing, though.      Example:      \snippet code/src_gui_graphicsview_qgraphicsitem.cpp 8      \sa boundingRegion(), shape(), contains(), {The Graphics View Coordinate     System}, prepareGeometryChange() */
 end_comment
 begin_comment
 comment|/*!     Returns the bounding rect of this item in scene coordinates, by combining     sceneTransform() with boundingRect().      \sa boundingRect(), {The Graphics View Coordinate System} */
@@ -13706,7 +13706,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.5      Returns this item's clip path, or an empty QPainterPath if this item is     not clipped. The clip path constrains the item's appearance and     interaction (i.e., restricts the area the item can draw, and it also     restricts the area that the item receives events).      You can enable clipping by setting the ItemClipsToShape or     ItemClipsChildrenToShape flags. The item's clip path is calculated by     intersecting all clipping ancestors' shapes. If the item sets     ItemClipsToShape, the final clip is intersected with the item's own shape.      \note Clipping introduces a performance penalty for all items involved;     you should generally avoid using clipping if you can (e.g., if your items     always draw inside boundingRect() or shape() boundaries, clipping is not     necessary).      \sa isClipped(), shape(), setFlags() */
+comment|/*!     \since 4.5      Returns this item's clip path, or an empty QPainterPath if this item is     not clipped. The clip path constrains the item's appearance and     interaction (i.e., restricts the area the item can draw within and receive     events for).      You can enable clipping by setting the ItemClipsToShape or     ItemClipsChildrenToShape flags. The item's clip path is calculated by     intersecting all clipping ancestors' shapes. If the item sets     ItemClipsToShape, the final clip is intersected with the item's own shape.      \note Clipping introduces a performance penalty for all items involved;     you should generally avoid using clipping if you can (e.g., if your items     always draw inside boundingRect() or shape() boundaries, clipping is not     necessary).      \sa isClipped(), shape(), setFlags() */
 end_comment
 begin_function
 DECL|function|clipPath
@@ -19930,7 +19930,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     This event handler can be reimplemented in a subclass to process context     menu events. The \a event parameter contains details about the event to     be handled.      If you ignore the event, (i.e., by calling QEvent::ignore(),) \a event     will propagate to any item beneath this item. If no items accept the     event, it will be ignored by the scene, and propagate to the view.      It's common to open a QMenu in response to receiving a context menu     event. Example:      \snippet code/src_gui_graphicsview_qgraphicsitem.cpp 13      The default implementation ignores the event.      \sa sceneEvent() */
+comment|/*!     This event handler can be reimplemented in a subclass to process context     menu events. The \a event parameter contains details about the event to     be handled.      If you ignore the event (i.e., by calling QEvent::ignore()), \a event     will propagate to any item beneath this item. If no items accept the     event, it will be ignored by the scene and propagate to the view.      It's common to open a QMenu in response to receiving a context menu     event. Example:      \snippet code/src_gui_graphicsview_qgraphicsitem.cpp 13      The default implementation ignores the event.      \sa sceneEvent() */
 end_comment
 begin_function
 DECL|function|contextMenuEvent
@@ -19952,7 +19952,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     This event handler, for event \a event, can be reimplemented to receive     drag enter events for this item. Drag enter events are generated as the     cursor enters the item's area.      By accepting the event, (i.e., by calling QEvent::accept(),) the item will     accept drop events, in addition to receiving drag move and drag     leave. Otherwise, the event will be ignored and propagate to the item     beneath. If the event is accepted, the item will receive a drag move event     before control goes back to the event loop.      A common implementation of dragEnterEvent accepts or ignores \a event     depending on the associated mime data in \a event. Example:      \snippet code/src_gui_graphicsview_qgraphicsitem.cpp 14      Items do not receive drag and drop events by default; to enable this     feature, call \c setAcceptDrops(true).      The default implementation does nothing.      \sa dropEvent(), dragMoveEvent(), dragLeaveEvent() */
+comment|/*!     This event handler, for event \a event, can be reimplemented to receive     drag enter events for this item. Drag enter events are generated as the     cursor enters the item's area.      By accepting the event (i.e., by calling QEvent::accept()), the item will     accept drop events, in addition to receiving drag move and drag     leave. Otherwise, the event will be ignored and propagate to the item     beneath. If the event is accepted, the item will receive a drag move event     before control goes back to the event loop.      A common implementation of dragEnterEvent accepts or ignores \a event     depending on the associated mime data in \a event. Example:      \snippet code/src_gui_graphicsview_qgraphicsitem.cpp 14      Items do not receive drag and drop events by default; to enable this     feature, call \c setAcceptDrops(true).      The default implementation does nothing.      \sa dropEvent(), dragMoveEvent(), dragLeaveEvent() */
 end_comment
 begin_function
 DECL|function|dragEnterEvent
