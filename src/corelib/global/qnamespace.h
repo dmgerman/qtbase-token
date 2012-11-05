@@ -917,6 +917,10 @@ block|,
 name|NoDropShadowWindowHint
 init|=
 literal|0x40000000
+block|,
+name|WindowFullscreenButtonHint
+init|=
+literal|0x80000000
 block|}
 enum|;
 name|Q_DECLARE_FLAGS
