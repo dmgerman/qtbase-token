@@ -3801,6 +3801,13 @@ index|]
 operator|=
 literal|"no"
 expr_stmt|;
+name|dictionary
+index|[
+literal|"OPENGL_ES_2"
+index|]
+operator|=
+literal|"no"
+expr_stmt|;
 block|}
 elseif|else
 if|if
