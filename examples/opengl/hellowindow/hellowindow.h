@@ -40,6 +40,12 @@ name|QOpenGLContext
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QTimer
+name|class
+name|QTimer
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|QT_END_NAMESPACE
 name|class
 name|Renderer
@@ -281,6 +287,10 @@ operator|<
 name|Renderer
 operator|>
 name|m_renderer
+block|;
+name|QTimer
+operator|*
+name|m_timer
 block|; }
 decl_stmt|;
 end_decl_stmt
