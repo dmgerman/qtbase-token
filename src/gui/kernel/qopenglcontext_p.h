@@ -676,7 +676,8 @@ operator|*
 name|active_engine
 block|;
 specifier|static
-name|void
+name|QOpenGLContext
+operator|*
 name|setCurrentContext
 argument_list|(
 name|QOpenGLContext

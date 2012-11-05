@@ -76,6 +76,15 @@ class|class
 name|QGuiGLThreadContext
 block|{
 public|public:
+DECL|function|QGuiGLThreadContext
+name|QGuiGLThreadContext
+parameter_list|()
+member_init_list|:
+name|context
+argument_list|(
+literal|0
+argument_list|)
+block|{     }
 DECL|function|~QGuiGLThreadContext
 name|~
 name|QGuiGLThreadContext
@@ -144,9 +153,13 @@ end_endif
 begin_comment
 comment|/*!     \class QOpenGLContext     \inmodule QtGui     \since 5.0     \brief The QOpenGLContext class represents a native OpenGL context, enabling            OpenGL rendering on a QSurface.      QOpenGLContext represents the OpenGL state of an underlying OpenGL context.     To set up a context, set its screen and format such that they match those     of the surface or surfaces with which the context is meant to be used, if     necessary make it share resources with other contexts with     setShareContext(), and finally call create(). Use isValid() to check if the     context was successfully initialized.      A context can be made current against a given surface by calling     makeCurrent(). When OpenGL rendering is done, call swapBuffers() to swap     the front and back buffers of the surface, so that the newly rendered     content becomes visible. To be able to support certain platforms,     QOpenGLContext requires that you call makeCurrent() again before starting     rendering a new frame, after calling swapBuffers().      If the context is temporarily not needed, such as when the application is     not rendering, it can be useful to call destroy() to free resources.     However, if you do so you will need to call create() again before the     context can be used, and you might need to recreate any OpenGL resources     and reinitialize the OpenGL state. You can connect to the     aboutToBeDestroyed() signal to clean up any resources that have been     allocated with different ownership from the QOpenGLContext itself.      Once a QOpenGLContext has been made current, you can render to it in a     platform independent way by using Qt's OpenGL enablers such as     QOpenGLFunctions, QOpenGLBuffer, QOpenGLShaderProgram, and     QOpenGLFramebufferObject. It is also possible to use the platform's OpenGL     API directly, without using the Qt enablers, although potentially at the     cost of portability. The latter is necessary when wanting to use OpenGL 1.x     or OpenGL ES 1.x.      For more information about the OpenGL API, refer to the official     \l{OpenGL documentation}.      For an example of how to use QOpenGLContext see the     \l{gui/openglwindow}{OpenGL Window} example.      \section1 Thread affinity      QOpenGLContext can be moved to a different thread with moveToThread(). Do     not call makeCurrent() from a different thread than the one to which the     QOpenGLContext object belongs. A context can only be current in one thread     and against one surface at a time, and a thread only has one context     current at a time.      \section1 Context resource sharing      Resources, such as framebuffer objects, textures, and vertex buffer objects     can be shared between contexts.  Use setShareContext() before calling     create() to specify that the contexts should share these resources.     QOpenGLContext internally keeps track of a QOpenGLContextGroup object which     can be accessed with shareGroup(), and which can be used to find all the     contexts in a given share group. A share group consists of all contexts that     have been successfully initialized and are sharing with an existing context in     the share group. A non-sharing context has a share group consisting of a     single context.      \section1 Default framebuffer      On certain platforms, a framebuffer other than 0 might be the default frame     buffer depending on the current surface. Instead of calling     glBindFramebuffer(0), it is recommended that you use     glBindFramebuffer(ctx->defaultFramebufferObject()), to ensure that your     application is portable between different platforms. However, if you use     QOpenGLFunctions::glBindFramebuffer(), this is done automatically for you.      \sa QOpenGLFunctions, QOpenGLBuffer, QOpenGLShaderProgram, QOpenGLFramebufferObject */
 end_comment
+begin_comment
+comment|/*!     \internal      Set the current context. Returns the previously current context. */
+end_comment
 begin_function
 DECL|function|setCurrentContext
-name|void
+name|QOpenGLContext
+modifier|*
 name|QOpenGLContextPrivate
 operator|::
 name|setCurrentContext
@@ -185,7 +198,9 @@ argument_list|(
 literal|"No QTLS available. currentContext wont work"
 argument_list|)
 expr_stmt|;
-return|return;
+return|return
+literal|0
+return|;
 block|}
 name|threadContext
 operator|=
@@ -200,12 +215,23 @@ name|threadContext
 argument_list|)
 expr_stmt|;
 block|}
+name|QOpenGLContext
+modifier|*
+name|previous
+init|=
+name|threadContext
+operator|->
+name|context
+decl_stmt|;
 name|threadContext
 operator|->
 name|context
 operator|=
 name|context
 expr_stmt|;
+return|return
+name|previous
+return|;
 block|}
 end_function
 begin_function
@@ -1185,6 +1211,17 @@ return|return
 literal|false
 return|;
 block|}
+name|QOpenGLContext
+modifier|*
+name|previous
+init|=
+name|QOpenGLContextPrivate
+operator|::
+name|setCurrentContext
+argument_list|(
+name|this
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|d
@@ -1200,13 +1237,6 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|QOpenGLContextPrivate
-operator|::
-name|setCurrentContext
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
 name|d
 operator|->
 name|surface
@@ -1243,6 +1273,13 @@ return|return
 literal|true
 return|;
 block|}
+name|QOpenGLContextPrivate
+operator|::
+name|setCurrentContext
+argument_list|(
+name|previous
+argument_list|)
+expr_stmt|;
 return|return
 literal|false
 return|;
