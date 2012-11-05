@@ -21,6 +21,11 @@ include|#
 directive|include
 file|<QtCore/qabstracteventdispatcher.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<CoreFoundation/CoreFoundation.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
@@ -126,6 +131,24 @@ argument_list|()
 block|;
 name|void
 name|flush
+argument_list|()
+block|;
+name|private
+operator|:
+name|CFRunLoopSourceRef
+name|m_postedEventsSource
+block|;
+specifier|static
+name|void
+name|postedEventsSourceCallback
+argument_list|(
+name|void
+operator|*
+name|info
+argument_list|)
+block|;
+name|void
+name|processPostedEvents
 argument_list|()
 block|; }
 decl_stmt|;
