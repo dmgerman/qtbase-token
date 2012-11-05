@@ -2393,10 +2393,8 @@ if|if
 condition|(
 name|hdc
 condition|)
-name|ReleaseDC
+name|DeleteDC
 argument_list|(
-literal|0
-argument_list|,
 name|hdc
 argument_list|)
 expr_stmt|;
