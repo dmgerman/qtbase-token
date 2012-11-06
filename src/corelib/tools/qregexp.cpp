@@ -17559,7 +17559,6 @@ name|QT_NO_REGEXP_OPTIM
 argument_list|)
 end_if
 begin_function
-DECL|function|qHash
 name|uint
 name|qHash
 parameter_list|(
@@ -17570,7 +17569,10 @@ name|key
 parameter_list|,
 name|uint
 name|seed
+init|=
+literal|0
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|qHash
