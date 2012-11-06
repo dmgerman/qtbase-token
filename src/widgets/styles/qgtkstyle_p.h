@@ -134,7 +134,7 @@ name|Q_GTK_IS_WIDGET
 parameter_list|(
 name|widget
 parameter_list|)
-value|widget&& GTK_CHECK_TYPE ((widget), QGtkStylePrivate::gtk_widget_get_type())
+value|widget&& G_TYPE_CHECK_INSTANCE_TYPE ((widget), QGtkStylePrivate::gtk_widget_get_type())
 end_define
 begin_define
 DECL|macro|QLS
@@ -2155,7 +2155,7 @@ end_typedef
 begin_typedef
 DECL|typedef|Ptr_gtk_container_get_type
 typedef|typedef
-name|GtkType
+name|GType
 function_decl|(
 modifier|*
 name|Ptr_gtk_container_get_type
@@ -2168,7 +2168,7 @@ end_typedef
 begin_typedef
 DECL|typedef|Ptr_gtk_window_get_type
 typedef|typedef
-name|GtkType
+name|GType
 function_decl|(
 modifier|*
 name|Ptr_gtk_window_get_type
@@ -2181,7 +2181,7 @@ end_typedef
 begin_typedef
 DECL|typedef|Ptr_gtk_widget_get_type
 typedef|typedef
-name|GtkType
+name|GType
 function_decl|(
 modifier|*
 name|Ptr_gtk_widget_get_type

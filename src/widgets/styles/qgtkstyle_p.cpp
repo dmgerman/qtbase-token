@@ -5642,7 +5642,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|GTK_CHECK_TYPE
+name|G_TYPE_CHECK_INSTANCE_TYPE
 argument_list|(
 operator|(
 name|widget
