@@ -200,6 +200,9 @@ name|QTouchDevice
 modifier|*
 name|m_touchDevice
 decl_stmt|;
+name|bool
+name|m_leftButtonDown
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt
