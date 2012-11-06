@@ -1341,6 +1341,7 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
+block|{
 name|serviceClasses_
 operator|.
 name|insert
@@ -1351,6 +1352,7 @@ operator|*
 name|c
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 elseif|else
 if|if
@@ -1890,28 +1892,15 @@ operator|::
 name|Namespace
 condition|)
 block|{
-specifier|const
-name|NamespaceNode
-modifier|*
-name|nspace
-init|=
-cast|static_cast
-argument_list|<
-specifier|const
-name|NamespaceNode
-operator|*
-argument_list|>
-argument_list|(
-operator|*
-name|c
-argument_list|)
-decl_stmt|;
 comment|// Ensure that the namespace's name is not empty (the root
 comment|// namespace has no name).
 if|if
 condition|(
 operator|!
-name|nspace
+operator|(
+operator|*
+name|c
+operator|)
 operator|->
 name|name
 argument_list|()
@@ -1919,12 +1908,14 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
-block|{
 name|namespaceIndex_
 operator|.
 name|insert
 argument_list|(
-name|nspace
+operator|(
+operator|*
+name|c
+operator|)
 operator|->
 name|name
 argument_list|()
@@ -1933,7 +1924,6 @@ operator|*
 name|c
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}

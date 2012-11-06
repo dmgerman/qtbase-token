@@ -166,6 +166,14 @@ return|return
 name|currentFile_
 return|;
 block|}
+name|void
+name|checkModuleInclusion
+parameter_list|(
+name|Node
+modifier|*
+name|n
+parameter_list|)
+function_decl|;
 specifier|static
 name|void
 name|initialize
