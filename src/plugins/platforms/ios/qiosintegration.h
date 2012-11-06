@@ -75,6 +75,16 @@ name|window
 argument_list|)
 decl|const
 decl_stmt|;
+name|QPlatformOpenGLContext
+modifier|*
+name|createPlatformOpenGLContext
+argument_list|(
+name|QOpenGLContext
+operator|*
+name|context
+argument_list|)
+decl|const
+decl_stmt|;
 name|QPlatformFontDatabase
 operator|*
 name|fontDatabase
