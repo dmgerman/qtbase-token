@@ -351,6 +351,16 @@ name|parent
 argument_list|()
 expr_stmt|;
 block|}
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+argument|obj
+argument_list|)
+name|Q_UNUSED
+argument_list|(
+argument|role
+argument_list|)
 endif|#
 directive|endif
 comment|// QT_NO_ACCESSIBILITY
