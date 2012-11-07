@@ -31218,6 +31218,7 @@ name|QEvent
 modifier|*
 parameter_list|)
 block|{ }
+comment|// ### Qt 6: void QWidget::enterEvent(QEnterEvent *).
 comment|/*!     \fn void QWidget::leaveEvent(QEvent *event)      This event handler can be reimplemented in a subclass to receive     widget leave events which are passed in the \a event parameter.      A leave event is sent to the widget when the mouse cursor leaves     the widget.      \sa enterEvent(), mouseMoveEvent(), event() */
 DECL|function|leaveEvent
 name|void

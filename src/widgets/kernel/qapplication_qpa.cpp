@@ -979,6 +979,10 @@ name|qt_last_mouse_receiver
 operator|.
 name|data
 argument_list|()
+argument_list|,
+name|QGuiApplicationPrivate
+operator|::
+name|lastCursorPosition
 argument_list|)
 expr_stmt|;
 name|qt_last_mouse_receiver

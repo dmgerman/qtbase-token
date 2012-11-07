@@ -1335,6 +1335,20 @@ operator|::
 name|Enter
 case|:
 block|{
+specifier|const
+name|QEnterEvent
+modifier|*
+name|ee
+init|=
+cast|static_cast
+argument_list|<
+name|QEnterEvent
+operator|*
+argument_list|>
+argument_list|(
+name|e
+argument_list|)
+decl_stmt|;
 name|QString
 name|message
 decl_stmt|;
@@ -1360,6 +1374,20 @@ operator|<<
 name|o
 operator|->
 name|objectName
+argument_list|()
+operator|<<
+literal|" at "
+operator|<<
+name|ee
+operator|->
+name|localPos
+argument_list|()
+operator|<<
+literal|" global: "
+operator|<<
+name|ee
+operator|->
+name|globalPos
 argument_list|()
 expr_stmt|;
 name|m_logEdit

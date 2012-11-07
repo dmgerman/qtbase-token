@@ -1250,6 +1250,15 @@ operator|::
 name|handleEnterEvent
 argument_list|(
 name|currentWindowUnderMouse
+argument_list|,
+name|currentWindowUnderMouse
+operator|->
+name|mapFromGlobal
+argument_list|(
+name|globalPosition
+argument_list|)
+argument_list|,
+name|globalPosition
 argument_list|)
 expr_stmt|;
 block|}

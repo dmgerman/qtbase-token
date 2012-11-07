@@ -66,6 +66,69 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
+comment|/*!     \class QEnterEvent     \ingroup events      \brief The QEnterEvent class contains parameters that describe an enter event.      Enter events occur when the mouse cursor enters a window or a widget.      \since 5.0 */
+end_comment
+begin_comment
+comment|/*!     Constructs an enter event object.      The points \a localPos, \a windowPos and \a screenPos specify the     mouse cursor's position relative to the receiving widget or item,     window, and screen, respectively. */
+end_comment
+begin_constructor
+DECL|function|QEnterEvent
+name|QEnterEvent
+operator|::
+name|QEnterEvent
+parameter_list|(
+specifier|const
+name|QPointF
+modifier|&
+name|localPos
+parameter_list|,
+specifier|const
+name|QPointF
+modifier|&
+name|windowPos
+parameter_list|,
+specifier|const
+name|QPointF
+modifier|&
+name|screenPos
+parameter_list|)
+member_init_list|:
+name|QEvent
+argument_list|(
+name|QEvent
+operator|::
+name|Enter
+argument_list|)
+member_init_list|,
+name|l
+argument_list|(
+name|localPos
+argument_list|)
+member_init_list|,
+name|w
+argument_list|(
+name|windowPos
+argument_list|)
+member_init_list|,
+name|s
+argument_list|(
+name|screenPos
+argument_list|)
+block|{ }
+end_constructor
+begin_comment
+comment|/*!     \internal */
+end_comment
+begin_destructor
+DECL|function|~QEnterEvent
+name|QEnterEvent
+operator|::
+name|~
+name|QEnterEvent
+parameter_list|()
+block|{ }
+end_destructor
+begin_comment
 comment|/*!     \class QInputEvent     \ingroup events     \inmodule QtGui      \brief The QInputEvent class is the base class for events that     describe user input. */
 end_comment
 begin_comment

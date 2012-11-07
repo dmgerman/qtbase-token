@@ -461,6 +461,11 @@ else|:
 name|receiver
 argument_list|,
 literal|0
+argument_list|,
+name|event
+operator|->
+name|screenPos
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|lastWidgetUnderMouse
@@ -630,6 +635,11 @@ argument_list|(
 name|lastWidgetUnderMouse
 argument_list|,
 name|embeddedMouseGrabber
+argument_list|,
+name|event
+operator|->
+name|screenPos
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|embeddedMouseGrabber
@@ -4745,6 +4755,11 @@ argument_list|,
 name|d
 operator|->
 name|lastWidgetUnderMouse
+argument_list|,
+name|event
+operator|->
+name|screenPos
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|d
@@ -4823,6 +4838,11 @@ argument_list|,
 name|d
 operator|->
 name|lastWidgetUnderMouse
+argument_list|,
+name|event
+operator|->
+name|screenPos
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|d

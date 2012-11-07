@@ -422,6 +422,11 @@ argument_list|,
 name|QWidget
 operator|*
 name|leave
+argument_list|,
+specifier|const
+name|QPointF
+operator|&
+name|globalPosF
 argument_list|)
 block|;
 comment|//modality

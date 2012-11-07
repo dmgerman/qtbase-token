@@ -255,6 +255,16 @@ argument_list|(
 name|QWindow
 operator|*
 name|enter
+argument_list|,
+specifier|const
+name|QPointF
+operator|&
+name|local
+argument_list|,
+specifier|const
+name|QPointF
+operator|&
+name|global
 argument_list|)
 operator|:
 name|WindowSystemEvent
@@ -264,7 +274,17 @@ argument_list|)
 block|,
 name|enter
 argument_list|(
-argument|enter
+name|enter
+argument_list|)
+block|,
+name|localPos
+argument_list|(
+name|local
+argument_list|)
+block|,
+name|globalPos
+argument_list|(
+argument|global
 argument_list|)
 block|{ }
 name|QPointer
@@ -272,6 +292,14 @@ operator|<
 name|QWindow
 operator|>
 name|enter
+block|;
+specifier|const
+name|QPointF
+name|localPos
+block|;
+specifier|const
+name|QPointF
+name|globalPos
 block|;     }
 decl_stmt|;
 name|class
