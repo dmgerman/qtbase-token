@@ -1257,7 +1257,7 @@ name|binary
 init|=
 name|QStringLiteral
 argument_list|(
-literal|"systemsemaphorehelper/systemsemaphorehelper"
+literal|"helperbinary"
 argument_list|)
 decl_stmt|;
 ifdef|#
@@ -1273,7 +1273,10 @@ expr_stmt|;
 endif|#
 directive|endif
 return|return
+name|QFINDTESTDATA
+argument_list|(
 name|binary
+argument_list|)
 return|;
 block|}
 end_function
