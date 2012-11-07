@@ -872,7 +872,15 @@ case|case
 name|ThreadedOpenGL
 case|:
 return|return
-literal|false
+name|m_connections
+operator|.
+name|at
+argument_list|(
+literal|0
+argument_list|)
+operator|->
+name|supportsThreadedRendering
+argument_list|()
 return|;
 case|case
 name|WindowMasks
