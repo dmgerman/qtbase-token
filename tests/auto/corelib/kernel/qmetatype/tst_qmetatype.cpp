@@ -10932,6 +10932,12 @@ operator|::
 name|constexprMetaTypeIds
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_COMPILER_CONSTEXPR
+argument_list|)
 name|int
 name|id
 init|=
@@ -10945,12 +10951,6 @@ condition|(
 name|id
 condition|)
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_COMPILER_CONSTEXPR
-argument_list|)
 name|QT_FOR_EACH_STATIC_TYPE
 argument_list|(
 argument|METATYPE_ID_FUNCTION
@@ -10962,8 +10962,6 @@ argument_list|<>
 operator|::
 name|Value
 expr_stmt|;
-endif|#
-directive|endif
 default|default:
 empty_stmt|;
 block|}
@@ -10972,12 +10970,6 @@ condition|(
 name|id
 condition|)
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_COMPILER_CONSTEXPR
-argument_list|)
 name|QT_FOR_EACH_STATIC_TYPE
 argument_list|(
 argument|REGISTER_METATYPE_FUNCTION
@@ -10989,8 +10981,6 @@ argument_list|<>
 operator|::
 name|Value
 expr_stmt|;
-endif|#
-directive|endif
 default|default:
 empty_stmt|;
 block|}
@@ -10999,6 +10989,15 @@ argument_list|(
 name|metaType
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|QSKIP
+argument_list|(
+literal|"The test needs a compiler supporting constexpr"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_comment
