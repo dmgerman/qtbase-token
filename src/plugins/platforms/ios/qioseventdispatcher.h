@@ -140,6 +140,9 @@ argument_list|()
 block|;
 name|private
 operator|:
+name|bool
+name|m_interrupted
+block|;
 name|CFRunLoopSourceRef
 name|m_postedEventsRunLoopSource
 block|;
