@@ -22444,8 +22444,6 @@ name|qApp
 operator|->
 name|wheelScrollLines
 argument_list|()
-operator|*
-literal|89
 operator|<<
 literal|10
 operator|+
@@ -22453,8 +22451,6 @@ name|qApp
 operator|->
 name|wheelScrollLines
 argument_list|()
-operator|*
-literal|28
 expr_stmt|;
 block|}
 end_function
