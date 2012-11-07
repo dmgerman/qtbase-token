@@ -2567,7 +2567,7 @@ argument_list|(
 name|PP_WHITESPACE
 argument_list|)
 condition|)
-empty_stmt|;
+block|{}
 if|if
 condition|(
 operator|!
@@ -2606,7 +2606,7 @@ argument_list|(
 name|PP_WHITESPACE
 argument_list|)
 condition|)
-empty_stmt|;
+block|{}
 name|int
 name|nesting
 init|=
@@ -5317,7 +5317,7 @@ argument_list|(
 name|PP_WHITESPACE
 argument_list|)
 condition|)
-empty_stmt|;
+block|{}
 name|Token
 name|t
 init|=
@@ -5378,7 +5378,7 @@ argument_list|(
 name|PP_WHITESPACE
 argument_list|)
 condition|)
-empty_stmt|;
+block|{}
 if|if
 condition|(
 operator|!
@@ -5456,7 +5456,7 @@ argument_list|(
 name|PP_WHITESPACE
 argument_list|)
 condition|)
-empty_stmt|;
+block|{}
 name|t
 operator|=
 name|next
@@ -5499,7 +5499,7 @@ argument_list|(
 name|PP_WHITESPACE
 argument_list|)
 condition|)
-empty_stmt|;
+block|{}
 if|if
 condition|(
 operator|!
@@ -5534,7 +5534,7 @@ argument_list|(
 name|PP_WHITESPACE
 argument_list|)
 condition|)
-empty_stmt|;
+block|{}
 block|}
 end_function
 begin_function
