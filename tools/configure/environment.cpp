@@ -3169,10 +3169,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-else|else
-block|{
+comment|// MinGW: Although gcc doesn't care about INCLUDE, qmake automatically adds it via -I
 name|headerPaths
-operator|=
+operator|+=
 name|splitPathList
 argument_list|(
 name|QString
@@ -3186,7 +3185,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Add Direct X SDK for ANGLE
 specifier|const
 name|QString
@@ -3250,10 +3248,9 @@ literal|"lib"
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
+comment|// MinGW: Although gcc doesn't care about LIB, qmake automatically adds it via -L
 name|libraryPaths
-operator|=
+operator|+=
 name|splitPathList
 argument_list|(
 name|QString
@@ -3267,7 +3264,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Add Direct X SDK for ANGLE
 specifier|const
 name|QString
