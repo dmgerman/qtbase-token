@@ -44,17 +44,6 @@ operator|~
 name|QIOSIntegration
 argument_list|()
 expr_stmt|;
-name|QPlatformPixmap
-modifier|*
-name|createPlatformPixmap
-argument_list|(
-name|QPlatformPixmap
-operator|::
-name|PixelType
-name|type
-argument_list|)
-decl|const
-decl_stmt|;
 name|QPlatformWindow
 modifier|*
 name|createPlatformWindow
