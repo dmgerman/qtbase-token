@@ -72,6 +72,11 @@ include|#
 directive|include
 file|<private/qheaderview_p.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<private/qscrollbar_p.h>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -13150,7 +13155,10 @@ expr_stmt|;
 name|horizontalScrollBar
 argument_list|()
 operator|->
-name|setSingleStep
+name|d_func
+argument_list|()
+operator|->
+name|itemviewChangeSingleStep
 argument_list|(
 name|qMax
 argument_list|(
@@ -13374,7 +13382,10 @@ expr_stmt|;
 name|verticalScrollBar
 argument_list|()
 operator|->
-name|setSingleStep
+name|d_func
+argument_list|()
+operator|->
+name|itemviewChangeSingleStep
 argument_list|(
 name|qMax
 argument_list|(

@@ -1438,6 +1438,10 @@ block|;
 name|friend
 name|class
 name|QListViewPrivate
+block|;
+name|friend
+name|class
+name|QAbstractSlider
 block|; }
 decl_stmt|;
 end_decl_stmt

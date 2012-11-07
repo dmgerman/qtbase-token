@@ -70,6 +70,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<private/qscrollbar_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<qdebug.h>
 end_include
 begin_ifndef
@@ -9140,7 +9145,10 @@ block|{
 name|horizontalScrollBar
 argument_list|()
 operator|->
-name|setSingleStep
+name|d_func
+argument_list|()
+operator|->
+name|itemviewChangeSingleStep
 argument_list|(
 name|step
 operator|.
@@ -9315,7 +9323,10 @@ block|{
 name|verticalScrollBar
 argument_list|()
 operator|->
-name|setSingleStep
+name|d_func
+argument_list|()
+operator|->
+name|itemviewChangeSingleStep
 argument_list|(
 name|step
 operator|.

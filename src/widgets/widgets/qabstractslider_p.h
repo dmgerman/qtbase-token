@@ -109,6 +109,13 @@ comment|/**      * Call effectiveSingleStep() when changing the slider value.   
 name|int
 name|singleStep
 block|;
+name|int
+name|singleStepFromItemView
+block|;
+comment|// If we have itemViews we track the views preferred singleStep value.
+name|bool
+name|viewMayChangeSingleStep
+block|;
 name|float
 name|offset_accumulated
 block|;
@@ -190,6 +197,12 @@ endif|#
 directive|endif
 return|;
 block|}
+name|void
+name|itemviewChangeSingleStep
+argument_list|(
+argument|int step
+argument_list|)
+block|;
 name|virtual
 name|int
 name|bound

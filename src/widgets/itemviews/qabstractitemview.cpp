@@ -112,6 +112,11 @@ include|#
 directive|include
 file|<private/qguiapplication_p.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<private/qscrollbar_p.h>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -1017,7 +1022,7 @@ begin_comment
 comment|/*!     \enum QAbstractItemView::State      Describes the different states the view can be in. This is usually     only interesting when reimplementing your own view.      \value NoState        The is the default state.     \value DraggingState  The user is dragging items.     \value DragSelectingState The user is selecting items.     \value EditingState   The user is editing an item in a widget editor.     \value ExpandingState   The user is opening a branch of items.     \value CollapsingState   The user is closing a branch of items.     \value AnimatingState The item view is performing an animation. */
 end_comment
 begin_comment
-comment|/*!     \since 4.2     \enum QAbstractItemView::ScrollMode      \value ScrollPerItem    The view will scroll the contents one item at a time.     \value ScrollPerPixel   The view will scroll the contents one pixel at a time. */
+comment|/*!     \since 4.2     \enum QAbstractItemView::ScrollMode      Describes how the scrollbar should behave. When setting the scroll mode     to ScrollPerPixel the single step size will adjust automatically unless     it was set explicitly using \l{QAbstractSlider::}{setSingleStep()}.     The automatic adjustment can be restored by setting the single step size to -1.      \value ScrollPerItem    The view will scroll the contents one item at a time.     \value ScrollPerPixel   The view will scroll the contents one pixel at a time. */
 end_comment
 begin_comment
 comment|/*!     \fn QRect QAbstractItemView::visualRect(const QModelIndex&index) const = 0     Returns the rectangle on the viewport occupied by the item at \a index.      If your item is displayed in several areas then visualRect should return     the primary area that contains index and not the complete area that index     might encompasses, touch or cause drawing.      In the base class this is a pure virtual function.      \sa indexAt(), visualRegionForSelection() */
@@ -4274,6 +4279,35 @@ name|verticalScrollMode
 operator|=
 name|mode
 expr_stmt|;
+if|if
+condition|(
+name|mode
+operator|==
+name|ScrollPerItem
+condition|)
+name|verticalScrollBar
+argument_list|()
+operator|->
+name|d_func
+argument_list|()
+operator|->
+name|itemviewChangeSingleStep
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+comment|// setSingleStep(-1) => step with 1
+else|else
+name|verticalScrollBar
+argument_list|()
+operator|->
+name|setSingleStep
+argument_list|(
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+comment|// Ensure that the view can update single step
 name|updateGeometries
 argument_list|()
 expr_stmt|;
@@ -4332,12 +4366,50 @@ argument_list|(
 name|QAbstractItemView
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|mode
+operator|==
+name|d
+operator|->
+name|horizontalScrollMode
+condition|)
+return|return;
 name|d
 operator|->
 name|horizontalScrollMode
 operator|=
 name|mode
 expr_stmt|;
+if|if
+condition|(
+name|mode
+operator|==
+name|ScrollPerItem
+condition|)
+name|horizontalScrollBar
+argument_list|()
+operator|->
+name|d_func
+argument_list|()
+operator|->
+name|itemviewChangeSingleStep
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+comment|// setSingleStep(-1) => step with 1
+else|else
+name|horizontalScrollBar
+argument_list|()
+operator|->
+name|setSingleStep
+argument_list|(
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+comment|// Ensure that the view can update single step
 name|updateGeometries
 argument_list|()
 expr_stmt|;

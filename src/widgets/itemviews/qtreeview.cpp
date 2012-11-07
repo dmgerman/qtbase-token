@@ -72,6 +72,11 @@ include|#
 directive|include
 file|<QMetaMethod>
 end_include
+begin_include
+include|#
+directive|include
+file|<private/qscrollbar_p.h>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -19638,7 +19643,10 @@ argument_list|)
 expr_stmt|;
 name|vbar
 operator|->
-name|setSingleStep
+name|d_func
+argument_list|()
+operator|->
+name|itemviewChangeSingleStep
 argument_list|(
 name|qMax
 argument_list|(
@@ -19854,7 +19862,10 @@ argument_list|)
 expr_stmt|;
 name|hbar
 operator|->
-name|setSingleStep
+name|d_func
+argument_list|()
+operator|->
+name|itemviewChangeSingleStep
 argument_list|(
 name|qMax
 argument_list|(
