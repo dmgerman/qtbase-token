@@ -1901,7 +1901,7 @@ end_typedef
 begin_typedef
 DECL|typedef|Ptr_gtk_adjustment_new
 typedef|typedef
-name|GtkObject
+name|GtkAdjustment
 modifier|*
 function_decl|(
 modifier|*

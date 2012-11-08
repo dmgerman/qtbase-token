@@ -4254,10 +4254,6 @@ operator|::
 name|gtk_hscale_new
 argument_list|(
 operator|(
-name|GtkAdjustment
-operator|*
-operator|)
-operator|(
 name|QGtkStylePrivate
 operator|::
 name|gtk_adjustment_new
@@ -4325,10 +4321,6 @@ name|QGtkStylePrivate
 operator|::
 name|gtk_spin_button_new
 argument_list|(
-operator|(
-name|GtkAdjustment
-operator|*
-operator|)
 operator|(
 name|QGtkStylePrivate
 operator|::
@@ -4402,10 +4394,6 @@ name|addWidget
 argument_list|(
 name|gtk_vscale_new
 argument_list|(
-operator|(
-name|GtkAdjustment
-operator|*
-operator|)
 operator|(
 name|QGtkStylePrivate
 operator|::
