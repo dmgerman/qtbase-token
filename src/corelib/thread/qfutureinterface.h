@@ -418,11 +418,6 @@ decl_stmt|;
 name|protected
 label|:
 name|bool
-name|referenceCountIsOne
-argument_list|()
-specifier|const
-expr_stmt|;
-name|bool
 name|refT
 argument_list|()
 specifier|const
