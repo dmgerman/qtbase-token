@@ -433,6 +433,13 @@ argument_list|(
 name|QHeaderView
 argument_list|)
 expr_stmt|;
+name|d
+operator|->
+name|persistentHiddenSections
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|d
