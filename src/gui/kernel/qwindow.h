@@ -1144,6 +1144,44 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// Temporary backwards-compatible accessors for the benefit of Declarative
+comment|// to be removed ASAP
+specifier|inline
+name|void
+name|setPos
+parameter_list|(
+specifier|const
+name|QPoint
+modifier|&
+name|pt
+parameter_list|)
+block|{
+name|setPosition
+argument_list|(
+name|pt
+argument_list|)
+expr_stmt|;
+block|}
+specifier|inline
+name|void
+name|setPos
+parameter_list|(
+name|int
+name|posx
+parameter_list|,
+name|int
+name|posy
+parameter_list|)
+block|{
+name|setPosition
+argument_list|(
+name|posx
+argument_list|,
+name|posy
+argument_list|)
+expr_stmt|;
+block|}
+comment|// end of temporary accessors
 name|void
 name|resize
 parameter_list|(
