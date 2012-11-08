@@ -50,6 +50,11 @@ name|geometry
 argument_list|()
 specifier|const
 block|;
+name|QRect
+name|availableGeometry
+argument_list|()
+specifier|const
+block|;
 name|int
 name|depth
 argument_list|()
