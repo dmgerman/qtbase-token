@@ -1341,7 +1341,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Swap the back and front buffers of \a surface.      Call this to finish a frame of OpenGL rendering, and make sure to     call makeCurrent() again before you begin a new frame.      If you have bound a non-default framebuffer object, you need to     use bindDefaultFramebufferObject() to make sure that the default     framebuffer object is bound before calling swapBuffers(), as     some Qt platforms assume that the default framebuffer object is bound. */
+comment|/*!     Swap the back and front buffers of \a surface.      Call this to finish a frame of OpenGL rendering, and make sure to     call makeCurrent() again before you begin a new frame. */
 end_comment
 begin_function
 DECL|function|swapBuffers
@@ -1456,19 +1456,6 @@ name|QT_NO_DEBUG
 argument_list|)
 if|if
 condition|(
-name|currentContext
-argument_list|()
-operator|!=
-name|this
-condition|)
-name|qWarning
-argument_list|()
-operator|<<
-literal|"QOpenGLContext::swapBuffers() called with non-current surface"
-expr_stmt|;
-elseif|else
-if|if
-condition|(
 operator|!
 name|QOpenGLContextPrivate
 operator|::
@@ -1483,45 +1470,6 @@ name|qWarning
 argument_list|()
 operator|<<
 literal|"QOpenGLContext::swapBuffers() called without corresponding makeCurrent()"
-expr_stmt|;
-name|GLint
-name|framebufferBinding
-init|=
-literal|0
-decl_stmt|;
-name|glGetIntegerv
-argument_list|(
-name|GL_FRAMEBUFFER_BINDING
-argument_list|,
-operator|&
-name|framebufferBinding
-argument_list|)
-expr_stmt|;
-name|GLint
-name|platformFramebuffer
-init|=
-name|GLint
-argument_list|(
-name|d
-operator|->
-name|platformGLContext
-operator|->
-name|defaultFramebufferObject
-argument_list|(
-name|surfaceHandle
-argument_list|)
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|framebufferBinding
-operator|!=
-name|platformFramebuffer
-condition|)
-name|qWarning
-argument_list|()
-operator|<<
-literal|"QOpenGLContext::swapBuffers() called with non-default framebuffer object bound"
 expr_stmt|;
 endif|#
 directive|endif
