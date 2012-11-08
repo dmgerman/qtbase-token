@@ -541,23 +541,6 @@ name|void
 name|flush
 argument_list|()
 block|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_UNIX
-argument_list|)
-specifier|static
-name|void
-name|watchUnixSignal
-argument_list|(
-argument|int signal
-argument_list|,
-argument|bool watch
-argument_list|)
-block|;
-endif|#
-directive|endif
 name|void
 name|installNativeEventFilter
 argument_list|(
@@ -606,23 +589,6 @@ name|defined
 argument_list|(
 name|qdoc
 argument_list|)
-name|QPrivateSignal
-endif|#
-directive|endif
-argument_list|)
-block|;
-name|void
-name|unixSignal
-argument_list|(
-name|int
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|qdoc
-argument_list|)
-argument_list|,
 name|QPrivateSignal
 endif|#
 directive|endif

@@ -7865,12 +7865,6 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*     \fn void QCoreApplication::watchUnixSignal(int signal, bool watch)     \internal */
-end_comment
-begin_comment
-comment|/*!     \fn void QCoreApplication::unixSignal(int number)     \internal      This signal is emitted whenever a Unix signal is received by the     application. The Unix signal received is specified by its \a number. */
-end_comment
-begin_comment
 comment|/*!     \fn void qAddPostRoutine(QtCleanUpFunction ptr)     \relates QCoreApplication      Adds a global routine that will be called from the QApplication     destructor. This function is normally used to add cleanup routines     for program-wide functionality.      The function specified by \a ptr should take no arguments and should     return nothing. For example:      \snippet code/src_corelib_kernel_qcoreapplication.cpp 4      Note that for an application- or module-wide cleanup,     qAddPostRoutine() is often not suitable. For example, if the     program is split into dynamically loaded modules, the relevant     module may be unloaded long before the QApplication destructor is     called.      For modules and libraries, using a reference-counted     initialization manager or Qt's parent-child deletion mechanism may     be better. Here is an example of a private class that uses the     parent-child mechanism to call a cleanup function at the right     time:      \snippet code/src_corelib_kernel_qcoreapplication.cpp 5      By selecting the right parent object, this can often be made to     clean up the module's data at the right moment. */
 end_comment
 begin_comment
