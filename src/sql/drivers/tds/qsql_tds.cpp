@@ -420,6 +420,11 @@ name|login
 argument_list|(
 literal|0
 argument_list|)
+member_init_list|,
+name|initialized
+argument_list|(
+literal|false
+argument_list|)
 block|{}
 DECL|member|login
 name|LOGINREC
@@ -434,6 +439,10 @@ decl_stmt|;
 DECL|member|db
 name|QString
 name|db
+decl_stmt|;
+DECL|member|initialized
+name|bool
+name|initialized
 decl_stmt|;
 block|}
 class|;
@@ -2756,6 +2765,17 @@ operator|new
 name|QTDSDriverPrivate
 argument_list|()
 expr_stmt|;
+name|d
+operator|->
+name|initialized
+operator|=
+operator|(
+name|dbinit
+argument_list|()
+operator|==
+name|SUCCEED
+operator|)
+expr_stmt|;
 comment|// the following two code-lines will fail compilation on some FreeTDS versions
 comment|// just comment them out if you have FreeTDS (you won't get any errors and warnings then)
 name|dberrhandle
@@ -2901,8 +2921,9 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|dbinit
-argument_list|()
+name|d
+operator|->
+name|initialized
 condition|)
 block|{
 name|setOpenError
