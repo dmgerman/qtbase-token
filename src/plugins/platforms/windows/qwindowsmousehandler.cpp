@@ -352,6 +352,11 @@ name|m_leftButtonDown
 argument_list|(
 literal|false
 argument_list|)
+member_init_list|,
+name|m_previousCaptureWindow
+argument_list|(
+literal|0
+argument_list|)
 block|{ }
 end_constructor
 begin_function
@@ -818,6 +823,10 @@ operator|<<
 name|window
 expr_stmt|;
 block|}
+name|m_previousCaptureWindow
+operator|=
+name|window
+expr_stmt|;
 return|return
 literal|true
 return|;
@@ -1092,18 +1101,39 @@ literal|true
 return|;
 block|}
 block|}
+specifier|const
+name|bool
+name|hasCapture
+init|=
+name|platformWindow
+operator|->
+name|hasMouseCapture
+argument_list|()
+decl_stmt|;
+specifier|const
+name|bool
+name|currentNotCapturing
+init|=
+name|hasCapture
+operator|&&
+name|currentWindowUnderMouse
+operator|!=
+name|window
+decl_stmt|;
 ifndef|#
 directive|ifndef
 name|Q_OS_WINCE
 comment|// Enter new window: track to generate leave event.
-comment|// If there is an active capture, we must track the actual capture window instead of window
-comment|// under cursor or leaves will trigger constantly, so always track the window we got
-comment|// native mouse event for.
+comment|// If there is an active capture, only track if the current window is capturing,
+comment|// so we don't get extra leave when cursor leaves the application.
 if|if
 condition|(
 name|window
 operator|!=
 name|m_trackedWindow
+operator|&&
+operator|!
+name|currentNotCapturing
 condition|)
 block|{
 name|TRACKMOUSEEVENT
@@ -1159,19 +1189,11 @@ block|}
 endif|#
 directive|endif
 comment|// !Q_OS_WINCE
-comment|// Qt expects enter/leave events for windows even when some window is capturing mouse input,
-comment|// except for automatic capture when mouse button is pressed - in that case enter/leave
-comment|// should be sent only after the last button is released.
-comment|// We need to track m_windowUnderMouse separately from m_trackedWindow, as
-comment|// Windows mouse tracking will not trigger WM_MOUSELEAVE for leaving window when
-comment|// mouse capture is set.
+comment|// No enter or leave events are sent as long as there is an autocapturing window.
 if|if
 condition|(
 operator|!
-name|platformWindow
-operator|->
-name|hasMouseCapture
-argument_list|()
+name|hasCapture
 operator|||
 operator|!
 name|platformWindow
@@ -1184,16 +1206,43 @@ name|AutoMouseCapture
 argument_list|)
 condition|)
 block|{
+comment|// Leave is needed if:
+comment|// 1) There is no capture and we move from a window to another window.
+comment|//    Note: Leaving the application entirely is handled in WM_MOUSELEAVE case.
+comment|// 2) There is capture and we move out of the capturing window.
+comment|// 3) There is a new capture and we were over another window.
 if|if
 condition|(
+operator|(
+name|m_windowUnderMouse
+operator|&&
 name|m_windowUnderMouse
 operator|!=
 name|currentWindowUnderMouse
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
+operator|(
+operator|!
+name|hasCapture
+operator|||
+name|window
+operator|==
 name|m_windowUnderMouse
+operator|)
+operator|)
+operator|||
+operator|(
+name|hasCapture
+operator|&&
+name|m_previousCaptureWindow
+operator|!=
+name|window
+operator|&&
+name|m_windowUnderMouse
+operator|&&
+name|m_windowUnderMouse
+operator|!=
+name|window
+operator|)
 condition|)
 block|{
 if|if
@@ -1216,21 +1265,67 @@ argument_list|(
 name|m_windowUnderMouse
 argument_list|)
 expr_stmt|;
-comment|// Clear tracking if we are no longer over application,
-comment|// since we have already sent the leave.
 if|if
 condition|(
-operator|!
-name|currentWindowUnderMouse
+name|currentNotCapturing
 condition|)
+block|{
+comment|// Clear tracking if capturing and current window is not the capturing window
+comment|// to avoid leave when mouse actually leaves the application.
 name|m_trackedWindow
 operator|=
 literal|0
 expr_stmt|;
+comment|// We are not officially in any window, but we need to set some cursor to clear
+comment|// whatever cursor the left window had, so apply the cursor of the capture window.
+name|QWindowsWindow
+operator|::
+name|baseWindowOf
+argument_list|(
+name|window
+argument_list|)
+operator|->
+name|applyCursor
+argument_list|()
+expr_stmt|;
 block|}
+block|}
+comment|// Enter is needed if:
+comment|// 1) There is no capture and we move to a new window.
+comment|// 2) There is capture and we move into the capturing window.
+comment|// 3) The capture just ended and we are over non-capturing window.
 if|if
 condition|(
+operator|(
 name|currentWindowUnderMouse
+operator|&&
+name|m_windowUnderMouse
+operator|!=
+name|currentWindowUnderMouse
+operator|&&
+operator|(
+operator|!
+name|hasCapture
+operator|||
+name|currentWindowUnderMouse
+operator|==
+name|window
+operator|)
+operator|)
+operator|||
+operator|(
+name|m_previousCaptureWindow
+operator|&&
+name|window
+operator|!=
+name|m_previousCaptureWindow
+operator|&&
+name|currentWindowUnderMouse
+operator|&&
+name|currentWindowUnderMouse
+operator|!=
+name|m_previousCaptureWindow
+operator|)
 condition|)
 block|{
 if|if
@@ -1273,7 +1368,9 @@ name|globalPosition
 argument_list|)
 expr_stmt|;
 block|}
-block|}
+comment|// We need to track m_windowUnderMouse separately from m_trackedWindow, as
+comment|// Windows mouse tracking will not trigger WM_MOUSELEAVE for leaving window when
+comment|// mouse capture is set.
 name|m_windowUnderMouse
 operator|=
 name|currentWindowUnderMouse
@@ -1296,6 +1393,14 @@ operator|::
 name|queryKeyboardModifiers
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|m_previousCaptureWindow
+operator|=
+name|hasCapture
+condition|?
+name|window
+else|:
+literal|0
 expr_stmt|;
 return|return
 literal|true

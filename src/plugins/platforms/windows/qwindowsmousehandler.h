@@ -203,6 +203,10 @@ decl_stmt|;
 name|bool
 name|m_leftButtonDown
 decl_stmt|;
+name|QWindow
+modifier|*
+name|m_previousCaptureWindow
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt
