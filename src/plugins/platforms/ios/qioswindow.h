@@ -251,6 +251,12 @@ operator|&
 name|rect
 argument_list|)
 block|;
+name|void
+name|setWindowState
+argument_list|(
+argument|Qt::WindowState state
+argument_list|)
+block|;
 name|GLuint
 name|framebufferObject
 argument_list|(
