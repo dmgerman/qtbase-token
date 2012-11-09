@@ -10485,15 +10485,24 @@ name|QSysInfo
 operator|::
 name|MV_10_6
 condition|)
-name|QEXPECT_FAIL
+name|QCOMPARE
 argument_list|(
-literal|""
+name|locale
+operator|.
+name|dateFormat
+argument_list|(
+name|QLocale
+operator|::
+name|LongFormat
+argument_list|)
 argument_list|,
-literal|"QTBUG-27790"
-argument_list|,
-name|Continue
+name|QString
+argument_list|(
+literal|"MMMM d, y"
+argument_list|)
 argument_list|)
 expr_stmt|;
+else|else
 name|QCOMPARE
 argument_list|(
 name|locale
@@ -10809,6 +10818,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// System Preferences->Language& Text, Region Tab, should choose "United States" for Region field
 name|QCOMPARE
 argument_list|(
 name|locale
