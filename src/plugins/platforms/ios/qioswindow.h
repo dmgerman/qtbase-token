@@ -242,6 +242,15 @@ operator|&
 name|rect
 argument_list|)
 block|;
+name|void
+name|updateGeometry
+argument_list|(
+specifier|const
+name|QRect
+operator|&
+name|rect
+argument_list|)
+block|;
 name|GLuint
 name|framebufferObject
 argument_list|(
