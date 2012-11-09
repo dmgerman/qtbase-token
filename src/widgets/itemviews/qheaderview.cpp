@@ -15399,6 +15399,10 @@ emit|;
 block|}
 block|}
 block|}
+name|sectionStartposRecalc
+operator|=
+literal|true
+expr_stmt|;
 block|}
 end_function
 begin_function
