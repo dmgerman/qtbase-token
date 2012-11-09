@@ -513,6 +513,10 @@ name|dot
 decl_stmt|;
 specifier|static
 name|bool
+name|debug
+decl_stmt|;
+specifier|static
+name|bool
 name|generateExamples
 decl_stmt|;
 specifier|static

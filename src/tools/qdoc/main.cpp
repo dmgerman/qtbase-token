@@ -1089,6 +1089,23 @@ literal|"false"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|/*       If QT_INSTALL_DOCS is not set, set it here so it can be used from       the qdocconf files.     */
+name|QString
+name|qt_install_docs
+init|=
+name|qgetenv
+argument_list|(
+literal|"QT_INSTALL_DOCS"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|qt_install_docs
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 name|documentationPath
 operator|=
 name|QLibraryInfo
@@ -1104,7 +1121,6 @@ operator|::
 name|EffectivePaths
 argument_list|)
 expr_stmt|;
-comment|// Set a few environment variables that can be used from the qdocconf file
 name|qputenv
 argument_list|(
 literal|"QT_INSTALL_DOCS"
@@ -1115,6 +1131,7 @@ name|toLatin1
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 comment|/*       With the default configuration values in place, load       the qdoc configuration file. Note that the configuration       file may include other configuration files.        The Location class keeps track of the current location       in the file being processed, mainly for error reporting       purposes.      */
 name|Location
 operator|::
