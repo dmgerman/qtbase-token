@@ -409,6 +409,11 @@ literal|0
 argument_list|)
 endif|#
 directive|endif
+member_init_list|,
+name|m_navigator
+argument_list|(
+literal|0
+argument_list|)
 if|#
 directive|if
 operator|!
