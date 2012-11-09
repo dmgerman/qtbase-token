@@ -2674,6 +2674,23 @@ operator|->
 name|variables
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|v
+index|[
+literal|"TARGET"
+index|]
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|warn_msg
+argument_list|(
+name|WarnLogic
+argument_list|,
+literal|"TARGET is empty"
+argument_list|)
+expr_stmt|;
 name|chkdir
 operator|=
 name|v
