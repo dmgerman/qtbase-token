@@ -1197,10 +1197,12 @@ operator|*
 name|next
 block|;
 DECL|member|h
+specifier|const
 name|uint
 name|h
 block|;
 DECL|member|key
+specifier|const
 name|Key
 name|key
 block|;
@@ -1250,6 +1252,7 @@ argument|uint h0
 argument_list|,
 argument|const Key&key0
 argument_list|)
+specifier|const
 block|{
 return|return
 name|h0
@@ -1290,10 +1293,12 @@ operator|*
 name|next
 block|;
 DECL|member|h
+specifier|const
 name|uint
 name|h
 block|;
 DECL|member|key
+specifier|const
 name|Key
 name|key
 block|;
@@ -1383,7 +1388,7 @@ value|) {} \     }; \ \     template<class T> \     struct QHashNode<key_type, T
 comment|/* key0 */
 value|) {} \         inline QHashNode(key_type
 comment|/* key0 */
-value|, const T&value0) : value(value0) {} \         inline bool same_key(uint h0, key_type) { return h0 == h; } \     }
+value|, const T&value0) : value(value0) {} \         inline bool same_key(uint h0, key_type) const { return h0 == h; } \     }
 end_define
 begin_if
 if|#
