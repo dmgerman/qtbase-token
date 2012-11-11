@@ -29,8 +29,15 @@ operator|*
 name|window
 decl_stmt|;
 end_decl_stmt
-begin_macro
+begin_expr_stmt
 unit|@
 name|end
-end_macro
+expr|@
+name|interface
+name|QIOSMainWrapperApplicationDelegate
+operator|:
+name|QIOSApplicationDelegate
+expr|@
+name|end
+end_expr_stmt
 end_unit
