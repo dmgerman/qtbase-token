@@ -15424,6 +15424,11 @@ condition|)
 name|doDelayedResizeSections
 argument_list|()
 expr_stmt|;
+name|viewport
+operator|->
+name|update
+argument_list|()
+expr_stmt|;
 block|}
 end_function
 begin_function
