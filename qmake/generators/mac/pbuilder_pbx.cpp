@@ -6685,7 +6685,7 @@ block|{
 name|QString
 name|grp
 init|=
-literal|"Build Sources"
+literal|"Compile Sources"
 decl_stmt|,
 name|key
 init|=
@@ -8311,7 +8311,7 @@ block|{
 name|QString
 name|grp
 argument_list|(
-literal|"External Frameworks and Libraries"
+literal|"Frameworks"
 argument_list|)
 decl_stmt|,
 name|key
@@ -8450,7 +8450,7 @@ block|{
 name|QString
 name|grp
 argument_list|(
-literal|"Frameworks& Libraries"
+literal|"Link Binary With Libraries"
 argument_list|)
 decl_stmt|,
 name|key
