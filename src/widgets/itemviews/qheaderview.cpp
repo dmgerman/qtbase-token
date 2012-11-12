@@ -15299,6 +15299,9 @@ argument_list|(
 name|QHeaderView
 argument_list|)
 expr_stmt|;
+name|executePostedLayout
+argument_list|()
+expr_stmt|;
 name|invalidateCachedSizeHint
 argument_list|()
 expr_stmt|;
@@ -15412,6 +15415,14 @@ block|}
 name|sectionStartposRecalc
 operator|=
 literal|true
+expr_stmt|;
+if|if
+condition|(
+name|hasAutoResizeSections
+argument_list|()
+condition|)
+name|doDelayedResizeSections
+argument_list|()
 expr_stmt|;
 block|}
 end_function
