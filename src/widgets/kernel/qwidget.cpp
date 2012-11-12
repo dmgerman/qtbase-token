@@ -29066,8 +29066,8 @@ operator|->
 name|accept
 argument_list|()
 expr_stmt|;
-break|break;
 block|}
+break|break;
 case|case
 name|QEvent
 operator|::
