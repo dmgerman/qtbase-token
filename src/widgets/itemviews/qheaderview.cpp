@@ -15299,6 +15299,9 @@ argument_list|(
 name|QHeaderView
 argument_list|)
 expr_stmt|;
+name|invalidateCachedSizeHint
+argument_list|()
+expr_stmt|;
 name|defaultSectionSize
 operator|=
 name|size
