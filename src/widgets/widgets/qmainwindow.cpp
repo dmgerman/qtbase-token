@@ -270,6 +270,10 @@ DECL|member|oldCursor
 name|QCursor
 name|oldCursor
 block|;
+DECL|member|adjustedCursor
+name|QCursor
+name|adjustedCursor
+block|;
 name|uint
 name|hasOldCursor
 operator|:
@@ -3772,8 +3776,18 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|layout
+operator|->
+name|movingSeparator
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
 block|{
+comment|// Don't change cursor when moving separator
 name|QList
 argument_list|<
 name|int
@@ -3905,24 +3919,18 @@ name|WA_SetCursor
 argument_list|)
 expr_stmt|;
 block|}
-name|QCursor
-name|cursor
-init|=
+name|adjustedCursor
+operator|=
 name|separatorCursor
 argument_list|(
 name|hoverSeparator
 argument_list|)
-decl_stmt|;
-name|cursorAdjusted
-operator|=
-literal|false
 expr_stmt|;
-comment|//to not reset the oldCursor in event(CursorChange)
 name|q
 operator|->
 name|setCursor
 argument_list|(
-name|cursor
+name|adjustedCursor
 argument_list|)
 expr_stmt|;
 name|cursorAdjusted
@@ -4515,11 +4523,27 @@ name|QEvent
 operator|::
 name|CursorChange
 case|:
+comment|// CursorChange events are triggered as mouse moves to new widgets even
+comment|// if the cursor doesn't actually change, so do not change oldCursor if
+comment|// the "changed" cursor has same shape as adjusted cursor.
 if|if
 condition|(
 name|d
 operator|->
 name|cursorAdjusted
+operator|&&
+name|d
+operator|->
+name|adjustedCursor
+operator|.
+name|shape
+argument_list|()
+operator|!=
+name|cursor
+argument_list|()
+operator|.
+name|shape
+argument_list|()
 condition|)
 block|{
 name|d
@@ -4538,6 +4562,14 @@ argument_list|(
 name|Qt
 operator|::
 name|WA_SetCursor
+argument_list|)
+expr_stmt|;
+comment|// Ensure our adjusted cursor stays visible
+name|setCursor
+argument_list|(
+name|d
+operator|->
+name|adjustedCursor
 argument_list|)
 expr_stmt|;
 block|}
