@@ -988,6 +988,10 @@ name|Shambala
 init|=
 literal|214
 block|,
+name|Bodo
+init|=
+literal|215
+block|,
 name|NorwegianBokmal
 init|=
 name|Norwegian
@@ -998,7 +1002,7 @@ name|Nynorsk
 block|,
 name|LastLanguage
 init|=
-name|Shambala
+name|Bodo
 block|}
 enum|;
 enum|enum
