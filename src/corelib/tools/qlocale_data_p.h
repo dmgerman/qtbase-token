@@ -191076,7 +191076,7 @@ name|char
 name|script_code_list
 index|[]
 init|=
-literal|"\0\0\0\0"
+literal|"Zzzz"
 comment|// AnyScript
 literal|"Arab"
 comment|// Arabic
@@ -191157,7 +191157,7 @@ name|char
 name|country_code_list
 index|[]
 init|=
-literal|"  \0"
+literal|"ZZ\0"
 comment|// AnyCountry
 literal|"AF\0"
 comment|// Afghanistan
