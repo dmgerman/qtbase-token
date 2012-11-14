@@ -1039,6 +1039,8 @@ name|staticWidgets
 operator|.
 name|isEmpty
 argument_list|()
+operator|&&
+name|false
 return|;
 block|}
 name|friend

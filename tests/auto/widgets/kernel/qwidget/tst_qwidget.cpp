@@ -24160,19 +24160,11 @@ operator|::
 name|optimizedResize_topLevel
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_MAC
-argument_list|)
 name|QSKIP
 argument_list|(
-literal|"We do not yet have static contents support for *top-levels* on this platform"
+literal|"We do not yet have static contents support, see QTBUG-28012"
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|StaticWidget
 name|topLevel
 decl_stmt|;
