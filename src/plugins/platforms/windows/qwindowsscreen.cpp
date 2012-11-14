@@ -696,6 +696,19 @@ comment|// EnumDisplayMonitors (as opposed to EnumDisplayDevices) enumerates onl
 comment|// virtual desktop screens.
 name|data
 operator|.
+name|name
+operator|=
+name|QString
+operator|::
+name|fromWCharArray
+argument_list|(
+name|info
+operator|.
+name|szDevice
+argument_list|)
+expr_stmt|;
+name|data
+operator|.
 name|flags
 operator|=
 name|QWindowsScreenData
@@ -710,6 +723,7 @@ name|dwFlags
 operator|&
 name|MONITORINFOF_PRIMARY
 condition|)
+block|{
 name|data
 operator|.
 name|flags
@@ -718,19 +732,21 @@ name|QWindowsScreenData
 operator|::
 name|PrimaryScreen
 expr_stmt|;
-name|data
-operator|.
-name|name
-operator|=
-name|QString
-operator|::
-name|fromWCharArray
+comment|// QPlatformIntegration::screenAdded() documentation specifies that first
+comment|// added screen will be the primary screen, so order accordingly.
+comment|// Note that the side effect of this policy is that there is no way to change primary
+comment|// screen reported by Qt, unless we want to delete all existing screens and add them
+comment|// again whenever primary screen changes.
+name|result
+operator|->
+name|prepend
 argument_list|(
-name|info
-operator|.
-name|szDevice
+name|data
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
 name|result
 operator|->
 name|append
@@ -738,6 +754,7 @@ argument_list|(
 name|data
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|TRUE
 return|;
