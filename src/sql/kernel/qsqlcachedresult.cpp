@@ -1159,12 +1159,6 @@ modifier|*
 name|data
 parameter_list|)
 block|{
-switch|switch
-condition|(
-name|id
-condition|)
-block|{
-default|default:
 name|QSqlResult
 operator|::
 name|virtual_hook
@@ -1174,7 +1168,6 @@ argument_list|,
 name|data
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 end_function
 begin_function
