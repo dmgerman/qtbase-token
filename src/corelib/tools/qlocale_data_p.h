@@ -189470,6 +189470,31 @@ literal|"Traditional Han\0"
 literal|"Latin\0"
 literal|"Mongolian\0"
 literal|"Tifinagh\0"
+literal|"Armenian\0"
+literal|"Bengali\0"
+literal|"Cherokee\0"
+literal|"Devanagari\0"
+literal|"Ethiopic\0"
+literal|"Georgian\0"
+literal|"Greek\0"
+literal|"Gujarati\0"
+literal|"Hebrew\0"
+literal|"Japanese\0"
+literal|"Khmer\0"
+literal|"Kannada\0"
+literal|"Korean\0"
+literal|"Lao\0"
+literal|"Malayalam\0"
+literal|"Myanmar\0"
+literal|"Oriya\0"
+literal|"Tamil\0"
+literal|"Telugu\0"
+literal|"Thaana\0"
+literal|"Thai\0"
+literal|"Tibetan\0"
+literal|"Sinhala\0"
+literal|"Syriac\0"
+literal|"Yi\0"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -189511,6 +189536,81 @@ comment|// Mongolian
 literal|88
 block|,
 comment|// Tifinagh
+literal|97
+block|,
+comment|// Armenian
+literal|106
+block|,
+comment|// Bengali
+literal|114
+block|,
+comment|// Cherokee
+literal|123
+block|,
+comment|// Devanagari
+literal|134
+block|,
+comment|// Ethiopic
+literal|143
+block|,
+comment|// Georgian
+literal|152
+block|,
+comment|// Greek
+literal|158
+block|,
+comment|// Gujarati
+literal|167
+block|,
+comment|// Hebrew
+literal|174
+block|,
+comment|// Japanese
+literal|183
+block|,
+comment|// Khmer
+literal|189
+block|,
+comment|// Kannada
+literal|197
+block|,
+comment|// Korean
+literal|204
+block|,
+comment|// Lao
+literal|208
+block|,
+comment|// Malayalam
+literal|218
+block|,
+comment|// Myanmar
+literal|226
+block|,
+comment|// Oriya
+literal|232
+block|,
+comment|// Tamil
+literal|238
+block|,
+comment|// Telugu
+literal|245
+block|,
+comment|// Thaana
+literal|252
+block|,
+comment|// Thai
+literal|257
+block|,
+comment|// Tibetan
+literal|265
+block|,
+comment|// Sinhala
+literal|273
+block|,
+comment|// Syriac
+literal|280
+block|,
+comment|// Yi
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -190996,6 +191096,56 @@ literal|"Mong"
 comment|// Mongolian
 literal|"Tfng"
 comment|// Tifinagh
+literal|"Armn"
+comment|// Armenian
+literal|"Beng"
+comment|// Bengali
+literal|"Cher"
+comment|// Cherokee
+literal|"Deva"
+comment|// Devanagari
+literal|"Ethi"
+comment|// Ethiopic
+literal|"Geor"
+comment|// Georgian
+literal|"Grek"
+comment|// Greek
+literal|"Gujr"
+comment|// Gujarati
+literal|"Hebr"
+comment|// Hebrew
+literal|"Jpan"
+comment|// Japanese
+literal|"Khmr"
+comment|// Khmer
+literal|"Knda"
+comment|// Kannada
+literal|"Kore"
+comment|// Korean
+literal|"Laoo"
+comment|// Lao
+literal|"Mlym"
+comment|// Malayalam
+literal|"Mymr"
+comment|// Myanmar
+literal|"Orya"
+comment|// Oriya
+literal|"Taml"
+comment|// Tamil
+literal|"Telu"
+comment|// Telugu
+literal|"Thaa"
+comment|// Thaana
+literal|"Thai"
+comment|// Thai
+literal|"Tibt"
+comment|// Tibetan
+literal|"Sinh"
+comment|// Sinhala
+literal|"Syri"
+comment|// Syriac
+literal|"Yiii"
+comment|// Yi
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
