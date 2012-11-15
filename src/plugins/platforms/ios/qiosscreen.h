@@ -23,6 +23,11 @@ include|#
 directive|include
 file|<qpa/qplatformscreen.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<qiosorientationlistener.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
@@ -37,6 +42,10 @@ name|QIOSScreen
 argument_list|(
 argument|unsigned int screenIndex
 argument_list|)
+block|;
+operator|~
+name|QIOSScreen
+argument_list|()
 block|;      enum
 name|ScreenIndex
 block|{
@@ -72,6 +81,26 @@ name|physicalSize
 argument_list|()
 specifier|const
 block|;
+name|Qt
+operator|::
+name|ScreenOrientation
+name|nativeOrientation
+argument_list|()
+specifier|const
+block|;
+name|Qt
+operator|::
+name|ScreenOrientation
+name|orientation
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setOrientationUpdateMask
+argument_list|(
+argument|Qt::ScreenOrientations mask
+argument_list|)
+block|;
 name|UIScreen
 operator|*
 name|uiScreen
@@ -92,6 +121,10 @@ name|m_depth
 block|;
 name|QSizeF
 name|m_physicalSize
+block|;
+name|QIOSOrientationListener
+operator|*
+name|m_orientationListener
 block|; }
 decl_stmt|;
 end_decl_stmt
