@@ -257,6 +257,12 @@ argument_list|(
 argument|Qt::WindowState state
 argument_list|)
 block|;
+name|void
+name|handleContentOrientationChange
+argument_list|(
+argument|Qt::ScreenOrientation orientation
+argument_list|)
+block|;
 name|GLuint
 name|framebufferObject
 argument_list|(
