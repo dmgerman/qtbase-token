@@ -17336,7 +17336,10 @@ argument_list|,
 name|row
 argument_list|)
 argument_list|,
+name|logicalColumn
+argument_list|(
 literal|0
+argument_list|)
 argument_list|,
 name|root
 argument_list|)
@@ -17355,6 +17358,8 @@ argument_list|,
 name|row
 argument_list|)
 argument_list|,
+name|logicalColumn
+argument_list|(
 name|model
 operator|->
 name|columnCount
@@ -17363,12 +17368,14 @@ name|root
 argument_list|)
 operator|-
 literal|1
+argument_list|)
 argument_list|,
 name|root
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|(
 name|verticalHeader
 operator|->
 name|sectionsMoved
@@ -17383,7 +17390,14 @@ name|br
 operator|.
 name|row
 argument_list|()
+operator|)
+operator|||
+name|horizontalHeader
+operator|->
+name|sectionsMoved
+argument_list|()
 condition|)
+block|{
 name|q
 operator|->
 name|setSelection
@@ -17405,7 +17419,9 @@ argument_list|,
 name|command
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 name|selectionModel
 operator|->
 name|select
@@ -17420,6 +17436,7 @@ argument_list|,
 name|command
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_function
@@ -17645,7 +17662,10 @@ name|model
 operator|->
 name|index
 argument_list|(
+name|logicalRow
+argument_list|(
 literal|0
+argument_list|)
 argument_list|,
 name|qMin
 argument_list|(
@@ -17664,6 +17684,8 @@ name|model
 operator|->
 name|index
 argument_list|(
+name|logicalRow
+argument_list|(
 name|model
 operator|->
 name|rowCount
@@ -17672,6 +17694,7 @@ name|root
 argument_list|)
 operator|-
 literal|1
+argument_list|)
 argument_list|,
 name|qMax
 argument_list|(
@@ -17685,6 +17708,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|(
 name|horizontalHeader
 operator|->
 name|sectionsMoved
@@ -17699,7 +17723,14 @@ name|br
 operator|.
 name|column
 argument_list|()
+operator|)
+operator|||
+name|verticalHeader
+operator|->
+name|sectionsMoved
+argument_list|()
 condition|)
+block|{
 name|q
 operator|->
 name|setSelection
@@ -17721,7 +17752,9 @@ argument_list|,
 name|command
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 name|selectionModel
 operator|->
 name|select
@@ -17736,6 +17769,7 @@ argument_list|,
 name|command
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_function
