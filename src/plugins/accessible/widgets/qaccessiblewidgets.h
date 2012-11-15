@@ -160,6 +160,13 @@ argument_list|,
 argument|const QString&name = QString()
 argument_list|)
 empty_stmt|;
+name|QAccessible
+operator|::
+name|State
+name|state
+argument_list|()
+specifier|const
+expr_stmt|;
 comment|// QAccessibleTextInterface
 comment|//  selection
 name|void
