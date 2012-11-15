@@ -1962,6 +1962,12 @@ name|msec
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_function_decl
+name|void
+name|resetCursorBlinkTimer
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_expr_stmt
 name|bool
 name|cursorBlinkStatus
