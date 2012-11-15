@@ -1285,6 +1285,15 @@ name|result
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|InvalidateRect
+argument_list|(
+name|mWindow
+argument_list|,
+name|NULL
+argument_list|,
+name|FALSE
+argument_list|)
+expr_stmt|;
 block|}
 if|if
 condition|(
