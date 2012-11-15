@@ -704,6 +704,22 @@ name|handle
 argument_list|()
 argument_list|)
 decl_stmt|;
+specifier|const
+name|Qt
+operator|::
+name|MouseButtons
+name|buttons
+init|=
+name|keyStateToMouseButtons
+argument_list|(
+operator|(
+name|int
+operator|)
+name|msg
+operator|.
+name|wParam
+argument_list|)
+decl_stmt|;
 comment|// If the window was recently resized via mouse doubleclick on the frame or title bar,
 comment|// we don't get WM_LBUTTONDOWN or WM_LBUTTONDBLCLK for the second click,
 comment|// but we will get at least one WM_MOUSEMOVE with left button down and the WM_LBUTTONUP,
@@ -736,15 +752,7 @@ specifier|const
 name|bool
 name|actualLeftDown
 init|=
-name|keyStateToMouseButtons
-argument_list|(
-operator|(
-name|int
-operator|)
-name|msg
-operator|.
-name|wParam
-argument_list|)
+name|buttons
 operator|&
 name|Qt
 operator|::
@@ -999,6 +1007,9 @@ name|message
 operator|==
 name|WM_XBUTTONUP
 operator|)
+operator|&&
+operator|!
+name|buttons
 condition|)
 block|{
 name|platformWindow
@@ -1278,15 +1289,7 @@ name|winEventPosition
 argument_list|,
 name|globalPosition
 argument_list|,
-name|keyStateToMouseButtons
-argument_list|(
-operator|(
-name|int
-operator|)
-name|msg
-operator|.
-name|wParam
-argument_list|)
+name|buttons
 argument_list|,
 name|QWindowsKeyMapper
 operator|::
