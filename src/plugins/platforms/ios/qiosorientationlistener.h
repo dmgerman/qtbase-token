@@ -40,6 +40,17 @@ argument|UIDeviceOrientation uiDeviceOrientation
 argument_list|)
 expr_stmt|;
 end_expr_stmt
+begin_decl_stmt
+name|UIDeviceOrientation
+name|convertToUIOrientation
+argument_list|(
+name|Qt
+operator|::
+name|ScreenOrientation
+name|qtOrientation
+argument_list|)
+decl_stmt|;
+end_decl_stmt
 begin_expr_stmt
 name|QT_END_NAMESPACE
 expr|@
