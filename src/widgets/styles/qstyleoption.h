@@ -359,6 +359,10 @@ block|,
 name|Flat
 operator|=
 literal|0x01
+block|,
+name|Rounded
+operator|=
+literal|0x02
 block|}
 block|;
 name|Q_DECLARE_FLAGS
