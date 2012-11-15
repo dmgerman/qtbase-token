@@ -379,6 +379,11 @@ modifier|&
 name|text
 parameter_list|)
 function_decl|;
+name|using
+name|QAccessibleWidget
+operator|::
+name|text
+expr_stmt|;
 name|protected
 label|:
 name|QTextCursor
@@ -521,6 +526,11 @@ argument_list|,
 argument|int endIndex
 argument_list|)
 block|;
+name|using
+name|QAccessibleTextWidget
+operator|::
+name|text
+block|;
 name|protected
 operator|:
 name|QPlainTextEdit
@@ -616,6 +626,11 @@ argument|int startIndex
 argument_list|,
 argument|int endIndex
 argument_list|)
+block|;
+name|using
+name|QAccessibleTextWidget
+operator|::
+name|text
 block|;
 name|protected
 operator|:
