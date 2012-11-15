@@ -6948,6 +6948,9 @@ name|msec
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|// This is still used by QDeclarativeTextInput in the qtquick1 repo
+end_comment
 begin_function
 DECL|function|resetCursorBlinkTimer
 name|void
