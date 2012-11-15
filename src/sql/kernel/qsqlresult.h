@@ -520,17 +520,17 @@ name|bool
 name|nextResult
 parameter_list|()
 function_decl|;
+name|void
+name|resetBindCount
+parameter_list|()
+function_decl|;
+comment|// HACK
 name|private
 label|:
 name|QSqlResultPrivate
 modifier|*
 name|d
 decl_stmt|;
-name|void
-name|resetBindCount
-parameter_list|()
-function_decl|;
-comment|// HACK
 name|private
 label|:
 name|Q_DISABLE_COPY
