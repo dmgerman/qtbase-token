@@ -4650,6 +4650,7 @@ operator|->
 name|windowState
 argument_list|)
 emit|;
+break|break;
 block|}
 ifndef|#
 directive|ifndef
