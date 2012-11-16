@@ -5,13 +5,29 @@ end_comment
 begin_empty
 empty|#import<UIKit/UIKit.h>
 end_empty
+begin_empty
+empty|#import<QtCore/qnamespace.h>
+end_empty
 begin_decl_stmt
 unit|@
 name|interface
 name|QIOSViewController
 range|:
 name|UIViewController
-expr|@
-name|end
+block|{ @
+name|public
+name|bool
+name|m_shouldAutorotate
+block|; }
+operator|-
+operator|(
+name|bool
+operator|)
+name|rotateToDeviceOrientation
+decl_stmt|;
 end_decl_stmt
+begin_macro
+unit|@
+name|end
+end_macro
 end_unit
