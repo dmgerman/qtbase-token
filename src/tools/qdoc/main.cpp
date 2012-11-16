@@ -1133,6 +1133,16 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*       With the default configuration values in place, load       the qdoc configuration file. Note that the configuration       file may include other configuration files.        The Location class keeps track of the current location       in the file being processed, mainly for error reporting       purposes.      */
+name|currentDir
+operator|=
+name|QFileInfo
+argument_list|(
+name|fileName
+argument_list|)
+operator|.
+name|path
+argument_list|()
+expr_stmt|;
 name|Location
 operator|::
 name|initialize

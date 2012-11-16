@@ -30971,6 +30971,8 @@ index|[
 name|t
 index|]
 argument_list|)
+operator|.
+name|second
 return|;
 block|}
 end_function
