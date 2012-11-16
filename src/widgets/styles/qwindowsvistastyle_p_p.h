@@ -60,7 +60,7 @@ end_if
 begin_include
 include|#
 directive|include
-file|<private/qwindowsxpstyle_p.h>
+file|<private/qwindowsxpstyle_p_p.h>
 end_include
 begin_include
 include|#

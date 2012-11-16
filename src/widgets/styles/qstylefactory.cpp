@@ -68,7 +68,7 @@ end_ifndef
 begin_include
 include|#
 directive|include
-file|"qwindowsxpstyle.h"
+file|"qwindowsxpstyle_p.h"
 end_include
 begin_endif
 endif|#
