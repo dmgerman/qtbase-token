@@ -94,11 +94,6 @@ end_endif
 begin_include
 include|#
 directive|include
-file|<QMacStyle>
-end_include
-begin_include
-include|#
-directive|include
 file|<QStyleHints>
 end_include
 begin_decl_stmt
@@ -963,16 +958,14 @@ name|Q_OS_MAC
 comment|// ### Remove this after the mac style has been fixed
 if|if
 condition|(
-name|qobject_cast
-argument_list|<
-name|QMacStyle
-operator|*
-argument_list|>
-argument_list|(
 name|firstSubWindow
 operator|->
 name|style
 argument_list|()
+operator|->
+name|inherits
+argument_list|(
+literal|"QMacStyle"
 argument_list|)
 condition|)
 name|titleBarHeight

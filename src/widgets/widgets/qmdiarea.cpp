@@ -54,7 +54,7 @@ end_if
 begin_include
 include|#
 directive|include
-file|<QMacStyle>
+file|<private/qmacstyle_mac_p.h>
 end_include
 begin_endif
 endif|#

@@ -441,7 +441,7 @@ end_ifdef
 begin_include
 include|#
 directive|include
-file|<qmacstyle_mac.h>
+file|<qmacstyle_mac_p.h>
 end_include
 begin_endif
 endif|#

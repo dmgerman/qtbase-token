@@ -16,842 +16,417 @@ end_define
 begin_include
 include|#
 directive|include
-file|<Carbon/Carbon.h>
+file|<QtWidgets/qcommonstyle.h>
 end_include
-begin_undef
-DECL|macro|check
-undef|#
-directive|undef
-name|check
-end_undef
-begin_include
-include|#
-directive|include
-file|"qmacstyle_mac.h"
-end_include
-begin_include
-include|#
-directive|include
-file|"qcommonstyle_p.h"
-end_include
-begin_include
-include|#
-directive|include
-file|<private/qapplication_p.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<private/qcombobox_p.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<private/qpainter_p.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<private/qstylehelper_p.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qapplication.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qbitmap.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qcheckbox.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qcombobox.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qdialogbuttonbox.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qdockwidget.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qevent.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qfocusframe.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qformlayout.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qgroupbox.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qhash.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qheaderview.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qlayout.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qlineedit.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qlistview.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qmainwindow.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qmap.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qmenubar.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qpaintdevice.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qpainter.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qpixmapcache.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qpointer.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qprogressbar.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qpushbutton.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qradiobutton.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qrubberband.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qsizegrip.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qspinbox.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qsplitter.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qstyleoption.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qtextedit.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qtextstream.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qtoolbar.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qtoolbutton.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qtreeview.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qtableview.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qwizard.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qdebug.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qlibrary.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qdatetimeedit.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qmath.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<QtWidgets/qgraphicsproxywidget.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<QtWidgets/qgraphicsview.h>
-end_include
-begin_comment
-comment|//
-end_comment
-begin_comment
-comment|//  W A R N I N G
-end_comment
-begin_comment
-comment|//  -------------
-end_comment
-begin_comment
-comment|//
-end_comment
-begin_comment
-comment|// This file is not part of the Qt API.  It exists purely as an
-end_comment
-begin_comment
-comment|// implementation detail.  This header file may change from version to
-end_comment
-begin_comment
-comment|// version without notice, or even be removed.
-end_comment
-begin_comment
-comment|//
-end_comment
-begin_comment
-comment|// We mean it.
-end_comment
-begin_comment
-comment|//
-end_comment
 begin_decl_stmt
+name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-comment|/*     AHIG:         Apple Human Interface Guidelines         http://developer.apple.com/documentation/UserExperience/Conceptual/OSXHIGuidelines/      Builder:         Apple Interface Builder v. 3.1.1 */
-comment|// this works as long as we have at most 16 different control types
-DECL|macro|CT1
-define|#
-directive|define
-name|CT1
-parameter_list|(
-name|c
-parameter_list|)
-value|CT2(c, c)
-DECL|macro|CT2
-define|#
-directive|define
-name|CT2
-parameter_list|(
-name|c1
-parameter_list|,
-name|c2
-parameter_list|)
-value|((uint(c1)<< 16) | uint(c2))
-DECL|enum|QAquaWidgetSize
-DECL|enumerator|QAquaSizeLarge
-DECL|enumerator|QAquaSizeSmall
-DECL|enumerator|QAquaSizeMini
-name|enum
-name|QAquaWidgetSize
-block|{
-name|QAquaSizeLarge
-operator|=
-literal|0
-operator|,
-name|QAquaSizeSmall
-operator|=
-literal|1
-operator|,
-name|QAquaSizeMini
-operator|=
-literal|2
-operator|,
-DECL|enumerator|QAquaSizeUnknown
-name|QAquaSizeUnknown
-operator|=
-operator|-
-literal|1
-block|}
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_MAC
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_STYLE_MAC
+argument_list|)
+DECL|variable|QPalette
+name|class
+name|QPalette
+decl_stmt|;
 end_decl_stmt
-begin_empty_stmt
-DECL|enumerator|QAquaSizeUnknown
-empty_stmt|;
-end_empty_stmt
-begin_define
-DECL|macro|SIZE
-define|#
-directive|define
-name|SIZE
-parameter_list|(
-name|large
-parameter_list|,
-name|small
-parameter_list|,
-name|mini
-parameter_list|)
-define|\
-value|(controlSize == QAquaSizeLarge ? (large) : controlSize == QAquaSizeSmall ? (small) : (mini))
-end_define
-begin_comment
-comment|// same as return SIZE(...) but optimized
-end_comment
-begin_define
-DECL|macro|return_SIZE
-define|#
-directive|define
-name|return_SIZE
-parameter_list|(
-name|large
-parameter_list|,
-name|small
-parameter_list|,
-name|mini
-parameter_list|)
-define|\
-value|do { \         static const int sizes[] = { (large), (small), (mini) }; \         return sizes[controlSize]; \     } while (0)
-end_define
-begin_function_decl
-name|bool
-name|qt_mac_buttonIsRenderedFlat
-parameter_list|(
-specifier|const
-name|QPushButton
-modifier|*
-name|pushButton
-parameter_list|,
-specifier|const
-name|QStyleOptionButton
-modifier|*
-name|option
-parameter_list|)
-function_decl|;
-end_function_decl
 begin_decl_stmt
+DECL|variable|QPushButton
+name|class
+name|QPushButton
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|QStyleOptionButton
+name|class
+name|QStyleOptionButton
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|QMacStylePrivate
 name|class
 name|QMacStylePrivate
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|class
+name|QMacStyle
 range|:
 name|public
-name|QCommonStylePrivate
+name|QCommonStyle
 block|{
-name|Q_DECLARE_PUBLIC
-argument_list|(
-argument|QMacStyle
-argument_list|)
+name|Q_OBJECT
 name|public
 operator|:
-name|QMacStylePrivate
+name|QMacStyle
 argument_list|()
 block|;
-comment|// Ideally these wouldn't exist, but since they already exist we need some accessors.
-specifier|static
-specifier|const
-name|int
-name|PushButtonLeftOffset
+name|virtual
+operator|~
+name|QMacStyle
+argument_list|()
 block|;
-specifier|static
-specifier|const
-name|int
-name|PushButtonTopOffset
-block|;
-specifier|static
-specifier|const
-name|int
-name|PushButtonRightOffset
-block|;
-specifier|static
-specifier|const
-name|int
-name|PushButtonBottomOffset
-block|;
-specifier|static
-specifier|const
-name|int
-name|MiniButtonH
-block|;
-specifier|static
-specifier|const
-name|int
-name|SmallButtonH
-block|;
-specifier|static
-specifier|const
-name|int
-name|BevelButtonW
-block|;
-specifier|static
-specifier|const
-name|int
-name|BevelButtonH
-block|;
-specifier|static
-specifier|const
-name|int
-name|PushButtonContentPadding
-block|;
-specifier|static
-specifier|const
-name|qreal
-name|ScrollBarFadeOutDuration
-block|;
-specifier|static
-specifier|const
-name|qreal
-name|ScrollBarFadeOutDelay
-block|;      enum
-name|Animates
-block|{
-name|AquaPushButton
-block|,
-name|AquaProgressBar
-block|,
-name|AquaListViewItemOpen
-block|,
-name|AquaScrollBar
-block|}
-block|;
-specifier|static
-name|ThemeDrawState
-name|getDrawState
+name|void
+name|polish
 argument_list|(
-argument|QStyle::State flags
+name|QWidget
+operator|*
+name|w
 argument_list|)
 block|;
-name|QAquaWidgetSize
-name|aquaSizeConstrain
+name|void
+name|unpolish
 argument_list|(
-argument|const QStyleOption *option
+name|QWidget
+operator|*
+name|w
+argument_list|)
+block|;
+name|void
+name|polish
+argument_list|(
+name|QApplication
+operator|*
+argument_list|)
+block|;
+name|void
+name|unpolish
+argument_list|(
+name|QApplication
+operator|*
+argument_list|)
+block|;
+name|void
+name|polish
+argument_list|(
+name|QPalette
+operator|&
+name|pal
+argument_list|)
+block|;
+name|void
+name|drawPrimitive
+argument_list|(
+argument|PrimitiveElement pe
 argument_list|,
-argument|const QWidget *widg
+argument|const QStyleOption *opt
 argument_list|,
-argument|QStyle::ContentsType ct = QStyle::CT_CustomBase
+argument|QPainter *p
 argument_list|,
-argument|QSize szHint=QSize(-
-literal|1
-argument|, -
-literal|1
-argument|)
-argument_list|,
-argument|QSize *insz =
+argument|const QWidget *w =
 literal|0
 argument_list|)
 specifier|const
 block|;
 name|void
-name|getSliderInfo
+name|drawControl
 argument_list|(
-argument|QStyle::ComplexControl cc
+argument|ControlElement element
 argument_list|,
-argument|const QStyleOptionSlider *slider
+argument|const QStyleOption *opt
 argument_list|,
-argument|HIThemeTrackDrawInfo *tdi
+argument|QPainter *p
 argument_list|,
-argument|const QWidget *needToRemoveMe
+argument|const QWidget *w =
+literal|0
 argument_list|)
 specifier|const
 block|;
-specifier|inline
-name|int
-name|animateSpeed
+name|QRect
+name|subElementRect
 argument_list|(
-argument|Animates
+argument|SubElement r
+argument_list|,
+argument|const QStyleOption *opt
+argument_list|,
+argument|const QWidget *widget =
+literal|0
 argument_list|)
 specifier|const
-block|{
-return|return
-literal|33
-return|;
-block|}
-comment|// Utility functions
+block|;
 name|void
-name|drawColorlessButton
+name|drawComplexControl
 argument_list|(
-argument|const HIRect&macRect
+argument|ComplexControl cc
 argument_list|,
-argument|HIThemeButtonDrawInfo *bdi
+argument|const QStyleOptionComplex *opt
 argument_list|,
 argument|QPainter *p
+argument_list|,
+argument|const QWidget *w =
+literal|0
+argument_list|)
+specifier|const
+block|;
+name|SubControl
+name|hitTestComplexControl
+argument_list|(
+argument|ComplexControl cc
+argument_list|,
+argument|const QStyleOptionComplex *opt
+argument_list|,
+argument|const QPoint&pt
+argument_list|,
+argument|const QWidget *w =
+literal|0
+argument_list|)
+specifier|const
+block|;
+name|QRect
+name|subControlRect
+argument_list|(
+argument|ComplexControl cc
+argument_list|,
+argument|const QStyleOptionComplex *opt
+argument_list|,
+argument|SubControl sc
+argument_list|,
+argument|const QWidget *w =
+literal|0
+argument_list|)
+specifier|const
+block|;
+name|QSize
+name|sizeFromContents
+argument_list|(
+argument|ContentsType ct
+argument_list|,
+argument|const QStyleOption *opt
+argument_list|,
+argument|const QSize&contentsSize
+argument_list|,
+argument|const QWidget *w =
+literal|0
+argument_list|)
+specifier|const
+block|;
+name|int
+name|pixelMetric
+argument_list|(
+argument|PixelMetric pm
+argument_list|,
+argument|const QStyleOption *opt =
+literal|0
+argument_list|,
+argument|const QWidget *widget =
+literal|0
+argument_list|)
+specifier|const
+block|;
+name|QPalette
+name|standardPalette
+argument_list|()
+specifier|const
+block|;
+name|virtual
+name|int
+name|styleHint
+argument_list|(
+argument|StyleHint sh
+argument_list|,
+argument|const QStyleOption *opt =
+literal|0
+argument_list|,
+argument|const QWidget *w =
+literal|0
+argument_list|,
+argument|QStyleHintReturn *shret =
+literal|0
+argument_list|)
+specifier|const
+block|;      enum
+name|FocusRectPolicy
+block|{
+name|FocusEnabled
+block|,
+name|FocusDisabled
+block|,
+name|FocusDefault
+block|}
+block|;
+specifier|static
+name|void
+name|setFocusRectPolicy
+argument_list|(
+argument|QWidget *w
+argument_list|,
+argument|FocusRectPolicy policy
+argument_list|)
+block|;
+specifier|static
+name|FocusRectPolicy
+name|focusRectPolicy
+argument_list|(
+specifier|const
+name|QWidget
+operator|*
+name|w
+argument_list|)
+block|;      enum
+name|WidgetSizePolicy
+block|{
+name|SizeSmall
+block|,
+name|SizeLarge
+block|,
+name|SizeMini
+block|,
+name|SizeDefault
+block|}
+block|;
+specifier|static
+name|void
+name|setWidgetSizePolicy
+argument_list|(
+argument|const QWidget *w
+argument_list|,
+argument|WidgetSizePolicy policy
+argument_list|)
+block|;
+specifier|static
+name|WidgetSizePolicy
+name|widgetSizePolicy
+argument_list|(
+specifier|const
+name|QWidget
+operator|*
+name|w
+argument_list|,
+specifier|const
+name|QStyleOption
+operator|*
+name|opt
+operator|=
+literal|0
+argument_list|)
+block|;
+name|QPixmap
+name|standardPixmap
+argument_list|(
+argument|StandardPixmap sp
+argument_list|,
+argument|const QStyleOption *opt
+argument_list|,
+argument|const QWidget *widget =
+literal|0
+argument_list|)
+specifier|const
+block|;
+name|QPixmap
+name|generatedIconPixmap
+argument_list|(
+argument|QIcon::Mode iconMode
+argument_list|,
+argument|const QPixmap&pixmap
 argument_list|,
 argument|const QStyleOption *opt
 argument_list|)
 specifier|const
 block|;
-name|QSize
-name|pushButtonSizeFromContents
-argument_list|(
-argument|const QStyleOptionButton *btn
-argument_list|)
-specifier|const
-block|;
-name|HIRect
-name|pushButtonContentBounds
-argument_list|(
-argument|const QStyleOptionButton *btn
-argument_list|,
-argument|const HIThemeButtonDrawInfo *bdi
-argument_list|)
-specifier|const
-block|;
+name|virtual
 name|void
-name|initComboboxBdi
+name|drawItemText
 argument_list|(
-argument|const QStyleOptionComboBox *combo
-argument_list|,
-argument|HIThemeButtonDrawInfo *bdi
-argument_list|,
-argument|const QWidget *widget
-argument_list|,
-argument|const ThemeDrawState&tds
-argument_list|)
-specifier|const
-block|;
-specifier|static
-name|HIRect
-name|comboboxInnerBounds
-argument_list|(
-argument|const HIRect&outerBounds
-argument_list|,
-argument|int buttonKind
-argument_list|)
-block|;
-specifier|static
-name|QRect
-name|comboboxEditBounds
-argument_list|(
-specifier|const
-name|QRect
-operator|&
-name|outerBounds
-argument_list|,
-specifier|const
-name|HIThemeButtonDrawInfo
-operator|&
-name|bdi
-argument_list|)
-block|;
-specifier|static
-name|void
-name|drawCombobox
-argument_list|(
-specifier|const
-name|HIRect
-operator|&
-name|outerBounds
-argument_list|,
-specifier|const
-name|HIThemeButtonDrawInfo
-operator|&
-name|bdi
-argument_list|,
-name|QPainter
-operator|*
-name|p
-argument_list|)
-block|;
-specifier|static
-name|void
-name|drawTableHeader
-argument_list|(
-argument|const HIRect&outerBounds
-argument_list|,
-argument|bool drawTopBorder
-argument_list|,
-argument|bool drawLeftBorder
-argument_list|,
-argument|const HIThemeButtonDrawInfo&bdi
-argument_list|,
 argument|QPainter *p
+argument_list|,
+argument|const QRect&r
+argument_list|,
+argument|int flags
+argument_list|,
+argument|const QPalette&pal
+argument_list|,
+argument|bool enabled
+argument_list|,
+argument|const QString&text
+argument_list|,
+argument|QPalette::ColorRole textRole  = QPalette::NoRole
 argument_list|)
+specifier|const
 block|;
 name|bool
-name|contentFitsInPushButton
+name|event
 argument_list|(
-argument|const QStyleOptionButton *btn
+name|QEvent
+operator|*
+name|e
+argument_list|)
+block|;
+name|QIcon
+name|standardIcon
+argument_list|(
+argument|StandardPixmap standardIcon
 argument_list|,
-argument|HIThemeButtonDrawInfo *bdi
+argument|const QStyleOption *opt =
+literal|0
 argument_list|,
-argument|ThemeButtonKind buttonKindToCheck
+argument|const QWidget *widget =
+literal|0
 argument_list|)
 specifier|const
 block|;
-name|void
-name|initHIThemePushButton
-argument_list|(
-argument|const QStyleOptionButton *btn
-argument_list|,
-argument|const QWidget *widget
-argument_list|,
-argument|const ThemeDrawState tds
-argument_list|,
-argument|HIThemeButtonDrawInfo *bdi
-argument_list|)
-specifier|const
-block|;
-name|QPixmap
-name|generateBackgroundPattern
-argument_list|()
-specifier|const
-block|;
-name|public
-operator|:
-name|mutable
-name|QPointer
-operator|<
-name|QObject
-operator|>
-name|pressedButton
-block|;
-name|mutable
-name|QPointer
-operator|<
-name|QObject
-operator|>
-name|defaultButton
-block|;
-name|mutable
-name|QPointer
-operator|<
-name|QObject
-operator|>
-name|autoDefaultButton
-block|;      struct
-name|ButtonState
-block|{
 name|int
-name|frame
-block|;         enum
-block|{
-name|ButtonDark
-block|,
-name|ButtonLight
-block|}
-name|dir
-block|;     }
-name|buttonState
+name|layoutSpacing
+argument_list|(
+argument|QSizePolicy::ControlType control1
+argument_list|,
+argument|QSizePolicy::ControlType control2
+argument_list|,
+argument|Qt::Orientation orientation
+argument_list|,
+argument|const QStyleOption *option =
+literal|0
+argument_list|,
+argument|const QWidget *widget =
+literal|0
+argument_list|)
+specifier|const
 block|;
-name|mutable
-name|QPointer
-operator|<
-name|QFocusFrame
-operator|>
-name|focusWidget
-block|;
-name|CFAbsoluteTime
-name|defaultButtonStart
-block|;
+name|private
+operator|:
+name|Q_DISABLE_COPY
+argument_list|(
+argument|QMacStyle
+argument_list|)
+name|Q_DECLARE_PRIVATE
+argument_list|(
+argument|QMacStyle
+argument_list|)
+name|friend
 name|bool
-name|mouseDown
-block|;
-if|#
-directive|if
-name|MAC_OS_X_VERSION_MAX_ALLOWED
-operator|>=
-name|MAC_OS_X_VERSION_10_7
-name|void
+name|qt_mac_buttonIsRenderedFlat
+argument_list|(
+specifier|const
+name|QPushButton
 operator|*
-name|receiver
-block|;
-name|void
+name|pushButton
+argument_list|,
+specifier|const
+name|QStyleOptionButton
 operator|*
-name|nsscroller
-block|;
+name|option
+argument_list|)
+block|; }
+decl_stmt|;
+end_decl_stmt
+begin_endif
 endif|#
 directive|endif
-block|}
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-name|class
-name|QFadeOutAnimation
-range|:
-name|public
-name|QNumberStyleAnimation
-block|{
-name|Q_OBJECT
-name|public
-operator|:
-name|QFadeOutAnimation
-argument_list|(
-name|QObject
-operator|*
-name|target
-argument_list|)
-operator|:
-name|QNumberStyleAnimation
-argument_list|(
-name|target
-argument_list|)
-block|,
-name|_active
-argument_list|(
-argument|false
-argument_list|)
-block|{
-name|setDuration
-argument_list|(
-name|QMacStylePrivate
-operator|::
-name|ScrollBarFadeOutDelay
-operator|+
-name|QMacStylePrivate
-operator|::
-name|ScrollBarFadeOutDuration
-argument_list|)
-block|;
-name|setDelay
-argument_list|(
-name|QMacStylePrivate
-operator|::
-name|ScrollBarFadeOutDelay
-argument_list|)
-block|;
-name|setStartValue
-argument_list|(
-literal|1.0
-argument_list|)
-block|;
-name|setEndValue
-argument_list|(
-literal|0.0
-argument_list|)
-block|;     }
-name|bool
-name|wasActive
-argument_list|()
-specifier|const
-block|{
-return|return
-name|_active
-return|;
-block|}
-name|void
-name|setActive
-argument_list|(
-argument|bool active
-argument_list|)
-block|{
-name|_active
-operator|=
-name|active
-block|; }
-name|private
-name|slots
-operator|:
-name|void
-name|updateCurrentTime
-argument_list|(
-argument|int time
-argument_list|)
-block|{
-name|QNumberStyleAnimation
-operator|::
-name|updateCurrentTime
-argument_list|(
-name|time
-argument_list|)
-block|;
-if|if
-condition|(
-name|qFuzzyIsNull
-argument_list|(
-name|currentValue
-argument_list|()
-argument_list|)
-condition|)
-name|target
-argument_list|()
-operator|->
-name|setProperty
-argument_list|(
-literal|"visible"
-argument_list|,
-name|false
-argument_list|)
-expr_stmt|;
-block|}
-name|private
-operator|:
-name|bool
-name|_active
-block|; }
-decl_stmt|;
-end_decl_stmt
-begin_macro
+end_endif
+begin_comment
+comment|// Q_WS_MAC
+end_comment
+begin_expr_stmt
 name|QT_END_NAMESPACE
-end_macro
+name|QT_END_HEADER
+end_expr_stmt
 begin_endif
 endif|#
 directive|endif
