@@ -2071,6 +2071,23 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_function
+DECL|function|supportsNavigatorEvents
+name|bool
+name|QQnxIntegration
+operator|::
+name|supportsNavigatorEvents
+parameter_list|()
+specifier|const
+block|{
+comment|// If QQNX_PPS or Q_OS_BLACKBERRY is defined then we have navigator
+return|return
+name|m_navigator
+operator|!=
+literal|0
+return|;
+block|}
+end_function
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

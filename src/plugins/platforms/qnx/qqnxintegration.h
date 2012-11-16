@@ -257,6 +257,11 @@ argument_list|,
 argument|int screen
 argument_list|)
 block|;
+name|bool
+name|supportsNavigatorEvents
+argument_list|()
+specifier|const
+block|;
 name|QAbstractEventDispatcher
 operator|*
 name|guiThreadEventDispatcher
