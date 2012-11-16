@@ -101,7 +101,7 @@ end_if
 begin_include
 include|#
 directive|include
-file|<private/qgtkstyle_p.h>
+file|<private/qgtkstyle_p_p.h>
 end_include
 begin_endif
 endif|#

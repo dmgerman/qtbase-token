@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qgtkstyle_p.h"
+file|"qgtkstyle_p_p.h"
 end_include
 begin_comment
 comment|// This file is responsible for resolving all GTK functions we use
