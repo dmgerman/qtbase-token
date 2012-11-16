@@ -986,6 +986,13 @@ block|;
 comment|/*     The numeric values of these enums define their search order. For example,     F_User | F_Organization is searched before F_System | F_Application,     because their values are respectively 1 and 2.     */
 block|enum
 block|{
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_BLACKBERRY
+argument_list|)
 name|F_Application
 operator|=
 literal|0x0
@@ -1005,6 +1012,17 @@ block|,
 name|NumConfFiles
 operator|=
 literal|4
+else|#
+directive|else
+name|SandboxConfFile
+operator|=
+literal|0
+block|,
+name|NumConfFiles
+operator|=
+literal|1
+endif|#
+directive|endif
 block|}
 block|;
 name|QSettings
