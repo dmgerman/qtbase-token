@@ -5,12 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qwindowsvistastyle.h"
+file|"qwindowsvistastyle_p.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"qwindowsvistastyle_p.h"
+file|"qwindowsvistastyle_p_p.h"
 end_include
 begin_include
 include|#
@@ -1467,7 +1467,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \class QWindowsVistaStyle   \brief The QWindowsVistaStyle class provides a look and feel suitable for applications on Microsoft Windows Vista.   \since 4.3   \ingroup appearance   \inmodule QtWidgets    \warning This style is only available on the Windows Vista platform   because it makes use of Windows Vista's style engine.    \sa QMacStyle, QWindowsXPStyle, QFusionStyle */
+comment|/*!   \class QWindowsVistaStyle   \brief The QWindowsVistaStyle class provides a look and feel suitable for applications on Microsoft Windows Vista.   \since 4.3   \ingroup appearance   \inmodule QtWidgets   \internal    \warning This style is only available on the Windows Vista platform   because it makes use of Windows Vista's style engine.    \sa QMacStyle, QWindowsXPStyle, QFusionStyle */
 end_comment
 begin_comment
 comment|/*!   Constructs a QWindowsVistaStyle object. */
