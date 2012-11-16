@@ -5,12 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qfusionstyle.h"
+file|"qfusionstyle_p.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"qfusionstyle_p.h"
+file|"qfusionstyle_p_p.h"
 end_include
 begin_if
 if|#
@@ -1986,7 +1986,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     \class QFusionStyle     \brief The QFusionStyle class provides a custom widget style      \inmodule QtWidgets      The Fusion style provides a custom look and feel that is not     tied to a particular platform.     //{Fusion Style Widget Gallery}     \sa QWindowsStyle, QWindowsVistaStyle, QMacStyle, QCommonStyle */
+comment|/*!     \class QFusionStyle     \brief The QFusionStyle class provides a custom widget style      \inmodule QtWidgets     \internal      The Fusion style provides a custom look and feel that is not     tied to a particular platform.     //{Fusion Style Widget Gallery}     \sa QWindowsStyle, QWindowsVistaStyle, QMacStyle, QCommonStyle */
 end_comment
 begin_comment
 comment|/*!     Constructs a QFusionStyle object. */

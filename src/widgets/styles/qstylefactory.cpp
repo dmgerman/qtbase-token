@@ -40,7 +40,7 @@ end_ifndef
 begin_include
 include|#
 directive|include
-file|"qfusionstyle.h"
+file|"qfusionstyle_p.h"
 end_include
 begin_endif
 endif|#
