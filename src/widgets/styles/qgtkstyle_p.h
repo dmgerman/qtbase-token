@@ -103,6 +103,7 @@ parameter_list|)
 value|widget&& G_TYPE_CHECK_INSTANCE_TYPE ((widget), QGtkStylePrivate::gtk_widget_get_type())
 end_define
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 name|class
 name|QHashableLatin1Literal
 block|{
