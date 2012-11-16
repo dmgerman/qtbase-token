@@ -132,6 +132,8 @@ block|,
 name|FinishQuery
 block|,
 name|MultipleResultSets
+block|,
+name|CancelQuery
 block|}
 block|;      enum
 name|StatementType
@@ -376,6 +378,14 @@ name|NumericalPrecisionPolicy
 name|numericalPrecisionPolicy
 argument_list|()
 specifier|const
+block|;
+name|public
+name|Q_SLOTS
+operator|:
+name|virtual
+name|bool
+name|cancelQuery
+argument_list|()
 block|;
 name|Q_SIGNALS
 operator|:

@@ -2023,6 +2023,22 @@ name|precisionPolicy
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \since 5.0     \internal      Tries to cancel the running query, if the underlying driver has the     capability to cancel queries. Returns true on success, otherwise false.      This function can be called from a different thread.      If you use this function as a slot, you need to use a Qt::DirectConnection     from a different thread.      Reimplement this function to support canceling running queries in     your own QSqlDriver subclass. It must be implemented in a thread-safe     manner.      \sa QSqlDriver::hasFeature() */
+end_comment
+begin_function
+DECL|function|cancelQuery
+name|bool
+name|QSqlDriver
+operator|::
+name|cancelQuery
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
+end_function
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
