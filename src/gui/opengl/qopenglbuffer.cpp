@@ -281,9 +281,14 @@ operator|.
 name|deref
 argument_list|()
 condition|)
+block|{
 name|destroy
 argument_list|()
 expr_stmt|;
+operator|delete
+name|d_ptr
+expr_stmt|;
+block|}
 name|d_ptr
 operator|=
 name|other
