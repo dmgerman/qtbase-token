@@ -1706,13 +1706,6 @@ name|QPixmap
 argument_list|(
 literal|":/images/textpointer.png"
 argument_list|)
-operator|.
-name|scaled
-argument_list|(
-literal|30
-argument_list|,
-literal|30
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3810,16 +3803,17 @@ argument_list|(
 name|imageFile
 argument_list|)
 decl_stmt|;
+comment|// Draw icon centred horizontally on button.
 name|QRect
 name|target
 argument_list|(
-literal|0
+literal|4
 argument_list|,
 literal|0
 argument_list|,
-literal|50
+literal|42
 argument_list|,
-literal|60
+literal|43
 argument_list|)
 decl_stmt|;
 name|QRect
@@ -3831,7 +3825,7 @@ literal|0
 argument_list|,
 literal|42
 argument_list|,
-literal|42
+literal|43
 argument_list|)
 decl_stmt|;
 name|painter
