@@ -13859,6 +13859,11 @@ condition|)
 return|return
 name|scrollValue
 return|;
+name|itemExtent
+operator|+=
+name|spacing
+argument_list|()
+expr_stmt|;
 name|QVector
 argument_list|<
 name|int

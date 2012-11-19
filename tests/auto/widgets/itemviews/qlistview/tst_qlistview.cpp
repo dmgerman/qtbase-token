@@ -13476,26 +13476,6 @@ comment|// create listview
 name|QListView
 name|lv
 decl_stmt|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_STYLE_WINDOWS
-argument_list|)
-comment|// The test fails on Fusion style
-comment|// See https://bugreports.qt-project.org/browse/QTBUG-27675
-name|lv
-operator|.
-name|setStyle
-argument_list|(
-operator|new
-name|QWindowsStyle
-argument_list|()
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|lv
 operator|.
 name|setFlow
