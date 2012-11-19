@@ -210,6 +210,11 @@ argument_list|()
 specifier|const
 expr_stmt|;
 name|QStringList
+name|aliases
+argument_list|()
+specifier|const
+expr_stmt|;
+name|QStringList
 name|suffixes
 argument_list|()
 specifier|const

@@ -939,6 +939,36 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     Return the list of aliases of this mimetype.      For instance, for text/csv, the returned list would be:     text/x-csv, text/x-comma-separated-values.      Note that all QMimeType instances refer to proper mimetypes,     never to aliases directly.      The order of the aliases in the list is undefined. */
+end_comment
+begin_function
+DECL|function|aliases
+name|QStringList
+name|QMimeType
+operator|::
+name|aliases
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|QMimeDatabasePrivate
+operator|::
+name|instance
+argument_list|()
+operator|->
+name|provider
+argument_list|()
+operator|->
+name|listAliases
+argument_list|(
+name|d
+operator|->
+name|name
+argument_list|)
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     Returns the known suffixes for the MIME type.     No leading dot is included, so for instance this would return "jpg", "jpeg" for image/jpeg.  */
 end_comment
 begin_function

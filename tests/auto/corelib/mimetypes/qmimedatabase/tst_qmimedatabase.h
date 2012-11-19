@@ -72,6 +72,14 @@ name|aliases
 argument_list|()
 block|;
 name|void
+name|listAliases_data
+argument_list|()
+block|;
+name|void
+name|listAliases
+argument_list|()
+block|;
+name|void
 name|icons
 argument_list|()
 block|;
