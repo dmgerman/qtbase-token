@@ -342,9 +342,8 @@ decl_stmt|;
 if|if
 condition|(
 name|ver
-operator|!=
-operator|-
-literal|1
+operator|>
+literal|0
 condition|)
 name|extension
 operator|+=
