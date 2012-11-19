@@ -1265,7 +1265,7 @@ argument|AnyCountry
 argument_list|,
 argument|QLocale::Arabic
 argument_list|,
-argument|QLocale::SaudiArabia
+argument|QLocale::Egypt
 argument_list|)
 name|TEST_CTOR
 argument_list|(
@@ -1325,7 +1325,7 @@ argument|AnyCountry
 argument_list|,
 argument|QLocale::Portuguese
 argument_list|,
-argument|QLocale::Portugal
+argument|QLocale::Brazil
 argument_list|)
 name|TEST_CTOR
 argument_list|(
@@ -1335,7 +1335,7 @@ argument|AnyCountry
 argument_list|,
 argument|QLocale::Serbian
 argument_list|,
-argument|QLocale::SerbiaAndMontenegro
+argument|QLocale::Serbia
 argument_list|)
 name|TEST_CTOR
 argument_list|(
