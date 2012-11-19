@@ -220,7 +220,7 @@ operator|<=
 operator|(
 name|FC_WEIGHT_LIGHT
 operator|+
-name|FC_WEIGHT_MEDIUM
+name|FC_WEIGHT_REGULAR
 operator|)
 operator|/
 literal|2
@@ -237,9 +237,9 @@ condition|(
 name|fc_weight
 operator|<=
 operator|(
-name|FC_WEIGHT_MEDIUM
+name|FC_WEIGHT_REGULAR
 operator|+
-name|FC_WEIGHT_DEMIBOLD
+name|FC_WEIGHT_MEDIUM
 operator|)
 operator|/
 literal|2
@@ -256,7 +256,7 @@ condition|(
 name|fc_weight
 operator|<=
 operator|(
-name|FC_WEIGHT_DEMIBOLD
+name|FC_WEIGHT_MEDIUM
 operator|+
 name|FC_WEIGHT_BOLD
 operator|)
@@ -1232,7 +1232,7 @@ name|FC_SLANT_ROMAN
 expr_stmt|;
 name|weight_value
 operator|=
-name|FC_WEIGHT_MEDIUM
+name|FC_WEIGHT_REGULAR
 expr_stmt|;
 name|spacing_value
 operator|=
@@ -1298,7 +1298,7 @@ name|FcResultMatch
 condition|)
 name|weight_value
 operator|=
-name|FC_WEIGHT_MEDIUM
+name|FC_WEIGHT_REGULAR
 expr_stmt|;
 if|if
 condition|(
