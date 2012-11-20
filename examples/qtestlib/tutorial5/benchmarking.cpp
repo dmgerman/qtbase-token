@@ -214,6 +214,11 @@ operator|)
 expr_stmt|;
 block|}
 block|}
+name|Q_UNUSED
+argument_list|(
+name|result
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -404,6 +409,11 @@ operator|)
 expr_stmt|;
 block|}
 block|}
+name|Q_UNUSED
+argument_list|(
+name|result
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_comment

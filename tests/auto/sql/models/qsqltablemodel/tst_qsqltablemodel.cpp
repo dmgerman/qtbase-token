@@ -4296,6 +4296,11 @@ operator|::
 name|EditRole
 parameter_list|)
 block|{
+name|Q_UNUSED
+argument_list|(
+name|value
+argument_list|)
+expr_stmt|;
 return|return
 name|QSqlTableModel
 operator|::

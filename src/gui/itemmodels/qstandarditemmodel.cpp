@@ -8813,12 +8813,6 @@ name|idx
 parameter_list|)
 specifier|const
 block|{
-name|Q_D
-argument_list|(
-specifier|const
-name|QStandardItemModel
-argument_list|)
-expr_stmt|;
 return|return
 name|createIndex
 argument_list|(

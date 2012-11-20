@@ -795,7 +795,7 @@ index|]
 argument_list|)
 expr_stmt|;
 comment|// Offset for position
-name|int
+name|quintptr
 name|offset
 init|=
 literal|0

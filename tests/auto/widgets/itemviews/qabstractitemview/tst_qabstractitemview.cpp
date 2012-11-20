@@ -8866,6 +8866,11 @@ parameter_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
 block|{
+name|Q_UNUSED
+argument_list|(
+name|index
+argument_list|)
+expr_stmt|;
 specifier|static
 name|bool
 name|w

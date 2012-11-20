@@ -4123,12 +4123,14 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
+operator|(
 name|event
 operator|=
 name|checkEvent
 argument_list|(
 name|checker
 argument_list|)
+operator|)
 condition|)
 break|break;
 block|}
