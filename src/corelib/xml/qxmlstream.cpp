@@ -9875,6 +9875,11 @@ name|autoFormatting
 range|:
 literal|1
 decl_stmt|;
+name|uint
+name|isCodecASCIICompatible
+range|:
+literal|1
+decl_stmt|;
 DECL|member|autoFormattingIndent
 name|QByteArray
 name|autoFormattingIndent
@@ -9902,6 +9907,10 @@ name|encoder
 decl_stmt|;
 endif|#
 directive|endif
+name|void
+name|checkIfASCIICompatibleCodec
+parameter_list|()
+function_decl|;
 name|NamespaceDeclaration
 modifier|&
 name|findNamespace
@@ -10006,6 +10015,9 @@ expr_stmt|;
 comment|// no byte order mark for utf8
 endif|#
 directive|endif
+name|checkIfASCIICompatibleCodec
+argument_list|()
+expr_stmt|;
 name|inStartElement
 operator|=
 name|inEmptyElement
@@ -10038,6 +10050,58 @@ literal|0
 expr_stmt|;
 block|}
 end_constructor
+begin_function
+DECL|function|checkIfASCIICompatibleCodec
+name|void
+name|QXmlStreamWriterPrivate
+operator|::
+name|checkIfASCIICompatibleCodec
+parameter_list|()
+block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_TEXTCODEC
+name|Q_ASSERT
+argument_list|(
+name|encoder
+argument_list|)
+expr_stmt|;
+comment|// assumes ASCII-compatibility for all 8-bit encodings
+specifier|const
+name|QByteArray
+name|bytes
+init|=
+name|encoder
+operator|->
+name|fromUnicode
+argument_list|(
+name|QStringLiteral
+argument_list|(
+literal|" "
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|isCodecASCIICompatible
+operator|=
+operator|(
+name|bytes
+operator|.
+name|count
+argument_list|()
+operator|==
+literal|1
+operator|)
+expr_stmt|;
+else|#
+directive|else
+name|isCodecASCIICompatible
+operator|=
+literal|true
+expr_stmt|;
+endif|#
+directive|endif
+block|}
+end_function
 begin_function
 DECL|function|write
 name|void
@@ -10451,7 +10515,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|// ASCII only!
+comment|// Converts from ASCII to output encoding
 end_comment
 begin_function
 DECL|function|write
@@ -10481,6 +10545,11 @@ condition|)
 return|return;
 if|if
 condition|(
+name|isCodecASCIICompatible
+condition|)
+block|{
+if|if
+condition|(
 name|device
 operator|->
 name|write
@@ -10496,16 +10565,10 @@ name|hasError
 operator|=
 literal|true
 expr_stmt|;
+return|return;
 block|}
-elseif|else
-if|if
-condition|(
-name|stringDevice
-condition|)
-block|{
-name|stringDevice
-operator|->
-name|append
+block|}
+name|write
 argument_list|(
 name|QString
 operator|::
@@ -10515,13 +10578,6 @@ name|s
 argument_list|,
 name|len
 argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-name|qWarning
-argument_list|(
-literal|"QXmlStreamWriter: No device"
 argument_list|)
 expr_stmt|;
 block|}
@@ -11246,6 +11302,11 @@ name|IgnoreHeader
 argument_list|)
 expr_stmt|;
 comment|// no byte order mark for utf8
+name|d
+operator|->
+name|checkIfASCIICompatibleCodec
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_function
