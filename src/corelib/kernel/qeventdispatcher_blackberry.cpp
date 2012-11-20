@@ -62,6 +62,70 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_class
+DECL|class|BpsChannelScopeSwitcher
+class|class
+name|BpsChannelScopeSwitcher
+block|{
+public|public:
+DECL|function|BpsChannelScopeSwitcher
+name|BpsChannelScopeSwitcher
+parameter_list|(
+name|int
+name|scopeChannel
+parameter_list|)
+member_init_list|:
+name|innerChannel
+argument_list|(
+name|scopeChannel
+argument_list|)
+block|{
+name|outerChannel
+operator|=
+name|bps_channel_get_active
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|outerChannel
+operator|!=
+name|innerChannel
+condition|)
+name|bps_channel_set_active
+argument_list|(
+name|innerChannel
+argument_list|)
+expr_stmt|;
+block|}
+DECL|function|~BpsChannelScopeSwitcher
+name|~
+name|BpsChannelScopeSwitcher
+parameter_list|()
+block|{
+if|if
+condition|(
+name|outerChannel
+operator|!=
+name|innerChannel
+condition|)
+name|bps_channel_set_active
+argument_list|(
+name|outerChannel
+argument_list|)
+expr_stmt|;
+block|}
+private|private:
+DECL|member|innerChannel
+name|int
+name|innerChannel
+decl_stmt|;
+DECL|member|outerChannel
+name|int
+name|outerChannel
+decl_stmt|;
+block|}
+class|;
+end_class
 begin_struct
 DECL|struct|bpsIOHandlerData
 struct|struct
@@ -266,7 +330,7 @@ name|qEventDispatcherDebug
 operator|<<
 literal|"Sending bpsIOReadyDomain event"
 expr_stmt|;
-comment|// create IO ready event
+comment|// create unblock event
 name|bps_event_t
 modifier|*
 name|event
@@ -304,7 +368,8 @@ return|return
 name|BPS_FAILURE
 return|;
 block|}
-comment|// post unblock event to our thread
+comment|// post unblock event to our thread; in this callback the bps channel is
+comment|// guarenteed to be the same that was active when bps_add_fd was called
 name|result
 operator|=
 name|bps_push_event
@@ -532,6 +597,19 @@ argument_list|(
 name|notifier
 argument_list|)
 expr_stmt|;
+name|Q_D
+argument_list|(
+name|QEventDispatcherBlackberry
+argument_list|)
+expr_stmt|;
+name|BpsChannelScopeSwitcher
+name|channelSwitcher
+argument_list|(
+name|d
+operator|->
+name|bps_channel
+argument_list|)
+decl_stmt|;
 comment|// Register the fd with bps
 name|int
 name|sockfd
@@ -643,11 +721,6 @@ name|BPS_IO_EXCEPT
 expr_stmt|;
 break|break;
 block|}
-name|Q_D
-argument_list|(
-name|QEventDispatcherBlackberry
-argument_list|)
-expr_stmt|;
 name|errno
 operator|=
 literal|0
@@ -708,6 +781,19 @@ modifier|*
 name|notifier
 parameter_list|)
 block|{
+name|Q_D
+argument_list|(
+name|QEventDispatcherBlackberry
+argument_list|)
+expr_stmt|;
+name|BpsChannelScopeSwitcher
+name|channelSwitcher
+argument_list|(
+name|d
+operator|->
+name|bps_channel
+argument_list|)
+decl_stmt|;
 comment|// Allow the base Unix implementation to unregister the fd too
 name|QEventDispatcherUNIX
 operator|::
@@ -772,11 +858,6 @@ operator|!
 name|io_events
 condition|)
 return|return;
-name|Q_D
-argument_list|(
-name|QEventDispatcherBlackberry
-argument_list|)
-expr_stmt|;
 name|errno
 operator|=
 literal|0
@@ -858,6 +939,19 @@ argument_list|(
 name|nfds
 argument_list|)
 expr_stmt|;
+name|Q_D
+argument_list|(
+name|QEventDispatcherBlackberry
+argument_list|)
+expr_stmt|;
+name|BpsChannelScopeSwitcher
+name|channelSwitcher
+argument_list|(
+name|d
+operator|->
+name|bps_channel
+argument_list|)
+decl_stmt|;
 comment|// Make a note of the start time
 name|timeval
 name|startTime
@@ -866,11 +960,6 @@ name|qt_gettime
 argument_list|()
 decl_stmt|;
 comment|// prepare file sets for bps callback
-name|Q_D
-argument_list|(
-name|QEventDispatcherBlackberry
-argument_list|)
-expr_stmt|;
 name|d
 operator|->
 name|ioData
