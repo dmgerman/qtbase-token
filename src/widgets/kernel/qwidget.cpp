@@ -4165,6 +4165,57 @@ name|needsFlush
 operator|=
 literal|0
 expr_stmt|;
+comment|// The next 20 lines are duplicated from QObject, but required here
+comment|// since QWidget deletes is children itself
+name|bool
+name|blocked
+init|=
+name|d
+operator|->
+name|blockSig
+decl_stmt|;
+name|d
+operator|->
+name|blockSig
+operator|=
+literal|0
+expr_stmt|;
+comment|// unblock signals so we always emit destroyed()
+if|if
+condition|(
+name|d
+operator|->
+name|isSignalConnected
+argument_list|(
+literal|0
+argument_list|)
+condition|)
+block|{
+name|QT_TRY
+block|{
+emit|emit
+name|destroyed
+argument_list|(
+name|this
+argument_list|)
+emit|;
+block|}
+name|QT_CATCH
+argument_list|(
+argument|...
+argument_list|)
+block|{
+comment|// all the signal/slots connections are still in place - if we don't
+comment|// quit now, we will crash pretty soon.
+name|qWarning
+argument_list|(
+literal|"Detected an unexpected exception in ~QWidget while emitting destroyed()."
+argument_list|)
+expr_stmt|;
+name|QT_RETHROW
+expr_stmt|;
+block|}
+block|}
 if|if
 condition|(
 name|d
@@ -4191,6 +4242,12 @@ literal|0
 expr_stmt|;
 comment|// don't activate again in ~QObject
 block|}
+name|d
+operator|->
+name|blockSig
+operator|=
+name|blocked
+expr_stmt|;
 ifdef|#
 directive|ifdef
 name|Q_WS_MAC

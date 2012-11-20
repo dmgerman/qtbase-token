@@ -2921,6 +2921,11 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+operator|!
+name|d
+operator|->
+name|isWidget
+operator|&&
 name|d
 operator|->
 name|isSignalConnected
