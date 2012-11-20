@@ -1951,7 +1951,7 @@ name|DitaTag
 operator|>
 name|tagStack
 block|;
-name|QStringMultiMap
+name|QStringPairMap
 name|metadataDefaults
 block|;
 name|QVector

@@ -9937,6 +9937,12 @@ operator|*
 name|d
 argument_list|)
 expr_stmt|;
+name|checkModuleInclusion
+argument_list|(
+operator|*
+name|n
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|(

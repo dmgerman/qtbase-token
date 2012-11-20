@@ -239,6 +239,11 @@ operator|::
 name|HtmlGenerator
 parameter_list|()
 member_init_list|:
+name|codeIndent
+argument_list|(
+literal|0
+argument_list|)
+member_init_list|,
 name|helpProjectWriter
 argument_list|(
 literal|0
@@ -870,15 +875,8 @@ operator|++
 name|edition
 expr_stmt|;
 block|}
-name|codeIndent
-operator|=
-name|config
-operator|.
-name|getInt
-argument_list|(
-name|CONFIG_CODEINDENT
-argument_list|)
-expr_stmt|;
+comment|// The following line was changed to fix QTBUG-27798
+comment|//codeIndent = config.getInt(CONFIG_CODEINDENT);
 name|helpProjectWriter
 operator|=
 operator|new
