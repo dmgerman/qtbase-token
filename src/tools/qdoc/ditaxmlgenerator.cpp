@@ -1765,15 +1765,8 @@ operator|+
 name|DITAXMLGENERATOR_CUSTOMHEADELEMENTS
 argument_list|)
 expr_stmt|;
-name|codeIndent
-operator|=
-name|config
-operator|.
-name|getInt
-argument_list|(
-name|CONFIG_CODEINDENT
-argument_list|)
-expr_stmt|;
+comment|// The following line was changed to fix QTBUG-27798
+comment|//codeIndent = config.getInt(CONFIG_CODEINDENT);
 name|version
 operator|=
 name|config
@@ -30978,6 +30971,8 @@ index|[
 name|t
 index|]
 argument_list|)
+operator|.
+name|second
 return|;
 block|}
 end_function

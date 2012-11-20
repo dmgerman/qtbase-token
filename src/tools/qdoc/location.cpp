@@ -20,6 +20,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"generator.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<qdir.h>
 end_include
 begin_include
@@ -77,6 +82,16 @@ operator|::
 name|spuriousRegExp
 init|=
 literal|0
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|member|logProgress_
+name|bool
+name|Location
+operator|::
+name|logProgress_
+init|=
+literal|false
 decl_stmt|;
 end_decl_stmt
 begin_comment
@@ -654,7 +669,7 @@ begin_comment
 comment|/*! \fn int Location::columnNo() const   Returns the current column number.   Must not be called on an empty Location object.    \sa filePath(), lineNo() */
 end_comment
 begin_comment
-comment|/*!   Writes \a message and \a detals to stderr as a formatted   warning message.  */
+comment|/*!   Writes \a message and \a detals to stderr as a formatted   warning message. Does not write the message if qdoc is in   the Prepare phase.  */
 end_comment
 begin_function
 DECL|function|warning
@@ -675,6 +690,14 @@ name|details
 parameter_list|)
 specifier|const
 block|{
+if|if
+condition|(
+operator|!
+name|Generator
+operator|::
+name|runPrepareOnly
+argument_list|()
+condition|)
 name|emitMessage
 argument_list|(
 name|Warning
@@ -687,7 +710,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Writes \a message and \a detals to stderr as a formatted   error message.  */
+comment|/*!   Writes \a message and \a detals to stderr as a formatted   error message. Does not write the message if qdoc is in   the Prepare phase.  */
 end_comment
 begin_function
 DECL|function|error
@@ -708,6 +731,14 @@ name|details
 parameter_list|)
 specifier|const
 block|{
+if|if
+condition|(
+operator|!
+name|Generator
+operator|::
+name|runPrepareOnly
+argument_list|()
+condition|)
 name|emitMessage
 argument_list|(
 name|Error
@@ -720,7 +751,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Writes \a message and \a detals to stderr as a formatted   error message and then exits the program.  */
+comment|/*!   Writes \a message and \a detals to stderr as a formatted   error message and then exits the program. qdoc prints fatal   errors in either phase (Prepare or Generate).  */
 end_comment
 begin_function
 DECL|function|fatal
@@ -911,6 +942,50 @@ argument_list|(
 name|stdout
 argument_list|)
 expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*!   Prints \a message to \c stderr followed by a \c{'\n'},   but only if the -log-progress option is set.  */
+end_comment
+begin_function
+DECL|function|logToStdErr
+name|void
+name|Location
+operator|::
+name|logToStdErr
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|message
+parameter_list|)
+block|{
+if|if
+condition|(
+name|logProgress_
+condition|)
+block|{
+name|fprintf
+argument_list|(
+name|stderr
+argument_list|,
+literal|"LOG: %s\n"
+argument_list|,
+name|message
+operator|.
+name|toLatin1
+argument_list|()
+operator|.
+name|data
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|fflush
+argument_list|(
+name|stderr
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_function
 begin_comment

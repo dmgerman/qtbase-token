@@ -356,6 +356,15 @@ name|Generate
 operator|)
 return|;
 block|}
+specifier|static
+name|QString
+name|defaultModuleName
+parameter_list|()
+block|{
+return|return
+name|project
+return|;
+block|}
 name|protected
 label|:
 name|virtual
