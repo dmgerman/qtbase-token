@@ -65,6 +65,28 @@ argument_list|(
 literal|"KDE"
 argument_list|)
 return|;
+comment|// Check Unity first, whose older versions also have "GNOME_DESKTOP_SESSION_ID" set.
+specifier|const
+name|QByteArray
+name|xdgCurrentDesktop
+init|=
+name|qgetenv
+argument_list|(
+literal|"XDG_CURRENT_DESKTOP"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|xdgCurrentDesktop
+operator|==
+literal|"Unity"
+condition|)
+return|return
+name|QByteArrayLiteral
+argument_list|(
+literal|"UNITY"
+argument_list|)
+return|;
 comment|// GNOME_DESKTOP_SESSION_ID is deprecated for some reason, but still check it
 if|if
 condition|(
