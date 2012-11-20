@@ -233,6 +233,12 @@ condition|(
 name|style
 condition|)
 block|{
+name|d
+operator|->
+name|baseStyle
+operator|=
+name|style
+expr_stmt|;
 name|style
 operator|->
 name|setProxy
@@ -248,12 +254,6 @@ name|this
 argument_list|)
 expr_stmt|;
 comment|// Take ownership
-name|d
-operator|->
-name|baseStyle
-operator|=
-name|style
-expr_stmt|;
 block|}
 block|}
 end_constructor
