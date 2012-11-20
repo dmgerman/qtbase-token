@@ -5,12 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qwindowsmobilestyle.h"
+file|"qwindowsmobilestyle_p.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"qwindowsmobilestyle_p.h"
+file|"qwindowsmobilestyle_p_p.h"
 end_include
 begin_if
 if|#

@@ -110,7 +110,7 @@ end_ifndef
 begin_include
 include|#
 directive|include
-file|"qwindowsmobilestyle.h"
+file|"qwindowsmobilestyle_p.h"
 end_include
 begin_endif
 endif|#
