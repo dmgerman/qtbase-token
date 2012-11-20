@@ -96,7 +96,7 @@ end_ifndef
 begin_include
 include|#
 directive|include
-file|"qwindowscestyle.h"
+file|"qwindowscestyle_p.h"
 end_include
 begin_endif
 endif|#

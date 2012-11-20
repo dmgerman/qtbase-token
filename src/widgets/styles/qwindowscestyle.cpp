@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qwindowscestyle.h"
+file|"qwindowscestyle_p.h"
 end_include
 begin_if
 if|#
@@ -59,7 +59,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qwindowscestyle_p.h"
+file|"qwindowscestyle_p_p.h"
 end_include
 begin_include
 include|#

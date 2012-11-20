@@ -5,272 +5,244 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QWINDOWSCE_P_H
+name|QWINDOWSCESTYLE_P_H
 end_ifndef
 begin_define
-DECL|macro|QWINDOWSCE_P_H
+DECL|macro|QWINDOWSCESTYLE_P_H
 define|#
 directive|define
-name|QWINDOWSCE_P_H
+name|QWINDOWSCESTYLE_P_H
 end_define
 begin_include
 include|#
 directive|include
-file|"qwindowscestyle.h"
+file|<QtWidgets/qwindowsstyle.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<private/qwindowsstyle_p.h>
-end_include
-begin_comment
-comment|//
-end_comment
-begin_comment
-comment|//  W A R N I N G
-end_comment
-begin_comment
-comment|//  -------------
-end_comment
-begin_comment
-comment|//
-end_comment
-begin_comment
-comment|// This file is not part of the Qt API.  It exists for the convenience
-end_comment
-begin_comment
-comment|// of qapplication_*.cpp, qwidget*.cpp and qfiledialog.cpp.  This header
-end_comment
-begin_comment
-comment|// file may change from version to version without notice, or even be removed.
-end_comment
-begin_comment
-comment|//
-end_comment
-begin_comment
-comment|// We mean it.
-end_comment
-begin_comment
-comment|//
-end_comment
 begin_decl_stmt
+name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|variable|QPainter
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_STYLE_WINDOWSCE
+argument_list|)
 name|class
-name|QPainter
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|QPalette
-name|class
-name|QPalette
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|QPoint
-name|class
-name|QPoint
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|QColor
-name|class
-name|QColor
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|QBrush
-name|class
-name|QBrush
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|QRect
-name|class
-name|QRect
-decl_stmt|;
-end_decl_stmt
-begin_comment
-comment|// Private class
-end_comment
-begin_decl_stmt
-name|class
-name|QWindowsCEStylePrivate
+name|QWindowsCEStyle
 range|:
 name|public
-name|QWindowsStylePrivate
+name|QWindowsStyle
 block|{
-name|Q_DECLARE_PUBLIC
-argument_list|(
-argument|QWindowsCEStyle
-argument_list|)
+name|Q_OBJECT
 name|public
 operator|:
-specifier|inline
-name|QWindowsCEStylePrivate
+name|QWindowsCEStyle
 argument_list|()
-block|{ }
-specifier|static
+block|;
+operator|~
+name|QWindowsCEStyle
+argument_list|()
+block|;
 name|void
-name|drawWinCEButton
+name|drawPrimitive
 argument_list|(
-argument|QPainter *p
+argument|PrimitiveElement element
 argument_list|,
-argument|int x
+argument|const QStyleOption *option
 argument_list|,
-argument|int y
+argument|QPainter *painter
 argument_list|,
-argument|int w
+argument|const QWidget *widget =
+literal|0
+argument_list|)
+specifier|const
+block|;
+name|void
+name|drawControl
+argument_list|(
+argument|ControlElement element
 argument_list|,
-argument|int h
+argument|const QStyleOption *option
+argument_list|,
+argument|QPainter *painter
+argument_list|,
+argument|const QWidget *widget
+argument_list|)
+specifier|const
+block|;
+name|void
+name|drawComplexControl
+argument_list|(
+argument|ComplexControl control
+argument_list|,
+argument|const QStyleOptionComplex *option
+argument_list|,
+argument|QPainter *painter
+argument_list|,
+argument|const QWidget *widget
+argument_list|)
+specifier|const
+block|;
+name|virtual
+name|void
+name|drawItemText
+argument_list|(
+argument|QPainter *painter
+argument_list|,
+argument|const QRect&rect
+argument_list|,
+argument|int flags
 argument_list|,
 argument|const QPalette&pal
 argument_list|,
-argument|bool sunken = false
+argument|bool enabled
 argument_list|,
-argument|const QBrush *fill =
+argument|const QString&text
+argument_list|,
+argument|QPalette::ColorRole textRole = QPalette::NoRole
+argument_list|)
+specifier|const
+block|;
+name|QSize
+name|sizeFromContents
+argument_list|(
+argument|ContentsType type
+argument_list|,
+argument|const QStyleOption *option
+argument_list|,
+argument|const QSize&size
+argument_list|,
+argument|const QWidget *widget
+argument_list|)
+specifier|const
+block|;
+name|QRect
+name|subElementRect
+argument_list|(
+argument|SubElement element
+argument_list|,
+argument|const QStyleOption *option
+argument_list|,
+argument|const QWidget *widget
+argument_list|)
+specifier|const
+block|;
+name|QRect
+name|subControlRect
+argument_list|(
+argument|ComplexControl cc
+argument_list|,
+argument|const QStyleOptionComplex *opt
+argument_list|,
+argument|SubControl sc
+argument_list|,
+argument|const QWidget *widget
+argument_list|)
+specifier|const
+block|;
+name|SubControl
+name|hitTestComplexControl
+argument_list|(
+argument|ComplexControl control
+argument_list|,
+argument|const QStyleOptionComplex *option
+argument_list|,
+argument|const QPoint&pos
+argument_list|,
+argument|const QWidget *widget =
 literal|0
 argument_list|)
+specifier|const
 block|;
-specifier|static
-name|void
-name|drawWinCEButton
+name|QPixmap
+name|standardPixmap
 argument_list|(
-argument|QPainter *p
+argument|StandardPixmap standardPixmap
 argument_list|,
-argument|const QRect&r
+argument|const QStyleOption *opt
 argument_list|,
-argument|const QPalette&pal
-argument_list|,
-argument|bool sunken = false
-argument_list|,
-argument|const QBrush *fill =
+argument|const QWidget *widget =
 literal|0
 argument_list|)
+specifier|const
 block|;
-specifier|static
-name|void
-name|drawWinCEPanel
+name|int
+name|pixelMetric
 argument_list|(
-argument|QPainter *p
+argument|PixelMetric metric
 argument_list|,
-argument|int x
+argument|const QStyleOption *option =
+literal|0
 argument_list|,
-argument|int y
-argument_list|,
-argument|int w
-argument_list|,
-argument|int h
-argument_list|,
-argument|const QPalette&pal
-argument_list|,
-argument|bool sunken = false
-argument_list|,
-argument|const QBrush *fill =
+argument|const QWidget *widget =
 literal|0
 argument_list|)
+specifier|const
 block|;
-specifier|static
-name|void
-name|drawWinCEPanel
+name|int
+name|styleHint
 argument_list|(
-argument|QPainter *p
+argument|StyleHint hint
 argument_list|,
-argument|const QRect&r
+argument|const QStyleOption *opt =
+literal|0
 argument_list|,
-argument|const QPalette&pal
+argument|const QWidget *widget =
+literal|0
 argument_list|,
-argument|bool sunken = false
-argument_list|,
-argument|const QBrush *fill =
+argument|QStyleHintReturn *returnData =
 literal|0
 argument_list|)
+specifier|const
 block|;
-specifier|static
 name|void
-name|drawWinShades
+name|polish
 argument_list|(
-argument|QPainter *p
-argument_list|,
-argument|int x
-argument_list|,
-argument|int y
-argument_list|,
-argument|int w
-argument_list|,
-argument|int h
-argument_list|,
-argument|const QColor&c1
-argument_list|,
-argument|const QColor&c2
-argument_list|,
-argument|const QColor&c3
-argument_list|,
-argument|const QColor&c4
-argument_list|,
-argument|const QBrush *fill
+name|QWidget
+operator|*
+name|widget
 argument_list|)
 block|;
-specifier|static
 name|void
-name|drawWinCEShades
+name|polish
 argument_list|(
-argument|QPainter *p
-argument_list|,
-argument|int x
-argument_list|,
-argument|int y
-argument_list|,
-argument|int w
-argument_list|,
-argument|int h
-argument_list|,
-argument|const QColor&c1
-argument_list|,
-argument|const QColor&c2
-argument_list|,
-argument|const QColor&c3
-argument_list|,
-argument|const QColor&c4
-argument_list|,
-argument|const QBrush *fill
+name|QPalette
+operator|&
+name|palette
 argument_list|)
 block|;
-specifier|static
 name|void
-name|drawWinCEShadesSunken
+name|polish
 argument_list|(
-argument|QPainter *p
-argument_list|,
-argument|int x
-argument_list|,
-argument|int y
-argument_list|,
-argument|int w
-argument_list|,
-argument|int h
-argument_list|,
-argument|const QColor&c1
-argument_list|,
-argument|const QColor&c2
-argument_list|,
-argument|const QColor&c3
-argument_list|,
-argument|const QColor&c4
-argument_list|,
-argument|const QBrush *fill
+name|QApplication
+operator|*
+name|app
 argument_list|)
-block|;     }
+block|;
+name|QPalette
+name|standardPalette
+argument_list|()
+specifier|const
+block|; }
 decl_stmt|;
 end_decl_stmt
-begin_macro
-name|QT_END_NAMESPACE
-end_macro
 begin_endif
 endif|#
 directive|endif
 end_endif
 begin_comment
-comment|//QWINDOWSCE_P_H
+comment|// QT_NO_STYLE_WINDOWSCE
+end_comment
+begin_expr_stmt
+name|QT_END_NAMESPACE
+name|QT_END_HEADER
+end_expr_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QWINDOWSCESTYLE_P_H
 end_comment
 end_unit
