@@ -759,6 +759,23 @@ name|PrimaryOrientation
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Reimplement this function in subclass to return the device pixel ratio     for the window. This is the ratio between physical pixels     and device-independent pixels.      \sa QPlatformWindow::devicePixelRatio(); */
+end_comment
+begin_function
+DECL|function|devicePixelRatio
+name|qreal
+name|QPlatformWindow
+operator|::
+name|devicePixelRatio
+parameter_list|()
+specifier|const
+block|{
+return|return
+literal|1.0
+return|;
+block|}
+end_function
 begin_function
 DECL|function|setKeyboardGrabEnabled
 name|bool

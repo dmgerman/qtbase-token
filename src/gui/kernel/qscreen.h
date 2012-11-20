@@ -236,6 +236,11 @@ name|logicalDotsPerInch
 argument_list|()
 specifier|const
 block|;
+name|qreal
+name|devicePixelRatio
+argument_list|()
+specifier|const
+block|;
 name|QSize
 name|availableSize
 argument_list|()

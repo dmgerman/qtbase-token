@@ -171,6 +171,17 @@ operator|*
 name|buffer
 argument_list|()
 block|;
+name|qreal
+name|devicePixelRatio
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setDevicePixelRatio
+argument_list|(
+argument|qreal scaleFactor
+argument_list|)
+block|;
 name|protected
 operator|:
 name|int

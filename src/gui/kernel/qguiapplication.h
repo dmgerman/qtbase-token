@@ -278,6 +278,11 @@ operator|>
 name|screens
 argument_list|()
 block|;
+name|qreal
+name|devicePixelRatio
+argument_list|()
+specifier|const
+block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_CURSOR

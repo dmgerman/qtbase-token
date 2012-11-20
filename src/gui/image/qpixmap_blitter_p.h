@@ -121,6 +121,17 @@ argument_list|,
 argument|Qt::ImageConversionFlags flags
 argument_list|)
 block|;
+name|qreal
+name|devicePixelRatio
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setDevicePixelRatio
+argument_list|(
+argument|qreal scaleFactor
+argument_list|)
+block|;
 name|QPaintEngine
 operator|*
 name|paintEngine
@@ -238,6 +249,9 @@ name|m_blittable
 block|;
 name|bool
 name|m_alpha
+block|;
+name|qreal
+name|m_devicePixelRatio
 block|;
 ifdef|#
 directive|ifdef

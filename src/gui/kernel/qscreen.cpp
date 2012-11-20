@@ -394,6 +394,34 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*     Returns the ratio between physical pixels and device-independent pixels for the screen.      Common values are 1.0 on normal displays and 2.0 on Apple retina displays.      \sa QWindow::devicePixelRatio();     \sa QGuiApplicaiton::devicePixelRatio(); */
+end_comment
+begin_function
+DECL|function|devicePixelRatio
+name|qreal
+name|QScreen
+operator|::
+name|devicePixelRatio
+parameter_list|()
+specifier|const
+block|{
+name|Q_D
+argument_list|(
+specifier|const
+name|QScreen
+argument_list|)
+expr_stmt|;
+return|return
+name|d
+operator|->
+name|platformScreen
+operator|->
+name|devicePixelRatio
+argument_list|()
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!   \property QScreen::physicalSize   \brief the screen's physical size (in millimeters)    The physical size represents the actual physical dimensions of the   screen's display.    Depending on what information the underlying system provides the value   might not be entirely accurate. */
 end_comment
 begin_function

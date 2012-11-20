@@ -295,6 +295,7 @@ literal|"    -v              Verbose.\n"
 literal|"    -commands       Displays all available commands\n"
 literal|"    -w              Width of the paintdevice\n"
 literal|"    -h              Height of the paintdevice\n"
+literal|"    -scalefactor    Scale factor (device pixel ratio) of the paintdevice\n"
 literal|"    -cmp            Show the reference picture\n"
 literal|"    -bg-white       No checkers background\n"
 argument_list|)
@@ -572,6 +573,20 @@ decl_stmt|,
 name|height
 init|=
 literal|800
+decl_stmt|;
+name|int
+name|scaledWidth
+init|=
+name|width
+decl_stmt|,
+name|scaledHeight
+init|=
+name|height
+decl_stmt|;
+name|qreal
+name|scalefactor
+init|=
+literal|1.0
 decl_stmt|;
 name|bool
 name|verboseMode
@@ -1137,6 +1152,39 @@ if|if
 condition|(
 name|option
 operator|==
+literal|"scalefactor"
+condition|)
+block|{
+name|Q_ASSERT_X
+argument_list|(
+name|i
+operator|+
+literal|1
+operator|<
+name|argc
+argument_list|,
+literal|"main"
+argument_list|,
+literal|"-scalefactor must be followed by a value"
+argument_list|)
+expr_stmt|;
+name|scalefactor
+operator|=
+name|atof
+argument_list|(
+name|argv
+index|[
+operator|++
+name|i
+index|]
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|option
+operator|==
 literal|"cmp"
 condition|)
 block|{
@@ -1284,6 +1332,18 @@ endif|#
 directive|endif
 block|}
 block|}
+name|scaledWidth
+operator|=
+name|width
+operator|*
+name|scalefactor
+expr_stmt|;
+name|scaledHeight
+operator|=
+name|height
+operator|*
+name|scalefactor
+expr_stmt|;
 name|PaintCommands
 name|pcmd
 argument_list|(
@@ -2193,11 +2253,18 @@ block|{
 name|QPixmap
 name|pixmap
 argument_list|(
-name|width
+name|scaledWidth
 argument_list|,
-name|height
+name|scaledHeight
 argument_list|)
 decl_stmt|;
+name|pixmap
+operator|.
+name|setDevicePixelRatio
+argument_list|(
+name|scalefactor
+argument_list|)
+expr_stmt|;
 name|pixmap
 operator|.
 name|fill
@@ -2260,11 +2327,18 @@ block|{
 name|QBitmap
 name|bitmap
 argument_list|(
-name|width
+name|scaledWidth
 argument_list|,
-name|height
+name|scaledHeight
 argument_list|)
 decl_stmt|;
+name|bitmap
+operator|.
+name|setDevicePixelRatio
+argument_list|(
+name|scalefactor
+argument_list|)
+expr_stmt|;
 name|QPainter
 name|pt
 argument_list|(
@@ -2359,9 +2433,9 @@ expr_stmt|;
 name|QImage
 name|image
 argument_list|(
-name|width
+name|scaledWidth
 argument_list|,
-name|height
+name|scaledHeight
 argument_list|,
 name|type
 operator|==
@@ -2374,6 +2448,13 @@ else|:
 name|imageFormat
 argument_list|)
 decl_stmt|;
+name|image
+operator|.
+name|setDevicePixelRatio
+argument_list|(
+name|scalefactor
+argument_list|)
+expr_stmt|;
 name|image
 operator|.
 name|fill
@@ -2432,6 +2513,14 @@ argument_list|,
 literal|"PNG"
 argument_list|)
 expr_stmt|;
+name|image
+operator|.
+name|setDevicePixelRatio
+argument_list|(
+literal|1.0
+argument_list|)
+expr_stmt|;
+comment|// reset scale factor: display "large" image.
 ifndef|#
 directive|ifndef
 name|CONSOLE_APPLICATION

@@ -339,6 +339,12 @@ argument|Qt::ScreenOrientation orientation
 argument_list|)
 block|;
 name|virtual
+name|qreal
+name|devicePixelRatio
+argument_list|()
+specifier|const
+block|;
+name|virtual
 name|bool
 name|setKeyboardGrabEnabled
 argument_list|(

@@ -1301,6 +1301,7 @@ operator|->
 name|isNull
 argument_list|()
 condition|)
+block|{
 name|br
 operator|=
 name|pixmap
@@ -1308,9 +1309,25 @@ operator|->
 name|rect
 argument_list|()
 expr_stmt|;
+name|br
+operator|.
+name|setSize
+argument_list|(
+name|br
+operator|.
+name|size
+argument_list|()
+operator|/
+name|pixmap
+operator|->
+name|devicePixelRatio
+argument_list|()
+argument_list|)
+expr_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_NO_PICTURE
+block|}
 elseif|else
 if|if
 condition|(
@@ -1322,6 +1339,7 @@ operator|->
 name|isNull
 argument_list|()
 condition|)
+block|{
 name|br
 operator|=
 name|picture
@@ -1334,6 +1352,7 @@ directive|endif
 ifndef|#
 directive|ifndef
 name|QT_NO_MOVIE
+block|}
 elseif|else
 if|if
 condition|(
@@ -1348,6 +1367,7 @@ operator|.
 name|isNull
 argument_list|()
 condition|)
+block|{
 name|br
 operator|=
 name|movie
@@ -1360,6 +1380,7 @@ argument_list|()
 expr_stmt|;
 endif|#
 directive|endif
+block|}
 elseif|else
 if|if
 condition|(

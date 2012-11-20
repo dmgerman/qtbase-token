@@ -127,6 +127,11 @@ return|return
 name|m_format
 return|;
 block|}
+name|qreal
+name|devicePixelRatio
+argument_list|()
+specifier|const
+block|;
 name|QSizeF
 name|physicalSize
 argument_list|()

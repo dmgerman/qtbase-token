@@ -865,6 +865,17 @@ operator|>
 name|colors
 argument_list|)
 block|;
+name|qreal
+name|devicePixelRatio
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setDevicePixelRatio
+argument_list|(
+argument|qreal scaleFactor
+argument_list|)
+block|;
 name|void
 name|fill
 argument_list|(

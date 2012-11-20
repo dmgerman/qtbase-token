@@ -399,6 +399,23 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     Reimplement this function in subclass to return the device pixel     ratio for the screen. This is the ratio between physical pixels     and device-independent pixels.      \sa QPlatformWindow::devicePixelRatio(); */
+end_comment
+begin_function
+DECL|function|devicePixelRatio
+name|qreal
+name|QPlatformScreen
+operator|::
+name|devicePixelRatio
+parameter_list|()
+specifier|const
+block|{
+return|return
+literal|1.0
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     Reimplement this function in subclass to return the vertical refresh rate     of the screen, in Hz.      The default returns 60, a sensible default for modern displays. */
 end_comment
 begin_function

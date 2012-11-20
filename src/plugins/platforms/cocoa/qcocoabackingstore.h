@@ -104,6 +104,10 @@ name|CGImageRef
 name|getBackingStoreCGImage
 argument_list|()
 block|;
+name|qreal
+name|getBackingStoreDevicePixelRatio
+argument_list|()
+block|;
 name|private
 operator|:
 name|QImage

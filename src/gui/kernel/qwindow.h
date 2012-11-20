@@ -765,6 +765,11 @@ name|contentOrientation
 argument_list|()
 specifier|const
 expr_stmt|;
+name|qreal
+name|devicePixelRatio
+argument_list|()
+specifier|const
+expr_stmt|;
 name|bool
 name|requestOrientation
 argument_list|(

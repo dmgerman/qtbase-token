@@ -378,6 +378,11 @@ name|menubar
 argument_list|()
 specifier|const
 block|;
+name|qreal
+name|devicePixelRatio
+argument_list|()
+specifier|const
+block|;
 name|protected
 operator|:
 comment|// NSWindow handling. The QCocoaWindow/QNSView can either be displayed

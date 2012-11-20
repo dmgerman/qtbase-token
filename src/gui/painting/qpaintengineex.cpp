@@ -6270,6 +6270,11 @@ name|pm
 operator|.
 name|size
 argument_list|()
+operator|/
+name|pm
+operator|.
+name|devicePixelRatio
+argument_list|()
 argument_list|)
 argument_list|,
 name|pm
@@ -6309,6 +6314,11 @@ argument_list|,
 name|image
 operator|.
 name|size
+argument_list|()
+operator|/
+name|image
+operator|.
+name|devicePixelRatio
 argument_list|()
 argument_list|)
 argument_list|,
