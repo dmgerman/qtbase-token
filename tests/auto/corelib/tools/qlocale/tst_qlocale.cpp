@@ -1837,17 +1837,7 @@ argument|Azerbaijan
 argument_list|)
 name|TEST_CTOR
 argument_list|(
-literal|"ha_Arab_NG"
-argument_list|,
-argument|Hausa
-argument_list|,
-argument|ArabicScript
-argument_list|,
-argument|Nigeria
-argument_list|)
-name|TEST_CTOR
-argument_list|(
-literal|"ha_Latn_NG"
+literal|"ha_NG"
 argument_list|,
 argument|Hausa
 argument_list|,
@@ -14851,7 +14841,7 @@ name|QString
 operator|::
 name|fromUtf8
 argument_list|(
-literal|"\321\217\320\275\320\262\56"
+literal|"\321\217\320\275\320\262"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -15198,7 +15188,7 @@ name|QString
 operator|::
 name|fromUtf8
 argument_list|(
-literal|"\321\217\320\275\320\262\56"
+literal|"\320\257\320\275\320\262\56"
 argument_list|)
 argument_list|)
 expr_stmt|;
