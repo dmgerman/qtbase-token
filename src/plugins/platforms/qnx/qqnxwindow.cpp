@@ -605,7 +605,16 @@ name|requestSurfaceChange
 argument_list|()
 expr_stmt|;
 block|}
-comment|// Send a geometry change event to Qt (triggers resizeEvent() in QWindow/QWidget)
+comment|// Send a geometry change event to Qt (triggers resizeEvent() in QWindow/QWidget).
+comment|// Calling flushWindowSystemEvents() here would flush input events which
+comment|// could result in re-entering QQnxWindow::setGeometry() again.
+name|QWindowSystemInterface
+operator|::
+name|setSynchronousWindowsSystemEvents
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|QWindowSystemInterface
 operator|::
 name|handleGeometryChange
@@ -618,8 +627,10 @@ argument_list|)
 expr_stmt|;
 name|QWindowSystemInterface
 operator|::
-name|flushWindowSystemEvents
-argument_list|()
+name|setSynchronousWindowsSystemEvents
+argument_list|(
+literal|false
+argument_list|)
 expr_stmt|;
 comment|// Now move all children.
 if|if
