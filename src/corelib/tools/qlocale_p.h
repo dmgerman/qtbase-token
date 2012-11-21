@@ -68,7 +68,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_QNX
+name|Q_OS_BLACKBERRY
 argument_list|)
 end_if
 begin_include
@@ -1675,12 +1675,12 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_QNX
+name|Q_OS_BLACKBERRY
 argument_list|)
 end_if
 begin_label
 unit|class
-name|QBBLocaleData
+name|QQNXLocaleData
 label|:
 end_label
 begin_decl_stmt
@@ -1690,12 +1690,12 @@ block|{
 name|Q_OBJECT
 name|public
 range|:
-name|QBBLocaleData
+name|QQNXLocaleData
 argument_list|()
 decl_stmt|;
 name|virtual
 operator|~
-name|QBBLocaleData
+name|QQNXLocaleData
 argument_list|()
 expr_stmt|;
 name|void
@@ -1706,7 +1706,7 @@ name|public
 name|Q_SLOTS
 range|:
 name|void
-name|updateMesurementSystem
+name|updateMeasurementSystem
 argument_list|()
 decl_stmt|;
 name|public
