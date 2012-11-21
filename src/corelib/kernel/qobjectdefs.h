@@ -628,26 +628,6 @@ ifndef|#
 directive|ifndef
 name|QT_NO_META_MACROS
 end_ifndef
-begin_define
-DECL|macro|QTOSTRING_HELPER
-define|#
-directive|define
-name|QTOSTRING_HELPER
-parameter_list|(
-name|s
-parameter_list|)
-value|#s
-end_define
-begin_define
-DECL|macro|QTOSTRING
-define|#
-directive|define
-name|QTOSTRING
-parameter_list|(
-name|s
-parameter_list|)
-value|QTOSTRING_HELPER(s)
-end_define
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -658,7 +638,7 @@ DECL|macro|QLOCATION
 define|#
 directive|define
 name|QLOCATION
-value|"\0" __FILE__ ":" QTOSTRING(__LINE__)
+value|"\0" __FILE__ ":" QT_STRINGIFY(__LINE__)
 end_define
 begin_ifndef
 ifndef|#
