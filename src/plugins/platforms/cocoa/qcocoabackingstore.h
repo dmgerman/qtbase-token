@@ -100,11 +100,20 @@ argument_list|,
 argument|int dy
 argument_list|)
 block|;
+name|CGImageRef
+name|getBackingStoreCGImage
+argument_list|()
+block|;
 name|private
 operator|:
 name|QImage
-operator|*
-name|m_image
+name|m_qImage
+block|;
+name|CGImageRef
+name|m_cgImage
+block|;
+name|QSize
+name|m_requestedSize
 block|; }
 decl_stmt|;
 end_decl_stmt
