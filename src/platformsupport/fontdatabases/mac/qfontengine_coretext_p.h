@@ -333,6 +333,13 @@ name|emSquareSize
 argument_list|()
 specifier|const
 block|;
+name|bool
+name|supportsTransformations
+argument_list|(
+argument|const QTransform&transform
+argument_list|)
+specifier|const
+block|;
 name|virtual
 name|QFontEngine
 operator|*
