@@ -16,11 +16,6 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QMainWindow>
-end_include
-begin_include
-include|#
-directive|include
 file|<QDialog>
 end_include
 begin_include
@@ -173,4 +168,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// DIALOG_H
+end_comment
 end_unit

@@ -23,11 +23,6 @@ include|#
 directive|include
 file|<QRect>
 end_include
-begin_include
-include|#
-directive|include
-file|<QWidgetItem>
-end_include
 begin_decl_stmt
 name|class
 name|BorderLayout
@@ -203,4 +198,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// BORDERLAYOUT_H
+end_comment
 end_unit

@@ -26,7 +26,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QWidgetItem>
+file|<QStyle>
 end_include
 begin_comment
 comment|//! [0]
@@ -188,4 +188,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// FLOWLAYOUT_H
+end_comment
 end_unit
