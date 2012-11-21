@@ -177,7 +177,7 @@ begin_comment
 comment|// GENERATED PART STARTS HERE
 end_comment
 begin_comment
-comment|/*     This part of the file was generated on 2012-11-19 from the     Common Locale Data Repository v1.9.1      http://www.unicode.org/cldr/      Do not change it, instead edit CLDR data and regenerate this file using     cldr2qlocalexml.py and qlocalexml2cpp.py. */
+comment|/*     This part of the file was generated on 2012-11-20 from the     Common Locale Data Repository v1.9.1      http://www.unicode.org/cldr/      Do not change it, instead edit CLDR data and regenerate this file using     cldr2qlocalexml.py and qlocalexml2cpp.py. */
 end_comment
 begin_decl_stmt
 DECL|variable|locale_index
@@ -199,7 +199,7 @@ block|,
 comment|// Abkhazian
 literal|1
 block|,
-comment|// Afan
+comment|// Oromo
 literal|3
 block|,
 comment|// Afar
@@ -238,7 +238,7 @@ block|,
 comment|// Bengali
 literal|37
 block|,
-comment|// Bhutani
+comment|// Dzongkha
 literal|0
 block|,
 comment|// Bihari
@@ -256,10 +256,10 @@ block|,
 comment|// Burmese
 literal|41
 block|,
-comment|// Byelorussian
+comment|// Belarusian
 literal|42
 block|,
-comment|// Cambodian
+comment|// Khmer
 literal|43
 block|,
 comment|// Catalan
@@ -295,7 +295,7 @@ block|,
 comment|// Faroese
 literal|0
 block|,
-comment|// Fiji
+comment|// Fijian
 literal|91
 block|,
 comment|// Finnish
@@ -394,10 +394,10 @@ block|,
 comment|// Kurdish
 literal|0
 block|,
-comment|// Kurundi
+comment|// Rundi
 literal|167
 block|,
-comment|// Laothian
+comment|// Lao
 literal|0
 block|,
 comment|// Latin
@@ -433,7 +433,7 @@ block|,
 comment|// Marathi
 literal|0
 block|,
-comment|// Moldavian
+comment|// Marshallese
 literal|180
 block|,
 comment|// Mongolian
@@ -445,7 +445,7 @@ block|,
 comment|// Nepali
 literal|186
 block|,
-comment|// Norwegian
+comment|// NorwegianBokmal
 literal|187
 block|,
 comment|// Occitan
@@ -472,7 +472,7 @@ block|,
 comment|// Quechua
 literal|202
 block|,
-comment|// RhaetoRomance
+comment|// Romansh
 literal|203
 block|,
 comment|// Romanian
@@ -491,79 +491,79 @@ comment|// Sanskrit
 literal|210
 block|,
 comment|// Serbian
-literal|225
+literal|0
 block|,
-comment|// SerboCroatian
-literal|228
+comment|// Ossetic
+literal|219
 block|,
 comment|// Sesotho
-literal|230
+literal|221
 block|,
 comment|// Setswana
-literal|231
+literal|222
 block|,
 comment|// Shona
 literal|0
 block|,
 comment|// Sindhi
-literal|232
+literal|223
 block|,
 comment|// Singhalese
-literal|233
+literal|224
 block|,
 comment|// Siswati
-literal|235
+literal|226
 block|,
 comment|// Slovak
-literal|236
+literal|227
 block|,
 comment|// Slovenian
-literal|237
+literal|228
 block|,
 comment|// Somali
-literal|241
+literal|232
 block|,
 comment|// Spanish
 literal|0
 block|,
 comment|// Sundanese
-literal|263
+literal|254
 block|,
 comment|// Swahili
-literal|265
+literal|256
 block|,
 comment|// Swedish
-literal|267
+literal|0
 block|,
-comment|// Tagalog
-literal|268
+comment|// Sardinian
+literal|258
 block|,
 comment|// Tajik
-literal|270
+literal|260
 block|,
 comment|// Tamil
-literal|272
+literal|262
 block|,
 comment|// Tatar
-literal|273
+literal|263
 block|,
 comment|// Telugu
-literal|274
+literal|264
 block|,
 comment|// Thai
-literal|275
+literal|265
 block|,
 comment|// Tibetan
-literal|277
+literal|267
 block|,
 comment|// Tigrinya
-literal|279
+literal|269
 block|,
 comment|// Tonga
-literal|280
+literal|270
 block|,
 comment|// Tsonga
-literal|281
+literal|271
 block|,
 comment|// Turkish
 literal|0
@@ -571,271 +571,334 @@ block|,
 comment|// Turkmen
 literal|0
 block|,
-comment|// Twi
-literal|282
+comment|// Tahitian
+literal|272
 block|,
 comment|// Uigur
-literal|284
+literal|274
 block|,
 comment|// Ukrainian
-literal|285
+literal|275
 block|,
 comment|// Urdu
-literal|287
+literal|277
 block|,
 comment|// Uzbek
-literal|292
+literal|282
 block|,
 comment|// Vietnamese
 literal|0
 block|,
 comment|// Volapuk
-literal|293
+literal|283
 block|,
 comment|// Welsh
-literal|294
+literal|284
 block|,
 comment|// Wolof
-literal|296
+literal|286
 block|,
 comment|// Xhosa
 literal|0
 block|,
 comment|// Yiddish
-literal|297
+literal|287
 block|,
 comment|// Yoruba
 literal|0
 block|,
 comment|// Zhuang
-literal|298
+literal|288
 block|,
 comment|// Zulu
-literal|299
+literal|289
 block|,
-comment|// Nynorsk
-literal|300
+comment|// NorwegianNynorsk
+literal|290
 block|,
 comment|// Bosnian
-literal|301
+literal|291
 block|,
 comment|// Divehi
-literal|302
+literal|292
 block|,
 comment|// Manx
-literal|303
+literal|293
 block|,
 comment|// Cornish
-literal|304
+literal|294
 block|,
 comment|// Akan
-literal|305
+literal|295
 block|,
 comment|// Konkani
-literal|306
+literal|296
 block|,
 comment|// Ga
-literal|307
+literal|297
 block|,
 comment|// Igbo
-literal|308
+literal|298
 block|,
 comment|// Kamba
-literal|309
+literal|299
 block|,
 comment|// Syriac
-literal|310
+literal|300
 block|,
 comment|// Blin
-literal|311
+literal|301
 block|,
 comment|// Geez
-literal|313
+literal|303
 block|,
 comment|// Koro
-literal|314
+literal|304
 block|,
 comment|// Sidamo
-literal|315
+literal|305
 block|,
 comment|// Atsam
-literal|316
+literal|306
 block|,
 comment|// Tigre
-literal|317
+literal|307
 block|,
 comment|// Jju
-literal|318
+literal|308
 block|,
 comment|// Friulian
-literal|319
+literal|309
 block|,
 comment|// Venda
-literal|320
+literal|310
 block|,
 comment|// Ewe
-literal|322
+literal|312
 block|,
 comment|// Walamo
-literal|323
+literal|313
 block|,
 comment|// Hawaiian
-literal|324
+literal|314
 block|,
 comment|// Tyap
-literal|325
+literal|315
 block|,
 comment|// Chewa
-literal|326
+literal|316
 block|,
 comment|// Filipino
-literal|327
+literal|317
 block|,
 comment|// Swiss German
-literal|328
+literal|318
 block|,
 comment|// Sichuan Yi
-literal|329
+literal|319
 block|,
 comment|// Kpelle
-literal|331
+literal|321
 block|,
 comment|// Low German
-literal|332
+literal|322
 block|,
 comment|// South Ndebele
-literal|333
+literal|323
 block|,
 comment|// Northern Sotho
-literal|334
+literal|324
 block|,
 comment|// Northern Sami
-literal|336
+literal|326
 block|,
 comment|// Taroko
-literal|337
+literal|327
 block|,
 comment|// Gusii
-literal|338
+literal|328
 block|,
 comment|// Taita
-literal|339
+literal|329
 block|,
 comment|// Fulah
-literal|340
+literal|330
 block|,
 comment|// Kikuyu
-literal|341
+literal|331
 block|,
 comment|// Samburu
-literal|342
+literal|332
 block|,
 comment|// Sena
-literal|343
+literal|333
 block|,
 comment|// North Ndebele
-literal|344
+literal|334
 block|,
 comment|// Rombo
-literal|345
+literal|335
 block|,
 comment|// Tachelhit
-literal|348
+literal|338
 block|,
 comment|// Kabyle
-literal|349
+literal|339
 block|,
 comment|// Nyankole
-literal|350
+literal|340
 block|,
 comment|// Bena
-literal|351
+literal|341
 block|,
 comment|// Vunjo
-literal|352
+literal|342
 block|,
 comment|// Bambara
-literal|353
+literal|343
 block|,
 comment|// Embu
-literal|354
+literal|344
 block|,
 comment|// Cherokee
-literal|355
+literal|345
 block|,
 comment|// Morisyen
-literal|356
+literal|346
 block|,
 comment|// Makonde
-literal|357
+literal|347
 block|,
 comment|// Langi
-literal|358
+literal|348
 block|,
 comment|// Ganda
-literal|359
+literal|349
 block|,
 comment|// Bemba
-literal|360
+literal|350
 block|,
 comment|// Kabuverdianu
-literal|361
+literal|351
 block|,
 comment|// Meru
-literal|362
+literal|352
 block|,
 comment|// Kalenjin
-literal|363
+literal|353
 block|,
 comment|// Nama
-literal|364
+literal|354
 block|,
 comment|// Machame
-literal|365
+literal|355
 block|,
 comment|// Colognian
-literal|366
+literal|356
 block|,
 comment|// Masai
-literal|368
+literal|358
 block|,
 comment|// Soga
-literal|369
+literal|359
 block|,
 comment|// Luyia
-literal|370
+literal|360
 block|,
 comment|// Asu
-literal|371
+literal|361
 block|,
 comment|// Teso
-literal|373
+literal|363
 block|,
 comment|// Saho
-literal|374
+literal|364
 block|,
 comment|// Koyra Chiini
-literal|375
+literal|365
 block|,
 comment|// Rwa
-literal|376
+literal|366
 block|,
 comment|// Luo
-literal|377
+literal|367
 block|,
 comment|// Chiga
-literal|378
+literal|368
 block|,
 comment|// Central Morocco Tamazight
-literal|380
+literal|370
 block|,
 comment|// Koyraboro Senni
-literal|381
+literal|371
 block|,
 comment|// Shambala
-literal|382
+literal|372
 block|,
 comment|// Bodo
+literal|0
+block|,
+comment|// Avaric
+literal|0
+block|,
+comment|// Chamorro
+literal|0
+block|,
+comment|// Chechen
+literal|0
+block|,
+comment|// Church
+literal|0
+block|,
+comment|// Chuvash
+literal|0
+block|,
+comment|// Cree
+literal|0
+block|,
+comment|// Haitian
+literal|0
+block|,
+comment|// Herero
+literal|0
+block|,
+comment|// Hiri Motu
+literal|0
+block|,
+comment|// Kanuri
+literal|0
+block|,
+comment|// Komi
+literal|0
+block|,
+comment|// Kongo
+literal|0
+block|,
+comment|// Kwanyama
+literal|0
+block|,
+comment|// Limburgish
+literal|0
+block|,
+comment|// LubaKatanga
+literal|0
+block|,
+comment|// Luxembourgish
+literal|0
+block|,
+comment|// Navaho
+literal|0
+block|,
+comment|// Ndonga
+literal|0
+block|,
+comment|// Ojibwa
+literal|0
+block|,
+comment|// Pali
+literal|0
+block|,
+comment|// Walloon
 literal|0
 comment|// trailing 0
 block|}
@@ -1176,7 +1239,7 @@ block|,
 literal|7
 block|}
 block|,
-comment|// Afan/AnyScript/Ethiopia
+comment|// Oromo/AnyScript/Ethiopia
 block|{
 literal|3
 block|,
@@ -1339,7 +1402,7 @@ block|,
 literal|7
 block|}
 block|,
-comment|// Afan/AnyScript/Kenya
+comment|// Oromo/AnyScript/Kenya
 block|{
 literal|4
 block|,
@@ -3784,7 +3847,7 @@ block|,
 literal|6
 block|}
 block|,
-comment|// Arabic/AnyScript/LibyanArabJamahiriya
+comment|// Arabic/AnyScript/Libya
 block|{
 literal|8
 block|,
@@ -4762,7 +4825,7 @@ block|,
 literal|6
 block|}
 block|,
-comment|// Arabic/AnyScript/SyrianArabRepublic
+comment|// Arabic/AnyScript/Syria
 block|{
 literal|8
 block|,
@@ -7044,7 +7107,7 @@ block|,
 literal|7
 block|}
 block|,
-comment|// Bhutani/AnyScript/Bhutan
+comment|// Dzongkha/AnyScript/Bhutan
 block|{
 literal|19
 block|,
@@ -7696,7 +7759,7 @@ block|,
 literal|7
 block|}
 block|,
-comment|// Byelorussian/AnyScript/Belarus
+comment|// Belarusian/AnyScript/Belarus
 block|{
 literal|23
 block|,
@@ -7859,7 +7922,7 @@ block|,
 literal|7
 block|}
 block|,
-comment|// Cambodian/AnyScript/Cambodia
+comment|// Khmer/AnyScript/Cambodia
 block|{
 literal|24
 block|,
@@ -15031,7 +15094,7 @@ block|,
 literal|7
 block|}
 block|,
-comment|// English/AnyScript/USVirginIslands
+comment|// English/AnyScript/UnitedStatesVirginIslands
 block|{
 literal|31
 block|,
@@ -17639,7 +17702,7 @@ block|,
 literal|7
 block|}
 block|,
-comment|// French/AnyScript/DemocraticRepublicOfCongo
+comment|// French/AnyScript/CongoKinshasa
 block|{
 literal|37
 block|,
@@ -17802,7 +17865,7 @@ block|,
 literal|7
 block|}
 block|,
-comment|// French/AnyScript/PeoplesRepublicOfCongo
+comment|// French/AnyScript/CongoBrazzaville
 block|{
 literal|37
 block|,
@@ -26767,7 +26830,7 @@ block|,
 literal|7
 block|}
 block|,
-comment|// Korean/AnyScript/RepublicOfKorea
+comment|// Korean/AnyScript/SouthKorea
 block|{
 literal|67
 block|,
@@ -27256,7 +27319,7 @@ block|,
 literal|6
 block|}
 block|,
-comment|// Kurdish/AnyScript/SyrianArabRepublic
+comment|// Kurdish/AnyScript/Syria
 block|{
 literal|67
 block|,
@@ -27908,7 +27971,7 @@ block|,
 literal|6
 block|}
 block|,
-comment|// Kurdish/Latin/SyrianArabRepublic
+comment|// Kurdish/Latin/Syria
 block|{
 literal|67
 block|,
@@ -28234,7 +28297,7 @@ block|,
 literal|7
 block|}
 block|,
-comment|// Laothian/AnyScript/Lao
+comment|// Lao/AnyScript/Laos
 block|{
 literal|71
 block|,
@@ -28560,7 +28623,7 @@ block|,
 literal|7
 block|}
 block|,
-comment|// Lingala/AnyScript/DemocraticRepublicOfCongo
+comment|// Lingala/AnyScript/CongoKinshasa
 block|{
 literal|72
 block|,
@@ -28723,7 +28786,7 @@ block|,
 literal|7
 block|}
 block|,
-comment|// Lingala/AnyScript/PeoplesRepublicOfCongo
+comment|// Lingala/AnyScript/CongoBrazzaville
 block|{
 literal|73
 block|,
@@ -29538,7 +29601,7 @@ block|,
 literal|7
 block|}
 block|,
-comment|// Malay/AnyScript/BruneiDarussalam
+comment|// Malay/AnyScript/Brunei
 block|{
 literal|77
 block|,
@@ -31331,7 +31394,7 @@ block|,
 literal|7
 block|}
 block|,
-comment|// Norwegian/AnyScript/Norway
+comment|// NorwegianBokmal/AnyScript/Norway
 block|{
 literal|86
 block|,
@@ -33939,7 +34002,7 @@ block|,
 literal|7
 block|}
 block|,
-comment|// RhaetoRomance/AnyScript/Switzerland
+comment|// Romansh/AnyScript/Switzerland
 block|{
 literal|95
 block|,
@@ -34428,7 +34491,7 @@ block|,
 literal|7
 block|}
 block|,
-comment|// Russian/AnyScript/RussianFederation
+comment|// Russian/AnyScript/Russia
 block|{
 literal|96
 block|,
@@ -35412,332 +35475,6 @@ literal|100
 block|,
 literal|0
 block|,
-literal|238
-block|,
-literal|46
-block|,
-literal|44
-block|,
-literal|59
-block|,
-literal|37
-block|,
-literal|48
-block|,
-literal|45
-block|,
-literal|43
-block|,
-literal|101
-block|,
-literal|8220
-block|,
-literal|8221
-block|,
-literal|8216
-block|,
-literal|8217
-block|,
-literal|0
-block|,
-literal|6
-block|,
-literal|0
-block|,
-literal|6
-block|,
-literal|54
-block|,
-literal|7
-block|,
-literal|54
-block|,
-literal|7
-block|,
-literal|935
-block|,
-literal|7
-block|,
-literal|942
-block|,
-literal|20
-block|,
-literal|150
-block|,
-literal|5
-block|,
-literal|155
-block|,
-literal|10
-block|,
-literal|13423
-block|,
-literal|48
-block|,
-literal|13471
-block|,
-literal|81
-block|,
-literal|9858
-block|,
-literal|24
-block|,
-literal|13423
-block|,
-literal|48
-block|,
-literal|13471
-block|,
-literal|81
-block|,
-literal|9858
-block|,
-literal|24
-block|,
-literal|7753
-block|,
-literal|28
-block|,
-literal|7781
-block|,
-literal|52
-block|,
-literal|7833
-block|,
-literal|14
-block|,
-literal|7753
-block|,
-literal|28
-block|,
-literal|7781
-block|,
-literal|52
-block|,
-literal|7833
-block|,
-literal|14
-block|,
-literal|246
-block|,
-literal|9
-block|,
-literal|243
-block|,
-literal|7
-block|,
-block|{
-literal|0
-block|,
-literal|0
-block|,
-literal|0
-block|}
-block|,
-literal|0
-block|,
-literal|0
-block|,
-literal|5090
-block|,
-literal|0
-block|,
-literal|25
-block|,
-literal|5
-block|,
-literal|4
-block|,
-literal|0
-block|,
-literal|2252
-block|,
-literal|6
-block|,
-literal|0
-block|,
-literal|0
-block|,
-literal|2
-block|,
-literal|1
-block|,
-literal|1
-block|,
-literal|6
-block|,
-literal|7
-block|}
-block|,
-comment|// Serbian/AnyScript/Yugoslavia
-block|{
-literal|100
-block|,
-literal|0
-block|,
-literal|241
-block|,
-literal|46
-block|,
-literal|44
-block|,
-literal|59
-block|,
-literal|37
-block|,
-literal|48
-block|,
-literal|45
-block|,
-literal|43
-block|,
-literal|101
-block|,
-literal|8220
-block|,
-literal|8221
-block|,
-literal|8216
-block|,
-literal|8217
-block|,
-literal|0
-block|,
-literal|6
-block|,
-literal|0
-block|,
-literal|6
-block|,
-literal|54
-block|,
-literal|7
-block|,
-literal|54
-block|,
-literal|7
-block|,
-literal|935
-block|,
-literal|7
-block|,
-literal|942
-block|,
-literal|20
-block|,
-literal|150
-block|,
-literal|5
-block|,
-literal|155
-block|,
-literal|10
-block|,
-literal|13423
-block|,
-literal|48
-block|,
-literal|13471
-block|,
-literal|81
-block|,
-literal|9858
-block|,
-literal|24
-block|,
-literal|13423
-block|,
-literal|48
-block|,
-literal|13471
-block|,
-literal|81
-block|,
-literal|9858
-block|,
-literal|24
-block|,
-literal|7753
-block|,
-literal|28
-block|,
-literal|7781
-block|,
-literal|52
-block|,
-literal|7833
-block|,
-literal|14
-block|,
-literal|7753
-block|,
-literal|28
-block|,
-literal|7781
-block|,
-literal|52
-block|,
-literal|7833
-block|,
-literal|14
-block|,
-literal|246
-block|,
-literal|9
-block|,
-literal|243
-block|,
-literal|7
-block|,
-block|{
-literal|0
-block|,
-literal|0
-block|,
-literal|0
-block|}
-block|,
-literal|0
-block|,
-literal|0
-block|,
-literal|5090
-block|,
-literal|0
-block|,
-literal|25
-block|,
-literal|5
-block|,
-literal|4
-block|,
-literal|0
-block|,
-literal|2252
-block|,
-literal|6
-block|,
-literal|2289
-block|,
-literal|18
-block|,
-literal|2
-block|,
-literal|1
-block|,
-literal|1
-block|,
-literal|6
-block|,
-literal|7
-block|}
-block|,
-comment|// Serbian/AnyScript/SerbiaAndMontenegro
-block|{
-literal|100
-block|,
-literal|0
-block|,
 literal|242
 block|,
 literal|46
@@ -35876,11 +35613,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2307
+literal|2289
 block|,
 literal|6
 block|,
-literal|2313
+literal|2295
 block|,
 literal|9
 block|,
@@ -36064,332 +35801,6 @@ literal|100
 block|,
 literal|2
 block|,
-literal|238
-block|,
-literal|46
-block|,
-literal|44
-block|,
-literal|59
-block|,
-literal|37
-block|,
-literal|48
-block|,
-literal|45
-block|,
-literal|43
-block|,
-literal|101
-block|,
-literal|8220
-block|,
-literal|8221
-block|,
-literal|8216
-block|,
-literal|8217
-block|,
-literal|0
-block|,
-literal|6
-block|,
-literal|0
-block|,
-literal|6
-block|,
-literal|54
-block|,
-literal|7
-block|,
-literal|54
-block|,
-literal|7
-block|,
-literal|935
-block|,
-literal|7
-block|,
-literal|942
-block|,
-literal|20
-block|,
-literal|150
-block|,
-literal|5
-block|,
-literal|155
-block|,
-literal|10
-block|,
-literal|13423
-block|,
-literal|48
-block|,
-literal|13471
-block|,
-literal|81
-block|,
-literal|9858
-block|,
-literal|24
-block|,
-literal|13423
-block|,
-literal|48
-block|,
-literal|13471
-block|,
-literal|81
-block|,
-literal|9858
-block|,
-literal|24
-block|,
-literal|7753
-block|,
-literal|28
-block|,
-literal|7781
-block|,
-literal|52
-block|,
-literal|7833
-block|,
-literal|14
-block|,
-literal|7753
-block|,
-literal|28
-block|,
-literal|7781
-block|,
-literal|52
-block|,
-literal|7833
-block|,
-literal|14
-block|,
-literal|246
-block|,
-literal|9
-block|,
-literal|243
-block|,
-literal|7
-block|,
-block|{
-literal|0
-block|,
-literal|0
-block|,
-literal|0
-block|}
-block|,
-literal|0
-block|,
-literal|0
-block|,
-literal|5090
-block|,
-literal|0
-block|,
-literal|25
-block|,
-literal|5
-block|,
-literal|4
-block|,
-literal|0
-block|,
-literal|2252
-block|,
-literal|6
-block|,
-literal|0
-block|,
-literal|0
-block|,
-literal|2
-block|,
-literal|1
-block|,
-literal|1
-block|,
-literal|6
-block|,
-literal|7
-block|}
-block|,
-comment|// Serbian/Cyrillic/Yugoslavia
-block|{
-literal|100
-block|,
-literal|2
-block|,
-literal|241
-block|,
-literal|46
-block|,
-literal|44
-block|,
-literal|59
-block|,
-literal|37
-block|,
-literal|48
-block|,
-literal|45
-block|,
-literal|43
-block|,
-literal|101
-block|,
-literal|8220
-block|,
-literal|8221
-block|,
-literal|8216
-block|,
-literal|8217
-block|,
-literal|0
-block|,
-literal|6
-block|,
-literal|0
-block|,
-literal|6
-block|,
-literal|54
-block|,
-literal|7
-block|,
-literal|54
-block|,
-literal|7
-block|,
-literal|935
-block|,
-literal|7
-block|,
-literal|942
-block|,
-literal|20
-block|,
-literal|150
-block|,
-literal|5
-block|,
-literal|155
-block|,
-literal|10
-block|,
-literal|13423
-block|,
-literal|48
-block|,
-literal|13471
-block|,
-literal|81
-block|,
-literal|9858
-block|,
-literal|24
-block|,
-literal|13423
-block|,
-literal|48
-block|,
-literal|13471
-block|,
-literal|81
-block|,
-literal|9858
-block|,
-literal|24
-block|,
-literal|7753
-block|,
-literal|28
-block|,
-literal|7781
-block|,
-literal|52
-block|,
-literal|7833
-block|,
-literal|14
-block|,
-literal|7753
-block|,
-literal|28
-block|,
-literal|7781
-block|,
-literal|52
-block|,
-literal|7833
-block|,
-literal|14
-block|,
-literal|246
-block|,
-literal|9
-block|,
-literal|243
-block|,
-literal|7
-block|,
-block|{
-literal|0
-block|,
-literal|0
-block|,
-literal|0
-block|}
-block|,
-literal|0
-block|,
-literal|0
-block|,
-literal|5090
-block|,
-literal|0
-block|,
-literal|25
-block|,
-literal|5
-block|,
-literal|4
-block|,
-literal|0
-block|,
-literal|2252
-block|,
-literal|6
-block|,
-literal|2289
-block|,
-literal|18
-block|,
-literal|2
-block|,
-literal|1
-block|,
-literal|1
-block|,
-literal|6
-block|,
-literal|7
-block|}
-block|,
-comment|// Serbian/Cyrillic/SerbiaAndMontenegro
-block|{
-literal|100
-block|,
-literal|2
-block|,
 literal|242
 block|,
 literal|46
@@ -36532,7 +35943,7 @@ literal|2252
 block|,
 literal|6
 block|,
-literal|2322
+literal|2304
 block|,
 literal|9
 block|,
@@ -36854,11 +36265,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2307
+literal|2289
 block|,
 literal|6
 block|,
-literal|2331
+literal|2313
 block|,
 literal|19
 block|,
@@ -36874,332 +36285,6 @@ literal|7
 block|}
 block|,
 comment|// Serbian/Latin/BosniaAndHerzegowina
-block|{
-literal|100
-block|,
-literal|7
-block|,
-literal|238
-block|,
-literal|46
-block|,
-literal|44
-block|,
-literal|59
-block|,
-literal|37
-block|,
-literal|48
-block|,
-literal|45
-block|,
-literal|43
-block|,
-literal|101
-block|,
-literal|8220
-block|,
-literal|8221
-block|,
-literal|8216
-block|,
-literal|8217
-block|,
-literal|0
-block|,
-literal|6
-block|,
-literal|0
-block|,
-literal|6
-block|,
-literal|61
-block|,
-literal|7
-block|,
-literal|61
-block|,
-literal|7
-block|,
-literal|935
-block|,
-literal|7
-block|,
-literal|942
-block|,
-literal|20
-block|,
-literal|150
-block|,
-literal|5
-block|,
-literal|155
-block|,
-literal|10
-block|,
-literal|13635
-block|,
-literal|48
-block|,
-literal|13683
-block|,
-literal|81
-block|,
-literal|13764
-block|,
-literal|24
-block|,
-literal|13635
-block|,
-literal|48
-block|,
-literal|13683
-block|,
-literal|81
-block|,
-literal|13764
-block|,
-literal|24
-block|,
-literal|7929
-block|,
-literal|28
-block|,
-literal|7957
-block|,
-literal|54
-block|,
-literal|2118
-block|,
-literal|14
-block|,
-literal|7929
-block|,
-literal|28
-block|,
-literal|7957
-block|,
-literal|54
-block|,
-literal|2118
-block|,
-literal|14
-block|,
-literal|255
-block|,
-literal|9
-block|,
-literal|250
-block|,
-literal|7
-block|,
-block|{
-literal|0
-block|,
-literal|0
-block|,
-literal|0
-block|}
-block|,
-literal|0
-block|,
-literal|0
-block|,
-literal|5090
-block|,
-literal|0
-block|,
-literal|25
-block|,
-literal|5
-block|,
-literal|4
-block|,
-literal|0
-block|,
-literal|2307
-block|,
-literal|6
-block|,
-literal|0
-block|,
-literal|0
-block|,
-literal|2
-block|,
-literal|1
-block|,
-literal|1
-block|,
-literal|6
-block|,
-literal|7
-block|}
-block|,
-comment|// Serbian/Latin/Yugoslavia
-block|{
-literal|100
-block|,
-literal|7
-block|,
-literal|241
-block|,
-literal|46
-block|,
-literal|44
-block|,
-literal|59
-block|,
-literal|37
-block|,
-literal|48
-block|,
-literal|45
-block|,
-literal|43
-block|,
-literal|101
-block|,
-literal|8220
-block|,
-literal|8221
-block|,
-literal|8216
-block|,
-literal|8217
-block|,
-literal|0
-block|,
-literal|6
-block|,
-literal|0
-block|,
-literal|6
-block|,
-literal|61
-block|,
-literal|7
-block|,
-literal|61
-block|,
-literal|7
-block|,
-literal|935
-block|,
-literal|7
-block|,
-literal|942
-block|,
-literal|20
-block|,
-literal|150
-block|,
-literal|5
-block|,
-literal|155
-block|,
-literal|10
-block|,
-literal|13635
-block|,
-literal|48
-block|,
-literal|13683
-block|,
-literal|81
-block|,
-literal|13764
-block|,
-literal|24
-block|,
-literal|13635
-block|,
-literal|48
-block|,
-literal|13683
-block|,
-literal|81
-block|,
-literal|13764
-block|,
-literal|24
-block|,
-literal|7929
-block|,
-literal|28
-block|,
-literal|7957
-block|,
-literal|54
-block|,
-literal|2118
-block|,
-literal|14
-block|,
-literal|7929
-block|,
-literal|28
-block|,
-literal|7957
-block|,
-literal|54
-block|,
-literal|2118
-block|,
-literal|14
-block|,
-literal|255
-block|,
-literal|9
-block|,
-literal|250
-block|,
-literal|7
-block|,
-block|{
-literal|0
-block|,
-literal|0
-block|,
-literal|0
-block|}
-block|,
-literal|0
-block|,
-literal|0
-block|,
-literal|5090
-block|,
-literal|0
-block|,
-literal|25
-block|,
-literal|5
-block|,
-literal|4
-block|,
-literal|0
-block|,
-literal|2307
-block|,
-literal|6
-block|,
-literal|2350
-block|,
-literal|18
-block|,
-literal|2
-block|,
-literal|1
-block|,
-literal|1
-block|,
-literal|6
-block|,
-literal|7
-block|}
-block|,
-comment|// Serbian/Latin/SerbiaAndMontenegro
 block|{
 literal|100
 block|,
@@ -37343,11 +36428,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2307
+literal|2289
 block|,
 literal|6
 block|,
-literal|2313
+literal|2295
 block|,
 literal|9
 block|,
@@ -37506,11 +36591,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2307
+literal|2289
 block|,
 literal|6
 block|,
-literal|2368
+literal|2332
 block|,
 literal|6
 block|,
@@ -37526,495 +36611,6 @@ literal|7
 block|}
 block|,
 comment|// Serbian/Latin/Serbia
-block|{
-literal|101
-block|,
-literal|0
-block|,
-literal|27
-block|,
-literal|46
-block|,
-literal|44
-block|,
-literal|59
-block|,
-literal|37
-block|,
-literal|48
-block|,
-literal|45
-block|,
-literal|43
-block|,
-literal|101
-block|,
-literal|8220
-block|,
-literal|8221
-block|,
-literal|8216
-block|,
-literal|8217
-block|,
-literal|0
-block|,
-literal|6
-block|,
-literal|0
-block|,
-literal|6
-block|,
-literal|61
-block|,
-literal|7
-block|,
-literal|61
-block|,
-literal|7
-block|,
-literal|935
-block|,
-literal|7
-block|,
-literal|942
-block|,
-literal|20
-block|,
-literal|150
-block|,
-literal|5
-block|,
-literal|155
-block|,
-literal|10
-block|,
-literal|13635
-block|,
-literal|48
-block|,
-literal|13683
-block|,
-literal|81
-block|,
-literal|13764
-block|,
-literal|24
-block|,
-literal|13635
-block|,
-literal|48
-block|,
-literal|13683
-block|,
-literal|81
-block|,
-literal|13764
-block|,
-literal|24
-block|,
-literal|7929
-block|,
-literal|28
-block|,
-literal|7957
-block|,
-literal|54
-block|,
-literal|2118
-block|,
-literal|14
-block|,
-literal|7929
-block|,
-literal|28
-block|,
-literal|7957
-block|,
-literal|54
-block|,
-literal|2118
-block|,
-literal|14
-block|,
-literal|255
-block|,
-literal|9
-block|,
-literal|250
-block|,
-literal|7
-block|,
-block|{
-literal|66
-block|,
-literal|65
-block|,
-literal|77
-block|}
-block|,
-literal|266
-block|,
-literal|2
-block|,
-literal|5144
-block|,
-literal|218
-block|,
-literal|25
-block|,
-literal|5
-block|,
-literal|4
-block|,
-literal|0
-block|,
-literal|2374
-block|,
-literal|14
-block|,
-literal|2331
-block|,
-literal|19
-block|,
-literal|2
-block|,
-literal|1
-block|,
-literal|1
-block|,
-literal|6
-block|,
-literal|7
-block|}
-block|,
-comment|// SerboCroatian/AnyScript/BosniaAndHerzegowina
-block|{
-literal|101
-block|,
-literal|0
-block|,
-literal|238
-block|,
-literal|46
-block|,
-literal|44
-block|,
-literal|59
-block|,
-literal|37
-block|,
-literal|48
-block|,
-literal|45
-block|,
-literal|43
-block|,
-literal|101
-block|,
-literal|8220
-block|,
-literal|8221
-block|,
-literal|8216
-block|,
-literal|8217
-block|,
-literal|0
-block|,
-literal|6
-block|,
-literal|0
-block|,
-literal|6
-block|,
-literal|61
-block|,
-literal|7
-block|,
-literal|61
-block|,
-literal|7
-block|,
-literal|935
-block|,
-literal|7
-block|,
-literal|942
-block|,
-literal|20
-block|,
-literal|150
-block|,
-literal|5
-block|,
-literal|155
-block|,
-literal|10
-block|,
-literal|13635
-block|,
-literal|48
-block|,
-literal|13683
-block|,
-literal|81
-block|,
-literal|13764
-block|,
-literal|24
-block|,
-literal|13635
-block|,
-literal|48
-block|,
-literal|13683
-block|,
-literal|81
-block|,
-literal|13764
-block|,
-literal|24
-block|,
-literal|7929
-block|,
-literal|28
-block|,
-literal|7957
-block|,
-literal|54
-block|,
-literal|2118
-block|,
-literal|14
-block|,
-literal|7929
-block|,
-literal|28
-block|,
-literal|7957
-block|,
-literal|54
-block|,
-literal|2118
-block|,
-literal|14
-block|,
-literal|255
-block|,
-literal|9
-block|,
-literal|250
-block|,
-literal|7
-block|,
-block|{
-literal|0
-block|,
-literal|0
-block|,
-literal|0
-block|}
-block|,
-literal|0
-block|,
-literal|0
-block|,
-literal|5090
-block|,
-literal|0
-block|,
-literal|25
-block|,
-literal|5
-block|,
-literal|4
-block|,
-literal|0
-block|,
-literal|2374
-block|,
-literal|14
-block|,
-literal|0
-block|,
-literal|0
-block|,
-literal|2
-block|,
-literal|1
-block|,
-literal|1
-block|,
-literal|6
-block|,
-literal|7
-block|}
-block|,
-comment|// SerboCroatian/AnyScript/Yugoslavia
-block|{
-literal|101
-block|,
-literal|0
-block|,
-literal|241
-block|,
-literal|46
-block|,
-literal|44
-block|,
-literal|59
-block|,
-literal|37
-block|,
-literal|48
-block|,
-literal|45
-block|,
-literal|43
-block|,
-literal|101
-block|,
-literal|8220
-block|,
-literal|8221
-block|,
-literal|8216
-block|,
-literal|8217
-block|,
-literal|0
-block|,
-literal|6
-block|,
-literal|0
-block|,
-literal|6
-block|,
-literal|61
-block|,
-literal|7
-block|,
-literal|61
-block|,
-literal|7
-block|,
-literal|935
-block|,
-literal|7
-block|,
-literal|942
-block|,
-literal|20
-block|,
-literal|150
-block|,
-literal|5
-block|,
-literal|155
-block|,
-literal|10
-block|,
-literal|13635
-block|,
-literal|48
-block|,
-literal|13683
-block|,
-literal|81
-block|,
-literal|13764
-block|,
-literal|24
-block|,
-literal|13635
-block|,
-literal|48
-block|,
-literal|13683
-block|,
-literal|81
-block|,
-literal|13764
-block|,
-literal|24
-block|,
-literal|7929
-block|,
-literal|28
-block|,
-literal|7957
-block|,
-literal|54
-block|,
-literal|2118
-block|,
-literal|14
-block|,
-literal|7929
-block|,
-literal|28
-block|,
-literal|7957
-block|,
-literal|54
-block|,
-literal|2118
-block|,
-literal|14
-block|,
-literal|255
-block|,
-literal|9
-block|,
-literal|250
-block|,
-literal|7
-block|,
-block|{
-literal|0
-block|,
-literal|0
-block|,
-literal|0
-block|}
-block|,
-literal|0
-block|,
-literal|0
-block|,
-literal|5090
-block|,
-literal|0
-block|,
-literal|25
-block|,
-literal|5
-block|,
-literal|4
-block|,
-literal|0
-block|,
-literal|2374
-block|,
-literal|14
-block|,
-literal|2350
-block|,
-literal|18
-block|,
-literal|2
-block|,
-literal|1
-block|,
-literal|1
-block|,
-literal|6
-block|,
-literal|7
-block|}
-block|,
-comment|// SerboCroatian/AnyScript/SerbiaAndMontenegro
 block|{
 literal|102
 block|,
@@ -38158,7 +36754,7 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2388
+literal|2338
 block|,
 literal|7
 block|,
@@ -38321,7 +36917,7 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2388
+literal|2338
 block|,
 literal|7
 block|,
@@ -38484,7 +37080,7 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2395
+literal|2345
 block|,
 literal|8
 block|,
@@ -38647,7 +37243,7 @@ literal|13
 block|,
 literal|6
 block|,
-literal|2403
+literal|2353
 block|,
 literal|8
 block|,
@@ -38810,11 +37406,11 @@ literal|13
 block|,
 literal|6
 block|,
-literal|2411
+literal|2361
 block|,
 literal|5
 block|,
-literal|2416
+literal|2366
 block|,
 literal|11
 block|,
@@ -38973,7 +37569,7 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2427
+literal|2377
 block|,
 literal|7
 block|,
@@ -39136,7 +37732,7 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2427
+literal|2377
 block|,
 literal|7
 block|,
@@ -39299,11 +37895,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2434
+literal|2384
 block|,
 literal|10
 block|,
-literal|2444
+literal|2394
 block|,
 literal|19
 block|,
@@ -39462,11 +38058,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2463
+literal|2413
 block|,
 literal|11
 block|,
-literal|2474
+literal|2424
 block|,
 literal|9
 block|,
@@ -39625,11 +38221,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2483
+literal|2433
 block|,
 literal|8
 block|,
-literal|2491
+literal|2441
 block|,
 literal|10
 block|,
@@ -39788,11 +38384,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2483
+literal|2433
 block|,
 literal|8
 block|,
-literal|2501
+literal|2451
 block|,
 literal|7
 block|,
@@ -39951,11 +38547,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2483
+literal|2433
 block|,
 literal|8
 block|,
-literal|2508
+literal|2458
 block|,
 literal|8
 block|,
@@ -40114,11 +38710,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2483
+literal|2433
 block|,
 literal|8
 block|,
-literal|2516
+literal|2466
 block|,
 literal|7
 block|,
@@ -40277,7 +38873,7 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2523
+literal|2473
 block|,
 literal|17
 block|,
@@ -40440,11 +39036,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2540
+literal|2490
 block|,
 literal|7
 block|,
-literal|2547
+literal|2497
 block|,
 literal|9
 block|,
@@ -40603,11 +39199,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2540
+literal|2490
 block|,
 literal|7
 block|,
-literal|2556
+literal|2506
 block|,
 literal|7
 block|,
@@ -40766,11 +39362,11 @@ literal|48
 block|,
 literal|5
 block|,
-literal|2540
+literal|2490
 block|,
 literal|7
 block|,
-literal|2563
+literal|2513
 block|,
 literal|5
 block|,
@@ -40929,11 +39525,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2540
+literal|2490
 block|,
 literal|7
 block|,
-literal|2568
+literal|2518
 block|,
 literal|8
 block|,
@@ -41092,11 +39688,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2540
+literal|2490
 block|,
 literal|7
 block|,
-literal|2576
+literal|2526
 block|,
 literal|10
 block|,
@@ -41255,11 +39851,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2540
+literal|2490
 block|,
 literal|7
 block|,
-literal|2586
+literal|2536
 block|,
 literal|20
 block|,
@@ -41418,11 +40014,11 @@ literal|48
 block|,
 literal|5
 block|,
-literal|2540
+literal|2490
 block|,
 literal|7
 block|,
-literal|2606
+literal|2556
 block|,
 literal|7
 block|,
@@ -41581,11 +40177,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2540
+literal|2490
 block|,
 literal|7
 block|,
-literal|2613
+literal|2563
 block|,
 literal|11
 block|,
@@ -41744,11 +40340,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2540
+literal|2490
 block|,
 literal|7
 block|,
-literal|2624
+literal|2574
 block|,
 literal|17
 block|,
@@ -41907,11 +40503,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2540
+literal|2490
 block|,
 literal|7
 block|,
-literal|2641
+literal|2591
 block|,
 literal|9
 block|,
@@ -42070,11 +40666,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2540
+literal|2490
 block|,
 literal|7
 block|,
-literal|2650
+literal|2600
 block|,
 literal|8
 block|,
@@ -42233,11 +40829,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2540
+literal|2490
 block|,
 literal|7
 block|,
-literal|2658
+literal|2608
 block|,
 literal|6
 block|,
@@ -42396,11 +40992,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2540
+literal|2490
 block|,
 literal|7
 block|,
-literal|2664
+literal|2614
 block|,
 literal|9
 block|,
@@ -42559,11 +41155,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2540
+literal|2490
 block|,
 literal|7
 block|,
-literal|2673
+literal|2623
 block|,
 literal|6
 block|,
@@ -42722,11 +41318,11 @@ literal|61
 block|,
 literal|6
 block|,
-literal|2540
+literal|2490
 block|,
 literal|7
 block|,
-literal|2679
+literal|2629
 block|,
 literal|8
 block|,
@@ -42885,11 +41481,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2540
+literal|2490
 block|,
 literal|7
 block|,
-literal|2687
+literal|2637
 block|,
 literal|4
 block|,
@@ -43048,11 +41644,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2540
+literal|2490
 block|,
 literal|7
 block|,
-literal|2691
+literal|2641
 block|,
 literal|11
 block|,
@@ -43211,11 +41807,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2540
+literal|2490
 block|,
 literal|7
 block|,
-literal|2702
+literal|2652
 block|,
 literal|14
 block|,
@@ -43374,11 +41970,11 @@ literal|67
 block|,
 literal|7
 block|,
-literal|2540
+literal|2490
 block|,
 literal|7
 block|,
-literal|2716
+literal|2666
 block|,
 literal|7
 block|,
@@ -43537,11 +42133,11 @@ literal|48
 block|,
 literal|5
 block|,
-literal|2540
+literal|2490
 block|,
 literal|7
 block|,
-literal|2723
+literal|2673
 block|,
 literal|9
 block|,
@@ -43688,7 +42284,7 @@ literal|0
 block|,
 literal|0
 block|,
-literal|5090
+literal|6535
 block|,
 literal|0
 block|,
@@ -43700,11 +42296,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2732
+literal|2682
 block|,
 literal|23
 block|,
-literal|2755
+literal|2705
 block|,
 literal|25
 block|,
@@ -43863,11 +42459,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2780
+literal|2730
 block|,
 literal|9
 block|,
-literal|2789
+literal|2739
 block|,
 literal|8
 block|,
@@ -44026,11 +42622,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2780
+literal|2730
 block|,
 literal|9
 block|,
-literal|2797
+literal|2747
 block|,
 literal|5
 block|,
@@ -44189,11 +42785,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2802
+literal|2752
 block|,
 literal|7
 block|,
-literal|2809
+literal|2759
 block|,
 literal|7
 block|,
@@ -44352,11 +42948,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2802
+literal|2752
 block|,
 literal|7
 block|,
-literal|2816
+literal|2766
 block|,
 literal|7
 block|,
@@ -44372,169 +42968,6 @@ literal|7
 block|}
 block|,
 comment|// Swedish/AnyScript/Finland
-block|{
-literal|115
-block|,
-literal|0
-block|,
-literal|170
-block|,
-literal|46
-block|,
-literal|44
-block|,
-literal|59
-block|,
-literal|37
-block|,
-literal|48
-block|,
-literal|45
-block|,
-literal|43
-block|,
-literal|101
-block|,
-literal|8220
-block|,
-literal|8221
-block|,
-literal|8216
-block|,
-literal|8217
-block|,
-literal|0
-block|,
-literal|6
-block|,
-literal|0
-block|,
-literal|6
-block|,
-literal|300
-block|,
-literal|8
-block|,
-literal|300
-block|,
-literal|8
-block|,
-literal|558
-block|,
-literal|6
-block|,
-literal|1071
-block|,
-literal|18
-block|,
-literal|37
-block|,
-literal|5
-block|,
-literal|8
-block|,
-literal|10
-block|,
-literal|15621
-block|,
-literal|48
-block|,
-literal|15669
-block|,
-literal|88
-block|,
-literal|15757
-block|,
-literal|24
-block|,
-literal|15621
-block|,
-literal|48
-block|,
-literal|15669
-block|,
-literal|88
-block|,
-literal|15757
-block|,
-literal|24
-block|,
-literal|9023
-block|,
-literal|28
-block|,
-literal|9051
-block|,
-literal|55
-block|,
-literal|9106
-block|,
-literal|14
-block|,
-literal|9120
-block|,
-literal|28
-block|,
-literal|9051
-block|,
-literal|55
-block|,
-literal|9106
-block|,
-literal|14
-block|,
-literal|0
-block|,
-literal|2
-block|,
-literal|0
-block|,
-literal|2
-block|,
-block|{
-literal|80
-block|,
-literal|72
-block|,
-literal|80
-block|}
-block|,
-literal|152
-block|,
-literal|1
-block|,
-literal|6650
-block|,
-literal|22
-block|,
-literal|8
-block|,
-literal|5
-block|,
-literal|4
-block|,
-literal|0
-block|,
-literal|2823
-block|,
-literal|7
-block|,
-literal|2830
-block|,
-literal|9
-block|,
-literal|2
-block|,
-literal|1
-block|,
-literal|7
-block|,
-literal|6
-block|,
-literal|7
-block|}
-block|,
-comment|// Tagalog/AnyScript/Philippines
 block|{
 literal|116
 block|,
@@ -44598,11 +43031,11 @@ literal|8
 block|,
 literal|10
 block|,
-literal|15781
+literal|15621
 block|,
 literal|48
 block|,
-literal|15829
+literal|15669
 block|,
 literal|71
 block|,
@@ -44610,11 +43043,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|15781
+literal|15621
 block|,
 literal|48
 block|,
-literal|15829
+literal|15669
 block|,
 literal|71
 block|,
@@ -44622,11 +43055,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|9148
+literal|9023
 block|,
 literal|28
 block|,
-literal|9176
+literal|9051
 block|,
 literal|55
 block|,
@@ -44634,11 +43067,11 @@ literal|798
 block|,
 literal|14
 block|,
-literal|9148
+literal|9023
 block|,
 literal|28
 block|,
-literal|9176
+literal|9051
 block|,
 literal|55
 block|,
@@ -44666,7 +43099,7 @@ literal|202
 block|,
 literal|3
 block|,
-literal|6672
+literal|6650
 block|,
 literal|13
 block|,
@@ -44761,11 +43194,11 @@ literal|8
 block|,
 literal|10
 block|,
-literal|15781
+literal|15621
 block|,
 literal|48
 block|,
-literal|15829
+literal|15669
 block|,
 literal|71
 block|,
@@ -44773,11 +43206,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|15781
+literal|15621
 block|,
 literal|48
 block|,
-literal|15829
+literal|15669
 block|,
 literal|71
 block|,
@@ -44785,11 +43218,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|9148
+literal|9023
 block|,
 literal|28
 block|,
-literal|9176
+literal|9051
 block|,
 literal|55
 block|,
@@ -44797,11 +43230,11 @@ literal|798
 block|,
 literal|14
 block|,
-literal|9148
+literal|9023
 block|,
 literal|28
 block|,
-literal|9176
+literal|9051
 block|,
 literal|55
 block|,
@@ -44829,7 +43262,7 @@ literal|202
 block|,
 literal|3
 block|,
-literal|6672
+literal|6650
 block|,
 literal|13
 block|,
@@ -44900,11 +43333,11 @@ literal|0
 block|,
 literal|6
 block|,
-literal|308
+literal|300
 block|,
 literal|13
 block|,
-literal|308
+literal|300
 block|,
 literal|13
 block|,
@@ -44924,51 +43357,51 @@ literal|25
 block|,
 literal|12
 block|,
-literal|15900
+literal|15740
 block|,
 literal|58
 block|,
-literal|15958
+literal|15798
 block|,
 literal|88
 block|,
-literal|16046
+literal|15886
 block|,
 literal|31
 block|,
-literal|15900
+literal|15740
 block|,
 literal|58
 block|,
-literal|15958
+literal|15798
 block|,
 literal|88
 block|,
-literal|16046
+literal|15886
 block|,
 literal|31
 block|,
-literal|9231
+literal|9106
 block|,
 literal|20
 block|,
-literal|9251
+literal|9126
 block|,
 literal|49
 block|,
-literal|9231
+literal|9106
 block|,
 literal|20
 block|,
-literal|9231
+literal|9106
 block|,
 literal|20
 block|,
-literal|9251
+literal|9126
 block|,
 literal|49
 block|,
-literal|9231
+literal|9106
 block|,
 literal|20
 block|,
@@ -44992,7 +43425,7 @@ literal|309
 block|,
 literal|2
 block|,
-literal|6685
+literal|6663
 block|,
 literal|13
 block|,
@@ -45004,11 +43437,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2839
+literal|2773
 block|,
 literal|5
 block|,
-literal|2844
+literal|2778
 block|,
 literal|7
 block|,
@@ -45063,11 +43496,11 @@ literal|0
 block|,
 literal|6
 block|,
-literal|308
+literal|300
 block|,
 literal|13
 block|,
-literal|308
+literal|300
 block|,
 literal|13
 block|,
@@ -45087,51 +43520,51 @@ literal|25
 block|,
 literal|12
 block|,
-literal|15900
+literal|15740
 block|,
 literal|58
 block|,
-literal|15958
+literal|15798
 block|,
 literal|88
 block|,
-literal|16046
+literal|15886
 block|,
 literal|31
 block|,
-literal|15900
+literal|15740
 block|,
 literal|58
 block|,
-literal|15958
+literal|15798
 block|,
 literal|88
 block|,
-literal|16046
+literal|15886
 block|,
 literal|31
 block|,
-literal|9231
+literal|9106
 block|,
 literal|20
 block|,
-literal|9251
+literal|9126
 block|,
 literal|49
 block|,
-literal|9231
+literal|9106
 block|,
 literal|20
 block|,
-literal|9231
+literal|9106
 block|,
 literal|20
 block|,
-literal|9251
+literal|9126
 block|,
 literal|49
 block|,
-literal|9231
+literal|9106
 block|,
 literal|20
 block|,
@@ -45167,11 +43600,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2839
+literal|2773
 block|,
 literal|5
 block|,
-literal|2851
+literal|2785
 block|,
 literal|6
 block|,
@@ -45238,7 +43671,7 @@ literal|876
 block|,
 literal|10
 block|,
-literal|1089
+literal|1071
 block|,
 literal|11
 block|,
@@ -45330,7 +43763,7 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2857
+literal|2791
 block|,
 literal|5
 block|,
@@ -45349,7 +43782,7 @@ block|,
 literal|7
 block|}
 block|,
-comment|// Tatar/AnyScript/RussianFederation
+comment|// Tatar/AnyScript/Russia
 block|{
 literal|119
 block|,
@@ -45389,11 +43822,11 @@ literal|0
 block|,
 literal|6
 block|,
-literal|321
+literal|313
 block|,
 literal|12
 block|,
-literal|333
+literal|325
 block|,
 literal|11
 block|,
@@ -45413,51 +43846,51 @@ literal|25
 block|,
 literal|12
 block|,
-literal|16077
+literal|15917
 block|,
 literal|86
 block|,
-literal|16077
+literal|15917
 block|,
 literal|86
 block|,
-literal|16163
+literal|16003
 block|,
 literal|30
 block|,
-literal|16077
+literal|15917
 block|,
 literal|86
 block|,
-literal|16077
+literal|15917
 block|,
 literal|86
 block|,
-literal|16163
+literal|16003
 block|,
 literal|30
 block|,
-literal|9300
+literal|9175
 block|,
 literal|32
 block|,
-literal|9332
+literal|9207
 block|,
 literal|60
 block|,
-literal|9392
+literal|9267
 block|,
 literal|18
 block|,
-literal|9300
+literal|9175
 block|,
 literal|32
 block|,
-literal|9332
+literal|9207
 block|,
 literal|60
 block|,
-literal|9392
+literal|9267
 block|,
 literal|18
 block|,
@@ -45481,7 +43914,7 @@ literal|315
 block|,
 literal|3
 block|,
-literal|6698
+literal|6676
 block|,
 literal|13
 block|,
@@ -45493,11 +43926,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2862
+literal|2796
 block|,
 literal|6
 block|,
-literal|2868
+literal|2802
 block|,
 literal|9
 block|,
@@ -45544,19 +43977,19 @@ literal|8216
 block|,
 literal|8217
 block|,
-literal|344
+literal|336
 block|,
 literal|5
 block|,
-literal|344
+literal|336
 block|,
 literal|5
 block|,
-literal|349
+literal|341
 block|,
 literal|8
 block|,
-literal|357
+literal|349
 block|,
 literal|7
 block|,
@@ -45564,7 +43997,7 @@ literal|364
 block|,
 literal|8
 block|,
-literal|1100
+literal|1082
 block|,
 literal|19
 block|,
@@ -45576,51 +44009,51 @@ literal|528
 block|,
 literal|27
 block|,
-literal|16193
+literal|16033
 block|,
 literal|63
 block|,
-literal|16256
+literal|16096
 block|,
 literal|98
 block|,
-literal|16193
+literal|16033
 block|,
 literal|63
 block|,
-literal|16193
+literal|16033
 block|,
 literal|63
 block|,
-literal|16256
+literal|16096
 block|,
 literal|98
 block|,
-literal|16354
+literal|16194
 block|,
 literal|24
 block|,
-literal|9410
+literal|9285
 block|,
 literal|23
 block|,
-literal|9433
+literal|9308
 block|,
 literal|68
 block|,
-literal|9501
+literal|9376
 block|,
 literal|14
 block|,
-literal|9410
+literal|9285
 block|,
 literal|23
 block|,
-literal|9433
+literal|9308
 block|,
 literal|68
 block|,
-literal|9501
+literal|9376
 block|,
 literal|14
 block|,
@@ -45644,7 +44077,7 @@ literal|318
 block|,
 literal|1
 block|,
-literal|6711
+literal|6689
 block|,
 literal|13
 block|,
@@ -45656,11 +44089,11 @@ literal|48
 block|,
 literal|5
 block|,
-literal|2877
+literal|2811
 block|,
 literal|3
 block|,
-literal|2877
+literal|2811
 block|,
 literal|3
 block|,
@@ -45739,11 +44172,11 @@ literal|8
 block|,
 literal|10
 block|,
-literal|16378
+literal|16218
 block|,
 literal|63
 block|,
-literal|16441
+literal|16281
 block|,
 literal|158
 block|,
@@ -45751,11 +44184,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|16378
+literal|16218
 block|,
 literal|63
 block|,
-literal|16441
+literal|16281
 block|,
 literal|158
 block|,
@@ -45763,27 +44196,27 @@ literal|158
 block|,
 literal|27
 block|,
-literal|9515
+literal|9390
 block|,
 literal|49
 block|,
-literal|9564
+literal|9439
 block|,
 literal|77
 block|,
-literal|9641
+literal|9516
 block|,
 literal|21
 block|,
-literal|9515
+literal|9390
 block|,
 literal|49
 block|,
-literal|9564
+literal|9439
 block|,
 literal|77
 block|,
-literal|9641
+literal|9516
 block|,
 literal|21
 block|,
@@ -45807,7 +44240,7 @@ literal|229
 block|,
 literal|3
 block|,
-literal|6724
+literal|6702
 block|,
 literal|13
 block|,
@@ -45819,11 +44252,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2880
+literal|2814
 block|,
 literal|8
 block|,
-literal|2888
+literal|2822
 block|,
 literal|6
 block|,
@@ -45902,11 +44335,11 @@ literal|8
 block|,
 literal|10
 block|,
-literal|16378
+literal|16218
 block|,
 literal|63
 block|,
-literal|16441
+literal|16281
 block|,
 literal|158
 block|,
@@ -45914,11 +44347,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|16378
+literal|16218
 block|,
 literal|63
 block|,
-literal|16441
+literal|16281
 block|,
 literal|158
 block|,
@@ -45926,27 +44359,27 @@ literal|158
 block|,
 literal|27
 block|,
-literal|9515
+literal|9390
 block|,
 literal|49
 block|,
-literal|9564
+literal|9439
 block|,
 literal|77
 block|,
-literal|9641
+literal|9516
 block|,
 literal|21
 block|,
-literal|9515
+literal|9390
 block|,
 literal|49
 block|,
-literal|9564
+literal|9439
 block|,
 literal|77
 block|,
-literal|9641
+literal|9516
 block|,
 literal|21
 block|,
@@ -45970,7 +44403,7 @@ literal|145
 block|,
 literal|2
 block|,
-literal|6737
+literal|6715
 block|,
 literal|22
 block|,
@@ -45982,11 +44415,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2880
+literal|2814
 block|,
 literal|8
 block|,
-literal|2894
+literal|2828
 block|,
 literal|7
 block|,
@@ -46053,7 +44486,7 @@ literal|27
 block|,
 literal|8
 block|,
-literal|1119
+literal|1101
 block|,
 literal|23
 block|,
@@ -46089,27 +44522,27 @@ literal|1061
 block|,
 literal|24
 block|,
-literal|9662
+literal|9537
 block|,
 literal|29
 block|,
-literal|9662
+literal|9537
 block|,
 literal|29
 block|,
-literal|9691
+literal|9566
 block|,
 literal|14
 block|,
-literal|9662
+literal|9537
 block|,
 literal|29
 block|,
-literal|9662
+literal|9537
 block|,
 literal|29
 block|,
-literal|9691
+literal|9566
 block|,
 literal|14
 block|,
@@ -46145,7 +44578,7 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2901
+literal|2835
 block|,
 literal|4
 block|,
@@ -46216,7 +44649,7 @@ literal|27
 block|,
 literal|8
 block|,
-literal|1142
+literal|1124
 block|,
 literal|23
 block|,
@@ -46228,11 +44661,11 @@ literal|25
 block|,
 literal|12
 block|,
-literal|16599
+literal|16439
 block|,
 literal|46
 block|,
-literal|16645
+literal|16485
 block|,
 literal|54
 block|,
@@ -46240,11 +44673,11 @@ literal|1061
 block|,
 literal|24
 block|,
-literal|16599
+literal|16439
 block|,
 literal|46
 block|,
-literal|16645
+literal|16485
 block|,
 literal|54
 block|,
@@ -46252,27 +44685,27 @@ literal|1061
 block|,
 literal|24
 block|,
-literal|9705
+literal|9580
 block|,
 literal|29
 block|,
-literal|9705
+literal|9580
 block|,
 literal|29
 block|,
-literal|9691
+literal|9566
 block|,
 literal|14
 block|,
-literal|9705
+literal|9580
 block|,
 literal|29
 block|,
-literal|9705
+literal|9580
 block|,
 literal|29
 block|,
-literal|9691
+literal|9566
 block|,
 literal|14
 block|,
@@ -46308,11 +44741,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2901
+literal|2835
 block|,
 literal|4
 block|,
-literal|2905
+literal|2839
 block|,
 literal|4
 block|,
@@ -46391,51 +44824,51 @@ literal|8
 block|,
 literal|10
 block|,
-literal|16699
+literal|16539
 block|,
 literal|51
 block|,
-literal|16750
+literal|16590
 block|,
 literal|87
 block|,
-literal|16837
+literal|16677
 block|,
 literal|24
 block|,
-literal|16699
+literal|16539
 block|,
 literal|51
 block|,
-literal|16750
+literal|16590
 block|,
 literal|87
 block|,
-literal|16837
+literal|16677
 block|,
 literal|24
 block|,
-literal|9734
+literal|9609
 block|,
 literal|29
 block|,
-literal|9763
+literal|9638
 block|,
 literal|60
 block|,
-literal|9823
+literal|9698
 block|,
 literal|14
 block|,
-literal|9734
+literal|9609
 block|,
 literal|29
 block|,
-literal|9763
+literal|9638
 block|,
 literal|60
 block|,
-literal|9823
+literal|9698
 block|,
 literal|14
 block|,
@@ -46471,11 +44904,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2909
+literal|2843
 block|,
 literal|13
 block|,
-literal|2922
+literal|2856
 block|,
 literal|5
 block|,
@@ -46554,11 +44987,11 @@ literal|8
 block|,
 literal|10
 block|,
-literal|16861
+literal|16701
 block|,
 literal|48
 block|,
-literal|16909
+literal|16749
 block|,
 literal|122
 block|,
@@ -46566,11 +44999,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|16861
+literal|16701
 block|,
 literal|48
 block|,
-literal|16909
+literal|16749
 block|,
 literal|122
 block|,
@@ -46578,11 +45011,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|9837
+literal|9712
 block|,
 literal|27
 block|,
-literal|9864
+literal|9739
 block|,
 literal|72
 block|,
@@ -46590,11 +45023,11 @@ literal|798
 block|,
 literal|14
 block|,
-literal|9837
+literal|9712
 block|,
 literal|27
 block|,
-literal|9864
+literal|9739
 block|,
 literal|72
 block|,
@@ -46634,7 +45067,7 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2927
+literal|2861
 block|,
 literal|8
 block|,
@@ -46693,11 +45126,11 @@ literal|0
 block|,
 literal|6
 block|,
-literal|364
+literal|356
 block|,
 literal|8
 block|,
-literal|364
+literal|356
 block|,
 literal|8
 block|,
@@ -46705,7 +45138,7 @@ literal|876
 block|,
 literal|10
 block|,
-literal|1165
+literal|1147
 block|,
 literal|17
 block|,
@@ -46717,51 +45150,51 @@ literal|8
 block|,
 literal|10
 block|,
-literal|17031
+literal|16871
 block|,
 literal|48
 block|,
-literal|17079
+literal|16919
 block|,
 literal|75
 block|,
-literal|17154
+literal|16994
 block|,
 literal|24
 block|,
-literal|17031
+literal|16871
 block|,
 literal|48
 block|,
-literal|17079
+literal|16919
 block|,
 literal|75
 block|,
-literal|17154
+literal|16994
 block|,
 literal|24
 block|,
-literal|9936
+literal|9811
 block|,
 literal|28
 block|,
-literal|9964
+literal|9839
 block|,
 literal|54
 block|,
-literal|10018
+literal|9893
 block|,
 literal|14
 block|,
-literal|9936
+literal|9811
 block|,
 literal|28
 block|,
-literal|9964
+literal|9839
 block|,
 literal|54
 block|,
-literal|10018
+literal|9893
 block|,
 literal|14
 block|,
@@ -46785,7 +45218,7 @@ literal|209
 block|,
 literal|2
 block|,
-literal|6759
+literal|6737
 block|,
 literal|18
 block|,
@@ -46797,11 +45230,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2935
+literal|2869
 block|,
 literal|6
 block|,
-literal|2941
+literal|2875
 block|,
 literal|7
 block|,
@@ -47182,11 +45615,11 @@ literal|0
 block|,
 literal|6
 block|,
-literal|372
+literal|364
 block|,
 literal|8
 block|,
-literal|372
+literal|364
 block|,
 literal|8
 block|,
@@ -47194,7 +45627,7 @@ literal|332
 block|,
 literal|8
 block|,
-literal|1182
+literal|1164
 block|,
 literal|22
 block|,
@@ -47206,51 +45639,51 @@ literal|8
 block|,
 literal|10
 block|,
-literal|17178
+literal|17018
 block|,
 literal|48
 block|,
-literal|17226
+literal|17066
 block|,
 literal|95
 block|,
-literal|17321
+literal|17161
 block|,
 literal|24
 block|,
-literal|17345
+literal|17185
 block|,
 literal|67
 block|,
-literal|17412
+literal|17252
 block|,
 literal|87
 block|,
-literal|17321
+literal|17161
 block|,
 literal|24
 block|,
-literal|10032
+literal|9907
 block|,
 literal|21
 block|,
-literal|10053
+literal|9928
 block|,
 literal|56
 block|,
-literal|10109
+literal|9984
 block|,
 literal|14
 block|,
-literal|10032
+literal|9907
 block|,
 literal|21
 block|,
-literal|10053
+literal|9928
 block|,
 literal|56
 block|,
-literal|10109
+literal|9984
 block|,
 literal|14
 block|,
@@ -47274,7 +45707,7 @@ literal|258
 block|,
 literal|1
 block|,
-literal|6777
+literal|6755
 block|,
 literal|49
 block|,
@@ -47286,11 +45719,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2948
+literal|2882
 block|,
 literal|10
 block|,
-literal|2958
+literal|2892
 block|,
 literal|7
 block|,
@@ -47357,7 +45790,7 @@ literal|279
 block|,
 literal|6
 block|,
-literal|1204
+literal|1186
 block|,
 literal|18
 block|,
@@ -47369,23 +45802,11 @@ literal|25
 block|,
 literal|12
 block|,
-literal|17499
+literal|17339
 block|,
 literal|67
 block|,
-literal|17499
-block|,
-literal|67
-block|,
-literal|11788
-block|,
-literal|24
-block|,
-literal|17499
-block|,
-literal|67
-block|,
-literal|17499
+literal|17339
 block|,
 literal|67
 block|,
@@ -47393,27 +45814,39 @@ literal|11788
 block|,
 literal|24
 block|,
-literal|10123
+literal|17339
+block|,
+literal|67
+block|,
+literal|17339
+block|,
+literal|67
+block|,
+literal|11788
+block|,
+literal|24
+block|,
+literal|9998
 block|,
 literal|36
 block|,
-literal|10123
+literal|9998
 block|,
 literal|36
 block|,
-literal|10159
+literal|10034
 block|,
 literal|14
 block|,
-literal|10123
+literal|9998
 block|,
 literal|36
 block|,
-literal|10123
+literal|9998
 block|,
 literal|36
 block|,
-literal|10159
+literal|10034
 block|,
 literal|14
 block|,
@@ -47437,7 +45870,7 @@ literal|321
 block|,
 literal|4
 block|,
-literal|6826
+literal|6804
 block|,
 literal|21
 block|,
@@ -47449,11 +45882,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2965
+literal|2899
 block|,
 literal|4
 block|,
-literal|2969
+literal|2903
 block|,
 literal|7
 block|,
@@ -47520,7 +45953,7 @@ literal|279
 block|,
 literal|6
 block|,
-literal|1204
+literal|1186
 block|,
 literal|18
 block|,
@@ -47532,23 +45965,11 @@ literal|25
 block|,
 literal|12
 block|,
-literal|17499
+literal|17339
 block|,
 literal|67
 block|,
-literal|17499
-block|,
-literal|67
-block|,
-literal|11788
-block|,
-literal|24
-block|,
-literal|17499
-block|,
-literal|67
-block|,
-literal|17499
+literal|17339
 block|,
 literal|67
 block|,
@@ -47556,27 +45977,39 @@ literal|11788
 block|,
 literal|24
 block|,
-literal|10123
+literal|17339
+block|,
+literal|67
+block|,
+literal|17339
+block|,
+literal|67
+block|,
+literal|11788
+block|,
+literal|24
+block|,
+literal|9998
 block|,
 literal|36
 block|,
-literal|10123
+literal|9998
 block|,
 literal|36
 block|,
-literal|10159
+literal|10034
 block|,
 literal|14
 block|,
-literal|10123
+literal|9998
 block|,
 literal|36
 block|,
-literal|10123
+literal|9998
 block|,
 literal|36
 block|,
-literal|10159
+literal|10034
 block|,
 literal|14
 block|,
@@ -47600,7 +46033,7 @@ literal|145
 block|,
 literal|2
 block|,
-literal|6847
+literal|6825
 block|,
 literal|18
 block|,
@@ -47612,11 +46045,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2965
+literal|2899
 block|,
 literal|4
 block|,
-literal|2976
+literal|2910
 block|,
 literal|5
 block|,
@@ -47695,11 +46128,11 @@ literal|8
 block|,
 literal|10
 block|,
-literal|15781
+literal|15621
 block|,
 literal|48
 block|,
-literal|17566
+literal|17406
 block|,
 literal|115
 block|,
@@ -47707,11 +46140,11 @@ literal|13091
 block|,
 literal|24
 block|,
-literal|15781
+literal|15621
 block|,
 literal|48
 block|,
-literal|17566
+literal|17406
 block|,
 literal|115
 block|,
@@ -47719,27 +46152,27 @@ literal|13091
 block|,
 literal|24
 block|,
-literal|10173
+literal|10048
 block|,
 literal|28
 block|,
-literal|10201
+literal|10076
 block|,
 literal|53
 block|,
-literal|10254
+literal|10129
 block|,
 literal|14
 block|,
-literal|10173
+literal|10048
 block|,
 literal|28
 block|,
-literal|10201
+literal|10076
 block|,
 literal|53
 block|,
-literal|10254
+literal|10129
 block|,
 literal|14
 block|,
@@ -47763,7 +46196,7 @@ literal|325
 block|,
 literal|3
 block|,
-literal|6865
+literal|6843
 block|,
 literal|21
 block|,
@@ -47775,11 +46208,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2981
+literal|2915
 block|,
 literal|5
 block|,
-literal|2986
+literal|2920
 block|,
 literal|10
 block|,
@@ -47846,7 +46279,7 @@ literal|179
 block|,
 literal|8
 block|,
-literal|1222
+literal|1204
 block|,
 literal|33
 block|,
@@ -47858,7 +46291,7 @@ literal|429
 block|,
 literal|11
 block|,
-literal|17681
+literal|17521
 block|,
 literal|48
 block|,
@@ -47870,7 +46303,7 @@ literal|13091
 block|,
 literal|24
 block|,
-literal|17681
+literal|17521
 block|,
 literal|48
 block|,
@@ -47882,7 +46315,7 @@ literal|13091
 block|,
 literal|24
 block|,
-literal|10268
+literal|10143
 block|,
 literal|21
 block|,
@@ -47890,11 +46323,11 @@ literal|6780
 block|,
 literal|49
 block|,
-literal|10254
+literal|10129
 block|,
 literal|14
 block|,
-literal|10268
+literal|10143
 block|,
 literal|21
 block|,
@@ -47902,7 +46335,7 @@ literal|6780
 block|,
 literal|49
 block|,
-literal|10254
+literal|10129
 block|,
 literal|14
 block|,
@@ -47926,7 +46359,7 @@ literal|328
 block|,
 literal|2
 block|,
-literal|6886
+literal|6864
 block|,
 literal|13
 block|,
@@ -47938,7 +46371,7 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2996
+literal|2930
 block|,
 literal|6
 block|,
@@ -48009,7 +46442,7 @@ literal|179
 block|,
 literal|8
 block|,
-literal|1222
+literal|1204
 block|,
 literal|33
 block|,
@@ -48021,7 +46454,7 @@ literal|429
 block|,
 literal|11
 block|,
-literal|17681
+literal|17521
 block|,
 literal|48
 block|,
@@ -48033,7 +46466,7 @@ literal|13091
 block|,
 literal|24
 block|,
-literal|17681
+literal|17521
 block|,
 literal|48
 block|,
@@ -48045,7 +46478,7 @@ literal|13091
 block|,
 literal|24
 block|,
-literal|10268
+literal|10143
 block|,
 literal|21
 block|,
@@ -48053,11 +46486,11 @@ literal|6780
 block|,
 literal|49
 block|,
-literal|10254
+literal|10129
 block|,
 literal|14
 block|,
-literal|10268
+literal|10143
 block|,
 literal|21
 block|,
@@ -48065,7 +46498,7 @@ literal|6780
 block|,
 literal|49
 block|,
-literal|10254
+literal|10129
 block|,
 literal|14
 block|,
@@ -48089,7 +46522,7 @@ literal|328
 block|,
 literal|2
 block|,
-literal|6886
+literal|6864
 block|,
 literal|13
 block|,
@@ -48101,7 +46534,7 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2996
+literal|2930
 block|,
 literal|6
 block|,
@@ -48184,11 +46617,11 @@ literal|8
 block|,
 literal|10
 block|,
-literal|15781
+literal|15621
 block|,
 literal|48
 block|,
-literal|17566
+literal|17406
 block|,
 literal|115
 block|,
@@ -48196,11 +46629,11 @@ literal|13091
 block|,
 literal|24
 block|,
-literal|15781
+literal|15621
 block|,
 literal|48
 block|,
-literal|17566
+literal|17406
 block|,
 literal|115
 block|,
@@ -48208,27 +46641,27 @@ literal|13091
 block|,
 literal|24
 block|,
-literal|10173
+literal|10048
 block|,
 literal|28
 block|,
-literal|10201
+literal|10076
 block|,
 literal|53
 block|,
-literal|10254
+literal|10129
 block|,
 literal|14
 block|,
-literal|10173
+literal|10048
 block|,
 literal|28
 block|,
-literal|10201
+literal|10076
 block|,
 literal|53
 block|,
-literal|10254
+literal|10129
 block|,
 literal|14
 block|,
@@ -48252,7 +46685,7 @@ literal|325
 block|,
 literal|3
 block|,
-literal|6865
+literal|6843
 block|,
 literal|21
 block|,
@@ -48264,11 +46697,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|2981
+literal|2915
 block|,
 literal|5
 block|,
-literal|2986
+literal|2920
 block|,
 literal|10
 block|,
@@ -48347,51 +46780,51 @@ literal|8
 block|,
 literal|10
 block|,
-literal|17729
+literal|17569
 block|,
 literal|52
 block|,
-literal|17566
+literal|17406
 block|,
 literal|115
 block|,
-literal|17781
+literal|17621
 block|,
 literal|24
 block|,
-literal|17729
+literal|17569
 block|,
 literal|52
 block|,
-literal|17566
+literal|17406
 block|,
 literal|115
 block|,
-literal|17781
+literal|17621
 block|,
 literal|24
 block|,
-literal|10289
+literal|10164
 block|,
 literal|34
 block|,
-literal|10323
+literal|10198
 block|,
 literal|61
 block|,
-literal|10384
+literal|10259
 block|,
 literal|14
 block|,
-literal|10289
+literal|10164
 block|,
 literal|34
 block|,
-literal|10323
+literal|10198
 block|,
 literal|61
 block|,
-literal|10384
+literal|10259
 block|,
 literal|14
 block|,
@@ -48415,7 +46848,7 @@ literal|330
 block|,
 literal|4
 block|,
-literal|6899
+literal|6877
 block|,
 literal|23
 block|,
@@ -48427,11 +46860,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3002
+literal|2936
 block|,
 literal|9
 block|,
-literal|3011
+literal|2945
 block|,
 literal|11
 block|,
@@ -48486,11 +46919,11 @@ literal|0
 block|,
 literal|6
 block|,
-literal|380
+literal|372
 block|,
 literal|8
 block|,
-literal|380
+literal|372
 block|,
 literal|8
 block|,
@@ -48498,7 +46931,7 @@ literal|141
 block|,
 literal|10
 block|,
-literal|1255
+literal|1237
 block|,
 literal|31
 block|,
@@ -48510,11 +46943,11 @@ literal|8
 block|,
 literal|10
 block|,
-literal|17805
+literal|17645
 block|,
 literal|75
 block|,
-literal|17880
+literal|17720
 block|,
 literal|130
 block|,
@@ -48522,11 +46955,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|17805
+literal|17645
 block|,
 literal|75
 block|,
-literal|17880
+literal|17720
 block|,
 literal|130
 block|,
@@ -48534,27 +46967,27 @@ literal|158
 block|,
 literal|27
 block|,
-literal|10398
+literal|10273
 block|,
 literal|33
 block|,
-literal|10431
+literal|10306
 block|,
 literal|55
 block|,
-literal|10486
+literal|10361
 block|,
 literal|21
 block|,
-literal|10398
+literal|10273
 block|,
 literal|33
 block|,
-literal|10431
+literal|10306
 block|,
 literal|55
 block|,
-literal|10486
+literal|10361
 block|,
 literal|21
 block|,
@@ -48578,7 +47011,7 @@ literal|334
 block|,
 literal|1
 block|,
-literal|6922
+literal|6900
 block|,
 literal|11
 block|,
@@ -48590,11 +47023,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3022
+literal|2956
 block|,
 literal|10
 block|,
-literal|3032
+literal|2966
 block|,
 literal|8
 block|,
@@ -48609,7 +47042,7 @@ block|,
 literal|7
 block|}
 block|,
-comment|// Vietnamese/AnyScript/VietNam
+comment|// Vietnamese/AnyScript/Vietnam
 block|{
 literal|134
 block|,
@@ -48673,51 +47106,51 @@ literal|8
 block|,
 literal|10
 block|,
-literal|18010
+literal|17850
 block|,
 literal|53
 block|,
-literal|18063
+literal|17903
 block|,
 literal|87
 block|,
-literal|18150
+literal|17990
 block|,
 literal|24
 block|,
-literal|18174
+literal|18014
 block|,
 literal|62
 block|,
-literal|18236
+literal|18076
 block|,
 literal|86
 block|,
-literal|18150
+literal|17990
 block|,
 literal|24
 block|,
-literal|10507
+literal|10382
 block|,
 literal|29
 block|,
-literal|10536
+literal|10411
 block|,
 literal|77
 block|,
-literal|10613
+literal|10488
 block|,
 literal|14
 block|,
-literal|10627
+literal|10502
 block|,
 literal|30
 block|,
-literal|10536
+literal|10411
 block|,
 literal|77
 block|,
-literal|10613
+literal|10488
 block|,
 literal|14
 block|,
@@ -48741,7 +47174,7 @@ literal|153
 block|,
 literal|1
 block|,
-literal|6933
+literal|6911
 block|,
 literal|28
 block|,
@@ -48753,11 +47186,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3040
+literal|2974
 block|,
 literal|7
 block|,
-literal|3047
+literal|2981
 block|,
 literal|12
 block|,
@@ -49162,11 +47595,11 @@ literal|8
 block|,
 literal|10
 block|,
-literal|18322
+literal|18162
 block|,
 literal|48
 block|,
-literal|18370
+literal|18210
 block|,
 literal|91
 block|,
@@ -49174,11 +47607,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|18322
+literal|18162
 block|,
 literal|48
 block|,
-literal|18370
+literal|18210
 block|,
 literal|91
 block|,
@@ -49186,11 +47619,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|10657
+literal|10532
 block|,
 literal|28
 block|,
-literal|10685
+literal|10560
 block|,
 literal|61
 block|,
@@ -49198,11 +47631,11 @@ literal|798
 block|,
 literal|14
 block|,
-literal|10657
+literal|10532
 block|,
 literal|28
 block|,
-literal|10685
+literal|10560
 block|,
 literal|61
 block|,
@@ -49242,7 +47675,7 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3059
+literal|2993
 block|,
 literal|8
 block|,
@@ -49325,11 +47758,11 @@ literal|25
 block|,
 literal|12
 block|,
-literal|18461
+literal|18301
 block|,
 literal|73
 block|,
-literal|18534
+literal|18374
 block|,
 literal|121
 block|,
@@ -49337,11 +47770,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|18461
+literal|18301
 block|,
 literal|73
 block|,
-literal|18534
+literal|18374
 block|,
 literal|121
 block|,
@@ -49349,11 +47782,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|10746
+literal|10621
 block|,
 literal|44
 block|,
-literal|10790
+literal|10665
 block|,
 literal|69
 block|,
@@ -49361,11 +47794,11 @@ literal|798
 block|,
 literal|14
 block|,
-literal|10746
+literal|10621
 block|,
 literal|44
 block|,
-literal|10790
+literal|10665
 block|,
 literal|69
 block|,
@@ -49393,7 +47826,7 @@ literal|182
 block|,
 literal|1
 block|,
-literal|6961
+literal|6939
 block|,
 literal|34
 block|,
@@ -49405,11 +47838,11 @@ literal|13
 block|,
 literal|6
 block|,
-literal|3067
+literal|3001
 block|,
 literal|10
 block|,
-literal|3077
+literal|3011
 block|,
 literal|18
 block|,
@@ -49488,11 +47921,11 @@ literal|25
 block|,
 literal|12
 block|,
-literal|18655
+literal|18495
 block|,
 literal|48
 block|,
-literal|18703
+literal|18543
 block|,
 literal|104
 block|,
@@ -49500,11 +47933,11 @@ literal|134
 block|,
 literal|24
 block|,
-literal|18655
+literal|18495
 block|,
 literal|48
 block|,
-literal|18807
+literal|18647
 block|,
 literal|90
 block|,
@@ -49512,27 +47945,27 @@ literal|134
 block|,
 literal|24
 block|,
-literal|10859
+literal|10734
 block|,
 literal|28
 block|,
-literal|10887
+literal|10762
 block|,
 literal|68
 block|,
-literal|10955
+literal|10830
 block|,
 literal|14
 block|,
-literal|10859
+literal|10734
 block|,
 literal|28
 block|,
-literal|10887
+literal|10762
 block|,
 literal|68
 block|,
-literal|10955
+literal|10830
 block|,
 literal|14
 block|,
@@ -49568,11 +48001,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3095
+literal|3029
 block|,
 literal|7
 block|,
-literal|3102
+literal|3036
 block|,
 literal|17
 block|,
@@ -49675,11 +48108,11 @@ literal|134
 block|,
 literal|24
 block|,
-literal|10969
+literal|10844
 block|,
 literal|28
 block|,
-literal|10997
+literal|10872
 block|,
 literal|51
 block|,
@@ -49687,11 +48120,11 @@ literal|2295
 block|,
 literal|14
 block|,
-literal|10969
+literal|10844
 block|,
 literal|28
 block|,
-literal|10997
+literal|10872
 block|,
 literal|51
 block|,
@@ -49719,7 +48152,7 @@ literal|142
 block|,
 literal|2
 block|,
-literal|6995
+literal|6973
 block|,
 literal|42
 block|,
@@ -49731,11 +48164,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3119
+literal|3053
 block|,
 literal|7
 block|,
-literal|3126
+literal|3060
 block|,
 literal|5
 block|,
@@ -49750,7 +48183,7 @@ block|,
 literal|7
 block|}
 block|,
-comment|// Nynorsk/AnyScript/Norway
+comment|// NorwegianNynorsk/AnyScript/Norway
 block|{
 literal|142
 block|,
@@ -49798,7 +48231,7 @@ literal|0
 block|,
 literal|6
 block|,
-literal|1286
+literal|1268
 block|,
 literal|9
 block|,
@@ -49818,7 +48251,7 @@ literal|13635
 block|,
 literal|48
 block|,
-literal|18897
+literal|18737
 block|,
 literal|83
 block|,
@@ -49830,7 +48263,7 @@ literal|13635
 block|,
 literal|48
 block|,
-literal|18897
+literal|18737
 block|,
 literal|83
 block|,
@@ -49894,11 +48327,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3131
+literal|3065
 block|,
 literal|8
 block|,
-literal|2331
+literal|2313
 block|,
 literal|19
 block|,
@@ -50057,11 +48490,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3139
+literal|3073
 block|,
 literal|10
 block|,
-literal|3149
+literal|3083
 block|,
 literal|13
 block|,
@@ -50140,11 +48573,11 @@ literal|8
 block|,
 literal|10
 block|,
-literal|18980
+literal|18820
 block|,
 literal|102
 block|,
-literal|19082
+literal|18922
 block|,
 literal|140
 block|,
@@ -50152,11 +48585,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|18980
+literal|18820
 block|,
 literal|102
 block|,
-literal|19082
+literal|18922
 block|,
 literal|140
 block|,
@@ -50164,11 +48597,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|11048
+literal|10923
 block|,
 literal|30
 block|,
-literal|11078
+literal|10953
 block|,
 literal|57
 block|,
@@ -50176,11 +48609,11 @@ literal|798
 block|,
 literal|14
 block|,
-literal|11048
+literal|10923
 block|,
 literal|30
 block|,
-literal|11078
+literal|10953
 block|,
 literal|57
 block|,
@@ -50220,11 +48653,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3162
+literal|3096
 block|,
 literal|5
 block|,
-literal|3167
+literal|3101
 block|,
 literal|14
 block|,
@@ -50303,11 +48736,11 @@ literal|8
 block|,
 literal|10
 block|,
-literal|19222
+literal|19062
 block|,
 literal|46
 block|,
-literal|19268
+literal|19108
 block|,
 literal|124
 block|,
@@ -50315,11 +48748,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|19222
+literal|19062
 block|,
 literal|46
 block|,
-literal|19268
+literal|19108
 block|,
 literal|124
 block|,
@@ -50327,11 +48760,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|11135
+literal|11010
 block|,
 literal|28
 block|,
-literal|11163
+literal|11038
 block|,
 literal|60
 block|,
@@ -50339,11 +48772,11 @@ literal|798
 block|,
 literal|14
 block|,
-literal|11135
+literal|11010
 block|,
 literal|28
 block|,
-literal|11163
+literal|11038
 block|,
 literal|60
 block|,
@@ -50383,11 +48816,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3181
+literal|3115
 block|,
 literal|8
 block|,
-literal|3167
+literal|3101
 block|,
 literal|14
 block|,
@@ -50466,11 +48899,11 @@ literal|8
 block|,
 literal|10
 block|,
-literal|19392
+literal|19232
 block|,
 literal|48
 block|,
-literal|19440
+literal|19280
 block|,
 literal|192
 block|,
@@ -50478,11 +48911,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|19392
+literal|19232
 block|,
 literal|48
 block|,
-literal|19440
+literal|19280
 block|,
 literal|192
 block|,
@@ -50490,27 +48923,27 @@ literal|158
 block|,
 literal|27
 block|,
-literal|11223
+literal|11098
 block|,
 literal|28
 block|,
-literal|11251
+literal|11126
 block|,
 literal|49
 block|,
-literal|11300
+literal|11175
 block|,
 literal|14
 block|,
-literal|11223
+literal|11098
 block|,
 literal|28
 block|,
-literal|11251
+literal|11126
 block|,
 literal|49
 block|,
-literal|11300
+literal|11175
 block|,
 literal|14
 block|,
@@ -50546,11 +48979,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3189
+literal|3123
 block|,
 literal|4
 block|,
-literal|3193
+literal|3127
 block|,
 literal|5
 block|,
@@ -50629,11 +49062,11 @@ literal|25
 block|,
 literal|12
 block|,
-literal|19632
+literal|19472
 block|,
 literal|87
 block|,
-literal|19632
+literal|19472
 block|,
 literal|87
 block|,
@@ -50641,11 +49074,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|19632
+literal|19472
 block|,
 literal|87
 block|,
-literal|19632
+literal|19472
 block|,
 literal|87
 block|,
@@ -50657,7 +49090,7 @@ literal|6251
 block|,
 literal|32
 block|,
-literal|11314
+literal|11189
 block|,
 literal|55
 block|,
@@ -50669,7 +49102,7 @@ literal|6251
 block|,
 literal|32
 block|,
-literal|11314
+literal|11189
 block|,
 literal|55
 block|,
@@ -50709,7 +49142,7 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3198
+literal|3132
 block|,
 literal|6
 block|,
@@ -50792,11 +49225,11 @@ literal|8
 block|,
 literal|10
 block|,
-literal|19719
+literal|19559
 block|,
 literal|48
 block|,
-literal|19767
+literal|19607
 block|,
 literal|94
 block|,
@@ -50804,11 +49237,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|19719
+literal|19559
 block|,
 literal|48
 block|,
-literal|19767
+literal|19607
 block|,
 literal|94
 block|,
@@ -50816,11 +49249,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|11369
+literal|11244
 block|,
 literal|26
 block|,
-literal|11395
+literal|11270
 block|,
 literal|34
 block|,
@@ -50828,11 +49261,11 @@ literal|798
 block|,
 literal|14
 block|,
-literal|11369
+literal|11244
 block|,
 literal|26
 block|,
-literal|11395
+literal|11270
 block|,
 literal|34
 block|,
@@ -50955,11 +49388,11 @@ literal|25
 block|,
 literal|12
 block|,
-literal|19861
+literal|19701
 block|,
 literal|48
 block|,
-literal|19909
+literal|19749
 block|,
 literal|86
 block|,
@@ -50967,11 +49400,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|19861
+literal|19701
 block|,
 literal|48
 block|,
-literal|19909
+literal|19749
 block|,
 literal|86
 block|,
@@ -50979,11 +49412,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|11429
+literal|11304
 block|,
 literal|29
 block|,
-literal|11458
+literal|11333
 block|,
 literal|57
 block|,
@@ -50991,11 +49424,11 @@ literal|798
 block|,
 literal|14
 block|,
-literal|11429
+literal|11304
 block|,
 literal|29
 block|,
-literal|11458
+literal|11333
 block|,
 literal|57
 block|,
@@ -51023,7 +49456,7 @@ literal|182
 block|,
 literal|1
 block|,
-literal|7037
+literal|7015
 block|,
 literal|12
 block|,
@@ -51035,11 +49468,11 @@ literal|13
 block|,
 literal|6
 block|,
-literal|3204
+literal|3138
 block|,
 literal|4
 block|,
-literal|3208
+literal|3142
 block|,
 literal|7
 block|,
@@ -51118,51 +49551,51 @@ literal|25
 block|,
 literal|12
 block|,
-literal|19995
+literal|19835
 block|,
 literal|48
 block|,
-literal|20043
+literal|19883
 block|,
 literal|189
 block|,
-literal|20232
+literal|20072
 block|,
 literal|24
 block|,
-literal|19995
+literal|19835
 block|,
 literal|48
 block|,
-literal|20043
+literal|19883
 block|,
 literal|189
 block|,
-literal|20232
+literal|20072
 block|,
 literal|24
 block|,
-literal|11515
+literal|11390
 block|,
 literal|28
 block|,
-literal|11543
+literal|11418
 block|,
 literal|74
 block|,
-literal|11617
+literal|11492
 block|,
 literal|14
 block|,
-literal|11515
+literal|11390
 block|,
 literal|28
 block|,
-literal|11543
+literal|11418
 block|,
 literal|74
 block|,
-literal|11617
+literal|11492
 block|,
 literal|14
 block|,
@@ -51186,7 +49619,7 @@ literal|2
 block|,
 literal|3
 block|,
-literal|7049
+literal|7027
 block|,
 literal|23
 block|,
@@ -51198,11 +49631,11 @@ literal|13
 block|,
 literal|6
 block|,
-literal|3215
+literal|3149
 block|,
 literal|7
 block|,
-literal|2797
+literal|2747
 block|,
 literal|5
 block|,
@@ -51269,7 +49702,7 @@ literal|141
 block|,
 literal|10
 block|,
-literal|1295
+literal|1277
 block|,
 literal|13
 block|,
@@ -51281,11 +49714,11 @@ literal|25
 block|,
 literal|12
 block|,
-literal|20256
+literal|20096
 block|,
 literal|65
 block|,
-literal|20256
+literal|20096
 block|,
 literal|65
 block|,
@@ -51293,11 +49726,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|20256
+literal|20096
 block|,
 literal|65
 block|,
-literal|20256
+literal|20096
 block|,
 literal|65
 block|,
@@ -51361,11 +49794,11 @@ literal|19
 block|,
 literal|6
 block|,
-literal|3222
+literal|3156
 block|,
 literal|6
 block|,
-literal|3222
+literal|3156
 block|,
 literal|6
 block|,
@@ -51380,7 +49813,7 @@ block|,
 literal|6
 block|}
 block|,
-comment|// Syriac/AnyScript/SyrianArabRepublic
+comment|// Syriac/AnyScript/Syria
 block|{
 literal|152
 block|,
@@ -51432,7 +49865,7 @@ literal|27
 block|,
 literal|8
 block|,
-literal|1308
+literal|1290
 block|,
 literal|22
 block|,
@@ -51444,51 +49877,51 @@ literal|25
 block|,
 literal|12
 block|,
-literal|20321
+literal|20161
 block|,
 literal|47
 block|,
-literal|20368
+literal|20208
 block|,
 literal|77
 block|,
-literal|20445
+literal|20285
 block|,
 literal|24
 block|,
-literal|20321
+literal|20161
 block|,
 literal|47
 block|,
-literal|20368
+literal|20208
 block|,
 literal|77
 block|,
-literal|20445
+literal|20285
 block|,
 literal|24
 block|,
-literal|11631
+literal|11506
 block|,
 literal|26
 block|,
-literal|11657
+literal|11532
 block|,
 literal|43
 block|,
-literal|11700
+literal|11575
 block|,
 literal|14
 block|,
-literal|11631
+literal|11506
 block|,
 literal|26
 block|,
-literal|11657
+literal|11532
 block|,
 literal|43
 block|,
-literal|11700
+literal|11575
 block|,
 literal|14
 block|,
@@ -51524,11 +49957,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3228
+literal|3162
 block|,
 literal|3
 block|,
-literal|2905
+literal|2839
 block|,
 literal|4
 block|,
@@ -51595,7 +50028,7 @@ literal|27
 block|,
 literal|8
 block|,
-literal|1330
+literal|1312
 block|,
 literal|23
 block|,
@@ -51607,51 +50040,51 @@ literal|25
 block|,
 literal|12
 block|,
-literal|20469
+literal|20309
 block|,
 literal|49
 block|,
-literal|20469
+literal|20309
 block|,
 literal|49
 block|,
-literal|20518
+literal|20358
 block|,
 literal|24
 block|,
-literal|20469
+literal|20309
 block|,
 literal|49
 block|,
-literal|20469
+literal|20309
 block|,
 literal|49
 block|,
-literal|20518
+literal|20358
 block|,
 literal|24
 block|,
-literal|11714
+literal|11589
 block|,
 literal|29
 block|,
-literal|11714
+literal|11589
 block|,
 literal|29
 block|,
-literal|11743
+literal|11618
 block|,
 literal|14
 block|,
-literal|11714
+literal|11589
 block|,
 literal|29
 block|,
-literal|11714
+literal|11589
 block|,
 literal|29
 block|,
-literal|11743
+literal|11618
 block|,
 literal|14
 block|,
@@ -51687,7 +50120,7 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3231
+literal|3165
 block|,
 literal|4
 block|,
@@ -51758,7 +50191,7 @@ literal|27
 block|,
 literal|8
 block|,
-literal|1330
+literal|1312
 block|,
 literal|23
 block|,
@@ -51770,51 +50203,51 @@ literal|25
 block|,
 literal|12
 block|,
-literal|20469
+literal|20309
 block|,
 literal|49
 block|,
-literal|20469
+literal|20309
 block|,
 literal|49
 block|,
-literal|20518
+literal|20358
 block|,
 literal|24
 block|,
-literal|20469
+literal|20309
 block|,
 literal|49
 block|,
-literal|20469
+literal|20309
 block|,
 literal|49
 block|,
-literal|20518
+literal|20358
 block|,
 literal|24
 block|,
-literal|11714
+literal|11589
 block|,
 literal|29
 block|,
-literal|11714
+literal|11589
 block|,
 literal|29
 block|,
-literal|11743
+literal|11618
 block|,
 literal|14
 block|,
-literal|11714
+literal|11589
 block|,
 literal|29
 block|,
-literal|11714
+literal|11589
 block|,
 literal|29
 block|,
-literal|11743
+literal|11618
 block|,
 literal|14
 block|,
@@ -51850,11 +50283,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3231
+literal|3165
 block|,
 literal|4
 block|,
-literal|2905
+literal|2839
 block|,
 literal|4
 block|,
@@ -51933,11 +50366,11 @@ literal|8
 block|,
 literal|10
 block|,
-literal|20542
+literal|20382
 block|,
 literal|48
 block|,
-literal|20590
+literal|20430
 block|,
 literal|124
 block|,
@@ -51945,11 +50378,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|20542
+literal|20382
 block|,
 literal|48
 block|,
-literal|20590
+literal|20430
 block|,
 literal|124
 block|,
@@ -51957,11 +50390,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|11757
+literal|11632
 block|,
 literal|28
 block|,
-literal|11785
+literal|11660
 block|,
 literal|54
 block|,
@@ -51969,11 +50402,11 @@ literal|798
 block|,
 literal|14
 block|,
-literal|11757
+literal|11632
 block|,
 literal|28
 block|,
-literal|11785
+literal|11660
 block|,
 literal|54
 block|,
@@ -52120,27 +50553,27 @@ literal|158
 block|,
 literal|27
 block|,
-literal|11839
+literal|11714
 block|,
 literal|28
 block|,
-literal|11867
+literal|11742
 block|,
 literal|51
 block|,
-literal|11918
+literal|11793
 block|,
 literal|14
 block|,
-literal|11839
+literal|11714
 block|,
 literal|28
 block|,
-literal|11867
+literal|11742
 block|,
 literal|51
 block|,
-literal|11918
+literal|11793
 block|,
 literal|14
 block|,
@@ -52176,11 +50609,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3235
+literal|3169
 block|,
 literal|11
 block|,
-literal|3246
+literal|3180
 block|,
 literal|11
 block|,
@@ -52259,11 +50692,11 @@ literal|8
 block|,
 literal|10
 block|,
-literal|20714
+literal|20554
 block|,
 literal|59
 block|,
-literal|20773
+literal|20613
 block|,
 literal|129
 block|,
@@ -52271,11 +50704,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|20714
+literal|20554
 block|,
 literal|59
 block|,
-literal|20773
+literal|20613
 block|,
 literal|129
 block|,
@@ -52283,11 +50716,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|11932
+literal|11807
 block|,
 literal|35
 block|,
-literal|11967
+literal|11842
 block|,
 literal|87
 block|,
@@ -52295,11 +50728,11 @@ literal|798
 block|,
 literal|14
 block|,
-literal|11932
+literal|11807
 block|,
 literal|35
 block|,
-literal|11967
+literal|11842
 block|,
 literal|87
 block|,
@@ -52327,7 +50760,7 @@ literal|182
 block|,
 literal|1
 block|,
-literal|7072
+literal|7050
 block|,
 literal|11
 block|,
@@ -52410,7 +50843,7 @@ literal|27
 block|,
 literal|8
 block|,
-literal|1353
+literal|1335
 block|,
 literal|21
 block|,
@@ -52446,27 +50879,27 @@ literal|1061
 block|,
 literal|24
 block|,
-literal|12054
+literal|11929
 block|,
 literal|27
 block|,
-literal|12081
+literal|11956
 block|,
 literal|41
 block|,
-literal|12122
+literal|11997
 block|,
 literal|14
 block|,
-literal|12054
+literal|11929
 block|,
 literal|27
 block|,
-literal|12081
+literal|11956
 block|,
 literal|41
 block|,
-literal|12122
+literal|11997
 block|,
 literal|14
 block|,
@@ -52502,11 +50935,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3257
+literal|3191
 block|,
 literal|3
 block|,
-literal|2905
+literal|2839
 block|,
 literal|4
 block|,
@@ -52585,11 +51018,11 @@ literal|8
 block|,
 literal|10
 block|,
-literal|20902
+literal|20742
 block|,
 literal|57
 block|,
-literal|20959
+literal|20799
 block|,
 literal|178
 block|,
@@ -52597,11 +51030,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|20902
+literal|20742
 block|,
 literal|57
 block|,
-literal|20959
+literal|20799
 block|,
 literal|178
 block|,
@@ -52609,11 +51042,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|12136
+literal|12011
 block|,
 literal|28
 block|,
-literal|12164
+literal|12039
 block|,
 literal|44
 block|,
@@ -52621,11 +51054,11 @@ literal|798
 block|,
 literal|14
 block|,
-literal|12136
+literal|12011
 block|,
 literal|28
 block|,
-literal|12164
+literal|12039
 block|,
 literal|44
 block|,
@@ -52653,7 +51086,7 @@ literal|182
 block|,
 literal|1
 block|,
-literal|7083
+literal|7061
 block|,
 literal|14
 block|,
@@ -52736,7 +51169,7 @@ literal|27
 block|,
 literal|8
 block|,
-literal|1374
+literal|1356
 block|,
 literal|27
 block|,
@@ -52748,35 +51181,35 @@ literal|8
 block|,
 literal|10
 block|,
-literal|21137
+literal|20977
 block|,
 literal|48
 block|,
-literal|21185
+literal|21025
 block|,
 literal|77
 block|,
-literal|21262
+literal|21102
 block|,
 literal|24
 block|,
-literal|21137
+literal|20977
 block|,
 literal|48
 block|,
-literal|21185
+literal|21025
 block|,
 literal|77
 block|,
-literal|21262
+literal|21102
 block|,
 literal|24
 block|,
-literal|12208
+literal|12083
 block|,
 literal|28
 block|,
-literal|12236
+literal|12111
 block|,
 literal|50
 block|,
@@ -52784,11 +51217,11 @@ literal|3021
 block|,
 literal|14
 block|,
-literal|12208
+literal|12083
 block|,
 literal|28
 block|,
-literal|12236
+literal|12111
 block|,
 literal|50
 block|,
@@ -52828,11 +51261,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3260
+literal|3194
 block|,
 literal|6
 block|,
-literal|3266
+literal|3200
 block|,
 literal|6
 block|,
@@ -52911,11 +51344,11 @@ literal|8
 block|,
 literal|10
 block|,
-literal|21286
+literal|21126
 block|,
 literal|48
 block|,
-literal|21334
+literal|21174
 block|,
 literal|111
 block|,
@@ -52923,11 +51356,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|21286
+literal|21126
 block|,
 literal|48
 block|,
-literal|21334
+literal|21174
 block|,
 literal|111
 block|,
@@ -52935,11 +51368,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|12286
+literal|12161
 block|,
 literal|27
 block|,
-literal|12313
+literal|12188
 block|,
 literal|70
 block|,
@@ -52947,11 +51380,11 @@ literal|798
 block|,
 literal|14
 block|,
-literal|12286
+literal|12161
 block|,
 literal|27
 block|,
-literal|12313
+literal|12188
 block|,
 literal|70
 block|,
@@ -52991,7 +51424,7 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3272
+literal|3206
 block|,
 literal|9
 block|,
@@ -53074,51 +51507,51 @@ literal|25
 block|,
 literal|12
 block|,
-literal|21445
+literal|21285
 block|,
 literal|48
 block|,
-literal|21493
+literal|21333
 block|,
 literal|87
 block|,
-literal|21580
+literal|21420
 block|,
 literal|24
 block|,
-literal|21445
+literal|21285
 block|,
 literal|48
 block|,
-literal|21493
+literal|21333
 block|,
 literal|87
 block|,
-literal|21580
+literal|21420
 block|,
 literal|24
 block|,
-literal|12383
+literal|12258
 block|,
 literal|32
 block|,
-literal|12415
+literal|12290
 block|,
 literal|44
 block|,
-literal|12459
+literal|12334
 block|,
 literal|14
 block|,
-literal|12383
+literal|12258
 block|,
 literal|32
 block|,
-literal|12415
+literal|12290
 block|,
 literal|44
 block|,
-literal|12459
+literal|12334
 block|,
 literal|14
 block|,
@@ -53154,11 +51587,11 @@ literal|13
 block|,
 literal|6
 block|,
-literal|3281
+literal|3215
 block|,
 literal|6
 block|,
-literal|3287
+literal|3221
 block|,
 literal|7
 block|,
@@ -53237,51 +51670,51 @@ literal|25
 block|,
 literal|12
 block|,
-literal|21445
+literal|21285
 block|,
 literal|48
 block|,
-literal|21493
+literal|21333
 block|,
 literal|87
 block|,
-literal|21580
+literal|21420
 block|,
 literal|24
 block|,
-literal|21445
+literal|21285
 block|,
 literal|48
 block|,
-literal|21493
+literal|21333
 block|,
 literal|87
 block|,
-literal|21580
+literal|21420
 block|,
 literal|24
 block|,
-literal|12383
+literal|12258
 block|,
 literal|32
 block|,
-literal|12415
+literal|12290
 block|,
 literal|44
 block|,
-literal|12459
+literal|12334
 block|,
 literal|14
 block|,
-literal|12383
+literal|12258
 block|,
 literal|32
 block|,
-literal|12415
+literal|12290
 block|,
 literal|44
 block|,
-literal|12459
+literal|12334
 block|,
 literal|14
 block|,
@@ -53305,7 +51738,7 @@ literal|154
 block|,
 literal|3
 block|,
-literal|7097
+literal|7075
 block|,
 literal|11
 block|,
@@ -53317,11 +51750,11 @@ literal|13
 block|,
 literal|6
 block|,
-literal|3281
+literal|3215
 block|,
 literal|6
 block|,
-literal|3294
+literal|3228
 block|,
 literal|6
 block|,
@@ -53388,7 +51821,7 @@ literal|27
 block|,
 literal|8
 block|,
-literal|1401
+literal|1383
 block|,
 literal|22
 block|,
@@ -53424,27 +51857,27 @@ literal|1061
 block|,
 literal|24
 block|,
-literal|12473
+literal|12348
 block|,
 literal|27
 block|,
-literal|12473
+literal|12348
 block|,
 literal|27
 block|,
-literal|12500
+literal|12375
 block|,
 literal|14
 block|,
-literal|12473
+literal|12348
 block|,
 literal|27
 block|,
-literal|12473
+literal|12348
 block|,
 literal|27
 block|,
-literal|12500
+literal|12375
 block|,
 literal|14
 block|,
@@ -53480,7 +51913,7 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3300
+literal|3234
 block|,
 literal|5
 block|,
@@ -53563,11 +51996,11 @@ literal|25
 block|,
 literal|12
 block|,
-literal|21604
+literal|21444
 block|,
 literal|59
 block|,
-literal|21663
+literal|21503
 block|,
 literal|95
 block|,
@@ -53575,11 +52008,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|21604
+literal|21444
 block|,
 literal|59
 block|,
-literal|21663
+literal|21503
 block|,
 literal|95
 block|,
@@ -53587,11 +52020,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|12514
+literal|12389
 block|,
 literal|21
 block|,
-literal|12535
+literal|12410
 block|,
 literal|57
 block|,
@@ -53599,11 +52032,11 @@ literal|798
 block|,
 literal|14
 block|,
-literal|12514
+literal|12389
 block|,
 literal|21
 block|,
-literal|12535
+literal|12410
 block|,
 literal|57
 block|,
@@ -53643,11 +52076,11 @@ literal|13
 block|,
 literal|6
 block|,
-literal|3305
+literal|3239
 block|,
 literal|14
 block|,
-literal|3319
+literal|3253
 block|,
 literal|19
 block|,
@@ -53726,11 +52159,11 @@ literal|8
 block|,
 literal|10
 block|,
-literal|21758
+literal|21598
 block|,
 literal|48
 block|,
-literal|21806
+literal|21646
 block|,
 literal|153
 block|,
@@ -53738,11 +52171,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|21758
+literal|21598
 block|,
 literal|48
 block|,
-literal|21806
+literal|21646
 block|,
 literal|153
 block|,
@@ -53750,11 +52183,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|12592
+literal|12467
 block|,
 literal|28
 block|,
-literal|12620
+literal|12495
 block|,
 literal|42
 block|,
@@ -53762,11 +52195,11 @@ literal|798
 block|,
 literal|14
 block|,
-literal|12592
+literal|12467
 block|,
 literal|28
 block|,
-literal|12620
+literal|12495
 block|,
 literal|42
 block|,
@@ -53794,7 +52227,7 @@ literal|182
 block|,
 literal|1
 block|,
-literal|7108
+literal|7086
 block|,
 literal|11
 block|,
@@ -53889,11 +52322,11 @@ literal|8
 block|,
 literal|10
 block|,
-literal|21959
+literal|21799
 block|,
 literal|48
 block|,
-literal|22007
+literal|21847
 block|,
 literal|91
 block|,
@@ -53901,11 +52334,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|21959
+literal|21799
 block|,
 literal|48
 block|,
-literal|22007
+literal|21847
 block|,
 literal|91
 block|,
@@ -53913,11 +52346,11 @@ literal|158
 block|,
 literal|27
 block|,
-literal|12662
+literal|12537
 block|,
 literal|28
 block|,
-literal|12690
+literal|12565
 block|,
 literal|67
 block|,
@@ -53925,11 +52358,11 @@ literal|798
 block|,
 literal|14
 block|,
-literal|12662
+literal|12537
 block|,
 literal|28
 block|,
-literal|12690
+literal|12565
 block|,
 literal|67
 block|,
@@ -53957,7 +52390,7 @@ literal|0
 block|,
 literal|0
 block|,
-literal|7119
+literal|7097
 block|,
 literal|22
 block|,
@@ -54028,11 +52461,11 @@ literal|0
 block|,
 literal|6
 block|,
-literal|300
+literal|380
 block|,
 literal|8
 block|,
-literal|300
+literal|380
 block|,
 literal|8
 block|,
@@ -54040,7 +52473,7 @@ literal|558
 block|,
 literal|6
 block|,
-literal|1071
+literal|1405
 block|,
 literal|18
 block|,
@@ -54052,51 +52485,51 @@ literal|8
 block|,
 literal|10
 block|,
-literal|15621
+literal|21938
 block|,
 literal|48
 block|,
-literal|15669
+literal|21986
 block|,
 literal|88
 block|,
-literal|15757
+literal|22074
 block|,
 literal|24
 block|,
-literal|15621
+literal|21938
 block|,
 literal|48
 block|,
-literal|15669
+literal|21986
 block|,
 literal|88
 block|,
-literal|15757
+literal|22074
 block|,
 literal|24
 block|,
-literal|9023
+literal|12632
 block|,
 literal|28
 block|,
-literal|9051
+literal|12660
 block|,
 literal|55
 block|,
-literal|9106
+literal|12715
 block|,
 literal|14
 block|,
-literal|9120
+literal|12729
 block|,
 literal|28
 block|,
-literal|9051
+literal|12660
 block|,
 literal|55
 block|,
-literal|9106
+literal|12715
 block|,
 literal|14
 block|,
@@ -54120,7 +52553,7 @@ literal|152
 block|,
 literal|1
 block|,
-literal|6650
+literal|7119
 block|,
 literal|22
 block|,
@@ -54132,11 +52565,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3338
+literal|3272
 block|,
 literal|8
 block|,
-literal|2830
+literal|3280
 block|,
 literal|9
 block|,
@@ -54295,11 +52728,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3346
+literal|3289
 block|,
 literal|16
 block|,
-literal|3362
+literal|3305
 block|,
 literal|7
 block|,
@@ -54458,11 +52891,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3369
+literal|3312
 block|,
 literal|3
 block|,
-literal|3372
+literal|3315
 block|,
 literal|2
 block|,
@@ -54947,11 +53380,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3374
+literal|3317
 block|,
 literal|12
 block|,
-literal|3386
+literal|3329
 block|,
 literal|11
 block|,
@@ -55110,7 +53543,7 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3397
+literal|3340
 block|,
 literal|10
 block|,
@@ -55273,7 +53706,7 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3407
+literal|3350
 block|,
 literal|16
 block|,
@@ -55436,11 +53869,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3423
+literal|3366
 block|,
 literal|15
 block|,
-literal|3438
+literal|3381
 block|,
 literal|5
 block|,
@@ -55599,11 +54032,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3423
+literal|3366
 block|,
 literal|15
 block|,
-literal|3443
+literal|3386
 block|,
 literal|6
 block|,
@@ -55925,11 +54358,11 @@ literal|13
 block|,
 literal|6
 block|,
-literal|3449
+literal|3392
 block|,
 literal|8
 block|,
-literal|2797
+literal|2747
 block|,
 literal|5
 block|,
@@ -56088,11 +54521,11 @@ literal|13
 block|,
 literal|6
 block|,
-literal|3457
+literal|3400
 block|,
 literal|7
 block|,
-literal|2797
+literal|2747
 block|,
 literal|5
 block|,
@@ -56251,11 +54684,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3464
+literal|3407
 block|,
 literal|6
 block|,
-literal|3470
+literal|3413
 block|,
 literal|8
 block|,
@@ -56414,11 +54847,11 @@ literal|13
 block|,
 literal|6
 block|,
-literal|3478
+literal|3421
 block|,
 literal|6
 block|,
-literal|2797
+literal|2747
 block|,
 literal|5
 block|,
@@ -56577,11 +55010,11 @@ literal|13
 block|,
 literal|6
 block|,
-literal|3484
+literal|3427
 block|,
 literal|8
 block|,
-literal|2797
+literal|2747
 block|,
 literal|5
 block|,
@@ -56740,7 +55173,7 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3492
+literal|3435
 block|,
 literal|4
 block|,
@@ -56903,7 +55336,7 @@ literal|13
 block|,
 literal|6
 block|,
-literal|3397
+literal|3340
 block|,
 literal|10
 block|,
@@ -57066,11 +55499,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3496
+literal|3439
 block|,
 literal|9
 block|,
-literal|2789
+literal|2739
 block|,
 literal|8
 block|,
@@ -57229,11 +55662,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3505
+literal|3448
 block|,
 literal|9
 block|,
-literal|3514
+literal|3457
 block|,
 literal|6
 block|,
@@ -57392,11 +55825,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3505
+literal|3448
 block|,
 literal|9
 block|,
-literal|3514
+literal|3457
 block|,
 literal|6
 block|,
@@ -57555,11 +55988,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3520
+literal|3463
 block|,
 literal|8
 block|,
-literal|3528
+literal|3471
 block|,
 literal|6
 block|,
@@ -57718,11 +56151,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3534
+literal|3477
 block|,
 literal|9
 block|,
-literal|3543
+literal|3486
 block|,
 literal|8
 block|,
@@ -57881,11 +56314,11 @@ literal|74
 block|,
 literal|5
 block|,
-literal|3551
+literal|3494
 block|,
 literal|10
 block|,
-literal|3561
+literal|3504
 block|,
 literal|6
 block|,
@@ -58044,11 +56477,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3567
+literal|3510
 block|,
 literal|6
 block|,
-literal|3573
+literal|3516
 block|,
 literal|10
 block|,
@@ -58207,11 +56640,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3583
+literal|3526
 block|,
 literal|8
 block|,
-literal|2789
+literal|2739
 block|,
 literal|8
 block|,
@@ -58370,7 +56803,7 @@ literal|13
 block|,
 literal|6
 block|,
-literal|3591
+literal|3534
 block|,
 literal|9
 block|,
@@ -58533,11 +56966,11 @@ literal|13
 block|,
 literal|6
 block|,
-literal|3600
+literal|3543
 block|,
 literal|6
 block|,
-literal|2797
+literal|2747
 block|,
 literal|5
 block|,
@@ -58696,11 +57129,11 @@ literal|13
 block|,
 literal|6
 block|,
-literal|3606
+literal|3549
 block|,
 literal|3
 block|,
-literal|3609
+literal|3552
 block|,
 literal|4
 block|,
@@ -58859,11 +57292,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3613
+literal|3556
 block|,
 literal|14
 block|,
-literal|3627
+literal|3570
 block|,
 literal|5
 block|,
@@ -59022,11 +57455,11 @@ literal|13
 block|,
 literal|6
 block|,
-literal|3632
+literal|3575
 block|,
 literal|10
 block|,
-literal|2789
+literal|2739
 block|,
 literal|8
 block|,
@@ -59185,11 +57618,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3642
+literal|3585
 block|,
 literal|8
 block|,
-literal|3650
+literal|3593
 block|,
 literal|9
 block|,
@@ -59348,11 +57781,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3659
+literal|3602
 block|,
 literal|7
 block|,
-literal|3666
+literal|3609
 block|,
 literal|7
 block|,
@@ -59511,11 +57944,11 @@ literal|13
 block|,
 literal|6
 block|,
-literal|3673
+literal|3616
 block|,
 literal|9
 block|,
-literal|3682
+literal|3625
 block|,
 literal|6
 block|,
@@ -59674,11 +58107,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3688
+literal|3631
 block|,
 literal|12
 block|,
-literal|3700
+literal|3643
 block|,
 literal|10
 block|,
@@ -59837,11 +58270,11 @@ literal|13
 block|,
 literal|6
 block|,
-literal|3710
+literal|3653
 block|,
 literal|6
 block|,
-literal|2797
+literal|2747
 block|,
 literal|5
 block|,
@@ -60000,11 +58433,11 @@ literal|13
 block|,
 literal|6
 block|,
-literal|3716
+literal|3659
 block|,
 literal|8
 block|,
-literal|3724
+literal|3667
 block|,
 literal|12
 block|,
@@ -60163,11 +58596,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3736
+literal|3679
 block|,
 literal|13
 block|,
-literal|3749
+literal|3692
 block|,
 literal|8
 block|,
@@ -60326,11 +58759,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3757
+literal|3700
 block|,
 literal|9
 block|,
-literal|2789
+literal|2739
 block|,
 literal|8
 block|,
@@ -60493,7 +58926,7 @@ literal|0
 block|,
 literal|0
 block|,
-literal|3766
+literal|3709
 block|,
 literal|11
 block|,
@@ -60652,11 +59085,11 @@ literal|13
 block|,
 literal|6
 block|,
-literal|3777
+literal|3720
 block|,
 literal|3
 block|,
-literal|2797
+literal|2747
 block|,
 literal|5
 block|,
@@ -60815,11 +59248,11 @@ literal|13
 block|,
 literal|6
 block|,
-literal|3777
+literal|3720
 block|,
 literal|3
 block|,
-literal|3780
+literal|3723
 block|,
 literal|8
 block|,
@@ -60978,11 +59411,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3788
+literal|3731
 block|,
 literal|7
 block|,
-literal|3666
+literal|3609
 block|,
 literal|7
 block|,
@@ -61141,11 +59574,11 @@ literal|79
 block|,
 literal|6
 block|,
-literal|3795
+literal|3738
 block|,
 literal|7
 block|,
-literal|2797
+literal|2747
 block|,
 literal|5
 block|,
@@ -61304,11 +59737,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3802
+literal|3745
 block|,
 literal|6
 block|,
-literal|3808
+literal|3751
 block|,
 literal|8
 block|,
@@ -61467,11 +59900,11 @@ literal|13
 block|,
 literal|6
 block|,
-literal|3816
+literal|3759
 block|,
 literal|6
 block|,
-literal|3561
+literal|3504
 block|,
 literal|6
 block|,
@@ -61630,11 +60063,11 @@ literal|13
 block|,
 literal|6
 block|,
-literal|3816
+literal|3759
 block|,
 literal|6
 block|,
-literal|3822
+literal|3765
 block|,
 literal|5
 block|,
@@ -61956,11 +60389,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3827
+literal|3770
 block|,
 literal|11
 block|,
-literal|3838
+literal|3781
 block|,
 literal|5
 block|,
@@ -62119,11 +60552,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3843
+literal|3786
 block|,
 literal|6
 block|,
-literal|2789
+literal|2739
 block|,
 literal|8
 block|,
@@ -62282,11 +60715,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3849
+literal|3792
 block|,
 literal|6
 block|,
-literal|2797
+literal|2747
 block|,
 literal|5
 block|,
@@ -62445,11 +60878,11 @@ literal|74
 block|,
 literal|5
 block|,
-literal|3855
+literal|3798
 block|,
 literal|6
 block|,
-literal|3561
+literal|3504
 block|,
 literal|6
 block|,
@@ -62608,11 +61041,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3861
+literal|3804
 block|,
 literal|8
 block|,
-literal|3869
+literal|3812
 block|,
 literal|6
 block|,
@@ -62771,11 +61204,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3861
+literal|3804
 block|,
 literal|8
 block|,
-literal|3869
+literal|3812
 block|,
 literal|6
 block|,
@@ -62934,11 +61367,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3875
+literal|3818
 block|,
 literal|15
 block|,
-literal|3838
+literal|3781
 block|,
 literal|5
 block|,
@@ -63097,11 +61530,11 @@ literal|4
 block|,
 literal|0
 block|,
-literal|3890
+literal|3833
 block|,
 literal|9
 block|,
-literal|2789
+literal|2739
 block|,
 literal|8
 block|,
@@ -64060,22 +62493,6 @@ literal|0x31
 block|,
 literal|0x20
 block|,
-literal|0x61
-block|,
-literal|0x74
-block|,
-literal|0x20
-block|,
-literal|0x25
-block|,
-literal|0x32
-block|,
-literal|0x25
-block|,
-literal|0x31
-block|,
-literal|0x20
-block|,
 literal|0xbae
 block|,
 literal|0xbb1
@@ -64223,6 +62640,22 @@ block|,
 literal|0x76
 block|,
 literal|0xe0
+block|,
+literal|0x20
+block|,
+literal|0x25
+block|,
+literal|0x32
+block|,
+literal|0x25
+block|,
+literal|0x31
+block|,
+literal|0x20
+block|,
+literal|0x61
+block|,
+literal|0x74
 block|,
 literal|0x20
 block|,
@@ -66385,42 +64818,6 @@ literal|0x79
 block|,
 literal|0x64
 block|,
-literal|0x64
-block|,
-literal|0x64
-block|,
-literal|0x64
-block|,
-literal|0x2c
-block|,
-literal|0x20
-block|,
-literal|0x4d
-block|,
-literal|0x4d
-block|,
-literal|0x4d
-block|,
-literal|0x4d
-block|,
-literal|0x20
-block|,
-literal|0x64
-block|,
-literal|0x64
-block|,
-literal|0x20
-block|,
-literal|0x79
-block|,
-literal|0x79
-block|,
-literal|0x79
-block|,
-literal|0x79
-block|,
-literal|0x64
-block|,
 literal|0x20
 block|,
 literal|0x4d
@@ -67076,6 +65473,42 @@ block|,
 literal|0x120b
 block|,
 literal|0x1233
+block|,
+literal|0x20
+block|,
+literal|0x79
+block|,
+literal|0x79
+block|,
+literal|0x79
+block|,
+literal|0x79
+block|,
+literal|0x64
+block|,
+literal|0x64
+block|,
+literal|0x64
+block|,
+literal|0x64
+block|,
+literal|0x2c
+block|,
+literal|0x20
+block|,
+literal|0x4d
+block|,
+literal|0x4d
+block|,
+literal|0x4d
+block|,
+literal|0x4d
+block|,
+literal|0x20
+block|,
+literal|0x64
+block|,
+literal|0x64
 block|,
 literal|0x20
 block|,
@@ -99527,326 +97960,6 @@ literal|0x72
 block|,
 literal|0x3b
 block|,
-literal|0x45
-block|,
-literal|0x6e
-block|,
-literal|0x65
-block|,
-literal|0x3b
-block|,
-literal|0x50
-block|,
-literal|0x65
-block|,
-literal|0x62
-block|,
-literal|0x3b
-block|,
-literal|0x4d
-block|,
-literal|0x61
-block|,
-literal|0x72
-block|,
-literal|0x3b
-block|,
-literal|0x41
-block|,
-literal|0x62
-block|,
-literal|0x72
-block|,
-literal|0x3b
-block|,
-literal|0x4d
-block|,
-literal|0x61
-block|,
-literal|0x79
-block|,
-literal|0x3b
-block|,
-literal|0x48
-block|,
-literal|0x75
-block|,
-literal|0x6e
-block|,
-literal|0x3b
-block|,
-literal|0x48
-block|,
-literal|0x75
-block|,
-literal|0x6c
-block|,
-literal|0x3b
-block|,
-literal|0x41
-block|,
-literal|0x67
-block|,
-literal|0x6f
-block|,
-literal|0x3b
-block|,
-literal|0x53
-block|,
-literal|0x65
-block|,
-literal|0x74
-block|,
-literal|0x3b
-block|,
-literal|0x4f
-block|,
-literal|0x6b
-block|,
-literal|0x74
-block|,
-literal|0x3b
-block|,
-literal|0x4e
-block|,
-literal|0x6f
-block|,
-literal|0x62
-block|,
-literal|0x3b
-block|,
-literal|0x44
-block|,
-literal|0x69
-block|,
-literal|0x73
-block|,
-literal|0x3b
-block|,
-literal|0x45
-block|,
-literal|0x6e
-block|,
-literal|0x65
-block|,
-literal|0x72
-block|,
-literal|0x6f
-block|,
-literal|0x3b
-block|,
-literal|0x50
-block|,
-literal|0x65
-block|,
-literal|0x62
-block|,
-literal|0x72
-block|,
-literal|0x65
-block|,
-literal|0x72
-block|,
-literal|0x6f
-block|,
-literal|0x3b
-block|,
-literal|0x4d
-block|,
-literal|0x61
-block|,
-literal|0x72
-block|,
-literal|0x73
-block|,
-literal|0x6f
-block|,
-literal|0x3b
-block|,
-literal|0x41
-block|,
-literal|0x62
-block|,
-literal|0x72
-block|,
-literal|0x69
-block|,
-literal|0x6c
-block|,
-literal|0x3b
-block|,
-literal|0x4d
-block|,
-literal|0x61
-block|,
-literal|0x79
-block|,
-literal|0x6f
-block|,
-literal|0x3b
-block|,
-literal|0x48
-block|,
-literal|0x75
-block|,
-literal|0x6e
-block|,
-literal|0x79
-block|,
-literal|0x6f
-block|,
-literal|0x3b
-block|,
-literal|0x48
-block|,
-literal|0x75
-block|,
-literal|0x6c
-block|,
-literal|0x79
-block|,
-literal|0x6f
-block|,
-literal|0x3b
-block|,
-literal|0x41
-block|,
-literal|0x67
-block|,
-literal|0x6f
-block|,
-literal|0x73
-block|,
-literal|0x74
-block|,
-literal|0x6f
-block|,
-literal|0x3b
-block|,
-literal|0x53
-block|,
-literal|0x65
-block|,
-literal|0x74
-block|,
-literal|0x79
-block|,
-literal|0x65
-block|,
-literal|0x6d
-block|,
-literal|0x62
-block|,
-literal|0x72
-block|,
-literal|0x65
-block|,
-literal|0x3b
-block|,
-literal|0x4f
-block|,
-literal|0x6b
-block|,
-literal|0x74
-block|,
-literal|0x75
-block|,
-literal|0x62
-block|,
-literal|0x72
-block|,
-literal|0x65
-block|,
-literal|0x3b
-block|,
-literal|0x4e
-block|,
-literal|0x6f
-block|,
-literal|0x62
-block|,
-literal|0x79
-block|,
-literal|0x65
-block|,
-literal|0x6d
-block|,
-literal|0x62
-block|,
-literal|0x72
-block|,
-literal|0x65
-block|,
-literal|0x3b
-block|,
-literal|0x44
-block|,
-literal|0x69
-block|,
-literal|0x73
-block|,
-literal|0x79
-block|,
-literal|0x65
-block|,
-literal|0x6d
-block|,
-literal|0x62
-block|,
-literal|0x72
-block|,
-literal|0x65
-block|,
-literal|0x3b
-block|,
-literal|0x45
-block|,
-literal|0x3b
-block|,
-literal|0x50
-block|,
-literal|0x3b
-block|,
-literal|0x4d
-block|,
-literal|0x3b
-block|,
-literal|0x41
-block|,
-literal|0x3b
-block|,
-literal|0x4d
-block|,
-literal|0x3b
-block|,
-literal|0x48
-block|,
-literal|0x3b
-block|,
-literal|0x48
-block|,
-literal|0x3b
-block|,
-literal|0x41
-block|,
-literal|0x3b
-block|,
-literal|0x53
-block|,
-literal|0x3b
-block|,
-literal|0x4f
-block|,
-literal|0x3b
-block|,
-literal|0x4e
-block|,
-literal|0x3b
-block|,
-literal|0x44
-block|,
-literal|0x3b
-block|,
 literal|0x42f
 block|,
 literal|0x43d
@@ -112478,6 +110591,326 @@ block|,
 literal|0x62
 block|,
 literal|0x61
+block|,
+literal|0x3b
+block|,
+literal|0x45
+block|,
+literal|0x6e
+block|,
+literal|0x65
+block|,
+literal|0x3b
+block|,
+literal|0x50
+block|,
+literal|0x65
+block|,
+literal|0x62
+block|,
+literal|0x3b
+block|,
+literal|0x4d
+block|,
+literal|0x61
+block|,
+literal|0x72
+block|,
+literal|0x3b
+block|,
+literal|0x41
+block|,
+literal|0x62
+block|,
+literal|0x72
+block|,
+literal|0x3b
+block|,
+literal|0x4d
+block|,
+literal|0x61
+block|,
+literal|0x79
+block|,
+literal|0x3b
+block|,
+literal|0x48
+block|,
+literal|0x75
+block|,
+literal|0x6e
+block|,
+literal|0x3b
+block|,
+literal|0x48
+block|,
+literal|0x75
+block|,
+literal|0x6c
+block|,
+literal|0x3b
+block|,
+literal|0x41
+block|,
+literal|0x67
+block|,
+literal|0x6f
+block|,
+literal|0x3b
+block|,
+literal|0x53
+block|,
+literal|0x65
+block|,
+literal|0x74
+block|,
+literal|0x3b
+block|,
+literal|0x4f
+block|,
+literal|0x6b
+block|,
+literal|0x74
+block|,
+literal|0x3b
+block|,
+literal|0x4e
+block|,
+literal|0x6f
+block|,
+literal|0x62
+block|,
+literal|0x3b
+block|,
+literal|0x44
+block|,
+literal|0x69
+block|,
+literal|0x73
+block|,
+literal|0x3b
+block|,
+literal|0x45
+block|,
+literal|0x6e
+block|,
+literal|0x65
+block|,
+literal|0x72
+block|,
+literal|0x6f
+block|,
+literal|0x3b
+block|,
+literal|0x50
+block|,
+literal|0x65
+block|,
+literal|0x62
+block|,
+literal|0x72
+block|,
+literal|0x65
+block|,
+literal|0x72
+block|,
+literal|0x6f
+block|,
+literal|0x3b
+block|,
+literal|0x4d
+block|,
+literal|0x61
+block|,
+literal|0x72
+block|,
+literal|0x73
+block|,
+literal|0x6f
+block|,
+literal|0x3b
+block|,
+literal|0x41
+block|,
+literal|0x62
+block|,
+literal|0x72
+block|,
+literal|0x69
+block|,
+literal|0x6c
+block|,
+literal|0x3b
+block|,
+literal|0x4d
+block|,
+literal|0x61
+block|,
+literal|0x79
+block|,
+literal|0x6f
+block|,
+literal|0x3b
+block|,
+literal|0x48
+block|,
+literal|0x75
+block|,
+literal|0x6e
+block|,
+literal|0x79
+block|,
+literal|0x6f
+block|,
+literal|0x3b
+block|,
+literal|0x48
+block|,
+literal|0x75
+block|,
+literal|0x6c
+block|,
+literal|0x79
+block|,
+literal|0x6f
+block|,
+literal|0x3b
+block|,
+literal|0x41
+block|,
+literal|0x67
+block|,
+literal|0x6f
+block|,
+literal|0x73
+block|,
+literal|0x74
+block|,
+literal|0x6f
+block|,
+literal|0x3b
+block|,
+literal|0x53
+block|,
+literal|0x65
+block|,
+literal|0x74
+block|,
+literal|0x79
+block|,
+literal|0x65
+block|,
+literal|0x6d
+block|,
+literal|0x62
+block|,
+literal|0x72
+block|,
+literal|0x65
+block|,
+literal|0x3b
+block|,
+literal|0x4f
+block|,
+literal|0x6b
+block|,
+literal|0x74
+block|,
+literal|0x75
+block|,
+literal|0x62
+block|,
+literal|0x72
+block|,
+literal|0x65
+block|,
+literal|0x3b
+block|,
+literal|0x4e
+block|,
+literal|0x6f
+block|,
+literal|0x62
+block|,
+literal|0x79
+block|,
+literal|0x65
+block|,
+literal|0x6d
+block|,
+literal|0x62
+block|,
+literal|0x72
+block|,
+literal|0x65
+block|,
+literal|0x3b
+block|,
+literal|0x44
+block|,
+literal|0x69
+block|,
+literal|0x73
+block|,
+literal|0x79
+block|,
+literal|0x65
+block|,
+literal|0x6d
+block|,
+literal|0x62
+block|,
+literal|0x72
+block|,
+literal|0x65
+block|,
+literal|0x3b
+block|,
+literal|0x45
+block|,
+literal|0x3b
+block|,
+literal|0x50
+block|,
+literal|0x3b
+block|,
+literal|0x4d
+block|,
+literal|0x3b
+block|,
+literal|0x41
+block|,
+literal|0x3b
+block|,
+literal|0x4d
+block|,
+literal|0x3b
+block|,
+literal|0x48
+block|,
+literal|0x3b
+block|,
+literal|0x48
+block|,
+literal|0x3b
+block|,
+literal|0x41
+block|,
+literal|0x3b
+block|,
+literal|0x53
+block|,
+literal|0x3b
+block|,
+literal|0x4f
+block|,
+literal|0x3b
+block|,
+literal|0x4e
+block|,
+literal|0x3b
+block|,
+literal|0x44
 block|,
 literal|0x3b
 block|,
@@ -144852,256 +143285,6 @@ literal|0x67
 block|,
 literal|0x3b
 block|,
-literal|0x4c
-block|,
-literal|0x69
-block|,
-literal|0x6e
-block|,
-literal|0x3b
-block|,
-literal|0x4c
-block|,
-literal|0x75
-block|,
-literal|0x6e
-block|,
-literal|0x3b
-block|,
-literal|0x4d
-block|,
-literal|0x61
-block|,
-literal|0x72
-block|,
-literal|0x3b
-block|,
-literal|0x4d
-block|,
-literal|0x69
-block|,
-literal|0x79
-block|,
-literal|0x3b
-block|,
-literal|0x48
-block|,
-literal|0x75
-block|,
-literal|0x77
-block|,
-literal|0x3b
-block|,
-literal|0x42
-block|,
-literal|0x69
-block|,
-literal|0x79
-block|,
-literal|0x3b
-block|,
-literal|0x53
-block|,
-literal|0x61
-block|,
-literal|0x62
-block|,
-literal|0x3b
-block|,
-literal|0x4c
-block|,
-literal|0x69
-block|,
-literal|0x6e
-block|,
-literal|0x67
-block|,
-literal|0x67
-block|,
-literal|0x6f
-block|,
-literal|0x3b
-block|,
-literal|0x4c
-block|,
-literal|0x75
-block|,
-literal|0x6e
-block|,
-literal|0x65
-block|,
-literal|0x73
-block|,
-literal|0x3b
-block|,
-literal|0x4d
-block|,
-literal|0x61
-block|,
-literal|0x72
-block|,
-literal|0x74
-block|,
-literal|0x65
-block|,
-literal|0x73
-block|,
-literal|0x3b
-block|,
-literal|0x4d
-block|,
-literal|0x69
-block|,
-literal|0x79
-block|,
-literal|0x65
-block|,
-literal|0x72
-block|,
-literal|0x6b
-block|,
-literal|0x75
-block|,
-literal|0x6c
-block|,
-literal|0x65
-block|,
-literal|0x73
-block|,
-literal|0x3b
-block|,
-literal|0x48
-block|,
-literal|0x75
-block|,
-literal|0x77
-block|,
-literal|0x65
-block|,
-literal|0x62
-block|,
-literal|0x65
-block|,
-literal|0x73
-block|,
-literal|0x3b
-block|,
-literal|0x42
-block|,
-literal|0x69
-block|,
-literal|0x79
-block|,
-literal|0x65
-block|,
-literal|0x72
-block|,
-literal|0x6e
-block|,
-literal|0x65
-block|,
-literal|0x73
-block|,
-literal|0x3b
-block|,
-literal|0x53
-block|,
-literal|0x61
-block|,
-literal|0x62
-block|,
-literal|0x61
-block|,
-literal|0x64
-block|,
-literal|0x6f
-block|,
-literal|0x3b
-block|,
-literal|0x4c
-block|,
-literal|0x3b
-block|,
-literal|0x4c
-block|,
-literal|0x3b
-block|,
-literal|0x4d
-block|,
-literal|0x3b
-block|,
-literal|0x4d
-block|,
-literal|0x3b
-block|,
-literal|0x48
-block|,
-literal|0x3b
-block|,
-literal|0x42
-block|,
-literal|0x3b
-block|,
-literal|0x53
-block|,
-literal|0x3b
-block|,
-literal|0x4c
-block|,
-literal|0x69
-block|,
-literal|0x6e
-block|,
-literal|0x3b
-block|,
-literal|0x4c
-block|,
-literal|0x75
-block|,
-literal|0x6e
-block|,
-literal|0x3b
-block|,
-literal|0x4d
-block|,
-literal|0x61
-block|,
-literal|0x72
-block|,
-literal|0x3b
-block|,
-literal|0x4d
-block|,
-literal|0x79
-block|,
-literal|0x65
-block|,
-literal|0x3b
-block|,
-literal|0x48
-block|,
-literal|0x75
-block|,
-literal|0x77
-block|,
-literal|0x3b
-block|,
-literal|0x42
-block|,
-literal|0x79
-block|,
-literal|0x65
-block|,
-literal|0x3b
-block|,
-literal|0x53
-block|,
-literal|0x61
-block|,
-literal|0x62
-block|,
-literal|0x3b
-block|,
 literal|0x42f
 block|,
 literal|0x448
@@ -152317,6 +150500,256 @@ block|,
 literal|0x6b
 block|,
 literal|0x61
+block|,
+literal|0x3b
+block|,
+literal|0x4c
+block|,
+literal|0x69
+block|,
+literal|0x6e
+block|,
+literal|0x3b
+block|,
+literal|0x4c
+block|,
+literal|0x75
+block|,
+literal|0x6e
+block|,
+literal|0x3b
+block|,
+literal|0x4d
+block|,
+literal|0x61
+block|,
+literal|0x72
+block|,
+literal|0x3b
+block|,
+literal|0x4d
+block|,
+literal|0x69
+block|,
+literal|0x79
+block|,
+literal|0x3b
+block|,
+literal|0x48
+block|,
+literal|0x75
+block|,
+literal|0x77
+block|,
+literal|0x3b
+block|,
+literal|0x42
+block|,
+literal|0x69
+block|,
+literal|0x79
+block|,
+literal|0x3b
+block|,
+literal|0x53
+block|,
+literal|0x61
+block|,
+literal|0x62
+block|,
+literal|0x3b
+block|,
+literal|0x4c
+block|,
+literal|0x69
+block|,
+literal|0x6e
+block|,
+literal|0x67
+block|,
+literal|0x67
+block|,
+literal|0x6f
+block|,
+literal|0x3b
+block|,
+literal|0x4c
+block|,
+literal|0x75
+block|,
+literal|0x6e
+block|,
+literal|0x65
+block|,
+literal|0x73
+block|,
+literal|0x3b
+block|,
+literal|0x4d
+block|,
+literal|0x61
+block|,
+literal|0x72
+block|,
+literal|0x74
+block|,
+literal|0x65
+block|,
+literal|0x73
+block|,
+literal|0x3b
+block|,
+literal|0x4d
+block|,
+literal|0x69
+block|,
+literal|0x79
+block|,
+literal|0x65
+block|,
+literal|0x72
+block|,
+literal|0x6b
+block|,
+literal|0x75
+block|,
+literal|0x6c
+block|,
+literal|0x65
+block|,
+literal|0x73
+block|,
+literal|0x3b
+block|,
+literal|0x48
+block|,
+literal|0x75
+block|,
+literal|0x77
+block|,
+literal|0x65
+block|,
+literal|0x62
+block|,
+literal|0x65
+block|,
+literal|0x73
+block|,
+literal|0x3b
+block|,
+literal|0x42
+block|,
+literal|0x69
+block|,
+literal|0x79
+block|,
+literal|0x65
+block|,
+literal|0x72
+block|,
+literal|0x6e
+block|,
+literal|0x65
+block|,
+literal|0x73
+block|,
+literal|0x3b
+block|,
+literal|0x53
+block|,
+literal|0x61
+block|,
+literal|0x62
+block|,
+literal|0x61
+block|,
+literal|0x64
+block|,
+literal|0x6f
+block|,
+literal|0x3b
+block|,
+literal|0x4c
+block|,
+literal|0x3b
+block|,
+literal|0x4c
+block|,
+literal|0x3b
+block|,
+literal|0x4d
+block|,
+literal|0x3b
+block|,
+literal|0x4d
+block|,
+literal|0x3b
+block|,
+literal|0x48
+block|,
+literal|0x3b
+block|,
+literal|0x42
+block|,
+literal|0x3b
+block|,
+literal|0x53
+block|,
+literal|0x3b
+block|,
+literal|0x4c
+block|,
+literal|0x69
+block|,
+literal|0x6e
+block|,
+literal|0x3b
+block|,
+literal|0x4c
+block|,
+literal|0x75
+block|,
+literal|0x6e
+block|,
+literal|0x3b
+block|,
+literal|0x4d
+block|,
+literal|0x61
+block|,
+literal|0x72
+block|,
+literal|0x3b
+block|,
+literal|0x4d
+block|,
+literal|0x79
+block|,
+literal|0x65
+block|,
+literal|0x3b
+block|,
+literal|0x48
+block|,
+literal|0x75
+block|,
+literal|0x77
+block|,
+literal|0x3b
+block|,
+literal|0x42
+block|,
+literal|0x79
+block|,
+literal|0x65
+block|,
+literal|0x3b
+block|,
+literal|0x53
+block|,
+literal|0x61
+block|,
+literal|0x62
 block|,
 literal|0x3b
 block|,
@@ -177948,50 +176381,6 @@ literal|0x6f
 block|,
 literal|0x3b
 block|,
-literal|0x50
-block|,
-literal|0x68
-block|,
-literal|0x69
-block|,
-literal|0x6c
-block|,
-literal|0x69
-block|,
-literal|0x70
-block|,
-literal|0x70
-block|,
-literal|0x69
-block|,
-literal|0x6e
-block|,
-literal|0x65
-block|,
-literal|0x20
-block|,
-literal|0x50
-block|,
-literal|0x65
-block|,
-literal|0x73
-block|,
-literal|0x6f
-block|,
-literal|0x3b
-block|,
-literal|0x3b
-block|,
-literal|0x3b
-block|,
-literal|0x3b
-block|,
-literal|0x3b
-block|,
-literal|0x3b
-block|,
-literal|0x3b
-block|,
 literal|0x421
 block|,
 literal|0x43e
@@ -178915,6 +177304,50 @@ block|,
 literal|0x68
 block|,
 literal|0x61
+block|,
+literal|0x3b
+block|,
+literal|0x3b
+block|,
+literal|0x3b
+block|,
+literal|0x3b
+block|,
+literal|0x3b
+block|,
+literal|0x3b
+block|,
+literal|0x3b
+block|,
+literal|0x50
+block|,
+literal|0x68
+block|,
+literal|0x69
+block|,
+literal|0x6c
+block|,
+literal|0x69
+block|,
+literal|0x70
+block|,
+literal|0x70
+block|,
+literal|0x69
+block|,
+literal|0x6e
+block|,
+literal|0x65
+block|,
+literal|0x20
+block|,
+literal|0x50
+block|,
+literal|0x65
+block|,
+literal|0x73
+block|,
+literal|0x6f
 block|,
 literal|0x3b
 block|,
@@ -185344,42 +183777,6 @@ literal|0x43d
 block|,
 literal|0x430
 block|,
-literal|0x421
-block|,
-literal|0x440
-block|,
-literal|0x431
-block|,
-literal|0x438
-block|,
-literal|0x458
-block|,
-literal|0x430
-block|,
-literal|0x20
-block|,
-literal|0x438
-block|,
-literal|0x20
-block|,
-literal|0x426
-block|,
-literal|0x440
-block|,
-literal|0x43d
-block|,
-literal|0x430
-block|,
-literal|0x20
-block|,
-literal|0x413
-block|,
-literal|0x43e
-block|,
-literal|0x440
-block|,
-literal|0x430
-block|,
 literal|0x53
 block|,
 literal|0x72
@@ -185477,70 +183874,6 @@ block|,
 literal|0x6a
 block|,
 literal|0x61
-block|,
-literal|0x20
-block|,
-literal|0x69
-block|,
-literal|0x20
-block|,
-literal|0x43
-block|,
-literal|0x72
-block|,
-literal|0x6e
-block|,
-literal|0x61
-block|,
-literal|0x20
-block|,
-literal|0x47
-block|,
-literal|0x6f
-block|,
-literal|0x72
-block|,
-literal|0x61
-block|,
-literal|0x53
-block|,
-literal|0x72
-block|,
-literal|0x62
-block|,
-literal|0x69
-block|,
-literal|0x6a
-block|,
-literal|0x61
-block|,
-literal|0x53
-block|,
-literal|0x72
-block|,
-literal|0x70
-block|,
-literal|0x73
-block|,
-literal|0x6b
-block|,
-literal|0x6f
-block|,
-literal|0x68
-block|,
-literal|0x72
-block|,
-literal|0x76
-block|,
-literal|0x61
-block|,
-literal|0x74
-block|,
-literal|0x73
-block|,
-literal|0x6b
-block|,
-literal|0x69
 block|,
 literal|0x53
 block|,
@@ -186411,38 +184744,6 @@ block|,
 literal|0x6e
 block|,
 literal|0x64
-block|,
-literal|0x54
-block|,
-literal|0x61
-block|,
-literal|0x67
-block|,
-literal|0x61
-block|,
-literal|0x6c
-block|,
-literal|0x6f
-block|,
-literal|0x67
-block|,
-literal|0x50
-block|,
-literal|0x69
-block|,
-literal|0x6c
-block|,
-literal|0x69
-block|,
-literal|0x70
-block|,
-literal|0x69
-block|,
-literal|0x6e
-block|,
-literal|0x61
-block|,
-literal|0x73
 block|,
 literal|0xba4
 block|,
@@ -187457,6 +185758,24 @@ block|,
 literal|0x6e
 block|,
 literal|0x6f
+block|,
+literal|0x50
+block|,
+literal|0x69
+block|,
+literal|0x6c
+block|,
+literal|0x69
+block|,
+literal|0x70
+block|,
+literal|0x69
+block|,
+literal|0x6e
+block|,
+literal|0x61
+block|,
+literal|0x73
 block|,
 literal|0x53
 block|,
@@ -188577,7 +186896,7 @@ init|=
 literal|"Default\0"
 literal|"C\0"
 literal|"Abkhazian\0"
-literal|"Afan\0"
+literal|"Oromo\0"
 literal|"Afar\0"
 literal|"Afrikaans\0"
 literal|"Albanian\0"
@@ -188590,14 +186909,14 @@ literal|"Azerbaijani\0"
 literal|"Bashkir\0"
 literal|"Basque\0"
 literal|"Bengali\0"
-literal|"Bhutani\0"
+literal|"Dzongkha\0"
 literal|"Bihari\0"
 literal|"Bislama\0"
 literal|"Breton\0"
 literal|"Bulgarian\0"
 literal|"Burmese\0"
-literal|"Byelorussian\0"
-literal|"Cambodian\0"
+literal|"Belarusian\0"
+literal|"Khmer\0"
 literal|"Catalan\0"
 literal|"Chinese\0"
 literal|"Corsican\0"
@@ -188609,7 +186928,7 @@ literal|"English\0"
 literal|"Esperanto\0"
 literal|"Estonian\0"
 literal|"Faroese\0"
-literal|"Fiji\0"
+literal|"Fijian\0"
 literal|"Finnish\0"
 literal|"French\0"
 literal|"Frisian\0"
@@ -188642,8 +186961,8 @@ literal|"Kinyarwanda\0"
 literal|"Kirghiz\0"
 literal|"Korean\0"
 literal|"Kurdish\0"
-literal|"Kurundi\0"
-literal|"Laothian\0"
+literal|"Rundi\0"
+literal|"Lao\0"
 literal|"Latin\0"
 literal|"Latvian\0"
 literal|"Lingala\0"
@@ -188655,11 +186974,11 @@ literal|"Malayalam\0"
 literal|"Maltese\0"
 literal|"Maori\0"
 literal|"Marathi\0"
-literal|"Moldavian\0"
+literal|"Marshallese\0"
 literal|"Mongolian\0"
 literal|"Nauru\0"
 literal|"Nepali\0"
-literal|"Norwegian\0"
+literal|"NorwegianBokmal\0"
 literal|"Occitan\0"
 literal|"Oriya\0"
 literal|"Pashto\0"
@@ -188668,14 +186987,14 @@ literal|"Polish\0"
 literal|"Portuguese\0"
 literal|"Punjabi\0"
 literal|"Quechua\0"
-literal|"RhaetoRomance\0"
+literal|"Romansh\0"
 literal|"Romanian\0"
 literal|"Russian\0"
 literal|"Samoan\0"
 literal|"Sangho\0"
 literal|"Sanskrit\0"
 literal|"Serbian\0"
-literal|"SerboCroatian\0"
+literal|"Ossetic\0"
 literal|"Sesotho\0"
 literal|"Setswana\0"
 literal|"Shona\0"
@@ -188689,7 +187008,7 @@ literal|"Spanish\0"
 literal|"Sundanese\0"
 literal|"Swahili\0"
 literal|"Swedish\0"
-literal|"Tagalog\0"
+literal|"Sardinian\0"
 literal|"Tajik\0"
 literal|"Tamil\0"
 literal|"Tatar\0"
@@ -188701,7 +187020,7 @@ literal|"Tonga\0"
 literal|"Tsonga\0"
 literal|"Turkish\0"
 literal|"Turkmen\0"
-literal|"Twi\0"
+literal|"Tahitian\0"
 literal|"Uigur\0"
 literal|"Ukrainian\0"
 literal|"Urdu\0"
@@ -188715,7 +187034,7 @@ literal|"Yiddish\0"
 literal|"Yoruba\0"
 literal|"Zhuang\0"
 literal|"Zulu\0"
-literal|"Nynorsk\0"
+literal|"NorwegianNynorsk\0"
 literal|"Bosnian\0"
 literal|"Divehi\0"
 literal|"Manx\0"
@@ -188790,6 +187109,27 @@ literal|"Central Morocco Tamazight\0"
 literal|"Koyraboro Senni\0"
 literal|"Shambala\0"
 literal|"Bodo\0"
+literal|"Avaric\0"
+literal|"Chamorro\0"
+literal|"Chechen\0"
+literal|"Church\0"
+literal|"Chuvash\0"
+literal|"Cree\0"
+literal|"Haitian\0"
+literal|"Herero\0"
+literal|"Hiri Motu\0"
+literal|"Kanuri\0"
+literal|"Komi\0"
+literal|"Kongo\0"
+literal|"Kwanyama\0"
+literal|"Limburgish\0"
+literal|"LubaKatanga\0"
+literal|"Luxembourgish\0"
+literal|"Navaho\0"
+literal|"Ndonga\0"
+literal|"Ojibwa\0"
+literal|"Pali\0"
+literal|"Walloon\0"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -188812,643 +187152,706 @@ block|,
 comment|// Abkhazian
 literal|20
 block|,
-comment|// Afan
-literal|25
+comment|// Oromo
+literal|26
 block|,
 comment|// Afar
-literal|30
+literal|31
 block|,
 comment|// Afrikaans
-literal|40
+literal|41
 block|,
 comment|// Albanian
-literal|49
+literal|50
 block|,
 comment|// Amharic
-literal|57
+literal|58
 block|,
 comment|// Arabic
-literal|64
+literal|65
 block|,
 comment|// Armenian
-literal|73
+literal|74
 block|,
 comment|// Assamese
-literal|82
+literal|83
 block|,
 comment|// Aymara
-literal|89
+literal|90
 block|,
 comment|// Azerbaijani
-literal|101
+literal|102
 block|,
 comment|// Bashkir
-literal|109
+literal|110
 block|,
 comment|// Basque
-literal|116
+literal|117
 block|,
 comment|// Bengali
-literal|124
+literal|125
 block|,
-comment|// Bhutani
-literal|132
+comment|// Dzongkha
+literal|134
 block|,
 comment|// Bihari
-literal|139
+literal|141
 block|,
 comment|// Bislama
-literal|147
+literal|149
 block|,
 comment|// Breton
-literal|154
+literal|156
 block|,
 comment|// Bulgarian
-literal|164
+literal|166
 block|,
 comment|// Burmese
-literal|172
+literal|174
 block|,
-comment|// Byelorussian
+comment|// Belarusian
 literal|185
 block|,
-comment|// Cambodian
-literal|195
+comment|// Khmer
+literal|191
 block|,
 comment|// Catalan
-literal|203
+literal|199
 block|,
 comment|// Chinese
-literal|211
+literal|207
 block|,
 comment|// Corsican
-literal|220
+literal|216
 block|,
 comment|// Croatian
-literal|229
+literal|225
 block|,
 comment|// Czech
-literal|235
+literal|231
 block|,
 comment|// Danish
-literal|242
+literal|238
 block|,
 comment|// Dutch
-literal|248
+literal|244
 block|,
 comment|// English
-literal|256
+literal|252
 block|,
 comment|// Esperanto
-literal|266
+literal|262
 block|,
 comment|// Estonian
-literal|275
+literal|271
 block|,
 comment|// Faroese
-literal|283
+literal|279
 block|,
-comment|// Fiji
-literal|288
+comment|// Fijian
+literal|286
 block|,
 comment|// Finnish
-literal|296
+literal|294
 block|,
 comment|// French
-literal|303
+literal|301
 block|,
 comment|// Frisian
-literal|311
+literal|309
 block|,
 comment|// Gaelic
-literal|318
+literal|316
 block|,
 comment|// Galician
-literal|327
+literal|325
 block|,
 comment|// Georgian
-literal|336
+literal|334
 block|,
 comment|// German
-literal|343
+literal|341
 block|,
 comment|// Greek
-literal|349
+literal|347
 block|,
 comment|// Greenlandic
-literal|361
+literal|359
 block|,
 comment|// Guarani
-literal|369
+literal|367
 block|,
 comment|// Gujarati
-literal|378
+literal|376
 block|,
 comment|// Hausa
-literal|384
+literal|382
 block|,
 comment|// Hebrew
-literal|391
+literal|389
 block|,
 comment|// Hindi
-literal|397
+literal|395
 block|,
 comment|// Hungarian
-literal|407
+literal|405
 block|,
 comment|// Icelandic
-literal|417
+literal|415
 block|,
 comment|// Indonesian
-literal|428
+literal|426
 block|,
 comment|// Interlingua
-literal|440
+literal|438
 block|,
 comment|// Interlingue
-literal|452
+literal|450
 block|,
 comment|// Inuktitut
-literal|462
+literal|460
 block|,
 comment|// Inupiak
-literal|470
+literal|468
 block|,
 comment|// Irish
-literal|476
+literal|474
 block|,
 comment|// Italian
-literal|484
+literal|482
 block|,
 comment|// Japanese
-literal|493
+literal|491
 block|,
 comment|// Javanese
-literal|502
+literal|500
 block|,
 comment|// Kannada
-literal|510
+literal|508
 block|,
 comment|// Kashmiri
-literal|519
+literal|517
 block|,
 comment|// Kazakh
-literal|526
+literal|524
 block|,
 comment|// Kinyarwanda
-literal|538
+literal|536
 block|,
 comment|// Kirghiz
-literal|546
+literal|544
 block|,
 comment|// Korean
-literal|553
+literal|551
 block|,
 comment|// Kurdish
-literal|561
+literal|559
 block|,
-comment|// Kurundi
+comment|// Rundi
+literal|565
+block|,
+comment|// Lao
 literal|569
 block|,
-comment|// Laothian
-literal|578
-block|,
 comment|// Latin
-literal|584
+literal|575
 block|,
 comment|// Latvian
-literal|592
+literal|583
 block|,
 comment|// Lingala
-literal|600
+literal|591
 block|,
 comment|// Lithuanian
-literal|611
+literal|602
 block|,
 comment|// Macedonian
-literal|622
+literal|613
 block|,
 comment|// Malagasy
-literal|631
+literal|622
 block|,
 comment|// Malay
-literal|637
+literal|628
 block|,
 comment|// Malayalam
-literal|647
+literal|638
 block|,
 comment|// Maltese
-literal|655
+literal|646
 block|,
 comment|// Maori
-literal|661
+literal|652
 block|,
 comment|// Marathi
-literal|669
+literal|660
 block|,
-comment|// Moldavian
-literal|679
+comment|// Marshallese
+literal|672
 block|,
 comment|// Mongolian
-literal|689
+literal|682
 block|,
 comment|// Nauru
-literal|695
+literal|688
 block|,
 comment|// Nepali
-literal|702
+literal|695
 block|,
-comment|// Norwegian
-literal|712
+comment|// NorwegianBokmal
+literal|711
 block|,
 comment|// Occitan
-literal|720
+literal|719
 block|,
 comment|// Oriya
-literal|726
+literal|725
 block|,
 comment|// Pashto
-literal|733
+literal|732
 block|,
 comment|// Persian
-literal|741
+literal|740
 block|,
 comment|// Polish
-literal|748
+literal|747
 block|,
 comment|// Portuguese
-literal|759
+literal|758
 block|,
 comment|// Punjabi
-literal|767
+literal|766
 block|,
 comment|// Quechua
-literal|775
+literal|774
 block|,
-comment|// RhaetoRomance
-literal|789
+comment|// Romansh
+literal|782
 block|,
 comment|// Romanian
-literal|798
+literal|791
 block|,
 comment|// Russian
-literal|806
+literal|799
 block|,
 comment|// Samoan
-literal|813
+literal|806
 block|,
 comment|// Sangho
-literal|820
+literal|813
 block|,
 comment|// Sanskrit
-literal|829
+literal|822
 block|,
 comment|// Serbian
-literal|837
+literal|830
 block|,
-comment|// SerboCroatian
-literal|851
+comment|// Ossetic
+literal|838
 block|,
 comment|// Sesotho
-literal|859
+literal|846
 block|,
 comment|// Setswana
-literal|868
+literal|855
 block|,
 comment|// Shona
-literal|874
+literal|861
 block|,
 comment|// Sindhi
-literal|881
+literal|868
 block|,
 comment|// Singhalese
-literal|892
+literal|879
 block|,
 comment|// Siswati
-literal|900
+literal|887
 block|,
 comment|// Slovak
-literal|907
+literal|894
 block|,
 comment|// Slovenian
-literal|917
+literal|904
 block|,
 comment|// Somali
-literal|924
+literal|911
 block|,
 comment|// Spanish
-literal|932
+literal|919
 block|,
 comment|// Sundanese
-literal|942
+literal|929
 block|,
 comment|// Swahili
-literal|950
+literal|937
 block|,
 comment|// Swedish
-literal|958
+literal|945
 block|,
-comment|// Tagalog
-literal|966
+comment|// Sardinian
+literal|955
 block|,
 comment|// Tajik
-literal|972
+literal|961
 block|,
 comment|// Tamil
-literal|978
+literal|967
 block|,
 comment|// Tatar
-literal|984
+literal|973
 block|,
 comment|// Telugu
-literal|991
+literal|980
 block|,
 comment|// Thai
-literal|996
+literal|985
 block|,
 comment|// Tibetan
-literal|1004
+literal|993
 block|,
 comment|// Tigrinya
-literal|1013
+literal|1002
 block|,
 comment|// Tonga
-literal|1019
+literal|1008
 block|,
 comment|// Tsonga
-literal|1026
+literal|1015
 block|,
 comment|// Turkish
-literal|1034
+literal|1023
 block|,
 comment|// Turkmen
-literal|1042
+literal|1031
 block|,
-comment|// Twi
-literal|1046
+comment|// Tahitian
+literal|1040
 block|,
 comment|// Uigur
-literal|1052
+literal|1046
 block|,
 comment|// Ukrainian
-literal|1062
+literal|1056
 block|,
 comment|// Urdu
-literal|1067
+literal|1061
 block|,
 comment|// Uzbek
-literal|1073
+literal|1067
 block|,
 comment|// Vietnamese
-literal|1084
+literal|1078
 block|,
 comment|// Volapuk
-literal|1092
+literal|1086
 block|,
 comment|// Welsh
-literal|1098
+literal|1092
 block|,
 comment|// Wolof
-literal|1104
+literal|1098
 block|,
 comment|// Xhosa
-literal|1110
+literal|1104
 block|,
 comment|// Yiddish
-literal|1118
+literal|1112
 block|,
 comment|// Yoruba
-literal|1125
+literal|1119
 block|,
 comment|// Zhuang
-literal|1132
+literal|1126
 block|,
 comment|// Zulu
-literal|1137
+literal|1131
 block|,
-comment|// Nynorsk
-literal|1145
+comment|// NorwegianNynorsk
+literal|1148
 block|,
 comment|// Bosnian
-literal|1153
+literal|1156
 block|,
 comment|// Divehi
-literal|1160
+literal|1163
 block|,
 comment|// Manx
-literal|1165
+literal|1168
 block|,
 comment|// Cornish
-literal|1173
+literal|1176
 block|,
 comment|// Akan
-literal|1178
+literal|1181
 block|,
 comment|// Konkani
-literal|1186
-block|,
-comment|// Ga
 literal|1189
 block|,
+comment|// Ga
+literal|1192
+block|,
 comment|// Igbo
-literal|1194
+literal|1197
 block|,
 comment|// Kamba
-literal|1200
+literal|1203
 block|,
 comment|// Syriac
-literal|1207
+literal|1210
 block|,
 comment|// Blin
-literal|1212
+literal|1215
 block|,
 comment|// Geez
-literal|1217
+literal|1220
 block|,
 comment|// Koro
-literal|1222
+literal|1225
 block|,
 comment|// Sidamo
-literal|1229
+literal|1232
 block|,
 comment|// Atsam
-literal|1235
+literal|1238
 block|,
 comment|// Tigre
-literal|1241
+literal|1244
 block|,
 comment|// Jju
-literal|1245
+literal|1248
 block|,
 comment|// Friulian
-literal|1254
+literal|1257
 block|,
 comment|// Venda
-literal|1260
+literal|1263
 block|,
 comment|// Ewe
-literal|1264
+literal|1267
 block|,
 comment|// Walamo
-literal|1271
+literal|1274
 block|,
 comment|// Hawaiian
-literal|1280
+literal|1283
 block|,
 comment|// Tyap
-literal|1285
+literal|1288
 block|,
 comment|// Chewa
-literal|1291
+literal|1294
 block|,
 comment|// Filipino
-literal|1300
+literal|1303
 block|,
 comment|// Swiss German
-literal|1313
+literal|1316
 block|,
 comment|// Sichuan Yi
-literal|1324
+literal|1327
 block|,
 comment|// Kpelle
-literal|1331
+literal|1334
 block|,
 comment|// Low German
-literal|1342
+literal|1345
 block|,
 comment|// South Ndebele
-literal|1356
+literal|1359
 block|,
 comment|// Northern Sotho
-literal|1371
+literal|1374
 block|,
 comment|// Northern Sami
-literal|1385
+literal|1388
 block|,
 comment|// Taroko
-literal|1392
+literal|1395
 block|,
 comment|// Gusii
-literal|1398
+literal|1401
 block|,
 comment|// Taita
-literal|1404
+literal|1407
 block|,
 comment|// Fulah
-literal|1410
+literal|1413
 block|,
 comment|// Kikuyu
-literal|1417
+literal|1420
 block|,
 comment|// Samburu
-literal|1425
+literal|1428
 block|,
 comment|// Sena
-literal|1430
+literal|1433
 block|,
 comment|// North Ndebele
-literal|1444
+literal|1447
 block|,
 comment|// Rombo
-literal|1450
+literal|1453
 block|,
 comment|// Tachelhit
-literal|1460
+literal|1463
 block|,
 comment|// Kabyle
-literal|1467
+literal|1470
 block|,
 comment|// Nyankole
-literal|1476
+literal|1479
 block|,
 comment|// Bena
-literal|1481
+literal|1484
 block|,
 comment|// Vunjo
-literal|1487
+literal|1490
 block|,
 comment|// Bambara
-literal|1495
+literal|1498
 block|,
 comment|// Embu
-literal|1500
+literal|1503
 block|,
 comment|// Cherokee
-literal|1509
+literal|1512
 block|,
 comment|// Morisyen
-literal|1518
+literal|1521
 block|,
 comment|// Makonde
-literal|1526
+literal|1529
 block|,
 comment|// Langi
-literal|1532
+literal|1535
 block|,
 comment|// Ganda
-literal|1538
+literal|1541
 block|,
 comment|// Bemba
-literal|1544
+literal|1547
 block|,
 comment|// Kabuverdianu
-literal|1557
+literal|1560
 block|,
 comment|// Meru
-literal|1562
+literal|1565
 block|,
 comment|// Kalenjin
-literal|1571
+literal|1574
 block|,
 comment|// Nama
-literal|1576
+literal|1579
 block|,
 comment|// Machame
-literal|1584
+literal|1587
 block|,
 comment|// Colognian
-literal|1594
+literal|1597
 block|,
 comment|// Masai
-literal|1600
+literal|1603
 block|,
 comment|// Soga
-literal|1605
+literal|1608
 block|,
 comment|// Luyia
-literal|1611
+literal|1614
 block|,
 comment|// Asu
-literal|1615
+literal|1618
 block|,
 comment|// Teso
-literal|1620
+literal|1623
 block|,
 comment|// Saho
-literal|1625
+literal|1628
 block|,
 comment|// Koyra Chiini
-literal|1638
+literal|1641
 block|,
 comment|// Rwa
-literal|1642
+literal|1645
 block|,
 comment|// Luo
-literal|1646
+literal|1649
 block|,
 comment|// Chiga
-literal|1652
+literal|1655
 block|,
 comment|// Central Morocco Tamazight
-literal|1678
+literal|1681
 block|,
 comment|// Koyraboro Senni
-literal|1694
+literal|1697
 block|,
 comment|// Shambala
-literal|1703
+literal|1706
 block|,
 comment|// Bodo
+literal|1711
+block|,
+comment|// Avaric
+literal|1718
+block|,
+comment|// Chamorro
+literal|1727
+block|,
+comment|// Chechen
+literal|1735
+block|,
+comment|// Church
+literal|1742
+block|,
+comment|// Chuvash
+literal|1750
+block|,
+comment|// Cree
+literal|1755
+block|,
+comment|// Haitian
+literal|1763
+block|,
+comment|// Herero
+literal|1770
+block|,
+comment|// Hiri Motu
+literal|1780
+block|,
+comment|// Kanuri
+literal|1787
+block|,
+comment|// Komi
+literal|1792
+block|,
+comment|// Kongo
+literal|1798
+block|,
+comment|// Kwanyama
+literal|1807
+block|,
+comment|// Limburgish
+literal|1818
+block|,
+comment|// LubaKatanga
+literal|1830
+block|,
+comment|// Luxembourgish
+literal|1844
+block|,
+comment|// Navaho
+literal|1851
+block|,
+comment|// Ndonga
+literal|1858
+block|,
+comment|// Ojibwa
+literal|1865
+block|,
+comment|// Pali
+literal|1870
+block|,
+comment|// Walloon
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -189654,7 +188057,7 @@ literal|"Botswana\0"
 literal|"BouvetIsland\0"
 literal|"Brazil\0"
 literal|"BritishIndianOceanTerritory\0"
-literal|"BruneiDarussalam\0"
+literal|"Brunei\0"
 literal|"Bulgaria\0"
 literal|"BurkinaFaso\0"
 literal|"Burundi\0"
@@ -189671,8 +188074,8 @@ literal|"ChristmasIsland\0"
 literal|"CocosIslands\0"
 literal|"Colombia\0"
 literal|"Comoros\0"
-literal|"DemocraticRepublicOfCongo\0"
-literal|"PeoplesRepublicOfCongo\0"
+literal|"CongoKinshasa\0"
+literal|"CongoBrazzaville\0"
 literal|"CookIslands\0"
 literal|"CostaRica\0"
 literal|"IvoryCoast\0"
@@ -189697,7 +188100,7 @@ literal|"FaroeIslands\0"
 literal|"Fiji\0"
 literal|"Finland\0"
 literal|"France\0"
-literal|"MetropolitanFrance\0"
+literal|"Guernsey\0"
 literal|"FrenchGuiana\0"
 literal|"FrenchPolynesia\0"
 literal|"FrenchSouthernTerritories\0"
@@ -189735,16 +188138,16 @@ literal|"Jordan\0"
 literal|"Kazakhstan\0"
 literal|"Kenya\0"
 literal|"Kiribati\0"
-literal|"DemocraticRepublicOfKorea\0"
-literal|"RepublicOfKorea\0"
+literal|"NorthKorea\0"
+literal|"SouthKorea\0"
 literal|"Kuwait\0"
 literal|"Kyrgyzstan\0"
-literal|"Lao\0"
+literal|"Laos\0"
 literal|"Latvia\0"
 literal|"Lebanon\0"
 literal|"Lesotho\0"
 literal|"Liberia\0"
-literal|"LibyanArabJamahiriya\0"
+literal|"Libya\0"
 literal|"Liechtenstein\0"
 literal|"Lithuania\0"
 literal|"Luxembourg\0"
@@ -189787,7 +188190,7 @@ literal|"Norway\0"
 literal|"Oman\0"
 literal|"Pakistan\0"
 literal|"Palau\0"
-literal|"PalestinianTerritory\0"
+literal|"PalestinianTerritories\0"
 literal|"Panama\0"
 literal|"PapuaNewGuinea\0"
 literal|"Paraguay\0"
@@ -189800,11 +188203,11 @@ literal|"PuertoRico\0"
 literal|"Qatar\0"
 literal|"Reunion\0"
 literal|"Romania\0"
-literal|"RussianFederation\0"
+literal|"Russia\0"
 literal|"Rwanda\0"
 literal|"SaintKittsAndNevis\0"
-literal|"StLucia\0"
-literal|"StVincentAndTheGrenadines\0"
+literal|"SaintLucia\0"
+literal|"SaintVincentAndTheGrenadines\0"
 literal|"Samoa\0"
 literal|"SanMarino\0"
 literal|"SaoTomeAndPrincipe\0"
@@ -189821,15 +188224,15 @@ literal|"SouthAfrica\0"
 literal|"SouthGeorgiaAndTheSouthSandwichIslands\0"
 literal|"Spain\0"
 literal|"SriLanka\0"
-literal|"StHelena\0"
-literal|"StPierreAndMiquelon\0"
+literal|"SaintHelena\0"
+literal|"SaintPierreAndMiquelon\0"
 literal|"Sudan\0"
 literal|"Suriname\0"
 literal|"SvalbardAndJanMayenIslands\0"
 literal|"Swaziland\0"
 literal|"Sweden\0"
 literal|"Switzerland\0"
-literal|"SyrianArabRepublic\0"
+literal|"Syria\0"
 literal|"Taiwan\0"
 literal|"Tajikistan\0"
 literal|"Tanzania\0"
@@ -189854,21 +188257,28 @@ literal|"Uzbekistan\0"
 literal|"Vanuatu\0"
 literal|"VaticanCityState\0"
 literal|"Venezuela\0"
-literal|"VietNam\0"
+literal|"Vietnam\0"
 literal|"BritishVirginIslands\0"
-literal|"USVirginIslands\0"
+literal|"UnitedStatesVirginIslands\0"
 literal|"WallisAndFutunaIslands\0"
 literal|"WesternSahara\0"
 literal|"Yemen\0"
-literal|"Yugoslavia\0"
+literal|"CanaryIslands\0"
 literal|"Zambia\0"
 literal|"Zimbabwe\0"
-literal|"SerbiaAndMontenegro\0"
+literal|"ClippertonIsland\0"
 literal|"Montenegro\0"
 literal|"Serbia\0"
 literal|"Saint Barthelemy\0"
 literal|"Saint Martin\0"
 literal|"LatinAmericaAndTheCaribbean\0"
+literal|"AscensionIsland\0"
+literal|"AlandIslands\0"
+literal|"DiegoGarcia\0"
+literal|"CeutaAndMelilla\0"
+literal|"IsleOfMan\0"
+literal|"Jersey\0"
+literal|"TristanDaCunha\0"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -189978,649 +188388,670 @@ block|,
 comment|// BritishIndianOceanTerritory
 literal|322
 block|,
-comment|// BruneiDarussalam
-literal|339
+comment|// Brunei
+literal|329
 block|,
 comment|// Bulgaria
-literal|348
+literal|338
 block|,
 comment|// BurkinaFaso
-literal|360
+literal|350
 block|,
 comment|// Burundi
-literal|368
+literal|358
 block|,
 comment|// Cambodia
-literal|377
+literal|367
 block|,
 comment|// Cameroon
-literal|386
+literal|376
 block|,
 comment|// Canada
-literal|393
+literal|383
 block|,
 comment|// CapeVerde
-literal|403
+literal|393
 block|,
 comment|// CaymanIslands
-literal|417
+literal|407
 block|,
 comment|// CentralAfricanRepublic
-literal|440
+literal|430
 block|,
 comment|// Chad
-literal|445
+literal|435
 block|,
 comment|// Chile
-literal|451
+literal|441
 block|,
 comment|// China
-literal|457
+literal|447
 block|,
 comment|// ChristmasIsland
-literal|473
+literal|463
 block|,
 comment|// CocosIslands
-literal|486
+literal|476
 block|,
 comment|// Colombia
-literal|495
+literal|485
 block|,
 comment|// Comoros
-literal|503
+literal|493
 block|,
-comment|// DemocraticRepublicOfCongo
-literal|529
+comment|// CongoKinshasa
+literal|507
 block|,
-comment|// PeoplesRepublicOfCongo
-literal|552
+comment|// CongoBrazzaville
+literal|524
 block|,
 comment|// CookIslands
-literal|564
+literal|536
 block|,
 comment|// CostaRica
-literal|574
+literal|546
 block|,
 comment|// IvoryCoast
-literal|585
+literal|557
 block|,
 comment|// Croatia
-literal|593
+literal|565
 block|,
 comment|// Cuba
-literal|598
+literal|570
 block|,
 comment|// Cyprus
-literal|605
+literal|577
 block|,
 comment|// CzechRepublic
-literal|619
+literal|591
 block|,
 comment|// Denmark
-literal|627
+literal|599
 block|,
 comment|// Djibouti
-literal|636
+literal|608
 block|,
 comment|// Dominica
-literal|645
+literal|617
 block|,
 comment|// DominicanRepublic
-literal|663
+literal|635
 block|,
 comment|// EastTimor
-literal|673
+literal|645
 block|,
 comment|// Ecuador
-literal|681
+literal|653
 block|,
 comment|// Egypt
-literal|687
+literal|659
 block|,
 comment|// ElSalvador
-literal|698
+literal|670
 block|,
 comment|// EquatorialGuinea
-literal|715
+literal|687
 block|,
 comment|// Eritrea
-literal|723
+literal|695
 block|,
 comment|// Estonia
-literal|731
+literal|703
 block|,
 comment|// Ethiopia
-literal|740
+literal|712
 block|,
 comment|// FalklandIslands
-literal|756
+literal|728
 block|,
 comment|// FaroeIslands
-literal|769
+literal|741
 block|,
 comment|// Fiji
-literal|774
+literal|746
 block|,
 comment|// Finland
-literal|782
+literal|754
 block|,
 comment|// France
-literal|789
+literal|761
 block|,
-comment|// MetropolitanFrance
-literal|808
+comment|// Guernsey
+literal|770
 block|,
 comment|// FrenchGuiana
-literal|821
+literal|783
 block|,
 comment|// FrenchPolynesia
-literal|837
+literal|799
 block|,
 comment|// FrenchSouthernTerritories
-literal|863
+literal|825
 block|,
 comment|// Gabon
-literal|869
+literal|831
 block|,
 comment|// Gambia
-literal|876
+literal|838
 block|,
 comment|// Georgia
-literal|884
+literal|846
 block|,
 comment|// Germany
-literal|892
+literal|854
 block|,
 comment|// Ghana
-literal|898
+literal|860
 block|,
 comment|// Gibraltar
-literal|908
+literal|870
 block|,
 comment|// Greece
-literal|915
+literal|877
 block|,
 comment|// Greenland
-literal|925
+literal|887
 block|,
 comment|// Grenada
-literal|933
+literal|895
 block|,
 comment|// Guadeloupe
-literal|944
+literal|906
 block|,
 comment|// Guam
-literal|949
+literal|911
 block|,
 comment|// Guatemala
-literal|959
+literal|921
 block|,
 comment|// Guinea
-literal|966
+literal|928
 block|,
 comment|// GuineaBissau
-literal|979
+literal|941
 block|,
 comment|// Guyana
-literal|986
+literal|948
 block|,
 comment|// Haiti
-literal|992
+literal|954
 block|,
 comment|// HeardAndMcDonaldIslands
-literal|1016
+literal|978
 block|,
 comment|// Honduras
-literal|1025
+literal|987
 block|,
 comment|// HongKong
-literal|1034
+literal|996
 block|,
 comment|// Hungary
-literal|1042
+literal|1004
 block|,
 comment|// Iceland
-literal|1050
+literal|1012
 block|,
 comment|// India
-literal|1056
+literal|1018
 block|,
 comment|// Indonesia
-literal|1066
+literal|1028
 block|,
 comment|// Iran
-literal|1071
+literal|1033
 block|,
 comment|// Iraq
-literal|1076
+literal|1038
 block|,
 comment|// Ireland
-literal|1084
+literal|1046
 block|,
 comment|// Israel
-literal|1091
+literal|1053
 block|,
 comment|// Italy
-literal|1097
+literal|1059
 block|,
 comment|// Jamaica
-literal|1105
+literal|1067
 block|,
 comment|// Japan
-literal|1111
+literal|1073
 block|,
 comment|// Jordan
-literal|1118
+literal|1080
 block|,
 comment|// Kazakhstan
-literal|1129
+literal|1091
 block|,
 comment|// Kenya
-literal|1135
+literal|1097
 block|,
 comment|// Kiribati
-literal|1144
+literal|1106
 block|,
-comment|// DemocraticRepublicOfKorea
-literal|1170
+comment|// NorthKorea
+literal|1117
 block|,
-comment|// RepublicOfKorea
-literal|1186
+comment|// SouthKorea
+literal|1128
 block|,
 comment|// Kuwait
-literal|1193
+literal|1135
 block|,
 comment|// Kyrgyzstan
-literal|1204
+literal|1146
 block|,
-comment|// Lao
-literal|1208
+comment|// Laos
+literal|1151
 block|,
 comment|// Latvia
-literal|1215
+literal|1158
 block|,
 comment|// Lebanon
-literal|1223
+literal|1166
 block|,
 comment|// Lesotho
-literal|1231
+literal|1174
 block|,
 comment|// Liberia
-literal|1239
+literal|1182
 block|,
-comment|// LibyanArabJamahiriya
-literal|1260
+comment|// Libya
+literal|1188
 block|,
 comment|// Liechtenstein
-literal|1274
+literal|1202
 block|,
 comment|// Lithuania
-literal|1284
+literal|1212
 block|,
 comment|// Luxembourg
-literal|1295
+literal|1223
 block|,
 comment|// Macau
-literal|1301
+literal|1229
 block|,
 comment|// Macedonia
-literal|1311
+literal|1239
 block|,
 comment|// Madagascar
-literal|1322
+literal|1250
 block|,
 comment|// Malawi
-literal|1329
+literal|1257
 block|,
 comment|// Malaysia
-literal|1338
+literal|1266
 block|,
 comment|// Maldives
-literal|1347
+literal|1275
 block|,
 comment|// Mali
-literal|1352
+literal|1280
 block|,
 comment|// Malta
-literal|1358
+literal|1286
 block|,
 comment|// MarshallIslands
-literal|1374
+literal|1302
 block|,
 comment|// Martinique
-literal|1385
+literal|1313
 block|,
 comment|// Mauritania
-literal|1396
+literal|1324
 block|,
 comment|// Mauritius
-literal|1406
+literal|1334
 block|,
 comment|// Mayotte
-literal|1414
+literal|1342
 block|,
 comment|// Mexico
-literal|1421
+literal|1349
 block|,
 comment|// Micronesia
-literal|1432
+literal|1360
 block|,
 comment|// Moldova
-literal|1440
+literal|1368
 block|,
 comment|// Monaco
-literal|1447
+literal|1375
 block|,
 comment|// Mongolia
-literal|1456
+literal|1384
 block|,
 comment|// Montserrat
-literal|1467
+literal|1395
 block|,
 comment|// Morocco
-literal|1475
+literal|1403
 block|,
 comment|// Mozambique
-literal|1486
+literal|1414
 block|,
 comment|// Myanmar
-literal|1494
+literal|1422
 block|,
 comment|// Namibia
-literal|1502
+literal|1430
 block|,
 comment|// Nauru
-literal|1508
+literal|1436
 block|,
 comment|// Nepal
-literal|1514
+literal|1442
 block|,
 comment|// Netherlands
-literal|1526
+literal|1454
 block|,
 comment|// NetherlandsAntilles
-literal|1546
+literal|1474
 block|,
 comment|// NewCaledonia
-literal|1559
+literal|1487
 block|,
 comment|// NewZealand
-literal|1570
+literal|1498
 block|,
 comment|// Nicaragua
-literal|1580
+literal|1508
 block|,
 comment|// Niger
-literal|1586
+literal|1514
 block|,
 comment|// Nigeria
-literal|1594
+literal|1522
 block|,
 comment|// Niue
-literal|1599
+literal|1527
 block|,
 comment|// NorfolkIsland
-literal|1613
+literal|1541
 block|,
 comment|// NorthernMarianaIslands
-literal|1636
+literal|1564
 block|,
 comment|// Norway
-literal|1643
+literal|1571
 block|,
 comment|// Oman
-literal|1648
+literal|1576
 block|,
 comment|// Pakistan
-literal|1657
+literal|1585
 block|,
 comment|// Palau
-literal|1663
+literal|1591
 block|,
-comment|// PalestinianTerritory
-literal|1684
+comment|// PalestinianTerritories
+literal|1614
 block|,
 comment|// Panama
-literal|1691
+literal|1621
 block|,
 comment|// PapuaNewGuinea
-literal|1706
+literal|1636
 block|,
 comment|// Paraguay
-literal|1715
+literal|1645
 block|,
 comment|// Peru
-literal|1720
+literal|1650
 block|,
 comment|// Philippines
-literal|1732
+literal|1662
 block|,
 comment|// Pitcairn
-literal|1741
+literal|1671
 block|,
 comment|// Poland
-literal|1748
+literal|1678
 block|,
 comment|// Portugal
-literal|1757
+literal|1687
 block|,
 comment|// PuertoRico
-literal|1768
+literal|1698
 block|,
 comment|// Qatar
-literal|1774
+literal|1704
 block|,
 comment|// Reunion
-literal|1782
+literal|1712
 block|,
 comment|// Romania
-literal|1790
+literal|1720
 block|,
-comment|// RussianFederation
-literal|1808
+comment|// Russia
+literal|1727
 block|,
 comment|// Rwanda
-literal|1815
+literal|1734
 block|,
 comment|// SaintKittsAndNevis
-literal|1834
+literal|1753
 block|,
-comment|// StLucia
-literal|1842
+comment|// SaintLucia
+literal|1764
 block|,
-comment|// StVincentAndTheGrenadines
-literal|1868
+comment|// SaintVincentAndTheGrenadines
+literal|1793
 block|,
 comment|// Samoa
-literal|1874
+literal|1799
 block|,
 comment|// SanMarino
-literal|1884
+literal|1809
 block|,
 comment|// SaoTomeAndPrincipe
-literal|1903
+literal|1828
 block|,
 comment|// SaudiArabia
-literal|1915
+literal|1840
 block|,
 comment|// Senegal
-literal|1923
+literal|1848
 block|,
 comment|// Seychelles
-literal|1934
+literal|1859
 block|,
 comment|// SierraLeone
-literal|1946
+literal|1871
 block|,
 comment|// Singapore
-literal|1956
+literal|1881
 block|,
 comment|// Slovakia
-literal|1965
+literal|1890
 block|,
 comment|// Slovenia
-literal|1974
+literal|1899
 block|,
 comment|// SolomonIslands
-literal|1989
+literal|1914
 block|,
 comment|// Somalia
-literal|1997
+literal|1922
 block|,
 comment|// SouthAfrica
-literal|2009
+literal|1934
 block|,
 comment|// SouthGeorgiaAndTheSouthSandwichIslands
-literal|2048
+literal|1973
 block|,
 comment|// Spain
-literal|2054
+literal|1979
 block|,
 comment|// SriLanka
-literal|2063
+literal|1988
 block|,
-comment|// StHelena
-literal|2072
+comment|// SaintHelena
+literal|2000
 block|,
-comment|// StPierreAndMiquelon
-literal|2092
+comment|// SaintPierreAndMiquelon
+literal|2023
 block|,
 comment|// Sudan
-literal|2098
+literal|2029
 block|,
 comment|// Suriname
-literal|2107
+literal|2038
 block|,
 comment|// SvalbardAndJanMayenIslands
-literal|2134
+literal|2065
 block|,
 comment|// Swaziland
-literal|2144
+literal|2075
 block|,
 comment|// Sweden
-literal|2151
+literal|2082
 block|,
 comment|// Switzerland
-literal|2163
+literal|2094
 block|,
-comment|// SyrianArabRepublic
-literal|2182
+comment|// Syria
+literal|2100
 block|,
 comment|// Taiwan
-literal|2189
+literal|2107
 block|,
 comment|// Tajikistan
-literal|2200
+literal|2118
 block|,
 comment|// Tanzania
-literal|2209
+literal|2127
 block|,
 comment|// Thailand
-literal|2218
+literal|2136
 block|,
 comment|// Togo
-literal|2223
+literal|2141
 block|,
 comment|// Tokelau
-literal|2231
+literal|2149
 block|,
 comment|// Tonga
-literal|2237
+literal|2155
 block|,
 comment|// TrinidadAndTobago
-literal|2255
+literal|2173
 block|,
 comment|// Tunisia
-literal|2263
+literal|2181
 block|,
 comment|// Turkey
-literal|2270
+literal|2188
 block|,
 comment|// Turkmenistan
-literal|2283
+literal|2201
 block|,
 comment|// TurksAndCaicosIslands
-literal|2305
+literal|2223
 block|,
 comment|// Tuvalu
-literal|2312
+literal|2230
 block|,
 comment|// Uganda
-literal|2319
+literal|2237
 block|,
 comment|// Ukraine
-literal|2327
+literal|2245
 block|,
 comment|// UnitedArabEmirates
-literal|2346
+literal|2264
 block|,
 comment|// UnitedKingdom
-literal|2360
+literal|2278
 block|,
 comment|// UnitedStates
-literal|2373
+literal|2291
 block|,
 comment|// UnitedStatesMinorOutlyingIslands
-literal|2406
+literal|2324
 block|,
 comment|// Uruguay
-literal|2414
+literal|2332
 block|,
 comment|// Uzbekistan
-literal|2425
+literal|2343
 block|,
 comment|// Vanuatu
-literal|2433
+literal|2351
 block|,
 comment|// VaticanCityState
-literal|2450
+literal|2368
 block|,
 comment|// Venezuela
-literal|2460
+literal|2378
 block|,
-comment|// VietNam
-literal|2468
+comment|// Vietnam
+literal|2386
 block|,
 comment|// BritishVirginIslands
-literal|2489
+literal|2407
 block|,
-comment|// USVirginIslands
-literal|2505
+comment|// UnitedStatesVirginIslands
+literal|2433
 block|,
 comment|// WallisAndFutunaIslands
-literal|2528
+literal|2456
 block|,
 comment|// WesternSahara
-literal|2542
+literal|2470
 block|,
 comment|// Yemen
-literal|2548
+literal|2476
 block|,
-comment|// Yugoslavia
-literal|2559
+comment|// CanaryIslands
+literal|2490
 block|,
 comment|// Zambia
-literal|2566
+literal|2497
 block|,
 comment|// Zimbabwe
-literal|2575
+literal|2506
 block|,
-comment|// SerbiaAndMontenegro
-literal|2595
+comment|// ClippertonIsland
+literal|2523
 block|,
 comment|// Montenegro
-literal|2606
+literal|2534
 block|,
 comment|// Serbia
-literal|2613
+literal|2541
 block|,
 comment|// Saint Barthelemy
-literal|2630
+literal|2558
 block|,
 comment|// Saint Martin
-literal|2643
+literal|2571
 block|,
 comment|// LatinAmericaAndTheCaribbean
+literal|2599
+block|,
+comment|// AscensionIsland
+literal|2615
+block|,
+comment|// AlandIslands
+literal|2628
+block|,
+comment|// DiegoGarcia
+literal|2640
+block|,
+comment|// CeutaAndMelilla
+literal|2656
+block|,
+comment|// IsleOfMan
+literal|2666
+block|,
+comment|// Jersey
+literal|2673
+block|,
+comment|// TristanDaCunha
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -190640,7 +189071,7 @@ comment|// C
 literal|"ab\0"
 comment|// Abkhazian
 literal|"om\0"
-comment|// Afan
+comment|// Oromo
 literal|"aa\0"
 comment|// Afar
 literal|"af\0"
@@ -190666,7 +189097,7 @@ comment|// Basque
 literal|"bn\0"
 comment|// Bengali
 literal|"dz\0"
-comment|// Bhutani
+comment|// Dzongkha
 literal|"bh\0"
 comment|// Bihari
 literal|"bi\0"
@@ -190678,9 +189109,9 @@ comment|// Bulgarian
 literal|"my\0"
 comment|// Burmese
 literal|"be\0"
-comment|// Byelorussian
+comment|// Belarusian
 literal|"km\0"
-comment|// Cambodian
+comment|// Khmer
 literal|"ca\0"
 comment|// Catalan
 literal|"zh\0"
@@ -190704,7 +189135,7 @@ comment|// Estonian
 literal|"fo\0"
 comment|// Faroese
 literal|"fj\0"
-comment|// Fiji
+comment|// Fijian
 literal|"fi\0"
 comment|// Finnish
 literal|"fr\0"
@@ -190770,9 +189201,9 @@ comment|// Korean
 literal|"ku\0"
 comment|// Kurdish
 literal|"rn\0"
-comment|// Kurundi
+comment|// Rundi
 literal|"lo\0"
-comment|// Laothian
+comment|// Lao
 literal|"la\0"
 comment|// Latin
 literal|"lv\0"
@@ -190795,8 +189226,8 @@ literal|"mi\0"
 comment|// Maori
 literal|"mr\0"
 comment|// Marathi
-literal|"mo\0"
-comment|// Moldavian
+literal|"mh\0"
+comment|// Marshallese
 literal|"mn\0"
 comment|// Mongolian
 literal|"na\0"
@@ -190804,7 +189235,7 @@ comment|// Nauru
 literal|"ne\0"
 comment|// Nepali
 literal|"nb\0"
-comment|// Norwegian
+comment|// NorwegianBokmal
 literal|"oc\0"
 comment|// Occitan
 literal|"or\0"
@@ -190822,7 +189253,7 @@ comment|// Punjabi
 literal|"qu\0"
 comment|// Quechua
 literal|"rm\0"
-comment|// RhaetoRomance
+comment|// Romansh
 literal|"ro\0"
 comment|// Romanian
 literal|"ru\0"
@@ -190835,8 +189266,8 @@ literal|"sa\0"
 comment|// Sanskrit
 literal|"sr\0"
 comment|// Serbian
-literal|"sh\0"
-comment|// SerboCroatian
+literal|"os\0"
+comment|// Ossetic
 literal|"st\0"
 comment|// Sesotho
 literal|"tn\0"
@@ -190863,8 +189294,8 @@ literal|"sw\0"
 comment|// Swahili
 literal|"sv\0"
 comment|// Swedish
-literal|"tl\0"
-comment|// Tagalog
+literal|"sc\0"
+comment|// Sardinian
 literal|"tg\0"
 comment|// Tajik
 literal|"ta\0"
@@ -190887,8 +189318,8 @@ literal|"tr\0"
 comment|// Turkish
 literal|"tk\0"
 comment|// Turkmen
-literal|"tw\0"
-comment|// Twi
+literal|"ty\0"
+comment|// Tahitian
 literal|"ug\0"
 comment|// Uigur
 literal|"uk\0"
@@ -190916,7 +189347,7 @@ comment|// Zhuang
 literal|"zu\0"
 comment|// Zulu
 literal|"nn\0"
-comment|// Nynorsk
+comment|// NorwegianNynorsk
 literal|"bs\0"
 comment|// Bosnian
 literal|"dv\0"
@@ -191065,6 +189496,48 @@ literal|"ksb"
 comment|// Shambala
 literal|"brx"
 comment|// Bodo
+literal|"av\0"
+comment|// Avaric
+literal|"ch\0"
+comment|// Chamorro
+literal|"ce\0"
+comment|// Chechen
+literal|"cu\0"
+comment|// Church
+literal|"cv\0"
+comment|// Chuvash
+literal|"cr\0"
+comment|// Cree
+literal|"ht\0"
+comment|// Haitian
+literal|"hz\0"
+comment|// Herero
+literal|"ho\0"
+comment|// Hiri Motu
+literal|"kr\0"
+comment|// Kanuri
+literal|"kv\0"
+comment|// Komi
+literal|"kg\0"
+comment|// Kongo
+literal|"kj\0"
+comment|// Kwanyama
+literal|"li\0"
+comment|// Limburgish
+literal|"lu\0"
+comment|// LubaKatanga
+literal|"lb\0"
+comment|// Luxembourgish
+literal|"nv\0"
+comment|// Navaho
+literal|"ng\0"
+comment|// Ndonga
+literal|"oj\0"
+comment|// Ojibwa
+literal|"pi\0"
+comment|// Pali
+literal|"wa\0"
+comment|// Walloon
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -191222,7 +189695,7 @@ comment|// Brazil
 literal|"IO\0"
 comment|// BritishIndianOceanTerritory
 literal|"BN\0"
-comment|// BruneiDarussalam
+comment|// Brunei
 literal|"BG\0"
 comment|// Bulgaria
 literal|"BF\0"
@@ -191256,9 +189729,9 @@ comment|// Colombia
 literal|"KM\0"
 comment|// Comoros
 literal|"CD\0"
-comment|// DemocraticRepublicOfCongo
+comment|// CongoKinshasa
 literal|"CG\0"
-comment|// PeoplesRepublicOfCongo
+comment|// CongoBrazzaville
 literal|"CK\0"
 comment|// CookIslands
 literal|"CR\0"
@@ -191307,8 +189780,8 @@ literal|"FI\0"
 comment|// Finland
 literal|"FR\0"
 comment|// France
-literal|"FX\0"
-comment|// MetropolitanFrance
+literal|"GG\0"
+comment|// Guernsey
 literal|"GF\0"
 comment|// FrenchGuiana
 literal|"PF\0"
@@ -191384,15 +189857,15 @@ comment|// Kenya
 literal|"KI\0"
 comment|// Kiribati
 literal|"KP\0"
-comment|// DemocraticRepublicOfKorea
+comment|// NorthKorea
 literal|"KR\0"
-comment|// RepublicOfKorea
+comment|// SouthKorea
 literal|"KW\0"
 comment|// Kuwait
 literal|"KG\0"
 comment|// Kyrgyzstan
 literal|"LA\0"
-comment|// Lao
+comment|// Laos
 literal|"LV\0"
 comment|// Latvia
 literal|"LB\0"
@@ -191402,7 +189875,7 @@ comment|// Lesotho
 literal|"LR\0"
 comment|// Liberia
 literal|"LY\0"
-comment|// LibyanArabJamahiriya
+comment|// Libya
 literal|"LI\0"
 comment|// Liechtenstein
 literal|"LT\0"
@@ -191488,7 +189961,7 @@ comment|// Pakistan
 literal|"PW\0"
 comment|// Palau
 literal|"PS\0"
-comment|// PalestinianTerritory
+comment|// PalestinianTerritories
 literal|"PA\0"
 comment|// Panama
 literal|"PG\0"
@@ -191514,15 +189987,15 @@ comment|// Reunion
 literal|"RO\0"
 comment|// Romania
 literal|"RU\0"
-comment|// RussianFederation
+comment|// Russia
 literal|"RW\0"
 comment|// Rwanda
 literal|"KN\0"
 comment|// SaintKittsAndNevis
 literal|"LC\0"
-comment|// StLucia
+comment|// SaintLucia
 literal|"VC\0"
-comment|// StVincentAndTheGrenadines
+comment|// SaintVincentAndTheGrenadines
 literal|"WS\0"
 comment|// Samoa
 literal|"SM\0"
@@ -191556,9 +190029,9 @@ comment|// Spain
 literal|"LK\0"
 comment|// SriLanka
 literal|"SH\0"
-comment|// StHelena
+comment|// SaintHelena
 literal|"PM\0"
-comment|// StPierreAndMiquelon
+comment|// SaintPierreAndMiquelon
 literal|"SD\0"
 comment|// Sudan
 literal|"SR\0"
@@ -191572,7 +190045,7 @@ comment|// Sweden
 literal|"CH\0"
 comment|// Switzerland
 literal|"SY\0"
-comment|// SyrianArabRepublic
+comment|// Syria
 literal|"TW\0"
 comment|// Taiwan
 literal|"TJ\0"
@@ -191622,25 +190095,25 @@ comment|// VaticanCityState
 literal|"VE\0"
 comment|// Venezuela
 literal|"VN\0"
-comment|// VietNam
+comment|// Vietnam
 literal|"VG\0"
 comment|// BritishVirginIslands
 literal|"VI\0"
-comment|// USVirginIslands
+comment|// UnitedStatesVirginIslands
 literal|"WF\0"
 comment|// WallisAndFutunaIslands
 literal|"EH\0"
 comment|// WesternSahara
 literal|"YE\0"
 comment|// Yemen
-literal|"YU\0"
-comment|// Yugoslavia
+literal|"IC\0"
+comment|// CanaryIslands
 literal|"ZM\0"
 comment|// Zambia
 literal|"ZW\0"
 comment|// Zimbabwe
-literal|"CS\0"
-comment|// SerbiaAndMontenegro
+literal|"CP\0"
+comment|// ClippertonIsland
 literal|"ME\0"
 comment|// Montenegro
 literal|"RS\0"
@@ -191651,6 +190124,20 @@ literal|"MF\0"
 comment|// Saint Martin
 literal|"419"
 comment|// LatinAmericaAndTheCaribbean
+literal|"AC\0"
+comment|// AscensionIsland
+literal|"AX\0"
+comment|// AlandIslands
+literal|"DG\0"
+comment|// DiegoGarcia
+literal|"EA\0"
+comment|// CeutaAndMelilla
+literal|"IM\0"
+comment|// IsleOfMan
+literal|"JE\0"
+comment|// Jersey
+literal|"TA\0"
+comment|// TristanDaCunha
 decl_stmt|;
 end_decl_stmt
 begin_comment
