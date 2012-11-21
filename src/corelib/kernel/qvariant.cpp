@@ -7346,10 +7346,9 @@ name|QVariant
 operator|::
 name|Double
 block|,
-name|QVariant
-operator|::
-name|ByteArray
+literal|0
 block|,
+comment|// Buggy ByteArray, QByteArray never had id == 20
 name|QVariant
 operator|::
 name|Polygon
@@ -7755,16 +7754,16 @@ for|for
 control|(
 name|i
 operator|=
+literal|0
+init|;
+name|i
+operator|<=
 name|MapFromThreeCount
 operator|-
 literal|1
-init|;
-name|i
-operator|>=
-literal|0
 condition|;
+operator|++
 name|i
-operator|--
 control|)
 block|{
 if|if
@@ -7787,9 +7786,8 @@ block|}
 if|if
 condition|(
 name|i
-operator|==
-operator|-
-literal|1
+operator|>=
+name|MapFromThreeCount
 condition|)
 block|{
 name|s
