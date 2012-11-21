@@ -326,6 +326,10 @@ name|numberOptions
 parameter_list|()
 function_decl|;
 name|void
+name|testNames_data
+parameter_list|()
+function_decl|;
+name|void
 name|testNames
 parameter_list|()
 function_decl|;
@@ -1767,7 +1771,7 @@ literal|"zh_CN"
 argument_list|,
 argument|Chinese
 argument_list|,
-argument|AnyScript
+argument|SimplifiedHanScript
 argument_list|,
 argument|China
 argument_list|)
@@ -1799,7 +1803,7 @@ argument|Chinese
 argument_list|,
 argument|TraditionalHanScript
 argument_list|,
-argument|HongKong
+argument|Taiwan
 argument_list|)
 name|TEST_CTOR
 argument_list|(
@@ -1850,6 +1854,26 @@ argument_list|,
 argument|LatinScript
 argument_list|,
 argument|Nigeria
+argument_list|)
+name|TEST_CTOR
+argument_list|(
+literal|"ru"
+argument_list|,
+argument|Russian
+argument_list|,
+argument|CyrillicScript
+argument_list|,
+argument|RussianFederation
+argument_list|)
+name|TEST_CTOR
+argument_list|(
+literal|"ru_Cyrl"
+argument_list|,
+argument|Russian
+argument_list|,
+argument|CyrillicScript
+argument_list|,
+argument|RussianFederation
 argument_list|)
 DECL|macro|TEST_CTOR
 undef|#
@@ -12714,2277 +12738,31 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_struct
-DECL|struct|LocaleListItem
-struct|struct
-name|LocaleListItem
-block|{
-DECL|member|language
-name|int
-name|language
-decl_stmt|;
-DECL|member|country
-name|int
-name|country
-decl_stmt|;
-block|}
-struct|;
-end_struct
-begin_comment
-comment|// first two rows of locale_data[] in qlocale_data_p.h
-end_comment
+begin_include
+include|#
+directive|include
+file|<private/qlocale_p.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<private/qlocale_data_p.h>
+end_include
 begin_decl_stmt
-DECL|variable|g_locale_list
-specifier|static
-specifier|const
-name|LocaleListItem
-name|g_locale_list
-index|[]
-init|=
-block|{
-block|{
-literal|1
-block|,
-literal|0
-block|}
-block|,
-comment|// C/AnyCountry
-block|{
-literal|3
-block|,
-literal|69
-block|}
-block|,
-comment|// Afan/Ethiopia
-block|{
-literal|3
-block|,
-literal|111
-block|}
-block|,
-comment|// Afan/Kenya
-block|{
-literal|4
-block|,
-literal|59
-block|}
-block|,
-comment|// Afar/Djibouti
-block|{
-literal|4
-block|,
-literal|67
-block|}
-block|,
-comment|// Afar/Eritrea
-block|{
-literal|4
-block|,
-literal|69
-block|}
-block|,
-comment|// Afar/Ethiopia
-block|{
-literal|5
-block|,
-literal|195
-block|}
-block|,
-comment|// Afrikaans/SouthAfrica
-block|{
-literal|5
-block|,
-literal|148
-block|}
-block|,
-comment|// Afrikaans/Namibia
-block|{
-literal|6
-block|,
-literal|2
-block|}
-block|,
-comment|// Albanian/Albania
-block|{
-literal|7
-block|,
-literal|69
-block|}
-block|,
-comment|// Amharic/Ethiopia
-block|{
-literal|8
-block|,
-literal|186
-block|}
-block|,
-comment|// Arabic/SaudiArabia
-block|{
-literal|8
-block|,
-literal|3
-block|}
-block|,
-comment|// Arabic/Algeria
-block|{
-literal|8
-block|,
-literal|17
-block|}
-block|,
-comment|// Arabic/Bahrain
-block|{
-literal|8
-block|,
-literal|64
-block|}
-block|,
-comment|// Arabic/Egypt
-block|{
-literal|8
-block|,
-literal|103
-block|}
-block|,
-comment|// Arabic/Iraq
-block|{
-literal|8
-block|,
-literal|109
-block|}
-block|,
-comment|// Arabic/Jordan
-block|{
-literal|8
-block|,
-literal|115
-block|}
-block|,
-comment|// Arabic/Kuwait
-block|{
-literal|8
-block|,
-literal|119
-block|}
-block|,
-comment|// Arabic/Lebanon
-block|{
-literal|8
-block|,
-literal|122
-block|}
-block|,
-comment|// Arabic/LibyanArabJamahiriya
-block|{
-literal|8
-block|,
-literal|145
-block|}
-block|,
-comment|// Arabic/Morocco
-block|{
-literal|8
-block|,
-literal|162
-block|}
-block|,
-comment|// Arabic/Oman
-block|{
-literal|8
-block|,
-literal|175
-block|}
-block|,
-comment|// Arabic/Qatar
-block|{
-literal|8
-block|,
-literal|201
-block|}
-block|,
-comment|// Arabic/Sudan
-block|{
-literal|8
-block|,
-literal|207
-block|}
-block|,
-comment|// Arabic/SyrianArabRepublic
-block|{
-literal|8
-block|,
-literal|216
-block|}
-block|,
-comment|// Arabic/Tunisia
-block|{
-literal|8
-block|,
-literal|223
-block|}
-block|,
-comment|// Arabic/UnitedArabEmirates
-block|{
-literal|8
-block|,
-literal|237
-block|}
-block|,
-comment|// Arabic/Yemen
-block|{
-literal|9
-block|,
-literal|11
-block|}
-block|,
-comment|// Armenian/Armenia
-block|{
-literal|10
-block|,
-literal|100
-block|}
-block|,
-comment|// Assamese/India
-block|{
-literal|12
-block|,
-literal|15
-block|}
-block|,
-comment|// Azerbaijani/Azerbaijan
-block|{
-literal|12
-block|,
-literal|102
-block|}
-block|,
-comment|// Azerbaijani/Iran
-block|{
-literal|14
-block|,
-literal|197
-block|}
-block|,
-comment|// Basque/Spain
-block|{
-literal|15
-block|,
-literal|18
-block|}
-block|,
-comment|// Bengali/Bangladesh
-block|{
-literal|15
-block|,
-literal|100
-block|}
-block|,
-comment|// Bengali/India
-block|{
-literal|16
-block|,
-literal|25
-block|}
-block|,
-comment|// Bhutani/Bhutan
-block|{
-literal|19
-block|,
-literal|74
-block|}
-block|,
-comment|// Breton/France
-block|{
-literal|20
-block|,
-literal|33
-block|}
-block|,
-comment|// Bulgarian/Bulgaria
-block|{
-literal|21
-block|,
-literal|147
-block|}
-block|,
-comment|// Burmese/Myanmar
-block|{
-literal|22
-block|,
-literal|20
-block|}
-block|,
-comment|// Byelorussian/Belarus
-block|{
-literal|23
-block|,
-literal|36
-block|}
-block|,
-comment|// Cambodian/Cambodia
-block|{
-literal|24
-block|,
-literal|197
-block|}
-block|,
-comment|// Catalan/Spain
-block|{
-literal|25
-block|,
-literal|44
-block|}
-block|,
-comment|// Chinese/China
-block|{
-literal|25
-block|,
-literal|97
-block|}
-block|,
-comment|// Chinese/HongKong
-block|{
-literal|25
-block|,
-literal|126
-block|}
-block|,
-comment|// Chinese/Macau
-block|{
-literal|25
-block|,
-literal|190
-block|}
-block|,
-comment|// Chinese/Singapore
-block|{
-literal|25
-block|,
-literal|208
-block|}
-block|,
-comment|// Chinese/Taiwan
-block|{
-literal|27
-block|,
-literal|54
-block|}
-block|,
-comment|// Croatian/Croatia
-block|{
-literal|28
-block|,
-literal|57
-block|}
-block|,
-comment|// Czech/CzechRepublic
-block|{
-literal|29
-block|,
-literal|58
-block|}
-block|,
-comment|// Danish/Denmark
-block|{
-literal|30
-block|,
-literal|151
-block|}
-block|,
-comment|// Dutch/Netherlands
-block|{
-literal|30
-block|,
-literal|21
-block|}
-block|,
-comment|// Dutch/Belgium
-block|{
-literal|31
-block|,
-literal|225
-block|}
-block|,
-comment|// English/UnitedStates
-block|{
-literal|31
-block|,
-literal|4
-block|}
-block|,
-comment|// English/AmericanSamoa
-block|{
-literal|31
-block|,
-literal|13
-block|}
-block|,
-comment|// English/Australia
-block|{
-literal|31
-block|,
-literal|21
-block|}
-block|,
-comment|// English/Belgium
-block|{
-literal|31
-block|,
-literal|22
-block|}
-block|,
-comment|// English/Belize
-block|{
-literal|31
-block|,
-literal|28
-block|}
-block|,
-comment|// English/Botswana
-block|{
-literal|31
-block|,
-literal|38
-block|}
-block|,
-comment|// English/Canada
-block|{
-literal|31
-block|,
-literal|89
-block|}
-block|,
-comment|// English/Guam
-block|{
-literal|31
-block|,
-literal|97
-block|}
-block|,
-comment|// English/HongKong
-block|{
-literal|31
-block|,
-literal|100
-block|}
-block|,
-comment|// English/India
-block|{
-literal|31
-block|,
-literal|104
-block|}
-block|,
-comment|// English/Ireland
-block|{
-literal|31
-block|,
-literal|107
-block|}
-block|,
-comment|// English/Jamaica
-block|{
-literal|31
-block|,
-literal|133
-block|}
-block|,
-comment|// English/Malta
-block|{
-literal|31
-block|,
-literal|134
-block|}
-block|,
-comment|// English/MarshallIslands
-block|{
-literal|31
-block|,
-literal|137
-block|}
-block|,
-comment|// English/Mauritius
-block|{
-literal|31
-block|,
-literal|148
-block|}
-block|,
-comment|// English/Namibia
-block|{
-literal|31
-block|,
-literal|154
-block|}
-block|,
-comment|// English/NewZealand
-block|{
-literal|31
-block|,
-literal|160
-block|}
-block|,
-comment|// English/NorthernMarianaIslands
-block|{
-literal|31
-block|,
-literal|163
-block|}
-block|,
-comment|// English/Pakistan
-block|{
-literal|31
-block|,
-literal|170
-block|}
-block|,
-comment|// English/Philippines
-block|{
-literal|31
-block|,
-literal|190
-block|}
-block|,
-comment|// English/Singapore
-block|{
-literal|31
-block|,
-literal|195
-block|}
-block|,
-comment|// English/SouthAfrica
-block|{
-literal|31
-block|,
-literal|215
-block|}
-block|,
-comment|// English/TrinidadAndTobago
-block|{
-literal|31
-block|,
-literal|224
-block|}
-block|,
-comment|// English/UnitedKingdom
-block|{
-literal|31
-block|,
-literal|226
-block|}
-block|,
-comment|// English/UnitedStatesMinorOutlyingIslands
-block|{
-literal|31
-block|,
-literal|234
-block|}
-block|,
-comment|// English/USVirginIslands
-block|{
-literal|31
-block|,
-literal|240
-block|}
-block|,
-comment|// English/Zimbabwe
-block|{
-literal|33
-block|,
-literal|68
-block|}
-block|,
-comment|// Estonian/Estonia
-block|{
-literal|34
-block|,
-literal|71
-block|}
-block|,
-comment|// Faroese/FaroeIslands
-block|{
-literal|36
-block|,
-literal|73
-block|}
-block|,
-comment|// Finnish/Finland
-block|{
-literal|37
-block|,
-literal|74
-block|}
-block|,
-comment|// French/France
-block|{
-literal|37
-block|,
-literal|21
-block|}
-block|,
-comment|// French/Belgium
-block|{
-literal|37
-block|,
-literal|37
-block|}
-block|,
-comment|// French/Cameroon
-block|{
-literal|37
-block|,
-literal|38
-block|}
-block|,
-comment|// French/Canada
-block|{
-literal|37
-block|,
-literal|41
-block|}
-block|,
-comment|// French/CentralAfricanRepublic
-block|{
-literal|37
-block|,
-literal|53
-block|}
-block|,
-comment|// French/IvoryCoast
-block|{
-literal|37
-block|,
-literal|88
-block|}
-block|,
-comment|// French/Guadeloupe
-block|{
-literal|37
-block|,
-literal|91
-block|}
-block|,
-comment|// French/Guinea
-block|{
-literal|37
-block|,
-literal|125
-block|}
-block|,
-comment|// French/Luxembourg
-block|{
-literal|37
-block|,
-literal|128
-block|}
-block|,
-comment|// French/Madagascar
-block|{
-literal|37
-block|,
-literal|132
-block|}
-block|,
-comment|// French/Mali
-block|{
-literal|37
-block|,
-literal|135
-block|}
-block|,
-comment|// French/Martinique
-block|{
-literal|37
-block|,
-literal|142
-block|}
-block|,
-comment|// French/Monaco
-block|{
-literal|37
-block|,
-literal|156
-block|}
-block|,
-comment|// French/Niger
-block|{
-literal|37
-block|,
-literal|176
-block|}
-block|,
-comment|// French/Reunion
-block|{
-literal|37
-block|,
-literal|187
-block|}
-block|,
-comment|// French/Senegal
-block|{
-literal|37
-block|,
-literal|206
-block|}
-block|,
-comment|// French/Switzerland
-block|{
-literal|37
-block|,
-literal|244
-block|}
-block|,
-comment|// French/Saint Barthelemy
-block|{
-literal|37
-block|,
-literal|245
-block|}
-block|,
-comment|// French/Saint Martin
-block|{
-literal|40
-block|,
-literal|197
-block|}
-block|,
-comment|// Galician/Spain
-block|{
-literal|41
-block|,
-literal|81
-block|}
-block|,
-comment|// Georgian/Georgia
-block|{
-literal|42
-block|,
-literal|82
-block|}
-block|,
-comment|// German/Germany
-block|{
-literal|42
-block|,
-literal|14
-block|}
-block|,
-comment|// German/Austria
-block|{
-literal|42
-block|,
-literal|21
-block|}
-block|,
-comment|// German/Belgium
-block|{
-literal|42
-block|,
-literal|123
-block|}
-block|,
-comment|// German/Liechtenstein
-block|{
-literal|42
-block|,
-literal|125
-block|}
-block|,
-comment|// German/Luxembourg
-block|{
-literal|42
-block|,
-literal|206
-block|}
-block|,
-comment|// German/Switzerland
-block|{
-literal|43
-block|,
-literal|85
-block|}
-block|,
-comment|// Greek/Greece
-block|{
-literal|43
-block|,
-literal|56
-block|}
-block|,
-comment|// Greek/Cyprus
-block|{
-literal|44
-block|,
-literal|86
-block|}
-block|,
-comment|// Greenlandic/Greenland
-block|{
-literal|46
-block|,
-literal|100
-block|}
-block|,
-comment|// Gujarati/India
-block|{
-literal|47
-block|,
-literal|83
-block|}
-block|,
-comment|// Hausa/Ghana
-block|{
-literal|47
-block|,
-literal|156
-block|}
-block|,
-comment|// Hausa/Niger
-block|{
-literal|47
-block|,
-literal|157
-block|}
-block|,
-comment|// Hausa/Nigeria
-block|{
-literal|47
-block|,
-literal|201
-block|}
-block|,
-comment|// Hausa/Sudan
-block|{
-literal|48
-block|,
-literal|105
-block|}
-block|,
-comment|// Hebrew/Israel
-block|{
-literal|49
-block|,
-literal|100
-block|}
-block|,
-comment|// Hindi/India
-block|{
-literal|50
-block|,
-literal|98
-block|}
-block|,
-comment|// Hungarian/Hungary
-block|{
-literal|51
-block|,
-literal|99
-block|}
-block|,
-comment|// Icelandic/Iceland
-block|{
-literal|52
-block|,
-literal|101
-block|}
-block|,
-comment|// Indonesian/Indonesia
-block|{
-literal|57
-block|,
-literal|104
-block|}
-block|,
-comment|// Irish/Ireland
-block|{
-literal|58
-block|,
-literal|106
-block|}
-block|,
-comment|// Italian/Italy
-block|{
-literal|58
-block|,
-literal|206
-block|}
-block|,
-comment|// Italian/Switzerland
-block|{
-literal|59
-block|,
-literal|108
-block|}
-block|,
-comment|// Japanese/Japan
-block|{
-literal|61
-block|,
-literal|100
-block|}
-block|,
-comment|// Kannada/India
-block|{
-literal|63
-block|,
-literal|110
-block|}
-block|,
-comment|// Kazakh/Kazakhstan
-block|{
-literal|64
-block|,
-literal|179
-block|}
-block|,
-comment|// Kinyarwanda/Rwanda
-block|{
-literal|65
-block|,
-literal|116
-block|}
-block|,
-comment|// Kirghiz/Kyrgyzstan
-block|{
-literal|66
-block|,
-literal|114
-block|}
-block|,
-comment|// Korean/RepublicOfKorea
-block|{
-literal|67
-block|,
-literal|102
-block|}
-block|,
-comment|// Kurdish/Iran
-block|{
-literal|67
-block|,
-literal|103
-block|}
-block|,
-comment|// Kurdish/Iraq
-block|{
-literal|67
-block|,
-literal|207
-block|}
-block|,
-comment|// Kurdish/SyrianArabRepublic
-block|{
-literal|67
-block|,
-literal|217
-block|}
-block|,
-comment|// Kurdish/Turkey
-block|{
-literal|69
-block|,
-literal|117
-block|}
-block|,
-comment|// Laothian/Lao
-block|{
-literal|71
-block|,
-literal|118
-block|}
-block|,
-comment|// Latvian/Latvia
-block|{
-literal|72
-block|,
-literal|49
-block|}
-block|,
-comment|// Lingala/DemocraticRepublicOfCongo
-block|{
-literal|72
-block|,
-literal|50
-block|}
-block|,
-comment|// Lingala/PeoplesRepublicOfCongo
-block|{
-literal|73
-block|,
-literal|124
-block|}
-block|,
-comment|// Lithuanian/Lithuania
-block|{
-literal|74
-block|,
-literal|127
-block|}
-block|,
-comment|// Macedonian/Macedonia
-block|{
-literal|75
-block|,
-literal|128
-block|}
-block|,
-comment|// Malagasy/Madagascar
-block|{
-literal|76
-block|,
-literal|130
-block|}
-block|,
-comment|// Malay/Malaysia
-block|{
-literal|76
-block|,
-literal|32
-block|}
-block|,
-comment|// Malay/BruneiDarussalam
-block|{
-literal|77
-block|,
-literal|100
-block|}
-block|,
-comment|// Malayalam/India
-block|{
-literal|78
-block|,
-literal|133
-block|}
-block|,
-comment|// Maltese/Malta
-block|{
-literal|79
-block|,
-literal|154
-block|}
-block|,
-comment|// Maori/NewZealand
-block|{
-literal|80
-block|,
-literal|100
-block|}
-block|,
-comment|// Marathi/India
-block|{
-literal|82
-block|,
-literal|44
-block|}
-block|,
-comment|// Mongolian/China
-block|{
-literal|82
-block|,
-literal|143
-block|}
-block|,
-comment|// Mongolian/Mongolia
-block|{
-literal|84
-block|,
-literal|100
-block|}
-block|,
-comment|// Nepali/India
-block|{
-literal|84
-block|,
-literal|150
-block|}
-block|,
-comment|// Nepali/Nepal
-block|{
-literal|85
-block|,
-literal|161
-block|}
-block|,
-comment|// Norwegian/Norway
-block|{
-literal|86
-block|,
-literal|74
-block|}
-block|,
-comment|// Occitan/France
-block|{
-literal|87
-block|,
-literal|100
-block|}
-block|,
-comment|// Oriya/India
-block|{
-literal|88
-block|,
-literal|1
-block|}
-block|,
-comment|// Pashto/Afghanistan
-block|{
-literal|89
-block|,
-literal|102
-block|}
-block|,
-comment|// Persian/Iran
-block|{
-literal|89
-block|,
-literal|1
-block|}
-block|,
-comment|// Persian/Afghanistan
-block|{
-literal|90
-block|,
-literal|172
-block|}
-block|,
-comment|// Polish/Poland
-block|{
-literal|91
-block|,
-literal|173
-block|}
-block|,
-comment|// Portuguese/Portugal
-block|{
-literal|91
-block|,
-literal|30
-block|}
-block|,
-comment|// Portuguese/Brazil
-block|{
-literal|91
-block|,
-literal|92
-block|}
-block|,
-comment|// Portuguese/GuineaBissau
-block|{
-literal|91
-block|,
-literal|146
-block|}
-block|,
-comment|// Portuguese/Mozambique
-block|{
-literal|92
-block|,
-literal|100
-block|}
-block|,
-comment|// Punjabi/India
-block|{
-literal|92
-block|,
-literal|163
-block|}
-block|,
-comment|// Punjabi/Pakistan
-block|{
-literal|94
-block|,
-literal|206
-block|}
-block|,
-comment|// RhaetoRomance/Switzerland
-block|{
-literal|95
-block|,
-literal|141
-block|}
-block|,
-comment|// Romanian/Moldova
-block|{
-literal|95
-block|,
-literal|177
-block|}
-block|,
-comment|// Romanian/Romania
-block|{
-literal|96
-block|,
-literal|178
-block|}
-block|,
-comment|// Russian/RussianFederation
-block|{
-literal|96
-block|,
-literal|141
-block|}
-block|,
-comment|// Russian/Moldova
-block|{
-literal|96
-block|,
-literal|222
-block|}
-block|,
-comment|// Russian/Ukraine
-block|{
-literal|98
-block|,
-literal|41
-block|}
-block|,
-comment|// Sangho/CentralAfricanRepublic
-block|{
-literal|99
-block|,
-literal|100
-block|}
-block|,
-comment|// Sanskrit/India
-block|{
-literal|100
-block|,
-literal|27
-block|}
-block|,
-comment|// Serbian/BosniaAndHerzegowina
-block|{
-literal|100
-block|,
-literal|242
-block|}
-block|,
-comment|// Serbian/Montenegro
-block|{
-literal|100
-block|,
-literal|243
-block|}
-block|,
-comment|// Serbian/Serbia
-block|{
-literal|102
-block|,
-literal|120
-block|}
-block|,
-comment|// Sesotho/Lesotho
-block|{
-literal|102
-block|,
-literal|195
-block|}
-block|,
-comment|// Sesotho/SouthAfrica
-block|{
-literal|103
-block|,
-literal|195
-block|}
-block|,
-comment|// Setswana/SouthAfrica
-block|{
-literal|104
-block|,
-literal|240
-block|}
-block|,
-comment|// Shona/Zimbabwe
-block|{
-literal|106
-block|,
-literal|198
-block|}
-block|,
-comment|// Singhalese/SriLanka
-block|{
-literal|107
-block|,
-literal|195
-block|}
-block|,
-comment|// Siswati/SouthAfrica
-block|{
-literal|107
-block|,
-literal|204
-block|}
-block|,
-comment|// Siswati/Swaziland
-block|{
-literal|108
-block|,
-literal|191
-block|}
-block|,
-comment|// Slovak/Slovakia
-block|{
-literal|109
-block|,
-literal|192
-block|}
-block|,
-comment|// Slovenian/Slovenia
-block|{
-literal|110
-block|,
-literal|194
-block|}
-block|,
-comment|// Somali/Somalia
-block|{
-literal|110
-block|,
-literal|59
-block|}
-block|,
-comment|// Somali/Djibouti
-block|{
-literal|110
-block|,
-literal|69
-block|}
-block|,
-comment|// Somali/Ethiopia
-block|{
-literal|110
-block|,
-literal|111
-block|}
-block|,
-comment|// Somali/Kenya
-block|{
-literal|111
-block|,
-literal|197
-block|}
-block|,
-comment|// Spanish/Spain
-block|{
-literal|111
-block|,
-literal|10
-block|}
-block|,
-comment|// Spanish/Argentina
-block|{
-literal|111
-block|,
-literal|26
-block|}
-block|,
-comment|// Spanish/Bolivia
-block|{
-literal|111
-block|,
-literal|43
-block|}
-block|,
-comment|// Spanish/Chile
-block|{
-literal|111
-block|,
-literal|47
-block|}
-block|,
-comment|// Spanish/Colombia
-block|{
-literal|111
-block|,
-literal|52
-block|}
-block|,
-comment|// Spanish/CostaRica
-block|{
-literal|111
-block|,
-literal|61
-block|}
-block|,
-comment|// Spanish/DominicanRepublic
-block|{
-literal|111
-block|,
-literal|63
-block|}
-block|,
-comment|// Spanish/Ecuador
-block|{
-literal|111
-block|,
-literal|65
-block|}
-block|,
-comment|// Spanish/ElSalvador
-block|{
-literal|111
-block|,
-literal|66
-block|}
-block|,
-comment|// Spanish/EquatorialGuinea
-block|{
-literal|111
-block|,
-literal|90
-block|}
-block|,
-comment|// Spanish/Guatemala
-block|{
-literal|111
-block|,
-literal|96
-block|}
-block|,
-comment|// Spanish/Honduras
-block|{
-literal|111
-block|,
-literal|139
-block|}
-block|,
-comment|// Spanish/Mexico
-block|{
-literal|111
-block|,
-literal|155
-block|}
-block|,
-comment|// Spanish/Nicaragua
-block|{
-literal|111
-block|,
-literal|166
-block|}
-block|,
-comment|// Spanish/Panama
-block|{
-literal|111
-block|,
-literal|168
-block|}
-block|,
-comment|// Spanish/Paraguay
-block|{
-literal|111
-block|,
-literal|169
-block|}
-block|,
-comment|// Spanish/Peru
-block|{
-literal|111
-block|,
-literal|174
-block|}
-block|,
-comment|// Spanish/PuertoRico
-block|{
-literal|111
-block|,
-literal|225
-block|}
-block|,
-comment|// Spanish/UnitedStates
-block|{
-literal|111
-block|,
-literal|227
-block|}
-block|,
-comment|// Spanish/Uruguay
-block|{
-literal|111
-block|,
-literal|231
-block|}
-block|,
-comment|// Spanish/Venezuela
-block|{
-literal|113
-block|,
-literal|111
-block|}
-block|,
-comment|// Swahili/Kenya
-block|{
-literal|113
-block|,
-literal|210
-block|}
-block|,
-comment|// Swahili/Tanzania
-block|{
-literal|114
-block|,
-literal|205
-block|}
-block|,
-comment|// Swedish/Sweden
-block|{
-literal|114
-block|,
-literal|73
-block|}
-block|,
-comment|// Swedish/Finland
-block|{
-literal|116
-block|,
-literal|209
-block|}
-block|,
-comment|// Tajik/Tajikistan
-block|{
-literal|117
-block|,
-literal|100
-block|}
-block|,
-comment|// Tamil/India
-block|{
-literal|117
-block|,
-literal|198
-block|}
-block|,
-comment|// Tamil/SriLanka
-block|{
-literal|118
-block|,
-literal|178
-block|}
-block|,
-comment|// Tatar/RussianFederation
-block|{
-literal|119
-block|,
-literal|100
-block|}
-block|,
-comment|// Telugu/India
-block|{
-literal|120
-block|,
-literal|211
-block|}
-block|,
-comment|// Thai/Thailand
-block|{
-literal|121
-block|,
-literal|44
-block|}
-block|,
-comment|// Tibetan/China
-block|{
-literal|121
-block|,
-literal|100
-block|}
-block|,
-comment|// Tibetan/India
-block|{
-literal|122
-block|,
-literal|67
-block|}
-block|,
-comment|// Tigrinya/Eritrea
-block|{
-literal|122
-block|,
-literal|69
-block|}
-block|,
-comment|// Tigrinya/Ethiopia
-block|{
-literal|123
-block|,
-literal|214
-block|}
-block|,
-comment|// Tonga/Tonga
-block|{
-literal|124
-block|,
-literal|195
-block|}
-block|,
-comment|// Tsonga/SouthAfrica
-block|{
-literal|125
-block|,
-literal|217
-block|}
-block|,
-comment|// Turkish/Turkey
-block|{
-literal|128
-block|,
-literal|44
-block|}
-block|,
-comment|// Uigur/China
-block|{
-literal|129
-block|,
-literal|222
-block|}
-block|,
-comment|// Ukrainian/Ukraine
-block|{
-literal|130
-block|,
-literal|100
-block|}
-block|,
-comment|// Urdu/India
-block|{
-literal|130
-block|,
-literal|163
-block|}
-block|,
-comment|// Urdu/Pakistan
-block|{
-literal|131
-block|,
-literal|228
-block|}
-block|,
-comment|// Uzbek/Uzbekistan
-block|{
-literal|131
-block|,
-literal|1
-block|}
-block|,
-comment|// Uzbek/Afghanistan
-block|{
-literal|132
-block|,
-literal|232
-block|}
-block|,
-comment|// Vietnamese/VietNam
-block|{
-literal|134
-block|,
-literal|224
-block|}
-block|,
-comment|// Welsh/UnitedKingdom
-block|{
-literal|135
-block|,
-literal|187
-block|}
-block|,
-comment|// Wolof/Senegal
-block|{
-literal|136
-block|,
-literal|195
-block|}
-block|,
-comment|// Xhosa/SouthAfrica
-block|{
-literal|138
-block|,
-literal|157
-block|}
-block|,
-comment|// Yoruba/Nigeria
-block|{
-literal|140
-block|,
-literal|195
-block|}
-block|,
-comment|// Zulu/SouthAfrica
-block|{
-literal|141
-block|,
-literal|161
-block|}
-block|,
-comment|// Nynorsk/Norway
-block|{
-literal|142
-block|,
-literal|27
-block|}
-block|,
-comment|// Bosnian/BosniaAndHerzegowina
-block|{
-literal|143
-block|,
-literal|131
-block|}
-block|,
-comment|// Divehi/Maldives
-block|{
-literal|144
-block|,
-literal|224
-block|}
-block|,
-comment|// Manx/UnitedKingdom
-block|{
-literal|145
-block|,
-literal|224
-block|}
-block|,
-comment|// Cornish/UnitedKingdom
-block|{
-literal|146
-block|,
-literal|83
-block|}
-block|,
-comment|// Akan/Ghana
-block|{
-literal|147
-block|,
-literal|100
-block|}
-block|,
-comment|// Konkani/India
-block|{
-literal|148
-block|,
-literal|83
-block|}
-block|,
-comment|// Ga/Ghana
-block|{
-literal|149
-block|,
-literal|157
-block|}
-block|,
-comment|// Igbo/Nigeria
-block|{
-literal|150
-block|,
-literal|111
-block|}
-block|,
-comment|// Kamba/Kenya
-block|{
-literal|151
-block|,
-literal|207
-block|}
-block|,
-comment|// Syriac/SyrianArabRepublic
-block|{
-literal|152
-block|,
-literal|67
-block|}
-block|,
-comment|// Blin/Eritrea
-block|{
-literal|153
-block|,
-literal|67
-block|}
-block|,
-comment|// Geez/Eritrea
-block|{
-literal|153
-block|,
-literal|69
-block|}
-block|,
-comment|// Geez/Ethiopia
-block|{
-literal|154
-block|,
-literal|53
-block|}
-block|,
-comment|// Koro/IvoryCoast
-block|{
-literal|155
-block|,
-literal|69
-block|}
-block|,
-comment|// Sidamo/Ethiopia
-block|{
-literal|156
-block|,
-literal|157
-block|}
-block|,
-comment|// Atsam/Nigeria
-block|{
-literal|157
-block|,
-literal|67
-block|}
-block|,
-comment|// Tigre/Eritrea
-block|{
-literal|158
-block|,
-literal|157
-block|}
-block|,
-comment|// Jju/Nigeria
-block|{
-literal|159
-block|,
-literal|106
-block|}
-block|,
-comment|// Friulian/Italy
-block|{
-literal|160
-block|,
-literal|195
-block|}
-block|,
-comment|// Venda/SouthAfrica
-block|{
-literal|161
-block|,
-literal|83
-block|}
-block|,
-comment|// Ewe/Ghana
-block|{
-literal|161
-block|,
-literal|212
-block|}
-block|,
-comment|// Ewe/Togo
-block|{
-literal|162
-block|,
-literal|69
-block|}
-block|,
-comment|// Walamo/Ethiopia
-block|{
-literal|163
-block|,
-literal|225
-block|}
-block|,
-comment|// Hawaiian/UnitedStates
-block|{
-literal|164
-block|,
-literal|157
-block|}
-block|,
-comment|// Tyap/Nigeria
-block|{
-literal|165
-block|,
-literal|129
-block|}
-block|,
-comment|// Chewa/Malawi
-block|{
-literal|166
-block|,
-literal|170
-block|}
-block|,
-comment|// Filipino/Philippines
-block|{
-literal|167
-block|,
-literal|206
-block|}
-block|,
-comment|// Swiss German/Switzerland
-block|{
-literal|168
-block|,
-literal|44
-block|}
-block|,
-comment|// Sichuan Yi/China
-block|{
-literal|169
-block|,
-literal|91
-block|}
-block|,
-comment|// Kpelle/Guinea
-block|{
-literal|169
-block|,
-literal|121
-block|}
-block|,
-comment|// Kpelle/Liberia
-block|{
-literal|170
-block|,
-literal|82
-block|}
-block|,
-comment|// Low German/Germany
-block|{
-literal|171
-block|,
-literal|195
-block|}
-block|,
-comment|// South Ndebele/SouthAfrica
-block|{
-literal|172
-block|,
-literal|195
-block|}
-block|,
-comment|// Northern Sotho/SouthAfrica
-block|{
-literal|173
-block|,
-literal|73
-block|}
-block|,
-comment|// Northern Sami/Finland
-block|{
-literal|173
-block|,
-literal|161
-block|}
-block|,
-comment|// Northern Sami/Norway
-block|{
-literal|174
-block|,
-literal|208
-block|}
-block|,
-comment|// Taroko/Taiwan
-block|{
-literal|175
-block|,
-literal|111
-block|}
-block|,
-comment|// Gusii/Kenya
-block|{
-literal|176
-block|,
-literal|111
-block|}
-block|,
-comment|// Taita/Kenya
-block|{
-literal|177
-block|,
-literal|187
-block|}
-block|,
-comment|// Fulah/Senegal
-block|{
-literal|178
-block|,
-literal|111
-block|}
-block|,
-comment|// Kikuyu/Kenya
-block|{
-literal|179
-block|,
-literal|111
-block|}
-block|,
-comment|// Samburu/Kenya
-block|{
-literal|180
-block|,
-literal|146
-block|}
-block|,
-comment|// Sena/Mozambique
-block|{
-literal|181
-block|,
-literal|240
-block|}
-block|,
-comment|// North Ndebele/Zimbabwe
-block|{
-literal|182
-block|,
-literal|210
-block|}
-block|,
-comment|// Rombo/Tanzania
-block|{
-literal|183
-block|,
-literal|145
-block|}
-block|,
-comment|// Tachelhit/Morocco
-block|{
-literal|184
-block|,
-literal|3
-block|}
-block|,
-comment|// Kabyle/Algeria
-block|{
-literal|185
-block|,
-literal|221
-block|}
-block|,
-comment|// Nyankole/Uganda
-block|{
-literal|186
-block|,
-literal|210
-block|}
-block|,
-comment|// Bena/Tanzania
-block|{
-literal|187
-block|,
-literal|210
-block|}
-block|,
-comment|// Vunjo/Tanzania
-block|{
-literal|188
-block|,
-literal|132
-block|}
-block|,
-comment|// Bambara/Mali
-block|{
-literal|189
-block|,
-literal|111
-block|}
-block|,
-comment|// Embu/Kenya
-block|{
-literal|190
-block|,
-literal|225
-block|}
-block|,
-comment|// Cherokee/UnitedStates
-block|{
-literal|191
-block|,
-literal|137
-block|}
-block|,
-comment|// Morisyen/Mauritius
-block|{
-literal|192
-block|,
-literal|210
-block|}
-block|,
-comment|// Makonde/Tanzania
-block|{
-literal|193
-block|,
-literal|210
-block|}
-block|,
-comment|// Langi/Tanzania
-block|{
-literal|194
-block|,
-literal|221
-block|}
-block|,
-comment|// Ganda/Uganda
-block|{
-literal|195
-block|,
-literal|239
-block|}
-block|,
-comment|// Bemba/Zambia
-block|{
-literal|196
-block|,
-literal|39
-block|}
-block|,
-comment|// Kabuverdianu/CapeVerde
-block|{
-literal|197
-block|,
-literal|111
-block|}
-block|,
-comment|// Meru/Kenya
-block|{
-literal|198
-block|,
-literal|111
-block|}
-block|,
-comment|// Kalenjin/Kenya
-block|{
-literal|199
-block|,
-literal|148
-block|}
-block|,
-comment|// Nama/Namibia
-block|{
-literal|200
-block|,
-literal|210
-block|}
-block|,
-comment|// Machame/Tanzania
-block|{
-literal|201
-block|,
-literal|82
-block|}
-block|,
-comment|// Colognian/Germany
-block|{
-literal|202
-block|,
-literal|111
-block|}
-block|,
-comment|// Masai/Kenya
-block|{
-literal|202
-block|,
-literal|210
-block|}
-block|,
-comment|// Masai/Tanzania
-block|{
-literal|203
-block|,
-literal|221
-block|}
-block|,
-comment|// Soga/Uganda
-block|{
-literal|204
-block|,
-literal|111
-block|}
-block|,
-comment|// Luyia/Kenya
-block|{
-literal|205
-block|,
-literal|210
-block|}
-block|,
-comment|// Asu/Tanzania
-block|{
-literal|206
-block|,
-literal|111
-block|}
-block|,
-comment|// Teso/Kenya
-block|{
-literal|206
-block|,
-literal|221
-block|}
-block|,
-comment|// Teso/Uganda
-block|{
-literal|207
-block|,
-literal|67
-block|}
-block|,
-comment|// Saho/Eritrea
-block|{
-literal|208
-block|,
-literal|132
-block|}
-block|,
-comment|// Koyra Chiini/Mali
-block|{
-literal|209
-block|,
-literal|210
-block|}
-block|,
-comment|// Rwa/Tanzania
-block|{
-literal|210
-block|,
-literal|111
-block|}
-block|,
-comment|// Luo/Kenya
-block|{
-literal|211
-block|,
-literal|221
-block|}
-block|,
-comment|// Chiga/Uganda
-block|{
-literal|212
-block|,
-literal|145
-block|}
-block|,
-comment|// Central Morocco Tamazight/Morocco
-block|{
-literal|213
-block|,
-literal|132
-block|}
-block|,
-comment|// Koyraboro Senni/Mali
-block|{
-literal|214
-block|,
-literal|210
-block|}
-comment|// Shambala/Tanzania
-block|}
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|g_locale_list_count
+DECL|variable|locale_data_count
 specifier|static
 specifier|const
 name|int
-name|g_locale_list_count
+name|locale_data_count
 init|=
 sizeof|sizeof
 argument_list|(
-name|g_locale_list
+name|locale_data
 argument_list|)
 operator|/
 sizeof|sizeof
 argument_list|(
-name|g_locale_list
+name|locale_data
 index|[
 literal|0
 index|]
@@ -14992,13 +12770,33 @@ argument_list|)
 decl_stmt|;
 end_decl_stmt
 begin_function
-DECL|function|testNames
+DECL|function|testNames_data
 name|void
 name|tst_QLocale
 operator|::
-name|testNames
+name|testNames_data
 parameter_list|()
 block|{
+name|QTest
+operator|::
+name|addColumn
+argument_list|<
+name|int
+argument_list|>
+argument_list|(
+literal|"language"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|addColumn
+argument_list|<
+name|int
+argument_list|>
+argument_list|(
+literal|"country"
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -15008,24 +12806,43 @@ literal|0
 init|;
 name|i
 operator|<
-name|g_locale_list_count
+name|locale_data_count
 condition|;
 operator|++
 name|i
 control|)
 block|{
 specifier|const
-name|LocaleListItem
+name|QLocaleData
 modifier|&
 name|item
 init|=
-name|g_locale_list
+name|locale_data
 index|[
 name|i
 index|]
 decl_stmt|;
+specifier|const
+name|QString
+name|testName
+init|=
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"data_%1 (%2/%3)"
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|i
+argument_list|)
+operator|.
+name|arg
+argument_list|(
 name|QLocale
-name|l1
+operator|::
+name|languageToString
 argument_list|(
 operator|(
 name|QLocale
@@ -15034,8 +12851,16 @@ name|Language
 operator|)
 name|item
 operator|.
-name|language
-argument_list|,
+name|m_language_id
+argument_list|)
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|QLocale
+operator|::
+name|countryToString
+argument_list|(
 operator|(
 name|QLocale
 operator|::
@@ -15043,9 +12868,100 @@ name|Country
 operator|)
 name|item
 operator|.
+name|m_country_id
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+name|testName
+operator|.
+name|toLatin1
+argument_list|()
+operator|.
+name|constData
+argument_list|()
+argument_list|)
+operator|<<
+operator|(
+name|int
+operator|)
+name|item
+operator|.
+name|m_language_id
+operator|<<
+operator|(
+name|int
+operator|)
+name|item
+operator|.
+name|m_country_id
+expr_stmt|;
+block|}
+block|}
+end_function
+begin_function
+DECL|function|testNames
+name|void
+name|tst_QLocale
+operator|::
+name|testNames
+parameter_list|()
+block|{
+name|QFETCH
+argument_list|(
+name|int
+argument_list|,
+name|language
+argument_list|)
+expr_stmt|;
+name|QFETCH
+argument_list|(
+name|int
+argument_list|,
+name|country
+argument_list|)
+expr_stmt|;
+name|QLocale
+name|l1
+argument_list|(
+operator|(
+name|QLocale
+operator|::
+name|Language
+operator|)
+name|language
+argument_list|,
+operator|(
+name|QLocale
+operator|::
+name|Country
+operator|)
 name|country
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|language
+operator|==
+name|QLocale
+operator|::
+name|AnyLanguage
+operator|&&
+name|country
+operator|==
+name|QLocale
+operator|::
+name|AnyCountry
+condition|)
+name|language
+operator|=
+name|QLocale
+operator|::
+name|C
+expr_stmt|;
 name|QCOMPARE
 argument_list|(
 operator|(
@@ -15056,8 +12972,6 @@ operator|.
 name|language
 argument_list|()
 argument_list|,
-name|item
-operator|.
 name|language
 argument_list|)
 expr_stmt|;
@@ -15071,8 +12985,6 @@ operator|.
 name|country
 argument_list|()
 argument_list|,
-name|item
-operator|.
 name|country
 argument_list|)
 expr_stmt|;
@@ -15100,8 +13012,6 @@ operator|.
 name|language
 argument_list|()
 argument_list|,
-name|item
-operator|.
 name|language
 argument_list|)
 expr_stmt|;
@@ -15115,8 +13025,6 @@ operator|.
 name|country
 argument_list|()
 argument_list|,
-name|item
-operator|.
 name|country
 argument_list|)
 expr_stmt|;
@@ -15151,8 +13059,6 @@ operator|.
 name|language
 argument_list|()
 argument_list|,
-name|item
-operator|.
 name|language
 argument_list|)
 expr_stmt|;
@@ -15166,8 +13072,6 @@ operator|.
 name|country
 argument_list|()
 argument_list|,
-name|item
-operator|.
 name|country
 argument_list|)
 expr_stmt|;
@@ -15202,8 +13106,6 @@ operator|.
 name|language
 argument_list|()
 argument_list|,
-name|item
-operator|.
 name|language
 argument_list|)
 expr_stmt|;
@@ -15217,8 +13119,6 @@ operator|.
 name|country
 argument_list|()
 argument_list|,
-name|item
-operator|.
 name|country
 argument_list|)
 expr_stmt|;
@@ -15234,8 +13134,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|item
-operator|.
 name|language
 operator|!=
 name|QLocale
@@ -15287,8 +13185,6 @@ operator|.
 name|language
 argument_list|()
 argument_list|,
-name|item
-operator|.
 name|language
 argument_list|)
 expr_stmt|;
@@ -15310,8 +13206,6 @@ operator|.
 name|language
 argument_list|()
 argument_list|,
-name|item
-operator|.
 name|language
 argument_list|)
 expr_stmt|;
@@ -15333,12 +13227,9 @@ operator|.
 name|language
 argument_list|()
 argument_list|,
-name|item
-operator|.
 name|language
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_function
@@ -17899,7 +15790,7 @@ operator|.
 name|size
 argument_list|()
 argument_list|,
-literal|1
+literal|3
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -17916,7 +15807,229 @@ argument_list|)
 argument_list|,
 name|QLatin1String
 argument_list|(
+literal|"en"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|en_US
+operator|.
+name|uiLanguages
+argument_list|()
+operator|.
+name|at
+argument_list|(
+literal|1
+argument_list|)
+argument_list|,
+name|QLatin1String
+argument_list|(
 literal|"en-US"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|en_US
+operator|.
+name|uiLanguages
+argument_list|()
+operator|.
+name|at
+argument_list|(
+literal|2
+argument_list|)
+argument_list|,
+name|QLatin1String
+argument_list|(
+literal|"en-Latn-US"
+argument_list|)
+argument_list|)
+expr_stmt|;
+specifier|const
+name|QLocale
+name|en_Latn_US
+argument_list|(
+literal|"en_Latn_US"
+argument_list|)
+decl_stmt|;
+name|QCOMPARE
+argument_list|(
+name|en_Latn_US
+operator|.
+name|uiLanguages
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|,
+literal|3
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|en_Latn_US
+operator|.
+name|uiLanguages
+argument_list|()
+operator|.
+name|at
+argument_list|(
+literal|0
+argument_list|)
+argument_list|,
+name|QLatin1String
+argument_list|(
+literal|"en"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|en_Latn_US
+operator|.
+name|uiLanguages
+argument_list|()
+operator|.
+name|at
+argument_list|(
+literal|1
+argument_list|)
+argument_list|,
+name|QLatin1String
+argument_list|(
+literal|"en-US"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|en_Latn_US
+operator|.
+name|uiLanguages
+argument_list|()
+operator|.
+name|at
+argument_list|(
+literal|2
+argument_list|)
+argument_list|,
+name|QLatin1String
+argument_list|(
+literal|"en-Latn-US"
+argument_list|)
+argument_list|)
+expr_stmt|;
+specifier|const
+name|QLocale
+name|en_GB
+argument_list|(
+literal|"en_GB"
+argument_list|)
+decl_stmt|;
+name|QCOMPARE
+argument_list|(
+name|en_GB
+operator|.
+name|uiLanguages
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|,
+literal|2
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|en_GB
+operator|.
+name|uiLanguages
+argument_list|()
+operator|.
+name|at
+argument_list|(
+literal|0
+argument_list|)
+argument_list|,
+name|QLatin1String
+argument_list|(
+literal|"en-GB"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|en_GB
+operator|.
+name|uiLanguages
+argument_list|()
+operator|.
+name|at
+argument_list|(
+literal|1
+argument_list|)
+argument_list|,
+name|QLatin1String
+argument_list|(
+literal|"en-Latn-GB"
+argument_list|)
+argument_list|)
+expr_stmt|;
+specifier|const
+name|QLocale
+name|en_Dsrt_US
+argument_list|(
+literal|"en_Dsrt_US"
+argument_list|)
+decl_stmt|;
+name|QCOMPARE
+argument_list|(
+name|en_Dsrt_US
+operator|.
+name|uiLanguages
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|,
+literal|2
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|en_Dsrt_US
+operator|.
+name|uiLanguages
+argument_list|()
+operator|.
+name|at
+argument_list|(
+literal|0
+argument_list|)
+argument_list|,
+name|QLatin1String
+argument_list|(
+literal|"en-Dsrt"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|en_Dsrt_US
+operator|.
+name|uiLanguages
+argument_list|()
+operator|.
+name|at
+argument_list|(
+literal|1
+argument_list|)
+argument_list|,
+name|QLatin1String
+argument_list|(
+literal|"en-Dsrt-US"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -17937,7 +16050,7 @@ operator|.
 name|size
 argument_list|()
 argument_list|,
-literal|1
+literal|3
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -17954,7 +16067,99 @@ argument_list|)
 argument_list|,
 name|QLatin1String
 argument_list|(
+literal|"ru"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|ru_RU
+operator|.
+name|uiLanguages
+argument_list|()
+operator|.
+name|at
+argument_list|(
+literal|1
+argument_list|)
+argument_list|,
+name|QLatin1String
+argument_list|(
 literal|"ru-RU"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|ru_RU
+operator|.
+name|uiLanguages
+argument_list|()
+operator|.
+name|at
+argument_list|(
+literal|2
+argument_list|)
+argument_list|,
+name|QLatin1String
+argument_list|(
+literal|"ru-Cyrl-RU"
+argument_list|)
+argument_list|)
+expr_stmt|;
+specifier|const
+name|QLocale
+name|zh_Hant
+argument_list|(
+literal|"zh_Hant"
+argument_list|)
+decl_stmt|;
+name|QCOMPARE
+argument_list|(
+name|zh_Hant
+operator|.
+name|uiLanguages
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|,
+literal|2
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|zh_Hant
+operator|.
+name|uiLanguages
+argument_list|()
+operator|.
+name|at
+argument_list|(
+literal|0
+argument_list|)
+argument_list|,
+name|QLatin1String
+argument_list|(
+literal|"zh-TW"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|zh_Hant
+operator|.
+name|uiLanguages
+argument_list|()
+operator|.
+name|at
+argument_list|(
+literal|1
+argument_list|)
+argument_list|,
+name|QLatin1String
+argument_list|(
+literal|"zh-Hant-TW"
 argument_list|)
 argument_list|)
 expr_stmt|;
