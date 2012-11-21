@@ -21,12 +21,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QPair>
+file|<QList>
 end_include
 begin_include
 include|#
 directive|include
-file|<QList>
+file|<QPair>
 end_include
 begin_comment
 comment|//! [0]
@@ -120,7 +120,7 @@ argument|const QModelIndex&index
 argument_list|,
 argument|const QVariant&value
 argument_list|,
-argument|int role=Qt::EditRole
+argument|int role = Qt::EditRole
 argument_list|)
 block|;
 name|bool
@@ -130,7 +130,7 @@ argument|int position
 argument_list|,
 argument|int rows
 argument_list|,
-argument|const QModelIndex&index=QModelIndex()
+argument|const QModelIndex&index = QModelIndex()
 argument_list|)
 block|;
 name|bool
@@ -140,7 +140,7 @@ argument|int position
 argument_list|,
 argument|int rows
 argument_list|,
-argument|const QModelIndex&index=QModelIndex()
+argument|const QModelIndex&index = QModelIndex()
 argument_list|)
 block|;
 name|QList
@@ -177,4 +177,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// TABLEMODEL_H
+end_comment
 end_unit

@@ -5,12 +5,22 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtWidgets>
+file|"mainwindow.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"mainwindow.h"
+file|<QAction>
+end_include
+begin_include
+include|#
+directive|include
+file|<QFileDialog>
+end_include
+begin_include
+include|#
+directive|include
+file|<QMenuBar>
 end_include
 begin_comment
 comment|//! [0]
@@ -402,7 +412,6 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
-block|{
 name|addressWidget
 operator|->
 name|readFromFile
@@ -410,7 +419,6 @@ argument_list|(
 name|fileName
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 end_function
 begin_comment
@@ -445,7 +453,6 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
-block|{
 name|addressWidget
 operator|->
 name|writeToFile
@@ -453,7 +460,6 @@ argument_list|(
 name|fileName
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 end_function
 begin_comment

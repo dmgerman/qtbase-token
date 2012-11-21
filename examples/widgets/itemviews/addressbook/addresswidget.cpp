@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtWidgets>
+file|"adddialog.h"
 end_include
 begin_include
 include|#
@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"adddialog.h"
+file|<QtWidgets>
 end_include
 begin_comment
 comment|//! [0]
@@ -370,11 +370,6 @@ operator|->
 name|selectedRows
 argument_list|()
 decl_stmt|;
-name|QModelIndex
-name|index
-decl_stmt|,
-name|i
-decl_stmt|;
 name|QString
 name|name
 decl_stmt|;
@@ -389,8 +384,9 @@ literal|1
 decl_stmt|;
 foreach|foreach
 control|(
+name|QModelIndex
 name|index
-init|,
+decl|,
 name|indexes
 control|)
 block|{
@@ -406,8 +402,9 @@ operator|.
 name|row
 argument_list|()
 expr_stmt|;
-name|i
-operator|=
+name|QModelIndex
+name|nameIndex
+init|=
 name|table
 operator|->
 name|index
@@ -419,7 +416,7 @@ argument_list|,
 name|QModelIndex
 argument_list|()
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|QVariant
 name|varName
 init|=
@@ -427,7 +424,7 @@ name|table
 operator|->
 name|data
 argument_list|(
-name|i
+name|nameIndex
 argument_list|,
 name|Qt
 operator|::
@@ -441,8 +438,9 @@ operator|.
 name|toString
 argument_list|()
 expr_stmt|;
-name|i
-operator|=
+name|QModelIndex
+name|addressIndex
+init|=
 name|table
 operator|->
 name|index
@@ -454,7 +452,7 @@ argument_list|,
 name|QModelIndex
 argument_list|()
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|QVariant
 name|varAddr
 init|=
@@ -462,7 +460,7 @@ name|table
 operator|->
 name|data
 argument_list|(
-name|i
+name|addressIndex
 argument_list|,
 name|Qt
 operator|::
@@ -544,8 +542,9 @@ operator|!=
 name|address
 condition|)
 block|{
-name|i
-operator|=
+name|QModelIndex
+name|index
+init|=
 name|table
 operator|->
 name|index
@@ -557,12 +556,12 @@ argument_list|,
 name|QModelIndex
 argument_list|()
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|table
 operator|->
 name|setData
 argument_list|(
-name|i
+name|index
 argument_list|,
 name|newAddress
 argument_list|,
@@ -636,13 +635,11 @@ operator|->
 name|selectedRows
 argument_list|()
 decl_stmt|;
-name|QModelIndex
-name|index
-decl_stmt|;
 foreach|foreach
 control|(
+name|QModelIndex
 name|index
-init|,
+decl|,
 name|indexes
 control|)
 block|{
@@ -939,7 +936,9 @@ name|AddressWidget
 operator|::
 name|readFromFile
 parameter_list|(
+specifier|const
 name|QString
+modifier|&
 name|fileName
 parameter_list|)
 block|{
@@ -1097,7 +1096,9 @@ name|AddressWidget
 operator|::
 name|writeToFile
 parameter_list|(
+specifier|const
 name|QString
+modifier|&
 name|fileName
 parameter_list|)
 block|{

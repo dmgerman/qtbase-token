@@ -16,12 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QTabWidget>
-end_include
-begin_include
-include|#
-directive|include
-file|<QItemSelection>
+file|"newaddresstab.h"
 end_include
 begin_include
 include|#
@@ -31,7 +26,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|"newaddresstab.h"
+file|<QItemSelection>
+end_include
+begin_include
+include|#
+directive|include
+file|<QTabWidget>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
@@ -70,13 +70,19 @@ block|;
 name|void
 name|readFromFile
 argument_list|(
-argument|QString fileName
+specifier|const
+name|QString
+operator|&
+name|fileName
 argument_list|)
 block|;
 name|void
 name|writeToFile
 argument_list|(
-argument|QString fileName
+specifier|const
+name|QString
+operator|&
+name|fileName
 argument_list|)
 block|;
 name|public
@@ -140,4 +146,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// ADDRESSWIDGET_H
+end_comment
 end_unit

@@ -376,8 +376,8 @@ name|row
 operator|<
 name|rows
 condition|;
-name|row
 operator|++
+name|row
 control|)
 block|{
 name|QPair

@@ -16,12 +16,12 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtWidgets>
+file|"addresswidget.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"addresswidget.h"
+file|<QMainWindow>
 end_include
 begin_comment
 comment|//! [0]
@@ -110,4 +110,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// MAINWINDOW_H
+end_comment
 end_unit
