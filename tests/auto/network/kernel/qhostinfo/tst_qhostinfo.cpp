@@ -14,35 +14,6 @@ directive|include
 file|<qglobal.h>
 end_include
 begin_comment
-comment|// MinGW doesn't provide getaddrinfo(), so we test for Q_OS_WIN
-end_comment
-begin_comment
-comment|// and Q_CC_GNU, which indirectly tells us whether we're using MinGW.
-end_comment
-begin_if
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_WIN
-argument_list|)
-operator|&&
-name|defined
-argument_list|(
-name|Q_CC_GNU
-argument_list|)
-end_if
-begin_define
-DECL|macro|QT_NO_GETADDRINFO
-define|#
-directive|define
-name|QT_NO_GETADDRINFO
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
 comment|// To prevent windows system header files from re-defining min/max
 end_comment
 begin_define
@@ -58,12 +29,6 @@ directive|if
 name|defined
 argument_list|(
 name|Q_OS_WIN
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_GETADDRINFO
 argument_list|)
 end_if
 begin_include
@@ -732,7 +697,7 @@ name|defined
 argument_list|(
 name|QT_NO_GETADDRINFO
 argument_list|)
-operator|||
+operator|&&
 operator|!
 operator|(
 name|defined
