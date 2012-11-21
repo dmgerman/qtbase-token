@@ -1732,14 +1732,6 @@ argument|China
 argument_list|)
 name|TEST_CTOR
 argument_list|(
-literal|"mn"
-argument_list|,
-argument|Mongolian
-argument_list|,
-argument|Mongolia
-argument_list|)
-name|TEST_CTOR
-argument_list|(
 literal|"ne"
 argument_list|,
 argument|Nepali
@@ -13477,7 +13469,7 @@ name|QString
 operator|::
 name|fromUtf8
 argument_list|(
-literal|"\320\222"
+literal|"\320\262\321\201"
 argument_list|)
 operator|<<
 literal|7
@@ -14773,7 +14765,7 @@ argument_list|)
 argument_list|,
 name|QLatin1String
 argument_list|(
-literal|"Dez"
+literal|"Dez."
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -14841,7 +14833,7 @@ name|QString
 operator|::
 name|fromUtf8
 argument_list|(
-literal|"\321\217\320\275\320\262"
+literal|"\321\217\320\275\320\262\56"
 argument_list|)
 argument_list|)
 expr_stmt|;
