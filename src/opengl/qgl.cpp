@@ -12369,7 +12369,7 @@ begin_comment
 comment|// !QT_OPENGL_ES
 end_comment
 begin_comment
-comment|/*!    Renders the string \a str into the GL context of this widget.     \a x and \a y are specified in window coordinates, with the origin    in the upper left-hand corner of the window. If \a font is not    specified, the currently set application font will be used to    render the string. To change the color of the rendered text you can    use the glColor() call (or the qglColor() convenience function),    just before the renderText() call.     The \a listBase parameter is obsolete and will be removed in a    future version of Qt.     \note This function clears the stencil buffer.     \note This function is not supported on OpenGL/ES systems.     \note This function temporarily disables depth-testing when the    text is drawn.     \note This function can only be used inside a    QPainter::beginNativePainting()/QPainter::endNativePainting() block    if the default OpenGL paint engine is QPaintEngine::OpenGL. To make    QPaintEngine::OpenGL the default GL engine, call    QGL::setPreferredPaintEngine(QPaintEngine::OpenGL) before the    QApplication constructor.     \l{Overpainting Example}{Overpaint} with QPainter::drawText() instead. */
+comment|/*!    Renders the string \a str into the GL context of this widget.     \a x and \a y are specified in window coordinates, with the origin    in the upper left-hand corner of the window. If \a font is not    specified, the currently set application font will be used to    render the string. To change the color of the rendered text you can    use the glColor() call (or the qglColor() convenience function),    just before the renderText() call.     The \a listBase parameter is obsolete and will be removed in a    future version of Qt.     \note This function clears the stencil buffer.     \note This function is not supported on OpenGL/ES systems.     \note This function temporarily disables depth-testing when the    text is drawn.     \note This function can only be used inside a    QPainter::beginNativePainting()/QPainter::endNativePainting() block    if a painter is active on the QGLWidget.     \l{Overpainting Example}{Overpaint} with QPainter::drawText() instead. */
 end_comment
 begin_function
 DECL|function|renderText
@@ -12486,24 +12486,9 @@ init|=
 name|paintEngine
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|engine
-operator|&&
-name|engine
-operator|->
-name|isActive
+name|qt_save_gl_state
 argument_list|()
-condition|)
-block|{
-name|qWarning
-argument_list|(
-literal|"QGLWidget::renderText(): Calling renderText() while a GL 2 paint engine is"
-literal|" active on the same device is not allowed."
-argument_list|)
 expr_stmt|;
-return|return;
-block|}
 name|QPainter
 modifier|*
 name|p
@@ -12530,9 +12515,6 @@ operator|=
 name|engine
 operator|->
 name|painter
-argument_list|()
-expr_stmt|;
-name|qt_save_gl_state
 argument_list|()
 expr_stmt|;
 name|glDisable
@@ -12700,14 +12682,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
 name|reuse_painter
 condition|)
-block|{
-name|qt_restore_gl_state
-argument_list|()
-expr_stmt|;
-block|}
-else|else
 block|{
 name|p
 operator|->
@@ -12729,6 +12706,9 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
+name|qt_restore_gl_state
+argument_list|()
+expr_stmt|;
 else|#
 directive|else
 comment|// QT_OPENGL_ES
@@ -12762,7 +12742,7 @@ directive|endif
 block|}
 end_function
 begin_comment
-comment|/*! \overload      \a x, \a y and \a z are specified in scene or object coordinates     relative to the currently set projection and model matrices. This     can be useful if you want to annotate models with text labels and     have the labels move with the model as it is rotated etc.      \note This function is not supported on OpenGL/ES systems.      \note If depth testing is enabled before this function is called,     then the drawn text will be depth-tested against the models that     have already been drawn in the scene.  Use \c{glDisable(GL_DEPTH_TEST)}     before calling this function to annotate the models without     depth-testing the text.      \l{Overpainting Example}{Overpaint} with QPainter::drawText() instead. */
+comment|/*! \overload      \a x, \a y and \a z are specified in scene or object coordinates     relative to the currently set projection and model matrices. This     can be useful if you want to annotate models with text labels and     have the labels move with the model as it is rotated etc.      \note This function is not supported on OpenGL/ES systems.      \note If depth testing is enabled before this function is called,     then the drawn text will be depth-tested against the models that     have already been drawn in the scene.  Use \c{glDisable(GL_DEPTH_TEST)}     before calling this function to annotate the models without     depth-testing the text.      \note This function can only be used inside a     QPainter::beginNativePainting()/QPainter::endNativePainting() block     if a painter is active on the QGLWidget.      \l{Overpainting Example}{Overpaint} with QPainter::drawText() instead. */
 end_comment
 begin_function
 DECL|function|renderText
@@ -12976,24 +12956,6 @@ init|=
 name|paintEngine
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|engine
-operator|&&
-name|engine
-operator|->
-name|isActive
-argument_list|()
-condition|)
-block|{
-name|qWarning
-argument_list|(
-literal|"QGLWidget::renderText(): Calling renderText() while a GL 2 paint engine is"
-literal|" active on the same device is not allowed."
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
 name|QPainter
 modifier|*
 name|p
@@ -13019,6 +12981,9 @@ argument_list|(
 name|GL_SCISSOR_TEST
 argument_list|)
 decl_stmt|;
+name|qt_save_gl_state
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|engine
@@ -13036,9 +13001,6 @@ operator|=
 name|engine
 operator|->
 name|painter
-argument_list|()
-expr_stmt|;
-name|qt_save_gl_state
 argument_list|()
 expr_stmt|;
 block|}
@@ -13235,14 +13197,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
 name|reuse_painter
 condition|)
-block|{
-name|qt_restore_gl_state
-argument_list|()
-expr_stmt|;
-block|}
-else|else
 block|{
 name|p
 operator|->
@@ -13264,6 +13221,9 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
+name|qt_restore_gl_state
+argument_list|()
+expr_stmt|;
 else|#
 directive|else
 comment|// QT_OPENGL_ES
