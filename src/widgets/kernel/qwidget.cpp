@@ -2456,18 +2456,22 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|qobject_cast
+argument_list|<
 name|QApplication
+operator|*
+argument_list|>
+argument_list|(
+name|QCoreApplication
 operator|::
-name|type
+name|instance
 argument_list|()
-operator|==
-name|QApplication
-operator|::
-name|Tty
+argument_list|)
 condition|)
 name|qFatal
 argument_list|(
-literal|"QWidget: Cannot create a QWidget when no GUI is being used"
+literal|"QWidget: Cannot create a QWidget without QApplication"
 argument_list|)
 expr_stmt|;
 name|Q_ASSERT
