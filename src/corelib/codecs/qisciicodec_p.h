@@ -131,7 +131,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_BIG_CODECS
+comment|// QT_NO_CODECS
 end_comment
 begin_macro
 name|QT_END_NAMESPACE
