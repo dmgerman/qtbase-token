@@ -8515,6 +8515,34 @@ operator|++
 name|codepoint
 control|)
 block|{
+comment|// ### [
+comment|// as of Unicode 5.1, some punctuation marks were mapped to MidLetter and MidNumLet
+comment|// which caused "hi.there" to be treated like if it were just a single word;
+comment|// until we have a tailoring mechanism, retain the old behavior by remapping those characters here.
+if|if
+condition|(
+name|codepoint
+operator|==
+literal|0x002E
+condition|)
+comment|// FULL STOP
+name|brk
+operator|=
+name|WordBreak_MidNum
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|codepoint
+operator|==
+literal|0x003A
+condition|)
+comment|// COLON
+name|brk
+operator|=
+name|WordBreak_Other
+expr_stmt|;
+comment|// ] ###
 name|UnicodeData
 modifier|&
 name|ud

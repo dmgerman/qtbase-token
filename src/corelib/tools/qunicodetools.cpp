@@ -1212,6 +1212,48 @@ name|prop
 operator|->
 name|wordBreakClass
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
+if|if
+condition|(
+name|qt_initcharattributes_default_algorithm_only
+condition|)
+block|{
+comment|// as of Unicode 5.1, some punctuation marks were mapped to MidLetter and MidNumLet
+comment|// which caused "hi.there" to be treated like if it were just a single word;
+comment|// by remapping those characters in the Unicode tables generator.
+comment|// this code is needed to pass the coverage tests; remove once the issue is fixed.
+if|if
+condition|(
+name|ucs4
+operator|==
+literal|0x002E
+condition|)
+comment|// FULL STOP
+name|ncls
+operator|=
+name|QUnicodeTables
+operator|::
+name|WordBreak_MidNumLet
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|ucs4
+operator|==
+literal|0x003A
+condition|)
+comment|// COLON
+name|ncls
+operator|=
+name|QUnicodeTables
+operator|::
+name|WordBreak_MidLetter
+expr_stmt|;
+block|}
+endif|#
+directive|endif
 name|uchar
 name|action
 init|=
