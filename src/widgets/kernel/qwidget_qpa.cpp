@@ -3654,6 +3654,18 @@ literal|false
 decl_stmt|;
 if|if
 condition|(
+operator|!
+operator|(
+name|data
+operator|.
+name|window_state
+operator|&
+name|Qt
+operator|::
+name|WindowFullScreen
+operator|)
+operator|&&
+operator|(
 name|w
 operator|==
 literal|0
@@ -3661,6 +3673,7 @@ operator|||
 name|h
 operator|==
 literal|0
+operator|)
 condition|)
 block|{
 name|q
