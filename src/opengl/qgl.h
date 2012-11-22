@@ -1377,18 +1377,6 @@ name|bool
 name|on
 parameter_list|)
 function_decl|;
-name|void
-name|generateFontDisplayLists
-parameter_list|(
-specifier|const
-name|QFont
-modifier|&
-name|fnt
-parameter_list|,
-name|int
-name|listBase
-parameter_list|)
-function_decl|;
 name|uint
 name|colorIndex
 argument_list|(
@@ -1750,9 +1738,6 @@ argument_list|,
 argument|const QString& str
 argument_list|,
 argument|const QFont& fnt = QFont()
-argument_list|,
-argument|int listBase =
-literal|2000
 argument_list|)
 block|;
 name|void
@@ -1767,9 +1752,6 @@ argument_list|,
 argument|const QString& str
 argument_list|,
 argument|const QFont& fnt = QFont()
-argument_list|,
-argument|int listBase =
-literal|2000
 argument_list|)
 block|;
 name|QPaintEngine
@@ -1951,15 +1933,6 @@ name|virtual
 name|void
 name|glDraw
 argument_list|()
-block|;
-name|int
-name|fontDisplayListBase
-argument_list|(
-argument|const QFont& fnt
-argument_list|,
-argument|int listBase =
-literal|2000
-argument_list|)
 block|;
 name|QGLWidget
 argument_list|(

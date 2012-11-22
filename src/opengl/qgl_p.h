@@ -469,19 +469,6 @@ block|;
 name|QGLColormap
 name|cmap
 block|;
-ifndef|#
-directive|ifndef
-name|QT_OPENGL_ES
-name|QMap
-operator|<
-name|QString
-block|,
-name|int
-operator|>
-name|displayListCache
-block|;
-endif|#
-directive|endif
 name|bool
 name|disable_clear_on_painter_begin
 block|; }
