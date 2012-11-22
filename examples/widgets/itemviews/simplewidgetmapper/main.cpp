@@ -5,12 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QApplication>
+file|"window.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"window.h"
+file|<QApplication>
 end_include
 begin_function
 DECL|function|main

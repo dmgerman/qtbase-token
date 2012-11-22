@@ -28,11 +28,6 @@ include|#
 directive|include
 file|<QModelIndex>
 end_include
-begin_include
-include|#
-directive|include
-file|<QVariant>
-end_include
 begin_decl_stmt
 DECL|variable|DomItem
 name|class
@@ -144,4 +139,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// DOMMODEL_H
+end_comment
 end_unit

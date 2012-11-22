@@ -21,11 +21,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QFontMetrics>
-end_include
-begin_include
-include|#
-directive|include
 file|<QModelIndex>
 end_include
 begin_include
@@ -128,4 +123,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// PIXELDELEGATE_H
+end_comment
 end_unit

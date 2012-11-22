@@ -198,7 +198,8 @@ name|services
 block|;
 name|int
 name|rc
-block|,
+block|;
+name|int
 name|cc
 block|;
 name|QVector
@@ -217,4 +218,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// MODEL_H
+end_comment
 end_unit

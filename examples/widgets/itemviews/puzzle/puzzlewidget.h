@@ -21,12 +21,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QPoint>
+file|<QPixmap>
 end_include
 begin_include
 include|#
 directive|include
-file|<QPixmap>
+file|<QPoint>
 end_include
 begin_include
 include|#
@@ -192,4 +192,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// PUZZLEWIDGET_H
+end_comment
 end_unit

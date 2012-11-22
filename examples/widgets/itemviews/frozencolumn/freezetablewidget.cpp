@@ -5,12 +5,17 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtWidgets>
+file|"freezetablewidget.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"freezetablewidget.h"
+file|<QScrollBar>
+end_include
+begin_include
+include|#
+directive|include
+file|<QHeaderView>
 end_include
 begin_comment
 comment|//! [constructor]
@@ -270,8 +275,8 @@ operator|->
 name|columnCount
 argument_list|()
 condition|;
-name|col
 operator|++
+name|col
 control|)
 name|frozenTableView
 operator|->
@@ -356,6 +361,7 @@ name|int
 name|logicalIndex
 parameter_list|,
 name|int
+comment|/* oldSize */
 parameter_list|,
 name|int
 name|newSize
@@ -394,6 +400,7 @@ name|int
 name|logicalIndex
 parameter_list|,
 name|int
+comment|/* oldSize */
 parameter_list|,
 name|int
 name|newSize

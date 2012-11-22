@@ -92,7 +92,7 @@ name|updateSectionWidth
 argument_list|(
 argument|int logicalIndex
 argument_list|,
-argument|int
+argument|int oldSize
 argument_list|,
 argument|int newSize
 argument_list|)
@@ -102,7 +102,7 @@ name|updateSectionHeight
 argument_list|(
 argument|int logicalIndex
 argument_list|,
-argument|int
+argument|int oldSize
 argument_list|,
 argument|int newSize
 argument_list|)
@@ -116,4 +116,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// FREEZETABLEWIDGET_H
+end_comment
 end_unit

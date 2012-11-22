@@ -633,8 +633,8 @@ argument_list|()
 argument_list|)
 return|;
 comment|// Update the list index that corresponds to the next valid row.
-name|validRow
 operator|++
+name|validRow
 expr_stmt|;
 block|}
 block|}
@@ -742,10 +742,13 @@ argument_list|)
 operator|.
 name|toDouble
 argument_list|()
-operator|>
+operator|<=
 literal|0.0
 condition|)
-block|{
+return|return
+name|QRect
+argument_list|()
+return|;
 name|int
 name|listItem
 init|=
@@ -862,7 +865,6 @@ operator|->
 name|rect
 argument_list|()
 return|;
-block|}
 block|}
 return|return
 name|QRect
@@ -1510,10 +1512,10 @@ decl_stmt|;
 if|if
 condition|(
 name|validItems
-operator|>
+operator|<=
 literal|0
 condition|)
-block|{
+return|return;
 name|painter
 operator|.
 name|save
@@ -1904,10 +1906,9 @@ argument_list|,
 name|labelIndex
 argument_list|)
 expr_stmt|;
-name|keyNumber
 operator|++
+name|keyNumber
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
@@ -2035,8 +2036,8 @@ name|totalValue
 operator|+=
 name|value
 expr_stmt|;
-name|validItems
 operator|++
+name|validItems
 expr_stmt|;
 block|}
 block|}
@@ -2128,8 +2129,8 @@ name|totalValue
 operator|-=
 name|value
 expr_stmt|;
-name|validItems
 operator|--
+name|validItems
 expr_stmt|;
 block|}
 block|}
@@ -2216,6 +2217,7 @@ operator|.
 name|left
 argument_list|()
 condition|)
+block|{
 name|horizontalScrollBar
 argument_list|()
 operator|->
@@ -2238,6 +2240,7 @@ name|left
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -2251,6 +2254,7 @@ operator|.
 name|right
 argument_list|()
 condition|)
+block|{
 name|horizontalScrollBar
 argument_list|()
 operator|->
@@ -2286,6 +2290,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|rect
@@ -2298,6 +2303,7 @@ operator|.
 name|top
 argument_list|()
 condition|)
+block|{
 name|verticalScrollBar
 argument_list|()
 operator|->
@@ -2320,6 +2326,7 @@ name|top
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -2333,6 +2340,7 @@ operator|.
 name|bottom
 argument_list|()
 condition|)
+block|{
 name|verticalScrollBar
 argument_list|()
 operator|->
@@ -2368,6 +2376,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|update
 argument_list|()
 expr_stmt|;
@@ -2844,11 +2853,15 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|!
 name|rect
 operator|.
 name|isValid
 argument_list|()
 condition|)
+return|return
+name|rect
+return|;
 return|return
 name|QRect
 argument_list|(
@@ -2884,10 +2897,6 @@ operator|.
 name|height
 argument_list|()
 argument_list|)
-return|;
-else|else
-return|return
-name|rect
 return|;
 block|}
 end_function

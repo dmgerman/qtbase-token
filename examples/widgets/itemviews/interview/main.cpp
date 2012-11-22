@@ -15,12 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QTableView>
-end_include
-begin_include
-include|#
-directive|include
-file|<QTreeView>
+file|<QHeaderView>
 end_include
 begin_include
 include|#
@@ -35,7 +30,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QHeaderView>
+file|<QTableView>
+end_include
+begin_include
+include|#
+directive|include
+file|<QTreeView>
 end_include
 begin_function
 DECL|function|main

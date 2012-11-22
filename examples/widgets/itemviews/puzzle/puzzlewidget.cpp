@@ -5,12 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtWidgets>
+file|"puzzlewidget.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"puzzlewidget.h"
+file|<QtWidgets>
 end_include
 begin_constructor
 DECL|function|PuzzleWidget
@@ -491,11 +491,9 @@ index|[
 name|i
 index|]
 condition|)
-block|{
 return|return
 name|i
 return|;
-block|}
 block|}
 return|return
 operator|-

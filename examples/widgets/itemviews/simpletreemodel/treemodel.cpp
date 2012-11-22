@@ -8,17 +8,17 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtWidgets>
-end_include
-begin_include
-include|#
-directive|include
 file|"treeitem.h"
 end_include
 begin_include
 include|#
 directive|include
 file|"treemodel.h"
+end_include
+begin_include
+include|#
+directive|include
+file|<QStringList>
 end_include
 begin_comment
 comment|//! [0]
@@ -854,8 +854,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|number
 operator|++
+name|number
 expr_stmt|;
 block|}
 block|}

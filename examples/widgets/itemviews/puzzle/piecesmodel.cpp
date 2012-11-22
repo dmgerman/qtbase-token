@@ -5,12 +5,17 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtWidgets>
+file|"piecesmodel.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"piecesmodel.h"
+file|<QIcon>
+end_include
+begin_include
+include|#
+directive|include
+file|<QMimeData>
 end_include
 begin_constructor
 DECL|function|PiecesModel
@@ -631,6 +636,7 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
+block|{
 name|endRow
 operator|=
 name|parent
@@ -638,6 +644,7 @@ operator|.
 name|row
 argument_list|()
 expr_stmt|;
+block|}
 name|QByteArray
 name|encodedData
 init|=

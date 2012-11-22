@@ -1051,8 +1051,8 @@ operator|!=
 literal|" "
 condition|)
 break|break;
-name|position
 operator|++
+name|position
 expr_stmt|;
 block|}
 name|QString
@@ -1276,8 +1276,8 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-name|number
 operator|++
+name|number
 expr_stmt|;
 block|}
 block|}

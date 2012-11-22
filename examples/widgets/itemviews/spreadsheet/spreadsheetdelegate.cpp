@@ -309,9 +309,8 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
-else|else
-block|{
 name|QDateTimeEdit
 modifier|*
 name|dateEditor
@@ -359,7 +358,6 @@ literal|"d/M/yyyy"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_function
@@ -415,9 +413,8 @@ name|text
 argument_list|()
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
-else|else
-block|{
 name|QDateTimeEdit
 modifier|*
 name|dateEditor
@@ -435,7 +432,6 @@ if|if
 condition|(
 name|dateEditor
 condition|)
-block|{
 name|model
 operator|->
 name|setData
@@ -453,8 +449,6 @@ literal|"dd/M/yyyy"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-block|}
 block|}
 end_function
 end_unit

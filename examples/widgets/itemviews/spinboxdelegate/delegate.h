@@ -18,26 +18,6 @@ include|#
 directive|include
 file|<QStyledItemDelegate>
 end_include
-begin_include
-include|#
-directive|include
-file|<QModelIndex>
-end_include
-begin_include
-include|#
-directive|include
-file|<QObject>
-end_include
-begin_include
-include|#
-directive|include
-file|<QSize>
-end_include
-begin_include
-include|#
-directive|include
-file|<QSpinBox>
-end_include
 begin_comment
 comment|//! [0]
 end_comment

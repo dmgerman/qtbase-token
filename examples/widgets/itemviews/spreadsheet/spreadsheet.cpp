@@ -1484,6 +1484,7 @@ name|i
 decl|,
 name|selected
 control|)
+block|{
 if|if
 condition|(
 name|i
@@ -1495,6 +1496,7 @@ argument_list|(
 name|col
 argument_list|)
 expr_stmt|;
+block|}
 name|updateColor
 argument_list|(
 name|table
@@ -1570,6 +1572,7 @@ name|i
 decl|,
 name|selected
 control|)
+block|{
 if|if
 condition|(
 name|i
@@ -1581,6 +1584,7 @@ argument_list|(
 name|fnt
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 end_function
 begin_function
@@ -2574,7 +2578,8 @@ condition|)
 block|{
 name|int
 name|row
-decl_stmt|,
+decl_stmt|;
+name|int
 name|col
 decl_stmt|;
 name|decode_pos

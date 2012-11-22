@@ -5,12 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtXml>
+file|"domitem.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"domitem.h"
+file|<QtXml>
 end_include
 begin_comment
 comment|//! [0]

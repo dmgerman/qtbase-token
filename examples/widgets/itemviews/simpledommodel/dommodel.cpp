@@ -5,22 +5,17 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtWidgets>
-end_include
-begin_include
-include|#
-directive|include
-file|<QtXml>
-end_include
-begin_include
-include|#
-directive|include
 file|"domitem.h"
 end_include
 begin_include
 include|#
 directive|include
 file|"dommodel.h"
+end_include
+begin_include
+include|#
+directive|include
+file|<QtXml>
 end_include
 begin_comment
 comment|//! [0]

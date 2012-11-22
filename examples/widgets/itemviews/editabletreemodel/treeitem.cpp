@@ -8,12 +8,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QStringList>
+file|"treeitem.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"treeitem.h"
+file|<QStringList>
 end_include
 begin_comment
 comment|//! [0]

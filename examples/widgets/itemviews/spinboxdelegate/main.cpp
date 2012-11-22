@@ -8,6 +8,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|"delegate.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<QApplication>
 end_include
 begin_include
@@ -18,22 +23,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QItemSelectionModel>
-end_include
-begin_include
-include|#
-directive|include
 file|<QStandardItemModel>
 end_include
 begin_include
 include|#
 directive|include
 file|<QTableView>
-end_include
-begin_include
-include|#
-directive|include
-file|"delegate.h"
 end_include
 begin_comment
 comment|//! [0]

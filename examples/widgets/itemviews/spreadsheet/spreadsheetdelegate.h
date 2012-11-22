@@ -16,12 +16,12 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QItemDelegate>
+file|"spreadsheet.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"spreadsheet.h"
+file|<QItemDelegate>
 end_include
 begin_decl_stmt
 name|class

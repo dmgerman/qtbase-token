@@ -8,12 +8,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtWidgets>
+file|"delegate.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"delegate.h"
+file|<QSpinBox>
 end_include
 begin_comment
 comment|//! [0]
