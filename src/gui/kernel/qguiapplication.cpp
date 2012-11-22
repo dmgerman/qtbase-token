@@ -1078,9 +1078,9 @@ name|this
 block|;
 name|application_type
 operator|=
-name|QCoreApplication
+name|QCoreApplicationPrivate
 operator|::
-name|GuiClient
+name|Gui
 block|; }
 comment|/*!     \property QGuiApplication::applicationDisplayName     \brief the user-visible name of this application     \since 5.0      This name is shown to the user, for instance in window titles.     It can be translated, if necessary.      If not set, the application display name defaults to the application name.      \sa applicationName */
 DECL|function|setApplicationDisplayName

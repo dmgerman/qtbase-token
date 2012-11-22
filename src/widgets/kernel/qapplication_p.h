@@ -339,8 +339,6 @@ argument|int&argc
 argument_list|,
 argument|char **argv
 argument_list|,
-argument|QApplication::Type type
-argument_list|,
 argument|int flags
 argument_list|)
 block|;

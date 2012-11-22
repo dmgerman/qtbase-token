@@ -97,6 +97,14 @@ argument|QCoreApplication
 argument_list|)
 name|public
 operator|:
+expr|enum
+name|Type
+block|{
+name|Tty
+block|,
+name|Gui
+block|}
+block|;
 name|QCoreApplicationPrivate
 argument_list|(
 argument|int&aargc
