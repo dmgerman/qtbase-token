@@ -1060,6 +1060,9 @@ return|return
 operator|new
 name|QUtf32LECodec
 return|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CODECS
 if|if
 condition|(
 operator|!
@@ -1094,6 +1097,8 @@ argument_list|(
 name|name
 argument_list|)
 return|;
+endif|#
+directive|endif
 return|return
 literal|0
 return|;
