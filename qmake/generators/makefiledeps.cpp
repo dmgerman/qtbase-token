@@ -4504,7 +4504,7 @@ argument_list|()
 argument_list|,
 name|_O_RDONLY
 argument_list|,
-name|_SH_DENYRW
+name|_SH_DENYNO
 argument_list|,
 name|_S_IREAD
 argument_list|)
