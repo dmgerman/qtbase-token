@@ -940,7 +940,7 @@ name|Config
 operator|::
 name|dot
 operator|+
-literal|"Qt"
+name|project
 operator|+
 name|Config
 operator|::
