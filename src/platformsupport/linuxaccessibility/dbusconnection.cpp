@@ -20,6 +20,11 @@ end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_ACCESSIBILITY
+end_ifndef
 begin_comment
 comment|/*!     \class DBusConnection     \internal     \brief Connects to the accessibility dbus.      This is usually a different bus from the session bus. */
 end_comment
@@ -250,6 +255,13 @@ name|dbusConnection
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_ACCESSIBILITY
+end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

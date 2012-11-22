@@ -40,6 +40,9 @@ comment|//  "heading"  "page"  "section"  "redundant object"  "form"  "input met
 end_comment
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+ifndef|#
+directive|ifndef
+name|QT_NO_ACCESSIBILITY
 DECL|variable|qSpiRoleMapping
 name|QHash
 argument_list|<
@@ -541,6 +544,13 @@ name|ATSPI_RELATION_NULL
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_ACCESSIBILITY
+end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
