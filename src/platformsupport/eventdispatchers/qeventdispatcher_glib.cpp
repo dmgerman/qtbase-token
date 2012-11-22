@@ -351,13 +351,14 @@ name|m_flags
 operator|=
 name|flags
 expr_stmt|;
+return|return
 name|QEventDispatcherGlib
 operator|::
 name|processEvents
 argument_list|(
 name|m_flags
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 end_function
 begin_macro
