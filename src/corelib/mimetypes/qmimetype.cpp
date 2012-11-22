@@ -269,7 +269,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QMimeType::QMimeType(const QMimeTypePrivate&dd);     Assigns the data of the QMimeTypePrivate \a dd to this QMimeType object, and returns a reference to this object.  */
+comment|/*!     \fn QMimeType::QMimeType(const QMimeTypePrivate&dd);     Assigns the data of the QMimeTypePrivate \a dd to this QMimeType object, and returns a reference to this object.     \internal  */
 end_comment
 begin_constructor
 DECL|function|QMimeType
