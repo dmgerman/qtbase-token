@@ -114,16 +114,6 @@ operator|>
 name|Macros
 expr_stmt|;
 end_typedef
-begin_typedef
-DECL|typedef|MacroSafeSet
-typedef|typedef
-name|QVector
-operator|<
-name|MacroName
-operator|>
-name|MacroSafeSet
-expr_stmt|;
-end_typedef
 begin_decl_stmt
 DECL|variable|QIODevice
 name|class
@@ -204,43 +194,39 @@ name|skipBranch
 argument_list|()
 block|;
 name|void
-name|substituteMacro
-argument_list|(
-argument|const MacroName&macro
-argument_list|,
-argument|Symbols&substituted
-argument_list|,
-argument|MacroSafeSet safeset = MacroSafeSet()
-argument_list|)
-block|;
-name|void
 name|substituteUntilNewline
 argument_list|(
-argument|Symbols&substituted
-argument_list|,
-argument|MacroSafeSet safeset = MacroSafeSet()
+name|Symbols
+operator|&
+name|substituted
 argument_list|)
 block|;
-name|void
+specifier|static
+name|Symbols
 name|macroExpandIdentifier
 argument_list|(
+argument|Preprocessor *that
+argument_list|,
+argument|SymbolStack&symbols
+argument_list|,
 argument|int lineNum
 argument_list|,
-argument|Symbols&preprocessed
-argument_list|,
-argument|MacroSafeSet safeset = MacroSafeSet()
+argument|QByteArray *macroName
 argument_list|)
 block|;
-name|void
-name|macroExpandSymbols
+specifier|static
+name|Symbols
+name|macroExpand
 argument_list|(
+argument|Preprocessor *that
+argument_list|,
+argument|Symbols&toExpand
+argument_list|,
+argument|int&index
+argument_list|,
 argument|int lineNum
 argument_list|,
-argument|const Symbols&symbols
-argument_list|,
-argument|Symbols&expanded
-argument_list|,
-argument|MacroSafeSet safeset
+argument|bool one
 argument_list|)
 block|;
 name|int
