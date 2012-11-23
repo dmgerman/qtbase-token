@@ -5,17 +5,22 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtWidgets>
-end_include
-begin_include
-include|#
-directive|include
 file|"diagramscene.h"
 end_include
 begin_include
 include|#
 directive|include
 file|"arrow.h"
+end_include
+begin_include
+include|#
+directive|include
+file|<QTextCursor>
+end_include
+begin_include
+include|#
+directive|include
+file|<QGraphicsSceneMouseEvent>
 end_include
 begin_comment
 comment|//! [0]

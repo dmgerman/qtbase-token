@@ -12,6 +12,16 @@ include|#
 directive|include
 file|"layoutitem.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<QGraphicsLinearLayout>
+end_include
+begin_include
+include|#
+directive|include
+file|<QGraphicsGridLayout>
+end_include
 begin_constructor
 DECL|function|Window
 name|Window

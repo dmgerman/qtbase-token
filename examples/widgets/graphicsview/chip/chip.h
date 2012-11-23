@@ -16,12 +16,12 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtGui/QColor>
+file|<QColor>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtWidgets/QGraphicsItem>
+file|<QGraphicsItem>
 end_include
 begin_decl_stmt
 name|class
@@ -98,7 +98,8 @@ name|private
 operator|:
 name|int
 name|x
-block|,
+block|;
+name|int
 name|y
 block|;
 name|QColor
@@ -116,4 +117,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// CHIP_H
+end_comment
 end_unit

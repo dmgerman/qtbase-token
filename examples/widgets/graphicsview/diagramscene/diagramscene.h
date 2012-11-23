@@ -16,17 +16,17 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QGraphicsScene>
-end_include
-begin_include
-include|#
-directive|include
 file|"diagramitem.h"
 end_include
 begin_include
 include|#
 directive|include
 file|"diagramtextitem.h"
+end_include
+begin_include
+include|#
+directive|include
+file|<QGraphicsScene>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
@@ -311,4 +311,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// DIAGRAMSCENE_H
+end_comment
 end_unit

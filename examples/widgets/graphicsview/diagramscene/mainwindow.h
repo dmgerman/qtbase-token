@@ -16,12 +16,12 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QMainWindow>
+file|"diagramitem.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"diagramitem.h"
+file|<QMainWindow>
 end_include
 begin_decl_stmt
 DECL|variable|DiagramScene
@@ -441,4 +441,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// MAINWINDOW_H
+end_comment
 end_unit

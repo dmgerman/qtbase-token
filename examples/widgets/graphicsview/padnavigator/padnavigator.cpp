@@ -17,11 +17,6 @@ include|#
 directive|include
 file|"splashitem.h"
 end_include
-begin_include
-include|#
-directive|include
-file|<QtWidgets/QtWidgets>
-end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -30,7 +25,7 @@ end_ifndef
 begin_include
 include|#
 directive|include
-file|<QtOpenGL/QtOpenGL>
+file|<QtOpenGL>
 end_include
 begin_endif
 endif|#

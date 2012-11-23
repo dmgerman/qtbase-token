@@ -5,17 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtWidgets>
-end_include
-begin_include
-include|#
-directive|include
-file|<QLabel>
-end_include
-begin_include
-include|#
-directive|include
-file|"mainwindow.h"
+file|"arrow.h"
 end_include
 begin_include
 include|#
@@ -35,7 +25,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|"arrow.h"
+file|"mainwindow.h"
+end_include
+begin_include
+include|#
+directive|include
+file|<QtWidgets>
 end_include
 begin_decl_stmt
 DECL|variable|InsertTextButton
@@ -581,7 +576,6 @@ name|DiagramItem
 operator|::
 name|Type
 condition|)
-block|{
 name|qgraphicsitem_cast
 argument_list|<
 name|DiagramItem
@@ -594,7 +588,6 @@ operator|->
 name|removeArrows
 argument_list|()
 expr_stmt|;
-block|}
 name|scene
 operator|->
 name|removeItem
@@ -3736,7 +3729,6 @@ argument_list|)
 operator|==
 name|defaultColor
 condition|)
-block|{
 name|colorMenu
 operator|->
 name|setDefaultAction
@@ -3744,7 +3736,6 @@ argument_list|(
 name|action
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 return|return
 name|colorMenu

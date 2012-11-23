@@ -16,12 +16,12 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtCore/qtimeline.h>
+file|<QTimeLine>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtWidgets/qgraphicsproxywidget.h>
+file|<QGraphicsProxyWidget>
 end_include
 begin_decl_stmt
 name|class
@@ -147,4 +147,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// CUSTOMPROXY_H
+end_comment
 end_unit

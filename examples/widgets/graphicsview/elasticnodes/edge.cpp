@@ -5,11 +5,6 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QPainter>
-end_include
-begin_include
-include|#
-directive|include
 file|"edge.h"
 end_include
 begin_include
@@ -21,6 +16,11 @@ begin_include
 include|#
 directive|include
 file|<math.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<QPainter>
 end_include
 begin_decl_stmt
 DECL|variable|Pi

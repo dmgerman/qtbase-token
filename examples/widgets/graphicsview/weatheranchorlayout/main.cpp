@@ -5,6 +5,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|<QApplication>
+end_include
+begin_include
+include|#
+directive|include
 file|<QLabel>
 end_include
 begin_include
@@ -20,22 +25,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QApplication>
-end_include
-begin_include
-include|#
-directive|include
-file|<QGraphicsView>
-end_include
-begin_include
-include|#
-directive|include
-file|<QGraphicsScene>
-end_include
-begin_include
-include|#
-directive|include
-file|<QGraphicsWidget>
+file|<QGraphicsAnchorLayout>
 end_include
 begin_include
 include|#
@@ -45,12 +35,22 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QGraphicsAnchorLayout>
+file|<QGraphicsScene>
 end_include
 begin_include
 include|#
 directive|include
 file|<QGraphicsSceneResizeEvent>
+end_include
+begin_include
+include|#
+directive|include
+file|<QGraphicsView>
+end_include
+begin_include
+include|#
+directive|include
+file|<QGraphicsWidget>
 end_include
 begin_class
 DECL|class|GraphicsView
@@ -776,8 +776,8 @@ name|argc
 parameter_list|,
 name|char
 modifier|*
-modifier|*
 name|argv
+index|[]
 parameter_list|)
 block|{
 name|Q_INIT_RESOURCE
@@ -1023,12 +1023,12 @@ expr_stmt|;
 comment|// start anchor layout
 name|QGraphicsAnchorLayout
 modifier|*
-name|l
+name|layout
 init|=
 operator|new
 name|QGraphicsAnchorLayout
 decl_stmt|;
-name|l
+name|layout
 operator|->
 name|setSpacing
 argument_list|(
@@ -1038,7 +1038,7 @@ expr_stmt|;
 comment|// setup the main widget
 name|QGraphicsWidget
 modifier|*
-name|w
+name|widget
 init|=
 operator|new
 name|QGraphicsWidget
@@ -1066,14 +1066,14 @@ operator|::
 name|black
 argument_list|)
 expr_stmt|;
-name|w
+name|widget
 operator|->
 name|setPalette
 argument_list|(
 name|p
 argument_list|)
 expr_stmt|;
-name|w
+name|widget
 operator|->
 name|setPos
 argument_list|(
@@ -1082,11 +1082,11 @@ argument_list|,
 literal|20
 argument_list|)
 expr_stmt|;
-name|w
+name|widget
 operator|->
 name|setLayout
 argument_list|(
-name|l
+name|layout
 argument_list|)
 expr_stmt|;
 comment|// vertical anchors
@@ -1094,7 +1094,7 @@ name|QGraphicsAnchor
 modifier|*
 name|anchor
 init|=
-name|l
+name|layout
 operator|->
 name|addAnchor
 argument_list|(
@@ -1104,7 +1104,7 @@ name|Qt
 operator|::
 name|AnchorTop
 argument_list|,
-name|l
+name|layout
 argument_list|,
 name|Qt
 operator|::
@@ -1113,7 +1113,7 @@ argument_list|)
 decl_stmt|;
 name|anchor
 operator|=
-name|l
+name|layout
 operator|->
 name|addAnchor
 argument_list|(
@@ -1139,7 +1139,7 @@ argument_list|)
 expr_stmt|;
 name|anchor
 operator|=
-name|l
+name|layout
 operator|->
 name|addAnchor
 argument_list|(
@@ -1149,7 +1149,7 @@ name|Qt
 operator|::
 name|AnchorBottom
 argument_list|,
-name|l
+name|layout
 argument_list|,
 name|Qt
 operator|::
@@ -1165,7 +1165,7 @@ argument_list|)
 expr_stmt|;
 name|anchor
 operator|=
-name|l
+name|layout
 operator|->
 name|addAnchor
 argument_list|(
@@ -1184,7 +1184,7 @@ argument_list|)
 expr_stmt|;
 name|anchor
 operator|=
-name|l
+name|layout
 operator|->
 name|addAnchor
 argument_list|(
@@ -1194,7 +1194,7 @@ name|Qt
 operator|::
 name|AnchorBottom
 argument_list|,
-name|l
+name|layout
 argument_list|,
 name|Qt
 operator|::
@@ -1203,7 +1203,7 @@ argument_list|)
 expr_stmt|;
 name|anchor
 operator|=
-name|l
+name|layout
 operator|->
 name|addAnchor
 argument_list|(
@@ -1229,7 +1229,7 @@ argument_list|)
 expr_stmt|;
 name|anchor
 operator|=
-name|l
+name|layout
 operator|->
 name|addAnchor
 argument_list|(
@@ -1255,7 +1255,7 @@ argument_list|)
 expr_stmt|;
 name|anchor
 operator|=
-name|l
+name|layout
 operator|->
 name|addAnchor
 argument_list|(
@@ -1265,7 +1265,7 @@ name|Qt
 operator|::
 name|AnchorBottom
 argument_list|,
-name|l
+name|layout
 argument_list|,
 name|Qt
 operator|::
@@ -1282,11 +1282,11 @@ expr_stmt|;
 comment|// horizontal anchors
 name|anchor
 operator|=
-name|l
+name|layout
 operator|->
 name|addAnchor
 argument_list|(
-name|l
+name|layout
 argument_list|,
 name|Qt
 operator|::
@@ -1301,7 +1301,7 @@ argument_list|)
 expr_stmt|;
 name|anchor
 operator|=
-name|l
+name|layout
 operator|->
 name|addAnchor
 argument_list|(
@@ -1311,7 +1311,7 @@ name|Qt
 operator|::
 name|AnchorRight
 argument_list|,
-name|l
+name|layout
 argument_list|,
 name|Qt
 operator|::
@@ -1320,7 +1320,7 @@ argument_list|)
 expr_stmt|;
 name|anchor
 operator|=
-name|l
+name|layout
 operator|->
 name|addAnchor
 argument_list|(
@@ -1330,7 +1330,7 @@ name|Qt
 operator|::
 name|AnchorLeft
 argument_list|,
-name|l
+name|layout
 argument_list|,
 name|Qt
 operator|::
@@ -1346,7 +1346,7 @@ argument_list|)
 expr_stmt|;
 name|anchor
 operator|=
-name|l
+name|layout
 operator|->
 name|addAnchor
 argument_list|(
@@ -1372,7 +1372,7 @@ argument_list|)
 expr_stmt|;
 name|anchor
 operator|=
-name|l
+name|layout
 operator|->
 name|addAnchor
 argument_list|(
@@ -1391,7 +1391,7 @@ argument_list|)
 expr_stmt|;
 name|anchor
 operator|=
-name|l
+name|layout
 operator|->
 name|addAnchor
 argument_list|(
@@ -1401,7 +1401,7 @@ name|Qt
 operator|::
 name|AnchorRight
 argument_list|,
-name|l
+name|layout
 argument_list|,
 name|Qt
 operator|::
@@ -1410,7 +1410,7 @@ argument_list|)
 expr_stmt|;
 name|anchor
 operator|=
-name|l
+name|layout
 operator|->
 name|addAnchor
 argument_list|(
@@ -1429,7 +1429,7 @@ argument_list|)
 expr_stmt|;
 name|anchor
 operator|=
-name|l
+name|layout
 operator|->
 name|addAnchor
 argument_list|(
@@ -1439,7 +1439,7 @@ name|Qt
 operator|::
 name|AnchorRight
 argument_list|,
-name|l
+name|layout
 argument_list|,
 name|Qt
 operator|::
@@ -1451,7 +1451,7 @@ name|scene
 operator|.
 name|addItem
 argument_list|(
-name|w
+name|widget
 argument_list|)
 expr_stmt|;
 name|scene

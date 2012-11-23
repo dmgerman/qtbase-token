@@ -7,6 +7,21 @@ include|#
 directive|include
 file|"layoutitem.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<QGradient>
+end_include
+begin_include
+include|#
+directive|include
+file|<QGraphicsLinearLayout>
+end_include
+begin_include
+include|#
+directive|include
+file|<QPainter>
+end_include
 begin_comment
 comment|//! [0]
 end_comment
@@ -289,10 +304,8 @@ argument_list|,
 operator|-
 literal|4
 argument_list|,
-operator|+
 literal|4
 argument_list|,
-operator|+
 literal|4
 argument_list|)
 expr_stmt|;

@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtWidgets/QGraphicsView>
+file|<QGraphicsView>
 end_include
 begin_decl_stmt
 DECL|variable|Node
@@ -128,4 +128,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// GRAPHWIDGET_H
+end_comment
 end_unit

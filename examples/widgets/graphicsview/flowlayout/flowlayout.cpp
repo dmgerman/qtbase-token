@@ -10,12 +10,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtWidgets/qwidget.h>
+file|<qmath.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/qmath.h>
+file|<QWidget>
 end_include
 begin_constructor
 DECL|function|FlowLayout

@@ -16,17 +16,20 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtWidgets/qdialog.h>
+file|<QDialog>
 end_include
-begin_expr_stmt
-DECL|variable|Ui_embeddedDialog
-name|QT_FORWARD_DECLARE_CLASS
-argument_list|(
-name|Ui_embeddedDialog
-argument_list|)
-expr_stmt|;
-end_expr_stmt
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
+name|namespace
+name|Ui
+block|{
+name|class
+name|EmbeddedDialog
+decl_stmt|;
+block|}
+end_decl_stmt
+begin_decl_stmt
+name|QT_END_NAMESPACE
 name|class
 name|EmbeddedDialog
 range|:
@@ -84,7 +87,9 @@ argument_list|)
 block|;
 name|private
 operator|:
-name|Ui_embeddedDialog
+name|Ui
+operator|::
+name|EmbeddedDialog
 operator|*
 name|ui
 block|; }
@@ -94,4 +99,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// EMBEDDEDDIALOG_H
+end_comment
 end_unit

@@ -10,7 +10,17 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtWidgets/QtWidgets>
+file|<QApplication>
+end_include
+begin_include
+include|#
+directive|include
+file|<QPainter>
+end_include
+begin_include
+include|#
+directive|include
+file|<QPalette>
 end_include
 begin_comment
 comment|//! [0]

@@ -5,6 +5,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|"chip.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"mainwindow.h"
 end_include
 begin_include
@@ -15,12 +20,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|"chip.h"
+file|<QHBoxLayout>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtWidgets>
+file|<QSplitter>
 end_include
 begin_constructor
 DECL|function|MainWindow

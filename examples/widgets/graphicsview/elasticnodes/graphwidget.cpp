@@ -20,12 +20,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtWidgets>
+file|<math.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<math.h>
+file|<QKeyEvent>
 end_include
 begin_comment
 comment|//! [0]

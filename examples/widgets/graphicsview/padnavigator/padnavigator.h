@@ -37,12 +37,6 @@ name|QStateMachine
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|Ui_Form
-name|class
-name|Ui_Form
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|QT_END_NAMESPACE
 comment|//! [0]
 name|class
@@ -81,7 +75,9 @@ argument_list|)
 block|;
 name|private
 operator|:
-name|Ui_Form
+name|Ui
+operator|::
+name|Form
 name|form
 block|; }
 decl_stmt|;

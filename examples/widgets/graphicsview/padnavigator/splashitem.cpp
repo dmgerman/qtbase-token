@@ -10,7 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtWidgets/QtWidgets>
+file|<QPainter>
 end_include
 begin_comment
 comment|//! [0]

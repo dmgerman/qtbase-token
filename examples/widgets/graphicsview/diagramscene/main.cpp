@@ -5,12 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtWidgets>
+file|"mainwindow.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"mainwindow.h"
+file|<QApplication>
 end_include
 begin_function
 DECL|function|main
