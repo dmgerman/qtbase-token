@@ -30,7 +30,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qwindowsstyle.h>
+file|<qproxystyle.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<qstylefactory.h>
 end_include
 begin_include
 include|#
@@ -6721,8 +6726,21 @@ struct|struct
 name|MyStyle
 super|:
 specifier|public
-name|QWindowsStyle
+name|QProxyStyle
 block|{
+name|MyStyle
+parameter_list|()
+member_init_list|:
+name|QProxyStyle
+argument_list|(
+name|QStyleFactory
+operator|::
+name|create
+argument_list|(
+literal|"windows"
+argument_list|)
+argument_list|)
+block|{ }
 specifier|virtual
 name|int
 name|pixelMetric
@@ -6780,7 +6798,7 @@ literal|1
 return|;
 default|default:
 return|return
-name|QWindowsStyle
+name|QProxyStyle
 operator|::
 name|pixelMetric
 argument_list|(
