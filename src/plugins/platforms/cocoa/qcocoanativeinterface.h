@@ -88,6 +88,16 @@ operator|*
 name|context
 argument_list|)
 block|;
+specifier|static
+name|void
+operator|*
+name|nsOpenGLContextForContext
+argument_list|(
+name|QOpenGLContext
+operator|*
+name|context
+argument_list|)
+block|;
 name|public
 name|Q_SLOTS
 operator|:
