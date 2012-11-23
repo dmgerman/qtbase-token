@@ -98,7 +98,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtWidgets/private/qstylesheetstyle_p.h>
+file|<QtWidgets/QStyle>
 end_include
 begin_ifdef
 ifdef|#
@@ -597,10 +597,6 @@ argument_list|(
 name|argc
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 name|EventSpy
@@ -841,10 +837,6 @@ argument_list|(
 name|argc
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 block|}
@@ -879,10 +871,6 @@ argument_list|(
 name|argc
 argument_list|,
 name|argv
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 block|{
 name|startTimer
@@ -925,10 +913,6 @@ argument_list|(
 name|argc
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 name|app
@@ -1357,10 +1341,6 @@ argument_list|(
 name|argc
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 comment|// Needed for QFontDatabase
@@ -1702,10 +1682,6 @@ argument_list|(
 name|argc
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 if|if
@@ -1863,10 +1839,6 @@ argument_list|(
 name|argc
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 name|QApplication
@@ -2137,10 +2109,6 @@ argument_list|(
 name|argc_in
 argument_list|,
 name|argv
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 name|QString
@@ -2303,10 +2271,6 @@ argument_list|(
 name|argc
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 name|QSignalSpy
@@ -2813,10 +2777,6 @@ argument_list|(
 name|argc
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 name|QuitOnLastWindowClosedDialog
@@ -2886,10 +2846,6 @@ argument_list|(
 name|argc
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 name|QSignalSpy
@@ -3083,10 +3039,6 @@ argument_list|(
 name|argc
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 name|QTimer
@@ -3265,10 +3217,6 @@ argument_list|(
 name|argc
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 name|QTimer
@@ -3418,10 +3366,6 @@ argument_list|(
 name|argc
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 name|QSignalSpy
@@ -3558,10 +3502,6 @@ argument_list|(
 name|argc
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 name|QVERIFY
@@ -3838,10 +3778,6 @@ argument_list|(
 name|argc
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 comment|// create some windows
@@ -4285,10 +4221,6 @@ name|argc
 argument_list|,
 operator|&
 name|argv0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 name|QString
@@ -4392,10 +4324,6 @@ name|argc
 argument_list|,
 operator|&
 name|argv0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 name|QString
@@ -4691,10 +4619,6 @@ name|argc
 argument_list|,
 operator|&
 name|argv0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 name|QString
@@ -4750,10 +4674,6 @@ name|argc
 argument_list|,
 operator|&
 name|argv0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 ifdef|#
@@ -4991,10 +4911,6 @@ name|argc
 argument_list|,
 operator|&
 name|argv0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 name|QString
@@ -5171,10 +5087,6 @@ name|argc
 argument_list|,
 operator|&
 name|argv0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 comment|// library path list should contain the default plus the one valid path
@@ -5293,10 +5205,6 @@ name|argc
 argument_list|,
 operator|&
 name|argv0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 comment|// library paths are initialized by the QApplication, setting
@@ -5582,10 +5490,6 @@ argument_list|(
 name|argc
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 name|SendPostedEventsTester
@@ -5735,10 +5639,6 @@ argument_list|(
 name|argc
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 comment|// current thread still valid
@@ -5877,10 +5777,6 @@ argument_list|(
 name|argc
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 comment|// current thread still valid
@@ -6279,10 +6175,6 @@ argument_list|(
 name|argc
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 name|connect
@@ -6727,10 +6619,6 @@ argument_list|(
 name|argc
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 comment|// If you call processEvents() with an event dispatcher present, but
@@ -6835,10 +6723,6 @@ argument_list|(
 name|argc
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 name|QEventLoop
@@ -6908,10 +6792,6 @@ argument_list|(
 name|argc
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 name|QEventLoop
@@ -6981,10 +6861,6 @@ argument_list|(
 name|argc
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 name|QEventLoop
@@ -7117,10 +6993,6 @@ argument_list|(
 name|argc
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 endif|#
@@ -7232,10 +7104,6 @@ argument_list|(
 name|argc
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 name|QWidget
@@ -7356,10 +7224,6 @@ argument_list|(
 name|argc
 argument_list|,
 literal|0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 name|QSignalSpy
@@ -9081,10 +8945,6 @@ name|argc
 argument_list|,
 operator|&
 name|argv0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 comment|// Tests the case where the style pointer changes when on focus in/out
@@ -9202,10 +9062,6 @@ name|argc
 argument_list|,
 operator|&
 name|argv0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 name|QMetaObject
@@ -9300,10 +9156,6 @@ name|argc
 argument_list|,
 operator|&
 name|argv0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 comment|// If wheelScrollLines returns 0, the mose wheel will be disabled.
@@ -9340,10 +9192,6 @@ name|argc
 argument_list|,
 operator|&
 name|argv0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 name|QPointer
@@ -9361,8 +9209,15 @@ name|app
 operator|.
 name|setStyle
 argument_list|(
-operator|new
-name|QWindowsStyle
+name|QStyleFactory
+operator|::
+name|create
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"Windows"
+argument_list|)
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -9381,10 +9236,6 @@ name|argc
 argument_list|,
 operator|&
 name|argv0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 comment|// qApp style can never be 0
@@ -9420,10 +9271,6 @@ name|argc
 argument_list|,
 operator|&
 name|argv0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 name|QWidget
@@ -9505,10 +9352,6 @@ name|argc
 argument_list|,
 operator|&
 name|argv0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 name|QWidget
@@ -9633,10 +9476,6 @@ name|argc
 argument_list|,
 operator|&
 name|argv0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 name|QVERIFY
@@ -10172,10 +10011,6 @@ name|argc
 argument_list|,
 operator|&
 name|argv0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 specifier|const
@@ -11855,10 +11690,6 @@ name|argc
 argument_list|,
 operator|&
 name|argv0
-argument_list|,
-name|QApplication
-operator|::
-name|GuiServer
 argument_list|)
 decl_stmt|;
 name|QVERIFY
