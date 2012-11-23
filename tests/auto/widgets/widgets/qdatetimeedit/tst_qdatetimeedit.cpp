@@ -25,11 +25,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qwindowsstyle.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<qdatetimeedit.h>
 end_include
 begin_include
