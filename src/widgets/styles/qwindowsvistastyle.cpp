@@ -8571,6 +8571,10 @@ condition|)
 block|{
 name|stateId
 operator|=
+name|dis
+condition|?
+name|MBI_DISABLED
+else|:
 name|MBI_HOT
 expr_stmt|;
 name|XPThemeData
