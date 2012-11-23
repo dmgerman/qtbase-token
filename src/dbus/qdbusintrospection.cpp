@@ -51,21 +51,18 @@ comment|/*!     \variable QDBusIntrospection::Interface::signals_     The signal
 comment|/*!     \variable QDBusIntrospection::Interface::properties     The properties available in this interface. Property names are unique. */
 comment|/*!     \fn QDBusIntrospection::Interface::operator==(const Interface&other) const     Compares this object against \a other and return true if they are the same.      Note that two interfaces are considered to be the same if they have the same name. The internal     structures in the objects are not compared. */
 comment|/*!     \class QDBusIntrospection::Object     \inmodule QtDBus     \brief Information about one object on the bus.      An object on the D-Bus bus is represented by its service and path on the service but, unlike     interfaces, objects are mutable. That is, their contents can change with time. Therefore,     while the (service, path) pair uniquely identifies an object, the information contained in     this struct may no longer represent the object.      An object can contain interfaces and child (sub) objects. */
-comment|/*!     \variable QDBusIntrospection::Object::service     The object's service name.      \sa parseObject(), parseObjectTree() */
-comment|/*!     \variable QDBusIntrospection::Object::path     The object's path on the service. This is an absolute path.      \sa parseObject(), parseObjectTree() */
+comment|/*!     \variable QDBusIntrospection::Object::service     The object's service name.      \sa parseObject() */
+comment|/*!     \variable QDBusIntrospection::Object::path     The object's path on the service. This is an absolute path.      \sa parseObject() */
 comment|/*!     \variable QDBusIntrospection::Object::introspection     The XML document fragment describing this object, its interfaces and sub-objects at the time     of the parsing.      The result of parseObject with this XML data should be the same as the Object struct. */
 comment|/*!     \variable QDBusIntrospection::Object::interfaces     The list of interface names in this object. */
 comment|/*!     \variable QDBusIntrospection::Object::childObjects     The list of child object names in this object. Note that this is a relative name, not an     absolute path. To obtain the absolute path, concatenate with \l     {QDBusIntrospection::Object::path}{path}. */
-comment|/*!     \class QDBusIntrospection::ObjectTree     \inmodule QtDBus     \brief Complete information about one object node and its descendency.          This struct contains the same data as QDBusIntrospection::Object, plus the actual data for the     interfaces and child (sub) objects that was available in the XML document. */
-comment|/*!     \variable QDBusIntrospection::ObjectTree::interfaceData     A map of interfaces and their names. */
-comment|/*!     \variable QDBusIntrospection::ObjectTree::childObjectData     A map of object paths and their data. The map key contains the relative path to the object.      Note this map contains only the child notes that do have information about the sub-object's     contents. If the XML data did not contain the information, only the object name will be listed     in childObjects, but not in childObjectData. */
 comment|/*!     \typedef QDBusIntrospection::Annotations     Contains a QMap of an annotation pair. The annotation's name is stored in the QMap key and     must be unique. The annotation's value is stored in the QMap's value and is arbitrary. */
 comment|/*!     \typedef QDBusIntrospection::Arguments     Contains a list of arguments to either a Method or a Signal. The arguments' order is important. */
 comment|/*!     \typedef QDBusIntrospection::Methods     Contains a QMap of methods and their names. The method's name is stored in the map's key and     is not necessarily unique. The order in which multiple methods with the same name are stored     in this map is undefined. */
 comment|/*!     \typedef QDBusIntrospection::Signals     Contains a QMap of signals and their names. The signal's name is stored in the map's key and     is not necessarily unique. The order in which multiple signals with the same name are stored     in this map is undefined. */
 comment|/*!     \typedef QDBusIntrospection::Properties     Contains a QMap of properties and their names. Each property must have a unique name. */
 comment|/*!     \typedef QDBusIntrospection::Interfaces     Contains a QMap of interfaces and their names. Each interface has a unique name. */
-comment|/*!     \typedef QDBusIntrospection::Objects     Contains a QMap of objects and their paths relative to their immediate parent.      \sa parseObjectTree() */
+comment|/*!     \typedef QDBusIntrospection::Objects     Contains a QMap of objects and their paths relative to their immediate parent. */
 comment|/*!     Parses the XML document fragment (given by \a xml) containing one interface.      The first element tag in this XML data must be either \<node\> or \<interface\>. If it is     \<node\>, then the \<interface\> tag must be a child tag of the \<node\> one.      If there are multiple interfaces in this XML data, it is undefined which one will be     returned. */
 name|QDBusIntrospection
 operator|::
@@ -154,7 +151,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Parses the XML document fragment (given by \a xml) containing one object, found at the service     \a service and path \a path.      The first element tag in this document must be \<node\>. If that tag does not contain     a name attribute, the \a path argument will be used to determine the path of this     object node.      This function does not parse the interfaces contained in the node, nor sub-object's contents.     It will only list their names. If you need to know their contents, use parseObjectTree. */
+comment|/*!     Parses the XML document fragment (given by \a xml) containing one object, found at the service     \a service and path \a path.      The first element tag in this document must be \<node\>. If that tag does not contain     a name attribute, the \a path argument will be used to determine the path of this     object node.      This function does not parse the interfaces contained in the node, nor sub-object's contents.     It will only list their names. */
 end_comment
 begin_function
 name|QDBusIntrospection
