@@ -129,9 +129,6 @@ begin_comment
 comment|/*!     \fn void QDBusObjectPath::setPath(const QString&path)      Assigns the value of the given \a path to this object path.      \sa path() */
 end_comment
 begin_comment
-comment|/*!     \fn QDBusObjectPath&QDBusObjectPath::operator=(const QDBusObjectPath&path)      Assigns the value of the given \a path to this object path.      \sa setPath() */
-end_comment
-begin_comment
 comment|/*!     \class QDBusSignature     \inmodule QtDBus     \since 4.2      \brief The QDBusSignature class enables the programmer to     identify the SIGNATURE type provided by the D-Bus typesystem.      \sa {The QtDBus type system} */
 end_comment
 begin_comment
@@ -151,9 +148,6 @@ comment|/*!     \fn QString QDBusSignature::signature() const      Returns this 
 end_comment
 begin_comment
 comment|/*!     \fn void QDBusSignature::setSignature(const QString&signature)      Assigns the value of the given \a signature to this signature.     \sa signature() */
-end_comment
-begin_comment
-comment|/*!     \fn QDBusSignature&QDBusSignature::operator=(const QDBusSignature&signature)      Assigns the value of the given \a signature to this signature.      \sa setSignature() */
 end_comment
 begin_macro
 name|QT_END_NAMESPACE
