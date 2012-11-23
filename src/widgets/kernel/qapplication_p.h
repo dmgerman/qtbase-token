@@ -581,24 +581,6 @@ argument_list|)
 block|;
 ifndef|#
 directive|ifndef
-name|QT_NO_SESSIONMANAGER
-name|QSessionManager
-operator|*
-name|session_manager
-block|;
-name|QString
-name|session_id
-block|;
-name|QString
-name|session_key
-block|;
-name|bool
-name|is_session_restored
-block|;
-endif|#
-directive|endif
-ifndef|#
-directive|ifndef
 name|QT_NO_GRAPHICSVIEW
 comment|// Maintain a list of all scenes to ensure font and palette propagation to
 comment|// all scenes.

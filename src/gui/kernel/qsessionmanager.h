@@ -201,15 +201,11 @@ name|private
 operator|:
 name|friend
 name|class
-name|QApplication
+name|QGuiApplication
 block|;
 name|friend
 name|class
-name|QApplicationPrivate
-block|;
-name|friend
-name|class
-name|QBaseApplication
+name|QGuiApplicationPrivate
 block|; }
 decl_stmt|;
 end_decl_stmt
