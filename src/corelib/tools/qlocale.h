@@ -280,7 +280,7 @@ name|French
 init|=
 literal|37
 block|,
-name|Frisian
+name|WesternFrisian
 init|=
 literal|38
 block|,
@@ -520,7 +520,7 @@ name|Samoan
 init|=
 literal|97
 block|,
-name|Sangho
+name|Sango
 init|=
 literal|98
 block|,
@@ -536,11 +536,11 @@ name|Ossetic
 init|=
 literal|101
 block|,
-name|Sesotho
+name|SouthernSotho
 init|=
 literal|102
 block|,
-name|Setswana
+name|Tswana
 init|=
 literal|103
 block|,
@@ -552,11 +552,11 @@ name|Sindhi
 init|=
 literal|105
 block|,
-name|Singhalese
+name|Sinhala
 init|=
 literal|106
 block|,
-name|Siswati
+name|Swati
 init|=
 literal|107
 block|,
@@ -620,7 +620,7 @@ name|Tigrinya
 init|=
 literal|122
 block|,
-name|TongaLanguage
+name|Tongan
 init|=
 literal|123
 block|,
@@ -788,7 +788,7 @@ name|Tyap
 init|=
 literal|164
 block|,
-name|Chewa
+name|Nyanja
 init|=
 literal|165
 block|,
@@ -1215,6 +1215,14 @@ block|,
 name|RhaetoRomance
 init|=
 name|Romansh
+block|,
+name|Chewa
+init|=
+name|Nyanja
+block|,
+name|Frisian
+init|=
+name|WesternFrisian
 block|,
 name|LastLanguage
 init|=
@@ -2240,7 +2248,7 @@ name|Tokelau
 init|=
 literal|213
 block|,
-name|TongaCountry
+name|Tonga
 init|=
 literal|214
 block|,

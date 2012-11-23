@@ -177,7 +177,7 @@ begin_comment
 comment|// GENERATED PART STARTS HERE
 end_comment
 begin_comment
-comment|/*     This part of the file was generated on 2012-11-21 from the     Common Locale Data Repository v22.1      http://www.unicode.org/cldr/      Do not change it, instead edit CLDR data and regenerate this file using     cldr2qlocalexml.py and qlocalexml2cpp.py. */
+comment|/*     This part of the file was generated on 2012-11-23 from the     Common Locale Data Repository v22.1      http://www.unicode.org/cldr/      Do not change it, instead edit CLDR data and regenerate this file using     cldr2qlocalexml.py and qlocalexml2cpp.py. */
 end_comment
 begin_decl_stmt
 DECL|variable|likely_subtags
@@ -8458,7 +8458,7 @@ block|,
 comment|// French
 literal|0
 block|,
-comment|// Frisian
+comment|// Western Frisian
 literal|187
 block|,
 comment|// Gaelic
@@ -8638,7 +8638,7 @@ block|,
 comment|// Samoan
 literal|264
 block|,
-comment|// Sangho
+comment|// Sango
 literal|0
 block|,
 comment|// Sanskrit
@@ -8650,10 +8650,10 @@ block|,
 comment|// Ossetic
 literal|273
 block|,
-comment|// Sesotho
+comment|// Southern Sotho
 literal|275
 block|,
-comment|// Setswana
+comment|// Tswana
 literal|277
 block|,
 comment|// Shona
@@ -8662,10 +8662,10 @@ block|,
 comment|// Sindhi
 literal|278
 block|,
-comment|// Singhalese
+comment|// Sinhala
 literal|279
 block|,
-comment|// Siswati
+comment|// Swati
 literal|281
 block|,
 comment|// Slovak
@@ -8713,7 +8713,7 @@ block|,
 comment|// Tigrinya
 literal|330
 block|,
-comment|// Tonga
+comment|// Tongan
 literal|331
 block|,
 comment|// Tsonga
@@ -8839,7 +8839,7 @@ block|,
 comment|// Tyap
 literal|0
 block|,
-comment|// Chewa
+comment|// Nyanja
 literal|362
 block|,
 comment|// Filipino
@@ -52334,7 +52334,7 @@ block|,
 literal|7
 block|}
 block|,
-comment|// Sangho/Latin/CentralAfricanRepublic
+comment|// Sango/Latin/CentralAfricanRepublic
 block|{
 literal|100
 block|,
@@ -53801,7 +53801,7 @@ block|,
 literal|7
 block|}
 block|,
-comment|// Sesotho/Latin/SouthAfrica
+comment|// Southern Sotho/Latin/SouthAfrica
 block|{
 literal|102
 block|,
@@ -53964,7 +53964,7 @@ block|,
 literal|7
 block|}
 block|,
-comment|// Sesotho/Latin/Lesotho
+comment|// Southern Sotho/Latin/Lesotho
 block|{
 literal|103
 block|,
@@ -54127,7 +54127,7 @@ block|,
 literal|7
 block|}
 block|,
-comment|// Setswana/Latin/SouthAfrica
+comment|// Tswana/Latin/SouthAfrica
 block|{
 literal|103
 block|,
@@ -54290,7 +54290,7 @@ block|,
 literal|7
 block|}
 block|,
-comment|// Setswana/Latin/Botswana
+comment|// Tswana/Latin/Botswana
 block|{
 literal|104
 block|,
@@ -54616,7 +54616,7 @@ block|,
 literal|7
 block|}
 block|,
-comment|// Singhalese/Sinhala/SriLanka
+comment|// Sinhala/Sinhala/SriLanka
 block|{
 literal|107
 block|,
@@ -54779,7 +54779,7 @@ block|,
 literal|7
 block|}
 block|,
-comment|// Siswati/Latin/SouthAfrica
+comment|// Swati/Latin/SouthAfrica
 block|{
 literal|107
 block|,
@@ -54942,7 +54942,7 @@ block|,
 literal|7
 block|}
 block|,
-comment|// Siswati/Latin/Swaziland
+comment|// Swati/Latin/Swaziland
 block|{
 literal|108
 block|,
@@ -63092,7 +63092,7 @@ block|,
 literal|7
 block|}
 block|,
-comment|// Tonga/Latin/Tonga
+comment|// Tongan/Latin/Tonga
 block|{
 literal|124
 block|,
@@ -234108,7 +234108,7 @@ literal|"Faroese\0"
 literal|"Fijian\0"
 literal|"Finnish\0"
 literal|"French\0"
-literal|"Frisian\0"
+literal|"Western Frisian\0"
 literal|"Gaelic\0"
 literal|"Galician\0"
 literal|"Georgian\0"
@@ -234168,16 +234168,16 @@ literal|"Romansh\0"
 literal|"Romanian\0"
 literal|"Russian\0"
 literal|"Samoan\0"
-literal|"Sangho\0"
+literal|"Sango\0"
 literal|"Sanskrit\0"
 literal|"Serbian\0"
 literal|"Ossetic\0"
-literal|"Sesotho\0"
-literal|"Setswana\0"
+literal|"Southern Sotho\0"
+literal|"Tswana\0"
 literal|"Shona\0"
 literal|"Sindhi\0"
-literal|"Singhalese\0"
-literal|"Siswati\0"
+literal|"Sinhala\0"
+literal|"Swati\0"
 literal|"Slovak\0"
 literal|"Slovenian\0"
 literal|"Somali\0"
@@ -234193,7 +234193,7 @@ literal|"Telugu\0"
 literal|"Thai\0"
 literal|"Tibetan\0"
 literal|"Tigrinya\0"
-literal|"Tonga\0"
+literal|"Tongan\0"
 literal|"Tsonga\0"
 literal|"Turkish\0"
 literal|"Turkmen\0"
@@ -234235,7 +234235,7 @@ literal|"Ewe\0"
 literal|"Walamo\0"
 literal|"Hawaiian\0"
 literal|"Tyap\0"
-literal|"Chewa\0"
+literal|"Nyanja\0"
 literal|"Filipino\0"
 literal|"Swiss German\0"
 literal|"Sichuan Yi\0"
@@ -234458,671 +234458,671 @@ block|,
 comment|// French
 literal|301
 block|,
-comment|// Frisian
-literal|309
+comment|// Western Frisian
+literal|317
 block|,
 comment|// Gaelic
-literal|316
+literal|324
 block|,
 comment|// Galician
-literal|325
+literal|333
 block|,
 comment|// Georgian
-literal|334
+literal|342
 block|,
 comment|// German
-literal|341
+literal|349
 block|,
 comment|// Greek
-literal|347
+literal|355
 block|,
 comment|// Greenlandic
-literal|359
-block|,
-comment|// Guarani
 literal|367
 block|,
+comment|// Guarani
+literal|375
+block|,
 comment|// Gujarati
-literal|376
+literal|384
 block|,
 comment|// Hausa
-literal|382
+literal|390
 block|,
 comment|// Hebrew
-literal|389
+literal|397
 block|,
 comment|// Hindi
-literal|395
+literal|403
 block|,
 comment|// Hungarian
-literal|405
+literal|413
 block|,
 comment|// Icelandic
-literal|415
+literal|423
 block|,
 comment|// Indonesian
-literal|426
+literal|434
 block|,
 comment|// Interlingua
-literal|438
+literal|446
 block|,
 comment|// Interlingue
-literal|450
+literal|458
 block|,
 comment|// Inuktitut
-literal|460
-block|,
-comment|// Inupiak
 literal|468
 block|,
-comment|// Irish
-literal|474
+comment|// Inupiak
+literal|476
 block|,
-comment|// Italian
+comment|// Irish
 literal|482
 block|,
+comment|// Italian
+literal|490
+block|,
 comment|// Japanese
-literal|491
+literal|499
 block|,
 comment|// Javanese
-literal|500
-block|,
-comment|// Kannada
 literal|508
 block|,
+comment|// Kannada
+literal|516
+block|,
 comment|// Kashmiri
-literal|517
+literal|525
 block|,
 comment|// Kazakh
-literal|524
+literal|532
 block|,
 comment|// Kinyarwanda
-literal|536
-block|,
-comment|// Kirghiz
 literal|544
 block|,
-comment|// Korean
-literal|551
+comment|// Kirghiz
+literal|552
 block|,
-comment|// Kurdish
+comment|// Korean
 literal|559
 block|,
+comment|// Kurdish
+literal|567
+block|,
 comment|// Rundi
-literal|565
+literal|573
 block|,
 comment|// Lao
-literal|569
+literal|577
 block|,
 comment|// Latin
-literal|575
-block|,
-comment|// Latvian
 literal|583
 block|,
-comment|// Lingala
+comment|// Latvian
 literal|591
 block|,
+comment|// Lingala
+literal|599
+block|,
 comment|// Lithuanian
-literal|602
+literal|610
 block|,
 comment|// Macedonian
-literal|613
+literal|621
 block|,
 comment|// Malagasy
-literal|622
+literal|630
 block|,
 comment|// Malay
-literal|628
+literal|636
 block|,
 comment|// Malayalam
-literal|638
-block|,
-comment|// Maltese
 literal|646
 block|,
-comment|// Maori
-literal|652
+comment|// Maltese
+literal|654
 block|,
-comment|// Marathi
+comment|// Maori
 literal|660
 block|,
+comment|// Marathi
+literal|668
+block|,
 comment|// Marshallese
-literal|672
+literal|680
 block|,
 comment|// Mongolian
-literal|682
+literal|690
 block|,
 comment|// Nauru
-literal|688
+literal|696
 block|,
 comment|// Nepali
-literal|695
+literal|703
 block|,
 comment|// NorwegianBokmal
-literal|711
-block|,
-comment|// Occitan
 literal|719
 block|,
+comment|// Occitan
+literal|727
+block|,
 comment|// Oriya
-literal|725
+literal|733
 block|,
 comment|// Pashto
-literal|732
-block|,
-comment|// Persian
 literal|740
 block|,
+comment|// Persian
+literal|748
+block|,
 comment|// Polish
-literal|747
+literal|755
 block|,
 comment|// Portuguese
-literal|758
-block|,
-comment|// Punjabi
 literal|766
 block|,
-comment|// Quechua
+comment|// Punjabi
 literal|774
 block|,
-comment|// Romansh
+comment|// Quechua
 literal|782
 block|,
-comment|// Romanian
-literal|791
+comment|// Romansh
+literal|790
 block|,
-comment|// Russian
+comment|// Romanian
 literal|799
 block|,
-comment|// Samoan
-literal|806
+comment|// Russian
+literal|807
 block|,
-comment|// Sangho
-literal|813
+comment|// Samoan
+literal|814
+block|,
+comment|// Sango
+literal|820
 block|,
 comment|// Sanskrit
-literal|822
+literal|829
 block|,
 comment|// Serbian
-literal|830
+literal|837
 block|,
 comment|// Ossetic
-literal|838
+literal|845
 block|,
-comment|// Sesotho
-literal|846
+comment|// Southern Sotho
+literal|860
 block|,
-comment|// Setswana
-literal|855
+comment|// Tswana
+literal|867
 block|,
 comment|// Shona
-literal|861
+literal|873
 block|,
 comment|// Sindhi
-literal|868
+literal|880
 block|,
-comment|// Singhalese
-literal|879
+comment|// Sinhala
+literal|888
 block|,
-comment|// Siswati
-literal|887
-block|,
-comment|// Slovak
+comment|// Swati
 literal|894
 block|,
-comment|// Slovenian
-literal|904
+comment|// Slovak
+literal|901
 block|,
-comment|// Somali
+comment|// Slovenian
 literal|911
 block|,
+comment|// Somali
+literal|918
+block|,
 comment|// Spanish
-literal|919
+literal|926
 block|,
 comment|// Sundanese
-literal|929
+literal|936
 block|,
 comment|// Swahili
-literal|937
+literal|944
 block|,
 comment|// Swedish
-literal|945
+literal|952
 block|,
 comment|// Sardinian
-literal|955
+literal|962
 block|,
 comment|// Tajik
-literal|961
+literal|968
 block|,
 comment|// Tamil
-literal|967
+literal|974
 block|,
 comment|// Tatar
-literal|973
-block|,
-comment|// Telugu
 literal|980
 block|,
+comment|// Telugu
+literal|987
+block|,
 comment|// Thai
-literal|985
+literal|992
 block|,
 comment|// Tibetan
-literal|993
+literal|1000
 block|,
 comment|// Tigrinya
-literal|1002
+literal|1009
 block|,
-comment|// Tonga
-literal|1008
+comment|// Tongan
+literal|1016
 block|,
 comment|// Tsonga
-literal|1015
-block|,
-comment|// Turkish
 literal|1023
 block|,
-comment|// Turkmen
+comment|// Turkish
 literal|1031
 block|,
+comment|// Turkmen
+literal|1039
+block|,
 comment|// Tahitian
-literal|1040
+literal|1048
 block|,
 comment|// Uigur
-literal|1046
+literal|1054
 block|,
 comment|// Ukrainian
-literal|1056
+literal|1064
 block|,
 comment|// Urdu
-literal|1061
+literal|1069
 block|,
 comment|// Uzbek
-literal|1067
+literal|1075
 block|,
 comment|// Vietnamese
-literal|1078
-block|,
-comment|// Volapuk
 literal|1086
 block|,
+comment|// Volapuk
+literal|1094
+block|,
 comment|// Welsh
-literal|1092
+literal|1100
 block|,
 comment|// Wolof
-literal|1098
+literal|1106
 block|,
 comment|// Xhosa
-literal|1104
-block|,
-comment|// Yiddish
 literal|1112
 block|,
+comment|// Yiddish
+literal|1120
+block|,
 comment|// Yoruba
-literal|1119
+literal|1127
 block|,
 comment|// Zhuang
-literal|1126
+literal|1134
 block|,
 comment|// Zulu
-literal|1131
+literal|1139
 block|,
 comment|// NorwegianNynorsk
-literal|1148
-block|,
-comment|// Bosnian
 literal|1156
 block|,
+comment|// Bosnian
+literal|1164
+block|,
 comment|// Divehi
-literal|1163
+literal|1171
 block|,
 comment|// Manx
-literal|1168
-block|,
-comment|// Cornish
 literal|1176
 block|,
-comment|// Akan
-literal|1181
+comment|// Cornish
+literal|1184
 block|,
-comment|// Konkani
+comment|// Akan
 literal|1189
 block|,
-comment|// Ga
-literal|1192
-block|,
-comment|// Igbo
+comment|// Konkani
 literal|1197
 block|,
+comment|// Ga
+literal|1200
+block|,
+comment|// Igbo
+literal|1205
+block|,
 comment|// Kamba
-literal|1203
+literal|1211
 block|,
 comment|// Syriac
-literal|1210
+literal|1218
 block|,
 comment|// Blin
-literal|1215
+literal|1223
 block|,
 comment|// Geez
-literal|1220
+literal|1228
 block|,
 comment|// Koro
-literal|1225
+literal|1233
 block|,
 comment|// Sidamo
-literal|1232
+literal|1240
 block|,
 comment|// Atsam
-literal|1238
+literal|1246
 block|,
 comment|// Tigre
-literal|1244
+literal|1252
 block|,
 comment|// Jju
-literal|1248
+literal|1256
 block|,
 comment|// Friulian
-literal|1257
+literal|1265
 block|,
 comment|// Venda
-literal|1263
+literal|1271
 block|,
 comment|// Ewe
-literal|1267
+literal|1275
 block|,
 comment|// Walamo
-literal|1274
+literal|1282
 block|,
 comment|// Hawaiian
-literal|1283
+literal|1291
 block|,
 comment|// Tyap
-literal|1288
+literal|1296
 block|,
-comment|// Chewa
-literal|1294
-block|,
-comment|// Filipino
+comment|// Nyanja
 literal|1303
 block|,
+comment|// Filipino
+literal|1312
+block|,
 comment|// Swiss German
-literal|1316
+literal|1325
 block|,
 comment|// Sichuan Yi
-literal|1327
+literal|1336
 block|,
 comment|// Kpelle
-literal|1334
+literal|1343
 block|,
 comment|// Low German
-literal|1345
+literal|1354
 block|,
 comment|// South Ndebele
-literal|1359
+literal|1368
 block|,
 comment|// Northern Sotho
-literal|1374
+literal|1383
 block|,
 comment|// Northern Sami
-literal|1388
+literal|1397
 block|,
 comment|// Taroko
-literal|1395
+literal|1404
 block|,
 comment|// Gusii
-literal|1401
+literal|1410
 block|,
 comment|// Taita
-literal|1407
+literal|1416
 block|,
 comment|// Fulah
-literal|1413
+literal|1422
 block|,
 comment|// Kikuyu
-literal|1420
+literal|1429
 block|,
 comment|// Samburu
-literal|1428
+literal|1437
 block|,
 comment|// Sena
-literal|1433
+literal|1442
 block|,
 comment|// North Ndebele
-literal|1447
+literal|1456
 block|,
 comment|// Rombo
-literal|1453
+literal|1462
 block|,
 comment|// Tachelhit
-literal|1463
+literal|1472
 block|,
 comment|// Kabyle
-literal|1470
-block|,
-comment|// Nyankole
 literal|1479
 block|,
+comment|// Nyankole
+literal|1488
+block|,
 comment|// Bena
-literal|1484
+literal|1493
 block|,
 comment|// Vunjo
-literal|1490
+literal|1499
 block|,
 comment|// Bambara
-literal|1498
+literal|1507
 block|,
 comment|// Embu
-literal|1503
-block|,
-comment|// Cherokee
 literal|1512
 block|,
-comment|// Morisyen
+comment|// Cherokee
 literal|1521
 block|,
+comment|// Morisyen
+literal|1530
+block|,
 comment|// Makonde
-literal|1529
+literal|1538
 block|,
 comment|// Langi
-literal|1535
+literal|1544
 block|,
 comment|// Ganda
-literal|1541
+literal|1550
 block|,
 comment|// Bemba
-literal|1547
+literal|1556
 block|,
 comment|// Kabuverdianu
-literal|1560
+literal|1569
 block|,
 comment|// Meru
-literal|1565
-block|,
-comment|// Kalenjin
 literal|1574
 block|,
+comment|// Kalenjin
+literal|1583
+block|,
 comment|// Nama
-literal|1579
+literal|1588
 block|,
 comment|// Machame
-literal|1587
+literal|1596
 block|,
 comment|// Colognian
-literal|1597
+literal|1606
 block|,
 comment|// Masai
-literal|1603
+literal|1612
 block|,
 comment|// Soga
-literal|1608
+literal|1617
 block|,
 comment|// Luyia
-literal|1614
-block|,
-comment|// Asu
-literal|1618
-block|,
-comment|// Teso
 literal|1623
 block|,
+comment|// Asu
+literal|1627
+block|,
+comment|// Teso
+literal|1632
+block|,
 comment|// Saho
-literal|1628
+literal|1637
 block|,
 comment|// Koyra Chiini
-literal|1641
+literal|1650
 block|,
 comment|// Rwa
-literal|1645
+literal|1654
 block|,
 comment|// Luo
-literal|1649
+literal|1658
 block|,
 comment|// Chiga
-literal|1655
+literal|1664
 block|,
 comment|// Central Morocco Tamazight
-literal|1681
+literal|1690
 block|,
 comment|// Koyraboro Senni
-literal|1697
-block|,
-comment|// Shambala
 literal|1706
 block|,
+comment|// Shambala
+literal|1715
+block|,
 comment|// Bodo
-literal|1711
+literal|1720
 block|,
 comment|// Avaric
-literal|1718
-block|,
-comment|// Chamorro
 literal|1727
 block|,
+comment|// Chamorro
+literal|1736
+block|,
 comment|// Chechen
-literal|1735
+literal|1744
 block|,
 comment|// Church
-literal|1742
+literal|1751
 block|,
 comment|// Chuvash
-literal|1750
+literal|1759
 block|,
 comment|// Cree
-literal|1755
+literal|1764
 block|,
 comment|// Haitian
-literal|1763
+literal|1772
 block|,
 comment|// Herero
-literal|1770
+literal|1779
 block|,
 comment|// Hiri Motu
-literal|1780
+literal|1789
 block|,
 comment|// Kanuri
-literal|1787
+literal|1796
 block|,
 comment|// Komi
-literal|1792
+literal|1801
 block|,
 comment|// Kongo
-literal|1798
-block|,
-comment|// Kwanyama
 literal|1807
 block|,
+comment|// Kwanyama
+literal|1816
+block|,
 comment|// Limburgish
-literal|1818
+literal|1827
 block|,
 comment|// LubaKatanga
-literal|1830
+literal|1839
 block|,
 comment|// Luxembourgish
-literal|1844
+literal|1853
 block|,
 comment|// Navaho
-literal|1851
+literal|1860
 block|,
 comment|// Ndonga
-literal|1858
+literal|1867
 block|,
 comment|// Ojibwa
-literal|1865
+literal|1874
 block|,
 comment|// Pali
-literal|1870
+literal|1879
 block|,
 comment|// Walloon
-literal|1878
+literal|1887
 block|,
 comment|// Aghem
-literal|1884
+literal|1893
 block|,
 comment|// Basaa
-literal|1890
+literal|1899
 block|,
 comment|// Zarma
-literal|1896
+literal|1905
 block|,
 comment|// Duala
-literal|1902
+literal|1911
 block|,
 comment|// JolaFonyi
-literal|1912
+literal|1921
 block|,
 comment|// Ewondo
-literal|1919
+literal|1928
 block|,
 comment|// Bafia
-literal|1925
+literal|1934
 block|,
 comment|// MakhuwaMeetto
-literal|1939
+literal|1948
 block|,
 comment|// Mundang
-literal|1947
+literal|1956
 block|,
 comment|// Kwasio
-literal|1954
+literal|1963
 block|,
 comment|// Nuer
-literal|1959
+literal|1968
 block|,
 comment|// Sakha
-literal|1965
+literal|1974
 block|,
 comment|// Sangu
-literal|1971
+literal|1980
 block|,
 comment|// Congo Swahili
-literal|1985
+literal|1994
 block|,
 comment|// Tasawaq
-literal|1993
+literal|2002
 block|,
 comment|// Vai
-literal|1997
+literal|2006
 block|,
 comment|// Walser
-literal|2004
+literal|2013
 block|,
 comment|// Yangben
-literal|2012
+literal|2021
 block|,
 comment|// Avestan
-literal|2020
-block|,
-comment|// Asturian
 literal|2029
 block|,
+comment|// Asturian
+literal|2038
+block|,
 comment|// Ngomba
-literal|2036
+literal|2045
 block|,
 comment|// Kako
-literal|2041
+literal|2050
 block|,
 comment|// Meta
-literal|2046
+literal|2055
 block|,
 comment|// Ngiemboon
 block|}
@@ -236430,7 +236430,7 @@ comment|// Finnish
 literal|"fr\0"
 comment|// French
 literal|"fy\0"
-comment|// Frisian
+comment|// Western Frisian
 literal|"gd\0"
 comment|// Gaelic
 literal|"gl\0"
@@ -236550,7 +236550,7 @@ comment|// Russian
 literal|"sm\0"
 comment|// Samoan
 literal|"sg\0"
-comment|// Sangho
+comment|// Sango
 literal|"sa\0"
 comment|// Sanskrit
 literal|"sr\0"
@@ -236558,17 +236558,17 @@ comment|// Serbian
 literal|"os\0"
 comment|// Ossetic
 literal|"st\0"
-comment|// Sesotho
+comment|// Southern Sotho
 literal|"tn\0"
-comment|// Setswana
+comment|// Tswana
 literal|"sn\0"
 comment|// Shona
 literal|"sd\0"
 comment|// Sindhi
 literal|"si\0"
-comment|// Singhalese
+comment|// Sinhala
 literal|"ss\0"
-comment|// Siswati
+comment|// Swati
 literal|"sk\0"
 comment|// Slovak
 literal|"sl\0"
@@ -236600,7 +236600,7 @@ comment|// Tibetan
 literal|"ti\0"
 comment|// Tigrinya
 literal|"to\0"
-comment|// Tonga
+comment|// Tongan
 literal|"ts\0"
 comment|// Tsonga
 literal|"tr\0"
@@ -236684,7 +236684,7 @@ comment|// Hawaiian
 literal|"kcg"
 comment|// Tyap
 literal|"ny\0"
-comment|// Chewa
+comment|// Nyanja
 literal|"fil"
 comment|// Filipino
 literal|"gsw"
