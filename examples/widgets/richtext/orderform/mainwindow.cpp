@@ -1076,6 +1076,7 @@ name|QDialog
 operator|::
 name|Accepted
 condition|)
+block|{
 name|createLetter
 argument_list|(
 name|dialog
@@ -1099,6 +1100,7 @@ name|sendOffers
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 end_function
 begin_comment

@@ -21,11 +21,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QHash>
-end_include
-begin_include
-include|#
-directive|include
 file|<QTextCharFormat>
 end_include
 begin_decl_stmt
@@ -118,4 +113,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// HIGHLIGHTER_H
+end_comment
 end_unit

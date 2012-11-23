@@ -5,11 +5,6 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"textedit.h"
-end_include
-begin_include
-include|#
-directive|include
 file|<QAction>
 end_include
 begin_include
@@ -141,6 +136,11 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_include
+include|#
+directive|include
+file|"textedit.h"
+end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -3356,7 +3356,8 @@ argument_list|()
 argument_list|,
 name|tr
 argument_list|(
-literal|"ODF files (*.odt);;HTML-Files (*.htm *.html);;All Files (*)"
+literal|"ODF files (*.odt);;HTML-Files "
+literal|"(*.htm *.html);;All Files (*)"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -3408,11 +3409,13 @@ name|CaseInsensitive
 argument_list|)
 operator|)
 condition|)
+block|{
 name|fn
 operator|+=
 literal|".odt"
 expr_stmt|;
 comment|// default
+block|}
 name|setCurrentFileName
 argument_list|(
 name|fn
@@ -3496,7 +3499,6 @@ name|QDialog
 operator|::
 name|Accepted
 condition|)
-block|{
 name|textEdit
 operator|->
 name|print
@@ -3505,7 +3507,6 @@ operator|&
 name|printer
 argument_list|)
 expr_stmt|;
-block|}
 operator|delete
 name|dlg
 expr_stmt|;
@@ -4562,7 +4563,6 @@ name|Qt
 operator|::
 name|AlignLeft
 condition|)
-block|{
 name|actionAlignLeft
 operator|->
 name|setChecked
@@ -4570,7 +4570,6 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-block|}
 elseif|else
 if|if
 condition|(
@@ -4580,7 +4579,6 @@ name|Qt
 operator|::
 name|AlignHCenter
 condition|)
-block|{
 name|actionAlignCenter
 operator|->
 name|setChecked
@@ -4588,7 +4586,6 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-block|}
 elseif|else
 if|if
 condition|(
@@ -4598,7 +4595,6 @@ name|Qt
 operator|::
 name|AlignRight
 condition|)
-block|{
 name|actionAlignRight
 operator|->
 name|setChecked
@@ -4606,7 +4602,6 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-block|}
 elseif|else
 if|if
 condition|(
@@ -4616,7 +4611,6 @@ name|Qt
 operator|::
 name|AlignJustify
 condition|)
-block|{
 name|actionAlignJustify
 operator|->
 name|setChecked
@@ -4624,7 +4618,6 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 end_function
 end_unit

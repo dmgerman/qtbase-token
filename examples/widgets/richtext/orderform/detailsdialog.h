@@ -28,11 +28,6 @@ include|#
 directive|include
 file|<QPair>
 end_include
-begin_include
-include|#
-directive|include
-file|<QString>
-end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QCheckBox
@@ -181,4 +176,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// DETAILSDIALOG_H
+end_comment
 end_unit

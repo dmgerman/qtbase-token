@@ -16,12 +16,12 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QMainWindow>
+file|"highlighter.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"highlighter.h"
+file|<QMainWindow>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
@@ -105,4 +105,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// MAINWINDOW_H
+end_comment
 end_unit
