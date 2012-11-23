@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtWidgets/QWindowsStyle>
+file|<private/qwindowsstyle_p.h>
 end_include
 begin_include
 include|#

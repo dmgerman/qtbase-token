@@ -422,7 +422,7 @@ end_ifdef
 begin_include
 include|#
 directive|include
-file|<qwindowsstyle.h>
+file|<qwindowsstyle_p.h>
 end_include
 begin_endif
 endif|#

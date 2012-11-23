@@ -51,7 +51,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qwindowsstyle_p.h"
+file|"qwindowsstyle_p_p.h"
 end_include
 begin_include
 include|#

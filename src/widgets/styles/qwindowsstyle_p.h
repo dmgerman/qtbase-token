@@ -13,171 +13,237 @@ define|#
 directive|define
 name|QWINDOWSSTYLE_P_H
 end_define
-begin_comment
-comment|//
-end_comment
-begin_comment
-comment|//  W A R N I N G
-end_comment
-begin_comment
-comment|//  -------------
-end_comment
-begin_comment
-comment|//
-end_comment
-begin_comment
-comment|// This file is not part of the Qt API.  It exists for the convenience
-end_comment
-begin_comment
-comment|// of qapplication_*.cpp, qwidget*.cpp and qfiledialog.cpp.  This header
-end_comment
-begin_comment
-comment|// file may change from version to version without notice, or even be removed.
-end_comment
-begin_comment
-comment|//
-end_comment
-begin_comment
-comment|// We mean it.
-end_comment
-begin_comment
-comment|//
-end_comment
 begin_include
 include|#
 directive|include
-file|"qwindowsstyle.h"
-end_include
-begin_include
-include|#
-directive|include
-file|"qcommonstyle_p.h"
-end_include
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_STYLE_WINDOWS
-end_ifndef
-begin_include
-include|#
-directive|include
-file|<qlist.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qhash.h>
+file|<QtWidgets/qcommonstyle.h>
 end_include
 begin_decl_stmt
+name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|variable|QTime
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_STYLE_WINDOWS
+argument_list|)
+DECL|variable|QWindowsStylePrivate
 name|class
-name|QTime
+name|QWindowsStylePrivate
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|QWindowsStylePrivate
+name|QWindowsStyle
 range|:
 name|public
-name|QCommonStylePrivate
+name|QCommonStyle
 block|{
-name|Q_DECLARE_PUBLIC
+name|Q_OBJECT
+name|public
+operator|:
+name|QWindowsStyle
+argument_list|()
+block|;
+operator|~
+name|QWindowsStyle
+argument_list|()
+block|;
+name|void
+name|polish
+argument_list|(
+name|QApplication
+operator|*
+argument_list|)
+block|;
+name|void
+name|unpolish
+argument_list|(
+name|QApplication
+operator|*
+argument_list|)
+block|;
+name|void
+name|polish
+argument_list|(
+name|QWidget
+operator|*
+argument_list|)
+block|;
+name|void
+name|unpolish
+argument_list|(
+name|QWidget
+operator|*
+argument_list|)
+block|;
+name|void
+name|polish
+argument_list|(
+name|QPalette
+operator|&
+argument_list|)
+block|;
+name|void
+name|drawPrimitive
+argument_list|(
+argument|PrimitiveElement pe
+argument_list|,
+argument|const QStyleOption *opt
+argument_list|,
+argument|QPainter *p
+argument_list|,
+argument|const QWidget *w =
+literal|0
+argument_list|)
+specifier|const
+block|;
+name|void
+name|drawControl
+argument_list|(
+argument|ControlElement element
+argument_list|,
+argument|const QStyleOption *opt
+argument_list|,
+argument|QPainter *p
+argument_list|,
+argument|const QWidget *w =
+literal|0
+argument_list|)
+specifier|const
+block|;
+name|QRect
+name|subElementRect
+argument_list|(
+argument|SubElement r
+argument_list|,
+argument|const QStyleOption *opt
+argument_list|,
+argument|const QWidget *widget =
+literal|0
+argument_list|)
+specifier|const
+block|;
+name|void
+name|drawComplexControl
+argument_list|(
+argument|ComplexControl cc
+argument_list|,
+argument|const QStyleOptionComplex *opt
+argument_list|,
+argument|QPainter *p
+argument_list|,
+argument|const QWidget *w =
+literal|0
+argument_list|)
+specifier|const
+block|;
+name|QSize
+name|sizeFromContents
+argument_list|(
+argument|ContentsType ct
+argument_list|,
+argument|const QStyleOption *opt
+argument_list|,
+argument|const QSize&contentsSize
+argument_list|,
+argument|const QWidget *widget =
+literal|0
+argument_list|)
+specifier|const
+block|;
+name|int
+name|pixelMetric
+argument_list|(
+argument|PixelMetric pm
+argument_list|,
+argument|const QStyleOption *option =
+literal|0
+argument_list|,
+argument|const QWidget *widget =
+literal|0
+argument_list|)
+specifier|const
+block|;
+name|int
+name|styleHint
+argument_list|(
+argument|StyleHint hint
+argument_list|,
+argument|const QStyleOption *opt =
+literal|0
+argument_list|,
+argument|const QWidget *widget =
+literal|0
+argument_list|,
+argument|QStyleHintReturn *returnData =
+literal|0
+argument_list|)
+specifier|const
+block|;
+name|QPixmap
+name|standardPixmap
+argument_list|(
+argument|StandardPixmap standardPixmap
+argument_list|,
+argument|const QStyleOption *opt
+argument_list|,
+argument|const QWidget *widget =
+literal|0
+argument_list|)
+specifier|const
+block|;
+name|QIcon
+name|standardIcon
+argument_list|(
+argument|StandardPixmap standardIcon
+argument_list|,
+argument|const QStyleOption *option =
+literal|0
+argument_list|,
+argument|const QWidget *widget =
+literal|0
+argument_list|)
+specifier|const
+block|;
+name|protected
+operator|:
+name|bool
+name|eventFilter
+argument_list|(
+name|QObject
+operator|*
+name|o
+argument_list|,
+name|QEvent
+operator|*
+name|e
+argument_list|)
+block|;
+name|QWindowsStyle
+argument_list|(
+name|QWindowsStylePrivate
+operator|&
+name|dd
+argument_list|)
+block|;
+name|private
+operator|:
+name|Q_DISABLE_COPY
 argument_list|(
 argument|QWindowsStyle
 argument_list|)
-name|public
-operator|:
-name|QWindowsStylePrivate
-argument_list|()
-block|;
-name|bool
-name|hasSeenAlt
+name|Q_DECLARE_PRIVATE
 argument_list|(
-argument|const QWidget *widget
+argument|QWindowsStyle
 argument_list|)
-specifier|const
-block|;
-name|bool
-name|altDown
-argument_list|()
-specifier|const
-block|{
-return|return
-name|alt_down
-return|;
-block|}
-name|bool
-name|alt_down
-block|;
-name|QList
-operator|<
-specifier|const
-name|QWidget
+name|void
 operator|*
-operator|>
-name|seenAlt
-block|;
-name|int
-name|menuBarTimer
-block|;
-name|QColor
-name|inactiveCaptionText
-block|;
-name|QColor
-name|activeCaptionColor
-block|;
-name|QColor
-name|activeGradientCaptionColor
-block|;
-name|QColor
-name|inactiveCaptionColor
-block|;
-name|QColor
-name|inactiveGradientCaptionColor
-block|;      enum
-block|{
-name|windowsItemFrame
-operator|=
-literal|2
-block|,
-comment|// menu item frame width
-name|windowsSepHeight
-operator|=
-literal|9
-block|,
-comment|// separator item height
-name|windowsItemHMargin
-operator|=
-literal|3
-block|,
-comment|// menu item hor text margin
-name|windowsItemVMargin
-operator|=
-literal|2
-block|,
-comment|// menu item ver text margin
-name|windowsArrowHMargin
-operator|=
-literal|6
-block|,
-comment|// arrow horizontal margin
-name|windowsRightBorder
-operator|=
-literal|15
-block|,
-comment|// right border on windows
-name|windowsCheckMarkWidth
-operator|=
-literal|12
-comment|// checkmarks width on windows
-block|}
+name|reserved
 block|; }
 decl_stmt|;
 end_decl_stmt
-begin_macro
-name|QT_END_NAMESPACE
-end_macro
 begin_endif
 endif|#
 directive|endif
@@ -185,11 +251,15 @@ end_endif
 begin_comment
 comment|// QT_NO_STYLE_WINDOWS
 end_comment
+begin_expr_stmt
+name|QT_END_NAMESPACE
+name|QT_END_HEADER
+end_expr_stmt
 begin_endif
 endif|#
 directive|endif
 end_endif
 begin_comment
-comment|//QWINDOWSSTYLE_P_H
+comment|// QWINDOWSSTYLE_P_H
 end_comment
 end_unit

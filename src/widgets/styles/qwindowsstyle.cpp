@@ -5,12 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qwindowsstyle.h"
+file|"qwindowsstyle_p.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"qwindowsstyle_p.h"
+file|"qwindowsstyle_p_p.h"
 end_include
 begin_if
 if|#
@@ -806,7 +806,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QWindowsStyle     \brief The QWindowsStyle class provides a Microsoft Windows-like look and feel.      \ingroup appearance     \inmodule QtWidgets      This style is Qt's default GUI style on Windows.      \image qwindowsstyle.png     \sa QWindowsVistaStyle, QMacStyle, QFusionStyle */
+comment|/*!     \class QWindowsStyle     \brief The QWindowsStyle class provides a Microsoft Windows-like look and feel.      \ingroup appearance     \inmodule QtWidgets     \internal      This style is Qt's default GUI style on Windows.      \image qwindowsstyle.png     \sa QWindowsVistaStyle, QMacStyle, QFusionStyle */
 end_comment
 begin_comment
 comment|/*!     Constructs a QWindowsStyle object. */

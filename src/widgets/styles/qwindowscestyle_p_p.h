@@ -21,7 +21,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qwindowsstyle_p.h>
+file|<private/qwindowsstyle_p_p.h>
 end_include
 begin_comment
 comment|//

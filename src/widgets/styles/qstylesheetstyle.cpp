@@ -60,17 +60,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qwindowsstyle.h>
+file|<private/qwindowsstyle_p.h>
 end_include
 begin_include
 include|#
 directive|include
 file|<qcombobox.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qwindowsstyle.h>
 end_include
 begin_include
 include|#
@@ -145,7 +140,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qwindowsstyle_p.h>
+file|<private/qwindowsstyle_p_p.h>
 end_include
 begin_include
 include|#
