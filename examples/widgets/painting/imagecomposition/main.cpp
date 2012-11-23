@@ -5,12 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QApplication>
+file|"imagecomposer.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"imagecomposer.h"
+file|<QApplication>
 end_include
 begin_comment
 comment|//! [0]

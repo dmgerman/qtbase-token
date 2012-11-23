@@ -560,7 +560,7 @@ block|;
 name|void
 name|hideControls
 argument_list|()
-block|;  }
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_endif

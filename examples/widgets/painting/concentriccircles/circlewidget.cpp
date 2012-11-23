@@ -5,12 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtWidgets>
+file|"circlewidget.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"circlewidget.h"
+file|<QPainter>
 end_include
 begin_include
 include|#
@@ -329,7 +329,6 @@ if|if
 condition|(
 name|floatBased
 condition|)
-block|{
 name|painter
 operator|.
 name|drawEllipse
@@ -352,9 +351,7 @@ name|diameter
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 else|else
-block|{
 name|painter
 operator|.
 name|drawEllipse
@@ -377,7 +374,6 @@ name|diameter
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}

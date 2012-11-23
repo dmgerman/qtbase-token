@@ -5,12 +5,17 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtWidgets>
+file|"renderarea.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"renderarea.h"
+file|<QPainter>
+end_include
+begin_include
+include|#
+directive|include
+file|<QPaintEvent>
 end_include
 begin_comment
 comment|//! [0]

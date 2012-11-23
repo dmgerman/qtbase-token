@@ -3459,10 +3459,12 @@ condition|(
 name|usesOpenGL
 argument_list|()
 condition|)
+block|{
 name|update
 argument_list|()
 expr_stmt|;
-else|else
+return|return;
+block|}
 endif|#
 directive|endif
 name|update

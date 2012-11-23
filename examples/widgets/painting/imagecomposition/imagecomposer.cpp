@@ -5,12 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtWidgets>
+file|"imagecomposer.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"imagecomposer.h"
+file|<QtWidgets>
 end_include
 begin_comment
 comment|//! [0]

@@ -16,6 +16,11 @@ end_define
 begin_include
 include|#
 directive|include
+file|"renderarea.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<QList>
 end_include
 begin_include
@@ -27,11 +32,6 @@ begin_include
 include|#
 directive|include
 file|<QWidget>
-end_include
-begin_include
-include|#
-directive|include
-file|"renderarea.h"
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE

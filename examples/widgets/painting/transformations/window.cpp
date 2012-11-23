@@ -5,12 +5,17 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtWidgets>
+file|"window.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"window.h"
+file|<QComboBox>
+end_include
+begin_include
+include|#
+directive|include
+file|<QGridLayout>
 end_include
 begin_comment
 comment|//! [0]

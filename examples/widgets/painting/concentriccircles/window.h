@@ -95,4 +95,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// WINDOW_H
+end_comment
 end_unit

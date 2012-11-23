@@ -2217,4 +2217,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// QT_NO_PRINTER
+end_comment
 end_unit
