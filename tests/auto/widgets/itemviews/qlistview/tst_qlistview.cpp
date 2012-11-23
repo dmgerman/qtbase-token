@@ -75,27 +75,6 @@ end_include
 begin_if
 if|#
 directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_STYLE_WINDOWS
-argument_list|)
-end_if
-begin_include
-include|#
-directive|include
-file|<qwindowsstyle.h>
-end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_NO_STYLE_WINDOWS
-end_comment
-begin_if
-if|#
-directive|if
 name|defined
 argument_list|(
 name|Q_OS_WIN
