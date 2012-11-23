@@ -1269,6 +1269,11 @@ name|bool
 name|update
 init|=
 name|true
+parameter_list|,
+name|bool
+name|hiddenByPanel
+init|=
+name|false
 parameter_list|)
 function_decl|;
 name|void
@@ -2269,6 +2274,9 @@ name|clearFocusHelper
 parameter_list|(
 name|bool
 name|giveFocusToParent
+parameter_list|,
+name|bool
+name|hiddenByParentPanel
 parameter_list|)
 function_decl|;
 end_function_decl

@@ -6282,6 +6282,9 @@ name|explicitly
 parameter_list|,
 name|bool
 name|update
+parameter_list|,
+name|bool
+name|hiddenByPanel
 parameter_list|)
 block|{
 name|Q_Q
@@ -6610,6 +6613,8 @@ name|clearFocusHelper
 argument_list|(
 comment|/* giveFocusToParent = */
 literal|false
+argument_list|,
+name|hiddenByPanel
 argument_list|)
 expr_stmt|;
 block|}
@@ -6769,6 +6774,8 @@ argument_list|,
 literal|false
 argument_list|,
 name|updateChildren
+argument_list|,
+name|hiddenByPanel
 argument_list|)
 expr_stmt|;
 block|}
@@ -7138,6 +7145,13 @@ name|visible
 argument_list|,
 comment|/* explicit = */
 literal|true
+argument_list|,
+comment|/* update = */
+literal|true
+argument_list|,
+comment|/* hiddenByPanel = */
+name|isPanel
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -9081,12 +9095,36 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// Deactivate this item, and reactivate the last active item
-comment|// (if any).
+comment|// Deactivate this item, and reactivate the parent panel,
+comment|// or the last active panel (if any).
 name|QGraphicsItem
 modifier|*
-name|lastActive
+name|nextToActivate
 init|=
+literal|0
+decl_stmt|;
+if|if
+condition|(
+name|d_ptr
+operator|->
+name|parent
+condition|)
+name|nextToActivate
+operator|=
+name|d_ptr
+operator|->
+name|parent
+operator|->
+name|panel
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|nextToActivate
+condition|)
+name|nextToActivate
+operator|=
 name|d_ptr
 operator|->
 name|scene
@@ -9095,20 +9133,29 @@ name|d_func
 argument_list|()
 operator|->
 name|lastActivePanel
-decl_stmt|;
+expr_stmt|;
+if|if
+condition|(
+name|nextToActivate
+operator|==
+name|this
+operator|||
+name|isAncestorOf
+argument_list|(
+name|nextToActivate
+argument_list|)
+condition|)
+name|nextToActivate
+operator|=
+literal|0
+expr_stmt|;
 name|d_ptr
 operator|->
 name|scene
 operator|->
 name|setActivePanel
 argument_list|(
-name|lastActive
-operator|!=
-name|this
-condition|?
-name|lastActive
-else|:
-literal|0
+name|nextToActivate
 argument_list|)
 expr_stmt|;
 block|}
@@ -9431,6 +9478,19 @@ name|scene
 operator|->
 name|focusItem
 argument_list|()
+operator|&&
+name|scene
+operator|->
+name|focusItem
+argument_list|()
+operator|->
+name|panel
+argument_list|()
+operator|==
+name|q_ptr
+operator|->
+name|panel
+argument_list|()
 condition|)
 block|{
 name|commonAncestor
@@ -9545,6 +9605,9 @@ name|clearFocusHelper
 argument_list|(
 comment|/* giveFocusToParent = */
 literal|true
+argument_list|,
+comment|/* hiddenByParentPanel = */
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -9561,6 +9624,9 @@ name|clearFocusHelper
 parameter_list|(
 name|bool
 name|giveFocusToParent
+parameter_list|,
+name|bool
+name|hiddenByParentPanel
 parameter_list|)
 block|{
 if|if
@@ -9678,6 +9744,11 @@ argument_list|()
 condition|)
 block|{
 comment|// Invisible items with focus must explicitly clear subfocus.
+if|if
+condition|(
+operator|!
+name|hiddenByParentPanel
+condition|)
 name|clearSubFocus
 argument_list|(
 name|q_ptr
