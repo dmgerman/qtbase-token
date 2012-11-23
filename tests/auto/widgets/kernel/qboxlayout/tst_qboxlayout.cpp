@@ -90,7 +90,7 @@ class|class
 name|CustomLayoutStyle
 super|:
 specifier|public
-name|QWindowsStyle
+name|QProxyStyle
 block|{
 name|Q_OBJECT
 public|public:
@@ -98,8 +98,15 @@ DECL|function|CustomLayoutStyle
 name|CustomLayoutStyle
 parameter_list|()
 member_init_list|:
-name|QWindowsStyle
-argument_list|()
+name|QProxyStyle
+argument_list|(
+name|QStyleFactory
+operator|::
+name|create
+argument_list|(
+literal|"windows"
+argument_list|)
+argument_list|)
 block|{
 name|hspacing
 operator|=
@@ -218,7 +225,7 @@ default|default:
 break|break;
 block|}
 return|return
-name|QWindowsStyle
+name|QProxyStyle
 operator|::
 name|pixelMetric
 argument_list|(
