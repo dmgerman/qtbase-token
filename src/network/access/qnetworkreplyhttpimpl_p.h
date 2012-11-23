@@ -647,6 +647,11 @@ name|isCachingEnabled
 argument_list|()
 specifier|const
 block|;
+name|bool
+name|isCachingAllowed
+argument_list|()
+specifier|const
+block|;
 name|void
 name|initCacheSaveDevice
 argument_list|()
