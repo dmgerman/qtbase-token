@@ -228,12 +228,6 @@ begin_comment
 comment|//#define QT_NO_PROPERTIES
 end_comment
 begin_comment
-comment|//  Universally Unique Identifier Convertion
-end_comment
-begin_comment
-comment|//#define QT_NO_QUUID_STRING
-end_comment
-begin_comment
 comment|// Resize Handler
 end_comment
 begin_comment

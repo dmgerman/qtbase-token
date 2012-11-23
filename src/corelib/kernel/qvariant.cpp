@@ -1680,9 +1680,6 @@ expr_stmt|;
 break|break;
 endif|#
 directive|endif
-ifndef|#
-directive|ifndef
-name|QT_NO_QUUID_STRING
 case|case
 name|QVariant
 operator|::
@@ -1703,8 +1700,6 @@ name|toString
 argument_list|()
 expr_stmt|;
 break|break;
-endif|#
-directive|endif
 default|default:
 return|return
 literal|false
@@ -4019,9 +4014,6 @@ operator|->
 name|type
 condition|)
 block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_QUUID_STRING
 case|case
 name|QVariant
 operator|::
@@ -4050,8 +4042,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 break|break;
-endif|#
-directive|endif
 default|default:
 return|return
 literal|false

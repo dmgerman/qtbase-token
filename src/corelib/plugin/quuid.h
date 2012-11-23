@@ -398,9 +398,6 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
-ifndef|#
-directive|ifndef
-name|QT_NO_QUUID_STRING
 name|QUuid
 argument_list|(
 specifier|const
@@ -431,8 +428,6 @@ name|toByteArray
 argument_list|()
 specifier|const
 expr_stmt|;
-endif|#
-directive|endif
 name|QByteArray
 name|toRfc4122
 argument_list|()
@@ -930,11 +925,6 @@ name|baseData
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_QUUID_STRING
-end_ifndef
 begin_function
 specifier|static
 specifier|inline
@@ -999,10 +989,6 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_endif
 endif|#
 directive|endif
