@@ -29,10 +29,10 @@ begin_comment
 comment|// This file is not part of the Qt API.  It exists for the convenience
 end_comment
 begin_comment
-comment|// of qfontencodings_x11.cpp and qfont_x11.cpp.  This header file may
+comment|// of the Qt translation tools.  This header file may change from version
 end_comment
 begin_comment
-comment|// change from version to version without notice, or even be removed.
+comment|// to version without notice, or even be removed.
 end_comment
 begin_comment
 comment|//
