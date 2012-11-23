@@ -55,11 +55,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QWindowsStyle>
-end_include
-begin_include
-include|#
-directive|include
 file|<QTreeWidget>
 end_include
 begin_function
