@@ -370,17 +370,6 @@ operator|::
 name|swapInThread
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-comment|// The test is crashing but there are risks of reboot so keeping QSKIP here.
-name|QSKIP
-argument_list|(
-literal|"QTBUG-22361"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QGLFormat
 name|format
 decl_stmt|;
@@ -839,17 +828,6 @@ operator|::
 name|textureUploadInThread
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-comment|// The test is crashing but there are risks of reboot so keeping QSKIP here.
-name|QSKIP
-argument_list|(
-literal|"QTBUG-22361"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|TextureDisplay
 name|display
 decl_stmt|;
@@ -1650,17 +1628,6 @@ operator|::
 name|renderInThread
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-comment|// The test is crashing but there are risks of reboot so keeping QSKIP here.
-name|QSKIP
-argument_list|(
-literal|"QTBUG-22361"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QFETCH
 argument_list|(
 name|bool
@@ -2711,17 +2678,6 @@ operator|::
 name|painterOnGLWidgetInThread
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-comment|// The test is crashing but there are risks of reboot so keeping QSKIP here.
-name|QSKIP
-argument_list|(
-literal|"QTBUG-22361"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 operator|!
@@ -2815,17 +2771,6 @@ parameter_list|()
 block|{
 ifdef|#
 directive|ifdef
-name|Q_OS_MAC
-comment|// The test is crashing but there are risks of reboot so keeping QSKIP here.
-name|QSKIP
-argument_list|(
-literal|"QTBUG-22361"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-ifdef|#
-directive|ifdef
 name|Q_WS_X11
 name|QSKIP
 argument_list|(
@@ -2891,17 +2836,6 @@ operator|::
 name|painterOnPboInThread
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-comment|// The test is crashing but there are risks of reboot so keeping QSKIP here.
-name|QSKIP
-argument_list|(
-literal|"QTBUG-22361"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 operator|!
@@ -3008,17 +2942,6 @@ operator|::
 name|painterOnFboInThread
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-comment|// The test is crashing but there are risks of reboot so keeping QSKIP here.
-name|QSKIP
-argument_list|(
-literal|"QTBUG-22361"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 operator|!
