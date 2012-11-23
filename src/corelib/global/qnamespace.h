@@ -4344,6 +4344,10 @@ block|,
 name|ItemIsTristate
 init|=
 literal|64
+block|,
+name|ItemNeverHasChildren
+init|=
+literal|128
 block|}
 enum|;
 name|Q_DECLARE_FLAGS

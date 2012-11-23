@@ -2314,6 +2314,16 @@ argument_list|,
 argument|const QModelIndex&parent
 argument_list|)
 block|;
+name|Qt
+operator|::
+name|ItemFlags
+name|flags
+argument_list|(
+argument|const QModelIndex&index
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 name|protected
 operator|:
 name|QAbstractTableModel
@@ -2399,6 +2409,16 @@ argument|int column
 argument_list|,
 argument|const QModelIndex&parent
 argument_list|)
+block|;
+name|Qt
+operator|::
+name|ItemFlags
+name|flags
+argument_list|(
+argument|const QModelIndex&index
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:

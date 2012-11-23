@@ -4477,6 +4477,13 @@ name|Qt
 operator|::
 name|ItemIsDropEnabled
 expr_stmt|;
+else|else
+name|flags
+operator||=
+name|Qt
+operator|::
+name|ItemNeverHasChildren
+expr_stmt|;
 block|}
 return|return
 name|flags

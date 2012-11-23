@@ -852,6 +852,18 @@ specifier|const
 block|{
 comment|//We first check if the idx is a QPersistentModelIndex, because creating QPersistentModelIndex is slow
 return|return
+operator|!
+operator|(
+name|idx
+operator|.
+name|flags
+argument_list|()
+operator|&
+name|Qt
+operator|::
+name|ItemNeverHasChildren
+operator|)
+operator|&&
 name|isPersistent
 argument_list|(
 name|idx
