@@ -50,7 +50,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtWidgets/QWindowsStyle>
+file|<QtWidgets/QStyleFactory>
 end_include
 begin_include
 include|#
@@ -355,8 +355,15 @@ name|QApplication
 operator|::
 name|setStyle
 argument_list|(
-operator|new
-name|QWindowsStyle
+name|QStyleFactory
+operator|::
+name|create
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"Windows"
+argument_list|)
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QWidget
