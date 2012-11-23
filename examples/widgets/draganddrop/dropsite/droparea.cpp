@@ -5,12 +5,17 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtWidgets>
+file|"droparea.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"droparea.h"
+file|<QDragEnterEvent>
+end_include
+begin_include
+include|#
+directive|include
+file|<QMimeData>
 end_include
 begin_comment
 comment|//! [DropArea constructor]

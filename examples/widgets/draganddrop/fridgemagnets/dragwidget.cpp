@@ -5,17 +5,17 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtWidgets>
-end_include
-begin_include
-include|#
-directive|include
 file|"draglabel.h"
 end_include
 begin_include
 include|#
 directive|include
 file|"dragwidget.h"
+end_include
+begin_include
+include|#
+directive|include
+file|<QtWidgets>
 end_include
 begin_comment
 comment|//! [0]

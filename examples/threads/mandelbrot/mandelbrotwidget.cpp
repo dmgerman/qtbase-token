@@ -5,7 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtWidgets>
+file|<QPainter>
+end_include
+begin_include
+include|#
+directive|include
+file|<QKeyEvent>
 end_include
 begin_include
 include|#

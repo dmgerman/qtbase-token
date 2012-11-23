@@ -16,12 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtCore/QStringList>
-end_include
-begin_include
-include|#
-directive|include
-file|<QtDBus/QtDBus>
+file|<QStringList>
 end_include
 begin_include
 include|#
@@ -190,4 +185,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// CHAT_H
+end_comment
 end_unit

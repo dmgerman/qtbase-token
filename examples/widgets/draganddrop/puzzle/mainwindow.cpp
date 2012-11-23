@@ -5,16 +5,6 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtWidgets>
-end_include
-begin_include
-include|#
-directive|include
-file|<stdlib.h>
-end_include
-begin_include
-include|#
-directive|include
 file|"mainwindow.h"
 end_include
 begin_include
@@ -26,6 +16,16 @@ begin_include
 include|#
 directive|include
 file|"puzzlewidget.h"
+end_include
+begin_include
+include|#
+directive|include
+file|<QtWidgets>
+end_include
+begin_include
+include|#
+directive|include
+file|<stdlib.h>
 end_include
 begin_constructor
 DECL|function|MainWindow
@@ -98,6 +98,7 @@ operator|.
 name|isNull
 argument_list|()
 condition|)
+block|{
 name|fileName
 operator|=
 name|QFileDialog
@@ -116,6 +117,7 @@ argument_list|,
 literal|"Image Files (*.png *.jpg *.bmp)"
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!

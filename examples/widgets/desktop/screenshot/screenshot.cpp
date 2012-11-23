@@ -453,6 +453,7 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
+block|{
 name|hideThisWindowCheckBox
 operator|->
 name|setDisabled
@@ -460,6 +461,7 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 end_function
 begin_comment
