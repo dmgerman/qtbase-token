@@ -79023,7 +79023,7 @@ argument_list|,
 name|rect2
 argument_list|)
 decl_stmt|;
-comment|// activate rect1, it should not get focus
+comment|// activate rect1, it should get focus
 name|rect1
 operator|->
 name|setActive
@@ -79042,10 +79042,10 @@ operator|(
 name|QGraphicsItem
 operator|*
 operator|)
-literal|0
+name|rect1
 argument_list|)
 expr_stmt|;
-comment|// focus stays unset when rect2 becomes modal
+comment|// focus stays when rect2 becomes modal
 name|rect2
 operator|->
 name|setPanelModality
@@ -79066,7 +79066,7 @@ operator|(
 name|QGraphicsItem
 operator|*
 operator|)
-literal|0
+name|rect1
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -79080,7 +79080,7 @@ operator|::
 name|FocusIn
 index|]
 argument_list|,
-literal|0
+literal|1
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -79126,6 +79126,11 @@ literal|0
 argument_list|)
 expr_stmt|;
 comment|// clicking on rect1 should not set it's focus item
+name|rect1
+operator|->
+name|clearFocus
+argument_list|()
+expr_stmt|;
 name|sendMouseClick
 argument_list|(
 operator|&
@@ -79166,7 +79171,7 @@ operator|::
 name|FocusIn
 index|]
 argument_list|,
-literal|0
+literal|1
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -79180,7 +79185,7 @@ operator|::
 name|FocusOut
 index|]
 argument_list|,
-literal|0
+literal|1
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -79257,7 +79262,7 @@ operator|::
 name|FocusIn
 index|]
 argument_list|,
-literal|0
+literal|1
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -79271,7 +79276,7 @@ operator|::
 name|FocusOut
 index|]
 argument_list|,
-literal|0
+literal|1
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -79309,6 +79314,11 @@ name|setActive
 argument_list|(
 literal|true
 argument_list|)
+expr_stmt|;
+name|rect1
+operator|->
+name|clearFocus
+argument_list|()
 expr_stmt|;
 name|sendMouseClick
 argument_list|(
@@ -79350,7 +79360,7 @@ operator|::
 name|FocusIn
 index|]
 argument_list|,
-literal|0
+literal|2
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -79364,7 +79374,7 @@ operator|::
 name|FocusOut
 index|]
 argument_list|,
-literal|0
+literal|2
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -79430,7 +79440,7 @@ operator|::
 name|FocusIn
 index|]
 argument_list|,
-literal|0
+literal|2
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -79444,7 +79454,7 @@ operator|::
 name|FocusOut
 index|]
 argument_list|,
-literal|0
+literal|2
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -79516,7 +79526,7 @@ operator|::
 name|FocusIn
 index|]
 argument_list|,
-literal|1
+literal|3
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -79530,7 +79540,7 @@ operator|::
 name|FocusOut
 index|]
 argument_list|,
-literal|0
+literal|2
 argument_list|)
 expr_stmt|;
 name|QCOMPARE

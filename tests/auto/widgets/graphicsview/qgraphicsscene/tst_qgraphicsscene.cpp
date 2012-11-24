@@ -32600,7 +32600,7 @@ literal|false
 operator|<<
 literal|true
 operator|<<
-literal|false
+literal|true
 expr_stmt|;
 name|QTest
 operator|::
@@ -32660,7 +32660,7 @@ literal|false
 operator|<<
 literal|true
 operator|<<
-literal|false
+literal|true
 expr_stmt|;
 name|QTest
 operator|::
