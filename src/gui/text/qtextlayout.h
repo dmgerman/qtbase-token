@@ -387,7 +387,9 @@ modifier|&
 name|option
 parameter_list|)
 function_decl|;
+specifier|const
 name|QTextOption
+operator|&
 name|textOption
 argument_list|()
 specifier|const

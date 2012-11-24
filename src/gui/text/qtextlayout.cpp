@@ -912,7 +912,9 @@ comment|/*!     Returns the current text option used to control the layout proce
 end_comment
 begin_function
 DECL|function|textOption
+specifier|const
 name|QTextOption
+modifier|&
 name|QTextLayout
 operator|::
 name|textOption
