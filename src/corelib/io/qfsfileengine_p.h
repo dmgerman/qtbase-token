@@ -299,6 +299,9 @@ name|handle
 argument_list|()
 specifier|const
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_FILESYSTEMITERATOR
 name|Iterator
 operator|*
 name|beginEntryList
@@ -313,6 +316,8 @@ operator|*
 name|endEntryList
 argument_list|()
 block|;
+endif|#
+directive|endif
 name|qint64
 name|read
 argument_list|(

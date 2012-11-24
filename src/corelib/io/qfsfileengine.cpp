@@ -2900,6 +2900,11 @@ name|writtenBytes
 return|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_FILESYSTEMITERATOR
+end_ifndef
 begin_comment
 comment|/*!     \internal */
 end_comment
@@ -2954,6 +2959,13 @@ literal|0
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_FILESYSTEMITERATOR
+end_comment
 begin_comment
 comment|/*!     \internal */
 end_comment
