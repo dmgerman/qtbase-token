@@ -5256,6 +5256,17 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|macro
+operator|.
+name|symbols
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
 name|macro
 operator|.
 name|symbols
@@ -5278,11 +5289,13 @@ name|token
 operator|==
 name|PP_HASHHASH
 condition|)
+block|{
 name|error
 argument_list|(
 literal|"'##' cannot appear at either end of a macro expansion"
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|macro
@@ -5307,11 +5320,14 @@ name|token
 operator|==
 name|PP_HASH
 condition|)
+block|{
 name|error
 argument_list|(
 literal|"'#' is not followed by a macro parameter"
 argument_list|)
 expr_stmt|;
+block|}
+block|}
 name|macros
 operator|.
 name|insert
