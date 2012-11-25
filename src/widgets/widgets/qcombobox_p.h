@@ -976,6 +976,16 @@ block|;
 name|QComboBoxPrivateScroller
 operator|*
 name|bottom
+block|;
+name|bool
+name|maybeIgnoreMouseButtonRelease
+block|;
+name|QElapsedTimer
+name|popupTimer
+block|;
+name|friend
+name|class
+name|QComboBox
 block|; }
 decl_stmt|;
 end_decl_stmt

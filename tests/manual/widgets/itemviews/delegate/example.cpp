@@ -32,6 +32,11 @@ include|#
 directive|include
 file|<QDebug>
 end_include
+begin_include
+include|#
+directive|include
+file|<QComboBox>
+end_include
 begin_class
 DECL|class|ExampleEditor
 class|class
@@ -103,6 +108,38 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+name|m_combobox
+operator|=
+operator|new
+name|QComboBox
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+name|m_combobox
+operator|->
+name|addItem
+argument_list|(
+name|QString
+operator|::
+name|fromUtf8
+argument_list|(
+literal|"item1"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|m_combobox
+operator|->
+name|addItem
+argument_list|(
+name|QString
+operator|::
+name|fromUtf8
+argument_list|(
+literal|"item2"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 protected|protected:
 DECL|function|createEditor
@@ -122,8 +159,42 @@ parameter_list|,
 specifier|const
 name|QModelIndex
 modifier|&
+name|i
 parameter_list|)
 specifier|const
+block|{
+comment|// doubleclick rownumber 3 (last row) to see the difference.
+if|if
+condition|(
+name|i
+operator|.
+name|row
+argument_list|()
+operator|==
+literal|3
+condition|)
+block|{
+name|m_combobox
+operator|->
+name|setParent
+argument_list|(
+name|p
+argument_list|)
+expr_stmt|;
+name|m_combobox
+operator|->
+name|setGeometry
+argument_list|(
+name|o
+operator|.
+name|rect
+argument_list|)
+expr_stmt|;
+return|return
+name|m_combobox
+return|;
+block|}
+else|else
 block|{
 name|m_editor
 operator|->
@@ -144,6 +215,7 @@ expr_stmt|;
 return|return
 name|m_editor
 return|;
+block|}
 block|}
 DECL|function|destroyEditor
 name|void
@@ -179,13 +251,51 @@ name|setEditorData
 parameter_list|(
 name|QWidget
 modifier|*
+name|w
 parameter_list|,
 specifier|const
 name|QModelIndex
 modifier|&
 parameter_list|)
 specifier|const
-block|{ }
+block|{
+name|QComboBox
+modifier|*
+name|combobox
+init|=
+name|qobject_cast
+argument_list|<
+name|QComboBox
+operator|*
+argument_list|>
+argument_list|(
+name|w
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|combobox
+condition|)
+block|{
+name|qDebug
+argument_list|()
+operator|<<
+literal|"Try to show popup at once"
+expr_stmt|;
+comment|// Now we could try to make a call to
+comment|// QCoreApplication::processEvents();
+comment|// But it does not matter. The fix:
+comment|// https://codereview.qt-project.org/40608
+comment|// is blocking QComboBox from reacting to this doubleclick edit event
+comment|// and we need to do that since the mouseReleaseEvent has not yet happened,
+comment|// and therefore cannot be processed.
+name|combobox
+operator|->
+name|showPopup
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 DECL|function|~ExampleDelegate
 name|~
 name|ExampleDelegate
@@ -200,6 +310,12 @@ specifier|mutable
 name|ExampleEditor
 modifier|*
 name|m_editor
+decl_stmt|;
+DECL|member|m_combobox
+specifier|mutable
+name|QComboBox
+modifier|*
+name|m_combobox
 decl_stmt|;
 block|}
 class|;
