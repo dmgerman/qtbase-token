@@ -161,6 +161,12 @@ block|;
 name|void
 name|connectToServer
 argument_list|(
+argument|OpenMode openMode = ReadWrite
+argument_list|)
+block|;
+name|void
+name|connectToServer
+argument_list|(
 argument|const QString&name
 argument_list|,
 argument|OpenMode openMode = ReadWrite
@@ -169,6 +175,15 @@ block|;
 name|void
 name|disconnectFromServer
 argument_list|()
+block|;
+name|void
+name|setServerName
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|name
+argument_list|)
 block|;
 name|QString
 name|serverName
@@ -207,6 +222,14 @@ name|bool
 name|canReadLine
 argument_list|()
 specifier|const
+block|;
+name|virtual
+name|bool
+name|open
+argument_list|(
+argument|OpenMode openMode = ReadWrite
+argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void

@@ -463,17 +463,12 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|connectToServer
-name|void
+DECL|function|open
+name|bool
 name|QLocalSocket
 operator|::
-name|connectToServer
+name|open
 parameter_list|(
-specifier|const
-name|QString
-modifier|&
-name|name
-parameter_list|,
 name|OpenMode
 name|openMode
 parameter_list|)
@@ -512,7 +507,9 @@ operator|::
 name|OperationError
 argument_list|)
 emit|;
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|d
 operator|->
@@ -545,7 +542,9 @@ argument_list|)
 emit|;
 if|if
 condition|(
-name|name
+name|d
+operator|->
+name|serverName
 operator|.
 name|isEmpty
 argument_list|()
@@ -599,7 +598,9 @@ operator|->
 name|state
 argument_list|)
 emit|;
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|QString
 name|pipePath
@@ -611,7 +612,9 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|name
+name|d
+operator|->
+name|serverName
 operator|.
 name|startsWith
 argument_list|(
@@ -622,7 +625,9 @@ name|d
 operator|->
 name|fullServerName
 operator|=
-name|name
+name|d
+operator|->
+name|serverName
 expr_stmt|;
 else|else
 name|d
@@ -631,7 +636,9 @@ name|fullServerName
 operator|=
 name|pipePath
 operator|+
-name|name
+name|d
+operator|->
+name|serverName
 expr_stmt|;
 comment|// Try to open a named pipe
 name|HANDLE
@@ -772,15 +779,11 @@ operator|=
 name|QString
 argument_list|()
 expr_stmt|;
-return|return;
+return|return
+literal|false
+return|;
 block|}
 comment|// we have a valid handle
-name|d
-operator|->
-name|serverName
-operator|=
-name|name
-expr_stmt|;
 if|if
 condition|(
 name|setSocketDescriptor
@@ -807,6 +810,9 @@ name|connected
 argument_list|()
 emit|;
 block|}
+return|return
+literal|true
+return|;
 block|}
 end_function
 begin_comment
