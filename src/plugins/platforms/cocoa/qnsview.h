@@ -46,6 +46,12 @@ name|class
 name|QCocoaBackingStore
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|QCocoaGLContext
+name|class
+name|QCocoaGLContext
+decl_stmt|;
+end_decl_stmt
 begin_expr_stmt
 name|QT_END_NAMESPACE
 expr|@
@@ -102,6 +108,9 @@ name|Qt
 operator|::
 name|KeyboardModifiers
 name|currentWheelModifiers
+block|;
+name|bool
+name|m_subscribesForGlobalFrameNotifications
 block|; }
 operator|-
 operator|(
@@ -129,6 +138,20 @@ name|QCocoaWindow
 operator|*
 operator|)
 name|platformWindow
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+operator|-
+operator|(
+name|void
+operator|)
+name|setQCocoaGLContext
+operator|:
+operator|(
+name|QCocoaGLContext
+operator|*
+operator|)
+name|context
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
