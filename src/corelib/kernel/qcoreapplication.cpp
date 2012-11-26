@@ -7870,9 +7870,6 @@ end_comment
 begin_comment
 comment|/*!     \macro Q_DECLARE_TR_FUNCTIONS(context)     \relates QCoreApplication      The Q_DECLARE_TR_FUNCTIONS() macro declares and implements two     translation functions, \c tr() and \c trUtf8(), with these     signatures:      \snippet code/src_corelib_kernel_qcoreapplication.cpp 6      This macro is useful if you want to use QObject::tr() or     QObject::trUtf8() in classes that don't inherit from QObject.      Q_DECLARE_TR_FUNCTIONS() must appear at the very top of the     class definition (before the first \c{public:} or \c{protected:}).     For example:      \snippet code/src_corelib_kernel_qcoreapplication.cpp 7      The \a context parameter is normally the class name, but it can     be any string.      \sa Q_OBJECT, QObject::tr(), QObject::trUtf8() */
 end_comment
-begin_comment
-comment|/*!     \enum QCoreApplication::Type      \value Tty a console application     \value GuiClient a GUI application     \value GuiServer \e{Deprecated.} this value is only left for compatibility. */
-end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
