@@ -113,9 +113,13 @@ name|QtWebKit
 init|=
 literal|0x0800
 block|,
-name|Phonon
+name|QtWidgets
 init|=
 literal|0x1000
+block|,
+name|Phonon
+init|=
+literal|0x2000
 comment|// odd man out
 block|}
 enum|;
@@ -134,11 +138,9 @@ name|Applicationless
 block|,
 name|QCoreApplication
 block|,
-name|QApplicationTty
+name|QGuiApplication
 block|,
-name|QApplicationGuiClient
-block|,
-name|QApplicationGuiServer
+name|QApplication
 block|}
 expr_stmt|;
 name|QList

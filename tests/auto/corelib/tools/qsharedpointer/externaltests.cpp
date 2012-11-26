@@ -1289,36 +1289,28 @@ operator|+=
 literal|"    QCoreApplication app(argc, argv);\n"
 expr_stmt|;
 break|break;
-case|case
-name|QExternalTest
-operator|::
-name|QApplicationTty
-case|:
-name|sourceCode
-operator|+=
-literal|"    QApplication app(argc, argv, QApplication::Tty);\n"
-expr_stmt|;
-break|break;
 name|guiapplication
 label|:
 case|case
 name|QExternalTest
 operator|::
-name|QApplicationGuiClient
+name|QGuiApplication
 case|:
 name|sourceCode
 operator|+=
-literal|"    QApplication app(argc, argv, QApplication::GuiClient);\n"
+literal|"    QGuiApplication app(argc, argv);\n"
 expr_stmt|;
 break|break;
+name|widgetsapplication
+label|:
 case|case
 name|QExternalTest
 operator|::
-name|QApplicationGuiServer
+name|QApplication
 case|:
 name|sourceCode
 operator|+=
-literal|"    QApplication app(argc, argv, QApplication::GuiServer);\n"
+literal|"    QApplication app(argc, argv);\n"
 expr_stmt|;
 break|break;
 case|case
@@ -1326,6 +1318,17 @@ name|QExternalTest
 operator|::
 name|AutoApplication
 case|:
+if|if
+condition|(
+name|qtModules
+operator|&
+name|QExternalTest
+operator|::
+name|QtWidgets
+condition|)
+goto|goto
+name|widgetsapplication
+goto|;
 if|if
 condition|(
 name|qtModules
