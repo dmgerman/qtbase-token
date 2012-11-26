@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QWindowsStyle>
+file|<QProxyStyle>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
@@ -31,7 +31,7 @@ name|class
 name|SimpleStyle
 range|:
 name|public
-name|QWindowsStyle
+name|QProxyStyle
 block|{
 name|Q_OBJECT
 name|public
