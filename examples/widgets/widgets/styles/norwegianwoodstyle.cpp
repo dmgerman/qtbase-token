@@ -12,6 +12,24 @@ include|#
 directive|include
 file|"norwegianwoodstyle.h"
 end_include
+begin_constructor
+DECL|function|NorwegianWoodStyle
+name|NorwegianWoodStyle
+operator|::
+name|NorwegianWoodStyle
+parameter_list|()
+member_init_list|:
+name|QProxyStyle
+argument_list|(
+name|QStyleFactory
+operator|::
+name|create
+argument_list|(
+literal|"windows"
+argument_list|)
+argument_list|)
+block|{ }
+end_constructor
 begin_comment
 comment|//! [0]
 end_comment
@@ -453,7 +471,7 @@ case|case
 name|PM_ScrollBarExtent
 case|:
 return|return
-name|QWindowsStyle
+name|QProxyStyle
 operator|::
 name|pixelMetric
 argument_list|(
@@ -468,7 +486,7 @@ literal|4
 return|;
 default|default:
 return|return
-name|QWindowsStyle
+name|QProxyStyle
 operator|::
 name|pixelMetric
 argument_list|(
@@ -540,7 +558,7 @@ argument_list|)
 return|;
 default|default:
 return|return
-name|QWindowsStyle
+name|QProxyStyle
 operator|::
 name|styleHint
 argument_list|(
@@ -1162,7 +1180,7 @@ break|break;
 comment|//! [32] //! [33]
 default|default:
 comment|//! [33] //! [34]
-name|QWindowsStyle
+name|QProxyStyle
 operator|::
 name|drawPrimitive
 argument_list|(
@@ -1296,7 +1314,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-name|QWindowsStyle
+name|QProxyStyle
 operator|::
 name|drawControl
 argument_list|(
@@ -1313,7 +1331,7 @@ expr_stmt|;
 block|}
 break|break;
 default|default:
-name|QWindowsStyle
+name|QProxyStyle
 operator|::
 name|drawControl
 argument_list|(

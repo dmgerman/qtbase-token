@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QWindowsStyle>
+file|<QProxyStyle>
 end_include
 begin_include
 include|#
@@ -37,14 +37,14 @@ name|class
 name|NorwegianWoodStyle
 range|:
 name|public
-name|QWindowsStyle
+name|QProxyStyle
 block|{
 name|Q_OBJECT
 name|public
 operator|:
 name|NorwegianWoodStyle
 argument_list|()
-block|{}
+block|;
 name|void
 name|polish
 argument_list|(
