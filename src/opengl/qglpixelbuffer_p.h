@@ -116,6 +116,11 @@ specifier|const
 block|;
 name|virtual
 name|void
+name|beginPaint
+argument_list|()
+block|;
+name|virtual
+name|void
 name|endPaint
 argument_list|()
 block|;
@@ -125,6 +130,12 @@ argument_list|(
 name|QGLPixelBuffer
 operator|*
 name|pb
+argument_list|)
+block|;
+name|void
+name|setFbo
+argument_list|(
+argument|GLuint fbo
 argument_list|)
 block|;
 name|private

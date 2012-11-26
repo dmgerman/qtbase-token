@@ -1072,6 +1072,14 @@ modifier|&
 name|format
 parameter_list|)
 function_decl|;
+name|void
+name|moveToThread
+parameter_list|(
+name|QThread
+modifier|*
+name|thread
+parameter_list|)
+function_decl|;
 name|virtual
 name|void
 name|makeCurrent
@@ -1655,7 +1663,6 @@ operator|&
 name|format
 argument_list|)
 block|;
-specifier|const
 name|QGLContext
 operator|*
 name|context

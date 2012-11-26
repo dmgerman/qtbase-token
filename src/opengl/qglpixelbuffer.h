@@ -99,6 +99,12 @@ name|bool
 name|doneCurrent
 argument_list|()
 block|;
+name|QGLContext
+operator|*
+name|context
+argument_list|()
+specifier|const
+block|;
 name|GLuint
 name|generateDynamicTexture
 argument_list|()

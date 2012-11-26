@@ -1368,13 +1368,6 @@ operator|:
 name|QObject
 argument_list|()
 block|{
-name|qRegisterMetaType
-operator|<
-name|GLuint
-operator|>
-operator|(
-operator|)
-block|;
 name|connect
 argument_list|(
 name|this
@@ -1389,7 +1382,7 @@ argument_list|,
 name|QPlatformPixmap
 operator|*
 argument_list|,
-name|GLuint
+name|quint32
 argument_list|)
 argument_list|)
 argument_list|,
@@ -1405,7 +1398,7 @@ argument_list|,
 name|QPlatformPixmap
 operator|*
 argument_list|,
-name|GLuint
+name|quint32
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1439,7 +1432,7 @@ argument|QGLContext *context
 argument_list|,
 argument|QPlatformPixmap *boundPixmap
 argument_list|,
-argument|GLuint id
+argument|quint32 id
 argument_list|)
 block|;
 name|private
@@ -1452,7 +1445,7 @@ argument|QGLContext *context
 argument_list|,
 argument|QPlatformPixmap *boundPixmap
 argument_list|,
-argument|GLuint id
+argument|quint32 id
 argument_list|)
 block|{
 name|Q_UNUSED
