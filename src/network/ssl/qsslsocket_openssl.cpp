@@ -4306,7 +4306,7 @@ name|QSslSocket
 operator|::
 name|tr
 argument_list|(
-literal|"Unable to init Ssl Context: %1"
+literal|"Unable to init SSL Context: %1"
 argument_list|)
 operator|.
 name|arg
@@ -4375,7 +4375,7 @@ name|QSslSocket
 operator|::
 name|tr
 argument_list|(
-literal|"Unable to init Ssl Context: %1"
+literal|"Unable to init SSL Context: %1"
 argument_list|)
 operator|.
 name|arg
