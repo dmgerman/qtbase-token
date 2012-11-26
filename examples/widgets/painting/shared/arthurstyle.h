@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QWindowsStyle>
+file|<QCommonStyle>
 end_include
 begin_decl_stmt
 name|QT_USE_NAMESPACE
@@ -24,7 +24,7 @@ name|class
 name|ArthurStyle
 range|:
 name|public
-name|QWindowsStyle
+name|QCommonStyle
 block|{
 name|public
 operator|:

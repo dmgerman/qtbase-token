@@ -135,7 +135,7 @@ operator|::
 name|ArthurStyle
 parameter_list|()
 member_init_list|:
-name|QWindowsStyle
+name|QCommonStyle
 argument_list|()
 block|{
 name|Q_INIT_RESOURCE
@@ -1630,7 +1630,7 @@ expr_stmt|;
 block|}
 break|break;
 default|default:
-name|QWindowsStyle
+name|QCommonStyle
 operator|::
 name|drawPrimitive
 argument_list|(
@@ -1923,7 +1923,7 @@ operator|&=
 operator|~
 name|SC_GroupBoxLabel
 expr_stmt|;
-name|QWindowsStyle
+name|QCommonStyle
 operator|::
 name|drawComplexControl
 argument_list|(
@@ -2207,7 +2207,7 @@ block|}
 block|}
 break|break;
 default|default:
-name|QWindowsStyle
+name|QCommonStyle
 operator|::
 name|drawComplexControl
 argument_list|(
@@ -2261,7 +2261,7 @@ block|{
 default|default:
 name|rect
 operator|=
-name|QWindowsStyle
+name|QCommonStyle
 operator|::
 name|subControlRect
 argument_list|(
@@ -2304,7 +2304,7 @@ block|{
 default|default:
 name|rect
 operator|=
-name|QWindowsStyle
+name|QCommonStyle
 operator|::
 name|subControlRect
 argument_list|(
@@ -2323,7 +2323,7 @@ name|SC_GroupBoxContents
 case|:
 name|rect
 operator|=
-name|QWindowsStyle
+name|QCommonStyle
 operator|::
 name|subControlRect
 argument_list|(
@@ -2546,7 +2546,7 @@ block|{
 name|QSize
 name|newSize
 init|=
-name|QWindowsStyle
+name|QCommonStyle
 operator|::
 name|sizeFromContents
 argument_list|(
@@ -2639,7 +2639,7 @@ return|return
 literal|13
 return|;
 return|return
-name|QWindowsStyle
+name|QCommonStyle
 operator|::
 name|pixelMetric
 argument_list|(
@@ -2971,7 +2971,7 @@ break|break;
 default|default:
 name|r
 operator|=
-name|QWindowsStyle
+name|QCommonStyle
 operator|::
 name|subElementRect
 argument_list|(
