@@ -22,12 +22,25 @@ include|#
 directive|include
 file|<stdlib.h>
 end_include
-begin_function
+begin_macro
 name|QT_BEGIN_NAMESPACE
+end_macro
+begin_comment
 comment|/*!     \class QMetaObjectBuilder     \inmodule QtCore     \internal     \brief The QMetaObjectBuilder class supports building QMetaObject objects at runtime.  */
+end_comment
+begin_comment
 comment|/*!     \enum QMetaObjectBuilder::AddMember     This enum defines which members of QMetaObject should be copied by QMetaObjectBuilder::addMetaObject()      \value ClassName Add the class name.     \value SuperClass Add the super class.     \value Methods Add methods that aren't signals or slots.     \value Signals Add signals.     \value Slots Add slots.     \value Constructors Add constructors.     \value Properties Add properties.     \value Enumerators Add enumerators.     \value ClassInfos Add items of class information.     \value RelatedMetaObjects Add related meta objects.     \value StaticMetacall Add the static metacall function.     \value PublicMethods Add public methods (ignored for signals).     \value ProtectedMethods Add protected methods (ignored for signals).     \value PrivateMethods All private methods (ignored for signals).     \value AllMembers Add all members.     \value AllPrimaryMembers Add everything except the class name, super class, and static metacall function. */
+end_comment
+begin_comment
 comment|// copied from moc's generator.cpp
+end_comment
+begin_namespace
+DECL|namespace|QtPrivate
+namespace|namespace
+name|QtPrivate
+block|{
 DECL|function|isBuiltinType
+name|Q_CORE_EXPORT
 name|bool
 name|isBuiltinType
 parameter_list|(
@@ -75,7 +88,11 @@ name|User
 operator|)
 return|;
 block|}
-end_function
+block|}
+end_namespace
+begin_comment
+comment|// namespace QtPrivate
+end_comment
 begin_comment
 comment|// copied from qmetaobject.cpp
 end_comment
@@ -5619,6 +5636,8 @@ name|typeInfo
 decl_stmt|;
 if|if
 condition|(
+name|QtPrivate
+operator|::
 name|isBuiltinType
 argument_list|(
 name|typeName
@@ -5797,6 +5816,8 @@ name|typeInfo
 decl_stmt|;
 if|if
 condition|(
+name|QtPrivate
+operator|::
 name|isBuiltinType
 argument_list|(
 name|prop
@@ -5839,6 +5860,8 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
+name|QtPrivate
+operator|::
 name|isBuiltinType
 argument_list|(
 name|prop

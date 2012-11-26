@@ -2013,8 +2013,24 @@ block|}
 block|;     }
 expr_stmt|;
 end_expr_stmt
+begin_function_decl
+name|Q_CORE_EXPORT
+name|bool
+name|isBuiltinType
+parameter_list|(
+specifier|const
+name|QByteArray
+modifier|&
+name|type
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_comment
+unit|}
+comment|// namespace QtPrivate
+end_comment
 begin_expr_stmt
-unit|}  template
+unit|template
 DECL|variable|T
 DECL|variable|bool
 operator|<
