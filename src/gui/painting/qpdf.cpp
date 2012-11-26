@@ -9196,7 +9196,7 @@ name|fromLatin1
 argument_list|(
 literal|"Qt "
 name|QT_VERSION_STR
-literal|" (C) 2011 Nokia Corporation and/or its subsidiary(-ies)"
+literal|" (C) 2012 Digia Plc and/or its subsidiary(-ies)"
 argument_list|)
 argument_list|)
 expr_stmt|;
