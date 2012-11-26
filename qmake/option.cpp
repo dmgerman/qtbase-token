@@ -1005,7 +1005,7 @@ name|fprintf
 argument_list|(
 name|stdout
 argument_list|,
-literal|"QMake is Open Source software from Nokia Corporation and/or its subsidiary(-ies).\n"
+literal|"QMake is Open Source software from Digia Plc and/or its subsidiary(-ies).\n"
 argument_list|)
 expr_stmt|;
 endif|#
