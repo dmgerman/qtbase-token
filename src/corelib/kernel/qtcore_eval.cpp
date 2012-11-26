@@ -56,7 +56,7 @@ literal|"and will shut down after 120 minutes.\n"
 literal|"Registered to:\n"
 literal|"   Licensee: %2\n\n"
 literal|"The evaluation expires in %4 days\n\n"
-literal|"Contact http://qt.nokia.com/about/contact-us for pricing and purchasing information.\n"
+literal|"Contact http://qt.digia.com/contact-us for pricing and purchasing information.\n"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -73,7 +73,7 @@ literal|"This trial version may only be used for evaluation purposes\n"
 literal|"Registered to:\n"
 literal|"   Licensee: %2\n\n"
 literal|"The evaluation expires in %4 days\n\n"
-literal|"Contact http://qt.nokia.com/about/contact-us for pricing and purchasing information.\n"
+literal|"Contact http://qt.digia.com/contact-us for pricing and purchasing information.\n"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -87,7 +87,7 @@ init|=
 literal|"This software is using the trial version of the Qt GUI toolkit.\n"
 literal|"The trial period has expired. If you need more time to\n"
 literal|"evaluate Qt, or if you have any questions about Qt, contact us\n"
-literal|"at: http://qt.nokia.com/about/contact-us.\n\n"
+literal|"at: http://qt.digia.com/contact-us.\n\n"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -99,7 +99,7 @@ name|will_shutdown_1min
 index|[]
 init|=
 literal|"\nThe evaluation of Qt will SHUT DOWN in 1 minute.\n"
-literal|"Contact http://qt.nokia.com/about/contact-us for pricing and purchasing information.\n"
+literal|"Contact http://qt.digia.com/contact-us for pricing and purchasing information.\n"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -112,7 +112,7 @@ index|[]
 init|=
 literal|"\nThe evaluation of Qt has now reached its automatic\n"
 literal|"timeout and will shut down.\n"
-literal|"Contact http://qt.nokia.com/about/contact-us for pricing and purchasing information.\n"
+literal|"Contact http://qt.digia.com/contact-us for pricing and purchasing information.\n"
 decl_stmt|;
 end_decl_stmt
 begin_function
