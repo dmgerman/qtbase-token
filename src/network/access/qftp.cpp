@@ -6234,7 +6234,7 @@ name|QFtp
 operator|::
 name|tr
 argument_list|(
-literal|"Connection refused for data connection"
+literal|"Data Connection refused"
 argument_list|)
 argument_list|)
 emit|;
