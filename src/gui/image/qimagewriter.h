@@ -251,6 +251,14 @@ operator|>
 name|supportedImageFormats
 argument_list|()
 expr_stmt|;
+specifier|static
+name|QList
+operator|<
+name|QByteArray
+operator|>
+name|supportedMimeTypes
+argument_list|()
+expr_stmt|;
 name|private
 label|:
 name|Q_DISABLE_COPY
