@@ -2019,7 +2019,7 @@ argument_list|,
 argument|qint64 key
 argument_list|)
 block|{
-name|QReadLocker
+name|QWriteLocker
 name|locker
 argument_list|(
 operator|&
