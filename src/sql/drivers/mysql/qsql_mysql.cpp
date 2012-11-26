@@ -6616,14 +6616,12 @@ name|qMakeError
 argument_list|(
 name|tr
 argument_list|(
-literal|"Unable to open database '"
+literal|"Unable to open database '%1'"
 argument_list|)
-operator|+
-name|db
-operator|+
-name|QLatin1Char
+operator|.
+name|arg
 argument_list|(
-literal|'\''
+name|db
 argument_list|)
 argument_list|,
 name|QSqlError
