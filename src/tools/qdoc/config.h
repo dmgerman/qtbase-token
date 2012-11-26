@@ -806,6 +806,13 @@ name|CONFIG_EXAMPLES
 value|"examples"
 end_define
 begin_define
+DECL|macro|CONFIG_EXAMPLESINSTALLPATH
+define|#
+directive|define
+name|CONFIG_EXAMPLESINSTALLPATH
+value|"examplesinstallpath"
+end_define
+begin_define
 DECL|macro|CONFIG_EXCLUDEDIRS
 define|#
 directive|define

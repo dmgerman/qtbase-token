@@ -985,6 +985,9 @@ block|;
 name|QString
 name|manifestDir
 block|;
+name|QString
+name|examplesPath
+block|;
 name|QStringList
 name|stylesheets
 block|;
