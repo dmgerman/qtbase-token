@@ -196,6 +196,14 @@ name|int
 operator|>
 name|m_touchInputIDToTouchPointID
 expr_stmt|;
+name|QHash
+operator|<
+name|int
+operator|,
+name|QPointF
+operator|>
+name|m_lastTouchPositions
+expr_stmt|;
 name|QTouchDevice
 modifier|*
 name|m_touchDevice
