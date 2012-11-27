@@ -135,7 +135,7 @@ expr_stmt|;
 break|break;
 block|}
 default|default:
-name|QWindowsStyle
+name|QProxyStyle
 operator|::
 name|drawPrimitive
 argument_list|(

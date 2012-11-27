@@ -83,8 +83,12 @@ name|QApplication
 operator|::
 name|setStyle
 argument_list|(
-operator|new
-name|QWindowsStyle
+name|QStyleFactory
+operator|::
+name|create
+argument_list|(
+literal|"Fusion"
+argument_list|)
 argument_list|)
 expr_stmt|;
 end_expr_stmt

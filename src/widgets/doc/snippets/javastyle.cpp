@@ -224,7 +224,7 @@ block|{
 name|QPalette
 name|palette
 init|=
-name|QWindowsStyle
+name|QCommonStyle
 operator|::
 name|standardPalette
 argument_list|()
@@ -6718,7 +6718,7 @@ operator|::
 name|NoBrush
 argument_list|)
 expr_stmt|;
-name|QWindowsStyle
+name|QCommonStyle
 operator|::
 name|drawControl
 argument_list|(
@@ -7931,7 +7931,7 @@ argument_list|()
 expr_stmt|;
 break|break;
 default|default:
-name|QWindowsStyle
+name|QCommonStyle
 operator|::
 name|drawControl
 argument_list|(
@@ -8088,7 +8088,7 @@ block|{
 name|QRect
 name|rect
 init|=
-name|QWindowsStyle
+name|QCommonStyle
 operator|::
 name|subControlRect
 argument_list|(
@@ -9600,7 +9600,7 @@ block|}
 break|break;
 default|default:
 return|return
-name|QWindowsStyle
+name|QCommonStyle
 operator|::
 name|subControlRect
 argument_list|(
@@ -10133,7 +10133,7 @@ break|break;
 block|}
 default|default:
 return|return
-name|QWindowsStyle
+name|QCommonStyle
 operator|::
 name|subControlRect
 argument_list|(
@@ -13350,7 +13350,7 @@ block|}
 break|break;
 block|}
 default|default:
-name|QWindowsStyle
+name|QCommonStyle
 operator|::
 name|drawComplexControl
 argument_list|(
@@ -14050,7 +14050,7 @@ break|break;
 default|default:
 name|ret
 operator|=
-name|QWindowsStyle
+name|QCommonStyle
 operator|::
 name|hitTestComplexControl
 argument_list|(
@@ -17010,7 +17010,7 @@ expr_stmt|;
 break|break;
 block|}
 default|default:
-name|QWindowsStyle
+name|QCommonStyle
 operator|::
 name|drawPrimitive
 argument_list|(
@@ -17671,7 +17671,7 @@ block|}
 default|default:
 name|rect
 operator|=
-name|QWindowsStyle
+name|QCommonStyle
 operator|::
 name|subElementRect
 argument_list|(
@@ -17930,7 +17930,7 @@ block|}
 default|default:
 name|value
 operator|=
-name|QWindowsStyle
+name|QCommonStyle
 operator|::
 name|pixelMetric
 argument_list|(
@@ -18018,7 +18018,7 @@ break|break;
 default|default:
 name|ret
 operator|=
-name|QWindowsStyle
+name|QCommonStyle
 operator|::
 name|styleHint
 argument_list|(
@@ -18062,7 +18062,7 @@ block|{
 name|QPixmap
 name|pixmap
 init|=
-name|QWindowsStyle
+name|QCommonStyle
 operator|::
 name|standardPixmap
 argument_list|(
@@ -18508,7 +18508,7 @@ decl_stmt|;
 name|QSize
 name|defaultSize
 init|=
-name|QWindowsStyle
+name|QCommonStyle
 operator|::
 name|sizeFromContents
 argument_list|(
@@ -18671,7 +18671,7 @@ return|;
 block|}
 default|default:
 return|return
-name|QWindowsStyle
+name|QCommonStyle
 operator|::
 name|sizeFromContents
 argument_list|(

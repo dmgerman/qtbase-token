@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QWindowsStyle>
+file|<QProxyStyle>
 end_include
 begin_comment
 comment|//! [0]
@@ -26,7 +26,7 @@ name|class
 name|CustomStyle
 range|:
 name|public
-name|QWindowsStyle
+name|QProxyStyle
 block|{
 name|Q_OBJECT
 name|public
