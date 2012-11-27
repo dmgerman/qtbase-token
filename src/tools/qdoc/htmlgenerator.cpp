@@ -23969,6 +23969,8 @@ name|writer
 operator|.
 name|writeCharacters
 argument_list|(
+name|examplesPath
+operator|+
 name|file
 argument_list|)
 expr_stmt|;
@@ -24051,6 +24053,8 @@ name|writer
 operator|.
 name|writeCharacters
 argument_list|(
+name|examplesPath
+operator|+
 name|file
 argument_list|)
 expr_stmt|;
