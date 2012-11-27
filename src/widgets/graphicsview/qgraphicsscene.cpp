@@ -23889,16 +23889,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|Q_ASSERT
-argument_list|(
-name|cachedItemsUnderMouse
-operator|.
-name|first
-argument_list|()
-operator|==
-name|origin
-argument_list|)
-expr_stmt|;
 comment|// Set focus on the topmost enabled item that can take focus.
 name|bool
 name|setFocus
