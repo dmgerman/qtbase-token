@@ -3145,11 +3145,11 @@ begin_comment
 comment|/*!     Returns the top left position of the window, including its window frame.      This returns the same value as frameGeometry().topLeft().      \sa geometry(), frameGeometry() */
 end_comment
 begin_function
-DECL|function|framePos
+DECL|function|framePosition
 name|QPoint
 name|QWindow
 operator|::
-name|framePos
+name|framePosition
 parameter_list|()
 specifier|const
 block|{
@@ -3211,11 +3211,11 @@ begin_comment
 comment|/*!     Sets the upper left position of the window (\a point) including its window frame.      \sa setGeometry(), frameGeometry() */
 end_comment
 begin_function
-DECL|function|setFramePos
+DECL|function|setFramePosition
 name|void
 name|QWindow
 operator|::
-name|setFramePos
+name|setFramePosition
 parameter_list|(
 specifier|const
 name|QPoint

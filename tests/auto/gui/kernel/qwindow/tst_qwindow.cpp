@@ -738,7 +738,7 @@ argument_list|()
 argument_list|,
 name|window
 operator|.
-name|framePos
+name|framePosition
 argument_list|()
 operator|+
 name|QPoint
@@ -784,7 +784,7 @@ name|originalFramePos
 init|=
 name|window
 operator|.
-name|framePos
+name|framePosition
 argument_list|()
 decl_stmt|;
 name|window
@@ -859,7 +859,7 @@ name|originalFramePos
 argument_list|,
 name|window
 operator|.
-name|framePos
+name|framePosition
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -916,7 +916,7 @@ argument_list|()
 expr_stmt|;
 name|window
 operator|.
-name|setFramePos
+name|setFramePosition
 argument_list|(
 name|framePos
 argument_list|)
@@ -939,7 +939,7 @@ name|framePos
 argument_list|,
 name|window
 operator|.
-name|framePos
+name|framePosition
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -962,7 +962,7 @@ argument_list|()
 argument_list|,
 name|window
 operator|.
-name|framePos
+name|framePosition
 argument_list|()
 operator|+
 name|QPoint

@@ -5246,7 +5246,7 @@ name|rect
 init|=
 name|rectIn
 decl_stmt|;
-comment|// This means it is a call from QWindow::setFramePos() and
+comment|// This means it is a call from QWindow::setFramePosition() and
 comment|// the coordinates include the frame (size is still the contents rectangle).
 if|if
 condition|(

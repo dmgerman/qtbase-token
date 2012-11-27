@@ -2237,7 +2237,7 @@ argument_list|(
 name|o
 argument_list|)
 operator|->
-name|framePos
+name|framePosition
 argument_list|()
 return|;
 block|}
@@ -2266,7 +2266,7 @@ argument_list|(
 name|o
 argument_list|)
 operator|->
-name|setFramePos
+name|setFramePosition
 argument_list|(
 name|p
 argument_list|)
@@ -2989,7 +2989,7 @@ argument_list|)
 expr_stmt|;
 name|m_testWindow
 operator|->
-name|setFramePos
+name|setFramePosition
 argument_list|(
 name|QPoint
 argument_list|(

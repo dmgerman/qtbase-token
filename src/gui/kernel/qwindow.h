@@ -1003,12 +1003,12 @@ argument_list|()
 specifier|const
 expr_stmt|;
 name|QPoint
-name|framePos
+name|framePosition
 argument_list|()
 specifier|const
 expr_stmt|;
 name|void
-name|setFramePos
+name|setFramePosition
 parameter_list|(
 specifier|const
 name|QPoint
@@ -1146,6 +1146,22 @@ expr_stmt|;
 block|}
 comment|// Temporary backwards-compatible accessors for the benefit of Declarative
 comment|// to be removed ASAP
+specifier|inline
+name|void
+name|setFramePos
+parameter_list|(
+specifier|const
+name|QPoint
+modifier|&
+name|pt
+parameter_list|)
+block|{
+name|setFramePosition
+argument_list|(
+name|pt
+argument_list|)
+expr_stmt|;
+block|}
 specifier|inline
 name|void
 name|setPos

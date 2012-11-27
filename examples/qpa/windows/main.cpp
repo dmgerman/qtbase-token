@@ -61,7 +61,7 @@ name|a
 decl_stmt|;
 name|a
 operator|.
-name|setFramePos
+name|setFramePosition
 argument_list|(
 name|QPoint
 argument_list|(
@@ -103,7 +103,7 @@ name|b
 decl_stmt|;
 name|b
 operator|.
-name|setFramePos
+name|setFramePosition
 argument_list|(
 name|QPoint
 argument_list|(
