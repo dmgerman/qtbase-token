@@ -54,8 +54,19 @@ literal|0
 argument_list|)
 specifier|const
 block|;
-comment|//     void drawControl(ControlElement element, const QStyleOption *option,
-comment|//                      QPainter *painter, const QWidget *widget) const;
+name|void
+name|drawControl
+argument_list|(
+argument|ControlElement element
+argument_list|,
+argument|const QStyleOption *option
+argument_list|,
+argument|QPainter *painter
+argument_list|,
+argument|const QWidget *widget
+argument_list|)
+specifier|const
+block|;
 name|void
 name|drawComplexControl
 argument_list|(
@@ -106,8 +117,6 @@ argument|const QWidget *widget
 argument_list|)
 specifier|const
 block|;
-comment|//     SubControl hitTestComplexControl(ComplexControl control, const QStyleOptionComplex *option,
-comment|// 				     const QPoint&pos, const QWidget *widget = 0) const;
 name|int
 name|pixelMetric
 argument_list|(
