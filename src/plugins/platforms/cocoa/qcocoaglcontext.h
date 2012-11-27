@@ -66,6 +66,10 @@ operator|*
 name|share
 argument_list|)
 block|;
+operator|~
+name|QCocoaGLContext
+argument_list|()
+block|;
 name|QSurfaceFormat
 name|format
 argument_list|()
