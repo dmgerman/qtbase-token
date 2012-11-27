@@ -23,12 +23,13 @@ include|#
 directive|include
 file|"message.h"
 end_include
-begin_decl_stmt
-DECL|variable|QTextEdit
-name|class
-name|QTextEdit
-decl_stmt|;
-end_decl_stmt
+begin_macro
+DECL|function|QT_FORWARD_DECLARE_CLASS
+name|QT_FORWARD_DECLARE_CLASS
+argument_list|(
+argument|QTextEdit
+argument_list|)
+end_macro
 begin_comment
 comment|//! [Window class definition]
 end_comment
