@@ -2019,6 +2019,7 @@ argument_list|,
 argument|qint64 key
 argument_list|)
 block|{
+comment|// Can't be a QReadLocker since QCache::object() modifies the cache (reprioritizes the object)
 name|QWriteLocker
 name|locker
 argument_list|(
