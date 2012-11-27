@@ -37,11 +37,6 @@ include|#
 directive|include
 file|<qapplication.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<qwindowsstyle.h>
-end_include
 begin_class
 DECL|class|tst_QGraphicsLinearLayout
 class|class
@@ -408,8 +403,7 @@ name|QApplication
 operator|::
 name|setStyle
 argument_list|(
-operator|new
-name|QWindowsStyle
+literal|"windows"
 argument_list|)
 expr_stmt|;
 block|}
