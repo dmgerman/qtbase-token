@@ -476,7 +476,6 @@ name|Node
 operator|*
 name|relative
 argument_list|,
-specifier|const
 name|NodeMap
 operator|&
 name|classMap
@@ -485,13 +484,37 @@ block|;
 name|void
 name|generateAnnotatedList
 argument_list|(
-argument|const Node *relative
+specifier|const
+name|Node
+operator|*
+name|relative
 argument_list|,
-argument|CodeMarker *marker
+name|CodeMarker
+operator|*
+name|marker
 argument_list|,
-argument|const NodeMap&nodeMap
+specifier|const
+name|NodeMap
+operator|&
+name|nodeMap
+argument_list|)
+block|;
+name|void
+name|generateAnnotatedList
+argument_list|(
+specifier|const
+name|Node
+operator|*
+name|relative
 argument_list|,
-argument|bool allOdd = false
+name|CodeMarker
+operator|*
+name|marker
+argument_list|,
+specifier|const
+name|NodeList
+operator|&
+name|nodes
 argument_list|)
 block|;
 name|void

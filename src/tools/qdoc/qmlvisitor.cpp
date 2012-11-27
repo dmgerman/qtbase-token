@@ -221,13 +221,6 @@ directive|define
 name|COMMAND_QMLBASICTYPE
 value|Doc::alias(QLatin1String("qmlbasictype"))
 end_define
-begin_define
-DECL|macro|COMMAND_QMLMODULE
-define|#
-directive|define
-name|COMMAND_QMLMODULE
-value|Doc::alias(QLatin1String("qmlmodule"))
-end_define
 begin_comment
 comment|/*!   The constructor stores all the parameters in local data members.  */
 end_comment
@@ -1786,11 +1779,11 @@ argument_list|()
 operator|->
 name|addToGroup
 argument_list|(
-name|node
-argument_list|,
 name|argsIter
 operator|->
 name|first
+argument_list|,
+name|node
 argument_list|)
 expr_stmt|;
 operator|++

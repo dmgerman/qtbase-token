@@ -532,6 +532,11 @@ argument_list|(
 literal|false
 argument_list|)
 member_init_list|,
+name|seen_
+argument_list|(
+literal|true
+argument_list|)
+member_init_list|,
 name|parent_
 argument_list|(
 name|parent

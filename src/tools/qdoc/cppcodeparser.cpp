@@ -1969,25 +1969,13 @@ name|DocNode
 modifier|*
 name|dn
 init|=
-operator|new
-name|DocNode
-argument_list|(
 name|qdb_
 operator|->
-name|treeRoot
-argument_list|()
-argument_list|,
+name|addGroup
+argument_list|(
 name|arg
 operator|.
 name|first
-argument_list|,
-name|Node
-operator|::
-name|Group
-argument_list|,
-name|Node
-operator|::
-name|OverviewPage
 argument_list|)
 decl_stmt|;
 name|dn
@@ -2072,7 +2060,6 @@ operator|.
 name|first
 argument_list|)
 decl_stmt|;
-comment|//DocNode* dn = new DocNode(qdb_->treeRoot(), arg.first, Node::Module, Node::OverviewPage);
 name|dn
 operator|->
 name|setLocation
@@ -2108,7 +2095,6 @@ operator|.
 name|first
 argument_list|)
 decl_stmt|;
-comment|//DocNode* dn = DocNode::lookupQmlModuleNode(qdb_->tree(), arg);
 name|dn
 operator|->
 name|setLocation

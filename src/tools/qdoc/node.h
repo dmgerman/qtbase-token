@@ -109,7 +109,6 @@ name|QMap
 operator|<
 name|QString
 operator|,
-specifier|const
 name|Node
 operator|*
 operator|>
@@ -553,6 +552,24 @@ name|QString
 modifier|&
 parameter_list|)
 block|{ }
+name|void
+name|markSeen
+parameter_list|()
+block|{
+name|seen_
+operator|=
+name|true
+expr_stmt|;
+block|}
+name|void
+name|markNotSeen
+parameter_list|()
+block|{
+name|seen_
+operator|=
+name|false
+expr_stmt|;
+block|}
 name|virtual
 name|bool
 name|isInnerNode
@@ -673,6 +690,24 @@ return|;
 block|}
 name|virtual
 name|bool
+name|isGroup
+argument_list|()
+specifier|const
+block|{
+return|return
+name|false
+return|;
+block|}
+name|virtual
+name|void
+name|addMember
+parameter_list|(
+name|Node
+modifier|*
+parameter_list|)
+block|{ }
+name|virtual
+name|bool
 name|hasMembers
 argument_list|()
 specifier|const
@@ -761,6 +796,15 @@ specifier|const
 block|{
 return|return
 name|indexNodeFlag_
+return|;
+block|}
+name|bool
+name|wasSeen
+argument_list|()
+specifier|const
+block|{
+return|return
+name|seen_
 return|;
 block|}
 name|Type
@@ -1226,6 +1270,9 @@ decl_stmt|;
 name|bool
 name|indexNodeFlag_
 decl_stmt|;
+name|bool
+name|seen_
+decl_stmt|;
 name|InnerNode
 modifier|*
 name|parent_
@@ -1540,6 +1587,7 @@ return|return
 name|related_
 return|;
 block|}
+name|virtual
 name|void
 name|addMember
 argument_list|(
@@ -2303,6 +2351,23 @@ argument_list|(
 argument|const QString&
 argument_list|)
 block|{ }
+name|virtual
+name|bool
+name|isGroup
+argument_list|()
+specifier|const
+block|{
+return|return
+operator|(
+name|subType
+argument_list|()
+operator|==
+name|Node
+operator|::
+name|Group
+operator|)
+return|;
+block|}
 name|virtual
 name|bool
 name|isQmlPropertyGroup
