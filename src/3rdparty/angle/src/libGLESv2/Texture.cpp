@@ -1466,6 +1466,12 @@ block|{
 case|case
 name|GL_ALPHA8_EXT
 case|:
+if|#
+directive|if
+name|defined
+argument_list|(
+name|__SSE2__
+argument_list|)
 if|if
 condition|(
 name|supportsSSE2
@@ -1493,6 +1499,8 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
+endif|#
+directive|endif
 block|{
 name|loadAlphaData
 argument_list|(
@@ -1758,6 +1766,12 @@ break|break;
 case|case
 name|GL_RGBA8_OES
 case|:
+if|#
+directive|if
+name|defined
+argument_list|(
+name|__SSE2__
+argument_list|)
 if|if
 condition|(
 name|supportsSSE2
@@ -1785,6 +1799,8 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
+endif|#
+directive|endif
 block|{
 name|loadRGBAUByteData
 argument_list|(
