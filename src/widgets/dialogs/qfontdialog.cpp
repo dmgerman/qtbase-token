@@ -378,7 +378,7 @@ name|WindowSystemMenuHint
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|/*!   \class QFontDialog   \ingroup standard-dialogs   \inmodule QtWidgets    \brief The QFontDialog class provides a dialog widget for selecting a font.      A font dialog is created through one of the static getFont()     functions.    Examples:    \snippet code/src_gui_dialogs_qfontdialog.cpp 0      The dialog can also be used to set a widget's font directly:   \snippet code/src_gui_dialogs_qfontdialog.cpp 1   If the user clicks OK the font they chose will be used for myWidget,   and if they click Cancel the original font is used.    \image plastique-fontdialog.png A font dialog in the Plastique widget style.    \sa QFont, QFontInfo, QFontMetrics, QColorDialog, QFileDialog,       {Standard Dialogs Example} */
+comment|/*!   \class QFontDialog   \ingroup standard-dialogs   \inmodule QtWidgets    \brief The QFontDialog class provides a dialog widget for selecting a font.      A font dialog is created through one of the static getFont()     functions.    Examples:    \snippet code/src_gui_dialogs_qfontdialog.cpp 0      The dialog can also be used to set a widget's font directly:   \snippet code/src_gui_dialogs_qfontdialog.cpp 1   If the user clicks OK the font they chose will be used for myWidget,   and if they click Cancel the original font is used.    \image fusion-fontdialog.png A font dialog in the Fusion widget style.    \sa QFont, QFontInfo, QFontMetrics, QColorDialog, QFileDialog,       {Standard Dialogs Example} */
 end_comment
 begin_comment
 comment|/*!     \since 4.5      Constructs a standard font dialog.      Use setCurrentFont() to set the initial font attributes.      The \a parent parameter is passed to the QDialog constructor.      \sa getFont() */
