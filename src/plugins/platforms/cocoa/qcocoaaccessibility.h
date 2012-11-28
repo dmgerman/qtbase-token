@@ -23,6 +23,11 @@ include|#
 directive|include
 file|<QtGui>
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_COCOA_ACCESSIBILITY
+end_ifndef
 begin_include
 include|#
 directive|include
@@ -138,6 +143,13 @@ parameter_list|)
 function_decl|;
 block|}
 end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_COCOA_ACCESSIBILITY
+end_comment
 begin_endif
 endif|#
 directive|endif

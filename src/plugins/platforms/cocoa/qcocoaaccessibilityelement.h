@@ -19,6 +19,11 @@ end_empty
 begin_empty
 empty|#import<AppKit/NSAccessibility.h>
 end_empty
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_COCOA_ACCESSIBILITY
+end_ifndef
 begin_decl_stmt
 unit|@
 DECL|variable|QCocoaAccessibleElement
@@ -90,6 +95,13 @@ begin_macro
 unit|@
 name|end
 end_macro
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_COCOA_ACCESSIBILITY
+end_comment
 begin_endif
 endif|#
 directive|endif

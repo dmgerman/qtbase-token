@@ -396,7 +396,7 @@ name|mInputContext
 block|;
 ifndef|#
 directive|ifndef
-name|QT_NO_ACCESSIBILITY
+name|QT_NO_COCOA_ACCESSIBILITY
 name|QScopedPointer
 operator|<
 name|QPlatformAccessibility
