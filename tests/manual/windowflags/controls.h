@@ -132,6 +132,10 @@ name|windowMaximizeButtonCheckBox
 block|;
 name|QCheckBox
 operator|*
+name|windowFullscreenButtonCheckBox
+block|;
+name|QCheckBox
+operator|*
 name|windowCloseButtonCheckBox
 block|;
 name|QCheckBox

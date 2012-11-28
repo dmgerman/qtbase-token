@@ -10180,6 +10180,13 @@ operator|~
 name|windowType
 expr_stmt|;
 name|windowFlags
+operator|&=
+operator|~
+name|Qt
+operator|::
+name|WindowFullscreenButtonHint
+expr_stmt|;
+name|windowFlags
 operator||=
 name|Qt
 operator|::

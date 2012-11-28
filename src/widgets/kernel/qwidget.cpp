@@ -2431,6 +2431,10 @@ operator||
 name|Qt
 operator|::
 name|WindowCloseButtonHint
+operator||
+name|Qt
+operator|::
+name|WindowFullscreenButtonHint
 expr_stmt|;
 block|}
 DECL|function|init

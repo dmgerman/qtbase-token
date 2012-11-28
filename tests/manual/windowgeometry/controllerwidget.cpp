@@ -2985,6 +2985,10 @@ operator||
 name|Qt
 operator|::
 name|WindowTitleHint
+operator||
+name|Qt
+operator|::
+name|WindowFullscreenButtonHint
 argument_list|)
 expr_stmt|;
 name|m_testWindow
