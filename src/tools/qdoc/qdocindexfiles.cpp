@@ -994,6 +994,32 @@ argument_list|(
 literal|"subtype"
 argument_list|)
 operator|==
+literal|"qmlmodule"
+condition|)
+block|{
+name|subtype
+operator|=
+name|Node
+operator|::
+name|QmlModule
+expr_stmt|;
+name|ptype
+operator|=
+name|Node
+operator|::
+name|OverviewPage
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|element
+operator|.
+name|attribute
+argument_list|(
+literal|"subtype"
+argument_list|)
+operator|==
 literal|"page"
 condition|)
 block|{
@@ -2527,7 +2553,7 @@ name|groupsAttr
 operator|.
 name|split
 argument_list|(
-literal|" "
+literal|","
 argument_list|)
 decl_stmt|;
 for|for
@@ -2566,6 +2592,7 @@ if|if
 condition|(
 name|dn
 condition|)
+block|{
 name|dn
 operator|->
 name|addMember
@@ -2573,6 +2600,7 @@ argument_list|(
 name|node
 argument_list|)
 expr_stmt|;
+block|}
 else|else
 block|{
 name|qDebug
@@ -3068,7 +3096,7 @@ name|names
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|","
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4062,7 +4090,7 @@ name|names
 operator|.
 name|join
 argument_list|(
-literal|" "
+literal|","
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4084,6 +4112,21 @@ argument_list|(
 literal|"subtype"
 argument_list|,
 literal|"module"
+argument_list|)
+expr_stmt|;
+break|break;
+case|case
+name|Node
+operator|::
+name|QmlModule
+case|:
+name|writer
+operator|.
+name|writeAttribute
+argument_list|(
+literal|"subtype"
+argument_list|,
+literal|"qmlmodule"
 argument_list|)
 expr_stmt|;
 break|break;

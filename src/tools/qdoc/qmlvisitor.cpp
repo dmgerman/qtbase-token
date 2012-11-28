@@ -1772,6 +1772,10 @@ name|constEnd
 argument_list|()
 condition|)
 block|{
+name|DocNode
+modifier|*
+name|dn
+init|=
 name|QDocDatabase
 operator|::
 name|qdocDB
@@ -1785,7 +1789,7 @@ name|first
 argument_list|,
 name|node
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 operator|++
 name|argsIter
 expr_stmt|;
