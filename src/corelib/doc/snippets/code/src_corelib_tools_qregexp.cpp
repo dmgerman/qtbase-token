@@ -477,7 +477,7 @@ end_comment
 begin_expr_stmt
 name|str
 operator|=
-literal|"Nokia Corporation\tqt.nokia.com\tNorway"
+literal|"Digia Plc\tqt.digia.com\tFinland"
 expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
