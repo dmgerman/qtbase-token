@@ -12664,9 +12664,12 @@ name|QPoint
 modifier|&
 name|mp
 init|=
+name|mapFromScene
+argument_list|(
 name|d
 operator|->
-name|mousePressViewPoint
+name|mousePressScenePoint
+argument_list|)
 decl_stmt|;
 name|QPoint
 name|ep
