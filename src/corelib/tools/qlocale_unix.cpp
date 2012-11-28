@@ -48,6 +48,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QCoreApplication>
+end_include
+begin_include
+include|#
+directive|include
 file|<unistd.h>
 end_include
 begin_include
@@ -327,6 +332,17 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+name|updateMeasurementSystem
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|QCoreApplication
+operator|::
+name|instance
+argument_list|()
+condition|)
+block|{
 name|ppsNotifier
 operator|=
 operator|new
@@ -340,9 +356,6 @@ name|Read
 argument_list|,
 name|this
 argument_list|)
-expr_stmt|;
-name|updateMeasurementSystem
-argument_list|()
 expr_stmt|;
 name|QObject
 operator|::
@@ -367,6 +380,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 end_function
 begin_endif
