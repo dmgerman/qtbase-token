@@ -50,7 +50,7 @@ block|}
 class|;
 end_class
 begin_comment
-comment|/*!     \class QAbstractPrintDialog     \brief The QAbstractPrintDialog class provides a base implementation for     print dialogs used to configure printers.      \ingroup printing     \inmodule QtPrintSupport      This class implements getter and setter functions that are used to     customize settings shown in print dialogs, but it is not used directly.     Use QPrintDialog to display a print dialog in your application.      \sa QPrintDialog, QPrinter, {Printing with Qt} */
+comment|/*!     \class QAbstractPrintDialog     \brief The QAbstractPrintDialog class provides a base implementation for     print dialogs used to configure printers.      \ingroup printing     \inmodule QtPrintSupport      This class implements getter and setter functions that are used to     customize settings shown in print dialogs, but it is not used directly.     Use QPrintDialog to display a print dialog in your application.      \sa QPrintDialog, QPrinter */
 end_comment
 begin_comment
 comment|/*!     \enum QAbstractPrintDialog::PrintRange      Used to specify the print range selection option.      \value AllPages All pages should be printed.     \value Selection Only the selection should be printed.     \value PageRange The specified page range should be printed.     \value CurrentPage Only the currently visible page should be printed.      \sa QPrinter::PrintRange */
