@@ -3917,9 +3917,13 @@ argument_list|()
 decl_stmt|;
 return|return
 name|pi
+condition|?
+name|pi
 operator|->
 name|nativeInterface
 argument_list|()
+else|:
+literal|0
 return|;
 block|}
 end_function
