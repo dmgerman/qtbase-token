@@ -4832,7 +4832,7 @@ argument|*reinterpret_cast<typename RemoveRef<typename List_Select<Args
 argument_list|,
 literal|2
 argument|>::Value>::Type *>(arg[
-literal|4
+literal|3
 argument|])
 argument_list|)
 block|,
