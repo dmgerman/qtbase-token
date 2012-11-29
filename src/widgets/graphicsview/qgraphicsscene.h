@@ -1743,6 +1743,16 @@ name|void
 name|selectionChanged
 argument_list|()
 block|;
+name|void
+name|focusItemChanged
+argument_list|(
+argument|QGraphicsItem *newFocus
+argument_list|,
+argument|QGraphicsItem *oldFocus
+argument_list|,
+argument|Qt::FocusReason reason
+argument_list|)
+block|;
 name|private
 operator|:
 name|Q_DECLARE_PRIVATE

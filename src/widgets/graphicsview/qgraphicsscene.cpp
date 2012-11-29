@@ -2571,6 +2571,12 @@ name|duringActivationEvent
 operator|)
 condition|)
 return|return;
+name|QGraphicsItem
+modifier|*
+name|oldFocusItem
+init|=
+name|focusItem
+decl_stmt|;
 comment|// Deactivate the last active panel.
 if|if
 condition|(
@@ -2599,15 +2605,16 @@ operator|->
 name|focusItem
 argument_list|()
 condition|)
-name|q
-operator|->
-name|setFocusItem
+name|setFocusItemHelper
 argument_list|(
 literal|0
 argument_list|,
 name|Qt
 operator|::
 name|ActiveWindowFocusReason
+argument_list|,
+comment|/* emitFocusChanged = */
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -2753,13 +2760,16 @@ name|focusItem
 argument_list|()
 condition|)
 block|{
-name|focusItem
-operator|->
-name|setFocus
+name|setFocusItemHelper
 argument_list|(
+name|focusItem
+argument_list|,
 name|Qt
 operator|::
 name|ActiveWindowFocusReason
+argument_list|,
+comment|/* emitFocusChanged = */
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -2776,13 +2786,16 @@ operator|::
 name|ItemIsFocusable
 condition|)
 block|{
-name|panel
-operator|->
-name|setFocus
+name|setFocusItemHelper
 argument_list|(
+name|panel
+argument_list|,
 name|Qt
 operator|::
 name|ActiveWindowFocusReason
+argument_list|,
+comment|/* emitFocusChanged = */
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -2827,13 +2840,16 @@ operator|::
 name|TabFocus
 condition|)
 block|{
-name|fw
-operator|->
-name|setFocus
+name|setFocusItemHelper
 argument_list|(
+name|fw
+argument_list|,
 name|Qt
 operator|::
 name|ActiveWindowFocusReason
+argument_list|,
+comment|/* emitFocusChanged = */
+literal|false
 argument_list|)
 expr_stmt|;
 break|break;
@@ -2918,10 +2934,24 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+emit|emit
+name|q
+operator|->
+name|focusItemChanged
+argument_list|(
+name|focusItem
+argument_list|,
+name|oldFocusItem
+argument_list|,
+name|Qt
+operator|::
+name|ActiveWindowFocusReason
+argument_list|)
+emit|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal */
+comment|/*!     \internal      \a emitFocusChanged needs to be false when focus passes from one     item to another through setActivePanel(); i.e. when activation     passes from one panel to another, to avoid getting two focusChanged()     emissions; one focusChanged(0, lastFocus), then one     focusChanged(newFocus, 0). Instead setActivePanel() emits the signal     once itself: focusChanged(newFocus, oldFocus). */
 end_comment
 begin_function
 DECL|function|setFocusItemHelper
@@ -2938,6 +2968,9 @@ name|Qt
 operator|::
 name|FocusReason
 name|focusReason
+parameter_list|,
+name|bool
+name|emitFocusChanged
 parameter_list|)
 block|{
 name|Q_Q
@@ -3009,8 +3042,36 @@ name|item
 operator|==
 name|focusItem
 condition|)
+block|{
+if|if
+condition|(
+name|emitFocusChanged
+condition|)
+emit|emit
+name|q
+operator|->
+name|focusItemChanged
+argument_list|(
+name|focusItem
+argument_list|,
+operator|(
+name|QGraphicsItem
+operator|*
+operator|)
+literal|0
+argument_list|,
+name|focusReason
+argument_list|)
+emit|;
 return|return;
 block|}
+block|}
+name|QGraphicsItem
+modifier|*
+name|oldFocusItem
+init|=
+name|focusItem
+decl_stmt|;
 if|if
 condition|(
 name|focusItem
@@ -3172,6 +3233,22 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|emitFocusChanged
+condition|)
+emit|emit
+name|q
+operator|->
+name|focusItemChanged
+argument_list|(
+name|focusItem
+argument_list|,
+name|oldFocusItem
+argument_list|,
+name|focusReason
+argument_list|)
+emit|;
 block|}
 end_function
 begin_comment
@@ -22285,6 +22362,9 @@ comment|/*!     \fn QGraphicsScene::sceneRectChanged(const QRectF&rect)      Thi
 end_comment
 begin_comment
 comment|/*!     \fn QGraphicsScene::selectionChanged()     \since 4.3      This signal is emitted by QGraphicsScene whenever the selection     changes. You can call selectedItems() to get the new list of selected     items.      The selection changes whenever an item is selected or unselected, a     selection area is set, cleared or otherwise changed, if a preselected item     is added to the scene, or if a selected item is removed from the scene.      QGraphicsScene emits this signal only once for group selection operations.     For example, if you set a selection area, select or unselect a     QGraphicsItemGroup, or if you add or remove from the scene a parent item     that contains several selected items, selectionChanged() is emitted only     once after the operation has completed (instead of once for each item).      \sa setSelectionArea(), selectedItems(), QGraphicsItem::setSelected() */
+end_comment
+begin_comment
+comment|/*!     \fn QGraphicsScene::focusChanged(QGraphicsItem *newFocusItem, QGraphicsItem *oldFocusItem, Qt::FocusReason reason)      This signal is emitted by QGraphicsScene whenever focus changes in the     scene (i.e., when an item gains or loses input focus, or when focus     passes from one item to another). You can connect to this signal if you     need to keep track of when other items gain input focus. It is     particularily useful for implementing virtual keyboards, input methods,     and cursor items.      \a oldFocusItem is a pointer to the item that previously had focus, or     0 if no item had focus before the signal was emitted. \a newFocusItem     is a pointer to the item that gained input focus, or 0 if focus was lost.     \a reason is the reason for the focus change (e.g., if the scene was     deactivated while an input field had focus, \a oldFocusItem would point     to the input field item, \a newFocusItem would be 0, and \a reason would be     Qt::ActiveWindowFocusReason. */
 end_comment
 begin_comment
 comment|/*!     \since 4.4      Returns the scene's style, or the same as QApplication::style() if the     scene has not been explicitly assigned a style.      \sa setStyle() */

@@ -460,6 +460,8 @@ argument_list|(
 argument|QGraphicsItem *item
 argument_list|,
 argument|Qt::FocusReason focusReason
+argument_list|,
+argument|bool emitFocusChanged = true
 argument_list|)
 block|;
 name|QList
