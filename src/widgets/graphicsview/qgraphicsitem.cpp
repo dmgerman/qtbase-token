@@ -3064,6 +3064,31 @@ name|exposedRect
 operator|=
 name|brect
 expr_stmt|;
+comment|// Style animations require a QObject-based animation target.
+comment|// If a plain QGraphicsItem is used to draw animated controls,
+comment|// QStyle is let to send animation updates to the whole scene.
+name|option
+operator|->
+name|styleObject
+operator|=
+name|q_ptr
+operator|->
+name|toGraphicsObject
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|option
+operator|->
+name|styleObject
+condition|)
+name|option
+operator|->
+name|styleObject
+operator|=
+name|scene
+expr_stmt|;
 if|if
 condition|(
 name|selected

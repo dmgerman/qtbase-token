@@ -12491,6 +12491,17 @@ break|break;
 case|case
 name|QEvent
 operator|::
+name|StyleAnimationUpdate
+case|:
+comment|// Because QGraphicsItem is not a QObject, QStyle driven
+comment|// animations are forced to update the whole scene
+name|update
+argument_list|()
+expr_stmt|;
+break|break;
+case|case
+name|QEvent
+operator|::
 name|TouchBegin
 case|:
 case|case
