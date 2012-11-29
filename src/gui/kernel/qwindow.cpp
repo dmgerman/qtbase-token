@@ -3827,11 +3827,37 @@ operator|->
 name|screen
 argument_list|)
 condition|)
+block|{
+specifier|const
+name|bool
+name|wasVisible
+init|=
+name|isVisible
+argument_list|()
+decl_stmt|;
 name|setScreen
 argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+comment|// destroy() might have hidden our window, show it again.
+comment|// This might not be the best behavior if the new screen isn't a virtual sibling
+comment|// of the old one. This can be removed once platform plugins have the power to
+comment|// update the QScreen of its QWindows itself.
+if|if
+condition|(
+name|wasVisible
+operator|&&
+name|d
+operator|->
+name|platformWindow
+condition|)
+name|setVisible
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_function
 begin_comment
