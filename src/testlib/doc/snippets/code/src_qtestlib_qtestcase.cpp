@@ -724,6 +724,53 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|//! [26]
+comment|//! [27]
+name|void
+name|TestBenchmark
+operator|::
+name|simple
+parameter_list|()
+block|{
+name|QString
+name|str1
+init|=
+name|QLatin1String
+argument_list|(
+literal|"This is a test string"
+argument_list|)
+decl_stmt|;
+name|QString
+name|str2
+init|=
+name|QLatin1String
+argument_list|(
+literal|"This is a test string"
+argument_list|)
+decl_stmt|;
+name|QCOMPARE
+argument_list|(
+name|str1
+operator|.
+name|localeAwareCompare
+argument_list|(
+name|str2
+argument_list|)
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+name|QBENCHMARK
+block|{
+name|str1
+operator|.
+name|localeAwareCompare
+argument_list|(
+name|str2
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|//! [27]
 block|}
 end_function
 end_unit
