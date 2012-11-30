@@ -738,11 +738,7 @@ name|HighResolution
 argument_list|)
 decl_stmt|;
 name|QPrintDialog
-modifier|*
 name|dlg
-init|=
-operator|new
-name|QPrintDialog
 argument_list|(
 operator|&
 name|printer
@@ -751,7 +747,7 @@ name|this
 argument_list|)
 decl_stmt|;
 name|dlg
-operator|->
+operator|.
 name|setWindowTitle
 argument_list|(
 name|tr
@@ -763,7 +759,7 @@ expr_stmt|;
 if|if
 condition|(
 name|dlg
-operator|->
+operator|.
 name|exec
 argument_list|()
 operator|!=
@@ -771,7 +767,9 @@ name|QDialog
 operator|::
 name|Accepted
 condition|)
+block|{
 return|return;
+block|}
 name|QPainter
 name|painter
 decl_stmt|;

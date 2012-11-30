@@ -560,11 +560,7 @@ name|HighResolution
 argument_list|)
 decl_stmt|;
 name|QPrintDialog
-modifier|*
 name|printDialog
-init|=
-operator|new
-name|QPrintDialog
 argument_list|(
 operator|&
 name|printer
@@ -576,7 +572,7 @@ comment|//! [21] //! [22]
 if|if
 condition|(
 name|printDialog
-operator|->
+operator|.
 name|exec
 argument_list|()
 operator|==

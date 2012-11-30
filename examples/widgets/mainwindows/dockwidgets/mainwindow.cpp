@@ -431,11 +431,7 @@ name|QPrinter
 name|printer
 decl_stmt|;
 name|QPrintDialog
-modifier|*
 name|dlg
-init|=
-operator|new
-name|QPrintDialog
 argument_list|(
 operator|&
 name|printer
@@ -446,7 +442,7 @@ decl_stmt|;
 if|if
 condition|(
 name|dlg
-operator|->
+operator|.
 name|exec
 argument_list|()
 operator|!=
@@ -454,7 +450,9 @@ name|QDialog
 operator|::
 name|Accepted
 condition|)
+block|{
 return|return;
+block|}
 name|document
 operator|->
 name|print

@@ -1141,11 +1141,7 @@ name|QPrinter
 name|printer
 decl_stmt|;
 name|QPrintDialog
-modifier|*
 name|dialog
-init|=
-operator|new
-name|QPrintDialog
 argument_list|(
 operator|&
 name|printer
@@ -1154,7 +1150,7 @@ name|this
 argument_list|)
 decl_stmt|;
 name|dialog
-operator|->
+operator|.
 name|setWindowTitle
 argument_list|(
 name|tr
@@ -1174,7 +1170,7 @@ name|hasSelection
 argument_list|()
 condition|)
 name|dialog
-operator|->
+operator|.
 name|addEnabledOption
 argument_list|(
 name|QAbstractPrintDialog
@@ -1185,7 +1181,7 @@ expr_stmt|;
 if|if
 condition|(
 name|dialog
-operator|->
+operator|.
 name|exec
 argument_list|()
 operator|!=
@@ -1193,7 +1189,9 @@ name|QDialog
 operator|::
 name|Accepted
 condition|)
+block|{
 return|return;
+block|}
 comment|//! [18]
 name|editor
 operator|->
