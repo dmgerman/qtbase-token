@@ -1816,9 +1816,9 @@ name|buddy
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 endif|#
 directive|endif
-block|}
 for|for
 control|(
 name|int
