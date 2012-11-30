@@ -167,7 +167,7 @@ argument|metadata_shared_invalid
 argument_list|)
 end_macro
 begin_comment
-comment|/*!     \class QNetworkCacheMetaData     \since 4.5     \inmodule QtNetwork      \brief The QNetworkCacheMetaData class provides cache information.      QNetworkCacheMetaData provides information about a cache file including     the url, when it was last modified, when the cache file was created, headers     for file and if the file should be saved onto a disk.      \sa QAbstractNetworkCache */
+comment|/*!     \class QNetworkCacheMetaData     \since 4.5     \ingroup shared     \inmodule QtNetwork      \brief The QNetworkCacheMetaData class provides cache information.      QNetworkCacheMetaData provides information about a cache file including     the url, when it was last modified, when the cache file was created, headers     for file and if the file should be saved onto a disk.      \sa QAbstractNetworkCache */
 end_comment
 begin_comment
 comment|/*!     \typedef QNetworkCacheMetaData::RawHeader      Synonym for QPair<QByteArray, QByteArray> */
