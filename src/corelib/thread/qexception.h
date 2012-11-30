@@ -226,8 +226,7 @@ block|{ }
 specifier|inline
 name|void
 name|throwPossibleException
-argument_list|()
-specifier|const
+parameter_list|()
 block|{}
 block|}
 empty_stmt|;
