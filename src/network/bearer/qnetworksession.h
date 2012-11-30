@@ -318,9 +318,7 @@ block|;
 name|void
 name|usagePoliciesChanged
 argument_list|(
-name|QNetworkSession
-operator|::
-name|UsagePolicies
+argument|QNetworkSession::UsagePolicies usagePolicies
 argument_list|)
 block|;
 name|protected

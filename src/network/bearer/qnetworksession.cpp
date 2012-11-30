@@ -81,7 +81,7 @@ begin_comment
 comment|/*!     \fn void QNetworkSession::closed()      This signal is emitted when the network session has been closed. */
 end_comment
 begin_comment
-comment|/*!     \fn void QNetworkSession::usagePoliciesChanged(UsagePolicies)     \since 5.0      This signal is emitted when the \a UsagePolicies in force are changed by the system. */
+comment|/*!     \fn void QNetworkSession::usagePoliciesChanged(QNetworkSession::UsagePolicies usagePolicies)     \since 5.0      This signal is emitted when the \a usagePolicies in force are changed by the system. */
 end_comment
 begin_comment
 comment|/*!     Constructs a session based on \a connectionConfig with the given \a parent.      \sa QNetworkConfiguration */
