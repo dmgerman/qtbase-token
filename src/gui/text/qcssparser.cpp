@@ -7993,7 +7993,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/** \internal  * parse the font family from the values (starting from index \a start)  * and set it the \a font  * \returns true if a family was extracted.  */
+comment|/** \internal  * parse the font family from the values (starting from index \a start)  * and set it the \a font  * The function returns true if a family was extracted.  */
 end_comment
 begin_function
 DECL|function|setFontFamilyFromValues

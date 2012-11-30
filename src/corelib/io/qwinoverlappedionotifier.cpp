@@ -607,7 +607,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!  * Wait synchronously for the notified signal.  *  * \returns true, if the notified signal was emitted for the I/O operation  *          that corresponds to the OVERLAPPED object.  */
+comment|/*!  * Wait synchronously for the notified signal.  *  * The function returns true if the notified signal was emitted for  * the I/O operation that corresponds to the OVERLAPPED object.  */
 end_comment
 begin_function
 DECL|function|waitForNotified
