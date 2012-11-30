@@ -1760,11 +1760,6 @@ operator|++
 name|i
 control|)
 block|{
-name|bool
-name|isSpace
-init|=
-literal|false
-decl_stmt|;
 name|QChar
 name|character
 init|=
@@ -1773,15 +1768,16 @@ index|[
 name|i
 index|]
 decl_stmt|;
+name|bool
 name|isSpace
-operator|=
+init|=
 name|character
 operator|.
 name|unicode
 argument_list|()
 operator|==
 literal|' '
-expr_stmt|;
+decl_stmt|;
 comment|// find more than one space. -><text:s text:c="2" />
 if|if
 condition|(
