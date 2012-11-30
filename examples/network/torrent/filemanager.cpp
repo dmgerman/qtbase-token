@@ -924,6 +924,9 @@ emit|emit
 name|error
 argument_list|()
 emit|;
+operator|delete
+name|file
+expr_stmt|;
 return|return
 literal|false
 return|;
@@ -979,6 +982,9 @@ operator|->
 name|errorString
 argument_list|()
 argument_list|)
+expr_stmt|;
+operator|delete
+name|file
 expr_stmt|;
 emit|emit
 name|error
@@ -1257,6 +1263,9 @@ emit|emit
 name|error
 argument_list|()
 emit|;
+operator|delete
+name|file
+expr_stmt|;
 return|return
 literal|false
 return|;
@@ -1317,6 +1326,9 @@ emit|emit
 name|error
 argument_list|()
 emit|;
+operator|delete
+name|file
+expr_stmt|;
 return|return
 literal|false
 return|;
