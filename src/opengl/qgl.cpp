@@ -14223,6 +14223,13 @@ name|glExtensions
 operator||=
 name|BGRATextureFormat
 expr_stmt|;
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_OPENGL_ES
+argument_list|)
 block|{
 name|GLboolean
 name|srgbCapableFramebuffers
@@ -14246,6 +14253,8 @@ operator||=
 name|SRGBFrameBuffer
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 return|return
 name|glExtensions
 return|;
