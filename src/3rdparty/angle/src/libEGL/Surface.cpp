@@ -818,10 +818,6 @@ operator|=
 name|NULL
 expr_stmt|;
 block|}
-name|mShareHandle
-operator|=
-name|NULL
-expr_stmt|;
 name|HANDLE
 modifier|*
 name|pShareHandle
