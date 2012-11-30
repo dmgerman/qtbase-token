@@ -10515,6 +10515,17 @@ operator|::
 name|font
 parameter_list|()
 block|{
+name|Q_ASSERT_X
+argument_list|(
+name|QGuiApplicationPrivate
+operator|::
+name|self
+argument_list|,
+literal|"QGuiApplication::font()"
+argument_list|,
+literal|"no QGuiApplication instance"
+argument_list|)
+expr_stmt|;
 name|QMutexLocker
 name|locker
 argument_list|(
