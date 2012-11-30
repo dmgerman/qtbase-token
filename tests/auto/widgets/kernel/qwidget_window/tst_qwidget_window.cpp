@@ -851,26 +851,6 @@ literal|"[*]"
 argument_list|)
 decl_stmt|;
 name|QString
-name|fileAndSep
-init|=
-name|fileNameOnly
-operator|+
-name|QLatin1String
-argument_list|(
-literal|" "
-argument_list|)
-operator|+
-name|QChar
-argument_list|(
-literal|0x2014
-argument_list|)
-operator|+
-name|QLatin1String
-argument_list|(
-literal|" "
-argument_list|)
-decl_stmt|;
-name|QString
 name|windowTitle
 init|=
 name|QLatin1String
@@ -881,20 +861,8 @@ decl_stmt|;
 name|QString
 name|defaultPlatString
 init|=
-if|#
-directive|if
-literal|0
-comment|// was ifdef Q_OS_MAC, but that code is disabled in qwidget.cpp and caption handling should move to QPA anyway
-init|fileNameOnly;
-else|#
-directive|else
-name|fileAndSep
-operator|+
-literal|"tst_qwidget_window"
+name|fileNameOnly
 decl_stmt|;
-comment|// default app name in Qt5
-endif|#
-directive|endif
 name|QTest
 operator|::
 name|newRow
@@ -991,22 +959,12 @@ argument_list|(
 literal|"Killer App"
 argument_list|)
 decl_stmt|;
+comment|// Qt4 used to make it part of windowTitle(), Qt5 doesn't anymore, the QPA plugin takes care of it.
 name|QString
 name|platString
 init|=
-if|#
-directive|if
-literal|0
-comment|// was ifdef Q_OS_MAC, but that code is disabled in qwidget.cpp and caption handling should move to QPA anyway
-init|fileNameOnly;
-else|#
-directive|else
-name|fileAndSep
-operator|+
-name|appName
+name|fileNameOnly
 decl_stmt|;
-endif|#
-directive|endif
 name|QTest
 operator|::
 name|newRow

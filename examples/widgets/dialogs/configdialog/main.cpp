@@ -39,6 +39,13 @@ argument_list|,
 name|argv
 argument_list|)
 decl_stmt|;
+name|app
+operator|.
+name|setApplicationDisplayName
+argument_list|(
+literal|"Qt Example"
+argument_list|)
+expr_stmt|;
 name|ConfigDialog
 name|dialog
 decl_stmt|;

@@ -509,7 +509,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Reimplement to set the window title to \a title */
+comment|/*!   Reimplement to set the window title to \a title.    The implementation might want to append the application display name to   the window title, like Windows and Linux do.    \sa QGuiApplication::applicationDisplayName() */
 end_comment
 begin_function
 DECL|function|setWindowTitle
