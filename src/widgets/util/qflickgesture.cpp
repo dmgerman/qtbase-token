@@ -1303,7 +1303,7 @@ block|}
 class|;
 end_class
 begin_comment
-comment|/*!     \internal     \class QFlickGesture     \since 4.8     \brief The QFlickGesture class describes a flicking gesture made by the user.     \ingroup gestures     The QFlickGesture is more complex than the QPanGesture that uses QScroller and QScrollerProperties     to decide if it is triggered.     This gesture is reacting on touch event as compared to the QMouseFlickGesture.      \sa {Gestures Programming}, QScroller, QScrollerProperties, QMouseFlickGesture */
+comment|/*!     \internal     \class QFlickGesture     \since 4.8     \brief The QFlickGesture class describes a flicking gesture made by the user.     \ingroup gestures     The QFlickGesture is more complex than the QPanGesture that uses QScroller and QScrollerProperties     to decide if it is triggered.     This gesture is reacting on touch event as compared to the QMouseFlickGesture.      \sa {Gestures in Widgets and Graphics View}, QScroller, QScrollerProperties, QMouseFlickGesture */
 end_comment
 begin_comment
 comment|/*!     \internal */
