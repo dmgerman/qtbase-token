@@ -71,6 +71,9 @@ comment|/*!     \fn QAccessibleInterface::~QAccessibleInterface()      Destroys 
 comment|/* accessible widgets plugin discovery stuff */
 ifndef|#
 directive|ifndef
+name|QT_NO_ACCESSIBILITY
+ifndef|#
+directive|ifndef
 name|QT_NO_LIBRARY
 name|Q_GLOBAL_STATIC_WITH_ARGS
 argument_list|(
@@ -87,6 +90,8 @@ literal|"/accessible"
 argument_list|)
 operator|)
 argument_list|)
+endif|#
+directive|endif
 endif|#
 directive|endif
 name|Q_GLOBAL_STATIC
@@ -482,6 +487,9 @@ return|;
 block|}
 ifndef|#
 directive|ifndef
+name|QT_NO_ACCESSIBILITY
+ifndef|#
+directive|ifndef
 name|QT_NO_LIBRARY
 if|if
 condition|(
@@ -507,6 +515,8 @@ condition|)
 return|return
 name|iface
 return|;
+endif|#
+directive|endif
 endif|#
 directive|endif
 name|mo
