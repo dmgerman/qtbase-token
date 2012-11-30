@@ -1240,7 +1240,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QDnsDomainNameRecord     \brief The QDnsDomainNameRecord class stores information about a domain     name record.      \inmodule QtNetwork     \ingroup network      When performing a name server lookup, zero or more records will be returned.     Each record is represented by a QDnsDomainNameRecord instance.      \sa QDnsLookup */
+comment|/*!     \class QDnsDomainNameRecord     \brief The QDnsDomainNameRecord class stores information about a domain     name record.      \inmodule QtNetwork     \ingroup network     \ingroup shared      When performing a name server lookup, zero or more records will be returned.     Each record is represented by a QDnsDomainNameRecord instance.      \sa QDnsLookup */
 end_comment
 begin_comment
 comment|/*!     Constructs an empty domain name record object. */
@@ -1385,7 +1385,7 @@ begin_comment
 comment|/*!     \fn void QDnsDomainNameRecord::swap(QDnsDomainNameRecord&other)      Swaps this domain-name record instance with \a other. This     function is very fast and never fails. */
 end_comment
 begin_comment
-comment|/*!     \class QDnsHostAddressRecord     \brief The QDnsHostAddressRecord class stores information about a host     address record.      \inmodule QtNetwork     \ingroup network      When performing an address lookup, zero or more records will be     returned. Each record is represented by a QDnsHostAddressRecord instance.      \sa QDnsLookup */
+comment|/*!     \class QDnsHostAddressRecord     \brief The QDnsHostAddressRecord class stores information about a host     address record.      \inmodule QtNetwork     \ingroup network     \ingroup shared      When performing an address lookup, zero or more records will be     returned. Each record is represented by a QDnsHostAddressRecord instance.      \sa QDnsLookup */
 end_comment
 begin_comment
 comment|/*!     Constructs an empty host address record object. */
@@ -1530,7 +1530,7 @@ begin_comment
 comment|/*!     \fn void QDnsHostAddressRecord::swap(QDnsHostAddressRecord&other)      Swaps this host address record instance with \a other. This     function is very fast and never fails. */
 end_comment
 begin_comment
-comment|/*!     \class QDnsMailExchangeRecord     \brief The QDnsMailExchangeRecord class stores information about a DNS MX record.      \inmodule QtNetwork     \ingroup network      When performing a lookup on a service, zero or more records will be     returned. Each record is represented by a QDnsMailExchangeRecord instance.      The meaning of the fields is defined in     \l{http://www.rfc-editor.org/rfc/rfc1035.txt}{RFC 1035}.      \sa QDnsLookup */
+comment|/*!     \class QDnsMailExchangeRecord     \brief The QDnsMailExchangeRecord class stores information about a DNS MX record.      \inmodule QtNetwork     \ingroup network     \ingroup shared      When performing a lookup on a service, zero or more records will be     returned. Each record is represented by a QDnsMailExchangeRecord instance.      The meaning of the fields is defined in     \l{http://www.rfc-editor.org/rfc/rfc1035.txt}{RFC 1035}.      \sa QDnsLookup */
 end_comment
 begin_comment
 comment|/*!     Constructs an empty mail exchange record object. */
@@ -1694,7 +1694,7 @@ begin_comment
 comment|/*!     \fn void QDnsMailExchangeRecord::swap(QDnsMailExchangeRecord&other)      Swaps this mail exchange record with \a other. This function is     very fast and never fails. */
 end_comment
 begin_comment
-comment|/*!     \class QDnsServiceRecord     \brief The QDnsServiceRecord class stores information about a DNS SRV record.      \inmodule QtNetwork     \ingroup network      When performing a lookup on a service, zero or more records will be     returned. Each record is represented by a QDnsServiceRecord instance.      The meaning of the fields is defined in     \l{http://www.rfc-editor.org/rfc/rfc2782.txt}{RFC 2782}.      \sa QDnsLookup */
+comment|/*!     \class QDnsServiceRecord     \brief The QDnsServiceRecord class stores information about a DNS SRV record.      \inmodule QtNetwork     \ingroup network     \ingroup shared      When performing a lookup on a service, zero or more records will be     returned. Each record is represented by a QDnsServiceRecord instance.      The meaning of the fields is defined in     \l{http://www.rfc-editor.org/rfc/rfc2782.txt}{RFC 2782}.      \sa QDnsLookup */
 end_comment
 begin_comment
 comment|/*!     Constructs an empty service record object. */
@@ -1896,7 +1896,7 @@ begin_comment
 comment|/*!     \fn void QDnsServiceRecord::swap(QDnsServiceRecord&other)      Swaps this service record instance with \a other. This function is     very fast and never fails. */
 end_comment
 begin_comment
-comment|/*!     \class QDnsTextRecord     \brief The QDnsTextRecord class stores information about a DNS TXT record.      \inmodule QtNetwork     \ingroup network      When performing a text lookup, zero or more records will be     returned. Each record is represented by a QDnsTextRecord instance.      The meaning of the fields is defined in     \l{http://www.rfc-editor.org/rfc/rfc1035.txt}{RFC 1035}.      \sa QDnsLookup */
+comment|/*!     \class QDnsTextRecord     \brief The QDnsTextRecord class stores information about a DNS TXT record.      \inmodule QtNetwork     \ingroup network     \ingroup shared      When performing a text lookup, zero or more records will be     returned. Each record is represented by a QDnsTextRecord instance.      The meaning of the fields is defined in     \l{http://www.rfc-editor.org/rfc/rfc1035.txt}{RFC 1035}.      \sa QDnsLookup */
 end_comment
 begin_comment
 comment|/*!     Constructs an empty text record object. */
