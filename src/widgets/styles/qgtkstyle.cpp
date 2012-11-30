@@ -4419,6 +4419,9 @@ case|:
 return|return
 literal|false
 return|;
+ifndef|#
+directive|ifndef
+name|QT_NO_WIZARD
 case|case
 name|SH_WizardStyle
 case|:
@@ -4427,6 +4430,8 @@ name|QWizard
 operator|::
 name|ClassicStyle
 return|;
+endif|#
+directive|endif
 case|case
 name|SH_ItemView_ArrowKeysNavigateIntoChildren
 case|:
