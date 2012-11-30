@@ -3894,7 +3894,14 @@ name|show_sys
 argument_list|()
 expr_stmt|;
 block|}
-else|else
+if|if
+condition|(
+operator|!
+name|q
+operator|->
+name|isWindow
+argument_list|()
+condition|)
 block|{
 if|if
 condition|(
