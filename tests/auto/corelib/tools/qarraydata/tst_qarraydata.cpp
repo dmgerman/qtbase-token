@@ -10505,8 +10505,7 @@ expr_stmt|;
 name|QCOMPARE
 argument_list|(
 operator|(
-specifier|const
-name|char
+name|void
 operator|*
 operator|)
 operator|(
@@ -10522,8 +10521,7 @@ argument_list|()
 operator|)
 argument_list|,
 operator|(
-specifier|const
-name|char
+name|void
 operator|*
 operator|)
 name|v
