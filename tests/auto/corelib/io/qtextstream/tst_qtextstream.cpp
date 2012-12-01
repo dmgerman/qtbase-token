@@ -4433,7 +4433,7 @@ name|QByteArray
 argument_list|(
 literal|"\xfe\xff\x00 \x00\r\x00\n\x00 \x00o\x00n\x00e"
 argument_list|,
-literal|20
+literal|16
 argument_list|)
 operator|<<
 name|QChar
@@ -4528,7 +4528,7 @@ name|QByteArray
 argument_list|(
 literal|"\xff\xfe \x00\r\x00\n\x00 \x00o\x00n\x00e\x00"
 argument_list|,
-literal|20
+literal|16
 argument_list|)
 operator|<<
 name|QChar
