@@ -129,6 +129,7 @@ argument_list|>
 name|returnedList
 decl_stmt|;
 DECL|member|requestCounter
+specifier|static
 name|int
 name|requestCounter
 decl_stmt|;
@@ -190,6 +191,18 @@ decl_stmt|;
 block|}
 class|;
 end_class
+begin_decl_stmt
+DECL|member|requestCounter
+name|int
+name|tst_QNetworkProxyFactory
+operator|::
+name|QDebugProxyFactory
+operator|::
+name|requestCounter
+init|=
+literal|0
+decl_stmt|;
+end_decl_stmt
 begin_constructor
 DECL|function|tst_QNetworkProxyFactory
 name|tst_QNetworkProxyFactory
@@ -1288,6 +1301,10 @@ literal|80
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|factory
+operator|=
+literal|0
+expr_stmt|;
 comment|// localhost
 name|list
 operator|=
@@ -1610,6 +1627,10 @@ operator|::
 name|NoProxy
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|factory
+operator|=
+literal|0
 expr_stmt|;
 comment|// localhost
 name|list
@@ -2358,8 +2379,8 @@ expr_stmt|;
 name|int
 name|count
 init|=
-name|factory
-operator|->
+name|QDebugProxyFactory
+operator|::
 name|requestCounter
 decl_stmt|;
 name|QNetworkAccessManager
@@ -2436,8 +2457,8 @@ if|if
 condition|(
 name|count
 operator|==
-name|factory
-operator|->
+name|QDebugProxyFactory
+operator|::
 name|requestCounter
 condition|)
 block|{
@@ -2449,6 +2470,11 @@ literal|"network configuration didn't start"
 argument_list|)
 expr_stmt|;
 block|}
+name|QVERIFY
+argument_list|(
+name|factory
+argument_list|)
+expr_stmt|;
 name|qDebug
 argument_list|()
 operator|<<
