@@ -170,6 +170,8 @@ name|errorMessages_indices
 index|[
 literal|0
 index|]
+operator|-
+literal|1
 decl_stmt|;
 end_decl_stmt
 begin_function
