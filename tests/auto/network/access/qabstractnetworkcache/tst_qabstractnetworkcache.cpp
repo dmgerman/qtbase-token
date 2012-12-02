@@ -282,7 +282,7 @@ name|setOrganizationName
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|"Trolltech"
+literal|"QtProject"
 argument_list|)
 argument_list|)
 expr_stmt|;

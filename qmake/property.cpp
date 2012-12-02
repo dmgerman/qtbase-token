@@ -494,7 +494,7 @@ name|QSettings
 operator|::
 name|UserScope
 argument_list|,
-literal|"Trolltech"
+literal|"QtProject"
 argument_list|,
 literal|"QMake"
 argument_list|)
