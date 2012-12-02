@@ -76,6 +76,9 @@ argument_list|)
 block|{ }
 name|protected
 operator|:
+ifndef|#
+directive|ifndef
+name|QT_NO_WHEELEVENT
 name|void
 name|wheelEvent
 argument_list|(
@@ -83,6 +86,8 @@ name|QWheelEvent
 operator|*
 argument_list|)
 block|;
+endif|#
+directive|endif
 name|private
 operator|:
 name|View

@@ -203,6 +203,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_WHEELEVENT
+end_ifndef
 begin_function
 DECL|function|wheelEvent
 name|void
@@ -303,6 +308,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|buttonByNumber
 name|int

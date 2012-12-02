@@ -77,6 +77,9 @@ operator|*
 name|event
 argument_list|)
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_WHEELEVENT
 name|void
 name|wheelEvent
 argument_list|(
@@ -85,6 +88,8 @@ operator|*
 name|event
 argument_list|)
 block|;
+endif|#
+directive|endif
 name|int
 name|buttonByNumber
 argument_list|(
