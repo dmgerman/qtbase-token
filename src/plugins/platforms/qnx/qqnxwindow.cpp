@@ -1061,7 +1061,7 @@ expr_stmt|;
 name|window
 argument_list|()
 operator|->
-name|requestActivateWindow
+name|requestActivate
 argument_list|()
 expr_stmt|;
 if|if
