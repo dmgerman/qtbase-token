@@ -2198,6 +2198,7 @@ name|QGraphicsViewPrivate
 operator|::
 name|updateRubberBand
 parameter_list|(
+specifier|const
 name|QMouseEvent
 modifier|*
 name|event
@@ -2219,11 +2220,6 @@ operator|&&
 name|sceneInteractionAllowed
 condition|)
 block|{
-name|storeMouseEvent
-argument_list|(
-name|event
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|rubberBanding

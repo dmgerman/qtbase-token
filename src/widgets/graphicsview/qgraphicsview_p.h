@@ -354,6 +354,7 @@ block|;
 name|void
 name|updateRubberBand
 argument_list|(
+specifier|const
 name|QMouseEvent
 operator|*
 name|event
