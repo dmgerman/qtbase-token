@@ -196,7 +196,7 @@ end_comment
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 end_ifdef
 begin_decl_stmt
 name|QSettings
