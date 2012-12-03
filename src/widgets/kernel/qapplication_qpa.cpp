@@ -2267,6 +2267,9 @@ operator|::
 name|initialize
 argument_list|()
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_TOOLTIP
 if|if
 condition|(
 specifier|const
@@ -2294,6 +2297,8 @@ operator|*
 name|toolTipPalette
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|QApplicationPrivate
 operator|::
 name|initializeWidgetFontHash
