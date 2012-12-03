@@ -847,6 +847,11 @@ name|Qt
 operator|::
 name|WindowMaximizeButtonHint
 expr_stmt|;
+if|#
+directive|if
+name|QT_VERSION
+operator|>=
+literal|0x050000
 if|if
 condition|(
 name|windowFullscreenButtonCheckBox
@@ -860,6 +865,8 @@ name|Qt
 operator|::
 name|WindowFullscreenButtonHint
 expr_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|windowCloseButtonCheckBox
@@ -1053,6 +1060,11 @@ operator|::
 name|WindowMaximizeButtonHint
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+name|QT_VERSION
+operator|>=
+literal|0x050000
 name|windowFullscreenButtonCheckBox
 operator|->
 name|setChecked
@@ -1064,6 +1076,8 @@ operator|::
 name|WindowFullscreenButtonHint
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|windowCloseButtonCheckBox
 operator|->
 name|setChecked
