@@ -104,6 +104,9 @@ name|QStringList
 operator|*
 name|currentCustomDragTypes
 block|;
+name|bool
+name|m_sendUpAsRightButton
+block|;
 name|Qt
 operator|::
 name|KeyboardModifiers
