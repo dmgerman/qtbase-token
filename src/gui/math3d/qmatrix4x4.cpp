@@ -27,6 +27,11 @@ include|#
 directive|include
 file|<QtGui/qtransform.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<cmath>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 ifndef|#
