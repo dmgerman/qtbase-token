@@ -17530,7 +17530,34 @@ operator|&
 name|cacheFile
 argument_list|)
 decl_stmt|;
-comment|// nothing left here
+name|cacheStream
+operator|<<
+literal|"QT_SOURCE_TREE = "
+operator|<<
+name|formatPath
+argument_list|(
+name|dictionary
+index|[
+literal|"QT_SOURCE_TREE"
+index|]
+argument_list|)
+operator|<<
+name|endl
+expr_stmt|;
+name|cacheStream
+operator|<<
+literal|"QT_BUILD_TREE = "
+operator|<<
+name|formatPath
+argument_list|(
+name|dictionary
+index|[
+literal|"QT_BUILD_TREE"
+index|]
+argument_list|)
+operator|<<
+name|endl
+expr_stmt|;
 name|cacheStream
 operator|.
 name|flush
@@ -17578,40 +17605,6 @@ operator|&
 name|moduleFile
 argument_list|)
 decl_stmt|;
-name|moduleStream
-operator|<<
-literal|"#paths"
-operator|<<
-name|endl
-expr_stmt|;
-name|moduleStream
-operator|<<
-literal|"QT_BUILD_TREE   = "
-operator|<<
-name|formatPath
-argument_list|(
-name|dictionary
-index|[
-literal|"QT_BUILD_TREE"
-index|]
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
-name|moduleStream
-operator|<<
-literal|"QT_SOURCE_TREE  = "
-operator|<<
-name|formatPath
-argument_list|(
-name|dictionary
-index|[
-literal|"QT_SOURCE_TREE"
-index|]
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
 name|moduleStream
 operator|<<
 literal|"QT_BUILD_PARTS += "
