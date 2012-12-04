@@ -3271,7 +3271,7 @@ parameter_list|)
 block|{
 name|t
 operator|<<
-literal|"$(LINK) $(LFLAGS)"
+literal|"$(LINKER) $(LFLAGS)"
 expr_stmt|;
 if|if
 condition|(

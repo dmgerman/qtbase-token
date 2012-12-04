@@ -2230,7 +2230,7 @@ else|else
 block|{
 name|t
 operator|<<
-literal|"LINK        =        "
+literal|"LINKER      =        "
 operator|<<
 name|var
 argument_list|(
@@ -2801,7 +2801,7 @@ name|t
 operator|<<
 literal|"\n\t"
 operator|<<
-literal|"$(LINK) $(LFLAGS) -o $(DESTDIR_TARGET) "
+literal|"$(LINKER) $(LFLAGS) -o $(DESTDIR_TARGET) "
 operator|<<
 name|objectsLinkLine
 operator|<<

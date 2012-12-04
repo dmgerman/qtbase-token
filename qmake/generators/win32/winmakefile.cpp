@@ -5866,7 +5866,7 @@ else|else
 block|{
 name|t
 operator|<<
-literal|"LINK          = "
+literal|"LINKER        = "
 operator|<<
 name|var
 argument_list|(
