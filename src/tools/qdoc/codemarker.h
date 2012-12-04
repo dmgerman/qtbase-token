@@ -175,11 +175,11 @@ DECL|struct|FastSection
 struct|struct
 name|FastSection
 block|{
-DECL|member|innerNode
+DECL|member|parent_
 specifier|const
 name|InnerNode
 modifier|*
-name|innerNode
+name|parent_
 decl_stmt|;
 DECL|member|name
 name|QString
@@ -239,7 +239,7 @@ argument_list|(
 specifier|const
 name|InnerNode
 operator|*
-name|innerNode0
+name|parent
 argument_list|,
 specifier|const
 name|QString
@@ -262,9 +262,9 @@ operator|&
 name|pluralMember0
 argument_list|)
 operator|:
-name|innerNode
+name|parent_
 argument_list|(
-name|innerNode0
+name|parent
 argument_list|)
 operator|,
 name|name

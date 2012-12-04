@@ -2295,7 +2295,7 @@ block|{
 specifier|const
 name|ClassNode
 modifier|*
-name|classe
+name|classNode
 init|=
 cast|static_cast
 argument_list|<
@@ -2317,7 +2317,7 @@ block|{
 name|FastSection
 name|privateFunctions
 argument_list|(
-name|classe
+name|classNode
 argument_list|,
 literal|"Private Functions"
 argument_list|,
@@ -2332,7 +2332,7 @@ decl_stmt|;
 name|FastSection
 name|privateSlots
 argument_list|(
-name|classe
+name|classNode
 argument_list|,
 literal|"Private Slots"
 argument_list|,
@@ -2347,7 +2347,7 @@ decl_stmt|;
 name|FastSection
 name|privateTypes
 argument_list|(
-name|classe
+name|classNode
 argument_list|,
 literal|"Private Types"
 argument_list|,
@@ -2362,7 +2362,7 @@ decl_stmt|;
 name|FastSection
 name|protectedFunctions
 argument_list|(
-name|classe
+name|classNode
 argument_list|,
 literal|"Protected Functions"
 argument_list|,
@@ -2377,7 +2377,7 @@ decl_stmt|;
 name|FastSection
 name|protectedSlots
 argument_list|(
-name|classe
+name|classNode
 argument_list|,
 literal|"Protected Slots"
 argument_list|,
@@ -2392,7 +2392,7 @@ decl_stmt|;
 name|FastSection
 name|protectedTypes
 argument_list|(
-name|classe
+name|classNode
 argument_list|,
 literal|"Protected Types"
 argument_list|,
@@ -2407,7 +2407,7 @@ decl_stmt|;
 name|FastSection
 name|protectedVariables
 argument_list|(
-name|classe
+name|classNode
 argument_list|,
 literal|"Protected Variables"
 argument_list|,
@@ -2422,7 +2422,7 @@ decl_stmt|;
 name|FastSection
 name|publicFunctions
 argument_list|(
-name|classe
+name|classNode
 argument_list|,
 literal|"Public Functions"
 argument_list|,
@@ -2437,7 +2437,7 @@ decl_stmt|;
 name|FastSection
 name|publicSignals
 argument_list|(
-name|classe
+name|classNode
 argument_list|,
 literal|"Signals"
 argument_list|,
@@ -2452,7 +2452,7 @@ decl_stmt|;
 name|FastSection
 name|publicSlots
 argument_list|(
-name|classe
+name|classNode
 argument_list|,
 literal|"Public Slots"
 argument_list|,
@@ -2467,7 +2467,7 @@ decl_stmt|;
 name|FastSection
 name|publicTypes
 argument_list|(
-name|classe
+name|classNode
 argument_list|,
 literal|"Public Types"
 argument_list|,
@@ -2482,7 +2482,7 @@ decl_stmt|;
 name|FastSection
 name|publicVariables
 argument_list|(
-name|classe
+name|classNode
 argument_list|,
 literal|"Public Variables"
 argument_list|,
@@ -2497,7 +2497,7 @@ decl_stmt|;
 name|FastSection
 name|properties
 argument_list|(
-name|classe
+name|classNode
 argument_list|,
 literal|"Properties"
 argument_list|,
@@ -2512,7 +2512,7 @@ decl_stmt|;
 name|FastSection
 name|relatedNonMembers
 argument_list|(
-name|classe
+name|classNode
 argument_list|,
 literal|"Related Non-Members"
 argument_list|,
@@ -2527,7 +2527,7 @@ decl_stmt|;
 name|FastSection
 name|staticPrivateMembers
 argument_list|(
-name|classe
+name|classNode
 argument_list|,
 literal|"Static Private Members"
 argument_list|,
@@ -2542,7 +2542,7 @@ decl_stmt|;
 name|FastSection
 name|staticProtectedMembers
 argument_list|(
-name|classe
+name|classNode
 argument_list|,
 literal|"Static Protected Members"
 argument_list|,
@@ -2557,7 +2557,7 @@ decl_stmt|;
 name|FastSection
 name|staticPublicMembers
 argument_list|(
-name|classe
+name|classNode
 argument_list|,
 literal|"Static Public Members"
 argument_list|,
@@ -2589,7 +2589,7 @@ operator|::
 name|ConstIterator
 name|r
 init|=
-name|classe
+name|classNode
 operator|->
 name|relatedNodes
 argument_list|()
@@ -2601,7 +2601,7 @@ while|while
 condition|(
 name|r
 operator|!=
-name|classe
+name|classNode
 operator|->
 name|relatedNodes
 argument_list|()
@@ -2703,7 +2703,7 @@ name|stack
 operator|.
 name|push
 argument_list|(
-name|classe
+name|classNode
 argument_list|)
 expr_stmt|;
 while|while
@@ -3096,6 +3096,7 @@ argument_list|,
 name|status
 argument_list|)
 condition|)
+block|{
 name|insert
 argument_list|(
 name|publicFunctions
@@ -3108,6 +3109,7 @@ argument_list|,
 name|status
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -3265,6 +3267,7 @@ argument_list|,
 name|status
 argument_list|)
 condition|)
+block|{
 name|insert
 argument_list|(
 name|protectedFunctions
@@ -3277,6 +3280,7 @@ argument_list|,
 name|status
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -3391,6 +3395,7 @@ argument_list|,
 name|status
 argument_list|)
 condition|)
+block|{
 name|insert
 argument_list|(
 name|privateFunctions
@@ -3403,6 +3408,7 @@ argument_list|,
 name|status
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -3608,7 +3614,7 @@ block|{
 name|FastSection
 name|memberFunctions
 argument_list|(
-name|classe
+name|classNode
 argument_list|,
 literal|"Member Function Documentation"
 argument_list|,
@@ -3622,7 +3628,7 @@ decl_stmt|;
 name|FastSection
 name|memberTypes
 argument_list|(
-name|classe
+name|classNode
 argument_list|,
 literal|"Member Type Documentation"
 argument_list|,
@@ -3636,7 +3642,7 @@ decl_stmt|;
 name|FastSection
 name|memberVariables
 argument_list|(
-name|classe
+name|classNode
 argument_list|,
 literal|"Member Variable Documentation"
 argument_list|,
@@ -3650,7 +3656,7 @@ decl_stmt|;
 name|FastSection
 name|properties
 argument_list|(
-name|classe
+name|classNode
 argument_list|,
 literal|"Property Documentation"
 argument_list|,
@@ -3664,7 +3670,7 @@ decl_stmt|;
 name|FastSection
 name|relatedNonMembers
 argument_list|(
-name|classe
+name|classNode
 argument_list|,
 literal|"Related Non-Members"
 argument_list|,
@@ -3678,7 +3684,7 @@ decl_stmt|;
 name|FastSection
 name|macros
 argument_list|(
-name|classe
+name|classNode
 argument_list|,
 literal|"Macro Documentation"
 argument_list|,
@@ -3694,7 +3700,7 @@ operator|::
 name|ConstIterator
 name|r
 init|=
-name|classe
+name|classNode
 operator|->
 name|relatedNodes
 argument_list|()
@@ -3706,7 +3712,7 @@ while|while
 condition|(
 name|r
 operator|!=
-name|classe
+name|classNode
 operator|->
 name|relatedNodes
 argument_list|()
@@ -3801,7 +3807,7 @@ operator|::
 name|ConstIterator
 name|c
 init|=
-name|classe
+name|classNode
 operator|->
 name|childNodes
 argument_list|()
@@ -3813,7 +3819,7 @@ while|while
 condition|(
 name|c
 operator|!=
-name|classe
+name|classNode
 operator|->
 name|childNodes
 argument_list|()
@@ -4036,7 +4042,7 @@ block|{
 name|FastSection
 name|all
 argument_list|(
-name|classe
+name|classNode
 argument_list|,
 name|QString
 argument_list|()
@@ -4061,7 +4067,7 @@ name|stack
 operator|.
 name|push
 argument_list|(
-name|classe
+name|classNode
 argument_list|)
 expr_stmt|;
 while|while
