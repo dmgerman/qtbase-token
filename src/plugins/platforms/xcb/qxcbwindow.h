@@ -479,11 +479,6 @@ name|xcb_timestamp_t
 name|timestamp
 parameter_list|)
 function_decl|;
-name|void
-name|netWmUserTime
-argument_list|()
-specifier|const
-expr_stmt|;
 if|#
 directive|if
 name|defined

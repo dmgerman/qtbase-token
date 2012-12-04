@@ -5348,6 +5348,14 @@ name|wid
 init|=
 name|m_window
 decl_stmt|;
+name|connection
+argument_list|()
+operator|->
+name|setNetWmUserTime
+argument_list|(
+name|timestamp
+argument_list|)
+expr_stmt|;
 specifier|const
 name|bool
 name|isSupportedByWM

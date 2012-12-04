@@ -1489,6 +1489,10 @@ name|m_time
 operator|=
 name|XCB_CURRENT_TIME
 expr_stmt|;
+name|m_netWmUserTime
+operator|=
+name|XCB_CURRENT_TIME
+expr_stmt|;
 name|initializeXRandr
 argument_list|()
 expr_stmt|;
