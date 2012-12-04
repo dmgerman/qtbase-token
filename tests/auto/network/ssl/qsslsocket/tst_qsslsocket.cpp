@@ -774,16 +774,6 @@ argument_list|(
 literal|"QAbstractSocket::SocketError"
 argument_list|)
 expr_stmt|;
-name|qRegisterMetaType
-argument_list|<
-name|QAbstractSocket
-operator|::
-name|SocketState
-argument_list|>
-argument_list|(
-literal|"QSslSocket::SslMode"
-argument_list|)
-expr_stmt|;
 endif|#
 directive|endif
 block|}
