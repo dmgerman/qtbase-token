@@ -157,13 +157,6 @@ argument_list|(
 literal|500
 argument_list|)
 expr_stmt|;
-name|requestOrientation
-argument_list|(
-name|Qt
-operator|::
-name|PortraitOrientation
-argument_list|)
-expr_stmt|;
 name|QRect
 name|screenGeometry
 init|=
@@ -189,6 +182,9 @@ argument_list|()
 operator|->
 name|isLandscape
 argument_list|(
+name|screen
+argument_list|()
+operator|->
 name|orientation
 argument_list|()
 argument_list|)
@@ -567,6 +563,9 @@ argument_list|(
 name|contentOrientation
 argument_list|()
 argument_list|,
+name|screen
+argument_list|()
+operator|->
 name|orientation
 argument_list|()
 argument_list|,
@@ -587,6 +586,9 @@ argument_list|(
 name|contentOrientation
 argument_list|()
 argument_list|,
+name|screen
+argument_list|()
+operator|->
 name|orientation
 argument_list|()
 argument_list|,
@@ -618,6 +620,9 @@ name|transformBetween
 argument_list|(
 name|newOrientation
 argument_list|,
+name|screen
+argument_list|()
+operator|->
 name|orientation
 argument_list|()
 argument_list|,
@@ -637,6 +642,9 @@ name|mapBetween
 argument_list|(
 name|newOrientation
 argument_list|,
+name|screen
+argument_list|()
+operator|->
 name|orientation
 argument_list|()
 argument_list|,
@@ -1011,6 +1019,9 @@ argument_list|(
 name|contentOrientation
 argument_list|()
 argument_list|,
+name|screen
+argument_list|()
+operator|->
 name|orientation
 argument_list|()
 argument_list|,
@@ -1029,6 +1040,9 @@ argument_list|(
 name|contentOrientation
 argument_list|()
 argument_list|,
+name|screen
+argument_list|()
+operator|->
 name|orientation
 argument_list|()
 argument_list|,

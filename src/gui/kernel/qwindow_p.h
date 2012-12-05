@@ -161,13 +161,6 @@ operator|::
 name|PrimaryOrientation
 argument_list|)
 block|,
-name|windowOrientation
-argument_list|(
-name|Qt
-operator|::
-name|PrimaryOrientation
-argument_list|)
-block|,
 name|minimumSize
 argument_list|(
 literal|0
@@ -375,13 +368,6 @@ name|Qt
 operator|::
 name|ScreenOrientation
 name|contentOrientation
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-name|Qt
-operator|::
-name|ScreenOrientation
-name|windowOrientation
 expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
