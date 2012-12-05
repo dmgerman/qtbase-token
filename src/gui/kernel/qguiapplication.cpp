@@ -3867,6 +3867,11 @@ operator|.
 name|load
 argument_list|()
 expr_stmt|;
+name|window_list
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 block|}
 end_destructor
 begin_if
