@@ -2212,19 +2212,18 @@ expr_stmt|;
 if|if
 condition|(
 name|dragMode
-operator|==
+operator|!=
 name|QGraphicsView
 operator|::
 name|RubberBandDrag
-operator|&&
+operator|||
+operator|!
 name|sceneInteractionAllowed
-condition|)
-block|{
-if|if
-condition|(
+operator|||
+operator|!
 name|rubberBanding
 condition|)
-block|{
+return|return;
 comment|// Check for enough drag distance
 if|if
 condition|(
@@ -2245,9 +2244,7 @@ operator|::
 name|startDragDistance
 argument_list|()
 condition|)
-block|{
 return|return;
-block|}
 comment|// Update old rubberband
 if|if
 condition|(
@@ -2477,8 +2474,6 @@ name|viewportTransform
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-block|}
 block|}
 end_function
 begin_endif
