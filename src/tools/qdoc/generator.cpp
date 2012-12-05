@@ -8555,7 +8555,7 @@ name|extraImages
 init|=
 name|config
 operator|.
-name|getCleanPathList
+name|getPathList
 argument_list|(
 operator|(
 operator|*
