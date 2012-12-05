@@ -52,6 +52,9 @@ operator|~
 name|QXcbCursor
 argument_list|()
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CURSOR
 name|void
 name|changeCursor
 parameter_list|(
@@ -64,6 +67,8 @@ modifier|*
 name|widget
 parameter_list|)
 function_decl|;
+endif|#
+directive|endif
 name|QPoint
 name|pos
 argument_list|()
@@ -103,6 +108,9 @@ parameter_list|)
 function_decl|;
 name|private
 label|:
+ifndef|#
+directive|ifndef
+name|QT_NO_CURSOR
 name|xcb_cursor_t
 name|createFontCursor
 parameter_list|(
@@ -125,10 +133,15 @@ name|int
 name|cshape
 parameter_list|)
 function_decl|;
+endif|#
+directive|endif
 name|QXcbScreen
 modifier|*
 name|m_screen
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CURSOR
 name|QMap
 operator|<
 name|int
@@ -145,6 +158,8 @@ name|xcb_cursor_t
 operator|>
 name|m_bitmapCursorMap
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_decl_stmt
 begin_empty_stmt

@@ -342,11 +342,21 @@ name|widgets
 return|;
 block|}
 end_function
-begin_ifndef
-ifndef|#
-directive|ifndef
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
 name|QT_NO_TEXTEDIT
-end_ifndef
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_CURSOR
+argument_list|)
+end_if
 begin_constructor
 DECL|function|QAccessiblePlainTextEdit
 name|QAccessiblePlainTextEdit
@@ -1270,7 +1280,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_TEXTEDIT
+comment|// QT_NO_TEXTEDIT&& QT_NO_CURSOR
 end_comment
 begin_ifndef
 ifndef|#
@@ -2375,11 +2385,21 @@ end_endif
 begin_comment
 comment|// QT_NO_DIALOGBUTTONBOX
 end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
 name|QT_NO_TEXTBROWSER
-end_ifndef
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_CURSOR
+argument_list|)
+end_if
 begin_constructor
 DECL|function|QAccessibleTextBrowser
 name|QAccessibleTextBrowser
@@ -2433,7 +2453,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_TEXTBROWSER
+comment|// QT_NO_TEXTBROWSER&& QT_NO_CURSOR
 end_comment
 begin_ifndef
 ifndef|#

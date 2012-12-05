@@ -756,6 +756,9 @@ name|DropAction
 name|action
 parameter_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_CURSOR
 name|Qt
 operator|::
 name|CursorShape
@@ -924,6 +927,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+endif|#
+directive|endif
 name|updateAction
 argument_list|(
 name|action

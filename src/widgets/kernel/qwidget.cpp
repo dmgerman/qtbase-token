@@ -10758,6 +10758,9 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
+ifndef|#
+directive|ifndef
+name|QT_NO_CURSOR
 if|if
 condition|(
 name|q
@@ -10785,6 +10788,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 if|#
 directive|if
 name|defined

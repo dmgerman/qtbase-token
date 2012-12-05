@@ -61,6 +61,9 @@ operator|~
 name|QEglFSCursor
 argument_list|()
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CURSOR
 name|void
 name|changeCursor
 argument_list|(
@@ -70,6 +73,8 @@ argument|QWindow *widget
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
+endif|#
+directive|endif
 name|void
 name|pointerEvent
 argument_list|(
@@ -102,6 +107,9 @@ argument_list|()
 block|;
 name|protected
 operator|:
+ifndef|#
+directive|ifndef
+name|QT_NO_CURSOR
 name|bool
 name|setCurrentCursor
 argument_list|(
@@ -110,6 +118,8 @@ operator|*
 name|cursor
 argument_list|)
 block|;
+endif|#
+directive|endif
 name|void
 name|draw
 argument_list|(

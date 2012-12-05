@@ -466,13 +466,6 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|//QT_NO_CURSOR
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -686,6 +679,13 @@ directive|endif
 end_endif
 begin_comment
 comment|// QT_NO_TEXTEDIT
+end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|//QT_NO_CURSOR
 end_comment
 begin_decl_stmt
 name|class
@@ -928,11 +928,21 @@ argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
-begin_ifndef
-ifndef|#
-directive|ifndef
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
 name|QT_NO_TEXTBROWSER
-end_ifndef
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_CURSOR
+argument_list|)
+end_if
 begin_decl_stmt
 name|class
 name|QAccessibleTextBrowser
@@ -964,7 +974,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_TEXTBROWSER
+comment|// QT_NO_TEXTBROWSER&& QT_NO_CURSOR
 end_comment
 begin_ifndef
 ifndef|#

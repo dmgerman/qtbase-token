@@ -255,6 +255,9 @@ argument_list|(
 name|event
 argument_list|)
 block|; }
+ifndef|#
+directive|ifndef
+name|QT_NO_CURSOR
 name|virtual
 name|void
 name|changeCursor
@@ -270,6 +273,8 @@ argument_list|)
 operator|=
 literal|0
 block|;
+endif|#
+directive|endif
 name|virtual
 name|QPoint
 name|pos

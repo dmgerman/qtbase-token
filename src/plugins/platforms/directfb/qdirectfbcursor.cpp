@@ -31,6 +31,9 @@ argument_list|(
 name|screen
 argument_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_CURSOR
 name|m_image
 operator|.
 name|reset
@@ -52,8 +55,15 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_constructor
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_CURSOR
+end_ifndef
 begin_function
 DECL|function|changeCursor
 name|void
@@ -250,6 +260,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
