@@ -16821,7 +16821,7 @@ argument_list|)
 operator|+
 name|formatPath
 argument_list|(
-literal|"tmp/obj/"
+literal|".obj/"
 operator|+
 name|dictionary
 index|[
@@ -16838,7 +16838,7 @@ argument_list|)
 operator|+
 name|formatPath
 argument_list|(
-literal|"tmp/moc/"
+literal|".moc/"
 operator|+
 name|dictionary
 index|[
@@ -16855,7 +16855,7 @@ argument_list|)
 operator|+
 name|formatPath
 argument_list|(
-literal|"tmp/rcc/"
+literal|".rcc/"
 operator|+
 name|dictionary
 index|[
