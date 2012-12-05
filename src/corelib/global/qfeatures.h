@@ -96,12 +96,6 @@ begin_comment
 comment|//#define QT_NO_HOSTINFO
 end_comment
 begin_comment
-comment|// QImageIOPlugin
-end_comment
-begin_comment
-comment|//#define QT_NO_IMAGEFORMATPLUGIN
-end_comment
-begin_comment
 comment|// BMP Image Format
 end_comment
 begin_comment
