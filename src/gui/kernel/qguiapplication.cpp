@@ -3845,6 +3845,10 @@ expr_stmt|;
 operator|delete
 name|platform_theme
 expr_stmt|;
+name|platform_theme
+operator|=
+literal|0
+expr_stmt|;
 operator|delete
 name|platform_integration
 expr_stmt|;
