@@ -3048,12 +3048,6 @@ begin_comment
 comment|/*!     \macro QT_POINTER_SIZE     \relates<QtGlobal>      Expands to the size of a pointer in bytes (4 or 8). This is     equivalent to \c sizeof(void *) but can be used in a preprocessor     directive. */
 end_comment
 begin_comment
-comment|/*!     \macro TRUE     \relates<QtGlobal>     \obsolete      Synonym for \c true.      \sa FALSE */
-end_comment
-begin_comment
-comment|/*!     \macro FALSE     \relates<QtGlobal>     \obsolete      Synonym for \c false.      \sa TRUE */
-end_comment
-begin_comment
 comment|/*!     \macro QABS(n)     \relates<QtGlobal>     \obsolete      Use qAbs(\a n) instead.      \sa QMIN(), QMAX() */
 end_comment
 begin_comment
