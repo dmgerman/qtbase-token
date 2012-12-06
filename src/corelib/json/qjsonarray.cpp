@@ -1541,22 +1541,22 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn QJsonArray::iterator QJsonArray::begin()      Returns an \l{STL-style iterator} pointing to the first item in     the array.      \sa constBegin(), end() */
+comment|/*! \fn QJsonArray::iterator QJsonArray::begin()      Returns an \l{STL-style iterators}{STL-style iterator} pointing to the first item in     the array.      \sa constBegin(), end() */
 end_comment
 begin_comment
 comment|/*! \fn QJsonArray::const_iterator QJsonArray::begin() const      \overload */
 end_comment
 begin_comment
-comment|/*! \fn QJsonArray::const_iterator QJsonArray::constBegin() const      Returns a const \l{STL-style iterator} pointing to the first item     in the array.      \sa begin(), constEnd() */
+comment|/*! \fn QJsonArray::const_iterator QJsonArray::constBegin() const      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the first item     in the array.      \sa begin(), constEnd() */
 end_comment
 begin_comment
-comment|/*! \fn QJsonArray::iterator QJsonArray::end()      Returns an \l{STL-style iterator} pointing to the imaginary item     after the last item in the array.      \sa begin(), constEnd() */
+comment|/*! \fn QJsonArray::iterator QJsonArray::end()      Returns an \l{STL-style iterators}{STL-style iterator} pointing to the imaginary item     after the last item in the array.      \sa begin(), constEnd() */
 end_comment
 begin_comment
 comment|/*! \fn const_iterator QJsonArray::end() const      \overload */
 end_comment
 begin_comment
-comment|/*! \fn QJsonArray::const_iterator QJsonArray::constEnd() const      Returns a const \l{STL-style iterator} pointing to the imaginary     item after the last item in the array.      \sa constBegin(), end() */
+comment|/*! \fn QJsonArray::const_iterator QJsonArray::constEnd() const      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the imaginary     item after the last item in the array.      \sa constBegin(), end() */
 end_comment
 begin_comment
 comment|/*! \fn void QJsonArray::push_back(const QJsonValue&value)      This function is provided for STL compatibility. It is equivalent     to \l{QJsonArray::append()}{append(value)} and will append \a value to the array. */

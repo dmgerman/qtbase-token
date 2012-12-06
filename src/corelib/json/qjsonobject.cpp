@@ -1679,22 +1679,22 @@ begin_comment
 comment|/*! \fn int QJsonObject::length() const      \overload      Same as size(). */
 end_comment
 begin_comment
-comment|/*! \fn QJsonObject::iterator QJsonObject::begin()      Returns an \l{STL-style iterator} pointing to the first item in     the object.      \sa constBegin(), end() */
+comment|/*! \fn QJsonObject::iterator QJsonObject::begin()      Returns an \l{STL-style iterators}{STL-style iterator} pointing to the first item in     the object.      \sa constBegin(), end() */
 end_comment
 begin_comment
 comment|/*! \fn QJsonObject::const_iterator QJsonObject::begin() const      \overload */
 end_comment
 begin_comment
-comment|/*! \fn QJsonObject::const_iterator QJsonObject::constBegin() const      Returns a const \l{STL-style iterator} pointing to the first item     in the object.      \sa begin(), constEnd() */
+comment|/*! \fn QJsonObject::const_iterator QJsonObject::constBegin() const      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the first item     in the object.      \sa begin(), constEnd() */
 end_comment
 begin_comment
-comment|/*! \fn QJsonObject::iterator QJsonObject::end()      Returns an \l{STL-style iterator} pointing to the imaginary item     after the last item in the object.      \sa begin(), constEnd() */
+comment|/*! \fn QJsonObject::iterator QJsonObject::end()      Returns an \l{STL-style iterators}{STL-style iterator} pointing to the imaginary item     after the last item in the object.      \sa begin(), constEnd() */
 end_comment
 begin_comment
 comment|/*! \fn QJsonObject::const_iterator QJsonObject::end() const      \overload */
 end_comment
 begin_comment
-comment|/*! \fn QJsonObject::const_iterator QJsonObject::constEnd() const      Returns a const \l{STL-style iterator} pointing to the imaginary     item after the last item in the object.      \sa constBegin(), end() */
+comment|/*! \fn QJsonObject::const_iterator QJsonObject::constEnd() const      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the imaginary     item after the last item in the object.      \sa constBegin(), end() */
 end_comment
 begin_comment
 comment|/*!     \fn bool QJsonObject::empty() const      This function is provided for STL compatibility. It is equivalent     to isEmpty(), returning \c true if the object is empty; otherwise     returning \c false. */

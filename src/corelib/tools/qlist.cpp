@@ -1952,28 +1952,28 @@ begin_comment
 comment|/*! \fn bool QList::endsWith(const T&value) const     \since 4.5      Returns true if this list is not empty and its last     item is equal to \a value; otherwise returns false.      \sa isEmpty(), contains() */
 end_comment
 begin_comment
-comment|/*! \fn QList::iterator QList::begin()      Returns an \l{STL-style iterator} pointing to the first item in     the list.      \sa constBegin(), end() */
+comment|/*! \fn QList::iterator QList::begin()      Returns an \l{STL-style iterators}{STL-style iterator} pointing to the first item in     the list.      \sa constBegin(), end() */
 end_comment
 begin_comment
 comment|/*! \fn QList::const_iterator QList::begin() const      \overload */
 end_comment
 begin_comment
-comment|/*! \fn QList::const_iterator QList::cbegin() const     \since 5.0      Returns a const \l{STL-style iterator} pointing to the first item     in the list.      \sa begin(), cend() */
+comment|/*! \fn QList::const_iterator QList::cbegin() const     \since 5.0      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the first item     in the list.      \sa begin(), cend() */
 end_comment
 begin_comment
-comment|/*! \fn QList::const_iterator QList::constBegin() const      Returns a const \l{STL-style iterator} pointing to the first item     in the list.      \sa begin(), constEnd() */
+comment|/*! \fn QList::const_iterator QList::constBegin() const      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the first item     in the list.      \sa begin(), constEnd() */
 end_comment
 begin_comment
-comment|/*! \fn QList::iterator QList::end()      Returns an \l{STL-style iterator} pointing to the imaginary item     after the last item in the list.      \sa begin(), constEnd() */
+comment|/*! \fn QList::iterator QList::end()      Returns an \l{STL-style iterators}{STL-style iterator} pointing to the imaginary item     after the last item in the list.      \sa begin(), constEnd() */
 end_comment
 begin_comment
 comment|/*! \fn const_iterator QList::end() const      \overload */
 end_comment
 begin_comment
-comment|/*! \fn QList::const_iterator QList::cend() const     \since 5.0      Returns a const \l{STL-style iterator} pointing to the imaginary     item after the last item in the list.      \sa cbegin(), end() */
+comment|/*! \fn QList::const_iterator QList::cend() const     \since 5.0      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the imaginary     item after the last item in the list.      \sa cbegin(), end() */
 end_comment
 begin_comment
-comment|/*! \fn QList::const_iterator QList::constEnd() const      Returns a const \l{STL-style iterator} pointing to the imaginary     item after the last item in the list.      \sa constBegin(), end() */
+comment|/*! \fn QList::const_iterator QList::constEnd() const      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the imaginary     item after the last item in the list.      \sa constBegin(), end() */
 end_comment
 begin_comment
 comment|/*! \fn QList::iterator QList::erase(iterator pos)      Removes the item associated with the iterator \a pos from the     list, and returns an iterator to the next item in the list (which     may be end()).      \sa insert(), removeAt() */

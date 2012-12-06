@@ -141,28 +141,28 @@ begin_comment
 comment|/*! \fn int QVector::count() const      \overload      Same as size(). */
 end_comment
 begin_comment
-comment|/*! \fn QVector::iterator QVector::begin()      Returns an \l{STL-style iterator} pointing to the first item in     the vector.      \sa constBegin(), end() */
+comment|/*! \fn QVector::iterator QVector::begin()      Returns an \l{STL-style iterators}{STL-style iterator} pointing to the first item in     the vector.      \sa constBegin(), end() */
 end_comment
 begin_comment
 comment|/*! \fn QVector::const_iterator QVector::begin() const      \overload */
 end_comment
 begin_comment
-comment|/*! \fn QVector::const_iterator QVector::cbegin() const     \since 5.0      Returns a const \l{STL-style iterator} pointing to the first item     in the vector.      \sa begin(), cend() */
+comment|/*! \fn QVector::const_iterator QVector::cbegin() const     \since 5.0      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the first item     in the vector.      \sa begin(), cend() */
 end_comment
 begin_comment
-comment|/*! \fn QVector::const_iterator QVector::constBegin() const      Returns a const \l{STL-style iterator} pointing to the first item     in the vector.      \sa begin(), constEnd() */
+comment|/*! \fn QVector::const_iterator QVector::constBegin() const      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the first item     in the vector.      \sa begin(), constEnd() */
 end_comment
 begin_comment
-comment|/*! \fn QVector::iterator QVector::end()      Returns an \l{STL-style iterator} pointing to the imaginary item     after the last item in the vector.      \sa begin(), constEnd() */
+comment|/*! \fn QVector::iterator QVector::end()      Returns an \l{STL-style iterators}{STL-style iterator} pointing to the imaginary item     after the last item in the vector.      \sa begin(), constEnd() */
 end_comment
 begin_comment
 comment|/*! \fn QVector::const_iterator QVector::end() const      \overload */
 end_comment
 begin_comment
-comment|/*! \fn QVector::const_iterator QVector::cend() const     \since 5.0      Returns a const \l{STL-style iterator} pointing to the imaginary     item after the last item in the vector.      \sa cbegin(), end() */
+comment|/*! \fn QVector::const_iterator QVector::cend() const     \since 5.0      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the imaginary     item after the last item in the vector.      \sa cbegin(), end() */
 end_comment
 begin_comment
-comment|/*! \fn QVector::const_iterator QVector::constEnd() const      Returns a const \l{STL-style iterator} pointing to the imaginary     item after the last item in the vector.      \sa constBegin(), end() */
+comment|/*! \fn QVector::const_iterator QVector::constEnd() const      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the imaginary     item after the last item in the vector.      \sa constBegin(), end() */
 end_comment
 begin_comment
 comment|/*! \fn QVector::iterator QVector::erase(iterator pos)      Removes the item pointed to by the iterator \a pos from the     vector, and returns an iterator to the next item in the vector     (which may be end()).      \sa insert(), remove() */
