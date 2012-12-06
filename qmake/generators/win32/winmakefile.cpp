@@ -3544,6 +3544,16 @@ name|endl
 expr_stmt|;
 name|ts
 operator|<<
+literal|"\t\t\t\tVALUE \"ProductVersion\", \""
+operator|<<
+name|versionString
+operator|<<
+literal|"\\0\""
+operator|<<
+name|endl
+expr_stmt|;
+name|ts
+operator|<<
 literal|"\t\t\tEND"
 operator|<<
 name|endl
