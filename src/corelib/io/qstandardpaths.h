@@ -136,6 +136,9 @@ init|=
 name|LocateFile
 parameter_list|)
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_BOOTSTRAPPED
 specifier|static
 name|QString
 name|displayName
@@ -144,6 +147,8 @@ name|StandardLocation
 name|type
 parameter_list|)
 function_decl|;
+endif|#
+directive|endif
 specifier|static
 name|QString
 name|findExecutable
