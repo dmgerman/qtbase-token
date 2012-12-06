@@ -812,10 +812,10 @@ name|void
 name|perspective
 parameter_list|(
 name|float
-name|angle
+name|verticalAngle
 parameter_list|,
 name|float
-name|aspect
+name|aspectRatio
 parameter_list|,
 name|float
 name|nearPlane

@@ -10163,7 +10163,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Multiplies this matrix by another that applies a perspective     projection.  The field of view will be \a angle degrees within     a window with a given \a aspect ratio.  The projection will     have the specified \a nearPlane and \a farPlane clipping planes.      \sa ortho(), frustum() */
+comment|/*!     Multiplies this matrix by another that applies a perspective     projection. The vertical field of view will be \a verticalAngle degrees     within a window with a given \a aspectRatio that determines the horizontal     field of view.     The projection will have the specified \a nearPlane and \a farPlane clipping     planes which are the distances from the viewer to the corresponding planes.      \sa ortho(), frustum() */
 end_comment
 begin_function
 DECL|function|perspective
@@ -10173,10 +10173,10 @@ operator|::
 name|perspective
 parameter_list|(
 name|float
-name|angle
+name|verticalAngle
 parameter_list|,
 name|float
-name|aspect
+name|aspectRatio
 parameter_list|,
 name|float
 name|nearPlane
@@ -10192,7 +10192,7 @@ name|nearPlane
 operator|==
 name|farPlane
 operator|||
-name|aspect
+name|aspectRatio
 operator|==
 literal|0.0f
 condition|)
@@ -10208,7 +10208,7 @@ name|float
 name|radians
 init|=
 operator|(
-name|angle
+name|verticalAngle
 operator|/
 literal|2.0f
 operator|)
@@ -10261,7 +10261,7 @@ index|]
 operator|=
 name|cotan
 operator|/
-name|aspect
+name|aspectRatio
 expr_stmt|;
 name|m
 operator|.
