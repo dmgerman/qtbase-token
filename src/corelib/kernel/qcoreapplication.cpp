@@ -12,6 +12,11 @@ include|#
 directive|include
 file|"qcoreapplication_p.h"
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
+end_ifndef
 begin_include
 include|#
 directive|include
@@ -27,6 +32,10 @@ include|#
 directive|include
 file|"qeventloop.h"
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_include
 include|#
 directive|include
@@ -77,6 +86,11 @@ include|#
 directive|include
 file|<qtextcodec.h>
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
+end_ifndef
 begin_include
 include|#
 directive|include
@@ -97,6 +111,10 @@ include|#
 directive|include
 file|<private/qthread_p.h>
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_include
 include|#
 directive|include
@@ -127,6 +145,11 @@ include|#
 directive|include
 file|<private/qlocale_p.h>
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
+end_ifndef
 begin_if
 if|#
 directive|if
@@ -207,6 +230,13 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_QOBJECT
+end_comment
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -236,6 +266,11 @@ include|#
 directive|include
 file|<locale.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<unistd.h>
+end_include
 begin_endif
 endif|#
 directive|endif
@@ -257,6 +292,11 @@ end_endif
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
+end_ifndef
 begin_class
 DECL|class|QMutexUnlocker
 class|class
@@ -321,6 +361,10 @@ decl_stmt|;
 block|}
 class|;
 end_class
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_if
 if|#
 directive|if
@@ -729,6 +773,11 @@ end_function
 begin_comment
 comment|// Support for introspection
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
+end_ifndef
 begin_decl_stmt
 DECL|variable|qt_signal_spy_callback_set
 name|QSignalSpyCallbackSet
@@ -763,6 +812,10 @@ name|callback_set
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_extern
 DECL|function|qt_startup_hook
 extern|extern
@@ -809,6 +862,11 @@ argument_list|,
 argument|postRList
 argument_list|)
 end_macro
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
+end_ifndef
 begin_decl_stmt
 DECL|variable|globalPreRoutinesMutex
 specifier|static
@@ -816,6 +874,10 @@ name|QBasicMutex
 name|globalPreRoutinesMutex
 decl_stmt|;
 end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*!     \internal      Adds a global routine that will be called from the QCoreApplication     constructor. The public API is Q_COREAPP_STARTUP_FUNCTION. */
 end_comment
@@ -1055,6 +1117,23 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
+comment|// initialized in qcoreapplication and in qtextstream autotest when setlocale is called.
+end_comment
+begin_decl_stmt
+DECL|variable|qt_locale_initialized
+specifier|static
+name|bool
+name|qt_locale_initialized
+init|=
+literal|false
+decl_stmt|;
+end_decl_stmt
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
+end_ifndef
+begin_comment
 comment|// app starting up if false
 end_comment
 begin_decl_stmt
@@ -1076,18 +1155,6 @@ name|bool
 name|QCoreApplicationPrivate
 operator|::
 name|is_app_closing
-init|=
-literal|false
-decl_stmt|;
-end_decl_stmt
-begin_comment
-comment|// initialized in qcoreapplication and in qtextstream autotest when setlocale is called.
-end_comment
-begin_decl_stmt
-DECL|variable|qt_locale_initialized
-specifier|static
-name|bool
-name|qt_locale_initialized
 init|=
 literal|false
 decl_stmt|;
@@ -1125,17 +1192,6 @@ return|;
 block|}
 end_function
 begin_decl_stmt
-DECL|member|self
-name|QCoreApplication
-modifier|*
-name|QCoreApplication
-operator|::
-name|self
-init|=
-literal|0
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|member|eventDispatcher
 name|QAbstractEventDispatcher
 modifier|*
@@ -1144,22 +1200,6 @@ operator|::
 name|eventDispatcher
 init|=
 literal|0
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|member|attribs
-name|uint
-name|QCoreApplicationPrivate
-operator|::
-name|attribs
-init|=
-operator|(
-literal|1
-operator|<<
-name|Qt
-operator|::
-name|AA_SynthesizeMouseForUnhandledTouchEvents
-operator|)
 decl_stmt|;
 end_decl_stmt
 begin_ifdef
@@ -1181,6 +1221,40 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_QOBJECT
+end_comment
+begin_decl_stmt
+DECL|member|self
+name|QCoreApplication
+modifier|*
+name|QCoreApplication
+operator|::
+name|self
+init|=
+literal|0
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|member|attribs
+name|uint
+name|QCoreApplicationPrivate
+operator|::
+name|attribs
+init|=
+operator|(
+literal|1
+operator|<<
+name|Qt
+operator|::
+name|AA_SynthesizeMouseForUnhandledTouchEvents
+operator|)
+decl_stmt|;
+end_decl_stmt
 begin_struct
 DECL|struct|QCoreApplicationData
 struct|struct
@@ -1430,6 +1504,11 @@ argument_list|,
 argument|coreappdata
 argument_list|)
 end_macro
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
+end_ifndef
 begin_decl_stmt
 DECL|variable|quitLockRefEnabled
 specifier|static
@@ -1439,6 +1518,10 @@ init|=
 literal|true
 decl_stmt|;
 end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_constructor
 DECL|function|QCoreApplicationPrivate
 name|QCoreApplicationPrivate
@@ -1458,9 +1541,14 @@ name|uint
 name|flags
 parameter_list|)
 member_init_list|:
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
 name|QObjectPrivate
 argument_list|()
 member_init_list|,
+endif|#
+directive|endif
 name|argc
 argument_list|(
 name|aargc
@@ -1495,6 +1583,9 @@ name|application_type
 argument_list|(
 literal|0
 argument_list|)
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
 member_init_list|,
 name|in_exec
 argument_list|(
@@ -1510,6 +1601,15 @@ name|threadData_clean
 argument_list|(
 literal|false
 argument_list|)
+else|#
+directive|else
+member_init_list|,
+name|q_ptr
+argument_list|(
+literal|0
+argument_list|)
+endif|#
+directive|endif
 block|{
 name|app_compile_version
 operator|=
@@ -1553,6 +1653,25 @@ name|empty
 expr_stmt|;
 comment|// ouch! careful with QCoreApplication::argv()!
 block|}
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+name|qCopy
+argument_list|(
+name|argv
+argument_list|,
+name|argv
+operator|+
+name|argc
+argument_list|,
+name|origArgv
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
 name|QCoreApplicationPrivate
 operator|::
 name|is_app_closing
@@ -1572,23 +1691,6 @@ operator|::
 name|currentThreadId
 argument_list|()
 expr_stmt|;
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|Q_OS_WIN
-argument_list|)
-name|qCopy
-argument_list|(
-name|argv
-argument_list|,
-name|argv
-operator|+
-name|argc
-argument_list|,
-name|origArgv
-argument_list|)
-expr_stmt|;
 endif|#
 directive|endif
 comment|// note: this call to QThread::currentThread() may end up setting theMainThread!
@@ -1606,6 +1708,8 @@ argument_list|(
 literal|"WARNING: QApplication was not created in the main() thread."
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_constructor
 begin_destructor
@@ -1616,9 +1720,14 @@ name|~
 name|QCoreApplicationPrivate
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
 name|cleanupThreadData
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 ifdef|#
 directive|ifdef
 name|Q_OS_WIN
@@ -1630,6 +1739,11 @@ endif|#
 directive|endif
 block|}
 end_destructor
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
+end_ifndef
 begin_function
 DECL|function|cleanupThreadData
 name|void
@@ -2046,6 +2160,13 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_QOBJECT
+end_comment
 begin_function
 DECL|function|appendApplicationPathToLibraryPaths
 name|void
@@ -2226,6 +2347,17 @@ name|QCoreApplicationPrivate
 modifier|&
 name|p
 parameter_list|)
+ifdef|#
+directive|ifdef
+name|QT_NO_QOBJECT
+member_init_list|:
+name|d_ptr
+argument_list|(
+operator|&
+name|p
+argument_list|)
+else|#
+directive|else
 member_init_list|:
 name|QObject
 argument_list|(
@@ -2233,6 +2365,8 @@ name|p
 argument_list|,
 literal|0
 argument_list|)
+endif|#
+directive|endif
 block|{
 name|init
 argument_list|()
@@ -2241,6 +2375,11 @@ comment|// note: it is the subclasses' job to call
 comment|// QCoreApplicationPrivate::eventDispatcher->startingUp();
 block|}
 end_constructor
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
+end_ifndef
 begin_comment
 comment|/*!     Flushes the platform specific event queues.      If you are doing graphical changes inside a loop that does not     return to the event loop on asynchronous window systems like X11     or double buffered window systems like Mac OS X, and you want to     visualize these changes immediately (e.g. Splash Screens), call     this function.      \sa sendPostedEvents() */
 end_comment
@@ -2275,6 +2414,10 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*!     Constructs a Qt kernel application. Kernel applications are     applications without a graphical user interface. These type of     applications are used at the console or as server processes.      The \a argc and \a argv arguments are processed by the application,     and made available in a more convenient form by the arguments()     function.      \warning The data referred to by \a argc and \a argv must stay valid     for the entire lifetime of the QCoreApplication object. In addition,     \a argc must be greater than zero and \a argv must contain at least     one valid character string. */
 end_comment
@@ -2301,6 +2444,24 @@ name|_internal
 endif|#
 directive|endif
 parameter_list|)
+ifdef|#
+directive|ifdef
+name|QT_NO_QOBJECT
+member_init_list|:
+name|d_ptr
+argument_list|(
+operator|new
+name|QCoreApplicationPrivate
+argument_list|(
+name|argc
+argument_list|,
+name|argv
+argument_list|,
+name|_internal
+argument_list|)
+argument_list|)
+else|#
+directive|else
 member_init_list|:
 name|QObject
 argument_list|(
@@ -2315,10 +2476,15 @@ argument_list|,
 name|_internal
 argument_list|)
 argument_list|)
+endif|#
+directive|endif
 block|{
 name|init
 argument_list|()
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
 name|QCoreApplicationPrivate
 operator|::
 name|eventDispatcher
@@ -2326,6 +2492,8 @@ operator|->
 name|startingUp
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_constructor
 begin_comment
@@ -2339,6 +2507,12 @@ operator|::
 name|init
 parameter_list|()
 block|{
+name|d_ptr
+operator|->
+name|q_ptr
+operator|=
+name|this
+expr_stmt|;
 name|Q_D
 argument_list|(
 name|QCoreApplication
@@ -2365,6 +2539,9 @@ name|self
 operator|=
 name|this
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
 comment|// use the event dispatcher created by the app programmer (if any)
 if|if
 condition|(
@@ -2449,6 +2626,8 @@ name|QCoreApplicationPrivate
 operator|::
 name|eventDispatcher
 expr_stmt|;
+endif|#
+directive|endif
 ifndef|#
 directive|ifndef
 name|QT_NO_LIBRARY
@@ -2466,6 +2645,9 @@ argument_list|()
 expr_stmt|;
 endif|#
 directive|endif
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
 if|#
 directive|if
 name|defined
@@ -2487,6 +2669,8 @@ operator|::
 name|initializeProcessManager
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 endif|#
 directive|endif
 ifdef|#
@@ -2539,6 +2723,9 @@ name|self
 operator|=
 literal|0
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
 name|QCoreApplicationPrivate
 operator|::
 name|is_app_closing
@@ -2551,6 +2738,8 @@ name|is_app_running
 operator|=
 literal|false
 expr_stmt|;
+endif|#
+directive|endif
 if|#
 directive|if
 operator|!
@@ -2593,6 +2782,9 @@ argument_list|()
 expr_stmt|;
 endif|#
 directive|endif
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
 name|d_func
 argument_list|()
 operator|->
@@ -2621,6 +2813,8 @@ name|eventDispatcher
 operator|=
 literal|0
 expr_stmt|;
+endif|#
+directive|endif
 ifndef|#
 directive|ifndef
 name|QT_NO_LIBRARY
@@ -2712,6 +2906,11 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
+end_ifndef
 begin_comment
 comment|/*!     \property QCoreApplication::quitLockEnabled      Returns true if the use of the QEventLoopLocker feature can cause the     application to quit, otherwise returns false.      \sa QEventLoopLocker */
 end_comment
@@ -5621,6 +5820,13 @@ end_function
 begin_comment
 comment|/*!   \fn void QCoreApplication::aboutToQuit()    This signal is emitted when the application is about to quit the   main event loop, e.g. when the event loop level drops to zero.   This may happen either after a call to quit() from inside the   application or when the users shuts down the entire desktop session.    The signal is particularly useful if your application has to do some   last-second cleanup. Note that no user interaction is possible in   this state.    \sa quit() */
 end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_QOBJECT
+end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -5695,6 +5901,9 @@ literal|false
 return|;
 endif|#
 directive|endif
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
 name|QEvent
 name|ev
 argument_list|(
@@ -5713,6 +5922,8 @@ operator|&
 name|ev
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 return|return
 literal|true
 return|;
@@ -5775,6 +5986,9 @@ name|translationFile
 argument_list|)
 condition|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
 if|if
 condition|(
 operator|!
@@ -5803,6 +6017,8 @@ name|ev
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 return|return
 literal|true
 return|;
@@ -7201,6 +7417,9 @@ name|orgName
 operator|=
 name|orgName
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
 if|if
 condition|(
 name|QCoreApplication
@@ -7215,6 +7434,8 @@ operator|->
 name|organizationNameChanged
 argument_list|()
 emit|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -7280,6 +7501,9 @@ name|orgDomain
 operator|=
 name|orgDomain
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
 if|if
 condition|(
 name|QCoreApplication
@@ -7294,6 +7518,8 @@ operator|->
 name|organizationDomainChanged
 argument_list|()
 emit|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -7348,6 +7574,9 @@ name|application
 operator|=
 name|application
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
 if|if
 condition|(
 name|QCoreApplication
@@ -7362,6 +7591,8 @@ operator|->
 name|applicationNameChanged
 argument_list|()
 emit|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -7479,6 +7710,9 @@ name|applicationVersion
 operator|=
 name|version
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
 if|if
 condition|(
 name|QCoreApplication
@@ -7493,6 +7727,8 @@ operator|->
 name|applicationVersionChanged
 argument_list|()
 emit|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -7994,6 +8230,11 @@ end_endif
 begin_comment
 comment|//QT_NO_LIBRARY
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
+end_ifndef
 begin_comment
 comment|/*!     Installs an event filter \a filterObj for all native events     received by the application in the main thread.      The event filter \a filterObj receives events via its nativeEventFilter()     function, which is called for all native events received in the main thread.      The nativeEventFilter() function should return true if the event should     be filtered, (i.e. stopped). It should return false to allow     normal Qt processing to continue: the native event can then be translated     into a QEvent and handled by the standard Qt \l{QEvent} {event} filtering,     e.g. QObject::installEventFilter().      If multiple event filters are installed, the filter that was     installed last is activated first.      \note The filter function set here receives native messages,     i.e. MSG or XCB event structs.      For maximum portability, you should always try to use QEvents     and QObject::installEventFilter() whenever possible.      \sa QObject::installEventFilter()      \since 5.0 */
 end_comment
@@ -8193,6 +8434,13 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_QOBJECT
+end_comment
 begin_comment
 comment|/*!     \macro Q_COREAPP_STARTUP_FUNCTION(QtStartUpFunction ptr)     \since 5.1     \relates QCoreApplication     \reentrant      Adds a global function that will be called from the QCoreApplication     constructor. This macro is normally used to initialize libraries     for program-wide functionality, without requiring the application to     call into the library for initialization.      The function specified by \a ptr should take no arguments and should     return nothing. For example:      \snippet code/src_corelib_kernel_qcoreapplication.cpp 3      Note that the startup function will run at the end of the QCoreApplication constructor,     before any GUI initialization. If GUI code is required in the function,     use a timer (or a queued invocation) to perform the initialization later on,     from the event loop.      If QCoreApplication is deleted and another QCoreApplication is created,     the startup function will be invoked again. */
 end_comment

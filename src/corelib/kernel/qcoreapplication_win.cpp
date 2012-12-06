@@ -25,11 +25,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qmutex.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"qfileinfo.h"
 end_include
 begin_include
@@ -37,11 +32,25 @@ include|#
 directive|include
 file|"qcorecmdlineargs_p.h"
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
+end_ifndef
+begin_include
+include|#
+directive|include
+file|"qmutex.h"
+end_include
 begin_include
 include|#
 directive|include
 file|<private/qthread_p.h>
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_include
 include|#
 directive|include
@@ -492,6 +501,9 @@ argument_list|(
 name|prevInstance
 argument_list|)
 argument_list|; }
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
 DECL|function|removePostedTimerEvent
 name|void
 name|QCoreApplicationPrivate
@@ -4995,6 +5007,13 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_QOBJECT
+end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
