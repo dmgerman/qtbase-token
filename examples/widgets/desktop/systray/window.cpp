@@ -7,6 +7,11 @@ include|#
 directive|include
 file|"window.h"
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_SYSTEMTRAYICON
+end_ifndef
 begin_include
 include|#
 directive|include
@@ -1358,4 +1363,8 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 end_unit

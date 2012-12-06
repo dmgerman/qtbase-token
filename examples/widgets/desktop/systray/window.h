@@ -18,6 +18,11 @@ include|#
 directive|include
 file|<QSystemTrayIcon>
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_SYSTEMTRAYICON
+end_ifndef
 begin_include
 include|#
 directive|include
@@ -244,6 +249,13 @@ decl_stmt|;
 end_decl_stmt
 begin_comment
 comment|//! [0]
+end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_SYSTEMTRAYICON
 end_comment
 begin_endif
 endif|#
