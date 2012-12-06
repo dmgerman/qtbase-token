@@ -819,42 +819,6 @@ begin_ifdef
 unit|}
 ifdef|#
 directive|ifdef
-name|QT_NO_TRANSLATION
-end_ifdef
-begin_expr_stmt
-unit|inline
-DECL|function|translate
-name|QString
-name|QCoreApplication
-operator|::
-name|translate
-argument_list|(
-argument|const char *
-argument_list|,
-argument|const char *sourceText
-argument_list|,
-argument|const char *
-argument_list|,
-argument|int
-argument_list|)
-block|{
-return|return
-name|QString
-operator|::
-name|fromUtf8
-argument_list|(
-name|sourceText
-argument_list|)
-return|;
-block|}
-end_expr_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_ifdef
-ifdef|#
-directive|ifdef
 name|QT_NO_DEPRECATED
 end_ifdef
 begin_define
@@ -896,9 +860,9 @@ parameter_list|)
 define|\
 value|public: \     static inline QString tr(const char *sourceText, const char *disambiguation = 0, int n = -1) \         { return QCoreApplication::translate(#context, sourceText, disambiguation, n); } \     QT_DECLARE_DEPRECATED_TR_FUNCTIONS(context) \ private:
 end_define
-begin_typedef
+begin_function_decl
+unit|typedef
 DECL|typedef|QtStartUpFunction
-typedef|typedef
 name|void
 function_decl|(
 modifier|*
@@ -906,7 +870,7 @@ name|QtStartUpFunction
 function_decl|)
 parameter_list|()
 function_decl|;
-end_typedef
+end_function_decl
 begin_typedef
 DECL|typedef|QtCleanUpFunction
 typedef|typedef
