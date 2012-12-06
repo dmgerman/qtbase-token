@@ -263,14 +263,6 @@ argument_list|(
 argument|Qt::ScreenOrientation orientation
 argument_list|)
 block|;
-name|Qt
-operator|::
-name|ScreenOrientation
-name|requestWindowOrientation
-argument_list|(
-argument|Qt::ScreenOrientation orientation
-argument_list|)
-block|;
 name|GLuint
 name|framebufferObject
 argument_list|(

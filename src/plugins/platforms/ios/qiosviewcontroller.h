@@ -14,20 +14,7 @@ name|interface
 name|QIOSViewController
 range|:
 name|UIViewController
-block|{ @
-name|public
-name|bool
-name|m_shouldAutorotate
-block|; }
-operator|-
-operator|(
-name|bool
-operator|)
-name|rotateToDeviceOrientation
-decl_stmt|;
-end_decl_stmt
-begin_macro
-unit|@
+expr|@
 name|end
-end_macro
+end_decl_stmt
 end_unit
