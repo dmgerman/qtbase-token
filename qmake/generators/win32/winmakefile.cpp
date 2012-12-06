@@ -6210,6 +6210,73 @@ comment|// The resource tool needs to have the same defines passed in as the com
 comment|// use these defines in the .rc file itself. Also, we need to add the _DEBUG define manually
 comment|// since the compiler defines this symbol by itself, and we use it in the automatically
 comment|// created rc file when VERSION is define the .pro file.
+specifier|const
+name|ProStringList
+name|rcIncPaths
+init|=
+name|project
+operator|->
+name|values
+argument_list|(
+literal|"RC_INCLUDEPATH"
+argument_list|)
+decl_stmt|;
+name|QString
+name|incPathStr
+decl_stmt|;
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|rcIncPaths
+operator|.
+name|count
+argument_list|()
+condition|;
+operator|++
+name|i
+control|)
+block|{
+specifier|const
+name|ProString
+modifier|&
+name|path
+init|=
+name|rcIncPaths
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|path
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+continue|continue;
+name|incPathStr
+operator|+=
+name|QStringLiteral
+argument_list|(
+literal|" /i "
+argument_list|)
+expr_stmt|;
+name|incPathStr
+operator|+=
+name|escapeFilePath
+argument_list|(
+name|path
+argument_list|)
+expr_stmt|;
+block|}
 name|t
 operator|<<
 name|res_file
@@ -6238,7 +6305,11 @@ else|:
 literal|""
 operator|)
 operator|<<
-literal|" $(DEFINES) -fo "
+literal|" $(DEFINES)"
+operator|<<
+name|incPathStr
+operator|<<
+literal|" -fo "
 operator|<<
 name|res_file
 operator|<<
