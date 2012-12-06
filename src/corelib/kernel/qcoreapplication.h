@@ -852,6 +852,39 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_NO_DEPRECATED
+end_ifdef
+begin_define
+DECL|macro|QT_DECLARE_DEPRECATED_TR_FUNCTIONS
+define|#
+directive|define
+name|QT_DECLARE_DEPRECATED_TR_FUNCTIONS
+parameter_list|(
+name|context
+parameter_list|)
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|QT_DECLARE_DEPRECATED_TR_FUNCTIONS
+define|#
+directive|define
+name|QT_DECLARE_DEPRECATED_TR_FUNCTIONS
+parameter_list|(
+name|context
+parameter_list|)
+define|\
+value|QT_DEPRECATED static inline QString trUtf8(const char *sourceText, const char *disambiguation = 0, int n = -1) \         { return QCoreApplication::translate(#context, sourceText, disambiguation, n); }
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_define
 DECL|macro|Q_DECLARE_TR_FUNCTIONS
 define|#
@@ -861,7 +894,7 @@ parameter_list|(
 name|context
 parameter_list|)
 define|\
-value|public: \     static inline QString tr(const char *sourceText, const char *disambiguation = 0, int n = -1) \         { return QCoreApplication::translate(#context, sourceText, disambiguation, n); } \     QT_DEPRECATED static inline QString trUtf8(const char *sourceText, const char *disambiguation = 0, int n = -1) \         { return QCoreApplication::translate(#context, sourceText, disambiguation, n); } \ private:
+value|public: \     static inline QString tr(const char *sourceText, const char *disambiguation = 0, int n = -1) \         { return QCoreApplication::translate(#context, sourceText, disambiguation, n); } \     QT_DECLARE_DEPRECATED_TR_FUNCTIONS(context) \ private:
 end_define
 begin_typedef
 DECL|typedef|QtStartUpFunction
