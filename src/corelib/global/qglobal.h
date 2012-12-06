@@ -1974,44 +1974,6 @@ name|qintptr
 typedef|;
 end_typedef
 begin_comment
-comment|/*    Constant bool values */
-end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_LINUXBASE
-end_ifndef
-begin_comment
-comment|/* the LSB defines TRUE and FALSE for us */
-end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|TRUE
-end_ifndef
-begin_define
-DECL|macro|TRUE
-define|#
-directive|define
-name|TRUE
-value|true
-end_define
-begin_define
-DECL|macro|FALSE
-define|#
-directive|define
-name|FALSE
-value|false
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
 comment|/* moc compats (signals/slots) */
 end_comment
 begin_ifndef
