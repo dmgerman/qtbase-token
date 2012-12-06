@@ -361,6 +361,17 @@ argument_list|()
 specifier|const
 block|;
 name|void
+name|setTreePosition
+argument_list|(
+argument|int logicalIndex
+argument_list|)
+block|;
+name|int
+name|treePosition
+argument_list|()
+specifier|const
+block|;
+name|void
 name|keyboardSearch
 argument_list|(
 specifier|const

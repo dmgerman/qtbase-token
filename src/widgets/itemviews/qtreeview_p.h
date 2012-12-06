@@ -294,7 +294,12 @@ argument_list|)
 block|,
 name|hasRemovedItems
 argument_list|(
-argument|false
+name|false
+argument_list|)
+block|,
+name|treePosition
+argument_list|(
+literal|0
 argument_list|)
 block|{}
 operator|~
@@ -305,6 +310,26 @@ name|void
 name|initialize
 argument_list|()
 block|;
+name|int
+name|logicalIndexForTree
+argument_list|()
+specifier|const
+block|;
+specifier|inline
+name|bool
+name|isTreePosition
+argument_list|(
+argument|int logicalIndex
+argument_list|)
+specifier|const
+block|{
+return|return
+name|logicalIndex
+operator|==
+name|logicalIndexForTree
+argument_list|()
+return|;
+block|}
 name|QItemViewPaintPairs
 name|draggablePaintPairs
 argument_list|(
@@ -1179,6 +1204,14 @@ end_comment
 begin_decl_stmt
 name|bool
 name|hasRemovedItems
+decl_stmt|;
+end_decl_stmt
+begin_comment
+comment|// tree position
+end_comment
+begin_decl_stmt
+name|int
+name|treePosition
 decl_stmt|;
 end_decl_stmt
 begin_macro
