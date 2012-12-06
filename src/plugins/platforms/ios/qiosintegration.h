@@ -80,6 +80,14 @@ name|fontDatabase
 argument_list|()
 specifier|const
 expr_stmt|;
+name|QVariant
+name|styleHint
+argument_list|(
+name|StyleHint
+name|hint
+argument_list|)
+decl|const
+decl_stmt|;
 name|QAbstractEventDispatcher
 operator|*
 name|guiThreadEventDispatcher
