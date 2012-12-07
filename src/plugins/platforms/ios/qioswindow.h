@@ -243,15 +243,6 @@ name|rect
 argument_list|)
 block|;
 name|void
-name|updateGeometry
-argument_list|(
-specifier|const
-name|QRect
-operator|&
-name|rect
-argument_list|)
-block|;
-name|void
 name|setWindowState
 argument_list|(
 argument|Qt::WindowState state
