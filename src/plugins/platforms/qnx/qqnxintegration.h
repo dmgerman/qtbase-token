@@ -390,6 +390,12 @@ operator|*
 name|screen
 argument_list|)
 block|;
+name|QQnxScreen
+operator|*
+name|primaryDisplay
+argument_list|()
+specifier|const
+block|;
 name|private
 operator|:
 name|void
@@ -399,12 +405,6 @@ block|;
 name|void
 name|destroyDisplays
 argument_list|()
-block|;
-name|QQnxScreen
-operator|*
-name|primaryDisplay
-argument_list|()
-specifier|const
 block|;
 specifier|static
 name|void

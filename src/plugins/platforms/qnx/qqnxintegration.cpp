@@ -1438,9 +1438,7 @@ return|return
 operator|new
 name|QQnxTheme
 argument_list|(
-name|m_fontDatabase
-argument_list|,
-name|m_bpsEventFilter
+name|this
 argument_list|)
 return|;
 return|return
