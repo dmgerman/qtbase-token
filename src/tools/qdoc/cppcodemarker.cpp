@@ -2446,7 +2446,7 @@ argument_list|()
 argument_list|,
 literal|"signal"
 argument_list|,
-literal|"signal"
+literal|"signals"
 argument_list|)
 decl_stmt|;
 name|FastSection
