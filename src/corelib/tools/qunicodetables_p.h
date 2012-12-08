@@ -177,7 +177,7 @@ name|script
 range|:
 literal|8
 decl_stmt|;
-comment|/* 5 used */
+comment|/* 7 used */
 block|}
 struct|;
 name|Q_CORE_EXPORT
