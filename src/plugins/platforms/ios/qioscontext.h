@@ -78,6 +78,13 @@ argument|QPlatformSurface *
 argument_list|)
 specifier|const
 block|;
+name|GLuint
+name|defaultColorRenderbuffer
+argument_list|(
+argument|QPlatformSurface *
+argument_list|)
+specifier|const
+block|;
 name|QFunctionPointer
 name|getProcAddress
 argument_list|(

@@ -261,6 +261,13 @@ argument|const QIOSContext&context
 argument_list|)
 specifier|const
 block|;
+name|GLuint
+name|colorRenderbuffer
+argument_list|(
+argument|const QIOSContext&context
+argument_list|)
+specifier|const
+block|;
 name|EAGLView
 operator|*
 name|nativeView
@@ -279,6 +286,27 @@ name|m_view
 block|;
 name|QRect
 name|m_requestedGeometry
+block|;
+name|mutable
+expr|struct
+name|GLData
+block|{
+name|GLuint
+name|framebufferObject
+block|;
+name|GLuint
+name|colorRenderbuffer
+block|;
+name|GLuint
+name|depthRenderbuffer
+block|;
+name|GLint
+name|renderbufferWidth
+block|;
+name|GLint
+name|renderbufferHeight
+block|;     }
+name|m_glData
 block|; }
 decl_stmt|;
 end_decl_stmt
