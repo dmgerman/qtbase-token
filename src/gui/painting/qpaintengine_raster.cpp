@@ -27576,11 +27576,10 @@ specifier|const
 name|bool
 name|affine
 init|=
-operator|!
-name|m13
-operator|&&
-operator|!
-name|m23
+name|inv
+operator|.
+name|isAffine
+argument_list|()
 decl_stmt|;
 name|fast_matrix
 operator|=
