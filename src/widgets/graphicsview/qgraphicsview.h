@@ -367,6 +367,11 @@ argument_list|(
 argument|Qt::ItemSelectionMode mode
 argument_list|)
 block|;
+name|QRect
+name|rubberBandRect
+argument_list|()
+specifier|const
+block|;
 endif|#
 directive|endif
 name|CacheMode
