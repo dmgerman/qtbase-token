@@ -34,6 +34,12 @@ comment|/*!     \fn void QMargins::setRight(int right)      Sets the right margi
 comment|/*!     \fn void QMargins::setBottom(int bottom)      Sets the bottom margin to \a bottom. */
 comment|/*!     \fn bool operator==(const QMargins&m1, const QMargins&m2)     \relates QMargins      Returns true if \a m1 and \a m2 are equal; otherwise returns false. */
 comment|/*!     \fn bool operator!=(const QMargins&m1, const QMargins&m2)     \relates QMargins      Returns true if \a m1 and \a m2 are different; otherwise returns false. */
+comment|/*!     \fn QRect operator+(const QRect&rectangle, const QMargins&margins)     \relates QRect      Returns the \a rectangle grown by the \a margins.      \since 5.1 */
+comment|/*!     \fn QRect operator+(const QMargins&margins, const QRect&rectangle)     \relates QRect     \overload      Returns the \a rectangle grown by the \a margins.      \since 5.1 */
+comment|/*!     \fn QRect QRect::marginsAdded(const QMargins&margins) const      Returns a rectangle grown by the \a margins.      \sa operator+=(), marginsRemoved(), operator-=()      \since 5.1 */
+comment|/*!     \fn QRect QRect::operator+=(const QMargins&margins) const      Adds the \a margins to the rectangle, growing it.      \sa marginsAdded(), marginsRemoved(), operator-=()      \since 5.1 */
+comment|/*!     \fn QRect QRect::marginsRemoved(const QMargins&margins) const      Removes the \a margins from the rectangle, shrinking it.      \sa marginsAdded(), operator+=(), operator-=()      \since 5.1 */
+comment|/*!     \fn QRect QRect::operator -=(const QMargins&margins) const      Returns a rectangle shrunk by the \a margins.      \sa marginsRemoved(), operator+=(), marginsAdded()      \since 5.1 */
 comment|/*****************************************************************************   QMargins stream functions  *****************************************************************************/
 ifndef|#
 directive|ifndef

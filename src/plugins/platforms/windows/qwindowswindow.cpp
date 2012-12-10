@@ -5988,9 +5988,12 @@ block|{
 return|return
 name|frameGeometry_sys
 argument_list|()
-operator|-
+operator|.
+name|marginsRemoved
+argument_list|(
 name|frameMargins
 argument_list|()
+argument_list|)
 return|;
 block|}
 end_function
