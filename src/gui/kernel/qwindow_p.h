@@ -154,6 +154,11 @@ argument_list|(
 name|WindowFrameExclusive
 argument_list|)
 block|,
+name|positionAutomatic
+argument_list|(
+name|true
+argument_list|)
+block|,
 name|contentOrientation
 argument_list|(
 name|Qt
@@ -386,6 +391,11 @@ end_decl_stmt
 begin_decl_stmt
 name|PositionPolicy
 name|positionPolicy
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|bool
+name|positionAutomatic
 decl_stmt|;
 end_decl_stmt
 begin_expr_stmt

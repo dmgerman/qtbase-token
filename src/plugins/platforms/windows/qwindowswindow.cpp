@@ -95,8 +95,23 @@ include|#
 directive|include
 file|<QtCore/QDebug>
 end_include
-begin_function_decl
+begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+name|enum
+type|{
+DECL|enumerator|defaultWindowWidth
+name|defaultWindowWidth
+init|=
+literal|160
+decl_stmt|,
+DECL|enumerator|defaultWindowHeight
+name|defaultWindowHeight
+init|=
+literal|160
+end_decl_stmt
+begin_function_decl
+DECL|enumerator|defaultWindowHeight
+unit|};
 name|Q_GUI_EXPORT
 name|HICON
 name|qt_pixmapToWinHICON
@@ -2304,6 +2319,22 @@ argument_list|,
 name|isGL
 argument_list|)
 decl_stmt|;
+name|QRect
+name|rect
+init|=
+name|QPlatformWindow
+operator|::
+name|initialGeometry
+argument_list|(
+name|w
+argument_list|,
+name|geometry
+argument_list|,
+name|defaultWindowWidth
+argument_list|,
+name|defaultWindowHeight
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|title
@@ -2379,7 +2410,7 @@ name|QWindowCreationContext
 argument_list|(
 name|w
 argument_list|,
-name|geometry
+name|rect
 argument_list|,
 name|style
 argument_list|,
@@ -2426,7 +2457,7 @@ name|title
 operator|<<
 literal|"\nrequested: "
 operator|<<
-name|geometry
+name|rect
 operator|<<
 literal|": "
 operator|<<
@@ -4062,6 +4093,11 @@ block|{
 ifndef|#
 directive|ifndef
 name|Q_OS_WINCE
+name|QWindowSystemInterface
+operator|::
+name|flushWindowSystemEvents
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|QWindowsContext
