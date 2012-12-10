@@ -276,6 +276,9 @@ operator|:
 name|EAGLView
 operator|*
 name|m_view
+block|;
+name|QRect
+name|m_requestedGeometry
 block|; }
 decl_stmt|;
 end_decl_stmt
