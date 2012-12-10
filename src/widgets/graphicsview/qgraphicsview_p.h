@@ -249,6 +249,9 @@ block|;
 name|QPointF
 name|lastMouseMoveScenePoint
 block|;
+name|QPointF
+name|lastRubberbandScenePoint
+block|;
 name|QPoint
 name|lastMouseMoveScreenPoint
 block|;

@@ -911,6 +911,23 @@ operator|&
 name|rect
 argument_list|)
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_RUBBERBAND
+name|Q_SIGNALS
+operator|:
+name|void
+name|rubberBandChanged
+argument_list|(
+argument|QRect viewportRect
+argument_list|,
+argument|QPointF fromScenePoint
+argument_list|,
+argument|QPointF toScenePoint
+argument_list|)
+block|;
+endif|#
+directive|endif
 name|protected
 name|Q_SLOTS
 operator|:
