@@ -721,6 +721,7 @@ name|State_Horizontal
 expr_stmt|;
 if|if
 condition|(
+operator|(
 name|d
 operator|->
 name|flashed
@@ -729,6 +730,17 @@ operator|!
 name|d
 operator|->
 name|transient
+operator|)
+operator|&&
+name|style
+argument_list|()
+operator|->
+name|styleHint
+argument_list|(
+name|QStyle
+operator|::
+name|SH_ScrollBar_Transient
+argument_list|)
 condition|)
 name|option
 operator|->
