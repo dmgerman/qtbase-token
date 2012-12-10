@@ -19532,6 +19532,24 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
+if|if
+condition|(
+name|dictionary
+index|[
+literal|"SHARED"
+index|]
+operator|==
+literal|"no"
+condition|)
+name|configStream
+operator|<<
+literal|"QT_DEFAULT_QPA_PLUGIN = "
+operator|<<
+name|qpaPlatformName
+argument_list|()
+operator|<<
+name|endl
+expr_stmt|;
 name|configStream
 operator|.
 name|flush
