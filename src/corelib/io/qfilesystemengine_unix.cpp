@@ -867,7 +867,8 @@ name|defined
 argument_list|(
 name|Q_OS_IOS
 argument_list|)
-comment|// Mac OS X 10.5.x doesn't support the realpath(X,0) extension we use here.
+comment|// When using -mmacosx-version-min=10.4, we get the legacy realpath implementation,
+comment|// which does not work properly with the realpath(X,0) form. See QTBUG-28282.
 if|if
 condition|(
 name|QSysInfo
@@ -881,6 +882,21 @@ condition|)
 block|{
 name|ret
 operator|=
+operator|(
+name|char
+operator|*
+operator|)
+name|malloc
+argument_list|(
+name|PATH_MAX
+operator|+
+literal|1
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|ret
+operator|&&
 name|realpath
 argument_list|(
 name|entry
@@ -895,9 +911,33 @@ operator|(
 name|char
 operator|*
 operator|)
+name|ret
+argument_list|)
+operator|==
 literal|0
+condition|)
+block|{
+specifier|const
+name|int
+name|savedErrno
+init|=
+name|errno
+decl_stmt|;
+comment|// errno is checked below, and free() might change it
+name|free
+argument_list|(
+name|ret
 argument_list|)
 expr_stmt|;
+name|errno
+operator|=
+name|savedErrno
+expr_stmt|;
+name|ret
+operator|=
+literal|0
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
