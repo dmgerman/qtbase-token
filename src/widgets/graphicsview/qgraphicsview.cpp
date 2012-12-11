@@ -12670,6 +12670,7 @@ operator|->
 name|mousePressScenePoint
 argument_list|)
 decl_stmt|;
+specifier|const
 name|QPoint
 name|ep
 init|=
