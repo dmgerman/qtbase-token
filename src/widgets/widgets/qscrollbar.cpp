@@ -303,6 +303,10 @@ argument_list|(
 name|QStyle
 operator|::
 name|SH_ScrollBar_Transient
+argument_list|,
+literal|0
+argument_list|,
+name|q
 argument_list|)
 condition|)
 name|q
@@ -355,6 +359,10 @@ argument_list|(
 name|QStyle
 operator|::
 name|SH_ScrollBar_Transient
+argument_list|,
+literal|0
+argument_list|,
+name|q
 argument_list|)
 condition|)
 block|{
@@ -902,6 +910,10 @@ argument_list|(
 name|QStyle
 operator|::
 name|SH_ScrollBar_Transient
+argument_list|,
+literal|0
+argument_list|,
+name|q
 argument_list|)
 expr_stmt|;
 name|flashed
@@ -1632,6 +1644,10 @@ argument_list|(
 name|QStyle
 operator|::
 name|SH_ScrollBar_Transient
+argument_list|,
+literal|0
+argument_list|,
+name|this
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1864,6 +1880,10 @@ argument_list|(
 name|QStyle
 operator|::
 name|SH_ScrollBar_Transient
+argument_list|,
+literal|0
+argument_list|,
+name|this
 argument_list|)
 condition|)
 block|{

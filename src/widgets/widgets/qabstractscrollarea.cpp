@@ -2547,6 +2547,10 @@ argument_list|(
 name|QStyle
 operator|::
 name|SH_ScrollBar_Transient
+argument_list|,
+literal|0
+argument_list|,
+name|hbar
 argument_list|)
 condition|)
 name|horizontalScrollBarRect
@@ -2669,6 +2673,10 @@ argument_list|(
 name|QStyle
 operator|::
 name|SH_ScrollBar_Transient
+argument_list|,
+literal|0
+argument_list|,
+name|vbar
 argument_list|)
 condition|)
 name|verticalScrollBarRect
