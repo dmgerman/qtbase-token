@@ -9361,6 +9361,34 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|QGraphicsItem
+modifier|*
+name|activePanel
+init|=
+name|d_ptr
+operator|->
+name|scene
+operator|->
+name|activePanel
+argument_list|()
+decl_stmt|;
+name|QGraphicsItem
+modifier|*
+name|thisPanel
+init|=
+name|panel
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|activePanel
+operator|||
+name|activePanel
+operator|==
+name|thisPanel
+condition|)
+block|{
 comment|// Deactivate this item, and reactivate the parent panel,
 comment|// or the last active panel (if any).
 name|QGraphicsItem
@@ -9424,6 +9452,7 @@ argument_list|(
 name|nextToActivate
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
