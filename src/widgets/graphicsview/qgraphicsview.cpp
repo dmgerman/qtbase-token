@@ -12661,7 +12661,6 @@ block|}
 comment|// Update rubberband position
 specifier|const
 name|QPoint
-modifier|&
 name|mp
 init|=
 name|mapFromScene
