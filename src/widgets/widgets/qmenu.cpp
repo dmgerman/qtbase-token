@@ -9490,6 +9490,13 @@ specifier|const
 name|bool
 name|snapToMouse
 init|=
+operator|!
+name|d
+operator|->
+name|causedPopup
+operator|.
+name|widget
+operator|&&
 operator|(
 name|QRect
 argument_list|(
