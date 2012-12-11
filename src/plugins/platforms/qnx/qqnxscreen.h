@@ -279,6 +279,12 @@ return|return
 name|m_rootWindow
 return|;
 block|}
+name|QPlatformCursor
+operator|*
+name|cursor
+argument_list|()
+specifier|const
+expr_stmt|;
 name|public
 name|Q_SLOTS
 range|:
@@ -445,6 +451,10 @@ name|screen_window_t
 operator|>
 name|m_overlays
 expr_stmt|;
+name|QPlatformCursor
+modifier|*
+name|m_cursor
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt
