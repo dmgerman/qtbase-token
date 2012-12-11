@@ -15,6 +15,18 @@ begin_comment
 comment|/*! \fn QAtomicInt&QAtomicInt::operator=(const QAtomicInt&other)      Assigns \a other to this QAtomicInt and returns a reference to     this QAtomicInt. */
 end_comment
 begin_comment
+comment|/*!     \fn int QAtomicInt::load() const      Atomically loads the value of this QAtomicInt using relaxed memory     ordering. The value is not modified in any way, but note that there's no     guarantee that it remains so.      \sa store(), loadAcquire() */
+end_comment
+begin_comment
+comment|/*!     \fn int QAtomicInt::loadAcquire() const      Atomically loads the value of this QAtomicInt using the "Acquire" memory     ordering. The value is not modified in any way, but note that there's no     guarantee that it remains so.      \sa store(), load() */
+end_comment
+begin_comment
+comment|/*!     \fn void QAtomicInt::store(int newValue)      Atomically stores the \a newValue value into this atomic type, using     relaxed memory ordering.      \sa storeRelease(), load() */
+end_comment
+begin_comment
+comment|/*!     \fn void QAtomicInt::storeRelease(int newValue)      Atomically stores the \a newValue value into this atomic type, using     the "Release" memory ordering.      \sa store(), load() */
+end_comment
+begin_comment
 comment|/*! \fn bool QAtomicInt::isReferenceCountingNative()      Returns true if reference counting is implemented using atomic     processor instructions, false otherwise. */
 end_comment
 begin_comment
@@ -139,6 +151,18 @@ comment|/*! \fn QAtomicPointer::QAtomicPointer(const QAtomicPointer<T>&other)   
 end_comment
 begin_comment
 comment|/*! \fn QAtomicPointer<T>&QAtomicPointer::operator=(const QAtomicPointer<T>&other)      Assigns \a other to this QAtomicPointer and returns a reference to     this QAtomicPointer. */
+end_comment
+begin_comment
+comment|/*!     \fn T *QAtomicPointer::load() const      Atomically loads the value of this QAtomicPointer using relaxed memory     ordering. The value is not modified in any way, but note that there's no     guarantee that it remains so.      \sa store(), loadAcquire() */
+end_comment
+begin_comment
+comment|/*!     \fn T *QAtomicPointer::loadAcquire() const      Atomically loads the value of this QAtomicPointerusing the "Acquire" memory     ordering. The value is not modified in any way, but note that there's no     guarantee that it remains so.      \sa store(), load() */
+end_comment
+begin_comment
+comment|/*!     \fn void QAtomicPointer::store(T *newValue)      Atomically stores the \a newValue value into this atomic type, using     relaxed memory ordering.      \sa storeRelease(), load() */
+end_comment
+begin_comment
+comment|/*!     \fn void QAtomicPointer::storeRelease(T *newValue)      Atomically stores the \a newValue value into this atomic type, using     the "Release" memory ordering.      \sa store(), load() */
 end_comment
 begin_comment
 comment|/*! \fn bool QAtomicPointer::isTestAndSetNative()      Returns true if test-and-set is implemented using atomic processor     instructions, false otherwise. */
