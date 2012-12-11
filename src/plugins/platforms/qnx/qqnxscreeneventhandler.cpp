@@ -1442,6 +1442,21 @@ name|errno
 argument_list|)
 expr_stmt|;
 block|}
+name|QCursor
+operator|::
+name|setPos
+argument_list|(
+name|pos
+index|[
+literal|0
+index|]
+argument_list|,
+name|pos
+index|[
+literal|1
+index|]
+argument_list|)
+expr_stmt|;
 comment|// get window coordinates of touch
 name|errno
 operator|=
