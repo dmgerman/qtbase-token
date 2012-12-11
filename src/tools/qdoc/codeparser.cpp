@@ -847,10 +847,6 @@ condition|)
 block|{
 comment|// Note: \ingroup and \inpublicgroup are now the same.
 comment|// Not that they were ever different.
-name|DocNode
-modifier|*
-name|dn
-init|=
 name|qdb_
 operator|->
 name|addToGroup
@@ -861,7 +857,7 @@ name|first
 argument_list|,
 name|node
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 block|}
 elseif|else
 if|if
