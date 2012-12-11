@@ -3480,16 +3480,6 @@ operator|==
 literal|"QMAKE_INTERNAL_INCLUDED_FILES"
 condition|)
 block|{
-name|ret
-operator|.
-name|prepend
-argument_list|(
-name|project
-operator|->
-name|projectFile
-argument_list|()
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|int
@@ -3800,6 +3790,24 @@ modifier|&
 name|t
 parameter_list|)
 block|{
+comment|// The code in this function assumes that the current directory matches
+comment|// the output directory, which is not actually the case when we are called
+comment|// from the generic generator code. Instead of changing every single
+comment|// assumption and fileFixify we cheat by moving into the output directory
+comment|// for the duration of this function.
+name|QString
+name|input_dir
+init|=
+name|qmake_getpwd
+argument_list|()
+decl_stmt|;
+name|qmake_setpwd
+argument_list|(
+name|Option
+operator|::
+name|output_dir
+argument_list|)
+expr_stmt|;
 name|ProStringList
 name|tmp
 decl_stmt|;
@@ -3937,6 +3945,12 @@ name|writingUnixMakefileGenerator
 operator|=
 literal|true
 expr_stmt|;
+name|qmake_setpwd
+argument_list|(
+name|input_dir
+argument_list|)
+expr_stmt|;
+comment|// Makefile generation assumes input_dir as pwd
 name|debug_msg
 argument_list|(
 literal|1
@@ -3993,6 +4007,13 @@ expr_stmt|;
 name|writingUnixMakefileGenerator
 operator|=
 literal|false
+expr_stmt|;
+name|qmake_setpwd
+argument_list|(
+name|Option
+operator|::
+name|output_dir
+argument_list|)
 expr_stmt|;
 block|}
 name|QString
@@ -4161,6 +4182,31 @@ operator|<<
 literal|"\n"
 expr_stmt|;
 block|}
+comment|// FIXME: Move all file resolving logic out of ProjectBuilderSources::files(), as it
+comment|// doesn't have access to any of the information it needs to resolve relative paths.
+name|project
+operator|->
+name|values
+argument_list|(
+literal|"QMAKE_INTERNAL_INCLUDED_FILES"
+argument_list|)
+operator|.
+name|prepend
+argument_list|(
+name|fileFixify
+argument_list|(
+name|project
+operator|->
+name|projectFile
+argument_list|()
+argument_list|,
+name|qmake_getpwd
+argument_list|()
+argument_list|,
+name|input_dir
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|//DUMP SOURCES
 name|QMap
 argument_list|<
@@ -13347,6 +13393,11 @@ literal|false
 expr_stmt|;
 block|}
 block|}
+name|qmake_setpwd
+argument_list|(
+name|input_dir
+argument_list|)
+expr_stmt|;
 return|return
 literal|true
 return|;
@@ -14745,30 +14796,13 @@ modifier|&
 name|where
 parameter_list|)
 block|{
-name|QString
-name|ret
-init|=
-literal|"<absolute>"
-decl_stmt|;
-if|if
-condition|(
-name|QDir
-operator|::
-name|isRelativePath
-argument_list|(
-name|unescapeFilePath
-argument_list|(
-name|where
-argument_list|)
-argument_list|)
-condition|)
-name|ret
-operator|=
-literal|"SOURCE_ROOT"
-expr_stmt|;
-comment|//relative
+comment|// We always use absolute paths, instead of maintaining the SRCROOT
+comment|// build variable and making files relative to that.
 return|return
-name|ret
+name|QLatin1String
+argument_list|(
+literal|"<absolute>"
+argument_list|)
 return|;
 block|}
 end_function
