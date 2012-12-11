@@ -159,7 +159,7 @@ forever|forever
 block|{
 comment|// ### The user must make sure to call qsrand() to make the pipe names less predictable.
 comment|// ### Replace the call to qrand() with a secure version, once we have it in Qt.
-name|swprintf
+name|_snwprintf
 argument_list|(
 name|pipeName
 argument_list|,
