@@ -19543,7 +19543,7 @@ literal|"no"
 condition|)
 name|configStream
 operator|<<
-literal|"QT_DEFAULT_QPA_PLUGIN = "
+literal|"QT_DEFAULT_QPA_PLUGIN = q"
 operator|<<
 name|qpaPlatformName
 argument_list|()
