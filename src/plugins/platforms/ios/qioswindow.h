@@ -254,6 +254,12 @@ argument_list|(
 argument|Qt::ScreenOrientation orientation
 argument_list|)
 block|;
+name|void
+name|setVisible
+argument_list|(
+argument|bool visible
+argument_list|)
+block|;
 name|GLuint
 name|framebufferObject
 argument_list|(
