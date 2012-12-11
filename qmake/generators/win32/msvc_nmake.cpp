@@ -3127,6 +3127,20 @@ argument_list|,
 name|extraLFlags
 argument_list|)
 expr_stmt|;
+specifier|const
+name|QString
+name|resourceId
+init|=
+operator|(
+name|templateName
+operator|==
+literal|"app"
+operator|)
+condition|?
+literal|"1"
+else|:
+literal|"2"
+decl_stmt|;
 name|t
 operator|<<
 literal|"\n\t"
@@ -3135,7 +3149,9 @@ literal|"mt.exe /nologo /manifest "
 operator|<<
 name|manifest
 operator|<<
-literal|" /outputresource:$(DESTDIR_TARGET);1"
+literal|" /outputresource:$(DESTDIR_TARGET);"
+operator|<<
+name|resourceId
 expr_stmt|;
 block|}
 block|}
