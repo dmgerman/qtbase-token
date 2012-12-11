@@ -2088,6 +2088,10 @@ name|insertTarget
 argument_list|(
 name|name
 argument_list|,
+name|TargetRec
+operator|::
+name|Keyword
+argument_list|,
 name|parent
 argument_list|,
 literal|1
@@ -2112,6 +2116,10 @@ name|insertTarget
 argument_list|(
 name|name
 argument_list|,
+name|TargetRec
+operator|::
+name|Target
+argument_list|,
 name|parent
 argument_list|,
 literal|2
@@ -2135,6 +2143,10 @@ operator|->
 name|insertTarget
 argument_list|(
 name|name
+argument_list|,
+name|TargetRec
+operator|::
+name|Contents
 argument_list|,
 name|parent
 argument_list|,
