@@ -16538,6 +16538,25 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|QT_OPENGL_ES_2_ANGLE
+if|if
+condition|(
+name|platformName
+operator|==
+name|QLatin1String
+argument_list|(
+literal|"windows"
+argument_list|)
+condition|)
+name|QSKIP
+argument_list|(
+literal|"nativeSubWindows() does not work with ANGLE on Windows, QTBUG-28545."
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|{
 comment|// Add native widgets after show.
 name|QMdiArea
