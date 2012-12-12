@@ -342,11 +342,6 @@ name|ProcessEventsFlags
 name|flags
 parameter_list|)
 block|{
-name|Q_D
-argument_list|(
-name|QPAEventDispatcherGlib
-argument_list|)
-expr_stmt|;
 name|m_flags
 operator|=
 name|flags
