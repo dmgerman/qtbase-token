@@ -222,11 +222,20 @@ argument|QWidget *parent =
 literal|0
 argument_list|)
 block|;
+name|explicit
 name|QDialogButtonBox
 argument_list|(
 argument|StandardButtons buttons
 argument_list|,
-argument|Qt::Orientation orientation = Qt::Horizontal
+argument|QWidget *parent =
+literal|0
+argument_list|)
+block|;
+name|QDialogButtonBox
+argument_list|(
+argument|StandardButtons buttons
+argument_list|,
+argument|Qt::Orientation orientation
 argument_list|,
 argument|QWidget *parent =
 literal|0
