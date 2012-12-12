@@ -296,6 +296,11 @@ parameter_list|(
 name|QWindow
 modifier|*
 name|tlw
+parameter_list|,
+name|Qt
+operator|::
+name|FocusReason
+name|r
 parameter_list|)
 block|{
 name|QWindowSystemInterfacePrivate
@@ -310,6 +315,8 @@ operator|::
 name|ActivatedWindowEvent
 argument_list|(
 name|tlw
+argument_list|,
+name|r
 argument_list|)
 decl_stmt|;
 name|QWindowSystemInterfacePrivate

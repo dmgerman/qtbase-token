@@ -915,6 +915,9 @@ modifier|*
 name|PeekFunc
 function_decl|)
 parameter_list|(
+name|QXcbConnection
+modifier|*
+parameter_list|,
 name|xcb_generic_event_t
 modifier|*
 parameter_list|)

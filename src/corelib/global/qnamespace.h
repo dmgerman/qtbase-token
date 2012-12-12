@@ -819,6 +819,12 @@ name|SubWindow
 init|=
 literal|0x00000012
 block|,
+name|ForeignWindow
+init|=
+literal|0x00000020
+operator||
+name|Window
+block|,
 name|WindowType_Mask
 init|=
 literal|0x000000ff

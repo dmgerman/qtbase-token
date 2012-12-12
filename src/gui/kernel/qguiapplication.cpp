@@ -6536,6 +6536,10 @@ argument_list|(
 name|QEvent
 operator|::
 name|FocusIn
+argument_list|,
+name|e
+operator|->
+name|reason
 argument_list|)
 decl_stmt|;
 name|QCoreApplication

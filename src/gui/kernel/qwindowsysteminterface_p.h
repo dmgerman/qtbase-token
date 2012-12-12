@@ -438,9 +438,9 @@ operator|:
 name|explicit
 name|ActivatedWindowEvent
 argument_list|(
-name|QWindow
-operator|*
-name|activatedWindow
+argument|QWindow *activatedWindow
+argument_list|,
+argument|Qt::FocusReason r
 argument_list|)
 operator|:
 name|WindowSystemEvent
@@ -450,7 +450,12 @@ argument_list|)
 block|,
 name|activated
 argument_list|(
-argument|activatedWindow
+name|activatedWindow
+argument_list|)
+block|,
+name|reason
+argument_list|(
+argument|r
 argument_list|)
 block|{ }
 name|QPointer
@@ -458,6 +463,11 @@ operator|<
 name|QWindow
 operator|>
 name|activated
+block|;
+name|Qt
+operator|::
+name|FocusReason
+name|reason
 block|;     }
 decl_stmt|;
 name|class

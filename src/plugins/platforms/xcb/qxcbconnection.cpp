@@ -4895,6 +4895,8 @@ modifier|*
 name|it
 call|)
 argument_list|(
+name|this
+argument_list|,
 name|event
 argument_list|)
 condition|)
@@ -4954,6 +4956,8 @@ argument|m_peekFuncs
 argument_list|)
 name|f
 argument_list|(
+name|this
+argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;

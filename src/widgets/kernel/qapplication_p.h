@@ -577,6 +577,9 @@ argument_list|(
 argument|QWidget *toplevel
 argument_list|,
 argument|bool next
+argument_list|,
+argument|bool *wrappingOccurred =
+literal|0
 argument_list|)
 block|;
 ifndef|#

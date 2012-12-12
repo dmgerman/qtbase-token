@@ -109,6 +109,13 @@ operator|*
 argument_list|)
 block|;
 name|void
+name|handleFocusInEvent
+argument_list|(
+name|QFocusEvent
+operator|*
+argument_list|)
+block|;
+name|void
 name|handleKeyEvent
 argument_list|(
 name|QKeyEvent
@@ -256,6 +263,20 @@ operator|:
 name|void
 name|updateGeometry
 argument_list|()
+block|;      enum
+name|FocusWidgets
+block|{
+name|FirstFocusWidget
+block|,
+name|LastFocusWidget
+block|}
+block|;
+name|QWidget
+operator|*
+name|getFocusWidget
+argument_list|(
+argument|FocusWidgets fw
+argument_list|)
 block|;
 name|QWidget
 operator|*

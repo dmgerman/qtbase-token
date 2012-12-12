@@ -1077,6 +1077,15 @@ parameter_list|()
 function_decl|;
 endif|#
 directive|endif
+specifier|static
+name|QWindow
+modifier|*
+name|fromWinId
+parameter_list|(
+name|WId
+name|id
+parameter_list|)
+function_decl|;
 name|public
 name|Q_SLOTS
 range|:
