@@ -449,12 +449,6 @@ function_decl|;
 name|void
 name|handleMouseEvent
 argument_list|(
-name|xcb_button_t
-name|detail
-argument_list|,
-name|uint16_t
-name|state
-argument_list|,
 name|xcb_timestamp_t
 name|time
 argument_list|,
