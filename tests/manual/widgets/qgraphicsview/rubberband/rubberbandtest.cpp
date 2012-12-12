@@ -31,7 +31,6 @@ name|ItemIsSelectable
 argument_list|)
 expr_stmt|;
 block|}
-DECL|function|paint
 name|void
 name|paint
 parameter_list|(
@@ -48,6 +47,7 @@ name|QWidget
 modifier|*
 comment|/*widget*/
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -165,7 +165,6 @@ argument_list|)
 expr_stmt|;
 block|}
 protected|protected:
-DECL|function|mouseMoveEvent
 name|void
 name|mouseMoveEvent
 parameter_list|(
@@ -173,6 +172,7 @@ name|QMouseEvent
 modifier|*
 name|event
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|QGraphicsView
 operator|::
