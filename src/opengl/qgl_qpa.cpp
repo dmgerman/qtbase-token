@@ -2031,7 +2031,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a OpenGL context for the window context specified by \a windowContext */
+comment|/*!     Returns a OpenGL context for the window context specified by the \a context     parameter. */
 end_comment
 begin_function
 DECL|function|fromOpenGLContext
