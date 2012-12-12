@@ -1618,11 +1618,26 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|level
+operator|==
+name|d
+operator|->
+name|opacity
+condition|)
+comment|// #fixme: Add property for 5.1
+return|return;
+name|d
+operator|->
+name|opacity
+operator|=
+name|level
+expr_stmt|;
+if|if
+condition|(
 name|d
 operator|->
 name|platformWindow
 condition|)
-block|{
 name|d
 operator|->
 name|platformWindow
@@ -1632,7 +1647,6 @@ argument_list|(
 name|level
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 end_function
 begin_comment

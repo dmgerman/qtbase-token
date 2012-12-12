@@ -36657,6 +36657,13 @@ operator|::
 name|WA_WState_WindowOpacitySet
 argument_list|)
 expr_stmt|;
+name|d
+operator|->
+name|setWindowOpacity_sys
+argument_list|(
+name|opacity
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -36724,13 +36731,6 @@ return|return;
 block|}
 endif|#
 directive|endif
-name|d
-operator|->
-name|setWindowOpacity_sys
-argument_list|(
-name|opacity
-argument_list|)
-expr_stmt|;
 block|}
 comment|/*!     \property QWidget::windowModified     \brief whether the document shown in the window has unsaved changes      A modified window is a window whose content has changed but has     not been saved to disk. This flag will have different effects     varied by the platform. On Mac OS X the close button will have a     modified look; on other platforms, the window title will have an     '*' (asterisk).      The window title must contain a "[*]" placeholder, which     indicates where the '*' should appear. Normally, it should appear     right after the file name (e.g., "document1.txt[*] - Text     Editor"). If the window isn't modified, the placeholder is simply     removed.      Note that if a widget is set as modified, all its ancestors will     also be set as modified. However, if you call \c     {setWindowModified(false)} on a widget, this will not propagate to     its parent because other children of the parent might have been     modified.      \sa windowTitle, {Application Example}, {SDI Example}, {MDI Example} */
 DECL|function|isWindowModified

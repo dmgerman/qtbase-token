@@ -161,6 +161,14 @@ operator|::
 name|PrimaryOrientation
 argument_list|)
 block|,
+name|opacity
+argument_list|(
+name|qreal
+argument_list|(
+literal|1.0
+argument_list|)
+argument_list|)
+block|,
 name|minimumSize
 argument_list|(
 literal|0
@@ -370,6 +378,11 @@ name|ScreenOrientation
 name|contentOrientation
 expr_stmt|;
 end_expr_stmt
+begin_decl_stmt
+name|qreal
+name|opacity
+decl_stmt|;
+end_decl_stmt
 begin_decl_stmt
 name|QSize
 name|minimumSize
