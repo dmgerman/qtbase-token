@@ -82,8 +82,10 @@ name|height
 decl_stmt|;
 name|mNativeDisplay
 operator|=
-name|fbGetDisplay
-argument_list|()
+name|fbGetDisplayByIndex
+argument_list|(
+literal|0
+argument_list|)
 expr_stmt|;
 name|fbGetDisplayGeometry
 argument_list|(
@@ -158,7 +160,7 @@ name|mNativeDisplay
 argument_list|,
 literal|0
 argument_list|,
-literal|1
+literal|0
 argument_list|,
 name|size
 operator|.
