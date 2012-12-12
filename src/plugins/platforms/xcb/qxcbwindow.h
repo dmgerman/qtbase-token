@@ -274,6 +274,13 @@ name|Corner
 name|corner
 argument_list|)
 decl_stmt|;
+name|void
+name|setOpacity
+parameter_list|(
+name|qreal
+name|level
+parameter_list|)
+function_decl|;
 if|#
 directive|if
 operator|!
