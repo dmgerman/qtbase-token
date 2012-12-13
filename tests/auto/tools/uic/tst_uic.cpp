@@ -959,22 +959,7 @@ name|QRegExp
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|"Created:.{0,25}[\\d]{4,4}"
-argument_list|)
-argument_list|)
-argument_list|,
-literal|""
-argument_list|)
-expr_stmt|;
-name|originalFile
-operator|.
-name|replace
-argument_list|(
-name|QRegExp
-argument_list|(
-name|QLatin1String
-argument_list|(
-literal|"by: Qt User Interface Compiler version [.\\d]{5,5}"
+literal|"Created by: Qt User Interface Compiler version [.\\d]{5,5}"
 argument_list|)
 argument_list|)
 argument_list|,
@@ -996,22 +981,7 @@ name|QRegExp
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|"Created:.{0,25}[\\d]{4,4}"
-argument_list|)
-argument_list|)
-argument_list|,
-literal|""
-argument_list|)
-expr_stmt|;
-name|generatedFile
-operator|.
-name|replace
-argument_list|(
-name|QRegExp
-argument_list|(
-name|QLatin1String
-argument_list|(
-literal|"by: Qt User Interface Compiler version [.\\d]{5,5}"
+literal|"Created by: Qt User Interface Compiler version [.\\d]{5,5}"
 argument_list|)
 argument_list|)
 argument_list|,

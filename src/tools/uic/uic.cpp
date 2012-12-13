@@ -436,36 +436,14 @@ literal|"**\n"
 expr_stmt|;
 name|out
 operator|<<
-literal|"** Created: "
+literal|"** Created by: Qt User Interface Compiler version "
 operator|<<
-name|QDateTime
-operator|::
-name|currentDateTime
-argument_list|()
-operator|.
-name|toString
-argument_list|()
-operator|<<
-literal|"\n"
-expr_stmt|;
-name|out
-operator|<<
-literal|"**      "
-operator|<<
-name|QString
-operator|::
-name|fromLatin1
-argument_list|(
-literal|"by: Qt User Interface Compiler version %1\n"
-argument_list|)
-operator|.
-name|arg
-argument_list|(
 name|QLatin1String
 argument_list|(
 name|QT_VERSION_STR
 argument_list|)
-argument_list|)
+operator|<<
+literal|"\n"
 expr_stmt|;
 name|out
 operator|<<
