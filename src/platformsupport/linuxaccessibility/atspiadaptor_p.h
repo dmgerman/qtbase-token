@@ -140,10 +140,12 @@ name|event
 argument_list|)
 block|;
 name|void
-name|setInitialized
-argument_list|(
-argument|bool init
-argument_list|)
+name|init
+argument_list|()
+block|;
+name|void
+name|checkInitializedAndEnabled
+argument_list|()
 block|;
 name|public
 name|Q_SLOTS
@@ -628,9 +630,6 @@ block|;
 comment|/// Assigned from the accessibility registry.
 name|int
 name|m_applicationId
-block|;
-name|bool
-name|initialized
 block|;
 name|mutable
 name|QHash
