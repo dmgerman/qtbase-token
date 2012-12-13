@@ -42,6 +42,15 @@ argument|ThemeHint hint
 argument_list|)
 specifier|const
 block|;
+specifier|const
+name|QFont
+operator|*
+name|font
+argument_list|(
+argument|Font type = SystemFont
+argument_list|)
+specifier|const
+block|;
 specifier|static
 specifier|const
 name|char
