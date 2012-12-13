@@ -77,6 +77,11 @@ name|m_usePixmapCache
 operator|=
 literal|true
 expr_stmt|;
+name|m_cliprect
+operator|=
+name|QRect
+argument_list|()
+expr_stmt|;
 block|}
 end_function
 begin_function
