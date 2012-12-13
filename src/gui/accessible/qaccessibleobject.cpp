@@ -430,6 +430,12 @@ return|return
 name|childIface
 return|;
 block|}
+else|else
+block|{
+operator|delete
+name|childIface
+expr_stmt|;
+block|}
 block|}
 return|return
 literal|0
