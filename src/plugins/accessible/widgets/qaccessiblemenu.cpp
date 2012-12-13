@@ -708,6 +708,8 @@ name|i
 init|=
 name|childCount
 argument_list|()
+operator|-
+literal|1
 init|;
 name|i
 operator|>=
