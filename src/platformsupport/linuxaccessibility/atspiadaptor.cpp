@@ -239,6 +239,11 @@ argument_list|(
 literal|0
 argument_list|)
 member_init_list|,
+name|sendObject_state_changed
+argument_list|(
+literal|0
+argument_list|)
+member_init_list|,
 name|sendObject_text_attributes_changed
 argument_list|(
 literal|0
