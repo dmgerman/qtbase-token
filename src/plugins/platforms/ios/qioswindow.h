@@ -274,6 +274,11 @@ argument|const QIOSContext&context
 argument_list|)
 specifier|const
 block|;
+name|qreal
+name|devicePixelRatio
+argument_list|()
+specifier|const
+block|;
 name|EAGLView
 operator|*
 name|nativeView
@@ -313,6 +318,9 @@ name|GLint
 name|renderbufferHeight
 block|;     }
 name|m_glData
+block|;
+name|qreal
+name|m_devicePixelRatio
 block|; }
 decl_stmt|;
 end_decl_stmt

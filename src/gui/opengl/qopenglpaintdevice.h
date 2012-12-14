@@ -115,6 +115,12 @@ operator|&
 name|size
 argument_list|)
 block|;
+name|void
+name|setDevicePixelRatio
+argument_list|(
+argument|qreal devicePixelRatio
+argument_list|)
+block|;
 name|qreal
 name|dotsPerMeterX
 argument_list|()
