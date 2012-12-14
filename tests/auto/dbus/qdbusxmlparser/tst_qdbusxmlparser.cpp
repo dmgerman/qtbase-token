@@ -71,6 +71,10 @@ private|private
 name|slots
 private|:
 name|void
+name|initTestCase
+parameter_list|()
+function_decl|;
+name|void
 name|parsing_data
 parameter_list|()
 function_decl|;
@@ -113,6 +117,24 @@ function_decl|;
 block|}
 class|;
 end_class
+begin_function
+DECL|function|initTestCase
+name|void
+name|tst_QDBusXmlParser
+operator|::
+name|initTestCase
+parameter_list|()
+block|{
+comment|// Avoid QHash randomization so that the order of the XML attributes is stable
+name|qputenv
+argument_list|(
+literal|"QT_HASH_SEED"
+argument_list|,
+literal|"123"
+argument_list|)
+expr_stmt|;
+block|}
+end_function
 begin_function
 DECL|function|parsing_data
 name|void
