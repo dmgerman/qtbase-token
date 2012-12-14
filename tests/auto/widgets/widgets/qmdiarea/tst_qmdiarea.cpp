@@ -10761,7 +10761,7 @@ name|workspace
 operator|.
 name|resize
 argument_list|(
-literal|150
+literal|160
 argument_list|,
 literal|150
 argument_list|)
@@ -10780,7 +10780,7 @@ argument_list|()
 argument_list|,
 name|QSize
 argument_list|(
-literal|150
+literal|160
 argument_list|,
 literal|150
 argument_list|)
