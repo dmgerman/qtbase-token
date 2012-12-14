@@ -101,6 +101,12 @@ name|enumNameFromValue
 argument_list|(
 argument|const Qt::MouseButton button
 argument_list|)
+block|;
+name|QString
+name|enumNamesFromMouseButtons
+argument_list|(
+argument|const Qt::MouseButtons buttons
+argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt

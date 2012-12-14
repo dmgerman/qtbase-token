@@ -50,6 +50,25 @@ argument_list|,
 literal|350
 argument_list|)
 expr_stmt|;
+comment|//  For this test, Qt::RightButton behaves like any other button.
+name|testArea
+operator|->
+name|setContextMenuPolicy
+argument_list|(
+name|Qt
+operator|::
+name|NoContextMenu
+argument_list|)
+expr_stmt|;
+name|testArea
+operator|->
+name|setTextInteractionFlags
+argument_list|(
+name|Qt
+operator|::
+name|TextSelectableByMouse
+argument_list|)
+expr_stmt|;
 name|testArea
 operator|->
 name|setText
