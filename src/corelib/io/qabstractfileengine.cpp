@@ -228,7 +228,7 @@ block|}
 block|}
 end_destructor
 begin_comment
-comment|/*    \Ã¬nternal     Handles calls to custom file engine handlers. */
+comment|/*    \internal     Handles calls to custom file engine handlers. */
 end_comment
 begin_function
 DECL|function|qt_custom_file_engine_handler_create
