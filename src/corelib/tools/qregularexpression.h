@@ -511,6 +511,9 @@ name|QRegularExpressionMatch
 block|{
 name|public
 label|:
+name|QRegularExpressionMatch
+argument_list|()
+expr_stmt|;
 operator|~
 name|QRegularExpressionMatch
 argument_list|()
@@ -802,6 +805,9 @@ name|QRegularExpressionMatchIterator
 block|{
 name|public
 label|:
+name|QRegularExpressionMatchIterator
+argument_list|()
+expr_stmt|;
 operator|~
 name|QRegularExpressionMatchIterator
 argument_list|()

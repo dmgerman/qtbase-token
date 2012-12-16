@@ -42,6 +42,10 @@ name|private
 name|slots
 operator|:
 name|void
+name|defaultConstructors
+argument_list|()
+block|;
+name|void
 name|gettersSetters_data
 argument_list|()
 block|;
