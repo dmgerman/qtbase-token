@@ -14960,6 +14960,27 @@ name|receiver
 operator|=
 literal|0
 expr_stmt|;
+cast|const_cast
+argument_list|<
+name|QMetaObject
+operator|::
+name|Connection
+operator|&
+argument_list|>
+argument_list|(
+name|connection
+argument_list|)
+operator|.
+name|d_ptr
+operator|=
+literal|0
+expr_stmt|;
+name|c
+operator|->
+name|deref
+argument_list|()
+expr_stmt|;
+comment|// has been removed from the QMetaObject::Connection object
 comment|// disconnectNotify() not called (the signal index is unknown).
 return|return
 literal|true
