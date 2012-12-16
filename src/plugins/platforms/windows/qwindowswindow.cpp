@@ -1586,11 +1586,6 @@ operator|==
 literal|1
 condition|)
 block|{
-name|qWarning
-argument_list|(
-literal|"Remove me: fixing toplevel window flags"
-argument_list|)
-expr_stmt|;
 name|flags
 operator||=
 name|Qt
