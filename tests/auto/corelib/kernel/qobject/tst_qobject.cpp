@@ -36440,12 +36440,6 @@ name|const_slot_v
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|QVERIFY
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-comment|//compilation only test
 block|}
 end_function
 begin_class
