@@ -414,6 +414,8 @@ name|matchOptions
 parameter_list|,
 name|int
 name|capturingCount
+init|=
+literal|0
 parameter_list|)
 constructor_decl|;
 name|QRegularExpressionMatch
@@ -1574,8 +1576,6 @@ argument_list|,
 name|matchType
 argument_list|,
 name|matchOptions
-argument_list|,
-literal|0
 argument_list|)
 return|;
 if|if
@@ -1600,8 +1600,6 @@ argument_list|,
 name|matchType
 argument_list|,
 name|matchOptions
-argument_list|,
-literal|0
 argument_list|)
 return|;
 block|}
@@ -1629,8 +1627,6 @@ argument_list|,
 name|matchType
 argument_list|,
 name|matchOptions
-argument_list|,
-literal|0
 argument_list|)
 decl_stmt|;
 name|priv
@@ -1643,6 +1639,7 @@ return|return
 name|priv
 return|;
 block|}
+comment|// capturingCount doesn't include the implicit "0" capturing group
 name|QRegularExpressionMatchPrivate
 modifier|*
 name|priv
@@ -1659,6 +1656,8 @@ argument_list|,
 name|matchOptions
 argument_list|,
 name|capturingCount
+operator|+
+literal|1
 argument_list|)
 decl_stmt|;
 comment|// this is mutex protected
@@ -2181,15 +2180,18 @@ operator|>=
 literal|0
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|capturingCount
+operator|>
+literal|0
+condition|)
+block|{
 specifier|const
 name|int
 name|captureOffsetsCount
 init|=
-operator|(
 name|capturingCount
-operator|+
-literal|1
-operator|)
 operator|*
 literal|3
 decl_stmt|;
@@ -2200,6 +2202,7 @@ argument_list|(
 name|captureOffsetsCount
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 end_constructor
 begin_comment
