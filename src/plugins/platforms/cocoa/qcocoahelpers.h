@@ -232,12 +232,6 @@ name|inImage
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_function_decl
-name|CGFloat
-name|qt_mac_get_scalefactor
-parameter_list|()
-function_decl|;
-end_function_decl
 begin_decl_stmt
 name|QChar
 name|qt_mac_qtKey2CocoaKey
