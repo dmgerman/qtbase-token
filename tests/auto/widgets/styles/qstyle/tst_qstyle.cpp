@@ -2975,14 +2975,12 @@ parameter_list|,
 specifier|const
 name|QStyleOption
 modifier|*
-name|option
-comment|/*= 0*/
+comment|/* option = 0*/
 parameter_list|,
 specifier|const
 name|QWidget
 modifier|*
-name|widget
-comment|/*= 0*/
+comment|/* widget = 0*/
 parameter_list|)
 specifier|const
 block|{
