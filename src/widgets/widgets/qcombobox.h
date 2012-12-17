@@ -96,6 +96,10 @@ argument|int currentIndex READ currentIndex WRITE setCurrentIndex NOTIFY current
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
+argument|QVariant currentData READ currentData
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
 argument|int maxVisibleItems READ maxVisibleItems WRITE setMaxVisibleItems
 argument_list|)
 name|Q_PROPERTY
@@ -474,6 +478,13 @@ block|;
 name|QString
 name|currentText
 argument_list|()
+specifier|const
+block|;
+name|QVariant
+name|currentData
+argument_list|(
+argument|int role = Qt::UserRole
+argument_list|)
 specifier|const
 block|;
 name|QString
