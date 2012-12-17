@@ -117,7 +117,20 @@ function_decl|;
 block|}
 class|;
 end_class
+begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
+comment|// Avoid QHash randomization so that the order of the XML attributes is stable
+specifier|extern
+name|Q_CORE_EXPORT
+name|QBasicAtomicInt
+name|qt_qhash_seed
+decl_stmt|;
+end_decl_stmt
+begin_comment
+comment|// from qhash.cpp
+end_comment
 begin_function
+name|QT_END_NAMESPACE
 DECL|function|initTestCase
 name|void
 name|tst_QDBusXmlParser
@@ -125,12 +138,19 @@ operator|::
 name|initTestCase
 parameter_list|()
 block|{
-comment|// Avoid QHash randomization so that the order of the XML attributes is stable
-name|qputenv
+comment|// If the seed not initialized yet (-1), set it to 0
+comment|// otherwise abort, so we don't get unexplained test failures later.
+name|QVERIFY
 argument_list|(
-literal|"QT_HASH_SEED"
+name|qt_qhash_seed
+operator|.
+name|testAndSetRelaxed
+argument_list|(
+operator|-
+literal|1
 argument_list|,
-literal|"123"
+literal|0
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
