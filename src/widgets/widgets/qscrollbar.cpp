@@ -748,6 +748,10 @@ argument_list|(
 name|QStyle
 operator|::
 name|SH_ScrollBar_Transient
+argument_list|,
+literal|0
+argument_list|,
+name|this
 argument_list|)
 condition|)
 name|option
