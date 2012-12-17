@@ -118,6 +118,25 @@ name|DWORD
 name|exStyle
 parameter_list|)
 function_decl|;
+specifier|static
+name|bool
+name|handleCalculateSize
+parameter_list|(
+specifier|const
+name|QMargins
+modifier|&
+name|customMargins
+parameter_list|,
+specifier|const
+name|MSG
+modifier|&
+name|msg
+parameter_list|,
+name|LRESULT
+modifier|*
+name|result
+parameter_list|)
+function_decl|;
 ifndef|#
 directive|ifndef
 name|Q_OS_WINCE
@@ -250,6 +269,8 @@ argument|const QWindow *w
 argument_list|,
 argument|const QRect&r
 argument_list|,
+argument|const QMargins&customMargins
+argument_list|,
 argument|DWORD style
 argument_list|,
 argument|DWORD exStyle
@@ -307,6 +328,11 @@ DECL|member|margins
 name|QMargins
 name|margins
 decl_stmt|;
+DECL|member|customMargins
+name|QMargins
+name|customMargins
+decl_stmt|;
+comment|// User-defined, additional frame for WM_NCCALCSIZE
 DECL|member|frameX
 name|int
 name|frameX
@@ -427,6 +453,10 @@ name|QMargins
 name|frame
 decl_stmt|;
 comment|// Do not use directly for windows, see FrameDirty.
+name|QMargins
+name|customMargins
+decl_stmt|;
+comment|// User-defined, additional frame for NCCALCSIZE
 name|HWND
 name|hwnd
 decl_stmt|;
@@ -812,6 +842,30 @@ argument_list|)
 return|;
 block|}
 end_expr_stmt
+begin_expr_stmt
+name|QMargins
+name|customMargins
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_data
+operator|.
+name|customMargins
+return|;
+block|}
+end_expr_stmt
+begin_function_decl
+name|void
+name|setCustomMargins
+parameter_list|(
+specifier|const
+name|QMargins
+modifier|&
+name|m
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -1868,8 +1922,14 @@ literal|0
 expr_stmt|;
 block|}
 end_if
-begin_endif
+begin_macro
 unit|}  QT_END_NAMESPACE
+name|Q_DECLARE_METATYPE
+argument_list|(
+argument|QMargins
+argument_list|)
+end_macro
+begin_endif
 endif|#
 directive|endif
 end_endif

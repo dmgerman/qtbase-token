@@ -175,6 +175,10 @@ block|,
 name|ExtendedTitleBar
 block|}
 block|;
+name|void
+name|updateCustomMargins
+argument_list|()
+block|;
 name|bool
 name|setDWMTitleBar
 argument_list|(
@@ -261,10 +265,6 @@ name|hide
 argument_list|()
 expr_stmt|;
 block|}
-name|void
-name|setWindowPosHack
-argument_list|()
-block|;
 name|QColor
 name|basicWindowFrameColor
 argument_list|()
