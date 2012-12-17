@@ -6700,7 +6700,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|QVariantToVARIANT
+name|QVariant2VARIANT
 argument_list|(
 name|var
 argument_list|,
@@ -6864,7 +6864,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|QVariantToVARIANT
+name|QVariant2VARIANT
 argument_list|(
 name|var
 argument_list|,
@@ -6942,7 +6942,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|QVariantToVARIANT
+name|QVariant2VARIANT
 argument_list|(
 name|var
 argument_list|,
