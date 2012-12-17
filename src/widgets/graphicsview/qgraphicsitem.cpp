@@ -3609,6 +3609,11 @@ directive|endif
 name|clearFocus
 argument_list|()
 expr_stmt|;
+name|setFocusProxy
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
 comment|// Update focus scope item ptr.
 name|QGraphicsItem
 modifier|*
