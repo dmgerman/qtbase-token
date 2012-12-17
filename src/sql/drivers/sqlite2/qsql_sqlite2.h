@@ -63,6 +63,17 @@ end_struct_decl
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
+if|#
+directive|if
+literal|0
+pragma|#
+directive|pragma
+name|qt_no_master_include
+pragma|#
+directive|pragma
+name|qt_sync_stop_processing
+endif|#
+directive|endif
 DECL|variable|QSQLite2DriverPrivate
 name|class
 name|QSQLite2DriverPrivate
