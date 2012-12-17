@@ -3623,30 +3623,6 @@ name|endl
 expr_stmt|;
 name|ts
 operator|<<
-literal|"\t\tBLOCK \"VarFileInfo\""
-operator|<<
-name|endl
-expr_stmt|;
-name|ts
-operator|<<
-literal|"\t\tBEGIN"
-operator|<<
-name|endl
-expr_stmt|;
-name|ts
-operator|<<
-literal|"\t\t\tVALUE \"Translation\", 0x409, 1200"
-operator|<<
-name|endl
-expr_stmt|;
-name|ts
-operator|<<
-literal|"\t\tEND"
-operator|<<
-name|endl
-expr_stmt|;
-name|ts
-operator|<<
 literal|"\tEND"
 operator|<<
 name|endl
