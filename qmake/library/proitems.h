@@ -1429,6 +1429,11 @@ operator|*
 name|ok
 operator|=
 literal|0
+argument_list|,
+name|int
+name|base
+operator|=
+literal|10
 argument_list|)
 decl|const
 block|{
@@ -1439,6 +1444,8 @@ operator|.
 name|toInt
 argument_list|(
 name|ok
+argument_list|,
+name|base
 argument_list|)
 return|;
 block|}
@@ -1451,6 +1458,11 @@ operator|*
 name|ok
 operator|=
 literal|0
+argument_list|,
+name|int
+name|base
+operator|=
+literal|10
 argument_list|)
 decl|const
 block|{
@@ -1461,6 +1473,8 @@ operator|.
 name|toShort
 argument_list|(
 name|ok
+argument_list|,
+name|base
 argument_list|)
 return|;
 block|}
