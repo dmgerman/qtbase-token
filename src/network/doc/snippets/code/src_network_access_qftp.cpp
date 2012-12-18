@@ -23,7 +23,7 @@ name|ftp
 operator|->
 name|connectToHost
 argument_list|(
-literal|"ftp.qt.nokia.com"
+literal|"ftp.qt-project.org"
 argument_list|)
 expr_stmt|;
 end_expr_stmt
@@ -45,7 +45,7 @@ name|ftp
 operator|->
 name|connectToHost
 argument_list|(
-literal|"ftp.qt.nokia.com"
+literal|"ftp.qt-project.org"
 argument_list|)
 expr_stmt|;
 end_expr_stmt

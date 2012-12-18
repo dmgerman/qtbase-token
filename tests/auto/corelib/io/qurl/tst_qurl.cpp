@@ -8536,12 +8536,12 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"ftp://ftp.qt.nokia.com/qt/INSTALL"
+literal|"ftp://ftp.qt-project.org/qt/INSTALL"
 argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"ftp://ftp.qt.nokia.com/qt/INSTALL"
+literal|"ftp://ftp.qt-project.org/qt/INSTALL"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -8553,12 +8553,12 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"ftp://ftp.qt.nokia.com/qt/INSTALL"
+literal|"ftp://ftp.qt-project.org/qt/INSTALL"
 argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"ftp://ftp.qt.nokia.com/qt/INSTALL"
+literal|"ftp://ftp.qt-project.org/qt/INSTALL"
 argument_list|)
 expr_stmt|;
 block|}
@@ -8571,7 +8571,7 @@ operator|::
 name|compat_constructor_01
 parameter_list|()
 block|{
-comment|/* The following should work as expected:      *      * QUrlOperator op;      * op.copy( QString( "Makefile" ),      *          QString("ftp://rms:grmpf12@nibbler/home/rms/tmp"),      *          false );      *      * as well as the following:      *      * QUrlOperator op;      * op.copy(QString("ftp://ftp.qt.nokia.com/qt/INSTALL"), ".");      */
+comment|/* The following should work as expected:      *      * QUrlOperator op;      * op.copy( QString( "Makefile" ),      *          QString("ftp://rms:grmpf12@nibbler/home/rms/tmp"),      *          false );      *      * as well as the following:      *      * QUrlOperator op;      * op.copy(QString("ftp://ftp.qt-project.org/qt/INSTALL"), ".");      */
 name|QFETCH
 argument_list|(
 name|QString
@@ -8679,7 +8679,7 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"ftp://ftp.qt.nokia.com/qt"
+literal|"ftp://ftp.qt-project.org/qt"
 argument_list|)
 operator|<<
 name|QString
@@ -8689,7 +8689,7 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"ftp://ftp.qt.nokia.com/INSTALL"
+literal|"ftp://ftp.qt-project.org/INSTALL"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -8701,7 +8701,7 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"ftp://ftp.qt.nokia.com/qt/"
+literal|"ftp://ftp.qt-project.org/qt/"
 argument_list|)
 operator|<<
 name|QString
@@ -8711,7 +8711,7 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"ftp://ftp.qt.nokia.com/qt/INSTALL"
+literal|"ftp://ftp.qt-project.org/qt/INSTALL"
 argument_list|)
 expr_stmt|;
 block|}
@@ -8724,7 +8724,7 @@ operator|::
 name|compat_constructor_02
 parameter_list|()
 block|{
-comment|/* The following should work as expected:      *      * QUrlOperator op( "ftp://ftp.qt.nokia.com/qt" );      * op.copy(QString("INSTALL"), ".");      */
+comment|/* The following should work as expected:      *      * QUrlOperator op( "ftp://ftp.qt-project.org/qt" );      * op.copy(QString("INSTALL"), ".");      */
 name|QFETCH
 argument_list|(
 name|QString
@@ -8890,12 +8890,12 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"ftp://ftp.qt.nokia.com/foo/index.txt"
+literal|"ftp://ftp.qt-project.org/foo/index.txt"
 argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"ftp://ftp.qt.nokia.com/foo/index.txt"
+literal|"ftp://ftp.qt-project.org/foo/index.txt"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -9344,7 +9344,7 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"ftp://ftp.qt.nokia.com/qt/INSTALL"
+literal|"ftp://ftp.qt-project.org/qt/INSTALL"
 argument_list|)
 operator|<<
 operator|(
@@ -9395,7 +9395,7 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"#ftp://ftp.qt.nokia.com/qt/INSTALL"
+literal|"#ftp://ftp.qt-project.org/qt/INSTALL"
 argument_list|)
 operator|<<
 operator|(
@@ -9607,7 +9607,7 @@ name|n
 operator|<<
 name|QString
 argument_list|(
-literal|"ftp.qt.nokia.com"
+literal|"ftp.qt-project.org"
 argument_list|)
 operator|<<
 operator|-
@@ -9641,7 +9641,7 @@ name|n
 operator|<<
 name|QString
 argument_list|(
-literal|"ftp.qt.nokia.com"
+literal|"ftp.qt-project.org"
 argument_list|)
 operator|<<
 operator|-
@@ -9678,7 +9678,7 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"ftp.qt.nokia.com"
+literal|"ftp.qt-project.org"
 argument_list|)
 operator|<<
 operator|-
@@ -9709,7 +9709,7 @@ name|n
 operator|<<
 name|QString
 argument_list|(
-literal|"ftp.qt.nokia.com"
+literal|"ftp.qt-project.org"
 argument_list|)
 operator|<<
 operator|-
@@ -9746,7 +9746,7 @@ name|n
 operator|<<
 name|QString
 argument_list|(
-literal|"ftp.qt.nokia.com"
+literal|"ftp.qt-project.org"
 argument_list|)
 operator|<<
 operator|-
@@ -9786,7 +9786,7 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"ftp.qt.nokia.com"
+literal|"ftp.qt-project.org"
 argument_list|)
 operator|<<
 operator|-
@@ -9926,7 +9926,7 @@ name|n
 operator|<<
 name|QString
 argument_list|(
-literal|"ftp.qt.nokia.com"
+literal|"ftp.qt-project.org"
 argument_list|)
 operator|<<
 operator|-
@@ -13549,38 +13549,38 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"ftp://ftp.qt.nokia.com"
+literal|"ftp://ftp.qt-project.org"
 argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|"ftp://ftp.qt.nokia.com"
+literal|"ftp://ftp.qt-project.org"
 argument_list|)
 operator|<<
 literal|true
 operator|<<
 name|QString
 argument_list|(
-literal|"ftp://ftp.qt.nokia.com"
+literal|"ftp://ftp.qt-project.org"
 argument_list|)
 expr_stmt|;
 name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"ftp://ftp.qt.nokia.com/"
+literal|"ftp://ftp.qt-project.org/"
 argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|"ftp://ftp.qt.nokia.com/"
+literal|"ftp://ftp.qt-project.org/"
 argument_list|)
 operator|<<
 literal|true
 operator|<<
 name|QString
 argument_list|(
-literal|"ftp://ftp.qt.nokia.com/"
+literal|"ftp://ftp.qt-project.org/"
 argument_list|)
 expr_stmt|;
 name|QTest
