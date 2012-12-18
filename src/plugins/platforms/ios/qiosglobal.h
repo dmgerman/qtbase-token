@@ -27,6 +27,12 @@ empty|#import "qiosscreen.h"
 end_empty
 begin_function_decl
 name|QT_BEGIN_NAMESPACE
+name|bool
+name|isQtApplication
+parameter_list|()
+function_decl|;
+end_function_decl
+begin_function_decl
 name|CGRect
 name|toCGRect
 parameter_list|(
