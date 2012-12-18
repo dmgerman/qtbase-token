@@ -75,6 +75,17 @@ name|qtOrientation
 argument_list|)
 decl_stmt|;
 end_decl_stmt
+begin_function_decl
+name|QRect
+name|fromPortraitToPrimary
+parameter_list|(
+specifier|const
+name|QRect
+modifier|&
+name|rect
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

@@ -47,6 +47,11 @@ operator|~
 name|QIOSInputContext
 argument_list|()
 block|;
+name|QRectF
+name|keyboardRect
+argument_list|()
+specifier|const
+block|;
 name|void
 name|showInputPanel
 argument_list|()
