@@ -39,15 +39,6 @@ name|GeometryEngine
 operator|::
 name|GeometryEngine
 parameter_list|()
-member_init_list|:
-name|vboIds
-argument_list|(
-operator|new
-name|GLuint
-index|[
-literal|2
-index|]
-argument_list|)
 block|{     }
 end_constructor
 begin_destructor
@@ -64,10 +55,6 @@ literal|2
 argument_list|,
 name|vboIds
 argument_list|)
-expr_stmt|;
-operator|delete
-index|[]
-name|vboIds
 expr_stmt|;
 block|}
 end_destructor

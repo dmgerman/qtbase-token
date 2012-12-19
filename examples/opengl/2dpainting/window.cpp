@@ -5,11 +5,6 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtWidgets>
-end_include
-begin_include
-include|#
-directive|include
 file|"glwidget.h"
 end_include
 begin_include
@@ -22,6 +17,21 @@ include|#
 directive|include
 file|"window.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<QGridLayout>
+end_include
+begin_include
+include|#
+directive|include
+file|<QLabel>
+end_include
+begin_include
+include|#
+directive|include
+file|<QTimer>
+end_include
 begin_comment
 comment|//! [0]
 end_comment
@@ -31,10 +41,15 @@ name|Window
 operator|::
 name|Window
 parameter_list|()
-member_init_list|:
-name|QWidget
-argument_list|()
 block|{
+name|setWindowTitle
+argument_list|(
+name|tr
+argument_list|(
+literal|"2D Painting on Native and OpenGL Widgets"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|Widget
 modifier|*
 name|native
@@ -214,14 +229,6 @@ operator|->
 name|start
 argument_list|(
 literal|50
-argument_list|)
-expr_stmt|;
-name|setWindowTitle
-argument_list|(
-name|tr
-argument_list|(
-literal|"2D Painting on Native and OpenGL Widgets"
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

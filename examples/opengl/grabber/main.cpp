@@ -5,12 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QApplication>
+file|"mainwindow.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"mainwindow.h"
+file|<QApplication>
 end_include
 begin_function
 DECL|function|main
@@ -35,9 +35,9 @@ name|argv
 argument_list|)
 decl_stmt|;
 name|MainWindow
-name|mainWin
+name|window
 decl_stmt|;
-name|mainWin
+name|window
 operator|.
 name|show
 argument_list|()

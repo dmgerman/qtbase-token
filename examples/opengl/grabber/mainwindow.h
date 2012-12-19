@@ -20,12 +20,6 @@ file|<QMainWindow>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-DECL|variable|QAction
-name|class
-name|QAction
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|QLabel
 name|class
 name|QLabel
@@ -196,4 +190,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// MAINWINDOW_H
+end_comment
 end_unit
