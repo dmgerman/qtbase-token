@@ -16,15 +16,11 @@ end_define
 begin_empty
 empty|#import<UIKit/UIKit.h>
 end_empty
-begin_empty
-empty|#import<QtCore/qglobal.h>
-end_empty
-begin_empty
-empty|#import<QtGui/qguiapplication.h>
-end_empty
-begin_empty
-empty|#import "qiosscreen.h"
-end_empty
+begin_include
+include|#
+directive|include
+file|<QtCore/QtCore>
+end_include
 begin_decl_stmt
 unit|@
 DECL|variable|QIOSViewController
