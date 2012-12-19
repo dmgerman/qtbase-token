@@ -311,6 +311,10 @@ name|void
 name|updateRefreshRate
 parameter_list|()
 function_decl|;
+name|void
+name|readXResources
+parameter_list|()
+function_decl|;
 name|private
 label|:
 name|xcb_screen_t
@@ -376,6 +380,9 @@ name|m_cursor
 decl_stmt|;
 name|int
 name|m_refreshRate
+decl_stmt|;
+name|int
+name|m_forcedDpi
 decl_stmt|;
 block|}
 end_decl_stmt
