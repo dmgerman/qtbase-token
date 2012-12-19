@@ -6125,6 +6125,8 @@ name|src
 operator|.
 name|height
 argument_list|()
+operator|-
+literal|1
 argument_list|,
 name|src
 operator|.
@@ -6230,6 +6232,8 @@ name|result
 operator|.
 name|height
 argument_list|()
+operator|-
+literal|1
 argument_list|,
 name|result
 operator|.
