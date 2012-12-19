@@ -25,10 +25,24 @@ end_empty
 begin_empty
 empty|#import "qiosscreen.h"
 end_empty
+begin_decl_stmt
+unit|@
+DECL|variable|QIOSViewController
+name|class
+name|QIOSViewController
+decl_stmt|;
+end_decl_stmt
 begin_function_decl
 name|QT_BEGIN_NAMESPACE
 name|bool
 name|isQtApplication
+parameter_list|()
+function_decl|;
+end_function_decl
+begin_function_decl
+name|QIOSViewController
+modifier|*
+name|rootViewController
 parameter_list|()
 function_decl|;
 end_function_decl
