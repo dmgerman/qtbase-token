@@ -91,6 +91,10 @@ name|Q_PROPERTY
 argument_list|(
 argument|QString informativeText READ informativeText WRITE setInformativeText
 argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|Qt::TextInteractionFlags textInteractionFlags READ textInteractionFlags WRITE setTextInteractionFlags
+argument_list|)
 name|public
 operator|:
 expr|enum
@@ -630,6 +634,26 @@ name|format
 argument_list|)
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+name|void
+name|setTextInteractionFlags
+argument_list|(
+name|Qt
+operator|::
+name|TextInteractionFlags
+name|flags
+argument_list|)
+decl_stmt|;
+end_decl_stmt
+begin_expr_stmt
+name|Qt
+operator|::
+name|TextInteractionFlags
+name|textInteractionFlags
+argument_list|()
+specifier|const
+expr_stmt|;
+end_expr_stmt
 begin_function_decl
 specifier|static
 name|StandardButton
