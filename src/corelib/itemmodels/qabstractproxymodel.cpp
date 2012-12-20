@@ -134,7 +134,7 @@ parameter_list|()
 block|{  }
 end_destructor
 begin_comment
-comment|/*!     Sets the given \a sourceModel to be processed by the proxy model. */
+comment|/*!     Sets the given \a sourceModel to be processed by the proxy model.      Subclasses should call beginResetModel() at the beginning of the method,     disconnect from the old model, call this method, connect to the new model,     and call endResetModel(). */
 end_comment
 begin_function
 DECL|function|setSourceModel
