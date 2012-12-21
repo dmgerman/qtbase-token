@@ -19795,6 +19795,35 @@ argument_list|(
 literal|"http://hostname"
 argument_list|)
 expr_stmt|;
+comment|// no host
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"nohost-1"
+argument_list|)
+operator|<<
+literal|"http://"
+operator|<<
+name|QUrl
+argument_list|(
+literal|"http://"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"nohost-2"
+argument_list|)
+operator|<<
+literal|"smb:"
+operator|<<
+name|QUrl
+argument_list|(
+literal|"smb:"
+argument_list|)
+expr_stmt|;
 comment|// QUrl's tolerant parser should already handle this
 name|QTest
 operator|::

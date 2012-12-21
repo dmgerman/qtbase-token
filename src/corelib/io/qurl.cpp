@@ -12162,7 +12162,7 @@ operator|::
 name|TolerantMode
 argument_list|)
 decl_stmt|;
-comment|// Check the most common case of a valid url with scheme and host
+comment|// Check the most common case of a valid url with a scheme
 comment|// We check if the port would be valid by adding the scheme to handle the case host:port
 comment|// where the host would be interpretted as the scheme
 if|if
@@ -12180,26 +12180,6 @@ argument_list|()
 operator|.
 name|isEmpty
 argument_list|()
-operator|&&
-operator|(
-operator|!
-name|url
-operator|.
-name|host
-argument_list|()
-operator|.
-name|isEmpty
-argument_list|()
-operator|||
-operator|!
-name|url
-operator|.
-name|path
-argument_list|()
-operator|.
-name|isEmpty
-argument_list|()
-operator|)
 operator|&&
 name|urlPrepended
 operator|.
