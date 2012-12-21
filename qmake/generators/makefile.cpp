@@ -1131,13 +1131,9 @@ literal|"OBJECTS_DIR"
 block|,
 literal|"DESTDIR"
 block|,
-literal|"QMAKE_PKGCONFIG_DESTDIR"
-block|,
 literal|"SUBLIBS_DIR"
 block|,
 literal|"DLLDESTDIR"
-block|,
-literal|"QMAKE_LIBTOOL_DESTDIR"
 block|,
 literal|"PRECOMPILED_DIR"
 block|,
