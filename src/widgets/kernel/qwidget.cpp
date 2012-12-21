@@ -32013,7 +32013,7 @@ operator|->
 name|layout
 return|;
 block|}
-comment|/*!     \fn void QWidget::setLayout(QLayout *layout)      Sets the layout manager for this widget to \a layout.      If there already is a layout manager installed on this widget,     QWidget won't let you install another. You must first delete the     existing layout manager (returned by layout()) before you can     call setLayout() with the new layout.      If \a layout is the layout manger on a different widget, setLayout()     will reparent the layout and make it the layout manager for this widget.      Example:      \snippet layouts/layouts.cpp 24      An alternative to calling this function is to pass this widget to     the layout's constructor.      The QWidget will take ownership of \a layout.      \sa layout(), {Layout Management} */
+comment|/*!     \fn void QWidget::setLayout(QLayout *layout)      Sets the layout manager for this widget to \a layout.      If there already is a layout manager installed on this widget,     QWidget won't let you install another. You must first delete the     existing layout manager (returned by layout()) before you can     call setLayout() with the new layout.      If \a layout is the layout manager on a different widget, setLayout()     will reparent the layout and make it the layout manager for this widget.      Example:      \snippet layouts/layouts.cpp 24      An alternative to calling this function is to pass this widget to     the layout's constructor.      The QWidget will take ownership of \a layout.      \sa layout(), {Layout Management} */
 DECL|function|setLayout
 name|void
 name|QWidget
