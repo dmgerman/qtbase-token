@@ -302,7 +302,7 @@ name|segmentSize
 argument_list|,
 name|IPC_CREAT
 operator||
-literal|0777
+literal|0600
 argument_list|)
 decl_stmt|;
 if|if

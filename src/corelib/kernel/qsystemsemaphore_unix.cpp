@@ -501,7 +501,7 @@ name|unix_key
 argument_list|,
 literal|1
 argument_list|,
-literal|0666
+literal|0600
 operator||
 name|IPC_CREAT
 operator||
@@ -530,7 +530,7 @@ name|unix_key
 argument_list|,
 literal|1
 argument_list|,
-literal|0666
+literal|0600
 operator||
 name|IPC_CREAT
 argument_list|)
