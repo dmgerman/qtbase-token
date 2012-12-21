@@ -127,11 +127,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/private/qunicodetables_p.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtCore/QDebug>
 end_include
 begin_include
@@ -7386,9 +7381,9 @@ name|QWindowsFontDatabase
 operator|::
 name|createEngine
 argument_list|(
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Common
+name|Script_Common
 argument_list|,
 name|request
 argument_list|,

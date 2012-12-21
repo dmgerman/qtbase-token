@@ -11822,9 +11822,9 @@ name|fontD
 operator|->
 name|engineForScript
 argument_list|(
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Common
+name|Script_Common
 argument_list|)
 expr_stmt|;
 name|rawFontD

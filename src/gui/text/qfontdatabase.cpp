@@ -53,11 +53,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"private/qunicodetables_p.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"qfontengine_p.h"
 end_include
 begin_include
@@ -3126,214 +3121,214 @@ name|scriptForWritingSystem
 index|[]
 init|=
 block|{
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Common
+name|Script_Common
 block|,
 comment|// Any
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Latin
+name|Script_Latin
 block|,
 comment|// Latin
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Greek
+name|Script_Greek
 block|,
 comment|// Greek
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Cyrillic
+name|Script_Cyrillic
 block|,
 comment|// Cyrillic
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Armenian
+name|Script_Armenian
 block|,
 comment|// Armenian
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Hebrew
+name|Script_Hebrew
 block|,
 comment|// Hebrew
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Arabic
+name|Script_Arabic
 block|,
 comment|// Arabic
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Syriac
+name|Script_Syriac
 block|,
 comment|// Syriac
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Thaana
+name|Script_Thaana
 block|,
 comment|// Thaana
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Devanagari
+name|Script_Devanagari
 block|,
 comment|// Devanagari
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Bengali
+name|Script_Bengali
 block|,
 comment|// Bengali
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Gurmukhi
+name|Script_Gurmukhi
 block|,
 comment|// Gurmukhi
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Gujarati
+name|Script_Gujarati
 block|,
 comment|// Gujarati
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Oriya
+name|Script_Oriya
 block|,
 comment|// Oriya
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Tamil
+name|Script_Tamil
 block|,
 comment|// Tamil
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Telugu
+name|Script_Telugu
 block|,
 comment|// Telugu
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Kannada
+name|Script_Kannada
 block|,
 comment|// Kannada
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Malayalam
+name|Script_Malayalam
 block|,
 comment|// Malayalam
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Sinhala
+name|Script_Sinhala
 block|,
 comment|// Sinhala
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Thai
+name|Script_Thai
 block|,
 comment|// Thai
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Lao
+name|Script_Lao
 block|,
 comment|// Lao
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Tibetan
+name|Script_Tibetan
 block|,
 comment|// Tibetan
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Myanmar
+name|Script_Myanmar
 block|,
 comment|// Myanmar
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Georgian
+name|Script_Georgian
 block|,
 comment|// Georgian
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Khmer
+name|Script_Khmer
 block|,
 comment|// Khmer
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Common
+name|Script_Han
 block|,
 comment|// SimplifiedChinese
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Common
+name|Script_Han
 block|,
 comment|// TraditionalChinese
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Common
+name|Script_Han
 block|,
 comment|// Japanese
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Hangul
+name|Script_Hangul
 block|,
 comment|// Korean
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Common
+name|Script_Latin
 block|,
 comment|// Vietnamese
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Common
+name|Script_Yi
 block|,
 comment|// Yi
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Common
+name|Script_Tagalog
 block|,
 comment|// Tagalog
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Common
+name|Script_Hanunoo
 block|,
 comment|// Hanunoo
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Common
+name|Script_Buhid
 block|,
 comment|// Buhid
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Common
+name|Script_Tagbanwa
 block|,
 comment|// Tagbanwa
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Common
+name|Script_Limbu
 block|,
 comment|// Limbu
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Common
+name|Script_TaiLe
 block|,
 comment|// TaiLe
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Common
+name|Script_Braille
 block|,
 comment|// Braille
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Common
+name|Script_Common
 block|,
 comment|// Symbol
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Ogham
+name|Script_Ogham
 block|,
 comment|// Ogham
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Runic
+name|Script_Runic
 block|,
 comment|// Runic
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Nko
+name|Script_Nko
 comment|// Nko
 block|}
 decl_stmt|;
@@ -5618,9 +5613,9 @@ init|=
 operator|(
 name|script
 operator|==
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Common
+name|Script_Common
 operator|)
 decl_stmt|;
 for|for

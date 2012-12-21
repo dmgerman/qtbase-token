@@ -170,28 +170,28 @@ operator|(
 operator|(
 name|script
 operator|>=
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Syriac
+name|Script_Syriac
 operator|&&
 name|script
 operator|<=
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Sinhala
+name|Script_Sinhala
 operator|)
 operator|||
 name|script
 operator|==
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Khmer
+name|Script_Khmer
 operator|||
 name|script
 operator|==
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Nko
+name|Script_Nko
 operator|)
 return|;
 block|}
@@ -303,9 +303,18 @@ name|specialLanguages
 index|[]
 init|=
 block|{
-literal|"en"
+literal|""
+block|,
+comment|// Unknown
+literal|""
+block|,
+comment|// Inherited
+literal|""
 block|,
 comment|// Common
+literal|"en"
+block|,
+comment|// Latin
 literal|"el"
 block|,
 comment|// Greek
@@ -324,7 +333,7 @@ comment|// Arabic
 literal|"syr"
 block|,
 comment|// Syriac
-literal|"div"
+literal|"dv"
 block|,
 comment|// Thaana
 literal|"hi"
@@ -375,17 +384,233 @@ comment|// Georgian
 literal|"ko"
 block|,
 comment|// Hangul
-literal|""
+literal|"am"
+block|,
+comment|// Ethiopic
+literal|"chr"
+block|,
+comment|// Cherokee
+literal|"cr"
+block|,
+comment|// CanadianAboriginal
+literal|"sga"
 block|,
 comment|// Ogham
-literal|""
+literal|"non"
 block|,
 comment|// Runic
 literal|"km"
 block|,
 comment|// Khmer
+literal|"mn"
+block|,
+comment|// Mongolian
+literal|"ja"
+block|,
+comment|// Hiragana
+literal|"ja"
+block|,
+comment|// Katakana
+literal|"zh"
+block|,
+comment|// Bopomofo
+literal|"zh"
+block|,
+comment|// Han
+literal|"ii"
+block|,
+comment|// Yi
+literal|"ett"
+block|,
+comment|// OldItalic
+literal|"got"
+block|,
+comment|// Gothic
+literal|"en"
+block|,
+comment|// Deseret
+literal|"fil"
+block|,
+comment|// Tagalog
+literal|"hnn"
+block|,
+comment|// Hanunoo
+literal|"bku"
+block|,
+comment|// Buhid
+literal|"tbw"
+block|,
+comment|// Tagbanwa
+literal|"cop"
+block|,
+comment|// Coptic
+literal|"lif"
+block|,
+comment|// Limbu
+literal|"tdd"
+block|,
+comment|// TaiLe
+literal|"grc"
+block|,
+comment|// LinearB
+literal|"uga"
+block|,
+comment|// Ugaritic
+literal|"en"
+block|,
+comment|// Shavian
+literal|"so"
+block|,
+comment|// Osmanya
+literal|"grc"
+block|,
+comment|// Cypriot
 literal|""
-comment|// N'Ko
+block|,
+comment|// Braille
+literal|"bug"
+block|,
+comment|// Buginese
+literal|"khb"
+block|,
+comment|// NewTaiLue
+literal|"cu"
+block|,
+comment|// Glagolitic
+literal|"shi"
+block|,
+comment|// Tifinagh
+literal|"syl"
+block|,
+comment|// SylotiNagri
+literal|"peo"
+block|,
+comment|// OldPersian
+literal|"pra"
+block|,
+comment|// Kharoshthi
+literal|"ban"
+block|,
+comment|// Balinese
+literal|"akk"
+block|,
+comment|// Cuneiform
+literal|"phn"
+block|,
+comment|// Phoenician
+literal|"lzh"
+block|,
+comment|// PhagsPa
+literal|"man"
+block|,
+comment|// Nko
+literal|"su"
+block|,
+comment|// Sundanese
+literal|"lep"
+block|,
+comment|// Lepcha
+literal|"sat"
+block|,
+comment|// OlChiki
+literal|"vai"
+block|,
+comment|// Vai
+literal|"saz"
+block|,
+comment|// Saurashtra
+literal|"eky"
+block|,
+comment|// KayahLi
+literal|"rej"
+block|,
+comment|// Rejang
+literal|"xlc"
+block|,
+comment|// Lycian
+literal|"xcr"
+block|,
+comment|// Carian
+literal|"xld"
+block|,
+comment|// Lydian
+literal|"cjm"
+block|,
+comment|// Cham
+literal|"nod"
+block|,
+comment|// TaiTham
+literal|"blt"
+block|,
+comment|// TaiViet
+literal|"ae"
+block|,
+comment|// Avestan
+literal|"egy"
+block|,
+comment|// EgyptianHieroglyphs
+literal|"smp"
+block|,
+comment|// Samaritan
+literal|"lis"
+block|,
+comment|// Lisu
+literal|"bax"
+block|,
+comment|// Bamum
+literal|"jv"
+block|,
+comment|// Javanese
+literal|"mni"
+block|,
+comment|// MeeteiMayek
+literal|"arc"
+block|,
+comment|// ImperialAramaic
+literal|"xsa"
+block|,
+comment|// OldSouthArabian
+literal|"xpr"
+block|,
+comment|// InscriptionalParthian
+literal|"pal"
+block|,
+comment|// InscriptionalPahlavi
+literal|"otk"
+block|,
+comment|// OldTurkic
+literal|"bh"
+block|,
+comment|// Kaithi
+literal|"bbc"
+block|,
+comment|// Batak
+literal|"pra"
+block|,
+comment|// Brahmi
+literal|"myz"
+block|,
+comment|// Mandaic
+literal|"ccp"
+block|,
+comment|// Chakma
+literal|"xmr"
+block|,
+comment|// MeroiticCursive
+literal|"xmr"
+block|,
+comment|// MeroiticHieroglyphs
+literal|"hmd"
+block|,
+comment|// Miao
+literal|"sa"
+block|,
+comment|// Sharada
+literal|"srb"
+block|,
+comment|// SoraSompeng
+literal|"doi"
+comment|// Takri
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -405,119 +630,6 @@ operator|(
 specifier|const
 name|char
 operator|*
-operator|)
-block|}
-enum|;
-end_enum
-begin_decl_stmt
-DECL|variable|specialChars
-specifier|static
-specifier|const
-name|ushort
-name|specialChars
-index|[]
-init|=
-block|{
-literal|0
-block|,
-comment|// English
-literal|0
-block|,
-comment|// Greek
-literal|0
-block|,
-comment|// Cyrillic
-literal|0
-block|,
-comment|// Armenian
-literal|0
-block|,
-comment|// Hebrew
-literal|0
-block|,
-comment|// Arabic
-literal|0
-block|,
-comment|// Syriac
-literal|0
-block|,
-comment|// Thaana
-literal|0
-block|,
-comment|// Devanagari
-literal|0
-block|,
-comment|// Bengali
-literal|0
-block|,
-comment|// Gurmukhi
-literal|0
-block|,
-comment|// Gujarati
-literal|0
-block|,
-comment|// Oriya
-literal|0
-block|,
-comment|// Tamil
-literal|0xc15
-block|,
-comment|// Telugu
-literal|0xc95
-block|,
-comment|// Kannada
-literal|0xd15
-block|,
-comment|// Malayalam
-literal|0xd9a
-block|,
-comment|// Sinhala
-literal|0
-block|,
-comment|// Thai
-literal|0
-block|,
-comment|// Lao
-literal|0
-block|,
-comment|// Tibetan
-literal|0x1000
-block|,
-comment|// Myanmar
-literal|0
-block|,
-comment|// Georgian
-literal|0
-block|,
-comment|// Hangul
-literal|0x1681
-block|,
-comment|// Ogham
-literal|0x16a0
-block|,
-comment|// Runic
-literal|0
-block|,
-comment|// Khmer
-literal|0x7ca
-comment|// N'Ko
-block|}
-decl_stmt|;
-end_decl_stmt
-begin_enum
-DECL|enumerator|SpecialCharCount
-enum|enum
-block|{
-name|SpecialCharCount
-init|=
-sizeof|sizeof
-argument_list|(
-name|specialChars
-argument_list|)
-operator|/
-expr|sizeof
-operator|(
-name|ushort
 operator|)
 block|}
 enum|;
@@ -631,13 +743,13 @@ comment|// Vietnamese
 literal|0
 block|,
 comment|// Symbol
-literal|0
+literal|"sga"
 block|,
 comment|// Ogham
-literal|0
+literal|"non"
 block|,
 comment|// Runic
-literal|0
+literal|"man"
 comment|// N'Ko
 block|}
 decl_stmt|;
@@ -2164,7 +2276,7 @@ name|QFontEngine
 modifier|*
 name|fontEngine
 parameter_list|,
-name|QUnicodeTables
+name|QChar
 operator|::
 name|Script
 name|script
@@ -2194,7 +2306,7 @@ name|QFontDef
 modifier|&
 name|f
 parameter_list|,
-name|QUnicodeTables
+name|QChar
 operator|::
 name|Script
 name|script
@@ -2809,27 +2921,22 @@ name|fallbacksForFamily
 parameter_list|(
 specifier|const
 name|QString
+modifier|&
 name|family
 parameter_list|,
-specifier|const
 name|QFont
 operator|::
 name|Style
-modifier|&
 name|style
 parameter_list|,
-specifier|const
 name|QFont
 operator|::
 name|StyleHint
-modifier|&
 name|styleHint
 parameter_list|,
-specifier|const
-name|QUnicodeTables
+name|QChar
 operator|::
 name|Script
-modifier|&
 name|script
 parameter_list|)
 specifier|const
@@ -2935,14 +3042,18 @@ argument_list|,
 name|slant_value
 argument_list|)
 expr_stmt|;
+name|Q_ASSERT
+argument_list|(
+name|uint
+argument_list|(
+name|script
+argument_list|)
+operator|<
+name|SpecialLanguageCount
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
-name|script
-operator|!=
-name|QUnicodeTables
-operator|::
-name|Common
-operator|&&
 operator|*
 name|specialLanguages
 index|[
@@ -2952,15 +3063,6 @@ operator|!=
 literal|'\0'
 condition|)
 block|{
-name|Q_ASSERT
-argument_list|(
-name|script
-operator|<
-name|QUnicodeTables
-operator|::
-name|ScriptCount
-argument_list|)
-expr_stmt|;
 name|FcLangSet
 modifier|*
 name|ls

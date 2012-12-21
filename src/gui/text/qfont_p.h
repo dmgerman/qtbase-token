@@ -66,11 +66,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qunicodetables_p.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtGui/qfontdatabase.h>
 end_include
 begin_include
@@ -582,7 +577,7 @@ name|QFontEngine
 modifier|*
 name|engines
 index|[
-name|QUnicodeTables
+name|QChar
 operator|::
 name|ScriptCount
 index|]

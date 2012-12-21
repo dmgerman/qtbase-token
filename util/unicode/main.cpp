@@ -3303,10 +3303,6 @@ literal|"Q_CORE_EXPORT LineBreakClass QT_FASTCALL lineBreakClass(uint ucs4);\n"
 literal|"inline LineBreakClass lineBreakClass(QChar ch)\n"
 literal|"{ return lineBreakClass(ch.unicode()); }\n"
 literal|"\n"
-literal|"Q_CORE_EXPORT Script QT_FASTCALL script(uint ucs4);\n"
-literal|"inline Script script(QChar ch)\n"
-literal|"{ return script(ch.unicode()); }\n"
-literal|"\n"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -9820,116 +9816,6 @@ unit|static QList<QByteArray> blockNames; struct BlockInfo {     int blockIndex;
 endif|#
 directive|endif
 end_endif
-begin_decl_stmt
-DECL|variable|scriptNames
-specifier|static
-name|QList
-argument_list|<
-name|QByteArray
-argument_list|>
-name|scriptNames
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|scriptList
-specifier|static
-name|QList
-argument_list|<
-name|int
-argument_list|>
-name|scriptList
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|specialScripts
-specifier|static
-specifier|const
-name|char
-modifier|*
-name|specialScripts
-index|[]
-init|=
-block|{
-literal|"Common"
-block|,
-literal|"Greek"
-block|,
-literal|"Cyrillic"
-block|,
-literal|"Armenian"
-block|,
-literal|"Hebrew"
-block|,
-literal|"Arabic"
-block|,
-literal|"Syriac"
-block|,
-literal|"Thaana"
-block|,
-literal|"Devanagari"
-block|,
-literal|"Bengali"
-block|,
-literal|"Gurmukhi"
-block|,
-literal|"Gujarati"
-block|,
-literal|"Oriya"
-block|,
-literal|"Tamil"
-block|,
-literal|"Telugu"
-block|,
-literal|"Kannada"
-block|,
-literal|"Malayalam"
-block|,
-literal|"Sinhala"
-block|,
-literal|"Thai"
-block|,
-literal|"Lao"
-block|,
-literal|"Tibetan"
-block|,
-literal|"Myanmar"
-block|,
-literal|"Georgian"
-block|,
-literal|"Hangul"
-block|,
-literal|"Ogham"
-block|,
-literal|"Runic"
-block|,
-literal|"Khmer"
-block|,
-literal|"Nko"
-block|,
-literal|"Inherited"
-block|}
-decl_stmt|;
-end_decl_stmt
-begin_enum
-DECL|enumerator|specialScriptsCount
-enum|enum
-block|{
-name|specialScriptsCount
-init|=
-sizeof|sizeof
-argument_list|(
-name|specialScripts
-argument_list|)
-operator|/
-expr|sizeof
-operator|(
-specifier|const
-name|char
-operator|*
-operator|)
-block|}
-enum|;
-end_enum
 begin_function
 DECL|function|readScripts
 specifier|static
@@ -9970,45 +9856,6 @@ operator|::
 name|ReadOnly
 argument_list|)
 expr_stmt|;
-name|int
-name|scriptsCount
-init|=
-name|specialScriptsCount
-decl_stmt|;
-comment|// ### preserve the old ordering (temporary)
-for|for
-control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-name|specialScriptsCount
-condition|;
-operator|++
-name|i
-control|)
-block|{
-name|scriptNames
-operator|.
-name|append
-argument_list|(
-name|specialScripts
-index|[
-name|i
-index|]
-argument_list|)
-expr_stmt|;
-name|scriptList
-operator|.
-name|append
-argument_list|(
-name|i
-argument_list|)
-expr_stmt|;
-block|}
 while|while
 condition|(
 operator|!
@@ -10246,78 +10093,6 @@ operator|::
 name|Script_Unknown
 argument_list|)
 decl_stmt|;
-name|int
-name|scriptIndex
-init|=
-name|scriptNames
-operator|.
-name|indexOf
-argument_list|(
-name|scriptName
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|scriptIndex
-operator|==
-operator|-
-literal|1
-condition|)
-block|{
-name|scriptIndex
-operator|=
-name|scriptNames
-operator|.
-name|size
-argument_list|()
-expr_stmt|;
-name|scriptNames
-operator|.
-name|append
-argument_list|(
-name|scriptName
-argument_list|)
-expr_stmt|;
-comment|// is the script alias for 'Common'?
-name|int
-name|s
-init|=
-name|specialScriptsCount
-decl_stmt|;
-while|while
-condition|(
-operator|--
-name|s
-operator|>
-literal|0
-condition|)
-block|{
-if|if
-condition|(
-name|scriptName
-operator|==
-name|specialScripts
-index|[
-name|s
-index|]
-condition|)
-break|break;
-block|}
-name|scriptList
-operator|.
-name|append
-argument_list|(
-name|s
-operator|>
-literal|0
-condition|?
-name|scriptsCount
-operator|++
-else|:
-literal|0
-argument_list|)
-expr_stmt|;
-block|}
 for|for
 control|(
 name|int
@@ -10354,131 +10129,6 @@ name|script
 expr_stmt|;
 block|}
 block|}
-block|}
-end_function
-begin_function
-DECL|function|createScriptEnumDeclaration
-specifier|static
-name|QByteArray
-name|createScriptEnumDeclaration
-parameter_list|()
-block|{
-name|QByteArray
-name|declaration
-decl_stmt|;
-name|declaration
-operator|+=
-literal|"// See http://www.unicode.org/reports/tr24/tr24-5.html\n"
-expr_stmt|;
-name|declaration
-operator|+=
-literal|"enum Script {\n    Common"
-expr_stmt|;
-comment|// output the ones with special processing first
-for|for
-control|(
-name|int
-name|i
-init|=
-literal|1
-init|;
-name|i
-operator|<
-name|scriptNames
-operator|.
-name|size
-argument_list|()
-condition|;
-operator|++
-name|i
-control|)
-block|{
-if|if
-condition|(
-name|scriptList
-operator|.
-name|at
-argument_list|(
-name|i
-argument_list|)
-operator|==
-literal|0
-condition|)
-continue|continue;
-name|declaration
-operator|+=
-literal|",\n    "
-expr_stmt|;
-name|declaration
-operator|+=
-name|scriptNames
-operator|.
-name|at
-argument_list|(
-name|i
-argument_list|)
-expr_stmt|;
-block|}
-name|declaration
-operator|+=
-literal|",\n    ScriptCount = Inherited"
-expr_stmt|;
-comment|// output the ones that are an alias for 'Common'
-for|for
-control|(
-name|int
-name|i
-init|=
-literal|1
-init|;
-name|i
-operator|<
-name|scriptNames
-operator|.
-name|size
-argument_list|()
-condition|;
-operator|++
-name|i
-control|)
-block|{
-if|if
-condition|(
-name|scriptList
-operator|.
-name|at
-argument_list|(
-name|i
-argument_list|)
-operator|!=
-literal|0
-condition|)
-continue|continue;
-name|declaration
-operator|+=
-literal|",\n    "
-expr_stmt|;
-name|declaration
-operator|+=
-name|scriptNames
-operator|.
-name|at
-argument_list|(
-name|i
-argument_list|)
-expr_stmt|;
-name|declaration
-operator|+=
-literal|" = Common"
-expr_stmt|;
-block|}
-name|declaration
-operator|+=
-literal|"\n};\n\n"
-expr_stmt|;
-return|return
-name|declaration
-return|;
 block|}
 end_function
 begin_if
@@ -12158,43 +11808,6 @@ literal|"\n"
 literal|"Q_CORE_EXPORT LineBreakClass QT_FASTCALL lineBreakClass(uint ucs4)\n"
 literal|"{\n"
 literal|"    return (LineBreakClass)qGetProp(ucs4)->lineBreakClass;\n"
-literal|"}\n"
-literal|"\n"
-literal|"Q_CORE_EXPORT Script QT_FASTCALL script(uint ucs4)\n"
-literal|"{\n"
-literal|"    switch (qGetProp(ucs4)->script) {\n"
-literal|"    case QChar::Script_Inherited: return Inherited;\n"
-literal|"    case QChar::Script_Common: return Common;\n"
-literal|"    case QChar::Script_Arabic: return Arabic;\n"
-literal|"    case QChar::Script_Armenian: return Armenian;\n"
-literal|"    case QChar::Script_Bengali: return Bengali;\n"
-literal|"    case QChar::Script_Cyrillic: return Cyrillic;\n"
-literal|"    case QChar::Script_Devanagari: return Devanagari;\n"
-literal|"    case QChar::Script_Georgian: return Georgian;\n"
-literal|"    case QChar::Script_Greek: return Greek;\n"
-literal|"    case QChar::Script_Gujarati: return Gujarati;\n"
-literal|"    case QChar::Script_Gurmukhi: return Gurmukhi;\n"
-literal|"    case QChar::Script_Hangul: return Hangul;\n"
-literal|"    case QChar::Script_Hebrew: return Hebrew;\n"
-literal|"    case QChar::Script_Kannada: return Kannada;\n"
-literal|"    case QChar::Script_Khmer: return Khmer;\n"
-literal|"    case QChar::Script_Lao: return Lao;\n"
-literal|"    case QChar::Script_Malayalam: return Malayalam;\n"
-literal|"    case QChar::Script_Myanmar: return Myanmar;\n"
-literal|"    case QChar::Script_Ogham: return Ogham;\n"
-literal|"    case QChar::Script_Oriya: return Oriya;\n"
-literal|"    case QChar::Script_Runic: return Runic;\n"
-literal|"    case QChar::Script_Sinhala: return Sinhala;\n"
-literal|"    case QChar::Script_Syriac: return Syriac;\n"
-literal|"    case QChar::Script_Tamil: return Tamil;\n"
-literal|"    case QChar::Script_Telugu: return Telugu;\n"
-literal|"    case QChar::Script_Thaana: return Thaana;\n"
-literal|"    case QChar::Script_Thai: return Thai;\n"
-literal|"    case QChar::Script_Tibetan: return Tibetan;\n"
-literal|"    case QChar::Script_Nko: return Nko;\n"
-literal|"    default: break;\n"
-literal|"    };\n"
-literal|"    return Common;\n"
 literal|"}\n"
 literal|"\n"
 expr_stmt|;
@@ -15464,12 +15077,6 @@ name|createNormalizationCorrections
 argument_list|()
 decl_stmt|;
 name|QByteArray
-name|scriptEnumDeclaration
-init|=
-name|createScriptEnumDeclaration
-argument_list|()
-decl_stmt|;
-name|QByteArray
 name|header
 init|=
 literal|"/****************************************************************************\n"
@@ -15742,13 +15349,6 @@ operator|.
 name|write
 argument_list|(
 name|property_string
-argument_list|)
-expr_stmt|;
-name|f
-operator|.
-name|write
-argument_list|(
-name|scriptEnumDeclaration
 argument_list|)
 expr_stmt|;
 name|f

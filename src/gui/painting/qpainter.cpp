@@ -20622,9 +20622,9 @@ name|d
 operator|->
 name|engineForScript
 argument_list|(
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Common
+name|Script_Common
 argument_list|)
 decl_stmt|;
 if|if
@@ -21367,9 +21367,9 @@ name|d
 operator|->
 name|engineForScript
 argument_list|(
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Common
+name|Script_Common
 argument_list|)
 decl_stmt|;
 if|if

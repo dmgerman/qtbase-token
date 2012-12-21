@@ -4044,7 +4044,7 @@ name|QFont
 operator|::
 name|AnyStyle
 argument_list|,
-name|QUnicodeTables
+name|QChar
 operator|::
 name|Script
 argument_list|(
@@ -4336,7 +4336,7 @@ name|fontEngineMulti
 argument_list|(
 name|fe
 argument_list|,
-name|QUnicodeTables
+name|QChar
 operator|::
 name|Script
 argument_list|(
