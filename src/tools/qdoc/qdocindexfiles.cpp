@@ -3137,8 +3137,14 @@ name|bool
 name|generateInternalNodes
 parameter_list|)
 block|{
+comment|/*       Don't include index nodes in a new index file. Or DITA map nodes.      */
 if|if
 condition|(
+name|node
+operator|->
+name|isIndexNode
+argument_list|()
+operator|||
 name|node
 operator|->
 name|subType

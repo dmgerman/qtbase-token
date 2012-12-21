@@ -1465,14 +1465,7 @@ operator|.
 name|lastLocation
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-operator|!
-name|Generator
-operator|::
-name|runPrepareOnly
-argument_list|()
-condition|)
+comment|//if (!Generator::runPrepareOnly())
 name|loadIndexFiles
 argument_list|(
 name|config
