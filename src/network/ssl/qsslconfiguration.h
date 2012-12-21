@@ -344,6 +344,14 @@ name|friend
 name|class
 name|QSslConfigurationPrivate
 decl_stmt|;
+name|friend
+name|class
+name|QSslSocketBackendPrivate
+decl_stmt|;
+name|friend
+name|class
+name|QSslContext
+decl_stmt|;
 name|QSslConfiguration
 argument_list|(
 name|QSslConfigurationPrivate
