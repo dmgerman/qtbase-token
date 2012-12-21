@@ -3531,7 +3531,7 @@ operator|::
 name|bindBool
 parameter_list|()
 block|{
-comment|// QTBUG-27763: bool value got converted to int 127 by mysql driver becuase sizeof(bool)< sizeof(int).
+comment|// QTBUG-27763: bool value got converted to int 127 by mysql driver because sizeof(bool)< sizeof(int).
 comment|// The problem was the way the bool value from the application was handled. It doesn't matter
 comment|// whether the table column type is BOOL or INT. Use INT here because all DBMSs have it and all
 comment|// should pass this test.

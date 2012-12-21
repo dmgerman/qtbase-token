@@ -528,7 +528,7 @@ begin_comment
 comment|//linux implementation is in qmutex_linux.cpp
 end_comment
 begin_comment
-comment|/*   For a rough introduction on how this works, refer to   http://woboq.com/blog/internals-of-qmutex-in-qt5.html   which explains a slightly simplified version of it.   The differences are that here we try to work with timeout (requires the   possiblyUnlocked flag) and that we only wake one thread when unlocking   (requires maintaining the waiters count)   We also support recursive mutexes which always have a valid d_ptr.    The waiters flag represents the number of threads that are waiting or about   to wait on the mutex. There are two tricks to keep in mind:   We don't want to increment waiters after we checked no threads are waiting   (waiters == 0). That's why we atomically set the BigNumber flag on waiters when   we check waiters. Similarily, if waiters is decremented right after we checked,   the mutex would be unlocked (d->wakeUp() has (or will) be called), but there is   no thread waiting. This is only happening if there was a timeout in tryLock at the   same time as the mutex is unlocked. So when there was a timeout, we set the   possiblyUnlocked flag. */
+comment|/*   For a rough introduction on how this works, refer to   http://woboq.com/blog/internals-of-qmutex-in-qt5.html   which explains a slightly simplified version of it.   The differences are that here we try to work with timeout (requires the   possiblyUnlocked flag) and that we only wake one thread when unlocking   (requires maintaining the waiters count)   We also support recursive mutexes which always have a valid d_ptr.    The waiters flag represents the number of threads that are waiting or about   to wait on the mutex. There are two tricks to keep in mind:   We don't want to increment waiters after we checked no threads are waiting   (waiters == 0). That's why we atomically set the BigNumber flag on waiters when   we check waiters. Similarly, if waiters is decremented right after we checked,   the mutex would be unlocked (d->wakeUp() has (or will) be called), but there is   no thread waiting. This is only happening if there was a timeout in tryLock at the   same time as the mutex is unlocked. So when there was a timeout, we set the   possiblyUnlocked flag. */
 end_comment
 begin_comment
 comment|/*!     \internal helper for lock()  */
@@ -1065,7 +1065,7 @@ argument_list|(
 name|copy
 argument_list|)
 decl_stmt|;
-comment|// If no one is waiting for the lock anymore, we shoud reset d to 0x0.
+comment|// If no one is waiting for the lock anymore, we should reset d to 0x0.
 comment|// Using fetchAndAdd, we atomically check that waiters was equal to 0, and add a flag
 comment|// to the waiters variable (BigNumber). That way, we avoid the race in which waiters is
 comment|// incremented right after we checked, because we won't increment waiters if is

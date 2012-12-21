@@ -40739,7 +40739,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*  * Purpose of this test is to check whether a content from server is parsed correctly  * if it is splitted into two parts.  */
+comment|/*  * Purpose of this test is to check whether a content from server is parsed correctly  * if it is split into two parts.  */
 end_comment
 begin_function
 DECL|function|qtbug27161httpHeaderMayBeDamaged
