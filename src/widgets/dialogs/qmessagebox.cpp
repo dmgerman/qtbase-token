@@ -1228,7 +1228,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 name|label
 operator|->
@@ -1373,7 +1373,7 @@ name|QGridLayout
 decl_stmt|;
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|grid
 operator|->
 name|addWidget
@@ -1589,7 +1589,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|QFont
 name|f
 init|=
@@ -1756,7 +1756,7 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|int
 name|softLimit
 init|=
@@ -4403,7 +4403,7 @@ name|ApplicationFontChange
 case|:
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 block|{
 name|QFont
 name|f
@@ -4474,7 +4474,7 @@ operator|::
 name|Key_Escape
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 operator|||
 operator|(
 name|e
@@ -4508,7 +4508,7 @@ condition|)
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|d
 operator|->
 name|detectedEscapeButton
@@ -5656,7 +5656,7 @@ parameter_list|)
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 specifier|static
 name|QPointer
 argument_list|<
@@ -5717,7 +5717,7 @@ argument_list|,
 name|parent
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|,
 name|Qt
 operator|::
@@ -5777,7 +5777,7 @@ expr_stmt|;
 comment|// should perhaps be a style hint
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|oldMsgBox
 operator|=
 name|msgBox
@@ -5841,7 +5841,7 @@ parameter_list|)
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 specifier|static
 name|QPointer
 argument_list|<
@@ -6033,7 +6033,7 @@ directive|endif
 comment|// should perhaps be a style hint
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|oldMsgBox
 operator|=
 name|msgBox
@@ -7900,7 +7900,7 @@ literal|0
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|d
 operator|->
 name|label
@@ -8003,7 +8003,7 @@ argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|d
 operator|->
 name|label
@@ -8148,7 +8148,7 @@ block|{
 comment|// Message boxes on the mac do not have a title
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|QDialog
 operator|::
 name|setWindowTitle
