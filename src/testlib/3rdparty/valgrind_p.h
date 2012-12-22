@@ -481,7 +481,7 @@ parameter_list|)
 define|\
 value|{ volatile unsigned long long int _zzq_args[6];                 \     volatile unsigned long long int _zzq_result;                  \     _zzq_args[0] = (unsigned long long int)(_zzq_request);        \     _zzq_args[1] = (unsigned long long int)(_zzq_arg1);           \     _zzq_args[2] = (unsigned long long int)(_zzq_arg2);           \     _zzq_args[3] = (unsigned long long int)(_zzq_arg3);           \     _zzq_args[4] = (unsigned long long int)(_zzq_arg4);           \     _zzq_args[5] = (unsigned long long int)(_zzq_arg5);           \     __asm__ volatile(__SPECIAL_INSTRUCTION_PREAMBLE               \
 comment|/* %RDX = client_request ( %RAX ) */
-value|\                      "xchgq %%rbx,%%rbx"                          \                      : "=d" (_zzq_result)                         \                      : "a" (&_zzq_args[0]), "0" (_zzq_default)    \                      : "cc", "memory"                             \                     );                                            \     _zzq_rlval = _zzq_result;                                     \   }
+value|\                      "xchgq %%rbx,%%rbx"                          \                      : "=d" (_zzq_result)                         \                      : "a" (&_zzq_args[0]), "0" (_zzq_default)    \                      : "cc", "memory"                             \                     );                                            \     _zzq_rlval = _zzq_result;                                     \     (void)_zzq_rlval;                                             \   }
 end_define
 begin_define
 DECL|macro|VALGRIND_GET_NR_CONTEXT
