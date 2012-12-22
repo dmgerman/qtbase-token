@@ -18,6 +18,11 @@ include|#
 directive|include
 file|<QtConcurrent/qtconcurrentcompilertest.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/QStringList>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
