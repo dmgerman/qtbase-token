@@ -35,7 +35,13 @@ name|QEglFSHooks
 operator|::
 name|platformInit
 parameter_list|()
-block|{ }
+block|{
+name|Q_UNUSED
+argument_list|(
+name|hooks
+argument_list|)
+expr_stmt|;
+block|}
 end_function
 begin_function
 DECL|function|platformDestroy
