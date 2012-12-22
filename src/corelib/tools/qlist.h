@@ -3448,8 +3448,16 @@ name|memcpy
 argument_list|(
 name|n
 argument_list|,
+name|static_cast
+operator|<
+specifier|const
+name|void
+operator|*
+operator|>
+operator|(
 operator|&
 name|t
+operator|)
 argument_list|,
 sizeof|sizeof
 argument_list|(
