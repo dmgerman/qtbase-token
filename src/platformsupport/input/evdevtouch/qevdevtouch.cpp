@@ -2590,6 +2590,8 @@ operator|-
 literal|1
 decl_stmt|,
 name|bestId
+init|=
+literal|0
 decl_stmt|;
 for|for
 control|(
