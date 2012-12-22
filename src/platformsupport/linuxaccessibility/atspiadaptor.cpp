@@ -12284,6 +12284,7 @@ operator|::
 name|Double
 argument_list|)
 condition|)
+block|{
 name|qAtspiDebug
 argument_list|()
 operator|<<
@@ -12291,6 +12292,7 @@ literal|"AtSpiAdaptor::valueInterface: Could not convert to double: "
 operator|<<
 name|function
 expr_stmt|;
+block|}
 comment|// explicitly convert to dbus-variant containing one double since atspi expects that
 comment|// everything else might fail to convert back on the other end
 name|connection
