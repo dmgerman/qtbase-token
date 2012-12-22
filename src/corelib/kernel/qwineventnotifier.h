@@ -13,28 +13,16 @@ define|#
 directive|define
 name|QWINEVENTNOTIFIER_H
 end_define
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-begin_comment
-comment|// inform syncqt
-end_comment
-begin_pragma
-pragma|#
-directive|pragma
-name|qt_no_master_include
-end_pragma
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_include
 include|#
 directive|include
 file|"QtCore/qobject.h"
 end_include
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+end_ifdef
 begin_include
 include|#
 directive|include
@@ -146,6 +134,13 @@ begin_expr_stmt
 name|QT_END_NAMESPACE
 name|QT_END_HEADER
 end_expr_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// Q_OS_WIN
+end_comment
 begin_endif
 endif|#
 directive|endif
