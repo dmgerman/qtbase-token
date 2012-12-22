@@ -21,6 +21,17 @@ end_include
 begin_expr_stmt
 name|QT_BEGIN_NAMESPACE
 name|QT_END_NAMESPACE
+if|#
+directive|if
+literal|0
+pragma|#
+directive|pragma
+name|qt_sync_skip_header_check
+pragma|#
+directive|pragma
+name|qt_sync_stop_processing
+endif|#
+directive|endif
 DECL|macro|Q_ATOMIC_INT_REFERENCE_COUNTING_IS_ALWAYS_NATIVE
 define|#
 directive|define

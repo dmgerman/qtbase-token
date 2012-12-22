@@ -23,6 +23,11 @@ end_pragma
 begin_pragma
 pragma|#
 directive|pragma
+name|qt_sync_skip_header_check
+end_pragma
+begin_pragma
+pragma|#
+directive|pragma
 name|qt_sync_stop_processing
 end_pragma
 begin_endif

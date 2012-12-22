@@ -27,6 +27,9 @@ comment|// silence syncqt warnings
 type|QT_END_NAMESPACE
 pragma|#
 directive|pragma
+name|qt_sync_skip_header_check
+pragma|#
+directive|pragma
 name|qt_no_master_include
 pragma|#
 directive|pragma
