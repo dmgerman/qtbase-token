@@ -4132,6 +4132,9 @@ case|:
 case|case
 name|MultipleResultSets
 case|:
+case|case
+name|CancelQuery
+case|:
 return|return
 literal|false
 return|;

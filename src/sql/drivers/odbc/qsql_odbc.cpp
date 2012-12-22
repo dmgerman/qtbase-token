@@ -267,9 +267,12 @@ name|qCritical
 argument_list|(
 literal|"sizeof(SQLTCHAR) is %d. Don't know how to handle this."
 argument_list|,
+name|int
+argument_list|(
 sizeof|sizeof
 argument_list|(
 name|SQLTCHAR
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -400,9 +403,12 @@ name|qCritical
 argument_list|(
 literal|"sizeof(SQLTCHAR) is %d. Don't know how to handle this."
 argument_list|,
+name|int
+argument_list|(
 sizeof|sizeof
 argument_list|(
 name|SQLTCHAR
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3248,7 +3254,7 @@ end_function
 begin_function
 DECL|function|qGetODBCVersion
 specifier|static
-name|int
+name|size_t
 name|qGetODBCVersion
 parameter_list|(
 specifier|const
@@ -3594,7 +3600,10 @@ argument_list|,
 operator|(
 name|SQLPOINTER
 operator|)
+name|size_t
+argument_list|(
 name|v
+argument_list|)
 argument_list|,
 literal|0
 argument_list|)
@@ -3632,7 +3641,10 @@ argument_list|,
 operator|(
 name|SQLPOINTER
 operator|)
+name|size_t
+argument_list|(
 name|v
+argument_list|)
 argument_list|,
 literal|0
 argument_list|)
@@ -3670,7 +3682,10 @@ argument_list|,
 operator|(
 name|SQLPOINTER
 operator|)
+name|size_t
+argument_list|(
 name|v
+argument_list|)
 argument_list|,
 literal|0
 argument_list|)
@@ -3818,7 +3833,10 @@ argument_list|,
 operator|(
 name|SQLPOINTER
 operator|)
+name|size_t
+argument_list|(
 name|v
+argument_list|)
 argument_list|,
 literal|0
 argument_list|)
@@ -3856,7 +3874,10 @@ argument_list|,
 operator|(
 name|SQLPOINTER
 operator|)
+name|size_t
+argument_list|(
 name|v
+argument_list|)
 argument_list|,
 literal|0
 argument_list|)
@@ -4004,7 +4025,10 @@ argument_list|,
 operator|(
 name|SQLPOINTER
 operator|)
+name|size_t
+argument_list|(
 name|v
+argument_list|)
 argument_list|,
 literal|0
 argument_list|)
@@ -4112,7 +4136,10 @@ argument_list|,
 operator|(
 name|SQLPOINTER
 operator|)
+name|size_t
+argument_list|(
 name|v
+argument_list|)
 argument_list|,
 literal|0
 argument_list|)
@@ -4206,7 +4233,10 @@ argument_list|,
 operator|(
 name|SQLPOINTER
 operator|)
+name|size_t
+argument_list|(
 name|v
+argument_list|)
 argument_list|,
 literal|0
 argument_list|)
@@ -9864,6 +9894,9 @@ case|:
 case|case
 name|EventNotifications
 case|:
+case|case
+name|CancelQuery
+case|:
 return|return
 literal|false
 return|;
@@ -11764,7 +11797,10 @@ argument_list|,
 operator|(
 name|SQLPOINTER
 operator|)
+name|size_t
+argument_list|(
 name|ac
+argument_list|)
 argument_list|,
 sizeof|sizeof
 argument_list|(
@@ -11977,7 +12013,10 @@ argument_list|,
 operator|(
 name|SQLPOINTER
 operator|)
+name|size_t
+argument_list|(
 name|ac
+argument_list|)
 argument_list|,
 sizeof|sizeof
 argument_list|(

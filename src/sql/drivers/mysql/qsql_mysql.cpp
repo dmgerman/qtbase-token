@@ -5956,6 +5956,9 @@ case|:
 case|case
 name|FinishQuery
 case|:
+case|case
+name|CancelQuery
+case|:
 return|return
 literal|false
 return|;
