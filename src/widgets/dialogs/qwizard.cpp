@@ -5009,7 +5009,6 @@ name|wizStyle
 expr_stmt|;
 if|if
 condition|(
-operator|(
 name|info
 operator|.
 name|wizStyle
@@ -5017,7 +5016,6 @@ operator|==
 name|QWizard
 operator|::
 name|AeroStyle
-operator|)
 if|#
 directive|if
 operator|!
