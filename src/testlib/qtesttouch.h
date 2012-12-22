@@ -60,6 +60,11 @@ include|#
 directive|include
 file|<QtGui/qevent.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtGui/qwindow.h>
+end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
