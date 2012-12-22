@@ -1565,7 +1565,7 @@ argument_list|()
 operator|<<
 literal|" :"
 expr_stmt|;
-name|foreach
+name|Q_FOREACH
 argument_list|(
 argument|const QAccessibleEvent *e
 argument_list|,
