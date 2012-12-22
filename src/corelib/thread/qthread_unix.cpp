@@ -1657,24 +1657,6 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_MAC
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_IOS
-argument_list|)
-comment|// Mac OS X
-name|cores
-operator|=
-name|MPProcessorsScheduled
-argument_list|()
-expr_stmt|;
-elif|#
-directive|elif
-name|defined
-argument_list|(
 name|Q_OS_HPUX
 argument_list|)
 comment|// HP-UX
@@ -1732,7 +1714,7 @@ name|defined
 argument_list|(
 name|Q_OS_BSD4
 argument_list|)
-comment|// FreeBSD, OpenBSD, NetBSD, BSD/OS
+comment|// FreeBSD, OpenBSD, NetBSD, BSD/OS, Mac OS X
 name|size_t
 name|len
 init|=
