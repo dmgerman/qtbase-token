@@ -102,22 +102,18 @@ argument_list|(
 argument|bool visible
 argument_list|)
 block|;
-name|GLuint
-name|framebufferObject
-argument_list|(
-argument|const QIOSContext&context
-argument_list|)
-specifier|const
-block|;
-name|GLuint
-name|colorRenderbuffer
-argument_list|(
-argument|const QIOSContext&context
-argument_list|)
-specifier|const
-block|;
 name|qreal
 name|devicePixelRatio
+argument_list|()
+specifier|const
+block|;
+name|int
+name|effectiveWidth
+argument_list|()
+specifier|const
+block|;
+name|int
+name|effectiveHeight
 argument_list|()
 specifier|const
 block|;
@@ -139,27 +135,6 @@ name|m_view
 block|;
 name|QRect
 name|m_requestedGeometry
-block|;
-name|mutable
-expr|struct
-name|GLData
-block|{
-name|GLuint
-name|framebufferObject
-block|;
-name|GLuint
-name|colorRenderbuffer
-block|;
-name|GLuint
-name|depthRenderbuffer
-block|;
-name|GLint
-name|renderbufferWidth
-block|;
-name|GLint
-name|renderbufferHeight
-block|;     }
-name|m_glData
 block|;
 name|qreal
 name|m_devicePixelRatio
