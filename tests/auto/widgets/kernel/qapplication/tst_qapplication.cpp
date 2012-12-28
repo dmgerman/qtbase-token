@@ -10120,6 +10120,15 @@ name|window
 decl_stmt|;
 name|window
 operator|.
+name|resize
+argument_list|(
+literal|200
+argument_list|,
+literal|200
+argument_list|)
+expr_stmt|;
+name|window
+operator|.
 name|setObjectName
 argument_list|(
 literal|"1. window"
@@ -10395,6 +10404,15 @@ comment|// touch event behavior on a window with a child widget
 name|TouchEventPropagationTestWidget
 name|window
 decl_stmt|;
+name|window
+operator|.
+name|resize
+argument_list|(
+literal|200
+argument_list|,
+literal|200
+argument_list|)
+expr_stmt|;
 name|window
 operator|.
 name|setObjectName

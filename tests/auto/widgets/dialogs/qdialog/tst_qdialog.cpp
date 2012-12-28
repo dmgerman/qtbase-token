@@ -559,7 +559,7 @@ argument_list|)
 operator|<<
 name|QSize
 argument_list|(
-literal|100
+literal|200
 argument_list|,
 literal|100
 argument_list|)
@@ -575,7 +575,7 @@ literal|false
 operator|<<
 name|QSize
 argument_list|(
-literal|100
+literal|200
 argument_list|,
 literal|150
 argument_list|)
@@ -589,14 +589,14 @@ argument_list|)
 operator|<<
 name|QSize
 argument_list|(
-literal|100
+literal|200
 argument_list|,
 literal|100
 argument_list|)
 operator|<<
 name|QSize
 argument_list|(
-literal|120
+literal|220
 argument_list|,
 literal|50
 argument_list|)
@@ -605,7 +605,7 @@ literal|false
 operator|<<
 name|QSize
 argument_list|(
-literal|120
+literal|220
 argument_list|,
 literal|150
 argument_list|)
@@ -619,7 +619,7 @@ argument_list|)
 operator|<<
 name|QSize
 argument_list|(
-literal|100
+literal|200
 argument_list|,
 literal|100
 argument_list|)
@@ -635,7 +635,7 @@ literal|true
 operator|<<
 name|QSize
 argument_list|(
-literal|150
+literal|250
 argument_list|,
 literal|100
 argument_list|)
@@ -649,7 +649,7 @@ argument_list|)
 operator|<<
 name|QSize
 argument_list|(
-literal|100
+literal|200
 argument_list|,
 literal|100
 argument_list|)
@@ -665,7 +665,7 @@ literal|true
 operator|<<
 name|QSize
 argument_list|(
-literal|150
+literal|250
 argument_list|,
 literal|120
 argument_list|)

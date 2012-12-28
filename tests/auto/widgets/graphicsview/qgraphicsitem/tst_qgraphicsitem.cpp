@@ -60172,6 +60172,15 @@ expr_stmt|;
 name|QWidget
 name|topLevel
 decl_stmt|;
+name|topLevel
+operator|.
+name|resize
+argument_list|(
+literal|200
+argument_list|,
+literal|200
+argument_list|)
+expr_stmt|;
 name|QGraphicsView
 name|view
 argument_list|(
