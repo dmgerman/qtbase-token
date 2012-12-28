@@ -80,7 +80,7 @@ end_endif
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|qdoc
+name|Q_QDOC
 end_ifdef
 begin_function_decl
 name|void

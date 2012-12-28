@@ -188,7 +188,7 @@ end_expr_stmt
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|qdoc
+name|Q_QDOC
 end_ifndef
 begin_typedef
 typedef|typedef
@@ -233,7 +233,7 @@ end_comment
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|qdoc
+name|Q_QDOC
 end_ifdef
 begin_typedef
 typedef|typedef

@@ -112,7 +112,7 @@ end_function
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|qdoc
+name|Q_QDOC
 end_ifndef
 begin_namespace
 DECL|namespace|QtPrivate
@@ -361,7 +361,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|//qdoc
+comment|//Q_QDOC
 end_comment
 begin_macro
 name|QT_END_NAMESPACE

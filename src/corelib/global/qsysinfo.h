@@ -84,7 +84,7 @@ block|,
 name|LittleEndian
 ifdef|#
 directive|ifdef
-name|qdoc
+name|Q_QDOC
 block|,
 name|ByteOrder
 init|=

@@ -1474,7 +1474,7 @@ end_function_decl
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|qdoc
+name|Q_QDOC
 end_ifdef
 begin_decl_stmt
 name|public

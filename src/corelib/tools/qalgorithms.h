@@ -580,7 +580,7 @@ argument_list|)
 block|; }
 ifdef|#
 directive|ifdef
-name|qdoc
+name|Q_QDOC
 name|template
 operator|<
 name|typename

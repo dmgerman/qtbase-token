@@ -927,7 +927,7 @@ argument|ComponentFormattingOption
 argument_list|)
 ifdef|#
 directive|ifdef
-name|qdoc
+name|Q_QDOC
 name|Q_DECLARE_FLAGS
 argument_list|(
 argument|FormattingOptions

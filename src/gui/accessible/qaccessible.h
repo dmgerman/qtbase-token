@@ -87,7 +87,7 @@ name|Q_GUI_EXPORT
 name|QAccessible
 ifndef|#
 directive|ifndef
-name|qdoc
+name|Q_QDOC
 range|:
 name|public
 name|QObject
@@ -789,7 +789,7 @@ literal|0x0000002B
 block|,
 ifndef|#
 directive|ifndef
-name|qdoc
+name|Q_QDOC
 name|PushButton
 operator|=
 name|Button

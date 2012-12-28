@@ -977,7 +977,7 @@ end_function_decl
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|qdoc
+name|Q_QDOC
 end_ifndef
 begin_macro
 name|QTEST_COMPARE_DECL

@@ -356,7 +356,7 @@ endif|#
 directive|endif
 ifndef|#
 directive|ifndef
-name|qdoc
+name|Q_QDOC
 name|NImageFormats
 endif|#
 directive|endif

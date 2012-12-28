@@ -148,7 +148,7 @@ return|;
 block|}
 ifdef|#
 directive|ifdef
-name|qdoc
+name|Q_QDOC
 name|int
 name|load
 argument_list|()
@@ -423,7 +423,7 @@ return|;
 block|}
 ifdef|#
 directive|ifdef
-name|qdoc
+name|Q_QDOC
 name|T
 operator|*
 name|load
