@@ -24,12 +24,6 @@ name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
 name|QT_NO_STANDARDPATHS
-DECL|variable|QStringList
-name|class
-name|QStringList
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|class
 name|Q_CORE_EXPORT
 name|QStandardPaths
