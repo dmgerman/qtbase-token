@@ -467,7 +467,7 @@ return|return
 name|m_fontEngineData
 return|;
 block|}
-comment|// Properties accessed by QWin32PrintEngine (QtPrintSupport)
+comment|// Properties accessed by QWin32PrintEngine (Qt Print Support)
 name|LOGFONT
 name|logFont
 argument_list|()

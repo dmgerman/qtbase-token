@@ -271,7 +271,7 @@ modifier|*
 name|argv
 parameter_list|)
 block|{
-comment|// initialize QtCore application
+comment|// initialize Qt Core application
 name|QCoreApplication
 name|app
 argument_list|(

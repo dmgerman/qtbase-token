@@ -3752,7 +3752,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \namespace QDBus     \inmodule QtDBus      \brief The QDBus namespace contains miscellaneous identifiers used     throughout the QtDBus library. */
+comment|/*!     \namespace QDBus     \inmodule QtDBus      \brief The QDBus namespace contains miscellaneous identifiers used     throughout the Qt D-Bus module. */
 end_comment
 begin_comment
 comment|/*!     \enum QDBus::CallMode      This enum describes the various ways of placing a function call. The valid modes are:      \value NoBlock              Place the call but don't wait for the reply (the reply's contents                                 will be discarded).     \value Block                Don't use an event loop to wait for a reply, but instead block on                                 network operations while waiting. This means the                                 user-interface may not be updated until the function returns.     \value BlockWithGui         Use the Qt event loop to wait for a reply. This means that the                                 user-interface will stay responsive (processing input events),                                 but it also means other events may happen, like signal delivery                                 and other D-Bus method calls.     \value AutoDetect           Automatically detect if the called function has a reply.      When using BlockWithGui, applications must be prepared for reentrancy in any function. */

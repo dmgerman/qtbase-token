@@ -5862,11 +5862,11 @@ name|serviceRegistrationRaceCondition
 parameter_list|()
 block|{
 comment|// There was a race condition in the updating of list of name owners in
-comment|// QtDBus. When the user connects to a signal coming from a given
+comment|// Qt D-Bus. When the user connects to a signal coming from a given
 comment|// service, we must listen for NameOwnerChanged signals relevant to that
 comment|// name and update when the owner changes. However, it's possible that we
 comment|// receive in one chunk from the server both the NameOwnerChanged signal
-comment|// about the service and the signal we're interested in. Since QtDBus
+comment|// about the service and the signal we're interested in. Since Qt D-Bus
 comment|// posts events in order to handle the incoming signals, the update
 comment|// happens too late.
 specifier|const

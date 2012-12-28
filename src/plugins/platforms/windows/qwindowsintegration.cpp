@@ -1724,7 +1724,7 @@ begin_comment
 comment|// It's not easy to detect if we are running a QML application
 end_comment
 begin_comment
-comment|// Let's try to do so by checking if the QtQuick module is loaded.
+comment|// Let's try to do so by checking if the Qt Quick module is loaded.
 end_comment
 begin_function
 DECL|function|isQMLApplication
@@ -1733,7 +1733,7 @@ name|bool
 name|isQMLApplication
 parameter_list|()
 block|{
-comment|// check if the QtQuick library is loaded
+comment|// check if the Qt Quick module is loaded
 ifdef|#
 directive|ifdef
 name|_DEBUG

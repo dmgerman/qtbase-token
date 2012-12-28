@@ -9,7 +9,7 @@ file|"qsslkey.h"
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-comment|/*! \namespace QSsl      \brief The QSsl namespace declares enums common to all SSL classes in QtNetwork.     \since 4.3      \ingroup network     \ingroup ssl     \inmodule QtNetwork */
+comment|/*! \namespace QSsl      \brief The QSsl namespace declares enums common to all SSL classes in Qt Network.     \since 4.3      \ingroup network     \ingroup ssl     \inmodule QtNetwork */
 comment|/*!     \enum QSsl::KeyType      Describes the two types of keys QSslKey supports.          \value PrivateKey A private key.     \value PublicKey A public key. */
 comment|/*!     \enum QSsl::KeyAlgorithm      Describes the different key algorithms supported by QSslKey.      \value Rsa The RSA algorithm.     \value Dsa The DSA algorithm.     \value Opaque A key that should be treated as a 'black box' by QSslKey.      The opaque key facility allows applications to add support for facilities     such as PKCS#11 that Qt does not currently offer natively. */
 comment|/*!     \enum QSsl::EncodingFormat      Describes supported encoding formats for certificates and keys.      \value Pem The PEM format.     \value Der The DER format. */

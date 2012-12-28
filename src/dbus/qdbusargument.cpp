@@ -632,7 +632,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QDBusArgument     \inmodule QtDBus     \since 4.2      \brief The QDBusArgument class is used to marshall and demarshall D-Bus arguments.      The class is used to send arguments over D-Bus to remote     applications and to receive them back. D-Bus offers an extensible     type system, based on a few primitive types and associations of     them. See the \l {qdbustypesystem.html}{QtDBus type system} page     for more information on the type system.      QDBusArgument is the central class in the QtDBus type system,     providing functions to marshall and demarshall the primitive     types. The compound types are then created by association of one     or more of the primitive types in arrays, dictionaries or     structures.      The following example illustrates how a structure containing an     integer and a string can be constructed using the \l     {qdbustypesystem.html}{QtDBus type system}:      \snippet code/src_qdbus_qdbusargument.cpp 0      The type has to be registered with qDBusRegisterMetaType() before     it can be used with QDBusArgument. Therefore, somewhere in your     program, you should add the following code:      \snippet code/src_qdbus_qdbusargument.cpp 1      Once registered, a type can be used in outgoing method calls     (placed with QDBusAbstractInterface::call()), signal emissions     from registered objects or in incoming calls from remote     applications.      It is important to note that the \c{operator<<} and \c{operator>>}     streaming functions must always produce the same number of entries     in case of structures, both in reading and in writing (marshalling     and demarshalling), otherwise calls and signals may start to     silently fail.      The following example illustrates this wrong usage     in context of a class that may contain invalid data:      \badcode         // Wrongly marshall the MyTime data into a D-Bus argument         QDBusArgument&operator<<(QDBusArgument&argument, const MyTime&mytime)         {             argument.beginStructure();             if (mytime.isValid)                 argument<< true<< mytime.hour<< mytime.minute<< mytime.second;             else                 argument<< false;             argument.endStructure();             return argument;         }     \endcode      In this example, both the \c{operator<<} and the \c{operator>>}     functions may produce a different number of reads/writes. This can     confuse the QtDBus type system and should be avoided.      \sa QDBusAbstractInterface, {qdbustypesystem.html}{The QtDBus type     system}, {usingadaptors.html}{Using Adaptors}, qdbus_cast() */
+comment|/*!     \class QDBusArgument     \inmodule QtDBus     \since 4.2      \brief The QDBusArgument class is used to marshall and demarshall D-Bus arguments.      The class is used to send arguments over D-Bus to remote     applications and to receive them back. D-Bus offers an extensible     type system, based on a few primitive types and associations of     them. See the \l {qdbustypesystem.html}{Qt D-Bus Type System} page     for more information on the type system.      QDBusArgument is the central class in the Qt D-Bus type system,     providing functions to marshall and demarshall the primitive     types. The compound types are then created by association of one     or more of the primitive types in arrays, dictionaries or     structures.      The following example illustrates how a structure containing an     integer and a string can be constructed using the \l     {qdbustypesystem.html}{Qt D-Bus type system}:      \snippet code/src_qdbus_qdbusargument.cpp 0      The type has to be registered with qDBusRegisterMetaType() before     it can be used with QDBusArgument. Therefore, somewhere in your     program, you should add the following code:      \snippet code/src_qdbus_qdbusargument.cpp 1      Once registered, a type can be used in outgoing method calls     (placed with QDBusAbstractInterface::call()), signal emissions     from registered objects or in incoming calls from remote     applications.      It is important to note that the \c{operator<<} and \c{operator>>}     streaming functions must always produce the same number of entries     in case of structures, both in reading and in writing (marshalling     and demarshalling), otherwise calls and signals may start to     silently fail.      The following example illustrates this wrong usage     in context of a class that may contain invalid data:      \badcode         // Wrongly marshall the MyTime data into a D-Bus argument         QDBusArgument&operator<<(QDBusArgument&argument, const MyTime&mytime)         {             argument.beginStructure();             if (mytime.isValid)                 argument<< true<< mytime.hour<< mytime.minute<< mytime.second;             else                 argument<< false;             argument.endStructure();             return argument;         }     \endcode      In this example, both the \c{operator<<} and the \c{operator>>}     functions may produce a different number of reads/writes. This can     confuse the Qt D-Bus type system and should be avoided.      \sa QDBusAbstractInterface, {qdbustypesystem.html}{The Qt D-Bus type     system}, {usingadaptors.html}{Using Adaptors}, qdbus_cast() */
 end_comment
 begin_comment
 comment|/*!     \enum QDBusArgument::ElementType     \since 4.5      This enum describes the type of element held by the argument.      \value BasicType A basic element, which is understood by         QVariant. The following types are considered basic: bool,         byte, short, ushort, int, uint, qint64, quint64, double,         QString, QByteArray, QDBusObjectPath, QDBusSignature      \value VariantType The variant element (QDBusVariant)      \value ArrayType An array element, usually represented by QList<T>     or QVector<T>. Note: QByteArray and associative maps are not     considered arrays, even if the D-Bus protocol transports them as such.      \value StructureType A custom type represented by a structure,     like QDateTime, QPoint, etc.      \value MapType An associative container, like QMap<Key, Value> or     QHash<Key, Value>      \value MapEntryType One entry in an associative container: both     the key and the value form one map-entry type.      \value UnknownType The type is unknown or we have reached the end     of the list.      \sa currentType() */
@@ -1402,7 +1402,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload     Appends the QStringList given by \a arg as \c{ARRAY of STRING}     to the D-Bus stream.      QStringList and QByteArray are the only two non-primitive types     that are supported directly by QDBusArgument because of their     widespread usage in Qt applications.      Other arrays are supported through compound types in QtDBus. */
+comment|/*!     \overload     Appends the QStringList given by \a arg as \c{ARRAY of STRING}     to the D-Bus stream.      QStringList and QByteArray are the only two non-primitive types     that are supported directly by QDBusArgument because of their     widespread usage in Qt applications.      Other arrays are supported through compound types in Qt D-Bus. */
 end_comment
 begin_function
 DECL|function|operator <<
@@ -1445,7 +1445,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload     Appends the QByteArray given by \a arg as \c{ARRAY of BYTE}     to the D-Bus stream.      QStringList and QByteArray are the only two non-primitive types     that are supported directly by QDBusArgument because of their     widespread usage in Qt applications.      Other arrays are supported through compound types in QtDBus. */
+comment|/*!     \overload     Appends the QByteArray given by \a arg as \c{ARRAY of BYTE}     to the D-Bus stream.      QStringList and QByteArray are the only two non-primitive types     that are supported directly by QDBusArgument because of their     widespread usage in Qt applications.      Other arrays are supported through compound types in Qt D-Bus. */
 end_comment
 begin_function
 DECL|function|operator <<
@@ -2239,7 +2239,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload     Extracts an array of strings from the D-Bus stream and return it     as a QStringList.      QStringList and QByteArray are the only two non-primitive types     that are supported directly by QDBusArgument because of their     widespread usage in Qt applications.      Other arrays are supported through compound types in QtDBus. */
+comment|/*!     \overload     Extracts an array of strings from the D-Bus stream and return it     as a QStringList.      QStringList and QByteArray are the only two non-primitive types     that are supported directly by QDBusArgument because of their     widespread usage in Qt applications.      Other arrays are supported through compound types in Qt D-Bus. */
 end_comment
 begin_function
 DECL|function|operator >>
@@ -2283,7 +2283,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload     Extracts an array of bytes from the D-Bus stream and return it     as a QByteArray.      QStringList and QByteArray are the only two non-primitive types     that are supported directly by QDBusArgument because of their     widespread usage in Qt applications.      Other arrays are supported through compound types in QtDBus. */
+comment|/*!     \overload     Extracts an array of bytes from the D-Bus stream and return it     as a QByteArray.      QStringList and QByteArray are the only two non-primitive types     that are supported directly by QDBusArgument because of their     widespread usage in Qt applications.      Other arrays are supported through compound types in Qt D-Bus. */
 end_comment
 begin_function
 DECL|function|operator >>
@@ -2391,7 +2391,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Opens a new D-Bus array suitable for appending elements of meta-type \a id.      This function is used usually in \c{operator<<} streaming     operators, as in the following example:      \snippet code/src_qdbus_qdbusargument.cpp 6      If the type you want to marshall is a QList, QVector or any of the     Qt's \l {Container Classes} that take one template parameter,     you need not declare an \c{operator<<} function for it, since     QtDBus provides generic templates to do the job of marshalling     the data. The same applies for STL's sequence containers, such     as \c {std::list}, \c {std::vector}, etc.      \sa endArray(), beginStructure(), beginMap() */
+comment|/*!     Opens a new D-Bus array suitable for appending elements of meta-type \a id.      This function is used usually in \c{operator<<} streaming     operators, as in the following example:      \snippet code/src_qdbus_qdbusargument.cpp 6      If the type you want to marshall is a QList, QVector or any of the     Qt's \l {Container Classes} that take one template parameter,     you need not declare an \c{operator<<} function for it, since     Qt D-Bus provides generic templates to do the job of marshalling     the data. The same applies for STL's sequence containers, such     as \c {std::list}, \c {std::vector}, etc.      \sa endArray(), beginStructure(), beginMap() */
 end_comment
 begin_function
 DECL|function|beginArray
@@ -2460,7 +2460,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Opens a new D-Bus map suitable for     appending elements. Maps are containers that associate one entry     (the key) to another (the value), such as Qt's QMap or QHash. The     ids of the map's key and value meta types must be passed in \a kid     and \a vid respectively.      This function is used usually in \c{operator<<} streaming     operators, as in the following example:      \snippet code/src_qdbus_qdbusargument.cpp 7      If the type you want to marshall is a QMap or QHash, you need not     declare an \c{operator<<} function for it, since QtDBus provides     generic templates to do the job of marshalling the data.      \sa endMap(), beginStructure(), beginArray(), beginMapEntry() */
+comment|/*!     Opens a new D-Bus map suitable for     appending elements. Maps are containers that associate one entry     (the key) to another (the value), such as Qt's QMap or QHash. The     ids of the map's key and value meta types must be passed in \a kid     and \a vid respectively.      This function is used usually in \c{operator<<} streaming     operators, as in the following example:      \snippet code/src_qdbus_qdbusargument.cpp 7      If the type you want to marshall is a QMap or QHash, you need not     declare an \c{operator<<} function for it, since Qt D-Bus provides     generic templates to do the job of marshalling the data.      \sa endMap(), beginStructure(), beginArray(), beginMapEntry() */
 end_comment
 begin_function
 DECL|function|beginMap
@@ -2664,7 +2664,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Recurses into the D-Bus array to allow extraction of     the array elements.      This function is used usually in \c{operator>>} streaming     operators, as in the following example:      \snippet code/src_qdbus_qdbusargument.cpp 9      If the type you want to demarshall is a QList, QVector or any of the     Qt's \l {Container Classes} that take one template parameter, you     need not declare an \c{operator>>} function for it, since QtDBus     provides generic templates to do the job of demarshalling the data.     The same applies for STL's sequence containers, such as \c {std::list},     \c {std::vector}, etc.      \sa atEnd(), beginStructure(), beginMap() */
+comment|/*!     Recurses into the D-Bus array to allow extraction of     the array elements.      This function is used usually in \c{operator>>} streaming     operators, as in the following example:      \snippet code/src_qdbus_qdbusargument.cpp 9      If the type you want to demarshall is a QList, QVector or any of the     Qt's \l {Container Classes} that take one template parameter, you     need not declare an \c{operator>>} function for it, since Qt D-Bus     provides generic templates to do the job of demarshalling the data.     The same applies for STL's sequence containers, such as \c {std::list},     \c {std::vector}, etc.      \sa atEnd(), beginStructure(), beginMap() */
 end_comment
 begin_function
 DECL|function|beginArray
@@ -2730,7 +2730,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Recurses into the D-Bus map to allow extraction of     the map's elements.      This function is used usually in \c{operator>>} streaming     operators, as in the following example:      \snippet code/src_qdbus_qdbusargument.cpp 10      If the type you want to demarshall is a QMap or QHash, you need not     declare an \c{operator>>} function for it, since QtDBus provides     generic templates to do the job of demarshalling the data.      \sa endMap(), beginStructure(), beginArray(), beginMapEntry() */
+comment|/*!     Recurses into the D-Bus map to allow extraction of     the map's elements.      This function is used usually in \c{operator>>} streaming     operators, as in the following example:      \snippet code/src_qdbus_qdbusargument.cpp 10      If the type you want to demarshall is a QMap or QHash, you need not     declare an \c{operator>>} function for it, since Qt D-Bus provides     generic templates to do the job of demarshalling the data.      \sa endMap(), beginStructure(), beginArray(), beginMapEntry() */
 end_comment
 begin_function
 DECL|function|beginMap

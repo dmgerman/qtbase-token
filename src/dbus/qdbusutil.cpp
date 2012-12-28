@@ -1627,7 +1627,7 @@ DECL|namespace|QDBusUtil
 namespace|namespace
 name|QDBusUtil
 block|{
-comment|/*!         \internal         \since 4.5         Dumps the contents of a QtDBus argument from \a arg into a string.     */
+comment|/*!         \internal         \since 4.5         Dumps the contents of a Qt D-Bus argument from \a arg into a string.     */
 DECL|function|argumentToString
 name|QString
 name|argumentToString

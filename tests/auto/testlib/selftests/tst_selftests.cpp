@@ -2115,7 +2115,7 @@ argument_list|,
 name|result
 argument_list|)
 expr_stmt|;
-comment|// Preserve DISPLAY for X11 as some tests use QtGui.
+comment|// Preserve DISPLAY for X11 as some tests use Qt GUI.
 if|#
 directive|if
 name|defined

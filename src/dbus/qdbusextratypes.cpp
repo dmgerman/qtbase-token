@@ -93,7 +93,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \class QDBusVariant     \inmodule QtDBus     \since 4.2      \brief The QDBusVariant class enables the programmer to identify     the variant type provided by the D-Bus typesystem.      A D-Bus function that takes an integer, a D-Bus variant and a string as parameters     can be called with the following argument list (see QDBusMessage::setArguments()):      \snippet qdbusextratypes/qdbusextratypes.cpp 0      When a D-Bus function returns a D-Bus variant, it can be retrieved as follows:      \snippet qdbusextratypes/qdbusextratypes.cpp 1      The QVariant within a QDBusVariant is required to distinguish between a normal     D-Bus value and a value within a D-Bus variant.      \sa {The QtDBus type system} */
+comment|/*!     \class QDBusVariant     \inmodule QtDBus     \since 4.2      \brief The QDBusVariant class enables the programmer to identify     the variant type provided by the D-Bus typesystem.      A D-Bus function that takes an integer, a D-Bus variant and a string as parameters     can be called with the following argument list (see QDBusMessage::setArguments()):      \snippet qdbusextratypes/qdbusextratypes.cpp 0      When a D-Bus function returns a D-Bus variant, it can be retrieved as follows:      \snippet qdbusextratypes/qdbusextratypes.cpp 1      The QVariant within a QDBusVariant is required to distinguish between a normal     D-Bus value and a value within a D-Bus variant.      \sa {The Qt D-Bus Type System} */
 end_comment
 begin_comment
 comment|/*!     \fn QDBusVariant::QDBusVariant()      Constructs a new D-Bus variant. */
@@ -108,7 +108,7 @@ begin_comment
 comment|/*!     \fn void QDBusVariant::setVariant(const QVariant&variant)      Assigns the value of the given Qt \a variant to this D-Bus variant.      \sa variant() */
 end_comment
 begin_comment
-comment|/*!     \class QDBusObjectPath     \inmodule QtDBus     \since 4.2      \brief The QDBusObjectPath class enables the programmer to     identify the OBJECT_PATH type provided by the D-Bus typesystem.      \sa {The QtDBus type system} */
+comment|/*!     \class QDBusObjectPath     \inmodule QtDBus     \since 4.2      \brief The QDBusObjectPath class enables the programmer to     identify the OBJECT_PATH type provided by the D-Bus typesystem.      \sa {The Qt D-Bus Type System} */
 end_comment
 begin_comment
 comment|/*!     \fn QDBusObjectPath::QDBusObjectPath()      Constructs a new object path. */
@@ -129,7 +129,7 @@ begin_comment
 comment|/*!     \fn void QDBusObjectPath::setPath(const QString&path)      Assigns the value of the given \a path to this object path.      \sa path() */
 end_comment
 begin_comment
-comment|/*!     \class QDBusSignature     \inmodule QtDBus     \since 4.2      \brief The QDBusSignature class enables the programmer to     identify the SIGNATURE type provided by the D-Bus typesystem.      \sa {The QtDBus type system} */
+comment|/*!     \class QDBusSignature     \inmodule QtDBus     \since 4.2      \brief The QDBusSignature class enables the programmer to     identify the SIGNATURE type provided by the D-Bus typesystem.      \sa {The Qt D-Bus Type System} */
 end_comment
 begin_comment
 comment|/*!     \fn QDBusSignature::QDBusSignature()      Constructs a new signature.      \sa setSignature() */

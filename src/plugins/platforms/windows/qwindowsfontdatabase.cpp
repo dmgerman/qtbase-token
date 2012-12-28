@@ -5612,7 +5612,7 @@ operator|::
 name|QWindowsFontDatabase
 parameter_list|()
 block|{
-comment|// Properties accessed by QWin32PrintEngine (QtPrintSupport)
+comment|// Properties accessed by QWin32PrintEngine (Qt Print Support)
 specifier|static
 specifier|const
 name|int

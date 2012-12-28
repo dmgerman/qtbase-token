@@ -166,7 +166,7 @@ name|QPlatformPixmap
 parameter_list|()
 block|{
 comment|// Sometimes the pixmap cleanup hooks will be called from derrived classes, which will
-comment|// then set is_cached to false. For example, on X11 QtGui needs to delete the GLXPixmap
+comment|// then set is_cached to false. For example, on X11 Qt GUI needs to delete the GLXPixmap
 comment|// or EGL Pixmap Surface for a given pixmap _before_ the native X11 pixmap is deleted,
 comment|// otherwise some drivers will leak the GL surface. In this case, QX11PlatformPixmap will
 comment|// call the cleanup hooks itself before deleting the native pixmap and set is_cached to

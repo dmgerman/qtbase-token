@@ -1438,7 +1438,7 @@ name|ReadOnly
 argument_list|)
 expr_stmt|;
 comment|// Internal code that does a HTTP reply for the synchronous Ajax
-comment|// in QtWebKit.
+comment|// in Qt WebKit.
 name|QVariant
 name|synchronousHttpAttribute
 init|=
