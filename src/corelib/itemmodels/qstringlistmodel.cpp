@@ -274,7 +274,7 @@ name|isValid
 argument_list|()
 condition|)
 return|return
-name|QAbstractItemModel
+name|QAbstractListModel
 operator|::
 name|flags
 argument_list|(
@@ -286,7 +286,7 @@ operator|::
 name|ItemIsDropEnabled
 return|;
 return|return
-name|QAbstractItemModel
+name|QAbstractListModel
 operator|::
 name|flags
 argument_list|(
