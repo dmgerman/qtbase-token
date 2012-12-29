@@ -10431,7 +10431,7 @@ literal|"no"
 argument_list|,
 literal|"-no-widgets"
 argument_list|,
-literal|"Disable QtWidgets module.\n"
+literal|"Disable Qt Widgets module.\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11670,7 +11670,7 @@ literal|"no"
 argument_list|,
 literal|"-no-audio-backend"
 argument_list|,
-literal|"Do not compile in the platform audio backend into\nQtMultimedia."
+literal|"Do not compile in the platform audio backend into\nQt Multimedia."
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11681,7 +11681,7 @@ literal|"yes"
 argument_list|,
 literal|"-audio-backend"
 argument_list|,
-literal|"Compile in the platform audio backend into QtMultimedia.\n"
+literal|"Compile in the platform audio backend into Qt Multimedia.\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -21634,7 +21634,7 @@ name|endl
 expr_stmt|;
 name|sout
 operator|<<
-literal|"QtDBus support.............."
+literal|"Qt D-Bus support............"
 operator|<<
 name|dictionary
 index|[
@@ -21645,7 +21645,7 @@ name|endl
 expr_stmt|;
 name|sout
 operator|<<
-literal|"QtWidgets module support...."
+literal|"Qt Widgets module support..."
 operator|<<
 name|dictionary
 index|[
