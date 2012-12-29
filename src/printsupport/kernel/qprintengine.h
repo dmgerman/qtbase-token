@@ -94,6 +94,8 @@ name|PPK_CopyCount
 block|,
 name|PPK_SupportsMultipleCopies
 block|,
+name|PPK_PaperName
+block|,
 name|PPK_PaperSize
 operator|=
 name|PPK_PageSize

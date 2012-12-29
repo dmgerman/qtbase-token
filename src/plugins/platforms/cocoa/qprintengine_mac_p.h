@@ -537,6 +537,15 @@ name|paperSize
 argument_list|()
 specifier|const
 block|;
+name|void
+name|setPaperName
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|name
+argument_list|)
+block|;
 name|QList
 operator|<
 name|QVariant
