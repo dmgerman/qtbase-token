@@ -1460,6 +1460,8 @@ argument_list|(
 name|textCopy
 argument_list|,
 name|cursorCopy
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 return|return
@@ -2647,6 +2649,8 @@ argument_list|(
 name|textCopy
 argument_list|,
 name|cursorCopy
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 return|return
