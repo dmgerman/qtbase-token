@@ -85,6 +85,10 @@ argument|ModelSorting modelSorting READ modelSorting WRITE setModelSorting
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
+argument|Qt::MatchFlags filterMode READ filterMode WRITE setFilterMode
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
 argument|CompletionMode completionMode READ completionMode WRITE setCompletionMode
 argument_list|)
 name|Q_PROPERTY
@@ -211,6 +215,19 @@ argument_list|)
 block|;
 name|CompletionMode
 name|completionMode
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setFilterMode
+argument_list|(
+argument|Qt::MatchFlags filterMode
+argument_list|)
+block|;
+name|Qt
+operator|::
+name|MatchFlags
+name|filterMode
 argument_list|()
 specifier|const
 block|;

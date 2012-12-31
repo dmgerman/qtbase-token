@@ -142,6 +142,11 @@ operator|::
 name|CompletionMode
 name|mode
 block|;
+name|Qt
+operator|::
+name|MatchFlags
+name|filterMode
+block|;
 name|QString
 name|prefix
 block|;
