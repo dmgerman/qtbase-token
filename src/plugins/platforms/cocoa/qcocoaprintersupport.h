@@ -72,6 +72,22 @@ name|Q_DECL_OVERRIDE
 block|;
 name|QList
 operator|<
+name|QPair
+operator|<
+name|QString
+block|,
+name|QSizeF
+operator|>
+expr|>
+name|supportedSizesWithNames
+argument_list|(
+argument|const QPrinterInfo&
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|QList
+operator|<
 name|QPrinterInfo
 operator|>
 name|availablePrinters

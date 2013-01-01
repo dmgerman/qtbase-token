@@ -387,6 +387,21 @@ argument_list|(
 argument|int cupsPrinterIndex
 argument_list|)
 expr_stmt|;
+specifier|static
+name|QList
+operator|<
+name|QPair
+operator|<
+name|QString
+operator|,
+name|QSizeF
+operator|>
+expr|>
+name|getCupsPrinterPaperSizesWithNames
+argument_list|(
+argument|int cupsPrinterIndex
+argument_list|)
+expr_stmt|;
 name|private
 label|:
 name|void

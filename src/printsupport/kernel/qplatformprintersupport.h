@@ -135,6 +135,22 @@ expr_stmt|;
 name|virtual
 name|QList
 operator|<
+name|QPair
+operator|<
+name|QString
+operator|,
+name|QSizeF
+operator|>
+expr|>
+name|supportedSizesWithNames
+argument_list|(
+argument|const QPrinterInfo&printerInfo
+argument_list|)
+specifier|const
+expr_stmt|;
+name|virtual
+name|QList
+operator|<
 name|QPrinterInfo
 operator|>
 name|availablePrinters

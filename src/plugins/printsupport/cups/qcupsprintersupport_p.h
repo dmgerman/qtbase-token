@@ -160,6 +160,22 @@ argument_list|)
 specifier|const
 block|;
 name|virtual
+name|QList
+operator|<
+name|QPair
+operator|<
+name|QString
+block|,
+name|QSizeF
+operator|>
+expr|>
+name|supportedSizesWithNames
+argument_list|(
+argument|const QPrinterInfo&
+argument_list|)
+specifier|const
+block|;
+name|virtual
 name|QString
 name|printerOption
 argument_list|(
