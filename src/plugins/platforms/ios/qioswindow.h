@@ -102,6 +102,24 @@ argument_list|(
 argument|bool visible
 argument_list|)
 block|;
+name|void
+name|raise
+argument_list|()
+block|{
+name|raiseOrLower
+argument_list|(
+name|true
+argument_list|)
+block|; }
+name|void
+name|lower
+argument_list|()
+block|{
+name|raiseOrLower
+argument_list|(
+name|false
+argument_list|)
+block|; }
 name|qreal
 name|devicePixelRatio
 argument_list|()
@@ -138,6 +156,12 @@ name|m_requestedGeometry
 block|;
 name|qreal
 name|m_devicePixelRatio
+block|;
+name|void
+name|raiseOrLower
+argument_list|(
+argument|bool raise
+argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
