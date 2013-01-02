@@ -78,6 +78,13 @@ operator|*
 name|window
 argument_list|)
 block|;
+name|NativeResourceForIntegrationFunction
+name|nativeResourceFunctionForIntegration
+argument_list|(
+argument|const QByteArray&resource
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
 specifier|static
 name|void
 operator|*
@@ -127,6 +134,37 @@ argument_list|(
 name|QPrintEngine
 operator|*
 name|printEngine
+argument_list|)
+block|;
+comment|// QMacPastebardMime support. The mac pasteboard void pointers are
+comment|// QMacPastebardMime instances from the cocoa plugin or qtmacextras
+comment|// These two classes are kept in sync and can be casted between.
+specifier|static
+name|void
+name|addToMimeList
+argument_list|(
+name|void
+operator|*
+name|macPasteboardMime
+argument_list|)
+block|;
+specifier|static
+name|void
+name|removeFromMimeList
+argument_list|(
+name|void
+operator|*
+name|macPasteboardMime
+argument_list|)
+block|;
+specifier|static
+name|void
+name|registerDraggedTypes
+argument_list|(
+specifier|const
+name|QStringList
+operator|&
+name|types
 argument_list|)
 block|; }
 decl_stmt|;
