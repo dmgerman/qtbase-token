@@ -31,9 +31,6 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-ifndef|#
-directive|ifndef
-name|QT_NO_ACCESSIBILITY
 comment|/*  * Used for the root object.  *  * Uses the root object reference and reports its parent as the desktop object.  */
 name|class
 name|QSpiApplicationAdaptor
@@ -146,13 +143,6 @@ name|dbusConnection
 block|; }
 decl_stmt|;
 end_decl_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_NO_ACCESSIBILITY
-end_comment
 begin_expr_stmt
 name|QT_END_NAMESPACE
 name|QT_END_HEADER
