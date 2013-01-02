@@ -3749,7 +3749,7 @@ if|if
 condition|(
 name|home
 operator|.
-name|isNull
+name|isEmpty
 argument_list|()
 condition|)
 name|home
