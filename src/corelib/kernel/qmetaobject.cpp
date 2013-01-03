@@ -1586,7 +1586,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the number of methods in this class, including the number of     properties provided by each base class. These include signals and slots     as well as normal member functions.      Use code like the following to obtain a QStringList containing the methods     specific to a given class:      \snippet code/src_corelib_kernel_qmetaobject.cpp methodCount      \sa method(), methodOffset(), indexOfMethod() */
+comment|/*!     Returns the number of methods in this class, including the number of     methods provided by each base class. These include signals and slots     as well as normal member functions.      Use code like the following to obtain a QStringList containing the methods     specific to a given class:      \snippet code/src_corelib_kernel_qmetaobject.cpp methodCount      \sa method(), methodOffset(), indexOfMethod() */
 end_comment
 begin_function
 DECL|function|methodCount
