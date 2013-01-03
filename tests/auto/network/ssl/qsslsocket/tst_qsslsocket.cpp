@@ -3965,7 +3965,7 @@ name|socket
 operator|->
 name|connectToHostEncrypted
 argument_list|(
-literal|"trolltech.com"
+literal|"qt-project.org"
 argument_list|,
 literal|443
 argument_list|)
