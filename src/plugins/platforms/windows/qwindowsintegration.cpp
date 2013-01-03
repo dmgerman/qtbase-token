@@ -1742,9 +1742,9 @@ name|handle
 init|=
 name|GetModuleHandle
 argument_list|(
-literal|L"QtQuick"
+literal|L"Qt5Quick"
 name|QT_LIBINFIX
-literal|L"d5.dll"
+literal|L"d.dll"
 argument_list|)
 decl_stmt|;
 else|#
@@ -1754,9 +1754,9 @@ name|handle
 init|=
 name|GetModuleHandle
 argument_list|(
-literal|L"QtQuick"
+literal|L"Qt5Quick"
 name|QT_LIBINFIX
-literal|L"5.dll"
+literal|L".dll"
 argument_list|)
 decl_stmt|;
 endif|#
