@@ -67,12 +67,6 @@ endif|#
 directive|endif
 end_endif
 begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QRect
-argument_list|)
-end_macro
-begin_macro
 name|QT_FORWARD_DECLARE_CLASS
 argument_list|(
 argument|QPrinter

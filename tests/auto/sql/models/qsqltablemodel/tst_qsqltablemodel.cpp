@@ -56,12 +56,6 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 end_decl_stmt
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QModelIndex
-argument_list|)
-end_macro
 begin_class
 DECL|class|tst_QSqlTableModel
 class|class
