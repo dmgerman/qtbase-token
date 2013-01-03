@@ -359,12 +359,6 @@ name|container
 return|;
 block|}
 end_function
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QVector<int>
-argument_list|)
-end_macro
 begin_function
 DECL|function|stableSort_data
 name|void

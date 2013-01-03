@@ -744,17 +744,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_expr_stmt
-DECL|variable|QList
-name|Q_DECLARE_METATYPE
-argument_list|(
-name|QList
-argument_list|<
-name|int
-argument_list|>
-argument_list|)
-expr_stmt|;
-end_expr_stmt
 begin_function
 DECL|function|removeAll_primitive_data
 name|void
