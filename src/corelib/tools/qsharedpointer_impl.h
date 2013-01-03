@@ -4470,6 +4470,21 @@ argument_list|()
 operator|)
 block|;
 comment|// if you get an error in this line, the cast is invalid
+if|if
+condition|(
+operator|!
+name|ptr
+condition|)
+return|return
+name|QSharedPointer
+operator|<
+name|X
+operator|>
+operator|(
+operator|)
+return|;
+end_expr_stmt
+begin_return
 return|return
 name|QtSharedPointer
 operator|::
@@ -4480,11 +4495,10 @@ argument_list|,
 name|src
 argument_list|)
 return|;
-block|}
-end_expr_stmt
+end_return
 begin_expr_stmt
+unit|} template
 DECL|variable|X
-name|template
 operator|<
 name|class
 name|X
