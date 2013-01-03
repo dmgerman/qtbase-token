@@ -1627,6 +1627,12 @@ name|defined
 argument_list|(
 name|Q_OS_OPENBSD
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_VXWORKS
+argument_list|)
 name|struct
 name|passwd
 name|entry
@@ -1783,6 +1789,12 @@ operator|!
 name|defined
 argument_list|(
 name|Q_OS_OPENBSD
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_VXWORKS
 argument_list|)
 name|size_max
 operator|=
