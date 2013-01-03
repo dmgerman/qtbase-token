@@ -4805,12 +4805,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QVariant
-argument_list|)
-end_macro
 begin_function
 DECL|function|setStartEndValues_data
 name|void

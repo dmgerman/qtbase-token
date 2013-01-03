@@ -1291,17 +1291,6 @@ function_decl|;
 block|}
 class|;
 end_class
-begin_expr_stmt
-DECL|variable|QVector
-name|Q_DECLARE_METATYPE
-argument_list|(
-name|QVector
-argument_list|<
-name|int
-argument_list|>
-argument_list|)
-expr_stmt|;
-end_expr_stmt
 begin_struct
 DECL|struct|SimpleValue
 template|template

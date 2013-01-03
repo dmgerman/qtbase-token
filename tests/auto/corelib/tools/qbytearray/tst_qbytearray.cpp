@@ -10323,12 +10323,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|qulonglong
-argument_list|)
-end_macro
 begin_function
 DECL|function|toULong_data
 name|void
