@@ -105,6 +105,16 @@ begin_comment
 DECL|variable|Q_PI2
 comment|// pi/2
 end_comment
+begin_decl_stmt
+DECL|variable|Q_MM_PER_INCH
+specifier|static
+specifier|const
+name|qreal
+name|Q_MM_PER_INCH
+init|=
+literal|25.4
+decl_stmt|;
+end_decl_stmt
 begin_function
 DECL|function|qIntSqrtInt
 specifier|inline

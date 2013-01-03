@@ -3238,6 +3238,76 @@ end_macro
 begin_macro
 name|DEFINEFUNC
 argument_list|(
+argument|int
+argument_list|,
+argument|X509_STORE_CTX_get_error
+argument_list|,
+argument|X509_STORE_CTX *a
+argument_list|,
+argument|a
+argument_list|,
+argument|return -
+literal|1
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|int
+argument_list|,
+argument|X509_STORE_CTX_get_error_depth
+argument_list|,
+argument|X509_STORE_CTX *a
+argument_list|,
+argument|a
+argument_list|,
+argument|return -
+literal|1
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|X509 *
+argument_list|,
+argument|X509_STORE_CTX_get_current_cert
+argument_list|,
+argument|X509_STORE_CTX *a
+argument_list|,
+argument|a
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+DECL|variable|a
+DECL|variable|a
+name|DEFINEFUNC
+argument_list|(
+argument|STACK_OF(X509) *
+argument_list|,
+argument|X509_STORE_CTX_get_chain
+argument_list|,
+argument|X509_STORE_CTX *a
+argument_list|,
+argument|a
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
 argument|X509_STORE_CTX *
 argument_list|,
 argument|X509_STORE_CTX_new
@@ -3468,7 +3538,6 @@ directive|ifdef
 name|QT_NO_LIBRARY
 end_ifdef
 begin_function
-DECL|function|q_resolveOpenSslSymbols
 name|bool
 name|q_resolveOpenSslSymbols
 parameter_list|()
@@ -5261,6 +5330,22 @@ argument|X509_STORE_CTX_set_purpose
 argument_list|)
 name|RESOLVEFUNC
 argument_list|(
+argument|X509_STORE_CTX_get_error
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|X509_STORE_CTX_get_error_depth
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|X509_STORE_CTX_get_current_cert
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|X509_STORE_CTX_get_chain
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
 argument|X509_cmp
 argument_list|)
 ifndef|#
@@ -5456,7 +5541,6 @@ begin_comment
 comment|//==============================================================================
 end_comment
 begin_function
-DECL|function|q_getTimeFromASN1
 name|QDateTime
 name|q_getTimeFromASN1
 parameter_list|(

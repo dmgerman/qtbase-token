@@ -3233,12 +3233,12 @@ argument_list|()
 operator|<<
 literal|"QShortcutMap::dispatchEvent(): Sending QShortcutEvent(\""
 operator|<<
-operator|(
-name|QString
-operator|)
 name|next
 operator|->
 name|keyseq
+operator|.
+name|toString
+argument_list|()
 operator|<<
 literal|"\", "
 operator|<<

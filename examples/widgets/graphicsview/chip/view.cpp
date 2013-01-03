@@ -45,6 +45,11 @@ include|#
 directive|include
 file|<qmath.h>
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_WHEELEVENT
+end_ifndef
 begin_function
 DECL|function|wheelEvent
 name|void
@@ -111,6 +116,10 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_constructor
 DECL|function|View
 name|View

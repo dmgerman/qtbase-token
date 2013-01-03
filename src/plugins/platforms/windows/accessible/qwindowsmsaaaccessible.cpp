@@ -3668,7 +3668,9 @@ else|else
 block|{
 name|qWarning
 argument_list|(
-literal|"get_accChild got a negative varChildID, but did not find it in cache"
+literal|"get_accChild got a negative varChildID (%d), but did not find it in cache"
+argument_list|,
+name|childIndex
 argument_list|)
 expr_stmt|;
 block|}

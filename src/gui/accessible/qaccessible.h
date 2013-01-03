@@ -61,6 +61,9 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
+ifndef|#
+directive|ifndef
+name|QT_NO_ACCESSIBILITY
 DECL|variable|QAccessibleInterface
 name|class
 name|QAccessibleInterface
@@ -2652,6 +2655,9 @@ argument_list|)
 block|; }
 endif|#
 directive|endif
+endif|#
+directive|endif
+comment|// QT_NO_ACCESSIBILITY
 name|QT_END_NAMESPACE
 name|QT_END_HEADER
 end_expr_stmt

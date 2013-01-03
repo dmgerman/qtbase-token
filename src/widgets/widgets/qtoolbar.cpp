@@ -1183,7 +1183,7 @@ block|{
 ifdef|#
 directive|ifdef
 name|Q_WS_MAC
-comment|// When using the unified toolbar on Mac OS X the user can can click and
+comment|// When using the unified toolbar on Mac OS X, the user can click and
 comment|// drag between toolbar contents to move the window. Make this work by
 comment|// implementing the standard mouse-dragging code and then call
 comment|// window->move() in mouseMoveEvent below.
@@ -1902,28 +1902,28 @@ begin_comment
 comment|/****************************************************************************** ** QToolBar */
 end_comment
 begin_comment
-comment|/*!     \class QToolBar      \brief The QToolBar class provides a movable panel that contains a     set of controls.      \ingroup mainwindow-classes     \inmodule QtWidgets      Toolbar buttons are added by adding \e actions, using addAction()     or insertAction(). Groups of buttons can be separated using     addSeparator() or insertSeparator(). If a toolbar button is not     appropriate, a widget can be inserted instead using addWidget() or     insertWidget(); examples of suitable widgets are QSpinBox,     QDoubleSpinBox, and QComboBox. When a toolbar button is pressed it     emits the actionTriggered() signal.      A toolbar can be fixed in place in a particular area (e.g. at the     top of the window), or it can be movable (isMovable()) between     toolbar areas; see allowedAreas() and isAreaAllowed().      When a toolbar is resized in such a way that it is too small to     show all the items it contains, an extension button will appear as     the last item in the toolbar. Pressing the extension button will     pop up a menu containing the items that does not currently fit in     the toolbar.      When a QToolBar is not a child of a QMainWindow, it loses the ability     to populate the extension pop up with widgets added to the toolbar using     addWidget(). Please use widget actions created by inheriting QWidgetAction     and implementing QWidgetAction::createWidget() instead.      \sa QToolButton, QMenu, QAction, {Application Example} */
+comment|/*!     \class QToolBar      \brief The QToolBar class provides a movable panel that contains a     set of controls.      \ingroup mainwindow-classes     \inmodule QtWidgets      Toolbar buttons are added by adding \e actions, using addAction()     or insertAction(). Groups of buttons can be separated using     addSeparator() or insertSeparator(). If a toolbar button is not     appropriate, a widget can be inserted instead using addWidget() or     insertWidget(). Examples of suitable widgets are QSpinBox,     QDoubleSpinBox, and QComboBox. When a toolbar button is pressed, it     emits the actionTriggered() signal.      A toolbar can be fixed in place in a particular area (e.g., at the     top of the window), or it can be movable between toolbar areas;     see setMovable(), isMovable(), allowedAreas() and isAreaAllowed().      When a toolbar is resized in such a way that it is too small to     show all the items it contains, an extension button will appear as     the last item in the toolbar. Pressing the extension button will     pop up a menu containing the items that does not currently fit in     the toolbar.      When a QToolBar is not a child of a QMainWindow, it loses the ability     to populate the extension pop up with widgets added to the toolbar using     addWidget(). Please use widget actions created by inheriting QWidgetAction     and implementing QWidgetAction::createWidget() instead.      \sa QToolButton, QMenu, QAction, {Application Example} */
 end_comment
 begin_comment
 comment|/*!     \fn bool QToolBar::isAreaAllowed(Qt::ToolBarArea area) const      Returns true if this toolbar is dockable in the given \a area;     otherwise returns false. */
 end_comment
 begin_comment
-comment|/*!     \fn void QToolBar::addAction(QAction *action)     \overload      Appends the action \a action to the toolbar's list of actions.      \sa QMenu::addAction(), QWidget::addAction() */
+comment|/*!     \fn void QToolBar::addAction(QAction *action)     \overload      Appends the \a action to the toolbar's list of actions.      \sa QMenu::addAction(), QWidget::addAction() */
 end_comment
 begin_comment
-comment|/*!     \fn void QToolBar::actionTriggered(QAction *action)      This signal is emitted when an action in this toolbar is triggered.     This happens when the action's tool button is pressed, or when the     action is triggered in some other way outside the tool bar. The parameter     holds the triggered \a action. */
+comment|/*!     \fn void QToolBar::actionTriggered(QAction *action)      This signal is emitted when an action in this toolbar is triggered.     This happens when the action's tool button is pressed, or when the     action is triggered in some other way outside the toolbar. The parameter     holds the triggered \a action. */
 end_comment
 begin_comment
 comment|/*!     \fn void QToolBar::allowedAreasChanged(Qt::ToolBarAreas allowedAreas)      This signal is emitted when the collection of allowed areas for the     toolbar is changed. The new areas in which the toolbar can be positioned     are specified by \a allowedAreas.      \sa allowedAreas */
 end_comment
 begin_comment
-comment|/*!     \fn void QToolBar::iconSizeChanged(const QSize&iconSize)      This signal is emitted when the icon size is changed.  The \a     iconSize parameter holds the toolbar's new icon size.      \sa iconSize, QMainWindow::iconSize */
+comment|/*!     \fn void QToolBar::iconSizeChanged(const QSize&iconSize)      This signal is emitted when the icon size is changed. The \a     iconSize parameter holds the toolbar's new icon size.      \sa iconSize, QMainWindow::iconSize */
 end_comment
 begin_comment
 comment|/*!     \fn void QToolBar::movableChanged(bool movable)      This signal is emitted when the toolbar becomes movable or fixed.     If the toolbar can be moved, \a movable is true; otherwise it is     false.      \sa movable */
 end_comment
 begin_comment
-comment|/*!     \fn void QToolBar::orientationChanged(Qt::Orientation orientation)      This signal is emitted when the orientation of the toolbar changes.     The new orientation is specified by the \a orientation given.      \sa orientation */
+comment|/*!     \fn void QToolBar::orientationChanged(Qt::Orientation orientation)      This signal is emitted when the orientation of the toolbar changes.     The \a orientation parameter holds the toolbar's new orientation.      \sa orientation */
 end_comment
 begin_comment
 comment|/*!     \fn void QToolBar::toolButtonStyleChanged(Qt::ToolButtonStyle toolButtonStyle)      This signal is emitted when the tool button style is changed. The     \a toolButtonStyle parameter holds the toolbar's new tool button     style.      \sa toolButtonStyle, QMainWindow::toolButtonStyle */
@@ -2096,7 +2096,7 @@ block|}
 block|}
 end_destructor
 begin_comment
-comment|/*! \property QToolBar::movable     \brief whether the user can move the toolbar within the toolbar area,     or between toolbar areas      By default, this property is true.      This property only makes sense if the toolbar is in a     QMainWindow.      \sa allowedAreas */
+comment|/*! \property QToolBar::movable     \brief whether the user can move the toolbar within the toolbar area,     or between toolbar areas.      By default, this property is true.      This property only makes sense if the toolbar is in a     QMainWindow.      \sa allowedAreas */
 end_comment
 begin_function
 DECL|function|setMovable
@@ -2357,7 +2357,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \property QToolBar::orientation     \brief orientation of the toolbar      The default is Qt::Horizontal.      This function should not be used when the toolbar is managed     by QMainWindow. You can use QMainWindow::addToolBar() or     QMainWindow::insertToolBar() if you wish to move a toolbar (that     is already added to a main window) to another Qt::ToolBarArea. */
+comment|/*! \property QToolBar::orientation     \brief orientation of the toolbar      The default is Qt::Horizontal.      This function should not be used when the toolbar is managed     by QMainWindow. You can use QMainWindow::addToolBar() or     QMainWindow::insertToolBar() if you wish to move a toolbar that     is already added to a main window to another Qt::ToolBarArea. */
 end_comment
 begin_function
 DECL|function|setOrientation
@@ -3001,7 +3001,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Creates a new action with the icon \a icon and text \a text. This     action is added to the end of the toolbar. The action's     \l{QAction::triggered()}{triggered()} signal is connected to \a     member in \a receiver. */
+comment|/*!     \overload      Creates a new action with the given \a icon and \a text. This     action is added to the end of the toolbar. The action's     \l{QAction::triggered()}{triggered()} signal is connected to \a     member in \a receiver. */
 end_comment
 begin_function
 DECL|function|addAction
@@ -3160,7 +3160,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Adds the given \a widget to the toolbar as the toolbar's last     item.      The toolbar takes ownership of \a widget.      If you add a QToolButton with this method, the tools bar's     Qt::ToolButtonStyle will not be respected.      \note You should use QAction::setVisible() to change the     visibility of the widget. Using QWidget::setVisible(),     QWidget::show() and QWidget::hide() does not work.      \sa insertWidget() */
+comment|/*!     Adds the given \a widget to the toolbar as the toolbar's last     item.      The toolbar takes ownership of \a widget.      If you add a QToolButton with this method, the toolbar's     Qt::ToolButtonStyle will not be respected.      \note You should use QAction::setVisible() to change the     visibility of the widget. Using QWidget::setVisible(),     QWidget::show() and QWidget::hide() does not work.      \sa insertWidget() */
 end_comment
 begin_function
 DECL|function|addWidget

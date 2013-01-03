@@ -5,12 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QApplication>
+file|"glwidget.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"glwidget.h"
+file|<QApplication>
 end_include
 begin_function
 DECL|function|main

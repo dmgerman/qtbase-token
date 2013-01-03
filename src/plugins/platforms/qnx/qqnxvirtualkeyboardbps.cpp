@@ -198,6 +198,19 @@ operator|<<
 name|isVisible
 argument_list|()
 expr_stmt|;
+comment|// They keyboard's mode is global between applications, we have to set it each time
+if|if
+condition|(
+operator|!
+name|isVisible
+argument_list|()
+condition|)
+name|applyKeyboardMode
+argument_list|(
+name|keyboardMode
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|virtualkeyboard_show
 argument_list|()
 expr_stmt|;

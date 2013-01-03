@@ -5,17 +5,22 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtWidgets>
-end_include
-begin_include
-include|#
-directive|include
 file|"widget.h"
 end_include
 begin_include
 include|#
 directive|include
 file|"helper.h"
+end_include
+begin_include
+include|#
+directive|include
+file|<QPainter>
+end_include
+begin_include
+include|#
+directive|include
+file|<QTimer>
 end_include
 begin_comment
 comment|//! [0]

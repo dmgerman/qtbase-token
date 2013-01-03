@@ -774,16 +774,6 @@ argument_list|(
 literal|"QAbstractSocket::SocketError"
 argument_list|)
 expr_stmt|;
-name|qRegisterMetaType
-argument_list|<
-name|QAbstractSocket
-operator|::
-name|SocketState
-argument_list|>
-argument_list|(
-literal|"QSslSocket::SslMode"
-argument_list|)
-expr_stmt|;
 endif|#
 directive|endif
 block|}
@@ -3975,7 +3965,7 @@ name|socket
 operator|->
 name|connectToHostEncrypted
 argument_list|(
-literal|"trolltech.com"
+literal|"qt-project.org"
 argument_list|,
 literal|443
 argument_list|)

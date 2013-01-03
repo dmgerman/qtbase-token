@@ -27,6 +27,11 @@ include|#
 directive|include
 file|<QtCore/qdebug.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<cmath>
+end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 ifndef|#

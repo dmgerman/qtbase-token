@@ -16,12 +16,12 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtOpenGL/QGLFunctions>
+file|<QGLFunctions>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtOpenGL/QGLShaderProgram>
+file|<QGLShaderProgram>
 end_include
 begin_decl_stmt
 name|class
@@ -59,9 +59,11 @@ name|initCubeGeometry
 argument_list|()
 block|;
 name|GLuint
-operator|*
 name|vboIds
-block|;  }
+index|[
+literal|2
+index|]
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_endif

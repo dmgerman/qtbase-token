@@ -51,6 +51,9 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
+ifndef|#
+directive|ifndef
+name|QT_NO_ACCESSIBILITY
 DECL|variable|QAccessibleInterface
 name|class
 name|QAccessibleInterface
@@ -481,6 +484,16 @@ argument|QObject *object
 argument_list|)
 specifier|const
 block|;
+name|void
+name|notifyStateChange
+argument_list|(
+argument|const QAIPointer& interface
+argument_list|,
+argument|const QString& state
+argument_list|,
+argument|int value
+argument_list|)
+block|;
 comment|// accessible helper functions
 name|AtspiRole
 name|getRole
@@ -907,6 +920,13 @@ literal|1
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_ACCESSIBILITY
+end_comment
 begin_expr_stmt
 name|QT_END_NAMESPACE
 name|QT_END_HEADER

@@ -21802,7 +21802,7 @@ operator|)
 operator||
 name|State_KeyboardFocusChange
 expr_stmt|;
-comment|// Allways show hig
+comment|// Always show hig
 if|if
 condition|(
 name|sunken

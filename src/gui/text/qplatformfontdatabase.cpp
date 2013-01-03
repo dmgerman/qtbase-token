@@ -41,6 +41,11 @@ parameter_list|,
 specifier|const
 name|QString
 modifier|&
+name|stylename
+parameter_list|,
+specifier|const
+name|QString
+modifier|&
 name|foundryname
 parameter_list|,
 name|int
@@ -379,6 +384,9 @@ argument_list|,
 name|QString
 argument_list|()
 argument_list|,
+name|QString
+argument_list|()
+argument_list|,
 name|fontWeight
 argument_list|,
 name|fontStyle
@@ -424,6 +432,11 @@ specifier|const
 name|QString
 modifier|&
 name|familyname
+parameter_list|,
+specifier|const
+name|QString
+modifier|&
+name|stylename
 parameter_list|,
 specifier|const
 name|QString
@@ -478,6 +491,8 @@ expr_stmt|;
 name|qt_registerFont
 argument_list|(
 name|familyname
+argument_list|,
+name|stylename
 argument_list|,
 name|foundryname
 argument_list|,

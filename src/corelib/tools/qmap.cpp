@@ -2172,28 +2172,28 @@ begin_comment
 comment|/*! \fn int QMap::count() const      \overload      Same as size(). */
 end_comment
 begin_comment
-comment|/*! \fn QMap::iterator QMap::begin()      Returns an \l{STL-style iterator} pointing to the first item in     the map.      \sa constBegin(), end() */
+comment|/*! \fn QMap::iterator QMap::begin()      Returns an \l{STL-style iterators}{STL-style iterator} pointing to the first item in     the map.      \sa constBegin(), end() */
 end_comment
 begin_comment
 comment|/*! \fn QMap::const_iterator QMap::begin() const      \overload */
 end_comment
 begin_comment
-comment|/*! \fn QMap::const_iterator QMap::cbegin() const     \since 5.0      Returns a const \l{STL-style iterator} pointing to the first item     in the map.      \sa begin(), cend() */
+comment|/*! \fn QMap::const_iterator QMap::cbegin() const     \since 5.0      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the first item     in the map.      \sa begin(), cend() */
 end_comment
 begin_comment
-comment|/*! \fn QMap::const_iterator QMap::constBegin() const      Returns a const \l{STL-style iterator} pointing to the first item     in the map.      \sa begin(), constEnd() */
+comment|/*! \fn QMap::const_iterator QMap::constBegin() const      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the first item     in the map.      \sa begin(), constEnd() */
 end_comment
 begin_comment
-comment|/*! \fn QMap::iterator QMap::end()      Returns an \l{STL-style iterator} pointing to the imaginary item     after the last item in the map.      \sa begin(), constEnd() */
+comment|/*! \fn QMap::iterator QMap::end()      Returns an \l{STL-style iterators}{STL-style iterator} pointing to the imaginary item     after the last item in the map.      \sa begin(), constEnd() */
 end_comment
 begin_comment
 comment|/*! \fn QMap::const_iterator QMap::end() const      \overload */
 end_comment
 begin_comment
-comment|/*! \fn QMap::const_iterator QMap::cend() const     \since 5.0      Returns a const \l{STL-style iterator} pointing to the imaginary     item after the last item in the map.      \sa cbegin(), end() */
+comment|/*! \fn QMap::const_iterator QMap::cend() const     \since 5.0      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the imaginary     item after the last item in the map.      \sa cbegin(), end() */
 end_comment
 begin_comment
-comment|/*! \fn QMap::const_iterator QMap::constEnd() const      Returns a const \l{STL-style iterator} pointing to the imaginary     item after the last item in the map.      \sa constBegin(), end() */
+comment|/*! \fn QMap::const_iterator QMap::constEnd() const      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the imaginary     item after the last item in the map.      \sa constBegin(), end() */
 end_comment
 begin_comment
 comment|/*! \fn QMap::iterator QMap::erase(iterator pos)      Removes the (key, value) pair pointed to by the iterator \a pos     from the map, and returns an iterator to the next item in the     map.      \sa remove() */

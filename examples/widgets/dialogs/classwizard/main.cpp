@@ -54,6 +54,9 @@ argument_list|,
 name|argv
 argument_list|)
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_TRANSLATION
 name|QString
 name|translatorFileName
 init|=
@@ -108,6 +111,8 @@ argument_list|(
 name|translator
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|ClassWizard
 name|wizard
 decl_stmt|;

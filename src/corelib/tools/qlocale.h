@@ -97,6 +97,10 @@ name|Q_ENUMS
 argument_list|(
 name|Country
 argument_list|)
+name|Q_ENUMS
+argument_list|(
+name|MeasurementSystem
+argument_list|)
 name|friend
 name|class
 name|QString

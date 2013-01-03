@@ -321,6 +321,9 @@ argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_comment
+comment|/*!  * For variables that are supposed to contain a single int,  * this method returns the numeric value.  * Only the first value of the variable is taken into account.  * The string representation is assumed to look like a C int literal.  */
+end_comment
 begin_expr_stmt
 DECL|function|intValue
 specifier|inline
@@ -366,6 +369,8 @@ name|toInt
 argument_list|(
 operator|&
 name|ok
+argument_list|,
+literal|0
 argument_list|)
 decl_stmt|;
 if|if

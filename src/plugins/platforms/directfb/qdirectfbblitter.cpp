@@ -482,7 +482,7 @@ decl_stmt|;
 name|DFBResult
 name|result
 decl_stmt|;
-comment|// check paramters
+comment|// check parameters
 name|rect
 operator|.
 name|toRect

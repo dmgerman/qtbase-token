@@ -78,7 +78,7 @@ file|"qscrollbar_p.h"
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
-comment|/*!     \class QScrollBar     \brief The QScrollBar widget provides a vertical or horizontal scroll bar.      \ingroup basicwidgets     \inmodule QtWidgets      A scroll bar is a control that enables the user to access parts of a     document that is larger than the widget used to display it. It provides     a visual indication of the user's current position within the document     and the amount of the document that is visible. Scroll bars are usually     equipped with other controls that enable more accurate navigation.     Qt displays scroll bars in a way that is appropriate for each platform.      If you need to provide a scrolling view onto another widget, it may be     more convenient to use the QScrollArea class because this provides a     viewport widget and scroll bars. QScrollBar is useful if you need to     implement similar functionality for specialized widgets using QAbstractScrollArea;     for example, if you decide to subclass QAbstractItemView.     For most other situations where a slider control is used to obtain a value     within a given range, the QSlider class may be more appropriate for your     needs.      \table     \row \li \image qscrollbar-picture.png     \li Scroll bars typically include four separate controls: a slider,     scroll arrows, and a page control.      \list     \li a. The slider provides a way to quickly go to any part of the     document, but does not support accurate navigation within large     documents.     \li b. The scroll arrows are push buttons which can be used to accurately     navigate to a particular place in a document. For a vertical scroll bar     connected to a text editor, these typically move the current position one     "line" up or down, and adjust the position of the slider by a small     amount. In editors and list boxes a "line" might mean one line of text;     in an image viewer it might mean 20 pixels.     \li c. The page control is the area over which the slider is dragged (the     scroll bar's background). Clicking here moves the scroll bar towards     the click by one "page". This value is usually the same as the length of     the slider.     \endlist     \endtable      Each scroll bar has a value that indicates how far the slider is from     the start of the scroll bar; this is obtained with value() and set     with setValue(). This value always lies within the range of values     defined for the scroll bar, from \l{QAbstractSlider::minimum()}{minimum()}     to \l{QAbstractSlider::minimum()}{maximum()} inclusive. The range of     acceptable values can be set with setMinimum() and setMaximum().     At the minimum value, the top edge of the slider (for a vertical scroll     bar) or left edge (for a horizontal scroll bar) will be at the top (or     left) end of the scroll bar. At the maximum value, the bottom (or right)     edge of the slider will be at the bottom (or right) end of the scroll bar.      The length of the slider is usually related to the value of the page step,     and typically represents the proportion of the document area shown in a     scrolling view. The page step is the amount that the value changes by     when the user presses the \uicontrol{Page Up} and \uicontrol{Page Down} keys, and is     set with setPageStep(). Smaller changes to the value defined by the     line step are made using the cursor keys, and this quantity is set with     \l{QAbstractSlider::}{setSingleStep()}.      Note that the range of values used is independent of the actual size     of the scroll bar widget. You do not need to take this into account when     you choose values for the range and the page step.      The range of values specified for the scroll bar are often determined     differently to those for a QSlider because the length of the slider     needs to be taken into account. If we have a document with 100 lines,     and we can only show 20 lines in a widget, we may wish to construct a     scroll bar with a page step of 20, a minimum value of 0, and a maximum     value of 80. This would give us a scroll bar with five "pages".      \table     \row \li \inlineimage qscrollbar-values.png     \li The relationship between a document length, the range of values used     in a scroll bar, and the page step is simple in many common situations.     The scroll bar's range of values is determined by subtracting a     chosen page step from some value representing the length of the document.     In such cases, the following equation is useful:     \e{document length} = maximum() - minimum() + pageStep().     \endtable      QScrollBar only provides integer ranges. Note that although     QScrollBar handles very large numbers, scroll bars on current     screens cannot usefully represent ranges above about 100,000 pixels.     Beyond that, it becomes difficult for the user to control the     slider using either the keyboard or the mouse, and the scroll     arrows will have limited use.      ScrollBar inherits a comprehensive set of signals from QAbstractSlider:     \list     \li \l{QAbstractSlider::valueChanged()}{valueChanged()} is emitted when the        scroll bar's value has changed. The tracking() determines whether this        signal is emitted during user interaction.     \li \l{QAbstractSlider::rangeChanged()}{rangeChanged()} is emitted when the        scroll bar's range of values has changed.     \li \l{QAbstractSlider::sliderPressed()}{sliderPressed()} is emitted when        the user starts to drag the slider.     \li \l{QAbstractSlider::sliderMoved()}{sliderMoved()} is emitted when the user        drags the slider.     \li \l{QAbstractSlider::sliderReleased()}{sliderReleased()} is emitted when        the user releases the slider.     \li \l{QAbstractSlider::actionTriggered()}{actionTriggered()} is emitted        when the scroll bar is changed by user interaction or via the        \l{QAbstractSlider::triggerAction()}{triggerAction()} function.     \endlist      A scroll bar can be controlled by the keyboard, but it has a     default focusPolicy() of Qt::NoFocus. Use setFocusPolicy() to     enable keyboard interaction with the scroll bar:     \list          \li Left/Right move a horizontal scroll bar by one single step.          \li Up/Down move a vertical scroll bar by one single step.          \li PageUp moves up one page.          \li PageDown moves down one page.          \li Home moves to the start (mininum).          \li End moves to the end (maximum).      \endlist      The slider itself can be controlled by using the     \l{QAbstractSlider::triggerAction()}{triggerAction()} function to simulate     user interaction with the scroll bar controls. This is useful if you have     many different widgets that use a common range of values.      Most GUI styles use the pageStep() value to calculate the size of the     slider.      \table 100%     \row \li \inlineimage macintosh-horizontalscrollbar.png Screenshot of a Macintosh style scroll bar          \li A scroll bar shown in the \l{Macintosh Style Widget Gallery}{Macintosh widget style}.     \row \li \inlineimage windowsxp-horizontalscrollbar.png Screenshot of a Windows XP style scroll bar          \li A scroll bar shown in the \l{Windows XP Style Widget Gallery}{Windows XP widget style}.     \row \li \inlineimage fusion-horizontalscrollbar.png Screenshot of a Fusion style scroll bar          \li A scroll bar shown in the \l{Fusion Style Widget Gallery}{Fusion widget style}.     \endtable      \sa QScrollArea, QSlider, QDial, QSpinBox, {fowler}{GUI Design Handbook: Scroll Bar}, {Sliders Example} */
+comment|/*!     \class QScrollBar     \brief The QScrollBar widget provides a vertical or horizontal scroll bar.      \ingroup basicwidgets     \inmodule QtWidgets      A scroll bar is a control that enables the user to access parts of a     document that is larger than the widget used to display it. It provides     a visual indication of the user's current position within the document     and the amount of the document that is visible. Scroll bars are usually     equipped with other controls that enable more accurate navigation.     Qt displays scroll bars in a way that is appropriate for each platform.      If you need to provide a scrolling view onto another widget, it may be     more convenient to use the QScrollArea class because this provides a     viewport widget and scroll bars. QScrollBar is useful if you need to     implement similar functionality for specialized widgets using QAbstractScrollArea;     for example, if you decide to subclass QAbstractItemView.     For most other situations where a slider control is used to obtain a value     within a given range, the QSlider class may be more appropriate for your     needs.      \table     \row \li \image qscrollbar-picture.png     \li Scroll bars typically include four separate controls: a slider,     scroll arrows, and a page control.      \list     \li a. The slider provides a way to quickly go to any part of the     document, but does not support accurate navigation within large     documents.     \li b. The scroll arrows are push buttons which can be used to accurately     navigate to a particular place in a document. For a vertical scroll bar     connected to a text editor, these typically move the current position one     "line" up or down, and adjust the position of the slider by a small     amount. In editors and list boxes a "line" might mean one line of text;     in an image viewer it might mean 20 pixels.     \li c. The page control is the area over which the slider is dragged (the     scroll bar's background). Clicking here moves the scroll bar towards     the click by one "page". This value is usually the same as the length of     the slider.     \endlist     \endtable      Each scroll bar has a value that indicates how far the slider is from     the start of the scroll bar; this is obtained with value() and set     with setValue(). This value always lies within the range of values     defined for the scroll bar, from \l{QAbstractSlider::minimum()}{minimum()}     to \l{QAbstractSlider::minimum()}{maximum()} inclusive. The range of     acceptable values can be set with setMinimum() and setMaximum().     At the minimum value, the top edge of the slider (for a vertical scroll     bar) or left edge (for a horizontal scroll bar) will be at the top (or     left) end of the scroll bar. At the maximum value, the bottom (or right)     edge of the slider will be at the bottom (or right) end of the scroll bar.      The length of the slider is usually related to the value of the page step,     and typically represents the proportion of the document area shown in a     scrolling view. The page step is the amount that the value changes by     when the user presses the \uicontrol{Page Up} and \uicontrol{Page Down} keys, and is     set with setPageStep(). Smaller changes to the value defined by the     line step are made using the cursor keys, and this quantity is set with     \l{QAbstractSlider::}{setSingleStep()}.      Note that the range of values used is independent of the actual size     of the scroll bar widget. You do not need to take this into account when     you choose values for the range and the page step.      The range of values specified for the scroll bar are often determined     differently to those for a QSlider because the length of the slider     needs to be taken into account. If we have a document with 100 lines,     and we can only show 20 lines in a widget, we may wish to construct a     scroll bar with a page step of 20, a minimum value of 0, and a maximum     value of 80. This would give us a scroll bar with five "pages".      \table     \row \li \inlineimage qscrollbar-values.png     \li The relationship between a document length, the range of values used     in a scroll bar, and the page step is simple in many common situations.     The scroll bar's range of values is determined by subtracting a     chosen page step from some value representing the length of the document.     In such cases, the following equation is useful:     \e{document length} = maximum() - minimum() + pageStep().     \endtable      QScrollBar only provides integer ranges. Note that although     QScrollBar handles very large numbers, scroll bars on current     screens cannot usefully represent ranges above about 100,000 pixels.     Beyond that, it becomes difficult for the user to control the     slider using either the keyboard or the mouse, and the scroll     arrows will have limited use.      ScrollBar inherits a comprehensive set of signals from QAbstractSlider:     \list     \li \l{QAbstractSlider::valueChanged()}{valueChanged()} is emitted when the        scroll bar's value has changed. The tracking() determines whether this        signal is emitted during user interaction.     \li \l{QAbstractSlider::rangeChanged()}{rangeChanged()} is emitted when the        scroll bar's range of values has changed.     \li \l{QAbstractSlider::sliderPressed()}{sliderPressed()} is emitted when        the user starts to drag the slider.     \li \l{QAbstractSlider::sliderMoved()}{sliderMoved()} is emitted when the user        drags the slider.     \li \l{QAbstractSlider::sliderReleased()}{sliderReleased()} is emitted when        the user releases the slider.     \li \l{QAbstractSlider::actionTriggered()}{actionTriggered()} is emitted        when the scroll bar is changed by user interaction or via the        \l{QAbstractSlider::triggerAction()}{triggerAction()} function.     \endlist      A scroll bar can be controlled by the keyboard, but it has a     default focusPolicy() of Qt::NoFocus. Use setFocusPolicy() to     enable keyboard interaction with the scroll bar:     \list          \li Left/Right move a horizontal scroll bar by one single step.          \li Up/Down move a vertical scroll bar by one single step.          \li PageUp moves up one page.          \li PageDown moves down one page.          \li Home moves to the start (mininum).          \li End moves to the end (maximum).      \endlist      The slider itself can be controlled by using the     \l{QAbstractSlider::triggerAction()}{triggerAction()} function to simulate     user interaction with the scroll bar controls. This is useful if you have     many different widgets that use a common range of values.      Most GUI styles use the pageStep() value to calculate the size of the     slider.      \table 100%     \row \li \inlineimage macintosh-horizontalscrollbar.png Screenshot of a Macintosh style scroll bar          \li A scroll bar shown in the \l{Macintosh Style Widget Gallery}{Macintosh widget style}.     \row \li \inlineimage windowsvista-horizontalscrollbar.png Screenshot of a Windows Vista style scroll bar          \li A scroll bar shown in the \l{Windows Vista Style Widget Gallery}{Windows Vista widget style}.     \row \li \inlineimage fusion-horizontalscrollbar.png Screenshot of a Fusion style scroll bar          \li A scroll bar shown in the \l{Fusion Style Widget Gallery}{Fusion widget style}.     \endtable      \sa QScrollArea, QSlider, QDial, QSpinBox, {fowler}{GUI Design Handbook: Scroll Bar}, {Sliders Example} */
 DECL|function|updateHoverControl
 name|bool
 name|QScrollBarPrivate
@@ -285,16 +285,14 @@ name|value
 expr_stmt|;
 if|if
 condition|(
-name|transient
-condition|)
-block|{
-if|if
-condition|(
 name|q
 operator|->
 name|isVisible
 argument_list|()
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
 name|q
 operator|->
 name|style
@@ -305,6 +303,10 @@ argument_list|(
 name|QStyle
 operator|::
 name|SH_ScrollBar_Transient
+argument_list|,
+literal|0
+argument_list|,
+name|q
 argument_list|)
 condition|)
 name|q
@@ -317,10 +319,7 @@ elseif|else
 if|if
 condition|(
 operator|!
-name|q
-operator|->
-name|isVisible
-argument_list|()
+name|transient
 condition|)
 block|{
 name|q
@@ -360,6 +359,10 @@ argument_list|(
 name|QStyle
 operator|::
 name|SH_ScrollBar_Transient
+argument_list|,
+literal|0
+argument_list|,
+name|q
 argument_list|)
 condition|)
 block|{
@@ -726,6 +729,7 @@ name|State_Horizontal
 expr_stmt|;
 if|if
 condition|(
+operator|(
 name|d
 operator|->
 name|flashed
@@ -734,6 +738,21 @@ operator|!
 name|d
 operator|->
 name|transient
+operator|)
+operator|&&
+name|style
+argument_list|()
+operator|->
+name|styleHint
+argument_list|(
+name|QStyle
+operator|::
+name|SH_ScrollBar_Transient
+argument_list|,
+literal|0
+argument_list|,
+name|this
+argument_list|)
 condition|)
 name|option
 operator|->
@@ -895,6 +914,10 @@ argument_list|(
 name|QStyle
 operator|::
 name|SH_ScrollBar_Transient
+argument_list|,
+literal|0
+argument_list|,
+name|q
 argument_list|)
 expr_stmt|;
 name|flashed
@@ -1625,6 +1648,10 @@ argument_list|(
 name|QStyle
 operator|::
 name|SH_ScrollBar_Transient
+argument_list|,
+literal|0
+argument_list|,
+name|this
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1857,6 +1884,10 @@ argument_list|(
 name|QStyle
 operator|::
 name|SH_ScrollBar_Transient
+argument_list|,
+literal|0
+argument_list|,
+name|this
 argument_list|)
 condition|)
 block|{

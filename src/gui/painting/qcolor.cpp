@@ -582,7 +582,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the RGB value of this QColor to \a name, which may be in one     of these formats:      \list     \li #RGB (each of R, G, and B is a single hex digit)     \li #RRGGBB     \li #RRRGGGBBB     \li #RRRRGGGGBBBB     \li A name from the list of colors defined in the list of \l{SVG color keyword names}        provided by the World Wide Web Consortium; for example, "steelblue" or "gainsboro".        These color names work on all platforms. Note that these color names are \e not the        same as defined by the Qt::GlobalColor enums, e.g. "green" and Qt::green does not        refer to the same color.     \li \c transparent - representing the absence of a color.     \endlist      The color is invalid if \a name cannot be parsed.      \sa QColor(), name(), isValid() */
+comment|/*!     Sets the RGB value of this QColor to \a name, which may be in one     of these formats:      \list     \li #RGB (each of R, G, and B is a single hex digit)     \li #RRGGBB     \li #RRRGGGBBB     \li #RRRRGGGGBBBB     \li A name from the list of colors defined in the list of \l{http://www.w3.org/TR/SVG/types.html#ColorKeywords}{SVG color keyword names}        provided by the World Wide Web Consortium; for example, "steelblue" or "gainsboro".        These color names work on all platforms. Note that these color names are \e not the        same as defined by the Qt::GlobalColor enums, e.g. "green" and Qt::green does not        refer to the same color.     \li \c transparent - representing the absence of a color.     \endlist      The color is invalid if \a name cannot be parsed.      \sa QColor(), name(), isValid() */
 end_comment
 begin_function
 DECL|function|setNamedColor

@@ -598,7 +598,7 @@ name|UserScope
 argument_list|,
 name|QStringLiteral
 argument_list|(
-literal|"Trolltech"
+literal|"QtProject"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -690,7 +690,7 @@ name|UserScope
 argument_list|,
 name|QStringLiteral
 argument_list|(
-literal|"Trolltech"
+literal|"QtProject"
 argument_list|)
 argument_list|)
 decl_stmt|;

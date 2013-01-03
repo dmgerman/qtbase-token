@@ -125,7 +125,7 @@ begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
-name|QT_NO_LIBRARY
+name|QT_NO_IMAGEFORMATPLUGIN
 name|Q_GLOBAL_STATIC_WITH_ARGS
 argument_list|(
 name|QFactoryLoader
@@ -178,7 +178,7 @@ literal|0
 argument_list|;
 ifndef|#
 directive|ifndef
-name|QT_NO_LIBRARY
+name|QT_NO_IMAGEFORMATPLUGIN
 argument_list|typedef
 name|QMultiMap
 argument_list|<
@@ -257,7 +257,7 @@ unit|))
 block|{
 ifndef|#
 directive|ifndef
-name|QT_NO_LIBRARY
+name|QT_NO_IMAGEFORMATPLUGIN
 specifier|const
 name|int
 name|index
@@ -311,7 +311,7 @@ end_decl_stmt
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_LIBRARY
+name|QT_NO_IMAGEFORMATPLUGIN
 end_ifndef
 begin_if
 if|if
@@ -407,7 +407,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_LIBRARY
+comment|// QT_NO_IMAGEFORMATPLUGIN
 end_comment
 begin_comment
 comment|// check if any built-in handlers can write the image
@@ -634,7 +634,7 @@ end_if
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_LIBRARY
+name|QT_NO_IMAGEFORMATPLUGIN
 end_ifndef
 begin_if
 if|if
@@ -735,7 +735,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_LIBRARY
+comment|// QT_NO_IMAGEFORMATPLUGIN
 end_comment
 begin_if
 if|if
@@ -1941,7 +1941,7 @@ end_function
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_LIBRARY
+name|QT_NO_IMAGEFORMATPLUGIN
 end_ifndef
 begin_function
 DECL|function|supportedImageHandlerFormats
@@ -2108,7 +2108,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_LIBRARY
+comment|// QT_NO_IMAGEFORMATPLUGIN
 end_comment
 begin_comment
 comment|/*!     Returns the list of image formats supported by QImageWriter.      By default, Qt can write the following formats:      \table     \header \li Format \li Description     \row    \li BMP    \li Windows Bitmap     \row    \li JPG    \li Joint Photographic Experts Group     \row    \li JPEG   \li Joint Photographic Experts Group     \row    \li PNG    \li Portable Network Graphics     \row    \li PBM    \li Portable Bitmap     \row    \li PGM    \li Portable Graymap     \row    \li PPM    \li Portable Pixmap     \row    \li XBM    \li X11 Bitmap     \row    \li XPM    \li X11 Pixmap     \endtable      Reading and writing SVG files is supported through Qt's     \l{QtSvg Module}{SVG Module}. The \l{QtImageFormats Module}{Image Formats Module}     provides support for additional image formats.      Note that the QApplication instance must be created before this function is     called.      \sa setFormat(), QImageReader::supportedImageFormats(), QImageIOPlugin */
@@ -2196,7 +2196,7 @@ endif|#
 directive|endif
 ifndef|#
 directive|ifndef
-name|QT_NO_LIBRARY
+name|QT_NO_IMAGEFORMATPLUGIN
 name|supportedImageHandlerFormats
 argument_list|(
 name|loader
@@ -2212,7 +2212,7 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-comment|// QT_NO_LIBRARY
+comment|// QT_NO_IMAGEFORMATPLUGIN
 name|QList
 argument_list|<
 name|QByteArray

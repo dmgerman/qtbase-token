@@ -287,6 +287,11 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_IMAGEFORMATPLUGIN
+end_ifndef
 begin_define
 DECL|macro|QImageIOHandlerFactoryInterface_iid
 define|#
@@ -374,6 +379,13 @@ argument_list|(
 argument|QImageIOPlugin::Capabilities
 argument_list|)
 end_macro
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_IMAGEFORMATPLUGIN
+end_comment
 begin_expr_stmt
 name|QT_END_NAMESPACE
 name|QT_END_HEADER

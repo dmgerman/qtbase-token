@@ -243,7 +243,7 @@ block|{
 ifdef|#
 directive|ifdef
 name|Q_OS_MAC
-comment|// On mac the DPI is allways 72 so we should not scale it
+comment|// On mac the DPI is always 72 so we should not scale it
 return|return
 name|value
 return|;

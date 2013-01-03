@@ -190,15 +190,6 @@ name|void
 name|showSummary
 parameter_list|()
 function_decl|;
-name|void
-name|findProjects
-parameter_list|(
-specifier|const
-name|QString
-modifier|&
-name|dirName
-parameter_list|)
-function_decl|;
 name|QString
 name|firstLicensePath
 parameter_list|()

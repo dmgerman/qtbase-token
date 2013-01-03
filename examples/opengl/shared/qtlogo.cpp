@@ -5,6 +5,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|"qtlogo.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<QGLWidget>
 end_include
 begin_include
@@ -21,11 +26,6 @@ begin_include
 include|#
 directive|include
 file|<qmath.h>
-end_include
-begin_include
-include|#
-directive|include
-file|"qtlogo.h"
 end_include
 begin_decl_stmt
 DECL|variable|tee_height
@@ -474,7 +474,7 @@ name|int
 name|from
 parameter_list|)
 block|{
-comment|// Smooth normals are acheived by averaging the normals for faces meeting
+comment|// Smooth normals are achieved by averaging the normals for faces meeting
 comment|// at a point.  First find the point in geometry already generated
 comment|// (working backwards, since most often the points shared are between faces
 comment|// recently added).
@@ -518,7 +518,7 @@ operator|<
 name|from
 condition|)
 block|{
-comment|// The vert was not found so add it as a new one, and initialize
+comment|// The vertex was not found so add it as a new one, and initialize
 comment|// its corresponding normal
 name|v
 operator|=
@@ -554,7 +554,7 @@ operator|+=
 name|n
 expr_stmt|;
 block|}
-comment|// In both cases (found or not) reference the vert via its index
+comment|// In both cases (found or not) reference the vertex via its index
 name|faces
 operator|.
 name|append
@@ -582,8 +582,8 @@ modifier|&
 name|n
 parameter_list|)
 block|{
-comment|// Faceted normals are achieved by duplicating the vert for every
-comment|// normal, so that faces meeting at a vert get a sharp edge.
+comment|// Faceted normals are achieved by duplicating the vertex for every
+comment|// normal, so that faces meeting at a vertex get a sharp edge.
 name|int
 name|v
 init|=
@@ -989,7 +989,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// If faceted share the two common verts
+comment|// If faceted share the two common vertices
 name|addTri
 argument_list|(
 name|a
@@ -1065,7 +1065,7 @@ argument_list|<
 name|QVector3D
 argument_list|>
 modifier|&
-name|verts
+name|vertices
 parameter_list|,
 name|qreal
 name|depth
@@ -1077,7 +1077,7 @@ name|QVector3D
 argument_list|>
 name|extr
 init|=
-name|verts
+name|vertices
 decl_stmt|;
 for|for
 control|(

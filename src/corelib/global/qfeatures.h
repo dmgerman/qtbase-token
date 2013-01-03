@@ -96,12 +96,6 @@ begin_comment
 comment|//#define QT_NO_HOSTINFO
 end_comment
 begin_comment
-comment|// QImageIOPlugin
-end_comment
-begin_comment
-comment|//#define QT_NO_IMAGEFORMATPLUGIN
-end_comment
-begin_comment
 comment|// BMP Image Format
 end_comment
 begin_comment
@@ -226,12 +220,6 @@ comment|// Properties
 end_comment
 begin_comment
 comment|//#define QT_NO_PROPERTIES
-end_comment
-begin_comment
-comment|//  Universally Unique Identifier Convertion
-end_comment
-begin_comment
-comment|//#define QT_NO_QUUID_STRING
 end_comment
 begin_comment
 comment|// Resize Handler

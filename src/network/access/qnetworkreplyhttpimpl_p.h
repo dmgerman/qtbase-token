@@ -330,12 +330,17 @@ argument|void replySslConfigurationChanged(const QSslConfiguration&)
 argument_list|)
 endif|#
 directive|endif
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
 argument_list|,
 argument|void proxyAuthenticationRequired(const QNetworkProxy&proxy, QAuthenticator *auth)
 argument_list|)
+endif|#
+directive|endif
 name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()

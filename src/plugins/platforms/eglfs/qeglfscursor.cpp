@@ -80,6 +80,9 @@ name|initCursorAtlas
 argument_list|()
 expr_stmt|;
 comment|// initialize the cursor
+ifndef|#
+directive|ifndef
+name|QT_NO_CURSOR
 name|QCursor
 name|cursor
 argument_list|(
@@ -94,6 +97,8 @@ operator|&
 name|cursor
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_constructor
 begin_destructor
@@ -853,6 +858,11 @@ name|image
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_CURSOR
+end_ifndef
 begin_function
 DECL|function|changeCursor
 name|void
@@ -1140,6 +1150,10 @@ literal|true
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|update
 name|void

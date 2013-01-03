@@ -447,6 +447,10 @@ expr_stmt|;
 if|if
 condition|(
 name|IsTimed
+operator|&&
+name|timeout
+operator|>
+literal|0
 condition|)
 block|{
 name|ts
@@ -569,6 +573,10 @@ block|}
 if|if
 condition|(
 name|IsTimed
+operator|&&
+name|timeout
+operator|>
+literal|0
 condition|)
 name|pts
 operator|=
@@ -668,13 +676,6 @@ argument_list|(
 operator|!
 name|isRecursive
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|Q_ASSERT
-argument_list|(
-name|timeout
-operator|>=
-literal|0
 argument_list|)
 expr_stmt|;
 return|return

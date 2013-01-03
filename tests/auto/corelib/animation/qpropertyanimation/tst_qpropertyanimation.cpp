@@ -22,6 +22,12 @@ include|#
 directive|include
 file|<QtWidgets/qwidget.h>
 end_include
+begin_macro
+name|Q_DECLARE_METATYPE
+argument_list|(
+argument|QAbstractAnimation::State
+argument_list|)
+end_macro
 begin_class
 DECL|class|UncontrolledAnimation
 class|class
@@ -4197,12 +4203,6 @@ begin_macro
 name|Q_DECLARE_METATYPE
 argument_list|(
 argument|Number
-argument_list|)
-end_macro
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QAbstractAnimation::State
 argument_list|)
 end_macro
 begin_function

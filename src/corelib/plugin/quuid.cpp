@@ -38,9 +38,6 @@ directive|endif
 end_endif
 begin_function
 name|QT_BEGIN_NAMESPACE
-ifndef|#
-directive|ifndef
-name|QT_NO_QUUID_STRING
 specifier|template
 type|<class
 name|Char
@@ -658,12 +655,8 @@ return|return
 literal|true
 return|;
 end_decl_stmt
-begin_endif
-unit|}
-endif|#
-directive|endif
-end_endif
 begin_ifndef
+unit|}
 ifndef|#
 directive|ifndef
 name|QT_BOOTSTRAPPED
@@ -808,11 +801,6 @@ end_comment
 begin_comment
 comment|/*!     \fn QUuid::QUuid(uint l, ushort w1, ushort w2, uchar b1, uchar b2, uchar b3, uchar b4, uchar b5, uchar b6, uchar b7, uchar b8)      Creates a UUID with the value specified by the parameters, \a l,     \a w1, \a w2, \a b1, \a b2, \a b3, \a b4, \a b5, \a b6, \a b7, \a     b8.      Example:     \snippet code/src_corelib_plugin_quuid.cpp 0 */
 end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_QUUID_STRING
-end_ifndef
 begin_comment
 comment|/*!   Creates a QUuid object from the string \a text, which must be   formatted as five hex fields separated by '-', e.g.,   "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}" where 'x' is a hex   digit. The curly braces shown here are optional, but it is normal to   include them. If the conversion fails, a null UUID is created.  See   toString() for an explanation of how the five hex fields map to the   public data members in QUuid.      \sa toString(), QUuid() */
 end_comment
@@ -1063,10 +1051,6 @@ return|return;
 block|}
 block|}
 end_constructor
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|/*!   \since 5.0   \fn QUuid QUuid::createUuidV3(const QUuid&ns, const QByteArray&baseData);    This function returns a new UUID with variant QUuid::DCE and version QUuid::Md5.   \a ns is the namespace and \a baseData is the basic data as described by RFC 4122.    \sa variant(), version(), createUuidV5() */
 end_comment
@@ -1360,11 +1344,6 @@ end_comment
 begin_comment
 comment|/*!     \fn bool QUuid::operator!=(const QUuid&other) const      Returns true if this QUuid and the \a other QUuid are different;     otherwise returns false. */
 end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_QUUID_STRING
-end_ifndef
 begin_comment
 comment|/*!     Returns the string representation of this QUuid. The string is     formatted as five hex fields separated by '-' and enclosed in     curly braces, i.e., "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}" where     'x' is a hex digit.  From left to right, the five hex fields are     obtained from the four public data members in QUuid as follows:      \table     \header     \li Field #     \li Source          \row     \li 1     \li data1          \row     \li 2     \li data2          \row     \li 3     \li data3          \row     \li 4     \li data4[0] .. data4[1]          \row     \li 5     \li data4[2] .. data4[7]      \endtable */
 end_comment
@@ -1467,10 +1446,6 @@ name|result
 return|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|/*!     Returns the binary representation of this QUuid. The byte array is in big     endian format, and formatted according to RFC 4122, section 4.1.2 -     "Layout and byte order".      The order is as follows:      \table     \header     \li Field #     \li Source      \row     \li 1     \li data1      \row     \li 2     \li data2      \row     \li 3     \li data3      \row     \li 4     \li data4[0] .. data4[7]      \endtable      \since 4.8 */
 end_comment
@@ -2988,9 +2963,6 @@ modifier|&
 name|id
 parameter_list|)
 block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_QUUID_STRING
 name|dbg
 operator|.
 name|nospace
@@ -3005,21 +2977,6 @@ argument_list|()
 operator|<<
 literal|')'
 expr_stmt|;
-else|#
-directive|else
-name|Q_UNUSED
-argument_list|(
-argument|id
-argument_list|)
-name|dbg
-operator|.
-name|nospace
-argument_list|()
-operator|<<
-literal|"QUuid(QT_NO_QUUID_STRING)"
-expr_stmt|;
-endif|#
-directive|endif
 return|return
 name|dbg
 operator|.

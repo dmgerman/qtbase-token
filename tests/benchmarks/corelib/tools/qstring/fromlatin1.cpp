@@ -651,7 +651,7 @@ literal|"\377\376\375\374\373\372\371\370\367\366\365\364"
 comment|// 3312
 comment|// #126
 literal|"\377\376"
-literal|"Trolltech"
+literal|"QtProject"
 literal|"\377\376\375\374\373"
 comment|// 3328
 comment|// #127
@@ -849,7 +849,7 @@ literal|"/inputmethods"
 literal|"\377\376\375\374\373\372\371\370\367\366\365\364\363\362\361\360"
 comment|// 4544
 comment|// #166
-literal|"Trolltech"
+literal|"QtProject"
 literal|"\377\376\375\374\373\372\371"
 comment|// 4560
 comment|// #167
@@ -1004,7 +1004,7 @@ literal|"/styles"
 literal|"\377\376\375\374\373"
 comment|// 5488
 comment|// #197
-literal|"Trolltech"
+literal|"QtProject"
 literal|"\377\376\375\374\373\372\371"
 comment|// 5504
 comment|// #198
@@ -7675,7 +7675,7 @@ literal|"/gui_platform"
 literal|"\377\376\375"
 comment|// 58688
 comment|// #1425
-literal|"Trolltech"
+literal|"QtProject"
 literal|"\377\376\375\374\373\372\371"
 comment|// 58704
 comment|// #1426
@@ -32481,7 +32481,7 @@ literal|"/imageformats"
 literal|"\377\376"
 comment|// 268688
 comment|// #5853
-literal|"Trolltech"
+literal|"QtProject"
 literal|"\377\376\375\374\373\372\371"
 comment|// 268704
 comment|// #5854

@@ -2385,6 +2385,15 @@ index|]
 expr_stmt|;
 if|if
 condition|(
+name|i
+operator|+
+literal|1
+operator|<
+name|data
+operator|.
+name|length
+argument_list|()
+operator|&&
 name|data
 index|[
 name|i

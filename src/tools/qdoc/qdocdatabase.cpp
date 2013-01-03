@@ -3258,6 +3258,11 @@ name|QString
 modifier|&
 name|name
 parameter_list|,
+name|TargetRec
+operator|::
+name|Type
+name|type
+parameter_list|,
 name|Node
 modifier|*
 name|node
@@ -3266,9 +3271,15 @@ name|int
 name|priority
 parameter_list|)
 block|{
-name|Target
+name|TargetRec
 name|target
 decl_stmt|;
+name|target
+operator|.
+name|type_
+operator|=
+name|type
+expr_stmt|;
 name|target
 operator|.
 name|node_
@@ -3303,7 +3314,7 @@ operator|&
 name|a
 argument_list|)
 expr_stmt|;
-name|targetMultiMap_
+name|targetRecMultiMap_
 operator|.
 name|insert
 argument_list|(
@@ -3341,7 +3352,7 @@ modifier|*
 name|relative
 parameter_list|)
 block|{
-name|Target
+name|TargetRec
 name|bestTarget
 decl_stmt|;
 name|int
@@ -3351,7 +3362,7 @@ literal|0
 decl_stmt|;
 name|QList
 argument_list|<
-name|Target
+name|TargetRec
 argument_list|>
 name|bestTargetList
 decl_stmt|;
@@ -3365,12 +3376,12 @@ argument_list|(
 name|target
 argument_list|)
 decl_stmt|;
-name|TargetMultiMap
+name|TargetRecMultiMap
 operator|::
 name|iterator
 name|i
 init|=
-name|targetMultiMap_
+name|targetRecMultiMap_
 operator|.
 name|find
 argument_list|(
@@ -3381,7 +3392,7 @@ while|while
 condition|(
 name|i
 operator|!=
-name|targetMultiMap_
+name|targetRecMultiMap_
 operator|.
 name|end
 argument_list|()
@@ -3398,7 +3409,7 @@ name|key
 condition|)
 break|break;
 specifier|const
-name|Target
+name|TargetRec
 modifier|&
 name|candidate
 init|=
@@ -3958,12 +3969,12 @@ argument_list|(
 name|target
 argument_list|)
 decl_stmt|;
-name|TargetMultiMap
+name|TargetRecMultiMap
 operator|::
 name|const_iterator
 name|i
 init|=
-name|targetMultiMap_
+name|targetRecMultiMap_
 operator|.
 name|constFind
 argument_list|(
@@ -3974,7 +3985,7 @@ if|if
 condition|(
 name|i
 operator|!=
-name|targetMultiMap_
+name|targetRecMultiMap_
 operator|.
 name|constEnd
 argument_list|()
@@ -4009,7 +4020,7 @@ do|while
 condition|(
 name|i
 operator|!=
-name|targetMultiMap_
+name|targetRecMultiMap_
 operator|.
 name|constEnd
 argument_list|()
@@ -4164,7 +4175,7 @@ operator|.
 name|tableOfContents
 argument_list|()
 decl_stmt|;
-name|Target
+name|TargetRec
 name|target
 decl_stmt|;
 name|target
@@ -4248,7 +4259,7 @@ argument_list|(
 name|title
 argument_list|)
 decl_stmt|;
-name|targetMultiMap_
+name|targetRecMultiMap_
 operator|.
 name|insert
 argument_list|(
@@ -4288,7 +4299,7 @@ operator|.
 name|keywords
 argument_list|()
 decl_stmt|;
-name|Target
+name|TargetRec
 name|target
 decl_stmt|;
 name|target
@@ -4353,7 +4364,7 @@ name|string
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|targetMultiMap_
+name|targetRecMultiMap_
 operator|.
 name|insert
 argument_list|(
@@ -4392,7 +4403,7 @@ operator|.
 name|targets
 argument_list|()
 decl_stmt|;
-name|Target
+name|TargetRec
 name|target
 decl_stmt|;
 name|target
@@ -4457,7 +4468,7 @@ name|string
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|targetMultiMap_
+name|targetRecMultiMap_
 operator|.
 name|insert
 argument_list|(

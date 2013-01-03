@@ -3477,6 +3477,17 @@ DECL|struct|QGLContextGroupList
 struct|struct
 name|QGLContextGroupList
 block|{
+DECL|function|QGLContextGroupList
+name|QGLContextGroupList
+parameter_list|()
+member_init_list|:
+name|m_mutex
+argument_list|(
+name|QMutex
+operator|::
+name|Recursive
+argument_list|)
+block|{     }
 DECL|function|append
 name|void
 name|append

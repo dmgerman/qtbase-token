@@ -703,7 +703,7 @@ begin_comment
 comment|/*!     \variable QStyleOptionFrame::midLineWidth     \brief the mid-line width for drawing the frame      This is usually used in drawing sunken or raised frames.      The default value is 0.      \sa QFrame::midLineWidth */
 end_comment
 begin_comment
-comment|/*!     \enum QStyleOptionFrame::FrameFeature      This enum describes the different types of features a frame can have.      \value None Indicates a normal frame.     \value Flat Indicates a flat frame. */
+comment|/*!     \enum QStyleOptionFrame::FrameFeature      This enum describes the different types of features a frame can have.      \value None Indicates a normal frame.     \value Flat Indicates a flat frame.     \value Rounded Indicates a rounded frame. */
 end_comment
 begin_comment
 comment|/*!     \variable QStyleOptionFrame::features     \brief a bitwise OR of the features that describe this frame.      \sa FrameFeature */

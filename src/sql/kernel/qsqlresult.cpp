@@ -684,19 +684,6 @@ operator|!
 name|inQuote
 condition|)
 block|{
-comment|// Update the holder position since we are changing the holder name lengths
-name|holders
-index|[
-name|count
-index|]
-operator|.
-name|holderPos
-operator|=
-name|result
-operator|.
-name|size
-argument_list|()
-expr_stmt|;
 name|result
 operator|+=
 name|qFieldSerial

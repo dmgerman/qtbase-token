@@ -129,7 +129,7 @@ condition|(
 name|window
 argument_list|()
 operator|->
-name|windowType
+name|type
 argument_list|()
 operator|==
 name|Qt

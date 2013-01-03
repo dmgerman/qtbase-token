@@ -15,7 +15,7 @@ begin_comment
 comment|/*!     \fn void QAbstractSocket::connected()      This signal is emitted after connectToHost() has been called and     a connection has been successfully established.      \note On some operating systems the connected() signal may     be directly emitted from the connectToHost() call for connections     to the localhost.      \sa connectToHost(), disconnected() */
 end_comment
 begin_comment
-comment|/*!     \fn void QAbstractSocket::disconnected()      This signal is emitted when the socket has been disconnected.          \warning If you need to delete the sender() of this signal in a slot connected     to it, use the \l{QObject::deleteLater()}{deleteLater()} function.      \sa connectToHost(), disconnectFromHost(), abort() */
+comment|/*!     \fn void QAbstractSocket::disconnected()      This signal is emitted when the socket has been disconnected.      \warning If you need to delete the sender() of this signal in a slot connected     to it, use the \l{QObject::deleteLater()}{deleteLater()} function.      \sa connectToHost(), disconnectFromHost(), abort() */
 end_comment
 begin_comment
 comment|/*!     \fn void QAbstractSocket::error(QAbstractSocket::SocketError socketError)      This signal is emitted after an error occurred. The \a socketError     parameter describes the type of error that occurred.      QAbstractSocket::SocketError is not a registered metatype, so for queued     connections, you will have to register it with Q_DECLARE_METATYPE() and     qRegisterMetaType().      \sa error(), errorString(), {Creating Custom Qt Types} */

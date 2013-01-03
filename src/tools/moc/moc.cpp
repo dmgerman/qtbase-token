@@ -4303,25 +4303,6 @@ modifier|*
 name|out
 parameter_list|)
 block|{
-name|QDateTime
-name|dt
-init|=
-name|QDateTime
-operator|::
-name|currentDateTime
-argument_list|()
-decl_stmt|;
-name|QByteArray
-name|dstr
-init|=
-name|dt
-operator|.
-name|toString
-argument_list|()
-operator|.
-name|toLatin1
-argument_list|()
-decl_stmt|;
 name|QByteArray
 name|fn
 init|=
@@ -4397,13 +4378,7 @@ name|fprintf
 argument_list|(
 name|out
 argument_list|,
-literal|"** Created: %s\n"
-literal|"**      by: The Qt Meta Object Compiler version %d (Qt %s)\n**\n"
-argument_list|,
-name|dstr
-operator|.
-name|data
-argument_list|()
+literal|"** Created by: The Qt Meta Object Compiler version %d (Qt %s)\n**\n"
 argument_list|,
 name|mocOutputRevision
 argument_list|,

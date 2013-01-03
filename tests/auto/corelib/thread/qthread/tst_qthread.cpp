@@ -7006,6 +7006,10 @@ parameter_list|,
 name|int
 name|deleteDelay
 parameter_list|,
+name|bool
+modifier|*
+name|flag
+parameter_list|,
 name|QObject
 modifier|*
 name|parent
@@ -7025,9 +7029,14 @@ argument_list|)
 member_init_list|,
 name|exitThreadCalled
 argument_list|(
-literal|false
+operator|*
+name|flag
 argument_list|)
 block|{
+name|exitThreadCalled
+operator|=
+literal|false
+expr_stmt|;
 name|moveToThread
 argument_list|(
 name|thread
@@ -7093,6 +7102,7 @@ decl_stmt|;
 public|public:
 DECL|member|exitThreadCalled
 name|bool
+modifier|&
 name|exitThreadCalled
 decl_stmt|;
 block|}
@@ -7108,6 +7118,9 @@ parameter_list|()
 block|{
 name|QThread
 name|thread
+decl_stmt|;
+name|bool
+name|exitThreadCalled
 decl_stmt|;
 name|QEventLoop
 name|loop
@@ -7151,6 +7164,9 @@ operator|&
 name|thread
 argument_list|,
 literal|500
+argument_list|,
+operator|&
+name|exitThreadCalled
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -7172,8 +7188,6 @@ expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
-name|job
-operator|->
 name|exitThreadCalled
 argument_list|)
 expr_stmt|;
@@ -7191,6 +7205,9 @@ operator|&
 name|thread
 argument_list|,
 literal|2500
+argument_list|,
+operator|&
+name|exitThreadCalled
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -7211,8 +7228,6 @@ argument_list|()
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-name|job
-operator|->
 name|exitThreadCalled
 argument_list|)
 expr_stmt|;

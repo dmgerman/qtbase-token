@@ -2711,11 +2711,6 @@ argument_list|)
 operator|<<
 name|getWritableVar
 argument_list|(
-literal|"DEPENDPATH"
-argument_list|)
-operator|<<
-name|getWritableVar
-argument_list|(
 literal|"INCLUDEPATH"
 argument_list|)
 operator|<<

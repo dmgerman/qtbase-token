@@ -1632,7 +1632,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!  */
+comment|/*!   This function resolves inheritance and reimplementation settings   for each class node found in the namspace beginning ar \a rootNode.   If it finds another namespace node in the child list of \a rootNode,   it calls itself recursively. For each child of \a rootNode that is a   class node, it calls the other resolveInheritance() function.  */
 end_comment
 begin_function
 DECL|function|resolveInheritance
@@ -2128,7 +2128,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!  */
+comment|/*!   This function is run twice for each \a classNode in the   tree. First it is run with \a pass set to 0 for each   \a classNode. Then it is run with \a pass set to 1 for   each \a classNode.    In \a pass 0, all the base classes of \a classNode are   found and added to the base class list for \a classNode.    In \a pass 1, each child of \a classNode that is a function   that is reimplemented from one of the base classes is marked   as being reimplemented from that class.    Some property node fixing up is also done in \a pass 1.  */
 end_comment
 begin_function
 DECL|function|resolveInheritance
@@ -2142,7 +2142,7 @@ name|pass
 parameter_list|,
 name|ClassNode
 modifier|*
-name|classe
+name|classNode
 parameter_list|)
 block|{
 if|if
@@ -2160,7 +2160,7 @@ name|bounds
 init|=
 name|unresolvedInheritanceMap
 index|[
-name|classe
+name|classNode
 index|]
 decl_stmt|;
 name|QList
@@ -2238,7 +2238,7 @@ condition|(
 name|n
 condition|)
 block|{
-name|classe
+name|classNode
 operator|->
 name|addBaseClass
 argument_list|(
@@ -2279,7 +2279,7 @@ operator|::
 name|ConstIterator
 name|c
 init|=
-name|classe
+name|classNode
 operator|->
 name|childNodes
 argument_list|()
@@ -2291,7 +2291,7 @@ while|while
 condition|(
 name|c
 operator|!=
-name|classe
+name|classNode
 operator|->
 name|childNodes
 argument_list|()
@@ -2332,7 +2332,7 @@ name|from
 init|=
 name|findVirtualFunctionInBaseClasses
 argument_list|(
-name|classe
+name|classNode
 argument_list|,
 name|func
 argument_list|)
@@ -2391,7 +2391,7 @@ condition|)
 block|{
 name|fixPropertyUsingBaseClasses
 argument_list|(
-name|classe
+name|classNode
 argument_list|,
 cast|static_cast
 argument_list|<
@@ -2633,7 +2633,7 @@ name|findVirtualFunctionInBaseClasses
 parameter_list|(
 name|ClassNode
 modifier|*
-name|classe
+name|classNode
 parameter_list|,
 name|FunctionNode
 modifier|*
@@ -2648,7 +2648,7 @@ operator|::
 name|ConstIterator
 name|r
 init|=
-name|classe
+name|classNode
 operator|->
 name|baseClasses
 argument_list|()
@@ -2660,7 +2660,7 @@ while|while
 condition|(
 name|r
 operator|!=
-name|classe
+name|classNode
 operator|->
 name|baseClasses
 argument_list|()
@@ -2750,7 +2750,7 @@ name|fixPropertyUsingBaseClasses
 parameter_list|(
 name|ClassNode
 modifier|*
-name|classe
+name|classNode
 parameter_list|,
 name|PropertyNode
 modifier|*
@@ -2765,7 +2765,7 @@ operator|::
 name|const_iterator
 name|r
 init|=
-name|classe
+name|classNode
 operator|->
 name|baseClasses
 argument_list|()
@@ -2777,7 +2777,7 @@ while|while
 condition|(
 name|r
 operator|!=
-name|classe
+name|classNode
 operator|->
 name|baseClasses
 argument_list|()
@@ -2872,7 +2872,7 @@ parameter_list|(
 specifier|const
 name|ClassNode
 modifier|*
-name|classe
+name|classNode
 parameter_list|)
 specifier|const
 block|{
@@ -2886,7 +2886,7 @@ name|RelatedClass
 modifier|&
 name|r
 decl|,
-name|classe
+name|classNode
 operator|->
 name|baseClasses
 argument_list|()

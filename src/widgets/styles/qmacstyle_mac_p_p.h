@@ -730,12 +730,15 @@ name|nsscroller
 block|;
 endif|#
 directive|endif
-block|}
+name|void
+operator|*
+name|indicatorBranchButtonCell
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|QFadeOutAnimation
+name|QScrollbarAnimation
 range|:
 name|public
 name|QNumberStyleAnimation
@@ -743,7 +746,7 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
-name|QFadeOutAnimation
+name|QScrollbarAnimation
 argument_list|(
 name|QObject
 operator|*
@@ -759,7 +762,43 @@ name|_active
 argument_list|(
 argument|false
 argument_list|)
+block|{ }
+name|bool
+name|wasActive
+argument_list|()
+specifier|const
 block|{
+return|return
+name|_active
+return|;
+block|}
+name|void
+name|setActive
+argument_list|(
+argument|bool active
+argument_list|)
+block|{
+name|_active
+operator|=
+name|active
+block|; }
+name|bool
+name|isFadingOut
+argument_list|()
+specifier|const
+block|{
+return|return
+name|_isFadingOut
+return|;
+block|}
+name|void
+name|setFadingOut
+argument_list|()
+block|{
+name|_isFadingOut
+operator|=
+name|true
+block|;
 name|setDuration
 argument_list|(
 name|QMacStylePrivate
@@ -788,25 +827,31 @@ argument_list|(
 literal|0.0
 argument_list|)
 block|;     }
-name|bool
-name|wasActive
-argument_list|()
-specifier|const
-block|{
-return|return
-name|_active
-return|;
-block|}
 name|void
-name|setActive
-argument_list|(
-argument|bool active
-argument_list|)
+name|setExpanding
+argument_list|()
 block|{
-name|_active
+name|_isFadingOut
 operator|=
-name|active
-block|; }
+name|false
+block|;
+name|setDuration
+argument_list|(
+name|QMacStylePrivate
+operator|::
+name|ScrollBarFadeOutDuration
+argument_list|)
+block|;
+name|setStartValue
+argument_list|(
+literal|0.0
+argument_list|)
+block|;
+name|setEndValue
+argument_list|(
+literal|1.0
+argument_list|)
+block|;     }
 name|private
 name|slots
 operator|:
@@ -825,6 +870,8 @@ argument_list|)
 block|;
 if|if
 condition|(
+name|_isFadingOut
+operator|&&
 name|qFuzzyIsNull
 argument_list|(
 name|currentValue
@@ -846,6 +893,9 @@ name|private
 operator|:
 name|bool
 name|_active
+block|;
+name|bool
+name|_isFadingOut
 block|; }
 decl_stmt|;
 end_decl_stmt

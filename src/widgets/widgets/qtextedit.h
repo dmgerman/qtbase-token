@@ -1192,6 +1192,12 @@ argument|d_func()
 argument_list|,
 argument|void _q_ensureVisible(const QRectF&)
 argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_cursorPositionChanged()
+argument_list|)
 name|friend
 name|class
 name|QTextEditControl

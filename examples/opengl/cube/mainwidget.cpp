@@ -10,27 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"geometryengine.h"
-end_include
-begin_include
-include|#
-directive|include
-file|<QtOpenGL/QGLShaderProgram>
-end_include
-begin_include
-include|#
-directive|include
-file|<QBasicTimer>
-end_include
-begin_include
-include|#
-directive|include
 file|<QMouseEvent>
-end_include
-begin_include
-include|#
-directive|include
-file|<QDebug>
 end_include
 begin_include
 include|#
@@ -58,24 +38,6 @@ argument_list|(
 name|parent
 argument_list|)
 member_init_list|,
-name|timer
-argument_list|(
-operator|new
-name|QBasicTimer
-argument_list|)
-member_init_list|,
-name|program
-argument_list|(
-operator|new
-name|QGLShaderProgram
-argument_list|)
-member_init_list|,
-name|geometries
-argument_list|(
-operator|new
-name|GeometryEngine
-argument_list|)
-member_init_list|,
 name|angularSpeed
 argument_list|(
 literal|0
@@ -90,27 +52,6 @@ name|~
 name|MainWidget
 parameter_list|()
 block|{
-operator|delete
-name|timer
-expr_stmt|;
-name|timer
-operator|=
-literal|0
-expr_stmt|;
-operator|delete
-name|program
-expr_stmt|;
-name|program
-operator|=
-literal|0
-expr_stmt|;
-operator|delete
-name|geometries
-expr_stmt|;
-name|geometries
-operator|=
-literal|0
-expr_stmt|;
 name|deleteTexture
 argument_list|(
 name|texture
@@ -133,7 +74,7 @@ modifier|*
 name|e
 parameter_list|)
 block|{
-comment|// Saving mouse press position
+comment|// Save mouse press position
 name|mousePressPosition
 operator|=
 name|QVector2D
@@ -244,14 +185,8 @@ name|timerEvent
 parameter_list|(
 name|QTimerEvent
 modifier|*
-name|e
 parameter_list|)
 block|{
-name|Q_UNUSED
-argument_list|(
-name|e
-argument_list|)
-expr_stmt|;
 comment|// Decrease angular speed (friction)
 name|angularSpeed
 operator|*=
@@ -264,10 +199,12 @@ name|angularSpeed
 operator|<
 literal|0.01
 condition|)
+block|{
 name|angularSpeed
 operator|=
 literal|0.0
 expr_stmt|;
+block|}
 else|else
 block|{
 comment|// Update rotation
@@ -312,18 +249,8 @@ operator|::
 name|black
 argument_list|)
 expr_stmt|;
-name|qDebug
-argument_list|()
-operator|<<
-literal|"Initializing shaders..."
-expr_stmt|;
 name|initShaders
 argument_list|()
-expr_stmt|;
-name|qDebug
-argument_list|()
-operator|<<
-literal|"Initializing textures..."
 expr_stmt|;
 name|initTextures
 argument_list|()
@@ -342,19 +269,14 @@ name|GL_CULL_FACE
 argument_list|)
 expr_stmt|;
 comment|//! [2]
-name|qDebug
-argument_list|()
-operator|<<
-literal|"Initializing geometries..."
-expr_stmt|;
 name|geometries
-operator|->
+operator|.
 name|init
 argument_list|()
 expr_stmt|;
-comment|// using QBasicTimer because its faster that QTimer
+comment|// Use QBasicTimer because its faster than QTimer
 name|timer
-operator|->
+operator|.
 name|start
 argument_list|(
 literal|12
@@ -375,7 +297,7 @@ operator|::
 name|initShaders
 parameter_list|()
 block|{
-comment|// Overriding system locale until shaders are compiled
+comment|// Override system locale until shaders are compiled
 name|setlocale
 argument_list|(
 name|LC_NUMERIC
@@ -383,12 +305,12 @@ argument_list|,
 literal|"C"
 argument_list|)
 expr_stmt|;
-comment|// Compiling vertex shader
+comment|// Compile vertex shader
 if|if
 condition|(
 operator|!
 name|program
-operator|->
+operator|.
 name|addShaderFromSourceFile
 argument_list|(
 name|QGLShader
@@ -401,12 +323,12 @@ condition|)
 name|close
 argument_list|()
 expr_stmt|;
-comment|// Compiling fragment shader
+comment|// Compile fragment shader
 if|if
 condition|(
 operator|!
 name|program
-operator|->
+operator|.
 name|addShaderFromSourceFile
 argument_list|(
 name|QGLShader
@@ -419,24 +341,24 @@ condition|)
 name|close
 argument_list|()
 expr_stmt|;
-comment|// Linking shader pipeline
+comment|// Link shader pipeline
 if|if
 condition|(
 operator|!
 name|program
-operator|->
+operator|.
 name|link
 argument_list|()
 condition|)
 name|close
 argument_list|()
 expr_stmt|;
-comment|// Binding shader pipeline for use
+comment|// Bind shader pipeline for use
 if|if
 condition|(
 operator|!
 name|program
-operator|->
+operator|.
 name|bind
 argument_list|()
 condition|)
@@ -467,7 +389,7 @@ operator|::
 name|initTextures
 parameter_list|()
 block|{
-comment|// Loading cube.png
+comment|// Load cube.png image
 name|glEnable
 argument_list|(
 name|GL_TEXTURE_2D
@@ -561,21 +483,19 @@ comment|// Calculate aspect ratio
 name|qreal
 name|aspect
 init|=
-operator|(
 name|qreal
-operator|)
+argument_list|(
 name|w
+argument_list|)
 operator|/
-operator|(
-operator|(
 name|qreal
-operator|)
+argument_list|(
 name|h
 condition|?
 name|h
 else|:
 literal|1
-operator|)
+argument_list|)
 decl_stmt|;
 comment|// Set near plane to 3.0, far plane to 7.0, field of view 45 degrees
 specifier|const
@@ -659,7 +579,7 @@ argument_list|)
 expr_stmt|;
 comment|// Set modelview-projection matrix
 name|program
-operator|->
+operator|.
 name|setUniformValue
 argument_list|(
 literal|"mvp_matrix"
@@ -670,9 +590,9 @@ name|matrix
 argument_list|)
 expr_stmt|;
 comment|//! [6]
-comment|// Using texture unit 0 which contains cube.png
+comment|// Use texture unit 0 which contains cube.png
 name|program
-operator|->
+operator|.
 name|setUniformValue
 argument_list|(
 literal|"texture"
@@ -682,9 +602,10 @@ argument_list|)
 expr_stmt|;
 comment|// Draw cube geometry
 name|geometries
-operator|->
+operator|.
 name|drawCubeGeometry
 argument_list|(
+operator|&
 name|program
 argument_list|)
 expr_stmt|;

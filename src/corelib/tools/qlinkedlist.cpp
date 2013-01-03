@@ -119,28 +119,28 @@ begin_comment
 comment|/*! \fn bool QLinkedList::endsWith(const T&value) const     \since 4.5      Returns true if the list is not empty and its last     item is equal to \a value; otherwise returns false.      \sa isEmpty(), last() */
 end_comment
 begin_comment
-comment|/*! \fn QLinkedList::iterator QLinkedList::begin()      Returns an \l{STL-style iterator} pointing to the first item in     the list.      \sa constBegin(), end() */
+comment|/*! \fn QLinkedList::iterator QLinkedList::begin()      Returns an \l{STL-style iterators}{STL-style iterator} pointing to the first item in     the list.      \sa constBegin(), end() */
 end_comment
 begin_comment
 comment|/*! \fn QLinkedList::const_iterator QLinkedList::begin() const      \overload */
 end_comment
 begin_comment
-comment|/*! \fn QLinkedList::const_iterator QLinkedList::cbegin() const     \since 5.0      Returns a const \l{STL-style iterator} pointing to the first item     in the list.      \sa begin(), cend() */
+comment|/*! \fn QLinkedList::const_iterator QLinkedList::cbegin() const     \since 5.0      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the first item     in the list.      \sa begin(), cend() */
 end_comment
 begin_comment
-comment|/*! \fn QLinkedList::const_iterator QLinkedList::constBegin() const      Returns a const \l{STL-style iterator} pointing to the first item     in the list.      \sa begin(), constEnd() */
+comment|/*! \fn QLinkedList::const_iterator QLinkedList::constBegin() const      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the first item     in the list.      \sa begin(), constEnd() */
 end_comment
 begin_comment
-comment|/*! \fn QLinkedList::iterator QLinkedList::end()      Returns an \l{STL-style iterator} pointing to the imaginary item     after the last item in the list.      \sa begin(), constEnd() */
+comment|/*! \fn QLinkedList::iterator QLinkedList::end()      Returns an \l{STL-style iterators}{STL-style iterator} pointing to the imaginary item     after the last item in the list.      \sa begin(), constEnd() */
 end_comment
 begin_comment
 comment|/*! \fn QLinkedList::const_iterator QLinkedList::end() const      \overload */
 end_comment
 begin_comment
-comment|/*! \fn QLinkedList::const_iterator QLinkedList::cend() const     \since 5.0      Returns a const \l{STL-style iterator} pointing to the imaginary     item after the last item in the list.      \sa cbegin(), end() */
+comment|/*! \fn QLinkedList::const_iterator QLinkedList::cend() const     \since 5.0      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the imaginary     item after the last item in the list.      \sa cbegin(), end() */
 end_comment
 begin_comment
-comment|/*! \fn QLinkedList::const_iterator QLinkedList::constEnd() const      Returns a const \l{STL-style iterator} pointing to the imaginary     item after the last item in the list.      \sa constBegin(), end() */
+comment|/*! \fn QLinkedList::const_iterator QLinkedList::constEnd() const      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the imaginary     item after the last item in the list.      \sa constBegin(), end() */
 end_comment
 begin_comment
 comment|/*! \fn QLinkedList::iterator QLinkedList::insert(iterator before, const T&value)      Inserts \a value in front of the item pointed to by the iterator     \a before. Returns an iterator pointing at the inserted item.      \sa erase() */

@@ -179,6 +179,11 @@ end_comment
 begin_comment
 comment|//  - Enclose in QtPrivate namespace.
 end_comment
+begin_include
+include|#
+directive|include
+file|"QtCore/qglobal.h"
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -198,11 +203,6 @@ end_include
 begin_comment
 comment|// For pair
 end_comment
-begin_include
-include|#
-directive|include
-file|"QtCore/qglobal.h"
-end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE

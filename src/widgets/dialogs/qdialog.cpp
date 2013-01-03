@@ -127,6 +127,9 @@ name|FileDialog
 return|;
 endif|#
 directive|endif
+ifndef|#
+directive|ifndef
+name|QT_NO_COLORDIALOG
 if|if
 condition|(
 name|qobject_cast
@@ -144,6 +147,8 @@ name|QPlatformTheme
 operator|::
 name|ColorDialog
 return|;
+endif|#
+directive|endif
 ifndef|#
 directive|ifndef
 name|QT_NO_FONTDIALOG

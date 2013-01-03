@@ -23,7 +23,7 @@ DECL|macro|QT_VERSION_STR
 define|#
 directive|define
 name|QT_VERSION_STR
-value|"5.0.0"
+value|"5.0.1"
 end_define
 begin_comment
 comment|/*    QT_VERSION is (major<< 16) + (minor<< 8) + patch. */
@@ -33,7 +33,7 @@ DECL|macro|QT_VERSION
 define|#
 directive|define
 name|QT_VERSION
-value|0x050000
+value|0x050001
 end_define
 begin_comment
 comment|/*    can be used like #if (QT_VERSION>= QT_VERSION_CHECK(4, 4, 0)) */
@@ -1973,44 +1973,6 @@ name|qptrdiff
 name|qintptr
 typedef|;
 end_typedef
-begin_comment
-comment|/*    Constant bool values */
-end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_LINUXBASE
-end_ifndef
-begin_comment
-comment|/* the LSB defines TRUE and FALSE for us */
-end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|TRUE
-end_ifndef
-begin_define
-DECL|macro|TRUE
-define|#
-directive|define
-name|TRUE
-value|true
-end_define
-begin_define
-DECL|macro|FALSE
-define|#
-directive|define
-name|FALSE
-value|false
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|/* moc compats (signals/slots) */
 end_comment

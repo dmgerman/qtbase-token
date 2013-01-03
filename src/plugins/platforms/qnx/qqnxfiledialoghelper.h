@@ -25,9 +25,9 @@ file|<bps/dialog.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-DECL|variable|QQnxBpsEventFilter
+DECL|variable|QQnxIntegration
 name|class
-name|QQnxBpsEventFilter
+name|QQnxIntegration
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -43,9 +43,9 @@ operator|:
 name|explicit
 name|QQnxFileDialogHelper
 argument_list|(
-name|QQnxBpsEventFilter
+specifier|const
+name|QQnxIntegration
 operator|*
-name|eventFilter
 argument_list|)
 block|;
 operator|~
@@ -155,9 +155,10 @@ operator|&
 name|filter
 argument_list|)
 block|;
-name|QQnxBpsEventFilter
+specifier|const
+name|QQnxIntegration
 operator|*
-name|m_eventFilter
+name|m_integration
 block|;
 name|dialog_instance_t
 name|m_dialog

@@ -142,12 +142,6 @@ name|defined
 argument_list|(
 name|Q_OS_UNIX
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_MAC
-argument_list|)
 comment|// We don't use separate debug and release libs on UNIX, so we want
 comment|// to allow loading plugins, regardless of how they were built.
 DECL|macro|QT_NO_DEBUG_PLUGIN_CHECK

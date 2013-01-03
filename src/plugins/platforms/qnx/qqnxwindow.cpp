@@ -1061,7 +1061,7 @@ expr_stmt|;
 name|window
 argument_list|()
 operator|->
-name|requestActivateWindow
+name|requestActivate
 argument_list|()
 expr_stmt|;
 if|if
@@ -2139,7 +2139,7 @@ operator|(
 name|window
 argument_list|()
 operator|->
-name|windowType
+name|type
 argument_list|()
 operator|&
 name|Qt
@@ -2155,7 +2155,7 @@ operator|(
 name|window
 argument_list|()
 operator|->
-name|windowType
+name|type
 argument_list|()
 operator|&
 name|Qt

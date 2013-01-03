@@ -210,7 +210,7 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!     \class QCommonStyle     \brief The QCommonStyle class encapsulates the common Look and Feel of a GUI.      \ingroup appearance     \inmodule QtWidgets      This abstract class implements some of the widget's look and feel     that is common to all GUI styles provided and shipped as part of     Qt.      Since QCommonStyle inherits QStyle, all of its functions are fully documented     in the QStyle documentation.     \omit     , although the     extra functions that QCommonStyle provides, e.g.     drawComplexControl(), drawControl(), drawPrimitive(),     hitTestComplexControl(), subControlRect(), sizeFromContents(), and     subElementRect() are documented here.     \endomit      \sa QStyle, QWindowsStyle */
+comment|/*!     \class QCommonStyle     \brief The QCommonStyle class encapsulates the common Look and Feel of a GUI.      \ingroup appearance     \inmodule QtWidgets      This abstract class implements some of the widget's look and feel     that is common to all GUI styles provided and shipped as part of     Qt.      Since QCommonStyle inherits QStyle, all of its functions are fully documented     in the QStyle documentation.     \omit     , although the     extra functions that QCommonStyle provides, e.g.     drawComplexControl(), drawControl(), drawPrimitive(),     hitTestComplexControl(), subControlRect(), sizeFromContents(), and     subElementRect() are documented here.     \endomit      \sa QStyle, QProxyStyle */
 end_comment
 begin_comment
 comment|/*!     Constructs a QCommonStyle. */
@@ -8958,21 +8958,17 @@ decl_stmt|;
 if|if
 condition|(
 name|animation
-operator|&&
-name|animation
-operator|->
-name|state
-argument_list|()
-operator|!=
-name|QAbstractAnimation
-operator|::
-name|Stopped
 condition|)
+block|{
 name|animation
 operator|->
 name|stop
 argument_list|()
 expr_stmt|;
+operator|delete
+name|animation
+expr_stmt|;
+block|}
 block|}
 end_function
 begin_comment
@@ -35887,7 +35883,7 @@ name|PM_MessageBoxIconSize
 case|:
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 if|if
 condition|(
 name|QApplication

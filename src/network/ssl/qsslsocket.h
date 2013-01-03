@@ -807,22 +807,10 @@ end_endif
 begin_comment
 comment|// QT_NO_SSL
 end_comment
-begin_decl_stmt
+begin_expr_stmt
 name|QT_END_NAMESPACE
-ifndef|#
-directive|ifndef
-name|QT_NO_SSL
-name|Q_DECLARE_METATYPE
-argument_list|(
-name|QList
-operator|<
-name|QSslError
-operator|>
-argument_list|)
-endif|#
-directive|endif
 name|QT_END_HEADER
-end_decl_stmt
+end_expr_stmt
 begin_endif
 endif|#
 directive|endif

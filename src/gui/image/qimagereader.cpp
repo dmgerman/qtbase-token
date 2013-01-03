@@ -167,7 +167,7 @@ begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
-name|QT_NO_LIBRARY
+name|QT_NO_IMAGEFORMATPLUGIN
 name|Q_GLOBAL_STATIC_WITH_ARGS
 argument_list|(
 name|QFactoryLoader
@@ -426,9 +426,12 @@ name|handler
 init|=
 literal|0
 decl_stmt|;
+name|QByteArray
+name|suffix
+decl_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_LIBRARY
+name|QT_NO_IMAGEFORMATPLUGIN
 typedef|typedef
 name|QMultiMap
 argument_list|<
@@ -454,11 +457,6 @@ name|l
 operator|->
 name|keyMap
 argument_list|()
-decl_stmt|;
-endif|#
-directive|endif
-name|QByteArray
-name|suffix
 decl_stmt|;
 ifdef|#
 directive|ifdef
@@ -497,15 +495,15 @@ argument_list|()
 expr_stmt|;
 endif|#
 directive|endif
-ifndef|#
-directive|ifndef
-name|QT_NO_LIBRARY
 name|int
 name|suffixPluginIndex
 init|=
 operator|-
 literal|1
 decl_stmt|;
+endif|#
+directive|endif
+comment|// QT_NO_IMAGEFORMATPLUGIN
 if|if
 condition|(
 name|device
@@ -583,6 +581,9 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_IMAGEFORMATPLUGIN
 specifier|const
 name|int
 name|index
@@ -629,12 +630,12 @@ operator|=
 name|index
 expr_stmt|;
 block|}
-block|}
-block|}
-block|}
 endif|#
 directive|endif
-comment|// QT_NO_LIBRARY
+comment|// QT_NO_IMAGEFORMATPLUGIN
+block|}
+block|}
+block|}
 name|QByteArray
 name|testFormat
 init|=
@@ -659,7 +660,7 @@ argument_list|()
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_LIBRARY
+name|QT_NO_IMAGEFORMATPLUGIN
 if|if
 condition|(
 name|suffixPluginIndex
@@ -1042,7 +1043,7 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
-comment|// QT_NO_LIBRARY
+comment|// QT_NO_IMAGEFORMATPLUGIN
 comment|// if we don't have a handler yet, check if we have built-in support for
 comment|// the format
 if|if
@@ -1280,7 +1281,7 @@ directive|endif
 block|}
 ifndef|#
 directive|ifndef
-name|QT_NO_LIBRARY
+name|QT_NO_IMAGEFORMATPLUGIN
 if|if
 condition|(
 operator|!
@@ -1432,7 +1433,7 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
-comment|// QT_NO_LIBRARY
+comment|// QT_NO_IMAGEFORMATPLUGIN
 if|if
 condition|(
 operator|!
@@ -4143,7 +4144,10 @@ argument_list|()
 operator|.
 name|endsWith
 argument_list|(
+name|QLatin1String
+argument_list|(
 literal|"@2x"
+argument_list|)
 argument_list|)
 condition|)
 block|{
@@ -4611,7 +4615,7 @@ end_function
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_LIBRARY
+name|QT_NO_IMAGEFORMATPLUGIN
 end_ifndef
 begin_function_decl
 name|void
@@ -4684,7 +4688,7 @@ name|extension
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_LIBRARY
+name|QT_NO_IMAGEFORMATPLUGIN
 name|supportedImageHandlerFormats
 argument_list|(
 name|loader
@@ -4700,7 +4704,7 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-comment|// QT_NO_LIBRARY
+comment|// QT_NO_IMAGEFORMATPLUGIN
 name|QList
 argument_list|<
 name|QByteArray

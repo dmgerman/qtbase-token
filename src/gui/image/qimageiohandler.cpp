@@ -568,6 +568,11 @@ literal|0
 return|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_IMAGEFORMATPLUGIN
+end_ifndef
 begin_comment
 comment|/*!     Constructs an image plugin with the given \a parent. This is     invoked automatically by the moc generated code that exports the plugin. */
 end_comment
@@ -605,6 +610,13 @@ comment|/*! \fn QImageIOPlugin::capabilities(QIODevice *device, const QByteArray
 end_comment
 begin_comment
 comment|/*!     \fn QImageIOHandler *QImageIOPlugin::create(QIODevice *device, const QByteArray&format) const      Creates and returns a QImageIOHandler subclass, with \a device     and \a format set. The \a format must come from the list returned by keys().     Format names are case sensitive.      \sa keys() */
+end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_IMAGEFORMATPLUGIN
 end_comment
 begin_macro
 name|QT_END_NAMESPACE

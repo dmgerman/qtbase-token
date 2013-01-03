@@ -2609,28 +2609,28 @@ begin_comment
 comment|/*! \fn int QHash::count() const      \overload      Same as size(). */
 end_comment
 begin_comment
-comment|/*! \fn QHash::iterator QHash::begin()      Returns an \l{STL-style iterator} pointing to the first item in     the hash.      \sa constBegin(), end() */
+comment|/*! \fn QHash::iterator QHash::begin()      Returns an \l{STL-style iterators}{STL-style iterator} pointing to the first item in     the hash.      \sa constBegin(), end() */
 end_comment
 begin_comment
 comment|/*! \fn QHash::const_iterator QHash::begin() const      \overload */
 end_comment
 begin_comment
-comment|/*! \fn QHash::const_iterator QHash::cbegin() const     \since 5.0      Returns a const \l{STL-style iterator} pointing to the first item     in the hash.      \sa begin(), cend() */
+comment|/*! \fn QHash::const_iterator QHash::cbegin() const     \since 5.0      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the first item     in the hash.      \sa begin(), cend() */
 end_comment
 begin_comment
-comment|/*! \fn QHash::const_iterator QHash::constBegin() const      Returns a const \l{STL-style iterator} pointing to the first item     in the hash.      \sa begin(), constEnd() */
+comment|/*! \fn QHash::const_iterator QHash::constBegin() const      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the first item     in the hash.      \sa begin(), constEnd() */
 end_comment
 begin_comment
-comment|/*! \fn QHash::iterator QHash::end()      Returns an \l{STL-style iterator} pointing to the imaginary item     after the last item in the hash.      \sa begin(), constEnd() */
+comment|/*! \fn QHash::iterator QHash::end()      Returns an \l{STL-style iterators}{STL-style iterator} pointing to the imaginary item     after the last item in the hash.      \sa begin(), constEnd() */
 end_comment
 begin_comment
 comment|/*! \fn QHash::const_iterator QHash::end() const      \overload */
 end_comment
 begin_comment
-comment|/*! \fn QHash::const_iterator QHash::constEnd() const      Returns a const \l{STL-style iterator} pointing to the imaginary     item after the last item in the hash.      \sa constBegin(), end() */
+comment|/*! \fn QHash::const_iterator QHash::constEnd() const      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the imaginary     item after the last item in the hash.      \sa constBegin(), end() */
 end_comment
 begin_comment
-comment|/*! \fn QHash::const_iterator QHash::cend() const     \since 5.0      Returns a const \l{STL-style iterator} pointing to the imaginary     item after the last item in the hash.      \sa cbegin(), end() */
+comment|/*! \fn QHash::const_iterator QHash::cend() const     \since 5.0      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the imaginary     item after the last item in the hash.      \sa cbegin(), end() */
 end_comment
 begin_comment
 comment|/*! \fn QHash::iterator QHash::erase(iterator pos)      Removes the (key, value) pair associated with the iterator \a pos     from the hash, and returns an iterator to the next item in the     hash.      Unlike remove() and take(), this function never causes QHash to     rehash its internal data structure. This means that it can safely     be called while iterating, and won't affect the order of items in     the hash. For example:      \snippet code/src_corelib_tools_qhash.cpp 15      \sa remove(), take(), find() */

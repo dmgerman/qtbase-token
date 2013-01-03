@@ -174,17 +174,17 @@ name|retFormat
 operator|.
 name|setSampleBuffers
 argument_list|(
-name|format
-operator|.
-name|samples
-argument_list|()
+literal|true
 argument_list|)
 expr_stmt|;
 name|retFormat
 operator|.
 name|setSamples
 argument_list|(
-literal|true
+name|format
+operator|.
+name|samples
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2031,7 +2031,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a OpenGL context for the window context specified by \a windowContext */
+comment|/*!     Returns a OpenGL context for the window context specified by the \a context     parameter. */
 end_comment
 begin_function
 DECL|function|fromOpenGLContext

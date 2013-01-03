@@ -487,6 +487,16 @@ argument_list|()
 return|;
 block|}
 block|}
+name|qWarning
+argument_list|(
+literal|"QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '%s'"
+argument_list|,
+name|qPrintable
+argument_list|(
+name|xdgRuntimeDir
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 comment|// "The directory MUST be owned by the user"
 name|QFileInfo

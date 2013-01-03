@@ -28,14 +28,6 @@ name|Helper
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-name|QT_BEGIN_NAMESPACE
-DECL|variable|QPaintEvent
-name|class
-name|QPaintEvent
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-name|QT_END_NAMESPACE
 name|class
 name|Widget
 range|:

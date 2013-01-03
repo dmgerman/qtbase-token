@@ -617,12 +617,6 @@ DECL|member|primarySignals
 name|QStringList
 name|primarySignals
 decl_stmt|;
-DECL|member|asking
-specifier|const
-name|QAccessibleInterface
-modifier|*
-name|asking
-decl_stmt|;
 block|}
 class|;
 end_class
@@ -681,12 +675,6 @@ operator|->
 name|name
 operator|=
 name|name
-expr_stmt|;
-name|d
-operator|->
-name|asking
-operator|=
-literal|0
 expr_stmt|;
 block|}
 end_constructor

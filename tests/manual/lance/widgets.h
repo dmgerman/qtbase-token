@@ -230,7 +230,7 @@ block|{
 name|QSettings
 name|settings
 argument_list|(
-literal|"Trolltech"
+literal|"QtProject"
 argument_list|,
 literal|"lance"
 argument_list|)
@@ -678,7 +678,7 @@ block|{
 name|QSettings
 name|settings
 argument_list|(
-literal|"Trolltech"
+literal|"QtProject"
 argument_list|,
 literal|"lance"
 argument_list|)

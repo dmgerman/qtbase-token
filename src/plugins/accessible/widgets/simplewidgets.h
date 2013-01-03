@@ -781,6 +781,11 @@ name|minimumValue
 argument_list|()
 specifier|const
 expr_stmt|;
+name|QVariant
+name|minimumStepSize
+argument_list|()
+specifier|const
+expr_stmt|;
 specifier|inline
 name|void
 name|setCurrentValue

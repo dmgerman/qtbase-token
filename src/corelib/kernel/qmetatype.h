@@ -587,6 +587,10 @@ block|,
 name|TrackingPointerToQObject
 init|=
 literal|0x80
+block|,
+name|WasDeclaredAsMetaType
+init|=
+literal|0x100
 block|}
 enum|;
 name|Q_DECLARE_FLAGS
@@ -2443,6 +2447,25 @@ literal|0
 operator|)
 block|}
 block|;     }
+block|;
+name|template
+operator|<
+name|typename
+name|T
+block|,
+name|bool
+name|defined
+operator|>
+expr|struct
+name|MetaTypeDefinedHelper
+block|{         enum
+name|DefinedType
+block|{
+name|Defined
+operator|=
+name|defined
+block|}
+block|;     }
 block|; }
 name|template
 operator|<
@@ -2459,6 +2482,14 @@ name|qdoc
 argument_list|,
 argument|T * dummy =
 literal|0
+argument_list|,
+DECL|variable|T
+DECL|variable|defined
+argument|typename QtPrivate::MetaTypeDefinedHelper<T
+argument_list|,
+argument|QMetaTypeId2<T>::Defined&& !QMetaTypeId2<T>::IsBuiltIn>::DefinedType defined = QtPrivate::MetaTypeDefinedHelper<T
+argument_list|,
+argument|QMetaTypeId2<T>::Defined&& !QMetaTypeId2<T>::IsBuiltIn>::Defined
 endif|#
 directive|endif
 argument_list|)
@@ -2538,6 +2569,16 @@ operator|::
 name|Flags
 argument_list|)
 block|;
+if|if
+condition|(
+name|defined
+condition|)
+name|flags
+operator||=
+name|QMetaType
+operator|::
+name|WasDeclaredAsMetaType
+expr_stmt|;
 return|return
 name|QMetaType
 operator|::
@@ -2600,11 +2641,14 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+end_decl_stmt
+begin_expr_stmt
 name|template
 operator|<
 name|typename
 name|T
 operator|>
+DECL|function|qRegisterMetaType
 name|int
 name|qRegisterMetaType
 argument_list|(
@@ -2615,6 +2659,12 @@ name|qdoc
 argument_list|,
 argument|T * dummy =
 literal|0
+argument_list|,
+argument|typename QtPrivate::MetaTypeDefinedHelper<T
+argument_list|,
+argument|QMetaTypeId2<T>::Defined&& !QMetaTypeId2<T>::IsBuiltIn>::DefinedType defined = QtPrivate::MetaTypeDefinedHelper<T
+argument_list|,
+argument|QMetaTypeId2<T>::Defined&& !QMetaTypeId2<T>::IsBuiltIn>::Defined
 endif|#
 directive|endif
 argument_list|)
@@ -2656,17 +2706,24 @@ operator|(
 name|normalizedTypeName
 operator|,
 name|dummy
+operator|,
+name|defined
 operator|)
 return|;
 block|}
+end_expr_stmt
+begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_NO_DATASTREAM
+end_ifndef
+begin_expr_stmt
 name|template
 operator|<
 name|typename
 name|T
 operator|>
+DECL|function|qRegisterMetaTypeStreamOperators
 name|void
 name|qRegisterMetaTypeStreamOperators
 argument_list|(
@@ -2724,6 +2781,7 @@ operator|<
 name|typename
 name|T
 operator|>
+DECL|function|qMetaTypeId
 specifier|inline
 name|Q_DECL_CONSTEXPR
 name|int
@@ -2762,11 +2820,14 @@ name|qt_metatype_id
 argument_list|()
 return|;
 block|}
+end_expr_stmt
+begin_expr_stmt
 name|template
 operator|<
 name|typename
 name|T
 operator|>
+DECL|function|qRegisterMetaType
 specifier|inline
 name|Q_DECL_CONSTEXPR
 name|int
@@ -2807,25 +2868,31 @@ literal|0
 operator|)
 argument_list|)
 return|;
+end_expr_stmt
+begin_else
 else|#
 directive|else
+end_else
+begin_return
 return|return
 name|qMetaTypeId
 argument_list|(
 name|dummy
 argument_list|)
 return|;
+end_return
+begin_endif
 endif|#
 directive|endif
-block|}
-end_decl_stmt
+end_endif
 begin_expr_stmt
-name|template
+unit|}  template
 operator|<
 name|typename
 name|T
 operator|>
 expr|struct
+DECL|struct|true
 name|QMetaTypeIdQObject
 operator|<
 name|T
@@ -2836,11 +2903,13 @@ name|true
 operator|>
 block|{     enum
 block|{
+DECL|enumerator|Defined
 name|Defined
 operator|=
 literal|1
 block|}
 block|;
+DECL|function|qt_metatype_id
 specifier|static
 name|int
 name|qt_metatype_id

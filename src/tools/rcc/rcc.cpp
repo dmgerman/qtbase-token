@@ -4252,26 +4252,7 @@ argument_list|)
 expr_stmt|;
 name|writeString
 argument_list|(
-literal|"** Created: "
-argument_list|)
-expr_stmt|;
-name|writeByteArray
-argument_list|(
-name|QDateTime
-operator|::
-name|currentDateTime
-argument_list|()
-operator|.
-name|toString
-argument_list|()
-operator|.
-name|toLatin1
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|writeString
-argument_list|(
-literal|"\n**      by: The Resource Compiler for Qt version "
+literal|"** Created by: The Resource Compiler for Qt version "
 argument_list|)
 expr_stmt|;
 name|writeByteArray

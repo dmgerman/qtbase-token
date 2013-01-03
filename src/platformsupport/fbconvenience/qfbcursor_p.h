@@ -66,6 +66,9 @@ operator|&
 name|event
 argument_list|)
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CURSOR
 name|virtual
 name|void
 name|changeCursor
@@ -79,6 +82,8 @@ operator|*
 name|window
 argument_list|)
 block|;
+endif|#
+directive|endif
 name|virtual
 name|void
 name|setDirty

@@ -18771,6 +18771,16 @@ name|d
 operator|->
 name|has_alpha_clut
 expr_stmt|;
+name|result
+operator|.
+name|d
+operator|->
+name|devicePixelRatio
+operator|=
+name|d
+operator|->
+name|devicePixelRatio
+expr_stmt|;
 if|if
 condition|(
 name|depth

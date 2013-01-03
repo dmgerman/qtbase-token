@@ -183,10 +183,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QMessageLogContext     \inmodule QtCore     \relates<QtGlobal>     \brief The QMessageLogContext class provides additional information about a log message.     \since 5.0      The class provides information about the source code location a qDebug(), qWarning(),     qCritical() or qFatal() message was generated.      \sa QMessageLogger, QtMessageHandler, qInstallMessageHandler() */
+comment|/*!     \class QMessageLogContext     \inmodule QtCore     \brief The QMessageLogContext class provides additional information about a log message.     \since 5.0      The class provides information about the source code location a qDebug(), qWarning(),     qCritical() or qFatal() message was generated.      \sa QMessageLogger, QtMessageHandler, qInstallMessageHandler() */
 end_comment
 begin_comment
-comment|/*!     \class QMessageLogger     \inmodule QtCore     \relates<QtGlobal>     \brief The QMessageLogger class generates log messages.     \since 5.0      QMessageLogger is used to generate messages for the Qt logging framework. Usually one uses     it through qDebug(), qWarning(), qCritical, or qFatal() functions,     which are actually macros that expand to QMessageLogger(__FILE__, __LINE__, Q_FUNC_INFO).debug()     et al.      One example of direct use is to forward errors that stem from a scripting language, e.g. QML:      \snippet code/qlogging/qlogging.cpp 1      \sa QMessageLogContext, qDebug(), qWarning(), qCritical(), qFatal() */
+comment|/*!     \class QMessageLogger     \inmodule QtCore     \brief The QMessageLogger class generates log messages.     \since 5.0      QMessageLogger is used to generate messages for the Qt logging framework. Usually one uses     it through qDebug(), qWarning(), qCritical, or qFatal() functions,     which are actually macros that expand to QMessageLogger(__FILE__, __LINE__, Q_FUNC_INFO).debug()     et al.      One example of direct use is to forward errors that stem from a scripting language, e.g. QML:      \snippet code/qlogging/qlogging.cpp 1      \sa QMessageLogContext, qDebug(), qWarning(), qCritical(), qFatal() */
 end_comment
 begin_if
 if|#

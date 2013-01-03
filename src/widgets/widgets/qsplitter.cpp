@@ -109,10 +109,10 @@ begin_comment
 comment|//#define QSPLITTER_DEBUG
 end_comment
 begin_comment
-comment|/*!     \class QSplitterHandle     \brief The QSplitterHandle class provides handle functionality of the splitter.      \ingroup organizers     \inmodule QtWidgets      QSplitterHandle is typically what people think about when they think about     a splitter. It is the handle that is used to resize the widgets.      A typical developer using QSplitter will never have to worry about     QSplitterHandle. It is provided for developers who want splitter handles     that provide extra features, such as popup menus.      The typical way one would create splitter handles is to subclass QSplitter then     reimplement QSplitter::createHandle() to instantiate the custom splitter     handle. For example, a minimum QSplitter subclass might look like this:      \snippet splitterhandle/splitter.h 0      The \l{QSplitter::}{createHandle()} implementation simply constructs a     custom splitter handle, called \c Splitter in this example:      \snippet splitterhandle/splitter.cpp 1      Information about a given handle can be obtained using functions like     orientation() and opaqueResize(), and is retrieved from its parent splitter.     Details like these can be used to give custom handles different appearances     depending on the splitter's orientation.      The complexity of a custom handle subclass depends on the tasks that it     needs to perform. A simple subclass might only provide a paintEvent()     implementation:      \snippet splitterhandle/splitter.cpp 0      In this example, a predefined gradient is set up differently depending on     the orientation of the handle. QSplitterHandle provides a reasonable     size hint for the handle, so the subclass does not need to provide a     reimplementation of sizeHint() unless the handle has special size     requirements.      \sa QSplitter */
+comment|/*!     \class QSplitterHandle     \brief The QSplitterHandle class provides handle functionality for the splitter.      \ingroup organizers     \inmodule QtWidgets      QSplitterHandle is typically what people think about when they think about     a splitter. It is the handle that is used to resize the widgets.      A typical developer using QSplitter will never have to worry about     QSplitterHandle. It is provided for developers who want splitter handles     that provide extra features, such as popup menus.      The typical way one would create splitter handles is to subclass QSplitter and then     reimplement QSplitter::createHandle() to instantiate the custom splitter     handle. For example, a minimum QSplitter subclass might look like this:      \snippet splitterhandle/splitter.h 0      The \l{QSplitter::}{createHandle()} implementation simply constructs a     custom splitter handle, called \c Splitter in this example:      \snippet splitterhandle/splitter.cpp 1      Information about a given handle can be obtained using functions like     orientation() and opaqueResize(), and is retrieved from its parent splitter.     Details like these can be used to give custom handles different appearances     depending on the splitter's orientation.      The complexity of a custom handle subclass depends on the tasks that it     needs to perform. A simple subclass might only provide a paintEvent()     implementation:      \snippet splitterhandle/splitter.cpp 0      In this example, a predefined gradient is set up differently depending on     the orientation of the handle. QSplitterHandle provides a reasonable     size hint for the handle, so the subclass does not need to provide a     reimplementation of sizeHint() unless the handle has special size     requirements.      \sa QSplitter */
 end_comment
 begin_comment
-comment|/*!     Creates a QSplitter handle with the given \a orientation and     QSplitter \a parent. */
+comment|/*!     Creates a QSplitter handle with the given \a orientation and     \a parent. */
 end_comment
 begin_constructor
 DECL|function|QSplitterHandle
@@ -4461,7 +4461,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QSplitter     \brief The QSplitter class implements a splitter widget.      \ingroup organizers     \inmodule QtWidgets       A splitter lets the user control the size of child widgets by dragging the     boundary between the children. Any number of widgets may be controlled by a     single splitter. The typical use of a QSplitter is to create several     widgets and add them using insertWidget() or addWidget().      The following example will show a QListView, QTreeView, and     QTextEdit side by side, with two splitter handles:      \snippet splitter/splitter.cpp 0      If a widget is already inside a QSplitter when insertWidget() or     addWidget() is called, it will move to the new position. This can be used     to reorder widgets in the splitter later. You can use indexOf(),     widget(), and count() to get access to the widgets inside the splitter.      A default QSplitter lays out its children horizontally (side by side); you     can use setOrientation(Qt::Vertical) to lay its     children out vertically.      By default, all widgets can be as large or as small as the user     wishes, between the \l minimumSizeHint() (or \l minimumSize())     and \l maximumSize() of the widgets.      QSplitter resizes its children dynamically by default. If you     would rather have QSplitter resize the children only at the end of     a resize operation, call setOpaqueResize(false).      The initial distribution of size between the widgets is determined by     multiplying the initial size with the stretch factor.     You can also use setSizes() to set the sizes     of all the widgets. The function sizes() returns the sizes set by the user.     Alternatively, you can save and restore the sizes of the widgets from a     QByteArray using saveState() and restoreState() respectively.      When you hide() a child its space will be distributed among the     other children. It will be reinstated when you show() it again.      \note Adding a QLayout to a QSplitter is not supported (either through     setLayout() or making the QSplitter a parent of the QLayout); use addWidget()     instead (see example above).      \sa QSplitterHandle, QHBoxLayout, QVBoxLayout, QTabWidget */
+comment|/*!     \class QSplitter     \brief The QSplitter class implements a splitter widget.      \ingroup organizers     \inmodule QtWidgets       A splitter lets the user control the size of child widgets by dragging the     boundary between them. Any number of widgets may be controlled by a     single splitter. The typical use of a QSplitter is to create several     widgets and add them using insertWidget() or addWidget().      The following example will show a QListView, QTreeView, and     QTextEdit side by side, with two splitter handles:      \snippet splitter/splitter.cpp 0      If a widget is already inside a QSplitter when insertWidget() or     addWidget() is called, it will move to the new position. This can be used     to reorder widgets in the splitter later. You can use indexOf(),     widget(), and count() to get access to the widgets inside the splitter.      A default QSplitter lays out its children horizontally (side by side); you     can use setOrientation(Qt::Vertical) to lay its     children out vertically.      By default, all widgets can be as large or as small as the user     wishes, between the \l minimumSizeHint() (or \l minimumSize())     and \l maximumSize() of the widgets.      QSplitter resizes its children dynamically by default. If you     would rather have QSplitter resize the children only at the end of     a resize operation, call setOpaqueResize(false).      The initial distribution of size between the widgets is determined by     multiplying the initial size with the stretch factor.     You can also use setSizes() to set the sizes     of all the widgets. The function sizes() returns the sizes set by the user.     Alternatively, you can save and restore the sizes of the widgets from a     QByteArray using saveState() and restoreState() respectively.      When you hide() a child, its space will be distributed among the     other children. It will be reinstated when you show() it again.      \note Adding a QLayout to a QSplitter is not supported (either through     setLayout() or making the QSplitter a parent of the QLayout); use addWidget()     instead (see example above).      \sa QSplitterHandle, QHBoxLayout, QVBoxLayout, QTabWidget */
 end_comment
 begin_comment
 comment|/*!     Constructs a horizontal splitter with the \a parent     argument passed on to the QFrame constructor.      \sa setOrientation() */
@@ -4619,7 +4619,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QSplitter::orientation     \brief the orientation of the splitter      By default the orientation is horizontal (i.e., the widgets are     laid out side by side). The possible orientations are     Qt::Horizontal and Qt::Vertical.      \sa QSplitterHandle::orientation() */
+comment|/*!     \property QSplitter::orientation     \brief the orientation of the splitter      By default, the orientation is horizontal (i.e., the widgets are     laid out side by side). The possible orientations are     Qt::Horizontal and Qt::Vertical.      \sa QSplitterHandle::orientation() */
 end_comment
 begin_function
 DECL|function|setOrientation
@@ -4818,7 +4818,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets whether the child widget at index \a index is collapsible to \a collapse.      By default, children are collapsible, meaning that the user can     resize them down to size 0, even if they have a non-zero     minimumSize() or minimumSizeHint(). This behavior can be changed     on a per-widget basis by calling this function, or globally for     all the widgets in the splitter by setting the \l     childrenCollapsible property.      \sa childrenCollapsible */
+comment|/*!     Sets whether the child widget at \a index is collapsible to \a collapse.      By default, children are collapsible, meaning that the user can     resize them down to size 0, even if they have a non-zero     minimumSize() or minimumSizeHint(). This behavior can be changed     on a per-widget basis by calling this function, or globally for     all the widgets in the splitter by setting the \l     childrenCollapsible property.      \sa childrenCollapsible */
 end_comment
 begin_function
 DECL|function|setCollapsible
@@ -4884,7 +4884,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the widget at \a index is collapsible, otherwise returns false */
+comment|/*!     Returns true if the widget at \a index is collapsible, otherwise returns false. */
 end_comment
 begin_function
 DECL|function|isCollapsible
@@ -6194,7 +6194,7 @@ emit|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the valid range of the splitter with index \a index in     *\a{min} and *\a{max} if \a min and \a max are not 0. */
+comment|/*!     Returns the valid range of the splitter at \a index in     *\a{min} and *\a{max} if \a min and \a max are not 0. */
 end_comment
 begin_function
 DECL|function|getRange
@@ -6240,7 +6240,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the closest legal position to \a pos of the widget with index     \a index.      For right-to-left languages such as Arabic and Hebrew, the layout     of horizontal splitters is reversed. Positions are then measured     from the right edge of the widget.      \sa getRange() */
+comment|/*!     Returns the closest legal position to \a pos of the widget at \a index.      For right-to-left languages such as Arabic and Hebrew, the layout     of horizontal splitters is reversed. Positions are then measured     from the right edge of the widget.      \sa getRange() */
 end_comment
 begin_function
 DECL|function|closestLegalPosition
@@ -6692,7 +6692,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a list of the size parameters of all the widgets in this splitter.      If the splitter's orientation is horizontal, the list contains the     widgets width in pixels, from left to right; if the orientation is     vertical, the list contains the widgets height in pixels,     from top to bottom.      Giving the values to another splitter's setSizes() function will     produce a splitter with the same layout as this one.      Note that invisible widgets have a size of 0.      \sa setSizes() */
+comment|/*!     Returns a list of the size parameters of all the widgets in this splitter.      If the splitter's orientation is horizontal, the list contains the     widgets width in pixels, from left to right; if the orientation is     vertical, the list contains the widgets' heights in pixels,     from top to bottom.      Giving the values to another splitter's setSizes() function will     produce a splitter with the same layout as this one.      Note that invisible widgets have a size of 0.      \sa setSizes() */
 end_comment
 begin_function
 DECL|function|sizes
@@ -6778,7 +6778,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the child widgets respective sizes to the values given in the \a list.      If the splitter is horizontal, the values set the widths of each     widget in pixels, from left to right. If the splitter is vertical, the     heights of each widget is set, from top to bottom.      Extra values in the \a list are ignored. If \a list contains too few     values, the result is undefined but the program will still be well-behaved.      The overall size of the splitter widget is not affected.     Instead, any additional/missing space is distributed amongst the     widgets according to the relative weight of the sizes.      If you specify a size of 0, the widget will be invisible. The size policies     of the widgets are preserved. That is, a value smaller then the minimal size     hint of the respective widget will be replaced by the value of the hint.      \sa sizes() */
+comment|/*!     Sets the child widgets' respective sizes to the values given in the \a list.      If the splitter is horizontal, the values set the width of each     widget in pixels, from left to right. If the splitter is vertical, the     height of each widget is set, from top to bottom.      Extra values in the \a list are ignored. If \a list contains too few     values, the result is undefined, but the program will still be well-behaved.      The overall size of the splitter widget is not affected.     Instead, any additional/missing space is distributed amongst the     widgets according to the relative weight of the sizes.      If you specify a size of 0, the widget will be invisible. The size policies     of the widgets are preserved. That is, a value smaller than the minimal size     hint of the respective widget will be replaced by the value of the hint.      \sa sizes() */
 end_comment
 begin_function
 DECL|function|setSizes
@@ -7085,7 +7085,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Restores the splitter's layout to the \a state specified.     Returns true if the state is restored; otherwise returns false.      Typically this is used in conjunction with QSettings to restore the size     from a past session. Here is an example:      Restore the splitters's state:      \snippet splitter/splitter.cpp 2      A failure to restore the splitter's layout may result from either     invalid or out-of-date data in the supplied byte array.      \sa saveState() */
+comment|/*!     Restores the splitter's layout to the \a state specified.     Returns true if the state is restored; otherwise returns false.      Typically this is used in conjunction with QSettings to restore the size     from a past session. Here is an example:      Restore the splitter's state:      \snippet splitter/splitter.cpp 2      A failure to restore the splitter's layout may result from either     invalid or out-of-date data in the supplied byte array.      \sa saveState() */
 end_comment
 begin_function
 DECL|function|restoreState

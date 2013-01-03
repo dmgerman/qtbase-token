@@ -330,15 +330,6 @@ argument|Qt::ScreenOrientation orientation
 argument_list|)
 block|;
 name|virtual
-name|Qt
-operator|::
-name|ScreenOrientation
-name|requestWindowOrientation
-argument_list|(
-argument|Qt::ScreenOrientation orientation
-argument_list|)
-block|;
-name|virtual
 name|qreal
 name|devicePixelRatio
 argument_list|()

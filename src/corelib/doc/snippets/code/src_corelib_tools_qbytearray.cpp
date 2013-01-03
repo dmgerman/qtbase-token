@@ -813,7 +813,7 @@ comment|//! [25]
 name|QByteArray
 name|url
 argument_list|(
-literal|"ftp://ftp.qt.nokia.com/"
+literal|"ftp://ftp.qt-project.org/"
 argument_list|)
 decl_stmt|;
 if|if

@@ -18,6 +18,11 @@ include|#
 directive|include
 file|<qpa/qplatformnativeinterface.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<xcb/xcb.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QWidget
@@ -29,6 +34,12 @@ begin_decl_stmt
 DECL|variable|QXcbScreen
 name|class
 name|QXcbScreen
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|QXcbConnection
+name|class
+name|QXcbConnection
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -56,6 +67,10 @@ block|,
 name|EglContext
 block|,
 name|GLXContext
+block|,
+name|AppTime
+block|,
+name|AppUserTime
 block|}
 block|;
 name|QXcbNativeInterface
@@ -112,6 +127,13 @@ operator|&
 name|resource
 argument_list|)
 block|;
+name|NativeResourceForScreenFunction
+name|nativeResourceFunctionForScreen
+argument_list|(
+argument|const QByteArray&resource
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
 specifier|inline
 specifier|const
 name|QByteArray
@@ -167,6 +189,44 @@ argument_list|(
 name|QWindow
 operator|*
 name|window
+argument_list|)
+block|;
+name|void
+operator|*
+name|appTime
+argument_list|(
+specifier|const
+name|QXcbScreen
+operator|*
+name|screen
+argument_list|)
+block|;
+name|void
+operator|*
+name|appUserTime
+argument_list|(
+specifier|const
+name|QXcbScreen
+operator|*
+name|screen
+argument_list|)
+block|;
+specifier|static
+name|void
+name|setAppTime
+argument_list|(
+argument|QScreen *screen
+argument_list|,
+argument|xcb_timestamp_t time
+argument_list|)
+block|;
+specifier|static
+name|void
+name|setAppUserTime
+argument_list|(
+argument|QScreen *screen
+argument_list|,
+argument|xcb_timestamp_t time
 argument_list|)
 block|;
 specifier|static

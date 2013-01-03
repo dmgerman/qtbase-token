@@ -292,4 +292,22 @@ end_decl_stmt
 begin_comment
 comment|//! [4]
 end_comment
+begin_comment
+comment|//! [5]
+end_comment
+begin_expr_stmt
+name|QVERIFY
+argument_list|(
+name|spy
+operator|.
+name|wait
+argument_list|(
+literal|1000
+argument_list|)
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_comment
+comment|//! [5]
+end_comment
 end_unit

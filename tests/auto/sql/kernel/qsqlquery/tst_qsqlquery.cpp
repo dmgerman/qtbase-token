@@ -3531,7 +3531,7 @@ operator|::
 name|bindBool
 parameter_list|()
 block|{
-comment|// QTBUG-27763: bool value got converted to int 127 by mysql driver becuase sizeof(bool)< sizeof(int).
+comment|// QTBUG-27763: bool value got converted to int 127 by mysql driver because sizeof(bool)< sizeof(int).
 comment|// The problem was the way the bool value from the application was handled. It doesn't matter
 comment|// whether the table column type is BOOL or INT. Use INT here because all DBMSs have it and all
 comment|// should pass this test.
@@ -23780,11 +23780,24 @@ name|q
 argument_list|,
 name|exec
 argument_list|(
+name|QString
+argument_list|(
 literal|"CREATE TABLE "
 operator|+
 name|tableName
 operator|+
-literal|" (dt DATETIME)"
+literal|" (dt %1)"
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|tst_Databases
+operator|::
+name|dateTimeTypeName
+argument_list|(
+name|db
+argument_list|)
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -25261,6 +25274,34 @@ argument_list|(
 name|db
 argument_list|)
 expr_stmt|;
+name|QVariant
+operator|::
+name|Type
+name|intType
+init|=
+name|QVariant
+operator|::
+name|Int
+decl_stmt|;
+comment|// QPSQL uses LongLong for manipulation of integers
+if|if
+condition|(
+name|db
+operator|.
+name|driverName
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"QPSQL"
+argument_list|)
+condition|)
+name|intType
+operator|=
+name|QVariant
+operator|::
+name|LongLong
+expr_stmt|;
 block|{
 specifier|const
 name|QString
@@ -25372,9 +25413,7 @@ operator|.
 name|type
 argument_list|()
 argument_list|,
-name|QVariant
-operator|::
-name|Int
+name|intType
 argument_list|)
 expr_stmt|;
 name|QVERIFY_SQL
@@ -25455,9 +25494,7 @@ operator|.
 name|type
 argument_list|()
 argument_list|,
-name|QVariant
-operator|::
-name|Int
+name|intType
 argument_list|)
 expr_stmt|;
 name|QVERIFY_SQL
@@ -25490,6 +25527,16 @@ operator|.
 name|startsWith
 argument_list|(
 literal|"QSQLITE"
+argument_list|)
+operator|||
+name|db
+operator|.
+name|driverName
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"QPSQL"
 argument_list|)
 condition|)
 block|{
@@ -25617,9 +25664,7 @@ operator|.
 name|type
 argument_list|()
 argument_list|,
-name|QVariant
-operator|::
-name|Int
+name|intType
 argument_list|)
 expr_stmt|;
 name|QVERIFY_SQL
@@ -26037,9 +26082,7 @@ operator|.
 name|type
 argument_list|()
 argument_list|,
-name|QVariant
-operator|::
-name|Int
+name|intType
 argument_list|)
 expr_stmt|;
 name|QVERIFY_SQL
@@ -26152,6 +26195,21 @@ operator|::
 name|Double
 argument_list|)
 expr_stmt|;
+comment|// PSQL does not have support for the round() function
+if|if
+condition|(
+operator|!
+name|db
+operator|.
+name|driverName
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"QPSQL"
+argument_list|)
+condition|)
+block|{
 name|QVERIFY_SQL
 argument_list|(
 name|q
@@ -26266,6 +26324,7 @@ operator|::
 name|Double
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|{
 specifier|const

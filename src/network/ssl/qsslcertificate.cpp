@@ -394,7 +394,7 @@ literal|0
 argument_list|)
 end_if
 begin_comment
-comment|/*!     \fn bool QSslCertificate::isValid() const     \obsolete      To verify a certificate, use verify().     To check if a certificate is blacklisted, use isBlacklisted().     To check if a certificate has expired or is not yet valid, compare     expiryDate() and effectiveDate() with QDateTime::currentDateTime()      This function checks that the current     data-time is within the date-time range during which the     certificate is considered valid, and checks that the     certificate is not in a blacklist of fraudulent certificates.      \sa isNull(), verify(), isBlacklisted(), expiryDate(), effectiveDate() */
+comment|/*!     \fn bool QSslCertificate::isValid() const     \obsolete      To verify a certificate, use verify().     To check if a certificate is blacklisted, use isBlacklisted().     To check if a certificate has expired or is not yet valid, compare     expiryDate() and effectiveDate() with QDateTime::currentDateTime()      This function checks that the current     date-time is within the date-time range during which the     certificate is considered valid, and checks that the     certificate is not in a blacklist of fraudulent certificates.      \sa isNull(), verify(), isBlacklisted(), expiryDate(), effectiveDate() */
 end_comment
 begin_endif
 endif|#

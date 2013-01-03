@@ -2883,6 +2883,20 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|const
+name|QString
+name|resourceId
+init|=
+operator|(
+name|templateName
+operator|==
+literal|"app"
+operator|)
+condition|?
+literal|"1"
+else|:
+literal|"2"
+decl_stmt|;
+specifier|const
 name|bool
 name|incrementalLinking
 init|=
@@ -2956,7 +2970,11 @@ name|manifest_res
 expr_stmt|;
 name|t
 operator|<<
-literal|"\n\techo 1 /* CREATEPROCESS_MANIFEST_RESOURCE_ID */ 24 /* RT_MANIFEST */ "
+literal|"\n\techo "
+operator|<<
+name|resourceId
+operator|<<
+literal|" /* CREATEPROCESS_MANIFEST_RESOURCE_ID */ 24 /* RT_MANIFEST */ "
 operator|<<
 name|cQuoted
 argument_list|(
@@ -3135,7 +3153,9 @@ literal|"mt.exe /nologo /manifest "
 operator|<<
 name|manifest
 operator|<<
-literal|" /outputresource:$(DESTDIR_TARGET);1"
+literal|" /outputresource:$(DESTDIR_TARGET);"
+operator|<<
+name|resourceId
 expr_stmt|;
 block|}
 block|}
@@ -3271,7 +3291,7 @@ parameter_list|)
 block|{
 name|t
 operator|<<
-literal|"$(LINK) $(LFLAGS)"
+literal|"$(LINKER) $(LFLAGS)"
 expr_stmt|;
 if|if
 condition|(

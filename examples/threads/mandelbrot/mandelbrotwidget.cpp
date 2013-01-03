@@ -696,6 +696,11 @@ end_function
 begin_comment
 comment|//! [11]
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_WHEELEVENT
+end_ifndef
 begin_comment
 comment|//! [12]
 end_comment
@@ -743,6 +748,10 @@ end_function
 begin_comment
 comment|//! [12]
 end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//! [13]
 end_comment

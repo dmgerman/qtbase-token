@@ -74,6 +74,7 @@ name|public
 name|FilterInterface
 block|{
 name|Q_OBJECT
+comment|//! [4]
 name|Q_PLUGIN_METADATA
 argument_list|(
 name|IID
@@ -81,6 +82,7 @@ literal|"org.qt-project.Qt.Examples.PlugAndPaint.BrushInterface"
 name|FILE
 literal|"basictools.json"
 argument_list|)
+comment|//! [4]
 name|Q_INTERFACES
 argument_list|(
 name|BrushInterface

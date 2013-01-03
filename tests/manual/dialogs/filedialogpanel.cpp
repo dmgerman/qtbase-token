@@ -360,7 +360,7 @@ parameter_list|(
 specifier|const
 name|QString
 modifier|&
-name|desription
+name|description
 parameter_list|,
 name|QBoxLayout
 modifier|*
@@ -383,7 +383,7 @@ init|=
 operator|new
 name|QPushButton
 argument_list|(
-name|desription
+name|description
 argument_list|)
 decl_stmt|;
 name|QObject

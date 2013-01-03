@@ -1511,7 +1511,7 @@ name|qRegisterMetaType
 argument_list|<
 name|QProcess
 operator|::
-name|ProcessError
+name|ExitStatus
 argument_list|>
 argument_list|(
 literal|"QProcess::ExitStatus"
@@ -1822,7 +1822,7 @@ name|qRegisterMetaType
 argument_list|<
 name|QProcess
 operator|::
-name|ProcessError
+name|ExitStatus
 argument_list|>
 argument_list|(
 literal|"QProcess::ExitStatus"

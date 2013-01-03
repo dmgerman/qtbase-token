@@ -141,6 +141,11 @@ name|minimumValue
 argument_list|()
 specifier|const
 expr_stmt|;
+name|QVariant
+name|minimumStepSize
+argument_list|()
+specifier|const
+expr_stmt|;
 comment|// FIXME Action interface
 name|protected
 label|:
@@ -285,6 +290,11 @@ specifier|const
 expr_stmt|;
 name|QVariant
 name|minimumValue
+argument_list|()
+specifier|const
+expr_stmt|;
+name|QVariant
+name|minimumStepSize
 argument_list|()
 specifier|const
 expr_stmt|;

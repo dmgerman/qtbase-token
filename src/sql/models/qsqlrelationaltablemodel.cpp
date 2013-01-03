@@ -113,7 +113,7 @@ name|Sql
 typedef|;
 end_typedef
 begin_comment
-comment|/*!     \class QSqlRelation     \brief The QSqlRelation class stores information about an SQL foreign key.      QSqlRelation is a helper class for QSqlRelationalTableModel. See     QSqlRelationalTableModel::setRelation() and     QSqlRelationalTableModel::relation() for details.      \sa QSqlRelationalTableModel, QSqlRelationalDelegate,         {Relational Table Model Example} */
+comment|/*!     \class QSqlRelation     \inmodule QtSql     \brief The QSqlRelation class stores information about an SQL foreign key.      QSqlRelation is a helper class for QSqlRelationalTableModel. See     QSqlRelationalTableModel::setRelation() and     QSqlRelationalTableModel::relation() for details.      \sa QSqlRelationalTableModel, QSqlRelationalDelegate,         {Relational Table Model Example} */
 end_comment
 begin_comment
 comment|/*!     \fn QSqlRelation::QSqlRelation()      Constructs an invalid QSqlRelation object.      For such an object, the tableName(), indexColumn(), and     displayColumn() functions return an empty string.      \sa isValid() */

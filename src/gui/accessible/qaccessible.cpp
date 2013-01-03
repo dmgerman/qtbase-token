@@ -64,6 +64,9 @@ file|<private/qfactoryloader_p.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+ifndef|#
+directive|ifndef
+name|QT_NO_ACCESSIBILITY
 comment|/*!     \class QAccessible     \brief The QAccessible class provides enums and static functions     related to accessibility.     \internal      \ingroup accessibility     \inmodule QtWidgets      This class is part of \l {Accessibility for QWidget Applications}.      Accessible applications can be used by people who are not able to     use applications by conventional means.      The functions in this class are used for communication between     accessible applications (also called AT Servers) and     accessibility tools (AT Clients), such as screen readers and     braille displays. Clients and servers communicate in the following way:      \list     \li  \e{AT Servers} notify the clients about events through calls to the         updateAccessibility() function.      \li  \e{AT Clients} request information about the objects in the server.         The QAccessibleInterface class is the core interface, and encapsulates         this information in a pure virtual API. Implementations of the interface         are provided by Qt through the queryAccessibleInterface() API.     \endlist      The communication between servers and clients is initialized by     the setRootObject() function. Function pointers can be installed     to replace or extend the default behavior of the static functions     in QAccessible.      Qt supports Microsoft Active Accessibility (MSAA), Mac OS X     Accessibility, and the Unix/X11 AT-SPI standard. Other backends     can be supported using QAccessibleBridge.      In addition to QAccessible's static functions, Qt offers one     generic interface, QAccessibleInterface, that can be used to wrap     all widgets and objects (e.g., QPushButton). This single     interface provides all the metadata necessary for the assistive     technologies. Qt provides implementations of this interface for     its built-in widgets as plugins.      When you develop custom widgets, you can create custom subclasses     of QAccessibleInterface and distribute them as plugins (using     QAccessiblePlugin) or compile them into the application.     Likewise, Qt's predefined accessibility support can be built as     plugin (the default) or directly into the Qt library. The main     advantage of using plugins is that the accessibility classes are     only loaded into memory if they are actually used; they don't     slow down the common case where no assistive technology is being     used.      Qt also includes two convenience classes, QAccessibleObject and     QAccessibleWidget, that inherit from QAccessibleInterface and     provide the lowest common denominator of metadata (e.g., widget     geometry, window title, basic help text). You can use them as     base classes when wrapping your custom QObject or QWidget     subclasses.      \sa QAccessibleInterface */
 comment|/*!     \class QAccessible::State      \inmodule QtGui      This structure defines bit flags that indicate     the state of an accessible object. The values are:      \value active                  The object is the active window or the active sub-element in a container (that would get focus when focusing the container).     \value adjustable              The object represents an adjustable value, e.g. sliders.     \value animated                The object's appearance changes frequently.     \value busy                    The object cannot accept input at the moment.     \value checkable               The object is checkable.     \value checked                 The object's check box is checked.     \value checkStateMixed         The third state of checkboxes (half checked in tri-state check boxes).     \value collapsed               The object is collapsed, e.g. a closed listview item, or an iconified window.     \value defaultButton           The object represents the default button in a dialog.     \value defunct                 The object no longer exists.     \value editable                The object has a text carret (and often implements the text interface).     \value expandable              The object is expandable, mostly used for cells in a tree view.     \value expanded                The object is expanded, currently its children are visible.     \value extSelectable           The object supports extended selection.     \value focusable               The object can receive focus. Only objects in the active window can receive focus.     \value focused                 The object has keyboard focus.     \value hasPopup                The object opens a popup.     \value hotTracked              The object's appearance is sensitive to the mouse cursor position.     \value invalid                 The object is no longer valid (because it has been deleted).     \value invalidEntry            Input validation current input invalid.     \value invisible               The object is not visible to the user.     \value linked                  The object is linked to another object, e.g. a hyperlink.     \value marqueed                The object displays scrolling contents, e.g. a log view.     \value modal                   The object blocks input from other objects.     \value movable                 The object can be moved.     \value multiLine               The object has multiple lines of text (word wrap), as opposed to a single line.     \value multiSelectable         The object supports multiple selected items.     \value offscreen               The object is clipped by the visible area. Objects that are off screen are also invisible.     \value passwordEdit            The object is a password field, e.g. a line edit for entering a Password.     \value playsSound              The object produces sound when interacted with.     \value pressed                 The object is pressed.     \value readOnly                The object can usually be edited, but is explicitly set to read-only.     \value selectable              The object is selectable.     \value selectableText          The object has text which can be selected. This is different from selectable which refers to the object's children.     \value selected                The object is selected.     \value selfVoicing             The object describes itself through speech or sound.     \value sizeable                The object can be resized, e.g. top-level windows.     \value summaryElement          The object summarizes the state of the window and should be treated with priority.     \value supportsAutoCompletion  The object has auto-completion, for example in line edits or combo boxes.     \value traversed               The object is linked and has been visited.     \value updatesFrequently       The object changes frequently and needs to be refreshed when accessing it.     \value disabled                The object is unavailable to the user, e.g. a disabled widget.      Implementations of QAccessibleInterface::state() return a combination     of these flags. */
 comment|/*!     \fn QAccessible::State::State()      Constructs a new QAccessible::State with all states set to false. */
@@ -173,11 +176,6 @@ init|=
 literal|false
 decl_stmt|;
 end_decl_stmt
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_ACCESSIBILITY
-end_ifndef
 begin_function
 DECL|function|platformAccessibility
 specifier|static
@@ -207,10 +205,6 @@ literal|0
 return|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|/*!     \internal */
 end_comment
@@ -222,9 +216,6 @@ operator|::
 name|cleanup
 parameter_list|()
 block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_ACCESSIBILITY
 if|if
 condition|(
 name|QPlatformAccessibility
@@ -239,8 +230,6 @@ operator|->
 name|cleanup
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -639,9 +628,6 @@ name|superClass
 argument_list|()
 expr_stmt|;
 block|}
-ifndef|#
-directive|ifndef
-name|QT_NO_ACCESSIBILITY
 if|if
 condition|(
 name|object
@@ -652,8 +638,6 @@ return|return
 operator|new
 name|QAccessibleApplication
 return|;
-endif|#
-directive|endif
 return|return
 literal|0
 return|;
@@ -702,9 +686,6 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-ifndef|#
-directive|ifndef
-name|QT_NO_ACCESSIBILITY
 if|if
 condition|(
 name|QPlatformAccessibility
@@ -721,8 +702,6 @@ argument_list|(
 name|object
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_comment
@@ -759,9 +738,6 @@ name|isActive
 argument_list|()
 condition|)
 return|return;
-ifndef|#
-directive|ifndef
-name|QT_NO_ACCESSIBILITY
 if|if
 condition|(
 name|QPlatformAccessibility
@@ -778,8 +754,6 @@ argument_list|(
 name|event
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_if
@@ -2131,6 +2105,13 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_ACCESSIBILITY
+end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

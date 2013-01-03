@@ -15,11 +15,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QTimer>
-end_include
-begin_include
-include|#
-directive|include
 file|<qmath.h>
 end_include
 begin_constructor
@@ -241,14 +236,8 @@ name|exposeEvent
 parameter_list|(
 name|QExposeEvent
 modifier|*
-name|event
 parameter_list|)
 block|{
-name|Q_UNUSED
-argument_list|(
-name|event
-argument_list|)
-expr_stmt|;
 name|render
 argument_list|()
 expr_stmt|;
@@ -372,31 +361,10 @@ name|m_colorIndex
 index|]
 expr_stmt|;
 name|m_colorIndex
-operator|++
-expr_stmt|;
-if|if
-condition|(
-name|m_colorIndex
-operator|>=
-name|int
-argument_list|(
-sizeof|sizeof
-argument_list|(
-name|colors
-argument_list|)
-operator|/
-sizeof|sizeof
-argument_list|(
-name|colors
-index|[
-literal|0
-index|]
-argument_list|)
-argument_list|)
-condition|)
-name|m_colorIndex
 operator|=
-literal|0
+literal|1
+operator|-
+name|m_colorIndex
 expr_stmt|;
 block|}
 end_function
@@ -717,31 +685,24 @@ argument_list|,
 name|this
 argument_list|)
 decl_stmt|;
-specifier|const
-name|char
-modifier|*
-name|vsrc
-init|=
-literal|"attribute highp vec4 vertex;\n"
-literal|"attribute mediump vec3 normal;\n"
-literal|"uniform mediump mat4 matrix;\n"
-literal|"uniform lowp vec4 sourceColor;\n"
-literal|"varying mediump vec4 color;\n"
-literal|"void main(void)\n"
-literal|"{\n"
-literal|"    vec3 toLight = normalize(vec3(0.0, 0.3, 1.0));\n"
-literal|"    float angle = max(dot(normal, toLight), 0.0);\n"
-literal|"    vec3 col = sourceColor.rgb;\n"
-literal|"    color = vec4(col * 0.2 + col * 0.8 * angle, 1.0);\n"
-literal|"    color = clamp(color, 0.0, 1.0);\n"
-literal|"    gl_Position = matrix * vertex;\n"
-literal|"}\n"
-decl_stmt|;
 name|vshader
 operator|->
 name|compileSourceCode
 argument_list|(
-name|vsrc
+literal|"attribute highp vec4 vertex;"
+literal|"attribute mediump vec3 normal;"
+literal|"uniform mediump mat4 matrix;"
+literal|"uniform lowp vec4 sourceColor;"
+literal|"varying mediump vec4 color;"
+literal|"void main(void)"
+literal|"{"
+literal|"    vec3 toLight = normalize(vec3(0.0, 0.3, 1.0));"
+literal|"    float angle = max(dot(normal, toLight), 0.0);"
+literal|"    vec3 col = sourceColor.rgb;"
+literal|"    color = vec4(col * 0.2 + col * 0.8 * angle, 1.0);"
+literal|"    color = clamp(color, 0.0, 1.0);"
+literal|"    gl_Position = matrix * vertex;"
+literal|"}"
 argument_list|)
 expr_stmt|;
 name|QOpenGLShader
@@ -758,22 +719,15 @@ argument_list|,
 name|this
 argument_list|)
 decl_stmt|;
-specifier|const
-name|char
-modifier|*
-name|fsrc
-init|=
-literal|"varying mediump vec4 color;\n"
-literal|"void main(void)\n"
-literal|"{\n"
-literal|"    gl_FragColor = color;\n"
-literal|"}\n"
-decl_stmt|;
 name|fshader
 operator|->
 name|compileSourceCode
 argument_list|(
-name|fsrc
+literal|"varying mediump vec4 color;"
+literal|"void main(void)"
+literal|"{"
+literal|"    gl_FragColor = color;"
+literal|"}"
 argument_list|)
 expr_stmt|;
 name|m_program

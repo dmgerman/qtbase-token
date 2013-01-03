@@ -369,7 +369,7 @@ name|BPS_FAILURE
 return|;
 block|}
 comment|// post unblock event to our thread; in this callback the bps channel is
-comment|// guarenteed to be the same that was active when bps_add_fd was called
+comment|// guaranteed to be the same that was active when bps_add_fd was called
 name|result
 operator|=
 name|bps_push_event

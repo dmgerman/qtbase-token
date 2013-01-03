@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QGuiApplication>
+file|"hellowindow.h"
 end_include
 begin_include
 include|#
@@ -20,17 +20,17 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QGuiApplication>
+end_include
+begin_include
+include|#
+directive|include
 file|<QScreen>
 end_include
 begin_include
 include|#
 directive|include
 file|<QThread>
-end_include
-begin_include
-include|#
-directive|include
-file|"hellowindow.h"
 end_include
 begin_function
 DECL|function|main
@@ -42,8 +42,8 @@ name|argc
 parameter_list|,
 name|char
 modifier|*
-modifier|*
 name|argv
+index|[]
 parameter_list|)
 block|{
 name|QGuiApplication
@@ -78,7 +78,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-name|QLatin1String
+name|QStringLiteral
 argument_list|(
 literal|"--single"
 argument_list|)
@@ -213,7 +213,7 @@ name|windowA
 operator|->
 name|setTitle
 argument_list|(
-name|QLatin1String
+name|QStringLiteral
 argument_list|(
 literal|"Thread A - Context A"
 argument_list|)
@@ -316,7 +316,7 @@ name|windowB
 operator|->
 name|setTitle
 argument_list|(
-name|QLatin1String
+name|QStringLiteral
 argument_list|(
 literal|"Thread A - Context A"
 argument_list|)
@@ -380,7 +380,7 @@ name|windowC
 operator|->
 name|setTitle
 argument_list|(
-name|QLatin1String
+name|QStringLiteral
 argument_list|(
 literal|"Thread B - Context B"
 argument_list|)
@@ -562,14 +562,14 @@ name|window
 operator|->
 name|setTitle
 argument_list|(
-name|QLatin1String
+name|QStringLiteral
 argument_list|(
 literal|"Thread "
 argument_list|)
 operator|+
 name|id
 operator|+
-name|QLatin1String
+name|QStringLiteral
 argument_list|(
 literal|" - Context "
 argument_list|)

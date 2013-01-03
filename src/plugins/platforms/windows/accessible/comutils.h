@@ -60,9 +60,12 @@ name|class
 name|QVariant
 decl_stmt|;
 end_decl_stmt
+begin_comment
+comment|// Originally QVariantToVARIANT copied from ActiveQt - renamed to avoid conflicts in static builds.
+end_comment
 begin_function_decl
 name|bool
-name|QVariantToVARIANT
+name|QVariant2VARIANT
 parameter_list|(
 specifier|const
 name|QVariant

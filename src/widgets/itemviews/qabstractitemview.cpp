@@ -129,7 +129,7 @@ end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_GESTURE
+name|QT_NO_GESTURES
 end_ifndef
 begin_include
 include|#

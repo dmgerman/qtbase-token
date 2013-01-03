@@ -1917,12 +1917,6 @@ end_function
 begin_comment
 comment|/*!     \enum QMimeDatabase::MatchMode      This enum specifies how matching a file to a MIME type is performed.      \value MatchDefault Both the file name and content are used to look for a match      \value MatchExtension Only the file name is used to look for a match      \value MatchContent The file content is used to look for a match */
 end_comment
-begin_comment
-comment|/*!     \fn QMimeType QMimeDatabase::mimeTypeForNameAndData(const QString&fileName, QIODevice *device) const     \obsolete      This function is replaced by \l mimeTypeForFileNameAndData() */
-end_comment
-begin_comment
-comment|/*!     \fn QMimeType QMimeDatabase::mimeTypeForNameAndData(const QString&fileName, const QByteArray&data) const     \obsolete      This function is replaced by \l mimeTypeForFileNameAndData() */
-end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

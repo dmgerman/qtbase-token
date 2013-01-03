@@ -351,6 +351,14 @@ argument|const QRect&rect
 argument_list|)
 specifier|const
 block|;
+name|void
+name|updateRubberBand
+argument_list|(
+name|QMouseEvent
+operator|*
+name|event
+argument_list|)
+block|;
 name|bool
 name|rubberBanding
 block|;

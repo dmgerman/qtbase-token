@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/******************************************************************************** ** Form generated from reading UI file 'textfinder.ui' ** ** Created: Fri Sep 4 10:17:15 2009 **      by: Qt User Interface Compiler version 4.6.0 ** ** WARNING! All changes made in this file will be lost when recompiling UI file! ********************************************************************************/
+comment|/******************************************************************************** ** Form generated from reading UI file 'textfinder.ui' ** ** Created by: Qt User Interface Compiler version 5.0.0 ** ** WARNING! All changes made in this file will be lost when recompiling UI file! ********************************************************************************/
 end_comment
 begin_ifndef
 ifndef|#
