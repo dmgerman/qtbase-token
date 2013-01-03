@@ -1508,6 +1508,21 @@ argument_list|)
 expr_stmt|;
 block|}
 end_if
+begin_comment
+comment|// Ignore WasDeclaredAsMetaType inconsitency, to many users were hitting the problem
+end_comment
+begin_expr_stmt
+name|previousFlags
+operator||=
+name|WasDeclaredAsMetaType
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+name|flags
+operator||=
+name|WasDeclaredAsMetaType
+expr_stmt|;
+end_expr_stmt
 begin_if
 if|if
 condition|(
@@ -1516,11 +1531,59 @@ operator|!=
 name|flags
 condition|)
 block|{
+specifier|const
+name|int
+name|maskForTypeInfo
+init|=
+name|NeedsConstruction
+operator||
+name|NeedsDestruction
+operator||
+name|MovableType
+decl_stmt|;
+specifier|const
+name|char
+modifier|*
+name|msg
+init|=
+literal|"QMetaType::registerType: Binary compatibility break. "
+literal|"\nType flags for type '%s' [%i] don't match. Previously "
+literal|"registered TypeFlags(0x%x), now registering TypeFlags(0x%x). "
+literal|"This is an ODR break, which means that your application depends on a C++ undefined behavior."
+literal|"\nHint: %s"
+decl_stmt|;
+name|QT_PREPEND_NAMESPACE
+argument_list|(
+argument|QByteArray
+argument_list|)
+name|hint
+expr_stmt|;
+if|if
+condition|(
+operator|(
+name|previousFlags
+operator|&
+name|maskForTypeInfo
+operator|)
+operator|!=
+operator|(
+name|flags
+operator|&
+name|maskForTypeInfo
+operator|)
+condition|)
+block|{
+name|hint
+operator|+=
+literal|"\nIt seems that the type was registered at least twice in a different translation units, "
+literal|"but Q_DECLARE_TYPEINFO is not visible from all the translations unit or different flags were used."
+literal|"Remember that Q_DECLARE_TYPEINFO should be declared before QMetaType registration, "
+literal|"preferably it should be placed just after the type declaration and before Q_DECLARE_METATYPE"
+expr_stmt|;
+block|}
 name|qFatal
 argument_list|(
-literal|"QMetaType::registerType: Binary compatibility break "
-literal|"-- Type flags for type '%s' [%i] don't match. Previously "
-literal|"registered TypeFlags(0x%x), now registering TypeFlags(0x%x)."
+name|msg
 argument_list|,
 name|normalizedTypeName
 operator|.
@@ -1535,6 +1598,11 @@ name|int
 argument_list|(
 name|flags
 argument_list|)
+argument_list|,
+name|hint
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -7203,7 +7271,7 @@ directive|endif
 block|}
 end_function
 begin_comment
-comment|/*!     \fn int qRegisterMetaType(const char *typeName)     \relates QMetaType     \threadsafe      Registers the type name \a typeName for the type \c{T}. Returns     the internal ID used by QMetaType. Any class or struct that has a     public default constructor, a public copy constructor and a public     destructor can be registered.      This function requires that \c{T} is a fully defined type at the point     where the function is called. For pointer types, it also requires that the     pointed to type is fully defined. Use Q_DECLARE_OPAQUE_POINTER() to be able     to register pointers to forward declared types.      After a type has been registered, you can create and destroy     objects of that type dynamically at run-time.      This example registers the class \c{MyClass}:      \snippet code/src_corelib_kernel_qmetatype.cpp 4      This function is useful to register typedefs so they can be used     by QMetaProperty, or in QueuedConnections      \snippet code/src_corelib_kernel_qmetatype.cpp 9      \sa qRegisterMetaTypeStreamOperators(), QMetaType::isRegistered(),         Q_DECLARE_METATYPE() */
+comment|/*!     \fn int qRegisterMetaType(const char *typeName)     \relates QMetaType     \threadsafe      Registers the type name \a typeName for the type \c{T}. Returns     the internal ID used by QMetaType. Any class or struct that has a     public default constructor, a public copy constructor and a public     destructor can be registered.      This function requires that \c{T} is a fully defined type at the point     where the function is called. For pointer types, it also requires that the     pointed to type is fully defined. Use Q_DECLARE_OPAQUE_POINTER() to be able     to register pointers to forward declared types.      After a type has been registered, you can create and destroy     objects of that type dynamically at run-time.      This example registers the class \c{MyClass}:      \snippet code/src_corelib_kernel_qmetatype.cpp 4      This function is useful to register typedefs so they can be used     by QMetaProperty, or in QueuedConnections      \snippet code/src_corelib_kernel_qmetatype.cpp 9      \warning This function is useful only for registering an alias (typedef)     for every other use case Q_DECLARE_METATYPE and qMetaTypeId() should be used instead.      \sa qRegisterMetaTypeStreamOperators(), QMetaType::isRegistered(),         Q_DECLARE_METATYPE() */
 end_comment
 begin_comment
 comment|/*!     \fn void qRegisterMetaTypeStreamOperators(const char *typeName)     \relates QMetaType     \threadsafe      Registers the stream operators for the type \c{T} called \a     typeName.      Afterward, the type can be streamed using QMetaType::load() and     QMetaType::save(). These functions are used when streaming a     QVariant.      \snippet code/src_corelib_kernel_qmetatype.cpp 5      The stream operators should have the following signatures:      \snippet code/src_corelib_kernel_qmetatype.cpp 6      \sa qRegisterMetaType(), QMetaType::isRegistered(), Q_DECLARE_METATYPE() */
@@ -7227,7 +7295,7 @@ begin_comment
 comment|/*! \typedef QMetaType::Constructor     \internal */
 end_comment
 begin_comment
-comment|/*!     \fn int qRegisterMetaType(const char *typeName)     \relates QMetaType     \threadsafe     \since 4.2      Call this function to register the type \c T. \c T must be declared with     Q_DECLARE_METATYPE(). Returns the meta type Id.      Example:      \snippet code/src_corelib_kernel_qmetatype.cpp 7      To use the type \c T in QVariant, using Q_DECLARE_METATYPE() is     sufficient. To use the type \c T in queued signal and slot connections,     \c{qRegisterMetaType<T>()} must be called before the first connection     is established.      Also, to use type \c T with the QObject::property() API,     \c{qRegisterMetaType<T>()} must be called before it is used, typically     in the constructor of the class that uses \c T, or in the \c{main()}     function.      \sa Q_DECLARE_METATYPE()  */
+comment|/*!     \fn int qRegisterMetaType()     \relates QMetaType     \threadsafe     \since 4.2      Call this function to register the type \c T. \c T must be declared with     Q_DECLARE_METATYPE(). Returns the meta type Id.      Example:      \snippet code/src_corelib_kernel_qmetatype.cpp 7      This function requires that \c{T} is a fully defined type at the point     where the function is called. For pointer types, it also requires that the     pointed to type is fully defined. Use Q_DECLARE_OPAQUE_POINTER() to be able     to register pointers to forward declared types.      After a type has been registered, you can create and destroy     objects of that type dynamically at run-time.      To use the type \c T in QVariant, using Q_DECLARE_METATYPE() is     sufficient. To use the type \c T in queued signal and slot connections,     \c{qRegisterMetaType<T>()} must be called before the first connection     is established.      Also, to use type \c T with the QObject::property() API,     \c{qRegisterMetaType<T>()} must be called before it is used, typically     in the constructor of the class that uses \c T, or in the \c{main()}     function.      \sa Q_DECLARE_METATYPE()  */
 end_comment
 begin_comment
 comment|/*!     \fn int qMetaTypeId()     \relates QMetaType     \threadsafe     \since 4.1      Returns the meta type id of type \c T at compile time. If the     type was not declared with Q_DECLARE_METATYPE(), compilation will     fail.      Typical usage:      \snippet code/src_corelib_kernel_qmetatype.cpp 8      QMetaType::type() returns the same ID as qMetaTypeId(), but does     a lookup at runtime based on the name of the type.     QMetaType::type() is a bit slower, but compilation succeeds if a     type is not registered.      \sa Q_DECLARE_METATYPE(), QMetaType::type() */
