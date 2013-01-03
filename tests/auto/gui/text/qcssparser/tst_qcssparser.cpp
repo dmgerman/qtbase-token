@@ -2304,12 +2304,6 @@ block|}
 block|}
 block|}
 end_function
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QVector<QCss::Value>
-argument_list|)
-end_macro
 begin_function
 DECL|function|expr_data
 name|void
@@ -5408,12 +5402,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QColor
-argument_list|)
-end_macro
 begin_function
 DECL|function|colorValue_data
 name|void
