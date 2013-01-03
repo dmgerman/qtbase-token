@@ -89,19 +89,6 @@ name|QAccessibleInterface
 operator|*
 name|iface
 argument_list|)
-block|;
-specifier|static
-name|QPair
-operator|<
-name|QObject
-operator|*
-block|,
-name|int
-operator|>
-name|getCachedObject
-argument_list|(
-argument|int entryId
-argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt

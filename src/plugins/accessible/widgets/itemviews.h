@@ -88,11 +88,6 @@ name|isValid
 argument_list|()
 specifier|const
 expr_stmt|;
-name|virtual
-operator|~
-name|QAccessibleTable
-argument_list|()
-expr_stmt|;
 name|QAccessible
 operator|::
 name|Role
@@ -334,20 +329,16 @@ name|view
 argument_list|()
 specifier|const
 expr_stmt|;
+name|void
+name|modelChange
+parameter_list|(
+name|QAccessibleTableModelChangeEvent
+modifier|*
+name|event
+parameter_list|)
+function_decl|;
 name|protected
 label|:
-specifier|inline
-name|QAccessibleTableCell
-modifier|*
-name|cell
-argument_list|(
-specifier|const
-name|QModelIndex
-operator|&
-name|index
-argument_list|)
-decl|const
-decl_stmt|;
 specifier|inline
 name|QAccessible
 operator|::
@@ -416,6 +407,27 @@ name|verticalHeader
 argument_list|()
 specifier|const
 expr_stmt|;
+comment|// maybe vector
+typedef|typedef
+name|QHash
+operator|<
+name|int
+operator|,
+name|QAccessible
+operator|::
+name|Id
+operator|>
+name|ChildCache
+expr_stmt|;
+name|mutable
+name|ChildCache
+name|childToId
+decl_stmt|;
+name|virtual
+operator|~
+name|QAccessibleTable
+argument_list|()
+expr_stmt|;
 name|private
 label|:
 comment|// the child index for a model index
@@ -427,16 +439,6 @@ specifier|const
 name|QModelIndex
 operator|&
 name|index
-argument_list|)
-decl|const
-decl_stmt|;
-comment|// the model index from the child index
-name|QAccessibleInterface
-modifier|*
-name|childFromLogical
-argument_list|(
-name|int
-name|logicalIndex
 argument_list|)
 decl|const
 decl_stmt|;
@@ -471,11 +473,6 @@ name|QAccessibleTable
 argument_list|(
 argument|w
 argument_list|)
-block|{}
-name|virtual
-operator|~
-name|QAccessibleTree
-argument_list|()
 block|{}
 name|QAccessibleInterface
 operator|*
@@ -552,6 +549,14 @@ argument|int row
 argument_list|,
 argument|int column =
 literal|0
+argument_list|)
+specifier|const
+block|;
+specifier|inline
+name|int
+name|logicalIndex
+argument_list|(
+argument|const QModelIndex&index
 argument_list|)
 specifier|const
 block|; }
@@ -982,8 +987,10 @@ specifier|const
 block|;
 name|private
 operator|:
+name|QPointer
+operator|<
 name|QAbstractItemView
-operator|*
+operator|>
 name|view
 block|;
 name|int
@@ -1174,8 +1181,10 @@ return|;
 block|}
 name|private
 operator|:
+name|QPointer
+operator|<
 name|QAbstractItemView
-operator|*
+operator|>
 name|view
 block|; }
 decl_stmt|;

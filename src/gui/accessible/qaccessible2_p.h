@@ -765,6 +765,17 @@ parameter_list|)
 init|=
 literal|0
 function_decl|;
+name|virtual
+name|void
+name|modelChange
+parameter_list|(
+name|QAccessibleTableModelChangeEvent
+modifier|*
+name|event
+parameter_list|)
+init|=
+literal|0
+function_decl|;
 name|protected
 label|:
 name|friend
