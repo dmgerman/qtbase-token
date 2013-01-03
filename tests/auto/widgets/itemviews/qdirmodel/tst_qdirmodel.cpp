@@ -1497,14 +1497,6 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-name|qRegisterMetaType
-argument_list|<
-name|QModelIndex
-argument_list|>
-argument_list|(
-literal|"QModelIndex"
-argument_list|)
-expr_stmt|;
 comment|// NOTE: QDirModel will call refresh() when a file is removed. refresh() will reread the entire directory,
 comment|// and emit layoutAboutToBeChanged and layoutChange. So, instead of checking for
 comment|// rowsAboutToBeRemoved/rowsRemoved we check for layoutAboutToBeChanged/layoutChanged

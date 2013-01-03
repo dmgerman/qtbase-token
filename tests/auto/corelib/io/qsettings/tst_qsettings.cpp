@@ -6051,14 +6051,6 @@ parameter_list|()
 block|{
 name|qRegisterMetaType
 argument_list|<
-name|QVariant
-argument_list|>
-argument_list|(
-literal|"QVariant"
-argument_list|)
-expr_stmt|;
-name|qRegisterMetaType
-argument_list|<
 name|QSettings
 operator|::
 name|Status

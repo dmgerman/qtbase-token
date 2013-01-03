@@ -4351,14 +4351,6 @@ endif|#
 directive|endif
 name|qRegisterMetaType
 argument_list|<
-name|qint64
-argument_list|>
-argument_list|(
-literal|"qint64"
-argument_list|)
-expr_stmt|;
-name|qRegisterMetaType
-argument_list|<
 name|QAbstractSocket
 operator|::
 name|SocketError

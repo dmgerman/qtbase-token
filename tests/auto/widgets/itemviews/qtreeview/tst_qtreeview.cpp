@@ -1819,14 +1819,6 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-name|qRegisterMetaType
-argument_list|<
-name|QModelIndex
-argument_list|>
-argument_list|(
-literal|"QModelIndex"
-argument_list|)
-expr_stmt|;
 block|}
 end_function
 begin_function

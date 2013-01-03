@@ -2122,14 +2122,6 @@ operator|::
 name|tst_QComboBox
 parameter_list|()
 block|{
-name|qRegisterMetaType
-argument_list|<
-name|QModelIndex
-argument_list|>
-argument_list|(
-literal|"QModelIndex"
-argument_list|)
-expr_stmt|;
 name|parent
 operator|=
 literal|0

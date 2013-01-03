@@ -337,16 +337,7 @@ name|model
 argument_list|(
 literal|0
 argument_list|)
-block|{
-name|qRegisterMetaType
-argument_list|<
-name|QModelIndex
-argument_list|>
-argument_list|(
-literal|"QModelIndex"
-argument_list|)
-expr_stmt|;
-block|}
+block|{ }
 end_constructor
 begin_function
 DECL|function|init

@@ -7220,14 +7220,6 @@ operator|::
 name|valueChanged
 parameter_list|()
 block|{
-name|qRegisterMetaType
-argument_list|<
-name|QVariant
-argument_list|>
-argument_list|(
-literal|"QVariant"
-argument_list|)
-expr_stmt|;
 comment|//we check that we receive the valueChanged signal
 name|MyErrorObject
 name|o

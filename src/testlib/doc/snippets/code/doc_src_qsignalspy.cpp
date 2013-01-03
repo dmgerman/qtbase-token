@@ -209,11 +209,9 @@ end_comment
 begin_expr_stmt
 name|qRegisterMetaType
 argument_list|<
-name|QModelIndex
+name|SomeStruct
 argument_list|>
-argument_list|(
-literal|"QModelIndex"
-argument_list|)
+argument_list|()
 expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
@@ -228,7 +226,7 @@ name|SIGNAL
 argument_list|(
 name|whatever
 argument_list|(
-name|QModelIndex
+name|SomeStruct
 argument_list|)
 argument_list|)
 argument_list|)
@@ -245,12 +243,12 @@ comment|// get the first argument from the first received signal:
 end_comment
 begin_decl_stmt
 DECL|variable|result
-name|QModelIndex
+name|SomeStruct
 name|result
 init|=
 name|qvariant_cast
 argument_list|<
-name|QModelIndex
+name|SomeStruct
 argument_list|>
 argument_list|(
 name|spy
