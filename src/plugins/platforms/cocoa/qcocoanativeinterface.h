@@ -38,6 +38,12 @@ name|QPrintEngine
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QPlatformMenu
+name|class
+name|QPlatformMenu
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QCocoaNativeInterface
 range|:
@@ -165,6 +171,16 @@ specifier|const
 name|QStringList
 operator|&
 name|types
+argument_list|)
+block|;
+comment|// Dock menu support
+specifier|static
+name|void
+name|setDockMenu
+argument_list|(
+name|QPlatformMenu
+operator|*
+name|platformMenu
 argument_list|)
 block|; }
 decl_stmt|;
