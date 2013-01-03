@@ -913,12 +913,6 @@ end_typedef
 begin_macro
 name|Q_DECLARE_METATYPE
 argument_list|(
-argument|IntList
-argument_list|)
-end_macro
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
 argument|QLineEdit::EchoMode
 argument_list|)
 end_macro

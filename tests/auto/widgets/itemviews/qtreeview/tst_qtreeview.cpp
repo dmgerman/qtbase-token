@@ -27,12 +27,6 @@ include|#
 directive|include
 file|<private/qabstractitemview_p.h>
 end_include
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QModelIndex
-argument_list|)
-end_macro
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -12353,12 +12347,6 @@ argument_list|>
 name|PointList
 typedef|;
 end_typedef
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|PointList
-argument_list|)
-end_macro
 begin_function
 DECL|function|setSelection_data
 name|void

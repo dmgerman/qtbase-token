@@ -28517,12 +28517,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QList<QRect>
-argument_list|)
-end_macro
 begin_comment
 comment|// Since X11 WindowManager operations are all async, and we have no way to know if the window
 end_comment

@@ -369,12 +369,6 @@ name|var4
 expr_stmt|;
 block|}
 end_function
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QAction*
-argument_list|)
-end_macro
 begin_function
 DECL|function|triggered
 name|void

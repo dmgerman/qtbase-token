@@ -12117,12 +12117,6 @@ argument_list|(
 argument|SetOption *
 argument_list|)
 end_macro
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QList<Operation *>
-argument_list|)
-end_macro
 begin_class
 DECL|class|TestGroup
 class|class

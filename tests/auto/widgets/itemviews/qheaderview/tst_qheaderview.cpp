@@ -72,12 +72,6 @@ argument_list|>
 name|IntList
 typedef|;
 end_typedef
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|IntList
-argument_list|)
-end_macro
 begin_typedef
 DECL|typedef|BoolList
 typedef|typedef
@@ -88,12 +82,6 @@ argument_list|>
 name|BoolList
 typedef|;
 end_typedef
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|BoolList
-argument_list|)
-end_macro
 begin_class
 DECL|class|protected_QHeaderView
 class|class

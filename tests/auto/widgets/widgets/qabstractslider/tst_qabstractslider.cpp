@@ -297,12 +297,6 @@ argument_list|(
 argument|QList<Qt::Key>
 argument_list|)
 end_macro
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QPoint
-argument_list|)
-end_macro
 begin_function
 DECL|function|initTestCase
 name|void

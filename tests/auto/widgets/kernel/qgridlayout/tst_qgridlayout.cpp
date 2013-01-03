@@ -2772,12 +2772,6 @@ argument_list|>
 name|PointList
 typedef|;
 end_typedef
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|PointList
-argument_list|)
-end_macro
 begin_class
 DECL|class|SizeHinterFrame
 class|class

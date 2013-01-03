@@ -12249,12 +12249,6 @@ argument_list|(
 argument|Inst
 argument_list|)
 end_macro
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QVector<Inst>
-argument_list|)
-end_macro
 begin_function
 DECL|function|setSizes_data
 name|void

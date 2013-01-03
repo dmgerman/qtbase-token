@@ -45,12 +45,6 @@ end_include
 begin_macro
 name|Q_DECLARE_METATYPE
 argument_list|(
-argument|QList<int>
-argument_list|)
-end_macro
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
 argument|QDialogButtonBox::ButtonRole
 argument_list|)
 end_macro
@@ -64,12 +58,6 @@ begin_macro
 name|Q_DECLARE_METATYPE
 argument_list|(
 argument|QDialogButtonBox::StandardButtons
-argument_list|)
-end_macro
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QAbstractButton*
 argument_list|)
 end_macro
 begin_class

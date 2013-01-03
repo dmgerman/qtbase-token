@@ -17,12 +17,6 @@ include|#
 directive|include
 file|<qpen.h>
 end_include
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QPolygonF
-argument_list|)
-end_macro
 begin_class
 DECL|class|tst_QGraphicsPolygonItem
 class|class
@@ -1184,12 +1178,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QVariant
-argument_list|)
-end_macro
 begin_function
 DECL|function|extension_data
 name|void

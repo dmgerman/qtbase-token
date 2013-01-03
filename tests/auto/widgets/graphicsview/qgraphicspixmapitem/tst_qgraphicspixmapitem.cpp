@@ -1869,12 +1869,6 @@ argument_list|(
 argument|SubQGraphicsPixmapItem::Extension
 argument_list|)
 end_macro
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QVariant
-argument_list|)
-end_macro
 begin_function
 DECL|function|extension_data
 name|void
