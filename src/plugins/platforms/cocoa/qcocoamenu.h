@@ -133,6 +133,16 @@ argument|bool visible
 argument_list|)
 block|;
 name|void
+name|showPopup
+argument_list|(
+argument|const QWindow *parentWindow
+argument_list|,
+argument|QPoint pos
+argument_list|,
+argument|const QPlatformMenuItem *item
+argument_list|)
+block|;
+name|void
 name|syncSeparatorsCollapsible
 argument_list|(
 argument|bool enable
@@ -144,7 +154,6 @@ argument_list|(
 argument|bool modal
 argument_list|)
 block|;
-name|virtual
 name|void
 name|setText
 argument_list|(
@@ -152,6 +161,21 @@ specifier|const
 name|QString
 operator|&
 name|text
+argument_list|)
+block|;
+name|void
+name|setMinimumWidth
+argument_list|(
+argument|int width
+argument_list|)
+block|;
+name|void
+name|setFont
+argument_list|(
+specifier|const
+name|QFont
+operator|&
+name|font
 argument_list|)
 block|;
 name|void

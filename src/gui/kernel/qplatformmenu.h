@@ -340,6 +340,61 @@ operator|=
 literal|0
 block|;
 name|virtual
+name|void
+name|setMinimumWidth
+argument_list|(
+argument|int width
+argument_list|)
+block|{
+name|Q_UNUSED
+argument_list|(
+name|width
+argument_list|)
+block|; }
+name|virtual
+name|void
+name|setFont
+argument_list|(
+argument|const QFont&font
+argument_list|)
+block|{
+name|Q_UNUSED
+argument_list|(
+name|font
+argument_list|)
+block|; }
+name|virtual
+name|void
+name|showPopup
+argument_list|(
+argument|const QWindow *parentWindow
+argument_list|,
+argument|QPoint pos
+argument_list|,
+argument|const QPlatformMenuItem *item
+argument_list|)
+block|{
+name|Q_UNUSED
+argument_list|(
+name|parentWindow
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
+name|pos
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
+name|item
+argument_list|)
+block|;
+name|setVisible
+argument_list|(
+name|true
+argument_list|)
+block|;     }
+name|virtual
 name|QPlatformMenuItem
 operator|*
 name|menuItemAt
