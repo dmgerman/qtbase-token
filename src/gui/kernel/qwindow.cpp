@@ -3054,7 +3054,6 @@ name|geometry
 operator|=
 name|rect
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|rect
@@ -3139,6 +3138,7 @@ name|height
 argument_list|()
 argument_list|)
 emit|;
+block|}
 block|}
 end_function
 begin_comment
