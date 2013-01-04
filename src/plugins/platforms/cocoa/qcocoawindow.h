@@ -451,6 +451,10 @@ name|NSWindow
 operator|*
 name|m_nsWindow
 block|;
+name|bool
+name|m_contentViewIsEmbedded
+block|;
+comment|// true if the m_contentView is embedded in a "foregin" NSView hiearchy
 name|QNSWindowDelegate
 operator|*
 name|m_nsWindowDelegate
