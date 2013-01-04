@@ -9149,7 +9149,7 @@ name|fm
 argument_list|(
 name|edit
 operator|.
-name|font
+name|currentFont
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -9323,7 +9323,7 @@ argument_list|)
 expr_stmt|;
 name|edit
 operator|.
-name|setFont
+name|setCurrentFont
 argument_list|(
 name|font
 argument_list|)
@@ -9473,7 +9473,7 @@ name|fm
 argument_list|(
 name|edit
 operator|.
-name|font
+name|currentFont
 argument_list|()
 argument_list|)
 decl_stmt|;
