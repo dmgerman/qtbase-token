@@ -375,10 +375,6 @@ name|update
 parameter_list|()
 function_decl|;
 private|private:
-DECL|member|langEnvVar
-name|QByteArray
-name|langEnvVar
-decl_stmt|;
 DECL|enum|SubstitutionType
 enum|enum
 name|SubstitutionType
@@ -486,13 +482,6 @@ argument_list|(
 name|SUnknown
 argument_list|)
 block|{
-name|langEnvVar
-operator|=
-name|qgetenv
-argument_list|(
-literal|"LANG"
-argument_list|)
-expr_stmt|;
 name|lcid
 operator|=
 name|GetUserDefaultLCID
