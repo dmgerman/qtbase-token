@@ -16,6 +16,11 @@ end_define
 begin_include
 include|#
 directive|include
+file|<ApplicationServices/ApplicationServices.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<qpa/qplatformnativeinterface.h>
 end_include
 begin_decl_stmt
@@ -181,6 +186,24 @@ argument_list|(
 name|QPlatformMenu
 operator|*
 name|platformMenu
+argument_list|)
+block|;
+comment|// QImage<-> CGImage conversion functions
+specifier|static
+name|CGImageRef
+name|qImageToCGImage
+argument_list|(
+specifier|const
+name|QImage
+operator|&
+name|image
+argument_list|)
+block|;
+specifier|static
+name|QImage
+name|cgImageToQImage
+argument_list|(
+argument|CGImageRef image
 argument_list|)
 block|; }
 decl_stmt|;

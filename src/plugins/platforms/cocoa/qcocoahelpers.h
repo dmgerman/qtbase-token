@@ -711,7 +711,6 @@ begin_function_decl
 name|CGContextRef
 name|qt_mac_cg_context
 parameter_list|(
-specifier|const
 name|QPaintDevice
 modifier|*
 name|pdev
@@ -734,6 +733,15 @@ name|uchar
 modifier|*
 modifier|*
 name|dataCopy
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+name|QImage
+name|qt_mac_toQImage
+parameter_list|(
+name|CGImageRef
+name|image
 parameter_list|)
 function_decl|;
 end_function_decl
