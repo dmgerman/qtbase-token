@@ -140,6 +140,11 @@ include|#
 directive|include
 file|<QtWidgets/QToolButton>
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_MAC
+end_ifndef
 begin_comment
 comment|// X11 Includes:
 end_comment
@@ -216,6 +221,10 @@ undef|#
 directive|undef
 name|XSetIMValues
 end_undef
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|Q_GLOBAL_STATIC
@@ -1303,6 +1312,11 @@ init|=
 literal|0
 decl_stmt|;
 end_decl_stmt
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_MAC
+end_ifndef
 begin_typedef
 DECL|typedef|x11ErrorHandler
 typedef|typedef
@@ -1320,6 +1334,10 @@ modifier|*
 parameter_list|)
 function_decl|;
 end_typedef
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function_decl
 name|QT_END_NAMESPACE
 name|Q_DECLARE_METATYPE
@@ -3594,6 +3612,9 @@ operator|::
 name|gtk_init
 condition|)
 block|{
+ifndef|#
+directive|ifndef
+name|Q_OS_MAC
 comment|// Gtk will set the Qt error handler so we have to reset it afterwards
 name|x11ErrorHandler
 name|qt_x_errhandler
@@ -3603,6 +3624,8 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
+endif|#
+directive|endif
 name|QGtkStylePrivate
 operator|::
 name|gtk_init
@@ -3612,11 +3635,16 @@ argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|Q_OS_MAC
 name|XSetErrorHandler
 argument_list|(
 name|qt_x_errhandler
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 comment|// make a window
 name|GtkWidget
 modifier|*
@@ -6372,6 +6400,9 @@ name|gtkFileChooser
 argument_list|)
 expr_stmt|;
 comment|// Creates X window
+ifndef|#
+directive|ifndef
+name|Q_OS_MAC
 name|XSetTransientForHint
 argument_list|(
 name|QGtkStylePrivate
@@ -6415,6 +6446,8 @@ name|appUserTime
 argument_list|()
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 endif|#
 directive|endif
 block|}

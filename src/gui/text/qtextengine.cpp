@@ -10960,6 +10960,10 @@ operator|)
 name|line
 operator|.
 name|length
+operator|+
+name|line
+operator|.
+name|trailingSpaces
 decl_stmt|;
 if|if
 condition|(
@@ -11275,6 +11279,15 @@ name|end
 index|]
 operator|)
 decl_stmt|;
+name|Q_ASSERT
+argument_list|(
+name|ge
+operator|<=
+name|si
+operator|.
+name|num_glyphs
+argument_list|)
+expr_stmt|;
 specifier|const
 name|QGlyphLayout
 name|g

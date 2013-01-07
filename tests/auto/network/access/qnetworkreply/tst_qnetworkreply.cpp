@@ -252,12 +252,6 @@ end_include
 begin_macro
 name|Q_DECLARE_METATYPE
 argument_list|(
-argument|QNetworkReply*
-argument_list|)
-end_macro
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
 argument|QAuthenticator*
 argument_list|)
 end_macro
@@ -267,27 +261,6 @@ argument_list|(
 argument|QNetworkProxyQuery
 argument_list|)
 end_macro
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QBuffer*
-argument_list|)
-end_macro
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QHttpMultiPart *
-argument_list|)
-end_macro
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QList<QFile*>
-argument_list|)
-end_macro
-begin_comment
-comment|// for multiparts
-end_comment
 begin_typedef
 DECL|typedef|QNetworkReplyPtr
 typedef|typedef

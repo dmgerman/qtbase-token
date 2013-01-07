@@ -106,12 +106,6 @@ function_decl|;
 block|}
 class|;
 end_class
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QBrush
-argument_list|)
-end_macro
 begin_constructor
 DECL|function|tst_QBrush
 name|tst_QBrush

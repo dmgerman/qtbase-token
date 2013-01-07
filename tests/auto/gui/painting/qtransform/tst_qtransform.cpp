@@ -27,12 +27,6 @@ include|#
 directive|include
 file|<qdebug.h>
 end_include
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QRect
-argument_list|)
-end_macro
 begin_class
 DECL|class|tst_QTransform
 class|class
@@ -157,12 +151,6 @@ begin_macro
 name|Q_DECLARE_METATYPE
 argument_list|(
 argument|QTransform
-argument_list|)
-end_macro
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QPolygon
 argument_list|)
 end_macro
 begin_constructor

@@ -362,12 +362,6 @@ decl_stmt|;
 block|}
 class|;
 end_class
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QList<QVariant>
-argument_list|)
-end_macro
 begin_constructor
 DECL|function|tst_QTextCursor
 name|tst_QTextCursor

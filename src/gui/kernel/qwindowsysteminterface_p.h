@@ -1427,9 +1427,7 @@ name|time
 argument_list|,
 name|Tablet
 argument_list|,
-name|Qt
-operator|::
-name|NoModifier
+name|mods
 argument_list|)
 block|,
 name|down
@@ -1489,12 +1487,7 @@ argument_list|)
 block|,
 name|uid
 argument_list|(
-name|uid
-argument_list|)
-block|,
-name|mods
-argument_list|(
-argument|mods
+argument|uid
 argument_list|)
 block|{ }
 name|bool
@@ -1532,11 +1525,6 @@ name|z
 block|;
 name|qint64
 name|uid
-block|;
-name|Qt
-operator|::
-name|KeyboardModifiers
-name|mods
 block|;     }
 decl_stmt|;
 name|class

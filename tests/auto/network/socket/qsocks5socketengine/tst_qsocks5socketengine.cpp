@@ -87,12 +87,6 @@ include|#
 directive|include
 file|"../../../network-settings.h"
 end_include
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QQueue<QByteArray>
-argument_list|)
-end_macro
 begin_class
 DECL|class|tst_QSocks5SocketEngine
 class|class

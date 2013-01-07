@@ -158,7 +158,13 @@ block|;     }
 block|;
 name|QQnxWindow
 operator|*
-name|m_platformWindow
+name|platformWindow
+argument_list|()
+specifier|const
+block|;
+name|QWindow
+operator|*
+name|m_window
 block|;
 name|QList
 operator|<

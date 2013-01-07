@@ -5574,6 +5574,8 @@ parameter_list|)
 block|{
 name|xcb_window_t
 name|root
+init|=
+literal|0
 decl_stmt|;
 name|queryPointer
 argument_list|(

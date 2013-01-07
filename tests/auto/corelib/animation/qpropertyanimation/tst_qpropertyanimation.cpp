@@ -4805,12 +4805,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QVariant
-argument_list|)
-end_macro
 begin_function
 DECL|function|setStartEndValues_data
 name|void
@@ -7220,14 +7214,6 @@ operator|::
 name|valueChanged
 parameter_list|()
 block|{
-name|qRegisterMetaType
-argument_list|<
-name|QVariant
-argument_list|>
-argument_list|(
-literal|"QVariant"
-argument_list|)
-expr_stmt|;
 comment|//we check that we receive the valueChanged signal
 name|MyErrorObject
 name|o

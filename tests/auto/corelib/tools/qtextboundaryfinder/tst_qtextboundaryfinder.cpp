@@ -137,12 +137,6 @@ block|}
 class|;
 end_class
 begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QList<int>
-argument_list|)
-end_macro
-begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_namespace

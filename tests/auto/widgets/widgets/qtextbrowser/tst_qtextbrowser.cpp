@@ -1264,14 +1264,6 @@ operator|::
 name|relativeLinks
 parameter_list|()
 block|{
-name|qRegisterMetaType
-argument_list|<
-name|QUrl
-argument_list|>
-argument_list|(
-literal|"QUrl"
-argument_list|)
-expr_stmt|;
 name|QSignalSpy
 name|sourceChangedSpy
 argument_list|(

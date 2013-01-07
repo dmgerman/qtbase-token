@@ -56,12 +56,6 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 end_decl_stmt
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QModelIndex
-argument_list|)
-end_macro
 begin_class
 DECL|class|tst_QSqlTableModel
 class|class
@@ -586,14 +580,6 @@ operator|::
 name|tst_QSqlTableModel
 parameter_list|()
 block|{
-name|qRegisterMetaType
-argument_list|<
-name|QModelIndex
-argument_list|>
-argument_list|(
-literal|"QModelIndex"
-argument_list|)
-expr_stmt|;
 name|dbs
 operator|.
 name|open

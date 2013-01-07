@@ -7533,12 +7533,6 @@ argument_list|()
 return|;
 block|}
 end_function
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QPolygonF
-argument_list|)
-end_macro
 begin_function
 DECL|function|task204301_data
 name|void

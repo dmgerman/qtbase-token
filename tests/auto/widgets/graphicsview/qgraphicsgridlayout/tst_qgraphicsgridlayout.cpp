@@ -1389,14 +1389,6 @@ argument_list|>
 name|SizeList
 typedef|;
 end_typedef
-begin_expr_stmt
-DECL|variable|SizeList
-name|Q_DECLARE_METATYPE
-argument_list|(
-name|SizeList
-argument_list|)
-expr_stmt|;
-end_expr_stmt
 begin_comment
 comment|// This will be called before the first test function is executed.
 end_comment
@@ -16826,14 +16818,6 @@ argument_list|>
 name|RectList
 typedef|;
 end_typedef
-begin_expr_stmt
-DECL|variable|RectList
-name|Q_DECLARE_METATYPE
-argument_list|(
-name|RectList
-argument_list|)
-expr_stmt|;
-end_expr_stmt
 begin_function
 DECL|function|alignment2_data
 name|void

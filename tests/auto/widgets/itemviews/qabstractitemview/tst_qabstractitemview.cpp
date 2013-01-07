@@ -4604,12 +4604,6 @@ argument_list|>
 name|IntList
 typedef|;
 end_typedef
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|IntList
-argument_list|)
-end_macro
 begin_function
 DECL|function|setItemDelegate_data
 name|void

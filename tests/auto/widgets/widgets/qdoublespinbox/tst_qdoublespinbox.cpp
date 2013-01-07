@@ -384,12 +384,6 @@ argument_list|>
 name|DoubleList
 typedef|;
 end_typedef
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|DoubleList
-argument_list|)
-end_macro
 begin_constructor
 DECL|function|tst_QDoubleSpinBox
 name|tst_QDoubleSpinBox
