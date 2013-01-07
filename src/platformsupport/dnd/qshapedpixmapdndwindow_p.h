@@ -37,6 +37,7 @@ range|:
 name|public
 name|QWindow
 block|{
+name|Q_OBJECT
 name|public
 operator|:
 name|QShapedPixmapWindow
