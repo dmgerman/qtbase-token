@@ -280,6 +280,9 @@ argument_list|()
 decl_stmt|;
 return|return
 name|qMax
+argument_list|<
+name|qint64
+argument_list|>
 argument_list|(
 operator|-
 literal|1
@@ -622,7 +625,7 @@ end_endif
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|QT_BUILD_GUI_LIB
+name|QT_BUILD_WIDGETS_LIB
 end_ifdef
 begin_decl_stmt
 name|QT_BEGIN_INCLUDE_NAMESPACE
@@ -1204,7 +1207,10 @@ name|pixmap_label
 operator|->
 name|setPixmap
 argument_list|(
+name|QPixmap
+argument_list|(
 name|qtlogo_eval_xpm
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|pixmap_label
