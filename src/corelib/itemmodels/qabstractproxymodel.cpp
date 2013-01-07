@@ -256,6 +256,35 @@ block|}
 block|}
 end_function
 begin_comment
+comment|/*!     Clears the roleNames of this proxy model. */
+end_comment
+begin_function
+DECL|function|resetInternalData
+name|void
+name|QAbstractProxyModel
+operator|::
+name|resetInternalData
+parameter_list|()
+block|{
+name|Q_D
+argument_list|(
+name|QAbstractProxyModel
+argument_list|)
+expr_stmt|;
+name|d
+operator|->
+name|roleNames
+operator|=
+name|d
+operator|->
+name|model
+operator|->
+name|roleNames
+argument_list|()
+expr_stmt|;
+block|}
+end_function
+begin_comment
 comment|/*!     Returns the model that contains the data that is available through the proxy model. */
 end_comment
 begin_function
