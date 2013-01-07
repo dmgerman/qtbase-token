@@ -17,12 +17,6 @@ include|#
 directive|include
 file|<QtTest/QtTest>
 end_include
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QModelIndex
-argument_list|)
-end_macro
 begin_comment
 comment|/*!     Connect to all of the models signals.  Whenever anything happens recheck everything. */
 end_comment

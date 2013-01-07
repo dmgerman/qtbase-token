@@ -2386,12 +2386,6 @@ literal|1
 expr_stmt|;
 block|}
 end_function
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QThread*
-argument_list|)
-end_macro
 begin_namespace
 DECL|namespace|DeliverInDefinedOrder
 namespace|namespace

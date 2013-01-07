@@ -23,13 +23,6 @@ include|#
 directive|include
 file|<QtDBus/QtDBus>
 end_include
-begin_macro
-DECL|function|Q_DECLARE_METATYPE
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QVariantList
-argument_list|)
-end_macro
 begin_decl_stmt
 name|class
 name|MyObject

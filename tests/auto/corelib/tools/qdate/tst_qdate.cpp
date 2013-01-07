@@ -304,12 +304,6 @@ end_class
 begin_macro
 name|Q_DECLARE_METATYPE
 argument_list|(
-argument|QDate
-argument_list|)
-end_macro
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
 argument|Qt::DateFormat
 argument_list|)
 end_macro

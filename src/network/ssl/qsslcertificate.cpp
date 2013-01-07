@@ -4890,6 +4890,16 @@ block|,
 literal|"MD5 Collisions Inc. (http://www.phreedom.org/md5)"
 block|,
 comment|// http://www.phreedom.org/research/rogue-ca/
+literal|"08:27"
+block|,
+literal|"*.EGO.GOV.TR"
+block|,
+comment|// Turktrust mis-issued intermediate certificate
+literal|"08:64"
+block|,
+literal|"e-islem.kktcmerkezbankasi.org"
+block|,
+comment|// Turktrust mis-issued intermediate certificate
 literal|0
 block|}
 decl_stmt|;

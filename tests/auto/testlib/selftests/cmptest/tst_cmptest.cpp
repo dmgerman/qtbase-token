@@ -413,12 +413,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QVariant
-argument_list|)
-end_macro
 begin_struct
 DECL|struct|PhonyClass
 struct|struct

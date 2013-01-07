@@ -5757,6 +5757,12 @@ name|isActive
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|hasFocus
+argument_list|()
+condition|)
+block|{
 name|QAccessibleEvent
 name|focusEvent
 argument_list|(
@@ -5782,6 +5788,7 @@ operator|&
 name|focusEvent
 argument_list|)
 expr_stmt|;
+block|}
 name|QAccessibleEvent
 name|selectionEvent
 argument_list|(

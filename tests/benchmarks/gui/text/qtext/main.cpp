@@ -55,12 +55,6 @@ end_include
 begin_macro
 name|Q_DECLARE_METATYPE
 argument_list|(
-argument|QTextDocument*
-argument_list|)
-end_macro
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
 argument|QList<QTextLayout::FormatRange>
 argument_list|)
 end_macro

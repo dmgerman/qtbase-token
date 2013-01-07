@@ -478,14 +478,6 @@ operator|/
 literal|33
 argument_list|)
 expr_stmt|;
-name|qRegisterMetaType
-argument_list|<
-name|qreal
-argument_list|>
-argument_list|(
-literal|"qreal"
-argument_list|)
-expr_stmt|;
 name|QSignalSpy
 name|spy
 argument_list|(
@@ -1228,14 +1220,6 @@ literal|0.0
 argument_list|)
 expr_stmt|;
 comment|// Default speed
-name|qRegisterMetaType
-argument_list|<
-name|qreal
-argument_list|>
-argument_list|(
-literal|"qreal"
-argument_list|)
-expr_stmt|;
 name|QSignalSpy
 name|spy
 argument_list|(

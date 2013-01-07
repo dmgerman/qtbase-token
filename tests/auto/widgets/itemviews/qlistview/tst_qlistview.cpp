@@ -3705,14 +3705,6 @@ name|colCount
 operator|=
 literal|2
 expr_stmt|;
-name|qRegisterMetaType
-argument_list|<
-name|QModelIndex
-argument_list|>
-argument_list|(
-literal|"QModelIndex"
-argument_list|)
-expr_stmt|;
 name|QListView
 name|view
 decl_stmt|;
@@ -5546,12 +5538,6 @@ argument_list|>
 name|IntList
 typedef|;
 end_typedef
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|IntList
-argument_list|)
-end_macro
 begin_function
 DECL|function|selection_data
 name|void

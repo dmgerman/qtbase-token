@@ -180,18 +180,6 @@ end_macro
 begin_macro
 name|Q_DECLARE_METATYPE
 argument_list|(
-argument|QList<Struct1>
-argument_list|)
-end_macro
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QList<Struct4>
-argument_list|)
-end_macro
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
 argument|const QMetaObject*
 argument_list|)
 end_macro

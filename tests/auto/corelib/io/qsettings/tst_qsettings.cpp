@@ -5323,12 +5323,6 @@ end_function
 begin_macro
 name|Q_DECLARE_METATYPE
 argument_list|(
-argument|QVariant
-argument_list|)
-end_macro
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
 argument|QSettings::Status
 argument_list|)
 end_macro
@@ -6049,14 +6043,6 @@ operator|::
 name|testIniParsing
 parameter_list|()
 block|{
-name|qRegisterMetaType
-argument_list|<
-name|QVariant
-argument_list|>
-argument_list|(
-literal|"QVariant"
-argument_list|)
-expr_stmt|;
 name|qRegisterMetaType
 argument_list|<
 name|QSettings

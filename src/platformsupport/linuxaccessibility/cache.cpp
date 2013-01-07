@@ -27,11 +27,6 @@ end_define
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_ACCESSIBILITY
-end_ifndef
 begin_comment
 comment|/*!     \class QSpiDBusCache     \internal     \brief This class is responsible for the AT-SPI cache interface.      The idea behind the cache is that starting an application would     result in many dbus calls. The way GTK/Gail/ATK work is that     they create accessibles for all objects on startup.     In order to avoid querying all the objects individually via DBus     they get sent by using the GetItems call of the cache.      Additionally the AddAccessible and RemoveAccessible signals     are responsible for adding/removing objects from the cache.      Currently the Qt bridge chooses to ignore these. */
 end_comment
@@ -139,13 +134,6 @@ name|cacheArray
 return|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_NO_ACCESSIBILITY
-end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

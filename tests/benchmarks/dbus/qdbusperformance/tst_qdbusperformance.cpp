@@ -145,12 +145,6 @@ function_decl|;
 block|}
 class|;
 end_class
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QVariant
-argument_list|)
-end_macro
 begin_function
 DECL|function|initTestCase
 name|void

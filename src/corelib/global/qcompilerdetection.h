@@ -3151,11 +3151,6 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_BLACKBERRY
-argument_list|)
-operator|||
-name|defined
-argument_list|(
 name|Q_OS_QNX
 argument_list|)
 end_if
@@ -3201,6 +3196,21 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_RVALUE_REFS
+end_ifdef
+begin_undef
+DECL|macro|Q_COMPILER_RVALUE_REFS
+undef|#
+directive|undef
+name|Q_COMPILER_RVALUE_REFS
+end_undef
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_endif
 endif|#
 directive|endif
@@ -3214,7 +3224,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// Q_OS_BLACKBERRY || Q_OS_QNX
+comment|// Q_OS_QNX
 end_comment
 begin_comment
 comment|/*  * C++11 keywords and expressions  */

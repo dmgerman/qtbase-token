@@ -1008,16 +1008,7 @@ name|tst_QByteArray
 operator|::
 name|tst_QByteArray
 parameter_list|()
-block|{
-name|qRegisterMetaType
-argument_list|<
-name|qulonglong
-argument_list|>
-argument_list|(
-literal|"qulonglong"
-argument_list|)
-expr_stmt|;
-block|}
+block|{ }
 end_constructor
 begin_function
 DECL|function|qCompress_data
@@ -10332,12 +10323,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|qulonglong
-argument_list|)
-end_macro
 begin_function
 DECL|function|toULong_data
 name|void

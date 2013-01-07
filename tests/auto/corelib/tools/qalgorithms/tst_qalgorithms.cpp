@@ -2065,12 +2065,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QList<int>
-argument_list|)
-end_macro
 begin_function
 DECL|function|test_qLowerBound_data
 name|void
@@ -3990,12 +3984,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QVector<int>
-argument_list|)
-end_macro
 begin_function
 DECL|function|stableSortCorrectnessTest_data
 name|void

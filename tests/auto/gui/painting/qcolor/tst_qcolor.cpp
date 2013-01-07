@@ -981,12 +981,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QColor
-argument_list|)
-end_macro
 begin_constructor
 DECL|function|tst_QColor
 name|tst_QColor

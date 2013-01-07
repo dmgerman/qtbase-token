@@ -47,12 +47,6 @@ include|#
 directive|include
 file|<QPainter>
 end_include
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QCommandLinkButton*
-argument_list|)
-end_macro
 begin_class
 DECL|class|tst_QCommandLinkButton
 class|class

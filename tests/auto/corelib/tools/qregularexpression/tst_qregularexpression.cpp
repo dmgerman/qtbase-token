@@ -107,12 +107,6 @@ argument_list|(
 argument|Match
 argument_list|)
 end_macro
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QList<Match>
-argument_list|)
-end_macro
 begin_function
 DECL|function|operator ==
 name|bool

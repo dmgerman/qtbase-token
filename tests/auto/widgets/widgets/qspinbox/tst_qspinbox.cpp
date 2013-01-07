@@ -399,18 +399,6 @@ argument_list|>
 name|IntList
 typedef|;
 end_typedef
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|IntList
-argument_list|)
-end_macro
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QLocale
-argument_list|)
-end_macro
 begin_comment
 comment|// Testing get/set functions
 end_comment

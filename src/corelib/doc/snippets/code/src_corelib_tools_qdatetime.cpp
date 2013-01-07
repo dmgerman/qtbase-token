@@ -684,6 +684,22 @@ end_decl_stmt
 begin_comment
 comment|// dateTime is January 30 in 1900 at 00:00:01.
 end_comment
+begin_expr_stmt
+name|dateTime
+operator|=
+name|QDateTime
+operator|::
+name|fromString
+argument_list|(
+literal|"12"
+argument_list|,
+literal|"yy"
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_comment
+comment|// dateTime is January 1 in 1912 at 00:00:00.
+end_comment
 begin_comment
 comment|//! [14]
 end_comment
@@ -1098,5 +1114,79 @@ expr_stmt|;
 end_expr_stmt
 begin_comment
 comment|//! [19]
+end_comment
+begin_comment
+comment|//! [20]
+end_comment
+begin_decl_stmt
+DECL|variable|string
+name|QString
+name|string
+init|=
+literal|"Monday, 23 April 12 22:51:41"
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|format
+name|QString
+name|format
+init|=
+literal|"dddd, d MMMM yy hh:mm:ss"
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|invalid
+name|QDateTime
+name|invalid
+init|=
+name|QDateTime
+operator|::
+name|fromString
+argument_list|(
+name|string
+argument_list|,
+name|format
+argument_list|)
+decl_stmt|;
+end_decl_stmt
+begin_comment
+comment|//! [20]
+end_comment
+begin_comment
+comment|//! [21]
+end_comment
+begin_decl_stmt
+DECL|variable|string
+name|QString
+name|string
+init|=
+literal|"Tuesday, 23 April 12 22:51:41"
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|format
+name|QString
+name|format
+init|=
+literal|"dddd, d MMMM yy hh:mm:ss"
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|valid
+name|QDateTime
+name|valid
+init|=
+name|QDateTime
+operator|::
+name|fromString
+argument_list|(
+name|string
+argument_list|,
+name|format
+argument_list|)
+decl_stmt|;
+end_decl_stmt
+begin_comment
+comment|//! [21]
 end_comment
 end_unit

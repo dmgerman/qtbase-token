@@ -159,12 +159,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QVector<QUrl>
-argument_list|)
-end_macro
 begin_class
 DECL|class|tst_NetworkRemoteStressTest
 class|class

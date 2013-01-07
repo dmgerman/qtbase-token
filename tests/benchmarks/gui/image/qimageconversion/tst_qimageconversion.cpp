@@ -12,12 +12,6 @@ include|#
 directive|include
 file|<QImage>
 end_include
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QImage
-argument_list|)
-end_macro
 begin_class
 DECL|class|tst_QImageConversion
 class|class

@@ -292,18 +292,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QModelIndex
-argument_list|)
-end_macro
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QModelIndexList
-argument_list|)
-end_macro
 begin_function
 DECL|function|cleanupTestCase
 name|void
@@ -1495,14 +1483,6 @@ operator|.
 name|setReadOnly
 argument_list|(
 literal|false
-argument_list|)
-expr_stmt|;
-name|qRegisterMetaType
-argument_list|<
-name|QModelIndex
-argument_list|>
-argument_list|(
-literal|"QModelIndex"
 argument_list|)
 expr_stmt|;
 comment|// NOTE: QDirModel will call refresh() when a file is removed. refresh() will reread the entire directory,
