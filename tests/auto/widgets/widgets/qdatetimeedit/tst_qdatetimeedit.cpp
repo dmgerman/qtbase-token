@@ -1169,19 +1169,7 @@ name|tst_QDateTimeEdit
 operator|::
 name|tst_QDateTimeEdit
 parameter_list|()
-block|{
-name|qRegisterMetaType
-argument_list|<
-name|QList
-argument_list|<
-name|int
-argument_list|>
-argument_list|>
-argument_list|(
-literal|"QList<int>"
-argument_list|)
-expr_stmt|;
-block|}
+block|{ }
 end_constructor
 begin_destructor
 DECL|function|~tst_QDateTimeEdit

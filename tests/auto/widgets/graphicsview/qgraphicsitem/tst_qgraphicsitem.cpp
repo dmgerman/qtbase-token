@@ -14398,17 +14398,6 @@ block|{
 name|QGraphicsScene
 name|scene
 decl_stmt|;
-name|qRegisterMetaType
-argument_list|<
-name|QList
-argument_list|<
-name|QRectF
-argument_list|>
-argument_list|>
-argument_list|(
-literal|"QList<QRectF>"
-argument_list|)
-expr_stmt|;
 name|QSignalSpy
 name|spy
 argument_list|(

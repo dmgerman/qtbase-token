@@ -6711,14 +6711,6 @@ literal|5000
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|qRegisterMetaType
-argument_list|<
-name|qint64
-argument_list|>
-argument_list|(
-literal|"qint64"
-argument_list|)
-expr_stmt|;
 name|QSignalSpy
 name|spy
 argument_list|(
