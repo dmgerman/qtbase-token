@@ -3030,6 +3030,12 @@ begin_comment
 comment|/* C++11 features supported in VC10 = VC2010: */
 end_comment
 begin_define
+DECL|macro|Q_COMPILER_AUTO_FUNCTION
+define|#
+directive|define
+name|Q_COMPILER_AUTO_FUNCTION
+end_define
+begin_define
 DECL|macro|Q_COMPILER_AUTO_TYPE
 define|#
 directive|define
