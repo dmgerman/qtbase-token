@@ -3963,6 +3963,28 @@ argument_list|)
 expr_stmt|;
 block|}
 block|{
+comment|// invalid port number
+name|QUrl
+name|url
+decl_stmt|;
+name|url
+operator|.
+name|setEncodedUrl
+argument_list|(
+literal|"foo://tel:2147483648"
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+operator|!
+name|url
+operator|.
+name|isValid
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|{
 comment|//check it calls detach
 name|QUrl
 name|u1
@@ -20002,6 +20024,20 @@ operator|<<
 name|QUrl
 argument_list|(
 literal|"weirdscheme:80:otherstuff"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"number-path-0"
+argument_list|)
+operator|<<
+literal|"tel:2147483648"
+operator|<<
+name|QUrl
+argument_list|(
+literal|"tel:2147483648"
 argument_list|)
 expr_stmt|;
 comment|// FYI: The scheme in the resulting url user
