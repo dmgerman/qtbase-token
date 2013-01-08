@@ -5698,7 +5698,6 @@ name|statics
 operator|.
 name|strhost_build
 condition|)
-block|{
 name|m_proFile
 operator|->
 name|setHostBuild
@@ -5706,9 +5705,7 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-block|}
 else|else
-block|{
 name|parseError
 argument_list|(
 name|fL1S
@@ -5722,7 +5719,6 @@ name|m_tmp
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 return|return;
 block|}
 block|}

@@ -4458,7 +4458,6 @@ argument_list|()
 operator|!=
 literal|1
 condition|)
-block|{
 name|evalError
 argument_list|(
 name|fL1S
@@ -4467,9 +4466,7 @@ literal|"eval(variable) requires one argument."
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 else|else
-block|{
 name|ret
 operator|+=
 name|values
@@ -4485,7 +4482,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 break|break;
 case|case
 name|E_LIST
@@ -8296,7 +8292,6 @@ operator|.
 name|trimmed
 argument_list|()
 condition|)
-block|{
 return|return
 name|returnBool
 argument_list|(
@@ -8311,7 +8306,6 @@ literal|0
 index|]
 argument_list|)
 return|;
-block|}
 block|}
 block|}
 return|return
@@ -10329,11 +10323,9 @@ argument_list|(
 name|file
 argument_list|)
 condition|)
-block|{
 return|return
 name|ReturnTrue
 return|;
-block|}
 name|int
 name|slsh
 init|=
