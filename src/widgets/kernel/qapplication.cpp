@@ -1665,6 +1665,13 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_function_decl
+specifier|extern
+name|void
+name|qRegisterWidgetsVariant
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_comment
 comment|/*!   \fn void QApplicationPrivate::initialize()    Initializes the QApplication object, called from the constructors. */
 end_comment
@@ -1689,6 +1696,10 @@ name|allWidgets
 operator|=
 operator|new
 name|QWidgetSet
+expr_stmt|;
+comment|// needed for a static build.
+name|qRegisterWidgetsVariant
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
