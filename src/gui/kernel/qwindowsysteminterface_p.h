@@ -1335,13 +1335,31 @@ argument_list|(
 name|FileOpen
 argument_list|)
 block|,
-name|fileName
+name|url
 argument_list|(
-argument|fileName
+argument|QUrl::fromLocalFile(fileName)
 argument_list|)
 block|{ }
-name|QString
-name|fileName
+name|FileOpenEvent
+argument_list|(
+specifier|const
+name|QUrl
+operator|&
+name|url
+argument_list|)
+operator|:
+name|WindowSystemEvent
+argument_list|(
+name|FileOpen
+argument_list|)
+block|,
+name|url
+argument_list|(
+argument|url
+argument_list|)
+block|{ }
+name|QUrl
+name|url
 block|;     }
 decl_stmt|;
 name|class

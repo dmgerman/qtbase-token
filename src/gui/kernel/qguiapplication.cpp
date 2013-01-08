@@ -6940,7 +6940,7 @@ if|if
 condition|(
 name|e
 operator|->
-name|fileName
+name|url
 operator|.
 name|isEmpty
 argument_list|()
@@ -6951,7 +6951,7 @@ name|event
 argument_list|(
 name|e
 operator|->
-name|fileName
+name|url
 argument_list|)
 decl_stmt|;
 name|QGuiApplication

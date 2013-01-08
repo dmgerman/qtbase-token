@@ -1238,6 +1238,16 @@ parameter_list|)
 function_decl|;
 specifier|static
 name|void
+name|handleFileOpenEvent
+parameter_list|(
+specifier|const
+name|QUrl
+modifier|&
+name|url
+parameter_list|)
+function_decl|;
+specifier|static
+name|void
 name|handleTabletEvent
 argument_list|(
 name|QWindow
