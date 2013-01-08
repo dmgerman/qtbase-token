@@ -205,6 +205,20 @@ name|cgImageToQImage
 argument_list|(
 argument|CGImageRef image
 argument_list|)
+block|;
+comment|// Embedding NSViews as child QWindows
+specifier|static
+name|void
+name|setWindowContentView
+argument_list|(
+name|QPlatformWindow
+operator|*
+name|window
+argument_list|,
+name|void
+operator|*
+name|nsViewContentView
+argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
