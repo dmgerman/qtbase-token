@@ -3067,6 +3067,10 @@ operator|.
 name|split
 argument_list|(
 literal|"."
+argument_list|,
+name|QString
+operator|::
+name|SkipEmptyParts
 argument_list|)
 decl_stmt|;
 for|for
