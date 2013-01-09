@@ -2478,7 +2478,7 @@ argument_list|(
 argument|const QT_PREPEND_NAMESPACE(QByteArray)&normalizedTypeName
 ifndef|#
 directive|ifndef
-name|qdoc
+name|Q_QDOC
 argument_list|,
 argument|T * dummy =
 literal|0
@@ -2655,7 +2655,7 @@ argument_list|(
 argument|const char *typeName
 ifndef|#
 directive|ifndef
-name|qdoc
+name|Q_QDOC
 argument_list|,
 argument|T * dummy =
 literal|0
@@ -2730,7 +2730,7 @@ argument_list|(
 argument|const char *typeName
 ifndef|#
 directive|ifndef
-name|qdoc
+name|Q_QDOC
 argument_list|,
 argument|T *
 comment|/* dummy */
@@ -2789,7 +2789,7 @@ name|qMetaTypeId
 argument_list|(
 ifndef|#
 directive|ifndef
-name|qdoc
+name|Q_QDOC
 argument|T *
 comment|/* dummy */
 argument|=
@@ -2838,7 +2838,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|qdoc
+name|Q_QDOC
 argument_list|)
 operator|&&
 operator|!

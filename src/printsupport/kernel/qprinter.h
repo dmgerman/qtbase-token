@@ -816,7 +816,7 @@ argument_list|)
 operator|||
 name|defined
 argument_list|(
-name|qdoc
+name|Q_QDOC
 argument_list|)
 end_if
 begin_expr_stmt

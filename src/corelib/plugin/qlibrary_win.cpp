@@ -99,9 +99,12 @@ argument_list|)
 expr_stmt|;
 return|return
 name|QStringList
-argument_list|()
-operator|<<
+argument_list|(
+name|QStringLiteral
+argument_list|(
 literal|".dll"
+argument_list|)
+argument_list|)
 return|;
 block|}
 end_function

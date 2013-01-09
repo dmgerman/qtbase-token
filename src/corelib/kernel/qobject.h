@@ -460,7 +460,7 @@ parameter_list|)
 function_decl|;
 ifdef|#
 directive|ifdef
-name|qdoc
+name|Q_QDOC
 specifier|static
 name|QString
 name|tr
@@ -2255,7 +2255,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|qdoc
+name|Q_QDOC
 argument_list|)
 parameter_list|,
 name|QPrivateSignal
@@ -2661,7 +2661,7 @@ end_endif
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|qdoc
+name|Q_QDOC
 end_ifdef
 begin_function_decl
 name|T

@@ -42,7 +42,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|qdoc
+name|Q_QDOC
 argument_list|)
 ifdef|#
 directive|ifdef
@@ -534,7 +534,7 @@ else|#
 directive|else
 end_else
 begin_comment
-comment|// QT_NO_THREAD or qdoc
+comment|// QT_NO_THREAD or Q_QDOC
 end_comment
 begin_decl_stmt
 name|class
@@ -684,7 +684,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_THREAD or qdoc
+comment|// QT_NO_THREAD or Q_QDOC
 end_comment
 begin_expr_stmt
 name|QT_END_NAMESPACE

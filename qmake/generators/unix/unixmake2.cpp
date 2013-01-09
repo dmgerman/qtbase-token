@@ -5259,7 +5259,7 @@ literal|"no_autoqmake"
 argument_list|)
 condition|)
 block|{
-name|QString
+name|QStringList
 name|meta_files
 decl_stmt|;
 if|if
@@ -5290,18 +5290,6 @@ argument_list|)
 condition|)
 block|{
 comment|//libtool
-if|if
-condition|(
-operator|!
-name|meta_files
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-name|meta_files
-operator|+=
-literal|" "
-expr_stmt|;
 name|meta_files
 operator|+=
 name|libtoolFileName
@@ -5328,18 +5316,6 @@ literal|"lib"
 condition|)
 block|{
 comment|//pkg-config
-if|if
-condition|(
-operator|!
-name|meta_files
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-name|meta_files
-operator|+=
-literal|" "
-expr_stmt|;
 name|meta_files
 operator|+=
 name|pkgConfigFileName
@@ -5356,9 +5332,14 @@ argument_list|()
 condition|)
 name|t
 operator|<<
-name|escapeDependencyPath
+name|escapeDependencyPaths
 argument_list|(
 name|meta_files
+argument_list|)
+operator|.
+name|join
+argument_list|(
+literal|" "
 argument_list|)
 operator|<<
 literal|": "

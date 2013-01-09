@@ -38,7 +38,7 @@ name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 ifdef|#
 directive|ifdef
-name|qdoc
+name|Q_QDOC
 name|namespace
 name|QtConcurrent
 block|{
@@ -1074,7 +1074,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// qdoc
+comment|// Q_QDOC
 end_comment
 begin_macro
 unit|QT_END_NAMESPACE

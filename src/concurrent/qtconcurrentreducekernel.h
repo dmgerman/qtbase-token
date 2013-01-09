@@ -66,7 +66,7 @@ name|QtConcurrent
 block|{
 ifndef|#
 directive|ifndef
-name|qdoc
+name|Q_QDOC
 comment|/*     The ReduceQueueStartLimit and ReduceQueueThrottleLimit constants     limit the reduce queue size for MapReduce. When the number of     reduce blocks in the queue exceeds ReduceQueueStartLimit,     MapReduce won't start any new threads, and when it exceeds     ReduceQueueThrottleLimit running threads will be stopped. */
 enum|enum
 block|{
@@ -106,7 +106,7 @@ block|; }
 expr_stmt|;
 endif|#
 directive|endif
-comment|// qdoc
+comment|// Q_QDOC
 enum|enum
 name|ReduceOption
 block|{
@@ -136,7 +136,7 @@ argument|ReduceOptions
 argument_list|)
 ifndef|#
 directive|ifndef
-name|qdoc
+name|Q_QDOC
 comment|// supports both ordered and out-of-order reduction
 name|template
 operator|<
@@ -743,7 +743,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|//qdoc
+comment|//Q_QDOC
 end_comment
 begin_comment
 unit|}

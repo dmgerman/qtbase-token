@@ -186,7 +186,7 @@ name|qDBusRegisterMetaType
 argument_list|(
 ifndef|#
 directive|ifndef
-name|qdoc
+name|Q_QDOC
 argument|T *
 comment|/* dummy */
 argument|=

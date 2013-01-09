@@ -364,7 +364,7 @@ end_decl_stmt
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|qdoc
+name|Q_QDOC
 end_ifdef
 begin_expr_stmt
 name|int

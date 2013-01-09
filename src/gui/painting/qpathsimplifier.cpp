@@ -42,26 +42,18 @@ include|#
 directive|include
 file|<private/qrbtree_p.h>
 end_include
-begin_macro
+begin_function
 name|QT_BEGIN_NAMESPACE
-end_macro
-begin_define
 DECL|macro|Q_FIXED_POINT_SCALE
 define|#
 directive|define
 name|Q_FIXED_POINT_SCALE
 value|256
-end_define
-begin_define
 DECL|macro|Q_TRIANGULATE_END_OF_POLYGON
 define|#
 directive|define
 name|Q_TRIANGULATE_END_OF_POLYGON
 value|quint32(-1)
-end_define
-begin_namespace
-namespace|namespace
-block|{
 comment|//============================================================================//
 comment|//                                   QPoint                                   //
 comment|//============================================================================//
@@ -116,6 +108,8 @@ argument_list|()
 operator|)
 return|;
 block|}
+end_function
+begin_function
 DECL|function|operator >
 specifier|inline
 name|bool
@@ -139,6 +133,8 @@ operator|<
 name|a
 return|;
 block|}
+end_function
+begin_function
 DECL|function|operator <=
 specifier|inline
 name|bool
@@ -165,6 +161,8 @@ name|b
 operator|)
 return|;
 block|}
+end_function
+begin_function
 DECL|function|operator >=
 specifier|inline
 name|bool
@@ -191,6 +189,10 @@ name|b
 operator|)
 return|;
 block|}
+end_function
+begin_namespace
+namespace|namespace
+block|{
 DECL|function|cross
 specifier|inline
 name|int

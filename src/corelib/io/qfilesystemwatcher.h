@@ -133,7 +133,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|qdoc
+name|Q_QDOC
 argument_list|)
 argument_list|,
 name|QPrivateSignal
@@ -153,7 +153,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|qdoc
+name|Q_QDOC
 argument_list|)
 argument_list|,
 name|QPrivateSignal
