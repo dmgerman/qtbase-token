@@ -48,6 +48,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/QLoggingCategory>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtTest/QtTest>
 end_include
 begin_class
@@ -84,9 +89,22 @@ name|noDebugOutput
 parameter_list|()
 specifier|const
 block|{
+name|QLoggingCategory
+name|cat
+argument_list|(
+literal|"custom"
+argument_list|)
+decl_stmt|;
 comment|// should do nothing
 name|qDebug
 argument_list|()
+operator|<<
+literal|"foo"
+expr_stmt|;
+name|qCDebug
+argument_list|(
+name|cat
+argument_list|)
 operator|<<
 literal|"foo"
 expr_stmt|;
@@ -100,10 +118,26 @@ argument_list|,
 literal|"bar "
 argument_list|)
 expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"custom-bar "
+argument_list|)
+expr_stmt|;
 name|qWarning
 argument_list|()
 operator|<<
 literal|"bar"
+expr_stmt|;
+name|qCWarning
+argument_list|(
+name|cat
+argument_list|)
+operator|<<
+literal|"custom-bar"
 expr_stmt|;
 block|}
 end_function
