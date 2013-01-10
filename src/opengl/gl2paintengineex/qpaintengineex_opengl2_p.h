@@ -505,7 +505,7 @@ argument_list|()
 specifier|const
 block|;
 name|bool
-name|supportsTransformations
+name|requiresPretransformedGlyphPositions
 argument_list|(
 argument|QFontEngine *
 argument_list|,
@@ -514,20 +514,31 @@ argument_list|)
 specifier|const
 block|{
 return|return
-name|true
+name|false
 return|;
 block|}
+name|bool
+name|shouldDrawCachedGlyphs
+argument_list|(
+argument|QFontEngine *
+argument_list|,
+argument|const QTransform&
+argument_list|)
+specifier|const
+block|;
 name|private
 operator|:
 name|Q_DISABLE_COPY
 argument_list|(
 argument|QGL2PaintEngineEx
 argument_list|)
-expr|}
-block|;
+block|}
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QGL2PaintEngineExPrivate
-operator|:
+range|:
 name|public
 name|QPaintEngineExPrivate
 block|{
@@ -1147,7 +1158,9 @@ index|[
 literal|3
 index|]
 block|; }
-block|;
+decl_stmt|;
+end_decl_stmt
+begin_expr_stmt
 DECL|function|setVertexAttributePointer
 name|void
 name|QGL2PaintEngineExPrivate
@@ -1182,7 +1195,9 @@ name|arrayIndex
 index|]
 operator|=
 name|pointer
-block|;
+expr_stmt|;
+end_expr_stmt
+begin_if
 if|if
 condition|(
 name|arrayIndex
@@ -1220,12 +1235,9 @@ argument_list|,
 name|pointer
 argument_list|)
 expr_stmt|;
-block|}
-end_decl_stmt
-begin_macro
-name|QT_END_NAMESPACE
-end_macro
+end_if
 begin_endif
+unit|}  QT_END_NAMESPACE
 endif|#
 directive|endif
 end_endif

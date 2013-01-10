@@ -667,7 +667,7 @@ return|;
 block|}
 name|virtual
 name|bool
-name|supportsTransformations
+name|requiresPretransformedGlyphPositions
 argument_list|(
 argument|QFontEngine *fontEngine
 argument_list|,

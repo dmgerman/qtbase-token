@@ -334,7 +334,7 @@ argument_list|()
 specifier|const
 block|;
 name|bool
-name|supportsTransformations
+name|supportsTransformation
 argument_list|(
 argument|const QTransform&transform
 argument_list|)

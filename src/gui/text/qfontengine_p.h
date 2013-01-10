@@ -828,7 +828,7 @@ return|;
 block|}
 name|virtual
 name|bool
-name|supportsTransformations
+name|supportsTransformation
 argument_list|(
 argument|const QTransform&transform
 argument_list|)

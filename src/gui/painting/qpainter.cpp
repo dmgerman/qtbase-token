@@ -19744,7 +19744,7 @@ name|font
 argument_list|)
 decl_stmt|;
 name|bool
-name|supportsTransformations
+name|engineRequiresPretransformedGlyphPositions
 init|=
 name|d
 operator|->
@@ -19754,7 +19754,7 @@ name|d
 operator|->
 name|extended
 operator|->
-name|supportsTransformations
+name|requiresPretransformedGlyphPositions
 argument_list|(
 name|fontD
 operator|->
@@ -19773,11 +19773,12 @@ name|engine
 operator|->
 name|type
 argument_list|()
-operator|==
+operator|!=
 name|QPaintEngine
 operator|::
 name|CoreGraphics
-operator|||
+operator|&&
+operator|!
 name|d
 operator|->
 name|state
@@ -19814,8 +19815,7 @@ index|]
 decl_stmt|;
 if|if
 condition|(
-operator|!
-name|supportsTransformations
+name|engineRequiresPretransformedGlyphPositions
 condition|)
 name|processedPosition
 operator|=
@@ -20655,13 +20655,13 @@ literal|0
 argument_list|)
 expr_stmt|;
 name|bool
-name|supportsTransformations
+name|engineRequiresPretransform
 init|=
 name|d
 operator|->
 name|extended
 operator|->
-name|supportsTransformations
+name|requiresPretransformedGlyphPositions
 argument_list|(
 name|fe
 argument_list|,
@@ -20674,19 +20674,20 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|supportsTransformations
-operator|&&
-operator|!
 name|staticText_d
 operator|->
 name|untransformedCoordinates
+operator|&&
+name|engineRequiresPretransform
 condition|)
 block|{
+comment|// The coordinates are untransformed, and the engine can't deal with that
+comment|// nativly, so we have to pre-transform the static text.
 name|staticText_d
 operator|->
 name|untransformedCoordinates
 operator|=
-literal|true
+literal|false
 expr_stmt|;
 name|staticText_d
 operator|->
@@ -20699,18 +20700,21 @@ elseif|else
 if|if
 condition|(
 operator|!
-name|supportsTransformations
-operator|&&
 name|staticText_d
 operator|->
 name|untransformedCoordinates
+operator|&&
+operator|!
+name|engineRequiresPretransform
 condition|)
 block|{
+comment|// The coordinates are already transformed, but the engine can handle that
+comment|// nativly, so undo the transform of the static text.
 name|staticText_d
 operator|->
 name|untransformedCoordinates
 operator|=
-literal|false
+literal|true
 expr_stmt|;
 name|staticText_d
 operator|->

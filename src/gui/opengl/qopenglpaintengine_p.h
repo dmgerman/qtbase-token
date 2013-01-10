@@ -510,7 +510,7 @@ argument_list|()
 specifier|const
 block|;
 name|bool
-name|supportsTransformations
+name|requiresPretransformedGlyphPositions
 argument_list|(
 argument|QFontEngine *
 argument_list|,
@@ -519,9 +519,18 @@ argument_list|)
 specifier|const
 block|{
 return|return
-name|true
+name|false
 return|;
 block|}
+name|bool
+name|shouldDrawCachedGlyphs
+argument_list|(
+argument|QFontEngine *
+argument_list|,
+argument|const QTransform&
+argument_list|)
+specifier|const
+block|;
 name|private
 operator|:
 name|Q_DISABLE_COPY
