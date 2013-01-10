@@ -3833,12 +3833,37 @@ name|gtk_combo_box_new_with_entry
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|addWidget
-argument_list|(
+name|GtkWidget
+modifier|*
+name|entry
+init|=
 name|QGtkStylePrivate
 operator|::
 name|gtk_entry_new
 argument_list|()
+decl_stmt|;
+comment|// gtk-im-context-none is supported in gtk+ since 2.19.5
+comment|// and also exists in gtk3
+comment|// http://git.gnome.org/browse/gtk+/tree/gtk/gtkimmulticontext.c?id=2.19.5#n33
+comment|// reason that we don't use gtk-im-context-simple here is,
+comment|// gtk-im-context-none has less overhead, and 2.19.5 is
+comment|// relatively old. and even for older gtk+, it will fallback
+comment|// to gtk-im-context-simple if gtk-im-context-none doesn't
+comment|// exists.
+name|g_object_set
+argument_list|(
+name|entry
+argument_list|,
+literal|"im-module"
+argument_list|,
+literal|"gtk-im-context-none"
+argument_list|,
+name|NULL
+argument_list|)
+expr_stmt|;
+name|addWidget
+argument_list|(
+name|entry
 argument_list|)
 expr_stmt|;
 name|addWidget
