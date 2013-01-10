@@ -2510,6 +2510,9 @@ begin_comment
 comment|/*! \fn QHash::QHash()      Constructs an empty hash.      \sa clear() */
 end_comment
 begin_comment
+comment|/*! \fn QHash::QHash(std::initializer_list<std::pair<Key,T>> list)     \since 5.1      Constructs a hash with a copy of each of the elements in the     initializer list \a list.      This function is only available if the program is being     compiled in C++11 mode. */
+end_comment
+begin_comment
 comment|/*! \fn QHash::QHash(const QHash<Key, T>&other)      Constructs a copy of \a other.      This operation occurs in \l{constant time}, because QHash is     \l{implicitly shared}. This makes returning a QHash from a     function very fast. If a shared instance is modified, it will be     copied (copy-on-write), and this takes \l{linear time}.      \sa operator=() */
 end_comment
 begin_comment
@@ -2820,6 +2823,9 @@ comment|/*! \class QMultiHash     \inmodule QtCore     \brief The QMultiHash cla
 end_comment
 begin_comment
 comment|/*! \fn QMultiHash::QMultiHash()      Constructs an empty hash. */
+end_comment
+begin_comment
+comment|/*! \fn QMultiHash::QMultiHash(std::initializer_list<std::pair<Key,T>> list)     \since 5.1      Constructs a multi hash with a copy of each of the elements in the     initializer list \a list.      This function is only available if the program is being     compiled in C++11 mode. */
 end_comment
 begin_comment
 comment|/*! \fn QMultiHash::QMultiHash(const QHash<Key, T>&other)      Constructs a copy of \a other (which can be a QHash or a     QMultiHash).      \sa operator=() */

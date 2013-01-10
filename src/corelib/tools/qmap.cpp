@@ -2088,6 +2088,9 @@ begin_comment
 comment|/*! \fn QMap::QMap(const std::map<Key, T>& other)      Constructs a copy of \a other.      This function is only available if Qt is configured with STL     compatibility enabled.      \sa toStdMap() */
 end_comment
 begin_comment
+comment|/*! \fn QMap::QMap(std::initializer_list<std::pair<Key,T>> list)     \since 5.1      Constructs a map with a copy of each of the elements in the     initializer list \a list.      This function is only available if the program is being     compiled in C++11 mode. */
+end_comment
+begin_comment
 comment|/*! \fn std::map<Key, T> QMap::toStdMap() const      Returns an STL map equivalent to this QMap.      This function is only available if Qt is configured with STL     compatibility enabled. */
 end_comment
 begin_comment
@@ -2398,6 +2401,9 @@ comment|/*! \class QMultiMap     \inmodule QtCore     \brief The QMultiMap class
 end_comment
 begin_comment
 comment|/*! \fn QMultiMap::QMultiMap()      Constructs an empty map. */
+end_comment
+begin_comment
+comment|/*! \fn QMultiMap::QMultiMap(std::initializer_list<std::pair<Key,T>> list)     \since 5.1      Constructs a multi map with a copy of each of the elements in the     initializer list \a list.      This function is only available if the program is being     compiled in C++11 mode. */
 end_comment
 begin_comment
 comment|/*! \fn QMultiMap::QMultiMap(const QMap<Key, T>&other)      Constructs a copy of \a other (which can be a QMap or a     QMultiMap).      \sa operator=() */
