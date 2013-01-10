@@ -15218,7 +15218,7 @@ name|setCurrentAction
 argument_list|(
 name|nextAction
 argument_list|,
-literal|20
+literal|0
 argument_list|,
 name|QMenuPrivate
 operator|::
