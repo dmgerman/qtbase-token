@@ -81,6 +81,8 @@ block|,
 name|Raster_A8
 block|,
 name|Raster_Mono
+block|,
+name|Raster_ARGB
 block|}
 block|;
 name|QFontEngineGlyphCache
