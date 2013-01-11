@@ -829,19 +829,15 @@ name|argumentAt
 argument_list|()
 specifier|const
 block|{
-comment|// static assert?
-name|Q_ASSERT_X
+name|Q_STATIC_ASSERT_X
 argument_list|(
-name|Index
-operator|<
-name|count
-argument_list|()
-operator|&&
 name|Index
 operator|>=
 literal|0
-argument_list|,
-literal|"QDBusPendingReply::argumentAt"
+operator|&&
+name|Index
+operator|<
+name|Count
 argument_list|,
 literal|"Index out of bounds"
 argument_list|)

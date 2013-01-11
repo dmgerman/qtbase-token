@@ -50,16 +50,16 @@ begin_comment
 comment|/*!     \fn int QDBusPendingReply::count() const      Return the number of arguments the reply is supposed to have. This     number matches the number of non-void template parameters in this     class.      If the reply arrives with a different number of arguments (or with     different types), it will be transformed into an error reply     indicating a bad signature. */
 end_comment
 begin_comment
-comment|/*!     \fn QVariant QDBusPendingReply::argumentAt(int index) const      Returns the argument at position \a index in the reply's     contents. If the reply doesn't have that many elements, this     function's return value is undefined (will probably cause an     assertion failure), so it is important to verify that the     processing is finished and the reply is valid. */
+comment|/*!     \fn QVariant QDBusPendingReply::argumentAt(int index) const      Returns the argument at position \a index in the reply's     contents. If the reply doesn't have that many elements, this     function's return value is undefined (will probably cause an     assertion failure), so it is important to verify that the     processing is finished and the reply is valid.      If the reply does not contain an argument at position \a index or if the     reply was an error, this function returns an invalid QVariant. Since D-Bus     messages can never contain invalid QVariants, this return can be used to     detect an error condition. */
 end_comment
 begin_comment
-comment|/*!     \fn Type QDBusPendingReply::argumentAt() const      Returns the argument at position \c Index (which is a template     parameter) cast to type \c Type. This function uses template code     to determine the proper \c Type type, according to the type list     used in the construction of this object.      Note that, if the reply hasn't arrived, this function causes the     calling thread to block until the reply is processed. */
+comment|/*!     \fn Type QDBusPendingReply::argumentAt() const      Returns the argument at position \c Index (which is a template     parameter) cast to type \c Type. This function uses template code     to determine the proper \c Type type, according to the type list     used in the construction of this object.      Note that, if the reply hasn't arrived, this function causes the     calling thread to block until the reply is processed.      If the reply does not contain an argument at position \c Index or if the     reply was an error, this function returns a \c Type object that is default     constructed, which may be indistinguishable from a valid value. To reliably     determine whether the message was an error, use isError(). */
 end_comment
 begin_comment
-comment|/*!     \fn T1 QDBusPendingReply::value() const      Returns the first argument in this reply, cast to type \c T1 (the     first template parameter of this class). This is equivalent to     calling argumentAt<0>().      This function is provided as a convenience, matching the     QDBusReply::value() function.      Note that, if the reply hasn't arrived, this function causes the     calling thread to block until the reply is processed. */
+comment|/*!     \fn T1 QDBusPendingReply::value() const      Returns the first argument in this reply, cast to type \c T1 (the     first template parameter of this class). This is equivalent to     calling argumentAt<0>().      This function is provided as a convenience, matching the     QDBusReply::value() function.      Note that, if the reply hasn't arrived, this function causes the     calling thread to block until the reply is processed.      If the reply is an error reply, this function returns a default-constructed     \c T1 object, which may be indistinguishable from a valid value. To     reliably determine whether the message was an error, use isError(). */
 end_comment
 begin_comment
-comment|/*!     \fn QDBusPendingReply::operator T1() const      Returns the first argument in this reply, cast to type \c T1 (the     first template parameter of this class). This is equivalent to     calling argumentAt<0>().      This function is provided as a convenience, matching the     QDBusReply::value() function.      Note that, if the reply hasn't arrived, this function causes the     calling thread to block until the reply is processed. */
+comment|/*!     \fn QDBusPendingReply::operator T1() const      Returns the first argument in this reply, cast to type \c T1 (the     first template parameter of this class). This is equivalent to     calling argumentAt<0>().      This function is provided as a convenience, matching the     QDBusReply::value() function.      Note that, if the reply hasn't arrived, this function causes the     calling thread to block until the reply is processed.      If the reply is an error reply, this function returns a default-constructed     \c T1 object, which may be indistinguishable from a valid value. To     reliably determine whether the message was an error, use isError(). */
 end_comment
 begin_comment
 comment|/*!     \fn void QDBusPendingReply::waitForFinished()      Suspends the execution of the calling thread until the reply is     received and processed. After this function returns, isFinished()     should return true, indicating the reply's contents are ready to     be processed.      \sa QDBusPendingCallWatcher::waitForFinished() */
@@ -157,39 +157,19 @@ specifier|const
 block|{
 if|if
 condition|(
+operator|!
 name|d
 condition|)
+return|return
+name|QVariant
+argument_list|()
+return|;
 name|d
 operator|->
 name|waitForFinished
 argument_list|()
 expr_stmt|;
 comment|// bypasses "const"
-name|Q_ASSERT_X
-argument_list|(
-name|d
-operator|&&
-name|index
-operator|>=
-literal|0
-operator|&&
-name|index
-operator|<
-name|d
-operator|->
-name|replyMessage
-operator|.
-name|arguments
-argument_list|()
-operator|.
-name|count
-argument_list|()
-argument_list|,
-literal|"QDBusPendingReply::argumentAt"
-argument_list|,
-literal|"Index out of bounds"
-argument_list|)
-expr_stmt|;
 return|return
 name|d
 operator|->
@@ -198,7 +178,7 @@ operator|.
 name|arguments
 argument_list|()
 operator|.
-name|at
+name|value
 argument_list|(
 name|index
 argument_list|)
