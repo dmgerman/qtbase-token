@@ -168,7 +168,8 @@ specifier|static
 name|bool
 name|fatalWarnings
 init|=
-name|qEnvironmentVariableIsSet
+operator|!
+name|qEnvironmentVariableIsEmpty
 argument_list|(
 literal|"QT_FATAL_WARNINGS"
 argument_list|)
