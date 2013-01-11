@@ -1411,7 +1411,7 @@ name|transform
 operator|.
 name|type
 argument_list|()
-operator|<=
+operator|<
 name|QTransform
 operator|::
 name|TxProject
