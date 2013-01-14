@@ -6546,7 +6546,7 @@ operator|<<
 literal|"/usr/local/ssl/certs/"
 comment|// Solaris
 operator|<<
-literal|"/var/certmgr/web/user_trusted/"
+literal|"/etc/openssl/certs/"
 comment|// BlackBerry
 operator|<<
 literal|"/opt/openssl/certs/"
