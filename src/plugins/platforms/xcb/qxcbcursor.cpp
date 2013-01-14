@@ -3840,7 +3840,14 @@ comment|// No X11 cursor control when there is no widget under the cursor
 return|return;
 name|xcb_cursor_t
 name|c
+init|=
+name|XCB_CURSOR_NONE
 decl_stmt|;
+if|if
+condition|(
+name|cursor
+condition|)
+block|{
 if|if
 condition|(
 name|cursor
@@ -3940,6 +3947,7 @@ argument_list|(
 name|id
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|w
 operator|->

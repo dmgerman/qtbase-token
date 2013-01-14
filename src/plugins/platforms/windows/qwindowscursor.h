@@ -46,6 +46,9 @@ name|QWindowsWindowCursor
 block|{
 name|public
 label|:
+name|QWindowsWindowCursor
+argument_list|()
+expr_stmt|;
 name|explicit
 name|QWindowsWindowCursor
 parameter_list|(
@@ -78,6 +81,11 @@ operator|&
 name|c
 operator|)
 decl_stmt|;
+name|bool
+name|isNull
+argument_list|()
+specifier|const
+expr_stmt|;
 name|QCursor
 name|cursor
 argument_list|()
