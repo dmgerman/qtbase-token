@@ -528,6 +528,16 @@ operator|::
 name|platformNativeInterface
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|window
+operator|->
+name|handle
+argument_list|()
+condition|)
+comment|// Called before show(), no native window yet.
+return|return;
 name|HWND
 name|hWnd
 init|=
