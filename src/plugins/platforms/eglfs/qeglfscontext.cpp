@@ -233,6 +233,11 @@ name|paintOnScreen
 argument_list|()
 expr_stmt|;
 block|}
+name|hooks
+operator|->
+name|waitForVSync
+argument_list|()
+expr_stmt|;
 name|QEGLPlatformContext
 operator|::
 name|swapBuffers

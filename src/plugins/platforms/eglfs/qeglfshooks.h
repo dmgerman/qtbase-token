@@ -168,6 +168,12 @@ argument_list|)
 decl|const
 decl_stmt|;
 name|virtual
+name|void
+name|waitForVSync
+argument_list|()
+specifier|const
+expr_stmt|;
+name|virtual
 specifier|const
 name|char
 operator|*
