@@ -1027,6 +1027,22 @@ operator|==
 name|ConnectingState
 condition|)
 block|{
+name|setErrorString
+argument_list|(
+name|tr
+argument_list|(
+literal|"Trying to connect while connection is in progress"
+argument_list|)
+argument_list|)
+expr_stmt|;
+emit|emit
+name|error
+argument_list|(
+name|QLocalSocket
+operator|::
+name|OperationError
+argument_list|)
+emit|;
 return|return
 literal|false
 return|;
