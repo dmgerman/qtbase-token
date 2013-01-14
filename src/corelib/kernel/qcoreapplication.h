@@ -849,6 +849,17 @@ define|\
 value|public: \     static inline QString tr(const char *sourceText, const char *disambiguation = 0, int n = -1) \         { return QCoreApplication::translate(#context, sourceText, disambiguation, n); } \     QT_DEPRECATED static inline QString trUtf8(const char *sourceText, const char *disambiguation = 0, int n = -1) \         { return QCoreApplication::translate(#context, sourceText, disambiguation, n); } \ private:
 end_define
 begin_typedef
+DECL|typedef|QtStartUpFunction
+typedef|typedef
+name|void
+function_decl|(
+modifier|*
+name|QtStartUpFunction
+function_decl|)
+parameter_list|()
+function_decl|;
+end_typedef
+begin_typedef
 DECL|typedef|QtCleanUpFunction
 typedef|typedef
 name|void
@@ -859,6 +870,15 @@ function_decl|)
 parameter_list|()
 function_decl|;
 end_typedef
+begin_function_decl
+name|Q_CORE_EXPORT
+name|void
+name|qAddPreRoutine
+parameter_list|(
+name|QtStartUpFunction
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_function_decl
 name|Q_CORE_EXPORT
 name|void
@@ -887,6 +907,17 @@ end_function_decl
 begin_comment
 comment|// get application name
 end_comment
+begin_define
+DECL|macro|Q_COREAPP_STARTUP_FUNCTION
+define|#
+directive|define
+name|Q_COREAPP_STARTUP_FUNCTION
+parameter_list|(
+name|AFUNC
+parameter_list|)
+define|\
+value|static void AFUNC ## _ctor_function() {  \         qAddPreRoutine(AFUNC);        \     }                                 \     Q_CONSTRUCTOR_FUNCTION(AFUNC ## _ctor_function)
+end_define
 begin_if
 if|#
 directive|if

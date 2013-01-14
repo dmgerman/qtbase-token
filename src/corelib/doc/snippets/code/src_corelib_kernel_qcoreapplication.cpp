@@ -109,6 +109,47 @@ begin_comment
 comment|//! [3]
 end_comment
 begin_comment
+comment|// Called once QCoreApplication exists
+end_comment
+begin_function
+DECL|function|preRoutineMyDebugTool
+specifier|static
+name|void
+name|preRoutineMyDebugTool
+parameter_list|()
+block|{
+name|MyDebugTool
+modifier|*
+name|tool
+init|=
+operator|new
+name|MyDebugTool
+argument_list|(
+name|QCoreApplication
+operator|::
+name|instance
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|QCoreApplication
+operator|::
+name|instance
+argument_list|()
+operator|->
+name|installEventFilter
+argument_list|(
+name|tool
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_macro
+name|Q_COREAPP_STARTUP_FUNCTION
+argument_list|(
+argument|preRoutineMyDebugTool
+argument_list|)
+end_macro
+begin_comment
 comment|//! [3]
 end_comment
 begin_comment
