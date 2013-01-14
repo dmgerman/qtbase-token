@@ -3365,6 +3365,9 @@ begin_comment
 comment|/*! \fn bool QFSFileEngine::rename(const QString&newName)   \reimp */
 end_comment
 begin_comment
+comment|/*! \fn bool QFSFileEngine::renameOverwrite(const QString&newName)   \reimp */
+end_comment
+begin_comment
 comment|/*! \fn bool QFSFileEngine::rmdir(const QString&name, bool recurseParentDirectories) const   \reimp */
 end_comment
 begin_comment

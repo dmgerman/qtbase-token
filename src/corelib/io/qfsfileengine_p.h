@@ -193,6 +193,15 @@ name|newName
 argument_list|)
 block|;
 name|bool
+name|renameOverwrite
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|newName
+argument_list|)
+block|;
+name|bool
 name|link
 argument_list|(
 specifier|const

@@ -333,6 +333,16 @@ parameter_list|)
 function_decl|;
 name|virtual
 name|bool
+name|renameOverwrite
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|newName
+parameter_list|)
+function_decl|;
+name|virtual
+name|bool
 name|link
 parameter_list|(
 specifier|const
