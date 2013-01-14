@@ -149,6 +149,10 @@ name|bool
 name|flush
 argument_list|()
 block|;
+name|bool
+name|syncToDisk
+argument_list|()
+block|;
 name|qint64
 name|size
 argument_list|()
@@ -522,6 +526,10 @@ argument_list|()
 block|;
 name|bool
 name|nativeFlush
+argument_list|()
+block|;
+name|bool
+name|nativeSyncToDisk
 argument_list|()
 block|;
 name|bool

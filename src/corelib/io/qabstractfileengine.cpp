@@ -502,6 +502,22 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \since 5.1      Flushes and syncs the file to disk.      Returns true if successful; otherwise returns false.     The default implementation always returns false. */
+end_comment
+begin_function
+DECL|function|syncToDisk
+name|bool
+name|QAbstractFileEngine
+operator|::
+name|syncToDisk
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     Flushes the open file, returning true if successful; otherwise returns     false.      The default implementation always returns false. */
 end_comment
 begin_function

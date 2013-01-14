@@ -655,12 +655,43 @@ return|return
 literal|true
 return|;
 block|}
-comment|// Windows native mode; flushing is
-comment|// unnecessary. FlushFileBuffers(), the equivalent of sync() or
-comment|// fsync() on Unix, does a low-level flush to the disk, and we
-comment|// don't expose an API for this.
+comment|// Windows native mode; flushing is unnecessary.
 return|return
 literal|true
+return|;
+block|}
+end_function
+begin_comment
+comment|/*     \internal     \since 5.1 */
+end_comment
+begin_function
+DECL|function|nativeSyncToDisk
+name|bool
+name|QFSFileEnginePrivate
+operator|::
+name|nativeSyncToDisk
+parameter_list|()
+block|{
+if|if
+condition|(
+name|fh
+operator|||
+name|fd
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
+comment|// stdlib / stdio mode. No API available.
+return|return
+literal|false
+return|;
+block|}
+return|return
+name|FlushFileBuffers
+argument_list|(
+name|fileHandle
+argument_list|)
 return|;
 block|}
 end_function

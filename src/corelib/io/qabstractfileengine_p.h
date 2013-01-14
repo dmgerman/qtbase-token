@@ -281,6 +281,11 @@ name|flush
 parameter_list|()
 function_decl|;
 name|virtual
+name|bool
+name|syncToDisk
+parameter_list|()
+function_decl|;
+name|virtual
 name|qint64
 name|size
 argument_list|()
