@@ -103,6 +103,11 @@ argument_list|(
 literal|0
 argument_list|)
 block|,
+name|allowRootCertOnDemandLoading
+argument_list|(
+name|true
+argument_list|)
+block|,
 name|sslOptions
 argument_list|(
 argument|QSslConfigurationPrivate::defaultSslOptions
@@ -150,6 +155,9 @@ name|peerVerifyMode
 block|;
 name|int
 name|peerVerifyDepth
+block|;
+name|bool
+name|allowRootCertOnDemandLoading
 block|;
 name|QSsl
 operator|::
