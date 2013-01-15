@@ -8923,7 +8923,11 @@ expr_stmt|;
 name|animation
 operator|->
 name|start
-argument_list|()
+argument_list|(
+name|QAbstractAnimation
+operator|::
+name|DeleteWhenStopped
+argument_list|)
 expr_stmt|;
 block|}
 end_function

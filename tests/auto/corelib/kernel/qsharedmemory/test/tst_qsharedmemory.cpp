@@ -658,7 +658,7 @@ name|unix_key
 argument_list|,
 literal|0
 argument_list|,
-literal|0660
+literal|0600
 argument_list|)
 decl_stmt|;
 if|if
