@@ -870,6 +870,15 @@ argument|bool srcPixelsAreOpaque
 argument_list|)
 block|;
 comment|// returns true if the program has changed
+name|bool
+name|prepareForCachedGlyphDraw
+argument_list|(
+specifier|const
+name|QFontEngineGlyphCache
+operator|&
+name|cache
+argument_list|)
+block|;
 specifier|inline
 name|void
 name|useSimpleShader
