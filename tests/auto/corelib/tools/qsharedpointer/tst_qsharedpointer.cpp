@@ -11072,6 +11072,9 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|!
+name|result
+operator|||
 name|qgetenv
 argument_list|(
 literal|"QTEST_EXTERNAL_DEBUG"
