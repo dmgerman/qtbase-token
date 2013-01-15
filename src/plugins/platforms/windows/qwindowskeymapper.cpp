@@ -4802,30 +4802,40 @@ operator|!
 name|isDeadKey
 condition|)
 block|{
-name|unsigned
-name|char
-name|kbdBuffer
-index|[
-literal|256
-index|]
-decl_stmt|;
-comment|// Will hold the complete keyboard state
-name|GetKeyboardState
-argument_list|(
-name|kbdBuffer
-argument_list|)
-expr_stmt|;
+comment|// QTBUG-8764, QTBUG-10032
+comment|// Can't call toKeyOrUnicode because that would call ToUnicode, and, if a dead key
+comment|// is pressed at the moment, Windows would NOT use it to compose a character for the next
+comment|// WM_CHAR event.
+comment|// Instead, use MapVirtualKey, which will provide adequate values.
 name|code
 operator|=
-name|toKeyOrUnicode
+name|MapVirtualKey
 argument_list|(
 name|msg
 operator|.
 name|wParam
 argument_list|,
-name|scancode
-argument_list|,
-name|kbdBuffer
+name|MAPVK_VK_TO_CHAR
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|code
+operator|<
+literal|0x20
+operator|||
+name|code
+operator|==
+literal|0x7f
+condition|)
+comment|// The same logic as in toKeyOrUnicode()
+name|code
+operator|=
+name|winceKeyBend
+argument_list|(
+name|msg
+operator|.
+name|wParam
 argument_list|)
 expr_stmt|;
 block|}
