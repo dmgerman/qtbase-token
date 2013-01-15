@@ -306,6 +306,17 @@ argument_list|)
 block|;
 name|virtual
 name|QImage
+name|alphaMapForGlyph
+argument_list|(
+argument|glyph_t glyph
+argument_list|,
+argument|QFixed subPixelPosition
+argument_list|,
+argument|const QTransform&t
+argument_list|)
+block|;
+name|virtual
+name|QImage
 name|alphaRGBMapForGlyph
 argument_list|(
 argument|glyph_t
