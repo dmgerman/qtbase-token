@@ -2232,6 +2232,9 @@ begin_comment
 comment|/*! \fn QMap::iterator QMap::insertMulti(const Key&key, const T&value)      Inserts a new item with the key \a key and a value of \a value.      If there is already an item with the same key in the map, this     function will simply create a new one. (This behavior is     different from insert(), which overwrites the value of an     existing item.)      \sa insert(), values() */
 end_comment
 begin_comment
+comment|/*! \fn QMap::iterator QMap::insertMulti(const_iterator pos, const Key&key, const T&value)     \overload     \since 5.1     Inserts a new item with the key \a key and value \a value and with hint \a pos     suggesting where to do the insert.      If constBegin() is used as hint it indicates that the \a key is less than any key in the map     while constEnd() suggests that the \a key is larger than any key in the map.     Otherwise the hint should meet the condition (\a pos - 1).key()< \a key<= pos.key().     If the hint \a pos is wrong it is ignored and a regular insertMulti is done.      If there is already an item with the same key in the map, this function will simply create a new one.      \b {Note:} Be careful with the hint. Providing an iterator from an older shared instance might     crash but there is also a risk that it will silently corrupt both the map and the \a pos map.      \sa insert() */
+end_comment
+begin_comment
 comment|/*! \fn QMap<Key, T>&QMap::unite(const QMap<Key, T>&other)      Inserts all the items in the \a other map into this map. If a     key is common to both maps, the resulting map will contain the     key multiple times.      \sa insertMulti() */
 end_comment
 begin_comment
@@ -2416,6 +2419,9 @@ comment|/*! \fn QMultiMap::iterator QMultiMap::replace(const Key&key, const T&va
 end_comment
 begin_comment
 comment|/*! \fn QMultiMap::iterator QMultiMap::insert(const Key&key, const T&value)      Inserts a new item with the key \a key and a value of \a value.      If there is already an item with the same key in the map, this     function will simply create a new one. (This behavior is     different from replace(), which overwrites the value of an     existing item.)      \sa replace() */
+end_comment
+begin_comment
+comment|/*! \fn QMultiMap::iterator QMultiMap::insert(QMap<Key, T>::const_iterator pos, const Key&key, const T&value)      \since 5.1     Inserts a new item with the key \a key and value \a value and with hint \a pos     suggesting where to do the insert.      If constBegin() is used as hint it indicates that the \a key is less than any key in the map     while constEnd() suggests that the \a key is larger than any key in the map.     Otherwise the hint should meet the condition (\a pos - 1).key()< \a key<= pos.key().     If the hint \a pos is wrong it is ignored and a regular insert is done.      If there is already an item with the same key in the map, this function will simply create a new one.      \b {Note:} Be careful with the hint. Providing an iterator from an older shared instance might     crash but there is also a risk that it will silently corrupt both the map and the \a pos map. */
 end_comment
 begin_comment
 comment|/*! \fn QMultiMap&QMultiMap::operator+=(const QMultiMap&other)      Inserts all the items in the \a other map into this map and     returns a reference to this map.      \sa insert(), operator+() */
