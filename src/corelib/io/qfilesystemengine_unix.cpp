@@ -1522,8 +1522,6 @@ name|statResult
 operator|.
 name|st_ino
 argument_list|)
-argument_list|,
-literal|16
 argument_list|)
 expr_stmt|;
 return|return
