@@ -120,6 +120,10 @@ argument_list|(
 name|false
 argument_list|)
 block|; }
+name|void
+name|requestActivateWindow
+argument_list|()
+block|;
 name|qreal
 name|devicePixelRatio
 argument_list|()
