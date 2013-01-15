@@ -1839,6 +1839,22 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|XCB_USE_XLIB
+comment|// force sync to read outstanding requests - see QTBUG-29106
+name|XSync
+argument_list|(
+name|DISPLAY_FROM_XCB
+argument_list|(
+name|m_screen
+argument_list|)
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 ifndef|#
 directive|ifndef
 name|QT_NO_DRAGANDDROP

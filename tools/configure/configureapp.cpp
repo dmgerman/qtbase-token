@@ -19160,7 +19160,7 @@ literal|"yes"
 condition|)
 name|configStream
 operator|<<
-literal|"directwrite"
+literal|" directwrite"
 expr_stmt|;
 comment|// ### For compatibility only, should be removed later.
 name|configStream
