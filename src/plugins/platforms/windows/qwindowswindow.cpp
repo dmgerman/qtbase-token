@@ -6676,6 +6676,25 @@ argument_list|,
 name|state
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|state
+operator|==
+name|Qt
+operator|::
+name|WindowMinimized
+condition|)
+block|{
+name|handleHidden
+argument_list|()
+expr_stmt|;
+name|QWindowSystemInterface
+operator|::
+name|flushWindowSystemEvents
+argument_list|()
+expr_stmt|;
+comment|// Tell QQuickWindow to stop rendering now.
+block|}
 block|}
 end_function
 begin_function

@@ -2633,17 +2633,6 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-name|QVERIFY
-argument_list|(
-name|QTest
-operator|::
-name|qWaitForWindowExposed
-argument_list|(
-operator|&
-name|mdiArea
-argument_list|)
-argument_list|)
-expr_stmt|;
 ifdef|#
 directive|ifdef
 name|Q_OS_WINCE
