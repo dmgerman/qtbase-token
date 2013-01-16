@@ -128,10 +128,15 @@ name|void
 name|ensureCleanupOrder
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_PROCESS
 name|void
 name|crashOnExit
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|leakInDestructor
 parameter_list|()
@@ -1312,6 +1317,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_PROCESS
+end_ifndef
 begin_function
 DECL|function|runCrashOnExit
 specifier|static
@@ -1478,6 +1488,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|// S stands for thread Safe.
 end_comment

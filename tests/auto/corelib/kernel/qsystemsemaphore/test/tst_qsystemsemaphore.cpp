@@ -83,6 +83,9 @@ name|void
 name|complexacquire
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_PROCESS
 name|void
 name|basicProcesses
 parameter_list|()
@@ -108,6 +111,9 @@ name|void
 name|initialValue
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
+comment|// QT_NO_PROCESS
 private|private:
 name|QString
 name|helperBinary
@@ -551,6 +557,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_PROCESS
+end_ifndef
 begin_function
 DECL|function|basicProcesses
 name|void
@@ -1244,6 +1255,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|helperBinary
 name|QString

@@ -5198,6 +5198,9 @@ argument_list|)
 expr_stmt|;
 else|#
 directive|else
+ifndef|#
+directive|ifndef
+name|QT_NO_PROCESS
 comment|// try to use Samba
 name|QString
 name|progname
@@ -5488,6 +5491,17 @@ argument_list|()
 operator|<<
 literal|"Test file is correct"
 expr_stmt|;
+else|#
+directive|else
+name|QSKIP
+argument_list|(
+literal|"No QProcess support"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 endif|#
 directive|endif
 block|}
