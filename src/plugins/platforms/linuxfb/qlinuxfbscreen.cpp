@@ -1696,7 +1696,6 @@ name|ttyfd
 argument_list|,
 name|KDGETMODE
 argument_list|,
-operator|&
 name|oldMode
 argument_list|)
 expr_stmt|;

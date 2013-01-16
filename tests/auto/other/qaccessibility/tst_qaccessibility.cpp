@@ -22240,7 +22240,7 @@ argument_list|()
 expr_stmt|;
 endif|#
 directive|endif
-name|iaccTextEdit
+name|iaccTable
 operator|->
 name|Release
 argument_list|()

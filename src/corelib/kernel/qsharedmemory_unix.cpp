@@ -710,7 +710,7 @@ name|unix_key
 argument_list|,
 name|size
 argument_list|,
-literal|0666
+literal|0600
 operator||
 name|IPC_CREAT
 operator||
@@ -821,9 +821,9 @@ name|QSharedMemory
 operator|::
 name|ReadOnly
 condition|?
-literal|0444
+literal|0400
 else|:
-literal|0660
+literal|0600
 operator|)
 argument_list|)
 decl_stmt|;
@@ -1030,7 +1030,7 @@ name|unix_key
 argument_list|,
 literal|0
 argument_list|,
-literal|0444
+literal|0400
 argument_list|)
 decl_stmt|;
 name|cleanHandle

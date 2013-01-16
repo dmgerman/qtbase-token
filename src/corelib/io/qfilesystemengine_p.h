@@ -128,6 +128,16 @@ name|entry
 parameter_list|)
 function_decl|;
 specifier|static
+name|QByteArray
+name|id
+parameter_list|(
+specifier|const
+name|QFileSystemEntry
+modifier|&
+name|entry
+parameter_list|)
+function_decl|;
+specifier|static
 name|QString
 name|resolveUserName
 parameter_list|(

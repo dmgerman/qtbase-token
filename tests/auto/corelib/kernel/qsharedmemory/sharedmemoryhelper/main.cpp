@@ -22,6 +22,11 @@ include|#
 directive|include
 file|<QTest>
 end_include
+begin_include
+include|#
+directive|include
+file|<stdio.h>
+end_include
 begin_function
 DECL|function|set
 name|void
@@ -230,7 +235,18 @@ name|EXIT_FAILURE
 return|;
 block|}
 block|}
+comment|// tell parent we're ready
 comment|//qDebug("producer created and attached");
+name|puts
+argument_list|(
+literal|""
+argument_list|)
+expr_stmt|;
+name|fflush
+argument_list|(
+name|stdout
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -465,14 +481,9 @@ name|EXIT_FAILURE
 return|;
 block|}
 comment|//qDebug("producer done");
-comment|// Sleep for a bit to let all consumers start, otherwise they will get stuck in the attach loop,
-comment|// because at least in Symbian the shared memory will be destroyed if there are no active handles to it.
-name|QTest
-operator|::
-name|qSleep
-argument_list|(
-literal|3000
-argument_list|)
+comment|// Sleep for a bit to let all consumers exit
+name|getchar
+argument_list|()
 expr_stmt|;
 return|return
 name|EXIT_SUCCESS

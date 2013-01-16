@@ -115,8 +115,24 @@ operator|-
 literal|1
 argument_list|)
 block|{
-name|readPPSLocale
+name|initialize
 argument_list|()
+expr_stmt|;
+comment|// we cannot call this directly, because by the time this constructor is
+comment|// called, the event dispatcher has not yet been created, causing the
+comment|// subsequent call to QSocketNotifier constructor to fail.
+name|QMetaObject
+operator|::
+name|invokeMethod
+argument_list|(
+name|this
+argument_list|,
+literal|"installSocketNotifier"
+argument_list|,
+name|Qt
+operator|::
+name|QueuedConnection
+argument_list|)
 expr_stmt|;
 block|}
 end_constructor
@@ -295,11 +311,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|readPPSLocale
+DECL|function|initialize
 name|void
 name|QQNXLocaleData
 operator|::
-name|readPPSLocale
+name|initialize
 parameter_list|()
 block|{
 name|errno
@@ -335,14 +351,49 @@ block|}
 name|updateMeasurementSystem
 argument_list|()
 expr_stmt|;
+block|}
+end_function
+begin_function
+DECL|function|installSocketNotifier
+name|void
+name|QQNXLocaleData
+operator|::
+name|installSocketNotifier
+parameter_list|()
+block|{
 if|if
 condition|(
+operator|!
 name|QCoreApplication
 operator|::
 name|instance
 argument_list|()
+operator|||
+name|ppsFd
+operator|==
+operator|-
+literal|1
 condition|)
 block|{
+name|qWarning
+argument_list|(
+literal|"QQNXLocaleData: Failed to create socket notifier, locale updates may not work."
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+if|if
+condition|(
+name|ppsNotifier
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QQNXLocaleData: socket notifier already created."
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 name|ppsNotifier
 operator|=
 operator|new
@@ -380,7 +431,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 end_function
 begin_endif

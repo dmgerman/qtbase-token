@@ -59,25 +59,7 @@ operator|::
 name|currentTime
 argument_list|()
 argument_list|)
-block|{
-name|connect
-argument_list|(
-name|this
-argument_list|,
-name|SIGNAL
-argument_list|(
-name|finished
-argument_list|()
-argument_list|)
-argument_list|,
-name|SLOT
-argument_list|(
-name|deleteLater
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
+block|{ }
 end_constructor
 begin_destructor
 DECL|function|~QStyleAnimation

@@ -191,6 +191,16 @@ name|virtual
 name|QString
 name|getLibTarget
 argument_list|()
+block|;
+specifier|static
+name|QString
+name|cQuoted
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|str
+argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt

@@ -5974,7 +5974,7 @@ begin_comment
 comment|// QT_NO_REGEXP
 end_comment
 begin_comment
-comment|/*!     Removes all multiple directory separators "/" and resolves any     "."s or ".."s found in the path, \a path.      Symbolic links are kept. This function does not return the     canonical path, but rather the simplest version of the input.     For example, "./local" becomes "local", "local/../bin" becomes     "bin" and "/local/usr/../bin" becomes "/local/bin".      \sa absolutePath(), canonicalPath() */
+comment|/*!     Returns \a path with directory separators normalized (converted to "/") and     redundant ones removed, and "."s and ".."s resolved (as far as possible).      Symbolic links are kept. This function does not return the     canonical path, but rather the simplest version of the input.     For example, "./local" becomes "local", "local/../bin" becomes     "bin" and "/local/usr/../bin" becomes "/local/bin".      \sa absolutePath(), canonicalPath() */
 end_comment
 begin_function
 DECL|function|cleanPath

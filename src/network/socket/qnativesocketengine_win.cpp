@@ -79,6 +79,18 @@ directive|endif
 end_endif
 begin_function
 name|QT_BEGIN_NAMESPACE
+comment|//Some distributions of mingw (including 4.7.2 from mingw.org) are missing this from headers.
+comment|//Also microsoft headers don't include it when building on XP and earlier.
+ifndef|#
+directive|ifndef
+name|IPV6_V6ONLY
+DECL|macro|IPV6_V6ONLY
+define|#
+directive|define
+name|IPV6_V6ONLY
+value|27
+endif|#
+directive|endif
 if|#
 directive|if
 name|defined
@@ -2698,12 +2710,6 @@ literal|false
 return|;
 block|}
 block|}
-if|#
-directive|if
-name|defined
-argument_list|(
-name|IPV6_V6ONLY
-argument_list|)
 comment|// determine if local address is dual mode
 name|DWORD
 name|ipv6only
@@ -2776,8 +2782,6 @@ name|Any
 expr_stmt|;
 block|}
 block|}
-endif|#
-directive|endif
 name|memset
 argument_list|(
 operator|&
@@ -3041,12 +3045,6 @@ operator|&
 name|sockAddrSize
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|IPV6_V6ONLY
-argument_list|)
 if|if
 condition|(
 name|socketProtocol
@@ -3105,8 +3103,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-endif|#
-directive|endif
 forever|forever
 block|{
 name|int
@@ -3682,12 +3678,6 @@ name|AnyIPv6
 argument_list|)
 expr_stmt|;
 block|}
-if|#
-directive|if
-name|defined
-argument_list|(
-name|IPV6_V6ONLY
-argument_list|)
 comment|//This is default in current windows versions, it may change in future so set it explicitly
 if|if
 condition|(
@@ -3730,14 +3720,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-else|#
-directive|else
-name|Q_UNUSED
-argument_list|(
-argument|ipv6only
-argument_list|)
-endif|#
-directive|endif
 break|break;
 case|case
 name|QAbstractSocket
@@ -3775,12 +3757,6 @@ name|QAbstractSocket
 operator|::
 name|AnyIPProtocol
 case|:
-if|#
-directive|if
-name|defined
-argument_list|(
-name|IPV6_V6ONLY
-argument_list|)
 if|if
 condition|(
 name|QSysInfo
@@ -3792,6 +3768,7 @@ name|QSysInfo
 operator|::
 name|WV_6_0
 condition|)
+block|{
 name|ipv6only
 operator|=
 operator|::
@@ -3816,9 +3793,8 @@ name|ipv6only
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 else|else
-endif|#
-directive|endif
 block|{
 name|address
 operator|=
