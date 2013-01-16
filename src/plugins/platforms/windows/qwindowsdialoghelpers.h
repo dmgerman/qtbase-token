@@ -98,6 +98,13 @@ name|BaseClass
 block|{
 name|public
 operator|:
+operator|~
+name|QWindowsDialogHelperBase
+argument_list|()
+block|{
+name|deleteNativeDialog
+argument_list|()
+block|; }
 name|virtual
 name|void
 name|exec
@@ -130,7 +137,12 @@ block|;
 name|virtual
 name|bool
 name|supportsNonModalDialog
-argument_list|()
+argument_list|(
+argument|const QWindow *
+comment|/* parent */
+argument|=
+literal|0
+argument_list|)
 specifier|const
 block|{
 return|return
@@ -144,12 +156,6 @@ argument_list|()
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-operator|~
-name|QWindowsDialogHelperBase
-argument_list|()
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|QWindowsNativeDialogBase
 operator|*
 name|nativeDialog
@@ -157,6 +163,24 @@ argument_list|()
 specifier|const
 expr_stmt|;
 end_expr_stmt
+begin_expr_stmt
+specifier|inline
+name|bool
+name|hasNativeDialog
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_nativeDialog
+return|;
+block|}
+end_expr_stmt
+begin_function_decl
+name|void
+name|deleteNativeDialog
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_label
 name|private
 label|:
