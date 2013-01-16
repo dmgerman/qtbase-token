@@ -821,10 +821,15 @@ name|void
 name|undoLimit
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_PROCESS
 name|void
 name|commandTextFormat
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|separateUndoText
 parameter_list|()
@@ -10724,6 +10729,11 @@ expr_stmt|;
 comment|// redoChanged
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_PROCESS
+end_ifndef
 begin_function
 DECL|function|commandTextFormat
 name|void
@@ -10978,6 +10988,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|separateUndoText
 name|void

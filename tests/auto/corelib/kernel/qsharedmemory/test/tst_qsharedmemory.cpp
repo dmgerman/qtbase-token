@@ -141,9 +141,19 @@ name|void
 name|emptyMemory
 parameter_list|()
 function_decl|;
-ifndef|#
-directive|ifndef
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
 name|Q_OS_WIN
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_PROCESS
+argument_list|)
 name|void
 name|readOnly
 parameter_list|()
@@ -178,6 +188,9 @@ name|simpleThreadedProducerConsumer
 parameter_list|()
 function_decl|;
 comment|// with processes
+ifndef|#
+directive|ifndef
+name|QT_NO_PROCESS
 name|void
 name|simpleProcessProducerConsumer_data
 parameter_list|()
@@ -186,6 +199,8 @@ name|void
 name|simpleProcessProducerConsumer
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 comment|// extreme cases
 name|void
 name|useTooMuchMemory
@@ -2161,11 +2176,21 @@ end_comment
 begin_comment
 comment|// This test opens a crash dialog on Windows.
 end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
 name|Q_OS_WIN
-end_ifndef
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_PROCESS
+argument_list|)
+end_if
 begin_function
 DECL|function|readOnly
 name|void
@@ -3646,6 +3671,11 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_PROCESS
+end_ifndef
 begin_function
 DECL|function|simpleProcessProducerConsumer_data
 name|void
@@ -3976,6 +4006,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|uniqueKey_data
 name|void

@@ -520,9 +520,19 @@ name|void
 name|pos3LargeFile
 parameter_list|()
 function_decl|;
-ifndef|#
-directive|ifndef
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
 name|Q_OS_WINCE
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_PROCESS
+argument_list|)
 name|void
 name|readStdin
 parameter_list|()
@@ -8012,14 +8022,24 @@ end_function
 begin_comment
 comment|// ------------------------------------------------------------------------------
 end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|Q_OS_WINCE
-end_ifndef
 begin_comment
 comment|// Qt/CE has no stdin/out support for processes
 end_comment
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINCE
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_PROCESS
+argument_list|)
+end_if
 begin_function
 DECL|function|readStdin
 name|void
@@ -8125,18 +8145,9 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|// ------------------------------------------------------------------------------
 end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|Q_OS_WINCE
-end_ifndef
 begin_comment
 comment|// Qt/CE has no stdin/out support for processes
 end_comment
@@ -8243,18 +8254,9 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|// ------------------------------------------------------------------------------
 end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|Q_OS_WINCE
-end_ifndef
 begin_comment
 comment|// Qt/CE has no stdin/out support for processes
 end_comment

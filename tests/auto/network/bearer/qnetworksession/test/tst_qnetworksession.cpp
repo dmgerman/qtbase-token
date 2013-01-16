@@ -103,10 +103,15 @@ name|void
 name|sessionClosing
 argument_list|()
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_PROCESS
 name|void
 name|outOfProcessSession
 argument_list|()
 block|;
+endif|#
+directive|endif
 name|void
 name|invalidSession
 argument_list|()
@@ -5184,6 +5189,11 @@ end_comment
 begin_comment
 comment|// at Discovered -state.
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_PROCESS
+end_ifndef
 begin_function
 DECL|function|outOfProcessSession
 name|void
@@ -5654,6 +5664,10 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|// A convenience / helper function for testcases. Return the first matching configuration.
 end_comment

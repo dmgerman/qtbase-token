@@ -17,8 +17,19 @@ include|#
 directive|include
 file|<QProcessEnvironment>
 end_include
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_NO_PROCESS
+end_ifdef
+begin_macro
+name|QTEST_NOOP_MAIN
+end_macro
+begin_else
+else|#
+directive|else
+end_else
 begin_class
-DECL|class|tst_QProcessEnvironment
 class|class
 name|tst_QProcessEnvironment
 super|:
@@ -78,7 +89,6 @@ block|}
 class|;
 end_class
 begin_function
-DECL|function|operator_eq
 name|void
 name|tst_QProcessEnvironment
 operator|::
@@ -149,7 +159,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|clearAndIsEmpty
 name|void
 name|tst_QProcessEnvironment
 operator|::
@@ -193,7 +202,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|insert
 name|void
 name|tst_QProcessEnvironment
 operator|::
@@ -296,7 +304,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|emptyNull
 name|void
 name|tst_QProcessEnvironment
 operator|::
@@ -407,7 +414,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|toStringList
 name|void
 name|tst_QProcessEnvironment
 operator|::
@@ -611,7 +617,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|keys
 name|void
 name|tst_QProcessEnvironment
 operator|::
@@ -806,7 +811,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|insertEnv
 name|void
 name|tst_QProcessEnvironment
 operator|::
@@ -976,7 +980,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|caseSensitivity
 name|void
 name|tst_QProcessEnvironment
 operator|::
@@ -1233,7 +1236,6 @@ directive|endif
 block|}
 end_function
 begin_function
-DECL|function|systemEnvironment
 name|void
 name|tst_QProcessEnvironment
 operator|::
@@ -1427,7 +1429,6 @@ begin_comment
 comment|//Windows CE has no environment
 end_comment
 begin_function
-DECL|function|putenv
 name|void
 name|tst_QProcessEnvironment
 operator|::
@@ -1630,4 +1631,8 @@ include|#
 directive|include
 file|"tst_qprocessenvironment.moc"
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 end_unit
