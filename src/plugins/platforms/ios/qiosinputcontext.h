@@ -65,11 +65,23 @@ name|isInputPanelVisible
 argument_list|()
 specifier|const
 block|;
+name|void
+name|focusViewChanged
+argument_list|(
+name|UIView
+operator|*
+name|view
+argument_list|)
+block|;
 name|private
 operator|:
 name|QIOSKeyboardListener
 operator|*
 name|m_keyboardListener
+block|;
+name|UIView
+operator|*
+name|m_focusView
 block|; }
 decl_stmt|;
 end_decl_stmt
