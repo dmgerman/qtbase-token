@@ -1696,7 +1696,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QGtkStyle     \brief The QGtkStyle class provides a widget style rendered by GTK+     \since 4.5      \internal     \inmodule QtWidgets      The QGtkStyle style provides a look and feel that integrates well     into GTK-based desktop environments such as the XFCe and GNOME.      It does this by making use of the GTK+ theme engine, ensuring     that Qt applications look and feel native on these platforms.      Note: The style requires GTK+ version 2.10 or later.           The Qt3-based "Qt" GTK+ theme engine will not work with QGtkStyle.      \sa QWindowsXPStyle, QMacStyle, QWindowsStyle, QFusionStyle */
+comment|/*!     \class QGtkStyle     \brief The QGtkStyle class provides a widget style rendered by GTK+     \since 4.5      \internal     \inmodule QtWidgets      The QGtkStyle style provides a look and feel that integrates well     into GTK-based desktop environments such as the XFCe and GNOME.      It does this by making use of the GTK+ theme engine, ensuring     that Qt applications look and feel native on these platforms.      Note: The style requires GTK+ version 2.18 or later.           The Qt3-based "Qt" GTK+ theme engine will not work with QGtkStyle.      \sa QWindowsXPStyle, QMacStyle, QWindowsStyle, QFusionStyle */
 end_comment
 begin_comment
 comment|/*!     Constructs a QGtkStyle object. */

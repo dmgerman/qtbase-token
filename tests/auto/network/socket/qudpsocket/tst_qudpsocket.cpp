@@ -8081,6 +8081,12 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|QtNetworkSettings
+operator|::
+name|hasIPv6
+argument_list|()
+operator|&&
 name|groupAddress
 operator|.
 name|protocol

@@ -1071,9 +1071,13 @@ argument_list|()
 operator|->
 name|isTopLevel
 argument_list|()
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
 name|visible
 condition|)
+block|{
 name|QWindowSystemInterface
 operator|::
 name|handleExposeEvent
@@ -1088,6 +1092,19 @@ name|geometry
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// Flush the context, otherwise it won't disappear immediately
+name|screen_flush_context
+argument_list|(
+name|m_screenContext
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 end_function
 begin_function

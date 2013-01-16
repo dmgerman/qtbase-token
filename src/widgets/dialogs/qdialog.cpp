@@ -2850,11 +2850,43 @@ condition|(
 name|w
 condition|)
 block|{
-comment|// Use mapToGlobal rather than geometry() in case w might
-comment|// be embedded in another application
+comment|// Use pos() if the widget is embedded into a native window
 name|QPoint
 name|pp
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|w
+operator|->
+name|windowHandle
+argument_list|()
+operator|&&
+name|w
+operator|->
+name|windowHandle
+argument_list|()
+operator|->
+name|property
+argument_list|(
+literal|"_q_embedded_native_parent_handle"
+argument_list|)
+operator|.
+name|value
+argument_list|<
+name|WId
+argument_list|>
+argument_list|()
+condition|)
+name|pp
+operator|=
+name|w
+operator|->
+name|pos
+argument_list|()
+expr_stmt|;
+else|else
+name|pp
+operator|=
 name|w
 operator|->
 name|mapToGlobal
@@ -2866,7 +2898,7 @@ argument_list|,
 literal|0
 argument_list|)
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|p
 operator|=
 name|QPoint

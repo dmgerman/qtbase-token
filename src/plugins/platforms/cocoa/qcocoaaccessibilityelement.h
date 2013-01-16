@@ -76,7 +76,7 @@ operator|(
 name|QCocoaAccessibleElement
 operator|*
 operator|)
-name|elementWithInterface
+name|createElementWithInterface
 operator|:
 operator|(
 name|void

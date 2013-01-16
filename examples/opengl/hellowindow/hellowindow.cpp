@@ -308,6 +308,11 @@ operator|::
 name|render
 parameter_list|()
 block|{
+if|if
+condition|(
+name|isExposed
+argument_list|()
+condition|)
 emit|emit
 name|needRender
 argument_list|(

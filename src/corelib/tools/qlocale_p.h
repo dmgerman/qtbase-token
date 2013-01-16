@@ -1698,10 +1698,6 @@ operator|~
 name|QQNXLocaleData
 argument_list|()
 expr_stmt|;
-name|void
-name|readPPSLocale
-parameter_list|()
-function_decl|;
 name|public
 name|Q_SLOTS
 range|:
@@ -1709,6 +1705,16 @@ name|void
 name|updateMeasurementSystem
 argument_list|()
 decl_stmt|;
+name|void
+name|installSocketNotifier
+parameter_list|()
+function_decl|;
+name|private
+label|:
+name|void
+name|initialize
+parameter_list|()
+function_decl|;
 name|public
 label|:
 name|uint

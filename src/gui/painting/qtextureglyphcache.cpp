@@ -1441,6 +1441,12 @@ name|Format_RGB32
 argument_list|)
 expr_stmt|;
 break|break;
+case|case
+name|QFontEngineGlyphCache
+operator|::
+name|Raster_ARGB
+case|:
+break|break;
 block|}
 block|}
 end_function
