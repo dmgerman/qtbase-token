@@ -431,6 +431,11 @@ name|flags
 argument_list|(
 literal|0
 argument_list|)
+block|,
+name|activeChildren
+argument_list|(
+literal|0
+argument_list|)
 block|{ }
 specifier|inline
 name|ObjectTreeNode
@@ -453,6 +458,11 @@ literal|0
 argument_list|)
 block|,
 name|flags
+argument_list|(
+literal|0
+argument_list|)
+block|,
+name|activeChildren
 argument_list|(
 literal|0
 argument_list|)
@@ -502,6 +512,18 @@ operator|<
 name|other
 return|;
 block|}
+specifier|inline
+name|bool
+name|isActive
+argument_list|()
+specifier|const
+block|{
+return|return
+name|obj
+operator|||
+name|activeChildren
+return|;
+block|}
 name|QString
 name|name
 block|;
@@ -518,6 +540,9 @@ block|;         }
 block|;
 name|int
 name|flags
+block|;
+name|int
+name|activeChildren
 block|;
 name|DataList
 name|children
