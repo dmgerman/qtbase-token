@@ -1901,7 +1901,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the ratio between physical pixels and device-independent pixels     for the window. This value is dependent on the screen the window is on,     and may change when the window is moved.      Common values are 1.0 on normal displays and 2.0 on Apple "retina" displays.      \sa QWindow::devicePixelRatio();     \sa QGuiApplicaiton::devicePixelRatio(); */
+comment|/*!     Returns the ratio between physical pixels and device-independent pixels     for the window. This value is dependent on the screen the window is on,     and may change when the window is moved.      Common values are 1.0 on normal displays and 2.0 on Apple "retina" displays.      \sa QScreen::devicePixelRatio(), QGuiApplication::devicePixelRatio() */
 end_comment
 begin_function
 DECL|function|devicePixelRatio

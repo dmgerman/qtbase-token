@@ -394,7 +394,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*     Returns the ratio between physical pixels and device-independent pixels for the screen.      Common values are 1.0 on normal displays and 2.0 on Apple retina displays.      \sa QWindow::devicePixelRatio();     \sa QGuiApplicaiton::devicePixelRatio(); */
+comment|/*!     Returns the ratio between physical pixels and device-independent pixels for the screen.      Common values are 1.0 on normal displays and 2.0 on Apple "retina" displays.      \sa QWindow::devicePixelRatio(), QGuiApplication::devicePixelRatio() */
 end_comment
 begin_function
 DECL|function|devicePixelRatio
