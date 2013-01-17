@@ -9879,7 +9879,7 @@ comment|// check that we got all down to the same milliseconds
 name|int
 name|i
 init|=
-literal|2
+literal|20
 decl_stmt|;
 name|bool
 name|ok
