@@ -267,6 +267,10 @@ name|frameMargins
 argument_list|()
 specifier|const
 block|;
+name|void
+name|requestActivateWindow
+argument_list|()
+block|;
 name|WId
 name|winId
 argument_list|()
