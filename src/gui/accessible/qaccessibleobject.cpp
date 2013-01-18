@@ -462,6 +462,15 @@ name|child
 parameter_list|)
 specifier|const
 block|{
+if|if
+condition|(
+operator|!
+name|child
+condition|)
+return|return
+operator|-
+literal|1
+return|;
 specifier|const
 name|QObjectList
 name|tlw
