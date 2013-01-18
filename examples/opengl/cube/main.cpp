@@ -62,8 +62,8 @@ argument_list|(
 literal|"0.1"
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
+ifndef|#
+directive|ifndef
 name|QT_NO_OPENGL
 name|MainWidget
 name|widget
