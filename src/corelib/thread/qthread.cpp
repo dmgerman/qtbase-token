@@ -147,6 +147,11 @@ name|theMainThread
 operator|=
 literal|0
 expr_stmt|;
+name|QThreadData
+operator|::
+name|clearCurrentThreadData
+argument_list|()
+expr_stmt|;
 block|}
 name|QThread
 modifier|*

@@ -211,6 +211,23 @@ begin_comment
 comment|/*     QThreadData */
 end_comment
 begin_function
+DECL|function|clearCurrentThreadData
+name|void
+name|QThreadData
+operator|::
+name|clearCurrentThreadData
+parameter_list|()
+block|{
+name|TlsSetValue
+argument_list|(
+name|qt_current_thread_data_tls_index
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_function
 DECL|function|current
 name|QThreadData
 modifier|*
