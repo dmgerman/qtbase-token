@@ -4917,6 +4917,26 @@ name|len
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_extern
+extern|extern
+literal|"C"
+name|void
+name|qt_convert_rgb888_to_rgb32_mips_dspr2_asm
+parameter_list|(
+name|quint32
+modifier|*
+name|dst
+parameter_list|,
+specifier|const
+name|uchar
+modifier|*
+name|src
+parameter_list|,
+name|int
+name|len
+parameter_list|)
+function_decl|;
+end_extern
 begin_constructor
 DECL|function|QJpegHandler
 name|QJpegHandler
@@ -4983,6 +5003,19 @@ block|}
 endif|#
 directive|endif
 comment|// QT_COMPILER_SUPPORTS_SSSE3
+if|#
+directive|if
+name|defined
+argument_list|(
+name|QT_COMPILER_SUPPORTS_MIPS_DSPR2
+argument_list|)
+name|rgb888ToRgb32ConverterPtr
+operator|=
+name|qt_convert_rgb888_to_rgb32_mips_dspr2_asm
+expr_stmt|;
+endif|#
+directive|endif
+comment|// QT_COMPILER_SUPPORTS_DSPR2
 block|}
 end_constructor
 begin_destructor
