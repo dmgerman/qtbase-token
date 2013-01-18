@@ -7093,7 +7093,7 @@ name|font
 init|=
 name|hfont
 decl_stmt|;
-name|int
+name|UINT
 name|contrast
 decl_stmt|;
 name|SystemParametersInfo
@@ -7162,7 +7162,10 @@ operator|(
 name|void
 operator|*
 operator|)
+name|quintptr
+argument_list|(
 name|contrast
+argument_list|)
 argument_list|,
 literal|0
 argument_list|)
