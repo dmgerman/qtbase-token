@@ -6302,7 +6302,7 @@ expr_stmt|;
 comment|// The base key is _always_ valid, of course
 for|for
 control|(
-name|int
+name|size_t
 name|i
 init|=
 literal|1

@@ -785,7 +785,7 @@ parameter_list|(
 name|HCURSOR
 name|c
 parameter_list|,
-name|quint64
+name|qint64
 name|k
 parameter_list|)
 member_init_list|:
@@ -815,7 +815,7 @@ name|HCURSOR
 name|cursor
 decl_stmt|;
 DECL|member|cacheKey
-name|quint64
+name|qint64
 name|cacheKey
 decl_stmt|;
 block|}
@@ -1824,7 +1824,7 @@ argument_list|(
 name|action
 argument_list|)
 decl_stmt|;
-name|quint64
+name|qint64
 name|currentCacheKey
 init|=
 name|m_drag

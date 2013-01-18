@@ -11008,9 +11008,12 @@ operator|)
 operator|||
 name|oldActiveControls
 operator|!=
+name|int
+argument_list|(
 name|option
 operator|->
 name|activeSubControls
+argument_list|)
 operator|)
 decl_stmt|;
 if|if

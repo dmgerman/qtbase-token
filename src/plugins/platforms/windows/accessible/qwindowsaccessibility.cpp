@@ -837,7 +837,10 @@ name|DWORD
 operator|)
 name|lParam
 operator|==
+name|DWORD
+argument_list|(
 name|OBJID_CLIENT
+argument_list|)
 condition|)
 block|{
 if|#
