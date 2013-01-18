@@ -4989,10 +4989,19 @@ name|defined
 argument_list|(
 name|QT_COMPILER_SUPPORTS_MIPS_DSPR2
 argument_list|)
+if|if
+condition|(
+name|qCpuHasFeature
+argument_list|(
+name|DSPR2
+argument_list|)
+condition|)
+block|{
 name|rgb888ToRgb32ConverterPtr
 operator|=
 name|qt_convert_rgb888_to_rgb32_mips_dspr2_asm
 expr_stmt|;
+block|}
 endif|#
 directive|endif
 comment|// QT_COMPILER_SUPPORTS_DSPR2

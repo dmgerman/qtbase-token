@@ -13165,6 +13165,14 @@ directive|endif
 ifdef|#
 directive|ifdef
 name|QT_COMPILER_SUPPORTS_MIPS_DSPR2
+if|if
+condition|(
+name|qCpuHasFeature
+argument_list|(
+name|DSPR2
+argument_list|)
+condition|)
+block|{
 specifier|extern
 name|bool
 name|convert_ARGB_to_ARGB_PM_inplace_mips_dspr2
@@ -13178,7 +13186,7 @@ operator|::
 name|ImageConversionFlags
 argument_list|)
 decl_stmt|;
-name|inplace_converter_map
+name|qimage_inplace_converter_map
 index|[
 name|QImage
 operator|::
@@ -13214,9 +13222,7 @@ name|qimage_converter_map
 index|[
 name|QImage
 operator|::
-name|Format
-operator|::
-name|RGB888
+name|Format_RGB888
 index|]
 index|[
 name|QImage
@@ -13230,9 +13236,7 @@ name|qimage_converter_map
 index|[
 name|QImage
 operator|::
-name|Format
-operator|::
-name|RGB888
+name|Format_RGB888
 index|]
 index|[
 name|QImage
@@ -13246,9 +13250,7 @@ name|qimage_converter_map
 index|[
 name|QImage
 operator|::
-name|Format
-operator|::
-name|RGB888
+name|Format_RGB888
 index|]
 index|[
 name|QImage
@@ -13258,6 +13260,7 @@ index|]
 operator|=
 name|convert_RGB888_to_RGB32_mips_dspr2
 expr_stmt|;
+block|}
 endif|#
 directive|endif
 block|}
