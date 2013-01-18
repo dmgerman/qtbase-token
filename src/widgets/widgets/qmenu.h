@@ -103,6 +103,10 @@ name|Q_PROPERTY
 argument_list|(
 argument|bool separatorsCollapsible READ separatorsCollapsible WRITE setSeparatorsCollapsible
 argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|bool toolTipsVisible READ toolTipsVisible WRITE setToolTipsVisible
+argument_list|)
 name|public
 operator|:
 name|explicit
@@ -512,6 +516,17 @@ name|void
 name|setSeparatorsCollapsible
 argument_list|(
 argument|bool collapse
+argument_list|)
+block|;
+name|bool
+name|toolTipsVisible
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setToolTipsVisible
+argument_list|(
+argument|bool visible
 argument_list|)
 block|;
 name|Q_SIGNALS

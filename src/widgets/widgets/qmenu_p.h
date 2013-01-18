@@ -186,6 +186,11 @@ argument_list|(
 name|true
 argument_list|)
 block|,
+name|toolTipsVisible
+argument_list|(
+name|false
+argument_list|)
+block|,
 name|activationRecursionGuard
 argument_list|(
 name|false
@@ -416,6 +421,11 @@ block|;
 comment|//4 bits is probably plenty
 name|uint
 name|collapsibleSeparators
+operator|:
+literal|1
+block|;
+name|uint
+name|toolTipsVisible
 operator|:
 literal|1
 block|;
