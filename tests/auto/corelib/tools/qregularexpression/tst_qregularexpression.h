@@ -126,6 +126,14 @@ name|captureCount
 argument_list|()
 block|;
 name|void
+name|captureNames_data
+argument_list|()
+block|;
+name|void
+name|captureNames
+argument_list|()
+block|;
+name|void
 name|pcreJitStackUsage_data
 argument_list|()
 block|;

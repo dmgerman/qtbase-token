@@ -26,6 +26,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/qstringlist.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/qshareddata.h>
 end_include
 begin_include
@@ -231,6 +236,11 @@ specifier|const
 expr_stmt|;
 name|int
 name|captureCount
+argument_list|()
+specifier|const
+expr_stmt|;
+name|QStringList
+name|namedCaptureGroups
 argument_list|()
 specifier|const
 expr_stmt|;
