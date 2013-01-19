@@ -988,14 +988,16 @@ end_expr_stmt
 begin_expr_stmt
 name|template
 operator|<
+name|typename
+name|T
 operator|>
 specifier|inline
 name|bool
 name|qCompare
 argument_list|(
-argument|QStringList const&t1
+argument|QList<T> const&t1
 argument_list|,
-argument|QStringList const&t2
+argument|QList<T> const&t2
 argument_list|,
 argument|const char *actual
 argument_list|,
@@ -1058,7 +1060,7 @@ argument_list|(
 name|msg
 argument_list|)
 argument_list|,
-literal|"Compared QStringLists have different sizes.\n"
+literal|"Compared lists have different sizes.\n"
 literal|"   Actual   (%s) size: '%d'\n"
 literal|"   Expected (%s) size: '%d'"
 argument_list|,
@@ -1097,19 +1099,22 @@ control|)
 block|{
 if|if
 condition|(
+operator|!
+operator|(
 name|t1
 operator|.
 name|at
 argument_list|(
 name|i
 argument_list|)
-operator|!=
+operator|==
 name|t2
 operator|.
 name|at
 argument_list|(
 name|i
 argument_list|)
+operator|)
 condition|)
 block|{
 name|qsnprintf
@@ -1121,7 +1126,7 @@ argument_list|(
 name|msg
 argument_list|)
 argument_list|,
-literal|"Compared QStringLists differ at index %d.\n"
+literal|"Compared lists differ at index %d.\n"
 literal|"   Actual   (%s): '%s'\n"
 literal|"   Expected (%s): '%s'"
 argument_list|,
@@ -1129,33 +1134,27 @@ name|i
 argument_list|,
 name|actual
 argument_list|,
+name|toString
+argument_list|(
 name|t1
 operator|.
 name|at
 argument_list|(
 name|i
 argument_list|)
-operator|.
-name|toLatin1
-argument_list|()
-operator|.
-name|constData
-argument_list|()
+argument_list|)
 argument_list|,
 name|expected
 argument_list|,
+name|toString
+argument_list|(
 name|t2
 operator|.
 name|at
 argument_list|(
 name|i
 argument_list|)
-operator|.
-name|toLatin1
-argument_list|()
-operator|.
-name|constData
-argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|isOk
@@ -1189,6 +1188,48 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
+operator|<
+operator|>
+specifier|inline
+name|bool
+name|qCompare
+argument_list|(
+argument|QStringList const&t1
+argument_list|,
+argument|QStringList const&t2
+argument_list|,
+argument|const char *actual
+argument_list|,
+argument|const char *expected
+argument_list|,
+argument|const char *file
+argument_list|,
+argument|int line
+argument_list|)
+block|{
+return|return
+name|qCompare
+operator|<
+name|QString
+operator|>
+operator|(
+name|t1
+operator|,
+name|t2
+operator|,
+name|actual
+operator|,
+name|expected
+operator|,
+name|file
+operator|,
+name|line
+operator|)
+return|;
+block|}
+end_expr_stmt
+begin_expr_stmt
+name|template
 operator|<
 name|typename
 name|T

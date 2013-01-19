@@ -7846,6 +7846,9 @@ begin_comment
 comment|/*! \fn bool QTest::qCompare(QStringList const&t1, QStringList const&t2, const char *actual, const char *expected, const char *file, int line)     \internal */
 end_comment
 begin_comment
+comment|/*! \fn bool QTest::qCompare(QList<T> const&t1, QList<T> const&t2, const char *actual, const char *expected, const char *file, int line)     \internal */
+end_comment
+begin_comment
 comment|/*! \fn bool QTest::qCompare(QFlags<T> const&t1, T const&t2, const char *actual, const char *expected, const char *file, int line)     \internal */
 end_comment
 begin_comment
