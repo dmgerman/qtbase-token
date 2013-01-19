@@ -219,12 +219,6 @@ name|cleanup
 argument_list|(
 name|oldD
 argument_list|)
-block|;
-name|this
-operator|->
-name|d
-operator|=
-literal|0
 block|;     }
 specifier|inline
 name|T
