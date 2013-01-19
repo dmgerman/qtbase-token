@@ -118,7 +118,6 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function
-DECL|function|qAllocMore
 name|int
 name|qAllocMore
 parameter_list|(
@@ -128,6 +127,7 @@ parameter_list|,
 name|int
 name|extra
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|Q_ASSERT
 argument_list|(

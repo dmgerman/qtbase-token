@@ -201,7 +201,6 @@ index|]
 decl_stmt|;
 end_decl_stmt
 begin_function
-DECL|function|allocate
 name|QArrayData
 modifier|*
 name|QArrayData
@@ -220,6 +219,7 @@ parameter_list|,
 name|AllocationOptions
 name|options
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 comment|// Alignment is a power of two
 name|Q_ASSERT
@@ -462,7 +462,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|deallocate
 name|void
 name|QArrayData
 operator|::
@@ -478,6 +477,7 @@ parameter_list|,
 name|size_t
 name|alignment
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 comment|// Alignment is a power of two
 name|Q_ASSERT
