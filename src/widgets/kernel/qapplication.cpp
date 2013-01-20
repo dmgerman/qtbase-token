@@ -14934,7 +14934,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QApplication::keyboardInputDirection()     \since 4.2     \deprecated      Returns the current keyboard input direction. Replaced with QInputPanel::inputDirection()     \sa QInputPanel::inputDirection() */
+comment|/*!     \fn QApplication::keyboardInputDirection()     \since 4.2     \deprecated      Returns the current keyboard input direction. Replaced with QInputMethod::inputDirection()     \sa QInputMethod::inputDirection() */
 end_comment
 begin_comment
 comment|/*!     \property QApplication::keyboardInputInterval     \brief the time limit in milliseconds that distinguishes a key press     from two consecutive key presses     \since 4.2      The default value on X11 is 400 milliseconds. On Windows and Mac OS, the     operating system's value is used. */

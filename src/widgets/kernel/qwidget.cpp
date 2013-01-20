@@ -31588,7 +31588,7 @@ name|ignore
 argument_list|()
 expr_stmt|;
 block|}
-comment|/*!     This method is only relevant for input widgets. It is used by the     input method to query a set of properties of the widget to be     able to support complex input method operations as support for     surrounding text and reconversions.      \a query specifies which property is queried.      \sa inputMethodEvent(), QInputMethodEven, inputMethodHints */
+comment|/*!     This method is only relevant for input widgets. It is used by the     input method to query a set of properties of the widget to be     able to support complex input method operations as support for     surrounding text and reconversions.      \a query specifies which property is queried.      \sa inputMethodEvent(), QInputMethodEvent, QInputMethodQueryEvent, inputMethodHints */
 DECL|function|inputMethodQuery
 name|QVariant
 name|QWidget
