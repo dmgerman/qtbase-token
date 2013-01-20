@@ -1622,6 +1622,12 @@ literal|true
 expr_stmt|;
 name|d
 operator|->
+name|interruptionRequested
+operator|=
+literal|false
+expr_stmt|;
+name|d
+operator|->
 name|isInFinish
 operator|=
 literal|false
@@ -2405,6 +2411,12 @@ expr_stmt|;
 name|d
 operator|->
 name|exited
+operator|=
+literal|false
+expr_stmt|;
+name|d
+operator|->
+name|interruptionRequested
 operator|=
 literal|false
 expr_stmt|;

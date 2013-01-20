@@ -138,6 +138,15 @@ argument_list|()
 specifier|const
 block|;
 name|void
+name|requestInterruption
+argument_list|()
+block|;
+name|bool
+name|isInterruptionRequested
+argument_list|()
+specifier|const
+block|;
+name|void
 name|setStackSize
 argument_list|(
 argument|uint stackSize

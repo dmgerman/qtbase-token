@@ -1657,6 +1657,12 @@ name|isInFinish
 operator|=
 literal|false
 expr_stmt|;
+name|d
+operator|->
+name|interruptionRequested
+operator|=
+literal|false
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -1908,6 +1914,12 @@ operator|->
 name|returnCode
 operator|=
 literal|0
+expr_stmt|;
+name|d
+operator|->
+name|interruptionRequested
+operator|=
+literal|false
 expr_stmt|;
 comment|/*       NOTE: we create the thread in the suspended state, set the       priority and then resume the thread.        since threads are created with normal priority by default, we       could get into a case where a thread (with priority less than       NormalPriority) tries to create a new thread (also with priority       less than NormalPriority), but the newly created thread preempts       its 'parent' and runs at normal priority.     */
 name|d

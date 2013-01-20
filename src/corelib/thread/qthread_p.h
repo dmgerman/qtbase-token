@@ -416,6 +416,9 @@ name|isInFinish
 block|;
 comment|//when in QThreadPrivate::finish
 name|bool
+name|interruptionRequested
+block|;
+name|bool
 name|exited
 block|;
 name|int
