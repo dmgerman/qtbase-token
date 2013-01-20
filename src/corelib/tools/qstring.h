@@ -2441,6 +2441,9 @@ argument_list|)
 decl|const
 decl_stmt|;
 end_decl_stmt
+begin_comment
+comment|// ### Qt 6: merge overloads
+end_comment
 begin_decl_stmt
 name|int
 name|count
