@@ -890,6 +890,8 @@ name|capturingCount
 argument_list|)
 expr_stmt|;
 comment|// detect the settings for the newline
+name|unsigned
+name|long
 name|int
 name|patternNewlineSetting
 decl_stmt|;
