@@ -14049,6 +14049,14 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_expr_stmt
+name|QStringRef
+name|trimmed
+argument_list|()
+specifier|const
+name|Q_REQUIRED_RESULT
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 unit|};
 name|Q_DECLARE_TYPEINFO
 argument_list|(
