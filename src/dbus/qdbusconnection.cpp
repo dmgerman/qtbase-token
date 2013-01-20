@@ -2457,16 +2457,8 @@ name|SubPath
 operator|)
 condition|)
 block|{
-name|qDebug
-argument_list|(
-literal|"Cannot register object at %s because QDBusVirtualObject handles all sub-paths."
-argument_list|,
-name|qPrintable
-argument_list|(
-name|path
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|//qDebug("Cannot register object at %s because QDBusVirtualObject handles all sub-paths.",
+comment|//       qPrintable(path));
 return|return
 literal|false
 return|;
@@ -2546,26 +2538,8 @@ name|ExportChildObjects
 condition|)
 block|{
 comment|// we're not
-name|qDebug
-argument_list|(
-literal|"Cannot register object at %s because %s exports its own child objects"
-argument_list|,
-name|qPrintable
-argument_list|(
-name|path
-argument_list|)
-argument_list|,
-name|qPrintable
-argument_list|(
-name|pathComponents
-operator|.
-name|at
-argument_list|(
-name|i
-argument_list|)
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|//qDebug("Cannot register object at %s because %s exports its own child objects",
+comment|//       qPrintable(path), qPrintable(pathComponents.at(i)));
 return|return
 literal|false
 return|;
