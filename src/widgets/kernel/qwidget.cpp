@@ -31636,6 +31636,15 @@ argument_list|(
 name|QWidget
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|d
+operator|->
+name|imHints
+operator|==
+name|hints
+condition|)
+return|return;
 name|d
 operator|->
 name|imHints
