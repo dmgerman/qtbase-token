@@ -5812,10 +5812,6 @@ block|{
 if|if
 condition|(
 operator|!
-name|hasFocus
-argument_list|()
-operator|&&
-operator|!
 name|d
 operator|->
 name|placeholderText
@@ -5909,7 +5905,6 @@ argument_list|(
 name|oldpen
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
 block|}
 name|int
