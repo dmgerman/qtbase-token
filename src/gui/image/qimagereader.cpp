@@ -203,6 +203,9 @@ name|QT_NO_IMAGEFORMAT_JPEG
 DECL|enumerator|_qt_JpgFormat
 name|_qt_JpgFormat
 argument_list|,
+DECL|enumerator|_qt_JpegFormat
+name|_qt_JpegFormat
+argument_list|,
 endif|#
 directive|endif
 ifdef|#
@@ -302,6 +305,12 @@ block|{
 name|_qt_JpgFormat
 block|,
 literal|"jpg"
+block|}
+block|,
+block|{
+name|_qt_JpegFormat
+block|,
+literal|"jpeg"
 block|}
 block|,
 endif|#
@@ -1571,6 +1580,9 @@ directive|ifndef
 name|QT_NO_IMAGEFORMAT_JPEG
 case|case
 name|_qt_JpgFormat
+case|:
+case|case
+name|_qt_JpegFormat
 case|:
 if|if
 condition|(
