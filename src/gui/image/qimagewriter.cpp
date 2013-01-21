@@ -2130,10 +2130,15 @@ name|QByteArray
 argument_list|>
 name|formats
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_IMAGEFORMAT_BMP
 name|formats
 operator|<<
 literal|"bmp"
 expr_stmt|;
+endif|#
+directive|endif
 ifndef|#
 directive|ifndef
 name|QT_NO_IMAGEFORMAT_PPM
