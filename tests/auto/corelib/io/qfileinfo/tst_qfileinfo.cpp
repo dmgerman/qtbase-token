@@ -757,16 +757,10 @@ name|copy
 parameter_list|()
 block|{
 name|QTemporaryFile
-modifier|*
 name|t
 decl_stmt|;
 name|t
-operator|=
-operator|new
-name|QTemporaryFile
-expr_stmt|;
-name|t
-operator|->
+operator|.
 name|open
 argument_list|()
 expr_stmt|;
@@ -774,7 +768,7 @@ name|QFileInfo
 name|info
 argument_list|(
 name|t
-operator|->
+operator|.
 name|fileName
 argument_list|()
 argument_list|)
