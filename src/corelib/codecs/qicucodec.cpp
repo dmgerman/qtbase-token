@@ -1466,7 +1466,7 @@ name|name
 operator|=
 literal|"windows-949"
 expr_stmt|;
-comment|// this one is broken data in ICU 4.4, and can't be resolved even though it's an alias to tis-620
+comment|// these are broken data in ICU 4.4, and can't be resolved even though they are aliases to tis-620
 if|if
 condition|(
 operator|!
@@ -1475,6 +1475,30 @@ argument_list|(
 name|name
 argument_list|,
 literal|"windows-874-2000"
+argument_list|)
+operator|||
+operator|!
+name|qstrcmp
+argument_list|(
+name|name
+argument_list|,
+literal|"windows-874"
+argument_list|)
+operator|||
+operator|!
+name|qstrcmp
+argument_list|(
+name|name
+argument_list|,
+literal|"MS874"
+argument_list|)
+operator|||
+operator|!
+name|qstrcmp
+argument_list|(
+name|name
+argument_list|,
+literal|"x-windows-874"
 argument_list|)
 condition|)
 name|name
