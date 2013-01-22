@@ -1039,10 +1039,7 @@ name|bcont
 operator|.
 name|startsWith
 argument_list|(
-name|QByteArray
-argument_list|(
 literal|"\xef\xbb\xbf"
-argument_list|)
 argument_list|)
 condition|)
 block|{
