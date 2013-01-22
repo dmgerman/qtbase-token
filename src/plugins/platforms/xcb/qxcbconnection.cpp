@@ -1133,6 +1133,11 @@ name|m_buttons
 argument_list|(
 literal|0
 argument_list|)
+member_init_list|,
+name|m_focusWindow
+argument_list|(
+literal|0
+argument_list|)
 block|{
 ifdef|#
 directive|ifdef
@@ -1854,7 +1859,7 @@ parameter_list|,
 name|handler
 parameter_list|)
 define|\
-value|{ \     event_t *e = (event_t *)event; \     if (QXcbWindow *platformWindow = platformWindowFromId(e->event)) { \         handled = QWindowSystemInterface::handleNativeEvent(platformWindow->window(), m_nativeInterface->genericEventFilterType(), event,&result); \         if (!handled) \             m_keyboard->handler(platformWindow, e); \     } \ } \ break;
+value|{ \     event_t *e = (event_t *)event; \     if (QXcbWindow *platformWindow = platformWindowFromId(e->event)) { \         handled = QWindowSystemInterface::handleNativeEvent(platformWindow->window(), m_nativeInterface->genericEventFilterType(), event,&result); \         if (!handled) \             m_keyboard->handler(m_focusWindow, e); \     } \ } \ break;
 end_define
 begin_comment
 comment|//#define XCB_EVENT_DEBUG
@@ -4228,6 +4233,24 @@ name|m_mutex
 operator|.
 name|unlock
 argument_list|()
+expr_stmt|;
+block|}
+end_function
+begin_function
+DECL|function|setFocusWindow
+name|void
+name|QXcbConnection
+operator|::
+name|setFocusWindow
+parameter_list|(
+name|QXcbWindow
+modifier|*
+name|w
+parameter_list|)
+block|{
+name|m_focusWindow
+operator|=
+name|w
 expr_stmt|;
 block|}
 end_function
