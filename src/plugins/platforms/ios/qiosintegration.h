@@ -23,6 +23,11 @@ include|#
 directive|include
 file|<qpa/qplatformnativeinterface.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<qpa/qwindowsysteminterface.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QPlatformIntegration
@@ -136,6 +141,11 @@ modifier|*
 name|window
 parameter_list|)
 function_decl|;
+name|QTouchDevice
+modifier|*
+name|touchDevice
+parameter_list|()
+function_decl|;
 name|private
 label|:
 name|QPlatformFontDatabase
@@ -149,6 +159,10 @@ decl_stmt|;
 name|QPlatformScreen
 modifier|*
 name|m_screen
+decl_stmt|;
+name|QTouchDevice
+modifier|*
+name|m_touchDevice
 decl_stmt|;
 block|}
 end_decl_stmt
