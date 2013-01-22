@@ -7759,6 +7759,10 @@ literal|"hellogoodbye"
 argument_list|)
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|Q_CC_MINGW
+comment|// does not know %ll
 name|qlonglong
 name|n2
 decl_stmt|;
@@ -7798,6 +7802,8 @@ literal|"foobarwhiz"
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_comment
@@ -44570,6 +44576,16 @@ name|sprintfZU
 parameter_list|()
 specifier|const
 block|{
+ifdef|#
+directive|ifdef
+name|Q_CC_MINGW
+name|QSKIP
+argument_list|(
+literal|"MinGW does not support '%zu'."
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 block|{
 name|QString
 name|string
@@ -44694,6 +44710,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
+comment|// !Q_CC_MINGW
 block|}
 end_function
 begin_function
