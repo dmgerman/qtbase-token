@@ -9352,18 +9352,6 @@ name|q_ptr
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|p
-operator|->
-name|focusItem
-argument_list|()
-operator|&&
-operator|!
-name|focusFromHide
-condition|)
-block|{
-if|if
-condition|(
 name|oldFocusScopeItem
 condition|)
 name|oldFocusScopeItem
@@ -9380,8 +9368,22 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// If you call setFocus on a child of a focus scope that
-comment|// doesn't currently have a focus item, then stop.
+if|if
+condition|(
+operator|!
+name|p
+operator|->
+name|focusItem
+argument_list|()
+operator|&&
+operator|!
+name|focusFromHide
+condition|)
+block|{
+comment|// Calling setFocus() on a child of a focus scope that does
+comment|// not have focus changes only the focus scope pointer,
+comment|// so that focus is restored the next time the scope gains
+comment|// focus.
 return|return;
 block|}
 break|break;
