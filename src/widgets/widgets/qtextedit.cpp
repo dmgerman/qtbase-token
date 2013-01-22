@@ -931,6 +931,15 @@ operator|::
 name|WA_InputMethodEnabled
 argument_list|)
 expr_stmt|;
+name|q
+operator|->
+name|setInputMethodHints
+argument_list|(
+name|Qt
+operator|::
+name|ImhMultiLine
+argument_list|)
+expr_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_NO_CURSOR

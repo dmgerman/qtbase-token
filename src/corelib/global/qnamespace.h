@@ -4080,6 +4080,10 @@ name|ImhPreferLatin
 operator|=
 literal|0x200
 block|,
+name|ImhMultiLine
+operator|=
+literal|0x400
+block|,
 name|ImhDigitsOnly
 operator|=
 literal|0x10000
