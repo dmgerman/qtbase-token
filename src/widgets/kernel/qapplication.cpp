@@ -10651,7 +10651,7 @@ argument_list|()
 condition|)
 block|{
 comment|// Capture the current mouse and keyboard states. Doing so here is
-comment|// required in order to support QTestLib synthesized events. Real mouse
+comment|// required in order to support Qt Test synthesized events. Real mouse
 comment|// and keyboard state updates from the platform plugin are managed by
 comment|// QGuiApplicationPrivate::process(Mouse|Wheel|Key|Touch|Tablet)Event();
 switch|switch

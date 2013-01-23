@@ -34,7 +34,7 @@ comment|//  W A R N I N G
 comment|//  -------------
 comment|//
 comment|// The QBenchmarkIterationController class is not a part of the
-comment|// QTestlib API. It exists purely as an implementation detail.
+comment|// Qt Test API. It exists purely as an implementation detail.
 comment|//
 comment|//
 name|class

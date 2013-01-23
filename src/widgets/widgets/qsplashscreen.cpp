@@ -386,7 +386,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|// A copy of QTestLib's qWaitForWindowExposed() and qSleep().
+comment|// A copy of Qt Test's qWaitForWindowExposed() and qSleep().
 end_comment
 begin_function
 DECL|function|waitForWindowExposed

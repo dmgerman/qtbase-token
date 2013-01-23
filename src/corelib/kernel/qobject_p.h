@@ -112,7 +112,7 @@ struct_decl|;
 block|}
 end_decl_stmt
 begin_comment
-comment|/* for QtTestLib */
+comment|/* for Qt Test */
 end_comment
 begin_struct
 DECL|struct|QSignalSpyCallbackSet

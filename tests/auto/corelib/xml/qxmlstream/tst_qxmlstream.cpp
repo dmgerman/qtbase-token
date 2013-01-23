@@ -968,7 +968,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/**  * \brief Loads W3C's XML conformance test suite and runs it on QXmlStreamReader.  *  * Since this suite is fairly large, it runs the tests sequentially in order to not  * have them all loaded into memory at once. In this way, the maximum memory usage stays  * low, which means one can run valgrind on this test. However, the drawback is that  * QTestLib's usual error reporting and testing mechanisms are slightly bypassed.  *  * Part of this code is a manual, ad-hoc implementation of xml:base.  *  * See \l {http://www.w3.org/XML/Test/} {Extensible Markup Language (XML) Conformance Test Suites}  */
+comment|/**  * \brief Loads W3C's XML conformance test suite and runs it on QXmlStreamReader.  *  * Since this suite is fairly large, it runs the tests sequentially in order to not  * have them all loaded into memory at once. In this way, the maximum memory usage stays  * low, which means one can run valgrind on this test. However, the drawback is that  * Qt Test's usual error reporting and testing mechanisms are slightly bypassed.  *  * Part of this code is a manual, ad-hoc implementation of xml:base.  *  * See \l {http://www.w3.org/XML/Test/} {Extensible Markup Language (XML) Conformance Test Suites}  */
 end_comment
 begin_class
 DECL|class|TestSuiteHandler
@@ -2615,7 +2615,7 @@ argument_list|(
 literal|"description"
 argument_list|)
 expr_stmt|;
-comment|/* We loop over all our failures(if any!), and output them such      * that they appear in the QTestLib log. */
+comment|/* We loop over all our failures(if any!), and output them such      * that they appear in the Qt Test log. */
 for|for
 control|(
 name|int
@@ -2665,7 +2665,7 @@ argument_list|)
 operator|.
 name|second
 expr_stmt|;
-comment|/* We need to add at least one column of test data, otherwise QTestLib complains. */
+comment|/* We need to add at least one column of test data, otherwise Qt Test complains. */
 if|if
 condition|(
 name|len
@@ -5905,7 +5905,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*   In addition to QTestLib's flags, one can specify "-c<filename>" and have that file output in its canonical form. */
+comment|/*   In addition to Qt Test's flags, one can specify "-c<filename>" and have that file output in its canonical form. */
 end_comment
 begin_function
 DECL|function|main
