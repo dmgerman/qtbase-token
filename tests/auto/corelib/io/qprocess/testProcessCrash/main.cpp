@@ -22,6 +22,7 @@ parameter_list|()
 block|{
 operator|*
 operator|(
+specifier|volatile
 name|char
 operator|*
 operator|)
