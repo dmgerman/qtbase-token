@@ -4624,7 +4624,7 @@ name|QT_CLASS_LIB
 argument_list|(
 argument|QWebHitTestResult
 argument_list|,
-argument|QtWebKit
+argument|QtWebKitWidgets
 argument_list|,
 argument|qwebframe.h
 argument_list|)
@@ -4634,7 +4634,7 @@ name|QT_CLASS_LIB
 argument_list|(
 argument|QWebFrame
 argument_list|,
-argument|QtWebKit
+argument|QtWebKitWidgets
 argument_list|,
 argument|qwebframe.h
 argument_list|)
@@ -4674,7 +4674,7 @@ name|QT_CLASS_LIB
 argument_list|(
 argument|QWebInspector
 argument_list|,
-argument|QtWebKit
+argument|QtWebKitWidgets
 argument_list|,
 argument|qwebinspector.h
 argument_list|)
@@ -4684,7 +4684,7 @@ name|QT_CLASS_LIB
 argument_list|(
 argument|QWebPage
 argument_list|,
-argument|QtWebKit
+argument|QtWebKitWidgets
 argument_list|,
 argument|qwebpage.h
 argument_list|)

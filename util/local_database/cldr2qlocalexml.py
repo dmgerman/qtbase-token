@@ -5,7 +5,7 @@ comment|'#######################################################################
 nl|'\n'
 comment|'##'
 nl|'\n'
-comment|'## Copyright (C) 2012 Digia Plc and/or its subsidiary(-ies).'
+comment|'## Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).'
 nl|'\n'
 comment|'## Contact: http://www.qt-project.org/legal'
 nl|'\n'
