@@ -1602,7 +1602,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the window's opacity in the windowing system to \a level.      If the windowing system supports window opacity, this can be used to fade the     window in and out, or to make it semitransparent.      A value of 1.0 or above is treated as fully opaque, whereas a value of 0.0 or below     is treated as fully transparent. Values inbetween represent varying levels of     translucency between the two extremes. */
+comment|/*!     \property QWindow::opacity     \brief The opacity of the window in the windowing system.      If the windowing system supports window opacity, this can be used to fade the     window in and out, or to make it semitransparent.      A value of 1.0 or above is treated as fully opaque, whereas a value of 0.0 or below     is treated as fully transparent. Values inbetween represent varying levels of     translucency between the two extremes.      The default value is 1.0. */
 end_comment
 begin_function
 DECL|function|setOpacity
@@ -1628,7 +1628,6 @@ name|d
 operator|->
 name|opacity
 condition|)
-comment|// #fixme: Add property for 5.1
 return|return;
 name|d
 operator|->
@@ -1642,6 +1641,7 @@ name|d
 operator|->
 name|platformWindow
 condition|)
+block|{
 name|d
 operator|->
 name|platformWindow
@@ -1651,6 +1651,35 @@ argument_list|(
 name|level
 argument_list|)
 expr_stmt|;
+emit|emit
+name|opacityChanged
+argument_list|(
+name|level
+argument_list|)
+emit|;
+block|}
+block|}
+end_function
+begin_function
+DECL|function|opacity
+name|qreal
+name|QWindow
+operator|::
+name|opacity
+parameter_list|()
+specifier|const
+block|{
+name|Q_D
+argument_list|(
+specifier|const
+name|QWindow
+argument_list|)
+expr_stmt|;
+return|return
+name|d
+operator|->
+name|opacity
+return|;
 block|}
 end_function
 begin_comment
