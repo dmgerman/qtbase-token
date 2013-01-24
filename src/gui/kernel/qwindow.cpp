@@ -4125,7 +4125,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Shows the window.      This equivalent to calling showFullScreen() or showNormal(), depending     on whether the platform defaults to windows being fullscreen or not.      \sa showFullScreen(), showNormal(), hide(), QStyleHints::showIsFullScreen() */
+comment|/*!     Shows the window.      This equivalent to calling showFullScreen() or showNormal(), depending     on whether the platform defaults to windows being fullscreen or not, and     whether the window is a popup.      \sa showFullScreen(), showNormal(), hide(), QStyleHints::showIsFullScreen(), flags() */
 end_comment
 begin_function
 DECL|function|show
@@ -4135,8 +4135,28 @@ operator|::
 name|show
 parameter_list|()
 block|{
+name|bool
+name|isPopup
+init|=
+name|d_func
+argument_list|()
+operator|->
+name|windowFlags
+operator|&
+name|Qt
+operator|::
+name|Popup
+operator|&
+operator|~
+name|Qt
+operator|::
+name|Window
+decl_stmt|;
 if|if
 condition|(
+operator|!
+name|isPopup
+operator|&&
 name|qApp
 operator|->
 name|styleHints
