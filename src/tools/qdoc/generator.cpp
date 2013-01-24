@@ -1803,10 +1803,10 @@ operator|<=
 literal|'Z'
 condition|)
 name|u
-operator|-=
-literal|'A'
-operator|-
+operator|+=
 literal|'a'
+operator|-
+literal|'A'
 expr_stmt|;
 if|if
 condition|(
