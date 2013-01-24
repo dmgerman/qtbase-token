@@ -247,6 +247,22 @@ name|void
 operator|*
 name|nsViewContentView
 argument_list|)
+block|;
+comment|// Register if a window should deliver touch events. Enabling
+comment|// touch events has implications for delivery of other events,
+comment|// for example by causing scrolling event lag.
+comment|//
+comment|// The registration is ref-counted: multiple widgets can enable
+comment|// touch events, which then will be delivered until the widget
+comment|// deregisters.
+specifier|static
+name|void
+name|registerTouchWindow
+argument_list|(
+argument|QWindow *window
+argument_list|,
+argument|bool enable
+argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt

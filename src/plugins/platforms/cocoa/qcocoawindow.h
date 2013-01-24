@@ -397,6 +397,12 @@ name|menubar
 argument_list|()
 specifier|const
 block|;
+name|void
+name|registerTouch
+argument_list|(
+argument|bool enable
+argument_list|)
+block|;
 name|qreal
 name|devicePixelRatio
 argument_list|()
@@ -546,6 +552,9 @@ name|m_frameStrutEventsEnabled
 block|;
 name|bool
 name|m_isExposed
+block|;
+name|int
+name|m_registerTouchCount
 block|; }
 decl_stmt|;
 end_decl_stmt
