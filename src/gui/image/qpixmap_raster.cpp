@@ -1377,11 +1377,6 @@ case|:
 return|return
 name|qt_defaultDpiX
 argument_list|()
-operator|*
-name|image
-operator|.
-name|devicePixelRatio
-argument_list|()
 return|;
 case|case
 name|QPaintDevice
@@ -1400,7 +1395,13 @@ case|:
 return|return
 name|qt_defaultDpiY
 argument_list|()
-operator|*
+return|;
+case|case
+name|QPaintDevice
+operator|::
+name|PdmDevicePixelRatio
+case|:
+return|return
 name|image
 operator|.
 name|devicePixelRatio

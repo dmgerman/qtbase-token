@@ -124,6 +124,12 @@ name|alphaBufferSize
 argument_list|()
 return|;
 block|}
+case|case
+name|PdmDevicePixelRatio
+case|:
+return|return
+literal|1
+return|;
 default|default:
 name|qWarning
 argument_list|(
