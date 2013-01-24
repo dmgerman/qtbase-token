@@ -1694,6 +1694,18 @@ name|d
 operator|->
 name|sslOptions
 expr_stmt|;
+comment|// if the CA certificates were set explicitly (either via
+comment|// QSslConfiguration::setCaCertificates() or QSslSocket::setCaCertificates(),
+comment|// we cannot load the certificates on demand
+if|if
+condition|(
+operator|!
+name|configuration
+operator|.
+name|d
+operator|->
+name|allowRootCertOnDemandLoading
+condition|)
 name|d
 operator|->
 name|allowRootCertOnDemandLoading
@@ -6505,6 +6517,22 @@ name|maxSize
 argument_list|)
 return|;
 block|}
+block|}
+end_function
+begin_comment
+comment|/*!     \internal */
+end_comment
+begin_function
+DECL|function|rootCertOnDemandLoadingSupported
+name|bool
+name|QSslSocketPrivate
+operator|::
+name|rootCertOnDemandLoadingSupported
+parameter_list|()
+block|{
+return|return
+name|s_loadRootCertsOnDemand
+return|;
 block|}
 end_function
 begin_comment

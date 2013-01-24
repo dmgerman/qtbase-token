@@ -718,6 +718,12 @@ argument_list|()
 operator|=
 literal|0
 block|;
+name|Q_AUTOTEST_EXPORT
+specifier|static
+name|bool
+name|rootCertOnDemandLoadingSupported
+argument_list|()
+block|;
 name|private
 operator|:
 specifier|static
