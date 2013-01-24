@@ -24989,7 +24989,7 @@ name|enable
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*!     Shows the widget and its child widgets. This function is     equivalent to setVisible(true) in the normal case, and equivalent     to showFullScreen() if the QStyleHints::showIsFullScreen() hint     is true.      \sa raise(), showEvent(), hide(), setVisible(), showMinimized(), showMaximized(),     showNormal(), isVisible() */
+comment|/*!     Shows the widget and its child widgets. This function is     equivalent to setVisible(true) in the normal case, and equivalent     to showFullScreen() if the QStyleHints::showIsFullScreen() hint     is true and the window is not a popup.      \sa raise(), showEvent(), hide(), setVisible(), showMinimized(), showMaximized(),     showNormal(), isVisible(), windowFlags() */
 DECL|function|show
 name|void
 name|QWidget
@@ -24997,10 +24997,29 @@ operator|::
 name|show
 parameter_list|()
 block|{
+name|bool
+name|isPopup
+init|=
+name|data
+operator|->
+name|window_flags
+operator|&
+name|Qt
+operator|::
+name|Popup
+operator|&
+operator|~
+name|Qt
+operator|::
+name|Window
+decl_stmt|;
 if|if
 condition|(
 name|isWindow
 argument_list|()
+operator|&&
+operator|!
+name|isPopup
 operator|&&
 name|qApp
 operator|->
