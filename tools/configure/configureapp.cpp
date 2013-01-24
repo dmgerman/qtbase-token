@@ -10451,7 +10451,17 @@ literal|"no"
 argument_list|,
 literal|"-no-accessibility"
 argument_list|,
-literal|"Do not compile Windows Active Accessibility support."
+literal|"Disable accessibility support.\n"
+argument_list|)
+expr_stmt|;
+name|desc
+argument_list|(
+literal|""
+argument_list|,
+literal|"Disabling accessibility is not recommended, as it will break QStyle\n"
+literal|"and may break other internal parts of Qt.\n"
+literal|"With this switch you create a source incompatible version of Qt,\n"
+literal|"which is unsupported.\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -10462,7 +10472,7 @@ literal|"yes"
 argument_list|,
 literal|"-accessibility"
 argument_list|,
-literal|"Compile Windows Active Accessibility support.\n"
+literal|"Enable accessibility support.\n"
 argument_list|)
 expr_stmt|;
 name|desc

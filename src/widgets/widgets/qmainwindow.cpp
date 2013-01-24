@@ -4595,7 +4595,7 @@ directive|ifndef
 name|QT_NO_TOOLBAR
 end_ifndef
 begin_comment
-comment|/*!     \property QMainWindow::unifiedTitleAndToolBarOnMac     \brief whether the window uses the unified title and toolbar look on Mac OS X     \since 4.3     \obsolete      This property is not implemented in Qt 5. Setting it has no effect. */
+comment|/*!     \property QMainWindow::unifiedTitleAndToolBarOnMac     \brief whether the window uses the unified title and toolbar look on Mac OS X     \since 4.3     \obsolete      This property is not implemented in Qt 5. Setting it has no effect.      A replacement API (QtMacUnifiedToolBar) is available in QtMacExtras at     http://qt.gitorious.org/qtplayground/qtmacextras */
 end_comment
 begin_function
 DECL|function|setUnifiedTitleAndToolBarOnMac
