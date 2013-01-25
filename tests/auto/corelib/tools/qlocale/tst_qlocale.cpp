@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qglobal.h>
+file|<qdebug.h>
 end_include
 begin_include
 include|#
@@ -11614,11 +11614,16 @@ literal|0
 condition|)
 block|{
 name|qWarning
-argument_list|(
-literal|"QLocale: empty windows locale info (%d)"
-argument_list|,
+argument_list|()
+operator|.
+name|nospace
+argument_list|()
+operator|<<
+literal|"QLocale: empty windows locale info ("
+operator|<<
 name|type
-argument_list|)
+operator|<<
+literal|')'
 expr_stmt|;
 return|return
 name|QString
@@ -11669,11 +11674,16 @@ literal|0
 condition|)
 block|{
 name|qWarning
-argument_list|(
-literal|"QLocale: empty windows locale info (%d)"
-argument_list|,
+argument_list|()
+operator|.
+name|nospace
+argument_list|()
+operator|<<
+literal|"QLocale: empty windows locale info ("
+operator|<<
 name|type
-argument_list|)
+operator|<<
+literal|')'
 expr_stmt|;
 return|return
 name|QString
