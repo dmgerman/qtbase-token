@@ -221,6 +221,9 @@ block|;
 name|QRect
 name|m_requestedGeometry
 block|;
+name|int
+name|m_windowLevel
+block|;
 name|qreal
 name|m_devicePixelRatio
 block|;
@@ -229,6 +232,10 @@ name|raiseOrLower
 argument_list|(
 argument|bool raise
 argument_list|)
+block|;
+name|void
+name|updateWindowLevel
+argument_list|()
 block|; }
 decl_stmt|;
 end_decl_stmt
