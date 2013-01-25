@@ -91,13 +91,6 @@ ifdef|#
 directive|ifdef
 name|Q_OS_WIN
 end_ifdef
-begin_define
-DECL|macro|_WIN32_WINNT
-define|#
-directive|define
-name|_WIN32_WINNT
-value|0x500
-end_define
 begin_include
 include|#
 directive|include
