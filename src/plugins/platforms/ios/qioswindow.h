@@ -236,6 +236,10 @@ block|;
 name|void
 name|updateWindowLevel
 argument_list|()
+block|;
+name|bool
+name|blockedByModal
+argument_list|()
 block|; }
 decl_stmt|;
 end_decl_stmt
