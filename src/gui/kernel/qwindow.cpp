@@ -474,7 +474,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*!     Set the \a surfaceType of the window.      Specifies whether the window is meant for raster rendering with     QBackingStore, or OpenGL rendering with QOpenGLContext.      The surfaceType will be used when the native surface is created     in the create() function. Calling this function after the native     surface has been created requires calling destroy() and create()     to release the old native surface and create a new one.      \sa QBackingStore, QOpenGLContext, create(), destroy() */
+comment|/*!     Sets the \a surfaceType of the window.      Specifies whether the window is meant for raster rendering with     QBackingStore, or OpenGL rendering with QOpenGLContext.      The surfaceType will be used when the native surface is created     in the create() function. Calling this function after the native     surface has been created requires calling destroy() and create()     to release the old native surface and create a new one.      \sa QBackingStore, QOpenGLContext, create(), destroy() */
 end_comment
 begin_function
 DECL|function|setSurfaceType
@@ -1467,7 +1467,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \brief set the window's \a icon in the windowing system      The window icon might be used by the windowing system for example to     decorate the window, and/or in the task switcher. */
+comment|/*!     \brief Sets the window's \a icon in the windowing system      The window icon might be used by the windowing system for example to     decorate the window, and/or in the task switcher. */
 end_comment
 begin_function
 DECL|function|setIcon
@@ -1511,7 +1511,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \brief set the window's icon in the windowing system      \sa setIcon() */
+comment|/*!     \brief Sets the window's icon in the windowing system      \sa setIcon() */
 end_comment
 begin_function
 DECL|function|icon
@@ -3481,10 +3481,10 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QPoint QWindow::position() const     \brief get the position of the window on the desktop excluding any window frame      \sa setPosition() */
+comment|/*!     \fn QPoint QWindow::position() const     \brief Returns the position of the window on the desktop excluding any window frame      \sa setPosition() */
 end_comment
 begin_comment
-comment|/*!     \fn QSize QWindow::size() const     \brief get the size of the window excluding any window frame      \sa resize() */
+comment|/*!     \fn QSize QWindow::size() const     \brief Returns the size of the window excluding any window frame      \sa resize() */
 end_comment
 begin_comment
 comment|/*!     set the size of the window, excluding any window frame, to a QSize     constructed from width \a w and height \a h      \sa size(), geometry() */
@@ -3750,7 +3750,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Set whether keyboard grab should be enabled or not (\a grab).      If the return value is true, the window receives all key events until     setKeyboardGrabEnabled(false) is called; other windows get no key events at     all. Mouse events are not affected. Use setMouseGrabEnabled() if you want     to grab that.      \sa setMouseGrabEnabled() */
+comment|/*!     Sets whether keyboard grab should be enabled or not (\a grab).      If the return value is true, the window receives all key events until     setKeyboardGrabEnabled(false) is called; other windows get no key events at     all. Mouse events are not affected. Use setMouseGrabEnabled() if you want     to grab that.      \sa setMouseGrabEnabled() */
 end_comment
 begin_function
 DECL|function|setKeyboardGrabEnabled
