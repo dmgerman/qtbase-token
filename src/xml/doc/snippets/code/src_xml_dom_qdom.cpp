@@ -346,7 +346,7 @@ operator|<
 name|link
 name|href
 operator|=
-literal|"http://qt.nokia.com"
+literal|"http://qt-project.org"
 name|color
 operator|=
 literal|"red"
@@ -382,14 +382,14 @@ name|endl
 expr_stmt|;
 end_expr_stmt
 begin_comment
-comment|// prints "http://qt.nokia.com"
+comment|// prints "http://qt-project.org"
 end_comment
 begin_expr_stmt
 name|a
 operator|.
 name|setValue
 argument_list|(
-literal|"http://qt.nokia.com/doc"
+literal|"http://qt-project.org/doc"
 argument_list|)
 expr_stmt|;
 end_expr_stmt
@@ -421,7 +421,7 @@ name|endl
 expr_stmt|;
 end_expr_stmt
 begin_comment
-comment|// prints "http://qt.nokia.com/doc"
+comment|// prints "http://qt-project.org/doc"
 end_comment
 begin_comment
 comment|//! [8]

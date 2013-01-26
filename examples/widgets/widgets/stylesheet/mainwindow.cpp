@@ -151,7 +151,7 @@ argument_list|,
 name|tr
 argument_list|(
 literal|"The<b>Style Sheet</b> example shows how widgets can be styled "
-literal|"using<a href=\"http://qt.nokia.com/doc/4.5/stylesheet.html\">Qt "
+literal|"using<a href=\"http://doc.qt.digia.com/4.5/stylesheet.html\">Qt "
 literal|"Style Sheets</a>. Click<b>File|Edit Style Sheet</b> to pop up the "
 literal|"style editor, and either choose an existing style sheet or design "
 literal|"your own."

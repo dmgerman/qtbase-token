@@ -831,7 +831,7 @@ comment|//! [26]
 name|QByteArray
 name|url
 argument_list|(
-literal|"http://qt.nokia.com/index.html"
+literal|"http://qt-project.org/doc/qt-5.0/qtdoc/index.html"
 argument_list|)
 expr_stmt|;
 if|if
@@ -919,7 +919,7 @@ comment|//! [30]
 name|QByteArray
 name|x
 argument_list|(
-literal|"Qt by NOKIA"
+literal|"Qt by DIGIA"
 argument_list|)
 decl_stmt|;
 name|QByteArray
@@ -930,13 +930,13 @@ operator|.
 name|toLower
 argument_list|()
 decl_stmt|;
-comment|// y == "qt by nokia"
+comment|// y == "qt by digia"
 comment|//! [30]
 comment|//! [31]
 name|QByteArray
 name|x
 argument_list|(
-literal|"Qt by NOKIA"
+literal|"Qt by DIGIA"
 argument_list|)
 decl_stmt|;
 name|QByteArray
@@ -947,7 +947,7 @@ operator|.
 name|toUpper
 argument_list|()
 decl_stmt|;
-comment|// y == "QT BY NOKIA"
+comment|// y == "QT BY DIGIA"
 comment|//! [31]
 comment|//! [32]
 name|QByteArray

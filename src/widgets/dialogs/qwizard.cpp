@@ -14651,7 +14651,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     This virtual function is called by QWizard to determine whether     the \uicontrol Next or \uicontrol Finish button should be enabled or     disabled.      The default implementation returns true if all \l{mandatory     fields} are filled; otherwise, it returns false.      If you reimplement this function, make sure to emit completeChanged(),     from the rest of your implementation, whenever the value of isComplete()     changes. This ensures that QWizard updates the enabled or disabled state of     its buttons. An example of the reimplementation is     available \l{http://qt.nokia.com/doc/qq/qq22-qwizard.html#validatebeforeitstoolate}     {here}.      \sa completeChanged(), isFinalPage() */
+comment|/*!     This virtual function is called by QWizard to determine whether     the \uicontrol Next or \uicontrol Finish button should be enabled or     disabled.      The default implementation returns true if all \l{mandatory     fields} are filled; otherwise, it returns false.      If you reimplement this function, make sure to emit completeChanged(),     from the rest of your implementation, whenever the value of isComplete()     changes. This ensures that QWizard updates the enabled or disabled state of     its buttons. An example of the reimplementation is     available \l{http://doc.qt.digia.com/qq/qq22-qwizard.html#validatebeforeitstoolate}     {here}.      \sa completeChanged(), isFinalPage() */
 end_comment
 begin_function
 DECL|function|isComplete
