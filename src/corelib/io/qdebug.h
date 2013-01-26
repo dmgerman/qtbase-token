@@ -64,7 +64,6 @@ directive|include
 file|<QtCore/qcontiguouscache.h>
 end_include
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 name|class
 name|Q_CORE_EXPORT
@@ -2069,11 +2068,8 @@ name|space
 argument_list|()
 return|;
 end_return
-begin_macro
-unit|}  QT_END_NAMESPACE
-name|QT_END_HEADER
-end_macro
 begin_endif
+unit|}  QT_END_NAMESPACE
 endif|#
 directive|endif
 end_endif

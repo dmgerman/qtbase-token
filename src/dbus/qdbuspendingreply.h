@@ -39,7 +39,6 @@ directive|ifndef
 name|QT_NO_DBUS
 end_ifndef
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 name|class
 name|Q_DBUS_EXPORT
@@ -1010,11 +1009,10 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
-begin_expr_stmt
+begin_macro
 unit|};
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

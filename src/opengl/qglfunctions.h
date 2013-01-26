@@ -54,10 +54,9 @@ include|#
 directive|include
 file|<QtGui/qopenglcontext.h>
 end_include
-begin_expr_stmt
-name|QT_BEGIN_HEADER
+begin_macro
 name|QT_BEGIN_NAMESPACE
-end_expr_stmt
+end_macro
 begin_comment
 comment|// Types that aren't defined in all system's gl.h files.
 end_comment
@@ -12252,7 +12251,6 @@ value|0
 endif|#
 directive|endif
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
 end_expr_stmt
 begin_endif
 endif|#

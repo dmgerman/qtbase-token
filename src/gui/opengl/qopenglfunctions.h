@@ -94,10 +94,9 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_expr_stmt
-name|QT_BEGIN_HEADER
+begin_macro
 name|QT_BEGIN_NAMESPACE
-end_expr_stmt
+end_macro
 begin_comment
 comment|// Types that aren't defined in all system's gl.h files.
 end_comment
@@ -9413,7 +9412,6 @@ directive|endif
 name|Q_OPENGL_FUNCTIONS_DEBUG
 block|}
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
 end_expr_stmt
 begin_endif
 endif|#

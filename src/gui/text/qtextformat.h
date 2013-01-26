@@ -54,7 +54,6 @@ directive|include
 file|<QtGui/qtextoption.h>
 end_include
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QString
 name|class
@@ -5127,7 +5126,6 @@ name|padding
 argument_list|)
 block|; }
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
 end_expr_stmt
 begin_endif
 endif|#

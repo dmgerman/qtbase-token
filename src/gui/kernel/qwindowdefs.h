@@ -29,7 +29,6 @@ directive|include
 file|<QtCore/qnamespace.h>
 end_include
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 comment|// Class forward definitions
 DECL|variable|QPaintDevice
@@ -244,10 +243,9 @@ operator|>
 name|QWindowList
 expr_stmt|;
 end_typedef
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_comment
 comment|// Window system dependent definitions
 end_comment
@@ -282,7 +280,6 @@ name|WId
 expr_stmt|;
 end_typedef
 begin_expr_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 DECL|variable|K
 DECL|variable|QHash
@@ -334,10 +331,9 @@ operator|>
 name|QWidgetSet
 expr_stmt|;
 end_typedef
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_if
 if|#
 directive|if

@@ -63,7 +63,6 @@ name|QT_NO_RAWFONT
 argument_list|)
 end_if
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QRawFontPrivate
 name|class
@@ -547,11 +546,8 @@ operator|(
 operator|)
 return|;
 end_return
-begin_macro
-unit|}  QT_END_NAMESPACE
-name|QT_END_HEADER
-end_macro
 begin_endif
+unit|}  QT_END_NAMESPACE
 endif|#
 directive|endif
 end_endif

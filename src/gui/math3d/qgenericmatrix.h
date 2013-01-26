@@ -29,7 +29,6 @@ directive|include
 file|<QtCore/qdatastream.h>
 end_include
 begin_expr_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 DECL|variable|N
 DECL|variable|M
@@ -3443,9 +3442,6 @@ name|Q_DECLARE_METATYPE
 argument_list|(
 argument|QMatrix4x3
 argument_list|)
-end_macro
-begin_macro
-name|QT_END_HEADER
 end_macro
 begin_endif
 endif|#

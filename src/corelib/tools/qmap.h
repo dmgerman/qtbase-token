@@ -72,7 +72,6 @@ endif|#
 directive|endif
 end_endif
 begin_expr_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 comment|/*     QMap uses qMapLessThanKey() to compare keys. The default     implementation uses operator<(). For pointer types,     qMapLessThanKey() casts the pointers to integers before it     compares them, because operator<() is undefined on pointers     that come from different memory blocks. (In practice, this     is only a problem when running a program such as     BoundsChecker.) */
 DECL|function|qMapLessThanKey
@@ -7975,7 +7974,6 @@ argument_list|(
 argument|Map
 argument_list|)
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
 end_expr_stmt
 begin_endif
 endif|#

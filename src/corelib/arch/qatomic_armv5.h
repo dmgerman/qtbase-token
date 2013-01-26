@@ -19,13 +19,12 @@ directive|include
 file|<QtCore/qgenericatomic.h>
 end_include
 begin_expr_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 if|#
 directive|if
 literal|0
 comment|// silence syncqt warnings
-expr|QT_END_NAMESPACE QT_END_HEADER
+expr|QT_END_NAMESPACE
 pragma|#
 directive|pragma
 name|qt_sync_stop_processing
@@ -780,11 +779,8 @@ return|return
 name|originalValue
 return|;
 end_return
-begin_macro
-unit|}  QT_END_NAMESPACE
-name|QT_END_HEADER
-end_macro
 begin_endif
+unit|}  QT_END_NAMESPACE
 endif|#
 directive|endif
 end_endif

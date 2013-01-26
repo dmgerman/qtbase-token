@@ -80,7 +80,6 @@ endif|#
 directive|endif
 end_endif
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 name|Q_GUI_EXPORT
 name|void
@@ -991,11 +990,8 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_macro
-unit|}  QT_END_NAMESPACE
-name|QT_END_HEADER
-end_macro
 begin_endif
+unit|}  QT_END_NAMESPACE
 endif|#
 directive|endif
 end_endif

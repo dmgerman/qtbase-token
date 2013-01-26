@@ -34,7 +34,6 @@ directive|include
 file|<QtGui/qpainter.h>
 end_include
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QFontEngine
 name|class
@@ -1339,7 +1338,6 @@ argument_list|(
 argument|QPaintEngine::DirtyFlags
 argument_list|)
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
 end_expr_stmt
 begin_endif
 endif|#

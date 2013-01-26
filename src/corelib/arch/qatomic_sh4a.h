@@ -19,10 +19,8 @@ directive|include
 file|<QtCore/qoldbasicatomic.h>
 end_include
 begin_expr_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
 DECL|macro|Q_ATOMIC_INT_REFERENCE_COUNTING_IS_ALWAYS_NATIVE
 define|#
 directive|define

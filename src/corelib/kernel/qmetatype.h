@@ -72,7 +72,6 @@ endif|#
 directive|endif
 end_endif
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 comment|// F is a tuple: (QMetaType::TypeName, QMetaType::TypeNameID, RealType)
 DECL|macro|QT_FOR_EACH_STATIC_PRIMITIVE_TYPE
@@ -3791,9 +3790,6 @@ name|QT_FOR_EACH_STATIC_TYPE
 argument_list|(
 argument|Q_DECLARE_BUILTIN_METATYPE
 argument_list|)
-end_macro
-begin_macro
-name|QT_END_HEADER
 end_macro
 begin_endif
 endif|#

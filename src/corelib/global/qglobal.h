@@ -477,14 +477,6 @@ name|QT_END_INCLUDE_NAMESPACE
 endif|#
 directive|endif
 comment|/* __cplusplus */
-DECL|macro|QT_BEGIN_HEADER
-define|#
-directive|define
-name|QT_BEGIN_HEADER
-DECL|macro|QT_END_HEADER
-define|#
-directive|define
-name|QT_END_HEADER
 if|#
 directive|if
 name|defined
@@ -504,7 +496,6 @@ name|QT_LARGEFILE_SUPPORT
 value|64
 endif|#
 directive|endif
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 end_expr_stmt
 begin_comment
@@ -5023,10 +5014,9 @@ block|}
 empty_stmt|;
 block|}
 end_decl_stmt
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_comment
 comment|// Q_GLOBAL_STATIC
 end_comment

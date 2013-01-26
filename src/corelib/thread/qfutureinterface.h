@@ -39,7 +39,6 @@ directive|include
 file|<QtCore/qresultstore.h>
 end_include
 begin_expr_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QFuture
 name|template
@@ -1465,11 +1464,10 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
-begin_expr_stmt
+begin_macro
 unit|};
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

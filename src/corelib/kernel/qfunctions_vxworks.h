@@ -334,7 +334,6 @@ endif|#
 directive|endif
 end_endif
 begin_expr_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 ifdef|#
 directive|ifdef
@@ -342,7 +341,6 @@ name|QT_BUILD_CORE_LIB
 endif|#
 directive|endif
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
 ifndef|#
 directive|ifndef
 name|RTLD_LOCAL

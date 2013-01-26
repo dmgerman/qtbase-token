@@ -44,7 +44,6 @@ directive|include
 file|<string.h>
 end_include
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 DECL|macro|QVERIFY
 define|#
@@ -1743,12 +1742,8 @@ undef|#
 directive|undef
 name|QTEST_COMPARE_DECL
 end_undef
-begin_macro
-DECL|macro|QTEST_COMPARE_DECL
-unit|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_macro
 begin_endif
+unit|QT_END_NAMESPACE
 endif|#
 directive|endif
 end_endif

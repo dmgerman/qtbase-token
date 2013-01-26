@@ -43,7 +43,6 @@ else|#
 directive|else
 end_else
 begin_expr_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 comment|// These classes are here to fool qdoc into generating a better documentation
 name|template
@@ -1003,10 +1002,9 @@ name|src
 argument_list|)
 expr_stmt|;
 end_expr_stmt
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

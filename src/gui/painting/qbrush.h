@@ -106,13 +106,14 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_expr_stmt
-name|QT_BEGIN_HEADER
+begin_macro
 name|QT_BEGIN_NAMESPACE
-expr|struct
+end_macro
+begin_struct_decl
+struct_decl|struct
 name|QBrushData
-expr_stmt|;
-end_expr_stmt
+struct_decl|;
+end_struct_decl
 begin_decl_stmt
 DECL|variable|QPixmap
 name|class
@@ -1396,10 +1397,9 @@ argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

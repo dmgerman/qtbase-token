@@ -49,7 +49,6 @@ directive|include
 file|"QtCore/qscopedpointer.h"
 end_include
 begin_expr_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 comment|/* Internal helper class - exposes the data through data_ptr (legacy from QShared).    Required for some internal Qt classes, do not use otherwise. */
 DECL|variable|T
@@ -404,11 +403,10 @@ argument_list|(
 argument|QScopedSharedPointer
 argument_list|)
 end_macro
-begin_expr_stmt
+begin_macro
 unit|};
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

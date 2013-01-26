@@ -84,7 +84,6 @@ directive|include
 file|<QtCore/qrect.h>
 end_include
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 name|namespace
 name|QTest
@@ -1440,9 +1439,6 @@ parameter_list|)
 define|\
 value|int main(int argc, char *argv[]) \ { \     QCoreApplication app(argc, argv); \     app.setAttribute(Qt::AA_Use96Dpi, true); \     TestObject tc; \     return QTest::qExec(&tc, argc, argv); \ }
 end_define
-begin_macro
-name|QT_END_HEADER
-end_macro
 begin_endif
 endif|#
 directive|endif

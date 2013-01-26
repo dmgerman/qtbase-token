@@ -39,7 +39,6 @@ directive|include
 file|<QtCore/qrect.h>
 end_include
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
@@ -12898,11 +12897,8 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_macro
-unit|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_macro
 begin_endif
+unit|QT_END_NAMESPACE
 endif|#
 directive|endif
 end_endif

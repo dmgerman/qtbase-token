@@ -29,10 +29,8 @@ directive|ifdef
 name|QT_BUILD_GUI_LIB
 end_ifdef
 begin_function_decl
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
 endif|#
 directive|endif
 comment|//WinCe 7 has shell support

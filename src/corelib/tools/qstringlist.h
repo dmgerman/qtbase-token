@@ -44,7 +44,6 @@ directive|include
 file|<QtCore/qstringmatcher.h>
 end_include
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QRegExp
 name|class
@@ -1265,7 +1264,6 @@ endif|#
 directive|endif
 comment|// QT_NO_DATASTREAM
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
 end_decl_stmt
 begin_endif
 endif|#

@@ -23,9 +23,6 @@ include|#
 directive|include
 file|<QtCore/qglobal.h>
 end_include
-begin_macro
-name|QT_BEGIN_HEADER
-end_macro
 begin_if
 if|#
 directive|if
@@ -171,6 +168,7 @@ operator|>=
 name|MAC_OS_X_VERSION_10_7
 end_if
 begin_define
+DECL|macro|GL_DO_NOT_WARN_IF_MULTI_GL_VERSION_HEADERS_INCLUDED
 define|#
 directive|define
 name|GL_DO_NOT_WARN_IF_MULTI_GL_VERSION_HEADERS_INCLUDED
@@ -280,7 +278,6 @@ end_endif
 begin_expr_stmt
 name|QT_BEGIN_NAMESPACE
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
 end_expr_stmt
 begin_endif
 endif|#

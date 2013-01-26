@@ -18,10 +18,9 @@ include|#
 directive|include
 file|<QtCore/qglobal.h>
 end_include
-begin_expr_stmt
-name|QT_BEGIN_HEADER
+begin_macro
 name|QT_BEGIN_NAMESPACE
-end_expr_stmt
+end_macro
 begin_typedef
 DECL|typedef|QRgb
 typedef|typedef
@@ -345,10 +344,9 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

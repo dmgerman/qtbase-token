@@ -25,7 +25,6 @@ file|<QtCore/QObject>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-name|QT_BEGIN_HEADER
 ifndef|#
 directive|ifndef
 name|QT_NO_DRAGANDDROP
@@ -334,10 +333,9 @@ end_endif
 begin_comment
 comment|// QT_NO_DRAGANDDROP
 end_comment
-begin_expr_stmt
-name|QT_END_HEADER
+begin_macro
 name|QT_END_NAMESPACE
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

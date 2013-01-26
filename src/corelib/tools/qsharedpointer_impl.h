@@ -39,7 +39,7 @@ begin_comment
 comment|// classes found in qsharedpointer.h
 end_comment
 begin_pragma
-unit|QT_BEGIN_HEADER QT_BEGIN_NAMESPACE QT_END_NAMESPACE QT_END_HEADER
+unit|QT_BEGIN_NAMESPACE QT_END_NAMESPACE
 pragma|#
 directive|pragma
 name|qt_sync_stop_processing
@@ -100,7 +100,6 @@ endif|#
 directive|endif
 end_endif
 begin_expr_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 comment|// Macro QSHAREDPOINTER_VERIFY_AUTO_CAST
 comment|//  generates a compiler error if the following construct isn't valid:
@@ -5198,10 +5197,9 @@ name|Q_MOVABLE_TYPE
 argument_list|)
 expr_stmt|;
 end_expr_stmt
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

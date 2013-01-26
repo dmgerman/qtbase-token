@@ -19,7 +19,6 @@ directive|define
 name|QTYPEINFO_H
 end_define
 begin_expr_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 comment|/*    QTypeInfo     - type trait functionality */
 comment|/*   The catch-all template. */
@@ -605,10 +604,9 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

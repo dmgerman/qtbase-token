@@ -93,7 +93,6 @@ endif|#
 directive|endif
 end_endif
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QLayout
 name|class
@@ -4632,12 +4631,8 @@ directive|define
 name|QWIDGETSIZE_MAX
 value|((1<<24)-1)
 end_define
-begin_macro
-DECL|macro|QWIDGETSIZE_MAX
-unit|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_macro
 begin_endif
+unit|QT_END_NAMESPACE
 endif|#
 directive|endif
 end_endif

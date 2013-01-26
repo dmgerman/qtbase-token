@@ -55,7 +55,6 @@ name|tst_QGraphicsItem
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 if|#
 directive|if
@@ -6269,7 +6268,6 @@ endif|#
 directive|endif
 comment|// QT_NO_GRAPHICSVIEW
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
 end_decl_stmt
 begin_endif
 endif|#

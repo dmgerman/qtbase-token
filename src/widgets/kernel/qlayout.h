@@ -44,7 +44,6 @@ directive|include
 file|<limits.h>
 end_include
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QLayout
 name|class
@@ -574,17 +573,22 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
+end_macro
+begin_comment
 comment|//### support old includes
+end_comment
+begin_include
 include|#
 directive|include
 file|<QtWidgets/qboxlayout.h>
+end_include
+begin_include
 include|#
 directive|include
 file|<QtWidgets/qgridlayout.h>
-name|QT_END_HEADER
-end_expr_stmt
+end_include
 begin_endif
 endif|#
 directive|endif

@@ -19,7 +19,6 @@ directive|include
 file|<QtWidgets/qwidget.h>
 end_include
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
@@ -471,10 +470,9 @@ argument_list|(
 argument|QMdiSubWindow::SubWindowOptions
 argument_list|)
 end_macro
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

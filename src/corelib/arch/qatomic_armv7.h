@@ -60,7 +60,7 @@ begin_comment
 comment|// silence syncqt warnings
 end_comment
 begin_endif
-unit|QT_BEGIN_HEADER QT_BEGIN_NAMESPACE  QT_END_NAMESPACE QT_END_HEADER
+unit|QT_BEGIN_NAMESPACE  QT_END_NAMESPACE
 endif|#
 directive|endif
 end_endif
