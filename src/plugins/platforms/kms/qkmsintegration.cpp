@@ -132,6 +132,10 @@ argument_list|(
 name|QDeviceDiscovery
 operator|::
 name|Device_DRM
+operator||
+name|QDeviceDiscovery
+operator|::
+name|Device_DRM_PrimaryGPU
 argument_list|,
 literal|0
 argument_list|)

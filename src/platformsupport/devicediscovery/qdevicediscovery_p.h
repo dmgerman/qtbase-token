@@ -121,9 +121,13 @@ name|Device_DRM
 operator|=
 literal|0x10
 block|,
-name|Device_Tablet
+name|Device_DRM_PrimaryGPU
 operator|=
 literal|0x20
+block|,
+name|Device_Tablet
+operator|=
+literal|0x40
 block|,
 name|Device_InputMask
 operator|=
