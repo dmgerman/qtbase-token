@@ -1059,7 +1059,7 @@ return|return
 name|appendToParent
 return|;
 block|}
-comment|/**      * If true, then the node will redirect insert/remove calls      * to its parent by calling QDomNodePrivate::appendChild or removeChild.      * In addition the map wont increase or decrease the reference count      * of the nodes it contains.      *      * By default this value is false and the map will handle reference counting      * by itself.      */
+comment|/**      * If true, then the node will redirect insert/remove calls      * to its parent by calling QDomNodePrivate::appendChild or removeChild.      * In addition the map won't increase or decrease the reference count      * of the nodes it contains.      *      * By default this value is false and the map will handle reference counting      * by itself.      */
 DECL|function|setAppendToParent
 name|void
 name|setAppendToParent

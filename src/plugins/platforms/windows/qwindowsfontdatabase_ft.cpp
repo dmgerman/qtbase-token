@@ -1298,7 +1298,7 @@ argument_list|(
 name|faceName
 argument_list|)
 expr_stmt|;
-comment|//Fallback if we havent cached the font yet or the font got removed/renamed iterate again over all fonts
+comment|//Fallback if we haven't cached the font yet or the font got removed/renamed iterate again over all fonts
 if|if
 condition|(
 name|value

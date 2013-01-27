@@ -4600,7 +4600,7 @@ literal|"a=b;expires=2/3/10 0:0"
 operator|<<
 name|cookie
 expr_stmt|;
-comment|// FYI If you try these in Firefox it wont set a cookie for the following two string
+comment|// FYI If you try these in Firefox it won't set a cookie for the following two string
 comment|// because 03 is turned into the year at which point it is expired
 name|cookie
 operator|.

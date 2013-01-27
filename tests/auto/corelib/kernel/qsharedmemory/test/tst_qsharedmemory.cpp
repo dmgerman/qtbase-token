@@ -2442,7 +2442,7 @@ operator|->
 name|errorString
 argument_list|()
 expr_stmt|;
-comment|// ### Linux wont return OutOfResources if there are not enough semaphores to use.
+comment|// ### Linux won't return OutOfResources if there are not enough semaphores to use.
 name|QVERIFY
 argument_list|(
 name|sm

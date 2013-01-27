@@ -12250,7 +12250,7 @@ literal|"plugin"
 return|;
 block|}
 comment|// By default we do not want to compile OCI driver when compiling with
-comment|// MinGW, due to lack of such support from Oracle. It prob. wont work.
+comment|// MinGW, due to lack of such support from Oracle. It prob. won't work.
 comment|// (Customer may force the use though)
 if|if
 condition|(

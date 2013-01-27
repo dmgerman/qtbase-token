@@ -471,7 +471,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"Failed to create pipeline and cant bind it to port"
+literal|"Failed to create pipeline and can't bind it to port"
 argument_list|)
 expr_stmt|;
 block|}
