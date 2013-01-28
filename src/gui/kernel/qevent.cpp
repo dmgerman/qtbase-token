@@ -2073,7 +2073,7 @@ argument_list|)
 block|{ }
 end_constructor
 begin_comment
-comment|/*!     Construcs an event of type QEvent::InputMethod. The     preedit text is set to \a preeditText, the attributes to     \a attributes.      The commitString(), replacementStart(), and replacementLength()     values can be set using setCommitString().      \sa preeditString(), attributes() */
+comment|/*!     Constructs an event of type QEvent::InputMethod. The     preedit text is set to \a preeditText, the attributes to     \a attributes.      The commitString(), replacementStart(), and replacementLength()     values can be set using setCommitString().      \sa preeditString(), attributes() */
 end_comment
 begin_constructor
 DECL|function|QInputMethodEvent
