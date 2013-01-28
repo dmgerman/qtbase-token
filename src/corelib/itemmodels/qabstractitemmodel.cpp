@@ -4127,6 +4127,18 @@ block|}
 block|}
 end_function
 begin_comment
+comment|/*!     \since 4.8      This slot is called just after the internal data of a model is cleared     while it is being reset.      This slot is provided the convenience of subclasses of concrete proxy     models, such as subclasses of QSortFilterProxyModel which maintain extra     data.      \snippet code/src_corelib_kernel_qabstractitemmodel.cpp 12      \note Due to a mistake, this slot is missing in Qt 5.0.      \sa modelAboutToBeReset(), modelReset() */
+end_comment
+begin_function
+DECL|function|resetInternalData
+name|void
+name|QAbstractItemModel
+operator|::
+name|resetInternalData
+parameter_list|()
+block|{  }
+end_function
+begin_comment
 comment|/*!     \class QModelIndex     \inmodule QtCore      \brief The QModelIndex class is used to locate data in a data model.      \ingroup model-view       This class is used as an index into item models derived from     QAbstractItemModel. The index is used by item views, delegates, and     selection models to locate an item in the model.      New QModelIndex objects are created by the model using the     QAbstractItemModel::createIndex() function. An \e invalid model index can     be constructed with the QModelIndex constructor. Invalid indexes are often     used as parent indexes when referring to top-level items in a model.      Model indexes refer to items in models, and contain all the information     required to specify their locations in those models. Each index is located     in a given row and column, and may have a parent index; use row(),     column(), and parent() to obtain this information. Each top-level item in a     model is represented by a model index that does not have a parent index -     in this case, parent() will return an invalid model index, equivalent to an     index constructed with the zero argument form of the QModelIndex()     constructor.      To obtain a model index that refers to an existing item in a model, call     QAbstractItemModel::index() with the required row and column values, and     the model index of the parent. When referring to top-level items in a     model, supply QModelIndex() as the parent index.      The model() function returns the model that the index references as a     QAbstractItemModel. The child() function is used to examine items held     under the index in the model. The sibling() function allows you to traverse     items in the model on the same level as the index.      \note Model indexes should be used immediately and then discarded. You     should not rely on indexes to remain valid after calling model functions     that change the structure of the model or delete items. If you need to     keep a model index over time use a QPersistentModelIndex.      \sa {Model/View Programming}, QPersistentModelIndex, QAbstractItemModel */
 end_comment
 begin_comment
@@ -8404,6 +8416,15 @@ name|d
 operator|->
 name|invalidatePersistentIndexes
 argument_list|()
+expr_stmt|;
+name|QMetaObject
+operator|::
+name|invokeMethod
+argument_list|(
+name|this
+argument_list|,
+literal|"resetInternalData"
+argument_list|)
 expr_stmt|;
 emit|emit
 name|modelReset

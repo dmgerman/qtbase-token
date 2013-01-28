@@ -1767,6 +1767,14 @@ name|revert
 argument_list|()
 block|;
 name|protected
+name|Q_SLOTS
+operator|:
+comment|// Qt 6: Make virtual
+name|void
+name|resetInternalData
+argument_list|()
+block|;
+name|protected
 operator|:
 name|QAbstractItemModel
 argument_list|(
