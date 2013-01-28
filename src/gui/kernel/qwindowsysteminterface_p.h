@@ -206,6 +206,10 @@ init|=
 name|UserInputEvent
 operator||
 literal|0x18
+block|,
+name|ApplicationStateChanged
+init|=
+literal|0x19
 block|}
 enum|;
 name|class
@@ -486,6 +490,35 @@ block|;
 name|Qt
 operator|::
 name|WindowState
+name|newState
+block|;     }
+decl_stmt|;
+name|class
+name|ApplicationStateChangedEvent
+range|:
+name|public
+name|WindowSystemEvent
+block|{
+name|public
+operator|:
+name|ApplicationStateChangedEvent
+argument_list|(
+argument|Qt::ApplicationState newState
+argument_list|)
+operator|:
+name|WindowSystemEvent
+argument_list|(
+name|ApplicationStateChanged
+argument_list|)
+block|,
+name|newState
+argument_list|(
+argument|newState
+argument_list|)
+block|{ }
+name|Qt
+operator|::
+name|ApplicationState
 name|newState
 block|;     }
 decl_stmt|;

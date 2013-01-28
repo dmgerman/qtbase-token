@@ -192,6 +192,8 @@ block|,
 name|WindowMasks
 block|,
 name|MultipleWindows
+block|,
+name|ApplicationState
 block|}
 enum|;
 name|virtual

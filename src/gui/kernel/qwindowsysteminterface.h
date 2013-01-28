@@ -1059,6 +1059,16 @@ argument_list|)
 decl_stmt|;
 specifier|static
 name|void
+name|handleApplicationStateChanged
+argument_list|(
+name|Qt
+operator|::
+name|ApplicationState
+name|newState
+argument_list|)
+decl_stmt|;
+specifier|static
+name|void
 name|handleExposeEvent
 parameter_list|(
 name|QWindow
