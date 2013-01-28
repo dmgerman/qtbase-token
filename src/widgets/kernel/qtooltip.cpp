@@ -2254,7 +2254,7 @@ name|QTipLabel
 operator|::
 name|instance
 operator|->
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 else|#
@@ -2263,7 +2263,7 @@ name|QTipLabel
 operator|::
 name|instance
 operator|->
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 endif|#
