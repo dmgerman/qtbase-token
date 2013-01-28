@@ -133,6 +133,14 @@ endif|#
 directive|endif
 name|pHnd
 decl_stmt|;
+enum|enum
+name|UnloadFlag
+block|{
+name|UnloadSys
+block|,
+name|NoUnloadSys
+block|}
+enum|;
 name|QString
 name|fileName
 decl_stmt|,
@@ -152,7 +160,12 @@ function_decl|;
 comment|// loads and resolves instance
 name|bool
 name|unload
-parameter_list|()
+parameter_list|(
+name|UnloadFlag
+name|flag
+init|=
+name|UnloadSys
+parameter_list|)
 function_decl|;
 name|void
 name|release

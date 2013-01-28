@@ -1051,11 +1051,30 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|__GLIBC__
+comment|// glibc has a bug in unloading from global destructors
+comment|// see https://bugzilla.novell.com/show_bug.cgi?id=622977
+comment|// and http://sourceware.org/bugzilla/show_bug.cgi?id=11941
+name|lib
+operator|->
+name|unload
+argument_list|(
+name|QLibraryPrivate
+operator|::
+name|NoUnloadSys
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|lib
 operator|->
 name|unload
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 operator|delete
 name|lib
 expr_stmt|;
@@ -1550,7 +1569,10 @@ name|bool
 name|QLibraryPrivate
 operator|::
 name|unload
-parameter_list|()
+parameter_list|(
+name|UnloadFlag
+name|flag
+parameter_list|)
 block|{
 if|if
 condition|(
@@ -1578,6 +1600,10 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
+name|flag
+operator|==
+name|NoUnloadSys
+operator|||
 name|unload_sys
 argument_list|()
 condition|)
@@ -1593,6 +1619,16 @@ operator|<<
 literal|"QLibraryPrivate::unload succeeded on"
 operator|<<
 name|fileName
+operator|<<
+operator|(
+name|flag
+operator|==
+name|NoUnloadSys
+condition|?
+literal|"(faked)"
+else|:
+literal|""
+operator|)
 expr_stmt|;
 comment|//when the library is unloaded, we release the reference on it so that 'this'
 comment|//can get deleted
