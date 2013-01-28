@@ -2320,8 +2320,8 @@ literal|"The album titles, and the corresponding artists and release dates, "
 literal|"are kept in a database, while each album's tracks are stored "
 literal|"in an XML file.</p><p>The example also shows how to add as "
 literal|"well as remove data from both the database and the "
-literal|"associated XML file using the API provided by the QtSql and "
-literal|"QtXml modules, respectively.</p>"
+literal|"associated XML file using the API provided by the Qt SQL and "
+literal|"Qt XML modules, respectively.</p>"
 argument_list|)
 argument_list|)
 expr_stmt|;

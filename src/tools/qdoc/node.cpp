@@ -5259,7 +5259,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!   Find the module (QtCore, QtGui, etc.) to which the class belongs.   We do this by obtaining the full path to the header file's location   and examine everything between "src/" and the filename.  This is   semi-dirty because we are assuming a particular directory structure.    This function is only really useful if the class's module has not   been defined in the header file with a QT_MODULE macro or with an   \inmodule command in the documentation. */
+comment|/*!   Find the module (Qt Core, Qt GUI, etc.) to which the class belongs.   We do this by obtaining the full path to the header file's location   and examine everything between "src/" and the filename.  This is   semi-dirty because we are assuming a particular directory structure.    This function is only really useful if the class's module has not   been defined in the header file with a QT_MODULE macro or with an   \inmodule command in the documentation. */
 end_comment
 begin_function
 DECL|function|moduleName

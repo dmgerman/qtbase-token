@@ -21435,7 +21435,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// shut QtTest
+comment|// shut Qt Test
 block|}
 end_function
 begin_function
@@ -21666,7 +21666,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// shut QtTest
+comment|// shut Qt Test
 block|}
 block|}
 end_function
@@ -21762,7 +21762,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// shut QtTest
+comment|// shut Qt Test
 block|}
 block|}
 end_function
@@ -31174,7 +31174,7 @@ argument_list|,
 name|unicode
 argument_list|)
 expr_stmt|;
-comment|// QtTest safety check:
+comment|// Qt Test safety check:
 name|QCOMPARE
 argument_list|(
 name|latin1
@@ -31701,7 +31701,7 @@ argument_list|,
 name|unicodedst
 argument_list|)
 expr_stmt|;
-comment|// QtTest safety check:
+comment|// Qt Test safety check:
 name|QCOMPARE
 argument_list|(
 name|latin1
@@ -31923,7 +31923,7 @@ argument_list|,
 name|unicodedst
 argument_list|)
 expr_stmt|;
-comment|// QtTest safety check:
+comment|// Qt Test safety check:
 name|QCOMPARE
 argument_list|(
 name|latin1
@@ -32386,7 +32386,7 @@ operator|::
 name|arg
 parameter_list|()
 block|{
-comment|/*     Warning: If any of these test fails, the warning given by QtTest     is all messed up, because QtTest itself uses QString::arg(). */
+comment|/*     Warning: If any of these test fails, the warning given by Qt Test     is all messed up, because Qt Test itself uses QString::arg(). */
 name|QLocale
 operator|::
 name|setDefault

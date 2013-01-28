@@ -509,7 +509,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QDBusAbstractInterface: type %s must be registered with QtDBus before it can be "
+literal|"QDBusAbstractInterface: type %s must be registered with Qt D-Bus before it can be "
 literal|"used to read property %s.%s"
 argument_list|,
 name|mp
@@ -1307,7 +1307,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QDBusAbstractInterface     \inmodule QtDBus     \since 4.2      \brief The QDBusAbstractInterface class is the base class for all D-Bus interfaces in the QtDBus binding, allowing access to remote interfaces      Generated-code classes also derive from QDBusAbstractInterface,     all methods described here are also valid for generated-code     classes. In addition to those described here, generated-code     classes provide member functions for the remote methods, which     allow for compile-time checking of the correct parameters and     return values, as well as property type-matching and signal     parameter-matching.      \sa {qdbusxml2cpp.html}{The QDBus compiler}, QDBusInterface */
+comment|/*!     \class QDBusAbstractInterface     \inmodule QtDBus     \since 4.2      \brief The QDBusAbstractInterface class is the base class for all D-Bus interfaces in the Qt D-Bus binding, allowing access to remote interfaces      Generated-code classes also derive from QDBusAbstractInterface,     all methods described here are also valid for generated-code     classes. In addition to those described here, generated-code     classes provide member functions for the remote methods, which     allow for compile-time checking of the correct parameters and     return values, as well as property type-matching and signal     parameter-matching.      \sa {qdbusxml2cpp.html}{The QDBus compiler}, QDBusInterface */
 end_comment
 begin_comment
 comment|/*!     \internal     This is the constructor called from QDBusInterface::QDBusInterface. */

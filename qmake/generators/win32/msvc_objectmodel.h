@@ -2781,9 +2781,6 @@ name|QString
 name|PrimaryOutput
 decl_stmt|;
 name|QString
-name|PrimaryOutputExtension
-decl_stmt|;
-name|QString
 name|ProgramDatabase
 decl_stmt|;
 name|triState

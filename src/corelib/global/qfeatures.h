@@ -1208,7 +1208,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QtDBus module
+comment|// Qt D-Bus module
 end_comment
 begin_if
 if|#

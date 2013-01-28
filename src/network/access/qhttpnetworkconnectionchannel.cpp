@@ -939,7 +939,7 @@ name|url
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Will only be false if QtWebKit is performing a cross-origin XMLHttpRequest
+comment|// Will only be false if Qt WebKit is performing a cross-origin XMLHttpRequest
 comment|// and withCredentials has not been set to true.
 if|if
 condition|(

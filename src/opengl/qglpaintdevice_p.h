@@ -29,7 +29,7 @@ begin_comment
 comment|// This file is not part of the Qt API.  It exists for the convenience
 end_comment
 begin_comment
-comment|// of the QtOpenGL module.  This header file may change from
+comment|// of the Qt OpenGL module.  This header file may change from
 end_comment
 begin_comment
 comment|// version to version without notice, or even be removed.

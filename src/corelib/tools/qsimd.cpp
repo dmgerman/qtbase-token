@@ -1345,7 +1345,7 @@ comment|//
 comment|// For that reason, simply forego the CPUID check at all and return the set
 comment|// of features that we found at compile time, through the #defines from the
 comment|// compiler. This should at least allow code to execute, even if none of
-comment|// the specialized code found in QtGui and elsewhere will ever be enabled
+comment|// the specialized code found in Qt GUI and elsewhere will ever be enabled
 comment|// (it's the user's fault for using a broken compiler).
 comment|//
 comment|// This also disables the runtime checking that the processor actually
