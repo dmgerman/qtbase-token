@@ -205,7 +205,8 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|m_rootWindow
+name|rootWindow
+argument_list|()
 operator|->
 name|groupName
 argument_list|()
@@ -274,11 +275,7 @@ operator|>
 name|rootWindow
 argument_list|()
 specifier|const
-block|{
-return|return
-name|m_rootWindow
-return|;
-block|}
+expr_stmt|;
 name|public
 name|Q_SLOTS
 range|:
@@ -390,12 +387,14 @@ decl_stmt|;
 name|screen_display_t
 name|m_display
 decl_stmt|;
+name|mutable
 name|QSharedPointer
 operator|<
 name|QQnxRootWindow
 operator|>
 name|m_rootWindow
 expr_stmt|;
+specifier|const
 name|bool
 name|m_primaryScreen
 decl_stmt|;
