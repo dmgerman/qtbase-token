@@ -27,20 +27,8 @@ include|#
 directive|include
 file|<stdlib.h>
 end_include
-begin_decl_stmt
+begin_function
 name|QT_BEGIN_NAMESPACE
-DECL|variable|aliasedCoordinateDelta
-specifier|static
-specifier|const
-name|qreal
-name|aliasedCoordinateDelta
-init|=
-literal|0.5
-operator|-
-literal|0.015625
-decl_stmt|;
-end_decl_stmt
-begin_define
 DECL|macro|qreal_to_fixed_26_6
 define|#
 directive|define
@@ -49,8 +37,6 @@ parameter_list|(
 name|f
 parameter_list|)
 value|(int(f * 64))
-end_define
-begin_function
 DECL|function|boundingRect
 specifier|static
 specifier|const
