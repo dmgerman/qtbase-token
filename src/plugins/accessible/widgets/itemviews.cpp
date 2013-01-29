@@ -6036,16 +6036,9 @@ name|parent
 parameter_list|()
 specifier|const
 block|{
-if|if
-condition|(
-literal|false
-condition|)
-block|{
 ifndef|#
 directive|ifndef
 name|QT_NO_TREEVIEW
-block|}
-elseif|else
 if|if
 condition|(
 name|qobject_cast
@@ -6058,7 +6051,6 @@ argument_list|(
 name|view
 argument_list|)
 condition|)
-block|{
 return|return
 operator|new
 name|QAccessibleTree
@@ -6068,9 +6060,6 @@ argument_list|)
 return|;
 endif|#
 directive|endif
-block|}
-else|else
-block|{
 return|return
 operator|new
 name|QAccessibleTable
@@ -6078,7 +6067,6 @@ argument_list|(
 name|view
 argument_list|)
 return|;
-block|}
 block|}
 end_function
 begin_function
