@@ -10998,7 +10998,7 @@ expr_stmt|;
 block|}
 block|}
 comment|// the status variable is changed by qt_metacall to indicate what it did
-comment|// this feature is currently only used by QtDBus and should not be depended
+comment|// this feature is currently only used by Qt D-Bus and should not be depended
 comment|// upon. Don't change it without looking into QDBusAbstractInterface first
 comment|// -1 (unchanged): normal qt_metacall, result stored in argv[0]
 comment|// changed: result stored directly in value
@@ -11562,7 +11562,7 @@ literal|false
 return|;
 block|}
 comment|// the status variable is changed by qt_metacall to indicate what it did
-comment|// this feature is currently only used by QtDBus and should not be depended
+comment|// this feature is currently only used by Qt D-Bus and should not be depended
 comment|// upon. Don't change it without looking into QDBusAbstractInterface first
 comment|// -1 (unchanged): normal qt_metacall, result stored in argv[0]
 comment|// changed: result stored directly in value, return the value of status

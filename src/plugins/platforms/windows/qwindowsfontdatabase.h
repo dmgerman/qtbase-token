@@ -305,12 +305,6 @@ name|void
 name|removeApplicationFonts
 argument_list|()
 block|;
-name|QSharedPointer
-operator|<
-name|QWindowsFontEngineData
-operator|>
-name|m_fontEngineData
-block|;
 name|QSet
 operator|<
 name|QString

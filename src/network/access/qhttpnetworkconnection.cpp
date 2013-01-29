@@ -2335,7 +2335,7 @@ emit|;
 block|}
 comment|// - Changing values in QAuthenticator will reset the 'phase'. Therefore if it is still "Done"
 comment|//   then nothing was filled in by the user or the cache
-comment|// - If withCredentials has been set to false (e.g. by QtWebKit for a cross-origin XMLHttpRequest) then
+comment|// - If withCredentials has been set to false (e.g. by Qt WebKit for a cross-origin XMLHttpRequest) then
 comment|//   we need to bail out if authentication is required.
 if|if
 condition|(

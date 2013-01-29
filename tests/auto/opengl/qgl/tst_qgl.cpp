@@ -10779,8 +10779,8 @@ operator|::
 name|testDontCrashOnDanglingResources
 parameter_list|()
 block|{
-comment|// We have a number of Q_GLOBAL_STATICS inside the QtOpenGL
-comment|// library. This test is verify that we don't crash as a result of
+comment|// We have a number of Q_GLOBAL_STATICS inside the Qt OpenGL
+comment|// module. This test is verify that we don't crash as a result of
 comment|// them calling into libgl on application shutdown.
 name|QWidget
 modifier|*

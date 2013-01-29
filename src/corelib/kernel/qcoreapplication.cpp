@@ -2804,7 +2804,7 @@ modifier|*
 name|event
 parameter_list|)
 block|{
-comment|// Make it possible for QtScript to hook into events even
+comment|// Make it possible for Qt Script to hook into events even
 comment|// though QApplication is subclassed...
 name|bool
 name|result

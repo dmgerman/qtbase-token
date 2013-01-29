@@ -6499,7 +6499,7 @@ argument_list|,
 literal|550
 argument_list|)
 expr_stmt|;
-name|QCOMPARE
+name|QTRY_COMPARE
 argument_list|(
 name|spy
 operator|.
@@ -6551,7 +6551,7 @@ argument_list|,
 literal|790
 argument_list|)
 expr_stmt|;
-name|QCOMPARE
+name|QTRY_COMPARE
 argument_list|(
 name|spy
 operator|.
@@ -6603,7 +6603,7 @@ argument_list|,
 literal|1790
 argument_list|)
 expr_stmt|;
-name|QCOMPARE
+name|QTRY_COMPARE
 argument_list|(
 name|spy
 operator|.

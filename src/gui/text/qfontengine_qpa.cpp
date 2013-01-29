@@ -4150,7 +4150,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*   This is used indirectly by QtWebKit when using QTextLayout::setRawFont    The purpose of this is to provide the necessary font fallbacks when drawing complex   text. Since QtWebKit ends up repeatedly creating QTextLayout instances and passing them   the same raw font over and over again, we want to cache the corresponding multi font engine   as it may contain fallback font engines already. */
+comment|/*   This is used indirectly by Qt WebKit when using QTextLayout::setRawFont    The purpose of this is to provide the necessary font fallbacks when drawing complex   text. Since Qt WebKit ends up repeatedly creating QTextLayout instances and passing them   the same raw font over and over again, we want to cache the corresponding multi font engine   as it may contain fallback font engines already. */
 end_comment
 begin_function
 DECL|function|createMultiFontEngine

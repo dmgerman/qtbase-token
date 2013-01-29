@@ -263,7 +263,7 @@ name|load
 argument_list|()
 condition|)
 block|{
-comment|// register our types with QtCore (calling qMetaTypeId<T>() does this implicitly)
+comment|// register our types with Qt Core (calling qMetaTypeId<T>() does this implicitly)
 operator|(
 name|void
 operator|)
@@ -309,7 +309,7 @@ expr_stmt|;
 ifndef|#
 directive|ifndef
 name|QDBUS_NO_SPECIALTYPES
-comment|// and register QtCore's with us
+comment|// and register Qt Core's with us
 name|registerHelper
 argument_list|<
 name|QDate
@@ -522,10 +522,10 @@ argument|customTypesLock
 argument_list|)
 end_macro
 begin_comment
-comment|/*!     \class QDBusMetaType     \inmodule QtDBus     \brief Meta-type registration system for the QtDBus module.     \internal      The QDBusMetaType class allows you to register class types for     marshalling and demarshalling over D-Bus. D-Bus supports a very     limited set of primitive types, but allows one to extend the type     system by creating compound types, such as arrays (lists) and     structs. In order to use them with QtDBus, those types must be     registered.      See \l {qdbustypesystem.html}{QtDBus type system} for more     information on the type system and how to register additional     types.      \sa {qdbustypesystem.html}{QtDBus type system},     qDBusRegisterMetaType(), QMetaType, QVariant, QDBusArgument */
+comment|/*!     \class QDBusMetaType     \inmodule QtDBus     \brief Meta-type registration system for the Qt D-Bus module.     \internal      The QDBusMetaType class allows you to register class types for     marshalling and demarshalling over D-Bus. D-Bus supports a very     limited set of primitive types, but allows one to extend the type     system by creating compound types, such as arrays (lists) and     structs. In order to use them with Qt D-Bus, those types must be     registered.      See \l {qdbustypesystem.html}{Qt D-Bus Type System} for more     information on the type system and how to register additional     types.      \sa {qdbustypesystem.html}{Qt D-Bus Type System},     qDBusRegisterMetaType(), QMetaType, QVariant, QDBusArgument */
 end_comment
 begin_comment
-comment|/*!     \fn int qDBusRegisterMetaType()     \relates QDBusArgument     \threadsafe     \since 4.2      Registers \c{T} with the     \l {qdbustypesystem.html}{QtDBus type system} and the Qt \l     {QMetaType}{meta-type system}, if it's not already registered.      To register a type, it must be declared as a meta-type with the     Q_DECLARE_METATYPE() macro, and then registered as in the     following example:      \snippet code/src_qdbus_qdbusmetatype.cpp 0      If \c{T} isn't a type derived from one of     Qt's \l{container classes}, the \c{operator<<} and     \c{operator>>} streaming operators between \c{T} and QDBusArgument     must be already declared. See the \l {qdbustypesystem.html}{QtDBus     type system} page for more information on how to declare such     types.      This function returns the Qt meta type id for the type (the same     value that is returned from qRegisterMetaType()).      \sa {qdbustypesystem.html}{QtDBus type system}, qRegisterMetaType(), QMetaType */
+comment|/*!     \fn int qDBusRegisterMetaType()     \relates QDBusArgument     \threadsafe     \since 4.2      Registers \c{T} with the     \l {qdbustypesystem.html}{Qt D-Bus Type System} and the Qt \l     {QMetaType}{meta-type system}, if it's not already registered.      To register a type, it must be declared as a meta-type with the     Q_DECLARE_METATYPE() macro, and then registered as in the     following example:      \snippet code/src_qdbus_qdbusmetatype.cpp 0      If \c{T} isn't a type derived from one of     Qt's \l{container classes}, the \c{operator<<} and     \c{operator>>} streaming operators between \c{T} and QDBusArgument     must be already declared. See the \l {qdbustypesystem.html}{Qt D-Bus     Type System} page for more information on how to declare such     types.      This function returns the Qt meta type id for the type (the same     value that is returned from qRegisterMetaType()).      \sa {qdbustypesystem.html}{Qt D-Bus Type System}, qRegisterMetaType(), QMetaType */
 end_comment
 begin_comment
 comment|/*!     \typedef QDBusMetaType::MarshallFunction     \internal */

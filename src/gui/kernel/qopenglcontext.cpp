@@ -1702,7 +1702,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     internal: Needs to have a pointer to qGLContext. But since this is in QtGui we cant     have any type information.      \internal */
+comment|/*!     internal: Needs to have a pointer to qGLContext. But since this is in Qt GUI we cant     have any type information.      \internal */
 end_comment
 begin_function
 DECL|function|qGLContextHandle

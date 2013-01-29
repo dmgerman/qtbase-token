@@ -20960,7 +20960,7 @@ argument_list|(
 literal|"[;,]"
 argument_list|)
 argument_list|,
-literal|"\r\n      "
+literal|"\n      "
 argument_list|)
 decl_stmt|;
 if|if
@@ -20976,7 +20976,7 @@ literal|"Unset"
 expr_stmt|;
 name|sout
 operator|<<
-literal|"    INCLUDE=\r\n      "
+literal|"    INCLUDE=\n      "
 operator|<<
 name|env
 operator|<<
@@ -21001,7 +21001,7 @@ argument_list|(
 literal|"[;,]"
 argument_list|)
 argument_list|,
-literal|"\r\n      "
+literal|"\n      "
 argument_list|)
 expr_stmt|;
 if|if
@@ -21017,7 +21017,7 @@ literal|"Unset"
 expr_stmt|;
 name|sout
 operator|<<
-literal|"    LIB=\r\n      "
+literal|"    LIB=\n      "
 operator|<<
 name|env
 operator|<<
@@ -21042,7 +21042,7 @@ argument_list|(
 literal|"[;,]"
 argument_list|)
 argument_list|,
-literal|"\r\n      "
+literal|"\n      "
 argument_list|)
 expr_stmt|;
 if|if
@@ -21058,7 +21058,7 @@ literal|"Unset"
 expr_stmt|;
 name|sout
 operator|<<
-literal|"    PATH=\r\n      "
+literal|"    PATH=\n      "
 operator|<<
 name|env
 operator|<<
@@ -21201,7 +21201,7 @@ name|qmakeConfig
 operator|.
 name|join
 argument_list|(
-literal|"\r\n    "
+literal|"\n    "
 argument_list|)
 operator|<<
 name|endl
@@ -21220,7 +21220,7 @@ name|qtConfig
 operator|.
 name|join
 argument_list|(
-literal|"\r\n    "
+literal|"\n    "
 argument_list|)
 operator|<<
 name|endl

@@ -17,7 +17,7 @@ directive|define
 name|ZCONF_H
 end_define
 begin_comment
-comment|/* Since QtCore must export these symbols, define Z_PREFIX to avoid clashes system zlib */
+comment|/* Since Qt Core must export these symbols, define Z_PREFIX to avoid clashes system zlib */
 end_comment
 begin_define
 DECL|macro|Z_PREFIX

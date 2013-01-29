@@ -390,7 +390,7 @@ operator|::
 name|currentThread
 argument_list|()
 operator|<<
-literal|"QtDBus threading action"
+literal|"Qt D-Bus threading action"
 operator|<<
 name|action
 operator|<<

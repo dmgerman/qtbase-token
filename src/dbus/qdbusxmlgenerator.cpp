@@ -95,7 +95,7 @@ name|typeName
 parameter_list|)
 block|{
 comment|// ### copied from qtextdocument.cpp
-comment|// ### move this into QtCore at some point
+comment|// ### move this into Qt Core at some point
 name|QString
 name|plain
 init|=

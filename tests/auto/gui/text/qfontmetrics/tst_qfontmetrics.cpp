@@ -1023,7 +1023,7 @@ name|i
 index|]
 argument_list|)
 expr_stmt|;
-comment|// This assertion is needed in QtWebKit's WebCore::Font::offsetForPositionForSimpleText
+comment|// This assertion is needed in Qt WebKit's WebCore::Font::offsetForPositionForSimpleText
 name|QCOMPARE
 argument_list|(
 name|textWidth
