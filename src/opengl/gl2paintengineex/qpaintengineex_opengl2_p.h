@@ -654,8 +654,9 @@ argument|GLenum wrapMode
 argument_list|,
 argument|bool smoothPixmapTransform
 argument_list|,
-argument|GLuint id = -
+argument|GLuint id = GLuint(-
 literal|1
+argument|)
 argument_list|)
 block|;
 name|void
