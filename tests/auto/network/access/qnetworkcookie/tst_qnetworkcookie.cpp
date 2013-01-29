@@ -1495,7 +1495,7 @@ name|cookie
 operator|.
 name|setDomain
 argument_list|(
-literal|"qt.nokia.com"
+literal|"qt-project.org"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -1505,7 +1505,7 @@ argument_list|(
 literal|"plain-domain1"
 argument_list|)
 operator|<<
-literal|"a=b;domain=qt.nokia.com"
+literal|"a=b;domain=qt-project.org"
 operator|<<
 name|cookie
 expr_stmt|;
@@ -1516,7 +1516,7 @@ argument_list|(
 literal|"plain-domain2"
 argument_list|)
 operator|<<
-literal|"a=b; domain=qt.nokia.com "
+literal|"a=b; domain=qt-project.org "
 operator|<<
 name|cookie
 expr_stmt|;
@@ -1527,7 +1527,7 @@ argument_list|(
 literal|"plain-domain3"
 argument_list|)
 operator|<<
-literal|"a=b;domain=QT.NOKIA.COM"
+literal|"a=b;domain=QT-PROJECT.ORG"
 operator|<<
 name|cookie
 expr_stmt|;
@@ -1538,7 +1538,7 @@ argument_list|(
 literal|"plain-domain4"
 argument_list|)
 operator|<<
-literal|"a=b;DOMAIN = QT.NOKIA.COM"
+literal|"a=b;DOMAIN = QT-PROJECT.ORG"
 operator|<<
 name|cookie
 expr_stmt|;
@@ -1546,7 +1546,7 @@ name|cookie
 operator|.
 name|setDomain
 argument_list|(
-literal|".qt.nokia.com"
+literal|".qt-project.org"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -1556,7 +1556,7 @@ argument_list|(
 literal|"dot-domain1"
 argument_list|)
 operator|<<
-literal|"a=b;domain=.qt.nokia.com"
+literal|"a=b;domain=.qt-project.org"
 operator|<<
 name|cookie
 expr_stmt|;
@@ -1567,7 +1567,7 @@ argument_list|(
 literal|"dot-domain2"
 argument_list|)
 operator|<<
-literal|"a=b; domain=.qt.nokia.com"
+literal|"a=b; domain=.qt-project.org"
 operator|<<
 name|cookie
 expr_stmt|;
@@ -1578,7 +1578,7 @@ argument_list|(
 literal|"dot-domain3"
 argument_list|)
 operator|<<
-literal|"a=b; domain=.QT.NOKIA.COM"
+literal|"a=b; domain=.QT-PROJECT.ORG"
 operator|<<
 name|cookie
 expr_stmt|;
@@ -1589,7 +1589,7 @@ argument_list|(
 literal|"dot-domain4"
 argument_list|)
 operator|<<
-literal|"a=b; Domain = .QT.NOKIA.COM"
+literal|"a=b; Domain = .QT-PROJECT.ORG"
 operator|<<
 name|cookie
 expr_stmt|;
@@ -1663,7 +1663,7 @@ name|cookie
 operator|.
 name|setDomain
 argument_list|(
-literal|".qt.nokia.com"
+literal|".qt-project.org"
 argument_list|)
 expr_stmt|;
 name|cookie
@@ -1680,7 +1680,7 @@ argument_list|(
 literal|"two-fields"
 argument_list|)
 operator|<<
-literal|"a=b;domain=.qt.nokia.com;path=/"
+literal|"a=b;domain=.qt-project.org;path=/"
 operator|<<
 name|cookie
 expr_stmt|;
@@ -1691,7 +1691,7 @@ argument_list|(
 literal|"two-fields2"
 argument_list|)
 operator|<<
-literal|"a=b; domain=.qt.nokia.com; path=/"
+literal|"a=b; domain=.qt-project.org; path=/"
 operator|<<
 name|cookie
 expr_stmt|;
@@ -1702,7 +1702,7 @@ argument_list|(
 literal|"two-fields3"
 argument_list|)
 operator|<<
-literal|"a=b;   domain=.qt.nokia.com ; path=/ "
+literal|"a=b;   domain=.qt-project.org ; path=/ "
 operator|<<
 name|cookie
 expr_stmt|;
@@ -1713,7 +1713,7 @@ argument_list|(
 literal|"two-fields4"
 argument_list|)
 operator|<<
-literal|"a=b;path=/; domain=.qt.nokia.com"
+literal|"a=b;path=/; domain=.qt-project.org"
 operator|<<
 name|cookie
 expr_stmt|;
@@ -1724,7 +1724,7 @@ argument_list|(
 literal|"two-fields5"
 argument_list|)
 operator|<<
-literal|"a=b; path=/  ;   domain=.qt.nokia.com"
+literal|"a=b; path=/  ;   domain=.qt-project.org"
 operator|<<
 name|cookie
 expr_stmt|;
@@ -1735,7 +1735,7 @@ argument_list|(
 literal|"two-fields6"
 argument_list|)
 operator|<<
-literal|"a=b; path= /  ;   domain =.qt.nokia.com"
+literal|"a=b; path= /  ;   domain =.qt-project.org"
 operator|<<
 name|cookie
 expr_stmt|;
@@ -1753,7 +1753,7 @@ argument_list|(
 literal|"three-fields"
 argument_list|)
 operator|<<
-literal|"a=b;domain=.qt.nokia.com;path=/;secure"
+literal|"a=b;domain=.qt-project.org;path=/;secure"
 operator|<<
 name|cookie
 expr_stmt|;
@@ -1764,7 +1764,7 @@ argument_list|(
 literal|"three-fields2"
 argument_list|)
 operator|<<
-literal|"a=b;secure;path=/;domain=.qt.nokia.com"
+literal|"a=b;secure;path=/;domain=.qt-project.org"
 operator|<<
 name|cookie
 expr_stmt|;
@@ -1775,7 +1775,7 @@ argument_list|(
 literal|"three-fields3"
 argument_list|)
 operator|<<
-literal|"a=b;secure;domain=.qt.nokia.com; path=/"
+literal|"a=b;secure;domain=.qt-project.org; path=/"
 operator|<<
 name|cookie
 expr_stmt|;
@@ -1786,7 +1786,7 @@ argument_list|(
 literal|"three-fields4"
 argument_list|)
 operator|<<
-literal|"a = b;secure;domain=.qt.nokia.com; path=/"
+literal|"a = b;secure;domain=.qt-project.org; path=/"
 operator|<<
 name|cookie
 expr_stmt|;
@@ -5997,7 +5997,7 @@ name|cookie
 operator|.
 name|setDomain
 argument_list|(
-literal|".qt.nokia.com"
+literal|".qt-project.org"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -6007,7 +6007,7 @@ argument_list|(
 literal|"full"
 argument_list|)
 operator|<<
-literal|"a=b; domain=.qt.nokia.com;expires=Wed, 09-Nov-1999 23:12:40 GMT;path=/"
+literal|"a=b; domain=.qt-project.org;expires=Wed, 09-Nov-1999 23:12:40 GMT;path=/"
 operator|<<
 name|cookie
 expr_stmt|;
@@ -6018,7 +6018,7 @@ argument_list|(
 literal|"full2"
 argument_list|)
 operator|<<
-literal|"a=b;path=/; expires=Wed, 09-Nov-1999 23:12:40 GMT ;domain=.qt.nokia.com"
+literal|"a=b;path=/; expires=Wed, 09-Nov-1999 23:12:40 GMT ;domain=.qt-project.org"
 operator|<<
 name|cookie
 expr_stmt|;

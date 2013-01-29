@@ -784,7 +784,7 @@ expr_stmt|;
 name|QUrl
 name|justHost
 argument_list|(
-literal|"qt.nokia.com"
+literal|"qt-project.org"
 argument_list|)
 decl_stmt|;
 name|QVERIFY
@@ -818,14 +818,14 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"qt.nokia.com"
+literal|"qt-project.org"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|QUrl
 name|hostWithSlashes
 argument_list|(
-literal|"//qt.nokia.com"
+literal|"//qt-project.org"
 argument_list|)
 decl_stmt|;
 name|QVERIFY
@@ -850,7 +850,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"qt.nokia.com"
+literal|"qt-project.org"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1149,7 +1149,7 @@ block|{
 name|QUrl
 name|url
 argument_list|(
-literal|"http://qt.nokia.com/"
+literal|"http://qt-project.org/"
 argument_list|)
 decl_stmt|;
 name|QVERIFY
@@ -1187,7 +1187,7 @@ block|{
 name|QUrl
 name|url1
 argument_list|(
-literal|"http://qt.nokia.com/"
+literal|"http://qt-project.org/"
 argument_list|)
 decl_stmt|;
 name|QVERIFY
@@ -1201,7 +1201,7 @@ expr_stmt|;
 name|QUrl
 name|url2
 argument_list|(
-literal|"http://qt.nokia.com/"
+literal|"http://qt-project.org/"
 argument_list|)
 decl_stmt|;
 name|QVERIFY
@@ -1823,7 +1823,7 @@ block|{
 name|QUrl
 name|url
 argument_list|(
-literal|"http://qt.nokia.com/"
+literal|"http://qt-project.org/"
 argument_list|)
 decl_stmt|;
 name|QVERIFY
@@ -6823,7 +6823,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"qt.nokia.com"
+literal|"qt-project.org"
 argument_list|)
 operator|<<
 operator|-
@@ -6845,12 +6845,12 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"//qt.nokia.com/index.html"
+literal|"//qt-project.org/index.html"
 argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|"//qt.nokia.com/index.html"
+literal|"//qt-project.org/index.html"
 argument_list|)
 operator|<<
 literal|0u
@@ -8359,7 +8359,7 @@ block|{
 name|QUrl
 name|u
 argument_list|(
-literal|"http://qt.nokia.com/images/ban/pgs_front.jpg"
+literal|"http://qt-project.org/images/ban/pgs_front.jpg"
 argument_list|)
 decl_stmt|;
 name|QCOMPARE
@@ -8380,7 +8380,7 @@ block|{
 name|QUrl
 name|tmp
 argument_list|(
-literal|"http://qt.nokia.com/images/ban/"
+literal|"http://qt-project.org/images/ban/"
 argument_list|)
 decl_stmt|;
 name|QUrl
@@ -8423,7 +8423,7 @@ name|resolved
 argument_list|(
 name|QString
 argument_list|(
-literal|"http://qt.nokia.com/images/ban/pgs_front.jpg"
+literal|"http://qt-project.org/images/ban/pgs_front.jpg"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -8454,7 +8454,7 @@ name|resolved
 argument_list|(
 name|QString
 argument_list|(
-literal|"http://qt.nokia.com/images/ban/pgs_front.jpg"
+literal|"http://qt-project.org/images/ban/pgs_front.jpg"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -8835,12 +8835,12 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"http://qt.nokia.com/index.html"
+literal|"http://qt-project.org/index.html"
 argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"http://qt.nokia.com/index.html"
+literal|"http://qt-project.org/index.html"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -8852,12 +8852,12 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"http://qt.nokia.com"
+literal|"http://qt-project.org"
 argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"http://qt.nokia.com"
+literal|"http://qt-project.org"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -8869,12 +8869,12 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"http://qt.nokia.com/"
+literal|"http://qt-project.org/"
 argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"http://qt.nokia.com/"
+literal|"http://qt-project.org/"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -8886,12 +8886,12 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"http://qt.nokia.com/foo"
+literal|"http://qt-project.org/foo"
 argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"http://qt.nokia.com/foo"
+literal|"http://qt-project.org/foo"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -8903,12 +8903,12 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"http://qt.nokia.com/foo/"
+literal|"http://qt-project.org/foo/"
 argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"http://qt.nokia.com/foo/"
+literal|"http://qt-project.org/foo/"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -10303,7 +10303,7 @@ argument_list|(
 literal|"protocol00"
 argument_list|)
 operator|<<
-literal|"http://qt.nokia.com/images/ban/pgs_front.jpg"
+literal|"http://qt-project.org/images/ban/pgs_front.jpg"
 operator|<<
 literal|"/images/ban/pgs_front.jpg"
 expr_stmt|;
@@ -10682,12 +10682,12 @@ argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|"http://qt.nokia.com"
+literal|"http://qt-project.org"
 argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"http://qt.nokia.com"
+literal|"http://qt-project.org"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -10699,12 +10699,12 @@ argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|"http://qt%20nokia%20com"
+literal|"http://qt-project%20org"
 argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"http://qt nokia com"
+literal|"http://qt-project org"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -10890,12 +10890,12 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"http://qt.nokia.com"
+literal|"http://qt-project.org"
 argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|"http%3A//qt.nokia.com"
+literal|"http%3A//qt-project.org"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -10907,12 +10907,12 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"http://qt nokia com"
+literal|"http://qt-project org"
 argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|"http%3A//qt%20nokia%20com"
+literal|"http%3A//qt-project%20org"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -11598,7 +11598,7 @@ name|u1
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|"http://qt.nokia.com"
+literal|"http://qt-project.org"
 argument_list|)
 argument_list|)
 decl_stmt|,
@@ -11626,7 +11626,7 @@ argument_list|()
 argument_list|,
 name|QLatin1String
 argument_list|(
-literal|"qt.nokia.com"
+literal|"qt-project.org"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -11752,7 +11752,7 @@ expr_stmt|;
 name|QUrl
 name|onlyHost
 argument_list|(
-literal|"//qt.nokia.com"
+literal|"//qt-project.org"
 argument_list|)
 decl_stmt|;
 name|QCOMPARE
@@ -11766,7 +11766,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"//qt.nokia.com"
+literal|"//qt-project.org"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -12593,7 +12593,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"http://qt.nokia.com"
+literal|"http://qt-project.org"
 argument_list|)
 operator|<<
 literal|false
@@ -13825,7 +13825,7 @@ block|{
 name|QUrl
 name|url
 argument_list|(
-literal|"1http://qt.nokia.com"
+literal|"1http://qt-project.org"
 argument_list|)
 decl_stmt|;
 name|QVERIFY
@@ -13857,14 +13857,14 @@ block|{
 name|QUrl
 name|url
 argument_list|(
-literal|"http://qt.nokia.com"
+literal|"http://qt-project.org"
 argument_list|)
 decl_stmt|;
 name|url
 operator|.
 name|setScheme
 argument_list|(
-literal|"111http://qt.nokia.com"
+literal|"111http://qt-project.org"
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -13894,7 +13894,7 @@ block|{
 name|QUrl
 name|url
 argument_list|(
-literal|"ht111tp://qt.nokia.com"
+literal|"ht111tp://qt-project.org"
 argument_list|,
 name|QUrl
 operator|::
@@ -13939,14 +13939,14 @@ block|{
 name|QUrl
 name|url
 argument_list|(
-literal|"http://qt.nokia.com"
+literal|"http://qt-project.org"
 argument_list|)
 decl_stmt|;
 name|url
 operator|.
 name|setScheme
 argument_list|(
-literal|"ht123tp://qt.nokia.com"
+literal|"ht123tp://qt-project.org"
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -14005,7 +14005,7 @@ name|QUrl
 operator|::
 name|fromEncoded
 argument_list|(
-literal|"ht321tp://qt.nokia.com"
+literal|"ht321tp://qt-project.org"
 argument_list|,
 name|QUrl
 operator|::
@@ -18430,12 +18430,12 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"http://qt.nokia.com"
+literal|"http://qt-project.org"
 argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"qt.nokia.com"
+literal|"qt-project.org"
 argument_list|)
 expr_stmt|;
 comment|// IDN hostnames

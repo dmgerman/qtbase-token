@@ -216,7 +216,7 @@ literal|"www.ovi.com"
 operator|<<
 literal|"www.nokia.com"
 operator|<<
-literal|"qt.nokia.com"
+literal|"qt-project.org"
 operator|<<
 literal|"www.trolltech.com"
 operator|<<
