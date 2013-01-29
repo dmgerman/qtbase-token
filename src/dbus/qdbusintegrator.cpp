@@ -10140,10 +10140,14 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_comment
+comment|// this function is called only in a Q_ASSERT
+end_comment
 begin_function
 DECL|function|waitingForFinishedIsSet
 specifier|static
 specifier|inline
+name|Q_DECL_UNUSED
 name|bool
 name|waitingForFinishedIsSet
 parameter_list|(
