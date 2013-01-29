@@ -1848,18 +1848,9 @@ literal|0
 block|}
 decl_stmt|;
 end_decl_stmt
-begin_decl_stmt
-DECL|variable|decodedFragmentInUrlActions
-specifier|static
-specifier|const
-name|ushort
-modifier|*
-specifier|const
-name|decodedFragmentInUrlActions
-init|=
-literal|0
-decl_stmt|;
-end_decl_stmt
+begin_comment
+comment|//static const ushort * const decodedFragmentInUrlActions = 0;
+end_comment
 begin_decl_stmt
 DECL|variable|decodedFragmentInIsolationActions
 specifier|static
