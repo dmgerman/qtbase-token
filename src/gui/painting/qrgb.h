@@ -33,9 +33,13 @@ begin_comment
 DECL|typedef|QRgb
 comment|// RGB triplet
 end_comment
+begin_comment
+comment|// non-namespaced Qt global variable
+end_comment
 begin_decl_stmt
 DECL|variable|RGB_MASK
 specifier|const
+name|Q_DECL_UNUSED
 name|QRgb
 name|RGB_MASK
 init|=

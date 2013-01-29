@@ -33,6 +33,7 @@ name|QT_BEGIN_NAMESPACE
 DECL|variable|QLAYOUTSIZE_MAX
 specifier|static
 specifier|const
+name|Q_DECL_UNUSED
 name|int
 name|QLAYOUTSIZE_MAX
 init|=
