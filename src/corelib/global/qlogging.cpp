@@ -215,6 +215,11 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+end_ifdef
 begin_function
 specifier|static
 specifier|inline
@@ -310,6 +315,10 @@ literal|0
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_if
 if|#
 directive|if
