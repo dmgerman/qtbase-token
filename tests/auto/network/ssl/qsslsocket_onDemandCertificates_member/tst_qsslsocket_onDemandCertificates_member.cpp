@@ -635,7 +635,7 @@ block|{
 name|QString
 name|host
 argument_list|(
-literal|"codereview.qt-project.org"
+literal|"qt-project.org"
 argument_list|)
 decl_stmt|;
 comment|// not using any root certs -> should not work
