@@ -1866,6 +1866,12 @@ name|qreal
 name|scaleFactor
 parameter_list|)
 block|{
+if|if
+condition|(
+name|isNull
+argument_list|()
+condition|)
+return|return;
 name|detach
 argument_list|()
 expr_stmt|;
