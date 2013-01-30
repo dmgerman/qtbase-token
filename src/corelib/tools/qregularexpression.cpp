@@ -879,6 +879,13 @@ argument_list|(
 name|compiledPattern
 argument_list|)
 expr_stmt|;
+name|Q_ASSERT
+argument_list|(
+name|studyData
+operator|==
+literal|0
+argument_list|)
+expr_stmt|;
 name|pcre16_fullinfo
 argument_list|(
 name|compiledPattern
@@ -901,7 +908,7 @@ name|pcre16_fullinfo
 argument_list|(
 name|compiledPattern
 argument_list|,
-name|studyData
+literal|0
 argument_list|,
 name|PCRE_INFO_OPTIONS
 argument_list|,
