@@ -77,6 +77,11 @@ name|format
 argument_list|()
 specifier|const
 block|;
+name|QSizeF
+name|physicalSize
+argument_list|()
+specifier|const
+block|;
 name|QPlatformCursor
 operator|*
 name|cursor
