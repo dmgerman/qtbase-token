@@ -32,11 +32,25 @@ modifier|*
 name|newBackendTimeZone
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+name|QT_USE_ICU
+return|return
+operator|new
+name|QIcuTimeZonePrivate
+argument_list|()
+return|;
+else|#
+directive|else
 return|return
 operator|new
 name|QUtcTimeZonePrivate
 argument_list|()
 return|;
+endif|#
+directive|endif
+comment|// QT_USE_ICU
 block|}
 end_function
 begin_comment
@@ -55,6 +69,19 @@ modifier|&
 name|olsenId
 parameter_list|)
 block|{
+if|#
+directive|if
+name|defined
+name|QT_USE_ICU
+return|return
+operator|new
+name|QIcuTimeZonePrivate
+argument_list|(
+name|olsenId
+argument_list|)
+return|;
+else|#
+directive|else
 return|return
 operator|new
 name|QUtcTimeZonePrivate
@@ -62,6 +89,9 @@ argument_list|(
 name|olsenId
 argument_list|)
 return|;
+endif|#
+directive|endif
+comment|// QT_USE_ICU
 block|}
 end_function
 begin_class
