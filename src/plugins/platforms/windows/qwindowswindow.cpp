@@ -27,11 +27,20 @@ include|#
 directive|include
 file|"qwindowsscreen.h"
 end_include
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_NO_CURSOR
+end_ifdef
 begin_include
 include|#
 directive|include
 file|"qwindowscursor.h"
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -3809,6 +3818,9 @@ argument_list|(
 literal|1.0
 argument_list|)
 member_init_list|,
+ifndef|#
+directive|ifndef
+name|QT_NO_CURSOR
 name|m_cursor
 argument_list|(
 name|QWindowsScreen
@@ -3825,6 +3837,8 @@ name|standardWindowCursor
 argument_list|()
 argument_list|)
 member_init_list|,
+endif|#
+directive|endif
 name|m_dropTarget
 argument_list|(
 literal|0
@@ -8757,6 +8771,9 @@ operator|::
 name|applyCursor
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_CURSOR
 name|SetCursor
 argument_list|(
 name|m_cursor
@@ -8765,6 +8782,8 @@ name|handle
 argument_list|()
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -8780,6 +8799,9 @@ modifier|&
 name|c
 parameter_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_CURSOR
 if|if
 condition|(
 name|c
@@ -8848,6 +8870,8 @@ name|applyCursor
 argument_list|()
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 block|}
 end_function
 begin_comment
