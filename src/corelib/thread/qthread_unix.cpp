@@ -1799,6 +1799,37 @@ name|defined
 argument_list|(
 name|Q_OS_INTEGRITY
 argument_list|)
+if|#
+directive|if
+operator|(
+name|__INTEGRITY_MAJOR_VERSION
+operator|>=
+literal|10
+operator|)
+comment|// Integrity V10+ does support multicore CPUs
+name|Value
+name|processorCount
+decl_stmt|;
+if|if
+condition|(
+name|GetProcessorCount
+argument_list|(
+name|CurrentTask
+argument_list|()
+argument_list|,
+operator|&
+name|processorCount
+argument_list|)
+operator|==
+literal|0
+condition|)
+name|cores
+operator|=
+name|processorCount
+expr_stmt|;
+else|else
+endif|#
+directive|endif
 comment|// as of aug 2008 Integrity only supports one single core CPU
 name|cores
 operator|=
