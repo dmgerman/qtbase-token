@@ -9657,7 +9657,12 @@ argument_list|()
 operator|&
 name|DontUseNativeDialog
 operator|)
+operator|&&
+name|d
+operator|->
+name|nativeDialogInUse
 condition|)
+block|{
 name|d
 operator|->
 name|setNativeDialogVisible
@@ -9665,13 +9670,6 @@ argument_list|(
 name|visible
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|d
-operator|->
-name|nativeDialogInUse
-condition|)
-block|{
 comment|// Set WA_DontShowOnScreen so that QDialog::setVisible(visible) below
 comment|// updates the state correctly, but skips showing the non-native version:
 name|setAttribute
@@ -9684,12 +9682,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|d
-operator|->
-name|nativeDialogInUse
-operator|=
-literal|false
-expr_stmt|;
 name|setAttribute
 argument_list|(
 name|Qt
