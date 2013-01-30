@@ -88,6 +88,11 @@ name|logicalDpi
 argument_list|()
 specifier|const
 block|;
+name|qreal
+name|devicePixelRatio
+argument_list|()
+specifier|const
+block|;
 name|Qt
 operator|::
 name|ScreenOrientation
