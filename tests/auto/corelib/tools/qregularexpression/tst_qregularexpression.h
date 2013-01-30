@@ -149,6 +149,14 @@ name|void
 name|regularExpressionMatch
 argument_list|()
 block|;
+name|void
+name|JOptionUsage_data
+argument_list|()
+block|;
+name|void
+name|JOptionUsage
+argument_list|()
+block|;
 name|private
 operator|:
 name|void
