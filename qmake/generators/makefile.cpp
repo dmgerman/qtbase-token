@@ -2757,6 +2757,26 @@ literal|""
 else|:
 literal|"|| "
 expr_stmt|;
+if|if
+condition|(
+name|v
+index|[
+literal|"QMAKE_LINK_O_FLAG"
+index|]
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|v
+index|[
+literal|"QMAKE_LINK_O_FLAG"
+index|]
+operator|.
+name|append
+argument_list|(
+literal|"-o "
+argument_list|)
+expr_stmt|;
 name|ProStringList
 modifier|&
 name|quc
