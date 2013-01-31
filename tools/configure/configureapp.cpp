@@ -2335,17 +2335,6 @@ argument_list|(
 name|j
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|dictionary
-index|[
-literal|"XQMAKESPEC"
-index|]
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
 name|applySpecSpecifics
 argument_list|()
 expr_stmt|;
