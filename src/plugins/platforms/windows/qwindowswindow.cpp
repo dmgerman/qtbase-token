@@ -1165,7 +1165,7 @@ block|{
 ifdef|#
 directive|ifdef
 name|Q_OS_WINCE
-comment|// maybe needs revisit WS_EX_LAYERED
+comment|// WINCE does not support that feature and microsoft explicitly warns to use those calls
 name|Q_UNUSED
 argument_list|(
 name|hwnd
@@ -3957,6 +3957,9 @@ default|default:
 break|break;
 block|}
 block|}
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
 if|if
 condition|(
 name|QWindowsContext
@@ -3984,6 +3987,9 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|// !Q_OS_WINCE
 name|setWindowState
 argument_list|(
 name|aWindow
@@ -4031,6 +4037,9 @@ name|~
 name|QWindowsWindow
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
 if|if
 condition|(
 name|QWindowsContext
@@ -4056,6 +4065,9 @@ operator|.
 name|hwnd
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|// !Q_OS_WINCE
 name|destroyWindow
 argument_list|()
 expr_stmt|;
@@ -4207,6 +4219,7 @@ block|}
 block|}
 endif|#
 directive|endif
+comment|// !Q_OS_WINCE
 if|if
 condition|(
 name|m_data
