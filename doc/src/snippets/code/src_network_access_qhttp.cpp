@@ -66,7 +66,7 @@ name|setValue
 argument_list|(
 literal|"Host"
 argument_list|,
-literal|"qt.nokia.com"
+literal|"qt-project.org"
 argument_list|)
 expr_stmt|;
 end_expr_stmt
@@ -75,7 +75,7 @@ name|http
 operator|->
 name|setHost
 argument_list|(
-literal|"qt.nokia.com"
+literal|"qt-project.org"
 argument_list|)
 expr_stmt|;
 end_expr_stmt
@@ -99,7 +99,7 @@ name|http
 operator|->
 name|setHost
 argument_list|(
-literal|"qt.nokia.com"
+literal|"qt-project.org"
 argument_list|)
 expr_stmt|;
 end_expr_stmt
