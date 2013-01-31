@@ -4279,6 +4279,12 @@ operator|::
 name|registerDropSite
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
+ifndef|#
+directive|ifndef
+name|QT_NO_DRAGANDDROP
 if|if
 condition|(
 name|m_data
@@ -4317,6 +4323,12 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
+comment|// !QT_NO_DRAGANDDROP
+endif|#
+directive|endif
+comment|// !QT_NO_CLIPBOARD
 block|}
 end_function
 begin_function
@@ -4327,6 +4339,12 @@ operator|::
 name|unregisterDropSite
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
+ifndef|#
+directive|ifndef
+name|QT_NO_DRAGANDDROP
 if|if
 condition|(
 name|m_data
@@ -4362,6 +4380,12 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+endif|#
+directive|endif
+comment|// !QT_NO_DRAGANDDROP
+endif|#
+directive|endif
+comment|// !QT_NO_CLIPBOARD
 block|}
 end_function
 begin_comment
