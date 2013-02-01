@@ -31,7 +31,7 @@ name|QUrl
 operator|::
 name|fromEncoded
 argument_list|(
-literal|"http://qt.nokia.com/List%20of%20holidays.xml"
+literal|"http://qt-project.org/List%20of%20holidays.xml"
 argument_list|)
 decl_stmt|;
 end_decl_stmt
@@ -140,7 +140,7 @@ begin_decl_stmt
 name|QUrl
 name|baseUrl
 argument_list|(
-literal|"http://qt.nokia.com/support"
+literal|"http://qt.digia.com/Support/"
 argument_list|)
 decl_stmt|;
 end_decl_stmt
@@ -148,7 +148,7 @@ begin_decl_stmt
 name|QUrl
 name|relativeUrl
 argument_list|(
-literal|"../products/solutions"
+literal|"../Product/Library/"
 argument_list|)
 decl_stmt|;
 end_decl_stmt
@@ -168,7 +168,7 @@ argument_list|)
 expr_stmt|;
 end_expr_stmt
 begin_comment
-comment|// prints "http://qt.nokia.com/products/solutions"
+comment|// prints "http://qt.digia.com/Product/Library/"
 end_comment
 begin_comment
 comment|//! [5]
