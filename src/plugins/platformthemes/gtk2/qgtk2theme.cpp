@@ -68,6 +68,10 @@ return|return
 name|type
 operator|==
 name|ColorDialog
+operator|||
+name|type
+operator|==
+name|FileDialog
 return|;
 block|}
 end_function
@@ -95,6 +99,13 @@ case|:
 return|return
 operator|new
 name|QGtk2ColorDialogHelper
+return|;
+case|case
+name|FileDialog
+case|:
+return|return
+operator|new
+name|QGtk2FileDialogHelper
 return|;
 default|default:
 return|return
