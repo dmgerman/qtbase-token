@@ -1822,10 +1822,12 @@ argument_list|)
 expr_stmt|;
 comment|//! [48]
 comment|//! [49]
-if|if
-condition|(
-name|isSignalConnected
-argument_list|(
+DECL|member|valueChangedSignal
+specifier|static
+specifier|const
+name|QMetaMethod
+name|valueChangedSignal
+init|=
 name|QMetaMethod
 operator|::
 name|fromSignal
@@ -1835,6 +1837,12 @@ name|MyObject
 operator|::
 name|valueChanged
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|isSignalConnected
+argument_list|(
+name|valueChangedSignal
 argument_list|)
 condition|)
 block|{
