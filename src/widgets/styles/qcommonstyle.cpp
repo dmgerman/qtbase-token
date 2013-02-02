@@ -17688,6 +17688,9 @@ expr_stmt|;
 name|QRect
 name|checkRect
 init|=
+name|proxy
+argument_list|()
+operator|->
 name|subElementRect
 argument_list|(
 name|SE_ItemViewItemCheckIndicator
@@ -17700,6 +17703,9 @@ decl_stmt|;
 name|QRect
 name|iconRect
 init|=
+name|proxy
+argument_list|()
+operator|->
 name|subElementRect
 argument_list|(
 name|SE_ItemViewItemDecoration
@@ -17712,6 +17718,9 @@ decl_stmt|;
 name|QRect
 name|textRect
 init|=
+name|proxy
+argument_list|()
+operator|->
 name|subElementRect
 argument_list|(
 name|SE_ItemViewItemText
