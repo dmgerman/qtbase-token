@@ -1298,6 +1298,43 @@ argument|GroupSeparatorMode group_sep_mode
 argument_list|)
 specifier|const
 block|;
+name|double
+name|stringToDouble
+argument_list|(
+argument|const QStringRef&num
+argument_list|,
+argument|bool *ok
+argument_list|,
+argument|GroupSeparatorMode group_sep_mode
+argument_list|)
+specifier|const
+block|;
+name|qint64
+name|stringToLongLong
+argument_list|(
+argument|const QStringRef&num
+argument_list|,
+argument|int base
+argument_list|,
+argument|bool *ok
+argument_list|,
+argument|GroupSeparatorMode group_sep_mode
+argument_list|)
+specifier|const
+block|;
+name|quint64
+name|stringToUnsLongLong
+argument_list|(
+argument|const QStringRef&num
+argument_list|,
+argument|int base
+argument_list|,
+argument|bool *ok
+argument_list|,
+argument|GroupSeparatorMode group_sep_mode
+argument_list|)
+specifier|const
+block|;
 specifier|static
 name|double
 name|bytearrayToDouble
