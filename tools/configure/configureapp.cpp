@@ -8283,7 +8283,7 @@ index|[
 literal|"QMAKEMAKEFILE"
 index|]
 operator|=
-literal|"Makefile.win32-g++"
+literal|"Makefile.unix"
 expr_stmt|;
 block|}
 else|else
@@ -24130,15 +24130,6 @@ name|endl
 expr_stmt|;
 name|stream
 operator|<<
-literal|"QMAKESPEC = "
-operator|<<
-name|dictionary
-index|[
-literal|"QMAKESPEC"
-index|]
-operator|<<
-name|endl
-operator|<<
 literal|"QT_VERSION = "
 operator|<<
 name|dictionary
@@ -24148,6 +24139,186 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
+if|if
+condition|(
+name|dictionary
+index|[
+literal|"QMAKESPEC"
+index|]
+operator|==
+name|QString
+argument_list|(
+literal|"win32-g++"
+argument_list|)
+condition|)
+block|{
+name|stream
+operator|<<
+literal|"QMAKESPEC = $(SOURCE_PATH)\\mkspecs\\win32-g++"
+operator|<<
+name|endl
+operator|<<
+literal|"EXTRA_CFLAGS = -DUNICODE"
+operator|<<
+name|endl
+operator|<<
+literal|"EXTRA_CXXFLAGS = -DUNICODE"
+operator|<<
+name|endl
+operator|<<
+literal|"QTOBJS = qfilesystemengine_win.o \\"
+operator|<<
+name|endl
+operator|<<
+literal|"         qfilesystemiterator_win.o \\"
+operator|<<
+name|endl
+operator|<<
+literal|"         qfsfileengine_win.o \\"
+operator|<<
+name|endl
+operator|<<
+literal|"         qlocale_win.o \\"
+operator|<<
+name|endl
+operator|<<
+literal|"         qsettings_win.o \\"
+operator|<<
+name|endl
+operator|<<
+literal|"         qsystemlibrary.o \\"
+operator|<<
+name|endl
+operator|<<
+literal|"         registry.o"
+operator|<<
+name|endl
+operator|<<
+literal|"QTSRCS=\"$(SOURCE_PATH)/src/corelib/io/qfilesystemengine_win.cpp\" \\"
+operator|<<
+name|endl
+operator|<<
+literal|"       \"$(SOURCE_PATH)/src/corelib/io/qfilesystemiterator_win.cpp\" \\"
+operator|<<
+name|endl
+operator|<<
+literal|"       \"$(SOURCE_PATH)/src/corelib/io/qfsfileengine_win.cpp\" \\"
+operator|<<
+name|endl
+operator|<<
+literal|"       \"$(SOURCE_PATH)/src/corelib/io/qsettings_win.cpp\" \\"
+operator|<<
+name|endl
+operator|<<
+literal|"       \"$(SOURCE_PATH)/src/corelib/tools/qlocale_win.cpp\" \\"
+operator|<<
+name|endl
+expr|\
+operator|<<
+literal|"       \"$(SOURCE_PATH)/src/corelib/plugin/qsystemlibrary.cpp\" \\"
+operator|<<
+name|endl
+operator|<<
+literal|"       \"$(SOURCE_PATH)/tools/shared/windows/registry.cpp\""
+operator|<<
+name|endl
+operator|<<
+literal|"EXEEXT=.exe"
+operator|<<
+name|endl
+operator|<<
+literal|"LFLAGS=-static -s -lole32 -luuid -ladvapi32 -lkernel32"
+operator|<<
+name|endl
+expr_stmt|;
+comment|/*                     ** SHELL is the full path of sh.exe, unless                     ** 1) it is found in the current directory                     ** 2) it is not found at all                     ** 3) it is overridden on the command line with an existing file                     ** ... otherwise it is always sh.exe. Specifically, SHELL from the                     ** environment has no effect.                     **                     ** This check will fail if SHELL is explicitly set to a not                     ** sh-compatible shell. This is not a problem, because configure.bat                     ** will not do that.                     */
+name|stream
+operator|<<
+literal|"ifeq ($(SHELL), sh.exe)"
+operator|<<
+name|endl
+operator|<<
+literal|"    ifeq ($(wildcard $(CURDIR)/sh.exe), )"
+operator|<<
+name|endl
+operator|<<
+literal|"        SH = 0"
+operator|<<
+name|endl
+operator|<<
+literal|"    else"
+operator|<<
+name|endl
+operator|<<
+literal|"        SH = 1"
+operator|<<
+name|endl
+operator|<<
+literal|"    endif"
+operator|<<
+name|endl
+operator|<<
+literal|"else"
+operator|<<
+name|endl
+operator|<<
+literal|"    SH = 1"
+operator|<<
+name|endl
+operator|<<
+literal|"endif"
+operator|<<
+name|endl
+operator|<<
+literal|"\n"
+operator|<<
+literal|"ifeq ($(SH), 1)"
+operator|<<
+name|endl
+operator|<<
+literal|"    RM_F = rm -f"
+operator|<<
+name|endl
+operator|<<
+literal|"    RM_RF = rm -rf"
+operator|<<
+name|endl
+operator|<<
+literal|"else"
+operator|<<
+name|endl
+operator|<<
+literal|"    RM_F = del /f"
+operator|<<
+name|endl
+operator|<<
+literal|"    RM_RF = rmdir /s /q"
+operator|<<
+name|endl
+operator|<<
+literal|"endif"
+operator|<<
+name|endl
+expr_stmt|;
+name|stream
+operator|<<
+literal|"\n\n"
+expr_stmt|;
+block|}
+else|else
+block|{
+name|stream
+operator|<<
+literal|"QMAKESPEC = "
+operator|<<
+name|dictionary
+index|[
+literal|"QMAKESPEC"
+index|]
+operator|<<
+name|endl
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|dictionary
@@ -24169,7 +24340,7 @@ argument_list|)
 condition|)
 name|stream
 operator|<<
-literal|"QMAKE_OPENSOURCE_EDITION = yes"
+literal|"EXTRA_CPPFLAGS = -DQMAKE_OPENSOURCE_EDITION"
 operator|<<
 name|endl
 expr_stmt|;
