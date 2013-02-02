@@ -242,6 +242,9 @@ end_endif
 begin_comment
 comment|// Desktops, apart from Mac OS X prior to 10.7 can support OpenGL 3
 end_comment
+begin_comment
+comment|// and desktops apart from Mac can support OpenGL 4
+end_comment
 begin_if
 if|#
 directive|if
@@ -282,6 +285,25 @@ DECL|macro|QT_OPENGL_3_2
 define|#
 directive|define
 name|QT_OPENGL_3_2
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_MAC
+argument_list|)
+end_if
+begin_define
+DECL|macro|QT_OPENGL_4
+define|#
+directive|define
+name|QT_OPENGL_4
 end_define
 begin_endif
 endif|#
