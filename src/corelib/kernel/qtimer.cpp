@@ -701,7 +701,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \property QTimer::remainingTime     \brief the remaining time in milliseconds      Returns the timer's remaining value in milliseconds left until the timeout.     If the timer is inactive, the returned value will be -1. If the timer is     overdue, the returned value will be 0.      \sa interval */
+comment|/*!     \property QTimer::remainingTime     \since 5.0     \brief the remaining time in milliseconds      Returns the timer's remaining value in milliseconds left until the timeout.     If the timer is inactive, the returned value will be -1. If the timer is     overdue, the returned value will be 0.      \sa interval */
 end_comment
 begin_function
 DECL|function|remainingTime
