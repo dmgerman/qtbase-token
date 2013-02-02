@@ -1355,7 +1355,9 @@ expr_stmt|;
 name|bool
 name|numberToCLocale
 argument_list|(
-argument|const QString&num
+argument|const QChar *str
+argument_list|,
+argument|int len
 argument_list|,
 argument|GroupSeparatorMode group_sep_mode
 argument_list|,
