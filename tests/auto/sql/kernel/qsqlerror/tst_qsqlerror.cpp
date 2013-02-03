@@ -371,10 +371,13 @@ argument_list|,
 literal|123
 argument_list|)
 expr_stmt|;
+name|QVERIFY
+argument_list|(
 name|obj1
 operator|.
 name|isValid
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|QSqlError
 name|obj2
