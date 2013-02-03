@@ -33,6 +33,7 @@ directive|endif
 end_endif
 begin_function
 DECL|function|InitSponge
+specifier|static
 name|int
 name|InitSponge
 parameter_list|(
@@ -151,6 +152,7 @@ block|}
 end_function
 begin_function
 DECL|function|AbsorbQueue
+specifier|static
 name|void
 name|AbsorbQueue
 parameter_list|(
@@ -359,6 +361,7 @@ block|}
 end_function
 begin_function
 DECL|function|Absorb
+specifier|static
 name|int
 name|Absorb
 parameter_list|(
@@ -1105,6 +1108,7 @@ block|}
 end_function
 begin_function
 DECL|function|PadAndSwitchToSqueezingPhase
+specifier|static
 name|void
 name|PadAndSwitchToSqueezingPhase
 parameter_list|(
@@ -1366,6 +1370,7 @@ block|}
 end_function
 begin_function
 DECL|function|Squeeze
+specifier|static
 name|int
 name|Squeeze
 parameter_list|(

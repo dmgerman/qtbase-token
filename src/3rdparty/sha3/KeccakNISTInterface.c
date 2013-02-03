@@ -7,11 +7,9 @@ include|#
 directive|include
 file|<string.h>
 end_include
-begin_include
-include|#
-directive|include
-file|"KeccakNISTInterface.h"
-end_include
+begin_comment
+comment|//#include "KeccakNISTInterface.h"
+end_comment
 begin_include
 include|#
 directive|include
@@ -19,6 +17,7 @@ file|"KeccakF-1600-interface.h"
 end_include
 begin_function
 DECL|function|Init
+specifier|static
 name|HashReturn
 name|Init
 parameter_list|(
@@ -139,6 +138,7 @@ block|}
 end_function
 begin_function
 DECL|function|Update
+specifier|static
 name|HashReturn
 name|Update
 parameter_list|(
@@ -166,6 +166,9 @@ operator|==
 literal|0
 condition|)
 return|return
+operator|(
+name|HashReturn
+operator|)
 name|Absorb
 argument_list|(
 operator|(
@@ -184,6 +187,9 @@ block|{
 name|HashReturn
 name|ret
 init|=
+operator|(
+name|HashReturn
+operator|)
 name|Absorb
 argument_list|(
 operator|(
@@ -235,6 +241,9 @@ operator|)
 operator|)
 expr_stmt|;
 return|return
+operator|(
+name|HashReturn
+operator|)
 name|Absorb
 argument_list|(
 operator|(
@@ -261,6 +270,7 @@ block|}
 end_function
 begin_function
 DECL|function|Final
+specifier|static
 name|HashReturn
 name|Final
 parameter_list|(
@@ -274,6 +284,9 @@ name|hashval
 parameter_list|)
 block|{
 return|return
+operator|(
+name|HashReturn
+operator|)
 name|Squeeze
 argument_list|(
 name|state
@@ -289,6 +302,7 @@ block|}
 end_function
 begin_function
 DECL|function|Hash
+specifier|static
 name|HashReturn
 name|Hash
 parameter_list|(

@@ -19,6 +19,7 @@ directive|include
 file|"KeccakF-1600-int-set.h"
 end_include
 begin_function_decl
+specifier|static
 name|void
 name|KeccakInitialize
 parameter_list|(
@@ -27,6 +28,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
+specifier|static
 name|void
 name|KeccakInitializeState
 parameter_list|(
@@ -38,6 +40,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
+specifier|static
 name|void
 name|KeccakPermutation
 parameter_list|(
@@ -54,6 +57,7 @@ directive|ifdef
 name|ProvideFast576
 end_ifdef
 begin_function_decl
+specifier|static
 name|void
 name|KeccakAbsorb576bits
 parameter_list|(
@@ -80,6 +84,7 @@ directive|ifdef
 name|ProvideFast832
 end_ifdef
 begin_function_decl
+specifier|static
 name|void
 name|KeccakAbsorb832bits
 parameter_list|(
@@ -106,6 +111,7 @@ directive|ifdef
 name|ProvideFast1024
 end_ifdef
 begin_function_decl
+specifier|static
 name|void
 name|KeccakAbsorb1024bits
 parameter_list|(
@@ -132,6 +138,7 @@ directive|ifdef
 name|ProvideFast1088
 end_ifdef
 begin_function_decl
+specifier|static
 name|void
 name|KeccakAbsorb1088bits
 parameter_list|(
@@ -158,6 +165,7 @@ directive|ifdef
 name|ProvideFast1152
 end_ifdef
 begin_function_decl
+specifier|static
 name|void
 name|KeccakAbsorb1152bits
 parameter_list|(
@@ -184,6 +192,7 @@ directive|ifdef
 name|ProvideFast1344
 end_ifdef
 begin_function_decl
+specifier|static
 name|void
 name|KeccakAbsorb1344bits
 parameter_list|(
@@ -205,6 +214,7 @@ endif|#
 directive|endif
 end_endif
 begin_function_decl
+specifier|static
 name|void
 name|KeccakAbsorb
 parameter_list|(
@@ -231,6 +241,7 @@ directive|ifdef
 name|ProvideFast1024
 end_ifdef
 begin_function_decl
+specifier|static
 name|void
 name|KeccakExtract1024bits
 parameter_list|(
@@ -252,6 +263,7 @@ endif|#
 directive|endif
 end_endif
 begin_function_decl
+specifier|static
 name|void
 name|KeccakExtract
 parameter_list|(

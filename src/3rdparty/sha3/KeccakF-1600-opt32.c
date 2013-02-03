@@ -89,6 +89,7 @@ decl_stmt|;
 end_decl_stmt
 begin_function
 DECL|function|buildInterleaveTables
+specifier|static
 name|void
 name|buildInterleaveTables
 parameter_list|()
@@ -288,6 +289,7 @@ comment|// Endianness
 end_comment
 begin_function
 DECL|function|xor8bytesIntoInterleavedWords
+specifier|static
 name|void
 name|xor8bytesIntoInterleavedWords
 parameter_list|(
@@ -373,6 +375,7 @@ value|{ \         int i; \         for(i=0; i<(laneCount); i++) \             xo
 end_define
 begin_function
 DECL|function|setInterleavedWordsInto8bytes
+specifier|static
 name|void
 name|setInterleavedWordsInto8bytes
 parameter_list|(
@@ -514,6 +517,7 @@ comment|// Credit: Henry S. Warren, Hacker's Delight, Addison-Wesley, 2002
 end_comment
 begin_function
 DECL|function|toInterleaving
+specifier|static
 name|UINT64
 name|toInterleaving
 parameter_list|(
@@ -661,6 +665,7 @@ block|}
 end_function
 begin_function
 DECL|function|xor8bytesIntoInterleavedWords
+specifier|static
 name|void
 name|xor8bytesIntoInterleavedWords
 parameter_list|(
@@ -845,6 +850,7 @@ comment|// Credit: Henry S. Warren, Hacker's Delight, Addison-Wesley, 2002
 end_comment
 begin_function
 DECL|function|fromInterleaving
+specifier|static
 name|UINT64
 name|fromInterleaving
 parameter_list|(
@@ -992,6 +998,7 @@ block|}
 end_function
 begin_function
 DECL|function|setInterleavedWordsInto8bytes
+specifier|static
 name|void
 name|setInterleavedWordsInto8bytes
 parameter_list|(
@@ -1314,6 +1321,7 @@ directive|endif
 end_endif
 begin_function
 DECL|function|KeccakPermutationOnWords
+specifier|static
 name|void
 name|KeccakPermutationOnWords
 parameter_list|(
@@ -1327,6 +1335,7 @@ block|}
 end_function
 begin_function
 DECL|function|KeccakPermutationOnWordsAfterXoring
+specifier|static
 name|void
 name|KeccakPermutationOnWordsAfterXoring
 parameter_list|(
@@ -1362,6 +1371,7 @@ name|ProvideFast576
 end_ifdef
 begin_function
 DECL|function|KeccakPermutationOnWordsAfterXoring576bits
+specifier|static
 name|void
 name|KeccakPermutationOnWordsAfterXoring576bits
 parameter_list|(
@@ -1397,6 +1407,7 @@ name|ProvideFast832
 end_ifdef
 begin_function
 DECL|function|KeccakPermutationOnWordsAfterXoring832bits
+specifier|static
 name|void
 name|KeccakPermutationOnWordsAfterXoring832bits
 parameter_list|(
@@ -1432,6 +1443,7 @@ name|ProvideFast1024
 end_ifdef
 begin_function
 DECL|function|KeccakPermutationOnWordsAfterXoring1024bits
+specifier|static
 name|void
 name|KeccakPermutationOnWordsAfterXoring1024bits
 parameter_list|(
@@ -1467,6 +1479,7 @@ name|ProvideFast1088
 end_ifdef
 begin_function
 DECL|function|KeccakPermutationOnWordsAfterXoring1088bits
+specifier|static
 name|void
 name|KeccakPermutationOnWordsAfterXoring1088bits
 parameter_list|(
@@ -1502,6 +1515,7 @@ name|ProvideFast1152
 end_ifdef
 begin_function
 DECL|function|KeccakPermutationOnWordsAfterXoring1152bits
+specifier|static
 name|void
 name|KeccakPermutationOnWordsAfterXoring1152bits
 parameter_list|(
@@ -1537,6 +1551,7 @@ name|ProvideFast1344
 end_ifdef
 begin_function
 DECL|function|KeccakPermutationOnWordsAfterXoring1344bits
+specifier|static
 name|void
 name|KeccakPermutationOnWordsAfterXoring1344bits
 parameter_list|(
@@ -1574,6 +1589,7 @@ comment|// (Schedule != 3)
 end_comment
 begin_function
 DECL|function|KeccakPermutationOnWords
+specifier|static
 name|void
 name|KeccakPermutationOnWords
 parameter_list|(
@@ -1607,6 +1623,7 @@ block|}
 end_function
 begin_function
 DECL|function|KeccakPermutationOnWordsAfterXoring
+specifier|static
 name|void
 name|KeccakPermutationOnWordsAfterXoring
 parameter_list|(
@@ -1653,6 +1670,7 @@ name|ProvideFast576
 end_ifdef
 begin_function
 DECL|function|KeccakPermutationOnWordsAfterXoring576bits
+specifier|static
 name|void
 name|KeccakPermutationOnWordsAfterXoring576bits
 parameter_list|(
@@ -1699,6 +1717,7 @@ name|ProvideFast832
 end_ifdef
 begin_function
 DECL|function|KeccakPermutationOnWordsAfterXoring832bits
+specifier|static
 name|void
 name|KeccakPermutationOnWordsAfterXoring832bits
 parameter_list|(
@@ -1745,6 +1764,7 @@ name|ProvideFast1024
 end_ifdef
 begin_function
 DECL|function|KeccakPermutationOnWordsAfterXoring1024bits
+specifier|static
 name|void
 name|KeccakPermutationOnWordsAfterXoring1024bits
 parameter_list|(
@@ -1791,6 +1811,7 @@ name|ProvideFast1088
 end_ifdef
 begin_function
 DECL|function|KeccakPermutationOnWordsAfterXoring1088bits
+specifier|static
 name|void
 name|KeccakPermutationOnWordsAfterXoring1088bits
 parameter_list|(
@@ -1837,6 +1858,7 @@ name|ProvideFast1152
 end_ifdef
 begin_function
 DECL|function|KeccakPermutationOnWordsAfterXoring1152bits
+specifier|static
 name|void
 name|KeccakPermutationOnWordsAfterXoring1152bits
 parameter_list|(
@@ -1883,6 +1905,7 @@ name|ProvideFast1344
 end_ifdef
 begin_function
 DECL|function|KeccakPermutationOnWordsAfterXoring1344bits
+specifier|static
 name|void
 name|KeccakPermutationOnWordsAfterXoring1344bits
 parameter_list|(
@@ -1928,6 +1951,7 @@ directive|endif
 end_endif
 begin_function
 DECL|function|KeccakInitialize
+specifier|static
 name|void
 name|KeccakInitialize
 parameter_list|()
@@ -1944,6 +1968,7 @@ block|}
 end_function
 begin_function
 DECL|function|KeccakInitializeState
+specifier|static
 name|void
 name|KeccakInitializeState
 parameter_list|(
@@ -2175,6 +2200,7 @@ block|}
 end_function
 begin_function
 DECL|function|KeccakPermutation
+specifier|static
 name|void
 name|KeccakPermutation
 parameter_list|(
@@ -2203,6 +2229,7 @@ name|ProvideFast576
 end_ifdef
 begin_function
 DECL|function|KeccakAbsorb576bits
+specifier|static
 name|void
 name|KeccakAbsorb576bits
 parameter_list|(
@@ -2242,6 +2269,7 @@ name|ProvideFast832
 end_ifdef
 begin_function
 DECL|function|KeccakAbsorb832bits
+specifier|static
 name|void
 name|KeccakAbsorb832bits
 parameter_list|(
@@ -2281,6 +2309,7 @@ name|ProvideFast1024
 end_ifdef
 begin_function
 DECL|function|KeccakAbsorb1024bits
+specifier|static
 name|void
 name|KeccakAbsorb1024bits
 parameter_list|(
@@ -2320,6 +2349,7 @@ name|ProvideFast1088
 end_ifdef
 begin_function
 DECL|function|KeccakAbsorb1088bits
+specifier|static
 name|void
 name|KeccakAbsorb1088bits
 parameter_list|(
@@ -2359,6 +2389,7 @@ name|ProvideFast1152
 end_ifdef
 begin_function
 DECL|function|KeccakAbsorb1152bits
+specifier|static
 name|void
 name|KeccakAbsorb1152bits
 parameter_list|(
@@ -2398,6 +2429,7 @@ name|ProvideFast1344
 end_ifdef
 begin_function
 DECL|function|KeccakAbsorb1344bits
+specifier|static
 name|void
 name|KeccakAbsorb1344bits
 parameter_list|(
@@ -2432,6 +2464,7 @@ directive|endif
 end_endif
 begin_function
 DECL|function|KeccakAbsorb
+specifier|static
 name|void
 name|KeccakAbsorb
 parameter_list|(
@@ -2473,6 +2506,7 @@ name|ProvideFast1024
 end_ifdef
 begin_function
 DECL|function|KeccakExtract1024bits
+specifier|static
 name|void
 name|KeccakExtract1024bits
 parameter_list|(
@@ -2693,6 +2727,7 @@ directive|endif
 end_endif
 begin_function
 DECL|function|KeccakExtract
+specifier|static
 name|void
 name|KeccakExtract
 parameter_list|(

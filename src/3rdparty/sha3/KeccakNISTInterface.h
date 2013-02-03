@@ -69,6 +69,7 @@ begin_comment
 comment|/**   * Function to initialize the state of the Keccak[r, c] sponge function.   * The rate r and capacity c values are determined from @a hashbitlen.   * @param  state       Pointer to the state of the sponge function to be initialized.   * @param  hashbitlen  The desired number of output bits,    *                     or 0 for Keccak[] with default parameters   *                     and arbitrarily-long output.   * @pre    The value of hashbitlen must be one of 0, 224, 256, 384 and 512.   * @return SUCCESS if successful, BAD_HASHLEN if the value of hashbitlen is incorrect.   */
 end_comment
 begin_function_decl
+specifier|static
 name|HashReturn
 name|Init
 parameter_list|(
@@ -85,6 +86,7 @@ begin_comment
 comment|/**   * Function to give input data for the sponge function to absorb.   * @param  state       Pointer to the state of the sponge function initialized by Init().   * @param  data        Pointer to the input data.    *                     When @a databitLen is not a multiple of 8, the last bits of data must be   *                     in the most significant bits of the last byte.   * @param  databitLen  The number of input bits provided in the input data.   * @pre    In the previous call to Absorb(), databitLen was a multiple of 8.   * @return SUCCESS if successful, FAIL otherwise.   */
 end_comment
 begin_function_decl
+specifier|static
 name|HashReturn
 name|Update
 parameter_list|(
@@ -106,6 +108,7 @@ begin_comment
 comment|/**   * Function to squeeze output data from the sponge function.   * If @a hashbitlen was not 0 in the call to Init(), the number of output bits is equal to @a hashbitlen.   * If @a hashbitlen was 0 in the call to Init(), the output bits must be extracted using the Squeeze() function.   * @param  state       Pointer to the state of the sponge function initialized by Init().   * @param  hashval     Pointer to the buffer where to store the output data.   * @return SUCCESS if successful, FAIL otherwise.   */
 end_comment
 begin_function_decl
+specifier|static
 name|HashReturn
 name|Final
 parameter_list|(
@@ -123,6 +126,7 @@ begin_comment
 comment|/**   * Function to compute a hash using the Keccak[r, c] sponge function.   * The rate r and capacity c values are determined from @a hashbitlen.   * @param  hashbitlen  The desired number of output bits.   * @param  data        Pointer to the input data.    *                     When @a databitLen is not a multiple of 8, the last bits of data must be   *                     in the most significant bits of the last byte.   * @param  databitLen  The number of input bits provided in the input data.   * @param  hashval     Pointer to the buffer where to store the output data.   * @pre    The value of hashbitlen must be one of 224, 256, 384 and 512.   * @return SUCCESS if successful, BAD_HASHLEN if the value of hashbitlen is incorrect.   */
 end_comment
 begin_function_decl
+specifier|static
 name|HashReturn
 name|Hash
 parameter_list|(
