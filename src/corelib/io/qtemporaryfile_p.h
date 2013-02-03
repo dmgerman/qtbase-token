@@ -65,6 +65,10 @@ specifier|static
 name|QString
 name|defaultTemplateName
 argument_list|()
+block|;
+name|friend
+name|class
+name|QLockFilePrivate
 block|; }
 decl_stmt|;
 end_decl_stmt

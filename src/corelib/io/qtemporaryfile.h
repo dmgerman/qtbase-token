@@ -48,6 +48,12 @@ name|QTemporaryFilePrivate
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QLockFilePrivate
+name|class
+name|QLockFilePrivate
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|Q_CORE_EXPORT
 name|QTemporaryFile
@@ -241,6 +247,10 @@ operator|:
 name|friend
 name|class
 name|QFile
+block|;
+name|friend
+name|class
+name|QLockFilePrivate
 block|;
 name|Q_DISABLE_COPY
 argument_list|(
