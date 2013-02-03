@@ -477,6 +477,14 @@ name|QT_END_INCLUDE_NAMESPACE
 endif|#
 directive|endif
 comment|/* __cplusplus */
+DECL|macro|QT_BEGIN_HEADER
+define|#
+directive|define
+name|QT_BEGIN_HEADER
+DECL|macro|QT_END_HEADER
+define|#
+directive|define
+name|QT_END_HEADER
 if|#
 directive|if
 name|defined
