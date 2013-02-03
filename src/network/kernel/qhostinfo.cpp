@@ -2128,7 +2128,7 @@ begin_comment
 comment|// cache for 60 seconds
 end_comment
 begin_comment
-comment|// cache 64 items
+comment|// cache 128 items
 end_comment
 begin_constructor
 DECL|function|QHostInfoCache
@@ -2149,7 +2149,7 @@ argument_list|)
 member_init_list|,
 name|cache
 argument_list|(
-literal|64
+literal|128
 argument_list|)
 block|{
 ifdef|#
