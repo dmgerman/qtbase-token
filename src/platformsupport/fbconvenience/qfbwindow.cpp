@@ -17,6 +17,11 @@ include|#
 directive|include
 file|<QtGui/QScreen>
 end_include
+begin_include
+include|#
+directive|include
+file|<qpa/qwindowsysteminterface.h>
+end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
@@ -139,7 +144,16 @@ operator|->
 name|invalidateRectCache
 argument_list|()
 expr_stmt|;
-comment|//### QWindowSystemInterface::handleGeometryChange(window(), rect);
+name|QWindowSystemInterface
+operator|::
+name|handleGeometryChange
+argument_list|(
+name|window
+argument_list|()
+argument_list|,
+name|rect
+argument_list|)
+expr_stmt|;
 name|QPlatformWindow
 operator|::
 name|setGeometry
