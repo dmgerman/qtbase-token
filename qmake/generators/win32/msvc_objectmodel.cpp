@@ -3434,11 +3434,9 @@ break|break;
 case|case
 literal|'s'
 case|:
-comment|// Warning: following [num] is not used,
-comment|// were should we put it?
-name|BufferSecurityCheck
-operator|=
-name|_True
+name|AdditionalOptions
+operator|+=
+name|option
 expr_stmt|;
 break|break;
 case|case
