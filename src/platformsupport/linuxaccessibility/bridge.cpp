@@ -334,8 +334,10 @@ name|NoRole
 block|,
 name|ATSPI_ROLE_INVALID
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"invalid role"
 argument_list|)
 block|}
@@ -347,8 +349,10 @@ name|TitleBar
 block|,
 name|ATSPI_ROLE_TEXT
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"title bar"
 argument_list|)
 block|}
@@ -360,8 +364,10 @@ name|MenuBar
 block|,
 name|ATSPI_ROLE_MENU_BAR
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"menu bar"
 argument_list|)
 block|}
@@ -373,8 +379,10 @@ name|ScrollBar
 block|,
 name|ATSPI_ROLE_SCROLL_BAR
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"scroll bar"
 argument_list|)
 block|}
@@ -386,8 +394,10 @@ name|Grip
 block|,
 name|ATSPI_ROLE_UNKNOWN
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"grip"
 argument_list|)
 block|}
@@ -399,8 +409,10 @@ name|Sound
 block|,
 name|ATSPI_ROLE_UNKNOWN
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"sound"
 argument_list|)
 block|}
@@ -412,8 +424,10 @@ name|Cursor
 block|,
 name|ATSPI_ROLE_UNKNOWN
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"cursor"
 argument_list|)
 block|}
@@ -425,8 +439,10 @@ name|Caret
 block|,
 name|ATSPI_ROLE_UNKNOWN
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"cursor"
 argument_list|)
 block|}
@@ -438,8 +454,10 @@ name|AlertMessage
 block|,
 name|ATSPI_ROLE_ALERT
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"alert message"
 argument_list|)
 block|}
@@ -451,8 +469,10 @@ name|Window
 block|,
 name|ATSPI_ROLE_WINDOW
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"window"
 argument_list|)
 block|}
@@ -464,8 +484,10 @@ name|Client
 block|,
 name|ATSPI_ROLE_FILLER
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"filler"
 argument_list|)
 block|}
@@ -477,8 +499,10 @@ name|PopupMenu
 block|,
 name|ATSPI_ROLE_POPUP_MENU
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"popup menu"
 argument_list|)
 block|}
@@ -490,8 +514,10 @@ name|MenuItem
 block|,
 name|ATSPI_ROLE_MENU_ITEM
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"menu item"
 argument_list|)
 block|}
@@ -503,8 +529,10 @@ name|ToolTip
 block|,
 name|ATSPI_ROLE_TOOL_TIP
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"tool tip"
 argument_list|)
 block|}
@@ -516,8 +544,10 @@ name|Application
 block|,
 name|ATSPI_ROLE_APPLICATION
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"application"
 argument_list|)
 block|}
@@ -529,8 +559,10 @@ name|Document
 block|,
 name|ATSPI_ROLE_DOCUMENT_FRAME
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"document"
 argument_list|)
 block|}
@@ -542,8 +574,10 @@ name|Pane
 block|,
 name|ATSPI_ROLE_PANEL
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"panel"
 argument_list|)
 block|}
@@ -555,8 +589,10 @@ name|Chart
 block|,
 name|ATSPI_ROLE_CHART
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"chart"
 argument_list|)
 block|}
@@ -568,8 +604,10 @@ name|Dialog
 block|,
 name|ATSPI_ROLE_DIALOG
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"dialog"
 argument_list|)
 block|}
@@ -581,8 +619,10 @@ name|Border
 block|,
 name|ATSPI_ROLE_FRAME
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"frame"
 argument_list|)
 block|}
@@ -594,8 +634,10 @@ name|Grouping
 block|,
 name|ATSPI_ROLE_PANEL
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"panel"
 argument_list|)
 block|}
@@ -607,8 +649,10 @@ name|Separator
 block|,
 name|ATSPI_ROLE_SEPARATOR
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"separator"
 argument_list|)
 block|}
@@ -620,8 +664,10 @@ name|ToolBar
 block|,
 name|ATSPI_ROLE_TOOL_BAR
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"tool bar"
 argument_list|)
 block|}
@@ -633,8 +679,10 @@ name|StatusBar
 block|,
 name|ATSPI_ROLE_STATUS_BAR
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"status bar"
 argument_list|)
 block|}
@@ -646,8 +694,10 @@ name|Table
 block|,
 name|ATSPI_ROLE_TABLE
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"table"
 argument_list|)
 block|}
@@ -659,8 +709,10 @@ name|ColumnHeader
 block|,
 name|ATSPI_ROLE_TABLE_COLUMN_HEADER
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"column header"
 argument_list|)
 block|}
@@ -672,8 +724,10 @@ name|RowHeader
 block|,
 name|ATSPI_ROLE_TABLE_ROW_HEADER
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"row header"
 argument_list|)
 block|}
@@ -685,8 +739,10 @@ name|Column
 block|,
 name|ATSPI_ROLE_TABLE_CELL
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"column"
 argument_list|)
 block|}
@@ -698,8 +754,10 @@ name|Row
 block|,
 name|ATSPI_ROLE_TABLE_ROW
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"row"
 argument_list|)
 block|}
@@ -711,8 +769,10 @@ name|Cell
 block|,
 name|ATSPI_ROLE_TABLE_CELL
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"cell"
 argument_list|)
 block|}
@@ -724,8 +784,10 @@ name|Link
 block|,
 name|ATSPI_ROLE_LINK
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"link"
 argument_list|)
 block|}
@@ -737,8 +799,10 @@ name|HelpBalloon
 block|,
 name|ATSPI_ROLE_DIALOG
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"help balloon"
 argument_list|)
 block|}
@@ -750,8 +814,10 @@ name|Assistant
 block|,
 name|ATSPI_ROLE_DIALOG
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"assistant"
 argument_list|)
 block|}
@@ -763,8 +829,10 @@ name|List
 block|,
 name|ATSPI_ROLE_LIST
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"list"
 argument_list|)
 block|}
@@ -776,8 +844,10 @@ name|ListItem
 block|,
 name|ATSPI_ROLE_LIST_ITEM
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"list item"
 argument_list|)
 block|}
@@ -789,8 +859,10 @@ name|Tree
 block|,
 name|ATSPI_ROLE_TREE
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"tree"
 argument_list|)
 block|}
@@ -802,8 +874,10 @@ name|TreeItem
 block|,
 name|ATSPI_ROLE_TABLE_CELL
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"tree item"
 argument_list|)
 block|}
@@ -815,8 +889,10 @@ name|PageTab
 block|,
 name|ATSPI_ROLE_PAGE_TAB
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"page tab"
 argument_list|)
 block|}
@@ -828,8 +904,10 @@ name|PropertyPage
 block|,
 name|ATSPI_ROLE_PAGE_TAB
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"property page"
 argument_list|)
 block|}
@@ -841,8 +919,10 @@ name|Indicator
 block|,
 name|ATSPI_ROLE_UNKNOWN
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"indicator"
 argument_list|)
 block|}
@@ -854,8 +934,10 @@ name|Graphic
 block|,
 name|ATSPI_ROLE_IMAGE
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"graphic"
 argument_list|)
 block|}
@@ -867,8 +949,10 @@ name|StaticText
 block|,
 name|ATSPI_ROLE_LABEL
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"label"
 argument_list|)
 block|}
@@ -880,8 +964,10 @@ name|EditableText
 block|,
 name|ATSPI_ROLE_TEXT
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"text"
 argument_list|)
 block|}
@@ -893,8 +979,10 @@ name|PushButton
 block|,
 name|ATSPI_ROLE_PUSH_BUTTON
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"push button"
 argument_list|)
 block|}
@@ -906,8 +994,10 @@ name|CheckBox
 block|,
 name|ATSPI_ROLE_CHECK_BOX
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"check box"
 argument_list|)
 block|}
@@ -919,8 +1009,10 @@ name|RadioButton
 block|,
 name|ATSPI_ROLE_RADIO_BUTTON
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"radio button"
 argument_list|)
 block|}
@@ -932,8 +1024,10 @@ name|ComboBox
 block|,
 name|ATSPI_ROLE_COMBO_BOX
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"combo box"
 argument_list|)
 block|}
@@ -945,8 +1039,10 @@ name|ProgressBar
 block|,
 name|ATSPI_ROLE_PROGRESS_BAR
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"progress bar"
 argument_list|)
 block|}
@@ -958,8 +1054,10 @@ name|Dial
 block|,
 name|ATSPI_ROLE_DIAL
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"dial"
 argument_list|)
 block|}
@@ -971,8 +1069,10 @@ name|HotkeyField
 block|,
 name|ATSPI_ROLE_TEXT
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"hotkey field"
 argument_list|)
 block|}
@@ -984,8 +1084,10 @@ name|Slider
 block|,
 name|ATSPI_ROLE_SLIDER
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"slider"
 argument_list|)
 block|}
@@ -997,8 +1099,10 @@ name|SpinBox
 block|,
 name|ATSPI_ROLE_SPIN_BUTTON
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"spin box"
 argument_list|)
 block|}
@@ -1010,8 +1114,10 @@ name|Canvas
 block|,
 name|ATSPI_ROLE_CANVAS
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"canvas"
 argument_list|)
 block|}
@@ -1023,8 +1129,10 @@ name|Animation
 block|,
 name|ATSPI_ROLE_ANIMATION
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"animation"
 argument_list|)
 block|}
@@ -1036,8 +1144,10 @@ name|Equation
 block|,
 name|ATSPI_ROLE_TEXT
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"equation"
 argument_list|)
 block|}
@@ -1049,8 +1159,10 @@ name|ButtonDropDown
 block|,
 name|ATSPI_ROLE_PUSH_BUTTON
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"button drop down"
 argument_list|)
 block|}
@@ -1062,8 +1174,10 @@ name|ButtonMenu
 block|,
 name|ATSPI_ROLE_PUSH_BUTTON
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"button menu"
 argument_list|)
 block|}
@@ -1075,8 +1189,10 @@ name|ButtonDropGrid
 block|,
 name|ATSPI_ROLE_PUSH_BUTTON
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"button drop grid"
 argument_list|)
 block|}
@@ -1088,8 +1204,10 @@ name|Whitespace
 block|,
 name|ATSPI_ROLE_FILLER
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"whitespace"
 argument_list|)
 block|}
@@ -1101,8 +1219,10 @@ name|PageTabList
 block|,
 name|ATSPI_ROLE_PAGE_TAB_LIST
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"page tab list"
 argument_list|)
 block|}
@@ -1114,8 +1234,10 @@ name|Clock
 block|,
 name|ATSPI_ROLE_UNKNOWN
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"clock"
 argument_list|)
 block|}
@@ -1127,8 +1249,10 @@ name|Splitter
 block|,
 name|ATSPI_ROLE_SPLIT_PANE
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"splitter"
 argument_list|)
 block|}
@@ -1140,8 +1264,10 @@ name|LayeredPane
 block|,
 name|ATSPI_ROLE_LAYERED_PANE
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"layered pane"
 argument_list|)
 block|}
@@ -1153,8 +1279,10 @@ name|UserRole
 block|,
 name|ATSPI_ROLE_UNKNOWN
 block|,
-name|QT_TR_NOOP
+name|QT_TRANSLATE_NOOP
 argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
 literal|"unknown"
 argument_list|)
 block|}
