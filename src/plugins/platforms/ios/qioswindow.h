@@ -96,6 +96,15 @@ argument|Qt::WindowState state
 argument_list|)
 block|;
 name|void
+name|setParent
+argument_list|(
+specifier|const
+name|QPlatformWindow
+operator|*
+name|window
+argument_list|)
+block|;
+name|void
 name|handleContentOrientationChange
 argument_list|(
 argument|Qt::ScreenOrientation orientation
