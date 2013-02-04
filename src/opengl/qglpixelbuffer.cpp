@@ -54,7 +54,7 @@ begin_function_decl
 name|QT_BEGIN_NAMESPACE
 specifier|extern
 name|QImage
-name|qt_gl_read_framebuffer
+name|qt_gl_read_frame_buffer
 parameter_list|(
 specifier|const
 name|QSize
@@ -922,7 +922,7 @@ name|bind
 argument_list|()
 expr_stmt|;
 return|return
-name|qt_gl_read_framebuffer
+name|qt_gl_read_frame_buffer
 argument_list|(
 name|d
 operator|->

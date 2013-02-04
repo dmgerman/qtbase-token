@@ -51,7 +51,7 @@ begin_function_decl
 name|QT_BEGIN_NAMESPACE
 specifier|extern
 name|QImage
-name|qt_gl_read_framebuffer
+name|qt_gl_read_frame_buffer
 parameter_list|(
 specifier|const
 name|QSize
@@ -3281,7 +3281,7 @@ return|return
 name|QImage
 argument_list|()
 return|;
-comment|// qt_gl_read_framebuffer doesn't work on a multisample FBO
+comment|// qt_gl_read_frame_buffer doesn't work on a multisample FBO
 if|if
 condition|(
 name|format
@@ -3369,7 +3369,7 @@ expr_stmt|;
 name|QImage
 name|image
 init|=
-name|qt_gl_read_framebuffer
+name|qt_gl_read_frame_buffer
 argument_list|(
 name|d
 operator|->
