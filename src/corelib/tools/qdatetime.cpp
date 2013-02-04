@@ -5612,7 +5612,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.7      Sets the date and time given the number of milliseconds \a msecs that have     passed since 1970-01-01T00:00:00.000, Coordinated Universal Time     (Qt::UTC). On systems that do not support time zones this function     will behave as if local time were Qt::UTC.      Note that there are possible values for \a msecs that lie outside the     valid range of QDateTime, both negative and positive. The behavior of     this function is undefined for those values.      \sa toMSecsSinceEpoch(), setTime_t() */
+comment|/*!     \since 4.7      Sets the date and time given the number of milliseconds \a msecs that have     passed since 1970-01-01T00:00:00.000, Coordinated Universal Time     (Qt::UTC). On systems that do not support time zones this function     will behave as if local time were Qt::UTC.      Note that passing the minimum of \c qint64     (\c{std::numeric_limits<qint64>::min()}) to \a msecs will result in     undefined behavior.      \sa toMSecsSinceEpoch(), setTime_t() */
 end_comment
 begin_function
 DECL|function|setMSecsSinceEpoch
@@ -12531,7 +12531,7 @@ return|;
 block|}
 else|else
 block|{
-name|int
+name|qint64
 name|deltaDays
 init|=
 name|fakeDate
@@ -13004,7 +13004,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|int
+name|qint64
 name|deltaDays
 init|=
 name|fakeDate
