@@ -24,6 +24,12 @@ directive|include
 file|<QColorDialog>
 end_include
 begin_decl_stmt
+DECL|variable|QComboBox
+name|class
+name|QComboBox
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QCheckBox
 name|class
 name|QCheckBox
@@ -109,6 +115,10 @@ argument_list|(
 argument|QColorDialog *d
 argument_list|)
 specifier|const
+block|;
+name|QComboBox
+operator|*
+name|m_colorComboBox
 block|;
 name|QCheckBox
 operator|*
