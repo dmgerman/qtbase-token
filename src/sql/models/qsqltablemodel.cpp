@@ -3241,7 +3241,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     This reimplemented slot is called by the item delegates when the     user canceled editing the current row.      Reverts the changes if the model's strategy is set to     OnRowChange. Does nothing for the other edit strategies.      Use revertAll() to revert all pending changes for the     OnManualSubmit strategy or revertRow() to revert a specific row.      \sa submit(), submitAll(), revertRow(), revertAll() */
+comment|/*!     This reimplemented slot is called by the item delegates when the     user canceled editing the current row.      Reverts the changes if the model's strategy is set to     OnRowChange or OnFieldChange. Does nothing for the OnManualSubmit     strategy.      Use revertAll() to revert all pending changes for the     OnManualSubmit strategy or revertRow() to revert a specific row.      \sa submit(), submitAll(), revertRow(), revertAll() */
 end_comment
 begin_function
 DECL|function|revert
@@ -3263,6 +3263,12 @@ operator|->
 name|strategy
 operator|==
 name|OnRowChange
+operator|||
+name|d
+operator|->
+name|strategy
+operator|==
+name|OnFieldChange
 condition|)
 name|revertAll
 argument_list|()
