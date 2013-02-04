@@ -1232,6 +1232,16 @@ argument_list|(
 literal|' '
 argument_list|)
 decl_stmt|;
+name|bool
+name|supportsProfiles
+init|=
+name|glxExt
+operator|.
+name|contains
+argument_list|(
+literal|"GLX_ARB_create_context_profile"
+argument_list|)
+decl_stmt|;
 comment|// Use glXCreateContextAttribsARB if is available
 if|if
 condition|(
@@ -1331,6 +1341,9 @@ expr_stmt|;
 comment|// If asking for OpenGL 3.2 or newer we should also specify a profile
 if|if
 condition|(
+name|supportsProfiles
+operator|&&
+operator|(
 name|m_format
 operator|.
 name|majorVersion
@@ -1352,6 +1365,7 @@ name|minorVersion
 argument_list|()
 operator|>
 literal|1
+operator|)
 operator|)
 condition|)
 block|{
