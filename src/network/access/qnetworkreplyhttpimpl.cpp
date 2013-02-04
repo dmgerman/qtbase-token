@@ -2818,8 +2818,8 @@ name|Q_ARG
 argument_list|(
 name|QString
 argument_list|,
-name|q
-operator|->
+name|QNetworkReplyHttpImpl
+operator|::
 name|tr
 argument_list|(
 literal|"No suitable proxy found"
