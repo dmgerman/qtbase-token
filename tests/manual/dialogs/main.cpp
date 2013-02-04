@@ -15,6 +15,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"fontdialogpanel.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<QMainWindow>
 end_include
 begin_include
@@ -49,9 +54,6 @@ file|<QKeySequence>
 end_include
 begin_comment
 comment|// Test for dialogs, allowing to play with all dialog options for implementing native dialogs.
-end_comment
-begin_comment
-comment|// Currently, only QFileDialog and QColorDialog are implemented.
 end_comment
 begin_comment
 comment|// Compiles with Qt 4.8 and Qt 5.
@@ -201,6 +203,19 @@ argument_list|,
 name|tr
 argument_list|(
 literal|"QColorDialog"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|tabWidget
+operator|->
+name|addTab
+argument_list|(
+operator|new
+name|FontDialogPanel
+argument_list|,
+name|tr
+argument_list|(
+literal|"QFontDialog"
 argument_list|)
 argument_list|)
 expr_stmt|;
