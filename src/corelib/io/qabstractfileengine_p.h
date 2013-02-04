@@ -88,7 +88,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_AUTOTEST_EXPORT
+name|Q_CORE_EXPORT
 name|QAbstractFileEngine
 block|{
 name|public
@@ -757,7 +757,7 @@ argument_list|)
 end_macro
 begin_decl_stmt
 name|class
-name|Q_AUTOTEST_EXPORT
+name|Q_CORE_EXPORT
 name|QAbstractFileEngineHandler
 block|{
 name|public
@@ -797,7 +797,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_AUTOTEST_EXPORT
+name|Q_CORE_EXPORT
 name|QAbstractFileEngineIterator
 block|{
 name|public
