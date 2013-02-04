@@ -194,6 +194,15 @@ literal|0
 block|;
 name|virtual
 name|void
+name|setCheckable
+argument_list|(
+argument|bool checkable
+argument_list|)
+operator|=
+literal|0
+block|;
+name|virtual
+name|void
 name|setChecked
 argument_list|(
 argument|bool isChecked
@@ -316,6 +325,18 @@ specifier|const
 name|QString
 operator|&
 name|text
+argument_list|)
+operator|=
+literal|0
+block|;
+name|virtual
+name|void
+name|setIcon
+argument_list|(
+specifier|const
+name|QIcon
+operator|&
+name|icon
 argument_list|)
 operator|=
 literal|0

@@ -153,6 +153,18 @@ argument_list|(
 argument|bool modal
 argument_list|)
 block|;
+name|virtual
+name|void
+name|setIcon
+argument_list|(
+argument|const QIcon&icon
+argument_list|)
+block|{
+name|Q_UNUSED
+argument_list|(
+argument|icon
+argument_list|)
+block|}
 name|void
 name|setText
 argument_list|(

@@ -151,6 +151,17 @@ name|shortcut
 argument_list|)
 block|;
 name|void
+name|setCheckable
+argument_list|(
+argument|bool checkable
+argument_list|)
+block|{
+name|Q_UNUSED
+argument_list|(
+argument|checkable
+argument_list|)
+block|}
+name|void
 name|setChecked
 argument_list|(
 argument|bool isChecked
