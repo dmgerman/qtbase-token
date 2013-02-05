@@ -2524,7 +2524,7 @@ name|setObjectName
 argument_list|(
 name|QStringLiteral
 argument_list|(
-literal|"httpReply"
+literal|"Qt HTTP synchronous thread"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2582,7 +2582,7 @@ name|setObjectName
 argument_list|(
 name|QStringLiteral
 argument_list|(
-literal|"httpThread"
+literal|"Qt HTTP thread"
 argument_list|)
 argument_list|)
 expr_stmt|;

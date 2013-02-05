@@ -132,7 +132,7 @@ name|setObjectName
 argument_list|(
 name|QStringLiteral
 argument_list|(
-literal|"bearerThread"
+literal|"Qt bearer thread"
 argument_list|)
 argument_list|)
 argument_list|;
