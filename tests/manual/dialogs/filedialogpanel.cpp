@@ -1448,6 +1448,9 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
+name|enableDeleteModalDialogButton
+argument_list|()
+expr_stmt|;
 name|enableDeleteNonModalDialogButton
 argument_list|()
 expr_stmt|;
@@ -1603,6 +1606,9 @@ name|QT_VERSION_STR
 argument_list|)
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|enableDeleteModalDialogButton
+argument_list|()
 expr_stmt|;
 block|}
 name|applySettings
