@@ -15961,6 +15961,7 @@ block|}
 end_function
 begin_function
 DECL|function|copyActionToPlatformItem
+specifier|static
 name|void
 name|copyActionToPlatformItem
 parameter_list|(
@@ -16028,6 +16029,16 @@ argument_list|(
 name|action
 operator|->
 name|shortcut
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|item
+operator|->
+name|setCheckable
+argument_list|(
+name|action
+operator|->
+name|isCheckable
 argument_list|()
 argument_list|)
 expr_stmt|;
