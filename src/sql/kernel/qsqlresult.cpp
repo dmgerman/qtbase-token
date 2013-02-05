@@ -1424,7 +1424,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Prepares the given \a query, using the underlying database     functionality where possible. Returns true if the query is     prepared successfully; otherwise returns false.      \sa prepare() */
+comment|/*!     Prepares the given \a query, using the underlying database     functionality where possible. Returns true if the query is     prepared successfully; otherwise returns false.      Note: This method should have been called "safePrepare()".      \sa prepare() */
 end_comment
 begin_function
 DECL|function|savePrepare
