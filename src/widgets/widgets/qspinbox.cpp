@@ -469,6 +469,14 @@ operator|=
 name|QSize
 argument_list|()
 expr_stmt|;
+name|d
+operator|->
+name|cachedMinimumSizeHint
+operator|=
+name|QSize
+argument_list|()
+expr_stmt|;
+comment|// minimumSizeHint cares about the prefix
 name|updateGeometry
 argument_list|()
 expr_stmt|;

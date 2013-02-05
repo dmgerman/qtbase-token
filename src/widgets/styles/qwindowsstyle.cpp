@@ -17084,7 +17084,6 @@ expr_stmt|;
 break|break;
 endif|#
 directive|endif
-comment|// Otherwise, fall through
 case|case
 name|CT_ToolButton
 case|:

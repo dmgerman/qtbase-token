@@ -27399,7 +27399,7 @@ case|:
 comment|// QSpinBox does some nasty things that depends on CT_LineEdit
 name|newSize
 operator|=
-name|size
+name|newSize
 operator|+
 name|QSize
 argument_list|(
