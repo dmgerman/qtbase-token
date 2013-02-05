@@ -38,19 +38,16 @@ include|#
 directive|include
 file|"qnsview.h"
 end_include
-begin_function_decl
-name|class
-name|QT_PREPEND_NAMESPACE
-parameter_list|(
+begin_expr_stmt
+DECL|function|QT_FORWARD_DECLARE_CLASS
+name|QT_FORWARD_DECLARE_CLASS
+argument_list|(
 name|QCocoaWindow
-parameter_list|)
-function_decl|;
-end_function_decl
-begin_decl_stmt
-unit|@
+argument_list|)
+expr|@
 name|interface
 name|QNSWindow
-range|:
+operator|:
 name|NSWindow
 block|{     @
 name|public
@@ -63,8 +60,8 @@ operator|(
 name|void
 operator|)
 name|clearPlatformWindow
-decl_stmt|;
-end_decl_stmt
+expr_stmt|;
+end_expr_stmt
 begin_expr_stmt
 operator|-
 operator|(
