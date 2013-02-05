@@ -762,6 +762,25 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
+literal|"BMP: high mask bit set"
+argument_list|)
+operator|<<
+name|QString
+argument_list|(
+literal|"rgb32bf.bmp"
+argument_list|)
+operator|<<
+literal|true
+operator|<<
+name|QByteArray
+argument_list|(
+literal|"bmp"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
 literal|"XPM: marble"
 argument_list|)
 operator|<<
