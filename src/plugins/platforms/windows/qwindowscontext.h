@@ -726,7 +726,7 @@ decl_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_NO_CONTEXTMENU
-name|void
+name|bool
 name|handleContextMenuEvent
 parameter_list|(
 name|QWindow
