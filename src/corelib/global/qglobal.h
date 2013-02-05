@@ -477,6 +477,7 @@ name|QT_END_INCLUDE_NAMESPACE
 endif|#
 directive|endif
 comment|/* __cplusplus */
+comment|// ### Qt6: remove me.
 DECL|macro|QT_BEGIN_HEADER
 define|#
 directive|define
