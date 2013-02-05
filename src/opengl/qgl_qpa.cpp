@@ -423,7 +423,7 @@ name|DoubleBuffer
 else|:
 name|QSurfaceFormat
 operator|::
-name|DefaultSwapBehavior
+name|SingleBuffer
 argument_list|)
 expr_stmt|;
 if|if
