@@ -116,10 +116,11 @@ name|QVariant
 name|data
 argument_list|(
 name|qMetaTypeId
-argument_list|(
-operator|&
-name|m_data
-argument_list|)
+operator|<
+name|Type
+operator|>
+operator|(
+operator|)
 argument_list|,
 name|reinterpret_cast
 operator|<
