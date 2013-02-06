@@ -4838,6 +4838,9 @@ if|if
 condition|(
 operator|!
 name|interface
+operator|||
+operator|!
+name|interface
 operator|->
 name|isValid
 argument_list|()
