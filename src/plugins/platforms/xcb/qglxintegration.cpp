@@ -768,10 +768,12 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
+operator|(
 name|value
 operator|&
-operator|~
 name|GL_CONTEXT_FLAG_FORWARD_COMPATIBLE_BIT
+operator|)
 condition|)
 name|format
 operator|.
