@@ -317,6 +317,10 @@ argument_list|(
 name|Q_CC_INTEL
 argument_list|)
 operator|||
+name|__INTEL_COMPILER
+operator|>=
+literal|1310
+operator|||
 operator|(
 name|__GNUC__
 operator|*
