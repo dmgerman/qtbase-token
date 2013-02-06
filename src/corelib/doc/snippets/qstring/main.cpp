@@ -3188,7 +3188,7 @@ comment|//! [75]
 name|QString
 name|str
 init|=
-literal|"The QT PROJECT"
+literal|"The Qt PROJECT"
 decl_stmt|;
 name|str
 operator|=
