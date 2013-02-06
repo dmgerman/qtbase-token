@@ -25367,6 +25367,8 @@ literal|"ac"
 block|,
 literal|"ar"
 block|,
+literal|"asia"
+block|,
 literal|"at"
 block|,
 literal|"biz"
@@ -25381,6 +25383,8 @@ literal|"cl"
 block|,
 literal|"cn"
 block|,
+literal|"com"
+block|,
 literal|"de"
 block|,
 literal|"dk"
@@ -25393,11 +25397,15 @@ literal|"gr"
 block|,
 literal|"hu"
 block|,
+literal|"il"
+block|,
 literal|"info"
 block|,
 literal|"io"
 block|,
 literal|"is"
+block|,
+literal|"ir"
 block|,
 literal|"jp"
 block|,
@@ -25407,15 +25415,33 @@ literal|"li"
 block|,
 literal|"lt"
 block|,
+literal|"lu"
+block|,
+literal|"lv"
+block|,
 literal|"museum"
+block|,
+literal|"name"
+block|,
+literal|"net"
 block|,
 literal|"no"
 block|,
+literal|"nu"
+block|,
+literal|"nz"
+block|,
 literal|"org"
+block|,
+literal|"pl"
+block|,
+literal|"pr"
 block|,
 literal|"se"
 block|,
 literal|"sh"
+block|,
+literal|"tel"
 block|,
 literal|"th"
 block|,
@@ -25423,16 +25449,57 @@ literal|"tm"
 block|,
 literal|"tw"
 block|,
+literal|"ua"
+block|,
 literal|"vn"
 block|,
+literal|"xn--fiqs8s"
+block|,
+comment|// China
+literal|"xn--fiqz9s"
+block|,
+comment|// China
+literal|"xn--fzc2c9e2c"
+block|,
+comment|// Sri Lanka
+literal|"xn--j6w193g"
+block|,
+comment|// Hong Kong
+literal|"xn--kprw13d"
+block|,
+comment|// Taiwan
+literal|"xn--kpry57d"
+block|,
+comment|// Taiwan
+literal|"xn--mgba3a4f16a"
+block|,
+comment|// Iran
+literal|"xn--mgba3a4fra"
+block|,
+comment|// Iran
 literal|"xn--mgbaam7a8h"
 block|,
 comment|// UAE
+literal|"xn--mgbayh7gpa"
+block|,
+comment|// Jordan
 literal|"xn--mgberp4a5d4ar"
 block|,
 comment|// Saudi Arabia
+literal|"xn--ogbpf8fl"
+block|,
+comment|// Syria
+literal|"xn--p1ai"
+block|,
+comment|// Russian Federation
 literal|"xn--wgbh1c"
+block|,
 comment|// Egypt
+literal|"xn--wgbl6a"
+block|,
+comment|// Qatar
+literal|"xn--xkc2al3hye2a"
+comment|// Sri Lanka
 block|}
 decl_stmt|;
 end_decl_stmt
