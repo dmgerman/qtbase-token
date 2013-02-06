@@ -1479,10 +1479,6 @@ name|QGLPixmapBlurFilter
 decl_stmt|;
 name|friend
 name|class
-name|QGLExtensions
-decl_stmt|;
-name|friend
-name|class
 name|QGLTexture
 decl_stmt|;
 name|friend

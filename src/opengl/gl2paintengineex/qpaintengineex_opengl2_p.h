@@ -83,6 +83,11 @@ include|#
 directive|include
 file|<private/qtriangulatingstroker_p.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<private/qopenglextensions_p.h>
+end_include
 begin_enum
 DECL|enum|EngineMode
 enum|enum
@@ -1014,6 +1019,9 @@ operator|::
 name|Type
 name|glyphCacheType
 block|;
+name|QOpenGLExtensions
+name|funcs
+block|;
 comment|// Dirty flags
 name|bool
 name|matrixDirty
@@ -1214,6 +1222,8 @@ name|arrayIndex
 operator|==
 name|QT_OPACITY_ATTR
 condition|)
+name|funcs
+operator|.
 name|glVertexAttribPointer
 argument_list|(
 name|arrayIndex
@@ -1230,6 +1240,8 @@ name|pointer
 argument_list|)
 expr_stmt|;
 else|else
+name|funcs
+operator|.
 name|glVertexAttribPointer
 argument_list|(
 name|arrayIndex
