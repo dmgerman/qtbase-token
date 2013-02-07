@@ -3453,15 +3453,7 @@ name|t
 parameter_list|)
 specifier|const
 block|{
-name|float
-name|det
-init|=
-name|t
-operator|.
-name|determinant
-argument_list|()
-decl_stmt|;
-comment|// Don't try to cache huge fonts or vastly transformed fonts
+comment|// Don't try to cache vastly transformed fonts
 return|return
 name|t
 operator|.
@@ -3480,14 +3472,6 @@ name|fontEngine
 argument_list|,
 name|t
 argument_list|)
-operator|&&
-name|det
-operator|>=
-literal|0.25f
-operator|&&
-name|det
-operator|<=
-literal|4.f
 return|;
 block|}
 end_function
