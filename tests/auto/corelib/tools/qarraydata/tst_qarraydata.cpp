@@ -10499,6 +10499,11 @@ name|void
 operator|*
 operator|)
 operator|(
+specifier|const
+name|char
+operator|*
+operator|)
+operator|(
 name|v
 operator|.
 name|constBegin
@@ -10512,6 +10517,11 @@ operator|)
 argument_list|,
 operator|(
 name|void
+operator|*
+operator|)
+operator|(
+specifier|const
+name|char
 operator|*
 operator|)
 name|v

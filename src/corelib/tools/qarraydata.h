@@ -381,7 +381,7 @@ name|random_access_iterator_tag
 name|iterator_category
 expr_stmt|;
 typedef|typedef
-name|qptrdiff
+name|int
 name|difference_type
 typedef|;
 end_expr_stmt
@@ -855,7 +855,7 @@ name|random_access_iterator_tag
 name|iterator_category
 expr_stmt|;
 typedef|typedef
-name|qptrdiff
+name|int
 name|difference_type
 typedef|;
 typedef|typedef

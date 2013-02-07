@@ -545,10 +545,17 @@ argument_list|,
 name|e
 argument_list|,
 operator|(
+name|static_cast
+operator|<
+name|T
+operator|*
+operator|>
+operator|(
 name|this
 operator|->
 name|end
 argument_list|()
+operator|)
 operator|-
 name|e
 operator|)

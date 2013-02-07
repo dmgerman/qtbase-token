@@ -1334,9 +1334,8 @@ operator|==
 name|last
 condition|)
 return|return;
-name|T
-modifier|*
 specifier|const
+name|iterator
 name|begin
 init|=
 name|d
@@ -1344,9 +1343,8 @@ operator|->
 name|begin
 argument_list|()
 decl_stmt|;
-name|T
-modifier|*
 specifier|const
+name|iterator
 name|where
 init|=
 name|begin
@@ -1354,9 +1352,7 @@ operator|+
 name|position
 decl_stmt|;
 specifier|const
-name|T
-modifier|*
-specifier|const
+name|iterator
 name|end
 init|=
 name|begin
@@ -1489,8 +1485,7 @@ operator|)
 condition|)
 block|{
 comment|// Copy overlapping data first and only then shuffle it into place
-name|T
-modifier|*
+name|iterator
 name|start
 init|=
 name|d
@@ -1500,8 +1495,7 @@ argument_list|()
 operator|+
 name|position
 decl_stmt|;
-name|T
-modifier|*
+name|iterator
 name|middle
 init|=
 name|d
