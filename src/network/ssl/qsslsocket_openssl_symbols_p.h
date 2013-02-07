@@ -2150,7 +2150,6 @@ name|SSL_SESSION
 modifier|*
 name|q_SSL_get1_session
 parameter_list|(
-specifier|const
 name|SSL
 modifier|*
 name|ssl

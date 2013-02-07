@@ -2308,7 +2308,7 @@ argument|SSL_SESSION*
 argument_list|,
 argument|SSL_get1_session
 argument_list|,
-argument|const SSL *ssl
+argument|SSL *ssl
 argument_list|,
 argument|ssl
 argument_list|,
