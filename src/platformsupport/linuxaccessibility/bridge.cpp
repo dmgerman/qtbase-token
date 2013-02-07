@@ -327,6 +327,7 @@ name|map
 index|[]
 init|=
 block|{
+comment|//: Role of an accessible object - the object is in an invalid state or could not be constructed
 block|{
 name|QAccessible
 operator|::
@@ -342,6 +343,7 @@ literal|"invalid role"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -357,6 +359,7 @@ literal|"title bar"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -372,6 +375,7 @@ literal|"menu bar"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -387,6 +391,7 @@ literal|"scroll bar"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object - the grip is usually used for resizing another object
 block|{
 name|QAccessible
 operator|::
@@ -402,6 +407,7 @@ literal|"grip"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -417,6 +423,7 @@ literal|"sound"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -432,6 +439,7 @@ literal|"cursor"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -443,10 +451,11 @@ name|QT_TRANSLATE_NOOP
 argument_list|(
 literal|"QSpiAccessibleBridge"
 argument_list|,
-literal|"cursor"
+literal|"text caret"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -462,6 +471,7 @@ literal|"alert message"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -477,6 +487,7 @@ literal|"window"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -492,6 +503,7 @@ literal|"filler"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -507,6 +519,7 @@ literal|"popup menu"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -522,6 +535,7 @@ literal|"menu item"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -537,6 +551,7 @@ literal|"tool tip"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -552,6 +567,7 @@ literal|"application"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -567,6 +583,7 @@ literal|"document"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -582,6 +599,7 @@ literal|"panel"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -597,6 +615,7 @@ literal|"chart"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -612,6 +631,7 @@ literal|"dialog"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -627,6 +647,7 @@ literal|"frame"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -642,6 +663,7 @@ literal|"panel"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -657,6 +679,7 @@ literal|"separator"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -672,6 +695,7 @@ literal|"tool bar"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -687,6 +711,7 @@ literal|"status bar"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -702,6 +727,7 @@ literal|"table"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object - part of a table
 block|{
 name|QAccessible
 operator|::
@@ -717,6 +743,7 @@ literal|"column header"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object - part of a table
 block|{
 name|QAccessible
 operator|::
@@ -732,6 +759,7 @@ literal|"row header"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object - part of a table
 block|{
 name|QAccessible
 operator|::
@@ -747,6 +775,7 @@ literal|"column"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object - part of a table
 block|{
 name|QAccessible
 operator|::
@@ -762,6 +791,7 @@ literal|"row"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object - part of a table
 block|{
 name|QAccessible
 operator|::
@@ -777,6 +807,7 @@ literal|"cell"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -792,6 +823,7 @@ literal|"link"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -807,6 +839,7 @@ literal|"help balloon"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object - a helper dialog
 block|{
 name|QAccessible
 operator|::
@@ -822,6 +855,7 @@ literal|"assistant"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -837,6 +871,7 @@ literal|"list"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -852,6 +887,7 @@ literal|"list item"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -867,6 +903,7 @@ literal|"tree"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -882,6 +919,7 @@ literal|"tree item"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -897,6 +935,7 @@ literal|"page tab"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -912,6 +951,7 @@ literal|"property page"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -927,6 +967,7 @@ literal|"indicator"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -942,6 +983,7 @@ literal|"graphic"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -957,6 +999,7 @@ literal|"label"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -972,6 +1015,7 @@ literal|"text"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -987,6 +1031,7 @@ literal|"push button"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -1002,6 +1047,7 @@ literal|"check box"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -1017,6 +1063,7 @@ literal|"radio button"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -1032,6 +1079,7 @@ literal|"combo box"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -1047,6 +1095,7 @@ literal|"progress bar"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -1062,6 +1111,7 @@ literal|"dial"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -1077,6 +1127,7 @@ literal|"hotkey field"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -1092,6 +1143,7 @@ literal|"slider"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -1107,6 +1159,7 @@ literal|"spin box"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -1122,6 +1175,7 @@ literal|"canvas"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -1137,6 +1191,7 @@ literal|"animation"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -1152,6 +1207,7 @@ literal|"equation"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -1163,10 +1219,11 @@ name|QT_TRANSLATE_NOOP
 argument_list|(
 literal|"QSpiAccessibleBridge"
 argument_list|,
-literal|"button drop down"
+literal|"button with drop down"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -1182,6 +1239,7 @@ literal|"button menu"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object - a button that expands a grid.
 block|{
 name|QAccessible
 operator|::
@@ -1193,10 +1251,11 @@ name|QT_TRANSLATE_NOOP
 argument_list|(
 literal|"QSpiAccessibleBridge"
 argument_list|,
-literal|"button drop grid"
+literal|"button with drop down grid"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object - blank space between other objects.
 block|{
 name|QAccessible
 operator|::
@@ -1208,10 +1267,11 @@ name|QT_TRANSLATE_NOOP
 argument_list|(
 literal|"QSpiAccessibleBridge"
 argument_list|,
-literal|"whitespace"
+literal|"space"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -1227,6 +1287,7 @@ literal|"page tab list"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -1242,6 +1303,7 @@ literal|"clock"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -1257,6 +1319,7 @@ literal|"splitter"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
@@ -1272,6 +1335,7 @@ literal|"layered pane"
 argument_list|)
 block|}
 block|,
+comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::

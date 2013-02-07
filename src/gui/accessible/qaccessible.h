@@ -846,6 +846,7 @@ name|ButtonDropDown
 operator|=
 literal|0x00000038
 block|,
+comment|// The object represents a button that expands a grid.
 name|ButtonMenu
 operator|=
 literal|0x00000039
@@ -858,6 +859,7 @@ name|Whitespace
 operator|=
 literal|0x0000003B
 block|,
+comment|// The object represents blank space between other objects.
 name|PageTabList
 operator|=
 literal|0x0000003C
