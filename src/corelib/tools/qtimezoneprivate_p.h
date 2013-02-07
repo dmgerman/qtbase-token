@@ -111,6 +111,23 @@ end_endif
 begin_comment
 comment|// Q_OS_MAC
 end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+end_ifdef
+begin_include
+include|#
+directive|include
+file|<qt_windows.h>
+end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// Q_OS_WIN
+end_comment
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
@@ -1552,6 +1569,230 @@ block|;
 endif|#
 directive|endif
 comment|// Q_OS_MAC
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+name|class
+name|Q_AUTOTEST_EXPORT
+name|QWinTimeZonePrivate
+name|Q_DECL_FINAL
+operator|:
+name|public
+name|QTimeZonePrivate
+block|{
+name|public
+operator|:
+expr|struct
+name|QWinTransitionRule
+block|{
+name|int
+name|startYear
+block|;
+name|int
+name|standardTimeBias
+block|;
+name|int
+name|daylightTimeBias
+block|;
+name|SYSTEMTIME
+name|standardTimeRule
+block|;
+name|SYSTEMTIME
+name|daylightTimeRule
+block|;     }
+block|;
+comment|// Create default time zone
+name|QWinTimeZonePrivate
+argument_list|()
+block|;
+comment|// Create named time zone
+name|QWinTimeZonePrivate
+argument_list|(
+specifier|const
+name|QByteArray
+operator|&
+name|olsenId
+argument_list|)
+block|;
+name|QWinTimeZonePrivate
+argument_list|(
+specifier|const
+name|QWinTimeZonePrivate
+operator|&
+name|other
+argument_list|)
+block|;
+operator|~
+name|QWinTimeZonePrivate
+argument_list|()
+block|;
+name|QTimeZonePrivate
+operator|*
+name|clone
+argument_list|()
+block|;
+name|QString
+name|comment
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|QString
+name|displayName
+argument_list|(
+argument|QTimeZone::TimeType timeType
+argument_list|,
+argument|QTimeZone::NameType nameType
+argument_list|,
+argument|const QLocale&locale
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|QString
+name|abbreviation
+argument_list|(
+argument|qint64 atMSecsSinceEpoch
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|int
+name|offsetFromUtc
+argument_list|(
+argument|qint64 atMSecsSinceEpoch
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|int
+name|standardTimeOffset
+argument_list|(
+argument|qint64 atMSecsSinceEpoch
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|int
+name|daylightTimeOffset
+argument_list|(
+argument|qint64 atMSecsSinceEpoch
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|bool
+name|hasDaylightTime
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|bool
+name|isDaylightTime
+argument_list|(
+argument|qint64 atMSecsSinceEpoch
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|Data
+name|data
+argument_list|(
+argument|qint64 forMSecsSinceEpoch
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|bool
+name|hasTransitions
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|Data
+name|nextTransition
+argument_list|(
+argument|qint64 afterMSecsSinceEpoch
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|Data
+name|previousTransition
+argument_list|(
+argument|qint64 beforeMSecsSinceEpoch
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|QByteArray
+name|systemTimeZoneId
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|QSet
+operator|<
+name|QByteArray
+operator|>
+name|availableTimeZoneIds
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|private
+operator|:
+name|void
+name|init
+argument_list|(
+specifier|const
+name|QByteArray
+operator|&
+name|olsenId
+argument_list|)
+block|;
+name|QWinTransitionRule
+name|ruleForYear
+argument_list|(
+argument|int year
+argument_list|)
+specifier|const
+block|;
+name|QTimeZonePrivate
+operator|::
+name|Data
+name|ruleToData
+argument_list|(
+argument|const QWinTransitionRule&rule
+argument_list|,
+argument|qint64 atMSecsSinceEpoch
+argument_list|,
+argument|QTimeZone::TimeType type
+argument_list|)
+specifier|const
+block|;
+name|QByteArray
+name|m_windowsId
+block|;
+name|QString
+name|m_displayName
+block|;
+name|QString
+name|m_standardName
+block|;
+name|QString
+name|m_daylightName
+block|;
+name|QList
+operator|<
+name|QWinTransitionRule
+operator|>
+name|m_tranRules
+block|; }
+block|;
+endif|#
+directive|endif
+comment|// Q_OS_WIN
 name|QT_END_NAMESPACE
 end_decl_stmt
 begin_endif
