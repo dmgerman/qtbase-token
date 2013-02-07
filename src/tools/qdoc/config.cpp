@@ -138,7 +138,14 @@ argument_list|<
 name|MetaStackEntry
 argument_list|>
 block|{
-public|public:
+name|Q_DECLARE_TR_FUNCTIONS
+parameter_list|(
+name|QDoc
+operator|::
+name|MetaStack
+parameter_list|)
+specifier|public
+private|:
 name|MetaStack
 parameter_list|()
 constructor_decl|;

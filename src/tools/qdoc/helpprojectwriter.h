@@ -229,6 +229,10 @@ begin_decl_stmt
 name|class
 name|HelpProjectWriter
 block|{
+name|Q_DECLARE_TR_FUNCTIONS
+argument_list|(
+argument|QDoc::HelpProjectWriter
+argument_list|)
 name|public
 label|:
 name|HelpProjectWriter

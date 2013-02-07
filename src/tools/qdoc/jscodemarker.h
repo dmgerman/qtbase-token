@@ -29,6 +29,10 @@ range|:
 name|public
 name|QmlCodeMarker
 block|{
+name|Q_DECLARE_TR_FUNCTIONS
+argument_list|(
+argument|QDoc::JsCodeMarker
+argument_list|)
 name|public
 operator|:
 name|JsCodeMarker

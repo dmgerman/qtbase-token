@@ -37,8 +37,12 @@ operator|-
 literal|1
 condition|)
 return|return
-name|tr
+name|QCoreApplication
+operator|::
+name|translate
 argument_list|(
+literal|"QDoc"
+argument_list|,
 literal|"."
 argument_list|,
 literal|"terminator"
@@ -51,8 +55,12 @@ operator|==
 literal|2
 condition|)
 return|return
-name|tr
+name|QCoreApplication
+operator|::
+name|translate
 argument_list|(
+literal|"QDoc"
+argument_list|,
 literal|" and "
 argument_list|,
 literal|"separator when N = 2"
@@ -65,8 +73,12 @@ operator|==
 literal|0
 condition|)
 return|return
-name|tr
+name|QCoreApplication
+operator|::
+name|translate
 argument_list|(
+literal|"QDoc"
+argument_list|,
 literal|", "
 argument_list|,
 literal|"first separator when N> 2"
@@ -81,16 +93,24 @@ operator|-
 literal|2
 condition|)
 return|return
-name|tr
+name|QCoreApplication
+operator|::
+name|translate
 argument_list|(
+literal|"QDoc"
+argument_list|,
 literal|", "
 argument_list|,
 literal|"general separator when N> 2"
 argument_list|)
 return|;
 return|return
-name|tr
+name|QCoreApplication
+operator|::
+name|translate
 argument_list|(
+literal|"QDoc"
+argument_list|,
 literal|", and "
 argument_list|,
 literal|"last separator when N> 2"
@@ -129,8 +149,12 @@ operator|==
 literal|2
 condition|)
 return|return
-name|tr
+name|QCoreApplication
+operator|::
+name|translate
 argument_list|(
+literal|"QDoc"
+argument_list|,
 literal|" and "
 argument_list|,
 literal|"separator when N = 2"
@@ -143,8 +167,12 @@ operator|==
 literal|0
 condition|)
 return|return
-name|tr
+name|QCoreApplication
+operator|::
+name|translate
 argument_list|(
+literal|"QDoc"
+argument_list|,
 literal|", "
 argument_list|,
 literal|"first separator when N> 2"
@@ -159,16 +187,24 @@ operator|-
 literal|2
 condition|)
 return|return
-name|tr
+name|QCoreApplication
+operator|::
+name|translate
 argument_list|(
+literal|"QDoc"
+argument_list|,
 literal|", "
 argument_list|,
 literal|"general separator when N> 2"
 argument_list|)
 return|;
 return|return
-name|tr
+name|QCoreApplication
+operator|::
+name|translate
 argument_list|(
+literal|"QDoc"
+argument_list|,
 literal|", and "
 argument_list|,
 literal|"last separator when N> 2"

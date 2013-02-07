@@ -52,6 +52,10 @@ begin_decl_stmt
 name|class
 name|CodeParser
 block|{
+name|Q_DECLARE_TR_FUNCTIONS
+argument_list|(
+argument|QDoc::CodeParser
+argument_list|)
 name|public
 label|:
 name|CodeParser

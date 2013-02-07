@@ -56,6 +56,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"tr.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<qstring.h>
 end_include
 begin_decl_stmt
@@ -136,6 +141,10 @@ range|:
 name|public
 name|QQmlJSGrammar
 block|{
+name|Q_DECLARE_TR_FUNCTIONS
+argument_list|(
+argument|QDoc::QQmlJS::Lexer
+argument_list|)
 name|public
 operator|:
 expr|enum

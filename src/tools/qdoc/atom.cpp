@@ -1078,8 +1078,12 @@ name|Location
 operator|::
 name|internalError
 argument_list|(
-name|tr
+name|QCoreApplication
+operator|::
+name|translate
 argument_list|(
+literal|"QDoc::Atom"
+argument_list|,
 literal|"atom %1 missing"
 argument_list|)
 operator|.

@@ -67,6 +67,10 @@ range|:
 name|public
 name|CodeParser
 block|{
+name|Q_DECLARE_TR_FUNCTIONS
+argument_list|(
+argument|QDoc::CppCodeParser
+argument_list|)
 name|public
 operator|:
 name|CppCodeParser
