@@ -1478,6 +1478,16 @@ argument_list|(
 name|query
 argument_list|)
 return|;
+comment|// parse the query to memorize parameter location
+name|d
+operator|->
+name|executedQuery
+operator|=
+name|d
+operator|->
+name|namedToPositionalBinding
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|driver
@@ -1490,13 +1500,6 @@ operator|::
 name|NamedPlaceholders
 argument_list|)
 condition|)
-block|{
-comment|// parse the query to memorize parameter location
-name|d
-operator|->
-name|namedToPositionalBinding
-argument_list|()
-expr_stmt|;
 name|d
 operator|->
 name|executedQuery
@@ -1506,19 +1509,6 @@ operator|->
 name|positionalToNamedBinding
 argument_list|()
 expr_stmt|;
-block|}
-else|else
-block|{
-name|d
-operator|->
-name|executedQuery
-operator|=
-name|d
-operator|->
-name|namedToPositionalBinding
-argument_list|()
-expr_stmt|;
-block|}
 return|return
 name|prepare
 argument_list|(
