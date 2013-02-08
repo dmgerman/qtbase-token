@@ -14,7 +14,7 @@ begin_comment
 comment|/*!     \class QSurface     \inmodule QtGui     \since 5.0     \brief The QSurface class is an abstraction of renderable surfaces in Qt.      The size of the surface is accessible with the size() function. The rendering     specific attributes of the surface are accessible through the format() function.  */
 end_comment
 begin_comment
-comment|/*!     \enum QSurface::SurfaceClass      The SurfaceClass enum describes the actual subclass of the surface.      \value Window The surface is an instance of QWindow.  */
+comment|/*!     \enum QSurface::SurfaceClass      The SurfaceClass enum describes the actual subclass of the surface.      \value Window The surface is an instance of QWindow.     \value Offscreen The surface is an instance of QOffscreenSurface.  */
 end_comment
 begin_comment
 comment|/*!     \enum QSurface::SurfaceType      The SurfaceType enum describes what type of surface this is.      \value RasterSurface The surface is is composed of pixels and can be rendered to using     a software rasterizer like Qt's raster paint engine.     \value OpenGLSurface The surface is an OpenGL compatible surface and can be used     in conjunction with QOpenGLContext.  */
