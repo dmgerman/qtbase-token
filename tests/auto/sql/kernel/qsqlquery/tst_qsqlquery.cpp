@@ -2340,6 +2340,26 @@ argument_list|(
 name|db
 argument_list|)
 decl_stmt|;
+specifier|const
+name|QString
+name|tbl
+init|=
+name|qTableName
+argument_list|(
+literal|"char1Select"
+argument_list|,
+name|__FILE__
+argument_list|)
+decl_stmt|;
+name|q
+operator|.
+name|exec
+argument_list|(
+literal|"drop table "
+operator|+
+name|tbl
+argument_list|)
+expr_stmt|;
 name|QVERIFY_SQL
 argument_list|(
 name|q
@@ -2348,12 +2368,7 @@ name|exec
 argument_list|(
 literal|"create table "
 operator|+
-name|qTableName
-argument_list|(
-literal|"char1Select"
-argument_list|,
-name|__FILE__
-argument_list|)
+name|tbl
 operator|+
 literal|" (id char(1))"
 argument_list|)
@@ -2367,12 +2382,7 @@ name|exec
 argument_list|(
 literal|"insert into "
 operator|+
-name|qTableName
-argument_list|(
-literal|"char1Select"
-argument_list|,
-name|__FILE__
-argument_list|)
+name|tbl
 operator|+
 literal|" values ('a')"
 argument_list|)
@@ -2386,12 +2396,7 @@ name|exec
 argument_list|(
 literal|"select * from "
 operator|+
-name|qTableName
-argument_list|(
-literal|"char1Select"
-argument_list|,
-name|__FILE__
-argument_list|)
+name|tbl
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -9897,6 +9902,15 @@ argument_list|(
 name|db
 argument_list|)
 decl_stmt|;
+name|q
+operator|.
+name|exec
+argument_list|(
+literal|"drop table "
+operator|+
+name|qtest_precision
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|tst_Databases
@@ -11707,6 +11721,15 @@ operator|+
 name|qtest_prepare
 operator|+
 literal|" (id int not null primary key, name varchar(200), name2 varchar(200))"
+expr_stmt|;
+name|q
+operator|.
+name|exec
+argument_list|(
+literal|"drop table "
+operator|+
+name|qtest_prepare
+argument_list|)
 expr_stmt|;
 name|QVERIFY_SQL
 argument_list|(
@@ -16148,6 +16171,26 @@ argument_list|(
 name|db
 argument_list|)
 decl_stmt|;
+specifier|const
+name|QString
+name|tbl
+init|=
+name|qTableName
+argument_list|(
+literal|"qtest_exerr"
+argument_list|,
+name|__FILE__
+argument_list|)
+decl_stmt|;
+name|q
+operator|.
+name|exec
+argument_list|(
+literal|"drop table "
+operator|+
+name|tbl
+argument_list|)
+expr_stmt|;
 name|QVERIFY_SQL
 argument_list|(
 name|q
@@ -16156,12 +16199,7 @@ name|exec
 argument_list|(
 literal|"create table "
 operator|+
-name|qTableName
-argument_list|(
-literal|"qtest_exerr"
-argument_list|,
-name|__FILE__
-argument_list|)
+name|tbl
 operator|+
 literal|" (id int not null primary key)"
 argument_list|)
@@ -16175,12 +16213,7 @@ name|prepare
 argument_list|(
 literal|"insert into "
 operator|+
-name|qTableName
-argument_list|(
-literal|"qtest_exerr"
-argument_list|,
-name|__FILE__
-argument_list|)
+name|tbl
 operator|+
 literal|" values (?)"
 argument_list|)
@@ -19426,6 +19459,26 @@ argument_list|(
 name|db
 argument_list|)
 decl_stmt|;
+specifier|const
+name|QString
+name|tbl
+init|=
+name|qTableName
+argument_list|(
+literal|"qtest_empty"
+argument_list|,
+name|__FILE__
+argument_list|)
+decl_stmt|;
+name|q
+operator|.
+name|exec
+argument_list|(
+literal|"drop table "
+operator|+
+name|tbl
+argument_list|)
+expr_stmt|;
 name|QVERIFY_SQL
 argument_list|(
 name|q
@@ -19434,12 +19487,7 @@ name|exec
 argument_list|(
 literal|"create table "
 operator|+
-name|qTableName
-argument_list|(
-literal|"qtest_empty"
-argument_list|,
-name|__FILE__
-argument_list|)
+name|tbl
 operator|+
 literal|" (id char(10))"
 argument_list|)
@@ -19543,6 +19591,15 @@ name|__FILE__
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|q
+operator|.
+name|exec
+argument_list|(
+literal|"drop table "
+operator|+
+name|Planet
+argument_list|)
+expr_stmt|;
 name|QVERIFY_SQL
 argument_list|(
 name|q
