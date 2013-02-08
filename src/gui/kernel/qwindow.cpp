@@ -3414,7 +3414,7 @@ name|d
 operator|->
 name|geometry
 operator|.
-name|setTopLeft
+name|moveTopLeft
 argument_list|(
 name|point
 argument_list|)
