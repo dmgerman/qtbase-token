@@ -1713,20 +1713,28 @@ block|}
 elseif|else
 if|if
 condition|(
-name|creationFlags
-operator|&
-name|ForceTopLevel
+name|embedded
 condition|)
 block|{
+comment|// Embedded native windows (for example Active X server windows) are by
+comment|// definition never toplevel, even though they do not have QWindow parents.
 name|topLevel
 operator|=
-literal|true
+literal|false
 expr_stmt|;
 block|}
 else|else
 block|{
 name|topLevel
 operator|=
+operator|(
+name|creationFlags
+operator|&
+name|ForceTopLevel
+operator|)
+condition|?
+literal|true
+else|:
 name|w
 operator|->
 name|isTopLevel
