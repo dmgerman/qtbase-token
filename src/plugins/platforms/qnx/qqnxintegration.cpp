@@ -746,6 +746,8 @@ operator|=
 operator|new
 name|QQnxInputContext
 argument_list|(
+name|this
+argument_list|,
 operator|*
 name|m_virtualKeyboard
 argument_list|)
