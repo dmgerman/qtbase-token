@@ -749,6 +749,11 @@ condition|)
 block|{
 if|if
 condition|(
+name|m_primaryScreen
+operator|==
+name|xcbScreenNumber
+operator|&&
+operator|(
 name|primary
 operator|->
 name|output
@@ -763,6 +768,7 @@ operator|==
 name|primary
 operator|->
 name|output
+operator|)
 condition|)
 block|{
 name|primaryScreen
