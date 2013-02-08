@@ -264,6 +264,14 @@ operator|-
 operator|(
 name|void
 operator|)
+name|resetMouseButtons
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+operator|-
+operator|(
+name|void
+operator|)
 name|handleMouseEvent
 operator|:
 operator|(
