@@ -5470,8 +5470,12 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
-name|update
-argument_list|()
+name|QWidget
+operator|::
+name|focusOutEvent
+argument_list|(
+name|e
+argument_list|)
 expr_stmt|;
 block|}
 end_function
