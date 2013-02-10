@@ -3208,10 +3208,6 @@ argument_list|(
 name|boundValues
 argument_list|()
 argument_list|,
-name|d
-operator|->
-name|q
-operator|->
 name|driver
 argument_list|()
 argument_list|)
