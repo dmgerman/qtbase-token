@@ -121,10 +121,10 @@ range|:
 name|public
 name|QSqlResult
 block|{
-name|friend
-name|class
-name|QPSQLResultPrivate
-block|;
+name|Q_DECLARE_PRIVATE
+argument_list|(
+argument|QPSQLResult
+argument_list|)
 name|public
 operator|:
 name|QPSQLResult
@@ -223,12 +223,6 @@ block|;
 name|bool
 name|exec
 argument_list|()
-block|;
-name|private
-operator|:
-name|QPSQLResultPrivate
-operator|*
-name|d
 block|; }
 decl_stmt|;
 end_decl_stmt
