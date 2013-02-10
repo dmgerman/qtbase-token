@@ -81,6 +81,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qnumeric.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<limits.h>
 end_include
 begin_decl_stmt
