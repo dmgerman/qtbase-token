@@ -803,6 +803,7 @@ argument_list|(
 name|d
 argument_list|)
 condition|)
+comment|// +2 to format to ensure the expected precision
 name|json
 operator|+=
 name|QByteArray
@@ -810,8 +811,22 @@ operator|::
 name|number
 argument_list|(
 name|d
+argument_list|,
+literal|'g'
+argument_list|,
+name|std
+operator|::
+name|numeric_limits
+argument_list|<
+name|double
+argument_list|>
+operator|::
+name|digits10
+operator|+
+literal|2
 argument_list|)
 expr_stmt|;
+comment|// ::digits10 is 15
 else|else
 name|json
 operator|+=
