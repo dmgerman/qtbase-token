@@ -880,7 +880,7 @@ argument_list|(
 name|qq
 argument_list|)
 member_init_list|,
-name|driver
+name|privDriver
 argument_list|(
 literal|0
 argument_list|)
@@ -931,11 +931,11 @@ name|QPSQLResult
 modifier|*
 name|q
 decl_stmt|;
-DECL|member|driver
+DECL|member|privDriver
 specifier|const
 name|QPSQLDriverPrivate
 modifier|*
-name|driver
+name|privDriver
 decl_stmt|;
 DECL|member|result
 name|PGresult
@@ -1182,7 +1182,7 @@ name|QSqlError
 operator|::
 name|StatementError
 argument_list|,
-name|driver
+name|privDriver
 argument_list|,
 name|result
 argument_list|)
@@ -1376,7 +1376,7 @@ name|result
 init|=
 name|d
 operator|->
-name|driver
+name|privDriver
 operator|->
 name|exec
 argument_list|(
@@ -1400,7 +1400,7 @@ name|PQerrorMessage
 argument_list|(
 name|d
 operator|->
-name|driver
+name|privDriver
 operator|->
 name|connection
 argument_list|)
@@ -1452,7 +1452,7 @@ argument_list|)
 expr_stmt|;
 name|d
 operator|->
-name|driver
+name|privDriver
 operator|=
 name|p
 expr_stmt|;
@@ -1802,7 +1802,7 @@ case|:
 return|return
 name|d
 operator|->
-name|driver
+name|privDriver
 operator|->
 name|isUtf8
 condition|?
@@ -2482,7 +2482,7 @@ name|result
 operator|=
 name|d
 operator|->
-name|driver
+name|privDriver
 operator|->
 name|exec
 argument_list|(
@@ -2639,7 +2639,7 @@ if|if
 condition|(
 name|d
 operator|->
-name|driver
+name|privDriver
 operator|->
 name|isUtf8
 condition|)
@@ -3098,7 +3098,7 @@ name|result
 init|=
 name|d
 operator|->
-name|driver
+name|privDriver
 operator|->
 name|exec
 argument_list|(
@@ -3134,7 +3134,7 @@ name|StatementError
 argument_list|,
 name|d
 operator|->
-name|driver
+name|privDriver
 argument_list|,
 name|result
 argument_list|)
@@ -3263,7 +3263,7 @@ name|result
 operator|=
 name|d
 operator|->
-name|driver
+name|privDriver
 operator|->
 name|exec
 argument_list|(
