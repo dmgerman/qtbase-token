@@ -193,6 +193,10 @@ name|_q_replyFinished
 argument_list|()
 block|;
 name|void
+name|_q_replyEncrypted
+argument_list|()
+block|;
+name|void
 name|_q_replySslErrors
 argument_list|(
 specifier|const

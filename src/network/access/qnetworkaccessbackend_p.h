@@ -566,6 +566,10 @@ name|destination
 argument_list|)
 block|;
 name|void
+name|encrypted
+argument_list|()
+block|;
+name|void
 name|sslErrors
 argument_list|(
 specifier|const

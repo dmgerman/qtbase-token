@@ -5389,6 +5389,16 @@ if|if
 condition|(
 name|reply
 condition|)
+emit|emit
+name|reply
+operator|->
+name|encrypted
+argument_list|()
+emit|;
+if|if
+condition|(
+name|reply
+condition|)
 name|sendRequest
 argument_list|()
 expr_stmt|;

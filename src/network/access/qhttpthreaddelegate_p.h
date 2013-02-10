@@ -331,6 +331,10 @@ ifndef|#
 directive|ifndef
 name|QT_NO_SSL
 name|void
+name|encrypted
+argument_list|()
+block|;
+name|void
 name|sslErrors
 argument_list|(
 specifier|const
@@ -508,6 +512,10 @@ block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_SSL
+name|void
+name|encryptedSlot
+argument_list|()
+block|;
 name|void
 name|sslErrorsSlot
 argument_list|(

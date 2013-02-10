@@ -488,6 +488,14 @@ ifndef|#
 directive|ifndef
 name|QT_NO_SSL
 name|void
+name|encrypted
+argument_list|(
+name|QNetworkReply
+operator|*
+name|reply
+argument_list|)
+block|;
+name|void
 name|sslErrors
 argument_list|(
 name|QNetworkReply
@@ -558,6 +566,12 @@ argument_list|(
 argument|d_func()
 argument_list|,
 argument|void _q_replyFinished()
+argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_replyEncrypted()
 argument_list|)
 name|Q_PRIVATE_SLOT
 argument_list|(
