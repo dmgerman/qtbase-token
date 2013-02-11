@@ -178,6 +178,8 @@ block|,
 name|Format_A8
 block|,
 name|Format_A32
+block|,
+name|Format_ARGB
 block|}
 block|;      enum
 name|ShaperFlag
@@ -526,6 +528,17 @@ block|;
 name|virtual
 name|QImage
 name|alphaRGBMapForGlyph
+argument_list|(
+argument|glyph_t
+argument_list|,
+argument|QFixed subPixelPosition
+argument_list|,
+argument|const QTransform&t
+argument_list|)
+block|;
+name|virtual
+name|QImage
+name|bitmapForGlyph
 argument_list|(
 argument|glyph_t
 argument_list|,

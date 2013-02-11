@@ -17470,8 +17470,11 @@ comment|//        c.baseLineX, c.baseLineY,
 comment|//        glyphs[i],
 comment|//        x, y,
 comment|//        positions[i].x.toInt(), positions[i].y.toInt());
-name|alphaPenBlt
-argument_list|(
+specifier|const
+name|uchar
+modifier|*
+name|glyphBits
+init|=
 name|bits
 operator|+
 operator|(
@@ -17491,6 +17494,75 @@ operator|.
 name|y
 operator|*
 name|bpl
+decl_stmt|;
+if|if
+condition|(
+name|glyphType
+operator|==
+name|QFontEngineGlyphCache
+operator|::
+name|Raster_ARGB
+condition|)
+block|{
+comment|// The current state transform has already been applied to the positions,
+comment|// so we prevent drawImage() from re-applying the transform by clearing
+comment|// the state for the duration of the call.
+name|QTransform
+name|originalTransform
+init|=
+name|s
+operator|->
+name|matrix
+decl_stmt|;
+name|s
+operator|->
+name|matrix
+operator|=
+name|QTransform
+argument_list|()
+expr_stmt|;
+name|drawImage
+argument_list|(
+name|QPoint
+argument_list|(
+name|x
+argument_list|,
+name|y
+argument_list|)
+argument_list|,
+name|QImage
+argument_list|(
+name|glyphBits
+argument_list|,
+name|c
+operator|.
+name|w
+argument_list|,
+name|c
+operator|.
+name|h
+argument_list|,
+name|bpl
+argument_list|,
+name|image
+operator|.
+name|format
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|s
+operator|->
+name|matrix
+operator|=
+name|originalTransform
+expr_stmt|;
+block|}
+else|else
+block|{
+name|alphaPenBlt
+argument_list|(
+name|glyphBits
 argument_list|,
 name|bpl
 argument_list|,
@@ -17509,6 +17581,7 @@ operator|.
 name|h
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 return|return

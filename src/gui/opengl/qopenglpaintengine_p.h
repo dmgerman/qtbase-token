@@ -104,6 +104,9 @@ name|BrushDrawingMode
 block|,
 DECL|enumerator|ImageArrayDrawingMode
 name|ImageArrayDrawingMode
+block|,
+DECL|enumerator|ImageOpacityArrayDrawingMode
+name|ImageOpacityArrayDrawingMode
 block|}
 enum|;
 end_enum

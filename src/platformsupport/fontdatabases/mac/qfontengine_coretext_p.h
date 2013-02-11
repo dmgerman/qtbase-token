@@ -326,6 +326,17 @@ argument|const QTransform&t
 argument_list|)
 block|;
 name|virtual
+name|QImage
+name|bitmapForGlyph
+argument_list|(
+argument|glyph_t
+argument_list|,
+argument|QFixed subPixelPosition
+argument_list|,
+argument|const QTransform&t
+argument_list|)
+block|;
+name|virtual
 name|qreal
 name|minRightBearing
 argument_list|()
