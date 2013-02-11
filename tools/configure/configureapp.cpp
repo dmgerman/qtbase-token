@@ -16173,7 +16173,7 @@ index|]
 operator|==
 literal|"yes"
 condition|)
-name|qtConfig
+name|qmakeConfig
 operator|+=
 literal|"force_debug_info"
 expr_stmt|;
