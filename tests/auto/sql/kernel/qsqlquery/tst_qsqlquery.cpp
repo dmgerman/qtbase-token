@@ -3532,9 +3532,10 @@ name|bindBool
 parameter_list|()
 block|{
 comment|// QTBUG-27763: bool value got converted to int 127 by mysql driver because sizeof(bool)< sizeof(int).
-comment|// The problem was the way the bool value from the application was handled. It doesn't matter
-comment|// whether the table column type is BOOL or INT. Use INT here because all DBMSs have it and all
-comment|// should pass this test.
+comment|// The problem was the way the bool value from the application was handled. For our purposes here, it
+comment|// doesn't matter whether the column type is BOOLEAN or INT. All DBMSs have INT, and this usually
+comment|// works for this test. Postresql is an exception because its INT type does not accept BOOLEAN
+comment|// values and its BOOLEAN columns do not accept INT values.
 name|QFETCH
 argument_list|(
 name|QString
@@ -3584,6 +3585,29 @@ operator|+
 name|tableName
 argument_list|)
 expr_stmt|;
+name|QString
+name|colType
+init|=
+name|db
+operator|.
+name|driverName
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"QPSQL"
+argument_list|)
+condition|?
+name|QLatin1String
+argument_list|(
+literal|"BOOLEAN"
+argument_list|)
+else|:
+name|QLatin1String
+argument_list|(
+literal|"INT"
+argument_list|)
+decl_stmt|;
 name|QVERIFY_SQL
 argument_list|(
 name|q
@@ -3594,7 +3618,11 @@ literal|"CREATE TABLE "
 operator|+
 name|tableName
 operator|+
-literal|" (id INT, flag INT NOT NULL, PRIMARY KEY(id))"
+literal|" (id INT, flag "
+operator|+
+name|colType
+operator|+
+literal|" NOT NULL, PRIMARY KEY(id))"
 argument_list|)
 argument_list|)
 expr_stmt|;
