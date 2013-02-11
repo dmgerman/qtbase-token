@@ -261,10 +261,17 @@ block|;
 name|clearIndex
 argument_list|()
 block|;;     }
+specifier|static
+name|QString
+name|fieldSerial
+argument_list|(
+name|int
+argument_list|)
+expr_stmt|;
 name|QString
 name|positionalToNamedBinding
-argument_list|()
-expr_stmt|;
+parameter_list|()
+function_decl|;
 name|QString
 name|namedToPositionalBinding
 parameter_list|()

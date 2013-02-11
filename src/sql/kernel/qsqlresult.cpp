@@ -62,17 +62,8 @@ include|#
 directive|include
 file|<QDebug>
 end_include
-begin_function_decl
-name|QT_BEGIN_NAMESPACE
-specifier|static
-name|QString
-name|qFieldSerial
-parameter_list|(
-name|int
-parameter_list|)
-function_decl|;
-end_function_decl
 begin_function
+name|QT_BEGIN_NAMESPACE
 DECL|function|holderAt
 name|QString
 name|QSqlResultPrivate
@@ -101,7 +92,7 @@ argument_list|)
 operator|.
 name|holderName
 else|:
-name|qFieldSerial
+name|fieldSerial
 argument_list|(
 name|index
 argument_list|)
@@ -112,10 +103,11 @@ begin_comment
 comment|// return a unique id for bound names
 end_comment
 begin_function
-DECL|function|qFieldSerial
-specifier|static
+DECL|function|fieldSerial
 name|QString
-name|qFieldSerial
+name|QSqlResultPrivate
+operator|::
+name|fieldSerial
 parameter_list|(
 name|int
 name|i
@@ -351,7 +343,7 @@ condition|)
 block|{
 name|result
 operator|+=
-name|qFieldSerial
+name|fieldSerial
 argument_list|(
 name|count
 operator|++
@@ -1591,7 +1583,9 @@ name|d
 operator|->
 name|indexes
 index|[
-name|qFieldSerial
+name|QSqlResultPrivate
+operator|::
+name|fieldSerial
 argument_list|(
 name|index
 argument_list|)
