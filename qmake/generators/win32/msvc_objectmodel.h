@@ -2279,6 +2279,13 @@ block|;
 name|QString
 name|LinkErrorReporting
 block|;
+comment|// VS2012
+name|triState
+name|GenerateWindowsMetadata
+block|;
+name|QString
+name|WindowsMetadataFile
+block|;
 name|VCConfiguration
 operator|*
 name|config
