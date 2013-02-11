@@ -152,6 +152,14 @@ end_comment
 begin_comment
 comment|// but there is no way to get it right on VxWorks (in kernel mode)
 end_comment
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|_WRS_KERNEL
+argument_list|)
+end_if
 begin_function
 DECL|function|rand_r
 name|int
@@ -169,6 +177,10 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|// no usleep() support
 end_comment
