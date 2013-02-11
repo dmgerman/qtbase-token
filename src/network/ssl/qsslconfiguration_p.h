@@ -127,8 +127,11 @@ name|QSslCertificate
 operator|>
 name|peerCertificateChain
 block|;
+name|QList
+operator|<
 name|QSslCertificate
-name|localCertificate
+operator|>
+name|localCertificateChain
 block|;
 name|QSslKey
 name|privateKey

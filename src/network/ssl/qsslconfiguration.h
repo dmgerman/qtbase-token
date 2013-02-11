@@ -208,6 +208,14 @@ name|depth
 parameter_list|)
 function_decl|;
 comment|// Certificate& cipher configuration
+name|QList
+operator|<
+name|QSslCertificate
+operator|>
+name|localCertificateChain
+argument_list|()
+specifier|const
+expr_stmt|;
 name|QSslCertificate
 name|localCertificate
 argument_list|()
