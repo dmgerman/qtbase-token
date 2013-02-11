@@ -3980,6 +3980,15 @@ argument_list|,
 literal|"Translation Files"
 argument_list|)
 expr_stmt|;
+name|addFilters
+argument_list|(
+name|tempProj
+argument_list|,
+name|xmlFilter
+argument_list|,
+literal|"Deployment Files"
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -4095,6 +4104,17 @@ argument_list|,
 name|xmlFilter
 argument_list|,
 literal|"Resource Files"
+argument_list|)
+expr_stmt|;
+name|outputFilter
+argument_list|(
+name|tempProj
+argument_list|,
+name|xml
+argument_list|,
+name|xmlFilter
+argument_list|,
+literal|"Deployment Files"
 argument_list|)
 expr_stmt|;
 for|for
@@ -5374,6 +5394,15 @@ argument_list|,
 literal|"Translation Files"
 argument_list|)
 expr_stmt|;
+name|addFilters
+argument_list|(
+name|tool
+argument_list|,
+name|xmlFilter
+argument_list|,
+literal|"Deployment Files"
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -5489,6 +5518,17 @@ argument_list|,
 name|xmlFilter
 argument_list|,
 literal|"Resource Files"
+argument_list|)
+expr_stmt|;
+name|outputFilter
+argument_list|(
+name|tool
+argument_list|,
+name|xml
+argument_list|,
+name|xmlFilter
+argument_list|,
+literal|"Deployment Files"
 argument_list|)
 expr_stmt|;
 for|for
@@ -10151,6 +10191,21 @@ operator|.
 name|ResourceFiles
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|filtername
+operator|==
+literal|"Deployment Files"
+condition|)
+block|{
+name|filter
+operator|=
+name|singleCfg
+operator|.
+name|DeploymentFiles
+expr_stmt|;
+block|}
 else|else
 block|{
 comment|// ExtraCompilers
@@ -10449,6 +10504,21 @@ operator|=
 name|singleCfg
 operator|.
 name|ResourceFiles
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|filtername
+operator|==
+literal|"Deployment Files"
+condition|)
+block|{
+name|filter
+operator|=
+name|singleCfg
+operator|.
+name|DeploymentFiles
 expr_stmt|;
 block|}
 else|else
@@ -10781,6 +10851,24 @@ operator|=
 name|singleCfg
 operator|.
 name|ResourceFiles
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|filtername
+operator|.
+name|startsWith
+argument_list|(
+literal|"Deployment Files"
+argument_list|)
+condition|)
+block|{
+name|filter
+operator|=
+name|singleCfg
+operator|.
+name|DeploymentFiles
 expr_stmt|;
 block|}
 else|else
@@ -11605,6 +11693,13 @@ name|useCompilerTool
 operator|||
 operator|!
 name|inBuild
+operator|||
+name|filtername
+operator|.
+name|startsWith
+argument_list|(
+literal|"Deployment Files"
+argument_list|)
 condition|)
 block|{
 if|if
@@ -11690,6 +11785,13 @@ operator|.
 name|startsWith
 argument_list|(
 literal|"Resource Files"
+argument_list|)
+operator|||
+name|filtername
+operator|.
+name|startsWith
+argument_list|(
+literal|"Deployment Files"
 argument_list|)
 condition|)
 name|xml
@@ -12142,6 +12244,63 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+elseif|else
+if|if
+condition|(
+name|filtername
+operator|.
+name|startsWith
+argument_list|(
+literal|"Deployment Files"
+argument_list|)
+condition|)
+block|{
+name|xmlFilter
+operator|<<
+name|tag
+argument_list|(
+literal|"None"
+argument_list|)
+operator|<<
+name|attrTag
+argument_list|(
+literal|"Include"
+argument_list|,
+name|Option
+operator|::
+name|fixPathToLocalOS
+argument_list|(
+name|filename
+argument_list|)
+argument_list|)
+operator|<<
+name|attrTagS
+argument_list|(
+literal|"Filter"
+argument_list|,
+name|filtername
+argument_list|)
+expr_stmt|;
+name|xml
+operator|<<
+name|tag
+argument_list|(
+literal|"None"
+argument_list|)
+operator|<<
+name|attrTag
+argument_list|(
+literal|"Include"
+argument_list|,
+name|Option
+operator|::
+name|fixPathToLocalOS
+argument_list|(
+name|filename
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 specifier|const
 name|QString
@@ -12166,6 +12325,38 @@ operator|<<
 name|tag
 argument_list|(
 literal|"ExcludedFromBuild"
+argument_list|)
+operator|<<
+name|attrTag
+argument_list|(
+literal|"Condition"
+argument_list|,
+name|condition
+argument_list|)
+operator|<<
+name|valueTag
+argument_list|(
+literal|"true"
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|filtername
+operator|.
+name|startsWith
+argument_list|(
+literal|"Deployment Files"
+argument_list|)
+operator|&&
+name|inBuild
+condition|)
+block|{
+name|xml
+operator|<<
+name|tag
+argument_list|(
+literal|"DeploymentContent"
 argument_list|)
 operator|<<
 name|attrTag

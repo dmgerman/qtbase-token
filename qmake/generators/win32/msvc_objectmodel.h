@@ -3281,6 +3281,9 @@ decl_stmt|;
 name|VCFilter
 name|ResourceFiles
 decl_stmt|;
+name|VCFilter
+name|DeploymentFiles
+decl_stmt|;
 name|VCFilterList
 name|ExtraCompilersFiles
 decl_stmt|;
