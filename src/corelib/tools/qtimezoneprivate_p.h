@@ -372,6 +372,17 @@ argument_list|)
 decl|const
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+name|virtual
+name|Data
+name|dataForLocalTime
+argument_list|(
+name|qint64
+name|forLocalMSecs
+argument_list|)
+decl|const
+decl_stmt|;
+end_decl_stmt
 begin_expr_stmt
 name|virtual
 name|bool

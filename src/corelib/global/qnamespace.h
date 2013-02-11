@@ -3839,6 +3839,8 @@ block|,
 name|UTC
 block|,
 name|OffsetFromUTC
+block|,
+name|TimeZone
 block|}
 enum|;
 enum|enum

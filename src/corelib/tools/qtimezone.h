@@ -532,6 +532,14 @@ name|friend
 name|class
 name|QTimeZonePrivate
 decl_stmt|;
+name|friend
+name|class
+name|QDateTime
+decl_stmt|;
+name|friend
+name|class
+name|QDateTimePrivate
+decl_stmt|;
 name|QSharedDataPointer
 operator|<
 name|QTimeZonePrivate

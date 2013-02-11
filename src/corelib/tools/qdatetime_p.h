@@ -58,6 +58,11 @@ include|#
 directive|include
 file|"QtCore/qdatetime.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"qtimezone.h"
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
@@ -93,6 +98,10 @@ block|,
 name|OffsetFromUTC
 operator|=
 literal|3
+block|,
+name|TimeZone
+operator|=
+literal|4
 block|}
 block|;
 comment|// Daylight Time Status
@@ -131,6 +140,10 @@ block|,
 name|ValidDateTime
 operator|=
 literal|0x10
+block|,
+name|TimeZoneCached
+operator|=
+literal|0x20
 block|}
 block|;
 name|Q_DECLARE_FLAGS
@@ -175,6 +188,30 @@ argument_list|,
 argument|int offsetSeconds
 argument_list|)
 block|;
+ifndef|#
+directive|ifndef
+name|QT_BOOTSTRAPPED
+name|QDateTimePrivate
+argument_list|(
+specifier|const
+name|QDate
+operator|&
+name|toDate
+argument_list|,
+specifier|const
+name|QTime
+operator|&
+name|toTime
+argument_list|,
+specifier|const
+name|QTimeZone
+operator|&
+name|timeZone
+argument_list|)
+block|;
+endif|#
+directive|endif
+comment|// QT_BOOTSTRAPPED
 name|QDateTimePrivate
 argument_list|(
 specifier|const
@@ -209,6 +246,19 @@ operator|.
 name|m_offsetFromUtc
 argument_list|)
 block|,
+ifndef|#
+directive|ifndef
+name|QT_BOOTSTRAPPED
+name|m_timeZone
+argument_list|(
+name|other
+operator|.
+name|m_timeZone
+argument_list|)
+block|,
+endif|#
+directive|endif
+comment|// QT_BOOTSTRAPPED
 name|m_status
 argument_list|(
 argument|other.m_status
@@ -225,6 +275,15 @@ block|;
 name|int
 name|m_offsetFromUtc
 block|;
+ifndef|#
+directive|ifndef
+name|QT_BOOTSTRAPPED
+name|QTimeZone
+name|m_timeZone
+block|;
+endif|#
+directive|endif
+comment|// QT_BOOTSTRAPPED
 name|StatusFlags
 name|m_status
 block|;
@@ -390,6 +449,64 @@ operator|&
 operator|~
 name|ValidDateTime
 block|; }
+specifier|inline
+name|bool
+name|isTimeZoneCached
+argument_list|()
+specifier|const
+block|{
+return|return
+operator|(
+name|m_status
+operator|&
+name|TimeZoneCached
+operator|)
+operator|==
+name|TimeZoneCached
+return|;
+block|}
+specifier|inline
+name|void
+name|setTimeZoneCached
+argument_list|()
+block|{
+name|m_status
+operator|=
+name|m_status
+operator||
+name|TimeZoneCached
+block|; }
+specifier|inline
+name|void
+name|clearTimeZoneCached
+argument_list|()
+block|{
+name|m_status
+operator|=
+name|m_status
+operator|&
+operator|~
+name|TimeZoneCached
+block|; }
+ifndef|#
+directive|ifndef
+name|QT_BOOTSTRAPPED
+specifier|static
+name|qint64
+name|zoneMSecsToEpochMSecs
+argument_list|(
+argument|qint64 msecs
+argument_list|,
+argument|const QTimeZone&zone
+argument_list|,
+argument|QDate *localDate
+argument_list|,
+argument|QTime *localTime
+argument_list|)
+block|;
+endif|#
+directive|endif
+comment|// QT_BOOTSTRAPPED
 specifier|static
 specifier|inline
 name|qint64
