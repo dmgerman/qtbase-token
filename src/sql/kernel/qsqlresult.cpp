@@ -274,6 +274,15 @@ specifier|const
 name|QString
 modifier|&
 name|query
+parameter_list|,
+name|QString
+function_decl|(
+name|fieldSerialFunc
+function_decl|)
+parameter_list|(
+name|int
+name|idx
+parameter_list|)
 parameter_list|)
 block|{
 name|int
@@ -348,7 +357,7 @@ condition|)
 block|{
 name|result
 operator|+=
-name|fieldSerial
+name|fieldSerialFunc
 argument_list|(
 name|count
 operator|++
