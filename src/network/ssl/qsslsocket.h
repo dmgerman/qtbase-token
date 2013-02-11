@@ -330,6 +330,26 @@ argument_list|)
 block|;
 comment|// Certificate& cipher accessors.
 name|void
+name|setLocalCertificateChain
+argument_list|(
+specifier|const
+name|QList
+operator|<
+name|QSslCertificate
+operator|>
+operator|&
+name|localChain
+argument_list|)
+block|;
+name|QList
+operator|<
+name|QSslCertificate
+operator|>
+name|localCertificateChain
+argument_list|()
+specifier|const
+block|;
+name|void
 name|setLocalCertificate
 argument_list|(
 specifier|const
