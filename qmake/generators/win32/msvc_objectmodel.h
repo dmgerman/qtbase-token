@@ -2803,6 +2803,11 @@ block|{}
 name|DotNET
 name|CompilerVersion
 expr_stmt|;
+name|bool
+name|WinRT
+decl_stmt|,
+name|WinPhone
+decl_stmt|;
 comment|// Variables
 name|triState
 name|ATLMinimizesCRunTimeLibraryUsage

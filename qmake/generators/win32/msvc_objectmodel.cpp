@@ -10491,6 +10491,16 @@ argument_list|(
 name|unset
 argument_list|)
 member_init_list|,
+name|WinRT
+argument_list|(
+literal|false
+argument_list|)
+member_init_list|,
+name|WinPhone
+argument_list|(
+literal|false
+argument_list|)
+member_init_list|,
 name|BuildBrowserInformation
 argument_list|(
 name|unset
