@@ -1805,6 +1805,9 @@ name|compileAsManagedOptions
 name|CompileAsManaged
 block|;
 name|triState
+name|CompileAsWinRT
+block|;
+name|triState
 name|CompileOnly
 block|;
 name|debugOption
