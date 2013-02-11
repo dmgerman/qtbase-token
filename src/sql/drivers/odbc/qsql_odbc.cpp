@@ -7697,8 +7697,14 @@ decl_stmt|;
 name|dt
 operator|->
 name|fraction
-operator|/=
+operator|=
+operator|(
+name|dt
+operator|->
+name|fraction
+operator|/
 name|keep
+operator|)
 operator|*
 name|keep
 expr_stmt|;
