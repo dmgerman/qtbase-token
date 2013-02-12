@@ -2920,6 +2920,22 @@ operator|<
 literal|0
 condition|)
 break|break;
+elseif|else
+if|if
+condition|(
+operator|!
+name|symbols
+operator|.
+name|hasNext
+argument_list|()
+condition|)
+name|that
+operator|->
+name|error
+argument_list|(
+literal|"missing ')' in macro usage"
+argument_list|)
+expr_stmt|;
 block|}
 comment|// empty VA_ARGS
 if|if
