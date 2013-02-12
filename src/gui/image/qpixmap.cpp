@@ -2021,6 +2021,9 @@ return|return
 literal|false
 return|;
 block|}
+name|detach
+argument_list|()
+expr_stmt|;
 name|QFileInfo
 name|info
 argument_list|(
