@@ -22224,7 +22224,7 @@ name|base
 init|=
 name|qcn
 operator|->
-name|qmlBase
+name|qmlBaseNode
 argument_list|()
 decl_stmt|;
 if|if
