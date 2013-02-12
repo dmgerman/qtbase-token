@@ -134,6 +134,10 @@ name|private
 name|Q_SLOTS
 operator|:
 name|void
+name|keyboardHeightChanged
+argument_list|()
+block|;
+name|void
 name|keyboardVisibilityChanged
 argument_list|(
 argument|bool visible
