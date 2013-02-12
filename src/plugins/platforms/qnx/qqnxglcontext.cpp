@@ -466,7 +466,7 @@ condition|)
 block|{
 name|qFatal
 argument_list|(
-literal|"QQNXQBBWindow: failed to find EGL config"
+literal|"QQnxGLContext: failed to find EGL config"
 argument_list|)
 expr_stmt|;
 block|}
@@ -498,7 +498,7 @@ argument_list|)
 expr_stmt|;
 name|qFatal
 argument_list|(
-literal|"QQNXQBBWindow: failed to create EGL context, err=%d"
+literal|"QQnxGLContext: failed to create EGL context, err=%d"
 argument_list|,
 name|eglGetError
 argument_list|()
@@ -587,7 +587,7 @@ argument_list|)
 expr_stmt|;
 name|qFatal
 argument_list|(
-literal|"QQNXQBBWindow: failed to obtain EGL display"
+literal|"QQnxGLContext: failed to obtain EGL display"
 argument_list|)
 expr_stmt|;
 block|}
@@ -617,7 +617,7 @@ argument_list|)
 expr_stmt|;
 name|qFatal
 argument_list|(
-literal|"QQNXQBBWindow: failed to initialize EGL display, err=%d"
+literal|"QQnxGLContext: failed to initialize EGL display, err=%d"
 argument_list|,
 name|eglGetError
 argument_list|()
@@ -721,7 +721,7 @@ condition|)
 block|{
 name|qFatal
 argument_list|(
-literal|"QQNXQBBWindow: failed to set EGL API, err=%d"
+literal|"QQnxGLContext: failed to set EGL API, err=%d"
 argument_list|,
 name|eglGetError
 argument_list|()
