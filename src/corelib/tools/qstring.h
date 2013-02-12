@@ -12879,6 +12879,7 @@ name|m_size
 decl_stmt|;
 name|public
 label|:
+comment|// ### Qt 6: make this constructor constexpr, after the destructor is made trivial
 specifier|inline
 name|QStringRef
 argument_list|()
@@ -12917,6 +12918,7 @@ operator|*
 name|string
 argument_list|)
 expr_stmt|;
+comment|// ### Qt 6: remove this copy constructor, the implicit one is fine
 specifier|inline
 name|QStringRef
 argument_list|(
@@ -12945,6 +12947,7 @@ argument_list|(
 argument|other.m_size
 argument_list|)
 block|{}
+comment|// ### Qt 6: remove this destructor, the implicit one is fine
 specifier|inline
 operator|~
 name|QStringRef
