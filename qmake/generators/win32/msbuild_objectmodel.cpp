@@ -9713,6 +9713,10 @@ argument_list|(
 name|tool
 operator|.
 name|CompilerVersion
+argument_list|,
+name|tool
+operator|.
+name|WinPhone
 argument_list|)
 argument_list|)
 operator|<<
@@ -12263,6 +12267,9 @@ parameter_list|(
 specifier|const
 name|DotNET
 name|version
+parameter_list|,
+name|bool
+name|winphoneBuild
 parameter_list|)
 block|{
 switch|switch
@@ -12274,6 +12281,10 @@ case|case
 name|NET2012
 case|:
 return|return
+name|winphoneBuild
+condition|?
+literal|"v110_wp80"
+else|:
 literal|"v110"
 return|;
 case|case
