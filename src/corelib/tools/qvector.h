@@ -3891,12 +3891,6 @@ name|deref
 argument_list|()
 condition|)
 block|{
-name|Q_ASSERT
-argument_list|(
-operator|!
-name|isShared
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|QTypeInfo
@@ -3908,6 +3902,17 @@ name|isStatic
 operator|||
 operator|!
 name|aalloc
+operator|||
+operator|(
+name|isShared
+operator|&&
+name|QTypeInfo
+operator|<
+name|T
+operator|>
+operator|::
+name|isComplex
+operator|)
 condition|)
 block|{
 comment|// data was copy constructed, we need to call destructors
