@@ -318,6 +318,37 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
+comment|/*!     \overload     Creates a value of type Double, with value \a n.     NOTE: the integer limits for IEEE 754 double precision data is 2^53 (-9007199254740992 to +9007199254740992).     If you pass in values outside this range expect a loss of precision to occur.  */
+end_comment
+begin_constructor
+DECL|function|QJsonValue
+name|QJsonValue
+operator|::
+name|QJsonValue
+parameter_list|(
+name|qint64
+name|n
+parameter_list|)
+member_init_list|:
+name|d
+argument_list|(
+literal|0
+argument_list|)
+member_init_list|,
+name|t
+argument_list|(
+name|Double
+argument_list|)
+block|{
+name|this
+operator|->
+name|dbl
+operator|=
+name|n
+expr_stmt|;
+block|}
+end_constructor
+begin_comment
 comment|/*!     Creates a value of type String, with value \a s.  */
 end_comment
 begin_constructor

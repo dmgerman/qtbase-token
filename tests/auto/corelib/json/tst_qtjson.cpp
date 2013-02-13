@@ -7817,6 +7817,29 @@ literal|0.0
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|array
+operator|.
+name|append
+argument_list|(
+name|QJsonValue
+argument_list|(
+literal|9007199254740992LL
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// JS Number max integer
+name|array
+operator|.
+name|append
+argument_list|(
+name|QJsonValue
+argument_list|(
+operator|-
+literal|9007199254740992LL
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// JS Number min integer
 name|object
 operator|.
 name|insert
@@ -7857,7 +7880,9 @@ literal|"        -2.2250738585072014e-308,\n"
 literal|"        -1.7976931348623157e+308,\n"
 literal|"        -2.2204460492503131e-16,\n"
 literal|"        -4.9406564584124654e-324,\n"
-literal|"        0\n"
+literal|"        0,\n"
+literal|"        9007199254740992,\n"
+literal|"        -9007199254740992\n"
 literal|"    ]\n"
 literal|"}\n"
 decl_stmt|;

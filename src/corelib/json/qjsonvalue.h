@@ -138,6 +138,11 @@ argument_list|)
 empty_stmt|;
 name|QJsonValue
 argument_list|(
+argument|qint64 n
+argument_list|)
+empty_stmt|;
+name|QJsonValue
+argument_list|(
 specifier|const
 name|QString
 operator|&
