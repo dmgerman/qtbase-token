@@ -10126,7 +10126,7 @@ name|desc
 argument_list|(
 literal|"-libexecdir<dir>"
 argument_list|,
-literal|"Program executables will be installed to<dir>\n(default ARCHDATADIR/libexec)"
+literal|"Program executables will be installed to<dir>\n(default ARCHDATADIR/lib)"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -23065,6 +23065,36 @@ operator|.
 name|size
 argument_list|()
 condition|)
+block|{
+if|if
+condition|(
+name|dictionary
+index|[
+literal|"QT_INSTALL_ARCHDATA"
+index|]
+operator|==
+name|dictionary
+index|[
+literal|"QT_INSTALL_PREFIX"
+index|]
+condition|)
+name|dictionary
+index|[
+literal|"QT_INSTALL_LIBEXECS"
+index|]
+operator|=
+name|qipempty
+condition|?
+literal|""
+else|:
+name|dictionary
+index|[
+literal|"QT_INSTALL_ARCHDATA"
+index|]
+operator|+
+literal|"/lib"
+expr_stmt|;
+else|else
 name|dictionary
 index|[
 literal|"QT_INSTALL_LIBEXECS"
@@ -23081,6 +23111,7 @@ index|]
 operator|+
 literal|"/libexec"
 expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
