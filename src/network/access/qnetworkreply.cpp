@@ -742,7 +742,7 @@ parameter_list|)
 block|{ }
 end_function
 begin_comment
-comment|/*!     If this function is called, SSL errors related to network     connection will be ignored, including certificate validation     errors.      Note that calling this function without restraint may pose a     security risk for your application. Use it with care.      This function can be called from the slot connected to the     sslErrors() signal, which indicates which errors were     found.      \sa sslConfiguration(), sslErrors(), QSslSocket::ignoreSslErrors() */
+comment|/*!     If this function is called, SSL errors related to network     connection will be ignored, including certificate validation     errors.      \warning Be sure to always let the user inspect the errors     reported by the sslErrors() signal, and only call this method     upon confirmation from the user that proceeding is ok.     If there are unexpected errors, the reply should be aborted.     Calling this method without inspecting the actual errors will     most likely pose a security risk for your application. Use it     with great care!      This function can be called from the slot connected to the     sslErrors() signal, which indicates which errors were     found.      \sa sslConfiguration(), sslErrors(), QSslSocket::ignoreSslErrors() */
 end_comment
 begin_function
 DECL|function|ignoreSslErrors
