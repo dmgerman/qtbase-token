@@ -117,6 +117,12 @@ begin_comment
 comment|/*! \fn void QVector::remove(int i, int count)      \overload      Removes \a count elements from the middle of the vector, starting at     index position \a i.      \sa insert(), replace(), fill() */
 end_comment
 begin_comment
+comment|/*! \fn void QVector::removeFirst()     \since 5.1     Removes the first item in the vector. Calling this function is     equivalent to calling remove(0). The vector must not be empty. If     the vector can be empty, call isEmpty() before calling this     function.      \sa remove(), isEmpty() */
+end_comment
+begin_comment
+comment|/*! \fn void QVector::removeLast()     \since 5.1     Removes the last item in the vector. Calling this function is     equivalent to calling remove(size() - 1). The vector must not be     empty. If the vector can be empty, call isEmpty() before calling     this function.      \sa remove(), removeFirst(), isEmpty() */
+end_comment
+begin_comment
 comment|/*! \fn QVector&QVector::fill(const T&value, int size = -1)      Assigns \a value to all items in the vector. If \a size is     different from -1 (the default), the vector is resized to size \a     size beforehand.      Example:     \snippet code/src_corelib_tools_qvector.cpp 11      \sa resize() */
 end_comment
 begin_comment
@@ -195,10 +201,10 @@ begin_comment
 comment|/*! \fn void QVector::push_front(const T&value)      This function is provided for STL compatibility. It is equivalent     to prepend(\a value). */
 end_comment
 begin_comment
-comment|/*! \fn void QVector::pop_front()      This function is provided for STL compatibility. It is equivalent     to erase(begin()). */
+comment|/*! \fn void QVector::pop_front()      This function is provided for STL compatibility. It is equivalent     to removeFirst(). */
 end_comment
 begin_comment
-comment|/*! \fn void QVector::pop_back()      This function is provided for STL compatibility. It is equivalent     to erase(end() - 1). */
+comment|/*! \fn void QVector::pop_back()      This function is provided for STL compatibility. It is equivalent     to removeLast(). */
 end_comment
 begin_comment
 comment|/*! \fn T& QVector::front()      This function is provided for STL compatibility. It is equivalent     to first(). */
