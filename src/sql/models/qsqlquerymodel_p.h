@@ -121,6 +121,13 @@ argument_list|(
 argument|int size
 argument_list|)
 block|;
+name|int
+name|columnInQuery
+argument_list|(
+argument|int modelColumn
+argument_list|)
+specifier|const
+block|;
 name|mutable
 name|QSqlQuery
 name|query

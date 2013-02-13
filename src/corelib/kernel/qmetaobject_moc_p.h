@@ -206,7 +206,7 @@ argument_list|()
 expr_stmt|;
 break|break;
 block|}
-comment|/*           We musn't convert 'char * const *' into 'const char **'           and we must beware of 'Bar<const Bla>'.         */
+comment|/*           We mustn't convert 'char * const *' into 'const char **'           and we must beware of 'Bar<const Bla>'.         */
 if|if
 condition|(
 name|t

@@ -20,6 +20,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qqnxscreen.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<QDebug>
 end_include
 begin_include
@@ -2205,6 +2210,21 @@ operator|!
 name|isAttached
 condition|)
 block|{
+comment|// We never remove the primary display, the qpa plugin doesn't support that and it crashes.
+comment|// To support it, this would be needed:
+comment|// - Adjust all qnx qpa code which uses screens
+comment|// - Make QWidgetBackingStore not dereference a null paint device
+comment|// - Create platform resources ( QQnxWindow ) for all QWindow because they would be deleted
+comment|//   when you delete the screen
+if|if
+condition|(
+operator|!
+name|screen
+operator|->
+name|isPrimaryScreen
+argument_list|()
+condition|)
+block|{
 comment|// libscreen display is deactivated, let's remove the QQnxScreen / QScreen
 name|qScreenEventDebug
 argument_list|()
@@ -2218,6 +2238,7 @@ argument_list|(
 name|screen
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_function

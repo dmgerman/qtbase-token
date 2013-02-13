@@ -195,7 +195,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"No QTLS available. currentContext wont work"
+literal|"No QTLS available. currentContext won't work"
 argument_list|)
 expr_stmt|;
 return|return
@@ -1702,7 +1702,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     internal: Needs to have a pointer to qGLContext. But since this is in Qt GUI we cant     have any type information.      \internal */
+comment|/*!     internal: Needs to have a pointer to qGLContext. But since this is in Qt GUI we can't     have any type information.      \internal */
 end_comment
 begin_function
 DECL|function|qGLContextHandle

@@ -36,6 +36,10 @@ name|QT_BEGIN_NAMESPACE
 name|class
 name|Quoter
 block|{
+name|Q_DECLARE_TR_FUNCTIONS
+argument_list|(
+argument|QDoc::Quoter
+argument_list|)
 name|public
 label|:
 name|Quoter

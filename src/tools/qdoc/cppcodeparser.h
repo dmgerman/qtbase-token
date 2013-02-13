@@ -67,6 +67,88 @@ range|:
 name|public
 name|CodeParser
 block|{
+name|Q_DECLARE_TR_FUNCTIONS
+argument_list|(
+argument|QDoc::CppCodeParser
+argument_list|)
+block|struct
+name|ExtraFuncData
+block|{
+name|InnerNode
+operator|*
+name|root
+block|;
+comment|// Used as the parent.
+name|Node
+operator|::
+name|Type
+name|type
+block|;
+comment|// The node type: Function, etc.
+name|bool
+name|isAttached
+block|;
+comment|// If true, the method is attached.
+name|bool
+name|isMacro
+block|;
+comment|// If true, we are parsing a macro signature.
+name|ExtraFuncData
+argument_list|()
+operator|:
+name|root
+argument_list|(
+literal|0
+argument_list|)
+block|,
+name|type
+argument_list|(
+name|Node
+operator|::
+name|Function
+argument_list|)
+block|,
+name|isAttached
+argument_list|(
+name|false
+argument_list|)
+block|,
+name|isMacro
+argument_list|(
+argument|false
+argument_list|)
+block|{ }
+name|ExtraFuncData
+argument_list|(
+argument|InnerNode* r
+argument_list|,
+argument|Node::Type t
+argument_list|,
+argument|bool a
+argument_list|)
+operator|:
+name|root
+argument_list|(
+name|r
+argument_list|)
+block|,
+name|type
+argument_list|(
+name|t
+argument_list|)
+block|,
+name|isAttached
+argument_list|(
+name|a
+argument_list|)
+block|,
+name|isMacro
+argument_list|(
+argument|false
+argument_list|)
+block|{ }
+block|}
+block|;
 name|public
 operator|:
 name|CppCodeParser
@@ -378,19 +460,27 @@ block|;
 name|bool
 name|matchFunctionDecl
 argument_list|(
-argument|InnerNode *parent
+name|InnerNode
+operator|*
+name|parent
 argument_list|,
-argument|QStringList *parentPathPtr =
-literal|0
+name|QStringList
+operator|*
+name|parentPathPtr
 argument_list|,
-argument|FunctionNode **funcPtr =
-literal|0
+name|FunctionNode
+operator|*
+operator|*
+name|funcPtr
 argument_list|,
-argument|const QString&templateStuff = QString()
+specifier|const
+name|QString
+operator|&
+name|templateStuff
 argument_list|,
-argument|Node::Type type = Node::Function
-argument_list|,
-argument|bool attached = false
+name|ExtraFuncData
+operator|&
+name|extra
 argument_list|)
 block|;
 name|bool
@@ -488,18 +578,23 @@ block|;
 name|bool
 name|makeFunctionNode
 argument_list|(
-argument|const QString&synopsis
+specifier|const
+name|QString
+operator|&
+name|synopsis
 argument_list|,
-argument|QStringList *parentPathPtr
+name|QStringList
+operator|*
+name|parentPathPtr
 argument_list|,
-argument|FunctionNode **funcPtr
+name|FunctionNode
+operator|*
+operator|*
+name|funcPtr
 argument_list|,
-argument|InnerNode *root =
-literal|0
-argument_list|,
-argument|Node::Type type = Node::Function
-argument_list|,
-argument|bool attached = false
+name|ExtraFuncData
+operator|&
+name|params
 argument_list|)
 block|;
 name|FunctionNode

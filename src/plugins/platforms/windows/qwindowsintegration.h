@@ -147,8 +147,9 @@ name|clipboard
 argument_list|()
 specifier|const
 block|;
-endif|#
-directive|endif
+ifndef|#
+directive|ifndef
+name|QT_NO_DRAGANDDROP
 name|virtual
 name|QPlatformDrag
 operator|*
@@ -156,6 +157,11 @@ name|drag
 argument_list|()
 specifier|const
 block|;
+endif|#
+directive|endif
+endif|#
+directive|endif
+endif|!QT_NO_CLIPBOARD
 name|virtual
 name|QPlatformInputContext
 operator|*

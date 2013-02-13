@@ -746,6 +746,8 @@ operator|=
 operator|new
 name|QQnxInputContext
 argument_list|(
+name|this
+argument_list|,
 operator|*
 name|m_virtualKeyboard
 argument_list|)
@@ -1625,6 +1627,22 @@ name|errno
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|displayCount
+operator|<
+literal|1
+condition|)
+block|{
+comment|// Never happens, even if there's no display, libscreen returns 1
+name|qFatal
+argument_list|(
+literal|"QQnxIntegration: displayCount=%d"
+argument_list|,
+name|displayCount
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Get all displays
 name|errno
 operator|=
@@ -1679,12 +1697,25 @@ name|errno
 argument_list|)
 expr_stmt|;
 block|}
+comment|// If it's primary, we create a QScreen for it even if it's not attached
+comment|// since Qt will dereference QGuiApplication::primaryScreen()
+name|createDisplay
+argument_list|(
+name|displays
+index|[
+literal|0
+index|]
+argument_list|,
+comment|/*isPrimary=*/
+literal|true
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
 name|i
 init|=
-literal|0
+literal|1
 init|;
 name|i
 operator|<
@@ -1767,9 +1798,8 @@ index|[
 name|i
 index|]
 argument_list|,
-name|i
-operator|==
-literal|0
+comment|/*isPrimary=*/
+literal|false
 argument_list|)
 expr_stmt|;
 block|}

@@ -100,6 +100,10 @@ range|:
 name|protected
 name|QQmlJSGrammar
 block|{
+name|Q_DECLARE_TR_FUNCTIONS
+argument_list|(
+argument|QDoc::QQmlJS::Parser
+argument_list|)
 name|public
 operator|:
 expr|union

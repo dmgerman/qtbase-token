@@ -2043,7 +2043,14 @@ DECL|class|DocParser
 class|class
 name|DocParser
 block|{
-public|public:
+name|Q_DECLARE_TR_FUNCTIONS
+parameter_list|(
+name|QDoc
+operator|::
+name|DocParser
+parameter_list|)
+specifier|public
+private|:
 name|void
 name|parse
 parameter_list|(

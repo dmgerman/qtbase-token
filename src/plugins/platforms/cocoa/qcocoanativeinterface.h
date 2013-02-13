@@ -16,6 +16,11 @@ end_define
 begin_include
 include|#
 directive|include
+file|<ApplicationServices/ApplicationServices.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<qpa/qplatformnativeinterface.h>
 end_include
 begin_decl_stmt
@@ -35,6 +40,12 @@ begin_decl_stmt
 DECL|variable|QPrintEngine
 name|class
 name|QPrintEngine
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|QPlatformMenu
+name|class
+name|QPlatformMenu
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -165,6 +176,34 @@ specifier|const
 name|QStringList
 operator|&
 name|types
+argument_list|)
+block|;
+comment|// Dock menu support
+specifier|static
+name|void
+name|setDockMenu
+argument_list|(
+name|QPlatformMenu
+operator|*
+name|platformMenu
+argument_list|)
+block|;
+comment|// QImage<-> CGImage conversion functions
+specifier|static
+name|CGImageRef
+name|qImageToCGImage
+argument_list|(
+specifier|const
+name|QImage
+operator|&
+name|image
+argument_list|)
+block|;
+specifier|static
+name|QImage
+name|cgImageToQImage
+argument_list|(
+argument|CGImageRef image
 argument_list|)
 block|; }
 decl_stmt|;

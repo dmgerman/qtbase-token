@@ -1743,7 +1743,7 @@ name|QAccessible
 operator|::
 name|Relation
 name|match
-comment|/*= QAccessible::AllRelations*/
+comment|/* = QAccessible::AllRelations */
 parameter_list|)
 specifier|const
 block|{
@@ -2317,7 +2317,7 @@ name|QAccessible
 operator|::
 name|Relation
 name|match
-comment|/*= QAccessible::AllRelations*/
+comment|/* = QAccessible::AllRelations */
 parameter_list|)
 specifier|const
 block|{

@@ -852,7 +852,7 @@ name|translate
 argument_list|(
 literal|"ChatMainWindow"
 argument_list|,
-literal|"QtDBus Chat"
+literal|"Qt D-Bus Chat"
 argument_list|,
 literal|0
 argument_list|)

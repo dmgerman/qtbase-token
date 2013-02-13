@@ -26523,7 +26523,7 @@ block|{
 comment|// if the gesture was ignored by its target, we will update the
 comment|// targetItems list with a possible target items (items that
 comment|// want to receive partial gestures).
-comment|// ### wont' work if the target was destroyed in the event
+comment|// ### won't work if the target was destroyed in the event
 comment|//     we will just stop delivering it.
 if|if
 condition|(

@@ -26203,7 +26203,7 @@ name|DaySection
 argument_list|)
 expr_stmt|;
 comment|//QTest::keyClick(testWidget->lineEdit(), Qt::Key_Up); // this doesn't work
-comment|//on Mac. QTestLib bug? ###
+comment|//on Mac. Qt Test bug? ###
 name|QTest
 operator|::
 name|keyClick

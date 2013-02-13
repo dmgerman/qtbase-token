@@ -988,6 +988,9 @@ argument_list|>
 name|sharedCursor
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_CURSOR
 if|if
 condition|(
 specifier|const
@@ -1017,6 +1020,8 @@ operator|->
 name|windowsCursor
 argument_list|()
 return|;
+endif|#
+directive|endif
 return|return
 name|QSharedPointer
 argument_list|<
@@ -1048,12 +1053,17 @@ name|m_data
 argument_list|(
 name|data
 argument_list|)
+ifndef|#
+directive|ifndef
+name|QT_NO_CURSOR
 member_init_list|,
 name|m_cursor
 argument_list|(
 name|sharedCursor
 argument_list|()
 argument_list|)
+endif|#
+directive|endif
 block|{ }
 end_constructor
 begin_function_decl
@@ -1455,6 +1465,9 @@ name|unsigned
 name|flags
 parameter_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_CURSOR
 return|return
 name|QWindowsScreen
 operator|::
@@ -1468,6 +1481,13 @@ argument_list|,
 name|flags
 argument_list|)
 return|;
+else|#
+directive|else
+return|return
+literal|0
+return|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function

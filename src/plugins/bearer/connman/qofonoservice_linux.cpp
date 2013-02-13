@@ -72,6 +72,91 @@ ifndef|#
 directive|ifndef
 name|QT_NO_DBUS
 end_ifndef
+begin_function
+DECL|function|operator <<
+name|QDBusArgument
+modifier|&
+name|operator
+name|<<
+parameter_list|(
+name|QDBusArgument
+modifier|&
+name|argument
+parameter_list|,
+specifier|const
+name|ObjectPathProperties
+modifier|&
+name|item
+parameter_list|)
+block|{
+name|argument
+operator|.
+name|beginStructure
+argument_list|()
+expr_stmt|;
+name|argument
+operator|<<
+name|item
+operator|.
+name|path
+operator|<<
+name|item
+operator|.
+name|properties
+expr_stmt|;
+name|argument
+operator|.
+name|endStructure
+argument_list|()
+expr_stmt|;
+return|return
+name|argument
+return|;
+block|}
+end_function
+begin_function
+DECL|function|operator >>
+specifier|const
+name|QDBusArgument
+modifier|&
+name|operator
+name|>>
+parameter_list|(
+specifier|const
+name|QDBusArgument
+modifier|&
+name|argument
+parameter_list|,
+name|ObjectPathProperties
+modifier|&
+name|item
+parameter_list|)
+block|{
+name|argument
+operator|.
+name|beginStructure
+argument_list|()
+expr_stmt|;
+name|argument
+operator|>>
+name|item
+operator|.
+name|path
+operator|>>
+name|item
+operator|.
+name|properties
+expr_stmt|;
+name|argument
+operator|.
+name|endStructure
+argument_list|()
+expr_stmt|;
+return|return
+name|argument
+return|;
+block|}
+end_function
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
@@ -107,7 +192,20 @@ argument_list|()
 argument_list|,
 name|parent
 argument_list|)
-block|{ }
+block|{
+name|qDBusRegisterMetaType
+argument_list|<
+name|ObjectPathProperties
+argument_list|>
+argument_list|()
+expr_stmt|;
+name|qDBusRegisterMetaType
+argument_list|<
+name|PathPropertiesList
+argument_list|>
+argument_list|()
+expr_stmt|;
+block|}
 end_constructor
 begin_destructor
 DECL|function|~QOfonoManagerInterface
@@ -129,25 +227,65 @@ operator|::
 name|getModems
 parameter_list|()
 block|{
-name|QVariant
-name|var
-init|=
-name|getProperty
-argument_list|(
-literal|"Modems"
-argument_list|)
-decl_stmt|;
-return|return
-name|qdbus_cast
-argument_list|<
 name|QList
 argument_list|<
 name|QDBusObjectPath
 argument_list|>
+name|modemList
+decl_stmt|;
+name|QList
+argument_list|<
+name|QVariant
 argument_list|>
+name|argumentList
+decl_stmt|;
+name|QDBusReply
+argument_list|<
+name|PathPropertiesList
+argument_list|>
+name|reply
+init|=
+name|this
+operator|->
+name|asyncCallWithArgumentList
 argument_list|(
-name|var
+name|QLatin1String
+argument_list|(
+literal|"GetModems"
 argument_list|)
+argument_list|,
+name|argumentList
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|reply
+operator|.
+name|isValid
+argument_list|()
+condition|)
+block|{
+foreach|foreach
+control|(
+name|ObjectPathProperties
+name|modem
+decl|,
+name|reply
+operator|.
+name|value
+argument_list|()
+control|)
+block|{
+name|modemList
+operator|<<
+name|modem
+operator|.
+name|path
+expr_stmt|;
+block|}
+block|}
+return|return
+name|modemList
 return|;
 block|}
 end_function
@@ -1499,25 +1637,65 @@ operator|::
 name|getOperators
 parameter_list|()
 block|{
-name|QVariant
-name|var
-init|=
-name|getProperty
-argument_list|(
-literal|"Operators"
-argument_list|)
-decl_stmt|;
-return|return
-name|qdbus_cast
-argument_list|<
 name|QList
 argument_list|<
 name|QDBusObjectPath
 argument_list|>
+name|operatorList
+decl_stmt|;
+name|QList
+argument_list|<
+name|QVariant
 argument_list|>
+name|argumentList
+decl_stmt|;
+name|QDBusReply
+argument_list|<
+name|PathPropertiesList
+argument_list|>
+name|reply
+init|=
+name|this
+operator|->
+name|asyncCallWithArgumentList
 argument_list|(
-name|var
+name|QLatin1String
+argument_list|(
+literal|"GetOperators"
 argument_list|)
+argument_list|,
+name|argumentList
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|reply
+operator|.
+name|isValid
+argument_list|()
+condition|)
+block|{
+foreach|foreach
+control|(
+name|ObjectPathProperties
+name|netop
+decl|,
+name|reply
+operator|.
+name|value
+argument_list|()
+control|)
+block|{
+name|operatorList
+operator|<<
+name|netop
+operator|.
+name|path
+expr_stmt|;
+block|}
+block|}
+return|return
+name|operatorList
 return|;
 block|}
 end_function
@@ -2048,7 +2226,7 @@ argument_list|)
 expr_stmt|;
 comment|//    static const QMetaMethod propertyChangedSignal = QMetaMethod::fromSignal(&QOfonoNetworkOperatorInterface::propertyChanged);
 comment|//    if (signal == propertyChangedSignal) {
-comment|//        if(!connection().connect(QLatin1String(OFONO_SERVICE),
+comment|//        if (!connection().connect(QLatin1String(OFONO_SERVICE),
 comment|//                               this->path(),
 comment|//                               QLatin1String(OFONO_NETWORK_OPERATOR_INTERFACE),
 comment|//                               QLatin1String("PropertyChanged"),
@@ -2417,7 +2595,7 @@ argument_list|)
 expr_stmt|;
 comment|//    static const QMetaMethod propertyChangedSignal = QMetaMethod::fromSignal(&QOfonoSimInterface::propertyChanged);
 comment|//    if (signal == propertyChangedSignal) {
-comment|//        if(!connection().connect(QLatin1String(OFONO_SERVICE),
+comment|//        if (!connection().connect(QLatin1String(OFONO_SERVICE),
 comment|//                               this->path(),
 comment|//                               QLatin1String(OFONO_SIM_MANAGER_INTERFACE),
 comment|//                               QLatin1String("PropertyChanged"),
@@ -2609,25 +2787,65 @@ operator|::
 name|getPrimaryContexts
 parameter_list|()
 block|{
-name|QVariant
-name|var
-init|=
-name|getProperty
-argument_list|(
-literal|"PrimaryContexts"
-argument_list|)
-decl_stmt|;
-return|return
-name|qdbus_cast
-argument_list|<
 name|QList
 argument_list|<
 name|QDBusObjectPath
 argument_list|>
+name|contextList
+decl_stmt|;
+name|QList
+argument_list|<
+name|QVariant
 argument_list|>
+name|argumentList
+decl_stmt|;
+name|QDBusReply
+argument_list|<
+name|PathPropertiesList
+argument_list|>
+name|reply
+init|=
+name|this
+operator|->
+name|asyncCallWithArgumentList
 argument_list|(
-name|var
+name|QLatin1String
+argument_list|(
+literal|"GetContexts"
 argument_list|)
+argument_list|,
+name|argumentList
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|reply
+operator|.
+name|isValid
+argument_list|()
+condition|)
+block|{
+foreach|foreach
+control|(
+name|ObjectPathProperties
+name|context
+decl|,
+name|reply
+operator|.
+name|value
+argument_list|()
+control|)
+block|{
+name|contextList
+operator|<<
+name|context
+operator|.
+name|path
+expr_stmt|;
+block|}
+block|}
+return|return
+name|contextList
 return|;
 block|}
 end_function
@@ -2732,7 +2950,7 @@ argument_list|)
 expr_stmt|;
 comment|//    static const QMetaMethod propertyChangedSignal = QMetaMethod::fromSignal(&QOfonoDataConnectionManagerInterface::propertyChanged);
 comment|//    if (signal == propertyChangedSignal) {
-comment|//        if(!connection().connect(QLatin1String(OFONO_SERVICE),
+comment|//        if (!connection().connect(QLatin1String(OFONO_SERVICE),
 comment|//                               this->path(),
 comment|//                               QLatin1String(OFONO_DATA_CONNECTION_MANAGER_INTERFACE),
 comment|//                               QLatin1String("PropertyChanged"),
@@ -3177,7 +3395,7 @@ argument_list|)
 expr_stmt|;
 comment|//    static const QMetaMethod propertyChangedSignal = QMetaMethod::fromSignal(&QOfonoPrimaryDataContextInterface::propertyChanged);
 comment|//    if (signal == propertyChangedSignal) {
-comment|//        if(!connection().connect(QLatin1String(OFONO_SERVICE),
+comment|//        if (!connection().connect(QLatin1String(OFONO_SERVICE),
 comment|//                               this->path(),
 comment|//                               QLatin1String(OFONO_DATA_CONTEXT_INTERFACE),
 comment|//                               QLatin1String("PropertyChanged"),

@@ -69,7 +69,7 @@ comment|//QT_NO_LIBRARY
 endif|#
 directive|endif
 comment|//QT_SHARED
-comment|/*!     \class QGenericPluginFactory     \ingroup plugins      \brief The QGenericPluginFactory class creates plugin drivers.      \sa QGenericPlugin */
+comment|/*!     \class QGenericPluginFactory     \ingroup plugins     \inmodule QtGui      \brief The QGenericPluginFactory class creates plugin drivers.      \sa QGenericPlugin */
 comment|/*!     Creates the driver specified by \a key, using the given \a specification.      Note that the keys are case-insensitive.      \sa keys() */
 DECL|function|create
 name|QObject

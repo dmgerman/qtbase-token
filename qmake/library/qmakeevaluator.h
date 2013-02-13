@@ -1009,6 +1009,8 @@ argument|const ProStringList&deps
 argument_list|,
 argument|const ProString&prefix
 argument_list|,
+argument|const ProStringList&suffixes
+argument_list|,
 argument|QHash<ProKey
 argument_list|,
 argument|QSet<ProKey>>&dependencies

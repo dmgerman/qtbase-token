@@ -1199,7 +1199,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-comment|// set non blocking so we can try to connect and it wont wait
+comment|// set non blocking so we can try to connect and it won't wait
 name|int
 name|flags
 init|=

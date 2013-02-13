@@ -4452,21 +4452,14 @@ block|}
 block|}
 break|break;
 block|}
-comment|//    case QAccessible::TableModelChanged: {
-comment|//        // This is rather evil. We don't send data and hope that at-spi fetches the right child.
-comment|//        // This hack fails when a row gets removed and a different one added in its place.
-comment|//        QDBusVariant data;
-comment|//        emit ChildrenChanged("add", 0, 0, data, spiBridge->getRootReference());
-comment|//        break;
-comment|//    }
-comment|//    case QAccessible::TableModelChanged:
-comment|//        QAccessible2::TableModelChange change = interface->tableInterface()->modelChange();
-comment|//        // assume we should reset if everything is 0
-comment|//        if (change.firstColumn == 0&& change.firstRow == 0&& change.lastColumn == 0&& change.lastRow == 0) {
-comment|//            notifyAboutDestruction(accessible);
-comment|//            notifyAboutCreation(accessible);
-comment|//        }
-comment|//        break;
+case|case
+name|QAccessible
+operator|::
+name|TableModelChanged
+case|:
+comment|// For now we ignore this event and hope that
+comment|// setting manages_descendants works.
+break|break;
 case|case
 name|QAccessible
 operator|::
@@ -4836,6 +4829,9 @@ specifier|const
 block|{
 if|if
 condition|(
+operator|!
+name|interface
+operator|||
 operator|!
 name|interface
 operator|->

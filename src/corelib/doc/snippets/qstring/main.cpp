@@ -3188,7 +3188,7 @@ comment|//! [75]
 name|QString
 name|str
 init|=
-literal|"Qt by NOKIA"
+literal|"The Qt PROJECT"
 decl_stmt|;
 name|str
 operator|=
@@ -3197,7 +3197,7 @@ operator|.
 name|toLower
 argument_list|()
 expr_stmt|;
-comment|// str == "qt by nokia"
+comment|// str == "the qt project"
 comment|//! [75]
 block|}
 end_function

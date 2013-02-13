@@ -80,6 +80,10 @@ range|:
 name|public
 name|Generator
 block|{
+name|Q_DECLARE_TR_FUNCTIONS
+argument_list|(
+argument|QDoc::DitaXmlGenerator
+argument_list|)
 name|public
 operator|:
 expr|enum

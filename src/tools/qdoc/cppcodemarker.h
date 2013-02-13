@@ -29,6 +29,10 @@ range|:
 name|public
 name|CodeMarker
 block|{
+name|Q_DECLARE_TR_FUNCTIONS
+argument_list|(
+argument|QDoc::CppCodeMarker
+argument_list|)
 name|public
 operator|:
 name|CppCodeMarker

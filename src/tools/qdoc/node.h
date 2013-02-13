@@ -164,6 +164,10 @@ begin_decl_stmt
 name|class
 name|Node
 block|{
+name|Q_DECLARE_TR_FUNCTIONS
+argument_list|(
+argument|QDoc::Node
+argument_list|)
 name|public
 label|:
 enum|enum
@@ -3022,6 +3026,10 @@ operator|:
 name|public
 name|LeafNode
 block|{
+name|Q_DECLARE_TR_FUNCTIONS
+argument_list|(
+argument|QDoc::QmlPropertyNode
+argument_list|)
 name|public
 operator|:
 name|QmlPropertyNode

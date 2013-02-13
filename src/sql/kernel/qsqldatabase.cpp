@@ -2395,7 +2395,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Destroys the object and frees any allocated resources.      If this is the last QSqlDatabase object that uses a certain     database connection, the database connection is automatically closed.      \sa close() */
+comment|/*!     Destroys the object and frees any allocated resources.      \sa close() */
 end_comment
 begin_destructor
 DECL|function|~QSqlDatabase

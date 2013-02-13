@@ -194,26 +194,16 @@ DECL|member|detach_no
 name|int
 name|detach_no
 decl_stmt|;
-DECL|member|ldpmx
-name|qreal
-name|ldpmx
-decl_stmt|;
-comment|// logical dots per meter X (or 0)
-DECL|member|ldpmy
-name|qreal
-name|ldpmy
-decl_stmt|;
-comment|// logical dots per meter Y (or 0)
 DECL|member|dpmx
 name|qreal
 name|dpmx
 decl_stmt|;
-comment|// device dots per meter X (or 0)
+comment|// dots per meter X (or 0)
 DECL|member|dpmy
 name|qreal
 name|dpmy
 decl_stmt|;
-comment|// device dots per meter Y (or 0)
+comment|// dots per meter Y (or 0)
 DECL|member|offset
 name|QPoint
 name|offset

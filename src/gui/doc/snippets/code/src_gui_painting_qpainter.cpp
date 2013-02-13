@@ -916,7 +916,7 @@ name|AlignCenter
 argument_list|,
 name|tr
 argument_list|(
-literal|"Qt by\nNokia"
+literal|"Qt\nProject"
 argument_list|)
 argument_list|)
 expr_stmt|;

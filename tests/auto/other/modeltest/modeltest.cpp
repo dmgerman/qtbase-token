@@ -1395,7 +1395,7 @@ name|parent
 parameter_list|()
 block|{
 comment|//     qDebug()<< "p";
-comment|// Make sure the model wont crash and will return an invalid QModelIndex
+comment|// Make sure the model won't crash and will return an invalid QModelIndex
 comment|// when asked for the parent of an invalid index.
 name|QVERIFY
 argument_list|(

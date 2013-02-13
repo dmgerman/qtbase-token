@@ -124,6 +124,10 @@ begin_decl_stmt
 name|class
 name|Config
 block|{
+name|Q_DECLARE_TR_FUNCTIONS
+argument_list|(
+argument|QDoc::Config
+argument_list|)
 name|public
 label|:
 name|Config

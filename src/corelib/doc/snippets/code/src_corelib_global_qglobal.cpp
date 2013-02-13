@@ -1913,8 +1913,8 @@ name|QMessageLogContext
 modifier|&
 parameter_list|,
 specifier|const
-name|char
-modifier|*
+name|QString
+modifier|&
 parameter_list|)
 function_decl|;
 end_function_decl

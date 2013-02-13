@@ -6686,20 +6686,25 @@ argument_list|)
 expr_stmt|;
 name|ret
 operator|+=
-literal|"-$(INSTALL_FILE) \""
-operator|+
+name|installMetaFile
+argument_list|(
+name|ProKey
+argument_list|(
+literal|"QMAKE_PRL_INSTALL_REPLACE"
+argument_list|)
+argument_list|,
 name|project
 operator|->
 name|first
 argument_list|(
 literal|"QMAKE_INTERNAL_PRL_FILE"
 argument_list|)
-operator|+
-literal|"\" \""
-operator|+
+operator|.
+name|toQString
+argument_list|()
+argument_list|,
 name|dst_prl
-operator|+
-literal|"\""
+argument_list|)
 expr_stmt|;
 if|if
 condition|(

@@ -220,6 +220,15 @@ decl_stmt|;
 name|bool
 name|after
 decl_stmt|;
+name|void
+name|flush
+parameter_list|()
+block|{
+name|after
+operator|=
+name|false
+expr_stmt|;
+block|}
 block|}
 end_decl_stmt
 begin_empty_stmt

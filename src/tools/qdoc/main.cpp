@@ -315,14 +315,18 @@ name|Location
 operator|::
 name|information
 argument_list|(
-name|tr
+name|QCoreApplication
+operator|::
+name|translate
 argument_list|(
+literal|"QDoc"
+argument_list|,
 literal|"Usage: qdoc [options] file1.qdocconf ...\n"
 literal|"Options:\n"
 literal|"    -D<name>       "
 literal|"Define<name> as a macro while parsing sources\n"
 literal|"    -depends       "
-literal|"Specify dependant modules\n"
+literal|"Specify dependent modules\n"
 literal|"    -help          "
 literal|"Display this information and exit\n"
 literal|"    -highlighting  "
@@ -367,8 +371,12 @@ block|{
 name|QString
 name|s
 init|=
-name|tr
+name|QCoreApplication
+operator|::
+name|translate
 argument_list|(
+literal|"QDoc"
+argument_list|,
 literal|"qdoc version %1"
 argument_list|)
 operator|.
@@ -978,8 +986,12 @@ comment|/*       The Config instance represents the configuration data for qdoc.
 name|Config
 name|config
 argument_list|(
-name|tr
+name|QCoreApplication
+operator|::
+name|translate
 argument_list|(
+literal|"QDoc"
+argument_list|,
 literal|"qdoc"
 argument_list|)
 argument_list|)
@@ -1368,8 +1380,12 @@ argument_list|()
 operator|.
 name|error
 argument_list|(
-name|tr
+name|QCoreApplication
+operator|::
+name|translate
 argument_list|(
+literal|"QDoc"
+argument_list|,
 literal|"Cannot load translator '%1'"
 argument_list|)
 operator|.
@@ -2276,8 +2292,12 @@ name|outputFormatsLocation
 operator|.
 name|fatal
 argument_list|(
-name|tr
+name|QCoreApplication
+operator|::
+name|translate
 argument_list|(
+literal|"QDoc"
+argument_list|,
 literal|"Unknown output format '%1'"
 argument_list|)
 operator|.

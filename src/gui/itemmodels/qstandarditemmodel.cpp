@@ -4769,7 +4769,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Inserts \a items at \a row. The column count wont be changed.      \sa insertRow(), insertColumn() */
+comment|/*!     Inserts \a items at \a row. The column count won't be changed.      \sa insertRow(), insertColumn() */
 end_comment
 begin_function
 DECL|function|insertRows

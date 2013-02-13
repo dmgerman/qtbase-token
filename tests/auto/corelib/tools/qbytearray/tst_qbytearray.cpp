@@ -11779,12 +11779,12 @@ argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|"http://qt.nokia.com"
+literal|"http://qt-project.org"
 argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|"http://qt.nokia.com"
+literal|"http://qt-project.org"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -11796,12 +11796,12 @@ argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|"http://qt%20nokia%20com"
+literal|"http://qt-project%20org"
 argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|"http://qt nokia com"
+literal|"http://qt-project org"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -11964,12 +11964,12 @@ argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|"http://qt.nokia.com"
+literal|"http://qt-project.org"
 argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|"http%3A//qt.nokia.com"
+literal|"http%3A//qt-project.org"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -11981,12 +11981,12 @@ argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|"http://qt nokia com"
+literal|"http://qt-project org"
 argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|"http%3A//qt%20nokia%20com"
+literal|"http%3A//qt-project%20org"
 argument_list|)
 expr_stmt|;
 name|QTest

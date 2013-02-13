@@ -2119,7 +2119,7 @@ argument_list|(
 name|currentModel
 argument_list|)
 expr_stmt|;
-comment|// Make sure the model wont crash and will return an invalid QModelIndex
+comment|// Make sure the model won't crash and will return an invalid QModelIndex
 comment|// when asked for the parent of an invalid index.
 name|QCOMPARE
 argument_list|(

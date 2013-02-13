@@ -30,6 +30,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QTimer>
+end_include
+begin_include
+include|#
+directive|include
 file|<bps/netstatus.h>
 end_include
 begin_ifndef
@@ -1266,6 +1271,20 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+specifier|const
+name|netstatus_ip_status_t
+name|oldIpStatus
+init|=
+name|ptr
+operator|->
+name|oldIpStatus
+decl_stmt|;
+name|ptr
+operator|->
+name|oldIpStatus
+operator|=
+name|ipStatus
+expr_stmt|;
 name|ptrLocker
 operator|.
 name|unlock
@@ -1299,6 +1318,7 @@ decl_stmt|;
 block|}
 else|else
 block|{
+comment|// maybe Wifi has changed but gateway not yet ready etc.
 name|qBearerDebug
 argument_list|()
 operator|<<
@@ -1306,6 +1326,48 @@ name|Q_FUNC_INFO
 operator|<<
 literal|"configuration has not changed."
 expr_stmt|;
+if|if
+condition|(
+name|oldIpStatus
+operator|!=
+name|ipStatus
+condition|)
+block|{
+comment|// if IP status changed
+if|if
+condition|(
+name|ipStatus
+operator|!=
+name|NETSTATUS_IP_STATUS_OK
+operator|&&
+name|ipStatus
+operator|!=
+name|NETSTATUS_IP_STATUS_ERROR_NOT_UP
+operator|&&
+name|ipStatus
+operator|!=
+name|NETSTATUS_IP_STATUS_ERROR_NOT_CONFIGURED
+condition|)
+block|{
+comment|// work around race condition in netstatus API by just checking
+comment|// again in 300 ms
+name|QTimer
+operator|::
+name|singleShot
+argument_list|(
+literal|300
+argument_list|,
+name|this
+argument_list|,
+name|SLOT
+argument_list|(
+name|doRequestUpdate
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 return|return;
 block|}

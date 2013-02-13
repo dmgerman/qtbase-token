@@ -208,6 +208,16 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_define
+DECL|macro|GL_GLEXT_LEGACY
+define|#
+directive|define
+name|GL_GLEXT_LEGACY
+end_define
+begin_comment
+DECL|macro|GL_GLEXT_LEGACY
+comment|// Prevents GL/gl.h form #including system glext.h
+end_comment
 begin_include
 include|#
 directive|include

@@ -17074,7 +17074,7 @@ operator|::
 name|NoError
 argument_list|)
 expr_stmt|;
-comment|// hpux wont let you map multiple times.
+comment|// hpux won't let you map multiple times.
 if|#
 directive|if
 operator|!

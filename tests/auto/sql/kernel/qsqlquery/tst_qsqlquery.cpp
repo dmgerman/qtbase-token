@@ -2340,6 +2340,26 @@ argument_list|(
 name|db
 argument_list|)
 decl_stmt|;
+specifier|const
+name|QString
+name|tbl
+init|=
+name|qTableName
+argument_list|(
+literal|"char1Select"
+argument_list|,
+name|__FILE__
+argument_list|)
+decl_stmt|;
+name|q
+operator|.
+name|exec
+argument_list|(
+literal|"drop table "
+operator|+
+name|tbl
+argument_list|)
+expr_stmt|;
 name|QVERIFY_SQL
 argument_list|(
 name|q
@@ -2348,12 +2368,7 @@ name|exec
 argument_list|(
 literal|"create table "
 operator|+
-name|qTableName
-argument_list|(
-literal|"char1Select"
-argument_list|,
-name|__FILE__
-argument_list|)
+name|tbl
 operator|+
 literal|" (id char(1))"
 argument_list|)
@@ -2367,12 +2382,7 @@ name|exec
 argument_list|(
 literal|"insert into "
 operator|+
-name|qTableName
-argument_list|(
-literal|"char1Select"
-argument_list|,
-name|__FILE__
-argument_list|)
+name|tbl
 operator|+
 literal|" values ('a')"
 argument_list|)
@@ -2386,12 +2396,7 @@ name|exec
 argument_list|(
 literal|"select * from "
 operator|+
-name|qTableName
-argument_list|(
-literal|"char1Select"
-argument_list|,
-name|__FILE__
-argument_list|)
+name|tbl
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3245,7 +3250,7 @@ literal|"create function "
 operator|+
 name|hello
 operator|+
-literal|" (s char(20)) returns varchar(50) return concat('Hello ', s)"
+literal|" (s char(20)) returns varchar(50) READS SQL DATA return concat('Hello ', s)"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3532,9 +3537,10 @@ name|bindBool
 parameter_list|()
 block|{
 comment|// QTBUG-27763: bool value got converted to int 127 by mysql driver because sizeof(bool)< sizeof(int).
-comment|// The problem was the way the bool value from the application was handled. It doesn't matter
-comment|// whether the table column type is BOOL or INT. Use INT here because all DBMSs have it and all
-comment|// should pass this test.
+comment|// The problem was the way the bool value from the application was handled. For our purposes here, it
+comment|// doesn't matter whether the column type is BOOLEAN or INT. All DBMSs have INT, and this usually
+comment|// works for this test. Postresql is an exception because its INT type does not accept BOOLEAN
+comment|// values and its BOOLEAN columns do not accept INT values.
 name|QFETCH
 argument_list|(
 name|QString
@@ -3584,6 +3590,29 @@ operator|+
 name|tableName
 argument_list|)
 expr_stmt|;
+name|QString
+name|colType
+init|=
+name|db
+operator|.
+name|driverName
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"QPSQL"
+argument_list|)
+condition|?
+name|QLatin1String
+argument_list|(
+literal|"BOOLEAN"
+argument_list|)
+else|:
+name|QLatin1String
+argument_list|(
+literal|"INT"
+argument_list|)
+decl_stmt|;
 name|QVERIFY_SQL
 argument_list|(
 name|q
@@ -3594,7 +3623,11 @@ literal|"CREATE TABLE "
 operator|+
 name|tableName
 operator|+
-literal|" (id INT, flag INT NOT NULL, PRIMARY KEY(id))"
+literal|" (id INT, flag "
+operator|+
+name|colType
+operator|+
+literal|" NOT NULL, PRIMARY KEY(id))"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -9869,6 +9902,15 @@ argument_list|(
 name|db
 argument_list|)
 decl_stmt|;
+name|q
+operator|.
+name|exec
+argument_list|(
+literal|"drop table "
+operator|+
+name|qtest_precision
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|tst_Databases
@@ -11679,6 +11721,15 @@ operator|+
 name|qtest_prepare
 operator|+
 literal|" (id int not null primary key, name varchar(200), name2 varchar(200))"
+expr_stmt|;
+name|q
+operator|.
+name|exec
+argument_list|(
+literal|"drop table "
+operator|+
+name|qtest_prepare
+argument_list|)
 expr_stmt|;
 name|QVERIFY_SQL
 argument_list|(
@@ -16120,6 +16171,26 @@ argument_list|(
 name|db
 argument_list|)
 decl_stmt|;
+specifier|const
+name|QString
+name|tbl
+init|=
+name|qTableName
+argument_list|(
+literal|"qtest_exerr"
+argument_list|,
+name|__FILE__
+argument_list|)
+decl_stmt|;
+name|q
+operator|.
+name|exec
+argument_list|(
+literal|"drop table "
+operator|+
+name|tbl
+argument_list|)
+expr_stmt|;
 name|QVERIFY_SQL
 argument_list|(
 name|q
@@ -16128,12 +16199,7 @@ name|exec
 argument_list|(
 literal|"create table "
 operator|+
-name|qTableName
-argument_list|(
-literal|"qtest_exerr"
-argument_list|,
-name|__FILE__
-argument_list|)
+name|tbl
 operator|+
 literal|" (id int not null primary key)"
 argument_list|)
@@ -16147,12 +16213,7 @@ name|prepare
 argument_list|(
 literal|"insert into "
 operator|+
-name|qTableName
-argument_list|(
-literal|"qtest_exerr"
-argument_list|,
-name|__FILE__
-argument_list|)
+name|tbl
 operator|+
 literal|" values (?)"
 argument_list|)
@@ -19398,6 +19459,26 @@ argument_list|(
 name|db
 argument_list|)
 decl_stmt|;
+specifier|const
+name|QString
+name|tbl
+init|=
+name|qTableName
+argument_list|(
+literal|"qtest_empty"
+argument_list|,
+name|__FILE__
+argument_list|)
+decl_stmt|;
+name|q
+operator|.
+name|exec
+argument_list|(
+literal|"drop table "
+operator|+
+name|tbl
+argument_list|)
+expr_stmt|;
 name|QVERIFY_SQL
 argument_list|(
 name|q
@@ -19406,12 +19487,7 @@ name|exec
 argument_list|(
 literal|"create table "
 operator|+
-name|qTableName
-argument_list|(
-literal|"qtest_empty"
-argument_list|,
-name|__FILE__
-argument_list|)
+name|tbl
 operator|+
 literal|" (id char(10))"
 argument_list|)
@@ -19515,6 +19591,15 @@ name|__FILE__
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|q
+operator|.
+name|exec
+argument_list|(
+literal|"drop table "
+operator|+
+name|Planet
+argument_list|)
+expr_stmt|;
 name|QVERIFY_SQL
 argument_list|(
 name|q
@@ -25295,6 +25380,16 @@ name|startsWith
 argument_list|(
 literal|"QPSQL"
 argument_list|)
+operator|||
+name|db
+operator|.
+name|driverName
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"QMYSQL"
+argument_list|)
 condition|)
 name|intType
 operator|=
@@ -25397,6 +25492,39 @@ operator|::
 name|Invalid
 argument_list|)
 expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|db
+operator|.
+name|driverName
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"QMYSQL"
+argument_list|)
+condition|)
+name|QCOMPARE
+argument_list|(
+name|q
+operator|.
+name|record
+argument_list|()
+operator|.
+name|field
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|type
+argument_list|()
+argument_list|,
+name|QVariant
+operator|::
+name|Double
+argument_list|)
+expr_stmt|;
 else|else
 name|QCOMPARE
 argument_list|(
@@ -25479,6 +25607,39 @@ argument_list|,
 literal|3
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|db
+operator|.
+name|driverName
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"QMYSQL"
+argument_list|)
+condition|)
+name|QCOMPARE
+argument_list|(
+name|q
+operator|.
+name|record
+argument_list|()
+operator|.
+name|field
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|type
+argument_list|()
+argument_list|,
+name|QVariant
+operator|::
+name|Double
+argument_list|)
+expr_stmt|;
+else|else
 name|QCOMPARE
 argument_list|(
 name|q
@@ -25538,6 +25699,18 @@ name|startsWith
 argument_list|(
 literal|"QPSQL"
 argument_list|)
+operator|||
+operator|(
+name|db
+operator|.
+name|driverName
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"QMYSQL"
+argument_list|)
+operator|)
 condition|)
 block|{
 name|QCOMPARE
@@ -26289,6 +26462,34 @@ name|next
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|db
+operator|.
+name|driverName
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"QMYSQL"
+argument_list|)
+condition|)
+name|QCOMPARE
+argument_list|(
+name|q
+operator|.
+name|value
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|toDouble
+argument_list|()
+argument_list|,
+literal|2.0
+argument_list|)
+expr_stmt|;
+else|else
 name|QCOMPARE
 argument_list|(
 name|q

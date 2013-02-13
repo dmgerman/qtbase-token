@@ -4817,7 +4817,7 @@ begin_comment
 comment|/*****************************************************************************   QPictureIO member functions  *****************************************************************************/
 end_comment
 begin_comment
-comment|/*!     \obsolete      \class QPictureIO      \brief The QPictureIO class contains parameters for loading and     saving pictures.      \ingroup painting     \ingroup io      QPictureIO contains a QIODevice object that is used for picture data     I/O. The programmer can install new picture file formats in addition     to those that Qt provides.      You don't normally need to use this class; QPicture::load(),     QPicture::save().      \sa QPicture, QPixmap, QFile */
+comment|/*!     \obsolete      \class QPictureIO      \brief The QPictureIO class contains parameters for loading and     saving pictures.      \ingroup painting     \ingroup io     \inmodule QtGui      QPictureIO contains a QIODevice object that is used for picture data     I/O. The programmer can install new picture file formats in addition     to those that Qt provides.      You don't normally need to use this class; QPicture::load(),     QPicture::save().      \sa QPicture, QPixmap, QFile */
 end_comment
 begin_struct
 DECL|struct|QPictureIOData
