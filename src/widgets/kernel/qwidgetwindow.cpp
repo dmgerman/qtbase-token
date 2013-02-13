@@ -1629,6 +1629,27 @@ name|w
 argument_list|)
 condition|)
 block|{
+comment|// activate window of the widget under mouse pointer
+if|if
+condition|(
+operator|!
+name|w
+operator|->
+name|isActiveWindow
+argument_list|()
+condition|)
+block|{
+name|w
+operator|->
+name|activateWindow
+argument_list|()
+expr_stmt|;
+name|w
+operator|->
+name|raise
+argument_list|()
+expr_stmt|;
+block|}
 name|QWindow
 modifier|*
 name|win
