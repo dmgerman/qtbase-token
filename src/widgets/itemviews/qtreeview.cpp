@@ -67,6 +67,11 @@ include|#
 directive|include
 file|<qdebug.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QMetaMethod>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -81,11 +86,6 @@ begin_include
 include|#
 directive|include
 file|<qaccessible2.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<QMetaMethod>
 end_include
 begin_endif
 endif|#
