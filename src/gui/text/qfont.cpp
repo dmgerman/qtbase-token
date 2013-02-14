@@ -1827,6 +1827,11 @@ parameter_list|()
 member_init_list|:
 name|d
 argument_list|(
+name|QGuiApplicationPrivate
+operator|::
+name|instance
+argument_list|()
+condition|?
 name|QGuiApplication
 operator|::
 name|font
@@ -1835,6 +1840,10 @@ operator|.
 name|d
 operator|.
 name|data
+argument_list|()
+else|:
+operator|new
+name|QFontPrivate
 argument_list|()
 argument_list|)
 member_init_list|,
