@@ -31157,10 +31157,10 @@ modifier|*
 name|event
 parameter_list|)
 block|{
-name|Q_UNUSED
-argument_list|(
 name|event
-argument_list|)
+operator|->
+name|ignore
+argument_list|()
 expr_stmt|;
 block|}
 ifndef|#
