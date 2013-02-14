@@ -2913,11 +2913,13 @@ condition|)
 block|{
 name|t
 operator|<<
-literal|"\n\tif not exist $(DESTDIR_TARGET) del "
+literal|"\n\tif not exist $(DESTDIR_TARGET) if exist "
 operator|<<
 name|manifest
 operator|<<
-literal|">NUL 2>&1"
+literal|" del "
+operator|<<
+name|manifest
 expr_stmt|;
 name|t
 operator|<<
