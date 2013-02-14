@@ -32,6 +32,12 @@ name|defined
 argument_list|(
 name|__SCITECH_SNAP__
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_OPENGL_ES_2_ANGLE_STATIC
+argument_list|)
 end_if
 begin_define
 DECL|macro|KHRONOS_APICALL
