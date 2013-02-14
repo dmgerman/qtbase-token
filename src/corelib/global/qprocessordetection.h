@@ -297,6 +297,12 @@ name|__ARM_ARCH_5TEJ__
 argument_list|)
 expr|\
 operator|||
+name|defined
+argument_list|(
+name|__ARM_ARCH_5TE__
+argument_list|)
+expr|\
+operator|||
 operator|(
 name|defined
 argument_list|(
