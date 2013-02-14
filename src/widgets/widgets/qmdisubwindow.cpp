@@ -10911,7 +10911,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Constructs a new QMdiSubWindow widget. The \a parent and \a     flags arguments are passed to QWidget's constructor.      Instead of using addSubWindow(), it is also simply possible to     use setParent() when you add the subwindow to a QMdiArea.      Note that only \l{QMdiSubWindow}s can be set as children of     QMdiArea; you cannot, for instance, write:      \badcode         QMdiArea mdiArea;         QTextEdit editor(&mdiArea); // invalid child widget     \endcode      \sa QMdiArea::addSubWindow() */
+comment|/*!     Constructs a new QMdiSubWindow widget. The \a parent and \a     flags arguments are passed to QWidget's constructor.      Instead of using addSubWindow(), it is also simply possible to     use setParent() when you add the subwindow to a QMdiArea.      Note that only \l{QMdiSubWindow}s can be set as children of     QMdiArea; you cannot, for instance, write:      \code         //bad code         QMdiArea mdiArea;         QTextEdit editor(&mdiArea); // invalid child widget     \endcode      \sa QMdiArea::addSubWindow() */
 end_comment
 begin_constructor
 DECL|function|QMdiSubWindow
