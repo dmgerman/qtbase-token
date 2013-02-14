@@ -569,22 +569,6 @@ return|;
 block|}
 name|private
 label|:
-if|#
-directive|if
-name|defined
-argument_list|(
-name|min
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|max
-argument_list|)
-error|#
-directive|error
-error|min or max defined, cannot continue. If this is caused by an #include of windows.h, NOMINMAX can be defined.
-endif|#
-directive|endif
 specifier|static
 specifier|inline
 name|qint64
