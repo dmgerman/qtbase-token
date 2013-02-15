@@ -85,7 +85,7 @@ argument|Direction textDirection READ textDirection WRITE setTextDirection
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|QString format READ format WRITE setFormat
+argument|QString format READ format WRITE setFormat RESET resetFormat
 argument_list|)
 name|public
 operator|:
@@ -205,6 +205,10 @@ name|QString
 operator|&
 name|format
 argument_list|)
+block|;
+name|void
+name|resetFormat
+argument_list|()
 block|;
 name|QString
 name|format
