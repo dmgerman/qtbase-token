@@ -29,6 +29,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtPlatformSupport/private/qcfsocketnotifier_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<CoreFoundation/CoreFoundation.h>
 end_include
 begin_decl_stmt
@@ -154,6 +159,9 @@ name|m_timerInfoList
 block|;
 name|CFRunLoopTimerRef
 name|m_runLoopTimerRef
+block|;
+name|QCFSocketNotifier
+name|m_cfSocketNotifier
 block|;
 name|void
 name|processPostedEvents
