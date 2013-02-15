@@ -5451,6 +5451,9 @@ operator|=
 operator|new
 name|QVariant
 argument_list|(
+operator|(
+name|qint64
+operator|)
 name|qGetBigIntData
 argument_list|(
 name|d
