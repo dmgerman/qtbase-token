@@ -887,6 +887,11 @@ literal|0
 operator|)
 argument_list|)
 expr_stmt|;
+name|QJsonValue
+name|val
+init|=
+name|value
+decl_stmt|;
 name|bool
 name|compressed
 decl_stmt|;
@@ -899,7 +904,7 @@ name|Value
 operator|::
 name|requiredStorage
 argument_list|(
-name|value
+name|val
 argument_list|,
 operator|&
 name|compressed
@@ -951,6 +956,12 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|valueOffset
+condition|)
+return|return;
 name|QJsonPrivate
 operator|::
 name|Value
@@ -970,7 +981,7 @@ operator|.
 name|type
 operator|=
 operator|(
-name|value
+name|val
 operator|.
 name|t
 operator|==
@@ -982,7 +993,7 @@ name|QJsonValue
 operator|::
 name|Null
 else|:
-name|value
+name|val
 operator|.
 name|t
 operator|)
@@ -1009,7 +1020,7 @@ name|Value
 operator|::
 name|valueToStore
 argument_list|(
-name|value
+name|val
 argument_list|,
 name|valueOffset
 argument_list|)
@@ -1024,7 +1035,7 @@ name|Value
 operator|::
 name|copyData
 argument_list|(
-name|value
+name|val
 argument_list|,
 operator|(
 name|char
@@ -1084,6 +1095,11 @@ name|length
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QJsonValue
+name|val
+init|=
+name|value
+decl_stmt|;
 name|bool
 name|compressed
 decl_stmt|;
@@ -1096,7 +1112,7 @@ name|Value
 operator|::
 name|requiredStorage
 argument_list|(
-name|value
+name|val
 argument_list|,
 operator|&
 name|compressed
@@ -1141,6 +1157,12 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|valueOffset
+condition|)
+return|return;
 name|QJsonPrivate
 operator|::
 name|Value
@@ -1160,7 +1182,7 @@ operator|.
 name|type
 operator|=
 operator|(
-name|value
+name|val
 operator|.
 name|t
 operator|==
@@ -1172,7 +1194,7 @@ name|QJsonValue
 operator|::
 name|Null
 else|:
-name|value
+name|val
 operator|.
 name|t
 operator|)
@@ -1199,7 +1221,7 @@ name|Value
 operator|::
 name|valueToStore
 argument_list|(
-name|value
+name|val
 argument_list|,
 name|valueOffset
 argument_list|)
@@ -1214,7 +1236,7 @@ name|Value
 operator|::
 name|copyData
 argument_list|(
-name|value
+name|val
 argument_list|,
 operator|(
 name|char

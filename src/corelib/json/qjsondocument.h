@@ -84,6 +84,9 @@ name|MissingObject
 block|,
 DECL|enumerator|DeepNesting
 name|DeepNesting
+block|,
+DECL|enumerator|DocumentTooLarge
+name|DocumentTooLarge
 block|}
 enum|;
 name|QString
