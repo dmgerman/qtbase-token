@@ -231,6 +231,11 @@ name|exec
 argument_list|()
 block|;
 name|QVariant
+name|lastInsertId
+argument_list|()
+specifier|const
+block|;
+name|QVariant
 name|handle
 argument_list|()
 specifier|const
