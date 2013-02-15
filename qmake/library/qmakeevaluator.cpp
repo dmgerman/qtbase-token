@@ -413,6 +413,15 @@ argument_list|(
 literal|"TEMPLATE"
 argument_list|)
 expr_stmt|;
+name|statics
+operator|.
+name|strQMAKE_PLATFORM
+operator|=
+name|ProKey
+argument_list|(
+literal|"QMAKE_PLATFORM"
+argument_list|)
+expr_stmt|;
 ifdef|#
 directive|ifdef
 name|PROEVALUATOR_FULL
@@ -4990,6 +4999,18 @@ condition|)
 name|setTemplate
 argument_list|()
 expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|varName
+operator|==
+name|statics
+operator|.
+name|strQMAKE_PLATFORM
+condition|)
+name|updateFeaturePaths
+argument_list|()
+expr_stmt|;
 ifdef|#
 directive|ifdef
 name|PROEVALUATOR_FULL
@@ -6860,10 +6881,6 @@ condition|)
 return|return
 literal|false
 return|;
-name|updateFeaturePaths
-argument_list|()
-expr_stmt|;
-comment|// The spec extends the feature search path, so rebuild the cache.
 if|if
 condition|(
 operator|!
