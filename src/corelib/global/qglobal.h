@@ -2544,6 +2544,41 @@ argument_list|)
 return|;
 block|}
 end_expr_stmt
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_DARWIN
+end_ifdef
+begin_define
+DECL|macro|QT_MAC_PLATFORM_SDK_EQUAL_OR_ABOVE
+define|#
+directive|define
+name|QT_MAC_PLATFORM_SDK_EQUAL_OR_ABOVE
+parameter_list|(
+name|osx
+parameter_list|,
+name|ios
+parameter_list|)
+define|\
+value|(defined(__MAC_OS_X_VERSION_MAX_ALLOWED)&& __MAC_OS_X_VERSION_MAX_ALLOWED>= osx) || \     (defined(__IPHONE_OS_VERSION_MAX_ALLOWED)&& __IPHONE_OS_VERSION_MAX_ALLOWED>= ios)
+end_define
+begin_define
+DECL|macro|QT_MAC_DEPLOYMENT_TARGET_BELOW
+define|#
+directive|define
+name|QT_MAC_DEPLOYMENT_TARGET_BELOW
+parameter_list|(
+name|osx
+parameter_list|,
+name|ios
+parameter_list|)
+define|\
+value|(defined(__MAC_OS_X_VERSION_MIN_REQUIRED)&& osx != __MAC_NA&& __MAC_OS_X_VERSION_MIN_REQUIRED< osx) || \     (defined(__IPHONE_OS_VERSION_MIN_REQUIRED)&& ios != __IPHONE_NA&& __IPHONE_OS_VERSION_MIN_REQUIRED< ios)
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*    Data stream functions are provided by many classes (defined in qdatastream.h) */
 end_comment
