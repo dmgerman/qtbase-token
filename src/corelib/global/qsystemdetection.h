@@ -763,7 +763,7 @@ DECL|macro|MAC_OS_X_VERSION_MIN_REQUIRED
 define|#
 directive|define
 name|MAC_OS_X_VERSION_MIN_REQUIRED
-value|MAC_OS_X_VERSION_10_4
+value|MAC_OS_X_VERSION_10_6
 end_define
 begin_include
 include|#

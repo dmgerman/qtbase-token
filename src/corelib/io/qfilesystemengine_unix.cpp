@@ -2096,11 +2096,6 @@ operator|::
 name|DirectoryType
 expr_stmt|;
 block|}
-if|#
-directive|if
-name|MAC_OS_X_VERSION_MAX_ALLOWED
-operator|>=
-name|MAC_OS_X_VERSION_10_5
 if|if
 condition|(
 name|what
@@ -2118,9 +2113,6 @@ operator|::
 name|PosixStatFlags
 expr_stmt|;
 block|}
-endif|#
-directive|endif
-comment|// MAC_OS_X_VERSION_MAX_ALLOWED...
 endif|#
 directive|endif
 comment|// defined(Q_OS_MAC)&& !defined(Q_OS_IOS)

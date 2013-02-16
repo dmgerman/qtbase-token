@@ -51,21 +51,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_if
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_WS_MAC
-argument_list|)
-operator|||
-operator|(
-name|MAC_OS_X_VERSION_MAX_ALLOWED
-operator|>=
-name|MAC_OS_X_VERSION_10_5
-operator|)
-end_if
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QRawFontPrivate
@@ -531,13 +516,6 @@ end_function_decl
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// !defined(Q_WS_MAC) || (MAC_OS_X_VERSION_MAX_ALLOWED>= MAC_OS_X_VERSION_10_5)
-end_comment
 begin_endif
 endif|#
 directive|endif
