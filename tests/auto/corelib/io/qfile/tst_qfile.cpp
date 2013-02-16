@@ -2093,29 +2093,6 @@ argument_list|(
 literal|"status"
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-specifier|static
-specifier|const
-name|QString
-name|denied
-argument_list|(
-literal|"Operation not permitted"
-argument_list|)
-decl_stmt|;
-else|#
-directive|else
-specifier|static
-specifier|const
-name|QString
-name|denied
-argument_list|(
-literal|"Permission denied"
-argument_list|)
-decl_stmt|;
-endif|#
-directive|endif
 name|QTest
 operator|::
 name|newRow
