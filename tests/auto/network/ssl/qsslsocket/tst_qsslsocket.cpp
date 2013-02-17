@@ -9428,6 +9428,11 @@ operator|::
 name|setReadBufferSize_task_250027
 parameter_list|()
 block|{
+name|QSKIP
+argument_list|(
+literal|"QTBUG-29730 - flakey test blocking integration"
+argument_list|)
+expr_stmt|;
 comment|// do not execute this when a proxy is set.
 name|QFETCH_GLOBAL
 argument_list|(
