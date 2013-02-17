@@ -11131,7 +11131,7 @@ argument_list|,
 literal|4
 argument_list|)
 expr_stmt|;
-comment|/* wont pass: stop values are expected to be sorted      QTest::newRow("unsorted-stop")<<      "selection-background: lineargradient(x1:0, y1:0, x2:0, y2:1, "          "stop:0.5 green, stop:0.2 red)"<< QPointF(0, 0)<< QPointF(0, 1)          0<< 0.2<< QColor("red")<< 0.5<< QColor("green");     */
+comment|/* won't pass: stop values are expected to be sorted      QTest::newRow("unsorted-stop")<<      "selection-background: lineargradient(x1:0, y1:0, x2:0, y2:1, "          "stop:0.5 green, stop:0.2 red)"<< QPointF(0, 0)<< QPointF(0, 1)          0<< 0.2<< QColor("red")<< 0.5<< QColor("green");     */
 block|}
 end_function
 begin_function

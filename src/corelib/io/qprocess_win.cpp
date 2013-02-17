@@ -1713,6 +1713,7 @@ name|entry
 argument_list|)
 argument_list|)
 decl_stmt|;
+comment|// + 1 to permit magic cmd variable names starting with =
 if|if
 condition|(
 specifier|const
@@ -1723,6 +1724,8 @@ init|=
 name|wcschr
 argument_list|(
 name|entry
+operator|+
+literal|1
 argument_list|,
 literal|L'
 expr|='

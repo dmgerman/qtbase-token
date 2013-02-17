@@ -43,6 +43,7 @@ name|public
 label|:
 name|QQnxRootWindow
 argument_list|(
+specifier|const
 name|QQnxScreen
 operator|*
 name|screen
@@ -102,6 +103,7 @@ name|void
 name|createWindowGroup
 parameter_list|()
 function_decl|;
+specifier|const
 name|QQnxScreen
 modifier|*
 name|m_screen

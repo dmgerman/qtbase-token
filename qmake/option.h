@@ -774,6 +774,7 @@ struct|;
 DECL|member|private
 name|private
 label|:
+DECL|member|state
 specifier|static
 name|int
 name|parseCommandLine
@@ -781,6 +782,10 @@ parameter_list|(
 name|QStringList
 modifier|&
 name|args
+parameter_list|,
+name|QMakeCmdLineParserState
+modifier|&
+name|state
 parameter_list|)
 function_decl|;
 block|}

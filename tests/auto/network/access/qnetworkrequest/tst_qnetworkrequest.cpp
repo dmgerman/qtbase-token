@@ -263,7 +263,7 @@ argument_list|)
 operator|<<
 name|QUrl
 argument_list|(
-literal|"http://qt.nokia.com"
+literal|"http://qt-project.org"
 argument_list|)
 expr_stmt|;
 block|}

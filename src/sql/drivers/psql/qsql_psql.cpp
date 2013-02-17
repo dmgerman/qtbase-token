@@ -6433,8 +6433,7 @@ operator|.
 name|time
 argument_list|()
 decl_stmt|;
-comment|// msecs need to be right aligned otherwise psql
-comment|// interpretes them wrong
+comment|// msecs need to be right aligned otherwise psql interprets them wrong
 name|r
 operator|=
 name|QLatin1Char

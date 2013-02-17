@@ -72,7 +72,7 @@ block|{
 DECL|enumerator|ReadOnly
 name|ReadOnly
 block|,
-comment|// wont perform remove(), insert(), and setData()
+comment|// won't perform remove(), insert(), and setData()
 DECL|enumerator|ReadWrite
 name|ReadWrite
 block|}

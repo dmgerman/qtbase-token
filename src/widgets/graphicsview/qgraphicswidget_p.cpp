@@ -2356,7 +2356,7 @@ operator|<
 literal|0.1
 condition|)
 block|{
-comment|// we still havent found anything, cut off binary search
+comment|// we still haven't found anything, cut off binary search
 name|minw
 operator|=
 name|maxw

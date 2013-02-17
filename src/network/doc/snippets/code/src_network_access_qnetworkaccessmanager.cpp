@@ -54,7 +54,7 @@ name|QNetworkRequest
 argument_list|(
 name|QUrl
 argument_list|(
-literal|"http://qt.nokia.com"
+literal|"http://qt-project.org"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -79,7 +79,7 @@ name|setUrl
 argument_list|(
 name|QUrl
 argument_list|(
-literal|"http://qt.nokia.com"
+literal|"http://qt-project.org"
 argument_list|)
 argument_list|)
 expr_stmt|;

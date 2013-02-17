@@ -293,6 +293,10 @@ begin_decl_stmt
 name|class
 name|Tokenizer
 block|{
+name|Q_DECLARE_TR_FUNCTIONS
+argument_list|(
+argument|QDoc::Tokenizer
+argument_list|)
 name|public
 label|:
 name|Tokenizer

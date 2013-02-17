@@ -2335,17 +2335,6 @@ argument_list|(
 name|j
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|dictionary
-index|[
-literal|"XQMAKESPEC"
-index|]
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
 name|applySpecSpecifics
 argument_list|()
 expr_stmt|;
@@ -9707,14 +9696,12 @@ parameter_list|()
 block|{
 if|if
 condition|(
-operator|!
 name|dictionary
-index|[
-literal|"XQMAKESPEC"
-index|]
 operator|.
-name|isEmpty
-argument_list|()
+name|contains
+argument_list|(
+literal|"XQMAKESPEC"
+argument_list|)
 condition|)
 block|{
 comment|//Disable building tools, docs and translations when cross compiling.
@@ -9730,9 +9717,11 @@ block|}
 if|if
 condition|(
 name|dictionary
-index|[
+operator|.
+name|value
+argument_list|(
 literal|"XQMAKESPEC"
-index|]
+argument_list|)
 operator|.
 name|startsWith
 argument_list|(
@@ -9907,9 +9896,11 @@ elseif|else
 if|if
 condition|(
 name|dictionary
-index|[
+operator|.
+name|value
+argument_list|(
 literal|"XQMAKESPEC"
-index|]
+argument_list|)
 operator|.
 name|startsWith
 argument_list|(
@@ -10440,7 +10431,7 @@ literal|"no"
 argument_list|,
 literal|"-no-widgets"
 argument_list|,
-literal|"Disable QtWidgets module.\n"
+literal|"Disable Qt Widgets module.\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11679,7 +11670,7 @@ literal|"no"
 argument_list|,
 literal|"-no-audio-backend"
 argument_list|,
-literal|"Do not compile in the platform audio backend into\nQtMultimedia."
+literal|"Do not compile in the platform audio backend into\nQt Multimedia."
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11690,7 +11681,7 @@ literal|"yes"
 argument_list|,
 literal|"-audio-backend"
 argument_list|,
-literal|"Compile in the platform audio backend into QtMultimedia.\n"
+literal|"Compile in the platform audio backend into Qt Multimedia.\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -12250,7 +12241,7 @@ literal|"plugin"
 return|;
 block|}
 comment|// By default we do not want to compile OCI driver when compiling with
-comment|// MinGW, due to lack of such support from Oracle. It prob. wont work.
+comment|// MinGW, due to lack of such support from Oracle. It prob. won't work.
 comment|// (Customer may force the use though)
 if|if
 condition|(
@@ -15151,17 +15142,13 @@ operator|==
 literal|"yes"
 operator|)
 operator|&&
-operator|(
+operator|!
 name|dictionary
 operator|.
-name|value
+name|contains
 argument_list|(
 literal|"XQMAKESPEC"
 argument_list|)
-operator|.
-name|isEmpty
-argument_list|()
-operator|)
 condition|)
 block|{
 name|cout
@@ -19227,14 +19214,12 @@ name|endl
 expr_stmt|;
 if|if
 condition|(
-operator|!
 name|dictionary
-index|[
-literal|"XQMAKESPEC"
-index|]
 operator|.
-name|isEmpty
-argument_list|()
+name|contains
+argument_list|(
+literal|"XQMAKESPEC"
+argument_list|)
 operator|&&
 operator|!
 name|dictionary
@@ -21649,7 +21634,7 @@ name|endl
 expr_stmt|;
 name|sout
 operator|<<
-literal|"QtDBus support.............."
+literal|"Qt D-Bus support............"
 operator|<<
 name|dictionary
 index|[
@@ -21660,7 +21645,7 @@ name|endl
 expr_stmt|;
 name|sout
 operator|<<
-literal|"QtWidgets module support...."
+literal|"Qt Widgets module support..."
 operator|<<
 name|dictionary
 index|[

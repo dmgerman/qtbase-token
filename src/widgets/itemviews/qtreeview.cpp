@@ -3982,6 +3982,12 @@ decl_stmt|;
 while|while
 condition|(
 name|parent
+operator|!=
+name|d
+operator|->
+name|root
+operator|&&
+name|parent
 operator|.
 name|isValid
 argument_list|()

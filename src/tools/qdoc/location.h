@@ -43,6 +43,10 @@ begin_decl_stmt
 name|class
 name|Location
 block|{
+name|Q_DECLARE_TR_FUNCTIONS
+argument_list|(
+argument|QDoc::Location
+argument_list|)
 name|public
 label|:
 name|Location

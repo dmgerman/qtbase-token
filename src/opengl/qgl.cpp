@@ -4429,9 +4429,9 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|qt_gl_read_framebuffer
+DECL|function|qt_gl_read_frame_buffer
 name|QImage
-name|qt_gl_read_framebuffer
+name|qt_gl_read_frame_buffer
 parameter_list|(
 specifier|const
 name|QSize
@@ -11368,7 +11368,7 @@ argument_list|()
 condition|)
 name|res
 operator|=
-name|qt_gl_read_framebuffer
+name|qt_gl_read_frame_buffer
 argument_list|(
 name|QSize
 argument_list|(

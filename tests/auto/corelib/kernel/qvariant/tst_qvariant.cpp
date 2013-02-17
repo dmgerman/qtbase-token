@@ -15902,7 +15902,7 @@ block|{
 name|QString
 name|str
 argument_list|(
-literal|"http://qt.nokia.com"
+literal|"http://qt-project.org"
 argument_list|)
 decl_stmt|;
 name|QUrl

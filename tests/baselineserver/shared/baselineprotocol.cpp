@@ -1878,7 +1878,7 @@ argument_list|()
 condition|)
 name|serverName
 operator|=
-literal|"lancelot.test.qt.nokia.com"
+literal|"lancelot.test.qt-project.org"
 expr_stmt|;
 name|socket
 operator|.

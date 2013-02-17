@@ -500,7 +500,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     Sets the name of the URL to \a name. The name is the full text,     for example, "http://qt.nokia.com/doc/qurlinfo.html".      If you call this function for an invalid URL info, this function     turns it into a valid one.      \sa isValid() */
+comment|/*!     Sets the name of the URL to \a name. The name is the full text,     for example, "http://qt-project.org/doc/qt-5.0/qtcore/qurl.html".      If you call this function for an invalid URL info, this function     turns it into a valid one.      \sa isValid() */
 end_comment
 begin_function
 DECL|function|setName

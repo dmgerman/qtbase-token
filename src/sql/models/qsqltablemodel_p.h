@@ -214,6 +214,9 @@ name|tableName
 block|;
 name|QString
 name|filter
+block|;
+name|QString
+name|autoColumn
 block|;      enum
 name|Op
 block|{

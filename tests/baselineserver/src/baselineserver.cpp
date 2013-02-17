@@ -4266,12 +4266,12 @@ argument_list|)
 operator|<<
 name|QLS
 argument_list|(
-literal|"osl-mac-master-5.test.qt.nokia.com"
+literal|"osl-mac-master-5.test.qt-project.org"
 argument_list|)
 operator|<<
 name|QLS
 argument_list|(
-literal|"osl-mac-master-6.test.qt.nokia.com"
+literal|"osl-mac-master-6.test.qt-project.org"
 argument_list|)
 operator|<<
 name|QLS

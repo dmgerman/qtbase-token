@@ -32,6 +32,11 @@ include|#
 directive|include
 file|"private/qhostinfo_p.h"
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENSSL
+end_ifndef
 begin_include
 include|#
 directive|include
@@ -41,6 +46,16 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// !QT_NO_OPENSSL
+end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_BUILD_INTERNAL
+end_comment
 begin_include
 include|#
 directive|include
@@ -635,7 +650,7 @@ block|{
 name|QString
 name|host
 argument_list|(
-literal|"codereview.qt-project.org"
+literal|"qt-project.org"
 argument_list|)
 decl_stmt|;
 comment|// not using any root certs -> should not work

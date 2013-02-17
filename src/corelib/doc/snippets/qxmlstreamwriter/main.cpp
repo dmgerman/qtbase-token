@@ -133,7 +133,7 @@ name|writeAttribute
 argument_list|(
 literal|"href"
 argument_list|,
-literal|"http://qt.nokia.com/"
+literal|"http://qt-project.org/"
 argument_list|)
 expr_stmt|;
 name|stream
@@ -142,7 +142,7 @@ name|writeTextElement
 argument_list|(
 literal|"title"
 argument_list|,
-literal|"Qt Home"
+literal|"Qt Project"
 argument_list|)
 expr_stmt|;
 name|stream

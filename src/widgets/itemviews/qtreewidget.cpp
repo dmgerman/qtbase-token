@@ -7157,7 +7157,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!   Inserts the \a child item at \a index in the list of children.    If the child has already been inserted somewhere else it wont be inserted again. */
+comment|/*!   Inserts the \a child item at \a index in the list of children.    If the child has already been inserted somewhere else it won't be inserted again. */
 end_comment
 begin_function
 DECL|function|insertChild
@@ -7717,7 +7717,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \since 4.1    Inserts the given list of \a children into the list of the item children at \a index .    Children that have already been inserted somewhere else wont be inserted. */
+comment|/*!   \since 4.1    Inserts the given list of \a children into the list of the item children at \a index .    Children that have already been inserted somewhere else won't be inserted. */
 end_comment
 begin_function
 DECL|function|insertChildren
@@ -10068,7 +10068,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Inserts the \a item at \a index in the top level in the view.    If the item has already been inserted somewhere else it wont be inserted.    \sa addTopLevelItem(), columnCount() */
+comment|/*!   Inserts the \a item at \a index in the top level in the view.    If the item has already been inserted somewhere else it won't be inserted.    \sa addTopLevelItem(), columnCount() */
 end_comment
 begin_function
 DECL|function|insertTopLevelItem
@@ -10214,7 +10214,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \since 4.1    Inserts the list of \a items at \a index in the top level in the view.    Items that have already been inserted somewhere else wont be inserted.    \sa addTopLevelItems() */
+comment|/*!   \since 4.1    Inserts the list of \a items at \a index in the top level in the view.    Items that have already been inserted somewhere else won't be inserted.    \sa addTopLevelItems() */
 end_comment
 begin_function
 DECL|function|insertTopLevelItems

@@ -6,14 +6,14 @@ begin_comment
 comment|//! [0]
 end_comment
 begin_comment
-comment|// To find the IP address of qt.nokia.com
+comment|// To find the IP address of qt-project.org
 end_comment
 begin_expr_stmt
 name|QHostInfo
 operator|::
 name|lookupHost
 argument_list|(
-literal|"qt.nokia.com"
+literal|"qt-project.org"
 argument_list|,
 name|this
 argument_list|,
@@ -64,7 +64,7 @@ name|QHostInfo
 operator|::
 name|fromName
 argument_list|(
-literal|"qt.nokia.com"
+literal|"qt-project.org"
 argument_list|)
 decl_stmt|;
 end_decl_stmt

@@ -7568,7 +7568,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!  If the state() is \l DTD, this function returns the DTD's   notation declarations. Otherwise an empty vector is returned.    The QXmlStreamNotationDeclarations class is defined to be a QVector   of QXmlStreamNotationDeclaration.  */
+comment|/*!  If the tokenType() is \l DTD, this function returns the DTD's   notation declarations. Otherwise an empty vector is returned.    The QXmlStreamNotationDeclarations class is defined to be a QVector   of QXmlStreamNotationDeclaration.  */
 end_comment
 begin_function
 DECL|function|notationDeclarations
@@ -7614,7 +7614,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!  If the state() is \l DTD, this function returns the DTD's   unparsed (external) entity declarations. Otherwise an empty vector is returned.    The QXmlStreamEntityDeclarations class is defined to be a QVector   of QXmlStreamEntityDeclaration.  */
+comment|/*!  If the tokenType() is \l DTD, this function returns the DTD's   unparsed (external) entity declarations. Otherwise an empty vector is returned.    The QXmlStreamEntityDeclarations class is defined to be a QVector   of QXmlStreamEntityDeclaration.  */
 end_comment
 begin_function
 DECL|function|entityDeclarations
@@ -7660,7 +7660,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \since 4.4    If the state() is \l DTD, this function returns the DTD's   name. Otherwise an empty string is returned.   */
+comment|/*!   \since 4.4    If the tokenType() is \l DTD, this function returns the DTD's   name. Otherwise an empty string is returned.   */
 end_comment
 begin_function
 DECL|function|dtdName
@@ -7699,7 +7699,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \since 4.4    If the state() is \l DTD, this function returns the DTD's   public identifier. Otherwise an empty string is returned.   */
+comment|/*!   \since 4.4    If the tokenType() is \l DTD, this function returns the DTD's   public identifier. Otherwise an empty string is returned.   */
 end_comment
 begin_function
 DECL|function|dtdPublicId
@@ -7738,7 +7738,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \since 4.4    If the state() is \l DTD, this function returns the DTD's   system identifier. Otherwise an empty string is returned.   */
+comment|/*!   \since 4.4    If the tokenType() is \l DTD, this function returns the DTD's   system identifier. Otherwise an empty string is returned.   */
 end_comment
 begin_function
 DECL|function|dtdSystemId
@@ -7777,7 +7777,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!  If the state() is \l StartElement, this function returns the   element's namespace declarations. Otherwise an empty vector is   returned.    The QXmlStreamNamespaceDeclaration class is defined to be a QVector   of QXmlStreamNamespaceDeclaration.    \sa addExtraNamespaceDeclaration(), addExtraNamespaceDeclarations()  */
+comment|/*!  If the tokenType() is \l StartElement, this function returns the   element's namespace declarations. Otherwise an empty vector is   returned.    The QXmlStreamNamespaceDeclaration class is defined to be a QVector   of QXmlStreamNamespaceDeclaration.    \sa addExtraNamespaceDeclaration(), addExtraNamespaceDeclarations()  */
 end_comment
 begin_function
 DECL|function|namespaceDeclarations
@@ -9598,7 +9598,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!      \since 4.4       If the state() is \l StartDocument, this function returns the      version string as specified in the XML declaration.      Otherwise an empty string is returned.  */
+comment|/*!      \since 4.4       If the tokenType() is \l StartDocument, this function returns the      version string as specified in the XML declaration.      Otherwise an empty string is returned.  */
 end_comment
 begin_function
 DECL|function|documentVersion
@@ -9637,7 +9637,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!      \since 4.4       If the state() is \l StartDocument, this function returns the      encoding string as specified in the XML declaration.      Otherwise an empty string is returned.  */
+comment|/*!      \since 4.4       If the tokenType() is \l StartDocument, this function returns the      encoding string as specified in the XML declaration.      Otherwise an empty string is returned.  */
 end_comment
 begin_function
 DECL|function|documentEncoding

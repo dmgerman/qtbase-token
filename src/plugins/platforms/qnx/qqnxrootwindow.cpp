@@ -75,6 +75,7 @@ name|QQnxRootWindow
 operator|::
 name|QQnxRootWindow
 parameter_list|(
+specifier|const
 name|QQnxScreen
 modifier|*
 name|screen

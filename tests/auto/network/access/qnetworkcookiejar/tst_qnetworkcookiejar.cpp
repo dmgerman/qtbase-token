@@ -1363,7 +1363,7 @@ name|cookie
 operator|.
 name|setDomain
 argument_list|(
-literal|".nokia.com"
+literal|".qt-project.org"
 argument_list|)
 expr_stmt|;
 name|allCookies
@@ -1418,7 +1418,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"http://nokia.com"
+literal|"http://qt-project.org"
 operator|<<
 name|result
 expr_stmt|;
@@ -1431,7 +1431,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"http://qt.nokia.com"
+literal|"http://qt-project.org"
 operator|<<
 name|result
 expr_stmt|;
@@ -1444,7 +1444,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"http://nokia.com/webinar"
+literal|"http://qt-project.org/webinar"
 operator|<<
 name|result
 expr_stmt|;
@@ -1457,7 +1457,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"http://qt.nokia.com/webinar"
+literal|"http://qt-project.org/webinar"
 operator|<<
 name|result
 expr_stmt|;
@@ -1470,7 +1470,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"http://qt.nokia.com./web"
+literal|"http://qt-project.org./web"
 operator|<<
 name|result
 expr_stmt|;
@@ -1483,7 +1483,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"http://nokia.com./web"
+literal|"http://qt-project.org./web"
 operator|<<
 name|result
 expr_stmt|;
@@ -1500,7 +1500,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"http://nokia.com/web"
+literal|"http://qt-project.org/web"
 operator|<<
 name|result
 expr_stmt|;
@@ -1513,7 +1513,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"http://nokia.com/web/"
+literal|"http://qt-project.org/web/"
 operator|<<
 name|result
 expr_stmt|;
@@ -1526,7 +1526,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"http://nokia.com/web/content"
+literal|"http://qt-project.org/web/content"
 operator|<<
 name|result
 expr_stmt|;
@@ -1539,7 +1539,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"http://qt.nokia.com/web"
+literal|"http://qt-project.org/web"
 operator|<<
 name|result
 expr_stmt|;
@@ -1552,7 +1552,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"http://qt.nokia.com/web/"
+literal|"http://qt-project.org/web/"
 operator|<<
 name|result
 expr_stmt|;
@@ -1565,7 +1565,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"http://qt.nokia.com/web/content"
+literal|"http://qt-project.org/web/content"
 operator|<<
 name|result
 expr_stmt|;
@@ -1590,7 +1590,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"http://nokia.com/web"
+literal|"http://qt-project.org/web"
 operator|<<
 name|result
 expr_stmt|;
@@ -1603,7 +1603,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"http://nokia.com/web/"
+literal|"http://qt-project.org/web/"
 operator|<<
 name|result
 expr_stmt|;
@@ -1616,7 +1616,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"http://nokia.com/web/content"
+literal|"http://qt-project.org/web/content"
 operator|<<
 name|result
 expr_stmt|;
@@ -1629,7 +1629,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"http://qt.nokia.com/web"
+literal|"http://qt-project.org/web"
 operator|<<
 name|result
 expr_stmt|;
@@ -1642,7 +1642,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"http://qt.nokia.com/web/"
+literal|"http://qt-project.org/web/"
 operator|<<
 name|result
 expr_stmt|;
@@ -1655,7 +1655,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"http://qt.nokia.com/web/content"
+literal|"http://qt-project.org/web/content"
 operator|<<
 name|result
 expr_stmt|;
@@ -1676,7 +1676,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"http://nokia.com/web/wiki"
+literal|"http://qt-project.org/web/wiki"
 operator|<<
 name|result
 expr_stmt|;
@@ -1689,7 +1689,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"http://qt.nokia.com/web/wiki"
+literal|"http://qt-project.org/web/wiki"
 operator|<<
 name|result
 expr_stmt|;
@@ -1724,7 +1724,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"http://nokia.com/web/wiki"
+literal|"http://qt-project.org/web/wiki"
 operator|<<
 name|result
 expr_stmt|;
@@ -1737,7 +1737,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"http://qt.nokia.com/web/wiki"
+literal|"http://qt-project.org/web/wiki"
 operator|<<
 name|result
 expr_stmt|;
@@ -1779,7 +1779,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"http://nokia.com/web"
+literal|"http://qt-project.org/web"
 operator|<<
 name|result
 expr_stmt|;
@@ -1792,7 +1792,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"http://nokia.com/web/"
+literal|"http://qt-project.org/web/"
 operator|<<
 name|result
 expr_stmt|;
@@ -1805,7 +1805,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"http://nokia.com/web/content"
+literal|"http://qt-project.org/web/content"
 operator|<<
 name|result
 expr_stmt|;
@@ -1818,7 +1818,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"http://qt.nokia.com/web"
+literal|"http://qt-project.org/web"
 operator|<<
 name|result
 expr_stmt|;
@@ -1831,7 +1831,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"http://qt.nokia.com/web/"
+literal|"http://qt-project.org/web/"
 operator|<<
 name|result
 expr_stmt|;
@@ -1844,7 +1844,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"http://qt.nokia.com/web/content"
+literal|"http://qt-project.org/web/content"
 operator|<<
 name|result
 expr_stmt|;
@@ -1875,7 +1875,7 @@ name|anotherCookie
 operator|.
 name|setDomain
 argument_list|(
-literal|".nokia.com"
+literal|".qt-project.org"
 argument_list|)
 expr_stmt|;
 name|allCookies
@@ -1896,7 +1896,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"http://nokia.com/"
+literal|"http://qt-project.org/"
 operator|<<
 name|result
 expr_stmt|;
@@ -1909,7 +1909,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"http://nokia.com/something/else"
+literal|"http://qt-project.org/something/else"
 operator|<<
 name|result
 expr_stmt|;
@@ -1926,7 +1926,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"http://nokia.com/web"
+literal|"http://qt-project.org/web"
 operator|<<
 name|result
 expr_stmt|;
@@ -1939,7 +1939,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"http://nokia.com/web/"
+literal|"http://qt-project.org/web/"
 operator|<<
 name|result
 expr_stmt|;
@@ -1952,7 +1952,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"http://nokia.com/web/content"
+literal|"http://qt-project.org/web/content"
 operator|<<
 name|result
 expr_stmt|;
@@ -1988,7 +1988,7 @@ name|secureCookie
 operator|.
 name|setDomain
 argument_list|(
-literal|".nokia.com"
+literal|".qt-project.org"
 argument_list|)
 expr_stmt|;
 name|secureCookie
@@ -2011,7 +2011,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"http://nokia.com/web"
+literal|"http://qt-project.org/web"
 operator|<<
 name|result
 expr_stmt|;
@@ -2024,7 +2024,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"http://qt.nokia.com/web"
+literal|"http://qt-project.org/web"
 operator|<<
 name|result
 expr_stmt|;
@@ -2041,7 +2041,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"https://nokia.com/web"
+literal|"https://qt-project.org/web"
 operator|<<
 name|result
 expr_stmt|;
@@ -2054,7 +2054,7 @@ argument_list|)
 operator|<<
 name|allCookies
 operator|<<
-literal|"https://qt.nokia.com/web"
+literal|"https://qt-project.org/web"
 operator|<<
 name|result
 expr_stmt|;

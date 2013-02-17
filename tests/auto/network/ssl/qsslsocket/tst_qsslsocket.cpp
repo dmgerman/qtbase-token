@@ -6096,7 +6096,7 @@ name|AnyProtocol
 operator|<<
 literal|false
 expr_stmt|;
-comment|// we wont set a SNI header here because we connect to a
+comment|// we won't set a SNI header here because we connect to a
 comment|// numerical IP, so OpenSSL will send a SSL 2 handshake
 else|#
 directive|else
@@ -6212,7 +6212,7 @@ name|AnyProtocol
 operator|<<
 literal|false
 expr_stmt|;
-comment|// we wont set a SNI header here because we connect to a
+comment|// we won't set a SNI header here because we connect to a
 comment|// numerical IP, so OpenSSL will send a SSL 2 handshake
 else|#
 directive|else

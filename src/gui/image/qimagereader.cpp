@@ -203,6 +203,9 @@ name|QT_NO_IMAGEFORMAT_JPEG
 DECL|enumerator|_qt_JpgFormat
 name|_qt_JpgFormat
 argument_list|,
+DECL|enumerator|_qt_JpegFormat
+name|_qt_JpegFormat
+argument_list|,
 endif|#
 directive|endif
 ifdef|#
@@ -213,9 +216,14 @@ name|_qt_GifFormat
 argument_list|,
 endif|#
 directive|endif
+ifndef|#
+directive|ifndef
+name|QT_NO_IMAGEFORMAT_BMP
 DECL|enumerator|_qt_BmpFormat
 name|_qt_BmpFormat
 argument_list|,
+endif|#
+directive|endif
 ifndef|#
 directive|ifndef
 name|QT_NO_IMAGEFORMAT_PPM
@@ -314,6 +322,12 @@ block|,
 literal|"image/jpeg"
 block|}
 block|,
+block|{
+name|_qt_JpegFormat
+block|,
+literal|"jpeg"
+block|}
+block|,
 endif|#
 directive|endif
 ifdef|#
@@ -329,6 +343,9 @@ block|}
 block|,
 endif|#
 directive|endif
+ifndef|#
+directive|ifndef
+name|QT_NO_IMAGEFORMAT_BMP
 block|{
 name|_qt_BmpFormat
 block|,
@@ -337,6 +354,8 @@ block|,
 literal|"image/bmp"
 block|}
 block|,
+endif|#
+directive|endif
 ifndef|#
 directive|ifndef
 name|QT_NO_IMAGEFORMAT_PPM
@@ -1597,6 +1616,9 @@ directive|ifndef
 name|QT_NO_IMAGEFORMAT_JPEG
 case|case
 name|_qt_JpgFormat
+case|:
+case|case
+name|_qt_JpegFormat
 case|:
 if|if
 condition|(

@@ -97,6 +97,10 @@ name|AST
 operator|::
 name|Visitor
 block|{
+name|Q_DECLARE_TR_FUNCTIONS
+argument_list|(
+argument|QDoc::QmlDocVisitor
+argument_list|)
 name|public
 operator|:
 name|QmlDocVisitor

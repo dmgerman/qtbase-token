@@ -51,6 +51,12 @@ name|QQnxAbstractVirtualKeyboard
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QQnxIntegration
+name|class
+name|QQnxIntegration
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QQnxInputContext
 range|:
@@ -63,6 +69,10 @@ operator|:
 name|explicit
 name|QQnxInputContext
 argument_list|(
+name|QQnxIntegration
+operator|*
+name|integration
+argument_list|,
 name|QQnxAbstractVirtualKeyboard
 operator|&
 name|keyboard
@@ -85,6 +95,11 @@ name|QEvent
 operator|*
 name|event
 argument_list|)
+block|;
+name|QRectF
+name|keyboardRect
+argument_list|()
+specifier|const
 block|;
 name|void
 name|reset
@@ -426,6 +441,10 @@ name|m_inputPanelVisible
 block|;
 name|QLocale
 name|m_inputPanelLocale
+block|;
+name|QQnxIntegration
+operator|*
+name|m_integration
 block|;
 name|QQnxAbstractVirtualKeyboard
 operator|&

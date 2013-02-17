@@ -1286,7 +1286,7 @@ name|shortUrlList
 operator|+=
 name|QUrl
 argument_list|(
-literal|"http://qt.nokia.com"
+literal|"http://qt-project.org"
 argument_list|)
 expr_stmt|;
 name|longUrlList
@@ -1338,7 +1338,7 @@ argument_list|()
 argument_list|,
 name|QString
 argument_list|(
-literal|"http://qt.nokia.com"
+literal|"http://qt-project.org"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1369,7 +1369,7 @@ argument_list|()
 argument_list|,
 name|QString
 argument_list|(
-literal|"http://qt.nokia.com\nhttp://www.google.com\n"
+literal|"http://qt-project.org\nhttp://www.google.com\n"
 argument_list|)
 argument_list|)
 expr_stmt|;
