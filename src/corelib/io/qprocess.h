@@ -377,15 +377,46 @@ argument_list|,
 argument|OpenMode mode = ReadWrite
 argument_list|)
 block|;
+name|void
+name|start
+argument_list|(
+argument|OpenMode mode = ReadWrite
+argument_list|)
+block|;
+name|bool
+name|open
+argument_list|(
+argument|OpenMode mode = ReadWrite
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
 name|QString
 name|program
 argument_list|()
 specifier|const
 block|;
+name|void
+name|setProgram
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|program
+argument_list|)
+block|;
 name|QStringList
 name|arguments
 argument_list|()
 specifier|const
+block|;
+name|void
+name|setArguments
+argument_list|(
+specifier|const
+name|QStringList
+operator|&
+name|arguments
+argument_list|)
 block|;
 name|ProcessChannelMode
 name|readChannelMode
