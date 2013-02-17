@@ -52,6 +52,11 @@ include|#
 directive|include
 file|<QtGui/QColor>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtGui/QSurfaceFormat>
+end_include
 begin_if
 if|#
 directive|if
@@ -1003,36 +1008,6 @@ name|shaderType
 return|;
 block|}
 end_function
-begin_comment
-comment|// The precision qualifiers are useful on OpenGL/ES systems,
-end_comment
-begin_comment
-comment|// but usually not present on desktop systems.  Define the
-end_comment
-begin_comment
-comment|// keywords to empty strings on desktop systems.
-end_comment
-begin_if
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_OPENGL_ES
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|QT_OPENGL_FORCE_SHADER_DEFINES
-argument_list|)
-end_if
-begin_define
-DECL|macro|QOpenGL_DEFINE_QUALIFIERS
-define|#
-directive|define
-name|QOpenGL_DEFINE_QUALIFIERS
-value|1
-end_define
 begin_decl_stmt
 DECL|variable|qualifierDefines
 specifier|static
@@ -1046,10 +1021,20 @@ literal|"#define mediump\n"
 literal|"#define highp\n"
 decl_stmt|;
 end_decl_stmt
-begin_else
-else|#
-directive|else
-end_else
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|QT_OPENGL_ES
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_OPENGL_FORCE_SHADER_DEFINES
+argument_list|)
+end_if
 begin_comment
 comment|// The "highp" qualifier doesn't exist in fragment shaders
 end_comment
@@ -1241,9 +1226,39 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// The precision qualifiers are useful on OpenGL/ES systems,
+comment|// but usually not present on desktop systems.
+specifier|const
+name|QSurfaceFormat
+name|currentSurfaceFormat
+init|=
+name|QOpenGLContext
+operator|::
+name|currentContext
+argument_list|()
+operator|->
+name|format
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|currentSurfaceFormat
+operator|.
+name|renderableType
+argument_list|()
+operator|==
+name|QSurfaceFormat
+operator|::
+name|OpenGL
 ifdef|#
 directive|ifdef
-name|QOpenGL_DEFINE_QUALIFIERS
+name|QT_OPENGL_FORCE_SHADER_DEFINES
+operator|||
+literal|true
+endif|#
+directive|endif
+condition|)
+block|{
 name|src
 operator|.
 name|append
@@ -1266,8 +1281,7 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
+block|}
 ifdef|#
 directive|ifdef
 name|QOpenGL_REDEFINE_HIGHP
