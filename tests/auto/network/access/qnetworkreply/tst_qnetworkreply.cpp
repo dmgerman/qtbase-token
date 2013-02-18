@@ -36555,8 +36555,6 @@ name|QtNetworkSettings
 operator|::
 name|serverName
 argument_list|()
-operator|+
-literal|"/qtest/mediumfile"
 argument_list|)
 decl_stmt|;
 name|QList
