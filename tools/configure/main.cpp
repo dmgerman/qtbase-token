@@ -65,6 +65,17 @@ endif|#
 directive|endif
 if|if
 condition|(
+operator|!
+name|app
+operator|.
+name|isOk
+argument_list|()
+condition|)
+return|return
+literal|3
+return|;
+if|if
+condition|(
 name|app
 operator|.
 name|displayHelp
