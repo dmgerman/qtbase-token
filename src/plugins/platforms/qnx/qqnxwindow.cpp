@@ -1514,6 +1514,13 @@ operator|!=
 literal|0
 condition|)
 block|{
+name|qWarning
+argument_list|()
+operator|<<
+literal|"QQnxWindow: Buffer size was"
+operator|<<
+name|size
+expr_stmt|;
 name|qFatal
 argument_list|(
 literal|"QQnxWindow: failed to create window buffers, errno=%d"
