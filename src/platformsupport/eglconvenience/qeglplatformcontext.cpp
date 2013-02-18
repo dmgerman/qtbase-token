@@ -120,8 +120,6 @@ argument_list|(
 name|display
 argument_list|,
 name|format
-argument_list|,
-literal|true
 argument_list|)
 argument_list|)
 block|{
