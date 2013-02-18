@@ -22139,7 +22139,7 @@ name|toNativeSeparators
 argument_list|(
 name|dictionary
 index|[
-literal|"QT_INSTALL_LIBEXEC"
+literal|"QT_INSTALL_LIBEXECS"
 index|]
 argument_list|)
 operator|<<
