@@ -1369,6 +1369,25 @@ name|errno
 operator|=
 literal|0
 expr_stmt|;
+comment|// libscreen fails when creating empty buffers
+specifier|const
+name|QSize
+name|nonEmptySize
+init|=
+name|size
+operator|.
+name|isEmpty
+argument_list|()
+condition|?
+name|QSize
+argument_list|(
+literal|1
+argument_list|,
+literal|1
+argument_list|)
+else|:
+name|size
+decl_stmt|;
 name|int
 name|val
 index|[
@@ -1376,12 +1395,12 @@ literal|2
 index|]
 init|=
 block|{
-name|size
+name|nonEmptySize
 operator|.
 name|width
 argument_list|()
 block|,
-name|size
+name|nonEmptySize
 operator|.
 name|height
 argument_list|()
@@ -1583,7 +1602,7 @@ block|}
 comment|// Cache new buffer size
 name|m_bufferSize
 operator|=
-name|size
+name|nonEmptySize
 expr_stmt|;
 comment|// Buffers were destroyed; reacquire them
 name|m_currentBufferIndex
