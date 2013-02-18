@@ -6290,6 +6290,14 @@ operator|::
 name|unsetCursor
 parameter_list|()
 block|{
+if|if
+condition|(
+operator|!
+name|d_ptr
+operator|->
+name|hasCursor
+condition|)
+return|return;
 name|d_ptr
 operator|->
 name|unsetExtra

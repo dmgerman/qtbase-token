@@ -220,6 +220,9 @@ init|=
 literal|0
 parameter_list|)
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_ACCESSIBILITY
 name|bool
 name|isInstanceOf
 argument_list|(
@@ -246,6 +249,8 @@ name|Role
 name|role
 argument_list|)
 decl_stmt|;
+endif|#
+directive|endif
 block|}
 end_decl_stmt
 begin_macro

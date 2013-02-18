@@ -261,13 +261,47 @@ block|;
 name|clearIndex
 argument_list|()
 block|;;     }
+comment|// positionalToNamedBinding uses fieldSerial() by default, which converts to Oracle-style names,
+comment|// because this style is used in the API. A driver can reuse positionalToNamedBinding()
+comment|// internally for its own naming style by supplying its own fieldSerialFunc. We cannot make
+comment|// fieldSerial() virtual because it would allow a driver to impose its naming style on
+comment|// executedQuery when set by QSqlResult::savePrepare().
+specifier|static
+name|QString
+name|fieldSerial
+argument_list|(
+name|int
+argument_list|)
+expr_stmt|;
+specifier|static
 name|QString
 name|positionalToNamedBinding
-argument_list|()
-expr_stmt|;
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|query
+parameter_list|,
+name|QString
+function_decl|(
+name|fieldSerialFunc
+function_decl|)
+parameter_list|(
+name|int
+name|idx
+parameter_list|)
+init|=
+name|fieldSerial
+parameter_list|)
+function_decl|;
 name|QString
 name|namedToPositionalBinding
-parameter_list|()
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|query
+parameter_list|)
 function_decl|;
 name|QString
 name|holderAt

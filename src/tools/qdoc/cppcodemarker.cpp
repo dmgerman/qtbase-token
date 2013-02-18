@@ -6419,7 +6419,7 @@ if|if
 condition|(
 name|qcn
 operator|->
-name|qmlBase
+name|qmlBaseNode
 argument_list|()
 operator|!=
 literal|0
@@ -6436,7 +6436,7 @@ argument_list|>
 argument_list|(
 name|qcn
 operator|->
-name|qmlBase
+name|qmlBaseNode
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -7029,7 +7029,7 @@ if|if
 condition|(
 name|qcn
 operator|->
-name|qmlBase
+name|qmlBaseNode
 argument_list|()
 operator|!=
 literal|0
@@ -7046,7 +7046,7 @@ argument_list|>
 argument_list|(
 name|qcn
 operator|->
-name|qmlBase
+name|qmlBaseNode
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -7377,7 +7377,7 @@ name|dn
 init|=
 name|current
 operator|->
-name|qmlBase
+name|qmlBaseNode
 argument_list|()
 decl_stmt|;
 if|if

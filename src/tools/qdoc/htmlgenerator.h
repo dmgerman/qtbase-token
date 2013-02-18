@@ -280,6 +280,15 @@ argument_list|,
 argument|QString element
 argument_list|)
 block|;
+name|void
+name|readManifestMetaContent
+argument_list|(
+specifier|const
+name|Config
+operator|&
+name|config
+argument_list|)
+block|;
 name|private
 operator|:
 expr|enum
@@ -300,6 +309,27 @@ name|MemberMark
 block|,
 name|EndMark
 block|}
+block|;      struct
+name|ManifestMetaFilter
+block|{
+name|QSet
+operator|<
+name|QString
+operator|>
+name|names
+block|;
+name|QSet
+operator|<
+name|QString
+operator|>
+name|attributes
+block|;
+name|QSet
+operator|<
+name|QString
+operator|>
+name|tags
+block|;     }
 block|;
 specifier|const
 name|QPair
@@ -1034,6 +1064,12 @@ block|;
 specifier|static
 name|int
 name|id
+block|;
+name|QList
+operator|<
+name|ManifestMetaFilter
+operator|>
+name|manifestMetaContent
 block|;
 name|public
 operator|:

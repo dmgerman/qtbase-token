@@ -217,21 +217,11 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|variables
-index|[
-literal|"QMAKESPEC"
-index|]
-operator|.
-name|first
-argument_list|()
-operator|.
-name|contains
+name|project
+operator|->
+name|isActiveConfig
 argument_list|(
 literal|"wince"
-argument_list|,
-name|Qt
-operator|::
-name|CaseInsensitive
 argument_list|)
 condition|)
 block|{
@@ -2923,11 +2913,13 @@ condition|)
 block|{
 name|t
 operator|<<
-literal|"\n\tif not exist $(DESTDIR_TARGET) del "
+literal|"\n\tif not exist $(DESTDIR_TARGET) if exist "
 operator|<<
 name|manifest
 operator|<<
-literal|">NUL 2>&1"
+literal|" del "
+operator|<<
+name|manifest
 expr_stmt|;
 name|t
 operator|<<

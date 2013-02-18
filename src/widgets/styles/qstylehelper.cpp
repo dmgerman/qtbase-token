@@ -270,6 +270,9 @@ return|;
 endif|#
 directive|endif
 block|}
+ifndef|#
+directive|ifndef
+name|QT_NO_ACCESSIBILITY
 DECL|function|isInstanceOf
 name|bool
 name|isInstanceOf
@@ -289,9 +292,6 @@ name|match
 init|=
 literal|false
 decl_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_ACCESSIBILITY
 name|QAccessibleInterface
 modifier|*
 name|iface
@@ -317,19 +317,6 @@ expr_stmt|;
 operator|delete
 name|iface
 expr_stmt|;
-else|#
-directive|else
-name|Q_UNUSED
-argument_list|(
-argument|obj
-argument_list|)
-name|Q_UNUSED
-argument_list|(
-argument|role
-argument_list|)
-endif|#
-directive|endif
-comment|// QT_NO_ACCESSIBILITY
 return|return
 name|match
 return|;
@@ -354,9 +341,6 @@ name|found
 init|=
 literal|false
 decl_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_ACCESSIBILITY
 name|QObject
 modifier|*
 name|parent
@@ -399,23 +383,13 @@ name|parent
 argument_list|()
 expr_stmt|;
 block|}
-else|#
-directive|else
-name|Q_UNUSED
-argument_list|(
-argument|obj
-argument_list|)
-name|Q_UNUSED
-argument_list|(
-argument|role
-argument_list|)
-endif|#
-directive|endif
-comment|// QT_NO_ACCESSIBILITY
 return|return
 name|found
 return|;
 block|}
+endif|#
+directive|endif
+comment|// QT_NO_ACCESSIBILITY
 ifndef|#
 directive|ifndef
 name|QT_NO_DIAL

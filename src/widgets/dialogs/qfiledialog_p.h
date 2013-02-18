@@ -876,6 +876,17 @@ function_decl|;
 end_function_decl
 begin_function_decl
 name|void
+name|_q_nativeEnterDirectory
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|directory
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+name|void
 name|_q_goToDirectory
 parameter_list|(
 specifier|const
