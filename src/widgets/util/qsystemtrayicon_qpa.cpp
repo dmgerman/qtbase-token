@@ -116,7 +116,7 @@ argument_list|()
 argument_list|,
 name|SLOT
 argument_list|(
-name|emitActivated
+name|_q_emitActivated
 argument_list|(
 name|QPlatformSystemTrayIcon
 operator|::

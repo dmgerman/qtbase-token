@@ -289,8 +289,6 @@ block|,
 name|ContentsLink
 block|,
 name|IndexLink
-block|,
-name|InheritsLink
 comment|/*,         GlossaryLink,         CopyrightLink,         ChapterLink,         SectionLink,         SubsectionLink,         AppendixLink */
 block|}
 enum|;
@@ -2742,23 +2740,44 @@ operator|=
 name|il
 block|; }
 specifier|const
-name|DocNode
-operator|*
-name|qmlBase
+name|QString
+operator|&
+name|qmlBaseName
 argument_list|()
 specifier|const
 block|{
 return|return
-name|base_
+name|baseName_
 return|;
 block|}
 name|void
-name|setQmlBase
+name|setQmlBaseName
+argument_list|(
+argument|const QString& name
+argument_list|)
+block|{
+name|baseName_
+operator|=
+name|name
+block|; }
+specifier|const
+name|DocNode
+operator|*
+name|qmlBaseNode
+argument_list|()
+specifier|const
+block|{
+return|return
+name|baseNode_
+return|;
+block|}
+name|void
+name|setQmlBaseNode
 argument_list|(
 argument|DocNode* b
 argument_list|)
 block|{
-name|base_
+name|baseNode_
 operator|=
 name|b
 block|; }
@@ -2840,9 +2859,12 @@ name|ClassNode
 operator|*
 name|cnode_
 block|;
+name|QString
+name|baseName_
+block|;
 name|DocNode
 operator|*
-name|base_
+name|baseNode_
 block|;
 name|ImportList
 name|importList_

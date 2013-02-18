@@ -715,6 +715,14 @@ argument_list|()
 expr_stmt|;
 block|}
 name|void
+name|resolveQmlInheritance
+parameter_list|(
+name|InnerNode
+modifier|*
+name|root
+parameter_list|)
+function_decl|;
+name|void
 name|resolveIssues
 parameter_list|()
 function_decl|;

@@ -866,6 +866,12 @@ name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
 argument_list|,
+argument|void _q_nativeEnterDirectory(const QString&)
+argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
 argument|void _q_goToDirectory(const QString&path)
 argument_list|)
 name|Q_PRIVATE_SLOT

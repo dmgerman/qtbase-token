@@ -936,6 +936,13 @@ name|CONFIG_MACRO
 value|"macro"
 end_define
 begin_define
+DECL|macro|CONFIG_MANIFESTMETA
+define|#
+directive|define
+name|CONFIG_MANIFESTMETA
+value|"manifestmeta"
+end_define
+begin_define
 DECL|macro|CONFIG_NATURALLANGUAGE
 define|#
 directive|define

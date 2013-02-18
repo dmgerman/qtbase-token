@@ -5862,7 +5862,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \since 4.4    Returns true if the cursor does visual navigation; otherwise   returns false.    Visual navigation means skipping over hidden text pragraphs. The   default is false.    \sa setVisualNavigation(), movePosition()  */
+comment|/*!   \since 4.4    Returns true if the cursor does visual navigation; otherwise   returns false.    Visual navigation means skipping over hidden text paragraphs. The   default is false.    \sa setVisualNavigation(), movePosition()  */
 end_comment
 begin_function
 DECL|function|visualNavigation
@@ -5885,7 +5885,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \since 4.4    Sets visual navigation to \a b.    Visual navigation means skipping over hidden text pragraphs. The   default is false.    \sa visualNavigation(), movePosition()  */
+comment|/*!   \since 4.4    Sets visual navigation to \a b.    Visual navigation means skipping over hidden text paragraphs. The   default is false.    \sa visualNavigation(), movePosition()  */
 end_comment
 begin_function
 DECL|function|setVisualNavigation

@@ -15795,7 +15795,7 @@ block|}
 block|}
 end_function
 begin_macro
-name|QTEST_MAIN
+name|QTEST_GUILESS_MAIN
 argument_list|(
 argument|tst_QImage
 argument_list|)
