@@ -315,7 +315,7 @@ name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
 argument_list|,
-argument|void _q_sourceDataChanged(QModelIndex,QModelIndex)
+argument|void _q_sourceDataChanged(QModelIndex,QModelIndex,QVector<int>)
 argument_list|)
 name|Q_PRIVATE_SLOT
 argument_list|(
