@@ -160,6 +160,9 @@ block|;
 name|QTransform
 name|inputItemTransform
 block|;
+name|QRectF
+name|inputRectangle
+block|;
 name|QPlatformInputContext
 operator|*
 name|testContext

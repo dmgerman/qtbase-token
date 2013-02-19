@@ -100,6 +100,20 @@ operator|&
 name|transform
 argument_list|)
 block|;
+name|QRectF
+name|inputItemRectangle
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setInputItemRectangle
+argument_list|(
+specifier|const
+name|QRectF
+operator|&
+name|rect
+argument_list|)
+block|;
 comment|// in window coordinates
 name|QRectF
 name|cursorRectangle
