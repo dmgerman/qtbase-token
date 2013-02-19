@@ -98,6 +98,11 @@ include|#
 directive|include
 file|<private/qfactoryloader_p.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QMutexLocker>
+end_include
 begin_comment
 comment|// image handlers
 end_comment
@@ -451,6 +456,17 @@ decl_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_NO_IMAGEFORMATPLUGIN
+specifier|static
+name|QMutex
+name|mutex
+decl_stmt|;
+name|QMutexLocker
+name|locker
+argument_list|(
+operator|&
+name|mutex
+argument_list|)
+decl_stmt|;
 typedef|typedef
 name|QMultiMap
 argument_list|<
