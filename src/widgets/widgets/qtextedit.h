@@ -169,7 +169,7 @@ argument|Qt::TextInteractionFlags textInteractionFlags READ textInteractionFlags
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|QTextDocument *document READ document WRITE setDocument
+argument|QTextDocument *document READ document WRITE setDocument DESIGNABLE false
 argument_list|)
 name|public
 operator|:
