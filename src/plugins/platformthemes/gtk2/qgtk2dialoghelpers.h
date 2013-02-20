@@ -122,7 +122,6 @@ name|void
 name|applyOptions
 argument_list|()
 block|;
-name|mutable
 name|QScopedPointer
 operator|<
 name|QGtk2Dialog
@@ -296,7 +295,6 @@ name|QString
 operator|>
 name|_filterNames
 block|;
-name|mutable
 name|QScopedPointer
 operator|<
 name|QGtk2Dialog
@@ -372,7 +370,6 @@ name|void
 name|applyOptions
 argument_list|()
 block|;
-name|mutable
 name|QScopedPointer
 operator|<
 name|QGtk2Dialog
