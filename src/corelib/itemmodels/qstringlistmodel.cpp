@@ -386,6 +386,14 @@ argument_list|(
 name|index
 argument_list|,
 name|index
+argument_list|,
+name|QVector
+argument_list|<
+name|int
+argument_list|>
+argument_list|()
+operator|<<
+name|role
 argument_list|)
 emit|;
 return|return
