@@ -1585,6 +1585,13 @@ literal|false
 return|;
 if|if
 condition|(
+name|libraryUnloadCount
+operator|.
+name|load
+argument_list|()
+operator|>
+literal|0
+operator|&&
 operator|!
 name|libraryUnloadCount
 operator|.
