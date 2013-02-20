@@ -1508,8 +1508,18 @@ modifier|&
 name|config
 parameter_list|)
 block|{
-name|d_func
-argument_list|()
+name|Q_D
+argument_list|(
+name|QNetworkAccessManager
+argument_list|)
+expr_stmt|;
+name|d
+operator|->
+name|networkConfiguration
+operator|=
+name|config
+expr_stmt|;
+name|d
 operator|->
 name|createSession
 argument_list|(
@@ -2231,6 +2241,9 @@ name|d
 operator|->
 name|networkConfiguration
 operator|.
+name|identifier
+argument_list|()
+operator|.
 name|isEmpty
 argument_list|()
 operator|)
@@ -2246,6 +2259,9 @@ name|d
 operator|->
 name|networkConfiguration
 operator|.
+name|identifier
+argument_list|()
+operator|.
 name|isEmpty
 argument_list|()
 condition|)
@@ -2254,14 +2270,9 @@ name|d
 operator|->
 name|createSession
 argument_list|(
-name|manager
-operator|.
-name|configurationFromIdentifier
-argument_list|(
 name|d
 operator|->
 name|networkConfiguration
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -4040,9 +4051,6 @@ operator|=
 name|networkSession
 operator|->
 name|configuration
-argument_list|()
-operator|.
-name|identifier
 argument_list|()
 expr_stmt|;
 comment|//disconnect from old session

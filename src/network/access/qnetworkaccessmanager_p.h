@@ -440,7 +440,7 @@ operator|::
 name|State
 name|lastSessionState
 block|;
-name|QString
+name|QNetworkConfiguration
 name|networkConfiguration
 block|;
 name|QNetworkAccessManager
