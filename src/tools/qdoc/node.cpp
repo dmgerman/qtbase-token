@@ -8668,7 +8668,7 @@ begin_comment
 comment|/*! \fn QString QmlClassNode::qmlModuleIdentifier() const   This function is called to get a string that is used either   as a prefix for the file name to use for QML element or   component reference page, or as a qualifier to prefix a   reference to a QML element or comnponent. The string that   is returned is the concatenation of the QML module name   and its version number. e.g., if an element or component   is defined to be in the QML module QtQuick 1, its module   identifier is "QtQuick1". See setQmlModuleInfo().  */
 end_comment
 begin_comment
-comment|/*!   This function splits \a arg on the blank character to get a   QML module name and version number. It then spilts the version   number on the '.' character to get a major version number and   a minor vrsion number. Both version numbers must be present.   It stores these components separately. If all three are found,   true is returned. If any of the three is not found or is not   correct, false is returned.  */
+comment|/*!   This function splits \a arg on the blank character to get a   QML module name and version number. It then spilts the version   number on the '.' character to get a major version number and   a minor vrsion number. Both major the major and minor version   numbers should be present, but the minor version number is not   absolutely necessary.    It stores the three components separately in this node. If all   three are found, true is returned. If any of the three is not   found or is not in the correct format, false is returned.  */
 end_comment
 begin_function
 DECL|function|setQmlModuleInfo
