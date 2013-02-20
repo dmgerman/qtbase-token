@@ -41,6 +41,10 @@ operator|:
 name|QCocoaCursor
 argument_list|()
 block|;
+operator|~
+name|QCocoaCursor
+argument_list|()
+block|;
 name|virtual
 name|void
 name|changeCursor

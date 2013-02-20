@@ -708,8 +708,10 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+name|QPointer
+argument_list|<
 name|QWidget
-modifier|*
+argument_list|>
 name|fw
 init|=
 name|parent
@@ -723,6 +725,23 @@ name|focusWidget
 argument_list|()
 else|:
 literal|0
+decl_stmt|;
+specifier|const
+name|bool
+name|focusWasOnOldPage
+init|=
+name|fw
+operator|&&
+operator|(
+name|prev
+operator|&&
+name|prev
+operator|->
+name|isAncestorOf
+argument_list|(
+name|fw
+argument_list|)
+operator|)
 decl_stmt|;
 if|if
 condition|(
@@ -773,21 +792,9 @@ condition|)
 block|{
 if|if
 condition|(
-name|fw
-operator|&&
-operator|(
-name|prev
-operator|&&
-name|prev
-operator|->
-name|isAncestorOf
-argument_list|(
-name|fw
-argument_list|)
-operator|)
+name|focusWasOnOldPage
 condition|)
 block|{
-comment|// focus was on old page
 comment|// look for the best focus widget we can find
 if|if
 condition|(
@@ -808,12 +815,15 @@ expr_stmt|;
 else|else
 block|{
 comment|// second best: first child widget in the focus chain
+if|if
+condition|(
 name|QWidget
 modifier|*
 name|i
 init|=
 name|fw
-decl_stmt|;
+condition|)
+block|{
 while|while
 condition|(
 operator|(
@@ -893,6 +903,7 @@ operator|->
 name|setFocus
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
