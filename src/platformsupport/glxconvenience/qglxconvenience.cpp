@@ -1096,6 +1096,15 @@ block|{
 name|QSurfaceFormat
 name|format
 decl_stmt|;
+name|format
+operator|.
+name|setRenderableType
+argument_list|(
+name|QSurfaceFormat
+operator|::
+name|OpenGL
+argument_list|)
+expr_stmt|;
 name|int
 name|redSize
 init|=
