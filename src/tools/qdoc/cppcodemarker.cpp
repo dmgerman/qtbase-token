@@ -7290,6 +7290,7 @@ argument_list|(
 name|key
 argument_list|)
 condition|)
+block|{
 name|all
 operator|.
 name|memberMap
@@ -7302,7 +7303,7 @@ operator|*
 name|p
 argument_list|)
 expr_stmt|;
-comment|//insert(all,*p,style,Okay);
+block|}
 block|}
 operator|++
 name|p
@@ -7352,6 +7353,7 @@ argument_list|(
 name|key
 argument_list|)
 condition|)
+block|{
 name|all
 operator|.
 name|memberMap
@@ -7364,7 +7366,7 @@ operator|*
 name|c
 argument_list|)
 expr_stmt|;
-comment|//insert(all,*c,style,Okay);
+block|}
 block|}
 operator|++
 name|c

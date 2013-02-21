@@ -1043,6 +1043,17 @@ return|;
 block|}
 name|virtual
 name|QString
+name|qmlFullBaseName
+argument_list|()
+specifier|const
+block|{
+return|return
+name|QString
+argument_list|()
+return|;
+block|}
+name|virtual
+name|QString
 name|qmlModuleName
 argument_list|()
 specifier|const
@@ -1578,16 +1589,11 @@ name|virtual
 name|void
 name|addMember
 argument_list|(
-argument|Node* node
-argument_list|)
-block|{
-name|members_
-operator|.
-name|append
-argument_list|(
+name|Node
+operator|*
 name|node
 argument_list|)
-block|; }
+block|;
 specifier|const
 name|NodeList
 operator|&
@@ -2848,6 +2854,12 @@ name|Internal
 operator|)
 return|;
 block|}
+name|virtual
+name|QString
+name|qmlFullBaseName
+argument_list|()
+specifier|const
+block|;
 specifier|const
 name|ImportList
 operator|&
