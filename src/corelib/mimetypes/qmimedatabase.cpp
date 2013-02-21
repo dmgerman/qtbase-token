@@ -1387,6 +1387,8 @@ return|return
 name|mimeTypeForFile
 argument_list|(
 name|fileInfo
+argument_list|,
+name|mode
 argument_list|)
 return|;
 block|}
