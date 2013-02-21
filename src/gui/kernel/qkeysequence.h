@@ -345,6 +345,36 @@ init|=
 name|PortableText
 parameter_list|)
 function_decl|;
+specifier|static
+name|QList
+operator|<
+name|QKeySequence
+operator|>
+name|listFromString
+argument_list|(
+argument|const QString&str
+argument_list|,
+argument|SequenceFormat format = PortableText
+argument_list|)
+expr_stmt|;
+specifier|static
+name|QString
+name|listToString
+argument_list|(
+specifier|const
+name|QList
+operator|<
+name|QKeySequence
+operator|>
+operator|&
+name|list
+argument_list|,
+name|SequenceFormat
+name|format
+operator|=
+name|PortableText
+argument_list|)
+decl_stmt|;
 name|SequenceMatch
 name|matches
 argument_list|(
