@@ -19068,6 +19068,21 @@ index|[
 literal|"BUILD"
 index|]
 expr_stmt|;
+name|configStream
+operator|<<
+operator|(
+name|dictionary
+index|[
+literal|"SHARED"
+index|]
+operator|==
+literal|"no"
+condition|?
+literal|" static"
+else|:
+literal|" shared"
+operator|)
+expr_stmt|;
 if|if
 condition|(
 name|dictionary

@@ -20,6 +20,19 @@ file|<QtGui/qpaintdevice.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+if|#
+directive|if
+name|defined
+argument_list|(
+name|B0
+argument_list|)
+DECL|macro|B0
+undef|#
+directive|undef
+name|B0
+comment|// Terminal hang-up.  We assume that you do not want that.
+endif|#
+directive|endif
 DECL|variable|QPagedPaintDevicePrivate
 name|class
 name|QPagedPaintDevicePrivate
