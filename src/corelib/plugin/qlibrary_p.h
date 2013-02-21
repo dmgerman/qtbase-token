@@ -339,9 +339,11 @@ name|char
 modifier|*
 parameter_list|)
 function_decl|;
+comment|/// counts how many QLibrary or QPluginLoader are attached to us, plus 1 if it's loaded
 name|QAtomicInt
 name|libraryRefCount
 decl_stmt|;
+comment|/// counts how many times load() or loadPlugin() were called
 name|QAtomicInt
 name|libraryUnloadCount
 decl_stmt|;
