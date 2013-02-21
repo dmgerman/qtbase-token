@@ -701,12 +701,13 @@ name|d
 operator|->
 name|context
 condition|)
+name|qglx_surfaceFormatFromGLXFBConfig
+argument_list|(
+operator|&
 name|d
 operator|->
 name|format
-operator|=
-name|qglx_surfaceFormatFromGLXFBConfig
-argument_list|(
+argument_list|,
 name|x11
 operator|->
 name|display

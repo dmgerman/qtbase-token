@@ -1640,10 +1640,11 @@ if|if
 condition|(
 name|m_context
 condition|)
-name|m_format
-operator|=
 name|qglx_surfaceFormatFromGLXFBConfig
 argument_list|(
+operator|&
+name|m_format
+argument_list|,
 name|DISPLAY_FROM_XCB
 argument_list|(
 name|screen
@@ -2477,10 +2478,11 @@ if|if
 condition|(
 name|m_pbuffer
 condition|)
-name|m_format
-operator|=
 name|qglx_surfaceFormatFromGLXFBConfig
 argument_list|(
+operator|&
+name|m_format
+argument_list|,
 name|DISPLAY_FROM_XCB
 argument_list|(
 name|m_screen
