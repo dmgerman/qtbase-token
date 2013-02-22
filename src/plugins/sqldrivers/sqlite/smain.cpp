@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"../../../../src/sql/drivers/sqlite/qsql_sqlite.h"
+file|"../../../../src/sql/drivers/sqlite/qsql_sqlite_p.h"
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE

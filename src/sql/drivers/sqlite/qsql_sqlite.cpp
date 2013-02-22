@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qsql_sqlite.h"
+file|"qsql_sqlite_p.h"
 end_include
 begin_include
 include|#

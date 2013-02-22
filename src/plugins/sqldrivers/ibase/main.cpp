@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"../../../sql/drivers/ibase/qsql_ibase.h"
+file|"../../../sql/drivers/ibase/qsql_ibase_p.h"
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE

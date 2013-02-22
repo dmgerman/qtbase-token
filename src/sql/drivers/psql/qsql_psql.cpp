@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qsql_psql.h"
+file|"qsql_psql_p.h"
 end_include
 begin_include
 include|#

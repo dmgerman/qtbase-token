@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qsql_ibase.h"
+file|"qsql_ibase_p.h"
 end_include
 begin_include
 include|#
