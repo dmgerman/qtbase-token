@@ -2111,13 +2111,14 @@ operator|==
 name|e
 condition|)
 block|{
+name|delete
 name|impl
 operator|.
-name|removeAt
+name|takeAt
 argument_list|(
 name|i
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 break|break;
 block|}
 block|}
