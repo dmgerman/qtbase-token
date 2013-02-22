@@ -4380,7 +4380,7 @@ if|if
 condition|(
 name|mapHandle
 operator|==
-name|INVALID_HANDLE_VALUE
+name|NULL
 condition|)
 block|{
 comment|// get handle to the file
@@ -4543,7 +4543,7 @@ if|if
 condition|(
 name|mapHandle
 operator|==
-name|INVALID_HANDLE_VALUE
+name|NULL
 condition|)
 block|{
 name|q
@@ -4753,6 +4753,10 @@ argument_list|(
 name|mapHandle
 argument_list|)
 expr_stmt|;
+name|mapHandle
+operator|=
+name|NULL
+expr_stmt|;
 return|return
 literal|0
 return|;
@@ -4863,7 +4867,7 @@ argument_list|)
 expr_stmt|;
 name|mapHandle
 operator|=
-name|INVALID_HANDLE_VALUE
+name|NULL
 expr_stmt|;
 block|}
 return|return
