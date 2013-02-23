@@ -72,6 +72,8 @@ name|HB_Letter_Other
 argument_list|)
 decl_stmt|;
 return|return
+operator|!
+operator|!
 operator|(
 name|FLAG
 argument_list|(
@@ -83,8 +85,6 @@ argument_list|)
 operator|&
 name|test
 operator|)
-operator|!=
-literal|0
 return|;
 block|}
 end_function
@@ -118,6 +118,9 @@ name|HB_Mark_Enclosing
 argument_list|)
 decl_stmt|;
 return|return
+operator|!
+operator|!
+operator|(
 name|FLAG
 argument_list|(
 name|HB_GetUnicodeCharCategory
@@ -127,6 +130,7 @@ argument_list|)
 argument_list|)
 operator|&
 name|test
+operator|)
 return|;
 block|}
 end_function
@@ -9600,6 +9604,20 @@ operator|=
 name|item
 operator|->
 name|attributes
+index|[
+name|i
+index|]
+expr_stmt|;
+name|item
+operator|->
+name|offsets
+index|[
+name|j
+index|]
+operator|=
+name|item
+operator|->
+name|offsets
 index|[
 name|i
 index|]

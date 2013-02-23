@@ -3171,6 +3171,12 @@ index|]
 operator|=
 name|Mymr_C_VIRAMA
 expr_stmt|;
+if|if
+condition|(
+name|len
+operator|>
+literal|0
+condition|)
 name|properties
 index|[
 name|len
