@@ -300,6 +300,11 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_BUILDING_QT
+end_ifndef
 begin_function
 DECL|function|Hash
 specifier|static
@@ -413,4 +418,8 @@ name|result
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 end_unit
