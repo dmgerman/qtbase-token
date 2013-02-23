@@ -3215,6 +3215,8 @@ argument_list|(
 name|qMakePair
 argument_list|(
 name|QString
+operator|::
+name|fromUtf8
 argument_list|(
 name|size
 operator|->

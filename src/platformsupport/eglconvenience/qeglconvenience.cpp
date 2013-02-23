@@ -933,6 +933,8 @@ argument_list|)
 expr_stmt|;
 name|EGLConfig
 name|cfg
+init|=
+literal|0
 decl_stmt|;
 do|do
 block|{

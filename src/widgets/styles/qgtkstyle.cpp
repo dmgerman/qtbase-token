@@ -22121,6 +22121,7 @@ argument_list|(
 name|widget
 argument_list|)
 operator|||
+operator|(
 name|option
 operator|->
 name|styleObject
@@ -22136,6 +22137,7 @@ argument_list|)
 operator|.
 name|toBool
 argument_list|()
+operator|)
 condition|)
 name|ignoreCheckMark
 operator|=
