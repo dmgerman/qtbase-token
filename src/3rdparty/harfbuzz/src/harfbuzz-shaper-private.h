@@ -700,8 +700,8 @@ parameter_list|)
 define|\
 value|((uc>= 0x200b&& uc<= 0x200f
 comment|/* ZW Space, ZWNJ, ZWJ, LRM and RLM */
-value|) \      || (uc>= 0x2028&& uc<= 0x202f
-comment|/* LS, PS, LRE, RLE, PDF, LRO, RLO, NNBSP */
+value|) \      || (uc>= 0x2028&& uc<= 0x202e
+comment|/* LS, PS, LRE, RLE, PDF, LRO, RLO */
 value|) \      || (uc>= 0x206a&& uc<= 0x206f
 comment|/* ISS, ASS, IAFS, AFS, NADS, NODS */
 value|))
