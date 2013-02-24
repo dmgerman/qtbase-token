@@ -233,7 +233,10 @@ name|paintOnScreen
 argument_list|()
 expr_stmt|;
 block|}
+name|QEglFSHooks
+operator|::
 name|hooks
+argument_list|()
 operator|->
 name|waitForVSync
 argument_list|()

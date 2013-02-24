@@ -81,7 +81,10 @@ name|QEglFSCursor
 modifier|*
 name|customCursor
 init|=
+name|QEglFSHooks
+operator|::
 name|hooks
+argument_list|()
 operator|->
 name|createCursor
 argument_list|(
@@ -136,7 +139,10 @@ argument_list|,
 literal|0
 argument_list|)
 argument_list|,
+name|QEglFSHooks
+operator|::
 name|hooks
+argument_list|()
 operator|->
 name|screenSize
 argument_list|()
@@ -154,7 +160,10 @@ parameter_list|()
 specifier|const
 block|{
 return|return
+name|QEglFSHooks
+operator|::
 name|hooks
+argument_list|()
 operator|->
 name|screenDepth
 argument_list|()
@@ -173,7 +182,10 @@ parameter_list|()
 specifier|const
 block|{
 return|return
+name|QEglFSHooks
+operator|::
 name|hooks
+argument_list|()
 operator|->
 name|screenFormat
 argument_list|()
@@ -190,7 +202,10 @@ parameter_list|()
 specifier|const
 block|{
 return|return
+name|QEglFSHooks
+operator|::
 name|hooks
+argument_list|()
 operator|->
 name|physicalScreenSize
 argument_list|()

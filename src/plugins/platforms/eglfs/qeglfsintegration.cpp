@@ -202,7 +202,10 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+name|QEglFSHooks
+operator|::
 name|hooks
+argument_list|()
 operator|->
 name|platformInit
 argument_list|()
@@ -236,9 +239,15 @@ name|mDisplay
 operator|=
 name|eglGetDisplay
 argument_list|(
+name|QEglFSHooks
+operator|::
 name|hooks
+argument_list|()
 condition|?
+name|QEglFSHooks
+operator|::
 name|hooks
+argument_list|()
 operator|->
 name|platformDisplay
 argument_list|()
@@ -373,7 +382,10 @@ argument_list|(
 name|mDisplay
 argument_list|)
 expr_stmt|;
+name|QEglFSHooks
+operator|::
 name|hooks
+argument_list|()
 operator|->
 name|platformDestroy
 argument_list|()
@@ -397,9 +409,15 @@ block|{
 comment|// We assume that devices will have more and not less capabilities
 if|if
 condition|(
+name|QEglFSHooks
+operator|::
 name|hooks
+argument_list|()
 operator|&&
+name|QEglFSHooks
+operator|::
 name|hooks
+argument_list|()
 operator|->
 name|hasCapability
 argument_list|(
@@ -519,7 +537,10 @@ return|return
 operator|new
 name|QEglFSContext
 argument_list|(
+name|QEglFSHooks
+operator|::
 name|hooks
+argument_list|()
 operator|->
 name|surfaceFormatFor
 argument_list|(
@@ -581,7 +602,10 @@ operator|->
 name|display
 argument_list|()
 argument_list|,
+name|QEglFSHooks
+operator|::
 name|hooks
+argument_list|()
 operator|->
 name|surfaceFormatFor
 argument_list|(
@@ -879,7 +903,10 @@ name|chooser
 argument_list|(
 name|display
 argument_list|,
+name|QEglFSHooks
+operator|::
 name|hooks
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|chooser

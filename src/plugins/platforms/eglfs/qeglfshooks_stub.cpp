@@ -74,11 +74,6 @@ operator|::
 name|platformInit
 parameter_list|()
 block|{
-name|Q_UNUSED
-argument_list|(
-name|hooks
-argument_list|)
-expr_stmt|;
 name|framebuffer
 operator|=
 name|qt_safe_open
