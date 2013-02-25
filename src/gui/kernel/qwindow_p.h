@@ -438,6 +438,11 @@ name|opacity
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+name|QRegion
+name|mask
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|QSize
 name|minimumSize
 decl_stmt|;
