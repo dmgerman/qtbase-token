@@ -115,19 +115,19 @@ block|{
 name|Q_OBJECT
 name|Q_PROPERTY
 argument_list|(
-argument|QString applicationName READ applicationName WRITE setApplicationName
+argument|QString applicationName READ applicationName WRITE setApplicationName NOTIFY applicationNameChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|QString applicationVersion READ applicationVersion WRITE setApplicationVersion
+argument|QString applicationVersion READ applicationVersion WRITE setApplicationVersion NOTIFY applicationVersionChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|QString organizationName READ organizationName WRITE setOrganizationName
+argument|QString organizationName READ organizationName WRITE setOrganizationName NOTIFY organizationNameChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|QString organizationDomain READ organizationDomain WRITE setOrganizationDomain
+argument|QString organizationDomain READ organizationDomain WRITE setOrganizationDomain NOTIFY organizationDomainChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
@@ -582,6 +582,22 @@ name|QPrivateSignal
 endif|#
 directive|endif
 argument_list|)
+block|;
+name|void
+name|organizationNameChanged
+argument_list|()
+block|;
+name|void
+name|organizationDomainChanged
+argument_list|()
+block|;
+name|void
+name|applicationNameChanged
+argument_list|()
+block|;
+name|void
+name|applicationVersionChanged
+argument_list|()
 block|;
 name|protected
 operator|:

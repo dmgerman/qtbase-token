@@ -7126,6 +7126,9 @@ end_function
 begin_comment
 comment|/*!     \property QCoreApplication::organizationName     \brief the name of the organization that wrote this application      The value is used by the QSettings class when it is constructed     using the empty constructor. This saves having to repeat this     information each time a QSettings object is created.      On Mac, QSettings uses organizationDomain() as the organization     if it's not an empty string; otherwise it uses     organizationName(). On all other platforms, QSettings uses     organizationName() as the organization.      \sa organizationDomain, applicationName */
 end_comment
+begin_comment
+comment|/*!   \fn void QCoreApplication::organizationNameChanged()   \internal    While not useful from C++ due to how organizationName is normally set once on   startup, this is still needed for QML so that bindings are reevaluated after   that initial change. */
+end_comment
 begin_function
 DECL|function|setOrganizationName
 name|void
@@ -7139,6 +7142,16 @@ modifier|&
 name|orgName
 parameter_list|)
 block|{
+if|if
+condition|(
+name|coreappdata
+argument_list|()
+operator|->
+name|orgName
+operator|==
+name|orgName
+condition|)
+return|return;
 name|coreappdata
 argument_list|()
 operator|->
@@ -7146,6 +7159,20 @@ name|orgName
 operator|=
 name|orgName
 expr_stmt|;
+if|if
+condition|(
+name|QCoreApplication
+operator|::
+name|self
+condition|)
+emit|emit
+name|QCoreApplication
+operator|::
+name|self
+operator|->
+name|organizationNameChanged
+argument_list|()
+emit|;
 block|}
 end_function
 begin_function
@@ -7178,6 +7205,9 @@ end_function
 begin_comment
 comment|/*!     \property QCoreApplication::organizationDomain     \brief the Internet domain of the organization that wrote this application      The value is used by the QSettings class when it is constructed     using the empty constructor. This saves having to repeat this     information each time a QSettings object is created.      On Mac, QSettings uses organizationDomain() as the organization     if it's not an empty string; otherwise it uses organizationName().     On all other platforms, QSettings uses organizationName() as the     organization.      \sa organizationName, applicationName, applicationVersion */
 end_comment
+begin_comment
+comment|/*!   \fn void QCoreApplication::organizationDomainChanged()   \internal    Primarily for QML, see organizationNameChanged. */
+end_comment
 begin_function
 DECL|function|setOrganizationDomain
 name|void
@@ -7191,6 +7221,16 @@ modifier|&
 name|orgDomain
 parameter_list|)
 block|{
+if|if
+condition|(
+name|coreappdata
+argument_list|()
+operator|->
+name|orgDomain
+operator|==
+name|orgDomain
+condition|)
+return|return;
 name|coreappdata
 argument_list|()
 operator|->
@@ -7198,6 +7238,20 @@ name|orgDomain
 operator|=
 name|orgDomain
 expr_stmt|;
+if|if
+condition|(
+name|QCoreApplication
+operator|::
+name|self
+condition|)
+emit|emit
+name|QCoreApplication
+operator|::
+name|self
+operator|->
+name|organizationDomainChanged
+argument_list|()
+emit|;
 block|}
 end_function
 begin_function
@@ -7219,6 +7273,9 @@ end_function
 begin_comment
 comment|/*!     \property QCoreApplication::applicationName     \brief the name of this application      The value is used by the QSettings class when it is constructed     using the empty constructor. This saves having to repeat this     information each time a QSettings object is created.      If not set, the application name defaults to the executable name (since 5.0).      \sa organizationName, organizationDomain, applicationVersion, applicationFilePath */
 end_comment
+begin_comment
+comment|/*!   \fn void QCoreApplication::applicationNameChanged()   \internal    Primarily for QML, see organizationNameChanged. */
+end_comment
 begin_function
 DECL|function|setApplicationName
 name|void
@@ -7232,6 +7289,16 @@ modifier|&
 name|application
 parameter_list|)
 block|{
+if|if
+condition|(
+name|coreappdata
+argument_list|()
+operator|->
+name|application
+operator|==
+name|application
+condition|)
+return|return;
 name|coreappdata
 argument_list|()
 operator|->
@@ -7239,6 +7306,20 @@ name|application
 operator|=
 name|application
 expr_stmt|;
+if|if
+condition|(
+name|QCoreApplication
+operator|::
+name|self
+condition|)
+emit|emit
+name|QCoreApplication
+operator|::
+name|self
+operator|->
+name|applicationNameChanged
+argument_list|()
+emit|;
 block|}
 end_function
 begin_function
@@ -7323,6 +7404,9 @@ end_function
 begin_comment
 comment|/*!     \property QCoreApplication::applicationVersion     \since 4.4     \brief the version of this application      \sa applicationName, organizationName, organizationDomain */
 end_comment
+begin_comment
+comment|/*!   \fn void QCoreApplication::applicationVersionChanged()   \internal    Primarily for QML, see organizationNameChanged. */
+end_comment
 begin_function
 DECL|function|setApplicationVersion
 name|void
@@ -7336,6 +7420,16 @@ modifier|&
 name|version
 parameter_list|)
 block|{
+if|if
+condition|(
+name|coreappdata
+argument_list|()
+operator|->
+name|applicationVersion
+operator|==
+name|version
+condition|)
+return|return;
 name|coreappdata
 argument_list|()
 operator|->
@@ -7343,6 +7437,20 @@ name|applicationVersion
 operator|=
 name|version
 expr_stmt|;
+if|if
+condition|(
+name|QCoreApplication
+operator|::
+name|self
+condition|)
+emit|emit
+name|QCoreApplication
+operator|::
+name|self
+operator|->
+name|applicationVersionChanged
+argument_list|()
+emit|;
 block|}
 end_function
 begin_function
