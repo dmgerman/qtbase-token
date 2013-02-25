@@ -520,7 +520,7 @@ name|DEFINEFUNC
 argument_list|(
 argument|int
 argument_list|,
-argument|dbus_watch_get_fd
+argument|dbus_watch_get_unix_fd
 argument_list|,
 argument|(DBusWatch        *watch)
 argument_list|,

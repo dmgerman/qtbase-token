@@ -1108,7 +1108,7 @@ decl_stmt|;
 name|int
 name|fd
 init|=
-name|q_dbus_watch_get_fd
+name|q_dbus_watch_get_unix_fd
 argument_list|(
 name|watch
 argument_list|)
@@ -1438,7 +1438,7 @@ decl_stmt|;
 name|int
 name|fd
 init|=
-name|q_dbus_watch_get_fd
+name|q_dbus_watch_get_unix_fd
 argument_list|(
 name|watch
 argument_list|)
@@ -1640,7 +1640,7 @@ decl_stmt|;
 name|int
 name|fd
 init|=
-name|q_dbus_watch_get_fd
+name|q_dbus_watch_get_unix_fd
 argument_list|(
 name|watch
 argument_list|)
