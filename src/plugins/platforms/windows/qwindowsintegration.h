@@ -161,7 +161,7 @@ endif|#
 directive|endif
 endif|#
 directive|endif
-endif|!QT_NO_CLIPBOARD
+comment|// !QT_NO_CLIPBOARD
 name|virtual
 name|QPlatformInputContext
 operator|*
