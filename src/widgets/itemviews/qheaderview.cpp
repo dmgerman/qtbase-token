@@ -4091,7 +4091,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     If \a movable is true, the header may be moved by the user; otherwise it     is fixed in place.      \sa sectionsMovable(), sectionMoved() */
+comment|/*!     \since 5.0      If \a movable is true, the header may be moved by the user; otherwise it     is fixed in place.      \sa sectionsMovable(), sectionMoved() */
 end_comment
 begin_function
 DECL|function|setSectionsMovable
@@ -4124,7 +4124,7 @@ begin_comment
 comment|/*!     \obsolete     \fn void QHeaderView::setMovable(bool movable)      Use setSectionsMovable instead.      \sa setSectionsMovable() */
 end_comment
 begin_comment
-comment|/*!     Returns true if the header can be moved by the user; otherwise returns     false.      \sa setSectionsMovable() */
+comment|/*!     \since 5.0      Returns true if the header can be moved by the user; otherwise returns     false.      \sa setSectionsMovable() */
 end_comment
 begin_function
 DECL|function|sectionsMovable
@@ -4155,7 +4155,7 @@ begin_comment
 comment|/*!     \obsolete     \fn bool QHeaderView::isMovable() const      Use sectionsMovable instead.      \sa sectionsMovable() */
 end_comment
 begin_comment
-comment|/*!     If \a clickable is true, the header will respond to single clicks.      \sa sectionsClickable(), sectionClicked(), sectionPressed(),     setSortIndicatorShown() */
+comment|/*!     \since 5.0      If \a clickable is true, the header will respond to single clicks.      \sa sectionsClickable(), sectionClicked(), sectionPressed(),     setSortIndicatorShown() */
 end_comment
 begin_function
 DECL|function|setSectionsClickable
@@ -4188,7 +4188,7 @@ begin_comment
 comment|/*!     \obsolete     \fn void QHeaderView::setClickable(bool clickable)      Use setSectionsClickable instead.      \sa setSectionsClickable() */
 end_comment
 begin_comment
-comment|/*!     Returns true if the header is clickable; otherwise returns false. A     clickable header could be set up to allow the user to change the     representation of the data in the view related to the header.      \sa setSectionsClickable() */
+comment|/*!     \since 5.0      Returns true if the header is clickable; otherwise returns false. A     clickable header could be set up to allow the user to change the     representation of the data in the view related to the header.      \sa setSectionsClickable() */
 end_comment
 begin_function
 DECL|function|sectionsClickable
@@ -4265,7 +4265,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the constraints on how the header can be resized to those described     by the given \a mode.      \sa resizeMode(), length(), sectionResized() */
+comment|/*!     \since 5.0      Sets the constraints on how the header can be resized to those described     by the given \a mode.      \sa resizeMode(), length(), sectionResized() */
 end_comment
 begin_function
 DECL|function|setSectionResizeMode
@@ -4339,7 +4339,7 @@ comment|// section sizes may change as a result of the new mode
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the constraints on how the section specified by \a logicalIndex in     the header can be resized to those described by the given \a mode. The logical     index should exist at the time this function is called.      \note This setting will be ignored for the last section if the stretchLastSection     property is set to true. This is the default for the horizontal headers provided     by QTreeView.      \sa setStretchLastSection() */
+comment|/*!     \since 5.0      Sets the constraints on how the section specified by \a logicalIndex in     the header can be resized to those described by the given \a mode. The logical     index should exist at the time this function is called.      \note This setting will be ignored for the last section if the stretchLastSection     property is set to true. This is the default for the horizontal headers provided     by QTreeView.      \sa setStretchLastSection() */
 end_comment
 begin_function
 DECL|function|setSectionResizeMode
@@ -4491,7 +4491,7 @@ begin_comment
 comment|/*!     \obsolete     \fn void QHeaderView::setResizeMode(ResizeMode mode)      Use setSectionResizeMode instead.      \sa setSectionResizeMode() */
 end_comment
 begin_comment
-comment|/*!     Returns the resize mode that applies to the section specified by the given     \a logicalIndex.      \sa setSectionResizeMode() */
+comment|/*!     \since 5.0      Returns the resize mode that applies to the section specified by the given     \a logicalIndex.      \sa setSectionResizeMode() */
 end_comment
 begin_function
 DECL|function|sectionResizeMode

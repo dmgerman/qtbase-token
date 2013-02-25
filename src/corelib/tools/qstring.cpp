@@ -27791,7 +27791,7 @@ begin_comment
 comment|/*!     \obsolete     \fn QString Qt::escape(const QString&plain)      \sa QString::toHtmlEscaped() */
 end_comment
 begin_comment
-comment|/*!     Converts a plain text string to an HTML string with     HTML metacharacters \c{<}, \c{>}, \c{&}, and \c{"} replaced by HTML     entities.      Example:      \snippet code/src_corelib_tools_qstring.cpp 7 */
+comment|/*!     \since 5.0      Converts a plain text string to an HTML string with     HTML metacharacters \c{<}, \c{>}, \c{&}, and \c{"} replaced by HTML     entities.      Example:      \snippet code/src_corelib_tools_qstring.cpp 7 */
 end_comment
 begin_function
 DECL|function|toHtmlEscaped
