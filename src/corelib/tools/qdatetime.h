@@ -1152,6 +1152,18 @@ argument_list|,
 argument|Qt::TimeSpec spec = Qt::LocalTime
 argument_list|)
 empty_stmt|;
+comment|// ### Qt 6: Merge with above with default offsetSeconds = 0
+name|QDateTime
+argument_list|(
+argument|const QDate&date
+argument_list|,
+argument|const QTime&time
+argument_list|,
+argument|Qt::TimeSpec spec
+argument_list|,
+argument|int offsetSeconds
+argument_list|)
+empty_stmt|;
 name|QDateTime
 argument_list|(
 specifier|const
@@ -1221,6 +1233,11 @@ name|timeSpec
 argument_list|()
 specifier|const
 expr_stmt|;
+name|int
+name|offsetFromUtc
+argument_list|()
+specifier|const
+expr_stmt|;
 name|qint64
 name|toMSecsSinceEpoch
 argument_list|()
@@ -1259,6 +1276,13 @@ name|TimeSpec
 name|spec
 argument_list|)
 decl_stmt|;
+name|void
+name|setOffsetFromUtc
+parameter_list|(
+name|int
+name|offsetSeconds
+parameter_list|)
+function_decl|;
 name|void
 name|setMSecsSinceEpoch
 parameter_list|(
@@ -1383,6 +1407,14 @@ name|UTC
 argument_list|)
 return|;
 block|}
+name|QDateTime
+name|toOffsetFromUtc
+argument_list|(
+name|int
+name|offsetSeconds
+argument_list|)
+decl|const
+decl_stmt|;
 name|qint64
 name|daysTo
 argument_list|(
@@ -1517,6 +1549,15 @@ name|other
 operator|)
 return|;
 block|}
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|2
+argument_list|)
+name|QT_DEPRECATED
 name|void
 name|setUtcOffset
 parameter_list|(
@@ -1524,11 +1565,15 @@ name|int
 name|seconds
 parameter_list|)
 function_decl|;
+name|QT_DEPRECATED
 name|int
 name|utcOffset
 argument_list|()
 specifier|const
 expr_stmt|;
+endif|#
+directive|endif
+comment|// QT_DEPRECATED_SINCE
 specifier|static
 name|QDateTime
 name|currentDateTime

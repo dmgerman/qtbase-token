@@ -960,8 +960,15 @@ operator|+
 literal|1
 block|,
 comment|// Qt_5_1
+name|QPalette
+operator|::
+name|ToolTipText
+operator|+
+literal|1
+block|,
+comment|// Qt_5_2
 literal|0
-comment|// add the correct value for Qt_5_2 here later
+comment|// add the correct value for Qt_5_3 here later
 block|}
 decl_stmt|;
 end_decl_stmt

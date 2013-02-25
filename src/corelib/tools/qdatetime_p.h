@@ -193,11 +193,22 @@ argument_list|(
 name|LocalUnknown
 argument_list|)
 block|,
-name|utcOffset
+name|m_offsetFromUtc
 argument_list|(
 literal|0
 argument_list|)
 block|{}
+name|QDateTimePrivate
+argument_list|(
+argument|const QDate&toDate
+argument_list|,
+argument|const QTime&toTime
+argument_list|,
+argument|Qt::TimeSpec toSpec
+argument_list|,
+argument|int offsetSeconds
+argument_list|)
+block|;
 name|QDateTimePrivate
 argument_list|(
 specifier|const
@@ -232,9 +243,9 @@ operator|.
 name|spec
 argument_list|)
 block|,
-name|utcOffset
+name|m_offsetFromUtc
 argument_list|(
-argument|other.utcOffset
+argument|other.m_offsetFromUtc
 argument_list|)
 block|{}
 name|QDate
@@ -246,10 +257,10 @@ block|;
 name|Spec
 name|spec
 block|;
-comment|/*!       \internal       \since 4.4        The offset in seconds. Applies only when timeSpec() is OffsetFromUTC.      */
 name|int
-name|utcOffset
+name|m_offsetFromUtc
 block|;
+comment|// Get current date/time in LocalTime and put result in outDate and outTime
 name|Spec
 name|getLocal
 argument_list|(
@@ -259,6 +270,7 @@ argument|QTime&outTime
 argument_list|)
 specifier|const
 block|;
+comment|// Get current date/time in UTC and put result in outDate and outTime
 name|void
 name|getUTC
 argument_list|(
@@ -268,6 +280,7 @@ argument|QTime&outTime
 argument_list|)
 specifier|const
 block|;
+comment|// Add msecs to given datetime and return result
 specifier|static
 name|QDateTime
 name|addMSecs
@@ -277,6 +290,7 @@ argument_list|,
 argument|qint64 msecs
 argument_list|)
 block|;
+comment|// Add msecs to given datetime and put result in utcDate and utcTime
 specifier|static
 name|void
 name|addMSecs
