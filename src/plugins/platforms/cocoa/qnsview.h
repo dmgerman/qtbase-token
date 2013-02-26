@@ -77,6 +77,9 @@ name|uchar
 operator|*
 name|m_maskData
 block|;
+name|bool
+name|m_shouldInvalidateWindowShadow
+block|;
 name|QWindow
 operator|*
 name|m_window
@@ -198,6 +201,14 @@ name|QRegion
 operator|*
 operator|)
 name|region
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+operator|-
+operator|(
+name|void
+operator|)
+name|invalidateWindowShadowIfNeeded
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
