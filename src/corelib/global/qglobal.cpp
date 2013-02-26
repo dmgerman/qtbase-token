@@ -399,7 +399,7 @@ begin_comment
 comment|/*! \fn const T&qBound(const T&min, const T&value, const T&max)     \relates<QtGlobal>      Returns \a value bounded by \a min and \a max. This is equivalent     to qMax(\a min, qMin(\a value, \a max)).      Example:      \snippet code/src_corelib_global_qglobal.cpp 15      \sa qMin(), qMax() */
 end_comment
 begin_comment
-comment|/*!     \macro QT_VERSION_CHECK     \relates<QtGlobal>      Turns the major, minor and patch numbers of a version into an     integer, 0xMMNNPP (MM = major, NN = minor, PP = patch). This can     be compared with another similarly processed version id.      \sa QT_VERSION */
+comment|/*!     \macro QT_VERSION_CHECK     \relates<QtGlobal>      Turns the major, minor and patch numbers of a version into an     integer, 0xMMNNPP (MM = major, NN = minor, PP = patch). This can     be compared with another similarly processed version id.      Example:      \snippet code/src_corelib_global_qglobal.cpp qt-version-check      \sa QT_VERSION */
 end_comment
 begin_comment
 comment|/*!     \macro QT_VERSION     \relates<QtGlobal>      This macro expands a numeric value of the form 0xMMNNPP (MM =     major, NN = minor, PP = patch) that specifies Qt's version     number. For example, if you compile your application against Qt     4.1.2, the QT_VERSION macro will expand to 0x040102.      You can use QT_VERSION to use the latest Qt features where     available.      Example:      \snippet code/src_corelib_global_qglobal.cpp 16      \sa QT_VERSION_STR, qVersion() */
