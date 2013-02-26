@@ -107,6 +107,12 @@ name|uiScreen
 argument_list|()
 specifier|const
 block|;
+name|void
+name|setPrimaryOrientation
+argument_list|(
+argument|Qt::ScreenOrientation orientation
+argument_list|)
+block|;
 name|private
 operator|:
 name|UIScreen
@@ -115,6 +121,9 @@ name|m_uiScreen
 block|;
 name|QRect
 name|m_geometry
+block|;
+name|QRect
+name|m_availableGeometry
 block|;
 name|int
 name|m_depth

@@ -5,9 +5,6 @@ end_comment
 begin_empty
 empty|#import<UIKit/UIKit.h>
 end_empty
-begin_empty
-empty|#import<QtCore/qnamespace.h>
-end_empty
 begin_decl_stmt
 unit|@
 name|interface
