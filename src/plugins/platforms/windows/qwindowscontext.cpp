@@ -4135,8 +4135,9 @@ name|handleShown
 argument_list|()
 expr_stmt|;
 return|return
-literal|true
+literal|false
 return|;
+comment|// Indicate transient children should be shown by windows (SW_PARENTOPENING)
 case|case
 name|QtWindows
 operator|::
@@ -4148,8 +4149,9 @@ name|handleHidden
 argument_list|()
 expr_stmt|;
 return|return
-literal|true
+literal|false
 return|;
+comment|// Indicate transient children should be hidden by windows (SW_PARENTCLOSING)
 case|case
 name|QtWindows
 operator|::
