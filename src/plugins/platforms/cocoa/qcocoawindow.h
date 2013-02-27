@@ -410,6 +410,13 @@ name|void
 name|obscureWindow
 argument_list|()
 block|;
+name|QWindow
+operator|*
+name|childWindowAt
+argument_list|(
+argument|QPoint windowPoint
+argument_list|)
+block|;
 name|protected
 operator|:
 comment|// NSWindow handling. The QCocoaWindow/QNSView can either be displayed
@@ -513,6 +520,12 @@ operator|<
 name|QWindow
 operator|>
 name|m_activePopupWindow
+block|;
+name|QPointer
+operator|<
+name|QWindow
+operator|>
+name|m_underMouseWindow
 block|;
 name|bool
 name|m_inConstructor
