@@ -861,6 +861,12 @@ name|waitForVSync
 parameter_list|()
 specifier|const
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|FBIO_WAITFORVSYNC
+argument_list|)
 specifier|static
 specifier|const
 name|bool
@@ -910,6 +916,8 @@ literal|"Could not wait for vsync."
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 block|}
 end_function
 begin_ifndef
