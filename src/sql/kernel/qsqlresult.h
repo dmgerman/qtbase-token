@@ -81,6 +81,10 @@ name|class
 name|Q_SQL_EXPORT
 name|QSqlResult
 block|{
+name|Q_DECLARE_PRIVATE
+argument_list|(
+argument|QSqlResult
+argument_list|)
 name|friend
 name|class
 name|QSqlQuery
@@ -88,10 +92,6 @@ decl_stmt|;
 name|friend
 name|class
 name|QSqlTableModelPrivate
-decl_stmt|;
-name|friend
-name|class
-name|QSqlResultPrivate
 decl_stmt|;
 name|public
 label|:
@@ -536,11 +536,9 @@ name|resetBindCount
 parameter_list|()
 function_decl|;
 comment|// HACK
-name|private
-label|:
 name|QSqlResultPrivate
 modifier|*
-name|d
+name|d_ptr
 decl_stmt|;
 name|private
 label|:
