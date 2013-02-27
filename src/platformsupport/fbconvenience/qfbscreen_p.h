@@ -111,10 +111,11 @@ name|mPhysicalSize
 return|;
 block|}
 name|QWindow
-modifier|*
+operator|*
 name|topWindow
-parameter_list|()
-function_decl|;
+argument_list|()
+specifier|const
+expr_stmt|;
 name|virtual
 name|QWindow
 modifier|*

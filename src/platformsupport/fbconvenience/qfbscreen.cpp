@@ -418,6 +418,7 @@ name|QFbScreen
 operator|::
 name|topWindow
 parameter_list|()
+specifier|const
 block|{
 foreach|foreach
 control|(
