@@ -27631,6 +27631,9 @@ case|:
 case|case
 name|SH_Menu_MouseTracking
 case|:
+case|case
+name|SH_Menu_SupportsSections
+case|:
 return|return
 literal|1
 return|;

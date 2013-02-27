@@ -38306,6 +38306,14 @@ operator|=
 literal|false
 expr_stmt|;
 break|break;
+case|case
+name|SH_Menu_SupportsSections
+case|:
+name|ret
+operator|=
+literal|false
+expr_stmt|;
+break|break;
 default|default:
 name|ret
 operator|=
