@@ -163,7 +163,7 @@ label|:
 name|QSqlResultPrivate
 argument_list|()
 operator|:
-name|q
+name|q_ptr
 argument_list|(
 literal|0
 argument_list|)
@@ -314,7 +314,7 @@ decl|const
 decl_stmt|;
 name|QSqlResult
 modifier|*
-name|q
+name|q_ptr
 decl_stmt|;
 name|QPointer
 operator|<

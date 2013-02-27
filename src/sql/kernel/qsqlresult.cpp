@@ -855,7 +855,7 @@ name|QSqlResultPrivate
 expr_stmt|;
 name|d
 operator|->
-name|q
+name|q_ptr
 operator|=
 name|this
 expr_stmt|;
