@@ -2219,11 +2219,8 @@ if|if
 condition|(
 name|setProxy
 condition|)
-name|QSKIP
-argument_list|(
-literal|"QTBUG-22964"
-argument_list|)
-expr_stmt|;
+return|return;
+comment|// QTBUG-22964 for proxies, QTBUG-29972 for QSKIP
 name|QFETCH
 argument_list|(
 name|QString
