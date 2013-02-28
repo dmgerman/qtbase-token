@@ -10334,6 +10334,9 @@ argument_list|)
 operator|.
 name|toQString
 argument_list|()
+argument_list|,
+name|qmake_getpwd
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if

@@ -13,13 +13,6 @@ define|#
 directive|define
 name|QPLATFORMDEFS_H
 end_define
-begin_define
-DECL|macro|QT_QPA_DEFAULT_PLATFORM_NAME
-define|#
-directive|define
-name|QT_QPA_DEFAULT_PLATFORM_NAME
-value|"cocoa"
-end_define
 begin_comment
 comment|// Get Qt defines/settings
 end_comment
