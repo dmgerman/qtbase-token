@@ -32,6 +32,14 @@ name|QGtk2Theme
 argument_list|()
 block|;
 name|virtual
+name|QVariant
+name|themeHint
+argument_list|(
+argument|ThemeHint hint
+argument_list|)
+specifier|const
+block|;
+name|virtual
 name|bool
 name|usePlatformNativeDialog
 argument_list|(
