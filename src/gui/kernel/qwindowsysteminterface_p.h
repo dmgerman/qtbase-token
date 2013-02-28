@@ -68,6 +68,11 @@ include|#
 directive|include
 file|<QList>
 end_include
+begin_include
+include|#
+directive|include
+file|<QWaitCondition>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
@@ -210,6 +215,10 @@ block|,
 name|ApplicationStateChanged
 init|=
 literal|0x19
+block|,
+name|FlushEvents
+init|=
+literal|0x20
 block|}
 enum|;
 name|class
@@ -521,6 +530,24 @@ operator|::
 name|ApplicationState
 name|newState
 block|;     }
+decl_stmt|;
+name|class
+name|FlushEventsEvent
+range|:
+name|public
+name|WindowSystemEvent
+block|{
+name|public
+operator|:
+name|FlushEventsEvent
+argument_list|()
+operator|:
+name|WindowSystemEvent
+argument_list|(
+argument|FlushEvents
+argument_list|)
+block|{ }
+block|}
 decl_stmt|;
 name|class
 name|UserEvent
@@ -2187,6 +2214,14 @@ decl_stmt|;
 specifier|static
 name|bool
 name|synchronousWindowsSystemEvents
+decl_stmt|;
+specifier|static
+name|QWaitCondition
+name|eventsFlushed
+decl_stmt|;
+specifier|static
+name|QMutex
+name|flushEventMutex
 decl_stmt|;
 specifier|static
 name|QList

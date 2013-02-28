@@ -4585,6 +4585,17 @@ break|break;
 case|case
 name|QWindowSystemInterfacePrivate
 operator|::
+name|FlushEvents
+case|:
+name|QWindowSystemInterface
+operator|::
+name|deferredFlushWindowSystemEvents
+argument_list|()
+expr_stmt|;
+break|break;
+case|case
+name|QWindowSystemInterfacePrivate
+operator|::
 name|Close
 case|:
 name|QGuiApplicationPrivate

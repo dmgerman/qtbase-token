@@ -1503,6 +1503,11 @@ name|flushWindowSystemEvents
 parameter_list|()
 function_decl|;
 specifier|static
+name|void
+name|deferredFlushWindowSystemEvents
+parameter_list|()
+function_decl|;
+specifier|static
 name|int
 name|windowSystemEventsQueued
 parameter_list|()
