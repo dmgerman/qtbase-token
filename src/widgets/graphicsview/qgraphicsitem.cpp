@@ -21777,7 +21777,7 @@ directive|endif
 end_endif
 begin_comment
 unit|}
-comment|/*!     This virtual function is called by QGraphicsItem to notify custom items     that some part of the item's state changes. By reimplementing this     function, your can react to a change, and in some cases, (depending on \a     change,) adjustments can be made.      \a change is the parameter of the item that is changing. \a value is the     new value; the type of the value depends on \a change.      Example:      \snippet code/src_gui_graphicsview_qgraphicsitem.cpp 15      The default implementation does nothing, and returns \a value.      Note: Certain QGraphicsItem functions cannot be called in a     reimplementation of this function; see the GraphicsItemChange     documentation for details.      \sa GraphicsItemChange */
+comment|/*!     This virtual function is called by QGraphicsItem to notify custom items     that some part of the item's state changes. By reimplementing this     function, you can react to a change, and in some cases (depending on \a     change), adjustments can be made.      \a change is the parameter of the item that is changing. \a value is the     new value; the type of the value depends on \a change.      Example:      \snippet code/src_gui_graphicsview_qgraphicsitem.cpp 15      The default implementation does nothing, and returns \a value.      Note: Certain QGraphicsItem functions cannot be called in a     reimplementation of this function; see the GraphicsItemChange     documentation for details.      \sa GraphicsItemChange */
 end_comment
 begin_macro
 unit|QVariant
