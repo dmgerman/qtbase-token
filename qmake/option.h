@@ -326,13 +326,6 @@ specifier|static
 name|char
 name|field_sep
 decl_stmt|;
-DECL|member|application_argv0
-specifier|static
-specifier|const
-name|char
-modifier|*
-name|application_argv0
-decl_stmt|;
 DECL|enum|CmdLineFlags
 enum|enum
 name|CmdLineFlags
