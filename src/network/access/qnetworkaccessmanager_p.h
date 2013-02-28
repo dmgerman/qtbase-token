@@ -78,6 +78,20 @@ include|#
 directive|include
 file|"qnetworkaccessauthenticationmanager_p.h"
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_BEARERMANAGEMENT
+end_ifndef
+begin_include
+include|#
+directive|include
+file|"QtNetwork/qnetworkconfigmanager.h"
+end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QAuthenticator
@@ -148,6 +162,31 @@ argument_list|(
 name|QNetworkSession
 operator|::
 name|Invalid
+argument_list|)
+block|,
+name|networkConfiguration
+argument_list|(
+name|networkConfigurationManager
+operator|.
+name|defaultConfiguration
+argument_list|()
+argument_list|)
+block|,
+name|customNetworkConfiguration
+argument_list|(
+name|false
+argument_list|)
+block|,
+name|networkSessionRequired
+argument_list|(
+name|networkConfigurationManager
+operator|.
+name|capabilities
+argument_list|()
+operator|&
+name|QNetworkConfigurationManager
+operator|::
+name|NetworkSessionRequired
 argument_list|)
 block|,
 name|networkAccessible
@@ -380,6 +419,12 @@ argument_list|(
 argument|QNetworkSession::State state
 argument_list|)
 block|;
+name|void
+name|_q_onlineStateChanged
+argument_list|(
+argument|bool isOnline
+argument_list|)
+block|;
 endif|#
 directive|endif
 name|QNetworkRequest
@@ -440,8 +485,19 @@ operator|::
 name|State
 name|lastSessionState
 block|;
+name|QNetworkConfigurationManager
+name|networkConfigurationManager
+block|;
 name|QNetworkConfiguration
 name|networkConfiguration
+block|;
+comment|// we need to track whether the user set a config or not,
+comment|// because the default config might change
+name|bool
+name|customNetworkConfiguration
+block|;
+name|bool
+name|networkSessionRequired
 block|;
 name|QNetworkAccessManager
 operator|::
