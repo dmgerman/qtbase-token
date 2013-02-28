@@ -1972,7 +1972,7 @@ argument_list|)
 operator|<<
 name|QStringLiteral
 argument_list|(
-literal|"cleanlooks"
+literal|"fusion"
 argument_list|)
 operator|<<
 name|QStringLiteral
