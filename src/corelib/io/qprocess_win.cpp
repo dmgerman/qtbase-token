@@ -3906,20 +3906,23 @@ name|exitCode
 operator|=
 name|theExitCode
 expr_stmt|;
-comment|//### for now we assume a crash if exit code is less than -1 or the magic number
 name|crashed
 operator|=
 operator|(
 name|exitCode
 operator|==
 literal|0xf291
+comment|// our magic number, see killProcess
 operator|||
 operator|(
-name|int
-operator|)
-name|exitCode
+name|theExitCode
+operator|>=
+literal|0x80000000
+operator|&&
+name|theExitCode
 operator|<
-literal|0
+literal|0xD0000000
+operator|)
 operator|)
 expr_stmt|;
 block|}
