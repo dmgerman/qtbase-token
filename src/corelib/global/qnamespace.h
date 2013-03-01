@@ -1543,6 +1543,10 @@ name|AA_SynthesizeMouseForUnhandledTouchEvents
 init|=
 literal|12
 block|,
+name|AA_UseHighDpiPixmaps
+init|=
+literal|13
+block|,
 comment|// Add new attributes before this line
 name|AA_AttributeCount
 block|}
