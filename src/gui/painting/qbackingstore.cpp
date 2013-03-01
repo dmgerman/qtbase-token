@@ -35,6 +35,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qdebug.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<private/qguiapplication_p.h>
 end_include
 begin_include
@@ -135,11 +140,20 @@ argument_list|)
 operator|->
 name|receivedExpose
 condition|)
+block|{
 name|qWarning
-argument_list|(
-literal|"QBackingStore::flush() called with non-exposed window, behavior is undefined"
-argument_list|)
+argument_list|()
+operator|.
+name|nospace
+argument_list|()
+operator|<<
+literal|"QBackingStore::flush() called with non-exposed window "
+operator|<<
+name|win
+operator|<<
+literal|", behavior is undefined"
 expr_stmt|;
+block|}
 name|d_ptr
 operator|->
 name|platformBackingStore
