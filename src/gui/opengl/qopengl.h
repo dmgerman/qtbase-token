@@ -305,6 +305,12 @@ define|#
 directive|define
 name|QT_OPENGL_4
 end_define
+begin_define
+DECL|macro|QT_OPENGL_4_3
+define|#
+directive|define
+name|QT_OPENGL_4_3
+end_define
 begin_endif
 endif|#
 directive|endif

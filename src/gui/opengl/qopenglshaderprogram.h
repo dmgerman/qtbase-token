@@ -95,6 +95,10 @@ block|,
 name|TessellationEvaluation
 operator|=
 literal|0x0010
+block|,
+name|Compute
+operator|=
+literal|0x0020
 block|}
 block|;
 name|Q_DECLARE_FLAGS
