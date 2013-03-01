@@ -144,7 +144,7 @@ end_constructor
 begin_function
 DECL|function|qt_cancelIo
 specifier|static
-name|void
+name|bool
 name|qt_cancelIo
 parameter_list|(
 name|HANDLE
@@ -209,19 +209,21 @@ if|if
 condition|(
 name|ptrCancelIoEx
 condition|)
+return|return
 name|ptrCancelIoEx
 argument_list|(
 name|handle
 argument_list|,
 name|overlapped
 argument_list|)
-expr_stmt|;
+return|;
 else|else
+return|return
 name|CancelIo
 argument_list|(
 name|handle
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 end_function
 begin_destructor
@@ -237,6 +239,8 @@ condition|(
 name|readSequenceStarted
 condition|)
 block|{
+if|if
+condition|(
 name|qt_cancelIo
 argument_list|(
 name|handle
@@ -244,7 +248,7 @@ argument_list|,
 operator|&
 name|overlapped
 argument_list|)
-expr_stmt|;
+condition|)
 name|dataReadNotifier
 operator|->
 name|waitForNotified
@@ -254,6 +258,14 @@ literal|1
 argument_list|,
 operator|&
 name|overlapped
+argument_list|)
+expr_stmt|;
+else|else
+name|qErrnoWarning
+argument_list|(
+literal|"QWindowsPipeReader: qt_cancelIo on handle %x failed."
+argument_list|,
+name|handle
 argument_list|)
 expr_stmt|;
 block|}
