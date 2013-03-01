@@ -95,10 +95,20 @@ block|{
 name|delete
 name|engine
 block|;     }
-name|QIconEngine
-operator|*
-name|engine
+name|qreal
+name|pixmapDevicePixelRatio
+argument_list|(
+argument|qreal displayDevicePixelRatio
+argument_list|,
+argument|const QSize&requestedSize
+argument_list|,
+argument|const QSize&actualSize
+argument_list|)
 expr_stmt|;
+name|QIconEngine
+modifier|*
+name|engine
+decl_stmt|;
 name|QAtomicInt
 name|ref
 decl_stmt|;
