@@ -5,6 +5,6 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"../../common/ios/qplatformdefs.h"
+file|"../../common/mac/qplatformdefs.h"
 end_include
 end_unit
