@@ -909,6 +909,13 @@ name|initializedHarfbuzzFace
 argument_list|()
 specifier|const
 block|;
+name|bool
+name|supportsScript
+argument_list|(
+argument|QChar::Script script
+argument_list|)
+specifier|const
+block|;
 name|virtual
 name|HB_Error
 name|getPointInOutline
