@@ -465,6 +465,7 @@ name|void
 operator|*
 name|data
 block|;
+name|explicit
 name|ApplyReturnValue
 argument_list|(
 name|void
