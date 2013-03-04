@@ -16,6 +16,11 @@ end_define
 begin_include
 include|#
 directive|include
+file|<QtCore/QPointer>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/QQueue>
 end_include
 begin_include
@@ -129,8 +134,10 @@ name|QQueue
 operator|<
 name|QPair
 operator|<
+name|QPointer
+operator|<
 name|QObject
-operator|*
+operator|>
 block|,
 name|QKeyEvent
 operator|*
