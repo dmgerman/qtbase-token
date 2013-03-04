@@ -105,6 +105,11 @@ specifier|const
 name|QWindow
 modifier|*
 name|w
+parameter_list|,
+specifier|const
+name|QMargins
+modifier|&
+name|customMargins
 parameter_list|)
 function_decl|;
 specifier|static
@@ -254,6 +259,10 @@ decl_stmt|;
 DECL|member|maximumSize
 name|QSize
 name|maximumSize
+decl_stmt|;
+DECL|member|customMargins
+name|QMargins
+name|customMargins
 decl_stmt|;
 block|}
 struct|;
