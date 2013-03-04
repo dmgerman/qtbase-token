@@ -833,6 +833,12 @@ argument_list|(
 name|Q_OS_QNX
 argument_list|)
 operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_ANDROID
+argument_list|)
+operator|&&
 name|_POSIX_VERSION
 operator|<
 literal|200809L

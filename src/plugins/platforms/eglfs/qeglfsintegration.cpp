@@ -60,6 +60,12 @@ name|defined
 argument_list|(
 name|QT_NO_EVDEV
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_ANDROID
+argument_list|)
 end_if
 begin_include
 include|#
@@ -159,6 +165,12 @@ operator|!
 name|defined
 argument_list|(
 name|QT_NO_EVDEV
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_ANDROID
 argument_list|)
 operator|new
 name|QEvdevKeyboardManager

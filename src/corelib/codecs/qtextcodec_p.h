@@ -76,7 +76,7 @@ argument_list|)
 operator|||
 name|defined
 argument_list|(
-name|Q_OS_LINUX_ANDROID
+name|Q_OS_ANDROID
 argument_list|)
 operator|||
 name|defined
