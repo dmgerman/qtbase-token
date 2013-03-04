@@ -70,12 +70,6 @@ name|type
 parameter_list|)
 specifier|const
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_BLACKBERRY_TABLET
-argument_list|)
 if|if
 condition|(
 name|type
@@ -87,8 +81,6 @@ condition|)
 return|return
 literal|true
 return|;
-endif|#
-directive|endif
 if|#
 directive|if
 operator|!
@@ -152,12 +144,6 @@ condition|(
 name|type
 condition|)
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_BLACKBERRY_TABLET
-argument_list|)
 case|case
 name|QPlatformTheme
 operator|::
@@ -170,8 +156,6 @@ argument_list|(
 name|m_integration
 argument_list|)
 return|;
-endif|#
-directive|endif
 ifndef|#
 directive|ifndef
 name|QT_NO_COLORDIALOG

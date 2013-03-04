@@ -138,6 +138,9 @@ modifier|*
 name|screen
 parameter_list|)
 function_decl|;
+ifdef|#
+directive|ifdef
+name|Q_OS_BLACKBERRY_TABLET
 name|void
 name|registerForDialogEvents
 parameter_list|(
@@ -154,6 +157,8 @@ modifier|*
 name|dialog
 parameter_list|)
 function_decl|;
+endif|#
+directive|endif
 name|private
 label|:
 name|bool

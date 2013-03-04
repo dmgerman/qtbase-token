@@ -15,11 +15,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qqnxfiledialoghelper.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"qqnxscreen.h"
 end_include
 begin_include
@@ -31,6 +26,11 @@ begin_include
 include|#
 directive|include
 file|"qqnxvirtualkeyboardbps.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"qqnxfiledialoghelper.h"
 end_include
 begin_include
 include|#
@@ -355,6 +355,14 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_BLACKBERRY_TABLET
+argument_list|)
+end_if
 begin_function
 DECL|function|registerForDialogEvents
 name|void
@@ -448,6 +456,13 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// Q_OS_BLACKBERRY_TABLET
+end_comment
 begin_function
 DECL|function|nativeEventFilter
 name|bool
@@ -554,6 +569,12 @@ name|screenEvent
 argument_list|)
 return|;
 block|}
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_BLACKBERRY_TABLET
+argument_list|)
 if|if
 condition|(
 name|eventDomain
@@ -596,6 +617,8 @@ name|event
 argument_list|)
 return|;
 block|}
+endif|#
+directive|endif
 if|if
 condition|(
 name|eventDomain
