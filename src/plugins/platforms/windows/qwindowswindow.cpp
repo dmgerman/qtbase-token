@@ -6036,7 +6036,8 @@ name|qWarning
 argument_list|(
 literal|"%s: Unable to set geometry %dx%d+%d+%d on '%s'."
 literal|" Resulting geometry:  %dx%d+%d+%d "
-literal|"(frame: %d, %d, %d, %d)."
+literal|"(frame: %d, %d, %d, %d, custom margin: %d, %d, %d, %d"
+literal|", minimum size: %dx%d, maximum size: %dx%d)."
 argument_list|,
 name|__FUNCTION__
 argument_list|,
@@ -6123,6 +6124,58 @@ operator|.
 name|frame
 operator|.
 name|bottom
+argument_list|()
+argument_list|,
+name|m_data
+operator|.
+name|customMargins
+operator|.
+name|left
+argument_list|()
+argument_list|,
+name|m_data
+operator|.
+name|customMargins
+operator|.
+name|top
+argument_list|()
+argument_list|,
+name|m_data
+operator|.
+name|customMargins
+operator|.
+name|right
+argument_list|()
+argument_list|,
+name|m_data
+operator|.
+name|customMargins
+operator|.
+name|bottom
+argument_list|()
+argument_list|,
+name|window
+argument_list|()
+operator|->
+name|minimumWidth
+argument_list|()
+argument_list|,
+name|window
+argument_list|()
+operator|->
+name|minimumHeight
+argument_list|()
+argument_list|,
+name|window
+argument_list|()
+operator|->
+name|maximumWidth
+argument_list|()
+argument_list|,
+name|window
+argument_list|()
+operator|->
+name|maximumHeight
 argument_list|()
 argument_list|)
 expr_stmt|;
