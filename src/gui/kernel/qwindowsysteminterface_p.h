@@ -1860,6 +1860,13 @@ operator|~
 name|WindowSystemEventList
 argument_list|()
 block|{
+name|clear
+argument_list|()
+block|; }
+name|void
+name|clear
+argument_list|()
+block|{
 specifier|const
 name|QMutexLocker
 name|locker
