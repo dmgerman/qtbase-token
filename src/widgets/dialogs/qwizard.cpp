@@ -8948,6 +8948,14 @@ name|vistaMargins
 operator|=
 literal|true
 expr_stmt|;
+name|vistaHelper
+operator|->
+name|backButton
+argument_list|()
+operator|->
+name|show
+argument_list|()
+expr_stmt|;
 block|}
 else|else
 block|{

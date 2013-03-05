@@ -1325,6 +1325,7 @@ if|if
 condition|(
 name|is_vista
 condition|)
+block|{
 name|backButton_
 operator|=
 operator|new
@@ -1333,6 +1334,12 @@ argument_list|(
 name|wizard
 argument_list|)
 expr_stmt|;
+name|backButton_
+operator|->
+name|hide
+argument_list|()
+expr_stmt|;
+block|}
 comment|// Handle diff between Windows 7 and Vista
 name|iconSpacing
 operator|=
