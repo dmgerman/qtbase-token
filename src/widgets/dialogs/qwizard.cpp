@@ -70,6 +70,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qwindow.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qpushbutton.h"
 end_include
 begin_include
@@ -3126,7 +3131,7 @@ name|state
 parameter_list|)
 specifier|const
 function_decl|;
-name|void
+name|bool
 name|handleAeroStyleChange
 parameter_list|()
 function_decl|;
@@ -8769,7 +8774,7 @@ block|}
 end_function
 begin_function
 DECL|function|handleAeroStyleChange
-name|void
+name|bool
 name|QWizardPrivate
 operator|::
 name|handleAeroStyleChange
@@ -8784,8 +8789,47 @@ if|if
 condition|(
 name|inHandleAeroStyleChange
 condition|)
-return|return;
+return|return
+literal|false
+return|;
 comment|// prevent recursion
+comment|// For top-level wizards, we need the platform window handle for the
+comment|// DWM changes. Delay aero initialization to the show event handling if
+comment|// it does not exist. If we are a child, skip DWM and just make room by
+comment|// moving the antiFlickerWidget.
+specifier|const
+name|bool
+name|isWindow
+init|=
+name|q
+operator|->
+name|isWindow
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|isWindow
+operator|&&
+operator|(
+operator|!
+name|q
+operator|->
+name|windowHandle
+argument_list|()
+operator|||
+operator|!
+name|q
+operator|->
+name|windowHandle
+argument_list|()
+operator|->
+name|handle
+argument_list|()
+operator|)
+condition|)
+return|return
+literal|false
+return|;
 name|inHandleAeroStyleChange
 operator|=
 literal|true
@@ -8823,6 +8867,11 @@ name|VistaAero
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|isWindow
+condition|)
+block|{
 name|vistaHelper
 operator|->
 name|setDWMTitleBar
@@ -8839,6 +8888,7 @@ argument_list|(
 name|vistaHelper
 argument_list|)
 expr_stmt|;
+block|}
 name|q
 operator|->
 name|setMouseTracking
@@ -8901,6 +8951,10 @@ expr_stmt|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|isWindow
+condition|)
 name|vistaHelper
 operator|->
 name|setDWMTitleBar
@@ -8944,6 +8998,10 @@ argument_list|)
 expr_stmt|;
 comment|// ### should ideally work with (0, 0)
 block|}
+if|if
+condition|(
+name|isWindow
+condition|)
 name|vistaHelper
 operator|->
 name|setTitleBarIconAndCaptionVisible
@@ -9020,6 +9078,10 @@ operator|->
 name|hideBackButton
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|isWindow
+condition|)
 name|vistaHelper
 operator|->
 name|setTitleBarIconAndCaptionVisible
@@ -9042,6 +9104,9 @@ name|inHandleAeroStyleChange
 operator|=
 literal|false
 expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 end_function
 begin_endif
@@ -11760,14 +11825,28 @@ name|defined
 argument_list|(
 name|QT_NO_STYLE_WINDOWSVISTA
 argument_list|)
+comment|// Delay initialization when activating Aero style fails due to missing native window.
 if|if
 condition|(
 name|aeroStyleChange
-condition|)
+operator|&&
+operator|!
 name|d
 operator|->
 name|handleAeroStyleChange
 argument_list|()
+operator|&&
+name|d
+operator|->
+name|wizStyle
+operator|==
+name|AeroStyle
+condition|)
+name|d
+operator|->
+name|vistaInitPending
+operator|=
+literal|true
 expr_stmt|;
 endif|#
 directive|endif

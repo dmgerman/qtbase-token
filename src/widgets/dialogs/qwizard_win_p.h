@@ -332,6 +332,11 @@ argument_list|(
 argument|HANDLE hTheme
 argument_list|)
 block|;
+name|HWND
+name|wizardHWND
+argument_list|()
+specifier|const
+block|;
 name|bool
 name|drawTitleText
 argument_list|(
