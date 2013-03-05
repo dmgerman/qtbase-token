@@ -3937,7 +3937,9 @@ parameter_list|(
 name|Expr
 parameter_list|)
 define|\
-value|do {\         const bool valueOfExpression = Expr;\         Q_ASSERT_X(valueOfExpression, "Q_ASSUME()", "Assumption in Q_ASSUME(\"" #Expr "\") was not correct");\         Q_ASSUME_IMPL(valueOfExpression);\     } while (0)
+value|do {\         const bool valueOfExpression = Expr;\         Q_ASSERT_X(valueOfExpression, "Q_ASSUME()", "Assumption in Q_ASSUME(\"" #Expr "\") was not correct");\         Q_ASSUME_IMPL(valueOfExpression);\         Q_UNUSED(valueOfExpression);
+comment|/* the value may not be used if Q_ASSERT_X and Q_ASSUME_IMPL are noop */
+value|\     } while (0)
 end_define
 begin_endif
 endif|#
