@@ -46,6 +46,9 @@ begin_comment
 comment|/*!     \enum QRawFont::AntialiasingType      This enum represents the different ways a glyph can be rasterized in the function     alphaMapForGlyph().      \value PixelAntialiasing Will rasterize by measuring the coverage of the shape on whole pixels.            The returned image contains the alpha values of each pixel based on the coverage of            the glyph shape.     \value SubPixelAntialiasing Will rasterize by measuring the coverage of each subpixel,            returning a separate alpha value for each of the red, green and blue components of            each pixel. */
 end_comment
 begin_comment
+comment|/*!     \enum QRawFont::LayoutFlag     \since 5.1      This enum tells the function advancesForGlyphIndexes() how to calculate the advances.      \value SeparateAdvances Will calculate the advance for each glyph separately.     \value KernedAdvances Will apply kerning between adjacent glyphs. Note that OpenType GPOS based            kerning is currently not supported.     \value UseDesignMetrics Use design metrics instead of hinted metrics adjusted to the resolution            of the paint device.            Can be OR-ed with any of the options above. */
+end_comment
+begin_comment
 comment|/*!    Constructs an invalid QRawFont. */
 end_comment
 begin_constructor
@@ -1266,10 +1269,13 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QVector<QPointF> QRawFont::advancesForGlyphIndexes(const QVector<quint32>&glyphIndexes) const     Returns the QRawFont's advances for each of the \a glyphIndexes in pixel units. The advances    give the distance from the position of a given glyph to where the next glyph should be drawn    to make it appear as if the two glyphs are unspaced.     \sa QTextLine::horizontalAdvance(), QFontMetricsF::width() */
+comment|/*!    \fn QVector<QPointF> QRawFont::advancesForGlyphIndexes(const QVector<quint32>&glyphIndexes, LayoutFlags layoutFlags) const    \since 5.1     Returns the QRawFont's advances for each of the \a glyphIndexes in pixel units. The advances    give the distance from the position of a given glyph to where the next glyph should be drawn    to make it appear as if the two glyphs are unspaced. How the advances are calculated is    controlled by \a layoutFlags.     \sa QTextLine::horizontalAdvance(), QFontMetricsF::width() */
 end_comment
 begin_comment
-comment|/*!    Returns the QRawFont's advances for each of the \a glyphIndexes in pixel units. The advances    give the distance from the position of a given glyph to where the next glyph should be drawn    to make it appear as if the two glyphs are unspaced. The glyph indexes are given with the    array \a glyphIndexes while the results are returned through \a advances, both of them must    have \a numGlyphs elements.     \sa QTextLine::horizontalAdvance(), QFontMetricsF::width() */
+comment|/*!    \fn QVector<QPointF> QRawFont::advancesForGlyphIndexes(const QVector<quint32>&glyphIndexes) const     \overload     Returns the QRawFont's advances for each of the \a glyphIndexes in pixel units. The advances    give the distance from the position of a given glyph to where the next glyph should be drawn    to make it appear as if the two glyphs are unspaced. The advance of each glyph is calculated    separately.     \sa QTextLine::horizontalAdvance(), QFontMetricsF::width() */
+end_comment
+begin_comment
+comment|/*!    \since 5.1     Returns the QRawFont's advances for each of the \a glyphIndexes in pixel units. The advances    give the distance from the position of a given glyph to where the next glyph should be drawn    to make it appear as if the two glyphs are unspaced. The glyph indexes are given with the    array \a glyphIndexes while the results are returned through \a advances, both of them must    have \a numGlyphs elements. How the advances are calculated is controlled by \a layoutFlags.     \sa QTextLine::horizontalAdvance(), QFontMetricsF::width() */
 end_comment
 begin_function
 DECL|function|advancesForGlyphIndexes
@@ -1289,6 +1295,9 @@ name|advances
 parameter_list|,
 name|int
 name|numGlyphs
+parameter_list|,
+name|LayoutFlags
+name|layoutFlags
 parameter_list|)
 specifier|const
 block|{
@@ -1372,6 +1381,13 @@ operator|.
 name|data
 argument_list|()
 expr_stmt|;
+name|bool
+name|design
+init|=
+name|layoutFlags
+operator|&
+name|UseDesignMetrics
+decl_stmt|;
 name|d
 operator|->
 name|fontEngine
@@ -1381,7 +1397,47 @@ argument_list|(
 operator|&
 name|glyphs
 argument_list|,
+name|design
+condition|?
+name|QFontEngine
+operator|::
+name|DesignMetrics
+else|:
+name|QFontEngine
+operator|::
+name|ShaperFlag
+argument_list|(
 literal|0
+argument_list|)
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|layoutFlags
+operator|&
+name|KernedAdvances
+condition|)
+name|d
+operator|->
+name|fontEngine
+operator|->
+name|doKerning
+argument_list|(
+operator|&
+name|glyphs
+argument_list|,
+name|design
+condition|?
+name|QFontEngine
+operator|::
+name|DesignMetrics
+else|:
+name|QFontEngine
+operator|::
+name|ShaperFlag
+argument_list|(
+literal|0
+argument_list|)
 argument_list|)
 expr_stmt|;
 for|for
@@ -1428,6 +1484,46 @@ argument_list|)
 expr_stmt|;
 return|return
 literal|true
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!    \overload     Returns the QRawFont's advances for each of the \a glyphIndexes in pixel units. The advances    give the distance from the position of a given glyph to where the next glyph should be drawn    to make it appear as if the two glyphs are unspaced. The glyph indexes are given with the    array \a glyphIndexes while the results are returned through \a advances, both of them must    have \a numGlyphs elements. The advance of each glyph is calculated separately     \sa QTextLine::horizontalAdvance(), QFontMetricsF::width() */
+end_comment
+begin_function
+DECL|function|advancesForGlyphIndexes
+name|bool
+name|QRawFont
+operator|::
+name|advancesForGlyphIndexes
+parameter_list|(
+specifier|const
+name|quint32
+modifier|*
+name|glyphIndexes
+parameter_list|,
+name|QPointF
+modifier|*
+name|advances
+parameter_list|,
+name|int
+name|numGlyphs
+parameter_list|)
+specifier|const
+block|{
+return|return
+name|QRawFont
+operator|::
+name|advancesForGlyphIndexes
+argument_list|(
+name|glyphIndexes
+argument_list|,
+name|advances
+argument_list|,
+name|numGlyphs
+argument_list|,
+name|SeparateAdvances
+argument_list|)
 return|;
 block|}
 end_function

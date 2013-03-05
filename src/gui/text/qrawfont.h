@@ -84,6 +84,28 @@ block|,
 name|SubPixelAntialiasing
 block|}
 enum|;
+enum|enum
+name|LayoutFlag
+block|{
+name|SeparateAdvances
+init|=
+literal|0
+block|,
+name|KernedAdvances
+init|=
+literal|1
+block|,
+name|UseDesignMetrics
+init|=
+literal|2
+block|}
+enum|;
+name|Q_DECLARE_FLAGS
+argument_list|(
+argument|LayoutFlags
+argument_list|,
+argument|LayoutFlag
+argument_list|)
 name|QRawFont
 argument_list|()
 expr_stmt|;
@@ -226,6 +248,19 @@ argument|const QVector<quint32>&glyphIndexes
 argument_list|)
 specifier|const
 expr_stmt|;
+specifier|inline
+name|QVector
+operator|<
+name|QPointF
+operator|>
+name|advancesForGlyphIndexes
+argument_list|(
+argument|const QVector<quint32>&glyphIndexes
+argument_list|,
+argument|LayoutFlags layoutFlags
+argument_list|)
+specifier|const
+expr_stmt|;
 name|bool
 name|glyphIndexesForChars
 argument_list|(
@@ -261,6 +296,26 @@ name|advances
 argument_list|,
 name|int
 name|numGlyphs
+argument_list|)
+decl|const
+decl_stmt|;
+name|bool
+name|advancesForGlyphIndexes
+argument_list|(
+specifier|const
+name|quint32
+operator|*
+name|glyphIndexes
+argument_list|,
+name|QPointF
+operator|*
+name|advances
+argument_list|,
+name|int
+name|numGlyphs
+argument_list|,
+name|LayoutFlags
+name|layoutFlags
 argument_list|)
 decl|const
 decl_stmt|;
@@ -486,6 +541,12 @@ argument_list|(
 argument|QRawFont
 argument_list|)
 end_macro
+begin_macro
+name|Q_DECLARE_OPERATORS_FOR_FLAGS
+argument_list|(
+argument|QRawFont::LayoutFlags
+argument_list|)
+end_macro
 begin_expr_stmt
 specifier|inline
 name|QVector
@@ -497,6 +558,8 @@ operator|::
 name|advancesForGlyphIndexes
 argument_list|(
 argument|const QVector<quint32>&glyphIndexes
+argument_list|,
+argument|QRawFont::LayoutFlags layoutFlags
 argument_list|)
 specifier|const
 block|{
@@ -530,6 +593,8 @@ name|glyphIndexes
 operator|.
 name|size
 argument_list|()
+argument_list|,
+name|layoutFlags
 argument_list|)
 condition|)
 return|return
@@ -546,8 +611,36 @@ operator|(
 operator|)
 return|;
 end_return
+begin_expr_stmt
+unit|}  inline
+name|QVector
+operator|<
+name|QPointF
+operator|>
+name|QRawFont
+operator|::
+name|advancesForGlyphIndexes
+argument_list|(
+argument|const QVector<quint32>&glyphIndexes
+argument_list|)
+specifier|const
+block|{
+return|return
+name|advancesForGlyphIndexes
+argument_list|(
+name|glyphIndexes
+argument_list|,
+name|QRawFont
+operator|::
+name|SeparateAdvances
+argument_list|)
+return|;
+block|}
+end_expr_stmt
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
-unit|}  QT_END_NAMESPACE
 endif|#
 directive|endif
 end_endif
