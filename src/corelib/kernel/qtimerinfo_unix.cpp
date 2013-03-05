@@ -220,11 +220,9 @@ name|QT_BOOTSTRAPPED
 argument_list|)
 end_if
 begin_function
-template|template
-parameter_list|<>
-DECL|function|qAbs
+DECL|function|qAbsTimespec
 name|timespec
-name|qAbs
+name|qAbsTimespec
 parameter_list|(
 specifier|const
 name|timespec
@@ -439,7 +437,7 @@ name|elapsedTimeTicks
 operator|<
 operator|(
 operator|(
-name|qAbs
+name|qAbsTimespec
 argument_list|(
 operator|*
 name|delta

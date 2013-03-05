@@ -386,6 +386,19 @@ name|frameStrutEventsEnabled
 argument_list|()
 specifier|const
 block|;
+specifier|static
+name|QRect
+name|initialGeometry
+argument_list|(
+argument|const QWindow *w
+argument_list|,
+argument|const QRect&initialGeometry
+argument_list|,
+argument|int defaultWidth
+argument_list|,
+argument|int defaultHeight
+argument_list|)
+block|;
 name|protected
 operator|:
 specifier|static

@@ -24,7 +24,7 @@ begin_comment
 comment|/*!     \fn bool QPointer::isNull() const      Returns \c true if the referenced object has been destroyed or if     there is no referenced object; otherwise returns false. */
 end_comment
 begin_comment
-comment|/*!     \fn void QPointer::clear()      Clears this QPointer object.      \sa isNull() */
+comment|/*!     \fn void QPointer::clear()     \since 5.0      Clears this QPointer object.      \sa isNull() */
 end_comment
 begin_comment
 comment|/*!     \fn T* QPointer::operator->() const      Overloaded arrow operator; implements pointer semantics. Just use     this operator as you would with a normal C++ pointer. */

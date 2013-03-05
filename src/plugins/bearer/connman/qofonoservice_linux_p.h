@@ -164,7 +164,7 @@ DECL|macro|OFONO_DATA_CONTEXT_INTERFACE
 define|#
 directive|define
 name|OFONO_DATA_CONTEXT_INTERFACE
-value|"org.ofono.PrimaryDataContext"
+value|"org.ofono.ConnectionContext"
 end_define
 begin_define
 DECL|macro|OFONO_SMS_MANAGER_INTERFACE
@@ -944,7 +944,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|QOfonoPrimaryDataContextInterface
+name|QOfonoConnectionContextInterface
 range|:
 name|public
 name|QDBusAbstractInterface
@@ -953,7 +953,7 @@ name|Q_OBJECT
 name|public
 operator|:
 name|explicit
-name|QOfonoPrimaryDataContextInterface
+name|QOfonoConnectionContextInterface
 argument_list|(
 specifier|const
 name|QString
@@ -968,7 +968,7 @@ literal|0
 argument_list|)
 block|;
 operator|~
-name|QOfonoPrimaryDataContextInterface
+name|QOfonoConnectionContextInterface
 argument_list|()
 block|;
 name|QVariantMap

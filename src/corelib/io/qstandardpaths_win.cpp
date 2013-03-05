@@ -577,7 +577,7 @@ argument_list|)
 operator|+
 name|QLatin1String
 argument_list|(
-literal|"\\cache"
+literal|"/cache"
 argument_list|)
 return|;
 case|case
@@ -591,7 +591,7 @@ argument_list|)
 operator|+
 name|QLatin1String
 argument_list|(
-literal|"\\cache"
+literal|"/cache"
 argument_list|)
 return|;
 case|case

@@ -227,6 +227,8 @@ argument_list|,
 argument|int lineNum
 argument_list|,
 argument|bool one
+argument_list|,
+argument|const QSet<QByteArray>&excludeSymbols = QSet<QByteArray>()
 argument_list|)
 block|;
 name|int

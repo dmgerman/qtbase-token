@@ -340,7 +340,6 @@ condition|)
 return|return
 name|modem
 return|;
-empty_stmt|;
 block|}
 return|return
 name|QDBusObjectPath
@@ -3087,10 +3086,10 @@ return|;
 block|}
 end_function
 begin_constructor
-DECL|function|QOfonoPrimaryDataContextInterface
-name|QOfonoPrimaryDataContextInterface
+DECL|function|QOfonoConnectionContextInterface
+name|QOfonoConnectionContextInterface
 operator|::
-name|QOfonoPrimaryDataContextInterface
+name|QOfonoConnectionContextInterface
 parameter_list|(
 specifier|const
 name|QString
@@ -3123,18 +3122,18 @@ argument_list|)
 block|{ }
 end_constructor
 begin_destructor
-DECL|function|~QOfonoPrimaryDataContextInterface
-name|QOfonoPrimaryDataContextInterface
+DECL|function|~QOfonoConnectionContextInterface
+name|QOfonoConnectionContextInterface
 operator|::
 name|~
-name|QOfonoPrimaryDataContextInterface
+name|QOfonoConnectionContextInterface
 parameter_list|()
 block|{ }
 end_destructor
 begin_function
 DECL|function|isActive
 name|bool
-name|QOfonoPrimaryDataContextInterface
+name|QOfonoConnectionContextInterface
 operator|::
 name|isActive
 parameter_list|()
@@ -3161,7 +3160,7 @@ end_function
 begin_function
 DECL|function|getApName
 name|QString
-name|QOfonoPrimaryDataContextInterface
+name|QOfonoConnectionContextInterface
 operator|::
 name|getApName
 parameter_list|()
@@ -3188,7 +3187,7 @@ end_function
 begin_function
 DECL|function|getType
 name|QString
-name|QOfonoPrimaryDataContextInterface
+name|QOfonoConnectionContextInterface
 operator|::
 name|getType
 parameter_list|()
@@ -3215,7 +3214,7 @@ end_function
 begin_function
 DECL|function|getName
 name|QString
-name|QOfonoPrimaryDataContextInterface
+name|QOfonoConnectionContextInterface
 operator|::
 name|getName
 parameter_list|()
@@ -3242,7 +3241,7 @@ end_function
 begin_function
 DECL|function|getSettings
 name|QVariantMap
-name|QOfonoPrimaryDataContextInterface
+name|QOfonoConnectionContextInterface
 operator|::
 name|getSettings
 parameter_list|()
@@ -3269,7 +3268,7 @@ end_function
 begin_function
 DECL|function|getInterface
 name|QString
-name|QOfonoPrimaryDataContextInterface
+name|QOfonoConnectionContextInterface
 operator|::
 name|getInterface
 parameter_list|()
@@ -3296,7 +3295,7 @@ end_function
 begin_function
 DECL|function|getAddress
 name|QString
-name|QOfonoPrimaryDataContextInterface
+name|QOfonoConnectionContextInterface
 operator|::
 name|getAddress
 parameter_list|()
@@ -3323,7 +3322,7 @@ end_function
 begin_function
 DECL|function|setActive
 name|bool
-name|QOfonoPrimaryDataContextInterface
+name|QOfonoConnectionContextInterface
 operator|::
 name|setActive
 parameter_list|(
@@ -3350,7 +3349,7 @@ end_function
 begin_function
 DECL|function|setApn
 name|bool
-name|QOfonoPrimaryDataContextInterface
+name|QOfonoConnectionContextInterface
 operator|::
 name|setApn
 parameter_list|(
@@ -3378,7 +3377,7 @@ end_function
 begin_function
 DECL|function|connectNotify
 name|void
-name|QOfonoPrimaryDataContextInterface
+name|QOfonoConnectionContextInterface
 operator|::
 name|connectNotify
 parameter_list|(
@@ -3393,7 +3392,7 @@ argument_list|(
 name|signal
 argument_list|)
 expr_stmt|;
-comment|//    static const QMetaMethod propertyChangedSignal = QMetaMethod::fromSignal(&QOfonoPrimaryDataContextInterface::propertyChanged);
+comment|//    static const QMetaMethod propertyChangedSignal = QMetaMethod::fromSignal(&QOfonoConnectionContextInterface::propertyChanged);
 comment|//    if (signal == propertyChangedSignal) {
 comment|//        if (!connection().connect(QLatin1String(OFONO_SERVICE),
 comment|//                               this->path(),
@@ -3403,7 +3402,7 @@ comment|//                               this,SIGNAL(propertyChanged(QString,QDB
 comment|//            qWarning()<< "PropertyCHanged not connected";
 comment|//        }
 comment|//    }
-comment|//    static const QMetaMethod propertyChangedContextSignal = QMetaMethod::fromSignal(&QOfonoPrimaryDataContextInterface::propertyChangedContext);
+comment|//    static const QMetaMethod propertyChangedContextSignal = QMetaMethod::fromSignal(&QOfonoConnectionContextInterface::propertyChangedContext);
 comment|//    if (signal == propertyChangedContextSignal) {
 comment|//        QOfonoDBusHelper *helper;
 comment|//        helper = new QOfonoDBusHelper(this);
@@ -3420,7 +3419,7 @@ end_function
 begin_function
 DECL|function|disconnectNotify
 name|void
-name|QOfonoPrimaryDataContextInterface
+name|QOfonoConnectionContextInterface
 operator|::
 name|disconnectNotify
 parameter_list|(
@@ -3435,7 +3434,7 @@ argument_list|(
 name|signal
 argument_list|)
 expr_stmt|;
-comment|//    static const QMetaMethod propertyChangedSignal = QMetaMethod::fromSignal(&QOfonoPrimaryDataContextInterface::propertyChanged);
+comment|//    static const QMetaMethod propertyChangedSignal = QMetaMethod::fromSignal(&QOfonoConnectionContextInterface::propertyChanged);
 comment|//    if (signal == propertyChangedSignal) {
 comment|//    }
 block|}
@@ -3443,7 +3442,7 @@ end_function
 begin_function
 DECL|function|getProperty
 name|QVariant
-name|QOfonoPrimaryDataContextInterface
+name|QOfonoConnectionContextInterface
 operator|::
 name|getProperty
 parameter_list|(
@@ -3502,7 +3501,7 @@ end_function
 begin_function
 DECL|function|getProperties
 name|QVariantMap
-name|QOfonoPrimaryDataContextInterface
+name|QOfonoConnectionContextInterface
 operator|::
 name|getProperties
 parameter_list|()
@@ -3534,7 +3533,7 @@ end_function
 begin_function
 DECL|function|setProp
 name|bool
-name|QOfonoPrimaryDataContextInterface
+name|QOfonoConnectionContextInterface
 operator|::
 name|setProp
 parameter_list|(

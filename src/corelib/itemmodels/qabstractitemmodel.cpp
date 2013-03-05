@@ -6008,7 +6008,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.6      Returns the model's role names.      \sa setRoleNames() */
+comment|/*!     \since 4.6      Returns the model's role names.  */
 end_comment
 begin_function
 DECL|function|roleNames
