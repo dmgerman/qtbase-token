@@ -219,6 +219,9 @@ comment|// So please think carefully about what it does to the QML namespace if 
 comment|// particularly the possible meanings these names might have in any specializations of Window.
 comment|// For example "state" (meaning windowState) is not a good property to declare, because it has
 comment|// a different meaning in QQuickItem, and users will tend to assume it is the same for Window.
+comment|// Any new properties which you add here MUST be versioned and MUST be documented both as
+comment|// C++ properties in qwindow.cpp AND as QML properties in qquickwindow.cpp.
+comment|// http://qt-project.org/doc/qt-5.0/qtqml/qtqml-cppintegration-definetypes.html#type-revisions-and-versions
 name|Q_PROPERTY
 argument_list|(
 name|QString
@@ -306,6 +309,8 @@ name|WRITE
 name|setMinimumWidth
 name|NOTIFY
 name|minimumWidthChanged
+name|REVISION
+literal|1
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
@@ -317,6 +322,8 @@ name|WRITE
 name|setMinimumHeight
 name|NOTIFY
 name|minimumHeightChanged
+name|REVISION
+literal|1
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
@@ -328,6 +335,8 @@ name|WRITE
 name|setMaximumWidth
 name|NOTIFY
 name|maximumWidthChanged
+name|REVISION
+literal|1
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
@@ -339,6 +348,8 @@ name|WRITE
 name|setMaximumHeight
 name|NOTIFY
 name|maximumHeightChanged
+name|REVISION
+literal|1
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
@@ -361,6 +372,8 @@ name|WRITE
 name|setVisibility
 name|NOTIFY
 name|visibilityChanged
+name|REVISION
+literal|1
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
@@ -374,6 +387,8 @@ name|WRITE
 name|reportContentOrientationChange
 name|NOTIFY
 name|contentOrientationChanged
+name|REVISION
+literal|1
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
@@ -385,6 +400,8 @@ name|WRITE
 name|setOpacity
 name|NOTIFY
 name|opacityChanged
+name|REVISION
+literal|1
 argument_list|)
 name|public
 range|:     enum
@@ -1167,6 +1184,10 @@ name|int
 name|arg
 parameter_list|)
 function_decl|;
+name|Q_REVISION
+argument_list|(
+literal|1
+argument_list|)
 name|void
 name|setMinimumWidth
 parameter_list|(
@@ -1174,6 +1195,10 @@ name|int
 name|w
 parameter_list|)
 function_decl|;
+name|Q_REVISION
+argument_list|(
+literal|1
+argument_list|)
 name|void
 name|setMinimumHeight
 parameter_list|(
@@ -1181,6 +1206,10 @@ name|int
 name|h
 parameter_list|)
 function_decl|;
+name|Q_REVISION
+argument_list|(
+literal|1
+argument_list|)
 name|void
 name|setMaximumWidth
 parameter_list|(
@@ -1188,6 +1217,10 @@ name|int
 name|w
 parameter_list|)
 function_decl|;
+name|Q_REVISION
+argument_list|(
+literal|1
+argument_list|)
 name|void
 name|setMaximumHeight
 parameter_list|(
@@ -1251,6 +1284,10 @@ name|int
 name|arg
 parameter_list|)
 function_decl|;
+name|Q_REVISION
+argument_list|(
+literal|1
+argument_list|)
 name|void
 name|minimumWidthChanged
 parameter_list|(
@@ -1258,6 +1295,10 @@ name|int
 name|arg
 parameter_list|)
 function_decl|;
+name|Q_REVISION
+argument_list|(
+literal|1
+argument_list|)
 name|void
 name|minimumHeightChanged
 parameter_list|(
@@ -1265,6 +1306,10 @@ name|int
 name|arg
 parameter_list|)
 function_decl|;
+name|Q_REVISION
+argument_list|(
+literal|1
+argument_list|)
 name|void
 name|maximumWidthChanged
 parameter_list|(
@@ -1272,6 +1317,10 @@ name|int
 name|arg
 parameter_list|)
 function_decl|;
+name|Q_REVISION
+argument_list|(
+literal|1
+argument_list|)
 name|void
 name|maximumHeightChanged
 parameter_list|(
@@ -1286,6 +1335,10 @@ name|bool
 name|arg
 parameter_list|)
 function_decl|;
+name|Q_REVISION
+argument_list|(
+literal|1
+argument_list|)
 name|void
 name|visibilityChanged
 argument_list|(
@@ -1295,6 +1348,10 @@ name|Visibility
 name|visibility
 argument_list|)
 decl_stmt|;
+name|Q_REVISION
+argument_list|(
+literal|1
+argument_list|)
 name|void
 name|contentOrientationChanged
 argument_list|(
@@ -1312,6 +1369,10 @@ modifier|*
 name|object
 parameter_list|)
 function_decl|;
+name|Q_REVISION
+argument_list|(
+literal|1
+argument_list|)
 name|void
 name|opacityChanged
 parameter_list|(

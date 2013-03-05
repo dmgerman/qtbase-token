@@ -1841,7 +1841,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QWindow::opacity     \brief The opacity of the window in the windowing system.      If the windowing system supports window opacity, this can be used to fade the     window in and out, or to make it semitransparent.      A value of 1.0 or above is treated as fully opaque, whereas a value of 0.0 or below     is treated as fully transparent. Values inbetween represent varying levels of     translucency between the two extremes.      The default value is 1.0. */
+comment|/*!     \property QWindow::opacity     \brief The opacity of the window in the windowing system.     \since 5.1      If the windowing system supports window opacity, this can be used to fade the     window in and out, or to make it semitransparent.      A value of 1.0 or above is treated as fully opaque, whereas a value of 0.0 or below     is treated as fully transparent. Values inbetween represent varying levels of     translucency between the two extremes.      The default value is 1.0. */
 end_comment
 begin_function
 DECL|function|setOpacity
@@ -2150,7 +2150,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \property QWindow::contentOrientation     \brief the orientation of the window's contents      This is a hint to the window manager in case it needs to display     additional content like popups, dialogs, status bars, or similar     in relation to the window.      The recommended orientation is QScreen::orientation() but     an application doesn't have to support all possible orientations,     and thus can opt to ignore the current screen orientation.      The difference between the window and the content orientation     determines how much to rotate the content by. QScreen::angleBetween(),     QScreen::transformBetween(), and QScreen::mapBetween() can be used     to compute the necessary transform.      The default value is Qt::PrimaryOrientation */
+comment|/*!     \property QWindow::contentOrientation     \brief the orientation of the window's contents     \since 5.1      This is a hint to the window manager in case it needs to display     additional content like popups, dialogs, status bars, or similar     in relation to the window.      The recommended orientation is QScreen::orientation() but     an application doesn't have to support all possible orientations,     and thus can opt to ignore the current screen orientation.      The difference between the window and the content orientation     determines how much to rotate the content by. QScreen::angleBetween(),     QScreen::transformBetween(), and QScreen::mapBetween() can be used     to compute the necessary transform.      The default value is Qt::PrimaryOrientation */
 end_comment
 begin_function
 DECL|function|reportContentOrientationChange
@@ -2921,7 +2921,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QWindow::minimumWidth     \brief the minimum width of the window's geometry */
+comment|/*!     \property QWindow::minimumWidth     \brief the minimum width of the window's geometry     \since 5.1 */
 end_comment
 begin_function
 DECL|function|setMinimumWidth
@@ -2948,7 +2948,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QWindow::minimumHeight     \brief the minimum height of the window's geometry */
+comment|/*!     \property QWindow::minimumHeight     \brief the minimum height of the window's geometry     \since 5.1 */
 end_comment
 begin_function
 DECL|function|setMinimumHeight
@@ -3116,7 +3116,7 @@ emit|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QWindow::maximumWidth     \brief the maximum width of the window's geometry */
+comment|/*!     \property QWindow::maximumWidth     \brief the maximum width of the window's geometry     \since 5.1 */
 end_comment
 begin_function
 DECL|function|setMaximumWidth
@@ -3143,7 +3143,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QWindow::maximumHeight     \brief the maximum height of the window's geometry */
+comment|/*!     \property QWindow::maximumHeight     \brief the maximum height of the window's geometry     \since 5.1 */
 end_comment
 begin_function
 DECL|function|setMaximumHeight
