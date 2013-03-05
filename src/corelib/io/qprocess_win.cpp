@@ -1366,6 +1366,11 @@ condition|)
 block|{
 name|stdoutReader
 operator|->
+name|stop
+argument_list|()
+expr_stmt|;
+name|stdoutReader
+operator|->
 name|deleteLater
 argument_list|()
 expr_stmt|;
@@ -1389,6 +1394,11 @@ condition|(
 name|stderrReader
 condition|)
 block|{
+name|stderrReader
+operator|->
+name|stop
+argument_list|()
+expr_stmt|;
 name|stderrReader
 operator|->
 name|deleteLater
