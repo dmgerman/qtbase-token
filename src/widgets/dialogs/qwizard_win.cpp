@@ -1378,7 +1378,10 @@ name|void
 name|QVistaHelper
 operator|::
 name|updateCustomMargins
-parameter_list|()
+parameter_list|(
+name|bool
+name|vistaMargins
+parameter_list|)
 block|{
 if|if
 condition|(
@@ -1409,10 +1412,7 @@ specifier|const
 name|QMargins
 name|customMargins
 init|=
-name|vistaState
-argument_list|()
-operator|==
-name|VistaAero
+name|vistaMargins
 condition|?
 name|QMargins
 argument_list|(

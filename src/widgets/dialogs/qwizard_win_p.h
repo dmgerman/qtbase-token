@@ -177,7 +177,9 @@ block|}
 block|;
 name|void
 name|updateCustomMargins
-argument_list|()
+argument_list|(
+argument|bool vistaMargins
+argument_list|)
 block|;
 name|bool
 name|setDWMTitleBar
