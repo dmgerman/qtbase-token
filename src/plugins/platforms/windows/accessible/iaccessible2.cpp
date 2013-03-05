@@ -6376,9 +6376,9 @@ argument_list|(
 name|offset
 argument_list|,
 operator|(
-name|QAccessible2
+name|QAccessible
 operator|::
-name|BoundaryType
+name|TextBoundaryType
 operator|)
 name|boundaryType
 argument_list|,
@@ -6486,9 +6486,9 @@ argument_list|(
 name|offset
 argument_list|,
 operator|(
-name|QAccessible2
+name|QAccessible
 operator|::
-name|BoundaryType
+name|TextBoundaryType
 operator|)
 name|boundaryType
 argument_list|,
@@ -6596,9 +6596,9 @@ argument_list|(
 name|offset
 argument_list|,
 operator|(
-name|QAccessible2
+name|QAccessible
 operator|::
-name|BoundaryType
+name|TextBoundaryType
 operator|)
 name|boundaryType
 argument_list|,
