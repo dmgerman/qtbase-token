@@ -1630,10 +1630,22 @@ operator|>>
 literal|2
 expr_stmt|;
 block|}
+comment|// dashes are sensitive to clips, so we need to clip consistently when painting to the same device
+name|QRect
+name|clipRect
+init|=
+name|strokeSelection
+operator|&
+name|Dashed
+condition|?
+name|deviceRect
+else|:
+name|clip
+decl_stmt|;
 comment|// setup FP clip bounds
 name|xmin
 operator|=
-name|clip
+name|clipRect
 operator|.
 name|left
 argument_list|()
@@ -1642,7 +1654,7 @@ literal|1
 expr_stmt|;
 name|xmax
 operator|=
-name|clip
+name|clipRect
 operator|.
 name|right
 argument_list|()
@@ -1651,7 +1663,7 @@ literal|2
 expr_stmt|;
 name|ymin
 operator|=
-name|clip
+name|clipRect
 operator|.
 name|top
 argument_list|()
@@ -1660,7 +1672,7 @@ literal|1
 expr_stmt|;
 name|ymax
 operator|=
-name|clip
+name|clipRect
 operator|.
 name|bottom
 argument_list|()
