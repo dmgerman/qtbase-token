@@ -14725,12 +14725,6 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_COMPILER_VARIADIC_MACROS
-argument_list|)
 name|index
 operator|=
 name|mo
@@ -14833,8 +14827,6 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|index
 operator|=
 name|mo
