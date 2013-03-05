@@ -636,6 +636,19 @@ argument_list|()
 operator|<<
 name|Q_FUNC_INFO
 expr_stmt|;
+name|Q_FOREACH
+argument_list|(
+argument|QQnxWindow *childWindow
+argument_list|,
+argument|m_childWindows
+argument_list|)
+name|childWindow
+operator|->
+name|setScreen
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
 operator|delete
 name|m_cursor
 expr_stmt|;
