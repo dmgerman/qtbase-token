@@ -3753,6 +3753,11 @@ argument_list|,
 name|processes
 argument_list|)
 expr_stmt|;
+name|QSKIP
+argument_list|(
+literal|"This test is unstable: QTBUG-25655"
+argument_list|)
+expr_stmt|;
 name|rememberKey
 argument_list|(
 literal|"market"
