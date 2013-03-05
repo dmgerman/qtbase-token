@@ -23305,6 +23305,15 @@ operator|->
 name|activateWindow
 argument_list|()
 expr_stmt|;
+comment|// TODO setFocus should not be necessary here, because activateWindow
+comment|// should focus it, and the window is the QLineEdit. But the test can fail
+comment|// on Windows if we don't do this. If each test had a unique QLineEdit
+comment|// instance, maybe such problems would go away.
+name|testWidget
+operator|->
+name|setFocus
+argument_list|()
+expr_stmt|;
 name|QTRY_VERIFY
 argument_list|(
 name|testWidget

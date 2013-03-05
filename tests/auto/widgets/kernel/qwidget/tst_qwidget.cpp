@@ -35582,8 +35582,12 @@ argument_list|)
 expr_stmt|;
 name|popup
 operator|->
-name|resize
+name|setGeometry
 argument_list|(
+literal|50
+argument_list|,
+literal|50
+argument_list|,
 literal|150
 argument_list|,
 literal|50

@@ -6434,6 +6434,12 @@ name|newFocus
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|qApp
+condition|)
+return|return;
+if|if
+condition|(
 name|previous
 condition|)
 block|{

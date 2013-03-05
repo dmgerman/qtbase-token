@@ -1701,6 +1701,7 @@ argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
 specifier|const
 block|;
+comment|// Qt 6: Remove
 name|QModelIndex
 name|sibling
 argument_list|(

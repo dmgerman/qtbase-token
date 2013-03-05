@@ -295,6 +295,9 @@ name|QStringList
 name|nobuildParts
 decl_stmt|;
 name|QStringList
+name|skipModules
+decl_stmt|;
+name|QStringList
 name|licensedModules
 decl_stmt|;
 name|QStringList

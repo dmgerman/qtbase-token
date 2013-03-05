@@ -305,7 +305,7 @@ name|INVALID_HANDLE_VALUE
 expr_stmt|;
 name|mapHandle
 operator|=
-name|INVALID_HANDLE_VALUE
+name|NULL
 expr_stmt|;
 ifndef|#
 directive|ifndef

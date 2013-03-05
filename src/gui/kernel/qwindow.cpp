@@ -94,7 +94,7 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!     \class QWindow     \inmodule QtGui     \since 5.0     \brief The QWindow class represents a window in the underlying windowing system.      A window that is supplied a parent becomes a native child window of     their parent window.      An application will typically use QWidget or QQuickView for its UI, and not     QWindow directly. Still, it is possible to render directly to a QWindow     with QBackingStore or QOpenGLContext, when wanting to keep dependencies to     a minimum or when wanting to use OpenGL directly. The     \l{gui/rasterwindow}{Raster Window} and \l{gui/openglwindow}{OpenGL Window}     examples are useful reference examples for how to render to a QWindow using     either approach.      \section1 Resource management      Windows can potentially use a lot of memory. A usual measurement is     width times height times color depth. A window might also include multiple     buffers to support double and triple buffering, as well as depth and stencil     buffers. To release a window's memory resources, call the destroy() function.      \section1 Content orientation      QWindow has reportContentOrientationChange() that can be used to specify     the layout of the window contents in relation to the screen. The content     orientation is simply a hint to the windowing system about which     orientation the window contents are in.  It's useful when you wish to keep     the same window size, but rotate the contents instead, especially when     doing rotation animations between different orientations. The windowing     system might use this value to determine the layout of system popups or     dialogs.      \section1 Visibility and Windowing system exposure.      By default, the window is not visible, and you must call setVisible(true),     or show() or similar to make it visible. To make a window hidden again,     call setVisible(false) or hide(). The visible property describes the state     the application wants the window to be in. Depending on the underlying     system, a visible window might still not be shown on the screen. It could,     for instance, be covered by other opaque windows or moved outside the     physical area of the screen. On windowing systems that have exposure     notifications, the isExposed() accessor describes whether the window should     be treated as directly visible on screen. The exposeEvent() function is     called whenever the windows exposure in the windowing system changes.  On     windowing systems that do not make this information visible to the     application, isExposed() will simply return the same value as isVisible().      QWindow::Visibility queried through visibility() is a convenience API     combining the functions of visible() and windowState().      \section1 Rendering      There are two Qt APIs that can be used to render content into a window,     QBackingStore for rendering with a QPainter and flushing the contents     to a window with type QSurface::RasterSurface, and QOpenGLContext for     rendering with OpenGL to a window with type QSurface::OpenGLSurface.      The application can start rendering as soon as isExposed() returns true,     and can keep rendering until it isExposed() returns false. To find out when     isExposed() changes, reimplement exposeEvent(). The window will always get     a resize event before the first expose event. */
+comment|/*!     \class QWindow     \inmodule QtGui     \since 5.0     \brief The QWindow class represents a window in the underlying windowing system.      A window that is supplied a parent becomes a native child window of     their parent window.      An application will typically use QWidget or QQuickView for its UI, and not     QWindow directly. Still, it is possible to render directly to a QWindow     with QBackingStore or QOpenGLContext, when wanting to keep dependencies to     a minimum or when wanting to use OpenGL directly. The     \l{gui/rasterwindow}{Raster Window} and \l{gui/openglwindow}{OpenGL Window}     examples are useful reference examples for how to render to a QWindow using     either approach.      \section1 Resource management      Windows can potentially use a lot of memory. A usual measurement is     width times height times color depth. A window might also include multiple     buffers to support double and triple buffering, as well as depth and stencil     buffers. To release a window's memory resources, call the destroy() function.      \section1 Content orientation      QWindow has reportContentOrientationChange() that can be used to specify     the layout of the window contents in relation to the screen. The content     orientation is simply a hint to the windowing system about which     orientation the window contents are in.  It's useful when you wish to keep     the same window size, but rotate the contents instead, especially when     doing rotation animations between different orientations. The windowing     system might use this value to determine the layout of system popups or     dialogs.      \section1 Visibility and Windowing system exposure.      By default, the window is not visible, and you must call setVisible(true),     or show() or similar to make it visible. To make a window hidden again,     call setVisible(false) or hide(). The visible property describes the state     the application wants the window to be in. Depending on the underlying     system, a visible window might still not be shown on the screen. It could,     for instance, be covered by other opaque windows or moved outside the     physical area of the screen. On windowing systems that have exposure     notifications, the isExposed() accessor describes whether the window should     be treated as directly visible on screen. The exposeEvent() function is     called whenever the windows exposure in the windowing system changes.  On     windowing systems that do not make this information visible to the     application, isExposed() will simply return the same value as isVisible().      QWindow::Visibility queried through visibility() is a convenience API     combining the functions of visible() and windowState().      \section1 Rendering      There are two Qt APIs that can be used to render content into a window,     QBackingStore for rendering with a QPainter and flushing the contents     to a window with type QSurface::RasterSurface, and QOpenGLContext for     rendering with OpenGL to a window with type QSurface::OpenGLSurface.      The application can start rendering as soon as isExposed() returns true,     and can keep rendering until it isExposed() returns false. To find out when     isExposed() changes, reimplement exposeEvent(). The window will always get     a resize event before the first expose event.      \section1 Initial geometry      If the window's width and height are left uninitialized, the window will     get a reasonable default geometry from the platform window. If the position     is left uninitialized, then the platform window will allow the windowing     system to position the window. For example on X11, the window manager     usually does some kind of smart positioning to try to avoid having new     windows completely obscure existing windows. However setGeometry()     initializes both the position and the size, so if you want a fixed size but     an automatic position, you should call resize() or setWidth() and     setHeight() instead. */
 end_comment
 begin_comment
 comment|/*!     Creates a window as a top level on the \a targetScreen.      The window is not shown until setVisible(true), show(), or similar is called.      \sa setScreen() */
@@ -2855,21 +2855,12 @@ argument_list|()
 operator|!=
 name|arg
 condition|)
-name|setGeometry
+name|resize
 argument_list|(
-name|QRect
-argument_list|(
-name|x
-argument_list|()
-argument_list|,
-name|y
-argument_list|()
-argument_list|,
 name|arg
 argument_list|,
 name|height
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -2895,21 +2886,12 @@ argument_list|()
 operator|!=
 name|arg
 condition|)
-name|setGeometry
+name|resize
 argument_list|(
-name|QRect
-argument_list|(
-name|x
-argument_list|()
-argument_list|,
-name|y
-argument_list|()
-argument_list|,
 name|width
 argument_list|()
 argument_list|,
 name|arg
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3330,6 +3312,12 @@ name|Q_D
 argument_list|(
 name|QWindow
 argument_list|)
+expr_stmt|;
+name|d
+operator|->
+name|positionAutomatic
+operator|=
+literal|false
 expr_stmt|;
 if|if
 condition|(

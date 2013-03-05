@@ -620,7 +620,7 @@ argument_list|)
 argument_list|)
 condition|)
 block|{
-name|QOfonoPrimaryDataContextInterface
+name|QOfonoConnectionContextInterface
 name|primaryContext
 argument_list|(
 name|dcPath
@@ -775,7 +775,7 @@ argument_list|)
 argument_list|)
 condition|)
 block|{
-name|QOfonoPrimaryDataContextInterface
+name|QOfonoConnectionContextInterface
 name|primaryContext
 argument_list|(
 name|dcPath

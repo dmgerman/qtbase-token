@@ -2273,6 +2273,40 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!   Appends \a node to the members list, if and only if it   isn't already in the members list.  */
+end_comment
+begin_function
+DECL|function|addMember
+name|void
+name|InnerNode
+operator|::
+name|addMember
+parameter_list|(
+name|Node
+modifier|*
+name|node
+parameter_list|)
+block|{
+if|if
+condition|(
+operator|!
+name|members_
+operator|.
+name|contains
+argument_list|(
+name|node
+argument_list|)
+condition|)
+name|members_
+operator|.
+name|append
+argument_list|(
+name|node
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_comment
 comment|/*!   Returns true if this node's members collection contains at   least one namespace node.  */
 end_comment
 begin_function
@@ -8668,7 +8702,7 @@ begin_comment
 comment|/*! \fn QString QmlClassNode::qmlModuleIdentifier() const   This function is called to get a string that is used either   as a prefix for the file name to use for QML element or   component reference page, or as a qualifier to prefix a   reference to a QML element or comnponent. The string that   is returned is the concatenation of the QML module name   and its version number. e.g., if an element or component   is defined to be in the QML module QtQuick 1, its module   identifier is "QtQuick1". See setQmlModuleInfo().  */
 end_comment
 begin_comment
-comment|/*!   This function splits \a arg on the blank character to get a   QML module name and version number. It then spilts the version   number on the '.' character to get a major version number and   a minor vrsion number. Both version numbers must be present.   It stores these components separately. If all three are found,   true is returned. If any of the three is not found or is not   correct, false is returned.  */
+comment|/*!   This function splits \a arg on the blank character to get a   QML module name and version number. It then spilts the version   number on the '.' character to get a major version number and   a minor vrsion number. Both major the major and minor version   numbers should be present, but the minor version number is not   absolutely necessary.    It stores the three components separately in this node. If all   three are found, true is returned. If any of the three is not   found or is not in the correct format, false is returned.  */
 end_comment
 begin_function
 DECL|function|setQmlModuleInfo
@@ -8770,6 +8804,46 @@ block|}
 block|}
 return|return
 literal|false
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!   If this QML type node has a base type node,   return the fully qualified name of that QML   type, i.e.<QML-module-name>::<QML-type-name>.  */
+end_comment
+begin_function
+DECL|function|qmlFullBaseName
+name|QString
+name|QmlClassNode
+operator|::
+name|qmlFullBaseName
+parameter_list|()
+specifier|const
+block|{
+name|QString
+name|result
+decl_stmt|;
+if|if
+condition|(
+name|baseNode_
+condition|)
+block|{
+name|result
+operator|=
+name|baseNode_
+operator|->
+name|qmlModuleIdentifier
+argument_list|()
+operator|+
+literal|"::"
+operator|+
+name|baseNode_
+operator|->
+name|name
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|result
 return|;
 block|}
 end_function
