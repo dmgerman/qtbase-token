@@ -176,6 +176,10 @@ condition|(
 name|msgType
 operator|==
 name|QtWarningMsg
+operator|||
+name|msgType
+operator|==
+name|QtCriticalMsg
 condition|)
 block|{
 specifier|static
