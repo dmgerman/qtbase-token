@@ -99,6 +99,11 @@ begin_decl_stmt
 name|namespace
 name|QtAndroid
 block|{
+name|QAndroidPlatformIntegration
+modifier|*
+name|androidPlatformIntegration
+parameter_list|()
+function_decl|;
 name|void
 name|setAndroidPlatformIntegration
 parameter_list|(

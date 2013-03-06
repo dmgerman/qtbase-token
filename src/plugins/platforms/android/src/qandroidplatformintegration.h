@@ -347,11 +347,35 @@ name|m_defaultGeometryHeight
 argument_list|)
 return|;
 block|}
+name|QTouchDevice
+operator|*
+name|touchDevice
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_touchDevice
+return|;
+block|}
+name|void
+name|setTouchDevice
+argument_list|(
+argument|QTouchDevice *touchDevice
+argument_list|)
+block|{
+name|m_touchDevice
+operator|=
+name|touchDevice
+block|; }
 name|private
 operator|:
 name|friend
 name|class
 name|QEglFSAndroidHooks
+block|;
+name|QTouchDevice
+operator|*
+name|m_touchDevice
 block|;
 ifndef|#
 directive|ifndef

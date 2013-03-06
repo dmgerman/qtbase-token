@@ -215,10 +215,15 @@ name|QStringList
 modifier|&
 name|paramList
 parameter_list|)
+member_init_list|:
+name|m_touchDevice
+argument_list|(
+literal|0
+argument_list|)
 ifdef|#
 directive|ifdef
 name|ANDROID_PLUGIN_OPENGL
-member_init_list|:
+member_init_list|,
 name|m_primaryWindow
 argument_list|(
 literal|0
@@ -607,6 +612,9 @@ name|m_androidPlatformNativeInterface
 expr_stmt|;
 operator|delete
 name|m_androidFDB
+expr_stmt|;
+operator|delete
+name|m_touchDevice
 expr_stmt|;
 name|QtAndroid
 operator|::
