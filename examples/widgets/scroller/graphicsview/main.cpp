@@ -739,7 +739,7 @@ name|painter
 operator|->
 name|drawRect
 argument_list|(
-name|QRect
+name|QRectF
 argument_list|(
 literal|1.5
 argument_list|,
