@@ -87,9 +87,16 @@ end_comment
 begin_if
 if|#
 directive|if
-if|\
+operator|!
+name|defined
+argument_list|(
+name|PCRE_DISABLE_JIT
+argument_list|)
+operator|&&
+operator|(
+expr|\
 comment|/* ARM */
-if|\
+expr|\
 operator|(
 name|defined
 argument_list|(
@@ -182,6 +189,7 @@ name|defined
 argument_list|(
 name|__mips64
 argument_list|)
+operator|)
 operator|)
 operator|)
 end_if
