@@ -11035,7 +11035,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QMetaObject::connectSlotsByName(QObject *object)      Searches recursively for all child objects of the given \a object, and connects     matching signals from them to slots of \a object that follow the following form:      \snippet code/src_corelib_kernel_qobject.cpp 33      Let's assume our object has a child object of type \c{QPushButton} with     the \l{QObject::objectName}{object name} \c{button1}. The slot to catch the     button's \c{clicked()} signal would be:      \snippet code/src_corelib_kernel_qobject.cpp 34      \sa QObject::setObjectName()  */
+comment|/*!     \fn void QMetaObject::connectSlotsByName(QObject *object)      Searches recursively for all child objects of the given \a object, and connects     matching signals from them to slots of \a object that follow the following form:      \snippet code/src_corelib_kernel_qobject.cpp 33      Let's assume our object has a child object of type \c{QPushButton} with     the \l{QObject::objectName}{object name} \c{button1}. The slot to catch the     button's \c{clicked()} signal would be:      \snippet code/src_corelib_kernel_qobject.cpp 34      If \a object itself has a properly set object name, its own signals are also     connected to its respective slots.      \sa QObject::setObjectName()  */
 end_comment
 begin_function
 DECL|function|connectSlotsByName
@@ -11074,6 +11074,7 @@ specifier|const
 name|QObjectList
 name|list
 init|=
+comment|// list of all objects to look for matching signals including...
 name|o
 operator|->
 name|findChildren
@@ -11085,7 +11086,11 @@ argument_list|(
 name|QString
 argument_list|()
 argument_list|)
+comment|// all children of 'o'...
+operator|<<
+name|o
 decl_stmt|;
+comment|// and the object 'o' itself
 for|for
 control|(
 name|int
