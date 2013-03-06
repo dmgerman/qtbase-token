@@ -5206,7 +5206,7 @@ name|hash
 operator|.
 name|end
 argument_list|()
-operator|,
+operator|&&
 name|i
 operator|<
 literal|100
@@ -5368,7 +5368,7 @@ name|hash
 operator|.
 name|constEnd
 argument_list|()
-operator|,
+operator|&&
 name|i
 operator|<
 literal|100
