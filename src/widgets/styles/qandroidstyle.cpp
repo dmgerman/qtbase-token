@@ -4325,7 +4325,7 @@ name|QRectF
 name|src
 decl_stmt|;
 specifier|const
-name|int32_t
+name|qint32
 name|x0
 init|=
 name|m_chunkData
@@ -4336,7 +4336,7 @@ literal|0
 index|]
 decl_stmt|;
 specifier|const
-name|int32_t
+name|qint32
 name|y0
 init|=
 name|m_chunkData
@@ -7139,7 +7139,7 @@ parameter_list|,
 specifier|const
 name|QWidget
 modifier|*
-comment|/*w*/
+comment|/* w */
 parameter_list|)
 block|{
 if|if
@@ -7169,7 +7169,7 @@ parameter_list|(
 name|QStyle
 operator|::
 name|SubElement
-comment|/*subElement*/
+comment|/* subElement */
 parameter_list|,
 specifier|const
 name|QStyleOption
@@ -7179,7 +7179,7 @@ parameter_list|,
 specifier|const
 name|QWidget
 modifier|*
-comment|/*widget*/
+comment|/* widget */
 parameter_list|)
 specifier|const
 block|{
@@ -7389,7 +7389,7 @@ parameter_list|,
 specifier|const
 name|QWidget
 modifier|*
-comment|/*w*/
+comment|/* w */
 parameter_list|)
 specifier|const
 block|{
@@ -8126,7 +8126,7 @@ parameter_list|,
 specifier|const
 name|QWidget
 modifier|*
-comment|/*w*/
+comment|/* w */
 parameter_list|)
 block|{
 if|if
@@ -8632,7 +8632,7 @@ parameter_list|,
 specifier|const
 name|QWidget
 modifier|*
-comment|/*w*/
+comment|/* w */
 parameter_list|)
 specifier|const
 block|{
@@ -8884,7 +8884,7 @@ parameter_list|,
 specifier|const
 name|QWidget
 modifier|*
-comment|/*w*/
+comment|/* w */
 parameter_list|)
 block|{
 if|if
@@ -9322,7 +9322,7 @@ parameter_list|,
 specifier|const
 name|QWidget
 modifier|*
-comment|/*widget*/
+comment|/* widget */
 parameter_list|)
 specifier|const
 block|{
