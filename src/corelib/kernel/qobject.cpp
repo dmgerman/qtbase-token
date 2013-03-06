@@ -11091,6 +11091,7 @@ operator|<<
 name|o
 decl_stmt|;
 comment|// and the object 'o' itself
+comment|// for each method/slot of o ...
 for|for
 control|(
 name|int
@@ -11109,6 +11110,7 @@ operator|++
 name|i
 control|)
 block|{
+specifier|const
 name|QByteArray
 name|slotSignature
 init|=
@@ -11137,6 +11139,7 @@ argument_list|(
 name|slot
 argument_list|)
 expr_stmt|;
+comment|// ...that starts with "on_", ...
 if|if
 condition|(
 name|slot
@@ -11161,6 +11164,7 @@ operator|!=
 literal|'_'
 condition|)
 continue|continue;
+comment|// ...we check each object in our list, ...
 name|bool
 name|foundIt
 init|=
@@ -11196,8 +11200,9 @@ argument_list|(
 name|j
 argument_list|)
 decl_stmt|;
+specifier|const
 name|QByteArray
-name|objName
+name|coName
 init|=
 name|co
 operator|->
@@ -11207,18 +11212,13 @@ operator|.
 name|toLatin1
 argument_list|()
 decl_stmt|;
-name|int
-name|len
-init|=
-name|objName
-operator|.
-name|length
-argument_list|()
-decl_stmt|;
+comment|// ...discarding those whose objectName is not fitting the pattern "on_<objectName>_...", ...
 if|if
 condition|(
-operator|!
-name|len
+name|coName
+operator|.
+name|isEmpty
+argument_list|()
 operator|||
 name|qstrncmp
 argument_list|(
@@ -11226,17 +11226,23 @@ name|slot
 operator|+
 literal|3
 argument_list|,
-name|objName
+name|coName
 operator|.
-name|data
+name|constData
 argument_list|()
 argument_list|,
-name|len
+name|coName
+operator|.
+name|size
+argument_list|()
 argument_list|)
 operator|||
 name|slot
 index|[
-name|len
+name|coName
+operator|.
+name|size
+argument_list|()
 operator|+
 literal|3
 index|]
@@ -11244,6 +11250,22 @@ operator|!=
 literal|'_'
 condition|)
 continue|continue;
+specifier|const
+name|char
+modifier|*
+name|signal
+init|=
+name|slot
+operator|+
+name|coName
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|4
+decl_stmt|;
+comment|// the 'signal' part of the slot name
+comment|// ...for the presence of a matching signal "on_<objectName>_<signal>".
 specifier|const
 name|QMetaObject
 modifier|*
@@ -11259,11 +11281,7 @@ argument_list|()
 operator|->
 name|signalIndex
 argument_list|(
-name|slot
-operator|+
-name|len
-operator|+
-literal|4
+name|signal
 argument_list|,
 operator|&
 name|smeta
@@ -11276,7 +11294,16 @@ operator|<
 literal|0
 condition|)
 block|{
-comment|// search for compatible signals
+comment|// if no exactly fitting signal (name + complete parameter type list) could be found
+comment|// look for just any signal with the correct name and at least the slot's parameter list.
+comment|// Note: if more than one of thoses signals exist, the one that gets connected is
+comment|// chosen 'at random' (order of declaration in source file)
+name|QList
+argument_list|<
+name|QByteArray
+argument_list|>
+name|compatibleSignals
+decl_stmt|;
 specifier|const
 name|QMetaObject
 modifier|*
@@ -11288,39 +11315,39 @@ name|metaObject
 argument_list|()
 decl_stmt|;
 name|int
-name|slotlen
+name|sigLen
 init|=
 name|qstrlen
 argument_list|(
-name|slot
-operator|+
-name|len
-operator|+
-literal|4
+name|signal
 argument_list|)
 operator|-
 literal|1
 decl_stmt|;
+comment|// ignore the trailing ')'
 for|for
 control|(
 name|int
 name|k
 init|=
-literal|0
-init|;
-name|k
-operator|<
 name|QMetaObjectPrivate
 operator|::
 name|absoluteSignalCount
 argument_list|(
 name|smo
 argument_list|)
+operator|-
+literal|1
+init|;
+name|k
+operator|>=
+literal|0
 condition|;
-operator|++
+operator|--
 name|k
 control|)
 block|{
+specifier|const
 name|QMetaMethod
 name|method
 init|=
@@ -11346,13 +11373,9 @@ operator|.
 name|constData
 argument_list|()
 argument_list|,
-name|slot
-operator|+
-name|len
-operator|+
-literal|4
+name|signal
 argument_list|,
-name|slotlen
+name|sigLen
 argument_list|)
 condition|)
 block|{
@@ -11367,9 +11390,38 @@ name|sigIndex
 operator|=
 name|k
 expr_stmt|;
-break|break;
+name|compatibleSignals
+operator|.
+name|prepend
+argument_list|(
+name|method
+operator|.
+name|methodSignature
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|compatibleSignals
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|1
+condition|)
+name|qWarning
+argument_list|()
+operator|<<
+literal|"QMetaObject::connectSlotsByName: Connecting slot"
+operator|<<
+name|slot
+operator|<<
+literal|"with the first of the following compatible signals:"
+operator|<<
+name|compatibleSignals
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -11378,6 +11430,7 @@ operator|<
 literal|0
 condition|)
 continue|continue;
+comment|// we connect it...
 if|if
 condition|(
 name|Connection
@@ -11403,6 +11456,10 @@ name|foundIt
 operator|=
 literal|true
 expr_stmt|;
+comment|// ...and stop looking for further objects with the same name.
+comment|// Note: the Designer will make sure each object name is unique in the above
+comment|// 'list' but other code may create two child objects with the same name. In
+comment|// this case one is chosen 'at random'.
 break|break;
 block|}
 block|}
@@ -11455,6 +11512,37 @@ name|Cloned
 operator|)
 condition|)
 block|{
+comment|// check if the slot has the following signature: "on_..._...(..."
+name|int
+name|iParen
+init|=
+name|slotSignature
+operator|.
+name|indexOf
+argument_list|(
+literal|'('
+argument_list|)
+decl_stmt|;
+name|int
+name|iLastUnderscore
+init|=
+name|slotSignature
+operator|.
+name|lastIndexOf
+argument_list|(
+literal|'_'
+argument_list|,
+name|iParen
+operator|-
+literal|1
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|iLastUnderscore
+operator|>
+literal|3
+condition|)
 name|qWarning
 argument_list|(
 literal|"QMetaObject::connectSlotsByName: No matching signal for %s"
