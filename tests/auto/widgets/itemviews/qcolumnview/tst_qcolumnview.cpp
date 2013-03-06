@@ -665,11 +665,14 @@ name|command
 argument_list|)
 expr_stmt|;
 block|}
-DECL|function|visualRegionForSelection
+comment|// visualRegionForSelection() is protected in QColumnView.
+DECL|function|getVisualRegionForSelection
 name|QRegion
-name|visualRegionForSelection
+name|getVisualRegionForSelection
 parameter_list|(
+specifier|const
 name|QItemSelection
+modifier|&
 name|selection
 parameter_list|)
 block|{
@@ -3915,7 +3918,7 @@ argument_list|()
 argument_list|,
 name|view
 operator|.
-name|visualRegionForSelection
+name|getVisualRegionForSelection
 argument_list|(
 name|emptyItemSelection
 argument_list|)
@@ -4019,7 +4022,7 @@ argument_list|()
 operator|!=
 name|view
 operator|.
-name|visualRegionForSelection
+name|getVisualRegionForSelection
 argument_list|(
 name|itemSelection
 argument_list|)

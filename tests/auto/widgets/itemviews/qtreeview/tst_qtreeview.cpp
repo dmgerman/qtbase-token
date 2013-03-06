@@ -272,10 +272,11 @@ operator|::
 name|MovePrevious
 block|}
 enum|;
-DECL|function|moveCursor
+comment|// enum PublicCursorAction and moveCursor() are protected in QTreeView.
+DECL|function|doMoveCursor
 specifier|inline
 name|QModelIndex
-name|moveCursor
+name|doMoveCursor
 parameter_list|(
 name|PublicCursorAction
 name|ca
@@ -12278,7 +12279,7 @@ name|actual
 init|=
 name|view
 operator|.
-name|moveCursor
+name|doMoveCursor
 argument_list|(
 name|PublicView
 operator|::
@@ -12350,7 +12351,7 @@ name|actual
 operator|=
 name|view
 operator|.
-name|moveCursor
+name|doMoveCursor
 argument_list|(
 name|PublicView
 operator|::
@@ -20264,7 +20265,7 @@ argument_list|()
 expr_stmt|;
 name|view
 operator|.
-name|moveCursor
+name|doMoveCursor
 argument_list|(
 name|PublicView
 operator|::

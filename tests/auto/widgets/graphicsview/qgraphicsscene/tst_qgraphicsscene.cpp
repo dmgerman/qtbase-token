@@ -2025,7 +2025,7 @@ name|views
 parameter_list|()
 function_decl|;
 name|void
-name|event
+name|testEvent
 parameter_list|()
 function_decl|;
 name|void
@@ -25734,11 +25734,11 @@ block|}
 class|;
 end_class
 begin_function
-DECL|function|event
+DECL|function|testEvent
 name|void
 name|tst_QGraphicsScene
 operator|::
-name|event
+name|testEvent
 parameter_list|()
 block|{
 comment|// Test that QGraphicsScene properly propagates events to QObject.

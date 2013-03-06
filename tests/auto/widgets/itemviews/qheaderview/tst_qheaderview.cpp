@@ -446,7 +446,7 @@ name|unhideSection
 parameter_list|()
 function_decl|;
 name|void
-name|event
+name|testEvent
 parameter_list|()
 function_decl|;
 name|void
@@ -8196,11 +8196,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|event
+DECL|function|testEvent
 name|void
 name|tst_QHeaderView
 operator|::
-name|event
+name|testEvent
 parameter_list|()
 block|{
 name|protected_QHeaderView

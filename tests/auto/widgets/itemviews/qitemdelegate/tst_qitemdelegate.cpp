@@ -772,7 +772,7 @@ name|rect
 parameter_list|()
 function_decl|;
 name|void
-name|eventFilter
+name|testEventFilter
 parameter_list|()
 function_decl|;
 name|void
@@ -3651,11 +3651,11 @@ begin_comment
 comment|//with Qt::Key_Enter and Qt::Key_Return
 end_comment
 begin_function
-DECL|function|eventFilter
+DECL|function|testEventFilter
 name|void
 name|tst_QItemDelegate
 operator|::
-name|eventFilter
+name|testEventFilter
 parameter_list|()
 block|{
 name|TestItemDelegate
