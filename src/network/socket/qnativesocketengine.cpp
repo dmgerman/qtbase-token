@@ -1760,7 +1760,8 @@ name|QAbstractSocket
 operator|::
 name|ListeningState
 argument_list|,
-literal|false
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 name|Q_CHECK_TYPE
@@ -1774,7 +1775,8 @@ name|QAbstractSocket
 operator|::
 name|TcpSocket
 argument_list|,
-literal|false
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 return|return
@@ -2144,7 +2146,8 @@ name|QAbstractSocket
 operator|::
 name|UnconnectedState
 argument_list|,
-literal|false
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 return|return
@@ -2259,7 +2262,8 @@ name|QAbstractSocket
 operator|::
 name|UdpSocket
 argument_list|,
-literal|false
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 return|return
@@ -2323,7 +2327,8 @@ name|QAbstractSocket
 operator|::
 name|UdpSocket
 argument_list|,
-literal|false
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 return|return

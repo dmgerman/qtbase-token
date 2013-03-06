@@ -1324,6 +1324,10 @@ literal|"http://www.w3.org/XML/1998/namespace"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|initialTagStackStringStorageSize
+operator|=
+name|tagStackStringStorageSize
+expr_stmt|;
 block|}
 end_constructor
 begin_ifndef
@@ -1701,6 +1705,10 @@ name|readBuffer
 operator|.
 name|clear
 argument_list|()
+expr_stmt|;
+name|tagStackStringStorageSize
+operator|=
+name|initialTagStackStringStorageSize
 expr_stmt|;
 name|type
 operator|=

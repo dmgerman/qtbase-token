@@ -11278,6 +11278,9 @@ decl_stmt|;
 name|int
 name|tagStackStringStorageSize
 decl_stmt|;
+name|int
+name|initialTagStackStringStorageSize
+decl_stmt|;
 name|bool
 name|tagsDone
 decl_stmt|;

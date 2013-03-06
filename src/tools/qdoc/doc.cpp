@@ -16647,10 +16647,10 @@ operator|<=
 literal|'Z'
 condition|)
 name|c
-operator|-=
-literal|'A'
-operator|-
+operator|+=
 literal|'a'
+operator|-
+literal|'A'
 expr_stmt|;
 name|bool
 name|alnum

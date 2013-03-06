@@ -14361,7 +14361,7 @@ begin_comment
 comment|/*!     \fn QMetaObject::Connection QObject::connect(const QObject *sender, PointerToMemberFunction signal, Functor functor)      \threadsafe     \overload connect()      Creates a connection from \a signal in     \a sender object to \a functor, and returns a handle to the connection      The signal must be a function declared as a signal in the header.     The slot function can be any function or functor that can be connected     to the signal.     A function can be connected to a given signal if the signal as at     least as many argument as the slot. A functor can be connected to a signal     if they have exactly the same number of arguments. There must exist implicit     conversion between the types of the corresponding arguments in the     signal and the slot.      Example:      \snippet code/src_corelib_kernel_qobject.cpp 45      If your compiler support C++11 lambda expressions, you can use them:      \snippet code/src_corelib_kernel_qobject.cpp 46      The connection will automatically disconnect if the sender is destroyed.  */
 end_comment
 begin_comment
-comment|/**     \internal      Implementation of the template version of connect      \a sender is the sender object     \a signal is a pointer to a pointer to a member signal of the sender     \a receiver is the receiver object, may not be null, will be equal to sender when                 connecting to a static function or a functor     \a slot a pointer only used when using Qt::UniqueConnection     \a type the Qt::ConnctionType passed as argument to connect     \a types an array of integer with the metatype id of the parametter of the signal              to be used with queued connection              must stay valid at least for the whole time of the connection, this function              do not take ownership. typically static data.              If null, then the types will be computed when the signal is emit in a queued              connection from the types from the signature.     \a senderMetaObject is the metaobject used to lookup the signal, the signal must be in                         this metaobject  */
+comment|/**     \internal      Implementation of the template version of connect      \a sender is the sender object     \a signal is a pointer to a pointer to a member signal of the sender     \a receiver is the receiver object, may not be null, will be equal to sender when                 connecting to a static function or a functor     \a slot a pointer only used when using Qt::UniqueConnection     \a type the Qt::ConnctionType passed as argument to connect     \a types an array of integer with the metatype id of the parameter of the signal              to be used with queued connection              must stay valid at least for the whole time of the connection, this function              do not take ownership. typically static data.              If null, then the types will be computed when the signal is emit in a queued              connection from the types from the signature.     \a senderMetaObject is the metaobject used to lookup the signal, the signal must be in                         this metaobject  */
 end_comment
 begin_function
 DECL|function|connectImpl
@@ -14431,7 +14431,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QObject::connect: invalid null parametter"
+literal|"QObject::connect: invalid null parameter"
 argument_list|)
 expr_stmt|;
 if|if

@@ -1329,6 +1329,26 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+elseif|else
+if|if
+condition|(
+name|IsWindowVisible
+argument_list|(
+name|hwnd
+argument_list|)
+condition|)
+block|{
+comment|// Repaint when switching from layered.
+name|InvalidateRect
+argument_list|(
+name|hwnd
+argument_list|,
+name|NULL
+argument_list|,
+name|TRUE
+argument_list|)
+expr_stmt|;
+block|}
 endif|#
 directive|endif
 comment|// !Q_OS_WINCE

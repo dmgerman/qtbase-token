@@ -528,6 +528,10 @@ comment|// Remove from parent's Hierarchy.
 name|removeFromParent
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|m_screen
+condition|)
 name|m_screen
 operator|->
 name|updateHierarchy
@@ -2061,6 +2065,20 @@ name|platformScreen
 expr_stmt|;
 if|if
 condition|(
+name|platformScreen
+operator|==
+literal|0
+condition|)
+block|{
+comment|// The screen has been destroyed
+name|m_screen
+operator|=
+literal|0
+expr_stmt|;
+return|return;
+block|}
+if|if
+condition|(
 name|m_screen
 operator|==
 name|platformScreen
@@ -2269,7 +2287,11 @@ literal|"QQnxWindow: Window Hierarchy broken; window has parent, but parent hasn
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|m_screen
+condition|)
 block|{
 name|m_screen
 operator|->

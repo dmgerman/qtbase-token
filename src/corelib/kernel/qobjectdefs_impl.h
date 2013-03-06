@@ -110,7 +110,7 @@ name|Type
 typedef|;
 block|}
 empty_stmt|;
-comment|/*        The following List classes are used to help to handle the list of arguments.        It follow the same principles as the lisp lists.        List_Left<L,N> take a list and a number as a parametter and returns (via the Value typedef,        the list composed of the first N element of the list      */
+comment|/*        The following List classes are used to help to handle the list of arguments.        It follow the same principles as the lisp lists.        List_Left<L,N> take a list and a number as a parameter and returns (via the Value typedef,        the list composed of the first N element of the list      */
 ifndef|#
 directive|ifndef
 name|Q_COMPILER_VARIADIC_TEMPLATES
@@ -606,7 +606,7 @@ operator|>
 operator|&
 operator|)
 block|{}
-comment|/*       The FunctionPointer<Func> struct is a type trait for function pointer.         - ArgumentCount  is the number of argument, or -1 if it is unknown         - the Object typedef is the Object of a pointer to member function         - the Arguments typedef is the list of argument (in a QtPrivate::List)         - the Function typedef is an alias to the template parametter Func         - the call<Args, R>(f,o,args) method is used to call that slot             Args is the list of argument of the signal             R is the return type of the signal             f is the function pointer             o is the receiver object             and args is the array of pointer to arguments, as used in qt_metacall         The Functor<Func,N> struct is the helper to call a functor of N argument.        its call function is the same as the FunctionPointer::call function.      */
+comment|/*       The FunctionPointer<Func> struct is a type trait for function pointer.         - ArgumentCount  is the number of argument, or -1 if it is unknown         - the Object typedef is the Object of a pointer to member function         - the Arguments typedef is the list of argument (in a QtPrivate::List)         - the Function typedef is an alias to the template parameter Func         - the call<Args, R>(f,o,args) method is used to call that slot             Args is the list of argument of the signal             R is the return type of the signal             f is the function pointer             o is the receiver object             and args is the array of pointer to arguments, as used in qt_metacall         The Functor<Func,N> struct is the helper to call a functor of N argument.        its call function is the same as the FunctionPointer::call function.      */
 ifndef|#
 directive|ifndef
 name|Q_COMPILER_VARIADIC_TEMPLATES
