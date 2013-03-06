@@ -387,8 +387,6 @@ init|=
 operator|new
 name|UpdateScoreState
 argument_list|(
-name|this
-argument_list|,
 name|levelState
 argument_list|)
 decl_stmt|;
@@ -1325,10 +1323,6 @@ name|UpdateScoreState
 operator|::
 name|UpdateScoreState
 parameter_list|(
-name|PlayState
-modifier|*
-name|g
-parameter_list|,
 name|QState
 modifier|*
 name|parent
@@ -1337,11 +1331,6 @@ member_init_list|:
 name|QState
 argument_list|(
 name|parent
-argument_list|)
-member_init_list|,
-name|game
-argument_list|(
-name|g
 argument_list|)
 block|{ }
 end_constructor

@@ -119,10 +119,6 @@ block|;
 name|int
 name|score
 block|;
-name|QState
-operator|*
-name|parallelChild
-block|;
 name|friend
 name|class
 name|UpdateScoreState
@@ -248,10 +244,6 @@ operator|:
 name|GraphicsScene
 operator|*
 name|scene
-block|;
-name|Boat
-operator|*
-name|boat
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -374,10 +366,6 @@ name|public
 operator|:
 name|UpdateScoreState
 argument_list|(
-name|PlayState
-operator|*
-name|game
-argument_list|,
 name|QState
 operator|*
 name|parent
@@ -385,14 +373,7 @@ argument_list|)
 block|;
 name|private
 operator|:
-name|QPropertyAnimation
-operator|*
-name|scoreAnimation
-block|;
-name|PlayState
-operator|*
-name|game
-block|; }
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_comment
@@ -534,9 +515,6 @@ operator|:
 name|PlayState
 operator|*
 name|game
-block|;
-name|int
-name|key
 block|; }
 decl_stmt|;
 end_decl_stmt
