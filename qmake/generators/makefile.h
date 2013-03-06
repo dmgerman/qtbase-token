@@ -282,7 +282,7 @@ name|TARG_MODE
 block|{
 name|TARG_UNIX_MODE
 block|,
-name|TARG_MACX_MODE
+name|TARG_MAC_MODE
 block|,
 name|TARG_WIN_MODE
 block|}

@@ -3794,7 +3794,7 @@ if|if
 condition|(
 name|target_mode
 operator|==
-name|TARG_MACX_MODE
+name|TARG_MAC_MODE
 operator|&&
 name|opt
 operator|.
@@ -4805,7 +4805,7 @@ if|if
 condition|(
 name|target_mode
 operator|==
-name|TARG_MACX_MODE
+name|TARG_MAC_MODE
 operator|&&
 name|opt
 operator|.
@@ -4857,7 +4857,7 @@ if|if
 condition|(
 name|target_mode
 operator|==
-name|TARG_MACX_MODE
+name|TARG_MAC_MODE
 operator|&&
 name|opt
 operator|.
@@ -5162,7 +5162,7 @@ if|if
 condition|(
 name|target_mode
 operator|==
-name|TARG_MACX_MODE
+name|TARG_MAC_MODE
 operator|&&
 name|opt
 operator|.
@@ -5218,7 +5218,7 @@ operator|||
 operator|(
 name|target_mode
 operator|==
-name|TARG_MACX_MODE
+name|TARG_MAC_MODE
 operator|&&
 name|opt
 operator|.
@@ -5307,7 +5307,7 @@ if|if
 condition|(
 name|target_mode
 operator|==
-name|TARG_MACX_MODE
+name|TARG_MAC_MODE
 operator|&&
 name|opt
 operator|.
@@ -5351,7 +5351,7 @@ if|if
 condition|(
 name|target_mode
 operator|==
-name|TARG_MACX_MODE
+name|TARG_MAC_MODE
 operator|&&
 name|opt
 operator|.
@@ -6616,7 +6616,7 @@ name|TARG_UNIX_MODE
 operator|||
 name|target_mode
 operator|==
-name|TARG_MACX_MODE
+name|TARG_MAC_MODE
 condition|)
 block|{
 name|QString

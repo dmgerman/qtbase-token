@@ -1752,12 +1752,12 @@ name|project
 operator|->
 name|isActiveConfig
 argument_list|(
-literal|"macx"
+literal|"mac"
 argument_list|)
 condition|)
 name|target_mode
 operator|=
-name|TARG_MACX_MODE
+name|TARG_MAC_MODE
 expr_stmt|;
 else|else
 name|target_mode
@@ -24506,7 +24506,7 @@ if|if
 condition|(
 name|target_mode
 operator|==
-name|TARG_MACX_MODE
+name|TARG_MAC_MODE
 operator|&&
 name|project
 operator|->
