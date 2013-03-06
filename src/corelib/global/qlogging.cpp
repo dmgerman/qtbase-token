@@ -4141,7 +4141,9 @@ name|type
 argument_list|,
 name|emptyContext
 argument_list|,
-name|QLatin1String
+name|QString
+operator|::
+name|fromLocal8Bit
 argument_list|(
 name|buf
 argument_list|)
