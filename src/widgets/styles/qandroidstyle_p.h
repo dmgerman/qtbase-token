@@ -78,7 +78,7 @@ argument_list|(
 name|QT_NO_STYLE_ANDROID
 argument_list|)
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QAndroidStyle
 range|:
 name|public
