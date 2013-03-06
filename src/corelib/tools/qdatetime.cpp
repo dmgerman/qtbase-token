@@ -3639,7 +3639,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the time as a string. The \a format parameter determines     the format of the result string.      These expressions may be used:      \table     \header \li Expression \li Output     \row \li h          \li the hour without a leading zero (0 to 23 or 1 to 12 if AM/PM display)     \row \li hh          \li the hour with a leading zero (00 to 23 or 01 to 12 if AM/PM display)     \row \li H          \li the hour without a leading zero (0 to 23, even with AM/PM display)     \row \li HH          \li the hour with a leading zero (00 to 23, even with AM/PM display)     \row \li m \li the minute without a leading zero (0 to 59)     \row \li mm \li the minute with a leading zero (00 to 59)     \row \li s \li the second without a leading zero (0 to 59)     \row \li ss \li the second with a leading zero (00 to 59)     \row \li z \li the milliseconds without leading zeroes (0 to 999)     \row \li zzz \li the milliseconds with leading zeroes (000 to 999)     \row \li AP or A          \li use AM/PM display. \e AP will be replaced by either "AM" or "PM".     \row \li ap or a          \li use am/pm display. \e ap will be replaced by either "am" or "pm".     \row \li t \li the timezone (for example "CEST")     \endtable      All other input characters will be ignored. Any sequence of characters that     are enclosed in single quotes will be treated as text and not be used as an     expression. Two consecutive single quotes ("''") are replaced by a singlequote     in the output. Formats without separators (e.g. "HHmm") are currently not supported.      Example format strings (assuming that the QTime is 14:13:09.042)      \table     \header \li Format \li Result     \row \li hh:mm:ss.zzz \li 14:13:09.042     \row \li h:m:s ap     \li 2:13:9 pm     \row \li H:m:s a      \li 14:13:9 pm     \endtable      If the time is invalid, an empty string will be returned.     If \a format is empty, the default format "hh:mm:ss" is used.      \sa QDate::toString(), QDateTime::toString() */
+comment|/*!     Returns the time as a string. The \a format parameter determines     the format of the result string.      These expressions may be used:      \table     \header \li Expression \li Output     \row \li h          \li the hour without a leading zero (0 to 23 or 1 to 12 if AM/PM display)     \row \li hh          \li the hour with a leading zero (00 to 23 or 01 to 12 if AM/PM display)     \row \li H          \li the hour without a leading zero (0 to 23, even with AM/PM display)     \row \li HH          \li the hour with a leading zero (00 to 23, even with AM/PM display)     \row \li m \li the minute without a leading zero (0 to 59)     \row \li mm \li the minute with a leading zero (00 to 59)     \row \li s \li the second without a leading zero (0 to 59)     \row \li ss \li the second with a leading zero (00 to 59)     \row \li z \li the milliseconds without leading zeroes (0 to 999)     \row \li zzz \li the milliseconds with leading zeroes (000 to 999)     \row \li AP or A          \li use AM/PM display. \e A/AP will be replaced by either "AM" or "PM".     \row \li ap or a          \li use am/pm display. \e a/ap will be replaced by either "am" or "pm".     \row \li t \li the timezone (for example "CEST")     \endtable      All other input characters will be ignored. Any sequence of characters that     are enclosed in single quotes will be treated as text and not be used as an     expression. Two consecutive single quotes ("''") are replaced by a singlequote     in the output. Formats without separators (e.g. "HHmm") are currently not supported.      Example format strings (assuming that the QTime is 14:13:09.042)      \table     \header \li Format \li Result     \row \li hh:mm:ss.zzz \li 14:13:09.042     \row \li h:m:s ap     \li 2:13:9 pm     \row \li H:m:s a      \li 14:13:9 pm     \endtable      If the time is invalid, an empty string will be returned.     If \a format is empty, the default format "hh:mm:ss" is used.      \sa QDate::toString(), QDateTime::toString() */
 end_comment
 begin_function
 DECL|function|toString
@@ -10630,29 +10630,6 @@ operator|==
 name|QLatin1Char
 argument_list|(
 literal|'A'
-argument_list|)
-operator|&&
-name|i
-operator|+
-literal|1
-operator|<
-name|max
-operator|&&
-name|f
-operator|.
-name|at
-argument_list|(
-name|i
-operator|+
-literal|1
-argument_list|)
-operator|.
-name|toUpper
-argument_list|()
-operator|==
-name|QLatin1Char
-argument_list|(
-literal|'P'
 argument_list|)
 condition|)
 block|{
