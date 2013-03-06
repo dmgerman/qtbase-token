@@ -756,10 +756,6 @@ specifier|mutable
 name|int
 name|proxyAuthCalled
 decl_stmt|;
-DECL|member|gotClosedSignal
-name|bool
-name|gotClosedSignal
-decl_stmt|;
 DECL|member|numConnections
 name|int
 name|numConnections

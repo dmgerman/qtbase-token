@@ -1351,10 +1351,6 @@ name|QMdiSubWindow
 modifier|*
 name|activeWindow
 decl_stmt|;
-DECL|member|accelPressed
-name|bool
-name|accelPressed
-decl_stmt|;
 block|}
 class|;
 end_class
