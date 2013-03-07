@@ -61,12 +61,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qstring.h>
+file|<QtCore/qstring.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<qset.h>
+file|<QtCore/qset.h>
 end_include
 begin_decl_stmt
 name|QT_QML_BEGIN_NAMESPACE

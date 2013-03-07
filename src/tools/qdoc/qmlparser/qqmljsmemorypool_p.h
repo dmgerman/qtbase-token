@@ -68,11 +68,6 @@ include|#
 directive|include
 file|<cstring>
 end_include
-begin_include
-include|#
-directive|include
-file|<stdlib.h>
-end_include
 begin_decl_stmt
 name|QT_QML_BEGIN_NAMESPACE
 name|namespace
