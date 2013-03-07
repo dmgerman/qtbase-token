@@ -105,6 +105,12 @@ name|defined
 argument_list|(
 name|QT_LINUXBASE
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_ANDROID
+argument_list|)
 end_if
 begin_define
 DECL|macro|QTESTLIB_USE_PERF_EVENTS
