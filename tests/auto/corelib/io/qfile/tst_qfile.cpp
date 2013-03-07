@@ -19678,9 +19678,12 @@ operator|.
 name|handle
 argument_list|()
 argument_list|,
+name|int
+argument_list|(
 name|QT_FILENO
 argument_list|(
 name|stream_
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
