@@ -133,19 +133,6 @@ name|file
 argument_list|)
 block|;
 specifier|static
-name|QSupportedWritingSystems
-name|determineWritingSystemsFromTrueTypeBits
-argument_list|(
-argument|quint32 unicodeRange[
-literal|4
-argument|]
-argument_list|,
-argument|quint32 codePageRange[
-literal|2
-argument|]
-argument_list|)
-block|;
-specifier|static
 name|QString
 name|fontNameFromTTFile
 argument_list|(

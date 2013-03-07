@@ -382,6 +382,24 @@ name|standardSizes
 argument_list|()
 specifier|const
 expr_stmt|;
+comment|// helper
+specifier|static
+name|QSupportedWritingSystems
+name|writingSystemsFromTrueTypeBits
+parameter_list|(
+name|quint32
+name|unicodeRange
+index|[
+literal|4
+index|]
+parameter_list|,
+name|quint32
+name|codePageRange
+index|[
+literal|2
+index|]
+parameter_list|)
+function_decl|;
 comment|//callback
 specifier|static
 name|void

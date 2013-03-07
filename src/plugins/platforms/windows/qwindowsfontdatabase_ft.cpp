@@ -847,9 +847,9 @@ block|}
 decl_stmt|;
 name|writingSystems
 operator|=
-name|QBasicFontDatabase
+name|QPlatformFontDatabase
 operator|::
-name|determineWritingSystemsFromTrueTypeBits
+name|writingSystemsFromTrueTypeBits
 argument_list|(
 name|unicodeRange
 argument_list|,
