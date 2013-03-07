@@ -82,9 +82,11 @@ name|key
 operator|.
 name|compare
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
-literal|"gtk2"
+name|QGtk2Theme
+operator|::
+name|name
 argument_list|)
 argument_list|,
 name|Qt

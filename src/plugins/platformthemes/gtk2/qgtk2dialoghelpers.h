@@ -63,7 +63,6 @@ operator|~
 name|QGtk2ColorDialogHelper
 argument_list|()
 block|;
-name|virtual
 name|bool
 name|show
 argument_list|(
@@ -74,17 +73,14 @@ argument_list|,
 argument|QWindow *parent
 argument_list|)
 block|;
-name|virtual
 name|void
 name|exec
 argument_list|()
 block|;
-name|virtual
 name|void
 name|hide
 argument_list|()
 block|;
-name|virtual
 name|void
 name|setCurrentColor
 argument_list|(
@@ -94,7 +90,6 @@ operator|&
 name|color
 argument_list|)
 block|;
-name|virtual
 name|QColor
 name|currentColor
 argument_list|()
@@ -147,7 +142,6 @@ operator|~
 name|QGtk2FileDialogHelper
 argument_list|()
 block|;
-name|virtual
 name|bool
 name|show
 argument_list|(
@@ -158,23 +152,19 @@ argument_list|,
 argument|QWindow *parent
 argument_list|)
 block|;
-name|virtual
 name|void
 name|exec
 argument_list|()
 block|;
-name|virtual
 name|void
 name|hide
 argument_list|()
 block|;
-name|virtual
 name|bool
 name|defaultNameFilterDisables
 argument_list|()
 specifier|const
 block|;
-name|virtual
 name|void
 name|setDirectory
 argument_list|(
@@ -184,13 +174,11 @@ operator|&
 name|directory
 argument_list|)
 block|;
-name|virtual
 name|QString
 name|directory
 argument_list|()
 specifier|const
 block|;
-name|virtual
 name|void
 name|selectFile
 argument_list|(
@@ -200,18 +188,15 @@ operator|&
 name|filename
 argument_list|)
 block|;
-name|virtual
 name|QStringList
 name|selectedFiles
 argument_list|()
 specifier|const
 block|;
-name|virtual
 name|void
 name|setFilter
 argument_list|()
 block|;
-name|virtual
 name|void
 name|selectNameFilter
 argument_list|(
@@ -221,7 +206,6 @@ operator|&
 name|filter
 argument_list|)
 block|;
-name|virtual
 name|QString
 name|selectedNameFilter
 argument_list|()
@@ -320,7 +304,6 @@ operator|~
 name|QGtk2FontDialogHelper
 argument_list|()
 block|;
-name|virtual
 name|bool
 name|show
 argument_list|(
@@ -331,17 +314,14 @@ argument_list|,
 argument|QWindow *parent
 argument_list|)
 block|;
-name|virtual
 name|void
 name|exec
 argument_list|()
 block|;
-name|virtual
 name|void
 name|hide
 argument_list|()
 block|;
-name|virtual
 name|void
 name|setCurrentFont
 argument_list|(
@@ -351,7 +331,6 @@ operator|&
 name|font
 argument_list|)
 block|;
-name|virtual
 name|QFont
 name|currentFont
 argument_list|()
