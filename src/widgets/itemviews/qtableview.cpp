@@ -9793,7 +9793,7 @@ argument_list|(
 name|current
 argument_list|)
 operator|.
-name|top
+name|bottom
 argument_list|()
 operator|-
 name|d
@@ -9854,7 +9854,7 @@ argument_list|(
 name|current
 argument_list|)
 operator|.
-name|bottom
+name|top
 argument_list|()
 operator|+
 name|d
