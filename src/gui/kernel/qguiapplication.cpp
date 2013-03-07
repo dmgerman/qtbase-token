@@ -6809,6 +6809,8 @@ argument_list|)
 expr_stmt|;
 break|break;
 block|}
+default|default:
+break|break;
 block|}
 block|}
 end_function
