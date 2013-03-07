@@ -266,6 +266,10 @@ argument_list|(
 literal|0
 argument_list|)
 block|{
+name|lastEndOffset
+operator|=
+literal|0
+expr_stmt|;
 name|this
 operator|->
 name|filePath
@@ -401,8 +405,10 @@ argument_list|()
 operator|<=
 name|lastEndOffset
 condition|)
+block|{
 comment|// Return if we reach the end of the preceding structure.
 break|break;
+block|}
 elseif|else
 if|if
 condition|(
@@ -416,8 +422,10 @@ name|begin
 argument_list|()
 argument_list|)
 condition|)
+block|{
 comment|// Return if we encounter a previously used comment.
 break|break;
+block|}
 elseif|else
 if|if
 condition|(
@@ -494,9 +502,11 @@ literal|'*'
 argument_list|)
 argument_list|)
 condition|)
+block|{
 return|return
 name|loc
 return|;
+block|}
 block|}
 block|}
 block|}
@@ -670,9 +680,11 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
+block|{
 return|return
 literal|false
 return|;
+block|}
 return|return
 literal|true
 return|;
