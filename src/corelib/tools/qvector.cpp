@@ -21,7 +21,7 @@ begin_comment
 comment|/*! \fn QVector::QVector(const QVector<T>&other)      Constructs a copy of \a other.      This operation takes \l{constant time}, because QVector is     \l{implicitly shared}. This makes returning a QVector from a     function very fast. If a shared instance is modified, it will be     copied (copy-on-write), and that takes \l{linear time}.      \sa operator=() */
 end_comment
 begin_comment
-comment|/*! \fn QVector::QVector(std::initializer_list<T> args)     \since 4.8      Construct a vector from the std::initilizer_list given by \a args.      This constructor is only enabled if the compiler supports C++0x */
+comment|/*! \fn QVector::QVector(std::initializer_list<T> args)     \since 4.8      Construct a vector from the std::initilizer_list given by \a args.      This constructor is only enabled if the compiler supports C++11 initializer     lists. */
 end_comment
 begin_comment
 comment|/*! \fn QVector::~QVector()      Destroys the vector. */
