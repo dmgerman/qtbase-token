@@ -1732,11 +1732,6 @@ operator|=
 literal|true
 expr_stmt|;
 comment|// no longer starting up
-name|Q_Q
-argument_list|(
-name|QApplication
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|qgetenv
@@ -1749,8 +1744,8 @@ argument_list|()
 operator|>
 literal|0
 condition|)
-name|q
-operator|->
+name|QCoreApplication
+operator|::
 name|setAttribute
 argument_list|(
 name|Qt
@@ -15706,11 +15701,6 @@ modifier|*
 name|event
 parameter_list|)
 block|{
-name|Q_Q
-argument_list|(
-name|QApplication
-argument_list|)
-expr_stmt|;
 comment|// Check if the platform wants synthesized mouse events.
 if|if
 condition|(
@@ -15882,8 +15872,8 @@ specifier|const
 name|bool
 name|res
 init|=
-name|q
-operator|->
+name|QCoreApplication
+operator|::
 name|sendSpontaneousEvent
 argument_list|(
 name|widget
