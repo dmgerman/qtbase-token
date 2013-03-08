@@ -12811,11 +12811,21 @@ argument_list|)
 operator|||
 name|findFile
 argument_list|(
+literal|"sicuin.lib"
+argument_list|)
+operator|||
+name|findFile
+argument_list|(
 literal|"libicuin.lib"
+argument_list|)
+operator|||
+name|findFile
+argument_list|(
+literal|"libsicuin.lib"
 argument_list|)
 operator|)
 expr_stmt|;
-comment|// libicun.lib if compiled with mingw
+comment|// "lib" prefix for mingw, 's' prefix for static
 elseif|else
 if|if
 condition|(
