@@ -855,9 +855,7 @@ operator|!
 name|mkfile
 operator|->
 name|write
-argument_list|(
-name|oldpwd
-argument_list|)
+argument_list|()
 condition|)
 block|{
 if|if

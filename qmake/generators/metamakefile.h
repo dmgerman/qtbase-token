@@ -156,12 +156,7 @@ block|}
 name|virtual
 name|bool
 name|write
-parameter_list|(
-specifier|const
-name|QString
-modifier|&
-name|oldpwd
-parameter_list|)
+parameter_list|()
 init|=
 literal|0
 function_decl|;
