@@ -1990,6 +1990,7 @@ comment|// QT_BOOTSTRAPPED
 end_comment
 begin_decl_stmt
 specifier|extern
+name|Q_DBUS_EXPORT
 name|int
 name|qDBusParametersForMethod
 argument_list|(
@@ -2012,6 +2013,7 @@ decl_stmt|;
 end_decl_stmt
 begin_function_decl
 specifier|extern
+name|Q_DBUS_EXPORT
 name|bool
 name|qDBusCheckAsyncTag
 parameter_list|(
