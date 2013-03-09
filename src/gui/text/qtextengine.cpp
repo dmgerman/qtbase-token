@@ -6393,6 +6393,9 @@ name|shaper_item
 operator|.
 name|font
 operator|=
+operator|(
+name|HB_Font
+operator|)
 name|actualFontEngine
 operator|->
 name|harfbuzzFont
@@ -6402,9 +6405,12 @@ name|shaper_item
 operator|.
 name|face
 operator|=
+operator|(
+name|HB_Face
+operator|)
 name|actualFontEngine
 operator|->
-name|initializedHarfbuzzFace
+name|harfbuzzFace
 argument_list|()
 expr_stmt|;
 name|shaper_item

@@ -96,11 +96,6 @@ include|#
 directive|include
 file|<qmutex.h>
 end_include
-begin_include
-include|#
-directive|include
-file|"private/qharfbuzz_copy_p.h"
-end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QFontEngineFTRawFont
@@ -226,7 +221,8 @@ name|FT_Face
 name|face
 decl_stmt|;
 DECL|member|hbFace
-name|HB_Face
+name|void
+modifier|*
 name|hbFace
 decl_stmt|;
 DECL|member|xsize

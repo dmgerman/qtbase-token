@@ -51,6 +51,11 @@ include|#
 directive|include
 file|"private/qfontengine_ft_p.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<private/qharfbuzz_p.h>
+end_include
 begin_endif
 endif|#
 directive|endif
