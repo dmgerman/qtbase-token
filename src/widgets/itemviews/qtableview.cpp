@@ -12991,6 +12991,13 @@ return|;
 name|ensurePolished
 argument_list|()
 expr_stmt|;
+specifier|const
+name|int
+name|maximumProcessCols
+init|=
+literal|1000
+decl_stmt|;
+comment|// To avoid this to take forever.
 name|int
 name|left
 init|=
@@ -13063,6 +13070,11 @@ literal|0
 decl_stmt|;
 name|QModelIndex
 name|index
+decl_stmt|;
+name|int
+name|columnsProcessed
+init|=
+literal|0
 decl_stmt|;
 for|for
 control|(
@@ -13290,6 +13302,16 @@ name|height
 argument_list|()
 argument_list|)
 expr_stmt|;
+operator|++
+name|columnsProcessed
+expr_stmt|;
+if|if
+condition|(
+name|columnsProcessed
+operator|==
+name|maximumProcessCols
+condition|)
+break|break;
 block|}
 return|return
 name|d
@@ -13338,6 +13360,13 @@ return|;
 name|ensurePolished
 argument_list|()
 expr_stmt|;
+specifier|const
+name|int
+name|maximumProcessRows
+init|=
+literal|1000
+decl_stmt|;
+comment|// To avoid this to take forever.
 name|int
 name|top
 init|=
@@ -13409,6 +13438,11 @@ argument_list|()
 decl_stmt|;
 name|int
 name|hint
+init|=
+literal|0
+decl_stmt|;
+name|int
+name|rowsProcessed
 init|=
 literal|0
 decl_stmt|;
@@ -13572,6 +13606,16 @@ name|width
 argument_list|()
 argument_list|)
 expr_stmt|;
+operator|++
+name|rowsProcessed
+expr_stmt|;
+if|if
+condition|(
+name|rowsProcessed
+operator|==
+name|maximumProcessRows
+condition|)
+break|break;
 block|}
 return|return
 name|d
