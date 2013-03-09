@@ -76,29 +76,15 @@ end_include
 begin_include
 include|#
 directive|include
+file|"private/qharfbuzz_copy_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<private/qfontengineglyphcache_p.h>
 end_include
-begin_struct_decl
-struct_decl|struct
-name|glyph_metrics_t
-struct_decl|;
-end_struct_decl
-begin_typedef
-DECL|typedef|glyph_t
-typedef|typedef
-name|unsigned
-name|int
-name|glyph_t
-typedef|;
-end_typedef
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-DECL|variable|QChar
-name|class
-name|QChar
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|QPainterPath
 name|class
 name|QPainterPath
@@ -917,20 +903,20 @@ argument_list|)
 specifier|const
 block|;
 name|virtual
-name|HB_Error
+name|int
 name|getPointInOutline
 argument_list|(
-argument|HB_Glyph glyph
+argument|glyph_t glyph
 argument_list|,
 argument|int flags
 argument_list|,
-argument|hb_uint32 point
+argument|quint32 point
 argument_list|,
-argument|HB_Fixed *xpos
+argument|QFixed *xpos
 argument_list|,
-argument|HB_Fixed *ypos
+argument|QFixed *ypos
 argument_list|,
-argument|hb_uint32 *nPoints
+argument|quint32 *nPoints
 argument_list|)
 block|;
 name|void

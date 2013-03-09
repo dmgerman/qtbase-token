@@ -1362,7 +1362,7 @@ operator|::
 name|TextBypassShaping
 condition|)
 block|{
-comment|// Skip harfbuzz complex shaping, only use advances
+comment|// Skip complex shaping, only use advances
 name|int
 name|numGlyphs
 init|=

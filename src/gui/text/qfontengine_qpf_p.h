@@ -568,20 +568,20 @@ argument_list|)
 specifier|const
 block|;
 name|virtual
-name|HB_Error
+name|int
 name|getPointInOutline
 argument_list|(
-argument|HB_Glyph glyph
+argument|glyph_t glyph
 argument_list|,
 argument|int flags
 argument_list|,
-argument|hb_uint32 point
+argument|quint32 point
 argument_list|,
-argument|HB_Fixed *xpos
+argument|QFixed *xpos
 argument_list|,
-argument|HB_Fixed *ypos
+argument|QFixed *ypos
 argument_list|,
-argument|hb_uint32 *nPoints
+argument|quint32 *nPoints
 argument_list|)
 block|;
 name|virtual

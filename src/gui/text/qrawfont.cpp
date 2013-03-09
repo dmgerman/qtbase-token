@@ -1323,7 +1323,7 @@ name|glyphs
 operator|=
 cast|const_cast
 argument_list|<
-name|HB_Glyph
+name|glyph_t
 operator|*
 argument_list|>
 argument_list|(

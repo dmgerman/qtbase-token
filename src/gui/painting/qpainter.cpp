@@ -20206,7 +20206,7 @@ argument_list|)
 decl_stmt|;
 name|QVarLengthArray
 argument_list|<
-name|HB_GlyphAttributes
+name|QGlyphAttributes
 argument_list|,
 literal|128
 argument_list|>
@@ -20231,7 +20231,7 @@ argument_list|()
 operator|*
 sizeof|sizeof
 argument_list|(
-name|HB_GlyphAttributes
+name|QGlyphAttributes
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -20289,20 +20289,13 @@ name|glyphs
 operator|.
 name|glyphs
 operator|=
-cast|reinterpret_cast
-argument_list|<
-name|HB_Glyph
-operator|*
-argument_list|>
-argument_list|(
 cast|const_cast
 argument_list|<
-name|quint32
+name|glyph_t
 operator|*
 argument_list|>
 argument_list|(
 name|glyphArray
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|textItem
@@ -21355,7 +21348,7 @@ operator|::
 name|TextBypassShaping
 condition|)
 block|{
-comment|// Skip harfbuzz complex shaping, shape using glyph advances only
+comment|// Skip complex shaping, shape using glyph advances only
 name|int
 name|len
 init|=
