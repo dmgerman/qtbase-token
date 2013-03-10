@@ -43,6 +43,11 @@ end_comment
 begin_comment
 comment|//
 end_comment
+begin_include
+include|#
+directive|include
+file|<QtCore/qglobal.h>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
