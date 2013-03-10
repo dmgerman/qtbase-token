@@ -20,12 +20,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/harfbuzz-shaper.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<private/qharfbuzz_p.h>
+file|"qharfbuzz_p.h"
 end_include
 begin_define
 DECL|macro|FLAG
