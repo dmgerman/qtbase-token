@@ -45,6 +45,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/qatomic.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<pcre.h>
 end_include
 begin_decl_stmt
@@ -269,8 +274,7 @@ name|void
 name|getPatternInfo
 parameter_list|()
 function_decl|;
-name|pcre16_extra
-modifier|*
+name|void
 name|optimizePattern
 parameter_list|()
 function_decl|;
@@ -349,8 +353,10 @@ modifier|*
 name|compiledPattern
 decl_stmt|;
 DECL|member|studyData
+name|QAtomicPointer
+argument_list|<
 name|pcre16_extra
-modifier|*
+argument_list|>
 name|studyData
 decl_stmt|;
 DECL|member|errorString
@@ -734,6 +740,9 @@ expr_stmt|;
 name|pcre16_free_study
 argument_list|(
 name|studyData
+operator|.
+name|load
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|usedCount
@@ -745,8 +754,11 @@ operator|=
 literal|0
 expr_stmt|;
 name|studyData
-operator|=
+operator|.
+name|store
+argument_list|(
 literal|0
+argument_list|)
 expr_stmt|;
 name|usingCrLfNewlines
 operator|=
@@ -848,6 +860,9 @@ expr_stmt|;
 name|Q_ASSERT
 argument_list|(
 name|studyData
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|0
 argument_list|)
@@ -882,6 +897,9 @@ expr_stmt|;
 name|Q_ASSERT
 argument_list|(
 name|studyData
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|0
 argument_list|)
@@ -1231,12 +1249,11 @@ directive|endif
 block|}
 end_function
 begin_comment
-comment|/*!     \internal      The purpose of the function is to call pcre16_study (which allows some     optimizations to be performed, including JIT-compiling the pattern), and     setting the studyData member variable to the result of the study. It gets     called by doMatch() every time a match is performed. As of now, the     optimizations on the pattern are performed after a certain number of usages     (i.e. the qt_qregularexpression_optimize_after_use_count constant).      Notice that although the method is protected by a mutex, one thread may     invoke this function and return immediately (i.e. not study the pattern,     leaving studyData to NULL); but before calling pcre16_exec to perform the     match, another thread performs the studying and sets studyData to something     else. Although the assignment to studyData is itself atomic, the release of     the memory pointed by studyData isn't. Therefore, the current studyData     value is returned and used by doMatch. */
+comment|/*!     \internal      The purpose of the function is to call pcre16_study (which allows some     optimizations to be performed, including JIT-compiling the pattern), and     setting the studyData member variable to the result of the study. It gets     called by doMatch() every time a match is performed. As of now, the     optimizations on the pattern are performed after a certain number of usages     (i.e. the qt_qregularexpression_optimize_after_use_count constant).      Notice that although the method is protected by a mutex, one thread may     invoke this function and return immediately (i.e. not study the pattern,     leaving studyData to NULL); but before calling pcre16_exec to perform the     match, another thread performs the studying and sets studyData to something     else. Although the assignment to studyData is itself atomic, the release of     the memory pointed by studyData isn't. Therefore, we work on a local copy     (localStudyData) before using storeRelease on studyData. In doMatch there's     the corresponding loadAcquire. */
 end_comment
 begin_function
 DECL|function|optimizePattern
-name|pcre16_extra
-modifier|*
+name|void
 name|QRegularExpressionPrivate
 operator|::
 name|optimizePattern
@@ -1257,6 +1274,9 @@ decl_stmt|;
 if|if
 condition|(
 name|studyData
+operator|.
+name|load
+argument_list|()
 operator|||
 operator|(
 operator|++
@@ -1265,9 +1285,7 @@ operator|!=
 name|qt_qregularexpression_optimize_after_use_count
 operator|)
 condition|)
-return|return
-name|studyData
-return|;
+return|return;
 specifier|static
 specifier|const
 name|bool
@@ -1294,8 +1312,11 @@ name|char
 modifier|*
 name|err
 decl_stmt|;
-name|studyData
-operator|=
+name|pcre16_extra
+modifier|*
+specifier|const
+name|localStudyData
+init|=
 name|pcre16_study
 argument_list|(
 name|compiledPattern
@@ -1305,12 +1326,12 @@ argument_list|,
 operator|&
 name|err
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
-name|studyData
+name|localStudyData
 operator|&&
-name|studyData
+name|localStudyData
 operator|->
 name|flags
 operator|&
@@ -1318,7 +1339,7 @@ name|PCRE_EXTRA_EXECUTABLE_JIT
 condition|)
 name|pcre16_assign_jit_stack
 argument_list|(
-name|studyData
+name|localStudyData
 argument_list|,
 name|qtPcreCallback
 argument_list|,
@@ -1328,7 +1349,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|studyData
+name|localStudyData
 operator|&&
 name|err
 condition|)
@@ -1339,9 +1360,13 @@ argument_list|,
 name|err
 argument_list|)
 expr_stmt|;
-return|return
 name|studyData
-return|;
+operator|.
+name|storeRelease
+argument_list|(
+name|localStudyData
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -1702,11 +1727,6 @@ literal|1
 argument_list|)
 decl_stmt|;
 comment|// this is mutex protected
-specifier|const
-name|pcre16_extra
-modifier|*
-name|currentStudyData
-init|=
 cast|const_cast
 argument_list|<
 name|QRegularExpressionPrivate
@@ -1717,6 +1737,20 @@ name|this
 argument_list|)
 operator|->
 name|optimizePattern
+argument_list|()
+expr_stmt|;
+comment|// work with a local copy of the study data, as we are running pcre_exec
+comment|// potentially more than once, and we don't want to run call it
+comment|// with different study data
+specifier|const
+name|pcre16_extra
+modifier|*
+specifier|const
+name|currentStudyData
+init|=
+name|studyData
+operator|.
+name|loadAcquire
 argument_list|()
 decl_stmt|;
 name|int
