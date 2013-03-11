@@ -758,12 +758,12 @@ directive|ifdef
 name|Q_OS_WIN
 if|if
 condition|(
+name|m_resolveSymlinks
+operator|&&
 name|fileInfo
 operator|.
 name|isSymLink
 argument_list|()
-operator|&&
-name|m_resolveSymlinks
 condition|)
 block|{
 name|QFileInfo
