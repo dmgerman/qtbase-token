@@ -1900,6 +1900,11 @@ operator|::
 name|scroll
 parameter_list|()
 block|{
+name|QSKIP
+argument_list|(
+literal|"Flakey test - https://bugreports.qt-project.org/browse/QTBUG-30133"
+argument_list|)
+expr_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_NO_GESTURES
