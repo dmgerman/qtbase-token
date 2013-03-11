@@ -1209,6 +1209,15 @@ argument_list|(
 name|context
 argument_list|)
 block|{
+if|#
+directive|if
+name|GLIB_MAJOR_VERSION
+operator|==
+literal|2
+operator|&&
+name|GLIB_MINOR_VERSION
+operator|<
+literal|32
 if|if
 condition|(
 name|qEnvironmentVariableIsEmpty
@@ -1240,6 +1249,8 @@ name|NULL
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 if|if
 condition|(
 name|mainContext
