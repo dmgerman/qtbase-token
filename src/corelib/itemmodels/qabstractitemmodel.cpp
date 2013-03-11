@@ -5310,7 +5310,7 @@ comment|// do nothing
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if there is more data available for \a parent; otherwise     returns false.      The default implementation always returns false.      If canFetchMore() returns true, QAbstractItemView will call fetchMore().     However, the fetchMore() function is only called when the model is being     populated incrementally.      \sa fetchMore() */
+comment|/*!     Returns true if there is more data available for \a parent; otherwise     returns false.      The default implementation always returns false.      If canFetchMore() returns true, the fetchMore() function should     be called. This is the behavior of QAbstractItemView, for example.      \sa fetchMore() */
 end_comment
 begin_function
 DECL|function|canFetchMore
