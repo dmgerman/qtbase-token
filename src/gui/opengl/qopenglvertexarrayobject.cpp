@@ -502,6 +502,10 @@ return|return
 literal|false
 return|;
 block|}
+name|context
+operator|=
+name|ctx
+expr_stmt|;
 if|#
 directive|if
 name|defined
@@ -1051,6 +1055,10 @@ literal|0
 decl_stmt|;
 if|if
 condition|(
+name|d
+operator|->
+name|context
+operator|&&
 name|d
 operator|->
 name|context
