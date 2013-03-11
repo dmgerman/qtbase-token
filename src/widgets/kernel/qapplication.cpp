@@ -13549,6 +13549,11 @@ name|touchEvent
 operator|->
 name|isAccepted
 argument_list|()
+operator|&&
+name|QGuiApplicationPrivate
+operator|::
+name|synthesizeMouseFromTouchEventsEnabled
+argument_list|()
 condition|)
 name|res
 operator|=
@@ -13698,6 +13703,11 @@ operator|!
 name|touchEvent
 operator|->
 name|isAccepted
+argument_list|()
+operator|&&
+name|QGuiApplicationPrivate
+operator|::
+name|synthesizeMouseFromTouchEventsEnabled
 argument_list|()
 condition|)
 block|{
@@ -15887,28 +15897,6 @@ modifier|*
 name|event
 parameter_list|)
 block|{
-comment|// Check if the platform wants synthesized mouse events.
-if|if
-condition|(
-operator|!
-name|QGuiApplicationPrivate
-operator|::
-name|platformIntegration
-argument_list|()
-operator|->
-name|styleHint
-argument_list|(
-name|QPlatformIntegration
-operator|::
-name|SynthesizeMouseFromTouchEvents
-argument_list|)
-operator|.
-name|toBool
-argument_list|()
-condition|)
-return|return
-literal|false
-return|;
 name|Q_FOREACH
 argument_list|(
 argument|const QTouchEvent::TouchPoint&p
