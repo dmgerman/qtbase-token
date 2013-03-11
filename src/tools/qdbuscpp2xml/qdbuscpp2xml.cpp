@@ -60,7 +60,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qdbusconnection.h"
+file|<qdbusconnection.h>
 end_include
 begin_comment
 comment|// for the Export* flags
@@ -68,7 +68,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qdbusconnection_p.h"
+file|<private/qdbusconnection_p.h>
 end_include
 begin_comment
 comment|// for the qDBusCheckAsyncTag
@@ -112,17 +112,17 @@ end_define
 begin_include
 include|#
 directive|include
-file|"qdbusmetatype_p.h"
+file|<qdbusmetatype.h>
 end_include
 begin_include
 include|#
 directive|include
-file|"qdbusmetatype.h"
+file|<private/qdbusmetatype_p.h>
 end_include
 begin_include
 include|#
 directive|include
-file|"qdbusutil_p.h"
+file|<private/qdbusutil_p.h>
 end_include
 begin_include
 include|#
