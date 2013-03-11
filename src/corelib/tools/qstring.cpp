@@ -104,7 +104,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qcollator_p.h"
+file|"qcollator.h"
 end_include
 begin_ifdef
 ifdef|#

@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qcollator_p.h"
+file|"qcollator.h"
 end_include
 begin_include
 include|#
@@ -225,10 +225,10 @@ block|}
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|/*!     \class QCollator     \inmodule QtCore     \brief The QCollator class compares strings according to a localized collation algorithm.      \internal      \reentrant     \ingroup i18n     \ingroup string-processing     \ingroup shared      QCollator is initialized with a QLocale and an optional collation strategy. It tries to     initialize the collator with the specified values. The collator can then be used to compare     and sort strings in a locale dependent fashion.      A QCollator object can be used together with template based sorting algorithms such as std::sort     to sort a list of QStrings.      In addition to the locale and collation strategy, several optional flags can be set that influence     the result of the collation. */
+comment|/*!     \class QCollator     \inmodule QtCore     \brief The QCollator class compares strings according to a localized collation algorithm.      \since 5.2      \reentrant     \ingroup i18n     \ingroup string-processing     \ingroup shared      QCollator is initialized with a QLocale and an optional collation strategy. It tries to     initialize the collator with the specified values. The collator can then be used to compare     and sort strings in a locale dependent fashion.      A QCollator object can be used together with template based sorting algorithms such as std::sort     to sort a list of QStrings.      In addition to the locale and collation strategy, several optional flags can be set that influence     the result of the collation.      QCollator currently depends on Qt being compiled with ICU support enabled. */
 end_comment
 begin_comment
-comment|/*!     Constructs a QCollator from \a locale and \a collation. If \a collation is not     specified the default collation algorithm for the locale is being used. If     \a locale is not specified QLocale::default() is being used.      \sa setLocale, setCollation, setOptions  */
+comment|/*!     Constructs a QCollator from \a locale and \a collation. If \a collation is not     specified the default collation algorithm for the locale is being used. If     \a locale is not specified QLocale::default() is being used.      \sa setLocale(), setCollation()  */
 end_comment
 begin_constructor
 DECL|function|QCollator
@@ -681,10 +681,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \enum QCollator::Collation      This enum can be used to specify an alternate collation algorithm to be used instead     of the default algorithm for the locale.      Possible values are:      \value Default Use the default algorithm for the locale     \value Big5Han     \value Direct     \value GB2312Han     \value PhoneBook     \value Pinyin     \value Phonetic     \value Reformed     \value Standard     \value Stroke     \value Traditional     \value UniHan */
+comment|/*!     \enum QCollator::Collation      This enum can be used to specify an alternate collation algorithm to be used instead     of the default algorithm for the locale.      Possible values are:      \value Default Use the default algorithm for the locale     \value Big5Han     \value Dictionary     \value Direct     \value GB2312Han     \value PhoneBook     \value Pinyin     \value Phonetic     \value Reformed     \value Standard     \value Stroke     \value Traditional     \value UniHan */
 end_comment
 begin_comment
-comment|/*!     Sets the collation algorithm to be used.      \sa QCollator::Collation  */
+comment|/*!     Sets the \a collation algorithm to be used.      \sa QCollator::Collation  */
 end_comment
 begin_function
 DECL|function|setCollation
@@ -768,7 +768,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a unique identifer for this collation object.      This method is helpful to save and restore defined collation     objects.      \sa fromIdentifier  */
+comment|/*!     Returns a unique identifer for this collation object.      This method is helpful to save and restore defined collation     objects.      \sa fromIdentifier()  */
 end_comment
 begin_function
 DECL|function|identifier
@@ -836,7 +836,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Creates a QCollator from a unique identifier and returns it.      \sa identifier  */
+comment|/*!     Creates a QCollator from a unique \a identifier and returns it.      \sa identifier()  */
 end_comment
 begin_function
 DECL|function|fromIdentifier
@@ -976,7 +976,7 @@ begin_comment
 comment|/*!      \enum QCollator::CasePreference      This enum can be used to tailor the case preference during collation.      \value CasePreferenceOff No case preference, use what is the standard for the locale     \value CasePreferenceUpper Sort upper case characters before lower case     \value CasePreferenceLower Sort lower case characters before upper case */
 end_comment
 begin_comment
-comment|/*!     Sets the case preference of the collator.      \sa QCollator::CasePreference  */
+comment|/*!     Sets the case \a preference of the collator.      \sa QCollator::CasePreference  */
 end_comment
 begin_function
 DECL|function|setCasePreference
@@ -986,7 +986,7 @@ operator|::
 name|setCasePreference
 parameter_list|(
 name|CasePreference
-name|c
+name|preference
 parameter_list|)
 block|{
 if|if
@@ -1013,7 +1013,7 @@ name|UCOL_OFF
 decl_stmt|;
 if|if
 condition|(
-name|c
+name|preference
 operator|==
 name|QCollator
 operator|::
@@ -1026,7 +1026,7 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-name|c
+name|preference
 operator|==
 name|QCollator
 operator|::
@@ -1073,7 +1073,7 @@ else|#
 directive|else
 name|Q_UNUSED
 argument_list|(
-name|c
+name|preference
 argument_list|)
 expr_stmt|;
 endif|#
@@ -1228,7 +1228,7 @@ directive|endif
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if numeric sorting is enabled, false otherwise.      \sa setNumericMode  */
+comment|/*!     Returns true if numeric sorting is enabled, false otherwise.      \sa setNumericMode()  */
 end_comment
 begin_function
 DECL|function|numericMode
@@ -1272,7 +1272,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     If set to true, punctuation characters and symbols are ignored when determining sort order.      The default is locale dependent.  */
+comment|/*!     If \a on is set to true, punctuation characters and symbols are ignored when determining sort order.      The default is locale dependent.  */
 end_comment
 begin_function
 DECL|function|setIgnorePunctuation
@@ -1349,7 +1349,7 @@ directive|endif
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if punctuation characters and symbols are ignored when determining sort order.      \sa setIgnorePunctuation  */
+comment|/*!     Returns true if punctuation characters and symbols are ignored when determining sort order.      \sa setIgnorePunctuation()  */
 end_comment
 begin_function
 DECL|function|ignorePunctuation
@@ -1991,6 +1991,9 @@ name|indexCharacters
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \fn bool QCollator::operator()(const QString&s1, const QString&s2) const     \internal */
+end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

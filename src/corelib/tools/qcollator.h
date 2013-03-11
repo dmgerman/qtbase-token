@@ -161,7 +161,7 @@ name|void
 name|setCasePreference
 parameter_list|(
 name|CasePreference
-name|c
+name|preference
 parameter_list|)
 function_decl|;
 name|void
