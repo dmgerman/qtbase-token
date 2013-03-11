@@ -2634,12 +2634,21 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+operator|(
 name|project
 operator|->
 name|isActiveConfig
 argument_list|(
 literal|"depend_prl"
 argument_list|)
+operator|||
+name|project
+operator|->
+name|isActiveConfig
+argument_list|(
+literal|"fast_depend_prl"
+argument_list|)
+operator|)
 operator|&&
 operator|!
 name|project
@@ -2777,12 +2786,26 @@ expr_stmt|;
 name|t
 operator|<<
 name|targ
+expr_stmt|;
+if|if
+condition|(
+name|project
+operator|->
+name|isActiveConfig
+argument_list|(
+literal|"fast_depend_prl"
+argument_list|)
+condition|)
+name|t
 operator|<<
-literal|":"
+literal|":\n\t@echo \"Creating '"
+expr_stmt|;
+else|else
+name|t
 operator|<<
-literal|"\n\t"
-operator|<<
-literal|"@echo \"Creating '"
+literal|": FORCE\n\t@echo \"Creating/updating '"
+expr_stmt|;
+name|t
 operator|<<
 name|targ
 operator|<<
