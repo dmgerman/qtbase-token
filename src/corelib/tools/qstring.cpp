@@ -8896,7 +8896,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QString::replace: invalid QRegularExpresssion object"
+literal|"QString::replace: invalid QRegularExpression object"
 argument_list|)
 expr_stmt|;
 return|return
@@ -9868,7 +9868,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QString::indexOf: invalid QRegularExpresssion object"
+literal|"QString::indexOf: invalid QRegularExpression object"
 argument_list|)
 expr_stmt|;
 return|return
@@ -9939,7 +9939,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QString::lastIndexOf: invalid QRegularExpresssion object"
+literal|"QString::lastIndexOf: invalid QRegularExpression object"
 argument_list|)
 expr_stmt|;
 return|return
@@ -10058,7 +10058,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QString::contains: invalid QRegularExpresssion object"
+literal|"QString::contains: invalid QRegularExpression object"
 argument_list|)
 expr_stmt|;
 return|return
@@ -10112,7 +10112,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QString::count: invalid QRegularExpresssion object"
+literal|"QString::count: invalid QRegularExpression object"
 argument_list|)
 expr_stmt|;
 return|return
