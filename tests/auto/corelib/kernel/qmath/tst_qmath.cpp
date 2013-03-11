@@ -16,7 +16,7 @@ begin_decl_stmt
 DECL|variable|PI
 specifier|static
 specifier|const
-name|qreal
+name|double
 name|PI
 init|=
 literal|3.14159265358979323846264338327950288
