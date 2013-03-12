@@ -35,7 +35,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qaccessible2.h>
+file|<QtGui/private/qaccessible2_p.h>
 end_include
 begin_include
 include|#

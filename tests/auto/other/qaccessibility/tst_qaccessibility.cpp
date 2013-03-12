@@ -93,7 +93,17 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtGui/private/qaccessible2_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtWidgets>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtWidgets/private/qaccessiblewidget_p.h>
 end_include
 begin_include
 include|#

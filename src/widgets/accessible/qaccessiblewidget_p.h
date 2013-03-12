@@ -18,6 +18,11 @@ include|#
 directive|include
 file|<QtGui/qaccessibleobject.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtGui/private/qaccessible2_p.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 ifndef|#
