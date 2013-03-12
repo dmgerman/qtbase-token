@@ -69,14 +69,14 @@ argument_list|(
 argument|int screenNumber = -
 literal|1
 argument_list|)
-block|{
-name|setWindowFlags
+operator|:
+name|QWidget
 argument_list|(
-name|Qt
-operator|::
-name|Desktop
+literal|0
+argument_list|,
+argument|Qt::Desktop
 argument_list|)
-block|;
+block|{
 name|setVisible
 argument_list|(
 name|false

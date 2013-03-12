@@ -2006,6 +2006,20 @@ argument_list|)
 operator|->
 name|parent
 argument_list|()
+operator|&&
+name|list
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+operator|->
+name|type
+argument_list|()
+operator|!=
+name|Qt
+operator|::
+name|Desktop
 condition|)
 block|{
 comment|// Top windows of embedded QAxServers do not have QWindow parents,
