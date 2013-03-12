@@ -13711,6 +13711,12 @@ operator|::
 name|autoDetection
 parameter_list|()
 block|{
+name|cout
+operator|<<
+literal|"Running configuration tests..."
+operator|<<
+name|endl
+expr_stmt|;
 if|if
 condition|(
 name|dictionary
