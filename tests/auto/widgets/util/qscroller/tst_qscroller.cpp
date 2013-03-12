@@ -1731,6 +1731,16 @@ operator|::
 name|scrollTo
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+name|QSKIP
+argument_list|(
+literal|"Flakey test - https://bugreports.qt-project.org/browse/QTBUG-29950"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|{
 name|tst_QScrollerWidget
 modifier|*
@@ -1900,11 +1910,16 @@ operator|::
 name|scroll
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
 name|QSKIP
 argument_list|(
 literal|"Flakey test - https://bugreports.qt-project.org/browse/QTBUG-30133"
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 ifndef|#
 directive|ifndef
 name|QT_NO_GESTURES
@@ -2206,6 +2221,16 @@ operator|::
 name|overshoot
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+name|QSKIP
+argument_list|(
+literal|"Flakey test - https://bugreports.qt-project.org/browse/QTBUG-29950"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 ifndef|#
 directive|ifndef
 name|QT_NO_GESTURES
