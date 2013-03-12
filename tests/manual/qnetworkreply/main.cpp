@@ -45,11 +45,20 @@ include|#
 directive|include
 file|"../../auto/network-settings.h"
 end_include
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
 name|QT_BUILD_INTERNAL
-end_ifdef
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_SSL
+argument_list|)
+end_if
 begin_include
 include|#
 directive|include
@@ -581,6 +590,16 @@ operator|::
 name|setSslConfiguration
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_SSL
+name|QSKIP
+argument_list|(
+literal|"SSL is not enabled."
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|QFETCH
 argument_list|(
 name|QUrl
@@ -765,6 +784,9 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
+endif|#
+directive|endif
+comment|// QT_NO_SSL
 block|}
 end_function
 begin_macro
