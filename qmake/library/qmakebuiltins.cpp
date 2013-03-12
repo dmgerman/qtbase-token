@@ -2732,10 +2732,9 @@ name|m_tmp2
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Note: this depends on split_value_list() making a deep copy
 name|ret
-operator|=
-name|split_value_list
+operator|<<
+name|ProString
 argument_list|(
 name|tmp
 argument_list|)
@@ -3413,8 +3412,8 @@ expr_stmt|;
 break|break;
 block|}
 name|ret
-operator|=
-name|split_value_list
+operator|<<
+name|ProString
 argument_list|(
 name|before
 operator|+
@@ -3426,7 +3425,10 @@ name|glue
 argument_list|)
 operator|+
 name|after
-argument_list|,
+argument_list|)
+operator|.
+name|setSource
+argument_list|(
 name|src
 argument_list|)
 expr_stmt|;
