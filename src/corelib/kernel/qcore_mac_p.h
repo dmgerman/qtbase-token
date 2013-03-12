@@ -63,11 +63,6 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QT_BUILD_QMAKE
-argument_list|)
-operator|||
-name|defined
-argument_list|(
 name|QT_BOOTSTRAPPED
 argument_list|)
 end_if
