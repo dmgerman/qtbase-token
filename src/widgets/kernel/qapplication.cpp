@@ -1683,6 +1683,11 @@ operator|::
 name|initialize
 parameter_list|()
 block|{
+name|is_app_running
+operator|=
+literal|false
+expr_stmt|;
+comment|// Starting up.
 name|QWidgetPrivate
 operator|::
 name|mapper
@@ -1727,11 +1732,6 @@ argument_list|()
 expr_stmt|;
 endif|#
 directive|endif
-name|is_app_running
-operator|=
-literal|true
-expr_stmt|;
-comment|// no longer starting up
 if|if
 condition|(
 name|qgetenv
@@ -1839,6 +1839,11 @@ operator|.
 name|toInt
 argument_list|()
 expr_stmt|;
+name|is_app_running
+operator|=
+literal|true
+expr_stmt|;
+comment|// no longer starting up
 block|}
 end_function
 begin_comment
