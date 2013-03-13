@@ -285,6 +285,16 @@ argument_list|,
 name|visible
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+name|QSKIP
+argument_list|(
+literal|"This test fails in the CI system, QTBUG-30040"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|Widget_task183679
 name|widget
 decl_stmt|;

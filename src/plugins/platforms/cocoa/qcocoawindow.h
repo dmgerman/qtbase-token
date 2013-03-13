@@ -228,6 +228,11 @@ name|void
 name|lower
 argument_list|()
 block|;
+name|bool
+name|isExposed
+argument_list|()
+specifier|const
+block|;
 name|void
 name|propagateSizeHints
 argument_list|()
@@ -388,6 +393,14 @@ name|devicePixelRatio
 argument_list|()
 specifier|const
 block|;
+name|void
+name|exposeWindow
+argument_list|()
+block|;
+name|void
+name|obscureWindow
+argument_list|()
+block|;
 name|protected
 operator|:
 comment|// NSWindow handling. The QCocoaWindow/QNSView can either be displayed
@@ -508,6 +521,9 @@ name|m_hasModalSession
 block|;
 name|bool
 name|m_frameStrutEventsEnabled
+block|;
+name|bool
+name|m_isExposed
 block|; }
 decl_stmt|;
 end_decl_stmt

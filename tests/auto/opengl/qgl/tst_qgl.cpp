@@ -5360,6 +5360,19 @@ specifier|public
 name|QWidget
 block|{
 public|public:
+DECL|member|painted
+name|bool
+name|painted
+decl_stmt|;
+DECL|function|UnclippedWidget
+name|UnclippedWidget
+parameter_list|()
+member_init_list|:
+name|painted
+argument_list|(
+literal|false
+argument_list|)
+block|{     }
 DECL|function|paintEvent
 name|void
 name|paintEvent
@@ -5398,6 +5411,10 @@ name|Qt
 operator|::
 name|black
 argument_list|)
+expr_stmt|;
+name|painted
+operator|=
+literal|true
 expr_stmt|;
 block|}
 block|}
@@ -5554,19 +5571,13 @@ name|view
 argument_list|)
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-comment|// The black rectangle jumps from the center to the upper left for some reason.
-name|QTest
-operator|::
-name|qWait
+name|QTRY_VERIFY
 argument_list|(
-literal|100
+name|widget
+operator|->
+name|painted
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|QImage
 name|image
 init|=
