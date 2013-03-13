@@ -23,6 +23,45 @@ include|#
 directive|include
 file|<QtCore/qglobal.h>
 end_include
+begin_comment
+comment|// Note: Mac OSX is a "controlled platform" for OpenGL ABI so we
+end_comment
+begin_comment
+comment|// use the system provided headers there. Controlled means that the
+end_comment
+begin_comment
+comment|// headers always match the actual driver implementation so there
+end_comment
+begin_comment
+comment|// is no possibility of drivers exposing additional functionality
+end_comment
+begin_comment
+comment|// from the system headers. Also it means that the vendor can
+end_comment
+begin_comment
+comment|// (and does) make different choices about some OpenGL types. For
+end_comment
+begin_comment
+comment|// e.g. Apple uses void* for GLhandleARB whereas other platforms
+end_comment
+begin_comment
+comment|// use unsigned int.
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// For the "uncontrolled" Windows and Linux platforms we use the
+end_comment
+begin_comment
+comment|// official Khronos headers. On these platforms this gives
+end_comment
+begin_comment
+comment|// access to additional functionality the drivers may expose but
+end_comment
+begin_comment
+comment|// which the system headers do not.
+end_comment
 begin_if
 if|#
 directive|if
@@ -44,19 +83,34 @@ include|#
 directive|include
 file|<OpenGLES/ES2/gl.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<OpenGLES/ES2/glext.h>
+end_include
+begin_comment
+comment|/*    OES_EGL_image_external is not included in the Apple provided    system headers yet, but we define the missing typedef so that    the qopenglextensions.cpp code will magically work once Apple    include the extension in their drivers. */
+end_comment
+begin_typedef
+DECL|typedef|GLeglImageOES
+typedef|typedef
+name|void
+modifier|*
+name|GLeglImageOES
+typedef|;
+end_typedef
 begin_else
 else|#
 directive|else
 end_else
+begin_comment
+comment|// "uncontrolled" platforms
+end_comment
 begin_include
 include|#
 directive|include
 file|<GLES2/gl2.h>
 end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|/*    Some GLES2 implementations (like the one on Harmattan) are missing the    typedef for GLchar. Work around it here by adding it. The Kkronos headers    specify GLChar as a typedef to char, so if an implementation already    provides it, then this doesn't do any harm. */
 end_comment
@@ -104,49 +158,17 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// Q_OS_MAC
+end_comment
 begin_else
 else|#
 directive|else
 end_else
-begin_comment
-comment|// Mac OSX is a "controlled platform" for OpenGL ABI so we use
-end_comment
-begin_comment
-comment|// the system provided headers there. Controlled means that the
-end_comment
-begin_comment
-comment|// headers always match the actual driver implementation so there
-end_comment
-begin_comment
-comment|// is no possibility of drivers exposing additional functionality
-end_comment
-begin_comment
-comment|// from the system headers. Also it means that the vendor can
-end_comment
-begin_comment
-comment|// (and does) make different choices about some OpenGL types. For
-end_comment
-begin_comment
-comment|// e.g. Apple uses void* for GLhandleARB whereas other platforms
-end_comment
-begin_comment
-comment|// use unsigned int.
-end_comment
-begin_comment
-comment|//
-end_comment
-begin_comment
-comment|// For the "uncontrolled" Windows and Linux platforms we use the
-end_comment
-begin_comment
-comment|// official Khronos glext.h header. On these platforms this gives
-end_comment
-begin_comment
-comment|// access to additional functionality the drivers may expose but
-end_comment
-begin_comment
-comment|// which the system headers do not.
-end_comment
 begin_if
 if|#
 directive|if
