@@ -5265,11 +5265,23 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_ifndef
-ifndef|#
-directive|ifndef
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
 name|Q_OS_WINCE
-end_ifndef
+argument_list|)
+operator|&&
+name|defined
+argument_list|(
+name|__IShellLibrary_INTERFACE_DEFINED__
+argument_list|)
+end_if
+begin_comment
+comment|// Windows SDK 7
+end_comment
 begin_comment
 comment|// Helper for "Libraries": collections of folders appearing from Windows 7
 end_comment
@@ -5635,7 +5647,7 @@ else|#
 directive|else
 end_else
 begin_comment
-comment|// !Q_OS_WINCE
+comment|// !Q_OS_WINCE&& __IShellLibrary_INTERFACE_DEFINED__
 end_comment
 begin_function
 DECL|function|libraryItemPaths
@@ -5676,7 +5688,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// Q_OS_WINCE
+comment|// Q_OS_WINCE || !__IShellLibrary_INTERFACE_DEFINED__
 end_comment
 begin_function
 DECL|function|itemPath
