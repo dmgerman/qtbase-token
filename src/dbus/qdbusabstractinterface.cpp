@@ -2457,6 +2457,12 @@ decl_stmt|;
 if|if
 condition|(
 name|conn
+operator|&&
+operator|!
+name|isSignalConnected
+argument_list|(
+name|signal
+argument_list|)
 condition|)
 name|conn
 operator|->
