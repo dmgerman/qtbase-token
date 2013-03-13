@@ -81,6 +81,11 @@ name|passwordMaskDelay
 argument_list|()
 specifier|const
 block|;
+name|QChar
+name|passwordMaskCharacter
+argument_list|()
+specifier|const
+block|;
 name|qreal
 name|fontSmoothingGamma
 argument_list|()

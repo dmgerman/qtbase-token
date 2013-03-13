@@ -392,6 +392,8 @@ block|,
 name|UseRtlExtensions
 block|,
 name|SynthesizeMouseFromTouchEvents
+block|,
+name|PasswordMaskCharacter
 block|}
 enum|;
 name|virtual

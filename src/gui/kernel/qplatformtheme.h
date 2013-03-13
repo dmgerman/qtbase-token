@@ -205,6 +205,8 @@ block|,
 name|TabAllWidgets
 block|,
 name|IconPixmapSizes
+block|,
+name|PasswordMaskCharacter
 block|}
 enum|;
 enum|enum
