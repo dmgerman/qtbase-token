@@ -2404,6 +2404,13 @@ expr_stmt|;
 name|qt_startup_hook
 argument_list|()
 expr_stmt|;
+name|QCoreApplicationPrivate
+operator|::
+name|is_app_running
+operator|=
+literal|true
+expr_stmt|;
+comment|// No longer starting up.
 block|}
 end_function
 begin_comment
