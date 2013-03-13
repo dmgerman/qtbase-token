@@ -13446,11 +13446,6 @@ expr_stmt|;
 return|return;
 block|}
 block|}
-name|qWarning
-argument_list|(
-literal|"QDBusConnectionPrivate::disconnectRelay called for a signal that was not found"
-argument_list|)
-expr_stmt|;
 block|}
 end_function
 begin_function
