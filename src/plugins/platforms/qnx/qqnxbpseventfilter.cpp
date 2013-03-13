@@ -197,7 +197,7 @@ if|if
 condition|(
 name|navigator_request_events
 argument_list|(
-literal|0
+name|NAVIGATOR_EXTENDED_DATA
 argument_list|)
 operator|!=
 name|BPS_SUCCESS

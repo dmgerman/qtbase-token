@@ -335,6 +335,10 @@ operator|&
 name|targetRegion
 argument_list|)
 block|;
+name|void
+name|minimize
+argument_list|()
+block|;
 name|private
 operator|:
 name|QRect
