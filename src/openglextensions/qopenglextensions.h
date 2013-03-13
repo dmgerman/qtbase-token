@@ -114750,7 +114750,6 @@ expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
 name|QOpenGLExtension_OES_EGL_image
 range|:
 name|public
@@ -114900,7 +114899,6 @@ expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
 name|QOpenGLExtension_OES_get_program_binary
 range|:
 name|public
@@ -115076,7 +115074,6 @@ expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
 name|QOpenGLExtension_OES_mapbuffer
 range|:
 name|public
@@ -115438,7 +115435,6 @@ expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
 name|QOpenGLExtension_OES_texture_3D
 range|:
 name|public
@@ -115989,7 +115985,6 @@ expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
 name|QOpenGLExtension_OES_vertex_array_object
 range|:
 name|public
@@ -116347,7 +116342,6 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
 name|QOpenGLExtension_AMD_performance_monitor
 range|:
 name|public
@@ -116885,7 +116879,6 @@ expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
 name|QOpenGLExtension_ANGLE_framebuffer_blit
 range|:
 name|public
@@ -117026,7 +117019,6 @@ expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
 name|QOpenGLExtension_ANGLE_framebuffer_multisample
 range|:
 name|public
@@ -117169,7 +117161,6 @@ expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
 name|QOpenGLExtension_ANGLE_instanced_arrays
 range|:
 name|public
@@ -117359,7 +117350,6 @@ expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
 name|QOpenGLExtension_ANGLE_translated_shader_source
 range|:
 name|public
@@ -117467,7 +117457,6 @@ expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
 name|QOpenGLExtension_APPLE_framebuffer_multisample
 range|:
 name|public
@@ -117626,7 +117615,6 @@ expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
 name|QOpenGLExtension_EXT_debug_label
 range|:
 name|public
@@ -117798,7 +117786,6 @@ expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
 name|QOpenGLExtension_EXT_debug_marker
 range|:
 name|public
@@ -117947,7 +117934,6 @@ expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
 name|QOpenGLExtension_EXT_discard_framebuffer
 range|:
 name|public
@@ -118070,7 +118056,6 @@ expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
 name|QOpenGLExtension_EXT_multisampled_render_to_texture
 range|:
 name|public
@@ -118264,7 +118249,6 @@ expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
 name|QOpenGLExtension_EXT_multi_draw_arrays
 range|:
 name|public
@@ -118489,7 +118473,6 @@ expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
 name|QOpenGLExtension_EXT_occlusion_query_boolean
 range|:
 name|public
@@ -118846,7 +118829,6 @@ expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
 name|QOpenGLExtension_EXT_robustness
 range|:
 name|public
@@ -119611,7 +119593,6 @@ expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
 name|QOpenGLExtension_EXT_separate_shader_objects
 range|:
 name|public
@@ -121100,7 +121081,6 @@ expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
 name|QOpenGLExtension_EXT_texture_storage
 range|:
 name|public
@@ -121502,7 +121482,6 @@ expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
 name|QOpenGLExtension_IMG_multisampled_render_to_texture
 range|:
 name|public
@@ -121668,7 +121647,6 @@ expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
 name|QOpenGLExtension_NV_coverage_sample
 range|:
 name|public
@@ -121776,7 +121754,6 @@ expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
 name|QOpenGLExtension_NV_draw_buffers
 range|:
 name|public
@@ -121930,7 +121907,6 @@ expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
 name|QOpenGLExtension_NV_fence
 range|:
 name|public
@@ -122211,7 +122187,6 @@ expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
 name|QOpenGLExtension_NV_read_buffer
 range|:
 name|public
@@ -122289,7 +122264,6 @@ expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
 name|QOpenGLExtension_QCOM_alpha_test
 range|:
 name|public
@@ -122416,7 +122390,6 @@ expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
 name|QOpenGLExtension_QCOM_driver_control
 range|:
 name|public
@@ -122755,7 +122728,6 @@ expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
 name|QOpenGLExtension_QCOM_extended_get
 range|:
 name|public
@@ -123230,7 +123202,6 @@ expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
 name|QOpenGLExtension_QCOM_extended_get2
 range|:
 name|public
@@ -123456,7 +123427,6 @@ expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
 name|QOpenGLExtension_QCOM_tiled_rendering
 range|:
 name|public
