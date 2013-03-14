@@ -5544,12 +5544,6 @@ if|if
 condition|(
 name|fontEngine
 operator|->
-name|cache_count
-operator|==
-literal|0
-operator|&&
-name|fontEngine
-operator|->
 name|ref
 operator|.
 name|load
@@ -5569,12 +5563,6 @@ else|else
 block|{
 name|Q_ASSERT
 argument_list|(
-name|fontEngine
-operator|->
-name|cache_count
-operator|==
-literal|0
-operator|&&
 name|fontEngine
 operator|->
 name|ref

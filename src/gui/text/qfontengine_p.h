@@ -1030,9 +1030,6 @@ name|uint
 name|cache_cost
 block|;
 comment|// amount of mem used in kb by the font
-name|int
-name|cache_count
-block|;
 name|uint
 name|fsType
 operator|:

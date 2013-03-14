@@ -774,12 +774,12 @@ empty_stmt|;
 end_empty_stmt
 begin_decl_stmt
 name|class
+name|Q_AUTOTEST_EXPORT
 name|QFontCache
 range|:
 name|public
 name|QObject
 block|{
-name|Q_OBJECT
 name|public
 operator|:
 comment|// note: these static functions work on a per-thread basis
@@ -804,10 +804,7 @@ block|;
 name|void
 name|clear
 argument_list|()
-block|;
-comment|// universal key structure.  QFontEngineDatas and QFontEngines are cached using
-comment|// the same keys
-block|struct
+block|;      struct
 name|Key
 block|{
 name|Key
@@ -1067,6 +1064,17 @@ name|EngineCache
 name|engineCache
 decl_stmt|;
 end_decl_stmt
+begin_expr_stmt
+name|QHash
+operator|<
+name|QFontEngine
+operator|*
+operator|,
+name|int
+operator|>
+name|engineCacheCount
+expr_stmt|;
+end_expr_stmt
 begin_function_decl
 name|QFontEngine
 modifier|*
