@@ -969,6 +969,12 @@ parameter_list|(
 name|QWindow
 modifier|*
 name|w
+parameter_list|,
+name|bool
+modifier|*
+name|accepted
+init|=
+literal|0
 parameter_list|)
 function_decl|;
 specifier|static

@@ -335,8 +335,8 @@ name|void
 name|windowDidResize
 argument_list|()
 block|;
-name|void
-name|windowWillClose
+name|bool
+name|windowShouldClose
 argument_list|()
 block|;
 name|bool

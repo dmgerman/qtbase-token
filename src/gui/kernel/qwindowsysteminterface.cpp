@@ -473,6 +473,10 @@ parameter_list|(
 name|QWindow
 modifier|*
 name|tlw
+parameter_list|,
+name|bool
+modifier|*
+name|accepted
 parameter_list|)
 block|{
 if|if
@@ -492,6 +496,8 @@ operator|::
 name|CloseEvent
 argument_list|(
 name|tlw
+argument_list|,
+name|accepted
 argument_list|)
 decl_stmt|;
 name|QWindowSystemInterfacePrivate
