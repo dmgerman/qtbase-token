@@ -1135,13 +1135,34 @@ operator|!
 name|iface
 condition|)
 block|{
+specifier|static
+name|bool
+name|hasWarned
+init|=
+literal|false
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|hasWarned
+condition|)
+block|{
 name|qWarning
 argument_list|()
 operator|<<
-literal|"Cannot create accessible interface for object: "
+literal|"Problem creating accessible interface for: "
 operator|<<
 name|m_object
+operator|<<
+name|endl
+operator|<<
+literal|"Make sure to deploy Qt with accessibility plugins."
 expr_stmt|;
+name|hasWarned
+operator|=
+literal|true
+expr_stmt|;
+block|}
 return|return
 literal|0
 return|;
