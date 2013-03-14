@@ -32,11 +32,6 @@ modifier|&
 name|paramList
 parameter_list|)
 block|{
-name|Q_UNUSED
-argument_list|(
-name|paramList
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|system
@@ -52,6 +47,9 @@ condition|)
 return|return
 operator|new
 name|QQnxIntegration
+argument_list|(
+name|paramList
+argument_list|)
 return|;
 return|return
 literal|0
