@@ -377,7 +377,7 @@ block|; }
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|/*      */
+comment|/*  */
 end_comment
 begin_decl_stmt
 name|class

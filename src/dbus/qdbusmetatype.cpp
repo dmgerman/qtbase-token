@@ -1118,7 +1118,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QDBusMetaType::typeToSignature(int type)     \internal       Returns the D-Bus signature equivalent to the supplied meta type id \a type.      More types can be registered with the qDBusRegisterMetaType() function.      \sa QDBusUtil::isValidSingleSignature(), signatureToType(),         QVariant::type(), QVariant::userType() */
+comment|/*!     \fn QDBusMetaType::typeToSignature(int type)     \internal      Returns the D-Bus signature equivalent to the supplied meta type id \a type.      More types can be registered with the qDBusRegisterMetaType() function.      \sa QDBusUtil::isValidSingleSignature(), signatureToType(),         QVariant::type(), QVariant::userType() */
 end_comment
 begin_function
 DECL|function|typeToSignature

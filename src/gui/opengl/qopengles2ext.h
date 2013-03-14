@@ -1179,7 +1179,7 @@ name|GL_APPLE_sync
 ifndef|#
 directive|ifndef
 name|__gl3_h_
-comment|/* These types are defined with reference to<inttypes.h>  * in the Apple extension spec, but here we use the Khronos  * portable types in khrplatform.h, and assume those types   * are always defined.  * If any other extensions using these types are defined,   * the typedefs must move out of this block and be shared.  */
+comment|/* These types are defined with reference to<inttypes.h>  * in the Apple extension spec, but here we use the Khronos  * portable types in khrplatform.h, and assume those types  * are always defined.  * If any other extensions using these types are defined,  * the typedefs must move out of this block and be shared.  */
 DECL|typedef|GLint64
 typedef|typedef
 name|khronos_int64_t

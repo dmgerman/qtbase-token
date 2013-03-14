@@ -953,7 +953,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!   Constructs a progress dialog.     The \a labelText is the text used to remind the user what is progressing.     The \a cancelButtonText is the text to display on the cancel button.  If     QString() is passed then no cancel button is shown.     The \a minimum and \a maximum is the number of steps in the operation for    which this progress dialog shows progress.  For example, if the    operation is to examine 50 files, this value minimum value would be 0,    and the maximum would be 50. Before examining the first file, call    setValue(0). As each file is processed call setValue(1), setValue(2),    etc., finally calling setValue(50) after examining the last file.     The \a parent argument is the dialog's parent widget. The parent, \a parent, and    widget flags, \a f, are passed to the QDialog::QDialog() constructor.    \sa setLabelText(), setLabel(), setCancelButtonText(), setCancelButton(),   setMinimum(), setMaximum() */
+comment|/*!   Constructs a progress dialog.     The \a labelText is the text used to remind the user what is progressing.     The \a cancelButtonText is the text to display on the cancel button.  If    QString() is passed then no cancel button is shown.     The \a minimum and \a maximum is the number of steps in the operation for    which this progress dialog shows progress.  For example, if the    operation is to examine 50 files, this value minimum value would be 0,    and the maximum would be 50. Before examining the first file, call    setValue(0). As each file is processed call setValue(1), setValue(2),    etc., finally calling setValue(50) after examining the last file.     The \a parent argument is the dialog's parent widget. The parent, \a parent, and    widget flags, \a f, are passed to the QDialog::QDialog() constructor.    \sa setLabelText(), setLabel(), setCancelButtonText(), setCancelButton(),   setMinimum(), setMaximum() */
 end_comment
 begin_constructor
 DECL|function|QProgressDialog
@@ -1471,7 +1471,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Sets the cancel button's text to \a cancelButtonText.  If the text   is set to QString() then it will cause the cancel button to be    hidden and deleted.    \sa setCancelButton() */
+comment|/*!   Sets the cancel button's text to \a cancelButtonText.  If the text   is set to QString() then it will cause the cancel button to be   hidden and deleted.    \sa setCancelButton() */
 end_comment
 begin_function
 DECL|function|setCancelButtonText

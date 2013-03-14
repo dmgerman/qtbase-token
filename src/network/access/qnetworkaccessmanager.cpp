@@ -1078,7 +1078,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Posts a request to obtain the contents of the target \a request     and returns a new QNetworkReply object opened for reading which emits the      \l{QIODevice::readyRead()}{readyRead()} signal whenever new data      arrives.      The contents as well as associated headers will be downloaded.      \sa post(), put(), deleteResource(), sendCustomRequest() */
+comment|/*!     Posts a request to obtain the contents of the target \a request     and returns a new QNetworkReply object opened for reading which emits the     \l{QIODevice::readyRead()}{readyRead()} signal whenever new data     arrives.      The contents as well as associated headers will be downloaded.      \sa post(), put(), deleteResource(), sendCustomRequest() */
 end_comment
 begin_function
 DECL|function|get
@@ -1113,7 +1113,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sends an HTTP POST request to the destination specified by \a request     and returns a new QNetworkReply object opened for reading that will      contain the reply sent by the server. The contents of  the \a data      device will be uploaded to the server.      \a data must be open for reading and must remain valid until the      finished() signal is emitted for this reply.      \note Sending a POST request on protocols other than HTTP and     HTTPS is undefined and will probably fail.      \sa get(), put(), deleteResource(), sendCustomRequest() */
+comment|/*!     Sends an HTTP POST request to the destination specified by \a request     and returns a new QNetworkReply object opened for reading that will     contain the reply sent by the server. The contents of  the \a data     device will be uploaded to the server.      \a data must be open for reading and must remain valid until the     finished() signal is emitted for this reply.      \note Sending a POST request on protocols other than HTTP and     HTTPS is undefined and will probably fail.      \sa get(), put(), deleteResource(), sendCustomRequest() */
 end_comment
 begin_function
 DECL|function|post
@@ -1154,7 +1154,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Sends the contents of the \a data byte array to the destination      specified by \a request. */
+comment|/*!     \overload      Sends the contents of the \a data byte array to the destination     specified by \a request. */
 end_comment
 begin_function
 DECL|function|post
@@ -1344,7 +1344,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Uploads the contents of \a data to the destination \a request and     returnes a new QNetworkReply object that will be open for reply.      \a data must be opened for reading when this function is called     and must remain valid until the finished() signal is emitted for     this reply.      Whether anything will be available for reading from the returned     object is protocol dependent. For HTTP, the server may send a      small HTML page indicating the upload was successful (or not).      Other protocols will probably have content in their replies.      \note For HTTP, this request will send a PUT request, which most servers     do not allow. Form upload mechanisms, including that of uploading     files through HTML forms, use the POST mechanism.      \sa get(), post(), deleteResource(), sendCustomRequest() */
+comment|/*!     Uploads the contents of \a data to the destination \a request and     returnes a new QNetworkReply object that will be open for reply.      \a data must be opened for reading when this function is called     and must remain valid until the finished() signal is emitted for     this reply.      Whether anything will be available for reading from the returned     object is protocol dependent. For HTTP, the server may send a     small HTML page indicating the upload was successful (or not).     Other protocols will probably have content in their replies.      \note For HTTP, this request will send a PUT request, which most servers     do not allow. Form upload mechanisms, including that of uploading     files through HTML forms, use the POST mechanism.      \sa get(), post(), deleteResource(), sendCustomRequest() */
 end_comment
 begin_function
 DECL|function|put
@@ -1453,7 +1453,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.6      Sends a request to delete the resource identified by the URL of \a request.      \note This feature is currently available for HTTP only, performing an      HTTP DELETE request.      \sa get(), post(), put(), sendCustomRequest() */
+comment|/*!     \since 4.6      Sends a request to delete the resource identified by the URL of \a request.      \note This feature is currently available for HTTP only, performing an     HTTP DELETE request.      \sa get(), post(), put(), sendCustomRequest() */
 end_comment
 begin_function
 DECL|function|deleteResource

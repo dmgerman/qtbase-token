@@ -623,7 +623,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QScrollArea::setWidget(QWidget *widget)      Sets the scroll area's \a widget.      The \a widget becomes a child of the scroll area, and will be     destroyed when the scroll area is deleted or when a new widget is     set.          The widget's \l{QWidget::setAutoFillBackground()}{autoFillBackground}     property will be set to \c{true}.      If the scroll area is visible when the \a widget is     added, you must \l{QWidget::}{show()} it explicitly.      Note that You must add the layout of \a widget before you call     this function; if you add it later, the \a widget will not be     visible - regardless of when you \l{QWidget::}{show()} the scroll     area. In this case, you can also not \l{QWidget::}{show()} the \a     widget later.      \sa widget() */
+comment|/*!     \fn void QScrollArea::setWidget(QWidget *widget)      Sets the scroll area's \a widget.      The \a widget becomes a child of the scroll area, and will be     destroyed when the scroll area is deleted or when a new widget is     set.      The widget's \l{QWidget::setAutoFillBackground()}{autoFillBackground}     property will be set to \c{true}.      If the scroll area is visible when the \a widget is     added, you must \l{QWidget::}{show()} it explicitly.      Note that You must add the layout of \a widget before you call     this function; if you add it later, the \a widget will not be     visible - regardless of when you \l{QWidget::}{show()} the scroll     area. In this case, you can also not \l{QWidget::}{show()} the \a     widget later.      \sa widget() */
 end_comment
 begin_function
 DECL|function|setWidget

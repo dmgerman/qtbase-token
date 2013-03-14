@@ -5723,7 +5723,7 @@ block|}
 class|;
 end_class
 begin_comment
-comment|/*     Tests the emission of the bytesWritten(qint64)     signal.      Create a thread that will write to a socket.     If the bytesWritten(qint64) signal is generated,      the slot connected to it will exit the thread,     indicating test success.    */
+comment|/*     Tests the emission of the bytesWritten(qint64)     signal.      Create a thread that will write to a socket.     If the bytesWritten(qint64) signal is generated,     the slot connected to it will exit the thread,     indicating test success.  */
 end_comment
 begin_function
 DECL|function|bytesWrittenSignal

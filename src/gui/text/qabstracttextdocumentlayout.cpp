@@ -49,7 +49,7 @@ begin_comment
 comment|/*!     \fn void QAbstractTextDocumentLayout::update(const QRectF&rect)      This signal is emitted when the rectangle \a rect has been updated.      Subclasses of QAbstractTextDocumentLayout should emit this signal when     the layout of the contents change in order to repaint. */
 end_comment
 begin_comment
-comment|/*!    \fn void QAbstractTextDocumentLayout::updateBlock(const QTextBlock&block)    \since 4.4     This signal is emitted when the specified \a block has been updated.     Subclasses of QAbstractTextDocumentLayout should emit this signal when    the layout of \a block has changed in order to repaint.  */
+comment|/*!    \fn void QAbstractTextDocumentLayout::updateBlock(const QTextBlock&block)    \since 4.4     This signal is emitted when the specified \a block has been updated.     Subclasses of QAbstractTextDocumentLayout should emit this signal when    the layout of \a block has changed in order to repaint. */
 end_comment
 begin_comment
 comment|/*!     \fn void QAbstractTextDocumentLayout::documentSizeChanged(const QSizeF&newSize)      This signal is emitted when the size of the document layout changes to     \a newSize.      Subclasses of QAbstractTextDocumentLayout should emit this signal when the     document's entire layout size changes. This signal is useful for widgets     that display text documents since it enables them to update their scroll     bars correctly.      \sa documentSize() */

@@ -2447,7 +2447,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     \fn uint qHash(const QPair<T1, T2>&key, uint seed = 0)     \since 5.0     \relates QHash          Returns the hash value for the \a key, using \a seed to seed the calculation.      Types \c T1 and \c T2 must be supported by qHash(). */
+comment|/*!     \fn uint qHash(const QPair<T1, T2>&key, uint seed = 0)     \since 5.0     \relates QHash      Returns the hash value for the \a key, using \a seed to seed the calculation.      Types \c T1 and \c T2 must be supported by qHash(). */
 end_comment
 begin_comment
 comment|/*! \fn uint qHash(char key, uint seed = 0)     \relates QHash     \since 5.0      Returns the hash value for the \a key, using \a seed to seed the calculation. */

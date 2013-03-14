@@ -113,7 +113,7 @@ block|}
 class|;
 end_class
 begin_comment
-comment|/*! \internal   This (used to) trigger a crash in:       QDataStream&operator>>(QDataStream&stream, QTextFormat&fmt)    which is most easily produced through QSettings.  */
+comment|/*! \internal   This (used to) trigger a crash in:      QDataStream&operator>>(QDataStream&stream, QTextFormat&fmt)    which is most easily produced through QSettings.  */
 end_comment
 begin_function
 DECL|function|testQTextCharFormat

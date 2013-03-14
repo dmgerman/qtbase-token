@@ -486,7 +486,7 @@ name|pendingResults
 block|;
 name|int
 name|filteredResults
-block|;      }
+block|;  }
 block|;
 name|template
 operator|<

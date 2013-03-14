@@ -7230,7 +7230,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Updates the size policy of the widget at position \a index to     have a stretch factor of \a stretch.      \a stretch is not the effective stretch factor; the effective     stretch factor is calculated by taking the initial size of the      widget and multiplying it with \a stretch.      This function is provided for convenience. It is equivalent to      \snippet code/src_gui_widgets_qsplitter.cpp 0      \sa setSizes(), widget() */
+comment|/*!     Updates the size policy of the widget at position \a index to     have a stretch factor of \a stretch.      \a stretch is not the effective stretch factor; the effective     stretch factor is calculated by taking the initial size of the     widget and multiplying it with \a stretch.      This function is provided for convenience. It is equivalent to      \snippet code/src_gui_widgets_qsplitter.cpp 0      \sa setSizes(), widget() */
 end_comment
 begin_function
 DECL|function|setStretchFactor

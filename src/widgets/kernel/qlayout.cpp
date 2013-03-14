@@ -4819,7 +4819,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Removes the widget \a widget from the layout. After this call, it     is the caller's responsibility to give the widget a reasonable     geometry or to put the widget back into a layout.          \b{Note:} The ownership of \a widget remains the same as     when it was added.      \sa removeItem(), QWidget::setGeometry(), addWidget() */
+comment|/*!     Removes the widget \a widget from the layout. After this call, it     is the caller's responsibility to give the widget a reasonable     geometry or to put the widget back into a layout.      \b{Note:} The ownership of \a widget remains the same as     when it was added.      \sa removeItem(), QWidget::setGeometry(), addWidget() */
 end_comment
 begin_function
 DECL|function|removeWidget

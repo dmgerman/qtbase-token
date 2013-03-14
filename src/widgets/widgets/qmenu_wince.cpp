@@ -1335,7 +1335,7 @@ empty_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal           This function refreshes the native Windows CE menu. */
+comment|/*!     \internal      This function refreshes the native Windows CE menu. */
 end_comment
 begin_function
 DECL|function|wceRefresh
@@ -1395,7 +1395,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal           This function sends native Windows CE commands to Qt menus. */
+comment|/*!     \internal      This function sends native Windows CE commands to Qt menus. */
 end_comment
 begin_function
 DECL|function|wceCommands
@@ -1425,7 +1425,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal           This function sends native Windows CE commands to Qt menu bars     and all their child menus. */
+comment|/*!     \internal      This function sends native Windows CE commands to Qt menu bars     and all their child menus. */
 end_comment
 begin_function
 DECL|function|wceCommands
@@ -2343,7 +2343,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal          This function will return the HMENU used to create the native     Windows CE menu bar bindings. */
+comment|/*!     \internal      This function will return the HMENU used to create the native     Windows CE menu bar bindings. */
 end_comment
 begin_function
 DECL|function|wceMenu

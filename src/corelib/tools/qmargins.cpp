@@ -19,7 +19,7 @@ file|"qdebug.h"
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
-comment|/*!     \class QMargins     \inmodule QtCore     \ingroup painting     \since 4.6      \brief The QMargins class defines the four margins of a rectangle.       QMargin defines a set of four margins; left, top, right and bottom,     that describe the size of the borders surrounding a rectangle.      The isNull() function returns true only if all margins are set to zero.      QMargin objects can be streamed as well as compared. */
+comment|/*!     \class QMargins     \inmodule QtCore     \ingroup painting     \since 4.6      \brief The QMargins class defines the four margins of a rectangle.      QMargin defines a set of four margins; left, top, right and bottom,     that describe the size of the borders surrounding a rectangle.      The isNull() function returns true only if all margins are set to zero.      QMargin objects can be streamed as well as compared. */
 comment|/*****************************************************************************   QMargins member functions  *****************************************************************************/
 comment|/*!     \fn QMargins::QMargins()      Constructs a margins object with all margins set to 0.      \sa isNull() */
 comment|/*!     \fn QMargins::QMargins(int left, int top, int right, int bottom)      Constructs margins with the given \a left, \a top, \a right, \a bottom      \sa setLeft(), setRight(), setTop(), setBottom() */

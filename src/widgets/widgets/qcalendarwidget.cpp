@@ -12969,7 +12969,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!      \enum QCalendarWidget::VerticalHeaderFormat      This enum type defines the various formats the vertical header can display.      \value ISOWeekNumbers The header displays ISO week numbers as described by \l QDate::weekNumber().     \value NoVerticalHeader The header is hidden.      \sa verticalHeaderFormat(), HorizontalHeaderFormat */
+comment|/*!     \enum QCalendarWidget::VerticalHeaderFormat      This enum type defines the various formats the vertical header can display.      \value ISOWeekNumbers The header displays ISO week numbers as described by \l QDate::weekNumber().     \value NoVerticalHeader The header is hidden.      \sa verticalHeaderFormat(), HorizontalHeaderFormat */
 end_comment
 begin_comment
 comment|/*!     \property QCalendarWidget::verticalHeaderFormat     \brief the format of the vertical header.      The default value is QCalendarWidget::ISOWeekNumber. */

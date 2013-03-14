@@ -1742,7 +1742,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!      Hides the normal status indications and displays the given \a   message for the specified number of milli-seconds (\a{timeout}). If   \a{timeout} is 0 (default), the \a {message} remains displayed until   the clearMessage() slot is called or until the showMessage() slot is   called again to change the message.    Note that showMessage() is called to show temporary explanations of   tool tip texts, so passing a \a{timeout} of 0 is not sufficient to   display a \l{permanent message}{permanent message}.      \sa messageChanged(), currentMessage(), clearMessage() */
+comment|/*!    Hides the normal status indications and displays the given \a   message for the specified number of milli-seconds (\a{timeout}). If   \a{timeout} is 0 (default), the \a {message} remains displayed until   the clearMessage() slot is called or until the showMessage() slot is   called again to change the message.    Note that showMessage() is called to show temporary explanations of   tool tip texts, so passing a \a{timeout} of 0 is not sufficient to   display a \l{permanent message}{permanent message}.      \sa messageChanged(), currentMessage(), clearMessage() */
 end_comment
 begin_function
 DECL|function|showMessage

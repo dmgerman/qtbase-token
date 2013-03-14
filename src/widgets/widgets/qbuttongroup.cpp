@@ -21,13 +21,13 @@ begin_comment
 comment|/*!     \fn void QButtonGroup::buttonClicked(int id)      This signal is emitted when a button with the given \a id is     clicked.      \sa checkedButton(), QAbstractButton::clicked() */
 end_comment
 begin_comment
-comment|/*!     \fn void QButtonGroup::buttonPressed(QAbstractButton *button)     \since 4.2      This signal is emitted when the given \a button is pressed down.       \sa QAbstractButton::pressed() */
+comment|/*!     \fn void QButtonGroup::buttonPressed(QAbstractButton *button)     \since 4.2      This signal is emitted when the given \a button is pressed down.      \sa QAbstractButton::pressed() */
 end_comment
 begin_comment
 comment|/*!     \fn void QButtonGroup::buttonPressed(int id)     \since 4.2      This signal is emitted when a button with the given \a id is     pressed down.      \sa QAbstractButton::pressed() */
 end_comment
 begin_comment
-comment|/*!     \fn void QButtonGroup::buttonReleased(QAbstractButton *button)     \since 4.2      This signal is emitted when the given \a button is released.       \sa QAbstractButton::released() */
+comment|/*!     \fn void QButtonGroup::buttonReleased(QAbstractButton *button)     \since 4.2      This signal is emitted when the given \a button is released.      \sa QAbstractButton::released() */
 end_comment
 begin_comment
 comment|/*!     \fn void QButtonGroup::buttonReleased(int id)     \since 4.2      This signal is emitted when a button with the given \a id is     released.      \sa QAbstractButton::released() */

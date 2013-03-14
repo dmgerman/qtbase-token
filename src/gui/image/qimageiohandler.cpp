@@ -438,7 +438,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     For image formats that support animation, this function returns     the sequence number of the current image in the animation. If     this function is called before any image is read(), -1 is     returned. The number of the first image in the sequence is 0.          If the image format does not support animation, 0 is returned.      \sa read() */
+comment|/*!     For image formats that support animation, this function returns     the sequence number of the current image in the animation. If     this function is called before any image is read(), -1 is     returned. The number of the first image in the sequence is 0.      If the image format does not support animation, 0 is returned.      \sa read() */
 end_comment
 begin_function
 DECL|function|currentImageNumber

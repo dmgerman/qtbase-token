@@ -27,7 +27,7 @@ begin_comment
 comment|/*!     \fn void QSslSocket::peerVerifyError(const QSslError&error)     \since 4.4      QSslSocket can emit this signal several times during the SSL handshake,     before encryption has been established, to indicate that an error has     occurred while establishing the identity of the peer. The \a error is     usually an indication that QSslSocket is unable to securely identify the     peer.      This signal provides you with an early indication when something's wrong.     By connecting to this signal, you can manually choose to tear down the     connection from inside the connected slot before the handshake has     completed. If no action is taken, QSslSocket will proceed to emitting     QSslSocket::sslErrors().      \sa sslErrors() */
 end_comment
 begin_comment
-comment|/*!     \fn void QSslSocket::sslErrors(const QList<QSslError>&errors);          QSslSocket emits this signal after the SSL handshake to indicate that one     or more errors have occurred while establishing the identity of the     peer. The errors are usually an indication that QSslSocket is unable to     securely identify the peer. Unless any action is taken, the connection     will be dropped after this signal has been emitted.      If you want to continue connecting despite the errors that have occurred,     you must call QSslSocket::ignoreSslErrors() from inside a slot connected to     this signal. If you need to access the error list at a later point, you     can call sslErrors() (without arguments).      \a errors contains one or more errors that prevent QSslSocket from     verifying the identity of the peer.          Note: You cannot use Qt::QueuedConnection when connecting to this signal,     or calling QSslSocket::ignoreSslErrors() will have no effect.      \sa peerVerifyError() */
+comment|/*!     \fn void QSslSocket::sslErrors(const QList<QSslError>&errors);      QSslSocket emits this signal after the SSL handshake to indicate that one     or more errors have occurred while establishing the identity of the     peer. The errors are usually an indication that QSslSocket is unable to     securely identify the peer. Unless any action is taken, the connection     will be dropped after this signal has been emitted.      If you want to continue connecting despite the errors that have occurred,     you must call QSslSocket::ignoreSslErrors() from inside a slot connected to     this signal. If you need to access the error list at a later point, you     can call sslErrors() (without arguments).      \a errors contains one or more errors that prevent QSslSocket from     verifying the identity of the peer.      Note: You cannot use Qt::QueuedConnection when connecting to this signal,     or calling QSslSocket::ignoreSslErrors() will have no effect.      \sa peerVerifyError() */
 end_comment
 begin_include
 include|#
@@ -386,7 +386,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.6     \overload      In addition to the original behaviour of connectToHostEncrypted,     this overloaded method enables the usage of a different hostname      (\a sslPeerName) for the certificate validation instead of     the one used for the TCP connection (\a hostName).      \sa connectToHostEncrypted() */
+comment|/*!     \since 4.6     \overload      In addition to the original behaviour of connectToHostEncrypted,     this overloaded method enables the usage of a different hostname     (\a sslPeerName) for the certificate validation instead of     the one used for the TCP connection (\a hostName).      \sa connectToHostEncrypted() */
 end_comment
 begin_function
 DECL|function|connectToHostEncrypted
@@ -1441,7 +1441,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.4      Sets the size of QSslSocket's internal read buffer to be \a size bytes.  */
+comment|/*!     \since 4.4      Sets the size of QSslSocket's internal read buffer to be \a size bytes. */
 end_comment
 begin_function
 DECL|function|setReadBufferSize
@@ -1822,7 +1822,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Sets the socket's local \l {QSslCertificate} {certificate} to the     first one found in file \a path, which is parsed according to the      specified \a format. */
+comment|/*!     \overload      Sets the socket's local \l {QSslCertificate} {certificate} to the     first one found in file \a path, which is parsed according to the     specified \a format. */
 end_comment
 begin_function
 DECL|function|setLocalCertificate
@@ -1924,7 +1924,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the peer's digital certificate (i.e., the immediate     certificate of the host you are connected to), or a null     certificate, if the peer has not assigned a certificate.          The peer certificate is checked automatically during the     handshake phase, so this function is normally used to fetch     the certificate for display or for connection diagnostic     purposes. It contains information about the peer, including     its host name, the certificate issuer, and the peer's public     key.      Because the peer certificate is set during the handshake phase, it     is safe to access the peer certificate from a slot connected to     the sslErrors() signal or the encrypted() signal.      If a null certificate is returned, it can mean the SSL handshake     failed, or it can mean the host you are connected to doesn't have     a certificate, or it can mean there is no connection.      If you want to check the peer's complete chain of certificates,     use peerCertificateChain() to get them all at once.      \sa peerCertificateChain() */
+comment|/*!     Returns the peer's digital certificate (i.e., the immediate     certificate of the host you are connected to), or a null     certificate, if the peer has not assigned a certificate.      The peer certificate is checked automatically during the     handshake phase, so this function is normally used to fetch     the certificate for display or for connection diagnostic     purposes. It contains information about the peer, including     its host name, the certificate issuer, and the peer's public     key.      Because the peer certificate is set during the handshake phase, it     is safe to access the peer certificate from a slot connected to     the sslErrors() signal or the encrypted() signal.      If a null certificate is returned, it can mean the SSL handshake     failed, or it can mean the host you are connected to doesn't have     a certificate, or it can mean there is no connection.      If you want to check the peer's complete chain of certificates,     use peerCertificateChain() to get them all at once.      \sa peerCertificateChain() */
 end_comment
 begin_function
 DECL|function|peerCertificate
@@ -2038,7 +2038,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Reads the string in file \a fileName and decodes it using     a specified \a algorithm and encoding \a format to construct     an \l {QSslKey} {SSL key}. If the encoded key is encrypted,     \a passPhrase is used to decrypt it.      The socket's private key is set to the constructed key. The     private key and the local \l {QSslCertificate} {certificate} are     used by clients and servers that must prove their identity to SSL     peers.      Both the key and the local certificate are required if you are     creating an SSL server socket. If you are creating an SSL client     socket, the key and local certificate are required if your client     must identify itself to an SSL server.          \sa privateKey(), setLocalCertificate() */
+comment|/*!     \overload      Reads the string in file \a fileName and decodes it using     a specified \a algorithm and encoding \a format to construct     an \l {QSslKey} {SSL key}. If the encoded key is encrypted,     \a passPhrase is used to decrypt it.      The socket's private key is set to the constructed key. The     private key and the local \l {QSslCertificate} {certificate} are     used by clients and servers that must prove their identity to SSL     peers.      Both the key and the local certificate are required if you are     creating an SSL server socket. If you are creating an SSL client     socket, the key and local certificate are required if your client     must identify itself to an SSL server.      \sa privateKey(), setLocalCertificate() */
 end_comment
 begin_function
 DECL|function|setPrivateKey
@@ -3579,7 +3579,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Starts a delayed SSL handshake for a server connection. This     function can be called when the socket is in the \l ConnectedState     but still in \l UnencryptedMode. If it is not connected or it is     already encrypted, the function has no effect.      For server sockets, calling this function is the only way to     initiate the SSL handshake. Most servers will call this function     immediately upon receiving a connection, or as a result of having     received a protocol-specific command to enter SSL mode (e.g, the     server may respond to receiving the string "STARTTLS\\r\\n" by     calling this function).      The most common way to implement an SSL server is to create a     subclass of QTcpServer and reimplement     QTcpServer::incomingConnection(). The returned socket descriptor     is then passed to QSslSocket::setSocketDescriptor().          \sa connectToHostEncrypted(), startClientEncryption() */
+comment|/*!     Starts a delayed SSL handshake for a server connection. This     function can be called when the socket is in the \l ConnectedState     but still in \l UnencryptedMode. If it is not connected or it is     already encrypted, the function has no effect.      For server sockets, calling this function is the only way to     initiate the SSL handshake. Most servers will call this function     immediately upon receiving a connection, or as a result of having     received a protocol-specific command to enter SSL mode (e.g, the     server may respond to receiving the string "STARTTLS\\r\\n" by     calling this function).      The most common way to implement an SSL server is to create a     subclass of QTcpServer and reimplement     QTcpServer::incomingConnection(). The returned socket descriptor     is then passed to QSslSocket::setSocketDescriptor().      \sa connectToHostEncrypted(), startClientEncryption() */
 end_comment
 begin_function
 DECL|function|startServerEncryption

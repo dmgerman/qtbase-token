@@ -320,7 +320,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QScrollerProperties     \brief The QScrollerProperties class stores the settings for a QScroller.     \since 4.8      \inmodule QtWidgets       The QScrollerProperties class stores the parameters used by QScroller.      The default settings are platform dependent so that Qt emulates the     platform behaviour for kinetic scrolling.      As a convention the QScrollerProperties are in physical units (meter,     seconds) and are converted by QScroller using the current DPI.      \sa QScroller */
+comment|/*!     \class QScrollerProperties     \brief The QScrollerProperties class stores the settings for a QScroller.     \since 4.8      \inmodule QtWidgets      The QScrollerProperties class stores the parameters used by QScroller.      The default settings are platform dependent so that Qt emulates the     platform behaviour for kinetic scrolling.      As a convention the QScrollerProperties are in physical units (meter,     seconds) and are converted by QScroller using the current DPI.      \sa QScroller */
 end_comment
 begin_comment
 comment|/*!     Constructs new scroller properties. */

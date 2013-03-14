@@ -201,7 +201,7 @@ operator|::
 name|~
 name|DummyDataGenerator
 parameter_list|()
-block|{      }
+block|{ }
 end_destructor
 begin_function
 DECL|function|Reset

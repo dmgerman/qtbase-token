@@ -246,7 +246,7 @@ name|m_listItemCount
 block|;
 name|Options
 name|m_options
-block|;     }
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_macro

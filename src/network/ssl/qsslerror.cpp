@@ -6,7 +6,7 @@ begin_comment
 comment|/*!     \class QSslError     \brief The QSslError class provides an SSL error.     \since 4.3      \reentrant     \ingroup network     \ingroup ssl     \ingroup shared     \inmodule QtNetwork      QSslError provides a simple API for managing errors during QSslSocket's     SSL handshake.      \sa QSslSocket, QSslCertificate, QSslCipher */
 end_comment
 begin_comment
-comment|/*!     \enum QSslError::SslError      Describes all recognized errors that can occur during an SSL handshake.          \value NoError     \value UnableToGetIssuerCertificate     \value UnableToDecryptCertificateSignature     \value UnableToDecodeIssuerPublicKey     \value CertificateSignatureFailed     \value CertificateNotYetValid     \value CertificateExpired     \value InvalidNotBeforeField     \value InvalidNotAfterField     \value SelfSignedCertificate     \value SelfSignedCertificateInChain     \value UnableToGetLocalIssuerCertificate     \value UnableToVerifyFirstCertificate     \value CertificateRevoked     \value InvalidCaCertificate     \value PathLengthExceeded     \value InvalidPurpose     \value CertificateUntrusted     \value CertificateRejected     \value SubjectIssuerMismatch     \value AuthorityIssuerSerialNumberMismatch     \value NoPeerCertificate     \value HostNameMismatch     \value UnspecifiedError     \value NoSslSupport     \value CertificateBlacklisted      \sa QSslError::errorString() */
+comment|/*!     \enum QSslError::SslError      Describes all recognized errors that can occur during an SSL handshake.      \value NoError     \value UnableToGetIssuerCertificate     \value UnableToDecryptCertificateSignature     \value UnableToDecodeIssuerPublicKey     \value CertificateSignatureFailed     \value CertificateNotYetValid     \value CertificateExpired     \value InvalidNotBeforeField     \value InvalidNotAfterField     \value SelfSignedCertificate     \value SelfSignedCertificateInChain     \value UnableToGetLocalIssuerCertificate     \value UnableToVerifyFirstCertificate     \value CertificateRevoked     \value InvalidCaCertificate     \value PathLengthExceeded     \value InvalidPurpose     \value CertificateUntrusted     \value CertificateRejected     \value SubjectIssuerMismatch     \value AuthorityIssuerSerialNumberMismatch     \value NoPeerCertificate     \value HostNameMismatch     \value UnspecifiedError     \value NoSslSupport     \value CertificateBlacklisted      \sa QSslError::errorString() */
 end_comment
 begin_include
 include|#
@@ -55,7 +55,7 @@ block|}
 class|;
 end_class
 begin_comment
-comment|/*!     Constructs a QSslError object with no error and default certificate.   */
+comment|/*!     Constructs a QSslError object with no error and default certificate.  */
 end_comment
 begin_comment
 comment|// RVCT compiler in debug build does not like about default values in const-

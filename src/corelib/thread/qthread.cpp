@@ -979,7 +979,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Tells the thread's event loop to exit with a return code.      After calling this function, the thread leaves the event loop and     returns from the call to QEventLoop::exec(). The     QEventLoop::exec() function returns \a returnCode.      By convention, a \a returnCode of 0 means success, any non-zero value     indicates an error.      Note that unlike the C library function of the same name, this     function \e does return to the caller -- it is event processing     that stops.           No QEventLoops will be started anymore in this thread  until      QThread::exec() has been called again. If the eventloop in QThread::exec()     is not running then the next call to QThread::exec() will also return     immediately.      \sa quit(), QEventLoop */
+comment|/*!     Tells the thread's event loop to exit with a return code.      After calling this function, the thread leaves the event loop and     returns from the call to QEventLoop::exec(). The     QEventLoop::exec() function returns \a returnCode.      By convention, a \a returnCode of 0 means success, any non-zero value     indicates an error.      Note that unlike the C library function of the same name, this     function \e does return to the caller -- it is event processing     that stops.      No QEventLoops will be started anymore in this thread  until     QThread::exec() has been called again. If the eventloop in QThread::exec()     is not running then the next call to QThread::exec() will also return     immediately.      \sa quit(), QEventLoop */
 end_comment
 begin_function
 DECL|function|exit
