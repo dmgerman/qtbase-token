@@ -26,6 +26,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/qurl.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtWidgets/qdialog.h>
 end_include
 begin_decl_stmt
@@ -71,12 +76,6 @@ begin_decl_stmt
 DECL|variable|QAbstractProxyModel
 name|class
 name|QAbstractProxyModel
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|QUrl
-name|class
-name|QUrl
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -687,6 +686,28 @@ literal|0
 argument_list|)
 block|;
 specifier|static
+name|QUrl
+name|getOpenFileUrl
+argument_list|(
+argument|QWidget *parent =
+literal|0
+argument_list|,
+argument|const QString&caption = QString()
+argument_list|,
+argument|const QUrl&dir = QUrl()
+argument_list|,
+argument|const QString&filter = QString()
+argument_list|,
+argument|QString *selectedFilter =
+literal|0
+argument_list|,
+argument|Options options =
+literal|0
+argument_list|,
+argument|const QStringList&supportedSchemes = QStringList()
+argument_list|)
+block|;
+specifier|static
 name|QString
 name|getSaveFileName
 argument_list|(
@@ -707,6 +728,28 @@ literal|0
 argument_list|)
 block|;
 specifier|static
+name|QUrl
+name|getSaveFileUrl
+argument_list|(
+argument|QWidget *parent =
+literal|0
+argument_list|,
+argument|const QString&caption = QString()
+argument_list|,
+argument|const QUrl&dir = QUrl()
+argument_list|,
+argument|const QString&filter = QString()
+argument_list|,
+argument|QString *selectedFilter =
+literal|0
+argument_list|,
+argument|Options options =
+literal|0
+argument_list|,
+argument|const QStringList&supportedSchemes = QStringList()
+argument_list|)
+block|;
+specifier|static
 name|QString
 name|getExistingDirectory
 argument_list|(
@@ -718,6 +761,22 @@ argument_list|,
 argument|const QString&dir = QString()
 argument_list|,
 argument|Options options = ShowDirsOnly
+argument_list|)
+block|;
+specifier|static
+name|QUrl
+name|getExistingDirectoryUrl
+argument_list|(
+argument|QWidget *parent =
+literal|0
+argument_list|,
+argument|const QString&caption = QString()
+argument_list|,
+argument|const QUrl&dir = QUrl()
+argument_list|,
+argument|Options options = ShowDirsOnly
+argument_list|,
+argument|const QStringList&supportedSchemes = QStringList()
 argument_list|)
 block|;
 specifier|static
@@ -738,6 +797,31 @@ literal|0
 argument_list|,
 argument|Options options =
 literal|0
+argument_list|)
+block|;
+specifier|static
+name|QList
+operator|<
+name|QUrl
+operator|>
+name|getOpenFileUrls
+argument_list|(
+argument|QWidget *parent =
+literal|0
+argument_list|,
+argument|const QString&caption = QString()
+argument_list|,
+argument|const QUrl&dir = QUrl()
+argument_list|,
+argument|const QString&filter = QString()
+argument_list|,
+argument|QString *selectedFilter =
+literal|0
+argument_list|,
+argument|Options options =
+literal|0
+argument_list|,
+argument|const QStringList&supportedSchemes = QStringList()
 argument_list|)
 block|;
 name|protected
