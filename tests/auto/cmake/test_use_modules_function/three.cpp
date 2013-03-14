@@ -10,7 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QWidget>
+file|<QWindow>
 end_include
 begin_class
 DECL|class|Three
@@ -32,12 +32,12 @@ init|=
 literal|0
 parameter_list|)
 block|{
-name|QWidget
+name|QWindow
 modifier|*
 name|w
 init|=
 operator|new
-name|QWidget
+name|QWindow
 decl_stmt|;
 name|w
 operator|->
