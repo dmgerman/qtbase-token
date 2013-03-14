@@ -5650,11 +5650,11 @@ begin_comment
 comment|// !Q_OS_WINCE&& __IShellLibrary_INTERFACE_DEFINED__
 end_comment
 begin_function
-DECL|function|libraryItemPaths
+DECL|function|libraryItemFolders
 name|QStringList
 name|QWindowsNativeFileDialogBase
 operator|::
-name|libraryItemPaths
+name|libraryItemFolders
 parameter_list|(
 name|IShellItem
 modifier|*
@@ -5667,11 +5667,11 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|libraryDefaultSaveFolder
+DECL|function|libraryItemDefaultSaveFolder
 name|QString
 name|QWindowsNativeFileDialogBase
 operator|::
-name|libraryDefaultSaveFolder
+name|libraryItemDefaultSaveFolder
 parameter_list|(
 name|IShellItem
 modifier|*
