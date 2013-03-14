@@ -5167,6 +5167,12 @@ operator|<
 name|Qt
 operator|::
 name|LastCursor
+operator|&&
+name|connection
+argument_list|()
+operator|->
+name|hasXFixes
+argument_list|()
 condition|)
 block|{
 specifier|const
