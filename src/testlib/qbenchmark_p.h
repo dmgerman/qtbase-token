@@ -471,6 +471,9 @@ decl_stmt|;
 name|QString
 name|callgrindOutFileBase
 decl_stmt|;
+name|int
+name|minimumTotal
+decl_stmt|;
 name|private
 label|:
 name|Mode

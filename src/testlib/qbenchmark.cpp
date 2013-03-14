@@ -87,6 +87,12 @@ argument_list|(
 literal|false
 argument_list|)
 member_init_list|,
+name|minimumTotal
+argument_list|(
+operator|-
+literal|1
+argument_list|)
+member_init_list|,
 name|mode_
 argument_list|(
 name|WallTime
