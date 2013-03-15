@@ -2984,7 +2984,8 @@ name|d
 operator|->
 name|threadData
 operator|->
-name|canWait
+name|canWaitLocked
+argument_list|()
 operator|&&
 operator|!
 name|d
