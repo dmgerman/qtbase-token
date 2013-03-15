@@ -1286,7 +1286,7 @@ argument_list|)
 decl_stmt|;
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|fn
 init|=
 name|fileNames
