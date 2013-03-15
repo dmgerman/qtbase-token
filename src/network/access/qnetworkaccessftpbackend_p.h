@@ -220,6 +220,13 @@ block|{
 name|public
 operator|:
 name|virtual
+name|QStringList
+name|supportedSchemes
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|virtual
 name|QNetworkAccessBackend
 operator|*
 name|create

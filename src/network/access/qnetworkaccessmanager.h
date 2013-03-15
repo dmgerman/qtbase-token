@@ -207,6 +207,12 @@ operator|~
 name|QNetworkAccessManager
 argument_list|()
 block|;
+comment|// ### Qt 6: turn into virtual
+name|QStringList
+name|supportedSchemes
+argument_list|()
+specifier|const
+block|;
 name|void
 name|clearAccessCache
 argument_list|()
@@ -542,6 +548,14 @@ argument_list|,
 argument|QIODevice *outgoingData =
 literal|0
 argument_list|)
+block|;
+name|protected
+name|Q_SLOTS
+operator|:
+name|QStringList
+name|supportedSchemesImplementation
+argument_list|()
+specifier|const
 block|;
 name|private
 operator|:

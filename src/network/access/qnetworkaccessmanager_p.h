@@ -377,6 +377,11 @@ argument_list|,
 argument|const QNetworkRequest&request
 argument_list|)
 block|;
+name|QStringList
+name|backendSupportedSchemes
+argument_list|()
+specifier|const
+block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_BEARERMANAGEMENT

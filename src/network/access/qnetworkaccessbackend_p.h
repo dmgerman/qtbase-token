@@ -79,6 +79,12 @@ name|QNetworkRequest
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QStringList
+name|class
+name|QStringList
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QUrl
 name|class
 name|QUrl
@@ -633,6 +639,14 @@ name|virtual
 operator|~
 name|QNetworkAccessBackendFactory
 argument_list|()
+expr_stmt|;
+name|virtual
+name|QStringList
+name|supportedSchemes
+argument_list|()
+specifier|const
+operator|=
+literal|0
 expr_stmt|;
 name|virtual
 name|QNetworkAccessBackend
