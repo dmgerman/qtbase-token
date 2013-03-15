@@ -3068,9 +3068,6 @@ comment|//
 name|QString
 name|style
 decl_stmt|;
-ifdef|#
-directive|ifdef
-name|QT_BUILD_INTERNAL
 name|QString
 name|envStyle
 init|=
@@ -3084,13 +3081,6 @@ literal|"QT_STYLE_OVERRIDE"
 argument_list|)
 argument_list|)
 decl_stmt|;
-else|#
-directive|else
-name|QString
-name|envStyle
-decl_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 operator|!
