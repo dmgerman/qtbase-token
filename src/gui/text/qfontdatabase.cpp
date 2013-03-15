@@ -3208,46 +3208,6 @@ name|QUnicodeTables
 operator|::
 name|Common
 block|,
-comment|// Yi
-name|QUnicodeTables
-operator|::
-name|Common
-block|,
-comment|// Tagalog
-name|QUnicodeTables
-operator|::
-name|Common
-block|,
-comment|// Hanunoo
-name|QUnicodeTables
-operator|::
-name|Common
-block|,
-comment|// Buhid
-name|QUnicodeTables
-operator|::
-name|Common
-block|,
-comment|// Tagbanwa
-name|QUnicodeTables
-operator|::
-name|Common
-block|,
-comment|// Limbu
-name|QUnicodeTables
-operator|::
-name|Common
-block|,
-comment|// TaiLe
-name|QUnicodeTables
-operator|::
-name|Common
-block|,
-comment|// Braille
-name|QUnicodeTables
-operator|::
-name|Common
-block|,
 comment|// Symbol
 name|QUnicodeTables
 operator|::
