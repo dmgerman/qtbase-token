@@ -1133,6 +1133,13 @@ name|BackgroundRole
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// disable style animations for checkboxes etc. within itemviews (QTBUG-30146)
+name|option
+operator|->
+name|styleObject
+operator|=
+literal|0
+expr_stmt|;
 block|}
 end_function
 begin_comment
