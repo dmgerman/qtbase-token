@@ -1203,7 +1203,7 @@ name|secondLock
 operator|.
 name|tryLock
 argument_list|(
-literal|2000
+literal|30000
 argument_list|)
 argument_list|)
 expr_stmt|;
