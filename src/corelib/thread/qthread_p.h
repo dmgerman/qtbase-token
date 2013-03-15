@@ -392,6 +392,12 @@ operator|~
 name|QThreadPrivate
 argument_list|()
 block|;
+name|void
+name|setPriority
+argument_list|(
+argument|QThread::Priority prio
+argument_list|)
+block|;
 name|mutable
 name|QMutex
 name|mutex
