@@ -556,10 +556,6 @@ operator|=
 operator|-
 literal|1
 expr_stmt|;
-name|interrupt
-operator|=
-literal|false
-expr_stmt|;
 block|}
 end_constructor
 begin_destructor
@@ -2950,8 +2946,11 @@ expr_stmt|;
 name|d
 operator|->
 name|interrupt
-operator|=
-literal|false
+operator|.
+name|store
+argument_list|(
+literal|0
+argument_list|)
 expr_stmt|;
 comment|// we are awake, broadcast it
 emit|emit
@@ -2991,6 +2990,9 @@ operator|!
 name|d
 operator|->
 name|interrupt
+operator|.
+name|load
+argument_list|()
 operator|&&
 operator|(
 name|flags
@@ -3015,6 +3017,9 @@ operator|!
 name|d
 operator|->
 name|interrupt
+operator|.
+name|load
+argument_list|()
 condition|)
 block|{
 comment|// return the maximum time we can wait for an event.
@@ -3315,8 +3320,11 @@ expr_stmt|;
 name|d
 operator|->
 name|interrupt
-operator|=
-literal|true
+operator|.
+name|store
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 name|wakeUp
 argument_list|()
