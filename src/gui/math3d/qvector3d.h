@@ -295,6 +295,16 @@ name|v3
 parameter_list|)
 function_decl|;
 name|float
+name|distanceToPoint
+argument_list|(
+specifier|const
+name|QVector3D
+operator|&
+name|point
+argument_list|)
+decl|const
+decl_stmt|;
+name|float
 name|distanceToPlane
 argument_list|(
 specifier|const
