@@ -209,12 +209,11 @@ literal|1
 decl_stmt|;
 if|if
 condition|(
-operator|!
 name|project
 operator|->
 name|isActiveConfig
 argument_list|(
-literal|"no_versionlink"
+literal|"link_highest_lib_version"
 argument_list|)
 condition|)
 block|{
