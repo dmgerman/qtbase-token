@@ -249,6 +249,8 @@ block|,
 name|Quit
 block|,
 name|FullScreen
+block|,
+name|Deselect
 block|}
 enum|;
 enum|enum
