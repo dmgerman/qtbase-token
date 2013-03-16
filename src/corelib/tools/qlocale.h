@@ -1859,6 +1859,14 @@ name|UgariticScript
 init|=
 literal|102
 block|,
+name|BrailleScript
+init|=
+literal|103
+block|,
+name|HiraganaScript
+init|=
+literal|104
+block|,
 name|SimplifiedChineseScript
 init|=
 name|SimplifiedHanScript
@@ -1869,7 +1877,7 @@ name|TraditionalHanScript
 block|,
 name|LastScript
 init|=
-name|UgariticScript
+name|HiraganaScript
 block|}
 enum|;
 enum|enum
