@@ -7704,6 +7704,9 @@ end_comment
 begin_comment
 comment|/*!     \fn int qMetaTypeId()     \relates QMetaType     \threadsafe     \since 4.1      Returns the meta type id of type \c T at compile time. If the     type was not declared with Q_DECLARE_METATYPE(), compilation will     fail.      Typical usage:      \snippet code/src_corelib_kernel_qmetatype.cpp 8      QMetaType::type() returns the same ID as qMetaTypeId(), but does     a lookup at runtime based on the name of the type.     QMetaType::type() is a bit slower, but compilation succeeds if a     type is not registered.      \sa Q_DECLARE_METATYPE(), QMetaType::type() */
 end_comment
+begin_comment
+comment|/*!     \fn bool qRegisterSequentialConverter()     \relates QMetaType     \since 5.2      Registers a sequential container so that it can be converted to     a QVariantList. If compilation fails, then you probably forgot to     Q_DECLARE_METATYPE the value type.      \sa QVariant::canConvert() */
+end_comment
 begin_namespace
 namespace|namespace
 block|{
