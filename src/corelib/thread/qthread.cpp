@@ -1375,6 +1375,9 @@ operator|->
 name|data
 operator|->
 name|eventDispatcher
+operator|.
+name|load
+argument_list|()
 return|;
 block|}
 end_function
@@ -1404,9 +1407,8 @@ name|d
 operator|->
 name|data
 operator|->
-name|eventDispatcher
-operator|!=
-literal|0
+name|hasEventDispatcher
+argument_list|()
 condition|)
 block|{
 name|qWarning

@@ -254,6 +254,9 @@ operator|->
 name|threadData
 operator|->
 name|eventDispatcher
+operator|.
+name|load
+argument_list|()
 return|;
 else|else
 return|return

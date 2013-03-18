@@ -103,6 +103,9 @@ operator|->
 name|threadData
 operator|->
 name|eventDispatcher
+operator|.
+name|load
+argument_list|()
 condition|)
 block|{
 name|QThreadPrivate
@@ -156,6 +159,9 @@ operator|->
 name|threadData
 operator|->
 name|eventDispatcher
+operator|.
+name|load
+argument_list|()
 condition|)
 return|return
 literal|false
@@ -166,6 +172,9 @@ operator|->
 name|threadData
 operator|->
 name|eventDispatcher
+operator|.
+name|load
+argument_list|()
 operator|->
 name|processEvents
 argument_list|(
@@ -500,6 +509,9 @@ operator|->
 name|threadData
 operator|->
 name|eventDispatcher
+operator|.
+name|load
+argument_list|()
 condition|)
 return|return;
 name|QElapsedTimer
@@ -561,6 +573,9 @@ operator|->
 name|threadData
 operator|->
 name|eventDispatcher
+operator|.
+name|load
+argument_list|()
 condition|)
 return|return;
 name|d
@@ -580,6 +595,9 @@ operator|->
 name|threadData
 operator|->
 name|eventDispatcher
+operator|.
+name|load
+argument_list|()
 operator|->
 name|interrupt
 argument_list|()
@@ -636,6 +654,9 @@ operator|->
 name|threadData
 operator|->
 name|eventDispatcher
+operator|.
+name|load
+argument_list|()
 condition|)
 return|return;
 name|d
@@ -643,6 +664,9 @@ operator|->
 name|threadData
 operator|->
 name|eventDispatcher
+operator|.
+name|load
+argument_list|()
 operator|->
 name|wakeUp
 argument_list|()

@@ -143,6 +143,9 @@ operator|->
 name|threadData
 operator|->
 name|eventDispatcher
+operator|.
+name|load
+argument_list|()
 condition|)
 block|{
 name|qWarning
@@ -158,6 +161,9 @@ operator|->
 name|threadData
 operator|->
 name|eventDispatcher
+operator|.
+name|load
+argument_list|()
 operator|->
 name|registerSocketNotifier
 argument_list|(
@@ -317,6 +323,9 @@ operator|->
 name|threadData
 operator|->
 name|eventDispatcher
+operator|.
+name|load
+argument_list|()
 condition|)
 comment|// perhaps application/thread is shutting down
 return|return;
@@ -331,6 +340,9 @@ operator|->
 name|threadData
 operator|->
 name|eventDispatcher
+operator|.
+name|load
+argument_list|()
 operator|->
 name|registerSocketNotifier
 argument_list|(
@@ -343,6 +355,9 @@ operator|->
 name|threadData
 operator|->
 name|eventDispatcher
+operator|.
+name|load
+argument_list|()
 operator|->
 name|unregisterSocketNotifier
 argument_list|(

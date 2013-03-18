@@ -159,6 +159,9 @@ operator|->
 name|threadData
 operator|->
 name|eventDispatcher
+operator|.
+name|load
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -334,6 +337,9 @@ operator|->
 name|threadData
 operator|->
 name|eventDispatcher
+operator|.
+name|load
+argument_list|()
 decl_stmt|;
 if|if
 condition|(

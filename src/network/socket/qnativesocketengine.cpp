@@ -4242,7 +4242,8 @@ name|d
 operator|->
 name|threadData
 operator|->
-name|eventDispatcher
+name|hasEventDispatcher
+argument_list|()
 condition|)
 block|{
 name|d
@@ -4342,7 +4343,8 @@ name|d
 operator|->
 name|threadData
 operator|->
-name|eventDispatcher
+name|hasEventDispatcher
+argument_list|()
 condition|)
 block|{
 name|d
@@ -4442,7 +4444,8 @@ name|d
 operator|->
 name|threadData
 operator|->
-name|eventDispatcher
+name|hasEventDispatcher
+argument_list|()
 condition|)
 block|{
 name|d
