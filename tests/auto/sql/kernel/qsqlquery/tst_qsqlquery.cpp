@@ -6799,6 +6799,28 @@ name|isActive
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|QVERIFY_SQL
+argument_list|(
+name|q
+argument_list|,
+name|exec
+argument_list|(
+literal|"delete from "
+operator|+
+name|qtest
+operator|+
+literal|" where id = 42"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|q
+operator|.
+name|isActive
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function

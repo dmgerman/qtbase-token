@@ -8780,6 +8780,10 @@ operator|&&
 name|r
 operator|!=
 name|SQL_SUCCESS_WITH_INFO
+operator|&&
+name|r
+operator|!=
+name|SQL_NO_DATA
 condition|)
 block|{
 name|qWarning
