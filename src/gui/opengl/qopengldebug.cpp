@@ -720,7 +720,7 @@ DECL|typedef|GLDEBUGPROC
 typedef|typedef
 name|void
 function_decl|(
-name|APIENTRY
+name|QOPENGLF_APIENTRY
 modifier|*
 name|GLDEBUGPROC
 function_decl|)
