@@ -1914,7 +1914,14 @@ literal|"$(CC) -c -include "
 operator|+
 name|preCompHeader
 operator|+
-literal|" $(CFLAGS) $(INCPATH) -o $obj $src"
+literal|" $(CFLAGS) $(INCPATH) "
+operator|+
+name|var
+argument_list|(
+literal|"QMAKE_CC_O_FLAG"
+argument_list|)
+operator|+
+literal|"$obj $src"
 argument_list|)
 expr_stmt|;
 name|project
@@ -1940,7 +1947,14 @@ literal|"$(CC)  -c -include "
 operator|+
 name|preCompHeader
 operator|+
-literal|" $(CFLAGS) $(INCPATH) -o $@ $<"
+literal|" $(CFLAGS) $(INCPATH) "
+operator|+
+name|var
+argument_list|(
+literal|"QMAKE_CC_O_FLAG"
+argument_list|)
+operator|+
+literal|"$@ $<"
 argument_list|)
 expr_stmt|;
 name|project
@@ -1966,7 +1980,14 @@ literal|"$(CXX) -c -include "
 operator|+
 name|preCompHeader
 operator|+
-literal|" $(CXXFLAGS) $(INCPATH) -o $obj $src"
+literal|" $(CXXFLAGS) $(INCPATH) "
+operator|+
+name|var
+argument_list|(
+literal|"QMAKE_CC_O_FLAG"
+argument_list|)
+operator|+
+literal|"$obj $src"
 argument_list|)
 expr_stmt|;
 name|project
@@ -1992,7 +2013,14 @@ literal|"$(CXX) -c -include "
 operator|+
 name|preCompHeader
 operator|+
-literal|" $(CXXFLAGS) $(INCPATH) -o $@ $<"
+literal|" $(CXXFLAGS) $(INCPATH) "
+operator|+
+name|var
+argument_list|(
+literal|"QMAKE_CC_O_FLAG"
+argument_list|)
+operator|+
+literal|"$@ $<"
 argument_list|)
 expr_stmt|;
 block|}

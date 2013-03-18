@@ -1800,7 +1800,14 @@ literal|") "
 operator|+
 name|compile_flag
 operator|+
-literal|" -o $obj $src"
+literal|" "
+operator|+
+name|var
+argument_list|(
+literal|"QMAKE_CC_O_FLAG"
+argument_list|)
+operator|+
+literal|"$obj $src"
 argument_list|)
 expr_stmt|;
 specifier|const
@@ -1840,7 +1847,14 @@ literal|") "
 operator|+
 name|compile_flag
 operator|+
-literal|" -o \"$@\" \"$<\""
+literal|" "
+operator|+
+name|var
+argument_list|(
+literal|"QMAKE_CC_O_FLAG"
+argument_list|)
+operator|+
+literal|"\"$@\" \"$<\""
 argument_list|)
 expr_stmt|;
 block|}
