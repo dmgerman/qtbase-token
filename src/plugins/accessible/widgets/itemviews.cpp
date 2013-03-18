@@ -2741,6 +2741,9 @@ if|if
 condition|(
 name|view
 argument_list|()
+operator|&&
+name|view
+argument_list|()
 operator|->
 name|parent
 argument_list|()
