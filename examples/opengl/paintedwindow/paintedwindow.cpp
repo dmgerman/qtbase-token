@@ -85,6 +85,10 @@ name|WindowTitleHint
 operator||
 name|Qt
 operator|::
+name|WindowSystemMenuHint
+operator||
+name|Qt
+operator|::
 name|WindowMinMaxButtonsHint
 operator||
 name|Qt
