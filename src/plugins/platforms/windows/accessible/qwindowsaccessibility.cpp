@@ -418,20 +418,23 @@ operator|->
 name|accessibleInterface
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|iface
+condition|)
+comment|// ### This should not happen, maybe make it an assert.
+return|return;
 name|QWindow
 modifier|*
 name|window
 init|=
-name|iface
-condition|?
 name|QWindowsAccessibility
 operator|::
 name|windowHelper
 argument_list|(
 name|iface
 argument_list|)
-else|:
-literal|0
 decl_stmt|;
 operator|delete
 name|iface
