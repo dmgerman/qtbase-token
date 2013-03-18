@@ -1133,6 +1133,12 @@ if|if
 condition|(
 operator|!
 name|iface
+operator|||
+operator|!
+name|iface
+operator|->
+name|isValid
+argument_list|()
 condition|)
 block|{
 specifier|static
