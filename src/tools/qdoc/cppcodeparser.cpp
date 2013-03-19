@@ -3781,6 +3781,10 @@ block|{
 if|if
 condition|(
 name|node
+operator|!=
+literal|0
+operator|&&
+name|node
 operator|->
 name|parent
 argument_list|()
@@ -3797,10 +3801,6 @@ condition|)
 block|{
 if|if
 condition|(
-name|node
-operator|!=
-literal|0
-operator|&&
 name|node
 operator|->
 name|type
