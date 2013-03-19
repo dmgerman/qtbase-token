@@ -54,6 +54,11 @@ name|init_flag
 argument_list|(
 literal|false
 argument_list|)
+member_init_list|,
+name|usePCH
+argument_list|(
+literal|false
+argument_list|)
 block|{  }
 end_constructor
 begin_function
