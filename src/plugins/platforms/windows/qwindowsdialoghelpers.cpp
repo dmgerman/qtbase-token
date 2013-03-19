@@ -5682,7 +5682,7 @@ name|indexOf
 argument_list|(
 name|QLatin1Char
 argument_list|(
-literal|';'
+literal|' '
 argument_list|)
 argument_list|,
 name|suffixPos
@@ -5690,6 +5690,28 @@ operator|+
 literal|1
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|endPos
+operator|<
+literal|0
+condition|)
+name|endPos
+operator|=
+name|filter
+operator|.
+name|indexOf
+argument_list|(
+name|QLatin1Char
+argument_list|(
+literal|';'
+argument_list|)
+argument_list|,
+name|suffixPos
+operator|+
+literal|1
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|endPos
