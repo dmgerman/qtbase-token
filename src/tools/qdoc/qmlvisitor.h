@@ -28,11 +28,6 @@ include|#
 directive|include
 file|"node.h"
 end_include
-begin_include
-include|#
-directive|include
-file|"tree.h"
-end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
@@ -441,10 +436,6 @@ operator|<
 name|quint32
 operator|>
 name|usedComments
-block|;
-name|Tree
-operator|*
-name|tree
 block|;
 name|InnerNode
 operator|*
