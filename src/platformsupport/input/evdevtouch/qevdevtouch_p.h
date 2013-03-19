@@ -82,7 +82,7 @@ argument_list|(
 specifier|const
 name|QString
 operator|&
-name|spec
+name|specification
 operator|=
 name|QString
 argument_list|()
