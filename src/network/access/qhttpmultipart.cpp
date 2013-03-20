@@ -1262,6 +1262,10 @@ condition|)
 return|return
 literal|false
 return|;
+name|readPointer
+operator|=
+literal|0
+expr_stmt|;
 return|return
 literal|true
 return|;
