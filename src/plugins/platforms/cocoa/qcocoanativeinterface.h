@@ -49,6 +49,12 @@ name|QPlatformMenu
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QPlatformMenuBar
+name|class
+name|QPlatformMenuBar
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QCocoaNativeInterface
 range|:
@@ -186,6 +192,28 @@ argument_list|(
 name|QPlatformMenu
 operator|*
 name|platformMenu
+argument_list|)
+block|;
+comment|// Function to return NSMenu * from QPlatformMenu
+specifier|static
+name|void
+operator|*
+name|qMenuToNSMenu
+argument_list|(
+name|QPlatformMenu
+operator|*
+name|platformMenu
+argument_list|)
+block|;
+comment|// Function to return NSMenu * from QPlatformMenuBar
+specifier|static
+name|void
+operator|*
+name|qMenuBarToNSMenu
+argument_list|(
+name|QPlatformMenuBar
+operator|*
+name|platformMenuBar
 argument_list|)
 block|;
 comment|// QImage<-> CGImage conversion functions
