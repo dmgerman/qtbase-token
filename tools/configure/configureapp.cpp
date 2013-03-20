@@ -717,16 +717,7 @@ operator|+
 literal|"/bin/syncqt.bat"
 argument_list|)
 operator|<<
-literal|" -mkspecsdir \""
-operator|<<
-name|QDir
-operator|::
-name|toNativeSeparators
-argument_list|(
-name|buildPath
-argument_list|)
-operator|<<
-literal|"/mkspecs\" %*"
+literal|" %*"
 operator|<<
 name|endl
 expr_stmt|;
