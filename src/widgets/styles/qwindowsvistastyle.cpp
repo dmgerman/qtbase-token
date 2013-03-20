@@ -3096,29 +3096,6 @@ operator|->
 name|rect
 argument_list|)
 decl_stmt|;
-name|uint
-name|resolve_mask
-init|=
-name|option
-operator|->
-name|palette
-operator|.
-name|resolve
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|resolve_mask
-operator|&
-operator|(
-literal|1
-operator|<<
-name|QPalette
-operator|::
-name|Base
-operator|)
-condition|)
-block|{
 comment|// Since EP_EDITBORDER_HVSCROLL does not us borderfill, theme.noContent cannot be used for clipping
 name|int
 name|borderSize
@@ -3184,7 +3161,6 @@ argument_list|(
 name|clipRegion
 argument_list|)
 expr_stmt|;
-block|}
 name|d
 operator|->
 name|drawBackground
