@@ -2116,6 +2116,137 @@ argument_list|(
 name|QFSFileEngine
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_WINCE
+argument_list|)
+comment|// Windows Embedded Compact 7 does not have MoveFileEx, simulate it with  the following sequence:
+comment|//   1. DeleteAndRenameFile  (Should work on RAM FS when both files exist)
+comment|//   2. DeleteFile/MoveFile  (Should work on all file systems)
+comment|//
+comment|// DeleteFile/MoveFile fallback implementation violates atomicity, but it is more acceptable than
+comment|// alternative CopyFile/DeleteFile sequence for the following reasons:
+comment|//
+comment|//  1. DeleteFile/MoveFile is way faster than CopyFile/DeleteFile and thus more atomic.
+comment|//  2. Given the intended use case of this function in QSaveFile, DeleteFile/MoveFile sequence will
+comment|//     delete the old content, but leave a file "filename.ext.XXXXXX" in the same directory if MoveFile fails.
+comment|//     With CopyFile/DeleteFile sequence, it can happen that new data is partially copied to target file
+comment|//     (because CopyFile is not atomic either), thus leaving *some* content to target file.
+comment|//     This makes the need for application level recovery harder to detect than in DeleteFile/MoveFile
+comment|//     sequence where target file simply does not exist.
+comment|//
+name|bool
+name|ret
+init|=
+operator|::
+name|DeleteAndRenameFile
+argument_list|(
+operator|(
+name|wchar_t
+operator|*
+operator|)
+name|QFileSystemEntry
+argument_list|(
+name|newName
+argument_list|)
+operator|.
+name|nativeFilePath
+argument_list|()
+operator|.
+name|utf16
+argument_list|()
+argument_list|,
+operator|(
+name|wchar_t
+operator|*
+operator|)
+name|d
+operator|->
+name|fileEntry
+operator|.
+name|nativeFilePath
+argument_list|()
+operator|.
+name|utf16
+argument_list|()
+argument_list|)
+operator|!=
+literal|0
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|ret
+condition|)
+block|{
+name|ret
+operator|=
+operator|::
+name|DeleteFile
+argument_list|(
+operator|(
+name|wchar_t
+operator|*
+operator|)
+name|d
+operator|->
+name|fileEntry
+operator|.
+name|nativeFilePath
+argument_list|()
+operator|.
+name|utf16
+argument_list|()
+argument_list|)
+operator|!=
+literal|0
+expr_stmt|;
+if|if
+condition|(
+name|ret
+condition|)
+name|ret
+operator|=
+operator|::
+name|MoveFile
+argument_list|(
+operator|(
+name|wchar_t
+operator|*
+operator|)
+name|d
+operator|->
+name|fileEntry
+operator|.
+name|nativeFilePath
+argument_list|()
+operator|.
+name|utf16
+argument_list|()
+argument_list|,
+operator|(
+name|wchar_t
+operator|*
+operator|)
+name|QFileSystemEntry
+argument_list|(
+name|newName
+argument_list|)
+operator|.
+name|nativeFilePath
+argument_list|()
+operator|.
+name|utf16
+argument_list|()
+argument_list|)
+operator|!=
+literal|0
+expr_stmt|;
+block|}
+else|#
+directive|else
 name|bool
 name|ret
 init|=
@@ -2156,6 +2287,8 @@ argument_list|)
 operator|!=
 literal|0
 decl_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 operator|!
