@@ -7826,9 +7826,9 @@ name|params
 operator|->
 name|skip_spans
 expr_stmt|;
-comment|// If raster object and raster buffer are allocated, but
-comment|// raster size isn't of the minimum size, indicate out of
-comment|// memory.
+comment|/* If raster object and raster buffer are allocated, but  */
+comment|/* raster size isn't of the minimum size, indicate out of */
+comment|/* memory.                                                */
 if|if
 condition|(
 name|raster
@@ -8406,8 +8406,8 @@ condition|(
 name|pool_base
 condition|)
 block|{
-comment|// Case when there is a raster pool allocated, but it
-comment|// doesn't have the minimum size (and so memory will be reallocated)
+comment|/* Case when there is a raster pool allocated, but it                */
+comment|/* doesn't have the minimum size (and so memory will be reallocated) */
 name|rast
 operator|->
 name|buffer

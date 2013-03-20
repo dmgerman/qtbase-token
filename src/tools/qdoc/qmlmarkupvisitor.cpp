@@ -2210,7 +2210,7 @@ name|QQmlJS
 operator|::
 name|AST
 operator|::
-name|PropertyNameAndValueList
+name|PropertyNameAndValue
 modifier|*
 name|list
 parameter_list|)

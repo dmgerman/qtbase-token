@@ -386,7 +386,7 @@ name|QQmlJS
 operator|::
 name|AST
 operator|::
-name|PropertyNameAndValueList
+name|PropertyNameAndValue
 operator|*
 argument_list|)
 block|;

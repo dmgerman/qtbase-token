@@ -1775,6 +1775,7 @@ operator|.
 name|devicePixelRatio
 argument_list|()
 expr_stmt|;
+comment|//ensure the pixmap and the image resulting from toImage() have the same cacheKey();
 name|setSerialNumber
 argument_list|(
 name|image
@@ -1783,6 +1784,15 @@ name|cacheKey
 argument_list|()
 operator|>>
 literal|32
+argument_list|)
+expr_stmt|;
+name|setDetachNumber
+argument_list|(
+name|image
+operator|.
+name|d
+operator|->
+name|detach_no
 argument_list|)
 expr_stmt|;
 block|}

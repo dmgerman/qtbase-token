@@ -31,7 +31,7 @@ name|m_theme
 argument_list|(
 name|newTheme
 argument_list|)
-block|{      }
+block|{  }
 end_constructor
 begin_destructor
 DECL|function|~ThemeEvent
@@ -40,6 +40,6 @@ operator|::
 name|~
 name|ThemeEvent
 parameter_list|()
-block|{      }
+block|{  }
 end_destructor
 end_unit

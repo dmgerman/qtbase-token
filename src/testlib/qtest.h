@@ -84,7 +84,6 @@ directive|include
 file|<QtCore/qrect.h>
 end_include
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 name|namespace
 name|QTest
@@ -103,10 +102,13 @@ block|{
 return|return
 name|qstrdup
 argument_list|(
+name|qPrintable
+argument_list|(
+name|QString
+argument_list|(
 name|str
-operator|.
-name|latin1
-argument_list|()
+argument_list|)
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -124,13 +126,10 @@ block|{
 return|return
 name|qstrdup
 argument_list|(
+name|qPrintable
+argument_list|(
 name|str
-operator|.
-name|toLatin1
-argument_list|()
-operator|.
-name|constData
-argument_list|()
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -184,6 +183,8 @@ argument_list|()
 operator|?
 name|qstrdup
 argument_list|(
+name|qPrintable
+argument_list|(
 name|time
 operator|.
 name|toString
@@ -193,12 +194,7 @@ argument_list|(
 literal|"hh:mm:ss.zzz"
 argument_list|)
 argument_list|)
-operator|.
-name|toLatin1
-argument_list|()
-operator|.
-name|constData
-argument_list|()
+argument_list|)
 argument_list|)
 operator|:
 name|qstrdup
@@ -226,6 +222,8 @@ argument_list|()
 operator|?
 name|qstrdup
 argument_list|(
+name|qPrintable
+argument_list|(
 name|date
 operator|.
 name|toString
@@ -235,12 +233,7 @@ argument_list|(
 literal|"yyyy/MM/dd"
 argument_list|)
 argument_list|)
-operator|.
-name|toLatin1
-argument_list|()
-operator|.
-name|constData
-argument_list|()
+argument_list|)
 argument_list|)
 operator|:
 name|qstrdup
@@ -268,7 +261,8 @@ argument_list|()
 operator|?
 name|qstrdup
 argument_list|(
-operator|(
+name|qPrintable
+argument_list|(
 name|dateTime
 operator|.
 name|toString
@@ -299,13 +293,7 @@ argument_list|(
 literal|"[UTC]"
 argument_list|)
 operator|)
-operator|)
-operator|.
-name|toLatin1
-argument_list|()
-operator|.
-name|constData
-argument_list|()
+argument_list|)
 argument_list|)
 operator|:
 name|qstrdup
@@ -330,6 +318,8 @@ argument_list|)
 block|{
 return|return
 name|qstrdup
+argument_list|(
+name|qPrintable
 argument_list|(
 name|QString
 operator|::
@@ -363,12 +353,7 @@ argument_list|,
 literal|16
 argument_list|)
 argument_list|)
-operator|.
-name|toLatin1
-argument_list|()
-operator|.
-name|constData
-argument_list|()
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -728,21 +713,18 @@ condition|)
 return|return
 name|qstrdup
 argument_list|(
-name|QByteArray
+name|qPrintable
+argument_list|(
+name|QStringLiteral
 argument_list|(
 literal|"Invalid URL: "
+argument_list|)
 operator|+
 name|uri
 operator|.
 name|errorString
 argument_list|()
-operator|.
-name|toLatin1
-argument_list|()
 argument_list|)
-operator|.
-name|constData
-argument_list|()
 argument_list|)
 return|;
 return|return
@@ -864,7 +846,7 @@ operator|(
 name|v
 operator|)
 operator|.
-name|toLatin1
+name|toLocal8Bit
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -988,14 +970,16 @@ end_expr_stmt
 begin_expr_stmt
 name|template
 operator|<
+name|typename
+name|T
 operator|>
 specifier|inline
 name|bool
 name|qCompare
 argument_list|(
-argument|QStringList const&t1
+argument|QList<T> const&t1
 argument_list|,
-argument|QStringList const&t2
+argument|QList<T> const&t2
 argument_list|,
 argument|const char *actual
 argument_list|,
@@ -1058,7 +1042,7 @@ argument_list|(
 name|msg
 argument_list|)
 argument_list|,
-literal|"Compared QStringLists have different sizes.\n"
+literal|"Compared lists have different sizes.\n"
 literal|"   Actual   (%s) size: '%d'\n"
 literal|"   Expected (%s) size: '%d'"
 argument_list|,
@@ -1097,19 +1081,22 @@ control|)
 block|{
 if|if
 condition|(
+operator|!
+operator|(
 name|t1
 operator|.
 name|at
 argument_list|(
 name|i
 argument_list|)
-operator|!=
+operator|==
 name|t2
 operator|.
 name|at
 argument_list|(
 name|i
 argument_list|)
+operator|)
 condition|)
 block|{
 name|qsnprintf
@@ -1121,7 +1108,7 @@ argument_list|(
 name|msg
 argument_list|)
 argument_list|,
-literal|"Compared QStringLists differ at index %d.\n"
+literal|"Compared lists differ at index %d.\n"
 literal|"   Actual   (%s): '%s'\n"
 literal|"   Expected (%s): '%s'"
 argument_list|,
@@ -1129,33 +1116,27 @@ name|i
 argument_list|,
 name|actual
 argument_list|,
+name|toString
+argument_list|(
 name|t1
 operator|.
 name|at
 argument_list|(
 name|i
 argument_list|)
-operator|.
-name|toLatin1
-argument_list|()
-operator|.
-name|constData
-argument_list|()
+argument_list|)
 argument_list|,
 name|expected
 argument_list|,
+name|toString
+argument_list|(
 name|t2
 operator|.
 name|at
 argument_list|(
 name|i
 argument_list|)
-operator|.
-name|toLatin1
-argument_list|()
-operator|.
-name|constData
-argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|isOk
@@ -1189,6 +1170,48 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
+operator|<
+operator|>
+specifier|inline
+name|bool
+name|qCompare
+argument_list|(
+argument|QStringList const&t1
+argument_list|,
+argument|QStringList const&t2
+argument_list|,
+argument|const char *actual
+argument_list|,
+argument|const char *expected
+argument_list|,
+argument|const char *file
+argument_list|,
+argument|int line
+argument_list|)
+block|{
+return|return
+name|qCompare
+operator|<
+name|QString
+operator|>
+operator|(
+name|t1
+operator|,
+name|t2
+operator|,
+name|actual
+operator|,
+name|expected
+operator|,
+name|file
+operator|,
+name|line
+operator|)
+return|;
+block|}
+end_expr_stmt
+begin_expr_stmt
+name|template
 operator|<
 name|typename
 name|T
@@ -1264,6 +1287,276 @@ name|int
 argument_list|(
 name|t1
 argument_list|)
+argument_list|,
+name|t2
+argument_list|,
+name|actual
+argument_list|,
+name|expected
+argument_list|,
+name|file
+argument_list|,
+name|line
+argument_list|)
+return|;
+block|}
+end_expr_stmt
+begin_expr_stmt
+name|template
+operator|<
+operator|>
+specifier|inline
+name|bool
+name|qCompare
+argument_list|(
+argument|qint64 const&t1
+argument_list|,
+argument|qint32 const&t2
+argument_list|,
+argument|const char *actual
+argument_list|,
+argument|const char *expected
+argument_list|,
+argument|const char *file
+argument_list|,
+argument|int line
+argument_list|)
+block|{
+return|return
+name|qCompare
+argument_list|(
+name|t1
+argument_list|,
+name|static_cast
+operator|<
+name|qint64
+operator|>
+operator|(
+name|t2
+operator|)
+argument_list|,
+name|actual
+argument_list|,
+name|expected
+argument_list|,
+name|file
+argument_list|,
+name|line
+argument_list|)
+return|;
+block|}
+end_expr_stmt
+begin_expr_stmt
+name|template
+operator|<
+operator|>
+specifier|inline
+name|bool
+name|qCompare
+argument_list|(
+argument|qint64 const&t1
+argument_list|,
+argument|quint32 const&t2
+argument_list|,
+argument|const char *actual
+argument_list|,
+argument|const char *expected
+argument_list|,
+argument|const char *file
+argument_list|,
+argument|int line
+argument_list|)
+block|{
+return|return
+name|qCompare
+argument_list|(
+name|t1
+argument_list|,
+name|static_cast
+operator|<
+name|qint64
+operator|>
+operator|(
+name|t2
+operator|)
+argument_list|,
+name|actual
+argument_list|,
+name|expected
+argument_list|,
+name|file
+argument_list|,
+name|line
+argument_list|)
+return|;
+block|}
+end_expr_stmt
+begin_expr_stmt
+name|template
+operator|<
+operator|>
+specifier|inline
+name|bool
+name|qCompare
+argument_list|(
+argument|quint64 const&t1
+argument_list|,
+argument|quint32 const&t2
+argument_list|,
+argument|const char *actual
+argument_list|,
+argument|const char *expected
+argument_list|,
+argument|const char *file
+argument_list|,
+argument|int line
+argument_list|)
+block|{
+return|return
+name|qCompare
+argument_list|(
+name|t1
+argument_list|,
+name|static_cast
+operator|<
+name|quint64
+operator|>
+operator|(
+name|t2
+operator|)
+argument_list|,
+name|actual
+argument_list|,
+name|expected
+argument_list|,
+name|file
+argument_list|,
+name|line
+argument_list|)
+return|;
+block|}
+end_expr_stmt
+begin_expr_stmt
+name|template
+operator|<
+operator|>
+specifier|inline
+name|bool
+name|qCompare
+argument_list|(
+argument|qint32 const&t1
+argument_list|,
+argument|qint64 const&t2
+argument_list|,
+argument|const char *actual
+argument_list|,
+argument|const char *expected
+argument_list|,
+argument|const char *file
+argument_list|,
+argument|int line
+argument_list|)
+block|{
+return|return
+name|qCompare
+argument_list|(
+name|static_cast
+operator|<
+name|qint64
+operator|>
+operator|(
+name|t1
+operator|)
+argument_list|,
+name|t2
+argument_list|,
+name|actual
+argument_list|,
+name|expected
+argument_list|,
+name|file
+argument_list|,
+name|line
+argument_list|)
+return|;
+block|}
+end_expr_stmt
+begin_expr_stmt
+name|template
+operator|<
+operator|>
+specifier|inline
+name|bool
+name|qCompare
+argument_list|(
+argument|quint32 const&t1
+argument_list|,
+argument|qint64 const&t2
+argument_list|,
+argument|const char *actual
+argument_list|,
+argument|const char *expected
+argument_list|,
+argument|const char *file
+argument_list|,
+argument|int line
+argument_list|)
+block|{
+return|return
+name|qCompare
+argument_list|(
+name|static_cast
+operator|<
+name|qint64
+operator|>
+operator|(
+name|t1
+operator|)
+argument_list|,
+name|t2
+argument_list|,
+name|actual
+argument_list|,
+name|expected
+argument_list|,
+name|file
+argument_list|,
+name|line
+argument_list|)
+return|;
+block|}
+end_expr_stmt
+begin_expr_stmt
+name|template
+operator|<
+operator|>
+specifier|inline
+name|bool
+name|qCompare
+argument_list|(
+argument|quint32 const&t1
+argument_list|,
+argument|quint64 const&t2
+argument_list|,
+argument|const char *actual
+argument_list|,
+argument|const char *expected
+argument_list|,
+argument|const char *file
+argument_list|,
+argument|int line
+argument_list|)
+block|{
+return|return
+name|qCompare
+argument_list|(
+name|static_cast
+operator|<
+name|quint64
+operator|>
+operator|(
+name|t1
+operator|)
 argument_list|,
 name|t2
 argument_list|,
@@ -1399,9 +1692,6 @@ parameter_list|)
 define|\
 value|int main(int argc, char *argv[]) \ { \     QCoreApplication app(argc, argv); \     app.setAttribute(Qt::AA_Use96Dpi, true); \     TestObject tc; \     return QTest::qExec(&tc, argc, argv); \ }
 end_define
-begin_macro
-name|QT_END_HEADER
-end_macro
 begin_endif
 endif|#
 directive|endif

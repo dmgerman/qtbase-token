@@ -450,6 +450,10 @@ decl_stmt|;
 name|Q_SIGNALS
 label|:
 name|void
+name|encrypted
+parameter_list|()
+function_decl|;
+name|void
 name|sslErrors
 argument_list|(
 specifier|const

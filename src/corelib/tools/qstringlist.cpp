@@ -375,7 +375,7 @@ end_ifndef
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_REGEXP
+name|QT_NO_REGULAREXPRESSION
 end_ifndef
 begin_comment
 comment|/*!     \fn QStringList QStringList::filter(const QRegularExpression&re) const     \overload     \since 5.0      Returns a list of all the strings that match the regular     expression \a re. */
@@ -453,7 +453,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_REGEXP
+comment|// QT_NO_REGULAREXPRESSION
 end_comment
 begin_endif
 endif|#
@@ -604,7 +604,7 @@ end_ifndef
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_REGEXP
+name|QT_NO_REGULAREXPRESSION
 end_ifndef
 begin_comment
 comment|/*!     \fn QStringList&QStringList::replaceInStrings(const QRegularExpression&re, const QString&after)     \overload     \since 5.0      Replaces every occurrence of the regular expression \a re, in each of the     string lists's strings, with \a after. Returns a reference to the string     list.      For example:      \snippet qstringlist/main.cpp 5     \snippet qstringlist/main.cpp 16      For regular expressions that contain capturing groups,     occurrences of \b{\\1}, \b{\\2}, ..., in \a after are     replaced with the string captured by the corresponding capturing group.      For example:      \snippet qstringlist/main.cpp 5     \snippet qstringlist/main.cpp 17 */
@@ -670,7 +670,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_REGEXP
+comment|// QT_NO_REGULAREXPRESSION
 end_comment
 begin_endif
 endif|#
@@ -1196,7 +1196,7 @@ end_ifndef
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_REGEXP
+name|QT_NO_REGULAREXPRESSION
 end_ifndef
 begin_comment
 comment|/*!     \fn int QStringList::indexOf(const QRegularExpression&re, int from) const     \overload     \since 5.0      Returns the index position of the first match of \a re in     the list, searching forward from index position \a from. Returns     -1 if no item matched.      \sa lastIndexOf() */
@@ -1458,7 +1458,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_REGEXP
+comment|// QT_NO_REGULAREXPRESSION
 end_comment
 begin_endif
 endif|#

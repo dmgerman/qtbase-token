@@ -320,6 +320,12 @@ name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
 argument_list|,
+argument|void replyEncrypted()
+argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
 argument|void replySslErrors(const QList<QSslError>&, bool *, QList<QSslError> *)
 argument_list|)
 name|Q_PRIVATE_SLOT
@@ -871,6 +877,10 @@ block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_SSL
+name|void
+name|replyEncrypted
+argument_list|()
+block|;
 name|void
 name|replySslErrors
 argument_list|(

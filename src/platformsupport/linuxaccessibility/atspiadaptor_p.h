@@ -36,7 +36,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qaccessible2.h>
+file|<QtGui/private/qaccessible2_p.h>
 end_include
 begin_include
 include|#
@@ -49,7 +49,6 @@ directive|include
 file|"struct_marshallers_p.h"
 end_include
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QAccessibleInterface
 name|class
@@ -916,10 +915,9 @@ literal|1
 block|; }
 decl_stmt|;
 end_decl_stmt
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

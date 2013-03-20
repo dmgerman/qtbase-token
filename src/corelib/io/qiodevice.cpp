@@ -4339,7 +4339,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.5      \overload       Writes data from a zero-terminated string of 8-bit characters to the     device. Returns the number of bytes that were actually written, or     -1 if an error occurred. This is equivalent to     \code     ...     QIODevice::write(data, qstrlen(data));     ...     \endcode      \sa read(), writeData() */
+comment|/*!     \since 4.5      \overload      Writes data from a zero-terminated string of 8-bit characters to the     device. Returns the number of bytes that were actually written, or     -1 if an error occurred. This is equivalent to     \code     ...     QIODevice::write(data, qstrlen(data));     ...     \endcode      \sa read(), writeData() */
 end_comment
 begin_function
 DECL|function|write

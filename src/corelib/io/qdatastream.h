@@ -43,7 +43,6 @@ endif|#
 directive|endif
 end_endif
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QByteArray
 name|class
@@ -227,11 +226,15 @@ block|,
 name|Qt_5_0
 init|=
 literal|13
+block|,
+name|Qt_5_1
+init|=
+name|Qt_5_0
 if|#
 directive|if
 name|QT_VERSION
 operator|>=
-literal|0x050100
+literal|0x050200
 error|#
 directive|error
 error|Add the datastream version for this Qt version
@@ -2243,10 +2246,9 @@ end_endif
 begin_comment
 comment|// QT_NO_DATASTREAM
 end_comment
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

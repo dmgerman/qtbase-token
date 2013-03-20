@@ -1297,7 +1297,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal     Uses ShortcutOverride event to see if any widgets want to override     the event. If not, uses nextState(QKeyEvent) to check for a grabbed     Shortcut, and dispatchEvent() is found an identical.     \sa nextState, dispatchEvent */
+comment|/*! \internal     Uses ShortcutOverride event to see if any widgets want to override     the event. If not, uses nextState(QKeyEvent) to check for a grabbed     Shortcut, and dispatchEvent() is found and identical.     \sa nextState, dispatchEvent */
 end_comment
 begin_function
 DECL|function|tryShortcutEvent

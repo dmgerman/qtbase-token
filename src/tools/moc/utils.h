@@ -104,6 +104,10 @@ operator|||
 name|s
 operator|==
 literal|'_'
+operator|||
+name|s
+operator|==
+literal|'$'
 operator|)
 return|;
 block|}
@@ -153,6 +157,10 @@ operator|||
 name|s
 operator|==
 literal|'_'
+operator|||
+name|s
+operator|==
+literal|'$'
 operator|)
 return|;
 block|}

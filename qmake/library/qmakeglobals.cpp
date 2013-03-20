@@ -304,16 +304,6 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-name|qmakespec
-operator|=
-name|getEnv
-argument_list|(
-name|QLatin1String
-argument_list|(
-literal|"QMAKESPEC"
-argument_list|)
-argument_list|)
-expr_stmt|;
 block|}
 end_constructor
 begin_destructor

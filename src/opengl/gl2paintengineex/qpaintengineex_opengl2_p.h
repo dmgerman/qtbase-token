@@ -83,6 +83,11 @@ include|#
 directive|include
 file|<private/qtriangulatingstroker_p.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<private/qopenglextensions_p.h>
+end_include
 begin_enum
 DECL|enum|EngineMode
 enum|enum
@@ -505,7 +510,7 @@ argument_list|()
 specifier|const
 block|;
 name|bool
-name|supportsTransformations
+name|requiresPretransformedGlyphPositions
 argument_list|(
 argument|QFontEngine *
 argument_list|,
@@ -514,20 +519,31 @@ argument_list|)
 specifier|const
 block|{
 return|return
-name|true
+name|false
 return|;
 block|}
+name|bool
+name|shouldDrawCachedGlyphs
+argument_list|(
+argument|QFontEngine *
+argument_list|,
+argument|const QTransform&
+argument_list|)
+specifier|const
+block|;
 name|private
 operator|:
 name|Q_DISABLE_COPY
 argument_list|(
 argument|QGL2PaintEngineEx
 argument_list|)
-expr|}
-block|;
+block|}
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QGL2PaintEngineExPrivate
-operator|:
+range|:
 name|public
 name|QPaintEngineExPrivate
 block|{
@@ -643,8 +659,9 @@ argument|GLenum wrapMode
 argument_list|,
 argument|bool smoothPixmapTransform
 argument_list|,
-argument|GLuint id = -
+argument|GLuint id = GLuint(-
 literal|1
+argument|)
 argument_list|)
 block|;
 name|void
@@ -859,6 +876,15 @@ argument|bool srcPixelsAreOpaque
 argument_list|)
 block|;
 comment|// returns true if the program has changed
+name|bool
+name|prepareForCachedGlyphDraw
+argument_list|(
+specifier|const
+name|QFontEngineGlyphCache
+operator|&
+name|cache
+argument_list|)
+block|;
 specifier|inline
 name|void
 name|useSimpleShader
@@ -992,6 +1018,9 @@ name|QFontEngineGlyphCache
 operator|::
 name|Type
 name|glyphCacheType
+block|;
+name|QOpenGLExtensions
+name|funcs
 block|;
 comment|// Dirty flags
 name|bool
@@ -1147,7 +1176,9 @@ index|[
 literal|3
 index|]
 block|; }
-block|;
+decl_stmt|;
+end_decl_stmt
+begin_expr_stmt
 DECL|function|setVertexAttributePointer
 name|void
 name|QGL2PaintEngineExPrivate
@@ -1182,13 +1213,17 @@ name|arrayIndex
 index|]
 operator|=
 name|pointer
-block|;
+expr_stmt|;
+end_expr_stmt
+begin_if
 if|if
 condition|(
 name|arrayIndex
 operator|==
 name|QT_OPACITY_ATTR
 condition|)
+name|funcs
+operator|.
 name|glVertexAttribPointer
 argument_list|(
 name|arrayIndex
@@ -1205,6 +1240,8 @@ name|pointer
 argument_list|)
 expr_stmt|;
 else|else
+name|funcs
+operator|.
 name|glVertexAttribPointer
 argument_list|(
 name|arrayIndex
@@ -1220,12 +1257,9 @@ argument_list|,
 name|pointer
 argument_list|)
 expr_stmt|;
-block|}
-end_decl_stmt
-begin_macro
-name|QT_END_NAMESPACE
-end_macro
+end_if
 begin_endif
+unit|}  QT_END_NAMESPACE
 endif|#
 directive|endif
 end_endif

@@ -38,10 +38,9 @@ include|#
 directive|include
 file|<QtDBus/QDBusObjectPath>
 end_include
-begin_expr_stmt
-name|QT_BEGIN_HEADER
+begin_macro
 name|QT_BEGIN_NAMESPACE
-end_expr_stmt
+end_macro
 begin_typedef
 DECL|typedef|QSpiIntList
 typedef|typedef
@@ -668,7 +667,6 @@ name|Q_DECLARE_METATYPE
 argument_list|(
 name|QSpiDeviceEvent
 argument_list|)
-name|QT_END_HEADER
 end_decl_stmt
 begin_endif
 endif|#

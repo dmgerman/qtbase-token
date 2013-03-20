@@ -22,7 +22,7 @@ name|QListWidget
 argument_list|(
 name|parent
 argument_list|)
-block|{     }
+block|{ }
 end_constructor
 begin_function
 DECL|function|keyPressEvent

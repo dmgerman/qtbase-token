@@ -563,7 +563,7 @@ name|Activated
 block|,
 name|Failed
 block|}
-block|;          enum
+block|;      enum
 name|ApFlag
 block|{
 name|ApNone
@@ -581,7 +581,7 @@ name|ApFlags
 argument_list|,
 name|ApFlag
 argument_list|)
-block|;          enum
+block|;      enum
 name|ApSecurityFlag
 block|{
 name|ApSecurityNone
@@ -1495,7 +1495,7 @@ operator|:
 name|QNetworkManagerIp4ConfigPrivate
 operator|*
 name|d
-block|;     }
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_macro

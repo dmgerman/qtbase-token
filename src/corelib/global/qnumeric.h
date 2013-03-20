@@ -19,7 +19,6 @@ directive|include
 file|<QtCore/qglobal.h>
 end_include
 begin_function_decl
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 name|Q_CORE_EXPORT
 name|bool
@@ -122,10 +121,9 @@ directive|define
 name|Q_QNAN
 value|(QT_PREPEND_NAMESPACE(qQNaN)())
 end_define
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

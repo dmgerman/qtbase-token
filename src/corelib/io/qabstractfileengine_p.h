@@ -88,7 +88,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_AUTOTEST_EXPORT
+name|Q_CORE_EXPORT
 name|QAbstractFileEngine
 block|{
 name|public
@@ -281,6 +281,11 @@ name|flush
 parameter_list|()
 function_decl|;
 name|virtual
+name|bool
+name|syncToDisk
+parameter_list|()
+function_decl|;
+name|virtual
 name|qint64
 name|size
 argument_list|()
@@ -324,6 +329,16 @@ function_decl|;
 name|virtual
 name|bool
 name|rename
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|newName
+parameter_list|)
+function_decl|;
+name|virtual
+name|bool
+name|renameOverwrite
 parameter_list|(
 specifier|const
 name|QString
@@ -742,7 +757,7 @@ argument_list|)
 end_macro
 begin_decl_stmt
 name|class
-name|Q_AUTOTEST_EXPORT
+name|Q_CORE_EXPORT
 name|QAbstractFileEngineHandler
 block|{
 name|public
@@ -782,7 +797,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_AUTOTEST_EXPORT
+name|Q_CORE_EXPORT
 name|QAbstractFileEngineIterator
 block|{
 name|public

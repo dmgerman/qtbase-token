@@ -50,6 +50,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtGui/QWindow>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/QDebug>
 end_include
 begin_include
@@ -972,6 +977,27 @@ operator|<<
 literal|"Automatic mouse capture "
 operator|<<
 name|window
+expr_stmt|;
+comment|// Implement "Click to focus" for native child windows.
+if|if
+condition|(
+operator|!
+name|window
+operator|->
+name|isTopLevel
+argument_list|()
+operator|&&
+name|QGuiApplication
+operator|::
+name|focusWindow
+argument_list|()
+operator|!=
+name|window
+condition|)
+name|window
+operator|->
+name|requestActivate
+argument_list|()
 expr_stmt|;
 block|}
 elseif|else

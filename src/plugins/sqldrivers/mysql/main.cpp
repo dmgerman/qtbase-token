@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"../../../sql/drivers/mysql/qsql_mysql.h"
+file|"../../../sql/drivers/mysql/qsql_mysql_p.h"
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE

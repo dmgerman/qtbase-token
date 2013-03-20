@@ -1958,7 +1958,7 @@ literal|"window"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|setWindowTitle
+name|setTitle
 argument_list|(
 name|tr
 argument_list|(
@@ -2331,7 +2331,7 @@ argument_list|(
 name|o
 argument_list|)
 operator|->
-name|windowFlags
+name|flags
 argument_list|()
 return|;
 block|}
@@ -2359,7 +2359,7 @@ argument_list|(
 name|o
 argument_list|)
 operator|->
-name|setWindowFlags
+name|setFlags
 argument_list|(
 name|f
 argument_list|)
@@ -2408,7 +2408,7 @@ name|setTitle
 argument_list|(
 name|w
 operator|->
-name|windowTitle
+name|title
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2960,7 +2960,7 @@ literal|300
 expr_stmt|;
 name|m_testWindow
 operator|->
-name|setWindowFlags
+name|setFlags
 argument_list|(
 name|Qt
 operator|::
@@ -3085,7 +3085,7 @@ argument_list|()
 expr_stmt|;
 name|m_testWindow
 operator|->
-name|setWindowTitle
+name|setTitle
 argument_list|(
 name|tr
 argument_list|(

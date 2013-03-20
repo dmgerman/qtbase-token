@@ -77,6 +77,14 @@ operator|&
 name|id
 argument_list|)
 block|;
+name|void
+name|handleWindowGroupStateChanged
+argument_list|(
+argument|const QByteArray&id
+argument_list|,
+argument|Qt::WindowState state
+argument_list|)
+block|;
 name|Q_SIGNALS
 operator|:
 name|void
@@ -101,6 +109,14 @@ specifier|const
 name|QByteArray
 operator|&
 name|id
+argument_list|)
+block|;
+name|void
+name|windowGroupStateChanged
+argument_list|(
+argument|const QByteArray&id
+argument_list|,
+argument|Qt::WindowState state
 argument_list|)
 block|; }
 decl_stmt|;

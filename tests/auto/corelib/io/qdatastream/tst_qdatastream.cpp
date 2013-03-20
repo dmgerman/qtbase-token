@@ -3824,14 +3824,14 @@ case|:
 name|QLinearGradient
 name|gradient
 argument_list|(
-name|QPoint
+name|QPointF
 argument_list|(
 literal|2.718
 argument_list|,
 literal|3.142
 argument_list|)
 argument_list|,
-name|QPoint
+name|QPointF
 argument_list|(
 literal|3.1337
 argument_list|,

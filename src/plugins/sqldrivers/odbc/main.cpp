@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"../../../sql/drivers/odbc/qsql_odbc.h"
+file|"../../../sql/drivers/odbc/qsql_odbc_p.h"
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE

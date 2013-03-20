@@ -38,7 +38,6 @@ endif|#
 directive|endif
 end_endif
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
@@ -46,6 +45,12 @@ name|QT_NO_TEMPORARYFILE
 DECL|variable|QTemporaryFilePrivate
 name|class
 name|QTemporaryFilePrivate
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|QLockFilePrivate
+name|class
+name|QLockFilePrivate
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -243,6 +248,10 @@ name|friend
 name|class
 name|QFile
 block|;
+name|friend
+name|class
+name|QLockFilePrivate
+block|;
 name|Q_DISABLE_COPY
 argument_list|(
 argument|QTemporaryFile
@@ -257,10 +266,9 @@ end_endif
 begin_comment
 comment|// QT_NO_TEMPORARYFILE
 end_comment
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

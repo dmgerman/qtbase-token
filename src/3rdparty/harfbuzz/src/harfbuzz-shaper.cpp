@@ -5986,13 +5986,8 @@ operator|.
 name|new_advance
 condition|)
 block|{
-name|advances
-index|[
-name|i
-index|]
-operator|=
-name|adjustment
-expr_stmt|;
+empty_stmt|;
+comment|//advances[i] = adjustment;
 block|}
 else|else
 block|{

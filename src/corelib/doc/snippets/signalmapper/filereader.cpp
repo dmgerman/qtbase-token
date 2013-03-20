@@ -179,7 +179,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|//! [1]
-comment|/* //! [2]     //slower due to signature normalization at runtime          connect(signalMapper, SIGNAL(mapped(const QString&)),         this, SLOT(readFile(const QString&))); //! [2] */
+comment|/* //! [2]     //slower due to signature normalization at runtime      connect(signalMapper, SIGNAL(mapped(const QString&)),         this, SLOT(readFile(const QString&))); //! [2] */
 name|QHBoxLayout
 modifier|*
 name|buttonLayout

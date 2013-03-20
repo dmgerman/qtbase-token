@@ -179,7 +179,7 @@ name|this
 argument_list|,
 name|SLOT
 argument_list|(
-name|readData
+name|readTestData
 argument_list|()
 argument_list|)
 argument_list|)
@@ -254,9 +254,9 @@ block|}
 private|private
 name|slots
 private|:
-DECL|function|readData
+DECL|function|readTestData
 name|void
-name|readData
+name|readTestData
 parameter_list|()
 block|{
 name|printf

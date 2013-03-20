@@ -1462,7 +1462,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns an iterator pointing to the position past the last document element inside the frame.     Please see the document \l{STL-Style Iterators} for more information.         \sa begin() */
+comment|/*!     Returns an iterator pointing to the position past the last document element inside the frame.     Please see the document \l{STL-Style Iterators} for more information.     \sa begin() */
 end_comment
 begin_function
 DECL|function|end

@@ -190,6 +190,15 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|receiver
+condition|)
+return|return
+operator|-
+literal|1
+return|;
 name|QHostInfo
 name|hostInfo
 argument_list|(
@@ -318,6 +327,15 @@ condition|(
 name|valid
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|receiver
+condition|)
+return|return
+operator|-
+literal|1
+return|;
 name|info
 operator|.
 name|setLookupId
@@ -377,6 +395,10 @@ argument_list|,
 name|id
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|receiver
+condition|)
 name|QObject
 operator|::
 name|connect
@@ -2128,7 +2150,7 @@ begin_comment
 comment|// cache for 60 seconds
 end_comment
 begin_comment
-comment|// cache 64 items
+comment|// cache 128 items
 end_comment
 begin_constructor
 DECL|function|QHostInfoCache
@@ -2149,7 +2171,7 @@ argument_list|)
 member_init_list|,
 name|cache
 argument_list|(
-literal|64
+literal|128
 argument_list|)
 block|{
 ifdef|#

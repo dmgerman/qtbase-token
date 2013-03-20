@@ -522,6 +522,11 @@ argument_list|,
 argument|QImage::Format mask_format
 argument_list|)
 block|;
+name|bool
+name|hasCFFTable
+argument_list|()
+specifier|const
+block|;
 specifier|const
 name|QSharedPointer
 operator|<
@@ -556,6 +561,11 @@ literal|1
 block|;
 name|uint
 name|hasOutline
+operator|:
+literal|1
+block|;
+name|uint
+name|cffTable
 operator|:
 literal|1
 block|;

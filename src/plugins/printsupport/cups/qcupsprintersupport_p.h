@@ -46,10 +46,9 @@ include|#
 directive|include
 file|<cups/cups.h>
 end_include
-begin_expr_stmt
-name|QT_BEGIN_HEADER
+begin_macro
 name|QT_BEGIN_NAMESPACE
-end_expr_stmt
+end_macro
 begin_typedef
 DECL|typedef|CupsGetDests
 typedef|typedef
@@ -161,6 +160,22 @@ argument_list|)
 specifier|const
 block|;
 name|virtual
+name|QList
+operator|<
+name|QPair
+operator|<
+name|QString
+block|,
+name|QSizeF
+operator|>
+expr|>
+name|supportedSizesWithNames
+argument_list|(
+argument|const QPrinterInfo&
+argument_list|)
+specifier|const
+block|;
+name|virtual
 name|QString
 name|printerOption
 argument_list|(
@@ -218,10 +233,9 @@ name|cupsGetOption
 block|; }
 decl_stmt|;
 end_decl_stmt
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

@@ -51,23 +51,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_if
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_WS_MAC
-argument_list|)
-operator|||
-operator|(
-name|MAC_OS_X_VERSION_MAX_ALLOWED
-operator|>=
-name|MAC_OS_X_VERSION_10_5
-operator|)
-end_if
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QRawFontPrivate
 name|class
@@ -306,7 +290,29 @@ argument_list|)
 block|;
 name|virtual
 name|QImage
+name|alphaMapForGlyph
+argument_list|(
+argument|glyph_t glyph
+argument_list|,
+argument|QFixed subPixelPosition
+argument_list|,
+argument|const QTransform&t
+argument_list|)
+block|;
+name|virtual
+name|QImage
 name|alphaRGBMapForGlyph
+argument_list|(
+argument|glyph_t
+argument_list|,
+argument|QFixed subPixelPosition
+argument_list|,
+argument|const QTransform&t
+argument_list|)
+block|;
+name|virtual
+name|QImage
+name|bitmapForGlyph
 argument_list|(
 argument|glyph_t
 argument_list|,
@@ -334,7 +340,7 @@ argument_list|()
 specifier|const
 block|;
 name|bool
-name|supportsTransformations
+name|supportsTransformation
 argument_list|(
 argument|const QTransform&transform
 argument_list|)
@@ -507,17 +513,9 @@ name|fontDef
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// !defined(Q_WS_MAC) || (MAC_OS_X_VERSION_MAX_ALLOWED>= MAC_OS_X_VERSION_10_5)
-end_comment
+end_macro
 begin_endif
 endif|#
 directive|endif

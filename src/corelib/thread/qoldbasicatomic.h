@@ -19,13 +19,15 @@ directive|include
 file|<QtCore/qglobal.h>
 end_include
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 if|#
 directive|if
 literal|0
 comment|// silence syncqt warnings
-type|QT_END_NAMESPACE QT_END_HEADER
+type|QT_END_NAMESPACE
+pragma|#
+directive|pragma
+name|qt_sync_skip_header_check
 pragma|#
 directive|pragma
 name|qt_no_master_include
@@ -495,10 +497,9 @@ name|a
 parameter_list|)
 value|{ (a) }
 end_define
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

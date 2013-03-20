@@ -552,6 +552,9 @@ begin_comment
 comment|/*!     \fn void QNetworkAccessManager::finished(QNetworkReply *reply)      This signal is emitted whenever a pending network reply is     finished. The \a reply parameter will contain a pointer to the     reply that has just finished. This signal is emitted in tandem     with the QNetworkReply::finished() signal.      See QNetworkReply::finished() for information on the status that     the object will be in.      \note Do not delete the \a reply object in the slot connected to this     signal. Use deleteLater().      \sa QNetworkReply::finished(), QNetworkReply::error() */
 end_comment
 begin_comment
+comment|/*!     \fn void QNetworkAccessManager::encrypted(QNetworkReply *reply)     \since 5.1      This signal is emitted when an SSL/TLS session has successfully     completed the initial handshake. At this point, no user data     has been transmitted. The signal can be used to perform     additional checks on the certificate chain, for example to     notify users when the certificate for a website has changed. The     \a reply parameter specifies which network reply is responsible.     If the reply does not match the expected criteria then it should     be aborted by calling QNetworkReply::abort() by a slot connected     to this signal. The SSL configuration in use can be inspected     using the QNetworkReply::sslConfiguration() method.      Internally, QNetworkAccessManager may open multiple connections     to a server, in order to allow it process requests in parallel.     These connections may be reused, which means that the encrypted()     signal would not be emitted. This means that you are only     guaranteed to receive this signal for the first connection to a     site in the lifespan of the QNetworkAccessManager.      \sa QSslSocket::encrypted()     \sa QNetworkReply::encrypted() */
+end_comment
+begin_comment
 comment|/*!     \fn void QNetworkAccessManager::sslErrors(QNetworkReply *reply, const QList<QSslError>&errors)      This signal is emitted if the SSL/TLS session encountered errors     during the set up, including certificate verification errors. The     \a errors parameter contains the list of errors and \a reply is     the QNetworkReply that is encountering these errors.      To indicate that the errors are not fatal and that the connection     should proceed, the QNetworkReply::ignoreSslErrors() function should be called     from the slot connected to this signal. If it is not called, the     SSL session will be torn down before any data is exchanged     (including the URL).      This signal can be used to display an error message to the user     indicating that security may be compromised and display the     SSL settings (see sslConfiguration() to obtain it). If the user     decides to proceed after analyzing the remote certificate, the     slot should call ignoreSslErrors().      \sa QSslSocket::sslErrors(), QNetworkReply::sslErrors(),     QNetworkReply::sslConfiguration(), QNetworkReply::ignoreSslErrors() */
 end_comment
 begin_comment
@@ -1075,7 +1078,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Posts a request to obtain the contents of the target \a request     and returns a new QNetworkReply object opened for reading which emits the      \l{QIODevice::readyRead()}{readyRead()} signal whenever new data      arrives.      The contents as well as associated headers will be downloaded.      \sa post(), put(), deleteResource(), sendCustomRequest() */
+comment|/*!     Posts a request to obtain the contents of the target \a request     and returns a new QNetworkReply object opened for reading which emits the     \l{QIODevice::readyRead()}{readyRead()} signal whenever new data     arrives.      The contents as well as associated headers will be downloaded.      \sa post(), put(), deleteResource(), sendCustomRequest() */
 end_comment
 begin_function
 DECL|function|get
@@ -1110,7 +1113,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sends an HTTP POST request to the destination specified by \a request     and returns a new QNetworkReply object opened for reading that will      contain the reply sent by the server. The contents of  the \a data      device will be uploaded to the server.      \a data must be open for reading and must remain valid until the      finished() signal is emitted for this reply.      \note Sending a POST request on protocols other than HTTP and     HTTPS is undefined and will probably fail.      \sa get(), put(), deleteResource(), sendCustomRequest() */
+comment|/*!     Sends an HTTP POST request to the destination specified by \a request     and returns a new QNetworkReply object opened for reading that will     contain the reply sent by the server. The contents of  the \a data     device will be uploaded to the server.      \a data must be open for reading and must remain valid until the     finished() signal is emitted for this reply.      \note Sending a POST request on protocols other than HTTP and     HTTPS is undefined and will probably fail.      \sa get(), put(), deleteResource(), sendCustomRequest() */
 end_comment
 begin_function
 DECL|function|post
@@ -1151,7 +1154,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Sends the contents of the \a data byte array to the destination      specified by \a request. */
+comment|/*!     \overload      Sends the contents of the \a data byte array to the destination     specified by \a request. */
 end_comment
 begin_function
 DECL|function|post
@@ -1341,7 +1344,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Uploads the contents of \a data to the destination \a request and     returnes a new QNetworkReply object that will be open for reply.      \a data must be opened for reading when this function is called     and must remain valid until the finished() signal is emitted for     this reply.      Whether anything will be available for reading from the returned     object is protocol dependent. For HTTP, the server may send a      small HTML page indicating the upload was successful (or not).      Other protocols will probably have content in their replies.      \note For HTTP, this request will send a PUT request, which most servers     do not allow. Form upload mechanisms, including that of uploading     files through HTML forms, use the POST mechanism.      \sa get(), post(), deleteResource(), sendCustomRequest() */
+comment|/*!     Uploads the contents of \a data to the destination \a request and     returnes a new QNetworkReply object that will be open for reply.      \a data must be opened for reading when this function is called     and must remain valid until the finished() signal is emitted for     this reply.      Whether anything will be available for reading from the returned     object is protocol dependent. For HTTP, the server may send a     small HTML page indicating the upload was successful (or not).     Other protocols will probably have content in their replies.      \note For HTTP, this request will send a PUT request, which most servers     do not allow. Form upload mechanisms, including that of uploading     files through HTML forms, use the POST mechanism.      \sa get(), post(), deleteResource(), sendCustomRequest() */
 end_comment
 begin_function
 DECL|function|put
@@ -1450,7 +1453,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.6      Sends a request to delete the resource identified by the URL of \a request.      \note This feature is currently available for HTTP only, performing an      HTTP DELETE request.      \sa get(), post(), put(), sendCustomRequest() */
+comment|/*!     \since 4.6      Sends a request to delete the resource identified by the URL of \a request.      \note This feature is currently available for HTTP only, performing an     HTTP DELETE request.      \sa get(), post(), put(), sendCustomRequest() */
 end_comment
 begin_function
 DECL|function|deleteResource
@@ -1549,17 +1552,26 @@ if|if
 condition|(
 name|session
 condition|)
+block|{
 return|return
 name|session
 operator|->
 name|configuration
 argument_list|()
 return|;
+block|}
 else|else
+block|{
+name|QNetworkConfigurationManager
+name|manager
+decl_stmt|;
 return|return
-name|QNetworkConfiguration
+name|manager
+operator|.
+name|defaultConfiguration
 argument_list|()
 return|;
+block|}
 block|}
 end_function
 begin_comment
@@ -1592,14 +1604,14 @@ name|getNetworkSession
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|QNetworkConfigurationManager
+name|manager
+decl_stmt|;
 if|if
 condition|(
 name|networkSession
 condition|)
 block|{
-name|QNetworkConfigurationManager
-name|manager
-decl_stmt|;
 return|return
 name|manager
 operator|.
@@ -1623,7 +1635,9 @@ block|}
 else|else
 block|{
 return|return
-name|QNetworkConfiguration
+name|manager
+operator|.
+name|defaultConfiguration
 argument_list|()
 return|;
 block|}
@@ -1976,6 +1990,21 @@ name|QLatin1String
 argument_list|(
 literal|"qrc"
 argument_list|)
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_ANDROID
+argument_list|)
+operator|||
+name|scheme
+operator|==
+name|QLatin1String
+argument_list|(
+literal|"assets"
+argument_list|)
+endif|#
+directive|endif
 operator|)
 condition|)
 block|{
@@ -2690,6 +2719,54 @@ directive|endif
 block|}
 end_function
 begin_function
+DECL|function|_q_replyEncrypted
+name|void
+name|QNetworkAccessManagerPrivate
+operator|::
+name|_q_replyEncrypted
+parameter_list|()
+block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_SSL
+name|Q_Q
+argument_list|(
+name|QNetworkAccessManager
+argument_list|)
+expr_stmt|;
+name|QNetworkReply
+modifier|*
+name|reply
+init|=
+name|qobject_cast
+argument_list|<
+name|QNetworkReply
+operator|*
+argument_list|>
+argument_list|(
+name|q
+operator|->
+name|sender
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|reply
+condition|)
+emit|emit
+name|q
+operator|->
+name|encrypted
+argument_list|(
+name|reply
+argument_list|)
+emit|;
+endif|#
+directive|endif
+block|}
+end_function
+begin_function
 DECL|function|_q_replySslErrors
 name|void
 name|QNetworkAccessManagerPrivate
@@ -2804,6 +2881,25 @@ ifndef|#
 directive|ifndef
 name|QT_NO_SSL
 comment|/* In case we're compiled without SSL support, we don't have this signal and we need to      * avoid getting a connection error. */
+name|q
+operator|->
+name|connect
+argument_list|(
+name|reply
+argument_list|,
+name|SIGNAL
+argument_list|(
+name|encrypted
+argument_list|()
+argument_list|)
+argument_list|,
+name|SLOT
+argument_list|(
+name|_q_replyEncrypted
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|q
 operator|->
 name|connect

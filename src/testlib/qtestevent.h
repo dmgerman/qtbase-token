@@ -70,7 +70,6 @@ directive|include
 file|<stdlib.h>
 end_include
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 name|class
 name|QTestEvent
@@ -1027,7 +1026,6 @@ name|Q_DECLARE_METATYPE
 argument_list|(
 argument|QTestEventList
 argument_list|)
-name|QT_END_HEADER
 end_decl_stmt
 begin_endif
 endif|#

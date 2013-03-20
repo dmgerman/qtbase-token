@@ -2494,6 +2494,19 @@ name|QLatin1String
 argument_list|(
 literal|"xunit"
 argument_list|)
+ifdef|#
+directive|ifdef
+name|Q_CC_MINGW
+operator|&&
+name|subdir
+operator|!=
+name|QLatin1String
+argument_list|(
+literal|"silent"
+argument_list|)
+comment|// calls qFatal()
+endif|#
+directive|endif
 operator|&&
 name|subdir
 operator|!=
@@ -2568,10 +2581,18 @@ argument_list|,
 name|logger
 argument_list|)
 decl_stmt|;
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_CC_MSVC
-comment|// MSVC formats double numbers differently
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_CC_MINGW
+argument_list|)
+comment|// MSVC, MinGW format double numbers differently
 if|if
 condition|(
 name|n

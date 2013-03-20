@@ -19,7 +19,6 @@ directive|include
 file|<QtCore/qglobal.h>
 end_include
 begin_function_decl
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 name|QT_END_NAMESPACE
 if|#
@@ -344,10 +343,9 @@ name|qt_win_display_dc
 parameter_list|()
 function_decl|;
 end_function_decl
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

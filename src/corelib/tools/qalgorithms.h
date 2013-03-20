@@ -19,7 +19,6 @@ directive|include
 file|<QtCore/qglobal.h>
 end_include
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 comment|/*     Warning: The contents of QAlgorithmsPrivate is not a part of the public Qt API     and may be changed from version to version or even be completely removed. */
 name|namespace
@@ -2563,10 +2562,9 @@ begin_comment
 unit|}  }
 comment|//namespace QAlgorithmsPrivate
 end_comment
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

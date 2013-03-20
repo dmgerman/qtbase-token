@@ -45,12 +45,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qdbusmetatype.h"
+file|<qdbusmetatype.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<qdbusintrospection_p.h>
+file|<private/qdbusintrospection_p.h>
 end_include
 begin_include
 include|#

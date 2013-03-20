@@ -3401,6 +3401,11 @@ specifier|const
 block|{
 if|if
 condition|(
+name|mimeData
+operator|->
+name|hasUrls
+argument_list|()
+operator|&&
 name|getCf
 argument_list|(
 name|formatetc
@@ -3478,13 +3483,8 @@ operator|)
 operator|&&
 name|mimeData
 operator|->
-name|hasFormat
-argument_list|(
-name|QStringLiteral
-argument_list|(
-literal|"text/uri-list"
-argument_list|)
-argument_list|)
+name|hasUrls
+argument_list|()
 return|;
 block|}
 end_function

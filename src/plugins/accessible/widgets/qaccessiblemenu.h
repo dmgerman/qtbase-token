@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtWidgets/qaccessiblewidget.h>
+file|<QtWidgets/private/qaccessiblewidget_p.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE

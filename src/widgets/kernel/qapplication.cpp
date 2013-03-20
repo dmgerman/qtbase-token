@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtWidgets module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -1683,11 +1683,6 @@ operator|::
 name|initialize
 parameter_list|()
 block|{
-name|is_app_running
-operator|=
-literal|false
-expr_stmt|;
-comment|// Starting up.
 name|QWidgetPrivate
 operator|::
 name|mapper
@@ -1732,11 +1727,11 @@ argument_list|()
 expr_stmt|;
 endif|#
 directive|endif
-name|Q_Q
-argument_list|(
-name|QApplication
-argument_list|)
+name|is_app_running
+operator|=
+literal|true
 expr_stmt|;
+comment|// no longer starting up
 if|if
 condition|(
 name|qgetenv
@@ -1749,8 +1744,8 @@ argument_list|()
 operator|>
 literal|0
 condition|)
-name|q
-operator|->
+name|QCoreApplication
+operator|::
 name|setAttribute
 argument_list|(
 name|Qt
@@ -1844,11 +1839,6 @@ operator|.
 name|toInt
 argument_list|()
 expr_stmt|;
-name|is_app_running
-operator|=
-literal|true
-expr_stmt|;
-comment|// no longer starting up
 block|}
 end_function
 begin_comment
@@ -3078,9 +3068,6 @@ comment|//
 name|QString
 name|style
 decl_stmt|;
-ifdef|#
-directive|ifdef
-name|QT_BUILD_INTERNAL
 name|QString
 name|envStyle
 init|=
@@ -3094,13 +3081,6 @@ literal|"QT_STYLE_OVERRIDE"
 argument_list|)
 argument_list|)
 decl_stmt|;
-else|#
-directive|else
-name|QString
-name|envStyle
-decl_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 operator|!
@@ -7378,6 +7358,10 @@ name|toplevel
 parameter_list|,
 name|bool
 name|next
+parameter_list|,
+name|bool
+modifier|*
+name|wrappingOccurred
 parameter_list|)
 block|{
 name|uint
@@ -7429,6 +7413,16 @@ argument_list|()
 operator|->
 name|focus_next
 decl_stmt|;
+name|bool
+name|seenWindow
+init|=
+literal|false
+decl_stmt|;
+name|bool
+name|focusWidgetAfterWindow
+init|=
+literal|false
+decl_stmt|;
 while|while
 condition|(
 name|test
@@ -7438,6 +7432,17 @@ operator|!=
 name|f
 condition|)
 block|{
+if|if
+condition|(
+name|test
+operator|->
+name|isWindow
+argument_list|()
+condition|)
+name|seenWindow
+operator|=
+literal|true
+expr_stmt|;
 if|if
 condition|(
 operator|(
@@ -7527,6 +7532,14 @@ name|test
 expr_stmt|;
 if|if
 condition|(
+name|seenWindow
+condition|)
+name|focusWidgetAfterWindow
+operator|=
+literal|true
+expr_stmt|;
+if|if
+condition|(
 name|next
 condition|)
 break|break;
@@ -7541,6 +7554,22 @@ operator|->
 name|focus_next
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|wrappingOccurred
+operator|!=
+literal|0
+condition|)
+operator|*
+name|wrappingOccurred
+operator|=
+name|next
+condition|?
+name|focusWidgetAfterWindow
+else|:
+operator|!
+name|focusWidgetAfterWindow
+expr_stmt|;
 if|if
 condition|(
 name|w
@@ -14939,7 +14968,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QApplication::keyboardInputDirection()     \since 4.2     \deprecated      Returns the current keyboard input direction. Replaced with QInputPanel::inputDirection()     \sa QInputPanel::inputDirection() */
+comment|/*!     \fn QApplication::keyboardInputDirection()     \since 4.2     \deprecated      Returns the current keyboard input direction. Replaced with QInputMethod::inputDirection()     \sa QInputMethod::inputDirection() */
 end_comment
 begin_comment
 comment|/*!     \property QApplication::keyboardInputInterval     \brief the time limit in milliseconds that distinguishes a key press     from two consecutive key presses     \since 4.2      The default value on X11 is 400 milliseconds. On Windows and Mac OS, the     operating system's value is used. */
@@ -15662,11 +15691,6 @@ modifier|*
 name|event
 parameter_list|)
 block|{
-name|Q_Q
-argument_list|(
-name|QApplication
-argument_list|)
-expr_stmt|;
 comment|// Check if the platform wants synthesized mouse events.
 if|if
 condition|(
@@ -15838,8 +15862,8 @@ specifier|const
 name|bool
 name|res
 init|=
-name|q
-operator|->
+name|QCoreApplication
+operator|::
 name|sendSpontaneousEvent
 argument_list|(
 name|widget

@@ -1714,6 +1714,16 @@ operator|::
 name|scrollTo
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+name|QSKIP
+argument_list|(
+literal|"Flakey test - https://bugreports.qt-project.org/browse/QTBUG-29950"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|{
 name|tst_QScrollerWidget
 modifier|*
@@ -1883,24 +1893,14 @@ operator|::
 name|scroll
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_MACX
-argument_list|)
-operator|&&
-operator|(
-name|MAC_OS_X_VERSION_MAX_ALLOWED
-operator|<
-name|MAC_OS_X_VERSION_10_6
-operator|)
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
 name|QSKIP
 argument_list|(
-literal|"Mac OS X< 10.6 does not support QTouchEvents"
+literal|"Flakey test - https://bugreports.qt-project.org/browse/QTBUG-30133"
 argument_list|)
 expr_stmt|;
-return|return;
 endif|#
 directive|endif
 ifndef|#
@@ -2204,24 +2204,14 @@ operator|::
 name|overshoot
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_MACX
-argument_list|)
-operator|&&
-operator|(
-name|MAC_OS_X_VERSION_MAX_ALLOWED
-operator|<
-name|MAC_OS_X_VERSION_10_6
-operator|)
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
 name|QSKIP
 argument_list|(
-literal|"Mac OS X< 10.6 does not support QTouchEvents"
+literal|"Flakey test - https://bugreports.qt-project.org/browse/QTBUG-29950"
 argument_list|)
 expr_stmt|;
-return|return;
 endif|#
 directive|endif
 ifndef|#

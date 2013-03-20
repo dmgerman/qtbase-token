@@ -39,7 +39,6 @@ directive|include
 file|<QtCore/qpointer.h>
 end_include
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 name|class
 name|Q_TESTLIB_EXPORT
@@ -358,11 +357,8 @@ name|exitLoop
 argument_list|()
 expr_stmt|;
 end_expr_stmt
-begin_macro
-unit|}  QT_END_NAMESPACE
-name|QT_END_HEADER
-end_macro
 begin_endif
+unit|}  QT_END_NAMESPACE
 endif|#
 directive|endif
 end_endif

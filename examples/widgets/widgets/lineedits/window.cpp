@@ -102,6 +102,13 @@ name|QLineEdit
 expr_stmt|;
 name|echoLineEdit
 operator|->
+name|setPlaceholderText
+argument_list|(
+literal|"Placeholder Text"
+argument_list|)
+expr_stmt|;
+name|echoLineEdit
+operator|->
 name|setFocus
 argument_list|()
 expr_stmt|;
@@ -175,6 +182,13 @@ operator|=
 operator|new
 name|QLineEdit
 expr_stmt|;
+name|validatorLineEdit
+operator|->
+name|setPlaceholderText
+argument_list|(
+literal|"Placeholder Text"
+argument_list|)
+expr_stmt|;
 comment|//! [1]
 comment|//! [2]
 name|QGroupBox
@@ -244,6 +258,13 @@ name|alignmentLineEdit
 operator|=
 operator|new
 name|QLineEdit
+expr_stmt|;
+name|alignmentLineEdit
+operator|->
+name|setPlaceholderText
+argument_list|(
+literal|"Placeholder Text"
+argument_list|)
 expr_stmt|;
 comment|//! [2]
 comment|//! [3]
@@ -325,6 +346,13 @@ operator|=
 operator|new
 name|QLineEdit
 expr_stmt|;
+name|inputMaskLineEdit
+operator|->
+name|setPlaceholderText
+argument_list|(
+literal|"Placeholder Text"
+argument_list|)
+expr_stmt|;
 comment|//! [3]
 comment|//! [4]
 name|QGroupBox
@@ -384,6 +412,13 @@ name|accessLineEdit
 operator|=
 operator|new
 name|QLineEdit
+expr_stmt|;
+name|accessLineEdit
+operator|->
+name|setPlaceholderText
+argument_list|(
+literal|"Placeholder Text"
+argument_list|)
 expr_stmt|;
 comment|//! [4]
 comment|//! [5]

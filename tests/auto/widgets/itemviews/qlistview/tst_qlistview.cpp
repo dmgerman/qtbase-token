@@ -2695,6 +2695,7 @@ member_init_list|:
 name|QListView
 argument_list|()
 block|{}
+comment|// enum CursorAction and moveCursor() are protected in QListView.
 DECL|enum|CursorAction
 DECL|enumerator|MoveUp
 DECL|enumerator|MoveDown
@@ -2730,9 +2731,9 @@ block|,
 name|MovePrevious
 block|}
 enum|;
-DECL|function|moveCursor
+DECL|function|doMoveCursor
 name|QModelIndex
-name|moveCursor
+name|doMoveCursor
 parameter_list|(
 name|QMoveCursorListView
 operator|::
@@ -2960,7 +2961,7 @@ name|idx
 init|=
 name|vu
 operator|.
-name|moveCursor
+name|doMoveCursor
 argument_list|(
 name|QMoveCursorListView
 operator|::
@@ -2989,7 +2990,7 @@ name|idx
 operator|=
 name|vu
 operator|.
-name|moveCursor
+name|doMoveCursor
 argument_list|(
 name|QMoveCursorListView
 operator|::
@@ -9568,7 +9569,7 @@ name|QListView
 block|{
 public|public:
 name|QRegion
-name|visualRegionForSelection
+name|getVisualRegionForSelection
 parameter_list|()
 specifier|const
 block|{
@@ -9688,7 +9689,7 @@ name|QVERIFY
 argument_list|(
 name|view
 operator|.
-name|visualRegionForSelection
+name|getVisualRegionForSelection
 argument_list|()
 operator|.
 name|isEmpty
@@ -12096,7 +12097,7 @@ name|idx
 init|=
 name|vu
 operator|.
-name|moveCursor
+name|doMoveCursor
 argument_list|(
 name|QMoveCursorListView
 operator|::
@@ -12140,7 +12141,7 @@ name|idx
 operator|=
 name|vu
 operator|.
-name|moveCursor
+name|doMoveCursor
 argument_list|(
 name|QMoveCursorListView
 operator|::

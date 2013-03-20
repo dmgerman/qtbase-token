@@ -1752,12 +1752,12 @@ name|project
 operator|->
 name|isActiveConfig
 argument_list|(
-literal|"macx"
+literal|"mac"
 argument_list|)
 condition|)
 name|target_mode
 operator|=
-name|TARG_MACX_MODE
+name|TARG_MAC_MODE
 expr_stmt|;
 else|else
 name|target_mode
@@ -2756,6 +2756,26 @@ condition|?
 literal|""
 else|:
 literal|"|| "
+expr_stmt|;
+if|if
+condition|(
+name|v
+index|[
+literal|"QMAKE_LINK_O_FLAG"
+index|]
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|v
+index|[
+literal|"QMAKE_LINK_O_FLAG"
+index|]
+operator|.
+name|append
+argument_list|(
+literal|"-o "
+argument_list|)
 expr_stmt|;
 name|ProStringList
 modifier|&
@@ -24486,7 +24506,7 @@ if|if
 condition|(
 name|target_mode
 operator|==
-name|TARG_MACX_MODE
+name|TARG_MAC_MODE
 operator|&&
 name|project
 operator|->

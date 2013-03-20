@@ -370,6 +370,17 @@ operator|&
 name|m
 argument_list|)
 expr_stmt|;
+name|tv
+operator|.
+name|setSelectionMode
+argument_list|(
+name|QAbstractItemView
+operator|::
+name|SingleSelection
+argument_list|)
+expr_stmt|;
+comment|// Comment in the line below to test selection with keyboard (space)
+comment|// tv.setEditTriggers(QAbstractItemView::NoEditTriggers);
 name|SomeHandler
 name|handler
 argument_list|(

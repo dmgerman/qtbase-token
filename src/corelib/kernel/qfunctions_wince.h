@@ -13,6 +13,11 @@ define|#
 directive|define
 name|QFUNCTIONS_WINCE_H
 end_define
+begin_include
+include|#
+directive|include
+file|<QtCore/qglobal.h>
+end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -84,7 +89,6 @@ directive|include
 file|<ceconfig.h>
 end_include
 begin_function_decl
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 ifdef|#
 directive|ifdef
@@ -92,7 +96,6 @@ name|QT_BUILD_CORE_LIB
 endif|#
 directive|endif
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
 comment|// The standard SDK misses this define...
 DECL|macro|_control87
 define|#

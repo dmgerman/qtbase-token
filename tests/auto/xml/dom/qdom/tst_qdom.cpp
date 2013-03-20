@@ -9147,7 +9147,7 @@ block|}
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|/*!   \internal     Write a german umlaut to a QByteArray, via a QTextStream.  */
+comment|/*!   \internal    Write a german umlaut to a QByteArray, via a QTextStream.  */
 end_comment
 begin_function
 DECL|function|germanUmlautToByteArray
@@ -9280,7 +9280,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \internal     Write a german umlaut to a QFile, via a QTextStream.  */
+comment|/*!   \internal    Write a german umlaut to a QFile, via a QTextStream.  */
 end_comment
 begin_function
 DECL|function|germanUmlautToFile

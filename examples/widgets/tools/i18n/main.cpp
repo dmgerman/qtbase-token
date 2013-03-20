@@ -10,6 +10,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QLocale>
+end_include
+begin_include
+include|#
+directive|include
 file|"languagechooser.h"
 end_include
 begin_include
@@ -46,6 +51,15 @@ argument_list|)
 decl_stmt|;
 name|LanguageChooser
 name|chooser
+argument_list|(
+name|QLocale
+operator|::
+name|system
+argument_list|()
+operator|.
+name|name
+argument_list|()
+argument_list|)
 decl_stmt|;
 name|chooser
 operator|.

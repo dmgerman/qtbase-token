@@ -15,6 +15,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qglfunctions.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"private/qglengineshadersource_p.h"
 end_include
 begin_decl_stmt
@@ -744,8 +749,22 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+name|QOpenGLFunctions
+modifier|*
+name|funcs
+init|=
+name|ctx
+operator|->
+name|contextHandle
+argument_list|()
+operator|->
+name|functions
+argument_list|()
+decl_stmt|;
 comment|// ### the QTextureGlyphCache API needs to be reworked to allow
 comment|// ### resizeTextureData to fail
+name|funcs
+operator|->
 name|glBindFramebuffer
 argument_list|(
 name|GL_FRAMEBUFFER
@@ -841,6 +860,8 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glFramebufferTexture2D
 argument_list|(
 name|GL_FRAMEBUFFER
@@ -854,6 +875,8 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glActiveTexture
 argument_list|(
 name|GL_TEXTURE0
@@ -1070,6 +1093,8 @@ name|link
 argument_list|()
 expr_stmt|;
 block|}
+name|funcs
+operator|->
 name|glVertexAttribPointer
 argument_list|(
 name|QT_VERTEX_COORDS_ATTR
@@ -1085,6 +1110,8 @@ argument_list|,
 name|m_vertexCoordinateArray
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glVertexAttribPointer
 argument_list|(
 name|QT_TEXTURE_COORDS_ATTR
@@ -1223,6 +1250,8 @@ argument_list|,
 name|oldHeight
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glFramebufferRenderbuffer
 argument_list|(
 name|GL_FRAMEBUFFER
@@ -1250,6 +1279,8 @@ operator|&
 name|oldTexture
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glBindFramebuffer
 argument_list|(
 name|GL_FRAMEBUFFER

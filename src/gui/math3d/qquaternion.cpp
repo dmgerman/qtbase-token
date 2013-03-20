@@ -38,7 +38,7 @@ ifndef|#
 directive|ifndef
 name|QT_NO_QUATERNION
 comment|/*!     \class QQuaternion     \brief The QQuaternion class represents a quaternion consisting of a vector and scalar.     \since 4.6     \ingroup painting-3D     \inmodule QtGui      Quaternions are used to represent rotations in 3D space, and     consist of a 3D rotation axis specified by the x, y, and z     coordinates, and a scalar representing the rotation angle. */
-comment|/*!     \fn QQuaternion::QQuaternion()      Constructs an identity quaternion, i.e. with coordinates (1, 0, 0, 0). */
+comment|/*!     \fn QQuaternion::QQuaternion()      Constructs an identity quaternion (1, 0, 0, 0), i.e. with the vector (0, 0, 0)     and scalar 1. */
 comment|/*!     \fn QQuaternion::QQuaternion(float scalar, float xpos, float ypos, float zpos)      Constructs a quaternion with the vector (\a xpos, \a ypos, \a zpos)     and \a scalar. */
 ifndef|#
 directive|ifndef
@@ -231,7 +231,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Normalizes the currect quaternion in place.  Nothing happens if this     is a null quaternion or the length of the quaternion is very close to 1.      \sa length(), normalized() */
+comment|/*!     Normalizes the current quaternion in place.  Nothing happens if this     is a null quaternion or the length of the quaternion is very close to 1.      \sa length(), normalized() */
 end_comment
 begin_function
 DECL|function|normalize

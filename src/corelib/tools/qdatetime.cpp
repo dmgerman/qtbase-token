@@ -270,41 +270,6 @@ parameter_list|(
 name|qint64
 name|a
 parameter_list|,
-name|qint64
-name|b
-parameter_list|)
-block|{
-return|return
-operator|(
-name|a
-operator|-
-operator|(
-name|a
-operator|<
-literal|0
-condition|?
-name|b
-operator|-
-literal|1
-else|:
-literal|0
-operator|)
-operator|)
-operator|/
-name|b
-return|;
-block|}
-end_function
-begin_function
-DECL|function|floordiv
-specifier|static
-specifier|inline
-name|qint64
-name|floordiv
-parameter_list|(
-name|qint64
-name|a
-parameter_list|,
 name|int
 name|b
 parameter_list|)
@@ -1349,7 +1314,7 @@ directive|ifndef
 name|QT_NO_TEXTDATE
 end_ifndef
 begin_comment
-comment|/*!     \since 4.5      Returns the short name of the \a month for the representation specified     by \a type.      The months are enumerated using the following convention:      \list     \li 1 = "Jan"     \li 2 = "Feb"     \li 3 = "Mar"     \li 4 = "Apr"     \li 5 = "May"     \li 6 = "Jun"     \li 7 = "Jul"     \li 8 = "Aug"     \li 9 = "Sep"     \li 10 = "Oct"     \li 11 = "Nov"     \li 12 = "Dec"     \endlist      The month names will be localized according to the system's locale     settings.      Returns an empty string if the date is invalid.      \sa toString(), longMonthName(), shortDayName(), longDayName() */
+comment|/*!     \since 4.5      Returns the short name of the \a month for the representation specified     by \a type.      The months are enumerated using the following convention:      \list     \li 1 = "Jan"     \li 2 = "Feb"     \li 3 = "Mar"     \li 4 = "Apr"     \li 5 = "May"     \li 6 = "Jun"     \li 7 = "Jul"     \li 8 = "Aug"     \li 9 = "Sep"     \li 10 = "Oct"     \li 11 = "Nov"     \li 12 = "Dec"     \endlist      The month names will be localized according to the system's default     locale settings.      Returns an empty string if the date is invalid.      \sa toString(), longMonthName(), shortDayName(), longDayName() */
 end_comment
 begin_function
 DECL|function|shortMonthName
@@ -1436,7 +1401,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.5      Returns the long name of the \a month for the representation specified     by \a type.      The months are enumerated using the following convention:      \list     \li 1 = "January"     \li 2 = "February"     \li 3 = "March"     \li 4 = "April"     \li 5 = "May"     \li 6 = "June"     \li 7 = "July"     \li 8 = "August"     \li 9 = "September"     \li 10 = "October"     \li 11 = "November"     \li 12 = "December"     \endlist      The month names will be localized according to the system's locale     settings.      Returns an empty string if the date is invalid.      \sa toString(), shortMonthName(), shortDayName(), longDayName() */
+comment|/*!     \since 4.5      Returns the long name of the \a month for the representation specified     by \a type.      The months are enumerated using the following convention:      \list     \li 1 = "January"     \li 2 = "February"     \li 3 = "March"     \li 4 = "April"     \li 5 = "May"     \li 6 = "June"     \li 7 = "July"     \li 8 = "August"     \li 9 = "September"     \li 10 = "October"     \li 11 = "November"     \li 12 = "December"     \endlist      The month names will be localized according to the system's default     locale settings.      Returns an empty string if the date is invalid.      \sa toString(), shortMonthName(), shortDayName(), longDayName() */
 end_comment
 begin_function
 DECL|function|longMonthName
@@ -1521,7 +1486,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.5      Returns the short name of the \a weekday for the representation specified     by \a type.      The days are enumerated using the following convention:      \list     \li 1 = "Mon"     \li 2 = "Tue"     \li 3 = "Wed"     \li 4 = "Thu"     \li 5 = "Fri"     \li 6 = "Sat"     \li 7 = "Sun"     \endlist      The day names will be localized according to the system's locale     settings.      Returns an empty string if the date is invalid.      \sa toString(), shortMonthName(), longMonthName(), longDayName() */
+comment|/*!     \since 4.5      Returns the short name of the \a weekday for the representation specified     by \a type.      The days are enumerated using the following convention:      \list     \li 1 = "Mon"     \li 2 = "Tue"     \li 3 = "Wed"     \li 4 = "Thu"     \li 5 = "Fri"     \li 6 = "Sat"     \li 7 = "Sun"     \endlist      The day names will be localized according to the system's default     locale settings.      Returns an empty string if the date is invalid.      \sa toString(), shortMonthName(), longMonthName(), longDayName() */
 end_comment
 begin_function
 DECL|function|shortDayName
@@ -1606,7 +1571,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.5      Returns the long name of the \a weekday for the representation specified     by \a type.      The days are enumerated using the following convention:      \list     \li 1 = "Monday"     \li 2 = "Tuesday"     \li 3 = "Wednesday"     \li 4 = "Thursday"     \li 5 = "Friday"     \li 6 = "Saturday"     \li 7 = "Sunday"     \endlist      The day names will be localized according to the system's locale     settings.      Returns an empty string if the date is invalid.      \sa toString(), shortDayName(), shortMonthName(), longMonthName() */
+comment|/*!     \since 4.5      Returns the long name of the \a weekday for the representation specified     by \a type.      The days are enumerated using the following convention:      \list     \li 1 = "Monday"     \li 2 = "Tuesday"     \li 3 = "Wednesday"     \li 4 = "Thursday"     \li 5 = "Friday"     \li 6 = "Saturday"     \li 7 = "Sunday"     \endlist      The day names will be localized according to the system's default     locale settings.      Returns an empty string if the date is invalid.      \sa toString(), shortDayName(), shortMonthName(), longMonthName() */
 end_comment
 begin_function
 DECL|function|longDayName
@@ -1714,7 +1679,7 @@ directive|ifndef
 name|QT_NO_DATESTRING
 end_ifndef
 begin_comment
-comment|/*!     \fn QString QDate::toString(Qt::DateFormat format) const      \overload      Returns the date as a string. The \a format parameter determines     the format of the string.      If the \a format is Qt::TextDate, the string is formatted in     the default way. QDate::shortDayName() and QDate::shortMonthName()     are used to generate the string, so the day and month names will     be localized names. An example of this formatting is     "Sat May 20 1995".      If the \a format is Qt::ISODate, the string format corresponds     to the ISO 8601 extended specification for representations of     dates and times, taking the form YYYY-MM-DD, where YYYY is the     year, MM is the month of the year (between 01 and 12), and DD is     the day of the month between 01 and 31.      If the \a format is Qt::SystemLocaleShortDate or     Qt::SystemLocaleLongDate, the string format depends on the locale     settings of the system. Identical to calling     QLocale::system().toString(date, QLocale::ShortFormat) or     QLocale::system().toString(date, QLocale::LongFormat).      If the \a format is Qt::DefaultLocaleShortDate or     Qt::DefaultLocaleLongDate, the string format depends on the     default application locale. This is the locale set with     QLocale::setDefault(), or the system locale if no default locale     has been set. Identical to calling QLocale().toString(date,     QLocale::ShortFormat) or QLocale().toString(date,     QLocale::LongFormat).      If the date is invalid, an empty string will be returned.      \warning The Qt::ISODate format is only valid for years in the     range 0 to 9999. This restriction may apply to locale-aware     formats as well, depending on the locale settings.      \sa shortDayName(), shortMonthName() */
+comment|/*!     \fn QString QDate::toString(Qt::DateFormat format) const      \overload      Returns the date as a string. The \a format parameter determines     the format of the string.      If the \a format is Qt::TextDate, the string is formatted in     the default way. QDate::shortDayName() and QDate::shortMonthName()     are used to generate the string, so the day and month names will     be localized names using the default locale from the system. An     example of this formatting is "Sat May 20 1995".      If the \a format is Qt::ISODate, the string format corresponds     to the ISO 8601 extended specification for representations of     dates and times, taking the form YYYY-MM-DD, where YYYY is the     year, MM is the month of the year (between 01 and 12), and DD is     the day of the month between 01 and 31.      If the \a format is Qt::SystemLocaleShortDate or     Qt::SystemLocaleLongDate, the string format depends on the locale     settings of the system. Identical to calling     QLocale::system().toString(date, QLocale::ShortFormat) or     QLocale::system().toString(date, QLocale::LongFormat).      If the \a format is Qt::DefaultLocaleShortDate or     Qt::DefaultLocaleLongDate, the string format depends on the     default application locale. This is the locale set with     QLocale::setDefault(), or the system locale if no default locale     has been set. Identical to calling QLocale().toString(date,     QLocale::ShortFormat) or QLocale().toString(date,     QLocale::LongFormat).      If the date is invalid, an empty string will be returned.      \warning The Qt::ISODate format is only valid for years in the     range 0 to 9999. This restriction may apply to locale-aware     formats as well, depending on the locale settings.      \sa shortDayName(), shortMonthName() */
 end_comment
 begin_function
 DECL|function|toString
@@ -5647,7 +5612,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.7      Sets the date and time given the number of milliseconds \a msecs that have     passed since 1970-01-01T00:00:00.000, Coordinated Universal Time     (Qt::UTC). On systems that do not support time zones this function     will behave as if local time were Qt::UTC.      Note that there are possible values for \a msecs that lie outside the     valid range of QDateTime, both negative and positive. The behavior of     this function is undefined for those values.      \sa toMSecsSinceEpoch(), setTime_t() */
+comment|/*!     \since 4.7      Sets the date and time given the number of milliseconds \a msecs that have     passed since 1970-01-01T00:00:00.000, Coordinated Universal Time     (Qt::UTC). On systems that do not support time zones this function     will behave as if local time were Qt::UTC.      Note that passing the minimum of \c qint64     (\c{std::numeric_limits<qint64>::min()}) to \a msecs will result in     undefined behavior.      \sa toMSecsSinceEpoch(), setTime_t() */
 end_comment
 begin_function
 DECL|function|setMSecsSinceEpoch
@@ -12566,7 +12531,7 @@ return|;
 block|}
 else|else
 block|{
-name|int
+name|qint64
 name|deltaDays
 init|=
 name|fakeDate
@@ -13098,7 +13063,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|int
+name|qint64
 name|deltaDays
 init|=
 name|fakeDate

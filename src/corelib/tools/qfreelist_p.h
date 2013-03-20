@@ -49,7 +49,6 @@ directive|include
 file|<QtCore/qatomic.h>
 end_include
 begin_expr_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 comment|/*! \internal      Element in a QFreeList. ConstReferenceType and ReferenceType are used as     the return values for QFreeList::at() and QFreeList::operator[](). Contains     the real data storage (_t) and the id of the next free element (next).      Note: the t() functions should be used to access the data, not _t. */
 name|template
@@ -1060,11 +1059,8 @@ end_comment
 begin_comment
 comment|//        (newid& ~ConstantsType::IndexMask)>> 24);
 end_comment
-begin_macro
-unit|}  QT_END_NAMESPACE
-name|QT_END_HEADER
-end_macro
 begin_endif
+unit|}  QT_END_NAMESPACE
 endif|#
 directive|endif
 end_endif

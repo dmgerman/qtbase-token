@@ -199,7 +199,7 @@ begin_comment
 comment|/*!     \fn QPlatformBackingStore *QPlatformIntegration::createPlatformBackingStore(QWindow *window) const      Factory function for QPlatformBackingStore. The QWindow parameter is a pointer to the     top level widget(tlw) the window surface is created for. A QPlatformWindow is always created     before the QPlatformBackingStore for tlw where the widget also requires a backing store.      \sa QBackingStore     \sa createPlatformWindow() */
 end_comment
 begin_comment
-comment|/*!     \enum QPlatformIntegration::Capability      Capabilities are used to determing specific features of a platform integration      \value ThreadedPixmaps The platform uses a pixmap implementation that is reentrant     and can be used from multiple threads, like the raster paint engine and QImage based     pixmaps.      \value OpenGL The platform supports OpenGL      \value ThreadedOpenGL The platform supports using OpenGL outside the GUI thread.      \value SharedGraphicsCache The platform supports a shared graphics cache      \value BufferQueueingOpenGL The OpenGL implementation on the platform will queue     up buffers when swapBuffers() is called and block only when its buffer pipeline     is full, rather than block immediately.      \value MultipleWindows The platform supports multiple QWindows, i.e. does some kind     of compositing either client or server side. Some platforms might only support a     single fullscreen window.  */
+comment|/*!     \enum QPlatformIntegration::Capability      Capabilities are used to determing specific features of a platform integration      \value ThreadedPixmaps The platform uses a pixmap implementation that is reentrant     and can be used from multiple threads, like the raster paint engine and QImage based     pixmaps.      \value OpenGL The platform supports OpenGL      \value ThreadedOpenGL The platform supports using OpenGL outside the GUI thread.      \value SharedGraphicsCache The platform supports a shared graphics cache      \value BufferQueueingOpenGL The OpenGL implementation on the platform will queue     up buffers when swapBuffers() is called and block only when its buffer pipeline     is full, rather than block immediately.      \value MultipleWindows The platform supports multiple QWindows, i.e. does some kind     of compositing either client or server side. Some platforms might only support a     single fullscreen window.      \value ApplicationState The platform handles the application state explicitly.     This means that QEvent::ApplicationActivate and QEvent::ApplicationDeativate     will not be posted automatically. Instead, the platform must handle application     state explicitly by using QWindowSystemInterface::handleApplicationStateChanged().     If not set, application state will follow window activation, which is the normal     behavior for desktop platforms.      \value ForeignWindows The platform allows creating QWindows which represent     native windows created by other processes or anyway created by using native     libraries.  */
 end_comment
 begin_comment
 comment|/*!      \fn QAbstractEventDispatcher *QPlatformIntegration::guiThreadEventDispatcher() const = 0      Accessor function for the event dispatcher. The platform plugin should create     an instance of the QAbstractEventDispatcher in its constructor and set it     on the application using QGuiApplicationPrivate::instance()->setEventDispatcher().     The event dispatcher is owned by QGuiApplication, the accessor should return     a flat pointer.     \sa QGuiApplicationPrivate */
@@ -681,6 +681,32 @@ argument_list|)
 return|return
 operator|new
 name|QPlatformTheme
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!    Factory function for QOffscreenSurface. An offscreen surface will typically be implemented with a    pixel buffer (pbuffer). If the platform doesn't support offscreen surfaces, an invisible window    will be used by QOffscreenSurface instead. */
+end_comment
+begin_function
+DECL|function|createPlatformOffscreenSurface
+name|QPlatformOffscreenSurface
+modifier|*
+name|QPlatformIntegration
+operator|::
+name|createPlatformOffscreenSurface
+parameter_list|(
+name|QOffscreenSurface
+modifier|*
+name|surface
+parameter_list|)
+specifier|const
+block|{
+name|Q_UNUSED
+argument_list|(
+argument|surface
+argument_list|)
+return|return
+literal|0
 return|;
 block|}
 end_function

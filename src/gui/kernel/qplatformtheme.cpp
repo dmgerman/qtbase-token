@@ -32,6 +32,11 @@ include|#
 directive|include
 file|<qtextformat.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<qiconloader_p.h>
+end_include
 begin_expr_stmt
 name|QT_BEGIN_NAMESPACE
 comment|/*!     \class QPlatformTheme     \since 5.0     \internal     \preliminary     \ingroup qpa     \brief The QPlatformTheme class allows customizing the UI based on themes.  */
@@ -635,6 +640,33 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|/*!    Factory function for the QIconEngine used by QIcon::fromTheme(). By default this    function returns a QIconLoaderEngine, but subclasses can reimplement it to    provide their own.     It is especially useful to benefit from some platform specific facilities or    optimizations like an inter-process cache in systems mostly built with Qt.     \since 5.1 */
+end_comment
+begin_function
+DECL|function|createIconEngine
+name|QIconEngine
+modifier|*
+name|QPlatformTheme
+operator|::
+name|createIconEngine
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|iconName
+parameter_list|)
+specifier|const
+block|{
+return|return
+operator|new
+name|QIconLoaderEngine
+argument_list|(
+name|iconName
+argument_list|)
+return|;
+block|}
+end_function
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

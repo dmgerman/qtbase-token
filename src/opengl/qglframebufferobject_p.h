@@ -58,6 +58,11 @@ include|#
 directive|include
 file|<private/qgl_p.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<private/qopenglextensions_p.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 ifndef|#
@@ -433,6 +438,9 @@ name|engine
 decl_stmt|;
 name|QGLFBOGLPaintDevice
 name|glDevice
+decl_stmt|;
+name|QOpenGLExtensions
+name|funcs
 decl_stmt|;
 specifier|inline
 name|GLuint

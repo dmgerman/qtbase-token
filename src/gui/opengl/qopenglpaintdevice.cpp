@@ -87,6 +87,10 @@ DECL|member|dpmy
 name|qreal
 name|dpmy
 decl_stmt|;
+DECL|member|devicePixelRatio
+name|qreal
+name|devicePixelRatio
+decl_stmt|;
 DECL|member|flipped
 name|bool
 name|flipped
@@ -240,6 +244,11 @@ operator|*
 literal|100.
 operator|/
 literal|2.54
+argument_list|)
+member_init_list|,
+name|devicePixelRatio
+argument_list|(
+literal|1.0
 argument_list|)
 member_init_list|,
 name|flipped
@@ -440,6 +449,28 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
+comment|/*!     Sets the device pixel ratio for the paint device to \a devicePixelRatio. */
+end_comment
+begin_function
+DECL|function|setDevicePixelRatio
+name|void
+name|QOpenGLPaintDevice
+operator|::
+name|setDevicePixelRatio
+parameter_list|(
+name|qreal
+name|devicePixelRatio
+parameter_list|)
+block|{
+name|d_ptr
+operator|->
+name|devicePixelRatio
+operator|=
+name|devicePixelRatio
+expr_stmt|;
+block|}
+end_function
+begin_comment
 comment|/*!     \reimp */
 end_comment
 begin_function
@@ -572,6 +603,10 @@ operator|->
 name|dpmx
 operator|*
 literal|0.0254
+operator|*
+name|d_ptr
+operator|->
+name|devicePixelRatio
 argument_list|)
 return|;
 case|case
@@ -585,6 +620,10 @@ operator|->
 name|dpmy
 operator|*
 literal|0.0254
+operator|*
+name|d_ptr
+operator|->
+name|devicePixelRatio
 argument_list|)
 return|;
 default|default:

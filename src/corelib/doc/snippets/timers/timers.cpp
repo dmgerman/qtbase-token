@@ -134,6 +134,6 @@ DECL|function|main
 name|int
 name|main
 parameter_list|()
-block|{      }
+block|{  }
 end_function
 end_unit

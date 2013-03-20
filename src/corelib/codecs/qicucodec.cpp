@@ -1500,6 +1500,14 @@ name|name
 argument_list|,
 literal|"x-windows-874"
 argument_list|)
+operator|||
+operator|!
+name|qstrcmp
+argument_list|(
+name|name
+argument_list|,
+literal|"ISO 8859-11"
+argument_list|)
 condition|)
 name|name
 operator|=

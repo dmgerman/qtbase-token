@@ -8,7 +8,7 @@ end_comment
 begin_macro
 name|Q_PROPERTY
 argument_list|(
-argument|type name            READ getFunction            [WRITE setFunction]            [RESET resetFunction]            [NOTIFY notifySignal]            [REVISION int]            [DESIGNABLE bool]            [SCRIPTABLE bool]            [STORED bool] 	   [USER bool]            [CONSTANT]            [FINAL]
+argument|type name            (READ getFunction [WRITE setFunction] |             MEMBER memberName [(READ getFunction | WRITE setFunction)])            [RESET resetFunction]            [NOTIFY notifySignal]            [REVISION int]            [DESIGNABLE bool]            [SCRIPTABLE bool]            [STORED bool] 	   [USER bool]            [CONSTANT]            [FINAL]
 argument_list|)
 end_macro
 begin_comment
@@ -345,5 +345,70 @@ argument_list|)
 end_macro
 begin_comment
 comment|//! [7]
+end_comment
+begin_comment
+comment|//! [8]
+end_comment
+begin_macro
+name|Q_PROPERTY
+argument_list|(
+argument|QColor color MEMBER m_color NOTIFY colorChanged
+argument_list|)
+end_macro
+begin_macro
+name|Q_PROPERTY
+argument_list|(
+argument|qreal spacing MEMBER m_spacing NOTIFY spacingChanged
+argument_list|)
+end_macro
+begin_macro
+name|Q_PROPERTY
+argument_list|(
+argument|QString text MEMBER m_text NOTIFY textChanged
+argument_list|)
+end_macro
+begin_expr_stmt
+operator|...
+name|signals
+operator|:
+name|void
+name|colorChanged
+argument_list|()
+expr_stmt|;
+end_expr_stmt
+begin_function_decl
+name|void
+name|spacingChanged
+parameter_list|()
+function_decl|;
+end_function_decl
+begin_function_decl
+name|void
+name|textChanged
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|newText
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_private
+private|private:
+DECL|variable|m_color
+name|QColor
+name|m_color
+decl_stmt|;
+DECL|variable|m_spacing
+name|qreal
+name|m_spacing
+decl_stmt|;
+DECL|variable|m_text
+name|QString
+name|m_text
+decl_stmt|;
+end_private
+begin_comment
+comment|//! [8]
 end_comment
 end_unit

@@ -415,7 +415,7 @@ name|left
 argument_list|,
 name|top
 argument_list|)
-block|;             }
+block|;     }
 specifier|inline
 name|void
 name|addQuad

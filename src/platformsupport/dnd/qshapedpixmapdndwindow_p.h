@@ -30,7 +30,6 @@ file|<QtGui/QBackingStore>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-name|QT_BEGIN_HEADER
 name|class
 name|QShapedPixmapWindow
 range|:
@@ -92,10 +91,9 @@ name|m_hotSpot
 block|; }
 decl_stmt|;
 end_decl_stmt
-begin_expr_stmt
-name|QT_END_HEADER
+begin_macro
 name|QT_END_NAMESPACE
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

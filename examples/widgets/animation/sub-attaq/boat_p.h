@@ -106,12 +106,7 @@ argument_list|)
 block|,
 name|boat
 argument_list|(
-name|b
-argument_list|)
-block|,
-name|key
-argument_list|(
-argument|k
+argument|b
 argument_list|)
 block|{     }
 name|protected
@@ -156,11 +151,6 @@ begin_decl_stmt
 name|Boat
 modifier|*
 name|boat
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-name|int
-name|key
 decl_stmt|;
 end_decl_stmt
 begin_comment

@@ -45,7 +45,7 @@ name|fontEngine
 argument_list|(
 argument|const QFontDef&fontDef
 argument_list|,
-argument|QUnicodeTables::Script script
+argument|QChar::Script script
 argument_list|,
 argument|void *handle
 argument_list|)
@@ -64,13 +64,13 @@ block|;
 name|QStringList
 name|fallbacksForFamily
 argument_list|(
-argument|const QString family
+argument|const QString&family
 argument_list|,
-argument|const QFont::Style&style
+argument|QFont::Style style
 argument_list|,
-argument|const QFont::StyleHint&styleHint
+argument|QFont::StyleHint styleHint
 argument_list|,
-argument|const QUnicodeTables::Script&script
+argument|QChar::Script script
 argument_list|)
 specifier|const
 block|;
@@ -120,15 +120,23 @@ name|mutable
 name|QString
 name|defaultFontName
 block|;
+name|mutable
 name|QHash
 operator|<
-name|QFont
-operator|::
-name|StyleHint
+name|QString
 block|,
-name|QStringList
+name|QString
 operator|>
-name|fallbackLists
+name|psNameToFamily
+block|;
+name|mutable
+name|QHash
+operator|<
+name|QString
+block|,
+name|QString
+operator|>
+name|familyNameToPsName
 block|; }
 decl_stmt|;
 end_decl_stmt

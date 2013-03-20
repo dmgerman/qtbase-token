@@ -95,7 +95,7 @@ begin_comment
 comment|/*!     \fn void QClipboard::findBufferChanged()     \since 4.2      This signal is emitted when the find buffer is changed. This only     applies to Mac OS X.      With Qt version 4.3 or higher, clipboard changes made by other     applications will only be detected when the application is activated.      \sa dataChanged(), selectionChanged(), changed() */
 end_comment
 begin_comment
-comment|/*! \enum QClipboard::Mode     \keyword clipboard mode      This enum type is used to control which part of the system clipboard is     used by QClipboard::mimeData(), QClipboard::setMimeData() and related functions.      \value Clipboard  indicates that data should be stored and retrieved from     the global clipboard.      \value Selection  indicates that data should be stored and retrieved from     the global mouse selection. Support for \c Selection is provided only on      systems with a global mouse selection (e.g. X11).      \value FindBuffer indicates that data should be stored and retrieved from     the Find buffer. This mode is used for holding search strings on Mac OS X.      \omitvalue LastMode      \sa QClipboard::supportsSelection() */
+comment|/*! \enum QClipboard::Mode     \keyword clipboard mode      This enum type is used to control which part of the system clipboard is     used by QClipboard::mimeData(), QClipboard::setMimeData() and related functions.      \value Clipboard  indicates that data should be stored and retrieved from     the global clipboard.      \value Selection  indicates that data should be stored and retrieved from     the global mouse selection. Support for \c Selection is provided only on     systems with a global mouse selection (e.g. X11).      \value FindBuffer indicates that data should be stored and retrieved from     the Find buffer. This mode is used for holding search strings on Mac OS X.      \omitvalue LastMode      \sa QClipboard::supportsSelection() */
 end_comment
 begin_comment
 comment|/*!     \overload      Returns the clipboard text in subtype \a subtype, or an empty string     if the clipboard does not contain any text. If \a subtype is null,     any subtype is acceptable, and \a subtype is set to the chosen     subtype.      The \a mode argument is used to control which part of the system     clipboard is used.  If \a mode is QClipboard::Clipboard, the     text is retrieved from the global clipboard.  If \a mode is     QClipboard::Selection, the text is retrieved from the global     mouse selection.      Common values for \a subtype are "plain" and "html".      Note that calling this function repeatedly, for instance from a     key event handler, may be slow. In such cases, you should use the     \c dataChanged() signal instead.      \sa setText(), mimeData() */
@@ -423,7 +423,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the clipboard image, or returns a null image if the     clipboard does not contain an image or if it contains an image in     an unsupported image format.      The \a mode argument is used to control which part of the system     clipboard is used.  If \a mode is QClipboard::Clipboard, the     image is retrieved from the global clipboard.  If \a mode is     QClipboard::Selection, the image is retrieved from the global     mouse selection.       \sa setImage(), pixmap(), mimeData(), QImage::isNull() */
+comment|/*!     Returns the clipboard image, or returns a null image if the     clipboard does not contain an image or if it contains an image in     an unsupported image format.      The \a mode argument is used to control which part of the system     clipboard is used.  If \a mode is QClipboard::Clipboard, the     image is retrieved from the global clipboard.  If \a mode is     QClipboard::Selection, the image is retrieved from the global     mouse selection.      \sa setImage(), pixmap(), mimeData(), QImage::isNull() */
 end_comment
 begin_function
 DECL|function|image
@@ -605,7 +605,7 @@ begin_comment
 comment|/*!     \fn void QClipboard::setMimeData(QMimeData *src, Mode mode)      Sets the clipboard data to \a src. Ownership of the data is     transferred to the clipboard. If you want to remove the data     either call clear() or call setMimeData() again with new data.      The \a mode argument is used to control which part of the system     clipboard is used.  If \a mode is QClipboard::Clipboard, the     data is stored in the global clipboard.  If \a mode is     QClipboard::Selection, the data is stored in the global     mouse selection. If \a mode is QClipboard::FindBuffer, the     data is stored in the search string buffer.      The setText(), setImage() and setPixmap() functions are simpler     wrappers for setting text, image and pixmap data respectively.      \sa mimeData() */
 end_comment
 begin_comment
-comment|/*!      \fn void QClipboard::clear(Mode mode)     Clear the clipboard contents.      The \a mode argument is used to control which part of the system     clipboard is used.  If \a mode is QClipboard::Clipboard, this     function clears the global clipboard contents.  If \a mode is     QClipboard::Selection, this function clears the global mouse     selection contents. If \a mode is QClipboard::FindBuffer, this      function clears the search string buffer.      \sa QClipboard::Mode, supportsSelection() */
+comment|/*!     \fn void QClipboard::clear(Mode mode)     Clear the clipboard contents.      The \a mode argument is used to control which part of the system     clipboard is used.  If \a mode is QClipboard::Clipboard, this     function clears the global clipboard contents.  If \a mode is     QClipboard::Selection, this function clears the global mouse     selection contents. If \a mode is QClipboard::FindBuffer, this     function clears the search string buffer.      \sa QClipboard::Mode, supportsSelection() */
 end_comment
 begin_comment
 comment|/*!     Returns true if the clipboard supports mouse selection; otherwise     returns false. */
@@ -708,13 +708,13 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!      \internal     \fn bool QClipboard::supportsMode(Mode mode) const;     Returns true if the clipboard supports the clipboard mode speacified by \a mode;     otherwise returns false. */
+comment|/*!     \internal     \fn bool QClipboard::supportsMode(Mode mode) const;     Returns true if the clipboard supports the clipboard mode speacified by \a mode;     otherwise returns false. */
 end_comment
 begin_comment
-comment|/*!      \internal     \fn bool QClipboard::ownsMode(Mode mode) const;     Returns true if the clipboard supports the clipboard data speacified by \a mode;     otherwise returns false. */
+comment|/*!     \internal     \fn bool QClipboard::ownsMode(Mode mode) const;     Returns true if the clipboard supports the clipboard data speacified by \a mode;     otherwise returns false. */
 end_comment
 begin_comment
-comment|/*!      \internal     Emits the appropriate changed signal for \a mode. */
+comment|/*!     \internal     Emits the appropriate changed signal for \a mode. */
 end_comment
 begin_function
 DECL|function|emitChanged

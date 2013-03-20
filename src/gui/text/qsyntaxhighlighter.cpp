@@ -1216,7 +1216,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.6      Reapplies the highlighting to the given QTextBlock \a block.          \sa rehighlight() */
+comment|/*!     \since 4.6      Reapplies the highlighting to the given QTextBlock \a block.      \sa rehighlight() */
 end_comment
 begin_function
 DECL|function|rehighlightBlock

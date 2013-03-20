@@ -43,6 +43,11 @@ end_comment
 begin_comment
 comment|//
 end_comment
+begin_include
+include|#
+directive|include
+file|<QtCore/qglobal.h>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -536,6 +541,15 @@ name|PaperSize
 name|paperSize
 argument_list|()
 specifier|const
+block|;
+name|void
+name|setPaperName
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|name
+argument_list|)
 block|;
 name|QList
 operator|<

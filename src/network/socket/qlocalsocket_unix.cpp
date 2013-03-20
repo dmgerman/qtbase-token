@@ -1044,17 +1044,12 @@ emit|;
 block|}
 end_function
 begin_function
-DECL|function|connectToServer
-name|void
+DECL|function|open
+name|bool
 name|QLocalSocket
 operator|::
-name|connectToServer
+name|open
 parameter_list|(
-specifier|const
-name|QString
-modifier|&
-name|name
-parameter_list|,
 name|OpenMode
 name|openMode
 parameter_list|)
@@ -1107,7 +1102,9 @@ operator|::
 name|OperationError
 argument_list|)
 emit|;
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|d
 operator|->
@@ -1143,7 +1140,9 @@ argument_list|)
 emit|;
 if|if
 condition|(
-name|name
+name|d
+operator|->
+name|serverName
 operator|.
 name|isEmpty
 argument_list|()
@@ -1161,7 +1160,9 @@ literal|"QLocalSocket::connectToServer"
 argument_list|)
 argument_list|)
 expr_stmt|;
-return|return;
+return|return
+literal|false
+return|;
 block|}
 comment|// create the socket
 if|if
@@ -1197,7 +1198,9 @@ literal|"QLocalSocket::connectToServer"
 argument_list|)
 argument_list|)
 expr_stmt|;
-return|return;
+return|return
+literal|false
+return|;
 block|}
 comment|// set non blocking so we can try to connect and it won't wait
 name|int
@@ -1252,14 +1255,18 @@ literal|"QLocalSocket::connectToServer"
 argument_list|)
 argument_list|)
 expr_stmt|;
-return|return;
+return|return
+literal|false
+return|;
 block|}
 comment|// _q_connectToSocket does the actual connecting
 name|d
 operator|->
 name|connectingName
 operator|=
-name|name
+name|d
+operator|->
+name|serverName
 expr_stmt|;
 name|d
 operator|->
@@ -1272,6 +1279,9 @@ operator|->
 name|_q_connectToSocket
 argument_list|()
 expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 end_function
 begin_comment

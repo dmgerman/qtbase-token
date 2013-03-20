@@ -72,7 +72,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     \class QSqlError     \brief The QSqlError class provides SQL database error information.      \ingroup database     \inmodule QtSql      A QSqlError object can provide database-specific error data,     including the driverText() and databaseText() messages (or both     concatenated together as text()), and the error number() and     type(). The functions all have setters so that you can create and     return QSqlError objects from your own classes, for example from     your own SQL drivers.      \sa QSqlDatabase::lastError(), QSqlQuery::lastError() */
+comment|/*!     \class QSqlError     \brief The QSqlError class provides SQL database error information.      \ingroup database     \inmodule QtSql      A QSqlError object can provide database-specific error data,     including the driverText() and databaseText() messages (or both     concatenated together as text()), and the error number() and     type().      \sa QSqlDatabase::lastError(), QSqlQuery::lastError() */
 end_comment
 begin_comment
 comment|/*!     \enum QSqlError::ErrorType      This enum type describes the context in which the error occurred, e.g., a connection error, a statement error, etc.      \value NoError  No error occurred.     \value ConnectionError  Connection error.     \value StatementError  SQL statement syntax error.     \value TransactionError  Transaction failed error.     \value UnknownError  Unknown error. */
@@ -287,7 +287,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     Returns the text of the error as reported by the driver. This may     contain database-specific descriptions. It may also be empty.      \sa setDriverText(), databaseText(), text() */
+comment|/*!     Returns the text of the error as reported by the driver. This may     contain database-specific descriptions. It may also be empty.      \sa databaseText(), text() */
 end_comment
 begin_function
 DECL|function|driverText
@@ -304,8 +304,18 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the driver error text to the value of \a driverText.      \sa driverText(), setDatabaseText(), text() */
+comment|/*!     \fn void QSqlError::setDriverText(const QString&driverText)     \obsolete      Sets the driver error text to the value of \a driverText.      Use QSqlError(const QString&driverText, const QString&databaseText,                   ErrorType type, int number) instead      \sa driverText(), setDatabaseText(), text() */
 end_comment
+begin_if
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|1
+argument_list|)
+end_if
 begin_function
 DECL|function|setDriverText
 name|void
@@ -325,8 +335,12 @@ name|driverText
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
-comment|/*!     Returns the text of the error as reported by the database. This     may contain database-specific descriptions; it may be empty.      \sa setDatabaseText(), driverText(), text() */
+comment|/*!     Returns the text of the error as reported by the database. This     may contain database-specific descriptions; it may be empty.      \sa driverText(), text() */
 end_comment
 begin_function
 DECL|function|databaseText
@@ -343,8 +357,18 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the database error text to the value of \a databaseText.      \sa databaseText(), setDriverText(), text() */
+comment|/*!     \fn void QSqlError::setDatabaseText(const QString&databaseText)     \obsolete      Sets the database error text to the value of \a databaseText.      Use QSqlError(const QString&driverText, const QString&databaseText,                   ErrorType type, int number) instead      \sa databaseText(), setDriverText(), text() */
 end_comment
+begin_if
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|1
+argument_list|)
+end_if
 begin_function
 DECL|function|setDatabaseText
 name|void
@@ -364,8 +388,12 @@ name|databaseText
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
-comment|/*!     Returns the error type, or -1 if the type cannot be determined.      \sa setType() */
+comment|/*!     Returns the error type, or -1 if the type cannot be determined. */
 end_comment
 begin_function
 DECL|function|type
@@ -384,8 +412,18 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the error type to the value of \a type.      \sa type() */
+comment|/*!     \fn void QSqlError::setType(ErrorType type)     \obsolete      Sets the error type to the value of \a type.      Use QSqlError(const QString&driverText, const QString&databaseText,                   ErrorType type, int number) instead      \sa type() */
 end_comment
+begin_if
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|1
+argument_list|)
+end_if
 begin_function
 DECL|function|setType
 name|void
@@ -403,8 +441,12 @@ name|type
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
-comment|/*!     Returns the database-specific error number, or -1 if it cannot be     determined.      \sa setNumber() */
+comment|/*!     Returns the database-specific error number, or -1 if it cannot be     determined. */
 end_comment
 begin_function
 DECL|function|number
@@ -421,8 +463,18 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the database-specific error number to \a number.      \sa number() */
+comment|/*!     \fn void QSqlError::setNumber(int number)     \obsolete      Sets the database-specific error number to \a number.      Use QSqlError(const QString&driverText, const QString&databaseText,                   ErrorType type, int number) instead      \sa number() */
 end_comment
+begin_if
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|1
+argument_list|)
+end_if
 begin_function
 DECL|function|setNumber
 name|void
@@ -440,6 +492,10 @@ name|number
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*!     This is a convenience function that returns databaseText() and     driverText() concatenated into a single string.      \sa driverText(), databaseText() */
 end_comment

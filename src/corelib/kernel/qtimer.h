@@ -13,6 +13,11 @@ define|#
 directive|define
 name|QTIMER_H
 end_define
+begin_include
+include|#
+directive|include
+file|<QtCore/qglobal.h>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -32,7 +37,6 @@ directive|include
 file|<QtCore/qobject.h>
 end_include
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 name|class
 name|Q_CORE_EXPORT
@@ -298,7 +302,6 @@ operator|=
 name|asingleShot
 block|; }
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
 end_expr_stmt
 begin_endif
 endif|#

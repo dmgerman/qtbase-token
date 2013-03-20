@@ -179,11 +179,6 @@ name|NameCustomWidgetMap
 name|m_customWidgets
 decl_stmt|;
 end_decl_stmt
-begin_decl_stmt
-name|bool
-name|m_scriptsActivated
-decl_stmt|;
-end_decl_stmt
 begin_macro
 unit|};
 name|QT_END_NAMESPACE

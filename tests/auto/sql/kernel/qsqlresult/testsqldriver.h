@@ -215,6 +215,8 @@ case|:
 return|return
 name|true
 return|;
+default|default:
+break|break;
 block|}
 return|return
 name|false

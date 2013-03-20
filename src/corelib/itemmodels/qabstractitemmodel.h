@@ -34,7 +34,6 @@ directive|include
 file|<QtCore/qvector.h>
 end_include
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QAbstractItemModel
 name|class
@@ -1768,6 +1767,14 @@ name|revert
 argument_list|()
 block|;
 name|protected
+name|Q_SLOTS
+operator|:
+comment|// Qt 6: Make virtual
+name|void
+name|resetInternalData
+argument_list|()
+block|;
+name|protected
 operator|:
 name|QAbstractItemModel
 argument_list|(
@@ -2315,6 +2322,16 @@ argument_list|,
 argument|const QModelIndex&parent
 argument_list|)
 block|;
+name|Qt
+operator|::
+name|ItemFlags
+name|flags
+argument_list|(
+argument|const QModelIndex&index
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 name|protected
 operator|:
 name|QAbstractTableModel
@@ -2400,6 +2417,16 @@ argument|int column
 argument_list|,
 argument|const QModelIndex&parent
 argument_list|)
+block|;
+name|Qt
+operator|::
+name|ItemFlags
+name|flags
+argument_list|(
+argument|const QModelIndex&index
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
@@ -2652,10 +2679,9 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

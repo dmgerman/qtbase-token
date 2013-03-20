@@ -24,7 +24,6 @@ directive|include
 file|<QtCore/qstring.h>
 end_include
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
@@ -250,6 +249,8 @@ block|,
 name|Quit
 block|,
 name|FullScreen
+block|,
+name|Deselect
 block|}
 enum|;
 enum|enum
@@ -346,6 +347,36 @@ init|=
 name|PortableText
 parameter_list|)
 function_decl|;
+specifier|static
+name|QList
+operator|<
+name|QKeySequence
+operator|>
+name|listFromString
+argument_list|(
+argument|const QString&str
+argument_list|,
+argument|SequenceFormat format = PortableText
+argument_list|)
+expr_stmt|;
+specifier|static
+name|QString
+name|listToString
+argument_list|(
+specifier|const
+name|QList
+operator|<
+name|QKeySequence
+operator|>
+operator|&
+name|list
+argument_list|,
+name|SequenceFormat
+name|format
+operator|=
+name|PortableText
+argument_list|)
+decl_stmt|;
 name|SequenceMatch
 name|matches
 argument_list|(
@@ -844,10 +875,9 @@ end_endif
 begin_comment
 comment|// QT_NO_SHORTCUT
 end_comment
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

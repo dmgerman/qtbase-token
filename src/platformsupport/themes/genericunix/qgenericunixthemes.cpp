@@ -2193,6 +2193,18 @@ block|}
 else|else
 block|{
 comment|// Gnome, Unity, other Gtk-based desktops like XFCE.
+comment|// prefer the GTK2 theme implementation with native dialogs etc.
+name|result
+operator|.
+name|push_back
+argument_list|(
+name|QStringLiteral
+argument_list|(
+literal|"gtk2"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// fallback to the generic Gnome theme if loading the GTK2 theme fails
 name|result
 operator|.
 name|push_back

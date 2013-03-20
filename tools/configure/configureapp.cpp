@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the tools applications of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Copyright (C) 2013 Intel Corporation ** Contact: http://www.qt-project.org/legal ** ** This file is part of the tools applications of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -1190,6 +1190,13 @@ literal|"SYSTEM_PROXIES"
 index|]
 operator|=
 literal|"no"
+expr_stmt|;
+name|dictionary
+index|[
+literal|"WERROR"
+index|]
+operator|=
+literal|"auto"
 expr_stmt|;
 comment|//Only used when cross compiling.
 name|dictionary
@@ -5766,6 +5773,57 @@ operator|=
 literal|"yes"
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|configCmdLine
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+operator|==
+literal|"-warnings-are-errors"
+operator|||
+name|configCmdLine
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+operator|==
+literal|"-Werror"
+condition|)
+block|{
+name|dictionary
+index|[
+literal|"WERROR"
+index|]
+operator|=
+literal|"yes"
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|configCmdLine
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+operator|==
+literal|"-no-warnings-are-errors"
+condition|)
+block|{
+name|dictionary
+index|[
+literal|"WERROR"
+index|]
+operator|=
+literal|"no"
+expr_stmt|;
+block|}
 comment|// Work around compiler nesting limitation
 else|else
 name|continueElse
@@ -8380,7 +8438,7 @@ index|[
 literal|"QMAKEMAKEFILE"
 index|]
 operator|=
-literal|"Makefile.win32-g++"
+literal|"Makefile.unix"
 expr_stmt|;
 block|}
 else|else
@@ -8868,10 +8926,41 @@ index|]
 operator|==
 literal|"yes"
 condition|)
+block|{
 name|qtConfig
-operator|+=
+operator|<<
 literal|"private_tests"
 expr_stmt|;
+if|if
+condition|(
+name|dictionary
+index|[
+literal|"WERROR"
+index|]
+operator|!=
+literal|"no"
+condition|)
+name|qmakeConfig
+operator|<<
+literal|"warnings_are_errors"
+expr_stmt|;
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|dictionary
+index|[
+literal|"WERROR"
+index|]
+operator|==
+literal|"yes"
+condition|)
+name|qmakeConfig
+operator|<<
+literal|"warnings_are_errors"
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|dictionary
@@ -11055,6 +11144,28 @@ argument_list|,
 literal|"-no-system-proxies"
 argument_list|,
 literal|"Do not use system network proxies by default.\n"
+argument_list|)
+expr_stmt|;
+name|desc
+argument_list|(
+literal|"WERROR"
+argument_list|,
+literal|"yes"
+argument_list|,
+literal|"-warnings-are-errors"
+argument_list|,
+literal|"Make warnings be treated as errors."
+argument_list|)
+expr_stmt|;
+name|desc
+argument_list|(
+literal|"WERROR"
+argument_list|,
+literal|"no"
+argument_list|,
+literal|"-no-warnings-are-errors"
+argument_list|,
+literal|"Make warnings be treated normally."
 argument_list|)
 expr_stmt|;
 if|#
@@ -24272,15 +24383,6 @@ name|endl
 expr_stmt|;
 name|stream
 operator|<<
-literal|"QMAKESPEC = "
-operator|<<
-name|dictionary
-index|[
-literal|"QMAKESPEC"
-index|]
-operator|<<
-name|endl
-operator|<<
 literal|"QT_VERSION = "
 operator|<<
 name|dictionary
@@ -24290,6 +24392,186 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
+if|if
+condition|(
+name|dictionary
+index|[
+literal|"QMAKESPEC"
+index|]
+operator|==
+name|QString
+argument_list|(
+literal|"win32-g++"
+argument_list|)
+condition|)
+block|{
+name|stream
+operator|<<
+literal|"QMAKESPEC = $(SOURCE_PATH)\\mkspecs\\win32-g++"
+operator|<<
+name|endl
+operator|<<
+literal|"EXTRA_CFLAGS = -DUNICODE"
+operator|<<
+name|endl
+operator|<<
+literal|"EXTRA_CXXFLAGS = -DUNICODE"
+operator|<<
+name|endl
+operator|<<
+literal|"QTOBJS = qfilesystemengine_win.o \\"
+operator|<<
+name|endl
+operator|<<
+literal|"         qfilesystemiterator_win.o \\"
+operator|<<
+name|endl
+operator|<<
+literal|"         qfsfileengine_win.o \\"
+operator|<<
+name|endl
+operator|<<
+literal|"         qlocale_win.o \\"
+operator|<<
+name|endl
+operator|<<
+literal|"         qsettings_win.o \\"
+operator|<<
+name|endl
+operator|<<
+literal|"         qsystemlibrary.o \\"
+operator|<<
+name|endl
+operator|<<
+literal|"         registry.o"
+operator|<<
+name|endl
+operator|<<
+literal|"QTSRCS=\"$(SOURCE_PATH)/src/corelib/io/qfilesystemengine_win.cpp\" \\"
+operator|<<
+name|endl
+operator|<<
+literal|"       \"$(SOURCE_PATH)/src/corelib/io/qfilesystemiterator_win.cpp\" \\"
+operator|<<
+name|endl
+operator|<<
+literal|"       \"$(SOURCE_PATH)/src/corelib/io/qfsfileengine_win.cpp\" \\"
+operator|<<
+name|endl
+operator|<<
+literal|"       \"$(SOURCE_PATH)/src/corelib/io/qsettings_win.cpp\" \\"
+operator|<<
+name|endl
+operator|<<
+literal|"       \"$(SOURCE_PATH)/src/corelib/tools/qlocale_win.cpp\" \\"
+operator|<<
+name|endl
+expr|\
+operator|<<
+literal|"       \"$(SOURCE_PATH)/src/corelib/plugin/qsystemlibrary.cpp\" \\"
+operator|<<
+name|endl
+operator|<<
+literal|"       \"$(SOURCE_PATH)/tools/shared/windows/registry.cpp\""
+operator|<<
+name|endl
+operator|<<
+literal|"EXEEXT=.exe"
+operator|<<
+name|endl
+operator|<<
+literal|"LFLAGS=-static -s -lole32 -luuid -ladvapi32 -lkernel32"
+operator|<<
+name|endl
+expr_stmt|;
+comment|/*                     ** SHELL is the full path of sh.exe, unless                     ** 1) it is found in the current directory                     ** 2) it is not found at all                     ** 3) it is overridden on the command line with an existing file                     ** ... otherwise it is always sh.exe. Specifically, SHELL from the                     ** environment has no effect.                     **                     ** This check will fail if SHELL is explicitly set to a not                     ** sh-compatible shell. This is not a problem, because configure.bat                     ** will not do that.                     */
+name|stream
+operator|<<
+literal|"ifeq ($(SHELL), sh.exe)"
+operator|<<
+name|endl
+operator|<<
+literal|"    ifeq ($(wildcard $(CURDIR)/sh.exe), )"
+operator|<<
+name|endl
+operator|<<
+literal|"        SH = 0"
+operator|<<
+name|endl
+operator|<<
+literal|"    else"
+operator|<<
+name|endl
+operator|<<
+literal|"        SH = 1"
+operator|<<
+name|endl
+operator|<<
+literal|"    endif"
+operator|<<
+name|endl
+operator|<<
+literal|"else"
+operator|<<
+name|endl
+operator|<<
+literal|"    SH = 1"
+operator|<<
+name|endl
+operator|<<
+literal|"endif"
+operator|<<
+name|endl
+operator|<<
+literal|"\n"
+operator|<<
+literal|"ifeq ($(SH), 1)"
+operator|<<
+name|endl
+operator|<<
+literal|"    RM_F = rm -f"
+operator|<<
+name|endl
+operator|<<
+literal|"    RM_RF = rm -rf"
+operator|<<
+name|endl
+operator|<<
+literal|"else"
+operator|<<
+name|endl
+operator|<<
+literal|"    RM_F = del /f"
+operator|<<
+name|endl
+operator|<<
+literal|"    RM_RF = rmdir /s /q"
+operator|<<
+name|endl
+operator|<<
+literal|"endif"
+operator|<<
+name|endl
+expr_stmt|;
+name|stream
+operator|<<
+literal|"\n\n"
+expr_stmt|;
+block|}
+else|else
+block|{
+name|stream
+operator|<<
+literal|"QMAKESPEC = "
+operator|<<
+name|dictionary
+index|[
+literal|"QMAKESPEC"
+index|]
+operator|<<
+name|endl
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|dictionary
@@ -24311,7 +24593,7 @@ argument_list|)
 condition|)
 name|stream
 operator|<<
-literal|"QMAKE_OPENSOURCE_EDITION = yes"
+literal|"EXTRA_CPPFLAGS = -DQMAKE_OPENSOURCE_EDITION"
 operator|<<
 name|endl
 expr_stmt|;

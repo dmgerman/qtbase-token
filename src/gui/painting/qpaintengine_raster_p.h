@@ -818,14 +818,16 @@ argument_list|()
 specifier|const
 block|;
 name|bool
-name|supportsTransformations
+name|requiresPretransformedGlyphPositions
 argument_list|(
 argument|QFontEngine *fontEngine
+argument_list|,
+argument|const QTransform&m
 argument_list|)
 specifier|const
 block|;
 name|bool
-name|supportsTransformations
+name|shouldDrawCachedGlyphs
 argument_list|(
 argument|QFontEngine *fontEngine
 argument_list|,

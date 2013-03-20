@@ -122,9 +122,9 @@ operator|.
 name|styleHint
 argument_list|)
 argument_list|,
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Common
+name|Script_Common
 argument_list|)
 decl_stmt|;
 if|if

@@ -90,7 +90,7 @@ begin_comment
 comment|/*! \fn const T&QVector::operator[](int i) const      \overload      Same as at(\a i). */
 end_comment
 begin_comment
-comment|/*!      \fn void QVector::append(const T&value)      Inserts \a value at the end of the vector.      Example:     \snippet code/src_corelib_tools_qvector.cpp 7      This is the same as calling resize(size() + 1) and assigning \a     value to the new last element in the vector.      This operation is relatively fast, because QVector typically     allocates more memory than necessary, so it can grow without     reallocating the entire vector each time.      \sa operator<<(), prepend(), insert() */
+comment|/*!     \fn void QVector::append(const T&value)      Inserts \a value at the end of the vector.      Example:     \snippet code/src_corelib_tools_qvector.cpp 7      This is the same as calling resize(size() + 1) and assigning \a     value to the new last element in the vector.      This operation is relatively fast, because QVector typically     allocates more memory than necessary, so it can grow without     reallocating the entire vector each time.      \sa operator<<(), prepend(), insert() */
 end_comment
 begin_comment
 comment|/*! \fn void QVector::prepend(const T&value)      Inserts \a value at the beginning of the vector.      Example:     \snippet code/src_corelib_tools_qvector.cpp 8      This is the same as vector.insert(0, \a value).      For large vectors, this operation can be slow (\l{linear time}),     because it requires moving all the items in the vector by one     position further in memory. If you want a container class that     provides a fast prepend() function, use QList or QLinkedList     instead.      \sa append(), insert() */
@@ -115,6 +115,18 @@ comment|/*! \fn void QVector::remove(int i)      \overload      Removes the elem
 end_comment
 begin_comment
 comment|/*! \fn void QVector::remove(int i, int count)      \overload      Removes \a count elements from the middle of the vector, starting at     index position \a i.      \sa insert(), replace(), fill() */
+end_comment
+begin_comment
+comment|/*! \fn void QVector::removeFirst()     \since 5.1     Removes the first item in the vector. Calling this function is     equivalent to calling remove(0). The vector must not be empty. If     the vector can be empty, call isEmpty() before calling this     function.      \sa remove(), takeFirst(), isEmpty() */
+end_comment
+begin_comment
+comment|/*! \fn void QVector::removeLast()     \since 5.1     Removes the last item in the vector. Calling this function is     equivalent to calling remove(size() - 1). The vector must not be     empty. If the vector can be empty, call isEmpty() before calling     this function.      \sa remove(), takeLast(), removeFirst(), isEmpty() */
+end_comment
+begin_comment
+comment|/*! \fn T QVector::takeFirst()      Removes the first item in the vector and returns it. This function     assumes the vector is not empty. To avoid failure, call isEmpty()     before calling this function.      \sa takeLast(), removeFirst() */
+end_comment
+begin_comment
+comment|/*! \fn T QVector::takeLast()      Removes the last item in the list and returns it. This function     assumes the vector is not empty. To avoid failure, call isEmpty()     before calling this function.      If you don't use the return value, removeLast() is more     efficient.      \sa takeFirst(), removeLast() */
 end_comment
 begin_comment
 comment|/*! \fn QVector&QVector::fill(const T&value, int size = -1)      Assigns \a value to all items in the vector. If \a size is     different from -1 (the default), the vector is resized to size \a     size beforehand.      Example:     \snippet code/src_corelib_tools_qvector.cpp 11      \sa resize() */
@@ -195,10 +207,10 @@ begin_comment
 comment|/*! \fn void QVector::push_front(const T&value)      This function is provided for STL compatibility. It is equivalent     to prepend(\a value). */
 end_comment
 begin_comment
-comment|/*! \fn void QVector::pop_front()      This function is provided for STL compatibility. It is equivalent     to erase(begin()). */
+comment|/*! \fn void QVector::pop_front()      This function is provided for STL compatibility. It is equivalent     to removeFirst(). */
 end_comment
 begin_comment
-comment|/*! \fn void QVector::pop_back()      This function is provided for STL compatibility. It is equivalent     to erase(end() - 1). */
+comment|/*! \fn void QVector::pop_back()      This function is provided for STL compatibility. It is equivalent     to removeLast(). */
 end_comment
 begin_comment
 comment|/*! \fn T& QVector::front()      This function is provided for STL compatibility. It is equivalent     to first(). */

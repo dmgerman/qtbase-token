@@ -1347,6 +1347,10 @@ operator|||
 name|s
 operator|==
 literal|'_'
+operator|||
+name|s
+operator|==
+literal|'$'
 operator|)
 return|;
 block|}
@@ -1396,6 +1400,10 @@ operator|||
 name|s
 operator|==
 literal|'_'
+operator|||
+name|s
+operator|==
+literal|'$'
 operator|)
 return|;
 block|}
@@ -1909,9 +1917,18 @@ argument_list|,
 name|c
 argument_list|)
 expr_stmt|;
-name|c
-operator|=
+name|newState
+argument_list|(
+name|states
+argument_list|,
+name|pre
+condition|?
+literal|"PP_CHARACTER"
+else|:
+literal|"CHARACTER"
+argument_list|,
 literal|'_'
+argument_list|)
 expr_stmt|;
 name|newState
 argument_list|(
@@ -1923,7 +1940,7 @@ literal|"PP_CHARACTER"
 else|:
 literal|"CHARACTER"
 argument_list|,
-name|c
+literal|'$'
 argument_list|)
 expr_stmt|;
 comment|// add digits

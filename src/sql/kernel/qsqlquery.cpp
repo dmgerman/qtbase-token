@@ -534,7 +534,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!      Executes the SQL in \a query. Returns true and sets the query state   to \l{isActive()}{active} if the query was successful; otherwise   returns false. The \a query string must use syntax appropriate for   the SQL database being queried (for example, standard SQL).    After the query is executed, the query is positioned on an \e   invalid record and must be navigated to a valid record before data   values can be retrieved (for example, using next()).    Note that the last error for this query is reset when exec() is   called.    For SQLite, the query string can contain only one statement at a time.   If more than one statement is given, the function returns false.    Example:    \snippet sqldatabase/sqldatabase.cpp 34    \sa isActive(), isValid(), next(), previous(), first(), last(),   seek() */
+comment|/*!    Executes the SQL in \a query. Returns true and sets the query state   to \l{isActive()}{active} if the query was successful; otherwise   returns false. The \a query string must use syntax appropriate for   the SQL database being queried (for example, standard SQL).    After the query is executed, the query is positioned on an \e   invalid record and must be navigated to a valid record before data   values can be retrieved (for example, using next()).    Note that the last error for this query is reset when exec() is   called.    For SQLite, the query string can contain only one statement at a time.   If more than one statement is given, the function returns false.    Example:    \snippet sqldatabase/sqldatabase.cpp 34    \sa isActive(), isValid(), next(), previous(), first(), last(),   seek() */
 end_comment
 begin_function
 DECL|function|exec
@@ -1254,7 +1254,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!      Retrieves the next record in the result, if available, and positions   the query on the retrieved record. Note that the result must be in   the \l{isActive()}{active} state and isSelect() must return true   before calling this function or it will do nothing and return false.    The following rules apply:    \list    \li If the result is currently located before the first record,   e.g. immediately after a query is executed, an attempt is made to   retrieve the first record.    \li If the result is currently located after the last record, there   is no change and false is returned.    \li If the result is located somewhere in the middle, an attempt is   made to retrieve the next record.    \endlist    If the record could not be retrieved, the result is positioned after   the last record and false is returned. If the record is successfully   retrieved, true is returned.    \sa previous(), first(), last(), seek(), at(), isActive(), isValid() */
+comment|/*!    Retrieves the next record in the result, if available, and positions   the query on the retrieved record. Note that the result must be in   the \l{isActive()}{active} state and isSelect() must return true   before calling this function or it will do nothing and return false.    The following rules apply:    \list    \li If the result is currently located before the first record,   e.g. immediately after a query is executed, an attempt is made to   retrieve the first record.    \li If the result is currently located after the last record, there   is no change and false is returned.    \li If the result is located somewhere in the middle, an attempt is   made to retrieve the next record.    \endlist    If the record could not be retrieved, the result is positioned after   the last record and false is returned. If the record is successfully   retrieved, true is returned.    \sa previous(), first(), last(), seek(), at(), isActive(), isValid() */
 end_comment
 begin_function
 DECL|function|next
@@ -1683,7 +1683,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!      Returns true if the query is \e{active}. An active QSqlQuery is one   that has been \l{QSqlQuery::exec()} {exec()'d} successfully but not   yet finished with.  When you are finished with an active query, you   can make the query inactive by calling finish() or clear(), or   you can delete the QSqlQuery instance.    \note Of particular interest is an active query that is a \c{SELECT}   statement. For some databases that support transactions, an active   query that is a \c{SELECT} statement can cause a \l{QSqlDatabase::}   {commit()} or a \l{QSqlDatabase::} {rollback()} to fail, so before   committing or rolling back, you should make your active \c{SELECT}   statement query inactive using one of the ways listed above.    \sa isSelect()  */
+comment|/*!    Returns true if the query is \e{active}. An active QSqlQuery is one   that has been \l{QSqlQuery::exec()} {exec()'d} successfully but not   yet finished with.  When you are finished with an active query, you   can make the query inactive by calling finish() or clear(), or   you can delete the QSqlQuery instance.    \note Of particular interest is an active query that is a \c{SELECT}   statement. For some databases that support transactions, an active   query that is a \c{SELECT} statement can cause a \l{QSqlDatabase::}   {commit()} or a \l{QSqlDatabase::} {rollback()} to fail, so before   committing or rolling back, you should make your active \c{SELECT}   statement query inactive using one of the ways listed above.    \sa isSelect()  */
 end_comment
 begin_function
 DECL|function|isActive
@@ -2417,7 +2417,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns the object ID of the most recent inserted row if the   database supports it.  An invalid QVariant will be returned if the   query did not insert any value or if the database does not report   the id back.  If more than one row was touched by the insert, the   behavior is undefined.    For MySQL databases the row's auto-increment field will be returned.        \note For this function to work in PSQL, the table table must   contain OIDs, which may not have been created by default.  Check the   \c default_with_oids configuration variable to be sure.    \sa QSqlDriver::hasFeature() */
+comment|/*!   Returns the object ID of the most recent inserted row if the   database supports it.  An invalid QVariant will be returned if the   query did not insert any value or if the database does not report   the id back.  If more than one row was touched by the insert, the   behavior is undefined.    For MySQL databases the row's auto-increment field will be returned.    \note For this function to work in PSQL, the table table must   contain OIDs, which may not have been created by default.  Check the   \c default_with_oids configuration variable to be sure.    \sa QSqlDriver::hasFeature() */
 end_comment
 begin_function
 DECL|function|lastInsertId
@@ -2490,7 +2490,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \since 4.3.2    Instruct the database driver that no more data will be fetched from   this query until it is re-executed. There is normally no need to   call this function, but it may be helpful in order to free resources   such as locks or cursors if you intend to re-use the query at a   later time.        Sets the query to inactive. Bound values retain their values.    \sa prepare(), exec(), isActive() */
+comment|/*!   \since 4.3.2    Instruct the database driver that no more data will be fetched from   this query until it is re-executed. There is normally no need to   call this function, but it may be helpful in order to free resources   such as locks or cursors if you intend to re-use the query at a   later time.    Sets the query to inactive. Bound values retain their values.    \sa prepare(), exec(), isActive() */
 end_comment
 begin_function
 DECL|function|finish
@@ -2547,7 +2547,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!   \since 4.4     Discards the current result set and navigates to the next if available.    Some databases are capable of returning multiple result sets for   stored procedures or SQL batches (a query strings that contains   multiple statements). If multiple result sets are available after   executing a query this function can be used to navigate to the next   result set(s).        If a new result set is available this function will return true.   The query will be repositioned on an \e invalid record in the new   result set and must be navigated to a valid record before data   values can be retrieved. If a new result set isn't available the   function returns false and the query is set to inactive. In any   case the old result set will be discarded.    When one of the statements is a non-select statement a count of   affected rows may be available instead of a result set.    Note that some databases, i.e. Microsoft SQL Server, requires   non-scrollable cursors when working with multiple result sets.  Some   databases may execute all statements at once while others may delay   the execution until the result set is actually accessed, and some   databases may have restrictions on which statements are allowed to   be used in a SQL batch.    \sa QSqlDriver::hasFeature(), setForwardOnly(), next(), isSelect(),       numRowsAffected(), isActive(), lastError() */
+comment|/*!   \since 4.4    Discards the current result set and navigates to the next if available.    Some databases are capable of returning multiple result sets for   stored procedures or SQL batches (a query strings that contains   multiple statements). If multiple result sets are available after   executing a query this function can be used to navigate to the next   result set(s).    If a new result set is available this function will return true.   The query will be repositioned on an \e invalid record in the new   result set and must be navigated to a valid record before data   values can be retrieved. If a new result set isn't available the   function returns false and the query is set to inactive. In any   case the old result set will be discarded.    When one of the statements is a non-select statement a count of   affected rows may be available instead of a result set.    Note that some databases, i.e. Microsoft SQL Server, requires   non-scrollable cursors when working with multiple result sets.  Some   databases may execute all statements at once while others may delay   the execution until the result set is actually accessed, and some   databases may have restrictions on which statements are allowed to   be used in a SQL batch.    \sa QSqlDriver::hasFeature(), setForwardOnly(), next(), isSelect(),       numRowsAffected(), isActive(), lastError() */
 end_comment
 begin_function
 DECL|function|nextResult

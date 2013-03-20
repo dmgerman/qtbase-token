@@ -52,7 +52,6 @@ name|NSObject
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 name|class
 name|QCocoaMenu
@@ -133,6 +132,16 @@ argument|bool visible
 argument_list|)
 block|;
 name|void
+name|showPopup
+argument_list|(
+argument|const QWindow *parentWindow
+argument_list|,
+argument|QPoint pos
+argument_list|,
+argument|const QPlatformMenuItem *item
+argument_list|)
+block|;
+name|void
 name|syncSeparatorsCollapsible
 argument_list|(
 argument|bool enable
@@ -146,12 +155,38 @@ argument_list|)
 block|;
 name|virtual
 name|void
+name|setIcon
+argument_list|(
+argument|const QIcon&icon
+argument_list|)
+block|{
+name|Q_UNUSED
+argument_list|(
+argument|icon
+argument_list|)
+block|}
+name|void
 name|setText
 argument_list|(
 specifier|const
 name|QString
 operator|&
 name|text
+argument_list|)
+block|;
+name|void
+name|setMinimumWidth
+argument_list|(
+argument|int width
+argument_list|)
+block|;
+name|void
+name|setFont
+argument_list|(
+specifier|const
+name|QFont
+operator|&
+name|font
 argument_list|)
 block|;
 name|void
@@ -260,10 +295,9 @@ name|m_tag
 block|; }
 decl_stmt|;
 end_decl_stmt
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

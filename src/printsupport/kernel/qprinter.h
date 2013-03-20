@@ -34,7 +34,6 @@ directive|include
 file|<QtPrintSupport/qtprintsupportglobal.h>
 end_include
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
@@ -536,6 +535,24 @@ argument_list|)
 decl|const
 decl_stmt|;
 end_decl_stmt
+begin_function_decl
+name|void
+name|setPaperName
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|paperName
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_expr_stmt
+name|QString
+name|paperName
+argument_list|()
+specifier|const
+expr_stmt|;
+end_expr_stmt
 begin_function_decl
 name|void
 name|setPageOrder
@@ -1064,10 +1081,9 @@ end_endif
 begin_comment
 comment|// QT_NO_PRINTER
 end_comment
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

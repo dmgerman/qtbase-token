@@ -38,7 +38,7 @@ end_ifdef
 begin_include
 include|#
 directive|include
-file|"../drivers/psql/qsql_psql.h"
+file|"../drivers/psql/qsql_psql_p.h"
 end_include
 begin_endif
 endif|#
@@ -52,7 +52,7 @@ end_ifdef
 begin_include
 include|#
 directive|include
-file|"../drivers/mysql/qsql_mysql.h"
+file|"../drivers/mysql/qsql_mysql_p.h"
 end_include
 begin_endif
 endif|#
@@ -66,7 +66,7 @@ end_ifdef
 begin_include
 include|#
 directive|include
-file|"../drivers/odbc/qsql_odbc.h"
+file|"../drivers/odbc/qsql_odbc_p.h"
 end_include
 begin_endif
 endif|#
@@ -80,7 +80,7 @@ end_ifdef
 begin_include
 include|#
 directive|include
-file|"../drivers/oci/qsql_oci.h"
+file|"../drivers/oci/qsql_oci_p.h"
 end_include
 begin_endif
 endif|#
@@ -104,7 +104,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|"../drivers/tds/qsql_tds.h"
+file|"../drivers/tds/qsql_tds_p.h"
 end_include
 begin_undef
 DECL|macro|RETCODE
@@ -124,7 +124,7 @@ end_ifdef
 begin_include
 include|#
 directive|include
-file|"../drivers/db2/qsql_db2.h"
+file|"../drivers/db2/qsql_db2_p.h"
 end_include
 begin_endif
 endif|#
@@ -138,7 +138,7 @@ end_ifdef
 begin_include
 include|#
 directive|include
-file|"../drivers/sqlite/qsql_sqlite.h"
+file|"../drivers/sqlite/qsql_sqlite_p.h"
 end_include
 begin_endif
 endif|#
@@ -152,7 +152,7 @@ end_ifdef
 begin_include
 include|#
 directive|include
-file|"../drivers/sqlite2/qsql_sqlite2.h"
+file|"../drivers/sqlite2/qsql_sqlite2_p.h"
 end_include
 begin_endif
 endif|#
@@ -217,7 +217,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"../drivers/ibase/qsql_ibase.h"
+file|"../drivers/ibase/qsql_ibase_p.h"
 end_include
 begin_undef
 DECL|macro|SCHAR

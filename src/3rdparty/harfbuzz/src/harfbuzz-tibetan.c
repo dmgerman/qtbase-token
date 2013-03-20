@@ -325,7 +325,7 @@ parameter_list|(
 name|c
 parameter_list|)
 define|\
-value|(TibetanForm)tibetanForm[c - 0x0f40]
+value|((c)>= 0x0f40&& (c)< 0x0fc0 ? (TibetanForm)tibetanForm[(c) - 0x0f40] : TibetanOther)
 end_define
 begin_ifndef
 ifndef|#
@@ -510,6 +510,11 @@ operator|.
 name|length
 operator|+
 literal|4
+expr_stmt|;
+name|HB_FREE_STACKARRAY
+argument_list|(
+name|reordered
+argument_list|)
 expr_stmt|;
 return|return
 name|FALSE

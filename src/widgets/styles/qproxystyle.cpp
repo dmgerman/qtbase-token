@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtWidgets module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -48,7 +48,7 @@ argument_list|)
 end_if
 begin_function
 name|QT_BEGIN_NAMESPACE
-comment|/*!     \class QProxyStyle      \brief The QProxyStyle class is a convenience class that simplifies     dynamically overriding QStyle elements.      \since 4.6      \inmodule QtWidgets       A QProxyStyle wraps a QStyle (usually the default system style) for the     purpose of dynamically overriding painting or other specific style behavior.      The following example shows how to override the shortcut underline     behavior on any platform:      \snippet code/src_gui_qproxystyle.cpp 1      Warning: The \l {QCommonStyle} {common styles} provided by Qt will     respect this hint, because they call QStyle::proxy(), but there is     no guarantee that QStyle::proxy() will be called for user defined     or system controlled styles. It would not work on a Mac, for     example, where menus are handled by the operating system.      \sa QStyle */
+comment|/*!     \class QProxyStyle      \brief The QProxyStyle class is a convenience class that simplifies     dynamically overriding QStyle elements.      \since 4.6      \inmodule QtWidgets      A QProxyStyle wraps a QStyle (usually the default system style) for the     purpose of dynamically overriding painting or other specific style behavior.      The following example shows how to override the shortcut underline     behavior on any platform:      \snippet code/src_gui_qproxystyle.cpp 1      Warning: The \l {QCommonStyle} {common styles} provided by Qt will     respect this hint, because they call QStyle::proxy(), but there is     no guarantee that QStyle::proxy() will be called for user defined     or system controlled styles. It would not work on a Mac, for     example, where menus are handled by the operating system.      \sa QStyle */
 DECL|function|ensureBaseStyle
 name|void
 name|QProxyStylePrivate
@@ -202,7 +202,7 @@ comment|// Take ownership
 block|}
 end_function
 begin_comment
-comment|/*!   Constructs a QProxyStyle object for overriding behavior in \a style   or in the current application \l{QStyle}{style} if \a style is 0   (default). Normally \a style is 0, because you want to override   behavior in the system style.    Ownership of \a style is transferred to QProxyStyle. */
+comment|/*!   Constructs a QProxyStyle object for overriding behavior in the   specified base \a style, or in the current \l{QApplication::style}   {application style} if base \a style is not specified.    Ownership of \a style is transferred to QProxyStyle. */
 end_comment
 begin_constructor
 DECL|function|QProxyStyle
@@ -228,6 +228,74 @@ argument_list|(
 name|QProxyStyle
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|style
+condition|)
+block|{
+name|d
+operator|->
+name|baseStyle
+operator|=
+name|style
+expr_stmt|;
+name|style
+operator|->
+name|setProxy
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+name|style
+operator|->
+name|setParent
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+comment|// Take ownership
+block|}
+block|}
+end_constructor
+begin_comment
+comment|/*!     Constructs a QProxyStyle object for overriding behavior in     the base style specified by style \a key, or in the current     \l{QApplication::style}{application style} if the specified     style \a key is unrecognized.      \sa QStyleFactory::create() */
+end_comment
+begin_constructor
+DECL|function|QProxyStyle
+name|QProxyStyle
+operator|::
+name|QProxyStyle
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|key
+parameter_list|)
+member_init_list|:
+name|QCommonStyle
+argument_list|(
+operator|*
+operator|new
+name|QProxyStylePrivate
+argument_list|()
+argument_list|)
+block|{
+name|Q_D
+argument_list|(
+name|QProxyStyle
+argument_list|)
+expr_stmt|;
+name|QStyle
+modifier|*
+name|style
+init|=
+name|QStyleFactory
+operator|::
+name|create
+argument_list|(
+name|key
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|style

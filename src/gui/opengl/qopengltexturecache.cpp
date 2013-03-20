@@ -292,6 +292,9 @@ parameter_list|(
 name|QOpenGLContext
 modifier|*
 name|ctx
+parameter_list|,
+name|bool
+name|useByteSwapImage
 parameter_list|)
 member_init_list|:
 name|QOpenGLSharedResource
@@ -309,6 +312,11 @@ operator|*
 literal|1024
 argument_list|)
 comment|// 64 MB cache
+member_init_list|,
+name|m_useByteSwapImage
+argument_list|(
+name|useByteSwapImage
+argument_list|)
 block|{ }
 end_constructor
 begin_destructor
@@ -805,6 +813,11 @@ operator|::
 name|Format_ARGB32_Premultiplied
 argument_list|)
 decl_stmt|;
+comment|// Performance could be improved by skipping qgl_byteSwapImage().
+if|if
+condition|(
+name|m_useByteSwapImage
+condition|)
 name|qgl_byteSwapImage
 argument_list|(
 name|tx

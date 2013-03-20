@@ -96,11 +96,6 @@ include|#
 directive|include
 file|<qmutex.h>
 end_include
-begin_include
-include|#
-directive|include
-file|"private/qharfbuzz_copy_p.h"
-end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QFontEngineFTRawFont
@@ -226,7 +221,8 @@ name|FT_Face
 name|face
 decl_stmt|;
 DECL|member|hbFace
-name|HB_Face
+name|void
+modifier|*
 name|hbFace
 decl_stmt|;
 DECL|member|xsize
@@ -271,27 +267,27 @@ name|fsType
 argument_list|()
 specifier|const
 expr_stmt|;
-name|HB_Error
+name|int
 name|getPointInOutline
 parameter_list|(
-name|HB_Glyph
+name|glyph_t
 name|glyph
 parameter_list|,
 name|int
 name|flags
 parameter_list|,
-name|hb_uint32
+name|quint32
 name|point
 parameter_list|,
-name|HB_Fixed
+name|QFixed
 modifier|*
 name|xpos
 parameter_list|,
-name|HB_Fixed
+name|QFixed
 modifier|*
 name|ypos
 parameter_list|,
-name|hb_uint32
+name|quint32
 modifier|*
 name|nPoints
 parameter_list|)
@@ -1186,20 +1182,20 @@ argument|QFreetypeFace *freetypeFace
 argument_list|)
 block|;
 name|virtual
-name|HB_Error
+name|int
 name|getPointInOutline
 argument_list|(
-argument|HB_Glyph glyph
+argument|glyph_t glyph
 argument_list|,
 argument|int flags
 argument_list|,
-argument|hb_uint32 point
+argument|quint32 point
 argument_list|,
-argument|HB_Fixed *xpos
+argument|QFixed *xpos
 argument_list|,
-argument|HB_Fixed *ypos
+argument|QFixed *ypos
 argument_list|,
-argument|hb_uint32 *nPoints
+argument|quint32 *nPoints
 argument_list|)
 block|;
 name|virtual

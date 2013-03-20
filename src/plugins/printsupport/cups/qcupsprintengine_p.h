@@ -178,6 +178,10 @@ name|setPaperSize
 argument_list|()
 block|;
 name|void
+name|setPaperName
+argument_list|()
+block|;
+name|void
 name|setCupsDefaults
 argument_list|()
 block|;

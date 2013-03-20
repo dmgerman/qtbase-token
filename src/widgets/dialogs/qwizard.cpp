@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtWidgets module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -66,6 +66,11 @@ begin_include
 include|#
 directive|include
 file|"qpainter.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"qwindow.h"
 end_include
 begin_include
 include|#
@@ -3126,7 +3131,7 @@ name|state
 parameter_list|)
 specifier|const
 function_decl|;
-name|void
+name|bool
 name|handleAeroStyleChange
 parameter_list|()
 function_decl|;
@@ -8769,7 +8774,7 @@ block|}
 end_function
 begin_function
 DECL|function|handleAeroStyleChange
-name|void
+name|bool
 name|QWizardPrivate
 operator|::
 name|handleAeroStyleChange
@@ -8784,8 +8789,47 @@ if|if
 condition|(
 name|inHandleAeroStyleChange
 condition|)
-return|return;
+return|return
+literal|false
+return|;
 comment|// prevent recursion
+comment|// For top-level wizards, we need the platform window handle for the
+comment|// DWM changes. Delay aero initialization to the show event handling if
+comment|// it does not exist. If we are a child, skip DWM and just make room by
+comment|// moving the antiFlickerWidget.
+specifier|const
+name|bool
+name|isWindow
+init|=
+name|q
+operator|->
+name|isWindow
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|isWindow
+operator|&&
+operator|(
+operator|!
+name|q
+operator|->
+name|windowHandle
+argument_list|()
+operator|||
+operator|!
+name|q
+operator|->
+name|windowHandle
+argument_list|()
+operator|->
+name|handle
+argument_list|()
+operator|)
+condition|)
+return|return
+literal|false
+return|;
 name|inHandleAeroStyleChange
 operator|=
 literal|true
@@ -8802,6 +8846,11 @@ argument_list|(
 name|vistaHelper
 argument_list|)
 expr_stmt|;
+name|bool
+name|vistaMargins
+init|=
+literal|false
+decl_stmt|;
 if|if
 condition|(
 name|isVistaThemeEnabled
@@ -8816,6 +8865,11 @@ name|QVistaHelper
 operator|::
 name|VistaAero
 argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|isWindow
 condition|)
 block|{
 name|vistaHelper
@@ -8834,6 +8888,7 @@ argument_list|(
 name|vistaHelper
 argument_list|)
 expr_stmt|;
+block|}
 name|q
 operator|->
 name|setMouseTracking
@@ -8889,9 +8944,25 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|vistaMargins
+operator|=
+literal|true
+expr_stmt|;
+name|vistaHelper
+operator|->
+name|backButton
+argument_list|()
+operator|->
+name|show
+argument_list|()
+expr_stmt|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|isWindow
+condition|)
 name|vistaHelper
 operator|->
 name|setDWMTitleBar
@@ -8935,6 +9006,10 @@ argument_list|)
 expr_stmt|;
 comment|// ### should ideally work with (0, 0)
 block|}
+if|if
+condition|(
+name|isWindow
+condition|)
 name|vistaHelper
 operator|->
 name|setTitleBarIconAndCaptionVisible
@@ -9011,6 +9086,10 @@ operator|->
 name|hideBackButton
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|isWindow
+condition|)
 name|vistaHelper
 operator|->
 name|setTitleBarIconAndCaptionVisible
@@ -9022,22 +9101,20 @@ block|}
 name|_q_updateButtonStates
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|q
-operator|->
-name|isVisible
-argument_list|()
-condition|)
 name|vistaHelper
 operator|->
-name|setWindowPosHack
-argument_list|()
+name|updateCustomMargins
+argument_list|(
+name|vistaMargins
+argument_list|)
 expr_stmt|;
 name|inHandleAeroStyleChange
 operator|=
 literal|false
 expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 end_function
 begin_endif
@@ -11756,14 +11833,28 @@ name|defined
 argument_list|(
 name|QT_NO_STYLE_WINDOWSVISTA
 argument_list|)
+comment|// Delay initialization when activating Aero style fails due to missing native window.
 if|if
 condition|(
 name|aeroStyleChange
-condition|)
+operator|&&
+operator|!
 name|d
 operator|->
 name|handleAeroStyleChange
 argument_list|()
+operator|&&
+name|d
+operator|->
+name|wizStyle
+operator|==
+name|AeroStyle
+condition|)
+name|d
+operator|->
+name|vistaInitPending
+operator|=
+literal|true
 expr_stmt|;
 endif|#
 directive|endif

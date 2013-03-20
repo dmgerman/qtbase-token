@@ -159,10 +159,12 @@ name|void
 name|findDeps
 parameter_list|()
 function_decl|;
-ifndef|#
-directive|ifndef
-name|Q_OS_WIN
-comment|// Test requires make
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_MAC
+argument_list|)
 name|void
 name|bundle_spaces
 parameter_list|()
@@ -2604,11 +2606,14 @@ block|}
 block|}
 struct|;
 end_struct
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|Q_OS_WIN
-end_ifndef
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_MAC
+argument_list|)
+end_if
 begin_function
 DECL|function|bundle_spaces
 name|void
@@ -2633,7 +2638,7 @@ name|setArguments
 argument_list|(
 literal|"-n"
 argument_list|,
-literal|"-spec macx-g++"
+literal|"-spec macx-clang"
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -2747,7 +2752,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// Q_OS_WIN
+comment|// defined(Q_OS_MAC)
 end_comment
 begin_function
 DECL|function|includefunction

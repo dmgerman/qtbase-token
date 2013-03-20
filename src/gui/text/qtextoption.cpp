@@ -661,7 +661,7 @@ begin_comment
 comment|/*!     \fn Tab::Tab()     Creates a default left tab with position 80. */
 end_comment
 begin_comment
-comment|/*!     \fn Tab::Tab(qreal pos, TabType tabType, QChar delim = QChar())          Creates a tab with the given position, tab type, and delimiter     (\a pos, \a tabType, \a delim).      \note \a delim is only used when \a tabType is DelimiterTab.      \since 4.7 */
+comment|/*!     \fn Tab::Tab(qreal pos, TabType tabType, QChar delim = QChar())      Creates a tab with the given position, tab type, and delimiter     (\a pos, \a tabType, \a delim).      \note \a delim is only used when \a tabType is DelimiterTab.      \since 4.7 */
 end_comment
 begin_comment
 comment|/*!     \fn bool Tab::operator==(const Tab&other) const      Returns true if tab \a other is equal to this tab;     otherwise returns false. */

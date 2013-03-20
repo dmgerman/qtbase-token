@@ -1267,7 +1267,8 @@ operator|&
 name|readfds
 argument_list|)
 expr_stmt|;
-name|timeval
+name|struct
+name|timespec
 name|timeout
 decl_stmt|;
 name|timeout
@@ -1280,13 +1281,15 @@ literal|1000
 expr_stmt|;
 name|timeout
 operator|.
-name|tv_usec
+name|tv_nsec
 operator|=
 operator|(
 name|msec
 operator|%
 literal|1000
 operator|)
+operator|*
+literal|1000
 operator|*
 literal|1000
 expr_stmt|;

@@ -252,6 +252,9 @@ decl_stmt|;
 name|ProKey
 name|strTEMPLATE
 decl_stmt|;
+name|ProKey
+name|strQMAKE_PLATFORM
+decl_stmt|;
 ifdef|#
 directive|ifdef
 name|PROEVALUATOR_FULL

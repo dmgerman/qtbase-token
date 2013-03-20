@@ -23,102 +23,11 @@ include|#
 directive|include
 file|"qcocoawindow.h"
 end_include
-begin_if
-if|#
-directive|if
-name|MAC_OS_X_VERSION_MAX_ALLOWED
-operator|<=
-name|MAC_OS_X_VERSION_10_5
-end_if
-begin_expr_stmt
+begin_decl_stmt
 unit|@
-name|protocol
-name|NSWindowDelegate
-operator|<
-name|NSObject
-operator|>
-comment|//- (NSSize)windowWillResize:(NSWindow *)window toSize:(NSSize)proposedFrameSize;
-comment|//- (void)windowDidMiniaturize:(NSNotification*)notification;
-operator|-
-operator|(
-name|void
-operator|)
-name|windowDidResize
-operator|:
-operator|(
-name|NSNotification
-operator|*
-operator|)
-name|notification
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-operator|-
-operator|(
-name|void
-operator|)
-name|windowWillClose
-operator|:
-operator|(
-name|NSNotification
-operator|*
-operator|)
-name|notification
-expr_stmt|;
-end_expr_stmt
-begin_comment
-comment|//- (NSRect)windowWillUseStandardFrame:(NSWindow *)window defaultFrame:(NSRect)defaultFrame;
-end_comment
-begin_expr_stmt
-operator|-
-operator|(
-name|void
-operator|)
-name|windowDidMove
-operator|:
-operator|(
-name|NSNotification
-operator|*
-operator|)
-name|notification
-expr_stmt|;
-end_expr_stmt
-begin_comment
-comment|//- (BOOL)windowShouldClose:(id)window;
-end_comment
-begin_comment
-comment|//- (void)windowDidDeminiaturize:(NSNotification *)notification;
-end_comment
-begin_comment
-comment|//- (void)windowDidBecomeMain:(NSNotification*)notification;
-end_comment
-begin_comment
-comment|//- (void)windowDidResignMain:(NSNotification*)notification;
-end_comment
-begin_comment
-comment|//- (void)windowDidBecomeKey:(NSNotification*)notification;
-end_comment
-begin_comment
-comment|//- (void)windowDidResignKey:(NSNotification*)notification;
-end_comment
-begin_comment
-comment|//- (BOOL)window:(NSWindow *)window shouldPopUpDocumentPathMenu:(NSMenu *)menu;
-end_comment
-begin_comment
-comment|//- (BOOL)window:(NSWindow *)window shouldDragDocumentWithEvent:(NSEvent *)event from:(NSPoint)dragImageLocation withPasteboard:(NSPasteboard *)pasteboard;
-end_comment
-begin_comment
-comment|//- (BOOL)windowShouldZoom:(NSWindow *)window toFrame:(NSRect)newFrame;
-end_comment
-begin_expr_stmt
-unit|@
-name|end
-endif|#
-directive|endif
-expr|@
 name|interface
 name|QNSWindowDelegate
-operator|:
+range|:
 name|NSObject
 operator|<
 name|NSWindowDelegate
@@ -139,8 +48,8 @@ name|QCocoaWindow
 operator|*
 operator|)
 name|cocoaWindow
-expr_stmt|;
-end_expr_stmt
+decl_stmt|;
+end_decl_stmt
 begin_expr_stmt
 operator|-
 operator|(

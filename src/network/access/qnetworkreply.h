@@ -39,7 +39,6 @@ directive|include
 file|<QtNetwork/QNetworkAccessManager>
 end_include
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QUrl
 name|class
@@ -393,6 +392,12 @@ ifndef|#
 directive|ifndef
 name|QT_NO_SSL
 end_ifndef
+begin_function_decl
+name|void
+name|encrypted
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_decl_stmt
 name|void
 name|sslErrors
@@ -637,7 +642,6 @@ name|QNetworkReply
 operator|::
 name|NetworkError
 argument_list|)
-name|QT_END_HEADER
 end_decl_stmt
 begin_endif
 endif|#

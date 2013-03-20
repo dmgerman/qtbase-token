@@ -2088,6 +2088,9 @@ begin_comment
 comment|/*! \fn QMap::QMap(const std::map<Key, T>& other)      Constructs a copy of \a other.      This function is only available if Qt is configured with STL     compatibility enabled.      \sa toStdMap() */
 end_comment
 begin_comment
+comment|/*! \fn QMap::QMap(std::initializer_list<std::pair<Key,T>> list)     \since 5.1      Constructs a map with a copy of each of the elements in the     initializer list \a list.      This function is only available if the program is being     compiled in C++11 mode. */
+end_comment
+begin_comment
 comment|/*! \fn std::map<Key, T> QMap::toStdMap() const      Returns an STL map equivalent to this QMap.      This function is only available if Qt is configured with STL     compatibility enabled. */
 end_comment
 begin_comment
@@ -2223,7 +2226,13 @@ begin_comment
 comment|/*! \fn QMap::iterator QMap::insert(const Key&key, const T&value)      Inserts a new item with the key \a key and a value of \a value.      If there is already an item with the key \a key, that item's value     is replaced with \a value.      If there are multiple items with the key \a key, the most     recently inserted item's value is replaced with \a value.      \sa insertMulti() */
 end_comment
 begin_comment
+comment|/*! \fn QMap::iterator QMap::insert(const_iterator pos, const Key&key, const T&value)     \overload     \since 5.1     Inserts a new item with the key \a key and value \a value and with hint \a pos     suggesting where to do the insert.      If constBegin() is used as hint it indicates that the \a key is less than any key in the map     while constEnd() suggests that the \a key is (strictly) larger than any key in the map.     Otherwise the hint should meet the condition (\a pos - 1).key()< \a key<= pos.key().     If the hint \a pos is wrong it is ignored and a regular insert is done.      If there is already an item with the key \a key, that item's value     is replaced with \a value.      If there are multiple items with the key \a key, then exactly one of them     is replaced with \a value.      When creating a map from sorted data inserting the largest key first with constBegin()     is faster than inserting in sorted order with constEnd()      \b {Note:} Be careful with the hint. Providing an iterator from an older shared instance might     crash but there is also a risk that it will silently corrupt both the map and the \a pos map.      \sa insertMulti() */
+end_comment
+begin_comment
 comment|/*! \fn QMap::iterator QMap::insertMulti(const Key&key, const T&value)      Inserts a new item with the key \a key and a value of \a value.      If there is already an item with the same key in the map, this     function will simply create a new one. (This behavior is     different from insert(), which overwrites the value of an     existing item.)      \sa insert(), values() */
+end_comment
+begin_comment
+comment|/*! \fn QMap::iterator QMap::insertMulti(const_iterator pos, const Key&key, const T&value)     \overload     \since 5.1     Inserts a new item with the key \a key and value \a value and with hint \a pos     suggesting where to do the insert.      If constBegin() is used as hint it indicates that the \a key is less than any key in the map     while constEnd() suggests that the \a key is larger than any key in the map.     Otherwise the hint should meet the condition (\a pos - 1).key()< \a key<= pos.key().     If the hint \a pos is wrong it is ignored and a regular insertMulti is done.      If there is already an item with the same key in the map, this function will simply create a new one.      \b {Note:} Be careful with the hint. Providing an iterator from an older shared instance might     crash but there is also a risk that it will silently corrupt both the map and the \a pos map.      \sa insert() */
 end_comment
 begin_comment
 comment|/*! \fn QMap<Key, T>&QMap::unite(const QMap<Key, T>&other)      Inserts all the items in the \a other map into this map. If a     key is common to both maps, the resulting map will contain the     key multiple times.      \sa insertMulti() */
@@ -2400,6 +2409,9 @@ begin_comment
 comment|/*! \fn QMultiMap::QMultiMap()      Constructs an empty map. */
 end_comment
 begin_comment
+comment|/*! \fn QMultiMap::QMultiMap(std::initializer_list<std::pair<Key,T>> list)     \since 5.1      Constructs a multi map with a copy of each of the elements in the     initializer list \a list.      This function is only available if the program is being     compiled in C++11 mode. */
+end_comment
+begin_comment
 comment|/*! \fn QMultiMap::QMultiMap(const QMap<Key, T>&other)      Constructs a copy of \a other (which can be a QMap or a     QMultiMap).      \sa operator=() */
 end_comment
 begin_comment
@@ -2407,6 +2419,9 @@ comment|/*! \fn QMultiMap::iterator QMultiMap::replace(const Key&key, const T&va
 end_comment
 begin_comment
 comment|/*! \fn QMultiMap::iterator QMultiMap::insert(const Key&key, const T&value)      Inserts a new item with the key \a key and a value of \a value.      If there is already an item with the same key in the map, this     function will simply create a new one. (This behavior is     different from replace(), which overwrites the value of an     existing item.)      \sa replace() */
+end_comment
+begin_comment
+comment|/*! \fn QMultiMap::iterator QMultiMap::insert(QMap<Key, T>::const_iterator pos, const Key&key, const T&value)      \since 5.1     Inserts a new item with the key \a key and value \a value and with hint \a pos     suggesting where to do the insert.      If constBegin() is used as hint it indicates that the \a key is less than any key in the map     while constEnd() suggests that the \a key is larger than any key in the map.     Otherwise the hint should meet the condition (\a pos - 1).key()< \a key<= pos.key().     If the hint \a pos is wrong it is ignored and a regular insert is done.      If there is already an item with the same key in the map, this function will simply create a new one.      \b {Note:} Be careful with the hint. Providing an iterator from an older shared instance might     crash but there is also a risk that it will silently corrupt both the map and the \a pos map. */
 end_comment
 begin_comment
 comment|/*! \fn QMultiMap&QMultiMap::operator+=(const QMultiMap&other)      Inserts all the items in the \a other map into this map and     returns a reference to this map.      \sa insert(), operator+() */

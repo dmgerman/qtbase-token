@@ -35,7 +35,7 @@ name|QWidget
 argument_list|(
 name|parent
 argument_list|)
-block|{ }
+block|{}
 DECL|function|paintEvent
 name|void
 name|paintEvent

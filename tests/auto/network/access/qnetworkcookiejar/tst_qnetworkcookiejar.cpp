@@ -3153,7 +3153,7 @@ argument_list|(
 literal|"yes-wildcard4"
 argument_list|)
 operator|<<
-literal|"anything.shizuoka.jp"
+literal|"anything.sendai.jp"
 operator|<<
 literal|true
 expr_stmt|;

@@ -1753,6 +1753,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// enum CursorAction and moveCursor() are protected in QTableView.
 DECL|enum|CursorAction
 enum|enum
 name|CursorAction
@@ -1828,9 +1829,9 @@ operator|::
 name|MovePrevious
 block|}
 enum|;
-DECL|function|moveCursor
+DECL|function|doMoveCursor
 name|QModelIndex
-name|moveCursor
+name|doMoveCursor
 parameter_list|(
 name|QtTestTableView
 operator|::
@@ -6724,7 +6725,7 @@ name|newIndex
 init|=
 name|view
 operator|.
-name|moveCursor
+name|doMoveCursor
 argument_list|(
 operator|(
 name|QtTestTableView
@@ -7737,7 +7738,7 @@ name|newIndex
 init|=
 name|view
 operator|.
-name|moveCursor
+name|doMoveCursor
 argument_list|(
 operator|(
 name|QtTestTableView

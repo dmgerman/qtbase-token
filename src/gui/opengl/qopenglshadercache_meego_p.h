@@ -112,11 +112,16 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_decl_stmt
-name|QT_BEGIN_HEADER
+begin_comment
 comment|/*     This cache stores internal Qt shader programs in shared memory.      This header file is ugly on purpose and can only be included once. It is only to be used     for the internal shader cache, not as a generic cache for anyone's shaders.      The cache stores either ShaderCacheMaxEntries shader programs or ShaderCacheDataSize kilobytes     of shader programs, whatever limit is reached first.      The layout of the cache is as outlined in the CachedShaders struct. After some     integers, an array of headers is reserved, then comes the space for the actual binaries.      Shader Programs are identified by the md5sum of their frag and vertex shader source code.      Shader Programs are never removed. The cache never shrinks or re-shuffles. This is done     on purpose to ensure minimum amount of locking, no alignment problems and very few write     operations.      Note: Locking the shader cache could be expensive, because the entire system might hang.     That's why the cache is immutable to minimize the time we need to keep it locked.      Why is it Meego specific?      First, the size is chosen so that it fits to generic meego usage. Second, on Meego, there's     always at least one Qt application active (the launcher), so the cache will never be destroyed.     Only when the last Qt app exits, the cache dies, which should only be when someone kills the     X11 server. And last but not least it was only tested with Meego's SGX driver.      There's a small tool in src/opengl/util/meego that dumps the contents of the cache.  */
+end_comment
+begin_comment
 comment|// anonymous namespace, prevent exporting of the private symbols
+end_comment
+begin_macro
 name|namespace
+end_macro
+begin_block
 block|{
 struct|struct
 name|CachedShaderHeader
@@ -563,7 +568,7 @@ modifier|*
 name|shm
 decl_stmt|;
 block|}
-end_decl_stmt
+end_block
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
@@ -1492,12 +1497,13 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
+end_macro
+begin_endif
 endif|#
 directive|endif
-name|QT_END_HEADER
-end_expr_stmt
+end_endif
 begin_endif
 endif|#
 directive|endif

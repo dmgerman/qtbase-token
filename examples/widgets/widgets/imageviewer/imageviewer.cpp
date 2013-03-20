@@ -275,9 +275,19 @@ name|pixmap
 argument_list|()
 argument_list|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
 name|QT_NO_PRINTER
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_PRINTDIALOG
+argument_list|)
 comment|//! [6] //! [7]
 name|QPrintDialog
 name|dialog

@@ -1071,7 +1071,7 @@ block|}
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|/*!      \relates QByteArray      Returns the CRC-16 checksum of the first \a len bytes of \a data.      The checksum is independent of the byte order (endianness).      \note This function is a 16-bit cache conserving (16 entry table)     implementation of the CRC-16-CCITT algorithm. */
+comment|/*!     \relates QByteArray      Returns the CRC-16 checksum of the first \a len bytes of \a data.      The checksum is independent of the byte order (endianness).      \note This function is a 16-bit cache conserving (16 entry table)     implementation of the CRC-16-CCITT algorithm. */
 end_comment
 begin_function
 DECL|function|qChecksum
@@ -1187,7 +1187,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!          \fn QByteArray qCompress(const QByteArray& data, int compressionLevel)      \relates QByteArray      Compresses the \a data byte array and returns the compressed data     in a new byte array.      The \a compressionLevel parameter specifies how much compression     should be used. Valid values are between 0 and 9, with 9     corresponding to the greatest compression (i.e. smaller compressed     data) at the cost of using a slower algorithm. Smaller values (8,     7, ..., 1) provide successively less compression at slightly     faster speeds. The value 0 corresponds to no compression at all.     The default value is -1, which specifies zlib's default     compression.      \sa qUncompress() */
+comment|/*!     \fn QByteArray qCompress(const QByteArray& data, int compressionLevel)      \relates QByteArray      Compresses the \a data byte array and returns the compressed data     in a new byte array.      The \a compressionLevel parameter specifies how much compression     should be used. Valid values are between 0 and 9, with 9     corresponding to the greatest compression (i.e. smaller compressed     data) at the cost of using a slower algorithm. Smaller values (8,     7, ..., 1) provide successively less compression at slightly     faster speeds. The value 0 corresponds to no compression at all.     The default value is -1, which specifies zlib's default     compression.      \sa qUncompress() */
 end_comment
 begin_comment
 comment|/*! \relates QByteArray      \overload      Compresses the first \a nbytes of \a data and returns the     compressed data in a new byte array. */
@@ -2642,7 +2642,7 @@ block|}
 block|}
 end_constructor
 begin_comment
-comment|/*!     \internal       Constructs a byte array of size \a size with uninitialized contents. */
+comment|/*!     \internal      Constructs a byte array of size \a size with uninitialized contents. */
 end_comment
 begin_constructor
 DECL|function|QByteArray
@@ -9611,16 +9611,16 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!      \fn QByteArray&QByteArray::setNum(int n, int base)      Sets the byte array to the printed value of \a n in base \a base (10     by default) and returns a reference to the byte array. The \a base can     be any value between 2 and 36. For bases other than 10, n is treated     as an unsigned integer.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 40      \note The format of the number is not localized; the default C locale     is used irrespective of the user's locale.      \sa number(), toInt() */
+comment|/*!     \fn QByteArray&QByteArray::setNum(int n, int base)      Sets the byte array to the printed value of \a n in base \a base (10     by default) and returns a reference to the byte array. The \a base can     be any value between 2 and 36. For bases other than 10, n is treated     as an unsigned integer.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 40      \note The format of the number is not localized; the default C locale     is used irrespective of the user's locale.      \sa number(), toInt() */
 end_comment
 begin_comment
-comment|/*!      \fn QByteArray&QByteArray::setNum(uint n, int base)     \overload      \sa toUInt() */
+comment|/*!     \fn QByteArray&QByteArray::setNum(uint n, int base)     \overload      \sa toUInt() */
 end_comment
 begin_comment
-comment|/*!      \fn QByteArray&QByteArray::setNum(short n, int base)     \overload      \sa toShort() */
+comment|/*!     \fn QByteArray&QByteArray::setNum(short n, int base)     \overload      \sa toShort() */
 end_comment
 begin_comment
-comment|/*!      \fn QByteArray&QByteArray::setNum(ushort n, int base)     \overload      \sa toUShort() */
+comment|/*!     \fn QByteArray&QByteArray::setNum(ushort n, int base)     \overload      \sa toUShort() */
 end_comment
 begin_comment
 comment|/*!     \overload      \sa toLongLong() */
@@ -9906,7 +9906,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!      \overload      Sets the byte array to the printed value of \a n, formatted in format     \a f with precision \a prec, and returns a reference to the     byte array.      The format \a f can be any of the following:      \table     \header \li Format \li Meaning     \row \li \c e \li format as [-]9.9e[+|-]999     \row \li \c E \li format as [-]9.9E[+|-]999     \row \li \c f \li format as [-]9.9     \row \li \c g \li use \c e or \c f format, whichever is the most concise     \row \li \c G \li use \c E or \c f format, whichever is the most concise     \endtable      With 'e', 'E', and 'f', \a prec is the number of digits after the     decimal point. With 'g' and 'G', \a prec is the maximum number of     significant digits (trailing zeroes are omitted).      \note The format of the number is not localized; the default C locale     is used irrespective of the user's locale.      \sa toDouble() */
+comment|/*!     \overload      Sets the byte array to the printed value of \a n, formatted in format     \a f with precision \a prec, and returns a reference to the     byte array.      The format \a f can be any of the following:      \table     \header \li Format \li Meaning     \row \li \c e \li format as [-]9.9e[+|-]999     \row \li \c E \li format as [-]9.9E[+|-]999     \row \li \c f \li format as [-]9.9     \row \li \c g \li use \c e or \c f format, whichever is the most concise     \row \li \c G \li use \c E or \c f format, whichever is the most concise     \endtable      With 'e', 'E', and 'f', \a prec is the number of digits after the     decimal point. With 'g' and 'G', \a prec is the maximum number of     significant digits (trailing zeroes are omitted).      \note The format of the number is not localized; the default C locale     is used irrespective of the user's locale.      \sa toDouble() */
 end_comment
 begin_function
 DECL|function|setNum
@@ -10052,7 +10052,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!      \fn QByteArray&QByteArray::setNum(float n, char f, int prec)     \overload      Sets the byte array to the printed value of \a n, formatted in format     \a f with precision \a prec, and returns a reference to the     byte array.      \note The format of the number is not localized; the default C locale     is used irrespective of the user's locale.      \sa toFloat() */
+comment|/*!     \fn QByteArray&QByteArray::setNum(float n, char f, int prec)     \overload      Sets the byte array to the printed value of \a n, formatted in format     \a f with precision \a prec, and returns a reference to the     byte array.      \note The format of the number is not localized; the default C locale     is used irrespective of the user's locale.      \sa toFloat() */
 end_comment
 begin_comment
 comment|/*!     Returns a byte array containing the string equivalent of the     number \a n to base \a base (10 by default). The \a base can be     any value between 2 and 36.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 41      \note The format of the number is not localized; the default C locale     is used irrespective of the user's locale.      \sa setNum(), toInt() */
@@ -10191,7 +10191,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!      \overload      Returns a byte array that contains the printed value of \a n,     formatted in format \a f with precision \a prec.      Argument \a n is formatted according to the \a f format specified,     which is \c g by default, and can be any of the following:      \table     \header \li Format \li Meaning     \row \li \c e \li format as [-]9.9e[+|-]999     \row \li \c E \li format as [-]9.9E[+|-]999     \row \li \c f \li format as [-]9.9     \row \li \c g \li use \c e or \c f format, whichever is the most concise     \row \li \c G \li use \c E or \c f format, whichever is the most concise     \endtable      With 'e', 'E', and 'f', \a prec is the number of digits after the     decimal point. With 'g' and 'G', \a prec is the maximum number of     significant digits (trailing zeroes are omitted).      \snippet code/src_corelib_tools_qbytearray.cpp 42      \note The format of the number is not localized; the default C locale     is used irrespective of the user's locale.      \sa toDouble() */
+comment|/*!     \overload      Returns a byte array that contains the printed value of \a n,     formatted in format \a f with precision \a prec.      Argument \a n is formatted according to the \a f format specified,     which is \c g by default, and can be any of the following:      \table     \header \li Format \li Meaning     \row \li \c e \li format as [-]9.9e[+|-]999     \row \li \c E \li format as [-]9.9E[+|-]999     \row \li \c f \li format as [-]9.9     \row \li \c g \li use \c e or \c f format, whichever is the most concise     \row \li \c G \li use \c E or \c f format, whichever is the most concise     \endtable      With 'e', 'E', and 'f', \a prec is the number of digits after the     decimal point. With 'g' and 'G', \a prec is the maximum number of     significant digits (trailing zeroes are omitted).      \snippet code/src_corelib_tools_qbytearray.cpp 42      \note The format of the number is not localized; the default C locale     is used irrespective of the user's locale.      \sa toDouble() */
 end_comment
 begin_function
 DECL|function|number

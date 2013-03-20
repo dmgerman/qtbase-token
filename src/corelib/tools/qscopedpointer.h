@@ -24,7 +24,6 @@ directive|include
 file|<stdlib.h>
 end_include
 begin_expr_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 name|template
 operator|<
@@ -219,12 +218,6 @@ name|cleanup
 argument_list|(
 name|oldD
 argument_list|)
-block|;
-name|this
-operator|->
-name|d
-operator|=
-literal|0
 block|;     }
 specifier|inline
 name|T
@@ -842,11 +835,10 @@ argument_list|(
 argument|QScopedArrayPointer
 argument_list|)
 end_macro
-begin_expr_stmt
+begin_macro
 unit|};
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif
