@@ -553,6 +553,12 @@ name|QOpenGLFunctions
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QOpenGLTextureHelper
+name|class
+name|QOpenGLTextureHelper
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|Q_GUI_EXPORT
 name|QOpenGLContextPrivate
@@ -600,6 +606,11 @@ literal|0
 argument_list|)
 block|,
 name|functions
+argument_list|(
+literal|0
+argument_list|)
+block|,
+name|textureFunctions
 argument_list|(
 literal|0
 argument_list|)
@@ -711,6 +722,10 @@ operator|<
 name|QByteArray
 operator|>
 name|extensionNames
+block|;
+name|QOpenGLTextureHelper
+operator|*
+name|textureFunctions
 block|;
 name|GLuint
 name|current_fbo
