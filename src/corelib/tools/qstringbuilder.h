@@ -56,40 +56,52 @@ include|#
 directive|include
 file|<string.h>
 end_include
-begin_expr_stmt
-name|QT_BEGIN_HEADER
+begin_macro
 name|QT_BEGIN_NAMESPACE
-expr|struct
+end_macro
+begin_struct
 DECL|struct|QAbstractConcatenable
+struct|struct
 name|Q_CORE_EXPORT
 name|QAbstractConcatenable
 block|{
 DECL|member|protected
 name|protected
-operator|:
+label|:
 DECL|member|len
 DECL|member|out
 specifier|static
 name|void
 name|convertFromAscii
-argument_list|(
-argument|const char *a
-argument_list|,
-argument|int len
-argument_list|,
-argument|QChar *&out
-argument_list|)
-block|;
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|a
+parameter_list|,
+name|int
+name|len
+parameter_list|,
+name|QChar
+modifier|*
+modifier|&
+name|out
+parameter_list|)
+function_decl|;
 DECL|function|convertFromAscii
 specifier|static
 specifier|inline
 name|void
 name|convertFromAscii
-argument_list|(
-argument|char a
-argument_list|,
-argument|QChar *&out
-argument_list|)
+parameter_list|(
+name|char
+name|a
+parameter_list|,
+name|QChar
+modifier|*
+modifier|&
+name|out
+parameter_list|)
 block|{
 operator|*
 name|out
@@ -99,10 +111,11 @@ name|QLatin1Char
 argument_list|(
 name|a
 argument_list|)
-block|;     }
-block|}
 expr_stmt|;
-end_expr_stmt
+block|}
+block|}
+struct|;
+end_struct
 begin_expr_stmt
 DECL|struct|QConcatenable
 name|template
@@ -2750,10 +2763,9 @@ name|a
 return|;
 block|}
 end_expr_stmt
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

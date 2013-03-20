@@ -2634,12 +2634,21 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+operator|(
 name|project
 operator|->
 name|isActiveConfig
 argument_list|(
 literal|"depend_prl"
 argument_list|)
+operator|||
+name|project
+operator|->
+name|isActiveConfig
+argument_list|(
+literal|"fast_depend_prl"
+argument_list|)
+operator|)
 operator|&&
 operator|!
 name|project
@@ -2777,12 +2786,26 @@ expr_stmt|;
 name|t
 operator|<<
 name|targ
+expr_stmt|;
+if|if
+condition|(
+name|project
+operator|->
+name|isActiveConfig
+argument_list|(
+literal|"fast_depend_prl"
+argument_list|)
+condition|)
+name|t
 operator|<<
-literal|":"
+literal|":\n\t@echo \"Creating '"
+expr_stmt|;
+else|else
+name|t
 operator|<<
-literal|"\n\t"
-operator|<<
-literal|"@echo \"Creating '"
+literal|": FORCE\n\t@echo \"Creating/updating '"
+expr_stmt|;
+name|t
 operator|<<
 name|targ
 operator|<<
@@ -3344,7 +3367,14 @@ literal|"\n\t"
 expr_stmt|;
 name|t
 operator|<<
-literal|"$(LINK) $(LFLAGS) -o $(TARGET) "
+literal|"$(LINK) $(LFLAGS) "
+operator|<<
+name|var
+argument_list|(
+literal|"QMAKE_LINK_O_FLAG"
+argument_list|)
+operator|<<
+literal|"$(TARGET) "
 operator|<<
 name|incr_deps
 operator|<<
@@ -3490,7 +3520,14 @@ literal|"\n\t"
 expr_stmt|;
 name|t
 operator|<<
-literal|"$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)"
+literal|"$(LINK) $(LFLAGS) "
+operator|<<
+name|var
+argument_list|(
+literal|"QMAKE_LINK_O_FLAG"
+argument_list|)
+operator|<<
+literal|"$(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)"
 expr_stmt|;
 if|if
 condition|(
@@ -3938,7 +3975,12 @@ literal|"$(LINK) "
 operator|<<
 name|incr_lflags
 operator|<<
-literal|" -o "
+literal|" "
+operator|<<
+name|var
+argument_list|(
+literal|"QMAKE_LINK_O_FLAG"
+argument_list|)
 operator|<<
 name|incr_target_dir
 operator|<<
@@ -9899,7 +9941,16 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|"$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(LIBS) $(OBJCOMP)"
+literal|"$(LINK) $(LFLAGS) "
+operator|+
+name|project
+operator|->
+name|first
+argument_list|(
+literal|"QMAKE_LINK_O_FLAG"
+argument_list|)
+operator|+
+literal|"$(TARGET) $(OBJECTS) $(LIBS) $(OBJCOMP)"
 argument_list|)
 expr_stmt|;
 block|}
@@ -10333,6 +10384,9 @@ literal|"QMAKE_INFO_PLIST"
 argument_list|)
 operator|.
 name|toQString
+argument_list|()
+argument_list|,
+name|qmake_getpwd
 argument_list|()
 argument_list|)
 decl_stmt|;

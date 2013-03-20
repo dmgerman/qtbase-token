@@ -47,7 +47,7 @@ end_endif
 begin_include
 include|#
 directive|include
-file|"../../../sql/drivers/tds/qsql_tds.h"
+file|"../../../sql/drivers/tds/qsql_tds_p.h"
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE

@@ -44,7 +44,6 @@ directive|include
 file|<QtCore/qstringmatcher.h>
 end_include
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QRegExp
 name|class
@@ -375,7 +374,7 @@ directive|ifndef
 name|QT_BOOTSTRAPPED
 ifndef|#
 directive|ifndef
-name|QT_NO_REGEXP
+name|QT_NO_REGULAREXPRESSION
 specifier|inline
 name|QStringList
 name|filter
@@ -424,7 +423,7 @@ specifier|const
 block|;
 endif|#
 directive|endif
-comment|// QT_NO_REGEXP
+comment|// QT_NO_REGULAREXPRESSION
 endif|#
 directive|endif
 comment|// QT_BOOTSTRAPPED
@@ -669,7 +668,7 @@ directive|ifndef
 name|QT_BOOTSTRAPPED
 ifndef|#
 directive|ifndef
-name|QT_NO_REGEXP
+name|QT_NO_REGULAREXPRESSION
 name|void
 name|Q_CORE_EXPORT
 name|QStringList_replaceInStrings
@@ -728,7 +727,7 @@ argument_list|)
 block|;
 endif|#
 directive|endif
-comment|// QT_NO_REGEXP
+comment|// QT_NO_REGULAREXPRESSION
 endif|#
 directive|endif
 comment|// QT_BOOTSTRAPPED
@@ -1074,7 +1073,7 @@ directive|ifndef
 name|QT_BOOTSTRAPPED
 ifndef|#
 directive|ifndef
-name|QT_NO_REGEXP
+name|QT_NO_REGULAREXPRESSION
 DECL|function|replaceInStrings
 specifier|inline
 name|QStringList
@@ -1180,7 +1179,7 @@ return|;
 block|}
 endif|#
 directive|endif
-comment|// QT_NO_REGEXP
+comment|// QT_NO_REGULAREXPRESSION
 endif|#
 directive|endif
 comment|// QT_BOOTSTRAPPED
@@ -1265,7 +1264,6 @@ endif|#
 directive|endif
 comment|// QT_NO_DATASTREAM
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
 end_decl_stmt
 begin_endif
 endif|#

@@ -37,6 +37,14 @@ include|#
 directive|include
 file|"qdebug.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<private/qtextstream_p.h>
+end_include
+begin_macro
+name|QT_BEGIN_NAMESPACE
+end_macro
 begin_comment
 comment|// This file is needed to force compilation of QDebug into the kernel library.
 end_comment
@@ -74,10 +82,10 @@ begin_comment
 comment|/*!     \fn QDebug&QDebug::maybeSpace()      Writes a space character to the debug stream, depending on the current     setting for automatic insertion of spaces, and returns a reference to the stream.      \sa space(), nospace() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QDebug::autoInsertSpaces() const      Returns true if this QDebug instance will automatically insert spaces     between writes.      \since 5.0 */
+comment|/*!     \fn bool QDebug::autoInsertSpaces() const      Returns true if this QDebug instance will automatically insert spaces     between writes.      \since 5.0      \sa QDebugStateSaver */
 end_comment
 begin_comment
-comment|/*!     \fn void QDebug::setAutoInsertSpaces(bool b)      Enables automatic insertion of spaces between writes if \a b is true; otherwise     automatic insertion of spaces is disabled.      \since 5.0 */
+comment|/*!     \fn void QDebug::setAutoInsertSpaces(bool b)      Enables automatic insertion of spaces between writes if \a b is true; otherwise     automatic insertion of spaces is disabled.      \since 5.0      \sa QDebugStateSaver */
 end_comment
 begin_comment
 comment|/*!     \fn QDebug&QDebug::operator<<(QChar t)      Writes the character, \a t, to the stream and returns a reference to the     stream. */
@@ -142,4 +150,139 @@ end_comment
 begin_comment
 comment|/*!     \fn QDebug&QDebug::operator<<(QTextStreamManipulator m)     \internal */
 end_comment
+begin_comment
+comment|/*!     \class QDebugStateSaver      \brief Convenience class for custom QDebug operators      Saves the settings used by QDebug, and restores them upon destruction.      The automatic insertion of spaces between writes is one of the settings     that QDebugStateSaver stores for the duration of the current block.      The settings of the internal QTextStream are also saved and restored,     so that using<< hex in a QDebug operator doesn't affect other QDebug     operators.      \since 5.1 */
+end_comment
+begin_class
+DECL|class|QDebugStateSaverPrivate
+class|class
+name|QDebugStateSaverPrivate
+block|{
+public|public:
+DECL|function|QDebugStateSaverPrivate
+name|QDebugStateSaverPrivate
+parameter_list|(
+name|QDebug
+modifier|&
+name|dbg
+parameter_list|)
+member_init_list|:
+name|m_dbg
+argument_list|(
+name|dbg
+argument_list|)
+member_init_list|,
+name|m_spaces
+argument_list|(
+name|dbg
+operator|.
+name|autoInsertSpaces
+argument_list|()
+argument_list|)
+member_init_list|,
+name|m_streamParams
+argument_list|(
+name|dbg
+operator|.
+name|stream
+operator|->
+name|ts
+operator|.
+name|d_ptr
+operator|->
+name|params
+argument_list|)
+block|{     }
+DECL|function|restoreState
+name|void
+name|restoreState
+parameter_list|()
+block|{
+name|m_dbg
+operator|.
+name|setAutoInsertSpaces
+argument_list|(
+name|m_spaces
+argument_list|)
+expr_stmt|;
+name|m_dbg
+operator|.
+name|stream
+operator|->
+name|ts
+operator|.
+name|d_ptr
+operator|->
+name|params
+operator|=
+name|m_streamParams
+expr_stmt|;
+block|}
+DECL|member|m_dbg
+name|QDebug
+modifier|&
+name|m_dbg
+decl_stmt|;
+comment|// QDebug state
+DECL|member|m_spaces
+specifier|const
+name|bool
+name|m_spaces
+decl_stmt|;
+comment|// QTextStream state
+DECL|member|m_streamParams
+specifier|const
+name|QTextStreamPrivate
+operator|::
+name|Params
+name|m_streamParams
+decl_stmt|;
+block|}
+class|;
+end_class
+begin_comment
+comment|/*!     Creates a QDebugStateSaver instance, which saves the settings     currently used by \a dbg.      \sa QDebug::setAutoInsertSpaces(), QDebug::autoInsertSpaces() */
+end_comment
+begin_constructor
+DECL|function|QDebugStateSaver
+name|QDebugStateSaver
+operator|::
+name|QDebugStateSaver
+parameter_list|(
+name|QDebug
+modifier|&
+name|dbg
+parameter_list|)
+member_init_list|:
+name|d
+argument_list|(
+operator|new
+name|QDebugStateSaverPrivate
+argument_list|(
+name|dbg
+argument_list|)
+argument_list|)
+block|{ }
+end_constructor
+begin_comment
+comment|/*!     Destroyes a QDebugStateSaver instance, which restores the settings     used by \a dbg when the QDebugStateSaver instance was created.      \sa QDebug::setAutoInsertSpaces(), QDebug::autoInsertSpaces() */
+end_comment
+begin_destructor
+DECL|function|~QDebugStateSaver
+name|QDebugStateSaver
+operator|::
+name|~
+name|QDebugStateSaver
+parameter_list|()
+block|{
+name|d
+operator|->
+name|restoreState
+argument_list|()
+expr_stmt|;
+block|}
+end_destructor
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit

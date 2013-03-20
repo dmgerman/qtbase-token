@@ -110,6 +110,12 @@ parameter_list|()
 function_decl|;
 end_function_decl
 begin_decl_stmt
+DECL|variable|QLibraryStore
+name|class
+name|QLibraryStore
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QLibraryPrivate
 block|{
@@ -127,6 +133,14 @@ endif|#
 directive|endif
 name|pHnd
 decl_stmt|;
+enum|enum
+name|UnloadFlag
+block|{
+name|UnloadSys
+block|,
+name|NoUnloadSys
+block|}
+enum|;
 name|QString
 name|fileName
 decl_stmt|,
@@ -146,7 +160,12 @@ function_decl|;
 comment|// loads and resolves instance
 name|bool
 name|unload
-parameter_list|()
+parameter_list|(
+name|UnloadFlag
+name|flag
+init|=
+name|UnloadSys
+parameter_list|)
 function_decl|;
 name|void
 name|release
@@ -320,9 +339,11 @@ name|char
 modifier|*
 parameter_list|)
 function_decl|;
+comment|/// counts how many QLibrary or QPluginLoader are attached to us, plus 1 if it's loaded
 name|QAtomicInt
 name|libraryRefCount
 decl_stmt|;
+comment|/// counts how many times load() or loadPlugin() were called
 name|QAtomicInt
 name|libraryUnloadCount
 decl_stmt|;
@@ -338,7 +359,7 @@ name|pluginState
 enum|;
 name|friend
 name|class
-name|QLibraryPrivateHasFriends
+name|QLibraryStore
 decl_stmt|;
 block|}
 end_decl_stmt

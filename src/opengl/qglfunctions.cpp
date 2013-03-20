@@ -17,6 +17,11 @@ include|#
 directive|include
 file|"QtGui/private/qopenglcontext_p.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<private/qopengl_p.h>
+end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
@@ -277,7 +282,7 @@ name|QGLFunctions
 operator|::
 name|StencilSeparate
 decl_stmt|;
-name|QGLExtensionMatcher
+name|QOpenGLExtensionMatcher
 name|extensions
 decl_stmt|;
 if|if
@@ -338,7 +343,7 @@ name|QGLFunctions
 operator|::
 name|Multisample
 decl_stmt|;
-name|QGLExtensionMatcher
+name|QOpenGLExtensionMatcher
 name|extensions
 decl_stmt|;
 if|if
@@ -451,7 +456,7 @@ operator|::
 name|openGLVersionFlags
 argument_list|()
 decl_stmt|;
-name|QGLExtensionMatcher
+name|QOpenGLExtensionMatcher
 name|extensions
 decl_stmt|;
 comment|// Recognize features by extension name.

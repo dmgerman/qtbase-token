@@ -149,6 +149,10 @@ name|bool
 name|flush
 argument_list|()
 block|;
+name|bool
+name|syncToDisk
+argument_list|()
+block|;
 name|qint64
 name|size
 argument_list|()
@@ -185,6 +189,15 @@ argument_list|)
 block|;
 name|bool
 name|rename
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|newName
+argument_list|)
+block|;
+name|bool
+name|renameOverwrite
 argument_list|(
 specifier|const
 name|QString
@@ -513,6 +526,10 @@ argument_list|()
 block|;
 name|bool
 name|nativeFlush
+argument_list|()
+block|;
+name|bool
+name|nativeSyncToDisk
 argument_list|()
 block|;
 name|bool

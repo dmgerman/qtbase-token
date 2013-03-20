@@ -24,7 +24,6 @@ directive|include
 file|<QtNetwork/qabstractsocket.h>
 end_include
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
@@ -162,6 +161,12 @@ block|;
 name|void
 name|connectToServer
 argument_list|(
+argument|OpenMode openMode = ReadWrite
+argument_list|)
+block|;
+name|void
+name|connectToServer
+argument_list|(
 argument|const QString&name
 argument_list|,
 argument|OpenMode openMode = ReadWrite
@@ -170,6 +175,15 @@ block|;
 name|void
 name|disconnectFromServer
 argument_list|()
+block|;
+name|void
+name|setServerName
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|name
+argument_list|)
 block|;
 name|QString
 name|serverName
@@ -208,6 +222,14 @@ name|bool
 name|canReadLine
 argument_list|()
 specifier|const
+block|;
+name|virtual
+name|bool
+name|open
+argument_list|(
+argument|OpenMode openMode = ReadWrite
+argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -460,10 +482,9 @@ end_endif
 begin_comment
 comment|// QT_NO_LOCALSOCKET
 end_comment
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

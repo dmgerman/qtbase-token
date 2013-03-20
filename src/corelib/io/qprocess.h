@@ -28,10 +28,9 @@ include|#
 directive|include
 file|<QtCore/qshareddata.h>
 end_include
-begin_expr_stmt
-name|QT_BEGIN_HEADER
+begin_macro
 name|QT_BEGIN_NAMESPACE
-end_expr_stmt
+end_macro
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -378,15 +377,46 @@ argument_list|,
 argument|OpenMode mode = ReadWrite
 argument_list|)
 block|;
+name|void
+name|start
+argument_list|(
+argument|OpenMode mode = ReadWrite
+argument_list|)
+block|;
+name|bool
+name|open
+argument_list|(
+argument|OpenMode mode = ReadWrite
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
 name|QString
 name|program
 argument_list|()
 specifier|const
 block|;
+name|void
+name|setProgram
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|program
+argument_list|)
+block|;
 name|QStringList
 name|arguments
 argument_list|()
 specifier|const
+block|;
+name|void
+name|setArguments
+argument_list|(
+specifier|const
+name|QStringList
+operator|&
+name|arguments
+argument_list|)
 block|;
 name|ProcessChannelMode
 name|readChannelMode
@@ -891,10 +921,9 @@ end_endif
 begin_comment
 comment|// QT_NO_PROCESS
 end_comment
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

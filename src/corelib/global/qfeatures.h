@@ -222,6 +222,12 @@ begin_comment
 comment|//#define QT_NO_PROPERTIES
 end_comment
 begin_comment
+comment|// QRegularExpression
+end_comment
+begin_comment
+comment|//#define QT_NO_REGULAREXPRESSION
+end_comment
+begin_comment
 comment|// Resize Handler
 end_comment
 begin_comment

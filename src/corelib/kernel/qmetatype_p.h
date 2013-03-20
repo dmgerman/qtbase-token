@@ -814,7 +814,7 @@ argument_list|)
 operator|||
 name|defined
 argument_list|(
-name|QT_NO_REGEXP
+name|QT_NO_REGULAREXPRESSION
 argument_list|)
 name|template
 operator|<

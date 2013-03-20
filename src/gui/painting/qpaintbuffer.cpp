@@ -288,7 +288,7 @@ name|numGlyphs
 operator|*
 sizeof|sizeof
 argument_list|(
-name|HB_Glyph
+name|glyph_t
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -384,7 +384,7 @@ name|numGlyphs
 operator|*
 sizeof|sizeof
 argument_list|(
-name|HB_GlyphAttributes
+name|QGlyphAttributes
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -11822,9 +11822,9 @@ name|fontD
 operator|->
 name|engineForScript
 argument_list|(
-name|QUnicodeTables
+name|QChar
 operator|::
-name|Common
+name|Script_Common
 argument_list|)
 expr_stmt|;
 name|rawFontD

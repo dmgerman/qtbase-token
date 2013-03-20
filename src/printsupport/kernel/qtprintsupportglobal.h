@@ -19,7 +19,6 @@ directive|include
 file|<QtCore/qglobal.h>
 end_include
 begin_expr_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
@@ -51,7 +50,6 @@ name|Q_PRINTSUPPORT_EXPORT
 endif|#
 directive|endif
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
 end_expr_stmt
 begin_endif
 endif|#

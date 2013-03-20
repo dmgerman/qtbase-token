@@ -68,8 +68,12 @@ include|#
 directive|include
 file|<QList>
 end_include
+begin_include
+include|#
+directive|include
+file|<QWaitCondition>
+end_include
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 name|class
 name|Q_GUI_EXPORT
@@ -207,6 +211,14 @@ init|=
 name|UserInputEvent
 operator||
 literal|0x18
+block|,
+name|ApplicationStateChanged
+init|=
+literal|0x19
+block|,
+name|FlushEvents
+init|=
+literal|0x20
 block|}
 enum|;
 name|class
@@ -426,9 +438,9 @@ operator|:
 name|explicit
 name|ActivatedWindowEvent
 argument_list|(
-name|QWindow
-operator|*
-name|activatedWindow
+argument|QWindow *activatedWindow
+argument_list|,
+argument|Qt::FocusReason r
 argument_list|)
 operator|:
 name|WindowSystemEvent
@@ -438,7 +450,12 @@ argument_list|)
 block|,
 name|activated
 argument_list|(
-argument|activatedWindow
+name|activatedWindow
+argument_list|)
+block|,
+name|reason
+argument_list|(
+argument|r
 argument_list|)
 block|{ }
 name|QPointer
@@ -446,6 +463,11 @@ operator|<
 name|QWindow
 operator|>
 name|activated
+block|;
+name|Qt
+operator|::
+name|FocusReason
+name|reason
 block|;     }
 decl_stmt|;
 name|class
@@ -489,6 +511,53 @@ operator|::
 name|WindowState
 name|newState
 block|;     }
+decl_stmt|;
+name|class
+name|ApplicationStateChangedEvent
+range|:
+name|public
+name|WindowSystemEvent
+block|{
+name|public
+operator|:
+name|ApplicationStateChangedEvent
+argument_list|(
+argument|Qt::ApplicationState newState
+argument_list|)
+operator|:
+name|WindowSystemEvent
+argument_list|(
+name|ApplicationStateChanged
+argument_list|)
+block|,
+name|newState
+argument_list|(
+argument|newState
+argument_list|)
+block|{ }
+name|Qt
+operator|::
+name|ApplicationState
+name|newState
+block|;     }
+decl_stmt|;
+name|class
+name|FlushEventsEvent
+range|:
+name|public
+name|WindowSystemEvent
+block|{
+name|public
+operator|:
+name|FlushEventsEvent
+argument_list|()
+operator|:
+name|WindowSystemEvent
+argument_list|(
+argument|FlushEvents
+argument_list|)
+block|{ }
+block|}
 decl_stmt|;
 name|class
 name|UserEvent
@@ -1336,13 +1405,31 @@ argument_list|(
 name|FileOpen
 argument_list|)
 block|,
-name|fileName
+name|url
 argument_list|(
-argument|fileName
+argument|QUrl::fromLocalFile(fileName)
 argument_list|)
 block|{ }
-name|QString
-name|fileName
+name|FileOpenEvent
+argument_list|(
+specifier|const
+name|QUrl
+operator|&
+name|url
+argument_list|)
+operator|:
+name|WindowSystemEvent
+argument_list|(
+name|FileOpen
+argument_list|)
+block|,
+name|url
+argument_list|(
+argument|url
+argument_list|)
+block|{ }
+name|QUrl
+name|url
 block|;     }
 decl_stmt|;
 name|class
@@ -1783,6 +1870,13 @@ operator|~
 name|WindowSystemEventList
 argument_list|()
 block|{
+name|clear
+argument_list|()
+block|; }
+name|void
+name|clear
+argument_list|()
+block|{
 specifier|const
 name|QMutexLocker
 name|locker
@@ -2061,13 +2155,14 @@ operator|==
 name|e
 condition|)
 block|{
+name|delete
 name|impl
 operator|.
-name|removeAt
+name|takeAt
 argument_list|(
 name|i
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 break|break;
 block|}
 block|}
@@ -2138,6 +2233,14 @@ name|bool
 name|synchronousWindowsSystemEvents
 decl_stmt|;
 specifier|static
+name|QWaitCondition
+name|eventsFlushed
+decl_stmt|;
+specifier|static
+name|QMutex
+name|flushEventMutex
+decl_stmt|;
+specifier|static
 name|QList
 operator|<
 name|QTouchEvent
@@ -2168,10 +2271,9 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
-begin_expr_stmt
-name|QT_END_HEADER
+begin_macro
 name|QT_END_NAMESPACE
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

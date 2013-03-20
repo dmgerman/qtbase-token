@@ -88,7 +88,7 @@ block|;
 name|QVBoxLayout
 operator|*
 name|mainLayout
-block|;      }
+block|;  }
 decl_stmt|;
 end_decl_stmt
 begin_comment

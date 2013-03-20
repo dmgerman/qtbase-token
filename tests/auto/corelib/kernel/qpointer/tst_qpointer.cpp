@@ -98,6 +98,10 @@ name|void
 name|qvariantCast
 parameter_list|()
 function_decl|;
+name|void
+name|constPointer
+parameter_list|()
+function_decl|;
 block|}
 class|;
 end_class
@@ -1682,6 +1686,33 @@ expr_stmt|;
 block|}
 comment|// Intentionally does not compile.
 comment|//     QPointer<int> sop = qPointerFromVariant<int>(v);
+block|}
+end_function
+begin_function
+DECL|function|constPointer
+name|void
+name|tst_QPointer
+operator|::
+name|constPointer
+parameter_list|()
+block|{
+comment|// Compile-time test that QPointer<const T> works.
+name|QPointer
+argument_list|<
+specifier|const
+name|QFile
+argument_list|>
+name|fp
+init|=
+operator|new
+name|QFile
+decl_stmt|;
+operator|delete
+name|fp
+operator|.
+name|data
+argument_list|()
+expr_stmt|;
 block|}
 end_function
 begin_macro

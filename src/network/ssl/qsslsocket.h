@@ -43,7 +43,6 @@ endif|#
 directive|endif
 end_endif
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
@@ -330,6 +329,26 @@ name|config
 argument_list|)
 block|;
 comment|// Certificate& cipher accessors.
+name|void
+name|setLocalCertificateChain
+argument_list|(
+specifier|const
+name|QList
+operator|<
+name|QSslCertificate
+operator|>
+operator|&
+name|localChain
+argument_list|)
+block|;
+name|QList
+operator|<
+name|QSslCertificate
+operator|>
+name|localCertificateChain
+argument_list|()
+specifier|const
+block|;
 name|void
 name|setLocalCertificate
 argument_list|(
@@ -807,10 +826,9 @@ end_endif
 begin_comment
 comment|// QT_NO_SSL
 end_comment
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

@@ -633,6 +633,36 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \since 5.1      Returns the distance from this vertex to a point defined by     the vertex \a point.      \sa distanceToPlane(), distanceToLine() */
+end_comment
+begin_function
+DECL|function|distanceToPoint
+name|float
+name|QVector3D
+operator|::
+name|distanceToPoint
+parameter_list|(
+specifier|const
+name|QVector3D
+modifier|&
+name|point
+parameter_list|)
+specifier|const
+block|{
+return|return
+operator|(
+operator|*
+name|this
+operator|-
+name|point
+operator|)
+operator|.
+name|length
+argument_list|()
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     Returns the distance from this vertex to a plane defined by     the vertex \a plane and a \a normal unit vector.  The \a normal     parameter is assumed to have been normalized to a unit vector.      The return value will be negative if the vertex is below the plane,     or zero if it is on the plane.      \sa normal(), distanceToLine() */
 end_comment
 begin_function

@@ -679,6 +679,8 @@ operator|::
 name|startDrag
 parameter_list|()
 block|{
+comment|// ### TODO Check if its really necessary to have m_drag_icon_window
+comment|// when QDrag is used without a pixmap - QDrag::setPixmap()
 if|if
 condition|(
 operator|!

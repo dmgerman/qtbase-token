@@ -35,6 +35,7 @@ comment|/*!     \fn QPoint&QPoint::operator-=(const QPoint&point)      Subtracts
 comment|/*!     \fn QPoint&QPoint::operator*=(float factor)      Multiplies this point's coordinates by the given \a factor, and     returns a reference to this point.      Note that the result is rounded to the nearest integer as points are held as     integers. Use QPointF for floating point accuracy.      \sa operator/=() */
 comment|/*!     \fn QPoint&QPoint::operator*=(double factor)      Multiplies this point's coordinates by the given \a factor, and     returns a reference to this point. For example:      \snippet code/src_corelib_tools_qpoint.cpp 5      Note that the result is rounded to the nearest integer as points are held as     integers. Use QPointF for floating point accuracy.      \sa operator/=() */
 comment|/*!     \fn QPoint&QPoint::operator*=(int factor)      Multiplies this point's coordinates by the given \a factor, and     returns a reference to this point.      \sa operator/=() */
+comment|/*!     \fn static int QPoint::dotProduct(const QPoint&p1, const QPoint&p2)     \since 5.1      \snippet code/src_corelib_tools_qpoint.cpp 16      Returns the dot product of \a p1 and \a p2. */
 comment|/*!     \fn bool operator==(const QPoint&p1, const QPoint&p2)     \relates QPoint      Returns true if \a p1 and \a p2 are equal; otherwise returns     false. */
 comment|/*!     \fn bool operator!=(const QPoint&p1, const QPoint&p2)     \relates QPoint      Returns true if \a p1 and \a p2 are not equal; otherwise returns false. */
 comment|/*!     \fn const QPoint operator+(const QPoint&p1, const QPoint&p2)     \relates QPoint      Returns a QPoint object that is the sum of the given points, \a p1     and \a p2; each component is added separately.      \sa QPoint::operator+=() */
@@ -391,6 +392,9 @@ comment|/*!     \fn const QPointF operator/(const QPointF&point, qreal divisor) 
 end_comment
 begin_comment
 comment|/*!     \fn QPoint QPointF::toPoint() const      Rounds the coordinates of this point to the nearest integer, and     returns a QPoint object with the rounded coordinates.      \sa QPointF() */
+end_comment
+begin_comment
+comment|/*!     \fn static qreal QPointF::dotProduct(const QPointF&p1, const QPointF&p2)     \since 5.1      \snippet code/src_corelib_tools_qpoint.cpp 17      Returns the dot product of \a p1 and \a p2. */
 end_comment
 begin_comment
 comment|/*!     \fn bool operator==(const QPointF&p1, const QPointF&p2)     \relates QPointF      Returns true if \a p1 is equal to \a p2; otherwise returns false. */

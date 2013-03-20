@@ -2273,7 +2273,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the address as a string.      For example, if the address is the IPv4 address 127.0.0.1, the     returned string is "127.0.0.1". For IPv6 the string format will      follow the RFC5952 recommendation.     For QHostAddress::Any, its IPv4 address will be returned ("0.0.0.0")      \sa toIPv4Address() */
+comment|/*!     Returns the address as a string.      For example, if the address is the IPv4 address 127.0.0.1, the     returned string is "127.0.0.1". For IPv6 the string format will     follow the RFC5952 recommendation.     For QHostAddress::Any, its IPv4 address will be returned ("0.0.0.0")      \sa toIPv4Address() */
 end_comment
 begin_function
 DECL|function|toString

@@ -465,7 +465,7 @@ name|m_webView
 argument_list|(
 name|webView
 argument_list|)
-block|{     }
+block|{ }
 end_constructor
 begin_destructor
 DECL|function|~WebViewCache

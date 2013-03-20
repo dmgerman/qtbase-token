@@ -28,9 +28,6 @@ ifndef|#
 directive|ifndef
 name|QT_NO_DBUS
 end_ifndef
-begin_macro
-name|QT_BEGIN_HEADER
-end_macro
 begin_struct_decl
 struct_decl|struct
 name|DBusError
@@ -269,7 +266,6 @@ name|Q_DECLARE_METATYPE
 argument_list|(
 name|QDBusError
 argument_list|)
-name|QT_END_HEADER
 end_decl_stmt
 begin_endif
 endif|#

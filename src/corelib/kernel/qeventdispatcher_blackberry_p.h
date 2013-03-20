@@ -130,7 +130,7 @@ argument|fd_set *writefds
 argument_list|,
 argument|fd_set *exceptfds
 argument_list|,
-argument|timeval *timeout
+argument|timespec *timeout
 argument_list|)
 block|;
 name|int

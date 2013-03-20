@@ -92,7 +92,7 @@ end_endif
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_OS_LINUX_ANDROID
+name|Q_OS_ANDROID
 end_ifdef
 begin_comment
 comment|// android lacks if_nameindex

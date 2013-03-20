@@ -968,6 +968,20 @@ operator|::
 name|bufferSharing
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_WIN
+argument_list|)
+comment|// Needs investigation on Windows: https://bugreports.qt-project.org/browse/QTBUG-29692
+name|QSKIP
+argument_list|(
+literal|"Unreproducible timeout on Windows (MSVC/MinGW) CI bots"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QGLWidget
 modifier|*
 name|w1

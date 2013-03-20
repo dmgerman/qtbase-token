@@ -49,7 +49,6 @@ directive|include
 file|"qglengineshadermanager_p.h"
 end_include
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 DECL|variable|qglslMainVertexShader
 specifier|static
@@ -635,10 +634,9 @@ end_decl_stmt
 begin_comment
 comment|/*     Left to implement:         RgbMaskFragmentShader,         RgbMaskWithGammaFragmentShader,          MultiplyCompositionModeFragmentShader,         ScreenCompositionModeFragmentShader,         OverlayCompositionModeFragmentShader,         DarkenCompositionModeFragmentShader,         LightenCompositionModeFragmentShader,         ColorDodgeCompositionModeFragmentShader,         ColorBurnCompositionModeFragmentShader,         HardLightCompositionModeFragmentShader,         SoftLightCompositionModeFragmentShader,         DifferenceCompositionModeFragmentShader,         ExclusionCompositionModeFragmentShader, */
 end_comment
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

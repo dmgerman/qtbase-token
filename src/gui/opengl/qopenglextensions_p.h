@@ -48,10 +48,9 @@ include|#
 directive|include
 file|"qopenglfunctions.h"
 end_include
-begin_expr_stmt
-name|QT_BEGIN_HEADER
+begin_macro
 name|QT_BEGIN_NAMESPACE
-end_expr_stmt
+end_macro
 begin_if
 if|#
 directive|if
@@ -681,7 +680,6 @@ block|;
 name|Q_OPENGL_FUNCTIONS_DEBUG
 block|}
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
 end_decl_stmt
 begin_endif
 endif|#

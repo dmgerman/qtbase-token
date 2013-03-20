@@ -713,7 +713,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     Adds a pause of \a msecs to this animation group.     The pause is considered as a special type of animation, thus      \l{QAnimationGroup::animationCount()}{animationCount} will be      increased by one.      \sa insertPause(), QAnimationGroup::addAnimation() */
+comment|/*!     Adds a pause of \a msecs to this animation group.     The pause is considered as a special type of animation, thus     \l{QAnimationGroup::animationCount()}{animationCount} will be     increased by one.      \sa insertPause(), QAnimationGroup::addAnimation() */
 end_comment
 begin_function
 DECL|function|addPause

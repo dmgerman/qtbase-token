@@ -1203,11 +1203,6 @@ name|defined
 argument_list|(
 name|Q_OS_IOS
 argument_list|)
-expr|\
-operator|&&
-name|MAC_OS_X_VERSION_MAX_ALLOWED
-operator|>=
-name|MAC_OS_X_VERSION_10_5
 if|if
 condition|(
 name|statBuffer

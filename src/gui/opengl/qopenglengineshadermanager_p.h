@@ -72,7 +72,6 @@ directive|include
 file|<private/qopenglcustomshaderstage_p.h>
 end_include
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 comment|/* struct QOpenGLEngineCachedShaderProg {     QOpenGLEngineCachedShaderProg(QOpenGLEngineShaderManager::ShaderName vertexMain,                               QOpenGLEngineShaderManager::ShaderName vertexPosition,                               QOpenGLEngineShaderManager::ShaderName fragMain,                               QOpenGLEngineShaderManager::ShaderName pixelSrc,                               QOpenGLEngineShaderManager::ShaderName mask,                               QOpenGLEngineShaderManager::ShaderName composition);      int cacheKey;     QOpenGLShaderProgram* program; } */
 DECL|variable|QT_VERTEX_COORDS_ATTR
@@ -817,10 +816,9 @@ name|currentShaderProg
 block|; }
 decl_stmt|;
 end_decl_stmt
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

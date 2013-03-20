@@ -4238,6 +4238,42 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
+begin_function
+DECL|function|createQObjectOnDestruction
+specifier|static
+name|void
+name|createQObjectOnDestruction
+parameter_list|()
+block|{
+comment|// Make sure that we can create a QObject after the last QObject has been
+comment|// destroyed (especially after QCoreApplication has).
+comment|//
+comment|// Before the fixes, this would cause a dangling pointer dereference. If
+comment|// the problem comes back, it's possible that the following causes no
+comment|// effect.
+name|QObject
+name|obj
+decl_stmt|;
+name|obj
+operator|.
+name|thread
+argument_list|()
+operator|->
+name|setProperty
+argument_list|(
+literal|"testing"
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_macro
+name|Q_DESTRUCTOR_FUNCTION
+argument_list|(
+argument|createQObjectOnDestruction
+argument_list|)
+end_macro
 begin_macro
 name|QTEST_APPLESS_MAIN
 argument_list|(

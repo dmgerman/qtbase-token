@@ -63,6 +63,11 @@ include|#
 directive|include
 file|<qglframebufferobject.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<qopenglfunctions.h>
+end_include
 begin_comment
 comment|// #define QT_GL_TEXTURE_GLYPH_CACHE_DEBUG
 end_comment
@@ -132,6 +137,14 @@ name|d_ptr
 operator|->
 name|workaround_brokenFBOReadBack
 condition|)
+name|ctx
+operator|->
+name|contextHandle
+argument_list|()
+operator|->
+name|functions
+argument_list|()
+operator|->
 name|glGenFramebuffers
 argument_list|(
 literal|1
@@ -197,8 +210,18 @@ endif|#
 directive|endif
 if|if
 condition|(
+name|ctx
+operator|&&
 name|m_fbo
 condition|)
+name|ctx
+operator|->
+name|contextHandle
+argument_list|()
+operator|->
+name|functions
+argument_list|()
+operator|->
 name|glDeleteFramebuffers
 argument_list|(
 literal|1

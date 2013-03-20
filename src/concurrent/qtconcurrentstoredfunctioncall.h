@@ -32,7 +32,6 @@ directive|include
 file|<QtConcurrent/qtconcurrentrunbase.h>
 end_include
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
@@ -10919,10 +10918,9 @@ end_endif
 begin_comment
 comment|// Q_QDOC
 end_comment
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

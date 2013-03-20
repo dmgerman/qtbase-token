@@ -66,11 +66,12 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_decl_stmt
-name|QT_BEGIN_HEADER
+begin_include
 include|#
 directive|include
 file|<QtCore/qshareddata.h>
+end_include
+begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QNetworkSessionPrivate
 name|class
@@ -379,7 +380,6 @@ name|QNetworkSession
 operator|::
 name|UsagePolicies
 argument_list|)
-name|QT_END_HEADER
 end_decl_stmt
 begin_endif
 endif|#

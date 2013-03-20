@@ -75,9 +75,13 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
-name|QSurfaceFormat
+name|void
 name|qglx_surfaceFormatFromGLXFBConfig
 parameter_list|(
+name|QSurfaceFormat
+modifier|*
+name|format
+parameter_list|,
 name|Display
 modifier|*
 name|display

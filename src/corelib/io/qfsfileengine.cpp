@@ -1556,6 +1556,47 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \reimp */
+end_comment
+begin_function
+DECL|function|syncToDisk
+name|bool
+name|QFSFileEngine
+operator|::
+name|syncToDisk
+parameter_list|()
+block|{
+name|Q_D
+argument_list|(
+name|QFSFileEngine
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|(
+name|d
+operator|->
+name|openMode
+operator|&
+name|QIODevice
+operator|::
+name|WriteOnly
+operator|)
+operator|==
+literal|0
+condition|)
+return|return
+literal|true
+return|;
+return|return
+name|d
+operator|->
+name|nativeSyncToDisk
+argument_list|()
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     \internal */
 end_comment
 begin_function
@@ -3363,6 +3404,9 @@ comment|/*! \fn bool QFSFileEngine::remove()   \reimp */
 end_comment
 begin_comment
 comment|/*! \fn bool QFSFileEngine::rename(const QString&newName)   \reimp */
+end_comment
+begin_comment
+comment|/*! \fn bool QFSFileEngine::renameOverwrite(const QString&newName)   \reimp */
 end_comment
 begin_comment
 comment|/*! \fn bool QFSFileEngine::rmdir(const QString&name, bool recurseParentDirectories) const   \reimp */

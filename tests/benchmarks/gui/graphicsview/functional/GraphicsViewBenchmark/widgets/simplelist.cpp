@@ -123,7 +123,7 @@ operator|::
 name|~
 name|SimpleList
 parameter_list|()
-block|{   }
+block|{ }
 end_destructor
 begin_function
 DECL|function|addItem

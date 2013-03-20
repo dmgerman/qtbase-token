@@ -879,13 +879,6 @@ argument_list|,
 name|kSCPropNetProxiesProxyAutoConfigURLString
 argument_list|)
 decl_stmt|;
-if|#
-directive|if
-operator|(
-name|MAC_OS_X_VERSION_MAX_ALLOWED
-operator|>=
-name|MAC_OS_X_VERSION_10_5
-operator|)
 if|if
 condition|(
 name|QSysInfo
@@ -1204,8 +1197,6 @@ name|result
 return|;
 block|}
 else|else
-endif|#
-directive|endif
 block|{
 name|QString
 name|pacLocation

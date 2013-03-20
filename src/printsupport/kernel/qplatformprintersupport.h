@@ -52,10 +52,9 @@ include|#
 directive|include
 file|<QtCore/qhash.h>
 end_include
-begin_expr_stmt
-name|QT_BEGIN_HEADER
+begin_macro
 name|QT_BEGIN_NAMESPACE
-end_expr_stmt
+end_macro
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -130,6 +129,22 @@ operator|>
 name|supportedPaperSizes
 argument_list|(
 argument|const QPrinterInfo&
+argument_list|)
+specifier|const
+expr_stmt|;
+name|virtual
+name|QList
+operator|<
+name|QPair
+operator|<
+name|QString
+operator|,
+name|QSizeF
+operator|>
+expr|>
+name|supportedSizesWithNames
+argument_list|(
+argument|const QPrinterInfo&printerInfo
 argument_list|)
 specifier|const
 expr_stmt|;
@@ -266,10 +281,9 @@ end_endif
 begin_comment
 comment|// QT_NO_PRINTER
 end_comment
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

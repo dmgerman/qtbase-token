@@ -19,7 +19,6 @@ directive|include
 file|<qpa/qplatformprintersupport.h>
 end_include
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QWin32PrintEngine
 name|class
@@ -76,13 +75,28 @@ argument_list|(
 argument|const QPrinterInfo&
 argument_list|)
 specifier|const
+block|;
+name|virtual
+name|QList
+operator|<
+name|QPair
+operator|<
+name|QString
+block|,
+name|QSizeF
+operator|>
+expr|>
+name|supportedSizesWithNames
+argument_list|(
+argument|const QPrinterInfo&printerInfo
+argument_list|)
+specifier|const
 block|; }
 decl_stmt|;
 end_decl_stmt
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

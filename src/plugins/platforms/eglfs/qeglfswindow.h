@@ -90,6 +90,16 @@ name|void
 name|destroy
 argument_list|()
 block|;
+name|virtual
+name|void
+name|invalidateSurface
+argument_list|()
+block|;
+name|virtual
+name|void
+name|resetSurface
+argument_list|()
+block|;
 name|private
 operator|:
 name|WId
@@ -100,6 +110,9 @@ name|m_surface
 block|;
 name|EGLNativeWindowType
 name|m_window
+block|;
+name|EGLConfig
+name|m_config
 block|;
 name|QSurfaceFormat
 name|m_format

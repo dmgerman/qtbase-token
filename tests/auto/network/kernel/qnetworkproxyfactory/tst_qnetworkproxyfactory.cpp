@@ -256,6 +256,8 @@ name|proxyName
 operator|.
 name|append
 argument_list|(
+name|QString
+argument_list|(
 literal|"%1:%2@"
 argument_list|)
 operator|.
@@ -270,6 +272,7 @@ name|proxy
 operator|.
 name|password
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|proxyName

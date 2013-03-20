@@ -3061,7 +3061,7 @@ unit|QString tmp(interface);     tmp.replace(QLatin1Char('.'), QLatin1String("::
 comment|// leave the rest with 0
 end_comment
 begin_endif
-unit|char *stringdata = new char[name.length() + 1];     stringdata[name.length()] = '\0';          d.data = reinterpret_cast<uint*>(header);     d.relatedMetaObjects = 0;     d.static_metacall = 0;     d.extradata = 0;     d.stringdata = stringdata;     d.superdata =&QDBusAbstractInterface::staticMetaObject;     cached = false; }
+unit|char *stringdata = new char[name.length() + 1];     stringdata[name.length()] = '\0';      d.data = reinterpret_cast<uint*>(header);     d.relatedMetaObjects = 0;     d.static_metacall = 0;     d.extradata = 0;     d.stringdata = stringdata;     d.superdata =&QDBusAbstractInterface::staticMetaObject;     cached = false; }
 endif|#
 directive|endif
 end_endif

@@ -4841,6 +4841,14 @@ name|defined
 argument_list|(
 name|Q_OS_UNIX
 argument_list|)
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_VXWORKS
+argument_list|)
+comment|// VxWorks does not have users/groups
 if|if
 condition|(
 operator|::
@@ -4849,6 +4857,8 @@ argument_list|()
 operator|==
 literal|0
 condition|)
+endif|#
+directive|endif
 name|QSKIP
 argument_list|(
 literal|"Running this test as root doesn't work, since file perms do not bother him"

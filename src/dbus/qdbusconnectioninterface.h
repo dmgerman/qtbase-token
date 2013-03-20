@@ -34,7 +34,6 @@ directive|ifndef
 name|QT_NO_DBUS
 end_ifndef
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QDBusConnection
 name|class
@@ -349,7 +348,6 @@ name|QDBusConnectionInterface
 operator|::
 name|RegisterServiceReply
 argument_list|)
-name|QT_END_HEADER
 end_decl_stmt
 begin_endif
 endif|#

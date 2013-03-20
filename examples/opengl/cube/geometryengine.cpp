@@ -39,7 +39,7 @@ name|GeometryEngine
 operator|::
 name|GeometryEngine
 parameter_list|()
-block|{     }
+block|{ }
 end_constructor
 begin_destructor
 DECL|function|~GeometryEngine

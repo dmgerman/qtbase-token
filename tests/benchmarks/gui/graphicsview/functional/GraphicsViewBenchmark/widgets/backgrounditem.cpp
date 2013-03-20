@@ -103,7 +103,7 @@ operator|::
 name|~
 name|BackgroundItem
 parameter_list|()
-block|{      }
+block|{ }
 end_destructor
 begin_function
 DECL|function|resizeEvent

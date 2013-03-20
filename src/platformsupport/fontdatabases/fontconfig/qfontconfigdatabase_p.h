@@ -43,7 +43,7 @@ name|fontEngineMulti
 argument_list|(
 argument|QFontEngine *fontEngine
 argument_list|,
-argument|QUnicodeTables::Script script
+argument|QChar::Script script
 argument_list|)
 block|;
 name|QFontEngine
@@ -52,7 +52,7 @@ name|fontEngine
 argument_list|(
 argument|const QFontDef&fontDef
 argument_list|,
-argument|QUnicodeTables::Script script
+argument|QChar::Script script
 argument_list|,
 argument|void *handle
 argument_list|)
@@ -60,13 +60,13 @@ block|;
 name|QStringList
 name|fallbacksForFamily
 argument_list|(
-argument|const QString family
+argument|const QString&family
 argument_list|,
-argument|const QFont::Style&style
+argument|QFont::Style style
 argument_list|,
-argument|const QFont::StyleHint&styleHint
+argument|QFont::StyleHint styleHint
 argument_list|,
-argument|const QUnicodeTables::Script&script
+argument|QChar::Script script
 argument_list|)
 specifier|const
 block|;

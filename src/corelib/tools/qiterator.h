@@ -19,7 +19,6 @@ directive|include
 file|<QtCore/qglobal.h>
 end_include
 begin_expr_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 DECL|macro|Q_DECLARE_SEQUENTIAL_ITERATOR
 define|#
@@ -58,7 +57,6 @@ parameter_list|)
 define|\ \
 value|template<class Key, class T> \ class QMutable##C##Iterator \ { \     typedef typename Q##C<Key,T>::iterator iterator; \     typedef typename Q##C<Key,T>::const_iterator const_iterator; \     typedef iterator Item; \     Q##C<Key,T> *c; \     iterator i, n; \     inline bool item_exists() const { return const_iterator(n) != c->constEnd(); } \ public: \     inline QMutable##C##Iterator(Q##C<Key,T>&container) \         : c(&container) \     { c->setSharable(false); i = c->begin(); n = c->end(); } \     inline ~QMutable##C##Iterator() \     { c->setSharable(true); } \     inline QMutable##C##Iterator&operator=(Q##C<Key,T>&container) \     { c->setSharable(true); c =&container; c->setSharable(false); i = c->begin(); n = c->end(); return *this; } \     inline void toFront() { i = c->begin(); n = c->end(); } \     inline void toBack() { i = c->end(); n = c->end(); } \     inline bool hasNext() const { return const_iterator(i) != c->constEnd(); } \     inline Item next() { n = i++; return n; } \     inline Item peekNext() const { return i; } \     inline bool hasPrevious() const { return const_iterator(i) != c->constBegin(); } \     inline Item previous() { n = --i; return n; } \     inline Item peekPrevious() const { iterator p = i; return --p; } \     inline void remove() \     { if (const_iterator(n) != c->constEnd()) { i = c->erase(n); n = c->end(); } } \     inline void setValue(const T&t) { if (const_iterator(n) != c->constEnd()) *n = t; } \     inline T&value() { Q_ASSERT(item_exists()); return *n; } \     inline const T&value() const { Q_ASSERT(item_exists()); return *n; } \     inline const Key&key() const { Q_ASSERT(item_exists()); return n.key(); } \     inline bool findNext(const T&t) \     { while (const_iterator(n = i) != c->constEnd()) if (*i++ == t) return true; return false; } \     inline bool findPrevious(const T&t) \     { while (const_iterator(i) != c->constBegin()) if (*(n = --i) == t) return true; \       n = c->end(); return false; } \ };
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
 end_expr_stmt
 begin_endif
 endif|#

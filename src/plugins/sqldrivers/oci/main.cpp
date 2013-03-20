@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"../../../sql/drivers/oci/qsql_oci.h"
+file|"../../../sql/drivers/oci/qsql_oci_p.h"
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE

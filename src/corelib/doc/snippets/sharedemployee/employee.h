@@ -134,7 +134,7 @@ name|d
 argument_list|(
 argument|other.d
 argument_list|)
-block|{      }
+block|{     }
 comment|//! [7]
 comment|//! [3]
 name|void

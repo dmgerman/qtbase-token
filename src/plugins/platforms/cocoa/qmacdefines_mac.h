@@ -9,7 +9,7 @@ begin_comment
 comment|/*  *  qmacdefines_mac_p.h  *  All the defines you'll ever need for Qt/Mac :-)  */
 end_comment
 begin_comment
-comment|/* This is just many defines. Therefore it doesn't need things like: QT_BEGIN_HEADER  QT_BEGIN_NAMESPACE   QT_END_NAMESPACE  QT_END_HEADER  Yes, it is an informative comment ;-) */
+comment|/* This is just many defines. Therefore it doesn't need things like: QT_BEGIN_NAMESPACE   QT_END_NAMESPACE  Yes, it is an informative comment ;-) */
 end_comment
 begin_include
 include|#

@@ -2930,19 +2930,6 @@ DECL|variable|blockSize
 comment|//As per RFC2104 Block-size is 512 bits
 end_comment
 begin_decl_stmt
-DECL|variable|nDigestLen
-specifier|const
-name|int
-name|nDigestLen
-init|=
-literal|16
-decl_stmt|;
-end_decl_stmt
-begin_comment
-DECL|variable|nDigestLen
-comment|//Trunctaion Length of the Hmac-Md5 digest
-end_comment
-begin_decl_stmt
 DECL|variable|respversion
 specifier|const
 name|quint8

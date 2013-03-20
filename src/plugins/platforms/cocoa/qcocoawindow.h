@@ -269,6 +269,10 @@ name|frameMargins
 argument_list|()
 specifier|const
 block|;
+name|void
+name|requestActivateWindow
+argument_list|()
+block|;
 name|WId
 name|winId
 argument_list|()
@@ -451,6 +455,10 @@ name|syncWindowState
 argument_list|(
 argument|Qt::WindowState newState
 argument_list|)
+block|;
+name|void
+name|updateOpaque
+argument_list|()
 block|;
 comment|// private:
 name|public

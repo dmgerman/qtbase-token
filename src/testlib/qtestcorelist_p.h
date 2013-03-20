@@ -49,7 +49,6 @@ directive|include
 file|<QtCore/qglobal.h>
 end_include
 begin_expr_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 name|template
 operator|<
@@ -347,11 +346,8 @@ return|return
 name|numOfElements
 return|;
 end_return
-begin_macro
-unit|}  QT_END_NAMESPACE
-name|QT_END_HEADER
-end_macro
 begin_endif
+unit|}  QT_END_NAMESPACE
 endif|#
 directive|endif
 end_endif

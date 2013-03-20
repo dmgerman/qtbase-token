@@ -778,7 +778,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*     Tests that the pixels inside rect in image all have the given color.  */
+comment|/*     Tests that the pixels inside rect in image all have the given color. */
 end_comment
 begin_function
 DECL|function|isFilled
@@ -880,7 +880,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*     Tests that stuff is painted to the pixels inside rect.     This test fails if any lines in the given direction have pixels      of only one color. */
+comment|/*     Tests that stuff is painted to the pixels inside rect.     This test fails if any lines in the given direction have pixels     of only one color. */
 end_comment
 begin_function
 DECL|function|isContent

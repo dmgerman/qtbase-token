@@ -709,7 +709,7 @@ name|strUtf16
 init|=
 name|QString
 operator|::
-name|fromLatin1
+name|fromLocal8Bit
 argument_list|(
 name|str
 argument_list|)

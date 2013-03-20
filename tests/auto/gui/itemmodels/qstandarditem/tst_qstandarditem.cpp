@@ -744,7 +744,7 @@ argument_list|(
 operator|(
 name|i
 operator|==
-name|i
+literal|1
 operator|)
 condition|?
 name|Qt

@@ -66,13 +66,6 @@ include|#
 directive|include
 file|<QtCore>
 end_include
-begin_if
-if|#
-directive|if
-name|MAC_OS_X_VERSION_MAX_ALLOWED
-operator|>=
-name|MAC_OS_X_VERSION_10_6
-end_if
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
@@ -191,13 +184,6 @@ end_empty_stmt
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// MAC_OS_X_VERSION_MAX_ALLOWED>= MAC_OS_X_VERSION_10_6
-end_comment
 begin_endif
 endif|#
 directive|endif

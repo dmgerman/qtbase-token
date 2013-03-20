@@ -161,15 +161,11 @@ block|{
 name|public
 label|:
 name|QSqlResultPrivate
-argument_list|(
-name|QSqlResult
-operator|*
-name|d
-argument_list|)
+argument_list|()
 operator|:
-name|q
+name|q_ptr
 argument_list|(
-name|d
+literal|0
 argument_list|)
 operator|,
 name|idx
@@ -210,6 +206,11 @@ name|binds
 argument_list|(
 argument|QSqlResult::PositionalBinding
 argument_list|)
+block|{ }
+name|virtual
+operator|~
+name|QSqlResultPrivate
+argument_list|()
 block|{ }
 name|void
 name|clearValues
@@ -313,7 +314,7 @@ decl|const
 decl_stmt|;
 name|QSqlResult
 modifier|*
-name|q
+name|q_ptr
 decl_stmt|;
 name|QPointer
 operator|<

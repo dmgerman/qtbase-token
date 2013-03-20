@@ -1294,7 +1294,7 @@ unit|bool dotOrDotDot = (fileName == QLatin1String(".") || fileName == QLatin1St
 comment|// Skip files and directories
 end_comment
 begin_endif
-unit|if ((filters& QDir::AllDirs) == 0&& skipDirs&& fi.isDir()) {         if (!alwaysShow)             return false;     }      if ((skipFiles&& (fi.isFile() || !fi.exists()))         || (skipSymlinks&& fi.isSymLink())) {         if (!alwaysShow)             return false;     }      if (filterPermissions&& ((doReadable&& !fi.isReadable())             || (doWritable&& !fi.isWritable())             || (doExecutable&& !fi.isExecutable()))) {         return false;     }      if (!includeSystem&& !dotOrDotDot&& ((fi.exists()&& !fi.isFile()&& !fi.isDir()&& !fi.isSymLink())                                            || (!fi.exists()&& fi.isSymLink()))) {         return false;     }          return true; }
+unit|if ((filters& QDir::AllDirs) == 0&& skipDirs&& fi.isDir()) {         if (!alwaysShow)             return false;     }      if ((skipFiles&& (fi.isFile() || !fi.exists()))         || (skipSymlinks&& fi.isSymLink())) {         if (!alwaysShow)             return false;     }      if (filterPermissions&& ((doReadable&& !fi.isReadable())             || (doWritable&& !fi.isWritable())             || (doExecutable&& !fi.isExecutable()))) {         return false;     }      if (!includeSystem&& !dotOrDotDot&& ((fi.exists()&& !fi.isFile()&& !fi.isDir()&& !fi.isSymLink())                                            || (!fi.exists()&& fi.isSymLink()))) {         return false;     }      return true; }
 endif|#
 directive|endif
 end_endif
@@ -1555,7 +1555,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the file name for the current directory entry, without the path     prepended. If the current entry is invalid (i.e., isValid() returns     false), a null QString is returned.      This function is provided for the convenience when iterating single     directories. For recursive iteration, you should call filePath() or     fileInfo() instead.          \sa filePath(), fileInfo() */
+comment|/*!     Returns the file name for the current directory entry, without the path     prepended. If the current entry is invalid (i.e., isValid() returns     false), a null QString is returned.      This function is provided for the convenience when iterating single     directories. For recursive iteration, you should call filePath() or     fileInfo() instead.      \sa filePath(), fileInfo() */
 end_comment
 begin_function
 DECL|function|fileName

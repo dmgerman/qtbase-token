@@ -485,6 +485,11 @@ end_comment
 begin_comment
 comment|// we use QT_NO_LIBRARY to shorten everything up a little bit.
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_LIBRARY
+end_ifndef
 begin_define
 DECL|macro|QT_NO_LIBRARY
 define|#
@@ -492,6 +497,10 @@ directive|define
 name|QT_NO_LIBRARY
 value|1
 end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_endif
 endif|#
 directive|endif

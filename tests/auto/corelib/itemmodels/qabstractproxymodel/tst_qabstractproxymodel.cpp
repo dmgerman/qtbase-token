@@ -1229,13 +1229,6 @@ operator|::
 name|setSourceModel
 parameter_list|()
 block|{
-name|qRegisterMetaType
-argument_list|<
-name|QAbstractItemModel
-operator|*
-argument_list|>
-argument_list|()
-expr_stmt|;
 name|SubQAbstractProxyModel
 name|model
 decl_stmt|;

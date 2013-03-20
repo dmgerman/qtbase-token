@@ -502,6 +502,22 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \since 5.1      Flushes and syncs the file to disk.      Returns true if successful; otherwise returns false.     The default implementation always returns false. */
+end_comment
+begin_function
+DECL|function|syncToDisk
+name|bool
+name|QAbstractFileEngine
+operator|::
+name|syncToDisk
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     Flushes the open file, returning true if successful; otherwise returns     false.      The default implementation always returns false. */
 end_comment
 begin_function
@@ -643,6 +659,32 @@ name|bool
 name|QAbstractFileEngine
 operator|::
 name|rename
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|newName
+parameter_list|)
+block|{
+name|Q_UNUSED
+argument_list|(
+name|newName
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     \since 5.1      Requests that the file be renamed to \a newName in the file     system. If the new name already exists, it must be overwritten.     If the operation succeeds, returns true; otherwise returns     false.      This virtual function must be reimplemented by all subclasses.      \sa setFileName()  */
+end_comment
+begin_function
+DECL|function|renameOverwrite
+name|bool
+name|QAbstractFileEngine
+operator|::
+name|renameOverwrite
 parameter_list|(
 specifier|const
 name|QString

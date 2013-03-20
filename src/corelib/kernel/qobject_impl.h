@@ -21,8 +21,26 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+begin_pragma
+pragma|#
+directive|pragma
+name|qt_sync_skip_header_check
+end_pragma
+begin_pragma
+pragma|#
+directive|pragma
+name|qt_sync_stop_processing
+end_pragma
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 name|namespace
 name|QtPrivate
@@ -1533,7 +1551,6 @@ block|{}
 block|}
 block|;  }
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
 end_decl_stmt
 begin_endif
 endif|#

@@ -3096,7 +3096,7 @@ directive|ifndef
 name|QT_BOOTSTRAPPED
 ifndef|#
 directive|ifndef
-name|QT_NO_REGEXP
+name|QT_NO_REGULAREXPRESSION
 case|case
 name|QMetaType
 operator|::
@@ -3121,7 +3121,7 @@ expr_stmt|;
 break|break;
 endif|#
 directive|endif
-comment|// QT_NO_REGEXP
+comment|// QT_NO_REGULAREXPRESSION
 case|case
 name|QMetaType
 operator|::
@@ -4297,7 +4297,7 @@ directive|ifndef
 name|QT_BOOTSTRAPPED
 ifndef|#
 directive|ifndef
-name|QT_NO_REGEXP
+name|QT_NO_REGULAREXPRESSION
 case|case
 name|QMetaType
 operator|::
@@ -4321,7 +4321,7 @@ expr_stmt|;
 break|break;
 endif|#
 directive|endif
-comment|// QT_NO_REGEXP
+comment|// QT_NO_REGULAREXPRESSION
 case|case
 name|QMetaType
 operator|::

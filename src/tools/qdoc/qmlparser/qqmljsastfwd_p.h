@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QQMLJSASTFWD_P_H
+name|QQMLJSAST_FWD_P_H
 end_ifndef
 begin_define
-DECL|macro|QQMLJSASTFWD_P_H
+DECL|macro|QQMLJSAST_FWD_P_H
 define|#
 directive|define
-name|QQMLJSASTFWD_P_H
+name|QQMLJSAST_FWD_P_H
 end_define
 begin_include
 include|#
@@ -21,7 +21,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qglobal.h>
+file|<QtCore/qglobal.h>
 end_include
 begin_comment
 comment|//
@@ -66,7 +66,6 @@ name|SourceLocation
 block|{
 name|public
 label|:
-name|explicit
 name|SourceLocation
 argument_list|(
 argument|quint32 offset =
@@ -198,7 +197,13 @@ name|class
 name|Elision
 decl_stmt|;
 name|class
-name|PropertyNameAndValueList
+name|PropertyAssignmentList
+decl_stmt|;
+name|class
+name|PropertyGetterSetter
+decl_stmt|;
+name|class
+name|PropertyNameAndValue
 decl_stmt|;
 name|class
 name|PropertyName
@@ -402,6 +407,9 @@ name|UiImport
 decl_stmt|;
 name|class
 name|UiPublicMember
+decl_stmt|;
+name|class
+name|UiParameterList
 decl_stmt|;
 name|class
 name|UiObjectDefinition

@@ -36233,6 +36233,7 @@ parameter_list|<
 name|class
 name|DST
 parameter_list|>
+name|Q_STATIC_TEMPLATE_FUNCTION
 DECL|function|qt_bitmapblit_template
 specifier|inline
 name|void

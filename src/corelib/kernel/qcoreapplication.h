@@ -16,6 +16,21 @@ end_define
 begin_include
 include|#
 directive|include
+file|<QtCore/qglobal.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qstring.h>
+end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
+end_ifndef
+begin_include
+include|#
+directive|include
 file|<QtCore/qobject.h>
 end_include
 begin_include
@@ -28,6 +43,24 @@ include|#
 directive|include
 file|<QtCore/qeventloop.h>
 end_include
+begin_else
+else|#
+directive|else
+end_else
+begin_include
+include|#
+directive|include
+file|<QtCore/qscopedpointer.h>
+end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
+end_ifndef
 begin_if
 if|#
 directive|if
@@ -54,8 +87,11 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QCoreApplicationPrivate
 name|class
@@ -109,31 +145,41 @@ begin_decl_stmt
 name|class
 name|Q_CORE_EXPORT
 name|QCoreApplication
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
 range|:
 name|public
 name|QObject
+endif|#
+directive|endif
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
 name|Q_OBJECT
 name|Q_PROPERTY
 argument_list|(
-argument|QString applicationName READ applicationName WRITE setApplicationName
+argument|QString applicationName READ applicationName WRITE setApplicationName NOTIFY applicationNameChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|QString applicationVersion READ applicationVersion WRITE setApplicationVersion
+argument|QString applicationVersion READ applicationVersion WRITE setApplicationVersion NOTIFY applicationVersionChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|QString organizationName READ organizationName WRITE setOrganizationName
+argument|QString organizationName READ organizationName WRITE setOrganizationName NOTIFY organizationNameChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|QString organizationDomain READ organizationDomain WRITE setOrganizationDomain
+argument|QString organizationDomain READ organizationDomain WRITE setOrganizationDomain NOTIFY organizationDomainChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
 argument|bool quitLockEnabled READ isQuitLockEnabled WRITE setQuitLockEnabled
 argument_list|)
+endif|#
+directive|endif
 name|Q_DECLARE_PRIVATE
 argument_list|(
 argument|QCoreApplication
@@ -263,6 +309,9 @@ return|return
 name|self
 return|;
 block|}
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
 specifier|static
 name|int
 name|exec
@@ -378,6 +427,8 @@ name|bool
 name|closingDown
 argument_list|()
 block|;
+endif|#
+directive|endif
 specifier|static
 name|QString
 name|applicationDirPath
@@ -526,6 +577,9 @@ return|;
 block|}
 endif|#
 directive|endif
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
 specifier|static
 name|void
 name|flush
@@ -584,6 +638,22 @@ endif|#
 directive|endif
 argument_list|)
 block|;
+name|void
+name|organizationNameChanged
+argument_list|()
+block|;
+name|void
+name|organizationDomainChanged
+argument_list|()
+block|;
+name|void
+name|applicationNameChanged
+argument_list|()
+block|;
+name|void
+name|applicationVersionChanged
+argument_list|()
+block|;
 name|protected
 operator|:
 name|bool
@@ -608,6 +678,9 @@ name|QPostEventList
 operator|*
 argument_list|)
 block|;
+endif|#
+directive|endif
+comment|// QT_NO_QOBJECT
 name|protected
 operator|:
 name|QCoreApplication
@@ -617,8 +690,22 @@ operator|&
 name|p
 argument_list|)
 block|;
+ifdef|#
+directive|ifdef
+name|QT_NO_QOBJECT
+name|QScopedPointer
+operator|<
+name|QCoreApplicationPrivate
+operator|>
+name|d_ptr
+block|;
+endif|#
+directive|endif
 name|private
 operator|:
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
 specifier|static
 name|bool
 name|sendSpontaneousEvent
@@ -644,6 +731,8 @@ operator|*
 name|event
 argument_list|)
 block|;
+endif|#
+directive|endif
 name|void
 name|init
 argument_list|()
@@ -657,10 +746,6 @@ name|Q_DISABLE_COPY
 argument_list|(
 argument|QCoreApplication
 argument_list|)
-name|friend
-name|class
-name|QEventDispatcherUNIXPrivate
-block|;
 name|friend
 name|class
 name|QApplication
@@ -693,6 +778,13 @@ name|friend
 name|class
 name|QWidgetPrivate
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
+name|friend
+name|class
+name|QEventDispatcherUNIXPrivate
+block|;
 name|friend
 name|class
 name|QCocoaEventDispatcherPrivate
@@ -708,6 +800,8 @@ name|QEvent
 operator|*
 argument_list|)
 block|;
+endif|#
+directive|endif
 name|friend
 name|Q_CORE_EXPORT
 name|QString
@@ -720,6 +814,11 @@ name|QClassFactory
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
+end_ifndef
 begin_expr_stmt
 DECL|function|sendEvent
 specifier|inline
@@ -800,39 +899,40 @@ else|:
 name|false
 return|;
 end_return
-begin_ifdef
+begin_endif
 unit|}
+endif|#
+directive|endif
+end_endif
+begin_ifdef
 ifdef|#
 directive|ifdef
-name|QT_NO_TRANSLATION
+name|QT_NO_DEPRECATED
 end_ifdef
-begin_expr_stmt
-unit|inline
-DECL|function|translate
-name|QString
-name|QCoreApplication
-operator|::
-name|translate
-argument_list|(
-argument|const char *
-argument_list|,
-argument|const char *sourceText
-argument_list|,
-argument|const char *
-argument_list|,
-argument|int
-argument_list|)
-block|{
-return|return
-name|QString
-operator|::
-name|fromUtf8
-argument_list|(
-name|sourceText
-argument_list|)
-return|;
-block|}
-end_expr_stmt
+begin_define
+DECL|macro|QT_DECLARE_DEPRECATED_TR_FUNCTIONS
+define|#
+directive|define
+name|QT_DECLARE_DEPRECATED_TR_FUNCTIONS
+parameter_list|(
+name|context
+parameter_list|)
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|QT_DECLARE_DEPRECATED_TR_FUNCTIONS
+define|#
+directive|define
+name|QT_DECLARE_DEPRECATED_TR_FUNCTIONS
+parameter_list|(
+name|context
+parameter_list|)
+define|\
+value|QT_DEPRECATED static inline QString trUtf8(const char *sourceText, const char *disambiguation = 0, int n = -1) \         { return QCoreApplication::translate(#context, sourceText, disambiguation, n); }
+end_define
 begin_endif
 endif|#
 directive|endif
@@ -846,8 +946,19 @@ parameter_list|(
 name|context
 parameter_list|)
 define|\
-value|public: \     static inline QString tr(const char *sourceText, const char *disambiguation = 0, int n = -1) \         { return QCoreApplication::translate(#context, sourceText, disambiguation, n); } \     QT_DEPRECATED static inline QString trUtf8(const char *sourceText, const char *disambiguation = 0, int n = -1) \         { return QCoreApplication::translate(#context, sourceText, disambiguation, n); } \ private:
+value|public: \     static inline QString tr(const char *sourceText, const char *disambiguation = 0, int n = -1) \         { return QCoreApplication::translate(#context, sourceText, disambiguation, n); } \     QT_DECLARE_DEPRECATED_TR_FUNCTIONS(context) \ private:
 end_define
+begin_function_decl
+unit|typedef
+DECL|typedef|QtStartUpFunction
+name|void
+function_decl|(
+modifier|*
+name|QtStartUpFunction
+function_decl|)
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_typedef
 DECL|typedef|QtCleanUpFunction
 typedef|typedef
@@ -859,6 +970,15 @@ function_decl|)
 parameter_list|()
 function_decl|;
 end_typedef
+begin_function_decl
+name|Q_CORE_EXPORT
+name|void
+name|qAddPreRoutine
+parameter_list|(
+name|QtStartUpFunction
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_function_decl
 name|Q_CORE_EXPORT
 name|void
@@ -887,6 +1007,22 @@ end_function_decl
 begin_comment
 comment|// get application name
 end_comment
+begin_define
+DECL|macro|Q_COREAPP_STARTUP_FUNCTION
+define|#
+directive|define
+name|Q_COREAPP_STARTUP_FUNCTION
+parameter_list|(
+name|AFUNC
+parameter_list|)
+define|\
+value|static void AFUNC ## _ctor_function() {  \         qAddPreRoutine(AFUNC);        \     }                                 \     Q_CONSTRUCTOR_FUNCTION(AFUNC ## _ctor_function)
+end_define
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
+end_ifndef
 begin_if
 if|#
 directive|if
@@ -930,10 +1066,13 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_expr_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_macro
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

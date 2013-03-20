@@ -59,8 +59,18 @@ end_if
 begin_comment
 comment|// silence syncqt warnings
 end_comment
+begin_pragma
+unit|QT_BEGIN_NAMESPACE  QT_END_NAMESPACE
+pragma|#
+directive|pragma
+name|qt_sync_skip_header_check
+end_pragma
+begin_pragma
+pragma|#
+directive|pragma
+name|qt_sync_stop_processing
+end_pragma
 begin_endif
-unit|QT_BEGIN_HEADER QT_BEGIN_NAMESPACE  QT_END_NAMESPACE QT_END_HEADER
 endif|#
 directive|endif
 end_endif

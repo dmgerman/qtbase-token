@@ -1902,6 +1902,7 @@ operator|==
 name|Paused
 condition|)
 block|{
+comment|// Same as resume()
 name|d
 operator|->
 name|timerId
@@ -1912,6 +1913,21 @@ name|d
 operator|->
 name|updateInterval
 argument_list|)
+expr_stmt|;
+name|d
+operator|->
+name|startTime
+operator|=
+name|d
+operator|->
+name|currentTime
+expr_stmt|;
+name|d
+operator|->
+name|timer
+operator|.
+name|start
+argument_list|()
 expr_stmt|;
 name|d
 operator|->

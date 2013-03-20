@@ -113,7 +113,6 @@ endif|#
 directive|endif
 end_endif
 begin_function_decl
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 comment|/*****************************************************************************   Safe and portable C string functions; extensions to standard string.h  *****************************************************************************/
 name|Q_CORE_EXPORT
@@ -5019,10 +5018,9 @@ argument_list|(
 argument|QByteArray
 argument_list|)
 end_macro
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_ifdef
 ifdef|#
 directive|ifdef

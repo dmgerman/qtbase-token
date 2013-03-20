@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"../../../sql/drivers/db2/qsql_db2.h"
+file|"../../../sql/drivers/db2/qsql_db2_p.h"
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE

@@ -81,20 +81,12 @@ end_include
 begin_if
 if|#
 directive|if
+operator|!
 name|defined
 argument_list|(
 name|Q_OS_VXWORKS
 argument_list|)
 end_if
-begin_include
-include|#
-directive|include
-file|<sys/times.h>
-end_include
-begin_else
-else|#
-directive|else
-end_else
 begin_include
 include|#
 directive|include
@@ -358,7 +350,7 @@ argument|fd_set *writefds
 argument_list|,
 argument|fd_set *exceptfds
 argument_list|,
-argument|timeval *timeout
+argument|timespec *timeout
 argument_list|)
 block|; }
 decl_stmt|;
@@ -389,7 +381,7 @@ name|doSelect
 argument_list|(
 argument|QEventLoop::ProcessEventsFlags flags
 argument_list|,
-argument|timeval *timeout
+argument|timespec *timeout
 argument_list|)
 block|;
 name|virtual
@@ -407,6 +399,8 @@ block|;
 name|bool
 name|mainThread
 block|;
+comment|// note for eventfd(7) support:
+comment|// if thread_pipe[1] is -1, then eventfd(7) is in use and is stored in thread_pipe[0]
 name|int
 name|thread_pipe
 index|[

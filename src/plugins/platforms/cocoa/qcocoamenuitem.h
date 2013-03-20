@@ -42,7 +42,6 @@ name|NSMenu
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QCocoaMenu
 name|class
@@ -151,6 +150,17 @@ operator|&
 name|shortcut
 argument_list|)
 block|;
+name|void
+name|setCheckable
+argument_list|(
+argument|bool checkable
+argument_list|)
+block|{
+name|Q_UNUSED
+argument_list|(
+argument|checkable
+argument_list|)
+block|}
 name|void
 name|setChecked
 argument_list|(
@@ -291,10 +301,9 @@ name|m_tag
 block|; }
 decl_stmt|;
 end_decl_stmt
-begin_expr_stmt
-name|QT_END_HEADER
+begin_macro
 name|QT_END_NAMESPACE
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

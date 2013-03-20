@@ -163,7 +163,7 @@ decl_stmt|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-unit|}          template
+unit|}      template
 operator|<
 name|typename
 name|T

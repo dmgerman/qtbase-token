@@ -98,6 +98,14 @@ argument|QWindow *window
 argument_list|)
 specifier|const
 block|;
+name|QPlatformOffscreenSurface
+operator|*
+name|createPlatformOffscreenSurface
+argument_list|(
+argument|QOffscreenSurface *surface
+argument_list|)
+specifier|const
+block|;
 name|bool
 name|hasCapability
 argument_list|(

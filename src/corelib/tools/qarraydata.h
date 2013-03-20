@@ -23,11 +23,12 @@ include|#
 directive|include
 file|<string.h>
 end_include
-begin_expr_stmt
-name|QT_BEGIN_HEADER
+begin_macro
 name|QT_BEGIN_NAMESPACE
-expr|struct
+end_macro
+begin_struct
 DECL|struct|QArrayData
+struct|struct
 name|Q_CORE_EXPORT
 name|QArrayData
 block|{
@@ -36,33 +37,33 @@ name|QtPrivate
 operator|::
 name|RefCount
 name|ref
-block|;
+expr_stmt|;
 DECL|member|size
 name|int
 name|size
-block|;
+decl_stmt|;
 DECL|member|alloc
 name|uint
 name|alloc
-operator|:
+range|:
 literal|31
-block|;
+decl_stmt|;
 DECL|member|capacityReserved
 name|uint
 name|capacityReserved
-operator|:
+range|:
 literal|1
-block|;
+decl_stmt|;
 DECL|member|offset
 name|qptrdiff
 name|offset
-block|;
+decl_stmt|;
 comment|// in bytes from beginning of header
 DECL|function|data
 name|void
-operator|*
+modifier|*
 name|data
-argument_list|()
+parameter_list|()
 block|{
 name|Q_ASSERT
 argument_list|(
@@ -84,7 +85,7 @@ argument_list|(
 name|QArrayData
 argument_list|)
 argument_list|)
-block|;
+expr_stmt|;
 return|return
 name|reinterpret_cast
 operator|<
@@ -141,17 +142,9 @@ operator|+
 name|offset
 return|;
 block|}
-end_expr_stmt
-begin_comment
 comment|// This refers to array data mutability, not "header data" represented by
-end_comment
-begin_comment
 comment|// data members in QArrayData. Shared data (array and header) must still
-end_comment
-begin_comment
 comment|// follow COW principles.
-end_comment
-begin_expr_stmt
 DECL|function|isMutable
 name|bool
 name|isMutable
@@ -164,8 +157,6 @@ operator|!=
 literal|0
 return|;
 block|}
-end_expr_stmt
-begin_enum
 DECL|enum|AllocationOption
 enum|enum
 name|AllocationOption
@@ -196,8 +187,6 @@ init|=
 literal|0
 block|}
 enum|;
-end_enum
-begin_macro
 DECL|function|Q_DECLARE_FLAGS
 name|Q_DECLARE_FLAGS
 argument_list|(
@@ -205,8 +194,6 @@ argument|AllocationOptions
 argument_list|,
 argument|AllocationOption
 argument_list|)
-end_macro
-begin_decl_stmt
 name|size_t
 name|detachCapacity
 argument_list|(
@@ -230,8 +217,6 @@ return|return
 name|newSize
 return|;
 block|}
-end_decl_stmt
-begin_expr_stmt
 DECL|function|detachFlags
 name|AllocationOptions
 name|detachFlags
@@ -253,8 +238,6 @@ name|result
 operator||=
 name|Unsharable
 expr_stmt|;
-end_expr_stmt
-begin_if
 if|if
 condition|(
 name|capacityReserved
@@ -263,25 +246,19 @@ name|result
 operator||=
 name|CapacityReserved
 expr_stmt|;
-end_if
-begin_return
 return|return
 name|result
 return|;
-end_return
-begin_macro
-unit|}      AllocationOptions
+block|}
 DECL|function|cloneFlags
+name|AllocationOptions
 name|cloneFlags
 argument_list|()
-end_macro
-begin_expr_stmt
-DECL|function|cloneFlags
-specifier|const
+decl|const
 block|{
 name|AllocationOptions
 name|result
-block|;
+decl_stmt|;
 if|if
 condition|(
 name|capacityReserved
@@ -290,14 +267,11 @@ name|result
 operator||=
 name|CapacityReserved
 expr_stmt|;
-end_expr_stmt
-begin_return
 return|return
 name|result
 return|;
-end_return
-begin_decl_stmt
-unit|}      static
+block|}
+decl|static
 name|QArrayData
 modifier|*
 name|allocate
@@ -318,8 +292,8 @@ name|Default
 argument_list|)
 DECL|member|Q_REQUIRED_RESULT
 name|Q_REQUIRED_RESULT
-decl_stmt|;
-end_decl_stmt
+struct|;
+end_struct
 begin_function_decl
 specifier|static
 name|void
@@ -2154,10 +2128,9 @@ end_endif
 begin_comment
 comment|// !defined(Q_ARRAY_LITERAL)
 end_comment
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

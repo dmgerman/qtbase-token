@@ -104,6 +104,9 @@ name|BrushDrawingMode
 block|,
 DECL|enumerator|ImageArrayDrawingMode
 name|ImageArrayDrawingMode
+block|,
+DECL|enumerator|ImageOpacityArrayDrawingMode
+name|ImageOpacityArrayDrawingMode
 block|}
 enum|;
 end_enum
@@ -510,7 +513,7 @@ argument_list|()
 specifier|const
 block|;
 name|bool
-name|supportsTransformations
+name|requiresPretransformedGlyphPositions
 argument_list|(
 argument|QFontEngine *
 argument_list|,
@@ -519,9 +522,18 @@ argument_list|)
 specifier|const
 block|{
 return|return
-name|true
+name|false
 return|;
 block|}
+name|bool
+name|shouldDrawCachedGlyphs
+argument_list|(
+argument|QFontEngine *
+argument_list|,
+argument|const QTransform&
+argument_list|)
+specifier|const
+block|;
 name|private
 operator|:
 name|Q_DISABLE_COPY
@@ -883,6 +895,15 @@ argument|bool srcPixelsAreOpaque
 argument_list|)
 block|;
 comment|// returns true if the program has changed
+name|bool
+name|prepareForCachedGlyphDraw
+argument_list|(
+specifier|const
+name|QFontEngineGlyphCache
+operator|&
+name|cache
+argument_list|)
+block|;
 specifier|inline
 name|void
 name|useSimpleShader

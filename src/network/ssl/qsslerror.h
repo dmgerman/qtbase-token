@@ -24,7 +24,6 @@ directive|include
 file|<QtNetwork/qsslcertificate.h>
 end_include
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
@@ -295,10 +294,11 @@ operator|<
 name|QSslError
 operator|>
 argument_list|)
+end_decl_stmt
+begin_endif
 endif|#
 directive|endif
-name|QT_END_HEADER
-end_decl_stmt
+end_endif
 begin_endif
 endif|#
 directive|endif

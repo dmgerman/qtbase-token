@@ -29,7 +29,6 @@ directive|include
 file|<QtSql/qsql.h>
 end_include
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QString
 name|class
@@ -82,6 +81,10 @@ name|class
 name|Q_SQL_EXPORT
 name|QSqlResult
 block|{
+name|Q_DECLARE_PRIVATE
+argument_list|(
+argument|QSqlResult
+argument_list|)
 name|friend
 name|class
 name|QSqlQuery
@@ -89,10 +92,6 @@ decl_stmt|;
 name|friend
 name|class
 name|QSqlTableModelPrivate
-decl_stmt|;
-name|friend
-name|class
-name|QSqlResultPrivate
 decl_stmt|;
 name|public
 label|:
@@ -126,6 +125,18 @@ modifier|*
 name|db
 parameter_list|)
 function_decl|;
+name|QSqlResult
+argument_list|(
+name|QSqlResultPrivate
+operator|&
+name|dd
+argument_list|,
+specifier|const
+name|QSqlDriver
+operator|*
+name|db
+argument_list|)
+expr_stmt|;
 name|int
 name|at
 argument_list|()
@@ -525,11 +536,9 @@ name|resetBindCount
 parameter_list|()
 function_decl|;
 comment|// HACK
-name|private
-label|:
 name|QSqlResultPrivate
 modifier|*
-name|d
+name|d_ptr
 decl_stmt|;
 name|private
 label|:
@@ -542,10 +551,9 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

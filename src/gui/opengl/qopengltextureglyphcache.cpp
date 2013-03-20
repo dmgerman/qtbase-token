@@ -406,6 +406,12 @@ operator|==
 name|QFontEngineGlyphCache
 operator|::
 name|Raster_RGBMask
+operator|||
+name|m_type
+operator|==
+name|QFontEngineGlyphCache
+operator|::
+name|Raster_ARGB
 condition|)
 block|{
 name|QVarLengthArray
@@ -1619,16 +1625,38 @@ if|if
 condition|(
 name|mask
 operator|.
+name|depth
+argument_list|()
+operator|==
+literal|32
+condition|)
+block|{
+if|if
+condition|(
+name|mask
+operator|.
 name|format
 argument_list|()
 operator|==
 name|QImage
 operator|::
 name|Format_RGB32
+comment|// We need to make the alpha component equal to the average of the RGB values.
+comment|// This is needed when drawing sub-pixel antialiased text on translucent targets.
+if|#
+directive|if
+name|defined
+argument_list|(
+name|QT_OPENGL_ES_2
+argument_list|)
+operator|||
+operator|!
+name|hasBGRA
+comment|// We need to reverse the bytes
+endif|#
+directive|endif
 condition|)
 block|{
-comment|// Make the alpha component equal to the average of the RGB values.
-comment|// This is needed when drawing sub-pixel antialiased text on translucent targets.
 for|for
 control|(
 name|int
@@ -1704,7 +1732,20 @@ index|]
 decl_stmt|;
 name|quint32
 name|avg
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|mask
+operator|.
+name|format
+argument_list|()
+operator|==
+name|QImage
+operator|::
+name|Format_RGB32
+condition|)
+name|avg
+operator|=
 operator|(
 name|quint32
 argument_list|(
@@ -1725,8 +1766,19 @@ literal|1
 operator|)
 operator|/
 literal|3
-decl_stmt|;
+expr_stmt|;
 comment|// "+1" for rounding.
+else|else
+comment|// Format_ARGB_Premultiplied
+name|avg
+operator|=
+name|src
+index|[
+name|x
+index|]
+operator|>>
+literal|24
+expr_stmt|;
 if|#
 directive|if
 name|defined
@@ -1805,6 +1857,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
+block|}
 name|glBindTexture
 argument_list|(
 name|GL_TEXTURE_2D
@@ -1818,12 +1871,10 @@ if|if
 condition|(
 name|mask
 operator|.
-name|format
+name|depth
 argument_list|()
 operator|==
-name|QImage
-operator|::
-name|Format_RGB32
+literal|32
 condition|)
 block|{
 if|#

@@ -12368,7 +12368,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!      Sets the value of setting \a key to \a value. If the \a key already   exists, the previous value is overwritten.    Note that the Windows registry and INI files use case-insensitive   keys, whereas the Carbon Preferences API on Mac OS X uses   case-sensitive keys. To avoid portability problems, see the   \l{Section and Key Syntax} rules.    Example:    \snippet code/src_corelib_io_qsettings.cpp 23    \sa value(), remove(), contains() */
+comment|/*!    Sets the value of setting \a key to \a value. If the \a key already   exists, the previous value is overwritten.    Note that the Windows registry and INI files use case-insensitive   keys, whereas the Carbon Preferences API on Mac OS X uses   case-sensitive keys. To avoid portability problems, see the   \l{Section and Key Syntax} rules.    Example:    \snippet code/src_corelib_io_qsettings.cpp 23    \sa value(), remove(), contains() */
 end_comment
 begin_function
 DECL|function|setValue
@@ -12932,13 +12932,13 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \typedef QSettings::SettingsMap      Typedef for QMap<QString, QVariant>. 	     \sa registerFormat() */
+comment|/*!     \typedef QSettings::SettingsMap      Typedef for QMap<QString, QVariant>.      \sa registerFormat() */
 end_comment
 begin_comment
-comment|/*!     \typedef QSettings::ReadFunc      Typedef for a pointer to a function with the following signature:      \snippet code/src_corelib_io_qsettings.cpp 27      \c ReadFunc is used in \c registerFormat() as a pointer to a function     that reads a set of key/value pairs. \c ReadFunc should read all the      options in one pass, and return all the settings in the \c SettingsMap      container, which is initially empty.      \sa WriteFunc, registerFormat() */
+comment|/*!     \typedef QSettings::ReadFunc      Typedef for a pointer to a function with the following signature:      \snippet code/src_corelib_io_qsettings.cpp 27      \c ReadFunc is used in \c registerFormat() as a pointer to a function     that reads a set of key/value pairs. \c ReadFunc should read all the     options in one pass, and return all the settings in the \c SettingsMap     container, which is initially empty.      \sa WriteFunc, registerFormat() */
 end_comment
 begin_comment
-comment|/*!     \typedef QSettings::WriteFunc      Typedef for a pointer to a function with the following signature:      \snippet code/src_corelib_io_qsettings.cpp 28      \c WriteFunc is used in \c registerFormat() as a pointer to a function      that writes a set of key/value pairs. \c WriteFunc is only called once,     so you need to output the settings in one go.      \sa ReadFunc, registerFormat() */
+comment|/*!     \typedef QSettings::WriteFunc      Typedef for a pointer to a function with the following signature:      \snippet code/src_corelib_io_qsettings.cpp 28      \c WriteFunc is used in \c registerFormat() as a pointer to a function     that writes a set of key/value pairs. \c WriteFunc is only called once,     so you need to output the settings in one go.      \sa ReadFunc, registerFormat() */
 end_comment
 begin_comment
 comment|/*!     \since 4.1     \threadsafe      Registers a custom storage format. On success, returns a special     Format value that can then be passed to the QSettings constructor.     On failure, returns InvalidFormat.      The \a extension is the file     extension associated to the format (without the '.').      The \a readFunc and \a writeFunc parameters are pointers to     functions that read and write a set of key/value pairs. The     QIODevice parameter to the read and write functions is always     opened in binary mode (i.e., without the QIODevice::Text flag).      The \a caseSensitivity parameter specifies whether keys are case     sensitive or not. This makes a difference when looking up values     using QSettings. The default is case sensitive.      By default, if you use one of the constructors that work in terms     of an organization name and an application name, the file system     locations used are the same as for IniFormat. Use setPath() to     specify other locations.      Example:      \snippet code/src_corelib_io_qsettings.cpp 29      \sa setPath() */

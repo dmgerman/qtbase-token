@@ -177,7 +177,7 @@ begin_comment
 comment|// GENERATED PART STARTS HERE
 end_comment
 begin_comment
-comment|/*     This part of the file was generated on 2012-11-23 from the     Common Locale Data Repository v22.1      http://www.unicode.org/cldr/      Do not change it, instead edit CLDR data and regenerate this file using     cldr2qlocalexml.py and qlocalexml2cpp.py. */
+comment|/*     This part of the file was generated on 2012-12-19 from the     Common Locale Data Repository v22.1      http://www.unicode.org/cldr/      Do not change it, instead edit CLDR data and regenerate this file using     cldr2qlocalexml.py and qlocalexml2cpp.py. */
 end_comment
 begin_decl_stmt
 DECL|variable|likely_subtags
@@ -1616,6 +1616,23 @@ literal|44
 block|}
 block|,
 comment|// ii -> ii_Yiii_CN
+block|{
+literal|281
+block|,
+literal|0
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|281
+block|,
+literal|2
+block|,
+literal|178
+block|}
+block|,
+comment|// inh -> inh_Cyrl_RU
 block|{
 literal|51
 block|,
@@ -3334,6 +3351,23 @@ block|}
 block|,
 comment|// saq -> saq_Latn_KE
 block|{
+literal|304
+block|,
+literal|0
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|304
+block|,
+literal|7
+block|,
+literal|100
+block|}
+block|,
+comment|// sat -> sat_Latn_IN
+block|{
 literal|249
 block|,
 literal|0
@@ -4373,6 +4407,23 @@ comment|// und_Arab_PK -> ur_Arab_PK
 block|{
 literal|0
 block|,
+literal|57
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|265
+block|,
+literal|57
+block|,
+literal|102
+block|}
+block|,
+comment|// und_Armi -> arc_Armi_IR
+block|{
+literal|0
+block|,
 literal|10
 block|,
 literal|0
@@ -4387,6 +4438,23 @@ literal|11
 block|}
 block|,
 comment|// und_Armn -> hy_Armn_AM
+block|{
+literal|0
+block|,
+literal|36
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|255
+block|,
+literal|36
+block|,
+literal|102
+block|}
+block|,
+comment|// und_Avst -> ae_Avst_IR
 block|{
 literal|0
 block|,
@@ -4628,6 +4696,57 @@ comment|// und_BY -> be_Cyrl_BY
 block|{
 literal|0
 block|,
+literal|37
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|266
+block|,
+literal|37
+block|,
+literal|101
+block|}
+block|,
+comment|// und_Bali -> ban_Bali_ID
+block|{
+literal|0
+block|,
+literal|38
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|267
+block|,
+literal|38
+block|,
+literal|37
+block|}
+block|,
+comment|// und_Bamu -> bax_Bamu_CM
+block|{
+literal|0
+block|,
+literal|39
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|268
+block|,
+literal|39
+block|,
+literal|101
+block|}
+block|,
+comment|// und_Batk -> bbc_Batk_ID
+block|{
+literal|0
+block|,
 literal|11
 block|,
 literal|0
@@ -4642,6 +4761,74 @@ literal|18
 block|}
 block|,
 comment|// und_Beng -> bn_Beng_BD
+block|{
+literal|0
+block|,
+literal|40
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|25
+block|,
+literal|40
+block|,
+literal|208
+block|}
+block|,
+comment|// und_Bopo -> zh_Bopo_TW
+block|{
+literal|0
+block|,
+literal|41
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|300
+block|,
+literal|41
+block|,
+literal|100
+block|}
+block|,
+comment|// und_Brah -> pra_Brah_IN
+block|{
+literal|0
+block|,
+literal|42
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|269
+block|,
+literal|42
+block|,
+literal|101
+block|}
+block|,
+comment|// und_Bugi -> bug_Bugi_ID
+block|{
+literal|0
+block|,
+literal|43
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|270
+block|,
+literal|43
+block|,
+literal|170
+block|}
+block|,
+comment|// und_Buhd -> bku_Buhd_PH
 block|{
 literal|0
 block|,
@@ -4900,6 +5087,74 @@ comment|// und_CZ -> cs_Latn_CZ
 block|{
 literal|0
 block|,
+literal|46
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|272
+block|,
+literal|46
+block|,
+literal|18
+block|}
+block|,
+comment|// und_Cakm -> ccp_Cakm_BD
+block|{
+literal|0
+block|,
+literal|44
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|221
+block|,
+literal|44
+block|,
+literal|38
+block|}
+block|,
+comment|// und_Cans -> cr_Cans_CA
+block|{
+literal|0
+block|,
+literal|45
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|271
+block|,
+literal|45
+block|,
+literal|217
+block|}
+block|,
+comment|// und_Cari -> xcr_Cari_TR
+block|{
+literal|0
+block|,
+literal|47
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|276
+block|,
+literal|47
+block|,
+literal|232
+block|}
+block|,
+comment|// und_Cham -> cjm_Cham_VN
+block|{
+literal|0
+block|,
 literal|12
 block|,
 literal|0
@@ -4914,6 +5169,40 @@ literal|225
 block|}
 block|,
 comment|// und_Cher -> chr_Cher_US
+block|{
+literal|0
+block|,
+literal|48
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|274
+block|,
+literal|48
+block|,
+literal|64
+block|}
+block|,
+comment|// und_Copt -> cop_Copt_EG
+block|{
+literal|0
+block|,
+literal|49
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|264
+block|,
+literal|49
+block|,
+literal|56
+block|}
+block|,
+comment|// und_Cprt -> grc_Cprt_CY
 block|{
 literal|0
 block|,
@@ -5189,6 +5478,23 @@ comment|// und_ES -> es_Latn_ES
 block|{
 literal|0
 block|,
+literal|50
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|263
+block|,
+literal|50
+block|,
+literal|64
+block|}
+block|,
+comment|// und_Egyp -> egy_Egyp_EG
+block|{
+literal|0
+block|,
 literal|14
 block|,
 literal|0
@@ -5461,6 +5767,40 @@ comment|// und_Geor -> ka_Geor_GE
 block|{
 literal|0
 block|,
+literal|52
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|219
+block|,
+literal|52
+block|,
+literal|33
+block|}
+block|,
+comment|// und_Glag -> cu_Glag_BG
+block|{
+literal|0
+block|,
+literal|53
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|279
+block|,
+literal|53
+block|,
+literal|222
+block|}
+block|,
+comment|// und_Goth -> got_Goth_UA
+block|{
+literal|0
+block|,
 literal|16
 block|,
 literal|0
@@ -5594,6 +5934,57 @@ literal|98
 block|}
 block|,
 comment|// und_HU -> hu_Latn_HU
+block|{
+literal|0
+block|,
+literal|55
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|66
+block|,
+literal|55
+block|,
+literal|114
+block|}
+block|,
+comment|// und_Hang -> ko_Hang_KR
+block|{
+literal|0
+block|,
+literal|54
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|25
+block|,
+literal|5
+block|,
+literal|44
+block|}
+block|,
+comment|// und_Hani -> zh_Hans_CN
+block|{
+literal|0
+block|,
+literal|56
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|280
+block|,
+literal|56
+block|,
+literal|170
+block|}
+block|,
+comment|// und_Hano -> hnn_Hano_PH
 block|{
 literal|0
 block|,
@@ -5784,6 +6175,23 @@ comment|// und_IT -> it_Latn_IT
 block|{
 literal|0
 block|,
+literal|79
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|278
+block|,
+literal|79
+block|,
+literal|106
+block|}
+block|,
+comment|// und_Ital -> ett_Ital_IT
+block|{
+literal|0
+block|,
 literal|0
 block|,
 literal|109
@@ -5815,6 +6223,23 @@ literal|108
 block|}
 block|,
 comment|// und_JP -> ja_Jpan_JP
+block|{
+literal|0
+block|,
+literal|60
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|60
+block|,
+literal|60
+block|,
+literal|101
+block|}
+block|,
+comment|// und_Java -> jv_Java_ID
 block|{
 literal|0
 block|,
@@ -5954,6 +6379,57 @@ comment|// und_KZ -> ru_Cyrl_KZ
 block|{
 literal|0
 block|,
+literal|63
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|277
+block|,
+literal|63
+block|,
+literal|147
+block|}
+block|,
+comment|// und_Kali -> eky_Kali_MM
+block|{
+literal|0
+block|,
+literal|62
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|59
+block|,
+literal|62
+block|,
+literal|108
+block|}
+block|,
+comment|// und_Kana -> ja_Kana_JP
+block|{
+literal|0
+block|,
+literal|64
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|300
+block|,
+literal|64
+block|,
+literal|163
+block|}
+block|,
+comment|// und_Khar -> pra_Khar_PK
+block|{
+literal|0
+block|,
 literal|20
 block|,
 literal|0
@@ -6002,6 +6478,23 @@ literal|114
 block|}
 block|,
 comment|// und_Kore -> ko_Kore_KR
+block|{
+literal|0
+block|,
+literal|61
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|17
+block|,
+literal|61
+block|,
+literal|100
+block|}
+block|,
+comment|// und_Kthi -> bh_Kthi_IN
 block|{
 literal|0
 block|,
@@ -6155,6 +6648,23 @@ literal|122
 block|}
 block|,
 comment|// und_LY -> ar_Arab_LY
+block|{
+literal|0
+block|,
+literal|65
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|292
+block|,
+literal|65
+block|,
+literal|211
+block|}
+block|,
+comment|// und_Lana -> nod_Lana_TH
 block|{
 literal|0
 block|,
@@ -6342,6 +6852,108 @@ literal|216
 block|}
 block|,
 comment|// und_Latn_TN -> fr_Latn_TN
+block|{
+literal|0
+block|,
+literal|66
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|283
+block|,
+literal|66
+block|,
+literal|100
+block|}
+block|,
+comment|// und_Lepc -> lep_Lepc_IN
+block|{
+literal|0
+block|,
+literal|67
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|284
+block|,
+literal|67
+block|,
+literal|100
+block|}
+block|,
+comment|// und_Limb -> lif_Limb_IN
+block|{
+literal|0
+block|,
+literal|68
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|264
+block|,
+literal|68
+block|,
+literal|85
+block|}
+block|,
+comment|// und_Linb -> grc_Linb_GR
+block|{
+literal|0
+block|,
+literal|51
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|285
+block|,
+literal|51
+block|,
+literal|44
+block|}
+block|,
+comment|// und_Lisu -> lis_Lisu_CN
+block|{
+literal|0
+block|,
+literal|69
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|287
+block|,
+literal|69
+block|,
+literal|217
+block|}
+block|,
+comment|// und_Lyci -> xlc_Lyci_TR
+block|{
+literal|0
+block|,
+literal|70
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|288
+block|,
+literal|70
+block|,
+literal|217
+block|}
+block|,
+comment|// und_Lydi -> xld_Lydi_TR
 block|{
 literal|0
 block|,
@@ -6668,6 +7280,57 @@ comment|// und_MZ -> pt_Latn_MZ
 block|{
 literal|0
 block|,
+literal|71
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|273
+block|,
+literal|71
+block|,
+literal|102
+block|}
+block|,
+comment|// und_Mand -> myz_Mand_IR
+block|{
+literal|0
+block|,
+literal|74
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|291
+block|,
+literal|74
+block|,
+literal|201
+block|}
+block|,
+comment|// und_Merc -> xmr_Merc_SD
+block|{
+literal|0
+block|,
+literal|73
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|291
+block|,
+literal|73
+block|,
+literal|201
+block|}
+block|,
+comment|// und_Mero -> xmr_Mero_SD
+block|{
+literal|0
+block|,
 literal|24
 block|,
 literal|0
@@ -6699,6 +7362,23 @@ literal|44
 block|}
 block|,
 comment|// und_Mong -> mn_Mong_CN
+block|{
+literal|0
+block|,
+literal|72
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|290
+block|,
+literal|72
+block|,
+literal|100
+block|}
+block|,
+comment|// und_Mtei -> mni_Mtei_IN
 block|{
 literal|0
 block|,
@@ -6838,6 +7518,23 @@ comment|// und_NP -> ne_Deva_NP
 block|{
 literal|0
 block|,
+literal|75
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|289
+block|,
+literal|75
+block|,
+literal|91
+block|}
+block|,
+comment|// und_Nkoo -> man_Nkoo_GN
+block|{
+literal|0
+block|,
 literal|0
 block|,
 literal|162
@@ -6855,6 +7552,57 @@ comment|// und_OM -> ar_Arab_OM
 block|{
 literal|0
 block|,
+literal|77
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|293
+block|,
+literal|77
+block|,
+literal|104
+block|}
+block|,
+comment|// und_Ogam -> sga_Ogam_IE
+block|{
+literal|0
+block|,
+literal|78
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|304
+block|,
+literal|78
+block|,
+literal|100
+block|}
+block|,
+comment|// und_Olck -> sat_Olck_IN
+block|{
+literal|0
+block|,
+literal|82
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|296
+block|,
+literal|82
+block|,
+literal|143
+block|}
+block|,
+comment|// und_Orkh -> otk_Orkh_MN
+block|{
+literal|0
+block|,
 literal|26
 block|,
 literal|0
@@ -6869,6 +7617,23 @@ literal|100
 block|}
 block|,
 comment|// und_Orya -> or_Orya_IN
+block|{
+literal|0
+block|,
+literal|83
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|110
+block|,
+literal|83
+block|,
+literal|194
+block|}
+block|,
+comment|// und_Osma -> so_Osma_SO
 block|{
 literal|0
 block|,
@@ -7059,6 +7824,74 @@ comment|// und_PY -> gn_Latn_PY
 block|{
 literal|0
 block|,
+literal|58
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|297
+block|,
+literal|58
+block|,
+literal|102
+block|}
+block|,
+comment|// und_Phli -> pal_Phli_IR
+block|{
+literal|0
+block|,
+literal|85
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|299
+block|,
+literal|85
+block|,
+literal|119
+block|}
+block|,
+comment|// und_Phnx -> phn_Phnx_LB
+block|{
+literal|0
+block|,
+literal|86
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|282
+block|,
+literal|86
+block|,
+literal|44
+block|}
+block|,
+comment|// und_Plrd -> hmd_Plrd_CN
+block|{
+literal|0
+block|,
+literal|59
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|298
+block|,
+literal|59
+block|,
+literal|102
+block|}
+block|,
+comment|// und_Prti -> xpr_Prti_IR
+block|{
+literal|0
+block|,
 literal|0
 block|,
 literal|175
@@ -7158,6 +7991,40 @@ literal|179
 block|}
 block|,
 comment|// und_RW -> rw_Latn_RW
+block|{
+literal|0
+block|,
+literal|87
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|301
+block|,
+literal|87
+block|,
+literal|101
+block|}
+block|,
+comment|// und_Rjng -> rej_Rjng_ID
+block|{
+literal|0
+block|,
+literal|88
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|294
+block|,
+literal|88
+block|,
+literal|205
+block|}
+block|,
+comment|// und_Runr -> non_Runr_SE
 block|{
 literal|0
 block|,
@@ -7399,6 +8266,91 @@ comment|// und_SY -> ar_Arab_SY
 block|{
 literal|0
 block|,
+literal|89
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|303
+block|,
+literal|89
+block|,
+literal|105
+block|}
+block|,
+comment|// und_Samr -> smp_Samr_IL
+block|{
+literal|0
+block|,
+literal|81
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|302
+block|,
+literal|81
+block|,
+literal|237
+block|}
+block|,
+comment|// und_Sarb -> xsa_Sarb_YE
+block|{
+literal|0
+block|,
+literal|90
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|305
+block|,
+literal|90
+block|,
+literal|100
+block|}
+block|,
+comment|// und_Saur -> saz_Saur_IN
+block|{
+literal|0
+block|,
+literal|92
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|31
+block|,
+literal|92
+block|,
+literal|224
+block|}
+block|,
+comment|// und_Shaw -> en_Shaw_GB
+block|{
+literal|0
+block|,
+literal|91
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|99
+block|,
+literal|91
+block|,
+literal|100
+block|}
+block|,
+comment|// und_Shrd -> sa_Shrd_IN
+block|{
+literal|0
+block|,
 literal|32
 block|,
 literal|0
@@ -7413,6 +8365,74 @@ literal|198
 block|}
 block|,
 comment|// und_Sinh -> si_Sinh_LK
+block|{
+literal|0
+block|,
+literal|93
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|306
+block|,
+literal|93
+block|,
+literal|100
+block|}
+block|,
+comment|// und_Sora -> srb_Sora_IN
+block|{
+literal|0
+block|,
+literal|95
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|112
+block|,
+literal|95
+block|,
+literal|101
+block|}
+block|,
+comment|// und_Sund -> su_Sund_ID
+block|{
+literal|0
+block|,
+literal|96
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|307
+block|,
+literal|96
+block|,
+literal|18
+block|}
+block|,
+comment|// und_Sylo -> syl_Sylo_BD
+block|{
+literal|0
+block|,
+literal|33
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|151
+block|,
+literal|33
+block|,
+literal|207
+block|}
+block|,
+comment|// und_Syrc -> syr_Syrc_SY
 block|{
 literal|0
 block|,
@@ -7603,6 +8623,74 @@ comment|// und_TZ -> sw_Latn_TZ
 block|{
 literal|0
 block|,
+literal|98
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|308
+block|,
+literal|98
+block|,
+literal|170
+block|}
+block|,
+comment|// und_Tagb -> tbw_Tagb_PH
+block|{
+literal|0
+block|,
+literal|101
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|275
+block|,
+literal|101
+block|,
+literal|100
+block|}
+block|,
+comment|// und_Takr -> doi_Takr_IN
+block|{
+literal|0
+block|,
+literal|99
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|310
+block|,
+literal|99
+block|,
+literal|44
+block|}
+block|,
+comment|// und_Tale -> tdd_Tale_CN
+block|{
+literal|0
+block|,
+literal|76
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|286
+block|,
+literal|76
+block|,
+literal|44
+block|}
+block|,
+comment|// und_Talu -> khb_Talu_CN
+block|{
+literal|0
+block|,
 literal|27
 block|,
 literal|0
@@ -7617,6 +8705,23 @@ literal|100
 block|}
 block|,
 comment|// und_Taml -> ta_Taml_IN
+block|{
+literal|0
+block|,
+literal|100
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|309
+block|,
+literal|100
+block|,
+literal|232
+block|}
+block|,
+comment|// und_Tavt -> blt_Tavt_VN
 block|{
 literal|0
 block|,
@@ -7651,6 +8756,23 @@ literal|216
 block|}
 block|,
 comment|// und_Tfng -> shi_Tfng_TN
+block|{
+literal|0
+block|,
+literal|97
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|166
+block|,
+literal|97
+block|,
+literal|170
+block|}
+block|,
+comment|// und_Tglg -> fil_Tglg_PH
 block|{
 literal|0
 block|,
@@ -7773,6 +8895,23 @@ comment|// und_UZ -> uz_Cyrl_UZ
 block|{
 literal|0
 block|,
+literal|102
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|311
+block|,
+literal|102
+block|,
+literal|207
+block|}
+block|,
+comment|// und_Ugar -> uga_Ugar_SY
+block|{
+literal|0
+block|,
 literal|0
 block|,
 literal|230
@@ -7889,6 +9028,40 @@ literal|183
 block|}
 block|,
 comment|// und_WS -> sm_Latn_WS
+block|{
+literal|0
+block|,
+literal|80
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|295
+block|,
+literal|80
+block|,
+literal|102
+block|}
+block|,
+comment|// und_Xpeo -> peo_Xpeo_IR
+block|{
+literal|0
+block|,
+literal|94
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|262
+block|,
+literal|94
+block|,
+literal|103
+block|}
+block|,
+comment|// und_Xsux -> akk_Xsux_IQ
 block|{
 literal|0
 block|,
@@ -8263,6 +9436,23 @@ literal|97
 block|}
 block|,
 comment|// zh_HK -> zh_Hant_HK
+block|{
+literal|25
+block|,
+literal|54
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|25
+block|,
+literal|5
+block|,
+literal|44
+block|}
+block|,
+comment|// zh_Hani -> zh_Hans_CN
 block|{
 literal|25
 block|,
@@ -8728,7 +9918,7 @@ block|,
 comment|// Tahitian
 literal|0
 block|,
-comment|// Uigur
+comment|// Uighur
 literal|334
 block|,
 comment|// Ukrainian
@@ -9125,6 +10315,159 @@ comment|// Meta
 literal|437
 block|,
 comment|// Ngiemboon
+literal|0
+block|,
+comment|// Aragonese
+literal|0
+block|,
+comment|// Akkadian
+literal|0
+block|,
+comment|// AncientEgyptian
+literal|0
+block|,
+comment|// AncientGreek
+literal|0
+block|,
+comment|// Aramaic
+literal|0
+block|,
+comment|// Balinese
+literal|0
+block|,
+comment|// Bamun
+literal|0
+block|,
+comment|// BatakToba
+literal|0
+block|,
+comment|// Buginese
+literal|0
+block|,
+comment|// Buhid
+literal|0
+block|,
+comment|// Carian
+literal|0
+block|,
+comment|// Chakma
+literal|0
+block|,
+comment|// ClassicalMandaic
+literal|0
+block|,
+comment|// Coptic
+literal|0
+block|,
+comment|// Dogri
+literal|0
+block|,
+comment|// EasternCham
+literal|0
+block|,
+comment|// EasternKayah
+literal|0
+block|,
+comment|// Etruscan
+literal|0
+block|,
+comment|// Gothic
+literal|0
+block|,
+comment|// Hanunoo
+literal|0
+block|,
+comment|// Ingush
+literal|0
+block|,
+comment|// LargeFloweryMiao
+literal|0
+block|,
+comment|// Lepcha
+literal|0
+block|,
+comment|// Limbu
+literal|0
+block|,
+comment|// Lisu
+literal|0
+block|,
+comment|// Lu
+literal|0
+block|,
+comment|// Lycian
+literal|0
+block|,
+comment|// Lydian
+literal|0
+block|,
+comment|// Mandingo
+literal|0
+block|,
+comment|// Manipuri
+literal|0
+block|,
+comment|// Meroitic
+literal|0
+block|,
+comment|// NorthernThai
+literal|0
+block|,
+comment|// OldIrish
+literal|0
+block|,
+comment|// OldNorse
+literal|0
+block|,
+comment|// OldPersian
+literal|0
+block|,
+comment|// OldTurkish
+literal|0
+block|,
+comment|// Pahlavi
+literal|0
+block|,
+comment|// Parthian
+literal|0
+block|,
+comment|// Phoenician
+literal|0
+block|,
+comment|// PrakritLanguage
+literal|0
+block|,
+comment|// Rejang
+literal|0
+block|,
+comment|// Sabaean
+literal|0
+block|,
+comment|// Samaritan
+literal|0
+block|,
+comment|// Santali
+literal|0
+block|,
+comment|// Saurashtra
+literal|0
+block|,
+comment|// Sora
+literal|0
+block|,
+comment|// Sylheti
+literal|0
+block|,
+comment|// Tagbanwa
+literal|0
+block|,
+comment|// TaiDam
+literal|0
+block|,
+comment|// TaiNua
+literal|0
+block|,
+comment|// Ugaritic
 literal|0
 comment|// trailing 0
 block|}
@@ -234198,7 +235541,7 @@ literal|"Tsonga\0"
 literal|"Turkish\0"
 literal|"Turkmen\0"
 literal|"Tahitian\0"
-literal|"Uigur\0"
+literal|"Uighur\0"
 literal|"Ukrainian\0"
 literal|"Urdu\0"
 literal|"Uzbek\0"
@@ -234331,6 +235674,57 @@ literal|"Ngomba\0"
 literal|"Kako\0"
 literal|"Meta\0"
 literal|"Ngiemboon\0"
+literal|"Aragonese\0"
+literal|"Akkadian\0"
+literal|"AncientEgyptian\0"
+literal|"AncientGreek\0"
+literal|"Aramaic\0"
+literal|"Balinese\0"
+literal|"Bamun\0"
+literal|"BatakToba\0"
+literal|"Buginese\0"
+literal|"Buhid\0"
+literal|"Carian\0"
+literal|"Chakma\0"
+literal|"ClassicalMandaic\0"
+literal|"Coptic\0"
+literal|"Dogri\0"
+literal|"EasternCham\0"
+literal|"EasternKayah\0"
+literal|"Etruscan\0"
+literal|"Gothic\0"
+literal|"Hanunoo\0"
+literal|"Ingush\0"
+literal|"LargeFloweryMiao\0"
+literal|"Lepcha\0"
+literal|"Limbu\0"
+literal|"Lisu\0"
+literal|"Lu\0"
+literal|"Lycian\0"
+literal|"Lydian\0"
+literal|"Mandingo\0"
+literal|"Manipuri\0"
+literal|"Meroitic\0"
+literal|"NorthernThai\0"
+literal|"OldIrish\0"
+literal|"OldNorse\0"
+literal|"OldPersian\0"
+literal|"OldTurkish\0"
+literal|"Pahlavi\0"
+literal|"Parthian\0"
+literal|"Phoenician\0"
+literal|"PrakritLanguage\0"
+literal|"Rejang\0"
+literal|"Sabaean\0"
+literal|"Samaritan\0"
+literal|"Santali\0"
+literal|"Saurashtra\0"
+literal|"Sora\0"
+literal|"Sylheti\0"
+literal|"Tagbanwa\0"
+literal|"TaiDam\0"
+literal|"TaiNua\0"
+literal|"Ugaritic\0"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -234728,403 +236122,556 @@ block|,
 comment|// Tahitian
 literal|1048
 block|,
-comment|// Uigur
-literal|1054
+comment|// Uighur
+literal|1055
 block|,
 comment|// Ukrainian
-literal|1064
+literal|1065
 block|,
 comment|// Urdu
-literal|1069
+literal|1070
 block|,
 comment|// Uzbek
-literal|1075
+literal|1076
 block|,
 comment|// Vietnamese
-literal|1086
+literal|1087
 block|,
 comment|// Volapuk
-literal|1094
+literal|1095
 block|,
 comment|// Welsh
-literal|1100
+literal|1101
 block|,
 comment|// Wolof
-literal|1106
+literal|1107
 block|,
 comment|// Xhosa
-literal|1112
+literal|1113
 block|,
 comment|// Yiddish
-literal|1120
+literal|1121
 block|,
 comment|// Yoruba
-literal|1127
+literal|1128
 block|,
 comment|// Zhuang
-literal|1134
+literal|1135
 block|,
 comment|// Zulu
-literal|1139
+literal|1140
 block|,
 comment|// NorwegianNynorsk
-literal|1156
+literal|1157
 block|,
 comment|// Bosnian
-literal|1164
+literal|1165
 block|,
 comment|// Divehi
-literal|1171
+literal|1172
 block|,
 comment|// Manx
-literal|1176
+literal|1177
 block|,
 comment|// Cornish
-literal|1184
+literal|1185
 block|,
 comment|// Akan
-literal|1189
+literal|1190
 block|,
 comment|// Konkani
-literal|1197
+literal|1198
 block|,
 comment|// Ga
-literal|1200
+literal|1201
 block|,
 comment|// Igbo
-literal|1205
+literal|1206
 block|,
 comment|// Kamba
-literal|1211
+literal|1212
 block|,
 comment|// Syriac
-literal|1218
+literal|1219
 block|,
 comment|// Blin
-literal|1223
+literal|1224
 block|,
 comment|// Geez
-literal|1228
+literal|1229
 block|,
 comment|// Koro
-literal|1233
+literal|1234
 block|,
 comment|// Sidamo
-literal|1240
+literal|1241
 block|,
 comment|// Atsam
-literal|1246
+literal|1247
 block|,
 comment|// Tigre
-literal|1252
+literal|1253
 block|,
 comment|// Jju
-literal|1256
+literal|1257
 block|,
 comment|// Friulian
-literal|1265
+literal|1266
 block|,
 comment|// Venda
-literal|1271
+literal|1272
 block|,
 comment|// Ewe
-literal|1275
+literal|1276
 block|,
 comment|// Walamo
-literal|1282
+literal|1283
 block|,
 comment|// Hawaiian
-literal|1291
+literal|1292
 block|,
 comment|// Tyap
-literal|1296
+literal|1297
 block|,
 comment|// Nyanja
-literal|1303
+literal|1304
 block|,
 comment|// Filipino
-literal|1312
+literal|1313
 block|,
 comment|// Swiss German
-literal|1325
+literal|1326
 block|,
 comment|// Sichuan Yi
-literal|1336
+literal|1337
 block|,
 comment|// Kpelle
-literal|1343
+literal|1344
 block|,
 comment|// Low German
-literal|1354
+literal|1355
 block|,
 comment|// South Ndebele
-literal|1368
+literal|1369
 block|,
 comment|// Northern Sotho
-literal|1383
+literal|1384
 block|,
 comment|// Northern Sami
-literal|1397
+literal|1398
 block|,
 comment|// Taroko
-literal|1404
+literal|1405
 block|,
 comment|// Gusii
-literal|1410
+literal|1411
 block|,
 comment|// Taita
-literal|1416
+literal|1417
 block|,
 comment|// Fulah
-literal|1422
+literal|1423
 block|,
 comment|// Kikuyu
-literal|1429
+literal|1430
 block|,
 comment|// Samburu
-literal|1437
+literal|1438
 block|,
 comment|// Sena
-literal|1442
+literal|1443
 block|,
 comment|// North Ndebele
-literal|1456
+literal|1457
 block|,
 comment|// Rombo
-literal|1462
+literal|1463
 block|,
 comment|// Tachelhit
-literal|1472
+literal|1473
 block|,
 comment|// Kabyle
-literal|1479
+literal|1480
 block|,
 comment|// Nyankole
-literal|1488
+literal|1489
 block|,
 comment|// Bena
-literal|1493
+literal|1494
 block|,
 comment|// Vunjo
-literal|1499
+literal|1500
 block|,
 comment|// Bambara
-literal|1507
+literal|1508
 block|,
 comment|// Embu
-literal|1512
+literal|1513
 block|,
 comment|// Cherokee
-literal|1521
+literal|1522
 block|,
 comment|// Morisyen
-literal|1530
+literal|1531
 block|,
 comment|// Makonde
-literal|1538
+literal|1539
 block|,
 comment|// Langi
-literal|1544
+literal|1545
 block|,
 comment|// Ganda
-literal|1550
+literal|1551
 block|,
 comment|// Bemba
-literal|1556
+literal|1557
 block|,
 comment|// Kabuverdianu
-literal|1569
+literal|1570
 block|,
 comment|// Meru
-literal|1574
+literal|1575
 block|,
 comment|// Kalenjin
-literal|1583
+literal|1584
 block|,
 comment|// Nama
-literal|1588
+literal|1589
 block|,
 comment|// Machame
-literal|1596
+literal|1597
 block|,
 comment|// Colognian
-literal|1606
+literal|1607
 block|,
 comment|// Masai
-literal|1612
+literal|1613
 block|,
 comment|// Soga
-literal|1617
+literal|1618
 block|,
 comment|// Luyia
-literal|1623
+literal|1624
 block|,
 comment|// Asu
-literal|1627
+literal|1628
 block|,
 comment|// Teso
-literal|1632
+literal|1633
 block|,
 comment|// Saho
-literal|1637
+literal|1638
 block|,
 comment|// Koyra Chiini
-literal|1650
+literal|1651
 block|,
 comment|// Rwa
-literal|1654
+literal|1655
 block|,
 comment|// Luo
-literal|1658
+literal|1659
 block|,
 comment|// Chiga
-literal|1664
+literal|1665
 block|,
 comment|// Central Morocco Tamazight
-literal|1690
+literal|1691
 block|,
 comment|// Koyraboro Senni
-literal|1706
+literal|1707
 block|,
 comment|// Shambala
-literal|1715
+literal|1716
 block|,
 comment|// Bodo
-literal|1720
+literal|1721
 block|,
 comment|// Avaric
-literal|1727
+literal|1728
 block|,
 comment|// Chamorro
-literal|1736
+literal|1737
 block|,
 comment|// Chechen
-literal|1744
+literal|1745
 block|,
 comment|// Church
-literal|1751
+literal|1752
 block|,
 comment|// Chuvash
-literal|1759
+literal|1760
 block|,
 comment|// Cree
-literal|1764
+literal|1765
 block|,
 comment|// Haitian
-literal|1772
+literal|1773
 block|,
 comment|// Herero
-literal|1779
+literal|1780
 block|,
 comment|// Hiri Motu
-literal|1789
+literal|1790
 block|,
 comment|// Kanuri
-literal|1796
+literal|1797
 block|,
 comment|// Komi
-literal|1801
+literal|1802
 block|,
 comment|// Kongo
-literal|1807
+literal|1808
 block|,
 comment|// Kwanyama
-literal|1816
+literal|1817
 block|,
 comment|// Limburgish
-literal|1827
+literal|1828
 block|,
 comment|// LubaKatanga
-literal|1839
+literal|1840
 block|,
 comment|// Luxembourgish
-literal|1853
+literal|1854
 block|,
 comment|// Navaho
-literal|1860
+literal|1861
 block|,
 comment|// Ndonga
-literal|1867
+literal|1868
 block|,
 comment|// Ojibwa
-literal|1874
+literal|1875
 block|,
 comment|// Pali
-literal|1879
+literal|1880
 block|,
 comment|// Walloon
-literal|1887
+literal|1888
 block|,
 comment|// Aghem
-literal|1893
+literal|1894
 block|,
 comment|// Basaa
-literal|1899
+literal|1900
 block|,
 comment|// Zarma
-literal|1905
+literal|1906
 block|,
 comment|// Duala
-literal|1911
+literal|1912
 block|,
 comment|// JolaFonyi
-literal|1921
+literal|1922
 block|,
 comment|// Ewondo
-literal|1928
+literal|1929
 block|,
 comment|// Bafia
-literal|1934
+literal|1935
 block|,
 comment|// MakhuwaMeetto
-literal|1948
+literal|1949
 block|,
 comment|// Mundang
-literal|1956
+literal|1957
 block|,
 comment|// Kwasio
-literal|1963
+literal|1964
 block|,
 comment|// Nuer
-literal|1968
+literal|1969
 block|,
 comment|// Sakha
-literal|1974
+literal|1975
 block|,
 comment|// Sangu
-literal|1980
+literal|1981
 block|,
 comment|// Congo Swahili
-literal|1994
+literal|1995
 block|,
 comment|// Tasawaq
-literal|2002
+literal|2003
 block|,
 comment|// Vai
-literal|2006
+literal|2007
 block|,
 comment|// Walser
-literal|2013
+literal|2014
 block|,
 comment|// Yangben
-literal|2021
+literal|2022
 block|,
 comment|// Avestan
-literal|2029
+literal|2030
 block|,
 comment|// Asturian
-literal|2038
+literal|2039
 block|,
 comment|// Ngomba
-literal|2045
+literal|2046
 block|,
 comment|// Kako
-literal|2050
+literal|2051
 block|,
 comment|// Meta
-literal|2055
+literal|2056
 block|,
 comment|// Ngiemboon
+literal|2066
+block|,
+comment|// Aragonese
+literal|2076
+block|,
+comment|// Akkadian
+literal|2085
+block|,
+comment|// AncientEgyptian
+literal|2101
+block|,
+comment|// AncientGreek
+literal|2114
+block|,
+comment|// Aramaic
+literal|2122
+block|,
+comment|// Balinese
+literal|2131
+block|,
+comment|// Bamun
+literal|2137
+block|,
+comment|// BatakToba
+literal|2147
+block|,
+comment|// Buginese
+literal|2156
+block|,
+comment|// Buhid
+literal|2162
+block|,
+comment|// Carian
+literal|2169
+block|,
+comment|// Chakma
+literal|2176
+block|,
+comment|// ClassicalMandaic
+literal|2193
+block|,
+comment|// Coptic
+literal|2200
+block|,
+comment|// Dogri
+literal|2206
+block|,
+comment|// EasternCham
+literal|2218
+block|,
+comment|// EasternKayah
+literal|2231
+block|,
+comment|// Etruscan
+literal|2240
+block|,
+comment|// Gothic
+literal|2247
+block|,
+comment|// Hanunoo
+literal|2255
+block|,
+comment|// Ingush
+literal|2262
+block|,
+comment|// LargeFloweryMiao
+literal|2279
+block|,
+comment|// Lepcha
+literal|2286
+block|,
+comment|// Limbu
+literal|2292
+block|,
+comment|// Lisu
+literal|2297
+block|,
+comment|// Lu
+literal|2300
+block|,
+comment|// Lycian
+literal|2307
+block|,
+comment|// Lydian
+literal|2314
+block|,
+comment|// Mandingo
+literal|2323
+block|,
+comment|// Manipuri
+literal|2332
+block|,
+comment|// Meroitic
+literal|2341
+block|,
+comment|// NorthernThai
+literal|2354
+block|,
+comment|// OldIrish
+literal|2363
+block|,
+comment|// OldNorse
+literal|2372
+block|,
+comment|// OldPersian
+literal|2383
+block|,
+comment|// OldTurkish
+literal|2394
+block|,
+comment|// Pahlavi
+literal|2402
+block|,
+comment|// Parthian
+literal|2411
+block|,
+comment|// Phoenician
+literal|2422
+block|,
+comment|// PrakritLanguage
+literal|2438
+block|,
+comment|// Rejang
+literal|2445
+block|,
+comment|// Sabaean
+literal|2453
+block|,
+comment|// Samaritan
+literal|2463
+block|,
+comment|// Santali
+literal|2471
+block|,
+comment|// Saurashtra
+literal|2482
+block|,
+comment|// Sora
+literal|2487
+block|,
+comment|// Sylheti
+literal|2495
+block|,
+comment|// Tagbanwa
+literal|2504
+block|,
+comment|// TaiDam
+literal|2511
+block|,
+comment|// TaiNua
+literal|2518
+block|,
+comment|// Ugaritic
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -235172,6 +236719,73 @@ literal|"Sinhala\0"
 literal|"Syriac\0"
 literal|"Yi\0"
 literal|"Vai\0"
+literal|"Avestan\0"
+literal|"Balinese\0"
+literal|"Bamum\0"
+literal|"Batak\0"
+literal|"Bopomofo\0"
+literal|"Brahmi\0"
+literal|"Buginese\0"
+literal|"Buhid\0"
+literal|"CanadianAboriginal\0"
+literal|"Carian\0"
+literal|"Chakma\0"
+literal|"Cham\0"
+literal|"Coptic\0"
+literal|"Cypriot\0"
+literal|"Egyptian Hieroglyphs\0"
+literal|"Fraser\0"
+literal|"Glagolitic\0"
+literal|"Gothic\0"
+literal|"Han\0"
+literal|"Hangul\0"
+literal|"Hanunoo\0"
+literal|"Imperial Aramaic\0"
+literal|"Inscriptional Pahlavi\0"
+literal|"Inscriptional Parthian\0"
+literal|"Javanese\0"
+literal|"Kaithi\0"
+literal|"Katakana\0"
+literal|"Kayah Li\0"
+literal|"Kharoshthi\0"
+literal|"Lanna\0"
+literal|"Lepcha\0"
+literal|"Limbu\0"
+literal|"Linear B\0"
+literal|"Lycian\0"
+literal|"Lydian\0"
+literal|"Mandaean\0"
+literal|"Meitei Mayek\0"
+literal|"Meroitic\0"
+literal|"Meroitic Cursive\0"
+literal|"Nko\0"
+literal|"New Tai Lue\0"
+literal|"Ogham\0"
+literal|"Ol Chiki\0"
+literal|"Old Italic\0"
+literal|"Old Persian\0"
+literal|"Old South Arabian\0"
+literal|"Orkhon\0"
+literal|"Osmanya\0"
+literal|"Phags Pa\0"
+literal|"Phoenician\0"
+literal|"Pollard Phonetic\0"
+literal|"Rejang\0"
+literal|"Runic\0"
+literal|"Samaritan\0"
+literal|"Saurashtra\0"
+literal|"Sharada\0"
+literal|"Shavian\0"
+literal|"Sora Sompeng\0"
+literal|"Cuneiform\0"
+literal|"Sundanese\0"
+literal|"Syloti Nagri\0"
+literal|"Tagalog\0"
+literal|"Tagbanwa\0"
+literal|"Tai Le\0"
+literal|"Tai Viet\0"
+literal|"Takri\0"
+literal|"Ugaritic\0"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -235291,6 +236905,207 @@ comment|// Yi
 literal|283
 block|,
 comment|// Vai
+literal|287
+block|,
+comment|// Avestan
+literal|295
+block|,
+comment|// Balinese
+literal|304
+block|,
+comment|// Bamum
+literal|310
+block|,
+comment|// Batak
+literal|316
+block|,
+comment|// Bopomofo
+literal|325
+block|,
+comment|// Brahmi
+literal|332
+block|,
+comment|// Buginese
+literal|341
+block|,
+comment|// Buhid
+literal|347
+block|,
+comment|// CanadianAboriginal
+literal|366
+block|,
+comment|// Carian
+literal|373
+block|,
+comment|// Chakma
+literal|380
+block|,
+comment|// Cham
+literal|385
+block|,
+comment|// Coptic
+literal|392
+block|,
+comment|// Cypriot
+literal|400
+block|,
+comment|// Egyptian Hieroglyphs
+literal|421
+block|,
+comment|// Fraser
+literal|428
+block|,
+comment|// Glagolitic
+literal|439
+block|,
+comment|// Gothic
+literal|446
+block|,
+comment|// Han
+literal|450
+block|,
+comment|// Hangul
+literal|457
+block|,
+comment|// Hanunoo
+literal|465
+block|,
+comment|// Imperial Aramaic
+literal|482
+block|,
+comment|// Inscriptional Pahlavi
+literal|504
+block|,
+comment|// Inscriptional Parthian
+literal|527
+block|,
+comment|// Javanese
+literal|536
+block|,
+comment|// Kaithi
+literal|543
+block|,
+comment|// Katakana
+literal|552
+block|,
+comment|// Kayah Li
+literal|561
+block|,
+comment|// Kharoshthi
+literal|572
+block|,
+comment|// Lanna
+literal|578
+block|,
+comment|// Lepcha
+literal|585
+block|,
+comment|// Limbu
+literal|591
+block|,
+comment|// Linear B
+literal|600
+block|,
+comment|// Lycian
+literal|607
+block|,
+comment|// Lydian
+literal|614
+block|,
+comment|// Mandaean
+literal|623
+block|,
+comment|// Meitei Mayek
+literal|636
+block|,
+comment|// Meroitic
+literal|645
+block|,
+comment|// Meroitic Cursive
+literal|662
+block|,
+comment|// Nko
+literal|666
+block|,
+comment|// New Tai Lue
+literal|678
+block|,
+comment|// Ogham
+literal|684
+block|,
+comment|// Ol Chiki
+literal|693
+block|,
+comment|// Old Italic
+literal|704
+block|,
+comment|// Old Persian
+literal|716
+block|,
+comment|// Old South Arabian
+literal|734
+block|,
+comment|// Orkhon
+literal|741
+block|,
+comment|// Osmanya
+literal|749
+block|,
+comment|// Phags Pa
+literal|758
+block|,
+comment|// Phoenician
+literal|769
+block|,
+comment|// Pollard Phonetic
+literal|786
+block|,
+comment|// Rejang
+literal|793
+block|,
+comment|// Runic
+literal|799
+block|,
+comment|// Samaritan
+literal|809
+block|,
+comment|// Saurashtra
+literal|820
+block|,
+comment|// Sharada
+literal|828
+block|,
+comment|// Shavian
+literal|836
+block|,
+comment|// Sora Sompeng
+literal|849
+block|,
+comment|// Cuneiform
+literal|859
+block|,
+comment|// Sundanese
+literal|869
+block|,
+comment|// Syloti Nagri
+literal|882
+block|,
+comment|// Tagalog
+literal|890
+block|,
+comment|// Tagbanwa
+literal|899
+block|,
+comment|// Tai Le
+literal|906
+block|,
+comment|// Tai Viet
+literal|915
+block|,
+comment|// Takri
+literal|921
+block|,
+comment|// Ugaritic
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -236610,7 +238425,7 @@ comment|// Turkmen
 literal|"ty\0"
 comment|// Tahitian
 literal|"ug\0"
-comment|// Uigur
+comment|// Uighur
 literal|"uk\0"
 comment|// Ukrainian
 literal|"ur\0"
@@ -236875,6 +238690,108 @@ literal|"mgo"
 comment|// Meta
 literal|"nnh"
 comment|// Ngiemboon
+literal|"an\0"
+comment|// Aragonese
+literal|"akk"
+comment|// Akkadian
+literal|"egy"
+comment|// AncientEgyptian
+literal|"grc"
+comment|// AncientGreek
+literal|"arc"
+comment|// Aramaic
+literal|"ban"
+comment|// Balinese
+literal|"bax"
+comment|// Bamun
+literal|"bbc"
+comment|// BatakToba
+literal|"bug"
+comment|// Buginese
+literal|"bku"
+comment|// Buhid
+literal|"xcr"
+comment|// Carian
+literal|"ccp"
+comment|// Chakma
+literal|"myz"
+comment|// ClassicalMandaic
+literal|"cop"
+comment|// Coptic
+literal|"doi"
+comment|// Dogri
+literal|"cjm"
+comment|// EasternCham
+literal|"eky"
+comment|// EasternKayah
+literal|"ett"
+comment|// Etruscan
+literal|"got"
+comment|// Gothic
+literal|"hnn"
+comment|// Hanunoo
+literal|"inh"
+comment|// Ingush
+literal|"hmd"
+comment|// LargeFloweryMiao
+literal|"lep"
+comment|// Lepcha
+literal|"lif"
+comment|// Limbu
+literal|"lis"
+comment|// Lisu
+literal|"khb"
+comment|// Lu
+literal|"xlc"
+comment|// Lycian
+literal|"xld"
+comment|// Lydian
+literal|"man"
+comment|// Mandingo
+literal|"mni"
+comment|// Manipuri
+literal|"xmr"
+comment|// Meroitic
+literal|"nod"
+comment|// NorthernThai
+literal|"sga"
+comment|// OldIrish
+literal|"non"
+comment|// OldNorse
+literal|"peo"
+comment|// OldPersian
+literal|"otk"
+comment|// OldTurkish
+literal|"pal"
+comment|// Pahlavi
+literal|"xpr"
+comment|// Parthian
+literal|"phn"
+comment|// Phoenician
+literal|"pra"
+comment|// PrakritLanguage
+literal|"rej"
+comment|// Rejang
+literal|"xsa"
+comment|// Sabaean
+literal|"smp"
+comment|// Samaritan
+literal|"sat"
+comment|// Santali
+literal|"saz"
+comment|// Saurashtra
+literal|"srb"
+comment|// Sora
+literal|"syl"
+comment|// Sylheti
+literal|"tbw"
+comment|// Tagbanwa
+literal|"blt"
+comment|// TaiDam
+literal|"tdd"
+comment|// TaiNua
+literal|"uga"
+comment|// Ugaritic
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -236952,12 +238869,146 @@ literal|"Tibt"
 comment|// Tibetan
 literal|"Sinh"
 comment|// Sinhala
-literal|"Syri"
+literal|"Syrc"
 comment|// Syriac
 literal|"Yiii"
 comment|// Yi
 literal|"Vaii"
 comment|// Vai
+literal|"Avst"
+comment|// Avestan
+literal|"Bali"
+comment|// Balinese
+literal|"Bamu"
+comment|// Bamum
+literal|"Batk"
+comment|// Batak
+literal|"Bopo"
+comment|// Bopomofo
+literal|"Brah"
+comment|// Brahmi
+literal|"Bugi"
+comment|// Buginese
+literal|"Buhd"
+comment|// Buhid
+literal|"Cans"
+comment|// CanadianAboriginal
+literal|"Cari"
+comment|// Carian
+literal|"Cakm"
+comment|// Chakma
+literal|"Cham"
+comment|// Cham
+literal|"Copt"
+comment|// Coptic
+literal|"Cprt"
+comment|// Cypriot
+literal|"Egyp"
+comment|// Egyptian Hieroglyphs
+literal|"Lisu"
+comment|// Fraser
+literal|"Glag"
+comment|// Glagolitic
+literal|"Goth"
+comment|// Gothic
+literal|"Hani"
+comment|// Han
+literal|"Hang"
+comment|// Hangul
+literal|"Hano"
+comment|// Hanunoo
+literal|"Armi"
+comment|// Imperial Aramaic
+literal|"Phli"
+comment|// Inscriptional Pahlavi
+literal|"Prti"
+comment|// Inscriptional Parthian
+literal|"Java"
+comment|// Javanese
+literal|"Kthi"
+comment|// Kaithi
+literal|"Kana"
+comment|// Katakana
+literal|"Kali"
+comment|// Kayah Li
+literal|"Khar"
+comment|// Kharoshthi
+literal|"Lana"
+comment|// Lanna
+literal|"Lepc"
+comment|// Lepcha
+literal|"Limb"
+comment|// Limbu
+literal|"Linb"
+comment|// Linear B
+literal|"Lyci"
+comment|// Lycian
+literal|"Lydi"
+comment|// Lydian
+literal|"Mand"
+comment|// Mandaean
+literal|"Mtei"
+comment|// Meitei Mayek
+literal|"Mero"
+comment|// Meroitic
+literal|"Merc"
+comment|// Meroitic Cursive
+literal|"Nkoo"
+comment|// Nko
+literal|"Talu"
+comment|// New Tai Lue
+literal|"Ogam"
+comment|// Ogham
+literal|"Olck"
+comment|// Ol Chiki
+literal|"Ital"
+comment|// Old Italic
+literal|"Xpeo"
+comment|// Old Persian
+literal|"Sarb"
+comment|// Old South Arabian
+literal|"Orkh"
+comment|// Orkhon
+literal|"Osma"
+comment|// Osmanya
+literal|"Phag"
+comment|// Phags Pa
+literal|"Phnx"
+comment|// Phoenician
+literal|"Plrd"
+comment|// Pollard Phonetic
+literal|"Rjng"
+comment|// Rejang
+literal|"Runr"
+comment|// Runic
+literal|"Samr"
+comment|// Samaritan
+literal|"Saur"
+comment|// Saurashtra
+literal|"Shrd"
+comment|// Sharada
+literal|"Shaw"
+comment|// Shavian
+literal|"Sora"
+comment|// Sora Sompeng
+literal|"Xsux"
+comment|// Cuneiform
+literal|"Sund"
+comment|// Sundanese
+literal|"Sylo"
+comment|// Syloti Nagri
+literal|"Tglg"
+comment|// Tagalog
+literal|"Tagb"
+comment|// Tagbanwa
+literal|"Tale"
+comment|// Tai Le
+literal|"Tavt"
+comment|// Tai Viet
+literal|"Takr"
+comment|// Takri
+literal|"Ugar"
+comment|// Ugaritic
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt

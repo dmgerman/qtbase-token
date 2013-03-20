@@ -2801,7 +2801,14 @@ name|t
 operator|<<
 literal|"\n\t"
 operator|<<
-literal|"$(LINKER) $(LFLAGS) -o $(DESTDIR_TARGET) "
+literal|"$(LINKER) $(LFLAGS) "
+operator|<<
+name|var
+argument_list|(
+literal|"QMAKE_LINK_O_FLAG"
+argument_list|)
+operator|<<
+literal|"$(DESTDIR_TARGET) "
 operator|<<
 name|objectsLinkLine
 operator|<<

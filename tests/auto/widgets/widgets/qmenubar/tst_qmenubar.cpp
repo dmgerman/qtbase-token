@@ -6266,15 +6266,6 @@ operator|::
 name|task223138_triggered
 parameter_list|()
 block|{
-name|qRegisterMetaType
-argument_list|<
-name|QAction
-operator|*
-argument_list|>
-argument_list|(
-literal|"QAction *"
-argument_list|)
-expr_stmt|;
 comment|//we create a window with submenus and we check that both menubar and menus get the triggered signal
 name|QMainWindow
 name|win

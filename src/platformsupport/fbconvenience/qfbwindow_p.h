@@ -61,6 +61,7 @@ name|void
 name|lower
 argument_list|()
 block|;
+name|virtual
 name|void
 name|setGeometry
 argument_list|(

@@ -29,7 +29,6 @@ directive|include
 file|<QtCore/qmetatype.h>
 end_include
 begin_expr_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QList
 name|template
@@ -537,7 +536,6 @@ name|Q_DECLARE_METATYPE
 argument_list|(
 argument|QTextOption::Tab
 argument_list|)
-name|QT_END_HEADER
 end_expr_stmt
 begin_endif
 endif|#

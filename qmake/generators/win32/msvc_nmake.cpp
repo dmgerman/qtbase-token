@@ -1568,6 +1568,27 @@ name|minor
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|project
+operator|->
+name|isEmpty
+argument_list|(
+literal|"QMAKE_LINK_O_FLAG"
+argument_list|)
+condition|)
+name|project
+operator|->
+name|values
+argument_list|(
+literal|"QMAKE_LINK_O_FLAG"
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"/OUT:"
+argument_list|)
+expr_stmt|;
 comment|// Base class init!
 name|MakefileGenerator
 operator|::
@@ -2697,7 +2718,14 @@ name|t
 operator|<<
 literal|"\n\t"
 operator|<<
-literal|"$(LIBAPP) $(LIBFLAGS) /OUT:$(DESTDIR_TARGET) @<<"
+literal|"$(LIBAPP) $(LIBFLAGS) "
+operator|<<
+name|var
+argument_list|(
+literal|"QMAKE_LINK_O_FLAG"
+argument_list|)
+operator|<<
+literal|"$(DESTDIR_TARGET) @<<"
 operator|<<
 literal|"\n\t  "
 operator|<<
@@ -3277,7 +3305,14 @@ name|extraFlags
 expr_stmt|;
 name|t
 operator|<<
-literal|" /OUT:$(DESTDIR_TARGET) @<<\n"
+literal|" "
+operator|<<
+name|var
+argument_list|(
+literal|"QMAKE_LINK_O_FLAG"
+argument_list|)
+operator|<<
+literal|"$(DESTDIR_TARGET) @<<\n"
 operator|<<
 literal|"$(OBJECTS) $(LIBS)"
 expr_stmt|;

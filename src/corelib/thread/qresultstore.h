@@ -34,7 +34,6 @@ directive|include
 file|<QtCore/qdebug.h>
 end_include
 begin_decl_stmt
-name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 comment|/*     ResultStore stores indexed results. Results can be added and retrieved     either individually batched in a QVector. Retriveing results and checking     which indexes are in the store can be done either by iterating or by random     accees. In addition results kan be removed from the front of the store,     either individually or in batches. */
 ifndef|#
@@ -487,7 +486,7 @@ name|pendingResults
 block|;
 name|int
 name|filteredResults
-block|;      }
+block|;  }
 block|;
 name|template
 operator|<
@@ -863,10 +862,9 @@ end_endif
 begin_comment
 comment|//Q_QDOC
 end_comment
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
-name|QT_END_HEADER
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

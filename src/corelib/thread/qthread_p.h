@@ -676,6 +676,11 @@ name|current
 parameter_list|()
 function_decl|;
 specifier|static
+name|void
+name|clearCurrentThreadData
+parameter_list|()
+function_decl|;
+specifier|static
 name|QThreadData
 modifier|*
 name|get2

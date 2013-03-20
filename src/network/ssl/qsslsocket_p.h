@@ -66,6 +66,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<private/qsslcontext_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/qstringlist.h>
 end_include
 begin_include
@@ -366,6 +371,12 @@ name|QSslError
 operator|>
 name|sslErrors
 block|;
+name|QSharedPointer
+operator|<
+name|QSslContext
+operator|>
+name|sslContextPointer
+block|;
 comment|// if set, this hostname is used for certificate validation instead of the hostname
 comment|// that was used for connecting to.
 name|QString
@@ -373,6 +384,10 @@ name|verificationPeerName
 block|;
 name|bool
 name|allowRootCertOnDemandLoading
+block|;
+specifier|static
+name|bool
+name|s_loadRootCertsOnDemand
 block|;
 specifier|static
 name|bool
@@ -580,6 +595,32 @@ name|QSslSocket
 operator|*
 argument_list|)
 block|;
+comment|// ### The 2 methods below should be made member methods once the QSslContext class is made public
+specifier|static
+name|void
+name|checkSettingSslContext
+argument_list|(
+name|QSslSocket
+operator|*
+argument_list|,
+name|QSharedPointer
+operator|<
+name|QSslContext
+operator|>
+argument_list|)
+block|;
+specifier|static
+name|QSharedPointer
+operator|<
+name|QSslContext
+operator|>
+name|sslContext
+argument_list|(
+name|QSslSocket
+operator|*
+name|socket
+argument_list|)
+block|;
 name|bool
 name|isPaused
 argument_list|()
@@ -651,6 +692,15 @@ literal|0
 block|;
 endif|#
 directive|endif
+specifier|static
+name|QList
+operator|<
+name|QByteArray
+operator|>
+name|unixRootCertDirectories
+argument_list|()
+block|;
+comment|// used also by QSslContext
 name|virtual
 name|qint64
 name|peek
@@ -748,18 +798,6 @@ name|protected
 operator|:
 name|bool
 name|verifyErrorsHaveBeenIgnored
-argument_list|()
-block|;
-specifier|static
-name|bool
-name|s_loadRootCertsOnDemand
-block|;
-specifier|static
-name|QList
-operator|<
-name|QByteArray
-operator|>
-name|unixRootCertDirectories
 argument_list|()
 block|;
 name|bool

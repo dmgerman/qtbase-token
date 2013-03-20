@@ -13,6 +13,11 @@ define|#
 directive|define
 name|QZIPWRITER_H
 end_define
+begin_include
+include|#
+directive|include
+file|<QtCore/qglobal.h>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef

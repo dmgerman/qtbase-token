@@ -116,6 +116,17 @@ return|return
 name|m_type
 return|;
 block|}
+specifier|const
+name|QTransform
+operator|&
+name|transform
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_transform
+return|;
+block|}
 name|QTransform
 name|m_transform
 block|;

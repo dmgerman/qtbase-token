@@ -3470,7 +3470,7 @@ begin_comment
 comment|/*!     \variable QObject::staticMetaObject      This variable stores the meta-object for the class.      A meta-object contains information about a class that inherits     QObject, e.g. class name, superclass name, properties, signals and     slots. Every class that contains the Q_OBJECT macro will also have     a meta-object.      The meta-object information is required by the signal/slot     connection mechanism and the property system. The inherits()     function also makes use of the meta-object.      If you have a pointer to an object, you can use metaObject() to     retrieve the meta-object associated with that object.      Example:      \snippet code/src_corelib_kernel_qobject.cpp 2      \sa metaObject() */
 end_comment
 begin_comment
-comment|/*! \fn T *qobject_cast<T *>(QObject *object)     \relates QObject      Returns the given \a object cast to type T if the object is of type     T (or of a subclass); otherwise returns 0.  If \a object is 0 then      it will also return 0.      The class T must inherit (directly or indirectly) QObject and be     declared with the \l Q_OBJECT macro.      A class is considered to inherit itself.      Example:      \snippet code/src_corelib_kernel_qobject.cpp 3      The qobject_cast() function behaves similarly to the standard C++     \c dynamic_cast(), with the advantages that it doesn't require     RTTI support and it works across dynamic library boundaries.      qobject_cast() can also be used in conjunction with interfaces;     see the \l{tools/plugandpaint}{Plug& Paint} example for details.      \warning If T isn't declared with the Q_OBJECT macro, this     function's return value is undefined.      \sa QObject::inherits() */
+comment|/*! \fn T *qobject_cast<T *>(QObject *object)     \relates QObject      Returns the given \a object cast to type T if the object is of type     T (or of a subclass); otherwise returns 0.  If \a object is 0 then     it will also return 0.      The class T must inherit (directly or indirectly) QObject and be     declared with the \l Q_OBJECT macro.      A class is considered to inherit itself.      Example:      \snippet code/src_corelib_kernel_qobject.cpp 3      The qobject_cast() function behaves similarly to the standard C++     \c dynamic_cast(), with the advantages that it doesn't require     RTTI support and it works across dynamic library boundaries.      qobject_cast() can also be used in conjunction with interfaces;     see the \l{tools/plugandpaint}{Plug& Paint} example for details.      \warning If T isn't declared with the Q_OBJECT macro, this     function's return value is undefined.      \sa QObject::inherits() */
 end_comment
 begin_comment
 comment|/*!     \fn bool QObject::inherits(const char *className) const      Returns true if this object is an instance of a class that     inherits \a className or a QObject subclass that inherits \a     className; otherwise returns false.      A class is considered to inherit itself.      Example:      \snippet code/src_corelib_kernel_qobject.cpp 4      If you need to determine whether an object is an instance of a particular     class for the purpose of casting it, consider using qobject_cast<Type *>(object)     instead.      \sa metaObject(), qobject_cast() */
@@ -5137,7 +5137,7 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_REGEXP
+name|QT_NO_REGULAREXPRESSION
 end_ifndef
 begin_comment
 comment|/*!     \internal */
@@ -5293,7 +5293,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_REGEXP
+comment|// QT_NO_REGULAREXPRESSION
 end_comment
 begin_comment
 comment|/*!     \internal  */
@@ -10425,7 +10425,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal  Disconnect a single signal connection.  If QMetaObject::connect() has been called  multiple times for the same sender, signal_index, receiver and method_index only  one of these connections will be removed.  */
+comment|/*!     \internal  Disconnect a single signal connection.  If QMetaObject::connect() has been called multiple times for the same sender, signal_index, receiver and method_index only one of these connections will be removed.  */
 end_comment
 begin_function
 DECL|function|disconnectOne
@@ -11035,7 +11035,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QMetaObject::connectSlotsByName(QObject *object)      Searches recursively for all child objects of the given \a object, and connects     matching signals from them to slots of \a object that follow the following form:      \snippet code/src_corelib_kernel_qobject.cpp 33      Let's assume our object has a child object of type \c{QPushButton} with     the \l{QObject::objectName}{object name} \c{button1}. The slot to catch the     button's \c{clicked()} signal would be:      \snippet code/src_corelib_kernel_qobject.cpp 34      \sa QObject::setObjectName()  */
+comment|/*!     \fn void QMetaObject::connectSlotsByName(QObject *object)      Searches recursively for all child objects of the given \a object, and connects     matching signals from them to slots of \a object that follow the following form:      \snippet code/src_corelib_kernel_qobject.cpp 33      Let's assume our object has a child object of type \c{QPushButton} with     the \l{QObject::objectName}{object name} \c{button1}. The slot to catch the     button's \c{clicked()} signal would be:      \snippet code/src_corelib_kernel_qobject.cpp 34      If \a object itself has a properly set object name, its own signals are also     connected to its respective slots.      \sa QObject::setObjectName()  */
 end_comment
 begin_function
 DECL|function|connectSlotsByName
@@ -11074,6 +11074,7 @@ specifier|const
 name|QObjectList
 name|list
 init|=
+comment|// list of all objects to look for matching signals including...
 name|o
 operator|->
 name|findChildren
@@ -11085,7 +11086,12 @@ argument_list|(
 name|QString
 argument_list|()
 argument_list|)
+comment|// all children of 'o'...
+operator|<<
+name|o
 decl_stmt|;
+comment|// and the object 'o' itself
+comment|// for each method/slot of o ...
 for|for
 control|(
 name|int
@@ -11104,6 +11110,7 @@ operator|++
 name|i
 control|)
 block|{
+specifier|const
 name|QByteArray
 name|slotSignature
 init|=
@@ -11132,6 +11139,7 @@ argument_list|(
 name|slot
 argument_list|)
 expr_stmt|;
+comment|// ...that starts with "on_", ...
 if|if
 condition|(
 name|slot
@@ -11156,6 +11164,7 @@ operator|!=
 literal|'_'
 condition|)
 continue|continue;
+comment|// ...we check each object in our list, ...
 name|bool
 name|foundIt
 init|=
@@ -11191,8 +11200,9 @@ argument_list|(
 name|j
 argument_list|)
 decl_stmt|;
+specifier|const
 name|QByteArray
-name|objName
+name|coName
 init|=
 name|co
 operator|->
@@ -11202,18 +11212,13 @@ operator|.
 name|toLatin1
 argument_list|()
 decl_stmt|;
-name|int
-name|len
-init|=
-name|objName
-operator|.
-name|length
-argument_list|()
-decl_stmt|;
+comment|// ...discarding those whose objectName is not fitting the pattern "on_<objectName>_...", ...
 if|if
 condition|(
-operator|!
-name|len
+name|coName
+operator|.
+name|isEmpty
+argument_list|()
 operator|||
 name|qstrncmp
 argument_list|(
@@ -11221,17 +11226,23 @@ name|slot
 operator|+
 literal|3
 argument_list|,
-name|objName
+name|coName
 operator|.
-name|data
+name|constData
 argument_list|()
 argument_list|,
-name|len
+name|coName
+operator|.
+name|size
+argument_list|()
 argument_list|)
 operator|||
 name|slot
 index|[
-name|len
+name|coName
+operator|.
+name|size
+argument_list|()
 operator|+
 literal|3
 index|]
@@ -11239,6 +11250,22 @@ operator|!=
 literal|'_'
 condition|)
 continue|continue;
+specifier|const
+name|char
+modifier|*
+name|signal
+init|=
+name|slot
+operator|+
+name|coName
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|4
+decl_stmt|;
+comment|// the 'signal' part of the slot name
+comment|// ...for the presence of a matching signal "on_<objectName>_<signal>".
 specifier|const
 name|QMetaObject
 modifier|*
@@ -11254,11 +11281,7 @@ argument_list|()
 operator|->
 name|signalIndex
 argument_list|(
-name|slot
-operator|+
-name|len
-operator|+
-literal|4
+name|signal
 argument_list|,
 operator|&
 name|smeta
@@ -11271,7 +11294,16 @@ operator|<
 literal|0
 condition|)
 block|{
-comment|// search for compatible signals
+comment|// if no exactly fitting signal (name + complete parameter type list) could be found
+comment|// look for just any signal with the correct name and at least the slot's parameter list.
+comment|// Note: if more than one of thoses signals exist, the one that gets connected is
+comment|// chosen 'at random' (order of declaration in source file)
+name|QList
+argument_list|<
+name|QByteArray
+argument_list|>
+name|compatibleSignals
+decl_stmt|;
 specifier|const
 name|QMetaObject
 modifier|*
@@ -11283,39 +11315,39 @@ name|metaObject
 argument_list|()
 decl_stmt|;
 name|int
-name|slotlen
+name|sigLen
 init|=
 name|qstrlen
 argument_list|(
-name|slot
-operator|+
-name|len
-operator|+
-literal|4
+name|signal
 argument_list|)
 operator|-
 literal|1
 decl_stmt|;
+comment|// ignore the trailing ')'
 for|for
 control|(
 name|int
 name|k
 init|=
-literal|0
-init|;
-name|k
-operator|<
 name|QMetaObjectPrivate
 operator|::
 name|absoluteSignalCount
 argument_list|(
 name|smo
 argument_list|)
+operator|-
+literal|1
+init|;
+name|k
+operator|>=
+literal|0
 condition|;
-operator|++
+operator|--
 name|k
 control|)
 block|{
+specifier|const
 name|QMetaMethod
 name|method
 init|=
@@ -11341,13 +11373,9 @@ operator|.
 name|constData
 argument_list|()
 argument_list|,
-name|slot
-operator|+
-name|len
-operator|+
-literal|4
+name|signal
 argument_list|,
-name|slotlen
+name|sigLen
 argument_list|)
 condition|)
 block|{
@@ -11362,9 +11390,38 @@ name|sigIndex
 operator|=
 name|k
 expr_stmt|;
-break|break;
+name|compatibleSignals
+operator|.
+name|prepend
+argument_list|(
+name|method
+operator|.
+name|methodSignature
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|compatibleSignals
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|1
+condition|)
+name|qWarning
+argument_list|()
+operator|<<
+literal|"QMetaObject::connectSlotsByName: Connecting slot"
+operator|<<
+name|slot
+operator|<<
+literal|"with the first of the following compatible signals:"
+operator|<<
+name|compatibleSignals
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -11373,6 +11430,7 @@ operator|<
 literal|0
 condition|)
 continue|continue;
+comment|// we connect it...
 if|if
 condition|(
 name|Connection
@@ -11398,6 +11456,10 @@ name|foundIt
 operator|=
 literal|true
 expr_stmt|;
+comment|// ...and stop looking for further objects with the same name.
+comment|// Note: the Designer will make sure each object name is unique in the above
+comment|// 'list' but other code may create two child objects with the same name. In
+comment|// this case one is chosen 'at random'.
 break|break;
 block|}
 block|}
@@ -11450,6 +11512,37 @@ name|Cloned
 operator|)
 condition|)
 block|{
+comment|// check if the slot has the following signature: "on_..._...(..."
+name|int
+name|iParen
+init|=
+name|slotSignature
+operator|.
+name|indexOf
+argument_list|(
+literal|'('
+argument_list|)
+decl_stmt|;
+name|int
+name|iLastUnderscore
+init|=
+name|slotSignature
+operator|.
+name|lastIndexOf
+argument_list|(
+literal|'_'
+argument_list|,
+name|iParen
+operator|-
+literal|1
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|iLastUnderscore
+operator|>
+literal|3
+condition|)
 name|qWarning
 argument_list|(
 literal|"QMetaObject::connectSlotsByName: No matching signal for %s"
@@ -14355,10 +14448,10 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QMetaObject::Connection QObject::connect(const QObject *sender, PointerToMemberFunction signal, const QObject *receiver, PointerToMemberFunction method, Qt::ConnectionType type)     \overload connect()     \threadsafe      Creates a connection of the given \a type from the \a signal in     the \a sender object to the \a method in the \a receiver object.     Returns a handle to the connection that can be used to disconnect     it later.      The signal must be a function declared as a signal in the header.     The slot function can be any member function that can be connected     to the signal.     A slot can be connected to a given signal if the signal has at     least as many arguments as the slot, and there is an implicit     conversion between the types of the corresponding arguments in the     signal and the slot.      Example:      \snippet code/src_corelib_kernel_qobject.cpp 44      This example ensures that the label always displays the current     line edit text.      A signal can be connected to many slots and signals. Many signals     can be connected to one slot.      If a signal is connected to several slots, the slots are activated     in the same order as the order the connection was made, when the     signal is emitted      The function returns an handle to a connection if it successfully     connects the signal to the slot. The Connection handle will be invalid     if it cannot create the connection, for example, if QObject is unable     to verify the existence of \a signal (if it was not declared as a signal)     You can check if the QMetaObject::Connection is valid by casting it to a bool.      By default, a signal is emitted for every connection you make;     two signals are emitted for duplicate connections. You can break     all of these connections with a single disconnect() call.     If you pass the Qt::UniqueConnection \a type, the connection will only     be made if it is not a duplicate. If there is already a duplicate     (exact same signal to the exact same slot on the same objects),     the connection will fail and connect will return an invalid QMetaObject::Connection.      The optional \a type parameter describes the type of connection     to establish. In particular, it determines whether a particular     signal is delivered to a slot immediately or queued for delivery     at a later time. If the signal is queued, the parameters must be     of types that are known to Qt's meta-object system, because Qt     needs to copy the arguments to store them in an event behind the     scenes. If you try to use a queued connection and get the error     message      \snippet code/src_corelib_kernel_qobject.cpp 25      make sure to declare the argument type with Q_DECLARE_METATYPE  */
+comment|/*!     \fn QMetaObject::Connection QObject::connect(const QObject *sender, PointerToMemberFunction signal, const QObject *receiver, PointerToMemberFunction method, Qt::ConnectionType type)     \overload connect()     \threadsafe      Creates a connection of the given \a type from the \a signal in     the \a sender object to the \a method in the \a receiver object.     Returns a handle to the connection that can be used to disconnect     it later.      The signal must be a function declared as a signal in the header.     The slot function can be any member function that can be connected     to the signal.     A slot can be connected to a given signal if the signal has at     least as many arguments as the slot, and there is an implicit     conversion between the types of the corresponding arguments in the     signal and the slot.      Example:      \snippet code/src_corelib_kernel_qobject.cpp 44      This example ensures that the label always displays the current     line edit text.      A signal can be connected to many slots and signals. Many signals     can be connected to one slot.      If a signal is connected to several slots, the slots are activated     in the same order as the order the connection was made, when the     signal is emitted      The function returns an handle to a connection if it successfully     connects the signal to the slot. The Connection handle will be invalid     if it cannot create the connection, for example, if QObject is unable     to verify the existence of \a signal (if it was not declared as a signal)     You can check if the QMetaObject::Connection is valid by casting it to a bool.      By default, a signal is emitted for every connection you make;     two signals are emitted for duplicate connections. You can break     all of these connections with a single disconnect() call.     If you pass the Qt::UniqueConnection \a type, the connection will only     be made if it is not a duplicate. If there is already a duplicate     (exact same signal to the exact same slot on the same objects),     the connection will fail and connect will return an invalid QMetaObject::Connection.      The optional \a type parameter describes the type of connection     to establish. In particular, it determines whether a particular     signal is delivered to a slot immediately or queued for delivery     at a later time. If the signal is queued, the parameters must be     of types that are known to Qt's meta-object system, because Qt     needs to copy the arguments to store them in an event behind the     scenes. If you try to use a queued connection and get the error     message      \snippet code/src_corelib_kernel_qobject.cpp 25      make sure to declare the argument type with Q_DECLARE_METATYPE      \note The number of arguments in the signal or slot are limited to 6 if     the compiler does not support C++11 variadic templates.  */
 end_comment
 begin_comment
-comment|/*!     \fn QMetaObject::Connection QObject::connect(const QObject *sender, PointerToMemberFunction signal, Functor functor)      \threadsafe     \overload connect()      Creates a connection from \a signal in     \a sender object to \a functor, and returns a handle to the connection      The signal must be a function declared as a signal in the header.     The slot function can be any function or functor that can be connected     to the signal.     A function can be connected to a given signal if the signal as at     least as many argument as the slot. A functor can be connected to a signal     if they have exactly the same number of arguments. There must exist implicit     conversion between the types of the corresponding arguments in the     signal and the slot.      Example:      \snippet code/src_corelib_kernel_qobject.cpp 45      If your compiler support C++11 lambda expressions, you can use them:      \snippet code/src_corelib_kernel_qobject.cpp 46      The connection will automatically disconnect if the sender is destroyed.  */
+comment|/*!     \fn QMetaObject::Connection QObject::connect(const QObject *sender, PointerToMemberFunction signal, Functor functor)      \threadsafe     \overload connect()      Creates a connection from \a signal in     \a sender object to \a functor, and returns a handle to the connection      The signal must be a function declared as a signal in the header.     The slot function can be any function or functor that can be connected     to the signal.     A function can be connected to a given signal if the signal as at     least as many argument as the slot. A functor can be connected to a signal     if they have exactly the same number of arguments. There must exist implicit     conversion between the types of the corresponding arguments in the     signal and the slot.      Example:      \snippet code/src_corelib_kernel_qobject.cpp 45      If your compiler support C++11 lambda expressions, you can use them:      \snippet code/src_corelib_kernel_qobject.cpp 46      The connection will automatically disconnect if the sender is destroyed.      \note If the compiler does not support C++11 variadic templates, the number     of arguments in the signal or slot are limited to 6, and the functor object     must not have an overloaded or templated operator().  */
 end_comment
 begin_comment
 comment|/**     \internal      Implementation of the template version of connect      \a sender is the sender object     \a signal is a pointer to a pointer to a member signal of the sender     \a receiver is the receiver object, may not be null, will be equal to sender when                 connecting to a static function or a functor     \a slot a pointer only used when using Qt::UniqueConnection     \a type the Qt::ConnctionType passed as argument to connect     \a types an array of integer with the metatype id of the parameter of the signal              to be used with queued connection              must stay valid at least for the whole time of the connection, this function              do not take ownership. typically static data.              If null, then the types will be computed when the signal is emit in a queued              connection from the types from the signature.     \a senderMetaObject is the metaobject used to lookup the signal, the signal must be in                         this metaobject  */

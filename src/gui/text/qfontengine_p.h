@@ -78,27 +78,8 @@ include|#
 directive|include
 file|<private/qfontengineglyphcache_p.h>
 end_include
-begin_struct_decl
-struct_decl|struct
-name|glyph_metrics_t
-struct_decl|;
-end_struct_decl
-begin_typedef
-DECL|typedef|glyph_t
-typedef|typedef
-name|unsigned
-name|int
-name|glyph_t
-typedef|;
-end_typedef
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-DECL|variable|QChar
-name|class
-name|QChar
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|QPainterPath
 name|class
 name|QPainterPath
@@ -125,6 +106,21 @@ name|ch4
 parameter_list|)
 value|(\     (((quint32)(ch1))<< 24) | \     (((quint32)(ch2))<< 16) | \     (((quint32)(ch3))<< 8) | \     ((quint32)(ch4)) \    )
 end_define
+begin_typedef
+DECL|typedef|qt_destroy_func_t
+typedef|typedef
+name|void
+function_decl|(
+modifier|*
+name|qt_destroy_func_t
+function_decl|)
+parameter_list|(
+name|void
+modifier|*
+name|user_data
+parameter_list|)
+function_decl|;
+end_typedef
 begin_decl_stmt
 name|class
 name|Q_GUI_EXPORT
@@ -178,6 +174,8 @@ block|,
 name|Format_A8
 block|,
 name|Format_A32
+block|,
+name|Format_ARGB
 block|}
 block|;      enum
 name|ShaperFlag
@@ -403,7 +401,6 @@ specifier|const
 operator|=
 literal|0
 block|;
-comment|/**      * This is a callback from harfbuzz. The font engine uses the font-system in use to find out the      * advances of each glyph and set it on the layout.      */
 name|virtual
 name|void
 name|recalcAdvances
@@ -526,6 +523,17 @@ block|;
 name|virtual
 name|QImage
 name|alphaRGBMapForGlyph
+argument_list|(
+argument|glyph_t
+argument_list|,
+argument|QFixed subPixelPosition
+argument_list|,
+argument|const QTransform&t
+argument_list|)
+block|;
+name|virtual
+name|QImage
+name|bitmapForGlyph
 argument_list|(
 argument|glyph_t
 argument_list|,
@@ -828,7 +836,7 @@ return|;
 block|}
 name|virtual
 name|bool
-name|supportsTransformations
+name|supportsTransformation
 argument_list|(
 argument|const QTransform&transform
 argument_list|)
@@ -881,36 +889,40 @@ return|return
 literal|0
 return|;
 block|}
-name|HB_Font
+name|void
+operator|*
 name|harfbuzzFont
 argument_list|()
 specifier|const
 block|;
-name|HB_Face
+name|void
+operator|*
 name|harfbuzzFace
 argument_list|()
 specifier|const
 block|;
-name|HB_Face
-name|initializedHarfbuzzFace
-argument_list|()
+name|bool
+name|supportsScript
+argument_list|(
+argument|QChar::Script script
+argument_list|)
 specifier|const
 block|;
 name|virtual
-name|HB_Error
+name|int
 name|getPointInOutline
 argument_list|(
-argument|HB_Glyph glyph
+argument|glyph_t glyph
 argument_list|,
 argument|int flags
 argument_list|,
-argument|hb_uint32 point
+argument|quint32 point
 argument_list|,
-argument|HB_Fixed *xpos
+argument|QFixed *xpos
 argument_list|,
-argument|HB_Fixed *ypos
+argument|QFixed *ypos
 argument_list|,
-argument|hb_uint32 *nPoints
+argument|quint32 *nPoints
 argument_list|)
 block|;
 name|void
@@ -996,13 +1008,28 @@ block|;
 name|QFontDef
 name|fontDef
 block|;
+name|mutable
+name|void
+operator|*
+name|font_
+block|;
+name|mutable
+name|qt_destroy_func_t
+name|font_destroy_func
+block|;
+name|mutable
+name|void
+operator|*
+name|face_
+block|;
+name|mutable
+name|qt_destroy_func_t
+name|face_destroy_func
+block|;
 name|uint
 name|cache_cost
 block|;
 comment|// amount of mem used in kb by the font
-name|int
-name|cache_count
-block|;
 name|uint
 name|fsType
 operator|:
@@ -1010,14 +1037,6 @@ literal|16
 block|;
 name|bool
 name|symbol
-block|;
-name|mutable
-name|HB_FontRec
-name|hbFont
-block|;
-name|mutable
-name|HB_Face
-name|hbFace
 block|;     struct
 name|KernPair
 block|{

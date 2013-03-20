@@ -13,43 +13,72 @@ define|#
 directive|define
 name|QATOMIC_VXWORKS_H
 end_define
-begin_expr_stmt
-name|QT_BEGIN_HEADER
+begin_if
 if|#
 directive|if
 name|defined
 argument_list|(
 name|__ppc
 argument_list|)
+end_if
+begin_include
 include|#
 directive|include
 file|<QtCore/qatomic_power.h>
+end_include
+begin_else
 else|#
 directive|else
+end_else
+begin_comment
 comment|// generic implementation with taskLock()
+end_comment
+begin_include
 include|#
 directive|include
 file|<QtCore/qoldbasicatomic.h>
+end_include
+begin_if
 if|#
 directive|if
 literal|0
+end_if
+begin_comment
 comment|// we don't want to include the system header here for two function prototypes,
+end_comment
+begin_comment
 comment|// because it pulls in a _lot_ of stuff that pollutes the global namespace
+end_comment
+begin_include
 include|#
 directive|include
 file|<vxWorksCommon.h>
+end_include
+begin_include
 include|#
 directive|include
 file|<taskLib.h>
+end_include
+begin_else
 else|#
 directive|else
-specifier|extern
+end_else
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|_WRS_KERNEL
+argument_list|)
+end_if
+begin_extern
+extern|extern
 literal|"C"
 name|int
 name|taskLock
-argument_list|()
-expr_stmt|;
-end_expr_stmt
+parameter_list|()
+function_decl|;
+end_extern
 begin_extern
 extern|extern
 literal|"C"
@@ -58,15 +87,62 @@ name|taskUnlock
 parameter_list|()
 function_decl|;
 end_extern
+begin_else
+else|#
+directive|else
+end_else
+begin_function
+DECL|function|taskLock
+specifier|inline
+name|int
+name|taskLock
+parameter_list|()
+block|{
+return|return
+literal|0
+return|;
+block|}
+end_function
+begin_function
+DECL|function|taskUnlock
+specifier|inline
+name|int
+name|taskUnlock
+parameter_list|()
+block|{
+return|return
+literal|0
+return|;
+block|}
+end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_endif
 endif|#
 directive|endif
 end_endif
 begin_expr_stmt
 name|QT_BEGIN_NAMESPACE
+if|#
+directive|if
+literal|0
+comment|// silence syncqt warnings
+expr|QT_END_NAMESPACE QT_END_HEADER
+pragma|#
+directive|pragma
+name|qt_sync_skip_header_check
+pragma|#
+directive|pragma
+name|qt_sync_stop_processing
+endif|#
+directive|endif
+DECL|macro|Q_ATOMIC_INT_REFERENCE_COUNTING_IS_NOT_NATIVE
 define|#
 directive|define
 name|Q_ATOMIC_INT_REFERENCE_COUNTING_IS_NOT_NATIVE
+DECL|function|isReferenceCountingNative
 specifier|inline
 name|bool
 name|QBasicAtomicInt
@@ -80,6 +156,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|isReferenceCountingWaitFree
 specifier|inline
 name|bool
 name|QBasicAtomicInt
@@ -93,11 +170,13 @@ return|;
 block|}
 end_expr_stmt
 begin_define
+DECL|macro|Q_ATOMIC_INT_TEST_AND_SET_IS_NOT_NATIVE
 define|#
 directive|define
 name|Q_ATOMIC_INT_TEST_AND_SET_IS_NOT_NATIVE
 end_define
 begin_expr_stmt
+DECL|function|isTestAndSetNative
 specifier|inline
 name|bool
 name|QBasicAtomicInt
@@ -111,6 +190,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|isTestAndSetWaitFree
 specifier|inline
 name|bool
 name|QBasicAtomicInt
@@ -124,11 +204,13 @@ return|;
 block|}
 end_expr_stmt
 begin_define
+DECL|macro|Q_ATOMIC_INT_FETCH_AND_STORE_IS_NOT_NATIVE
 define|#
 directive|define
 name|Q_ATOMIC_INT_FETCH_AND_STORE_IS_NOT_NATIVE
 end_define
 begin_expr_stmt
+DECL|function|isFetchAndStoreNative
 specifier|inline
 name|bool
 name|QBasicAtomicInt
@@ -142,6 +224,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|isFetchAndStoreWaitFree
 specifier|inline
 name|bool
 name|QBasicAtomicInt
@@ -155,11 +238,13 @@ return|;
 block|}
 end_expr_stmt
 begin_define
+DECL|macro|Q_ATOMIC_INT_FETCH_AND_ADD_IS_NOT_NATIVE
 define|#
 directive|define
 name|Q_ATOMIC_INT_FETCH_AND_ADD_IS_NOT_NATIVE
 end_define
 begin_expr_stmt
+DECL|function|isFetchAndAddNative
 specifier|inline
 name|bool
 name|QBasicAtomicInt
@@ -173,6 +258,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|isFetchAndAddWaitFree
 specifier|inline
 name|bool
 name|QBasicAtomicInt
@@ -186,6 +272,7 @@ return|;
 block|}
 end_expr_stmt
 begin_define
+DECL|macro|Q_ATOMIC_POINTER_TEST_AND_SET_IS_NOT_NATIVE
 define|#
 directive|define
 name|Q_ATOMIC_POINTER_TEST_AND_SET_IS_NOT_NATIVE
@@ -196,6 +283,7 @@ operator|<
 name|typename
 name|T
 operator|>
+DECL|function|isTestAndSetNative
 name|Q_INLINE_TEMPLATE
 name|bool
 name|QBasicAtomicPointer
@@ -217,6 +305,7 @@ operator|<
 name|typename
 name|T
 operator|>
+DECL|function|isTestAndSetWaitFree
 name|Q_INLINE_TEMPLATE
 name|bool
 name|QBasicAtomicPointer
@@ -233,6 +322,7 @@ return|;
 block|}
 end_expr_stmt
 begin_define
+DECL|macro|Q_ATOMIC_POINTER_FETCH_AND_STORE_IS_NOT_NATIVE
 define|#
 directive|define
 name|Q_ATOMIC_POINTER_FETCH_AND_STORE_IS_NOT_NATIVE
@@ -243,6 +333,7 @@ operator|<
 name|typename
 name|T
 operator|>
+DECL|function|isFetchAndStoreNative
 name|Q_INLINE_TEMPLATE
 name|bool
 name|QBasicAtomicPointer
@@ -264,6 +355,7 @@ operator|<
 name|typename
 name|T
 operator|>
+DECL|function|isFetchAndStoreWaitFree
 name|Q_INLINE_TEMPLATE
 name|bool
 name|QBasicAtomicPointer
@@ -280,6 +372,7 @@ return|;
 block|}
 end_expr_stmt
 begin_define
+DECL|macro|Q_ATOMIC_POINTER_FETCH_AND_ADD_IS_NOT_NATIVE
 define|#
 directive|define
 name|Q_ATOMIC_POINTER_FETCH_AND_ADD_IS_NOT_NATIVE
@@ -290,6 +383,7 @@ operator|<
 name|typename
 name|T
 operator|>
+DECL|function|isFetchAndAddNative
 name|Q_INLINE_TEMPLATE
 name|bool
 name|QBasicAtomicPointer
@@ -311,6 +405,7 @@ operator|<
 name|typename
 name|T
 operator|>
+DECL|function|isFetchAndAddWaitFree
 name|Q_INLINE_TEMPLATE
 name|bool
 name|QBasicAtomicPointer
@@ -330,6 +425,7 @@ begin_comment
 comment|// Reference counting
 end_comment
 begin_expr_stmt
+DECL|function|ref
 specifier|inline
 name|bool
 name|QBasicAtomicInt
@@ -359,6 +455,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|deref
 specifier|inline
 name|bool
 name|QBasicAtomicInt
@@ -391,6 +488,7 @@ begin_comment
 comment|// Test-and-set for integers
 end_comment
 begin_expr_stmt
+DECL|function|testAndSetOrdered
 specifier|inline
 name|bool
 name|QBasicAtomicInt
@@ -434,6 +532,7 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  inline
+DECL|function|testAndSetRelaxed
 name|bool
 name|QBasicAtomicInt
 operator|::
@@ -455,6 +554,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|testAndSetAcquire
 specifier|inline
 name|bool
 name|QBasicAtomicInt
@@ -477,6 +577,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|testAndSetRelease
 specifier|inline
 name|bool
 name|QBasicAtomicInt
@@ -502,6 +603,7 @@ begin_comment
 comment|// Fetch-and-store for integers
 end_comment
 begin_expr_stmt
+DECL|function|fetchAndStoreOrdered
 specifier|inline
 name|int
 name|QBasicAtomicInt
@@ -532,6 +634,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|fetchAndStoreRelaxed
 specifier|inline
 name|int
 name|QBasicAtomicInt
@@ -550,6 +653,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|fetchAndStoreAcquire
 specifier|inline
 name|int
 name|QBasicAtomicInt
@@ -568,6 +672,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|fetchAndStoreRelease
 specifier|inline
 name|int
 name|QBasicAtomicInt
@@ -589,6 +694,7 @@ begin_comment
 comment|// Fetch-and-add for integers
 end_comment
 begin_expr_stmt
+DECL|function|fetchAndAddOrdered
 specifier|inline
 name|int
 name|QBasicAtomicInt
@@ -619,6 +725,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|fetchAndAddRelaxed
 specifier|inline
 name|int
 name|QBasicAtomicInt
@@ -637,6 +744,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|fetchAndAddAcquire
 specifier|inline
 name|int
 name|QBasicAtomicInt
@@ -655,6 +763,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|fetchAndAddRelease
 specifier|inline
 name|int
 name|QBasicAtomicInt
@@ -681,6 +790,7 @@ operator|<
 name|typename
 name|T
 operator|>
+DECL|function|testAndSetOrdered
 name|Q_INLINE_TEMPLATE
 name|bool
 name|QBasicAtomicPointer
@@ -731,6 +841,7 @@ operator|<
 name|typename
 name|T
 operator|>
+DECL|function|testAndSetRelaxed
 name|Q_INLINE_TEMPLATE
 name|bool
 name|QBasicAtomicPointer
@@ -761,6 +872,7 @@ operator|<
 name|typename
 name|T
 operator|>
+DECL|function|testAndSetAcquire
 name|Q_INLINE_TEMPLATE
 name|bool
 name|QBasicAtomicPointer
@@ -791,6 +903,7 @@ operator|<
 name|typename
 name|T
 operator|>
+DECL|function|testAndSetRelease
 name|Q_INLINE_TEMPLATE
 name|bool
 name|QBasicAtomicPointer
@@ -824,6 +937,7 @@ operator|<
 name|typename
 name|T
 operator|>
+DECL|function|fetchAndStoreOrdered
 name|Q_INLINE_TEMPLATE
 name|T
 operator|*
@@ -866,6 +980,7 @@ operator|<
 name|typename
 name|T
 operator|>
+DECL|function|fetchAndStoreRelaxed
 name|Q_INLINE_TEMPLATE
 name|T
 operator|*
@@ -893,6 +1008,7 @@ operator|<
 name|typename
 name|T
 operator|>
+DECL|function|fetchAndStoreAcquire
 name|Q_INLINE_TEMPLATE
 name|T
 operator|*
@@ -920,6 +1036,7 @@ operator|<
 name|typename
 name|T
 operator|>
+DECL|function|fetchAndStoreRelease
 name|Q_INLINE_TEMPLATE
 name|T
 operator|*
@@ -950,6 +1067,7 @@ operator|<
 name|typename
 name|T
 operator|>
+DECL|function|fetchAndAddOrdered
 name|Q_INLINE_TEMPLATE
 name|T
 operator|*
@@ -992,6 +1110,7 @@ operator|<
 name|typename
 name|T
 operator|>
+DECL|function|fetchAndAddRelaxed
 name|Q_INLINE_TEMPLATE
 name|T
 operator|*
@@ -1019,6 +1138,7 @@ operator|<
 name|typename
 name|T
 operator|>
+DECL|function|fetchAndAddAcquire
 name|Q_INLINE_TEMPLATE
 name|T
 operator|*
@@ -1046,6 +1166,7 @@ operator|<
 name|typename
 name|T
 operator|>
+DECL|function|fetchAndAddRelease
 name|Q_INLINE_TEMPLATE
 name|T
 operator|*
@@ -1067,13 +1188,16 @@ argument_list|)
 return|;
 block|}
 end_expr_stmt
-begin_expr_stmt
+begin_macro
 name|QT_END_NAMESPACE
+end_macro
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|// generic implementation with taskLock()
-name|QT_END_HEADER
-end_expr_stmt
+end_comment
 begin_endif
 endif|#
 directive|endif

@@ -200,6 +200,52 @@ begin_comment
 comment|//! [5]
 end_comment
 begin_comment
+comment|//! [16]
+end_comment
+begin_decl_stmt
+name|QPoint
+name|p
+argument_list|(
+literal|3
+argument_list|,
+literal|7
+argument_list|)
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|QPoint
+name|q
+argument_list|(
+operator|-
+literal|1
+argument_list|,
+literal|4
+argument_list|)
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|lengthSquared
+name|int
+name|lengthSquared
+init|=
+name|QPoint
+operator|::
+name|dotProduct
+argument_list|(
+name|p
+argument_list|,
+name|q
+argument_list|)
+decl_stmt|;
+end_decl_stmt
+begin_comment
+DECL|variable|lengthSquared
+comment|// lengthSquared becomes 25
+end_comment
+begin_comment
+comment|//! [16]
+end_comment
+begin_comment
 comment|//! [6]
 end_comment
 begin_decl_stmt
@@ -520,5 +566,51 @@ comment|// p becomes (-1.1, 4.1)
 end_comment
 begin_comment
 comment|//! [15]
+end_comment
+begin_comment
+comment|//! [17]
+end_comment
+begin_decl_stmt
+name|QPointF
+name|p
+argument_list|(
+literal|3.1
+argument_list|,
+literal|7.1
+argument_list|)
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|QPointF
+name|q
+argument_list|(
+operator|-
+literal|1.0
+argument_list|,
+literal|4.1
+argument_list|)
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|lengthSquared
+name|int
+name|lengthSquared
+init|=
+name|QPointF
+operator|::
+name|dotProduct
+argument_list|(
+name|p
+argument_list|,
+name|q
+argument_list|)
+decl_stmt|;
+end_decl_stmt
+begin_comment
+DECL|variable|lengthSquared
+comment|// lengthSquared becomes 26.01
+end_comment
+begin_comment
+comment|//! [17]
 end_comment
 end_unit

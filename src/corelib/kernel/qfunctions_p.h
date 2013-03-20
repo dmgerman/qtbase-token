@@ -135,10 +135,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_expr_stmt
-name|QT_BEGIN_HEADER
-name|QT_END_HEADER
-end_expr_stmt
 begin_endif
 endif|#
 directive|endif

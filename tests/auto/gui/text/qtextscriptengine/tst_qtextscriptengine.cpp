@@ -7121,10 +7121,10 @@ literal|')'
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|HB_Glyph
+name|glyph_t
 name|leftParenthesis
 decl_stmt|;
-name|HB_Glyph
+name|glyph_t
 name|rightParenthesis
 decl_stmt|;
 block|{
