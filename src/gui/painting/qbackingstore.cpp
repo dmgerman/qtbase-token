@@ -132,6 +132,11 @@ if|if
 condition|(
 name|win
 operator|&&
+name|win
+operator|->
+name|isTopLevel
+argument_list|()
+operator|&&
 operator|!
 name|qt_window_private
 argument_list|(
