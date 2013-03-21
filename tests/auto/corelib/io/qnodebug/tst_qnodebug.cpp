@@ -138,6 +138,24 @@ literal|6
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|QString
+name|debugString
+init|=
+name|dt
+operator|.
+name|toString
+argument_list|(
+name|QStringLiteral
+argument_list|(
+literal|"yyyy-MM-dd HH:mm:ss.zzz t"
+argument_list|)
+argument_list|)
+operator|+
+name|QStringLiteral
+argument_list|(
+literal|" Qt::LocalTime"
+argument_list|)
+decl_stmt|;
 name|QTest
 operator|::
 name|ignoreMessage
@@ -155,10 +173,7 @@ argument_list|)
 operator|.
 name|arg
 argument_list|(
-name|dt
-operator|.
-name|toString
-argument_list|()
+name|debugString
 argument_list|)
 argument_list|)
 argument_list|)
