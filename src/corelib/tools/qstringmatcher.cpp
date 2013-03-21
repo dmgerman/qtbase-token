@@ -692,7 +692,13 @@ operator|::
 name|~
 name|QStringMatcher
 parameter_list|()
-block|{ }
+block|{
+name|Q_UNUSED
+argument_list|(
+name|d_ptr
+argument_list|)
+expr_stmt|;
+block|}
 end_destructor
 begin_comment
 comment|/*!     Assigns the \a other string matcher to this string matcher. */

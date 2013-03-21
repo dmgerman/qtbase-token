@@ -21,7 +21,13 @@ name|QAbstractNativeEventFilter
 operator|::
 name|QAbstractNativeEventFilter
 parameter_list|()
-block|{ }
+block|{
+name|Q_UNUSED
+argument_list|(
+name|d
+argument_list|)
+expr_stmt|;
+block|}
 end_function
 begin_comment
 comment|/*!     Destroys the native event filter.      This automatically removes it from the application. */

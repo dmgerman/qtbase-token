@@ -488,7 +488,13 @@ operator|::
 name|~
 name|QByteArrayMatcher
 parameter_list|()
-block|{ }
+block|{
+name|Q_UNUSED
+argument_list|(
+name|d
+argument_list|)
+expr_stmt|;
+block|}
 end_destructor
 begin_comment
 comment|/*!     Assigns the \a other byte array matcher to this byte array matcher. */
