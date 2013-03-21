@@ -5,7 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtWidgets>
+file|<QMainWindow>
+end_include
+begin_include
+include|#
+directive|include
+file|<QApplication>
 end_include
 begin_include
 include|#
