@@ -2297,12 +2297,21 @@ comment|// The end state of the transition is simply the result we would have pa
 comment|// if the style was not animated.
 name|styleOption
 operator|->
+name|styleObject
+operator|=
+literal|0
+expr_stmt|;
+name|styleOption
+operator|->
 name|state
 operator|=
 name|option
 operator|->
 name|state
 expr_stmt|;
+name|proxy
+argument_list|()
+operator|->
 name|drawPrimitive
 argument_list|(
 name|element
