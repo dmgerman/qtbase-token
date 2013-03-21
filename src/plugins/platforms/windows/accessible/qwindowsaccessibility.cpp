@@ -630,6 +630,11 @@ while|while
 condition|(
 name|acc
 operator|&&
+name|acc
+operator|->
+name|isValid
+argument_list|()
+operator|&&
 operator|!
 name|window
 condition|)

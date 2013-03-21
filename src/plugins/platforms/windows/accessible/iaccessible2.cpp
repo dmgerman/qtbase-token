@@ -2739,8 +2739,6 @@ operator|.
 name|topLeft
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
 name|QAccessibleInterface
 modifier|*
 name|parentIface
@@ -2748,6 +2746,15 @@ init|=
 name|accessible
 operator|->
 name|parent
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|parentIface
+operator|&&
+name|parentIface
+operator|->
+name|isValid
 argument_list|()
 condition|)
 name|topLeft
@@ -7542,6 +7549,11 @@ decl_stmt|;
 while|while
 condition|(
 name|acc
+operator|&&
+name|acc
+operator|->
+name|isValid
+argument_list|()
 operator|&&
 operator|!
 name|acc
