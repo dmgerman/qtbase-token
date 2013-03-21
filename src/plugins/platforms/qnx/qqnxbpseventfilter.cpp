@@ -35,6 +35,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QCoreApplication>
+end_include
+begin_include
+include|#
+directive|include
 file|<QAbstractEventDispatcher>
 end_include
 begin_include
@@ -931,6 +936,24 @@ argument_list|)
 expr_stmt|;
 break|break;
 block|}
+case|case
+name|NAVIGATOR_LOW_MEMORY
+case|:
+name|qWarning
+argument_list|()
+operator|<<
+literal|"QGuiApplication based process"
+operator|<<
+name|QCoreApplication
+operator|::
+name|applicationPid
+argument_list|()
+operator|<<
+literal|"received \"NAVIGATOR_LOW_MEMORY\" event"
+expr_stmt|;
+return|return
+literal|false
+return|;
 default|default:
 name|qBpsEventFilterDebug
 argument_list|()
