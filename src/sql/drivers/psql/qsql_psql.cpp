@@ -912,13 +912,13 @@ literal|false
 argument_list|)
 block|{ }
 DECL|function|fieldSerial
-specifier|static
 name|QString
 name|fieldSerial
 parameter_list|(
 name|int
 name|i
 parameter_list|)
+specifier|const
 block|{
 return|return
 name|QLatin1Char
@@ -3227,15 +3227,11 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-name|QSqlResultPrivate
-operator|::
+name|d
+operator|->
 name|positionalToNamedBinding
 argument_list|(
 name|query
-argument_list|,
-name|QPSQLResultPrivate
-operator|::
-name|fieldSerial
 argument_list|)
 argument_list|)
 decl_stmt|;
