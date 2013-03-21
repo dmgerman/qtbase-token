@@ -14,7 +14,7 @@ directive|define
 name|_SLJIT_LIR_H_
 end_define
 begin_comment
-comment|/*    ------------------------------------------------------------------------     Stack-Less JIT compiler for multiple architectures (x86, ARM, PowerPC)    ------------------------------------------------------------------------     Short description     Advantages:       - The execution can be continued from any LIR instruction         In other words, jump into and out of the code is safe       - Both target of (conditional) jump and call instructions         and constants can be dynamically modified during runtime         - although it is not suggested to do it frequently         - very effective to cache an important value once       - A fixed stack space can be allocated for local variables       - The compiler is thread-safe     Disadvantages:       - Limited number of registers (only 6+4 integer registers, max 3+2         temporary, max 3+2 saved and 4 floating point registers)     In practice:       - This approach is very effective for interpreters         - One of the saved registers typically points to a stack interface         - It can jump to any exception handler anytime (even for another           function. It is safe for SLJIT.)         - Fast paths can be modified during runtime reflecting the changes           of the fastest execution path of the dynamic language         - SLJIT supports complex memory addressing modes         - mainly position independent code       - Optimizations (perhaps later)         - Only for basic blocks (when no labels inserted between LIR instructions)      For valgrind users:       - pass --smc-check=all argument to valgrind, since JIT is a "self-modifying code" */
+comment|/*    ------------------------------------------------------------------------     Stack-Less JIT compiler for multiple architectures (x86, ARM, PowerPC)    ------------------------------------------------------------------------     Short description     Advantages:       - The execution can be continued from any LIR instruction. In other         words, it is possible to jump to any label from anywhere, even from         a code fragment, which is compiled later, if both compiled code         shares the same context. See sljit_emit_enter for more details       - Supports self modifying code: target of (conditional) jump and call         instructions and some constant values can be dynamically modified         during runtime         - although it is not suggested to do it frequently         - can be used for inline caching: save an important value once           in the instruction stream         - since this feature limits the optimization possibilities, a           special flag must be passed at compile time when these           instructions are emitted       - A fixed stack space can be allocated for local variables       - The compiler is thread-safe       - The compiler is highly configurable through preprocessor macros.         You can disable unneeded features (multithreading in single         threaded applications), and you can use your own system functions         (including memory allocators). See sljitConfig.h     Disadvantages:       - No automatic register allocation, and temporary results are         not stored on the stack. (hence the name comes)       - Limited number of registers (only 6+4 integer registers, max 3+2         scratch, max 3+2 saved and 6 floating point registers)     In practice:       - This approach is very effective for interpreters         - One of the saved registers typically points to a stack interface         - It can jump to any exception handler anytime (even if it belongs           to another function)         - Hot paths can be modified during runtime reflecting the changes           of the fastest execution path of the dynamic language         - SLJIT supports complex memory addressing modes         - mainly position and context independent code (except some cases)      For valgrind users:       - pass --smc-check=all argument to valgrind, since JIT is a "self-modifying code" */
 end_comment
 begin_if
 if|#
@@ -120,34 +120,34 @@ name|SLJIT_UNUSED
 value|0
 end_define
 begin_comment
-comment|/* Temporary (scratch) registers may not preserve their values across function calls. */
+comment|/* Scratch (temporary) registers whose may not preserve their values    across function calls. */
 end_comment
 begin_define
-DECL|macro|SLJIT_TEMPORARY_REG1
+DECL|macro|SLJIT_SCRATCH_REG1
 define|#
 directive|define
-name|SLJIT_TEMPORARY_REG1
+name|SLJIT_SCRATCH_REG1
 value|1
 end_define
 begin_define
-DECL|macro|SLJIT_TEMPORARY_REG2
+DECL|macro|SLJIT_SCRATCH_REG2
 define|#
 directive|define
-name|SLJIT_TEMPORARY_REG2
+name|SLJIT_SCRATCH_REG2
 value|2
 end_define
 begin_define
-DECL|macro|SLJIT_TEMPORARY_REG3
+DECL|macro|SLJIT_SCRATCH_REG3
 define|#
 directive|define
-name|SLJIT_TEMPORARY_REG3
+name|SLJIT_SCRATCH_REG3
 value|3
 end_define
 begin_comment
-comment|/* Note: Extra Registers cannot be used for memory addressing. */
+comment|/* Note: extra registers cannot be used for memory addressing. */
 end_comment
 begin_comment
-comment|/* Note: on x86-32, these registers are emulated (using stack loads& stores). */
+comment|/* Note: on x86-32, these registers are emulated (using stack    loads& stores). */
 end_comment
 begin_define
 DECL|macro|SLJIT_TEMPORARY_EREG1
@@ -188,10 +188,10 @@ name|SLJIT_SAVED_REG3
 value|8
 end_define
 begin_comment
-comment|/* Note: Extra Registers cannot be used for memory addressing. */
+comment|/* Note: extra registers cannot be used for memory addressing. */
 end_comment
 begin_comment
-comment|/* Note: on x86-32, these registers are emulated (using stack loads& stores). */
+comment|/* Note: on x86-32, these registers are emulated (using stack    loads& stores). */
 end_comment
 begin_define
 DECL|macro|SLJIT_SAVED_EREG1
@@ -208,13 +208,7 @@ name|SLJIT_SAVED_EREG2
 value|10
 end_define
 begin_comment
-comment|/* Read-only register (cannot be the destination of an operation). */
-end_comment
-begin_comment
-comment|/* Note: SLJIT_MEM2( ... , SLJIT_LOCALS_REG) is not supported (x86 limitation). */
-end_comment
-begin_comment
-comment|/* Note: SLJIT_LOCALS_REG is not necessary the real stack pointer. See sljit_emit_enter. */
+comment|/* Read-only register (cannot be the destination of an operation).    Only SLJIT_MEM1(SLJIT_LOCALS_REG) addressing mode is allowed since    several ABIs has certain limitations about the stack layout. However    sljit_get_local_base() can be used to obtain the offset of a value    on the stack. */
 end_comment
 begin_define
 DECL|macro|SLJIT_LOCALS_REG
@@ -255,17 +249,17 @@ DECL|macro|SLJIT_RETURN_REG
 define|#
 directive|define
 name|SLJIT_RETURN_REG
-value|SLJIT_TEMPORARY_REG1
+value|SLJIT_SCRATCH_REG1
 end_define
 begin_comment
-comment|/* x86 prefers specific registers for special purposes. In case of shift    by register it supports only SLJIT_TEMPORARY_REG3 for shift argument    (which is the src2 argument of sljit_emit_op2). If another register is    used, sljit must exchange data between registers which cause a minor    slowdown. Other architectures has no such limitation. */
+comment|/* x86 prefers specific registers for special purposes. In case of shift    by register it supports only SLJIT_SCRATCH_REG3 for shift argument    (which is the src2 argument of sljit_emit_op2). If another register is    used, sljit must exchange data between registers which cause a minor    slowdown. Other architectures has no such limitation. */
 end_comment
 begin_define
 DECL|macro|SLJIT_PREF_SHIFT_REG
 define|#
 directive|define
 name|SLJIT_PREF_SHIFT_REG
-value|SLJIT_TEMPORARY_REG3
+value|SLJIT_SCRATCH_REG3
 end_define
 begin_comment
 comment|/* --------------------------------------------------------------------- */
@@ -280,7 +274,7 @@ begin_comment
 comment|/* Note: SLJIT_UNUSED as destination is not valid for floating point      operations, since they cannot be used for setting flags. */
 end_comment
 begin_comment
-comment|/* Floating point operations are performed on double precision values. */
+comment|/* Floating point operations are performed on double or    single precision values. */
 end_comment
 begin_define
 DECL|macro|SLJIT_FLOAT_REG1
@@ -310,6 +304,20 @@ directive|define
 name|SLJIT_FLOAT_REG4
 value|4
 end_define
+begin_define
+DECL|macro|SLJIT_FLOAT_REG5
+define|#
+directive|define
+name|SLJIT_FLOAT_REG5
+value|5
+end_define
+begin_define
+DECL|macro|SLJIT_FLOAT_REG6
+define|#
+directive|define
+name|SLJIT_FLOAT_REG6
+value|6
+end_define
 begin_comment
 comment|/* --------------------------------------------------------------------- */
 end_comment
@@ -334,6 +342,7 @@ DECL|member|used_size
 name|sljit_uw
 name|used_size
 decl_stmt|;
+comment|/* Must be aligned to sljit_sw. */
 DECL|member|memory
 name|sljit_ub
 name|memory
@@ -383,7 +392,7 @@ name|sljit_uw
 name|addr
 decl_stmt|;
 DECL|member|flags
-name|sljit_w
+name|sljit_sw
 name|flags
 decl_stmt|;
 union|union
@@ -429,7 +438,7 @@ struct|struct
 name|sljit_compiler
 block|{
 DECL|member|error
-name|int
+name|sljit_si
 name|error
 decl_stmt|;
 DECL|member|labels
@@ -481,18 +490,18 @@ modifier|*
 name|abuf
 decl_stmt|;
 comment|/* Used local registers. */
-DECL|member|temporaries
-name|int
-name|temporaries
+DECL|member|scratches
+name|sljit_si
+name|scratches
 decl_stmt|;
 comment|/* Used saved registers. */
 DECL|member|saveds
-name|int
+name|sljit_si
 name|saveds
 decl_stmt|;
 comment|/* Local stack size. */
 DECL|member|local_size
-name|int
+name|sljit_si
 name|local_size
 decl_stmt|;
 comment|/* Code size. */
@@ -514,15 +523,19 @@ operator|&&
 name|SLJIT_CONFIG_X86_32
 operator|)
 DECL|member|args
-name|int
+name|sljit_si
 name|args
 decl_stmt|;
-DECL|member|temporaries_start
-name|int
-name|temporaries_start
+DECL|member|locals_offset
+name|sljit_si
+name|locals_offset
+decl_stmt|;
+DECL|member|scratches_start
+name|sljit_si
+name|scratches_start
 decl_stmt|;
 DECL|member|saveds_start
-name|int
+name|sljit_si
 name|saveds_start
 decl_stmt|;
 endif|#
@@ -536,18 +549,9 @@ operator|&&
 name|SLJIT_CONFIG_X86_64
 operator|)
 DECL|member|mode32
-name|int
+name|sljit_si
 name|mode32
 decl_stmt|;
-ifdef|#
-directive|ifdef
-name|_WIN64
-DECL|member|has_locals
-name|int
-name|has_locals
-decl_stmt|;
-endif|#
-directive|endif
 endif|#
 directive|endif
 if|#
@@ -566,7 +570,7 @@ operator|&&
 name|SLJIT_CONFIG_X86_64
 operator|)
 DECL|member|flags_saved
-name|int
+name|sljit_si
 name|flags_saved
 decl_stmt|;
 endif|#
@@ -627,11 +631,11 @@ name|sljit_uw
 name|shift_imm
 decl_stmt|;
 DECL|member|cache_arg
-name|int
+name|sljit_si
 name|cache_arg
 decl_stmt|;
 DECL|member|cache_argw
-name|sljit_w
+name|sljit_sw
 name|cache_argw
 decl_stmt|;
 endif|#
@@ -645,11 +649,11 @@ operator|&&
 name|SLJIT_CONFIG_ARM_THUMB2
 operator|)
 DECL|member|cache_arg
-name|int
+name|sljit_si
 name|cache_arg
 decl_stmt|;
 DECL|member|cache_argw
-name|sljit_w
+name|sljit_sw
 name|cache_argw
 decl_stmt|;
 endif|#
@@ -669,20 +673,16 @@ name|SLJIT_CONFIG_PPC_64
 operator|&&
 name|SLJIT_CONFIG_PPC_64
 operator|)
-DECL|member|has_locals
-name|int
-name|has_locals
-decl_stmt|;
 DECL|member|imm
-name|sljit_w
+name|sljit_sw
 name|imm
 decl_stmt|;
 DECL|member|cache_arg
-name|int
+name|sljit_si
 name|cache_arg
 decl_stmt|;
 DECL|member|cache_argw
-name|sljit_w
+name|sljit_sw
 name|cache_argw
 decl_stmt|;
 endif|#
@@ -695,20 +695,38 @@ name|SLJIT_CONFIG_MIPS_32
 operator|&&
 name|SLJIT_CONFIG_MIPS_32
 operator|)
-DECL|member|has_locals
-name|int
-name|has_locals
-decl_stmt|;
 DECL|member|delay_slot
-name|int
+name|sljit_si
 name|delay_slot
 decl_stmt|;
 DECL|member|cache_arg
-name|int
+name|sljit_si
 name|cache_arg
 decl_stmt|;
 DECL|member|cache_argw
-name|sljit_w
+name|sljit_sw
+name|cache_argw
+decl_stmt|;
+endif|#
+directive|endif
+if|#
+directive|if
+operator|(
+name|defined
+name|SLJIT_CONFIG_SPARC_32
+operator|&&
+name|SLJIT_CONFIG_SPARC_32
+operator|)
+DECL|member|delay_slot
+name|sljit_si
+name|delay_slot
+decl_stmt|;
+DECL|member|cache_arg
+name|sljit_si
+name|cache_arg
+decl_stmt|;
+DECL|member|cache_argw
+name|sljit_sw
 name|cache_argw
 decl_stmt|;
 endif|#
@@ -732,6 +750,21 @@ if|#
 directive|if
 operator|(
 name|defined
+name|SLJIT_DEBUG
+operator|&&
+name|SLJIT_DEBUG
+operator|)
+comment|/* Local size passed to the functions. */
+DECL|member|logical_local_size
+name|sljit_si
+name|logical_local_size
+decl_stmt|;
+endif|#
+directive|endif
+if|#
+directive|if
+operator|(
+name|defined
 name|SLJIT_VERBOSE
 operator|&&
 name|SLJIT_VERBOSE
@@ -744,7 +777,7 @@ operator|&&
 name|SLJIT_DEBUG
 operator|)
 DECL|member|skip_checks
-name|int
+name|sljit_si
 name|skip_checks
 decl_stmt|;
 endif|#
@@ -776,7 +809,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/* Free everything except the codes. */
+comment|/* Free everything except the compiled machine code. */
 end_comment
 begin_function_decl
 name|SLJIT_API_FUNC_ATTRIBUTE
@@ -790,11 +823,14 @@ name|compiler
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_comment
+comment|/* Returns the current error code. If an error is occured, future sljit    calls which uses the same compiler argument returns early with the same    error code. Thus there is no need for checking the error after every    call, it is enough to do it before the code is compiled. Removing    these checks increases the performance of the compiling process. */
+end_comment
 begin_function
 DECL|function|sljit_get_compiler_error
 specifier|static
 name|SLJIT_INLINE
-name|int
+name|sljit_si
 name|sljit_get_compiler_error
 parameter_list|(
 name|struct
@@ -811,7 +847,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*    Allocate a small amount of memory. The size must be<= 64 bytes on 32 bit,    and<= 128 bytes on 64 bit architectures. The memory area is owned by the compiler,    and freed by sljit_free_compiler. The returned pointer is sizeof(sljit_w) aligned.    Excellent for allocating small blocks during the compiling, and no need to worry    about freeing them. The size is enough to contain at most 16 pointers.    If the size is outside of the range, the function will return with NULL,    but this return value does not indicate that there is no more memory (does    not set the compiler to out-of-memory status). */
+comment|/*    Allocate a small amount of memory. The size must be<= 64 bytes on 32 bit,    and<= 128 bytes on 64 bit architectures. The memory area is owned by the    compiler, and freed by sljit_free_compiler. The returned pointer is    sizeof(sljit_sw) aligned. Excellent for allocating small blocks during    the compiling, and no need to worry about freeing them. The size is    enough to contain at most 16 pointers. If the size is outside of the range,    the function will return with NULL. However, this return value does not    indicate that there is no more memory (does not set the current error code    of the compiler to out-of-memory status). */
 end_comment
 begin_function_decl
 name|SLJIT_API_FUNC_ATTRIBUTE
@@ -824,7 +860,7 @@ name|sljit_compiler
 modifier|*
 name|compiler
 parameter_list|,
-name|int
+name|sljit_si
 name|size
 parameter_list|)
 function_decl|;
@@ -887,7 +923,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/*    After the code generation we can retrieve the allocated executable memory size,    although this area may not be fully filled with instructions depending on some    optimizations. This function is useful only for statistical purposes.     Before a successful code generation, this function returns with 0. */
+comment|/*    After the machine code generation is finished we can retrieve the allocated    executable memory size, although this area may not be fully filled with    instructions depending on some optimizations. This function is useful only    for statistical purposes.     Before a successful code generation, this function returns with 0. */
 end_comment
 begin_function
 DECL|function|sljit_get_generated_code_size
@@ -910,10 +946,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/* Instruction generation. Returns with error code. */
+comment|/* Instruction generation. Returns with any error code. If there is no    error, they return with SLJIT_SUCCESS. */
 end_comment
 begin_comment
-comment|/*    The executable code is basically a function call from the viewpoint of    the C language. The function calls must obey to the ABI (Application    Binary Interface) of the platform, which specify the purpose of machine    registers and stack handling among other things. The sljit_emit_enter    function emits the necessary instructions for setting up a new context    for the executable code and moves function arguments to the saved    registers. The number of arguments are specified in the "args"    parameter and the first argument goes to SLJIT_SAVED_REG1, the second    goes to SLJIT_SAVED_REG2 and so on. The number of temporary and    saved registers are passed in "temporaries" and "saveds" arguments    respectively. Since the saved registers contains the arguments,    "args" must be less or equal than "saveds". The sljit_emit_enter    is also capable of allocating a stack space for local variables. The    "local_size" argument contains the size in bytes of this local area    and its staring address is stored in SLJIT_LOCALS_REG. However    the SLJIT_LOCALS_REG is not necessary the machine stack pointer.    The memory bytes between SLJIT_LOCALS_REG (inclusive) and    SLJIT_LOCALS_REG + local_size (exclusive) can be modified freely    until the function returns. The stack space is uninitialized.     Note: every call of sljit_emit_enter and sljit_set_context overwrites          the previous context. */
+comment|/*    The executable code is basically a function call from the viewpoint of    the C language. The function calls must obey to the ABI (Application    Binary Interface) of the platform, which specify the purpose of machine    registers and stack handling among other things. The sljit_emit_enter    function emits the necessary instructions for setting up a new context    for the executable code and moves function arguments to the saved    registers. The number of arguments are specified in the "args"    parameter and the first argument goes to SLJIT_SAVED_REG1, the second    goes to SLJIT_SAVED_REG2 and so on. The number of scratch and    saved registers are passed in "scratches" and "saveds" arguments    respectively. Since the saved registers contains the arguments,    "args" must be less or equal than "saveds". The sljit_emit_enter    is also capable of allocating a stack space for local variables. The    "local_size" argument contains the size in bytes of this local area    and its staring address is stored in SLJIT_LOCALS_REG. However    the SLJIT_LOCALS_REG is not necessary the machine stack pointer.    The memory bytes between SLJIT_LOCALS_REG (inclusive) and    SLJIT_LOCALS_REG + local_size (exclusive) can be modified freely    until the function returns. The stack space is uninitialized.     Note: every call of sljit_emit_enter and sljit_set_context          overwrites the previous context. */
 end_comment
 begin_define
 DECL|macro|SLJIT_MAX_LOCAL_SIZE
@@ -924,7 +960,7 @@ value|65536
 end_define
 begin_function_decl
 name|SLJIT_API_FUNC_ATTRIBUTE
-name|int
+name|sljit_si
 name|sljit_emit_enter
 parameter_list|(
 name|struct
@@ -932,25 +968,22 @@ name|sljit_compiler
 modifier|*
 name|compiler
 parameter_list|,
-name|int
+name|sljit_si
 name|args
 parameter_list|,
-name|int
-name|temporaries
+name|sljit_si
+name|scratches
 parameter_list|,
-name|int
+name|sljit_si
 name|saveds
 parameter_list|,
-name|int
+name|sljit_si
 name|local_size
 parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/* The machine code has a context (which contains the local stack space size,    number of used registers, etc.) which initialized by sljit_emit_enter. Several    functions (like sljit_emit_return) requres this context to be able to generate    the appropriate code. However, some code fragments (like inline cache) may have    no normal entry point so their context is unknown for the compiler. Using the    function below we can specify thir context.     Note: every call of sljit_emit_enter and sljit_set_context overwrites          the previous context. */
-end_comment
-begin_comment
-comment|/* Note: multiple calls of this function overwrites the previous call. */
+comment|/* The machine code has a context (which contains the local stack space size,    number of used registers, etc.) which initialized by sljit_emit_enter. Several    functions (like sljit_emit_return) requres this context to be able to generate    the appropriate code. However, some code fragments (like inline cache) may have    no normal entry point so their context is unknown for the compiler. Using the    function below we can specify their context.     Note: every call of sljit_emit_enter and sljit_set_context overwrites          the previous context. */
 end_comment
 begin_function_decl
 name|SLJIT_API_FUNC_ATTRIBUTE
@@ -962,26 +995,26 @@ name|sljit_compiler
 modifier|*
 name|compiler
 parameter_list|,
-name|int
+name|sljit_si
 name|args
 parameter_list|,
-name|int
-name|temporaries
+name|sljit_si
+name|scratches
 parameter_list|,
-name|int
+name|sljit_si
 name|saveds
 parameter_list|,
-name|int
+name|sljit_si
 name|local_size
 parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/* Return from machine code.  The op argument can be SLJIT_UNUSED which means the    function does not return with anything or any opcode between SLJIT_MOV and    SLJIT_MOV_SI (see sljit_emit_op1). As for src and srcw they must be 0 if op    is SLJIT_UNUSED, otherwise see below the description about source and    destination arguments. */
+comment|/* Return from machine code.  The op argument can be SLJIT_UNUSED which means the    function does not return with anything or any opcode between SLJIT_MOV and    SLJIT_MOV_P (see sljit_emit_op1). As for src and srcw they must be 0 if op    is SLJIT_UNUSED, otherwise see below the description about source and    destination arguments. */
 end_comment
 begin_function_decl
 name|SLJIT_API_FUNC_ATTRIBUTE
-name|int
+name|sljit_si
 name|sljit_emit_return
 parameter_list|(
 name|struct
@@ -989,22 +1022,22 @@ name|sljit_compiler
 modifier|*
 name|compiler
 parameter_list|,
-name|int
+name|sljit_si
 name|op
 parameter_list|,
-name|int
+name|sljit_si
 name|src
 parameter_list|,
-name|sljit_w
+name|sljit_sw
 name|srcw
 parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/* Really fast calling method for utility functions inside sljit (see SLJIT_FAST_CALL).    All registers and even the stack frame is passed to the callee. The return address is    preserved in dst/dstw by sljit_emit_fast_enter, and sljit_emit_fast_return can    use this as a return value later. */
+comment|/* Fast calling mechanism for utility functions (see SLJIT_FAST_CALL). All registers and    even the stack frame is passed to the callee. The return address is preserved in    dst/dstw by sljit_emit_fast_enter (the type of the value stored by this function    is sljit_p), and sljit_emit_fast_return can use this as a return value later. */
 end_comment
 begin_comment
-comment|/* Note: only for sljit specific, non ABI compilant calls. Fast, since only a few machine instructions    are needed. Excellent for small uility functions, where saving registers and setting up    a new stack frame would cost too much performance. However, it is still possible to return    to the address of the caller (or anywhere else). */
+comment|/* Note: only for sljit specific, non ABI compilant calls. Fast, since only a few machine    instructions are needed. Excellent for small uility functions, where saving registers    and setting up a new stack frame would cost too much performance. However, it is still    possible to return to the address of the caller (or anywhere else). */
 end_comment
 begin_comment
 comment|/* Note: flags are not changed (unlike sljit_emit_enter / sljit_emit_return). */
@@ -1014,7 +1047,7 @@ comment|/* Note: although sljit_emit_fast_return could be replaced by an ijump, 
 end_comment
 begin_function_decl
 name|SLJIT_API_FUNC_ATTRIBUTE
-name|int
+name|sljit_si
 name|sljit_emit_fast_enter
 parameter_list|(
 name|struct
@@ -1022,29 +1055,17 @@ name|sljit_compiler
 modifier|*
 name|compiler
 parameter_list|,
-name|int
+name|sljit_si
 name|dst
 parameter_list|,
-name|sljit_w
+name|sljit_sw
 name|dstw
-parameter_list|,
-name|int
-name|args
-parameter_list|,
-name|int
-name|temporaries
-parameter_list|,
-name|int
-name|saveds
-parameter_list|,
-name|int
-name|local_size
 parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
 name|SLJIT_API_FUNC_ATTRIBUTE
-name|int
+name|sljit_si
 name|sljit_emit_fast_return
 parameter_list|(
 name|struct
@@ -1052,19 +1073,19 @@ name|sljit_compiler
 modifier|*
 name|compiler
 parameter_list|,
-name|int
+name|sljit_si
 name|src
 parameter_list|,
-name|sljit_w
+name|sljit_sw
 name|srcw
 parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/*    Source and destination values for arithmetical instructions     imm              - a simple immediate value (cannot be used as a destination)     reg              - any of the registers (immediate argument must be 0)     [imm]            - absolute immediate memory address     [reg+imm]        - indirect memory address     [reg+(reg<<imm)] - indirect indexed memory address (shift must be between 0 and 3)                        useful for (byte, half, int, sljit_w) array access                        (fully supported by both x86 and ARM architectures, and cheap operation on others) */
+comment|/*    Source and destination values for arithmetical instructions     imm              - a simple immediate value (cannot be used as a destination)     reg              - any of the registers (immediate argument must be 0)     [imm]            - absolute immediate memory address     [reg+imm]        - indirect memory address     [reg+(reg<<imm)] - indirect indexed memory address (shift must be between 0 and 3)                        useful for (byte, half, int, sljit_sw) array access                        (fully supported by both x86 and ARM architectures, and cheap operation on others) */
 end_comment
 begin_comment
-comment|/*    IMPORATNT NOTE: memory access MUST be naturally aligned except                    SLJIT_UNALIGNED macro is defined and its value is 1.       length | alignment    ---------+-----------      byte   | 1 byte (not aligned)      half   | 2 byte (real_address& 0x1 == 0)      int    | 4 byte (real_address& 0x3 == 0)     sljit_w | 4 byte if SLJIT_32BIT_ARCHITECTURE is defined and its value is 1             | 8 byte if SLJIT_64BIT_ARCHITECTURE is defined and its value is 1     Note: different architectures have different addressing limitations          Thus sljit may generate several instructions for other addressing modes    x86:  all addressing modes supported, but write-back is not supported          (requires an extra instruction). On x86-64 only 32 bit signed          integers are supported by the architecture.    arm:  [reg+imm] supported for small immediates (-4095<= imm<= 4095          or -255<= imm<= 255 for loading signed bytes, any halfs or doubles)          [reg+(reg<<imm)] are supported or requires only two instructions          Write back is limited to small immediates on thumb2    ppc:  [reg+imm], -65535<= imm<= 65535. 64 bit moves requires immediates          divisible by 4. [reg+reg] supported, write-back supported          [reg+(reg<<imm)] (imm != 0) is cheap (requires two instructions) */
+comment|/*    IMPORATNT NOTE: memory access MUST be naturally aligned except                    SLJIT_UNALIGNED macro is defined and its value is 1.       length | alignment    ---------+-----------      byte   | 1 byte (any physical_address is accepted)      half   | 2 byte (physical_address& 0x1 == 0)      int    | 4 byte (physical_address& 0x3 == 0)      word   | 4 byte if SLJIT_32BIT_ARCHITECTURE is defined and its value is 1             | 8 byte if SLJIT_64BIT_ARCHITECTURE is defined and its value is 1     pointer | size of sljit_p type (4 byte on 32 bit machines, 4 or 8 byte             | on 64 bit machines)     Note:   Different architectures have different addressing limitations.            A single instruction is enough for the following addressing            modes. Other adrressing modes are emulated by instruction            sequences. This information could help to improve those code            generators which focuses only a few architectures.     x86:    [reg+imm], -2^32+1<= imm<= 2^32-1 (full adress space on x86-32)            [reg+(reg<<imm)] is supported            [imm], -2^32+1<= imm<= 2^32-1 is supported            Write-back is not supported    arm:    [reg+imm], -4095<= imm<= 4095 or -255<= imm<= 255 for signed                 bytes, any halfs or floating point values)            [reg+(reg<<imm)] is supported            Write-back is supported    arm-t2: [reg+imm], -255<= imm<= 4095            [reg+(reg<<imm)] is supported            Write back is supported only for [reg+imm], where -255<= imm<= 255    ppc:    [reg+imm], -65536<= imm<= 65535. 64 bit loads/stores and 32 bit                 signed load on 64 bit requires immediates divisible by 4.                 [reg+imm] is not supported for signed 8 bit values.            [reg+reg] is supported            Write-back is supported except for one instruction: 32 bit signed                 load with [reg+imm] addressing mode on 64 bit.    mips:   [reg+imm], -65536<= imm<= 65535    sparc:  [reg+imm], -4096<= imm<= 4095            [reg+reg] is supported */
 end_comment
 begin_comment
 comment|/* Register output: simply the name of the register.    For destination, you can use SLJIT_UNUSED as well. */
@@ -1114,13 +1135,23 @@ name|SLJIT_IMM
 value|0x200
 end_define
 begin_comment
-comment|/* Set 32 bit operation mode (I) on 64 bit CPUs. The flag is totally ignored on    32 bit CPUs. The arithmetic instruction uses only the lower 32 bit of the    input register(s), and set the flags according to the 32 bit result. If the    destination is a register, the higher 32 bit of the result is undefined.    The addressing modes (SLJIT_MEM1/SLJIT_MEM2 macros) are unaffected by this flag. */
+comment|/* Set 32 bit operation mode (I) on 64 bit CPUs. The flag is totally ignored on    32 bit CPUs. If this flag is set for an arithmetic operation, it uses only the    lower 32 bit of the input register(s), and set the CPU status flags according    to the 32 bit result. The higher 32 bits are undefined for both the input and    output. However, the CPU might not ignore those higher 32 bits, like MIPS, which    expects it to be the sign extension of the lower 32 bit. All 32 bit operations    are undefined, if this condition is not fulfilled. Therefore, when SLJIT_INT_OP    is specified, all register arguments must be the result of other operations with    the same SLJIT_INT_OP flag. In other words, although a register can hold either    a 64 or 32 bit value, these values cannot be mixed. The only exceptions are    SLJIT_IMOV and SLJIT_IMOVU (SLJIT_MOV_SI/SLJIT_MOV_UI/SLJIT_MOVU_SI/SLJIT_MOV_UI    with SLJIT_INT_OP flag) which can convert any source argument to SLJIT_INT_OP    compatible result. This conversion might be unnecessary on some CPUs like x86-64,    since the upper 32 bit is always ignored. In this case SLJIT is clever enough    to not generate any instructions if the source and destination operands are the    same registers. Affects sljit_emit_op0, sljit_emit_op1 and sljit_emit_op2. */
 end_comment
 begin_define
 DECL|macro|SLJIT_INT_OP
 define|#
 directive|define
 name|SLJIT_INT_OP
+value|0x100
+end_define
+begin_comment
+comment|/* Single precision mode (SP). This flag is similar to SLJIT_INT_OP, just    it applies to floating point registers (it is even the same bit). When    this flag is passed, the CPU performs single precision floating point    operations. Similar to SLJIT_INT_OP, all register arguments must be the    result of other floating point operations with this flag. Affects    sljit_emit_fop1, sljit_emit_fop2 and sljit_emit_fcmp. */
+end_comment
+begin_define
+DECL|macro|SLJIT_SINGLE_OP
+define|#
+directive|define
+name|SLJIT_SINGLE_OP
 value|0x100
 end_define
 begin_comment
@@ -1216,7 +1247,7 @@ name|SLJIT_NOP
 value|1
 end_define
 begin_comment
-comment|/* Flags: may destroy flags    Unsigned multiplication of SLJIT_TEMPORARY_REG1 and SLJIT_TEMPORARY_REG2.    Result goes to SLJIT_TEMPORARY_REG2:SLJIT_TEMPORARY_REG1 (high:low) word */
+comment|/* Flags: - (may destroy flags)    Unsigned multiplication of SLJIT_SCRATCH_REG1 and SLJIT_SCRATCH_REG2.    Result goes to SLJIT_SCRATCH_REG2:SLJIT_SCRATCH_REG1 (high:low) word */
 end_comment
 begin_define
 DECL|macro|SLJIT_UMUL
@@ -1226,7 +1257,7 @@ name|SLJIT_UMUL
 value|2
 end_define
 begin_comment
-comment|/* Flags: may destroy flags    Signed multiplication of SLJIT_TEMPORARY_REG1 and SLJIT_TEMPORARY_REG2.    Result goes to SLJIT_TEMPORARY_REG2:SLJIT_TEMPORARY_REG1 (high:low) word */
+comment|/* Flags: - (may destroy flags)    Signed multiplication of SLJIT_SCRATCH_REG1 and SLJIT_SCRATCH_REG2.    Result goes to SLJIT_SCRATCH_REG2:SLJIT_SCRATCH_REG1 (high:low) word */
 end_comment
 begin_define
 DECL|macro|SLJIT_SMUL
@@ -1236,7 +1267,7 @@ name|SLJIT_SMUL
 value|3
 end_define
 begin_comment
-comment|/* Flags: I | may destroy flags    Unsigned divide of the value in SLJIT_TEMPORARY_REG1 by the value in SLJIT_TEMPORARY_REG2.    The result is placed in SLJIT_TEMPORARY_REG1 and the remainder goes to SLJIT_TEMPORARY_REG2.    Note: if SLJIT_TEMPORARY_REG2 contains 0, the behaviour is undefined. */
+comment|/* Flags: I - (may destroy flags)    Unsigned divide of the value in SLJIT_SCRATCH_REG1 by the value in SLJIT_SCRATCH_REG2.    The result is placed in SLJIT_SCRATCH_REG1 and the remainder goes to SLJIT_SCRATCH_REG2.    Note: if SLJIT_SCRATCH_REG2 contains 0, the behaviour is undefined. */
 end_comment
 begin_define
 DECL|macro|SLJIT_UDIV
@@ -1245,8 +1276,15 @@ directive|define
 name|SLJIT_UDIV
 value|4
 end_define
+begin_define
+DECL|macro|SLJIT_IUDIV
+define|#
+directive|define
+name|SLJIT_IUDIV
+value|(SLJIT_UDIV | SLJIT_INT_OP)
+end_define
 begin_comment
-comment|/* Flags: I | may destroy flags    Signed divide of the value in SLJIT_TEMPORARY_REG1 by the value in SLJIT_TEMPORARY_REG2.    The result is placed in SLJIT_TEMPORARY_REG1 and the remainder goes to SLJIT_TEMPORARY_REG2.    Note: if SLJIT_TEMPORARY_REG2 contains 0, the behaviour is undefined. */
+comment|/* Flags: I - (may destroy flags)    Signed divide of the value in SLJIT_SCRATCH_REG1 by the value in SLJIT_SCRATCH_REG2.    The result is placed in SLJIT_SCRATCH_REG1 and the remainder goes to SLJIT_SCRATCH_REG2.    Note: if SLJIT_SCRATCH_REG2 contains 0, the behaviour is undefined. */
 end_comment
 begin_define
 DECL|macro|SLJIT_SDIV
@@ -1255,9 +1293,16 @@ directive|define
 name|SLJIT_SDIV
 value|5
 end_define
+begin_define
+DECL|macro|SLJIT_ISDIV
+define|#
+directive|define
+name|SLJIT_ISDIV
+value|(SLJIT_SDIV | SLJIT_INT_OP)
+end_define
 begin_function_decl
 name|SLJIT_API_FUNC_ATTRIBUTE
-name|int
+name|sljit_si
 name|sljit_emit_op0
 parameter_list|(
 name|struct
@@ -1265,13 +1310,13 @@ name|sljit_compiler
 modifier|*
 name|compiler
 parameter_list|,
-name|int
+name|sljit_si
 name|op
 parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/* Notes for MOV instructions:    U = Mov with update (post form). If source or destination defined as SLJIT_MEM1(r1)        or SLJIT_MEM2(r1, r2), r1 is increased by the sum of r2 and the constant argument    UB = unsigned byte (8 bit)    SB = signed byte (8 bit)    UH = unsgined half (16 bit)    SH = unsgined half (16 bit) */
+comment|/* Notes for MOV instructions:    U = Mov with update (post form). If source or destination defined as SLJIT_MEM1(r1)        or SLJIT_MEM2(r1, r2), r1 is increased by the sum of r2 and the constant argument    UB = unsigned byte (8 bit)    SB = signed byte (8 bit)    UH = unsigned half (16 bit)    SH = signed half (16 bit)    UI = unsigned int (32 bit)    SI = signed int (32 bit)    P  = pointer (sljit_p) size */
 end_comment
 begin_comment
 comment|/* Flags: - (never set any flags) */
@@ -1284,7 +1329,7 @@ name|SLJIT_MOV
 value|6
 end_define
 begin_comment
-comment|/* Flags: - (never set any flags) */
+comment|/* Flags: I - (never set any flags) */
 end_comment
 begin_define
 DECL|macro|SLJIT_MOV_UB
@@ -1293,8 +1338,15 @@ directive|define
 name|SLJIT_MOV_UB
 value|7
 end_define
+begin_define
+DECL|macro|SLJIT_IMOV_UB
+define|#
+directive|define
+name|SLJIT_IMOV_UB
+value|(SLJIT_MOV_UB | SLJIT_INT_OP)
+end_define
 begin_comment
-comment|/* Flags: - (never set any flags) */
+comment|/* Flags: I - (never set any flags) */
 end_comment
 begin_define
 DECL|macro|SLJIT_MOV_SB
@@ -1303,8 +1355,15 @@ directive|define
 name|SLJIT_MOV_SB
 value|8
 end_define
+begin_define
+DECL|macro|SLJIT_IMOV_SB
+define|#
+directive|define
+name|SLJIT_IMOV_SB
+value|(SLJIT_MOV_SB | SLJIT_INT_OP)
+end_define
 begin_comment
-comment|/* Flags: - (never set any flags) */
+comment|/* Flags: I - (never set any flags) */
 end_comment
 begin_define
 DECL|macro|SLJIT_MOV_UH
@@ -1313,8 +1372,15 @@ directive|define
 name|SLJIT_MOV_UH
 value|9
 end_define
+begin_define
+DECL|macro|SLJIT_IMOV_UH
+define|#
+directive|define
+name|SLJIT_IMOV_UH
+value|(SLJIT_MOV_UH | SLJIT_INT_OP)
+end_define
 begin_comment
-comment|/* Flags: - (never set any flags) */
+comment|/* Flags: I - (never set any flags) */
 end_comment
 begin_define
 DECL|macro|SLJIT_MOV_SH
@@ -1323,8 +1389,15 @@ directive|define
 name|SLJIT_MOV_SH
 value|10
 end_define
+begin_define
+DECL|macro|SLJIT_IMOV_SH
+define|#
+directive|define
+name|SLJIT_IMOV_SH
+value|(SLJIT_MOV_SH | SLJIT_INT_OP)
+end_define
 begin_comment
-comment|/* Flags: - (never set any flags) */
+comment|/* Flags: I - (never set any flags)    Note: see SLJIT_INT_OP for further details. */
 end_comment
 begin_define
 DECL|macro|SLJIT_MOV_UI
@@ -1334,7 +1407,10 @@ name|SLJIT_MOV_UI
 value|11
 end_define
 begin_comment
-comment|/* Flags: - (never set any flags) */
+comment|/* No SLJIT_INT_OP form, since it the same as SLJIT_IMOVU. */
+end_comment
+begin_comment
+comment|/* Flags: I - (never set any flags)    Note: see SLJIT_INT_OP for further details. */
 end_comment
 begin_define
 DECL|macro|SLJIT_MOV_SI
@@ -1342,6 +1418,23 @@ define|#
 directive|define
 name|SLJIT_MOV_SI
 value|12
+end_define
+begin_define
+DECL|macro|SLJIT_IMOV
+define|#
+directive|define
+name|SLJIT_IMOV
+value|(SLJIT_MOV_SI | SLJIT_INT_OP)
+end_define
+begin_comment
+comment|/* Flags: - (never set any flags) */
+end_comment
+begin_define
+DECL|macro|SLJIT_MOV_P
+define|#
+directive|define
+name|SLJIT_MOV_P
+value|13
 end_define
 begin_comment
 comment|/* Flags: - (never set any flags) */
@@ -1351,67 +1444,115 @@ DECL|macro|SLJIT_MOVU
 define|#
 directive|define
 name|SLJIT_MOVU
-value|13
+value|14
 end_define
 begin_comment
-comment|/* Flags: - (never set any flags) */
+comment|/* Flags: I - (never set any flags) */
 end_comment
 begin_define
 DECL|macro|SLJIT_MOVU_UB
 define|#
 directive|define
 name|SLJIT_MOVU_UB
-value|14
+value|15
+end_define
+begin_define
+DECL|macro|SLJIT_IMOVU_UB
+define|#
+directive|define
+name|SLJIT_IMOVU_UB
+value|(SLJIT_MOVU_UB | SLJIT_INT_OP)
 end_define
 begin_comment
-comment|/* Flags: - (never set any flags) */
+comment|/* Flags: I - (never set any flags) */
 end_comment
 begin_define
 DECL|macro|SLJIT_MOVU_SB
 define|#
 directive|define
 name|SLJIT_MOVU_SB
-value|15
+value|16
+end_define
+begin_define
+DECL|macro|SLJIT_IMOVU_SB
+define|#
+directive|define
+name|SLJIT_IMOVU_SB
+value|(SLJIT_MOVU_SB | SLJIT_INT_OP)
 end_define
 begin_comment
-comment|/* Flags: - (never set any flags) */
+comment|/* Flags: I - (never set any flags) */
 end_comment
 begin_define
 DECL|macro|SLJIT_MOVU_UH
 define|#
 directive|define
 name|SLJIT_MOVU_UH
-value|16
+value|17
+end_define
+begin_define
+DECL|macro|SLJIT_IMOVU_UH
+define|#
+directive|define
+name|SLJIT_IMOVU_UH
+value|(SLJIT_MOVU_UH | SLJIT_INT_OP)
 end_define
 begin_comment
-comment|/* Flags: - (never set any flags) */
+comment|/* Flags: I - (never set any flags) */
 end_comment
 begin_define
 DECL|macro|SLJIT_MOVU_SH
 define|#
 directive|define
 name|SLJIT_MOVU_SH
-value|17
+value|18
+end_define
+begin_define
+DECL|macro|SLJIT_IMOVU_SH
+define|#
+directive|define
+name|SLJIT_IMOVU_SH
+value|(SLJIT_MOVU_SH | SLJIT_INT_OP)
 end_define
 begin_comment
-comment|/* Flags: - (never set any flags) */
+comment|/* Flags: I - (never set any flags)    Note: see SLJIT_INT_OP for further details. */
 end_comment
 begin_define
 DECL|macro|SLJIT_MOVU_UI
 define|#
 directive|define
 name|SLJIT_MOVU_UI
-value|18
+value|19
 end_define
 begin_comment
-comment|/* Flags: - (never set any flags) */
+comment|/* No SLJIT_INT_OP form, since it the same as SLJIT_IMOVU. */
+end_comment
+begin_comment
+comment|/* Flags: I - (never set any flags)    Note: see SLJIT_INT_OP for further details. */
 end_comment
 begin_define
 DECL|macro|SLJIT_MOVU_SI
 define|#
 directive|define
 name|SLJIT_MOVU_SI
-value|19
+value|20
+end_define
+begin_define
+DECL|macro|SLJIT_IMOVU
+define|#
+directive|define
+name|SLJIT_IMOVU
+value|(SLJIT_MOVU_SI | SLJIT_INT_OP)
+end_define
+begin_comment
+comment|/* Flags: - (never set any flags) */
+end_comment
+begin_define
+DECL|macro|SLJIT_MOVU_P
+define|#
+directive|define
+name|SLJIT_MOVU_P
+value|21
 end_define
 begin_comment
 comment|/* Flags: I | E | K */
@@ -1421,7 +1562,14 @@ DECL|macro|SLJIT_NOT
 define|#
 directive|define
 name|SLJIT_NOT
-value|20
+value|22
+end_define
+begin_define
+DECL|macro|SLJIT_INOT
+define|#
+directive|define
+name|SLJIT_INOT
+value|(SLJIT_NOT | SLJIT_INT_OP)
 end_define
 begin_comment
 comment|/* Flags: I | E | O | K */
@@ -1431,21 +1579,35 @@ DECL|macro|SLJIT_NEG
 define|#
 directive|define
 name|SLJIT_NEG
-value|21
+value|23
+end_define
+begin_define
+DECL|macro|SLJIT_INEG
+define|#
+directive|define
+name|SLJIT_INEG
+value|(SLJIT_NEG | SLJIT_INT_OP)
 end_define
 begin_comment
-comment|/* Count leading zeroes    Flags: I | E | K */
+comment|/* Count leading zeroes    Flags: I | E | K    Important note! Sparc 32 does not support K flag, since    the required popc instruction is introduced only in sparc 64. */
 end_comment
 begin_define
 DECL|macro|SLJIT_CLZ
 define|#
 directive|define
 name|SLJIT_CLZ
-value|22
+value|24
+end_define
+begin_define
+DECL|macro|SLJIT_ICLZ
+define|#
+directive|define
+name|SLJIT_ICLZ
+value|(SLJIT_CLZ | SLJIT_INT_OP)
 end_define
 begin_function_decl
 name|SLJIT_API_FUNC_ATTRIBUTE
-name|int
+name|sljit_si
 name|sljit_emit_op1
 parameter_list|(
 name|struct
@@ -1453,19 +1615,19 @@ name|sljit_compiler
 modifier|*
 name|compiler
 parameter_list|,
-name|int
+name|sljit_si
 name|op
 parameter_list|,
-name|int
+name|sljit_si
 name|dst
 parameter_list|,
-name|sljit_w
+name|sljit_sw
 name|dstw
 parameter_list|,
-name|int
+name|sljit_si
 name|src
 parameter_list|,
-name|sljit_w
+name|sljit_sw
 name|srcw
 parameter_list|)
 function_decl|;
@@ -1478,7 +1640,14 @@ DECL|macro|SLJIT_ADD
 define|#
 directive|define
 name|SLJIT_ADD
-value|23
+value|25
+end_define
+begin_define
+DECL|macro|SLJIT_IADD
+define|#
+directive|define
+name|SLJIT_IADD
+value|(SLJIT_ADD | SLJIT_INT_OP)
 end_define
 begin_comment
 comment|/* Flags: I | C | K */
@@ -1488,7 +1657,14 @@ DECL|macro|SLJIT_ADDC
 define|#
 directive|define
 name|SLJIT_ADDC
-value|24
+value|26
+end_define
+begin_define
+DECL|macro|SLJIT_IADDC
+define|#
+directive|define
+name|SLJIT_IADDC
+value|(SLJIT_ADDC | SLJIT_INT_OP)
 end_define
 begin_comment
 comment|/* Flags: I | E | S | U | O | C | K */
@@ -1498,7 +1674,14 @@ DECL|macro|SLJIT_SUB
 define|#
 directive|define
 name|SLJIT_SUB
-value|25
+value|27
+end_define
+begin_define
+DECL|macro|SLJIT_ISUB
+define|#
+directive|define
+name|SLJIT_ISUB
+value|(SLJIT_SUB | SLJIT_INT_OP)
 end_define
 begin_comment
 comment|/* Flags: I | C | K */
@@ -1508,7 +1691,14 @@ DECL|macro|SLJIT_SUBC
 define|#
 directive|define
 name|SLJIT_SUBC
-value|26
+value|28
+end_define
+begin_define
+DECL|macro|SLJIT_ISUBC
+define|#
+directive|define
+name|SLJIT_ISUBC
+value|(SLJIT_SUBC | SLJIT_INT_OP)
 end_define
 begin_comment
 comment|/* Note: integer mul    Flags: I | O (see SLJIT_C_MUL_*) | K */
@@ -1518,7 +1708,14 @@ DECL|macro|SLJIT_MUL
 define|#
 directive|define
 name|SLJIT_MUL
-value|27
+value|29
+end_define
+begin_define
+DECL|macro|SLJIT_IMUL
+define|#
+directive|define
+name|SLJIT_IMUL
+value|(SLJIT_MUL | SLJIT_INT_OP)
 end_define
 begin_comment
 comment|/* Flags: I | E | K */
@@ -1528,7 +1725,14 @@ DECL|macro|SLJIT_AND
 define|#
 directive|define
 name|SLJIT_AND
-value|28
+value|30
+end_define
+begin_define
+DECL|macro|SLJIT_IAND
+define|#
+directive|define
+name|SLJIT_IAND
+value|(SLJIT_AND | SLJIT_INT_OP)
 end_define
 begin_comment
 comment|/* Flags: I | E | K */
@@ -1538,7 +1742,14 @@ DECL|macro|SLJIT_OR
 define|#
 directive|define
 name|SLJIT_OR
-value|29
+value|31
+end_define
+begin_define
+DECL|macro|SLJIT_IOR
+define|#
+directive|define
+name|SLJIT_IOR
+value|(SLJIT_OR | SLJIT_INT_OP)
 end_define
 begin_comment
 comment|/* Flags: I | E | K */
@@ -1548,7 +1759,14 @@ DECL|macro|SLJIT_XOR
 define|#
 directive|define
 name|SLJIT_XOR
-value|30
+value|32
+end_define
+begin_define
+DECL|macro|SLJIT_IXOR
+define|#
+directive|define
+name|SLJIT_IXOR
+value|(SLJIT_XOR | SLJIT_INT_OP)
 end_define
 begin_comment
 comment|/* Flags: I | E | K    Let bit_length be the length of the shift operation: 32 or 64.    If src2 is immediate, src2w is masked by (bit_length - 1).    Otherwise, if the content of src2 is outside the range from 0    to bit_length - 1, the operation is undefined. */
@@ -1558,7 +1776,14 @@ DECL|macro|SLJIT_SHL
 define|#
 directive|define
 name|SLJIT_SHL
-value|31
+value|33
+end_define
+begin_define
+DECL|macro|SLJIT_ISHL
+define|#
+directive|define
+name|SLJIT_ISHL
+value|(SLJIT_SHL | SLJIT_INT_OP)
 end_define
 begin_comment
 comment|/* Flags: I | E | K    Let bit_length be the length of the shift operation: 32 or 64.    If src2 is immediate, src2w is masked by (bit_length - 1).    Otherwise, if the content of src2 is outside the range from 0    to bit_length - 1, the operation is undefined. */
@@ -1568,7 +1793,14 @@ DECL|macro|SLJIT_LSHR
 define|#
 directive|define
 name|SLJIT_LSHR
-value|32
+value|34
+end_define
+begin_define
+DECL|macro|SLJIT_ILSHR
+define|#
+directive|define
+name|SLJIT_ILSHR
+value|(SLJIT_LSHR | SLJIT_INT_OP)
 end_define
 begin_comment
 comment|/* Flags: I | E | K    Let bit_length be the length of the shift operation: 32 or 64.    If src2 is immediate, src2w is masked by (bit_length - 1).    Otherwise, if the content of src2 is outside the range from 0    to bit_length - 1, the operation is undefined. */
@@ -1578,11 +1810,18 @@ DECL|macro|SLJIT_ASHR
 define|#
 directive|define
 name|SLJIT_ASHR
-value|33
+value|35
+end_define
+begin_define
+DECL|macro|SLJIT_IASHR
+define|#
+directive|define
+name|SLJIT_IASHR
+value|(SLJIT_ASHR | SLJIT_INT_OP)
 end_define
 begin_function_decl
 name|SLJIT_API_FUNC_ATTRIBUTE
-name|int
+name|sljit_si
 name|sljit_emit_op2
 parameter_list|(
 name|struct
@@ -1590,38 +1829,38 @@ name|sljit_compiler
 modifier|*
 name|compiler
 parameter_list|,
-name|int
+name|sljit_si
 name|op
 parameter_list|,
-name|int
+name|sljit_si
 name|dst
 parameter_list|,
-name|sljit_w
+name|sljit_sw
 name|dstw
 parameter_list|,
-name|int
+name|sljit_si
 name|src1
 parameter_list|,
-name|sljit_w
+name|sljit_sw
 name|src1w
 parameter_list|,
-name|int
+name|sljit_si
 name|src2
 parameter_list|,
-name|sljit_w
+name|sljit_sw
 name|src2w
 parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/* The following function is a helper function for sljit_emit_op_custom.    It returns with the real machine register index of any SLJIT_TEMPORARY    SLJIT_SAVED or SLJIT_LOCALS register.    Note: it returns with -1 for virtual registers (all EREGs on x86-32).    Note: register returned by SLJIT_LOCALS_REG is not necessary the real          stack pointer register of the target architecture. */
+comment|/* The following function is a helper function for sljit_emit_op_custom.    It returns with the real machine register index of any SLJIT_SCRATCH    SLJIT_SAVED or SLJIT_LOCALS register.    Note: it returns with -1 for virtual registers (all EREGs on x86-32).    Note: register returned by SLJIT_LOCALS_REG is not necessary the real          stack pointer register of the target architecture. */
 end_comment
 begin_function_decl
 name|SLJIT_API_FUNC_ATTRIBUTE
-name|int
+name|sljit_si
 name|sljit_get_register_index
 parameter_list|(
-name|int
+name|sljit_si
 name|reg
 parameter_list|)
 function_decl|;
@@ -1631,7 +1870,7 @@ comment|/* Any instruction can be inserted into the instruction stream by    slj
 end_comment
 begin_function_decl
 name|SLJIT_API_FUNC_ATTRIBUTE
-name|int
+name|sljit_si
 name|sljit_emit_op_custom
 parameter_list|(
 name|struct
@@ -1643,7 +1882,7 @@ name|void
 modifier|*
 name|instruction
 parameter_list|,
-name|int
+name|sljit_si
 name|size
 parameter_list|)
 function_decl|;
@@ -1653,7 +1892,7 @@ comment|/* Returns with non-zero if fpu is available. */
 end_comment
 begin_function_decl
 name|SLJIT_API_FUNC_ATTRIBUTE
-name|int
+name|sljit_si
 name|sljit_is_fpu_available
 parameter_list|(
 name|void
@@ -1661,48 +1900,76 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/* Note: dst is the left and src is the right operand for SLJIT_FCMP.    Note: NaN check is always performed. If SLJIT_C_FLOAT_NAN is set,          the comparison result is unpredictable.    Flags: E | S (see SLJIT_C_FLOAT_*) */
+comment|/* Note: dst is the left and src is the right operand for SLJIT_FCMP.    Note: NaN check is always performed. If SLJIT_C_FLOAT_UNORDERED is set,          the comparison result is unpredictable.    Flags: SP | E | S (see SLJIT_C_FLOAT_*) */
 end_comment
 begin_define
-DECL|macro|SLJIT_FCMP
+DECL|macro|SLJIT_CMPD
 define|#
 directive|define
-name|SLJIT_FCMP
-value|34
-end_define
-begin_comment
-comment|/* Flags: - (never set any flags) */
-end_comment
-begin_define
-DECL|macro|SLJIT_FMOV
-define|#
-directive|define
-name|SLJIT_FMOV
-value|35
-end_define
-begin_comment
-comment|/* Flags: - (never set any flags) */
-end_comment
-begin_define
-DECL|macro|SLJIT_FNEG
-define|#
-directive|define
-name|SLJIT_FNEG
+name|SLJIT_CMPD
 value|36
 end_define
-begin_comment
-comment|/* Flags: - (never set any flags) */
-end_comment
 begin_define
-DECL|macro|SLJIT_FABS
+DECL|macro|SLJIT_CMPS
 define|#
 directive|define
-name|SLJIT_FABS
+name|SLJIT_CMPS
+value|(SLJIT_CMPD | SLJIT_SINGLE_OP)
+end_define
+begin_comment
+comment|/* Flags: SP - (never set any flags) */
+end_comment
+begin_define
+DECL|macro|SLJIT_MOVD
+define|#
+directive|define
+name|SLJIT_MOVD
 value|37
+end_define
+begin_define
+DECL|macro|SLJIT_MOVS
+define|#
+directive|define
+name|SLJIT_MOVS
+value|(SLJIT_MOVD | SLJIT_SINGLE_OP)
+end_define
+begin_comment
+comment|/* Flags: SP - (never set any flags) */
+end_comment
+begin_define
+DECL|macro|SLJIT_NEGD
+define|#
+directive|define
+name|SLJIT_NEGD
+value|38
+end_define
+begin_define
+DECL|macro|SLJIT_NEGS
+define|#
+directive|define
+name|SLJIT_NEGS
+value|(SLJIT_NEGD | SLJIT_SINGLE_OP)
+end_define
+begin_comment
+comment|/* Flags: SP - (never set any flags) */
+end_comment
+begin_define
+DECL|macro|SLJIT_ABSD
+define|#
+directive|define
+name|SLJIT_ABSD
+value|39
+end_define
+begin_define
+DECL|macro|SLJIT_ABSS
+define|#
+directive|define
+name|SLJIT_ABSS
+value|(SLJIT_ABSD | SLJIT_SINGLE_OP)
 end_define
 begin_function_decl
 name|SLJIT_API_FUNC_ATTRIBUTE
-name|int
+name|sljit_si
 name|sljit_emit_fop1
 parameter_list|(
 name|struct
@@ -1710,66 +1977,94 @@ name|sljit_compiler
 modifier|*
 name|compiler
 parameter_list|,
-name|int
+name|sljit_si
 name|op
 parameter_list|,
-name|int
+name|sljit_si
 name|dst
 parameter_list|,
-name|sljit_w
+name|sljit_sw
 name|dstw
 parameter_list|,
-name|int
+name|sljit_si
 name|src
 parameter_list|,
-name|sljit_w
+name|sljit_sw
 name|srcw
 parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/* Flags: - (never set any flags) */
+comment|/* Flags: SP - (never set any flags) */
 end_comment
 begin_define
-DECL|macro|SLJIT_FADD
+DECL|macro|SLJIT_ADDD
 define|#
 directive|define
-name|SLJIT_FADD
-value|38
-end_define
-begin_comment
-comment|/* Flags: - (never set any flags) */
-end_comment
-begin_define
-DECL|macro|SLJIT_FSUB
-define|#
-directive|define
-name|SLJIT_FSUB
-value|39
-end_define
-begin_comment
-comment|/* Flags: - (never set any flags) */
-end_comment
-begin_define
-DECL|macro|SLJIT_FMUL
-define|#
-directive|define
-name|SLJIT_FMUL
+name|SLJIT_ADDD
 value|40
 end_define
-begin_comment
-comment|/* Flags: - (never set any flags) */
-end_comment
 begin_define
-DECL|macro|SLJIT_FDIV
+DECL|macro|SLJIT_ADDS
 define|#
 directive|define
-name|SLJIT_FDIV
+name|SLJIT_ADDS
+value|(SLJIT_ADDD | SLJIT_SINGLE_OP)
+end_define
+begin_comment
+comment|/* Flags: SP - (never set any flags) */
+end_comment
+begin_define
+DECL|macro|SLJIT_SUBD
+define|#
+directive|define
+name|SLJIT_SUBD
 value|41
+end_define
+begin_define
+DECL|macro|SLJIT_SUBS
+define|#
+directive|define
+name|SLJIT_SUBS
+value|(SLJIT_SUBD | SLJIT_SINGLE_OP)
+end_define
+begin_comment
+comment|/* Flags: SP - (never set any flags) */
+end_comment
+begin_define
+DECL|macro|SLJIT_MULD
+define|#
+directive|define
+name|SLJIT_MULD
+value|42
+end_define
+begin_define
+DECL|macro|SLJIT_MULS
+define|#
+directive|define
+name|SLJIT_MULS
+value|(SLJIT_MULD | SLJIT_SINGLE_OP)
+end_define
+begin_comment
+comment|/* Flags: SP - (never set any flags) */
+end_comment
+begin_define
+DECL|macro|SLJIT_DIVD
+define|#
+directive|define
+name|SLJIT_DIVD
+value|43
+end_define
+begin_define
+DECL|macro|SLJIT_DIVS
+define|#
+directive|define
+name|SLJIT_DIVS
+value|(SLJIT_DIVD | SLJIT_SINGLE_OP)
 end_define
 begin_function_decl
 name|SLJIT_API_FUNC_ATTRIBUTE
-name|int
+name|sljit_si
 name|sljit_emit_fop2
 parameter_list|(
 name|struct
@@ -1777,25 +2072,25 @@ name|sljit_compiler
 modifier|*
 name|compiler
 parameter_list|,
-name|int
+name|sljit_si
 name|op
 parameter_list|,
-name|int
+name|sljit_si
 name|dst
 parameter_list|,
-name|sljit_w
+name|sljit_sw
 name|dstw
 parameter_list|,
-name|int
+name|sljit_si
 name|src1
 parameter_list|,
-name|sljit_w
+name|sljit_sw
 name|src1w
 parameter_list|,
-name|int
+name|sljit_si
 name|src2
 parameter_list|,
-name|sljit_w
+name|sljit_sw
 name|src2w
 parameter_list|)
 function_decl|;
@@ -1975,17 +2270,17 @@ name|SLJIT_C_FLOAT_LESS_EQUAL
 value|19
 end_define
 begin_define
-DECL|macro|SLJIT_C_FLOAT_NAN
+DECL|macro|SLJIT_C_FLOAT_UNORDERED
 define|#
 directive|define
-name|SLJIT_C_FLOAT_NAN
+name|SLJIT_C_FLOAT_UNORDERED
 value|20
 end_define
 begin_define
-DECL|macro|SLJIT_C_FLOAT_NOT_NAN
+DECL|macro|SLJIT_C_FLOAT_ORDERED
 define|#
 directive|define
-name|SLJIT_C_FLOAT_NOT_NAN
+name|SLJIT_C_FLOAT_ORDERED
 value|21
 end_define
 begin_define
@@ -2058,7 +2353,7 @@ name|sljit_compiler
 modifier|*
 name|compiler
 parameter_list|,
-name|int
+name|sljit_si
 name|type
 parameter_list|)
 function_decl|;
@@ -2078,25 +2373,25 @@ name|sljit_compiler
 modifier|*
 name|compiler
 parameter_list|,
-name|int
+name|sljit_si
 name|type
 parameter_list|,
-name|int
+name|sljit_si
 name|src1
 parameter_list|,
-name|sljit_w
+name|sljit_sw
 name|src1w
 parameter_list|,
-name|int
+name|sljit_si
 name|src2
 parameter_list|,
-name|sljit_w
+name|sljit_sw
 name|src2w
 parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/* Basic floating point comparison. In most architectures it is implemented as    an SLJIT_FCMP operation (setting appropriate flags) followed by a    sljit_emit_jump. However some architectures (i.e: MIPS) may employ    special optimizations here. It is suggested to use this comparison form    when appropriate.     type must be between SLJIT_C_FLOAT_EQUAL and SLJIT_C_FLOAT_NOT_NAN     type can be combined (or'ed) with SLJIT_REWRITABLE_JUMP    Flags: destroy flags.    Note: if either operand is NaN, the behaviour is undefined for          type<= SLJIT_C_FLOAT_LESS_EQUAL. */
+comment|/* Basic floating point comparison. In most architectures it is implemented as    an SLJIT_FCMP operation (setting appropriate flags) followed by a    sljit_emit_jump. However some architectures (i.e: MIPS) may employ    special optimizations here. It is suggested to use this comparison form    when appropriate.     type must be between SLJIT_C_FLOAT_EQUAL and SLJIT_C_FLOAT_ORDERED     type can be combined (or'ed) with SLJIT_REWRITABLE_JUMP and SLJIT_SINGLE_OP    Flags: destroy flags.    Note: if either operand is NaN, the behaviour is undefined for          type<= SLJIT_C_FLOAT_LESS_EQUAL. */
 end_comment
 begin_function_decl
 name|SLJIT_API_FUNC_ATTRIBUTE
@@ -2110,19 +2405,19 @@ name|sljit_compiler
 modifier|*
 name|compiler
 parameter_list|,
-name|int
+name|sljit_si
 name|type
 parameter_list|,
-name|int
+name|sljit_si
 name|src1
 parameter_list|,
-name|sljit_w
+name|sljit_sw
 name|src1w
 parameter_list|,
-name|int
+name|sljit_si
 name|src2
 parameter_list|,
-name|sljit_w
+name|sljit_sw
 name|src2w
 parameter_list|)
 function_decl|;
@@ -2170,7 +2465,7 @@ comment|/* Call function or jump anywhere. Both direct and indirect form     typ
 end_comment
 begin_function_decl
 name|SLJIT_API_FUNC_ATTRIBUTE
-name|int
+name|sljit_si
 name|sljit_emit_ijump
 parameter_list|(
 name|struct
@@ -2178,41 +2473,71 @@ name|sljit_compiler
 modifier|*
 name|compiler
 parameter_list|,
-name|int
+name|sljit_si
 name|type
 parameter_list|,
-name|int
+name|sljit_si
 name|src
 parameter_list|,
-name|sljit_w
+name|sljit_sw
 name|srcw
 parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/* If op == SLJIT_MOV:      Set dst to 1 if condition is fulfilled, 0 otherwise        type must be between SLJIT_C_EQUAL and SLJIT_C_FLOAT_NOT_NAN      Flags: - (never set any flags)    If op == SLJIT_OR      Dst is used as src as well, and set its lowest bit to 1 if      the condition is fulfilled. Otherwise it does nothing.      Flags: E | K    Note: sljit_emit_cond_value does nothing, if dst is SLJIT_UNUSED (regardless of op). */
+comment|/* Perform the operation using the conditional flags as the second argument.    Type must always be between SLJIT_C_EQUAL and SLJIT_C_FLOAT_ORDERED. The    value represented by the type is 1, if the condition represented by the type    is fulfilled, and 0 otherwise.     If op == SLJIT_MOV, SLJIT_MOV_SI, SLJIT_MOV_UI:      Set dst to the value represented by the type (0 or 1).      Src must be SLJIT_UNUSED, and srcw must be 0      Flags: - (never set any flags)    If op == SLJIT_OR, op == SLJIT_AND, op == SLJIT_XOR      Performs the binary operation using src as the first, and the value      represented by type as the second argument.      Important note: only dst=src and dstw=srcw is supported at the moment!      Flags: I | E | K    Note: sljit_emit_op_flags does nothing, if dst is SLJIT_UNUSED (regardless of op). */
 end_comment
 begin_function_decl
 name|SLJIT_API_FUNC_ATTRIBUTE
-name|int
-name|sljit_emit_cond_value
+name|sljit_si
+name|sljit_emit_op_flags
 parameter_list|(
 name|struct
 name|sljit_compiler
 modifier|*
 name|compiler
 parameter_list|,
-name|int
+name|sljit_si
 name|op
 parameter_list|,
-name|int
+name|sljit_si
 name|dst
 parameter_list|,
-name|sljit_w
+name|sljit_sw
 name|dstw
 parameter_list|,
-name|int
+name|sljit_si
+name|src
+parameter_list|,
+name|sljit_sw
+name|srcw
+parameter_list|,
+name|sljit_si
 name|type
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_comment
+comment|/* Copies the base address of SLJIT_LOCALS_REG+offset to dst.    Flags: - (never set any flags) */
+end_comment
+begin_function_decl
+name|SLJIT_API_FUNC_ATTRIBUTE
+name|sljit_si
+name|sljit_get_local_base
+parameter_list|(
+name|struct
+name|sljit_compiler
+modifier|*
+name|compiler
+parameter_list|,
+name|sljit_si
+name|dst
+parameter_list|,
+name|sljit_sw
+name|dstw
+parameter_list|,
+name|sljit_sw
+name|offset
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -2231,19 +2556,19 @@ name|sljit_compiler
 modifier|*
 name|compiler
 parameter_list|,
-name|int
+name|sljit_si
 name|dst
 parameter_list|,
-name|sljit_w
+name|sljit_sw
 name|dstw
 parameter_list|,
-name|sljit_w
+name|sljit_sw
 name|init_value
 parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/* After the code generation the address for label, jump and const instructions    are computed. Since these structures are freed sljit_free_compiler, the    addresses must be preserved by the user program elsewere. */
+comment|/* After the code generation the address for label, jump and const instructions    are computed. Since these structures are freed by sljit_free_compiler, the    addresses must be preserved by the user program elsewere. */
 end_comment
 begin_function
 DECL|function|sljit_get_label_addr
@@ -2329,7 +2654,7 @@ parameter_list|(
 name|sljit_uw
 name|addr
 parameter_list|,
-name|sljit_w
+name|sljit_sw
 name|new_constant
 parameter_list|)
 function_decl|;
@@ -2355,10 +2680,10 @@ DECL|macro|SLJIT_MINOR_VERSION
 define|#
 directive|define
 name|SLJIT_MINOR_VERSION
-value|87
+value|90
 end_define
 begin_comment
-comment|/* Get the human readable name of the platfrom.    Can be useful for debugging on platforms like ARM, where ARM and    Thumb2 functions can be mixed. */
+comment|/* Get the human readable name of the platform. Can be useful on platforms    like ARM, where ARM and Thumb2 functions can be mixed, and    it is useful to know the type of the code generator. */
 end_comment
 begin_function_decl
 name|SLJIT_API_FUNC_ATTRIBUTE
@@ -2372,7 +2697,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/* Portble helper function to get an offset of a member. */
+comment|/* Portable helper function to get an offset of a member. */
 end_comment
 begin_define
 DECL|macro|SLJIT_OFFSETOF
@@ -2384,7 +2709,7 @@ name|base
 parameter_list|,
 name|member
 parameter_list|)
-value|((sljit_w)(&((base*)0x10)->member) - 0x10)
+value|((sljit_sw)(&((base*)0x10)->member) - 0x10)
 end_define
 begin_if
 if|#
@@ -2502,7 +2827,7 @@ comment|/* Can be used to increase (allocate) or decrease (free) the memory area
 end_comment
 begin_function_decl
 name|SLJIT_API_FUNC_ATTRIBUTE
-name|sljit_w
+name|sljit_sw
 name|SLJIT_CALL
 name|sljit_stack_resize
 parameter_list|(
@@ -2545,7 +2870,7 @@ name|SLJIT_FUNC_OFFSET
 parameter_list|(
 name|func_name
 parameter_list|)
-value|((sljit_w)func_name)
+value|((sljit_sw)func_name)
 end_define
 begin_else
 else|#
@@ -2565,7 +2890,7 @@ name|SLJIT_FUNC_OFFSET
 parameter_list|(
 name|func_name
 parameter_list|)
-value|((sljit_w)*(void**)func_name)
+value|(*(sljit_sw*)(void*)func_name)
 end_define
 begin_comment
 comment|/* For powerpc64, the function pointers point to a context descriptor. */
@@ -2576,15 +2901,15 @@ struct|struct
 name|sljit_function_context
 block|{
 DECL|member|addr
-name|sljit_w
+name|sljit_sw
 name|addr
 decl_stmt|;
 DECL|member|r2
-name|sljit_w
+name|sljit_sw
 name|r2
 decl_stmt|;
 DECL|member|r11
-name|sljit_w
+name|sljit_sw
 name|r11
 decl_stmt|;
 block|}
@@ -2608,7 +2933,7 @@ name|sljit_function_context
 modifier|*
 name|context
 parameter_list|,
-name|sljit_w
+name|sljit_sw
 name|addr
 parameter_list|,
 name|void

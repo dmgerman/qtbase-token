@@ -57,6 +57,37 @@ block|}
 decl_stmt|;
 end_decl_stmt
 begin_comment
+comment|/* Tables of horizontal and vertical whitespace characters, suitable for adding to classes. */
+end_comment
+begin_decl_stmt
+specifier|const
+name|pcre_uint32
+name|PRIV
+argument_list|(
+name|hspace_list
+argument_list|)
+decl|[]
+init|=
+block|{
+name|HSPACE_LIST
+block|}
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+specifier|const
+name|pcre_uint32
+name|PRIV
+argument_list|(
+name|vspace_list
+argument_list|)
+decl|[]
+init|=
+block|{
+name|VSPACE_LIST
+block|}
+decl_stmt|;
+end_decl_stmt
+begin_comment
 comment|/************************************************* *           Tables for UTF-8 support             * *************************************************/
 end_comment
 begin_comment
@@ -78,12 +109,17 @@ operator|(
 name|defined
 name|PCRE_INCLUDED
 operator|&&
+operator|(
 name|defined
 name|SUPPORT_PCRE16
+operator|||
+name|defined
+name|SUPPORT_PCRE32
+operator|)
 operator|)
 end_if
 begin_comment
-comment|/* These tables are also required by pcretest in 16 bit mode. */
+comment|/* These tables are also required by pcretest in 16- or 32-bit mode. */
 end_comment
 begin_decl_stmt
 specifier|const
@@ -330,7 +366,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* (SUPPORT_UTF&& COMPILE_PCRE8) || (PCRE_INCLUDED&& SUPPORT_PCRE16)*/
+comment|/* (SUPPORT_UTF&& COMPILE_PCRE8) || (PCRE_INCLUDED&& SUPPORT_PCRE[16|32])*/
 end_comment
 begin_ifdef
 ifdef|#
@@ -342,7 +378,7 @@ comment|/* Table to translate from particular type value to the general value. *
 end_comment
 begin_decl_stmt
 specifier|const
-name|int
+name|pcre_uint32
 name|PRIV
 argument_list|(
 name|ucp_gentype
@@ -420,7 +456,269 @@ comment|/* Zl, Zp, Zs */
 block|}
 decl_stmt|;
 end_decl_stmt
+begin_comment
+comment|/* This table encodes the rules for finding the end of an extended grapheme cluster. Every code point has a grapheme break property which is one of the ucp_gbXX values defined in ucp.h. The 2-dimensional table is indexed by the properties of two adjacent code points. The left property selects a word from the table, and the right property selects a bit from that word like this:    ucp_gbtable[left-property]& (1<< right-property)  The value is non-zero if a grapheme break is NOT permitted between the relevant two code points. The breaking rules are as follows:  1. Break at the start and end of text (pretty obviously).  2. Do not break between a CR and LF; otherwise, break before and   after    controls.  3. Do not break Hangul syllable sequences, the rules for which are:      L may be followed by L, V, LV or LVT     LV or V may be followed by V or T     LVT or T may be followed by T  4. Do not break before extending characters.  The next two rules are only for extended grapheme clusters (but that's what we are implementing).  5. Do not break before SpacingMarks.  6. Do not break after Prepend characters.  7. Otherwise, break everywhere. */
+end_comment
+begin_function_decl
+DECL|variable|ucp_gbtable
+specifier|const
+name|pcre_uint32
+name|PRIV
+parameter_list|(
+name|ucp_gbtable
+index|[]
+parameter_list|)
+init|=
+block|{
+operator|(
+literal|1
+operator|<<
+name|ucp_gbLF
+operator|)
+operator|,
+comment|/*  0 CR */
+function_decl|0
+operator|,
+comment|/*  1 LF */
+function_decl|0
+operator|,
+comment|/*  2 Control */
+parameter_list|(
+function_decl|1<<ucp_gbExtend
+end_function_decl
+begin_expr_stmt
+unit|)
+operator||
+operator|(
+literal|1
+operator|<<
+name|ucp_gbSpacingMark
+operator|)
+operator|,
+comment|/*  3 Extend */
+operator|(
+literal|1
+operator|<<
+name|ucp_gbExtend
+operator|)
+operator||
+operator|(
+literal|1
+operator|<<
+name|ucp_gbPrepend
+operator|)
+operator||
+comment|/*  4 Prepend */
+operator|(
+literal|1
+operator|<<
+name|ucp_gbSpacingMark
+operator|)
+operator||
+operator|(
+literal|1
+operator|<<
+name|ucp_gbL
+operator|)
+operator||
+operator|(
+literal|1
+operator|<<
+name|ucp_gbV
+operator|)
+operator||
+operator|(
+literal|1
+operator|<<
+name|ucp_gbT
+operator|)
+operator||
+operator|(
+literal|1
+operator|<<
+name|ucp_gbLV
+operator|)
+operator||
+operator|(
+literal|1
+operator|<<
+name|ucp_gbLVT
+operator|)
+operator||
+operator|(
+literal|1
+operator|<<
+name|ucp_gbOther
+operator|)
+operator|,
+operator|(
+literal|1
+operator|<<
+name|ucp_gbExtend
+operator|)
+operator||
+operator|(
+literal|1
+operator|<<
+name|ucp_gbSpacingMark
+operator|)
+operator|,
+comment|/*  5 SpacingMark */
+operator|(
+literal|1
+operator|<<
+name|ucp_gbExtend
+operator|)
+operator||
+operator|(
+literal|1
+operator|<<
+name|ucp_gbSpacingMark
+operator|)
+operator||
+operator|(
+literal|1
+operator|<<
+name|ucp_gbL
+operator|)
+operator||
+comment|/*  6 L */
+operator|(
+literal|1
+operator|<<
+name|ucp_gbL
+operator|)
+operator||
+operator|(
+literal|1
+operator|<<
+name|ucp_gbV
+operator|)
+operator||
+operator|(
+literal|1
+operator|<<
+name|ucp_gbLV
+operator|)
+operator||
+operator|(
+literal|1
+operator|<<
+name|ucp_gbLVT
+operator|)
+operator|,
+operator|(
+literal|1
+operator|<<
+name|ucp_gbExtend
+operator|)
+operator||
+operator|(
+literal|1
+operator|<<
+name|ucp_gbSpacingMark
+operator|)
+operator||
+operator|(
+literal|1
+operator|<<
+name|ucp_gbV
+operator|)
+operator||
+comment|/*  7 V */
+operator|(
+literal|1
+operator|<<
+name|ucp_gbT
+operator|)
+operator|,
+operator|(
+literal|1
+operator|<<
+name|ucp_gbExtend
+operator|)
+operator||
+operator|(
+literal|1
+operator|<<
+name|ucp_gbSpacingMark
+operator|)
+operator||
+operator|(
+literal|1
+operator|<<
+name|ucp_gbT
+operator|)
+operator|,
+comment|/*  8 T */
+operator|(
+literal|1
+operator|<<
+name|ucp_gbExtend
+operator|)
+operator||
+operator|(
+literal|1
+operator|<<
+name|ucp_gbSpacingMark
+operator|)
+operator||
+operator|(
+literal|1
+operator|<<
+name|ucp_gbV
+operator|)
+operator||
+comment|/*  9 LV */
+operator|(
+literal|1
+operator|<<
+name|ucp_gbT
+operator|)
+operator|,
+operator|(
+literal|1
+operator|<<
+name|ucp_gbExtend
+operator|)
+operator||
+operator|(
+literal|1
+operator|<<
+name|ucp_gbSpacingMark
+operator|)
+operator||
+operator|(
+literal|1
+operator|<<
+name|ucp_gbT
+operator|)
+operator|,
+comment|/* 10 LVT */
+operator|(
+literal|1
+operator|<<
+name|ucp_gbRegionalIndicator
+operator|)
+operator|,
+comment|/* 11 RegionalIndicator */
+operator|(
+literal|1
+operator|<<
+name|ucp_gbExtend
+operator|)
+operator||
+operator|(
+literal|1
+operator|<<
+name|ucp_gbSpacingMark
+operator|)
+end_expr_stmt
+begin_comment
+comment|/* 12 Other */
+end_comment
 begin_ifdef
+unit|};
 ifdef|#
 directive|ifdef
 name|SUPPORT_JIT
@@ -603,6 +901,13 @@ define|#
 directive|define
 name|STRING_Cf0
 value|STR_C STR_f "\0"
+end_define
+begin_define
+DECL|macro|STRING_Chakma0
+define|#
+directive|define
+name|STRING_Chakma0
+value|STR_C STR_h STR_a STR_k STR_m STR_a "\0"
 end_define
 begin_define
 DECL|macro|STRING_Cham0
@@ -1004,6 +1309,27 @@ name|STRING_Meetei_Mayek0
 value|STR_M STR_e STR_e STR_t STR_e STR_i STR_UNDERSCORE STR_M STR_a STR_y STR_e STR_k "\0"
 end_define
 begin_define
+DECL|macro|STRING_Meroitic_Cursive0
+define|#
+directive|define
+name|STRING_Meroitic_Cursive0
+value|STR_M STR_e STR_r STR_o STR_i STR_t STR_i STR_c STR_UNDERSCORE STR_C STR_u STR_r STR_s STR_i STR_v STR_e "\0"
+end_define
+begin_define
+DECL|macro|STRING_Meroitic_Hieroglyphs0
+define|#
+directive|define
+name|STRING_Meroitic_Hieroglyphs0
+value|STR_M STR_e STR_r STR_o STR_i STR_t STR_i STR_c STR_UNDERSCORE STR_H STR_i STR_e STR_r STR_o STR_g STR_l STR_y STR_p STR_h STR_s "\0"
+end_define
+begin_define
+DECL|macro|STRING_Miao0
+define|#
+directive|define
+name|STRING_Miao0
+value|STR_M STR_i STR_a STR_o "\0"
+end_define
+begin_define
 DECL|macro|STRING_Mn0
 define|#
 directive|define
@@ -1235,6 +1561,13 @@ name|STRING_Sc0
 value|STR_S STR_c "\0"
 end_define
 begin_define
+DECL|macro|STRING_Sharada0
+define|#
+directive|define
+name|STRING_Sharada0
+value|STR_S STR_h STR_a STR_r STR_a STR_d STR_a "\0"
+end_define
+begin_define
 DECL|macro|STRING_Shavian0
 define|#
 directive|define
@@ -1268,6 +1601,13 @@ define|#
 directive|define
 name|STRING_So0
 value|STR_S STR_o "\0"
+end_define
+begin_define
+DECL|macro|STRING_Sora_Sompeng0
+define|#
+directive|define
+name|STRING_Sora_Sompeng0
+value|STR_S STR_o STR_r STR_a STR_UNDERSCORE STR_S STR_o STR_m STR_p STR_e STR_n STR_g "\0"
 end_define
 begin_define
 DECL|macro|STRING_Sundanese0
@@ -1324,6 +1664,13 @@ define|#
 directive|define
 name|STRING_Tai_Viet0
 value|STR_T STR_a STR_i STR_UNDERSCORE STR_V STR_i STR_e STR_t "\0"
+end_define
+begin_define
+DECL|macro|STRING_Takri0
+define|#
+directive|define
+name|STRING_Takri0
+value|STR_T STR_a STR_k STR_r STR_i "\0"
 end_define
 begin_define
 DECL|macro|STRING_Tamil0
@@ -1471,6 +1818,7 @@ name|STRING_Canadian_Aboriginal0
 name|STRING_Carian0
 name|STRING_Cc0
 name|STRING_Cf0
+name|STRING_Chakma0
 name|STRING_Cham0
 name|STRING_Cherokee0
 name|STRING_Cn0
@@ -1528,6 +1876,9 @@ name|STRING_Mandaic0
 name|STRING_Mc0
 name|STRING_Me0
 name|STRING_Meetei_Mayek0
+name|STRING_Meroitic_Cursive0
+name|STRING_Meroitic_Hieroglyphs0
+name|STRING_Miao0
 name|STRING_Mn0
 name|STRING_Mongolian0
 name|STRING_Myanmar0
@@ -1561,11 +1912,13 @@ name|STRING_S0
 name|STRING_Samaritan0
 name|STRING_Saurashtra0
 name|STRING_Sc0
+name|STRING_Sharada0
 name|STRING_Shavian0
 name|STRING_Sinhala0
 name|STRING_Sk0
 name|STRING_Sm0
 name|STRING_So0
+name|STRING_Sora_Sompeng0
 name|STRING_Sundanese0
 name|STRING_Syloti_Nagri0
 name|STRING_Syriac0
@@ -1574,6 +1927,7 @@ name|STRING_Tagbanwa0
 name|STRING_Tai_Le0
 name|STRING_Tai_Tham0
 name|STRING_Tai_Viet0
+name|STRING_Takri0
 name|STRING_Tamil0
 name|STRING_Telugu0
 name|STRING_Thaana0
@@ -1752,11 +2106,19 @@ literal|131
 block|,
 name|PT_SC
 block|,
+name|ucp_Chakma
+block|}
+block|,
+block|{
+literal|138
+block|,
+name|PT_SC
+block|,
 name|ucp_Cham
 block|}
 block|,
 block|{
-literal|136
+literal|143
 block|,
 name|PT_SC
 block|,
@@ -1764,7 +2126,7 @@ name|ucp_Cherokee
 block|}
 block|,
 block|{
-literal|145
+literal|152
 block|,
 name|PT_PC
 block|,
@@ -1772,7 +2134,7 @@ name|ucp_Cn
 block|}
 block|,
 block|{
-literal|148
+literal|155
 block|,
 name|PT_PC
 block|,
@@ -1780,7 +2142,7 @@ name|ucp_Co
 block|}
 block|,
 block|{
-literal|151
+literal|158
 block|,
 name|PT_SC
 block|,
@@ -1788,7 +2150,7 @@ name|ucp_Common
 block|}
 block|,
 block|{
-literal|158
+literal|165
 block|,
 name|PT_SC
 block|,
@@ -1796,7 +2158,7 @@ name|ucp_Coptic
 block|}
 block|,
 block|{
-literal|165
+literal|172
 block|,
 name|PT_PC
 block|,
@@ -1804,7 +2166,7 @@ name|ucp_Cs
 block|}
 block|,
 block|{
-literal|168
+literal|175
 block|,
 name|PT_SC
 block|,
@@ -1812,7 +2174,7 @@ name|ucp_Cuneiform
 block|}
 block|,
 block|{
-literal|178
+literal|185
 block|,
 name|PT_SC
 block|,
@@ -1820,7 +2182,7 @@ name|ucp_Cypriot
 block|}
 block|,
 block|{
-literal|186
+literal|193
 block|,
 name|PT_SC
 block|,
@@ -1828,7 +2190,7 @@ name|ucp_Cyrillic
 block|}
 block|,
 block|{
-literal|195
+literal|202
 block|,
 name|PT_SC
 block|,
@@ -1836,7 +2198,7 @@ name|ucp_Deseret
 block|}
 block|,
 block|{
-literal|203
+literal|210
 block|,
 name|PT_SC
 block|,
@@ -1844,7 +2206,7 @@ name|ucp_Devanagari
 block|}
 block|,
 block|{
-literal|214
+literal|221
 block|,
 name|PT_SC
 block|,
@@ -1852,7 +2214,7 @@ name|ucp_Egyptian_Hieroglyphs
 block|}
 block|,
 block|{
-literal|235
+literal|242
 block|,
 name|PT_SC
 block|,
@@ -1860,7 +2222,7 @@ name|ucp_Ethiopic
 block|}
 block|,
 block|{
-literal|244
+literal|251
 block|,
 name|PT_SC
 block|,
@@ -1868,7 +2230,7 @@ name|ucp_Georgian
 block|}
 block|,
 block|{
-literal|253
+literal|260
 block|,
 name|PT_SC
 block|,
@@ -1876,7 +2238,7 @@ name|ucp_Glagolitic
 block|}
 block|,
 block|{
-literal|264
+literal|271
 block|,
 name|PT_SC
 block|,
@@ -1884,7 +2246,7 @@ name|ucp_Gothic
 block|}
 block|,
 block|{
-literal|271
+literal|278
 block|,
 name|PT_SC
 block|,
@@ -1892,7 +2254,7 @@ name|ucp_Greek
 block|}
 block|,
 block|{
-literal|277
+literal|284
 block|,
 name|PT_SC
 block|,
@@ -1900,7 +2262,7 @@ name|ucp_Gujarati
 block|}
 block|,
 block|{
-literal|286
+literal|293
 block|,
 name|PT_SC
 block|,
@@ -1908,7 +2270,7 @@ name|ucp_Gurmukhi
 block|}
 block|,
 block|{
-literal|295
+literal|302
 block|,
 name|PT_SC
 block|,
@@ -1916,7 +2278,7 @@ name|ucp_Han
 block|}
 block|,
 block|{
-literal|299
+literal|306
 block|,
 name|PT_SC
 block|,
@@ -1924,7 +2286,7 @@ name|ucp_Hangul
 block|}
 block|,
 block|{
-literal|306
+literal|313
 block|,
 name|PT_SC
 block|,
@@ -1932,7 +2294,7 @@ name|ucp_Hanunoo
 block|}
 block|,
 block|{
-literal|314
+literal|321
 block|,
 name|PT_SC
 block|,
@@ -1940,7 +2302,7 @@ name|ucp_Hebrew
 block|}
 block|,
 block|{
-literal|321
+literal|328
 block|,
 name|PT_SC
 block|,
@@ -1948,7 +2310,7 @@ name|ucp_Hiragana
 block|}
 block|,
 block|{
-literal|330
+literal|337
 block|,
 name|PT_SC
 block|,
@@ -1956,7 +2318,7 @@ name|ucp_Imperial_Aramaic
 block|}
 block|,
 block|{
-literal|347
+literal|354
 block|,
 name|PT_SC
 block|,
@@ -1964,7 +2326,7 @@ name|ucp_Inherited
 block|}
 block|,
 block|{
-literal|357
+literal|364
 block|,
 name|PT_SC
 block|,
@@ -1972,7 +2334,7 @@ name|ucp_Inscriptional_Pahlavi
 block|}
 block|,
 block|{
-literal|379
+literal|386
 block|,
 name|PT_SC
 block|,
@@ -1980,7 +2342,7 @@ name|ucp_Inscriptional_Parthian
 block|}
 block|,
 block|{
-literal|402
+literal|409
 block|,
 name|PT_SC
 block|,
@@ -1988,7 +2350,7 @@ name|ucp_Javanese
 block|}
 block|,
 block|{
-literal|411
+literal|418
 block|,
 name|PT_SC
 block|,
@@ -1996,7 +2358,7 @@ name|ucp_Kaithi
 block|}
 block|,
 block|{
-literal|418
+literal|425
 block|,
 name|PT_SC
 block|,
@@ -2004,7 +2366,7 @@ name|ucp_Kannada
 block|}
 block|,
 block|{
-literal|426
+literal|433
 block|,
 name|PT_SC
 block|,
@@ -2012,7 +2374,7 @@ name|ucp_Katakana
 block|}
 block|,
 block|{
-literal|435
+literal|442
 block|,
 name|PT_SC
 block|,
@@ -2020,7 +2382,7 @@ name|ucp_Kayah_Li
 block|}
 block|,
 block|{
-literal|444
+literal|451
 block|,
 name|PT_SC
 block|,
@@ -2028,7 +2390,7 @@ name|ucp_Kharoshthi
 block|}
 block|,
 block|{
-literal|455
+literal|462
 block|,
 name|PT_SC
 block|,
@@ -2036,7 +2398,7 @@ name|ucp_Khmer
 block|}
 block|,
 block|{
-literal|461
+literal|468
 block|,
 name|PT_GC
 block|,
@@ -2044,7 +2406,7 @@ name|ucp_L
 block|}
 block|,
 block|{
-literal|463
+literal|470
 block|,
 name|PT_LAMP
 block|,
@@ -2052,7 +2414,7 @@ literal|0
 block|}
 block|,
 block|{
-literal|466
+literal|473
 block|,
 name|PT_SC
 block|,
@@ -2060,7 +2422,7 @@ name|ucp_Lao
 block|}
 block|,
 block|{
-literal|470
+literal|477
 block|,
 name|PT_SC
 block|,
@@ -2068,7 +2430,7 @@ name|ucp_Latin
 block|}
 block|,
 block|{
-literal|476
+literal|483
 block|,
 name|PT_SC
 block|,
@@ -2076,7 +2438,7 @@ name|ucp_Lepcha
 block|}
 block|,
 block|{
-literal|483
+literal|490
 block|,
 name|PT_SC
 block|,
@@ -2084,7 +2446,7 @@ name|ucp_Limbu
 block|}
 block|,
 block|{
-literal|489
+literal|496
 block|,
 name|PT_SC
 block|,
@@ -2092,7 +2454,7 @@ name|ucp_Linear_B
 block|}
 block|,
 block|{
-literal|498
+literal|505
 block|,
 name|PT_SC
 block|,
@@ -2100,7 +2462,7 @@ name|ucp_Lisu
 block|}
 block|,
 block|{
-literal|503
+literal|510
 block|,
 name|PT_PC
 block|,
@@ -2108,7 +2470,7 @@ name|ucp_Ll
 block|}
 block|,
 block|{
-literal|506
+literal|513
 block|,
 name|PT_PC
 block|,
@@ -2116,7 +2478,7 @@ name|ucp_Lm
 block|}
 block|,
 block|{
-literal|509
+literal|516
 block|,
 name|PT_PC
 block|,
@@ -2124,7 +2486,7 @@ name|ucp_Lo
 block|}
 block|,
 block|{
-literal|512
+literal|519
 block|,
 name|PT_PC
 block|,
@@ -2132,7 +2494,7 @@ name|ucp_Lt
 block|}
 block|,
 block|{
-literal|515
+literal|522
 block|,
 name|PT_PC
 block|,
@@ -2140,7 +2502,7 @@ name|ucp_Lu
 block|}
 block|,
 block|{
-literal|518
+literal|525
 block|,
 name|PT_SC
 block|,
@@ -2148,7 +2510,7 @@ name|ucp_Lycian
 block|}
 block|,
 block|{
-literal|525
+literal|532
 block|,
 name|PT_SC
 block|,
@@ -2156,7 +2518,7 @@ name|ucp_Lydian
 block|}
 block|,
 block|{
-literal|532
+literal|539
 block|,
 name|PT_GC
 block|,
@@ -2164,7 +2526,7 @@ name|ucp_M
 block|}
 block|,
 block|{
-literal|534
+literal|541
 block|,
 name|PT_SC
 block|,
@@ -2172,7 +2534,7 @@ name|ucp_Malayalam
 block|}
 block|,
 block|{
-literal|544
+literal|551
 block|,
 name|PT_SC
 block|,
@@ -2180,7 +2542,7 @@ name|ucp_Mandaic
 block|}
 block|,
 block|{
-literal|552
+literal|559
 block|,
 name|PT_PC
 block|,
@@ -2188,7 +2550,7 @@ name|ucp_Mc
 block|}
 block|,
 block|{
-literal|555
+literal|562
 block|,
 name|PT_PC
 block|,
@@ -2196,7 +2558,7 @@ name|ucp_Me
 block|}
 block|,
 block|{
-literal|558
+literal|565
 block|,
 name|PT_SC
 block|,
@@ -2204,7 +2566,31 @@ name|ucp_Meetei_Mayek
 block|}
 block|,
 block|{
-literal|571
+literal|578
+block|,
+name|PT_SC
+block|,
+name|ucp_Meroitic_Cursive
+block|}
+block|,
+block|{
+literal|595
+block|,
+name|PT_SC
+block|,
+name|ucp_Meroitic_Hieroglyphs
+block|}
+block|,
+block|{
+literal|616
+block|,
+name|PT_SC
+block|,
+name|ucp_Miao
+block|}
+block|,
+block|{
+literal|621
 block|,
 name|PT_PC
 block|,
@@ -2212,7 +2598,7 @@ name|ucp_Mn
 block|}
 block|,
 block|{
-literal|574
+literal|624
 block|,
 name|PT_SC
 block|,
@@ -2220,7 +2606,7 @@ name|ucp_Mongolian
 block|}
 block|,
 block|{
-literal|584
+literal|634
 block|,
 name|PT_SC
 block|,
@@ -2228,7 +2614,7 @@ name|ucp_Myanmar
 block|}
 block|,
 block|{
-literal|592
+literal|642
 block|,
 name|PT_GC
 block|,
@@ -2236,7 +2622,7 @@ name|ucp_N
 block|}
 block|,
 block|{
-literal|594
+literal|644
 block|,
 name|PT_PC
 block|,
@@ -2244,7 +2630,7 @@ name|ucp_Nd
 block|}
 block|,
 block|{
-literal|597
+literal|647
 block|,
 name|PT_SC
 block|,
@@ -2252,7 +2638,7 @@ name|ucp_New_Tai_Lue
 block|}
 block|,
 block|{
-literal|609
+literal|659
 block|,
 name|PT_SC
 block|,
@@ -2260,7 +2646,7 @@ name|ucp_Nko
 block|}
 block|,
 block|{
-literal|613
+literal|663
 block|,
 name|PT_PC
 block|,
@@ -2268,7 +2654,7 @@ name|ucp_Nl
 block|}
 block|,
 block|{
-literal|616
+literal|666
 block|,
 name|PT_PC
 block|,
@@ -2276,7 +2662,7 @@ name|ucp_No
 block|}
 block|,
 block|{
-literal|619
+literal|669
 block|,
 name|PT_SC
 block|,
@@ -2284,7 +2670,7 @@ name|ucp_Ogham
 block|}
 block|,
 block|{
-literal|625
+literal|675
 block|,
 name|PT_SC
 block|,
@@ -2292,7 +2678,7 @@ name|ucp_Ol_Chiki
 block|}
 block|,
 block|{
-literal|634
+literal|684
 block|,
 name|PT_SC
 block|,
@@ -2300,7 +2686,7 @@ name|ucp_Old_Italic
 block|}
 block|,
 block|{
-literal|645
+literal|695
 block|,
 name|PT_SC
 block|,
@@ -2308,7 +2694,7 @@ name|ucp_Old_Persian
 block|}
 block|,
 block|{
-literal|657
+literal|707
 block|,
 name|PT_SC
 block|,
@@ -2316,7 +2702,7 @@ name|ucp_Old_South_Arabian
 block|}
 block|,
 block|{
-literal|675
+literal|725
 block|,
 name|PT_SC
 block|,
@@ -2324,7 +2710,7 @@ name|ucp_Old_Turkic
 block|}
 block|,
 block|{
-literal|686
+literal|736
 block|,
 name|PT_SC
 block|,
@@ -2332,7 +2718,7 @@ name|ucp_Oriya
 block|}
 block|,
 block|{
-literal|692
+literal|742
 block|,
 name|PT_SC
 block|,
@@ -2340,7 +2726,7 @@ name|ucp_Osmanya
 block|}
 block|,
 block|{
-literal|700
+literal|750
 block|,
 name|PT_GC
 block|,
@@ -2348,7 +2734,7 @@ name|ucp_P
 block|}
 block|,
 block|{
-literal|702
+literal|752
 block|,
 name|PT_PC
 block|,
@@ -2356,7 +2742,7 @@ name|ucp_Pc
 block|}
 block|,
 block|{
-literal|705
+literal|755
 block|,
 name|PT_PC
 block|,
@@ -2364,7 +2750,7 @@ name|ucp_Pd
 block|}
 block|,
 block|{
-literal|708
+literal|758
 block|,
 name|PT_PC
 block|,
@@ -2372,7 +2758,7 @@ name|ucp_Pe
 block|}
 block|,
 block|{
-literal|711
+literal|761
 block|,
 name|PT_PC
 block|,
@@ -2380,7 +2766,7 @@ name|ucp_Pf
 block|}
 block|,
 block|{
-literal|714
+literal|764
 block|,
 name|PT_SC
 block|,
@@ -2388,7 +2774,7 @@ name|ucp_Phags_Pa
 block|}
 block|,
 block|{
-literal|723
+literal|773
 block|,
 name|PT_SC
 block|,
@@ -2396,7 +2782,7 @@ name|ucp_Phoenician
 block|}
 block|,
 block|{
-literal|734
+literal|784
 block|,
 name|PT_PC
 block|,
@@ -2404,7 +2790,7 @@ name|ucp_Pi
 block|}
 block|,
 block|{
-literal|737
+literal|787
 block|,
 name|PT_PC
 block|,
@@ -2412,7 +2798,7 @@ name|ucp_Po
 block|}
 block|,
 block|{
-literal|740
+literal|790
 block|,
 name|PT_PC
 block|,
@@ -2420,7 +2806,7 @@ name|ucp_Ps
 block|}
 block|,
 block|{
-literal|743
+literal|793
 block|,
 name|PT_SC
 block|,
@@ -2428,7 +2814,7 @@ name|ucp_Rejang
 block|}
 block|,
 block|{
-literal|750
+literal|800
 block|,
 name|PT_SC
 block|,
@@ -2436,7 +2822,7 @@ name|ucp_Runic
 block|}
 block|,
 block|{
-literal|756
+literal|806
 block|,
 name|PT_GC
 block|,
@@ -2444,7 +2830,7 @@ name|ucp_S
 block|}
 block|,
 block|{
-literal|758
+literal|808
 block|,
 name|PT_SC
 block|,
@@ -2452,7 +2838,7 @@ name|ucp_Samaritan
 block|}
 block|,
 block|{
-literal|768
+literal|818
 block|,
 name|PT_SC
 block|,
@@ -2460,7 +2846,7 @@ name|ucp_Saurashtra
 block|}
 block|,
 block|{
-literal|779
+literal|829
 block|,
 name|PT_PC
 block|,
@@ -2468,7 +2854,15 @@ name|ucp_Sc
 block|}
 block|,
 block|{
-literal|782
+literal|832
+block|,
+name|PT_SC
+block|,
+name|ucp_Sharada
+block|}
+block|,
+block|{
+literal|840
 block|,
 name|PT_SC
 block|,
@@ -2476,7 +2870,7 @@ name|ucp_Shavian
 block|}
 block|,
 block|{
-literal|790
+literal|848
 block|,
 name|PT_SC
 block|,
@@ -2484,7 +2878,7 @@ name|ucp_Sinhala
 block|}
 block|,
 block|{
-literal|798
+literal|856
 block|,
 name|PT_PC
 block|,
@@ -2492,7 +2886,7 @@ name|ucp_Sk
 block|}
 block|,
 block|{
-literal|801
+literal|859
 block|,
 name|PT_PC
 block|,
@@ -2500,7 +2894,7 @@ name|ucp_Sm
 block|}
 block|,
 block|{
-literal|804
+literal|862
 block|,
 name|PT_PC
 block|,
@@ -2508,7 +2902,15 @@ name|ucp_So
 block|}
 block|,
 block|{
-literal|807
+literal|865
+block|,
+name|PT_SC
+block|,
+name|ucp_Sora_Sompeng
+block|}
+block|,
+block|{
+literal|878
 block|,
 name|PT_SC
 block|,
@@ -2516,7 +2918,7 @@ name|ucp_Sundanese
 block|}
 block|,
 block|{
-literal|817
+literal|888
 block|,
 name|PT_SC
 block|,
@@ -2524,7 +2926,7 @@ name|ucp_Syloti_Nagri
 block|}
 block|,
 block|{
-literal|830
+literal|901
 block|,
 name|PT_SC
 block|,
@@ -2532,7 +2934,7 @@ name|ucp_Syriac
 block|}
 block|,
 block|{
-literal|837
+literal|908
 block|,
 name|PT_SC
 block|,
@@ -2540,7 +2942,7 @@ name|ucp_Tagalog
 block|}
 block|,
 block|{
-literal|845
+literal|916
 block|,
 name|PT_SC
 block|,
@@ -2548,7 +2950,7 @@ name|ucp_Tagbanwa
 block|}
 block|,
 block|{
-literal|854
+literal|925
 block|,
 name|PT_SC
 block|,
@@ -2556,7 +2958,7 @@ name|ucp_Tai_Le
 block|}
 block|,
 block|{
-literal|861
+literal|932
 block|,
 name|PT_SC
 block|,
@@ -2564,7 +2966,7 @@ name|ucp_Tai_Tham
 block|}
 block|,
 block|{
-literal|870
+literal|941
 block|,
 name|PT_SC
 block|,
@@ -2572,7 +2974,15 @@ name|ucp_Tai_Viet
 block|}
 block|,
 block|{
-literal|879
+literal|950
+block|,
+name|PT_SC
+block|,
+name|ucp_Takri
+block|}
+block|,
+block|{
+literal|956
 block|,
 name|PT_SC
 block|,
@@ -2580,7 +2990,7 @@ name|ucp_Tamil
 block|}
 block|,
 block|{
-literal|885
+literal|962
 block|,
 name|PT_SC
 block|,
@@ -2588,7 +2998,7 @@ name|ucp_Telugu
 block|}
 block|,
 block|{
-literal|892
+literal|969
 block|,
 name|PT_SC
 block|,
@@ -2596,7 +3006,7 @@ name|ucp_Thaana
 block|}
 block|,
 block|{
-literal|899
+literal|976
 block|,
 name|PT_SC
 block|,
@@ -2604,7 +3014,7 @@ name|ucp_Thai
 block|}
 block|,
 block|{
-literal|904
+literal|981
 block|,
 name|PT_SC
 block|,
@@ -2612,7 +3022,7 @@ name|ucp_Tibetan
 block|}
 block|,
 block|{
-literal|912
+literal|989
 block|,
 name|PT_SC
 block|,
@@ -2620,7 +3030,7 @@ name|ucp_Tifinagh
 block|}
 block|,
 block|{
-literal|921
+literal|998
 block|,
 name|PT_SC
 block|,
@@ -2628,7 +3038,7 @@ name|ucp_Ugaritic
 block|}
 block|,
 block|{
-literal|930
+literal|1007
 block|,
 name|PT_SC
 block|,
@@ -2636,7 +3046,7 @@ name|ucp_Vai
 block|}
 block|,
 block|{
-literal|934
+literal|1011
 block|,
 name|PT_ALNUM
 block|,
@@ -2644,7 +3054,7 @@ literal|0
 block|}
 block|,
 block|{
-literal|938
+literal|1015
 block|,
 name|PT_PXSPACE
 block|,
@@ -2652,7 +3062,7 @@ literal|0
 block|}
 block|,
 block|{
-literal|942
+literal|1019
 block|,
 name|PT_SPACE
 block|,
@@ -2660,7 +3070,7 @@ literal|0
 block|}
 block|,
 block|{
-literal|946
+literal|1023
 block|,
 name|PT_WORD
 block|,
@@ -2668,7 +3078,7 @@ literal|0
 block|}
 block|,
 block|{
-literal|950
+literal|1027
 block|,
 name|PT_SC
 block|,
@@ -2676,7 +3086,7 @@ name|ucp_Yi
 block|}
 block|,
 block|{
-literal|953
+literal|1030
 block|,
 name|PT_GC
 block|,
@@ -2684,7 +3094,7 @@ name|ucp_Z
 block|}
 block|,
 block|{
-literal|955
+literal|1032
 block|,
 name|PT_PC
 block|,
@@ -2692,7 +3102,7 @@ name|ucp_Zl
 block|}
 block|,
 block|{
-literal|958
+literal|1035
 block|,
 name|PT_PC
 block|,
@@ -2700,7 +3110,7 @@ name|ucp_Zp
 block|}
 block|,
 block|{
-literal|961
+literal|1038
 block|,
 name|PT_PC
 block|,

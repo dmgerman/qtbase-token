@@ -176,7 +176,7 @@ modifier|*
 name|ce
 decl_stmt|;
 specifier|register
-name|int
+name|pcre_uchar
 name|op
 init|=
 operator|*
@@ -936,17 +936,32 @@ index|]
 expr_stmt|;
 break|break;
 comment|/* Check a class for variable quantification */
+case|case
+name|OP_CLASS
+case|:
+case|case
+name|OP_NCLASS
+case|:
 if|#
 directive|if
 name|defined
 name|SUPPORT_UTF
 operator|||
-operator|!
 name|defined
-name|COMPILE_PCRE8
+name|COMPILE_PCRE16
+operator|||
+name|defined
+name|COMPILE_PCRE32
 case|case
 name|OP_XCLASS
 case|:
+comment|/* The original code caused an unsigned overflow in 64 bit systems,     so now we use a conditional statement. */
+if|if
+condition|(
+name|op
+operator|==
+name|OP_XCLASS
+condition|)
 name|cc
 operator|+=
 name|GET
@@ -955,24 +970,8 @@ name|cc
 argument_list|,
 literal|1
 argument_list|)
-operator|-
-name|PRIV
-argument_list|(
-name|OP_lengths
-argument_list|)
-index|[
-name|OP_CLASS
-index|]
 expr_stmt|;
-comment|/* Fall through */
-endif|#
-directive|endif
-case|case
-name|OP_CLASS
-case|:
-case|case
-name|OP_NCLASS
-case|:
+else|else
 name|cc
 operator|+=
 name|PRIV
@@ -983,6 +982,20 @@ index|[
 name|OP_CLASS
 index|]
 expr_stmt|;
+else|#
+directive|else
+name|cc
+operator|+=
+name|PRIV
+argument_list|(
+name|OP_lengths
+argument_list|)
+index|[
+name|OP_CLASS
+index|]
+expr_stmt|;
+endif|#
+directive|endif
 switch|switch
 condition|(
 operator|*
@@ -1554,7 +1567,7 @@ begin_comment
 comment|/************************************************* *      Set a bit and maybe its alternate case    * *************************************************/
 end_comment
 begin_comment
-comment|/* Given a character, set its first byte's bit in the table, and also the corresponding bit for the other version of a letter if we are caseless. In UTF-8 mode, for characters greater than 127, we can only do the caseless thing when Unicode property support is available.  Arguments:   start_bits    points to the bit map   p             points to the character   caseless      the caseless flag   cd            the block with char table pointers   utf           TRUE for UTF-8 / UTF-16 mode  Returns:        pointer after the character */
+comment|/* Given a character, set its first byte's bit in the table, and also the corresponding bit for the other version of a letter if we are caseless. In UTF-8 mode, for characters greater than 127, we can only do the caseless thing when Unicode property support is available.  Arguments:   start_bits    points to the bit map   p             points to the character   caseless      the caseless flag   cd            the block with char table pointers   utf           TRUE for UTF-8 / UTF-16 / UTF-32 mode  Returns:        pointer after the character */
 end_comment
 begin_function
 specifier|static
@@ -1584,8 +1597,7 @@ name|BOOL
 name|utf
 parameter_list|)
 block|{
-name|unsigned
-name|int
+name|pcre_uint32
 name|c
 init|=
 operator|*
@@ -1663,12 +1675,25 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
+comment|/* Not SUPPORT_UCP */
 return|return
 name|p
 return|;
 block|}
+else|#
+directive|else
+comment|/* Not SUPPORT_UTF */
+call|(
+name|void
+call|)
+argument_list|(
+name|utf
+argument_list|)
+expr_stmt|;
+comment|/* Stops warning for unused parameter */
 endif|#
 directive|endif
+comment|/* SUPPORT_UTF */
 comment|/* Not UTF-8 mode, or character is less than 127. */
 if|if
 condition|(
@@ -1704,9 +1729,14 @@ literal|1
 return|;
 endif|#
 directive|endif
-ifdef|#
-directive|ifdef
+comment|/* COMPILE_PCRE8 */
+if|#
+directive|if
+name|defined
 name|COMPILE_PCRE16
+operator|||
+name|defined
+name|COMPILE_PCRE32
 if|if
 condition|(
 name|c
@@ -1780,12 +1810,25 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
+comment|/* SUPPORT_UCP */
 return|return
 name|p
 return|;
 block|}
+else|#
+directive|else
+comment|/* Not SUPPORT_UTF */
+call|(
+name|void
+call|)
+argument_list|(
+name|utf
+argument_list|)
+expr_stmt|;
+comment|/* Stops warning for unused parameter */
 endif|#
 directive|endif
+comment|/* SUPPORT_UTF */
 if|if
 condition|(
 name|caseless
@@ -1841,6 +1884,7 @@ parameter_list|,
 name|int
 name|cbit_type
 parameter_list|,
+name|unsigned
 name|int
 name|table_limit
 parameter_list|,
@@ -1850,7 +1894,7 @@ name|cd
 parameter_list|)
 block|{
 specifier|register
-name|int
+name|pcre_uint32
 name|c
 decl_stmt|;
 for|for
@@ -1986,6 +2030,7 @@ parameter_list|,
 name|int
 name|cbit_type
 parameter_list|,
+name|unsigned
 name|int
 name|table_limit
 parameter_list|,
@@ -1995,7 +2040,7 @@ name|cd
 parameter_list|)
 block|{
 specifier|register
-name|int
+name|pcre_uint32
 name|c
 decl_stmt|;
 for|for
@@ -2067,7 +2112,7 @@ begin_comment
 comment|/************************************************* *          Create bitmap of starting bytes       * *************************************************/
 end_comment
 begin_comment
-comment|/* This function scans a compiled unanchored expression recursively and attempts to build a bitmap of the set of possible starting bytes. As time goes by, we may be able to get more clever at doing this. The SSB_CONTINUE return is useful for parenthesized groups in patterns such as (a*)b where the group provides some optional starting bytes but scanning must continue at the outer level to find at least one mandatory byte. At the outermost level, this function fails unless the result is SSB_DONE.  Arguments:   code         points to an expression   start_bits   points to a 32-byte table, initialized to 0   utf          TRUE if in UTF-8 / UTF-16 mode   cd           the block with char table pointers  Returns:       SSB_FAIL     => Failed to find any starting bytes                SSB_DONE     => Found mandatory starting bytes                SSB_CONTINUE => Found optional starting bytes                SSB_UNKNOWN  => Hit an unrecognized opcode */
+comment|/* This function scans a compiled unanchored expression recursively and attempts to build a bitmap of the set of possible starting bytes. As time goes by, we may be able to get more clever at doing this. The SSB_CONTINUE return is useful for parenthesized groups in patterns such as (a*)b where the group provides some optional starting bytes but scanning must continue at the outer level to find at least one mandatory byte. At the outermost level, this function fails unless the result is SSB_DONE.  Arguments:   code         points to an expression   start_bits   points to a 32-byte table, initialized to 0   utf          TRUE if in UTF-8 / UTF-16 / UTF-32 mode   cd           the block with char table pointers  Returns:       SSB_FAIL     => Failed to find any starting bytes                SSB_DONE     => Found mandatory starting bytes                SSB_CONTINUE => Found optional starting bytes                SSB_UNKNOWN  => Hit an unrecognized opcode */
 end_comment
 begin_function
 specifier|static
@@ -2093,7 +2138,7 @@ name|cd
 parameter_list|)
 block|{
 specifier|register
-name|int
+name|pcre_uint32
 name|c
 decl_stmt|;
 name|int
@@ -2929,12 +2974,12 @@ name|OP_HSPACE
 case|:
 name|SET_BIT
 argument_list|(
-literal|0x09
+name|CHAR_HT
 argument_list|)
 expr_stmt|;
 name|SET_BIT
 argument_list|(
-literal|0x20
+name|CHAR_SPACE
 argument_list|)
 expr_stmt|;
 ifdef|#
@@ -2972,11 +3017,13 @@ literal|0xE3
 argument_list|)
 expr_stmt|;
 comment|/* For U+3000 */
-endif|#
-directive|endif
-ifdef|#
-directive|ifdef
+elif|#
+directive|elif
+name|defined
 name|COMPILE_PCRE16
+operator|||
+name|defined
+name|COMPILE_PCRE32
 name|SET_BIT
 argument_list|(
 literal|0xA0
@@ -2990,20 +3037,31 @@ expr_stmt|;
 comment|/* For characters> 255 */
 endif|#
 directive|endif
+comment|/* COMPILE_PCRE[8|16|32] */
 block|}
 else|else
 endif|#
 directive|endif
 comment|/* SUPPORT_UTF */
 block|{
+ifndef|#
+directive|ifndef
+name|EBCDIC
 name|SET_BIT
 argument_list|(
 literal|0xA0
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
+endif|#
+directive|endif
+comment|/* Not EBCDIC */
+if|#
+directive|if
+name|defined
 name|COMPILE_PCRE16
+operator|||
+name|defined
+name|COMPILE_PCRE32
 name|SET_BIT
 argument_list|(
 literal|0xFF
@@ -3012,6 +3070,7 @@ expr_stmt|;
 comment|/* For characters> 255 */
 endif|#
 directive|endif
+comment|/* COMPILE_PCRE[16|32] */
 block|}
 name|try_next
 operator|=
@@ -3026,22 +3085,22 @@ name|OP_VSPACE
 case|:
 name|SET_BIT
 argument_list|(
-literal|0x0A
+name|CHAR_LF
 argument_list|)
 expr_stmt|;
 name|SET_BIT
 argument_list|(
-literal|0x0B
+name|CHAR_VT
 argument_list|)
 expr_stmt|;
 name|SET_BIT
 argument_list|(
-literal|0x0C
+name|CHAR_FF
 argument_list|)
 expr_stmt|;
 name|SET_BIT
 argument_list|(
-literal|0x0D
+name|CHAR_CR
 argument_list|)
 expr_stmt|;
 ifdef|#
@@ -3067,14 +3126,16 @@ literal|0xE2
 argument_list|)
 expr_stmt|;
 comment|/* For U+2028, U+2029 */
-endif|#
-directive|endif
-ifdef|#
-directive|ifdef
+elif|#
+directive|elif
+name|defined
 name|COMPILE_PCRE16
+operator|||
+name|defined
+name|COMPILE_PCRE32
 name|SET_BIT
 argument_list|(
-literal|0x85
+name|CHAR_NEL
 argument_list|)
 expr_stmt|;
 name|SET_BIT
@@ -3085,6 +3146,7 @@ expr_stmt|;
 comment|/* For characters> 255 */
 endif|#
 directive|endif
+comment|/* COMPILE_PCRE[8|16|32] */
 block|}
 else|else
 endif|#
@@ -3093,12 +3155,16 @@ comment|/* SUPPORT_UTF */
 block|{
 name|SET_BIT
 argument_list|(
-literal|0x85
+name|CHAR_NEL
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
 name|COMPILE_PCRE16
+operator|||
+name|defined
+name|COMPILE_PCRE32
 name|SET_BIT
 argument_list|(
 literal|0xFF
@@ -3152,7 +3218,7 @@ operator|=
 name|FALSE
 expr_stmt|;
 break|break;
-comment|/* The cbit_space table has vertical tab as whitespace; we have to       ensure it is set as not whitespace. */
+comment|/* The cbit_space table has vertical tab as whitespace; we have to       ensure it is set as not whitespace. Luckily, the code value is the same       (0x0b) in ASCII and EBCDIC, so we can just adjust the appropriate bit. */
 case|case
 name|OP_NOT_WHITESPACE
 case|:
@@ -3179,7 +3245,7 @@ operator|=
 name|FALSE
 expr_stmt|;
 break|break;
-comment|/* The cbit_space table has vertical tab as whitespace; we have to       not set it from the table. */
+comment|/* The cbit_space table has vertical tab as whitespace; we have to not       set it from the table. Luckily, the code value is the same (0x0b) in       ASCII and EBCDIC, so we can just adjust the appropriate bit. */
 case|case
 name|OP_WHITESPACE
 case|:
@@ -3342,17 +3408,17 @@ name|OP_HSPACE
 case|:
 name|SET_BIT
 argument_list|(
-literal|0x09
+name|CHAR_HT
 argument_list|)
 expr_stmt|;
 name|SET_BIT
 argument_list|(
-literal|0x20
+name|CHAR_SPACE
 argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|COMPILE_PCRE8
+name|SUPPORT_UTF
 if|if
 condition|(
 name|utf
@@ -3385,11 +3451,13 @@ literal|0xE3
 argument_list|)
 expr_stmt|;
 comment|/* For U+3000 */
-endif|#
-directive|endif
-ifdef|#
-directive|ifdef
+elif|#
+directive|elif
+name|defined
 name|COMPILE_PCRE16
+operator|||
+name|defined
+name|COMPILE_PCRE32
 name|SET_BIT
 argument_list|(
 literal|0xA0
@@ -3403,16 +3471,23 @@ expr_stmt|;
 comment|/* For characters> 255 */
 endif|#
 directive|endif
+comment|/* COMPILE_PCRE[8|16|32] */
 block|}
 else|else
 endif|#
 directive|endif
 comment|/* SUPPORT_UTF */
+ifndef|#
+directive|ifndef
+name|EBCDIC
 name|SET_BIT
 argument_list|(
 literal|0xA0
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|/* Not EBCDIC */
 break|break;
 case|case
 name|OP_ANYNL
@@ -3422,27 +3497,27 @@ name|OP_VSPACE
 case|:
 name|SET_BIT
 argument_list|(
-literal|0x0A
+name|CHAR_LF
 argument_list|)
 expr_stmt|;
 name|SET_BIT
 argument_list|(
-literal|0x0B
+name|CHAR_VT
 argument_list|)
 expr_stmt|;
 name|SET_BIT
 argument_list|(
-literal|0x0C
+name|CHAR_FF
 argument_list|)
 expr_stmt|;
 name|SET_BIT
 argument_list|(
-literal|0x0D
+name|CHAR_CR
 argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|COMPILE_PCRE8
+name|SUPPORT_UTF
 if|if
 condition|(
 name|utf
@@ -3463,14 +3538,16 @@ literal|0xE2
 argument_list|)
 expr_stmt|;
 comment|/* For U+2028, U+2029 */
-endif|#
-directive|endif
-ifdef|#
-directive|ifdef
+elif|#
+directive|elif
+name|defined
 name|COMPILE_PCRE16
+operator|||
+name|defined
+name|COMPILE_PCRE32
 name|SET_BIT
 argument_list|(
-literal|0x85
+name|CHAR_NEL
 argument_list|)
 expr_stmt|;
 name|SET_BIT
@@ -3481,6 +3558,7 @@ expr_stmt|;
 comment|/* For characters> 255 */
 endif|#
 directive|endif
+comment|/* COMPILE_PCRE16 */
 block|}
 else|else
 endif|#
@@ -3488,7 +3566,7 @@ directive|endif
 comment|/* SUPPORT_UTF */
 name|SET_BIT
 argument_list|(
-literal|0x85
+name|CHAR_NEL
 argument_list|)
 expr_stmt|;
 break|break;
@@ -3522,7 +3600,7 @@ name|cd
 argument_list|)
 expr_stmt|;
 break|break;
-comment|/* The cbit_space table has vertical tab as whitespace; we have to         ensure it gets set as not whitespace. */
+comment|/* The cbit_space table has vertical tab as whitespace; we have to         ensure it gets set as not whitespace. Luckily, the code value is the         same (0x0b) in ASCII and EBCDIC, so we can just adjust the appropriate         bit. */
 case|case
 name|OP_NOT_WHITESPACE
 case|:
@@ -3545,7 +3623,7 @@ operator||=
 literal|0x08
 expr_stmt|;
 break|break;
-comment|/* The cbit_space table has vertical tab as whitespace; we have to         avoid setting it. */
+comment|/* The cbit_space table has vertical tab as whitespace; we have to         avoid setting it. Luckily, the code value is the same (0x0b) in ASCII         and EBCDIC, so we can just adjust the appropriate bit. */
 case|case
 name|OP_WHITESPACE
 case|:
@@ -3661,9 +3739,13 @@ comment|/* Bits for 0xc9 - 0xff */
 block|}
 endif|#
 directive|endif
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
 name|COMPILE_PCRE16
+operator|||
+name|defined
+name|COMPILE_PCRE32
 name|SET_BIT
 argument_list|(
 literal|0xFF
@@ -3948,11 +4030,12 @@ end_comment
 begin_comment
 comment|/* This function is handed a compiled expression that it must study to produce information that will speed up the matching. It returns a pcre[16]_extra block which then gets handed back to pcre_exec().  Arguments:   re        points to the compiled expression   options   contains option bits   errorptr  points to where to place error messages;             set NULL unless error  Returns:    pointer to a pcre[16]_extra block, with study_data filled in and               the appropriate flags set;             NULL on error or if no optimization possible */
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_if
+if|#
+directive|if
+name|defined
 name|COMPILE_PCRE8
-end_ifdef
+end_if
 begin_decl_stmt
 name|PCRE_EXP_DEFN
 name|pcre_extra
@@ -3975,8 +4058,10 @@ operator|*
 operator|*
 name|errorptr
 argument_list|)
-else|#
-directive|else
+elif|#
+directive|elif
+name|defined
+name|COMPILE_PCRE16
 name|PCRE_EXP_DEFN
 name|pcre16_extra
 modifier|*
@@ -3985,6 +4070,30 @@ name|pcre16_study
 argument_list|(
 specifier|const
 name|pcre16
+operator|*
+name|external_re
+argument_list|,
+name|int
+name|options
+argument_list|,
+specifier|const
+name|char
+operator|*
+operator|*
+name|errorptr
+argument_list|)
+elif|#
+directive|elif
+name|defined
+name|COMPILE_PCRE32
+name|PCRE_EXP_DEFN
+name|pcre32_extra
+modifier|*
+name|PCRE_CALL_CONVENTION
+name|pcre32_study
+argument_list|(
+specifier|const
+name|pcre32
 operator|*
 name|external_re
 argument_list|,
@@ -4091,20 +4200,32 @@ operator|==
 literal|0
 condition|)
 block|{
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
 name|COMPILE_PCRE8
 operator|*
 name|errorptr
 operator|=
-literal|"argument is compiled in 16 bit mode"
+literal|"argument not compiled in 8 bit mode"
 expr_stmt|;
-else|#
-directive|else
+elif|#
+directive|elif
+name|defined
+name|COMPILE_PCRE16
 operator|*
 name|errorptr
 operator|=
-literal|"argument is compiled in 8 bit mode"
+literal|"argument not compiled in 16 bit mode"
+expr_stmt|;
+elif|#
+directive|elif
+name|defined
+name|COMPILE_PCRE32
+operator|*
+name|errorptr
+operator|=
+literal|"argument not compiled in 32 bit mode"
 expr_stmt|;
 endif|#
 directive|endif
@@ -4193,8 +4314,9 @@ name|re
 operator|->
 name|tables
 expr_stmt|;
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
 name|COMPILE_PCRE8
 if|if
 condition|(
@@ -4223,8 +4345,10 @@ name|tables
 operator|)
 argument_list|)
 expr_stmt|;
-else|#
-directive|else
+elif|#
+directive|elif
+name|defined
+name|COMPILE_PCRE16
 if|if
 condition|(
 name|tables
@@ -4235,6 +4359,37 @@ operator|(
 name|void
 operator|)
 name|pcre16_fullinfo
+argument_list|(
+name|external_re
+argument_list|,
+name|NULL
+argument_list|,
+name|PCRE_INFO_DEFAULT_TABLES
+argument_list|,
+operator|(
+name|void
+operator|*
+operator|)
+operator|(
+operator|&
+name|tables
+operator|)
+argument_list|)
+expr_stmt|;
+elif|#
+directive|elif
+name|defined
+name|COMPILE_PCRE32
+if|if
+condition|(
+name|tables
+operator|==
+name|NULL
+condition|)
+operator|(
+name|void
+operator|)
+name|pcre32_fullinfo
 argument_list|(
 name|external_re
 argument_list|,
@@ -4392,7 +4547,7 @@ return|;
 default|default:
 break|break;
 block|}
-comment|/* If a set of starting bytes has been identified, or if the minimum length is greater than zero, or if JIT optimization has been requested, get a pcre[16]_extra block and a pcre_study_data block. The study data is put in the latter, which is pointed to by the former, which may also get additional data set later by the calling program. At the moment, the size of pcre_study_data is fixed. We nevertheless save it in a field for returning via the pcre_fullinfo() function so that if it becomes variable in the future, we don't have to change that code. */
+comment|/* If a set of starting bytes has been identified, or if the minimum length is greater than zero, or if JIT optimization has been requested, or if PCRE_STUDY_EXTRA_NEEDED is set, get a pcre[16]_extra block and a pcre_study_data block. The study data is put in the latter, which is pointed to by the former, which may also get additional data set later by the calling program. At the moment, the size of pcre_study_data is fixed. We nevertheless save it in a field for returning via the pcre_fullinfo() function so that if it becomes variable in the future, we don't have to change that code. */
 if|if
 condition|(
 name|bits_set
@@ -4400,19 +4555,27 @@ operator|||
 name|min
 operator|>
 literal|0
-ifdef|#
-directive|ifdef
-name|SUPPORT_JIT
 operator|||
 operator|(
 name|options
 operator|&
+operator|(
+ifdef|#
+directive|ifdef
+name|SUPPORT_JIT
 name|PCRE_STUDY_JIT_COMPILE
+operator||
+name|PCRE_STUDY_JIT_PARTIAL_SOFT_COMPILE
+operator||
+name|PCRE_STUDY_JIT_PARTIAL_HARD_COMPILE
+operator||
+endif|#
+directive|endif
+name|PCRE_STUDY_EXTRA_NEEDED
+operator|)
 operator|)
 operator|!=
 literal|0
-endif|#
-directive|endif
 condition|)
 block|{
 name|extra
@@ -4649,7 +4812,7 @@ name|minlength
 operator|=
 literal|0
 expr_stmt|;
-comment|/* If JIT support was compiled and requested, attempt the JIT compilation.   If no starting bytes were found, and the minimum length is zero, and JIT   compilation fails, abandon the extra block and return NULL. */
+comment|/* If JIT support was compiled and requested, attempt the JIT compilation.   If no starting bytes were found, and the minimum length is zero, and JIT   compilation fails, abandon the extra block and return NULL, unless   PCRE_STUDY_EXTRA_NEEDED is set. */
 ifdef|#
 directive|ifdef
 name|SUPPORT_JIT
@@ -4677,6 +4840,52 @@ parameter_list|(
 name|re
 parameter_list|,
 name|extra
+parameter_list|,
+name|JIT_COMPILE
+parameter_list|)
+function_decl|;
+if|if
+condition|(
+operator|(
+name|options
+operator|&
+name|PCRE_STUDY_JIT_PARTIAL_SOFT_COMPILE
+operator|)
+operator|!=
+literal|0
+condition|)
+name|PRIV
+function_decl|(
+name|jit_compile
+function_decl|)
+parameter_list|(
+name|re
+parameter_list|,
+name|extra
+parameter_list|,
+name|JIT_PARTIAL_SOFT_COMPILE
+parameter_list|)
+function_decl|;
+if|if
+condition|(
+operator|(
+name|options
+operator|&
+name|PCRE_STUDY_JIT_PARTIAL_HARD_COMPILE
+operator|)
+operator|!=
+literal|0
+condition|)
+name|PRIV
+function_decl|(
+name|jit_compile
+function_decl|)
+parameter_list|(
+name|re
+parameter_list|,
+name|extra
+parameter_list|,
+name|JIT_PARTIAL_HARD_COMPILE
 parameter_list|)
 function_decl|;
 if|if
@@ -4696,22 +4905,39 @@ name|PCRE_EXTRA_EXECUTABLE_JIT
 operator|)
 operator|==
 literal|0
+operator|&&
+operator|(
+name|options
+operator|&
+name|PCRE_STUDY_EXTRA_NEEDED
+operator|)
+operator|==
+literal|0
 condition|)
 block|{
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
 name|COMPILE_PCRE8
 name|pcre_free_study
 argument_list|(
 name|extra
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
-ifdef|#
-directive|ifdef
+elif|#
+directive|elif
+name|defined
 name|COMPILE_PCRE16
 name|pcre16_free_study
+argument_list|(
+name|extra
+argument_list|)
+expr_stmt|;
+elif|#
+directive|elif
+name|defined
+name|COMPILE_PCRE32
+name|pcre32_free_study
 argument_list|(
 name|extra
 argument_list|)
@@ -4737,11 +4963,12 @@ end_comment
 begin_comment
 comment|/* This function frees the memory that was obtained by pcre_study().  Argument:   a pointer to the pcre[16]_extra block Returns:    nothing */
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_if
+if|#
+directive|if
+name|defined
 name|COMPILE_PCRE8
-end_ifdef
+end_if
 begin_decl_stmt
 name|PCRE_EXP_DEFN
 name|void
@@ -4752,13 +4979,27 @@ name|pcre_extra
 operator|*
 name|extra
 argument_list|)
-else|#
-directive|else
+elif|#
+directive|elif
+name|defined
+name|COMPILE_PCRE16
 name|PCRE_EXP_DEFN
 name|void
 name|pcre16_free_study
 argument_list|(
 name|pcre16_extra
+operator|*
+name|extra
+argument_list|)
+elif|#
+directive|elif
+name|defined
+name|COMPILE_PCRE32
+name|PCRE_EXP_DEFN
+name|void
+name|pcre32_free_study
+argument_list|(
+name|pcre32_extra
 operator|*
 name|extra
 argument_list|)

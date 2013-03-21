@@ -6,7 +6,7 @@ begin_comment
 comment|/* PCRE is a library of functions to support regular expressions whose syntax and semantics are as close as possible to those of the Perl 5 language.                         Written by Philip Hazel            Copyright (c) 1997-2012 University of Cambridge  ----------------------------------------------------------------------------- Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:      * Redistributions of source code must retain the above copyright notice,       this list of conditions and the following disclaimer.      * Redistributions in binary form must reproduce the above copyright       notice, this list of conditions and the following disclaimer in the       documentation and/or other materials provided with the distribution.      * Neither the name of the University of Cambridge nor the names of its       contributors may be used to endorse or promote products derived from       this software without specific prior written permission.  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. ----------------------------------------------------------------------------- */
 end_comment
 begin_comment
-comment|/* This header contains definitions that are shared between the different modules, but which are not relevant to the exported API. This includes some functions whose names all begin with "_pcre_" or "_pcre16_" depending on the PRIV macro. */
+comment|/* This header contains definitions that are shared between the different modules, but which are not relevant to the exported API. This includes some functions whose names all begin with "_pcre_", "_pcre16_" or "_pcre32_" depending on the PRIV macro. */
 end_comment
 begin_ifndef
 ifndef|#
@@ -39,11 +39,17 @@ end_endif
 begin_comment
 comment|/* PCRE is compiled as an 8 bit library if it is not requested otherwise. */
 end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
 name|COMPILE_PCRE16
-end_ifndef
+operator|&&
+operator|!
+name|defined
+name|COMPILE_PCRE32
+end_if
 begin_define
 DECL|macro|COMPILE_PCRE8
 define|#
@@ -133,7 +139,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* We do not support both EBCDIC and UTF-8/16 at the same time. The "configure" script prevents both being selected, but not everybody uses "configure". */
+comment|/* We do not support both EBCDIC and UTF-8/16/32 at the same time. The "configure" script prevents both being selected, but not everybody uses "configure". */
 end_comment
 begin_if
 if|#
@@ -147,7 +153,7 @@ end_if
 begin_error
 error|#
 directive|error
-error|The use of both EBCDIC and SUPPORT_UTF8/16 is not supported.
+error|The use of both EBCDIC and SUPPORT_UTF is not supported.
 end_error
 begin_endif
 endif|#
@@ -231,6 +237,23 @@ include|#
 directive|include
 file|<string.h>
 end_include
+begin_comment
+comment|/* Valgrind (memcheck) support */
+end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|SUPPORT_VALGRIND
+end_ifdef
+begin_include
+include|#
+directive|include
+file|<valgrind/memcheck.h>
+end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/* When compiling a DLL for Windows, the exported symbols have to be declared using some MS magic. I found some useful information on this web page: http://msdn2.microsoft.com/en-us/library/y4h7bcy6(VS.80).aspx. According to the information there, using __declspec(dllexport) without "extern" we have a definition; with "extern" we have a declaration. The settings here override the setting in pcre.h (which is included below); it defines only PCRE_EXP_DECL, which is all that is needed for applications (they just import the symbols). We use:    PCRE_EXP_DECL       for declarations   PCRE_EXP_DEFN       for definitions of exported functions   PCRE_EXP_DATA_DEFN  for definitions of exported variables  The reason for the two DEFN macros is that in non-Windows environments, one does not want to have "extern" before variable definitions because it leads to compiler warnings. So we distinguish between functions and variables. In Windows, the two should always be the same.  The reason for wrapping this in #ifndef PCRE_EXP_DECL is so that pcretest, which is an application, but needs to import this file in order to "peek" at internals, can #include pcre.h first to get an application's-eye view.  In principle, people compiling for non-Windows, non-Unix-like (i.e. uncommon, special-purpose environments) might want to stick other stuff in front of exported symbols. That's why, in the non-Windows case, we set PCRE_EXP_DEFN and PCRE_EXP_DATA_DEFN only if they are not already set. */
 end_comment
@@ -518,6 +541,7 @@ end_comment
 begin_if
 if|#
 directive|if
+name|defined
 name|HAVE_STDINT_H
 end_if
 begin_include
@@ -528,6 +552,7 @@ end_include
 begin_elif
 elif|#
 directive|elif
+name|defined
 name|HAVE_INTTYPES_H
 end_elif
 begin_include
@@ -573,11 +598,12 @@ end_endif
 begin_comment
 comment|/* All character handling must be done as unsigned characters. Otherwise there are problems with top-bit-set characters and functions such as isspace(). However, we leave the interface to the outside world as char * or short *, because that should make things easier for callers. This character type is called pcre_uchar.  The IN_UCHARS macro multiply its argument with the byte size of the current pcre_uchar type. Useful for memcpy and such operations, whose require the byte size of their input/output buffers.  The MAX_255 macro checks whether its pcre_uchar input is less than 256.  The TABLE_GET macro is designed for accessing elements of tables whose contain exactly 256 items. When the character is able to contain more than 256 items, some check is needed before accessing these tables. */
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_if
+if|#
+directive|if
+name|defined
 name|COMPILE_PCRE8
-end_ifdef
+end_if
 begin_typedef
 DECL|typedef|pcre_uchar
 typedef|typedef
@@ -618,15 +644,12 @@ name|table
 parameter_list|,
 define|default) ((table)[c])
 end_define
-begin_else
-else|#
-directive|else
-end_else
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_elif
+elif|#
+directive|elif
+name|defined
 name|COMPILE_PCRE16
-end_ifdef
+end_elif
 begin_if
 if|#
 directive|if
@@ -654,6 +677,13 @@ name|pcre_uchar
 typedef|;
 end_typedef
 begin_define
+DECL|macro|UCHAR_SHIFT
+define|#
+directive|define
+name|UCHAR_SHIFT
+value|(1)
+end_define
+begin_define
 DECL|macro|IN_UCHARS
 define|#
 directive|define
@@ -661,7 +691,59 @@ name|IN_UCHARS
 parameter_list|(
 name|x
 parameter_list|)
-value|((x)<< 1)
+value|((x)<< UCHAR_SHIFT)
+end_define
+begin_define
+DECL|macro|MAX_255
+define|#
+directive|define
+name|MAX_255
+parameter_list|(
+name|c
+parameter_list|)
+value|((c)<= 255u)
+end_define
+begin_define
+DECL|macro|TABLE_GET
+define|#
+directive|define
+name|TABLE_GET
+parameter_list|(
+name|c
+parameter_list|,
+name|table
+parameter_list|,
+define|default) (MAX_255(c)? ((table)[c]):(default))
+end_define
+begin_elif
+elif|#
+directive|elif
+name|defined
+name|COMPILE_PCRE32
+end_elif
+begin_typedef
+DECL|typedef|pcre_uchar
+typedef|typedef
+name|pcre_uint32
+name|pcre_uchar
+typedef|;
+end_typedef
+begin_define
+DECL|macro|UCHAR_SHIFT
+define|#
+directive|define
+name|UCHAR_SHIFT
+value|(2)
+end_define
+begin_define
+DECL|macro|IN_UCHARS
+define|#
+directive|define
+name|IN_UCHARS
+parameter_list|(
+name|x
+parameter_list|)
+value|((x)<< UCHAR_SHIFT)
 end_define
 begin_define
 DECL|macro|MAX_255
@@ -699,14 +781,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* COMPILE_PCRE16 */
-end_comment
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|/* COMPILE_PCRE8 */
+comment|/* COMPILE_PCRE[8|16|32] */
 end_comment
 begin_comment
 comment|/* This is an unsigned int value that no character can ever have. UTF-8 characters only go up to 0x7fffffff (though Unicode doesn't go beyond 0x0010ffff). */
@@ -766,7 +841,7 @@ parameter_list|(
 name|p
 parameter_list|)
 define|\
-value|((NLBLOCK->nltype != NLTYPE_FIXED)? \     ((p)< NLBLOCK->PSEND&& \      PRIV(is_newline)((p), NLBLOCK->nltype, NLBLOCK->PSEND, \&(NLBLOCK->nllen), utf)) \     : \     ((p)<= NLBLOCK->PSEND - NLBLOCK->nllen&& \      (p)[0] == NLBLOCK->nl[0]&& \      (NLBLOCK->nllen == 1 || (p)[1] == NLBLOCK->nl[1]) \     ) \   )
+value|((NLBLOCK->nltype != NLTYPE_FIXED)? \     ((p)< NLBLOCK->PSEND&& \      PRIV(is_newline)((p), NLBLOCK->nltype, NLBLOCK->PSEND, \&(NLBLOCK->nllen), utf)) \     : \     ((p)<= NLBLOCK->PSEND - NLBLOCK->nllen&& \      RAWUCHARTEST(p) == NLBLOCK->nl[0]&& \      (NLBLOCK->nllen == 1 || RAWUCHARTEST(p+1) == NLBLOCK->nl[1])       \     ) \   )
 end_define
 begin_comment
 comment|/* This macro checks for a newline immediately preceding the given position */
@@ -780,7 +855,7 @@ parameter_list|(
 name|p
 parameter_list|)
 define|\
-value|((NLBLOCK->nltype != NLTYPE_FIXED)? \     ((p)> NLBLOCK->PSSTART&& \      PRIV(was_newline)((p), NLBLOCK->nltype, NLBLOCK->PSSTART, \&(NLBLOCK->nllen), utf)) \     : \     ((p)>= NLBLOCK->PSSTART + NLBLOCK->nllen&& \      (p)[-NLBLOCK->nllen] == NLBLOCK->nl[0]&& \      (NLBLOCK->nllen == 1 || (p)[-NLBLOCK->nllen+1] == NLBLOCK->nl[1]) \     ) \   )
+value|((NLBLOCK->nltype != NLTYPE_FIXED)? \     ((p)> NLBLOCK->PSSTART&& \      PRIV(was_newline)((p), NLBLOCK->nltype, NLBLOCK->PSSTART, \&(NLBLOCK->nllen), utf)) \     : \     ((p)>= NLBLOCK->PSSTART + NLBLOCK->nllen&& \      RAWUCHARTEST(p - NLBLOCK->nllen) == NLBLOCK->nl[0]&&              \      (NLBLOCK->nllen == 1 || RAWUCHARTEST(p - NLBLOCK->nllen + 1) == NLBLOCK->nl[1]) \     ) \   )
 end_define
 begin_comment
 comment|/* When PCRE is compiled as a C++ library, the subject pointer can be replaced with a custom type. This makes it possible, for example, to allow pcre_exec() to process subject strings that are discontinuous by using a smart pointer class. It must always be possible to inspect all of the subject string in pcre_exec() because of the way it backtracks. Two macros are required in the normal case, for sign-unspecified and unsigned char pointers. The former is used for the external interface and appears in pcre.h, which is why its name must begin with PCRE_. */
@@ -825,6 +900,38 @@ include|#
 directive|include
 file|"ucp.h"
 end_include
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|COMPILE_PCRE32
+end_ifdef
+begin_comment
+comment|/* Assert that the public PCRE_UCHAR32 is a 32-bit type */
+end_comment
+begin_typedef
+DECL|typedef|__assert_pcre_uchar32_size
+typedef|typedef
+name|int
+name|__assert_pcre_uchar32_size
+index|[
+sizeof|sizeof
+argument_list|(
+name|PCRE_UCHAR32
+argument_list|)
+operator|==
+literal|4
+condition|?
+literal|1
+else|:
+operator|-
+literal|1
+index|]
+typedef|;
+end_typedef
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/* When compiling for use with the Virtual Pascal compiler, these functions need to have their names changed. PCRE must be compiled with the -DVPCOMPAT option on the command line. */
 end_comment
@@ -1136,11 +1243,12 @@ end_comment
 begin_comment
 comment|/* PCRE keeps offsets in its compiled code as 2-byte quantities (always stored in big-endian order) by default. These are used, for example, to link from the start of a subpattern to its alternatives and its end. The use of 2 bytes per offset limits the size of the compiled regex to around 64K, which is big enough for almost everybody. However, I received a request for an even bigger limit. For this reason, and also to make the code easier to maintain, the storing and loading of offsets from the byte string is now handled by the macros that are defined here.  The macros are controlled by the value of LINK_SIZE. This defaults to 2 in the config.h file, but can be overridden by using -D on the command line. This is automated on Unix systems via the "configure" command. */
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_if
+if|#
+directive|if
+name|defined
 name|COMPILE_PCRE8
-end_ifdef
+end_if
 begin_if
 if|#
 directive|if
@@ -1283,18 +1391,12 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_else
-else|#
-directive|else
-end_else
-begin_comment
-comment|/* COMPILE_PCRE8 */
-end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_elif
+elif|#
+directive|elif
+name|defined
 name|COMPILE_PCRE16
-end_ifdef
+end_elif
 begin_if
 if|#
 directive|if
@@ -1302,6 +1404,9 @@ name|LINK_SIZE
 operator|==
 literal|2
 end_if
+begin_comment
+comment|/* Redefine LINK_SIZE as a multiple of sizeof(pcre_uchar) */
+end_comment
 begin_undef
 DECL|macro|LINK_SIZE
 undef|#
@@ -1361,6 +1466,9 @@ name|LINK_SIZE
 operator|==
 literal|4
 end_elif
+begin_comment
+comment|/* Redefine LINK_SIZE as a multiple of sizeof(pcre_uchar) */
+end_comment
 begin_undef
 DECL|macro|LINK_SIZE
 undef|#
@@ -1425,6 +1533,69 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_elif
+elif|#
+directive|elif
+name|defined
+name|COMPILE_PCRE32
+end_elif
+begin_comment
+comment|/* Only supported LINK_SIZE is 4 */
+end_comment
+begin_comment
+comment|/* Redefine LINK_SIZE as a multiple of sizeof(pcre_uchar) */
+end_comment
+begin_undef
+DECL|macro|LINK_SIZE
+undef|#
+directive|undef
+name|LINK_SIZE
+end_undef
+begin_define
+DECL|macro|LINK_SIZE
+define|#
+directive|define
+name|LINK_SIZE
+value|1
+end_define
+begin_define
+DECL|macro|PUT
+define|#
+directive|define
+name|PUT
+parameter_list|(
+name|a
+parameter_list|,
+name|n
+parameter_list|,
+name|d
+parameter_list|)
+define|\
+value|(a[n] = (d))
+end_define
+begin_define
+DECL|macro|GET
+define|#
+directive|define
+name|GET
+parameter_list|(
+name|a
+parameter_list|,
+name|n
+parameter_list|)
+define|\
+value|(a[n])
+end_define
+begin_comment
+comment|/* Keep it positive */
+end_comment
+begin_define
+DECL|macro|MAX_PATTERN_SIZE
+define|#
+directive|define
+name|MAX_PATTERN_SIZE
+value|(1<< 30)
+end_define
 begin_else
 else|#
 directive|else
@@ -1439,14 +1610,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* COMPILE_PCRE16 */
-end_comment
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|/* COMPILE_PCRE8 */
+comment|/* COMPILE_PCRE[8|16|32] */
 end_comment
 begin_comment
 comment|/* Convenience macro defined in terms of the others */
@@ -1468,11 +1632,12 @@ end_define
 begin_comment
 comment|/* PCRE uses some other 2-byte quantities that do not change when the size of offsets changes. There are used for repeat counts and for other things such as capturing parenthesis numbers in back references. */
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_if
+if|#
+directive|if
+name|defined
 name|COMPILE_PCRE8
-end_ifdef
+end_if
 begin_define
 DECL|macro|IMM2_SIZE
 define|#
@@ -1495,6 +1660,9 @@ parameter_list|)
 define|\
 value|a[n] = (d)>> 8; \   a[(n)+1] = (d)& 255
 end_define
+begin_comment
+comment|/* For reasons that I do not understand, the expression in this GET2 macro is treated by gcc as a signed expression, even when a is declared as unsigned. It seems that any kind of arithmetic results in a signed value. */
+end_comment
 begin_define
 DECL|macro|GET2
 define|#
@@ -1506,20 +1674,55 @@ parameter_list|,
 name|n
 parameter_list|)
 define|\
-value|(((a)[n]<< 8) | (a)[(n)+1])
+value|(unsigned int)(((a)[n]<< 8) | (a)[(n)+1])
 end_define
-begin_else
-else|#
-directive|else
-end_else
-begin_comment
-comment|/* COMPILE_PCRE8 */
-end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_elif
+elif|#
+directive|elif
+name|defined
 name|COMPILE_PCRE16
-end_ifdef
+end_elif
+begin_define
+DECL|macro|IMM2_SIZE
+define|#
+directive|define
+name|IMM2_SIZE
+value|1
+end_define
+begin_define
+DECL|macro|PUT2
+define|#
+directive|define
+name|PUT2
+parameter_list|(
+name|a
+parameter_list|,
+name|n
+parameter_list|,
+name|d
+parameter_list|)
+define|\
+value|a[n] = d
+end_define
+begin_define
+DECL|macro|GET2
+define|#
+directive|define
+name|GET2
+parameter_list|(
+name|a
+parameter_list|,
+name|n
+parameter_list|)
+define|\
+value|a[n]
+end_define
+begin_elif
+elif|#
+directive|elif
+name|defined
+name|COMPILE_PCRE32
+end_elif
 begin_define
 DECL|macro|IMM2_SIZE
 define|#
@@ -1569,14 +1772,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* COMPILE_PCRE16 */
-end_comment
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|/* COMPILE_PCRE8 */
+comment|/* COMPILE_PCRE[8|16|32] */
 end_comment
 begin_define
 DECL|macro|PUT2INC
@@ -1593,7 +1789,41 @@ parameter_list|)
 value|PUT2(a,n,d), a += IMM2_SIZE
 end_define
 begin_comment
-comment|/* When UTF encoding is being used, a character is no longer just a single character. The macros for character handling generate simple sequences when used in character-mode, and more complicated ones for UTF characters. GETCHARLENTEST and other macros are not used when UTF is not supported, so they are not defined. To make sure they can never even appear when UTF support is omitted, we don't even define them. */
+comment|/* The maximum length of a MARK name is currently one data unit; it may be changed in future to be a fixed number of bytes or to depend on LINK_SIZE. */
+end_comment
+begin_if
+if|#
+directive|if
+name|defined
+name|COMPILE_PCRE16
+operator|||
+name|defined
+name|COMPILE_PCRE32
+end_if
+begin_define
+DECL|macro|MAX_MARK
+define|#
+directive|define
+name|MAX_MARK
+value|((1u<< 16) - 1)
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|MAX_MARK
+define|#
+directive|define
+name|MAX_MARK
+value|((1u<< 8) - 1)
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* When UTF encoding is being used, a character is no longer just a single byte. The macros for character handling generate simple sequences when used in character-mode, and more complicated ones for UTF characters. GETCHARLENTEST and other macros are not used when UTF is not supported, so they are not defined. To make sure they can never even appear when UTF support is omitted, we don't even define them. */
 end_comment
 begin_ifndef
 ifndef|#
@@ -1674,6 +1904,46 @@ name|len
 parameter_list|)
 value|c = *eptr;
 end_define
+begin_define
+DECL|macro|RAWUCHAR
+define|#
+directive|define
+name|RAWUCHAR
+parameter_list|(
+name|eptr
+parameter_list|)
+value|(*(eptr))
+end_define
+begin_define
+DECL|macro|RAWUCHARINC
+define|#
+directive|define
+name|RAWUCHARINC
+parameter_list|(
+name|eptr
+parameter_list|)
+value|(*(eptr)++)
+end_define
+begin_define
+DECL|macro|RAWUCHARTEST
+define|#
+directive|define
+name|RAWUCHARTEST
+parameter_list|(
+name|eptr
+parameter_list|)
+value|(*(eptr))
+end_define
+begin_define
+DECL|macro|RAWUCHARINCTEST
+define|#
+directive|define
+name|RAWUCHARINCTEST
+parameter_list|(
+name|eptr
+parameter_list|)
+value|(*(eptr)++)
+end_define
 begin_comment
 comment|/* #define GETCHARLENTEST(c, eptr, len) */
 end_comment
@@ -1693,11 +1963,57 @@ end_else
 begin_comment
 comment|/* SUPPORT_UTF */
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_comment
+comment|/* Tests whether the code point needs extra characters to decode. */
+end_comment
+begin_define
+DECL|macro|HASUTF8EXTRALEN
+define|#
+directive|define
+name|HASUTF8EXTRALEN
+parameter_list|(
+name|c
+parameter_list|)
+value|((c)>= 0xc0)
+end_define
+begin_comment
+comment|/* Base macro to pick up the remaining bytes of a UTF-8 character, not advancing the pointer. */
+end_comment
+begin_define
+DECL|macro|GETUTF8
+define|#
+directive|define
+name|GETUTF8
+parameter_list|(
+name|c
+parameter_list|,
+name|eptr
+parameter_list|)
+define|\
+value|{ \     if ((c& 0x20) == 0) \       c = ((c& 0x1f)<< 6) | (eptr[1]& 0x3f); \     else if ((c& 0x10) == 0) \       c = ((c& 0x0f)<< 12) | ((eptr[1]& 0x3f)<< 6) | (eptr[2]& 0x3f); \     else if ((c& 0x08) == 0) \       c = ((c& 0x07)<< 18) | ((eptr[1]& 0x3f)<< 12) | \       ((eptr[2]& 0x3f)<< 6) | (eptr[3]& 0x3f); \     else if ((c& 0x04) == 0) \       c = ((c& 0x03)<< 24) | ((eptr[1]& 0x3f)<< 18) | \           ((eptr[2]& 0x3f)<< 12) | ((eptr[3]& 0x3f)<< 6) | \           (eptr[4]& 0x3f); \     else \       c = ((c& 0x01)<< 30) | ((eptr[1]& 0x3f)<< 24) | \           ((eptr[2]& 0x3f)<< 18) | ((eptr[3]& 0x3f)<< 12) | \           ((eptr[4]& 0x3f)<< 6) | (eptr[5]& 0x3f); \     }
+end_define
+begin_comment
+comment|/* Base macro to pick up the remaining bytes of a UTF-8 character, advancing the pointer. */
+end_comment
+begin_define
+DECL|macro|GETUTF8INC
+define|#
+directive|define
+name|GETUTF8INC
+parameter_list|(
+name|c
+parameter_list|,
+name|eptr
+parameter_list|)
+define|\
+value|{ \     if ((c& 0x20) == 0) \       c = ((c& 0x1f)<< 6) | (*eptr++& 0x3f); \     else if ((c& 0x10) == 0) \       { \       c = ((c& 0x0f)<< 12) | ((*eptr& 0x3f)<< 6) | (eptr[1]& 0x3f); \       eptr += 2; \       } \     else if ((c& 0x08) == 0) \       { \       c = ((c& 0x07)<< 18) | ((*eptr& 0x3f)<< 12) | \           ((eptr[1]& 0x3f)<< 6) | (eptr[2]& 0x3f); \       eptr += 3; \       } \     else if ((c& 0x04) == 0) \       { \       c = ((c& 0x03)<< 24) | ((*eptr& 0x3f)<< 18) | \           ((eptr[1]& 0x3f)<< 12) | ((eptr[2]& 0x3f)<< 6) | \           (eptr[3]& 0x3f); \       eptr += 4; \       } \     else \       { \       c = ((c& 0x01)<< 30) | ((*eptr& 0x3f)<< 24) | \           ((eptr[1]& 0x3f)<< 18) | ((eptr[2]& 0x3f)<< 12) | \           ((eptr[3]& 0x3f)<< 6) | (eptr[4]& 0x3f); \       eptr += 5; \       } \     }
+end_define
+begin_if
+if|#
+directive|if
+name|defined
 name|COMPILE_PCRE8
-end_ifdef
+end_if
 begin_comment
 comment|/* These macros were originally written in the form of loops that used data from the tables whose names start with PRIV(utf8_table). They were rewritten by a user so as not to use loops, because in some environments this gives a significant performance advantage, and it seems never to do any harm. */
 end_comment
@@ -1751,22 +2067,6 @@ parameter_list|)
 value|(((c)& 0xc0) == 0x80)
 end_define
 begin_comment
-comment|/* Base macro to pick up the remaining bytes of a UTF-8 character, not advancing the pointer. */
-end_comment
-begin_define
-DECL|macro|GETUTF8
-define|#
-directive|define
-name|GETUTF8
-parameter_list|(
-name|c
-parameter_list|,
-name|eptr
-parameter_list|)
-define|\
-value|{ \     if ((c& 0x20) == 0) \       c = ((c& 0x1f)<< 6) | (eptr[1]& 0x3f); \     else if ((c& 0x10) == 0) \       c = ((c& 0x0f)<< 12) | ((eptr[1]& 0x3f)<< 6) | (eptr[2]& 0x3f); \     else if ((c& 0x08) == 0) \       c = ((c& 0x07)<< 18) | ((eptr[1]& 0x3f)<< 12) | \       ((eptr[2]& 0x3f)<< 6) | (eptr[3]& 0x3f); \     else if ((c& 0x04) == 0) \       c = ((c& 0x03)<< 24) | ((eptr[1]& 0x3f)<< 18) | \           ((eptr[2]& 0x3f)<< 12) | ((eptr[3]& 0x3f)<< 6) | \           (eptr[4]& 0x3f); \     else \       c = ((c& 0x01)<< 30) | ((eptr[1]& 0x3f)<< 24) | \           ((eptr[2]& 0x3f)<< 18) | ((eptr[3]& 0x3f)<< 12) | \           ((eptr[4]& 0x3f)<< 6) | (eptr[5]& 0x3f); \     }
-end_define
-begin_comment
 comment|/* Get the next UTF-8 character, not advancing the pointer. This is called when we know we are in UTF-8 mode. */
 end_comment
 begin_define
@@ -1797,22 +2097,6 @@ name|eptr
 parameter_list|)
 define|\
 value|c = *eptr; \   if (utf&& c>= 0xc0) GETUTF8(c, eptr);
-end_define
-begin_comment
-comment|/* Base macro to pick up the remaining bytes of a UTF-8 character, advancing the pointer. */
-end_comment
-begin_define
-DECL|macro|GETUTF8INC
-define|#
-directive|define
-name|GETUTF8INC
-parameter_list|(
-name|c
-parameter_list|,
-name|eptr
-parameter_list|)
-define|\
-value|{ \     if ((c& 0x20) == 0) \       c = ((c& 0x1f)<< 6) | (*eptr++& 0x3f); \     else if ((c& 0x10) == 0) \       { \       c = ((c& 0x0f)<< 12) | ((*eptr& 0x3f)<< 6) | (eptr[1]& 0x3f); \       eptr += 2; \       } \     else if ((c& 0x08) == 0) \       { \       c = ((c& 0x07)<< 18) | ((*eptr& 0x3f)<< 12) | \           ((eptr[1]& 0x3f)<< 6) | (eptr[2]& 0x3f); \       eptr += 3; \       } \     else if ((c& 0x04) == 0) \       { \       c = ((c& 0x03)<< 24) | ((*eptr& 0x3f)<< 18) | \           ((eptr[1]& 0x3f)<< 12) | ((eptr[2]& 0x3f)<< 6) | \           (eptr[3]& 0x3f); \       eptr += 4; \       } \     else \       { \       c = ((c& 0x01)<< 30) | ((*eptr& 0x3f)<< 24) | \           ((eptr[1]& 0x3f)<< 18) | ((eptr[2]& 0x3f)<< 12) | \           ((eptr[3]& 0x3f)<< 6) | (eptr[4]& 0x3f); \       eptr += 5; \       } \     }
 end_define
 begin_comment
 comment|/* Get the next UTF-8 character, advancing the pointer. This is called when we know we are in UTF-8 mode. */
@@ -1901,6 +2185,62 @@ define|\
 value|c = *eptr; \   if (utf&& c>= 0xc0) GETUTF8LEN(c, eptr, len);
 end_define
 begin_comment
+comment|/* Returns the next uchar, not advancing the pointer. This is called when we know we are in UTF mode. */
+end_comment
+begin_define
+DECL|macro|RAWUCHAR
+define|#
+directive|define
+name|RAWUCHAR
+parameter_list|(
+name|eptr
+parameter_list|)
+define|\
+value|(*(eptr))
+end_define
+begin_comment
+comment|/* Returns the next uchar, advancing the pointer. This is called when we know we are in UTF mode. */
+end_comment
+begin_define
+DECL|macro|RAWUCHARINC
+define|#
+directive|define
+name|RAWUCHARINC
+parameter_list|(
+name|eptr
+parameter_list|)
+define|\
+value|(*((eptr)++))
+end_define
+begin_comment
+comment|/* Returns the next uchar, testing for UTF mode, and not advancing the pointer. */
+end_comment
+begin_define
+DECL|macro|RAWUCHARTEST
+define|#
+directive|define
+name|RAWUCHARTEST
+parameter_list|(
+name|eptr
+parameter_list|)
+define|\
+value|(*(eptr))
+end_define
+begin_comment
+comment|/* Returns the next uchar, testing for UTF mode, advancing the pointer. */
+end_comment
+begin_define
+DECL|macro|RAWUCHARINCTEST
+define|#
+directive|define
+name|RAWUCHARINCTEST
+parameter_list|(
+name|eptr
+parameter_list|)
+define|\
+value|(*((eptr)++))
+end_define
+begin_comment
 comment|/* If the pointer is not at the start of a character, move it back until it is. This is called only in UTF-8 mode - we don't put a test within the macro because almost all calls are already within a block of UTF-8 only code. */
 end_comment
 begin_define
@@ -1944,18 +2284,12 @@ parameter_list|)
 define|\
 value|while((condition)&& ((eptr)& 0xc0) == 0x80) action
 end_define
-begin_else
-else|#
-directive|else
-end_else
-begin_comment
-comment|/* COMPILE_PCRE8 */
-end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_elif
+elif|#
+directive|elif
+name|defined
 name|COMPILE_PCRE16
-end_ifdef
+end_elif
 begin_comment
 comment|/* Tells the biggest code point which can be encoded as a single character. */
 end_comment
@@ -2156,6 +2490,62 @@ define|\
 value|c = *eptr; \   if (utf&& (c& 0xfc00) == 0xd800) GETUTF16LEN(c, eptr, len);
 end_define
 begin_comment
+comment|/* Returns the next uchar, not advancing the pointer. This is called when we know we are in UTF mode. */
+end_comment
+begin_define
+DECL|macro|RAWUCHAR
+define|#
+directive|define
+name|RAWUCHAR
+parameter_list|(
+name|eptr
+parameter_list|)
+define|\
+value|(*(eptr))
+end_define
+begin_comment
+comment|/* Returns the next uchar, advancing the pointer. This is called when we know we are in UTF mode. */
+end_comment
+begin_define
+DECL|macro|RAWUCHARINC
+define|#
+directive|define
+name|RAWUCHARINC
+parameter_list|(
+name|eptr
+parameter_list|)
+define|\
+value|(*((eptr)++))
+end_define
+begin_comment
+comment|/* Returns the next uchar, testing for UTF mode, and not advancing the pointer. */
+end_comment
+begin_define
+DECL|macro|RAWUCHARTEST
+define|#
+directive|define
+name|RAWUCHARTEST
+parameter_list|(
+name|eptr
+parameter_list|)
+define|\
+value|(*(eptr))
+end_define
+begin_comment
+comment|/* Returns the next uchar, testing for UTF mode, advancing the pointer. */
+end_comment
+begin_define
+DECL|macro|RAWUCHARINCTEST
+define|#
+directive|define
+name|RAWUCHARINCTEST
+parameter_list|(
+name|eptr
+parameter_list|)
+define|\
+value|(*((eptr)++))
+end_define
+begin_comment
 comment|/* If the pointer is not at the start of a character, move it back until it is. This is called only in UTF-16 mode - we don't put a test within the macro because almost all calls are already within a block of UTF-16 only code. */
 end_comment
 begin_define
@@ -2199,16 +2589,266 @@ parameter_list|)
 define|\
 value|if ((condition)&& ((eptr)& 0xfc00) == 0xdc00) action
 end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
+begin_elif
+elif|#
+directive|elif
+name|defined
+name|COMPILE_PCRE32
+end_elif
+begin_comment
+comment|/* These are trivial for the 32-bit library, since all UTF-32 characters fit into one pcre_uchar unit. */
+end_comment
+begin_define
+DECL|macro|MAX_VALUE_FOR_SINGLE_CHAR
+define|#
+directive|define
+name|MAX_VALUE_FOR_SINGLE_CHAR
+value|(0x10ffffu)
+end_define
+begin_define
+DECL|macro|HAS_EXTRALEN
+define|#
+directive|define
+name|HAS_EXTRALEN
+parameter_list|(
+name|c
+parameter_list|)
+value|(0)
+end_define
+begin_define
+DECL|macro|GET_EXTRALEN
+define|#
+directive|define
+name|GET_EXTRALEN
+parameter_list|(
+name|c
+parameter_list|)
+value|(0)
+end_define
+begin_define
+DECL|macro|NOT_FIRSTCHAR
+define|#
+directive|define
+name|NOT_FIRSTCHAR
+parameter_list|(
+name|c
+parameter_list|)
+value|(0)
+end_define
+begin_comment
+comment|/* Get the next UTF-32 character, not advancing the pointer. This is called when we know we are in UTF-32 mode. */
+end_comment
+begin_define
+DECL|macro|GETCHAR
+define|#
+directive|define
+name|GETCHAR
+parameter_list|(
+name|c
+parameter_list|,
+name|eptr
+parameter_list|)
+define|\
+value|c = *(eptr);
+end_define
+begin_comment
+comment|/* Get the next UTF-32 character, testing for UTF-32 mode, and not advancing the pointer. */
+end_comment
+begin_define
+DECL|macro|GETCHARTEST
+define|#
+directive|define
+name|GETCHARTEST
+parameter_list|(
+name|c
+parameter_list|,
+name|eptr
+parameter_list|)
+define|\
+value|c = *(eptr);
+end_define
+begin_comment
+comment|/* Get the next UTF-32 character, advancing the pointer. This is called when we know we are in UTF-32 mode. */
+end_comment
+begin_define
+DECL|macro|GETCHARINC
+define|#
+directive|define
+name|GETCHARINC
+parameter_list|(
+name|c
+parameter_list|,
+name|eptr
+parameter_list|)
+define|\
+value|c = *((eptr)++);
+end_define
+begin_comment
+comment|/* Get the next character, testing for UTF-32 mode, and advancing the pointer. This is called when we don't know if we are in UTF-32 mode. */
+end_comment
+begin_define
+DECL|macro|GETCHARINCTEST
+define|#
+directive|define
+name|GETCHARINCTEST
+parameter_list|(
+name|c
+parameter_list|,
+name|eptr
+parameter_list|)
+define|\
+value|c = *((eptr)++);
+end_define
+begin_comment
+comment|/* Get the next UTF-32 character, not advancing the pointer, not incrementing length (since all UTF-32 is of length 1). This is called when we know we are in UTF-32 mode. */
+end_comment
+begin_define
+DECL|macro|GETCHARLEN
+define|#
+directive|define
+name|GETCHARLEN
+parameter_list|(
+name|c
+parameter_list|,
+name|eptr
+parameter_list|,
+name|len
+parameter_list|)
+define|\
+value|GETCHAR(c, eptr)
+end_define
+begin_comment
+comment|/* Get the next UTF-32character, testing for UTF-32 mode, not advancing the pointer, not incrementing the length (since all UTF-32 is of length 1). This is called when we do not know if we are in UTF-32 mode. */
+end_comment
+begin_define
+DECL|macro|GETCHARLENTEST
+define|#
+directive|define
+name|GETCHARLENTEST
+parameter_list|(
+name|c
+parameter_list|,
+name|eptr
+parameter_list|,
+name|len
+parameter_list|)
+define|\
+value|GETCHARTEST(c, eptr)
+end_define
+begin_comment
+comment|/* Returns the next uchar, not advancing the pointer. This is called when we know we are in UTF mode. */
+end_comment
+begin_define
+DECL|macro|RAWUCHAR
+define|#
+directive|define
+name|RAWUCHAR
+parameter_list|(
+name|eptr
+parameter_list|)
+define|\
+value|(*(eptr))
+end_define
+begin_comment
+comment|/* Returns the next uchar, advancing the pointer. This is called when we know we are in UTF mode. */
+end_comment
+begin_define
+DECL|macro|RAWUCHARINC
+define|#
+directive|define
+name|RAWUCHARINC
+parameter_list|(
+name|eptr
+parameter_list|)
+define|\
+value|(*((eptr)++))
+end_define
+begin_comment
+comment|/* Returns the next uchar, testing for UTF mode, and not advancing the pointer. */
+end_comment
+begin_define
+DECL|macro|RAWUCHARTEST
+define|#
+directive|define
+name|RAWUCHARTEST
+parameter_list|(
+name|eptr
+parameter_list|)
+define|\
+value|(*(eptr))
+end_define
+begin_comment
+comment|/* Returns the next uchar, testing for UTF mode, advancing the pointer. */
+end_comment
+begin_define
+DECL|macro|RAWUCHARINCTEST
+define|#
+directive|define
+name|RAWUCHARINCTEST
+parameter_list|(
+name|eptr
+parameter_list|)
+define|\
+value|(*((eptr)++))
+end_define
+begin_comment
+comment|/* If the pointer is not at the start of a character, move it back until it is. This is called only in UTF-32 mode - we don't put a test within the macro because almost all calls are already within a block of UTF-32 only code. These are all no-ops since all UTF-32 characters fit into one pcre_uchar. */
+end_comment
+begin_define
+DECL|macro|BACKCHAR
+define|#
+directive|define
+name|BACKCHAR
+parameter_list|(
+name|eptr
+parameter_list|)
+value|do { } while (0)
+end_define
+begin_comment
+comment|/* Same as above, just in the other direction. */
+end_comment
+begin_define
+DECL|macro|FORWARDCHAR
+define|#
+directive|define
+name|FORWARDCHAR
+parameter_list|(
+name|eptr
+parameter_list|)
+value|do { } while (0)
+end_define
+begin_comment
+comment|/* Same as above, but it allows a fully customizable form. */
+end_comment
+begin_define
+DECL|macro|ACROSSCHAR
+define|#
+directive|define
+name|ACROSSCHAR
+parameter_list|(
+name|condition
+parameter_list|,
+name|eptr
+parameter_list|,
+name|action
+parameter_list|)
+value|do { } while (0)
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_error
+error|#
+directive|error
+error|Unsupported compiling mode
+end_error
 begin_endif
 endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* COMPILE_PCRE8 */
+comment|/* COMPILE_PCRE[8|16|32] */
 end_comment
 begin_endif
 endif|#
@@ -2218,72 +2858,240 @@ begin_comment
 comment|/* SUPPORT_UTF */
 end_comment
 begin_comment
-comment|/* In case there is no definition of offsetof() provided - though any proper Standard C system should have one. */
+comment|/* Tests for Unicode horizontal and vertical whitespace characters must check a number of different values. Using a switch statement for this generates the fastest code (no loop, no memory access), and there are several places in the interpreter code where this happens. In order to ensure that all the case lists remain in step, we use macros so that there is only one place where the lists are defined.  These values are also required as lists in pcre_compile.c when processing \h, \H, \v and \V in a character class. The lists are defined in pcre_tables.c, but macros that define the values are here so that all the definitions are together. The lists must be in ascending character order, terminated by NOTACHAR (which is 0xffffffff).  Any changes should ensure that the various macros are kept in step with each other. NOTE: The values also appear in pcre_jit_compile.c. */
+end_comment
+begin_comment
+comment|/* ------ ASCII/Unicode environments ------ */
 end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|offsetof
+name|EBCDIC
 end_ifndef
 begin_define
-DECL|macro|offsetof
+DECL|macro|HSPACE_LIST
 define|#
 directive|define
-name|offsetof
-parameter_list|(
-name|p_type
-parameter_list|,
-name|field
-parameter_list|)
-value|((size_t)&(((p_type *)0)->field))
+name|HSPACE_LIST
+define|\
+value|CHAR_HT, CHAR_SPACE, 0xa0, \   0x1680, 0x180e, 0x2000, 0x2001, 0x2002, 0x2003, 0x2004, 0x2005, \   0x2006, 0x2007, 0x2008, 0x2009, 0x200A, 0x202f, 0x205f, 0x3000, \   NOTACHAR
+end_define
+begin_define
+DECL|macro|HSPACE_MULTIBYTE_CASES
+define|#
+directive|define
+name|HSPACE_MULTIBYTE_CASES
+define|\
+value|case 0x1680:
+comment|/* OGHAM SPACE MARK */
+value|\   case 0x180e:
+comment|/* MONGOLIAN VOWEL SEPARATOR */
+value|\   case 0x2000:
+comment|/* EN QUAD */
+value|\   case 0x2001:
+comment|/* EM QUAD */
+value|\   case 0x2002:
+comment|/* EN SPACE */
+value|\   case 0x2003:
+comment|/* EM SPACE */
+value|\   case 0x2004:
+comment|/* THREE-PER-EM SPACE */
+value|\   case 0x2005:
+comment|/* FOUR-PER-EM SPACE */
+value|\   case 0x2006:
+comment|/* SIX-PER-EM SPACE */
+value|\   case 0x2007:
+comment|/* FIGURE SPACE */
+value|\   case 0x2008:
+comment|/* PUNCTUATION SPACE */
+value|\   case 0x2009:
+comment|/* THIN SPACE */
+value|\   case 0x200A:
+comment|/* HAIR SPACE */
+value|\   case 0x202f:
+comment|/* NARROW NO-BREAK SPACE */
+value|\   case 0x205f:
+comment|/* MEDIUM MATHEMATICAL SPACE */
+value|\   case 0x3000
+end_define
+begin_comment
+comment|/* IDEOGRAPHIC SPACE */
+end_comment
+begin_define
+DECL|macro|HSPACE_BYTE_CASES
+define|#
+directive|define
+name|HSPACE_BYTE_CASES
+define|\
+value|case CHAR_HT: \   case CHAR_SPACE: \   case 0xa0
+end_define
+begin_comment
+comment|/* NBSP */
+end_comment
+begin_define
+DECL|macro|HSPACE_CASES
+define|#
+directive|define
+name|HSPACE_CASES
+define|\
+value|HSPACE_BYTE_CASES: \   HSPACE_MULTIBYTE_CASES
+end_define
+begin_define
+DECL|macro|VSPACE_LIST
+define|#
+directive|define
+name|VSPACE_LIST
+define|\
+value|CHAR_LF, CHAR_VT, CHAR_FF, CHAR_CR, CHAR_NEL, 0x2028, 0x2029, NOTACHAR
+end_define
+begin_define
+DECL|macro|VSPACE_MULTIBYTE_CASES
+define|#
+directive|define
+name|VSPACE_MULTIBYTE_CASES
+define|\
+value|case 0x2028:
+comment|/* LINE SEPARATOR */
+value|\   case 0x2029
+end_define
+begin_comment
+comment|/* PARAGRAPH SEPARATOR */
+end_comment
+begin_define
+DECL|macro|VSPACE_BYTE_CASES
+define|#
+directive|define
+name|VSPACE_BYTE_CASES
+define|\
+value|case CHAR_LF: \   case CHAR_VT: \   case CHAR_FF: \   case CHAR_CR: \   case CHAR_NEL
+end_define
+begin_define
+DECL|macro|VSPACE_CASES
+define|#
+directive|define
+name|VSPACE_CASES
+define|\
+value|VSPACE_BYTE_CASES: \   VSPACE_MULTIBYTE_CASES
+end_define
+begin_comment
+comment|/* ------ EBCDIC environments ------ */
+end_comment
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|HSPACE_LIST
+define|#
+directive|define
+name|HSPACE_LIST
+value|CHAR_HT, CHAR_SPACE
+end_define
+begin_define
+DECL|macro|HSPACE_BYTE_CASES
+define|#
+directive|define
+name|HSPACE_BYTE_CASES
+define|\
+value|case CHAR_HT: \   case CHAR_SPACE
+end_define
+begin_define
+DECL|macro|HSPACE_CASES
+define|#
+directive|define
+name|HSPACE_CASES
+value|HSPACE_BYTE_CASES
+end_define
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|EBCDIC_NL25
+end_ifdef
+begin_define
+DECL|macro|VSPACE_LIST
+define|#
+directive|define
+name|VSPACE_LIST
+define|\
+value|CHAR_VT, CHAR_FF, CHAR_CR, CHAR_NEL, CHAR_LF, NOTACHAR
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|VSPACE_LIST
+define|#
+directive|define
+name|VSPACE_LIST
+define|\
+value|CHAR_VT, CHAR_FF, CHAR_CR, CHAR_LF, CHAR_NEL, NOTACHAR
 end_define
 begin_endif
 endif|#
 directive|endif
 end_endif
+begin_define
+DECL|macro|VSPACE_BYTE_CASES
+define|#
+directive|define
+name|VSPACE_BYTE_CASES
+define|\
+value|case CHAR_LF: \   case CHAR_VT: \   case CHAR_FF: \   case CHAR_CR: \   case CHAR_NEL
+end_define
+begin_define
+DECL|macro|VSPACE_CASES
+define|#
+directive|define
+name|VSPACE_CASES
+value|VSPACE_BYTE_CASES
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* EBCDIC */
+end_comment
+begin_comment
+comment|/* ------ End of whitespace macros ------ */
+end_comment
 begin_comment
 comment|/* Private flags containing information about the compiled regex. They used to live at the top end of the options word, but that got almost full, so now they are in a 16-bit flags word. From release 8.00, PCRE_NOPARTIAL is unused, as the restrictions on partial matching have been lifted. It remains for backwards compatibility. */
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|COMPILE_PCRE8
-end_ifdef
 begin_define
-DECL|macro|PCRE_MODE
+DECL|macro|PCRE_MODE8
 define|#
 directive|define
-name|PCRE_MODE
+name|PCRE_MODE8
 value|0x0001
 end_define
 begin_comment
-DECL|macro|PCRE_MODE
+DECL|macro|PCRE_MODE8
 comment|/* compiled in 8 bit mode */
 end_comment
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|COMPILE_PCRE16
-end_ifdef
 begin_define
-DECL|macro|PCRE_MODE
+DECL|macro|PCRE_MODE16
 define|#
 directive|define
-name|PCRE_MODE
+name|PCRE_MODE16
 value|0x0002
 end_define
 begin_comment
-DECL|macro|PCRE_MODE
+DECL|macro|PCRE_MODE16
 comment|/* compiled in 16 bit mode */
 end_comment
-begin_endif
-endif|#
-directive|endif
-end_endif
+begin_define
+DECL|macro|PCRE_MODE32
+define|#
+directive|define
+name|PCRE_MODE32
+value|0x0004
+end_define
+begin_comment
+DECL|macro|PCRE_MODE32
+comment|/* compiled in 32 bit mode */
+end_comment
 begin_define
 DECL|macro|PCRE_FIRSTSET
 define|#
@@ -2383,6 +3191,56 @@ begin_comment
 DECL|macro|PCRE_HASTHEN
 comment|/* pattern contains (*THEN) */
 end_comment
+begin_if
+if|#
+directive|if
+name|defined
+name|COMPILE_PCRE8
+end_if
+begin_define
+DECL|macro|PCRE_MODE
+define|#
+directive|define
+name|PCRE_MODE
+value|PCRE_MODE8
+end_define
+begin_elif
+elif|#
+directive|elif
+name|defined
+name|COMPILE_PCRE16
+end_elif
+begin_define
+DECL|macro|PCRE_MODE
+define|#
+directive|define
+name|PCRE_MODE
+value|PCRE_MODE16
+end_define
+begin_elif
+elif|#
+directive|elif
+name|defined
+name|COMPILE_PCRE32
+end_elif
+begin_define
+DECL|macro|PCRE_MODE
+define|#
+directive|define
+name|PCRE_MODE
+value|PCRE_MODE32
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_define
+DECL|macro|PCRE_MODE_MASK
+define|#
+directive|define
+name|PCRE_MODE_MASK
+value|(PCRE_MODE8 | PCRE_MODE16 | PCRE_MODE32)
+end_define
 begin_comment
 comment|/* Flags for the "extra" block produced by pcre_study(). */
 end_comment
@@ -2448,7 +3306,15 @@ define|#
 directive|define
 name|PUBLIC_STUDY_OPTIONS
 define|\
-value|PCRE_STUDY_JIT_COMPILE
+value|(PCRE_STUDY_JIT_COMPILE|PCRE_STUDY_JIT_PARTIAL_SOFT_COMPILE| \     PCRE_STUDY_JIT_PARTIAL_HARD_COMPILE|PCRE_STUDY_EXTRA_NEEDED)
+end_define
+begin_define
+DECL|macro|PUBLIC_JIT_EXEC_OPTIONS
+define|#
+directive|define
+name|PUBLIC_JIT_EXEC_OPTIONS
+define|\
+value|(PCRE_NO_UTF8_CHECK|PCRE_NOTBOL|PCRE_NOTEOL|PCRE_NOTEMPTY|\     PCRE_NOTEMPTY_ATSTART|PCRE_PARTIAL_SOFT|PCRE_PARTIAL_HARD)
 end_define
 begin_comment
 comment|/* Magic number to provide a small check against being handed junk. */
@@ -2478,23 +3344,6 @@ begin_comment
 DECL|macro|REVERSED_MAGIC_NUMBER
 comment|/* 'ERCP' */
 end_comment
-begin_comment
-comment|/* Negative values for the firstchar and reqchar variables */
-end_comment
-begin_define
-DECL|macro|REQ_UNSET
-define|#
-directive|define
-name|REQ_UNSET
-value|(-2)
-end_define
-begin_define
-DECL|macro|REQ_NONE
-define|#
-directive|define
-name|REQ_NONE
-value|(-1)
-end_define
 begin_comment
 comment|/* The maximum remaining length of subject we are prepared to search for a req_byte match. */
 end_comment
@@ -2547,8 +3396,221 @@ directive|ifndef
 name|SUPPORT_UTF
 end_ifndef
 begin_comment
-comment|/* UTF-8 support is not enabled; use the platform-dependent character literals so that PCRE works on both ASCII and EBCDIC platforms, in non-UTF-mode only. */
+comment|/* UTF-8 support is not enabled; use the platform-dependent character literals so that PCRE works in both ASCII and EBCDIC environments, but only in non-UTF mode. Newline characters are problematic in EBCDIC. Though it has CR and LF characters, a common practice has been to use its NL (0x15) character as the line terminator in C-like processing environments. However, sometimes the LF (0x25) character is used instead, according to this Unicode document:  http://unicode.org/standard/reports/tr13/tr13-5.html  PCRE defaults EBCDIC NL to 0x15, but has a build-time option to select 0x25 instead. Whichever is *not* chosen is defined as NEL.  In both ASCII and EBCDIC environments, CHAR_NL and CHAR_LF are synonyms for the same code point. */
 end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|EBCDIC
+end_ifdef
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|EBCDIC_NL25
+end_ifndef
+begin_define
+DECL|macro|CHAR_NL
+define|#
+directive|define
+name|CHAR_NL
+value|'\x15'
+end_define
+begin_define
+DECL|macro|CHAR_NEL
+define|#
+directive|define
+name|CHAR_NEL
+value|'\x25'
+end_define
+begin_define
+DECL|macro|STR_NL
+define|#
+directive|define
+name|STR_NL
+value|"\x15"
+end_define
+begin_define
+DECL|macro|STR_NEL
+define|#
+directive|define
+name|STR_NEL
+value|"\x25"
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|CHAR_NL
+define|#
+directive|define
+name|CHAR_NL
+value|'\x25'
+end_define
+begin_define
+DECL|macro|CHAR_NEL
+define|#
+directive|define
+name|CHAR_NEL
+value|'\x15'
+end_define
+begin_define
+DECL|macro|STR_NL
+define|#
+directive|define
+name|STR_NL
+value|"\x25"
+end_define
+begin_define
+DECL|macro|STR_NEL
+define|#
+directive|define
+name|STR_NEL
+value|"\x15"
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_define
+DECL|macro|CHAR_LF
+define|#
+directive|define
+name|CHAR_LF
+value|CHAR_NL
+end_define
+begin_define
+DECL|macro|STR_LF
+define|#
+directive|define
+name|STR_LF
+value|STR_NL
+end_define
+begin_define
+DECL|macro|CHAR_ESC
+define|#
+directive|define
+name|CHAR_ESC
+value|'\047'
+end_define
+begin_define
+DECL|macro|CHAR_DEL
+define|#
+directive|define
+name|CHAR_DEL
+value|'\007'
+end_define
+begin_define
+DECL|macro|STR_ESC
+define|#
+directive|define
+name|STR_ESC
+value|"\047"
+end_define
+begin_define
+DECL|macro|STR_DEL
+define|#
+directive|define
+name|STR_DEL
+value|"\007"
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_comment
+comment|/* Not EBCDIC */
+end_comment
+begin_comment
+comment|/* In ASCII/Unicode, linefeed is '\n' and we equate this to NL for compatibility. NEL is the Unicode newline character; make sure it is a positive value. */
+end_comment
+begin_define
+DECL|macro|CHAR_LF
+define|#
+directive|define
+name|CHAR_LF
+value|'\n'
+end_define
+begin_define
+DECL|macro|CHAR_NL
+define|#
+directive|define
+name|CHAR_NL
+value|CHAR_LF
+end_define
+begin_define
+DECL|macro|CHAR_NEL
+define|#
+directive|define
+name|CHAR_NEL
+value|((unsigned char)'\x85')
+end_define
+begin_define
+DECL|macro|CHAR_ESC
+define|#
+directive|define
+name|CHAR_ESC
+value|'\033'
+end_define
+begin_define
+DECL|macro|CHAR_DEL
+define|#
+directive|define
+name|CHAR_DEL
+value|'\177'
+end_define
+begin_define
+DECL|macro|STR_LF
+define|#
+directive|define
+name|STR_LF
+value|"\n"
+end_define
+begin_define
+DECL|macro|STR_NL
+define|#
+directive|define
+name|STR_NL
+value|STR_LF
+end_define
+begin_define
+DECL|macro|STR_NEL
+define|#
+directive|define
+name|STR_NEL
+value|"\x85"
+end_define
+begin_define
+DECL|macro|STR_ESC
+define|#
+directive|define
+name|STR_ESC
+value|"\033"
+end_define
+begin_define
+DECL|macro|STR_DEL
+define|#
+directive|define
+name|STR_DEL
+value|"\177"
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* EBCDIC */
+end_comment
+begin_comment
+comment|/* The remaining definitions work in both environments. */
+end_comment
+begin_define
+DECL|macro|CHAR_NULL
+define|#
+directive|define
+name|CHAR_NULL
+value|'\0'
+end_define
 begin_define
 DECL|macro|CHAR_HT
 define|#
@@ -2578,13 +3640,6 @@ name|CHAR_CR
 value|'\r'
 end_define
 begin_define
-DECL|macro|CHAR_NL
-define|#
-directive|define
-name|CHAR_NL
-value|'\n'
-end_define
-begin_define
 DECL|macro|CHAR_BS
 define|#
 directive|define
@@ -2598,47 +3653,6 @@ directive|define
 name|CHAR_BEL
 value|'\a'
 end_define
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|EBCDIC
-end_ifdef
-begin_define
-DECL|macro|CHAR_ESC
-define|#
-directive|define
-name|CHAR_ESC
-value|'\047'
-end_define
-begin_define
-DECL|macro|CHAR_DEL
-define|#
-directive|define
-name|CHAR_DEL
-value|'\007'
-end_define
-begin_else
-else|#
-directive|else
-end_else
-begin_define
-DECL|macro|CHAR_ESC
-define|#
-directive|define
-name|CHAR_ESC
-value|'\033'
-end_define
-begin_define
-DECL|macro|CHAR_DEL
-define|#
-directive|define
-name|CHAR_DEL
-value|'\177'
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_define
 DECL|macro|CHAR_SPACE
 define|#
@@ -3333,13 +4347,6 @@ name|STR_CR
 value|"\r"
 end_define
 begin_define
-DECL|macro|STR_NL
-define|#
-directive|define
-name|STR_NL
-value|"\n"
-end_define
-begin_define
 DECL|macro|STR_BS
 define|#
 directive|define
@@ -3353,47 +4360,6 @@ directive|define
 name|STR_BEL
 value|"\a"
 end_define
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|EBCDIC
-end_ifdef
-begin_define
-DECL|macro|STR_ESC
-define|#
-directive|define
-name|STR_ESC
-value|"\047"
-end_define
-begin_define
-DECL|macro|STR_DEL
-define|#
-directive|define
-name|STR_DEL
-value|"\007"
-end_define
-begin_else
-else|#
-directive|else
-end_else
-begin_define
-DECL|macro|STR_ESC
-define|#
-directive|define
-name|STR_ESC
-value|"\033"
-end_define
-begin_define
-DECL|macro|STR_DEL
-define|#
-directive|define
-name|STR_DEL
-value|"\177"
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_define
 DECL|macro|STR_SPACE
 define|#
@@ -4269,38 +5235,34 @@ directive|define
 name|STRING_BSR_UNICODE_RIGHTPAR
 value|"BSR_UNICODE)"
 end_define
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|COMPILE_PCRE8
-end_ifdef
 begin_define
-DECL|macro|STRING_UTF_RIGHTPAR
+DECL|macro|STRING_UTF8_RIGHTPAR
 define|#
 directive|define
-name|STRING_UTF_RIGHTPAR
+name|STRING_UTF8_RIGHTPAR
 value|"UTF8)"
 end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|COMPILE_PCRE16
-end_ifdef
+begin_define
+DECL|macro|STRING_UTF16_RIGHTPAR
+define|#
+directive|define
+name|STRING_UTF16_RIGHTPAR
+value|"UTF16)"
+end_define
+begin_define
+DECL|macro|STRING_UTF32_RIGHTPAR
+define|#
+directive|define
+name|STRING_UTF32_RIGHTPAR
+value|"UTF32)"
+end_define
 begin_define
 DECL|macro|STRING_UTF_RIGHTPAR
 define|#
 directive|define
 name|STRING_UTF_RIGHTPAR
-value|"UTF16)"
+value|"UTF)"
 end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_define
 DECL|macro|STRING_UCP_RIGHTPAR
 define|#
@@ -4354,11 +5316,25 @@ name|CHAR_CR
 value|'\015'
 end_define
 begin_define
+DECL|macro|CHAR_LF
+define|#
+directive|define
+name|CHAR_LF
+value|'\012'
+end_define
+begin_define
 DECL|macro|CHAR_NL
 define|#
 directive|define
 name|CHAR_NL
-value|'\012'
+value|CHAR_LF
+end_define
+begin_define
+DECL|macro|CHAR_NEL
+define|#
+directive|define
+name|CHAR_NEL
+value|((unsigned char)'\x85')
 end_define
 begin_define
 DECL|macro|CHAR_BS
@@ -4387,6 +5363,13 @@ define|#
 directive|define
 name|CHAR_DEL
 value|'\177'
+end_define
+begin_define
+DECL|macro|CHAR_NULL
+define|#
+directive|define
+name|CHAR_NULL
+value|'\0'
 end_define
 begin_define
 DECL|macro|CHAR_SPACE
@@ -5991,38 +6974,34 @@ directive|define
 name|STRING_BSR_UNICODE_RIGHTPAR
 value|STR_B STR_S STR_R STR_UNDERSCORE STR_U STR_N STR_I STR_C STR_O STR_D STR_E STR_RIGHT_PARENTHESIS
 end_define
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|COMPILE_PCRE8
-end_ifdef
 begin_define
-DECL|macro|STRING_UTF_RIGHTPAR
+DECL|macro|STRING_UTF8_RIGHTPAR
 define|#
 directive|define
-name|STRING_UTF_RIGHTPAR
+name|STRING_UTF8_RIGHTPAR
 value|STR_U STR_T STR_F STR_8 STR_RIGHT_PARENTHESIS
 end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|COMPILE_PCRE16
-end_ifdef
+begin_define
+DECL|macro|STRING_UTF16_RIGHTPAR
+define|#
+directive|define
+name|STRING_UTF16_RIGHTPAR
+value|STR_U STR_T STR_F STR_1 STR_6 STR_RIGHT_PARENTHESIS
+end_define
+begin_define
+DECL|macro|STRING_UTF32_RIGHTPAR
+define|#
+directive|define
+name|STRING_UTF32_RIGHTPAR
+value|STR_U STR_T STR_F STR_3 STR_2 STR_RIGHT_PARENTHESIS
+end_define
 begin_define
 DECL|macro|STRING_UTF_RIGHTPAR
 define|#
 directive|define
 name|STRING_UTF_RIGHTPAR
-value|STR_U STR_T STR_F STR_1 STR_6 STR_RIGHT_PARENTHESIS
+value|STR_U STR_T STR_F STR_RIGHT_PARENTHESIS
 end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_define
 DECL|macro|STRING_UCP_RIGHTPAR
 define|#
@@ -6089,7 +7068,7 @@ DECL|macro|ESC_n
 define|#
 directive|define
 name|ESC_n
-value|CHAR_NL
+value|CHAR_LF
 end_define
 begin_endif
 endif|#
@@ -6232,6 +7211,17 @@ begin_comment
 DECL|macro|PT_WORD
 comment|/* Word - L plus N plus underscore */
 end_comment
+begin_define
+DECL|macro|PT_CLIST
+define|#
+directive|define
+name|PT_CLIST
+value|9
+end_define
+begin_comment
+DECL|macro|PT_CLIST
+comment|/* Pseudo-property: match character list */
+end_comment
 begin_comment
 comment|/* Flag bits and data types for the extended class (OP_XCLASS) for classes that contain characters with values greater than 255. */
 end_comment
@@ -6313,7 +7303,7 @@ DECL|macro|XCL_NOTPROP
 comment|/* Unicode inverted property (ditto) */
 end_comment
 begin_comment
-comment|/* These are escaped items that aren't just an encoding of a particular data value such as \n. They must have non-zero values, as check_escape() returns their negation. Also, they must appear in the same order as in the opcode definitions below, up to ESC_z. There's a dummy for OP_ALLANY because it corresponds to "." in DOTALL mode rather than an escape sequence. It is also used for [^] in JavaScript compatibility mode, and for \C in non-utf mode. In non-DOTALL mode, "." behaves like \N.  The special values ESC_DU, ESC_du, etc. are used instead of ESC_D, ESC_d, etc. when PCRE_UCP is set, when replacement of \d etc by \p sequences is required. They must be contiguous, and remain in order so that the replacements can be looked up from a table.  The final escape must be ESC_REF as subsequent values are used for backreferences (\1, \2, \3, etc). There are two tests in the code for an escape greater than ESC_b and less than ESC_Z to detect the types that may be repeated. These are the types that consume characters. If any new escapes are put in between that don't consume a character, that code will have to change. */
+comment|/* These are escaped items that aren't just an encoding of a particular data value such as \n. They must have non-zero values, as check_escape() returns 0 for a data character.  Also, they must appear in the same order as in the opcode definitions below, up to ESC_z. There's a dummy for OP_ALLANY because it corresponds to "." in DOTALL mode rather than an escape sequence. It is also used for [^] in JavaScript compatibility mode, and for \C in non-utf mode. In non-DOTALL mode, "." behaves like \N.  The special values ESC_DU, ESC_du, etc. are used instead of ESC_D, ESC_d, etc. when PCRE_UCP is set and replacement of \d etc by \p sequences is required. They must be contiguous, and remain in order so that the replacements can be looked up from a table.  Negative numbers are used to encode a backreference (\1, \2, \3, etc.) in check_escape(). There are two tests in the code for an escape greater than ESC_b and less than ESC_Z to detect the types that may be repeated. These are the types that consume characters. If any new escapes are put in between that don't consume a character, that code will have to change. */
 end_comment
 begin_enum
 DECL|enumerator|ESC_A
@@ -6421,9 +7411,6 @@ block|,
 name|ESC_WU
 block|,
 name|ESC_wu
-block|,
-DECL|enumerator|ESC_REF
-name|ESC_REF
 block|}
 enum|;
 end_enum
@@ -6485,7 +7472,7 @@ comment|/* 11 \w */
 DECL|enumerator|OP_ANY
 name|OP_ANY
 block|,
-comment|/* 12 Match any character except newline */
+comment|/* 12 Match any character except newline (\N) */
 DECL|enumerator|OP_ALLANY
 name|OP_ALLANY
 block|,
@@ -6529,11 +7516,11 @@ comment|/* 22 \X (extended Unicode sequence */
 DECL|enumerator|OP_EODN
 name|OP_EODN
 block|,
-comment|/* 23 End of data or \n at end of data: \Z. */
+comment|/* 23 End of data or \n at end of data (\Z) */
 DECL|enumerator|OP_EOD
 name|OP_EOD
 block|,
-comment|/* 24 End of data: \z */
+comment|/* 24 End of data (\z) */
 DECL|enumerator|OP_CIRC
 name|OP_CIRC
 block|,
@@ -7489,6 +8476,9 @@ DECL|enumerator|ERR71
 DECL|enumerator|ERR72
 DECL|enumerator|ERR73
 DECL|enumerator|ERR74
+DECL|enumerator|ERR75
+DECL|enumerator|ERR76
+DECL|enumerator|ERR77
 DECL|enumerator|ERRCOUNT
 name|ERR70
 block|,
@@ -7500,18 +8490,45 @@ name|ERR73
 block|,
 name|ERR74
 block|,
+name|ERR75
+block|,
+name|ERR76
+block|,
+name|ERR77
+block|,
 name|ERRCOUNT
+block|}
+enum|;
+end_enum
+begin_comment
+comment|/* JIT compiling modes. The function list is indexed by them. */
+end_comment
+begin_enum
+DECL|enumerator|JIT_COMPILE
+DECL|enumerator|JIT_PARTIAL_SOFT_COMPILE
+DECL|enumerator|JIT_PARTIAL_HARD_COMPILE
+enum|enum
+block|{
+name|JIT_COMPILE
+block|,
+name|JIT_PARTIAL_SOFT_COMPILE
+block|,
+name|JIT_PARTIAL_HARD_COMPILE
+block|,
+DECL|enumerator|JIT_NUMBER_OF_COMPILE_MODES
+name|JIT_NUMBER_OF_COMPILE_MODES
 block|}
 enum|;
 end_enum
 begin_comment
 comment|/* The real format of the start of the pcre block; the index of names and the code vector run on as long as necessary after the end. We store an explicit offset to the name table so that if a regex is compiled on one host, saved, and then run on another where the size of pointers is different, all might still be well. For the case of compiled-on-4 and run-on-8, we include an extra pointer that is always NULL. For future-proofing, a few dummy fields were originally included - even though you can never get this planning right - but there is only one left now.  NOTE NOTE NOTE: Because people can now save and re-use compiled patterns, any additions to this structure should be made at the end, and something earlier (e.g. a new flag in the options or one of the dummy fields) should indicate that the new fields are present. Currently PCRE always sets the dummy fields to zero. NOTE NOTE NOTE */
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_if
+if|#
+directive|if
+name|defined
 name|COMPILE_PCRE8
-end_ifdef
+end_if
 begin_define
 DECL|macro|REAL_PCRE
 define|#
@@ -7519,10 +8536,12 @@ directive|define
 name|REAL_PCRE
 value|real_pcre
 end_define
-begin_else
-else|#
-directive|else
-end_else
+begin_elif
+elif|#
+directive|elif
+name|defined
+name|COMPILE_PCRE16
+end_elif
 begin_define
 DECL|macro|REAL_PCRE
 define|#
@@ -7530,15 +8549,31 @@ directive|define
 name|REAL_PCRE
 value|real_pcre16
 end_define
+begin_elif
+elif|#
+directive|elif
+name|defined
+name|COMPILE_PCRE32
+end_elif
+begin_define
+DECL|macro|REAL_PCRE
+define|#
+directive|define
+name|REAL_PCRE
+value|real_pcre32
+end_define
 begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|/* It is necessary to fork the struct for 32 bit, since it needs to use  * pcre_uchar for first_char and req_char. Can't put an ifdef inside the  * typedef since pcretest needs access to  the struct of the 8-, 16-  * and 32-bit variants. */
+end_comment
 begin_typedef
-DECL|struct|REAL_PCRE
+DECL|struct|real_pcre8_or_16
 typedef|typedef
 struct|struct
-name|REAL_PCRE
+name|real_pcre8_or_16
 block|{
 DECL|member|magic_number
 name|pcre_uint32
@@ -7559,19 +8594,21 @@ name|pcre_uint16
 name|flags
 decl_stmt|;
 comment|/* Private flags */
-DECL|member|dummy1
+DECL|member|max_lookbehind
 name|pcre_uint16
-name|dummy1
+name|max_lookbehind
 decl_stmt|;
-comment|/* For future use */
+comment|/* Longest lookbehind (characters) */
 DECL|member|top_bracket
 name|pcre_uint16
 name|top_bracket
 decl_stmt|;
+comment|/* Highest numbered group */
 DECL|member|top_backref
 name|pcre_uint16
 name|top_backref
 decl_stmt|;
+comment|/* Highest numbered back reference */
 DECL|member|first_char
 name|pcre_uint16
 name|first_char
@@ -7617,10 +8654,194 @@ name|nullpad
 decl_stmt|;
 comment|/* NULL padding */
 block|}
-DECL|typedef|REAL_PCRE
-name|REAL_PCRE
+DECL|typedef|real_pcre8_or_16
+name|real_pcre8_or_16
 typedef|;
 end_typedef
+begin_typedef
+DECL|typedef|real_pcre
+typedef|typedef
+name|struct
+name|real_pcre8_or_16
+name|real_pcre
+typedef|;
+end_typedef
+begin_typedef
+DECL|typedef|real_pcre16
+typedef|typedef
+name|struct
+name|real_pcre8_or_16
+name|real_pcre16
+typedef|;
+end_typedef
+begin_typedef
+DECL|struct|real_pcre32
+typedef|typedef
+struct|struct
+name|real_pcre32
+block|{
+DECL|member|magic_number
+name|pcre_uint32
+name|magic_number
+decl_stmt|;
+DECL|member|size
+name|pcre_uint32
+name|size
+decl_stmt|;
+comment|/* Total that was malloced */
+DECL|member|options
+name|pcre_uint32
+name|options
+decl_stmt|;
+comment|/* Public options */
+DECL|member|flags
+name|pcre_uint16
+name|flags
+decl_stmt|;
+comment|/* Private flags */
+DECL|member|max_lookbehind
+name|pcre_uint16
+name|max_lookbehind
+decl_stmt|;
+comment|/* Longest lookbehind (characters) */
+DECL|member|top_bracket
+name|pcre_uint16
+name|top_bracket
+decl_stmt|;
+comment|/* Highest numbered group */
+DECL|member|top_backref
+name|pcre_uint16
+name|top_backref
+decl_stmt|;
+comment|/* Highest numbered back reference */
+DECL|member|first_char
+name|pcre_uint32
+name|first_char
+decl_stmt|;
+comment|/* Starting character */
+DECL|member|req_char
+name|pcre_uint32
+name|req_char
+decl_stmt|;
+comment|/* This character must be seen */
+DECL|member|name_table_offset
+name|pcre_uint16
+name|name_table_offset
+decl_stmt|;
+comment|/* Offset to name table that follows */
+DECL|member|name_entry_size
+name|pcre_uint16
+name|name_entry_size
+decl_stmt|;
+comment|/* Size of any name items */
+DECL|member|name_count
+name|pcre_uint16
+name|name_count
+decl_stmt|;
+comment|/* Number of name items */
+DECL|member|ref_count
+name|pcre_uint16
+name|ref_count
+decl_stmt|;
+comment|/* Reference count */
+DECL|member|dummy1
+name|pcre_uint16
+name|dummy1
+decl_stmt|;
+comment|/* for later expansion */
+DECL|member|dummy2
+name|pcre_uint16
+name|dummy2
+decl_stmt|;
+comment|/* for later expansion */
+DECL|member|tables
+specifier|const
+name|pcre_uint8
+modifier|*
+name|tables
+decl_stmt|;
+comment|/* Pointer to tables or NULL for std */
+DECL|member|nullpad
+name|void
+modifier|*
+name|nullpad
+decl_stmt|;
+comment|/* for later expansion */
+block|}
+DECL|typedef|real_pcre32
+name|real_pcre32
+typedef|;
+end_typedef
+begin_comment
+comment|/* Assert that the size of REAL_PCRE is divisible by 8 */
+end_comment
+begin_typedef
+DECL|typedef|__assert_real_pcre_size_divisible_8
+typedef|typedef
+name|int
+name|__assert_real_pcre_size_divisible_8
+index|[
+operator|(
+sizeof|sizeof
+argument_list|(
+name|REAL_PCRE
+argument_list|)
+operator|%
+literal|8
+operator|)
+operator|==
+literal|0
+condition|?
+literal|1
+else|:
+operator|-
+literal|1
+index|]
+typedef|;
+end_typedef
+begin_comment
+comment|/* Needed in pcretest to access some fields in the real_pcre* structures  * directly. They're unified for 8/16/32 bits since the structs only differ  * after these fields; if that ever changes, need to fork those defines into  * 8/16 and 32 bit versions. */
+end_comment
+begin_define
+DECL|macro|REAL_PCRE_MAGIC
+define|#
+directive|define
+name|REAL_PCRE_MAGIC
+parameter_list|(
+name|re
+parameter_list|)
+value|(((REAL_PCRE*)re)->magic_number)
+end_define
+begin_define
+DECL|macro|REAL_PCRE_SIZE
+define|#
+directive|define
+name|REAL_PCRE_SIZE
+parameter_list|(
+name|re
+parameter_list|)
+value|(((REAL_PCRE*)re)->size)
+end_define
+begin_define
+DECL|macro|REAL_PCRE_OPTIONS
+define|#
+directive|define
+name|REAL_PCRE_OPTIONS
+parameter_list|(
+name|re
+parameter_list|)
+value|(((REAL_PCRE*)re)->options)
+end_define
+begin_define
+DECL|macro|REAL_PCRE_FLAGS
+define|#
+directive|define
+name|REAL_PCRE_FLAGS
+parameter_list|(
+name|re
+parameter_list|)
+value|(((REAL_PCRE*)re)->flags)
+end_define
 begin_comment
 comment|/* The format of the block used to store data from pcre_study(). The same remark (see NOTE above) about extending this structure applies. */
 end_comment
@@ -7788,6 +9009,7 @@ name|workspace_size
 decl_stmt|;
 comment|/* Size of workspace */
 DECL|member|bracount
+name|unsigned
 name|int
 name|bracount
 decl_stmt|;
@@ -7797,6 +9019,11 @@ name|int
 name|final_bracount
 decl_stmt|;
 comment|/* Saved value after first pass */
+DECL|member|max_lookbehind
+name|int
+name|max_lookbehind
+decl_stmt|;
+comment|/* Maximum lookbehind (characters) */
 DECL|member|top_backref
 name|int
 name|top_backref
@@ -7833,6 +9060,11 @@ name|BOOL
 name|had_accept
 decl_stmt|;
 comment|/* (*ACCEPT) encountered */
+DECL|member|had_pruneorskip
+name|BOOL
+name|had_pruneorskip
+decl_stmt|;
+comment|/* (*PRUNE) or (*SKIP) encountered */
 DECL|member|check_lookbehind
 name|BOOL
 name|check_lookbehind
@@ -7903,6 +9135,7 @@ name|prevrec
 decl_stmt|;
 comment|/* Previous recursion record (or NULL) */
 DECL|member|group_num
+name|unsigned
 name|int
 name|group_num
 decl_stmt|;
@@ -8247,6 +9480,17 @@ modifier|*
 name|once_target
 decl_stmt|;
 comment|/* Where to back up to for atomic groups */
+ifdef|#
+directive|ifdef
+name|NO_RECURSE
+DECL|member|match_frames_base
+name|void
+modifier|*
+name|match_frames_base
+decl_stmt|;
+comment|/* For remembering malloc'd frames */
+endif|#
+directive|endif
 block|}
 DECL|typedef|match_data
 name|match_data
@@ -8562,13 +9806,14 @@ name|tables_length
 value|(ctypes_offset + 256)
 end_define
 begin_comment
-comment|/* Internal function prefix */
+comment|/* Internal function and data prefixes. */
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_if
+if|#
+directive|if
+name|defined
 name|COMPILE_PCRE8
-end_ifdef
+end_if
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -8607,18 +9852,12 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_else
-else|#
-directive|else
-end_else
-begin_comment
-comment|/* COMPILE_PCRE8 */
-end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_elif
+elif|#
+directive|elif
+name|defined
 name|COMPILE_PCRE16
-end_ifdef
+end_elif
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -8657,6 +9896,50 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_elif
+elif|#
+directive|elif
+name|defined
+name|COMPILE_PCRE32
+end_elif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|PUBL
+end_ifndef
+begin_define
+DECL|macro|PUBL
+define|#
+directive|define
+name|PUBL
+parameter_list|(
+name|name
+parameter_list|)
+value|pcre32_##name
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|PRIV
+end_ifndef
+begin_define
+DECL|macro|PRIV
+define|#
+directive|define
+name|PRIV
+parameter_list|(
+name|name
+parameter_list|)
+value|_pcre32_##name
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_else
 else|#
 directive|else
@@ -8671,14 +9954,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* COMPILE_PCRE16 */
-end_comment
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|/* COMPILE_PCRE8 */
+comment|/* COMPILE_PCRE[8|16|32] */
 end_comment
 begin_comment
 comment|/* Layout of the UCP type table that translates property names into types and codes. Each entry used to point directly to a name, but to reduce the number of relocations in shared libraries, it now has an offset into a single string instead. */
@@ -8811,7 +10087,7 @@ specifier|const
 name|pcre_uint8
 name|PRIV
 argument_list|(
-name|default_tables
+name|OP_lengths
 argument_list|)
 decl|[]
 decl_stmt|;
@@ -8822,7 +10098,29 @@ specifier|const
 name|pcre_uint8
 name|PRIV
 argument_list|(
-name|OP_lengths
+name|default_tables
+argument_list|)
+decl|[]
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+specifier|extern
+specifier|const
+name|pcre_uint32
+name|PRIV
+argument_list|(
+name|hspace_list
+argument_list|)
+decl|[]
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+specifier|extern
+specifier|const
+name|pcre_uint32
+name|PRIV
+argument_list|(
+name|vspace_list
 argument_list|)
 decl|[]
 decl_stmt|;
@@ -8833,11 +10131,12 @@ end_comment
 begin_comment
 comment|/* String comparison functions. */
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_if
+if|#
+directive|if
+name|defined
 name|COMPILE_PCRE8
-end_ifdef
+end_if
 begin_define
 DECL|macro|STRCMP_UC_UC
 define|#
@@ -8904,10 +10203,15 @@ name|str
 parameter_list|)
 value|strlen((const char *)str)
 end_define
-begin_else
-else|#
-directive|else
-end_else
+begin_elif
+elif|#
+directive|elif
+name|defined
+name|COMPILE_PCRE16
+operator|||
+name|defined
+name|COMPILE_PCRE32
+end_elif
 begin_function_decl
 specifier|extern
 name|int
@@ -9075,7 +10379,115 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* COMPILE_PCRE8 */
+comment|/* COMPILE_PCRE[8|16|32] */
+end_comment
+begin_if
+if|#
+directive|if
+name|defined
+name|COMPILE_PCRE8
+operator|||
+name|defined
+name|COMPILE_PCRE16
+end_if
+begin_define
+DECL|macro|STRCMP_UC_UC_TEST
+define|#
+directive|define
+name|STRCMP_UC_UC_TEST
+parameter_list|(
+name|str1
+parameter_list|,
+name|str2
+parameter_list|)
+value|STRCMP_UC_UC(str1, str2)
+end_define
+begin_define
+DECL|macro|STRCMP_UC_C8_TEST
+define|#
+directive|define
+name|STRCMP_UC_C8_TEST
+parameter_list|(
+name|str1
+parameter_list|,
+name|str2
+parameter_list|)
+value|STRCMP_UC_C8(str1, str2)
+end_define
+begin_elif
+elif|#
+directive|elif
+name|defined
+name|COMPILE_PCRE32
+end_elif
+begin_function_decl
+specifier|extern
+name|int
+name|PRIV
+function_decl|(
+name|strcmp_uc_uc_utf
+function_decl|)
+parameter_list|(
+specifier|const
+name|pcre_uchar
+modifier|*
+parameter_list|,
+specifier|const
+name|pcre_uchar
+modifier|*
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+specifier|extern
+name|int
+name|PRIV
+function_decl|(
+name|strcmp_uc_c8_utf
+function_decl|)
+parameter_list|(
+specifier|const
+name|pcre_uchar
+modifier|*
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_define
+DECL|macro|STRCMP_UC_UC_TEST
+define|#
+directive|define
+name|STRCMP_UC_UC_TEST
+parameter_list|(
+name|str1
+parameter_list|,
+name|str2
+parameter_list|)
+define|\
+value|(utf ? PRIV(strcmp_uc_uc_utf)((str1), (str2)) : PRIV(strcmp_uc_uc)((str1), (str2)))
+end_define
+begin_define
+DECL|macro|STRCMP_UC_C8_TEST
+define|#
+directive|define
+name|STRCMP_UC_C8_TEST
+parameter_list|(
+name|str1
+parameter_list|,
+name|str2
+parameter_list|)
+define|\
+value|(utf ? PRIV(strcmp_uc_c8_utf)((str1), (str2)) : PRIV(strcmp_uc_c8)((str1), (str2)))
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* COMPILE_PCRE[8|16|32] */
 end_comment
 begin_function_decl
 specifier|extern
@@ -9120,6 +10532,7 @@ function_decl|;
 end_function_decl
 begin_function_decl
 specifier|extern
+name|unsigned
 name|int
 name|PRIV
 function_decl|(
@@ -9179,7 +10592,7 @@ function_decl|(
 name|xclass
 function_decl|)
 parameter_list|(
-name|int
+name|pcre_uint32
 parameter_list|,
 specifier|const
 name|pcre_uchar
@@ -9211,43 +10624,43 @@ argument_list|(
 name|extra
 argument_list|)
 operator|*
+argument_list|,
+name|int
 argument_list|)
 decl_stmt|;
 end_decl_stmt
-begin_function_decl
+begin_decl_stmt
 specifier|extern
 name|int
 name|PRIV
-function_decl|(
+argument_list|(
 name|jit_exec
-function_decl|)
-parameter_list|(
+argument_list|)
+argument_list|(
 specifier|const
-name|REAL_PCRE
-modifier|*
-parameter_list|,
-name|void
-modifier|*
-parameter_list|,
+name|PUBL
+argument_list|(
+name|extra
+argument_list|)
+operator|*
+argument_list|,
 specifier|const
 name|pcre_uchar
-modifier|*
-parameter_list|,
+operator|*
+argument_list|,
 name|int
-parameter_list|,
+argument_list|,
 name|int
-parameter_list|,
+argument_list|,
 name|int
-parameter_list|,
+argument_list|,
 name|int
-parameter_list|,
+operator|*
+argument_list|,
 name|int
-modifier|*
-parameter_list|,
-name|int
-parameter_list|)
-function_decl|;
-end_function_decl
+argument_list|)
+decl_stmt|;
+end_decl_stmt
 begin_function_decl
 specifier|extern
 name|void
@@ -9303,19 +10716,43 @@ DECL|member|script
 name|pcre_uint8
 name|script
 decl_stmt|;
+comment|/* ucp_Arabic, etc. */
 DECL|member|chartype
 name|pcre_uint8
 name|chartype
 decl_stmt|;
+comment|/* ucp_Cc, etc. (general categories) */
+DECL|member|gbprop
+name|pcre_uint8
+name|gbprop
+decl_stmt|;
+comment|/* ucp_gbControl, etc. (grapheme break property) */
+DECL|member|caseset
+name|pcre_uint8
+name|caseset
+decl_stmt|;
+comment|/* offset to multichar other cases or zero */
 DECL|member|other_case
 name|pcre_int32
 name|other_case
 decl_stmt|;
+comment|/* offset to other case, or zero if none */
 block|}
 DECL|typedef|ucd_record
 name|ucd_record
 typedef|;
 end_typedef
+begin_decl_stmt
+specifier|extern
+specifier|const
+name|pcre_uint32
+name|PRIV
+argument_list|(
+name|ucd_caseless_sets
+argument_list|)
+decl|[]
+decl_stmt|;
+end_decl_stmt
 begin_decl_stmt
 specifier|extern
 specifier|const
@@ -9352,10 +10789,21 @@ end_decl_stmt
 begin_decl_stmt
 specifier|extern
 specifier|const
-name|int
+name|pcre_uint32
 name|PRIV
 argument_list|(
 name|ucp_gentype
+argument_list|)
+decl|[]
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+specifier|extern
+specifier|const
+name|pcre_uint32
+name|PRIV
+argument_list|(
+name|ucp_gbtable
 argument_list|)
 decl|[]
 decl_stmt|;
@@ -9403,7 +10851,7 @@ name|GET_UCD
 parameter_list|(
 name|ch
 parameter_list|)
-value|(PRIV(ucd_records) + \         PRIV(ucd_stage2)[PRIV(ucd_stage1)[(ch) / UCD_BLOCK_SIZE] * \         UCD_BLOCK_SIZE + (ch) % UCD_BLOCK_SIZE])
+value|(PRIV(ucd_records) + \         PRIV(ucd_stage2)[PRIV(ucd_stage1)[(int)(ch) / UCD_BLOCK_SIZE] * \         UCD_BLOCK_SIZE + (int)(ch) % UCD_BLOCK_SIZE])
 end_define
 begin_define
 DECL|macro|UCD_CHARTYPE
@@ -9436,6 +10884,26 @@ parameter_list|)
 value|PRIV(ucp_gentype)[UCD_CHARTYPE(ch)]
 end_define
 begin_define
+DECL|macro|UCD_GRAPHBREAK
+define|#
+directive|define
+name|UCD_GRAPHBREAK
+parameter_list|(
+name|ch
+parameter_list|)
+value|GET_UCD(ch)->gbprop
+end_define
+begin_define
+DECL|macro|UCD_CASESET
+define|#
+directive|define
+name|UCD_CASESET
+parameter_list|(
+name|ch
+parameter_list|)
+value|GET_UCD(ch)->caseset
+end_define
+begin_define
 DECL|macro|UCD_OTHERCASE
 define|#
 directive|define
@@ -9443,7 +10911,7 @@ name|UCD_OTHERCASE
 parameter_list|(
 name|ch
 parameter_list|)
-value|(ch + GET_UCD(ch)->other_case)
+value|((pcre_uint32)((int)ch + (int)(GET_UCD(ch)->other_case)))
 end_define
 begin_endif
 endif|#

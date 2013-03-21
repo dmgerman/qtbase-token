@@ -41,7 +41,7 @@ function|(
 name|xclass
 function|)
 parameter_list|(
-name|int
+name|pcre_uint32
 name|c
 parameter_list|,
 specifier|const
@@ -53,7 +53,7 @@ name|BOOL
 name|utf
 parameter_list|)
 block|{
-name|int
+name|pcre_uchar
 name|t
 decl_stmt|;
 name|BOOL
@@ -174,7 +174,7 @@ operator|!=
 name|XCL_END
 condition|)
 block|{
-name|int
+name|pcre_uint32
 name|x
 decl_stmt|,
 name|y

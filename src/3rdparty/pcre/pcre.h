@@ -31,7 +31,7 @@ DECL|macro|PCRE_MINOR
 define|#
 directive|define
 name|PCRE_MINOR
-value|30
+value|32
 end_define
 begin_define
 DECL|macro|PCRE_PRERELEASE
@@ -44,7 +44,7 @@ DECL|macro|PCRE_DATE
 define|#
 directive|define
 name|PCRE_DATE
-value|2012-02-04
+value|2012-11-30
 end_define
 begin_comment
 comment|/* When an application links to a PCRE DLL in Windows, the symbols that are imported have to be identified as such. When building PCRE, the appropriate export setting is defined in pcre_internal.h, which includes this file. So we don't change existing definitions of PCRE_EXP_DECL and PCRECPP_EXP_DECL. */
@@ -225,225 +225,235 @@ literal|"C"
 block|{
 endif|#
 directive|endif
-comment|/* Options. Some are compile-time only, some are run-time only, and some are both, so we keep them all distinct. However, almost all the bits in the options word are now used. In the long run, we may have to re-use some of the compile-time only bits for runtime options, or vice versa. In the comments below, "compile", "exec", and "DFA exec" mean that the option is permitted to be set for those functions; "used in" means that an option may be set only for compile, but is subsequently referenced in exec and/or DFA exec. Any of the compile-time options may be inspected during studying (and therefore JIT compiling). */
+comment|/* Public options. Some are compile-time only, some are run-time only, and some are both, so we keep them all distinct. However, almost all the bits in the options word are now used. In the long run, we may have to re-use some of the compile-time only bits for runtime options, or vice versa. Any of the compile-time options may be inspected during studying (and therefore JIT compiling).  Some options for pcre_compile() change its behaviour but do not affect the behaviour of the execution functions. Other options are passed through to the execution functions and affect their behaviour, with or without affecting the behaviour of pcre_compile().  Options that can be passed to pcre_compile() are tagged Cx below, with these variants:  C1   Affects compile only C2   Does not affect compile; affects exec, dfa_exec C3   Affects compile, exec, dfa_exec C4   Affects compile, exec, dfa_exec, study C5   Affects compile, exec, study  Options that can be set for pcre_exec() and/or pcre_dfa_exec() are flagged with E and D, respectively. They take precedence over C3, C4, and C5 settings passed from pcre_compile(). Those that are compatible with JIT execution are flagged with J. */
 DECL|macro|PCRE_CASELESS
 define|#
 directive|define
 name|PCRE_CASELESS
 value|0x00000001
-comment|/* Compile */
+comment|/* C1       */
 DECL|macro|PCRE_MULTILINE
 define|#
 directive|define
 name|PCRE_MULTILINE
 value|0x00000002
-comment|/* Compile */
+comment|/* C1       */
 DECL|macro|PCRE_DOTALL
 define|#
 directive|define
 name|PCRE_DOTALL
 value|0x00000004
-comment|/* Compile */
+comment|/* C1       */
 DECL|macro|PCRE_EXTENDED
 define|#
 directive|define
 name|PCRE_EXTENDED
 value|0x00000008
-comment|/* Compile */
+comment|/* C1       */
 DECL|macro|PCRE_ANCHORED
 define|#
 directive|define
 name|PCRE_ANCHORED
 value|0x00000010
-comment|/* Compile, exec, DFA exec */
+comment|/* C4 E D   */
 DECL|macro|PCRE_DOLLAR_ENDONLY
 define|#
 directive|define
 name|PCRE_DOLLAR_ENDONLY
 value|0x00000020
-comment|/* Compile, used in exec, DFA exec */
+comment|/* C2       */
 DECL|macro|PCRE_EXTRA
 define|#
 directive|define
 name|PCRE_EXTRA
 value|0x00000040
-comment|/* Compile */
+comment|/* C1       */
 DECL|macro|PCRE_NOTBOL
 define|#
 directive|define
 name|PCRE_NOTBOL
 value|0x00000080
-comment|/* Exec, DFA exec */
+comment|/*    E D J */
 DECL|macro|PCRE_NOTEOL
 define|#
 directive|define
 name|PCRE_NOTEOL
 value|0x00000100
-comment|/* Exec, DFA exec */
+comment|/*    E D J */
 DECL|macro|PCRE_UNGREEDY
 define|#
 directive|define
 name|PCRE_UNGREEDY
 value|0x00000200
-comment|/* Compile */
+comment|/* C1       */
 DECL|macro|PCRE_NOTEMPTY
 define|#
 directive|define
 name|PCRE_NOTEMPTY
 value|0x00000400
-comment|/* Exec, DFA exec */
-comment|/* The next two are also used in exec and DFA exec */
+comment|/*    E D J */
 DECL|macro|PCRE_UTF8
 define|#
 directive|define
 name|PCRE_UTF8
 value|0x00000800
-comment|/* Compile (same as PCRE_UTF16) */
+comment|/* C4        )          */
 DECL|macro|PCRE_UTF16
 define|#
 directive|define
 name|PCRE_UTF16
 value|0x00000800
-comment|/* Compile (same as PCRE_UTF8) */
+comment|/* C4        ) Synonyms */
+DECL|macro|PCRE_UTF32
+define|#
+directive|define
+name|PCRE_UTF32
+value|0x00000800
+comment|/* C4        )          */
 DECL|macro|PCRE_NO_AUTO_CAPTURE
 define|#
 directive|define
 name|PCRE_NO_AUTO_CAPTURE
 value|0x00001000
-comment|/* Compile */
-comment|/* The next two are also used in exec and DFA exec */
+comment|/* C1       */
 DECL|macro|PCRE_NO_UTF8_CHECK
 define|#
 directive|define
 name|PCRE_NO_UTF8_CHECK
 value|0x00002000
-comment|/* Compile (same as PCRE_NO_UTF16_CHECK) */
+comment|/* C1 E D J  )          */
 DECL|macro|PCRE_NO_UTF16_CHECK
 define|#
 directive|define
 name|PCRE_NO_UTF16_CHECK
 value|0x00002000
-comment|/* Compile (same as PCRE_NO_UTF8_CHECK) */
+comment|/* C1 E D J  ) Synonyms */
+DECL|macro|PCRE_NO_UTF32_CHECK
+define|#
+directive|define
+name|PCRE_NO_UTF32_CHECK
+value|0x00002000
+comment|/* C1 E D J  )          */
 DECL|macro|PCRE_AUTO_CALLOUT
 define|#
 directive|define
 name|PCRE_AUTO_CALLOUT
 value|0x00004000
-comment|/* Compile */
+comment|/* C1       */
 DECL|macro|PCRE_PARTIAL_SOFT
 define|#
 directive|define
 name|PCRE_PARTIAL_SOFT
 value|0x00008000
-comment|/* Exec, DFA exec */
+comment|/*    E D J  ) Synonyms */
 DECL|macro|PCRE_PARTIAL
 define|#
 directive|define
 name|PCRE_PARTIAL
 value|0x00008000
-comment|/* Backwards compatible synonym */
+comment|/*    E D J  )          */
 DECL|macro|PCRE_DFA_SHORTEST
 define|#
 directive|define
 name|PCRE_DFA_SHORTEST
 value|0x00010000
-comment|/* DFA exec */
+comment|/*      D   */
 DECL|macro|PCRE_DFA_RESTART
 define|#
 directive|define
 name|PCRE_DFA_RESTART
 value|0x00020000
-comment|/* DFA exec */
+comment|/*      D   */
 DECL|macro|PCRE_FIRSTLINE
 define|#
 directive|define
 name|PCRE_FIRSTLINE
 value|0x00040000
-comment|/* Compile, used in exec, DFA exec */
+comment|/* C3       */
 DECL|macro|PCRE_DUPNAMES
 define|#
 directive|define
 name|PCRE_DUPNAMES
 value|0x00080000
-comment|/* Compile */
+comment|/* C1       */
 DECL|macro|PCRE_NEWLINE_CR
 define|#
 directive|define
 name|PCRE_NEWLINE_CR
 value|0x00100000
-comment|/* Compile, exec, DFA exec */
+comment|/* C3 E D   */
 DECL|macro|PCRE_NEWLINE_LF
 define|#
 directive|define
 name|PCRE_NEWLINE_LF
 value|0x00200000
-comment|/* Compile, exec, DFA exec */
+comment|/* C3 E D   */
 DECL|macro|PCRE_NEWLINE_CRLF
 define|#
 directive|define
 name|PCRE_NEWLINE_CRLF
 value|0x00300000
-comment|/* Compile, exec, DFA exec */
+comment|/* C3 E D   */
 DECL|macro|PCRE_NEWLINE_ANY
 define|#
 directive|define
 name|PCRE_NEWLINE_ANY
 value|0x00400000
-comment|/* Compile, exec, DFA exec */
+comment|/* C3 E D   */
 DECL|macro|PCRE_NEWLINE_ANYCRLF
 define|#
 directive|define
 name|PCRE_NEWLINE_ANYCRLF
 value|0x00500000
-comment|/* Compile, exec, DFA exec */
+comment|/* C3 E D   */
 DECL|macro|PCRE_BSR_ANYCRLF
 define|#
 directive|define
 name|PCRE_BSR_ANYCRLF
 value|0x00800000
-comment|/* Compile, exec, DFA exec */
+comment|/* C3 E D   */
 DECL|macro|PCRE_BSR_UNICODE
 define|#
 directive|define
 name|PCRE_BSR_UNICODE
 value|0x01000000
-comment|/* Compile, exec, DFA exec */
+comment|/* C3 E D   */
 DECL|macro|PCRE_JAVASCRIPT_COMPAT
 define|#
 directive|define
 name|PCRE_JAVASCRIPT_COMPAT
 value|0x02000000
-comment|/* Compile, used in exec */
+comment|/* C5       */
 DECL|macro|PCRE_NO_START_OPTIMIZE
 define|#
 directive|define
 name|PCRE_NO_START_OPTIMIZE
 value|0x04000000
-comment|/* Compile, exec, DFA exec */
+comment|/* C2 E D    ) Synonyms */
 DECL|macro|PCRE_NO_START_OPTIMISE
 define|#
 directive|define
 name|PCRE_NO_START_OPTIMISE
 value|0x04000000
-comment|/* Synonym */
+comment|/* C2 E D    )          */
 DECL|macro|PCRE_PARTIAL_HARD
 define|#
 directive|define
 name|PCRE_PARTIAL_HARD
 value|0x08000000
-comment|/* Exec, DFA exec */
+comment|/*    E D J */
 DECL|macro|PCRE_NOTEMPTY_ATSTART
 define|#
 directive|define
 name|PCRE_NOTEMPTY_ATSTART
 value|0x10000000
-comment|/* Exec, DFA exec */
+comment|/*    E D J */
 DECL|macro|PCRE_UCP
 define|#
 directive|define
 name|PCRE_UCP
 value|0x20000000
-comment|/* Compile, used in exec, DFA exec */
+comment|/* C3       */
 comment|/* Exec-time and get/set-time error codes */
 DECL|macro|PCRE_ERROR_NOMATCH
 define|#
@@ -502,13 +512,19 @@ define|#
 directive|define
 name|PCRE_ERROR_BADUTF8
 value|(-10)
-comment|/* Same for 8/16 */
+comment|/* Same for 8/16/32 */
 DECL|macro|PCRE_ERROR_BADUTF16
 define|#
 directive|define
 name|PCRE_ERROR_BADUTF16
 value|(-10)
-comment|/* Same for 8/16 */
+comment|/* Same for 8/16/32 */
+DECL|macro|PCRE_ERROR_BADUTF32
+define|#
+directive|define
+name|PCRE_ERROR_BADUTF32
+value|(-10)
+comment|/* Same for 8/16/32 */
 DECL|macro|PCRE_ERROR_BADUTF8_OFFSET
 define|#
 directive|define
@@ -618,6 +634,21 @@ define|#
 directive|define
 name|PCRE_ERROR_BADENDIANNESS
 value|(-29)
+DECL|macro|PCRE_ERROR_DFA_BADRESTART
+define|#
+directive|define
+name|PCRE_ERROR_DFA_BADRESTART
+value|(-30)
+DECL|macro|PCRE_ERROR_JIT_BADOPTION
+define|#
+directive|define
+name|PCRE_ERROR_JIT_BADOPTION
+value|(-31)
+DECL|macro|PCRE_ERROR_BADLENGTH
+define|#
+directive|define
+name|PCRE_ERROR_BADLENGTH
+value|(-32)
 comment|/* Specific error codes for UTF-8 validity checks */
 DECL|macro|PCRE_UTF8_ERR0
 define|#
@@ -729,6 +760,11 @@ define|#
 directive|define
 name|PCRE_UTF8_ERR21
 value|21
+DECL|macro|PCRE_UTF8_ERR22
+define|#
+directive|define
+name|PCRE_UTF8_ERR22
+value|22
 comment|/* Specific error codes for UTF-16 validity checks */
 DECL|macro|PCRE_UTF16_ERR0
 define|#
@@ -755,6 +791,27 @@ define|#
 directive|define
 name|PCRE_UTF16_ERR4
 value|4
+comment|/* Specific error codes for UTF-32 validity checks */
+DECL|macro|PCRE_UTF32_ERR0
+define|#
+directive|define
+name|PCRE_UTF32_ERR0
+value|0
+DECL|macro|PCRE_UTF32_ERR1
+define|#
+directive|define
+name|PCRE_UTF32_ERR1
+value|1
+DECL|macro|PCRE_UTF32_ERR2
+define|#
+directive|define
+name|PCRE_UTF32_ERR2
+value|2
+DECL|macro|PCRE_UTF32_ERR3
+define|#
+directive|define
+name|PCRE_UTF32_ERR3
+value|3
 comment|/* Request types for pcre_fullinfo() */
 DECL|macro|PCRE_INFO_OPTIONS
 define|#
@@ -852,6 +909,31 @@ define|#
 directive|define
 name|PCRE_INFO_JITSIZE
 value|17
+DECL|macro|PCRE_INFO_MAXLOOKBEHIND
+define|#
+directive|define
+name|PCRE_INFO_MAXLOOKBEHIND
+value|18
+DECL|macro|PCRE_INFO_FIRSTCHARACTER
+define|#
+directive|define
+name|PCRE_INFO_FIRSTCHARACTER
+value|19
+DECL|macro|PCRE_INFO_FIRSTCHARACTERFLAGS
+define|#
+directive|define
+name|PCRE_INFO_FIRSTCHARACTERFLAGS
+value|20
+DECL|macro|PCRE_INFO_REQUIREDCHAR
+define|#
+directive|define
+name|PCRE_INFO_REQUIREDCHAR
+value|21
+DECL|macro|PCRE_INFO_REQUIREDCHARFLAGS
+define|#
+directive|define
+name|PCRE_INFO_REQUIREDCHARFLAGS
+value|22
 comment|/* Request types for pcre_config(). Do not re-arrange, in order to remain compatible. */
 DECL|macro|PCRE_CONFIG_UTF8
 define|#
@@ -913,13 +995,33 @@ define|#
 directive|define
 name|PCRE_CONFIG_JITTARGET
 value|11
+DECL|macro|PCRE_CONFIG_UTF32
+define|#
+directive|define
+name|PCRE_CONFIG_UTF32
+value|12
 comment|/* Request types for pcre_study(). Do not re-arrange, in order to remain compatible. */
 DECL|macro|PCRE_STUDY_JIT_COMPILE
 define|#
 directive|define
 name|PCRE_STUDY_JIT_COMPILE
 value|0x0001
-comment|/* Bit flags for the pcre[16]_extra structure. Do not re-arrange or redefine these bits, just add new ones on the end, in order to remain compatible. */
+DECL|macro|PCRE_STUDY_JIT_PARTIAL_SOFT_COMPILE
+define|#
+directive|define
+name|PCRE_STUDY_JIT_PARTIAL_SOFT_COMPILE
+value|0x0002
+DECL|macro|PCRE_STUDY_JIT_PARTIAL_HARD_COMPILE
+define|#
+directive|define
+name|PCRE_STUDY_JIT_PARTIAL_HARD_COMPILE
+value|0x0004
+DECL|macro|PCRE_STUDY_EXTRA_NEEDED
+define|#
+directive|define
+name|PCRE_STUDY_EXTRA_NEEDED
+value|0x0008
+comment|/* Bit flags for the pcre[16|32]_extra structure. Do not re-arrange or redefine these bits, just add new ones on the end, in order to remain compatible. */
 DECL|macro|PCRE_EXTRA_STUDY_DATA
 define|#
 directive|define
@@ -977,6 +1079,16 @@ name|real_pcre16
 name|pcre16
 typedef|;
 struct_decl|struct
+name|real_pcre32
+struct_decl|;
+comment|/* declaration; the definition is private  */
+DECL|typedef|pcre32
+typedef|typedef
+name|struct
+name|real_pcre32
+name|pcre32
+typedef|;
+struct_decl|struct
 name|real_pcre_jit_stack
 struct_decl|;
 comment|/* declaration; the definition is private  */
@@ -995,6 +1107,16 @@ typedef|typedef
 name|struct
 name|real_pcre16_jit_stack
 name|pcre16_jit_stack
+typedef|;
+struct_decl|struct
+name|real_pcre32_jit_stack
+struct_decl|;
+comment|/* declaration; the definition is private  */
+DECL|typedef|pcre32_jit_stack
+typedef|typedef
+name|struct
+name|real_pcre32_jit_stack
+name|pcre32_jit_stack
 typedef|;
 comment|/* If PCRE is compiled with 16 bit character support, PCRE_UCHAR16 must contain a 16 bit wide signed data type. Otherwise it can be a dummy data type since pcre16 functions are not implemented. There is a check for this in pcre_internal.h. */
 ifndef|#
@@ -1015,6 +1137,27 @@ define|#
 directive|define
 name|PCRE_SPTR16
 value|const PCRE_UCHAR16 *
+endif|#
+directive|endif
+comment|/* If PCRE is compiled with 32 bit character support, PCRE_UCHAR32 must contain a 32 bit wide signed data type. Otherwise it can be a dummy data type since pcre32 functions are not implemented. There is a check for this in pcre_internal.h. */
+ifndef|#
+directive|ifndef
+name|PCRE_UCHAR32
+DECL|macro|PCRE_UCHAR32
+define|#
+directive|define
+name|PCRE_UCHAR32
+value|unsigned int
+endif|#
+directive|endif
+ifndef|#
+directive|ifndef
+name|PCRE_SPTR32
+DECL|macro|PCRE_SPTR32
+define|#
+directive|define
+name|PCRE_SPTR32
+value|const PCRE_UCHAR32 *
 endif|#
 directive|endif
 comment|/* When PCRE is compiled as a C++ library, the subject pointer type can be replaced with a custom type. For conventional use, the public interface is a const char *. */
@@ -1156,6 +1299,70 @@ comment|/* Contains a pointer to a compiled jit code */
 block|}
 DECL|typedef|pcre16_extra
 name|pcre16_extra
+typedef|;
+comment|/* Same structure as above, but with 32 bit char pointers. */
+DECL|struct|pcre32_extra
+typedef|typedef
+struct|struct
+name|pcre32_extra
+block|{
+DECL|member|flags
+name|unsigned
+name|long
+name|int
+name|flags
+decl_stmt|;
+comment|/* Bits for which fields are set */
+DECL|member|study_data
+name|void
+modifier|*
+name|study_data
+decl_stmt|;
+comment|/* Opaque data from pcre_study() */
+DECL|member|match_limit
+name|unsigned
+name|long
+name|int
+name|match_limit
+decl_stmt|;
+comment|/* Maximum number of calls to match() */
+DECL|member|callout_data
+name|void
+modifier|*
+name|callout_data
+decl_stmt|;
+comment|/* Data passed back in callouts */
+DECL|member|tables
+specifier|const
+name|unsigned
+name|char
+modifier|*
+name|tables
+decl_stmt|;
+comment|/* Pointer to character tables */
+DECL|member|match_limit_recursion
+name|unsigned
+name|long
+name|int
+name|match_limit_recursion
+decl_stmt|;
+comment|/* Max recursive calls to match() */
+DECL|member|mark
+name|PCRE_UCHAR32
+modifier|*
+modifier|*
+name|mark
+decl_stmt|;
+comment|/* For passing back a mark pointer */
+DECL|member|executable_jit
+name|void
+modifier|*
+name|executable_jit
+decl_stmt|;
+comment|/* Contains a pointer to a compiled jit code */
+block|}
+DECL|typedef|pcre32_extra
+name|pcre32_extra
 typedef|;
 comment|/* The structure for passing out data via the pcre_callout_function. We use a structure so that new fields can be added on the end in future versions, without changing the API of the function, thereby allowing old clients to work without modification. */
 DECL|struct|pcre_callout_block
@@ -1324,6 +1531,89 @@ block|}
 DECL|typedef|pcre16_callout_block
 name|pcre16_callout_block
 typedef|;
+comment|/* Same structure as above, but with 32 bit char pointers. */
+DECL|struct|pcre32_callout_block
+typedef|typedef
+struct|struct
+name|pcre32_callout_block
+block|{
+DECL|member|version
+name|int
+name|version
+decl_stmt|;
+comment|/* Identifies version of block */
+comment|/* ------------------------ Version 0 ------------------------------- */
+DECL|member|callout_number
+name|int
+name|callout_number
+decl_stmt|;
+comment|/* Number compiled into pattern */
+DECL|member|offset_vector
+name|int
+modifier|*
+name|offset_vector
+decl_stmt|;
+comment|/* The offset vector */
+DECL|member|subject
+name|PCRE_SPTR32
+name|subject
+decl_stmt|;
+comment|/* The subject being matched */
+DECL|member|subject_length
+name|int
+name|subject_length
+decl_stmt|;
+comment|/* The length of the subject */
+DECL|member|start_match
+name|int
+name|start_match
+decl_stmt|;
+comment|/* Offset to start of this match attempt */
+DECL|member|current_position
+name|int
+name|current_position
+decl_stmt|;
+comment|/* Where we currently are in the subject */
+DECL|member|capture_top
+name|int
+name|capture_top
+decl_stmt|;
+comment|/* Max current capture */
+DECL|member|capture_last
+name|int
+name|capture_last
+decl_stmt|;
+comment|/* Most recently closed capture */
+DECL|member|callout_data
+name|void
+modifier|*
+name|callout_data
+decl_stmt|;
+comment|/* Data passed in with the call */
+comment|/* ------------------- Added for Version 1 -------------------------- */
+DECL|member|pattern_position
+name|int
+name|pattern_position
+decl_stmt|;
+comment|/* Offset to next item in the pattern */
+DECL|member|next_item_length
+name|int
+name|next_item_length
+decl_stmt|;
+comment|/* Length of next item in the pattern */
+comment|/* ------------------- Added for Version 2 -------------------------- */
+DECL|member|mark
+specifier|const
+name|PCRE_UCHAR32
+modifier|*
+name|mark
+decl_stmt|;
+comment|/* Pointer to current mark or NULL    */
+comment|/* ------------------------------------------------------------------ */
+block|}
+DECL|typedef|pcre32_callout_block
+name|pcre32_callout_block
+typedef|;
 comment|/* Indirection for store get and free functions. These can be set to alternative malloc/free functions if required. Special ones are used in the non-recursive case for "frames". There is also an optional callout function that is triggered by the (?) regex item. For Virtual Pascal, these definitions have to take another form. */
 ifndef|#
 directive|ifndef
@@ -1448,6 +1738,66 @@ name|pcre16_callout_block
 modifier|*
 parameter_list|)
 function_decl|;
+DECL|variable|pcre32_malloc
+name|PCRE_EXP_DECL
+name|void
+modifier|*
+function_decl|(
+modifier|*
+name|pcre32_malloc
+function_decl|)
+parameter_list|(
+name|size_t
+parameter_list|)
+function_decl|;
+DECL|variable|pcre32_free
+name|PCRE_EXP_DECL
+name|void
+function_decl|(
+modifier|*
+name|pcre32_free
+function_decl|)
+parameter_list|(
+name|void
+modifier|*
+parameter_list|)
+function_decl|;
+DECL|variable|pcre32_stack_malloc
+name|PCRE_EXP_DECL
+name|void
+modifier|*
+function_decl|(
+modifier|*
+name|pcre32_stack_malloc
+function_decl|)
+parameter_list|(
+name|size_t
+parameter_list|)
+function_decl|;
+DECL|variable|pcre32_stack_free
+name|PCRE_EXP_DECL
+name|void
+function_decl|(
+modifier|*
+name|pcre32_stack_free
+function_decl|)
+parameter_list|(
+name|void
+modifier|*
+parameter_list|)
+function_decl|;
+DECL|variable|pcre32_callout
+name|PCRE_EXP_DECL
+name|int
+function_decl|(
+modifier|*
+name|pcre32_callout
+function_decl|)
+parameter_list|(
+name|pcre32_callout_block
+modifier|*
+parameter_list|)
+function_decl|;
 else|#
 directive|else
 comment|/* VPCOMPAT */
@@ -1531,6 +1881,46 @@ name|pcre16_callout_block
 modifier|*
 parameter_list|)
 function_decl|;
+name|PCRE_EXP_DECL
+name|void
+modifier|*
+name|pcre32_malloc
+parameter_list|(
+name|size_t
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
+name|void
+name|pcre32_free
+parameter_list|(
+name|void
+modifier|*
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
+name|void
+modifier|*
+name|pcre32_stack_malloc
+parameter_list|(
+name|size_t
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
+name|void
+name|pcre32_stack_free
+parameter_list|(
+name|void
+modifier|*
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
+name|int
+name|pcre32_callout
+parameter_list|(
+name|pcre32_callout_block
+modifier|*
+parameter_list|)
+function_decl|;
 endif|#
 directive|endif
 comment|/* VPCOMPAT */
@@ -1555,6 +1945,19 @@ modifier|*
 function_decl|(
 modifier|*
 name|pcre16_jit_callback
+function_decl|)
+parameter_list|(
+name|void
+modifier|*
+parameter_list|)
+function_decl|;
+DECL|typedef|pcre32_jit_callback
+typedef|typedef
+name|pcre32_jit_stack
+modifier|*
+function_decl|(
+modifier|*
+name|pcre32_jit_callback
 function_decl|)
 parameter_list|(
 name|void
@@ -1593,6 +1996,29 @@ modifier|*
 name|pcre16_compile
 parameter_list|(
 name|PCRE_SPTR16
+parameter_list|,
+name|int
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+modifier|*
+parameter_list|,
+name|int
+modifier|*
+parameter_list|,
+specifier|const
+name|unsigned
+name|char
+modifier|*
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
+name|pcre32
+modifier|*
+name|pcre32_compile
+parameter_list|(
+name|PCRE_SPTR32
 parameter_list|,
 name|int
 parameter_list|,
@@ -1665,6 +2091,32 @@ modifier|*
 parameter_list|)
 function_decl|;
 name|PCRE_EXP_DECL
+name|pcre32
+modifier|*
+name|pcre32_compile2
+parameter_list|(
+name|PCRE_SPTR32
+parameter_list|,
+name|int
+parameter_list|,
+name|int
+modifier|*
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+modifier|*
+parameter_list|,
+name|int
+modifier|*
+parameter_list|,
+specifier|const
+name|unsigned
+name|char
+modifier|*
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
 name|int
 name|pcre_config
 parameter_list|(
@@ -1677,6 +2129,16 @@ function_decl|;
 name|PCRE_EXP_DECL
 name|int
 name|pcre16_config
+parameter_list|(
+name|int
+parameter_list|,
+name|void
+modifier|*
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
+name|int
+name|pcre32_config
 parameter_list|(
 name|int
 parameter_list|,
@@ -1736,6 +2198,29 @@ parameter_list|)
 function_decl|;
 name|PCRE_EXP_DECL
 name|int
+name|pcre32_copy_named_substring
+parameter_list|(
+specifier|const
+name|pcre32
+modifier|*
+parameter_list|,
+name|PCRE_SPTR32
+parameter_list|,
+name|int
+modifier|*
+parameter_list|,
+name|int
+parameter_list|,
+name|PCRE_SPTR32
+parameter_list|,
+name|PCRE_UCHAR32
+modifier|*
+parameter_list|,
+name|int
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
+name|int
 name|pcre_copy_substring
 parameter_list|(
 specifier|const
@@ -1769,6 +2254,25 @@ parameter_list|,
 name|int
 parameter_list|,
 name|PCRE_UCHAR16
+modifier|*
+parameter_list|,
+name|int
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
+name|int
+name|pcre32_copy_substring
+parameter_list|(
+name|PCRE_SPTR32
+parameter_list|,
+name|int
+modifier|*
+parameter_list|,
+name|int
+parameter_list|,
+name|int
+parameter_list|,
+name|PCRE_UCHAR32
 modifier|*
 parameter_list|,
 name|int
@@ -1840,6 +2344,37 @@ parameter_list|)
 function_decl|;
 name|PCRE_EXP_DECL
 name|int
+name|pcre32_dfa_exec
+parameter_list|(
+specifier|const
+name|pcre32
+modifier|*
+parameter_list|,
+specifier|const
+name|pcre32_extra
+modifier|*
+parameter_list|,
+name|PCRE_SPTR32
+parameter_list|,
+name|int
+parameter_list|,
+name|int
+parameter_list|,
+name|int
+parameter_list|,
+name|int
+modifier|*
+parameter_list|,
+name|int
+parameter_list|,
+name|int
+modifier|*
+parameter_list|,
+name|int
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
+name|int
 name|pcre_exec
 parameter_list|(
 specifier|const
@@ -1891,6 +2426,119 @@ name|int
 parameter_list|)
 function_decl|;
 name|PCRE_EXP_DECL
+name|int
+name|pcre32_exec
+parameter_list|(
+specifier|const
+name|pcre32
+modifier|*
+parameter_list|,
+specifier|const
+name|pcre32_extra
+modifier|*
+parameter_list|,
+name|PCRE_SPTR32
+parameter_list|,
+name|int
+parameter_list|,
+name|int
+parameter_list|,
+name|int
+parameter_list|,
+name|int
+modifier|*
+parameter_list|,
+name|int
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
+name|int
+name|pcre_jit_exec
+parameter_list|(
+specifier|const
+name|pcre
+modifier|*
+parameter_list|,
+specifier|const
+name|pcre_extra
+modifier|*
+parameter_list|,
+name|PCRE_SPTR
+parameter_list|,
+name|int
+parameter_list|,
+name|int
+parameter_list|,
+name|int
+parameter_list|,
+name|int
+modifier|*
+parameter_list|,
+name|int
+parameter_list|,
+name|pcre_jit_stack
+modifier|*
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
+name|int
+name|pcre16_jit_exec
+parameter_list|(
+specifier|const
+name|pcre16
+modifier|*
+parameter_list|,
+specifier|const
+name|pcre16_extra
+modifier|*
+parameter_list|,
+name|PCRE_SPTR16
+parameter_list|,
+name|int
+parameter_list|,
+name|int
+parameter_list|,
+name|int
+parameter_list|,
+name|int
+modifier|*
+parameter_list|,
+name|int
+parameter_list|,
+name|pcre16_jit_stack
+modifier|*
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
+name|int
+name|pcre32_jit_exec
+parameter_list|(
+specifier|const
+name|pcre32
+modifier|*
+parameter_list|,
+specifier|const
+name|pcre32_extra
+modifier|*
+parameter_list|,
+name|PCRE_SPTR32
+parameter_list|,
+name|int
+parameter_list|,
+name|int
+parameter_list|,
+name|int
+parameter_list|,
+name|int
+modifier|*
+parameter_list|,
+name|int
+parameter_list|,
+name|pcre32_jit_stack
+modifier|*
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
 name|void
 name|pcre_free_substring
 parameter_list|(
@@ -1908,6 +2556,13 @@ parameter_list|)
 function_decl|;
 name|PCRE_EXP_DECL
 name|void
+name|pcre32_free_substring
+parameter_list|(
+name|PCRE_SPTR32
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
+name|void
 name|pcre_free_substring_list
 parameter_list|(
 specifier|const
@@ -1921,6 +2576,14 @@ name|void
 name|pcre16_free_substring_list
 parameter_list|(
 name|PCRE_SPTR16
+modifier|*
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
+name|void
+name|pcre32_free_substring_list
+parameter_list|(
+name|PCRE_SPTR32
 modifier|*
 parameter_list|)
 function_decl|;
@@ -1952,6 +2615,24 @@ modifier|*
 parameter_list|,
 specifier|const
 name|pcre16_extra
+modifier|*
+parameter_list|,
+name|int
+parameter_list|,
+name|void
+modifier|*
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
+name|int
+name|pcre32_fullinfo
+parameter_list|(
+specifier|const
+name|pcre32
+modifier|*
+parameter_list|,
+specifier|const
+name|pcre32_extra
 modifier|*
 parameter_list|,
 name|int
@@ -2010,6 +2691,27 @@ parameter_list|)
 function_decl|;
 name|PCRE_EXP_DECL
 name|int
+name|pcre32_get_named_substring
+parameter_list|(
+specifier|const
+name|pcre32
+modifier|*
+parameter_list|,
+name|PCRE_SPTR32
+parameter_list|,
+name|int
+modifier|*
+parameter_list|,
+name|int
+parameter_list|,
+name|PCRE_SPTR32
+parameter_list|,
+name|PCRE_SPTR32
+modifier|*
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
+name|int
 name|pcre_get_stringnumber
 parameter_list|(
 specifier|const
@@ -2030,6 +2732,17 @@ name|pcre16
 modifier|*
 parameter_list|,
 name|PCRE_SPTR16
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
+name|int
+name|pcre32_get_stringnumber
+parameter_list|(
+specifier|const
+name|pcre32
+modifier|*
+parameter_list|,
+name|PCRE_SPTR32
 parameter_list|)
 function_decl|;
 name|PCRE_EXP_DECL
@@ -2074,6 +2787,25 @@ parameter_list|)
 function_decl|;
 name|PCRE_EXP_DECL
 name|int
+name|pcre32_get_stringtable_entries
+parameter_list|(
+specifier|const
+name|pcre32
+modifier|*
+parameter_list|,
+name|PCRE_SPTR32
+parameter_list|,
+name|PCRE_UCHAR32
+modifier|*
+modifier|*
+parameter_list|,
+name|PCRE_UCHAR32
+modifier|*
+modifier|*
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
+name|int
 name|pcre_get_substring
 parameter_list|(
 specifier|const
@@ -2107,6 +2839,23 @@ parameter_list|,
 name|int
 parameter_list|,
 name|PCRE_SPTR16
+modifier|*
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
+name|int
+name|pcre32_get_substring
+parameter_list|(
+name|PCRE_SPTR32
+parameter_list|,
+name|int
+modifier|*
+parameter_list|,
+name|int
+parameter_list|,
+name|int
+parameter_list|,
+name|PCRE_SPTR32
 modifier|*
 parameter_list|)
 function_decl|;
@@ -2147,6 +2896,22 @@ modifier|*
 parameter_list|)
 function_decl|;
 name|PCRE_EXP_DECL
+name|int
+name|pcre32_get_substring_list
+parameter_list|(
+name|PCRE_SPTR32
+parameter_list|,
+name|int
+modifier|*
+parameter_list|,
+name|int
+parameter_list|,
+name|PCRE_SPTR32
+modifier|*
+modifier|*
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
 specifier|const
 name|unsigned
 name|char
@@ -2167,6 +2932,16 @@ name|void
 parameter_list|)
 function_decl|;
 name|PCRE_EXP_DECL
+specifier|const
+name|unsigned
+name|char
+modifier|*
+name|pcre32_maketables
+parameter_list|(
+name|void
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
 name|int
 name|pcre_refcount
 parameter_list|(
@@ -2181,6 +2956,16 @@ name|int
 name|pcre16_refcount
 parameter_list|(
 name|pcre16
+modifier|*
+parameter_list|,
+name|int
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
+name|int
+name|pcre32_refcount
+parameter_list|(
+name|pcre32
 modifier|*
 parameter_list|,
 name|int
@@ -2221,6 +3006,23 @@ modifier|*
 parameter_list|)
 function_decl|;
 name|PCRE_EXP_DECL
+name|pcre32_extra
+modifier|*
+name|pcre32_study
+parameter_list|(
+specifier|const
+name|pcre32
+modifier|*
+parameter_list|,
+name|int
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+modifier|*
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
 name|void
 name|pcre_free_study
 parameter_list|(
@@ -2233,6 +3035,14 @@ name|void
 name|pcre16_free_study
 parameter_list|(
 name|pcre16_extra
+modifier|*
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
+name|void
+name|pcre32_free_study
+parameter_list|(
+name|pcre32_extra
 modifier|*
 parameter_list|)
 function_decl|;
@@ -2250,6 +3060,15 @@ specifier|const
 name|char
 modifier|*
 name|pcre16_version
+parameter_list|(
+name|void
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
+specifier|const
+name|char
+modifier|*
+name|pcre32_version
 parameter_list|(
 name|void
 parameter_list|)
@@ -2289,12 +3108,45 @@ parameter_list|)
 function_decl|;
 name|PCRE_EXP_DECL
 name|int
+name|pcre32_pattern_to_host_byte_order
+parameter_list|(
+name|pcre32
+modifier|*
+parameter_list|,
+name|pcre32_extra
+modifier|*
+parameter_list|,
+specifier|const
+name|unsigned
+name|char
+modifier|*
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
+name|int
 name|pcre16_utf16_to_host_byte_order
 parameter_list|(
 name|PCRE_UCHAR16
 modifier|*
 parameter_list|,
 name|PCRE_SPTR16
+parameter_list|,
+name|int
+parameter_list|,
+name|int
+modifier|*
+parameter_list|,
+name|int
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
+name|int
+name|pcre32_utf32_to_host_byte_order
+parameter_list|(
+name|PCRE_UCHAR32
+modifier|*
+parameter_list|,
+name|PCRE_SPTR32
 parameter_list|,
 name|int
 parameter_list|,
@@ -2326,6 +3178,16 @@ name|int
 parameter_list|)
 function_decl|;
 name|PCRE_EXP_DECL
+name|pcre32_jit_stack
+modifier|*
+name|pcre32_jit_stack_alloc
+parameter_list|(
+name|int
+parameter_list|,
+name|int
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
 name|void
 name|pcre_jit_stack_free
 parameter_list|(
@@ -2338,6 +3200,14 @@ name|void
 name|pcre16_jit_stack_free
 parameter_list|(
 name|pcre16_jit_stack
+modifier|*
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
+name|void
+name|pcre32_jit_stack_free
+parameter_list|(
+name|pcre32_jit_stack
 modifier|*
 parameter_list|)
 function_decl|;
@@ -2362,6 +3232,19 @@ name|pcre16_extra
 modifier|*
 parameter_list|,
 name|pcre16_jit_callback
+parameter_list|,
+name|void
+modifier|*
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
+name|void
+name|pcre32_assign_jit_stack
+parameter_list|(
+name|pcre32_extra
+modifier|*
+parameter_list|,
+name|pcre32_jit_callback
 parameter_list|,
 name|void
 modifier|*
