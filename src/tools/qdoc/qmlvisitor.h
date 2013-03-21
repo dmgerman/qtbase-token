@@ -442,10 +442,6 @@ name|quint32
 operator|>
 name|usedComments
 block|;
-name|Tree
-operator|*
-name|tree
-block|;
 name|InnerNode
 operator|*
 name|current
