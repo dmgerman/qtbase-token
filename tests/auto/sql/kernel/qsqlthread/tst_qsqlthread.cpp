@@ -51,6 +51,9 @@ argument_list|(
 literal|"qtest"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|QSqlDatabase
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1377,6 +1380,8 @@ argument_list|(
 literal|"qtest2"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -1384,6 +1389,8 @@ argument_list|(
 literal|"emptytable"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1468,6 +1475,8 @@ argument_list|(
 literal|"qtest2"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|"(id int NOT NULL primary key, title varchar(20))"
@@ -1487,6 +1496,8 @@ argument_list|(
 literal|"emptytable"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|"(id int NOT NULL primary key)"
@@ -1614,6 +1625,8 @@ argument_list|(
 literal|"qtest2"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1631,6 +1644,8 @@ argument_list|(
 literal|"qtest2"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|" values(1, 'herr')"
@@ -1650,6 +1665,8 @@ argument_list|(
 literal|"qtest2"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|" values(2, 'mister')"

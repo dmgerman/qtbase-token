@@ -129,6 +129,8 @@ argument_list|(
 literal|"relTEST1"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -304,6 +306,8 @@ argument_list|(
 literal|"relTEST1"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -371,6 +375,8 @@ argument_list|(
 literal|"relTEST1"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -881,6 +887,8 @@ argument_list|(
 literal|"relTEST1"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|)
 decl_stmt|;

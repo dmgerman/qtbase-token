@@ -32,6 +32,9 @@ argument_list|(
 literal|"test"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|QSqlDatabase
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|,
@@ -42,6 +45,9 @@ argument_list|(
 literal|"test2"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|QSqlDatabase
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|,
@@ -52,6 +58,9 @@ argument_list|(
 literal|"test3"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|QSqlDatabase
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -725,6 +734,8 @@ argument_list|(
 literal|"test4"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -732,6 +743,8 @@ argument_list|(
 literal|"emptytable"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -739,6 +752,8 @@ argument_list|(
 literal|"bigtable"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -746,6 +761,8 @@ argument_list|(
 literal|"foo"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -753,6 +770,8 @@ argument_list|(
 literal|"pktest"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 expr_stmt|;
 if|if
@@ -772,9 +791,6 @@ argument_list|(
 literal|"qtestw hitespace"
 argument_list|,
 name|db
-operator|.
-name|driver
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|tst_Databases
@@ -810,6 +826,8 @@ argument_list|(
 literal|"testschema"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|" CASCADE"
@@ -935,6 +953,8 @@ argument_list|(
 literal|"test4"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|"(column1 varchar(50), column2 varchar(50), column3 varchar(50))"
@@ -955,6 +975,8 @@ argument_list|(
 literal|"test4"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|"(column1 varchar(50), column2 varchar(50) NULL, column3 varchar(50))"
@@ -974,6 +996,8 @@ argument_list|(
 literal|"emptytable"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|"(id int)"
@@ -1001,9 +1025,6 @@ argument_list|(
 literal|"qtestw hitespace"
 argument_list|,
 name|db
-operator|.
-name|driver
-argument_list|()
 argument_list|)
 operator|+
 literal|" ("
@@ -1048,6 +1069,8 @@ argument_list|(
 literal|"pktest"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|"(id int not null primary key, a varchar(20))"
@@ -1954,6 +1977,8 @@ argument_list|(
 literal|"pktest"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 decl_stmt|;
 name|QSqlQuery
@@ -2352,6 +2377,8 @@ argument_list|(
 literal|"pktest"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 decl_stmt|;
 name|QSqlQuery
@@ -7187,6 +7214,8 @@ argument_list|(
 literal|"pktest"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -8737,6 +8766,8 @@ argument_list|(
 literal|"autoColumnTest"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 decl_stmt|;
 name|QSqlQuery
@@ -12989,6 +13020,8 @@ argument_list|(
 literal|"revertATest"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 decl_stmt|;
 name|QString
@@ -12999,6 +13032,8 @@ argument_list|(
 literal|"revertBTest"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 decl_stmt|;
 name|QSqlQuery
@@ -15592,6 +15627,8 @@ argument_list|(
 literal|"emptytable"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -15768,6 +15805,8 @@ argument_list|(
 literal|"testschema"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|" CASCADE"
@@ -15786,6 +15825,8 @@ argument_list|(
 literal|"testschema"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|)
 argument_list|)
@@ -15798,6 +15839,8 @@ argument_list|(
 literal|"testschema"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|'.'
@@ -15807,6 +15850,8 @@ argument_list|(
 literal|"testtable"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 decl_stmt|;
 name|QVERIFY_SQL
@@ -15950,9 +15995,6 @@ argument_list|(
 literal|"qtestw hitespace"
 argument_list|,
 name|db
-operator|.
-name|driver
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|QSqlTableModel
@@ -16048,6 +16090,8 @@ argument_list|(
 literal|"foo"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|"(a varchar(20), id int not null primary key, b varchar(20))"
@@ -16071,6 +16115,8 @@ argument_list|(
 literal|"foo"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -16558,6 +16604,8 @@ argument_list|(
 literal|"bigtable"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -17093,6 +17141,8 @@ argument_list|(
 literal|"invalidTable"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -17958,6 +18008,8 @@ argument_list|(
 literal|"test4"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|)
 expr_stmt|;

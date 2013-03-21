@@ -27,6 +27,9 @@ argument_list|(
 literal|"qtest"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|QSqlDatabase
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -517,6 +520,8 @@ argument_list|(
 literal|"qtest_null"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -524,6 +529,8 @@ argument_list|(
 literal|"qtest_blob"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -531,6 +538,8 @@ argument_list|(
 literal|"qtest_bittest"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -538,6 +547,8 @@ argument_list|(
 literal|"qtest_nullblob"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -545,6 +556,8 @@ argument_list|(
 literal|"qtest_rawtest"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -552,6 +565,8 @@ argument_list|(
 literal|"qtest_precision"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -559,6 +574,8 @@ argument_list|(
 literal|"qtest_prepare"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -566,6 +583,8 @@ argument_list|(
 literal|"qtestj1"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -573,6 +592,8 @@ argument_list|(
 literal|"qtestj2"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -580,6 +601,8 @@ argument_list|(
 literal|"char1Select"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -587,6 +610,8 @@ argument_list|(
 literal|"char1SU"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -594,6 +619,8 @@ argument_list|(
 literal|"qxmltest"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -601,6 +628,8 @@ argument_list|(
 literal|"qtest_exerr"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -608,6 +637,8 @@ argument_list|(
 literal|"qtest_empty"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -615,6 +646,8 @@ argument_list|(
 literal|"clobby"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -622,6 +655,8 @@ argument_list|(
 literal|"bindtest"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -629,6 +664,8 @@ argument_list|(
 literal|"more_results"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -636,6 +673,8 @@ argument_list|(
 literal|"blobstest"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -643,6 +682,8 @@ argument_list|(
 literal|"oraRowId"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -650,6 +691,8 @@ argument_list|(
 literal|"qtest_batch"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -657,6 +700,8 @@ argument_list|(
 literal|"bug6421"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|.
 name|toUpper
@@ -667,6 +712,8 @@ argument_list|(
 literal|"bug5765"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -674,6 +721,8 @@ argument_list|(
 literal|"bug6852"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -681,6 +730,8 @@ argument_list|(
 literal|"qtest_lockedtable"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -688,6 +739,8 @@ argument_list|(
 literal|"Planet"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -695,6 +748,8 @@ argument_list|(
 literal|"task_250026"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -702,6 +757,8 @@ argument_list|(
 literal|"task_234422"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -709,6 +766,8 @@ argument_list|(
 literal|"test141895"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -716,6 +775,8 @@ argument_list|(
 literal|"qtest_oraOCINumber"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 expr_stmt|;
 if|if
@@ -737,6 +798,8 @@ argument_list|(
 literal|"task_233829"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 expr_stmt|;
 if|if
@@ -758,6 +821,8 @@ argument_list|(
 literal|"record_sqlite"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 expr_stmt|;
 if|if
@@ -786,6 +851,8 @@ argument_list|(
 literal|"qtest_longstr"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 expr_stmt|;
 if|if
@@ -808,6 +875,8 @@ argument_list|(
 literal|"test141895_proc"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -831,6 +900,8 @@ argument_list|(
 literal|"bug6852_proc"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -873,6 +944,8 @@ argument_list|(
 literal|"pkg"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1016,6 +1089,8 @@ argument_list|(
 literal|"qtest_null"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|" (id int null, t_varchar varchar(20) null)"
@@ -1036,6 +1111,8 @@ argument_list|(
 literal|"qtest_null"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|" (id int, t_varchar varchar(20))"
@@ -1070,6 +1147,8 @@ argument_list|(
 literal|"qtest_null"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1295,6 +1374,8 @@ argument_list|(
 literal|"benchmark"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|)
 decl_stmt|;
