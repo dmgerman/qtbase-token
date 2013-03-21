@@ -352,9 +352,11 @@ literal|"</@name>"
 expr_stmt|;
 if|if
 condition|(
+operator|(
 name|style
 operator|==
 name|Detailed
+operator|)
 operator|&&
 operator|!
 name|node
@@ -368,6 +370,7 @@ operator|.
 name|isEmpty
 argument_list|()
 operator|&&
+operator|(
 name|node
 operator|->
 name|type
@@ -376,6 +379,13 @@ operator|!=
 name|Node
 operator|::
 name|Property
+operator|)
+operator|&&
+operator|!
+name|node
+operator|->
+name|isQmlNode
+argument_list|()
 condition|)
 name|name
 operator|.

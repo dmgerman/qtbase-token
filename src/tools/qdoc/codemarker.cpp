@@ -1864,16 +1864,31 @@ block|{
 comment|//&& !node->parent()->isAbstract()) {
 if|if
 condition|(
+operator|(
 name|node
 operator|->
-name|type
+name|parent
+argument_list|()
+operator|->
+name|subType
 argument_list|()
 operator|!=
 name|Node
 operator|::
-name|QmlProperty
+name|QmlClass
+operator|)
+operator|||
+operator|!
+name|node
+operator|->
+name|parent
+argument_list|()
+operator|->
+name|isAbstract
+argument_list|()
 condition|)
 block|{
+comment|//if (node->type() != Node::QmlProperty) {
 name|inheritedMember
 operator|=
 literal|true
