@@ -3782,6 +3782,11 @@ name|supportsSsl
 argument_list|()
 condition|)
 return|return;
+name|QSKIP
+argument_list|(
+literal|"QTBUG-29941 - Unstable auto-test due to intermittently unreachable host"
+argument_list|)
+expr_stmt|;
 name|QSslSocketPtr
 name|socket
 init|=

@@ -758,7 +758,7 @@ begin_comment
 comment|/*!     \fn QDate::QDate()      Constructs a null date. Null dates are invalid.      \sa isNull(), isValid() */
 end_comment
 begin_comment
-comment|/*!     Constructs a date with year \a y, month \a m and day \a d.      If the specified date is invalid, the date is not set and     isValid() returns false.      \warning Years 0 to 99 are interpreted as is, i.e., years              0-99.      \sa isValid() */
+comment|/*!     Constructs a date with year \a y, month \a m and day \a d.      If the specified date is invalid, the date is not set and     isValid() returns false.      \warning Years 1 to 99 are interpreted as is. Year 0 is invalid.      \sa isValid() */
 end_comment
 begin_constructor
 DECL|function|QDate
@@ -3425,7 +3425,7 @@ directive|ifndef
 name|QT_NO_DATESTRING
 end_ifndef
 begin_comment
-comment|/*!     \overload      Returns the time as a string. Milliseconds are not included. The     \a format parameter determines the format of the string.      If \a format is Qt::TextDate, the string format is HH:MM:SS; e.g. 1     second before midnight would be "23:59:59".      If \a format is Qt::ISODate, the string format corresponds to the     ISO 8601 extended specification for representations of dates,     which is also HH:MM:SS. (However, contrary to ISO 8601, dates     before 15 October 1582 are handled as Julian dates, not Gregorian     dates. See \l{QDate G and J} {Use of Gregorian and Julian     Calendars}. This might change in a future version of Qt.)      If the \a format is Qt::SystemLocaleShortDate or     Qt::SystemLocaleLongDate, the string format depends on the locale     settings of the system. Identical to calling     QLocale::system().toString(time, QLocale::ShortFormat) or     QLocale::system().toString(time, QLocale::LongFormat).      If the \a format is Qt::DefaultLocaleShortDate or     Qt::DefaultLocaleLongDate, the string format depends on the     default application locale. This is the locale set with     QLocale::setDefault(), or the system locale if no default locale     has been set. Identical to calling QLocale().toString(time,     QLocale::ShortFormat) or QLocale().toString(time,     QLocale::LongFormat).      If the time is invalid, an empty string will be returned. */
+comment|/*!     \overload      Returns the time as a string. Milliseconds are not included. The     \a format parameter determines the format of the string.      If \a format is Qt::TextDate, the string format is HH:MM:SS; e.g. 1     second before midnight would be "23:59:59".      If \a format is Qt::ISODate, the string format corresponds to the     ISO 8601 extended specification for representations of dates,     which is also HH:MM:SS.      If the \a format is Qt::SystemLocaleShortDate or     Qt::SystemLocaleLongDate, the string format depends on the locale     settings of the system. Identical to calling     QLocale::system().toString(time, QLocale::ShortFormat) or     QLocale::system().toString(time, QLocale::LongFormat).      If the \a format is Qt::DefaultLocaleShortDate or     Qt::DefaultLocaleLongDate, the string format depends on the     default application locale. This is the locale set with     QLocale::setDefault(), or the system locale if no default locale     has been set. Identical to calling QLocale().toString(time,     QLocale::ShortFormat) or QLocale().toString(time,     QLocale::LongFormat).      If the time is invalid, an empty string will be returned. */
 end_comment
 begin_function
 DECL|function|toString
@@ -3604,7 +3604,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the time as a string. The \a format parameter determines     the format of the result string.      These expressions may be used:      \table     \header \li Expression \li Output     \row \li h          \li the hour without a leading zero (0 to 23 or 1 to 12 if AM/PM display)     \row \li hh          \li the hour with a leading zero (00 to 23 or 01 to 12 if AM/PM display)     \row \li H          \li the hour without a leading zero (0 to 23, even with AM/PM display)     \row \li HH          \li the hour with a leading zero (00 to 23, even with AM/PM display)     \row \li m \li the minute without a leading zero (0 to 59)     \row \li mm \li the minute with a leading zero (00 to 59)     \row \li s \li the second without a leading zero (0 to 59)     \row \li ss \li the second with a leading zero (00 to 59)     \row \li z \li the milliseconds without leading zeroes (0 to 999)     \row \li zzz \li the milliseconds with leading zeroes (000 to 999)     \row \li AP or A          \li use AM/PM display. \e AP will be replaced by either "AM" or "PM".     \row \li ap or a          \li use am/pm display. \e ap will be replaced by either "am" or "pm".     \row \li t \li the timezone (for example "CEST")     \endtable      All other input characters will be ignored. Any sequence of characters that     are enclosed in single quotes will be treated as text and not be used as an     expression. Two consecutive single quotes ("''") are replaced by a singlequote     in the output. Formats without separators (e.g. "HHmm") are currently not supported.      Example format strings (assuming that the QTime is 14:13:09.042)      \table     \header \li Format \li Result     \row \li hh:mm:ss.zzz \li 14:13:09.042     \row \li h:m:s ap     \li 2:13:9 pm     \row \li H:m:s a      \li 14:13:9 pm     \endtable      If the time is invalid, an empty string will be returned.     If \a format is empty, the default format "hh:mm:ss" is used.      \sa QDate::toString(), QDateTime::toString() */
+comment|/*!     Returns the time as a string. The \a format parameter determines     the format of the result string.      These expressions may be used:      \table     \header \li Expression \li Output     \row \li h          \li the hour without a leading zero (0 to 23 or 1 to 12 if AM/PM display)     \row \li hh          \li the hour with a leading zero (00 to 23 or 01 to 12 if AM/PM display)     \row \li H          \li the hour without a leading zero (0 to 23, even with AM/PM display)     \row \li HH          \li the hour with a leading zero (00 to 23, even with AM/PM display)     \row \li m \li the minute without a leading zero (0 to 59)     \row \li mm \li the minute with a leading zero (00 to 59)     \row \li s \li the second without a leading zero (0 to 59)     \row \li ss \li the second with a leading zero (00 to 59)     \row \li z \li the milliseconds without leading zeroes (0 to 999)     \row \li zzz \li the milliseconds with leading zeroes (000 to 999)     \row \li AP or A          \li use AM/PM display. \e A/AP will be replaced by either "AM" or "PM".     \row \li ap or a          \li use am/pm display. \e a/ap will be replaced by either "am" or "pm".     \row \li t \li the timezone (for example "CEST")     \endtable      All other input characters will be ignored. Any sequence of characters that     are enclosed in single quotes will be treated as text and not be used as an     expression. Two consecutive single quotes ("''") are replaced by a singlequote     in the output. Formats without separators (e.g. "HHmm") are currently not supported.      Example format strings (assuming that the QTime is 14:13:09.042)      \table     \header \li Format \li Result     \row \li hh:mm:ss.zzz \li 14:13:09.042     \row \li h:m:s ap     \li 2:13:9 pm     \row \li H:m:s a      \li 14:13:9 pm     \endtable      If the time is invalid, an empty string will be returned.     If \a format is empty, the default format "hh:mm:ss" is used.      \sa QDate::toString(), QDateTime::toString() */
 end_comment
 begin_function
 DECL|function|toString
@@ -10595,29 +10595,6 @@ operator|==
 name|QLatin1Char
 argument_list|(
 literal|'A'
-argument_list|)
-operator|&&
-name|i
-operator|+
-literal|1
-operator|<
-name|max
-operator|&&
-name|f
-operator|.
-name|at
-argument_list|(
-name|i
-operator|+
-literal|1
-argument_list|)
-operator|.
-name|toUpper
-argument_list|()
-operator|==
-name|QLatin1Char
-argument_list|(
-literal|'P'
 argument_list|)
 condition|)
 block|{
