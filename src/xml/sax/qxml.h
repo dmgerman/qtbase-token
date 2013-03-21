@@ -329,19 +329,22 @@ name|public
 label|:
 name|QXmlAttributes
 argument_list|()
-block|{}
+expr_stmt|;
 name|virtual
 operator|~
 name|QXmlAttributes
 argument_list|()
-block|{}
+expr_stmt|;
 name|int
 name|index
 argument_list|(
-argument|const QString& qName
-argument_list|)
 specifier|const
-expr_stmt|;
+name|QString
+operator|&
+name|qName
+argument_list|)
+decl|const
+decl_stmt|;
 name|int
 name|index
 argument_list|(
@@ -1881,20 +1884,20 @@ name|public
 label|:
 name|QXmlDefaultHandler
 argument_list|()
-block|{ }
+expr_stmt|;
 name|virtual
 operator|~
 name|QXmlDefaultHandler
 argument_list|()
-block|{ }
+expr_stmt|;
 name|void
 name|setDocumentLocator
-argument_list|(
+parameter_list|(
 name|QXmlLocator
-operator|*
+modifier|*
 name|locator
-argument_list|)
-expr_stmt|;
+parameter_list|)
+function_decl|;
 name|bool
 name|startDocument
 parameter_list|()
