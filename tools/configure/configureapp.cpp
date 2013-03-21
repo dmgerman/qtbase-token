@@ -717,16 +717,7 @@ operator|+
 literal|"/bin/syncqt.bat"
 argument_list|)
 operator|<<
-literal|" -mkspecsdir \""
-operator|<<
-name|QDir
-operator|::
-name|toNativeSeparators
-argument_list|(
-name|buildPath
-argument_list|)
-operator|<<
-literal|"/mkspecs\" %*"
+literal|" %*"
 operator|<<
 name|endl
 expr_stmt|;
@@ -12922,11 +12913,21 @@ argument_list|)
 operator|||
 name|findFile
 argument_list|(
+literal|"sicuin.lib"
+argument_list|)
+operator|||
+name|findFile
+argument_list|(
 literal|"libicuin.lib"
+argument_list|)
+operator|||
+name|findFile
+argument_list|(
+literal|"libsicuin.lib"
 argument_list|)
 operator|)
 expr_stmt|;
-comment|// libicun.lib if compiled with mingw
+comment|// "lib" prefix for mingw, 's' prefix for static
 elseif|else
 if|if
 condition|(
@@ -13812,6 +13813,12 @@ operator|::
 name|autoDetection
 parameter_list|()
 block|{
+name|cout
+operator|<<
+literal|"Running configuration tests..."
+operator|<<
+name|endl
+expr_stmt|;
 if|if
 condition|(
 name|dictionary

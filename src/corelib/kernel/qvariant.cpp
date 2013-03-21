@@ -8236,7 +8236,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QStringList QVariant::toStringList() const      Returns the variant as a QStringList if the variant has type()     StringList, \l String, or \l List of a type that can be converted     to QString; otherwise returns an empty list.      \sa canConvert(), convert() */
+comment|/*!     \fn QStringList QVariant::toStringList() const      Returns the variant as a QStringList if the variant has userType()     \l QMetaType::QStringList, \l QMetaType::QString, or     \l QMetaType::QVariantList of a type that can be converted to QString;     otherwise returns an empty list.      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toStringList
@@ -8261,7 +8261,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the variant as a QString if the variant has type() \l     String, \l Bool, \l ByteArray, \l Char, \l Date, \l DateTime, \l     Double, \l Int, \l LongLong, \l StringList, \l Time, \l UInt, or     \l ULongLong; otherwise returns an empty string.      \sa canConvert(), convert() */
+comment|/*!     Returns the variant as a QString if the variant has userType() \l     QMetaType::QString, \l QMetaType::Bool, \l QMetaType::QByteArray,     \l QMetaType::QChar, \l QMetaType::QDate, \l QMetaType::QDateTime,     \l QMetaType::Double, \l QMetaType::Int, \l QMetaType::LongLong,     \l QMetaType::QStringList, \l QMetaType::QTime, \l QMetaType::UInt, or     \l QMetaType::ULongLong; otherwise returns an empty string.      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toString
@@ -8286,7 +8286,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the variant as a QMap<QString, QVariant> if the variant     has type() \l Map; otherwise returns an empty map.      \sa canConvert(), convert() */
+comment|/*!     Returns the variant as a QMap<QString, QVariant> if the variant     has type() \l QMetaType::QVariantMap; otherwise returns an empty map.      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toMap
@@ -8311,7 +8311,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the variant as a QHash<QString, QVariant> if the variant     has type() \l Hash; otherwise returns an empty map.      \sa canConvert(), convert() */
+comment|/*!     Returns the variant as a QHash<QString, QVariant> if the variant     has type() \l QMetaType::QVariantHash; otherwise returns an empty map.      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toHash
@@ -8336,7 +8336,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QDate QVariant::toDate() const      Returns the variant as a QDate if the variant has type() \l Date,     \l DateTime, or \l String; otherwise returns an invalid date.      If the type() is \l String, an invalid date will be returned if the     string cannot be parsed as a Qt::ISODate format date.      \sa canConvert(), convert() */
+comment|/*!     \fn QDate QVariant::toDate() const      Returns the variant as a QDate if the variant has userType()     \l QMetaType::QDate, \l QMetaType::QDateTime, or \l QMetaType::QString;     otherwise returns an invalid date.      If the type() is \l QMetaType::QString, an invalid date will be returned if     the string cannot be parsed as a Qt::ISODate format date.      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toDate
@@ -8361,7 +8361,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QTime QVariant::toTime() const      Returns the variant as a QTime if the variant has type() \l Time,     \l DateTime, or \l String; otherwise returns an invalid time.      If the type() is \l String, an invalid time will be returned if     the string cannot be parsed as a Qt::ISODate format time.      \sa canConvert(), convert() */
+comment|/*!     \fn QTime QVariant::toTime() const      Returns the variant as a QTime if the variant has userType()     \l QMetaType::QTime, \l QMetaType::QDateTime, or \l QMetaType::QString;     otherwise returns an invalid time.      If the type() is \l QMetaType::QString, an invalid time will be returned if     the string cannot be parsed as a Qt::ISODate format time.      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toTime
@@ -8386,7 +8386,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QDateTime QVariant::toDateTime() const      Returns the variant as a QDateTime if the variant has type() \l     DateTime, \l Date, or \l String; otherwise returns an invalid     date/time.      If the type() is \l String, an invalid date/time will be returned     if the string cannot be parsed as a Qt::ISODate format date/time.      \sa canConvert(), convert() */
+comment|/*!     \fn QDateTime QVariant::toDateTime() const      Returns the variant as a QDateTime if the variant has userType()     \l QMetaType::QDateTime, \l QMetaType::QDate, or \l QMetaType::QString;     otherwise returns an invalid date/time.      If the type() is \l QMetaType::QString, an invalid date/time will be     returned if the string cannot be parsed as a Qt::ISODate format date/time.      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toDateTime
@@ -8411,7 +8411,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.7     \fn QEasingCurve QVariant::toEasingCurve() const      Returns the variant as a QEasingCurve if the variant has type() \l     EasingCurve; otherwise returns a default easing curve.      \sa canConvert(), convert() */
+comment|/*!     \since 4.7     \fn QEasingCurve QVariant::toEasingCurve() const      Returns the variant as a QEasingCurve if the variant has userType()     \l QMetaType::QEasingCurve; otherwise returns a default easing curve.      \sa canConvert(), convert() */
 end_comment
 begin_ifndef
 ifndef|#
@@ -8445,7 +8445,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     \fn QByteArray QVariant::toByteArray() const      Returns the variant as a QByteArray if the variant has type() \l     ByteArray or \l String (converted using QString::fromUtf8());     otherwise returns an empty byte array.      \sa canConvert(), convert() */
+comment|/*!     \fn QByteArray QVariant::toByteArray() const      Returns the variant as a QByteArray if the variant has userType()     \l QMetaType::QByteArray or \l QMetaType::QString (converted using     QString::fromUtf8()); otherwise returns an empty byte array.      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toByteArray
@@ -8475,7 +8475,7 @@ directive|ifndef
 name|QT_NO_GEOM_VARIANT
 end_ifndef
 begin_comment
-comment|/*!     \fn QPoint QVariant::toPoint() const      Returns the variant as a QPoint if the variant has type()     \l Point or \l PointF; otherwise returns a null QPoint.      \sa canConvert(), convert() */
+comment|/*!     \fn QPoint QVariant::toPoint() const      Returns the variant as a QPoint if the variant has userType()     \l QMetaType::QPointF or \l QMetaType::QPointF; otherwise returns a null     QPoint.      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toPoint
@@ -8500,7 +8500,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QRect QVariant::toRect() const      Returns the variant as a QRect if the variant has type() \l Rect;     otherwise returns an invalid QRect.      \sa canConvert(), convert() */
+comment|/*!     \fn QRect QVariant::toRect() const      Returns the variant as a QRect if the variant has userType()     \l QMetaType::QRect; otherwise returns an invalid QRect.      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toRect
@@ -8525,7 +8525,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QSize QVariant::toSize() const      Returns the variant as a QSize if the variant has type() \l Size;     otherwise returns an invalid QSize.      \sa canConvert(), convert() */
+comment|/*!     \fn QSize QVariant::toSize() const      Returns the variant as a QSize if the variant has userType()     \l QMetaType::QSize; otherwise returns an invalid QSize.      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toSize
@@ -8550,7 +8550,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QSizeF QVariant::toSizeF() const      Returns the variant as a QSizeF if the variant has type() \l     SizeF; otherwise returns an invalid QSizeF.      \sa canConvert(), convert() */
+comment|/*!     \fn QSizeF QVariant::toSizeF() const      Returns the variant as a QSizeF if the variant has userType() \l     QMetaType::QSizeF; otherwise returns an invalid QSizeF.      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toSizeF
@@ -8575,7 +8575,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QRectF QVariant::toRectF() const      Returns the variant as a QRectF if the variant has type() \l Rect     or \l RectF; otherwise returns an invalid QRectF.      \sa canConvert(), convert() */
+comment|/*!     \fn QRectF QVariant::toRectF() const      Returns the variant as a QRectF if the variant has userType()     \l QMetaType::QRect or \l QMetaType::QRectF; otherwise returns an invalid     QRectF.      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toRectF
@@ -8600,7 +8600,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QLineF QVariant::toLineF() const      Returns the variant as a QLineF if the variant has type() \l     LineF; otherwise returns an invalid QLineF.      \sa canConvert(), convert() */
+comment|/*!     \fn QLineF QVariant::toLineF() const      Returns the variant as a QLineF if the variant has userType()     \l QMetaType::QLineF; otherwise returns an invalid QLineF.      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toLineF
@@ -8625,7 +8625,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QLine QVariant::toLine() const      Returns the variant as a QLine if the variant has type() \l Line;     otherwise returns an invalid QLine.      \sa canConvert(), convert() */
+comment|/*!     \fn QLine QVariant::toLine() const      Returns the variant as a QLine if the variant has userType()     \l QMetaType::QLine; otherwise returns an invalid QLine.      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toLine
@@ -8650,7 +8650,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QPointF QVariant::toPointF() const      Returns the variant as a QPointF if the variant has type() \l     Point or \l PointF; otherwise returns a null QPointF.      \sa canConvert(), convert() */
+comment|/*!     \fn QPointF QVariant::toPointF() const      Returns the variant as a QPointF if the variant has userType() \l     QMetaType::QPoint or \l QMetaType::QPointF; otherwise returns a null     QPointF.      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toPointF
@@ -8687,7 +8687,7 @@ directive|ifndef
 name|QT_BOOTSTRAPPED
 end_ifndef
 begin_comment
-comment|/*!     \fn QUrl QVariant::toUrl() const      Returns the variant as a QUrl if the variant has type()     \l Url; otherwise returns an invalid QUrl.      \sa canConvert(), convert() */
+comment|/*!     \fn QUrl QVariant::toUrl() const      Returns the variant as a QUrl if the variant has userType()     \l QMetaType::QUrl; otherwise returns an invalid QUrl.      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toUrl
@@ -8716,7 +8716,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     \fn QLocale QVariant::toLocale() const      Returns the variant as a QLocale if the variant has type()     \l Locale; otherwise returns an invalid QLocale.      \sa canConvert(), convert() */
+comment|/*!     \fn QLocale QVariant::toLocale() const      Returns the variant as a QLocale if the variant has userType()     \l QMetaType::QLocale; otherwise returns an invalid QLocale.      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toLocale
@@ -8741,7 +8741,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QRegExp QVariant::toRegExp() const     \since 4.1      Returns the variant as a QRegExp if the variant has type() \l     RegExp; otherwise returns an empty QRegExp.      \sa canConvert(), convert() */
+comment|/*!     \fn QRegExp QVariant::toRegExp() const     \since 4.1      Returns the variant as a QRegExp if the variant has userType()     \l QMetaType::QRegExp; otherwise returns an empty QRegExp.      \sa canConvert(), convert() */
 end_comment
 begin_ifndef
 ifndef|#
@@ -8780,7 +8780,7 @@ directive|ifndef
 name|QT_BOOTSTRAPPED
 end_ifndef
 begin_comment
-comment|/*!     \fn QRegularExpression QVariant::toRegularExpression() const     \since 5.0      Returns the variant as a QRegularExpression if the variant has type() \l     QRegularExpression; otherwise returns an empty QRegularExpression.      \sa canConvert(), convert() */
+comment|/*!     \fn QRegularExpression QVariant::toRegularExpression() const     \since 5.0      Returns the variant as a QRegularExpression if the variant has userType() \l     QRegularExpression; otherwise returns an empty QRegularExpression.      \sa canConvert(), convert() */
 end_comment
 begin_ifndef
 ifndef|#
@@ -8817,7 +8817,7 @@ begin_comment
 comment|// QT_NO_REGULAREXPRESSION
 end_comment
 begin_comment
-comment|/*!     \since 5.0      Returns the variant as a QUuid if the variant has type() \l     QUuid; otherwise returns a default constructed QUuid.      \sa canConvert(), convert() */
+comment|/*!     \since 5.0      Returns the variant as a QUuid if the variant has userType() \l     QUuid; otherwise returns a default constructed QUuid.      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toUuid
@@ -8842,7 +8842,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.0      Returns the variant as a QModelIndex if the variant has type() \l     QModelIndex; otherwise returns a default constructed QModelIndex.      \sa canConvert(), convert() */
+comment|/*!     \since 5.0      Returns the variant as a QModelIndex if the variant has userType() \l     QModelIndex; otherwise returns a default constructed QModelIndex.      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toModelIndex
@@ -8867,7 +8867,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.0      Returns the variant as a QJsonValue if the variant has type() \l     QJsonValue; otherwise returns a default constructed QJsonValue.      \sa canConvert(), convert() */
+comment|/*!     \since 5.0      Returns the variant as a QJsonValue if the variant has userType() \l     QJsonValue; otherwise returns a default constructed QJsonValue.      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toJsonValue
@@ -8892,7 +8892,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.0      Returns the variant as a QJsonObject if the variant has type() \l     QJsonObject; otherwise returns a default constructed QJsonObject.      \sa canConvert(), convert() */
+comment|/*!     \since 5.0      Returns the variant as a QJsonObject if the variant has userType() \l     QJsonObject; otherwise returns a default constructed QJsonObject.      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toJsonObject
@@ -8917,7 +8917,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.0      Returns the variant as a QJsonArray if the variant has type() \l     QJsonArray; otherwise returns a default constructed QJsonArray.      \sa canConvert(), convert() */
+comment|/*!     \since 5.0      Returns the variant as a QJsonArray if the variant has userType() \l     QJsonArray; otherwise returns a default constructed QJsonArray.      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toJsonArray
@@ -8942,7 +8942,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.0      Returns the variant as a QJsonDocument if the variant has type() \l     QJsonDocument; otherwise returns a default constructed QJsonDocument.      \sa canConvert(), convert() */
+comment|/*!     \since 5.0      Returns the variant as a QJsonDocument if the variant has userType() \l     QJsonDocument; otherwise returns a default constructed QJsonDocument.      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toJsonDocument
@@ -8971,7 +8971,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     \fn QChar QVariant::toChar() const      Returns the variant as a QChar if the variant has type() \l Char,     \l Int, or \l UInt; otherwise returns an invalid QChar.      \sa canConvert(), convert() */
+comment|/*!     \fn QChar QVariant::toChar() const      Returns the variant as a QChar if the variant has userType()     \l QMetaType::QChar, \l QMetaType::Int, or \l QMetaType::UInt; otherwise     returns an invalid QChar.      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toChar
@@ -8996,7 +8996,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the variant as a QBitArray if the variant has type()     \l BitArray; otherwise returns an empty bit array.      \sa canConvert(), convert() */
+comment|/*!     Returns the variant as a QBitArray if the variant has userType()     \l QMetaType::QBitArray; otherwise returns an empty bit array.      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toBitArray
@@ -9123,7 +9123,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the variant as an int if the variant has type() \l Int,     \l Bool, \l ByteArray, \l Char, \l Double, \l LongLong, \l     String, \l UInt, or \l ULongLong; otherwise returns 0.      If \a ok is non-null: \c{*}\a{ok} is set to true if the value could be     converted to an int; otherwise \c{*}\a{ok} is set to false.      \b{Warning:} If the value is convertible to a \l LongLong but is too     large to be represented in an int, the resulting arithmetic overflow will     not be reflected in \a ok. A simple workaround is to use QString::toInt().      \sa canConvert(), convert() */
+comment|/*!     Returns the variant as an int if the variant has userType()     \l QMetaType::Int, \l QMetaType::Bool, \l QMetaType::QByteArray,     \l QMetaType::QChar, \l QMetaType::Double, \l QMetaType::LongLong,     \l QMetaType::QString, \l QMetaType::UInt, or \l QMetaType::ULongLong;     otherwise returns 0.      If \a ok is non-null: \c{*}\a{ok} is set to true if the value could be     converted to an int; otherwise \c{*}\a{ok} is set to false.      \b{Warning:} If the value is convertible to a \l QMetaType::LongLong but is     too large to be represented in an int, the resulting arithmetic overflow     will not be reflected in \a ok. A simple workaround is to use     QString::toInt().      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toInt
@@ -9160,7 +9160,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the variant as an unsigned int if the variant has type()     \l UInt,  \l Bool, \l ByteArray, \l Char, \l Double, \l Int, \l     LongLong, \l String, or \l ULongLong; otherwise returns 0.      If \a ok is non-null: \c{*}\a{ok} is set to true if the value could be     converted to an unsigned int; otherwise \c{*}\a{ok} is set to false.      \b{Warning:} If the value is convertible to a \l ULongLong but is too     large to be represented in an unsigned int, the resulting arithmetic overflow will     not be reflected in \a ok. A simple workaround is to use QString::toUInt().      \sa canConvert(), convert() */
+comment|/*!     Returns the variant as an unsigned int if the variant has userType()     \l QMetaType::UInt, \l QMetaType::Bool, \l QMetaType::QByteArray,     \l QMetaType::QChar, \l QMetaType::Double, \l QMetaType::Int,     \l QMetaType::LongLong, \l QMetaType::QString, or \l QMetaType::ULongLong;     otherwise returns 0.      If \a ok is non-null: \c{*}\a{ok} is set to true if the value could be     converted to an unsigned int; otherwise \c{*}\a{ok} is set to false.      \b{Warning:} If the value is convertible to a \l QMetaType::ULongLong but is     too large to be represented in an unsigned int, the resulting arithmetic     overflow will not be reflected in \a ok. A simple workaround is to use     QString::toUInt().      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toUInt
@@ -9197,7 +9197,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the variant as a long long int if the variant has type()     \l LongLong, \l Bool, \l ByteArray, \l Char, \l Double, \l Int,     \l String, \l UInt, or \l ULongLong; otherwise returns 0.      If \a ok is non-null: \c{*}\c{ok} is set to true if the value could be     converted to an int; otherwise \c{*}\c{ok} is set to false.      \sa canConvert(), convert() */
+comment|/*!     Returns the variant as a long long int if the variant has userType()     \l QMetaType::LongLong, \l QMetaType::Bool, \l QMetaType::QByteArray,     \l QMetaType::QChar, \l QMetaType::Double, \l QMetaType::Int,     \l QMetaType::QString, \l QMetaType::UInt, or \l QMetaType::ULongLong;     otherwise returns 0.      If \a ok is non-null: \c{*}\c{ok} is set to true if the value could be     converted to an int; otherwise \c{*}\c{ok} is set to false.      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toLongLong
@@ -9234,7 +9234,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the variant as as an unsigned long long int if the     variant has type() \l ULongLong, \l Bool, \l ByteArray, \l Char,     \l Double, \l Int, \l LongLong, \l String, or \l UInt; otherwise     returns 0.      If \a ok is non-null: \c{*}\a{ok} is set to true if the value could be     converted to an int; otherwise \c{*}\a{ok} is set to false.      \sa canConvert(), convert() */
+comment|/*!     Returns the variant as as an unsigned long long int if the     variant has type() \l QMetaType::ULongLong, \l QMetaType::Bool,     \l QMetaType::QByteArray, \l QMetaType::QChar, \l QMetaType::Double,     \l QMetaType::Int, \l QMetaType::LongLong, \l QMetaType::QString, or     \l QMetaType::UInt; otherwise returns 0.      If \a ok is non-null: \c{*}\a{ok} is set to true if the value could be     converted to an int; otherwise \c{*}\a{ok} is set to false.      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toULongLong
@@ -9271,7 +9271,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the variant as a bool if the variant has type() Bool.      Returns true if the variant has type() \l Bool, \l Char, \l Double,     \l Int, \l LongLong, \l UInt, or \l ULongLong and the value is     non-zero, or if the variant has type \l String or \l ByteArray and     its lower-case content is not one of the following: empty, "0"     or "false"; otherwise returns false.      \sa canConvert(), convert() */
+comment|/*!     Returns the variant as a bool if the variant has userType() Bool.      Returns true if the variant has userType() \l QMetaType::Bool,     \l QMetaType::QChar, \l QMetaType::Double, \l QMetaType::Int,     \l QMetaType::LongLong, \l QMetaType::UInt, or \l QMetaType::ULongLong and     the value is non-zero, or if the variant has type \l QMetaType::QString or     \l QMetaType::QByteArray and its lower-case content is not one of the     following: empty, "0" or "false"; otherwise returns false.      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toBool
@@ -9328,7 +9328,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the variant as a double if the variant has type() \l     Double, \l QMetaType::Float, \l Bool, \l ByteArray, \l Int, \l LongLong, \l String, \l     UInt, or \l ULongLong; otherwise returns 0.0.      If \a ok is non-null: \c{*}\a{ok} is set to true if the value could be     converted to a double; otherwise \c{*}\a{ok} is set to false.      \sa canConvert(), convert() */
+comment|/*!     Returns the variant as a double if the variant has userType()     \l QMetaType::Double, \l QMetaType::Float, \l QMetaType::Bool,     \l QMetaType::QByteArray, \l QMetaType::Int, \l QMetaType::LongLong,     \l QMetaType::QString, \l QMetaType::UInt, or \l QMetaType::ULongLong;     otherwise returns 0.0.      If \a ok is non-null: \c{*}\a{ok} is set to true if the value could be     converted to a double; otherwise \c{*}\a{ok} is set to false.      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toDouble
@@ -9365,7 +9365,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the variant as a float if the variant has type() \l     Double, \l QMetaType::Float, \l Bool, \l ByteArray, \l Int, \l LongLong, \l String, \l     UInt, or \l ULongLong; otherwise returns 0.0.      \since 4.6      If \a ok is non-null: \c{*}\a{ok} is set to true if the value could be     converted to a double; otherwise \c{*}\a{ok} is set to false.      \sa canConvert(), convert() */
+comment|/*!     Returns the variant as a float if the variant has userType()     \l QMetaType::Double, \l QMetaType::Float, \l QMetaType::Bool,     \l QMetaType::QByteArray, \l QMetaType::Int, \l QMetaType::LongLong,     \l QMetaType::QString, \l QMetaType::UInt, or \l QMetaType::ULongLong;     otherwise returns 0.0.      \since 4.6      If \a ok is non-null: \c{*}\a{ok} is set to true if the value could be     converted to a double; otherwise \c{*}\a{ok} is set to false.      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toFloat
@@ -9402,7 +9402,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the variant as a qreal if the variant has type() \l     Double, \l QMetaType::Float, \l Bool, \l ByteArray, \l Int, \l LongLong, \l String, \l     UInt, or \l ULongLong; otherwise returns 0.0.      \since 4.6      If \a ok is non-null: \c{*}\a{ok} is set to true if the value could be     converted to a double; otherwise \c{*}\a{ok} is set to false.      \sa canConvert(), convert() */
+comment|/*!     Returns the variant as a qreal if the variant has userType()     \l QMetaType::Double, \l QMetaType::Float, \l QMetaType::Bool,     \l QMetaType::QByteArray, \l QMetaType::Int, \l QMetaType::LongLong,     \l QMetaType::QString, \l QMetaType::UInt, or \l QMetaType::ULongLong;     otherwise returns 0.0.      \since 4.6      If \a ok is non-null: \c{*}\a{ok} is set to true if the value could be     converted to a double; otherwise \c{*}\a{ok} is set to false.      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toReal
@@ -9439,7 +9439,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the variant as a QVariantList if the variant has type()     \l List or \l StringList; otherwise returns an empty list.      \sa canConvert(), convert() */
+comment|/*!     Returns the variant as a QVariantList if the variant has userType()     \l QMetaType::QVariantList or \l QMetaType::QStringList; otherwise returns     an empty list.      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toList
@@ -10242,7 +10242,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the variant's type can be cast to the requested     type, \a targetTypeId. Such casting is done automatically when calling the     toInt(), toBool(), ... methods.      The following casts are done automatically:      \table     \header \li Type \li Automatically Cast To     \row \li \l Bool \li \l Char, \l Double, \l Int, \l LongLong, \l String, \l UInt, \l ULongLong     \row \li \l ByteArray \li \l Double, \l Int, \l LongLong, \l String, \l UInt, \l ULongLong     \row \li \l Char \li \l Bool, \l Int, \l UInt, \l LongLong, \l ULongLong     \row \li \l Color \li \l String     \row \li \l Date \li \l DateTime, \l String     \row \li \l DateTime \li \l Date, \l String, \l Time     \row \li \l Double \li \l Bool, \l Int, \l LongLong, \l String, \l UInt, \l ULongLong     \row \li \l Font \li \l String     \row \li \l Int \li \l Bool, \l Char, \l Double, \l LongLong, \l String, \l UInt, \l ULongLong     \row \li \l KeySequence \li \l Int, \l String     \row \li \l List \li \l StringList (if the list's items can be converted to strings)     \row \li \l LongLong \li \l Bool, \l ByteArray, \l Char, \l Double, \l Int, \l String, \l UInt, \l ULongLong     \row \li \l Point \li PointF     \row \li \l Rect \li RectF     \row \li \l String \li \l Bool, \l ByteArray, \l Char, \l Color, \l Date, \l DateTime, \l Double,                          \l Font, \l Int, \l KeySequence, \l LongLong, \l StringList, \l Time, \l UInt,                          \l ULongLong     \row \li \l StringList \li \l List, \l String (if the list contains exactly one item)     \row \li \l Time \li \l String     \row \li \l UInt \li \l Bool, \l Char, \l Double, \l Int, \l LongLong, \l String, \l ULongLong     \row \li \l ULongLong \li \l Bool, \l Char, \l Double, \l Int, \l LongLong, \l String, \l UInt     \endtable      A QVariant containing a pointer to a type derived from QObject will also return true for this     function if a qobject_cast to the type described by \a targetTypeId would succeed. Note that     this only works for QObject subclasses which use the Q_OBJECT macro.      \sa convert() */
+comment|/*!     Returns true if the variant's type can be cast to the requested     type, \a targetTypeId. Such casting is done automatically when calling the     toInt(), toBool(), ... methods.      The following casts are done automatically:      \table     \header \li Type \li Automatically Cast To     \row \li \l QMetaType::Bool \li \l QMetaType::QChar, \l QMetaType::Double,         \l QMetaType::Int, \l QMetaType::LongLong, \l QMetaType::QString,         \l QMetaType::UInt, \l QMetaType::ULongLong     \row \li \l QMetaType::QByteArray \li \l QMetaType::Double,         \l QMetaType::Int, \l QMetaType::LongLong, \l QMetaType::QString,         \l QMetaType::UInt, \l QMetaType::ULongLong     \row \li \l QMetaType::QChar \li \l QMetaType::Bool, \l QMetaType::Int,         \l QMetaType::UInt, \l QMetaType::LongLong, \l QMetaType::ULongLong     \row \li \l QMetaType::QColor \li \l QMetaType::QString     \row \li \l QMetaType::QDate \li \l QMetaType::QDateTime,         \l QMetaType::QString     \row \li \l QMetaType::QDateTime \li \l QMetaType::QDate,         \l QMetaType::QString, \l QMetaType::QTime     \row \li \l QMetaType::Double \li \l QMetaType::Bool, \l QMetaType::Int,         \l QMetaType::LongLong, \l QMetaType::QString, \l QMetaType::UInt,         \l QMetaType::ULongLong     \row \li \l QMetaType::QFont \li \l QMetaType::QString     \row \li \l QMetaType::Int \li \l QMetaType::Bool, \l QMetaType::QChar,         \l QMetaType::Double, \l QMetaType::LongLong, \l QMetaType::QString,         \l QMetaType::UInt, \l QMetaType::ULongLong     \row \li \l QMetaType::QKeySequence \li \l QMetaType::Int,         \l QMetaType::QString     \row \li \l QMetaType::QVariantList \li \l QMetaType::QStringList (if the         list's items can be converted to QStrings)     \row \li \l QMetaType::LongLong \li \l QMetaType::Bool,         \l QMetaType::QByteArray, \l QMetaType::QChar, \l QMetaType::Double,         \l QMetaType::Int, \l QMetaType::QString, \l QMetaType::UInt,         \l QMetaType::ULongLong     \row \li \l QMetaType::QPoint \li QMetaType::QPointF     \row \li \l QMetaType::QRect \li QMetaType::QRectF     \row \li \l QMetaType::QString \li \l QMetaType::Bool,         \l QMetaType::QByteArray, \l QMetaType::QChar, \l QMetaType::QColor,         \l QMetaType::QDate, \l QMetaType::QDateTime, \l QMetaType::Double,         \l QMetaType::QFont, \l QMetaType::Int, \l QMetaType::QKeySequence,         \l QMetaType::LongLong, \l QMetaType::QStringList, \l QMetaType::QTime,         \l QMetaType::UInt, \l QMetaType::ULongLong     \row \li \l QMetaType::QStringList \li \l QMetaType::QVariantList,         \l QMetaType::QString (if the list contains exactly one item)     \row \li \l QMetaType::QTime \li \l QMetaType::QString     \row \li \l QMetaType::UInt \li \l QMetaType::Bool, \l QMetaType::QChar,         \l QMetaType::Double, \l QMetaType::Int, \l QMetaType::LongLong,         \l QMetaType::QString, \l QMetaType::ULongLong     \row \li \l QMetaType::ULongLong \li \l QMetaType::Bool,         \l QMetaType::QChar, \l QMetaType::Double, \l QMetaType::Int,         \l QMetaType::LongLong, \l QMetaType::QString, \l QMetaType::UInt     \endtable      A QVariant containing a pointer to a type derived from QObject will also return true for this     function if a qobject_cast to the type described by \a targetTypeId would succeed. Note that     this only works for QObject subclasses which use the Q_OBJECT macro.      \sa convert() */
 end_comment
 begin_function
 DECL|function|canConvert
