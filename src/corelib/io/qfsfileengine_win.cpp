@@ -2152,8 +2152,6 @@ name|utf16
 argument_list|()
 argument_list|,
 name|MOVEFILE_REPLACE_EXISTING
-operator||
-name|MOVEFILE_COPY_ALLOWED
 argument_list|)
 operator|!=
 literal|0
