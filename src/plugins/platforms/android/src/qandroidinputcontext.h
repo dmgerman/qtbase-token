@@ -322,6 +322,10 @@ operator|*
 name|event
 argument_list|)
 block|;
+name|void
+name|updateCursorPosition
+argument_list|()
+block|;
 name|private
 operator|:
 name|ExtractedText
@@ -329,6 +333,11 @@ name|m_extractedText
 block|;
 name|QString
 name|m_composingText
+block|;
+name|QMetaObject
+operator|::
+name|Connection
+name|m_updateCursorPosConnection
 block|; }
 decl_stmt|;
 end_decl_stmt
