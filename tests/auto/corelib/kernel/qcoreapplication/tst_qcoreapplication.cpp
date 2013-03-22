@@ -3691,7 +3691,7 @@ argument_list|,
 name|ed
 argument_list|)
 expr_stmt|;
-name|QWeakPointer
+name|QPointer
 argument_list|<
 name|DummyEventDispatcher
 argument_list|>
