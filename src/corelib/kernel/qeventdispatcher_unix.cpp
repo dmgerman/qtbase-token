@@ -1547,21 +1547,7 @@ operator|::
 name|~
 name|QEventDispatcherUNIX
 parameter_list|()
-block|{
-name|Q_D
-argument_list|(
-name|QEventDispatcherUNIX
-argument_list|)
-expr_stmt|;
-name|d
-operator|->
-name|threadData
-operator|->
-name|eventDispatcher
-operator|=
-literal|0
-expr_stmt|;
-block|}
+block|{ }
 end_destructor
 begin_function
 DECL|function|select
