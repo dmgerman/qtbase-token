@@ -144,7 +144,7 @@ parameter_list|,
 name|int
 name|timeout
 init|=
-literal|1000
+literal|5000
 parameter_list|)
 block|{
 name|QElapsedTimer
@@ -281,7 +281,7 @@ parameter_list|,
 name|int
 name|timeout
 init|=
-literal|1000
+literal|5000
 parameter_list|)
 block|{
 name|QElapsedTimer
