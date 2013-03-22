@@ -435,6 +435,10 @@ block|,
 name|WithinDestroy
 operator|=
 literal|0x1000
+block|,
+name|TouchRegistered
+operator|=
+literal|0x2000
 block|}
 decl_stmt|;
 end_decl_stmt
