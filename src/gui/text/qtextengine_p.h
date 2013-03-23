@@ -211,6 +211,78 @@ begin_typedef
 typedef|typedef
 struct|struct
 block|{
+typedef|typedef
+enum|enum
+block|{
+DECL|enumerator|NoJustification
+name|NoJustification
+init|=
+literal|0
+block|,
+comment|/* Justification can't be applied after this glyph */
+DECL|enumerator|Arabic_Space
+name|Arabic_Space
+init|=
+literal|1
+block|,
+comment|/* This glyph represents a space inside arabic text */
+DECL|enumerator|Character
+name|Character
+init|=
+literal|2
+block|,
+comment|/* Inter-character justification point follows this glyph */
+DECL|enumerator|Space
+name|Space
+init|=
+literal|4
+block|,
+comment|/* This glyph represents a blank outside an Arabic run */
+DECL|enumerator|Arabic_Normal
+name|Arabic_Normal
+init|=
+literal|7
+block|,
+comment|/* Normal Middle-Of-Word glyph that connects to the right (begin) */
+DECL|enumerator|Arabic_Waw
+name|Arabic_Waw
+init|=
+literal|8
+block|,
+comment|/* Next character is final form of Waw/Ain/Qaf/Fa */
+DECL|enumerator|Arabic_BaRa
+name|Arabic_BaRa
+init|=
+literal|9
+block|,
+comment|/* Next two chars are Ba + Ra/Ya/AlefMaksura */
+DECL|enumerator|Arabic_Alef
+name|Arabic_Alef
+init|=
+literal|10
+block|,
+comment|/* Next character is final form of Alef/Tah/Lam/Kaf/Gaf */
+DECL|enumerator|Arabic_HaaDal
+name|Arabic_HaaDal
+init|=
+literal|11
+block|,
+comment|/* Next character is final form of Haa/Dal/Taa Marbutah */
+DECL|enumerator|Arabic_Seen
+name|Arabic_Seen
+init|=
+literal|12
+block|,
+comment|/* Initial or Medial form Of Seen/Sad */
+DECL|enumerator|Arabic_Kashida
+name|Arabic_Kashida
+init|=
+literal|13
+comment|/* Kashida(U+640) in middle of word */
+block|}
+DECL|typedef|JustificationClass
+name|JustificationClass
+typedef|;
 DECL|member|justification
 name|q_hb_bitfield
 name|justification
