@@ -1589,7 +1589,7 @@ decl_stmt|;
 name|QAccessibleEvent
 name|ev3
 argument_list|(
-name|widget
+name|object
 argument_list|,
 name|QAccessible
 operator|::
