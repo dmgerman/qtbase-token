@@ -131,6 +131,17 @@ name|void
 name|cancelWriting
 argument_list|()
 block|;
+name|void
+name|setDirectWriteFallback
+argument_list|(
+argument|bool enabled
+argument_list|)
+block|;
+name|bool
+name|directWriteFallback
+argument_list|()
+specifier|const
+block|;
 name|protected
 operator|:
 name|qint64
