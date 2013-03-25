@@ -158,10 +158,18 @@ literal|5
 comment|// 0 1 0 1
 block|}
 enum|;
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_COMPILER_INITIALIZER_LISTS
-comment|// UNIFORM_INITIALIZATION
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_QDOC
+argument_list|)
 name|Q_DECL_CONSTEXPR
 name|QUuid
 argument_list|()
@@ -579,14 +587,20 @@ end_comment
 begin_comment
 comment|// provide convenience operators to cast from and to this type.
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_COMPILER_INITIALIZER_LISTS
-end_ifdef
-begin_comment
-comment|// UNIFORM_INITIALIZATION
-end_comment
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_QDOC
+argument_list|)
+end_if
 begin_macro
 name|Q_DECL_CONSTEXPR
 end_macro
