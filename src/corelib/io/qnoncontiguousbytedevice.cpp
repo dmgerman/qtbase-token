@@ -1173,6 +1173,32 @@ operator|=
 literal|false
 expr_stmt|;
 comment|// assume eof is false, it will be true after a read has been attempted
+name|totalAdvancements
+operator|=
+literal|0
+expr_stmt|;
+comment|//reset the progress counter
+if|if
+condition|(
+name|currentReadBuffer
+condition|)
+block|{
+operator|delete
+name|currentReadBuffer
+expr_stmt|;
+name|currentReadBuffer
+operator|=
+literal|0
+expr_stmt|;
+block|}
+name|currentReadBufferAmount
+operator|=
+literal|0
+expr_stmt|;
+name|currentReadBufferPosition
+operator|=
+literal|0
+expr_stmt|;
 return|return
 literal|true
 return|;
