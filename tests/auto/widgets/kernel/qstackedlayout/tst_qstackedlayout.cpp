@@ -342,11 +342,6 @@ operator|->
 name|activateWindow
 argument_list|()
 expr_stmt|;
-name|QApplication
-operator|::
-name|syncX
-argument_list|()
-expr_stmt|;
 name|QTest
 operator|::
 name|qWait

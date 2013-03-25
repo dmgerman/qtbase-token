@@ -6991,11 +6991,6 @@ name|center
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QApplication
-operator|::
-name|syncX
-argument_list|()
-expr_stmt|;
 name|QList
 argument_list|<
 name|QWidget

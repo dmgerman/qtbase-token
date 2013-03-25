@@ -1046,11 +1046,6 @@ argument_list|,
 literal|200
 argument_list|)
 expr_stmt|;
-name|app
-operator|.
-name|syncX
-argument_list|()
-expr_stmt|;
 block|}
 end_function
 begin_function
