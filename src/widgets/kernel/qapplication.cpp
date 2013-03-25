@@ -15813,6 +15813,14 @@ name|eventType
 argument_list|,
 name|pos
 argument_list|,
+name|p
+operator|.
+name|screenPos
+argument_list|()
+operator|.
+name|toPoint
+argument_list|()
+argument_list|,
 name|Qt
 operator|::
 name|LeftButton
