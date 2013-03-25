@@ -23710,7 +23710,7 @@ condition|)
 block|{
 name|sceneTouchEvent
 operator|->
-name|accept
+name|ignore
 argument_list|()
 expr_stmt|;
 return|return;
