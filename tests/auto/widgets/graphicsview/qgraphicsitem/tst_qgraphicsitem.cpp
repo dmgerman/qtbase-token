@@ -2671,7 +2671,7 @@ name|QVERIFY
 argument_list|(
 name|item
 operator|->
-name|children
+name|childItems
 argument_list|()
 operator|.
 name|isEmpty
@@ -2987,7 +2987,7 @@ name|QGraphicsItem
 modifier|*
 name|child
 decl|,
-name|children
+name|childItems
 argument_list|()
 control|)
 name|tmp
@@ -3060,7 +3060,7 @@ name|QCOMPARE
 argument_list|(
 name|item1
 operator|->
-name|children
+name|childItems
 argument_list|()
 argument_list|,
 name|QList
@@ -3103,7 +3103,7 @@ name|QCOMPARE
 argument_list|(
 name|item0
 operator|->
-name|children
+name|childItems
 argument_list|()
 argument_list|,
 name|QList
@@ -3251,7 +3251,7 @@ name|QCOMPARE
 argument_list|(
 name|parent
 operator|->
-name|children
+name|childItems
 argument_list|()
 operator|.
 name|size
@@ -3267,7 +3267,7 @@ name|QCOMPARE
 argument_list|(
 name|parent
 operator|->
-name|children
+name|childItems
 argument_list|()
 operator|.
 name|size
@@ -3411,7 +3411,7 @@ name|QCOMPARE
 argument_list|(
 name|parent
 operator|->
-name|children
+name|childItems
 argument_list|()
 operator|.
 name|size
@@ -3427,7 +3427,7 @@ name|QCOMPARE
 argument_list|(
 name|parent
 operator|->
-name|children
+name|childItems
 argument_list|()
 operator|.
 name|size
@@ -3643,7 +3643,7 @@ name|QVERIFY
 argument_list|(
 name|parent
 operator|->
-name|children
+name|childItems
 argument_list|()
 operator|.
 name|isEmpty
@@ -4596,7 +4596,7 @@ name|QVERIFY
 argument_list|(
 name|item
 operator|.
-name|children
+name|childItems
 argument_list|()
 operator|.
 name|isEmpty
@@ -4621,7 +4621,7 @@ name|QCOMPARE
 argument_list|(
 name|item
 operator|.
-name|children
+name|childItems
 argument_list|()
 operator|.
 name|size
@@ -4634,7 +4634,7 @@ name|QCOMPARE
 argument_list|(
 name|item
 operator|.
-name|children
+name|childItems
 argument_list|()
 operator|.
 name|first
@@ -4651,7 +4651,7 @@ name|QVERIFY
 argument_list|(
 name|item2
 operator|->
-name|children
+name|childItems
 argument_list|()
 operator|.
 name|isEmpty
@@ -4665,7 +4665,7 @@ name|QVERIFY
 argument_list|(
 name|item
 operator|.
-name|children
+name|childItems
 argument_list|()
 operator|.
 name|isEmpty
@@ -27682,7 +27682,7 @@ name|QCOMPARE
 argument_list|(
 name|group
 operator|->
-name|children
+name|childItems
 argument_list|()
 operator|.
 name|size
@@ -27782,7 +27782,7 @@ name|QCOMPARE
 argument_list|(
 name|group
 operator|->
-name|children
+name|childItems
 argument_list|()
 operator|.
 name|size
@@ -28513,7 +28513,7 @@ name|QVERIFY
 argument_list|(
 name|group2
 operator|->
-name|children
+name|childItems
 argument_list|()
 operator|.
 name|isEmpty
@@ -28892,7 +28892,7 @@ name|QCOMPARE
 argument_list|(
 name|group
 operator|->
-name|children
+name|childItems
 argument_list|()
 operator|.
 name|size
@@ -34318,7 +34318,7 @@ name|ItemChildAddedChange
 case|:
 name|oldValues
 operator|<<
-name|children
+name|childItems
 argument_list|()
 operator|.
 name|size
@@ -34332,7 +34332,7 @@ name|ItemChildRemovedChange
 case|:
 name|oldValues
 operator|<<
-name|children
+name|childItems
 argument_list|()
 operator|.
 name|size
