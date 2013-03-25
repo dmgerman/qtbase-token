@@ -1408,6 +1408,12 @@ argument_list|(
 name|hbFace
 argument_list|)
 expr_stmt|;
+name|hbFace
+operator|->
+name|isSymbolFont
+operator|=
+name|symbol
+expr_stmt|;
 name|face_
 operator|=
 operator|(
