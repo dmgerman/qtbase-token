@@ -10214,7 +10214,7 @@ name|desc
 argument_list|(
 literal|"-libexecdir<dir>"
 argument_list|,
-literal|"Program executables will be installed to<dir>\n(default ARCHDATADIR/lib)"
+literal|"Program executables will be installed to<dir>\n(default ARCHDATADIR/bin)"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -23241,7 +23241,7 @@ index|[
 literal|"QT_INSTALL_ARCHDATA"
 index|]
 operator|+
-literal|"/lib"
+literal|"/bin"
 expr_stmt|;
 else|else
 name|dictionary
