@@ -29751,7 +29751,7 @@ argument_list|()
 expr_stmt|;
 name|QTest
 operator|::
-name|qWaitForWindowShown
+name|qWaitForWindowExposed
 argument_list|(
 operator|&
 name|tree

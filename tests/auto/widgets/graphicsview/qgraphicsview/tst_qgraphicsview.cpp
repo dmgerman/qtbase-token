@@ -23149,7 +23149,7 @@ name|QVERIFY
 argument_list|(
 name|QTest
 operator|::
-name|qWaitForWindowShown
+name|qWaitForWindowExposed
 argument_list|(
 operator|&
 name|view
