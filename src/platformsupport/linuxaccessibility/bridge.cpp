@@ -74,11 +74,6 @@ name|dbusAdaptor
 argument_list|(
 literal|0
 argument_list|)
-member_init_list|,
-name|m_enabled
-argument_list|(
-literal|false
-argument_list|)
 block|{
 name|dbusConnection
 operator|=
@@ -122,9 +117,10 @@ name|bool
 name|enabled
 parameter_list|)
 block|{
-name|m_enabled
-operator|=
+name|setActive
+argument_list|(
 name|enabled
+argument_list|)
 expr_stmt|;
 name|updateStatus
 argument_list|()
@@ -178,7 +174,8 @@ condition|(
 operator|!
 name|dbusAdaptor
 operator|&&
-name|m_enabled
+name|isActive
+argument_list|()
 condition|)
 block|{
 name|qSpiInitializeStructTypes
@@ -284,7 +281,8 @@ condition|)
 return|return;
 if|if
 condition|(
-name|m_enabled
+name|isActive
+argument_list|()
 condition|)
 name|dbusAdaptor
 operator|->

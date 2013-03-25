@@ -79,29 +79,36 @@ name|QPlatformAccessibility
 operator|::
 name|QPlatformAccessibility
 argument_list|()
-argument_list|{ }
+range|:
+name|m_active
+argument_list|(
+literal|false
+argument_list|)
+block|{ }
 DECL|function|~QPlatformAccessibility
 name|QPlatformAccessibility
 operator|::
 name|~
 name|QPlatformAccessibility
-argument_list|()
-argument_list|{ }
+operator|(
+operator|)
+block|{ }
 DECL|function|notifyAccessibilityUpdate
 name|void
 name|QPlatformAccessibility
 operator|::
 name|notifyAccessibilityUpdate
-argument_list|(
+operator|(
 name|QAccessibleEvent
 operator|*
 name|event
-argument_list|)
-argument_list|{
+operator|)
+block|{
 name|initialize
 argument_list|()
-argument_list|;      if
-operator|(
+block|;
+if|if
+condition|(
 operator|!
 name|bridges
 argument_list|()
@@ -111,7 +118,7 @@ argument_list|()
 operator|->
 name|isEmpty
 argument_list|()
-operator|)
+condition|)
 return|return;
 end_decl_stmt
 begin_for

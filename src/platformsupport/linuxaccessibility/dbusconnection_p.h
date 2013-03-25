@@ -89,16 +89,6 @@ name|serviceUnregistered
 argument_list|()
 block|;
 name|void
-name|enabledStateCallback
-argument_list|(
-specifier|const
-name|QDBusVariant
-operator|&
-name|enabled
-argument_list|)
-block|;
-comment|//    void enabledStateChanged(const QDBusVariant&);
-name|void
 name|connectA11yBus
 argument_list|(
 specifier|const
