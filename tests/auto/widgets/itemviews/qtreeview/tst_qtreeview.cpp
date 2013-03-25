@@ -6734,7 +6734,7 @@ argument_list|(
 name|index
 argument_list|)
 operator|.
-name|intersect
+name|intersected
 argument_list|(
 name|widget
 operator|->
