@@ -61,6 +61,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"rastpic.c"
+end_include
+begin_include
+include|#
+directive|include
 file|"ftraster.c"
 end_include
 begin_include

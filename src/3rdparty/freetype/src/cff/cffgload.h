@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2006, 2007, 2008 by             */
+comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2006, 2007, 2008, 2009 by       */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -90,6 +90,13 @@ directive|define
 name|CFF_MAX_SUBRS_CALLS
 value|32
 end_define
+begin_define
+DECL|macro|CFF_MAX_TRANS_ELEMENTS
+define|#
+directive|define
+name|CFF_MAX_TRANS_ELEMENTS
+value|32
+end_define
 begin_comment
 comment|/*************************************************************************/
 end_comment
@@ -149,12 +156,6 @@ comment|/*                                                                      
 end_comment
 begin_comment
 comment|/*    current       :: The current glyph outline.                        */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/*    last          :: The last point position.                          */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -262,10 +263,6 @@ DECL|member|current
 name|FT_Outline
 modifier|*
 name|current
-decl_stmt|;
-DECL|member|last
-name|FT_Vector
-name|last
 decl_stmt|;
 DECL|member|pos_x
 name|FT_Pos
@@ -429,12 +426,10 @@ name|num_hints
 decl_stmt|;
 DECL|member|buildchar
 name|FT_Fixed
-modifier|*
 name|buildchar
-decl_stmt|;
-DECL|member|len_buildchar
-name|FT_Int
-name|len_buildchar
+index|[
+name|CFF_MAX_TRANS_ELEMENTS
+index|]
 decl_stmt|;
 DECL|member|num_locals
 name|FT_UInt
@@ -479,6 +474,10 @@ comment|/* number of glyphs in font */
 DECL|member|hint_mode
 name|FT_Render_Mode
 name|hint_mode
+decl_stmt|;
+DECL|member|seac
+name|FT_Bool
+name|seac
 decl_stmt|;
 block|}
 DECL|typedef|CFF_Decoder

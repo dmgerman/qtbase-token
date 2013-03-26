@@ -180,6 +180,99 @@ DECL|typedef|TT_CMap_ClassRec
 name|TT_CMap_ClassRec
 typedef|;
 end_typedef
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|FT_CONFIG_OPTION_PIC
+end_ifndef
+begin_define
+DECL|macro|FT_DEFINE_TT_CMAP
+define|#
+directive|define
+name|FT_DEFINE_TT_CMAP
+parameter_list|(
+name|class_
+parameter_list|,
+name|size_
+parameter_list|,
+name|init_
+parameter_list|,
+name|done_
+parameter_list|,
+name|char_index_
+parameter_list|,          \
+name|char_next_
+parameter_list|,
+name|char_var_index_
+parameter_list|,
+name|char_var_default_
+parameter_list|,
+name|variant_list_
+parameter_list|,           \
+name|charvariant_list_
+parameter_list|,
+name|variantchar_list_
+parameter_list|,                                     \
+name|format_
+parameter_list|,
+name|validate_
+parameter_list|,
+name|get_cmap_info_
+parameter_list|)
+define|\
+value|FT_CALLBACK_TABLE_DEF                                                      \   const TT_CMap_ClassRec class_ =                                            \   {                                                                          \     {size_, init_, done_, char_index_,                                       \      char_next_, char_var_index_, char_var_default_, variant_list_,          \      charvariant_list_, variantchar_list_},                                  \     format_, validate_, get_cmap_info_                                       \   };
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_comment
+comment|/* FT_CONFIG_OPTION_PIC */
+end_comment
+begin_define
+DECL|macro|FT_DEFINE_TT_CMAP
+define|#
+directive|define
+name|FT_DEFINE_TT_CMAP
+parameter_list|(
+name|class_
+parameter_list|,
+name|size_
+parameter_list|,
+name|init_
+parameter_list|,
+name|done_
+parameter_list|,
+name|char_index_
+parameter_list|,          \
+name|char_next_
+parameter_list|,
+name|char_var_index_
+parameter_list|,
+name|char_var_default_
+parameter_list|,
+name|variant_list_
+parameter_list|,           \
+name|charvariant_list_
+parameter_list|,
+name|variantchar_list_
+parameter_list|,                                     \
+name|format_
+parameter_list|,
+name|validate_
+parameter_list|,
+name|get_cmap_info_
+parameter_list|)
+define|\
+value|void                                                                       \   FT_Init_Class_##class_( TT_CMap_ClassRec*  clazz )                         \   {                                                                          \     clazz->clazz.size = size_;                                               \     clazz->clazz.init = init_;                                               \     clazz->clazz.done = done_;                                               \     clazz->clazz.char_index = char_index_;                                   \     clazz->clazz.char_next = char_next_;                                     \     clazz->clazz.char_var_index = char_var_index_;                           \     clazz->clazz.char_var_default = char_var_default_;                       \     clazz->clazz.variant_list = variant_list_;                               \     clazz->clazz.charvariant_list = charvariant_list_;                       \     clazz->clazz.variantchar_list = variantchar_list_;                       \     clazz->format = format_;                                                 \     clazz->validate = validate_;                                             \     clazz->get_cmap_info = get_cmap_info_;                                   \   }
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* FT_CONFIG_OPTION_PIC */
+end_comment
 begin_typedef
 DECL|struct|TT_ValidatorRec_
 typedef|typedef

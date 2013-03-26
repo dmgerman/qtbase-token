@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2004, 2006 by                               */
+comment|/*  Copyright 1996-2001, 2002, 2004, 2006, 2010 by                         */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -89,6 +89,11 @@ begin_include
 include|#
 directive|include
 include|FT_INTERNAL_CALC_H
+end_include
+begin_include
+include|#
+directive|include
+include|FT_INTERNAL_OBJECTS_H
 end_include
 begin_typedef
 DECL|struct|TBBox_Rec_
@@ -454,7 +459,7 @@ begin_comment
 comment|/*    This function is used as a `conic_to' emitter during               */
 end_comment
 begin_comment
-comment|/*    FT_Raster_Decompose().  It checks a conic Bezier curve with the    */
+comment|/*    FT_Outline_Decompose().  It checks a conic Bezier curve with the   */
 end_comment
 begin_comment
 comment|/*    current bounding box, and computes its extrema if necessary to     */
@@ -1458,7 +1463,7 @@ begin_comment
 comment|/*    This function is used as a `cubic_to' emitter during               */
 end_comment
 begin_comment
-comment|/*    FT_Raster_Decompose().  It checks a cubic Bezier curve with the    */
+comment|/*    FT_Outline_Decompose().  It checks a cubic Bezier curve with the   */
 end_comment
 begin_comment
 comment|/*    current bounding box, and computes its extrema if necessary to     */
@@ -1667,6 +1672,27 @@ literal|0
 return|;
 block|}
 end_function
+begin_macro
+name|FT_DEFINE_OUTLINE_FUNCS
+argument_list|(
+argument|bbox_interface
+argument_list|,
+argument|(FT_Outline_MoveTo_Func) BBox_Move_To
+argument_list|,
+DECL|variable|BBox_Move_To
+argument|(FT_Outline_LineTo_Func) BBox_Move_To
+argument_list|,
+DECL|variable|BBox_Conic_To
+argument|(FT_Outline_ConicTo_Func)BBox_Conic_To
+argument_list|,
+DECL|variable|BBox_Cubic_To
+argument|(FT_Outline_CubicTo_Func)BBox_Cubic_To
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|)
+end_macro
 begin_comment
 comment|/* documentation is in ftbbox.h */
 end_comment
@@ -2010,43 +2036,26 @@ condition|)
 block|{
 comment|/* the two boxes are different, now walk over the outline to */
 comment|/* get the Bezier arc extrema.                               */
-specifier|static
-specifier|const
-name|FT_Outline_Funcs
-name|bbox_interface
-init|=
-block|{
-operator|(
-name|FT_Outline_MoveTo_Func
-operator|)
-name|BBox_Move_To
-block|,
-operator|(
-name|FT_Outline_LineTo_Func
-operator|)
-name|BBox_Move_To
-block|,
-operator|(
-name|FT_Outline_ConicTo_Func
-operator|)
-name|BBox_Conic_To
-block|,
-operator|(
-name|FT_Outline_CubicTo_Func
-operator|)
-name|BBox_Cubic_To
-block|,
-literal|0
-block|,
-literal|0
-block|}
-decl_stmt|;
 name|FT_Error
 name|error
 decl_stmt|;
 name|TBBox_Rec
 name|user
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|FT_CONFIG_OPTION_PIC
+name|FT_Outline_Funcs
+name|bbox_interface
+decl_stmt|;
+name|Init_Class_bbox_interface
+argument_list|(
+operator|&
+name|bbox_interface
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|user
 operator|.
 name|bbox

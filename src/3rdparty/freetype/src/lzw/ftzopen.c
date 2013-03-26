@@ -30,7 +30,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2005, 2006, 2007 by David Turner.                            */
+comment|/*  Copyright 2005, 2006, 2007, 2009 by David Turner.                      */
 end_comment
 begin_comment
 comment|/*                                                                         */
@@ -471,14 +471,14 @@ decl_stmt|;
 name|FT_Error
 name|error
 decl_stmt|;
-name|FT_UInt
+name|FT_Offset
 name|old_size
 init|=
 name|state
 operator|->
 name|stack_size
 decl_stmt|;
-name|FT_UInt
+name|FT_Offset
 name|new_size
 init|=
 name|old_size
@@ -1290,6 +1290,16 @@ operator|>=
 literal|256U
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|state
+operator|->
+name|prefix
+condition|)
+goto|goto
+name|Eof
+goto|;
 name|FTLZW_STACK_PUSH
 argument_list|(
 name|state

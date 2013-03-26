@@ -69,19 +69,13 @@ end_include
 begin_decl_stmt
 name|FT_BEGIN_HEADER
 comment|/*  A dummy script metrics class used when no hinting should   *  be performed.  This is the default for non-latin glyphs!   */
-name|FT_CALLBACK_TABLE
-specifier|const
-name|AF_ScriptClassRec
-DECL|variable|af_dummy_script_class
+name|AF_DECLARE_SCRIPT_CLASS
+argument_list|(
 name|af_dummy_script_class
-decl_stmt|;
-end_decl_stmt
-begin_comment
+argument_list|)
 comment|/* */
-end_comment
-begin_macro
 name|FT_END_HEADER
-end_macro
+end_decl_stmt
 begin_endif
 endif|#
 directive|endif

@@ -6,7 +6,7 @@ begin_comment
 comment|/* WARNING: this file should *not* be used by applications. It is    part of the implementation of the compression library and is    subject to change. Applications should only use zlib.h.  */
 end_comment
 begin_comment
-comment|/* @(#) $Id: zutil.h,v 1.6 2007/06/01 06:56:17 wl Exp $ */
+comment|/* @(#) $Id$ */
 end_comment
 begin_ifndef
 ifndef|#
@@ -969,20 +969,11 @@ end_endif
 begin_comment
 comment|/* Diagnostic functions */
 end_comment
-begin_if
-if|#
-directive|if
-name|defined
-argument_list|(
+begin_ifdef
+ifdef|#
+directive|ifdef
 name|DEBUG
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|_WIN32_WCE
-argument_list|)
-end_if
+end_ifdef
 begin_include
 include|#
 directive|include

@@ -61,6 +61,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"ttpic.c"
+end_include
+begin_include
+include|#
+directive|include
 file|"ttdriver.c"
 end_include
 begin_comment

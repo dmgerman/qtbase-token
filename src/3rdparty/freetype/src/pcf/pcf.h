@@ -138,13 +138,13 @@ name|FT_String
 modifier|*
 name|atom
 decl_stmt|;
-DECL|member|integer
+DECL|member|l
 name|FT_Long
-name|integer
+name|l
 decl_stmt|;
-DECL|member|cardinal
+DECL|member|ul
 name|FT_ULong
-name|cardinal
+name|ul
 decl_stmt|;
 block|}
 DECL|member|value

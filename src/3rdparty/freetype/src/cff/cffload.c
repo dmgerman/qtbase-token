@@ -4076,6 +4076,9 @@ decl_stmt|;
 name|FT_UInt
 name|i
 decl_stmt|;
+name|FT_Long
+name|j
+decl_stmt|;
 name|FT_UShort
 name|max_cid
 init|=
@@ -4142,18 +4145,23 @@ condition|)
 goto|goto
 name|Exit
 goto|;
+comment|/* When multiple GIDs map to the same CID, we choose the lowest */
+comment|/* GID.  This is not described in any spec, but it matches the  */
+comment|/* behaviour of recent Acroread versions.                       */
 for|for
 control|(
-name|i
+name|j
 operator|=
-literal|0
-init|;
-name|i
-operator|<
 name|num_glyphs
+operator|-
+literal|1
+init|;
+name|j
+operator|>=
+literal|0
 condition|;
-name|i
-operator|++
+name|j
+operator|--
 control|)
 name|charset
 operator|->
@@ -4163,14 +4171,14 @@ name|charset
 operator|->
 name|sids
 index|[
-name|i
+name|j
 index|]
 index|]
 operator|=
 operator|(
 name|FT_UShort
 operator|)
-name|i
+name|j
 expr_stmt|;
 name|charset
 operator|->
@@ -4462,6 +4470,20 @@ condition|;
 name|j
 operator|++
 control|)
+block|{
+name|FT_UShort
+name|sid
+init|=
+name|FT_GET_USHORT
+argument_list|()
+decl_stmt|;
+comment|/* this constant is given in the CFF specification */
+if|if
+condition|(
+name|sid
+operator|<
+literal|65000L
+condition|)
 name|charset
 operator|->
 name|sids
@@ -4469,9 +4491,31 @@ index|[
 name|j
 index|]
 operator|=
-name|FT_GET_USHORT
-argument_list|()
+name|sid
 expr_stmt|;
+else|else
+block|{
+name|FT_TRACE0
+argument_list|(
+operator|(
+literal|"cff_charset_load:"
+literal|" invalid SID value %d set to zero\n"
+operator|,
+name|sid
+operator|)
+argument_list|)
+expr_stmt|;
+name|charset
+operator|->
+name|sids
+index|[
+name|j
+index|]
+operator|=
+literal|0
+expr_stmt|;
+block|}
+block|}
 name|FT_FRAME_EXIT
 argument_list|()
 expr_stmt|;
@@ -4546,6 +4590,67 @@ goto|goto
 name|Exit
 goto|;
 block|}
+comment|/* check whether the range contains at least one valid glyph; */
+comment|/* the constant is given in the CFF specification             */
+if|if
+condition|(
+name|glyph_sid
+operator|>=
+literal|65000L
+condition|)
+block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"cff_charset_load: invalid SID range\n"
+operator|)
+argument_list|)
+expr_stmt|;
+name|error
+operator|=
+name|CFF_Err_Invalid_File_Format
+expr_stmt|;
+goto|goto
+name|Exit
+goto|;
+block|}
+comment|/* try to rescue some of the SIDs if `nleft' is too large */
+if|if
+condition|(
+name|nleft
+operator|>
+literal|65000L
+operator|-
+literal|1L
+operator|||
+name|glyph_sid
+operator|>=
+literal|65000L
+operator|-
+name|nleft
+condition|)
+block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"cff_charset_load: invalid SID range trimmed\n"
+operator|)
+argument_list|)
+expr_stmt|;
+name|nleft
+operator|=
+call|(
+name|FT_UInt
+call|)
+argument_list|(
+literal|65000L
+operator|-
+literal|1L
+operator|-
+name|glyph_sid
+argument_list|)
+expr_stmt|;
+block|}
 comment|/* Fill in the range of sids -- `nleft + 1' glyphs. */
 for|for
 control|(
@@ -4586,7 +4691,7 @@ default|default:
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"cff_charset_load: invalid table format!\n"
+literal|"cff_charset_load: invalid table format\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -4637,7 +4742,7 @@ name|FT_ERROR
 argument_list|(
 operator|(
 literal|"cff_charset_load: implicit charset larger than\n"
-literal|"predefined charset (Adobe ISO-Latin)!\n"
+literal|"predefined charset (Adobe ISO-Latin)\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -4691,7 +4796,7 @@ name|FT_ERROR
 argument_list|(
 operator|(
 literal|"cff_charset_load: implicit charset larger than\n"
-literal|"predefined charset (Adobe Expert)!\n"
+literal|"predefined charset (Adobe Expert)\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -4745,7 +4850,7 @@ name|FT_ERROR
 argument_list|(
 operator|(
 literal|"cff_charset_load: implicit charset larger than\n"
-literal|"predefined charset (Adobe Expert Subset)!\n"
+literal|"predefined charset (Adobe Expert Subset)\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -5311,7 +5416,7 @@ default|default:
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"cff_encoding_load: invalid table format!\n"
+literal|"cff_encoding_load: invalid table format\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -5623,7 +5728,7 @@ default|default:
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"cff_encoding_load: invalid table format!\n"
+literal|"cff_encoding_load: invalid table format\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -5664,6 +5769,9 @@ name|stream
 parameter_list|,
 name|FT_ULong
 name|base_offset
+parameter_list|,
+name|FT_Library
+name|library
 parameter_list|)
 block|{
 name|FT_Error
@@ -5708,6 +5816,8 @@ operator|&
 name|font
 operator|->
 name|font_dict
+argument_list|,
+name|library
 argument_list|)
 expr_stmt|;
 comment|/* set defaults */
@@ -5969,6 +6079,8 @@ argument_list|,
 name|CFF_CODE_PRIVATE
 argument_list|,
 name|priv
+argument_list|,
+name|library
 argument_list|)
 expr_stmt|;
 if|if
@@ -6172,6 +6284,8 @@ end_macro
 begin_macro
 name|cff_font_load
 argument_list|(
+argument|FT_Library library
+argument_list|,
 argument|FT_Stream  stream
 argument_list|,
 argument|FT_Int     face_index
@@ -6312,7 +6426,7 @@ block|{
 name|FT_TRACE2
 argument_list|(
 operator|(
-literal|"[not a CFF font header!]\n"
+literal|"[not a CFF font header]\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -6472,6 +6586,8 @@ argument_list|,
 name|stream
 argument_list|,
 name|base_offset
+argument_list|,
+name|library
 argument_list|)
 expr_stmt|;
 if|if
@@ -6579,7 +6695,7 @@ operator|>
 name|CFF_MAX_CID_FONTS
 condition|)
 block|{
-name|FT_ERROR
+name|FT_TRACE0
 argument_list|(
 operator|(
 literal|"cff_font_load: FD array too large in CID font\n"
@@ -6680,6 +6796,8 @@ argument_list|,
 name|stream
 argument_list|,
 name|base_offset
+argument_list|,
+name|library
 argument_list|)
 expr_stmt|;
 if|if
@@ -6751,7 +6869,7 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"cff_font_load: no charstrings offset!\n"
+literal|"cff_font_load: no charstrings offset\n"
 operator|)
 argument_list|)
 expr_stmt|;

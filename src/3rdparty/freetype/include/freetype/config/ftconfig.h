@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2006, 2007, 2008 by             */
+comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2006, 2007, 2008, 2010 by       */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -1066,6 +1066,121 @@ end_comment
 begin_comment
 comment|/* These must be defined `static __inline__' with GCC.             */
 end_comment
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|__CC_ARM
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|__ARMCC__
+argument_list|)
+end_if
+begin_comment
+comment|/* RVCT */
+end_comment
+begin_define
+DECL|macro|FT_MULFIX_ASSEMBLER
+define|#
+directive|define
+name|FT_MULFIX_ASSEMBLER
+value|FT_MulFix_arm
+end_define
+begin_comment
+comment|/* documentation is in freetype.h */
+end_comment
+begin_function
+specifier|static
+name|__inline
+name|FT_Int32
+DECL|function|FT_MulFix_arm
+name|FT_MulFix_arm
+parameter_list|(
+name|FT_Int32
+name|a
+parameter_list|,
+name|FT_Int32
+name|b
+parameter_list|)
+block|{
+specifier|register
+name|FT_Int32
+name|t
+decl_stmt|,
+name|t2
+decl_stmt|;
+asm|__asm
+block|{
+name|smull
+name|t2
+decl_stmt|,
+name|t
+decl_stmt|,
+name|b
+decl_stmt|,
+name|a
+comment|/* (lo=t2,hi=t) = a*b */
+name|mov
+name|a
+decl_stmt|,
+name|t
+decl_stmt|,
+name|asr
+decl|#31
+comment|/* a   = (hi>> 31) */
+name|add
+name|a
+decl_stmt|,
+name|a
+decl_stmt|,  #0x8000
+comment|/* a  += 0x8000 */
+name|adds
+name|t2
+decl_stmt|,
+name|t2
+decl_stmt|,
+name|a
+comment|/* t2 += a */
+name|adc
+name|t
+decl_stmt|,
+name|t
+decl_stmt|,  #0
+comment|/* t  += carry */
+name|mov
+name|a
+decl_stmt|,
+name|t2
+decl_stmt|,
+name|lsr
+decl|#16
+comment|/* a   = t2>> 16 */
+name|orr
+name|a
+decl_stmt|,
+name|a
+decl_stmt|,
+name|t
+decl_stmt|,
+name|lsl
+decl|#16
+comment|/* a  |= t<< 16 */
+block|}
+return|return
+name|a
+return|;
+block|}
+end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* __CC_ARM || __ARMCC__ */
+end_comment
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -1084,6 +1199,20 @@ name|defined
 argument_list|(
 name|__thumb__
 argument_list|)
+operator|&&
+expr|\
+operator|!
+operator|(
+name|defined
+argument_list|(
+name|__CC_ARM
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|__ARMCC__
+argument_list|)
+operator|)
 end_if
 begin_define
 DECL|macro|FT_MULFIX_ASSEMBLER
@@ -1142,7 +1271,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* __arm__&& !__thumb__ */
+comment|/* __arm__&& !__thumb__&& !( __CC_ARM || __ARMCC__ ) */
 end_comment
 begin_if
 if|#

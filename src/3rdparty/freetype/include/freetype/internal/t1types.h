@@ -165,7 +165,13 @@ begin_comment
 comment|/*                                                                       */
 end_comment
 begin_comment
-comment|/*    code_last  :: The highest valid character code in the encoding.    */
+comment|/*    code_last  :: The highest valid character code in the encoding     */
+end_comment
+begin_comment
+comment|/*                  + 1. When equal to code_first there are no valid     */
+end_comment
+begin_comment
+comment|/*                  character codes.                                     */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -692,7 +698,7 @@ name|FT_UInt
 name|len_buildchar
 decl_stmt|;
 DECL|member|buildchar
-name|FT_Int
+name|FT_Long
 modifier|*
 name|buildchar
 decl_stmt|;

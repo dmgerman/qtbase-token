@@ -61,6 +61,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"ftspic.c"
+end_include
+begin_include
+include|#
+directive|include
 file|"ftgrays.c"
 end_include
 begin_include

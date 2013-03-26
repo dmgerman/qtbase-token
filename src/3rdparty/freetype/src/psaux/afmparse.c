@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2006, 2007, 2008 by                                          */
+comment|/*  Copyright 2006, 2007, 2008, 2009 by                                    */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -61,11 +61,6 @@ begin_include
 include|#
 directive|include
 include|FT_INTERNAL_POSTSCRIPT_AUX_H
-end_include
-begin_include
-include|#
-directive|include
-include|FT_INTERNAL_DEBUG_H
 end_include
 begin_include
 include|#
@@ -1017,7 +1012,7 @@ argument|AFM_Parser  parser
 argument_list|,
 argument|AFM_Value   vals
 argument_list|,
-argument|FT_Int      n
+argument|FT_UInt     n
 argument_list|)
 end_macro
 begin_block
@@ -1033,7 +1028,7 @@ name|char
 modifier|*
 name|str
 decl_stmt|;
-name|FT_Int
+name|FT_UInt
 name|i
 decl_stmt|;
 if|if
@@ -1059,7 +1054,7 @@ name|i
 operator|++
 control|)
 block|{
-name|FT_UInt
+name|FT_Offset
 name|len
 decl_stmt|;
 name|AFM_Value
@@ -1329,7 +1324,7 @@ argument|AFM_Parser  parser
 argument_list|,
 argument|FT_Bool     line
 argument_list|,
-argument|FT_UInt*    len
+argument|FT_Offset*  len
 argument_list|)
 end_macro
 begin_block
@@ -1472,6 +1467,9 @@ operator|(
 name|key
 operator|)
 condition|?
+operator|(
+name|FT_Offset
+operator|)
 name|AFM_STREAM_KEY_LEN
 argument_list|(
 name|stream
@@ -1497,7 +1495,7 @@ name|char
 modifier|*
 name|key
 parameter_list|,
-name|FT_UInt
+name|FT_Offset
 name|len
 parameter_list|)
 block|{
@@ -1793,7 +1791,7 @@ name|char
 modifier|*
 name|key
 decl_stmt|;
-name|FT_UInt
+name|FT_Offset
 name|len
 decl_stmt|;
 name|int
@@ -2231,7 +2229,7 @@ name|char
 modifier|*
 name|key
 decl_stmt|;
-name|FT_UInt
+name|FT_Offset
 name|len
 decl_stmt|;
 name|int
@@ -2588,7 +2586,7 @@ name|char
 modifier|*
 name|key
 decl_stmt|;
-name|FT_UInt
+name|FT_Offset
 name|len
 decl_stmt|;
 while|while
@@ -2705,7 +2703,7 @@ name|char
 modifier|*
 name|key
 decl_stmt|;
-name|FT_UInt
+name|FT_Offset
 name|len
 decl_stmt|;
 while|while
@@ -2824,7 +2822,7 @@ name|char
 modifier|*
 name|key
 decl_stmt|;
-name|FT_UInt
+name|FT_Offset
 name|len
 decl_stmt|;
 name|FT_Int

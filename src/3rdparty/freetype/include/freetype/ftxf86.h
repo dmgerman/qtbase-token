@@ -111,6 +111,9 @@ comment|/*   format.  Note that this information is not needed normally;        
 comment|/*   however, there are special cases (like in PDF devices) where it is  */
 comment|/*   important to differentiate, in spite of FreeType's uniform API.     */
 comment|/*                                                                       */
+comment|/*   This function is in the X11/xf86 namespace for historical reasons   */
+comment|/*   and in no way depends on that windowing system.                     */
+comment|/*                                                                       */
 comment|/*************************************************************************/
 comment|/*************************************************************************/
 comment|/*                                                                       */

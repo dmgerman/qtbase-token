@@ -114,50 +114,28 @@ literal|0
 return|;
 block|}
 end_function
-begin_decl_stmt
-name|FT_CALLBACK_TABLE_DEF
-specifier|const
-name|AF_ScriptClassRec
-DECL|variable|af_dummy_script_class
-name|af_dummy_script_class
-init|=
-block|{
-name|AF_SCRIPT_NONE
-block|,
-name|NULL
-block|,
-sizeof|sizeof
+begin_macro
+name|AF_DEFINE_SCRIPT_CLASS
 argument_list|(
-name|AF_ScriptMetricsRec
+argument|af_dummy_script_class
+argument_list|,
+argument|AF_SCRIPT_NONE
+argument_list|,
+argument|NULL
+argument_list|,
+argument|sizeof( AF_ScriptMetricsRec )
+argument_list|,
+argument|(AF_Script_InitMetricsFunc) NULL
+argument_list|,
+argument|(AF_Script_ScaleMetricsFunc)NULL
+argument_list|,
+argument|(AF_Script_DoneMetricsFunc) NULL
+argument_list|,
+argument|(AF_Script_InitHintsFunc)   af_dummy_hints_init
+argument_list|,
+argument|(AF_Script_ApplyHintsFunc)  af_dummy_hints_apply
 argument_list|)
-block|,
-operator|(
-name|AF_Script_InitMetricsFunc
-operator|)
-name|NULL
-block|,
-operator|(
-name|AF_Script_ScaleMetricsFunc
-operator|)
-name|NULL
-block|,
-operator|(
-name|AF_Script_DoneMetricsFunc
-operator|)
-name|NULL
-block|,
-operator|(
-name|AF_Script_InitHintsFunc
-operator|)
-name|af_dummy_hints_init
-block|,
-operator|(
-name|AF_Script_ApplyHintsFunc
-operator|)
-name|af_dummy_hints_apply
-block|}
-decl_stmt|;
-end_decl_stmt
+end_macro
 begin_comment
 comment|/* END */
 end_comment

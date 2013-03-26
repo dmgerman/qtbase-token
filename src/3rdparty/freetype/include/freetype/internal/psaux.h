@@ -1098,7 +1098,7 @@ name|FT_Byte
 modifier|*
 name|bytes
 parameter_list|,
-name|FT_Long
+name|FT_Offset
 name|max_bytes
 parameter_list|,
 name|FT_Long
@@ -1661,12 +1661,6 @@ begin_comment
 comment|/*                                                                       */
 end_comment
 begin_comment
-comment|/*    last         :: The last point position.                           */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
 comment|/*    pos_x        :: The horizontal translation (if composite glyph).   */
 end_comment
 begin_comment
@@ -1767,10 +1761,6 @@ name|FT_Outline
 modifier|*
 name|current
 decl_stmt|;
-DECL|member|last
-name|FT_Vector
-name|last
-decl_stmt|;
 DECL|member|pos_x
 name|FT_Pos
 name|pos_x
@@ -1803,10 +1793,6 @@ decl_stmt|;
 DECL|member|no_recurse
 name|FT_Bool
 name|no_recurse
-decl_stmt|;
-DECL|member|shift
-name|FT_Bool
-name|shift
 decl_stmt|;
 DECL|member|metrics_only
 name|FT_Bool
@@ -2163,13 +2149,17 @@ name|T1_Decoder_FuncsRec
 name|funcs
 decl_stmt|;
 DECL|member|buildchar
-name|FT_Int
+name|FT_Long
 modifier|*
 name|buildchar
 decl_stmt|;
 DECL|member|len_buildchar
 name|FT_UInt
 name|len_buildchar
+decl_stmt|;
+DECL|member|seac
+name|FT_Bool
+name|seac
 decl_stmt|;
 block|}
 DECL|typedef|T1_DecoderRec
@@ -2357,7 +2347,7 @@ name|char
 modifier|*
 name|name
 parameter_list|,
-name|FT_UInt
+name|FT_Offset
 name|len
 parameter_list|,
 name|void

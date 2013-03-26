@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008 by       */
+comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 by */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -570,109 +570,6 @@ begin_comment
 comment|/*                                                                       */
 end_comment
 begin_comment
-comment|/* Subglyph loading record.  Used to load composite components.          */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_typedef
-DECL|struct|TT_SubglyphRec_
-typedef|typedef
-struct|struct
-name|TT_SubglyphRec_
-block|{
-DECL|member|index
-name|FT_Long
-name|index
-decl_stmt|;
-comment|/* subglyph index; initialized with -1 */
-DECL|member|is_scaled
-name|FT_Bool
-name|is_scaled
-decl_stmt|;
-comment|/* is the subglyph scaled?             */
-DECL|member|is_hinted
-name|FT_Bool
-name|is_hinted
-decl_stmt|;
-comment|/* should it be hinted?                */
-DECL|member|preserve_pps
-name|FT_Bool
-name|preserve_pps
-decl_stmt|;
-comment|/* preserve phantom points?            */
-DECL|member|file_offset
-name|FT_Long
-name|file_offset
-decl_stmt|;
-DECL|member|bbox
-name|FT_BBox
-name|bbox
-decl_stmt|;
-DECL|member|left_bearing
-name|FT_Pos
-name|left_bearing
-decl_stmt|;
-DECL|member|advance
-name|FT_Pos
-name|advance
-decl_stmt|;
-DECL|member|zone
-name|TT_GlyphZoneRec
-name|zone
-decl_stmt|;
-DECL|member|arg1
-name|FT_Long
-name|arg1
-decl_stmt|;
-comment|/* first argument                      */
-DECL|member|arg2
-name|FT_Long
-name|arg2
-decl_stmt|;
-comment|/* second argument                     */
-DECL|member|element_flag
-name|FT_UShort
-name|element_flag
-decl_stmt|;
-comment|/* current load element flag           */
-DECL|member|transform
-name|TT_Transform
-name|transform
-decl_stmt|;
-comment|/* transformation matrix               */
-DECL|member|pp1
-DECL|member|pp2
-name|FT_Vector
-name|pp1
-decl_stmt|,
-name|pp2
-decl_stmt|;
-comment|/* phantom points (horizontal)         */
-DECL|member|pp3
-DECL|member|pp4
-name|FT_Vector
-name|pp3
-decl_stmt|,
-name|pp4
-decl_stmt|;
-comment|/* phantom points (vertical)           */
-block|}
-DECL|typedef|TT_SubGlyphRec
-DECL|typedef|TT_SubGlyph_Stack
-name|TT_SubGlyphRec
-operator|,
-typedef|*
-name|TT_SubGlyph_Stack
-typedef|;
-end_typedef
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
 comment|/* A note regarding non-squared pixels:                                  */
 end_comment
 begin_comment
@@ -682,10 +579,10 @@ begin_comment
 comment|/* (This text will probably go into some docs at some time; for now, it  */
 end_comment
 begin_comment
-comment|/*  is kept here to explain some definitions in the TIns_Metrics         */
+comment|/* is kept here to explain some definitions in the TT_Size_Metrics       */
 end_comment
 begin_comment
-comment|/*  record).                                                             */
+comment|/* record).                                                              */
 end_comment
 begin_comment
 comment|/*                                                                       */

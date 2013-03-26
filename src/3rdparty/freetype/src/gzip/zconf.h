@@ -3,35 +3,7 @@ begin_comment
 comment|/* zconf.h -- configuration of the zlib compression library  * Copyright (C) 1995-2002 Jean-loup Gailly.  * For conditions of distribution and use, see copyright notice in zlib.h  */
 end_comment
 begin_comment
-comment|/* @(#) $Id: zconf.h,v 1.4 2007/06/01 06:56:17 wl Exp $ */
-end_comment
-begin_if
-if|#
-directive|if
-name|defined
-argument_list|(
-name|__ARMCC__
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|__CC_ARM
-argument_list|)
-end_if
-begin_comment
-comment|/* Ultra ugly hack that convinces RVCT to use the systems zlib */
-end_comment
-begin_include
-include|#
-directive|include
-file|<stdapis/zconf.h>
-end_include
-begin_else
-else|#
-directive|else
-end_else
-begin_comment
-comment|/* defined(__ARMCC__) || defined(__CC_ARM) */
+comment|/* @(#) $Id$ */
 end_comment
 begin_ifndef
 ifndef|#
@@ -372,6 +344,24 @@ DECL|macro|MSDOS
 define|#
 directive|define
 name|MSDOS
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* WinCE doesn't have errno.h */
+end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|_WIN32_WCE
+end_ifdef
+begin_define
+DECL|macro|NO_ERRNO_H
+define|#
+directive|define
+name|NO_ERRNO_H
 end_define
 begin_endif
 endif|#
@@ -1611,12 +1601,5 @@ directive|endif
 end_endif
 begin_comment
 comment|/* _ZCONF_H */
-end_comment
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|/* defined(__ARMCC__) || defined(__CC_ARM) */
 end_comment
 end_unit

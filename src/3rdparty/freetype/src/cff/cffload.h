@@ -189,6 +189,8 @@ begin_macro
 DECL|variable|cff_font_load
 name|cff_font_load
 argument_list|(
+argument|FT_Library library
+argument_list|,
 argument|FT_Stream  stream
 argument_list|,
 argument|FT_Int     face_index

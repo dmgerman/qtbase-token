@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002, 2003, 2004, 2005, 2007 by                              */
+comment|/*  Copyright 2002, 2003, 2004, 2005, 2007, 2009 by                        */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -1501,7 +1501,8 @@ expr_stmt|;
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"pfr_extra_item_load_bitmap_info: invalid bitmap info table\n"
+literal|"pfr_extra_item_load_bitmap_info:"
+literal|" invalid bitmap info table\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -1766,7 +1767,8 @@ expr_stmt|;
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"pfr_exta_item_load_stem_snaps: invalid stem snaps table\n"
+literal|"pfr_exta_item_load_stem_snaps:"
+literal|" invalid stem snaps table\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -2160,8 +2162,8 @@ expr_stmt|;
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"pfr_extra_item_load_kerning_pairs: "
-literal|"invalid kerning pairs table\n"
+literal|"pfr_extra_item_load_kerning_pairs:"
+literal|" invalid kerning pairs table\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -2584,7 +2586,8 @@ name|memory
 decl_stmt|;
 name|FT_UInt
 name|flags
-decl_stmt|,
+decl_stmt|;
+name|FT_ULong
 name|num_aux
 decl_stmt|;
 name|FT_Byte

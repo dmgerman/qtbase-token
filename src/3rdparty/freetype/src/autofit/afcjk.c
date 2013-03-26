@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2006, 2007, 2008 by                                          */
+comment|/*  Copyright 2006, 2007, 2008, 2009 by                                    */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -158,6 +158,8 @@ name|charmap
 operator|=
 name|NULL
 expr_stmt|;
+else|else
+block|{
 comment|/* latin's version would suffice */
 name|af_latin_metrics_init_widths
 argument_list|(
@@ -168,6 +170,14 @@ argument_list|,
 literal|0x7530
 argument_list|)
 expr_stmt|;
+name|af_latin_metrics_check_digits
+argument_list|(
+name|metrics
+argument_list|,
+name|face
+argument_list|)
+expr_stmt|;
+block|}
 name|FT_Set_Charmap
 argument_list|(
 name|face
@@ -3559,7 +3569,7 @@ name|axis
 operator|->
 name|num_edges
 decl_stmt|;
-name|FT_Int
+name|FT_PtrDist
 name|n_edges
 decl_stmt|;
 name|AF_Edge
@@ -4789,202 +4799,201 @@ block|{
 if|#
 directive|if
 literal|0
-block|{  0x0100UL,  0xFFFFUL },
+block|AF_UNIRANGE_REC(  0x0100UL,  0xFFFFUL ),
 comment|/* why this? */
 endif|#
 directive|endif
-block|{
-literal|0x2E80UL
-block|,
-literal|0x2EFFUL
-block|}
-block|,
-comment|/* CJK Radicals Supplement                 */
-block|{
-literal|0x2F00UL
-block|,
-literal|0x2FDFUL
-block|}
-block|,
-comment|/* Kangxi Radicals                         */
-block|{
-literal|0x3000UL
-block|,
-literal|0x303FUL
-block|}
-block|,
-comment|/* CJK Symbols and Punctuation             */
-block|{
-literal|0x3040UL
-block|,
-literal|0x309FUL
-block|}
-block|,
-comment|/* Hiragana                                */
-block|{
-literal|0x30A0UL
-block|,
-literal|0x30FFUL
-block|}
-block|,
-comment|/* Katakana                                */
-block|{
-literal|0x3100UL
-block|,
-literal|0x312FUL
-block|}
-block|,
-comment|/* Bopomofo                                */
-block|{
-literal|0x3130UL
-block|,
-literal|0x318FUL
-block|}
-block|,
-comment|/* Hangul Compatibility Jamo               */
-block|{
-literal|0x31A0UL
-block|,
-literal|0x31BFUL
-block|}
-block|,
-comment|/* Bopomofo Extended                       */
-block|{
-literal|0x31C0UL
-block|,
-literal|0x31EFUL
-block|}
-block|,
-comment|/* CJK Strokes                             */
-block|{
-literal|0x31F0UL
-block|,
-literal|0x31FFUL
-block|}
-block|,
-comment|/* Katakana Phonetic Extensions            */
-block|{
-literal|0x3200UL
-block|,
-literal|0x32FFUL
-block|}
-block|,
-comment|/* Enclosed CJK Letters and Months         */
-block|{
-literal|0x3300UL
-block|,
-literal|0x33FFUL
-block|}
-block|,
-comment|/* CJK Compatibility                       */
-block|{
-literal|0x3400UL
-block|,
-literal|0x4DBFUL
-block|}
-block|,
-comment|/* CJK Unified Ideographs Extension A      */
-block|{
-literal|0x4DC0UL
-block|,
-literal|0x4DFFUL
-block|}
-block|,
-comment|/* Yijing Hexagram Symbols                 */
-block|{
-literal|0x4E00UL
-block|,
-literal|0x9FFFUL
-block|}
-block|,
-comment|/* CJK Unified Ideographs                  */
-block|{
-literal|0xF900UL
-block|,
-literal|0xFAFFUL
-block|}
-block|,
-comment|/* CJK Compatibility Ideographs            */
-block|{
-literal|0xFE30UL
-block|,
-literal|0xFE4FUL
-block|}
-block|,
-comment|/* CJK Compatibility Forms                 */
-block|{
-literal|0xFF00UL
-block|,
-literal|0xFFEFUL
-block|}
-block|,
-comment|/* Halfwidth and Fullwidth Forms           */
-block|{
-literal|0x20000UL
-block|,
-literal|0x2A6DFUL
-block|}
-block|,
-comment|/* CJK Unified Ideographs Extension B      */
-block|{
-literal|0x2F800UL
-block|,
-literal|0x2FA1FUL
-block|}
-block|,
-comment|/* CJK Compatibility Ideographs Supplement */
-block|{
-literal|0UL
-block|,
-literal|0UL
-block|}
-block|}
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-name|FT_CALLBACK_TABLE_DEF
-specifier|const
-name|AF_ScriptClassRec
-DECL|variable|af_cjk_script_class
-name|af_cjk_script_class
-init|=
-block|{
-name|AF_SCRIPT_CJK
-block|,
-name|af_cjk_uniranges
-block|,
-sizeof|sizeof
+name|AF_UNIRANGE_REC
 argument_list|(
-name|AF_LatinMetricsRec
+literal|0x2E80UL
+argument_list|,
+literal|0x2EFFUL
 argument_list|)
 block|,
-operator|(
-name|AF_Script_InitMetricsFunc
-operator|)
-name|af_cjk_metrics_init
+comment|/* CJK Radicals Supplement                 */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x2F00UL
+argument_list|,
+literal|0x2FDFUL
+argument_list|)
 block|,
-operator|(
-name|AF_Script_ScaleMetricsFunc
-operator|)
-name|af_cjk_metrics_scale
+comment|/* Kangxi Radicals                         */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x3000UL
+argument_list|,
+literal|0x303FUL
+argument_list|)
 block|,
-operator|(
-name|AF_Script_DoneMetricsFunc
-operator|)
-name|NULL
+comment|/* CJK Symbols and Punctuation             */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x3040UL
+argument_list|,
+literal|0x309FUL
+argument_list|)
 block|,
-operator|(
-name|AF_Script_InitHintsFunc
-operator|)
-name|af_cjk_hints_init
+comment|/* Hiragana                                */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x30A0UL
+argument_list|,
+literal|0x30FFUL
+argument_list|)
 block|,
-operator|(
-name|AF_Script_ApplyHintsFunc
-operator|)
-name|af_cjk_hints_apply
+comment|/* Katakana                                */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x3100UL
+argument_list|,
+literal|0x312FUL
+argument_list|)
+block|,
+comment|/* Bopomofo                                */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x3130UL
+argument_list|,
+literal|0x318FUL
+argument_list|)
+block|,
+comment|/* Hangul Compatibility Jamo               */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x31A0UL
+argument_list|,
+literal|0x31BFUL
+argument_list|)
+block|,
+comment|/* Bopomofo Extended                       */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x31C0UL
+argument_list|,
+literal|0x31EFUL
+argument_list|)
+block|,
+comment|/* CJK Strokes                             */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x31F0UL
+argument_list|,
+literal|0x31FFUL
+argument_list|)
+block|,
+comment|/* Katakana Phonetic Extensions            */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x3200UL
+argument_list|,
+literal|0x32FFUL
+argument_list|)
+block|,
+comment|/* Enclosed CJK Letters and Months         */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x3300UL
+argument_list|,
+literal|0x33FFUL
+argument_list|)
+block|,
+comment|/* CJK Compatibility                       */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x3400UL
+argument_list|,
+literal|0x4DBFUL
+argument_list|)
+block|,
+comment|/* CJK Unified Ideographs Extension A      */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x4DC0UL
+argument_list|,
+literal|0x4DFFUL
+argument_list|)
+block|,
+comment|/* Yijing Hexagram Symbols                 */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x4E00UL
+argument_list|,
+literal|0x9FFFUL
+argument_list|)
+block|,
+comment|/* CJK Unified Ideographs                  */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0xF900UL
+argument_list|,
+literal|0xFAFFUL
+argument_list|)
+block|,
+comment|/* CJK Compatibility Ideographs            */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0xFE30UL
+argument_list|,
+literal|0xFE4FUL
+argument_list|)
+block|,
+comment|/* CJK Compatibility Forms                 */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0xFF00UL
+argument_list|,
+literal|0xFFEFUL
+argument_list|)
+block|,
+comment|/* Halfwidth and Fullwidth Forms           */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x20000UL
+argument_list|,
+literal|0x2A6DFUL
+argument_list|)
+block|,
+comment|/* CJK Unified Ideographs Extension B      */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x2F800UL
+argument_list|,
+literal|0x2FA1FUL
+argument_list|)
+block|,
+comment|/* CJK Compatibility Ideographs Supplement */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0UL
+argument_list|,
+literal|0UL
+argument_list|)
 block|}
 decl_stmt|;
 end_decl_stmt
+begin_macro
+name|AF_DEFINE_SCRIPT_CLASS
+argument_list|(
+argument|af_cjk_script_class
+argument_list|,
+argument|AF_SCRIPT_CJK
+argument_list|,
+argument|af_cjk_uniranges
+argument_list|,
+argument|sizeof( AF_LatinMetricsRec )
+argument_list|,
+argument|(AF_Script_InitMetricsFunc) af_cjk_metrics_init
+argument_list|,
+argument|(AF_Script_ScaleMetricsFunc)af_cjk_metrics_scale
+argument_list|,
+argument|(AF_Script_DoneMetricsFunc) NULL
+argument_list|,
+argument|(AF_Script_InitHintsFunc)   af_cjk_hints_init
+argument_list|,
+argument|(AF_Script_ApplyHintsFunc)  af_cjk_hints_apply
+argument_list|)
+end_macro
 begin_else
 else|#
 directive|else
@@ -4993,7 +5002,6 @@ begin_comment
 comment|/* !AF_CONFIG_OPTION_CJK */
 end_comment
 begin_decl_stmt
-DECL|variable|af_cjk_uniranges
 specifier|static
 specifier|const
 name|AF_Script_UniRangeRec
@@ -5001,58 +5009,37 @@ name|af_cjk_uniranges
 index|[]
 init|=
 block|{
-block|{
-literal|0
-block|,
-literal|0
-block|}
-block|}
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-name|FT_CALLBACK_TABLE_DEF
-specifier|const
-name|AF_ScriptClassRec
-DECL|variable|af_cjk_script_class
-name|af_cjk_script_class
-init|=
-block|{
-name|AF_SCRIPT_CJK
-block|,
-name|af_cjk_uniranges
-block|,
-sizeof|sizeof
+name|AF_UNIRANGE_REC
 argument_list|(
-name|AF_LatinMetricsRec
+literal|0UL
+argument_list|,
+literal|0UL
 argument_list|)
-block|,
-operator|(
-name|AF_Script_InitMetricsFunc
-operator|)
-name|NULL
-block|,
-operator|(
-name|AF_Script_ScaleMetricsFunc
-operator|)
-name|NULL
-block|,
-operator|(
-name|AF_Script_DoneMetricsFunc
-operator|)
-name|NULL
-block|,
-operator|(
-name|AF_Script_InitHintsFunc
-operator|)
-name|NULL
-block|,
-operator|(
-name|AF_Script_ApplyHintsFunc
-operator|)
-name|NULL
 block|}
 decl_stmt|;
 end_decl_stmt
+begin_macro
+name|AF_DEFINE_SCRIPT_CLASS
+argument_list|(
+argument|af_cjk_script_class
+argument_list|,
+argument|AF_SCRIPT_CJK
+argument_list|,
+argument|af_cjk_uniranges
+argument_list|,
+argument|sizeof( AF_LatinMetricsRec )
+argument_list|,
+argument|(AF_Script_InitMetricsFunc) NULL
+argument_list|,
+argument|(AF_Script_ScaleMetricsFunc)NULL
+argument_list|,
+argument|(AF_Script_DoneMetricsFunc) NULL
+argument_list|,
+argument|(AF_Script_InitHintsFunc)   NULL
+argument_list|,
+argument|(AF_Script_ApplyHintsFunc)  NULL
+argument_list|)
+end_macro
 begin_endif
 endif|#
 directive|endif

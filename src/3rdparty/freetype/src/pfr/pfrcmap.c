@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002, 2007 by                                                */
+comment|/*  Copyright 2002, 2007, 2009 by                                          */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -56,11 +56,6 @@ begin_include
 include|#
 directive|include
 file|"pfrobjs.h"
-end_include
-begin_include
-include|#
-directive|include
-include|FT_INTERNAL_DEBUG_H
 end_include
 begin_include
 include|#
@@ -313,7 +308,7 @@ begin_macro
 DECL|function|FT_CALLBACK_DEF
 name|FT_CALLBACK_DEF
 argument_list|(
-argument|FT_UInt
+argument|FT_UInt32
 argument_list|)
 end_macro
 begin_macro

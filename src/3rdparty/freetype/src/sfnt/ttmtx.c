@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2006, 2007, 2008 by                                          */
+comment|/*  Copyright 2006, 2007, 2008, 2009 by                                    */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -591,10 +591,17 @@ operator|<
 literal|0
 condition|)
 block|{
-name|FT_ERROR
+name|FT_TRACE0
 argument_list|(
 operator|(
-literal|"%cmtx has more metrics than glyphs.\n"
+literal|"tt_face_load_hmtx:"
+literal|" %cmtx has more metrics than glyphs.\n"
+operator|,
+name|vertical
+condition|?
+literal|"v"
+else|:
+literal|"h"
 operator|)
 argument_list|)
 expr_stmt|;

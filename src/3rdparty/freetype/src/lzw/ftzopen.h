@@ -207,7 +207,7 @@ name|FT_Bool
 name|buf_clear
 decl_stmt|;
 DECL|member|buf_total
-name|FT_Int
+name|FT_Offset
 name|buf_total
 decl_stmt|;
 DECL|member|max_bits
@@ -280,7 +280,7 @@ name|FT_UInt
 name|stack_top
 decl_stmt|;
 DECL|member|stack_size
-name|FT_UInt
+name|FT_Offset
 name|stack_size
 decl_stmt|;
 DECL|member|stack_0

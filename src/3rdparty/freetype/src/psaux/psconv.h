@@ -136,7 +136,7 @@ directive|if
 literal|0
 end_if
 begin_endif
-unit|FT_LOCAL( FT_UInt )   PS_Conv_StringDecode( FT_Byte**  cursor,                         FT_Byte*   limit,                         FT_Byte*   buffer,                         FT_UInt    n );
+unit|FT_LOCAL( FT_UInt )   PS_Conv_StringDecode( FT_Byte**  cursor,                         FT_Byte*   limit,                         FT_Byte*   buffer,                         FT_Offset  n );
 endif|#
 directive|endif
 end_endif
@@ -156,7 +156,7 @@ argument|FT_Byte*   limit
 argument_list|,
 argument|FT_Byte*   buffer
 argument_list|,
-argument|FT_UInt    n
+argument|FT_Offset  n
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -177,7 +177,7 @@ argument|FT_Byte*    limit
 argument_list|,
 argument|FT_Byte*    buffer
 argument_list|,
-argument|FT_UInt     n
+argument|FT_Offset   n
 argument_list|,
 argument|FT_UShort*  seed
 argument_list|)

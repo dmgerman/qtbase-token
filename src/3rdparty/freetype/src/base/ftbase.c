@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2006, 2007, 2008 by             */
+comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2006, 2007, 2008, 2009 by       */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -61,6 +61,16 @@ end_define
 begin_include
 include|#
 directive|include
+file|"ftpic.c"
+end_include
+begin_include
+include|#
+directive|include
+file|"basepic.c"
+end_include
+begin_include
+include|#
+directive|include
 file|"ftadvanc.c"
 end_include
 begin_include
@@ -81,11 +91,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"ftnames.c"
-end_include
-begin_include
-include|#
-directive|include
 file|"ftobjs.c"
 end_include
 begin_include
@@ -97,6 +102,11 @@ begin_include
 include|#
 directive|include
 file|"ftrfork.c"
+end_include
+begin_include
+include|#
+directive|include
+file|"ftsnames.c"
 end_include
 begin_include
 include|#

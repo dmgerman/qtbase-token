@@ -2782,9 +2782,9 @@ name|exec
 argument_list|)
 condition|)
 goto|goto
-name|Exit
+name|Fail
 goto|;
-comment|/* initialize it */
+comment|/* initialize it; in case of error this deallocates `exec' too */
 name|error
 operator|=
 name|Init_Context
@@ -2809,8 +2809,6 @@ operator|=
 name|exec
 expr_stmt|;
 block|}
-name|Exit
-label|:
 return|return
 name|driver
 operator|->
@@ -2819,7 +2817,7 @@ return|;
 name|Fail
 label|:
 return|return
-literal|0
+name|NULL
 return|;
 block|}
 end_block
@@ -9008,8 +9006,14 @@ directive|endif
 return|return
 name|TT_DotFix14
 argument_list|(
+operator|(
+name|FT_UInt32
+operator|)
 name|dx
 argument_list|,
+operator|(
+name|FT_UInt32
+operator|)
 name|dy
 argument_list|,
 name|CUR
@@ -9096,8 +9100,14 @@ block|{
 return|return
 name|TT_DotFix14
 argument_list|(
+operator|(
+name|FT_UInt32
+operator|)
 name|dx
 argument_list|,
+operator|(
+name|FT_UInt32
+operator|)
 name|dy
 argument_list|,
 name|CUR
@@ -13969,6 +13979,23 @@ name|numFDefs
 operator|++
 expr_stmt|;
 block|}
+comment|/* Although FDEF takes unsigned 32-bit integer,  */
+comment|/* func # must be within unsigned 16-bit integer */
+if|if
+condition|(
+name|n
+operator|>
+literal|0xFFFFU
+condition|)
+block|{
+name|CUR
+operator|.
+name|error
+operator|=
+name|TT_Err_Too_Many_Function_Defs
+expr_stmt|;
+return|return;
+block|}
 name|rec
 operator|->
 name|range
@@ -13981,6 +14008,9 @@ name|rec
 operator|->
 name|opc
 operator|=
+operator|(
+name|FT_UInt16
+operator|)
 name|n
 expr_stmt|;
 name|rec
@@ -14011,6 +14041,9 @@ name|CUR
 operator|.
 name|maxFunc
 operator|=
+operator|(
+name|FT_UInt16
+operator|)
 name|n
 expr_stmt|;
 comment|/* Now skip the whole function definition. */
@@ -14796,10 +14829,39 @@ name|numIDefs
 operator|++
 expr_stmt|;
 block|}
+comment|/* opcode must be unsigned 8-bit integer */
+if|if
+condition|(
+literal|0
+operator|>
+name|args
+index|[
+literal|0
+index|]
+operator|||
+name|args
+index|[
+literal|0
+index|]
+operator|>
+literal|0x00FF
+condition|)
+block|{
+name|CUR
+operator|.
+name|error
+operator|=
+name|TT_Err_Too_Many_Instruction_Defs
+expr_stmt|;
+return|return;
+block|}
 name|def
 operator|->
 name|opc
 operator|=
+operator|(
+name|FT_Byte
+operator|)
 name|args
 index|[
 literal|0
@@ -14847,6 +14909,9 @@ name|CUR
 operator|.
 name|maxIns
 operator|=
+operator|(
+name|FT_Byte
+operator|)
 name|args
 index|[
 literal|0
@@ -18643,6 +18708,9 @@ name|dx
 operator|=
 name|TT_MulFix14
 argument_list|(
+operator|(
+name|FT_UInt32
+operator|)
 name|args
 index|[
 literal|0
@@ -18666,6 +18734,9 @@ name|dy
 operator|=
 name|TT_MulFix14
 argument_list|(
+operator|(
+name|FT_UInt32
+operator|)
 name|args
 index|[
 literal|0
@@ -18684,6 +18755,9 @@ name|dx
 operator|=
 name|TT_MulFix14
 argument_list|(
+operator|(
+name|FT_UInt32
+operator|)
 name|args
 index|[
 literal|0
@@ -18702,6 +18776,9 @@ name|dy
 operator|=
 name|TT_MulFix14
 argument_list|(
+operator|(
+name|FT_UInt32
+operator|)
 name|args
 index|[
 literal|0
@@ -19360,6 +19437,9 @@ name|x
 operator|=
 name|TT_MulFix14
 argument_list|(
+operator|(
+name|FT_UInt32
+operator|)
 name|distance
 argument_list|,
 name|CUR
@@ -19384,6 +19464,9 @@ name|y
 operator|=
 name|TT_MulFix14
 argument_list|(
+operator|(
+name|FT_UInt32
+operator|)
 name|distance
 argument_list|,
 name|CUR
@@ -20265,6 +20348,9 @@ name|x
 operator|+
 name|TT_MulFix14
 argument_list|(
+operator|(
+name|FT_UInt32
+operator|)
 name|cvt_dist
 argument_list|,
 name|CUR
@@ -20304,6 +20390,9 @@ name|y
 operator|+
 name|TT_MulFix14
 argument_list|(
+operator|(
+name|FT_UInt32
+operator|)
 name|cvt_dist
 argument_list|,
 name|CUR

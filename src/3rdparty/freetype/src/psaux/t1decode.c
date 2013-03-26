@@ -18,7 +18,10 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2000-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 by */
+comment|/*  Copyright 2000-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009    */
+end_comment
+begin_comment
+comment|/*            2010 by                                                      */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -51,6 +54,11 @@ begin_include
 include|#
 directive|include
 file|<ft2build.h>
+end_include
+begin_include
+include|#
+directive|include
+include|FT_INTERNAL_CALC_H
 end_include
 begin_include
 include|#
@@ -596,6 +604,41 @@ name|left_bearing
 decl_stmt|,
 name|advance
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|FT_CONFIG_OPTION_INCREMENTAL
+name|T1_Face
+name|face
+init|=
+operator|(
+name|T1_Face
+operator|)
+name|decoder
+operator|->
+name|builder
+operator|.
+name|face
+decl_stmt|;
+endif|#
+directive|endif
+if|if
+condition|(
+name|decoder
+operator|->
+name|seac
+condition|)
+block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"t1operator_seac: invalid nested seac\n"
+operator|)
+argument_list|)
+expr_stmt|;
+return|return
+name|PSaux_Err_Syntax_Error
+return|;
+block|}
 comment|/* seac weirdness */
 name|adx
 operator|+=
@@ -609,6 +652,28 @@ name|x
 expr_stmt|;
 comment|/* `glyph_names' is set to 0 for CID fonts which do not */
 comment|/* include an encoding.  How can we deal with these?    */
+ifdef|#
+directive|ifdef
+name|FT_CONFIG_OPTION_INCREMENTAL
+if|if
+condition|(
+name|decoder
+operator|->
+name|glyph_names
+operator|==
+literal|0
+operator|&&
+operator|!
+name|face
+operator|->
+name|root
+operator|.
+name|internal
+operator|->
+name|incremental_interface
+condition|)
+else|#
+directive|else
 if|if
 condition|(
 name|decoder
@@ -617,18 +682,15 @@ name|glyph_names
 operator|==
 literal|0
 condition|)
+endif|#
+directive|endif
+comment|/* FT_CONFIG_OPTION_INCREMENTAL */
 block|{
 name|FT_ERROR
 argument_list|(
 operator|(
 literal|"t1operator_seac:"
-operator|)
-argument_list|)
-expr_stmt|;
-name|FT_ERROR
-argument_list|(
-operator|(
-literal|" glyph names table not available in this font!\n"
+literal|" glyph names table not available in this font\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -636,6 +698,34 @@ return|return
 name|PSaux_Err_Syntax_Error
 return|;
 block|}
+ifdef|#
+directive|ifdef
+name|FT_CONFIG_OPTION_INCREMENTAL
+if|if
+condition|(
+name|face
+operator|->
+name|root
+operator|.
+name|internal
+operator|->
+name|incremental_interface
+condition|)
+block|{
+comment|/* the caller must handle the font encoding also */
+name|bchar_index
+operator|=
+name|bchar
+expr_stmt|;
+name|achar_index
+operator|=
+name|achar
+expr_stmt|;
+block|}
+else|else
+endif|#
+directive|endif
+block|{
 name|bchar_index
 operator|=
 name|t1_lookup_glyph_by_stdcharcode
@@ -654,6 +744,7 @@ argument_list|,
 name|achar
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|bchar_index
@@ -669,12 +760,6 @@ name|FT_ERROR
 argument_list|(
 operator|(
 literal|"t1operator_seac:"
-operator|)
-argument_list|)
-expr_stmt|;
-name|FT_ERROR
-argument_list|(
-operator|(
 literal|" invalid seac character code arguments\n"
 operator|)
 argument_list|)
@@ -790,9 +875,10 @@ name|subg
 operator|->
 name|arg1
 operator|=
-call|(
+operator|(
 name|FT_Int
-call|)
+operator|)
+name|FIXED_TO_INT
 argument_list|(
 name|adx
 operator|-
@@ -806,7 +892,10 @@ operator|=
 operator|(
 name|FT_Int
 operator|)
+name|FIXED_TO_INT
+argument_list|(
 name|ady
+argument_list|)
 expr_stmt|;
 comment|/* set up remaining glyph fields */
 name|glyph
@@ -855,6 +944,13 @@ name|loader
 argument_list|)
 expr_stmt|;
 comment|/* prepare loader */
+comment|/* the seac operator must not be nested */
+name|decoder
+operator|->
+name|seac
+operator|=
+name|TRUE
+expr_stmt|;
 name|error
 operator|=
 name|t1_decoder_parse_glyph
@@ -863,6 +959,12 @@ name|decoder
 argument_list|,
 name|bchar_index
 argument_list|)
+expr_stmt|;
+name|decoder
+operator|->
+name|seac
+operator|=
+name|FALSE
 expr_stmt|;
 if|if
 condition|(
@@ -929,6 +1031,13 @@ name|ady
 expr_stmt|;
 comment|/* Now load `achar' on top of */
 comment|/* the base outline           */
+comment|/* the seac operator must not be nested */
+name|decoder
+operator|->
+name|seac
+operator|=
+name|TRUE
+expr_stmt|;
 name|error
 operator|=
 name|t1_decoder_parse_glyph
@@ -937,6 +1046,12 @@ name|decoder
 argument_list|,
 name|achar_index
 argument_list|)
+expr_stmt|;
+name|decoder
+operator|->
+name|seac
+operator|=
+name|FALSE
 expr_stmt|;
 if|if
 condition|(
@@ -1100,9 +1215,25 @@ name|unknown_othersubr_result_cnt
 init|=
 literal|0
 decl_stmt|;
+name|FT_Bool
+name|large_int
+decl_stmt|;
+name|FT_Fixed
+name|seed
+decl_stmt|;
 name|T1_Hints_Funcs
 name|hinter
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|FT_DEBUG_LEVEL_TRACE
+name|FT_Bool
+name|bol
+init|=
+name|TRUE
+decl_stmt|;
+endif|#
+directive|endif
 comment|/* we don't want to touch the source code -- use macro trick */
 DECL|macro|start_point
 define|#
@@ -1134,6 +1265,78 @@ define|#
 directive|define
 name|close_contour
 value|t1_builder_close_contour
+comment|/* compute random seed from stack address of parameter */
+name|seed
+operator|=
+call|(
+name|FT_Fixed
+call|)
+argument_list|(
+operator|(
+call|(
+name|FT_PtrDist
+call|)
+argument_list|(
+name|char
+operator|*
+argument_list|)
+operator|&
+name|seed
+operator|^
+call|(
+name|FT_PtrDist
+call|)
+argument_list|(
+name|char
+operator|*
+argument_list|)
+operator|&
+name|decoder
+operator|^
+call|(
+name|FT_PtrDist
+call|)
+argument_list|(
+name|char
+operator|*
+argument_list|)
+operator|&
+name|charstring_base
+operator|)
+operator|&
+name|FT_ULONG_MAX
+argument_list|)
+expr_stmt|;
+name|seed
+operator|=
+operator|(
+name|seed
+operator|^
+operator|(
+name|seed
+operator|>>
+literal|10
+operator|)
+operator|^
+operator|(
+name|seed
+operator|>>
+literal|20
+operator|)
+operator|)
+operator|&
+literal|0xFFFFL
+expr_stmt|;
+if|if
+condition|(
+name|seed
+operator|==
+literal|0
+condition|)
+name|seed
+operator|=
+literal|0x7384
+expr_stmt|;
 comment|/* First of all, initialize the decoder */
 name|decoder
 operator|->
@@ -1231,7 +1434,8 @@ expr_stmt|;
 name|FT_TRACE4
 argument_list|(
 operator|(
-literal|"\nStart charstring\n"
+literal|"\n"
+literal|"Start charstring\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -1295,6 +1499,10 @@ operator|->
 name|hints
 argument_list|)
 expr_stmt|;
+name|large_int
+operator|=
+name|FALSE
+expr_stmt|;
 comment|/* now, execute loop */
 while|while
 condition|(
@@ -1316,7 +1524,7 @@ name|op
 init|=
 name|op_none
 decl_stmt|;
-name|FT_Long
+name|FT_Int32
 name|value
 init|=
 literal|0
@@ -1332,6 +1540,14 @@ operator|==
 literal|0
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|FT_DEBUG_LEVEL_TRACE
+if|if
+condition|(
+name|bol
+condition|)
+block|{
 name|FT_TRACE5
 argument_list|(
 operator|(
@@ -1347,6 +1563,13 @@ name|stack
 operator|)
 argument_list|)
 expr_stmt|;
+name|bol
+operator|=
+name|FALSE
+expr_stmt|;
+block|}
+endif|#
+directive|endif
 comment|/*********************************************************************/
 comment|/*                                                                   */
 comment|/* Decode operator or operand                                        */
@@ -1510,8 +1733,8 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"t1_decoder_parse_charstrings: "
-literal|"invalid escape (12+EOF)\n"
+literal|"t1_decoder_parse_charstrings:"
+literal|" invalid escape (12+EOF)\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -1602,8 +1825,8 @@ default|default:
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"t1_decoder_parse_charstrings: "
-literal|"invalid escape (12+%d)\n"
+literal|"t1_decoder_parse_charstrings:"
+literal|" invalid escape (12+%d)\n"
 operator|,
 name|ip
 index|[
@@ -1634,8 +1857,8 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"t1_decoder_parse_charstrings: "
-literal|"unexpected EOF in integer\n"
+literal|"t1_decoder_parse_charstrings:"
+literal|" unexpected EOF in integer\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -1695,6 +1918,57 @@ name|ip
 operator|+=
 literal|4
 expr_stmt|;
+comment|/* According to the specification, values> 32000 or< -32000 must */
+comment|/* be followed by a `div' operator to make the result be in the    */
+comment|/* range [-32000;32000].  We expect that the second argument of    */
+comment|/* `div' is not a large number.  Additionally, we don't handle     */
+comment|/* stuff like `<large1><large2><num> div<num> div' or           */
+comment|/*<large1><large2><num> div div'.  This is probably not allowed */
+comment|/* anyway.                                                         */
+if|if
+condition|(
+name|value
+operator|>
+literal|32000
+operator|||
+name|value
+operator|<
+operator|-
+literal|32000
+condition|)
+block|{
+if|if
+condition|(
+name|large_int
+condition|)
+block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"t1_decoder_parse_charstrings:"
+literal|" no `div' after large integer\n"
+operator|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+name|large_int
+operator|=
+name|TRUE
+expr_stmt|;
+block|}
+else|else
+block|{
+if|if
+condition|(
+operator|!
+name|large_int
+condition|)
+name|value
+operator|<<=
+literal|16
+expr_stmt|;
+block|}
 break|break;
 default|default:
 if|if
@@ -1721,7 +1995,7 @@ condition|)
 name|value
 operator|=
 operator|(
-name|FT_Long
+name|FT_Int32
 operator|)
 name|ip
 index|[
@@ -1744,14 +2018,8 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"t1_decoder_parse_charstrings: "
-operator|)
-argument_list|)
-expr_stmt|;
-name|FT_ERROR
-argument_list|(
-operator|(
-literal|"unexpected EOF in integer\n"
+literal|"t1_decoder_parse_charstrings:"
+literal|" unexpected EOF in integer\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -1774,7 +2042,7 @@ operator|=
 operator|(
 operator|(
 operator|(
-name|FT_Long
+name|FT_Int32
 operator|)
 name|ip
 index|[
@@ -1804,7 +2072,7 @@ operator|(
 operator|(
 operator|(
 operator|(
-name|FT_Long
+name|FT_Int32
 operator|)
 name|ip
 index|[
@@ -1828,14 +2096,23 @@ literal|108
 operator|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|large_int
+condition|)
+name|value
+operator|<<=
+literal|16
+expr_stmt|;
 block|}
 else|else
 block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"t1_decoder_parse_charstrings: "
-literal|"invalid byte (%d)\n"
+literal|"t1_decoder_parse_charstrings:"
+literal|" invalid byte (%d)\n"
 operator|,
 name|ip
 index|[
@@ -1884,6 +2161,35 @@ expr_stmt|;
 break|break;
 block|}
 block|}
+if|if
+condition|(
+name|large_int
+operator|&&
+operator|!
+operator|(
+name|op
+operator|==
+name|op_none
+operator|||
+name|op
+operator|==
+name|op_div
+operator|)
+condition|)
+block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"t1_decoder_parse_charstrings:"
+literal|" no `div' after large integer\n"
+operator|)
+argument_list|)
+expr_stmt|;
+name|large_int
+operator|=
+name|FALSE
+expr_stmt|;
+block|}
 comment|/*********************************************************************/
 comment|/*                                                                   */
 comment|/*  Push value on stack, or process operator                         */
@@ -1910,7 +2216,7 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"t1_decoder_parse_charstrings: stack overflow!\n"
+literal|"t1_decoder_parse_charstrings: stack overflow\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -1918,6 +2224,13 @@ goto|goto
 name|Syntax_Error
 goto|;
 block|}
+ifdef|#
+directive|ifdef
+name|FT_DEBUG_LEVEL_TRACE
+if|if
+condition|(
+name|large_int
+condition|)
 name|FT_TRACE4
 argument_list|(
 operator|(
@@ -1927,6 +2240,25 @@ name|value
 operator|)
 argument_list|)
 expr_stmt|;
+else|else
+name|FT_TRACE4
+argument_list|(
+operator|(
+literal|" %ld"
+operator|,
+call|(
+name|FT_Int32
+call|)
+argument_list|(
+name|value
+operator|>>
+literal|16
+argument_list|)
+operator|)
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 operator|*
 name|top
 operator|++
@@ -1955,13 +2287,22 @@ decl_stmt|;
 name|FT_Int
 name|arg_cnt
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|FT_DEBUG_LEVEL_TRACE
 name|FT_TRACE4
 argument_list|(
 operator|(
-literal|" callothersubr"
+literal|" callothersubr\n"
 operator|)
 argument_list|)
 expr_stmt|;
+name|bol
+operator|=
+name|TRUE
+expr_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|top
@@ -1981,23 +2322,31 @@ literal|2
 expr_stmt|;
 name|subr_no
 operator|=
-operator|(
+call|(
 name|FT_Int
-operator|)
+call|)
+argument_list|(
 name|top
 index|[
 literal|1
 index|]
+operator|>>
+literal|16
+argument_list|)
 expr_stmt|;
 name|arg_cnt
 operator|=
-operator|(
+call|(
 name|FT_Int
-operator|)
+call|)
+argument_list|(
 name|top
 index|[
 literal|0
 index|]
+operator|>>
+literal|16
+argument_list|)
 expr_stmt|;
 comment|/***********************************************************/
 comment|/*                                                         */
@@ -2193,8 +2542,8 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"t1_decoder_parse_charstrings: "
-literal|"unexpected flex end\n"
+literal|"t1_decoder_parse_charstrings:"
+literal|" unexpected flex end\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -2307,14 +2656,8 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"t1_decoder_parse_charstrings: "
-operator|)
-argument_list|)
-expr_stmt|;
-name|FT_ERROR
-argument_list|(
-operator|(
-literal|"unexpected multiple masters operator!\n"
+literal|"t1_decoder_parse_charstrings:"
+literal|" unexpected multiple masters operator\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -2356,14 +2699,8 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"t1_decoder_parse_charstrings: "
-operator|)
-argument_list|)
-expr_stmt|;
-name|FT_ERROR
-argument_list|(
-operator|(
-literal|"incorrect number of mm arguments\n"
+literal|"t1_decoder_parse_charstrings:"
+literal|" incorrect number of multiple masters arguments\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -2462,12 +2799,6 @@ name|num_points
 expr_stmt|;
 break|break;
 block|}
-ifdef|#
-directive|ifdef
-name|CAN_HANDLE_NON_INTEGRAL_T1_OPERANDS
-comment|/* We cannot yet enable these since currently  */
-comment|/* our T1 stack stores integers which lack the */
-comment|/* precision to express the values             */
 case|case
 literal|19
 case|:
@@ -2500,10 +2831,17 @@ name|Unexpected_OtherSubr
 goto|;
 name|idx
 operator|=
+call|(
+name|FT_Int
+call|)
+argument_list|(
 name|top
 index|[
 literal|0
 index|]
+operator|>>
+literal|16
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -2518,8 +2856,6 @@ operator|->
 name|num_designs
 operator|>
 name|decoder
-operator|->
-name|face
 operator|->
 name|len_buildchar
 condition|)
@@ -2635,13 +2971,20 @@ name|top
 index|[
 literal|0
 index|]
-operator|*=
+operator|=
+name|FT_MulFix
+argument_list|(
+name|top
+index|[
+literal|0
+index|]
+argument_list|,
 name|top
 index|[
 literal|1
 index|]
+argument_list|)
 expr_stmt|;
-comment|/* XXX (over|under)flow */
 name|known_othersubr_result_cnt
 operator|=
 literal|1
@@ -2672,26 +3015,30 @@ name|top
 index|[
 literal|0
 index|]
-operator|/=
+operator|=
+name|FT_DivFix
+argument_list|(
+name|top
+index|[
+literal|0
+index|]
+argument_list|,
 name|top
 index|[
 literal|1
 index|]
+argument_list|)
 expr_stmt|;
-comment|/* XXX (over|under)flow */
 name|known_othersubr_result_cnt
 operator|=
 literal|1
 expr_stmt|;
 break|break;
-endif|#
-directive|endif
-comment|/* CAN_HANDLE_NON_INTEGRAL_T1_OPERANDS */
 case|case
 literal|24
 case|:
-comment|/*<val><idx> 2 24 callothersubr              */
-comment|/* => set BuildCharArray[cvi(<idx> )] =<val> */
+comment|/*<val><idx> 2 24 callothersubr               */
+comment|/* ==> set BuildCharArray[cvi(<idx> )] =<val> */
 block|{
 name|FT_Int
 name|idx
@@ -2718,10 +3065,17 @@ name|Unexpected_OtherSubr
 goto|;
 name|idx
 operator|=
+call|(
+name|FT_Int
+call|)
+argument_list|(
 name|top
 index|[
 literal|1
 index|]
+operator|>>
+literal|16
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -2758,9 +3112,9 @@ break|break;
 case|case
 literal|25
 case|:
-comment|/*<idx> 1 25 callothersubr pop       */
-comment|/* => push BuildCharArray[cvi( idx )] */
-comment|/*    onto T1 stack                   */
+comment|/*<idx> 1 25 callothersubr pop        */
+comment|/* ==> push BuildCharArray[cvi( idx )] */
+comment|/*     onto T1 stack                   */
 block|{
 name|FT_Int
 name|idx
@@ -2787,10 +3141,17 @@ name|Unexpected_OtherSubr
 goto|;
 name|idx
 operator|=
+call|(
+name|FT_Int
+call|)
+argument_list|(
 name|top
 index|[
 literal|0
 index|]
+operator|>>
+literal|16
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -2835,14 +3196,14 @@ block|case 26:
 comment|/*<val> mark<idx> ==> set BuildCharArray[cvi(<idx> )] =<val>, */
 comment|/*                      leave mark on T1 stack                    */
 comment|/*<val><idx>      ==> set BuildCharArray[cvi(<idx> )] =<val>  */
-block|XXX who has left his mark on the (PostScript) stack ?;           break;
+block|XXX which routine has left its mark on the (PostScript) stack?;           break;
 endif|#
 directive|endif
 case|case
 literal|27
 case|:
 comment|/*<res1><res2><val1><val2> 4 27 callothersubr pop */
-comment|/* ==> push<res1> onto T1 stack if<val1><=<val2>,  */
+comment|/* ==> push<res1> onto T1 stack if<val1><=<val2>, */
 comment|/*     otherwise push<res2>                          */
 if|if
 condition|(
@@ -2880,9 +3241,6 @@ operator|=
 literal|1
 expr_stmt|;
 break|break;
-ifdef|#
-directive|ifdef
-name|CAN_HANDLE_NON_INTEGRAL_T1_OPERANDS
 case|case
 literal|28
 case|:
@@ -2897,27 +3255,63 @@ condition|)
 goto|goto
 name|Unexpected_OtherSubr
 goto|;
+block|{
+name|FT_Fixed
+name|Rand
+decl_stmt|;
+name|Rand
+operator|=
+name|seed
+expr_stmt|;
+if|if
+condition|(
+name|Rand
+operator|>=
+literal|0x8000L
+condition|)
+name|Rand
+operator|++
+expr_stmt|;
 name|top
 index|[
 literal|0
 index|]
 operator|=
-name|FT_rand
-argument_list|()
+name|Rand
 expr_stmt|;
+name|seed
+operator|=
+name|FT_MulFix
+argument_list|(
+name|seed
+argument_list|,
+literal|0x10000L
+operator|-
+name|seed
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|seed
+operator|==
+literal|0
+condition|)
+name|seed
+operator|+=
+literal|0x2873
+expr_stmt|;
+block|}
 name|known_othersubr_result_cnt
 operator|=
 literal|1
 expr_stmt|;
 break|break;
-endif|#
-directive|endif
 default|default:
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"t1_decoder_parse_charstrings: "
-literal|"unknown othersubr [%d %d], wish me luck!\n"
+literal|"t1_decoder_parse_charstrings:"
+literal|" unknown othersubr [%d %d], wish me luck\n"
 operator|,
 name|arg_cnt
 operator|,
@@ -2935,8 +3329,8 @@ label|:
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"t1_decoder_parse_charstrings: "
-literal|"invalid othersubr [%d %d]!\n"
+literal|"t1_decoder_parse_charstrings:"
+literal|" invalid othersubr [%d %d]\n"
 operator|,
 name|arg_cnt
 operator|,
@@ -3033,9 +3427,9 @@ condition|)
 name|FT_TRACE0
 argument_list|(
 operator|(
-literal|"t1_decoder_parse_charstrings: "
-literal|"too much operands on the stack "
-literal|"(seen %d, expected %d)\n"
+literal|"t1_decoder_parse_charstrings:"
+literal|" too much operands on the stack"
+literal|" (seen %d, expected %d)\n"
 operator|,
 name|top
 operator|-
@@ -3067,7 +3461,7 @@ case|:
 name|FT_TRACE4
 argument_list|(
 operator|(
-literal|" endchar"
+literal|" endchar\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -3134,13 +3528,6 @@ argument_list|(
 name|builder
 operator|->
 name|loader
-argument_list|)
-expr_stmt|;
-name|FT_TRACE4
-argument_list|(
-operator|(
-literal|"\n"
-operator|)
 argument_list|)
 expr_stmt|;
 comment|/* the compiler should optimize away this empty loop but ... */
@@ -3265,12 +3652,6 @@ literal|0
 expr_stmt|;
 name|orig_x
 operator|=
-name|builder
-operator|->
-name|last
-operator|.
-name|x
-operator|=
 name|x
 operator|=
 name|builder
@@ -3283,12 +3664,6 @@ literal|0
 index|]
 expr_stmt|;
 name|orig_y
-operator|=
-name|builder
-operator|->
-name|last
-operator|.
-name|y
 operator|=
 name|y
 operator|=
@@ -3317,7 +3692,6 @@ break|break;
 case|case
 name|op_seac
 case|:
-comment|/* return immediately after the processing */
 return|return
 name|t1operator_seac
 argument_list|(
@@ -3338,21 +3712,29 @@ index|[
 literal|2
 index|]
 argument_list|,
-operator|(
+call|(
 name|FT_Int
-operator|)
+call|)
+argument_list|(
 name|top
 index|[
 literal|3
 index|]
+operator|>>
+literal|16
+argument_list|)
 argument_list|,
-operator|(
+call|(
 name|FT_Int
-operator|)
+call|)
+argument_list|(
 name|top
 index|[
 literal|4
 index|]
+operator|>>
+literal|16
+argument_list|)
 argument_list|)
 return|;
 case|case
@@ -3415,12 +3797,6 @@ index|[
 literal|3
 index|]
 expr_stmt|;
-name|builder
-operator|->
-name|last
-operator|.
-name|x
-operator|=
 name|x
 operator|=
 name|builder
@@ -3432,12 +3808,6 @@ index|[
 literal|0
 index|]
 expr_stmt|;
-name|builder
-operator|->
-name|last
-operator|.
-name|y
-operator|=
 name|y
 operator|=
 name|builder
@@ -3782,7 +4152,7 @@ case|:
 name|FT_TRACE4
 argument_list|(
 operator|(
-literal|" rcurveto"
+literal|" rrcurveto"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -4064,44 +4434,32 @@ literal|" div"
 operator|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|top
-index|[
-literal|1
-index|]
-condition|)
-block|{
+comment|/* if `large_int' is set, we divide unscaled numbers; */
+comment|/* otherwise, we divide numbers in 16.16 format --    */
+comment|/* in both cases, it is the same operation            */
 operator|*
 name|top
 operator|=
+name|FT_DivFix
+argument_list|(
 name|top
 index|[
 literal|0
 index|]
-operator|/
+argument_list|,
 name|top
 index|[
 literal|1
 index|]
+argument_list|)
 expr_stmt|;
 operator|++
 name|top
 expr_stmt|;
-block|}
-else|else
-block|{
-name|FT_ERROR
-argument_list|(
-operator|(
-literal|"t1_decoder_parse_charstrings: division by 0\n"
-operator|)
-argument_list|)
+name|large_int
+operator|=
+name|FALSE
 expr_stmt|;
-goto|goto
-name|Syntax_Error
-goto|;
-block|}
 break|break;
 case|case
 name|op_callsubr
@@ -4119,13 +4477,17 @@ argument_list|)
 expr_stmt|;
 name|idx
 operator|=
-operator|(
+call|(
 name|FT_Int
-operator|)
+call|)
+argument_list|(
 name|top
 index|[
 literal|0
 index|]
+operator|>>
+literal|16
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -4146,8 +4508,8 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"t1_decoder_parse_charstrings: "
-literal|"invalid subrs index\n"
+literal|"t1_decoder_parse_charstrings:"
+literal|" invalid subrs index\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -4169,8 +4531,8 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"t1_decoder_parse_charstrings: "
-literal|"too many nested subrs\n"
+literal|"t1_decoder_parse_charstrings:"
+literal|" too many nested subrs\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -4278,8 +4640,8 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"t1_decoder_parse_charstrings: "
-literal|"invoking empty subrs!\n"
+literal|"t1_decoder_parse_charstrings:"
+literal|" invoking empty subrs\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -4340,8 +4702,8 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"t1_decoder_parse_charstrings: "
-literal|"no more operands for othersubr!\n"
+literal|"t1_decoder_parse_charstrings:"
+literal|" no more operands for othersubr\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -4379,7 +4741,8 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"t1_decoder_parse_charstrings: unexpected return\n"
+literal|"t1_decoder_parse_charstrings:"
+literal|" unexpected return\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -4491,7 +4854,7 @@ literal|" vstem"
 operator|)
 argument_list|)
 expr_stmt|;
-comment|/* record vertical  hint */
+comment|/* record vertical hint */
 if|if
 condition|(
 name|hinter
@@ -4586,39 +4949,22 @@ literal|" setcurrentpoint"
 operator|)
 argument_list|)
 expr_stmt|;
-comment|/* From the T1 specs, section 6.4:                        */
+comment|/* From the T1 specification, section 6.4:                */
 comment|/*                                                        */
 comment|/*   The setcurrentpoint command is used only in          */
 comment|/*   conjunction with results from OtherSubrs procedures. */
-comment|/* known_othersubr_result_cnt != 0 is already handled above */
-if|if
-condition|(
-name|decoder
-operator|->
-name|flex_state
-operator|!=
-literal|1
-condition|)
-block|{
-name|FT_ERROR
-argument_list|(
-operator|(
-literal|"t1_decoder_parse_charstrings: "
-operator|)
-argument_list|)
-expr_stmt|;
-name|FT_ERROR
-argument_list|(
-operator|(
-literal|"unexpected `setcurrentpoint'\n"
-operator|)
-argument_list|)
-expr_stmt|;
-goto|goto
-name|Syntax_Error
-goto|;
-block|}
-else|else
+comment|/* known_othersubr_result_cnt != 0 is already handled     */
+comment|/* above.                                                 */
+comment|/* Note, however, that both Ghostscript and Adobe         */
+comment|/* Distiller handle this situation by silently ignoring   */
+comment|/* the inappropriate `setcurrentpoint' instruction.  So   */
+comment|/* we do the same.                                        */
+if|#
+directive|if
+literal|0
+block|if ( decoder->flex_state != 1 )           {             FT_ERROR(( "t1_decoder_parse_charstrings:"                        " unexpected `setcurrentpoint'\n" ));             goto Syntax_Error;           }           else
+endif|#
+directive|endif
 name|decoder
 operator|->
 name|flex_state
@@ -4642,8 +4988,8 @@ default|default:
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"t1_decoder_parse_charstrings: "
-literal|"unhandled opcode %d\n"
+literal|"t1_decoder_parse_charstrings:"
+literal|" unhandled opcode %d\n"
 operator|,
 name|op
 operator|)
@@ -4663,6 +5009,22 @@ name|top
 operator|=
 name|top
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|FT_DEBUG_LEVEL_TRACE
+name|FT_TRACE4
+argument_list|(
+operator|(
+literal|"\n"
+operator|)
+argument_list|)
+expr_stmt|;
+name|bol
+operator|=
+name|TRUE
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 comment|/* general operator processing */
 block|}
@@ -4793,14 +5155,8 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"t1_decoder_init: "
-operator|)
-argument_list|)
-expr_stmt|;
-name|FT_ERROR
-argument_list|(
-operator|(
-literal|"the `psnames' module is not available\n"
+literal|"t1_decoder_init:"
+literal|" the `psnames' module is not available\n"
 operator|)
 argument_list|)
 expr_stmt|;

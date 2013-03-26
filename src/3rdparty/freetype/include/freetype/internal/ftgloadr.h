@@ -427,7 +427,7 @@ parameter_list|,
 name|_count
 parameter_list|)
 define|\
-value|( (_count) == 0 || (int)((_loader)->base.outline.n_points    +    \                             (_loader)->current.outline.n_points +    \                             (_count))<= (int)(_loader)->max_points )
+value|( (_count) == 0 || ((_loader)->base.outline.n_points    +              \                        (_loader)->current.outline.n_points +              \                        (unsigned long)(_count))<= (_loader)->max_points )
 end_define
 begin_define
 DECL|macro|FT_GLYPHLOADER_CHECK_C
@@ -440,7 +440,7 @@ parameter_list|,
 name|_count
 parameter_list|)
 define|\
-value|( (_count) == 0 || (int)((_loader)->base.outline.n_contours    +    \                            (_loader)->current.outline.n_contours +    \                            (_count))<= (int)(_loader)->max_contours )
+value|( (_count) == 0 || ((_loader)->base.outline.n_contours    +              \                       (_loader)->current.outline.n_contours +              \                       (unsigned long)(_count))<= (_loader)->max_contours )
 end_define
 begin_define
 DECL|macro|FT_GLYPHLOADER_CHECK_POINTS

@@ -21,7 +21,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2007, 2008 by David Turner.                                  */
+comment|/*  Copyright 2007, 2008, 2010 by David Turner.                            */
 end_comment
 begin_comment
 comment|/*                                                                         */
@@ -341,6 +341,11 @@ block|}
 block|}
 name|Exit
 label|:
+name|FT_UNUSED
+argument_list|(
+name|error
+argument_list|)
+expr_stmt|;
 name|FT_FRAME_EXIT
 argument_list|()
 expr_stmt|;
@@ -371,6 +376,8 @@ name|stream
 decl_stmt|;
 name|FT_Error
 name|error
+init|=
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_Service_SFNT_Table
 name|service
@@ -394,11 +401,40 @@ condition|(
 name|service
 condition|)
 block|{
-name|FT_ULong
-name|offset
-decl_stmt|,
-name|size
+name|FT_UInt
+name|i
+init|=
+literal|0
 decl_stmt|;
+name|FT_ULong
+name|tag_i
+init|=
+literal|0
+decl_stmt|,
+name|offset_i
+init|=
+literal|0
+decl_stmt|,
+name|length_i
+init|=
+literal|0
+decl_stmt|;
+for|for
+control|(
+name|i
+operator|=
+literal|0
+init|;
+operator|!
+name|error
+operator|&&
+name|tag_i
+operator|!=
+name|tag
+condition|;
+name|i
+operator|++
+control|)
 name|error
 operator|=
 name|service
@@ -407,13 +443,16 @@ name|table_info
 argument_list|(
 name|face
 argument_list|,
-name|tag
+name|i
 argument_list|,
 operator|&
-name|offset
+name|tag_i
 argument_list|,
 operator|&
-name|size
+name|offset_i
+argument_list|,
+operator|&
+name|length_i
 argument_list|)
 expr_stmt|;
 if|if
@@ -422,7 +461,7 @@ name|error
 operator|||
 name|FT_STREAM_SEEK
 argument_list|(
-name|offset
+name|offset_i
 argument_list|)
 condition|)
 goto|goto
@@ -434,7 +473,7 @@ name|_tt_check_patents_in_range
 argument_list|(
 name|stream
 argument_list|,
-name|size
+name|length_i
 argument_list|)
 expr_stmt|;
 block|}

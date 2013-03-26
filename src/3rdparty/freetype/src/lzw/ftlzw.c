@@ -30,7 +30,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2004, 2005, 2006, 2009 by                                    */
+comment|/*  Copyright 2004, 2005, 2006, 2009, 2010 by                              */
 end_comment
 begin_comment
 comment|/*  Albert Chin-A-Young.                                                   */
@@ -133,6 +133,20 @@ ifdef|#
 directive|ifdef
 name|FT_CONFIG_OPTION_USE_LZW
 end_ifdef
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|FT_CONFIG_OPTION_PIC
+end_ifdef
+begin_error
+error|#
+directive|error
+literal|"lzw code does not support PIC yet"
+end_error
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_include
 include|#
 directive|include
@@ -386,11 +400,6 @@ operator|=
 literal|0
 expr_stmt|;
 comment|/* check and skip .Z header */
-block|{
-name|stream
-operator|=
-name|source
-expr_stmt|;
 name|error
 operator|=
 name|ft_lzw_check_header
@@ -405,7 +414,6 @@ condition|)
 goto|goto
 name|Exit
 goto|;
-block|}
 comment|/* initialize internal lzw variable */
 name|ft_lzwstate_init
 argument_list|(

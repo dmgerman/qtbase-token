@@ -346,7 +346,7 @@ begin_macro
 DECL|function|FT_CALLBACK_DEF
 name|FT_CALLBACK_DEF
 argument_list|(
-argument|FT_UInt
+argument|FT_UInt32
 argument_list|)
 end_macro
 begin_macro
@@ -641,8 +641,6 @@ operator|-
 name|cmap
 operator|->
 name|first
-operator|+
-literal|1
 argument_list|)
 expr_stmt|;
 name|cmap
@@ -777,7 +775,7 @@ begin_macro
 DECL|function|FT_CALLBACK_DEF
 name|FT_CALLBACK_DEF
 argument_list|(
-argument|FT_UInt
+argument|FT_UInt32
 argument_list|)
 end_macro
 begin_macro
@@ -1145,7 +1143,7 @@ begin_macro
 DECL|function|FT_CALLBACK_DEF
 name|FT_CALLBACK_DEF
 argument_list|(
-argument|FT_UInt
+argument|FT_UInt32
 argument_list|)
 end_macro
 begin_macro

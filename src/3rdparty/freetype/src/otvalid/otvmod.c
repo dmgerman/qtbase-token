@@ -308,6 +308,16 @@ decl_stmt|;
 name|FT_ULong
 name|len_math
 decl_stmt|;
+name|FT_UInt
+name|num_glyphs
+init|=
+operator|(
+name|FT_UInt
+operator|)
+name|face
+operator|->
+name|num_glyphs
+decl_stmt|;
 name|FT_ValidatorRec
 specifier|volatile
 name|valid
@@ -340,6 +350,39 @@ name|len_math
 operator|=
 literal|0
 expr_stmt|;
+comment|/*      * XXX: OpenType tables cannot handle 32-bit glyph index,      *      although broken TrueType can have 32-bit glyph index.      */
+if|if
+condition|(
+name|face
+operator|->
+name|num_glyphs
+operator|>
+literal|0xFFFFL
+condition|)
+block|{
+name|FT_TRACE1
+argument_list|(
+operator|(
+literal|"otv_validate: Invalid glyphs index (0x0000FFFF - 0x%08x) "
+operator|,
+name|face
+operator|->
+name|num_glyphs
+operator|)
+argument_list|)
+expr_stmt|;
+name|FT_TRACE1
+argument_list|(
+operator|(
+literal|"are not handled by OpenType tables\n"
+operator|)
+argument_list|)
+expr_stmt|;
+name|num_glyphs
+operator|=
+literal|0xFFFF
+expr_stmt|;
+block|}
 comment|/* load tables */
 if|if
 condition|(
@@ -608,8 +651,6 @@ name|otv_GPOS_validate
 argument_list|(
 name|gpos
 argument_list|,
-name|face
-operator|->
 name|num_glyphs
 argument_list|,
 operator|&
@@ -664,8 +705,6 @@ name|otv_GSUB_validate
 argument_list|(
 name|gsub
 argument_list|,
-name|face
-operator|->
 name|num_glyphs
 argument_list|,
 operator|&
@@ -724,8 +763,6 @@ name|gsub
 argument_list|,
 name|gpos
 argument_list|,
-name|face
-operator|->
 name|num_glyphs
 argument_list|,
 operator|&
@@ -784,8 +821,6 @@ name|gsub
 argument_list|,
 name|gpos
 argument_list|,
-name|face
-operator|->
 name|num_glyphs
 argument_list|,
 operator|&
@@ -840,8 +875,6 @@ name|otv_MATH_validate
 argument_list|(
 name|math
 argument_list|,
-name|face
-operator|->
 name|num_glyphs
 argument_list|,
 operator|&

@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2000-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008 by       */
+comment|/*  Copyright 2000-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 by */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -76,11 +76,6 @@ begin_include
 include|#
 directive|include
 include|FT_INTERNAL_DEBUG_H
-end_include
-begin_include
-include|#
-directive|include
-include|FT_TRUETYPE_IDS_H
 end_include
 begin_include
 include|#
@@ -268,7 +263,7 @@ parameter_list|,
 name|charcode
 parameter_list|)
 define|\
-value|( FTC_FACE_ID_HASH( faceid ) + 211 * ( index ) + \             ( (char_code) / FTC_CMAP_INDICES_MAX )       )
+value|( FTC_FACE_ID_HASH( faceid ) + 211 * (index) + \             ( (charcode) / FTC_CMAP_INDICES_MAX )      )
 end_define
 begin_comment
 comment|/* the charmap query */
@@ -593,7 +588,7 @@ begin_macro
 DECL|function|FT_CALLBACK_DEF
 name|FT_CALLBACK_DEF
 argument_list|(
-argument|FT_ULong
+argument|FT_Offset
 argument_list|)
 end_macro
 begin_macro
@@ -902,7 +897,7 @@ decl_stmt|;
 name|FTC_CMapQueryRec
 name|query
 decl_stmt|;
-name|FTC_CMapNode
+name|FTC_Node
 name|node
 decl_stmt|;
 name|FT_Error
@@ -947,10 +942,10 @@ operator|!
 name|cache
 condition|)
 block|{
-name|FT_ERROR
+name|FT_TRACE0
 argument_list|(
 operator|(
-literal|"FTC_CMapCache_Lookup: bad arguments, returning 0!\n"
+literal|"FTC_CMapCache_Lookup: bad arguments, returning 0\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -1151,10 +1146,6 @@ argument_list|,
 operator|&
 name|query
 argument_list|,
-operator|(
-name|FTC_Node
-operator|*
-operator|)
 operator|&
 name|node
 argument_list|)
@@ -1176,7 +1167,10 @@ call|)
 argument_list|(
 name|char_code
 operator|-
+name|FTC_CMAP_NODE
+argument_list|(
 name|node
+argument_list|)
 operator|->
 name|first
 argument_list|)
@@ -1193,7 +1187,10 @@ call|)
 argument_list|(
 name|char_code
 operator|-
+name|FTC_CMAP_NODE
+argument_list|(
 name|node
+argument_list|)
 operator|->
 name|first
 operator|>=
@@ -1205,13 +1202,19 @@ literal|0
 return|;
 name|gindex
 operator|=
+name|FTC_CMAP_NODE
+argument_list|(
 name|node
+argument_list|)
 operator|->
 name|indices
 index|[
 name|char_code
 operator|-
+name|FTC_CMAP_NODE
+argument_list|(
 name|node
+argument_list|)
 operator|->
 name|first
 index|]
@@ -1238,7 +1241,10 @@ name|cache
 operator|->
 name|manager
 argument_list|,
+name|FTC_CMAP_NODE
+argument_list|(
 name|node
+argument_list|)
 operator|->
 name|face_id
 argument_list|,
@@ -1332,13 +1338,19 @@ name|old
 argument_list|)
 expr_stmt|;
 block|}
+name|FTC_CMAP_NODE
+argument_list|(
 name|node
+argument_list|)
 operator|->
 name|indices
 index|[
 name|char_code
 operator|-
+name|FTC_CMAP_NODE
+argument_list|(
 name|node
+argument_list|)
 operator|->
 name|first
 index|]

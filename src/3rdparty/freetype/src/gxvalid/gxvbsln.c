@@ -207,8 +207,8 @@ parameter_list|(
 name|FT_UShort
 name|glyph
 parameter_list|,
-name|GXV_LookupValueDesc
-name|value
+name|GXV_LookupValueCPtr
+name|value_p
 parameter_list|,
 name|GXV_Validator
 name|valid
@@ -217,8 +217,8 @@ block|{
 name|FT_UShort
 name|v
 init|=
-name|value
-operator|.
+name|value_p
+operator|->
 name|u
 decl_stmt|;
 name|FT_UShort
@@ -283,8 +283,8 @@ parameter_list|(
 name|FT_UShort
 name|relative_gindex
 parameter_list|,
-name|GXV_LookupValueDesc
-name|base_value
+name|GXV_LookupValueCPtr
+name|base_value_p
 parameter_list|,
 name|FT_Bytes
 name|lookuptbl_limit
@@ -312,8 +312,8 @@ call|(
 name|FT_UShort
 call|)
 argument_list|(
-name|base_value
-operator|.
+name|base_value_p
+operator|->
 name|u
 operator|+
 operator|(

@@ -414,7 +414,7 @@ name|FT_UInt
 name|cid_ordering
 decl_stmt|;
 DECL|member|cid_supplement
-name|FT_ULong
+name|FT_Long
 name|cid_supplement
 decl_stmt|;
 DECL|member|cid_font_version

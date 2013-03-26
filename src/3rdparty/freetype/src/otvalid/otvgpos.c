@@ -737,7 +737,7 @@ operator|&
 literal|1
 condition|)
 block|{
-name|FT_UInt
+name|FT_PtrDist
 name|table_size
 decl_stmt|;
 name|OTV_OPTIONAL_TABLE
@@ -2829,7 +2829,8 @@ comment|/* ExtensionPosFormat1 */
 block|{
 name|FT_UInt
 name|ExtensionLookupType
-decl_stmt|,
+decl_stmt|;
+name|FT_ULong
 name|ExtensionOffset
 decl_stmt|;
 name|OTV_Validate_Func

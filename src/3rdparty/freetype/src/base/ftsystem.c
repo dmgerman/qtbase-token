@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2006, 2008 by                               */
+comment|/*  Copyright 1996-2001, 2002, 2006, 2008, 2009 by                         */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -621,6 +621,14 @@ argument_list|(
 name|stream
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|stream
+operator|->
+name|pos
+operator|!=
+name|offset
+condition|)
 name|ft_fseek
 argument_list|(
 name|file
@@ -699,12 +707,6 @@ name|FT_ERROR
 argument_list|(
 operator|(
 literal|"FT_Stream_Open:"
-operator|)
-argument_list|)
-expr_stmt|;
-name|FT_ERROR
-argument_list|(
-operator|(
 literal|" could not open `%s'\n"
 operator|,
 name|filepathname

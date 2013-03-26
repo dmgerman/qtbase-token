@@ -273,7 +273,7 @@ name|char
 modifier|*
 name|name
 parameter_list|,
-name|FT_UInt
+name|FT_Offset
 name|len
 parameter_list|,
 name|void

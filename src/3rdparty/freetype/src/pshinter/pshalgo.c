@@ -372,7 +372,7 @@ operator|->
 name|max_hints
 condition|)
 block|{
-name|FT_ERROR
+name|FT_TRACE0
 argument_list|(
 operator|(
 literal|"psh_hint_table_record: invalid hint index %d\n"
@@ -488,7 +488,7 @@ operator|=
 name|hint
 expr_stmt|;
 else|else
-name|FT_ERROR
+name|FT_TRACE0
 argument_list|(
 operator|(
 literal|"psh_hint_table_record: too many sorted hints!  BUG!\n"
@@ -826,10 +826,10 @@ block|{
 name|FT_UInt
 name|idx
 decl_stmt|;
-name|FT_ERROR
+name|FT_TRACE0
 argument_list|(
 operator|(
-literal|"psh_hint_table_init: missing/incorrect hint masks!\n"
+literal|"psh_hint_table_init: missing/incorrect hint masks\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -984,7 +984,7 @@ decl_stmt|;
 if|#
 directive|if
 literal|0
-block|PSH_Hint*  sort = table->sort;           PSH_Hint   hint2;             for ( count2 = count; count2> 0; count2--, sort++ )           {             hint2 = sort[0];             if ( psh_hint_overlap( hint, hint2 ) )               FT_ERROR(( "psh_hint_table_activate_mask:"                          " found overlapping hints\n" ))           }
+block|PSH_Hint*  sort = table->sort;           PSH_Hint   hint2;             for ( count2 = count; count2> 0; count2--, sort++ )           {             hint2 = sort[0];             if ( psh_hint_overlap( hint, hint2 ) )               FT_TRACE0(( "psh_hint_table_activate_mask:"                           " found overlapping hints\n" ))           }
 else|#
 directive|else
 name|count2
@@ -1024,7 +1024,7 @@ operator|=
 name|hint
 expr_stmt|;
 else|else
-name|FT_ERROR
+name|FT_TRACE0
 argument_list|(
 operator|(
 literal|"psh_hint_tableactivate_mask:"

@@ -27,7 +27,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2006 by                               */
+comment|/*  Copyright 1996-2001, 2002, 2003, 2006, 2009, 2010 by                   */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -434,7 +434,10 @@ begin_comment
 comment|/*    The `string' array returned in the `aname' structure is not        */
 end_comment
 begin_comment
-comment|/*    null-terminated.                                                   */
+comment|/*    null-terminated.  The application should deallocate it if it is no */
+end_comment
+begin_comment
+comment|/*    longer in use.                                                     */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -471,6 +474,26 @@ end_macro
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_comment
+comment|/***************************************************************************    *    * @constant:    *   FT_PARAM_TAG_IGNORE_PREFERRED_FAMILY    *    * @description:    *   A constant used as the tag of @FT_Parameter structures to make    *   FT_Open_Face() ignore preferred family subfamily names in `name'    *   table since OpenType version 1.4.  For backwards compatibility with    *   legacy systems which has 4-face-per-family restriction.    *    */
+end_comment
+begin_define
+DECL|macro|FT_PARAM_TAG_IGNORE_PREFERRED_FAMILY
+define|#
+directive|define
+name|FT_PARAM_TAG_IGNORE_PREFERRED_FAMILY
+value|FT_MAKE_TAG( 'i', 'g', 'p', 'f' )
+end_define
+begin_comment
+comment|/***************************************************************************    *    * @constant:    *   FT_PARAM_TAG_IGNORE_PREFERRED_SUBFAMILY    *    * @description:    *   A constant used as the tag of @FT_Parameter structures to make    *   FT_Open_Face() ignore preferred subfamily names in `name' table since    *   OpenType version 1.4.  For backwards compatibility with legacy    *   systems which has 4-face-per-family restriction.    *    */
+end_comment
+begin_define
+DECL|macro|FT_PARAM_TAG_IGNORE_PREFERRED_SUBFAMILY
+define|#
+directive|define
+name|FT_PARAM_TAG_IGNORE_PREFERRED_SUBFAMILY
+value|FT_MAKE_TAG( 'i', 'g', 'p', 's' )
+end_define
 begin_comment
 comment|/* */
 end_comment

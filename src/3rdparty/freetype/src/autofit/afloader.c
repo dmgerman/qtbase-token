@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2003, 2004, 2005, 2006, 2007, 2008 by                        */
+comment|/*  Copyright 2003, 2004, 2005, 2006, 2007, 2008, 2009 by                  */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -61,11 +61,6 @@ begin_include
 include|#
 directive|include
 file|"afglobal.h"
-end_include
-begin_include
-include|#
-directive|include
-file|"aflatin.h"
 end_include
 begin_include
 include|#
@@ -1893,7 +1888,8 @@ name|y
 argument_list|)
 expr_stmt|;
 comment|/* for mono-width fonts (like Andale, Courier, etc.) we need */
-comment|/* to keep the original rounded advance width                */
+comment|/* to keep the original rounded advance width; ditto for     */
+comment|/* digits if all have the same advance width                 */
 if|#
 directive|if
 literal|0
@@ -1902,44 +1898,28 @@ else|#
 directive|else
 if|if
 condition|(
-operator|!
 name|FT_IS_FIXED_WIDTH
 argument_list|(
 name|slot
 operator|->
 name|face
 argument_list|)
-condition|)
-block|{
-comment|/* non-spacing glyphs must stay as-is */
-if|if
-condition|(
-name|slot
-operator|->
-name|metrics
-operator|.
-name|horiAdvance
-condition|)
-name|slot
-operator|->
-name|metrics
-operator|.
-name|horiAdvance
-operator|=
+operator|||
+operator|(
+name|af_face_globals_is_digit
+argument_list|(
 name|loader
 operator|->
-name|pp2
-operator|.
-name|x
-operator|-
-name|loader
+name|globals
+argument_list|,
+name|glyph_index
+argument_list|)
+operator|&&
+name|metrics
 operator|->
-name|pp1
-operator|.
-name|x
-expr_stmt|;
-block|}
-else|else
+name|digits_have_same_width
+operator|)
+condition|)
 block|{
 name|slot
 operator|->
@@ -1975,6 +1955,36 @@ operator|->
 name|rsb_delta
 operator|=
 literal|0
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|/* non-spacing glyphs must stay as-is */
+if|if
+condition|(
+name|slot
+operator|->
+name|metrics
+operator|.
+name|horiAdvance
+condition|)
+name|slot
+operator|->
+name|metrics
+operator|.
+name|horiAdvance
+operator|=
+name|loader
+operator|->
+name|pp2
+operator|.
+name|x
+operator|-
+name|loader
+operator|->
+name|pp1
+operator|.
+name|x
 expr_stmt|;
 block|}
 endif|#
