@@ -3154,7 +3154,7 @@ name|QT_CLASS_LIB
 argument_list|(
 argument|QDeclarativeView
 argument_list|,
-argument|QtQuick1
+argument|QtDeclarative
 argument_list|,
 argument|qdeclarativeview.h
 argument_list|)
