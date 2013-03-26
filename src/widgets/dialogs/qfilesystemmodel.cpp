@@ -3609,15 +3609,18 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|dirNode
-operator|->
-name|isSymLink
-argument_list|()
-operator|&&
 name|fileInfoGatherer
 operator|.
 name|resolveSymlinks
 argument_list|()
+operator|&&
+name|dirNode
+operator|->
+name|isSymLink
+argument_list|(
+comment|/* ignoreNtfsSymLinks = */
+literal|true
+argument_list|)
 condition|)
 block|{
 name|QString
