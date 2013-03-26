@@ -7353,7 +7353,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QFileSystemModel::resolveSymlinks     \brief Whether the directory model should resolve symbolic links      This is only relevant on operating systems that support symbolic links.      By default, this property is false. */
+comment|/*!     \property QFileSystemModel::resolveSymlinks     \brief Whether the directory model should resolve symbolic links      This is only relevant on Windows.      By default, this property is true. */
 end_comment
 begin_function
 DECL|function|setResolveSymlinks
