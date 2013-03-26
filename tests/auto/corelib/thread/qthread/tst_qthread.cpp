@@ -6582,11 +6582,6 @@ parameter_list|()
 member_init_list|:
 name|QAbstractEventDispatcher
 argument_list|()
-member_init_list|,
-name|visited
-argument_list|(
-literal|false
-argument_list|)
 block|{}
 DECL|function|processEvents
 name|bool
@@ -6598,8 +6593,11 @@ name|ProcessEventsFlags
 parameter_list|)
 block|{
 name|visited
-operator|=
+operator|.
+name|store
+argument_list|(
 literal|true
+argument_list|)
 expr_stmt|;
 emit|emit
 name|awake
@@ -6751,9 +6749,10 @@ block|{ }
 endif|#
 directive|endif
 DECL|member|visited
-name|bool
+name|QBasicAtomicInt
 name|visited
 decl_stmt|;
+comment|// bool
 block|}
 class|;
 end_class
@@ -6939,6 +6938,9 @@ argument_list|(
 name|ed
 operator|->
 name|visited
+operator|.
+name|load
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|QPointer
