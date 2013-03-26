@@ -109,19 +109,9 @@ operator|:
 name|QByteArray
 name|readPpsValue
 argument_list|(
-specifier|const
-name|char
-operator|*
-name|ppsPath
+argument|const char* ppsObject
 argument_list|,
-specifier|const
-name|char
-operator|*
-name|ppsObject
-argument_list|,
-name|int
-operator|*
-name|ppsFd
+argument|int ppsFd
 argument_list|)
 block|;
 name|QString
