@@ -770,6 +770,7 @@ function_decl|;
 end_function_decl
 begin_function
 DECL|function|qCpuFeatures
+specifier|static
 specifier|inline
 name|uint
 name|qCpuFeatures
@@ -821,6 +822,7 @@ block|}
 end_function
 begin_function
 DECL|function|qCpuHasFeature
+specifier|static
 specifier|inline
 name|uint
 name|qCpuHasFeature
