@@ -230,11 +230,15 @@ block|,
 name|Qt_5_1
 init|=
 name|Qt_5_0
+block|,
+name|Qt_5_2
+init|=
+name|Qt_5_1
 if|#
 directive|if
 name|QT_VERSION
 operator|>=
-literal|0x050200
+literal|0x050300
 error|#
 directive|error
 error|Add the datastream version for this Qt version
