@@ -477,11 +477,6 @@ operator|->
 name|scrollerProperties
 argument_list|()
 decl_stmt|;
-name|int
-name|fps
-init|=
-literal|60
-decl_stmt|;
 name|QTouchEvent
 operator|::
 name|TouchPoint
@@ -699,19 +694,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|QTest
-operator|::
-name|qWait
-argument_list|(
-literal|1000
-operator|/
-name|fps
-operator|*
-literal|2
-argument_list|)
-expr_stmt|;
-comment|// wait until the first scroll move
-name|QCOMPARE
+name|QTRY_COMPARE
 argument_list|(
 name|sw
 operator|->
@@ -2016,7 +1999,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// now we should be scrolling
-name|QCOMPARE
+name|QTRY_COMPARE
 argument_list|(
 name|s1
 operator|->

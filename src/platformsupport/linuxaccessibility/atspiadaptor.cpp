@@ -2487,7 +2487,13 @@ decl_stmt|;
 name|Q_ASSERT
 argument_list|(
 name|iface
-operator|&&
+argument_list|)
+expr_stmt|;
+name|Q_ASSERT
+argument_list|(
+operator|!
+name|active
+operator|||
 name|iface
 operator|->
 name|isValid
@@ -2496,7 +2502,17 @@ argument_list|)
 expr_stmt|;
 name|QString
 name|windowTitle
-init|=
+decl_stmt|;
+comment|// in dtor it may be invalid
+if|if
+condition|(
+name|iface
+operator|->
+name|isValid
+argument_list|()
+condition|)
+name|windowTitle
+operator|=
 name|iface
 operator|->
 name|text
@@ -2505,7 +2521,7 @@ name|QAccessible
 operator|::
 name|Name
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 operator|delete
 name|iface
 expr_stmt|;

@@ -313,9 +313,6 @@ name|QGLFormat
 name|fboFormat
 block|;
 name|bool
-name|wasBound
-block|;
-name|bool
 name|reqAlpha
 block|; }
 decl_stmt|;

@@ -6695,11 +6695,6 @@ operator|->
 name|activateWindow
 argument_list|()
 expr_stmt|;
-name|qApp
-operator|->
-name|syncX
-argument_list|()
-expr_stmt|;
 name|QTest
 operator|::
 name|qWait
@@ -8879,11 +8874,6 @@ name|setFocus
 argument_list|()
 expr_stmt|;
 comment|// ###
-name|qApp
-operator|->
-name|syncX
-argument_list|()
-expr_stmt|;
 name|QTRY_COMPARE
 argument_list|(
 name|qApp

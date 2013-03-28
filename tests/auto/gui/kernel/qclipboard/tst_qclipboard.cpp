@@ -929,7 +929,8 @@ block|}
 comment|// Windows: Due to implementation changes, the event loop needs
 comment|// to be spun since we ourselves also need to answer the
 comment|// WM_DRAWCLIPBOARD message as we are in the chain of clipboard
-comment|// viewers.
+comment|// viewers. Check for running before waitForFinished() in case
+comment|// the process terminated while processEvents() was executed.
 name|bool
 name|running
 init|=
@@ -963,6 +964,15 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|process
+operator|.
+name|state
+argument_list|()
+operator|!=
+name|QProcess
+operator|::
+name|Running
+operator|||
 name|process
 operator|.
 name|waitForFinished

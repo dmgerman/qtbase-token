@@ -3232,6 +3232,13 @@ operator|::
 name|init
 parameter_list|()
 block|{
+name|QCoreApplicationPrivate
+operator|::
+name|is_app_running
+operator|=
+literal|false
+expr_stmt|;
+comment|// Starting up.
 name|bool
 name|doGrabUnderDebugger
 init|=

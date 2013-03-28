@@ -13361,13 +13361,13 @@ condition|)
 block|{
 name|result
 operator|+=
+operator|&
 literal|"        "
-operator|+
-operator|(
+index|[
 name|column
 operator|%
 name|tabSize
-operator|)
+index|]
 expr_stmt|;
 name|column
 operator|=

@@ -116,14 +116,6 @@ modifier|*
 name|event
 parameter_list|)
 function_decl|;
-name|void
-name|resizeEvent
-parameter_list|(
-name|QResizeEvent
-modifier|*
-name|event
-parameter_list|)
-function_decl|;
 name|private
 label|:
 name|bool

@@ -4000,11 +4000,6 @@ modifier|&
 name|tree
 parameter_list|)
 member_init_list|:
-name|m_point
-argument_list|(
-name|point
-argument_list|)
-member_init_list|,
 name|m_result
 argument_list|(
 operator|-
@@ -4257,10 +4252,6 @@ name|m_result
 return|;
 block|}
 private|private:
-DECL|member|m_point
-name|int
-name|m_point
-decl_stmt|;
 DECL|member|pointComponents
 name|qreal
 name|pointComponents

@@ -1422,7 +1422,8 @@ if|if
 condition|(
 name|threadData
 operator|->
-name|eventDispatcher
+name|hasEventDispatcher
+argument_list|()
 condition|)
 block|{
 if|if
@@ -2520,7 +2521,8 @@ if|if
 condition|(
 name|threadData
 operator|->
-name|eventDispatcher
+name|hasEventDispatcher
+argument_list|()
 condition|)
 block|{
 name|startupSocketNotifier

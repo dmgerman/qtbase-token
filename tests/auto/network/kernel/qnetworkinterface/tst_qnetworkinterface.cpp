@@ -173,6 +173,18 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|netConfMan
+operator|->
+name|capabilities
+argument_list|()
+operator|&
+name|QNetworkConfigurationManager
+operator|::
+name|NetworkSessionRequired
+condition|)
+block|{
 name|networkConfiguration
 operator|=
 name|netConfMan
@@ -215,6 +227,7 @@ literal|30000
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 endif|#
 directive|endif

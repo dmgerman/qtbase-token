@@ -921,7 +921,8 @@ if|if
 condition|(
 name|threadData
 operator|->
-name|eventDispatcher
+name|hasEventDispatcher
+argument_list|()
 condition|)
 name|socketEngine
 operator|->
@@ -2803,7 +2804,8 @@ if|if
 condition|(
 name|threadData
 operator|->
-name|eventDispatcher
+name|hasEventDispatcher
+argument_list|()
 condition|)
 block|{
 if|if
@@ -2896,7 +2898,8 @@ if|if
 condition|(
 name|threadData
 operator|->
-name|eventDispatcher
+name|hasEventDispatcher
+argument_list|()
 condition|)
 block|{
 if|if
@@ -2965,7 +2968,8 @@ if|if
 condition|(
 name|threadData
 operator|->
-name|eventDispatcher
+name|hasEventDispatcher
+argument_list|()
 condition|)
 block|{
 if|if
@@ -4741,7 +4745,8 @@ name|d
 operator|->
 name|threadData
 operator|->
-name|eventDispatcher
+name|hasEventDispatcher
+argument_list|()
 condition|)
 block|{
 comment|// this internal API for QHostInfo either immediately gives us the desired
@@ -5414,7 +5419,8 @@ name|d
 operator|->
 name|threadData
 operator|->
-name|eventDispatcher
+name|hasEventDispatcher
+argument_list|()
 condition|)
 name|d
 operator|->

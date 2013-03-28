@@ -8920,7 +8920,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QString::replace: invalid QRegularExpresssion object"
+literal|"QString::replace: invalid QRegularExpression object"
 argument_list|)
 expr_stmt|;
 return|return
@@ -9892,7 +9892,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QString::indexOf: invalid QRegularExpresssion object"
+literal|"QString::indexOf: invalid QRegularExpression object"
 argument_list|)
 expr_stmt|;
 return|return
@@ -9963,7 +9963,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QString::lastIndexOf: invalid QRegularExpresssion object"
+literal|"QString::lastIndexOf: invalid QRegularExpression object"
 argument_list|)
 expr_stmt|;
 return|return
@@ -10082,7 +10082,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QString::contains: invalid QRegularExpresssion object"
+literal|"QString::contains: invalid QRegularExpression object"
 argument_list|)
 expr_stmt|;
 return|return
@@ -10210,7 +10210,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QString::count: invalid QRegularExpresssion object"
+literal|"QString::count: invalid QRegularExpression object"
 argument_list|)
 expr_stmt|;
 return|return
@@ -13259,7 +13259,13 @@ begin_comment
 comment|/*! \fn QString QString::fromLatin1(const char *str, int size)     Returns a QString initialized with the first \a size characters     of the Latin-1 string \a str.      If \a size is -1 (default), it is taken to be strlen(\a     str).      \sa toLatin1(), fromUtf8(), fromLocal8Bit() */
 end_comment
 begin_comment
+comment|/*!     \fn QString QString::fromLatin1(const QByteArray&str)     \overload     \since 5.0      Returns a QString initialized with the Latin-1 string \a str. */
+end_comment
+begin_comment
 comment|/*! \fn QString QString::fromLocal8Bit(const char *str, int size)     Returns a QString initialized with the first \a size characters     of the 8-bit string \a str.      If \a size is -1 (default), it is taken to be strlen(\a     str).      QTextCodec::codecForLocale() is used to perform the conversion.      \sa toLocal8Bit(), fromLatin1(), fromUtf8() */
+end_comment
+begin_comment
+comment|/*!     \fn QString QString::fromLocal8Bit(const QByteArray&str)     \overload     \since 5.0      Returns a QString initialized with the 8-bit string \a str. */
 end_comment
 begin_function
 DECL|function|fromLocal8Bit_helper
@@ -13382,7 +13388,13 @@ begin_comment
 comment|/*! \fn QString QString::fromAscii(const char *, int size);     \deprecated      Returns a QString initialized with the first \a size characters     from the string \a str.      If \a size is -1 (default), it is taken to be strlen(\a     str).      This function does the same as fromLatin1().      \sa toAscii(), fromLatin1(), fromUtf8(), fromLocal8Bit() */
 end_comment
 begin_comment
+comment|/*!     \fn QString QString::fromAscii(const QByteArray&str)     \deprecated     \overload     \since 5.0      Returns a QString initialized with the string \a str. */
+end_comment
+begin_comment
 comment|/*! \fn QString QString::fromUtf8(const char *str, int size)     Returns a QString initialized with the first \a size bytes     of the UTF-8 string \a str.      If \a size is -1 (default), it is taken to be strlen(\a     str).      UTF-8 is a Unicode codec and can represent all characters in a Unicode     string like QString. However, invalid sequences are possible with UTF-8     and, if any such are found, they will be replaced with one or more     "replacement characters", or suppressed. These include non-Unicode     sequences, non-characters, overlong sequences or surrogate codepoints     encoded into UTF-8.      Non-characters are codepoints that the Unicode standard reserves and must     not be used in text interchange. They are the last two codepoints in each     Unicode Plane (U+FFFE, U+FFFF, U+1FFFE, U+1FFFF, U+2FFFE, etc.), as well     as 32 codepoints in the range U+FDD0..U+FDEF, inclusive.      \sa toUtf8(), fromLatin1(), fromLocal8Bit() */
+end_comment
+begin_comment
+comment|/*!     \fn QString QString::fromUtf8(const QByteArray&str)     \overload     \since 5.0      Returns a QString initialized with the UTF-8 string \a str. */
 end_comment
 begin_function
 DECL|function|fromUtf8_helper

@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtWidgets/QMainWindow>
+file|<QMainWindow>
 end_include
 begin_include
 include|#

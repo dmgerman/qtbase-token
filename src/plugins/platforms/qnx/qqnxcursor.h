@@ -31,9 +31,13 @@ operator|:
 name|QQnxCursor
 argument_list|()
 block|;
-ifndef|#
-directive|ifndef
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
 name|QT_NO_CURSOR
+argument_list|)
 name|void
 name|changeCursor
 argument_list|(

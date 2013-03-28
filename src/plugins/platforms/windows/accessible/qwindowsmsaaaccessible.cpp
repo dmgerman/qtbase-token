@@ -2808,6 +2808,11 @@ decl_stmt|;
 if|if
 condition|(
 name|parent
+operator|&&
+name|parent
+operator|->
+name|isValid
+argument_list|()
 condition|)
 block|{
 name|int
@@ -2921,8 +2926,7 @@ case|:
 case|case
 name|NAVDIR_RIGHT
 case|:
-if|if
-condition|(
+block|{
 name|QAccessibleInterface
 modifier|*
 name|pIface
@@ -2930,6 +2934,15 @@ init|=
 name|accessible
 operator|->
 name|parent
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|pIface
+operator|&&
+name|pIface
+operator|->
+name|isValid
 argument_list|()
 condition|)
 block|{
@@ -3423,6 +3436,7 @@ name|acc
 operator|=
 name|candidate
 expr_stmt|;
+block|}
 block|}
 break|break;
 default|default:

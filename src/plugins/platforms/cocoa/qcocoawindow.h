@@ -228,6 +228,16 @@ name|void
 name|lower
 argument_list|()
 block|;
+name|bool
+name|isExposed
+argument_list|()
+specifier|const
+block|;
+name|bool
+name|isOpaque
+argument_list|()
+specifier|const
+block|;
 name|void
 name|propagateSizeHints
 argument_list|()
@@ -387,10 +397,31 @@ name|menubar
 argument_list|()
 specifier|const
 block|;
+name|void
+name|registerTouch
+argument_list|(
+argument|bool enable
+argument_list|)
+block|;
 name|qreal
 name|devicePixelRatio
 argument_list|()
 specifier|const
+block|;
+name|void
+name|exposeWindow
+argument_list|()
+block|;
+name|void
+name|obscureWindow
+argument_list|()
+block|;
+name|QWindow
+operator|*
+name|childWindowAt
+argument_list|(
+argument|QPoint windowPoint
+argument_list|)
 block|;
 name|protected
 operator|:
@@ -442,10 +473,6 @@ name|syncWindowState
 argument_list|(
 argument|Qt::WindowState newState
 argument_list|)
-block|;
-name|void
-name|updateOpaque
-argument_list|()
 block|;
 comment|// private:
 name|public
@@ -500,6 +527,12 @@ name|QWindow
 operator|>
 name|m_activePopupWindow
 block|;
+name|QPointer
+operator|<
+name|QWindow
+operator|>
+name|m_underMouseWindow
+block|;
 name|bool
 name|m_inConstructor
 block|;
@@ -516,6 +549,12 @@ name|m_hasModalSession
 block|;
 name|bool
 name|m_frameStrutEventsEnabled
+block|;
+name|bool
+name|m_isExposed
+block|;
+name|int
+name|m_registerTouchCount
 block|; }
 decl_stmt|;
 end_decl_stmt

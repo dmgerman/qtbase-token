@@ -7909,10 +7909,10 @@ block|{
 comment|// Reserve the beveled appearance only for mainwindow toolbars
 if|if
 condition|(
-operator|!
-operator|(
 name|widget
 operator|&&
+operator|!
+operator|(
 name|qobject_cast
 argument_list|<
 specifier|const

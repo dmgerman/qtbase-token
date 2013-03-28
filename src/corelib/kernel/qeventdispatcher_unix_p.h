@@ -430,9 +430,11 @@ block|;
 name|QAtomicInt
 name|wakeUps
 block|;
-name|bool
+name|QAtomicInt
 name|interrupt
-block|; }
+block|;
+comment|// bool
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_macro

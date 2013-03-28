@@ -2618,46 +2618,6 @@ block|,
 comment|// Vietnamese
 name|QChar
 operator|::
-name|Script_Yi
-block|,
-comment|// Yi
-name|QChar
-operator|::
-name|Script_Tagalog
-block|,
-comment|// Tagalog
-name|QChar
-operator|::
-name|Script_Hanunoo
-block|,
-comment|// Hanunoo
-name|QChar
-operator|::
-name|Script_Buhid
-block|,
-comment|// Buhid
-name|QChar
-operator|::
-name|Script_Tagbanwa
-block|,
-comment|// Tagbanwa
-name|QChar
-operator|::
-name|Script_Limbu
-block|,
-comment|// Limbu
-name|QChar
-operator|::
-name|Script_TaiLe
-block|,
-comment|// TaiLe
-name|QChar
-operator|::
-name|Script_Braille
-block|,
-comment|// Braille
-name|QChar
-operator|::
 name|Script_Common
 block|,
 comment|// Symbol

@@ -354,6 +354,9 @@ return|return
 name|data
 operator|->
 name|eventDispatcher
+operator|.
+name|load
+argument_list|()
 return|;
 block|}
 end_function

@@ -620,6 +620,11 @@ name|~
 name|QTextBoundaryFinder
 parameter_list|()
 block|{
+name|Q_UNUSED
+argument_list|(
+name|unused
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|freePrivate

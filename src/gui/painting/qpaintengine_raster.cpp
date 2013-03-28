@@ -5046,8 +5046,9 @@ operator|::
 name|systemStateChanged
 parameter_list|()
 block|{
+name|deviceRectUnclipped
+operator|=
 name|QRect
-name|clipRect
 argument_list|(
 literal|0
 argument_list|,
@@ -5073,7 +5074,7 @@ name|height
 argument_list|()
 argument_list|)
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -5088,7 +5089,7 @@ name|clippedDeviceRgn
 init|=
 name|systemClip
 operator|&
-name|clipRect
+name|deviceRectUnclipped
 decl_stmt|;
 name|deviceRect
 operator|=
@@ -5109,7 +5110,7 @@ else|else
 block|{
 name|deviceRect
 operator|=
-name|clipRect
+name|deviceRectUnclipped
 expr_stmt|;
 name|baseClip
 operator|->
@@ -5133,7 +5134,7 @@ literal|"deviceRect"
 operator|<<
 name|deviceRect
 operator|<<
-name|clipRect
+name|deviceRectUnclipped
 operator|<<
 name|systemClip
 expr_stmt|;
@@ -7903,6 +7904,10 @@ argument_list|,
 name|d
 operator|->
 name|deviceRect
+argument_list|,
+name|d
+operator|->
+name|deviceRectUnclipped
 argument_list|)
 decl_stmt|;
 name|stroker
@@ -8212,6 +8217,10 @@ argument_list|,
 name|d
 operator|->
 name|deviceRect
+argument_list|,
+name|d
+operator|->
+name|deviceRectUnclipped
 argument_list|)
 decl_stmt|;
 name|stroker
@@ -8381,6 +8390,10 @@ argument_list|,
 name|d
 operator|->
 name|deviceRect
+argument_list|,
+name|d
+operator|->
+name|deviceRectUnclipped
 argument_list|)
 decl_stmt|;
 name|stroker
@@ -10709,6 +10722,10 @@ argument_list|,
 name|d
 operator|->
 name|deviceRect
+argument_list|,
+name|d
+operator|->
+name|deviceRectUnclipped
 argument_list|)
 decl_stmt|;
 name|stroker
@@ -11153,6 +11170,10 @@ argument_list|,
 name|d
 operator|->
 name|deviceRect
+argument_list|,
+name|d
+operator|->
+name|deviceRectUnclipped
 argument_list|)
 decl_stmt|;
 name|stroker
@@ -19232,6 +19253,10 @@ argument_list|,
 name|d
 operator|->
 name|deviceRect
+argument_list|,
+name|d
+operator|->
+name|deviceRectUnclipped
 argument_list|)
 decl_stmt|;
 name|stroker
@@ -19326,6 +19351,10 @@ argument_list|,
 name|d
 operator|->
 name|deviceRect
+argument_list|,
+name|d
+operator|->
+name|deviceRectUnclipped
 argument_list|)
 decl_stmt|;
 name|stroker
@@ -19423,6 +19452,10 @@ argument_list|,
 name|d
 operator|->
 name|deviceRect
+argument_list|,
+name|d
+operator|->
+name|deviceRectUnclipped
 argument_list|)
 decl_stmt|;
 name|stroker
@@ -19840,6 +19873,10 @@ argument_list|,
 name|d
 operator|->
 name|deviceRect
+argument_list|,
+name|d
+operator|->
+name|deviceRectUnclipped
 argument_list|)
 decl_stmt|;
 name|stroker

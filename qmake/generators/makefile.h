@@ -229,11 +229,9 @@ operator|>
 name|init_compiler_already
 block|;
 name|QString
-name|chkdir
+name|makedir
 block|,
-name|chkfile
-block|,
-name|chkglue
+name|chkexists
 block|;
 name|QString
 name|build_args

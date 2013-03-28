@@ -74,6 +74,11 @@ name|QDocIndexFiles
 operator|::
 name|QDocIndexFiles
 parameter_list|()
+member_init_list|:
+name|gen_
+argument_list|(
+literal|0
+argument_list|)
 block|{
 name|qdb_
 operator|=

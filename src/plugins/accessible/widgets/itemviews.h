@@ -83,6 +83,11 @@ modifier|*
 name|w
 parameter_list|)
 function_decl|;
+name|bool
+name|isValid
+argument_list|()
+specifier|const
+expr_stmt|;
 name|virtual
 operator|~
 name|QAccessibleTable

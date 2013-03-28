@@ -272,60 +272,26 @@ parameter_list|)
 specifier|const
 block|{
 name|QString
-name|ret
+name|edir
 init|=
+name|escape
+condition|?
+name|escapeFilePath
+argument_list|(
+name|dir
+argument_list|)
+else|:
+name|dir
+decl_stmt|;
+return|return
 literal|"@"
 operator|+
-name|chkdir
-operator|+
-literal|" "
-decl_stmt|;
-if|if
-condition|(
-name|escape
-condition|)
-name|ret
-operator|+=
-name|escapeFilePath
+name|makedir
+operator|.
+name|arg
 argument_list|(
-name|dir
+name|edir
 argument_list|)
-expr_stmt|;
-else|else
-name|ret
-operator|+=
-name|dir
-expr_stmt|;
-name|ret
-operator|+=
-literal|" "
-operator|+
-name|chkglue
-operator|+
-literal|"$(MKDIR) "
-expr_stmt|;
-if|if
-condition|(
-name|escape
-condition|)
-name|ret
-operator|+=
-name|escapeFilePath
-argument_list|(
-name|dir
-argument_list|)
-expr_stmt|;
-else|else
-name|ret
-operator|+=
-name|dir
-expr_stmt|;
-name|ret
-operator|+=
-literal|" "
-expr_stmt|;
-return|return
-name|ret
 return|;
 block|}
 end_function
@@ -2687,11 +2653,11 @@ argument_list|,
 literal|"TARGET is empty"
 argument_list|)
 expr_stmt|;
-name|chkdir
+name|makedir
 operator|=
 name|v
 index|[
-literal|"QMAKE_CHK_DIR_EXISTS"
+literal|"QMAKE_MKDIR_CMD"
 index|]
 operator|.
 name|join
@@ -2699,40 +2665,11 @@ argument_list|(
 literal|' '
 argument_list|)
 expr_stmt|;
-name|chkfile
+name|chkexists
 operator|=
 name|v
 index|[
-literal|"QMAKE_CHK_FILE_EXISTS"
-index|]
-operator|.
-name|join
-argument_list|(
-literal|' '
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|chkfile
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-comment|// Backwards compat with Qt4 specs
-name|chkfile
-operator|=
-name|isWindowsShell
-argument_list|()
-condition|?
-literal|"if not exist"
-else|:
-literal|"test -f"
-expr_stmt|;
-name|chkglue
-operator|=
-name|v
-index|[
-literal|"QMAKE_CHK_EXISTS_GLUE"
+literal|"QMAKE_CHK_EXISTS"
 index|]
 operator|.
 name|join
@@ -2742,20 +2679,59 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|chkglue
+name|makedir
 operator|.
 name|isEmpty
 argument_list|()
 condition|)
-comment|// Backwards compat with Qt4 specs
-name|chkglue
-operator|=
+block|{
+comment|// Backwards compat with Qt< 5.0.2 specs
+if|if
+condition|(
 name|isWindowsShell
 argument_list|()
-condition|?
-literal|""
-else|:
-literal|"|| "
+condition|)
+block|{
+name|makedir
+operator|=
+literal|"if not exist %1 mkdir %1& if not exist %1 exit 1"
+expr_stmt|;
+name|chkexists
+operator|=
+literal|"if not exist %1"
+expr_stmt|;
+block|}
+else|else
+block|{
+name|makedir
+operator|=
+literal|"test -d %1 || mkdir -p %1"
+expr_stmt|;
+name|chkexists
+operator|=
+literal|"test -e %1 ||"
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
+name|v
+index|[
+literal|"QMAKE_CC_O_FLAG"
+index|]
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|v
+index|[
+literal|"QMAKE_CC_O_FLAG"
+index|]
+operator|.
+name|append
+argument_list|(
+literal|"-o "
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -18191,17 +18167,15 @@ name|pfx
 operator|=
 literal|"( "
 operator|+
-name|chkfile
-operator|+
-literal|" "
-operator|+
+name|chkexists
+operator|.
+name|arg
+argument_list|(
 name|out
+argument_list|)
 operator|+
-literal|" "
 operator|+
-name|chkglue
-operator|+
-literal|"$(QMAKE) "
+literal|" $(QMAKE) "
 operator|+
 name|in
 operator|+

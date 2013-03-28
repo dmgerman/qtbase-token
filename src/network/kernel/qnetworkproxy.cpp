@@ -1611,7 +1611,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the application level network proxying to be \a networkProxy.      If a QAbstractSocket or QTcpSocket has the     QNetworkProxy::DefaultProxy type, then the QNetworkProxy set with     this function is used. If you want more flexibility in determining     which the proxy, use the QNetworkProxyFactory class.      Setting a default proxy value with this function will override the     application proxy factory set with     QNetworkProxyFactory::setApplicationProxyFactory.      \sa QNetworkProxyFactory, applicationProxy(), QAbstractSocket::setProxy(), QTcpServer::setProxy() */
+comment|/*!     Sets the application level network proxying to be \a networkProxy.      If a QAbstractSocket or QTcpSocket has the     QNetworkProxy::DefaultProxy type, then the QNetworkProxy set with     this function is used. If you want more flexibility in determining     which proxy is used, use the QNetworkProxyFactory class.      Setting a default proxy value with this function will override the     application proxy factory set with     QNetworkProxyFactory::setApplicationProxyFactory.      \sa QNetworkProxyFactory, applicationProxy(), QAbstractSocket::setProxy(), QTcpServer::setProxy() */
 end_comment
 begin_function
 DECL|function|setApplicationProxy

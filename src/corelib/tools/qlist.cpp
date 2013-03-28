@@ -1838,7 +1838,7 @@ begin_comment
 comment|/*! \fn QList::QList(const QList<T>&other)      Constructs a copy of \a other.      This operation takes \l{constant time}, because QList is     \l{implicitly shared}. This makes returning a QList from a     function very fast. If a shared instance is modified, it will be     copied (copy-on-write), and that takes \l{linear time}.      \sa operator=() */
 end_comment
 begin_comment
-comment|/*! \fn inline QList::QList(std::initializer_list<T> args)     \since 4.8      Construct a list from the std::initializer_list specified by \a args.      This constructor is only enabled if the compiler supports C++0x */
+comment|/*! \fn inline QList::QList(std::initializer_list<T> args)     \since 4.8      Construct a list from the std::initializer_list specified by \a args.      This constructor is only enabled if the compiler supports C++11 initializer     lists. */
 end_comment
 begin_comment
 comment|/*! \fn QList::~QList()      Destroys the list. References to the values in the list and all     iterators of this list become invalid. */

@@ -258,11 +258,6 @@ name|QShapedPixmapWindow
 modifier|*
 name|m_drag_icon_window
 decl_stmt|;
-name|Qt
-operator|::
-name|DropAction
-name|m_cursor_drop_action
-expr_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt

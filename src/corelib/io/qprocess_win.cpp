@@ -1366,6 +1366,11 @@ condition|)
 block|{
 name|stdoutReader
 operator|->
+name|stop
+argument_list|()
+expr_stmt|;
+name|stdoutReader
+operator|->
 name|deleteLater
 argument_list|()
 expr_stmt|;
@@ -1389,6 +1394,11 @@ condition|(
 name|stderrReader
 condition|)
 block|{
+name|stderrReader
+operator|->
+name|stop
+argument_list|()
+expr_stmt|;
 name|stderrReader
 operator|->
 name|deleteLater
@@ -2770,7 +2780,8 @@ if|if
 condition|(
 name|threadData
 operator|->
-name|eventDispatcher
+name|hasEventDispatcher
+argument_list|()
 condition|)
 block|{
 name|processFinishedNotifier
@@ -3906,20 +3917,23 @@ name|exitCode
 operator|=
 name|theExitCode
 expr_stmt|;
-comment|//### for now we assume a crash if exit code is less than -1 or the magic number
 name|crashed
 operator|=
 operator|(
 name|exitCode
 operator|==
 literal|0xf291
+comment|// our magic number, see killProcess
 operator|||
 operator|(
-name|int
-operator|)
-name|exitCode
+name|theExitCode
+operator|>=
+literal|0x80000000
+operator|&&
+name|theExitCode
 operator|<
-literal|0
+literal|0xD0000000
+operator|)
 operator|)
 expr_stmt|;
 block|}

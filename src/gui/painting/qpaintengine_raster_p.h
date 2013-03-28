@@ -1309,6 +1309,9 @@ directive|endif
 name|QRect
 name|deviceRect
 block|;
+name|QRect
+name|deviceRectUnclipped
+block|;
 name|QStroker
 name|basicStroker
 block|;

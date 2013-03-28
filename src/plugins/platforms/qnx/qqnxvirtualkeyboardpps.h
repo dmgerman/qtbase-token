@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|VIRTUALKEYBOARDPPS_H_
+name|VIRTUALKEYBOARDPPS_H
 end_ifndef
 begin_define
-DECL|macro|VIRTUALKEYBOARDPPS_H_
+DECL|macro|VIRTUALKEYBOARDPPS_H
 define|#
 directive|define
-name|VIRTUALKEYBOARDPPS_H_
+name|VIRTUALKEYBOARDPPS_H
 end_define
 begin_include
 include|#
@@ -172,6 +172,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* VIRTUALKEYBOARDPPS_H_ */
+comment|// VIRTUALKEYBOARDPPS_H
 end_comment
 end_unit

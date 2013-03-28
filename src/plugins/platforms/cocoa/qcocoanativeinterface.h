@@ -49,6 +49,12 @@ name|QPlatformMenu
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QPlatformMenuBar
+name|class
+name|QPlatformMenuBar
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QCocoaNativeInterface
 range|:
@@ -188,6 +194,28 @@ operator|*
 name|platformMenu
 argument_list|)
 block|;
+comment|// Function to return NSMenu * from QPlatformMenu
+specifier|static
+name|void
+operator|*
+name|qMenuToNSMenu
+argument_list|(
+name|QPlatformMenu
+operator|*
+name|platformMenu
+argument_list|)
+block|;
+comment|// Function to return NSMenu * from QPlatformMenuBar
+specifier|static
+name|void
+operator|*
+name|qMenuBarToNSMenu
+argument_list|(
+name|QPlatformMenuBar
+operator|*
+name|platformMenuBar
+argument_list|)
+block|;
 comment|// QImage<-> CGImage conversion functions
 specifier|static
 name|CGImageRef
@@ -218,6 +246,22 @@ argument_list|,
 name|void
 operator|*
 name|nsViewContentView
+argument_list|)
+block|;
+comment|// Register if a window should deliver touch events. Enabling
+comment|// touch events has implications for delivery of other events,
+comment|// for example by causing scrolling event lag.
+comment|//
+comment|// The registration is ref-counted: multiple widgets can enable
+comment|// touch events, which then will be delivered until the widget
+comment|// deregisters.
+specifier|static
+name|void
+name|registerTouchWindow
+argument_list|(
+argument|QWindow *window
+argument_list|,
+argument|bool enable
 argument_list|)
 block|; }
 decl_stmt|;

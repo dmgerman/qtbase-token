@@ -981,11 +981,6 @@ argument_list|()
 expr_stmt|;
 name|qApp
 operator|->
-name|syncX
-argument_list|()
-expr_stmt|;
-name|qApp
-operator|->
 name|processEvents
 argument_list|()
 expr_stmt|;

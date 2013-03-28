@@ -1281,7 +1281,7 @@ argument_list|()
 decl_stmt|;
 name|hbFont
 operator|->
-name|x_ppem
+name|y_ppem
 operator|=
 name|fontDef
 operator|.
@@ -1289,7 +1289,7 @@ name|pixelSize
 expr_stmt|;
 name|hbFont
 operator|->
-name|y_ppem
+name|x_ppem
 operator|=
 name|fontDef
 operator|.
@@ -1407,6 +1407,12 @@ name|qHBLoadFace
 argument_list|(
 name|hbFace
 argument_list|)
+expr_stmt|;
+name|hbFace
+operator|->
+name|isSymbolFont
+operator|=
+name|symbol
 expr_stmt|;
 name|face_
 operator|=

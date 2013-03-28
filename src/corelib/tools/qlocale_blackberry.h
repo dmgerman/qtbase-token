@@ -16,17 +16,17 @@ end_define
 begin_include
 include|#
 directive|include
-file|"qsocketnotifier.h"
+file|<QtCore/qsocketnotifier.h>
 end_include
 begin_include
 include|#
 directive|include
-file|"qreadwritelock.h"
+file|<QtCore/qreadwritelock.h>
 end_include
 begin_include
 include|#
 directive|include
-file|"qlocale.h"
+file|<QtCore/qlocale.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
@@ -109,19 +109,9 @@ operator|:
 name|QByteArray
 name|readPpsValue
 argument_list|(
-specifier|const
-name|char
-operator|*
-name|ppsPath
+argument|const char* ppsObject
 argument_list|,
-specifier|const
-name|char
-operator|*
-name|ppsObject
-argument_list|,
-name|int
-operator|*
-name|ppsFd
+argument|int ppsFd
 argument_list|)
 block|;
 name|QString

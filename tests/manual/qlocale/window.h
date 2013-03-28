@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtWidgets>
+file|<QMainWindow>
 end_include
 begin_include
 include|#
@@ -53,6 +53,18 @@ include|#
 directive|include
 file|"info.h"
 end_include
+begin_decl_stmt
+DECL|variable|QLabel
+name|class
+name|QLabel
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|QComboBox
+name|class
+name|QComboBox
+decl_stmt|;
+end_decl_stmt
 begin_decl_stmt
 name|class
 name|Window

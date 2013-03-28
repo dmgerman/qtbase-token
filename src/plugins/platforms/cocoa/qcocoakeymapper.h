@@ -150,9 +150,6 @@ decl_stmt|;
 block|}
 name|keyboard_layout_format
 union|;
-name|KeyboardLayoutRef
-name|currentKeyboardLayout
-decl_stmt|;
 name|KeyboardLayoutKind
 name|keyboard_kind
 decl_stmt|;

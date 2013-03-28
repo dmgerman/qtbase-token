@@ -1130,6 +1130,46 @@ operator|>
 block|{ }
 expr_stmt|;
 end_expr_stmt
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_COMPILER_UNICODE_STRINGS
+argument_list|)
+end_if
+begin_expr_stmt
+name|template
+operator|<
+operator|>
+expr|struct
+name|is_integral
+operator|<
+name|char16_t
+operator|>
+operator|:
+name|true_type
+block|{ }
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+name|template
+operator|<
+operator|>
+expr|struct
+name|is_integral
+operator|<
+name|char32_t
+operator|>
+operator|:
+name|true_type
+block|{ }
+expr_stmt|;
+end_expr_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|// is_floating_point is false except for the built-in floating-point types.
 end_comment

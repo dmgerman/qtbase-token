@@ -72,6 +72,11 @@ name|QString
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|bool
+name|isValid
+argument_list|()
+specifier|const
+expr_stmt|;
 name|QWindow
 operator|*
 name|window

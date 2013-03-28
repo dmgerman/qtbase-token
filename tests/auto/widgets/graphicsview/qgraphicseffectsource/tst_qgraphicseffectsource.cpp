@@ -1033,7 +1033,7 @@ condition|(
 operator|!
 name|item
 operator|->
-name|children
+name|childItems
 argument_list|()
 operator|.
 name|isEmpty

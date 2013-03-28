@@ -235,13 +235,6 @@ name|m_drag_icon_window
 argument_list|(
 literal|0
 argument_list|)
-member_init_list|,
-name|m_cursor_drop_action
-argument_list|(
-name|Qt
-operator|::
-name|IgnoreAction
-argument_list|)
 block|{ }
 end_constructor
 begin_destructor

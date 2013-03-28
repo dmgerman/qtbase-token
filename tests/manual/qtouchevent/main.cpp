@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtWidgets>
+file|<QApplication>
 end_include
 begin_include
 include|#
@@ -64,6 +64,11 @@ expr_stmt|;
 name|setupUi
 argument_list|(
 name|this
+argument_list|)
+expr_stmt|;
+name|setWindowTitle
+argument_list|(
+name|QT_VERSION_STR
 argument_list|)
 expr_stmt|;
 block|}

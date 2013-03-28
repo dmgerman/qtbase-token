@@ -1609,7 +1609,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn QStringList::QStringList(std::initializer_list<QString> args)     \since 4.8      Construct a list from a std::initializer_list given by \a args.      This constructor is only enabled if the compiler supports C++0x */
+comment|/*! \fn QStringList::QStringList(std::initializer_list<QString> args)     \since 4.8      Construct a list from a std::initializer_list given by \a args.      This constructor is only enabled if the compiler supports C++11 initializer     lists. */
 end_comment
 begin_macro
 name|QT_END_NAMESPACE
