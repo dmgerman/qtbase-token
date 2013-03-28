@@ -235,7 +235,7 @@ operator|::
 name|QueuedConnection
 argument_list|)
 expr_stmt|;
-name|readLangageLocale
+name|readLanguageLocale
 argument_list|()
 expr_stmt|;
 name|readRegionLocale
@@ -389,7 +389,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|lc_langage
+name|lc_language
 operator|.
 name|isEmpty
 argument_list|()
@@ -399,7 +399,7 @@ name|QLocale
 argument_list|(
 name|QLatin1String
 argument_list|(
-name|lc_langage
+name|lc_language
 argument_list|)
 argument_list|)
 return|;
@@ -507,7 +507,7 @@ name|this
 argument_list|,
 name|SLOT
 argument_list|(
-name|readLangageLocale
+name|readLanguageLocale
 argument_list|()
 argument_list|)
 argument_list|)
@@ -626,14 +626,14 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|readLangageLocale
+DECL|function|readLanguageLocale
 name|void
 name|QBBSystemLocaleData
 operator|::
-name|readLangageLocale
+name|readLanguageLocale
 parameter_list|()
 block|{
-name|lc_langage
+name|lc_language
 operator|=
 name|readPpsValue
 argument_list|(
