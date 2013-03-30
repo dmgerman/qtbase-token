@@ -150,6 +150,12 @@ argument_list|(
 name|Q_OS_MAC
 argument_list|)
 operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_ANDROID
+argument_list|)
+operator|&&
 operator|(
 name|_POSIX_MONOTONIC_CLOCK
 operator|-
