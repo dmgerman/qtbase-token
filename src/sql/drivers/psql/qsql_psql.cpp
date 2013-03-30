@@ -75,6 +75,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtSql/private/qsqldriver_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<libpq-fe.h>
 end_include
 begin_include
@@ -467,6 +472,9 @@ begin_class
 DECL|class|QPSQLDriverPrivate
 class|class
 name|QPSQLDriverPrivate
+super|:
+specifier|public
+name|QSqlDriverPrivate
 block|{
 public|public:
 DECL|function|QPSQLDriverPrivate
@@ -477,6 +485,9 @@ modifier|*
 name|qq
 parameter_list|)
 member_init_list|:
+name|QSqlDriverPrivate
+argument_list|()
+member_init_list|,
 name|q
 argument_list|(
 name|qq
@@ -513,7 +524,12 @@ name|hasBackslashEscape
 argument_list|(
 literal|false
 argument_list|)
-block|{ }
+block|{
+name|dbmsType
+operator|=
+name|PostgreSQL
+expr_stmt|;
+block|}
 DECL|member|q
 name|QPSQLDriver
 modifier|*
@@ -4189,9 +4205,6 @@ name|d
 operator|->
 name|connection
 argument_list|)
-expr_stmt|;
-operator|delete
-name|d
 expr_stmt|;
 block|}
 end_destructor
