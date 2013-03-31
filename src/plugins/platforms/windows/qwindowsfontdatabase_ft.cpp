@@ -2312,6 +2312,12 @@ operator|==
 name|QChar
 operator|::
 name|Script_Common
+operator|||
+name|script
+operator|==
+name|QChar
+operator|::
+name|Script_Han
 condition|)
 block|{
 comment|//&& !(request.styleStrategy& QFont::NoFontMerging)) {

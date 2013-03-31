@@ -411,10 +411,10 @@ comment|// Hiragana
 literal|"ja"
 block|,
 comment|// Katakana
-literal|"zh"
+literal|"zh-TW"
 block|,
 comment|// Bopomofo
-literal|"zh"
+literal|""
 block|,
 comment|// Han
 literal|"ii"
@@ -3297,11 +3297,11 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-comment|// If script is common then it may include languages like CJK,
+comment|// If script is Common or Han, then it may include languages like CJK,
 comment|// we should attach system default language set to the pattern
 comment|// to obtain correct font fallback list (i.e. if LANG=zh_CN
 comment|// then we normally want to use a Chinese font for CJK text;
-comment|// while a Japanese font should be use for that if LANG=ja)
+comment|// while a Japanese font should be used for that if LANG=ja)
 name|FcPattern
 modifier|*
 name|dummy
