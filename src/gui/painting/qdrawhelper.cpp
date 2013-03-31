@@ -40824,6 +40824,12 @@ name|defined
 argument_list|(
 name|QT_COMPILER_SUPPORTS_NEON
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_IOS
+argument_list|)
 if|if
 condition|(
 name|features
