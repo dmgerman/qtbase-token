@@ -156,8 +156,6 @@ argument_list|(
 name|m_integration
 argument_list|)
 return|;
-endif|#
-directive|endif
 if|#
 directive|if
 operator|!
