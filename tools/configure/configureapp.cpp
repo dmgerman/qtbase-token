@@ -19764,12 +19764,6 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|configStream
-operator|<<
-literal|"}"
-operator|<<
-name|endl
-expr_stmt|;
 if|if
 condition|(
 name|dictionary
@@ -19794,17 +19788,23 @@ block|{
 comment|// FIXME: add detection
 name|configStream
 operator|<<
-literal|"QMAKE_DEFAULT_LIBDIRS = /lib /usr/lib"
+literal|"    QMAKE_DEFAULT_LIBDIRS = /lib /usr/lib"
 operator|<<
 name|endl
 expr_stmt|;
 name|configStream
 operator|<<
-literal|"QMAKE_DEFAULT_INCDIRS = /usr/include /usr/local/include"
+literal|"    QMAKE_DEFAULT_INCDIRS = /usr/include /usr/local/include"
 operator|<<
 name|endl
 expr_stmt|;
 block|}
+name|configStream
+operator|<<
+literal|"}"
+operator|<<
+name|endl
+expr_stmt|;
 if|if
 condition|(
 name|dictionary
