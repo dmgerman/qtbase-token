@@ -358,10 +358,7 @@ comment|/* This is required by clients supporting document formats which        
 comment|/* supply font data incrementally as the document is parsed, such        */
 comment|/* as the Ghostscript interpreter for the PostScript language.           */
 comment|/*                                                                       */
-DECL|macro|FT_CONFIG_OPTION_INCREMENTAL
-define|#
-directive|define
-name|FT_CONFIG_OPTION_INCREMENTAL
+comment|/* #define FT_CONFIG_OPTION_INCREMENTAL */
 comment|/*************************************************************************/
 comment|/*                                                                       */
 comment|/* The size in bytes of the render pool used by the scan-line converter  */
@@ -753,10 +750,7 @@ directive|define
 name|AF_CONFIG_OPTION_INDIC
 comment|/* */
 comment|/*    * Define this variable if you want to keep the layout of internal    * structures that was used prior to FreeType 2.2.  This also compiles in    * a few obsolete functions to avoid linking problems on typical Unix    * distributions.    *    * For embedded systems or building a new distribution from scratch, it    * is recommended to disable the macro since it reduces the library's code    * size and activates a few memory-saving optimizations as well.    */
-DECL|macro|FT_CONFIG_OPTION_OLD_INTERNALS
-define|#
-directive|define
-name|FT_CONFIG_OPTION_OLD_INTERNALS
+comment|/* #define FT_CONFIG_OPTION_OLD_INTERNALS */
 comment|/*    * This macro is defined if either unpatented or native TrueType    * hinting is requested by the definitions above.    */
 ifdef|#
 directive|ifdef

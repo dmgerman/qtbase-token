@@ -3942,6 +3942,8 @@ condition|(
 name|clazz
 operator|->
 name|done_face
+operator|&&
+name|face
 condition|)
 name|clazz
 operator|->

@@ -5,6 +5,34 @@ end_comment
 begin_comment
 comment|/* @(#) $Id$ */
 end_comment
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|__ARMCC__
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|__CC_ARM
+argument_list|)
+end_if
+begin_comment
+comment|/* Ultra ugly hack that convinces RVCT to use the systems zlib */
+end_comment
+begin_include
+include|#
+directive|include
+file|<stdapis/zconf.h>
+end_include
+begin_else
+else|#
+directive|else
+end_else
+begin_comment
+comment|/* defined(__ARMCC__) || defined(__CC_ARM) */
+end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -1601,5 +1629,12 @@ directive|endif
 end_endif
 begin_comment
 comment|/* _ZCONF_H */
+end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* defined(__ARMCC__) || defined(__CC_ARM) */
 end_comment
 end_unit

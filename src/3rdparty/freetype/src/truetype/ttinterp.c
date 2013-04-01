@@ -2816,6 +2816,11 @@ name|context
 return|;
 name|Fail
 label|:
+name|FT_FREE
+argument_list|(
+name|exec
+argument_list|)
+expr_stmt|;
 return|return
 name|NULL
 return|;
