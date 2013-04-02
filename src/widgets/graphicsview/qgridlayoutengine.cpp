@@ -2275,6 +2275,16 @@ operator|++
 name|i
 control|)
 block|{
+if|if
+condition|(
+name|ignore
+operator|.
+name|testBit
+argument_list|(
+name|i
+argument_list|)
+condition|)
+continue|continue;
 name|result
 operator|.
 name|add
