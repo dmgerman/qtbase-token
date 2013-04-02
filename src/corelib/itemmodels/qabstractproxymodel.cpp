@@ -44,6 +44,9 @@ operator|::
 name|_q_sourceModelDestroyed
 parameter_list|()
 block|{
+name|invalidatePersistentIndexes
+argument_list|()
+expr_stmt|;
 name|model
 operator|=
 name|QAbstractItemModelPrivate

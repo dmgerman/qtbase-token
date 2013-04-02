@@ -1583,7 +1583,14 @@ operator|::
 name|_q_sourceModelDestroyed
 argument_list|()
 expr_stmt|;
-name|_q_clearMapping
+name|qDeleteAll
+argument_list|(
+name|source_index_mapping
+argument_list|)
+expr_stmt|;
+name|source_index_mapping
+operator|.
+name|clear
 argument_list|()
 expr_stmt|;
 block|}
