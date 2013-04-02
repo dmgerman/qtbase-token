@@ -9251,6 +9251,8 @@ operator|.
 name|testBit
 argument_list|(
 name|i
+operator|+
+name|itemRow
 argument_list|)
 condition|)
 operator|++
