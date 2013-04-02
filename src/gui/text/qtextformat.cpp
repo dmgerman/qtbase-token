@@ -4346,6 +4346,14 @@ name|styleStrategy
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|setFontHintingPreference
+argument_list|(
+name|font
+operator|.
+name|hintingPreference
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|setFontKerning
 argument_list|(
 name|font
