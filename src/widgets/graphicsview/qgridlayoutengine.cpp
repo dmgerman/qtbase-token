@@ -10748,7 +10748,8 @@ operator|::
 name|Horizontal
 condition|)
 block|{
-comment|//We might have items whose width depends on their height
+comment|// We might have items whose height depends on their width,
+comment|// or none of the items has a dynamic constraint.
 name|ensureColumnAndRowData
 argument_list|(
 operator|&
@@ -10882,7 +10883,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|//We have items whose height depends on their width
+comment|// We have items whose width depends on their height
 name|ensureColumnAndRowData
 argument_list|(
 operator|&
