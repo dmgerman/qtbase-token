@@ -106,17 +106,6 @@ argument_list|(
 name|QSocketNotifier
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|socket
-operator|<
-literal|0
-condition|)
-name|qWarning
-argument_list|(
-literal|"QSocketNotifier: Invalid socket specified"
-argument_list|)
-expr_stmt|;
 name|d
 operator|->
 name|sockfd
@@ -137,6 +126,18 @@ literal|true
 expr_stmt|;
 if|if
 condition|(
+name|socket
+operator|<
+literal|0
+condition|)
+name|qWarning
+argument_list|(
+literal|"QSocketNotifier: Invalid socket specified"
+argument_list|)
+expr_stmt|;
+elseif|else
+if|if
+condition|(
 operator|!
 name|d
 operator|->
@@ -147,15 +148,12 @@ operator|.
 name|load
 argument_list|()
 condition|)
-block|{
 name|qWarning
 argument_list|(
 literal|"QSocketNotifier: Can only be used with threads started with QThread"
 argument_list|)
 expr_stmt|;
-block|}
 else|else
-block|{
 name|d
 operator|->
 name|threadData
@@ -170,7 +168,6 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 end_constructor
 begin_comment
