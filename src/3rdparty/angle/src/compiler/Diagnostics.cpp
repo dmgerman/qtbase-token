@@ -32,7 +32,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"compiler/preprocessor/new/SourceLocation.h"
+file|"compiler/preprocessor/SourceLocation.h"
 end_include
 begin_constructor
 DECL|function|TDiagnostics

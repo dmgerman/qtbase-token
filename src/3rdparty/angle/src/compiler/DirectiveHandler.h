@@ -38,7 +38,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"compiler/preprocessor/new/DirectiveHandler.h"
+file|"compiler/preprocessor/DirectiveHandlerBase.h"
 end_include
 begin_decl_stmt
 DECL|variable|TDiagnostics

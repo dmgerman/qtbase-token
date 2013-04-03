@@ -53,7 +53,7 @@ name|EBhDisable
 block|,
 DECL|enumerator|EBhUndefined
 name|EBhUndefined
-block|, }
+block|}
 DECL|typedef|TBehavior
 name|TBehavior
 typedef|;

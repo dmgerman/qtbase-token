@@ -50,11 +50,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<d3dcompiler.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<string>
 end_include
 begin_include
@@ -65,12 +60,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|"libGLESv2/Context.h"
+file|"common/RefCountObject.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"libGLESv2/D3DConstantTable.h"
+file|"angletypes.h"
 end_include
 begin_include
 include|#
@@ -80,8 +75,33 @@ end_include
 begin_include
 include|#
 directive|include
+file|"libGLESv2/Uniform.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"libGLESv2/Shader.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"libGLESv2/Constants.h"
+end_include
+begin_decl_stmt
+name|namespace
+name|rx
+block|{
+name|class
+name|ShaderExecutable
+decl_stmt|;
+name|class
+name|Renderer
+decl_stmt|;
+struct_decl|struct
+name|TranslatedAttribute
+struct_decl|;
+block|}
+end_decl_stmt
 begin_decl_stmt
 name|namespace
 name|gl
@@ -92,186 +112,15 @@ decl_stmt|;
 name|class
 name|VertexShader
 decl_stmt|;
-comment|// Helper struct representing a single shader uniform
-struct|struct
-name|Uniform
-block|{
-name|Uniform
-argument_list|(
-argument|GLenum type
-argument_list|,
-argument|const std::string&_name
-argument_list|,
-argument|unsigned int arraySize
-argument_list|)
-empty_stmt|;
-operator|~
-name|Uniform
-argument_list|()
-expr_stmt|;
-name|bool
-name|isArray
-parameter_list|()
-function_decl|;
-specifier|const
-name|GLenum
-name|type
+name|class
+name|InfoLog
 decl_stmt|;
-specifier|const
-name|std
-operator|::
-name|string
-name|_name
-expr_stmt|;
-comment|// Decorated name
-specifier|const
-name|std
-operator|::
-name|string
-name|name
-expr_stmt|;
-comment|// Undecorated name
-specifier|const
-name|unsigned
-name|int
-name|arraySize
+name|class
+name|AttributeBindings
 decl_stmt|;
-name|unsigned
-name|char
-modifier|*
-name|data
-decl_stmt|;
-name|bool
-name|dirty
-decl_stmt|;
-struct|struct
-name|RegisterInfo
-block|{
-name|RegisterInfo
-argument_list|()
-block|{
-name|float4Index
-operator|=
-operator|-
-literal|1
-expr_stmt|;
-name|samplerIndex
-operator|=
-operator|-
-literal|1
-expr_stmt|;
-name|boolIndex
-operator|=
-operator|-
-literal|1
-expr_stmt|;
-name|registerCount
-operator|=
-literal|0
-expr_stmt|;
-block|}
-name|void
-name|set
-parameter_list|(
-specifier|const
-name|D3DConstant
-modifier|*
-name|constant
-parameter_list|)
-block|{
-switch|switch
-condition|(
-name|constant
-operator|->
-name|registerSet
-condition|)
-block|{
-case|case
-name|D3DConstant
-operator|::
-name|RS_BOOL
-case|:
-name|boolIndex
-operator|=
-name|constant
-operator|->
-name|registerIndex
-expr_stmt|;
-break|break;
-case|case
-name|D3DConstant
-operator|::
-name|RS_FLOAT4
-case|:
-name|float4Index
-operator|=
-name|constant
-operator|->
-name|registerIndex
-expr_stmt|;
-break|break;
-case|case
-name|D3DConstant
-operator|::
-name|RS_SAMPLER
-case|:
-name|samplerIndex
-operator|=
-name|constant
-operator|->
-name|registerIndex
-expr_stmt|;
-break|break;
-default|default:
-name|UNREACHABLE
-argument_list|()
-expr_stmt|;
-block|}
-name|ASSERT
-argument_list|(
-name|registerCount
-operator|==
-literal|0
-operator|||
-name|registerCount
-operator|==
-operator|(
-name|int
-operator|)
-name|constant
-operator|->
-name|registerCount
-argument_list|)
-expr_stmt|;
-name|registerCount
-operator|=
-name|constant
-operator|->
-name|registerCount
-expr_stmt|;
-block|}
-name|int
-name|float4Index
-decl_stmt|;
-name|int
-name|samplerIndex
-decl_stmt|;
-name|int
-name|boolIndex
-decl_stmt|;
-name|int
-name|registerCount
-decl_stmt|;
-block|}
-struct|;
-name|RegisterInfo
-name|ps
-decl_stmt|;
-name|RegisterInfo
-name|vs
-decl_stmt|;
-block|}
-struct|;
+struct_decl|struct
+name|Varying
+struct_decl|;
 comment|// Struct used for correlating uniforms/elements of uniform arrays to handles
 struct|struct
 name|UniformLocation
@@ -281,7 +130,7 @@ argument_list|()
 block|{     }
 name|UniformLocation
 argument_list|(
-argument|const std::string&_name
+argument|const std::string&name
 argument_list|,
 argument|unsigned int element
 argument_list|,
@@ -312,21 +161,39 @@ name|RefCountObject
 block|{
 name|public
 operator|:
+name|explicit
 name|ProgramBinary
-argument_list|()
+argument_list|(
+name|rx
+operator|::
+name|Renderer
+operator|*
+name|renderer
+argument_list|)
 block|;
 operator|~
 name|ProgramBinary
 argument_list|()
 block|;
-name|IDirect3DPixelShader9
+name|rx
+operator|::
+name|ShaderExecutable
 operator|*
-name|getPixelShader
+name|getPixelExecutable
 argument_list|()
 block|;
-name|IDirect3DVertexShader9
+name|rx
+operator|::
+name|ShaderExecutable
 operator|*
-name|getVertexShader
+name|getVertexExecutable
+argument_list|()
+block|;
+name|rx
+operator|::
+name|ShaderExecutable
+operator|*
+name|getGeometryExecutable
 argument_list|()
 block|;
 name|GLuint
@@ -368,6 +235,16 @@ argument_list|)
 block|;
 name|bool
 name|usesPointSize
+argument_list|()
+specifier|const
+block|;
+name|bool
+name|usesPointSpriteEmulation
+argument_list|()
+specifier|const
+block|;
+name|bool
+name|usesGeometryShader
 argument_list|()
 specifier|const
 block|;
@@ -507,36 +384,6 @@ argument_list|,
 argument|GLint *params
 argument_list|)
 block|;
-name|GLint
-name|getDxDepthRangeLocation
-argument_list|()
-specifier|const
-block|;
-name|GLint
-name|getDxDepthLocation
-argument_list|()
-specifier|const
-block|;
-name|GLint
-name|getDxCoordLocation
-argument_list|()
-specifier|const
-block|;
-name|GLint
-name|getDxHalfPixelSizeLocation
-argument_list|()
-specifier|const
-block|;
-name|GLint
-name|getDxFrontCCWLocation
-argument_list|()
-specifier|const
-block|;
-name|GLint
-name|getDxPointsOrLinesLocation
-argument_list|()
-specifier|const
-block|;
 name|void
 name|dirtyAllUniforms
 argument_list|()
@@ -615,14 +462,17 @@ argument|GLenum *type
 argument_list|,
 argument|GLchar *name
 argument_list|)
+specifier|const
 block|;
 name|GLint
 name|getActiveAttributeCount
 argument_list|()
+specifier|const
 block|;
 name|GLint
 name|getActiveAttributeMaxLength
 argument_list|()
+specifier|const
 block|;
 name|void
 name|getActiveUniform
@@ -639,14 +489,17 @@ argument|GLenum *type
 argument_list|,
 argument|GLchar *name
 argument_list|)
+specifier|const
 block|;
 name|GLint
 name|getActiveUniformCount
 argument_list|()
+specifier|const
 block|;
 name|GLint
 name|getActiveUniformMaxLength
 argument_list|()
+specifier|const
 block|;
 name|void
 name|validate
@@ -675,6 +528,15 @@ name|getSerial
 argument_list|()
 specifier|const
 block|;
+name|void
+name|sortAttributesByLayout
+argument_list|(
+argument|rx::TranslatedAttribute attributes[gl::MAX_VERTEX_ATTRIBS]
+argument_list|,
+argument|int sortedSemanticIndices[MAX_VERTEX_ATTRIBS]
+argument_list|)
+specifier|const
+block|;
 specifier|static
 name|std
 operator|::
@@ -690,50 +552,11 @@ name|name
 argument_list|)
 block|;
 comment|// Prepend an underscore
-specifier|static
-name|std
-operator|::
-name|string
-name|undecorateUniform
-argument_list|(
-specifier|const
-name|std
-operator|::
-name|string
-operator|&
-name|_name
-argument_list|)
-block|;
-comment|// Remove leading underscore
 name|private
 operator|:
 name|DISALLOW_COPY_AND_ASSIGN
 argument_list|(
 name|ProgramBinary
-argument_list|)
-block|;
-name|ID3D10Blob
-operator|*
-name|compileToBinary
-argument_list|(
-name|InfoLog
-operator|&
-name|infoLog
-argument_list|,
-specifier|const
-name|char
-operator|*
-name|hlsl
-argument_list|,
-specifier|const
-name|char
-operator|*
-name|profile
-argument_list|,
-name|D3DConstantTable
-operator|*
-operator|*
-name|constantTable
 argument_list|)
 block|;
 name|int
@@ -760,29 +583,21 @@ block|;
 name|bool
 name|linkVaryings
 argument_list|(
-name|InfoLog
-operator|&
-name|infoLog
+argument|InfoLog&infoLog
 argument_list|,
-name|std
-operator|::
-name|string
-operator|&
-name|pixelHLSL
+argument|int registers
 argument_list|,
-name|std
-operator|::
-name|string
-operator|&
-name|vertexHLSL
+argument|const Varying *packing[][
+literal|4
+argument|]
 argument_list|,
-name|FragmentShader
-operator|*
-name|fragmentShader
+argument|std::string& pixelHLSL
 argument_list|,
-name|VertexShader
-operator|*
-name|vertexShader
+argument|std::string& vertexHLSL
+argument_list|,
+argument|FragmentShader *fragmentShader
+argument_list|,
+argument|VertexShader *vertexShader
 argument_list|)
 block|;
 name|bool
@@ -809,148 +624,93 @@ block|;
 name|bool
 name|linkUniforms
 argument_list|(
-argument|InfoLog&infoLog
+name|InfoLog
+operator|&
+name|infoLog
 argument_list|,
-argument|GLenum shader
+specifier|const
+name|sh
+operator|::
+name|ActiveUniforms
+operator|&
+name|vertexUniforms
 argument_list|,
-argument|D3DConstantTable *constantTable
+specifier|const
+name|sh
+operator|::
+name|ActiveUniforms
+operator|&
+name|fragmentUniforms
 argument_list|)
 block|;
 name|bool
 name|defineUniform
 argument_list|(
+argument|GLenum shader
+argument_list|,
+argument|const sh::Uniform&constant
+argument_list|,
 argument|InfoLog&infoLog
-argument_list|,
-argument|GLenum shader
-argument_list|,
-argument|const D3DConstant *constant
-argument_list|,
-argument|std::string name =
-literal|""
 argument_list|)
 block|;
-name|bool
-name|defineUniform
-argument_list|(
-argument|GLenum shader
-argument_list|,
-argument|const D3DConstant *constant
-argument_list|,
-argument|const std::string&name
-argument_list|)
-block|;
-name|Uniform
-operator|*
-name|createUniform
-argument_list|(
-specifier|const
-name|D3DConstant
-operator|*
-name|constant
-argument_list|,
-specifier|const
 name|std
 operator|::
 name|string
-operator|&
-name|name
-argument_list|)
-block|;
-name|bool
-name|applyUniformnfv
+name|generateGeometryShaderHLSL
 argument_list|(
-name|Uniform
-operator|*
-name|targetUniform
+argument|int registers
 argument_list|,
+argument|const Varying *packing[][
+literal|4
+argument|]
+argument_list|,
+argument|FragmentShader *fragmentShader
+argument_list|,
+argument|VertexShader *vertexShader
+argument_list|)
 specifier|const
-name|GLfloat
+block|;
+name|std
+operator|::
+name|string
+name|generatePointSpriteHLSL
+argument_list|(
+argument|int registers
+argument_list|,
+argument|const Varying *packing[][
+literal|4
+argument|]
+argument_list|,
+argument|FragmentShader *fragmentShader
+argument_list|,
+argument|VertexShader *vertexShader
+argument_list|)
+specifier|const
+block|;
+name|rx
+operator|::
+name|Renderer
 operator|*
-name|v
-argument_list|)
+specifier|const
+name|mRenderer
 block|;
-name|bool
-name|applyUniform1iv
-argument_list|(
-argument|Uniform *targetUniform
-argument_list|,
-argument|GLsizei count
-argument_list|,
-argument|const GLint *v
-argument_list|)
-block|;
-name|bool
-name|applyUniform2iv
-argument_list|(
-argument|Uniform *targetUniform
-argument_list|,
-argument|GLsizei count
-argument_list|,
-argument|const GLint *v
-argument_list|)
-block|;
-name|bool
-name|applyUniform3iv
-argument_list|(
-argument|Uniform *targetUniform
-argument_list|,
-argument|GLsizei count
-argument_list|,
-argument|const GLint *v
-argument_list|)
-block|;
-name|bool
-name|applyUniform4iv
-argument_list|(
-argument|Uniform *targetUniform
-argument_list|,
-argument|GLsizei count
-argument_list|,
-argument|const GLint *v
-argument_list|)
-block|;
-name|void
-name|applyUniformniv
-argument_list|(
-argument|Uniform *targetUniform
-argument_list|,
-argument|GLsizei count
-argument_list|,
-argument|const Vector4 *vector
-argument_list|)
-block|;
-name|void
-name|applyUniformnbv
-argument_list|(
-argument|Uniform *targetUniform
-argument_list|,
-argument|GLsizei count
-argument_list|,
-argument|int width
-argument_list|,
-argument|const GLboolean *v
-argument_list|)
-block|;
-name|IDirect3DDevice9
-operator|*
-name|mDevice
-block|;
-name|IDirect3DPixelShader9
+name|rx
+operator|::
+name|ShaderExecutable
 operator|*
 name|mPixelExecutable
 block|;
-name|IDirect3DVertexShader9
+name|rx
+operator|::
+name|ShaderExecutable
 operator|*
 name|mVertexExecutable
 block|;
-comment|// These are only used during linking.
-name|D3DConstantTable
+name|rx
+operator|::
+name|ShaderExecutable
 operator|*
-name|mConstantTablePS
-block|;
-name|D3DConstantTable
-operator|*
-name|mConstantTableVS
+name|mGeometryExecutable
 block|;
 name|Attribute
 name|mLinkedAttribute
@@ -988,7 +748,7 @@ block|;
 name|Sampler
 name|mSamplersVS
 index|[
-name|MAX_VERTEX_TEXTURE_IMAGE_UNITS_VTF
+name|IMPLEMENTATION_MAX_VERTEX_TEXTURE_IMAGE_UNITS
 index|]
 block|;
 name|GLuint
@@ -1000,19 +760,9 @@ block|;
 name|bool
 name|mUsesPointSize
 block|;
-typedef|typedef
-name|std
-operator|::
-name|vector
-operator|<
-name|Uniform
-operator|*
-operator|>
-name|UniformArray
-expr_stmt|;
 name|UniformArray
 name|mUniforms
-decl_stmt|;
+block|;
 typedef|typedef
 name|std
 operator|::
@@ -1024,24 +774,6 @@ name|UniformIndex
 expr_stmt|;
 name|UniformIndex
 name|mUniformIndex
-decl_stmt|;
-name|GLint
-name|mDxDepthRangeLocation
-decl_stmt|;
-name|GLint
-name|mDxDepthLocation
-decl_stmt|;
-name|GLint
-name|mDxCoordLocation
-decl_stmt|;
-name|GLint
-name|mDxHalfPixelSizeLocation
-decl_stmt|;
-name|GLint
-name|mDxFrontCCWLocation
-decl_stmt|;
-name|GLint
-name|mDxPointsOrLinesLocation
 decl_stmt|;
 name|bool
 name|mValidated

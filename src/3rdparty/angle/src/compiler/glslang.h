@@ -46,7 +46,7 @@ specifier|extern
 name|int
 name|glslang_scan
 parameter_list|(
-name|int
+name|size_t
 name|count
 parameter_list|,
 specifier|const

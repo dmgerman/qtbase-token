@@ -3,7 +3,7 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// Copyright (c) 2002-2010 The ANGLE Project Authors. All rights reserved.
+comment|// Copyright (c) 2002-2013 The ANGLE Project Authors. All rights reserved.
 end_comment
 begin_comment
 comment|// Use of this source code is governed by a BSD-style license that can be
@@ -40,6 +40,9 @@ name|type
 parameter_list|,
 name|ShShaderSpec
 name|spec
+parameter_list|,
+name|ShShaderOutput
+name|output
 parameter_list|)
 member_init_list|:
 name|TCompiler
@@ -47,6 +50,11 @@ argument_list|(
 name|type
 argument_list|,
 name|spec
+argument_list|)
+member_init_list|,
+name|mOutputType
+argument_list|(
+name|output
 argument_list|)
 block|{ }
 end_constructor
@@ -76,11 +84,23 @@ name|OutputHLSL
 name|outputHLSL
 argument_list|(
 name|parseContext
+argument_list|,
+name|getResources
+argument_list|()
+argument_list|,
+name|mOutputType
 argument_list|)
 decl_stmt|;
 name|outputHLSL
 operator|.
 name|output
+argument_list|()
+expr_stmt|;
+name|mActiveUniforms
+operator|=
+name|outputHLSL
+operator|.
+name|getUniforms
 argument_list|()
 expr_stmt|;
 block|}

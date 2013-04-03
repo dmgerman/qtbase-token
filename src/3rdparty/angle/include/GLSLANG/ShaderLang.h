@@ -3,7 +3,7 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// Copyright (c) 2002-2010 The ANGLE Project Authors. All rights reserved.
+comment|// Copyright (c) 2002-2013 The ANGLE Project Authors. All rights reserved.
 end_comment
 begin_comment
 comment|// Use of this source code is governed by a BSD-style license that can be
@@ -114,6 +114,16 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_include
+include|#
+directive|include
+file|"KHR/khrplatform.h"
+end_include
+begin_include
+include|#
+directive|include
+file|<stddef.h>
+end_include
 begin_comment
 comment|//
 end_comment
@@ -139,11 +149,11 @@ endif|#
 directive|endif
 comment|// Version number for shader translation API.
 comment|// It is incremented everytime the API changes.
-DECL|macro|SH_VERSION
+DECL|macro|ANGLE_SH_VERSION
 define|#
 directive|define
-name|SH_VERSION
-value|107
+name|ANGLE_SH_VERSION
+value|110
 comment|//
 comment|// The names of the following enums have been derived by replacing GL prefix
 comment|// with SH. For example, SH_INFO_LOG_LENGTH is equivalent to GL_INFO_LOG_LENGTH.
@@ -224,6 +234,16 @@ DECL|enumerator|SH_HLSL_OUTPUT
 name|SH_HLSL_OUTPUT
 init|=
 literal|0x8B47
+block|,
+DECL|enumerator|SH_HLSL9_OUTPUT
+name|SH_HLSL9_OUTPUT
+init|=
+literal|0x8B47
+block|,
+DECL|enumerator|SH_HLSL11_OUTPUT
+name|SH_HLSL11_OUTPUT
+init|=
+literal|0x8B48
 block|}
 DECL|typedef|ShShaderOutput
 name|ShShaderOutput
@@ -371,7 +391,27 @@ block|,
 DECL|enumerator|SH_MAPPED_NAME_MAX_LENGTH
 name|SH_MAPPED_NAME_MAX_LENGTH
 init|=
-literal|0x8B8B
+literal|0x6000
+block|,
+DECL|enumerator|SH_NAME_MAX_LENGTH
+name|SH_NAME_MAX_LENGTH
+init|=
+literal|0x6001
+block|,
+DECL|enumerator|SH_HASHED_NAME_MAX_LENGTH
+name|SH_HASHED_NAME_MAX_LENGTH
+init|=
+literal|0x6002
+block|,
+DECL|enumerator|SH_HASHED_NAMES_COUNT
+name|SH_HASHED_NAMES_COUNT
+init|=
+literal|0x6003
+block|,
+DECL|enumerator|SH_ACTIVE_UNIFORMS_ARRAY
+name|SH_ACTIVE_UNIFORMS_ARRAY
+init|=
+literal|0x6004
 block|}
 DECL|typedef|ShShaderInfo
 name|ShShaderInfo
@@ -458,9 +498,37 @@ DECL|enumerator|SH_ENFORCE_PACKING_RESTRICTIONS
 name|SH_ENFORCE_PACKING_RESTRICTIONS
 init|=
 literal|0x0800
-block|, }
+block|,
+comment|// This flag ensures all indirect (expression-based) array indexing
+comment|// is clamped to the bounds of the array. This ensures, for example,
+comment|// that you cannot read off the end of a uniform, whether an array
+comment|// vec234, or mat234 type. The ShArrayIndexClampingStrategy enum,
+comment|// specified in the ShBuiltInResources when constructing the
+comment|// compiler, selects the strategy for the clamping implementation.
+DECL|enumerator|SH_CLAMP_INDIRECT_ARRAY_BOUNDS
+name|SH_CLAMP_INDIRECT_ARRAY_BOUNDS
+init|=
+literal|0x1000
+block|}
 DECL|typedef|ShCompileOptions
 name|ShCompileOptions
+typedef|;
+comment|// Defines alternate strategies for implementing array index clamping.
+typedef|typedef
+enum|enum
+block|{
+comment|// Use the clamp intrinsic for array index clamping.
+DECL|enumerator|SH_CLAMP_WITH_CLAMP_INTRINSIC
+name|SH_CLAMP_WITH_CLAMP_INTRINSIC
+init|=
+literal|1
+block|,
+comment|// Use a user-defined function for array index clamping.
+DECL|enumerator|SH_CLAMP_WITH_USER_DEFINED_INT_CLAMP_FUNCTION
+name|SH_CLAMP_WITH_USER_DEFINED_INT_CLAMP_FUNCTION
+block|}
+DECL|typedef|ShArrayIndexClampingStrategy
+name|ShArrayIndexClampingStrategy
 typedef|;
 comment|//
 comment|// Driver must call this first, once, before doing any other
@@ -480,6 +548,23 @@ name|COMPILER_EXPORT
 name|int
 name|ShFinalize
 parameter_list|()
+function_decl|;
+comment|// The 64 bits hash function. The first parameter is the input string; the
+comment|// second parameter is the string length.
+DECL|typedef|ShHashFunction64
+typedef|typedef
+name|khronos_uint64_t
+function_decl|(
+modifier|*
+name|ShHashFunction64
+function_decl|)
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+parameter_list|,
+name|size_t
+parameter_list|)
 function_decl|;
 comment|//
 comment|// Implementation dependent built-in resources (constants and extensions).
@@ -535,6 +620,29 @@ DECL|member|ARB_texture_rectangle
 name|int
 name|ARB_texture_rectangle
 decl_stmt|;
+DECL|member|EXT_draw_buffers
+name|int
+name|EXT_draw_buffers
+decl_stmt|;
+comment|// Set to 1 if highp precision is supported in the fragment language.
+comment|// Default is 0.
+DECL|member|FragmentPrecisionHigh
+name|int
+name|FragmentPrecisionHigh
+decl_stmt|;
+comment|// Name Hashing.
+comment|// Set a 64 bit hash function to enable user-defined name hashing.
+comment|// Default is NULL.
+DECL|member|HashFunction
+name|ShHashFunction64
+name|HashFunction
+decl_stmt|;
+comment|// Selects a strategy to use when implementing array index clamping.
+comment|// Default is SH_CLAMP_WITH_CLAMP_INTRINSIC.
+DECL|member|ArrayIndexClampingStrategy
+name|ShArrayIndexClampingStrategy
+name|ArrayIndexClampingStrategy
+decl_stmt|;
 block|}
 DECL|typedef|ShBuiltInResources
 name|ShBuiltInResources
@@ -574,7 +682,7 @@ comment|// type: Specifies the type of shader - SH_FRAGMENT_SHADER or SH_VERTEX_
 comment|// spec: Specifies the language spec the compiler must conform to -
 comment|//       SH_GLES2_SPEC or SH_WEBGL_SPEC.
 comment|// output: Specifies the output code type - SH_ESSL_OUTPUT, SH_GLSL_OUTPUT,
-comment|//         or SH_HLSL_OUTPUT.
+comment|//         SH_HLSL9_OUTPUT or SH_HLSL11_OUTPUT.
 comment|// resources: Specifies the built-in resources.
 name|COMPILER_EXPORT
 name|ShHandle
@@ -643,8 +751,7 @@ specifier|const
 name|shaderStrings
 index|[]
 parameter_list|,
-specifier|const
-name|int
+name|size_t
 name|numStrings
 parameter_list|,
 name|int
@@ -670,6 +777,11 @@ comment|//                               variable name including the null
 comment|//                               termination character.
 comment|// SH_MAPPED_NAME_MAX_LENGTH: the length of the mapped variable name including
 comment|//                            the null termination character.
+comment|// SH_NAME_MAX_LENGTH: the max length of a user-defined name including the
+comment|//                     null termination character.
+comment|// SH_HASHED_NAME_MAX_LENGTH: the max length of a hashed name including the
+comment|//                            null termination character.
+comment|// SH_HASHED_NAMES_COUNT: the number of hashed names from the latest compile.
 comment|//
 comment|// params: Requested parameter
 name|COMPILER_EXPORT
@@ -683,7 +795,7 @@ parameter_list|,
 name|ShShaderInfo
 name|pname
 parameter_list|,
-name|int
+name|size_t
 modifier|*
 name|params
 parameter_list|)
@@ -760,7 +872,7 @@ parameter_list|,
 name|int
 name|index
 parameter_list|,
-name|int
+name|size_t
 modifier|*
 name|length
 parameter_list|,
@@ -811,7 +923,7 @@ parameter_list|,
 name|int
 name|index
 parameter_list|,
-name|int
+name|size_t
 modifier|*
 name|length
 parameter_list|,
@@ -830,6 +942,64 @@ parameter_list|,
 name|char
 modifier|*
 name|mappedName
+parameter_list|)
+function_decl|;
+comment|// Returns information about a name hashing entry from the latest compile.
+comment|// Parameters:
+comment|// handle: Specifies the compiler
+comment|// index: Specifies the index of the name hashing entry to be queried.
+comment|// name: Returns a null terminated string containing the user defined name.
+comment|//       It is assumed that name has enough memory to accomodate the name.
+comment|//       The size of the buffer required to store the user defined name can
+comment|//       be obtained by calling ShGetInfo with SH_NAME_MAX_LENGTH.
+comment|// hashedName: Returns a null terminated string containing the hashed name of
+comment|//             the uniform variable, It is assumed that hashedName has enough
+comment|//             memory to accomodate the name. The size of the buffer required
+comment|//             to store the name can be obtained by calling ShGetInfo with
+comment|//             SH_HASHED_NAME_MAX_LENGTH.
+name|COMPILER_EXPORT
+name|void
+name|ShGetNameHashingEntry
+parameter_list|(
+specifier|const
+name|ShHandle
+name|handle
+parameter_list|,
+name|int
+name|index
+parameter_list|,
+name|char
+modifier|*
+name|name
+parameter_list|,
+name|char
+modifier|*
+name|hashedName
+parameter_list|)
+function_decl|;
+comment|// Returns a parameter from a compiled shader.
+comment|// Parameters:
+comment|// handle: Specifies the compiler
+comment|// pname: Specifies the parameter to query.
+comment|// The following parameters are defined:
+comment|// SH_ACTIVE_UNIFORMS_ARRAY: an STL vector of active uniforms. Valid only for
+comment|//                           HLSL output.
+comment|// params: Requested parameter
+name|COMPILER_EXPORT
+name|void
+name|ShGetInfoPointer
+parameter_list|(
+specifier|const
+name|ShHandle
+name|handle
+parameter_list|,
+name|ShShaderInfo
+name|pname
+parameter_list|,
+name|void
+modifier|*
+modifier|*
+name|params
 parameter_list|)
 function_decl|;
 ifdef|#

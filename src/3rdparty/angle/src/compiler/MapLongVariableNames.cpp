@@ -26,7 +26,7 @@ DECL|function|mapLongName
 name|TString
 name|mapLongName
 parameter_list|(
-name|int
+name|size_t
 name|id
 parameter_list|,
 specifier|const
@@ -326,7 +326,7 @@ block|}
 end_function
 begin_function
 DECL|function|Size
-name|int
+name|size_t
 name|LongNameMap
 operator|::
 name|Size
@@ -537,7 +537,7 @@ condition|)
 return|return
 name|mappedName
 return|;
-name|int
+name|size_t
 name|id
 init|=
 name|mGlobalMap

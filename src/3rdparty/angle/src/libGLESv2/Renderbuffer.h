@@ -51,11 +51,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<d3d9.h>
-end_include
-begin_include
-include|#
-directive|include
 file|"common/angleutils.h"
 end_include
 begin_include
@@ -63,6 +58,21 @@ include|#
 directive|include
 file|"common/RefCountObject.h"
 end_include
+begin_decl_stmt
+name|namespace
+name|rx
+block|{
+name|class
+name|Renderer
+decl_stmt|;
+name|class
+name|SwapChain
+decl_stmt|;
+name|class
+name|RenderTarget
+decl_stmt|;
+block|}
+end_decl_stmt
 begin_decl_stmt
 name|namespace
 name|gl
@@ -117,21 +127,25 @@ name|proxy
 parameter_list|)
 function_decl|;
 name|virtual
-name|IDirect3DSurface9
-modifier|*
+name|rx
+operator|::
+name|RenderTarget
+operator|*
 name|getRenderTarget
-parameter_list|()
-init|=
+argument_list|()
+operator|=
 literal|0
-function_decl|;
+expr_stmt|;
 name|virtual
-name|IDirect3DSurface9
-modifier|*
+name|rx
+operator|::
+name|RenderTarget
+operator|*
 name|getDepthStencil
-parameter_list|()
-init|=
+argument_list|()
+operator|=
 literal|0
-function_decl|;
+expr_stmt|;
 name|virtual
 name|GLsizei
 name|getWidth
@@ -157,8 +171,8 @@ operator|=
 literal|0
 expr_stmt|;
 name|virtual
-name|D3DFORMAT
-name|getD3DFormat
+name|GLenum
+name|getActualFormat
 argument_list|()
 specifier|const
 operator|=
@@ -258,12 +272,16 @@ operator|*
 name|proxy
 argument_list|)
 block|;
-name|IDirect3DSurface9
+name|rx
+operator|::
+name|RenderTarget
 operator|*
 name|getRenderTarget
 argument_list|()
 block|;
-name|IDirect3DSurface9
+name|rx
+operator|::
+name|RenderTarget
 operator|*
 name|getDepthStencil
 argument_list|()
@@ -287,8 +305,8 @@ argument_list|()
 specifier|const
 block|;
 name|virtual
-name|D3DFORMAT
-name|getD3DFormat
+name|GLenum
+name|getActualFormat
 argument_list|()
 specifier|const
 block|;
@@ -360,12 +378,16 @@ operator|*
 name|proxy
 argument_list|)
 block|;
-name|IDirect3DSurface9
+name|rx
+operator|::
+name|RenderTarget
 operator|*
 name|getRenderTarget
 argument_list|()
 block|;
-name|IDirect3DSurface9
+name|rx
+operator|::
+name|RenderTarget
 operator|*
 name|getDepthStencil
 argument_list|()
@@ -389,8 +411,8 @@ argument_list|()
 specifier|const
 block|;
 name|virtual
-name|D3DFORMAT
-name|getD3DFormat
+name|GLenum
+name|getActualFormat
 argument_list|()
 specifier|const
 block|;
@@ -446,13 +468,17 @@ operator|=
 literal|0
 block|;
 name|virtual
-name|IDirect3DSurface9
+name|rx
+operator|::
+name|RenderTarget
 operator|*
 name|getRenderTarget
 argument_list|()
 block|;
 name|virtual
-name|IDirect3DSurface9
+name|rx
+operator|::
+name|RenderTarget
 operator|*
 name|getDepthStencil
 argument_list|()
@@ -476,8 +502,8 @@ argument_list|()
 specifier|const
 block|;
 name|virtual
-name|D3DFORMAT
-name|getD3DFormat
+name|GLenum
+name|getActualFormat
 argument_list|()
 specifier|const
 block|;
@@ -517,8 +543,8 @@ block|;
 name|GLenum
 name|mInternalFormat
 block|;
-name|D3DFORMAT
-name|mD3DFormat
+name|GLenum
+name|mActualFormat
 block|;
 name|GLsizei
 name|mSamples
@@ -554,6 +580,8 @@ name|public
 operator|:
 name|Renderbuffer
 argument_list|(
+argument|rx::Renderer *renderer
+argument_list|,
 argument|GLuint id
 argument_list|,
 argument|RenderbufferInterface *storage
@@ -578,12 +606,16 @@ name|release
 argument_list|()
 specifier|const
 block|;
-name|IDirect3DSurface9
+name|rx
+operator|::
+name|RenderTarget
 operator|*
 name|getRenderTarget
 argument_list|()
 block|;
-name|IDirect3DSurface9
+name|rx
+operator|::
+name|RenderTarget
 operator|*
 name|getDepthStencil
 argument_list|()
@@ -603,8 +635,8 @@ name|getInternalFormat
 argument_list|()
 specifier|const
 block|;
-name|D3DFORMAT
-name|getD3DFormat
+name|GLenum
+name|getActualFormat
 argument_list|()
 specifier|const
 block|;
@@ -677,16 +709,25 @@ name|RenderbufferStorage
 block|{
 name|public
 operator|:
-name|explicit
 name|Colorbuffer
 argument_list|(
-name|IDirect3DSurface9
+name|rx
+operator|::
+name|Renderer
 operator|*
-name|renderTarget
+name|renderer
+argument_list|,
+name|rx
+operator|::
+name|SwapChain
+operator|*
+name|swapChain
 argument_list|)
 block|;
 name|Colorbuffer
 argument_list|(
+argument|rx::Renderer *renderer
+argument_list|,
 argument|GLsizei width
 argument_list|,
 argument|GLsizei height
@@ -702,7 +743,9 @@ name|Colorbuffer
 argument_list|()
 block|;
 name|virtual
-name|IDirect3DSurface9
+name|rx
+operator|::
+name|RenderTarget
 operator|*
 name|getRenderTarget
 argument_list|()
@@ -714,7 +757,9 @@ argument_list|(
 name|Colorbuffer
 argument_list|)
 block|;
-name|IDirect3DSurface9
+name|rx
+operator|::
+name|RenderTarget
 operator|*
 name|mRenderTarget
 block|; }
@@ -727,16 +772,25 @@ name|RenderbufferStorage
 block|{
 name|public
 operator|:
-name|explicit
 name|DepthStencilbuffer
 argument_list|(
-name|IDirect3DSurface9
+name|rx
+operator|::
+name|Renderer
 operator|*
-name|depthStencil
+name|renderer
+argument_list|,
+name|rx
+operator|::
+name|SwapChain
+operator|*
+name|swapChain
 argument_list|)
 block|;
 name|DepthStencilbuffer
 argument_list|(
+argument|rx::Renderer *renderer
+argument_list|,
 argument|GLsizei width
 argument_list|,
 argument|GLsizei height
@@ -749,14 +803,18 @@ name|DepthStencilbuffer
 argument_list|()
 block|;
 name|virtual
-name|IDirect3DSurface9
+name|rx
+operator|::
+name|RenderTarget
 operator|*
 name|getDepthStencil
 argument_list|()
 block|;
 name|protected
 operator|:
-name|IDirect3DSurface9
+name|rx
+operator|::
+name|RenderTarget
 operator|*
 name|mDepthStencil
 block|;
@@ -776,16 +834,10 @@ name|DepthStencilbuffer
 block|{
 name|public
 operator|:
-name|explicit
 name|Depthbuffer
 argument_list|(
-name|IDirect3DSurface9
-operator|*
-name|depthStencil
-argument_list|)
-block|;
-name|Depthbuffer
-argument_list|(
+argument|rx::Renderer *renderer
+argument_list|,
 argument|GLsizei width
 argument_list|,
 argument|GLsizei height
@@ -814,16 +866,10 @@ name|DepthStencilbuffer
 block|{
 name|public
 operator|:
-name|explicit
 name|Stencilbuffer
 argument_list|(
-name|IDirect3DSurface9
-operator|*
-name|depthStencil
-argument_list|)
-block|;
-name|Stencilbuffer
-argument_list|(
+argument|rx::Renderer *renderer
+argument_list|,
 argument|GLsizei width
 argument_list|,
 argument|GLsizei height
