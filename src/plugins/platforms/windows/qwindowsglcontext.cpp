@@ -1621,10 +1621,10 @@ name|format
 operator|.
 name|swapBehavior
 argument_list|()
-operator|==
+operator|!=
 name|QSurfaceFormat
 operator|::
-name|DoubleBuffer
+name|SingleBuffer
 operator|&&
 operator|!
 name|isPixmap
@@ -2333,12 +2333,6 @@ block|{
 case|case
 name|QSurfaceFormat
 operator|::
-name|DefaultSwapBehavior
-case|:
-break|break;
-case|case
-name|QSurfaceFormat
-operator|::
 name|SingleBuffer
 case|:
 name|iAttributes
@@ -2358,6 +2352,11 @@ operator|=
 name|FALSE
 expr_stmt|;
 break|break;
+case|case
+name|QSurfaceFormat
+operator|::
+name|DefaultSwapBehavior
+case|:
 case|case
 name|QSurfaceFormat
 operator|::
