@@ -9797,24 +9797,6 @@ argument_list|,
 name|options
 argument_list|)
 decl_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"data58"
-argument_list|,
-literal|"QRegularExpression does not support case folding"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"data59"
-argument_list|,
-literal|"QRegularExpression does not support case folding"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|haystack

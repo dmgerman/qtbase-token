@@ -201,6 +201,11 @@ end_include
 begin_include
 include|#
 directive|include
+include|FT_INTERNAL_CALC_H
+end_include
+begin_include
+include|#
+directive|include
 file|"t1load.h"
 end_include
 begin_include
@@ -816,26 +821,6 @@ name|error
 return|;
 block|}
 end_block
-begin_define
-DECL|macro|FT_INT_TO_FIXED
-define|#
-directive|define
-name|FT_INT_TO_FIXED
-parameter_list|(
-name|a
-parameter_list|)
-value|( (a)<< 16 )
-end_define
-begin_define
-DECL|macro|FT_FIXED_TO_INT
-define|#
-directive|define
-name|FT_FIXED_TO_INT
-parameter_list|(
-name|a
-parameter_list|)
-value|( FT_RoundFix( a )>> 16 )
-end_define
 begin_comment
 comment|/*************************************************************************/
 end_comment
@@ -883,7 +868,7 @@ literal|0
 index|]
 condition|)
 return|return
-name|FT_INT_TO_FIXED
+name|INT_TO_FIXED
 argument_list|(
 name|axismap
 operator|->
@@ -957,7 +942,7 @@ index|]
 argument_list|)
 decl_stmt|;
 return|return
-name|FT_INT_TO_FIXED
+name|INT_TO_FIXED
 argument_list|(
 name|axismap
 operator|->
@@ -995,7 +980,7 @@ return|;
 block|}
 block|}
 return|return
-name|FT_INT_TO_FIXED
+name|INT_TO_FIXED
 argument_list|(
 name|axismap
 operator|->
@@ -1575,7 +1560,7 @@ index|]
 operator|.
 name|minimum
 operator|=
-name|FT_INT_TO_FIXED
+name|INT_TO_FIXED
 argument_list|(
 name|mmaster
 operator|.
@@ -1596,7 +1581,7 @@ index|]
 operator|.
 name|maximum
 operator|=
-name|FT_INT_TO_FIXED
+name|INT_TO_FIXED
 argument_list|(
 name|mmaster
 operator|.
@@ -2398,7 +2383,7 @@ index|[
 name|i
 index|]
 operator|=
-name|FT_FIXED_TO_INT
+name|FIXED_TO_INT
 argument_list|(
 name|coords
 index|[
@@ -3018,12 +3003,6 @@ name|FT_ERROR
 argument_list|(
 operator|(
 literal|"parse_blend_design_positions:"
-operator|)
-argument_list|)
-expr_stmt|;
-name|FT_ERROR
-argument_list|(
-operator|(
 literal|" incorrect number of designs: %d\n"
 operator|,
 name|num_designs
@@ -3162,13 +3141,7 @@ name|FT_ERROR
 argument_list|(
 operator|(
 literal|"parse_blend_design_positions:"
-operator|)
-argument_list|)
-expr_stmt|;
-name|FT_ERROR
-argument_list|(
-operator|(
-literal|"  invalid number of axes: %d\n"
+literal|" invalid number of axes: %d\n"
 operator|,
 name|n_axis
 operator|)
@@ -3822,12 +3795,6 @@ name|FT_ERROR
 argument_list|(
 operator|(
 literal|"parse_weight_vector:"
-operator|)
-argument_list|)
-expr_stmt|;
-name|FT_ERROR
-argument_list|(
-operator|(
 literal|" incorrect number of designs: %d\n"
 operator|,
 name|num_designs
@@ -3896,14 +3863,8 @@ argument_list|(
 operator|(
 literal|"parse_weight_vector:"
 literal|" /BlendDesignPosition and /WeightVector have\n"
-operator|)
-argument_list|)
-expr_stmt|;
-name|FT_ERROR
-argument_list|(
-operator|(
 literal|"                    "
-literal|" different number of elements!\n"
+literal|" different number of elements\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -5000,7 +4961,7 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"parse_encoding: out of bounds!\n"
+literal|"parse_encoding: out of bounds\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -8819,7 +8780,7 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"T1_Open_Face: no `/CharStrings' array in face!\n"
+literal|"T1_Open_Face: no `/CharStrings' array in face\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -8942,13 +8903,11 @@ comment|/* the index is then stored in type1.encoding.char_index, and */
 comment|/* a the name to type1.encoding.char_name                     */
 name|min_char
 operator|=
-operator|+
-literal|32000
+literal|0
 expr_stmt|;
 name|max_char
 operator|=
-operator|-
-literal|32000
+literal|0
 expr_stmt|;
 name|charcode
 operator|=
@@ -9127,38 +9086,19 @@ expr_stmt|;
 if|if
 condition|(
 name|charcode
-operator|>
+operator|>=
 name|max_char
 condition|)
 name|max_char
 operator|=
 name|charcode
+operator|+
+literal|1
 expr_stmt|;
 block|}
 break|break;
 block|}
 block|}
-block|}
-comment|/*        *  Yes, this happens: Certain PDF-embedded fonts have only a        *  `.notdef' glyph defined!        */
-if|if
-condition|(
-name|min_char
-operator|>
-name|max_char
-condition|)
-block|{
-name|min_char
-operator|=
-literal|0
-expr_stmt|;
-name|max_char
-operator|=
-name|loader
-operator|.
-name|encoding_table
-operator|.
-name|max_elems
-expr_stmt|;
 block|}
 name|type1
 operator|->

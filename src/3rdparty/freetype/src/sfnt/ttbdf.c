@@ -296,7 +296,7 @@ argument_list|(
 name|p
 argument_list|)
 decl_stmt|;
-name|FT_UInt32
+name|FT_ULong
 name|strings
 init|=
 name|FT_NEXT_ULONG
@@ -520,7 +520,7 @@ name|FT_Byte
 modifier|*
 name|strike
 decl_stmt|;
-name|FT_UInt
+name|FT_Offset
 name|property_len
 decl_stmt|;
 name|aprop

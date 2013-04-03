@@ -344,7 +344,7 @@ argument|PS_Parser  parser
 argument_list|,
 argument|FT_Byte*   bytes
 argument_list|,
-argument|FT_Long    max_bytes
+argument|FT_Offset  max_bytes
 argument_list|,
 argument|FT_Long*   pnum_bytes
 argument_list|,

@@ -442,7 +442,7 @@ parameter_list|,
 name|FT_UShort
 name|flags
 parameter_list|,
-name|GXV_StateTable_GlyphOffsetDesc
+name|GXV_StateTable_GlyphOffsetCPtr
 name|glyphOffset
 parameter_list|,
 name|FT_Bytes
@@ -601,7 +601,7 @@ name|FT_UShort
 call|)
 argument_list|(
 name|glyphOffset
-operator|.
+operator|->
 name|ul
 operator|>>
 literal|16
@@ -614,7 +614,7 @@ name|FT_UShort
 call|)
 argument_list|(
 name|glyphOffset
-operator|.
+operator|->
 name|ul
 argument_list|)
 expr_stmt|;

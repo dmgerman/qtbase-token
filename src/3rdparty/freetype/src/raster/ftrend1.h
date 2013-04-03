@@ -70,39 +70,20 @@ include|FT_RENDER_H
 end_include
 begin_decl_stmt
 name|FT_BEGIN_HEADER
-name|FT_EXPORT_VAR
+name|FT_DECLARE_RENDERER
 argument_list|(
-specifier|const
-name|FT_Renderer_Class
-argument_list|)
 name|ft_raster1_renderer_class
-decl_stmt|;
-end_decl_stmt
-begin_comment
-comment|/* this renderer is _NOT_ part of the default modules, you'll need */
-end_comment
-begin_comment
-comment|/* to register it by hand in your application.  It should only be  */
-end_comment
-begin_comment
-comment|/* used for backwards-compatibility with FT 1.x anyway.            */
-end_comment
-begin_comment
-comment|/*                                                                 */
-end_comment
-begin_macro
-name|FT_EXPORT_VAR
-argument_list|(
-argument|const FT_Renderer_Class
 argument_list|)
-end_macro
-begin_expr_stmt
+comment|/* this renderer is _NOT_ part of the default modules, you'll need */
+comment|/* to register it by hand in your application.  It should only be  */
+comment|/* used for backwards-compatibility with FT 1.x anyway.            */
+comment|/*                                                                 */
+name|FT_DECLARE_RENDERER
+argument_list|(
 name|ft_raster5_renderer_class
-expr_stmt|;
-end_expr_stmt
-begin_macro
+argument_list|)
 name|FT_END_HEADER
-end_macro
+end_decl_stmt
 begin_endif
 endif|#
 directive|endif

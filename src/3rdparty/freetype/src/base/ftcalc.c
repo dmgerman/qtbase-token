@@ -375,7 +375,7 @@ argument_list|)
 end_macro
 begin_block
 block|{
-name|FT_ULong
+name|FT_UInt32
 name|val
 decl_stmt|,
 name|root
@@ -390,12 +390,15 @@ literal|0
 expr_stmt|;
 name|mask
 operator|=
-literal|0x40000000L
+operator|(
+name|FT_UInt32
+operator|)
+literal|0x40000000UL
 expr_stmt|;
 name|val
 operator|=
 operator|(
-name|FT_ULong
+name|FT_UInt32
 operator|)
 name|x
 expr_stmt|;
@@ -1346,6 +1349,7 @@ block|{
 name|long
 name|s
 decl_stmt|;
+comment|/* XXX: this function does not allow 64-bit arguments */
 if|if
 condition|(
 name|a
@@ -1441,8 +1445,14 @@ name|temp2
 decl_stmt|;
 name|ft_multo64
 argument_list|(
+operator|(
+name|FT_Int32
+operator|)
 name|a
 argument_list|,
+operator|(
+name|FT_Int32
+operator|)
 name|b
 argument_list|,
 operator|&
@@ -1492,6 +1502,9 @@ name|temp
 operator|.
 name|lo
 argument_list|,
+operator|(
+name|FT_Int32
+operator|)
 name|c
 argument_list|)
 expr_stmt|;
@@ -1623,8 +1636,14 @@ name|temp
 decl_stmt|;
 name|ft_multo64
 argument_list|(
+operator|(
+name|FT_Int32
+operator|)
 name|a
 argument_list|,
+operator|(
+name|FT_Int32
+operator|)
 name|b
 argument_list|,
 operator|&
@@ -1643,6 +1662,9 @@ name|temp
 operator|.
 name|lo
 argument_list|,
+operator|(
+name|FT_Int32
+operator|)
 name|c
 argument_list|)
 expr_stmt|;
@@ -2066,8 +2088,12 @@ decl_stmt|;
 name|FT_UInt32
 name|q
 decl_stmt|;
+comment|/* XXX: this function does not allow 64-bit arguments */
 name|s
 operator|=
+operator|(
+name|FT_Int32
+operator|)
 name|a
 expr_stmt|;
 name|a
@@ -2079,6 +2105,9 @@ argument_list|)
 expr_stmt|;
 name|s
 operator|^=
+operator|(
+name|FT_Int32
+operator|)
 name|b
 expr_stmt|;
 name|b
@@ -2098,6 +2127,9 @@ block|{
 comment|/* check for division by 0 */
 name|q
 operator|=
+operator|(
+name|FT_UInt32
+operator|)
 literal|0x7FFFFFFFL
 expr_stmt|;
 block|}
@@ -2216,6 +2248,9 @@ name|temp
 operator|.
 name|lo
 argument_list|,
+operator|(
+name|FT_Int32
+operator|)
 name|b
 argument_list|)
 expr_stmt|;
@@ -3044,9 +3079,10 @@ argument_list|)
 end_macro
 begin_block
 block|{
-name|FT_Int
+name|FT_Long
 name|result
 decl_stmt|;
+comment|/* avoid overflow on 16-bit system */
 comment|/* deal with the trivial cases quickly */
 if|if
 condition|(
@@ -3200,10 +3236,17 @@ name|z1
 decl_stmt|,
 name|z2
 decl_stmt|;
+comment|/* XXX: this function does not allow 64-bit arguments */
 name|ft_multo64
 argument_list|(
+operator|(
+name|FT_Int32
+operator|)
 name|in_x
 argument_list|,
+operator|(
+name|FT_Int32
+operator|)
 name|out_y
 argument_list|,
 operator|&
@@ -3212,8 +3255,14 @@ argument_list|)
 expr_stmt|;
 name|ft_multo64
 argument_list|(
+operator|(
+name|FT_Int32
+operator|)
 name|in_y
 argument_list|,
+operator|(
+name|FT_Int32
+operator|)
 name|out_x
 argument_list|,
 operator|&
@@ -3291,7 +3340,11 @@ expr_stmt|;
 endif|#
 directive|endif
 block|}
+comment|/* XXX: only the sign of return value, +1/0/-1 must be used */
 return|return
+operator|(
+name|FT_Int
+operator|)
 name|result
 return|;
 block|}

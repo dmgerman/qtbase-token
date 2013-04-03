@@ -1089,8 +1089,6 @@ name|index
 operator|.
 name|column
 argument_list|()
-operator|+
-literal|1
 return|;
 block|}
 end_decl_stmt

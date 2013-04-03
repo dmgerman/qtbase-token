@@ -36,7 +36,7 @@ name|BitOrderInvert
 argument_list|(
 argument|unsigned char*  buf
 argument_list|,
-argument|int             nbytes
+argument|size_t          nbytes
 argument_list|)
 end_macro
 begin_block
@@ -44,11 +44,13 @@ block|{
 for|for
 control|(
 init|;
-operator|--
 name|nbytes
-operator|>=
+operator|>
 literal|0
 condition|;
+name|nbytes
+operator|--
+operator|,
 name|buf
 operator|++
 control|)
@@ -153,7 +155,7 @@ name|TwoByteSwap
 argument_list|(
 argument|unsigned char*  buf
 argument_list|,
-argument|int             nbytes
+argument|size_t          nbytes
 argument_list|)
 end_macro
 begin_block
@@ -220,7 +222,7 @@ name|FourByteSwap
 argument_list|(
 argument|unsigned char*  buf
 argument_list|,
-argument|int             nbytes
+argument|size_t          nbytes
 argument_list|)
 end_macro
 begin_block

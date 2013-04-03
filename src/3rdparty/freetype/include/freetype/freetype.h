@@ -18,7 +18,10 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 by */
+comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,   */
+end_comment
+begin_comment
+comment|/*            2010 by                                                      */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -666,6 +669,18 @@ comment|/*    vertAdvance ::                                                    
 end_comment
 begin_comment
 comment|/*      Advance height for vertical layout.                              */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/*<Note>                                                                */
+end_comment
+begin_comment
+comment|/*    If not disabled with @FT_LOAD_NO_HINTING, the values represent     */
+end_comment
+begin_comment
+comment|/*    dimensions of the hinted glyph (in case hinting is applicable).    */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -1517,16 +1532,7 @@ begin_comment
 comment|/*    repertories (i.e., charsets), and not text encoding methods (e.g., */
 end_comment
 begin_comment
-comment|/*    UTF-8, UTF-16, GB2312_EUC, etc.).                                  */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/*    Because of 32-bit charcodes defined in Unicode (i.e., surrogates), */
-end_comment
-begin_comment
-comment|/*    all character codes must be expressed as FT_Longs.                 */
+comment|/*    UTF-8, UTF-16, etc.).                                              */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -1563,6 +1569,18 @@ comment|/*      Latin-1.  Most fonts include a Unicode charmap, but not all     
 end_comment
 begin_comment
 comment|/*      of them.                                                         */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/*      For example, if you want to access Unicode value U+1F028 (and    */
+end_comment
+begin_comment
+comment|/*      the font contains it), use value 0x1F028 as the input value for  */
+end_comment
+begin_comment
+comment|/*      @FT_Get_Char_Index.                                              */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -4206,10 +4224,25 @@ begin_comment
 comment|/*                                                                       */
 end_comment
 begin_comment
-comment|/*    advance           :: This is the transformed advance width for the */
+comment|/*    advance           :: This shorthand is, depending on               */
 end_comment
 begin_comment
-comment|/*                         glyph (in 26.6 fractional pixel format).      */
+comment|/*                         @FT_LOAD_IGNORE_TRANSFORM, the transformed    */
+end_comment
+begin_comment
+comment|/*                         advance width for the glyph (in 26.6          */
+end_comment
+begin_comment
+comment|/*                         fractional pixel format).  As specified with  */
+end_comment
+begin_comment
+comment|/*                         @FT_LOAD_VERTICAL_LAYOUT, it uses either the  */
+end_comment
+begin_comment
+comment|/*                         `horiAdvance' or the `vertAdvance' value of   */
+end_comment
+begin_comment
+comment|/*                         `metrics' field.                              */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -4715,6 +4748,21 @@ end_comment
 begin_comment
 comment|/*                                                                       */
 end_comment
+begin_comment
+comment|/*<Note>                                                                */
+end_comment
+begin_comment
+comment|/*    In case you want to provide your own memory allocating routines,   */
+end_comment
+begin_comment
+comment|/*    use @FT_New_Library instead, followed by a call to                 */
+end_comment
+begin_comment
+comment|/*    @FT_Add_Default_Modules (or a series of calls to @FT_Add_Module).  */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
 begin_macro
 name|FT_EXPORT
 argument_list|(
@@ -5033,7 +5081,10 @@ begin_comment
 comment|/*<Note>                                                                */
 end_comment
 begin_comment
-comment|/*    The ID and function of parameters are driver-specific.             */
+comment|/*    The ID and function of parameters are driver-specific.  See the    */
+end_comment
+begin_comment
+comment|/*    various FT_PARAM_TAG_XXX flags for more information.               */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -10358,7 +10409,7 @@ DECL|macro|FREETYPE_PATCH
 define|#
 directive|define
 name|FREETYPE_PATCH
-value|9
+value|12
 end_define
 begin_comment
 comment|/*************************************************************************/

@@ -215,7 +215,7 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"tt_face_load_sbit_strikes: table too short!\n"
+literal|"tt_face_load_sbit_strikes: table too short\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -287,7 +287,7 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"tt_face_load_sbit_strikes: invalid table version!\n"
+literal|"tt_face_load_sbit_strikes: invalid table version\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -1926,6 +1926,9 @@ name|error
 return|;
 block|}
 end_function
+begin_comment
+comment|/*    * Load a bit-aligned bitmap (with pointer `p') into a line-aligned bitmap    * (with pointer `write').  In the example below, the width is 3 pixel,    * and `x_pos' is 1 pixel.    *    *       p                               p+1    *     |                               |                               |    *     | 7   6   5   4   3   2   1   0 | 7   6   5   4   3   2   1   0 |...    *     |                               |                               |    *       +-------+   +-------+   +-------+ ...    *           .           .           .    *           .           .           .    *           v           .           .    *       +-------+       .           .    * |                               | .    * | 7   6   5   4   3   2   1   0 | .    * |                               | .    *   write               .           .    *                       .           .    *                       v           .    *                   +-------+       .    *             |                               |    *             | 7   6   5   4   3   2   1   0 |    *             |                               |    *               write+1             .    *                                   .    *                                   v    *                               +-------+    *                         |                               |    *                         | 7   6   5   4   3   2   1   0 |    *                         |                               |    *                           write+2    *    */
+end_comment
 begin_function
 specifier|static
 name|FT_Error
@@ -2110,6 +2113,7 @@ name|Exit
 goto|;
 block|}
 comment|/* now do the blit */
+comment|/* adjust `line' to point to the first byte of the bitmap */
 name|line
 operator|+=
 name|y_pos
@@ -2164,6 +2168,7 @@ name|w
 init|=
 name|width
 decl_stmt|;
+comment|/* handle initial byte (in target bitmap) specially if necessary */
 if|if
 condition|(
 name|x_pos
@@ -2193,13 +2198,13 @@ name|height
 condition|)
 block|{
 name|rval
-operator||=
+operator|=
 operator|*
 name|p
 operator|++
 expr_stmt|;
 name|nbits
-operator|+=
+operator|=
 name|x_pos
 expr_stmt|;
 block|}
@@ -2211,6 +2216,12 @@ operator|<
 name|w
 condition|)
 block|{
+if|if
+condition|(
+name|p
+operator|<
+name|limit
+condition|)
 name|rval
 operator||=
 operator|*
@@ -2277,6 +2288,7 @@ operator|-
 name|w
 expr_stmt|;
 block|}
+comment|/* handle medial bytes */
 for|for
 control|(
 init|;
@@ -2312,6 +2324,7 @@ operator|<<=
 literal|8
 expr_stmt|;
 block|}
+comment|/* handle final byte if necessary */
 if|if
 condition|(
 name|w
@@ -2326,6 +2339,12 @@ operator|<
 name|w
 condition|)
 block|{
+if|if
+condition|(
+name|p
+operator|<
+name|limit
+condition|)
 name|rval
 operator||=
 operator|*

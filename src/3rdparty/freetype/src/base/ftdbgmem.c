@@ -1357,7 +1357,7 @@ argument_list|)
 expr_stmt|;
 name|printf
 argument_list|(
-literal|"FreeType: No memory leaks detected!\n"
+literal|"FreeType: no memory leaks detected\n"
 argument_list|)
 expr_stmt|;
 block|}
@@ -3452,16 +3452,13 @@ end_comment
 begin_comment
 comment|/* ANSI C doesn't like empty source files */
 end_comment
-begin_decl_stmt
-DECL|variable|_debug_mem_dummy
-specifier|static
-specifier|const
-name|FT_Byte
+begin_typedef
+DECL|typedef|_debug_mem_dummy
+typedef|typedef
+name|int
 name|_debug_mem_dummy
-init|=
-literal|0
-decl_stmt|;
-end_decl_stmt
+typedef|;
+end_typedef
 begin_endif
 endif|#
 directive|endif

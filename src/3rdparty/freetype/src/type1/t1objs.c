@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008 by       */
+comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 by */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -51,6 +51,11 @@ begin_include
 include|#
 directive|include
 file|<ft2build.h>
+end_include
+begin_include
+include|#
+directive|include
+include|FT_INTERNAL_CALC_H
 end_include
 begin_include
 include|#
@@ -1558,6 +1563,7 @@ name|yMin
 operator|>>
 literal|16
 expr_stmt|;
+comment|/* no `U' suffix here to 0xFFFF! */
 name|root
 operator|->
 name|bbox
@@ -1571,7 +1577,7 @@ name|font_bbox
 operator|.
 name|xMax
 operator|+
-literal|0xFFFFU
+literal|0xFFFF
 operator|)
 operator|>>
 literal|16
@@ -1589,7 +1595,7 @@ name|font_bbox
 operator|.
 name|yMax
 operator|+
-literal|0xFFFFU
+literal|0xFFFF
 operator|)
 operator|>>
 literal|16
@@ -1731,7 +1737,10 @@ operator|=
 operator|(
 name|FT_Short
 operator|)
+name|FIXED_TO_INT
+argument_list|(
 name|max_advance
+argument_list|)
 expr_stmt|;
 else|else
 name|error

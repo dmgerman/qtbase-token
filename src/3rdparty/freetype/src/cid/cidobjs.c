@@ -1471,6 +1471,7 @@ name|yMin
 operator|>>
 literal|16
 expr_stmt|;
+comment|/* no `U' suffix here to 0xFFFF! */
 name|cidface
 operator|->
 name|bbox
@@ -1484,7 +1485,7 @@ name|font_bbox
 operator|.
 name|xMax
 operator|+
-literal|0xFFFFU
+literal|0xFFFF
 operator|)
 operator|>>
 literal|16
@@ -1502,7 +1503,7 @@ name|font_bbox
 operator|.
 name|yMax
 operator|+
-literal|0xFFFFU
+literal|0xFFFF
 operator|)
 operator|>>
 literal|16

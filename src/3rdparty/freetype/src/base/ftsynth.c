@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2000-2001, 2002, 2003, 2004, 2005, 2006 by                   */
+comment|/*  Copyright 2000-2001, 2002, 2003, 2004, 2005, 2006, 2010 by             */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -60,6 +60,11 @@ end_include
 begin_include
 include|#
 directive|include
+include|FT_INTERNAL_DEBUG_H
+end_include
+begin_include
+include|#
+directive|include
 include|FT_INTERNAL_OBJECTS_H
 end_include
 begin_include
@@ -72,6 +77,37 @@ include|#
 directive|include
 include|FT_BITMAP_H
 end_include
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* The macro FT_COMPONENT is used in trace mode.  It is an implicit      */
+end_comment
+begin_comment
+comment|/* parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log  */
+end_comment
+begin_comment
+comment|/* messages during execution.                                            */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_undef
+DECL|macro|FT_COMPONENT
+undef|#
+directive|undef
+name|FT_COMPONENT
+end_undef
+begin_define
+DECL|macro|FT_COMPONENT
+define|#
+directive|define
+name|FT_COMPONENT
+value|trace_synth
+end_define
 begin_comment
 comment|/*************************************************************************/
 end_comment
@@ -279,8 +315,10 @@ operator|==
 name|FT_GLYPH_FORMAT_OUTLINE
 condition|)
 block|{
-name|error
-operator|=
+comment|/* ignore error */
+operator|(
+name|void
+operator|)
 name|FT_Outline_Embolden
 argument_list|(
 operator|&
@@ -291,7 +329,6 @@ argument_list|,
 name|xstr
 argument_list|)
 expr_stmt|;
-comment|/* ignore error */
 comment|/* this is more than enough for most glyphs; if you need accurate */
 comment|/* values, you have to call FT_Outline_Get_CBox                   */
 name|xstr
@@ -338,6 +375,44 @@ operator|&=
 operator|~
 literal|63
 expr_stmt|;
+comment|/*        * XXX: overflow check for 16-bit system, for compatibility        *      with FT_GlyphSlot_Embolden() since freetype-2.1.10.        *      unfortunately, this function return no informations        *      about the cause of error.        */
+if|if
+condition|(
+operator|(
+name|ystr
+operator|>>
+literal|6
+operator|)
+operator|>
+name|FT_INT_MAX
+operator|||
+operator|(
+name|ystr
+operator|>>
+literal|6
+operator|)
+operator|<
+name|FT_INT_MIN
+condition|)
+block|{
+name|FT_TRACE1
+argument_list|(
+operator|(
+literal|"FT_GlyphSlot_Embolden:"
+operator|)
+argument_list|)
+expr_stmt|;
+name|FT_TRACE1
+argument_list|(
+operator|(
+literal|"too strong embolding parameter ystr=%d\n"
+operator|,
+name|ystr
+operator|)
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 name|error
 operator|=
 name|FT_GlyphSlot_Own_Bitmap
@@ -462,6 +537,7 @@ name|vertAdvance
 operator|+=
 name|ystr
 expr_stmt|;
+comment|/* XXX: 16-bit overflow case must be excluded before here */
 if|if
 condition|(
 name|slot
@@ -474,9 +550,14 @@ name|slot
 operator|->
 name|bitmap_top
 operator|+=
+call|(
+name|FT_Int
+call|)
+argument_list|(
 name|ystr
 operator|>>
 literal|6
+argument_list|)
 expr_stmt|;
 block|}
 end_block

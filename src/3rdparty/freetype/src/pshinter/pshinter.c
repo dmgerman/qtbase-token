@@ -61,6 +61,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"pshpic.c"
+end_include
+begin_include
+include|#
+directive|include
 file|"pshrec.c"
 end_include
 begin_include

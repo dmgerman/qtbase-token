@@ -18,7 +18,10 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008 by       */
+comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,   */
+end_comment
+begin_comment
+comment|/*            2010 by                                                      */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -121,9 +124,9 @@ comment|/* and should not be activated in any default build of the library.     
 comment|/*                                                                       */
 comment|/* This macro has no impact on the FreeType API, only on its             */
 comment|/* _implementation_.  For example, using FT_RENDER_MODE_LCD when calling */
-comment|/* FT_Render_Glyph still generates a bitmap that is 3 times larger than  */
-comment|/* the original size; the difference will be that each triplet of        */
-comment|/* subpixels has R=G=B.                                                  */
+comment|/* FT_Render_Glyph still generates a bitmap that is 3 times wider than   */
+comment|/* the original size in case this macro isn't defined; however, each     */
+comment|/* triplet of subpixels has R=G=B.                                       */
 comment|/*                                                                       */
 comment|/* This is done to allow FreeType clients to run unmodified, forcing     */
 comment|/* them to display normal gray-level anti-aliased glyphs.                */
@@ -223,7 +226,7 @@ comment|/*                                                                      
 comment|/*   Do not #undef this macro here since the build system might define   */
 comment|/*   it for certain configurations only.                                 */
 comment|/*                                                                       */
-comment|/* #define  FT_CONFIG_OPTION_SYSTEM_ZLIB */
+comment|/* #define FT_CONFIG_OPTION_SYSTEM_ZLIB */
 comment|/*************************************************************************/
 comment|/*                                                                       */
 comment|/* DLL export compilation                                                */
@@ -262,18 +265,18 @@ comment|/*                                                                      
 comment|/*   Do not #undef these macros here since the build system might define */
 comment|/*   them for certain configurations only.                               */
 comment|/*                                                                       */
-comment|/* #define  FT_EXPORT(x)       extern x */
-comment|/* #define  FT_EXPORT_DEF(x)   x */
+comment|/* #define FT_EXPORT(x)      extern x */
+comment|/* #define FT_EXPORT_DEF(x)  x */
 comment|/*************************************************************************/
 comment|/*                                                                       */
 comment|/* Glyph Postscript Names handling                                       */
 comment|/*                                                                       */
-comment|/*   By default, FreeType 2 is compiled with the `PSNames' module.  This */
+comment|/*   By default, FreeType 2 is compiled with the `psnames' module.  This */
 comment|/*   module is in charge of converting a glyph name string into a        */
 comment|/*   Unicode value, or return a Macintosh standard glyph name for the    */
 comment|/*   use with the TrueType `post' table.                                 */
 comment|/*                                                                       */
-comment|/*   Undefine this macro if you do not want `PSNames' compiled in your   */
+comment|/*   Undefine this macro if you do not want `psnames' compiled in your   */
 comment|/*   build of FreeType.  This has the following effects:                 */
 comment|/*                                                                       */
 comment|/*   - The TrueType driver will provide its own set of glyph names,      */
@@ -354,10 +357,14 @@ comment|/***********************************************************************
 comment|/*                                                                       */
 comment|/* Allow the use of FT_Incremental_Interface to load typefaces that      */
 comment|/* contain no glyph data, but supply it via a callback function.         */
-comment|/* This allows FreeType to be used with the PostScript language, using   */
-comment|/* the GhostScript interpreter.                                          */
+comment|/* This is required by clients supporting document formats which         */
+comment|/* supply font data incrementally as the document is parsed, such        */
+comment|/* as the Ghostscript interpreter for the PostScript language.           */
 comment|/*                                                                       */
-comment|/* #define FT_CONFIG_OPTION_INCREMENTAL */
+DECL|macro|FT_CONFIG_OPTION_INCREMENTAL
+define|#
+directive|define
+name|FT_CONFIG_OPTION_INCREMENTAL
 comment|/*************************************************************************/
 comment|/*                                                                       */
 comment|/* The size in bytes of the render pool used by the scan-line converter  */
@@ -447,6 +454,19 @@ undef|#
 directive|undef
 name|FT_CONFIG_OPTION_USE_MODULE_ERRORS
 comment|/*************************************************************************/
+comment|/*                                                                       */
+comment|/* Position Independent Code                                             */
+comment|/*                                                                       */
+comment|/*   If this macro is set (which is _not_ the default), FreeType2 will   */
+comment|/*   avoid creating constants that require address fixups.  Instead the  */
+comment|/*   constants will be moved into a struct and additional intialization  */
+comment|/*   code will be used.                                                  */
+comment|/*                                                                       */
+comment|/*   Setting this macro is needed for systems that prohibit address      */
+comment|/*   fixups, such as BREW.                                               */
+comment|/*                                                                       */
+comment|/* #define FT_CONFIG_OPTION_PIC */
+comment|/*************************************************************************/
 comment|/*************************************************************************/
 comment|/****                                                                 ****/
 comment|/****        S F N T   D R I V E R    C O N F I G U R A T I O N       ****/
@@ -488,7 +508,7 @@ comment|/* describe the font, like family name, copyright, version, etc.  It    
 comment|/* does not contain any glyph name though.                               */
 comment|/*                                                                       */
 comment|/* Accessing SFNT names is done through the functions declared in        */
-comment|/* `freetype/ftnames.h'.                                                 */
+comment|/* `freetype/ftsnames.h'.                                                */
 comment|/*                                                                       */
 DECL|macro|TT_CONFIG_OPTION_SFNT_NAMES
 define|#
@@ -528,6 +548,10 @@ DECL|macro|TT_CONFIG_CMAP_FORMAT_12
 define|#
 directive|define
 name|TT_CONFIG_CMAP_FORMAT_12
+DECL|macro|TT_CONFIG_CMAP_FORMAT_13
+define|#
+directive|define
+name|TT_CONFIG_CMAP_FORMAT_13
 DECL|macro|TT_CONFIG_CMAP_FORMAT_14
 define|#
 directive|define
@@ -741,11 +765,8 @@ directive|define
 name|AF_CONFIG_OPTION_INDIC
 comment|/* */
 comment|/*    * Define this variable if you want to keep the layout of internal    * structures that was used prior to FreeType 2.2.  This also compiles in    * a few obsolete functions to avoid linking problems on typical Unix    * distributions.    *    * For embedded systems or building a new distribution from scratch, it    * is recommended to disable the macro since it reduces the library's code    * size and activates a few memory-saving optimizations as well.    */
-DECL|macro|FT_CONFIG_OPTION_OLD_INTERNALS
-undef|#
-directive|undef
-name|FT_CONFIG_OPTION_OLD_INTERNALS
-comment|/*    * This variable is defined if either unpatented or native TrueType    * hinting is requested by the definitions above.    */
+comment|/* #define FT_CONFIG_OPTION_OLD_INTERNALS */
+comment|/*    * This macro is defined if either unpatented or native TrueType    * hinting is requested by the definitions above.    */
 ifdef|#
 directive|ifdef
 name|TT_CONFIG_OPTION_BYTECODE_INTERPRETER

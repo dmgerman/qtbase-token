@@ -139,6 +139,21 @@ ifdef|#
 directive|ifdef
 name|_STANDALONE_
 end_ifdef
+begin_define
+DECL|macro|FT_CONFIG_STANDARD_LIBRARY_H
+define|#
+directive|define
+name|FT_CONFIG_STANDARD_LIBRARY_H
+value|<stdlib.h>
+end_define
+begin_include
+include|#
+directive|include
+file|<string.h>
+end_include
+begin_comment
+comment|/* for memset */
+end_comment
 begin_include
 include|#
 directive|include
@@ -174,6 +189,11 @@ end_include
 begin_comment
 comment|/* for FT_MulDiv only */
 end_comment
+begin_include
+include|#
+directive|include
+file|"rastpic.h"
+end_include
 begin_endif
 endif|#
 directive|endif
@@ -215,7 +235,7 @@ begin_comment
 comment|/*                                                                       */
 end_comment
 begin_comment
-comment|/*       o its scanline position boundaries, i.e. `Ymin' and `Ymax'.     */
+comment|/*       o its scanline position boundaries, i.e. `Ymin' and `Ymax'      */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -224,7 +244,7 @@ begin_comment
 comment|/*       o an array of intersection coordinates for each scanline        */
 end_comment
 begin_comment
-comment|/*         between `Ymin' and `Ymax'.                                    */
+comment|/*         between `Ymin' and `Ymax'                                     */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -233,7 +253,13 @@ begin_comment
 comment|/*       o a direction, indicating whether it was built going `up' or    */
 end_comment
 begin_comment
-comment|/*         `down', as this is very important for filling rules.          */
+comment|/*         `down', as this is very important for filling rules           */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/*       o its drop-out mode                                             */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -263,31 +289,31 @@ begin_comment
 comment|/*                                                                       */
 end_comment
 begin_comment
-comment|/*     ____________________________________________________________ _ _  */
+comment|/*     __________________________________________________________ _ _    */
 end_comment
 begin_comment
-comment|/*    |         |                   |         |                 |        */
+comment|/*    |         |                 |         |                 |          */
 end_comment
 begin_comment
-comment|/*    | profile | coordinates for   | profile | coordinates for |-->     */
+comment|/*    | profile | coordinates for | profile | coordinates for |-->       */
 end_comment
 begin_comment
-comment|/*    |    1    |  profile 1        |    2    |  profile 2      |-->     */
+comment|/*    |    1    |  profile 1      |    2    |  profile 2      |-->       */
 end_comment
 begin_comment
-comment|/*    |_________|___________________|_________|_________________|__ _ _  */
+comment|/*    |_________|_________________|_________|_________________|__ _ _    */
 end_comment
 begin_comment
 comment|/*                                                                       */
 end_comment
 begin_comment
-comment|/*    ^                                                         ^        */
+comment|/*    ^                                                       ^          */
 end_comment
 begin_comment
-comment|/*    |                                                         |        */
+comment|/*    |                                                       |          */
 end_comment
 begin_comment
-comment|/*  start of render pool                                       top       */
+comment|/* start of render pool                                      top         */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -409,24 +435,18 @@ end_comment
 begin_comment
 comment|/* define DEBUG_RASTER if you want to compile a debugging version */
 end_comment
-begin_define
-DECL|macro|xxxDEBUG_RASTER
-define|#
-directive|define
-name|xxxDEBUG_RASTER
-end_define
 begin_comment
-comment|/* undefine FT_RASTER_OPTION_ANTI_ALIASING if you do not want to support */
+comment|/* #define DEBUG_RASTER */
 end_comment
 begin_comment
-comment|/* 5-levels anti-aliasing                                                */
+comment|/* define FT_RASTER_OPTION_ANTI_ALIASING if you want to support */
 end_comment
-begin_undef
-DECL|macro|FT_RASTER_OPTION_ANTI_ALIASING
-undef|#
-directive|undef
-name|FT_RASTER_OPTION_ANTI_ALIASING
-end_undef
+begin_comment
+comment|/* 5-levels anti-aliasing                                       */
+end_comment
+begin_comment
+comment|/* #define FT_RASTER_OPTION_ANTI_ALIASING */
+end_comment
 begin_comment
 comment|/* The size of the two-lines intermediate bitmap used */
 end_comment
@@ -648,12 +668,35 @@ directive|define
 name|ft_memset
 value|memset
 end_define
+begin_define
+DECL|macro|FT_DEFINE_RASTER_FUNCS
+define|#
+directive|define
+name|FT_DEFINE_RASTER_FUNCS
+parameter_list|(
+name|class_
+parameter_list|,
+name|glyph_format_
+parameter_list|,
+name|raster_new_
+parameter_list|, \
+name|raster_reset_
+parameter_list|,
+name|raster_set_mode_
+parameter_list|,    \
+name|raster_render_
+parameter_list|,
+name|raster_done_
+parameter_list|)
+define|\
+value|const FT_Raster_Funcs class_ =                            \           {                                                         \             glyph_format_,                                          \             raster_new_,                                            \             raster_reset_,                                          \             raster_set_mode_,                                       \             raster_render_,                                         \             raster_done_                                            \          };
+end_define
 begin_else
 else|#
 directive|else
 end_else
 begin_comment
-comment|/* _STANDALONE_ */
+comment|/* !_STANDALONE_ */
 end_comment
 begin_include
 include|#
@@ -720,7 +763,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* _STANDALONE_ */
+comment|/* !_STANDALONE_ */
 end_comment
 begin_ifndef
 ifndef|#
@@ -1068,32 +1111,30 @@ DECL|typedef|TPoint
 name|TPoint
 typedef|;
 end_typedef
-begin_typedef
-DECL|enum|TFlow_
-typedef|typedef
-enum|enum
-name|TFlow_
-block|{
-DECL|enumerator|Flow_None
-name|Flow_None
-init|=
-literal|0
-block|,
-DECL|enumerator|Flow_Up
+begin_comment
+comment|/* values for the `flags' bit field */
+end_comment
+begin_define
+DECL|macro|Flow_Up
+define|#
+directive|define
 name|Flow_Up
-init|=
-literal|1
-block|,
-DECL|enumerator|Flow_Down
-name|Flow_Down
-init|=
-operator|-
-literal|1
-block|}
-DECL|typedef|TFlow
-name|TFlow
-typedef|;
-end_typedef
+value|0x8
+end_define
+begin_define
+DECL|macro|Overshoot_Top
+define|#
+directive|define
+name|Overshoot_Top
+value|0x10
+end_define
+begin_define
+DECL|macro|Overshoot_Bottom
+define|#
+directive|define
+name|Overshoot_Bottom
+value|0x20
+end_define
 begin_comment
 comment|/* States of each line, arc, and profile */
 end_comment
@@ -1144,44 +1185,47 @@ DECL|member|X
 name|FT_F26Dot6
 name|X
 decl_stmt|;
-comment|/* current coordinate during sweep        */
+comment|/* current coordinate during sweep          */
 DECL|member|link
 name|PProfile
 name|link
 decl_stmt|;
-comment|/* link to next profile - various purpose */
+comment|/* link to next profile (various purposes)  */
 DECL|member|offset
 name|PLong
 name|offset
 decl_stmt|;
-comment|/* start of profile's data in render pool */
-DECL|member|flow
-name|int
-name|flow
+comment|/* start of profile's data in render pool   */
+DECL|member|flags
+name|unsigned
+name|flags
 decl_stmt|;
-comment|/* Profile orientation: Asc/Descending    */
+comment|/* Bit 0-2: drop-out mode                   */
+comment|/* Bit 3: profile orientation (up/down)     */
+comment|/* Bit 4: is top profile?                   */
+comment|/* Bit 5: is bottom profile?                */
 DECL|member|height
 name|long
 name|height
 decl_stmt|;
-comment|/* profile's height in scanlines          */
+comment|/* profile's height in scanlines            */
 DECL|member|start
 name|long
 name|start
 decl_stmt|;
-comment|/* profile's starting scanline            */
+comment|/* profile's starting scanline              */
 DECL|member|countL
 name|unsigned
 name|countL
 decl_stmt|;
-comment|/* number of lines to step before this    */
-comment|/* profile becomes drawable               */
+comment|/* number of lines to step before this      */
+comment|/* profile becomes drawable                 */
 DECL|member|next
 name|PProfile
 name|next
 decl_stmt|;
-comment|/* next profile in same contour, used     */
-comment|/* during drop-out control                */
+comment|/* next profile in same contour, used       */
+comment|/* during drop-out control                  */
 block|}
 struct|;
 end_struct
@@ -1292,7 +1336,7 @@ else|#
 directive|else
 end_else
 begin_comment
-comment|/* FT_STATIC_RASTER */
+comment|/* !FT_STATIC_RASTER */
 end_comment
 begin_define
 DECL|macro|RAS_ARGS
@@ -1334,7 +1378,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* FT_STATIC_RASTER */
+comment|/* !FT_STATIC_RASTER */
 end_comment
 begin_typedef
 DECL|typedef|TWorker
@@ -1455,17 +1499,34 @@ name|x
 parameter_list|)
 value|( ( (x)<< ras.scale_shift ) - ras.precision_half )
 end_define
+begin_define
+DECL|macro|IS_BOTTOM_OVERSHOOT
+define|#
+directive|define
+name|IS_BOTTOM_OVERSHOOT
+parameter_list|(
+name|x
+parameter_list|)
+value|( CEILING( x ) - x>= ras.precision_half )
+end_define
+begin_define
+DECL|macro|IS_TOP_OVERSHOOT
+define|#
+directive|define
+name|IS_TOP_OVERSHOOT
+parameter_list|(
+name|x
+parameter_list|)
+value|( x - FLOOR( x )>= ras.precision_half )
+end_define
 begin_comment
-comment|/* Note that I have moved the location of some fields in the */
+comment|/* The most used variables are positioned at the top of the structure. */
 end_comment
 begin_comment
-comment|/* structure to ensure that the most used variables are used */
+comment|/* Thus, their offset can be coded with less opcodes, resulting in a   */
 end_comment
 begin_comment
-comment|/* at the top.  Thus, their offset can be coded with less    */
-end_comment
-begin_comment
-comment|/* opcodes, and it results in a smaller executable.          */
+comment|/* smaller executable.                                                 */
 end_comment
 begin_struct
 DECL|struct|TWorker_
@@ -1559,13 +1620,14 @@ decl_stmt|;
 comment|/* target pixmap buffer                */
 DECL|member|lastX
 DECL|member|lastY
-DECL|member|minY
-DECL|member|maxY
 name|Long
 name|lastX
 decl_stmt|,
 name|lastY
-decl_stmt|,
+decl_stmt|;
+DECL|member|minY
+DECL|member|maxY
+name|Long
 name|minY
 decl_stmt|,
 name|maxY
@@ -1580,7 +1642,7 @@ name|Bool
 name|fresh
 decl_stmt|;
 comment|/* signals a fresh new profile which   */
-comment|/* 'start' field must be completed     */
+comment|/* `start' field must be completed     */
 DECL|member|joint
 name|Bool
 name|joint
@@ -1690,7 +1752,7 @@ operator|+
 literal|1
 index|]
 decl_stmt|;
-comment|/* The Bezier stack                 */
+comment|/* The Bezier stack               */
 DECL|member|band_stack
 name|TBand
 name|band_stack
@@ -1805,6 +1867,9 @@ begin_else
 else|#
 directive|else
 end_else
+begin_comment
+comment|/* !FT_STATIC_RASTER */
+end_comment
 begin_define
 DECL|macro|ras
 define|#
@@ -1817,536 +1882,598 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* FT_STATIC_RASTER */
+comment|/* !FT_STATIC_RASTER */
 end_comment
 begin_ifdef
 ifdef|#
 directive|ifdef
 name|FT_RASTER_OPTION_ANTI_ALIASING
 end_ifdef
+begin_comment
+comment|/* A lookup table used to quickly count set bits in four gray 2x2 */
+end_comment
+begin_comment
+comment|/* cells.  The values of the table have been produced with the    */
+end_comment
+begin_comment
+comment|/* following code:                                                */
+end_comment
+begin_comment
+comment|/*                                                                */
+end_comment
+begin_comment
+comment|/*   for ( i = 0; i< 256; i++ )                                  */
+end_comment
+begin_comment
+comment|/*   {                                                            */
+end_comment
+begin_comment
+comment|/*     l = 0;                                                     */
+end_comment
+begin_comment
+comment|/*     j = i;                                                     */
+end_comment
+begin_comment
+comment|/*                                                                */
+end_comment
+begin_comment
+comment|/*     for ( c = 0; c< 4; c++ )                                  */
+end_comment
+begin_comment
+comment|/*     {                                                          */
+end_comment
+begin_comment
+comment|/*       l<<= 4;                                                 */
+end_comment
+begin_comment
+comment|/*                                                                */
+end_comment
+begin_comment
+comment|/*       if ( j& 0x80 ) l++;                                     */
+end_comment
+begin_comment
+comment|/*       if ( j& 0x40 ) l++;                                     */
+end_comment
+begin_comment
+comment|/*                                                                */
+end_comment
+begin_comment
+comment|/*       j = ( j<< 2 )& 0xFF;                                   */
+end_comment
+begin_comment
+comment|/*     }                                                          */
+end_comment
+begin_comment
+comment|/*     printf( "0x%04X", l );                                     */
+end_comment
+begin_comment
+comment|/*   }                                                            */
+end_comment
+begin_comment
+comment|/*                                                                */
+end_comment
 begin_decl_stmt
 DECL|variable|count_table
 specifier|static
 specifier|const
-name|char
+name|short
 name|count_table
 index|[
 literal|256
 index|]
 init|=
 block|{
-literal|0
+literal|0x0000
 block|,
-literal|1
+literal|0x0001
 block|,
-literal|1
+literal|0x0001
 block|,
-literal|2
+literal|0x0002
 block|,
-literal|1
+literal|0x0010
 block|,
-literal|2
+literal|0x0011
 block|,
-literal|2
+literal|0x0011
 block|,
-literal|3
+literal|0x0012
 block|,
-literal|1
+literal|0x0010
 block|,
-literal|2
+literal|0x0011
 block|,
-literal|2
+literal|0x0011
 block|,
-literal|3
+literal|0x0012
 block|,
-literal|2
+literal|0x0020
 block|,
-literal|3
+literal|0x0021
 block|,
-literal|3
+literal|0x0021
 block|,
-literal|4
+literal|0x0022
 block|,
-literal|1
+literal|0x0100
 block|,
-literal|2
+literal|0x0101
 block|,
-literal|2
+literal|0x0101
 block|,
-literal|3
+literal|0x0102
 block|,
-literal|2
+literal|0x0110
 block|,
-literal|3
+literal|0x0111
 block|,
-literal|3
+literal|0x0111
 block|,
-literal|4
+literal|0x0112
 block|,
-literal|2
+literal|0x0110
 block|,
-literal|3
+literal|0x0111
 block|,
-literal|3
+literal|0x0111
 block|,
-literal|4
+literal|0x0112
 block|,
-literal|3
+literal|0x0120
 block|,
-literal|4
+literal|0x0121
 block|,
-literal|4
+literal|0x0121
 block|,
-literal|5
+literal|0x0122
 block|,
-literal|1
+literal|0x0100
 block|,
-literal|2
+literal|0x0101
 block|,
-literal|2
+literal|0x0101
 block|,
-literal|3
+literal|0x0102
 block|,
-literal|2
+literal|0x0110
 block|,
-literal|3
+literal|0x0111
 block|,
-literal|3
+literal|0x0111
 block|,
-literal|4
+literal|0x0112
 block|,
-literal|2
+literal|0x0110
 block|,
-literal|3
+literal|0x0111
 block|,
-literal|3
+literal|0x0111
 block|,
-literal|4
+literal|0x0112
 block|,
-literal|3
+literal|0x0120
 block|,
-literal|4
+literal|0x0121
 block|,
-literal|4
+literal|0x0121
 block|,
-literal|5
+literal|0x0122
 block|,
-literal|2
+literal|0x0200
 block|,
-literal|3
+literal|0x0201
 block|,
-literal|3
+literal|0x0201
 block|,
-literal|4
+literal|0x0202
 block|,
-literal|3
+literal|0x0210
 block|,
-literal|4
+literal|0x0211
 block|,
-literal|4
+literal|0x0211
 block|,
-literal|5
+literal|0x0212
 block|,
-literal|3
+literal|0x0210
 block|,
-literal|4
+literal|0x0211
 block|,
-literal|4
+literal|0x0211
 block|,
-literal|5
+literal|0x0212
 block|,
-literal|4
+literal|0x0220
 block|,
-literal|5
+literal|0x0221
 block|,
-literal|5
+literal|0x0221
 block|,
-literal|6
+literal|0x0222
 block|,
-literal|1
+literal|0x1000
 block|,
-literal|2
+literal|0x1001
 block|,
-literal|2
+literal|0x1001
 block|,
-literal|3
+literal|0x1002
 block|,
-literal|2
+literal|0x1010
 block|,
-literal|3
+literal|0x1011
 block|,
-literal|3
+literal|0x1011
 block|,
-literal|4
+literal|0x1012
 block|,
-literal|2
+literal|0x1010
 block|,
-literal|3
+literal|0x1011
 block|,
-literal|3
+literal|0x1011
 block|,
-literal|4
+literal|0x1012
 block|,
-literal|3
+literal|0x1020
 block|,
-literal|4
+literal|0x1021
 block|,
-literal|4
+literal|0x1021
 block|,
-literal|5
+literal|0x1022
 block|,
-literal|2
+literal|0x1100
 block|,
-literal|3
+literal|0x1101
 block|,
-literal|3
+literal|0x1101
 block|,
-literal|4
+literal|0x1102
 block|,
-literal|3
+literal|0x1110
 block|,
-literal|4
+literal|0x1111
 block|,
-literal|4
+literal|0x1111
 block|,
-literal|5
+literal|0x1112
 block|,
-literal|3
+literal|0x1110
 block|,
-literal|4
+literal|0x1111
 block|,
-literal|4
+literal|0x1111
 block|,
-literal|5
+literal|0x1112
 block|,
-literal|4
+literal|0x1120
 block|,
-literal|5
+literal|0x1121
 block|,
-literal|5
+literal|0x1121
 block|,
-literal|6
+literal|0x1122
 block|,
-literal|2
+literal|0x1100
 block|,
-literal|3
+literal|0x1101
 block|,
-literal|3
+literal|0x1101
 block|,
-literal|4
+literal|0x1102
 block|,
-literal|3
+literal|0x1110
 block|,
-literal|4
+literal|0x1111
 block|,
-literal|4
+literal|0x1111
 block|,
-literal|5
+literal|0x1112
 block|,
-literal|3
+literal|0x1110
 block|,
-literal|4
+literal|0x1111
 block|,
-literal|4
+literal|0x1111
 block|,
-literal|5
+literal|0x1112
 block|,
-literal|4
+literal|0x1120
 block|,
-literal|5
+literal|0x1121
 block|,
-literal|5
+literal|0x1121
 block|,
-literal|6
+literal|0x1122
 block|,
-literal|3
+literal|0x1200
 block|,
-literal|4
+literal|0x1201
 block|,
-literal|4
+literal|0x1201
 block|,
-literal|5
+literal|0x1202
 block|,
-literal|4
+literal|0x1210
 block|,
-literal|5
+literal|0x1211
 block|,
-literal|5
+literal|0x1211
 block|,
-literal|6
+literal|0x1212
 block|,
-literal|4
+literal|0x1210
 block|,
-literal|5
+literal|0x1211
 block|,
-literal|5
+literal|0x1211
 block|,
-literal|6
+literal|0x1212
 block|,
-literal|5
+literal|0x1220
 block|,
-literal|6
+literal|0x1221
 block|,
-literal|6
+literal|0x1221
 block|,
-literal|7
+literal|0x1222
 block|,
-literal|1
+literal|0x1000
 block|,
-literal|2
+literal|0x1001
 block|,
-literal|2
+literal|0x1001
 block|,
-literal|3
+literal|0x1002
 block|,
-literal|2
+literal|0x1010
 block|,
-literal|3
+literal|0x1011
 block|,
-literal|3
+literal|0x1011
 block|,
-literal|4
+literal|0x1012
 block|,
-literal|2
+literal|0x1010
 block|,
-literal|3
+literal|0x1011
 block|,
-literal|3
+literal|0x1011
 block|,
-literal|4
+literal|0x1012
 block|,
-literal|3
+literal|0x1020
 block|,
-literal|4
+literal|0x1021
 block|,
-literal|4
+literal|0x1021
 block|,
-literal|5
+literal|0x1022
 block|,
-literal|2
+literal|0x1100
 block|,
-literal|3
+literal|0x1101
 block|,
-literal|3
+literal|0x1101
 block|,
-literal|4
+literal|0x1102
 block|,
-literal|3
+literal|0x1110
 block|,
-literal|4
+literal|0x1111
 block|,
-literal|4
+literal|0x1111
 block|,
-literal|5
+literal|0x1112
 block|,
-literal|3
+literal|0x1110
 block|,
-literal|4
+literal|0x1111
 block|,
-literal|4
+literal|0x1111
 block|,
-literal|5
+literal|0x1112
 block|,
-literal|4
+literal|0x1120
 block|,
-literal|5
+literal|0x1121
 block|,
-literal|5
+literal|0x1121
 block|,
-literal|6
+literal|0x1122
 block|,
-literal|2
+literal|0x1100
 block|,
-literal|3
+literal|0x1101
 block|,
-literal|3
+literal|0x1101
 block|,
-literal|4
+literal|0x1102
 block|,
-literal|3
+literal|0x1110
 block|,
-literal|4
+literal|0x1111
 block|,
-literal|4
+literal|0x1111
 block|,
-literal|5
+literal|0x1112
 block|,
-literal|3
+literal|0x1110
 block|,
-literal|4
+literal|0x1111
 block|,
-literal|4
+literal|0x1111
 block|,
-literal|5
+literal|0x1112
 block|,
-literal|4
+literal|0x1120
 block|,
-literal|5
+literal|0x1121
 block|,
-literal|5
+literal|0x1121
 block|,
-literal|6
+literal|0x1122
 block|,
-literal|3
+literal|0x1200
 block|,
-literal|4
+literal|0x1201
 block|,
-literal|4
+literal|0x1201
 block|,
-literal|5
+literal|0x1202
 block|,
-literal|4
+literal|0x1210
 block|,
-literal|5
+literal|0x1211
 block|,
-literal|5
+literal|0x1211
 block|,
-literal|6
+literal|0x1212
 block|,
-literal|4
+literal|0x1210
 block|,
-literal|5
+literal|0x1211
 block|,
-literal|5
+literal|0x1211
 block|,
-literal|6
+literal|0x1212
 block|,
-literal|5
+literal|0x1220
 block|,
-literal|6
+literal|0x1221
 block|,
-literal|6
+literal|0x1221
 block|,
-literal|7
+literal|0x1222
 block|,
-literal|2
+literal|0x2000
 block|,
-literal|3
+literal|0x2001
 block|,
-literal|3
+literal|0x2001
 block|,
-literal|4
+literal|0x2002
 block|,
-literal|3
+literal|0x2010
 block|,
-literal|4
+literal|0x2011
 block|,
-literal|4
+literal|0x2011
 block|,
-literal|5
+literal|0x2012
 block|,
-literal|3
+literal|0x2010
 block|,
-literal|4
+literal|0x2011
 block|,
-literal|4
+literal|0x2011
 block|,
-literal|5
+literal|0x2012
 block|,
-literal|4
+literal|0x2020
 block|,
-literal|5
+literal|0x2021
 block|,
-literal|5
+literal|0x2021
 block|,
-literal|6
+literal|0x2022
 block|,
-literal|3
+literal|0x2100
 block|,
-literal|4
+literal|0x2101
 block|,
-literal|4
+literal|0x2101
 block|,
-literal|5
+literal|0x2102
 block|,
-literal|4
+literal|0x2110
 block|,
-literal|5
+literal|0x2111
 block|,
-literal|5
+literal|0x2111
 block|,
-literal|6
+literal|0x2112
 block|,
-literal|4
+literal|0x2110
 block|,
-literal|5
+literal|0x2111
 block|,
-literal|5
+literal|0x2111
 block|,
-literal|6
+literal|0x2112
 block|,
-literal|5
+literal|0x2120
 block|,
-literal|6
+literal|0x2121
 block|,
-literal|6
+literal|0x2121
 block|,
-literal|7
+literal|0x2122
 block|,
-literal|3
+literal|0x2100
 block|,
-literal|4
+literal|0x2101
 block|,
-literal|4
+literal|0x2101
 block|,
-literal|5
+literal|0x2102
 block|,
-literal|4
+literal|0x2110
 block|,
-literal|5
+literal|0x2111
 block|,
-literal|5
+literal|0x2111
 block|,
-literal|6
+literal|0x2112
 block|,
-literal|4
+literal|0x2110
 block|,
-literal|5
+literal|0x2111
 block|,
-literal|5
+literal|0x2111
 block|,
-literal|6
+literal|0x2112
 block|,
-literal|5
+literal|0x2120
 block|,
-literal|6
+literal|0x2121
 block|,
-literal|6
+literal|0x2121
 block|,
-literal|7
+literal|0x2122
 block|,
-literal|4
+literal|0x2200
 block|,
-literal|5
+literal|0x2201
 block|,
-literal|5
+literal|0x2201
 block|,
-literal|6
+literal|0x2202
 block|,
-literal|5
+literal|0x2210
 block|,
-literal|6
+literal|0x2211
 block|,
-literal|6
+literal|0x2211
 block|,
-literal|7
+literal|0x2212
 block|,
-literal|5
+literal|0x2210
 block|,
-literal|6
+literal|0x2211
 block|,
-literal|6
+literal|0x2211
 block|,
-literal|7
+literal|0x2212
 block|,
-literal|6
+literal|0x2220
 block|,
-literal|7
+literal|0x2221
 block|,
-literal|7
+literal|0x2221
 block|,
-literal|8
-name|a
+literal|0x2222
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -2434,19 +2561,19 @@ name|ras
 operator|.
 name|precision_bits
 operator|=
-literal|10
+literal|12
 expr_stmt|;
 name|ras
 operator|.
 name|precision_step
 operator|=
-literal|128
+literal|256
 expr_stmt|;
 name|ras
 operator|.
 name|precision_jitter
 operator|=
-literal|24
+literal|50
 expr_stmt|;
 block|}
 else|else
@@ -2552,7 +2679,16 @@ begin_comment
 comment|/*<Input>                                                               */
 end_comment
 begin_comment
-comment|/*    aState :: The state/orientation of the new profile.                */
+comment|/*    aState    :: The state/orientation of the new profile.             */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/*    overshoot :: Whether the profile's unrounded start position        */
+end_comment
+begin_comment
+comment|/*                 differs by at least a half pixel.                     */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -2578,6 +2714,9 @@ parameter_list|(
 name|RAS_ARGS
 name|TStates
 name|aState
+parameter_list|,
+name|Bool
+name|overshoot
 parameter_list|)
 block|{
 if|if
@@ -2635,81 +2774,14 @@ return|return
 name|FAILURE
 return|;
 block|}
-switch|switch
-condition|(
-name|aState
-condition|)
-block|{
-case|case
-name|Ascending_State
-case|:
 name|ras
 operator|.
 name|cProfile
 operator|->
-name|flow
+name|flags
 operator|=
-name|Flow_Up
+literal|0
 expr_stmt|;
-name|FT_TRACE6
-argument_list|(
-operator|(
-literal|"New ascending profile = %lx\n"
-operator|,
-operator|(
-name|long
-operator|)
-name|ras
-operator|.
-name|cProfile
-operator|)
-argument_list|)
-expr_stmt|;
-break|break;
-case|case
-name|Descending_State
-case|:
-name|ras
-operator|.
-name|cProfile
-operator|->
-name|flow
-operator|=
-name|Flow_Down
-expr_stmt|;
-name|FT_TRACE6
-argument_list|(
-operator|(
-literal|"New descending profile = %lx\n"
-operator|,
-operator|(
-name|long
-operator|)
-name|ras
-operator|.
-name|cProfile
-operator|)
-argument_list|)
-expr_stmt|;
-break|break;
-default|default:
-name|FT_ERROR
-argument_list|(
-operator|(
-literal|"New_Profile: invalid profile direction!\n"
-operator|)
-argument_list|)
-expr_stmt|;
-name|ras
-operator|.
-name|error
-operator|=
-name|Raster_Err_Invalid
-expr_stmt|;
-return|return
-name|FAILURE
-return|;
-block|}
 name|ras
 operator|.
 name|cProfile
@@ -2758,6 +2830,107 @@ name|PProfile
 operator|)
 literal|0
 expr_stmt|;
+name|ras
+operator|.
+name|cProfile
+operator|->
+name|flags
+operator|=
+name|ras
+operator|.
+name|dropOutControl
+expr_stmt|;
+switch|switch
+condition|(
+name|aState
+condition|)
+block|{
+case|case
+name|Ascending_State
+case|:
+name|ras
+operator|.
+name|cProfile
+operator|->
+name|flags
+operator||=
+name|Flow_Up
+expr_stmt|;
+if|if
+condition|(
+name|overshoot
+condition|)
+name|ras
+operator|.
+name|cProfile
+operator|->
+name|flags
+operator||=
+name|Overshoot_Bottom
+expr_stmt|;
+name|FT_TRACE6
+argument_list|(
+operator|(
+literal|"New ascending profile = %lx\n"
+operator|,
+operator|(
+name|long
+operator|)
+name|ras
+operator|.
+name|cProfile
+operator|)
+argument_list|)
+expr_stmt|;
+break|break;
+case|case
+name|Descending_State
+case|:
+if|if
+condition|(
+name|overshoot
+condition|)
+name|ras
+operator|.
+name|cProfile
+operator|->
+name|flags
+operator||=
+name|Overshoot_Top
+expr_stmt|;
+name|FT_TRACE6
+argument_list|(
+operator|(
+literal|"New descending profile = %lx\n"
+operator|,
+operator|(
+name|long
+operator|)
+name|ras
+operator|.
+name|cProfile
+operator|)
+argument_list|)
+expr_stmt|;
+break|break;
+default|default:
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"New_Profile: invalid profile direction\n"
+operator|)
+argument_list|)
+expr_stmt|;
+name|ras
+operator|.
+name|error
+operator|=
+name|Raster_Err_Invalid
+expr_stmt|;
+return|return
+name|FAILURE
+return|;
+block|}
 if|if
 condition|(
 operator|!
@@ -2821,6 +2994,18 @@ begin_comment
 comment|/*                                                                       */
 end_comment
 begin_comment
+comment|/*<Input>                                                               */
+end_comment
+begin_comment
+comment|/*    overshoot :: Whether the profile's unrounded end position differs  */
+end_comment
+begin_comment
+comment|/*                 by at least a half pixel.                             */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
 comment|/*<Return>                                                              */
 end_comment
 begin_comment
@@ -2835,7 +3020,9 @@ name|Bool
 DECL|function|End_Profile
 name|End_Profile
 parameter_list|(
-name|RAS_ARG
+name|RAS_ARGS
+name|Bool
+name|overshoot
 parameter_list|)
 block|{
 name|Long
@@ -2871,7 +3058,7 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"End_Profile: negative height encountered!\n"
+literal|"End_Profile: negative height encountered\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -2914,12 +3101,6 @@ name|h
 operator|)
 argument_list|)
 expr_stmt|;
-name|oldProfile
-operator|=
-name|ras
-operator|.
-name|cProfile
-expr_stmt|;
 name|ras
 operator|.
 name|cProfile
@@ -2927,6 +3108,45 @@ operator|->
 name|height
 operator|=
 name|h
+expr_stmt|;
+if|if
+condition|(
+name|overshoot
+condition|)
+block|{
+if|if
+condition|(
+name|ras
+operator|.
+name|cProfile
+operator|->
+name|flags
+operator|&
+name|Flow_Up
+condition|)
+name|ras
+operator|.
+name|cProfile
+operator|->
+name|flags
+operator||=
+name|Overshoot_Top
+expr_stmt|;
+else|else
+name|ras
+operator|.
+name|cProfile
+operator|->
+name|flags
+operator||=
+name|Overshoot_Bottom
+expr_stmt|;
+block|}
+name|oldProfile
+operator|=
+name|ras
+operator|.
+name|cProfile
 expr_stmt|;
 name|ras
 operator|.
@@ -3328,16 +3548,44 @@ name|link
 operator|=
 name|NULL
 expr_stmt|;
-switch|switch
+if|if
 condition|(
 name|p
 operator|->
-name|flow
+name|flags
+operator|&
+name|Flow_Up
 condition|)
 block|{
-case|case
-name|Flow_Down
-case|:
+name|bottom
+operator|=
+operator|(
+name|Int
+operator|)
+name|p
+operator|->
+name|start
+expr_stmt|;
+name|top
+operator|=
+call|(
+name|Int
+call|)
+argument_list|(
+name|p
+operator|->
+name|start
+operator|+
+name|p
+operator|->
+name|height
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|bottom
 operator|=
 call|(
@@ -3379,37 +3627,6 @@ operator|->
 name|height
 operator|-
 literal|1
-expr_stmt|;
-break|break;
-case|case
-name|Flow_Up
-case|:
-default|default:
-name|bottom
-operator|=
-operator|(
-name|Int
-operator|)
-name|p
-operator|->
-name|start
-expr_stmt|;
-name|top
-operator|=
-call|(
-name|Int
-call|)
-argument_list|(
-name|p
-operator|->
-name|start
-operator|+
-name|p
-operator|->
-name|height
-operator|-
-literal|1
-argument_list|)
 expr_stmt|;
 block|}
 if|if
@@ -5553,6 +5770,8 @@ condition|(
 name|New_Profile
 argument_list|(
 argument|RAS_VARS Ascending_State
+argument_list|,
+argument|IS_BOTTOM_OVERSHOOT( ras.lastY )
 argument_list|)
 condition|)
 return|return
@@ -5574,6 +5793,8 @@ condition|(
 name|New_Profile
 argument_list|(
 argument|RAS_VARS Descending_State
+argument_list|,
+argument|IS_TOP_OVERSHOOT( ras.lastY )
 argument_list|)
 condition|)
 return|return
@@ -5597,12 +5818,14 @@ if|if
 condition|(
 name|End_Profile
 argument_list|(
-name|RAS_VAR
+argument|RAS_VARS IS_TOP_OVERSHOOT( ras.lastY )
 argument_list|)
 operator|||
 name|New_Profile
 argument_list|(
 argument|RAS_VARS Descending_State
+argument_list|,
+argument|IS_TOP_OVERSHOOT( ras.lastY )
 argument_list|)
 condition|)
 return|return
@@ -5626,12 +5849,14 @@ if|if
 condition|(
 name|End_Profile
 argument_list|(
-name|RAS_VAR
+argument|RAS_VARS IS_BOTTOM_OVERSHOOT( ras.lastY )
 argument_list|)
 operator|||
 name|New_Profile
 argument_list|(
 argument|RAS_VARS Ascending_State
+argument_list|,
+argument|IS_BOTTOM_OVERSHOOT( ras.lastY )
 argument_list|)
 condition|)
 return|return
@@ -6040,6 +6265,23 @@ operator|!=
 name|state_bez
 condition|)
 block|{
+name|Bool
+name|o
+init|=
+name|state_bez
+operator|==
+name|Ascending_State
+condition|?
+name|IS_BOTTOM_OVERSHOOT
+argument_list|(
+name|y1
+argument_list|)
+else|:
+name|IS_TOP_OVERSHOOT
+argument_list|(
+name|y1
+argument_list|)
+decl_stmt|;
 comment|/* finalize current profile if any */
 if|if
 condition|(
@@ -6051,7 +6293,7 @@ name|Unknown_State
 operator|&&
 name|End_Profile
 argument_list|(
-name|RAS_VAR
+argument|RAS_VARS o
 argument_list|)
 condition|)
 goto|goto
@@ -6063,6 +6305,8 @@ condition|(
 name|New_Profile
 argument_list|(
 argument|RAS_VARS state_bez
+argument_list|,
+argument|o
 argument_list|)
 condition|)
 goto|goto
@@ -6563,6 +6807,24 @@ operator|!=
 name|state_bez
 condition|)
 block|{
+name|Bool
+name|o
+init|=
+name|state_bez
+operator|==
+name|Ascending_State
+condition|?
+name|IS_BOTTOM_OVERSHOOT
+argument_list|(
+name|y1
+argument_list|)
+else|:
+name|IS_TOP_OVERSHOOT
+argument_list|(
+name|y1
+argument_list|)
+decl_stmt|;
+comment|/* finalize current profile if any */
 if|if
 condition|(
 name|ras
@@ -6573,7 +6835,7 @@ name|Unknown_State
 operator|&&
 name|End_Profile
 argument_list|(
-name|RAS_VAR
+argument|RAS_VARS o
 argument_list|)
 condition|)
 goto|goto
@@ -6584,6 +6846,8 @@ condition|(
 name|New_Profile
 argument_list|(
 argument|RAS_VARS state_bez
+argument_list|,
+argument|o
 argument_list|)
 condition|)
 goto|goto
@@ -6921,6 +7185,30 @@ operator|.
 name|tags
 operator|+
 name|first
+expr_stmt|;
+comment|/* set scan mode if necessary */
+if|if
+condition|(
+name|tags
+index|[
+literal|0
+index|]
+operator|&
+name|FT_CURVE_TAG_HAS_SCANMODE
+condition|)
+name|ras
+operator|.
+name|dropOutControl
+operator|=
+operator|(
+name|Byte
+operator|)
+name|tags
+index|[
+literal|0
+index|]
+operator|>>
+literal|5
 expr_stmt|;
 name|tag
 operator|=
@@ -7738,6 +8026,9 @@ name|i
 operator|++
 control|)
 block|{
+name|Bool
+name|o
+decl_stmt|;
 name|ras
 operator|.
 name|state
@@ -7788,7 +8079,7 @@ index|]
 operator|+
 literal|1
 expr_stmt|;
-comment|/* We must now see whether the extreme arcs join or not */
+comment|/* we must now check whether the extreme arcs join or not */
 if|if
 condition|(
 name|FRAC
@@ -7822,17 +8113,25 @@ name|ras
 operator|.
 name|gProfile
 operator|&&
+operator|(
 name|ras
 operator|.
 name|gProfile
 operator|->
-name|flow
+name|flags
+operator|&
+name|Flow_Up
+operator|)
 operator|==
+operator|(
 name|ras
 operator|.
 name|cProfile
 operator|->
-name|flow
+name|flags
+operator|&
+name|Flow_Up
+operator|)
 condition|)
 name|ras
 operator|.
@@ -7849,9 +8148,38 @@ name|cProfile
 expr_stmt|;
 if|if
 condition|(
+name|ras
+operator|.
+name|cProfile
+operator|->
+name|flags
+operator|&
+name|Flow_Up
+condition|)
+name|o
+operator|=
+name|IS_TOP_OVERSHOOT
+argument_list|(
+name|ras
+operator|.
+name|lastY
+argument_list|)
+expr_stmt|;
+else|else
+name|o
+operator|=
+name|IS_BOTTOM_OVERSHOOT
+argument_list|(
+name|ras
+operator|.
+name|lastY
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
 name|End_Profile
 argument_list|(
-name|RAS_VAR
+argument|RAS_VARS o
 argument_list|)
 condition|)
 return|return
@@ -8207,7 +8535,14 @@ name|offset
 operator|+=
 name|current
 operator|->
-name|flow
+name|flags
+operator|&
+name|Flow_Up
+condition|?
+literal|1
+else|:
+operator|-
+literal|1
 expr_stmt|;
 name|current
 operator|->
@@ -8807,6 +9142,15 @@ operator|>
 name|e2
 condition|)
 block|{
+name|Int
+name|dropOutControl
+init|=
+name|left
+operator|->
+name|flags
+operator|&
+literal|7
+decl_stmt|;
 if|if
 condition|(
 name|e1
@@ -8820,8 +9164,6 @@ condition|)
 block|{
 switch|switch
 condition|(
-name|ras
-operator|.
 name|dropOutControl
 condition|)
 block|{
@@ -8846,7 +9188,7 @@ operator|(
 name|x1
 operator|+
 name|x2
-operator|+
+operator|-
 literal|1
 operator|)
 operator|/
@@ -8867,11 +9209,10 @@ literal|5
 case|:
 comment|/* smart drop-outs excluding stubs  */
 comment|/* Drop-out Control Rules #4 and #6 */
-comment|/* The spec is not very clear regarding those rules.  It  */
-comment|/* presents a method that is way too costly to implement  */
-comment|/* while the general idea seems to get rid of `stubs'.    */
+comment|/* The specification neither provides an exact definition */
+comment|/* of a `stub' nor gives exact rules to exclude them.     */
 comment|/*                                                        */
-comment|/* Here, we only get rid of stubs recognized if:          */
+comment|/* Here the constraints we use to recognize a stub.       */
 comment|/*                                                        */
 comment|/*  upper stub:                                           */
 comment|/*                                                        */
@@ -8885,16 +9226,12 @@ comment|/*   - P_Left and P_Right are in the same contour         */
 comment|/*   - P_Left is the successor of P_Right in that contour */
 comment|/*   - y is the bottom of P_Left                          */
 comment|/*                                                        */
-comment|/* FIXXXME: uncommenting this line solves the disappearing */
-comment|/*          bit problem in the `7' of verdana 10pts, but   */
-comment|/*          makes a new one in the `C' of arial 14pts      */
-if|#
-directive|if
-literal|0
-block|if ( x2 - x1< ras.precision_half )
-endif|#
-directive|endif
-block|{
+comment|/* We draw a stub if the following constraints are met.   */
+comment|/*                                                        */
+comment|/*   - for an upper or lower stub, there is top or bottom */
+comment|/*     overshoot, respectively                            */
+comment|/*   - the covered interval is greater or equal to a half */
+comment|/*     pixel                                              */
 comment|/* upper stub test */
 if|if
 condition|(
@@ -8909,6 +9246,23 @@ operator|->
 name|height
 operator|<=
 literal|0
+operator|&&
+operator|!
+operator|(
+name|left
+operator|->
+name|flags
+operator|&
+name|Overshoot_Top
+operator|&&
+name|x2
+operator|-
+name|x1
+operator|>=
+name|ras
+operator|.
+name|precision_half
+operator|)
 condition|)
 return|return;
 comment|/* lower stub test */
@@ -8925,13 +9279,27 @@ operator|->
 name|start
 operator|==
 name|y
-condition|)
-return|return;
-block|}
-if|if
-condition|(
+operator|&&
+operator|!
+operator|(
+name|left
+operator|->
+name|flags
+operator|&
+name|Overshoot_Bottom
+operator|&&
+name|x2
+operator|-
+name|x1
+operator|>=
 name|ras
 operator|.
+name|precision_half
+operator|)
+condition|)
+return|return;
+if|if
+condition|(
 name|dropOutControl
 operator|==
 literal|1
@@ -8949,7 +9317,7 @@ operator|(
 name|x1
 operator|+
 name|x2
-operator|+
+operator|-
 literal|1
 operator|)
 operator|/
@@ -9458,6 +9826,15 @@ operator|>
 name|e2
 condition|)
 block|{
+name|Int
+name|dropOutControl
+init|=
+name|left
+operator|->
+name|flags
+operator|&
+literal|7
+decl_stmt|;
 if|if
 condition|(
 name|e1
@@ -9471,8 +9848,6 @@ condition|)
 block|{
 switch|switch
 condition|(
-name|ras
-operator|.
 name|dropOutControl
 condition|)
 block|{
@@ -9497,7 +9872,7 @@ operator|(
 name|x1
 operator|+
 name|x2
-operator|+
+operator|-
 literal|1
 operator|)
 operator|/
@@ -9532,6 +9907,23 @@ operator|->
 name|height
 operator|<=
 literal|0
+operator|&&
+operator|!
+operator|(
+name|left
+operator|->
+name|flags
+operator|&
+name|Overshoot_Top
+operator|&&
+name|x2
+operator|-
+name|x1
+operator|>=
+name|ras
+operator|.
+name|precision_half
+operator|)
 condition|)
 return|return;
 comment|/* leftmost stub test */
@@ -9548,12 +9940,27 @@ operator|->
 name|start
 operator|==
 name|y
+operator|&&
+operator|!
+operator|(
+name|left
+operator|->
+name|flags
+operator|&
+name|Overshoot_Bottom
+operator|&&
+name|x2
+operator|-
+name|x1
+operator|>=
+name|ras
+operator|.
+name|precision_half
+operator|)
 condition|)
 return|return;
 if|if
 condition|(
-name|ras
-operator|.
 name|dropOutControl
 operator|==
 literal|1
@@ -9571,7 +9978,7 @@ operator|(
 name|x1
 operator|+
 name|x2
-operator|+
+operator|-
 literal|1
 operator|)
 operator|/
@@ -10011,12 +10418,12 @@ name|bit
 decl_stmt|,
 name|bit2
 decl_stmt|;
-name|char
+name|short
 modifier|*
 name|count
 init|=
 operator|(
-name|char
+name|short
 operator|*
 operator|)
 name|count_table
@@ -10521,6 +10928,15 @@ operator|>
 name|e2
 condition|)
 block|{
+name|Int
+name|dropOutControl
+init|=
+name|left
+operator|->
+name|flags
+operator|&
+literal|7
+decl_stmt|;
 if|if
 condition|(
 name|e1
@@ -10534,8 +10950,6 @@ condition|)
 block|{
 switch|switch
 condition|(
-name|ras
-operator|.
 name|dropOutControl
 condition|)
 block|{
@@ -10560,7 +10974,7 @@ operator|(
 name|x1
 operator|+
 name|x2
-operator|+
+operator|-
 literal|1
 operator|)
 operator|/
@@ -10615,8 +11029,6 @@ condition|)
 return|return;
 if|if
 condition|(
-name|ras
-operator|.
 name|dropOutControl
 operator|==
 literal|1
@@ -10634,7 +11046,7 @@ operator|(
 name|x1
 operator|+
 name|x2
-operator|+
+operator|-
 literal|1
 operator|)
 operator|/
@@ -11132,16 +11544,14 @@ argument_list|,
 name|P
 argument_list|)
 expr_stmt|;
-switch|switch
+if|if
 condition|(
 name|P
 operator|->
-name|flow
-condition|)
-block|{
-case|case
+name|flags
+operator|&
 name|Flow_Up
-case|:
+condition|)
 name|InsNew
 argument_list|(
 operator|&
@@ -11150,10 +11560,7 @@ argument_list|,
 name|P
 argument_list|)
 expr_stmt|;
-break|break;
-case|case
-name|Flow_Down
-case|:
+else|else
 name|InsNew
 argument_list|(
 operator|&
@@ -11162,8 +11569,6 @@ argument_list|,
 name|P
 argument_list|)
 expr_stmt|;
-break|break;
-block|}
 block|}
 name|P
 operator|=
@@ -11315,10 +11720,17 @@ operator|.
 name|precision
 condition|)
 block|{
+name|Int
+name|dropOutControl
+init|=
+name|P_Left
+operator|->
+name|flags
+operator|&
+literal|7
+decl_stmt|;
 if|if
 condition|(
-name|ras
-operator|.
 name|dropOutControl
 operator|!=
 literal|2
@@ -11971,7 +12383,7 @@ name|error
 decl_stmt|;
 name|Set_High_Precision
 argument_list|(
-argument|RAS_VARS ras.outline.flags&                         FT_OUTLINE_HIGH_PRECISION
+argument|RAS_VARS ras.outline.flags&                                  FT_OUTLINE_HIGH_PRECISION
 argument_list|)
 empty_stmt|;
 name|ras
@@ -12333,7 +12745,7 @@ name|error
 decl_stmt|;
 name|Set_High_Precision
 argument_list|(
-argument|RAS_VARS ras.outline.flags&                         FT_OUTLINE_HIGH_PRECISION
+argument|RAS_VARS ras.outline.flags&                                  FT_OUTLINE_HIGH_PRECISION
 argument_list|)
 empty_stmt|;
 name|ras
@@ -13423,10 +13835,22 @@ name|raster
 operator|->
 name|gray_width
 expr_stmt|;
+name|FT_MEM_ZERO
+argument_list|(
+name|worker
+operator|->
+name|gray_lines
+argument_list|,
+name|worker
+operator|->
+name|gray_width
+operator|*
+literal|2
+argument_list|)
+expr_stmt|;
 endif|#
 directive|endif
 return|return
-operator|(
 operator|(
 name|params
 operator|->
@@ -13444,46 +13868,27 @@ name|Render_Glyph
 argument_list|(
 name|RAS_VAR
 argument_list|)
-operator|)
 return|;
 block|}
 end_function
-begin_decl_stmt
-DECL|variable|ft_standard_raster
-specifier|const
-name|FT_Raster_Funcs
-name|ft_standard_raster
-init|=
-block|{
-name|FT_GLYPH_FORMAT_OUTLINE
-block|,
-operator|(
-name|FT_Raster_New_Func
-operator|)
-name|ft_black_new
-block|,
-operator|(
-name|FT_Raster_Reset_Func
-operator|)
-name|ft_black_reset
-block|,
-operator|(
-name|FT_Raster_Set_Mode_Func
-operator|)
-name|ft_black_set_mode
-block|,
-operator|(
-name|FT_Raster_Render_Func
-operator|)
-name|ft_black_render
-block|,
-operator|(
-name|FT_Raster_Done_Func
-operator|)
-name|ft_black_done
-block|}
-decl_stmt|;
-end_decl_stmt
+begin_macro
+name|FT_DEFINE_RASTER_FUNCS
+argument_list|(
+argument|ft_standard_raster
+argument_list|,
+argument|FT_GLYPH_FORMAT_OUTLINE
+argument_list|,
+argument|(FT_Raster_New_Func)     ft_black_new
+argument_list|,
+argument|(FT_Raster_Reset_Func)   ft_black_reset
+argument_list|,
+argument|(FT_Raster_Set_Mode_Func)ft_black_set_mode
+argument_list|,
+argument|(FT_Raster_Render_Func)  ft_black_render
+argument_list|,
+argument|(FT_Raster_Done_Func)    ft_black_done
+argument_list|)
+end_macro
 begin_comment
 comment|/* END */
 end_comment

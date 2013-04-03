@@ -361,7 +361,7 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"cid_load_keyword: invalid use of `%s'!\n"
+literal|"cid_load_keyword: invalid use of `%s'\n"
 operator|,
 name|keyword
 operator|->

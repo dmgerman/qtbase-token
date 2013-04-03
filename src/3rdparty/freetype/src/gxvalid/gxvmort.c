@@ -307,7 +307,7 @@ comment|/* TODO: enableFlags must be unique value in specified chain?  */
 block|}
 end_function
 begin_comment
-comment|/*    * nFeatureFlags is typed to FT_UInt to accept that in    * mort (typed FT_UShort) and morx (typed FT_ULong).    */
+comment|/*    * nFeatureFlags is typed to FT_ULong to accept that in    * mort (typed FT_UShort) and morx (typed FT_ULong).    */
 end_comment
 begin_macro
 name|FT_LOCAL_DEF
@@ -323,7 +323,7 @@ argument|FT_Bytes       table
 argument_list|,
 argument|FT_Bytes       limit
 argument_list|,
-argument|FT_UInt        nFeatureFlags
+argument|FT_ULong       nFeatureFlags
 argument_list|,
 argument|GXV_Validator  valid
 argument_list|)
@@ -335,7 +335,7 @@ name|p
 init|=
 name|table
 decl_stmt|;
-name|FT_UInt
+name|FT_ULong
 name|i
 decl_stmt|;
 name|GXV_mort_featureRec

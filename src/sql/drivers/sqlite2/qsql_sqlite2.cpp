@@ -60,6 +60,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtSql/private/qsqldriver_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<qstringlist.h>
 end_include
 begin_include
@@ -216,6 +221,9 @@ begin_class
 DECL|class|QSQLite2DriverPrivate
 class|class
 name|QSQLite2DriverPrivate
+super|:
+specifier|public
+name|QSqlDriverPrivate
 block|{
 public|public:
 name|QSQLite2DriverPrivate
@@ -240,6 +248,9 @@ operator|::
 name|QSQLite2DriverPrivate
 parameter_list|()
 member_init_list|:
+name|QSqlDriverPrivate
+argument_list|()
+member_init_list|,
 name|access
 argument_list|(
 literal|0
@@ -257,6 +268,10 @@ argument_list|)
 operator|==
 literal|0
 operator|)
+expr_stmt|;
+name|dbmsType
+operator|=
+name|SQLite
 expr_stmt|;
 block|}
 end_constructor
@@ -1675,11 +1690,7 @@ operator|::
 name|~
 name|QSQLite2Driver
 parameter_list|()
-block|{
-operator|delete
-name|d
-expr_stmt|;
-block|}
+block|{ }
 end_destructor
 begin_function
 DECL|function|hasFeature

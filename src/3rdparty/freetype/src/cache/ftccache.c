@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2000-2001, 2002, 2003, 2004, 2005, 2006, 2007 by             */
+comment|/*  Copyright 2000-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2009 by       */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -77,6 +77,19 @@ include|#
 directive|include
 file|"ftcerror.h"
 end_include
+begin_undef
+DECL|macro|FT_COMPONENT
+undef|#
+directive|undef
+name|FT_COMPONENT
+end_undef
+begin_define
+DECL|macro|FT_COMPONENT
+define|#
+directive|define
+name|FT_COMPONENT
+value|trace_cache
+end_define
 begin_define
 DECL|macro|FTC_HASH_MAX_LOAD
 define|#
@@ -293,21 +306,21 @@ decl_stmt|,
 modifier|*
 name|pnode
 decl_stmt|;
-name|FT_UInt
+name|FT_UFast
 name|p
 init|=
 name|cache
 operator|->
 name|p
 decl_stmt|;
-name|FT_UInt
+name|FT_UFast
 name|mask
 init|=
 name|cache
 operator|->
 name|mask
 decl_stmt|;
-name|FT_UInt
+name|FT_UFast
 name|count
 init|=
 name|mask
@@ -514,7 +527,7 @@ operator|*
 name|FTC_HASH_SUB_LOAD
 condition|)
 block|{
-name|FT_UInt
+name|FT_UFast
 name|old_index
 init|=
 name|p
@@ -746,10 +759,10 @@ operator|==
 name|NULL
 condition|)
 block|{
-name|FT_ERROR
+name|FT_TRACE0
 argument_list|(
 operator|(
-literal|"ftc_node_hash_unlink: unknown node!\n"
+literal|"ftc_node_hash_unlink: unknown node\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -954,7 +967,7 @@ operator|->
 name|num_caches
 condition|)
 block|{
-name|FT_ERROR
+name|FT_TRACE0
 argument_list|(
 operator|(
 literal|"ftc_node_destroy: invalid node handle\n"
@@ -986,7 +999,7 @@ operator|==
 name|NULL
 condition|)
 block|{
-name|FT_ERROR
+name|FT_TRACE0
 argument_list|(
 operator|(
 literal|"ftc_node_destroy: invalid node handle\n"
@@ -1044,7 +1057,7 @@ if|#
 directive|if
 literal|0
 comment|/* check, just in case of general corruption :-) */
-block|if ( manager->num_nodes == 0 )       FT_ERROR(( "ftc_node_destroy: invalid cache node count! = %d\n",                   manager->num_nodes ));
+block|if ( manager->num_nodes == 0 )       FT_TRACE0(( "ftc_node_destroy: invalid cache node count (%d)\n",                   manager->num_nodes ));
 endif|#
 directive|endif
 block|}
@@ -1184,7 +1197,7 @@ decl_stmt|;
 name|FT_UFast
 name|i
 decl_stmt|;
-name|FT_UInt
+name|FT_UFast
 name|count
 decl_stmt|;
 name|count

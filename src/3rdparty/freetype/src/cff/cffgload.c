@@ -18,7 +18,10 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 by */
+comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,   */
+end_comment
+begin_comment
+comment|/*            2010 by                                                      */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -60,11 +63,6 @@ end_include
 begin_include
 include|#
 directive|include
-include|FT_INTERNAL_CALC_H
-end_include
-begin_include
-include|#
-directive|include
 include|FT_INTERNAL_STREAM_H
 end_include
 begin_include
@@ -76,11 +74,6 @@ begin_include
 include|#
 directive|include
 include|FT_OUTLINE_H
-end_include
-begin_include
-include|#
-directive|include
-include|FT_TRUETYPE_TAGS_H
 end_include
 begin_include
 include|#
@@ -316,6 +309,15 @@ block|,
 DECL|enumerator|cff_op_pop
 name|cff_op_pop
 block|,
+DECL|enumerator|cff_op_seac
+name|cff_op_seac
+block|,
+DECL|enumerator|cff_op_sbw
+name|cff_op_sbw
+block|,
+DECL|enumerator|cff_op_setcurrentpoint
+name|cff_op_setcurrentpoint
+block|,
 comment|/* do not remove */
 DECL|enumerator|cff_op_max
 name|cff_op_max
@@ -540,6 +542,15 @@ block|,
 literal|0
 block|,
 literal|0
+block|,
+literal|5
+block|,
+comment|/* seac */
+literal|4
+block|,
+comment|/* sbw */
+literal|2
+comment|/* setcurrentpoint */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -950,7 +961,16 @@ begin_comment
 comment|/*<Input>                                                               */
 end_comment
 begin_comment
-comment|/*    num_subrs :: The number of glyph subroutines.                      */
+comment|/*    in_charstring_type :: The `CharstringType' value of the top DICT   */
+end_comment
+begin_comment
+comment|/*                          dictionary.                                  */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/*    num_subrs          :: The number of glyph subroutines.             */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -967,6 +987,9 @@ name|FT_Int
 DECL|function|cff_compute_bias
 name|cff_compute_bias
 parameter_list|(
+name|FT_Int
+name|in_charstring_type
+parameter_list|,
 name|FT_UInt
 name|num_subrs
 parameter_list|)
@@ -974,6 +997,17 @@ block|{
 name|FT_Int
 name|result
 decl_stmt|;
+if|if
+condition|(
+name|in_charstring_type
+operator|==
+literal|1
+condition|)
+name|result
+operator|=
+literal|0
+expr_stmt|;
+elseif|else
 if|if
 condition|(
 name|num_subrs
@@ -1140,6 +1174,12 @@ expr_stmt|;
 comment|/* initialize Type2 decoder */
 name|decoder
 operator|->
+name|cff
+operator|=
+name|cff
+expr_stmt|;
+name|decoder
+operator|->
 name|num_globals
 operator|=
 name|cff
@@ -1160,6 +1200,14 @@ name|globals_bias
 operator|=
 name|cff_compute_bias
 argument_list|(
+name|cff
+operator|->
+name|top_font
+operator|.
+name|font_dict
+operator|.
+name|charstring_type
+argument_list|,
 name|decoder
 operator|->
 name|num_globals
@@ -1377,6 +1425,16 @@ name|cff_compute_bias
 argument_list|(
 name|decoder
 operator|->
+name|cff
+operator|->
+name|top_font
+operator|.
+name|font_dict
+operator|.
+name|charstring_type
+argument_list|,
+name|decoder
+operator|->
 name|num_locals
 argument_list|)
 expr_stmt|;
@@ -1533,13 +1591,6 @@ name|FT_CURVE_TAG_ON
 else|:
 name|FT_CURVE_TAG_CUBIC
 argument_list|)
-expr_stmt|;
-name|builder
-operator|->
-name|last
-operator|=
-operator|*
-name|point
 expr_stmt|;
 block|}
 name|outline
@@ -1795,14 +1846,40 @@ name|builder
 operator|->
 name|current
 decl_stmt|;
+name|FT_Int
+name|first
+decl_stmt|;
 if|if
 condition|(
 operator|!
 name|outline
 condition|)
 return|return;
-comment|/* XXXX: We must not include the last point in the path if it */
-comment|/*       is located on the first point.                       */
+name|first
+operator|=
+name|outline
+operator|->
+name|n_contours
+operator|<=
+literal|1
+condition|?
+literal|0
+else|:
+name|outline
+operator|->
+name|contours
+index|[
+name|outline
+operator|->
+name|n_contours
+operator|-
+literal|2
+index|]
+operator|+
+literal|1
+expr_stmt|;
+comment|/* We must not include the last point in the path if it */
+comment|/* is located on the first point.                       */
 if|if
 condition|(
 name|outline
@@ -1812,11 +1889,6 @@ operator|>
 literal|1
 condition|)
 block|{
-name|FT_Int
-name|first
-init|=
-literal|0
-decl_stmt|;
 name|FT_Vector
 modifier|*
 name|p1
@@ -1859,39 +1931,6 @@ name|n_points
 operator|-
 literal|1
 decl_stmt|;
-if|if
-condition|(
-name|outline
-operator|->
-name|n_contours
-operator|>
-literal|1
-condition|)
-block|{
-name|first
-operator|=
-name|outline
-operator|->
-name|contours
-index|[
-name|outline
-operator|->
-name|n_contours
-operator|-
-literal|2
-index|]
-operator|+
-literal|1
-expr_stmt|;
-name|p1
-operator|=
-name|outline
-operator|->
-name|points
-operator|+
-name|first
-expr_stmt|;
-block|}
 comment|/* `delete' last point only if it coincides with the first    */
 comment|/* point and if it is not a control point (which can happen). */
 if|if
@@ -1933,6 +1972,32 @@ name|n_contours
 operator|>
 literal|0
 condition|)
+block|{
+comment|/* Don't add contours only consisting of one point, i.e., */
+comment|/* check whether begin point and last point are the same. */
+if|if
+condition|(
+name|first
+operator|==
+name|outline
+operator|->
+name|n_points
+operator|-
+literal|1
+condition|)
+block|{
+name|outline
+operator|->
+name|n_contours
+operator|--
+expr_stmt|;
+name|outline
+operator|->
+name|n_points
+operator|--
+expr_stmt|;
+block|}
+else|else
 name|outline
 operator|->
 name|contours
@@ -1955,6 +2020,7 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 end_function
 begin_function
@@ -2316,6 +2382,9 @@ modifier|*
 name|decoder
 parameter_list|,
 name|FT_Pos
+name|asb
+parameter_list|,
+name|FT_Pos
 name|adx
 parameter_list|,
 name|FT_Pos
@@ -2366,6 +2435,47 @@ decl_stmt|;
 name|FT_ULong
 name|charstring_len
 decl_stmt|;
+name|FT_Pos
+name|glyph_width
+decl_stmt|;
+if|if
+condition|(
+name|decoder
+operator|->
+name|seac
+condition|)
+block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"cff_operator_seac: invalid nested seac\n"
+operator|)
+argument_list|)
+expr_stmt|;
+return|return
+name|CFF_Err_Syntax_Error
+return|;
+block|}
+name|adx
+operator|+=
+name|decoder
+operator|->
+name|builder
+operator|.
+name|left_bearing
+operator|.
+name|x
+expr_stmt|;
+name|ady
+operator|+=
+name|decoder
+operator|->
+name|builder
+operator|.
+name|left_bearing
+operator|.
+name|y
+expr_stmt|;
 ifdef|#
 directive|ifdef
 name|FT_CONFIG_OPTION_INCREMENTAL
@@ -2444,12 +2554,6 @@ name|FT_ERROR
 argument_list|(
 operator|(
 literal|"cff_operator_seac:"
-operator|)
-argument_list|)
-expr_stmt|;
-name|FT_ERROR
-argument_list|(
-operator|(
 literal|" invalid seac character code arguments\n"
 operator|)
 argument_list|)
@@ -2644,6 +2748,13 @@ operator|!
 name|error
 condition|)
 block|{
+comment|/* the seac operator must not be nested */
+name|decoder
+operator|->
+name|seac
+operator|=
+name|TRUE
+expr_stmt|;
 name|error
 operator|=
 name|cff_decoder_parse_charstrings
@@ -2654,6 +2765,12 @@ name|charstring
 argument_list|,
 name|charstring_len
 argument_list|)
+expr_stmt|;
+name|decoder
+operator|->
+name|seac
+operator|=
+name|FALSE
 expr_stmt|;
 if|if
 condition|(
@@ -2673,8 +2790,8 @@ name|charstring_len
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* Save the left bearing and width of the base character */
-comment|/* as they will be erased by the next load.              */
+comment|/* Save the left bearing, advance and glyph width of the base */
+comment|/* character as they will be erased by the next load.         */
 name|left_bearing
 operator|=
 name|builder
@@ -2686,6 +2803,12 @@ operator|=
 name|builder
 operator|->
 name|advance
+expr_stmt|;
+name|glyph_width
+operator|=
+name|decoder
+operator|->
+name|glyph_width
 expr_stmt|;
 name|builder
 operator|->
@@ -2708,6 +2831,8 @@ operator|->
 name|pos_x
 operator|=
 name|adx
+operator|-
+name|asb
 expr_stmt|;
 name|builder
 operator|->
@@ -2737,6 +2862,13 @@ operator|!
 name|error
 condition|)
 block|{
+comment|/* the seac operator must not be nested */
+name|decoder
+operator|->
+name|seac
+operator|=
+name|TRUE
+expr_stmt|;
 name|error
 operator|=
 name|cff_decoder_parse_charstrings
@@ -2747,6 +2879,12 @@ name|charstring
 argument_list|,
 name|charstring_len
 argument_list|)
+expr_stmt|;
+name|decoder
+operator|->
+name|seac
+operator|=
+name|FALSE
 expr_stmt|;
 if|if
 condition|(
@@ -2766,8 +2904,8 @@ name|charstring_len
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* Restore the left side bearing and advance width */
-comment|/* of the base character.                          */
+comment|/* Restore the left side bearing, advance and glyph width */
+comment|/* of the base character.                                 */
 name|builder
 operator|->
 name|left_bearing
@@ -2779,6 +2917,12 @@ operator|->
 name|advance
 operator|=
 name|advance
+expr_stmt|;
+name|decoder
+operator|->
+name|glyph_width
+operator|=
+name|glyph_width
 expr_stmt|;
 name|builder
 operator|->
@@ -2911,6 +3055,19 @@ name|FT_Fixed
 modifier|*
 name|stack
 decl_stmt|;
+name|FT_Int
+name|charstring_type
+init|=
+name|decoder
+operator|->
+name|cff
+operator|->
+name|top_font
+operator|.
+name|font_dict
+operator|.
+name|charstring_type
+decl_stmt|;
 name|T2_Hints_Funcs
 name|hinter
 decl_stmt|;
@@ -2934,6 +3091,11 @@ call|(
 name|FT_Fixed
 call|)
 argument_list|(
+operator|(
+call|(
+name|FT_PtrDist
+call|)
+argument_list|(
 name|char
 operator|*
 argument_list|)
@@ -2941,7 +3103,7 @@ operator|&
 name|seed
 operator|^
 call|(
-name|FT_Fixed
+name|FT_PtrDist
 call|)
 argument_list|(
 name|char
@@ -2951,7 +3113,7 @@ operator|&
 name|decoder
 operator|^
 call|(
-name|FT_Fixed
+name|FT_PtrDist
 call|)
 argument_list|(
 name|char
@@ -2959,6 +3121,10 @@ operator|*
 argument_list|)
 operator|&
 name|charstring_base
+operator|)
+operator|&
+name|FT_ULONG_MAX
+argument_list|)
 expr_stmt|;
 name|seed
 operator|=
@@ -3191,7 +3357,7 @@ condition|)
 name|val
 operator|=
 operator|(
-name|FT_Long
+name|FT_Int32
 operator|)
 name|v
 operator|-
@@ -3218,7 +3384,7 @@ name|val
 operator|=
 operator|(
 operator|(
-name|FT_Long
+name|FT_Int32
 operator|)
 name|v
 operator|-
@@ -3256,7 +3422,7 @@ operator|=
 operator|-
 operator|(
 operator|(
-name|FT_Long
+name|FT_Int32
 operator|)
 name|v
 operator|-
@@ -3332,6 +3498,12 @@ name|ip
 operator|+=
 literal|4
 expr_stmt|;
+if|if
+condition|(
+name|charstring_type
+operator|==
+literal|2
+condition|)
 name|shift
 operator|=
 literal|0
@@ -3559,6 +3731,24 @@ name|cff_op_dotsection
 expr_stmt|;
 break|break;
 case|case
+literal|1
+case|:
+comment|/* this is actually the Type1 vstem3 operator */
+name|op
+operator|=
+name|cff_op_vstem
+expr_stmt|;
+break|break;
+case|case
+literal|2
+case|:
+comment|/* this is actually the Type1 hstem3 operator */
+name|op
+operator|=
+name|cff_op_hstem
+expr_stmt|;
+break|break;
+case|case
 literal|3
 case|:
 name|op
@@ -3580,6 +3770,22 @@ case|:
 name|op
 operator|=
 name|cff_op_not
+expr_stmt|;
+break|break;
+case|case
+literal|6
+case|:
+name|op
+operator|=
+name|cff_op_seac
+expr_stmt|;
+break|break;
+case|case
+literal|7
+case|:
+name|op
+operator|=
+name|cff_op_sbw
 expr_stmt|;
 break|break;
 case|case
@@ -3751,6 +3957,14 @@ name|cff_op_roll
 expr_stmt|;
 break|break;
 case|case
+literal|33
+case|:
+name|op
+operator|=
+name|cff_op_setcurrentpoint
+expr_stmt|;
+break|break;
+case|case
 literal|34
 case|:
 name|op
@@ -3919,7 +4133,7 @@ name|cff_op_hvcurveto
 expr_stmt|;
 break|break;
 default|default:
-empty_stmt|;
+break|break;
 block|}
 if|if
 condition|(
@@ -6642,6 +6856,81 @@ expr_stmt|;
 block|}
 break|break;
 case|case
+name|cff_op_seac
+case|:
+name|FT_TRACE4
+argument_list|(
+operator|(
+literal|" seac\n"
+operator|)
+argument_list|)
+expr_stmt|;
+name|error
+operator|=
+name|cff_operator_seac
+argument_list|(
+name|decoder
+argument_list|,
+name|args
+index|[
+literal|0
+index|]
+argument_list|,
+name|args
+index|[
+literal|1
+index|]
+argument_list|,
+name|args
+index|[
+literal|2
+index|]
+argument_list|,
+call|(
+name|FT_Int
+call|)
+argument_list|(
+name|args
+index|[
+literal|3
+index|]
+operator|>>
+literal|16
+argument_list|)
+argument_list|,
+call|(
+name|FT_Int
+call|)
+argument_list|(
+name|args
+index|[
+literal|4
+index|]
+operator|>>
+literal|16
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|/* add current outline to the glyph slot */
+name|FT_GlyphLoader_Add
+argument_list|(
+name|builder
+operator|->
+name|loader
+argument_list|)
+expr_stmt|;
+comment|/* return now! */
+name|FT_TRACE4
+argument_list|(
+operator|(
+literal|"\n"
+operator|)
+argument_list|)
+expr_stmt|;
+return|return
+name|error
+return|;
+case|case
 name|cff_op_endchar
 case|:
 name|FT_TRACE4
@@ -6672,6 +6961,8 @@ operator|=
 name|cff_operator_seac
 argument_list|(
 name|decoder
+argument_list|,
+literal|0L
 argument_list|,
 name|args
 index|[
@@ -7481,7 +7772,8 @@ literal|0
 index|]
 expr_stmt|;
 name|args
-operator|++
+operator|+=
+literal|2
 expr_stmt|;
 break|break;
 case|case
@@ -7526,9 +7818,7 @@ literal|0
 operator|&&
 name|idx
 operator|<
-name|decoder
-operator|->
-name|len_buildchar
+name|CFF_MAX_TRANS_ELEMENTS
 condition|)
 name|decoder
 operator|->
@@ -7580,9 +7870,7 @@ literal|0
 operator|&&
 name|idx
 operator|<
-name|decoder
-operator|->
-name|len_buildchar
+name|CFF_MAX_TRANS_ELEMENTS
 condition|)
 name|val
 operator|=
@@ -7691,6 +7979,12 @@ operator|>>
 literal|16
 operator|)
 expr_stmt|;
+name|decoder
+operator|->
+name|builder
+operator|.
+name|left_bearing
+operator|.
 name|x
 operator|=
 name|args
@@ -7698,9 +7992,167 @@ index|[
 literal|0
 index|]
 expr_stmt|;
+name|decoder
+operator|->
+name|builder
+operator|.
+name|left_bearing
+operator|.
 name|y
 operator|=
 literal|0
+expr_stmt|;
+name|x
+operator|=
+name|decoder
+operator|->
+name|builder
+operator|.
+name|pos_x
+operator|+
+name|args
+index|[
+literal|0
+index|]
+expr_stmt|;
+name|y
+operator|=
+name|decoder
+operator|->
+name|builder
+operator|.
+name|pos_y
+expr_stmt|;
+name|args
+operator|=
+name|stack
+expr_stmt|;
+break|break;
+case|case
+name|cff_op_sbw
+case|:
+comment|/* this is an invalid Type 2 operator; however, there        */
+comment|/* exist fonts which are incorrectly converted from probably */
+comment|/* Type 1 to CFF, and some parsers seem to accept it         */
+name|FT_TRACE4
+argument_list|(
+operator|(
+literal|" sbw (invalid op)\n"
+operator|)
+argument_list|)
+expr_stmt|;
+name|decoder
+operator|->
+name|glyph_width
+operator|=
+name|decoder
+operator|->
+name|nominal_width
+operator|+
+operator|(
+name|args
+index|[
+literal|2
+index|]
+operator|>>
+literal|16
+operator|)
+expr_stmt|;
+name|decoder
+operator|->
+name|builder
+operator|.
+name|left_bearing
+operator|.
+name|x
+operator|=
+name|args
+index|[
+literal|0
+index|]
+expr_stmt|;
+name|decoder
+operator|->
+name|builder
+operator|.
+name|left_bearing
+operator|.
+name|y
+operator|=
+name|args
+index|[
+literal|1
+index|]
+expr_stmt|;
+name|x
+operator|=
+name|decoder
+operator|->
+name|builder
+operator|.
+name|pos_x
+operator|+
+name|args
+index|[
+literal|0
+index|]
+expr_stmt|;
+name|y
+operator|=
+name|decoder
+operator|->
+name|builder
+operator|.
+name|pos_y
+operator|+
+name|args
+index|[
+literal|1
+index|]
+expr_stmt|;
+name|args
+operator|=
+name|stack
+expr_stmt|;
+break|break;
+case|case
+name|cff_op_setcurrentpoint
+case|:
+comment|/* this is an invalid Type 2 operator; however, there        */
+comment|/* exist fonts which are incorrectly converted from probably */
+comment|/* Type 1 to CFF, and some parsers seem to accept it         */
+name|FT_TRACE4
+argument_list|(
+operator|(
+literal|" setcurrentpoint (invalid op)\n"
+operator|)
+argument_list|)
+expr_stmt|;
+name|x
+operator|=
+name|decoder
+operator|->
+name|builder
+operator|.
+name|pos_x
+operator|+
+name|args
+index|[
+literal|0
+index|]
+expr_stmt|;
+name|y
+operator|=
+name|decoder
+operator|->
+name|builder
+operator|.
+name|pos_y
+operator|+
+name|args
+index|[
+literal|1
+index|]
 expr_stmt|;
 name|args
 operator|=
@@ -7720,8 +8172,23 @@ literal|" callothersubr (invalid op)\n"
 operator|)
 argument_list|)
 expr_stmt|;
-comment|/* don't modify stack; handle the subr as `unknown' so that */
-comment|/* following `pop' operands use the arguments on stack      */
+comment|/* subsequent `pop' operands should add the arguments,       */
+comment|/* this is the implementation described for `unknown' other  */
+comment|/* subroutines in the Type1 spec.                            */
+name|args
+operator|-=
+literal|2
+operator|+
+operator|(
+name|args
+index|[
+operator|-
+literal|2
+index|]
+operator|>>
+literal|16
+operator|)
+expr_stmt|;
 break|break;
 case|case
 name|cff_op_pop
@@ -7949,12 +8416,6 @@ name|FT_ERROR
 argument_list|(
 operator|(
 literal|"cff_decoder_parse_charstrings:"
-operator|)
-argument_list|)
-expr_stmt|;
-name|FT_ERROR
-argument_list|(
-operator|(
 literal|" invalid local subr index\n"
 operator|)
 argument_list|)
@@ -8048,7 +8509,7 @@ name|FT_ERROR
 argument_list|(
 operator|(
 literal|"cff_decoder_parse_charstrings:"
-literal|" invoking empty subrs!\n"
+literal|" invoking empty subrs\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -8123,12 +8584,6 @@ name|FT_ERROR
 argument_list|(
 operator|(
 literal|"cff_decoder_parse_charstrings:"
-operator|)
-argument_list|)
-expr_stmt|;
-name|FT_ERROR
-argument_list|(
-operator|(
 literal|" invalid global subr index\n"
 operator|)
 argument_list|)
@@ -8222,7 +8677,7 @@ name|FT_ERROR
 argument_list|(
 operator|(
 literal|"cff_decoder_parse_charstrings:"
-literal|" invoking empty subrs!\n"
+literal|" invoking empty subrs\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -8383,7 +8838,7 @@ label|:
 name|FT_TRACE4
 argument_list|(
 operator|(
-literal|"cff_decoder_parse_charstrings: syntax error!\n"
+literal|"cff_decoder_parse_charstrings: syntax error\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -8395,7 +8850,7 @@ label|:
 name|FT_TRACE4
 argument_list|(
 operator|(
-literal|"cff_decoder_parse_charstrings: stack underflow!\n"
+literal|"cff_decoder_parse_charstrings: stack underflow\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -8407,7 +8862,7 @@ label|:
 name|FT_TRACE4
 argument_list|(
 operator|(
-literal|"cff_decoder_parse_charstrings: stack overflow!\n"
+literal|"cff_decoder_parse_charstrings: stack overflow\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -9046,7 +9501,7 @@ argument_list|,
 name|glyph_index
 argument_list|)
 decl_stmt|;
-name|FT_Int
+name|FT_ULong
 name|top_upm
 init|=
 name|cff
@@ -9057,7 +9512,7 @@ name|font_dict
 operator|.
 name|units_per_em
 decl_stmt|;
-name|FT_Int
+name|FT_ULong
 name|sub_upm
 init|=
 name|cff
@@ -9475,13 +9930,7 @@ name|metrics
 operator|.
 name|bearing_y
 operator|=
-name|decoder
-operator|.
-name|builder
-operator|.
-name|left_bearing
-operator|.
-name|y
+literal|0
 expr_stmt|;
 name|metrics
 operator|.
@@ -9494,6 +9943,18 @@ operator|.
 name|advance
 operator|.
 name|x
+expr_stmt|;
+name|metrics
+operator|.
+name|advance_v
+operator|=
+name|decoder
+operator|.
+name|builder
+operator|.
+name|advance
+operator|.
+name|y
 expr_stmt|;
 name|error
 operator|=
@@ -9543,18 +10004,6 @@ name|decoder
 operator|.
 name|builder
 operator|.
-name|left_bearing
-operator|.
-name|y
-operator|=
-name|metrics
-operator|.
-name|bearing_y
-expr_stmt|;
-name|decoder
-operator|.
-name|builder
-operator|.
 name|advance
 operator|.
 name|x
@@ -9571,7 +10020,9 @@ name|advance
 operator|.
 name|y
 operator|=
-literal|0
+name|metrics
+operator|.
+name|advance_v
 expr_stmt|;
 block|}
 endif|#
@@ -9702,6 +10153,9 @@ name|glyph_transformed
 operator|=
 literal|0
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|FT_CONFIG_OPTION_OLD_INTERNALS
 name|has_vertical_info
 operator|=
 name|FT_BOOL
@@ -9725,6 +10179,27 @@ operator|.
 name|long_metrics
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|has_vertical_info
+operator|=
+name|FT_BOOL
+argument_list|(
+name|face
+operator|->
+name|vertical_info
+operator|&&
+name|face
+operator|->
+name|vertical
+operator|.
+name|number_Of_VMetrics
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 comment|/* get the vertical metrics from the vtmx table if we have one */
 if|if
 condition|(
@@ -9897,11 +10372,16 @@ name|flags
 operator||=
 name|FT_OUTLINE_REVERSE_FILL
 expr_stmt|;
-comment|/* apply the font matrix -- `xx' has already been normalized */
 if|if
 condition|(
 operator|!
 operator|(
+name|font_matrix
+operator|.
+name|xx
+operator|==
+literal|0x10000L
+operator|&&
 name|font_matrix
 operator|.
 name|yy
@@ -10238,14 +10718,24 @@ name|metrics
 operator|->
 name|vertBearingX
 operator|=
+name|metrics
+operator|->
+name|horiBearingX
 operator|-
 name|metrics
 operator|->
-name|width
+name|horiAdvance
 operator|/
 literal|2
 expr_stmt|;
 else|else
+block|{
+if|if
+condition|(
+name|load_flags
+operator|&
+name|FT_LOAD_VERTICAL_LAYOUT
+condition|)
 name|ft_synthesize_vertical_metrics
 argument_list|(
 name|metrics
@@ -10255,6 +10745,7 @@ operator|->
 name|vertAdvance
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 return|return

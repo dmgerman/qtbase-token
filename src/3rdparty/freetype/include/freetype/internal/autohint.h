@@ -582,6 +582,63 @@ typedef|*
 name|FT_AutoHinter_Service
 typedef|;
 end_typedef
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|FT_CONFIG_OPTION_PIC
+end_ifndef
+begin_define
+DECL|macro|FT_DEFINE_AUTOHINTER_SERVICE
+define|#
+directive|define
+name|FT_DEFINE_AUTOHINTER_SERVICE
+parameter_list|(
+name|class_
+parameter_list|,
+name|reset_face_
+parameter_list|,
+name|get_global_hints_
+parameter_list|, \
+name|done_global_hints_
+parameter_list|,
+name|load_glyph_
+parameter_list|)
+define|\
+value|FT_CALLBACK_TABLE_DEF                                                      \   const FT_AutoHinter_ServiceRec class_ =                                    \   {                                                                          \     reset_face_, get_global_hints_, done_global_hints_, load_glyph_          \   };
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_comment
+comment|/* FT_CONFIG_OPTION_PIC */
+end_comment
+begin_define
+DECL|macro|FT_DEFINE_AUTOHINTER_SERVICE
+define|#
+directive|define
+name|FT_DEFINE_AUTOHINTER_SERVICE
+parameter_list|(
+name|class_
+parameter_list|,
+name|reset_face_
+parameter_list|,
+name|get_global_hints_
+parameter_list|, \
+name|done_global_hints_
+parameter_list|,
+name|load_glyph_
+parameter_list|)
+define|\
+value|void                                                                       \   FT_Init_Class_##class_( FT_Library library,                                \                           FT_AutoHinter_ServiceRec* clazz)                   \   {                                                                          \     FT_UNUSED(library);                                                      \     clazz->reset_face = reset_face_;                                         \     clazz->get_global_hints = get_global_hints_;                             \     clazz->done_global_hints = done_global_hints_;                           \     clazz->load_glyph = load_glyph_;                                         \   }
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* FT_CONFIG_OPTION_PIC */
+end_comment
 begin_macro
 name|FT_END_HEADER
 end_macro

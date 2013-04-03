@@ -22,6 +22,12 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_define
+DECL|macro|COMPILE_PCRE8
+define|#
+directive|define
+name|COMPILE_PCRE8
+end_define
 begin_include
 include|#
 directive|include
@@ -31,9 +37,10 @@ begin_comment
 comment|/************************************************* *       Convert character value to UTF-8         * *************************************************/
 end_comment
 begin_comment
-comment|/* This function takes an integer value in the range 0 - 0x10ffff and encodes it as a UTF-8 character in 1 to 6 pcre_uchars.  Arguments:   cvalue     the character value   buffer     pointer to buffer for result - at least 6 pcre_uchars long  Returns:     number of characters placed in the buffer */
+comment|/* This function takes an integer value in the range 0 - 0x10ffff and encodes it as a UTF-8 character in 1 to 4 pcre_uchars.  Arguments:   cvalue     the character value   buffer     pointer to buffer for result - at least 6 pcre_uchars long  Returns:     number of characters placed in the buffer */
 end_comment
 begin_function
+name|unsigned
 name|int
 DECL|function|ord2utf
 name|PRIV
@@ -58,25 +65,6 @@ name|i
 decl_stmt|,
 name|j
 decl_stmt|;
-comment|/* Checking invalid cvalue character, encoded as invalid UTF-16 character. Should never happen in practice. */
-if|if
-condition|(
-operator|(
-name|cvalue
-operator|&
-literal|0xf800
-operator|)
-operator|==
-literal|0xd800
-operator|||
-name|cvalue
-operator|>=
-literal|0x110000
-condition|)
-name|cvalue
-operator|=
-literal|0xfffe
-expr_stmt|;
 for|for
 control|(
 name|i

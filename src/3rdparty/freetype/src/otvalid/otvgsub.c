@@ -1149,7 +1149,8 @@ comment|/* ExtensionSubstFormat1 */
 block|{
 name|FT_UInt
 name|ExtensionLookupType
-decl_stmt|,
+decl_stmt|;
+name|FT_ULong
 name|ExtensionOffset
 decl_stmt|;
 name|OTV_Validate_Func

@@ -17,13 +17,25 @@ begin_comment
 comment|/* --------------------------------------------------------------------- */
 end_comment
 begin_comment
+comment|/*  Custom defines                                                       */
+end_comment
+begin_comment
+comment|/* --------------------------------------------------------------------- */
+end_comment
+begin_comment
+comment|/* Put your custom defines here. This empty section will never change    which helps maintaining patches (with diff / patch utilities). */
+end_comment
+begin_comment
+comment|/* --------------------------------------------------------------------- */
+end_comment
+begin_comment
 comment|/*  Architecture                                                         */
 end_comment
 begin_comment
 comment|/* --------------------------------------------------------------------- */
 end_comment
 begin_comment
-comment|/* Architecture selection */
+comment|/* Architecture selection. */
 end_comment
 begin_comment
 comment|/* #define SLJIT_CONFIG_X86_32 1 */
@@ -48,6 +60,9 @@ comment|/* #define SLJIT_CONFIG_PPC_64 1 */
 end_comment
 begin_comment
 comment|/* #define SLJIT_CONFIG_MIPS_32 1 */
+end_comment
+begin_comment
+comment|/* #define SLJIT_CONFIG_SPARC_32 1 */
 end_comment
 begin_comment
 comment|/* #define SLJIT_CONFIG_AUTO 1 */
@@ -103,6 +118,28 @@ define|#
 directive|define
 name|SLJIT_UTIL_STACK
 value|1
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* Single threaded application. Does not require any locks. */
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|SLJIT_SINGLE_THREADED
+end_ifndef
+begin_comment
+comment|/* Disabled by default. */
+end_comment
+begin_define
+DECL|macro|SLJIT_SINGLE_THREADED
+define|#
+directive|define
+name|SLJIT_SINGLE_THREADED
+value|0
 end_define
 begin_endif
 endif|#

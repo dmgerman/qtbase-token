@@ -492,7 +492,7 @@ begin_comment
 comment|/*<Description>                                                         */
 end_comment
 begin_comment
-comment|/*    A typedef for 32-bit tags (as used in the SFNT format).             */
+comment|/*    A typedef for 32-bit tags (as used in the SFNT format).            */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -1399,7 +1399,7 @@ parameter_list|,
 name|_x4
 parameter_list|)
 define|\
-value|( ( (FT_ULong)_x1<< 24 ) |     \             ( (FT_ULong)_x2<< 16 ) |     \             ( (FT_ULong)_x3<<  8 ) |     \               (FT_ULong)_x4         )
+value|(FT_Tag)                        \           ( ( (FT_ULong)_x1<< 24 ) |     \             ( (FT_ULong)_x2<< 16 ) |     \             ( (FT_ULong)_x3<<  8 ) |     \               (FT_ULong)_x4         )
 end_define
 begin_comment
 comment|/*************************************************************************/

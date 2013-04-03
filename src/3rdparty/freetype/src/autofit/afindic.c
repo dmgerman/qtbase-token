@@ -225,69 +225,49 @@ block|{
 if|#
 directive|if
 literal|0
-block|{ 0x0100,  0xFFFF },
+block|AF_UNIRANGE_REC( 0x0100UL, 0xFFFFUL ),
 comment|/* why this? */
 endif|#
 directive|endif
-block|{
-literal|0x0900
-block|,
-literal|0x0DFF
-block|}
-block|,
-comment|/* Indic Range */
-block|{
-literal|0
-block|,
-literal|0
-block|}
-block|}
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-name|FT_CALLBACK_TABLE_DEF
-specifier|const
-name|AF_ScriptClassRec
-DECL|variable|af_indic_script_class
-name|af_indic_script_class
-init|=
-block|{
-name|AF_SCRIPT_INDIC
-block|,
-name|af_indic_uniranges
-block|,
-sizeof|sizeof
+name|AF_UNIRANGE_REC
 argument_list|(
-name|AF_LatinMetricsRec
+literal|0x0900UL
+argument_list|,
+literal|0x0DFFUL
 argument_list|)
 block|,
-operator|(
-name|AF_Script_InitMetricsFunc
-operator|)
-name|af_indic_metrics_init
-block|,
-operator|(
-name|AF_Script_ScaleMetricsFunc
-operator|)
-name|af_indic_metrics_scale
-block|,
-operator|(
-name|AF_Script_DoneMetricsFunc
-operator|)
-name|NULL
-block|,
-operator|(
-name|AF_Script_InitHintsFunc
-operator|)
-name|af_indic_hints_init
-block|,
-operator|(
-name|AF_Script_ApplyHintsFunc
-operator|)
-name|af_indic_hints_apply
+comment|/* Indic Range */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0UL
+argument_list|,
+literal|0UL
+argument_list|)
 block|}
 decl_stmt|;
 end_decl_stmt
+begin_macro
+name|AF_DEFINE_SCRIPT_CLASS
+argument_list|(
+argument|af_indic_script_class
+argument_list|,
+argument|AF_SCRIPT_INDIC
+argument_list|,
+argument|af_indic_uniranges
+argument_list|,
+argument|sizeof( AF_LatinMetricsRec )
+argument_list|,
+argument|(AF_Script_InitMetricsFunc) af_indic_metrics_init
+argument_list|,
+argument|(AF_Script_ScaleMetricsFunc)af_indic_metrics_scale
+argument_list|,
+argument|(AF_Script_DoneMetricsFunc) NULL
+argument_list|,
+argument|(AF_Script_InitHintsFunc)   af_indic_hints_init
+argument_list|,
+argument|(AF_Script_ApplyHintsFunc)  af_indic_hints_apply
+argument_list|)
+end_macro
 begin_else
 else|#
 directive|else
@@ -296,7 +276,6 @@ begin_comment
 comment|/* !AF_CONFIG_OPTION_INDIC */
 end_comment
 begin_decl_stmt
-DECL|variable|af_indic_uniranges
 specifier|static
 specifier|const
 name|AF_Script_UniRangeRec
@@ -312,50 +291,28 @@ block|}
 block|}
 decl_stmt|;
 end_decl_stmt
-begin_decl_stmt
-name|FT_CALLBACK_TABLE_DEF
-specifier|const
-name|AF_ScriptClassRec
-DECL|variable|af_indic_script_class
-name|af_indic_script_class
-init|=
-block|{
-name|AF_SCRIPT_INDIC
-block|,
-name|af_indic_uniranges
-block|,
-sizeof|sizeof
+begin_macro
+name|AF_DEFINE_SCRIPT_CLASS
 argument_list|(
-name|AF_LatinMetricsRec
+argument|af_indic_script_class
+argument_list|,
+argument|AF_SCRIPT_INDIC
+argument_list|,
+argument|af_indic_uniranges
+argument_list|,
+argument|sizeof( AF_LatinMetricsRec )
+argument_list|,
+argument|(AF_Script_InitMetricsFunc) NULL
+argument_list|,
+argument|(AF_Script_ScaleMetricsFunc)NULL
+argument_list|,
+argument|(AF_Script_DoneMetricsFunc) NULL
+argument_list|,
+argument|(AF_Script_InitHintsFunc)   NULL
+argument_list|,
+argument|(AF_Script_ApplyHintsFunc)  NULL
 argument_list|)
-block|,
-operator|(
-name|AF_Script_InitMetricsFunc
-operator|)
-name|NULL
-block|,
-operator|(
-name|AF_Script_ScaleMetricsFunc
-operator|)
-name|NULL
-block|,
-operator|(
-name|AF_Script_DoneMetricsFunc
-operator|)
-name|NULL
-block|,
-operator|(
-name|AF_Script_InitHintsFunc
-operator|)
-name|NULL
-block|,
-operator|(
-name|AF_Script_ApplyHintsFunc
-operator|)
-name|NULL
-block|}
-decl_stmt|;
-end_decl_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

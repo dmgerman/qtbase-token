@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2000-2001, 2002, 2003, 2004, 2005, 2006 by                   */
+comment|/*  Copyright 2000-2001, 2002, 2003, 2004, 2005, 2006, 2009 by             */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -87,6 +87,19 @@ include|#
 directive|include
 file|"ftcerror.h"
 end_include
+begin_undef
+DECL|macro|FT_COMPONENT
+undef|#
+directive|undef
+name|FT_COMPONENT
+end_undef
+begin_define
+DECL|macro|FT_COMPONENT
+define|#
+directive|define
+name|FT_COMPONENT
+value|trace_cache
+end_define
 begin_comment
 comment|/*************************************************************************/
 end_comment
@@ -462,11 +475,12 @@ name|slot
 operator|->
 name|bitmap
 decl_stmt|;
-name|FT_Int
+name|FT_Pos
 name|xadvance
 decl_stmt|,
 name|yadvance
 decl_stmt|;
+comment|/* FT_GlyphSlot->advance.{x|y} */
 if|if
 condition|(
 name|slot
@@ -476,12 +490,11 @@ operator|!=
 name|FT_GLYPH_FORMAT_BITMAP
 condition|)
 block|{
-name|FT_ERROR
+name|FT_TRACE0
 argument_list|(
 operator|(
-literal|"%s: glyph loaded didn't return a bitmap!\n"
-operator|,
-literal|"ftc_snode_load"
+literal|"ftc_snode_load:"
+literal|" glyph loaded didn't return a bitmap\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -1025,7 +1038,7 @@ begin_macro
 DECL|function|FT_LOCAL_DEF
 name|FT_LOCAL_DEF
 argument_list|(
-argument|FT_ULong
+argument|FT_Offset
 argument_list|)
 end_macro
 begin_macro
@@ -1063,7 +1076,7 @@ decl_stmt|;
 name|FT_Int
 name|pitch
 decl_stmt|;
-name|FT_ULong
+name|FT_Offset
 name|size
 decl_stmt|;
 name|FT_UNUSED
@@ -1149,7 +1162,7 @@ directive|if
 literal|0
 end_if
 begin_endif
-unit|FT_LOCAL_DEF( FT_ULong )   FTC_SNode_Weight( FTC_SNode  snode )   {     return ftc_snode_weight( FTC_NODE( snode ), NULL );   }
+unit|FT_LOCAL_DEF( FT_Offset )   FTC_SNode_Weight( FTC_SNode  snode )   {     return ftc_snode_weight( FTC_NODE( snode ), NULL );   }
 endif|#
 directive|endif
 end_endif

@@ -349,7 +349,7 @@ begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
 begin_comment
-comment|/**************************************************************    *    * @function:    *   FT_Stroker_ConicTo    *    * @description:    *   `Draw' a single quadratic Bezier in the stroker's current sub-path,    *   from the last position.    *    * @input:    *   stroker ::    *     The target stroker handle.    *    *   control ::    *     A pointer to a Bezier control point.    *    *   to ::    *     A pointer to the destination point.    *    * @return:    *   FreeType error code.  0~means success.    *    * @note:    *   You should call this function between @FT_Stroker_BeginSubPath and    *   @FT_Stroker_EndSubPath.    */
+comment|/**************************************************************    *    * @function:    *   FT_Stroker_ConicTo    *    * @description:    *   `Draw' a single quadratic BÃ©zier in the stroker's current sub-path,    *   from the last position.    *    * @input:    *   stroker ::    *     The target stroker handle.    *    *   control ::    *     A pointer to a BÃ©zier control point.    *    *   to ::    *     A pointer to the destination point.    *    * @return:    *   FreeType error code.  0~means success.    *    * @note:    *   You should call this function between @FT_Stroker_BeginSubPath and    *   @FT_Stroker_EndSubPath.    */
 end_comment
 begin_macro
 name|FT_EXPORT
@@ -371,7 +371,7 @@ begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
 begin_comment
-comment|/**************************************************************    *    * @function:    *   FT_Stroker_CubicTo    *    * @description:    *   `Draw' a single cubic Bezier in the stroker's current sub-path,    *   from the last position.    *    * @input:    *   stroker ::    *     The target stroker handle.    *    *   control1 ::    *     A pointer to the first Bezier control point.    *    *   control2 ::    *     A pointer to second Bezier control point.    *    *   to ::    *     A pointer to the destination point.    *    * @return:    *   FreeType error code.  0~means success.    *    * @note:    *   You should call this function between @FT_Stroker_BeginSubPath and    *   @FT_Stroker_EndSubPath.    */
+comment|/**************************************************************    *    * @function:    *   FT_Stroker_CubicTo    *    * @description:    *   `Draw' a single cubic BÃ©zier in the stroker's current sub-path,    *   from the last position.    *    * @input:    *   stroker ::    *     The target stroker handle.    *    *   control1 ::    *     A pointer to the first BÃ©zier control point.    *    *   control2 ::    *     A pointer to second BÃ©zier control point.    *    *   to ::    *     A pointer to the destination point.    *    * @return:    *   FreeType error code.  0~means success.    *    * @note:    *   You should call this function between @FT_Stroker_BeginSubPath and    *   @FT_Stroker_EndSubPath.    */
 end_comment
 begin_macro
 name|FT_EXPORT
@@ -465,7 +465,7 @@ begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
 begin_comment
-comment|/**************************************************************    *    * @function:    *   FT_Stroker_Export    *    * @description:    *   Call this function after @FT_Stroker_GetBorderCounts to    *   export the all borders to your own @FT_Outline structure.    *    *   Note that this function appends the border points and    *   contours to your outline, but does not try to resize its    *   arrays.    *    * @input:    *   stroker ::    *     The target stroker handle.    *    *   outline ::    *     The target outline handle.    */
+comment|/**************************************************************    *    * @function:    *   FT_Stroker_Export    *    * @description:    *   Call this function after @FT_Stroker_GetBorderCounts to    *   export all borders to your own @FT_Outline structure.    *    *   Note that this function appends the border points and    *   contours to your outline, but does not try to resize its    *   arrays.    *    * @input:    *   stroker ::    *     The target stroker handle.    *    *   outline ::    *     The target outline handle.    */
 end_comment
 begin_macro
 name|FT_EXPORT

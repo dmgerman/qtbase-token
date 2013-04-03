@@ -3,7 +3,7 @@ begin_comment
 comment|/* zutil.c -- target dependent utility functions for the compression library  * Copyright (C) 1995-2002 Jean-loup Gailly.  * For conditions of distribution and use, see copyright notice in zlib.h  */
 end_comment
 begin_comment
-comment|/* @(#) $Id: zutil.c,v 1.3 2006/04/29 07:31:16 wl Exp $ */
+comment|/* @(#) $Id$ */
 end_comment
 begin_include
 include|#
@@ -214,11 +214,25 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|MSDOS
+argument_list|)
+operator|&&
+name|defined
+argument_list|(
 name|__TURBOC__
-end_ifdef
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|MY_ZCALLOC
+argument_list|)
+end_if
 begin_if
 if|#
 directive|if
@@ -579,7 +593,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* __TURBOC__ */
+comment|/* MSDOS&& __TURBOC__ */
 end_comment
 begin_if
 if|#
@@ -593,6 +607,12 @@ operator|!
 name|defined
 argument_list|(
 name|__32BIT__
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|MY_ZCALLOC
 argument_list|)
 end_if
 begin_comment

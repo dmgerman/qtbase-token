@@ -711,8 +711,8 @@ parameter_list|,
 name|FT_UShort
 name|flags
 parameter_list|,
-name|GXV_StateTable_GlyphOffsetDesc
-name|glyphOffset
+name|GXV_StateTable_GlyphOffsetCPtr
+name|glyphOffset_p
 parameter_list|,
 name|FT_Bytes
 name|table
@@ -807,8 +807,8 @@ argument_list|)
 expr_stmt|;
 name|ligActionIndex
 operator|=
-name|glyphOffset
-operator|.
+name|glyphOffset_p
+operator|->
 name|u
 expr_stmt|;
 if|if

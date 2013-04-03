@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2003, 2004, 2005, 2006, 2007 by                              */
+comment|/*  Copyright 2003, 2004, 2005, 2006, 2007, 2009 by                        */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -66,17 +66,12 @@ end_include
 begin_decl_stmt
 name|FT_BEGIN_HEADER
 comment|/* the latin-specific script class */
-name|FT_CALLBACK_TABLE
-specifier|const
-name|AF_ScriptClassRec
-DECL|variable|af_latin_script_class
+DECL|function|AF_DECLARE_SCRIPT_CLASS
+name|AF_DECLARE_SCRIPT_CLASS
+argument_list|(
 name|af_latin_script_class
-decl_stmt|;
-end_decl_stmt
-begin_comment
+argument_list|)
 comment|/* constants are given with units_per_em == 2048 in mind */
-end_comment
-begin_define
 DECL|macro|AF_LATIN_CONSTANT
 define|#
 directive|define
@@ -88,60 +83,35 @@ name|c
 parameter_list|)
 define|\
 value|( ( (c) * (FT_Long)( (AF_LatinMetrics)(metrics) )->units_per_em ) / 2048 )
-end_define
-begin_comment
 comment|/*************************************************************************/
-end_comment
-begin_comment
 comment|/*************************************************************************/
-end_comment
-begin_comment
 comment|/*****                                                               *****/
-end_comment
-begin_comment
 comment|/*****            L A T I N   G L O B A L   M E T R I C S            *****/
-end_comment
-begin_comment
 comment|/*****                                                               *****/
-end_comment
-begin_comment
 comment|/*************************************************************************/
-end_comment
-begin_comment
 comment|/*************************************************************************/
-end_comment
-begin_comment
 comment|/*    *  The following declarations could be embedded in the file `aflatin.c';    *  they have been made semi-public to allow alternate script hinters to    *  re-use some of them.    */
-end_comment
-begin_comment
 comment|/* Latin (global) metrics management */
-end_comment
-begin_enum
-enum|enum
+decl|enum
 block|{
-DECL|enumerator|AF_LATIN_BLUE_CAPITAL_TOP
 name|AF_LATIN_BLUE_CAPITAL_TOP
-block|,
-DECL|enumerator|AF_LATIN_BLUE_CAPITAL_BOTTOM
+operator|,
 name|AF_LATIN_BLUE_CAPITAL_BOTTOM
-block|,
-DECL|enumerator|AF_LATIN_BLUE_SMALL_F_TOP
+operator|,
 name|AF_LATIN_BLUE_SMALL_F_TOP
-block|,
-DECL|enumerator|AF_LATIN_BLUE_SMALL_TOP
+operator|,
 name|AF_LATIN_BLUE_SMALL_TOP
-block|,
-DECL|enumerator|AF_LATIN_BLUE_SMALL_BOTTOM
+operator|,
 name|AF_LATIN_BLUE_SMALL_BOTTOM
-block|,
-DECL|enumerator|AF_LATIN_BLUE_SMALL_MINOR
+operator|,
 name|AF_LATIN_BLUE_SMALL_MINOR
-block|,
-DECL|enumerator|AF_LATIN_BLUE_MAX
+operator|,
 name|AF_LATIN_BLUE_MAX
 block|}
-enum|;
-end_enum
+end_decl_stmt
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
 begin_define
 DECL|macro|AF_LATIN_IS_TOP_BLUE
 define|#
@@ -373,6 +343,23 @@ argument_list|,
 argument|FT_Face          face
 argument_list|,
 argument|FT_ULong         charcode
+argument_list|)
+end_macro
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
+begin_macro
+name|FT_LOCAL
+argument_list|(
+argument|void
+argument_list|)
+end_macro
+begin_macro
+name|af_latin_metrics_check_digits
+argument_list|(
+argument|AF_LatinMetrics  metrics
+argument_list|,
+argument|FT_Face          face
 argument_list|)
 end_macro
 begin_empty_stmt

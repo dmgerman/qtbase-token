@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2006, 2008 by                                                */
+comment|/*  Copyright 2006, 2008, 2009 by                                          */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -60,17 +60,7 @@ end_include
 begin_include
 include|#
 directive|include
-include|FT_INTERNAL_DEBUG_H
-end_include
-begin_include
-include|#
-directive|include
 file|"psconv.h"
-end_include
-begin_include
-include|#
-directive|include
-file|"psobjs.h"
 end_include
 begin_include
 include|#
@@ -1387,7 +1377,7 @@ directive|if
 literal|0
 end_if
 begin_comment
-unit|FT_LOCAL_DEF( FT_UInt )   PS_Conv_StringDecode( FT_Byte**  cursor,                         FT_Byte*   limit,                         FT_Byte*   buffer,                         FT_UInt    n )   {     FT_Byte*  p;     FT_UInt   r = 0;       for ( p = *cursor; r< n&& p< limit; p++ )     {       FT_Byte  b;         if ( *p != '\\' )       {         buffer[r++] = *p;          continue;       }        p++;        switch ( *p )       {       case 'n':         b = '\n';         break;       case 'r':         b = '\r';         break;       case 't':         b = '\t';         break;       case 'b':         b = '\b';         break;       case 'f':         b = '\f';         break;       case '\r':         p++;         if ( *p != '\n' )         {           b = *p;            break;         }
+unit|FT_LOCAL_DEF( FT_UInt )   PS_Conv_StringDecode( FT_Byte**  cursor,                         FT_Byte*   limit,                         FT_Byte*   buffer,                         FT_Offset  n )   {     FT_Byte*  p;     FT_UInt   r = 0;       for ( p = *cursor; r< n&& p< limit; p++ )     {       FT_Byte  b;         if ( *p != '\\' )       {         buffer[r++] = *p;          continue;       }        p++;        switch ( *p )       {       case 'n':         b = '\n';         break;       case 'r':         b = '\r';         break;       case 't':         b = '\t';         break;       case 'b':         b = '\b';         break;       case 'f':         b = '\f';         break;       case '\r':         p++;         if ( *p != '\n' )         {           b = *p;            break;         }
 comment|/* no break */
 end_comment
 begin_endif
@@ -1414,7 +1404,7 @@ argument|FT_Byte*   limit
 argument_list|,
 argument|FT_Byte*   buffer
 argument_list|,
-argument|FT_UInt    n
+argument|FT_Offset  n
 argument_list|)
 end_macro
 begin_block
@@ -1726,7 +1716,7 @@ argument|FT_Byte*    limit
 argument_list|,
 argument|FT_Byte*    buffer
 argument_list|,
-argument|FT_UInt     n
+argument|FT_Offset   n
 argument_list|,
 argument|FT_UShort*  seed
 argument_list|)

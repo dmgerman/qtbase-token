@@ -132,7 +132,7 @@ end_empty_stmt
 begin_macro
 name|FT_LOCAL
 argument_list|(
-argument|FT_ULong
+argument|FT_Offset
 argument_list|)
 end_macro
 begin_macro
@@ -186,7 +186,7 @@ end_empty_stmt
 begin_macro
 name|FT_LOCAL
 argument_list|(
-argument|FT_ULong
+argument|FT_Offset
 argument_list|)
 end_macro
 begin_macro

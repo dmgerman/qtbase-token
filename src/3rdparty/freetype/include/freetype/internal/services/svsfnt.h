@@ -157,6 +157,10 @@ name|tag
 parameter_list|,
 name|FT_ULong
 modifier|*
+name|offset
+parameter_list|,
+name|FT_ULong
+modifier|*
 name|length
 parameter_list|)
 function_decl|;
@@ -184,6 +188,59 @@ end_block
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|FT_CONFIG_OPTION_PIC
+end_ifndef
+begin_define
+DECL|macro|FT_DEFINE_SERVICE_SFNT_TABLEREC
+define|#
+directive|define
+name|FT_DEFINE_SERVICE_SFNT_TABLEREC
+parameter_list|(
+name|class_
+parameter_list|,
+name|load_
+parameter_list|,
+name|get_
+parameter_list|,
+name|info_
+parameter_list|)
+define|\
+value|static const FT_Service_SFNT_TableRec class_ =                     \   {                                                                  \     load_, get_, info_                                               \   };
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_comment
+comment|/* FT_CONFIG_OPTION_PIC */
+end_comment
+begin_define
+DECL|macro|FT_DEFINE_SERVICE_SFNT_TABLEREC
+define|#
+directive|define
+name|FT_DEFINE_SERVICE_SFNT_TABLEREC
+parameter_list|(
+name|class_
+parameter_list|,
+name|load_
+parameter_list|,
+name|get_
+parameter_list|,
+name|info_
+parameter_list|)
+define|\
+value|void                                                              \   FT_Init_Class_##class_( FT_Service_SFNT_TableRec*  clazz )        \   {                                                                 \     clazz->load_table = load_;                                      \     clazz->get_table = get_;                                        \     clazz->table_info = info_;                                      \   }
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* FT_CONFIG_OPTION_PIC */
+end_comment
 begin_comment
 comment|/* */
 end_comment

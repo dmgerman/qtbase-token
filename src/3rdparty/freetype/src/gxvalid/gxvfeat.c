@@ -628,7 +628,7 @@ decl_stmt|;
 name|FT_UShort
 name|nSettings
 decl_stmt|;
-name|FT_UInt
+name|FT_ULong
 name|settingTable
 decl_stmt|;
 name|FT_UShort

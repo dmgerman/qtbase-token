@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2007 by             */
+comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2009 by       */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -56,11 +56,6 @@ begin_include
 include|#
 directive|include
 include|FT_INTERNAL_DEBUG_H
-end_include
-begin_include
-include|#
-directive|include
-include|FT_INTERNAL_CALC_H
 end_include
 begin_include
 include|#
@@ -289,13 +284,14 @@ operator|+
 literal|10
 index|]
 decl_stmt|;
-name|FT_Int
+name|FT_Long
 name|read_len
 init|=
 literal|256
 operator|+
 literal|10
 decl_stmt|;
+comment|/* same as signed FT_Stream->size */
 name|FT_Byte
 modifier|*
 name|p
@@ -306,9 +302,6 @@ for|for
 control|(
 name|offset
 operator|=
-operator|(
-name|FT_ULong
-operator|)
 name|FT_STREAM_POS
 argument_list|()
 init|;
@@ -318,9 +311,10 @@ operator|+=
 literal|256
 control|)
 block|{
-name|FT_Int
+name|FT_Long
 name|stream_len
 decl_stmt|;
+comment|/* same as signed FT_Stream->size */
 name|stream_len
 operator|=
 name|stream

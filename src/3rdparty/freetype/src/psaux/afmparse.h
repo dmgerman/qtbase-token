@@ -214,7 +214,7 @@ argument|AFM_Parser  parser
 argument_list|,
 argument|AFM_Value   vals
 argument_list|,
-argument|FT_Int      n
+argument|FT_UInt     n
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -237,7 +237,7 @@ argument|AFM_Parser  parser
 argument_list|,
 argument|FT_Bool     line
 argument_list|,
-argument|FT_UInt*    len
+argument|FT_Offset*  len
 argument_list|)
 end_macro
 begin_empty_stmt

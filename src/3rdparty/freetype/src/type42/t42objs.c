@@ -18,7 +18,10 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008 by Roberto Alameda. */
+comment|/*  Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009               */
+end_comment
+begin_comment
+comment|/*  by Roberto Alameda.                                                    */
 end_comment
 begin_comment
 comment|/*                                                                         */
@@ -63,11 +66,6 @@ begin_include
 include|#
 directive|include
 include|FT_INTERNAL_DEBUG_H
-end_include
-begin_include
-include|#
-directive|include
-include|FT_INTERNAL_STREAM_H
 end_include
 begin_include
 include|#
@@ -251,7 +249,7 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"T42_Open_Face: no charstrings array in face!\n"
+literal|"T42_Open_Face: no charstrings array in face\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -375,13 +373,11 @@ comment|/* The index is then stored in type1.encoding.char_index, and  */
 comment|/* the name in type1.encoding.char_name                        */
 name|min_char
 operator|=
-operator|+
-literal|32000
+literal|0
 expr_stmt|;
 name|max_char
 operator|=
-operator|-
-literal|32000
+literal|0
 expr_stmt|;
 name|charcode
 operator|=
@@ -560,12 +556,14 @@ expr_stmt|;
 if|if
 condition|(
 name|charcode
-operator|>
+operator|>=
 name|max_char
 condition|)
 name|max_char
 operator|=
 name|charcode
+operator|+
+literal|1
 expr_stmt|;
 block|}
 break|break;

@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2000-2001, 2002, 2004, 2005, 2006, 2008 by                   */
+comment|/*  Copyright 2000-2001, 2002, 2004, 2005, 2006, 2008, 2009 by             */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -208,12 +208,6 @@ name|error
 init|=
 name|FT_Err_Ok
 decl_stmt|;
-name|stream
-operator|->
-name|pos
-operator|=
-name|pos
-expr_stmt|;
 if|if
 condition|(
 name|stream
@@ -240,7 +234,8 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"FT_Stream_Seek: invalid i/o; pos = 0x%lx, size = 0x%lx\n"
+literal|"FT_Stream_Seek:"
+literal|" invalid i/o; pos = 0x%lx, size = 0x%lx\n"
 operator|,
 name|pos
 operator|,
@@ -270,7 +265,8 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"FT_Stream_Seek: invalid i/o; pos = 0x%lx, size = 0x%lx\n"
+literal|"FT_Stream_Seek:"
+literal|" invalid i/o; pos = 0x%lx, size = 0x%lx\n"
 operator|,
 name|pos
 operator|,
@@ -285,6 +281,17 @@ operator|=
 name|FT_Err_Invalid_Stream_Operation
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|error
+condition|)
+name|stream
+operator|->
+name|pos
+operator|=
+name|pos
+expr_stmt|;
 return|return
 name|error
 return|;
@@ -433,7 +440,8 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"FT_Stream_ReadAt: invalid i/o; pos = 0x%lx, size = 0x%lx\n"
+literal|"FT_Stream_ReadAt:"
+literal|" invalid i/o; pos = 0x%lx, size = 0x%lx\n"
 operator|,
 name|pos
 operator|,
@@ -521,12 +529,6 @@ name|FT_ERROR
 argument_list|(
 operator|(
 literal|"FT_Stream_ReadAt:"
-operator|)
-argument_list|)
-expr_stmt|;
-name|FT_ERROR
-argument_list|(
-operator|(
 literal|" invalid read; expected %lu bytes, got %lu\n"
 operator|,
 name|count
@@ -921,12 +923,6 @@ name|FT_ERROR
 argument_list|(
 operator|(
 literal|"FT_Stream_EnterFrame:"
-operator|)
-argument_list|)
-expr_stmt|;
-name|FT_ERROR
-argument_list|(
-operator|(
 literal|" invalid read; expected %lu bytes, got %lu\n"
 operator|,
 name|count
@@ -1000,12 +996,6 @@ name|FT_ERROR
 argument_list|(
 operator|(
 literal|"FT_Stream_EnterFrame:"
-operator|)
-argument_list|)
-expr_stmt|;
-name|FT_ERROR
-argument_list|(
-operator|(
 literal|" invalid i/o; pos = 0x%lx, count = %lu, size = 0x%lx\n"
 operator|,
 name|stream
@@ -1660,7 +1650,8 @@ expr_stmt|;
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"FT_Stream_ReadChar: invalid i/o; pos = 0x%lx, size = 0x%lx\n"
+literal|"FT_Stream_ReadChar:"
+literal|" invalid i/o; pos = 0x%lx, size = 0x%lx\n"
 operator|,
 name|stream
 operator|->
@@ -1817,12 +1808,6 @@ name|FT_ERROR
 argument_list|(
 operator|(
 literal|"FT_Stream_ReadShort:"
-operator|)
-argument_list|)
-expr_stmt|;
-name|FT_ERROR
-argument_list|(
-operator|(
 literal|" invalid i/o; pos = 0x%lx, size = 0x%lx\n"
 operator|,
 name|stream
@@ -1980,12 +1965,6 @@ name|FT_ERROR
 argument_list|(
 operator|(
 literal|"FT_Stream_ReadShortLE:"
-operator|)
-argument_list|)
-expr_stmt|;
-name|FT_ERROR
-argument_list|(
-operator|(
 literal|" invalid i/o; pos = 0x%lx, size = 0x%lx\n"
 operator|,
 name|stream
@@ -2143,12 +2122,6 @@ name|FT_ERROR
 argument_list|(
 operator|(
 literal|"FT_Stream_ReadOffset:"
-operator|)
-argument_list|)
-expr_stmt|;
-name|FT_ERROR
-argument_list|(
-operator|(
 literal|" invalid i/o; pos = 0x%lx, size = 0x%lx\n"
 operator|,
 name|stream
@@ -2297,10 +2270,16 @@ name|result
 return|;
 name|Fail
 label|:
+operator|*
+name|error
+operator|=
+name|FT_Err_Invalid_Stream_Operation
+expr_stmt|;
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"FT_Stream_ReadLong: invalid i/o; pos = 0x%lx, size = 0x%lx\n"
+literal|"FT_Stream_ReadLong:"
+literal|" invalid i/o; pos = 0x%lx, size = 0x%lx\n"
 operator|,
 name|stream
 operator|->
@@ -2311,11 +2290,6 @@ operator|->
 name|size
 operator|)
 argument_list|)
-expr_stmt|;
-operator|*
-name|error
-operator|=
-name|FT_Err_Invalid_Stream_Operation
 expr_stmt|;
 return|return
 literal|0
@@ -2453,16 +2427,15 @@ name|result
 return|;
 name|Fail
 label|:
-name|FT_ERROR
-argument_list|(
-operator|(
-literal|"FT_Stream_ReadLongLE:"
-operator|)
-argument_list|)
+operator|*
+name|error
+operator|=
+name|FT_Err_Invalid_Stream_Operation
 expr_stmt|;
 name|FT_ERROR
 argument_list|(
 operator|(
+literal|"FT_Stream_ReadLongLE:"
 literal|" invalid i/o; pos = 0x%lx, size = 0x%lx\n"
 operator|,
 name|stream
@@ -2474,11 +2447,6 @@ operator|->
 name|size
 operator|)
 argument_list|)
-expr_stmt|;
-operator|*
-name|error
-operator|=
-name|FT_Err_Invalid_Stream_Operation
 expr_stmt|;
 return|return
 literal|0

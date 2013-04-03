@@ -136,7 +136,7 @@ comment|/*<Description>                                                         
 comment|/*    Compute the exact bounding box of an outline.  This is slower      */
 comment|/*    than computing the control box.  However, it uses an advanced      */
 comment|/*    algorithm which returns _very_ quickly when the two boxes          */
-comment|/*    coincide.  Otherwise, the outline Bezier arcs are traversed to     */
+comment|/*    coincide.  Otherwise, the outline BÃ©zier arcs are traversed to     */
 comment|/*    extract their extrema.                                             */
 comment|/*                                                                       */
 comment|/*<Input>                                                               */

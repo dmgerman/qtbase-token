@@ -61,6 +61,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"pspic.c"
+end_include
+begin_include
+include|#
+directive|include
 file|"psmodule.c"
 end_include
 begin_comment

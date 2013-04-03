@@ -127,6 +127,20 @@ end_ifdef
 begin_ifdef
 ifdef|#
 directive|ifdef
+name|FT_CONFIG_OPTION_PIC
+end_ifdef
+begin_error
+error|#
+directive|error
+literal|"gzip code does not support PIC yet"
+end_error
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_ifdef
+ifdef|#
+directive|ifdef
 name|FT_CONFIG_OPTION_SYSTEM_ZLIB
 end_ifdef
 begin_include
@@ -165,12 +179,25 @@ define|#
 directive|define
 name|NO_DUMMY_DECL
 end_define
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|USE_ZLIB_ZCALLOC
+end_ifndef
 begin_define
 DECL|macro|MY_ZCALLOC
 define|#
 directive|define
 name|MY_ZCALLOC
 end_define
+begin_comment
+DECL|macro|MY_ZCALLOC
+comment|/* prevent all zcalloc()& zfree() in zutils.c */
+end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_include
 include|#
 directive|include
@@ -369,11 +396,21 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_ifndef
-ifndef|#
-directive|ifndef
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
 name|FT_CONFIG_OPTION_SYSTEM_ZLIB
-end_ifndef
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|USE_ZLIB_ZCALLOC
+argument_list|)
+end_if
 begin_function
 name|local
 name|voidpf
@@ -435,7 +472,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* !SYSTEM_ZLIB */
+comment|/* !SYSTEM_ZLIB&& !USE_ZLIB_ZCALLOC */
 end_comment
 begin_comment
 comment|/***************************************************************************/

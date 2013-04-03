@@ -631,6 +631,10 @@ DECL|member|scaler
 name|AF_ScalerRec
 name|scaler
 decl_stmt|;
+DECL|member|digits_have_same_width
+name|FT_Bool
+name|digits_have_same_width
+decl_stmt|;
 block|}
 DECL|typedef|AF_ScriptMetricsRec
 DECL|typedef|AF_ScriptMetrics
@@ -748,6 +752,18 @@ DECL|typedef|AF_Script_UniRangeRec
 name|AF_Script_UniRangeRec
 typedef|;
 end_typedef
+begin_define
+DECL|macro|AF_UNIRANGE_REC
+define|#
+directive|define
+name|AF_UNIRANGE_REC
+parameter_list|(
+name|a
+parameter_list|,
+name|b
+parameter_list|)
+value|{ (FT_UInt32)(a), (FT_UInt32)(b) }
+end_define
 begin_typedef
 DECL|typedef|AF_Script_UniRange
 typedef|typedef
@@ -773,7 +789,7 @@ name|script_uni_ranges
 decl_stmt|;
 comment|/* last must be { 0, 0 } */
 DECL|member|script_metrics_size
-name|FT_UInt
+name|FT_Offset
 name|script_metrics_size
 decl_stmt|;
 DECL|member|script_metrics_init
@@ -801,6 +817,98 @@ DECL|typedef|AF_ScriptClassRec
 name|AF_ScriptClassRec
 typedef|;
 end_typedef
+begin_comment
+comment|/* Declare and define vtables for classes */
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|FT_CONFIG_OPTION_PIC
+end_ifndef
+begin_define
+DECL|macro|AF_DECLARE_SCRIPT_CLASS
+define|#
+directive|define
+name|AF_DECLARE_SCRIPT_CLASS
+parameter_list|(
+name|script_class
+parameter_list|)
+define|\
+value|FT_CALLBACK_TABLE const AF_ScriptClassRec                                  \   script_class;
+end_define
+begin_define
+DECL|macro|AF_DEFINE_SCRIPT_CLASS
+define|#
+directive|define
+name|AF_DEFINE_SCRIPT_CLASS
+parameter_list|(
+name|script_class
+parameter_list|,
+name|script_
+parameter_list|,
+name|ranges
+parameter_list|,
+name|m_size
+parameter_list|,        \
+name|m_init
+parameter_list|,
+name|m_scale
+parameter_list|,
+name|m_done
+parameter_list|,
+name|h_init
+parameter_list|,
+name|h_apply
+parameter_list|)
+define|\
+value|FT_CALLBACK_TABLE_DEF const AF_ScriptClassRec                              \   script_class =                                                             \   {                                                                          \     script_,                                                                 \     ranges,                                                                  \                                                                              \     m_size,                                                                  \                                                                              \     m_init,                                                                  \     m_scale,                                                                 \     m_done,                                                                  \                                                                              \     h_init,                                                                  \     h_apply                                                                  \   };
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|AF_DECLARE_SCRIPT_CLASS
+define|#
+directive|define
+name|AF_DECLARE_SCRIPT_CLASS
+parameter_list|(
+name|script_class
+parameter_list|)
+define|\
+value|FT_LOCAL(void)                                                             \   FT_Init_Class_##script_class(AF_ScriptClassRec* ac);
+end_define
+begin_define
+DECL|macro|AF_DEFINE_SCRIPT_CLASS
+define|#
+directive|define
+name|AF_DEFINE_SCRIPT_CLASS
+parameter_list|(
+name|script_class
+parameter_list|,
+name|script_
+parameter_list|,
+name|ranges
+parameter_list|,
+name|m_size
+parameter_list|,        \
+name|m_init
+parameter_list|,
+name|m_scale
+parameter_list|,
+name|m_done
+parameter_list|,
+name|h_init
+parameter_list|,
+name|h_apply
+parameter_list|)
+define|\
+value|FT_LOCAL_DEF(void)                                                         \   FT_Init_Class_##script_class(AF_ScriptClassRec* ac)                        \   {                                                                          \     ac->script                = script_;                                     \     ac->script_uni_ranges     = ranges;                                      \                                                                              \     ac->script_metrics_size   = m_size;                                      \                                                                              \     ac->script_metrics_init   = m_init;                                      \     ac->script_metrics_scale  = m_scale;                                     \     ac->script_metrics_done   = m_done;                                      \                                                                              \     ac->script_hints_init     = h_init;                                      \     ac->script_hints_apply    = h_apply;                                     \   }
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/* */
 end_comment

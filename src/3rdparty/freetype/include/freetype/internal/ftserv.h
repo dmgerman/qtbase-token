@@ -289,6 +289,385 @@ name|FT_ServiceDesc
 typedef|;
 end_typedef
 begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/*<Macro>                                                               */
+end_comment
+begin_comment
+comment|/*    FT_DEFINE_SERVICEDESCREC1 .. FT_DEFINE_SERVICEDESCREC6             */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/*<Description>                                                         */
+end_comment
+begin_comment
+comment|/*    Used to initialize an array of FT_ServiceDescRec structs.          */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/*    When FT_CONFIG_OPTION_PIC is defined a Create funtion will need    */
+end_comment
+begin_comment
+comment|/*    to called with a pointer where the allocated array is returned.    */
+end_comment
+begin_comment
+comment|/*    And when it is no longer needed a Destroy function needs           */
+end_comment
+begin_comment
+comment|/*    to be called to release that allocation.                           */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/*    These functions should be manyally called from the pic_init and    */
+end_comment
+begin_comment
+comment|/*    pic_free functions of your module (see FT_DEFINE_MODULE)           */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/*    When FT_CONFIG_OPTION_PIC is not defined the array will be         */
+end_comment
+begin_comment
+comment|/*    allocated in the global scope (or the scope where the macro        */
+end_comment
+begin_comment
+comment|/*    is used).                                                          */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|FT_CONFIG_OPTION_PIC
+end_ifndef
+begin_define
+DECL|macro|FT_DEFINE_SERVICEDESCREC1
+define|#
+directive|define
+name|FT_DEFINE_SERVICEDESCREC1
+parameter_list|(
+name|class_
+parameter_list|,
+name|serv_id_1
+parameter_list|,
+name|serv_data_1
+parameter_list|)
+define|\
+value|static const FT_ServiceDescRec class_[] =                                  \   {                                                                          \   {serv_id_1, serv_data_1},                                                  \   {NULL, NULL}                                                               \   };
+end_define
+begin_define
+DECL|macro|FT_DEFINE_SERVICEDESCREC2
+define|#
+directive|define
+name|FT_DEFINE_SERVICEDESCREC2
+parameter_list|(
+name|class_
+parameter_list|,
+name|serv_id_1
+parameter_list|,
+name|serv_data_1
+parameter_list|,            \
+name|serv_id_2
+parameter_list|,
+name|serv_data_2
+parameter_list|)
+define|\
+value|static const FT_ServiceDescRec class_[] =                                  \   {                                                                          \   {serv_id_1, serv_data_1},                                                  \   {serv_id_2, serv_data_2},                                                  \   {NULL, NULL}                                                               \   };
+end_define
+begin_define
+DECL|macro|FT_DEFINE_SERVICEDESCREC3
+define|#
+directive|define
+name|FT_DEFINE_SERVICEDESCREC3
+parameter_list|(
+name|class_
+parameter_list|,
+name|serv_id_1
+parameter_list|,
+name|serv_data_1
+parameter_list|,            \
+name|serv_id_2
+parameter_list|,
+name|serv_data_2
+parameter_list|,
+name|serv_id_3
+parameter_list|,
+name|serv_data_3
+parameter_list|)
+define|\
+value|static const FT_ServiceDescRec class_[] =                                  \   {                                                                          \   {serv_id_1, serv_data_1},                                                  \   {serv_id_2, serv_data_2},                                                  \   {serv_id_3, serv_data_3},                                                  \   {NULL, NULL}                                                               \   };
+end_define
+begin_define
+DECL|macro|FT_DEFINE_SERVICEDESCREC4
+define|#
+directive|define
+name|FT_DEFINE_SERVICEDESCREC4
+parameter_list|(
+name|class_
+parameter_list|,
+name|serv_id_1
+parameter_list|,
+name|serv_data_1
+parameter_list|,            \
+name|serv_id_2
+parameter_list|,
+name|serv_data_2
+parameter_list|,
+name|serv_id_3
+parameter_list|,
+name|serv_data_3
+parameter_list|,                      \
+name|serv_id_4
+parameter_list|,
+name|serv_data_4
+parameter_list|)
+define|\
+value|static const FT_ServiceDescRec class_[] =                                  \   {                                                                          \   {serv_id_1, serv_data_1},                                                  \   {serv_id_2, serv_data_2},                                                  \   {serv_id_3, serv_data_3},                                                  \   {serv_id_4, serv_data_4},                                                  \   {NULL, NULL}                                                               \   };
+end_define
+begin_define
+DECL|macro|FT_DEFINE_SERVICEDESCREC5
+define|#
+directive|define
+name|FT_DEFINE_SERVICEDESCREC5
+parameter_list|(
+name|class_
+parameter_list|,
+name|serv_id_1
+parameter_list|,
+name|serv_data_1
+parameter_list|,            \
+name|serv_id_2
+parameter_list|,
+name|serv_data_2
+parameter_list|,
+name|serv_id_3
+parameter_list|,
+name|serv_data_3
+parameter_list|,                      \
+name|serv_id_4
+parameter_list|,
+name|serv_data_4
+parameter_list|,
+name|serv_id_5
+parameter_list|,
+name|serv_data_5
+parameter_list|)
+define|\
+value|static const FT_ServiceDescRec class_[] =                                  \   {                                                                          \   {serv_id_1, serv_data_1},                                                  \   {serv_id_2, serv_data_2},                                                  \   {serv_id_3, serv_data_3},                                                  \   {serv_id_4, serv_data_4},                                                  \   {serv_id_5, serv_data_5},                                                  \   {NULL, NULL}                                                               \   };
+end_define
+begin_define
+DECL|macro|FT_DEFINE_SERVICEDESCREC6
+define|#
+directive|define
+name|FT_DEFINE_SERVICEDESCREC6
+parameter_list|(
+name|class_
+parameter_list|,
+name|serv_id_1
+parameter_list|,
+name|serv_data_1
+parameter_list|,            \
+name|serv_id_2
+parameter_list|,
+name|serv_data_2
+parameter_list|,
+name|serv_id_3
+parameter_list|,
+name|serv_data_3
+parameter_list|,                      \
+name|serv_id_4
+parameter_list|,
+name|serv_data_4
+parameter_list|,
+name|serv_id_5
+parameter_list|,
+name|serv_data_5
+parameter_list|,                      \
+name|serv_id_6
+parameter_list|,
+name|serv_data_6
+parameter_list|)
+define|\
+value|static const FT_ServiceDescRec class_[] =                                  \   {                                                                          \   {serv_id_1, serv_data_1},                                                  \   {serv_id_2, serv_data_2},                                                  \   {serv_id_3, serv_data_3},                                                  \   {serv_id_4, serv_data_4},                                                  \   {serv_id_5, serv_data_5},                                                  \   {serv_id_6, serv_data_6},                                                  \   {NULL, NULL}                                                               \   };
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_comment
+comment|/* FT_CONFIG_OPTION_PIC */
+end_comment
+begin_define
+DECL|macro|FT_DEFINE_SERVICEDESCREC1
+define|#
+directive|define
+name|FT_DEFINE_SERVICEDESCREC1
+parameter_list|(
+name|class_
+parameter_list|,
+name|serv_id_1
+parameter_list|,
+name|serv_data_1
+parameter_list|)
+define|\
+value|void                                                                       \   FT_Destroy_Class_##class_( FT_Library library,                             \                              FT_ServiceDescRec* clazz )                      \   {                                                                          \     FT_Memory memory = library->memory;                                      \     if ( clazz )                                                             \       FT_FREE( clazz );                                                      \   }                                                                          \                                                                              \   FT_Error                                                                   \   FT_Create_Class_##class_( FT_Library library,                              \                             FT_ServiceDescRec** output_class)                \   {                                                                          \     FT_ServiceDescRec*  clazz;                                               \     FT_Error          error;                                                 \     FT_Memory memory = library->memory;                                      \                                                                              \     if ( FT_ALLOC( clazz, sizeof(*clazz)*2 ) )                               \       return error;                                                          \     clazz[0].serv_id = serv_id_1;                                            \     clazz[0].serv_data = serv_data_1;                                        \     clazz[1].serv_id = NULL;                                                 \     clazz[1].serv_data = NULL;                                               \     *output_class = clazz;                                                   \     return FT_Err_Ok;                                                        \   }
+end_define
+begin_define
+DECL|macro|FT_DEFINE_SERVICEDESCREC2
+define|#
+directive|define
+name|FT_DEFINE_SERVICEDESCREC2
+parameter_list|(
+name|class_
+parameter_list|,
+name|serv_id_1
+parameter_list|,
+name|serv_data_1
+parameter_list|,            \
+name|serv_id_2
+parameter_list|,
+name|serv_data_2
+parameter_list|)
+define|\
+value|void                                                                       \   FT_Destroy_Class_##class_( FT_Library library,                             \                              FT_ServiceDescRec* clazz )                      \   {                                                                          \     FT_Memory memory = library->memory;                                      \     if ( clazz )                                                             \       FT_FREE( clazz );                                                      \   }                                                                          \                                                                              \   FT_Error                                                                   \   FT_Create_Class_##class_( FT_Library library,                              \                             FT_ServiceDescRec** output_class)                \   {                                                                          \     FT_ServiceDescRec*  clazz;                                               \     FT_Error          error;                                                 \     FT_Memory memory = library->memory;                                      \                                                                              \     if ( FT_ALLOC( clazz, sizeof(*clazz)*3 ) )                               \       return error;                                                          \     clazz[0].serv_id = serv_id_1;                                            \     clazz[0].serv_data = serv_data_1;                                        \     clazz[1].serv_id = serv_id_2;                                            \     clazz[1].serv_data = serv_data_2;                                        \     clazz[2].serv_id = NULL;                                                 \     clazz[2].serv_data = NULL;                                               \     *output_class = clazz;                                                   \     return FT_Err_Ok;                                                        \   }
+end_define
+begin_define
+DECL|macro|FT_DEFINE_SERVICEDESCREC3
+define|#
+directive|define
+name|FT_DEFINE_SERVICEDESCREC3
+parameter_list|(
+name|class_
+parameter_list|,
+name|serv_id_1
+parameter_list|,
+name|serv_data_1
+parameter_list|,            \
+name|serv_id_2
+parameter_list|,
+name|serv_data_2
+parameter_list|,
+name|serv_id_3
+parameter_list|,
+name|serv_data_3
+parameter_list|)
+define|\
+value|void                                                                       \   FT_Destroy_Class_##class_( FT_Library library,                             \                              FT_ServiceDescRec* clazz )                      \   {                                                                          \     FT_Memory memory = library->memory;                                      \     if ( clazz )                                                             \       FT_FREE( clazz );                                                      \   }                                                                          \                                                                              \   FT_Error                                                                   \   FT_Create_Class_##class_( FT_Library library,                              \                             FT_ServiceDescRec** output_class)                \   {                                                                          \     FT_ServiceDescRec*  clazz;                                               \     FT_Error          error;                                                 \     FT_Memory memory = library->memory;                                      \                                                                              \     if ( FT_ALLOC( clazz, sizeof(*clazz)*4 ) )                               \       return error;                                                          \     clazz[0].serv_id = serv_id_1;                                            \     clazz[0].serv_data = serv_data_1;                                        \     clazz[1].serv_id = serv_id_2;                                            \     clazz[1].serv_data = serv_data_2;                                        \     clazz[2].serv_id = serv_id_3;                                            \     clazz[2].serv_data = serv_data_3;                                        \     clazz[3].serv_id = NULL;                                                 \     clazz[3].serv_data = NULL;                                               \     *output_class = clazz;                                                   \     return FT_Err_Ok;                                                        \   }
+end_define
+begin_define
+DECL|macro|FT_DEFINE_SERVICEDESCREC4
+define|#
+directive|define
+name|FT_DEFINE_SERVICEDESCREC4
+parameter_list|(
+name|class_
+parameter_list|,
+name|serv_id_1
+parameter_list|,
+name|serv_data_1
+parameter_list|,            \
+name|serv_id_2
+parameter_list|,
+name|serv_data_2
+parameter_list|,
+name|serv_id_3
+parameter_list|,
+name|serv_data_3
+parameter_list|,                      \
+name|serv_id_4
+parameter_list|,
+name|serv_data_4
+parameter_list|)
+define|\
+value|void                                                                       \   FT_Destroy_Class_##class_( FT_Library library,                             \                              FT_ServiceDescRec* clazz )                      \   {                                                                          \     FT_Memory memory = library->memory;                                      \     if ( clazz )                                                             \       FT_FREE( clazz );                                                      \   }                                                                          \                                                                              \   FT_Error                                                                   \   FT_Create_Class_##class_( FT_Library library,                              \                             FT_ServiceDescRec** output_class)                \   {                                                                          \     FT_ServiceDescRec*  clazz;                                               \     FT_Error          error;                                                 \     FT_Memory memory = library->memory;                                      \                                                                              \     if ( FT_ALLOC( clazz, sizeof(*clazz)*5 ) )                               \       return error;                                                          \     clazz[0].serv_id = serv_id_1;                                            \     clazz[0].serv_data = serv_data_1;                                        \     clazz[1].serv_id = serv_id_2;                                            \     clazz[1].serv_data = serv_data_2;                                        \     clazz[2].serv_id = serv_id_3;                                            \     clazz[2].serv_data = serv_data_3;                                        \     clazz[3].serv_id = serv_id_4;                                            \     clazz[3].serv_data = serv_data_4;                                        \     clazz[4].serv_id = NULL;                                                 \     clazz[4].serv_data = NULL;                                               \     *output_class = clazz;                                                   \     return FT_Err_Ok;                                                        \   }
+end_define
+begin_define
+DECL|macro|FT_DEFINE_SERVICEDESCREC5
+define|#
+directive|define
+name|FT_DEFINE_SERVICEDESCREC5
+parameter_list|(
+name|class_
+parameter_list|,
+name|serv_id_1
+parameter_list|,
+name|serv_data_1
+parameter_list|,            \
+name|serv_id_2
+parameter_list|,
+name|serv_data_2
+parameter_list|,
+name|serv_id_3
+parameter_list|,
+name|serv_data_3
+parameter_list|,
+name|serv_id_4
+parameter_list|,           \
+name|serv_data_4
+parameter_list|,
+name|serv_id_5
+parameter_list|,
+name|serv_data_5
+parameter_list|)
+define|\
+value|void                                                                       \   FT_Destroy_Class_##class_( FT_Library library,                             \                              FT_ServiceDescRec* clazz )                      \   {                                                                          \     FT_Memory memory = library->memory;                                      \     if ( clazz )                                                             \       FT_FREE( clazz );                                                      \   }                                                                          \                                                                              \   FT_Error                                                                   \   FT_Create_Class_##class_( FT_Library library,                              \                             FT_ServiceDescRec** output_class)                \   {                                                                          \     FT_ServiceDescRec*  clazz;                                               \     FT_Error          error;                                                 \     FT_Memory memory = library->memory;                                      \                                                                              \     if ( FT_ALLOC( clazz, sizeof(*clazz)*6 ) )                               \       return error;                                                          \     clazz[0].serv_id = serv_id_1;                                            \     clazz[0].serv_data = serv_data_1;                                        \     clazz[1].serv_id = serv_id_2;                                            \     clazz[1].serv_data = serv_data_2;                                        \     clazz[2].serv_id = serv_id_3;                                            \     clazz[2].serv_data = serv_data_3;                                        \     clazz[3].serv_id = serv_id_4;                                            \     clazz[3].serv_data = serv_data_4;                                        \     clazz[4].serv_id = serv_id_5;                                            \     clazz[4].serv_data = serv_data_5;                                        \     clazz[5].serv_id = NULL;                                                 \     clazz[5].serv_data = NULL;                                               \     *output_class = clazz;                                                   \     return FT_Err_Ok;                                                        \   }
+end_define
+begin_define
+DECL|macro|FT_DEFINE_SERVICEDESCREC6
+define|#
+directive|define
+name|FT_DEFINE_SERVICEDESCREC6
+parameter_list|(
+name|class_
+parameter_list|,
+name|serv_id_1
+parameter_list|,
+name|serv_data_1
+parameter_list|,            \
+name|serv_id_2
+parameter_list|,
+name|serv_data_2
+parameter_list|,
+name|serv_id_3
+parameter_list|,
+name|serv_data_3
+parameter_list|,                      \
+name|serv_id_4
+parameter_list|,
+name|serv_data_4
+parameter_list|,
+name|serv_id_5
+parameter_list|,
+name|serv_data_5
+parameter_list|,                      \
+name|serv_id_6
+parameter_list|,
+name|serv_data_6
+parameter_list|)
+define|\
+value|void                                                                       \   FT_Destroy_Class_##class_( FT_Library library,                             \                              FT_ServiceDescRec* clazz )                      \   {                                                                          \     FT_Memory memory = library->memory;                                      \     if ( clazz )                                                             \       FT_FREE( clazz );                                                      \   }                                                                          \                                                                              \   FT_Error                                                                   \   FT_Create_Class_##class_( FT_Library library,                              \                             FT_ServiceDescRec** output_class)                \   {                                                                          \     FT_ServiceDescRec*  clazz;                                               \     FT_Error          error;                                                 \     FT_Memory memory = library->memory;                                      \                                                                              \     if ( FT_ALLOC( clazz, sizeof(*clazz)*7 ) )                               \       return error;                                                          \     clazz[0].serv_id = serv_id_1;                                            \     clazz[0].serv_data = serv_data_1;                                        \     clazz[1].serv_id = serv_id_2;                                            \     clazz[1].serv_data = serv_data_2;                                        \     clazz[2].serv_id = serv_id_3;                                            \     clazz[2].serv_data = serv_data_3;                                        \     clazz[3].serv_id = serv_id_4;                                            \     clazz[3].serv_data = serv_data_4;                                        \     clazz[4].serv_id = serv_id_5;                                            \     clazz[4].serv_data = serv_data_5;                                        \     clazz[5].serv_id = serv_id_6;                                            \     clazz[5].serv_data = serv_data_6;                                        \     clazz[6].serv_id = NULL;                                                 \     clazz[6].serv_data = NULL;                                               \     *output_class = clazz;                                                   \     return FT_Err_Ok;                                                        \   }
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* FT_CONFIG_OPTION_PIC */
+end_comment
+begin_comment
 comment|/*    *  Parse a list of FT_ServiceDescRec descriptors and look for    *  a specific service by ID.  Note that the last element in the    *  array must be { NULL, NULL }, and that the function should    *  return NULL if the service isn't available.    *    *  This function can be used by modules to implement their    *  `get_service' method.    */
 end_comment
 begin_macro

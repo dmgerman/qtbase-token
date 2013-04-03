@@ -156,7 +156,7 @@ argument|FT_Bytes       table
 argument_list|,
 argument|FT_Bytes       limit
 argument_list|,
-argument|FT_UInt        nFeatureFlags
+argument|FT_ULong       nFeatureFlags
 argument_list|,
 argument|GXV_Validator  valid
 argument_list|)

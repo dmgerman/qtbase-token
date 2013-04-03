@@ -304,15 +304,20 @@ literal|16
 expr_stmt|;
 name|v2
 operator|=
-operator|(
+call|(
 name|FT_UInt32
-operator|)
+call|)
+argument_list|(
 name|val
 operator|&
 literal|0xFFFFL
+argument_list|)
 expr_stmt|;
 name|k1
 operator|=
+operator|(
+name|FT_UInt32
+operator|)
 name|FT_TRIG_SCALE
 operator|>>
 literal|16
@@ -320,9 +325,14 @@ expr_stmt|;
 comment|/* constant */
 name|k2
 operator|=
+call|(
+name|FT_UInt32
+call|)
+argument_list|(
 name|FT_TRIG_SCALE
 operator|&
 literal|0xFFFFL
+argument_list|)
 expr_stmt|;
 comment|/* constant */
 name|hi
@@ -382,6 +392,9 @@ name|lo3
 condition|)
 name|hi
 operator|+=
+operator|(
+name|FT_UInt32
+operator|)
 literal|0x10000UL
 expr_stmt|;
 name|val
@@ -1723,6 +1736,9 @@ block|{
 name|FT_Int32
 name|half
 init|=
+operator|(
+name|FT_Int32
+operator|)
 literal|1L
 operator|<<
 operator|(

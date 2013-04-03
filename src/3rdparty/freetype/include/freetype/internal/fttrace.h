@@ -146,6 +146,15 @@ end_comment
 begin_macro
 name|FT_TRACE_DEF
 argument_list|(
+argument|gloader
+argument_list|)
+end_macro
+begin_comment
+comment|/* glyph loader            (ftgloadr.c) */
+end_comment
+begin_macro
+name|FT_TRACE_DEF
+argument_list|(
 argument|raster
 argument_list|)
 end_macro
@@ -179,6 +188,15 @@ end_macro
 begin_comment
 comment|/* resource fork accessor  (ftrfork.c)  */
 end_comment
+begin_macro
+name|FT_TRACE_DEF
+argument_list|(
+argument|synth
+argument_list|)
+end_macro
+begin_comment
+comment|/* bold/slant synthesizer  (ftsynth.c)  */
+end_comment
 begin_comment
 comment|/* Cache sub-system */
 end_comment
@@ -193,6 +211,15 @@ comment|/* cache sub-system        (ftcache.c, etc.) */
 end_comment
 begin_comment
 comment|/* SFNT driver components */
+end_comment
+begin_macro
+name|FT_TRACE_DEF
+argument_list|(
+argument|sfdriver
+argument_list|)
+end_macro
+begin_comment
+comment|/* SFNT font driver        (sfdriver.c) */
 end_comment
 begin_macro
 name|FT_TRACE_DEF
@@ -257,6 +284,15 @@ end_macro
 begin_comment
 comment|/* TrueType sbit handling  (ttsbit.c)   */
 end_comment
+begin_macro
+name|FT_TRACE_DEF
+argument_list|(
+argument|ttbdf
+argument_list|)
+end_macro
+begin_comment
+comment|/* TrueType embedded BDF   (ttbdf.c)    */
+end_comment
 begin_comment
 comment|/* TrueType driver components */
 end_comment
@@ -317,6 +353,12 @@ end_comment
 begin_comment
 comment|/* Type 1 driver components */
 end_comment
+begin_macro
+name|FT_TRACE_DEF
+argument_list|(
+argument|t1afm
+argument_list|)
+end_macro
 begin_macro
 name|FT_TRACE_DEF
 argument_list|(

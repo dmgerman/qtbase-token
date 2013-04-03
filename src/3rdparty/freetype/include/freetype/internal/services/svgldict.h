@@ -138,6 +138,55 @@ end_block
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|FT_CONFIG_OPTION_PIC
+end_ifndef
+begin_define
+DECL|macro|FT_DEFINE_SERVICE_GLYPHDICTREC
+define|#
+directive|define
+name|FT_DEFINE_SERVICE_GLYPHDICTREC
+parameter_list|(
+name|class_
+parameter_list|,
+name|get_name_
+parameter_list|,
+name|name_index_
+parameter_list|)
+define|\
+value|static const FT_Service_GlyphDictRec class_ =                        \   {                                                                    \     get_name_, name_index_                                             \   };
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_comment
+comment|/* FT_CONFIG_OPTION_PIC */
+end_comment
+begin_define
+DECL|macro|FT_DEFINE_SERVICE_GLYPHDICTREC
+define|#
+directive|define
+name|FT_DEFINE_SERVICE_GLYPHDICTREC
+parameter_list|(
+name|class_
+parameter_list|,
+name|get_name_
+parameter_list|,
+name|name_index_
+parameter_list|)
+define|\
+value|void                                                                 \   FT_Init_Class_##class_( FT_Library library,                          \                           FT_Service_GlyphDictRec* clazz)              \   {                                                                    \     FT_UNUSED(library);                                                \     clazz->get_name = get_name_;                                       \     clazz->name_index = name_index_;                                   \   }
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* FT_CONFIG_OPTION_PIC */
+end_comment
 begin_comment
 comment|/* */
 end_comment

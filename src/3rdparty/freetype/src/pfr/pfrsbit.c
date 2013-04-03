@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002, 2003, 2006 by                                          */
+comment|/*  Copyright 2002, 2003, 2006, 2009 by                                    */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -2153,17 +2153,29 @@ comment|/* get the bitmap metrics */
 block|{
 name|FT_Long
 name|xpos
+init|=
+literal|0
 decl_stmt|,
 name|ypos
+init|=
+literal|0
 decl_stmt|,
 name|advance
+init|=
+literal|0
 decl_stmt|;
 name|FT_UInt
 name|xsize
+init|=
+literal|0
 decl_stmt|,
 name|ysize
+init|=
+literal|0
 decl_stmt|,
 name|format
+init|=
+literal|0
 decl_stmt|;
 name|FT_Byte
 modifier|*
@@ -2296,6 +2308,45 @@ operator|&
 name|format
 argument_list|)
 expr_stmt|;
+comment|/*        * XXX: on 16bit system, we return an error for huge bitmap        *      which causes a size truncation, because truncated        *      size properties makes bitmap glyph broken.        */
+if|if
+condition|(
+name|xpos
+operator|>
+name|FT_INT_MAX
+operator|||
+operator|(
+name|ypos
+operator|+
+name|ysize
+operator|)
+operator|>
+name|FT_INT_MAX
+condition|)
+block|{
+name|FT_TRACE1
+argument_list|(
+operator|(
+literal|"pfr_slot_load_bitmap:"
+operator|)
+argument_list|)
+expr_stmt|;
+name|FT_TRACE1
+argument_list|(
+operator|(
+literal|"huge bitmap glyph %dx%d over FT_GlyphSlot\n"
+operator|,
+name|xpos
+operator|,
+name|ypos
+operator|)
+argument_list|)
+expr_stmt|;
+name|error
+operator|=
+name|PFR_Err_Invalid_Pixel_Size
+expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
@@ -2311,6 +2362,7 @@ operator|=
 name|FT_GLYPH_FORMAT_BITMAP
 expr_stmt|;
 comment|/* Set up glyph bitmap and metrics */
+comment|/* XXX: needs casts to fit FT_Bitmap.{width|rows|pitch} */
 name|glyph
 operator|->
 name|root
@@ -2346,7 +2398,7 @@ operator|.
 name|pitch
 operator|=
 call|(
-name|FT_Long
+name|FT_Int
 call|)
 argument_list|(
 name|xsize
@@ -2366,6 +2418,7 @@ name|pixel_mode
 operator|=
 name|FT_PIXEL_MODE_MONO
 expr_stmt|;
+comment|/* XXX: needs casts to fit FT_Glyph_Metrics.{width|height} */
 name|glyph
 operator|->
 name|root
@@ -2375,7 +2428,7 @@ operator|.
 name|width
 operator|=
 operator|(
-name|FT_Long
+name|FT_Pos
 operator|)
 name|xsize
 operator|<<
@@ -2390,7 +2443,7 @@ operator|.
 name|height
 operator|=
 operator|(
-name|FT_Long
+name|FT_Pos
 operator|)
 name|ysize
 operator|<<
@@ -2482,12 +2535,16 @@ name|metrics
 operator|.
 name|height
 expr_stmt|;
+comment|/* XXX: needs casts fit FT_GlyphSlotRec.bitmap_{left|top} */
 name|glyph
 operator|->
 name|root
 operator|.
 name|bitmap_left
 operator|=
+operator|(
+name|FT_Int
+operator|)
 name|xpos
 expr_stmt|;
 name|glyph
@@ -2496,9 +2553,14 @@ name|root
 operator|.
 name|bitmap_top
 operator|=
+call|(
+name|FT_Int
+call|)
+argument_list|(
 name|ypos
 operator|+
 name|ysize
+argument_list|)
 expr_stmt|;
 comment|/* Allocate and read bitmap data */
 block|{

@@ -47,11 +47,6 @@ include|#
 directive|include
 file|<xkbcommon_workaround.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<X11/keysym.h>
-end_include
 begin_comment
 comment|//#define DEBUG_GENERATOR
 end_comment

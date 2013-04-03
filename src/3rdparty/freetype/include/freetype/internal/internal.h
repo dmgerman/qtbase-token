@@ -73,6 +73,13 @@ name|FT_INTERNAL_OBJECTS_H
 value|<freetype/internal/ftobjs.h>
 end_define
 begin_define
+DECL|macro|FT_INTERNAL_PIC_H
+define|#
+directive|define
+name|FT_INTERNAL_PIC_H
+value|<freetype/internal/ftpic.h>
+end_define
+begin_define
 DECL|macro|FT_INTERNAL_STREAM_H
 define|#
 directive|define

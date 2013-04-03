@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2005, 2008 by                               */
+comment|/*  Copyright 1996-2001, 2002, 2005, 2008, 2009 by                         */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -151,91 +151,6 @@ include|#
 directive|include
 file|<windows.h>
 end_include
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|_WIN32_WCE
-end_ifdef
-begin_function
-name|void
-DECL|function|OutputDebugStringEx
-name|OutputDebugStringEx
-parameter_list|(
-specifier|const
-name|char
-modifier|*
-name|str
-parameter_list|)
-block|{
-specifier|static
-name|WCHAR
-name|buf
-index|[
-literal|8192
-index|]
-decl_stmt|;
-name|int
-name|sz
-init|=
-name|MultiByteToWideChar
-argument_list|(
-name|CP_ACP
-argument_list|,
-literal|0
-argument_list|,
-name|str
-argument_list|,
-operator|-
-literal|1
-argument_list|,
-name|buf
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|buf
-argument_list|)
-operator|/
-sizeof|sizeof
-argument_list|(
-operator|*
-name|buf
-argument_list|)
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|sz
-condition|)
-name|lstrcpyW
-argument_list|(
-name|buf
-argument_list|,
-literal|L"OutputDebugStringEx: MultiByteToWideChar failed"
-argument_list|)
-expr_stmt|;
-name|OutputDebugStringW
-argument_list|(
-name|buf
-argument_list|)
-expr_stmt|;
-block|}
-end_function
-begin_else
-else|#
-directive|else
-end_else
-begin_define
-DECL|macro|OutputDebugStringEx
-define|#
-directive|define
-name|OutputDebugStringEx
-value|OutputDebugStringA
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_macro
 name|FT_BASE_DEF
 argument_list|(
@@ -287,7 +202,7 @@ argument_list|,
 name|ap
 argument_list|)
 expr_stmt|;
-name|OutputDebugStringEx
+name|OutputDebugStringA
 argument_list|(
 name|buf
 argument_list|)
@@ -342,7 +257,7 @@ argument_list|,
 name|ap
 argument_list|)
 expr_stmt|;
-name|OutputDebugStringEx
+name|OutputDebugStringA
 argument_list|(
 name|buf
 argument_list|)
@@ -485,22 +400,6 @@ argument_list|)
 end_macro
 begin_block
 block|{
-ifdef|#
-directive|ifdef
-name|_WIN32_WCE
-comment|/* Windows Mobile doesn't have environment API:           */
-comment|/* GetEnvironmentStrings, GetEnvironmentVariable, getenv. */
-comment|/*                                                        */
-comment|/* FIXME!!! How to set debug mode?                        */
-specifier|const
-name|char
-modifier|*
-name|ft2_debug
-init|=
-literal|0
-decl_stmt|;
-else|#
-directive|else
 specifier|const
 name|char
 modifier|*
@@ -511,8 +410,6 @@ argument_list|(
 literal|"FT2_DEBUG"
 argument_list|)
 decl_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 name|ft2_debug

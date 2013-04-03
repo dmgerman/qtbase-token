@@ -30,11 +30,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"pcfdrivr.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"pcfread.h"
 end_include
 begin_include
@@ -1052,9 +1047,10 @@ parameter_list|,
 name|PCF_Table
 name|tables
 parameter_list|,
-name|FT_Int
+name|FT_ULong
 name|ntables
 parameter_list|,
+comment|/* same as PCF_Toc->count */
 name|FT_ULong
 name|type
 parameter_list|,
@@ -1072,7 +1068,7 @@ name|error
 init|=
 name|PCF_Err_Invalid_File_Format
 decl_stmt|;
-name|FT_Int
+name|FT_ULong
 name|i
 decl_stmt|;
 for|for
@@ -1192,14 +1188,15 @@ parameter_list|(
 name|PCF_Table
 name|tables
 parameter_list|,
-name|FT_Int
+name|FT_ULong
 name|ntables
 parameter_list|,
+comment|/* same as PCF_Toc->count */
 name|FT_ULong
 name|type
 parameter_list|)
 block|{
-name|FT_Int
+name|FT_ULong
 name|i
 decl_stmt|;
 for|for
@@ -1434,7 +1431,7 @@ decl_stmt|;
 name|PCF_Property
 name|properties
 decl_stmt|;
-name|FT_UInt
+name|FT_ULong
 name|nprops
 decl_stmt|,
 name|i
@@ -1575,11 +1572,28 @@ goto|;
 name|FT_TRACE4
 argument_list|(
 operator|(
-literal|"  nprop = %d\n"
+literal|"  nprop = %d (truncate %d props)\n"
 operator|,
+operator|(
+name|int
+operator|)
+name|nprops
+operator|,
+name|nprops
+operator|-
+operator|(
+name|int
+operator|)
 name|nprops
 operator|)
 argument_list|)
+expr_stmt|;
+name|nprops
+operator|=
+operator|(
+name|int
+operator|)
+name|nprops
 expr_stmt|;
 comment|/* rough estimate */
 if|if
@@ -1603,6 +1617,9 @@ name|face
 operator|->
 name|nprops
 operator|=
+operator|(
+name|int
+operator|)
 name|nprops
 expr_stmt|;
 if|if
@@ -2017,7 +2034,7 @@ index|]
 operator|.
 name|value
 operator|.
-name|integer
+name|l
 operator|=
 name|props
 index|[
@@ -2038,7 +2055,7 @@ index|]
 operator|.
 name|value
 operator|.
-name|integer
+name|l
 operator|)
 argument_list|)
 expr_stmt|;
@@ -2486,7 +2503,7 @@ name|format
 decl_stmt|,
 name|size
 decl_stmt|;
-name|int
+name|FT_ULong
 name|nbitmaps
 decl_stmt|,
 name|i
@@ -2604,10 +2621,20 @@ name|nbitmaps
 operator|)
 argument_list|)
 expr_stmt|;
+comment|/* XXX: PCF_Face->nmetrics is singed FT_Long, see pcf.h */
 if|if
 condition|(
+name|face
+operator|->
+name|nmetrics
+operator|<
+literal|0
+operator|||
 name|nbitmaps
 operator|!=
+operator|(
+name|FT_ULong
+operator|)
 name|face
 operator|->
 name|nmetrics
@@ -2846,16 +2873,10 @@ name|size
 operator|)
 condition|)
 block|{
-name|FT_ERROR
+name|FT_TRACE0
 argument_list|(
 operator|(
 literal|"pcf_get_bitmaps:"
-operator|)
-argument_list|)
-expr_stmt|;
-name|FT_ERROR
-argument_list|(
-operator|(
 literal|" invalid offset to bitmap data of glyph %d\n"
 operator|,
 name|i
@@ -3887,7 +3908,7 @@ decl_stmt|;
 name|PCF_Property
 name|prop
 decl_stmt|;
-name|int
+name|size_t
 name|nn
 decl_stmt|,
 name|len
@@ -3909,7 +3930,7 @@ block|,
 name|NULL
 block|}
 decl_stmt|;
-name|int
+name|size_t
 name|lengths
 index|[
 literal|4
@@ -4426,7 +4447,7 @@ operator|==
 literal|3
 condition|)
 block|{
-name|int
+name|size_t
 name|mm
 decl_stmt|;
 for|for
@@ -4885,7 +4906,7 @@ name|prop
 operator|->
 name|value
 operator|.
-name|integer
+name|l
 operator|+
 literal|5
 operator|)
@@ -4938,7 +4959,7 @@ name|prop
 operator|->
 name|value
 operator|.
-name|integer
+name|l
 operator|*
 literal|64
 operator|*
@@ -4974,7 +4995,7 @@ name|prop
 operator|->
 name|value
 operator|.
-name|integer
+name|l
 operator|<<
 literal|6
 expr_stmt|;
@@ -5000,7 +5021,7 @@ name|prop
 operator|->
 name|value
 operator|.
-name|integer
+name|l
 expr_stmt|;
 name|prop
 operator|=
@@ -5024,7 +5045,7 @@ name|prop
 operator|->
 name|value
 operator|.
-name|integer
+name|l
 expr_stmt|;
 if|if
 condition|(

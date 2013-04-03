@@ -70,11 +70,6 @@ end_include
 begin_include
 include|#
 directive|include
-include|FT_INTERNAL_STREAM_H
-end_include
-begin_include
-include|#
-directive|include
 file|"ciderrs.h"
 end_include
 begin_include

@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2006, 2007, 2008 by             */
+comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2006, 2007, 2008, 2009 by       */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -1281,7 +1281,7 @@ block|{
 name|FT_TRACE2
 argument_list|(
 operator|(
-literal|"this file doesn't contain any FNT resources!\n"
+literal|"this file doesn't contain any FNT resources\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -2374,7 +2374,7 @@ block|}
 end_function
 begin_function
 specifier|static
-name|FT_UInt
+name|FT_UInt32
 DECL|function|fnt_cmap_char_next
 name|fnt_cmap_char_next
 parameter_list|(
@@ -3175,7 +3175,7 @@ block|{
 name|FT_TRACE2
 argument_list|(
 operator|(
-literal|"invalid family name offset!\n"
+literal|"invalid family name offset\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -3793,7 +3793,7 @@ block|{
 name|FT_TRACE2
 argument_list|(
 operator|(
-literal|"invalid FNT offset!\n"
+literal|"invalid FNT offset\n"
 operator|)
 argument_list|)
 expr_stmt|;

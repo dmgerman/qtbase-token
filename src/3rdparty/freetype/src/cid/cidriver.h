@@ -70,6 +70,14 @@ include|FT_INTERNAL_DRIVER_H
 end_include
 begin_decl_stmt
 name|FT_BEGIN_HEADER
+ifdef|#
+directive|ifdef
+name|FT_CONFIG_OPTION_PIC
+error|#
+directive|error
+literal|"this module does not support PIC yet"
+endif|#
+directive|endif
 name|FT_CALLBACK_TABLE
 DECL|variable|t1cid_driver_class
 specifier|const

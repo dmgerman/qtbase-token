@@ -2555,7 +2555,7 @@ modifier|*
 name|strings
 decl_stmt|;
 DECL|member|strings_size
-name|FT_UInt32
+name|FT_ULong
 name|strings_size
 decl_stmt|;
 DECL|member|num_strikes
@@ -3940,9 +3940,10 @@ name|FT_ULong
 name|vert_metrics_size
 decl_stmt|;
 DECL|member|num_locations
-name|FT_UInt
+name|FT_ULong
 name|num_locations
 decl_stmt|;
+comment|/* in broken TTF, gid> 0xFFFF */
 DECL|member|glyph_locations
 name|FT_Byte
 modifier|*

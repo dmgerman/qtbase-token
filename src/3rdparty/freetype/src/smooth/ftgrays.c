@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2000-2001, 2002, 2003, 2005, 2006, 2007, 2008 by             */
+comment|/*  Copyright 2000-2001, 2002, 2003, 2005, 2006, 2007, 2008, 2009 by       */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -582,6 +582,52 @@ end_endif
 begin_comment
 comment|/* !FT_DEBUG_LEVEL_TRACE */
 end_comment
+begin_define
+DECL|macro|FT_DEFINE_OUTLINE_FUNCS
+define|#
+directive|define
+name|FT_DEFINE_OUTLINE_FUNCS
+parameter_list|(
+name|class_
+parameter_list|,               \
+name|move_to_
+parameter_list|,
+name|line_to_
+parameter_list|,   \
+name|conic_to_
+parameter_list|,
+name|cubic_to_
+parameter_list|, \
+name|shift_
+parameter_list|,
+name|delta_
+parameter_list|)
+define|\
+value|static const FT_Outline_Funcs class_ =       \           {                                            \             move_to_,                                  \             line_to_,                                  \             conic_to_,                                 \             cubic_to_,                                 \             shift_,                                    \             delta_                                     \          };
+end_define
+begin_define
+DECL|macro|FT_DEFINE_RASTER_FUNCS
+define|#
+directive|define
+name|FT_DEFINE_RASTER_FUNCS
+parameter_list|(
+name|class_
+parameter_list|,
+name|glyph_format_
+parameter_list|,            \
+name|raster_new_
+parameter_list|,
+name|raster_reset_
+parameter_list|,       \
+name|raster_set_mode_
+parameter_list|,
+name|raster_render_
+parameter_list|, \
+name|raster_done_
+parameter_list|)
+define|\
+value|const FT_Raster_Funcs class_ =                          \           {                                                       \             glyph_format_,                                        \             raster_new_,                                          \             raster_reset_,                                        \             raster_set_mode_,                                     \             raster_render_,                                       \             raster_done_                                          \          };
+end_define
 begin_else
 else|#
 directive|else
@@ -618,6 +664,11 @@ begin_include
 include|#
 directive|include
 file|"ftsmerrs.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"ftspic.h"
 end_include
 begin_define
 DECL|macro|ErrRaster_Invalid_Mode
@@ -734,13 +785,6 @@ directive|define
 name|RAS_VAR_
 value|worker,
 end_define
-begin_define
-DECL|macro|ras
-define|#
-directive|define
-name|ras
-value|(*worker)
-end_define
 begin_else
 else|#
 directive|else
@@ -788,13 +832,6 @@ begin_comment
 DECL|macro|RAS_VAR_
 comment|/* empty */
 end_comment
-begin_decl_stmt
-DECL|variable|ras
-specifier|static
-name|TWorker
-name|ras
-decl_stmt|;
-end_decl_stmt
 begin_endif
 endif|#
 directive|endif
@@ -955,7 +992,7 @@ end_comment
 begin_typedef
 DECL|typedef|TCoord
 typedef|typedef
-name|int
+name|long
 name|TCoord
 typedef|;
 end_typedef
@@ -1069,13 +1106,15 @@ struct|struct
 name|TCell_
 block|{
 DECL|member|x
-name|int
+name|TPos
 name|x
 decl_stmt|;
+comment|/* same with TWorker.ex */
 DECL|member|cover
-name|int
+name|TCoord
 name|cover
 decl_stmt|;
+comment|/* same with TWorker.cover */
 DECL|member|area
 name|TArea
 name|area
@@ -1128,7 +1167,7 @@ name|TArea
 name|area
 decl_stmt|;
 DECL|member|cover
-name|int
+name|TCoord
 name|cover
 decl_stmt|;
 DECL|member|invalid
@@ -1140,11 +1179,11 @@ name|PCell
 name|cells
 decl_stmt|;
 DECL|member|max_cells
-name|int
+name|FT_PtrDist
 name|max_cells
 decl_stmt|;
 DECL|member|num_cells
-name|int
+name|FT_PtrDist
 name|num_cells
 decl_stmt|;
 DECL|member|cx
@@ -1254,7 +1293,7 @@ modifier|*
 name|ycells
 decl_stmt|;
 DECL|member|ycount
-name|int
+name|TPos
 name|ycount
 decl_stmt|;
 block|}
@@ -1266,6 +1305,33 @@ typedef|*
 name|PWorker
 typedef|;
 end_typedef
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|FT_STATIC_RASTER
+end_ifndef
+begin_define
+DECL|macro|ras
+define|#
+directive|define
+name|ras
+value|(*worker)
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_decl_stmt
+DECL|variable|ras
+specifier|static
+name|TWorker
+name|ras
+decl_stmt|;
+end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_typedef
 DECL|struct|TRaster_
 typedef|typedef
@@ -1656,7 +1722,7 @@ name|pcell
 decl_stmt|,
 name|cell
 decl_stmt|;
-name|int
+name|TPos
 name|x
 init|=
 name|ras
@@ -2174,6 +2240,12 @@ decl_stmt|,
 name|fx2
 decl_stmt|,
 name|delta
+decl_stmt|,
+name|mod
+decl_stmt|,
+name|lift
+decl_stmt|,
+name|rem
 decl_stmt|;
 name|long
 name|p
@@ -2184,12 +2256,6 @@ name|dx
 decl_stmt|;
 name|int
 name|incr
-decl_stmt|,
-name|lift
-decl_stmt|,
-name|mod
-decl_stmt|,
-name|rem
 decl_stmt|;
 name|dx
 operator|=
@@ -2279,12 +2345,14 @@ call|(
 name|TArea
 call|)
 argument_list|(
+operator|(
 name|fx1
 operator|+
 name|fx2
-argument_list|)
+operator|)
 operator|*
 name|delta
+argument_list|)
 expr_stmt|;
 name|ras
 operator|.
@@ -2399,12 +2467,14 @@ call|(
 name|TArea
 call|)
 argument_list|(
+operator|(
 name|fx1
 operator|+
 name|first
-argument_list|)
+operator|)
 operator|*
 name|delta
+argument_list|)
 expr_stmt|;
 name|ras
 operator|.
@@ -2530,12 +2600,14 @@ name|ras
 operator|.
 name|area
 operator|+=
-operator|(
+call|(
 name|TArea
-operator|)
+call|)
+argument_list|(
 name|ONE_PIXEL
 operator|*
 name|delta
+argument_list|)
 expr_stmt|;
 name|ras
 operator|.
@@ -2574,14 +2646,16 @@ call|(
 name|TArea
 call|)
 argument_list|(
+operator|(
 name|fx2
 operator|+
 name|ONE_PIXEL
 operator|-
 name|first
-argument_list|)
+operator|)
 operator|*
 name|delta
+argument_list|)
 expr_stmt|;
 name|ras
 operator|.
@@ -2625,6 +2699,8 @@ decl_stmt|,
 name|fy1
 decl_stmt|,
 name|fy2
+decl_stmt|,
+name|mod
 decl_stmt|;
 name|TPos
 name|dx
@@ -2644,8 +2720,6 @@ name|int
 name|delta
 decl_stmt|,
 name|rem
-decl_stmt|,
-name|mod
 decl_stmt|,
 name|lift
 decl_stmt|,
@@ -2832,7 +2906,7 @@ operator|<<
 literal|1
 argument_list|)
 decl_stmt|;
-name|TPos
+name|TArea
 name|area
 decl_stmt|;
 name|first
@@ -2890,14 +2964,11 @@ name|incr
 expr_stmt|;
 name|gray_set_cell
 argument_list|(
-operator|&
-name|ras
+argument|RAS_VAR_ ex
 argument_list|,
-name|ex
-argument_list|,
-name|ey1
+argument|ey1
 argument_list|)
-expr_stmt|;
+empty_stmt|;
 name|delta
 operator|=
 call|(
@@ -2945,14 +3016,11 @@ name|incr
 expr_stmt|;
 name|gray_set_cell
 argument_list|(
-operator|&
-name|ras
+argument|RAS_VAR_ ex
 argument_list|,
-name|ex
-argument_list|,
-name|ey1
+argument|ey1
 argument_list|)
-expr_stmt|;
+empty_stmt|;
 block|}
 name|delta
 operator|=
@@ -5128,7 +5196,7 @@ decl_stmt|;
 comment|/* record current cell, if any */
 name|gray_record_cell
 argument_list|(
-name|worker
+name|RAS_VAR
 argument_list|)
 expr_stmt|;
 comment|/* start to a new position */
@@ -5152,19 +5220,11 @@ argument_list|)
 expr_stmt|;
 name|gray_start_cell
 argument_list|(
-name|worker
+argument|RAS_VAR_ TRUNC( x )
 argument_list|,
-name|TRUNC
-argument_list|(
-name|x
+argument|TRUNC( y )
 argument_list|)
-argument_list|,
-name|TRUNC
-argument_list|(
-name|y
-argument_list|)
-argument_list|)
-expr_stmt|;
+empty_stmt|;
 name|worker
 operator|->
 name|x
@@ -5199,23 +5259,11 @@ parameter_list|)
 block|{
 name|gray_render_line
 argument_list|(
-name|worker
+argument|RAS_VAR_ UPSCALE( to->x )
 argument_list|,
-name|UPSCALE
-argument_list|(
-name|to
-operator|->
-name|x
+argument|UPSCALE( to->y )
 argument_list|)
-argument_list|,
-name|UPSCALE
-argument_list|(
-name|to
-operator|->
-name|y
-argument_list|)
-argument_list|)
-expr_stmt|;
+empty_stmt|;
 return|return
 literal|0
 return|;
@@ -5243,13 +5291,11 @@ parameter_list|)
 block|{
 name|gray_render_conic
 argument_list|(
-name|worker
+argument|RAS_VAR_ control
 argument_list|,
-name|control
-argument_list|,
-name|to
+argument|to
 argument_list|)
-expr_stmt|;
+empty_stmt|;
 return|return
 literal|0
 return|;
@@ -5282,15 +5328,13 @@ parameter_list|)
 block|{
 name|gray_render_cubic
 argument_list|(
-name|worker
+argument|RAS_VAR_ control1
 argument_list|,
-name|control1
+argument|control2
 argument_list|,
-name|control2
-argument_list|,
-name|to
+argument|to
 argument_list|)
-expr_stmt|;
+empty_stmt|;
 return|return
 literal|0
 return|;
@@ -5560,7 +5604,7 @@ parameter_list|,
 name|TPos
 name|area
 parameter_list|,
-name|int
+name|TCoord
 name|acount
 parameter_list|)
 block|{
@@ -5691,6 +5735,17 @@ condition|)
 name|x
 operator|=
 literal|32767
+expr_stmt|;
+comment|/* FT_Span.y is an integer, so limit our coordinates appropriately */
+if|if
+condition|(
+name|y
+operator|>=
+name|FT_INT_MAX
+condition|)
+name|y
+operator|=
+name|FT_INT_MAX
 expr_stmt|;
 if|if
 condition|(
@@ -5901,6 +5956,9 @@ name|ras
 operator|.
 name|span_y
 operator|=
+operator|(
+name|int
+operator|)
 name|y
 expr_stmt|;
 name|count
@@ -6028,7 +6086,7 @@ name|next
 control|)
 name|printf
 argument_list|(
-literal|" (%3d, c:%4d, a:%6d)"
+literal|" (%3ld, c:%4ld, a:%6d)"
 argument_list|,
 name|cell
 operator|->
@@ -6151,7 +6209,7 @@ operator|->
 name|next
 control|)
 block|{
-name|TArea
+name|TPos
 name|area
 decl_stmt|;
 if|if
@@ -7543,6 +7601,27 @@ DECL|typedef|TBand
 name|TBand
 typedef|;
 end_typedef
+begin_macro
+name|FT_DEFINE_OUTLINE_FUNCS
+argument_list|(
+argument|func_interface
+argument_list|,
+argument|(FT_Outline_MoveTo_Func) gray_move_to
+argument_list|,
+DECL|variable|gray_line_to
+argument|(FT_Outline_LineTo_Func) gray_line_to
+argument_list|,
+DECL|variable|gray_conic_to
+argument|(FT_Outline_ConicTo_Func)gray_conic_to
+argument_list|,
+DECL|variable|gray_cubic_to
+argument|(FT_Outline_CubicTo_Func)gray_cubic_to
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|)
+end_macro
 begin_function
 specifier|static
 name|int
@@ -7552,43 +7631,26 @@ parameter_list|(
 name|RAS_ARG
 parameter_list|)
 block|{
-specifier|static
-specifier|const
-name|FT_Outline_Funcs
-name|func_interface
-init|=
-block|{
-operator|(
-name|FT_Outline_MoveTo_Func
-operator|)
-name|gray_move_to
-block|,
-operator|(
-name|FT_Outline_LineTo_Func
-operator|)
-name|gray_line_to
-block|,
-operator|(
-name|FT_Outline_ConicTo_Func
-operator|)
-name|gray_conic_to
-block|,
-operator|(
-name|FT_Outline_CubicTo_Func
-operator|)
-name|gray_cubic_to
-block|,
-literal|0
-block|,
-literal|0
-block|}
-decl_stmt|;
 specifier|volatile
 name|int
 name|error
 init|=
 literal|0
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|FT_CONFIG_OPTION_PIC
+name|FT_Outline_Funcs
+name|func_interface
+decl_stmt|;
+name|Init_Class_func_interface
+argument_list|(
+operator|&
+name|func_interface
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|ft_setjmp
@@ -8329,7 +8391,7 @@ name|FT_DEBUG_LEVEL_TRACE
 name|FT_TRACE7
 argument_list|(
 operator|(
-literal|"gray_convert_glyph: Rotten glyph!\n"
+literal|"gray_convert_glyph: rotten glyph\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -8722,17 +8784,11 @@ expr_stmt|;
 block|}
 name|gray_init_cells
 argument_list|(
-name|worker
+argument|RAS_VAR_ raster->buffer
 argument_list|,
-name|raster
-operator|->
-name|buffer
-argument_list|,
-name|raster
-operator|->
-name|buffer_size
+argument|raster->buffer_size
 argument_list|)
-expr_stmt|;
+empty_stmt|;
 name|ras
 operator|.
 name|outline
@@ -8824,7 +8880,7 @@ block|}
 return|return
 name|gray_convert_glyph
 argument_list|(
-name|worker
+name|RAS_VAR
 argument_list|)
 return|;
 block|}
@@ -9185,42 +9241,25 @@ block|}
 block|}
 block|}
 end_function
-begin_decl_stmt
-DECL|variable|ft_grays_raster
-specifier|const
-name|FT_Raster_Funcs
-name|ft_grays_raster
-init|=
-block|{
-name|FT_GLYPH_FORMAT_OUTLINE
-block|,
-operator|(
-name|FT_Raster_New_Func
-operator|)
-name|gray_raster_new
-block|,
-operator|(
-name|FT_Raster_Reset_Func
-operator|)
-name|gray_raster_reset
-block|,
-operator|(
-name|FT_Raster_Set_Mode_Func
-operator|)
+begin_macro
+name|FT_DEFINE_RASTER_FUNCS
+argument_list|(
+argument|ft_grays_raster
+argument_list|,
+argument|FT_GLYPH_FORMAT_OUTLINE
+argument_list|,
+argument|(FT_Raster_New_Func)     gray_raster_new
+argument_list|,
+argument|(FT_Raster_Reset_Func)   gray_raster_reset
+argument_list|,
+argument|(FT_Raster_Set_Mode_Func)
 literal|0
-block|,
-operator|(
-name|FT_Raster_Render_Func
-operator|)
-name|gray_raster_render
-block|,
-operator|(
-name|FT_Raster_Done_Func
-operator|)
-name|gray_raster_done
-block|}
-decl_stmt|;
-end_decl_stmt
+argument_list|,
+argument|(FT_Raster_Render_Func)  gray_raster_render
+argument_list|,
+argument|(FT_Raster_Done_Func)    gray_raster_done
+argument_list|)
+end_macro
 begin_comment
 comment|/* END */
 end_comment

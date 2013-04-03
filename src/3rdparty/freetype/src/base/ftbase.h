@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2008 by                                                      */
+comment|/*  Copyright 2008, 2010 by                                                */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, Werner Lemberg, and suzuki toshiya.      */
@@ -72,7 +72,7 @@ begin_function_decl
 name|FT_BEGIN_HEADER
 comment|/* Assume the stream is sfnt-wrapped PS Type1 or sfnt-wrapped CID-keyed */
 comment|/* font, and try to load a face specified by the face_index.            */
-name|FT_LOCAL_DEF
+name|FT_LOCAL
 parameter_list|(
 name|FT_Error
 parameter_list|)
@@ -107,7 +107,7 @@ begin_comment
 comment|/* From ftmac.c.                                          */
 end_comment
 begin_macro
-name|FT_LOCAL_DEF
+name|FT_LOCAL
 argument_list|(
 argument|FT_Error
 argument_list|)

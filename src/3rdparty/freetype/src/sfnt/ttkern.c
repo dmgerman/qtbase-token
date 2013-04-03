@@ -78,11 +78,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"ttload.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"sferrors.h"
 end_include
 begin_comment
@@ -214,7 +209,8 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"kerning table is too small - ignored\n"
+literal|"tt_face_load_kern:"
+literal|" kerning table is too small - ignored\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -241,7 +237,8 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"could not extract kerning table\n"
+literal|"tt_face_load_kern:"
+literal|" could not extract kerning table\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -318,6 +315,9 @@ decl_stmt|;
 name|FT_UInt32
 name|mask
 init|=
+operator|(
+name|FT_UInt32
+operator|)
 literal|1UL
 operator|<<
 name|nn
@@ -451,10 +451,10 @@ operator|>
 literal|0
 condition|)
 block|{
-name|FT_UInt
+name|FT_ULong
 name|count
 decl_stmt|;
-name|FT_UInt
+name|FT_ULong
 name|old_pair
 decl_stmt|;
 name|old_pair

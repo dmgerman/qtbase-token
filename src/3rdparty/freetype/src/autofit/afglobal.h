@@ -21,7 +21,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2003, 2004, 2005, 2007 by                                    */
+comment|/*  Copyright 2003, 2004, 2005, 2007, 2009 by                              */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -156,6 +156,23 @@ argument_list|)
 end_macro
 begin_empty_stmt
 DECL|variable|globals
+empty_stmt|;
+end_empty_stmt
+begin_macro
+name|FT_LOCAL_DEF
+argument_list|(
+argument|FT_Bool
+argument_list|)
+end_macro
+begin_macro
+name|af_face_globals_is_digit
+argument_list|(
+argument|AF_FaceGlobals  globals
+argument_list|,
+argument|FT_UInt         gindex
+argument_list|)
+end_macro
+begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
 begin_comment

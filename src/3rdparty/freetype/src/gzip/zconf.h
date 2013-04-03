@@ -3,7 +3,7 @@ begin_comment
 comment|/* zconf.h -- configuration of the zlib compression library  * Copyright (C) 1995-2002 Jean-loup Gailly.  * For conditions of distribution and use, see copyright notice in zlib.h  */
 end_comment
 begin_comment
-comment|/* @(#) $Id: zconf.h,v 1.4 2007/06/01 06:56:17 wl Exp $ */
+comment|/* @(#) $Id$ */
 end_comment
 begin_if
 if|#
@@ -372,6 +372,24 @@ DECL|macro|MSDOS
 define|#
 directive|define
 name|MSDOS
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* WinCE doesn't have errno.h */
+end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|_WIN32_WCE
+end_ifdef
+begin_define
+DECL|macro|NO_ERRNO_H
+define|#
+directive|define
+name|NO_ERRNO_H
 end_define
 begin_endif
 endif|#

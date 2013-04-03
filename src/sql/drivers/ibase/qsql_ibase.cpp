@@ -50,6 +50,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtSql/private/qsqldriver_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<qlist.h>
 end_include
 begin_include
@@ -1478,6 +1483,9 @@ begin_class
 DECL|class|QIBaseDriverPrivate
 class|class
 name|QIBaseDriverPrivate
+super|:
+specifier|public
+name|QSqlDriverPrivate
 block|{
 public|public:
 DECL|function|QIBaseDriverPrivate
@@ -1488,6 +1496,9 @@ modifier|*
 name|d
 parameter_list|)
 member_init_list|:
+name|QSqlDriverPrivate
+argument_list|()
+member_init_list|,
 name|q
 argument_list|(
 name|d
@@ -1507,7 +1518,12 @@ name|tc
 argument_list|(
 literal|0
 argument_list|)
-block|{}
+block|{
+name|dbmsType
+operator|=
+name|Interbase
+expr_stmt|;
+block|}
 DECL|function|isError
 name|bool
 name|isError
@@ -8328,11 +8344,7 @@ operator|::
 name|~
 name|QIBaseDriver
 parameter_list|()
-block|{
-operator|delete
-name|d
-expr_stmt|;
-block|}
+block|{ }
 end_destructor
 begin_function
 DECL|function|hasFeature
