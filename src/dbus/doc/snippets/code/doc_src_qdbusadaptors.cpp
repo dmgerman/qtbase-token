@@ -417,6 +417,7 @@ name|registerObject
 argument_list|(
 literal|"/MainApplication"
 argument_list|,
+operator|&
 name|app
 argument_list|)
 argument_list|;
