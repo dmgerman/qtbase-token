@@ -130,6 +130,32 @@ argument_list|)
 block|{ }
 end_constructor
 begin_comment
+comment|/*!  \internal */
+end_comment
+begin_constructor
+DECL|function|QSqlDriver
+name|QSqlDriver
+operator|::
+name|QSqlDriver
+parameter_list|(
+name|QSqlDriverPrivate
+modifier|&
+name|dd
+parameter_list|,
+name|QObject
+modifier|*
+name|parent
+parameter_list|)
+member_init_list|:
+name|QObject
+argument_list|(
+name|dd
+argument_list|,
+name|parent
+argument_list|)
+block|{ }
+end_constructor
+begin_comment
 comment|/*!     Destroys the object and frees any allocated resources. */
 end_comment
 begin_destructor

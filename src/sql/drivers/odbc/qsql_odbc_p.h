@@ -337,6 +337,10 @@ range|:
 name|public
 name|QSqlDriver
 block|{
+name|Q_DECLARE_PRIVATE
+argument_list|(
+argument|QODBCDriver
+argument_list|)
 name|Q_OBJECT
 name|public
 operator|:
@@ -467,10 +471,6 @@ argument_list|()
 block|;
 name|private
 operator|:
-name|void
-name|init
-argument_list|()
-block|;
 name|bool
 name|endTrans
 argument_list|()
@@ -478,10 +478,6 @@ block|;
 name|void
 name|cleanup
 argument_list|()
-block|;
-name|QODBCDriverPrivate
-operator|*
-name|d
 block|;
 name|friend
 name|class

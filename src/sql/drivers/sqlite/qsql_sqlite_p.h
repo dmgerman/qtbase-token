@@ -105,6 +105,10 @@ range|:
 name|public
 name|QSqlDriver
 block|{
+name|Q_DECLARE_PRIVATE
+argument_list|(
+argument|QSQLiteDriver
+argument_list|)
 name|Q_OBJECT
 name|friend
 name|class
@@ -219,12 +223,6 @@ argument_list|,
 argument|IdentifierType
 argument_list|)
 specifier|const
-block|;
-name|private
-operator|:
-name|QSQLiteDriverPrivate
-operator|*
-name|d
 block|; }
 decl_stmt|;
 end_decl_stmt

@@ -66,6 +66,10 @@ range|:
 name|public
 name|QObjectPrivate
 block|{
+name|Q_DECLARE_PUBLIC
+argument_list|(
+argument|QSqlDriver
+argument_list|)
 name|public
 operator|:
 expr|enum
@@ -118,12 +122,6 @@ argument_list|(
 argument|UnknownDB
 argument_list|)
 block|{ }
-comment|// @CHECK: this member is never used. It was named q, which expanded to q_func().
-name|QSqlDriver
-operator|*
-name|q_func
-argument_list|()
-block|;
 name|uint
 name|isOpen
 block|;
