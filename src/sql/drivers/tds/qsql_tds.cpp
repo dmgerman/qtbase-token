@@ -1436,8 +1436,6 @@ operator|.
 name|at
 argument_list|(
 name|i
-operator|*
-literal|2
 argument_list|)
 operator|.
 name|data
