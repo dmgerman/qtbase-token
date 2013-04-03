@@ -257,6 +257,16 @@ parameter_list|(
 name|HWND
 parameter_list|)
 function_decl|;
+DECL|typedef|SetProcessDPIAware
+typedef|typedef
+name|BOOL
+function_decl|(
+name|WINAPI
+modifier|*
+name|SetProcessDPIAware
+function_decl|)
+parameter_list|()
+function_decl|;
 comment|// Functions missing in Q_CC_GNU stub libraries.
 DECL|member|setLayeredWindowAttributes
 name|SetLayeredWindowAttributes
@@ -291,6 +301,11 @@ decl_stmt|;
 DECL|member|closeTouchInputHandle
 name|CloseTouchInputHandle
 name|closeTouchInputHandle
+decl_stmt|;
+comment|// Windows Vista onwards
+DECL|member|setProcessDPIAware
+name|SetProcessDPIAware
+name|setProcessDPIAware
 decl_stmt|;
 block|}
 struct|;

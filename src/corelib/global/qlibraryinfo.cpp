@@ -794,6 +794,17 @@ block|,
 literal|"lib"
 block|}
 block|,
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+block|{
+literal|"LibraryExecutables"
+block|,
+literal|"bin"
+block|}
+block|,
+else|#
+directive|else
 block|{
 literal|"LibraryExecutables"
 block|,
@@ -801,6 +812,8 @@ literal|"libexec"
 block|}
 block|,
 comment|// should be ${ArchData}/libexec
+endif|#
+directive|endif
 block|{
 literal|"Binaries"
 block|,
