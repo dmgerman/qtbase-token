@@ -185,6 +185,10 @@ name|int
 name|desktopHeightPixels
 parameter_list|()
 function_decl|;
+name|double
+name|scaledDensity
+parameter_list|()
+function_decl|;
 name|JavaVM
 modifier|*
 name|javaVM

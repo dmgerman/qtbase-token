@@ -2621,6 +2621,10 @@ argument_list|,
 name|metrics
 operator|.
 name|ydpi
+argument_list|,
+name|metrics
+operator|.
+name|scaledDensity
 argument_list|)
 expr_stmt|;
 block|}
