@@ -1006,6 +1006,13 @@ name|CONFIG_PROJECT
 value|"project"
 end_define
 begin_define
+DECL|macro|CONFIG_REDIRECTDOCUMENTATIONTODEVNULL
+define|#
+directive|define
+name|CONFIG_REDIRECTDOCUMENTATIONTODEVNULL
+value|"redirectdocumentationtodevnull"
+end_define
+begin_define
 DECL|macro|CONFIG_QHP
 define|#
 directive|define

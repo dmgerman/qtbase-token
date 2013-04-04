@@ -1137,6 +1137,10 @@ name|bool
 name|noLinkErrors_
 decl_stmt|;
 specifier|static
+name|bool
+name|redirectDocumentationToDevNull_
+decl_stmt|;
+specifier|static
 name|Passes
 name|qdocPass_
 decl_stmt|;

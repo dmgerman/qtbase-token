@@ -237,6 +237,15 @@ literal|false
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|redirectDocumentationToDevNull
+specifier|static
+name|bool
+name|redirectDocumentationToDevNull
+init|=
+literal|false
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|noLinkErrors
 specifier|static
 name|bool
@@ -346,6 +355,8 @@ literal|"    -generate        "
 literal|"Run qdoc to read the index files and generate the docs\n"
 literal|"    -showinternal  "
 literal|"Include content marked internal\n"
+literal|"    -redirect-documentation-to-dev-null "
+literal|"Save all documentation content to /dev/null. Useful if someone is interested in qdoc errors only.\n"
 literal|"    -version       "
 literal|"Display version of qdoc and exit\n"
 argument_list|)
@@ -1057,6 +1068,22 @@ argument_list|,
 name|QStringList
 argument_list|(
 name|showInternal
+condition|?
+literal|"true"
+else|:
+literal|"false"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|config
+operator|.
+name|setStringList
+argument_list|(
+name|CONFIG_REDIRECTDOCUMENTATIONTODEVNULL
+argument_list|,
+name|QStringList
+argument_list|(
+name|redirectDocumentationToDevNull
 condition|?
 literal|"true"
 else|:
@@ -2588,6 +2615,19 @@ literal|"-showinternal"
 condition|)
 block|{
 name|showInternal
+operator|=
+literal|true
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|opt
+operator|==
+literal|"-redirect-documentation-to-dev-null"
+condition|)
+block|{
+name|redirectDocumentationToDevNull
 operator|=
 literal|true
 expr_stmt|;
