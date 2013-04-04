@@ -249,10 +249,7 @@ name|config
 operator|.
 name|getBool
 argument_list|(
-name|QLatin1String
-argument_list|(
 name|CONFIG_SHOWINTERNAL
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
