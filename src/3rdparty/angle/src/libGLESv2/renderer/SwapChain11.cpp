@@ -1405,6 +1405,20 @@ return|return
 name|EGL_BAD_ACCESS
 return|;
 block|}
+if|if
+condition|(
+operator|!
+name|mSwapChain
+condition|)
+name|reset
+argument_list|(
+name|backbufferWidth
+argument_list|,
+name|backbufferHeight
+argument_list|,
+name|mSwapInterval
+argument_list|)
+expr_stmt|;
 comment|// Can only call resize if we have already created our swap buffer and resources
 name|ASSERT
 argument_list|(
