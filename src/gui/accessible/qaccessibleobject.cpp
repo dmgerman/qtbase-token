@@ -258,17 +258,9 @@ argument_list|,
 name|y
 argument_list|)
 condition|)
-block|{
 return|return
 name|childIface
 return|;
-block|}
-else|else
-block|{
-operator|delete
-name|childIface
-expr_stmt|;
-block|}
 block|}
 return|return
 literal|0
@@ -412,9 +404,6 @@ operator|->
 name|object
 argument_list|()
 argument_list|)
-expr_stmt|;
-operator|delete
-name|root
 expr_stmt|;
 block|}
 block|}

@@ -96,6 +96,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtSql/private/qsqldriver_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<qstringlist.h>
 end_include
 begin_include
@@ -415,12 +420,18 @@ begin_class
 DECL|class|QTDSDriverPrivate
 class|class
 name|QTDSDriverPrivate
+super|:
+specifier|public
+name|QSqlDriverPrivate
 block|{
 public|public:
 DECL|function|QTDSDriverPrivate
 name|QTDSDriverPrivate
 parameter_list|()
 member_init_list|:
+name|QSqlDriverPrivate
+argument_list|()
+member_init_list|,
 name|login
 argument_list|(
 literal|0
@@ -430,7 +441,12 @@ name|initialized
 argument_list|(
 literal|false
 argument_list|)
-block|{}
+block|{
+name|dbmsType
+operator|=
+name|Sybase
+expr_stmt|;
+block|}
 DECL|member|login
 name|LOGINREC
 modifier|*
@@ -2892,9 +2908,6 @@ expr_stmt|;
 comment|// dbexit also calls dbclose if necessary
 name|dbexit
 argument_list|()
-expr_stmt|;
-operator|delete
-name|d
 expr_stmt|;
 block|}
 end_destructor

@@ -84,7 +84,7 @@ literal|0
 argument_list|)
 end_macro
 begin_macro
-name|T1_FIELD_NUM
+name|T1_FIELD_FIXED
 argument_list|(
 literal|"CIDFontVersion"
 argument_list|,

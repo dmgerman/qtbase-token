@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2008 by                   */
+comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2008, 2009 by             */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -101,11 +101,6 @@ begin_include
 include|#
 directive|include
 include|FT_INTERNAL_DEBUG_H
-end_include
-begin_include
-include|#
-directive|include
-include|FT_INTERNAL_CALC_H
 end_include
 begin_include
 include|#
@@ -955,12 +950,6 @@ name|FT_ERROR
 argument_list|(
 operator|(
 literal|"T1_Get_Private_Dict:"
-operator|)
-argument_list|)
-expr_stmt|;
-name|FT_ERROR
-argument_list|(
-operator|(
 literal|" invalid private dictionary section\n"
 operator|)
 argument_list|)
@@ -1164,12 +1153,6 @@ name|FT_ERROR
 argument_list|(
 operator|(
 literal|"T1_Get_Private_Dict:"
-operator|)
-argument_list|)
-expr_stmt|;
-name|FT_ERROR
-argument_list|(
-operator|(
 literal|" could not find `eexec' keyword\n"
 operator|)
 argument_list|)
@@ -1332,51 +1315,52 @@ name|root
 operator|.
 name|cursor
 expr_stmt|;
-if|if
+comment|/* according to the Type1 spec, the first cipher byte must not be  */
+comment|/* an ASCII whitespace character code (blank, tab, carriage return */
+comment|/* or line feed).  We have seen Type 1 fonts with two line feed    */
+comment|/* characters...  So skip now all whitespace character codes.      */
+while|while
 condition|(
+name|cur
+operator|<
+name|limit
+operator|&&
+operator|(
+operator|*
+name|cur
+operator|==
+literal|' '
+operator|||
+operator|*
+name|cur
+operator|==
+literal|'\t'
+operator|||
 operator|*
 name|cur
 operator|==
 literal|'\r'
-condition|)
-block|{
-name|cur
-operator|++
-expr_stmt|;
-if|if
-condition|(
+operator|||
 operator|*
 name|cur
 operator|==
 literal|'\n'
+operator|)
 condition|)
-name|cur
 operator|++
+name|cur
 expr_stmt|;
-block|}
-elseif|else
 if|if
 condition|(
-operator|*
 name|cur
-operator|==
-literal|'\n'
+operator|>=
+name|limit
 condition|)
-name|cur
-operator|++
-expr_stmt|;
-else|else
 block|{
 name|FT_ERROR
 argument_list|(
 operator|(
 literal|"T1_Get_Private_Dict:"
-operator|)
-argument_list|)
-expr_stmt|;
-name|FT_ERROR
-argument_list|(
-operator|(
 literal|" `eexec' not properly terminated\n"
 operator|)
 argument_list|)

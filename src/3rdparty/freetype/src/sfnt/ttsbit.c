@@ -1670,7 +1670,7 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"tt_face_load_sbit_strikes: invalid table version!\n"
+literal|"tt_face_load_sbit_strikes: invalid table version\n"
 operator|)
 argument_list|)
 expr_stmt|;

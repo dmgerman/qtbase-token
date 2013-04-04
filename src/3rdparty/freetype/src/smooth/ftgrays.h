@@ -82,6 +82,10 @@ directive|include
 file|<ft2build.h>
 include|#
 directive|include
+include|FT_CONFIG_CONFIG_H
+comment|/* for FT_CONFIG_OPTION_PIC */
+include|#
+directive|include
 include|FT_IMAGE_H
 endif|#
 directive|endif

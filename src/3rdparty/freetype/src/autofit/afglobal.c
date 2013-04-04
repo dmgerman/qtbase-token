@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2003, 2004, 2005, 2006, 2007, 2008 by                        */
+comment|/*  Copyright 2003, 2004, 2005, 2006, 2007, 2008, 2009 by                  */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -75,6 +75,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"afpic.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"aferrors.h"
 end_include
 begin_ifdef
@@ -91,6 +96,14 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|FT_CONFIG_OPTION_PIC
+end_ifndef
+begin_comment
+comment|/* when updating this table, don't forget to update    AF_SCRIPT_CLASSES_COUNT and autofit_module_class_pic_init */
+end_comment
 begin_comment
 comment|/* populate this list when you add new scripts */
 end_comment
@@ -128,6 +141,13 @@ comment|/* do not remove */
 block|}
 decl_stmt|;
 end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* FT_CONFIG_OPTION_PIC */
+end_comment
 begin_comment
 comment|/* index of default script in `af_script_classes' */
 end_comment
@@ -139,14 +159,24 @@ name|AF_SCRIPT_LIST_DEFAULT
 value|2
 end_define
 begin_comment
-comment|/* indicates an uncovered glyph                   */
+comment|/* a bit mask indicating an uncovered glyph       */
 end_comment
 begin_define
 DECL|macro|AF_SCRIPT_LIST_NONE
 define|#
 directive|define
 name|AF_SCRIPT_LIST_NONE
-value|255
+value|0x7F
+end_define
+begin_comment
+comment|/* if this flag is set, we have an ASCII digit    */
+end_comment
+begin_define
+DECL|macro|AF_DIGIT
+define|#
+directive|define
+name|AF_DIGIT
+value|0x80
 end_define
 begin_comment
 comment|/*    *  Note that glyph_scripts[] is used to map each glyph into    *  an index into the `af_script_classes' array.    *    */
@@ -162,7 +192,7 @@ name|FT_Face
 name|face
 decl_stmt|;
 DECL|member|glyph_count
-name|FT_UInt
+name|FT_Long
 name|glyph_count
 decl_stmt|;
 comment|/* same as face->num_glyphs */
@@ -225,6 +255,8 @@ name|glyph_scripts
 decl_stmt|;
 name|FT_UInt
 name|ss
+decl_stmt|,
+name|i
 decl_stmt|;
 comment|/* the value 255 means `uncovered glyph' */
 name|FT_MEM_SET
@@ -270,7 +302,7 @@ name|ss
 operator|=
 literal|0
 init|;
-name|af_script_classes
+name|AF_SCRIPT_CLASSES_GET
 index|[
 name|ss
 index|]
@@ -282,7 +314,7 @@ block|{
 name|AF_ScriptClass
 name|clazz
 init|=
-name|af_script_classes
+name|AF_SCRIPT_CLASSES_GET
 index|[
 name|ss
 index|]
@@ -345,6 +377,9 @@ literal|0
 operator|&&
 name|gindex
 operator|<
+operator|(
+name|FT_ULong
+operator|)
 name|globals
 operator|->
 name|glyph_count
@@ -403,6 +438,9 @@ if|if
 condition|(
 name|gindex
 operator|<
+operator|(
+name|FT_ULong
+operator|)
 name|globals
 operator|->
 name|glyph_count
@@ -429,11 +467,59 @@ block|}
 block|}
 block|}
 block|}
+comment|/* mark ASCII digits */
+for|for
+control|(
+name|i
+operator|=
+literal|0x30
+init|;
+name|i
+operator|<=
+literal|0x39
+condition|;
+name|i
+operator|++
+control|)
+block|{
+name|FT_UInt
+name|gindex
+init|=
+name|FT_Get_Char_Index
+argument_list|(
+name|face
+argument_list|,
+name|i
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|gindex
+operator|!=
+literal|0
+operator|&&
+name|gindex
+operator|<
+operator|(
+name|FT_ULong
+operator|)
+name|globals
+operator|->
+name|glyph_count
+condition|)
+name|gscripts
+index|[
+name|gindex
+index|]
+operator||=
+name|AF_DIGIT
+expr_stmt|;
+block|}
 name|Exit
 label|:
 comment|/*      *  By default, all uncovered glyphs are set to the latin script.      *  XXX: Shouldn't we disable hinting or do something similar?      */
 block|{
-name|FT_UInt
+name|FT_Long
 name|nn
 decl_stmt|;
 for|for
@@ -658,7 +744,7 @@ block|{
 name|AF_ScriptClass
 name|clazz
 init|=
-name|af_script_classes
+name|AF_SCRIPT_CLASSES_GET
 index|[
 name|nn
 index|]
@@ -774,17 +860,17 @@ operator|&
 literal|15
 decl_stmt|;
 specifier|const
-name|FT_UInt
+name|FT_Offset
 name|script_max
 init|=
 sizeof|sizeof
 argument_list|(
-name|af_script_classes
+name|AF_SCRIPT_CLASSES_GET
 argument_list|)
 operator|/
 sizeof|sizeof
 argument_list|(
-name|af_script_classes
+name|AF_SCRIPT_CLASSES_GET
 index|[
 literal|0
 index|]
@@ -799,6 +885,9 @@ if|if
 condition|(
 name|gindex
 operator|>=
+operator|(
+name|FT_ULong
+operator|)
 name|globals
 operator|->
 name|glyph_count
@@ -836,10 +925,12 @@ name|glyph_scripts
 index|[
 name|gindex
 index|]
+operator|&
+name|AF_SCRIPT_LIST_NONE
 expr_stmt|;
 name|clazz
 operator|=
-name|af_script_classes
+name|AF_SCRIPT_CLASSES_GET
 index|[
 name|gidx
 index|]
@@ -973,6 +1064,57 @@ name|metrics
 expr_stmt|;
 return|return
 name|error
+return|;
+block|}
+end_block
+begin_macro
+DECL|function|FT_LOCAL_DEF
+name|FT_LOCAL_DEF
+argument_list|(
+argument|FT_Bool
+argument_list|)
+end_macro
+begin_macro
+name|af_face_globals_is_digit
+argument_list|(
+argument|AF_FaceGlobals  globals
+argument_list|,
+argument|FT_UInt         gindex
+argument_list|)
+end_macro
+begin_block
+block|{
+if|if
+condition|(
+name|gindex
+operator|<
+operator|(
+name|FT_ULong
+operator|)
+name|globals
+operator|->
+name|glyph_count
+condition|)
+return|return
+call|(
+name|FT_Bool
+call|)
+argument_list|(
+name|globals
+operator|->
+name|glyph_scripts
+index|[
+name|gindex
+index|]
+operator|&
+name|AF_DIGIT
+argument_list|)
+return|;
+return|return
+operator|(
+name|FT_Bool
+operator|)
+literal|0
 return|;
 block|}
 end_block

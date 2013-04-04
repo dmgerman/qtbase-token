@@ -21,7 +21,10 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008 by       */
+comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,   */
+end_comment
+begin_comment
+comment|/*            2010 by                                                      */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -136,16 +139,13 @@ begin_comment
 comment|/*<Description>                                                         */
 end_comment
 begin_comment
-comment|/*    The type FT_Pos is a 32-bit integer used to store vectorial        */
+comment|/*    The type FT_Pos is used to store vectorial coordinates.  Depending */
 end_comment
 begin_comment
-comment|/*    coordinates.  Depending on the context, these can represent        */
+comment|/*    on the context, these can represent distances in integer font      */
 end_comment
 begin_comment
-comment|/*    distances in integer font units, or 16.16, or 26.6 fixed float     */
-end_comment
-begin_comment
-comment|/*    pixel coordinates.                                                 */
+comment|/*    units, or 16.16, or 26.6 fixed float pixel coordinates.            */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -269,6 +269,48 @@ comment|/*                                                                      
 end_comment
 begin_comment
 comment|/*    yMax :: The vertical maximum (top-most).                           */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/*<Note>                                                                */
+end_comment
+begin_comment
+comment|/*    The bounding box is specified with the coordinates of the lower    */
+end_comment
+begin_comment
+comment|/*    left and the upper right corner.  In PostScript, those values are  */
+end_comment
+begin_comment
+comment|/*    often called (llx,lly) and (urx,ury), respectively.                */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/*    If `yMin' is negative, this value gives the glyph's descender.     */
+end_comment
+begin_comment
+comment|/*    Otherwise, the glyph doesn't descend below the baseline.           */
+end_comment
+begin_comment
+comment|/*    Similarly, if `ymax' is positive, this value gives the glyph's     */
+end_comment
+begin_comment
+comment|/*    ascender.                                                          */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/*    `xMin' gives the horizontal distance from the glyph's origin to    */
+end_comment
+begin_comment
+comment|/*    the left edge of the glyph's bounding box.  If `xMin' is negative, */
+end_comment
+begin_comment
+comment|/*    the glyph extends to the left of the origin.                       */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -715,6 +757,15 @@ begin_comment
 comment|/*                                                                       */
 end_comment
 begin_comment
+comment|/*                    For the B/W rasterizer, `pitch' is always an even  */
+end_comment
+begin_comment
+comment|/*                    number.                                            */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
 comment|/*    buffer       :: A typeless pointer to the bitmap buffer.  This     */
 end_comment
 begin_comment
@@ -905,13 +956,19 @@ begin_comment
 comment|/*    tags       :: A pointer to an array of `n_points' chars, giving    */
 end_comment
 begin_comment
-comment|/*                  each outline point's type.  If bit~0 is unset, the   */
+comment|/*                  each outline point's type.                           */
 end_comment
 begin_comment
-comment|/*                  point is `off' the curve, i.e., a Bezier control     */
+comment|/*                                                                       */
 end_comment
 begin_comment
-comment|/*                  point, while it is `on' when set.                    */
+comment|/*                  If bit~0 is unset, the point is `off' the curve,     */
+end_comment
+begin_comment
+comment|/*                  i.e., a BÃ©zier control point, while it is `on' if    */
+end_comment
+begin_comment
+comment|/*                  set.                                                 */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -920,10 +977,31 @@ begin_comment
 comment|/*                  Bit~1 is meaningful for `off' points only.  If set,  */
 end_comment
 begin_comment
-comment|/*                  it indicates a third-order Bezier arc control point; */
+comment|/*                  it indicates a third-order BÃ©zier arc control point; */
 end_comment
 begin_comment
 comment|/*                  and a second-order control point if unset.           */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/*                  If bit~2 is set, bits 5-7 contain the drop-out mode  */
+end_comment
+begin_comment
+comment|/*                  (as defined in the OpenType specification; the value */
+end_comment
+begin_comment
+comment|/*                  is the same as the argument to the SCANMODE          */
+end_comment
+begin_comment
+comment|/*                  instruction).                                        */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/*                  Bits 3 and~4 are reserved for internal purposes.     */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -954,6 +1032,24 @@ comment|/*                  and give hints to the scan-converter and hinter on  
 end_comment
 begin_comment
 comment|/*                  how to convert/grid-fit it.  See @FT_OUTLINE_FLAGS.  */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/*<Note>                                                                */
+end_comment
+begin_comment
+comment|/*    The B/W rasterizer only checks bit~2 in the `tags' array for the   */
+end_comment
+begin_comment
+comment|/*    first point of each contour.  The drop-out mode as given with      */
+end_comment
+begin_comment
+comment|/*    @FT_OUTLINE_IGNORE_DROPOUTS, @FT_OUTLINE_SMART_DROPOUTS, and       */
+end_comment
+begin_comment
+comment|/*    @FT_OUTLINE_INCLUDE_STUBS in `flags' is then overridden.           */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -1002,6 +1098,26 @@ DECL|typedef|FT_Outline
 name|FT_Outline
 typedef|;
 end_typedef
+begin_comment
+comment|/* Following limits must be consistent with */
+end_comment
+begin_comment
+comment|/* FT_Outline.{n_contours,n_points}         */
+end_comment
+begin_define
+DECL|macro|FT_OUTLINE_CONTOURS_MAX
+define|#
+directive|define
+name|FT_OUTLINE_CONTOURS_MAX
+value|SHRT_MAX
+end_define
+begin_define
+DECL|macro|FT_OUTLINE_POINTS_MAX
+define|#
+directive|define
+name|FT_OUTLINE_POINTS_MAX
+value|SHRT_MAX
+end_define
 begin_comment
 comment|/*************************************************************************/
 end_comment
@@ -1066,7 +1182,7 @@ begin_comment
 comment|/*      If set to 1, the outline will be filled using the even-odd fill  */
 end_comment
 begin_comment
-comment|/*      rule (only works with the smooth raster).                        */
+comment|/*      rule (only works with the smooth rasterizer).                    */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -1105,7 +1221,7 @@ begin_comment
 comment|/*      shape continuity.  If set, this flag hints the scan-line         */
 end_comment
 begin_comment
-comment|/*      converter to ignore such cases.                                  */
+comment|/*      converter to ignore such cases.  See below for more information. */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -1117,7 +1233,10 @@ begin_comment
 comment|/*      Select smart dropout control.  If unset, use simple dropout      */
 end_comment
 begin_comment
-comment|/*      control.  Ignored if @FT_OUTLINE_IGNORE_DROPOUTS is set.         */
+comment|/*      control.  Ignored if @FT_OUTLINE_IGNORE_DROPOUTS is set.  See    */
+end_comment
+begin_comment
+comment|/*      below for more information.                                      */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -1129,7 +1248,10 @@ begin_comment
 comment|/*      If set, turn pixels on for `stubs', otherwise exclude them.      */
 end_comment
 begin_comment
-comment|/*      Ignored if @FT_OUTLINE_IGNORE_DROPOUTS is set.                   */
+comment|/*      Ignored if @FT_OUTLINE_IGNORE_DROPOUTS is set.  See below for    */
+end_comment
+begin_comment
+comment|/*      more information.                                                */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -1178,6 +1300,27 @@ comment|/*                                                                      
 end_comment
 begin_comment
 comment|/*<Note>                                                                */
+end_comment
+begin_comment
+comment|/*    The flags @FT_OUTLINE_IGNORE_DROPOUTS, @FT_OUTLINE_SMART_DROPOUTS, */
+end_comment
+begin_comment
+comment|/*    and @FT_OUTLINE_INCLUDE_STUBS are ignored by the smooth            */
+end_comment
+begin_comment
+comment|/*    rasterizer.                                                        */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/*    There exists a second mechanism to pass the drop-out mode to the   */
+end_comment
+begin_comment
+comment|/*    B/W rasterizer; see the `tags' field in @FT_Outline.               */
+end_comment
+begin_comment
+comment|/*                                                                       */
 end_comment
 begin_comment
 comment|/*    Please refer to the description of the `SCANTYPE' instruction in   */
@@ -1341,6 +1484,13 @@ name|FT_CURVE_TAG_CUBIC
 value|2
 end_define
 begin_define
+DECL|macro|FT_CURVE_TAG_HAS_SCANMODE
+define|#
+directive|define
+name|FT_CURVE_TAG_HAS_SCANMODE
+value|4
+end_define
+begin_define
 DECL|macro|FT_CURVE_TAG_TOUCH_X
 define|#
 directive|define
@@ -1367,7 +1517,7 @@ DECL|macro|FT_CURVE_TAG_TOUCH_BOTH
 define|#
 directive|define
 name|FT_CURVE_TAG_TOUCH_BOTH
-value|( FT_CURVE_TAG_TOUCH_X | \                                    FT_CURVE_TAG_TOUCH_Y )
+value|( FT_CURVE_TAG_TOUCH_X | \                                      FT_CURVE_TAG_TOUCH_Y )
 end_define
 begin_define
 DECL|macro|FT_Curve_Tag_On
@@ -1597,16 +1747,16 @@ begin_comment
 comment|/*<Description>                                                         */
 end_comment
 begin_comment
-comment|/*    A function pointer type use to describe the signature of a `conic  */
+comment|/*    A function pointer type used to describe the signature of a `conic */
 end_comment
 begin_comment
-comment|/*    to' function during outline walking/decomposition.                 */
+comment|/*    to' function during outline walking or decomposition.              */
 end_comment
 begin_comment
 comment|/*                                                                       */
 end_comment
 begin_comment
-comment|/*    A `conic to' is emitted to indicate a second-order Bezier arc in   */
+comment|/*    A `conic to' is emitted to indicate a second-order BÃ©zier arc in   */
 end_comment
 begin_comment
 comment|/*    the outline.                                                       */
@@ -1704,13 +1854,13 @@ begin_comment
 comment|/*    A function pointer type used to describe the signature of a `cubic */
 end_comment
 begin_comment
-comment|/*    to' function during outline walking/decomposition.                 */
+comment|/*    to' function during outline walking or decomposition.              */
 end_comment
 begin_comment
 comment|/*                                                                       */
 end_comment
 begin_comment
-comment|/*    A `cubic to' is emitted to indicate a third-order Bezier arc.      */
+comment|/*    A `cubic to' is emitted to indicate a third-order BÃ©zier arc.      */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -1719,13 +1869,13 @@ begin_comment
 comment|/*<Input>                                                               */
 end_comment
 begin_comment
-comment|/*    control1 :: A pointer to the first Bezier control point.           */
+comment|/*    control1 :: A pointer to the first BÃ©zier control point.           */
 end_comment
 begin_comment
 comment|/*                                                                       */
 end_comment
 begin_comment
-comment|/*    control2 :: A pointer to the second Bezier control point.          */
+comment|/*    control2 :: A pointer to the second BÃ©zier control point.          */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -1813,10 +1963,7 @@ begin_comment
 comment|/*    A structure to hold various function pointers used during outline  */
 end_comment
 begin_comment
-comment|/*    decomposition in order to emit segments, conic, and cubic Beziers, */
-end_comment
-begin_comment
-comment|/*    as well as `move to' and `close to' operations.                    */
+comment|/*    decomposition in order to emit segments, conic, and cubic BÃ©ziers. */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -1837,13 +1984,13 @@ begin_comment
 comment|/*                                                                       */
 end_comment
 begin_comment
-comment|/*    conic_to :: The second-order Bezier arc emitter.                   */
+comment|/*    conic_to :: The second-order BÃ©zier arc emitter.                   */
 end_comment
 begin_comment
 comment|/*                                                                       */
 end_comment
 begin_comment
-comment|/*    cubic_to :: The third-order Bezier arc emitter.                    */
+comment|/*    cubic_to :: The third-order BÃ©zier arc emitter.                    */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -1897,7 +2044,7 @@ begin_comment
 comment|/*                                                                       */
 end_comment
 begin_comment
-comment|/*    Set the value of `shift' and `delta' to~0 to get the original      */
+comment|/*    Set the values of `shift' and `delta' to~0 to get the original     */
 end_comment
 begin_comment
 comment|/*    point coordinates.                                                 */
@@ -2128,7 +2275,7 @@ begin_comment
 comment|/*      The glyph image is a vectorial outline made of line segments     */
 end_comment
 begin_comment
-comment|/*      and Bezier arcs; it can be described as an @FT_Outline; you      */
+comment|/*      and BÃ©zier arcs; it can be described as an @FT_Outline; you      */
 end_comment
 begin_comment
 comment|/*      generally want to access the `outline' field of the              */
@@ -3119,7 +3266,7 @@ begin_comment
 comment|/*                                                                       */
 end_comment
 begin_comment
-comment|/*    black_spans :: The black span drawing callback.                    */
+comment|/*    black_spans :: The black span drawing callback.  UNIMPLEMENTED!    */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -3241,6 +3388,7 @@ DECL|member|black_spans
 name|FT_SpanFunc
 name|black_spans
 decl_stmt|;
+comment|/* doesn't work! */
 DECL|member|bit_test
 name|FT_Raster_BitTest_Func
 name|bit_test

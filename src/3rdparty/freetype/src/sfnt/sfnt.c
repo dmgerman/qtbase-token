@@ -61,6 +61,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"sfntpic.c"
+end_include
+begin_include
+include|#
+directive|include
 file|"ttload.c"
 end_include
 begin_include

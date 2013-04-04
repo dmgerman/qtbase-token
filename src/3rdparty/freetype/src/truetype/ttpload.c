@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2004, 2005, 2006, 2007, 2008 by             */
+comment|/*  Copyright 1996-2001, 2002, 2004, 2005, 2006, 2007, 2008, 2009 by       */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -306,7 +306,7 @@ block|{
 name|FT_TRACE2
 argument_list|(
 operator|(
-literal|"table too large!\n"
+literal|"table too large\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -322,14 +322,9 @@ name|face
 operator|->
 name|num_locations
 operator|=
-call|(
-name|FT_UInt
-call|)
-argument_list|(
 name|table_len
 operator|>>
 name|shift
-argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -348,7 +343,7 @@ block|{
 name|FT_TRACE2
 argument_list|(
 operator|(
-literal|"table too large!\n"
+literal|"table too large\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -364,14 +359,9 @@ name|face
 operator|->
 name|num_locations
 operator|=
-call|(
-name|FT_UInt
-call|)
-argument_list|(
 name|table_len
 operator|>>
 name|shift
-argument_list|)
 expr_stmt|;
 block|}
 if|if
@@ -381,7 +371,7 @@ operator|->
 name|num_locations
 operator|!=
 operator|(
-name|FT_UInt
+name|FT_ULong
 operator|)
 name|face
 operator|->
@@ -415,7 +405,7 @@ operator|->
 name|num_locations
 operator|<
 operator|(
-name|FT_UInt
+name|FT_ULong
 operator|)
 name|face
 operator|->
@@ -514,9 +504,6 @@ name|face
 operator|->
 name|num_locations
 operator|=
-operator|(
-name|FT_Long
-operator|)
 name|face
 operator|->
 name|root
@@ -737,12 +724,11 @@ literal|1
 expr_stmt|;
 block|}
 block|}
-comment|/* It isn't mentioned explicitly that the `loca' table must be  */
-comment|/* ordered, but implicitly it refers to the length of an entry  */
-comment|/* as the difference between the current and the next position. */
-comment|/* Anyway, there do exist (malformed) fonts which don't obey    */
-comment|/* this rule, so we are only able to provide an upper bound for */
-comment|/* the size.                                                    */
+comment|/* The `loca' table must be ordered; it refers to the length of */
+comment|/* an entry as the difference between the current and the next  */
+comment|/* position.  However, there do exist (malformed) fonts which   */
+comment|/* don't obey this rule, so we are only able to provide an      */
+comment|/* upper bound for the size.                                    */
 comment|/*                                                              */
 comment|/* We get (intentionally) a wrong, non-zero result in case the  */
 comment|/* `glyf' table is missing.                                     */
@@ -938,7 +924,7 @@ block|{
 name|FT_TRACE2
 argument_list|(
 operator|(
-literal|"is missing!\n"
+literal|"is missing\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -1216,7 +1202,7 @@ expr_stmt|;
 name|FT_TRACE2
 argument_list|(
 operator|(
-literal|"is missing!\n"
+literal|"is missing\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -1404,7 +1390,7 @@ expr_stmt|;
 name|FT_TRACE2
 argument_list|(
 operator|(
-literal|"is missing!\n"
+literal|"is missing\n"
 operator|)
 argument_list|)
 expr_stmt|;

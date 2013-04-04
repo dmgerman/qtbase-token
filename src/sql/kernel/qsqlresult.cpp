@@ -112,6 +112,7 @@ parameter_list|(
 name|int
 name|i
 parameter_list|)
+specifier|const
 block|{
 name|ushort
 name|arr
@@ -274,16 +275,8 @@ specifier|const
 name|QString
 modifier|&
 name|query
-parameter_list|,
-name|QString
-function_decl|(
-name|fieldSerialFunc
-function_decl|)
-parameter_list|(
-name|int
-name|idx
 parameter_list|)
-parameter_list|)
+specifier|const
 block|{
 name|int
 name|n
@@ -420,7 +413,7 @@ condition|)
 block|{
 name|result
 operator|+=
-name|fieldSerialFunc
+name|fieldSerial
 argument_list|(
 name|count
 operator|++
@@ -1537,8 +1530,8 @@ name|d
 operator|->
 name|executedQuery
 operator|=
-name|QSqlResultPrivate
-operator|::
+name|d
+operator|->
 name|positionalToNamedBinding
 argument_list|(
 name|query
@@ -1978,8 +1971,8 @@ name|d
 operator|->
 name|indexes
 index|[
-name|QSqlResultPrivate
-operator|::
+name|d
+operator|->
 name|fieldSerial
 argument_list|(
 name|index

@@ -1062,7 +1062,7 @@ begin_comment
 comment|/*    Return a glyph's `control box'.  The control box encloses all the  */
 end_comment
 begin_comment
-comment|/*    outline's points, including Bezier control points.  Though it      */
+comment|/*    outline's points, including BÃ©zier control points.  Though it      */
 end_comment
 begin_comment
 comment|/*    coincides with the exact bounding box for most glyphs, it can be   */
@@ -1071,7 +1071,7 @@ begin_comment
 comment|/*    slightly larger in some situations (like when rotating an outline  */
 end_comment
 begin_comment
-comment|/*    which contains Bezier outside arcs).                               */
+comment|/*    which contains BÃ©zier outside arcs).                               */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -1402,7 +1402,7 @@ begin_comment
 comment|/*        {                                                              */
 end_comment
 begin_comment
-comment|/*          error = FT_Glyph_To_Bitmap(&glyph, FT_RENDER_MODE_DEFAULT,  */
+comment|/*          error = FT_Glyph_To_Bitmap(&glyph, FT_RENDER_MODE_NORMAL,   */
 end_comment
 begin_comment
 comment|/*                                      0, 1 );                          */

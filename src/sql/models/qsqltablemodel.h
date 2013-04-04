@@ -427,6 +427,13 @@ argument_list|(
 argument|const QModelIndex&item
 argument_list|)
 specifier|const
+block|;
+name|QSqlRecord
+name|primaryValues
+argument_list|(
+argument|int row
+argument_list|)
+specifier|const
 block|; }
 decl_stmt|;
 end_decl_stmt

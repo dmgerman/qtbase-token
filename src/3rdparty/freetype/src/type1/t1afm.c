@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008 by       */
+comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 by */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -167,7 +167,7 @@ name|char
 modifier|*
 name|name
 parameter_list|,
-name|FT_UInt
+name|FT_Offset
 name|len
 parameter_list|,
 name|void
@@ -186,6 +186,16 @@ decl_stmt|;
 name|FT_Int
 name|n
 decl_stmt|;
+comment|/* PS string/name length must be< 16-bit */
+if|if
+condition|(
+name|len
+operator|>
+literal|0xFFFFU
+condition|)
+return|return
+literal|0
+return|;
 for|for
 control|(
 name|n
@@ -1123,6 +1133,7 @@ name|yMin
 operator|>>
 literal|16
 expr_stmt|;
+comment|/* no `U' suffix here to 0xFFFF! */
 name|t1_face
 operator|->
 name|bbox
@@ -1136,7 +1147,7 @@ name|FontBBox
 operator|.
 name|xMax
 operator|+
-literal|0xFFFFU
+literal|0xFFFF
 operator|)
 operator|>>
 literal|16
@@ -1154,11 +1165,12 @@ name|FontBBox
 operator|.
 name|yMax
 operator|+
-literal|0xFFFFU
+literal|0xFFFF
 operator|)
 operator|>>
 literal|16
 expr_stmt|;
+comment|/* no `U' suffix here to 0x8000! */
 name|t1_face
 operator|->
 name|ascender
@@ -1172,7 +1184,7 @@ name|fi
 operator|->
 name|Ascender
 operator|+
-literal|0x8000U
+literal|0x8000
 operator|)
 operator|>>
 literal|16
@@ -1191,7 +1203,7 @@ name|fi
 operator|->
 name|Descender
 operator|+
-literal|0x8000U
+literal|0x8000
 operator|)
 operator|>>
 literal|16

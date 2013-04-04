@@ -521,7 +521,7 @@ name|ApplicationActivate
 operator|=
 literal|121
 block|,
-comment|// application has been changed to active
+comment|// deprecated. Use ApplicationStateChange instead.
 name|ApplicationActivated
 operator|=
 name|ApplicationActivate
@@ -531,7 +531,7 @@ name|ApplicationDeactivate
 operator|=
 literal|122
 block|,
-comment|// application has been changed to inactive
+comment|// deprecated. Use ApplicationStateChange instead.
 name|ApplicationDeactivated
 operator|=
 name|ApplicationDeactivate
@@ -845,6 +845,10 @@ operator|=
 literal|213
 block|,
 comment|// style animation target should be updated
+name|ApplicationStateChange
+operator|=
+literal|214
+block|,
 comment|// 512 reserved for Qt Jambi's MetaCall event
 comment|// 513 reserved for Qt Jambi's DeleteOnMainThread event
 name|User

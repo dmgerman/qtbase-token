@@ -61,6 +61,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"cffpic.c"
+end_include
+begin_include
+include|#
+directive|include
 file|"cffdrivr.c"
 end_include
 begin_include

@@ -4300,6 +4300,36 @@ name|ScreenOrientation
 name|m_orientation
 block|; }
 block|;
+name|class
+name|Q_GUI_EXPORT
+name|QApplicationStateChangeEvent
+operator|:
+name|public
+name|QEvent
+block|{
+name|public
+operator|:
+name|explicit
+name|QApplicationStateChangeEvent
+argument_list|(
+argument|Qt::ApplicationState state
+argument_list|)
+block|;
+name|Qt
+operator|::
+name|ApplicationState
+name|applicationState
+argument_list|()
+specifier|const
+block|;
+name|private
+operator|:
+name|Qt
+operator|::
+name|ApplicationState
+name|m_applicationState
+block|; }
+block|;
 name|QT_END_NAMESPACE
 end_decl_stmt
 begin_endif

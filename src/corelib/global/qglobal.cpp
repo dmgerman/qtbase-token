@@ -483,7 +483,13 @@ begin_comment
 comment|/*!     \macro Q_OS_DARWIN     \relates<QtGlobal>      Defined on Darwin OS (synonym for Q_OS_MAC). */
 end_comment
 begin_comment
-comment|/*!     \macro Q_OS_WIN32     \relates<QtGlobal>      Defined on all supported versions of Windows. */
+comment|/*!     \macro Q_OS_WIN     \relates<QtGlobal>      Defined on all supported versions of Windows. That is, if     \l Q_OS_WIN32, \l Q_OS_WIN64 or \l Q_OS_WINCE is defined. */
+end_comment
+begin_comment
+comment|/*!     \macro Q_OS_WIN32     \relates<QtGlobal>      Defined on 32-bit and 64-bit versions of Windows (not on Windows CE). */
+end_comment
+begin_comment
+comment|/*!     \macro Q_OS_WIN64     \relates<QtGlobal>      Defined on 64-bit versions of Windows. */
 end_comment
 begin_comment
 comment|/*!     \macro Q_OS_WINCE     \relates<QtGlobal>      Defined on Windows CE. */
@@ -2352,7 +2358,7 @@ begin_comment
 comment|// makes use of the new secure getenv function.
 end_comment
 begin_comment
-comment|/*!     \relates<QtGlobal>      Returns the value of the environment variable with name \a     varName. To get the variable string, use QByteArray::constData().      \note qgetenv() was introduced because getenv() from the standard     C library was deprecated in VC2005 (and later versions). qgetenv()     uses the new replacement function in VC, and calls the standard C     library's implementation on all other platforms.      \sa qputenv() */
+comment|/*!     \relates<QtGlobal>      Returns the value of the environment variable with name \a     varName. To get the variable string, use QByteArray::constData().      \note qgetenv() was introduced because getenv() from the standard     C library was deprecated in VC2005 (and later versions). qgetenv()     uses the new replacement function in VC, and calls the standard C     library's implementation on all other platforms.      \sa qputenv(), qEnvironmentVariableIsSet(), qEnvironmentVariableIsEmpty() */
 end_comment
 begin_function
 DECL|function|qgetenv
@@ -2467,7 +2473,7 @@ directive|endif
 block|}
 end_function
 begin_comment
-comment|/*!     \relates<QtGlobal>     \internal      This function checks whether the environment variable \a varName     is empty.      Equivalent to     \code     qgetenv(varName).isEmpty()     \endcode     except that it's potentially much faster, and can't throw exceptions.      \sa qgetenv(), qEnvironmentVariableIsSet() */
+comment|/*!     \relates<QtGlobal>     \since 5.1      Returns whether the environment variable \a varName is empty.      Equivalent to     \code     qgetenv(varName).isEmpty()     \endcode     except that it's potentially much faster, and can't throw exceptions.      \sa qgetenv(), qEnvironmentVariableIsSet() */
 end_comment
 begin_function
 name|bool
@@ -2544,7 +2550,7 @@ directive|endif
 block|}
 end_function
 begin_comment
-comment|/*!     \relates<QtGlobal>     \internal      This function checks whether the environment variable \a varName     is set.      Equivalent to     \code     !qgetenv(varName).isNull()     \endcode     except that it's potentially much faster, and can't throw exceptions.      \sa qgetenv(), qEnvironmentVariableIsEmpty() */
+comment|/*!     \relates<QtGlobal>     \since 5.1      Returns whether the environment variable \a varName is set.      Equivalent to     \code     !qgetenv(varName).isNull()     \endcode     except that it's potentially much faster, and can't throw exceptions.      \sa qgetenv(), qEnvironmentVariableIsEmpty() */
 end_comment
 begin_function
 name|bool

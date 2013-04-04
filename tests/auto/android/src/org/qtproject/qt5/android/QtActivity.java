@@ -482,7 +482,7 @@ name|libraryList
 operator|.
 name|add
 argument_list|(
-literal|"/data/local/qt/lib/lib"
+literal|"/data/local/tmp/qt/lib/lib"
 operator|+
 name|qtLibs
 index|[
@@ -734,7 +734,7 @@ name|loadQtLibs
 argument_list|(
 name|libs
 argument_list|,
-literal|"QML_IMPORT_PATH=/data/local/qt/imports\tQT_PLUGIN_PATH=/data/local/qt/plugins"
+literal|"QT_QPA_EGLFS_HIDECURSOR=1\tQML2_IMPORT_PATH=/data/local/tmp/qt/qml\tQML_IMPORT_PATH=/data/local/tmp/qt/imports\tQT_PLUGIN_PATH=/data/local/tmp/qt/plugins"
 argument_list|,
 literal|"-xml\t-silent\t-o\toutput.xml"
 argument_list|,

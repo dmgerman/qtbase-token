@@ -335,6 +335,16 @@ name|count
 argument_list|()
 specifier|const
 expr_stmt|;
+name|QSqlRecord
+name|keyValues
+argument_list|(
+specifier|const
+name|QSqlRecord
+operator|&
+name|keyFields
+argument_list|)
+decl|const
+decl_stmt|;
 name|private
 label|:
 name|void

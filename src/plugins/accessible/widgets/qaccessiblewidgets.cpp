@@ -3607,9 +3607,6 @@ return|return
 name|childIface
 return|;
 block|}
-operator|delete
-name|childIface
-expr_stmt|;
 block|}
 return|return
 literal|0

@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2008 by             */
+comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2008, 2009 by       */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -430,6 +430,16 @@ parameter_list|(
 name|x
 parameter_list|)
 value|( (FT_Long)( x * 65536.0 ) )
+end_define
+begin_define
+DECL|macro|FIXED_TO_INT
+define|#
+directive|define
+name|FIXED_TO_INT
+parameter_list|(
+name|x
+parameter_list|)
+value|( FT_RoundFix( x )>> 16 )
 end_define
 begin_define
 DECL|macro|ROUND_F26DOT6

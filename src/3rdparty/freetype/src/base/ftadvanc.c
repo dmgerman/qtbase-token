@@ -495,6 +495,9 @@ name|FT_Err_Unimplemented_Feature
 return|;
 name|flags
 operator||=
+operator|(
+name|FT_UInt32
+operator|)
 name|FT_LOAD_ADVANCE_ONLY
 expr_stmt|;
 for|for

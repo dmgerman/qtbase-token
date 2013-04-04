@@ -58,7 +58,7 @@ name|BOOL
 name|utf
 parameter_list|)
 block|{
-name|int
+name|pcre_uint32
 name|c
 decl_stmt|;
 operator|(
@@ -91,6 +91,7 @@ operator|=
 operator|*
 name|ptr
 expr_stmt|;
+comment|/* Note that this function is called only for ANY or ANYCRLF. */
 if|if
 condition|(
 name|type
@@ -103,7 +104,7 @@ name|c
 condition|)
 block|{
 case|case
-literal|0x000a
+name|CHAR_LF
 case|:
 operator|*
 name|lenptr
@@ -113,9 +114,8 @@ expr_stmt|;
 return|return
 name|TRUE
 return|;
-comment|/* LF */
 case|case
-literal|0x000d
+name|CHAR_CR
 case|:
 operator|*
 name|lenptr
@@ -132,7 +132,7 @@ index|[
 literal|1
 index|]
 operator|==
-literal|0x0a
+name|CHAR_LF
 operator|)
 condition|?
 literal|2
@@ -142,7 +142,6 @@ expr_stmt|;
 return|return
 name|TRUE
 return|;
-comment|/* CR */
 default|default:
 return|return
 name|FALSE
@@ -155,16 +154,22 @@ condition|(
 name|c
 condition|)
 block|{
+ifdef|#
+directive|ifdef
+name|EBCDIC
 case|case
-literal|0x000a
+name|CHAR_NEL
 case|:
-comment|/* LF */
+endif|#
+directive|endif
 case|case
-literal|0x000b
+name|CHAR_LF
 case|:
-comment|/* VT */
 case|case
-literal|0x000c
+name|CHAR_VT
+case|:
+case|case
+name|CHAR_FF
 case|:
 operator|*
 name|lenptr
@@ -174,9 +179,8 @@ expr_stmt|;
 return|return
 name|TRUE
 return|;
-comment|/* FF */
 case|case
-literal|0x000d
+name|CHAR_CR
 case|:
 operator|*
 name|lenptr
@@ -193,7 +197,7 @@ index|[
 literal|1
 index|]
 operator|==
-literal|0x0a
+name|CHAR_LF
 operator|)
 condition|?
 literal|2
@@ -203,12 +207,14 @@ expr_stmt|;
 return|return
 name|TRUE
 return|;
-comment|/* CR */
+ifndef|#
+directive|ifndef
+name|EBCDIC
 ifdef|#
 directive|ifdef
 name|COMPILE_PCRE8
 case|case
-literal|0x0085
+name|CHAR_NEL
 case|:
 operator|*
 name|lenptr
@@ -222,7 +228,6 @@ expr_stmt|;
 return|return
 name|TRUE
 return|;
-comment|/* NEL */
 case|case
 literal|0x2028
 case|:
@@ -241,10 +246,10 @@ return|;
 comment|/* PS */
 else|#
 directive|else
+comment|/* COMPILE_PCRE16 || COMPILE_PCRE32 */
 case|case
-literal|0x0085
+name|CHAR_NEL
 case|:
-comment|/* NEL */
 case|case
 literal|0x2028
 case|:
@@ -264,6 +269,9 @@ comment|/* PS */
 endif|#
 directive|endif
 comment|/* COMPILE_PCRE8 */
+endif|#
+directive|endif
+comment|/* Not EBCDIC */
 default|default:
 return|return
 name|FALSE
@@ -302,7 +310,7 @@ name|BOOL
 name|utf
 parameter_list|)
 block|{
-name|int
+name|pcre_uint32
 name|c
 decl_stmt|;
 operator|(
@@ -343,6 +351,7 @@ operator|=
 operator|*
 name|ptr
 expr_stmt|;
+comment|/* Note that this function is called only for ANY or ANYCRLF. */
 if|if
 condition|(
 name|type
@@ -355,7 +364,7 @@ name|c
 condition|)
 block|{
 case|case
-literal|0x000a
+name|CHAR_LF
 case|:
 operator|*
 name|lenptr
@@ -371,7 +380,7 @@ operator|-
 literal|1
 index|]
 operator|==
-literal|0x0d
+name|CHAR_CR
 operator|)
 condition|?
 literal|2
@@ -381,9 +390,8 @@ expr_stmt|;
 return|return
 name|TRUE
 return|;
-comment|/* LF */
 case|case
-literal|0x000d
+name|CHAR_CR
 case|:
 operator|*
 name|lenptr
@@ -393,12 +401,12 @@ expr_stmt|;
 return|return
 name|TRUE
 return|;
-comment|/* CR */
 default|default:
 return|return
 name|FALSE
 return|;
 block|}
+comment|/* NLTYPE_ANY */
 else|else
 switch|switch
 condition|(
@@ -406,7 +414,7 @@ name|c
 condition|)
 block|{
 case|case
-literal|0x000a
+name|CHAR_LF
 case|:
 operator|*
 name|lenptr
@@ -422,7 +430,7 @@ operator|-
 literal|1
 index|]
 operator|==
-literal|0x0d
+name|CHAR_CR
 operator|)
 condition|?
 literal|2
@@ -432,17 +440,22 @@ expr_stmt|;
 return|return
 name|TRUE
 return|;
-comment|/* LF */
+ifdef|#
+directive|ifdef
+name|EBCDIC
 case|case
-literal|0x000b
+name|CHAR_NEL
 case|:
-comment|/* VT */
+endif|#
+directive|endif
 case|case
-literal|0x000c
+name|CHAR_VT
 case|:
-comment|/* FF */
 case|case
-literal|0x000d
+name|CHAR_FF
+case|:
+case|case
+name|CHAR_CR
 case|:
 operator|*
 name|lenptr
@@ -452,12 +465,14 @@ expr_stmt|;
 return|return
 name|TRUE
 return|;
-comment|/* CR */
+ifndef|#
+directive|ifndef
+name|EBCDIC
 ifdef|#
 directive|ifdef
 name|COMPILE_PCRE8
 case|case
-literal|0x0085
+name|CHAR_NEL
 case|:
 operator|*
 name|lenptr
@@ -471,7 +486,6 @@ expr_stmt|;
 return|return
 name|TRUE
 return|;
-comment|/* NEL */
 case|case
 literal|0x2028
 case|:
@@ -490,10 +504,10 @@ return|;
 comment|/* PS */
 else|#
 directive|else
+comment|/* COMPILE_PCRE16 || COMPILE_PCRE32 */
 case|case
-literal|0x0085
+name|CHAR_NEL
 case|:
-comment|/* NEL */
 case|case
 literal|0x2028
 case|:
@@ -513,6 +527,9 @@ comment|/* PS */
 endif|#
 directive|endif
 comment|/* COMPILE_PCRE8 */
+endif|#
+directive|endif
+comment|/* NotEBCDIC */
 default|default:
 return|return
 name|FALSE

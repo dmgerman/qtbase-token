@@ -12,13 +12,13 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*    Debugging and logging component for Win32 (body).                    */
+comment|/*    Debugging and logging component for WinCE (body).                    */
 end_comment
 begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2005, 2008 by                               */
+comment|/*  Copyright 1996-2001, 2002, 2005, 2008, 2009 by                         */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -151,11 +151,6 @@ include|#
 directive|include
 file|<windows.h>
 end_include
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|_WIN32_WCE
-end_ifdef
 begin_function
 name|void
 DECL|function|OutputDebugStringEx
@@ -221,21 +216,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_else
-else|#
-directive|else
-end_else
-begin_define
-DECL|macro|OutputDebugStringEx
-define|#
-directive|define
-name|OutputDebugStringEx
-value|OutputDebugStringA
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_macro
 name|FT_BASE_DEF
 argument_list|(
@@ -485,13 +465,11 @@ argument_list|)
 end_macro
 begin_block
 block|{
-ifdef|#
-directive|ifdef
-name|_WIN32_WCE
 comment|/* Windows Mobile doesn't have environment API:           */
 comment|/* GetEnvironmentStrings, GetEnvironmentVariable, getenv. */
 comment|/*                                                        */
 comment|/* FIXME!!! How to set debug mode?                        */
+comment|/* const char*  ft2_debug = getenv( "FT2_DEBUG" ); */
 specifier|const
 name|char
 modifier|*
@@ -499,20 +477,6 @@ name|ft2_debug
 init|=
 literal|0
 decl_stmt|;
-else|#
-directive|else
-specifier|const
-name|char
-modifier|*
-name|ft2_debug
-init|=
-name|getenv
-argument_list|(
-literal|"FT2_DEBUG"
-argument_list|)
-decl_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 name|ft2_debug

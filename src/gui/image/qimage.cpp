@@ -2923,6 +2923,16 @@ name|image
 operator|.
 name|d
 operator|->
+name|devicePixelRatio
+operator|=
+name|d
+operator|->
+name|devicePixelRatio
+expr_stmt|;
+name|image
+operator|.
+name|d
+operator|->
 name|offset
 operator|=
 name|d

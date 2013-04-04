@@ -244,7 +244,7 @@ modifier|*
 name|mmvar
 decl_stmt|;
 DECL|member|mmvar_len
-name|FT_Int
+name|FT_Offset
 name|mmvar_len
 decl_stmt|;
 DECL|member|avar_checked

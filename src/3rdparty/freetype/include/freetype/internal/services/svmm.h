@@ -205,6 +205,67 @@ end_block
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|FT_CONFIG_OPTION_PIC
+end_ifndef
+begin_define
+DECL|macro|FT_DEFINE_SERVICE_MULTIMASTERSREC
+define|#
+directive|define
+name|FT_DEFINE_SERVICE_MULTIMASTERSREC
+parameter_list|(
+name|class_
+parameter_list|,
+name|get_mm_
+parameter_list|,
+name|set_mm_design_
+parameter_list|,   \
+name|set_mm_blend_
+parameter_list|,
+name|get_mm_var_
+parameter_list|,
+name|set_var_design_
+parameter_list|)
+define|\
+value|static const FT_Service_MultiMastersRec class_ =                           \   {                                                                          \     get_mm_, set_mm_design_, set_mm_blend_, get_mm_var_, set_var_design_     \   };
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_comment
+comment|/* FT_CONFIG_OPTION_PIC */
+end_comment
+begin_define
+DECL|macro|FT_DEFINE_SERVICE_MULTIMASTERSREC
+define|#
+directive|define
+name|FT_DEFINE_SERVICE_MULTIMASTERSREC
+parameter_list|(
+name|class_
+parameter_list|,
+name|get_mm_
+parameter_list|,
+name|set_mm_design_
+parameter_list|,   \
+name|set_mm_blend_
+parameter_list|,
+name|get_mm_var_
+parameter_list|,
+name|set_var_design_
+parameter_list|)
+define|\
+value|void                                                                       \   FT_Init_Class_##class_( FT_Service_MultiMastersRec*  clazz )               \   {                                                                          \     clazz->get_mm = get_mm_;                                                 \     clazz->set_mm_design = set_mm_design_;                                   \     clazz->set_mm_blend = set_mm_blend_;                                     \     clazz->get_mm_var = get_mm_var_;                                         \     clazz->set_var_design = set_var_design_;                                 \   }
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* FT_CONFIG_OPTION_PIC */
+end_comment
 begin_comment
 comment|/* */
 end_comment

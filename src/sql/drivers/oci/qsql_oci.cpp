@@ -65,6 +65,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtSql/private/qsqldriver_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<qstringlist.h>
 end_include
 begin_include
@@ -2587,11 +2592,15 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_struct
-DECL|struct|QOCIDriverPrivate
-struct|struct
+begin_class
+DECL|class|QOCIDriverPrivate
+class|class
 name|QOCIDriverPrivate
+super|:
+specifier|public
+name|QSqlDriverPrivate
 block|{
+public|public:
 name|QOCIDriverPrivate
 parameter_list|()
 constructor_decl|;
@@ -2645,8 +2654,8 @@ name|allocErrorHandle
 parameter_list|()
 function_decl|;
 block|}
-struct|;
-end_struct
+class|;
+end_class
 begin_constructor
 DECL|function|QOCIDriverPrivate
 name|QOCIDriverPrivate
@@ -2654,6 +2663,9 @@ operator|::
 name|QOCIDriverPrivate
 parameter_list|()
 member_init_list|:
+name|QSqlDriverPrivate
+argument_list|()
+member_init_list|,
 name|env
 argument_list|(
 literal|0
@@ -2700,7 +2712,12 @@ name|prefetchMem
 argument_list|(
 name|QOCI_PREFETCH_MEM
 argument_list|)
-block|{ }
+block|{
+name|dbmsType
+operator|=
+name|Oracle
+expr_stmt|;
+block|}
 end_constructor
 begin_function
 DECL|function|allocErrorHandle
@@ -11839,9 +11856,6 @@ literal|"Unable to free Environment handle: %d"
 argument_list|,
 name|r
 argument_list|)
-expr_stmt|;
-operator|delete
-name|d
 expr_stmt|;
 block|}
 end_destructor

@@ -172,6 +172,63 @@ end_block
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|FT_CONFIG_OPTION_PIC
+end_ifndef
+begin_define
+DECL|macro|FT_DEFINE_SERVICE_PSINFOREC
+define|#
+directive|define
+name|FT_DEFINE_SERVICE_PSINFOREC
+parameter_list|(
+name|class_
+parameter_list|,
+name|get_font_info_
+parameter_list|,      \
+name|ps_get_font_extra_
+parameter_list|,
+name|has_glyph_names_
+parameter_list|,
+name|get_font_private_
+parameter_list|)
+define|\
+value|static const FT_Service_PsInfoRec class_ =                     \   {                                                              \     get_font_info_, ps_get_font_extra_, has_glyph_names_,        \     get_font_private_                                            \   };
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_comment
+comment|/* FT_CONFIG_OPTION_PIC */
+end_comment
+begin_define
+DECL|macro|FT_DEFINE_SERVICE_PSINFOREC
+define|#
+directive|define
+name|FT_DEFINE_SERVICE_PSINFOREC
+parameter_list|(
+name|class_
+parameter_list|,
+name|get_font_info_
+parameter_list|,      \
+name|ps_get_font_extra_
+parameter_list|,
+name|has_glyph_names_
+parameter_list|,
+name|get_font_private_
+parameter_list|)
+define|\
+value|void                                                           \   FT_Init_Class_##class_( FT_Library library,                    \                           FT_Service_PsInfoRec*  clazz)          \   {                                                              \     FT_UNUSED(library);                                          \     clazz->ps_get_font_info = get_font_info_;                    \     clazz->ps_get_font_extra = ps_get_font_extra_;               \     clazz->ps_has_glyph_names = has_glyph_names_;                \     clazz->ps_get_font_private = get_font_private_;              \   }
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* FT_CONFIG_OPTION_PIC */
+end_comment
 begin_comment
 comment|/* */
 end_comment

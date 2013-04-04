@@ -190,10 +190,10 @@ decl_stmt|;
 name|FT_ULong
 name|subFeatureFlags
 decl_stmt|;
-name|FT_UInt
+name|FT_ULong
 name|type
 decl_stmt|;
-name|FT_UInt
+name|FT_ULong
 name|rest
 decl_stmt|;
 name|GXV_LIMIT_CHECK

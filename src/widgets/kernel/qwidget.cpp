@@ -30872,6 +30872,13 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|propName
+operator|.
+name|length
+argument_list|()
+operator|==
+literal|13
+operator|&&
 operator|!
 name|qstrncmp
 argument_list|(
@@ -30881,13 +30888,6 @@ literal|"_q_customDpi"
 argument_list|,
 literal|12
 argument_list|)
-operator|&&
-name|propName
-operator|.
-name|length
-argument_list|()
-operator|==
-literal|13
 condition|)
 block|{
 name|uint

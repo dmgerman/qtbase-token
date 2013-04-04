@@ -229,6 +229,10 @@ operator|*
 name|w
 argument_list|)
 block|;
+operator|~
+name|QAccessibleTabBar
+argument_list|()
+block|;
 name|int
 name|childCount
 argument_list|()
@@ -281,6 +285,17 @@ operator|*
 name|tabBar
 argument_list|()
 specifier|const
+block|;
+name|mutable
+name|QHash
+operator|<
+name|int
+block|,
+name|QAccessible
+operator|::
+name|Id
+operator|>
+name|m_childInterfaces
 block|; }
 decl_stmt|;
 end_decl_stmt

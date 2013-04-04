@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2001, 2002, 2003, 2004, 2007 by                              */
+comment|/*  Copyright 2001, 2002, 2003, 2004, 2007, 2009 by                        */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -66,6 +66,11 @@ begin_include
 include|#
 directive|include
 include|FT_INTERNAL_DEBUG_H
+end_include
+begin_include
+include|#
+directive|include
+include|FT_INTERNAL_CALC_H
 end_include
 begin_include
 include|#
@@ -220,7 +225,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-literal|0
+name|PSH_Err_Ok
 decl_stmt|;
 if|if
 condition|(
@@ -285,7 +290,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-literal|0
+name|PSH_Err_Ok
 decl_stmt|;
 name|FT_UInt
 name|count
@@ -488,7 +493,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-literal|0
+name|PSH_Err_Ok
 decl_stmt|;
 if|if
 condition|(
@@ -680,7 +685,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-literal|0
+name|PSH_Err_Ok
 decl_stmt|;
 name|FT_Byte
 modifier|*
@@ -885,7 +890,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-literal|0
+name|PSH_Err_Ok
 decl_stmt|;
 if|if
 condition|(
@@ -955,7 +960,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-literal|0
+name|PSH_Err_Ok
 decl_stmt|;
 name|PS_Mask
 name|mask
@@ -1062,7 +1067,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-literal|0
+name|PSH_Err_Ok
 decl_stmt|;
 name|FT_UInt
 name|count
@@ -1156,7 +1161,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-literal|0
+name|PSH_Err_Ok
 decl_stmt|;
 name|PS_Mask
 name|mask
@@ -1515,7 +1520,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-literal|0
+name|PSH_Err_Ok
 decl_stmt|;
 comment|/* swap index1 and index2 so that index1< index2 */
 if|if
@@ -1798,7 +1803,7 @@ operator|--
 expr_stmt|;
 block|}
 else|else
-name|FT_ERROR
+name|FT_TRACE0
 argument_list|(
 operator|(
 literal|"ps_mask_table_merge: ignoring invalid indices (%d,%d)\n"
@@ -1846,7 +1851,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-literal|0
+name|PSH_Err_Ok
 decl_stmt|;
 for|for
 control|(
@@ -2042,7 +2047,7 @@ begin_comment
 comment|/* set a bit at a given index in the current hint mask */
 end_comment
 begin_comment
-unit|static FT_Error   ps_dimension_set_mask_bit( PS_Dimension  dim,                              FT_UInt       idx,                              FT_Memory     memory )   {     PS_Mask  mask;     FT_Error  error = 0;
+unit|static FT_Error   ps_dimension_set_mask_bit( PS_Dimension  dim,                              FT_UInt       idx,                              FT_Memory     memory )   {     PS_Mask   mask;     FT_Error  error = PSH_Err_Ok;
 comment|/* get last hint mask */
 end_comment
 begin_endif
@@ -2189,7 +2194,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-literal|0
+name|PSH_Err_Ok
 decl_stmt|;
 comment|/* reset current mask, if any */
 name|error
@@ -2265,7 +2270,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-literal|0
+name|PSH_Err_Ok
 decl_stmt|;
 name|FT_UInt
 name|flags
@@ -2513,7 +2518,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-literal|0
+name|PSH_Err_Ok
 decl_stmt|;
 name|FT_UInt
 name|count
@@ -2784,7 +2789,7 @@ name|hints
 operator|->
 name|error
 operator|=
-literal|0
+name|PSH_Err_Ok
 expr_stmt|;
 name|hints
 operator|->
@@ -2829,7 +2834,7 @@ operator|=
 name|memory
 expr_stmt|;
 return|return
-literal|0
+name|PSH_Err_Ok
 return|;
 block|}
 end_block
@@ -2864,7 +2869,7 @@ name|hints
 operator|->
 name|error
 operator|=
-literal|0
+name|PSH_Err_Ok
 expr_stmt|;
 name|hints
 operator|->
@@ -2908,10 +2913,10 @@ name|hint_type
 operator|=
 name|hint_type
 expr_stmt|;
-name|FT_ERROR
+name|FT_TRACE0
 argument_list|(
 operator|(
-literal|"ps_hints_open: invalid charstring type!\n"
+literal|"ps_hints_open: invalid charstring type\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -2962,7 +2967,7 @@ operator|>
 literal|1
 condition|)
 block|{
-name|FT_ERROR
+name|FT_TRACE0
 argument_list|(
 operator|(
 literal|"ps_hints_stem: invalid dimension (%d) used\n"
@@ -3095,7 +3100,7 @@ block|}
 break|break;
 block|}
 default|default:
-name|FT_ERROR
+name|FT_TRACE0
 argument_list|(
 operator|(
 literal|"ps_hints_stem: called with invalid hint type (%d)\n"
@@ -3126,7 +3131,7 @@ parameter_list|,
 name|FT_Int
 name|dimension
 parameter_list|,
-name|FT_Long
+name|FT_Fixed
 modifier|*
 name|stems
 parameter_list|)
@@ -3134,7 +3139,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-literal|0
+name|PSH_Err_Ok
 decl_stmt|;
 if|if
 condition|(
@@ -3175,7 +3180,7 @@ operator|>
 literal|1
 condition|)
 block|{
-name|FT_ERROR
+name|FT_TRACE0
 argument_list|(
 operator|(
 literal|"ps_hints_t1stem3: invalid dimension (%d) used\n"
@@ -3241,18 +3246,24 @@ argument_list|,
 operator|(
 name|FT_Int
 operator|)
+name|FIXED_TO_INT
+argument_list|(
 name|stems
 index|[
 literal|0
 index|]
+argument_list|)
 argument_list|,
 operator|(
 name|FT_Int
 operator|)
+name|FIXED_TO_INT
+argument_list|(
 name|stems
 index|[
 literal|1
 index|]
+argument_list|)
 argument_list|,
 name|memory
 argument_list|,
@@ -3309,7 +3320,7 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"ps_hints_t1stem3: called with invalid hint type!\n"
+literal|"ps_hints_t1stem3: called with invalid hint type\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -3359,7 +3370,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-literal|0
+name|PSH_Err_Ok
 decl_stmt|;
 if|if
 condition|(
@@ -3540,11 +3551,11 @@ operator|+
 name|count2
 condition|)
 block|{
-name|FT_ERROR
+name|FT_TRACE0
 argument_list|(
 operator|(
-literal|"ps_hints_t2mask: "
-literal|"called with invalid bitcount %d (instead of %d)\n"
+literal|"ps_hints_t2mask:"
+literal|" called with invalid bitcount %d (instead of %d)\n"
 operator|,
 name|bit_count
 operator|,
@@ -3703,11 +3714,11 @@ operator|+
 name|count2
 condition|)
 block|{
-name|FT_ERROR
+name|FT_TRACE0
 argument_list|(
 operator|(
-literal|"ps_hints_t2counter: "
-literal|"called with invalid bitcount %d (instead of %d)\n"
+literal|"ps_hints_t2counter:"
+literal|" called with invalid bitcount %d (instead of %d)\n"
 operator|,
 name|bit_count
 operator|,
@@ -3946,11 +3957,43 @@ parameter_list|,
 name|FT_Int
 name|dimension
 parameter_list|,
-name|FT_Long
+name|FT_Fixed
 modifier|*
 name|coords
 parameter_list|)
 block|{
+name|FT_Pos
+name|stems
+index|[
+literal|2
+index|]
+decl_stmt|;
+name|stems
+index|[
+literal|0
+index|]
+operator|=
+name|FIXED_TO_INT
+argument_list|(
+name|coords
+index|[
+literal|0
+index|]
+argument_list|)
+expr_stmt|;
+name|stems
+index|[
+literal|1
+index|]
+operator|=
+name|FIXED_TO_INT
+argument_list|(
+name|coords
+index|[
+literal|1
+index|]
+argument_list|)
+expr_stmt|;
 name|ps_hints_stem
 argument_list|(
 operator|(
@@ -3962,7 +4005,7 @@ name|dimension
 argument_list|,
 literal|1
 argument_list|,
-name|coords
+name|stems
 argument_list|)
 expr_stmt|;
 block|}
@@ -4186,13 +4229,10 @@ index|[
 name|n
 index|]
 operator|=
-operator|(
+name|FIXED_TO_INT
+argument_list|(
 name|y
-operator|+
-literal|0x8000L
-operator|)
-operator|>>
-literal|16
+argument_list|)
 expr_stmt|;
 block|}
 comment|/* compute lengths */

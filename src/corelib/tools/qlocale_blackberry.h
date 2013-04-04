@@ -89,7 +89,7 @@ name|installSocketNotifiers
 argument_list|()
 block|;
 name|void
-name|readLangageLocale
+name|readLanguageLocale
 argument_list|()
 block|;
 name|void
@@ -109,7 +109,7 @@ operator|:
 name|QByteArray
 name|readPpsValue
 argument_list|(
-argument|const char* ppsObject
+argument|const char *ppsObject
 argument_list|,
 argument|int ppsFd
 argument_list|)
@@ -123,7 +123,7 @@ argument|QLocale::FormatType typeFormat
 argument_list|)
 block|;
 name|QByteArray
-name|lc_langage
+name|lc_language
 block|;
 name|QByteArray
 name|lc_region

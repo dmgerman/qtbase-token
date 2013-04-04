@@ -21,7 +21,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2005, 2006, 2007, 2008, 2009 by       */
+comment|/*  Copyright 1996-2001, 2002, 2003, 2005, 2006, 2007, 2008, 2009, 2010 by */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -146,9 +146,8 @@ comment|/*    FT_Outline_Decompose                                              
 comment|/*                                                                       */
 comment|/*<Description>                                                         */
 comment|/*    Walk over an outline's structure to decompose it into individual   */
-comment|/*    segments and Bezier arcs.  This function is also able to emit      */
-comment|/*    `move to' and `close to' operations to indicate the start and end  */
-comment|/*    of new contours in the outline.                                    */
+comment|/*    segments and BÃ©zier arcs.  This function also emits `move to'      */
+comment|/*    operations to indicate the start of new contours in the outline.   */
 comment|/*                                                                       */
 comment|/*<Input>                                                               */
 comment|/*    outline        :: A pointer to the source target.                  */
@@ -501,7 +500,7 @@ begin_comment
 comment|/*    Return an outline's `control box'.  The control box encloses all   */
 end_comment
 begin_comment
-comment|/*    the outline's points, including Bezier control points.  Though it  */
+comment|/*    the outline's points, including BÃ©zier control points.  Though it  */
 end_comment
 begin_comment
 comment|/*    coincides with the exact bounding box for most glyphs, it can be   */
@@ -510,7 +509,7 @@ begin_comment
 comment|/*    slightly larger in some situations (like when rotating an outline  */
 end_comment
 begin_comment
-comment|/*    which contains Bezier outside arcs).                               */
+comment|/*    which contains BÃ©zier outside arcs).                               */
 end_comment
 begin_comment
 comment|/*                                                                       */

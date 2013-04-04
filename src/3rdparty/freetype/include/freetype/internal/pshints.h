@@ -24,7 +24,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2001, 2002, 2003, 2005, 2006, 2007 by                        */
+comment|/*  Copyright 2001, 2002, 2003, 2005, 2006, 2007, 2009 by                  */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -265,7 +265,7 @@ parameter_list|)
 function_decl|;
 end_typedef
 begin_comment
-comment|/*************************************************************************    *    * @functype:    *   T1_Hints_SetStemFunc    *    * @description:    *   A method of the @T1_Hints class used to record a new horizontal or    *   vertical stem.  This corresponds to the Type 1 `hstem' and `vstem'    *   operators.    *    * @input:    *   hints ::    *     A handle to the Type 1 hints recorder.    *    *   dimension ::    *     0 for horizontal stems (hstem), 1 for vertical ones (vstem).    *    *   coords ::    *     Array of 2 integers, used as (position,length) stem descriptor.    *    * @note:    *   Use vertical coordinates (y) for horizontal stems (dim=0).  Use    *   horizontal coordinates (x) for vertical stems (dim=1).    *    *   `coords[0]' is the absolute stem position (lowest coordinate);    *   `coords[1]' is the length.    *    *   The length can be negative, in which case it must be either -20 or    *   -21.  It is interpreted as a `ghost' stem, according to the Type 1    *   specification.    *    *   If the length is -21 (corresponding to a bottom ghost stem), then    *   the real stem position is `coords[0]+coords[1]'.    *    */
+comment|/*************************************************************************    *    * @functype:    *   T1_Hints_SetStemFunc    *    * @description:    *   A method of the @T1_Hints class used to record a new horizontal or    *   vertical stem.  This corresponds to the Type 1 `hstem' and `vstem'    *   operators.    *    * @input:    *   hints ::    *     A handle to the Type 1 hints recorder.    *    *   dimension ::    *     0 for horizontal stems (hstem), 1 for vertical ones (vstem).    *    *   coords ::    *     Array of 2 coordinates in 16.16 format, used as (position,length)    *     stem descriptor.    *    * @note:    *   Use vertical coordinates (y) for horizontal stems (dim=0).  Use    *   horizontal coordinates (x) for vertical stems (dim=1).    *    *   `coords[0]' is the absolute stem position (lowest coordinate);    *   `coords[1]' is the length.    *    *   The length can be negative, in which case it must be either -20 or    *   -21.  It is interpreted as a `ghost' stem, according to the Type 1    *   specification.    *    *   If the length is -21 (corresponding to a bottom ghost stem), then    *   the real stem position is `coords[0]+coords[1]'.    *    */
 end_comment
 begin_typedef
 typedef|typedef
@@ -282,14 +282,14 @@ parameter_list|,
 name|FT_UInt
 name|dimension
 parameter_list|,
-name|FT_Long
+name|FT_Fixed
 modifier|*
 name|coords
 parameter_list|)
 function_decl|;
 end_typedef
 begin_comment
-comment|/*************************************************************************    *    * @functype:    *   T1_Hints_SetStem3Func    *    * @description:    *   A method of the @T1_Hints class used to record three    *   counter-controlled horizontal or vertical stems at once.    *    * @input:    *   hints ::    *     A handle to the Type 1 hints recorder.    *    *   dimension ::    *     0 for horizontal stems, 1 for vertical ones.    *    *   coords ::    *     An array of 6 integers, holding 3 (position,length) pairs for the    *     counter-controlled stems.    *    * @note:    *   Use vertical coordinates (y) for horizontal stems (dim=0).  Use    *   horizontal coordinates (x) for vertical stems (dim=1).    *    *   The lengths cannot be negative (ghost stems are never    *   counter-controlled).    *    */
+comment|/*************************************************************************    *    * @functype:    *   T1_Hints_SetStem3Func    *    * @description:    *   A method of the @T1_Hints class used to record three    *   counter-controlled horizontal or vertical stems at once.    *    * @input:    *   hints ::    *     A handle to the Type 1 hints recorder.    *    *   dimension ::    *     0 for horizontal stems, 1 for vertical ones.    *    *   coords ::    *     An array of 6 values in 16.16 format, holding 3 (position,length)    *     pairs for the counter-controlled stems.    *    * @note:    *   Use vertical coordinates (y) for horizontal stems (dim=0).  Use    *   horizontal coordinates (x) for vertical stems (dim=1).    *    *   The lengths cannot be negative (ghost stems are never    *   counter-controlled).    *    */
 end_comment
 begin_typedef
 typedef|typedef
@@ -306,7 +306,7 @@ parameter_list|,
 name|FT_UInt
 name|dimension
 parameter_list|,
-name|FT_Long
+name|FT_Fixed
 modifier|*
 name|coords
 parameter_list|)
@@ -485,7 +485,7 @@ parameter_list|)
 function_decl|;
 end_typedef
 begin_comment
-comment|/*************************************************************************    *    * @functype:    *   T2_Hints_StemsFunc    *    * @description:    *   A method of the @T2_Hints class used to set the table of stems in    *   either the vertical or horizontal dimension.  Equivalent to the    *   `hstem', `vstem', `hstemhm', and `vstemhm' Type 2 operators.    *    * @input:    *   hints ::    *     A handle to the Type 2 hints recorder.    *    *   dimension ::    *     0 for horizontal stems (hstem), 1 for vertical ones (vstem).    *    *   count ::    *     The number of stems.    *    *   coords ::    *     An array of `count' (position,length) pairs.    *    * @note:    *   Use vertical coordinates (y) for horizontal stems (dim=0).  Use    *   horizontal coordinates (x) for vertical stems (dim=1).    *    *   There are `2*count' elements in the `coords' array.  Each even    *   element is an absolute position in font units, each odd element is a    *   length in font units.    *    *   A length can be negative, in which case it must be either -20 or    *   -21.  It is interpreted as a `ghost' stem, according to the Type 1    *   specification.    *    */
+comment|/*************************************************************************    *    * @functype:    *   T2_Hints_StemsFunc    *    * @description:    *   A method of the @T2_Hints class used to set the table of stems in    *   either the vertical or horizontal dimension.  Equivalent to the    *   `hstem', `vstem', `hstemhm', and `vstemhm' Type 2 operators.    *    * @input:    *   hints ::    *     A handle to the Type 2 hints recorder.    *    *   dimension ::    *     0 for horizontal stems (hstem), 1 for vertical ones (vstem).    *    *   count ::    *     The number of stems.    *    *   coords ::    *     An array of `count' (position,length) pairs in 16.16 format.    *    * @note:    *   Use vertical coordinates (y) for horizontal stems (dim=0).  Use    *   horizontal coordinates (x) for vertical stems (dim=1).    *    *   There are `2*count' elements in the `coords' array.  Each even    *   element is an absolute position in font units, each odd element is a    *   length in font units.    *    *   A length can be negative, in which case it must be either -20 or    *   -21.  It is interpreted as a `ghost' stem, according to the Type 1    *   specification.    *    */
 end_comment
 begin_typedef
 typedef|typedef
@@ -708,6 +708,59 @@ modifier|*
 name|PSHinter_Service
 typedef|;
 end_typedef
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|FT_CONFIG_OPTION_PIC
+end_ifndef
+begin_define
+DECL|macro|FT_DEFINE_PSHINTER_INTERFACE
+define|#
+directive|define
+name|FT_DEFINE_PSHINTER_INTERFACE
+parameter_list|(
+name|class_
+parameter_list|,
+name|get_globals_funcs_
+parameter_list|,             \
+name|get_t1_funcs_
+parameter_list|,
+name|get_t2_funcs_
+parameter_list|)
+define|\
+value|static const PSHinter_Interface class_ =                                   \   {                                                                          \     get_globals_funcs_, get_t1_funcs_, get_t2_funcs_                         \   };
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_comment
+comment|/* FT_CONFIG_OPTION_PIC */
+end_comment
+begin_define
+DECL|macro|FT_DEFINE_PSHINTER_INTERFACE
+define|#
+directive|define
+name|FT_DEFINE_PSHINTER_INTERFACE
+parameter_list|(
+name|class_
+parameter_list|,
+name|get_globals_funcs_
+parameter_list|,             \
+name|get_t1_funcs_
+parameter_list|,
+name|get_t2_funcs_
+parameter_list|)
+define|\
+value|void                                                                       \   FT_Init_Class_##class_( FT_Library library,                                \                           PSHinter_Interface*  clazz)                        \   {                                                                          \     FT_UNUSED(library);                                                      \     clazz->get_globals_funcs = get_globals_funcs_;                           \     clazz->get_t1_funcs = get_t1_funcs_;                                     \     clazz->get_t2_funcs = get_t2_funcs_;                                     \   }
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* FT_CONFIG_OPTION_PIC */
+end_comment
 begin_macro
 name|FT_END_HEADER
 end_macro

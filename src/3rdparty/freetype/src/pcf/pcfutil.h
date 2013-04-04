@@ -36,7 +36,7 @@ name|char
 modifier|*
 name|buf
 parameter_list|,
-name|int
+name|size_t
 name|nbytes
 parameter_list|)
 function_decl|;
@@ -52,7 +52,7 @@ name|TwoByteSwap
 argument_list|(
 argument|unsigned char*  buf
 argument_list|,
-argument|int             nbytes
+argument|size_t          nbytes
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -69,7 +69,7 @@ name|FourByteSwap
 argument_list|(
 argument|unsigned char*  buf
 argument_list|,
-argument|int             nbytes
+argument|size_t          nbytes
 argument_list|)
 end_macro
 begin_empty_stmt

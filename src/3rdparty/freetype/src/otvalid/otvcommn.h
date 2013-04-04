@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2004, 2005, 2007 by                                          */
+comment|/*  Copyright 2004, 2005, 2007, 2009 by                                    */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -257,11 +257,11 @@ parameter_list|(
 name|_size
 parameter_list|)
 define|\
-value|FT_BEGIN_STMNT                                               \             if ( _size> 0&& _size< table_size )                     \             {                                                          \               if ( valid->root->level == FT_VALIDATE_PARANOID )        \                 FT_INVALID_OFFSET;                                     \               else                                                     \               {                                                        \
+value|FT_BEGIN_STMNT                                            \             if ( _size> 0&& _size< table_size )                  \             {                                                       \               if ( valid->root->level == FT_VALIDATE_PARANOID )     \                 FT_INVALID_OFFSET;                                  \               else                                                  \               {                                                     \
 comment|/* strip off `const' */
-value|\                 FT_Byte*  pp = (FT_Byte*)_size ## _p;                  \                                                                        \                                                                        \                 FT_TRACE3(( "\n"                                       \                             "Invalid offset to optional table `%s'!\n" \                             "Set to zero.\n"                           \                             "\n", #_size ));                           \                                                                        \
+value|\                 FT_Byte*  pp = (FT_Byte*)_size ## _p;               \                                                                     \                                                                     \                 FT_TRACE3(( "\n"                                    \                             "Invalid offset to optional table `%s'" \                             " set to zero.\n"                       \                             "\n", #_size ));                        \                                                                     \
 comment|/* always assume 16bit entities */
-value|\                 _size = pp[0] = pp[1] = 0;                             \               }                                                        \             }                                                          \           FT_END_STMNT
+value|\                 _size = pp[0] = pp[1] = 0;                          \               }                                                     \             }                                                       \           FT_END_STMNT
 end_define
 begin_define
 DECL|macro|OTV_NAME_

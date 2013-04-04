@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2003, 2004, 2006 by                                          */
+comment|/*  Copyright 2003, 2004, 2006, 2009 by                                    */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -134,7 +134,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"FTC_MruNode_Prepend: invalid action!\n"
+literal|"FTC_MruNode_Prepend: invalid action\n"
 argument_list|)
 expr_stmt|;
 name|exit
@@ -289,7 +289,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"FTC_MruNode_Up: invalid action!\n"
+literal|"FTC_MruNode_Up: invalid action\n"
 argument_list|)
 expr_stmt|;
 name|exit
@@ -437,7 +437,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"FTC_MruNode_Remove: invalid action!\n"
+literal|"FTC_MruNode_Remove: invalid action\n"
 argument_list|)
 expr_stmt|;
 name|exit

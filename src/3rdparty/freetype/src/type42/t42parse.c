@@ -70,11 +70,6 @@ end_include
 begin_include
 include|#
 directive|include
-include|FT_LIST_H
-end_include
-begin_include
-include|#
-directive|include
 include|FT_INTERNAL_POSTSCRIPT_AUX_H
 end_include
 begin_comment
@@ -1295,7 +1290,7 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"t42_parse_encoding: out of bounds!\n"
+literal|"t42_parse_encoding: out of bounds\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -1930,7 +1925,7 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"t42_parse_encoding: invalid token!\n"
+literal|"t42_parse_encoding: invalid token\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -2089,7 +2084,7 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"t42_parse_sfnts: can't find begin of sfnts vector!\n"
+literal|"t42_parse_sfnts: can't find begin of sfnts vector\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -2280,7 +2275,7 @@ name|FT_ERROR
 argument_list|(
 operator|(
 literal|"t42_parse_sfnts: "
-literal|"can't handle mixed binary and hex strings!\n"
+literal|"can't handle mixed binary and hex strings\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -2349,7 +2344,7 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"t42_parse_sfnts: too many binary data!\n"
+literal|"t42_parse_sfnts: too many binary data\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -2371,7 +2366,7 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"t42_parse_sfnts: invalid data in sfnts array!\n"
+literal|"t42_parse_sfnts: invalid data in sfnts array\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -2415,7 +2410,7 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"t42_parse_sfnts: invalid string!\n"
+literal|"t42_parse_sfnts: invalid string\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -2655,7 +2650,7 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"t42_parse_sfnts: too many binary data!\n"
+literal|"t42_parse_sfnts: too many binary data\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -2829,7 +2824,7 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"t42_parse_charstrings: out of bounds!\n"
+literal|"t42_parse_charstrings: out of bounds\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -3004,7 +2999,7 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"t42_parse_charstrings: invalid token!\n"
+literal|"t42_parse_charstrings: invalid token\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -3030,7 +3025,7 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"t42_parse_charstrings: out of bounds!\n"
+literal|"t42_parse_charstrings: out of bounds\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -3229,7 +3224,7 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"t42_parse_charstrings: out of bounds!\n"
+literal|"t42_parse_charstrings: out of bounds\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -3364,7 +3359,7 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"t42_parse_charstrings: out of bounds!\n"
+literal|"t42_parse_charstrings: out of bounds\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -3449,7 +3444,7 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"t42_parse_charstrings: no /.notdef glyph!\n"
+literal|"t42_parse_charstrings: no /.notdef glyph\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -3839,6 +3834,19 @@ operator|->
 name|type1
 operator|.
 name|font_info
+expr_stmt|;
+break|break;
+case|case
+name|T1_FIELD_LOCATION_FONT_EXTRA
+case|:
+name|dummy_object
+operator|=
+operator|&
+name|face
+operator|->
+name|type1
+operator|.
+name|font_extra
 expr_stmt|;
 break|break;
 case|case

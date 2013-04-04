@@ -635,7 +635,7 @@ name|limit
 init|=
 literal|0
 decl_stmt|;
-name|FT_UInt
+name|FT_Offset
 name|table_size
 decl_stmt|;
 name|GXV_ValidatorRec

@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2000-2001, 2003, 2004, 2006 by                               */
+comment|/*  Copyright 2000-2001, 2003, 2004, 2006, 2009 by                         */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -66,16 +66,6 @@ begin_include
 include|#
 directive|include
 include|FT_ERRORS_H
-end_include
-begin_include
-include|#
-directive|include
-include|FT_INTERNAL_OBJECTS_H
-end_include
-begin_include
-include|#
-directive|include
-include|FT_INTERNAL_DEBUG_H
 end_include
 begin_include
 include|#

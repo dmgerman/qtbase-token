@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2003, 2004, 2005, 2006, 2007, 2008 by                        */
+comment|/*  Copyright 2003, 2004, 2005, 2006, 2007, 2008, 2009 by                  */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -47,6 +47,16 @@ end_comment
 begin_comment
 comment|/***************************************************************************/
 end_comment
+begin_include
+include|#
+directive|include
+file|<ft2build.h>
+end_include
+begin_include
+include|#
+directive|include
+include|FT_ADVANCES_H
+end_include
 begin_include
 include|#
 directive|include
@@ -587,11 +597,14 @@ DECL|variable|af_latin_blue_chars
 specifier|static
 specifier|const
 name|char
-modifier|*
-specifier|const
 name|af_latin_blue_chars
 index|[
 name|AF_LATIN_MAX_BLUES
+index|]
+index|[
+name|AF_LATIN_MAX_TEST_CHARACTERS
+operator|+
+literal|1
 index|]
 init|=
 block|{
@@ -759,10 +772,12 @@ block|{
 name|FT_UInt
 name|glyph_index
 decl_stmt|;
+name|FT_Pos
+name|best_y
+decl_stmt|;
+comment|/* same as points.y */
 name|FT_Int
 name|best_point
-decl_stmt|,
-name|best_y
 decl_stmt|,
 name|best_first
 decl_stmt|,
@@ -1268,7 +1283,7 @@ comment|/*          *  we couldn't find a single glyph to compute this blue zone
 name|AF_LOG
 argument_list|(
 operator|(
-literal|"empty!\n"
+literal|"empty\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -1469,7 +1484,7 @@ name|flags
 operator||=
 name|AF_LATIN_BLUE_TOP
 expr_stmt|;
-comment|/*        * The following flags is used later to adjust the y and x scales        * in order to optimize the pixel grid alignment of the top of small        * letters.        */
+comment|/*        * The following flag is used later to adjust the y and x scales        * in order to optimize the pixel grid alignment of the top of small        * letters.        */
 if|if
 condition|(
 name|bb
@@ -1499,6 +1514,137 @@ block|}
 return|return;
 block|}
 end_function
+begin_macro
+name|FT_LOCAL_DEF
+argument_list|(
+argument|void
+argument_list|)
+end_macro
+begin_macro
+DECL|function|af_latin_metrics_check_digits
+name|af_latin_metrics_check_digits
+argument_list|(
+argument|AF_LatinMetrics  metrics
+argument_list|,
+argument|FT_Face          face
+argument_list|)
+end_macro
+begin_block
+block|{
+name|FT_UInt
+name|i
+decl_stmt|;
+name|FT_Bool
+name|started
+init|=
+literal|0
+decl_stmt|,
+name|same_width
+init|=
+literal|1
+decl_stmt|;
+name|FT_Fixed
+name|advance
+decl_stmt|,
+name|old_advance
+init|=
+literal|0
+decl_stmt|;
+comment|/* check whether all ASCII digits have the same advance width; */
+comment|/* digit `0' is 0x30 in all supported charmaps                 */
+for|for
+control|(
+name|i
+operator|=
+literal|0x30
+init|;
+name|i
+operator|<=
+literal|0x39
+condition|;
+name|i
+operator|++
+control|)
+block|{
+name|FT_UInt
+name|glyph_index
+decl_stmt|;
+name|glyph_index
+operator|=
+name|FT_Get_Char_Index
+argument_list|(
+name|face
+argument_list|,
+name|i
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|glyph_index
+operator|==
+literal|0
+condition|)
+continue|continue;
+if|if
+condition|(
+name|FT_Get_Advance
+argument_list|(
+name|face
+argument_list|,
+name|glyph_index
+argument_list|,
+name|FT_LOAD_NO_SCALE
+operator||
+name|FT_LOAD_NO_HINTING
+operator||
+name|FT_LOAD_IGNORE_TRANSFORM
+argument_list|,
+operator|&
+name|advance
+argument_list|)
+condition|)
+continue|continue;
+if|if
+condition|(
+name|started
+condition|)
+block|{
+if|if
+condition|(
+name|advance
+operator|!=
+name|old_advance
+condition|)
+block|{
+name|same_width
+operator|=
+literal|0
+expr_stmt|;
+break|break;
+block|}
+block|}
+else|else
+block|{
+name|old_advance
+operator|=
+name|advance
+expr_stmt|;
+name|started
+operator|=
+literal|1
+expr_stmt|;
+block|}
+block|}
+name|metrics
+operator|->
+name|root
+operator|.
+name|digits_have_same_width
+operator|=
+name|same_width
+expr_stmt|;
+block|}
+end_block
 begin_macro
 DECL|function|FT_LOCAL_DEF
 name|FT_LOCAL_DEF
@@ -1612,6 +1758,13 @@ literal|'o'
 argument_list|)
 expr_stmt|;
 name|af_latin_metrics_init_blues
+argument_list|(
+name|metrics
+argument_list|,
+name|face
+argument_list|)
+expr_stmt|;
+name|af_latin_metrics_check_digits
 argument_list|(
 name|metrics
 argument_list|,
@@ -5753,7 +5906,7 @@ comment|/* distortion is less than 1/4 pixel.  Otherwise this     */
 comment|/* makes everything worse since the diagonals, which are  */
 comment|/* not hinted, appear a lot bolder or thinner than the    */
 comment|/* vertical stems.                                        */
-name|FT_Int
+name|FT_Pos
 name|delta
 decl_stmt|;
 name|dist
@@ -6067,7 +6220,7 @@ name|axis
 operator|->
 name|num_edges
 decl_stmt|;
-name|FT_Int
+name|FT_PtrDist
 name|n_edges
 decl_stmt|;
 name|AF_Edge
@@ -8153,240 +8306,245 @@ name|af_latin_uniranges
 index|[]
 init|=
 block|{
-block|{
-literal|0x0020
-block|,
-literal|0x007F
-block|}
-block|,
-comment|/* Basic Latin (no control chars) */
-block|{
-literal|0x00A0
-block|,
-literal|0x00FF
-block|}
-block|,
-comment|/* Latin-1 Supplement (no control chars) */
-block|{
-literal|0x0100
-block|,
-literal|0x017F
-block|}
-block|,
-comment|/* Latin Extended-A */
-block|{
-literal|0x0180
-block|,
-literal|0x024F
-block|}
-block|,
-comment|/* Latin Extended-B */
-block|{
-literal|0x0250
-block|,
-literal|0x02AF
-block|}
-block|,
-comment|/* IPA Extensions */
-block|{
-literal|0x02B0
-block|,
-literal|0x02FF
-block|}
-block|,
-comment|/* Spacing Modifier Letters */
-block|{
-literal|0x0300
-block|,
-literal|0x036F
-block|}
-block|,
-comment|/* Combining Diacritical Marks */
-block|{
-literal|0x0370
-block|,
-literal|0x03FF
-block|}
-block|,
-comment|/* Greek and Coptic */
-block|{
-literal|0x0400
-block|,
-literal|0x04FF
-block|}
-block|,
-comment|/* Cyrillic */
-block|{
-literal|0x0500
-block|,
-literal|0x052F
-block|}
-block|,
-comment|/* Cyrillic Supplement */
-block|{
-literal|0x1D00
-block|,
-literal|0x1D7F
-block|}
-block|,
-comment|/* Phonetic Extensions */
-block|{
-literal|0x1D80
-block|,
-literal|0x1DBF
-block|}
-block|,
-comment|/* Phonetic Extensions Supplement */
-block|{
-literal|0x1DC0
-block|,
-literal|0x1DFF
-block|}
-block|,
-comment|/* Combining Diacritical Marks Supplement */
-block|{
-literal|0x1E00
-block|,
-literal|0x1EFF
-block|}
-block|,
-comment|/* Latin Extended Additional */
-block|{
-literal|0x1F00
-block|,
-literal|0x1FFF
-block|}
-block|,
-comment|/* Greek Extended */
-block|{
-literal|0x2000
-block|,
-literal|0x206F
-block|}
-block|,
-comment|/* General Punctuation */
-block|{
-literal|0x2070
-block|,
-literal|0x209F
-block|}
-block|,
-comment|/* Superscripts and Subscripts */
-block|{
-literal|0x20A0
-block|,
-literal|0x20CF
-block|}
-block|,
-comment|/* Currency Symbols */
-block|{
-literal|0x2150
-block|,
-literal|0x218F
-block|}
-block|,
-comment|/* Number Forms */
-block|{
-literal|0x2460
-block|,
-literal|0x24FF
-block|}
-block|,
-comment|/* Enclosed Alphanumerics */
-block|{
-literal|0x2C60
-block|,
-literal|0x2C7F
-block|}
-block|,
-comment|/* Latin Extended-C */
-block|{
-literal|0x2DE0
-block|,
-literal|0x2DFF
-block|}
-block|,
-comment|/* Cyrillic Extended-A */
-block|{
-literal|0xA640U
-block|,
-literal|0xA69FU
-block|}
-block|,
-comment|/* Cyrillic Extended-B */
-block|{
-literal|0xA720U
-block|,
-literal|0xA7FFU
-block|}
-block|,
-comment|/* Latin Extended-D */
-block|{
-literal|0xFB00U
-block|,
-literal|0xFB06U
-block|}
-block|,
-comment|/* Alphab. Present. Forms (Latin Ligs) */
-block|{
-literal|0x1D400UL
-block|,
-literal|0x1D7FFUL
-block|}
-block|,
-comment|/* Mathematical Alphanumeric Symbols */
-block|{
-literal|0
-block|,
-literal|0
-block|}
-block|}
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-name|FT_CALLBACK_TABLE_DEF
-specifier|const
-name|AF_ScriptClassRec
-DECL|variable|af_latin_script_class
-name|af_latin_script_class
-init|=
-block|{
-name|AF_SCRIPT_LATIN
-block|,
-name|af_latin_uniranges
-block|,
-sizeof|sizeof
+name|AF_UNIRANGE_REC
 argument_list|(
-name|AF_LatinMetricsRec
+literal|0x0020UL
+argument_list|,
+literal|0x007FUL
 argument_list|)
 block|,
-operator|(
-name|AF_Script_InitMetricsFunc
-operator|)
-name|af_latin_metrics_init
+comment|/* Basic Latin (no control chars) */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x00A0UL
+argument_list|,
+literal|0x00FFUL
+argument_list|)
 block|,
-operator|(
-name|AF_Script_ScaleMetricsFunc
-operator|)
-name|af_latin_metrics_scale
+comment|/* Latin-1 Supplement (no control chars) */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x0100UL
+argument_list|,
+literal|0x017FUL
+argument_list|)
 block|,
-operator|(
-name|AF_Script_DoneMetricsFunc
-operator|)
-name|NULL
+comment|/* Latin Extended-A */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x0180UL
+argument_list|,
+literal|0x024FUL
+argument_list|)
 block|,
-operator|(
-name|AF_Script_InitHintsFunc
-operator|)
-name|af_latin_hints_init
+comment|/* Latin Extended-B */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x0250UL
+argument_list|,
+literal|0x02AFUL
+argument_list|)
 block|,
-operator|(
-name|AF_Script_ApplyHintsFunc
-operator|)
-name|af_latin_hints_apply
+comment|/* IPA Extensions */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x02B0UL
+argument_list|,
+literal|0x02FFUL
+argument_list|)
+block|,
+comment|/* Spacing Modifier Letters */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x0300UL
+argument_list|,
+literal|0x036FUL
+argument_list|)
+block|,
+comment|/* Combining Diacritical Marks */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x0370UL
+argument_list|,
+literal|0x03FFUL
+argument_list|)
+block|,
+comment|/* Greek and Coptic */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x0400UL
+argument_list|,
+literal|0x04FFUL
+argument_list|)
+block|,
+comment|/* Cyrillic */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x0500UL
+argument_list|,
+literal|0x052FUL
+argument_list|)
+block|,
+comment|/* Cyrillic Supplement */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x1D00UL
+argument_list|,
+literal|0x1D7FUL
+argument_list|)
+block|,
+comment|/* Phonetic Extensions */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x1D80UL
+argument_list|,
+literal|0x1DBFUL
+argument_list|)
+block|,
+comment|/* Phonetic Extensions Supplement */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x1DC0UL
+argument_list|,
+literal|0x1DFFUL
+argument_list|)
+block|,
+comment|/* Combining Diacritical Marks Supplement */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x1E00UL
+argument_list|,
+literal|0x1EFFUL
+argument_list|)
+block|,
+comment|/* Latin Extended Additional */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x1F00UL
+argument_list|,
+literal|0x1FFFUL
+argument_list|)
+block|,
+comment|/* Greek Extended */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x2000UL
+argument_list|,
+literal|0x206FUL
+argument_list|)
+block|,
+comment|/* General Punctuation */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x2070UL
+argument_list|,
+literal|0x209FUL
+argument_list|)
+block|,
+comment|/* Superscripts and Subscripts */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x20A0UL
+argument_list|,
+literal|0x20CFUL
+argument_list|)
+block|,
+comment|/* Currency Symbols */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x2150UL
+argument_list|,
+literal|0x218FUL
+argument_list|)
+block|,
+comment|/* Number Forms */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x2460UL
+argument_list|,
+literal|0x24FFUL
+argument_list|)
+block|,
+comment|/* Enclosed Alphanumerics */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x2C60UL
+argument_list|,
+literal|0x2C7FUL
+argument_list|)
+block|,
+comment|/* Latin Extended-C */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x2DE0UL
+argument_list|,
+literal|0x2DFFUL
+argument_list|)
+block|,
+comment|/* Cyrillic Extended-A */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0xA640UL
+argument_list|,
+literal|0xA69FUL
+argument_list|)
+block|,
+comment|/* Cyrillic Extended-B */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0xA720UL
+argument_list|,
+literal|0xA7FFUL
+argument_list|)
+block|,
+comment|/* Latin Extended-D */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0xFB00UL
+argument_list|,
+literal|0xFB06UL
+argument_list|)
+block|,
+comment|/* Alphab. Present. Forms (Latin Ligs) */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0x1D400UL
+argument_list|,
+literal|0x1D7FFUL
+argument_list|)
+block|,
+comment|/* Mathematical Alphanumeric Symbols */
+name|AF_UNIRANGE_REC
+argument_list|(
+literal|0UL
+argument_list|,
+literal|0UL
+argument_list|)
 block|}
 decl_stmt|;
 end_decl_stmt
+begin_macro
+name|AF_DEFINE_SCRIPT_CLASS
+argument_list|(
+argument|af_latin_script_class
+argument_list|,
+argument|AF_SCRIPT_LATIN
+argument_list|,
+argument|af_latin_uniranges
+argument_list|,
+argument|sizeof( AF_LatinMetricsRec )
+argument_list|,
+argument|(AF_Script_InitMetricsFunc) af_latin_metrics_init
+argument_list|,
+argument|(AF_Script_ScaleMetricsFunc)af_latin_metrics_scale
+argument_list|,
+argument|(AF_Script_DoneMetricsFunc) NULL
+argument_list|,
+argument|(AF_Script_InitHintsFunc)   af_latin_hints_init
+argument_list|,
+argument|(AF_Script_ApplyHintsFunc)  af_latin_hints_apply
+argument_list|)
+end_macro
 begin_comment
 comment|/* END */
 end_comment

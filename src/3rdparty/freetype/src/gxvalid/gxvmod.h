@@ -94,6 +94,14 @@ include|FT_MODULE_H
 end_include
 begin_decl_stmt
 name|FT_BEGIN_HEADER
+ifdef|#
+directive|ifdef
+name|FT_CONFIG_OPTION_PIC
+error|#
+directive|error
+literal|"this module does not support PIC yet"
+endif|#
+directive|endif
 name|FT_EXPORT_VAR
 argument_list|(
 specifier|const

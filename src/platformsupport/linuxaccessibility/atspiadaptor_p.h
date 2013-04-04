@@ -67,16 +67,6 @@ name|class
 name|QSpiApplicationAdaptor
 decl_stmt|;
 end_decl_stmt
-begin_typedef
-DECL|typedef|QAIPointer
-typedef|typedef
-name|QSharedPointer
-operator|<
-name|QAccessibleInterface
-operator|>
-name|QAIPointer
-expr_stmt|;
-end_typedef
 begin_decl_stmt
 name|class
 name|AtSpiAdaptor
@@ -237,21 +227,21 @@ block|;
 name|void
 name|sendFocusChanged
 argument_list|(
-argument|const QAIPointer&interface
+argument|QAccessibleInterface *interface
 argument_list|)
 specifier|const
 block|;
 name|void
 name|notifyAboutCreation
 argument_list|(
-argument|const QAIPointer&interface
+argument|QAccessibleInterface *interface
 argument_list|)
 specifier|const
 block|;
 name|void
 name|notifyAboutDestruction
 argument_list|(
-argument|const QAIPointer&interface
+argument|QAccessibleInterface *interface
 argument_list|)
 specifier|const
 block|;
@@ -259,9 +249,8 @@ comment|// handlers for the different accessible interfaces
 name|bool
 name|applicationInterface
 argument_list|(
-specifier|const
-name|QAIPointer
-operator|&
+name|QAccessibleInterface
+operator|*
 name|interface
 argument_list|,
 specifier|const
@@ -283,9 +272,8 @@ block|;
 name|bool
 name|accessibleInterface
 argument_list|(
-specifier|const
-name|QAIPointer
-operator|&
+name|QAccessibleInterface
+operator|*
 name|interface
 argument_list|,
 specifier|const
@@ -307,9 +295,8 @@ block|;
 name|bool
 name|componentInterface
 argument_list|(
-specifier|const
-name|QAIPointer
-operator|&
+name|QAccessibleInterface
+operator|*
 name|interface
 argument_list|,
 specifier|const
@@ -331,9 +318,8 @@ block|;
 name|bool
 name|actionInterface
 argument_list|(
-specifier|const
-name|QAIPointer
-operator|&
+name|QAccessibleInterface
+operator|*
 name|interface
 argument_list|,
 specifier|const
@@ -355,9 +341,8 @@ block|;
 name|bool
 name|textInterface
 argument_list|(
-specifier|const
-name|QAIPointer
-operator|&
+name|QAccessibleInterface
+operator|*
 name|interface
 argument_list|,
 specifier|const
@@ -379,9 +364,8 @@ block|;
 name|bool
 name|editableTextInterface
 argument_list|(
-specifier|const
-name|QAIPointer
-operator|&
+name|QAccessibleInterface
+operator|*
 name|interface
 argument_list|,
 specifier|const
@@ -403,9 +387,8 @@ block|;
 name|bool
 name|valueInterface
 argument_list|(
-specifier|const
-name|QAIPointer
-operator|&
+name|QAccessibleInterface
+operator|*
 name|interface
 argument_list|,
 specifier|const
@@ -427,9 +410,8 @@ block|;
 name|bool
 name|tableInterface
 argument_list|(
-specifier|const
-name|QAIPointer
-operator|&
+name|QAccessibleInterface
+operator|*
 name|interface
 argument_list|,
 specifier|const
@@ -459,7 +441,8 @@ argument|const QVariant&argument
 argument_list|)
 specifier|const
 block|;
-name|QAIPointer
+name|QAccessibleInterface
+operator|*
 name|interfaceFromPath
 argument_list|(
 argument|const QString& dbusPath
@@ -469,9 +452,7 @@ block|;
 name|QString
 name|pathForInterface
 argument_list|(
-argument|const QAIPointer&interface
-argument_list|,
-argument|bool inDestructor = false
+argument|QAccessibleInterface *interface
 argument_list|)
 specifier|const
 block|;
@@ -485,7 +466,7 @@ block|;
 name|void
 name|notifyStateChange
 argument_list|(
-argument|const QAIPointer& interface
+argument|QAccessibleInterface *interface
 argument_list|,
 argument|const QString& state
 argument_list|,
@@ -496,14 +477,14 @@ comment|// accessible helper functions
 name|AtspiRole
 name|getRole
 argument_list|(
-argument|const QAIPointer&interface
+argument|QAccessibleInterface *interface
 argument_list|)
 specifier|const
 block|;
 name|QSpiRelationArray
 name|relationSet
 argument_list|(
-argument|const QAIPointer&interface
+argument|QAccessibleInterface *interface
 argument_list|,
 argument|const QDBusConnection&connection
 argument_list|)
@@ -512,7 +493,7 @@ block|;
 name|QStringList
 name|accessibleInterfaces
 argument_list|(
-argument|const QAIPointer&interface
+argument|QAccessibleInterface *interface
 argument_list|)
 specifier|const
 block|;
@@ -521,7 +502,7 @@ specifier|static
 name|QRect
 name|getExtents
 argument_list|(
-argument|const QAIPointer&interface
+argument|QAccessibleInterface *interface
 argument_list|,
 argument|uint coordType
 argument_list|)
@@ -530,9 +511,8 @@ specifier|static
 name|QRect
 name|translateRectToWindowCoordinates
 argument_list|(
-specifier|const
-name|QAIPointer
-operator|&
+name|QAccessibleInterface
+operator|*
 name|interface
 argument_list|,
 specifier|const
@@ -553,7 +533,7 @@ comment|// text helper functions
 name|QVariantList
 name|getAttributes
 argument_list|(
-argument|const QAIPointer&
+argument|QAccessibleInterface *
 argument_list|,
 argument|int offset
 argument_list|,
@@ -564,7 +544,7 @@ block|;
 name|QVariantList
 name|getAttributeValue
 argument_list|(
-argument|const QAIPointer&
+argument|QAccessibleInterface *
 argument_list|,
 argument|int offset
 argument_list|,
@@ -575,7 +555,7 @@ block|;
 name|QRect
 name|getCharacterExtents
 argument_list|(
-argument|const QAIPointer&
+argument|QAccessibleInterface *
 argument_list|,
 argument|int offset
 argument_list|,
@@ -586,7 +566,7 @@ block|;
 name|QRect
 name|getRangeExtents
 argument_list|(
-argument|const QAIPointer&
+argument|QAccessibleInterface *
 argument_list|,
 argument|int startOffset
 argument_list|,
@@ -629,18 +609,6 @@ block|;
 comment|/// Assigned from the accessibility registry.
 name|int
 name|m_applicationId
-block|;
-name|mutable
-name|QHash
-operator|<
-name|quintptr
-block|,
-name|QPointer
-operator|<
-name|QObject
-operator|>
-expr|>
-name|m_handledObjects
 block|;
 comment|// Bit fields - which updates to send
 comment|// AT-SPI has some events that we do not care about:

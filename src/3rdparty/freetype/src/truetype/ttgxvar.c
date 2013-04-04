@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2004, 2005, 2006, 2007, 2008 by                              */
+comment|/*  Copyright 2004, 2005, 2006, 2007, 2008, 2009 by                        */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, Werner Lemberg, and George Williams.     */
@@ -48,76 +48,79 @@ begin_comment
 comment|/***************************************************************************/
 end_comment
 begin_comment
-comment|/***************************************************************************/
+comment|/*************************************************************************/
 end_comment
 begin_comment
-comment|/*                                                                         */
+comment|/*                                                                       */
 end_comment
 begin_comment
-comment|/* Apple documents the `fvar', `gvar', `cvar', and `avar' tables at        */
+comment|/* Apple documents the `fvar', `gvar', `cvar', and `avar' tables at      */
 end_comment
 begin_comment
-comment|/*                                                                         */
+comment|/*                                                                       */
 end_comment
 begin_comment
-comment|/*   http://developer.apple.com/fonts/TTRefMan/RM06/Chap6[fgca]var.html    */
+comment|/*   http://developer.apple.com/fonts/TTRefMan/RM06/Chap6[fgca]var.html  */
 end_comment
 begin_comment
-comment|/*                                                                         */
+comment|/*                                                                       */
 end_comment
 begin_comment
-comment|/* The documentation for `fvar' is inconsistent.  At one point it says     */
+comment|/* The documentation for `fvar' is inconsistent.  At one point it says   */
 end_comment
 begin_comment
-comment|/* that `countSizePairs' should be 3, at another point 2.  It should be 2. */
+comment|/* that `countSizePairs' should be 3, at another point 2.  It should     */
 end_comment
 begin_comment
-comment|/*                                                                         */
+comment|/* be 2.                                                                 */
 end_comment
 begin_comment
-comment|/* The documentation for `gvar' is not intelligible; `cvar' refers you to  */
+comment|/*                                                                       */
 end_comment
 begin_comment
-comment|/* `gvar' and is thus also incomprehensible.                               */
+comment|/* The documentation for `gvar' is not intelligible; `cvar' refers you   */
 end_comment
 begin_comment
-comment|/*                                                                         */
+comment|/* to `gvar' and is thus also incomprehensible.                          */
 end_comment
 begin_comment
-comment|/* The documentation for `avar' appears correct, but Apple has no fonts    */
+comment|/*                                                                       */
 end_comment
 begin_comment
-comment|/* with an `avar' table, so it is hard to test.                            */
+comment|/* The documentation for `avar' appears correct, but Apple has no fonts  */
 end_comment
 begin_comment
-comment|/*                                                                         */
+comment|/* with an `avar' table, so it is hard to test.                          */
 end_comment
 begin_comment
-comment|/* Many thanks to John Jenkins (at Apple) in figuring this out.            */
+comment|/*                                                                       */
 end_comment
 begin_comment
-comment|/*                                                                         */
+comment|/* Many thanks to John Jenkins (at Apple) in figuring this out.          */
 end_comment
 begin_comment
-comment|/*                                                                         */
+comment|/*                                                                       */
 end_comment
 begin_comment
-comment|/* Apple's `kern' table has some references to tuple indices, but as there */
+comment|/*                                                                       */
 end_comment
 begin_comment
-comment|/* is no indication where these indices are defined, nor how to            */
+comment|/* Apple's `kern' table has some references to tuple indices, but as     */
 end_comment
 begin_comment
-comment|/* interpolate the kerning values (different tuples have different         */
+comment|/* there is no indication where these indices are defined, nor how to    */
 end_comment
 begin_comment
-comment|/* classes) this issue is ignored.                                         */
+comment|/* interpolate the kerning values (different tuples have different       */
 end_comment
 begin_comment
-comment|/*                                                                         */
+comment|/* classes) this issue is ignored.                                       */
 end_comment
 begin_comment
-comment|/***************************************************************************/
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/*************************************************************************/
 end_comment
 begin_include
 include|#
@@ -147,22 +150,12 @@ end_include
 begin_include
 include|#
 directive|include
-include|FT_TRUETYPE_IDS_H
-end_include
-begin_include
-include|#
-directive|include
 include|FT_TRUETYPE_TAGS_H
 end_include
 begin_include
 include|#
 directive|include
 include|FT_MULTIPLE_MASTERS_H
-end_include
-begin_include
-include|#
-directive|include
-file|"ttdriver.h"
 end_include
 begin_include
 include|#
@@ -285,21 +278,20 @@ directive|define
 name|ALL_POINTS
 value|(FT_UShort*)( -1 )
 end_define
-begin_enum
-enum|enum
-block|{
-DECL|enumerator|GX_PT_POINTS_ARE_WORDS
+begin_define
+DECL|macro|GX_PT_POINTS_ARE_WORDS
+define|#
+directive|define
 name|GX_PT_POINTS_ARE_WORDS
-init|=
-literal|0x80
-block|,
-DECL|enumerator|GX_PT_POINT_RUN_COUNT_MASK
+value|0x80
+end_define
+begin_define
+DECL|macro|GX_PT_POINT_RUN_COUNT_MASK
+define|#
+directive|define
 name|GX_PT_POINT_RUN_COUNT_MASK
-init|=
-literal|0x7F
-block|}
-enum|;
-end_enum
+value|0x7F
+end_define
 begin_comment
 comment|/*************************************************************************/
 end_comment
@@ -504,6 +496,15 @@ operator|=
 name|FT_GET_USHORT
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|runcnt
+operator|<
+literal|1
+condition|)
+goto|goto
+name|Exit
+goto|;
 comment|/* first point not included in runcount */
 for|for
 control|(
@@ -548,6 +549,15 @@ operator|=
 name|FT_GET_BYTE
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|runcnt
+operator|<
+literal|1
+condition|)
+goto|goto
+name|Exit
+goto|;
 for|for
 control|(
 name|j
@@ -579,6 +589,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|Exit
+label|:
 return|return
 name|points
 return|;
@@ -674,7 +686,7 @@ parameter_list|(
 name|FT_Stream
 name|stream
 parameter_list|,
-name|FT_Int
+name|FT_Offset
 name|delta_cnt
 parameter_list|)
 block|{
@@ -682,13 +694,13 @@ name|FT_Short
 modifier|*
 name|deltas
 decl_stmt|;
-name|FT_Int
+name|FT_UInt
 name|runcnt
 decl_stmt|;
-name|FT_Int
+name|FT_Offset
 name|i
 decl_stmt|;
-name|FT_Int
+name|FT_UInt
 name|j
 decl_stmt|;
 name|FT_Memory
@@ -4539,7 +4551,7 @@ block|{
 name|FT_TRACE2
 argument_list|(
 operator|(
-literal|"no blend specified!\n"
+literal|"tt_face_vary_cvt: no blend specified\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -4563,7 +4575,7 @@ block|{
 name|FT_TRACE2
 argument_list|(
 operator|(
-literal|"no `cvt ' table!\n"
+literal|"tt_face_vary_cvt: no `cvt ' table\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -4599,7 +4611,7 @@ block|{
 name|FT_TRACE2
 argument_list|(
 operator|(
-literal|"is missing!\n"
+literal|"is missing\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -4645,7 +4657,7 @@ block|{
 name|FT_TRACE2
 argument_list|(
 operator|(
-literal|"bad table version!\n"
+literal|"bad table version\n"
 operator|)
 argument_list|)
 expr_stmt|;

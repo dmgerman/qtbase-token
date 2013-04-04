@@ -21,7 +21,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008 by       */
+comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 by */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -312,7 +312,7 @@ condition|)
 name|FT_TRACE4
 argument_list|(
 operator|(
-literal|"ignoring empty table!\n"
+literal|"ignoring empty table\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -320,7 +320,7 @@ else|else
 name|FT_TRACE4
 argument_list|(
 operator|(
-literal|"could not find table!\n"
+literal|"could not find table\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -535,7 +535,7 @@ block|{
 name|FT_Error
 name|error
 decl_stmt|;
-name|FT_UInt
+name|FT_UShort
 name|nn
 decl_stmt|,
 name|valid_entries
@@ -1185,7 +1185,8 @@ block|{
 name|FT_TRACE2
 argument_list|(
 operator|(
-literal|"tt_face_load_font_dir: invalid table directory for TrueType!\n"
+literal|"tt_face_load_font_dir:"
+literal|" invalid table directory for TrueType\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -2361,17 +2362,13 @@ literal|4
 operator|)
 condition|)
 block|{
-name|FT_ERROR
+name|FT_TRACE0
 argument_list|(
 operator|(
-literal|"Too much twilight points in `maxp' table;\n"
-operator|)
-argument_list|)
-expr_stmt|;
-name|FT_ERROR
-argument_list|(
-operator|(
-literal|"  some glyphs might be rendered incorrectly.\n"
+literal|"tt_face_load_maxp:"
+literal|" too much twilight points in `maxp' table;\n"
+literal|"                  "
+literal|" some glyphs might be rendered incorrectly\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -2671,7 +2668,7 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"invalid `name' table\n"
+literal|"tt_face_load_name: invalid `name' table\n"
 operator|)
 argument_list|)
 expr_stmt|;

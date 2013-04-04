@@ -1438,7 +1438,7 @@ end_comment
 begin_macro
 name|Q_PROPERTY
 argument_list|(
-argument|type name            READ getFunction            [WRITE setFunction]            [RESET resetFunction]            [NOTIFY notifySignal]            [DESIGNABLE bool]            [SCRIPTABLE bool]            [STORED bool]            [USER bool]            [CONSTANT]            [FINAL]
+argument|type name            READ getFunction            [WRITE setFunction]            [RESET resetFunction]            [NOTIFY notifySignal]            [REVISION int]            [DESIGNABLE bool]            [SCRIPTABLE bool]            [STORED bool]            [USER bool]            [CONSTANT]            [FINAL]
 argument_list|)
 end_macro
 begin_comment

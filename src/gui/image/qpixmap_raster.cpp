@@ -1168,8 +1168,9 @@ operator|==
 literal|0
 operator|)
 condition|)
-return|return
+block|{
 name|QImage
+name|newImage
 argument_list|(
 name|image
 operator|.
@@ -1212,8 +1213,13 @@ operator|.
 name|format
 argument_list|()
 argument_list|)
+decl_stmt|;
+return|return
+name|newImage
 return|;
+block|}
 else|else
+block|{
 return|return
 name|image
 operator|.
@@ -1222,6 +1228,7 @@ argument_list|(
 name|clipped
 argument_list|)
 return|;
+block|}
 block|}
 end_function
 begin_function

@@ -6,7 +6,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  ftnames.c                                                              */
+comment|/*  ftsnames.c                                                             */
 end_comment
 begin_comment
 comment|/*                                                                         */
@@ -27,7 +27,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002 by                                           */
+comment|/*  Copyright 1996-2001, 2002, 2009 by                                     */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -82,7 +82,7 @@ directive|ifdef
 name|TT_CONFIG_OPTION_SFNT_NAMES
 end_ifdef
 begin_comment
-comment|/* documentation is in ftnames.h */
+comment|/* documentation is in ftsnames.h */
 end_comment
 begin_macro
 DECL|function|FT_EXPORT_DEF
@@ -123,7 +123,7 @@ return|;
 block|}
 end_block
 begin_comment
-comment|/* documentation is in ftnames.h */
+comment|/* documentation is in ftsnames.h */
 end_comment
 begin_macro
 DECL|function|FT_EXPORT_DEF

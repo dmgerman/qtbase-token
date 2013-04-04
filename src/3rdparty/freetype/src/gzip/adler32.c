@@ -3,7 +3,7 @@ begin_comment
 comment|/* adler32.c -- compute the Adler-32 checksum of a data stream  * Copyright (C) 1995-2002 Mark Adler  * For conditions of distribution and use, see copyright notice in zlib.h  */
 end_comment
 begin_comment
-comment|/* @(#) $Id: adler32.c,v 1.5 2007/06/01 06:56:17 wl Exp $ */
+comment|/* @(#) $Id$ */
 end_comment
 begin_include
 include|#

@@ -591,7 +591,7 @@ name|FT_UInt
 name|pair_size
 decl_stmt|;
 DECL|member|offset
-name|FT_UInt32
+name|FT_Offset
 name|offset
 decl_stmt|;
 DECL|member|pair1
@@ -755,7 +755,7 @@ name|FT_UInt
 name|num_chars
 decl_stmt|;
 DECL|member|chars_offset
-name|FT_UInt32
+name|FT_Offset
 name|chars_offset
 decl_stmt|;
 DECL|member|chars
@@ -777,7 +777,7 @@ name|kern_items_tail
 decl_stmt|;
 comment|/* not part of the spec, but used during load */
 DECL|member|bct_offset
-name|FT_UInt32
+name|FT_Long
 name|bct_offset
 decl_stmt|;
 DECL|member|cursor

@@ -40,7 +40,7 @@ begin_comment
 comment|/************************************************* *         Validate a UTF-16 string                * *************************************************/
 end_comment
 begin_comment
-comment|/* This function is called (optionally) at the start of compile or match, to check that a supposed UTF-16 string is actually valid. The early check means that subsequent code can assume it is dealing with a valid string. The check can be turned off for maximum performance, but the consequences of supplying an invalid string are then undefined.  From release 8.21 more information about the details of the error are passed back in the returned value:  PCRE_UTF16_ERR0  No error PCRE_UTF16_ERR1  Missing low surrogate at the end of the string PCRE_UTF16_ERR2  Invalid low surrogate PCRE_UTF16_ERR3  Isolated low surrogate PCRE_UTF16_ERR4  Not allowed character  Arguments:   string       points to the string   length       length of string, or -1 if the string is zero-terminated   errp         pointer to an error position offset variable  Returns:       = 0    if the string is a valid UTF-16 string> 0    otherwise, setting the offset of the bad character */
+comment|/* This function is called (optionally) at the start of compile or match, to check that a supposed UTF-16 string is actually valid. The early check means that subsequent code can assume it is dealing with a valid string. The check can be turned off for maximum performance, but the consequences of supplying an invalid string are then undefined.  From release 8.21 more information about the details of the error are passed back in the returned value:  PCRE_UTF16_ERR0  No error PCRE_UTF16_ERR1  Missing low surrogate at the end of the string PCRE_UTF16_ERR2  Invalid low surrogate PCRE_UTF16_ERR3  Isolated low surrogate PCRE_UTF16_ERR4  Non-character  Arguments:   string       points to the string   length       length of string, or -1 if the string is zero-terminated   errp         pointer to an error position offset variable  Returns:       = 0    if the string is a valid UTF-16 string> 0    otherwise, setting the offset of the bad character */
 end_comment
 begin_function
 name|int
@@ -69,7 +69,7 @@ name|PCRE_PUCHAR
 name|p
 decl_stmt|;
 specifier|register
-name|pcre_uchar
+name|pcre_uint32
 name|c
 decl_stmt|;
 if|if
@@ -133,12 +133,26 @@ literal|0xd800
 condition|)
 block|{
 comment|/* Normal UTF-16 code point. Neither high nor low surrogate. */
-comment|/* This is probably a BOM from a different byte-order.     Regardless, the string is rejected. */
+comment|/* Check for non-characters */
 if|if
 condition|(
+operator|(
 name|c
+operator|&
+literal|0xfffeu
+operator|)
 operator|==
-literal|0xfffe
+literal|0xfffeu
+operator|||
+operator|(
+name|c
+operator|>=
+literal|0xfdd0u
+operator|&&
+name|c
+operator|<=
+literal|0xfdefu
+operator|)
 condition|)
 block|{
 operator|*
@@ -214,6 +228,55 @@ return|return
 name|PCRE_UTF16_ERR2
 return|;
 block|}
+else|else
+block|{
+comment|/* Valid surrogate, but check for non-characters */
+name|c
+operator|=
+operator|(
+operator|(
+operator|(
+name|c
+operator|&
+literal|0x3ffu
+operator|)
+operator|<<
+literal|10
+operator|)
+operator||
+operator|(
+operator|*
+name|p
+operator|&
+literal|0x3ffu
+operator|)
+operator|)
+operator|+
+literal|0x10000u
+expr_stmt|;
+if|if
+condition|(
+operator|(
+name|c
+operator|&
+literal|0xfffeu
+operator|)
+operator|==
+literal|0xfffeu
+condition|)
+block|{
+operator|*
+name|erroroffset
+operator|=
+name|p
+operator|-
+name|string
+expr_stmt|;
+return|return
+name|PCRE_UTF16_ERR4
+return|;
+block|}
+block|}
 block|}
 else|else
 block|{
@@ -246,6 +309,13 @@ name|void
 call|)
 argument_list|(
 name|length
+argument_list|)
+expr_stmt|;
+call|(
+name|void
+call|)
+argument_list|(
+name|erroroffset
 argument_list|)
 expr_stmt|;
 endif|#

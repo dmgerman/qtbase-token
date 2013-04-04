@@ -61,6 +61,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"afpic.c"
+end_include
+begin_include
+include|#
+directive|include
 file|"afangles.c"
 end_include
 begin_include

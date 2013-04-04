@@ -3448,9 +3448,9 @@ name|p1
 operator|-
 name|p2
 argument_list|)
-operator|<=
-literal|0.000000000001
 operator|*
+literal|1000000000000.
+operator|<=
 name|qMin
 argument_list|(
 name|qAbs
@@ -3490,9 +3490,9 @@ name|p1
 operator|-
 name|p2
 argument_list|)
-operator|<=
-literal|0.00001f
 operator|*
+literal|100000.f
+operator|<=
 name|qMin
 argument_list|(
 name|qAbs

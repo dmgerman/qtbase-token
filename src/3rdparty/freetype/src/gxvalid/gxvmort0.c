@@ -163,8 +163,8 @@ parameter_list|,
 name|FT_UShort
 name|flags
 parameter_list|,
-name|GXV_StateTable_GlyphOffsetDesc
-name|glyphOffset
+name|GXV_StateTable_GlyphOffsetCPtr
+name|glyphOffset_p
 parameter_list|,
 name|FT_Bytes
 name|table
@@ -219,7 +219,7 @@ expr_stmt|;
 comment|/* for the non-debugging */
 name|FT_UNUSED
 argument_list|(
-name|glyphOffset
+name|glyphOffset_p
 argument_list|)
 expr_stmt|;
 comment|/* case                  */
@@ -295,8 +295,8 @@ argument_list|(
 operator|(
 literal|"  IndicScript MorphRule for glyphOffset 0x%04x"
 operator|,
-name|glyphOffset
-operator|.
+name|glyphOffset_p
+operator|->
 name|u
 operator|)
 argument_list|)

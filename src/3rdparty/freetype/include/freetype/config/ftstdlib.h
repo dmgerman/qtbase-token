@@ -174,6 +174,13 @@ name|FT_INT_MAX
 value|INT_MAX
 end_define
 begin_define
+DECL|macro|FT_INT_MIN
+define|#
+directive|define
+name|FT_INT_MIN
+value|INT_MIN
+end_define
+begin_define
 DECL|macro|FT_UINT_MAX
 define|#
 directive|define

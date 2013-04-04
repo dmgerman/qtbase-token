@@ -278,7 +278,7 @@ function_decl|;
 end_typedef
 begin_typedef
 typedef|typedef
-name|FT_ULong
+name|FT_UInt32
 function_decl|(
 DECL|typedef|PS_Unicodes_CharNextFunc
 modifier|*
@@ -338,6 +338,79 @@ end_block
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|FT_CONFIG_OPTION_PIC
+end_ifndef
+begin_define
+DECL|macro|FT_DEFINE_SERVICE_PSCMAPSREC
+define|#
+directive|define
+name|FT_DEFINE_SERVICE_PSCMAPSREC
+parameter_list|(
+name|class_
+parameter_list|,
+name|unicode_value_
+parameter_list|,
+name|unicodes_init_
+parameter_list|, \
+name|unicodes_char_index_
+parameter_list|,
+name|unicodes_char_next_
+parameter_list|,
+name|macintosh_name_
+parameter_list|,          \
+name|adobe_std_strings_
+parameter_list|,
+name|adobe_std_encoding_
+parameter_list|,
+name|adobe_expert_encoding_
+parameter_list|)
+define|\
+value|static const FT_Service_PsCMapsRec class_ =                                \   {                                                                          \     unicode_value_, unicodes_init_,                                          \     unicodes_char_index_, unicodes_char_next_, macintosh_name_,              \     adobe_std_strings_, adobe_std_encoding_, adobe_expert_encoding_          \   };
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_comment
+comment|/* FT_CONFIG_OPTION_PIC */
+end_comment
+begin_define
+DECL|macro|FT_DEFINE_SERVICE_PSCMAPSREC
+define|#
+directive|define
+name|FT_DEFINE_SERVICE_PSCMAPSREC
+parameter_list|(
+name|class_
+parameter_list|,
+name|unicode_value_
+parameter_list|,
+name|unicodes_init_
+parameter_list|, \
+name|unicodes_char_index_
+parameter_list|,
+name|unicodes_char_next_
+parameter_list|,
+name|macintosh_name_
+parameter_list|,          \
+name|adobe_std_strings_
+parameter_list|,
+name|adobe_std_encoding_
+parameter_list|,
+name|adobe_expert_encoding_
+parameter_list|)
+define|\
+value|void                                                                       \   FT_Init_Class_##class_( FT_Library library,                                \                           FT_Service_PsCMapsRec* clazz)                      \   {                                                                          \     FT_UNUSED(library);                                                      \     clazz->unicode_value = unicode_value_;                                   \     clazz->unicodes_init = unicodes_init_;                                   \     clazz->unicodes_char_index = unicodes_char_index_;                       \     clazz->unicodes_char_next = unicodes_char_next_;                         \     clazz->macintosh_name = macintosh_name_;                                 \     clazz->adobe_std_strings = adobe_std_strings_;                           \     clazz->adobe_std_encoding = adobe_std_encoding_;                         \     clazz->adobe_expert_encoding = adobe_expert_encoding_;                   \   }
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* FT_CONFIG_OPTION_PIC */
+end_comment
 begin_comment
 comment|/* */
 end_comment

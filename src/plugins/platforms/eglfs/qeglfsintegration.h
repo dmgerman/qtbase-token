@@ -189,6 +189,16 @@ return|return
 name|mDisplay
 return|;
 block|}
+name|QPlatformInputContext
+operator|*
+name|inputContext
+argument_list|()
+specifier|const
+block|{
+return|return
+name|mInputContext
+return|;
+block|}
 name|private
 label|:
 name|EGLDisplay
@@ -205,6 +215,10 @@ decl_stmt|;
 name|QPlatformScreen
 modifier|*
 name|mScreen
+decl_stmt|;
+name|QPlatformInputContext
+modifier|*
+name|mInputContext
 decl_stmt|;
 block|}
 end_decl_stmt

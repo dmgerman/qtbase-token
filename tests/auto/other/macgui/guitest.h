@@ -147,14 +147,6 @@ modifier|*
 name|iface
 parameter_list|)
 function_decl|;
-name|void
-name|deleteInDestructor
-parameter_list|(
-name|QAccessibleInterface
-modifier|*
-name|interface
-parameter_list|)
-function_decl|;
 specifier|static
 name|QWidget
 modifier|*

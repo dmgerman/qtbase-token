@@ -65,6 +65,11 @@ end_include
 begin_include
 include|#
 directive|include
+include|FT_INTERNAL_CALC_H
+end_include
+begin_include
+include|#
+directive|include
 file|"psobjs.h"
 end_include
 begin_include
@@ -1829,8 +1834,8 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"ps_parser_skip_PS_token: "
-literal|"unexpected closing delimiter `>'\n"
+literal|"ps_parser_skip_PS_token:"
+literal|" unexpected closing delimiter `>'\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -1896,9 +1901,10 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"ps_parser_skip_PS_token: "
-literal|"current token is `%c', which is self-delimiting "
-literal|"but invalid at this point\n"
+literal|"ps_parser_skip_PS_token:"
+literal|" current token is `%c' which is self-delimiting\n"
+literal|"                        "
+literal|" but invalid at this point\n"
 operator|,
 operator|*
 name|cur
@@ -3616,8 +3622,10 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"ps_parser_load_field: expected a name or string "
-literal|"but found token of type %d instead\n"
+literal|"ps_parser_load_field:"
+literal|" expected a name or string\n"
+literal|"                     "
+literal|" but found token of type %d instead\n"
 operator|,
 name|token
 operator|.
@@ -3772,8 +3780,8 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"ps_parser_load_field: "
-literal|"expected four integers in bounding box\n"
+literal|"ps_parser_load_field:"
+literal|" expected four integers in bounding box\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -4206,7 +4214,7 @@ argument|PS_Parser  parser
 argument_list|,
 argument|FT_Byte*   bytes
 argument_list|,
-argument|FT_Long    max_bytes
+argument|FT_Offset  max_bytes
 argument_list|,
 argument|FT_Long*   pnum_bytes
 argument_list|,
@@ -5010,33 +5018,23 @@ name|outline
 operator|->
 name|n_points
 decl_stmt|;
-if|if
-condition|(
-name|builder
-operator|->
-name|shift
-condition|)
-block|{
-name|x
-operator|>>=
-literal|16
-expr_stmt|;
-name|y
-operator|>>=
-literal|16
-expr_stmt|;
-block|}
 name|point
 operator|->
 name|x
 operator|=
+name|FIXED_TO_INT
+argument_list|(
 name|x
+argument_list|)
 expr_stmt|;
 name|point
 operator|->
 name|y
 operator|=
+name|FIXED_TO_INT
+argument_list|(
 name|y
+argument_list|)
 expr_stmt|;
 operator|*
 name|control
@@ -5051,13 +5049,6 @@ name|FT_CURVE_TAG_ON
 else|:
 name|FT_CURVE_TAG_CUBIC
 argument_list|)
-expr_stmt|;
-name|builder
-operator|->
-name|last
-operator|=
-operator|*
-name|point
 expr_stmt|;
 block|}
 name|outline
@@ -5466,8 +5457,8 @@ operator|>
 literal|0
 condition|)
 block|{
-comment|/* Don't add contours only consisting of one point, i.e., */
-comment|/* check whether begin point and last point are the same. */
+comment|/* Don't add contours only consisting of one point, i.e.,  */
+comment|/* check whether the first and the last point is the same. */
 if|if
 condition|(
 name|first

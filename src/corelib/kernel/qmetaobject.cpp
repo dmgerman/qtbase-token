@@ -7503,7 +7503,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the tag associated with this method.      Tags are special macros recognized by \c moc that make it     possible to add extra information about a method.      Tag information can be added in the following     way in the function declaration:      \code         #define THISISTESTTAG // tag text         ...         private slots:             THISISTESTTAG void testFunc();     \endcode      and the information can be accessed by using:      \code         MainWindow win;         win.show();          int functionIndex = win.metaObject()->indexOfSlot("testFunc()");         QMetaMethod mm = metaObject()->method(functionIndex);         qDebug()<< mm.tag(); // prints THISISTESTTAG     \endcode      For the moment,     \c moc doesn't support any special tags. */
+comment|/*!     Returns the tag associated with this method.      Tags are special macros recognized by \c moc that make it     possible to add extra information about a method.      Tag information can be added in the following     way in the function declaration:      \code         #ifndef Q_MOC_RUN         // define the tag text         #  define THISISTESTTAG         #endif         ...         private slots:             THISISTESTTAG void testFunc();     \endcode      and the information can be accessed by using:      \code         MainWindow win;         win.show();          int functionIndex = win.metaObject()->indexOfSlot("testFunc()");         QMetaMethod mm = metaObject()->method(functionIndex);         qDebug()<< mm.tag(); // prints THISISTESTTAG     \endcode      For the moment, \c moc will extract and record all tags, but it will not     handle any of them specially.      \note Since Qt 5.0, \c moc expands preprocessor macros, so it is necessary     to surround the definition with \c #ifndef \c Q_MOC_RUN, as shown in the     example above. This was not required in Qt 4. The code as shown above works     with Qt 4 too. */
 end_comment
 begin_function
 DECL|function|tag
@@ -7620,7 +7620,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal      Returns the method revision if one was     specified by Q_REVISION, otherwise returns 0.  */
+comment|// This method has been around for a while, but the documentation was marked \internal until 5.1
+end_comment
+begin_comment
+comment|/*!     \since 5.1     Returns the method revision if one was     specified by Q_REVISION, otherwise returns 0.  */
 end_comment
 begin_function
 DECL|function|revision
@@ -10040,7 +10043,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QMetaProperty     \inmodule QtCore     \brief The QMetaProperty class provides meta-data about a property.      \ingroup objectmodel      Property meta-data is obtained from an object's meta-object. See     QMetaObject::property() and QMetaObject::propertyCount() for     details.      \section1 Property Meta-Data      A property has a name() and a type(), as well as various     attributes that specify its behavior: isReadable(), isWritable(),     isDesignable(), isScriptable(), and isStored().      If the property is an enumeration, isEnumType() returns true; if the     property is an enumeration that is also a flag (i.e. its values     can be combined using the OR operator), isEnumType() and     isFlagType() both return true. The enumerator for these types is     available from enumerator().      The property's values are set and retrieved with read(), write(),     and reset(); they can also be changed through QObject's set and get     functions. See QObject::setProperty() and QObject::property() for     details.      \section1 Copying and Assignment      QMetaProperty objects can be copied by value. However, each copy will     refer to the same underlying property meta-data.      \sa QMetaObject, QMetaEnum, QMetaMethod, {Qt's Property System} */
+comment|/*!     \class QMetaProperty     \inmodule QtCore     \brief The QMetaProperty class provides meta-data about a property.      \ingroup objectmodel      Property meta-data is obtained from an object's meta-object. See     QMetaObject::property() and QMetaObject::propertyCount() for     details.      \section1 Property Meta-Data      A property has a name() and a type(), as well as various     attributes that specify its behavior: isReadable(), isWritable(),     isDesignable(), isScriptable(), revision(), and isStored().      If the property is an enumeration, isEnumType() returns true; if the     property is an enumeration that is also a flag (i.e. its values     can be combined using the OR operator), isEnumType() and     isFlagType() both return true. The enumerator for these types is     available from enumerator().      The property's values are set and retrieved with read(), write(),     and reset(); they can also be changed through QObject's set and get     functions. See QObject::setProperty() and QObject::property() for     details.      \section1 Copying and Assignment      QMetaProperty objects can be copied by value. However, each copy will     refer to the same underlying property meta-data.      \sa QMetaObject, QMetaEnum, QMetaMethod, {Qt's Property System} */
 end_comment
 begin_comment
 comment|/*!     \fn bool QMetaProperty::isValid() const      Returns true if this property is valid (readable); otherwise     returns false.      \sa isReadable() */
@@ -11950,7 +11953,10 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \internal      Returns the property revision if one was     specified by REVISION, otherwise returns 0.  */
+comment|// This method has been around for a while, but the documentation was marked \internal until 5.1
+end_comment
+begin_comment
+comment|/*!     \since 5.1      Returns the property revision if one was     specified by REVISION, otherwise returns 0.  */
 end_comment
 begin_function
 DECL|function|revision

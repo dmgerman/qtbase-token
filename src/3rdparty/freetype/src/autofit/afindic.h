@@ -66,19 +66,13 @@ end_include
 begin_decl_stmt
 name|FT_BEGIN_HEADER
 comment|/* the Indic-specific script class */
-name|FT_CALLBACK_TABLE
-specifier|const
-name|AF_ScriptClassRec
-DECL|variable|af_indic_script_class
+name|AF_DECLARE_SCRIPT_CLASS
+argument_list|(
 name|af_indic_script_class
-decl_stmt|;
-end_decl_stmt
-begin_comment
+argument_list|)
 comment|/* */
-end_comment
-begin_macro
 name|FT_END_HEADER
-end_macro
+end_decl_stmt
 begin_endif
 endif|#
 directive|endif

@@ -79,6 +79,20 @@ end_include
 begin_macro
 name|FT_BEGIN_HEADER
 end_macro
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|FT_CONFIG_OPTION_PIC
+end_ifdef
+begin_error
+error|#
+directive|error
+literal|"this module does not support PIC yet"
+end_error
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_typedef
 DECL|struct|WinMZ_HeaderRec_
 typedef|typedef

@@ -108,11 +108,12 @@ name|class
 name|QOCICols
 decl_stmt|;
 end_decl_stmt
-begin_struct_decl
-struct_decl|struct
+begin_decl_stmt
+DECL|variable|QOCIDriverPrivate
+name|class
 name|QOCIDriverPrivate
-struct_decl|;
-end_struct_decl
+decl_stmt|;
+end_decl_stmt
 begin_decl_stmt
 name|class
 name|Q_EXPORT_SQLDRIVER_OCI

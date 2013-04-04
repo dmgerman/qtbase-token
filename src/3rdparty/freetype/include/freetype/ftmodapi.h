@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2006, 2008 by                         */
+comment|/*  Copyright 1996-2001, 2002, 2003, 2006, 2008, 2009 by                   */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -842,6 +842,18 @@ comment|/*    from a given memory object.  It is thus possible to use libraries 
 end_comment
 begin_comment
 comment|/*    with distinct memory allocators within the same program.           */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/*    Normally, you would call this function (followed by a call to      */
+end_comment
+begin_comment
+comment|/*    @FT_Add_Default_Modules or a series of calls to @FT_Add_Module)    */
+end_comment
+begin_comment
+comment|/*    instead of @FT_Init_FreeType to initialize the FreeType library.   */
 end_comment
 begin_comment
 comment|/*                                                                       */

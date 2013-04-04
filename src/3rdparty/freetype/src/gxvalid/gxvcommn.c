@@ -18,7 +18,10 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2004, 2005 by suzuki toshiya, Masatake YAMATO, Red Hat K.K., */
+comment|/*  Copyright 2004, 2005, 2009                                             */
+end_comment
+begin_comment
+comment|/*  by suzuki toshiya, Masatake YAMATO, Red Hat K.K.,                      */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -1470,7 +1473,7 @@ parameter_list|,
 name|CORRECTSIZE
 parameter_list|)
 define|\
-value|FT_BEGIN_STMNT                                               \             if ( UNITSIZE != CORRECTSIZE )                             \             {                                                          \               FT_ERROR(( "unitSize=%d differs from"                    \                          "expected unitSize=%d"                        \                          "in LookupTable %s",                          \                           UNITSIZE, CORRECTSIZE, FORMAT ));            \               if ( UNITSIZE != 0&& NUNITS != 0 )                      \               {                                                        \                 FT_ERROR(( " cannot validate anymore\n" ));            \                 FT_INVALID_FORMAT;                                     \               }                                                        \               else                                                     \                 FT_ERROR(( " forcibly continues\n" ));                 \             }                                                          \           FT_END_STMNT
+value|FT_BEGIN_STMNT                                               \             if ( UNITSIZE != CORRECTSIZE )                             \             {                                                          \               FT_ERROR(( "unitSize=%d differs from"                    \                          " expected unitSize=%d"                       \                          " in LookupTable %s\n",                       \                           UNITSIZE, CORRECTSIZE, FORMAT ));            \               if ( UNITSIZE != 0&& NUNITS != 0 )                      \               {                                                        \                 FT_ERROR(( " cannot validate anymore\n" ));            \                 FT_INVALID_FORMAT;                                     \               }                                                        \               else                                                     \                 FT_ERROR(( " forcibly continues\n" ));                 \             }                                                          \           FT_END_STMNT
 end_define
 begin_comment
 comment|/* ================= Simple Array Format 0 Lookup Table ================ */
@@ -1597,6 +1600,7 @@ name|lookupval_func
 argument_list|(
 name|i
 argument_list|,
+operator|&
 name|value
 argument_list|,
 name|valid
@@ -1979,6 +1983,7 @@ name|lookupval_func
 argument_list|(
 name|gid
 argument_list|,
+operator|&
 name|value
 argument_list|,
 name|valid
@@ -2303,6 +2308,7 @@ operator|-
 name|firstGlyph
 argument_list|)
 argument_list|,
+operator|&
 name|base_value
 argument_list|,
 name|limit
@@ -2316,6 +2322,7 @@ name|lookupval_func
 argument_list|(
 name|gid
 argument_list|,
+operator|&
 name|value
 argument_list|,
 name|valid
@@ -2604,6 +2611,7 @@ name|lookupval_func
 argument_list|(
 name|glyph
 argument_list|,
+operator|&
 name|value
 argument_list|,
 name|valid
@@ -2765,6 +2773,7 @@ operator|+
 name|i
 argument_list|)
 argument_list|,
+operator|&
 name|value
 argument_list|,
 name|valid
@@ -4216,6 +4225,7 @@ name|state
 argument_list|,
 name|flags
 argument_list|,
+operator|&
 name|glyphOffset
 argument_list|,
 name|statetable_table
@@ -4831,8 +4841,8 @@ parameter_list|(
 name|FT_UShort
 name|glyph
 parameter_list|,
-name|GXV_LookupValueDesc
-name|value
+name|GXV_LookupValueCPtr
+name|value_p
 parameter_list|,
 name|GXV_Validator
 name|valid
@@ -4845,8 +4855,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|value
-operator|.
+name|value_p
+operator|->
 name|u
 operator|>=
 name|valid
@@ -4859,8 +4869,8 @@ name|FT_INVALID_DATA
 expr_stmt|;
 if|if
 condition|(
-name|value
-operator|.
+name|value_p
+operator|->
 name|u
 operator|>
 name|valid
@@ -4875,8 +4885,8 @@ name|xstatetable
 operator|.
 name|maxClassID
 operator|=
-name|value
-operator|.
+name|value_p
+operator|->
 name|u
 expr_stmt|;
 block|}
@@ -4893,8 +4903,8 @@ parameter_list|(
 name|FT_UShort
 name|relative_gindex
 parameter_list|,
-name|GXV_LookupValueDesc
-name|base_value
+name|GXV_LookupValueCPtr
+name|base_value_p
 parameter_list|,
 name|FT_Bytes
 name|lookuptbl_limit
@@ -4922,8 +4932,8 @@ call|(
 name|FT_UShort
 call|)
 argument_list|(
-name|base_value
-operator|.
+name|base_value_p
+operator|->
 name|u
 operator|+
 name|relative_gindex
@@ -5529,6 +5539,7 @@ name|state
 argument_list|,
 name|flags
 argument_list|,
+operator|&
 name|glyphOffset
 argument_list|,
 name|xstatetable_table

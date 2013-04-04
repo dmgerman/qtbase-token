@@ -162,6 +162,59 @@ end_block
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|FT_CONFIG_OPTION_PIC
+end_ifndef
+begin_define
+DECL|macro|FT_DEFINE_SERVICE_CIDREC
+define|#
+directive|define
+name|FT_DEFINE_SERVICE_CIDREC
+parameter_list|(
+name|class_
+parameter_list|,
+name|get_ros_
+parameter_list|,                           \
+name|get_is_cid_
+parameter_list|,
+name|get_cid_from_glyph_index_
+parameter_list|)
+define|\
+value|static const FT_Service_CIDRec class_ =                                    \   {                                                                          \     get_ros_, get_is_cid_, get_cid_from_glyph_index_                         \   };
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_comment
+comment|/* FT_CONFIG_OPTION_PIC */
+end_comment
+begin_define
+DECL|macro|FT_DEFINE_SERVICE_CIDREC
+define|#
+directive|define
+name|FT_DEFINE_SERVICE_CIDREC
+parameter_list|(
+name|class_
+parameter_list|,
+name|get_ros_
+parameter_list|,                           \
+name|get_is_cid_
+parameter_list|,
+name|get_cid_from_glyph_index_
+parameter_list|)
+define|\
+value|void                                                                       \   FT_Init_Class_##class_( FT_Library library,                                \                           FT_Service_CIDRec* clazz)                          \   {                                                                          \     FT_UNUSED(library);                                                      \     clazz->get_ros = get_ros_;                                               \     clazz->get_is_cid = get_is_cid_;                                         \     clazz->get_cid_from_glyph_index = get_cid_from_glyph_index_;             \   }
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* FT_CONFIG_OPTION_PIC */
+end_comment
 begin_comment
 comment|/* */
 end_comment

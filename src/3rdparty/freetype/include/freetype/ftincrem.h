@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002, 2003, 2006, 2007, 2008 by                              */
+comment|/*  Copyright 2002, 2003, 2006, 2007, 2008, 2010 by                        */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -111,7 +111,7 @@ name|FT_Incremental
 typedef|;
 end_typedef
 begin_comment
-comment|/***************************************************************************    *    * @struct:    *   FT_Incremental_MetricsRec    *    * @description:    *   A small structure used to contain the basic glyph metrics returned    *   by the @FT_Incremental_GetGlyphMetricsFunc method.    *    * @fields:    *   bearing_x ::    *     Left bearing, in font units.    *    *   bearing_y ::    *     Top bearing, in font units.    *    *   advance ::    *     Glyph advance, in font units.    *    * @note:    *   These correspond to horizontal or vertical metrics depending on the    *   value of the `vertical' argument to the function    *   @FT_Incremental_GetGlyphMetricsFunc.    *    */
+comment|/***************************************************************************    *    * @struct:    *   FT_Incremental_MetricsRec    *    * @description:    *   A small structure used to contain the basic glyph metrics returned    *   by the @FT_Incremental_GetGlyphMetricsFunc method.    *    * @fields:    *   bearing_x ::    *     Left bearing, in font units.    *    *   bearing_y ::    *     Top bearing, in font units.    *    *   advance ::    *     Horizontal component of glyph advance, in font units.    *    *   advance_v ::    *     Vertical component of glyph advance, in font units.    *    * @note:    *   These correspond to horizontal or vertical metrics depending on the    *   value of the `vertical' argument to the function    *   @FT_Incremental_GetGlyphMetricsFunc.    *    */
 end_comment
 begin_typedef
 DECL|struct|FT_Incremental_MetricsRec_
@@ -131,6 +131,11 @@ DECL|member|advance
 name|FT_Long
 name|advance
 decl_stmt|;
+DECL|member|advance_v
+name|FT_Long
+name|advance_v
+decl_stmt|;
+comment|/* since 2.3.12 */
 block|}
 DECL|typedef|FT_Incremental_MetricsRec
 name|FT_Incremental_MetricsRec

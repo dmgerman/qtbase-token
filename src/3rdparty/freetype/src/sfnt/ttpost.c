@@ -21,7 +21,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2006, 2007, 2008 by                   */
+comment|/*  Copyright 1996-2001, 2002, 2003, 2006, 2007, 2008, 2009 by             */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -90,11 +90,6 @@ begin_include
 include|#
 directive|include
 file|"ttpost.h"
-end_include
-begin_include
-include|#
-directive|include
-file|"ttload.h"
 end_include
 begin_include
 include|#

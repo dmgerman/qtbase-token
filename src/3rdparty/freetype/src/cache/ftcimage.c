@@ -363,7 +363,7 @@ begin_macro
 DECL|function|FT_LOCAL_DEF
 name|FT_LOCAL_DEF
 argument_list|(
-argument|FT_ULong
+argument|FT_Offset
 argument_list|)
 end_macro
 begin_macro
@@ -384,7 +384,7 @@ name|FTC_INode
 operator|)
 name|ftcinode
 decl_stmt|;
-name|FT_ULong
+name|FT_Offset
 name|size
 init|=
 literal|0
@@ -522,7 +522,7 @@ directive|if
 literal|0
 end_if
 begin_endif
-unit|FT_LOCAL_DEF( FT_ULong )   FTC_INode_Weight( FTC_INode  inode )   {     return ftc_inode_weight( FTC_NODE( inode ), NULL );   }
+unit|FT_LOCAL_DEF( FT_Offset )   FTC_INode_Weight( FTC_INode  inode )   {     return ftc_inode_weight( FTC_NODE( inode ), NULL );   }
 endif|#
 directive|endif
 end_endif

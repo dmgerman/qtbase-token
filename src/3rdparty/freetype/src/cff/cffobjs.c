@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008 by       */
+comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 by */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -116,6 +116,11 @@ begin_include
 include|#
 directive|include
 file|"cfferrs.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"cffpic.h"
 end_include
 begin_comment
 comment|/*************************************************************************/
@@ -1076,7 +1081,7 @@ name|size
 operator|->
 name|internal
 decl_stmt|;
-name|FT_Int
+name|FT_ULong
 name|top_upm
 init|=
 name|font
@@ -1143,7 +1148,7 @@ operator|-
 literal|1
 index|]
 decl_stmt|;
-name|FT_Int
+name|FT_ULong
 name|sub_upm
 init|=
 name|sub
@@ -1400,7 +1405,7 @@ name|size
 operator|->
 name|internal
 decl_stmt|;
-name|FT_Int
+name|FT_ULong
 name|top_upm
 init|=
 name|font
@@ -1467,7 +1472,7 @@ operator|-
 literal|1
 index|]
 decl_stmt|;
-name|FT_Int
+name|FT_ULong
 name|sub_upm
 init|=
 name|sub
@@ -1827,6 +1832,17 @@ name|sfnt_format
 init|=
 literal|0
 decl_stmt|;
+name|FT_Library
+name|library
+init|=
+name|cffface
+operator|->
+name|driver
+operator|->
+name|root
+operator|.
+name|library
+decl_stmt|;
 if|#
 directive|if
 literal|0
@@ -1840,12 +1856,6 @@ name|SFNT_Service
 operator|)
 name|FT_Get_Module_Interface
 argument_list|(
-name|cffface
-operator|->
-name|driver
-operator|->
-name|root
-operator|.
 name|library
 argument_list|,
 literal|"sfnt"
@@ -1875,12 +1885,6 @@ name|PSHinter_Service
 operator|)
 name|FT_Get_Module_Interface
 argument_list|(
-name|cffface
-operator|->
-name|driver
-operator|->
-name|root
-operator|.
 name|library
 argument_list|,
 literal|"pshinter"
@@ -2144,6 +2148,8 @@ name|error
 operator|=
 name|cff_font_load
 argument_list|(
+name|library
+argument_list|,
 name|stream
 argument_list|,
 name|face_index
@@ -2220,26 +2226,8 @@ name|FT_ERROR
 argument_list|(
 operator|(
 literal|"cff_face_init:"
-operator|)
-argument_list|)
-expr_stmt|;
-name|FT_ERROR
-argument_list|(
-operator|(
 literal|" cannot open CFF& CEF fonts\n"
-operator|)
-argument_list|)
-expr_stmt|;
-name|FT_ERROR
-argument_list|(
-operator|(
 literal|"              "
-operator|)
-argument_list|)
-expr_stmt|;
-name|FT_ERROR
-argument_list|(
-operator|(
 literal|" without the `PSNames' module\n"
 operator|)
 argument_list|)
@@ -2487,7 +2475,7 @@ operator|->
 name|units_per_em
 condition|)
 block|{
-name|FT_Int
+name|FT_Long
 name|scaling
 decl_stmt|;
 if|if
@@ -2842,6 +2830,7 @@ name|yMin
 operator|>>
 literal|16
 expr_stmt|;
+comment|/* no `U' suffix here to 0xFFFF! */
 name|cffface
 operator|->
 name|bbox
@@ -2855,7 +2844,7 @@ name|font_bbox
 operator|.
 name|xMax
 operator|+
-literal|0xFFFFU
+literal|0xFFFF
 operator|)
 operator|>>
 literal|16
@@ -2873,7 +2862,7 @@ name|font_bbox
 operator|.
 name|yMax
 operator|+
-literal|0xFFFFU
+literal|0xFFFF
 operator|)
 operator|>>
 literal|16
@@ -3271,6 +3260,10 @@ comment|/* Compute face flags.                                             */
 comment|/*                                                                 */
 name|flags
 operator|=
+call|(
+name|FT_UInt32
+call|)
+argument_list|(
 name|FT_FACE_FLAG_SCALABLE
 operator||
 comment|/* scalable outlines */
@@ -3278,6 +3271,7 @@ name|FT_FACE_FLAG_HORIZONTAL
 operator||
 comment|/* horizontal data   */
 name|FT_FACE_FLAG_HINTER
+argument_list|)
 expr_stmt|;
 comment|/* has native hinter */
 if|if
@@ -3286,6 +3280,9 @@ name|sfnt_format
 condition|)
 name|flags
 operator||=
+operator|(
+name|FT_UInt32
+operator|)
 name|FT_FACE_FLAG_SFNT
 expr_stmt|;
 comment|/* fixed width font? */
@@ -3297,6 +3294,9 @@ name|is_fixed_pitch
 condition|)
 name|flags
 operator||=
+operator|(
+name|FT_UInt32
+operator|)
 name|FT_FACE_FLAG_FIXED_WIDTH
 expr_stmt|;
 comment|/* XXX: WE DO NOT SUPPORT KERNING METRICS IN THE GPOS TABLE FOR NOW */
@@ -3304,7 +3304,7 @@ if|#
 directive|if
 literal|0
 comment|/* kerning available? */
-block|if ( face->kern_pairs )           flags |= FT_FACE_FLAG_KERNING;
+block|if ( face->kern_pairs )           flags |= (FT_UInt32)FT_FACE_FLAG_KERNING;
 endif|#
 directive|endif
 name|cffface
@@ -3611,7 +3611,7 @@ expr_stmt|;
 name|FT_CMap_New
 argument_list|(
 operator|&
-name|cff_cmap_unicode_class_rec
+name|FT_CFF_CMAP_UNICODE_CLASS_REC_GET
 argument_list|,
 name|NULL
 argument_list|,
@@ -3701,7 +3701,7 @@ expr_stmt|;
 name|clazz
 operator|=
 operator|&
-name|cff_cmap_encoding_class_rec
+name|FT_CFF_CMAP_ENCODING_CLASS_REC_GET
 expr_stmt|;
 block|}
 elseif|else
@@ -3729,7 +3729,7 @@ expr_stmt|;
 name|clazz
 operator|=
 operator|&
-name|cff_cmap_encoding_class_rec
+name|FT_CFF_CMAP_ENCODING_CLASS_REC_GET
 expr_stmt|;
 block|}
 else|else
@@ -3749,7 +3749,7 @@ expr_stmt|;
 name|clazz
 operator|=
 operator|&
-name|cff_cmap_encoding_class_rec
+name|FT_CFF_CMAP_ENCODING_CLASS_REC_GET
 expr_stmt|;
 block|}
 name|FT_CMap_New

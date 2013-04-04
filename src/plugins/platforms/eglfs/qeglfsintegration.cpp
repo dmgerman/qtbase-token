@@ -119,6 +119,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qpa/qplatforminputcontextfactory_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|"qeglfscontext.h"
 end_include
 begin_include
@@ -375,6 +380,13 @@ name|screenAdded
 argument_list|(
 name|mScreen
 argument_list|)
+expr_stmt|;
+name|mInputContext
+operator|=
+name|QPlatformInputContextFactory
+operator|::
+name|create
+argument_list|()
 expr_stmt|;
 block|}
 end_constructor

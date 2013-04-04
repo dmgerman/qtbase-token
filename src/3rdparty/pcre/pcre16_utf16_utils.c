@@ -220,7 +220,7 @@ name|host_bo
 expr_stmt|;
 else|#
 directive|else
-comment|/* SUPPORT_UTF */
+comment|/* Not SUPPORT_UTF */
 call|(
 name|void
 call|)
@@ -241,6 +241,13 @@ name|void
 call|)
 argument_list|(
 name|keep_boms
+argument_list|)
+expr_stmt|;
+call|(
+name|void
+call|)
+argument_list|(
+name|host_byte_order
 argument_list|)
 expr_stmt|;
 endif|#

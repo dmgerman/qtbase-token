@@ -314,9 +314,6 @@ argument_list|()
 operator|==
 name|role
 expr_stmt|;
-operator|delete
-name|iface
-expr_stmt|;
 return|return
 name|match
 return|;

@@ -2712,6 +2712,7 @@ name|char
 modifier|*
 name|new_name
 decl_stmt|;
+specifier|const
 name|char
 modifier|*
 name|tmp
@@ -2721,7 +2722,7 @@ name|char
 modifier|*
 name|slash
 decl_stmt|;
-name|unsigned
+name|size_t
 name|new_length
 decl_stmt|;
 name|FT_Error

@@ -87,6 +87,20 @@ include|#
 directive|include
 file|"ftcerror.h"
 end_include
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|FT_CONFIG_OPTION_PIC
+end_ifdef
+begin_error
+error|#
+directive|error
+literal|"cache system does not support PIC yet"
+end_error
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_undef
 DECL|macro|FT_COMPONENT
 undef|#
@@ -280,6 +294,16 @@ typedef|*
 name|FTC_SizeNode
 typedef|;
 end_typedef
+begin_define
+DECL|macro|FTC_SIZE_NODE
+define|#
+directive|define
+name|FTC_SIZE_NODE
+parameter_list|(
+name|x
+parameter_list|)
+value|( (FTC_SizeNode)( x ) )
+end_define
 begin_macro
 name|FT_CALLBACK_DEF
 argument_list|(
@@ -630,8 +654,8 @@ block|{
 name|FT_Error
 name|error
 decl_stmt|;
-name|FTC_SizeNode
-name|node
+name|FTC_MruNode
+name|mrunode
 decl_stmt|;
 if|if
 condition|(
@@ -669,7 +693,7 @@ name|scaler
 argument_list|,
 name|ftc_size_node_compare
 argument_list|,
-name|node
+name|mrunode
 argument_list|,
 name|error
 argument_list|)
@@ -687,12 +711,8 @@ name|sizes
 argument_list|,
 name|scaler
 argument_list|,
-operator|(
-name|FTC_MruNode
-operator|*
-operator|)
 operator|&
-name|node
+name|mrunode
 argument_list|)
 expr_stmt|;
 endif|#
@@ -705,7 +725,10 @@ condition|)
 operator|*
 name|asize
 operator|=
-name|node
+name|FTC_SIZE_NODE
+argument_list|(
+name|mrunode
+argument_list|)
 operator|->
 name|size
 expr_stmt|;
@@ -762,6 +785,16 @@ typedef|*
 name|FTC_FaceNode
 typedef|;
 end_typedef
+begin_define
+DECL|macro|FTC_FACE_NODE
+define|#
+directive|define
+name|FTC_FACE_NODE
+parameter_list|(
+name|x
+parameter_list|)
+value|( ( FTC_FaceNode )( x ) )
+end_define
 begin_macro
 DECL|function|FT_CALLBACK_DEF
 name|FT_CALLBACK_DEF
@@ -1031,8 +1064,8 @@ block|{
 name|FT_Error
 name|error
 decl_stmt|;
-name|FTC_FaceNode
-name|node
+name|FTC_MruNode
+name|mrunode
 decl_stmt|;
 if|if
 condition|(
@@ -1071,7 +1104,7 @@ name|face_id
 argument_list|,
 name|ftc_face_node_compare
 argument_list|,
-name|node
+name|mrunode
 argument_list|,
 name|error
 argument_list|)
@@ -1089,12 +1122,8 @@ name|faces
 argument_list|,
 name|face_id
 argument_list|,
-operator|(
-name|FTC_MruNode
-operator|*
-operator|)
 operator|&
-name|node
+name|mrunode
 argument_list|)
 expr_stmt|;
 endif|#
@@ -1107,7 +1136,10 @@ condition|)
 operator|*
 name|aface
 operator|=
-name|node
+name|FTC_FACE_NODE
+argument_list|(
+name|mrunode
+argument_list|)
 operator|->
 name|face
 expr_stmt|;
@@ -1558,7 +1590,7 @@ name|manager
 operator|->
 name|num_caches
 condition|)
-name|FT_ERROR
+name|FT_TRACE0
 argument_list|(
 operator|(
 literal|"FTC_Manager_Check: invalid node (cache index = %ld\n"
@@ -1606,7 +1638,7 @@ name|manager
 operator|->
 name|cur_weight
 condition|)
-name|FT_ERROR
+name|FT_TRACE0
 argument_list|(
 operator|(
 literal|"FTC_Manager_Check: invalid weight %ld instead of %ld\n"
@@ -1663,10 +1695,11 @@ name|manager
 operator|->
 name|num_nodes
 condition|)
-name|FT_ERROR
+name|FT_TRACE0
 argument_list|(
 operator|(
-literal|"FTC_Manager_Check: invalid cache node count %d instead of %d\n"
+literal|"FTC_Manager_Check:"
+literal|" invalid cache node count %d instead of %d\n"
 operator|,
 name|manager
 operator|->
@@ -1738,7 +1771,7 @@ argument_list|(
 name|manager
 argument_list|)
 expr_stmt|;
-name|FT_ERROR
+name|FT_TRACE0
 argument_list|(
 operator|(
 literal|"compressing, weight = %ld, max = %ld, nodes = %d\n"
@@ -1901,9 +1934,8 @@ expr_stmt|;
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"%s: too many registered caches\n"
-operator|,
-literal|"FTC_Manager_Register_Cache"
+literal|"FTC_Manager_RegisterCache:"
+literal|" too many registered caches\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -2159,6 +2191,9 @@ name|manager
 operator|->
 name|faces
 argument_list|,
+operator|(
+name|FTC_MruNode_CompareFunc
+operator|)
 name|NULL
 argument_list|,
 name|face_id
