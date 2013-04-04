@@ -82,6 +82,11 @@ name|physicalSize
 argument_list|()
 specifier|const
 block|;
+name|QDpi
+name|logicalDpi
+argument_list|()
+specifier|const
+block|;
 name|QPlatformCursor
 operator|*
 name|cursor
