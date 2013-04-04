@@ -12973,11 +12973,33 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// also check the error string. If another error (than UnknownError) occurred, it should be different than before
-name|QVERIFY
+name|QVERIFY2
 argument_list|(
 name|errorBefore
 operator|==
 name|errorAfter
+operator|||
+name|socket
+operator|->
+name|error
+argument_list|()
+operator|==
+name|QAbstractSocket
+operator|::
+name|RemoteHostClosedError
+argument_list|,
+name|QByteArray
+argument_list|(
+literal|"unexpected error: "
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|qPrintable
+argument_list|(
+name|errorAfter
+argument_list|)
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// check that everything has been written to OpenSSL
