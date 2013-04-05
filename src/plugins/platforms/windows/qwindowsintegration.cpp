@@ -2431,11 +2431,6 @@ name|QPlatformIntegration
 operator|::
 name|StartDragVelocity
 case|:
-case|case
-name|QPlatformIntegration
-operator|::
-name|SynthesizeMouseFromTouchEvents
-case|:
 break|break;
 comment|// Not implemented
 case|case
@@ -2488,6 +2483,17 @@ operator|.
 name|useRTLExtensions
 argument_list|()
 argument_list|)
+return|;
+case|case
+name|QPlatformIntegration
+operator|::
+name|SynthesizeMouseFromTouchEvents
+case|:
+comment|// We do not want Qt to synthesize mouse events as Windows also does that.
+comment|// Alternatively, Windows-generated touch mouse events can be identified and
+comment|// ignored by checking GetMessageExtraInfo() for MI_WP_SIGNATURE (0xFF515700).
+return|return
+literal|false
 return|;
 block|}
 return|return
