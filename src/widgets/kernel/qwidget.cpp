@@ -33396,6 +33396,23 @@ init|=
 name|window
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|f
+operator|&
+name|Qt
+operator|::
+name|Window
+condition|)
+comment|// Frame geometry likely changes, refresh.
+name|d
+operator|->
+name|data
+operator|.
+name|fstrut_dirty
+operator|=
+literal|true
+expr_stmt|;
 name|QWidget
 modifier|*
 name|desktopWidget
