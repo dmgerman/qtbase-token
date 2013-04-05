@@ -128,6 +128,24 @@ name|F
 parameter_list|)
 define|\
 value|F(ULong, -1, ulong, "unsigned long") \     F(UInt, -1, uint, "unsigned int") \     F(UShort, -1, ushort, "unsigned short") \     F(UChar, -1, uchar, "unsigned char") \     F(LongLong, -1, qlonglong, "long long") \     F(ULongLong, -1, qulonglong, "unsigned long long") \     F(SChar, -1, signed char, "qint8") \     F(UChar, -1, uchar, "quint8") \     F(Short, -1, short, "qint16") \     F(UShort, -1, ushort, "quint16") \     F(Int, -1, int, "qint32") \     F(UInt, -1, uint, "quint32") \     F(LongLong, -1, qlonglong, "qint64") \     F(ULongLong, -1, qulonglong, "quint64") \     F(QVariantList, -1, QVariantList, "QList<QVariant>") \     F(QVariantMap, -1, QVariantMap, "QMap<QString,QVariant>") \     F(QVariantHash, -1, QVariantHash, "QHash<QString,QVariant>") \  #define QT_FOR_EACH_STATIC_TYPE(F)\     QT_FOR_EACH_STATIC_PRIMITIVE_TYPE(F)\     QT_FOR_EACH_STATIC_PRIMITIVE_POINTER(F)\     QT_FOR_EACH_STATIC_CORE_CLASS(F)\     QT_FOR_EACH_STATIC_CORE_POINTER(F)\     QT_FOR_EACH_STATIC_CORE_TEMPLATE(F)\     QT_FOR_EACH_STATIC_GUI_CLASS(F)\     QT_FOR_EACH_STATIC_WIDGETS_CLASS(F)\  #define QT_DEFINE_METATYPE_ID(TypeName, Id, Name) \     TypeName = Id,
+DECL|macro|QT_FOR_EACH_AUTOMATIC_TEMPLATE_1ARG
+define|#
+directive|define
+name|QT_FOR_EACH_AUTOMATIC_TEMPLATE_1ARG
+parameter_list|(
+name|F
+parameter_list|)
+define|\
+value|F(QList) \     F(QVector) \     F(QQueue) \     F(QStack) \     F(QSet) \     F(QLinkedList)
+DECL|macro|QT_FOR_EACH_AUTOMATIC_TEMPLATE_2ARG
+define|#
+directive|define
+name|QT_FOR_EACH_AUTOMATIC_TEMPLATE_2ARG
+parameter_list|(
+name|F
+parameter_list|)
+define|\
+value|F(QHash, class) \     F(QMap, class) \     F(QPair, struct)
 DECL|variable|QDataStream
 name|class
 name|QDataStream
@@ -3296,28 +3314,6 @@ name|SMART_POINTER
 parameter_list|)
 define|\
 value|template<typename T, bool = QtPrivate::IsPointerToTypeDerivedFromQObject<T*>::Value> \ struct QMetaTypeId_ ## SMART_POINTER ## _QObjectStar \ { \     enum { \         Defined = 0 \     }; \ };\  \ template<typename T> \ struct QMetaTypeId_ ## SMART_POINTER ## _QObjectStar<T, true> \ { \     enum { \         Defined = 1 \     }; \     static int qt_metatype_id() \     { \         static QBasicAtomicInt metatype_id = Q_BASIC_ATOMIC_INITIALIZER(0); \         if (const int id = metatype_id.loadAcquire()) \             return id; \         const char * const cName = T::staticMetaObject.className(); \         QByteArray typeName; \         typeName.reserve(sizeof(#SMART_POINTER) + 1 + strlen(cName) + 1); \         typeName.append(#SMART_POINTER, sizeof(#SMART_POINTER) - 1) \             .append('<').append(cName).append('>'); \         const int newId = qRegisterNormalizedMetaType< SMART_POINTER<T>>( \                         typeName, \                         reinterpret_cast< SMART_POINTER<T> *>(quintptr(-1))); \         metatype_id.storeRelease(newId); \         return newId; \     } \ }; \ \ template<typename T> \ struct QMetaTypeId< SMART_POINTER<T>> : public QMetaTypeId_ ## SMART_POINTER ## _QObjectStar<T> \ { \ };
-end_define
-begin_define
-DECL|macro|QT_FOR_EACH_AUTOMATIC_TEMPLATE_1ARG
-define|#
-directive|define
-name|QT_FOR_EACH_AUTOMATIC_TEMPLATE_1ARG
-parameter_list|(
-name|F
-parameter_list|)
-define|\
-value|F(QList) \     F(QVector) \     F(QQueue) \     F(QStack) \     F(QSet) \     F(QLinkedList)
-end_define
-begin_define
-DECL|macro|QT_FOR_EACH_AUTOMATIC_TEMPLATE_2ARG
-define|#
-directive|define
-name|QT_FOR_EACH_AUTOMATIC_TEMPLATE_2ARG
-parameter_list|(
-name|F
-parameter_list|)
-define|\
-value|F(QHash, class) \     F(QMap, class) \     F(QPair, struct)
 end_define
 begin_define
 DECL|macro|QT_FOR_EACH_AUTOMATIC_TEMPLATE_SMART_POINTER
