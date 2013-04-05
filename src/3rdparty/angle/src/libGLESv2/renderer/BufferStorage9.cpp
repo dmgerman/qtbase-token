@@ -220,6 +220,10 @@ operator|+
 name|size
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|data
+condition|)
 name|memcpy
 argument_list|(
 cast|reinterpret_cast
