@@ -601,17 +601,6 @@ end_comment
 begin_comment
 comment|//! [9]
 end_comment
-begin_expr_stmt
-name|qRegisterSequentialConverter
-argument_list|<
-name|QList
-argument_list|<
-name|int
-argument_list|>
-argument_list|>
-argument_list|()
-expr_stmt|;
-end_expr_stmt
 begin_decl_stmt
 DECL|variable|intList
 name|QList
