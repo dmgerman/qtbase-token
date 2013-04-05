@@ -10491,7 +10491,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the variant's type can be cast to the requested     type, \a targetTypeId. Such casting is done automatically when calling the     toInt(), toBool(), ... methods.      The following casts are done automatically:      \table     \header \li Type \li Automatically Cast To     \row \li \l QMetaType::Bool \li \l QMetaType::QChar, \l QMetaType::Double,         \l QMetaType::Int, \l QMetaType::LongLong, \l QMetaType::QString,         \l QMetaType::UInt, \l QMetaType::ULongLong     \row \li \l QMetaType::QByteArray \li \l QMetaType::Double,         \l QMetaType::Int, \l QMetaType::LongLong, \l QMetaType::QString,         \l QMetaType::UInt, \l QMetaType::ULongLong     \row \li \l QMetaType::QChar \li \l QMetaType::Bool, \l QMetaType::Int,         \l QMetaType::UInt, \l QMetaType::LongLong, \l QMetaType::ULongLong     \row \li \l QMetaType::QColor \li \l QMetaType::QString     \row \li \l QMetaType::QDate \li \l QMetaType::QDateTime,         \l QMetaType::QString     \row \li \l QMetaType::QDateTime \li \l QMetaType::QDate,         \l QMetaType::QString, \l QMetaType::QTime     \row \li \l QMetaType::Double \li \l QMetaType::Bool, \l QMetaType::Int,         \l QMetaType::LongLong, \l QMetaType::QString, \l QMetaType::UInt,         \l QMetaType::ULongLong     \row \li \l QMetaType::QFont \li \l QMetaType::QString     \row \li \l QMetaType::Int \li \l QMetaType::Bool, \l QMetaType::QChar,         \l QMetaType::Double, \l QMetaType::LongLong, \l QMetaType::QString,         \l QMetaType::UInt, \l QMetaType::ULongLong     \row \li \l QMetaType::QKeySequence \li \l QMetaType::Int,         \l QMetaType::QString     \row \li \l QMetaType::QVariantList \li \l QMetaType::QStringList (if the         list's items can be converted to QStrings)     \row \li \l QMetaType::LongLong \li \l QMetaType::Bool,         \l QMetaType::QByteArray, \l QMetaType::QChar, \l QMetaType::Double,         \l QMetaType::Int, \l QMetaType::QString, \l QMetaType::UInt,         \l QMetaType::ULongLong     \row \li \l QMetaType::QPoint \li QMetaType::QPointF     \row \li \l QMetaType::QRect \li QMetaType::QRectF     \row \li \l QMetaType::QString \li \l QMetaType::Bool,         \l QMetaType::QByteArray, \l QMetaType::QChar, \l QMetaType::QColor,         \l QMetaType::QDate, \l QMetaType::QDateTime, \l QMetaType::Double,         \l QMetaType::QFont, \l QMetaType::Int, \l QMetaType::QKeySequence,         \l QMetaType::LongLong, \l QMetaType::QStringList, \l QMetaType::QTime,         \l QMetaType::UInt, \l QMetaType::ULongLong     \row \li \l QMetaType::QStringList \li \l QMetaType::QVariantList,         \l QMetaType::QString (if the list contains exactly one item)     \row \li \l QMetaType::QTime \li \l QMetaType::QString     \row \li \l QMetaType::UInt \li \l QMetaType::Bool, \l QMetaType::QChar,         \l QMetaType::Double, \l QMetaType::Int, \l QMetaType::LongLong,         \l QMetaType::QString, \l QMetaType::ULongLong     \row \li \l QMetaType::ULongLong \li \l QMetaType::Bool,         \l QMetaType::QChar, \l QMetaType::Double, \l QMetaType::Int,         \l QMetaType::LongLong, \l QMetaType::QString, \l QMetaType::UInt     \endtable      A QVariant containing a pointer to a type derived from QObject will also return true for this     function if a qobject_cast to the type described by \a targetTypeId would succeed. Note that     this only works for QObject subclasses which use the Q_OBJECT macro.      A QVariant containing a sequential container will also return true for this     function if the \a targetTypeId is QVariantList. It is possible to iterate over     the contents of the container without extracting it as a (copied) QVariantList:      \snippet code/src_corelib_kernel_qvariant.cpp 9      This requires that the value_type of the container is itself a metatype.      \sa convert(), QSequentialIterable, qRegisterSequentialConverter() */
+comment|/*!     Returns true if the variant's type can be cast to the requested     type, \a targetTypeId. Such casting is done automatically when calling the     toInt(), toBool(), ... methods.      The following casts are done automatically:      \table     \header \li Type \li Automatically Cast To     \row \li \l QMetaType::Bool \li \l QMetaType::QChar, \l QMetaType::Double,         \l QMetaType::Int, \l QMetaType::LongLong, \l QMetaType::QString,         \l QMetaType::UInt, \l QMetaType::ULongLong     \row \li \l QMetaType::QByteArray \li \l QMetaType::Double,         \l QMetaType::Int, \l QMetaType::LongLong, \l QMetaType::QString,         \l QMetaType::UInt, \l QMetaType::ULongLong     \row \li \l QMetaType::QChar \li \l QMetaType::Bool, \l QMetaType::Int,         \l QMetaType::UInt, \l QMetaType::LongLong, \l QMetaType::ULongLong     \row \li \l QMetaType::QColor \li \l QMetaType::QString     \row \li \l QMetaType::QDate \li \l QMetaType::QDateTime,         \l QMetaType::QString     \row \li \l QMetaType::QDateTime \li \l QMetaType::QDate,         \l QMetaType::QString, \l QMetaType::QTime     \row \li \l QMetaType::Double \li \l QMetaType::Bool, \l QMetaType::Int,         \l QMetaType::LongLong, \l QMetaType::QString, \l QMetaType::UInt,         \l QMetaType::ULongLong     \row \li \l QMetaType::QFont \li \l QMetaType::QString     \row \li \l QMetaType::Int \li \l QMetaType::Bool, \l QMetaType::QChar,         \l QMetaType::Double, \l QMetaType::LongLong, \l QMetaType::QString,         \l QMetaType::UInt, \l QMetaType::ULongLong     \row \li \l QMetaType::QKeySequence \li \l QMetaType::Int,         \l QMetaType::QString     \row \li \l QMetaType::QVariantList \li \l QMetaType::QStringList (if the         list's items can be converted to QStrings)     \row \li \l QMetaType::LongLong \li \l QMetaType::Bool,         \l QMetaType::QByteArray, \l QMetaType::QChar, \l QMetaType::Double,         \l QMetaType::Int, \l QMetaType::QString, \l QMetaType::UInt,         \l QMetaType::ULongLong     \row \li \l QMetaType::QPoint \li QMetaType::QPointF     \row \li \l QMetaType::QRect \li QMetaType::QRectF     \row \li \l QMetaType::QString \li \l QMetaType::Bool,         \l QMetaType::QByteArray, \l QMetaType::QChar, \l QMetaType::QColor,         \l QMetaType::QDate, \l QMetaType::QDateTime, \l QMetaType::Double,         \l QMetaType::QFont, \l QMetaType::Int, \l QMetaType::QKeySequence,         \l QMetaType::LongLong, \l QMetaType::QStringList, \l QMetaType::QTime,         \l QMetaType::UInt, \l QMetaType::ULongLong     \row \li \l QMetaType::QStringList \li \l QMetaType::QVariantList,         \l QMetaType::QString (if the list contains exactly one item)     \row \li \l QMetaType::QTime \li \l QMetaType::QString     \row \li \l QMetaType::UInt \li \l QMetaType::Bool, \l QMetaType::QChar,         \l QMetaType::Double, \l QMetaType::Int, \l QMetaType::LongLong,         \l QMetaType::QString, \l QMetaType::ULongLong     \row \li \l QMetaType::ULongLong \li \l QMetaType::Bool,         \l QMetaType::QChar, \l QMetaType::Double, \l QMetaType::Int,         \l QMetaType::LongLong, \l QMetaType::QString, \l QMetaType::UInt     \endtable      A QVariant containing a pointer to a type derived from QObject will also return true for this     function if a qobject_cast to the type described by \a targetTypeId would succeed. Note that     this only works for QObject subclasses which use the Q_OBJECT macro.      A QVariant containing a sequential container will also return true for this     function if the \a targetTypeId is QVariantList. It is possible to iterate over     the contents of the container without extracting it as a (copied) QVariantList:      \snippet code/src_corelib_kernel_qvariant.cpp 9      This requires that the value_type of the container is itself a metatype.      Similarly, a QVariant containing a sequential container will also return true for this     function the \a targetTypeId is QVariantHash or QVariantMap. It is possible to iterate over     the contents of the container without extracting it as a (copied) QVariantHash or QVariantMap:      \snippet code/src_corelib_kernel_qvariant.cpp 10      \sa convert(), QSequentialIterable, qRegisterSequentialConverter(), QAssociativeIterable,         qRegisterAssociativeConverter() */
 end_comment
 begin_function
 DECL|function|canConvert
@@ -10543,6 +10543,62 @@ argument_list|<
 name|QtMetaTypePrivate
 operator|::
 name|QSequentialIterableImpl
+argument_list|>
+argument_list|()
+argument_list|)
+operator|)
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+if|if
+condition|(
+operator|(
+name|targetTypeId
+operator|==
+name|QMetaType
+operator|::
+name|QVariantHash
+operator|||
+name|targetTypeId
+operator|==
+name|QMetaType
+operator|::
+name|QVariantMap
+operator|)
+operator|&&
+operator|(
+name|d
+operator|.
+name|type
+operator|==
+name|QMetaType
+operator|::
+name|QVariantMap
+operator|||
+name|d
+operator|.
+name|type
+operator|==
+name|QMetaType
+operator|::
+name|QVariantHash
+operator|||
+name|QMetaType
+operator|::
+name|hasRegisteredConverterFunction
+argument_list|(
+name|d
+operator|.
+name|type
+argument_list|,
+name|qMetaTypeId
+argument_list|<
+name|QtMetaTypePrivate
+operator|::
+name|QAssociativeIterableImpl
 argument_list|>
 argument_list|()
 argument_list|)
@@ -11885,6 +11941,72 @@ comment|/*! \fn QSequentialIterable::const_iterator QSequentialIterable::const_i
 end_comment
 begin_comment
 comment|/*! \fn QSequentialIterable::const_iterator QSequentialIterable::const_iterator::operator-(int j) const      Returns an iterator to the item at \a j positions backward from     this iterator.      If the container in the QVariant does not support bi-directional iteration, calling this function     leads to undefined results.      \sa operator+(), operator-=(), canReverseIterate() */
+end_comment
+begin_comment
+comment|/*!     \class QAssociativeIterable      \inmodule QtCore     \brief The QAssociativeIterable class is an iterable interface for an associative container in a QVariant.      This class allows several methods of accessing the elements of an associative container held within     a QVariant. An instance of QAssociativeIterable can be extracted from a QVariant if it can     be converted to a QVariantHash or QVariantMap.      \snippet code/src_corelib_kernel_qvariant.cpp 10      The container itself is not copied before iterating over it.      \sa QVariant */
+end_comment
+begin_comment
+comment|/*! \fn QAssociativeIterable::QAssociativeIterable(QtMetaTypePrivate::QAssociativeIterableImpl)      \internal */
+end_comment
+begin_comment
+comment|/*! \fn QAssociativeIterable::const_iterator QAssociativeIterable::begin() const      Returns a QAssociativeIterable::const_iterator for the beginning of the container. This     can be used in stl-style iteration.      \sa end() */
+end_comment
+begin_comment
+comment|/*! \fn QAssociativeIterable::const_iterator QAssociativeIterable::end() const      Returns a QAssociativeIterable::const_iterator for the end of the container. This     can be used in stl-style iteration.      \sa begin() */
+end_comment
+begin_comment
+comment|/*! \fn QVariant QAssociativeIterable::value(const QVariant&key) const      Returns the value for the given \a key in the container, if the types are convertible. */
+end_comment
+begin_comment
+comment|/*! \fn int QAssociativeIterable::size() const      Returns the number of elements in the container. */
+end_comment
+begin_comment
+comment|/*!     \class QAssociativeIterable::const_iterator      \inmodule QtCore     \brief The QAssociativeIterable::const_iterator allows iteration over a container in a QVariant.      A QAssociativeIterable::const_iterator can only be created by a QAssociativeIterable instance,     and can be used in a way similar to other stl-style iterators.      \snippet code/src_corelib_kernel_qvariant.cpp 10      \sa QAssociativeIterable */
+end_comment
+begin_comment
+comment|/*! \fn QAssociativeIterable::const_iterator::~const_iterator()      Destroys the QAssociativeIterable::const_iterator. */
+end_comment
+begin_comment
+comment|/*! \fn QAssociativeIterable::const_iterator::const_iterator(const const_iterator&other)      Creates a copy of \a other. */
+end_comment
+begin_comment
+comment|/*! \fn QVariant QAssociativeIterable::const_iterator::operator*() const      Returns the current value, converted to a QVariant. */
+end_comment
+begin_comment
+comment|/*! \fn QVariant QAssociativeIterable::const_iterator::key() const      Returns the current key, converted to a QVariant. */
+end_comment
+begin_comment
+comment|/*! \fn QVariant QAssociativeIterable::const_iterator::value() const      Returns the current value, converted to a QVariant. */
+end_comment
+begin_comment
+comment|/*! \fn bool QAssociativeIterable::const_iterator::operator==(const const_iterator&other) const      Returns true if \a other points to the same item as this     iterator; otherwise returns false.      \sa operator!=() */
+end_comment
+begin_comment
+comment|/*! \fn bool QAssociativeIterable::const_iterator::operator!=(const const_iterator&other) const      Returns true if \a other points to a different item than this     iterator; otherwise returns false.      \sa operator==() */
+end_comment
+begin_comment
+comment|/*! \fn QAssociativeIterable::const_iterator&QAssociativeIterable::const_iterator::operator++()      The prefix ++ operator (\c{++it}) advances the iterator to the     next item in the container and returns an iterator to the new current     item.      Calling this function on QAssociativeIterable::end() leads to undefined results.      \sa operator--() */
+end_comment
+begin_comment
+comment|/*! \fn QAssociativeIterable::const_iterator QAssociativeIterable::const_iterator::operator++(int)      \overload      The postfix ++ operator (\c{it++}) advances the iterator to the     next item in the container and returns an iterator to the previously     current item. */
+end_comment
+begin_comment
+comment|/*! \fn QAssociativeIterable::const_iterator&QAssociativeIterable::const_iterator::operator--()      The prefix -- operator (\c{--it}) makes the preceding item     current and returns an iterator to the new current item.      Calling this function on QAssociativeIterable::begin() leads to undefined results.      \sa operator++() */
+end_comment
+begin_comment
+comment|/*! \fn QAssociativeIterable::const_iterator QAssociativeIterable::const_iterator::operator--(int)      \overload      The postfix -- operator (\c{it--}) makes the preceding item     current and returns an iterator to the previously current item. */
+end_comment
+begin_comment
+comment|/*! \fn QAssociativeIterable::const_iterator&QAssociativeIterable::const_iterator::operator+=(int j)      Advances the iterator by \a j items.      \sa operator-=(), operator+() */
+end_comment
+begin_comment
+comment|/*! \fn QAssociativeIterable::const_iterator&QAssociativeIterable::const_iterator::operator-=(int j)      Makes the iterator go back by \a j items.      \sa operator+=(), operator-() */
+end_comment
+begin_comment
+comment|/*! \fn QAssociativeIterable::const_iterator QAssociativeIterable::const_iterator::operator+(int j) const      Returns an iterator to the item at \a j positions forward from     this iterator.      \sa operator-(), operator+=() */
+end_comment
+begin_comment
+comment|/*! \fn QAssociativeIterable::const_iterator QAssociativeIterable::const_iterator::operator-(int j) const      Returns an iterator to the item at \a j positions backward from     this iterator.      \sa operator+(), operator-=() */
 end_comment
 begin_macro
 name|QT_END_NAMESPACE

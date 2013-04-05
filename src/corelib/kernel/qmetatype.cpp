@@ -7753,6 +7753,9 @@ end_comment
 begin_comment
 comment|/*!     \fn bool qRegisterSequentialConverter()     \relates QMetaType     \since 5.2      Registers a sequential container so that it can be converted to     a QVariantList. If compilation fails, then you probably forgot to     Q_DECLARE_METATYPE the value type.      Note that it is not necessary to call this method for Qt containers (QList,     QVector etc) or for std::vector or std::list. Such containers are automatically     registered by Qt.      \sa QVariant::canConvert() */
 end_comment
+begin_comment
+comment|/*!     \fn bool qRegisterAssociativeConverter()     \relates QMetaType     \since 5.2      Registers an associative container so that it can be converted to     a QVariantHash or QVariantMap. If the key_type and mapped_type of the container     was not declared with Q_DECLARE_METATYPE(), compilation will fail.      Note that it is not necessary to call this method for Qt containers (QHash,     QMap etc) or for std::map. Such containers are automatically registered by Qt.      \sa QVariant::canConvert() */
+end_comment
 begin_namespace
 namespace|namespace
 block|{
