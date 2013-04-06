@@ -198,6 +198,32 @@ name|class
 name|QEventDispatcherUNIXPrivate
 decl_stmt|;
 end_decl_stmt
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_QNX
+end_ifdef
+begin_define
+DECL|macro|FINAL_EXCEPT_BLACKBERRY
+define|#
+directive|define
+name|FINAL_EXCEPT_BLACKBERRY
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|FINAL_EXCEPT_BLACKBERRY
+define|#
+directive|define
+name|FINAL_EXCEPT_BLACKBERRY
+value|Q_DECL_FINAL
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_decl_stmt
 name|class
 name|Q_CORE_EXPORT
@@ -240,18 +266,16 @@ block|;
 name|void
 name|registerSocketNotifier
 argument_list|(
-name|QSocketNotifier
-operator|*
-name|notifier
+argument|QSocketNotifier *notifier
 argument_list|)
+name|FINAL_EXCEPT_BLACKBERRY
 block|;
 name|void
 name|unregisterSocketNotifier
 argument_list|(
-name|QSocketNotifier
-operator|*
-name|notifier
+argument|QSocketNotifier *notifier
 argument_list|)
+name|FINAL_EXCEPT_BLACKBERRY
 block|;
 name|void
 name|registerTimer
@@ -264,20 +288,21 @@ argument|Qt::TimerType timerType
 argument_list|,
 argument|QObject *object
 argument_list|)
+name|Q_DECL_FINAL
 block|;
 name|bool
 name|unregisterTimer
 argument_list|(
 argument|int timerId
 argument_list|)
+name|Q_DECL_FINAL
 block|;
 name|bool
 name|unregisterTimers
 argument_list|(
-name|QObject
-operator|*
-name|object
+argument|QObject *object
 argument_list|)
+name|Q_DECL_FINAL
 block|;
 name|QList
 operator|<
@@ -288,20 +313,24 @@ argument_list|(
 argument|QObject *object
 argument_list|)
 specifier|const
+name|Q_DECL_FINAL
 block|;
 name|int
 name|remainingTime
 argument_list|(
 argument|int timerId
 argument_list|)
+name|Q_DECL_FINAL
 block|;
 name|void
 name|wakeUp
 argument_list|()
+name|FINAL_EXCEPT_BLACKBERRY
 block|;
 name|void
 name|interrupt
 argument_list|()
+name|Q_DECL_FINAL
 block|;
 name|void
 name|flush
@@ -352,6 +381,7 @@ argument|fd_set *exceptfds
 argument_list|,
 argument|timespec *timeout
 argument_list|)
+name|Q_DECL_FINAL
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -388,6 +418,7 @@ name|virtual
 name|int
 name|initThreadWakeUp
 argument_list|()
+name|FINAL_EXCEPT_BLACKBERRY
 block|;
 name|virtual
 name|int
@@ -395,6 +426,7 @@ name|processThreadWakeUp
 argument_list|(
 argument|int nsel
 argument_list|)
+name|FINAL_EXCEPT_BLACKBERRY
 block|;
 name|bool
 name|mainThread
@@ -437,6 +469,12 @@ comment|// bool
 block|}
 decl_stmt|;
 end_decl_stmt
+begin_undef
+DECL|macro|FINAL_EXCEPT_BLACKBERRY
+undef|#
+directive|undef
+name|FINAL_EXCEPT_BLACKBERRY
+end_undef
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
