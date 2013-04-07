@@ -582,6 +582,12 @@ operator|::
 name|ScriptCount
 index|]
 decl_stmt|;
+name|private
+label|:
+name|Q_DISABLE_COPY
+argument_list|(
+argument|QFontEngineData
+argument_list|)
 block|}
 end_decl_stmt
 begin_empty_stmt

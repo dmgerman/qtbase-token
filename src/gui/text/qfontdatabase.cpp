@@ -3341,8 +3341,6 @@ name|engineData
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
 name|d
 operator|->
 name|engineData
@@ -3352,7 +3350,6 @@ operator|.
 name|ref
 parameter_list|()
 constructor_decl|;
-block|}
 block|}
 end_function
 begin_function
