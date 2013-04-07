@@ -1352,6 +1352,10 @@ argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
+comment|// The comment is important for mingw32-make.exe on Windows as otherwise trailing slashes
+comment|// would be interpreted as line continuation. The lack of spacing between the value and the
+comment|// comment is also important as otherwise quoted use of "$(DESTDIR)" would include this
+comment|// spacing.
 name|t
 operator|<<
 literal|"DESTDIR       = "
@@ -1360,6 +1364,8 @@ name|var
 argument_list|(
 literal|"DESTDIR"
 argument_list|)
+operator|<<
+literal|"#avoid trailing-slash linebreak"
 operator|<<
 name|endl
 expr_stmt|;
@@ -4270,6 +4276,8 @@ operator|<<
 literal|"-$(MOVE) $(TARGET) "
 operator|<<
 name|destdir
+operator|<<
+literal|" "
 expr_stmt|;
 if|if
 condition|(
@@ -4533,25 +4541,25 @@ literal|"-$(MOVE) $(TARGET)  "
 operator|<<
 name|destdir
 operator|<<
-literal|"\n\t"
+literal|" \n\t"
 operator|<<
 literal|"-$(MOVE) $(TARGET0) "
 operator|<<
 name|destdir
 operator|<<
-literal|"\n\t"
+literal|" \n\t"
 operator|<<
 literal|"-$(MOVE) $(TARGET1) "
 operator|<<
 name|destdir
 operator|<<
-literal|"\n\t"
+literal|" \n\t"
 operator|<<
 literal|"-$(MOVE) $(TARGET2) "
 operator|<<
 name|destdir
 operator|<<
-literal|"\n\t"
+literal|" \n\t"
 expr_stmt|;
 if|if
 condition|(
@@ -4637,13 +4645,13 @@ literal|"-$(MOVE) $(TARGET)  "
 operator|<<
 name|destdir
 operator|<<
-literal|"\n\t"
+literal|" \n\t"
 operator|<<
 literal|"-$(MOVE) $(TARGET0) "
 operator|<<
 name|destdir
 operator|<<
-literal|"\n\t"
+literal|" \n\t"
 expr_stmt|;
 if|if
 condition|(
@@ -4964,7 +4972,7 @@ literal|"-$(MOVE) $(TARGET) "
 operator|<<
 name|destdir
 operator|<<
-literal|"\n"
+literal|" \n"
 expr_stmt|;
 block|}
 else|else
@@ -5295,7 +5303,7 @@ literal|" "
 operator|<<
 name|destdir
 operator|<<
-literal|"\n"
+literal|" \n"
 expr_stmt|;
 block|}
 block|}
