@@ -1685,6 +1685,8 @@ name|SP_MediaVolume
 block|,
 name|SP_MediaVolumeMuted
 block|,
+name|SP_LineEditClearButton
+block|,
 comment|// do not add any values below/greater than this
 name|SP_CustomBase
 operator|=
