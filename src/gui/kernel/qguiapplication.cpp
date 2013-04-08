@@ -763,7 +763,7 @@ name|QPalette
 argument_list|(
 name|Qt
 operator|::
-name|black
+name|gray
 argument_list|)
 expr_stmt|;
 block|}
@@ -3722,6 +3722,9 @@ argument_list|()
 expr_stmt|;
 comment|// and QImage conversion functions
 name|qInitImageConversions
+argument_list|()
+expr_stmt|;
+name|initPalette
 argument_list|()
 expr_stmt|;
 name|QFont
