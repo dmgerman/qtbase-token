@@ -743,6 +743,19 @@ argument|int right
 argument_list|)
 specifier|const
 block|;
+name|int
+name|widthHintForIndex
+argument_list|(
+argument|const QModelIndex&index
+argument_list|,
+argument|int hint
+argument_list|,
+argument|const QStyleOptionViewItem&option
+argument_list|,
+argument|int i
+argument_list|)
+specifier|const
+block|;
 name|QHeaderView
 operator|*
 name|header

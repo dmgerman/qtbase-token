@@ -761,6 +761,28 @@ operator|&
 name|index
 argument_list|)
 block|;
+name|int
+name|widthHintForIndex
+argument_list|(
+argument|const QModelIndex&index
+argument_list|,
+argument|int hint
+argument_list|,
+argument|const QStyleOptionViewItem&option
+argument_list|)
+specifier|const
+block|;
+name|int
+name|heightHintForIndex
+argument_list|(
+argument|const QModelIndex&index
+argument_list|,
+argument|int hint
+argument_list|,
+argument|const QStyleOptionViewItem&option
+argument_list|)
+specifier|const
+block|;
 name|bool
 name|showGrid
 block|;
