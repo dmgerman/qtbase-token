@@ -1849,6 +1849,11 @@ argument_list|(
 name|screen
 argument_list|)
 expr_stmt|;
+name|screen
+operator|->
+name|adjustOrientation
+argument_list|()
+expr_stmt|;
 name|QObject
 operator|::
 name|connect

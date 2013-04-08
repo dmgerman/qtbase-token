@@ -268,6 +268,10 @@ modifier|*
 name|window
 parameter_list|)
 function_decl|;
+name|void
+name|adjustOrientation
+parameter_list|()
+function_decl|;
 name|QSharedPointer
 operator|<
 name|QQnxRootWindow
