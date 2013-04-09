@@ -6321,26 +6321,11 @@ expr_stmt|;
 name|initPreLinkEventTools
 argument_list|()
 expr_stmt|;
-comment|// Set definite values in both configurations
 if|if
 condition|(
+operator|!
 name|isDebug
 condition|)
-block|{
-name|conf
-operator|.
-name|compiler
-operator|.
-name|PreprocessorDefinitions
-operator|.
-name|removeAll
-argument_list|(
-literal|"NDEBUG"
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
 name|conf
 operator|.
 name|compiler
@@ -6349,7 +6334,6 @@ name|PreprocessorDefinitions
 operator|+=
 literal|"NDEBUG"
 expr_stmt|;
-block|}
 block|}
 end_function
 begin_function
