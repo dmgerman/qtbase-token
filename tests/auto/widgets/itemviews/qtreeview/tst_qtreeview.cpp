@@ -14100,6 +14100,17 @@ operator|.
 name|show
 argument_list|()
 expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|QTest
+operator|::
+name|qWaitForWindowExposed
+argument_list|(
+operator|&
+name|view
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|QModelIndex
 name|firstIndex
 init|=
