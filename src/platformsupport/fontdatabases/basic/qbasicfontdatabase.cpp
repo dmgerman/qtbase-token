@@ -406,12 +406,14 @@ name|fid
 operator|.
 name|filename
 operator|=
+name|QFile
+operator|::
+name|encodeName
+argument_list|(
 name|fontfile
 operator|->
 name|fileName
-operator|.
-name|toLocal8Bit
-argument_list|()
+argument_list|)
 expr_stmt|;
 name|fid
 operator|.

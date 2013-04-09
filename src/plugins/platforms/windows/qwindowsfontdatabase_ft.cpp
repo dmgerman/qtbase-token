@@ -1417,9 +1417,9 @@ name|value
 operator|.
 name|prepend
 argument_list|(
-name|QString
+name|QFile
 operator|::
-name|fromLocal8Bit
+name|decodeName
 argument_list|(
 name|qgetenv
 argument_list|(

@@ -748,6 +748,10 @@ name|_faceId
 operator|.
 name|filename
 operator|=
+name|QFile
+operator|::
+name|encodeName
+argument_list|(
 name|QString
 operator|::
 name|fromWCharArray
@@ -771,9 +775,7 @@ operator|->
 name|otmpFullName
 operator|)
 argument_list|)
-operator|.
-name|toLatin1
-argument_list|()
+argument_list|)
 expr_stmt|;
 name|lineWidth
 operator|=

@@ -912,9 +912,9 @@ block|{
 name|QString
 name|fileName
 init|=
-name|QString
+name|QFile
 operator|::
-name|fromUtf8
+name|decodeName
 argument_list|(
 name|face_id
 operator|.
