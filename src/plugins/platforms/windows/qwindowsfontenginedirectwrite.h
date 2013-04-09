@@ -280,10 +280,6 @@ argument_list|)
 block|;
 name|private
 operator|:
-name|friend
-name|class
-name|QRawFontPrivate
-block|;
 name|QImage
 name|imageForGlyph
 argument_list|(
