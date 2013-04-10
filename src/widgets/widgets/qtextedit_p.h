@@ -379,6 +379,9 @@ block|;
 name|QString
 name|anchorToScrollToWhenVisible
 block|;
+name|QString
+name|placeholderText
+block|;
 ifdef|#
 directive|ifdef
 name|QT_KEYPAD_NAVIGATION

@@ -170,6 +170,10 @@ name|Q_PROPERTY
 argument_list|(
 argument|QTextDocument *document READ document WRITE setDocument DESIGNABLE false
 argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|QString placeholderText READ placeholderText WRITE setPlaceholderText
+argument_list|)
 name|public
 operator|:
 expr|enum
@@ -246,6 +250,20 @@ block|;
 name|QTextDocument
 operator|*
 name|document
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setPlaceholderText
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|placeholderText
+argument_list|)
+block|;
+name|QString
+name|placeholderText
 argument_list|()
 specifier|const
 block|;
