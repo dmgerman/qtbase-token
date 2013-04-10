@@ -122,6 +122,10 @@ range|:
 name|public
 name|QSqlDriver
 block|{
+name|Q_DECLARE_PRIVATE
+argument_list|(
+argument|QOCIDriver
+argument_list|)
 name|Q_OBJECT
 name|friend
 expr|struct
@@ -254,12 +258,6 @@ block|;
 name|bool
 name|rollbackTransaction
 argument_list|()
-block|;
-name|private
-operator|:
-name|QOCIDriverPrivate
-operator|*
-name|d
 block|; }
 decl_stmt|;
 end_decl_stmt

@@ -251,9 +251,9 @@ argument_list|(
 name|int
 name|offset
 argument_list|,
-name|QAccessible2
+name|QAccessible
 operator|::
-name|BoundaryType
+name|TextBoundaryType
 name|boundaryType
 argument_list|,
 name|int
@@ -272,9 +272,9 @@ argument_list|(
 name|int
 name|offset
 argument_list|,
-name|QAccessible2
+name|QAccessible
 operator|::
-name|BoundaryType
+name|TextBoundaryType
 name|boundaryType
 argument_list|,
 name|int
@@ -293,9 +293,9 @@ argument_list|(
 name|int
 name|offset
 argument_list|,
-name|QAccessible2
+name|QAccessible
 operator|::
-name|BoundaryType
+name|TextBoundaryType
 name|boundaryType
 argument_list|,
 name|int
@@ -404,26 +404,13 @@ name|endOffset
 argument_list|)
 decl|const
 decl_stmt|;
-name|QPair
-operator|<
-name|int
-operator|,
-name|int
-operator|>
-name|getBoundaries
-argument_list|(
-argument|int offset
-argument_list|,
-argument|QAccessible2::BoundaryType boundaryType
-argument_list|)
-specifier|const
-expr_stmt|;
 name|virtual
 name|QPoint
 name|scrollBarPosition
 argument_list|()
 specifier|const
 expr_stmt|;
+comment|// return the current text cursor at the caret position including a potential selection
 name|virtual
 name|QTextCursor
 name|textCursor

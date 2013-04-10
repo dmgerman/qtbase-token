@@ -39,11 +39,6 @@ argument_list|,
 name|argv
 argument_list|)
 decl_stmt|;
-name|qWarning
-argument_list|(
-literal|"The usage of QHttp is not recommended anymore, please use QNetworkAccessManager."
-argument_list|)
-expr_stmt|;
 name|qsrand
 argument_list|(
 name|QTime

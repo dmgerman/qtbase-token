@@ -11,7 +11,7 @@ DECL|macro|MINOR_VERSION
 define|#
 directive|define
 name|MINOR_VERSION
-value|0
+value|1
 end_define
 begin_define
 DECL|macro|BUILD_VERSION
@@ -25,7 +25,7 @@ DECL|macro|BUILD_REVISION
 define|#
 directive|define
 name|BUILD_REVISION
-value|1318
+value|2037
 end_define
 begin_define
 DECL|macro|STRINGIFY
@@ -60,5 +60,12 @@ define|#
 directive|define
 name|VERSION_STRING
 value|MACRO_STRINGIFY(MAJOR_VERSION) "." MACRO_STRINGIFY(MINOR_VERSION) "." MACRO_STRINGIFY(BUILD_VERSION) "." MACRO_STRINGIFY(BUILD_REVISION)
+end_define
+begin_define
+DECL|macro|VERSION_DWORD
+define|#
+directive|define
+name|VERSION_DWORD
+value|((MAJOR_VERSION<< 24) | (MINOR_VERSION<< 16) | BUILD_REVISION)
 end_define
 end_unit

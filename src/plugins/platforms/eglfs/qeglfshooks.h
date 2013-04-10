@@ -21,6 +21,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qpa/qplatformscreen.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtGui/QSurfaceFormat>
 end_include
 begin_include
@@ -82,6 +87,12 @@ expr_stmt|;
 name|virtual
 name|QSize
 name|screenSize
+argument_list|()
+specifier|const
+expr_stmt|;
+name|virtual
+name|QDpi
+name|logicalDpi
 argument_list|()
 specifier|const
 expr_stmt|;

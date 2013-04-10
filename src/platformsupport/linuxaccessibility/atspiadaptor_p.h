@@ -576,9 +576,9 @@ argument|uint coordType
 argument_list|)
 specifier|const
 block|;
-name|QAccessible2
+name|QAccessible
 operator|::
-name|BoundaryType
+name|TextBoundaryType
 name|qAccessibleBoundaryType
 argument_list|(
 argument|int atspiTextBoundaryType

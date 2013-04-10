@@ -24732,32 +24732,30 @@ argument_list|,
 literal|" "
 argument_list|)
 operator|<<
-name|project
-operator|->
-name|values
+name|varGlue
 argument_list|(
 literal|"PRL_EXPORT_CXXFLAGS"
-argument_list|)
-operator|.
-name|join
-argument_list|(
-literal|' '
+argument_list|,
+literal|""
+argument_list|,
+literal|" "
+argument_list|,
+literal|" "
 argument_list|)
 operator|<<
-name|project
-operator|->
-name|values
+name|varGlue
 argument_list|(
 literal|"QMAKE_PKGCONFIG_CFLAGS"
-argument_list|)
-operator|.
-name|join
-argument_list|(
-literal|' '
+argument_list|,
+literal|""
+argument_list|,
+literal|" "
+argument_list|,
+literal|" "
 argument_list|)
 comment|//<< varGlue("DEFINES","-D"," -D"," ")
 operator|<<
-literal|" -I${includedir}"
+literal|"-I${includedir}"
 operator|<<
 name|endl
 expr_stmt|;

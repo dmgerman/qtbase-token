@@ -56,9 +56,15 @@ name|public
 operator|:
 name|TOutputGLSLBase
 argument_list|(
-name|TInfoSinkBase
-operator|&
-name|objSink
+argument|TInfoSinkBase& objSink
+argument_list|,
+argument|ShArrayIndexClampingStrategy clampingStrategy
+argument_list|,
+argument|ShHashFunction64 hashFunction
+argument_list|,
+argument|NameMap& nameMap
+argument_list|,
+argument|TSymbolTable& symbolTable
 argument_list|)
 block|;
 name|protected
@@ -125,6 +131,15 @@ specifier|const
 name|ConstantUnion
 operator|*
 name|pConstUnion
+argument_list|)
+block|;
+name|TString
+name|getTypeName
+argument_list|(
+specifier|const
+name|TType
+operator|&
+name|type
 argument_list|)
 block|;
 name|virtual
@@ -207,6 +222,37 @@ operator|*
 name|node
 argument_list|)
 block|;
+comment|// Return the original name if hash function pointer is NULL;
+comment|// otherwise return the hashed name.
+name|TString
+name|hashName
+argument_list|(
+specifier|const
+name|TString
+operator|&
+name|name
+argument_list|)
+block|;
+comment|// Same as hashName(), but without hashing built-in variables.
+name|TString
+name|hashVariableName
+argument_list|(
+specifier|const
+name|TString
+operator|&
+name|name
+argument_list|)
+block|;
+comment|// Same as hashName(), but without hashing built-in functions.
+name|TString
+name|hashFunctionName
+argument_list|(
+specifier|const
+name|TString
+operator|&
+name|mangled_name
+argument_list|)
+block|;
 name|private
 operator|:
 name|TInfoSinkBase
@@ -235,6 +281,31 @@ end_decl_stmt
 begin_decl_stmt
 name|ForLoopUnroll
 name|mLoopUnroll
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|ShArrayIndexClampingStrategy
+name|mClampingStrategy
+decl_stmt|;
+end_decl_stmt
+begin_comment
+comment|// name hashing.
+end_comment
+begin_decl_stmt
+name|ShHashFunction64
+name|mHashFunction
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|NameMap
+modifier|&
+name|mNameMap
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|TSymbolTable
+modifier|&
+name|mSymbolTable
 decl_stmt|;
 end_decl_stmt
 begin_endif

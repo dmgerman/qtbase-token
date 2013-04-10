@@ -7722,8 +7722,6 @@ DECL|function|QWindowsFileDialogHelper
 name|QWindowsFileDialogHelper
 parameter_list|()
 block|{}
-comment|// For Qt 4 compatibility, do not create native non-modal dialogs on widgets,
-comment|// but only on QQuickWindows, which do not have a fallback.
 DECL|function|supportsNonModalDialog
 specifier|virtual
 name|bool
@@ -7732,17 +7730,14 @@ parameter_list|(
 specifier|const
 name|QWindow
 modifier|*
-name|parent
+comment|/* parent */
 init|=
 literal|0
 parameter_list|)
 specifier|const
 block|{
 return|return
-name|isQQuickWindow
-argument_list|(
-name|parent
-argument_list|)
+literal|false
 return|;
 block|}
 DECL|function|defaultNameFilterDisables
@@ -10150,17 +10145,14 @@ parameter_list|(
 specifier|const
 name|QWindow
 modifier|*
-name|parent
+comment|/* parent */
 init|=
 literal|0
 parameter_list|)
 specifier|const
 block|{
 return|return
-name|isQQuickWindow
-argument_list|(
-name|parent
-argument_list|)
+literal|false
 return|;
 block|}
 DECL|function|defaultNameFilterDisables

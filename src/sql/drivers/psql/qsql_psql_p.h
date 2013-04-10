@@ -244,6 +244,10 @@ name|friend
 name|class
 name|QPSQLResultPrivate
 block|;
+name|Q_DECLARE_PRIVATE
+argument_list|(
+argument|QPSQLDriver
+argument_list|)
 name|Q_OBJECT
 name|public
 operator|:
@@ -460,16 +464,6 @@ name|_q_handleNotification
 argument_list|(
 name|int
 argument_list|)
-block|;
-name|private
-operator|:
-name|void
-name|init
-argument_list|()
-block|;
-name|QPSQLDriverPrivate
-operator|*
-name|d
 block|; }
 decl_stmt|;
 end_decl_stmt

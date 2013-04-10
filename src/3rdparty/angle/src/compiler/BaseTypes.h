@@ -51,7 +51,7 @@ name|EbpMedium
 block|,
 DECL|enumerator|EbpHigh
 name|EbpHigh
-block|, }
+block|}
 enum|;
 end_enum
 begin_function
@@ -158,7 +158,6 @@ block|,
 comment|// should be deprecated??
 DECL|enumerator|EbtInvariant
 name|EbtInvariant
-block|,
 comment|// used as a type when qualifying a previously declared variable as being invariant
 block|}
 enum|;
@@ -377,7 +376,7 @@ block|,
 comment|// end of list
 DECL|enumerator|EvqLast
 name|EvqLast
-block|, }
+block|}
 enum|;
 end_enum
 begin_comment

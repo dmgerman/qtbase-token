@@ -3,7 +3,7 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// Copyright (c) 2002-2010 The ANGLE Project Authors. All rights reserved.
+comment|// Copyright (c) 2002-2013 The ANGLE Project Authors. All rights reserved.
 end_comment
 begin_comment
 comment|// Use of this source code is governed by a BSD-style license that can be
@@ -56,7 +56,10 @@ name|output
 condition|)
 block|{
 case|case
-name|SH_HLSL_OUTPUT
+name|SH_HLSL9_OUTPUT
+case|:
+case|case
+name|SH_HLSL11_OUTPUT
 case|:
 return|return
 operator|new
@@ -65,6 +68,8 @@ argument_list|(
 name|type
 argument_list|,
 name|spec
+argument_list|,
+name|output
 argument_list|)
 return|;
 default|default:

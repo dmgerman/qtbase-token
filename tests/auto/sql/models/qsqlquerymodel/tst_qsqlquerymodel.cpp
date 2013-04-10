@@ -515,6 +515,8 @@ argument_list|(
 literal|"test"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -522,6 +524,8 @@ argument_list|(
 literal|"test2"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -529,6 +533,8 @@ argument_list|(
 literal|"test3"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -536,6 +542,8 @@ argument_list|(
 literal|"many"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 expr_stmt|;
 name|tst_Databases
@@ -603,6 +611,8 @@ argument_list|(
 literal|"test"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|"(id integer not null, name varchar(20), title integer, primary key (id))"
@@ -622,6 +632,8 @@ argument_list|(
 literal|"test2"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|"(id integer not null, title varchar(20), primary key (id))"
@@ -641,6 +653,8 @@ argument_list|(
 literal|"test3"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|"(id integer not null, primary key (id))"
@@ -660,6 +674,8 @@ argument_list|(
 literal|"many"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|"(id integer not null, name varchar(20), primary key (id))"
@@ -724,6 +740,8 @@ argument_list|(
 literal|"manytmp"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -731,6 +749,8 @@ argument_list|(
 literal|"test3tmp"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -747,6 +767,8 @@ argument_list|(
 literal|"manytmp"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|"(id integer not null, name varchar(20), primary key (id))"
@@ -766,6 +788,8 @@ argument_list|(
 literal|"test3tmp"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|"(id integer not null, primary key (id))"
@@ -797,6 +821,8 @@ argument_list|(
 literal|"test"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|" values(1, 'harry', 1)"
@@ -816,6 +842,8 @@ argument_list|(
 literal|"test"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|" values(2, 'trond', 2)"
@@ -835,6 +863,8 @@ argument_list|(
 literal|"test2"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|" values(1, 'herr')"
@@ -854,6 +884,8 @@ argument_list|(
 literal|"test2"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|" values(2, 'mister')"
@@ -875,6 +907,8 @@ argument_list|(
 literal|"test3"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|" values(0)"
@@ -895,6 +929,8 @@ argument_list|(
 literal|"test3"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|"(id) select id + ? from "
@@ -904,6 +940,8 @@ argument_list|(
 literal|"test3tmp"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|)
 argument_list|)
@@ -935,6 +973,8 @@ argument_list|(
 literal|"test3tmp"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -951,6 +991,8 @@ argument_list|(
 literal|"test3tmp"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|"(id) select id from "
@@ -960,6 +1002,8 @@ argument_list|(
 literal|"test3"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|)
 argument_list|)
@@ -997,6 +1041,8 @@ argument_list|(
 literal|"many"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|"(id, name) values (0, \'harry\')"
@@ -1017,6 +1063,8 @@ argument_list|(
 literal|"many"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|"(id, name) select id + ?, name from "
@@ -1026,6 +1074,8 @@ argument_list|(
 literal|"manytmp"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1057,6 +1107,8 @@ argument_list|(
 literal|"manytmp"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1073,6 +1125,8 @@ argument_list|(
 literal|"manytmp"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|"(id, name) select id, name from "
@@ -1082,6 +1136,8 @@ argument_list|(
 literal|"many"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1130,6 +1186,8 @@ argument_list|(
 literal|"manytmp"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|<<
 name|qTableName
@@ -1137,6 +1195,8 @@ argument_list|(
 literal|"test3tmp"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1265,6 +1325,8 @@ argument_list|(
 literal|"test"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|,
 name|db
@@ -2375,6 +2437,8 @@ argument_list|(
 literal|"test"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|,
 name|db
@@ -3890,6 +3954,8 @@ argument_list|(
 literal|"test"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|,
 name|db
@@ -4287,6 +4353,8 @@ argument_list|(
 literal|"test"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|,
 name|db
@@ -4686,6 +4754,8 @@ argument_list|(
 literal|"many"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|,
 name|db
@@ -4895,6 +4965,8 @@ argument_list|(
 literal|"test3"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|,
 name|db
@@ -4981,6 +5053,8 @@ argument_list|(
 literal|"test3"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|,
 name|db
@@ -5168,6 +5242,8 @@ argument_list|(
 literal|"test"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|,
 name|db
@@ -5209,6 +5285,8 @@ argument_list|(
 literal|"test"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|,
 name|db
@@ -5334,6 +5412,8 @@ argument_list|(
 literal|"test"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|" where 0 = 1"
@@ -5666,6 +5746,8 @@ argument_list|(
 literal|"test3"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|)
 decl_stmt|;

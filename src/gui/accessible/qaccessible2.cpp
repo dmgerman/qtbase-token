@@ -29,7 +29,6 @@ name|QT_NO_ACCESSIBILITY
 end_ifndef
 begin_function
 name|QT_BEGIN_NAMESPACE
-comment|/*!     \namespace QAccessible2     \ingroup accessibility     \internal      \brief The QAccessible2 namespace defines constants relating to     IAccessible2-based interfaces      \l{IAccessible2 Specification} */
 comment|/*!     \class QAccessibleTextInterface     \internal     \inmodule QtGui      \ingroup accessibility      \brief The QAccessibleTextInterface class implements support for text handling.      This interface corresponds to the IAccessibleText interface.     It should be implemented for widgets that display more text than a plain label.     Labels should be represented by only \l QAccessibleInterface     and return their text as name (\l QAccessibleInterface::text() with \l QAccessible::Name as type).     The QAccessibleTextInterface is typically for text that a screen reader     might want to read line by line, and for widgets that support text selection and input.     This interface is, for example, implemented for QLineEdit.      Editable text objects should also implement \l QAccessibleEditableTextInterface.     \l{IAccessible2 Specification} */
 comment|/*!     \fn QAccessibleTextInterface::~QAccessibleTextInterface()     Destructor. */
 comment|/*!     \fn void QAccessibleTextInterface::addSelection(int startOffset, int endOffset)     Select the text from \a startOffset to \a endOffset.     The \a startOffset is the first character that will be selected.     The \a endOffset is the first character that will not be selected.      When the object supports multiple selections (e.g. in a word processor),     this adds a new selection, otherwise it replaces the previous selection.      The selection will be \a endOffset - \a startOffset characters long. */
@@ -50,9 +49,9 @@ parameter_list|(
 name|int
 name|offset
 parameter_list|,
-name|QAccessible2
+name|QAccessible
 operator|::
-name|BoundaryType
+name|TextBoundaryType
 name|boundaryType
 parameter_list|,
 name|int
@@ -141,7 +140,7 @@ name|boundaryType
 condition|)
 block|{
 case|case
-name|QAccessible2
+name|QAccessible
 operator|::
 name|CharBoundary
 case|:
@@ -153,7 +152,7 @@ name|Grapheme
 expr_stmt|;
 break|break;
 case|case
-name|QAccessible2
+name|QAccessible
 operator|::
 name|WordBoundary
 case|:
@@ -165,7 +164,7 @@ name|Word
 expr_stmt|;
 break|break;
 case|case
-name|QAccessible2
+name|QAccessible
 operator|::
 name|SentenceBoundary
 case|:
@@ -341,9 +340,9 @@ parameter_list|(
 name|int
 name|offset
 parameter_list|,
-name|QAccessible2
+name|QAccessible
 operator|::
-name|BoundaryType
+name|TextBoundaryType
 name|boundaryType
 parameter_list|,
 name|int
@@ -435,7 +434,7 @@ name|boundaryType
 condition|)
 block|{
 case|case
-name|QAccessible2
+name|QAccessible
 operator|::
 name|CharBoundary
 case|:
@@ -447,7 +446,7 @@ name|Grapheme
 expr_stmt|;
 break|break;
 case|case
-name|QAccessible2
+name|QAccessible
 operator|::
 name|WordBoundary
 case|:
@@ -459,7 +458,7 @@ name|Word
 expr_stmt|;
 break|break;
 case|case
-name|QAccessible2
+name|QAccessible
 operator|::
 name|SentenceBoundary
 case|:
@@ -645,9 +644,9 @@ parameter_list|(
 name|int
 name|offset
 parameter_list|,
-name|QAccessible2
+name|QAccessible
 operator|::
-name|BoundaryType
+name|TextBoundaryType
 name|boundaryType
 parameter_list|,
 name|int
@@ -739,7 +738,7 @@ name|boundaryType
 condition|)
 block|{
 case|case
-name|QAccessible2
+name|QAccessible
 operator|::
 name|CharBoundary
 case|:
@@ -751,7 +750,7 @@ name|Grapheme
 expr_stmt|;
 break|break;
 case|case
-name|QAccessible2
+name|QAccessible
 operator|::
 name|WordBoundary
 case|:
@@ -763,7 +762,7 @@ name|Word
 expr_stmt|;
 break|break;
 case|case
-name|QAccessible2
+name|QAccessible
 operator|::
 name|SentenceBoundary
 case|:

@@ -3,7 +3,7 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// Copyright (c) 2002-2012 The ANGLE Project Authors. All rights reserved.
+comment|// Copyright (c) 2002-2013 The ANGLE Project Authors. All rights reserved.
 end_comment
 begin_comment
 comment|// Use of this source code is governed by a BSD-style license that can be
@@ -37,7 +37,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"compiler/preprocessor/new/SourceLocation.h"
+file|"compiler/preprocessor/SourceLocation.h"
 end_include
 begin_comment
 comment|///////////////////////////////////////////////////////////////////////
@@ -133,7 +133,7 @@ block|,
 name|ergba
 block|,
 name|estpq
-block|,     }
+block|}
 name|fieldSet
 index|[
 literal|4
@@ -1533,11 +1533,10 @@ operator|->
 name|getAsConstantUnion
 argument_list|()
 operator|->
-name|getUnionArrayPointer
-argument_list|()
-operator|->
 name|getIConst
-argument_list|()
+argument_list|(
+literal|0
+argument_list|)
 decl_stmt|;
 name|offset
 index|[
@@ -2401,7 +2400,7 @@ literal|false
 decl_stmt|;
 for|for
 control|(
-name|int
+name|size_t
 name|i
 init|=
 literal|0
@@ -2531,10 +2530,16 @@ operator|->
 name|isArray
 argument_list|()
 operator|&&
+cast|static_cast
+argument_list|<
+name|size_t
+argument_list|>
+argument_list|(
 name|type
 operator|->
 name|getArraySize
 argument_list|()
+argument_list|)
 operator|!=
 name|function
 operator|.
@@ -3441,11 +3446,10 @@ name|size
 operator|=
 name|constant
 operator|->
-name|getUnionArrayPointer
-argument_list|()
-operator|->
 name|getIConst
-argument_list|()
+argument_list|(
+literal|0
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -6761,11 +6765,6 @@ operator|->
 name|getUnionArrayPointer
 argument_list|()
 expr_stmt|;
-name|ASSERT
-argument_list|(
-name|unionArray
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -7691,7 +7690,7 @@ DECL|function|PaParseStrings
 name|int
 name|PaParseStrings
 parameter_list|(
-name|int
+name|size_t
 name|count
 parameter_list|,
 specifier|const

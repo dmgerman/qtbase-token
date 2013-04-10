@@ -84,11 +84,32 @@ operator|==
 name|SH_FRAGMENT_SHADER
 argument_list|)
 expr_stmt|;
+comment|// Write array bounds clamping emulation if needed.
+name|getArrayBoundsClamper
+argument_list|()
+operator|.
+name|OutputClampingFunctionDefinition
+argument_list|(
+name|sink
+argument_list|)
+expr_stmt|;
 comment|// Write translated shader.
 name|TOutputESSL
 name|outputESSL
 argument_list|(
 name|sink
+argument_list|,
+name|getArrayIndexClampingStrategy
+argument_list|()
+argument_list|,
+name|getHashFunction
+argument_list|()
+argument_list|,
+name|getNameMap
+argument_list|()
+argument_list|,
+name|getSymbolTable
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|root

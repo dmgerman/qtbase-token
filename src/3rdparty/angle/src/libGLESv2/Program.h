@@ -44,13 +44,27 @@ end_include
 begin_include
 include|#
 directive|include
-file|"libGLESv2/Shader.h"
+file|"common/angleutils.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"libGLESv2/Context.h"
+file|"common/RefCountObject.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"libGLESv2/Constants.h"
+end_include
+begin_decl_stmt
+name|namespace
+name|rx
+block|{
+name|class
+name|Renderer
+decl_stmt|;
+block|}
+end_decl_stmt
 begin_decl_stmt
 name|namespace
 name|gl
@@ -63,6 +77,12 @@ name|FragmentShader
 decl_stmt|;
 name|class
 name|VertexShader
+decl_stmt|;
+name|class
+name|ProgramBinary
+decl_stmt|;
+name|class
+name|Shader
 decl_stmt|;
 specifier|extern
 specifier|const
@@ -200,6 +220,8 @@ name|public
 label|:
 name|Program
 argument_list|(
+argument|rx::Renderer *renderer
+argument_list|,
 argument|ResourceManager *manager
 argument_list|,
 argument|GLuint handle
@@ -455,6 +477,12 @@ name|ResourceManager
 modifier|*
 name|mResourceManager
 decl_stmt|;
+name|rx
+operator|::
+name|Renderer
+operator|*
+name|mRenderer
+expr_stmt|;
 specifier|const
 name|GLuint
 name|mHandle

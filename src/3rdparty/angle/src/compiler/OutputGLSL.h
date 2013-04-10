@@ -41,9 +41,15 @@ name|public
 operator|:
 name|TOutputGLSL
 argument_list|(
-name|TInfoSinkBase
-operator|&
-name|objSink
+argument|TInfoSinkBase& objSink
+argument_list|,
+argument|ShArrayIndexClampingStrategy clampingStrategy
+argument_list|,
+argument|ShHashFunction64 hashFunction
+argument_list|,
+argument|NameMap& nameMap
+argument_list|,
+argument|TSymbolTable& symbolTable
 argument_list|)
 block|;
 name|protected

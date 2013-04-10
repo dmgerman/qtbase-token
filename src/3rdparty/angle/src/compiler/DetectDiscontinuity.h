@@ -74,12 +74,23 @@ argument|TIntermBranch *node
 argument_list|)
 block|;
 name|bool
+name|visitLoop
+argument_list|(
+argument|Visit visit
+argument_list|,
+argument|TIntermLoop *loop
+argument_list|)
+block|;
+name|bool
 name|visitAggregate
 argument_list|(
 argument|Visit visit
 argument_list|,
 argument|TIntermAggregate *node
 argument_list|)
+block|;
+name|int
+name|mLoopDepth
 block|;
 name|bool
 name|mLoopDiscontinuity

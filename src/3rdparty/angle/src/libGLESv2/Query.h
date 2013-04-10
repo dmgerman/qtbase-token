@@ -42,11 +42,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<d3d9.h>
-end_include
-begin_include
-include|#
-directive|include
 file|"common/angleutils.h"
 end_include
 begin_include
@@ -54,6 +49,18 @@ include|#
 directive|include
 file|"common/RefCountObject.h"
 end_include
+begin_decl_stmt
+name|namespace
+name|rx
+block|{
+name|class
+name|Renderer
+decl_stmt|;
+name|class
+name|QueryImpl
+decl_stmt|;
+block|}
+end_decl_stmt
 begin_decl_stmt
 name|namespace
 name|gl
@@ -68,9 +75,11 @@ name|public
 operator|:
 name|Query
 argument_list|(
-argument|GLuint id
+argument|rx::Renderer *renderer
 argument_list|,
 argument|GLenum type
+argument_list|,
+argument|GLuint id
 argument_list|)
 block|;
 name|virtual
@@ -106,22 +115,11 @@ argument_list|(
 name|Query
 argument_list|)
 block|;
-name|GLboolean
-name|testQuery
-argument_list|()
-block|;
-name|IDirect3DQuery9
+name|rx
+operator|::
+name|QueryImpl
 operator|*
 name|mQuery
-block|;
-name|GLenum
-name|mType
-block|;
-name|GLboolean
-name|mStatus
-block|;
-name|GLint
-name|mResult
 block|; }
 decl_stmt|;
 block|}

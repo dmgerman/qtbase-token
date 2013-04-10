@@ -105,7 +105,7 @@ name|mappedName
 parameter_list|)
 function_decl|;
 comment|// Return the number of entries in the map.
-name|int
+name|size_t
 name|Size
 argument_list|()
 specifier|const

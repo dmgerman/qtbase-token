@@ -76,6 +76,12 @@ name|QFileDevice
 operator|::
 name|FileError
 name|writeError
+block|;
+name|bool
+name|useTemporaryFile
+block|;
+name|bool
+name|directWriteFallback
 block|; }
 decl_stmt|;
 end_decl_stmt

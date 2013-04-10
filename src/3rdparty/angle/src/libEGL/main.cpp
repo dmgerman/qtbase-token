@@ -501,9 +501,6 @@ operator|->
 name|readSurface
 return|;
 block|}
-block|}
-end_namespace
-begin_function
 DECL|function|error
 name|void
 name|error
@@ -520,5 +517,6 @@ name|errorCode
 argument_list|)
 expr_stmt|;
 block|}
-end_function
+block|}
+end_namespace
 end_unit

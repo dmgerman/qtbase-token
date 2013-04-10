@@ -177,6 +177,10 @@ range|:
 name|public
 name|QSqlDriver
 block|{
+name|Q_DECLARE_PRIVATE
+argument_list|(
+argument|QTDSDriver
+argument_list|)
 name|Q_OBJECT
 name|friend
 name|class
@@ -317,10 +321,6 @@ operator|:
 name|void
 name|init
 argument_list|()
-block|;
-name|QTDSDriverPrivate
-operator|*
-name|d
 block|; }
 decl_stmt|;
 end_decl_stmt

@@ -45,12 +45,27 @@ end_include
 begin_include
 include|#
 directive|include
+file|"libGLESv2/main.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"libGLESv2/renderer/SwapChain.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"libEGL/main.h"
 end_include
 begin_include
 include|#
 directive|include
 file|"libEGL/Display.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"libEGL/Surface.h"
 end_include
 begin_function
 DECL|function|validateDisplay
@@ -72,6 +87,8 @@ name|EGL_NO_DISPLAY
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_DISPLAY
@@ -90,6 +107,8 @@ argument_list|()
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_NOT_INITIALIZED
@@ -143,6 +162,8 @@ argument_list|)
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_CONFIG
@@ -199,6 +220,8 @@ argument_list|)
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_CONTEXT
@@ -255,6 +278,8 @@ argument_list|)
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_SURFACE
@@ -350,6 +375,8 @@ modifier|&
 parameter_list|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ALLOC
@@ -397,6 +424,8 @@ name|EGL_NO_DISPLAY
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_DISPLAY
@@ -432,6 +461,8 @@ argument_list|()
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_NOT_INITIALIZED
@@ -459,6 +490,8 @@ operator|=
 literal|4
 expr_stmt|;
 return|return
+name|egl
+operator|::
 name|success
 argument_list|(
 name|EGL_TRUE
@@ -474,6 +507,8 @@ modifier|&
 parameter_list|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ALLOC
@@ -509,6 +544,8 @@ name|EGL_NO_DISPLAY
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_DISPLAY
@@ -540,6 +577,8 @@ name|terminate
 argument_list|()
 expr_stmt|;
 return|return
+name|egl
+operator|::
 name|success
 argument_list|(
 name|EGL_TRUE
@@ -555,6 +594,8 @@ modifier|&
 parameter_list|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ALLOC
@@ -628,6 +669,8 @@ case|case
 name|EGL_CLIENT_APIS
 case|:
 return|return
+name|egl
+operator|::
 name|success
 argument_list|(
 literal|"OpenGL_ES"
@@ -646,6 +689,8 @@ case|case
 name|EGL_VENDOR
 case|:
 return|return
+name|egl
+operator|::
 name|success
 argument_list|(
 literal|"Google Inc."
@@ -655,6 +700,8 @@ case|case
 name|EGL_VERSION
 case|:
 return|return
+name|egl
+operator|::
 name|success
 argument_list|(
 literal|"1.4 (ANGLE "
@@ -664,6 +711,8 @@ argument_list|)
 return|;
 block|}
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_PARAMETER
@@ -686,6 +735,8 @@ modifier|&
 parameter_list|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ALLOC
@@ -773,6 +824,8 @@ name|num_config
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_PARAMETER
@@ -808,6 +861,8 @@ argument_list|)
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ATTRIBUTE
@@ -817,6 +872,8 @@ argument_list|)
 return|;
 block|}
 return|return
+name|egl
+operator|::
 name|success
 argument_list|(
 name|EGL_TRUE
@@ -832,6 +889,8 @@ modifier|&
 parameter_list|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ALLOC
@@ -921,6 +980,8 @@ name|num_config
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_PARAMETER
@@ -963,6 +1024,8 @@ name|num_config
 argument_list|)
 expr_stmt|;
 return|return
+name|egl
+operator|::
 name|success
 argument_list|(
 name|EGL_TRUE
@@ -978,6 +1041,8 @@ modifier|&
 parameter_list|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ALLOC
@@ -1069,6 +1134,8 @@ argument_list|)
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ATTRIBUTE
@@ -1078,6 +1145,8 @@ argument_list|)
 return|;
 block|}
 return|return
+name|egl
+operator|::
 name|success
 argument_list|(
 name|EGL_TRUE
@@ -1093,6 +1162,8 @@ modifier|&
 parameter_list|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ALLOC
@@ -1188,6 +1259,8 @@ argument_list|)
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_NATIVE_WINDOW
@@ -1218,6 +1291,8 @@ modifier|&
 parameter_list|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ALLOC
@@ -1311,6 +1386,8 @@ modifier|&
 parameter_list|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ALLOC
@@ -1393,6 +1470,8 @@ argument_list|()
 expr_stmt|;
 comment|// FIXME
 return|return
+name|egl
+operator|::
 name|success
 argument_list|(
 name|EGL_NO_SURFACE
@@ -1408,6 +1487,8 @@ modifier|&
 parameter_list|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ALLOC
@@ -1497,6 +1578,8 @@ name|EGL_NO_SURFACE
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_SURFACE
@@ -1519,6 +1602,8 @@ name|surface
 argument_list|)
 expr_stmt|;
 return|return
+name|egl
+operator|::
 name|success
 argument_list|(
 name|EGL_TRUE
@@ -1534,6 +1619,8 @@ modifier|&
 parameter_list|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ALLOC
@@ -1631,6 +1718,8 @@ name|EGL_NO_SURFACE
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_SURFACE
@@ -1794,6 +1883,8 @@ expr_stmt|;
 break|break;
 default|default:
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ATTRIBUTE
@@ -1803,6 +1894,8 @@ argument_list|)
 return|;
 block|}
 return|return
+name|egl
+operator|::
 name|success
 argument_list|(
 name|EGL_TRUE
@@ -1818,6 +1911,8 @@ modifier|&
 parameter_list|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ALLOC
@@ -1916,6 +2011,8 @@ name|EGL_NO_SURFACE
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_SURFACE
@@ -1932,6 +2029,18 @@ block|{
 case|case
 name|EGL_D3D_TEXTURE_2D_SHARE_HANDLE_ANGLE
 case|:
+block|{
+name|rx
+operator|::
+name|SwapChain
+modifier|*
+name|swapchain
+init|=
+name|eglSurface
+operator|->
+name|getSwapChain
+argument_list|()
+decl_stmt|;
 operator|*
 name|value
 operator|=
@@ -1939,14 +2048,23 @@ operator|(
 name|void
 operator|*
 operator|)
-name|eglSurface
+operator|(
+name|swapchain
+condition|?
+name|swapchain
 operator|->
 name|getShareHandle
 argument_list|()
+else|:
+name|NULL
+operator|)
 expr_stmt|;
+block|}
 break|break;
 default|default:
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ATTRIBUTE
@@ -1956,6 +2074,8 @@ argument_list|)
 return|;
 block|}
 return|return
+name|egl
+operator|::
 name|success
 argument_list|(
 name|EGL_TRUE
@@ -1971,6 +2091,8 @@ modifier|&
 parameter_list|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ALLOC
@@ -2010,6 +2132,8 @@ case|case
 name|EGL_OPENVG_API
 case|:
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_PARAMETER
@@ -2024,6 +2148,8 @@ case|:
 break|break;
 default|default:
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_PARAMETER
@@ -2040,6 +2166,8 @@ name|api
 argument_list|)
 expr_stmt|;
 return|return
+name|egl
+operator|::
 name|success
 argument_list|(
 name|EGL_TRUE
@@ -2055,6 +2183,8 @@ modifier|&
 parameter_list|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ALLOC
@@ -2088,6 +2218,8 @@ name|getCurrentAPI
 argument_list|()
 decl_stmt|;
 return|return
+name|egl
+operator|::
 name|success
 argument_list|(
 name|API
@@ -2103,6 +2235,8 @@ modifier|&
 parameter_list|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ALLOC
@@ -2132,6 +2266,8 @@ argument_list|()
 expr_stmt|;
 comment|// FIXME
 return|return
+name|egl
+operator|::
 name|success
 argument_list|(
 literal|0
@@ -2147,6 +2283,8 @@ modifier|&
 parameter_list|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ALLOC
@@ -2183,6 +2321,8 @@ name|EGL_NO_SURFACE
 argument_list|)
 expr_stmt|;
 return|return
+name|egl
+operator|::
 name|success
 argument_list|(
 name|EGL_TRUE
@@ -2198,6 +2338,8 @@ modifier|&
 parameter_list|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ALLOC
@@ -2291,6 +2433,8 @@ name|buffer
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_PARAMETER
@@ -2324,6 +2468,8 @@ modifier|&
 parameter_list|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ALLOC
@@ -2420,6 +2566,8 @@ argument_list|()
 expr_stmt|;
 comment|// FIXME
 return|return
+name|egl
+operator|::
 name|success
 argument_list|(
 name|EGL_TRUE
@@ -2435,6 +2583,8 @@ modifier|&
 parameter_list|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ALLOC
@@ -2529,6 +2679,8 @@ name|EGL_BACK_BUFFER
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_PARAMETER
@@ -2550,6 +2702,8 @@ argument_list|()
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_SURFACE
@@ -2567,6 +2721,8 @@ argument_list|()
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ACCESS
@@ -2586,6 +2742,8 @@ name|EGL_NO_TEXTURE
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_MATCH
@@ -2604,6 +2762,8 @@ argument_list|)
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_MATCH
@@ -2613,6 +2773,8 @@ argument_list|)
 return|;
 block|}
 return|return
+name|egl
+operator|::
 name|success
 argument_list|(
 name|EGL_TRUE
@@ -2628,6 +2790,8 @@ modifier|&
 parameter_list|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ALLOC
@@ -2722,6 +2886,8 @@ name|EGL_BACK_BUFFER
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_PARAMETER
@@ -2743,6 +2909,8 @@ argument_list|()
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_SURFACE
@@ -2762,6 +2930,8 @@ name|EGL_NO_TEXTURE
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_MATCH
@@ -2793,6 +2963,8 @@ argument_list|()
 expr_stmt|;
 block|}
 return|return
+name|egl
+operator|::
 name|success
 argument_list|(
 name|EGL_TRUE
@@ -2808,6 +2980,8 @@ modifier|&
 parameter_list|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ALLOC
@@ -2898,6 +3072,8 @@ name|NULL
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_SURFACE
@@ -2914,6 +3090,8 @@ name|interval
 argument_list|)
 expr_stmt|;
 return|return
+name|egl
+operator|::
 name|success
 argument_list|(
 name|EGL_TRUE
@@ -2929,6 +3107,8 @@ modifier|&
 parameter_list|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ALLOC
@@ -3049,6 +3229,8 @@ name|EGL_TRUE
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_CONFIG
@@ -3070,6 +3252,8 @@ operator|!=
 name|EGL_FALSE
 condition|)
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ATTRIBUTE
@@ -3105,6 +3289,8 @@ operator|!=
 name|EGL_NO_RESET_NOTIFICATION_EXT
 condition|)
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ATTRIBUTE
@@ -3115,6 +3301,8 @@ return|;
 break|break;
 default|default:
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ATTRIBUTE
@@ -3133,6 +3321,8 @@ literal|2
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_CONFIG
@@ -3163,6 +3353,8 @@ name|reset_notification
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_MATCH
@@ -3233,6 +3425,8 @@ condition|(
 name|context
 condition|)
 return|return
+name|egl
+operator|::
 name|success
 argument_list|(
 name|context
@@ -3240,6 +3434,8 @@ argument_list|)
 return|;
 else|else
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_CONTEXT_LOST
@@ -3257,6 +3453,8 @@ modifier|&
 parameter_list|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ALLOC
@@ -3346,6 +3544,8 @@ name|EGL_NO_CONTEXT
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_CONTEXT
@@ -3362,6 +3562,8 @@ name|context
 argument_list|)
 expr_stmt|;
 return|return
+name|egl
+operator|::
 name|success
 argument_list|(
 name|EGL_TRUE
@@ -3377,6 +3579,8 @@ modifier|&
 parameter_list|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ALLOC
@@ -3453,52 +3657,6 @@ argument_list|(
 name|ctx
 argument_list|)
 decl_stmt|;
-name|IDirect3DDevice9
-modifier|*
-name|device
-init|=
-name|display
-operator|->
-name|getDevice
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|device
-operator|||
-name|display
-operator|->
-name|testDeviceLost
-argument_list|()
-condition|)
-block|{
-name|display
-operator|->
-name|notifyDeviceLost
-argument_list|()
-expr_stmt|;
-return|return
-name|EGL_FALSE
-return|;
-block|}
-if|if
-condition|(
-name|display
-operator|->
-name|isDeviceLost
-argument_list|()
-condition|)
-block|{
-return|return
-name|error
-argument_list|(
-name|EGL_CONTEXT_LOST
-argument_list|,
-name|EGL_FALSE
-argument_list|)
-return|;
-block|}
 if|if
 condition|(
 name|ctx
@@ -3516,6 +3674,50 @@ condition|)
 block|{
 return|return
 name|EGL_FALSE
+return|;
+block|}
+name|rx
+operator|::
+name|Renderer
+modifier|*
+name|renderer
+init|=
+name|display
+operator|->
+name|getRenderer
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|renderer
+operator|->
+name|testDeviceLost
+argument_list|(
+literal|true
+argument_list|)
+condition|)
+block|{
+return|return
+name|EGL_FALSE
+return|;
+block|}
+if|if
+condition|(
+name|renderer
+operator|->
+name|isDeviceLost
+argument_list|()
+condition|)
+block|{
+return|return
+name|egl
+operator|::
+name|error
+argument_list|(
+name|EGL_CONTEXT_LOST
+argument_list|,
+name|EGL_FALSE
+argument_list|)
 return|;
 block|}
 if|if
@@ -3623,6 +3825,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
+name|egl
+operator|::
 name|success
 argument_list|(
 name|EGL_TRUE
@@ -3638,6 +3842,8 @@ modifier|&
 parameter_list|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ALLOC
@@ -3669,6 +3875,8 @@ name|glGetCurrentContext
 argument_list|()
 decl_stmt|;
 return|return
+name|egl
+operator|::
 name|success
 argument_list|(
 name|context
@@ -3684,6 +3892,8 @@ modifier|&
 parameter_list|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ALLOC
@@ -3727,6 +3937,8 @@ name|getCurrentReadSurface
 argument_list|()
 decl_stmt|;
 return|return
+name|egl
+operator|::
 name|success
 argument_list|(
 name|read
@@ -3750,6 +3962,8 @@ name|getCurrentDrawSurface
 argument_list|()
 decl_stmt|;
 return|return
+name|egl
+operator|::
 name|success
 argument_list|(
 name|draw
@@ -3759,6 +3973,8 @@ block|}
 else|else
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_PARAMETER
@@ -3777,6 +3993,8 @@ modifier|&
 parameter_list|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ALLOC
@@ -3810,6 +4028,8 @@ name|getCurrentDisplay
 argument_list|()
 decl_stmt|;
 return|return
+name|egl
+operator|::
 name|success
 argument_list|(
 name|dpy
@@ -3825,6 +4045,8 @@ modifier|&
 parameter_list|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ALLOC
@@ -3922,6 +4144,8 @@ argument_list|()
 expr_stmt|;
 comment|// FIXME
 return|return
+name|egl
+operator|::
 name|success
 argument_list|(
 literal|0
@@ -3937,6 +4161,8 @@ modifier|&
 parameter_list|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ALLOC
@@ -3966,6 +4192,8 @@ argument_list|()
 expr_stmt|;
 comment|// FIXME
 return|return
+name|egl
+operator|::
 name|success
 argument_list|(
 literal|0
@@ -3981,6 +4209,8 @@ modifier|&
 parameter_list|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ALLOC
@@ -4013,6 +4243,8 @@ argument_list|()
 expr_stmt|;
 comment|// FIXME
 return|return
+name|egl
+operator|::
 name|success
 argument_list|(
 literal|0
@@ -4028,6 +4260,8 @@ modifier|&
 parameter_list|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ALLOC
@@ -4110,11 +4344,16 @@ if|if
 condition|(
 name|display
 operator|->
+name|getRenderer
+argument_list|()
+operator|->
 name|isDeviceLost
 argument_list|()
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_CONTEXT_LOST
@@ -4131,6 +4370,8 @@ name|EGL_NO_SURFACE
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_SURFACE
@@ -4148,6 +4389,8 @@ argument_list|()
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|success
 argument_list|(
 name|EGL_TRUE
@@ -4164,6 +4407,8 @@ modifier|&
 parameter_list|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ALLOC
@@ -4257,11 +4502,16 @@ if|if
 condition|(
 name|display
 operator|->
+name|getRenderer
+argument_list|()
+operator|->
 name|isDeviceLost
 argument_list|()
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_CONTEXT_LOST
@@ -4275,6 +4525,8 @@ argument_list|()
 expr_stmt|;
 comment|// FIXME
 return|return
+name|egl
+operator|::
 name|success
 argument_list|(
 literal|0
@@ -4290,6 +4542,8 @@ modifier|&
 parameter_list|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ALLOC
@@ -4362,6 +4616,8 @@ literal|0
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_PARAMETER
@@ -4423,11 +4679,16 @@ if|if
 condition|(
 name|display
 operator|->
+name|getRenderer
+argument_list|()
+operator|->
 name|isDeviceLost
 argument_list|()
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_CONTEXT_LOST
@@ -4444,6 +4705,8 @@ name|EGL_NO_SURFACE
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_SURFACE
@@ -4469,6 +4732,8 @@ argument_list|)
 condition|)
 block|{
 return|return
+name|egl
+operator|::
 name|success
 argument_list|(
 name|EGL_TRUE
@@ -4485,6 +4750,8 @@ modifier|&
 parameter_list|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ALLOC
@@ -4564,6 +4831,7 @@ block|,         }
 decl_stmt|;
 for|for
 control|(
+name|unsigned
 name|int
 name|ext
 init|=
@@ -4571,14 +4839,9 @@ literal|0
 init|;
 name|ext
 operator|<
-sizeof|sizeof
+name|ArraySize
 argument_list|(
 name|eglExtensions
-argument_list|)
-operator|/
-sizeof|sizeof
-argument_list|(
-name|Extension
 argument_list|)
 condition|;
 name|ext
@@ -4631,6 +4894,8 @@ modifier|&
 parameter_list|)
 block|{
 return|return
+name|egl
+operator|::
 name|error
 argument_list|(
 name|EGL_BAD_ALLOC

@@ -674,6 +674,16 @@ modifier|&
 name|stream
 parameter_list|)
 function_decl|;
+name|bool
+name|inDeprecationException
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|functionName
+argument_list|)
+decl|const
+decl_stmt|;
 name|private
 label|:
 name|QString

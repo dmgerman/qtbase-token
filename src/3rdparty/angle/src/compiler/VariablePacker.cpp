@@ -268,7 +268,7 @@ case|case
 name|SH_FLOAT_MAT2
 case|:
 return|return
-literal|1
+literal|2
 return|;
 case|case
 name|SH_FLOAT_VEC4

@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/*     Copyright (c) 2012, BogDan Vatra<bogdan@kde.org>     Contact: http://www.qt-project.org/legal      Redistribution and use in source and binary forms, with or without     modification, are permitted provided that the following conditions     are met:      1. Redistributions of source code must retain the above copyright     notice, this list of conditions and the following disclaimer.     2. Redistributions in binary form must reproduce the above copyright     notice, this list of conditions and the following disclaimer in the     documentation and/or other materials provided with the distribution.      THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR     IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES     OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.     IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,     INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT     NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,     DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY     THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT     (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF     THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. */
+comment|/*     Copyright (c) 2012-2013, BogDan Vatra<bogdan@kde.org>     Contact: http://www.qt-project.org/legal      Redistribution and use in source and binary forms, with or without     modification, are permitted provided that the following conditions     are met:      1. Redistributions of source code must retain the above copyright     notice, this list of conditions and the following disclaimer.     2. Redistributions in binary form must reproduce the above copyright     notice, this list of conditions and the following disclaimer in the     documentation and/or other materials provided with the distribution.      THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR     IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES     OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.     IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,     INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT     NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,     DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY     THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT     (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF     THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. */
 end_comment
 begin_package
 DECL|package|org.qtproject.qt5.android.bindings
@@ -448,7 +448,7 @@ specifier|final
 name|int
 name|MINISTRO_API_LEVEL
 init|=
-literal|2
+literal|3
 decl_stmt|;
 comment|// Ministro api level (check IMinistro.aidl file)
 DECL|field|NECESSITAS_API_LEVEL
@@ -461,15 +461,6 @@ init|=
 literal|2
 decl_stmt|;
 comment|// Necessitas api level used by platform plugin
-DECL|field|QT_PROVIDER
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|QT_PROVIDER
-init|=
-literal|"necessitas"
-decl_stmt|;
 DECL|field|QT_VERSION
 specifier|private
 specifier|static
@@ -607,15 +598,6 @@ name|APPLICATION_TITLE_KEY
 init|=
 literal|"application.title"
 decl_stmt|;
-DECL|field|QT_PROVIDER_KEY
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|QT_PROVIDER_KEY
-init|=
-literal|"qt.provider"
-decl_stmt|;
 DECL|field|MINIMUM_MINISTRO_API_KEY
 specifier|private
 specifier|static
@@ -634,11 +616,30 @@ name|MINIMUM_QT_VERSION_KEY
 init|=
 literal|"minimum.qt.version"
 decl_stmt|;
-comment|//    private static final String REPOSITORIES="3rd.party.repositories"; // needs MINISTRO_API_LEVEL>=2 !!!
-comment|// Use this key to specify any 3rd party repositories urls
-comment|// Ministro will download these repositories into thier
+DECL|field|SOURCES_KEY
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|SOURCES_KEY
+init|=
+literal|"sources"
+decl_stmt|;
+comment|// needs MINISTRO_API_LEVEL>=3 !!!
+comment|// Use this key to specify any 3rd party sources urls
+comment|// Ministro will download these repositories into their
 comment|// own folders, check http://community.kde.org/Necessitas/Ministro
 comment|// for more details.
+DECL|field|REPOSITORY_KEY
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|REPOSITORY_KEY
+init|=
+literal|"repository"
+decl_stmt|;
+comment|// use this key to overwrite the default ministro repsitory
 DECL|field|APPLICATION_PARAMETERS
 specifier|private
 specifier|static
@@ -659,13 +660,14 @@ specifier|final
 name|String
 name|ENVIRONMENT_VARIABLES
 init|=
-literal|"QT_USE_ANDROID_NATIVE_STYLE=1\t"
+literal|"QT_USE_ANDROID_NATIVE_STYLE=0\t"
 decl_stmt|;
 comment|// use this variable to add any environment variables to your application.
 comment|// the env vars must be separated with "\t"
 comment|// e.g. "ENV_VAR1=1\tENV_VAR2=2\t"
 comment|// Currently the following vars are used by the android plugin:
-comment|// * QT_USE_ANDROID_NATIVE_STYLE - 0 if you don't want to use android style plugin, it will save a few ms at startup.
+comment|// * QT_USE_ANDROID_NATIVE_STYLE - 1 to use the android widget style if available,
+comment|//   note that the android style plugin in Qt 5.1 is not fully functional.
 DECL|field|INCOMPATIBLE_MINISTRO_VERSION
 specifier|private
 specifier|static
@@ -692,6 +694,35 @@ init|=
 literal|null
 decl_stmt|;
 comment|// loader object
+DECL|field|m_sources
+specifier|private
+name|String
+index|[]
+name|m_sources
+init|=
+block|{
+literal|"https://files.kde.org/necessitas/ministro/android/necessitas/qt5/latest"
+block|}
+decl_stmt|;
+comment|// Make sure you are using ONLY secure locations
+DECL|field|m_repository
+specifier|private
+name|String
+name|m_repository
+init|=
+literal|"default"
+decl_stmt|;
+comment|// Overwrites the default Ministro repository
+comment|// Possible values:
+comment|// * default - Ministro default repository set with "Ministro configuration tool".
+comment|// By default the stable version is used. Only this or stable repositories should
+comment|// be used in production.
+comment|// * stable - stable repository, only this and default repositories should be used
+comment|// in production.
+comment|// * testing - testing repository, DO NOT use this repository in production,
+comment|// this repository is used to push a new release, and should be used to test your application.
+comment|// * unstable - unstable repository, DO NOT use this repository in production,
+comment|// this repository is used to push Qt snapshots.
 DECL|field|m_qtLibs
 specifier|private
 name|String
@@ -1152,10 +1183,6 @@ decl_stmt|;
 if|if
 condition|(
 name|m_activityInfo
-operator|!=
-literal|null
-operator|&&
-name|m_activityInfo
 operator|.
 name|metaData
 operator|.
@@ -1329,15 +1356,6 @@ argument_list|)
 expr_stmt|;
 name|parameters
 operator|.
-name|putString
-argument_list|(
-name|QT_PROVIDER_KEY
-argument_list|,
-name|QT_PROVIDER
-argument_list|)
-expr_stmt|;
-name|parameters
-operator|.
 name|putInt
 argument_list|(
 name|MINIMUM_QT_VERSION_KEY
@@ -1369,7 +1387,24 @@ argument_list|,
 name|APPLICATION_PARAMETERS
 argument_list|)
 expr_stmt|;
-comment|// parameters.putStringArray(REPOSITORIES, null);
+name|parameters
+operator|.
+name|putStringArray
+argument_list|(
+name|SOURCES_KEY
+argument_list|,
+name|m_sources
+argument_list|)
+expr_stmt|;
+name|parameters
+operator|.
+name|putString
+argument_list|(
+name|REPOSITORY_KEY
+argument_list|,
+name|m_repository
+argument_list|)
+expr_stmt|;
 name|m_service
 operator|.
 name|requestLoader
@@ -1650,10 +1685,6 @@ decl_stmt|;
 if|if
 condition|(
 name|m_activityInfo
-operator|!=
-literal|null
-operator|&&
-name|m_activityInfo
 operator|.
 name|metaData
 operator|.
@@ -1746,25 +1777,66 @@ parameter_list|)
 block|{
 try|try
 block|{
-name|ActivityInfo
-name|ai
-init|=
-name|getPackageManager
-argument_list|()
-operator|.
-name|getActivityInfo
-argument_list|(
-name|getComponentName
-argument_list|()
-argument_list|,
-name|PackageManager
-operator|.
-name|GET_META_DATA
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
-name|ai
+name|m_activityInfo
+operator|.
+name|metaData
+operator|.
+name|containsKey
+argument_list|(
+literal|"android.app.qt_sources_resource_id"
+argument_list|)
+condition|)
+block|{
+name|int
+name|resourceId
+init|=
+name|m_activityInfo
+operator|.
+name|metaData
+operator|.
+name|getInt
+argument_list|(
+literal|"android.app.qt_sources_resource_id"
+argument_list|)
+decl_stmt|;
+name|m_sources
+operator|=
+name|getResources
+argument_list|()
+operator|.
+name|getStringArray
+argument_list|(
+name|resourceId
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|m_activityInfo
+operator|.
+name|metaData
+operator|.
+name|containsKey
+argument_list|(
+literal|"android.app.repository"
+argument_list|)
+condition|)
+name|m_repository
+operator|=
+name|m_activityInfo
+operator|.
+name|metaData
+operator|.
+name|getString
+argument_list|(
+literal|"android.app.repository"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|m_activityInfo
 operator|.
 name|metaData
 operator|.
@@ -1777,7 +1849,7 @@ block|{
 name|int
 name|resourceId
 init|=
-name|ai
+name|m_activityInfo
 operator|.
 name|metaData
 operator|.
@@ -1799,7 +1871,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|ai
+name|m_activityInfo
 operator|.
 name|metaData
 operator|.
@@ -1808,7 +1880,7 @@ argument_list|(
 literal|"android.app.use_local_qt_libs"
 argument_list|)
 operator|&&
-name|ai
+name|m_activityInfo
 operator|.
 name|metaData
 operator|.
@@ -1840,7 +1912,7 @@ literal|"/data/local/tmp/qt/"
 decl_stmt|;
 if|if
 condition|(
-name|ai
+name|m_activityInfo
 operator|.
 name|metaData
 operator|.
@@ -1851,7 +1923,7 @@ argument_list|)
 condition|)
 name|localPrefix
 operator|=
-name|ai
+name|m_activityInfo
 operator|.
 name|metaData
 operator|.
@@ -1902,7 +1974,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|ai
+name|m_activityInfo
 operator|.
 name|metaData
 operator|.
@@ -1916,7 +1988,7 @@ name|String
 index|[]
 name|extraLibs
 init|=
-name|ai
+name|m_activityInfo
 operator|.
 name|metaData
 operator|.
@@ -1979,7 +2051,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|ai
+name|m_activityInfo
 operator|.
 name|metaData
 operator|.
@@ -1993,7 +2065,7 @@ name|String
 index|[]
 name|jarFiles
 init|=
-name|ai
+name|m_activityInfo
 operator|.
 name|metaData
 operator|.
@@ -2083,7 +2155,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|ai
+name|m_activityInfo
 operator|.
 name|metaData
 operator|.
@@ -2099,7 +2171,7 @@ name|putStringArray
 argument_list|(
 name|STATIC_INIT_CLASSES_KEY
 argument_list|,
-name|ai
+name|m_activityInfo
 operator|.
 name|metaData
 operator|.
@@ -2221,10 +2293,6 @@ literal|"This application requires Ministro service. Would you like to install i
 decl_stmt|;
 if|if
 condition|(
-name|m_activityInfo
-operator|!=
-literal|null
-operator|&&
 name|m_activityInfo
 operator|.
 name|metaData

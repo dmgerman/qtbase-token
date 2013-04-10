@@ -92,6 +92,12 @@ name|class
 name|QWindow
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|QTextCursor
+name|class
+name|QTextCursor
+decl_stmt|;
+end_decl_stmt
 begin_comment
 comment|// We need to inherit QObject to expose the enums to QML.
 end_comment
@@ -972,6 +978,21 @@ name|TableInterface
 block|,
 name|TableCellInterface
 block|}
+block|;      enum
+name|TextBoundaryType
+block|{
+name|CharBoundary
+block|,
+name|WordBoundary
+block|,
+name|SentenceBoundary
+block|,
+name|ParagraphBoundary
+block|,
+name|LineBoundary
+block|,
+name|NoBoundary
+block|}
 block|;
 typedef|typedef
 name|QAccessibleInterface
@@ -1183,6 +1204,22 @@ name|cleanup
 parameter_list|()
 function_decl|;
 end_function_decl
+begin_expr_stmt
+specifier|static
+name|QPair
+operator|<
+name|int
+operator|,
+name|int
+operator|>
+name|qAccessibleTextBoundaryHelper
+argument_list|(
+argument|const QTextCursor&cursor
+argument_list|,
+argument|TextBoundaryType boundaryType
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_label
 name|private
 label|:

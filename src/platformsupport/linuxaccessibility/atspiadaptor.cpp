@@ -9289,7 +9289,7 @@ name|textAtOffset
 argument_list|(
 name|offset
 argument_list|,
-name|QAccessible2
+name|QAccessible
 operator|::
 name|CharBoundary
 argument_list|,
@@ -10317,9 +10317,9 @@ block|}
 end_function
 begin_function
 DECL|function|qAccessibleBoundaryType
-name|QAccessible2
+name|QAccessible
 operator|::
-name|BoundaryType
+name|TextBoundaryType
 name|AtSpiAdaptor
 operator|::
 name|qAccessibleBoundaryType
@@ -10338,7 +10338,7 @@ case|case
 name|ATSPI_TEXT_BOUNDARY_CHAR
 case|:
 return|return
-name|QAccessible2
+name|QAccessible
 operator|::
 name|CharBoundary
 return|;
@@ -10349,7 +10349,7 @@ case|case
 name|ATSPI_TEXT_BOUNDARY_WORD_END
 case|:
 return|return
-name|QAccessible2
+name|QAccessible
 operator|::
 name|WordBoundary
 return|;
@@ -10360,7 +10360,7 @@ case|case
 name|ATSPI_TEXT_BOUNDARY_SENTENCE_END
 case|:
 return|return
-name|QAccessible2
+name|QAccessible
 operator|::
 name|SentenceBoundary
 return|;
@@ -10371,7 +10371,7 @@ case|case
 name|ATSPI_TEXT_BOUNDARY_LINE_END
 case|:
 return|return
-name|QAccessible2
+name|QAccessible
 operator|::
 name|LineBoundary
 return|;
@@ -10386,7 +10386,7 @@ literal|"Requested invalid boundary type."
 argument_list|)
 expr_stmt|;
 return|return
-name|QAccessible2
+name|QAccessible
 operator|::
 name|CharBoundary
 return|;

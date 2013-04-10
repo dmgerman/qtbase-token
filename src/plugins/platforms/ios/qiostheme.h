@@ -16,6 +16,11 @@ end_define
 begin_include
 include|#
 directive|include
+file|<QtCore/QHash>
+end_include
+begin_include
+include|#
+directive|include
 file|<qpa/qplatformtheme.h>
 end_include
 begin_decl_stmt
@@ -56,6 +61,20 @@ specifier|const
 name|char
 operator|*
 name|name
+block|;
+name|private
+operator|:
+name|mutable
+name|QHash
+operator|<
+name|QPlatformTheme
+operator|::
+name|Font
+block|,
+name|QFont
+operator|*
+operator|>
+name|m_fonts
 block|; }
 decl_stmt|;
 end_decl_stmt
