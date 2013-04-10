@@ -2228,7 +2228,20 @@ name|QApplication
 operator|::
 name|beep
 parameter_list|()
-block|{ }
+block|{
+name|QMetaObject
+operator|::
+name|invokeMethod
+argument_list|(
+name|QGuiApplication
+operator|::
+name|platformNativeInterface
+argument_list|()
+argument_list|,
+literal|"beep"
+argument_list|)
+expr_stmt|;
+block|}
 end_function
 begin_function
 DECL|function|alert

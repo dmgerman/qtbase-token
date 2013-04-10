@@ -301,6 +301,19 @@ name|eventProc
 parameter_list|)
 specifier|const
 function_decl|;
+DECL|function|beep
+name|Q_INVOKABLE
+name|void
+name|beep
+parameter_list|()
+block|{
+name|MessageBeep
+argument_list|(
+name|MB_OK
+argument_list|)
+expr_stmt|;
+block|}
+comment|// For QApplication
 name|bool
 name|asyncExpose
 parameter_list|()
