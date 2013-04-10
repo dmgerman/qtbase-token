@@ -18127,6 +18127,46 @@ name|moduleStream
 operator|<<
 name|endl
 expr_stmt|;
+name|moduleStream
+operator|<<
+literal|"host_build {"
+operator|<<
+name|endl
+expr_stmt|;
+name|moduleStream
+operator|<<
+literal|"    QT_CPU_FEATURES = "
+operator|<<
+name|dictionary
+index|[
+literal|"QT_HOST_CPU_FEATURES"
+index|]
+operator|<<
+name|endl
+expr_stmt|;
+name|moduleStream
+operator|<<
+literal|"} else {"
+operator|<<
+name|endl
+expr_stmt|;
+name|moduleStream
+operator|<<
+literal|"    QT_CPU_FEATURES = "
+operator|<<
+name|dictionary
+index|[
+literal|"QT_CPU_FEATURES"
+index|]
+operator|<<
+name|endl
+expr_stmt|;
+name|moduleStream
+operator|<<
+literal|"}"
+operator|<<
+name|endl
+expr_stmt|;
 if|if
 condition|(
 name|dictionary
@@ -19793,17 +19833,6 @@ name|endl
 expr_stmt|;
 name|configStream
 operator|<<
-literal|"    QT_CPU_FEATURES = "
-operator|<<
-name|dictionary
-index|[
-literal|"QT_HOST_CPU_FEATURES"
-index|]
-operator|<<
-name|endl
-expr_stmt|;
-name|configStream
-operator|<<
 literal|"} else {"
 operator|<<
 name|endl
@@ -19815,17 +19844,6 @@ operator|<<
 name|dictionary
 index|[
 literal|"QT_ARCH"
-index|]
-operator|<<
-name|endl
-expr_stmt|;
-name|configStream
-operator|<<
-literal|"    QT_CPU_FEATURES = "
-operator|<<
-name|dictionary
-index|[
-literal|"QT_CPU_FEATURES"
 index|]
 operator|<<
 name|endl
