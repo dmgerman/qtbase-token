@@ -43,7 +43,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"compiler/preprocessor/new/Preprocessor.h"
+file|"compiler/preprocessor/Preprocessor.h"
 end_include
 begin_include
 include|#
@@ -290,6 +290,11 @@ name|bool
 name|checksPrecisionErrors
 decl_stmt|;
 comment|// true if an error will be generated when a variable is declared without precision, explicit or implicit.
+DECL|member|fragmentPrecisionHigh
+name|bool
+name|fragmentPrecisionHigh
+decl_stmt|;
+comment|// true if highp precision is supported in the fragment language.
 DECL|member|HashErrMsg
 name|TString
 name|HashErrMsg
@@ -1096,7 +1101,7 @@ begin_function_decl
 name|int
 name|PaParseStrings
 parameter_list|(
-name|int
+name|size_t
 name|count
 parameter_list|,
 specifier|const

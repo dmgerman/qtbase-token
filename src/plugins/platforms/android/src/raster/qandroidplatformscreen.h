@@ -39,6 +39,11 @@ operator|*
 name|w
 argument_list|)
 block|;
+name|QDpi
+name|logicalDpi
+argument_list|()
+specifier|const
+block|;
 name|public
 name|slots
 operator|:

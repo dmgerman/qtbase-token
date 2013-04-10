@@ -854,22 +854,16 @@ return|return
 name|defined
 return|;
 block|}
-name|int
+name|size_t
 name|getParamCount
 argument_list|()
 specifier|const
 block|{
 return|return
-name|static_cast
-operator|<
-name|int
-operator|>
-operator|(
 name|parameters
 operator|.
 name|size
 argument_list|()
-operator|)
 return|;
 block|}
 specifier|const
@@ -877,7 +871,7 @@ name|TParameter
 operator|&
 name|getParam
 argument_list|(
-argument|int i
+argument|size_t i
 argument_list|)
 specifier|const
 block|{
@@ -1561,10 +1555,12 @@ modifier|&
 name|copyOf
 parameter_list|)
 function_decl|;
-name|void
+name|bool
 name|setDefaultPrecision
 parameter_list|(
-name|TBasicType
+specifier|const
+name|TPublicType
+modifier|&
 name|type
 parameter_list|,
 name|TPrecision
@@ -1573,16 +1569,55 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|IsSampler
+argument_list|(
+name|type
+operator|.
+name|type
+argument_list|)
+condition|)
+return|return
+name|true
+return|;
+comment|// Skip sampler types for the time being
+if|if
+condition|(
+name|type
+operator|.
 name|type
 operator|!=
 name|EbtFloat
 operator|&&
 name|type
+operator|.
+name|type
 operator|!=
 name|EbtInt
 condition|)
-return|return;
+return|return
+name|false
+return|;
 comment|// Only set default precision for int/float
+if|if
+condition|(
+name|type
+operator|.
+name|size
+operator|!=
+literal|1
+operator|||
+name|type
+operator|.
+name|matrix
+operator|||
+name|type
+operator|.
+name|array
+condition|)
+return|return
+name|false
+return|;
+comment|// Not allowed to set for aggregate types
 name|int
 name|indexOfLastElement
 init|=
@@ -1605,11 +1640,16 @@ name|indexOfLastElement
 index|]
 index|[
 name|type
+operator|.
+name|type
 index|]
 operator|=
 name|prec
 expr_stmt|;
 comment|// Uses map operator [], overwrites the current value
+return|return
+name|true
+return|;
 block|}
 comment|// Searches down the precisionStack for a precision qualifier for the specified TBasicType
 name|TPrecision

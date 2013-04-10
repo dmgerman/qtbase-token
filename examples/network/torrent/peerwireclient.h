@@ -365,6 +365,20 @@ argument_list|(
 argument|qint64 size
 argument_list|)
 block|;
+name|void
+name|connectToHost
+argument_list|(
+argument|const QHostAddress&address
+argument_list|,
+argument|quint16 port
+argument_list|,
+argument|OpenMode openMode = ReadWrite
+argument_list|)
+block|;
+name|void
+name|diconnectFromHost
+argument_list|()
+block|;
 name|signals
 operator|:
 name|void
@@ -430,23 +444,6 @@ name|bytesReceived
 argument_list|(
 argument|qint64 size
 argument_list|)
-block|;
-name|protected
-name|slots
-operator|:
-name|void
-name|connectToHostImplementation
-argument_list|(
-argument|const QString&hostName
-argument_list|,
-argument|quint16 port
-argument_list|,
-argument|OpenMode openMode = ReadWrite
-argument_list|)
-block|;
-name|void
-name|diconnectFromHostImplementation
-argument_list|()
 block|;
 name|protected
 operator|:

@@ -200,7 +200,12 @@ name|array
 condition|)
 name|stream
 operator|<<
-literal|"array of "
+literal|"array["
+operator|<<
+name|getArraySize
+argument_list|()
+operator|<<
+literal|"] of "
 expr_stmt|;
 if|if
 condition|(

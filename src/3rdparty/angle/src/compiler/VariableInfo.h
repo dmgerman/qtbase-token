@@ -101,13 +101,11 @@ name|public
 operator|:
 name|CollectAttribsUniforms
 argument_list|(
-name|TVariableInfoList
-operator|&
-name|attribs
+argument|TVariableInfoList& attribs
 argument_list|,
-name|TVariableInfoList
-operator|&
-name|uniforms
+argument|TVariableInfoList& uniforms
+argument_list|,
+argument|ShHashFunction64 hashFunction
 argument_list|)
 block|;
 name|virtual
@@ -195,6 +193,9 @@ block|;
 name|TVariableInfoList
 operator|&
 name|mUniforms
+block|;
+name|ShHashFunction64
+name|mHashFunction
 block|; }
 decl_stmt|;
 end_decl_stmt

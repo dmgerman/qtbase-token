@@ -737,6 +737,30 @@ argument|const GLvoid *pixels
 argument_list|)
 block|;
 name|void
+name|glTexImage3D
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|GLint level
+argument_list|,
+argument|GLint internalformat
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|,
+argument|GLsizei depth
+argument_list|,
+argument|GLint border
+argument_list|,
+argument|GLenum format
+argument_list|,
+argument|GLenum type
+argument_list|,
+argument|const GLvoid *pixels
+argument_list|)
+block|;
+name|void
 name|glDrawRangeElements
 argument_list|(
 argument|GLenum mode
@@ -7763,30 +7787,6 @@ argument_list|,
 argument|const GLvoid *table
 argument_list|)
 block|;
-name|void
-name|glTexImage3D
-argument_list|(
-argument|GLenum target
-argument_list|,
-argument|GLint level
-argument_list|,
-argument|GLint internalformat
-argument_list|,
-argument|GLsizei width
-argument_list|,
-argument|GLsizei height
-argument_list|,
-argument|GLsizei depth
-argument_list|,
-argument|GLint border
-argument_list|,
-argument|GLenum format
-argument_list|,
-argument|GLenum type
-argument_list|,
-argument|const GLvoid *pixels
-argument_list|)
-block|;
 comment|// OpenGL 1.3 deprecated functions
 name|void
 name|glMultTransposeMatrixd
@@ -10782,6 +10782,59 @@ argument_list|,
 name|height
 argument_list|,
 name|depth
+argument_list|,
+name|format
+argument_list|,
+name|type
+argument_list|,
+name|pixels
+argument_list|)
+block|; }
+DECL|function|glTexImage3D
+specifier|inline
+name|void
+name|QOpenGLFunctions_4_1_Compatibility
+operator|::
+name|glTexImage3D
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|GLint level
+argument_list|,
+argument|GLint internalformat
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|,
+argument|GLsizei depth
+argument_list|,
+argument|GLint border
+argument_list|,
+argument|GLenum format
+argument_list|,
+argument|GLenum type
+argument_list|,
+argument|const GLvoid *pixels
+argument_list|)
+block|{
+name|d_1_2_Core
+operator|->
+name|TexImage3D
+argument_list|(
+name|target
+argument_list|,
+name|level
+argument_list|,
+name|internalformat
+argument_list|,
+name|width
+argument_list|,
+name|height
+argument_list|,
+name|depth
+argument_list|,
+name|border
 argument_list|,
 name|format
 argument_list|,
@@ -27914,59 +27967,6 @@ argument_list|,
 name|type
 argument_list|,
 name|table
-argument_list|)
-block|; }
-DECL|function|glTexImage3D
-specifier|inline
-name|void
-name|QOpenGLFunctions_4_1_Compatibility
-operator|::
-name|glTexImage3D
-argument_list|(
-argument|GLenum target
-argument_list|,
-argument|GLint level
-argument_list|,
-argument|GLint internalformat
-argument_list|,
-argument|GLsizei width
-argument_list|,
-argument|GLsizei height
-argument_list|,
-argument|GLsizei depth
-argument_list|,
-argument|GLint border
-argument_list|,
-argument|GLenum format
-argument_list|,
-argument|GLenum type
-argument_list|,
-argument|const GLvoid *pixels
-argument_list|)
-block|{
-name|d_1_2_Deprecated
-operator|->
-name|TexImage3D
-argument_list|(
-name|target
-argument_list|,
-name|level
-argument_list|,
-name|internalformat
-argument_list|,
-name|width
-argument_list|,
-name|height
-argument_list|,
-name|depth
-argument_list|,
-name|border
-argument_list|,
-name|format
-argument_list|,
-name|type
-argument_list|,
-name|pixels
 argument_list|)
 block|; }
 comment|// OpenGL 1.3 deprecated functions

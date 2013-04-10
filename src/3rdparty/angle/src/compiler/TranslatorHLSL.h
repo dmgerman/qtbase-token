@@ -3,7 +3,7 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// Copyright (c) 2002-2010 The ANGLE Project Authors. All rights reserved.
+comment|// Copyright (c) 2002-2013 The ANGLE Project Authors. All rights reserved.
 end_comment
 begin_comment
 comment|// Use of this source code is governed by a BSD-style license that can be
@@ -30,6 +30,11 @@ include|#
 directive|include
 file|"compiler/ShHandle.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"compiler/Uniform.h"
+end_include
 begin_decl_stmt
 name|class
 name|TranslatorHLSL
@@ -44,8 +49,32 @@ argument_list|(
 argument|ShShaderType type
 argument_list|,
 argument|ShShaderSpec spec
+argument_list|,
+argument|ShShaderOutput output
 argument_list|)
 block|;
+name|virtual
+name|TranslatorHLSL
+operator|*
+name|getAsTranslatorHLSL
+argument_list|()
+block|{
+return|return
+name|this
+return|;
+block|}
+specifier|const
+name|sh
+operator|::
+name|ActiveUniforms
+operator|&
+name|getUniforms
+argument_list|()
+block|{
+return|return
+name|mActiveUniforms
+return|;
+block|}
 name|protected
 operator|:
 name|virtual
@@ -56,6 +85,14 @@ name|TIntermNode
 operator|*
 name|root
 argument_list|)
+block|;
+name|sh
+operator|::
+name|ActiveUniforms
+name|mActiveUniforms
+block|;
+name|ShShaderOutput
+name|mOutputType
 block|; }
 decl_stmt|;
 end_decl_stmt

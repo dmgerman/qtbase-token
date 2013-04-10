@@ -272,11 +272,15 @@ range|:
 name|public
 name|QSqlDriver
 block|{
-name|Q_OBJECT
 name|friend
 name|class
 name|QMYSQLResult
 block|;
+name|Q_DECLARE_PRIVATE
+argument_list|(
+argument|QMYSQLDriver
+argument_list|)
+name|Q_OBJECT
 name|public
 operator|:
 name|explicit
@@ -412,10 +416,6 @@ operator|:
 name|void
 name|init
 argument_list|()
-block|;
-name|QMYSQLDriverPrivate
-operator|*
-name|d
 block|; }
 decl_stmt|;
 end_decl_stmt

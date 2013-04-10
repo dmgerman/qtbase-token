@@ -3,7 +3,7 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// Copyright (c) 2002-2012 The ANGLE Project Authors. All rights reserved.
+comment|// Copyright (c) 2002-2013 The ANGLE Project Authors. All rights reserved.
 end_comment
 begin_comment
 comment|// Use of this source code is governed by a BSD-style license that can be
@@ -66,12 +66,29 @@ end_include
 begin_include
 include|#
 directive|include
-file|"libGLESv2/ResourceManager.h"
+file|"compiler/Uniform.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"common/angleutils.h"
+end_include
+begin_decl_stmt
+name|namespace
+name|rx
+block|{
+name|class
+name|Renderer
+decl_stmt|;
+block|}
+end_decl_stmt
 begin_decl_stmt
 name|namespace
 name|gl
 block|{
+name|class
+name|ResourceManager
+decl_stmt|;
 struct|struct
 name|Varying
 block|{
@@ -164,6 +181,8 @@ label|:
 name|Shader
 argument_list|(
 argument|ResourceManager *manager
+argument_list|,
+argument|const rx::Renderer *renderer
 argument_list|,
 argument|GLuint handle
 argument_list|)
@@ -267,6 +286,14 @@ modifier|*
 name|buffer
 parameter_list|)
 function_decl|;
+specifier|const
+name|sh
+operator|::
+name|ActiveUniforms
+operator|&
+name|getUniforms
+argument_list|()
+expr_stmt|;
 name|virtual
 name|void
 name|compile
@@ -324,6 +351,10 @@ name|parseVaryings
 parameter_list|()
 function_decl|;
 name|void
+name|resetVaryingsRegisterAssignment
+parameter_list|()
+function_decl|;
+name|void
 name|compileToHLSL
 parameter_list|(
 name|void
@@ -377,8 +408,25 @@ modifier|&
 name|y
 parameter_list|)
 function_decl|;
+specifier|const
+name|rx
+operator|::
+name|Renderer
+operator|*
+specifier|const
+name|mRenderer
+expr_stmt|;
 name|VaryingList
 name|mVaryings
+decl_stmt|;
+name|bool
+name|mUsesMultipleRenderTargets
+decl_stmt|;
+name|bool
+name|mUsesFragColor
+decl_stmt|;
+name|bool
+name|mUsesFragData
 decl_stmt|;
 name|bool
 name|mUsesFragCoord
@@ -438,6 +486,11 @@ name|char
 modifier|*
 name|mInfoLog
 decl_stmt|;
+name|sh
+operator|::
+name|ActiveUniforms
+name|mActiveUniforms
+expr_stmt|;
 name|ResourceManager
 modifier|*
 name|mResourceManager
@@ -512,6 +565,8 @@ name|VertexShader
 argument_list|(
 argument|ResourceManager *manager
 argument_list|,
+argument|const rx::Renderer *renderer
+argument_list|,
 argument|GLuint handle
 argument_list|)
 block|;
@@ -571,6 +626,8 @@ operator|:
 name|FragmentShader
 argument_list|(
 argument|ResourceManager *manager
+argument_list|,
+argument|const rx::Renderer *renderer
 argument_list|,
 argument|GLuint handle
 argument_list|)

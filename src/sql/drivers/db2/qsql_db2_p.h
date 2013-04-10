@@ -239,6 +239,10 @@ range|:
 name|public
 name|QSqlDriver
 block|{
+name|Q_DECLARE_PRIVATE
+argument_list|(
+argument|QDB2Driver
+argument_list|)
 name|Q_OBJECT
 name|public
 operator|:
@@ -362,10 +366,6 @@ name|setAutoCommit
 argument_list|(
 argument|bool autoCommit
 argument_list|)
-block|;
-name|QDB2DriverPrivate
-operator|*
-name|d
 block|; }
 decl_stmt|;
 end_decl_stmt

@@ -27,6 +27,9 @@ argument_list|(
 literal|"reltest1"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|QSqlDatabase
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|,
@@ -37,6 +40,9 @@ argument_list|(
 literal|"reltest2"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|QSqlDatabase
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|,
@@ -47,6 +53,9 @@ argument_list|(
 literal|"reltest3"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|QSqlDatabase
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|,
@@ -57,6 +66,9 @@ argument_list|(
 literal|"reltest4"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|QSqlDatabase
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|,
@@ -67,6 +79,9 @@ argument_list|(
 literal|"reltest5"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|QSqlDatabase
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -555,6 +570,8 @@ argument_list|(
 literal|"rel"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|" test6"
@@ -653,6 +670,8 @@ argument_list|(
 literal|"rel"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|" test7"
@@ -924,6 +943,8 @@ argument_list|(
 literal|"rel"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|" test6"
@@ -935,6 +956,8 @@ argument_list|(
 literal|"rel"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|" test7"
@@ -945,9 +968,6 @@ argument_list|(
 literal|"CASETEST1"
 argument_list|,
 name|db
-operator|.
-name|driver
-argument_list|()
 argument_list|)
 operator|<<
 name|qTableName
@@ -955,9 +975,6 @@ argument_list|(
 literal|"casetest1"
 argument_list|,
 name|db
-operator|.
-name|driver
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|tst_Databases
@@ -980,6 +997,8 @@ argument_list|(
 literal|"QTBUG_5373"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|" CASCADE"
@@ -996,6 +1015,8 @@ argument_list|(
 literal|"QTBUG_5373_s2"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|" CASCADE"
@@ -10015,9 +10036,6 @@ argument_list|(
 literal|"CASETEST1"
 argument_list|,
 name|db
-operator|.
-name|driver
-argument_list|()
 argument_list|)
 operator|.
 name|toUpper
@@ -10041,9 +10059,6 @@ argument_list|(
 literal|"casetest1"
 argument_list|,
 name|db
-operator|.
-name|driver
-argument_list|()
 argument_list|)
 operator|+
 literal|" (ident int not null primary key, name varchar(20), title_key int)"
@@ -10067,9 +10082,6 @@ argument_list|(
 literal|"CASETEST1"
 argument_list|,
 name|db
-operator|.
-name|driver
-argument_list|()
 argument_list|)
 operator|.
 name|toUpper
@@ -10092,9 +10104,6 @@ argument_list|(
 literal|"CASETEST1"
 argument_list|,
 name|db
-operator|.
-name|driver
-argument_list|()
 argument_list|)
 operator|.
 name|toUpper
@@ -10117,9 +10126,6 @@ argument_list|(
 literal|"CASETEST1"
 argument_list|,
 name|db
-operator|.
-name|driver
-argument_list|()
 argument_list|)
 operator|.
 name|toUpper
@@ -10142,9 +10148,6 @@ argument_list|(
 literal|"CASETEST1"
 argument_list|,
 name|db
-operator|.
-name|driver
-argument_list|()
 argument_list|)
 operator|.
 name|toUpper
@@ -10167,9 +10170,6 @@ argument_list|(
 literal|"casetest1"
 argument_list|,
 name|db
-operator|.
-name|driver
-argument_list|()
 argument_list|)
 operator|+
 literal|" values(1, 'jerry', 1)"
@@ -10189,9 +10189,6 @@ argument_list|(
 literal|"casetest1"
 argument_list|,
 name|db
-operator|.
-name|driver
-argument_list|()
 argument_list|)
 operator|+
 literal|" values(2, 'george', 2)"
@@ -10211,9 +10208,6 @@ argument_list|(
 literal|"casetest1"
 argument_list|,
 name|db
-operator|.
-name|driver
-argument_list|()
 argument_list|)
 operator|+
 literal|" values(4, 'kramer', 2)"
@@ -10251,9 +10245,6 @@ argument_list|(
 literal|"CASETEST1"
 argument_list|,
 name|db
-operator|.
-name|driver
-argument_list|()
 argument_list|)
 operator|.
 name|toUpper
@@ -10292,9 +10283,6 @@ argument_list|(
 literal|"CASETEST1"
 argument_list|,
 name|db
-operator|.
-name|driver
-argument_list|()
 argument_list|)
 operator|.
 name|toUpper
@@ -10327,9 +10315,6 @@ argument_list|(
 literal|"CASETEST1"
 argument_list|,
 name|db
-operator|.
-name|driver
-argument_list|()
 argument_list|)
 operator|.
 name|toUpper
@@ -10360,9 +10345,6 @@ argument_list|(
 literal|"casetest1"
 argument_list|,
 name|db
-operator|.
-name|driver
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -10393,9 +10375,6 @@ argument_list|(
 literal|"CASETEST1"
 argument_list|,
 name|db
-operator|.
-name|driver
-argument_list|()
 argument_list|)
 operator|.
 name|toUpper
@@ -10414,9 +10393,6 @@ argument_list|(
 literal|"CASETEST1"
 argument_list|,
 name|db
-operator|.
-name|driver
-argument_list|()
 argument_list|)
 operator|.
 name|toUpper
@@ -10458,9 +10434,6 @@ argument_list|(
 literal|"casetest1"
 argument_list|,
 name|db
-operator|.
-name|driver
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -10476,9 +10449,6 @@ argument_list|(
 literal|"casetest1"
 argument_list|,
 name|db
-operator|.
-name|driver
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -10517,9 +10487,6 @@ argument_list|(
 literal|"CASETEST1"
 argument_list|,
 name|db
-operator|.
-name|driver
-argument_list|()
 argument_list|)
 operator|.
 name|toUpper
@@ -12929,6 +12896,8 @@ argument_list|(
 literal|"rel"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|" test6"
@@ -12970,6 +12939,8 @@ argument_list|(
 literal|"rel"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|" test7"
@@ -13738,6 +13709,8 @@ argument_list|(
 literal|"QTBUG_5373"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|)
 argument_list|)
@@ -13755,6 +13728,8 @@ argument_list|(
 literal|"QTBUG_5373_s2"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|)
 argument_list|)
@@ -13772,6 +13747,8 @@ argument_list|(
 literal|"QTBUG_5373"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|"."
@@ -13781,6 +13758,8 @@ argument_list|(
 literal|"document"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|"(document_id int primary key, relatingid int, userid int)"
@@ -13800,6 +13779,8 @@ argument_list|(
 literal|"QTBUG_5373_s2"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|"."
@@ -13809,6 +13790,8 @@ argument_list|(
 literal|"user"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|"(userid int primary key, username char(40))"
@@ -13824,6 +13807,8 @@ argument_list|(
 literal|"QTBUG_5373"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|"."
@@ -13833,6 +13818,8 @@ argument_list|(
 literal|"document"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -13849,6 +13836,8 @@ argument_list|(
 literal|"QTBUG_5373_s2"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|"."
@@ -13858,6 +13847,8 @@ argument_list|(
 literal|"user"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|,
 literal|"userid"
@@ -13879,6 +13870,8 @@ argument_list|(
 literal|"QTBUG_5373_s2"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 operator|+
 literal|"."
@@ -13888,6 +13881,8 @@ argument_list|(
 literal|"user"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 argument_list|,
 literal|"userid"
@@ -14146,6 +14141,8 @@ argument_list|(
 literal|"QTBUG_20038_test1"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 decl_stmt|;
 name|QString
@@ -14156,6 +14153,8 @@ argument_list|(
 literal|"QTBUG_20038_test2"
 argument_list|,
 name|__FILE__
+argument_list|,
+name|db
 argument_list|)
 decl_stmt|;
 name|tst_Databases

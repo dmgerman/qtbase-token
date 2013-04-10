@@ -31,17 +31,12 @@ end_define
 begin_include
 include|#
 directive|include
-file|<intrin.h>
+file|"common/system.h"
 end_include
 begin_include
 include|#
 directive|include
-file|<math.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<windows.h>
+file|"common/debug.h"
 end_include
 begin_decl_stmt
 name|namespace
@@ -234,13 +229,12 @@ argument_list|,
 argument|MAX max
 argument_list|)
 block|{
+comment|// Since NaNs fail all comparison tests, a NaN value will default to min
 return|return
 name|x
-operator|<
+operator|>
 name|min
 operator|?
-name|min
-operator|:
 operator|(
 name|x
 operator|>
@@ -250,6 +244,8 @@ name|max
 operator|:
 name|x
 operator|)
+operator|:
+name|min
 return|;
 block|}
 specifier|inline
@@ -585,8 +581,53 @@ name|h
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_macro
+unit|}  namespace
+name|rx
+end_macro
+begin_block
+block|{
+struct|struct
+name|Range
+block|{
+name|Range
+argument_list|()
+block|{}
+name|Range
+argument_list|(
+argument|int lo
+argument_list|,
+argument|int hi
+argument_list|)
+block|:
+name|start
+argument_list|(
+name|lo
+argument_list|)
+operator|,
+name|end
+argument_list|(
+argument|hi
+argument_list|)
+block|{
+name|ASSERT
+argument_list|(
+name|lo
+operator|<=
+name|hi
+argument_list|)
+block|; }
+name|int
+name|start
+expr_stmt|;
+name|int
+name|end
+decl_stmt|;
+block|}
+struct|;
+block|}
+end_block
 begin_endif
-unit|}
 endif|#
 directive|endif
 end_endif

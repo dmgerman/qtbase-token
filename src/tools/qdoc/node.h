@@ -2117,25 +2117,6 @@ return|return
 name|ignoredBases
 return|;
 block|}
-name|bool
-name|hideFromMainList
-argument_list|()
-specifier|const
-block|{
-return|return
-name|hidden
-return|;
-block|}
-name|void
-name|setHideFromMainList
-argument_list|(
-argument|bool value
-argument_list|)
-block|{
-name|hidden
-operator|=
-name|value
-block|; }
 name|QString
 name|serviceName
 argument_list|()
@@ -2229,9 +2210,6 @@ operator|<
 name|RelatedClass
 operator|>
 name|ignoredBases
-block|;
-name|bool
-name|hidden
 block|;
 name|bool
 name|abstract_

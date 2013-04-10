@@ -1910,7 +1910,7 @@ name|std
 operator|::
 name|vector
 argument_list|<
-name|int
+name|size_t
 argument_list|>
 name|ParamIndex
 typedef|;

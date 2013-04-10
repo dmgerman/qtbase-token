@@ -3,7 +3,7 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// Copyright (c) 2002-2010 The ANGLE Project Authors. All rights reserved.
+comment|// Copyright (c) 2002-2013 The ANGLE Project Authors. All rights reserved.
 end_comment
 begin_comment
 comment|// Use of this source code is governed by a BSD-style license that can be
@@ -49,6 +49,11 @@ define|#
 directive|define
 name|__INTERMEDIATE_H
 end_define
+begin_include
+include|#
+directive|include
+file|"GLSLANG/ShaderLang.h"
+end_include
 begin_include
 include|#
 directive|include
@@ -448,7 +453,7 @@ name|EOpMatrixTimesMatrixAssign
 block|,
 DECL|enumerator|EOpDivAssign
 name|EOpDivAssign
-block|, }
+block|}
 enum|;
 end_enum
 begin_function_decl
@@ -911,6 +916,42 @@ name|getCompleteString
 argument_list|()
 return|;
 block|}
+name|int
+name|totalRegisterCount
+argument_list|()
+specifier|const
+block|{
+return|return
+name|type
+operator|.
+name|totalRegisterCount
+argument_list|()
+return|;
+block|}
+name|int
+name|elementRegisterCount
+argument_list|()
+specifier|const
+block|{
+return|return
+name|type
+operator|.
+name|elementRegisterCount
+argument_list|()
+return|;
+block|}
+name|int
+name|getArraySize
+argument_list|()
+specifier|const
+block|{
+return|return
+name|type
+operator|.
+name|getArraySize
+argument_list|()
+return|;
+block|}
 name|protected
 operator|:
 name|TType
@@ -940,7 +981,7 @@ name|ELoopWhile
 block|,
 DECL|enumerator|ELoopDoWhile
 name|ELoopDoWhile
-block|, }
+block|}
 enum|;
 end_enum
 begin_decl_stmt
@@ -1352,16 +1393,69 @@ return|return
 name|unionArrayPointer
 return|;
 block|}
-name|void
-name|setUnionArrayPointer
+name|int
+name|getIConst
 argument_list|(
-argument|ConstantUnion *c
+argument|int index
 argument_list|)
+specifier|const
 block|{
+return|return
 name|unionArrayPointer
-operator|=
-name|c
-block|; }
+operator|?
+name|unionArrayPointer
+index|[
+name|index
+index|]
+operator|.
+name|getIConst
+argument_list|()
+operator|:
+literal|0
+return|;
+block|}
+name|float
+name|getFConst
+argument_list|(
+argument|int index
+argument_list|)
+specifier|const
+block|{
+return|return
+name|unionArrayPointer
+condition|?
+name|unionArrayPointer
+index|[
+name|index
+index|]
+operator|.
+name|getFConst
+argument_list|()
+else|:
+literal|0.0f
+return|;
+block|}
+name|bool
+name|getBConst
+argument_list|(
+argument|int index
+argument_list|)
+specifier|const
+block|{
+return|return
+name|unionArrayPointer
+condition|?
+name|unionArrayPointer
+index|[
+name|index
+index|]
+operator|.
+name|getBConst
+argument_list|()
+else|:
+name|false
+return|;
+block|}
 name|virtual
 name|TIntermConstantUnion
 operator|*
@@ -1517,7 +1611,12 @@ argument_list|)
 operator|:
 name|TIntermOperator
 argument_list|(
-argument|o
+name|o
+argument_list|)
+block|,
+name|addIndexClamp
+argument_list|(
+argument|false
 argument_list|)
 block|{}
 name|virtual
@@ -1585,6 +1684,22 @@ name|TInfoSink
 operator|&
 argument_list|)
 block|;
+name|void
+name|setAddIndexClamp
+argument_list|()
+block|{
+name|addIndexClamp
+operator|=
+name|true
+block|; }
+name|bool
+name|getAddIndexClamp
+argument_list|()
+block|{
+return|return
+name|addIndexClamp
+return|;
+block|}
 name|protected
 operator|:
 name|TIntermTyped
@@ -1594,6 +1709,10 @@ block|;
 name|TIntermTyped
 operator|*
 name|right
+block|;
+comment|// If set to true, wrap any EOpIndexIndirect with a clamp to bounds.
+name|bool
+name|addIndexClamp
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -2383,6 +2502,21 @@ name|depth
 operator|--
 expr_stmt|;
 block|}
+comment|// Return the original name if hash function pointer is NULL;
+comment|// otherwise return the hashed name.
+specifier|static
+name|TString
+name|hash
+parameter_list|(
+specifier|const
+name|TString
+modifier|&
+name|name
+parameter_list|,
+name|ShHashFunction64
+name|hashFunction
+parameter_list|)
+function_decl|;
 specifier|const
 name|bool
 name|preVisit

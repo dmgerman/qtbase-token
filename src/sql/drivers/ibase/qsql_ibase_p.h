@@ -78,15 +78,15 @@ range|:
 name|public
 name|QSqlDriver
 block|{
-name|Q_OBJECT
-name|friend
-name|class
-name|QIBaseDriverPrivate
-block|;
 name|friend
 name|class
 name|QIBaseResultPrivate
 block|;
+name|Q_DECLARE_PRIVATE
+argument_list|(
+argument|QIBaseDriver
+argument_list|)
+name|Q_OBJECT
 name|public
 operator|:
 name|explicit
@@ -267,12 +267,6 @@ name|void
 operator|*
 name|updatedResultBuffer
 argument_list|)
-block|;
-name|private
-operator|:
-name|QIBaseDriverPrivate
-operator|*
-name|d
 block|; }
 decl_stmt|;
 end_decl_stmt

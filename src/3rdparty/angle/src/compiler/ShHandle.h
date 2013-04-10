@@ -61,6 +61,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"compiler/HashNames.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"compiler/InfoSink.h"
 end_include
 begin_include
@@ -72,6 +77,11 @@ begin_include
 include|#
 directive|include
 file|"compiler/VariableInfo.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"third_party/compiler/ArrayBoundsClamper.h"
 end_include
 begin_decl_stmt
 DECL|variable|LongNameMap
@@ -89,6 +99,12 @@ begin_decl_stmt
 DECL|variable|TDependencyGraph
 name|class
 name|TDependencyGraph
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|TranslatorHLSL
+name|class
+name|TranslatorHLSL
 decl_stmt|;
 end_decl_stmt
 begin_comment
@@ -139,6 +155,16 @@ name|virtual
 name|TCompiler
 modifier|*
 name|getAsCompiler
+parameter_list|()
+block|{
+return|return
+literal|0
+return|;
+block|}
+name|virtual
+name|TranslatorHLSL
+modifier|*
+name|getAsTranslatorHLSL
 parameter_list|()
 block|{
 return|return
@@ -214,7 +240,7 @@ name|compile
 argument_list|(
 argument|const char* const shaderStrings[]
 argument_list|,
-argument|const int numStrings
+argument|size_t numStrings
 argument_list|,
 argument|int compileOptions
 argument_list|)
@@ -256,6 +282,33 @@ name|getMappedNameMaxLength
 argument_list|()
 specifier|const
 block|;
+name|ShHashFunction64
+name|getHashFunction
+argument_list|()
+specifier|const
+block|{
+return|return
+name|hashFunction
+return|;
+block|}
+name|NameMap
+operator|&
+name|getNameMap
+argument_list|()
+block|{
+return|return
+name|nameMap
+return|;
+block|}
+name|TSymbolTable
+operator|&
+name|getSymbolTable
+argument_list|()
+block|{
+return|return
+name|symbolTable
+return|;
+block|}
 name|protected
 operator|:
 name|ShShaderType
@@ -392,6 +445,26 @@ name|getExtensionBehavior
 argument_list|()
 specifier|const
 block|;
+comment|// Get the resources set by InitBuiltInSymbolTable
+specifier|const
+name|ShBuiltInResources
+operator|&
+name|getResources
+argument_list|()
+specifier|const
+block|;
+specifier|const
+name|ArrayBoundsClamper
+operator|&
+name|getArrayBoundsClamper
+argument_list|()
+specifier|const
+block|;
+name|ShArrayIndexClampingStrategy
+name|getArrayIndexClampingStrategy
+argument_list|()
+specifier|const
+block|;
 specifier|const
 name|BuiltInFunctionEmulator
 operator|&
@@ -410,6 +483,9 @@ block|;
 name|int
 name|maxUniformVectors
 block|;
+name|ShBuiltInResources
+name|compileResources
+block|;
 comment|// Built-in symbol table for the given language, spec, and resources.
 comment|// It is preserved from compile-to-compile.
 name|TSymbolTable
@@ -418,6 +494,15 @@ block|;
 comment|// Built-in extensions with default behavior.
 name|TExtensionBehavior
 name|extensionBehavior
+block|;
+name|bool
+name|fragmentPrecisionHigh
+block|;
+name|ArrayBoundsClamper
+name|arrayBoundsClamper
+block|;
+name|ShArrayIndexClampingStrategy
+name|clampingStrategy
 block|;
 name|BuiltInFunctionEmulator
 name|builtInFunctionEmulator
@@ -439,6 +524,13 @@ comment|// Cached copy of the ref-counted singleton.
 name|LongNameMap
 operator|*
 name|longNameMap
+block|;
+comment|// name hashing.
+name|ShHashFunction64
+name|hashFunction
+block|;
+name|NameMap
+name|nameMap
 block|; }
 decl_stmt|;
 end_decl_stmt

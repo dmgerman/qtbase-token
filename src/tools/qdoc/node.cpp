@@ -5762,10 +5762,6 @@ argument_list|,
 name|name
 argument_list|)
 block|{
-name|hidden
-operator|=
-literal|false
-expr_stmt|;
 name|abstract_
 operator|=
 literal|false

@@ -4529,9 +4529,29 @@ name|destdir
 operator|<<
 literal|"$(TARGET2)\n\t"
 operator|<<
-literal|"-$(MOVE) $(TARGET) $(TARGET0) $(TARGET1) $(TARGET2) "
+literal|"-$(MOVE) $(TARGET)  "
 operator|<<
 name|destdir
+operator|<<
+literal|"\n\t"
+operator|<<
+literal|"-$(MOVE) $(TARGET0) "
+operator|<<
+name|destdir
+operator|<<
+literal|"\n\t"
+operator|<<
+literal|"-$(MOVE) $(TARGET1) "
+operator|<<
+name|destdir
+operator|<<
+literal|"\n\t"
+operator|<<
+literal|"-$(MOVE) $(TARGET2) "
+operator|<<
+name|destdir
+operator|<<
+literal|"\n\t"
 expr_stmt|;
 if|if
 condition|(
@@ -4613,9 +4633,17 @@ name|destdir
 operator|<<
 literal|"$(TARGET0)\n\t"
 operator|<<
-literal|"-$(MOVE) $(TARGET) $(TARGET0) "
+literal|"-$(MOVE) $(TARGET)  "
 operator|<<
 name|destdir
+operator|<<
+literal|"\n\t"
+operator|<<
+literal|"-$(MOVE) $(TARGET0) "
+operator|<<
+name|destdir
+operator|<<
+literal|"\n\t"
 expr_stmt|;
 if|if
 condition|(

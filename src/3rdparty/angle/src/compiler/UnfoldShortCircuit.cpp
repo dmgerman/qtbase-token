@@ -3,7 +3,7 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// Copyright (c) 2002-2012 The ANGLE Project Authors. All rights reserved.
+comment|// Copyright (c) 2002-2013 The ANGLE Project Authors. All rights reserved.
 end_comment
 begin_comment
 comment|// Use of this source code is governed by a BSD-style license that can be
@@ -404,10 +404,11 @@ block|}
 return|return
 literal|false
 return|;
-block|}
+default|default:
 return|return
 literal|true
 return|;
+block|}
 block|}
 DECL|function|visitSelection
 name|bool
@@ -463,6 +464,10 @@ operator|<<
 name|i
 operator|<<
 literal|";\n"
+expr_stmt|;
+name|out
+operator|<<
+literal|"{\n"
 expr_stmt|;
 name|mTemporaryIndex
 operator|=
@@ -595,6 +600,10 @@ expr_stmt|;
 name|out
 operator|<<
 literal|";\n"
+literal|"}\n"
+expr_stmt|;
+name|out
+operator|<<
 literal|"}\n"
 expr_stmt|;
 name|mTemporaryIndex

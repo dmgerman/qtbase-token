@@ -28,7 +28,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|"compiler/preprocessor/new/Diagnostics.h"
+file|"compiler/preprocessor/DiagnosticsBase.h"
 end_include
 begin_decl_stmt
 DECL|variable|TInfoSink

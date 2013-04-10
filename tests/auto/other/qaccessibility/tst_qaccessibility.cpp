@@ -10174,7 +10174,7 @@ name|textAtOffset
 argument_list|(
 literal|8
 argument_list|,
-name|QAccessible2
+name|QAccessible
 operator|::
 name|WordBoundary
 argument_list|,
@@ -10216,7 +10216,7 @@ name|textAtOffset
 argument_list|(
 literal|15
 argument_list|,
-name|QAccessible2
+name|QAccessible
 operator|::
 name|LineBoundary
 argument_list|,
@@ -10769,7 +10769,7 @@ name|textAtOffset
 argument_list|(
 literal|8
 argument_list|,
-name|QAccessible2
+name|QAccessible
 operator|::
 name|WordBoundary
 argument_list|,
@@ -10811,7 +10811,7 @@ name|textAtOffset
 argument_list|(
 literal|14
 argument_list|,
-name|QAccessible2
+name|QAccessible
 operator|::
 name|LineBoundary
 argument_list|,
@@ -12469,7 +12469,7 @@ name|textAtOffset
 argument_list|(
 literal|0
 argument_list|,
-name|QAccessible2
+name|QAccessible
 operator|::
 name|CharBoundary
 argument_list|,
@@ -12510,7 +12510,7 @@ name|textBeforeOffset
 argument_list|(
 literal|0
 argument_list|,
-name|QAccessible2
+name|QAccessible
 operator|::
 name|CharBoundary
 argument_list|,
@@ -12533,7 +12533,7 @@ name|textAfterOffset
 argument_list|(
 literal|0
 argument_list|,
-name|QAccessible2
+name|QAccessible
 operator|::
 name|CharBoundary
 argument_list|,
@@ -12574,7 +12574,7 @@ name|textAtOffset
 argument_list|(
 literal|5
 argument_list|,
-name|QAccessible2
+name|QAccessible
 operator|::
 name|CharBoundary
 argument_list|,
@@ -12615,7 +12615,7 @@ name|textBeforeOffset
 argument_list|(
 literal|5
 argument_list|,
-name|QAccessible2
+name|QAccessible
 operator|::
 name|CharBoundary
 argument_list|,
@@ -12642,7 +12642,7 @@ name|textAfterOffset
 argument_list|(
 literal|5
 argument_list|,
-name|QAccessible2
+name|QAccessible
 operator|::
 name|CharBoundary
 argument_list|,
@@ -12669,7 +12669,7 @@ name|textAtOffset
 argument_list|(
 literal|5
 argument_list|,
-name|QAccessible2
+name|QAccessible
 operator|::
 name|WordBoundary
 argument_list|,
@@ -12710,7 +12710,7 @@ name|textAtOffset
 argument_list|(
 literal|2
 argument_list|,
-name|QAccessible2
+name|QAccessible
 operator|::
 name|WordBoundary
 argument_list|,
@@ -12737,7 +12737,7 @@ name|textAtOffset
 argument_list|(
 literal|7
 argument_list|,
-name|QAccessible2
+name|QAccessible
 operator|::
 name|WordBoundary
 argument_list|,
@@ -12764,7 +12764,7 @@ name|textAtOffset
 argument_list|(
 literal|8
 argument_list|,
-name|QAccessible2
+name|QAccessible
 operator|::
 name|WordBoundary
 argument_list|,
@@ -12791,7 +12791,7 @@ name|textAtOffset
 argument_list|(
 literal|25
 argument_list|,
-name|QAccessible2
+name|QAccessible
 operator|::
 name|WordBoundary
 argument_list|,
@@ -12818,7 +12818,7 @@ name|textAtOffset
 argument_list|(
 literal|92
 argument_list|,
-name|QAccessible2
+name|QAccessible
 operator|::
 name|WordBoundary
 argument_list|,
@@ -12845,7 +12845,7 @@ name|textAtOffset
 argument_list|(
 literal|101
 argument_list|,
-name|QAccessible2
+name|QAccessible
 operator|::
 name|WordBoundary
 argument_list|,
@@ -12872,7 +12872,7 @@ name|textBeforeOffset
 argument_list|(
 literal|5
 argument_list|,
-name|QAccessible2
+name|QAccessible
 operator|::
 name|WordBoundary
 argument_list|,
@@ -12899,7 +12899,7 @@ name|textAfterOffset
 argument_list|(
 literal|5
 argument_list|,
-name|QAccessible2
+name|QAccessible
 operator|::
 name|WordBoundary
 argument_list|,
@@ -12926,7 +12926,7 @@ name|textAtOffset
 argument_list|(
 literal|5
 argument_list|,
-name|QAccessible2
+name|QAccessible
 operator|::
 name|SentenceBoundary
 argument_list|,
@@ -12967,7 +12967,7 @@ name|textBeforeOffset
 argument_list|(
 literal|40
 argument_list|,
-name|QAccessible2
+name|QAccessible
 operator|::
 name|SentenceBoundary
 argument_list|,
@@ -12994,7 +12994,7 @@ name|textAfterOffset
 argument_list|(
 literal|5
 argument_list|,
-name|QAccessible2
+name|QAccessible
 operator|::
 name|SentenceBoundary
 argument_list|,
@@ -13021,7 +13021,7 @@ name|textAtOffset
 argument_list|(
 literal|5
 argument_list|,
-name|QAccessible2
+name|QAccessible
 operator|::
 name|ParagraphBoundary
 argument_list|,
@@ -13060,7 +13060,7 @@ name|textAtOffset
 argument_list|(
 literal|5
 argument_list|,
-name|QAccessible2
+name|QAccessible
 operator|::
 name|LineBoundary
 argument_list|,
@@ -13082,7 +13082,7 @@ name|textAtOffset
 argument_list|(
 literal|5
 argument_list|,
-name|QAccessible2
+name|QAccessible
 operator|::
 name|NoBoundary
 argument_list|,

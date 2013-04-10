@@ -3044,9 +3044,12 @@ name|typeName
 operator|.
 name|reserve
 argument_list|(
+name|int
+argument_list|(
 name|strlen
 argument_list|(
 name|cName
+argument_list|)
 argument_list|)
 operator|+
 literal|1
