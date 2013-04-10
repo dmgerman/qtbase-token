@@ -338,6 +338,22 @@ function_decl|;
 endif|#
 directive|endif
 comment|// !QT_NO_SHAPE
+name|void
+name|setAlertState
+parameter_list|(
+name|bool
+name|enabled
+parameter_list|)
+function_decl|;
+name|bool
+name|isAlertState
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_alertState
+return|;
+block|}
 name|xcb_window_t
 name|xcb_window
 argument_list|()
@@ -705,6 +721,9 @@ name|m_configureNotifyPending
 decl_stmt|;
 name|bool
 name|m_embedded
+decl_stmt|;
+name|bool
+name|m_alertState
 decl_stmt|;
 name|xcb_window_t
 name|m_netWmUserTimeWindow
