@@ -210,6 +210,26 @@ name|Q_TESTLIB_EXPORT
 name|defaultMouseDelay
 parameter_list|()
 function_decl|;
+if|if
+condition|(
+operator|!
+name|window
+operator|->
+name|geometry
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+name|pos
+argument_list|)
+condition|)
+name|QTest
+operator|::
+name|qWarn
+argument_list|(
+literal|"Mouse event occurs outside of target window."
+argument_list|)
+expr_stmt|;
 specifier|static
 name|Qt
 operator|::
