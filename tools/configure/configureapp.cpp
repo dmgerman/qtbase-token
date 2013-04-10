@@ -18135,7 +18135,14 @@ name|endl
 expr_stmt|;
 name|moduleStream
 operator|<<
-literal|"    QT_CPU_FEATURES = "
+literal|"    QT_CPU_FEATURES."
+operator|<<
+name|dictionary
+index|[
+literal|"QT_HOST_ARCH"
+index|]
+operator|<<
+literal|" = "
 operator|<<
 name|dictionary
 index|[
@@ -18152,7 +18159,14 @@ name|endl
 expr_stmt|;
 name|moduleStream
 operator|<<
-literal|"    QT_CPU_FEATURES = "
+literal|"    QT_CPU_FEATURES."
+operator|<<
+name|dictionary
+index|[
+literal|"QT_ARCH"
+index|]
+operator|<<
+literal|" = "
 operator|<<
 name|dictionary
 index|[
