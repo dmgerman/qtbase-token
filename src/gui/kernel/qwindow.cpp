@@ -2054,6 +2054,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \property QWindow::active     \brief the active status of the window     \since 5.1      \sa requestActivate() */
+end_comment
+begin_comment
 comment|/*!     Returns true if the window should appear active from a style perspective.      This is the case for the window that has input focus as well as windows     that are in the same parent / transient parent chain as the focus window.      To get the window that currently has focus, use QGuiApplication::focusWindow(). */
 end_comment
 begin_function
