@@ -1430,7 +1430,13 @@ decl_stmt|;
 ifdef|#
 directive|ifdef
 name|Q_OS_WIN
-comment|// On Windows, "filename......." and "filename" are equivalent Task #133928
+comment|// On Windows, "filename    " and "filename" are equivalent and
+comment|// "filename  .  " and "filename" are equivalent
+comment|// "filename......." and "filename" are equivalent Task #133928
+comment|// whereas "filename  .txt" is still "filename  .txt"
+comment|// If after stripping the characters there is nothing left then we
+comment|// just return the parent directory as it is assumed that the path
+comment|// is referring to the parent
 while|while
 condition|(
 name|element
@@ -1442,6 +1448,16 @@ argument_list|(
 literal|'.'
 argument_list|)
 argument_list|)
+operator|||
+name|element
+operator|.
+name|endsWith
+argument_list|(
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
+argument_list|)
 condition|)
 name|element
 operator|.
@@ -1450,6 +1466,17 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+comment|// Only filenames that can't possibly exist will be end up being empty
+if|if
+condition|(
+name|element
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+return|return
+name|parent
+return|;
 endif|#
 directive|endif
 name|bool
