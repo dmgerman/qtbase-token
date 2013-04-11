@@ -1014,7 +1014,7 @@ name|TableGenerator
 operator|::
 name|keysymToUtf8
 parameter_list|(
-name|uint32_t
+name|quint32
 name|sym
 parameter_list|)
 block|{
@@ -1039,7 +1039,7 @@ name|sym
 argument_list|)
 condition|)
 block|{
-name|uint32_t
+name|quint32
 name|codepoint
 decl_stmt|;
 if|if
@@ -1185,7 +1185,7 @@ block|}
 end_function
 begin_function
 DECL|function|stringToKeysym
-name|uint32_t
+name|quint32
 name|TableGenerator
 operator|::
 name|stringToKeysym
@@ -1194,7 +1194,7 @@ name|QString
 name|keysymName
 parameter_list|)
 block|{
-name|uint32_t
+name|quint32
 name|keysym
 decl_stmt|;
 name|QByteArray

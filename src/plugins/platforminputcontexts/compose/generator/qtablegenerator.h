@@ -307,11 +307,11 @@ function_decl|;
 name|ushort
 name|keysymToUtf8
 parameter_list|(
-name|uint32_t
+name|quint32
 name|sym
 parameter_list|)
 function_decl|;
-name|uint32_t
+name|quint32
 name|stringToKeysym
 parameter_list|(
 name|QString
