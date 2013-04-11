@@ -1435,6 +1435,15 @@ operator|::
 name|WA_DeleteOnClose
 argument_list|)
 expr_stmt|;
+name|setAttribute
+argument_list|(
+name|Qt
+operator|::
+name|WA_QuitOnClose
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
 block|}
 name|setFixedSize
 argument_list|(
