@@ -596,10 +596,6 @@ name|mask
 argument_list|()
 specifier|const
 expr_stmt|;
-name|void
-name|requestActivate
-parameter_list|()
-function_decl|;
 name|bool
 name|isActive
 argument_list|()
@@ -1106,12 +1102,21 @@ function_decl|;
 name|public
 name|Q_SLOTS
 range|:
+name|Q_REVISION
+argument_list|(
+literal|1
+argument_list|)
+name|void
+name|requestActivate
+argument_list|()
+decl_stmt|;
 name|void
 name|setVisible
-argument_list|(
-argument|bool visible
-argument_list|)
-decl_stmt|;
+parameter_list|(
+name|bool
+name|visible
+parameter_list|)
+function_decl|;
 name|void
 name|show
 parameter_list|()
