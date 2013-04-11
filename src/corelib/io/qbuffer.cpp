@@ -765,6 +765,10 @@ operator|::
 name|open
 argument_list|(
 name|flags
+operator||
+name|QIODevice
+operator|::
+name|Unbuffered
 argument_list|)
 return|;
 block|}
