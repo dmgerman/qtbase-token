@@ -3562,6 +3562,15 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
+name|fontFamily
+condition|)
+name|fontFamily
+operator|->
+name|Release
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
 name|FAILED
 argument_list|(
 name|hr
