@@ -1002,6 +1002,10 @@ argument_list|(
 literal|0
 argument_list|)
 block|{
+name|cache_cost
+operator|=
+literal|0
+expr_stmt|;
 name|fsType
 operator|=
 literal|0
