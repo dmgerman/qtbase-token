@@ -254,6 +254,8 @@ name|v
 parameter_list|,
 name|uint
 name|seed
+init|=
+literal|0
 parameter_list|)
 block|{
 return|return
