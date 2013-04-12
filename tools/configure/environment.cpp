@@ -471,7 +471,7 @@ name|qmakeSpec
 operator|==
 name|QLatin1String
 argument_list|(
-literal|"win32-msvc2012"
+literal|"win32-msvc2010"
 argument_list|)
 condition|)
 return|return
