@@ -45,11 +45,7 @@ block|{
 name|public
 operator|:
 name|DatabaseInfo
-argument_list|(
-name|Driver
-operator|*
-name|driver
-argument_list|)
+argument_list|()
 block|;
 name|void
 name|acceptUI
@@ -113,10 +109,6 @@ return|;
 block|}
 name|private
 operator|:
-name|Driver
-operator|*
-name|driver
-block|;
 name|QStringList
 name|m_connections
 block|;

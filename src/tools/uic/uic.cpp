@@ -125,11 +125,6 @@ name|option
 argument_list|()
 argument_list|)
 member_init_list|,
-name|info
-argument_list|(
-name|d
-argument_list|)
-member_init_list|,
 name|externalPix
 argument_list|(
 literal|true

@@ -220,9 +220,6 @@ function_decl|;
 name|bool
 name|silent
 decl_stmt|;
-name|bool
-name|validRegExp
-decl_stmt|;
 name|QStringList
 name|plainLines
 decl_stmt|;

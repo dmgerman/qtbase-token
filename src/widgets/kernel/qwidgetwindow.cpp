@@ -2350,6 +2350,7 @@ name|QEvent
 operator|::
 name|TouchCancel
 condition|)
+block|{
 name|QApplicationPrivate
 operator|::
 name|translateTouchCancel
@@ -2365,7 +2366,18 @@ name|timestamp
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|event
+operator|->
+name|accept
+argument_list|()
+expr_stmt|;
+block|}
 else|else
+block|{
+name|event
+operator|->
+name|setAccepted
+argument_list|(
 name|QApplicationPrivate
 operator|::
 name|translateRawTouchEvent
@@ -2387,7 +2399,9 @@ operator|->
 name|timestamp
 argument_list|()
 argument_list|)
+argument_list|)
 expr_stmt|;
+block|}
 block|}
 end_function
 begin_function

@@ -748,15 +748,6 @@ operator|&
 name|tor
 argument_list|)
 expr_stmt|;
-name|QCoreApplication
-operator|::
-name|Encoding
-name|e
-init|=
-name|QCoreApplication
-operator|::
-name|UnicodeUTF8
-decl_stmt|;
 name|QCOMPARE
 argument_list|(
 name|QCoreApplication
@@ -768,8 +759,6 @@ argument_list|,
 literal|"Hello %n world(s)!"
 argument_list|,
 literal|0
-argument_list|,
-name|e
 argument_list|,
 literal|0
 argument_list|)
@@ -794,8 +783,6 @@ literal|"Hello %n world(s)!"
 argument_list|,
 literal|0
 argument_list|,
-name|e
-argument_list|,
 literal|1
 argument_list|)
 argument_list|,
@@ -818,8 +805,6 @@ argument_list|,
 literal|"Hello %n world(s)!"
 argument_list|,
 literal|0
-argument_list|,
-name|e
 argument_list|,
 literal|2
 argument_list|)
@@ -1133,15 +1118,6 @@ operator|&
 name|tor
 argument_list|)
 expr_stmt|;
-name|QCoreApplication
-operator|::
-name|Encoding
-name|e
-init|=
-name|QCoreApplication
-operator|::
-name|UnicodeUTF8
-decl_stmt|;
 name|QCOMPARE
 argument_list|(
 name|QCoreApplication
@@ -1153,8 +1129,6 @@ argument_list|,
 literal|"Hello %n world(s)!"
 argument_list|,
 literal|0
-argument_list|,
-name|e
 argument_list|,
 literal|0
 argument_list|)
@@ -1179,8 +1153,6 @@ literal|"Hello %n world(s)!"
 argument_list|,
 literal|0
 argument_list|,
-name|e
-argument_list|,
 literal|1
 argument_list|)
 argument_list|,
@@ -1203,8 +1175,6 @@ argument_list|,
 literal|"Hello %n world(s)!"
 argument_list|,
 literal|0
-argument_list|,
-name|e
 argument_list|,
 literal|2
 argument_list|)
