@@ -143,6 +143,11 @@ name|m_cursor
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_DRAGANDDROP
+end_ifndef
 begin_decl_stmt
 name|class
 name|QOffscreenDrag
@@ -177,6 +182,8 @@ return|;
 block|}
 expr|}
 block|;
+endif|#
+directive|endif
 name|class
 name|QOffscreenBackingStore
 operator|:
