@@ -1124,6 +1124,11 @@ argument_list|(
 literal|false
 argument_list|)
 member_init_list|,
+name|has_touch_without_mouse_emulation
+argument_list|(
+literal|false
+argument_list|)
+member_init_list|,
 name|m_buttons
 argument_list|(
 literal|0

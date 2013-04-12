@@ -204,6 +204,13 @@ argument|const QString&name
 argument_list|)
 specifier|const
 block|;
+name|QVariant
+name|styleHint
+argument_list|(
+argument|StyleHint hint
+argument_list|)
+specifier|const
+block|;
 name|QXcbConnection
 operator|*
 name|defaultConnection
