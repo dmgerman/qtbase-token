@@ -2546,7 +2546,7 @@ endif|#
 directive|endif
 ifndef|#
 directive|ifndef
-name|QT_NO_LIBRARY
+name|QT_NO_IMAGEFORMATPLUGIN
 name|supportedImageHandlerMimeTypes
 argument_list|(
 name|loader
@@ -2562,7 +2562,7 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-comment|// QT_NO_LIBRARY
+comment|// QT_NO_IMAGEFORMATPLUGIN
 name|QList
 argument_list|<
 name|QByteArray
