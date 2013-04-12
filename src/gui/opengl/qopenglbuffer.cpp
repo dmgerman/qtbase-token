@@ -606,6 +606,17 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+operator|delete
+name|d
+operator|->
+name|funcs
+expr_stmt|;
+name|d
+operator|->
+name|funcs
+operator|=
+literal|0
+expr_stmt|;
 block|}
 end_function
 begin_comment
