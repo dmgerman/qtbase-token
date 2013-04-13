@@ -96,11 +96,17 @@ operator|.
 name|ref
 argument_list|()
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_PDF
 name|addGlyph
 argument_list|(
 literal|0
 argument_list|)
-block|; }
+block|;
+endif|#
+directive|endif
+block|}
 operator|~
 name|QFontSubset
 argument_list|()
@@ -124,6 +130,9 @@ name|toTruetype
 argument_list|()
 specifier|const
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_PDF
 name|QByteArray
 name|widthArray
 argument_list|()
@@ -178,6 +187,8 @@ name|int
 name|index
 parameter_list|)
 function_decl|;
+endif|#
+directive|endif
 specifier|const
 name|int
 name|object_id
