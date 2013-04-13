@@ -628,6 +628,17 @@ argument_list|)
 specifier|const
 block|;
 name|int
+name|lastVisibleItem
+argument_list|(
+argument|int firstVisual = -
+literal|1
+argument_list|,
+argument|int offset = -
+literal|1
+argument_list|)
+specifier|const
+block|;
+name|int
 name|columnAt
 argument_list|(
 argument|int x
