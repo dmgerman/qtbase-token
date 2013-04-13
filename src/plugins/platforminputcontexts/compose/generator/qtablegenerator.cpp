@@ -1238,7 +1238,7 @@ argument_list|()
 operator|<<
 name|QString
 argument_list|(
-literal|"Qt Warrning - invalid keysym: %1"
+literal|"Qt Warning - invalid keysym: %1"
 argument_list|)
 operator|.
 name|arg
