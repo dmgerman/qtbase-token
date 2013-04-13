@@ -13,7 +13,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"tr.h"
+file|<qcoreapplication.h>
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
