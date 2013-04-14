@@ -697,6 +697,9 @@ argument_list|(
 name|CONFIG_TAGFILE
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_TEXTCODEC
 name|outputEncoding
 operator|=
 name|config
@@ -732,6 +735,8 @@ name|toLocal8Bit
 argument_list|()
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|naturalLanguage
 operator|=
 name|config
@@ -10235,6 +10240,9 @@ modifier|*
 name|marker
 parameter_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_TEXTCODEC
 name|out
 argument_list|()
 operator|<<
@@ -10248,6 +10256,18 @@ argument_list|(
 name|outputEncoding
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|out
+argument_list|()
+operator|<<
+name|QString
+argument_list|(
+literal|"<?xml version=\"1.0\"?>\n"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|out
 argument_list|()
 operator|<<
@@ -18648,6 +18668,9 @@ modifier|&
 name|string
 parameter_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_TEXTCODEC
 return|return
 name|protect
 argument_list|(
@@ -18656,6 +18679,16 @@ argument_list|,
 name|outputEncoding
 argument_list|)
 return|;
+else|#
+directive|else
+return|return
+name|protect
+argument_list|(
+name|string
+argument_list|)
+return|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function

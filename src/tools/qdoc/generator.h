@@ -1037,6 +1037,9 @@ expr_stmt|;
 name|QString
 name|naturalLanguage
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_TEXTCODEC
 name|QTextCodec
 modifier|*
 name|outputCodec
@@ -1044,6 +1047,8 @@ decl_stmt|;
 name|QString
 name|outputEncoding
 decl_stmt|;
+endif|#
+directive|endif
 name|QString
 name|tagFile_
 decl_stmt|;
