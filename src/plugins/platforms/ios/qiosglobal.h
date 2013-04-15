@@ -44,7 +44,7 @@ end_function_decl
 begin_function_decl
 name|QIOSViewController
 modifier|*
-name|rootViewController
+name|qiosViewController
 parameter_list|()
 function_decl|;
 end_function_decl

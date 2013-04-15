@@ -8,6 +8,9 @@ end_empty
 begin_empty
 empty|#import<QtGui/QtGui>
 end_empty
+begin_empty
+empty|#import "qiosviewcontroller.h"
+end_empty
 begin_decl_stmt
 unit|@
 name|interface
@@ -27,6 +30,21 @@ argument_list|)
 name|UIWindow
 operator|*
 name|window
+decl_stmt|;
+end_decl_stmt
+begin_macro
+unit|@
+name|property
+argument_list|(
+argument|strong
+argument_list|,
+argument|nonatomic
+argument_list|)
+end_macro
+begin_decl_stmt
+name|QIOSViewController
+modifier|*
+name|qiosViewController
 decl_stmt|;
 end_decl_stmt
 begin_expr_stmt
