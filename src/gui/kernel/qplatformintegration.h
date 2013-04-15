@@ -196,6 +196,8 @@ block|,
 name|ApplicationState
 block|,
 name|ForeignWindows
+block|,
+name|NonFullScreenWindows
 block|}
 enum|;
 name|virtual
