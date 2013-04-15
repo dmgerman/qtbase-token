@@ -30,6 +30,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qxcbintegration.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qxcbconnection.h"
 end_include
 begin_include
@@ -3221,6 +3226,13 @@ argument_list|()
 argument_list|,
 name|m_window
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|m_screen
+operator|->
+name|windowShown
+argument_list|(
+name|this
 argument_list|)
 expr_stmt|;
 name|xcb_flush
