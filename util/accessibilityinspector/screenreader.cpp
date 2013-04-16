@@ -263,6 +263,13 @@ name|m_selectedInterface
 operator|=
 name|currentInterface
 expr_stmt|;
+if|if
+condition|(
+name|m_selectedInterface
+operator|->
+name|object
+argument_list|()
+condition|)
 emit|emit
 name|selected
 argument_list|(
