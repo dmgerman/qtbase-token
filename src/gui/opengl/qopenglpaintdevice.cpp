@@ -622,7 +622,9 @@ case|case
 name|PdmDevicePixelRatio
 case|:
 return|return
-literal|1
+name|d_ptr
+operator|->
+name|devicePixelRatio
 return|;
 default|default:
 name|qWarning
