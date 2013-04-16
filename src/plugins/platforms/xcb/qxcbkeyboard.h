@@ -99,6 +99,16 @@ argument|int s
 argument_list|)
 specifier|const
 block|;
+name|QList
+operator|<
+name|int
+operator|>
+name|possibleKeys
+argument_list|(
+argument|const QKeyEvent *e
+argument_list|)
+specifier|const
+block|;
 name|void
 name|updateKeymap
 argument_list|()
