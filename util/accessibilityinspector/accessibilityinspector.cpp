@@ -117,17 +117,9 @@ DECL|function|accessibilityUpdateHandler
 name|void
 name|accessibilityUpdateHandler
 parameter_list|(
-name|QObject
+name|QAccessibleEvent
 modifier|*
-name|object
-parameter_list|,
-name|int
-name|who
-parameter_list|,
-name|QAccessible
-operator|::
-name|Event
-name|reason
+name|event
 parameter_list|)
 block|{
 if|if
@@ -148,9 +140,7 @@ name|sceneManager
 operator|->
 name|handleUpdate
 argument_list|(
-name|object
-argument_list|,
-name|reason
+name|event
 argument_list|)
 expr_stmt|;
 comment|//qDebug()<< "update";
@@ -162,11 +152,7 @@ condition|)
 comment|// call prev just to be sure.
 name|previousUpdateHandler
 argument_list|(
-name|object
-argument_list|,
-name|who
-argument_list|,
-name|reason
+name|event
 argument_list|)
 expr_stmt|;
 name|updateHandlerRecursion

@@ -20,6 +20,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<private/qaccessible2_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtGui>
 end_include
 begin_constructor
@@ -60,14 +65,7 @@ operator|::
 name|~
 name|ScreenReader
 parameter_list|()
-block|{
-operator|delete
-name|m_selectedInterface
-expr_stmt|;
-operator|delete
-name|m_rootInterface
-expr_stmt|;
-block|}
+block|{ }
 end_destructor
 begin_function
 DECL|function|setRootObject
