@@ -410,6 +410,19 @@ argument_list|,
 argument|ResizeMode mode
 argument_list|)
 block|;
+name|void
+name|setResizeContentsPrecision
+argument_list|(
+argument|int precision
+argument_list|,
+argument|bool resizeNow = true
+argument_list|)
+block|;
+name|int
+name|resizeContentsPrecision
+argument_list|()
+specifier|const
+block|;
 if|#
 directive|if
 name|QT_DEPRECATED_SINCE

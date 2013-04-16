@@ -13331,7 +13331,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Resizes the \a column given to the size of its contents.    \sa columnWidth(), setColumnWidth() */
+comment|/*!   Resizes the \a column given to the size of its contents.    \sa columnWidth(), setColumnWidth(), sizeHintForColumn(), QHeaderView::resizeContentsPrecision() */
 end_comment
 begin_function
 DECL|function|resizeColumnToContents
@@ -14496,7 +14496,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns the size hint for the \a column's width or -1 if there is no   model.    If you need to set the width of a given column to a fixed value, call   QHeaderView::resizeSection() on the view's header.    If you reimplement this function in a subclass, note that the value you   return is only used when resizeColumnToContents() is called. In that case,   if a larger column width is required by either the view's header or   the item delegate, that width will be used instead.    \sa QWidget::sizeHint, header() */
+comment|/*!   Returns the size hint for the \a column's width or -1 if there is no   model.    If you need to set the width of a given column to a fixed value, call   QHeaderView::resizeSection() on the view's header.    If you reimplement this function in a subclass, note that the value you   return is only used when resizeColumnToContents() is called. In that case,   if a larger column width is required by either the view's header or   the item delegate, that width will be used instead.    \sa QWidget::sizeHint, header(), QHeaderView::resizeContentsPrecision() */
 end_comment
 begin_function
 DECL|function|sizeHintForColumn
@@ -14565,7 +14565,12 @@ specifier|const
 name|int
 name|maximumProcessRows
 init|=
-literal|1000
+name|d
+operator|->
+name|header
+operator|->
+name|resizeContentsPrecision
+argument_list|()
 decl_stmt|;
 comment|// To avoid this to take forever.
 name|int
@@ -14694,6 +14699,17 @@ argument_list|()
 operator|-
 literal|1
 decl_stmt|;
+if|if
+condition|(
+name|maximumProcessRows
+operator|==
+literal|0
+condition|)
+name|rowsProcessed
+operator|=
+literal|0
+expr_stmt|;
+comment|// skip the while loop
 while|while
 condition|(
 name|rowsProcessed

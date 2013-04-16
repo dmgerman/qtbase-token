@@ -248,7 +248,12 @@ argument_list|)
 block|,
 name|sectionStartposRecalc
 argument_list|(
-argument|true
+name|true
+argument_list|)
+block|,
+name|resizeContentsPrecision
+argument_list|(
+literal|1000
 argument_list|)
 block|{}
 name|int
@@ -1217,6 +1222,9 @@ block|;
 name|mutable
 name|bool
 name|sectionStartposRecalc
+block|;
+name|int
+name|resizeContentsPrecision
 block|;
 comment|// header sections
 block|struct

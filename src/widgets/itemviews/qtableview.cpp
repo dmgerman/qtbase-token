@@ -13228,7 +13228,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the size hint for the given \a row's height or -1 if there     is no model.      If you need to set the height of a given row to a fixed value, call     QHeaderView::resizeSection() on the table's vertical header.      If you reimplement this function in a subclass, note that the value you     return is only used when resizeRowToContents() is called. In that case,     if a larger row height is required by either the vertical header or     the item delegate, that width will be used instead.      \sa QWidget::sizeHint, verticalHeader() */
+comment|/*!     Returns the size hint for the given \a row's height or -1 if there     is no model.      If you need to set the height of a given row to a fixed value, call     QHeaderView::resizeSection() on the table's vertical header.      If you reimplement this function in a subclass, note that the value you     return is only used when resizeRowToContents() is called. In that case,     if a larger row height is required by either the vertical header or     the item delegate, that width will be used instead.      \sa QWidget::sizeHint, verticalHeader(), QHeaderView::resizeContentsPrecision() */
 end_comment
 begin_function
 DECL|function|sizeHintForRow
@@ -13265,9 +13265,13 @@ specifier|const
 name|int
 name|maximumProcessCols
 init|=
-literal|1000
+name|d
+operator|->
+name|verticalHeader
+operator|->
+name|resizeContentsPrecision
+argument_list|()
 decl_stmt|;
-comment|// To avoid this to take forever.
 name|int
 name|left
 init|=
@@ -13524,6 +13528,17 @@ name|column
 operator|-
 literal|1
 decl_stmt|;
+if|if
+condition|(
+name|maximumProcessCols
+operator|==
+literal|0
+condition|)
+name|columnsProcessed
+operator|=
+literal|0
+expr_stmt|;
+comment|// skip the while loop
 while|while
 condition|(
 name|columnsProcessed
@@ -13772,7 +13787,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the size hint for the given \a column's width or -1 if     there is no model.      If you need to set the width of a given column to a fixed value, call     QHeaderView::resizeSection() on the table's horizontal header.      If you reimplement this function in a subclass, note that the value you     return will be used when resizeColumnToContents() or     QHeaderView::resizeSections() is called. If a larger column width is     required by either the horizontal header or the item delegate, the larger     width will be used instead.      \sa QWidget::sizeHint, horizontalHeader() */
+comment|/*!     Returns the size hint for the given \a column's width or -1 if     there is no model.      If you need to set the width of a given column to a fixed value, call     QHeaderView::resizeSection() on the table's horizontal header.      If you reimplement this function in a subclass, note that the value you     return will be used when resizeColumnToContents() or     QHeaderView::resizeSections() is called. If a larger column width is     required by either the horizontal header or the item delegate, the larger     width will be used instead.      \sa QWidget::sizeHint, horizontalHeader(), QHeaderView::resizeContentsPrecision() */
 end_comment
 begin_function
 DECL|function|sizeHintForColumn
@@ -13809,9 +13824,13 @@ specifier|const
 name|int
 name|maximumProcessRows
 init|=
-literal|1000
+name|d
+operator|->
+name|horizontalHeader
+operator|->
+name|resizeContentsPrecision
+argument_list|()
 decl_stmt|;
-comment|// To avoid this to take forever.
 name|int
 name|top
 init|=
@@ -14003,6 +14022,17 @@ name|row
 operator|-
 literal|1
 decl_stmt|;
+if|if
+condition|(
+name|maximumProcessRows
+operator|==
+literal|0
+condition|)
+name|rowsProcessed
+operator|=
+literal|0
+expr_stmt|;
+comment|// skip the while loop
 while|while
 condition|(
 name|rowsProcessed
@@ -17079,7 +17109,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Resizes the given \a row based on the size hints of the delegate     used to render each item in the row. */
+comment|/*!     Resizes the given \a row based on the size hints of the delegate     used to render each item in the row.      \sa resizeRowsToContents(), sizeHintForRow(), QHeaderView::resizeContentsPrecision() */
 end_comment
 begin_function
 DECL|function|resizeRowToContents
@@ -17136,7 +17166,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Resizes all rows based on the size hints of the delegate     used to render each item in the rows. */
+comment|/*!     Resizes all rows based on the size hints of the delegate     used to render each item in the rows.      \sa resizeRowToContents(), sizeHintForRow(), QHeaderView::resizeContentsPrecision() */
 end_comment
 begin_function
 DECL|function|resizeRowsToContents
@@ -17165,7 +17195,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Resizes the given \a column based on the size hints of the delegate     used to render each item in the column.      \note Only visible columns will be resized. Reimplement sizeHintForColumn()     to resize hidden columns as well. */
+comment|/*!     Resizes the given \a column based on the size hints of the delegate     used to render each item in the column.      \note Only visible columns will be resized. Reimplement sizeHintForColumn()     to resize hidden columns as well.      \sa resizeColumnsToContents(), sizeHintForColumn(), QHeaderView::resizeContentsPrecision() */
 end_comment
 begin_function
 DECL|function|resizeColumnToContents
@@ -17222,7 +17252,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Resizes all columns based on the size hints of the delegate     used to render each item in the columns. */
+comment|/*!     Resizes all columns based on the size hints of the delegate     used to render each item in the columns.      \sa resizeColumnToContents(), sizeHintForColumn(), QHeaderView::resizeContentsPrecision() */
 end_comment
 begin_function
 DECL|function|resizeColumnsToContents
