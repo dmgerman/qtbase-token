@@ -495,7 +495,7 @@ block|;
 name|QString
 name|generateLowStatusMemberFile
 argument_list|(
-argument|const InnerNode *inner
+argument|InnerNode *inner
 argument_list|,
 argument|CodeMarker *marker
 argument_list|,
@@ -554,6 +554,8 @@ block|;
 name|void
 name|generateCompactList
 argument_list|(
+argument|ListType listType
+argument_list|,
 argument|const Node *relative
 argument_list|,
 argument|const NodeMap&classMap

@@ -36,11 +36,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"config.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"generator.h"
 end_include
 begin_macro
@@ -1120,17 +1115,7 @@ block|;
 name|void
 name|generateLowStatusMembers
 argument_list|(
-argument|const InnerNode* inner
-argument_list|,
-argument|CodeMarker* marker
-argument_list|,
-argument|CodeMarker::Status status
-argument_list|)
-block|;
-name|QString
-name|generateLowStatusMemberFile
-argument_list|(
-argument|const InnerNode* inner
+argument|InnerNode* inner
 argument_list|,
 argument|CodeMarker* marker
 argument_list|,
@@ -1189,6 +1174,8 @@ block|;
 name|void
 name|generateCompactList
 argument_list|(
+argument|ListType listType
+argument_list|,
 argument|const Node* relative
 argument_list|,
 argument|const NodeMap& classMap
@@ -1867,12 +1854,6 @@ name|noLinks
 block|;
 name|bool
 name|obsoleteLinks
-block|;
-name|bool
-name|offlineDocs
-block|;
-name|int
-name|codeIndent
 block|;
 name|int
 name|divNestingLevel
