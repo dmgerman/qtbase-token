@@ -9837,12 +9837,25 @@ expr_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_NO_MENUBAR
-comment|// if in a menubar, it should be right-aligned
+comment|// if the menu is in a menubar or is a submenu, it should be right-aligned
 if|if
 condition|(
 name|qobject_cast
 argument_list|<
 name|QMenuBar
+operator|*
+argument_list|>
+argument_list|(
+name|d
+operator|->
+name|causedPopup
+operator|.
+name|widget
+argument_list|)
+operator|||
+name|qobject_cast
+argument_list|<
+name|QMenu
 operator|*
 argument_list|>
 argument_list|(
