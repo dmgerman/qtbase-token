@@ -1926,6 +1926,9 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
+name|iface
+operator|&&
+operator|!
 name|hasWarned
 condition|)
 block|{

@@ -3841,9 +3841,12 @@ unit|} else
 block|{
 name|Q_ASSERT
 argument_list|(
+name|int
+argument_list|(
 name|d
 operator|->
 name|alloc
+argument_list|)
 operator|==
 name|aalloc
 argument_list|)

@@ -3740,6 +3740,12 @@ operator|::
 name|sharing
 parameter_list|()
 block|{
+comment|// QFontCache references the engineData
+name|int
+name|refs_by_cache
+init|=
+literal|1
+decl_stmt|;
 name|QFont
 name|f
 decl_stmt|;
@@ -3804,6 +3810,8 @@ name|load
 argument_list|()
 argument_list|,
 literal|1
+operator|+
+name|refs_by_cache
 argument_list|)
 expr_stmt|;
 name|QFont
@@ -3896,6 +3904,8 @@ name|load
 argument_list|()
 argument_list|,
 literal|1
+operator|+
+name|refs_by_cache
 argument_list|)
 expr_stmt|;
 name|f2
@@ -3993,6 +4003,8 @@ name|load
 argument_list|()
 argument_list|,
 literal|2
+operator|+
+name|refs_by_cache
 argument_list|)
 expr_stmt|;
 name|f2
@@ -4083,6 +4095,8 @@ name|load
 argument_list|()
 argument_list|,
 literal|1
+operator|+
+name|refs_by_cache
 argument_list|)
 expr_stmt|;
 if|if
