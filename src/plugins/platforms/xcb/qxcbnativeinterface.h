@@ -72,6 +72,8 @@ block|,
 name|AppTime
 block|,
 name|AppUserTime
+block|,
+name|ScreenHintStyle
 block|}
 block|;
 name|QXcbNativeInterface
