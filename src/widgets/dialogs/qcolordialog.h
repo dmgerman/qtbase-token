@@ -288,6 +288,30 @@ operator|*
 name|event
 argument_list|)
 block|;
+name|virtual
+name|void
+name|mouseMoveEvent
+argument_list|(
+name|QMouseEvent
+operator|*
+argument_list|)
+block|;
+name|virtual
+name|void
+name|mouseReleaseEvent
+argument_list|(
+name|QMouseEvent
+operator|*
+argument_list|)
+block|;
+name|virtual
+name|void
+name|keyPressEvent
+argument_list|(
+name|QKeyEvent
+operator|*
+argument_list|)
+block|;
 name|void
 name|done
 argument_list|(
@@ -329,6 +353,12 @@ argument_list|(
 argument|d_func()
 argument_list|,
 argument|void _q_newStandard(int, int)
+argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_pickScreenColor()
 argument_list|)
 name|friend
 name|class
