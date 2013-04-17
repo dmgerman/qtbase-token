@@ -16816,6 +16816,9 @@ argument_list|(
 name|menuItem
 argument_list|)
 expr_stmt|;
+operator|delete
+name|menuItem
+expr_stmt|;
 block|}
 elseif|else
 if|if
