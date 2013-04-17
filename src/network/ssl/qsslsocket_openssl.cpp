@@ -1448,6 +1448,28 @@ condition|(
 operator|!
 name|sslContextPointer
 condition|)
+block|{
+comment|// create a deep copy of our configuration
+name|QSslConfigurationPrivate
+modifier|*
+name|configurationCopy
+init|=
+operator|new
+name|QSslConfigurationPrivate
+argument_list|(
+name|configuration
+argument_list|)
+decl_stmt|;
+name|configurationCopy
+operator|->
+name|ref
+operator|.
+name|store
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+comment|// the QSslConfiguration constructor refs up
 name|sslContextPointer
 operator|=
 name|QSharedPointer
@@ -1461,16 +1483,13 @@ name|fromConfiguration
 argument_list|(
 name|mode
 argument_list|,
-name|QSslConfiguration
-argument_list|(
-operator|&
-name|configuration
-argument_list|)
+name|configurationCopy
 argument_list|,
 name|allowRootCertOnDemandLoading
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|sslContextPointer
