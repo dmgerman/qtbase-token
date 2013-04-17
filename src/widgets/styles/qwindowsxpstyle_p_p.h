@@ -1140,13 +1140,6 @@ name|partIsTransparent
 range|:
 literal|1
 decl_stmt|;
-DECL|member|hasAnyData
-name|bool
-name|hasAnyData
-range|:
-literal|1
-decl_stmt|;
-comment|// False = part& state has not data, NOP
 DECL|member|hasAlphaChannel
 name|bool
 name|hasAlphaChannel
@@ -1178,11 +1171,6 @@ name|false
 argument_list|)
 operator|,
 name|partIsTransparent
-argument_list|(
-name|false
-argument_list|)
-operator|,
-name|hasAnyData
 argument_list|(
 name|false
 argument_list|)
@@ -1427,15 +1415,6 @@ argument_list|(
 name|XPThemeData
 operator|&
 name|themeData
-argument_list|)
-block|;
-name|bool
-name|hasAnyData
-argument_list|(
-specifier|const
-name|QRect
-operator|&
-name|rect
 argument_list|)
 block|;
 name|bool
