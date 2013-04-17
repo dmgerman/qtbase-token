@@ -13217,10 +13217,13 @@ name|arrow
 decl_stmt|;
 name|arrow
 operator|=
-name|QApplication
+name|option
+operator|->
+name|direction
+operator|==
+name|Qt
 operator|::
-name|isRightToLeft
-argument_list|()
+name|RightToLeft
 condition|?
 name|PE_IndicatorArrowLeft
 else|:
