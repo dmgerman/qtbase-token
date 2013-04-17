@@ -2977,6 +2977,14 @@ emit|emit
 name|editingFinished
 argument_list|()
 emit|;
+emit|emit
+name|d
+operator|->
+name|edit
+operator|->
+name|returnPressed
+argument_list|()
+emit|;
 return|return;
 ifdef|#
 directive|ifdef
