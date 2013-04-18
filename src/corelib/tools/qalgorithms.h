@@ -2562,6 +2562,39 @@ begin_comment
 unit|}  }
 comment|//namespace QAlgorithmsPrivate
 end_comment
+begin_comment
+comment|// Use __builtin_popcount on gcc. Clang claims to be gcc
+end_comment
+begin_comment
+comment|// but has a bug where __builtin_popcount is not marked as
+end_comment
+begin_comment
+comment|// constexpr.
+end_comment
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_CC_GNU
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_CC_CLANG
+argument_list|)
+end_if
+begin_define
+DECL|macro|QALGORITHMS_USE_BUILTIN_POPCOUNT
+define|#
+directive|define
+name|QALGORITHMS_USE_BUILTIN_POPCOUNT
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|qPopulationCount
 name|Q_DECL_CONSTEXPR
@@ -2575,7 +2608,7 @@ parameter_list|)
 block|{
 ifdef|#
 directive|ifdef
-name|Q_CC_GNU
+name|QALGORITHMS_USE_BUILTIN_POPCOUNT
 return|return
 name|__builtin_popcount
 argument_list|(
@@ -2673,7 +2706,7 @@ parameter_list|)
 block|{
 ifdef|#
 directive|ifdef
-name|Q_CC_GNU
+name|QALGORITHMS_USE_BUILTIN_POPCOUNT
 return|return
 name|__builtin_popcount
 argument_list|(
@@ -2722,7 +2755,7 @@ parameter_list|)
 block|{
 ifdef|#
 directive|ifdef
-name|Q_CC_GNU
+name|QALGORITHMS_USE_BUILTIN_POPCOUNT
 return|return
 name|__builtin_popcount
 argument_list|(
@@ -2795,7 +2828,7 @@ parameter_list|)
 block|{
 ifdef|#
 directive|ifdef
-name|Q_CC_GNU
+name|QALGORITHMS_USE_BUILTIN_POPCOUNT
 return|return
 name|__builtin_popcountll
 argument_list|(
@@ -2978,6 +3011,30 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_CC_GNU
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_CC_CLANG
+argument_list|)
+end_if
+begin_undef
+DECL|macro|QALGORITHMS_USE_BUILTIN_POPCOUNT
+undef|#
+directive|undef
+name|QALGORITHMS_USE_BUILTIN_POPCOUNT
+end_undef
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
