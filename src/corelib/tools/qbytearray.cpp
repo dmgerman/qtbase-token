@@ -1691,6 +1691,13 @@ argument_list|(
 name|QByteArrayData
 argument_list|)
 expr_stmt|;
+name|d
+operator|->
+name|size
+operator|=
+literal|0
+expr_stmt|;
+comment|// Shut up valgrind "uninitialized variable" warning
 name|int
 name|res
 init|=
