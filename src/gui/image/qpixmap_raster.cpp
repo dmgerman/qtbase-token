@@ -1214,6 +1214,16 @@ name|format
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|newImage
+operator|.
+name|setDevicePixelRatio
+argument_list|(
+name|image
+operator|.
+name|devicePixelRatio
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|newImage
 return|;
