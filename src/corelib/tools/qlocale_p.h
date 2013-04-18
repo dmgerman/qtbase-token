@@ -233,7 +233,13 @@ name|NativeLanguageName
 block|,
 comment|// QString
 name|NativeCountryName
+block|,
 comment|// QString
+name|StandaloneMonthNameLong
+block|,
+comment|// QString, in: int
+name|StandaloneMonthNameShort
+comment|// QString, in: int
 block|}
 enum|;
 name|virtual

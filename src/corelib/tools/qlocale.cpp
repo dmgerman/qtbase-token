@@ -8706,11 +8706,11 @@ name|LongFormat
 condition|?
 name|QSystemLocale
 operator|::
-name|MonthNameLong
+name|StandaloneMonthNameLong
 else|:
 name|QSystemLocale
 operator|::
-name|MonthNameShort
+name|StandaloneMonthNameShort
 argument_list|,
 name|month
 argument_list|)
