@@ -153,6 +153,26 @@ name|effectiveHeight
 argument_list|()
 specifier|const
 block|;
+name|bool
+name|setMouseGrabEnabled
+argument_list|(
+argument|bool grab
+argument_list|)
+block|{
+return|return
+name|grab
+return|;
+block|}
+name|bool
+name|setKeyboardGrabEnabled
+argument_list|(
+argument|bool grab
+argument_list|)
+block|{
+return|return
+name|grab
+return|;
+block|}
 name|WId
 name|winId
 argument_list|()
