@@ -45,10 +45,6 @@ label|:
 name|QIOSIntegration
 argument_list|()
 expr_stmt|;
-operator|~
-name|QIOSIntegration
-argument_list|()
-expr_stmt|;
 name|bool
 name|hasCapability
 argument_list|(
