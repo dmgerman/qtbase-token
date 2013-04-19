@@ -43,11 +43,13 @@ end_comment
 begin_comment
 comment|//
 end_comment
-begin_decl_stmt
-name|QT_BEGIN_NAMESPACE
+begin_include
 include|#
 directive|include
 file|<QtCore/qmutex.h>
+end_include
+begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 comment|/*   Locks 2 mutexes in a defined order, avoiding a recursive lock if   we're trying to lock the same mutex twice. */
 name|class
 name|QOrderedMutexLocker
