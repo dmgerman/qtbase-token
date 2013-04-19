@@ -1523,6 +1523,14 @@ argument|int visualIndex
 argument_list|)
 specifier|const
 block|;
+name|void
+name|setScrollOffset
+argument_list|(
+argument|const QScrollBar *scrollBar
+argument_list|,
+argument|QAbstractItemView::ScrollMode scrollMode
+argument_list|)
+block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_DATASTREAM
