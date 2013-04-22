@@ -317,7 +317,7 @@ parameter_list|,
 name|_zzq_arg5
 parameter_list|)
 define|\
-value|{                                                              \       (_zzq_rlval) = (_zzq_default);                              \    }
+value|{                                                              \       (_zzq_rlval) = (_zzq_default);                              \       (void)_zzq_rlval;                                           \    }
 end_define
 begin_else
 else|#
@@ -388,7 +388,7 @@ parameter_list|)
 define|\
 value|{ volatile unsigned int _zzq_args[6];                           \     volatile unsigned int _zzq_result;                            \     _zzq_args[0] = (unsigned int)(_zzq_request);                  \     _zzq_args[1] = (unsigned int)(_zzq_arg1);                     \     _zzq_args[2] = (unsigned int)(_zzq_arg2);                     \     _zzq_args[3] = (unsigned int)(_zzq_arg3);                     \     _zzq_args[4] = (unsigned int)(_zzq_arg4);                     \     _zzq_args[5] = (unsigned int)(_zzq_arg5);                     \     __asm__ volatile(__SPECIAL_INSTRUCTION_PREAMBLE               \
 comment|/* %EDX = client_request ( %EAX ) */
-value|\                      "xchgl %%ebx,%%ebx"                          \                      : "=d" (_zzq_result)                         \                      : "a" (&_zzq_args[0]), "0" (_zzq_default)    \                      : "cc", "memory"                             \                     );                                            \     _zzq_rlval = _zzq_result;                                     \   }
+value|\                      "xchgl %%ebx,%%ebx"                          \                      : "=d" (_zzq_result)                         \                      : "a" (&_zzq_args[0]), "0" (_zzq_default)    \                      : "cc", "memory"                             \                     );                                            \     _zzq_rlval = _zzq_result;                                     \     (void)_zzq_rlval;                                             \   }
 end_define
 begin_define
 DECL|macro|VALGRIND_GET_NR_CONTEXT
@@ -578,7 +578,7 @@ value|\                      __SPECIAL_INSTRUCTION_PREAMBLE               \
 comment|/* %R3 = client_request ( %R4 ) */
 value|\                      "or 1,1,1\n\t"                               \                      "mr %0,3"
 comment|/*result*/
-value|\                      : "=b" (_zzq_result)                         \                      : "b" (_zzq_default), "b" (_zzq_ptr)         \                      : "cc", "memory", "r3", "r4");               \     _zzq_rlval = _zzq_result;                                     \   }
+value|\                      : "=b" (_zzq_result)                         \                      : "b" (_zzq_default), "b" (_zzq_ptr)         \                      : "cc", "memory", "r3", "r4");               \     _zzq_rlval = _zzq_result;                                     \     (void)_zzq_rlval;                                             \   }
 end_define
 begin_define
 DECL|macro|VALGRIND_GET_NR_CONTEXT
@@ -679,7 +679,7 @@ parameter_list|)
 define|\                                                                   \
 value|{          unsigned long long int  _zzq_args[6];                \     register unsigned long long int  _zzq_result __asm__("r3");   \     register unsigned long long int* _zzq_ptr __asm__("r4");      \     _zzq_args[0] = (unsigned long long int)(_zzq_request);        \     _zzq_args[1] = (unsigned long long int)(_zzq_arg1);           \     _zzq_args[2] = (unsigned long long int)(_zzq_arg2);           \     _zzq_args[3] = (unsigned long long int)(_zzq_arg3);           \     _zzq_args[4] = (unsigned long long int)(_zzq_arg4);           \     _zzq_args[5] = (unsigned long long int)(_zzq_arg5);           \     _zzq_ptr = _zzq_args;                                         \     __asm__ volatile(__SPECIAL_INSTRUCTION_PREAMBLE               \
 comment|/* %R3 = client_request ( %R4 ) */
-value|\                      "or 1,1,1"                                   \                      : "=r" (_zzq_result)                         \                      : "0" (_zzq_default), "r" (_zzq_ptr)         \                      : "cc", "memory");                           \     _zzq_rlval = _zzq_result;                                     \   }
+value|\                      "or 1,1,1"                                   \                      : "=r" (_zzq_result)                         \                      : "0" (_zzq_default), "r" (_zzq_ptr)         \                      : "cc", "memory");                           \     _zzq_rlval = _zzq_result;                                     \     (void)_zzq_rlval;                                             \   }
 end_define
 begin_define
 DECL|macro|VALGRIND_GET_NR_CONTEXT
@@ -778,7 +778,7 @@ parameter_list|)
 define|\                                                                   \
 value|{          unsigned int  _zzq_args[7];                          \     register unsigned int  _zzq_result;                           \     register unsigned int* _zzq_ptr;                              \     _zzq_args[0] = (unsigned int)(_zzq_request);                  \     _zzq_args[1] = (unsigned int)(_zzq_arg1);                     \     _zzq_args[2] = (unsigned int)(_zzq_arg2);                     \     _zzq_args[3] = (unsigned int)(_zzq_arg3);                     \     _zzq_args[4] = (unsigned int)(_zzq_arg4);                     \     _zzq_args[5] = (unsigned int)(_zzq_arg5);                     \     _zzq_args[6] = (unsigned int)(_zzq_default);                  \     _zzq_ptr = _zzq_args;                                         \     __asm__ volatile("mr 4,%1\n\t"                                \                      "lwz 3, 24(4)\n\t"                           \                      __SPECIAL_INSTRUCTION_PREAMBLE               \
 comment|/* %R3 = client_request ( %R4 ) */
-value|\                      "or 1,1,1\n\t"                               \                      "mr %0,3"                                    \                      : "=b" (_zzq_result)                         \                      : "b" (_zzq_ptr)                             \                      : "r3", "r4", "cc", "memory");               \     _zzq_rlval = _zzq_result;                                     \   }
+value|\                      "or 1,1,1\n\t"                               \                      "mr %0,3"                                    \                      : "=b" (_zzq_result)                         \                      : "b" (_zzq_ptr)                             \                      : "r3", "r4", "cc", "memory");               \     _zzq_rlval = _zzq_result;                                     \     (void)_zzq_rlval;                                             \   }
 end_define
 begin_define
 DECL|macro|VALGRIND_GET_NR_CONTEXT
@@ -881,7 +881,7 @@ parameter_list|)
 define|\                                                                   \
 value|{          unsigned long long int  _zzq_args[7];                \     register unsigned long long int  _zzq_result;                 \     register unsigned long long int* _zzq_ptr;                    \     _zzq_args[0] = (unsigned int long long)(_zzq_request);        \     _zzq_args[1] = (unsigned int long long)(_zzq_arg1);           \     _zzq_args[2] = (unsigned int long long)(_zzq_arg2);           \     _zzq_args[3] = (unsigned int long long)(_zzq_arg3);           \     _zzq_args[4] = (unsigned int long long)(_zzq_arg4);           \     _zzq_args[5] = (unsigned int long long)(_zzq_arg5);           \     _zzq_args[6] = (unsigned int long long)(_zzq_default);        \     _zzq_ptr = _zzq_args;                                         \     __asm__ volatile("mr 4,%1\n\t"                                \                      "ld 3, 48(4)\n\t"                            \                      __SPECIAL_INSTRUCTION_PREAMBLE               \
 comment|/* %R3 = client_request ( %R4 ) */
-value|\                      "or 1,1,1\n\t"                               \                      "mr %0,3"                                    \                      : "=b" (_zzq_result)                         \                      : "b" (_zzq_ptr)                             \                      : "r3", "r4", "cc", "memory");               \     _zzq_rlval = _zzq_result;                                     \   }
+value|\                      "or 1,1,1\n\t"                               \                      "mr %0,3"                                    \                      : "=b" (_zzq_result)                         \                      : "b" (_zzq_ptr)                             \                      : "r3", "r4", "cc", "memory");               \     _zzq_rlval = _zzq_result;                                     \     (void)_zzq_rlval;                                             \   }
 end_define
 begin_define
 DECL|macro|VALGRIND_GET_NR_CONTEXT
