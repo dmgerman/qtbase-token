@@ -728,6 +728,22 @@ expr_stmt|;
 comment|// should never be called when using the native FS
 if|if
 condition|(
+name|fileTimes
+operator|.
+name|size
+argument_list|()
+operator|!=
+literal|3
+condition|)
+name|fileTimes
+operator|.
+name|resize
+argument_list|(
+literal|3
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
 operator|!
 name|cache_enabled
 condition|)
