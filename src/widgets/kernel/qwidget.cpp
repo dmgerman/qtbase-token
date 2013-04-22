@@ -31335,7 +31335,7 @@ name|ignore
 argument_list|()
 expr_stmt|;
 block|}
-comment|/*!     This event handler, for event \a event, can be reimplemented in a     subclass to receive mouse double click events for the widget.      The default implementation generates a normal mouse press event.      \note The widget will also receive mouse press and mouse release     events in addition to the double click event. It is up to the     developer to ensure that the application interprets these events     correctly.      \sa mousePressEvent(), mouseReleaseEvent(), mouseMoveEvent(),     event(), QMouseEvent */
+comment|/*!     This event handler, for event \a event, can be reimplemented in a     subclass to receive mouse double click events for the widget.      \note The widget will also receive mouse press and mouse release     events in addition to the double click event. It is up to the     developer to ensure that the application interprets these events     correctly.      \sa mousePressEvent(), mouseReleaseEvent(), mouseMoveEvent(),     event(), QMouseEvent */
 DECL|function|mouseDoubleClickEvent
 name|void
 name|QWidget
