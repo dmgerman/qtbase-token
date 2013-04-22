@@ -629,6 +629,13 @@ operator|::
 name|Format_RGB16
 return|;
 default|default:
+name|qWarning
+argument_list|(
+literal|"Unsupported screen depth: %d"
+argument_list|,
+name|depth
+argument_list|)
+expr_stmt|;
 return|return
 name|QImage
 operator|::
