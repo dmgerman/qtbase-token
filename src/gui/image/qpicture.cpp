@@ -3819,6 +3819,14 @@ operator|=
 literal|24
 expr_stmt|;
 break|break;
+case|case
+name|PdmDevicePixelRatio
+case|:
+name|val
+operator|=
+literal|1
+expr_stmt|;
+break|break;
 default|default:
 name|val
 operator|=

@@ -387,6 +387,35 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     Returns the character used to mask the characters typed into text input     fields in password mode. */
+end_comment
+begin_function
+DECL|function|passwordMaskCharacter
+name|QChar
+name|QStyleHints
+operator|::
+name|passwordMaskCharacter
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|themeableHint
+argument_list|(
+name|QPlatformTheme
+operator|::
+name|PasswordMaskCharacter
+argument_list|,
+name|QPlatformIntegration
+operator|::
+name|PasswordMaskCharacter
+argument_list|)
+operator|.
+name|toChar
+argument_list|()
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     Returns the gamma value used in font smoothing. */
 end_comment
 begin_function

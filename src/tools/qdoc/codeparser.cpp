@@ -825,7 +825,7 @@ name|setStatus
 argument_list|(
 name|Node
 operator|::
-name|Deprecated
+name|Obsolete
 argument_list|)
 expr_stmt|;
 block|}

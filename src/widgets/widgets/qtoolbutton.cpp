@@ -2579,6 +2579,14 @@ expr_stmt|;
 return|return;
 comment|// no menu to show
 block|}
+comment|// prevent recursions spinning another event loop
+if|if
+condition|(
+name|d
+operator|->
+name|menuButtonDown
+condition|)
+return|return;
 name|d
 operator|->
 name|menuButtonDown

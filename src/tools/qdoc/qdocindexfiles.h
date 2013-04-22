@@ -228,6 +228,9 @@ name|Generator
 modifier|*
 name|gen_
 decl_stmt|;
+name|QString
+name|project_
+decl_stmt|;
 name|QList
 operator|<
 name|QPair

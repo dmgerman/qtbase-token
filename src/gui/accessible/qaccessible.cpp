@@ -176,15 +176,6 @@ literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|accessibility_active
-specifier|static
-name|bool
-name|accessibility_active
-init|=
-literal|false
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|cleanupAdded
 specifier|static
 name|bool
@@ -452,10 +443,6 @@ modifier|*
 name|object
 parameter_list|)
 block|{
-name|accessibility_active
-operator|=
-literal|true
-expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -931,7 +918,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if an accessibility implementation has been requested     during the runtime of the application; otherwise returns false.      Use this function to prevent potentially expensive notifications via     updateAccessibility(). */
+comment|/*!     Returns true if the platform requested accessibility information.      This function will return false until a tool such as a screen reader     accessed the accessibility framework. It is still possible to use     \l QAccessible::queryAccessibleInterface even if accessibility is not     active. But there will be no notifications sent to the platform.      It is recommended to use this function to prevent expensive notifications     via updateAccessibility() when they are not needed. */
 end_comment
 begin_function
 DECL|function|isActive
@@ -941,8 +928,28 @@ operator|::
 name|isActive
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_ACCESSIBILITY
+if|if
+condition|(
+name|QPlatformAccessibility
+modifier|*
+name|pfAccessibility
+init|=
+name|platformAccessibility
+argument_list|()
+condition|)
 return|return
-name|accessibility_active
+name|pfAccessibility
+operator|->
+name|isActive
+argument_list|()
+return|;
+endif|#
+directive|endif
+return|return
+literal|false
 return|;
 block|}
 end_function

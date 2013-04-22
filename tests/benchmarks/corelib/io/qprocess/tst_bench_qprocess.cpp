@@ -21,9 +21,19 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-ifndef|#
-directive|ifndef
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
 name|QT_NO_PROCESS
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINCE
+argument_list|)
 private|private
 name|slots
 private|:
@@ -37,16 +47,21 @@ comment|// QT_NO_PROCESS
 block|}
 class|;
 end_class
-begin_ifndef
-ifndef|#
-directive|ifndef
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
 name|QT_NO_PROCESS
-end_ifndef
-begin_ifndef
-ifndef|#
-directive|ifndef
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
 name|Q_OS_WINCE
-end_ifndef
+argument_list|)
+end_if
 begin_comment
 comment|// Reading and writing to a process is not supported on Qt/CE
 end_comment
@@ -353,14 +368,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// Q_OS_WINCE
-end_comment
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_NO_PROCESS
+comment|// QT_NO_PROCESS&& Q_OS_WINCE
 end_comment
 begin_macro
 name|QTEST_MAIN

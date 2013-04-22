@@ -125,9 +125,9 @@ block|;
 name|void
 name|handleUpdate
 argument_list|(
-argument|QObject *object
-argument_list|,
-argument|QAccessible::Event reason
+name|QAccessibleEvent
+operator|*
+name|event
 argument_list|)
 block|;
 name|void

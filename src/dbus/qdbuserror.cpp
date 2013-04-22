@@ -322,7 +322,15 @@ name|code
 argument_list|(
 name|NoError
 argument_list|)
-block|{  }
+block|{
+comment|// ### This class has an implicit (therefore inline) destructor
+comment|// so the following field cannot be used.
+name|Q_UNUSED
+argument_list|(
+name|unused
+argument_list|)
+expr_stmt|;
+block|}
 end_constructor
 begin_ifndef
 ifndef|#

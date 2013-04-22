@@ -2837,7 +2837,6 @@ name|QVERIFY
 argument_list|(
 name|testAllFunctions
 argument_list|(
-operator|&
 name|cstyle
 argument_list|)
 argument_list|)
@@ -2882,7 +2881,6 @@ name|QVERIFY
 argument_list|(
 name|testAllFunctions
 argument_list|(
-operator|&
 name|cstyle
 argument_list|)
 argument_list|)

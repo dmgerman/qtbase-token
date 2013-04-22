@@ -5807,6 +5807,31 @@ argument_list|,
 name|hwnd
 argument_list|)
 condition|)
+block|{
+comment|// Repeated calls to wglMakeCurrent when vsync is enabled in the driver will
+comment|// often result in 100% cpuload. This check is cheap and avoids the problem.
+comment|// This is reproducable on NVidia cards and Intel onboard chips.
+if|if
+condition|(
+name|wglGetCurrentContext
+argument_list|()
+operator|==
+name|contextData
+operator|->
+name|renderingContext
+operator|&&
+name|wglGetCurrentDC
+argument_list|()
+operator|==
+name|contextData
+operator|->
+name|hdc
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
 return|return
 name|wglMakeCurrent
 argument_list|(
@@ -5819,6 +5844,7 @@ operator|->
 name|renderingContext
 argument_list|)
 return|;
+block|}
 comment|// Create a new entry.
 specifier|const
 name|QOpenGLContextData

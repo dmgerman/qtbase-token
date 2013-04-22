@@ -1211,6 +1211,13 @@ specifier|const
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
+name|int
+name|effectiveDevicePixelRatio
+argument_list|()
+specifier|const
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 name|QTransform
 name|hidpiScaleTransform
 argument_list|()

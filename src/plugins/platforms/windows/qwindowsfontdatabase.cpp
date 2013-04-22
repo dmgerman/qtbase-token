@@ -5811,7 +5811,8 @@ name|directWriteFontFace
 argument_list|,
 name|pixelSize
 argument_list|,
-name|m_fontEngineData
+name|sharedFontData
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Get font family from font data

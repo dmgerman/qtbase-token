@@ -8644,6 +8644,9 @@ name|screen
 operator|&&
 name|qFuzzyCompare
 argument_list|(
+operator|(
+name|double
+operator|)
 name|screen
 operator|->
 name|logicalDotsPerInchX

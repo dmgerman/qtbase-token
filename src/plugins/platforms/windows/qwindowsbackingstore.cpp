@@ -781,7 +781,7 @@ name|format
 operator|=
 name|QImage
 operator|::
-name|Format_ARGB32
+name|Format_ARGB32_Premultiplied
 expr_stmt|;
 name|m_image
 operator|.

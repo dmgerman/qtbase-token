@@ -608,7 +608,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \property QLineEdit::displayText     \brief the displayed text      If \l echoMode is \l Normal this returns the same as text(); if     \l EchoMode is \l Password or \l PasswordEchoOnEdit it returns a string of asterisks     text().length() characters long, e.g. "******"; if \l EchoMode is     \l NoEcho returns an empty string, "".      By default, this property contains an empty string.      \sa setEchoMode(), text(), EchoMode */
+comment|/*!     \property QLineEdit::displayText     \brief the displayed text      If \l echoMode is \l Normal this returns the same as text(); if     \l EchoMode is \l Password or \l PasswordEchoOnEdit it returns a string of     platform-dependent password mask characters text().length() in size,     e.g. "******"; if \l EchoMode is \l NoEcho returns an empty string, "".      By default, this property contains an empty string.      \sa setEchoMode(), text(), EchoMode */
 end_comment
 begin_function
 DECL|function|displayText
@@ -746,7 +746,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \enum QLineEdit::EchoMode      This enum type describes how a line edit should display its     contents.      \value Normal   Display characters as they are entered. This is the                     default.     \value NoEcho   Do not display anything. This may be appropriate                     for passwords where even the length of the                     password should be kept secret.     \value Password  Display asterisks instead of the characters                     actually entered.     \value PasswordEchoOnEdit Display characters as they are entered                     while editing otherwise display asterisks.      \sa setEchoMode(), echoMode() */
+comment|/*!     \enum QLineEdit::EchoMode      This enum type describes how a line edit should display its     contents.      \value Normal   Display characters as they are entered. This is the                     default.     \value NoEcho   Do not display anything. This may be appropriate                     for passwords where even the length of the                     password should be kept secret.     \value Password  Display platform-dependent password mask characters instead                     of the characters actually entered.     \value PasswordEchoOnEdit Display characters as they are entered                     while editing otherwise display characters as with                     \c Password.      \sa setEchoMode(), echoMode() */
 end_comment
 begin_comment
 comment|/*!     \property QLineEdit::echoMode     \brief the line edit's echo mode      The echo mode determines how the text entered in the line edit is     displayed (or echoed) to the user.      The most common setting is \l Normal, in which the text entered by the     user is displayed verbatim, but QLineEdit also supports modes that allow     the entered text to be suppressed or obscured: these include \l NoEcho,     \l Password and \l PasswordEchoOnEdit.      The widget's display and the ability to copy or drag the text is     affected by this setting.      By default, this property is set to \l Normal.      \sa EchoMode, displayText() */

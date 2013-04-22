@@ -340,6 +340,12 @@ name|updateVisibility
 parameter_list|()
 function_decl|;
 end_function_decl
+begin_function_decl
+name|void
+name|_q_clearAlert
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_expr_stmt
 name|QWindow
 operator|::
