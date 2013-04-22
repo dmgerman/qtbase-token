@@ -10256,7 +10256,7 @@ name|out
 operator|.
 name|version
 argument_list|()
-operator|>=
+operator|==
 literal|13
 condition|)
 block|{
@@ -10268,6 +10268,9 @@ name|isValid
 argument_list|()
 condition|)
 block|{
+comment|// This approach is wrong and should not be used again; it breaks
+comment|// the guarantee that a deserialised local datetime is the same time
+comment|// of day, regardless of which timezone it was serialised in.
 name|QDateTime
 name|asUTC
 init|=
@@ -10405,7 +10408,7 @@ name|in
 operator|.
 name|version
 argument_list|()
-operator|>=
+operator|==
 literal|13
 condition|)
 block|{
