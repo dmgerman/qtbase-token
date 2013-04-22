@@ -5571,6 +5571,19 @@ name|view
 argument_list|)
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+comment|// The black rectangle jumps from the center to the upper left for some reason.
+name|QTest
+operator|::
+name|qWait
+argument_list|(
+literal|100
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QTRY_VERIFY
 argument_list|(
 name|widget
