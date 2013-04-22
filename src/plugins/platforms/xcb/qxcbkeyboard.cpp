@@ -4662,8 +4662,9 @@ block|{
 name|int
 name|code
 init|=
-operator|-
-literal|1
+name|Qt
+operator|::
+name|Key_unknown
 decl_stmt|;
 name|int
 name|i
