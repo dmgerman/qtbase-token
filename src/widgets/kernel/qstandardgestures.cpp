@@ -81,17 +81,32 @@ condition|)
 block|{
 if|#
 directive|if
+operator|(
+operator|(
+name|defined
+argument_list|(
+name|Q_OS_MAC
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_IOS
+argument_list|)
+operator|)
+operator|||
 name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
+operator|)
 operator|&&
 operator|!
 name|defined
 argument_list|(
 name|QT_NO_NATIVE_GESTURES
 argument_list|)
-comment|// for scroll areas on Windows we want to use native gestures instead
+comment|// for scroll areas on Windows and Mac OS X we want to use native gestures instead
 if|if
 condition|(
 operator|!
