@@ -11660,6 +11660,8 @@ name|errorSource
 decl_stmt|;
 name|int
 name|errorPosition
+init|=
+literal|0
 decl_stmt|;
 name|QUrlPrivate
 operator|::
