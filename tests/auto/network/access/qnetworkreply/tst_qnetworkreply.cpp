@@ -36737,7 +36737,7 @@ name|setSslOption
 argument_list|(
 name|QSsl
 operator|::
-name|SslOptionDisableSessionTickets
+name|SslOptionDisableSessionSharing
 argument_list|,
 literal|true
 argument_list|)

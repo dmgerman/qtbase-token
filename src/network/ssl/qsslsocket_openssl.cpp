@@ -7014,7 +7014,7 @@ name|sslOptions
 operator|&
 name|QSsl
 operator|::
-name|SslOptionDisableSessionTickets
+name|SslOptionDisableSessionSharing
 operator|)
 condition|)
 block|{

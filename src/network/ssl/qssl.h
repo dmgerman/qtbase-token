@@ -137,6 +137,10 @@ block|,
 name|SslOptionDisableLegacyRenegotiation
 init|=
 literal|0x10
+block|,
+name|SslOptionDisableSessionSharing
+init|=
+literal|0x20
 block|}
 enum|;
 name|Q_DECLARE_FLAGS
