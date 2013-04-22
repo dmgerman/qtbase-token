@@ -87,7 +87,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!  * \brief QPlatformServices::desktopEnvironment returns the active desktop environment.  *  * On Unix this function returns KDE, GNOME or UNKNOWN.  */
+comment|/*!  * \brief QPlatformServices::desktopEnvironment returns the active desktop environment.  *  * On Unix this function returns the uppercase desktop environment name, such as  * KDE, GNOME, UNITY, XFCE, LXDE etc. or UNKNOWN if none was detected.  * The primary way to detect the desktop environment is the environment variable  * XDG_CURRENT_DESKTOP.  */
 end_comment
 begin_function
 DECL|function|desktopEnvironment
