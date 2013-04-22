@@ -2274,6 +2274,7 @@ name|isActiveWindow
 argument_list|()
 operator|&&
 operator|!
+operator|(
 name|widget
 operator|->
 name|window
@@ -2285,6 +2286,7 @@ operator|&
 name|Qt
 operator|::
 name|WindowMinimized
+operator|)
 condition|)
 return|return;
 if|if

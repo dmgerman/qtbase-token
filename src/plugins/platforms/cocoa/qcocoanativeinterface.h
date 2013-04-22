@@ -102,6 +102,11 @@ argument|const QByteArray&resource
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
+name|Q_INVOKABLE
+name|void
+name|beep
+argument_list|()
+block|;
 specifier|static
 name|void
 operator|*

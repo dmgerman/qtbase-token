@@ -221,6 +221,17 @@ name|icon
 argument_list|)
 block|;
 name|void
+name|setAlertState
+argument_list|(
+argument|bool enabled
+argument_list|)
+block|;
+name|bool
+name|isAlertState
+argument_list|()
+specifier|const
+block|;
+name|void
 name|raise
 argument_list|()
 block|;
@@ -555,6 +566,14 @@ name|m_isExposed
 block|;
 name|int
 name|m_registerTouchCount
+block|;
+specifier|static
+specifier|const
+name|int
+name|NoAlertRequest
+block|;
+name|NSInteger
+name|m_alertRequest
 block|; }
 decl_stmt|;
 end_decl_stmt
