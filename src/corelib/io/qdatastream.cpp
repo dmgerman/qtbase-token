@@ -1313,7 +1313,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Reads the '\\0'-terminated string \a s from the stream and returns     a reference to the stream.      Space for the string is allocated using \c new -- the caller must     destroy it with \c{delete[]}. */
+comment|/*!     \overload      Reads the '\\0'-terminated string \a s from the stream and returns     a reference to the stream.      The string is deserialized using \c{readBytes()}.      Space for the string is allocated using \c{new []} -- the caller must     destroy it with \c{delete []}.      \sa readBytes(), readRawData() */
 end_comment
 begin_function
 DECL|function|operator >>
@@ -1346,7 +1346,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Reads the buffer \a s from the stream and returns a reference to     the stream.      The buffer \a s is allocated using \c new. Destroy it with the \c     delete[] operator.      The \a l parameter is set to the length of the buffer. If the     string read is empty, \a l is set to 0 and \a s is set to     a null pointer.      The serialization format is a quint32 length specifier first,     then \a l bytes of data.      \sa readRawData(), writeBytes() */
+comment|/*!     Reads the buffer \a s from the stream and returns a reference to     the stream.      The buffer \a s is allocated using \c{new []}. Destroy it with the     \c{delete []} operator.      The \a l parameter is set to the length of the buffer. If the     string read is empty, \a l is set to 0 and \a s is set to     a null pointer.      The serialization format is a quint32 length specifier first,     then \a l bytes of data.      \sa readRawData(), writeBytes() */
 end_comment
 begin_function
 DECL|function|readBytes
@@ -2217,7 +2217,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Writes the '\\0'-terminated string \a s to the stream and returns a     reference to the stream.      The string is serialized using writeBytes(). */
+comment|/*!     \overload      Writes the '\\0'-terminated string \a s to the stream and returns a     reference to the stream.      The string is serialized using \c{writeBytes()}.      \sa writeBytes(), writeRawData() */
 end_comment
 begin_function
 DECL|function|operator <<
