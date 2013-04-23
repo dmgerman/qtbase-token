@@ -1035,9 +1035,6 @@ end_comment
 begin_comment
 comment|/*!     Returns the keyboard modifier flags that existed immediately     after the event occurred.      \warning This function cannot always be trusted. The user can     confuse it by pressing both \uicontrol{Shift} keys simultaneously and     releasing one of them, for example.      \sa QApplication::keyboardModifiers() */
 end_comment
-begin_comment
-comment|//###### We must check with XGetModifierMapping
-end_comment
 begin_function
 DECL|function|modifiers
 name|Qt
@@ -1145,6 +1142,30 @@ operator|::
 name|MetaModifier
 argument_list|)
 return|;
+if|if
+condition|(
+name|key
+argument_list|()
+operator|==
+name|Qt
+operator|::
+name|Key_AltGr
+condition|)
+return|return
+name|Qt
+operator|::
+name|KeyboardModifiers
+argument_list|(
+name|QInputEvent
+operator|::
+name|modifiers
+argument_list|()
+operator|^
+name|Qt
+operator|::
+name|GroupSwitchModifier
+argument_list|)
+return|;
 return|return
 name|QInputEvent
 operator|::
@@ -1175,6 +1196,7 @@ name|matchKey
 parameter_list|)
 specifier|const
 block|{
+comment|//The keypad and group switch modifier should not make a difference
 name|uint
 name|searchkey
 init|=
@@ -1191,9 +1213,12 @@ operator|(
 name|Qt
 operator|::
 name|KeypadModifier
+operator||
+name|Qt
+operator|::
+name|GroupSwitchModifier
 operator|)
 decl_stmt|;
-comment|//The keypad modifier should not make a difference
 specifier|const
 name|uint
 name|platform
