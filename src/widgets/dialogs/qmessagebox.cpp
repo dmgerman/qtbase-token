@@ -542,6 +542,14 @@ name|bool
 name|copy
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_CLIPBOARD
+return|return
+literal|false
+return|;
+else|#
+directive|else
 if|if
 condition|(
 operator|!
@@ -558,6 +566,8 @@ expr_stmt|;
 return|return
 literal|true
 return|;
+endif|#
+directive|endif
 block|}
 private|private
 name|slots
