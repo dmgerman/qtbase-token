@@ -1312,7 +1312,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a listing of all the network interfaces found on the host     machine. */
+comment|/*!     Returns a listing of all the network interfaces found on the host     machine.  In case of failure it returns a list with zero elements. */
 end_comment
 begin_function
 DECL|function|allInterfaces
