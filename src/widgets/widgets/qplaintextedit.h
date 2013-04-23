@@ -671,6 +671,20 @@ name|void
 name|centerCursor
 argument_list|()
 block|;
+name|void
+name|zoomIn
+argument_list|(
+argument|int range =
+literal|1
+argument_list|)
+block|;
+name|void
+name|zoomOut
+argument_list|(
+argument|int range =
+literal|1
+argument_list|)
+block|;
 name|Q_SIGNALS
 operator|:
 name|void
