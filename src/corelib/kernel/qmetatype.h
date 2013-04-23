@@ -2250,6 +2250,9 @@ return|;
 block|}
 expr|}
 block|;
+ifndef|#
+directive|ifndef
+name|Q_COMPILER_VARIADIC_TEMPLATES
 comment|// Function pointers don't derive from QObject
 name|template
 operator|<
@@ -2369,6 +2372,39 @@ name|false
 block|}
 block|; }
 block|;
+else|#
+directive|else
+name|template
+operator|<
+name|typename
+name|Result
+block|,
+name|typename
+operator|...
+name|Args
+operator|>
+expr|struct
+name|IsPointerToTypeDerivedFromQObject
+operator|<
+name|Result
+argument_list|(
+operator|*
+argument_list|)
+argument_list|(
+name|Args
+operator|...
+argument_list|)
+operator|>
+block|{ enum
+block|{
+name|Value
+operator|=
+name|false
+block|}
+block|; }
+block|;
+endif|#
+directive|endif
 name|template
 operator|<
 name|typename
