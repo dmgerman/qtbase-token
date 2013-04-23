@@ -718,6 +718,8 @@ name|Qt
 operator|::
 name|Popup
 operator|)
+operator|&&
+name|qApp
 condition|)
 name|qApp
 operator|->
