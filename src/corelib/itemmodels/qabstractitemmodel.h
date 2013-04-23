@@ -2197,7 +2197,7 @@ argument|int destinationChild
 argument_list|)
 block|{
 return|return
-name|moveRows
+name|moveColumns
 argument_list|(
 name|sourceParent
 argument_list|,
