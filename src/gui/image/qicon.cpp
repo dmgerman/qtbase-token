@@ -2677,6 +2677,19 @@ literal|"/iconengines"
 argument|), Qt::CaseInsensitive)
 argument_list|)
 end_macro
+begin_function
+DECL|function|qt_iconEngineFactoryLoader
+name|QFactoryLoader
+modifier|*
+name|qt_iconEngineFactoryLoader
+parameter_list|()
+block|{
+return|return
+name|loader
+argument_list|()
+return|;
+block|}
+end_function
 begin_endif
 endif|#
 directive|endif
