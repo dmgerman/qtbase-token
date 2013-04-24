@@ -3425,7 +3425,7 @@ directive|ifndef
 name|QT_NO_DATESTRING
 end_ifndef
 begin_comment
-comment|/*!     \overload      Returns the time as a string. Milliseconds are not included. The     \a format parameter determines the format of the string.      If \a format is Qt::TextDate, the string format is HH:MM:SS; e.g. 1     second before midnight would be "23:59:59".      If \a format is Qt::ISODate, the string format corresponds to the     ISO 8601 extended specification for representations of dates,     which is also HH:MM:SS.      If the \a format is Qt::SystemLocaleShortDate or     Qt::SystemLocaleLongDate, the string format depends on the locale     settings of the system. Identical to calling     QLocale::system().toString(time, QLocale::ShortFormat) or     QLocale::system().toString(time, QLocale::LongFormat).      If the \a format is Qt::DefaultLocaleShortDate or     Qt::DefaultLocaleLongDate, the string format depends on the     default application locale. This is the locale set with     QLocale::setDefault(), or the system locale if no default locale     has been set. Identical to calling QLocale().toString(time,     QLocale::ShortFormat) or QLocale().toString(time,     QLocale::LongFormat).      If the time is invalid, an empty string will be returned. */
+comment|/*!     \overload      Returns the time as a string. The \a format parameter determines     the format of the string.      If \a format is Qt::TextDate, the string format is HH:MM:SS.zzz;     e.g. 1 second before midnight would be "23:59:59.000".      If \a format is Qt::ISODate, the string format corresponds to the     ISO 8601 extended specification (with decimal fractions) for     representations of dates; also HH:MM:SS.zzz.      If the \a format is Qt::SystemLocaleShortDate or     Qt::SystemLocaleLongDate, the string format depends on the locale     settings of the system. Identical to calling     QLocale::system().toString(time, QLocale::ShortFormat) or     QLocale::system().toString(time, QLocale::LongFormat).      If the \a format is Qt::DefaultLocaleShortDate or     Qt::DefaultLocaleLongDate, the string format depends on the     default application locale. This is the locale set with     QLocale::setDefault(), or the system locale if no default locale     has been set. Identical to calling QLocale().toString(time,     QLocale::ShortFormat) or QLocale().toString(time,     QLocale::LongFormat).      If the time is invalid, an empty string will be returned. */
 end_comment
 begin_function
 DECL|function|toString
@@ -3552,7 +3552,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"%1:%2:%3"
+literal|"%1:%2:%3.%4"
 argument_list|)
 operator|.
 name|arg
@@ -3591,6 +3591,21 @@ name|second
 argument_list|()
 argument_list|,
 literal|2
+argument_list|,
+literal|10
+argument_list|,
+name|QLatin1Char
+argument_list|(
+literal|'0'
+argument_list|)
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|msec
+argument_list|()
+argument_list|,
+literal|3
 argument_list|,
 literal|10
 argument_list|,
@@ -5842,7 +5857,7 @@ directive|ifndef
 name|QT_NO_DATESTRING
 end_ifndef
 begin_comment
-comment|/*!     \fn QString QDateTime::toString(Qt::DateFormat format) const      \overload      Returns the datetime as a string in the \a format given.      If the \a format is Qt::TextDate, the string is formatted in     the default way. QDate::shortDayName(), QDate::shortMonthName(),     and QTime::toString() are used to generate the string, so the     day and month names will be localized names. An example of this     formatting is "Wed May 20 03:40:13 1998".      If the \a format is Qt::ISODate, the string format corresponds     to the ISO 8601 extended specification for representations of     dates and times, taking the form YYYY-MM-DDTHH:MM:SS[Z|[+|-]HH:MM],     depending on the timeSpec() of the QDateTime. If the timeSpec()     is Qt::UTC, Z will be appended to the string; if the timeSpec() is     Qt::OffsetFromUTC, the offset in hours and minutes from UTC will     be appended to the string.      If the \a format is Qt::SystemLocaleShortDate or     Qt::SystemLocaleLongDate, the string format depends on the locale     settings of the system. Identical to calling     QLocale::system().toString(datetime, QLocale::ShortFormat) or     QLocale::system().toString(datetime, QLocale::LongFormat).      If the \a format is Qt::DefaultLocaleShortDate or     Qt::DefaultLocaleLongDate, the string format depends on the     default application locale. This is the locale set with     QLocale::setDefault(), or the system locale if no default locale     has been set. Identical to calling QLocale().toString(datetime,     QLocale::ShortFormat) or QLocale().toString(datetime,     QLocale::LongFormat).      If the datetime is invalid, an empty string will be returned.      \warning The Qt::ISODate format is only valid for years in the     range 0 to 9999. This restriction may apply to locale-aware     formats as well, depending on the locale settings.      \sa QDate::toString(), QTime::toString(), Qt::DateFormat */
+comment|/*!     \fn QString QDateTime::toString(Qt::DateFormat format) const      \overload      Returns the datetime as a string in the \a format given.      If the \a format is Qt::TextDate, the string is formatted in     the default way. QDate::shortDayName(), QDate::shortMonthName(),     and QTime::toString() are used to generate the string, so the     day and month names will be localized names. An example of this     formatting is "Wed May 20 03:40:13.456 1998".      If the \a format is Qt::ISODate, the string format corresponds     to the ISO 8601 extended specification (with decimal fractions) for     representations of dates and times, taking the form     YYYY-MM-DDTHH:MM:SS.zzz[Z|[+|-]HH:MM], depending on the timeSpec()     of the QDateTime. If the timeSpec() is Qt::UTC, Z will be appended     to the string; if the timeSpec() is Qt::OffsetFromUTC, the offset     in hours and minutes from UTC will be appended to the string.      If the \a format is Qt::SystemLocaleShortDate or     Qt::SystemLocaleLongDate, the string format depends on the locale     settings of the system. Identical to calling     QLocale::system().toString(datetime, QLocale::ShortFormat) or     QLocale::system().toString(datetime, QLocale::LongFormat).      If the \a format is Qt::DefaultLocaleShortDate or     Qt::DefaultLocaleLongDate, the string format depends on the     default application locale. This is the locale set with     QLocale::setDefault(), or the system locale if no default locale     has been set. Identical to calling QLocale().toString(datetime,     QLocale::ShortFormat) or QLocale().toString(datetime,     QLocale::LongFormat).      If the datetime is invalid, an empty string will be returned.      \warning The Qt::ISODate format is only valid for years in the     range 0 to 9999. This restriction may apply to locale-aware     formats as well, depending on the locale settings.      \sa QDate::toString(), QTime::toString(), Qt::DateFormat */
 end_comment
 begin_function
 DECL|function|toString
