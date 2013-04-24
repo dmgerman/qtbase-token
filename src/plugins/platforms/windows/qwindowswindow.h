@@ -1470,6 +1470,14 @@ argument_list|)
 decl|const
 decl_stmt|;
 end_decl_stmt
+begin_expr_stmt
+specifier|inline
+name|void
+name|updateTransientParent
+argument_list|()
+specifier|const
+expr_stmt|;
+end_expr_stmt
 begin_function_decl
 name|void
 name|destroyWindow
