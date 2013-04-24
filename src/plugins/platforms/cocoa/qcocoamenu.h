@@ -189,14 +189,6 @@ operator|&
 name|font
 argument_list|)
 block|;
-name|void
-name|setParentItem
-argument_list|(
-name|QCocoaMenuItem
-operator|*
-name|item
-argument_list|)
-block|;
 specifier|inline
 name|NSMenu
 operator|*
