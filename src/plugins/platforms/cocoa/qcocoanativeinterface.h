@@ -253,6 +253,16 @@ operator|*
 name|nsViewContentView
 argument_list|)
 block|;
+comment|// Set a QWindow as a "guest" (subwindow) of a non-QWindow
+specifier|static
+name|void
+name|setEmbeddedInForeignView
+argument_list|(
+argument|QPlatformWindow *window
+argument_list|,
+argument|bool embedded
+argument_list|)
+block|;
 comment|// Register if a window should deliver touch events. Enabling
 comment|// touch events has implications for delivery of other events,
 comment|// for example by causing scrolling event lag.

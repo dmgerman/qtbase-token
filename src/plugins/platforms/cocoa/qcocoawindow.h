@@ -318,6 +318,12 @@ name|contentView
 argument_list|)
 block|;
 name|void
+name|setEmbeddedInForeignView
+argument_list|(
+argument|bool subwindow
+argument_list|)
+block|;
+name|void
 name|windowWillMove
 argument_list|()
 block|;
@@ -509,10 +515,15 @@ name|NSWindow
 operator|*
 name|m_nsWindow
 block|;
+comment|// TODO merge to one variable if possible
 name|bool
 name|m_contentViewIsEmbedded
 block|;
-comment|// true if the m_contentView is embedded in a "foregin" NSView hiearchy
+comment|// true if the m_contentView is actually embedded in a "foreign" NSView hiearchy
+name|bool
+name|m_contentViewIsToBeEmbedded
+block|;
+comment|// true if the m_contentView is intended to be embedded in a "foreign" NSView hiearchy
 name|QNSWindowDelegate
 operator|*
 name|m_nsWindowDelegate
