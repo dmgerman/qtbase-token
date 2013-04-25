@@ -898,6 +898,10 @@ block|,
 name|RemoveFilename
 init|=
 literal|0x800
+block|,
+name|NormalizePathSegments
+init|=
+literal|0x1000
 block|}
 enum|;
 enum|enum
