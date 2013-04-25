@@ -867,6 +867,10 @@ block|,
 name|StripTrailingSlash
 init|=
 literal|0x400
+block|,
+name|RemoveFilename
+init|=
+literal|0x800
 block|}
 enum|;
 enum|enum

@@ -9,7 +9,7 @@ begin_comment
 comment|/*!     \enum QUrl::ParsingMode      The parsing mode controls the way QUrl parses strings.      \value TolerantMode QUrl will try to correct some common errors in URLs.                         This mode is useful for parsing URLs coming from sources                         not known to be strictly standards-conforming.      \value StrictMode Only valid URLs are accepted. This mode is useful for                       general URL validation.      \value DecodedMode QUrl will interpret the URL component in the fully-decoded form,                        where percent characters stand for themselves, not as the beginning                        of a percent-encoded sequence. This mode is only valid for the                        setters setting components of a URL; it is not permitted in                        the QUrl constructor, in fromEncoded() or in setUrl().      In TolerantMode, the parser has the following behaviour:      \list      \li Spaces and "%20": unencoded space characters will be accepted and will     be treated as equivalent to "%20".      \li Single "%" characters: Any occurrences of a percent character "%" not     followed by exactly two hexadecimal characters (e.g., "13% coverage.html")     will be replaced by "%25". Note that one lone "%" character will trigger     the correction mode for all percent characters.      \li Reserved and unreserved characters: An encoded URL should only     contain a few characters as literals; all other characters should     be percent-encoded. In TolerantMode, these characters will be     automatically percent-encoded where they are not allowed:             space / double-quote / "<" / ">" / "\" /             "^" / "`" / "{" / "|" / "}"     Those same characters can be decoded again by passing QUrl::DecodeReserved     to toString() or toEncoded().      \endlist      When in StrictMode, if a parsing error is found, isValid() will return \c     false and errorString() will return a message describing the error.     If more than one error is detected, it is undefined which error gets     reported.      Note that TolerantMode is not usually enough for parsing user input, which     often contains more errors and expectations than the parser can deal with.     When dealing with data coming directly from the user -- as opposed to data     coming from data-transfer sources, such as other programs -- it is     recommended to use fromUserInput().      \sa fromUserInput(), setUrl(), toString(), toEncoded(), QUrl::FormattingOptions */
 end_comment
 begin_comment
-comment|/*!     \enum QUrl::UrlFormattingOption      The formatting options define how the URL is formatted when written out     as text.      \value None The format of the URL is unchanged.     \value RemoveScheme  The scheme is removed from the URL.     \value RemovePassword  Any password in the URL is removed.     \value RemoveUserInfo  Any user information in the URL is removed.     \value RemovePort      Any specified port is removed from the URL.     \value RemoveAuthority     \value RemovePath   The URL's path is removed, leaving only the scheme,                         host address, and port (if present).     \value RemoveQuery  The query part of the URL (following a '?' character)                         is removed.     \value RemoveFragment     \value PreferLocalFile If the URL is a local file according to isLocalFile()      and contains no query or fragment, a local file path is returned.     \value StripTrailingSlash  The trailing slash is removed if one is present.      Note that the case folding rules in \l{RFC 3491}{Nameprep}, which QUrl     conforms to, require host names to always be converted to lower case,     regardless of the Qt::FormattingOptions used.      The options from QUrl::ComponentFormattingOptions are also possible.      \sa QUrl::ComponentFormattingOptions */
+comment|/*!     \enum QUrl::UrlFormattingOption      The formatting options define how the URL is formatted when written out     as text.      \value None The format of the URL is unchanged.     \value RemoveScheme  The scheme is removed from the URL.     \value RemovePassword  Any password in the URL is removed.     \value RemoveUserInfo  Any user information in the URL is removed.     \value RemovePort      Any specified port is removed from the URL.     \value RemoveAuthority     \value RemovePath   The URL's path is removed, leaving only the scheme,                         host address, and port (if present).     \value RemoveQuery  The query part of the URL (following a '?' character)                         is removed.     \value RemoveFragment     \value RemoveFilename The filename (i.e. everything after the last '/' in the path) is removed.             The trailing '/' is kept, unless StripTrailingSlash is set.             Only valid if RemovePath is not set.     \value PreferLocalFile If the URL is a local file according to isLocalFile()      and contains no query or fragment, a local file path is returned.     \value StripTrailingSlash  The trailing slash is removed if one is present.      Note that the case folding rules in \l{RFC 3491}{Nameprep}, which QUrl     conforms to, require host names to always be converted to lower case,     regardless of the Qt::FormattingOptions used.      The options from QUrl::ComponentFormattingOptions are also possible.      \sa QUrl::ComponentFormattingOptions */
 end_comment
 begin_comment
 comment|/*!     \enum QUrl::ComponentFormattingOption     \since 5.0      The component formatting options define how the components of an URL will     be formatted when written out as text. They can be combined with the     options from QUrl::FormattingOptions when used in toString() and     toEncoded().      \value PrettyDecoded   The component is returned in a "pretty form", with                            most percent-encoded characters decoded. The exact                            behavior of PrettyDecoded varies from component to                            component and may also change from Qt release to Qt                            release. This is the default.      \value EncodeSpaces    Leave space characters in their encoded form ("%20").      \value EncodeUnicode   Leave non-US-ASCII characters encoded in their UTF-8                            percent-encoded form (e.g., "%C3%A9" for the U+00E9                            codepoint, LATIN SMALL LETTER E WITH ACUTE).      \value EncodeDelimiters Leave certain delimiters in their encoded form, as                             would appear in the URL when the full URL is                             represented as text. The delimiters are affected                             by this option change from component to component.      \value EncodeReserved  Leave the US-ASCII reserved characters in their encoded                            forms.      \value DecodeReserved   Decode the US-ASCII reserved characters.      \value FullyEncoded    Leave all characters in their properly-encoded form,                            as this component would appear as part of a URL. When                            used with toString(), this produces a fully-compliant                            URL in QString form, exactly equal to the result of                            toEncoded()      \value FullyDecoded    Attempt to decode as much as possible. For individual                            components of the URL, this decodes every percent                            encoding sequence, including control characters (U+0000                            to U+001F) and UTF-8 sequences found in percent-encoded form.                            Note: if the component contains non-US-ASCII sequences                            that aren't valid UTF-8 sequences, the behaviour is                            undefined since QString cannot represent those values                            (data will be lost!)                            This mode is should not be used in functions where more                            than one URL component is returned (userInfo() and authority())                            and it is not allowed in url() and toString().      The values of EncodeReserved and DecodeReserved should not be used together     in one call. The behaviour is undefined if that happens. They are provided     as separate values because the behaviour of the "pretty mode" with regards     to reserved characters is different on certain components and specially on     the full URL.      The FullyDecoded mode is similar to the behaviour of the functions     returning QString in Qt 4.x, including the fact that they will most likely     cause data loss if the component in question contains a non-UTF-8     percent-encoded sequence. Fortunately, those cases aren't common, so this     mode should be used when the component in question is used in a non-URL     context. For example, in an FTP client application, the path to the remote     file could be stored in a QUrl object, and the string to be transmitted to     the FTP server should be obtained using this flag.      \sa QUrl::FormattingOptions */
@@ -2617,6 +2617,49 @@ name|thePath
 init|=
 name|path
 decl_stmt|;
+if|if
+condition|(
+name|options
+operator|&
+name|QUrl
+operator|::
+name|RemoveFilename
+condition|)
+block|{
+specifier|const
+name|int
+name|slash
+init|=
+name|path
+operator|.
+name|lastIndexOf
+argument_list|(
+name|QLatin1Char
+argument_list|(
+literal|'/'
+argument_list|)
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|slash
+operator|==
+operator|-
+literal|1
+condition|)
+return|return;
+name|thePath
+operator|=
+name|path
+operator|.
+name|left
+argument_list|(
+name|slash
+operator|+
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
 comment|// check if we need to remove trailing slashes
 if|if
 condition|(
@@ -9762,7 +9805,11 @@ if|if
 condition|(
 name|options
 operator|&
+operator|(
 name|StripTrailingSlash
+operator||
+name|RemoveFilename
+operator|)
 condition|)
 block|{
 name|QString
