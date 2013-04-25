@@ -65,6 +65,10 @@ name|Q_PROPERTY
 argument_list|(
 argument|int value READ value WRITE setValue NOTIFY valueChanged USER true
 argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|int displayIntegerBase READ displayIntegerBase WRITE setDisplayIntegerBase
+argument_list|)
 name|public
 operator|:
 name|explicit
@@ -158,6 +162,17 @@ argument_list|(
 argument|int min
 argument_list|,
 argument|int max
+argument_list|)
+block|;
+name|int
+name|displayIntegerBase
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setDisplayIntegerBase
+argument_list|(
+argument|int base
 argument_list|)
 block|;
 name|protected
