@@ -131,6 +131,14 @@ block|,
 name|Hsl
 block|}
 enum|;
+enum|enum
+name|NameFormat
+block|{
+name|HexRgb
+block|,
+name|HexArgb
+block|}
+enum|;
 name|QColor
 argument_list|()
 expr_stmt|;
@@ -190,11 +198,20 @@ name|isValid
 argument_list|()
 specifier|const
 expr_stmt|;
+comment|// ### Qt 6: merge overloads
 name|QString
 name|name
 argument_list|()
 specifier|const
 expr_stmt|;
+name|QString
+name|name
+argument_list|(
+name|NameFormat
+name|format
+argument_list|)
+decl|const
+decl_stmt|;
 name|void
 name|setNamedColor
 parameter_list|(

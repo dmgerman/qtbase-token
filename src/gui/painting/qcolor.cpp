@@ -49,7 +49,7 @@ file|<limits.h>
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
-comment|/*!     \class QColor     \brief The QColor class provides colors based on RGB, HSV or CMYK values.      \ingroup painting     \ingroup appearance     \inmodule QtGui       A color is normally specified in terms of RGB (red, green, and     blue) components, but it is also possible to specify it in terms     of HSV (hue, saturation, and value) and CMYK (cyan, magenta,     yellow and black) components. In addition a color can be specified     using a color name. The color name can be any of the SVG 1.0 color     names.      \table     \header     \li RGB \li HSV \li CMYK     \row     \li \inlineimage qcolor-rgb.png     \li \inlineimage qcolor-hsv.png     \li \inlineimage qcolor-cmyk.png     \endtable      The QColor constructor creates the color based on RGB values.  To     create a QColor based on either HSV or CMYK values, use the     toHsv() and toCmyk() functions respectively. These functions     return a copy of the color using the desired format. In addition     the static fromRgb(), fromHsv() and fromCmyk() functions create     colors from the specified values. Alternatively, a color can be     converted to any of the three formats using the convertTo()     function (returning a copy of the color in the desired format), or     any of the setRgb(), setHsv() and setCmyk() functions altering \e     this color's format. The spec() function tells how the color was     specified.      A color can be set by passing an RGB string (such as "#112233"),     or a color name (such as "blue"), to the setNamedColor() function.     The color names are taken from the SVG 1.0 color names. The name()     function returns the name of the color in the format     "#RRGGBB". Colors can also be set using setRgb(), setHsv() and     setCmyk(). To get a lighter or darker color use the lighter() and     darker() functions respectively.      The isValid() function indicates whether a QColor is legal at     all. For example, a RGB color with RGB values out of range is     illegal. For performance reasons, QColor mostly disregards illegal     colors, and for that reason, the result of using an invalid color     is undefined.      The color components can be retrieved individually, e.g with     red(), hue() and cyan(). The values of the color components can     also be retrieved in one go using the getRgb(), getHsv() and     getCmyk() functions. Using the RGB color model, the color     components can in addition be accessed with rgb().      There are several related non-members: QRgb is a typdef for an     unsigned int representing the RGB value triplet (r, g, b). Note     that it also can hold a value for the alpha-channel (for more     information, see the \l {QColor#Alpha-Blended     Drawing}{Alpha-Blended Drawing} section). The qRed(), qBlue() and     qGreen() functions return the respective component of the given     QRgb value, while the qRgb() and qRgba() functions create and     return the QRgb triplet based on the given component     values. Finally, the qAlpha() function returns the alpha component     of the provided QRgb, and the qGray() function calculates and     return a gray value based on the given value.      QColor is platform and device independent. The QColormap class     maps the color to the hardware.      For more information about painting in general, see the \l{Paint     System} documentation.      \tableofcontents      \section1 Integer vs. Floating Point Precision      QColor supports floating point precision and provides floating     point versions of all the color components functions,     e.g. getRgbF(), hueF() and fromCmykF(). Note that since the     components are stored using 16-bit integers, there might be minor     deviations between the values set using, for example, setRgbF()     and the values returned by the getRgbF() function due to rounding.      While the integer based functions take values in the range 0-255     (except hue() which must have values within the range 0-359),     the floating point functions accept values in the range 0.0 - 1.0.      \section1 Alpha-Blended Drawing      QColor also support alpha-blended outlining and filling. The     alpha channel of a color specifies the transparency effect, 0     represents a fully transparent color, while 255 represents a fully     opaque color. For example:      \snippet code/src_gui_painting_qcolor.cpp 0      The code above produces the following output:      \image alphafill.png      The alpha channel of a color can be retrieved and set using the     alpha() and setAlpha() functions if its value is an integer, and     alphaF() and setAlphaF() if its value is qreal (double). By     default, the alpha-channel is set to 255 (opaque). To retrieve and     set \e all the RGB color components (including the alpha-channel)     in one go, use the rgba() and setRgba() functions.      \section1 Predefined Colors      There are 20 predefined QColors described by the Qt::GlobalColor enum,     including black, white, primary and secondary colors, darker versions     of these colors and three shades of gray. QColor also recognizes a     variety of color names; the static colorNames() function returns a     QStringList color names that QColor knows about.      \image qt-colors.png Qt Colors      Additionally, the Qt::color0, Qt::color1 and Qt::transparent colors     are used for special purposes.      Qt::color0 (zero pixel value) and Qt::color1 (non-zero pixel value)     are special colors for drawing in QBitmaps. Painting with Qt::color0     sets the bitmap bits to 0 (transparent; i.e., background), and painting     with Qt::color1 sets the bits to 1 (opaque; i.e., foreground).      Qt::transparent is used to indicate a transparent pixel. When painting     with this value, a pixel value will be used that is appropriate for the     underlying pixel format in use.      \section1 The HSV Color Model      The RGB model is hardware-oriented. Its representation is close to     what most monitors show. In contrast, HSV represents color in a way     more suited to the human perception of color. For example, the     relationships "stronger than", "darker than", and "the opposite of"     are easily expressed in HSV but are much harder to express in RGB.      HSV, like RGB, has three components:      \list     \li H, for hue, is in the range 0 to 359 if the color is chromatic (not     gray), or meaningless if it is gray. It represents degrees on the     color wheel familiar to most people. Red is 0 (degrees), green is     120, and blue is 240.      \inlineimage qcolor-hue.png      \li S, for saturation, is in the range 0 to 255, and the bigger it is,     the stronger the color is. Grayish colors have saturation near 0; very     strong colors have saturation near 255.      \inlineimage qcolor-saturation.png      \li V, for value, is in the range 0 to 255 and represents lightness or     brightness of the color. 0 is black; 255 is as far from black as     possible.      \inlineimage qcolor-value.png     \endlist      Here are some examples: pure red is H=0, S=255, V=255; a dark red,     moving slightly towards the magenta, could be H=350 (equivalent to     -10), S=255, V=180; a grayish light red could have H about 0 (say     350-359 or 0-10), S about 50-100, and S=255.      Qt returns a hue value of -1 for achromatic colors. If you pass a     hue value that is too large, Qt forces it into range. Hue 360 or 720 is     treated as 0; hue 540 is treated as 180.      In addition to the standard HSV model, Qt provides an     alpha-channel to feature \l {QColor#Alpha-Blended     Drawing}{alpha-blended drawing}.      \section1 The HSL Color Model      HSL is similar to HSV. Instead of value parameter from HSV,     HSL has the lightness parameter.     The lightness parameter goes from black to color and from color to white.     If you go outside at the night its black or dark gray. At day its colorful but     if you look in a really strong light a things they are going to white and     wash out.      \section1 The CMYK Color Model      While the RGB and HSV color models are used for display on     computer monitors, the CMYK model is used in the four-color     printing process of printing presses and some hard-copy     devices.      CMYK has four components, all in the range 0-255: cyan (C),     magenta (M), yellow (Y) and black (K).  Cyan, magenta and yellow     are called subtractive colors; the CMYK color model creates color     by starting with a white surface and then subtracting color by     applying the appropriate components. While combining cyan, magenta     and yellow gives the color black, subtracting one or more will     yield any other color. When combined in various percentages, these     three colors can create the entire spectrum of colors.      Mixing 100 percent of cyan, magenta and yellow \e does produce     black, but the result is unsatisfactory since it wastes ink,     increases drying time, and gives a muddy colour when printing. For     that reason, black is added in professional printing to provide a     solid black tone; hence the term 'four color process'.      In addition to the standard CMYK model, Qt provides an     alpha-channel to feature \l {QColor#Alpha-Blended     Drawing}{alpha-blended drawing}.      \sa QPalette, QBrush, QApplication::setColorSpec() */
+comment|/*!     \class QColor     \brief The QColor class provides colors based on RGB, HSV or CMYK values.      \ingroup painting     \ingroup appearance     \inmodule QtGui       A color is normally specified in terms of RGB (red, green, and     blue) components, but it is also possible to specify it in terms     of HSV (hue, saturation, and value) and CMYK (cyan, magenta,     yellow and black) components. In addition a color can be specified     using a color name. The color name can be any of the SVG 1.0 color     names.      \table     \header     \li RGB \li HSV \li CMYK     \row     \li \inlineimage qcolor-rgb.png     \li \inlineimage qcolor-hsv.png     \li \inlineimage qcolor-cmyk.png     \endtable      The QColor constructor creates the color based on RGB values.  To     create a QColor based on either HSV or CMYK values, use the     toHsv() and toCmyk() functions respectively. These functions     return a copy of the color using the desired format. In addition     the static fromRgb(), fromHsv() and fromCmyk() functions create     colors from the specified values. Alternatively, a color can be     converted to any of the three formats using the convertTo()     function (returning a copy of the color in the desired format), or     any of the setRgb(), setHsv() and setCmyk() functions altering \e     this color's format. The spec() function tells how the color was     specified.      A color can be set by passing an RGB string (such as "#112233"),     or an ARGB string (such as "#ff112233") or a color name (such as "blue"),     to the setNamedColor() function.     The color names are taken from the SVG 1.0 color names. The name()     function returns the name of the color in the format     "#RRGGBB". Colors can also be set using setRgb(), setHsv() and     setCmyk(). To get a lighter or darker color use the lighter() and     darker() functions respectively.      The isValid() function indicates whether a QColor is legal at     all. For example, a RGB color with RGB values out of range is     illegal. For performance reasons, QColor mostly disregards illegal     colors, and for that reason, the result of using an invalid color     is undefined.      The color components can be retrieved individually, e.g with     red(), hue() and cyan(). The values of the color components can     also be retrieved in one go using the getRgb(), getHsv() and     getCmyk() functions. Using the RGB color model, the color     components can in addition be accessed with rgb().      There are several related non-members: QRgb is a typdef for an     unsigned int representing the RGB value triplet (r, g, b). Note     that it also can hold a value for the alpha-channel (for more     information, see the \l {QColor#Alpha-Blended     Drawing}{Alpha-Blended Drawing} section). The qRed(), qBlue() and     qGreen() functions return the respective component of the given     QRgb value, while the qRgb() and qRgba() functions create and     return the QRgb triplet based on the given component     values. Finally, the qAlpha() function returns the alpha component     of the provided QRgb, and the qGray() function calculates and     return a gray value based on the given value.      QColor is platform and device independent. The QColormap class     maps the color to the hardware.      For more information about painting in general, see the \l{Paint     System} documentation.      \tableofcontents      \section1 Integer vs. Floating Point Precision      QColor supports floating point precision and provides floating     point versions of all the color components functions,     e.g. getRgbF(), hueF() and fromCmykF(). Note that since the     components are stored using 16-bit integers, there might be minor     deviations between the values set using, for example, setRgbF()     and the values returned by the getRgbF() function due to rounding.      While the integer based functions take values in the range 0-255     (except hue() which must have values within the range 0-359),     the floating point functions accept values in the range 0.0 - 1.0.      \section1 Alpha-Blended Drawing      QColor also support alpha-blended outlining and filling. The     alpha channel of a color specifies the transparency effect, 0     represents a fully transparent color, while 255 represents a fully     opaque color. For example:      \snippet code/src_gui_painting_qcolor.cpp 0      The code above produces the following output:      \image alphafill.png      The alpha channel of a color can be retrieved and set using the     alpha() and setAlpha() functions if its value is an integer, and     alphaF() and setAlphaF() if its value is qreal (double). By     default, the alpha-channel is set to 255 (opaque). To retrieve and     set \e all the RGB color components (including the alpha-channel)     in one go, use the rgba() and setRgba() functions.      \section1 Predefined Colors      There are 20 predefined QColors described by the Qt::GlobalColor enum,     including black, white, primary and secondary colors, darker versions     of these colors and three shades of gray. QColor also recognizes a     variety of color names; the static colorNames() function returns a     QStringList color names that QColor knows about.      \image qt-colors.png Qt Colors      Additionally, the Qt::color0, Qt::color1 and Qt::transparent colors     are used for special purposes.      Qt::color0 (zero pixel value) and Qt::color1 (non-zero pixel value)     are special colors for drawing in QBitmaps. Painting with Qt::color0     sets the bitmap bits to 0 (transparent; i.e., background), and painting     with Qt::color1 sets the bits to 1 (opaque; i.e., foreground).      Qt::transparent is used to indicate a transparent pixel. When painting     with this value, a pixel value will be used that is appropriate for the     underlying pixel format in use.      \section1 The HSV Color Model      The RGB model is hardware-oriented. Its representation is close to     what most monitors show. In contrast, HSV represents color in a way     more suited to the human perception of color. For example, the     relationships "stronger than", "darker than", and "the opposite of"     are easily expressed in HSV but are much harder to express in RGB.      HSV, like RGB, has three components:      \list     \li H, for hue, is in the range 0 to 359 if the color is chromatic (not     gray), or meaningless if it is gray. It represents degrees on the     color wheel familiar to most people. Red is 0 (degrees), green is     120, and blue is 240.      \inlineimage qcolor-hue.png      \li S, for saturation, is in the range 0 to 255, and the bigger it is,     the stronger the color is. Grayish colors have saturation near 0; very     strong colors have saturation near 255.      \inlineimage qcolor-saturation.png      \li V, for value, is in the range 0 to 255 and represents lightness or     brightness of the color. 0 is black; 255 is as far from black as     possible.      \inlineimage qcolor-value.png     \endlist      Here are some examples: pure red is H=0, S=255, V=255; a dark red,     moving slightly towards the magenta, could be H=350 (equivalent to     -10), S=255, V=180; a grayish light red could have H about 0 (say     350-359 or 0-10), S about 50-100, and S=255.      Qt returns a hue value of -1 for achromatic colors. If you pass a     hue value that is too large, Qt forces it into range. Hue 360 or 720 is     treated as 0; hue 540 is treated as 180.      In addition to the standard HSV model, Qt provides an     alpha-channel to feature \l {QColor#Alpha-Blended     Drawing}{alpha-blended drawing}.      \section1 The HSL Color Model      HSL is similar to HSV. Instead of value parameter from HSV,     HSL has the lightness parameter.     The lightness parameter goes from black to color and from color to white.     If you go outside at the night its black or dark gray. At day its colorful but     if you look in a really strong light a things they are going to white and     wash out.      \section1 The CMYK Color Model      While the RGB and HSV color models are used for display on     computer monitors, the CMYK model is used in the four-color     printing process of printing presses and some hard-copy     devices.      CMYK has four components, all in the range 0-255: cyan (C),     magenta (M), yellow (Y) and black (K).  Cyan, magenta and yellow     are called subtractive colors; the CMYK color model creates color     by starting with a white surface and then subtracting color by     applying the appropriate components. While combining cyan, magenta     and yellow gives the color black, subtracting one or more will     yield any other color. When combined in various percentages, these     three colors can create the entire spectrum of colors.      Mixing 100 percent of cyan, magenta and yellow \e does produce     black, but the result is unsatisfactory since it wastes ink,     increases drying time, and gives a muddy colour when printing. For     that reason, black is added in professional printing to provide a     solid black tone; hence the term 'four color process'.      In addition to the standard CMYK model, Qt provides an     alpha-channel to feature \l {QColor#Alpha-Blended     Drawing}{alpha-blended drawing}.      \sa QPalette, QBrush, QApplication::setColorSpec() */
 DECL|macro|QCOLOR_INT_RANGE_CHECK
 define|#
 directive|define
@@ -74,6 +74,7 @@ define|\
 value|do { \         if (var< qreal(0.0) || var> qreal(1.0)) { \             qWarning(#fn": invalid value %g", var); \             var = qMax(qreal(0.0), qMin(var, qreal(1.0)));      \         } \     } while (0)
 comment|/*****************************************************************************   QColor member functions  *****************************************************************************/
 comment|/*!     \enum QColor::Spec      The type of color specified, either RGB, HSV, CMYK or HSL.      \value Rgb     \value Hsv     \value Cmyk     \value Hsl     \value Invalid      \sa spec(), convertTo() */
+comment|/*!     \enum QColor::NameFormat      How to format the output of the name() function      \value HexRgb #RRGGBB A "#" character followed by three two-digit hexadecimal numbers (i.e. \c{#RRGGBB}).     \value HexArgb #AARRGGBB A "#" character followed by four two-digit hexadecimal numbers (i.e. \c{#AARRGGBB}).      \sa name() */
 comment|/*!     \fn Spec QColor::spec() const      Returns how the color was specified.      \sa Spec, convertTo() */
 comment|/*!     \fn QColor::QColor()      Constructs an invalid color with the RGB value (0, 0, 0). An     invalid color is a color that is not properly set up for the     underlying window system.      The alpha value of an invalid color is unspecified.      \sa isValid() */
 comment|/*!     \overload      Constructs a new color with a color value of \a color.      \sa isValid(), {QColor#Predefined Colors}{Predefined Colors}  */
@@ -557,9 +558,40 @@ name|name
 parameter_list|()
 specifier|const
 block|{
+return|return
+name|name
+argument_list|(
+name|HexRgb
+argument_list|)
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     Returns the name of the color in the specified \a format.      \sa setNamedColor(), NameFormat */
+end_comment
+begin_function
+DECL|function|name
+name|QString
+name|QColor
+operator|::
+name|name
+parameter_list|(
+name|NameFormat
+name|format
+parameter_list|)
+specifier|const
+block|{
 name|QString
 name|s
 decl_stmt|;
+switch|switch
+condition|(
+name|format
+condition|)
+block|{
+case|case
+name|HexRgb
+case|:
 name|s
 operator|.
 name|sprintf
@@ -576,13 +608,38 @@ name|blue
 argument_list|()
 argument_list|)
 expr_stmt|;
+break|break;
+case|case
+name|HexArgb
+case|:
+name|s
+operator|.
+name|sprintf
+argument_list|(
+literal|"#%02x%02x%02x%02x"
+argument_list|,
+name|alpha
+argument_list|()
+argument_list|,
+name|red
+argument_list|()
+argument_list|,
+name|green
+argument_list|()
+argument_list|,
+name|blue
+argument_list|()
+argument_list|)
+expr_stmt|;
+break|break;
+block|}
 return|return
 name|s
 return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the RGB value of this QColor to \a name, which may be in one     of these formats:      \list     \li #RGB (each of R, G, and B is a single hex digit)     \li #RRGGBB     \li #RRRGGGBBB     \li #RRRRGGGGBBBB     \li A name from the list of colors defined in the list of \l{http://www.w3.org/TR/SVG/types.html#ColorKeywords}{SVG color keyword names}        provided by the World Wide Web Consortium; for example, "steelblue" or "gainsboro".        These color names work on all platforms. Note that these color names are \e not the        same as defined by the Qt::GlobalColor enums, e.g. "green" and Qt::green does not        refer to the same color.     \li \c transparent - representing the absence of a color.     \endlist      The color is invalid if \a name cannot be parsed.      \sa QColor(), name(), isValid() */
+comment|/*!     Sets the RGB value of this QColor to \a name, which may be in one     of these formats:      \list     \li #RGB (each of R, G, and B is a single hex digit)     \li #RRGGBB     \li #AARRGGBB     \li #RRRGGGBBB     \li #RRRRGGGGBBBB     \li A name from the list of colors defined in the list of \l{http://www.w3.org/TR/SVG/types.html#ColorKeywords}{SVG color keyword names}        provided by the World Wide Web Consortium; for example, "steelblue" or "gainsboro".        These color names work on all platforms. Note that these color names are \e not the        same as defined by the Qt::GlobalColor enums, e.g. "green" and Qt::green does not        refer to the same color.     \li \c transparent - representing the absence of a color.     \endlist      The color is invalid if \a name cannot be parsed.      \sa QColor(), name(), isValid() */
 end_comment
 begin_function
 DECL|function|setNamedColor
@@ -679,7 +736,7 @@ argument_list|)
 condition|)
 block|{
 name|QRgb
-name|rgb
+name|rgba
 decl_stmt|;
 if|if
 condition|(
@@ -696,13 +753,13 @@ name|length
 argument_list|()
 argument_list|,
 operator|&
-name|rgb
+name|rgba
 argument_list|)
 condition|)
 block|{
-name|setRgb
+name|setRgba
 argument_list|(
-name|rgb
+name|rgba
 argument_list|)
 expr_stmt|;
 return|return
