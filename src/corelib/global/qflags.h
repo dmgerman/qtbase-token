@@ -167,7 +167,7 @@ argument_list|)
 operator|)
 argument_list|,
 literal|"QFlags uses an int as storage, so an enum with underlying "
-literal|"long long would overflow. Qt 5.1 will have support for 64bit enums."
+literal|"long long will overflow."
 argument_list|)
 block|;     struct
 name|Private
