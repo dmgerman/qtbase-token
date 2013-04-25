@@ -5845,11 +5845,11 @@ comment|// *WE* already have one.
 return|return
 literal|false
 return|;
-name|xcb_grab_server
-argument_list|(
-name|xcb_connection
+name|connection
 argument_list|()
-argument_list|)
+operator|->
+name|grabServer
+argument_list|()
 expr_stmt|;
 comment|// As per Xdnd4, use XdndProxy
 name|xcb_window_t
@@ -5954,11 +5954,11 @@ name|proxy_id
 argument_list|)
 expr_stmt|;
 block|}
-name|xcb_ungrab_server
-argument_list|(
-name|xcb_connection
+name|connection
 argument_list|()
-argument_list|)
+operator|->
+name|ungrabServer
+argument_list|()
 expr_stmt|;
 block|}
 else|else

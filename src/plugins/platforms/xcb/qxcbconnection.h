@@ -597,15 +597,11 @@ name|public
 operator|:
 name|QXcbConnection
 argument_list|(
-name|QXcbNativeInterface
-operator|*
-name|nativeInterface
+argument|QXcbNativeInterface *nativeInterface
 argument_list|,
-specifier|const
-name|char
-operator|*
-name|displayName
-operator|=
+argument|bool canGrabServer
+argument_list|,
+argument|const char *displayName =
 literal|0
 argument_list|)
 block|;
@@ -1129,6 +1125,18 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
+begin_function_decl
+name|void
+name|grabServer
+parameter_list|()
+function_decl|;
+end_function_decl
+begin_function_decl
+name|void
+name|ungrabServer
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_decl_stmt
 name|private
 name|slots
@@ -1579,6 +1587,11 @@ specifier|const
 name|xcb_setup_t
 modifier|*
 name|m_setup
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|bool
+name|m_canGrabServer
 decl_stmt|;
 end_decl_stmt
 begin_expr_stmt
