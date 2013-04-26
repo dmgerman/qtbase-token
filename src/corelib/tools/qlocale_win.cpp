@@ -2731,7 +2731,7 @@ name|Int
 case|:
 name|value
 operator|=
-name|QLocalePrivate
+name|QLocaleData
 operator|::
 name|longLongToString
 argument_list|(
@@ -2783,7 +2783,7 @@ name|UInt
 case|:
 name|value
 operator|=
-name|QLocalePrivate
+name|QLocaleData
 operator|::
 name|unsLongLongToString
 argument_list|(
@@ -2830,7 +2830,7 @@ name|Double
 case|:
 name|value
 operator|=
-name|QLocalePrivate
+name|QLocaleData
 operator|::
 name|doubleToString
 argument_list|(
@@ -2874,7 +2874,7 @@ argument_list|,
 operator|-
 literal|1
 argument_list|,
-name|QLocalePrivate
+name|QLocaleData
 operator|::
 name|DFDecimal
 argument_list|,
@@ -2894,7 +2894,7 @@ name|LongLong
 case|:
 name|value
 operator|=
-name|QLocalePrivate
+name|QLocaleData
 operator|::
 name|longLongToString
 argument_list|(
@@ -2946,7 +2946,7 @@ name|ULongLong
 case|:
 name|value
 operator|=
-name|QLocalePrivate
+name|QLocaleData
 operator|::
 name|unsLongLongToString
 argument_list|(

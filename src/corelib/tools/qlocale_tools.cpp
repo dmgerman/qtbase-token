@@ -767,7 +767,7 @@ name|digits
 operator|.
 name|append
 argument_list|(
-name|QLocalePrivate
+name|QLocaleData
 operator|::
 name|longLongToString
 argument_list|(
@@ -788,7 +788,7 @@ argument_list|,
 operator|-
 literal|1
 argument_list|,
-name|QLocalePrivate
+name|QLocaleData
 operator|::
 name|AlwaysShowSign
 argument_list|)
