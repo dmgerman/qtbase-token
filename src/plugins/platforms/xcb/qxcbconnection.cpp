@@ -5730,6 +5730,7 @@ name|XCB_USE_MAEMO_WINDOW_PROPERTIES
 literal|"_MEEGOTOUCH_ORIENTATION_ANGLE\0"
 endif|#
 directive|endif
+literal|"_XSETTINGS_SETTINGS"
 block|}
 decl_stmt|;
 end_decl_stmt

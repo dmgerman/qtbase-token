@@ -489,6 +489,8 @@ name|MeegoTouchOrientationAngle
 block|,
 endif|#
 directive|endif
+name|_XSETTINGS_SETTINGS
+block|,
 name|NPredefinedAtoms
 block|,
 name|_QT_SETTINGS_TIMESTAMP

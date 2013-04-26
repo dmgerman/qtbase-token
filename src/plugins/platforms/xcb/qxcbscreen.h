@@ -57,6 +57,12 @@ name|QXcbCursor
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QXcbXSettings
+name|class
+name|QXcbXSettings
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QXcbObject
 name|class
 name|QXcbScreen
@@ -339,6 +345,12 @@ return|return
 name|m_hintStyle
 return|;
 block|}
+name|QXcbXSettings
+operator|*
+name|xSettings
+argument_list|()
+specifier|const
+expr_stmt|;
 name|private
 label|:
 specifier|static
@@ -442,6 +454,10 @@ operator|::
 name|HintStyle
 name|m_hintStyle
 expr_stmt|;
+name|QXcbXSettings
+modifier|*
+name|m_xSettings
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt
