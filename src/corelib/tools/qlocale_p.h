@@ -485,6 +485,13 @@ name|Country
 name|country
 argument_list|)
 decl_stmt|;
+specifier|static
+specifier|const
+name|QLocaleData
+modifier|*
+name|c
+parameter_list|()
+function_decl|;
 DECL|member|m_language_id
 DECL|member|m_script_id
 DECL|member|m_country_id
