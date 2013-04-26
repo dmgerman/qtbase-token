@@ -665,9 +665,6 @@ expr_stmt|;
 operator|delete
 name|m_androidFDB
 expr_stmt|;
-operator|delete
-name|m_touchDevice
-expr_stmt|;
 name|QtAndroid
 operator|::
 name|setAndroidPlatformIntegration
