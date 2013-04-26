@@ -777,29 +777,22 @@ operator|:
 name|explicit
 name|QLocalePrivate
 argument_list|(
-argument|int index
+argument|const QLocaleData *data
 argument_list|,
 argument|int numberOptions =
 literal|0
 argument_list|)
 operator|:
-name|m_index
+name|m_data
 argument_list|(
-name|index
+name|data
 argument_list|)
 block|,
 name|m_numberOptions
 argument_list|(
 argument|numberOptions
 argument_list|)
-block|{
-name|m_data
-operator|=
-name|dataPointerForIndex
-argument_list|(
-name|index
-argument_list|)
-block|;     }
+block|{     }
 operator|~
 name|QLocalePrivate
 argument_list|()
@@ -1532,20 +1525,15 @@ decl|const
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-name|quint16
-name|m_index
+specifier|const
+name|QLocaleData
+modifier|*
+name|m_data
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|quint16
 name|m_numberOptions
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-specifier|const
-name|QLocaleData
-modifier|*
-name|m_data
 decl_stmt|;
 end_decl_stmt
 begin_expr_stmt
