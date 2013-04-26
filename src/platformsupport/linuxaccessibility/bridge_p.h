@@ -119,9 +119,6 @@ name|DBusConnection
 modifier|*
 name|dbusConnection
 decl_stmt|;
-name|bool
-name|m_enabled
-decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt

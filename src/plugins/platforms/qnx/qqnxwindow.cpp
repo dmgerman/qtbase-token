@@ -600,6 +600,13 @@ argument_list|(
 name|rect
 argument_list|)
 decl_stmt|;
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_OPENGL
+argument_list|)
 comment|// If this is an OpenGL window we need to request that the GL context updates
 comment|// the EGLsurface on which it is rendering. The surface will be recreated the
 comment|// next time QQnxGLContext::makeCurrent() is called.
@@ -642,6 +649,8 @@ name|requestSurfaceChange
 argument_list|()
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 comment|// Send a geometry change event to Qt (triggers resizeEvent() in QWindow/QWidget).
 comment|// Calling flushWindowSystemEvents() here would flush input events which
 comment|// could result in re-entering QQnxWindow::setGeometry() again.
@@ -1477,6 +1486,16 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+name|val
+index|[
+literal|0
+index|]
+operator|=
+name|m_screen
+operator|->
+name|nativeFormat
+argument_list|()
+expr_stmt|;
 if|#
 directive|if
 operator|!
@@ -1505,19 +1524,6 @@ operator|->
 name|format
 argument_list|()
 argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|val
-index|[
-literal|0
-index|]
-operator|=
-name|m_screen
-operator|->
-name|nativeFormat
-argument_list|()
 expr_stmt|;
 block|}
 endif|#

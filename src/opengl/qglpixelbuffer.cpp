@@ -1198,6 +1198,14 @@ operator|*
 literal|0.0254
 argument_list|)
 return|;
+case|case
+name|QPaintDevice
+operator|::
+name|PdmDevicePixelRatio
+case|:
+return|return
+literal|1
+return|;
 default|default:
 name|qWarning
 argument_list|(

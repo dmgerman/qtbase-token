@@ -196,6 +196,8 @@ block|,
 name|ApplicationState
 block|,
 name|ForeignWindows
+block|,
+name|NonFullScreenWindows
 block|}
 enum|;
 name|virtual
@@ -390,6 +392,8 @@ block|,
 name|UseRtlExtensions
 block|,
 name|SynthesizeMouseFromTouchEvents
+block|,
+name|PasswordMaskCharacter
 block|}
 enum|;
 name|virtual

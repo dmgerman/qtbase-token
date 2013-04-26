@@ -1228,6 +1228,13 @@ name|int
 name|h
 parameter_list|)
 function_decl|;
+name|void
+name|alert
+parameter_list|(
+name|int
+name|msec
+parameter_list|)
+function_decl|;
 name|Q_SIGNALS
 label|:
 name|void
@@ -1570,6 +1577,12 @@ argument_list|)
 expr_stmt|;
 name|private
 label|:
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_clearAlert()
+argument_list|)
 name|QPlatformSurface
 operator|*
 name|surfaceHandle

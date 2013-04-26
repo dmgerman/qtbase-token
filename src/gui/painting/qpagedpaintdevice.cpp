@@ -320,14 +320,14 @@ name|QSizeF
 argument_list|(
 name|pageSizes
 index|[
-name|A4
+name|size
 index|]
 operator|.
 name|width
 argument_list|,
 name|pageSizes
 index|[
-name|A4
+name|size
 index|]
 operator|.
 name|height

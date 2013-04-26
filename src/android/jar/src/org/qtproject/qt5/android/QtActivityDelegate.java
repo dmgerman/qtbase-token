@@ -3354,7 +3354,6 @@ name|printStackTrace
 argument_list|()
 expr_stmt|;
 block|}
-comment|//        setFullScreen(savedInstanceState.getBoolean("FullScreen"));
 name|m_started
 operator|=
 name|savedInstanceState

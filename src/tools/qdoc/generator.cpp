@@ -182,6 +182,14 @@ name|outDir_
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|member|outSubdir_
+name|QString
+name|Generator
+operator|::
+name|outSubdir_
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|member|outputFormats
 name|QSet
 argument_list|<
@@ -8046,6 +8054,7 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
+block|{
 name|config
 operator|.
 name|lastLocation
@@ -8060,6 +8069,26 @@ literal|"configuration file or on the command line"
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|outSubdir_
+operator|=
+name|outDir_
+operator|.
+name|mid
+argument_list|(
+name|outDir_
+operator|.
+name|lastIndexOf
+argument_list|(
+literal|'/'
+argument_list|)
+operator|+
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
 name|QDir
 name|dirInfo
 decl_stmt|;
@@ -9183,6 +9212,9 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_comment
+comment|/*!   Sets the generator's pointer to the Config instance.  */
+end_comment
 begin_function
 DECL|function|initializeGenerator
 name|void
@@ -9193,9 +9225,15 @@ parameter_list|(
 specifier|const
 name|Config
 modifier|&
-comment|/* config */
+name|config
 parameter_list|)
-block|{ }
+block|{
+name|config_
+operator|=
+operator|&
+name|config
+expr_stmt|;
+block|}
 end_function
 begin_function
 DECL|function|matchAhead

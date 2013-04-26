@@ -1083,6 +1083,43 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     Reimplement this method to set whether the window demands attention     (for example, by flashing the taskbar icon) depending on \a enabled.      \sa isAlertState()     \since 5.1 */
+end_comment
+begin_function
+DECL|function|setAlertState
+name|void
+name|QPlatformWindow
+operator|::
+name|setAlertState
+parameter_list|(
+name|bool
+name|enable
+parameter_list|)
+block|{
+name|Q_UNUSED
+argument_list|(
+argument|enable
+argument_list|)
+block|}
+end_function
+begin_comment
+comment|/*!     Reimplement this method return whether the window is in     an alert state.      \sa setAlertState()     \since 5.1 */
+end_comment
+begin_function
+DECL|function|isAlertState
+name|bool
+name|QPlatformWindow
+operator|::
+name|isAlertState
+parameter_list|()
+specifier|const
+block|{
+return|return
+literal|false
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     Helper function to get initial geometry on windowing systems which do not     do smart positioning and also do not provide a means of centering a     transient window w.r.t. its parent. For example this is useful on Windows     and MacOS but not X11, because an X11 window manager typically tries to     layout new windows to optimize usage of the available desktop space.     However if the given window already has geometry which the application has     initialized, it takes priority. */
 end_comment
 begin_function

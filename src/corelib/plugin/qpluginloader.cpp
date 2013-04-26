@@ -912,7 +912,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \relates QPluginLoader     \since 5.0      Registers the given \a plugin with the plugin loader. */
+comment|/*!     \relates QPluginLoader     \since 5.0      Registers the \a plugin specified with the plugin loader, and is used     by Q_IMPORT_PLUGIN(). */
 end_comment
 begin_function
 DECL|function|qRegisterStaticPluginFunction

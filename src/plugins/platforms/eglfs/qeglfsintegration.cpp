@@ -500,7 +500,7 @@ name|window
 parameter_list|)
 specifier|const
 block|{
-name|QPlatformWindow
+name|QEglFSWindow
 modifier|*
 name|w
 init|=
@@ -510,6 +510,11 @@ argument_list|(
 name|window
 argument_list|)
 decl_stmt|;
+name|w
+operator|->
+name|create
+argument_list|()
+expr_stmt|;
 name|w
 operator|->
 name|requestActivateWindow

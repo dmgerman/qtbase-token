@@ -235,6 +235,11 @@ modifier|&
 name|format
 parameter_list|)
 block|{
+name|Q_UNUSED
+argument_list|(
+name|size
+argument_list|)
+expr_stmt|;
 name|ANativeWindow
 modifier|*
 name|window

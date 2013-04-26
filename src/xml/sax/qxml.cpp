@@ -3354,9 +3354,34 @@ end_comment
 begin_comment
 comment|/*!     \fn QXmlAttributes::QXmlAttributes()      Constructs an empty attribute list. */
 end_comment
+begin_constructor
+DECL|function|QXmlAttributes
+name|QXmlAttributes
+operator|::
+name|QXmlAttributes
+parameter_list|()
+block|{
+comment|// ### In Qt 5.0, this function was inlined and d was not initialized
+comment|// The member cannot be used until Qt 6.0
+name|Q_UNUSED
+argument_list|(
+name|d
+argument_list|)
+expr_stmt|;
+block|}
+end_constructor
 begin_comment
 comment|/*!     \fn QXmlAttributes::~QXmlAttributes()      Destroys the attributes object. */
 end_comment
+begin_destructor
+DECL|function|~QXmlAttributes
+name|QXmlAttributes
+operator|::
+name|~
+name|QXmlAttributes
+parameter_list|()
+block|{ }
+end_destructor
 begin_comment
 comment|/*!     Looks up the index of an attribute by the qualified name \a qName.      Returns the index of the attribute or -1 if it wasn't found.      \sa {Namespace Support via Features} */
 end_comment
@@ -5612,9 +5637,34 @@ end_comment
 begin_comment
 comment|/*!     \fn QXmlDefaultHandler::QXmlDefaultHandler()      Constructs a handler for use with subclasses of QXmlReader. */
 end_comment
+begin_constructor
+DECL|function|QXmlDefaultHandler
+name|QXmlDefaultHandler
+operator|::
+name|QXmlDefaultHandler
+parameter_list|()
+block|{
+comment|// ### In Qt 5.0, this function was inlined and d was not initialized
+comment|// The member cannot be used until Qt 6.0
+name|Q_UNUSED
+argument_list|(
+name|d
+argument_list|)
+expr_stmt|;
+block|}
+end_constructor
 begin_comment
 comment|/*!     \fn QXmlDefaultHandler::~QXmlDefaultHandler()      Destroys the handler. */
 end_comment
+begin_destructor
+DECL|function|~QXmlDefaultHandler
+name|QXmlDefaultHandler
+operator|::
+name|~
+name|QXmlDefaultHandler
+parameter_list|()
+block|{ }
+end_destructor
 begin_comment
 comment|/*!     \reimp      This reimplementation does nothing. */
 end_comment

@@ -683,11 +683,25 @@ operator|.
 name|release
 argument_list|(
 literal|0
+argument_list|,
+name|QPoint
+argument_list|(
+literal|12
+argument_list|,
+literal|12
+argument_list|)
 argument_list|)
 operator|.
 name|release
 argument_list|(
 literal|1
+argument_list|,
+name|QPoint
+argument_list|(
+literal|45
+argument_list|,
+literal|5
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|//! [25]

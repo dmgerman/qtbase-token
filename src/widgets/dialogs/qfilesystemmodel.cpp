@@ -3892,7 +3892,12 @@ operator|.
 name|isEmpty
 argument_list|()
 operator|||
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
 name|newName
+argument_list|)
 operator|.
 name|contains
 argument_list|(

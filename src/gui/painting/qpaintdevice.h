@@ -68,6 +68,8 @@ block|,
 name|PdmPhysicalDpiX
 block|,
 name|PdmPhysicalDpiY
+block|,
+name|PdmDevicePixelRatio
 block|}
 enum|;
 name|virtual
@@ -188,6 +190,18 @@ return|return
 name|metric
 argument_list|(
 name|PdmPhysicalDpiY
+argument_list|)
+return|;
+block|}
+name|int
+name|devicePixelRatio
+argument_list|()
+specifier|const
+block|{
+return|return
+name|metric
+argument_list|(
+name|PdmDevicePixelRatio
 argument_list|)
 return|;
 block|}

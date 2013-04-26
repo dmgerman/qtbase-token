@@ -442,19 +442,6 @@ operator|.
 name|RGBA_8888
 argument_list|)
 expr_stmt|;
-comment|//        if (!m_started)
-comment|//            return;
-comment|//
-comment|//        if (m_usesGL)
-comment|//            QtApplication.setSurface(holder.getSurface());
-comment|//        else
-comment|//        {
-comment|//            QtApplication.lockSurface();
-comment|//            QtApplication.setSurface(null);
-comment|//            m_bitmap=Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.RGB_565);
-comment|//            QtApplication.setSurface(m_bitmap);
-comment|//            QtApplication.unlockSurface();
-comment|//        }
 block|}
 annotation|@
 name|Override

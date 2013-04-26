@@ -3875,6 +3875,12 @@ literal|"QFontEngineMultiQPA"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|cache_cost
+operator|=
+name|fe
+operator|->
+name|cache_cost
+expr_stmt|;
 block|}
 end_function
 begin_function

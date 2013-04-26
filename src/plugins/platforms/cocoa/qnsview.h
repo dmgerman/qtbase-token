@@ -93,10 +93,6 @@ operator|::
 name|MouseButtons
 name|m_buttons
 block|;
-name|QAccessibleInterface
-operator|*
-name|m_accessibleRoot
-block|;
 name|QString
 name|m_composingText
 block|;

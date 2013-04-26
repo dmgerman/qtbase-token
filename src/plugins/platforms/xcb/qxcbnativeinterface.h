@@ -49,6 +49,7 @@ range|:
 name|public
 name|QPlatformNativeInterface
 block|{
+name|Q_OBJECT
 name|public
 operator|:
 expr|enum
@@ -248,6 +249,11 @@ name|QOpenGLContext
 operator|*
 name|context
 argument_list|)
+block|;
+name|Q_INVOKABLE
+name|void
+name|beep
+argument_list|()
 block|;
 name|private
 operator|:
