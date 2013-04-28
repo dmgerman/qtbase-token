@@ -807,7 +807,7 @@ DECL|function|removeGroupSeparators
 name|bool
 name|removeGroupSeparators
 parameter_list|(
-name|QLocalePrivate
+name|QLocaleData
 operator|::
 name|CharBuff
 modifier|*

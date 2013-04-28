@@ -8804,7 +8804,7 @@ block|}
 endif|#
 directive|endif
 return|return
-name|QLocalePrivate
+name|QLocaleData
 operator|::
 name|bytearrayToLongLong
 argument_list|(
@@ -8878,7 +8878,7 @@ block|}
 endif|#
 directive|endif
 return|return
-name|QLocalePrivate
+name|QLocaleData
 operator|::
 name|bytearrayToUnsLongLong
 argument_list|(
@@ -9272,7 +9272,7 @@ parameter_list|)
 specifier|const
 block|{
 return|return
-name|QLocalePrivate
+name|QLocaleData
 operator|::
 name|bytearrayToDouble
 argument_list|(

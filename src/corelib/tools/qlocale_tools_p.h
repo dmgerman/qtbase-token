@@ -406,7 +406,7 @@ begin_decl_stmt
 name|bool
 name|removeGroupSeparators
 argument_list|(
-name|QLocalePrivate
+name|QLocaleData
 operator|::
 name|CharBuff
 operator|*
