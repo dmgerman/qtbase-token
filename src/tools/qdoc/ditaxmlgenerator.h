@@ -1748,7 +1748,7 @@ return|return
 name|sectionNestingLevel
 return|;
 block|}
-name|QString
+name|QStringList
 name|metadataDefault
 argument_list|(
 argument|DitaTag t
@@ -1953,7 +1953,7 @@ name|DitaTag
 operator|>
 name|tagStack
 block|;
-name|QStringPairMap
+name|ConfigVarMultimap
 name|metadataDefaults
 block|;
 name|QVector
