@@ -3942,8 +3942,9 @@ name|name
 parameter_list|)
 block|{
 return|return
-operator|new
 name|QLocalePrivate
+operator|::
+name|create
 argument_list|(
 name|findLocaleData
 argument_list|(
@@ -3962,8 +3963,9 @@ name|defaultLocalePrivate
 parameter_list|()
 block|{
 return|return
-operator|new
 name|QLocalePrivate
+operator|::
+name|create
 argument_list|(
 name|defaultData
 argument_list|()
@@ -4046,8 +4048,9 @@ argument_list|()
 expr_stmt|;
 block|}
 return|return
-operator|new
 name|QLocalePrivate
+operator|::
+name|create
 argument_list|(
 name|data
 argument_list|,
@@ -8116,8 +8119,9 @@ return|return
 name|QLocale
 argument_list|(
 operator|*
-operator|new
 name|QLocalePrivate
+operator|::
+name|create
 argument_list|(
 name|systemData
 argument_list|()
@@ -8327,8 +8331,9 @@ name|QLocale
 name|locale
 argument_list|(
 operator|*
-operator|new
 name|QLocalePrivate
+operator|::
+name|create
 argument_list|(
 name|data
 argument_list|)
