@@ -29,13 +29,6 @@ directive|include
 file|"qcocoamenu.h"
 end_include
 begin_decl_stmt
-unit|@
-DECL|variable|NSMenu
-name|class
-name|NSMenu
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QCocoaWindow
 name|class
@@ -49,6 +42,7 @@ range|:
 name|public
 name|QPlatformMenuBar
 block|{
+name|Q_OBJECT
 name|public
 operator|:
 name|QCocoaMenuBar

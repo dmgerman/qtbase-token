@@ -521,6 +521,14 @@ modifier|*
 name|w
 parameter_list|)
 function_decl|;
+name|bool
+name|adoptLayout
+parameter_list|(
+name|QLayout
+modifier|*
+name|layout
+parameter_list|)
+function_decl|;
 name|QRect
 name|alignmentRect
 argument_list|(

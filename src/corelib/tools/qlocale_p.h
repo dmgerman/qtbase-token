@@ -424,11 +424,16 @@ name|withLikelySubtagsRemoved
 argument_list|()
 specifier|const
 expr_stmt|;
-name|QString
-name|bcp47Name
-argument_list|()
-specifier|const
-expr_stmt|;
+name|QByteArray
+name|name
+argument_list|(
+name|char
+name|separator
+operator|=
+literal|'-'
+argument_list|)
+decl|const
+decl_stmt|;
 DECL|member|language_id
 DECL|member|script_id
 DECL|member|country_id
@@ -794,23 +799,6 @@ name|dataPointerForIndex
 argument_list|(
 name|index
 argument_list|)
-block|;
-name|m_localeID
-operator|=
-name|bcp47Name
-argument_list|()
-operator|.
-name|toLatin1
-argument_list|()
-block|;
-name|m_localeID
-operator|.
-name|replace
-argument_list|(
-literal|'-'
-argument_list|,
-literal|'_'
-argument_list|)
 block|;     }
 operator|~
 name|QLocalePrivate
@@ -950,9 +938,12 @@ operator|->
 name|m_country_id
 return|;
 block|}
-name|QString
+name|QByteArray
 name|bcp47Name
-argument_list|()
+argument_list|(
+argument|char separator =
+literal|'-'
+argument_list|)
 specifier|const
 block|;
 comment|// ### QByteArray::fromRawData would be more optimal
@@ -1541,12 +1532,6 @@ decl|const
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-name|friend
-name|class
-name|QLocale
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|quint16
 name|m_index
 decl_stmt|;
@@ -1561,11 +1546,6 @@ specifier|const
 name|QLocaleData
 modifier|*
 name|m_data
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-name|QByteArray
-name|m_localeID
 decl_stmt|;
 end_decl_stmt
 begin_expr_stmt

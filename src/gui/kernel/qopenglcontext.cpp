@@ -1857,6 +1857,8 @@ name|qWarning
 argument_list|()
 operator|<<
 literal|"QOpenGLContext::makeCurrent() called with non-opengl surface"
+operator|<<
+name|surface
 expr_stmt|;
 return|return
 literal|false

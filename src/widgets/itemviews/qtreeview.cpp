@@ -2912,7 +2912,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2     \property QTreeView::animated     \brief whether animations are enabled      If this property is true the treeview will animate expandsion     and collapsing of branches. If this property is false, the treeview     will expand or collapse branches immediately without showing     the animation.      By default, this property is false. */
+comment|/*!     \since 4.2     \property QTreeView::animated     \brief whether animations are enabled      If this property is true the treeview will animate expansion     and collapsing of branches. If this property is false, the treeview     will expand or collapse branches immediately without showing     the animation.      By default, this property is false. */
 end_comment
 begin_function
 DECL|function|setAnimated

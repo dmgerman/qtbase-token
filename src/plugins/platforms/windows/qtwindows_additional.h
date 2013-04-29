@@ -42,6 +42,22 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|GWL_HWNDPARENT
+end_ifndef
+begin_define
+DECL|macro|GWL_HWNDPARENT
+define|#
+directive|define
+name|GWL_HWNDPARENT
+value|(-8)
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/* Complement the definitions and declarations missing  * when using MinGW or older Windows SDKs. */
 end_comment

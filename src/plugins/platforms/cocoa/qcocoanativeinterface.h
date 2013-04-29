@@ -102,6 +102,11 @@ argument|const QByteArray&resource
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
+name|Q_INVOKABLE
+name|void
+name|beep
+argument_list|()
+block|;
 specifier|static
 name|void
 operator|*
@@ -246,6 +251,16 @@ argument_list|,
 name|void
 operator|*
 name|nsViewContentView
+argument_list|)
+block|;
+comment|// Set a QWindow as a "guest" (subwindow) of a non-QWindow
+specifier|static
+name|void
+name|setEmbeddedInForeignView
+argument_list|(
+argument|QPlatformWindow *window
+argument_list|,
+argument|bool embedded
 argument_list|)
 block|;
 comment|// Register if a window should deliver touch events. Enabling

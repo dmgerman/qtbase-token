@@ -4489,11 +4489,15 @@ argument_list|(
 name|QBoxLayout
 argument_list|)
 expr_stmt|;
-name|addChildLayout
+if|if
+condition|(
+operator|!
+name|adoptLayout
 argument_list|(
 name|layout
 argument_list|)
-expr_stmt|;
+condition|)
+return|return;
 if|if
 condition|(
 name|index

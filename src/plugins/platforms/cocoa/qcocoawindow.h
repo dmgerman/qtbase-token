@@ -221,6 +221,17 @@ name|icon
 argument_list|)
 block|;
 name|void
+name|setAlertState
+argument_list|(
+argument|bool enabled
+argument_list|)
+block|;
+name|bool
+name|isAlertState
+argument_list|()
+specifier|const
+block|;
+name|void
 name|raise
 argument_list|()
 block|;
@@ -307,6 +318,12 @@ name|contentView
 argument_list|)
 block|;
 name|void
+name|setEmbeddedInForeignView
+argument_list|(
+argument|bool subwindow
+argument_list|)
+block|;
+name|void
 name|windowWillMove
 argument_list|()
 block|;
@@ -318,8 +335,8 @@ name|void
 name|windowDidResize
 argument_list|()
 block|;
-name|void
-name|windowWillClose
+name|bool
+name|windowShouldClose
 argument_list|()
 block|;
 name|bool
@@ -498,10 +515,15 @@ name|NSWindow
 operator|*
 name|m_nsWindow
 block|;
+comment|// TODO merge to one variable if possible
 name|bool
 name|m_contentViewIsEmbedded
 block|;
-comment|// true if the m_contentView is embedded in a "foregin" NSView hiearchy
+comment|// true if the m_contentView is actually embedded in a "foreign" NSView hiearchy
+name|bool
+name|m_contentViewIsToBeEmbedded
+block|;
+comment|// true if the m_contentView is intended to be embedded in a "foreign" NSView hiearchy
 name|QNSWindowDelegate
 operator|*
 name|m_nsWindowDelegate
@@ -555,6 +577,14 @@ name|m_isExposed
 block|;
 name|int
 name|m_registerTouchCount
+block|;
+specifier|static
+specifier|const
+name|int
+name|NoAlertRequest
+block|;
+name|NSInteger
+name|m_alertRequest
 block|; }
 decl_stmt|;
 end_decl_stmt
