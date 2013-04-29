@@ -126,6 +126,9 @@ argument_list|(
 argument|const QFileInfo&fileInfo
 argument_list|,
 argument|const QSizeF&size
+argument_list|,
+argument|QPlatformTheme::IconOptions options =
+literal|0
 argument_list|)
 specifier|const
 block|;

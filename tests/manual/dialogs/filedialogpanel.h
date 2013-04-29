@@ -208,6 +208,10 @@ name|QCheckBox
 operator|*
 name|m_native
 block|;
+name|QCheckBox
+operator|*
+name|m_customDirIcons
+block|;
 name|QComboBox
 operator|*
 name|m_acceptMode

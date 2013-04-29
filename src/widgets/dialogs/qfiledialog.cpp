@@ -588,7 +588,7 @@ begin_comment
 comment|/*!     \enum QFileDialog::FileMode      This enum is used to indicate what the user may select in the file     dialog; i.e. what the dialog will return if the user clicks OK.      \value AnyFile        The name of a file, whether it exists or not.     \value ExistingFile   The name of a single existing file.     \value Directory      The name of a directory. Both files and                           directories are displayed.     \value ExistingFiles  The names of zero or more existing files.      This value is obsolete since Qt 4.5:      \value DirectoryOnly  Use \c Directory and setOption(ShowDirsOnly, true) instead.      \sa setFileMode() */
 end_comment
 begin_comment
-comment|/*!     \enum QFileDialog::Option      \value ShowDirsOnly Only show directories in the file dialog. By     default both files and directories are shown. (Valid only in the     \l Directory file mode.)      \value DontResolveSymlinks Don't resolve symlinks in the file     dialog. By default symlinks are resolved.      \value DontConfirmOverwrite Don't ask for confirmation if an     existing file is selected.  By default confirmation is requested.      \value DontUseNativeDialog Don't use the native file dialog. By     default, the native file dialog is used unless you use a subclass     of QFileDialog that contains the Q_OBJECT macro.      \value ReadOnly Indicates that the model is readonly.      \value HideNameFilterDetails Indicates if the file name filter details are     hidden or not.      \value DontUseSheet In previous versions of Qt, the static     functions would create a sheet by default if the static function     was given a parent. This is no longer supported and does nothing in Qt 4.5, The     static functions will always be an application modal dialog. If     you want to use sheets, use QFileDialog::open() instead.  */
+comment|/*!     \enum QFileDialog::Option      \value ShowDirsOnly Only show directories in the file dialog. By     default both files and directories are shown. (Valid only in the     \l Directory file mode.)      \value DontResolveSymlinks Don't resolve symlinks in the file     dialog. By default symlinks are resolved.      \value DontConfirmOverwrite Don't ask for confirmation if an     existing file is selected.  By default confirmation is requested.      \value DontUseNativeDialog Don't use the native file dialog. By     default, the native file dialog is used unless you use a subclass     of QFileDialog that contains the Q_OBJECT macro.      \value ReadOnly Indicates that the model is readonly.      \value HideNameFilterDetails Indicates if the file name filter details are     hidden or not.      \value DontUseSheet In previous versions of Qt, the static     functions would create a sheet by default if the static function     was given a parent. This is no longer supported and does nothing in Qt 4.5, The     static functions will always be an application modal dialog. If     you want to use sheets, use QFileDialog::open() instead.      \value DontUseCustomDirectoryIcons Always use the default directory icon.     Some platforms allow the user to set a different icon. Custom icon lookup     cause a big performance impact over network or removable drives.     Setting this will enable the QFileIconProvider::DontUseCustomDirectoryIcons     option in the icon provider. This enum value was added in Qt 5.2. */
 end_comment
 begin_comment
 comment|/*!   \enum QFileDialog::DialogLabel    \value LookIn   \value FileName   \value FileType   \value Accept   \value Reject */
@@ -2935,6 +2935,53 @@ operator|::
 name|Files
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|changed
+operator|&
+name|DontUseCustomDirectoryIcons
+condition|)
+block|{
+name|QFileIconProvider
+operator|::
+name|Options
+name|providerOptions
+init|=
+name|iconProvider
+argument_list|()
+operator|->
+name|options
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|options
+operator|&
+name|DontUseCustomDirectoryIcons
+condition|)
+name|providerOptions
+operator||=
+name|QFileIconProvider
+operator|::
+name|DontUseCustomDirectoryIcons
+expr_stmt|;
+else|else
+name|providerOptions
+operator|&=
+operator|~
+name|QFileIconProvider
+operator|::
+name|DontUseCustomDirectoryIcons
+expr_stmt|;
+name|iconProvider
+argument_list|()
+operator|->
+name|setOptions
+argument_list|(
+name|providerOptions
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_function
 begin_function

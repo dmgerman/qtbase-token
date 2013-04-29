@@ -328,6 +328,11 @@ specifier|const
 name|QSizeF
 modifier|&
 name|size
+parameter_list|,
+name|QPlatformTheme
+operator|::
+name|IconOptions
+name|iconOptions
 parameter_list|)
 specifier|const
 block|{
@@ -339,6 +344,11 @@ expr_stmt|;
 name|Q_UNUSED
 argument_list|(
 name|size
+argument_list|)
+expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|iconOptions
 argument_list|)
 expr_stmt|;
 comment|// TODO Should return QCommonStyle pixmaps?

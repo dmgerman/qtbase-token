@@ -787,6 +787,10 @@ block|,
 name|HideNameFilterDetails
 init|=
 literal|0x00000040
+block|,
+name|DontUseCustomDirectoryIcons
+init|=
+literal|0x00000080
 block|}
 enum|;
 name|Q_DECLARE_FLAGS

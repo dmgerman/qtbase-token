@@ -116,6 +116,9 @@ end_comment
 begin_comment
 comment|/*!   \enum QFileIconProvider::IconType   \value Computer   \value Desktop   \value Trashcan   \value Network   \value Drive   \value Folder   \value File */
 end_comment
+begin_comment
+comment|/*!     \enum QFileIconProvider::Option     \since 5.2      \value DontUseCustomDirectoryIcons Always use the default directory icon.     Some platforms allow the user to set a different icon. Custom icon lookup     cause a big performance impact over network or removable drives. */
+end_comment
 begin_class
 DECL|class|QFileIconProviderPrivate
 class|class
@@ -159,6 +162,12 @@ DECL|member|homePath
 specifier|const
 name|QString
 name|homePath
+decl_stmt|;
+DECL|member|options
+name|QFileIconProvider
+operator|::
+name|Options
+name|options
 decl_stmt|;
 private|private:
 DECL|member|file
@@ -638,6 +647,62 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
+comment|/*!     \since 5.2     Sets \a options that affect the icon provider.     \sa options() */
+end_comment
+begin_function
+DECL|function|setOptions
+name|void
+name|QFileIconProvider
+operator|::
+name|setOptions
+parameter_list|(
+name|QFileIconProvider
+operator|::
+name|Options
+name|options
+parameter_list|)
+block|{
+name|Q_D
+argument_list|(
+name|QFileIconProvider
+argument_list|)
+expr_stmt|;
+name|d
+operator|->
+name|options
+operator|=
+name|options
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*!     \since 5.2     Returns all the options that affect the icon provider.     By default, all options are disabled.     \sa setOptions() */
+end_comment
+begin_function
+DECL|function|options
+name|QFileIconProvider
+operator|::
+name|Options
+name|QFileIconProvider
+operator|::
+name|options
+parameter_list|()
+specifier|const
+block|{
+name|Q_D
+argument_list|(
+specifier|const
+name|QFileIconProvider
+argument_list|)
+expr_stmt|;
+return|return
+name|d
+operator|->
+name|options
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!   Returns an icon set for the given \a type. */
 end_comment
 begin_function
@@ -800,6 +865,7 @@ operator|.
 name|suffix
 argument_list|()
 decl_stmt|;
+comment|// Will return false for .exe, .lnk and .ico extensions
 return|return
 name|fileExtension
 operator|.
@@ -931,18 +997,6 @@ condition|)
 return|return
 name|retIcon
 return|;
-specifier|const
-name|QString
-name|fileExtension
-init|=
-name|fi
-operator|.
-name|suffix
-argument_list|()
-operator|.
-name|toUpper
-argument_list|()
-decl_stmt|;
 specifier|const
 name|QString
 name|keyBase
@@ -1084,6 +1138,25 @@ name|retIcon
 return|;
 block|}
 block|}
+name|QPlatformTheme
+operator|::
+name|IconOptions
+name|iconOptions
+decl_stmt|;
+if|if
+condition|(
+name|options
+operator|&
+name|QFileIconProvider
+operator|::
+name|DontUseCustomDirectoryIcons
+condition|)
+name|iconOptions
+operator||=
+name|QPlatformTheme
+operator|::
+name|DontUseCustomDirectoryIcons
+expr_stmt|;
 name|Q_FOREACH
 argument_list|(
 argument|int size
@@ -1106,6 +1179,8 @@ name|size
 argument_list|,
 name|size
 argument_list|)
+argument_list|,
+name|iconOptions
 argument_list|)
 decl_stmt|;
 if|if

@@ -203,6 +203,10 @@ block|,
 name|HideNameFilterDetails
 operator|=
 literal|0x00000040
+block|,
+name|DontUseCustomDirectoryIcons
+operator|=
+literal|0x00000080
 block|}
 block|;
 name|Q_DECLARE_FLAGS
