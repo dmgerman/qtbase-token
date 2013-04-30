@@ -12,7 +12,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QQNXSCREENEVENTTHREAD
+name|QQNX_SCREENEVENTTHREAD
 argument_list|)
 end_if
 begin_include

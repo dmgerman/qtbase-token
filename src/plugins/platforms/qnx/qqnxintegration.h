@@ -471,7 +471,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QNX_SCREENEVENTTHREAD
+name|QQNX_SCREENEVENTTHREAD
 argument_list|)
 name|QQnxScreenEventThread
 operator|*
