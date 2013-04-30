@@ -1694,6 +1694,28 @@ name|d
 operator|->
 name|sslOptions
 expr_stmt|;
+name|d
+operator|->
+name|configuration
+operator|.
+name|sslSession
+operator|=
+name|configuration
+operator|.
+name|session
+argument_list|()
+expr_stmt|;
+name|d
+operator|->
+name|configuration
+operator|.
+name|sslSessionTicketLifeTimeHint
+operator|=
+name|configuration
+operator|.
+name|sessionTicketLifeTimeHint
+argument_list|()
+expr_stmt|;
 comment|// if the CA certificates were set explicitly (either via
 comment|// QSslConfiguration::setCaCertificates() or QSslSocket::setCaCertificates(),
 comment|// we cannot load the certificates on demand

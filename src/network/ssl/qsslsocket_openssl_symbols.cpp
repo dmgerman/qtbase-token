@@ -3597,6 +3597,52 @@ argument_list|,
 argument|return
 argument_list|)
 end_macro
+begin_macro
+name|DEFINEFUNC2
+argument_list|(
+argument|int
+argument_list|,
+argument|i2d_SSL_SESSION
+argument_list|,
+argument|SSL_SESSION *in
+argument_list|,
+argument|in
+argument_list|,
+argument|unsigned char **pp
+argument_list|,
+argument|pp
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC3
+argument_list|(
+argument|SSL_SESSION *
+argument_list|,
+argument|d2i_SSL_SESSION
+argument_list|,
+argument|SSL_SESSION **a
+argument_list|,
+argument|a
+argument_list|,
+argument|const unsigned char **pp
+argument_list|,
+argument|pp
+argument_list|,
+argument|long length
+argument_list|,
+argument|length
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
 begin_define
 DECL|macro|RESOLVEFUNC
 define|#
@@ -5704,6 +5750,14 @@ argument_list|)
 name|RESOLVEFUNC
 argument_list|(
 argument|SSLeay_version
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|i2d_SSL_SESSION
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|d2i_SSL_SESSION
 argument_list|)
 name|symbolsResolved
 operator|=

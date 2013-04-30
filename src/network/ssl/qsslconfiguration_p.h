@@ -115,7 +115,15 @@ argument_list|)
 block|,
 name|sslOptions
 argument_list|(
-argument|QSslConfigurationPrivate::defaultSslOptions
+name|QSslConfigurationPrivate
+operator|::
+name|defaultSslOptions
+argument_list|)
+block|,
+name|sslSessionTicketLifeTimeHint
+argument_list|(
+argument|-
+literal|1
 argument_list|)
 block|{ }
 name|QSslCertificate
@@ -193,6 +201,12 @@ name|QSsl
 operator|::
 name|SslOptions
 name|defaultSslOptions
+block|;
+name|QByteArray
+name|sslSession
+block|;
+name|int
+name|sslSessionTicketLifeTimeHint
 block|;
 comment|// in qsslsocket.cpp:
 specifier|static
