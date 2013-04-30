@@ -4256,6 +4256,32 @@ begin_comment
 comment|/*! \fn bool InnerNode::isInnerNode() const   Returns true because this is an inner node.  */
 end_comment
 begin_comment
+comment|/*!   Returns true if the node is a class node or a QML type node   that is marked as being a wrapper class or QML type, or if   it is a member of a wrapper class or type.  */
+end_comment
+begin_function
+DECL|function|isWrapper
+name|bool
+name|Node
+operator|::
+name|isWrapper
+parameter_list|()
+specifier|const
+block|{
+return|return
+operator|(
+name|parent_
+condition|?
+name|parent_
+operator|->
+name|isWrapper
+argument_list|()
+else|:
+literal|false
+operator|)
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!  */
 end_comment
 begin_function
@@ -5763,6 +5789,10 @@ name|name
 argument_list|)
 block|{
 name|abstract_
+operator|=
+literal|false
+expr_stmt|;
+name|wrapper_
 operator|=
 literal|false
 expr_stmt|;
@@ -8511,6 +8541,11 @@ literal|false
 argument_list|)
 member_init_list|,
 name|cnodeRequired_
+argument_list|(
+literal|false
+argument_list|)
+member_init_list|,
+name|wrapper_
 argument_list|(
 literal|false
 argument_list|)

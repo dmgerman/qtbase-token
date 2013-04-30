@@ -107,6 +107,13 @@ name|COMMAND_SINCE
 value|Doc::alias("since")
 end_define
 begin_define
+DECL|macro|COMMAND_WRAPPER
+define|#
+directive|define
+name|COMMAND_WRAPPER
+value|Doc::alias("wrapper")
+end_define
+begin_define
 DECL|macro|COMMAND_QMLABSTRACT
 define|#
 directive|define
@@ -697,6 +704,8 @@ operator|<<
 name|COMMAND_QMLABSTRACT
 operator|<<
 name|COMMAND_INQMLMODULE
+operator|<<
+name|COMMAND_WRAPPER
 return|;
 block|}
 end_function

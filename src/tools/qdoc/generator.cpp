@@ -3436,6 +3436,12 @@ block|{
 if|if
 condition|(
 operator|!
+name|node
+operator|->
+name|isWrapper
+argument_list|()
+operator|&&
+operator|!
 name|quiet
 operator|&&
 operator|!
