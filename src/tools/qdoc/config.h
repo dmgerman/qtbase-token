@@ -335,7 +335,7 @@ argument_list|)
 decl|const
 decl_stmt|;
 name|QStringList
-name|getCanonicalRelativePathList
+name|getCanonicalPathList
 argument_list|(
 specifier|const
 name|QString
