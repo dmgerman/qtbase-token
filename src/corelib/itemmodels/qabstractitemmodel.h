@@ -874,7 +874,7 @@ block|{
 name|Q_OBJECT
 name|Q_ENUMS
 argument_list|(
-argument|LayoutChangeHints
+argument|LayoutChangeHint
 argument_list|)
 name|friend
 name|class

@@ -60,10 +60,6 @@ name|Q_PROPERTY
 argument_list|(
 argument|QFont currentFont READ currentFont WRITE setCurrentFont NOTIFY currentFontChanged
 argument_list|)
-name|Q_ENUMS
-argument_list|(
-argument|FontSelection
-argument_list|)
 name|public
 operator|:
 name|explicit
