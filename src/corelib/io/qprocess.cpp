@@ -2428,6 +2428,9 @@ directive|endif
 ifdef|#
 directive|ifdef
 name|Q_OS_WIN
+name|drainOutputPipes
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|processFinishedNotifier

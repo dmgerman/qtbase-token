@@ -1382,6 +1382,10 @@ directive|endif
 ifdef|#
 directive|ifdef
 name|Q_OS_WIN
+name|bool
+name|drainOutputPipes
+parameter_list|()
+function_decl|;
 name|void
 name|flushPipeWriter
 parameter_list|()
