@@ -111,7 +111,6 @@ name|Q_ENUMS
 argument_list|(
 name|Role
 name|Event
-name|State
 argument_list|)
 name|public
 range|:      enum
