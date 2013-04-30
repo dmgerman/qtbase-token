@@ -350,6 +350,9 @@ name|bool
 name|connectionEncrypted
 block|;
 name|bool
+name|shutdown
+block|;
+name|bool
 name|ignoreAllSslErrors
 block|;
 name|QList

@@ -5239,13 +5239,15 @@ argument_list|(
 name|QFormLayout
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
 name|q
 operator|->
-name|addChildLayout
+name|adoptLayout
 argument_list|(
 name|layout
 argument_list|)
-expr_stmt|;
+condition|)
 name|setItem
 argument_list|(
 name|row

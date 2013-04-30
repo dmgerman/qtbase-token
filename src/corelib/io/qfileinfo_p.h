@@ -71,6 +71,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qvector.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/private/qabstractfileengine_p.h>
 end_include
 begin_include
@@ -597,15 +602,30 @@ name|qint64
 name|fileSize
 decl_stmt|;
 end_decl_stmt
-begin_decl_stmt
+begin_comment
+comment|// ### Qt6: FIXME: This vector is essentially a plain array
+end_comment
+begin_comment
+comment|// mutable QDateTime fileTimes[3], but the array is slower
+end_comment
+begin_comment
+comment|// to initialize than the QVector as QDateTime has a pimpl.
+end_comment
+begin_comment
+comment|// In Qt 6, QDateTime should inline its data members,
+end_comment
+begin_comment
+comment|// and this here can be an array again.
+end_comment
+begin_expr_stmt
 name|mutable
+name|QVector
+operator|<
 name|QDateTime
+operator|>
 name|fileTimes
-index|[
-literal|3
-index|]
-decl_stmt|;
-end_decl_stmt
+expr_stmt|;
+end_expr_stmt
 begin_decl_stmt
 specifier|inline
 name|bool

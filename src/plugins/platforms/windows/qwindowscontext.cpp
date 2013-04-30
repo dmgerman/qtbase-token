@@ -4073,20 +4073,6 @@ return|;
 case|case
 name|QtWindows
 operator|::
-name|ShowEvent
-case|:
-name|platformWindow
-operator|->
-name|handleShown
-argument_list|()
-expr_stmt|;
-return|return
-literal|false
-return|;
-comment|// Indicate transient children should be shown by windows (SW_PARENTOPENING)
-case|case
-name|QtWindows
-operator|::
 name|HideEvent
 case|:
 name|platformWindow

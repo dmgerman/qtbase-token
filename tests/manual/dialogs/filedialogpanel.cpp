@@ -3013,7 +3013,7 @@ name|setText
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|".txt"
+literal|"txt"
 argument_list|)
 argument_list|)
 expr_stmt|;

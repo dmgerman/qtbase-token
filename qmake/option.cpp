@@ -1775,6 +1775,16 @@ literal|";"
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|paths
+operator|.
+name|prepend
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"."
+argument_list|)
+argument_list|)
+expr_stmt|;
 else|#
 directive|else
 name|QStringList

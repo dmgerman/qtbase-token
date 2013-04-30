@@ -1933,6 +1933,14 @@ return|return;
 block|}
 if|if
 condition|(
+operator|(
+name|option
+operator|->
+name|state
+operator|&
+name|State_Enabled
+operator|)
+operator|&&
 name|d
 operator|->
 name|transitionsEnabled

@@ -24364,7 +24364,7 @@ comment|// Add words from module name as tags (QtQuickControls -> qt,quick,contr
 name|QRegExp
 name|re
 argument_list|(
-literal|"([A-Z][a-z0-9]+)"
+literal|"([A-Z]+[a-z0-9]*)"
 argument_list|)
 decl_stmt|;
 name|int

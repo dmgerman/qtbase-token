@@ -4293,6 +4293,11 @@ argument_list|(
 literal|false
 argument_list|)
 member_init_list|,
+name|shutdown
+argument_list|(
+literal|false
+argument_list|)
+member_init_list|,
 name|ignoreAllSslErrors
 argument_list|(
 literal|false
@@ -4366,6 +4371,10 @@ operator|=
 literal|false
 expr_stmt|;
 name|ignoreAllSslErrors
+operator|=
+literal|false
+expr_stmt|;
+name|shutdown
 operator|=
 literal|false
 expr_stmt|;

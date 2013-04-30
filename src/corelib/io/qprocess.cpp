@@ -239,7 +239,7 @@ ifndef|#
 directive|ifndef
 name|QT_NO_PROCESS
 name|QT_BEGIN_NAMESPACE
-comment|/*!     \class QProcessEnvironment     \inmodule QtCore      \brief The QProcessEnvironment class holds the environment variables that     can be passed to a program.      \ingroup io     \ingroup misc     \ingroup shared     \mainclass     \reentrant     \since 4.6      A process's environment is composed of a set of key=value pairs known as     environment variables. The QProcessEnvironment class wraps that concept     and allows easy manipulation of those variables. It's meant to be used     along with QProcess, to set the environment for child processes. It     cannot be used to change the current process's environment.      The environment of the calling process can be obtained using     QProcessEnvironment::systemEnvironment().      On Unix systems, the variable names are case-sensitive. For that reason,     this class will not touch the names of the variables. Note as well that     Unix environment allows both variable names and contents to contain arbitrary     binary data (except for the NUL character), but this is not supported by     QProcessEnvironment. This class only supports names and values that are     encodable by the current locale settings (see QTextCodec::codecForLocale).      On Windows, the variable names are case-insensitive. Therefore,     QProcessEnvironment will always uppercase the names and do case-insensitive     comparisons.      On Windows CE, the concept of environment does not exist. This class will     keep the values set for compatibility with other platforms, but the values     set will have no effect on the processes being created.      \sa QProcess, QProcess::systemEnvironment(), QProcess::setProcessEnvironment() */
+comment|/*!     \class QProcessEnvironment     \inmodule QtCore      \brief The QProcessEnvironment class holds the environment variables that     can be passed to a program.      \ingroup io     \ingroup misc     \ingroup shared     \mainclass     \reentrant     \since 4.6      A process's environment is composed of a set of key=value pairs known as     environment variables. The QProcessEnvironment class wraps that concept     and allows easy manipulation of those variables. It's meant to be used     along with QProcess, to set the environment for child processes. It     cannot be used to change the current process's environment.      The environment of the calling process can be obtained using     QProcessEnvironment::systemEnvironment().      On Unix systems, the variable names are case-sensitive. Note that the     Unix environment allows both variable names and contents to contain arbitrary     binary data (except for the NUL character). QProcessEnvironment will preserve     such variables, but does not support manipulating variables whose names or     values are not encodable by the current locale settings (see     QTextCodec::codecForLocale).      On Windows, the variable names are case-insensitive, but case-preserving.     QProcessEnvironment behaves accordingly.      On Windows CE, the concept of environment does not exist. This class will     keep the values set for compatibility with other platforms, but the values     set will have no effect on the processes being created.      \sa QProcess, QProcess::systemEnvironment(), QProcess::setProcessEnvironment() */
 DECL|function|toList
 name|QStringList
 name|QProcessEnvironmentPrivate
@@ -825,7 +825,7 @@ comment|// re-populated with the same keys again.
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the environment variable of name \a name is found in     this QProcessEnvironment object.      On Windows, variable names are case-insensitive, so the key is converted     to uppercase before searching. On other systems, names are case-sensitive     so no trasformation is applied.      \sa insert(), value() */
+comment|/*!     Returns true if the environment variable of name \a name is found in     this QProcessEnvironment object.       \sa insert(), value() */
 end_comment
 begin_function
 DECL|function|contains
@@ -863,7 +863,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Inserts the environment variable of name \a name and contents \a value     into this QProcessEnvironment object. If that variable already existed,     it is replaced by the new value.      On Windows, variable names are case-insensitive, so this function always     uppercases the variable name before inserting. On other systems, names     are case-sensitive, so no transformation is applied.      On most systems, inserting a variable with no contents will have the     same effect for applications as if the variable had not been set at all.     However, to guarantee that there are no incompatibilities, to remove a     variable, please use the remove() function.      \sa contains(), remove(), value() */
+comment|/*!     Inserts the environment variable of name \a name and contents \a value     into this QProcessEnvironment object. If that variable already existed,     it is replaced by the new value.      On most systems, inserting a variable with no contents will have the     same effect for applications as if the variable had not been set at all.     However, to guarantee that there are no incompatibilities, to remove a     variable, please use the remove() function.      \sa contains(), remove(), value() */
 end_comment
 begin_function
 DECL|function|insert
@@ -908,7 +908,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Removes the environment variable identified by \a name from this     QProcessEnvironment object. If that variable did not exist before,     nothing happens.      On Windows, variable names are case-insensitive, so the key is converted     to uppercase before searching. On other systems, names are case-sensitive     so no trasformation is applied.      \sa contains(), insert(), value() */
+comment|/*!     Removes the environment variable identified by \a name from this     QProcessEnvironment object. If that variable did not exist before,     nothing happens.       \sa contains(), insert(), value() */
 end_comment
 begin_function
 DECL|function|remove
@@ -944,7 +944,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Searches this QProcessEnvironment object for a variable identified by     \a name and returns its value. If the variable is not found in this object,     then \a defaultValue is returned instead.      On Windows, variable names are case-insensitive, so the key is converted     to uppercase before searching. On other systems, names are case-sensitive     so no trasformation is applied.      \sa contains(), insert(), remove() */
+comment|/*!     Searches this QProcessEnvironment object for a variable identified by     \a name and returns its value. If the variable is not found in this object,     then \a defaultValue is returned instead.      \sa contains(), insert(), remove() */
 end_comment
 begin_function
 DECL|function|value
@@ -1022,7 +1022,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Converts this QProcessEnvironment object into a list of strings, one for     each environment variable that is set. The environment variable's name     and its value are separated by an equal character ('=').      The QStringList contents returned by this function are suitable for use     with the QProcess::setEnvironment function. However, it is recommended     to use QProcess::setProcessEnvironment instead since that will avoid     unnecessary copying of the data.      \sa systemEnvironment(), QProcess::systemEnvironment(), QProcess::environment(),         QProcess::setEnvironment() */
+comment|/*!     Converts this QProcessEnvironment object into a list of strings, one for     each environment variable that is set. The environment variable's name     and its value are separated by an equal character ('=').      The QStringList contents returned by this function are suitable for     presentation.     Use with the QProcess::setEnvironment function is not recommended due to     potential encoding problems under Unix, and worse performance.      \sa systemEnvironment(), QProcess::systemEnvironment(), QProcess::environment(),         QProcess::setEnvironment() */
 end_comment
 begin_function
 DECL|function|toStringList

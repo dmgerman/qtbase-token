@@ -58,9 +58,9 @@ block|;
 name|void
 name|handleKeyPressEvent
 argument_list|(
-name|QXcbWindow
+name|QXcbWindowEventListener
 operator|*
-name|window
+name|eventListener
 argument_list|,
 specifier|const
 name|xcb_key_press_event_t
@@ -71,9 +71,9 @@ block|;
 name|void
 name|handleKeyReleaseEvent
 argument_list|(
-name|QXcbWindow
+name|QXcbWindowEventListener
 operator|*
-name|window
+name|eventListener
 argument_list|,
 specifier|const
 name|xcb_key_release_event_t

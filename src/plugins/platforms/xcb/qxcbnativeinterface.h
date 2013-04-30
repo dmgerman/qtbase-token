@@ -72,10 +72,22 @@ block|,
 name|AppTime
 block|,
 name|AppUserTime
+block|,
+name|ScreenHintStyle
+block|,
+name|StartupId
 block|}
 block|;
 name|QXcbNativeInterface
 argument_list|()
+block|;
+name|void
+operator|*
+name|nativeResourceForIntegration
+argument_list|(
+argument|const QByteArray&resource
+argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 operator|*
@@ -211,6 +223,11 @@ name|QXcbScreen
 operator|*
 name|screen
 argument_list|)
+block|;
+name|void
+operator|*
+name|startupId
+argument_list|()
 block|;
 specifier|static
 name|void

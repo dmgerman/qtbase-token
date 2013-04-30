@@ -269,6 +269,12 @@ argument_list|(
 name|QWindow
 operator|*
 name|w
+argument_list|,
+name|bool
+operator|*
+name|a
+operator|=
+literal|0
 argument_list|)
 operator|:
 name|WindowSystemEvent
@@ -278,7 +284,12 @@ argument_list|)
 block|,
 name|window
 argument_list|(
-argument|w
+name|w
+argument_list|)
+block|,
+name|accepted
+argument_list|(
+argument|a
 argument_list|)
 block|{ }
 name|QPointer
@@ -286,6 +297,10 @@ operator|<
 name|QWindow
 operator|>
 name|window
+block|;
+name|bool
+operator|*
+name|accepted
 block|;     }
 decl_stmt|;
 name|class

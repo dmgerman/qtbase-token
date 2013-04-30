@@ -13,6 +13,11 @@ define|#
 directive|define
 name|QOPENGLTIMERQUERY_H
 end_define
+begin_include
+include|#
+directive|include
+file|<QtCore/qglobal.h>
+end_include
 begin_if
 if|#
 directive|if

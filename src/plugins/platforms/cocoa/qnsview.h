@@ -516,7 +516,7 @@ name|keyCode
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-operator|-
+operator|+
 operator|(
 name|Qt
 operator|::

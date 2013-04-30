@@ -18,6 +18,11 @@ include|#
 directive|include
 file|<QtWidgets/private/qaccessiblewidget_p.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qpointer.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 ifndef|#
@@ -359,10 +364,12 @@ name|QAction
 modifier|*
 name|m_action
 decl_stmt|;
+name|QPointer
+operator|<
 name|QWidget
-modifier|*
+operator|>
 name|m_owner
-decl_stmt|;
+expr_stmt|;
 comment|// can hold either QMenu or the QMenuBar that contains the action
 block|}
 end_decl_stmt

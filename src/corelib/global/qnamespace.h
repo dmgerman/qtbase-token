@@ -321,6 +321,10 @@ argument_list|,
 name|KeyboardModifier
 argument_list|)
 comment|//shorter names for shortcuts
+comment|// The use of all-caps identifiers has the potential for clashing with
+comment|// user-defined or third-party macros. More so when the identifiers are not
+comment|// "namespace"-prefixed. This is considered bad practice and is why
+comment|// KeypadModifier was not added to the Modifier enum.
 expr|enum
 name|Modifier
 block|{

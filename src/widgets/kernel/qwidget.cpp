@@ -31335,7 +31335,7 @@ name|ignore
 argument_list|()
 expr_stmt|;
 block|}
-comment|/*!     This event handler, for event \a event, can be reimplemented in a     subclass to receive mouse double click events for the widget.      The default implementation generates a normal mouse press event.      \note The widget will also receive mouse press and mouse release     events in addition to the double click event. It is up to the     developer to ensure that the application interprets these events     correctly.      \sa mousePressEvent(), mouseReleaseEvent(), mouseMoveEvent(),     event(), QMouseEvent */
+comment|/*!     This event handler, for event \a event, can be reimplemented in a     subclass to receive mouse double click events for the widget.      \note The widget will also receive mouse press and mouse release     events in addition to the double click event. It is up to the     developer to ensure that the application interprets these events     correctly.      \sa mousePressEvent(), mouseReleaseEvent(), mouseMoveEvent(),     event(), QMouseEvent */
 DECL|function|mouseDoubleClickEvent
 name|void
 name|QWidget
@@ -34868,8 +34868,21 @@ operator|||
 operator|!
 name|updatesEnabled
 argument_list|()
-operator|||
+condition|)
+return|return;
+name|QRect
+name|r
+init|=
 name|rect
+operator|&
+name|QWidget
+operator|::
+name|rect
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|r
 operator|.
 name|isEmpty
 argument_list|()
@@ -34894,7 +34907,7 @@ argument_list|,
 operator|new
 name|QUpdateLaterEvent
 argument_list|(
-name|rect
+name|r
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -34970,7 +34983,7 @@ name|backingStoreTracker
 operator|->
 name|markDirty
 argument_list|(
-name|rect
+name|r
 argument_list|,
 name|this
 argument_list|)
@@ -34983,7 +34996,7 @@ argument_list|()
 operator|->
 name|repaint_sys
 argument_list|(
-name|rect
+name|r
 argument_list|)
 expr_stmt|;
 block|}
