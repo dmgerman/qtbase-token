@@ -1137,16 +1137,6 @@ operator|&
 name|cntry
 argument_list|)
 decl_stmt|;
-specifier|static
-specifier|const
-name|QLocaleData
-modifier|*
-name|dataPointerForIndex
-parameter_list|(
-name|quint16
-name|index
-parameter_list|)
-function_decl|;
 name|QLocale
 operator|::
 name|MeasurementSystem
