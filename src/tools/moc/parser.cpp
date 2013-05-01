@@ -117,10 +117,12 @@ name|msg
 operator|||
 name|error_msg
 condition|)
-name|qWarning
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 name|ErrorFormatString
-literal|"Error: %s"
+literal|"Error: %s\n"
 argument_list|,
 name|currentFilenames
 operator|.
@@ -143,10 +145,12 @@ name|error_msg
 argument_list|)
 expr_stmt|;
 else|else
-name|qWarning
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 name|ErrorFormatString
-literal|"Parse error at \"%s\""
+literal|"Parse error at \"%s\"\n"
 argument_list|,
 name|currentFilenames
 operator|.
