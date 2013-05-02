@@ -11113,6 +11113,14 @@ name|touchEvent
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|event
+operator|->
+name|ignore
+argument_list|()
+expr_stmt|;
+block|}
 return|return
 literal|true
 return|;
