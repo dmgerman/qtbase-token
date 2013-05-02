@@ -7695,7 +7695,17 @@ name|tool
 operator|.
 name|SuppressStartupBanner
 argument_list|)
-comment|//unused<< attrTagS(_TreatSpecificWarningsAsErrors, tool.TreatSpecificWarningsAsErrors)
+operator|<<
+name|attrTagX
+argument_list|(
+name|_TreatSpecificWarningsAsErrors
+argument_list|,
+name|tool
+operator|.
+name|TreatSpecificWarningsAsErrors
+argument_list|,
+literal|";"
+argument_list|)
 operator|<<
 name|attrTagT
 argument_list|(

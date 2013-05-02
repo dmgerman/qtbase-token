@@ -1942,6 +1942,9 @@ block|;
 name|triState
 name|UseUnicodeForAssemblerListing
 block|;
+name|QStringList
+name|TreatSpecificWarningsAsErrors
+block|;
 name|triState
 name|WarnAsError
 block|;
