@@ -3268,6 +3268,42 @@ name|to
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_decl_stmt
+name|bool
+name|isValidIterator
+argument_list|(
+specifier|const
+name|iterator
+operator|&
+name|i
+argument_list|)
+decl|const
+block|{
+return|return
+operator|(
+name|constBegin
+argument_list|()
+operator|.
+name|i
+operator|<=
+name|i
+operator|.
+name|i
+operator|)
+operator|&&
+operator|(
+name|i
+operator|.
+name|i
+operator|<=
+name|constEnd
+argument_list|()
+operator|.
+name|i
+operator|)
+return|;
+block|}
+end_decl_stmt
 begin_if
 unit|};
 if|#
@@ -3944,6 +3980,18 @@ argument_list|,
 argument|const T&t
 argument_list|)
 block|{
+name|Q_ASSERT_X
+argument_list|(
+name|isValidIterator
+argument_list|(
+name|before
+argument_list|)
+argument_list|,
+literal|"QList::insert"
+argument_list|,
+literal|"The specified iterator argument 'before' is invalid"
+argument_list|)
+block|;
 name|int
 name|iBefore
 operator|=
@@ -4036,6 +4084,18 @@ argument_list|(
 argument|iterator it
 argument_list|)
 block|{
+name|Q_ASSERT_X
+argument_list|(
+name|isValidIterator
+argument_list|(
+name|it
+argument_list|)
+argument_list|,
+literal|"QList::erase"
+argument_list|,
+literal|"The specified iterator argument 'it' is invalid"
+argument_list|)
+block|;
 name|node_destruct
 argument_list|(
 name|it
@@ -6571,6 +6631,30 @@ argument_list|,
 argument|typename QList<T>::iterator alast
 argument_list|)
 block|{
+name|Q_ASSERT_X
+argument_list|(
+name|isValidIterator
+argument_list|(
+name|afirst
+argument_list|)
+argument_list|,
+literal|"QList::erase"
+argument_list|,
+literal|"The specified iterator argument 'afirst' is invalid"
+argument_list|)
+block|;
+name|Q_ASSERT_X
+argument_list|(
+name|isValidIterator
+argument_list|(
+name|alast
+argument_list|)
+argument_list|,
+literal|"QList::erase"
+argument_list|,
+literal|"The specified iterator argument 'alast' is invalid"
+argument_list|)
+block|;
 for|for
 control|(
 name|Node
