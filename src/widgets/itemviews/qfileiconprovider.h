@@ -30,9 +30,6 @@ file|<QtGui/qicon.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-ifndef|#
-directive|ifndef
-name|QT_NO_FILEICONPROVIDER
 DECL|variable|QFileIconProviderPrivate
 name|class
 name|QFileIconProviderPrivate
@@ -149,13 +146,6 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_NO_FILEICONPROVIDER
-end_comment
 begin_macro
 name|Q_DECLARE_OPERATORS_FOR_FLAGS
 argument_list|(

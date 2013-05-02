@@ -7,11 +7,6 @@ include|#
 directive|include
 file|"qfileiconprovider.h"
 end_include
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_FILEICONPROVIDER
-end_ifndef
 begin_include
 include|#
 directive|include
@@ -1755,8 +1750,4 @@ end_function
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
-begin_endif
-endif|#
-directive|endif
-end_endif
 end_unit
