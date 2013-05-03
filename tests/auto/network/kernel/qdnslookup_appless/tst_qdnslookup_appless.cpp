@@ -68,7 +68,7 @@ name|QDnsLookup
 operator|::
 name|A
 argument_list|,
-literal|"troll.no"
+literal|"a-single.test.macieira.org"
 argument_list|)
 decl_stmt|;
 name|dns
@@ -128,7 +128,7 @@ name|QDnsLookup
 operator|::
 name|A
 argument_list|,
-literal|"lupinella.troll.no"
+literal|"a-single.test.macieira.org"
 argument_list|)
 decl_stmt|;
 name|dns
@@ -243,7 +243,7 @@ name|QDnsLookup
 operator|::
 name|A
 argument_list|,
-literal|"lupinella.troll.no"
+literal|"a-single.test.macieira.info"
 argument_list|)
 decl_stmt|;
 name|dns
