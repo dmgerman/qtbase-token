@@ -18,6 +18,20 @@ include|#
 directive|include
 file|<QtCore/QObject>
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_SSL
+end_ifndef
+begin_include
+include|#
+directive|include
+file|<QtNetwork/QSslConfiguration>
+end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QIODevice
@@ -450,6 +464,31 @@ specifier|const
 block|;
 endif|#
 directive|endif
+ifndef|#
+directive|ifndef
+name|QT_NO_SSL
+name|void
+name|connectToHostEncrypted
+argument_list|(
+argument|const QString&hostName
+argument_list|,
+argument|quint16 port =
+literal|443
+argument_list|,
+argument|const QSslConfiguration&sslConfiguration = QSslConfiguration::defaultConfiguration()
+argument_list|)
+block|;
+endif|#
+directive|endif
+name|void
+name|connectToHost
+argument_list|(
+argument|const QString&hostName
+argument_list|,
+argument|quint16 port =
+literal|80
+argument_list|)
+block|;
 name|Q_SIGNALS
 operator|:
 ifndef|#
