@@ -1977,7 +1977,7 @@ modifier|*
 name|sep
 parameter_list|,
 specifier|const
-name|size_t
+name|int
 name|sepSize
 parameter_list|)
 block|{
