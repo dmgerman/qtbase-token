@@ -3762,6 +3762,15 @@ directive|endif
 block|}
 end_decl_stmt
 begin_expr_stmt
+name|friend
+name|class
+name|QSet
+operator|<
+name|Key
+operator|>
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 unit|};
 DECL|variable|Key
 name|template

@@ -1358,6 +1358,18 @@ name|iterator
 name|i
 parameter_list|)
 block|{
+name|Q_ASSERT_X
+argument_list|(
+name|isValidIterator
+argument_list|(
+name|i
+argument_list|)
+argument_list|,
+literal|"QSet::erase"
+argument_list|,
+literal|"The specified const_iterator argument 'i' is invalid"
+argument_list|)
+expr_stmt|;
 return|return
 name|q_hash
 operator|.
@@ -2094,6 +2106,27 @@ begin_decl_stmt
 name|Hash
 name|q_hash
 decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|bool
+name|isValidIterator
+argument_list|(
+specifier|const
+name|iterator
+operator|&
+name|i
+argument_list|)
+decl|const
+block|{
+return|return
+name|q_hash
+operator|.
+name|isValidIterator
+argument_list|(
+argument|reinterpret_cast<const typename Hash::iterator&>(i)
+argument_list|)
+return|;
+block|}
 end_decl_stmt
 begin_expr_stmt
 unit|};
