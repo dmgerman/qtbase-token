@@ -110,23 +110,6 @@ name|object
 parameter_list|()
 specifier|const
 block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_DEBUG
-if|if
-condition|(
-operator|!
-name|d
-operator|->
-name|object
-condition|)
-name|qWarning
-argument_list|(
-literal|"QAccessibleInterface is invalid. Crash pending..."
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 return|return
 name|d
 operator|->
