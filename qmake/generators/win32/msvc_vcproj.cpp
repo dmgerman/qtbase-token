@@ -6401,14 +6401,6 @@ name|conf
 operator|.
 name|compiler
 operator|.
-name|ProgramDataBaseFileName
-operator|=
-literal|".\\"
-expr_stmt|;
-name|conf
-operator|.
-name|compiler
-operator|.
 name|ObjectFile
 operator|=
 name|placement
