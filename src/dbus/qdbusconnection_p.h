@@ -1978,6 +1978,10 @@ name|int
 operator|>
 operator|&
 name|metaTypes
+argument_list|,
+name|QString
+operator|&
+name|errorMsg
 argument_list|)
 decl_stmt|;
 end_decl_stmt
@@ -2008,6 +2012,10 @@ name|int
 operator|>
 operator|&
 name|metaTypes
+argument_list|,
+name|QString
+operator|&
+name|errorMsg
 argument_list|)
 decl_stmt|;
 end_decl_stmt

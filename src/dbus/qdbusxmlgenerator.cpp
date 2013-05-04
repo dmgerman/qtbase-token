@@ -15,6 +15,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/qdebug.h>
+end_include
+begin_include
+include|#
+directive|include
 file|"qdbusinterface_p.h"
 end_include
 begin_comment
@@ -784,7 +789,30 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
+block|{
+name|qWarning
+argument_list|()
+operator|<<
+literal|"Unsupported return type"
+operator|<<
+name|typeId
+operator|<<
+name|QMetaType
+operator|::
+name|typeName
+argument_list|(
+name|typeId
+argument_list|)
+operator|<<
+literal|"in method"
+operator|<<
+name|mm
+operator|.
+name|name
+argument_list|()
+expr_stmt|;
 continue|continue;
+block|}
 block|}
 elseif|else
 if|if
@@ -795,8 +823,20 @@ name|QMetaType
 operator|::
 name|UnknownType
 condition|)
+block|{
+name|qWarning
+argument_list|()
+operator|<<
+literal|"Invalid return type in method"
+operator|<<
+name|mm
+operator|.
+name|name
+argument_list|()
+expr_stmt|;
 continue|continue;
 comment|// wasn't a valid type
+block|}
 name|QList
 argument_list|<
 name|QByteArray
@@ -814,6 +854,9 @@ name|int
 argument_list|>
 name|types
 decl_stmt|;
+name|QString
+name|errorMsg
+decl_stmt|;
 name|int
 name|inputCount
 init|=
@@ -822,6 +865,8 @@ argument_list|(
 name|mm
 argument_list|,
 name|types
+argument_list|,
+name|errorMsg
 argument_list|)
 decl_stmt|;
 if|if
@@ -831,8 +876,27 @@ operator|==
 operator|-
 literal|1
 condition|)
+block|{
+name|qWarning
+argument_list|()
+operator|<<
+literal|"Skipped method"
+operator|<<
+name|mm
+operator|.
+name|name
+argument_list|()
+operator|<<
+literal|":"
+operator|<<
+name|qPrintable
+argument_list|(
+name|errorMsg
+argument_list|)
+expr_stmt|;
 continue|continue;
 comment|// invalid form
+block|}
 if|if
 condition|(
 name|isSignal

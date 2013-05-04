@@ -45,6 +45,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qdebug.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<stdio.h>
 end_include
 begin_include
@@ -215,6 +220,10 @@ name|int
 argument_list|>
 modifier|&
 name|metaTypes
+parameter_list|,
+name|QString
+modifier|&
+name|errorMsg
 parameter_list|)
 block|{
 name|QList
@@ -249,6 +258,8 @@ argument_list|(
 name|parameterTypes
 argument_list|,
 name|metaTypes
+argument_list|,
+name|errorMsg
 argument_list|)
 return|;
 block|}
@@ -478,6 +489,9 @@ name|int
 argument_list|>
 name|types
 decl_stmt|;
+name|QString
+name|errorMsg
+decl_stmt|;
 name|int
 name|inputCount
 init|=
@@ -486,6 +500,8 @@ argument_list|(
 name|mm
 argument_list|,
 name|types
+argument_list|,
+name|errorMsg
 argument_list|)
 decl_stmt|;
 if|if
@@ -495,11 +511,21 @@ operator|==
 operator|-
 literal|1
 condition|)
+block|{
+name|qWarning
+argument_list|()
+operator|<<
+name|qPrintable
+argument_list|(
+name|errorMsg
+argument_list|)
+expr_stmt|;
 return|return
 name|QString
 argument_list|()
 return|;
 comment|// invalid form
+block|}
 if|if
 condition|(
 name|isSignal

@@ -1043,6 +1043,9 @@ name|int
 argument_list|>
 name|types
 decl_stmt|;
+name|QString
+name|errorMsg
+decl_stmt|;
 name|int
 name|inputCount
 init|=
@@ -1051,6 +1054,8 @@ argument_list|(
 name|mm
 argument_list|,
 name|types
+argument_list|,
+name|errorMsg
 argument_list|)
 decl_stmt|;
 if|if
@@ -1060,9 +1065,33 @@ operator|==
 operator|-
 literal|1
 condition|)
+block|{
 comment|// invalid signal signature
-comment|// qDBusParametersForMethod has already complained
+name|qWarning
+argument_list|(
+literal|"QDBusAbstractAdaptor: Cannot relay signal %s::%s: %s"
+argument_list|,
+name|senderMetaObject
+operator|->
+name|className
+argument_list|()
+argument_list|,
+name|mm
+operator|.
+name|methodSignature
+argument_list|()
+operator|.
+name|constData
+argument_list|()
+argument_list|,
+name|qPrintable
+argument_list|(
+name|errorMsg
+argument_list|)
+argument_list|)
+expr_stmt|;
 return|return;
+block|}
 if|if
 condition|(
 name|inputCount
@@ -1088,7 +1117,6 @@ argument_list|()
 condition|)
 block|{
 comment|// invalid signal signature
-comment|// qDBusParametersForMethod has not yet complained about this one
 name|qWarning
 argument_list|(
 literal|"QDBusAbstractAdaptor: Cannot relay signal %s::%s"

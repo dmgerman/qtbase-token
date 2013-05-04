@@ -559,6 +559,10 @@ name|int
 argument_list|>
 modifier|&
 name|metaTypes
+parameter_list|,
+name|QString
+modifier|&
+name|errorMsg
 parameter_list|)
 block|{
 return|return
@@ -570,6 +574,8 @@ name|parameterTypes
 argument_list|()
 argument_list|,
 name|metaTypes
+argument_list|,
+name|errorMsg
 argument_list|)
 return|;
 block|}
@@ -600,6 +606,10 @@ name|int
 argument_list|>
 modifier|&
 name|metaTypes
+parameter_list|,
+name|QString
+modifier|&
+name|errorMsg
 parameter_list|)
 block|{
 name|QDBusMetaTypeId
@@ -685,8 +695,18 @@ literal|'*'
 argument_list|)
 condition|)
 block|{
-comment|//qWarning("Could not parse the method '%s'", mm.methodSignature().constData());
-comment|// pointer?
+name|errorMsg
+operator|=
+name|QLatin1String
+argument_list|(
+literal|"Pointers are not supported: "
+argument_list|)
+operator|+
+name|QLatin1String
+argument_list|(
+name|type
+argument_list|)
+expr_stmt|;
 return|return
 operator|-
 literal|1
@@ -736,8 +756,18 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|//qWarning("Could not parse the method '%s'", mm.methodSignature().constData());
-comment|// invalid type in method parameter list
+name|errorMsg
+operator|=
+name|QLatin1String
+argument_list|(
+literal|"Unregistered output type in parameter list: "
+argument_list|)
+operator|+
+name|QLatin1String
+argument_list|(
+name|type
+argument_list|)
+expr_stmt|;
 return|return
 operator|-
 literal|1
@@ -779,8 +809,18 @@ name|seenMessage
 condition|)
 block|{
 comment|//&& !type.endsWith('&')
-comment|//qWarning("Could not parse the method '%s'", mm.methodSignature().constData());
-comment|// non-output parameters after message or after output params
+name|errorMsg
+operator|=
+name|QLatin1String
+argument_list|(
+literal|"Invalid method, non-output parameters after message or after output parameters: "
+argument_list|)
+operator|+
+name|QLatin1String
+argument_list|(
+name|type
+argument_list|)
+expr_stmt|;
 return|return
 operator|-
 literal|1
@@ -806,8 +846,18 @@ operator|::
 name|UnknownType
 condition|)
 block|{
-comment|//qWarning("Could not parse the method '%s'", mm.methodSignature().constData());
-comment|// invalid type in method parameter list
+name|errorMsg
+operator|=
+name|QLatin1String
+argument_list|(
+literal|"Unregistered input type in parameter list: "
+argument_list|)
+operator|+
+name|QLatin1String
+argument_list|(
+name|type
+argument_list|)
+expr_stmt|;
 return|return
 operator|-
 literal|1
@@ -838,10 +888,24 @@ argument_list|)
 operator|==
 literal|0
 condition|)
+block|{
+name|errorMsg
+operator|=
+name|QLatin1String
+argument_list|(
+literal|"Type not registered with QtDBus in parameter list: "
+argument_list|)
+operator|+
+name|QLatin1String
+argument_list|(
+name|type
+argument_list|)
+expr_stmt|;
 return|return
 operator|-
 literal|1
 return|;
+block|}
 name|metaTypes
 operator|.
 name|append

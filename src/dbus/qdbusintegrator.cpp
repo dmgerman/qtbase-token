@@ -4004,6 +4004,9 @@ operator|::
 name|Void
 condition|)
 continue|continue;
+name|QString
+name|errorMsg
+decl_stmt|;
 name|int
 name|inputCount
 init|=
@@ -4012,6 +4015,8 @@ argument_list|(
 name|mm
 argument_list|,
 name|metaTypes
+argument_list|,
+name|errorMsg
 argument_list|)
 decl_stmt|;
 if|if
@@ -7238,6 +7243,9 @@ return|return
 operator|-
 literal|1
 return|;
+name|QString
+name|errorMsg
+decl_stmt|;
 name|int
 name|inputCount
 init|=
@@ -7254,6 +7262,8 @@ name|midx
 argument_list|)
 argument_list|,
 name|params
+argument_list|,
+name|errorMsg
 argument_list|)
 decl_stmt|;
 if|if
