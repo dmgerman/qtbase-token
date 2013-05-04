@@ -35,7 +35,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"pinger.h"
+file|"pinger_interface.h"
 end_include
 begin_decl_stmt
 DECL|variable|serviceName
@@ -75,9 +75,9 @@ DECL|typedef|Pinger
 typedef|typedef
 name|QSharedPointer
 argument_list|<
-name|com
+name|org
 operator|::
-name|trolltech
+name|qtproject
 operator|::
 name|QtDBus
 operator|::
@@ -160,9 +160,9 @@ return|return
 name|Pinger
 argument_list|(
 operator|new
-name|com
+name|org
 operator|::
-name|trolltech
+name|qtproject
 operator|::
 name|QtDBus
 operator|::
@@ -213,9 +213,9 @@ return|return
 name|Pinger
 argument_list|(
 operator|new
-name|com
+name|org
 operator|::
-name|trolltech
+name|qtproject
 operator|::
 name|QtDBus
 operator|::
@@ -2446,9 +2446,9 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// Now using generated code
-name|com
+name|org
 operator|::
-name|trolltech
+name|qtproject
 operator|::
 name|QtDBus
 operator|::
