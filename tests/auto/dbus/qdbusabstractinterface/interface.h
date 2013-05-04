@@ -21,6 +21,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/QHash>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtDBus/QDBusArgument>
 end_include
 begin_struct
@@ -310,12 +315,22 @@ block|}
 name|Q_SCRIPTABLE
 name|RegisteredType
 name|complexMethod
-argument_list|()
+argument_list|(
+argument|const QVariantHash&vars
+argument_list|)
 block|{
 return|return
 name|RegisteredType
 argument_list|(
-literal|"Hello, world"
+name|vars
+operator|.
+name|value
+argument_list|(
+literal|"arg1"
+argument_list|)
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 return|;
 block|}
