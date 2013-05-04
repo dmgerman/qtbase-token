@@ -784,7 +784,7 @@ index|[]
 name|m_sources
 init|=
 block|{
-literal|"https://files.kde.org/necessitas/ministro/android/necessitas/qt5/latest"
+literal|"https://download.qt-project.org/ministro/android/qt5/latest"
 block|}
 decl_stmt|;
 comment|// Make sure you are using ONLY secure locations
