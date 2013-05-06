@@ -5233,6 +5233,14 @@ init|=
 name|isVisible
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|ev
+operator|->
+name|isAccepted
+argument_list|()
+condition|)
+block|{
 name|destroy
 argument_list|()
 expr_stmt|;
@@ -5245,6 +5253,7 @@ operator|->
 name|maybeQuitOnLastWindowClosed
 argument_list|()
 expr_stmt|;
+block|}
 break|break;
 block|}
 case|case
