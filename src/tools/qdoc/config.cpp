@@ -921,11 +921,6 @@ decl_stmt|;
 name|QString
 name|value
 decl_stmt|;
-name|int
-name|high
-init|=
-literal|0
-decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -1065,10 +1060,6 @@ index|[
 name|j
 index|]
 argument_list|)
-expr_stmt|;
-name|high
-operator|=
-name|j
 expr_stmt|;
 block|}
 block|}
