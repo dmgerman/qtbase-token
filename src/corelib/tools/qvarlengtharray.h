@@ -1241,6 +1241,34 @@ decl_stmt|;
 block|}
 union|;
 end_union
+begin_decl_stmt
+name|bool
+name|isValidIterator
+argument_list|(
+specifier|const
+name|const_iterator
+operator|&
+name|i
+argument_list|)
+decl|const
+block|{
+return|return
+operator|(
+name|i
+operator|<=
+name|constEnd
+argument_list|()
+operator|)
+operator|&&
+operator|(
+name|constBegin
+argument_list|()
+operator|<=
+name|i
+operator|)
+return|;
+block|}
+end_decl_stmt
 begin_expr_stmt
 unit|};
 DECL|variable|T
@@ -2434,6 +2462,18 @@ argument_list|,
 argument|const T&t
 argument_list|)
 block|{
+name|Q_ASSERT_X
+argument_list|(
+name|isValidIterator
+argument_list|(
+name|before
+argument_list|)
+argument_list|,
+literal|"QVarLengthArray::insert"
+argument_list|,
+literal|"The specified const_iterator argument 'before' is invalid"
+argument_list|)
+block|;
 name|int
 name|offset
 operator|=
@@ -2633,6 +2673,30 @@ argument_list|,
 argument|const_iterator aend
 argument_list|)
 block|{
+name|Q_ASSERT_X
+argument_list|(
+name|isValidIterator
+argument_list|(
+name|abegin
+argument_list|)
+argument_list|,
+literal|"QVarLengthArray::insert"
+argument_list|,
+literal|"The specified const_iterator argument 'abegin' is invalid"
+argument_list|)
+block|;
+name|Q_ASSERT_X
+argument_list|(
+name|isValidIterator
+argument_list|(
+name|aend
+argument_list|)
+argument_list|,
+literal|"QVarLengthArray::insert"
+argument_list|,
+literal|"The specified const_iterator argument 'aend' is invalid"
+argument_list|)
+block|;
 name|int
 name|f
 operator|=
