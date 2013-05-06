@@ -3932,7 +3932,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"Ctrl+Numpad+Ins"
+literal|"Ctrl+Num+Ins"
 argument_list|)
 operator|<<
 name|QKeySequence
@@ -3950,13 +3950,13 @@ operator|::
 name|Key_Insert
 argument_list|)
 operator|<<
-literal|"Ctrl+Numpad+Ins"
+literal|"Ctrl+Num+Ins"
 expr_stmt|;
 name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"Ctrl+Numpad+Del"
+literal|"Ctrl+Num+Del"
 argument_list|)
 operator|<<
 name|QKeySequence
@@ -3974,13 +3974,13 @@ operator|::
 name|Key_Delete
 argument_list|)
 operator|<<
-literal|"Ctrl+Numpad+Del"
+literal|"Ctrl+Num+Del"
 expr_stmt|;
 name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"Ctrl+Alt+Numpad+Del"
+literal|"Ctrl+Alt+Num+Del"
 argument_list|)
 operator|<<
 name|QKeySequence
@@ -4002,7 +4002,7 @@ operator|::
 name|Key_Delete
 argument_list|)
 operator|<<
-literal|"Ctrl+Alt+Numpad+Del"
+literal|"Ctrl+Alt+Num+Del"
 expr_stmt|;
 name|QTest
 operator|::
@@ -4028,7 +4028,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"Ctrl+Numpad+Ins(1)"
+literal|"Ctrl+Num+Ins(1)"
 argument_list|)
 operator|<<
 name|QKeySequence
@@ -4046,7 +4046,7 @@ operator|::
 name|ControlModifier
 argument_list|)
 operator|<<
-literal|"Ctrl+Numpad+Ins"
+literal|"Ctrl+Num+Ins"
 expr_stmt|;
 block|}
 end_function

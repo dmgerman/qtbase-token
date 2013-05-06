@@ -7774,7 +7774,7 @@ name|KeypadModifier
 argument_list|,
 name|QLatin1String
 argument_list|(
-literal|"numpad+"
+literal|"num+"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7854,7 +7854,7 @@ name|KeypadModifier
 argument_list|,
 name|QLatin1String
 argument_list|(
-literal|"numpad+"
+literal|"num+"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -8001,7 +8001,7 @@ name|translate
 argument_list|(
 literal|"QShortcut"
 argument_list|,
-literal|"Numpad"
+literal|"Num"
 argument_list|)
 operator|.
 name|toLower
@@ -9132,6 +9132,7 @@ argument_list|,
 name|format
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 operator|(
@@ -9158,20 +9159,19 @@ name|translate
 argument_list|(
 literal|"QShortcut"
 argument_list|,
-literal|"Numpad"
+literal|"Num"
 argument_list|)
 else|:
 name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"Numpad"
+literal|"Num"
 argument_list|)
 argument_list|,
 name|format
 argument_list|)
 expr_stmt|;
-block|}
 name|key
 operator|&=
 operator|~
