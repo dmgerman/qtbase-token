@@ -1357,6 +1357,11 @@ operator|::
 name|adjustBufferSize
 parameter_list|()
 block|{
+if|if
+condition|(
+name|m_parentWindow
+condition|)
+return|return;
 specifier|const
 name|QSize
 name|windowSize
@@ -2441,6 +2446,19 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+comment|// we don't need any buffers, since
+comment|// Qt will draw to the parent TLW
+comment|// backing store.
+name|setBufferSize
+argument_list|(
+name|QSize
+argument_list|(
+literal|1
+argument_list|,
+literal|1
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -2450,6 +2468,12 @@ name|addWindow
 argument_list|(
 name|this
 argument_list|)
+expr_stmt|;
+comment|// recreate buffers, in case the
+comment|// window has been reparented and
+comment|// becomes a TLW
+name|adjustBufferSize
+argument_list|()
 expr_stmt|;
 block|}
 name|m_screen

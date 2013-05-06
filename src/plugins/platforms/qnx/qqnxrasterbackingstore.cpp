@@ -208,6 +208,11 @@ name|handle
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// we only need to flush the platformWindow backing store, since this is
+comment|// the buffer where all drawing operations of all windows, including the
+comment|// child windows, are performed; conceptually ,child windows have no buffers
+comment|// (actually they do have a 1x1 placeholder buffer due to libscreen limitations),
+comment|// since Qt will only draw to the backing store of the top-level window.
 name|QQnxWindow
 modifier|*
 name|platformWindow
@@ -314,64 +319,6 @@ name|post
 argument_list|(
 name|region
 argument_list|)
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|targetWindow
-condition|)
-block|{
-comment|// The contents of the backing store should be flushed to a different window than the
-comment|// window which owns the buffer.
-comment|// This typically happens for child windows, since child windows share a backing store with
-comment|// their top-level window (TLW).
-comment|// Simply copy the buffer over to the child window, to emulate a painting operation, and
-comment|// then post the window.
-comment|//
-comment|// ### Note that because of the design in the QNX QPA plugin, each window has its own buffers,
-comment|// even though they might share a backing store. This is unneeded overhead, but I don't think
-comment|// libscreen allows to have windows without buffers, or does it?
-comment|// We assume that the TLW has been flushed previously and that no changes were made to the
-comment|// backing store inbetween (### does Qt guarantee this?)
-name|Q_ASSERT
-argument_list|(
-operator|!
-name|m_hasUnflushedPaintOperations
-argument_list|)
-expr_stmt|;
-name|targetWindow
-operator|->
-name|adjustBufferSize
-argument_list|()
-expr_stmt|;
-name|targetWindow
-operator|->
-name|blitFrom
-argument_list|(
-name|platformWindow
-argument_list|,
-name|offset
-argument_list|,
-name|region
-argument_list|)
-expr_stmt|;
-name|targetWindow
-operator|->
-name|post
-argument_list|(
-name|region
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|"flush() called without a valid window!"
 expr_stmt|;
 block|}
 name|m_hasUnflushedPaintOperations
