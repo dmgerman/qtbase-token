@@ -279,34 +279,20 @@ literal|'\\'
 condition|)
 block|{
 comment|// escape char?
-name|p
-operator|++
-expr_stmt|;
 if|if
 condition|(
 operator|*
+operator|(
 name|p
+operator|+
+literal|1
+operator|)
 operator|==
-name|Char
-argument_list|(
-literal|'\"'
-argument_list|)
-operator|||
-operator|*
-name|p
-operator|==
-name|Char
-argument_list|(
-literal|'\''
-argument_list|)
+name|quote
 condition|)
-empty_stmt|;
-comment|// yes
-else|else
 name|p
-operator|--
+operator|++
 expr_stmt|;
-comment|// treat \ literally
 block|}
 else|else
 block|{
