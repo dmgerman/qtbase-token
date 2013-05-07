@@ -524,6 +524,9 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_comment
+comment|/*!   This function traverses the atom list of the Text object,   extracting all the string parts. It concatenates them to   a result string and returns it.  */
+end_comment
 begin_function
 DECL|function|toString
 name|QString
