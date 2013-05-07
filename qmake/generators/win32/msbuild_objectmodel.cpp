@@ -8809,12 +8809,9 @@ name|attrTagX
 argument_list|(
 name|_PreprocessorDefinitions
 argument_list|,
-name|unquote
-argument_list|(
 name|tool
 operator|.
 name|PreprocessorDefinitions
-argument_list|)
 argument_list|,
 literal|";"
 argument_list|)
@@ -9345,12 +9342,9 @@ name|attrTagX
 argument_list|(
 name|_PreprocessorDefinitions
 argument_list|,
-name|unquote
-argument_list|(
 name|tool
 operator|.
 name|PreprocessorDefinitions
-argument_list|)
 argument_list|,
 literal|";"
 argument_list|)

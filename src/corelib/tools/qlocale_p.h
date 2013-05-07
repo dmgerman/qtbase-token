@@ -233,7 +233,13 @@ name|NativeLanguageName
 block|,
 comment|// QString
 name|NativeCountryName
+block|,
 comment|// QString
+name|StandaloneMonthNameLong
+block|,
+comment|// QString, in: int
+name|StandaloneMonthNameShort
+comment|// QString, in: int
 block|}
 enum|;
 name|virtual
@@ -479,6 +485,13 @@ name|Country
 name|country
 argument_list|)
 decl_stmt|;
+specifier|static
+specifier|const
+name|QLocaleData
+modifier|*
+name|c
+parameter_list|()
+function_decl|;
 DECL|member|m_language_id
 DECL|member|m_script_id
 DECL|member|m_country_id
@@ -768,42 +781,57 @@ begin_decl_stmt
 name|class
 name|Q_CORE_EXPORT
 name|QLocalePrivate
-range|:
-name|public
-name|QSharedData
 block|{
 name|public
-operator|:
-name|explicit
+label|:
+specifier|static
 name|QLocalePrivate
-argument_list|(
-argument|int index
-argument_list|,
-argument|int numberOptions =
+modifier|*
+name|create
+parameter_list|(
+specifier|const
+name|QLocaleData
+modifier|*
+name|data
+parameter_list|,
+name|int
+name|numberOptions
+init|=
 literal|0
-argument_list|)
-operator|:
-name|m_index
-argument_list|(
-name|index
-argument_list|)
-block|,
-name|m_numberOptions
-argument_list|(
-argument|numberOptions
-argument_list|)
+parameter_list|)
 block|{
+name|QLocalePrivate
+modifier|*
+name|retval
+init|=
+name|new
+name|QLocalePrivate
+decl_stmt|;
+name|retval
+operator|->
 name|m_data
 operator|=
-name|dataPointerForIndex
+name|data
+expr_stmt|;
+name|retval
+operator|->
+name|ref
+operator|.
+name|store
 argument_list|(
-name|index
+literal|1
 argument_list|)
-block|;     }
-operator|~
-name|QLocalePrivate
-argument_list|()
-block|{     }
+expr_stmt|;
+name|retval
+operator|->
+name|m_numberOptions
+operator|=
+name|numberOptions
+expr_stmt|;
+return|return
+name|retval
+return|;
+block|}
 name|QChar
 name|decimal
 argument_list|()
@@ -941,11 +969,13 @@ block|}
 name|QByteArray
 name|bcp47Name
 argument_list|(
-argument|char separator =
+name|char
+name|separator
+operator|=
 literal|'-'
 argument_list|)
-specifier|const
-block|;
+decl|const
+decl_stmt|;
 comment|// ### QByteArray::fromRawData would be more optimal
 specifier|inline
 name|QString
@@ -1017,23 +1047,32 @@ specifier|static
 name|QString
 name|languageToCode
 argument_list|(
-argument|QLocale::Language language
+name|QLocale
+operator|::
+name|Language
+name|language
 argument_list|)
-block|;
+decl_stmt|;
 specifier|static
 name|QString
 name|scriptToCode
 argument_list|(
-argument|QLocale::Script script
+name|QLocale
+operator|::
+name|Script
+name|script
 argument_list|)
-block|;
+decl_stmt|;
 specifier|static
 name|QString
 name|countryToCode
 argument_list|(
-argument|QLocale::Country country
+name|QLocale
+operator|::
+name|Country
+name|country
 argument_list|)
-block|;
+decl_stmt|;
 specifier|static
 name|QLocale
 operator|::
@@ -1045,7 +1084,7 @@ name|QString
 operator|&
 name|code
 argument_list|)
-block|;
+expr_stmt|;
 specifier|static
 name|QLocale
 operator|::
@@ -1057,7 +1096,7 @@ name|QString
 operator|&
 name|code
 argument_list|)
-block|;
+expr_stmt|;
 specifier|static
 name|QLocale
 operator|::
@@ -1069,7 +1108,7 @@ name|QString
 operator|&
 name|code
 argument_list|)
-block|;
+expr_stmt|;
 specifier|static
 name|void
 name|getLangAndCountry
@@ -1097,27 +1136,29 @@ name|Country
 operator|&
 name|cntry
 argument_list|)
-block|;
+decl_stmt|;
 specifier|static
 specifier|const
 name|QLocaleData
-operator|*
+modifier|*
 name|dataPointerForIndex
-argument_list|(
-argument|quint16 index
-argument_list|)
-block|;
+parameter_list|(
+name|quint16
+name|index
+parameter_list|)
+function_decl|;
 name|QLocale
 operator|::
 name|MeasurementSystem
 name|measurementSystem
 argument_list|()
 specifier|const
-block|;      enum
+expr_stmt|;
+enum|enum
 name|DoubleForm
 block|{
 name|DFExponent
-operator|=
+init|=
 literal|0
 block|,
 name|DFDecimal
@@ -1125,307 +1166,442 @@ block|,
 name|DFSignificantDigits
 block|,
 name|_DFMax
-operator|=
+init|=
 name|DFSignificantDigits
 block|}
-block|;      enum
+enum|;
+enum|enum
 name|Flags
 block|{
 name|NoFlags
-operator|=
+init|=
 literal|0
 block|,
 name|Alternate
-operator|=
+init|=
 literal|0x01
 block|,
 name|ZeroPadded
-operator|=
+init|=
 literal|0x02
 block|,
 name|LeftAdjusted
-operator|=
+init|=
 literal|0x04
 block|,
 name|BlankBeforePositive
-operator|=
+init|=
 literal|0x08
 block|,
 name|AlwaysShowSign
-operator|=
+init|=
 literal|0x10
 block|,
 name|ThousandsGroup
-operator|=
+init|=
 literal|0x20
 block|,
 name|CapitalEorX
-operator|=
+init|=
 literal|0x40
 block|,
 name|ShowBase
-operator|=
+init|=
 literal|0x80
 block|,
 name|UppercaseBase
-operator|=
+init|=
 literal|0x100
 block|,
 name|ForcePoint
-operator|=
+init|=
 name|Alternate
 block|}
-block|;      enum
+enum|;
+enum|enum
 name|GroupSeparatorMode
 block|{
 name|FailOnGroupSeparators
 block|,
 name|ParseGroupSeparators
 block|}
-block|;
+enum|;
 specifier|static
 name|QString
 name|doubleToString
-argument_list|(
-argument|const QChar zero
-argument_list|,
-argument|const QChar plus
-argument_list|,
-argument|const QChar minus
-argument_list|,
-argument|const QChar exponent
-argument_list|,
-argument|const QChar group
-argument_list|,
-argument|const QChar decimal
-argument_list|,
-argument|double d
-argument_list|,
-argument|int precision
-argument_list|,
-argument|DoubleForm form
-argument_list|,
-argument|int width
-argument_list|,
-argument|unsigned flags
-argument_list|)
-block|;
+parameter_list|(
+specifier|const
+name|QChar
+name|zero
+parameter_list|,
+specifier|const
+name|QChar
+name|plus
+parameter_list|,
+specifier|const
+name|QChar
+name|minus
+parameter_list|,
+specifier|const
+name|QChar
+name|exponent
+parameter_list|,
+specifier|const
+name|QChar
+name|group
+parameter_list|,
+specifier|const
+name|QChar
+name|decimal
+parameter_list|,
+name|double
+name|d
+parameter_list|,
+name|int
+name|precision
+parameter_list|,
+name|DoubleForm
+name|form
+parameter_list|,
+name|int
+name|width
+parameter_list|,
+name|unsigned
+name|flags
+parameter_list|)
+function_decl|;
 specifier|static
 name|QString
 name|longLongToString
-argument_list|(
-argument|const QChar zero
-argument_list|,
-argument|const QChar group
-argument_list|,
-argument|const QChar plus
-argument_list|,
-argument|const QChar minus
-argument_list|,
-argument|qint64 l
-argument_list|,
-argument|int precision
-argument_list|,
-argument|int base
-argument_list|,
-argument|int width
-argument_list|,
-argument|unsigned flags
-argument_list|)
-block|;
+parameter_list|(
+specifier|const
+name|QChar
+name|zero
+parameter_list|,
+specifier|const
+name|QChar
+name|group
+parameter_list|,
+specifier|const
+name|QChar
+name|plus
+parameter_list|,
+specifier|const
+name|QChar
+name|minus
+parameter_list|,
+name|qint64
+name|l
+parameter_list|,
+name|int
+name|precision
+parameter_list|,
+name|int
+name|base
+parameter_list|,
+name|int
+name|width
+parameter_list|,
+name|unsigned
+name|flags
+parameter_list|)
+function_decl|;
 specifier|static
 name|QString
 name|unsLongLongToString
-argument_list|(
-argument|const QChar zero
-argument_list|,
-argument|const QChar group
-argument_list|,
-argument|const QChar plus
-argument_list|,
-argument|quint64 l
-argument_list|,
-argument|int precision
-argument_list|,
-argument|int base
-argument_list|,
-argument|int width
-argument_list|,
-argument|unsigned flags
-argument_list|)
-block|;
+parameter_list|(
+specifier|const
+name|QChar
+name|zero
+parameter_list|,
+specifier|const
+name|QChar
+name|group
+parameter_list|,
+specifier|const
+name|QChar
+name|plus
+parameter_list|,
+name|quint64
+name|l
+parameter_list|,
+name|int
+name|precision
+parameter_list|,
+name|int
+name|base
+parameter_list|,
+name|int
+name|width
+parameter_list|,
+name|unsigned
+name|flags
+parameter_list|)
+function_decl|;
 name|QString
 name|doubleToString
 argument_list|(
-argument|double d
+name|double
+name|d
 argument_list|,
-argument|int precision = -
+name|int
+name|precision
+operator|=
+operator|-
 literal|1
 argument_list|,
-argument|DoubleForm form = DFSignificantDigits
+name|DoubleForm
+name|form
+operator|=
+name|DFSignificantDigits
 argument_list|,
-argument|int width = -
+name|int
+name|width
+operator|=
+operator|-
 literal|1
 argument_list|,
-argument|unsigned flags = NoFlags
+name|unsigned
+name|flags
+operator|=
+name|NoFlags
 argument_list|)
-specifier|const
-block|;
+decl|const
+decl_stmt|;
 name|QString
 name|longLongToString
 argument_list|(
-argument|qint64 l
+name|qint64
+name|l
 argument_list|,
-argument|int precision = -
+name|int
+name|precision
+operator|=
+operator|-
 literal|1
 argument_list|,
-argument|int base =
+name|int
+name|base
+operator|=
 literal|10
 argument_list|,
-argument|int width = -
+name|int
+name|width
+operator|=
+operator|-
 literal|1
 argument_list|,
-argument|unsigned flags = NoFlags
+name|unsigned
+name|flags
+operator|=
+name|NoFlags
 argument_list|)
-specifier|const
-block|;
+decl|const
+decl_stmt|;
 name|QString
 name|unsLongLongToString
 argument_list|(
-argument|quint64 l
+name|quint64
+name|l
 argument_list|,
-argument|int precision = -
+name|int
+name|precision
+operator|=
+operator|-
 literal|1
 argument_list|,
-argument|int base =
+name|int
+name|base
+operator|=
 literal|10
 argument_list|,
-argument|int width = -
+name|int
+name|width
+operator|=
+operator|-
 literal|1
 argument_list|,
-argument|unsigned flags = NoFlags
+name|unsigned
+name|flags
+operator|=
+name|NoFlags
 argument_list|)
-specifier|const
-block|;
+decl|const
+decl_stmt|;
 name|double
 name|stringToDouble
 argument_list|(
-argument|const QString&num
-argument_list|,
-argument|bool *ok
-argument_list|,
-argument|GroupSeparatorMode group_sep_mode
-argument_list|)
 specifier|const
-block|;
-name|qint64
-name|stringToLongLong
-argument_list|(
-argument|const QString&num
-argument_list|,
-argument|int base
-argument_list|,
-argument|bool *ok
-argument_list|,
-argument|GroupSeparatorMode group_sep_mode
-argument_list|)
-specifier|const
-block|;
-name|quint64
-name|stringToUnsLongLong
-argument_list|(
-argument|const QString&num
-argument_list|,
-argument|int base
-argument_list|,
-argument|bool *ok
-argument_list|,
-argument|GroupSeparatorMode group_sep_mode
-argument_list|)
-specifier|const
-block|;
-name|double
-name|stringToDouble
-argument_list|(
-argument|const QStringRef&num
-argument_list|,
-argument|bool *ok
-argument_list|,
-argument|GroupSeparatorMode group_sep_mode
-argument_list|)
-specifier|const
-block|;
-name|qint64
-name|stringToLongLong
-argument_list|(
-argument|const QStringRef&num
-argument_list|,
-argument|int base
-argument_list|,
-argument|bool *ok
-argument_list|,
-argument|GroupSeparatorMode group_sep_mode
-argument_list|)
-specifier|const
-block|;
-name|quint64
-name|stringToUnsLongLong
-argument_list|(
-argument|const QStringRef&num
-argument_list|,
-argument|int base
-argument_list|,
-argument|bool *ok
-argument_list|,
-argument|GroupSeparatorMode group_sep_mode
-argument_list|)
-specifier|const
-block|;
-specifier|static
-name|double
-name|bytearrayToDouble
-argument_list|(
-specifier|const
-name|char
-operator|*
+name|QString
+operator|&
 name|num
 argument_list|,
 name|bool
 operator|*
 name|ok
 argument_list|,
+name|GroupSeparatorMode
+name|group_sep_mode
+argument_list|)
+decl|const
+decl_stmt|;
+name|qint64
+name|stringToLongLong
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|num
+argument_list|,
+name|int
+name|base
+argument_list|,
 name|bool
 operator|*
-name|overflow
-operator|=
-literal|0
+name|ok
+argument_list|,
+name|GroupSeparatorMode
+name|group_sep_mode
 argument_list|)
-block|;
+decl|const
+decl_stmt|;
+name|quint64
+name|stringToUnsLongLong
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|num
+argument_list|,
+name|int
+name|base
+argument_list|,
+name|bool
+operator|*
+name|ok
+argument_list|,
+name|GroupSeparatorMode
+name|group_sep_mode
+argument_list|)
+decl|const
+decl_stmt|;
+name|double
+name|stringToDouble
+argument_list|(
+specifier|const
+name|QStringRef
+operator|&
+name|num
+argument_list|,
+name|bool
+operator|*
+name|ok
+argument_list|,
+name|GroupSeparatorMode
+name|group_sep_mode
+argument_list|)
+decl|const
+decl_stmt|;
+name|qint64
+name|stringToLongLong
+argument_list|(
+specifier|const
+name|QStringRef
+operator|&
+name|num
+argument_list|,
+name|int
+name|base
+argument_list|,
+name|bool
+operator|*
+name|ok
+argument_list|,
+name|GroupSeparatorMode
+name|group_sep_mode
+argument_list|)
+decl|const
+decl_stmt|;
+name|quint64
+name|stringToUnsLongLong
+argument_list|(
+specifier|const
+name|QStringRef
+operator|&
+name|num
+argument_list|,
+name|int
+name|base
+argument_list|,
+name|bool
+operator|*
+name|ok
+argument_list|,
+name|GroupSeparatorMode
+name|group_sep_mode
+argument_list|)
+decl|const
+decl_stmt|;
+specifier|static
+name|double
+name|bytearrayToDouble
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|num
+parameter_list|,
+name|bool
+modifier|*
+name|ok
+parameter_list|,
+name|bool
+modifier|*
+name|overflow
+init|=
+literal|0
+parameter_list|)
+function_decl|;
 specifier|static
 name|qint64
 name|bytearrayToLongLong
-argument_list|(
-argument|const char *num
-argument_list|,
-argument|int base
-argument_list|,
-argument|bool *ok
-argument_list|,
-argument|bool *overflow =
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|num
+parameter_list|,
+name|int
+name|base
+parameter_list|,
+name|bool
+modifier|*
+name|ok
+parameter_list|,
+name|bool
+modifier|*
+name|overflow
+init|=
 literal|0
-argument_list|)
-block|;
+parameter_list|)
+function_decl|;
 specifier|static
 name|quint64
 name|bytearrayToUnsLongLong
-argument_list|(
-argument|const char *num
-argument_list|,
-argument|int base
-argument_list|,
-argument|bool *ok
-argument_list|)
-block|;
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|num
+parameter_list|,
+name|int
+name|base
+parameter_list|,
+name|bool
+modifier|*
+name|ok
+parameter_list|)
+function_decl|;
 typedef|typedef
 name|QVarLengthArray
 operator|<
@@ -1438,18 +1614,23 @@ expr_stmt|;
 name|bool
 name|numberToCLocale
 argument_list|(
-argument|const QChar *str
-argument_list|,
-argument|int len
-argument_list|,
-argument|GroupSeparatorMode group_sep_mode
-argument_list|,
-argument|CharBuff *result
-argument_list|)
 specifier|const
+name|QChar
+operator|*
+name|str
+argument_list|,
+name|int
+name|len
+argument_list|,
+name|GroupSeparatorMode
+name|group_sep_mode
+argument_list|,
+name|CharBuff
+operator|*
+name|result
+argument_list|)
+decl|const
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 specifier|inline
 name|char
 name|digitToCLocale
@@ -1459,15 +1640,11 @@ name|c
 argument_list|)
 decl|const
 decl_stmt|;
-end_decl_stmt
-begin_function_decl
 specifier|static
 name|void
 name|updateSystemPrivate
 parameter_list|()
 function_decl|;
-end_function_decl
-begin_enum
 enum|enum
 name|NumberMode
 block|{
@@ -1478,8 +1655,6 @@ block|,
 name|DoubleScientificMode
 block|}
 enum|;
-end_enum
-begin_decl_stmt
 name|bool
 name|validateChars
 argument_list|(
@@ -1503,8 +1678,6 @@ literal|1
 argument_list|)
 decl|const
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|QString
 name|dateTimeToString
 argument_list|(
@@ -1530,26 +1703,57 @@ name|q
 argument_list|)
 decl|const
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-name|quint16
-name|m_index
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-name|quint16
-name|m_numberOptions
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 specifier|const
 name|QLocaleData
 modifier|*
 name|m_data
 decl_stmt|;
+name|QBasicAtomicInt
+name|ref
+decl_stmt|;
+name|quint16
+name|m_numberOptions
+decl_stmt|;
+block|}
 end_decl_stmt
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
 begin_expr_stmt
-unit|};
+name|template
+operator|<
+operator|>
+DECL|function|clone
+specifier|inline
+name|QLocalePrivate
+operator|*
+name|QSharedDataPointer
+operator|<
+name|QLocalePrivate
+operator|>
+operator|::
+name|clone
+argument_list|()
+block|{
+comment|// cannot use QLocalePrivate's copy constructor
+comment|// since it is deleted in C++11
+return|return
+name|QLocalePrivate
+operator|::
+name|create
+argument_list|(
+name|d
+operator|->
+name|m_data
+argument_list|,
+name|d
+operator|->
+name|m_numberOptions
+argument_list|)
+return|;
+block|}
+end_expr_stmt
+begin_expr_stmt
 DECL|function|digitToCLocale
 specifier|inline
 name|char

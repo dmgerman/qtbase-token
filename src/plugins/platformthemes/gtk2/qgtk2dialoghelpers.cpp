@@ -2088,6 +2088,16 @@ argument_list|(
 name|initialNameFilter
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+name|GTK_CHECK_VERSION
+argument_list|(
+literal|2
+operator|,
+literal|20
+operator|,
+literal|0
+argument_list|)
 name|GtkWidget
 modifier|*
 name|acceptButton
@@ -2228,6 +2238,8 @@ name|GTK_STOCK_CANCEL
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 block|}
 end_function
 begin_function

@@ -3117,6 +3117,11 @@ decl_stmt|;
 if|if
 condition|(
 name|tp
+operator|&&
+name|tp
+operator|->
+name|handle
+argument_list|()
 condition|)
 name|transientXcbParent
 operator|=

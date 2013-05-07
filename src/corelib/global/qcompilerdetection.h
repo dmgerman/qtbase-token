@@ -3001,7 +3001,7 @@ operator|>
 literal|408
 operator|||
 name|__GNUC_PATCHLEVEL__
-operator|>
+operator|>=
 literal|1
 end_if
 begin_define

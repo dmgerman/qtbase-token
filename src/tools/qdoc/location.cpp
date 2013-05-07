@@ -612,7 +612,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!  * \brief  Returns \a path which is canonicalized and relative to the config file.  *  *         QDir::relativeFilePath does not canonicalize the paths, so  *         if the config file is located at qtbase\src\widgets\doc\qtwidgets.qdocconf  *         and it has a reference to any ancestor folder (e.g. ".." or even "../doc")  * \param path  * \return  */
+comment|/*!   \brief  Returns \a path which is canonicalized and relative to the config file.    QDir::relativeFilePath does not canonicalize the paths, so   if the config file is located at qtbase\src\widgets\doc\qtwidgets.qdocconf   and it has a reference to any ancestor folder (e.g. ".." or even "../doc")  */
 end_comment
 begin_function
 DECL|function|canonicalRelativePath
@@ -626,7 +626,6 @@ name|QString
 modifier|&
 name|path
 parameter_list|)
-specifier|const
 block|{
 name|QDir
 name|configFileDir

@@ -3667,6 +3667,9 @@ return|;
 case|case
 name|MonthNameLong
 case|:
+case|case
+name|StandaloneMonthNameLong
+case|:
 return|return
 name|d
 operator|->
@@ -3684,6 +3687,9 @@ argument_list|)
 return|;
 case|case
 name|MonthNameShort
+case|:
+case|case
+name|StandaloneMonthNameShort
 case|:
 return|return
 name|d

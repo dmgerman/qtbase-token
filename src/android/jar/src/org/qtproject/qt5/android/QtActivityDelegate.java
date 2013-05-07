@@ -3771,13 +3771,11 @@ operator|.
 name|KEYCODE_BACK
 operator|&&
 name|m_keyboardIsVisible
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 operator|!
 name|m_keyboardIsHiding
 condition|)
+block|{
 name|hideSoftwareKeyboard
 argument_list|()
 expr_stmt|;

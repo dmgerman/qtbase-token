@@ -488,7 +488,7 @@ parameter_list|,
 name|input
 parameter_list|)
 define|\
-value|{ \ 		const UINT32 * pI = (const UINT32 *)input; \ 		UINT32 * pS = state; \ 		UINT32 t, x0, x1; \ 	    int i; \ 	    for (i = (rateInLanes)-1; i>= 0; --i) \ 		{ \ 			x0 = *(pI++); \ 			t = (x0 ^ (x0>>  1))& 0x22222222UL;  x0 = x0 ^ t ^ (t<<  1); \ 			t = (x0 ^ (x0>>  2))& 0x0C0C0C0CUL;  x0 = x0 ^ t ^ (t<<  2); \ 			t = (x0 ^ (x0>>  4))& 0x00F000F0UL;  x0 = x0 ^ t ^ (t<<  4); \ 			t = (x0 ^ (x0>>  8))& 0x0000FF00UL;  x0 = x0 ^ t ^ (t<<  8); \  			x1 = *(pI++); \ 			t = (x1 ^ (x1>>  1))& 0x22222222UL;  x1 = x1 ^ t ^ (t<<  1); \ 			t = (x1 ^ (x1>>  2))& 0x0C0C0C0CUL;  x1 = x1 ^ t ^ (t<<  2); \ 			t = (x1 ^ (x1>>  4))& 0x00F000F0UL;  x1 = x1 ^ t ^ (t<<  4); \ 			t = (x1 ^ (x1>>  8))& 0x0000FF00UL;  x1 = x1 ^ t ^ (t<<  8); \ 			*(pS++) ^= (UINT16)x0 | (x1<< 16); \ 			*(pS++) ^= (x0>> 16) | (x1& 0xFFFF0000); \ 		} \ 	}
+value|{ \ 		const UINT32 * pI = (const UINT32 *)input; \ 		UINT32 * pS = state; \ 		UINT32 t, x0, x1; \         int i; \         for (i = (int)(rateInLanes)-1; i>= 0; --i) \ 		{ \ 			x0 = *(pI++); \ 			t = (x0 ^ (x0>>  1))& 0x22222222UL;  x0 = x0 ^ t ^ (t<<  1); \ 			t = (x0 ^ (x0>>  2))& 0x0C0C0C0CUL;  x0 = x0 ^ t ^ (t<<  2); \ 			t = (x0 ^ (x0>>  4))& 0x00F000F0UL;  x0 = x0 ^ t ^ (t<<  4); \ 			t = (x0 ^ (x0>>  8))& 0x0000FF00UL;  x0 = x0 ^ t ^ (t<<  8); \  			x1 = *(pI++); \ 			t = (x1 ^ (x1>>  1))& 0x22222222UL;  x1 = x1 ^ t ^ (t<<  1); \ 			t = (x1 ^ (x1>>  2))& 0x0C0C0C0CUL;  x1 = x1 ^ t ^ (t<<  2); \ 			t = (x1 ^ (x1>>  4))& 0x00F000F0UL;  x1 = x1 ^ t ^ (t<<  4); \ 			t = (x1 ^ (x1>>  8))& 0x0000FF00UL;  x1 = x1 ^ t ^ (t<<  8); \ 			*(pS++) ^= (UINT16)x0 | (x1<< 16); \ 			*(pS++) ^= (x0>> 16) | (x1& 0xFFFF0000); \ 		} \ 	}
 end_define
 begin_define
 DECL|macro|xorLanesIntoState
@@ -836,7 +836,7 @@ parameter_list|,
 name|input
 parameter_list|)
 define|\
-value|{ \         int i; \         for(i=0; i<(laneCount); i++) \             xor8bytesIntoInterleavedWords(state+i*2, input+i*8); \     }
+value|{ \         unsigned i; \         for(i=0; i<(laneCount); i++) \             xor8bytesIntoInterleavedWords(state+i*2, input+i*8); \     }
 end_define
 begin_endif
 endif|#
@@ -1192,7 +1192,7 @@ parameter_list|,
 name|data
 parameter_list|)
 define|\
-value|{ \         int i; \         for(i=0; i<(laneCount); i++) \             setInterleavedWordsInto8bytes(data+i*8, (UINT32*)state+i*2); \     }
+value|{ \         unsigned i; \         for(i=0; i<(laneCount); i++) \             setInterleavedWordsInto8bytes(data+i*8, (UINT32*)state+i*2); \     }
 end_define
 begin_endif
 endif|#
