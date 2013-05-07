@@ -14465,7 +14465,6 @@ argument_list|(
 name|geometryRect
 argument_list|)
 expr_stmt|;
-comment|//d->header->setOffset(horizontalScrollBar()->value()); // ### bug ???
 name|QMetaObject
 operator|::
 name|invokeMethod
@@ -17867,7 +17866,7 @@ operator|->
 name|value
 argument_list|()
 return|;
-comment|// ### optimize (spans or caching)
+comment|// ### optimize (maybe do like QHeaderView by letting items have startposition)
 name|int
 name|y
 init|=
@@ -18874,7 +18873,7 @@ name|y
 init|=
 literal|0
 decl_stmt|;
-comment|// ### optimize (use spans ?)
+comment|// ### (maybe do like QHeaderView by letting items have startposition)
 for|for
 control|(
 name|int
@@ -19276,7 +19275,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// ### optimize (spans or caching)
+comment|// ### (maybe do like QHeaderView by letting items have startposition)
 for|for
 control|(
 name|int
