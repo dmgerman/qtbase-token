@@ -2372,6 +2372,26 @@ name|accept
 argument_list|()
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|qApp
+operator|->
+name|d_func
+argument_list|()
+operator|->
+name|inPopupMode
+argument_list|()
+condition|)
+block|{
+comment|// Ignore touch events for popups. This will cause QGuiApplication to synthesise mouse
+comment|// events instead, which QWidgetWindow::handleMouseEvent will forward correctly:
+name|event
+operator|->
+name|ignore
+argument_list|()
+expr_stmt|;
+block|}
 else|else
 block|{
 name|event
