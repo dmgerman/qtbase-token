@@ -5227,6 +5227,11 @@ literal|50
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QSKIP
+argument_list|(
+literal|"QTBUG-25294"
+argument_list|)
+expr_stmt|;
 name|QTRY_COMPARE
 argument_list|(
 name|widget
