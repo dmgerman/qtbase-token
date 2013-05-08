@@ -354,14 +354,17 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|result
 operator|!=
 name|BPS_SUCCESS
+argument_list|)
 condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QEventDispatcherBlackberryPrivate::QEventDispatcherBlackberry: bps_event_create() failed"
+literal|"QEventDispatcherBlackberry: bps_event_create failed"
 argument_list|)
 expr_stmt|;
 return|return
@@ -379,14 +382,17 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|result
 operator|!=
 name|BPS_SUCCESS
+argument_list|)
 condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QEventDispatcherBlackberryPrivate::QEventDispatcherBlackberry: bps_push_event() failed"
+literal|"QEventDispatcherBlackberry: bps_push_event failed"
 argument_list|)
 expr_stmt|;
 name|bps_event_destroy
@@ -426,13 +432,16 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|result
 operator|!=
 name|BPS_SUCCESS
+argument_list|)
 condition|)
 name|qFatal
 argument_list|(
-literal|"QEventDispatcherBlackberryPrivate::QEventDispatcherBlackberry: bps_initialize() failed"
+literal|"QEventDispatcherBlackberry: bps_initialize failed"
 argument_list|)
 expr_stmt|;
 name|bps_channel
@@ -456,14 +465,17 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|bpsUnblockDomain
 operator|==
 operator|-
 literal|1
+argument_list|)
 condition|)
 name|qWarning
 argument_list|(
-literal|"QEventDispatcherBlackberryPrivate::QEventDispatcherBlackberry: bps_register_domain() failed"
+literal|"QEventDispatcherBlackberry: bps_register_domain failed"
 argument_list|)
 expr_stmt|;
 block|}
@@ -602,15 +614,6 @@ argument_list|(
 name|QEventDispatcherBlackberry
 argument_list|)
 expr_stmt|;
-name|BpsChannelScopeSwitcher
-name|channelSwitcher
-argument_list|(
-name|d
-operator|->
-name|bps_channel
-argument_list|)
-decl_stmt|;
-comment|// Register the fd with bps
 name|int
 name|sockfd
 init|=
@@ -635,6 +638,42 @@ literal|"fd ="
 operator|<<
 name|sockfd
 expr_stmt|;
+if|if
+condition|(
+name|Q_UNLIKELY
+argument_list|(
+name|sockfd
+operator|>=
+name|FD_SETSIZE
+argument_list|)
+condition|)
+block|{
+name|qWarning
+argument_list|()
+operator|<<
+literal|"QEventDispatcherBlackberry: cannot register QSocketNotifier (fd too high)"
+operator|<<
+name|sockfd
+expr_stmt|;
+return|return;
+block|}
+comment|// Call the base Unix implementation. Needed to allow select() to be called correctly
+name|QEventDispatcherUNIX
+operator|::
+name|registerSocketNotifier
+argument_list|(
+name|notifier
+argument_list|)
+expr_stmt|;
+comment|// Register the fd with bps
+name|BpsChannelScopeSwitcher
+name|channelSwitcher
+argument_list|(
+name|d
+operator|->
+name|bps_channel
+argument_list|)
+decl_stmt|;
 name|int
 name|io_events
 init|=
@@ -650,14 +689,6 @@ condition|)
 name|bps_remove_fd
 argument_list|(
 name|sockfd
-argument_list|)
-expr_stmt|;
-comment|// Call the base Unix implementation. Needed to allow select() to be called correctly
-name|QEventDispatcherUNIX
-operator|::
-name|registerSocketNotifier
-argument_list|(
-name|notifier
 argument_list|)
 expr_stmt|;
 switch|switch
@@ -721,10 +752,7 @@ name|BPS_IO_EXCEPT
 expr_stmt|;
 break|break;
 block|}
-name|errno
-operator|=
-literal|0
-expr_stmt|;
+specifier|const
 name|int
 name|result
 init|=
@@ -747,25 +775,17 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|result
 operator|!=
 name|BPS_SUCCESS
+argument_list|)
 condition|)
 name|qWarning
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|"bps_add_fd() failed"
-operator|<<
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
-operator|<<
-literal|"code:"
-operator|<<
-name|errno
+literal|"QEventDispatcherBlackberry: bps_add_fd failed"
 expr_stmt|;
 block|}
 end_function
@@ -786,23 +806,6 @@ argument_list|(
 name|QEventDispatcherBlackberry
 argument_list|)
 expr_stmt|;
-name|BpsChannelScopeSwitcher
-name|channelSwitcher
-argument_list|(
-name|d
-operator|->
-name|bps_channel
-argument_list|)
-decl_stmt|;
-comment|// Allow the base Unix implementation to unregister the fd too
-name|QEventDispatcherUNIX
-operator|::
-name|unregisterSocketNotifier
-argument_list|(
-name|notifier
-argument_list|)
-expr_stmt|;
-comment|// Unregister the fd with bps
 name|int
 name|sockfd
 init|=
@@ -819,6 +822,42 @@ literal|"fd ="
 operator|<<
 name|sockfd
 expr_stmt|;
+if|if
+condition|(
+name|Q_UNLIKELY
+argument_list|(
+name|sockfd
+operator|>=
+name|FD_SETSIZE
+argument_list|)
+condition|)
+block|{
+name|qWarning
+argument_list|()
+operator|<<
+literal|"QEventDispatcherBlackberry: cannot unregister QSocketNotifier"
+operator|<<
+name|sockfd
+expr_stmt|;
+return|return;
+block|}
+comment|// Allow the base Unix implementation to unregister the fd too
+name|QEventDispatcherUNIX
+operator|::
+name|unregisterSocketNotifier
+argument_list|(
+name|notifier
+argument_list|)
+expr_stmt|;
+comment|// Unregister the fd with bps
+name|BpsChannelScopeSwitcher
+name|channelSwitcher
+argument_list|(
+name|d
+operator|->
+name|bps_channel
+argument_list|)
+decl_stmt|;
 specifier|const
 name|int
 name|io_events
@@ -838,30 +877,27 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|result
 operator|!=
 name|BPS_SUCCESS
+argument_list|)
 condition|)
 name|qWarning
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|"bps_remove_fd() failed"
+literal|"QEventDispatcherBlackberry: bps_remove_fd failed"
 operator|<<
 name|sockfd
 expr_stmt|;
-comment|/* if no other socket notifier is      * watching sockfd, our job ends here      */
+comment|// if no other socket notifier is watching sockfd, our job ends here
 if|if
 condition|(
 operator|!
 name|io_events
 condition|)
 return|return;
-name|errno
-operator|=
-literal|0
-expr_stmt|;
 name|result
 operator|=
 name|bps_add_fd
@@ -883,28 +919,18 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|result
 operator|!=
 name|BPS_SUCCESS
-condition|)
-block|{
-name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|"bps_add_fd() failed"
-operator|<<
-name|strerror
-argument_list|(
-name|errno
 argument_list|)
-operator|<<
-literal|"code:"
-operator|<<
-name|errno
+condition|)
+name|qWarning
+argument_list|(
+literal|"QEventDispatcherBlackberry: bps_add_fd error"
+argument_list|)
 expr_stmt|;
-block|}
 block|}
 end_function
 begin_function
@@ -1250,13 +1276,16 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|result
 operator|!=
 name|BPS_SUCCESS
+argument_list|)
 condition|)
 name|qWarning
 argument_list|(
-literal|"QEventDispatcherBlackberry::select: bps_get_event() failed"
+literal|"QEventDispatcherBlackberry bps_get_event failed"
 argument_list|)
 expr_stmt|;
 if|if
@@ -1391,6 +1420,8 @@ name|event
 decl_stmt|;
 if|if
 condition|(
+name|Q_LIKELY
+argument_list|(
 name|bps_event_create
 argument_list|(
 operator|&
@@ -1406,10 +1437,13 @@ literal|0
 argument_list|)
 operator|==
 name|BPS_SUCCESS
+argument_list|)
 condition|)
 block|{
 if|if
 condition|(
+name|Q_LIKELY
+argument_list|(
 name|bps_channel_push_event
 argument_list|(
 name|d
@@ -1420,6 +1454,7 @@ name|event
 argument_list|)
 operator|==
 name|BPS_SUCCESS
+argument_list|)
 condition|)
 return|return;
 else|else
@@ -1431,7 +1466,7 @@ expr_stmt|;
 block|}
 name|qWarning
 argument_list|(
-literal|"QEventDispatcherBlackberryPrivate::wakeUp failed"
+literal|"QEventDispatcherBlackberry: wakeUp failed"
 argument_list|)
 expr_stmt|;
 block|}
