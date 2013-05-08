@@ -705,19 +705,19 @@ argument|customTypesConversionRegistry
 argument_list|)
 end_macro
 begin_comment
-comment|/*!     \fn bool QMetaType::registerConverter()     \since 5.1     Registers the possibility of an implicit conversion from type From to type To in the meta     type system. Returns true if the registration succeeded, otherwise false. */
+comment|/*!     \fn bool QMetaType::registerConverter()     \since 5.2     Registers the possibility of an implicit conversion from type From to type To in the meta     type system. Returns true if the registration succeeded, otherwise false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QMetaType::registerConverter(MemberFunction function)     \since 5.1     \overload     Registers a method \a function like To From::function() const as converter from type From     to type To in the meta type system. Returns true if the registration succeeded, otherwise false. */
+comment|/*!     \fn bool QMetaType::registerConverter(MemberFunction function)     \since 5.2     \overload     Registers a method \a function like To From::function() const as converter from type From     to type To in the meta type system. Returns true if the registration succeeded, otherwise false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QMetaType::registerConverter(MemberFunctionOk function)     \since 5.1     \overload     Registers a method \a function like To From::function(bool *ok) const as converter from type From     to type To in the meta type system. Returns true if the registration succeeded, otherwise false. */
+comment|/*!     \fn bool QMetaType::registerConverter(MemberFunctionOk function)     \since 5.2     \overload     Registers a method \a function like To From::function(bool *ok) const as converter from type From     to type To in the meta type system. Returns true if the registration succeeded, otherwise false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QMetaType::registerConverter(UnaryFunction function)     \since 5.1     \overload     Registers a unary function object \a function as converter from type From     to type To in the meta type system. Returns true if the registration succeeded, otherwise false. */
+comment|/*!     \fn bool QMetaType::registerConverter(UnaryFunction function)     \since 5.2     \overload     Registers a unary function object \a function as converter from type From     to type To in the meta type system. Returns true if the registration succeeded, otherwise false. */
 end_comment
 begin_comment
-comment|/*!     Registers function \a f as converter function from type id \a from to \a to.     If there's already a conversion registered, this does nothing but deleting \a f.     Returns true if the registration succeeded, otherwise false.     \since 5.1     \internal */
+comment|/*!     Registers function \a f as converter function from type id \a from to \a to.     If there's already a conversion registered, this does nothing but deleting \a f.     Returns true if the registration succeeded, otherwise false.     \since 5.2     \internal */
 end_comment
 begin_function
 DECL|function|registerConverterFunction
@@ -795,7 +795,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Converts the object at \a from from \a fromTypeId to the preallocated space at \a to     typed \a toTypeId. Returns true, if the conversion succeeded, otherwise false.     \since 5.1 */
+comment|/*!     Converts the object at \a from from \a fromTypeId to the preallocated space at \a to     typed \a toTypeId. Returns true, if the conversion succeeded, otherwise false.     \since 5.2 */
 end_comment
 begin_function
 DECL|function|convert
@@ -855,10 +855,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QMetaType::hasRegisteredConverterFunction()     Returns true, if the meta type system has a registered conversion from type From to type To.     \since 5.1     \overload     */
+comment|/*!     \fn bool QMetaType::hasRegisteredConverterFunction()     Returns true, if the meta type system has a registered conversion from type From to type To.     \since 5.2     \overload     */
 end_comment
 begin_comment
-comment|/*!     Returns true, if the meta type system has a registered conversion from meta type id \a fromTypeId     to \a toTypeId     \since 5.1 */
+comment|/*!     Returns true, if the meta type system has a registered conversion from meta type id \a fromTypeId     to \a toTypeId     \since 5.2 */
 end_comment
 begin_function
 DECL|function|hasRegisteredConverterFunction
