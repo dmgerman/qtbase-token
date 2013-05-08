@@ -18971,6 +18971,15 @@ operator|<
 name|QTransform
 operator|::
 name|TxProject
+operator|&&
+name|ti
+operator|.
+name|fontEngine
+operator|->
+name|supportsTransformation
+argument_list|(
+name|matrix
+argument_list|)
 condition|)
 block|{
 name|bool

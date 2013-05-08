@@ -8217,6 +8217,33 @@ argument_list|)
 expr_stmt|;
 comment|// TODO: increase cost in QFontCache for the font engine loaded here
 block|}
+DECL|function|supportsTransformation
+name|bool
+name|QWindowsFontEngine
+operator|::
+name|supportsTransformation
+parameter_list|(
+specifier|const
+name|QTransform
+modifier|&
+name|transform
+parameter_list|)
+specifier|const
+block|{
+comment|// Support all transformations for ttf files, and translations for raster fonts
+return|return
+name|ttf
+operator|||
+name|transform
+operator|.
+name|type
+argument_list|()
+operator|<=
+name|QTransform
+operator|::
+name|TxTranslate
+return|;
+block|}
 name|QT_END_NAMESPACE
 end_function
 end_unit
