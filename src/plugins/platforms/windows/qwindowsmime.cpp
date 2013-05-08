@@ -4896,7 +4896,7 @@ name|html
 operator|.
 name|indexOf
 argument_list|(
-literal|"StartFragment:"
+literal|"StartHTML:"
 argument_list|)
 decl_stmt|;
 name|int
@@ -4906,7 +4906,7 @@ name|html
 operator|.
 name|indexOf
 argument_list|(
-literal|"EndFragment:"
+literal|"EndHTML:"
 argument_list|)
 decl_stmt|;
 if|if
@@ -4922,7 +4922,7 @@ name|startOffset
 init|=
 name|start
 operator|+
-literal|14
+literal|10
 decl_stmt|;
 name|int
 name|i
@@ -4987,7 +4987,7 @@ name|endOffset
 init|=
 name|end
 operator|+
-literal|12
+literal|8
 decl_stmt|;
 name|int
 name|i
@@ -5052,8 +5052,6 @@ condition|)
 block|{
 name|html
 operator|=
-literal|"<!--StartFragment-->"
-operator|+
 name|html
 operator|.
 name|mid
@@ -5064,10 +5062,6 @@ name|end
 operator|-
 name|start
 argument_list|)
-expr_stmt|;
-name|html
-operator|+=
-literal|"<!--EndFragment-->"
 expr_stmt|;
 name|html
 operator|.
@@ -5143,15 +5137,15 @@ name|result
 init|=
 literal|"Version:1.0\r\n"
 comment|// 0-12
-literal|"StartHTML:0000000105\r\n"
+literal|"StartHTML:0000000107\r\n"
 comment|// 13-35
 literal|"EndHTML:0000000000\r\n"
 comment|// 36-55
 literal|"StartFragment:0000000000\r\n"
-comment|// 58-86
+comment|// 56-81
 literal|"EndFragment:0000000000\r\n\r\n"
 decl_stmt|;
-comment|// 87-105
+comment|// 82-107
 if|if
 condition|(
 name|data
