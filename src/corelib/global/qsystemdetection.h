@@ -28,7 +28,7 @@ directive|define
 name|QSYSTEMDETECTION_H
 end_define
 begin_comment
-comment|/*    The operating system, must be one of: (Q_OS_x)       DARWIN   - Darwin OS (synonym for Q_OS_MAC)      MAC      - Mac OS X or iOS (iPhoneOS)      IOS      - iOS (treated as a variant of Mac OS)      MSDOS    - MS-DOS and Windows      OS2      - OS/2      OS2EMX   - XFree86 on OS/2 (not PM)      WIN32    - Win32 (Windows 2000/XP/Vista/7 and Windows Server 2003/2008)      WINCE    - WinCE (Windows CE 5.0)      CYGWIN   - Cygwin      SOLARIS  - Sun Solaris      HPUX     - HP-UX      ULTRIX   - DEC Ultrix      LINUX    - Linux      FREEBSD  - FreeBSD      NETBSD   - NetBSD      OPENBSD  - OpenBSD      BSDI     - BSD/OS      IRIX     - SGI Irix      OSF      - HP Tru64 UNIX      SCO      - SCO OpenServer 5      UNIXWARE - UnixWare 7, Open UNIX 8      AIX      - AIX      HURD     - GNU Hurd      DGUX     - DG/UX      RELIANT  - Reliant UNIX      DYNIX    - DYNIX/ptx      QNX      - QNX      QNX6     - QNX RTP 6.1      LYNX     - LynxOS      BSD4     - Any BSD 4.4 system      UNIX     - Any UNIX BSD/SYSV system      ANDROID  - Android platform */
+comment|/*    The operating system, must be one of: (Q_OS_x)       DARWIN   - Darwin OS (synonym for Q_OS_MAC)      MAC      - OS X or iOS (synonym for Q_OS_DARWIN)      MACX     - OS X      IOS      - iOS      MSDOS    - MS-DOS and Windows      OS2      - OS/2      OS2EMX   - XFree86 on OS/2 (not PM)      WIN32    - Win32 (Windows 2000/XP/Vista/7 and Windows Server 2003/2008)      WINCE    - WinCE (Windows CE 5.0)      CYGWIN   - Cygwin      SOLARIS  - Sun Solaris      HPUX     - HP-UX      ULTRIX   - DEC Ultrix      LINUX    - Linux      FREEBSD  - FreeBSD      NETBSD   - NetBSD      OPENBSD  - OpenBSD      BSDI     - BSD/OS      IRIX     - SGI Irix      OSF      - HP Tru64 UNIX      SCO      - SCO OpenServer 5      UNIXWARE - UnixWare 7, Open UNIX 8      AIX      - AIX      HURD     - GNU Hurd      DGUX     - DG/UX      RELIANT  - Reliant UNIX      DYNIX    - DYNIX/ptx      QNX      - QNX      QNX6     - QNX RTP 6.1      LYNX     - LynxOS      BSD4     - Any BSD 4.4 system      UNIX     - Any UNIX BSD/SYSV system      ANDROID  - Android platform */
 end_comment
 begin_if
 if|#
@@ -679,16 +679,6 @@ define|#
 directive|define
 name|Q_OS_MAC
 end_define
-begin_define
-DECL|macro|Q_OS_MACX
-define|#
-directive|define
-name|Q_OS_MACX
-end_define
-begin_comment
-DECL|macro|Q_OS_MACX
-comment|/* Q_OS_MACX is only for compatibility.*/
-end_comment
 begin_if
 if|#
 directive|if
@@ -741,6 +731,16 @@ DECL|macro|Q_OS_IOS
 define|#
 directive|define
 name|Q_OS_IOS
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|Q_OS_MACX
+define|#
+directive|define
+name|Q_OS_MACX
 end_define
 begin_endif
 endif|#
