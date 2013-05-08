@@ -257,6 +257,9 @@ begin_comment
 comment|/*!     \fn QFlags&QFlags::operator&=(uint mask)      \overload */
 end_comment
 begin_comment
+comment|/*!     \fn QFlags&QFlags::operator&=(Enum mask)      \overload */
+end_comment
+begin_comment
 comment|/*!     \fn QFlags&QFlags::operator|=(QFlags other)      Performs a bitwise OR operation with \a other and stores the     result in this QFlags object. Returns a reference to this object.      \sa operator|(), operator&=(), operator^=() */
 end_comment
 begin_comment
