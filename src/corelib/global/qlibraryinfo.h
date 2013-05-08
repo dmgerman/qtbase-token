@@ -102,6 +102,8 @@ name|HostPrefixPath
 block|,
 name|HostBinariesPath
 block|,
+name|HostLibrariesPath
+block|,
 name|HostDataPath
 block|,
 name|TargetSpecPath
