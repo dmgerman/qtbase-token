@@ -2278,6 +2278,15 @@ name|Node
 operator|::
 name|ExternalPage
 operator|&&
+name|docNode
+operator|->
+name|subType
+argument_list|()
+operator|!=
+name|Node
+operator|::
+name|Image
+operator|&&
 operator|!
 name|docNode
 operator|->
