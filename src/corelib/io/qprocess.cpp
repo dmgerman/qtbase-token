@@ -6126,13 +6126,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_MAC
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_IOS
+name|Q_OS_MACX
 argument_list|)
 include|#
 directive|include

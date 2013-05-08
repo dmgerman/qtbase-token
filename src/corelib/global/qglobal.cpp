@@ -152,13 +152,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_MAC
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_IOS
+name|Q_OS_MACX
 argument_list|)
 end_if
 begin_include
@@ -774,13 +768,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_MAC
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_IOS
+name|Q_OS_MACX
 argument_list|)
 end_if
 begin_function
@@ -916,7 +904,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// defined(Q_OS_MAC)&& !defined(Q_OS_IOS)
+comment|// defined(Q_OS_MACX)
 end_comment
 begin_if
 if|#

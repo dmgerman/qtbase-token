@@ -167,13 +167,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_MAC
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_IOS
+name|Q_OS_MACX
 argument_list|)
 include|#
 directive|include
@@ -3162,13 +3156,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_MAC
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_IOS
+name|Q_OS_MACX
 argument_list|)
 comment|//now we try to get the username and password from keychain
 comment|//if not successful signal will be emitted
