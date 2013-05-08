@@ -695,13 +695,6 @@ block|}
 else|else
 block|{
 comment|// mouse press event
-name|QGuiApplicationPrivate
-operator|::
-name|mousePressTime
-operator|-=
-literal|10000
-expr_stmt|;
-comment|// avoid double click
 name|qt_replay_popup_mouse_event
 operator|=
 literal|true
