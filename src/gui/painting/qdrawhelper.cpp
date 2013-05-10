@@ -40002,6 +40002,11 @@ condition|(
 literal|false
 condition|)
 block|{
+name|Q_UNUSED
+argument_list|(
+name|features
+argument_list|)
+expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QT_COMPILER_SUPPORTS_AVX
