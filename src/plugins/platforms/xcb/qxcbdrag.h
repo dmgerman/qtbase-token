@@ -426,10 +426,6 @@ name|QXcbScreen
 modifier|*
 name|current_screen
 decl_stmt|;
-comment|// timer used when target wants "continuous" move messages (eg. scroll)
-name|int
-name|heartbeat
-decl_stmt|;
 comment|// 10 minute timer used to discard old XdndDrop transactions
 enum|enum
 block|{
