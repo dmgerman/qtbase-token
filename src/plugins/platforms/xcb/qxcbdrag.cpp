@@ -2794,7 +2794,6 @@ operator|=
 literal|0
 expr_stmt|;
 comment|//    current_embedding_widget = 0;
-comment|// #fixme resetDndState(false);
 block|}
 end_function
 begin_function
