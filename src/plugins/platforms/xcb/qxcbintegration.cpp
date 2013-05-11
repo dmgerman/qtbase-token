@@ -1591,6 +1591,11 @@ name|QPlatformIntegration
 operator|::
 name|UseRtlExtensions
 case|:
+case|case
+name|QPlatformIntegration
+operator|::
+name|PasswordMaskCharacter
+case|:
 comment|// TODO using various xcb, gnome or KDE settings
 break|break;
 comment|// Not implemented, use defaults
