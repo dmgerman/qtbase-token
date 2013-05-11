@@ -651,7 +651,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \enum QPaintEngine::Type      \value X11     \value Windows     \value MacPrinter     \value CoreGraphics Mac OS X's Quartz2D (CoreGraphics)     \value QuickDraw Mac OS X's QuickDraw     \value QWindowSystem Qt for Embedded Linux     \value PostScript     \value OpenGL     \value Picture QPicture format     \value SVG Scalable Vector Graphics XML format     \value Raster     \value Direct3D Windows only, Direct3D based engine     \value Pdf Portable Document Format     \value OpenVG     \value User First user type ID     \value MaxUser Last user type ID     \value OpenGL2     \value PaintBuffer     \value Blitter */
+comment|/*!     \enum QPaintEngine::Type      \value X11     \value Windows     \value MacPrinter     \value CoreGraphics Mac OS X's Quartz2D (CoreGraphics)     \value QuickDraw Mac OS X's QuickDraw     \value QWindowSystem Qt for Embedded Linux     \value PostScript (No longer supported)     \value OpenGL     \value Picture QPicture format     \value SVG Scalable Vector Graphics XML format     \value Raster     \value Direct3D Windows only, Direct3D based engine     \value Pdf Portable Document Format     \value OpenVG     \value User First user type ID     \value MaxUser Last user type ID     \value OpenGL2     \value PaintBuffer     \value Blitter */
 end_comment
 begin_comment
 comment|/*!     \fn bool QPaintEngine::isActive() const      Returns true if the paint engine is actively drawing; otherwise     returns false.      \sa setActive() */

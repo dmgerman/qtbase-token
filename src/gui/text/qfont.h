@@ -999,10 +999,6 @@ name|QPainterPrivate
 decl_stmt|;
 name|friend
 name|class
-name|QPSPrintEngineFont
-decl_stmt|;
-name|friend
-name|class
 name|QApplication
 decl_stmt|;
 name|friend

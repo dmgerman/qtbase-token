@@ -736,6 +736,7 @@ name|QWindowSystem
 block|,
 name|PostScript
 block|,
+comment|// ### Qt 6: Remove, update documentation
 name|OpenGL
 block|,
 name|Picture
@@ -957,10 +958,6 @@ name|QFontEngineQPF
 decl_stmt|;
 endif|#
 directive|endif
-name|friend
-name|class
-name|QPSPrintEngine
-decl_stmt|;
 name|friend
 name|class
 name|QMacPrintEngine

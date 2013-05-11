@@ -1763,14 +1763,6 @@ name|protected
 operator|:
 name|friend
 name|class
-name|QPSPrintEnginePrivate
-block|;
-name|friend
-name|class
-name|QPSPrintEngineFontMulti
-block|;
-name|friend
-name|class
 name|QRawFont
 block|;
 name|virtual

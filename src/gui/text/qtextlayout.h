@@ -743,10 +743,6 @@ name|QPainter
 expr_stmt|;
 name|friend
 name|class
-name|QPSPrinter
-decl_stmt|;
-name|friend
-name|class
 name|QGraphicsSimpleTextItemPrivate
 decl_stmt|;
 name|friend
