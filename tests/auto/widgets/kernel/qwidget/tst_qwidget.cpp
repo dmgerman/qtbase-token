@@ -26747,20 +26747,6 @@ operator|::
 name|processEvents
 argument_list|()
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-name|QEXPECT_FAIL
-argument_list|(
-literal|0
-argument_list|,
-literal|"Cocoa compositor says to paint this twice."
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QTRY_COMPARE
 argument_list|(
 name|w
