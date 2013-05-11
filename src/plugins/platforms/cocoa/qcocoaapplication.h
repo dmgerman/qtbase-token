@@ -46,6 +46,11 @@ include|#
 directive|include
 file|"qglobal.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"private/qcore_mac_p.h"
+end_include
 begin_empty
 empty|#import<AppKit/AppKit.h>
 end_empty
@@ -159,12 +164,19 @@ name|NSApplication
 block|{ }
 expr|@
 name|end
+name|QT_NAMESPACE_ALIAS_OBJC_CLASS
+argument_list|(
+name|QNSApplication
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_function_decl
 name|QT_BEGIN_NAMESPACE
 name|void
 name|qt_redirectNSApplicationSendEvent
-argument_list|()
-expr_stmt|;
-end_expr_stmt
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_function_decl
 name|void
 name|qt_resetNSApplicationSendEvent

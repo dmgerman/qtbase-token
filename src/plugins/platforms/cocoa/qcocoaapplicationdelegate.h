@@ -46,6 +46,11 @@ include|#
 directive|include
 file|<qglobal.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<private/qcore_mac_p.h>
+end_include
 begin_function_decl
 unit|@
 name|class
@@ -196,8 +201,13 @@ operator|)
 name|removeAppleEventHandlers
 expr_stmt|;
 end_expr_stmt
-begin_macro
+begin_function_decl
 unit|@
 name|end
-end_macro
+name|QT_NAMESPACE_ALIAS_OBJC_CLASS
+parameter_list|(
+name|QCocoaApplicationDelegate
+parameter_list|)
+function_decl|;
+end_function_decl
 end_unit
