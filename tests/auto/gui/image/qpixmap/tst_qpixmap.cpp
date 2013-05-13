@@ -6381,6 +6381,9 @@ operator|::
 name|fromWinHICON
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
 name|QFETCH
 argument_list|(
 name|int
@@ -6500,6 +6503,9 @@ name|imageFromFile
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|// Q_OS_WINCE
 block|}
 endif|#
 directive|endif
