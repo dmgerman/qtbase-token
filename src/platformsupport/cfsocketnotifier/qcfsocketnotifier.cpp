@@ -275,6 +275,11 @@ name|eventDispatcher
 argument_list|(
 literal|0
 argument_list|)
+member_init_list|,
+name|maybeCancelWaitForMoreEvents
+argument_list|(
+literal|0
+argument_list|)
 block|{  }
 end_constructor
 begin_destructor
