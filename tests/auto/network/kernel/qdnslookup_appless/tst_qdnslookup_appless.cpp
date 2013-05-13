@@ -68,7 +68,7 @@ name|QDnsLookup
 operator|::
 name|A
 argument_list|,
-literal|"a-single.test.macieira.org"
+literal|"a-single.test.qt-project.org"
 argument_list|)
 decl_stmt|;
 name|dns
@@ -128,7 +128,7 @@ name|QDnsLookup
 operator|::
 name|A
 argument_list|,
-literal|"a-single.test.macieira.org"
+literal|"a-single.test.qt-project.org"
 argument_list|)
 decl_stmt|;
 name|dns
