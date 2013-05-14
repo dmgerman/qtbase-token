@@ -119,10 +119,7 @@ operator|*
 name|m_glContext
 block|;
 name|bool
-name|m_glContextDirty
-block|;
-name|bool
-name|m_drawRectHasBeenCalled
+name|m_shouldSetGLContextinDrawRect
 block|; }
 operator|-
 operator|(
