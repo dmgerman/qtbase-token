@@ -5735,12 +5735,13 @@ comment|// *WE* already have one.
 return|return
 literal|false
 return|;
+name|QXcbConnectionGrabber
+name|grabber
+argument_list|(
 name|connection
 argument_list|()
-operator|->
-name|grabServer
-argument_list|()
-expr_stmt|;
+argument_list|)
+decl_stmt|;
 comment|// As per Xdnd4, use XdndProxy
 name|xcb_window_t
 name|proxy_id
@@ -5844,12 +5845,6 @@ name|proxy_id
 argument_list|)
 expr_stmt|;
 block|}
-name|connection
-argument_list|()
-operator|->
-name|ungrabServer
-argument_list|()
-expr_stmt|;
 block|}
 else|else
 block|{
