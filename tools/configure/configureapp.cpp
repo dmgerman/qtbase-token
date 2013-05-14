@@ -10386,6 +10386,13 @@ index|]
 operator|=
 literal|"no"
 expr_stmt|;
+name|dictionary
+index|[
+literal|"QT_XKBCOMMON"
+index|]
+operator|=
+literal|"no"
+expr_stmt|;
 block|}
 block|}
 end_function
@@ -18065,6 +18072,21 @@ condition|)
 name|moduleStream
 operator|<<
 literal|"DEFINES        *= QT_EDITION=QT_EDITION_DESKTOP"
+operator|<<
+name|endl
+expr_stmt|;
+if|if
+condition|(
+name|dictionary
+index|[
+literal|"QT_XKBCOMMON"
+index|]
+operator|==
+literal|"no"
+condition|)
+name|moduleStream
+operator|<<
+literal|"DEFINES += QT_NO_XKBCOMMON"
 operator|<<
 name|endl
 expr_stmt|;
