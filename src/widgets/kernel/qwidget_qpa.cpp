@@ -1244,6 +1244,8 @@ decl_stmt|;
 comment|// Reparenting toplevel to child
 if|if
 condition|(
+name|wasCreated
+operator|&&
 operator|!
 operator|(
 name|f
@@ -1271,14 +1273,11 @@ operator|::
 name|WA_NativeWindow
 argument_list|)
 condition|)
-block|{
-comment|//qDebug()<< "setParent_sys() change from toplevel";
 name|q
 operator|->
 name|destroy
 argument_list|()
 expr_stmt|;
-block|}
 name|adjustFlags
 argument_list|(
 name|f
