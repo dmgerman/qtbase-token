@@ -796,6 +796,10 @@ name|toDouble
 argument_list|(
 name|b
 argument_list|)
+argument_list|,
+literal|'g'
+argument_list|,
+literal|13
 argument_list|)
 expr_stmt|;
 break|break;
