@@ -954,7 +954,25 @@ name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
 argument_list|,
-argument|void _q_nativeEnterDirectory(const QString&)
+argument|void _q_nativeFileSelected(const QUrl&)
+argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_nativeFilesSelected(const QList<QUrl>&)
+argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_nativeCurrentChanged(const QUrl&)
+argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_nativeEnterDirectory(const QUrl&)
 argument_list|)
 name|Q_PRIVATE_SLOT
 argument_list|(

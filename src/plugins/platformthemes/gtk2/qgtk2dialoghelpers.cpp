@@ -1319,7 +1319,7 @@ operator|::
 name|setDirectory
 parameter_list|(
 specifier|const
-name|QString
+name|QUrl
 modifier|&
 name|directory
 parameter_list|)
@@ -1342,6 +1342,9 @@ argument_list|)
 argument_list|,
 name|directory
 operator|.
+name|toLocalFile
+argument_list|()
+operator|.
 name|toUtf8
 argument_list|()
 argument_list|)
@@ -1350,7 +1353,7 @@ block|}
 end_function
 begin_function
 DECL|function|directory
-name|QString
+name|QUrl
 name|QGtk2FileDialogHelper
 operator|::
 name|directory
@@ -1415,7 +1418,12 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
+name|QUrl
+operator|::
+name|fromLocalFile
+argument_list|(
 name|ret
+argument_list|)
 return|;
 block|}
 end_function
@@ -1427,7 +1435,7 @@ operator|::
 name|selectFile
 parameter_list|(
 specifier|const
-name|QString
+name|QUrl
 modifier|&
 name|filename
 parameter_list|)
@@ -1450,6 +1458,9 @@ argument_list|)
 argument_list|,
 name|filename
 operator|.
+name|toLocalFile
+argument_list|()
+operator|.
 name|toUtf8
 argument_list|()
 argument_list|)
@@ -1458,7 +1469,10 @@ block|}
 end_function
 begin_function
 DECL|function|selectedFiles
-name|QStringList
+name|QList
+argument_list|<
+name|QUrl
+argument_list|>
 name|QGtk2FileDialogHelper
 operator|::
 name|selectedFiles
@@ -1478,7 +1492,10 @@ condition|)
 return|return
 name|_selection
 return|;
-name|QStringList
+name|QList
+argument_list|<
+name|QUrl
+argument_list|>
 name|selection
 decl_stmt|;
 name|GtkDialog
@@ -1520,6 +1537,10 @@ name|next
 control|)
 name|selection
 operator|+=
+name|QUrl
+operator|::
+name|fromLocalFile
+argument_list|(
 name|QString
 operator|::
 name|fromUtf8
@@ -1532,6 +1553,7 @@ operator|)
 name|it
 operator|->
 name|data
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|g_slist_free
@@ -1679,7 +1701,10 @@ argument_list|(
 name|filter
 argument_list|)
 emit|;
-name|QStringList
+name|QList
+argument_list|<
+name|QUrl
+argument_list|>
 name|files
 init|=
 name|selectedFiles
@@ -1767,7 +1792,12 @@ name|helper
 operator|->
 name|currentChanged
 argument_list|(
+name|QUrl
+operator|::
+name|fromLocalFile
+argument_list|(
 name|selection
+argument_list|)
 argument_list|)
 emit|;
 block|}
@@ -2035,6 +2065,9 @@ name|opts
 operator|->
 name|initialDirectory
 argument_list|()
+operator|.
+name|toLocalFile
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -2052,7 +2085,7 @@ expr_stmt|;
 foreach|foreach
 control|(
 specifier|const
-name|QString
+name|QUrl
 modifier|&
 name|filename
 decl|,
@@ -2064,6 +2097,9 @@ control|)
 name|selectFile
 argument_list|(
 name|filename
+operator|.
+name|toLocalFile
+argument_list|()
 argument_list|)
 expr_stmt|;
 specifier|const

@@ -278,7 +278,12 @@ name|m_paths
 operator|.
 name|append
 argument_list|(
+name|QUrl
+operator|::
+name|fromLocalFile
+argument_list|(
 name|path
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|qFileDialogHelperDebug
@@ -329,7 +334,12 @@ name|m_paths
 operator|.
 name|append
 argument_list|(
+name|QUrl
+operator|::
+name|fromLocalFile
+argument_list|(
 name|path
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -660,6 +670,9 @@ argument_list|()
 operator|.
 name|first
 argument_list|()
+operator|.
+name|toLocalFile
+argument_list|()
 decl_stmt|;
 name|dialog_set_filesave_filename
 argument_list|(
@@ -891,7 +904,7 @@ operator|::
 name|setDirectory
 parameter_list|(
 specifier|const
-name|QString
+name|QUrl
 modifier|&
 name|directory
 parameter_list|)
@@ -926,6 +939,9 @@ operator|::
 name|encodeName
 argument_list|(
 name|directory
+operator|.
+name|toLocalFile
+argument_list|()
 argument_list|)
 operator|.
 name|constData
@@ -936,7 +952,7 @@ block|}
 end_function
 begin_function
 DECL|function|directory
-name|QString
+name|QUrl
 name|QQnxFileDialogHelper
 operator|::
 name|directory
@@ -964,7 +980,7 @@ operator|::
 name|selectFile
 parameter_list|(
 specifier|const
-name|QString
+name|QUrl
 modifier|&
 name|fileName
 parameter_list|)
@@ -997,6 +1013,9 @@ operator|::
 name|encodeName
 argument_list|(
 name|fileName
+operator|.
+name|toLocalFile
+argument_list|()
 argument_list|)
 operator|.
 name|constData
@@ -1007,7 +1026,10 @@ block|}
 end_function
 begin_function
 DECL|function|selectedFiles
-name|QStringList
+name|QList
+argument_list|<
+name|QUrl
+argument_list|>
 name|QQnxFileDialogHelper
 operator|::
 name|selectedFiles
