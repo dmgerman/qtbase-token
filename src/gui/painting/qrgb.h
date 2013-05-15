@@ -53,6 +53,7 @@ end_comment
 begin_function
 DECL|function|qRed
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|int
 name|qRed
 parameter_list|(
@@ -77,6 +78,7 @@ end_function
 begin_function
 DECL|function|qGreen
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|int
 name|qGreen
 parameter_list|(
@@ -101,6 +103,7 @@ end_function
 begin_function
 DECL|function|qBlue
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|int
 name|qBlue
 parameter_list|(
@@ -121,6 +124,7 @@ end_function
 begin_function
 DECL|function|qAlpha
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|int
 name|qAlpha
 parameter_list|(
@@ -139,6 +143,7 @@ end_function
 begin_function
 DECL|function|qRgb
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|QRgb
 name|qRgb
 parameter_list|(
@@ -191,6 +196,7 @@ end_function
 begin_function
 DECL|function|qRgba
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|QRgb
 name|qRgba
 parameter_list|(
@@ -250,6 +256,7 @@ end_function
 begin_function
 DECL|function|qGray
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|int
 name|qGray
 parameter_list|(
@@ -286,6 +293,7 @@ end_function
 begin_function
 DECL|function|qGray
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|int
 name|qGray
 parameter_list|(
@@ -318,6 +326,7 @@ end_function
 begin_function
 DECL|function|qIsGray
 specifier|inline
+name|Q_DECL_CONSTEXPR
 name|bool
 name|qIsGray
 parameter_list|(
