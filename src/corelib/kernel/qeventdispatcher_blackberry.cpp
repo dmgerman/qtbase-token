@@ -40,6 +40,11 @@ ifdef|#
 directive|ifdef
 name|QEVENTDISPATCHERBLACKBERRY_DEBUG
 end_ifdef
+begin_include
+include|#
+directive|include
+file|<QThread>
+end_include
 begin_define
 DECL|macro|qEventDispatcherDebug
 define|#
