@@ -680,7 +680,7 @@ operator|!=
 name|begin
 operator|&&
 name|priority
-operator|<
+operator|>
 operator|(
 operator|*
 operator|(
