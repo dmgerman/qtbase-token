@@ -2784,8 +2784,6 @@ name|ENVIRONMENT_VARIABLES_KEY
 argument_list|,
 name|ENVIRONMENT_VARIABLES
 operator|+
-literal|"QT_QPA_EGLFS_HIDECURSOR=1"
-operator|+
 literal|"\tQML2_IMPORT_PATH="
 operator|+
 name|localPrefix
