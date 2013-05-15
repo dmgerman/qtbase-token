@@ -9886,7 +9886,7 @@ parameter_list|,
 modifier|...
 parameter_list|)
 define|\
-value|F(bool, __VA_ARGS__) \         F(int, __VA_ARGS__) \         F(uint, __VA_ARGS__) \         F(qlonglong, __VA_ARGS__) \         F(qulonglong, __VA_ARGS__) \         F(double, __VA_ARGS__) \         F(long, __VA_ARGS__) \         F(short, __VA_ARGS__) \         F(char, __VA_ARGS__) \         F(ulong, __VA_ARGS__) \         F(ushort, __VA_ARGS__) \         F(uchar, __VA_ARGS__) \         F(float, __VA_ARGS__) \         F(QObject*, __VA_ARGS__) \         F(QString, __VA_ARGS__) \         F(CustomMovable, __VA_ARGS__)
+value|F(bool, __VA_ARGS__) \         F(int, __VA_ARGS__) \         F(uint, __VA_ARGS__) \         F(qlonglong, __VA_ARGS__) \         F(qulonglong, __VA_ARGS__) \         F(long, __VA_ARGS__) \         F(short, __VA_ARGS__) \         F(char, __VA_ARGS__) \         F(ulong, __VA_ARGS__) \         F(ushort, __VA_ARGS__) \         F(uchar, __VA_ARGS__) \         F(QObject*, __VA_ARGS__) \         F(QString, __VA_ARGS__)
 DECL|macro|CREATE_AND_VERIFY_CONTAINER
 define|#
 directive|define
