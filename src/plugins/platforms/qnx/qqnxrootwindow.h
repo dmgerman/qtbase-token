@@ -88,6 +88,10 @@ modifier|&
 name|size
 parameter_list|)
 function_decl|;
+name|void
+name|makeTranslucent
+parameter_list|()
+function_decl|;
 name|QByteArray
 name|groupName
 argument_list|()
@@ -113,6 +117,9 @@ name|m_window
 decl_stmt|;
 name|QByteArray
 name|m_windowGroupName
+decl_stmt|;
+name|bool
+name|m_translucent
 decl_stmt|;
 block|}
 end_decl_stmt
