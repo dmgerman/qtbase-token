@@ -133,7 +133,7 @@ literal|3
 return|;
 name|app
 operator|.
-name|generateSystemVars
+name|prepareConfigTests
 argument_list|()
 expr_stmt|;
 if|if

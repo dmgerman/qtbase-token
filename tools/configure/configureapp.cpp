@@ -15646,11 +15646,11 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|generateSystemVars
+DECL|function|prepareConfigTests
 name|void
 name|Configure
 operator|::
-name|generateSystemVars
+name|prepareConfigTests
 parameter_list|()
 block|{
 comment|// Generate an empty .qmake.cache file for config.tests

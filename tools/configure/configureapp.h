@@ -152,7 +152,7 @@ name|generateQConfigPri
 parameter_list|()
 function_decl|;
 name|void
-name|generateSystemVars
+name|prepareConfigTests
 parameter_list|()
 function_decl|;
 name|void
