@@ -94,11 +94,13 @@ condition|)
 return|return
 literal|3
 return|;
+comment|// Source file with path settings. Needed by qmake.
 name|app
 operator|.
 name|generateQConfigCpp
 argument_list|()
 expr_stmt|;
+comment|// Bootstrapped includes. Needed by qmake.
 name|app
 operator|.
 name|generateHeaders
@@ -115,6 +117,7 @@ condition|)
 return|return
 literal|3
 return|;
+comment|// Bootstrap qmake. Needed by config tests.
 name|app
 operator|.
 name|buildQmake
@@ -131,6 +134,7 @@ condition|)
 return|return
 literal|3
 return|;
+comment|// Prepare the config test build directory.
 name|app
 operator|.
 name|prepareConfigTests
@@ -151,6 +155,12 @@ comment|// Auto-detect modules and settings.
 name|app
 operator|.
 name|autoDetection
+argument_list|()
+expr_stmt|;
+comment|// ... and the CPU architectures.
+name|app
+operator|.
+name|detectArch
 argument_list|()
 expr_stmt|;
 comment|// After reading all command-line arguments, and doing all the
@@ -198,21 +208,6 @@ operator|.
 name|generateConfigfiles
 argument_list|()
 expr_stmt|;
-comment|// must be done after buildQmake()
-if|if
-condition|(
-operator|!
-name|app
-operator|.
-name|isDone
-argument_list|()
-condition|)
-name|app
-operator|.
-name|detectArch
-argument_list|()
-expr_stmt|;
-comment|// must be done after detectArch()
 if|if
 condition|(
 operator|!
