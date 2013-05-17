@@ -116,10 +116,6 @@ name|generateHeaders
 parameter_list|()
 function_decl|;
 name|void
-name|generateBuildKey
-parameter_list|()
-function_decl|;
-name|void
 name|generateCachefile
 parameter_list|()
 function_decl|;
