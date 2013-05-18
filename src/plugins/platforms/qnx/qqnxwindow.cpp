@@ -240,7 +240,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxWindow: failed to create window, errno=%d"
@@ -248,7 +247,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Set window buffer usage based on rendering API
 name|int
 name|val
@@ -322,7 +320,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxWindow: failed to set window buffer usage, errno=%d"
@@ -330,7 +327,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Alpha channel is always pre-multiplied if present
 name|errno
 operator|=
@@ -358,7 +354,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxWindow: failed to set window alpha mode, errno=%d"
@@ -366,7 +361,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Make the window opaque
 name|errno
 operator|=
@@ -394,7 +388,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxWindow: failed to set window transparency, errno=%d"
@@ -402,7 +395,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Set the window swap interval
 name|errno
 operator|=
@@ -430,7 +422,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxWindow: failed to set window swap interval, errno=%d"
@@ -438,7 +429,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|window
@@ -477,7 +467,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxWindow: failed to set window sensitivity, errno=%d"
@@ -485,7 +474,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|setScreen
 argument_list|(
@@ -884,7 +872,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxWindow: failed to set window position, errno=%d"
@@ -892,7 +879,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 name|errno
 operator|=
 literal|0
@@ -934,7 +920,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxWindow: failed to set window size, errno=%d"
@@ -942,7 +927,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Set viewport size equal to window size
 name|errno
 operator|=
@@ -965,7 +949,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxWindow: failed to set window source size, errno=%d"
@@ -973,7 +956,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|oldGeometry
 return|;
@@ -1072,7 +1054,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxWindow: failed to set window position, errno=%d"
@@ -1080,7 +1061,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 name|Q_FOREACH
 argument_list|(
 argument|QQnxWindow *childWindow
@@ -1261,7 +1241,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxWindow: failed to set window visibility, errno=%d"
@@ -1269,7 +1248,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 name|Q_FOREACH
 argument_list|(
 argument|QQnxWindow *childWindow
@@ -1348,7 +1326,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxWindow: failed to set window global alpha, errno=%d"
@@ -1356,7 +1333,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 comment|// TODO: How to handle children of this window? If we change all the visibilities, then
 comment|//       the transparency will look wrong...
 block|}
@@ -1516,7 +1492,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxWindow: failed to set window buffer size, errno=%d"
@@ -1524,7 +1499,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Create window buffers if they do not exist
 if|if
 condition|(
@@ -1559,7 +1533,6 @@ name|m_platformOpenGLContext
 operator|!=
 literal|0
 condition|)
-block|{
 name|val
 index|[
 literal|0
@@ -1573,7 +1546,6 @@ name|format
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 endif|#
 directive|endif
 name|errno
@@ -1597,7 +1569,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxWindow: failed to set window pixel format, errno=%d"
@@ -1605,7 +1576,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 name|errno
 operator|=
 literal|0
@@ -1625,7 +1595,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qWarning
 argument_list|()
 operator|<<
@@ -1640,7 +1609,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 comment|// check if there are any buffers available
 name|int
 name|bufferCount
@@ -1665,7 +1633,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxWindow: failed to query window buffer count, errno=%d"
@@ -1673,7 +1640,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|bufferCount
@@ -1791,7 +1757,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxWindow: failed to query window buffers, errno=%d"
@@ -1799,7 +1764,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Wrap each buffer
 for|for
 control|(
@@ -2072,7 +2036,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxWindow: failed to post window buffer, errno=%d"
@@ -2080,7 +2043,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Advance to next nender buffer
 name|m_previousBufferIndex
 operator|=
@@ -2093,12 +2055,10 @@ name|m_currentBufferIndex
 operator|>=
 name|MAX_BUFFER_COUNT
 condition|)
-block|{
 name|m_currentBufferIndex
 operator|=
 literal|0
 expr_stmt|;
-block|}
 comment|// Save modified region and clear scrolled region
 name|m_previousDirty
 operator|=
@@ -2116,7 +2076,6 @@ name|m_screen
 operator|!=
 literal|0
 condition|)
-block|{
 name|m_screen
 operator|->
 name|onWindowPost
@@ -2124,7 +2083,6 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_function
@@ -2234,7 +2192,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxWindow: failed to set window display, errno=%d"
@@ -2242,7 +2199,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Add window to display's window group
 name|errno
 operator|=
@@ -2266,7 +2222,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxWindow: failed to join window group, errno=%d"
@@ -2274,7 +2229,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 name|Q_FOREACH
 argument_list|(
 argument|QQnxWindow *childWindow
@@ -3543,13 +3497,11 @@ operator|==
 operator|-
 literal|1
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxWindow: red size not defined"
 argument_list|)
 expr_stmt|;
-block|}
 name|int
 name|greenSize
 init|=
@@ -3565,13 +3517,11 @@ operator|==
 operator|-
 literal|1
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxWindow: green size not defined"
 argument_list|)
 expr_stmt|;
-block|}
 name|int
 name|blueSize
 init|=
@@ -3587,13 +3537,11 @@ operator|==
 operator|-
 literal|1
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxWindow: blue size not defined"
 argument_list|)
 expr_stmt|;
-block|}
 comment|// select matching native format
 if|if
 condition|(

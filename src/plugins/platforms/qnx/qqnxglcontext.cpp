@@ -219,7 +219,6 @@ name|eglResult
 operator|!=
 name|EGL_TRUE
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQNX: failed to set EGL API, err=%d"
@@ -228,7 +227,6 @@ name|eglGetError
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Get colour channel sizes from window format
 name|int
 name|alphaSize
@@ -466,13 +464,11 @@ name|m_eglConfig
 operator|==
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxGLContext: failed to find EGL config"
 argument_list|)
 expr_stmt|;
-block|}
 name|m_eglContext
 operator|=
 name|eglCreateContext
@@ -540,7 +536,6 @@ name|m_eglContext
 operator|!=
 name|EGL_NO_CONTEXT
 condition|)
-block|{
 name|eglDestroyContext
 argument_list|(
 name|ms_eglDisplay
@@ -548,7 +543,6 @@ argument_list|,
 name|m_eglContext
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Cleanup EGL surface if it exists
 name|destroySurface
 argument_list|()
@@ -721,7 +715,6 @@ name|eglResult
 operator|!=
 name|EGL_TRUE
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxGLContext: failed to set EGL API, err=%d"
@@ -730,7 +723,6 @@ name|eglGetError
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|m_newSurfaceRequested
@@ -831,7 +823,6 @@ name|eglResult
 operator|!=
 name|EGL_TRUE
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQNX: failed to set EGL API, err=%d"
@@ -840,7 +831,6 @@ name|eglGetError
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 comment|// clear curent EGL context and unbind EGL surface
 name|eglResult
 operator|=
@@ -861,7 +851,6 @@ name|eglResult
 operator|!=
 name|EGL_TRUE
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQNX: failed to clear current EGL context, err=%d"
@@ -870,7 +859,6 @@ name|eglGetError
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 end_function
 begin_function
@@ -910,7 +898,6 @@ name|eglResult
 operator|!=
 name|EGL_TRUE
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQNX: failed to set EGL API, err=%d"
@@ -919,7 +906,6 @@ name|eglGetError
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Post EGL surface to window
 name|eglResult
 operator|=
@@ -936,7 +922,6 @@ name|eglResult
 operator|!=
 name|EGL_TRUE
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQNX: failed to swap EGL buffers, err=%d"
@@ -945,7 +930,6 @@ name|eglGetError
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 end_function
 begin_function
@@ -981,7 +965,6 @@ name|eglResult
 operator|!=
 name|EGL_TRUE
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQNX: failed to set EGL API, err=%d"
@@ -990,7 +973,6 @@ name|eglGetError
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Lookup EGL extension function pointer
 return|return
 cast|static_cast
@@ -1115,13 +1097,11 @@ condition|(
 operator|!
 name|platformWindow
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQNX: unable to create EGLSurface without a QQnxWindow"
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Link the window and context
 name|platformWindow
 operator|->

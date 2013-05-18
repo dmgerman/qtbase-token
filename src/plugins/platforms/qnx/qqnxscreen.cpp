@@ -477,7 +477,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxScreen: failed to query display rotation, errno=%d"
@@ -485,7 +484,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 name|m_currentRotation
 operator|=
 name|m_initialRotation
@@ -518,7 +516,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxScreen: failed to query display size, errno=%d"
@@ -526,7 +523,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 name|m_currentGeometry
 operator|=
 name|m_initialGeometry
@@ -704,12 +700,10 @@ name|defaultDepth
 operator|!=
 literal|32
 condition|)
-block|{
 name|defaultDepth
 operator|=
 literal|32
 expr_stmt|;
-block|}
 block|}
 return|return
 name|defaultDepth

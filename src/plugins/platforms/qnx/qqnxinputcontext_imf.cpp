@@ -2634,21 +2634,17 @@ name|s_imfInitFailed
 operator|||
 name|s_imfDisabled
 condition|)
-block|{
 return|return
 literal|false
 return|;
-block|}
 elseif|else
 if|if
 condition|(
 name|s_imfReady
 condition|)
-block|{
 return|return
 literal|true
 return|;
-block|}
 if|if
 condition|(
 name|p_imf_client_init
@@ -6522,7 +6518,6 @@ name|n
 operator|<
 name|m_lastCaretPos
 condition|)
-block|{
 return|return
 name|toSpannableString
 argument_list|(
@@ -6538,9 +6533,7 @@ name|n
 argument_list|)
 argument_list|)
 return|;
-block|}
 else|else
-block|{
 return|return
 name|toSpannableString
 argument_list|(
@@ -6554,7 +6547,6 @@ name|m_lastCaretPos
 argument_list|)
 argument_list|)
 return|;
-block|}
 block|}
 end_function
 begin_function
