@@ -783,12 +783,11 @@ operator|+
 literal|"<"
 argument_list|)
 operator|&&
-operator|!
 name|propertyType
 operator|.
 name|endsWith
 argument_list|(
-literal|"&"
+literal|">"
 argument_list|)
 condition|)
 block|{
@@ -825,7 +824,7 @@ operator|-
 literal|2
 argument_list|)
 operator|==
-literal|'>'
+literal|' '
 condition|?
 literal|1
 else|:
