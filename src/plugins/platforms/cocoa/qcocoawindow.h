@@ -80,10 +80,7 @@ operator|:
 name|NSPanel
 block|{     @
 name|public
-name|QT_PREPEND_NAMESPACE
-argument_list|(
 name|QCocoaWindow
-argument_list|)
 operator|*
 name|m_cocoaPlatformWindow
 block|; }
