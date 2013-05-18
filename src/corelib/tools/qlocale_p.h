@@ -819,7 +819,7 @@ name|ref
 operator|.
 name|store
 argument_list|(
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 name|retval
