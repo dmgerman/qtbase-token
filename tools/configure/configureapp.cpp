@@ -2044,13 +2044,6 @@ literal|"png"
 operator|<<
 literal|"jpeg"
 decl_stmt|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|EVAL
-argument_list|)
 if|if
 condition|(
 name|argCount
@@ -2163,8 +2156,6 @@ operator|.
 name|size
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 name|bool
 name|isDeviceMkspec
 init|=
@@ -2312,13 +2303,6 @@ index|]
 operator|=
 literal|"yes"
 expr_stmt|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|EVAL
-argument_list|)
 elseif|else
 if|if
 condition|(
@@ -2709,8 +2693,6 @@ operator|=
 literal|"yes"
 expr_stmt|;
 block|}
-endif|#
-directive|endif
 elseif|else
 if|if
 condition|(
@@ -2833,13 +2815,6 @@ name|i
 expr_stmt|;
 comment|// do nothing
 block|}
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|EVAL
-argument_list|)
 elseif|else
 if|if
 condition|(
@@ -4738,8 +4713,6 @@ index|]
 operator|=
 literal|"no"
 expr_stmt|;
-endif|#
-directive|endif
 comment|// IDE project generation -----------------------------------
 elseif|else
 if|if
@@ -4855,13 +4828,6 @@ index|]
 operator|=
 literal|"no"
 expr_stmt|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|EVAL
-argument_list|)
 comment|// Others ---------------------------------------------------
 elseif|else
 if|if
@@ -8359,8 +8325,6 @@ name|endl
 expr_stmt|;
 break|break;
 block|}
-endif|#
-directive|endif
 block|}
 comment|// Ensure that QMAKESPEC exists in the mkspecs folder
 specifier|const
@@ -9223,13 +9187,6 @@ name|qtConfig
 operator|+=
 literal|"force_asserts"
 expr_stmt|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|EVAL
-argument_list|)
 for|for
 control|(
 name|QStringList
@@ -9367,19 +9324,8 @@ condition|)
 name|saveCmdLine
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
-begin_if
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|EVAL
-argument_list|)
-end_if
 begin_function
 DECL|function|validateArgs
 name|void
@@ -9616,10 +9562,6 @@ literal|"-config"
 expr_stmt|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|// Output helper functions --------------------------------[ Start ]-
 end_comment
@@ -10700,13 +10642,6 @@ argument_list|,
 literal|"Data used by qmake will be installed to<dir>\n(default HOSTPREFIX)"
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|EVAL
-argument_list|)
 name|desc
 argument_list|(
 literal|"\nConfigure options:\n\n"
@@ -11233,8 +11168,6 @@ argument_list|,
 literal|"Activate asserts in release mode.\n"
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|desc
 argument_list|(
 literal|"-platform<spec>"
@@ -11516,13 +11449,6 @@ argument_list|,
 literal|"Make warnings be treated normally."
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|EVAL
-argument_list|)
 name|desc
 argument_list|(
 literal|"-qtnamespace<name>"
@@ -11565,8 +11491,6 @@ argument_list|,
 literal|"Add an explicit library name, residing in a librarypath.\n"
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|desc
 argument_list|(
 literal|"-help, -h, -?"
@@ -11574,13 +11498,6 @@ argument_list|,
 literal|"Display this information.\n"
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|EVAL
-argument_list|)
 comment|// 3rd party stuff options go below here --------------------------------------------------------------------------------
 name|desc
 argument_list|(
@@ -11836,8 +11753,6 @@ argument_list|,
 literal|"Do not use ANGLE.\nSee http://code.google.com/p/angleproject/\n"
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 comment|// Qt\Windows only options go below here --------------------------------------------------------------------------------
 name|desc
 argument_list|(
@@ -11910,13 +11825,6 @@ argument_list|,
 literal|"Embed manifests in plugins.\n"
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|EVAL
-argument_list|)
 name|desc
 argument_list|(
 literal|"BUILD_QMAKE"
@@ -12439,8 +12347,6 @@ literal|"Use multiple processors for compiling with MSVC (-MP).\n"
 argument_list|)
 expr_stmt|;
 comment|/*      We do not support -qconfig on Windows yet          desc(                   "-qconfig<local>",     "Use src/tools/qconfig-local.h rather than the default.\nPossible values for local:");         for (int i=0; i<allConfigs.size(); ++i)             desc(               "",                     qPrintable(QString("  %1").arg(allConfigs.at(i))), false, ' ');         printf("\n"); */
-endif|#
-directive|endif
 name|desc
 argument_list|(
 literal|"-loadconfig<config>"
@@ -18172,15 +18078,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_if
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|EVAL
-argument_list|)
-end_if
 begin_function
 DECL|function|generateCachefile
 name|void
@@ -20303,10 +20200,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_function
 DECL|function|addDefine
 name|QString
@@ -20458,15 +20351,6 @@ name|result
 return|;
 block|}
 end_function
-begin_if
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|EVAL
-argument_list|)
-end_if
 begin_function
 DECL|function|generateConfigfiles
 name|void
@@ -21937,19 +21821,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_if
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|EVAL
-argument_list|)
-end_if
 begin_function
 DECL|function|displayConfig
 name|void
@@ -23849,19 +23720,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_if
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|EVAL
-argument_list|)
-end_if
 begin_function
 DECL|function|generateHeaders
 name|void
@@ -25779,10 +25637,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_function
 DECL|function|appendMakeItem
 name|void
@@ -26386,15 +26240,6 @@ name|App
 return|;
 block|}
 end_function
-begin_if
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|EVAL
-argument_list|)
-end_if
 begin_function
 DECL|function|showLicense
 name|bool
@@ -27373,13 +27218,6 @@ block|}
 block|}
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// !EVAL
-end_comment
 begin_function
 DECL|function|isDone
 name|bool
