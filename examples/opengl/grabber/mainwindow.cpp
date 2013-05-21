@@ -917,6 +917,11 @@ name|pixmap
 operator|.
 name|size
 argument_list|()
+operator|/
+name|pixmap
+operator|.
+name|devicePixelRatio
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
