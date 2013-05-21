@@ -3893,6 +3893,12 @@ else|else
 block|{
 name|d
 operator|->
+name|positionAutomatic
+operator|=
+literal|false
+expr_stmt|;
+name|d
+operator|->
 name|geometry
 operator|.
 name|moveTopLeft
