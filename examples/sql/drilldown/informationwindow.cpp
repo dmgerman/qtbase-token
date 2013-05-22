@@ -21,7 +21,7 @@ name|id
 parameter_list|,
 name|QSqlRelationalTableModel
 modifier|*
-name|offices
+name|items
 parameter_list|,
 name|QWidget
 modifier|*
@@ -36,27 +36,14 @@ block|{
 comment|//! [0] //! [1]
 name|QLabel
 modifier|*
-name|locationLabel
+name|itemLabel
 init|=
 operator|new
 name|QLabel
 argument_list|(
 name|tr
 argument_list|(
-literal|"Location: "
-argument_list|)
-argument_list|)
-decl_stmt|;
-name|QLabel
-modifier|*
-name|countryLabel
-init|=
-operator|new
-name|QLabel
-argument_list|(
-name|tr
-argument_list|(
-literal|"Country: "
+literal|"Item: "
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -89,12 +76,7 @@ decl_stmt|;
 name|createButtons
 argument_list|()
 expr_stmt|;
-name|locationText
-operator|=
-operator|new
-name|QLabel
-expr_stmt|;
-name|countryText
+name|itemText
 operator|=
 operator|new
 name|QLabel
@@ -115,7 +97,7 @@ name|imageFileEditor
 operator|->
 name|setModel
 argument_list|(
-name|offices
+name|items
 operator|->
 name|relationModel
 argument_list|(
@@ -127,7 +109,7 @@ name|imageFileEditor
 operator|->
 name|setModelColumn
 argument_list|(
-name|offices
+name|items
 operator|->
 name|relationModel
 argument_list|(
@@ -154,7 +136,7 @@ name|mapper
 operator|->
 name|setModel
 argument_list|(
-name|offices
+name|items
 argument_list|)
 expr_stmt|;
 name|mapper
@@ -190,7 +172,7 @@ name|mapper
 operator|->
 name|addMapping
 argument_list|(
-name|locationText
+name|itemText
 argument_list|,
 literal|2
 argument_list|,
@@ -201,20 +183,9 @@ name|mapper
 operator|->
 name|addMapping
 argument_list|(
-name|countryText
-argument_list|,
-literal|3
-argument_list|,
-literal|"text"
-argument_list|)
-expr_stmt|;
-name|mapper
-operator|->
-name|addMapping
-argument_list|(
 name|descriptionEditor
 argument_list|,
-literal|4
+literal|3
 argument_list|)
 expr_stmt|;
 name|mapper
@@ -277,18 +248,9 @@ name|formLayout
 operator|->
 name|addRow
 argument_list|(
-name|locationLabel
+name|itemLabel
 argument_list|,
-name|locationText
-argument_list|)
-expr_stmt|;
-name|formLayout
-operator|->
-name|addRow
-argument_list|(
-name|countryLabel
-argument_list|,
-name|countryText
+name|itemText
 argument_list|)
 expr_stmt|;
 name|formLayout
@@ -335,7 +297,7 @@ argument_list|(
 name|layout
 argument_list|)
 expr_stmt|;
-name|locationId
+name|itemId
 operator|=
 name|id
 expr_stmt|;
@@ -346,10 +308,13 @@ operator|->
 name|currentText
 argument_list|()
 expr_stmt|;
-comment|// Commented the following line. Now the window will look like dialog and the Qt will place the QDialogBox buttons to menu area in Symbian.
-comment|// Too bad that the revert button is missing, Should the Qt place the buttons under Option menu in the menu area?!
-comment|// If the Qt::Window flag was used, the background of window is white in symbian and the QLabels can't be regognized from the background.
-comment|//setWindowFlags(Qt::Window);
+name|setWindowFlags
+argument_list|(
+name|Qt
+operator|::
+name|Window
+argument_list|)
+expr_stmt|;
 name|enableButtons
 argument_list|(
 literal|false
@@ -357,18 +322,10 @@ argument_list|)
 expr_stmt|;
 name|setWindowTitle
 argument_list|(
-name|tr
-argument_list|(
-literal|"Office: %1"
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|locationText
+name|itemText
 operator|->
 name|text
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -388,7 +345,7 @@ name|id
 parameter_list|()
 block|{
 return|return
-name|locationId
+name|itemId
 return|;
 block|}
 end_function
@@ -455,7 +412,7 @@ expr_stmt|;
 emit|emit
 name|imageChanged
 argument_list|(
-name|locationId
+name|itemId
 argument_list|,
 name|newImage
 argument_list|)
@@ -470,7 +427,7 @@ name|mapper
 operator|->
 name|setCurrentIndex
 argument_list|(
-name|locationId
+name|itemId
 argument_list|)
 expr_stmt|;
 name|enableButtons

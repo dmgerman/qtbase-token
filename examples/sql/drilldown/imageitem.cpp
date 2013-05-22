@@ -341,7 +341,7 @@ name|matrix
 operator|.
 name|scale
 argument_list|(
-literal|150
+literal|120
 operator|/
 name|boundingRect
 argument_list|()
