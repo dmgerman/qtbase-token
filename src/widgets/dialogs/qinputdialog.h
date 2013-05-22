@@ -132,6 +132,10 @@ block|,
 name|UseListViewForComboBoxItems
 operator|=
 literal|0x00000002
+block|,
+name|UsePlainTextEditForTextInput
+operator|=
+literal|0x00000004
 block|}
 block|;
 name|Q_DECLARE_FLAGS
@@ -478,6 +482,27 @@ argument_list|)
 block|;
 specifier|static
 name|QString
+name|getMultiLineText
+argument_list|(
+argument|QWidget *parent
+argument_list|,
+argument|const QString&title
+argument_list|,
+argument|const QString&label
+argument_list|,
+argument|const QString&text = QString()
+argument_list|,
+argument|bool *ok =
+literal|0
+argument_list|,
+argument|Qt::WindowFlags flags =
+literal|0
+argument_list|,
+argument|Qt::InputMethodHints inputMethodHints = Qt::ImhNone
+argument_list|)
+block|;
+specifier|static
+name|QString
 name|getItem
 argument_list|(
 argument|QWidget *parent
@@ -688,6 +713,12 @@ argument_list|(
 argument|d_func()
 argument_list|,
 argument|void _q_textChanged(const QString&)
+argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_plainTextEditTextChanged()
 argument_list|)
 name|Q_PRIVATE_SLOT
 argument_list|(

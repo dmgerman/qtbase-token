@@ -83,6 +83,10 @@ name|setText
 argument_list|()
 block|;
 name|void
+name|setMultiLineText
+argument_list|()
+block|;
+name|void
 name|setColor
 argument_list|()
 block|;
@@ -143,6 +147,10 @@ block|;
 name|QLabel
 operator|*
 name|textLabel
+block|;
+name|QLabel
+operator|*
+name|multiLineTextLabel
 block|;
 name|QLabel
 operator|*
