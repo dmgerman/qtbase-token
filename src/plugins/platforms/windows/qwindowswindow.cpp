@@ -954,7 +954,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|// from qwidget_win.cpp
+comment|// from qwidget_win.cpp, pass flags separately in case they have been "autofixed".
 end_comment
 begin_function
 DECL|function|shouldShowMaximizeButton
@@ -966,19 +966,13 @@ specifier|const
 name|QWindow
 modifier|*
 name|w
-parameter_list|)
-block|{
-specifier|const
+parameter_list|,
 name|Qt
 operator|::
 name|WindowFlags
 name|flags
-init|=
-name|w
-operator|->
-name|flags
-argument_list|()
-decl_stmt|;
+parameter_list|)
+block|{
 if|if
 condition|(
 operator|(
@@ -2175,6 +2169,8 @@ condition|(
 name|shouldShowMaximizeButton
 argument_list|(
 name|w
+argument_list|,
+name|flags
 argument_list|)
 condition|)
 name|style
