@@ -3591,11 +3591,11 @@ name|Highlight
 argument_list|,
 name|QColor
 argument_list|(
-literal|145
+literal|48
 argument_list|,
-literal|141
+literal|140
 argument_list|,
-literal|126
+literal|198
 argument_list|)
 argument_list|)
 expr_stmt|;

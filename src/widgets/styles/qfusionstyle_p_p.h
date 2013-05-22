@@ -291,10 +291,6 @@ name|color
 argument_list|(
 name|QPalette
 operator|::
-name|Active
-argument_list|,
-name|QPalette
-operator|::
 name|Highlight
 argument_list|)
 return|;
@@ -328,10 +324,6 @@ name|pal
 operator|.
 name|color
 argument_list|(
-name|QPalette
-operator|::
-name|Active
-argument_list|,
 name|QPalette
 operator|::
 name|HighlightedText
