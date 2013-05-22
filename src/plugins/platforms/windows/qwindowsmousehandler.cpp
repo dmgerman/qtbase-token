@@ -978,7 +978,7 @@ literal|"Automatic mouse capture "
 operator|<<
 name|window
 expr_stmt|;
-comment|// Implement "Click to focus" for native child windows.
+comment|// Implement "Click to focus" for native child windows (unless it is a native widget window).
 if|if
 condition|(
 operator|!
@@ -986,6 +986,14 @@ name|window
 operator|->
 name|isTopLevel
 argument_list|()
+operator|&&
+operator|!
+name|window
+operator|->
+name|inherits
+argument_list|(
+literal|"QWidgetWindow"
+argument_list|)
 operator|&&
 name|QGuiApplication
 operator|::
