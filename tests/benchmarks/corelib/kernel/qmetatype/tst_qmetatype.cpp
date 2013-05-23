@@ -1016,6 +1016,14 @@ condition|;
 operator|++
 name|i
 control|)
+if|if
+condition|(
+name|i
+operator|!=
+name|QMetaType
+operator|::
+name|Void
+condition|)
 name|QTest
 operator|::
 name|newRow

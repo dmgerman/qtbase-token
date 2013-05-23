@@ -3874,12 +3874,6 @@ modifier|*
 argument_list|>
 name|solution_cleanup
 decl_stmt|;
-name|QString
-name|oldpwd
-init|=
-name|qmake_getpwd
-argument_list|()
-decl_stmt|;
 comment|// Make sure that all temp projects are configured
 comment|// for release so that the depends are created
 comment|// without the debug<lib>dxxx.lib name mangling
@@ -6402,14 +6396,6 @@ operator|.
 name|AssemblerListingLocation
 operator|=
 name|placement
-expr_stmt|;
-name|conf
-operator|.
-name|compiler
-operator|.
-name|ProgramDataBaseFileName
-operator|=
-literal|".\\"
 expr_stmt|;
 name|conf
 operator|.

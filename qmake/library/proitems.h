@@ -2501,6 +2501,7 @@ name|TokReplace
 block|,
 comment|// variable ~=
 comment|// previous literal/expansion is a variable manipulation
+comment|// - lower bound for expected output length (1)
 comment|// - value expression + TokValueTerminator
 DECL|enumerator|TokValueTerminator
 name|TokValueTerminator

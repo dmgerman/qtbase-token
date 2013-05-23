@@ -10615,7 +10615,7 @@ endif|#
 directive|endif
 comment|// QT_NO_ACTION
 comment|/*!   \fn bool QWidget::isEnabledToTLW() const   \obsolete    This function is deprecated. It is equivalent to isEnabled() */
-comment|/*!     \property QWidget::enabled     \brief whether the widget is enabled      In general an enabled widget handles keyboard and mouse events; a disabled     widget does not. An exception is made with \l{QAbstractButton}.      Some widgets display themselves differently when they are     disabled. For example a button might draw its label grayed out. If     your widget needs to know when it becomes enabled or disabled, you     can use the changeEvent() with type QEvent::EnabledChange.      Disabling a widget implicitly disables all its children. Enabling     respectively enables all child widgets unless they have been     explicitly disabled.      By default, this property is true.      \sa isEnabledTo(), QKeyEvent, QMouseEvent, changeEvent() */
+comment|/*!     \property QWidget::enabled     \brief whether the widget is enabled      In general an enabled widget handles keyboard and mouse events; a disabled     widget does not. An exception is made with \l{QAbstractButton}.      Some widgets display themselves differently when they are     disabled. For example a button might draw its label grayed out. If     your widget needs to know when it becomes enabled or disabled, you     can use the changeEvent() with type QEvent::EnabledChange.      Disabling a widget implicitly disables all its children. Enabling     respectively enables all child widgets unless they have been     explicitly disabled. It it not possible to explicitly enable a child     widget which is not a window while its parent widget remains disabled.      By default, this property is true.      \sa isEnabledTo(), QKeyEvent, QMouseEvent, changeEvent() */
 DECL|function|setEnabled
 name|void
 name|QWidget
@@ -35023,8 +35023,21 @@ operator|||
 operator|!
 name|updatesEnabled
 argument_list|()
-operator|||
+condition|)
+return|return;
+name|QRegion
+name|r
+init|=
 name|rgn
+operator|&
+name|QWidget
+operator|::
+name|rect
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|r
 operator|.
 name|isEmpty
 argument_list|()
@@ -35049,7 +35062,7 @@ argument_list|,
 operator|new
 name|QUpdateLaterEvent
 argument_list|(
-name|rgn
+name|r
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -35125,7 +35138,7 @@ name|backingStoreTracker
 operator|->
 name|markDirty
 argument_list|(
-name|rgn
+name|r
 argument_list|,
 name|this
 argument_list|)
@@ -35138,7 +35151,7 @@ argument_list|()
 operator|->
 name|repaint_sys
 argument_list|(
-name|rgn
+name|r
 argument_list|)
 expr_stmt|;
 block|}

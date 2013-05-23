@@ -391,6 +391,23 @@ name|void
 name|updateScreens
 argument_list|()
 block|;
+name|QCocoaScreen
+operator|*
+name|screenAtIndex
+argument_list|(
+argument|int index
+argument_list|)
+specifier|const
+block|{
+return|return
+name|mScreens
+operator|.
+name|at
+argument_list|(
+name|index
+argument_list|)
+return|;
+block|}
 name|private
 operator|:
 name|QScopedPointer

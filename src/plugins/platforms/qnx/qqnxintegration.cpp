@@ -549,7 +549,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnx: failed to connect to composition manager, errno=%d"
@@ -557,7 +556,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Not on BlackBerry, it has specialized event dispatcher which also handles navigator events
 if|#
 directive|if
@@ -1383,13 +1381,11 @@ condition|(
 operator|!
 name|m_clipboard
 condition|)
-block|{
 name|m_clipboard
 operator|=
 operator|new
 name|QQnxClipboard
 expr_stmt|;
-block|}
 endif|#
 directive|endif
 return|return
@@ -1733,7 +1729,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxIntegration: failed to query display count, errno=%d"
@@ -1741,7 +1736,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|displayCount
@@ -1803,7 +1797,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxIntegration: failed to query displays, errno=%d"
@@ -1811,7 +1804,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 comment|// If it's primary, we create a QScreen for it even if it's not attached
 comment|// since Qt will dereference QGuiApplication::primaryScreen()
 name|createDisplay

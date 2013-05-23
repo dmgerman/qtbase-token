@@ -2039,12 +2039,9 @@ name|QByteArray
 operator|::
 name|number
 argument_list|(
-name|T
-argument_list|(
+argument|typename QFlags<T>::Int(
 literal|1
-operator|<<
-name|i
-argument_list|)
+argument|)<< i
 argument_list|,
 literal|16
 argument_list|)

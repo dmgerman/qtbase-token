@@ -49,20 +49,11 @@ operator|.
 name|parseCmdLine
 argument_list|()
 expr_stmt|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|EVAL
-argument_list|)
 name|app
 operator|.
 name|validateArgs
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 operator|!
@@ -103,11 +94,13 @@ condition|)
 return|return
 literal|3
 return|;
+comment|// Source file with path settings. Needed by qmake.
 name|app
 operator|.
 name|generateQConfigCpp
 argument_list|()
 expr_stmt|;
+comment|// Bootstrapped includes. Needed by qmake.
 name|app
 operator|.
 name|generateHeaders
@@ -124,6 +117,7 @@ condition|)
 return|return
 literal|3
 return|;
+comment|// Bootstrap qmake. Needed by config tests.
 name|app
 operator|.
 name|buildQmake
@@ -140,9 +134,10 @@ condition|)
 return|return
 literal|3
 return|;
+comment|// Prepare the config test build directory.
 name|app
 operator|.
-name|generateSystemVars
+name|prepareConfigTests
 argument_list|()
 expr_stmt|;
 if|if
@@ -160,6 +155,12 @@ comment|// Auto-detect modules and settings.
 name|app
 operator|.
 name|autoDetection
+argument_list|()
+expr_stmt|;
+comment|// ... and the CPU architectures.
+name|app
+operator|.
+name|detectArch
 argument_list|()
 expr_stmt|;
 comment|// After reading all command-line arguments, and doing all the
@@ -181,13 +182,6 @@ operator|.
 name|generateOutputVars
 argument_list|()
 expr_stmt|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|EVAL
-argument_list|)
 if|if
 condition|(
 operator|!
@@ -211,37 +205,9 @@ argument_list|()
 condition|)
 name|app
 operator|.
-name|generateBuildKey
-argument_list|()
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|app
-operator|.
-name|isDone
-argument_list|()
-condition|)
-name|app
-operator|.
 name|generateConfigfiles
 argument_list|()
 expr_stmt|;
-comment|// must be done after buildQmake()
-if|if
-condition|(
-operator|!
-name|app
-operator|.
-name|isDone
-argument_list|()
-condition|)
-name|app
-operator|.
-name|detectArch
-argument_list|()
-expr_stmt|;
-comment|// must be done after detectArch()
 if|if
 condition|(
 operator|!
@@ -268,8 +234,6 @@ operator|.
 name|displayConfig
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 operator|!

@@ -261,6 +261,16 @@ literal|true
 block|}
 block|,
 block|{
+literal|"QT_HOST_LIBS"
+block|,
+name|QLibraryInfo
+operator|::
+name|HostLibrariesPath
+block|,
+literal|true
+block|}
+block|,
+block|{
 literal|"QMAKE_SPEC"
 block|,
 name|QLibraryInfo

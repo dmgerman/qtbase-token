@@ -36,7 +36,7 @@ block|{
 name|Q_OBJECT
 name|Q_ENUMS
 argument_list|(
-argument|FormStyle FieldGrowthPolicy RowWrapPolicy ItemRole
+argument|FieldGrowthPolicy RowWrapPolicy ItemRole
 argument_list|)
 name|Q_DECLARE_PRIVATE
 argument_list|(

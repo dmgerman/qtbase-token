@@ -3731,13 +3731,49 @@ condition|(
 operator|!
 name|result
 condition|)
+block|{
+name|QString
+name|message
+decl_stmt|;
+name|QDebug
+argument_list|(
+operator|&
+name|message
+argument_list|)
+operator|.
+name|nospace
+argument_list|()
+operator|<<
+name|__FUNCTION__
+operator|<<
+literal|": wglCreateContextAttribsARB() failed (GL error code: 0x"
+operator|<<
+name|hex
+operator|<<
+name|glGetError
+argument_list|()
+operator|<<
+name|dec
+operator|<<
+literal|") for format: "
+operator|<<
+name|format
+operator|<<
+literal|", shared context: "
+operator|<<
+name|shared
+expr_stmt|;
 name|qErrnoWarning
 argument_list|(
-literal|"%s: wglCreateContextAttribsARB() failed."
+literal|"%s"
 argument_list|,
-name|__FUNCTION__
+name|qPrintable
+argument_list|(
+name|message
+argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|result
 return|;

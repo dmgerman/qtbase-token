@@ -2462,7 +2462,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2      If the string \a text is wider than \a width, returns an elided     version of the string (i.e., a string with "..." in it).     Otherwise, returns the original string.      The \a mode parameter specifies whether the text is elided on the     left (e.g., "...tech"), in the middle (e.g., "Tr...ch"), or on     the right (e.g., "Trol...").      The \a width is specified in pixels, not characters.      The \a flags argument is optional and currently only supports     Qt::TextShowMnemonic as value.      The elide mark will follow the \l{Qt::LayoutDirection}{layout     direction}; it will be on the right side of the text for     right-to-left layouts, and on the left side for right-to-left     layouts. Note that this behavior is independent of the text     language. */
+comment|/*!     \since 4.2      If the string \a text is wider than \a width, returns an elided     version of the string (i.e., a string with "..." in it).     Otherwise, returns the original string.      The \a mode parameter specifies whether the text is elided on the     left (e.g., "...tech"), in the middle (e.g., "Tr...ch"), or on     the right (e.g., "Trol...").      The \a width is specified in pixels, not characters.      The \a flags argument is optional and currently only supports     Qt::TextShowMnemonic as value.      The elide mark follows the \l{Qt::LayoutDirection}{layoutdirection}.     For example, it will be on the right side of the text for right-to-left     layouts if the \a mode is \c{Qt::ElideLeft}, and on the left side of the     text if the \a mode is \c{Qt::ElideRight}.  */
 end_comment
 begin_function
 DECL|function|elidedText
@@ -4686,7 +4686,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2      If the string \a text is wider than \a width, returns an elided     version of the string (i.e., a string with "..." in it).     Otherwise, returns the original string.      The \a mode parameter specifies whether the text is elided on the     left (e.g., "...tech"), in the middle (e.g., "Tr...ch"), or on     the right (e.g., "Trol...").      The \a width is specified in pixels, not characters.      The \a flags argument is optional and currently only supports     Qt::TextShowMnemonic as value. */
+comment|/*!     \since 4.2      If the string \a text is wider than \a width, returns an elided     version of the string (i.e., a string with "..." in it).     Otherwise, returns the original string.      The \a mode parameter specifies whether the text is elided on the     left (for example, "...tech"), in the middle (for example, "Tr...ch"), or     on the right (for example, "Trol...").      The \a width is specified in pixels, not characters.      The \a flags argument is optional and currently only supports     Qt::TextShowMnemonic as value.      The elide mark follows the \l{Qt::LayoutDirection}{layoutdirection}.     For example, it will be on the right side of the text for right-to-left     layouts if the \a mode is \c{Qt::ElideLeft}, and on the left side of the     text if the \a mode is \c{Qt::ElideRight}. */
 end_comment
 begin_function
 DECL|function|elidedText

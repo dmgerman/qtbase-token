@@ -506,7 +506,6 @@ argument_list|)
 operator|!=
 literal|"@control"
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQNX: unrecognized pps object, data=%s"
@@ -517,7 +516,6 @@ name|constData
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 comment|// parse pps object attributes and extract values
 for|for
 control|(

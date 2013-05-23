@@ -7635,6 +7635,20 @@ name|index
 expr_stmt|;
 break|break;
 block|}
+if|if
+condition|(
+name|braceCount
+operator|<=
+literal|0
+operator|&&
+name|t
+operator|==
+name|SEMIC
+condition|)
+block|{
+comment|// Abort on semicolon. Allow recovering bad template parsing (QTBUG-31218)
+break|break;
+block|}
 block|}
 if|if
 condition|(

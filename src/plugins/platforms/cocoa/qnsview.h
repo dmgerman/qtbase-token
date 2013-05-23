@@ -113,6 +113,13 @@ name|currentWheelModifiers
 block|;
 name|bool
 name|m_subscribesForGlobalFrameNotifications
+block|;
+name|QCocoaGLContext
+operator|*
+name|m_glContext
+block|;
+name|bool
+name|m_shouldSetGLContextinDrawRect
 block|; }
 operator|-
 operator|(

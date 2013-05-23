@@ -4904,7 +4904,9 @@ modifier|*
 name|event
 parameter_list|)
 block|{
-name|Q_UNUSED
+name|QGraphicsObject
+operator|::
+name|hoverLeaveEvent
 argument_list|(
 name|event
 argument_list|)

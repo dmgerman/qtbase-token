@@ -175,13 +175,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_MAC
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_IOS
+name|Q_OS_MACX
 argument_list|)
 specifier|const
 name|QPalette
@@ -297,10 +291,6 @@ name|color
 argument_list|(
 name|QPalette
 operator|::
-name|Active
-argument_list|,
-name|QPalette
-operator|::
 name|Highlight
 argument_list|)
 return|;
@@ -334,10 +324,6 @@ name|pal
 operator|.
 name|color
 argument_list|(
-name|QPalette
-operator|::
-name|Active
-argument_list|,
 name|QPalette
 operator|::
 name|HighlightedText

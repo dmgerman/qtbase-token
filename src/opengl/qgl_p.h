@@ -403,6 +403,11 @@ argument_list|()
 block|,
 name|disable_clear_on_painter_begin
 argument_list|(
+name|false
+argument_list|)
+block|,
+name|parent_changing
+argument_list|(
 argument|false
 argument_list|)
 block|{     }
@@ -455,6 +460,9 @@ block|{
 if|if
 condition|(
 name|glcx
+operator|&&
+operator|!
+name|parent_changing
 condition|)
 name|glcx
 operator|->
@@ -477,6 +485,9 @@ name|cmap
 block|;
 name|bool
 name|disable_clear_on_painter_begin
+block|;
+name|bool
+name|parent_changing
 block|; }
 decl_stmt|;
 end_decl_stmt

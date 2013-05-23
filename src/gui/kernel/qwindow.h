@@ -1480,6 +1480,7 @@ name|QHideEvent
 modifier|*
 parameter_list|)
 function_decl|;
+comment|// TODO Qt 6 - add closeEvent virtual handler
 name|virtual
 name|bool
 name|event

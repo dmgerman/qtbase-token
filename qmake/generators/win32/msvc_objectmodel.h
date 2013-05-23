@@ -208,15 +208,25 @@ name|basicRuntimeCheckOption
 block|{
 DECL|enumerator|runtimeBasicCheckNone
 name|runtimeBasicCheckNone
+init|=
+literal|0
 block|,
 DECL|enumerator|runtimeCheckStackFrame
 name|runtimeCheckStackFrame
+init|=
+literal|1
 block|,
 DECL|enumerator|runtimeCheckUninitVariables
 name|runtimeCheckUninitVariables
+init|=
+literal|2
 block|,
 DECL|enumerator|runtimeBasicCheckAll
 name|runtimeBasicCheckAll
+init|=
+name|runtimeCheckStackFrame
+operator||
+name|runtimeCheckUninitVariables
 block|}
 enum|;
 end_enum
@@ -1942,6 +1952,9 @@ block|;
 name|triState
 name|UseUnicodeForAssemblerListing
 block|;
+name|QStringList
+name|TreatSpecificWarningsAsErrors
+block|;
 name|triState
 name|WarnAsError
 block|;
@@ -1988,6 +2001,16 @@ block|;
 name|VCConfiguration
 operator|*
 name|config
+block|;
+name|private
+operator|:
+name|bool
+name|parseRuntimeCheckOption
+argument_list|(
+argument|char c
+argument_list|,
+argument|int *rtc
+argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt

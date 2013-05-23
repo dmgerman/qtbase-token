@@ -447,6 +447,10 @@ block|,
 name|Exposed
 operator|=
 literal|0x08000
+block|,
+name|WithinCreate
+operator|=
+literal|0x10000
 block|}
 decl_stmt|;
 end_decl_stmt

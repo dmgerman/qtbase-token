@@ -238,7 +238,6 @@ if|if
 condition|(
 name|result
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQNX: failed to query event type, errno=%d"
@@ -246,7 +245,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|handleEvent
 argument_list|(
@@ -525,7 +523,6 @@ name|flags
 operator|&
 name|KEY_SYM_VALID
 condition|)
-block|{
 name|keyStr
 operator|=
 name|QChar
@@ -533,7 +530,6 @@ argument_list|(
 name|sym
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 elseif|else
@@ -675,7 +671,6 @@ if|if
 condition|(
 name|result
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQNX: failed to query event flags, errno=%d"
@@ -683,7 +678,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 comment|// get key code
 name|errno
 operator|=
@@ -708,7 +702,6 @@ if|if
 condition|(
 name|result
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQNX: failed to query event sym, errno=%d"
@@ -716,7 +709,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 name|int
 name|modifiers
 decl_stmt|;
@@ -736,7 +728,6 @@ if|if
 condition|(
 name|result
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQNX: failed to query event modifiers, errno=%d"
@@ -744,7 +735,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 name|int
 name|scan
 decl_stmt|;
@@ -764,7 +754,6 @@ if|if
 condition|(
 name|result
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQNX: failed to query event modifiers, errno=%d"
@@ -772,7 +761,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 name|int
 name|cap
 decl_stmt|;
@@ -792,7 +780,6 @@ if|if
 condition|(
 name|result
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQNX: failed to query event cap, errno=%d"
@@ -800,7 +787,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 name|injectKeyboardEvent
 argument_list|(
 name|flags
@@ -856,7 +842,6 @@ if|if
 condition|(
 name|result
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQNX: failed to query event window, errno=%d"
@@ -864,7 +849,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 name|qnxWindow
 operator|=
 cast|static_cast
@@ -897,7 +881,6 @@ if|if
 condition|(
 name|result
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQNX: failed to query event button state, errno=%d"
@@ -905,7 +888,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Query the window position
 name|int
 name|windowPos
@@ -928,7 +910,6 @@ if|if
 condition|(
 name|result
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQNX: failed to query event window position, errno=%d"
@@ -936,7 +917,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Query the screen position
 name|int
 name|pos
@@ -959,7 +939,6 @@ if|if
 condition|(
 name|result
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQNX: failed to query event position, errno=%d"
@@ -967,7 +946,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Query the wheel delta
 name|int
 name|wheelDelta
@@ -990,7 +968,6 @@ if|if
 condition|(
 name|result
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQNX: failed to query event wheel delta, errno=%d"
@@ -998,7 +975,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Map window handle to top-level QWindow
 name|QWindow
 modifier|*
@@ -1436,7 +1412,6 @@ if|if
 condition|(
 name|result
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQNX: failed to query event position, errno=%d"
@@ -1444,7 +1419,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 name|QCursor
 operator|::
 name|setPos
@@ -1486,7 +1460,6 @@ if|if
 condition|(
 name|result
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQNX: failed to query event window position, errno=%d"
@@ -1494,7 +1467,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 comment|// determine which finger touched
 name|errno
 operator|=
@@ -1519,7 +1491,6 @@ if|if
 condition|(
 name|result
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQNX: failed to query event touch id, errno=%d"
@@ -1527,7 +1498,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 comment|// determine which window was touched
 name|errno
 operator|=
@@ -1553,7 +1523,6 @@ if|if
 condition|(
 name|result
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQNX: failed to query event window, errno=%d"
@@ -1561,7 +1530,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 name|screen_window_t
 name|qnxWindow
 init|=
@@ -2023,7 +1991,6 @@ name|w
 operator|!=
 literal|0
 condition|)
-block|{
 name|QWindowSystemInterface
 operator|::
 name|handleCloseEvent
@@ -2031,7 +1998,6 @@ argument_list|(
 name|w
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 end_function
 begin_function

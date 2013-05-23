@@ -83,7 +83,7 @@ operator|-
 operator|(
 name|void
 operator|)
-name|windowWillClose
+name|windowWillMove
 operator|:
 operator|(
 name|NSNotification

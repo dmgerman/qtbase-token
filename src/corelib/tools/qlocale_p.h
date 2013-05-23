@@ -819,7 +819,7 @@ name|ref
 operator|.
 name|store
 argument_list|(
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 name|retval
@@ -1137,16 +1137,6 @@ operator|&
 name|cntry
 argument_list|)
 decl_stmt|;
-specifier|static
-specifier|const
-name|QLocaleData
-modifier|*
-name|dataPointerForIndex
-parameter_list|(
-name|quint16
-name|index
-parameter_list|)
-function_decl|;
 name|QLocale
 operator|::
 name|MeasurementSystem

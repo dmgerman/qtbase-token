@@ -771,6 +771,7 @@ argument_list|(
 argument|int exitCode
 argument_list|)
 block|;
+comment|// ### Qt 6: merge the two signals with a default value
 name|void
 name|finished
 argument_list|(

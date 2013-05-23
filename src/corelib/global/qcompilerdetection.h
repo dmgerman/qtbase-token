@@ -2746,12 +2746,6 @@ begin_comment
 comment|/* C++11 features supported in GCC 4.4: */
 end_comment
 begin_define
-DECL|macro|Q_COMPILER_ATOMICS
-define|#
-directive|define
-name|Q_COMPILER_ATOMICS
-end_define
-begin_define
 DECL|macro|Q_COMPILER_AUTO_FUNCTION
 define|#
 directive|define
@@ -2898,6 +2892,15 @@ operator|)
 operator|>=
 literal|407
 end_if
+begin_comment
+comment|/* GCC 4.4 implemented<atomic> and std::atomic using its old intrinsics.         * However, the implementation is incomplete for most platforms until GCC 4.7:         * instead, std::atomic would use an external lock. Since we need an std::atomic         * that is behavior-compatible with QBasicAtomic, we only enable it here */
+end_comment
+begin_define
+DECL|macro|Q_COMPILER_ATOMICS
+define|#
+directive|define
+name|Q_COMPILER_ATOMICS
+end_define
 begin_comment
 comment|/* GCC 4.6.x has problems dealing with noexcept expressions,         * so turn the feature on for 4.7 and above, only */
 end_comment

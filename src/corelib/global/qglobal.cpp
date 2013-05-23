@@ -152,13 +152,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_MAC
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_IOS
+name|Q_OS_MACX
 argument_list|)
 end_if
 begin_include
@@ -261,6 +255,9 @@ comment|/*!     \fn QFlags&QFlags::operator&=(int mask)      Performs a bitwise 
 end_comment
 begin_comment
 comment|/*!     \fn QFlags&QFlags::operator&=(uint mask)      \overload */
+end_comment
+begin_comment
+comment|/*!     \fn QFlags&QFlags::operator&=(Enum mask)      \overload */
 end_comment
 begin_comment
 comment|/*!     \fn QFlags&QFlags::operator|=(QFlags other)      Performs a bitwise OR operation with \a other and stores the     result in this QFlags object. Returns a reference to this object.      \sa operator|(), operator&=(), operator^=() */
@@ -453,7 +450,7 @@ begin_comment
 comment|/*****************************************************************************   System detection routines  *****************************************************************************/
 end_comment
 begin_comment
-comment|/*!     \class QSysInfo     \inmodule QtCore     \brief The QSysInfo class provides information about the system.      \list     \li \l WordSize specifies the size of a pointer for the platform        on which the application is compiled.     \li \l ByteOrder specifies whether the platform is big-endian or        little-endian.     \li \l WindowsVersion specifies the version of the Windows operating        system on which the application is run (Windows only)     \li \l MacintoshVersion specifies the version of the Macintosh        operating system on which the application is run (Mac only).     \endlist      Some constants are defined only on certain platforms. You can use     the preprocessor symbols Q_OS_WIN and Q_OS_MAC to test that     the application is compiled under Windows or Mac.      \sa QLibraryInfo */
+comment|/*!     \class QSysInfo     \inmodule QtCore     \brief The QSysInfo class provides information about the system.      \list     \li \l WordSize specifies the size of a pointer for the platform        on which the application is compiled.     \li \l ByteOrder specifies whether the platform is big-endian or        little-endian.     \li \l WindowsVersion specifies the version of the Windows operating        system on which the application is run (Windows only)     \li \l MacintoshVersion specifies the version of the Macintosh        operating system on which the application is run (Mac only).     \endlist      Some constants are defined only on certain platforms. You can use     the preprocessor symbols Q_OS_WIN and Q_OS_MACX to test that     the application is compiled under Windows or OS X.      \sa QLibraryInfo */
 end_comment
 begin_comment
 comment|/*!     \enum QSysInfo::Sizes      This enum provides platform-specific information about the sizes of data     structures used by the underlying architecture.      \value WordSize The size in bits of a pointer for the platform on which            the application is compiled (32 or 64). */
@@ -481,6 +478,15 @@ comment|/*!     \enum QSysInfo::MacVersion      This enum provides symbolic name
 end_comment
 begin_comment
 comment|/*!     \macro Q_OS_DARWIN     \relates<QtGlobal>      Defined on Darwin OS (synonym for Q_OS_MAC). */
+end_comment
+begin_comment
+comment|/*!     \macro Q_OS_MAC     \relates<QtGlobal>      Defined on OS X and iOS (synonym for Q_OS_DARWIN).  */
+end_comment
+begin_comment
+comment|/*!     \macro Q_OS_MACX     \relates<QtGlobal>      Defined on OS X.  */
+end_comment
+begin_comment
+comment|/*!     \macro Q_OS_IOS     \relates<QtGlobal>      Defined on iOS.  */
 end_comment
 begin_comment
 comment|/*!     \macro Q_OS_WIN     \relates<QtGlobal>      Defined on all supported versions of Windows. That is, if     \l Q_OS_WIN32, \l Q_OS_WIN64 or \l Q_OS_WINCE is defined. */
@@ -616,9 +622,6 @@ comment|/*!     \macro Q_CC_PGI     \relates<QtGlobal>      Defined if the appli
 end_comment
 begin_comment
 comment|/*!     \macro Q_CC_GHS     \relates<QtGlobal>      Defined if the application is compiled using Green Hills     Optimizing C++ Compilers. */
-end_comment
-begin_comment
-comment|/*!   \macro Q_OS_MAC   \relates<QtGlobal>    Defined on MAC OS (synonym for Darwin).  */
 end_comment
 begin_comment
 comment|/*!     \macro Q_PROCESSOR_ALPHA     \relates<QtGlobal>      Defined if the application is compiled for Alpha processors. */
@@ -768,13 +771,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_MAC
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_IOS
+name|Q_OS_MACX
 argument_list|)
 end_if
 begin_function
@@ -910,7 +907,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// defined(Q_OS_MAC)&& !defined(Q_OS_IOS)
+comment|// defined(Q_OS_MACX)
 end_comment
 begin_if
 if|#

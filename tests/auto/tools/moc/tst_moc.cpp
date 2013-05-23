@@ -174,7 +174,35 @@ begin_macro
 name|QT_USE_NAMESPACE
 end_macro
 begin_struct
-DECL|struct|MyStruct
+DECL|struct|QTBUG_31218
+template|template
+parameter_list|<
+name|bool
+name|b
+parameter_list|>
+struct|struct
+name|QTBUG_31218
+block|{
+block|}
+struct|;
+end_struct
+begin_struct
+DECL|struct|QTBUG_31218_Derived
+struct|struct
+name|QTBUG_31218_Derived
+super|:
+name|QTBUG_31218
+argument_list|<
+operator|-
+literal|1
+operator|<
+literal|0
+argument_list|>
+block|{
+block|}
+struct|;
+end_struct
+begin_struct
 struct|struct
 name|MyStruct
 block|{
@@ -182,7 +210,6 @@ block|}
 struct|;
 end_struct
 begin_struct
-DECL|struct|MyStruct2
 struct|struct
 name|MyStruct2
 block|{
@@ -190,7 +217,6 @@ block|}
 struct|;
 end_struct
 begin_struct
-DECL|struct|SuperClass
 struct|struct
 name|SuperClass
 block|{
@@ -204,7 +230,6 @@ begin_comment
 comment|// That will make the test give a false positive.
 end_comment
 begin_decl_stmt
-DECL|variable|test_multiple_number_of_escapes
 specifier|const
 name|char
 modifier|*
@@ -214,11 +239,9 @@ literal|"\\\""
 decl_stmt|;
 end_decl_stmt
 begin_namespace
-DECL|namespace|MyNamespace
 namespace|namespace
 name|MyNamespace
 block|{
-DECL|class|TestSuperClass
 class|class
 name|TestSuperClass
 super|:
@@ -227,7 +250,6 @@ name|QObject
 block|{
 name|Q_OBJECT
 public|public:
-DECL|function|TestSuperClass
 specifier|inline
 name|TestSuperClass
 parameter_list|()
@@ -237,11 +259,9 @@ class|;
 block|}
 end_namespace
 begin_namespace
-DECL|namespace|String
 namespace|namespace
 name|String
 block|{
-DECL|typedef|Type
 typedef|typedef
 name|QString
 name|Type
@@ -249,11 +269,9 @@ typedef|;
 block|}
 end_namespace
 begin_namespace
-DECL|namespace|Int
 namespace|namespace
 name|Int
 block|{
-DECL|typedef|Type
 typedef|typedef
 name|int
 name|Type
@@ -264,17 +282,14 @@ begin_typedef
 typedef|typedef
 struct|struct
 block|{
-DECL|member|doNotConfuseMoc
 name|int
 name|doNotConfuseMoc
 decl_stmt|;
 block|}
-DECL|typedef|OldStyleCStruct
 name|OldStyleCStruct
 typedef|;
 end_typedef
 begin_class
-DECL|class|Sender
 class|class
 name|Sender
 super|:
@@ -283,7 +298,6 @@ name|QObject
 block|{
 name|Q_OBJECT
 public|public:
-DECL|function|sendValue
 name|void
 name|sendValue
 parameter_list|(
@@ -302,7 +316,6 @@ name|value
 argument_list|)
 emit|;
 block|}
-DECL|function|sendValue
 name|void
 name|sendValue
 parameter_list|(
@@ -346,7 +359,6 @@ block|}
 class|;
 end_class
 begin_class
-DECL|class|Receiver
 class|class
 name|Receiver
 super|:
@@ -355,7 +367,6 @@ name|QObject
 block|{
 name|Q_OBJECT
 public|public:
-DECL|function|Receiver
 name|Receiver
 parameter_list|()
 member_init_list|:
@@ -369,18 +380,15 @@ argument_list|(
 literal|0
 argument_list|)
 block|{}
-DECL|member|stringCallCount
 name|int
 name|stringCallCount
 decl_stmt|;
-DECL|member|intCallCount
 name|int
 name|intCallCount
 decl_stmt|;
 public|public
 name|slots
 public|:
-DECL|function|receive
 name|void
 name|receive
 parameter_list|(
@@ -395,7 +403,6 @@ name|stringCallCount
 operator|++
 expr_stmt|;
 block|}
-DECL|function|receive
 name|void
 name|receive
 parameter_list|(
@@ -456,15 +463,12 @@ argument|MyStruct*
 argument_list|)
 end_macro
 begin_namespace
-DECL|namespace|myNS
 namespace|namespace
 name|myNS
 block|{
-DECL|struct|Points
 struct|struct
 name|Points
 block|{
-DECL|function|Points
 name|Points
 parameter_list|()
 member_init_list|:
@@ -478,8 +482,6 @@ argument_list|(
 literal|0xBABE
 argument_list|)
 block|{ }
-DECL|member|p1
-DECL|member|p2
 name|int
 name|p1
 decl_stmt|,
@@ -496,7 +498,6 @@ argument|myNS::Points
 argument_list|)
 end_macro
 begin_class
-DECL|class|TestClassinfoWithEscapes
 class|class
 name|TestClassinfoWithEscapes
 super|:
@@ -519,7 +520,6 @@ argument_list|)
 decl|public
 name|slots
 range|:
-DECL|function|slotWithAReallyLongName
 name|void
 name|slotWithAReallyLongName
 argument_list|(
@@ -535,7 +535,6 @@ name|ForwardDeclaredStruct
 struct_decl|;
 end_struct_decl
 begin_struct
-DECL|struct|StructQObject
 struct|struct
 name|StructQObject
 super|:
@@ -556,7 +555,6 @@ block|}
 struct|;
 end_struct
 begin_function
-DECL|function|foo
 name|void
 name|StructQObject
 operator|::
@@ -582,7 +580,6 @@ decl_stmt|;
 block|}
 end_function
 begin_decl_stmt
-DECL|class|TestClass
 name|class
 name|TestClass
 range|:
@@ -728,7 +725,6 @@ literal|""
 argument_list|)
 specifier|public
 operator|:
-DECL|function|TestClass
 specifier|inline
 name|TestClass
 argument_list|()
@@ -756,49 +752,42 @@ argument_list|()
 specifier|const
 name|MACRO_WITH_POSSIBLE_COMPILER_SPECIFIC_ATTRIBUTES
 block|{}
-DECL|function|slotWithULongLong
 name|void
 name|slotWithULongLong
 argument_list|(
 argument|unsigned long long
 argument_list|)
 block|{}
-DECL|function|slotWithULongLongP
 name|void
 name|slotWithULongLongP
 argument_list|(
 argument|unsigned long long*
 argument_list|)
 block|{}
-DECL|function|slotWithULong
 name|void
 name|slotWithULong
 argument_list|(
 argument|unsigned long
 argument_list|)
 block|{}
-DECL|function|slotWithLongLong
 name|void
 name|slotWithLongLong
 argument_list|(
 argument|long long
 argument_list|)
 block|{}
-DECL|function|slotWithLong
 name|void
 name|slotWithLong
 argument_list|(
 argument|long
 argument_list|)
 block|{}
-DECL|function|slotWithColonColonType
 name|void
 name|slotWithColonColonType
 argument_list|(
 argument|::Int::Type
 argument_list|)
 block|{}
-DECL|function|slotWithReferenceReturnType
 name|TestClass
 operator|&
 name|slotWithReferenceReturnType
@@ -818,7 +807,6 @@ literal|1
 operator|)
 operator|||
 literal|1
-DECL|function|expressionEvaluationShortcut1
 name|void
 name|expressionEvaluationShortcut1
 argument_list|()
@@ -836,7 +824,6 @@ operator|&&
 literal|0
 else|#
 directive|else
-DECL|function|expressionEvaluationShortcut2
 name|void
 name|expressionEvaluationShortcut2
 argument_list|()
@@ -846,7 +833,6 @@ directive|endif
 specifier|public
 name|slots
 operator|:
-DECL|function|slotWithArray
 name|void
 name|slotWithArray
 argument_list|(
@@ -855,7 +841,6 @@ literal|3
 argument|]
 argument_list|)
 block|{}
-DECL|function|slotWithNamedArray
 name|void
 name|slotWithNamedArray
 argument_list|(
@@ -869,7 +854,6 @@ argument_list|(
 name|namedArray
 argument_list|)
 block|; }
-DECL|function|slotWithMultiArray
 name|void
 name|slotWithMultiArray
 argument_list|(
@@ -880,7 +864,6 @@ literal|4
 argument|]
 argument_list|)
 block|{}
-DECL|function|shortIntProperty
 name|short
 name|int
 name|shortIntProperty
@@ -890,7 +873,6 @@ return|return
 literal|0
 return|;
 block|}
-DECL|function|unsignedShortIntProperty
 name|unsigned
 name|short
 name|int
@@ -901,7 +883,6 @@ return|return
 literal|0
 return|;
 block|}
-DECL|function|signedShortIntProperty
 name|signed
 name|short
 name|int
@@ -912,7 +893,6 @@ return|return
 literal|0
 return|;
 block|}
-DECL|function|longIntProperty
 name|long
 name|int
 name|longIntProperty
@@ -922,7 +902,6 @@ return|return
 literal|0
 return|;
 block|}
-DECL|function|unsignedLongIntProperty
 name|unsigned
 name|long
 name|int
@@ -933,7 +912,6 @@ return|return
 literal|0
 return|;
 block|}
-DECL|function|signedLongIntProperty
 name|signed
 name|long
 name|int
@@ -944,7 +922,6 @@ return|return
 literal|0
 return|;
 block|}
-DECL|function|longDoubleProperty
 name|long
 name|double
 name|longDoubleProperty
@@ -954,7 +931,6 @@ return|return
 literal|0.0
 return|;
 block|}
-DECL|function|points
 name|myNS
 operator|::
 name|Points
@@ -965,7 +941,6 @@ return|return
 name|m_points
 return|;
 block|}
-DECL|function|setPoints
 name|void
 name|setPoints
 argument_list|(
@@ -996,6 +971,28 @@ literal|3
 argument|]
 argument_list|)
 argument_list|;
+name|void
+name|signalWithIterator
+argument_list|(
+name|QList
+argument_list|<
+name|QUrl
+argument_list|>
+operator|::
+name|iterator
+argument_list|)
+argument_list|;
+name|void
+name|signalWithListPointer
+argument_list|(
+name|QList
+argument_list|<
+name|QUrl
+argument_list|>
+operator|*
+argument_list|)
+argument_list|;
+comment|//QTBUG-31002
 specifier|private
 name|slots
 operator|:
@@ -1006,7 +1003,6 @@ literal|0
 expr|void invalidSlot() {}
 else|#
 directive|else
-DECL|function|slotInElse
 name|void
 name|slotInElse
 argument_list|()
@@ -1016,14 +1012,12 @@ directive|endif
 if|#
 directive|if
 literal|1
-DECL|function|slotInIf
 name|void
 name|slotInIf
 argument_list|()
 block|{}
 else|#
 directive|else
-DECL|function|invalidSlot
 name|void
 name|invalidSlot
 argument_list|()
@@ -1039,7 +1033,6 @@ directive|elif
 literal|0
 else|#
 directive|else
-DECL|function|slotInLastElse
 name|void
 name|slotInLastElse
 argument_list|()
@@ -1053,14 +1046,12 @@ expr|void invalidSlot() {}
 elif|#
 directive|elif
 literal|1
-DECL|function|slotInElif
 name|void
 name|slotInElif
 argument_list|()
 block|{}
 else|#
 directive|else
-DECL|function|invalidSlot
 name|void
 name|invalidSlot
 argument_list|()
@@ -1178,7 +1169,6 @@ begin_public
 public|public
 name|slots
 public|:
-DECL|function|slotWithSillyConst
 name|void
 specifier|const
 name|slotWithSillyConst
@@ -1187,14 +1177,12 @@ block|{}
 end_public
 begin_public
 public|public:
-DECL|function|slotWithSillyConst2
 name|Q_INVOKABLE
 name|void
 specifier|const
 name|slotWithSillyConst2
 parameter_list|()
 block|{}
-DECL|function|myInvokableReturningRef
 name|Q_INVOKABLE
 name|QObject
 modifier|&
@@ -1206,7 +1194,6 @@ operator|*
 name|this
 return|;
 block|}
-DECL|function|myInvokableReturningConstRef
 name|Q_INVOKABLE
 specifier|const
 name|QObject
@@ -1226,7 +1213,6 @@ begin_public
 public|public
 name|slots
 public|:
-DECL|function|slotWithVoidStar
 name|void
 name|slotWithVoidStar
 parameter_list|(
@@ -1237,7 +1223,6 @@ block|{}
 end_public
 begin_private
 private|private:
-DECL|member|m_points
 name|myNS
 operator|::
 name|Points
@@ -1248,14 +1233,12 @@ begin_private
 private|private
 name|slots
 private|:
-DECL|function|blub1
 specifier|inline
 specifier|virtual
 name|void
 name|blub1
 parameter_list|()
 block|{}
-DECL|function|blub2
 specifier|virtual
 specifier|inline
 name|void
@@ -1264,7 +1247,6 @@ parameter_list|()
 block|{}
 end_private
 begin_class
-DECL|class|PropertyTestClass
 unit|};
 class|class
 name|PropertyTestClass
@@ -1274,10 +1256,6 @@ name|QObject
 block|{
 name|Q_OBJECT
 public|public:
-DECL|enum|TestEnum
-DECL|enumerator|One
-DECL|enumerator|Two
-DECL|enumerator|Three
 enum|enum
 name|TestEnum
 block|{
@@ -1296,7 +1274,6 @@ block|}
 class|;
 end_class
 begin_class
-DECL|class|PropertyUseClass
 class|class
 name|PropertyUseClass
 super|:
@@ -1315,7 +1292,6 @@ name|foo
 parameter_list|)
 specifier|public
 private|:
-DECL|function|foo
 specifier|inline
 name|PropertyTestClass
 operator|::
@@ -1334,7 +1310,6 @@ block|}
 class|;
 end_class
 begin_class
-DECL|class|EnumSourceClass
 class|class
 name|EnumSourceClass
 super|:
@@ -1343,8 +1318,6 @@ name|QObject
 block|{
 name|Q_OBJECT
 public|public:
-DECL|enum|TestEnum
-DECL|enumerator|Value
 enum|enum
 name|TestEnum
 block|{
@@ -1361,7 +1334,6 @@ block|}
 class|;
 end_class
 begin_class
-DECL|class|EnumUserClass
 class|class
 name|EnumUserClass
 super|:
@@ -1409,7 +1381,6 @@ endif|#
 directive|endif
 end_endif
 begin_class
-DECL|class|CtorTestClass
 class|class
 name|CtorTestClass
 super|:
@@ -1434,7 +1405,6 @@ name|int
 name|foo
 parameter_list|)
 constructor_decl|;
-DECL|function|CtorTestClass
 specifier|inline
 name|Q_INVOKABLE
 name|CtorTestClass
@@ -1450,7 +1420,6 @@ operator|=
 name|str
 expr_stmt|;
 block|}
-DECL|member|m_str
 name|QString
 name|m_str
 decl_stmt|;
@@ -1468,7 +1437,6 @@ name|baz
 parameter_list|)
 constructor_decl|;
 private|private:
-DECL|function|CtorTestClass
 name|CtorTestClass
 parameter_list|(
 name|float
@@ -1480,7 +1448,6 @@ block|}
 class|;
 end_class
 begin_constructor
-DECL|function|CtorTestClass
 name|CtorTestClass
 operator|::
 name|CtorTestClass
@@ -1497,7 +1464,6 @@ argument_list|)
 block|{}
 end_constructor
 begin_constructor
-DECL|function|CtorTestClass
 name|CtorTestClass
 operator|::
 name|CtorTestClass
@@ -1516,7 +1482,6 @@ name|PrivatePropertyTest
 class_decl|;
 end_class_decl
 begin_class
-DECL|class|tst_Moc
 class|class
 name|tst_Moc
 super|:
@@ -1605,7 +1570,6 @@ name|CONSTANT
 argument_list|)
 decl|public
 range|:
-DECL|function|tst_Moc
 specifier|inline
 name|tst_Moc
 argument_list|()
@@ -1956,7 +1920,6 @@ name|newVal
 parameter_list|)
 function_decl|;
 private|private:
-DECL|function|user1
 name|bool
 name|user1
 parameter_list|()
@@ -1966,7 +1929,6 @@ literal|true
 return|;
 block|}
 empty_stmt|;
-DECL|function|user2
 name|bool
 name|user2
 parameter_list|()
@@ -1976,7 +1938,6 @@ literal|false
 return|;
 block|}
 empty_stmt|;
-DECL|function|user3
 name|bool
 name|user3
 parameter_list|()
@@ -1986,7 +1947,6 @@ literal|false
 return|;
 block|}
 empty_stmt|;
-DECL|function|userFunction
 name|bool
 name|userFunction
 parameter_list|()
@@ -2005,7 +1965,6 @@ name|void
 name|revisions_T
 parameter_list|()
 function_decl|;
-DECL|function|member2
 name|QString
 name|member2
 parameter_list|()
@@ -2015,7 +1974,6 @@ return|return
 name|sMember
 return|;
 block|}
-DECL|function|setMember3
 name|void
 name|setMember3
 parameter_list|(
@@ -2031,27 +1989,22 @@ name|sVal
 expr_stmt|;
 block|}
 private|private:
-DECL|member|m_sourceDirectory
 name|QString
 name|m_sourceDirectory
 decl_stmt|;
-DECL|member|qtIncludePath
 name|QString
 name|qtIncludePath
 decl_stmt|;
 class_decl|class
 name|PrivateClass
 class_decl|;
-DECL|member|sMember
 name|QString
 name|sMember
 decl_stmt|;
-DECL|member|sConst
 specifier|const
 name|QString
 name|sConst
 decl_stmt|;
-DECL|member|pPPTest
 name|PrivatePropertyTest
 modifier|*
 name|pPPTest
@@ -2060,7 +2013,6 @@ block|}
 class|;
 end_class
 begin_function
-DECL|function|initTestCase
 name|void
 name|tst_Moc
 operator|::
@@ -2209,7 +2161,6 @@ directive|endif
 block|}
 end_function
 begin_function
-DECL|function|slotWithException
 name|void
 name|tst_Moc
 operator|::
@@ -2229,7 +2180,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|dontStripNamespaces
 name|void
 name|tst_Moc
 operator|::
@@ -2371,7 +2321,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|oldStyleCasts
 name|void
 name|tst_Moc
 operator|::
@@ -2575,7 +2524,6 @@ directive|endif
 block|}
 end_function
 begin_function
-DECL|function|warnOnExtraSignalSlotQualifiaction
 name|void
 name|tst_Moc
 operator|::
@@ -2714,7 +2662,6 @@ directive|endif
 block|}
 end_function
 begin_function
-DECL|function|uLongLong
 name|void
 name|tst_Moc
 operator|::
@@ -2823,7 +2770,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|inputFileNameWithDotsButNoExtension
 name|void
 name|tst_Moc
 operator|::
@@ -3032,7 +2978,6 @@ directive|endif
 block|}
 end_function
 begin_function
-DECL|function|userProperties
 name|void
 name|tst_Moc
 operator|::
@@ -3145,7 +3090,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|supportConstSignals
 name|void
 name|tst_Moc
 operator|::
@@ -3252,7 +3196,6 @@ directive|include
 file|"task87883.h"
 end_include
 begin_function
-DECL|function|task87883
 name|void
 name|tst_Moc
 operator|::
@@ -3277,7 +3220,6 @@ directive|include
 file|"c-comments.h"
 end_include
 begin_function
-DECL|function|multilineComments
 name|void
 name|tst_Moc
 operator|::
@@ -3297,7 +3239,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|classinfoWithEscapes
 name|void
 name|tst_Moc
 operator|::
@@ -3358,7 +3299,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|trNoopInClassInfo
 name|void
 name|tst_Moc
 operator|::
@@ -3429,7 +3369,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|ppExpressionEvaluation
 name|void
 name|tst_Moc
 operator|::
@@ -3487,7 +3426,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|arrayArguments
 name|void
 name|tst_Moc
 operator|::
@@ -3575,7 +3513,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|preprocessorConditionals
 name|void
 name|tst_Moc
 operator|::
@@ -3702,7 +3639,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|blackslashNewlines
 name|void
 name|tst_Moc
 operator|::
@@ -3751,7 +3687,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|slotWithSillyConst
 name|void
 name|tst_Moc
 operator|::
@@ -3813,7 +3748,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|testExtraData
 name|void
 name|tst_Moc
 operator|::
@@ -3945,7 +3879,6 @@ begin_comment
 comment|// QTBUG-20639 - Accept non-local enums for QML signal/slot parameters.
 end_comment
 begin_function
-DECL|function|testExtraDataForEnum
 name|void
 name|tst_Moc
 operator|::
@@ -4053,7 +3986,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|namespaceTypeProperty
 name|void
 name|tst_Moc
 operator|::
@@ -4206,7 +4138,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|slotsWithVoidTemplate
 name|void
 name|tst_Moc
 operator|::
@@ -4315,7 +4246,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|structQObject
 name|void
 name|tst_Moc
 operator|::
@@ -4352,7 +4282,6 @@ directive|include
 file|"namespaced-flags.h"
 end_include
 begin_expr_stmt
-DECL|variable|QList
 name|Q_DECLARE_METATYPE
 argument_list|(
 name|QList
@@ -4367,7 +4296,6 @@ argument_list|)
 expr_stmt|;
 end_expr_stmt
 begin_function
-DECL|function|namespacedFlags
 name|void
 name|tst_Moc
 operator|::
@@ -4530,7 +4458,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|warnOnMultipleInheritance
 name|void
 name|tst_Moc
 operator|::
@@ -4672,7 +4599,6 @@ directive|endif
 block|}
 end_function
 begin_function
-DECL|function|forgottenQInterface
 name|void
 name|tst_Moc
 operator|::
@@ -4814,7 +4740,6 @@ directive|endif
 block|}
 end_function
 begin_function
-DECL|function|os9Newline
 name|void
 name|tst_Moc
 operator|::
@@ -4913,7 +4838,6 @@ directive|endif
 block|}
 end_function
 begin_function
-DECL|function|winNewline
 name|void
 name|tst_Moc
 operator|::
@@ -5068,7 +4992,6 @@ directive|endif
 block|}
 end_function
 begin_function
-DECL|function|escapesInStringLiterals
 name|void
 name|tst_Moc
 operator|::
@@ -5225,7 +5148,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|frameworkSearchPath
 name|void
 name|tst_Moc
 operator|::
@@ -5370,7 +5292,6 @@ directive|endif
 block|}
 end_function
 begin_function
-DECL|function|cstyleEnums
 name|void
 name|tst_Moc
 operator|::
@@ -5453,7 +5374,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|templateGtGt
 name|void
 name|tst_Moc
 operator|::
@@ -5575,7 +5495,6 @@ directive|endif
 block|}
 end_function
 begin_function
-DECL|function|defineMacroViaCmdline
 name|void
 name|tst_Moc
 operator|::
@@ -5685,7 +5604,6 @@ directive|endif
 block|}
 end_function
 begin_function
-DECL|function|invokable
 name|void
 name|tst_Moc
 operator|::
@@ -5791,7 +5709,6 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|singleFunctionKeywordSignalAndSlot
 name|void
 name|tst_Moc
 operator|::
@@ -5977,7 +5894,6 @@ directive|include
 file|"qprivateslots.h"
 end_include
 begin_function
-DECL|function|qprivateslots
 name|void
 name|tst_Moc
 operator|::
@@ -6027,7 +5943,6 @@ comment|//tast204730
 block|}
 end_function
 begin_class
-DECL|class|PrivatePropertyTest
 class|class
 name|PrivatePropertyTest
 super|:
@@ -6157,13 +6072,11 @@ name|MEMBER
 name|mConst
 name|CONSTANT
 argument_list|)
-DECL|class|MyDPointer
 name|class
 name|MyDPointer
 argument_list|{
 specifier|public
 operator|:
-DECL|function|MyDPointer
 name|MyDPointer
 argument_list|()
 operator|:
@@ -6182,7 +6095,6 @@ argument_list|(
 literal|0
 argument_list|)
 block|{}
-DECL|function|bar
 name|int
 name|bar
 argument_list|()
@@ -6191,7 +6103,6 @@ return|return
 name|mBar
 return|;
 block|}
-DECL|function|setBar
 name|void
 name|setBar
 argument_list|(
@@ -6202,7 +6113,6 @@ name|mBar
 operator|=
 name|value
 block|; }
-DECL|function|plop
 name|int
 name|plop
 argument_list|()
@@ -6211,7 +6121,6 @@ return|return
 name|mPlop
 return|;
 block|}
-DECL|function|setPlop
 name|void
 name|setPlop
 argument_list|(
@@ -6222,7 +6131,6 @@ name|mPlop
 operator|=
 name|value
 block|; }
-DECL|function|baz
 name|int
 name|baz
 argument_list|()
@@ -6231,7 +6139,6 @@ return|return
 name|mBaz
 return|;
 block|}
-DECL|function|setBaz
 name|void
 name|setBaz
 argument_list|(
@@ -6242,7 +6149,6 @@ name|mBaz
 operator|=
 name|value
 block|; }
-DECL|function|blub
 name|QString
 name|blub
 argument_list|()
@@ -6252,7 +6158,6 @@ return|return
 name|mBlub
 return|;
 block|}
-DECL|function|setBlub
 name|void
 name|setBlub
 argument_list|(
@@ -6263,32 +6168,26 @@ name|mBlub
 operator|=
 name|value
 block|; }
-DECL|member|mBlub
 name|QString
 name|mBlub
 argument_list|;
-DECL|member|mConst
 specifier|const
 name|QString
 name|mConst
 argument_list|;
 specifier|private
 operator|:
-DECL|member|mBar
 name|int
 name|mBar
 argument_list|;
-DECL|member|mPlop
 name|int
 name|mPlop
 argument_list|;
-DECL|member|mBaz
 name|int
 name|mBaz
 argument_list|;     }
 decl_stmt|;
 public|public:
-DECL|function|PrivatePropertyTest
 name|PrivatePropertyTest
 parameter_list|(
 name|QObject
@@ -6314,7 +6213,6 @@ operator|new
 name|MyDPointer
 argument_list|)
 block|{}
-DECL|function|foo
 name|int
 name|foo
 parameter_list|()
@@ -6323,7 +6221,6 @@ return|return
 name|mFoo
 return|;
 block|}
-DECL|function|setFoo
 name|void
 name|setFoo
 parameter_list|(
@@ -6336,7 +6233,6 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-DECL|function|d_func
 name|MyDPointer
 modifier|*
 name|d_func
@@ -6361,11 +6257,9 @@ name|newBlub
 parameter_list|)
 function_decl|;
 private|private:
-DECL|member|mFoo
 name|int
 name|mFoo
 decl_stmt|;
-DECL|member|d
 name|MyDPointer
 modifier|*
 name|d
@@ -6374,7 +6268,6 @@ block|}
 class|;
 end_class
 begin_function
-DECL|function|qprivateproperties
 name|void
 name|tst_Moc
 operator|::
@@ -6496,7 +6389,6 @@ directive|include
 file|"task189996.h"
 end_include
 begin_function
-DECL|function|c
 name|void
 name|InlineSlotsWithThrowDeclaration
 operator|::
@@ -6507,7 +6399,6 @@ argument_list|()
 block|{}
 end_function
 begin_function
-DECL|function|inlineSlotsWithThrowDeclaration
 name|void
 name|tst_Moc
 operator|::
@@ -6595,7 +6486,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|warnOnPropertyWithoutREAD
 name|void
 name|tst_Moc
 operator|::
@@ -6727,7 +6617,6 @@ directive|endif
 block|}
 end_function
 begin_function
-DECL|function|constructors
 name|void
 name|tst_Moc
 operator|::
@@ -7325,7 +7214,6 @@ directive|include
 file|"task240368.h"
 end_include
 begin_function
-DECL|function|typenameWithUnsigned
 name|void
 name|tst_Moc
 operator|::
@@ -7504,7 +7392,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|warnOnVirtualSignal
 name|void
 name|tst_Moc
 operator|::
@@ -7538,9 +7425,11 @@ name|defined
 argument_list|(
 name|QT_NO_PROCESS
 argument_list|)
+DECL|member|proc
 name|QProcess
 name|proc
 decl_stmt|;
+DECL|member|header
 specifier|const
 name|QString
 name|header
@@ -7582,6 +7471,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+DECL|member|mocOut
 name|QByteArray
 name|mocOut
 init|=
@@ -7599,6 +7489,7 @@ name|isEmpty
 argument_list|()
 argument_list|)
 expr_stmt|;
+DECL|member|mocWarning
 name|QString
 name|mocWarning
 init|=
@@ -9724,6 +9615,30 @@ directive|endif
 name|QProcess
 name|proc
 decl_stmt|;
+name|QProcessEnvironment
+name|env
+init|=
+name|QProcessEnvironment
+operator|::
+name|systemEnvironment
+argument_list|()
+decl_stmt|;
+name|env
+operator|.
+name|insert
+argument_list|(
+literal|"QT_MESSAGE_PATTERN"
+argument_list|,
+literal|"no qDebug or qWarning please"
+argument_list|)
+expr_stmt|;
+name|proc
+operator|.
+name|setProcessEnvironment
+argument_list|(
+name|env
+argument_list|)
+expr_stmt|;
 name|proc
 operator|.
 name|start

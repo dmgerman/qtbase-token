@@ -53,7 +53,7 @@ argument_list|(
 specifier|const
 name|QString
 operator|&
-name|offices
+name|items
 argument_list|,
 specifier|const
 name|QString
@@ -127,7 +127,7 @@ block|;
 comment|//! [2] //! [3]
 name|QSqlRelationalTableModel
 operator|*
-name|officeTable
+name|itemTable
 block|; }
 decl_stmt|;
 end_decl_stmt

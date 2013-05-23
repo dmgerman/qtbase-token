@@ -1999,13 +1999,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_MAC
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_IOS
+name|Q_OS_MACX
 argument_list|)
 include|#
 directive|include
@@ -2861,6 +2855,17 @@ operator|.
 name|constData
 argument_list|()
 condition|)
+block|{
+name|QProcessEnvironmentPrivate
+operator|::
+name|MutexLocker
+name|locker
+argument_list|(
+name|environment
+operator|.
+name|d
+argument_list|)
+decl_stmt|;
 name|envp
 operator|=
 name|_q_dupEnvironment
@@ -2878,6 +2883,7 @@ operator|&
 name|envc
 argument_list|)
 expr_stmt|;
+block|}
 comment|// Encode the working directory if it's non-empty, otherwise just pass 0.
 specifier|const
 name|char

@@ -134,7 +134,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxRootWindow: failed to create window, errno=%d"
@@ -142,7 +141,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Move window to proper display
 name|errno
 operator|=
@@ -179,7 +177,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxRootWindow: failed to set window display, errno=%d"
@@ -187,7 +184,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Make sure window is above navigator but below keyboard if running as root
 comment|// since navigator won't automatically set our z-order in this case
 if|if
@@ -226,7 +222,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxRootWindow: failed to set window z-order, errno=%d"
@@ -234,7 +229,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|// Window won't be visible unless it has some buffers so make one dummy buffer that is 1x1
 name|errno
@@ -265,7 +259,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxRootWindow: failed to set window buffer usage, errno=%d"
@@ -273,7 +266,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 name|errno
 operator|=
 literal|0
@@ -305,7 +297,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxRootWindow: failed to set window pixel format, errno=%d"
@@ -313,7 +304,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 name|errno
 operator|=
 literal|0
@@ -349,7 +339,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxRootWindow: failed to set window buffer size, errno=%d"
@@ -357,7 +346,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 name|errno
 operator|=
 literal|0
@@ -377,7 +365,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQNX: failed to create window buffer, errno=%d"
@@ -385,7 +372,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Window is always the size of the display
 name|errno
 operator|=
@@ -436,7 +422,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxRootWindow: failed to set window size, errno=%d"
@@ -444,7 +429,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Fill the window with solid black
 name|errno
 operator|=
@@ -474,7 +458,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxRootWindow: failed to set window colour, errno=%d"
@@ -482,7 +465,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Make the window opaque
 name|errno
 operator|=
@@ -512,7 +494,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxRootWindow: failed to set window transparency, errno=%d"
@@ -520,7 +501,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Set the swap interval to 1
 name|errno
 operator|=
@@ -550,7 +530,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxRootWindow: failed to set window swap interval, errno=%d"
@@ -558,7 +537,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Set viewport size equal to window size but move outside buffer so the fill colour is used exclusively
 name|errno
 operator|=
@@ -601,7 +579,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxRootWindow: failed to set window source size, errno=%d"
@@ -609,7 +586,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 name|errno
 operator|=
 literal|0
@@ -645,7 +621,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxRootWindow: failed to set window source position, errno=%d"
@@ -653,7 +628,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 name|createWindowGroup
 argument_list|()
 expr_stmt|;
@@ -723,7 +697,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxRootWindow: failed to query window buffer, errno=%d"
@@ -731,7 +704,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 name|errno
 operator|=
 literal|0
@@ -771,7 +743,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQNX: failed to post window buffer, errno=%d"
@@ -779,7 +750,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 end_function
 begin_function
@@ -820,7 +790,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxRootWindow: failed to flush context, errno=%d"
@@ -828,7 +797,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 end_function
 begin_function
@@ -874,7 +842,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxRootWindow: failed to set window rotation, errno=%d"
@@ -882,7 +849,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 end_function
 begin_function
@@ -936,7 +902,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxRootWindow: failed to set window size, errno=%d"
@@ -944,7 +909,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 name|errno
 operator|=
 literal|0
@@ -966,7 +930,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxRootWindow: failed to set window source size, errno=%d"
@@ -974,7 +937,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 comment|// NOTE: display will update when child windows relayout and repaint
 block|}
 end_function
@@ -1024,7 +986,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQnxRootWindow: failed to create app window group, errno=%d"
@@ -1032,7 +993,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 end_function
 end_unit

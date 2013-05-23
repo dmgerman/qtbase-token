@@ -264,6 +264,20 @@ expr_stmt|;
 endif|#
 directive|endif
 comment|// QT_NO_TABLETEVENT
+ifdef|#
+directive|ifdef
+name|XI2_TOUCH_DEBUG
+name|qDebug
+argument_list|(
+literal|"XInput version %d.%d is supported"
+argument_list|,
+name|xiMajor
+argument_list|,
+name|m_xi2Minor
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 block|}
 block|}
@@ -369,6 +383,9 @@ name|mask
 operator|=
 name|xiBitMask
 expr_stmt|;
+name|Status
+name|result
+init|=
 name|XISelectEvents
 argument_list|(
 name|xDisplay
@@ -380,6 +397,27 @@ name|mask
 argument_list|,
 literal|1
 argument_list|)
+decl_stmt|;
+comment|// If we have XInput 2.2 and successfully enable touch on the master
+comment|// devices, then evdev touchscreens will provide touch only. In most other
+comment|// cases, there will be emulated mouse events, because true X11 touch
+comment|// support is so new that for the older drivers, mouse emulation was the
+comment|// only way; and it's still the fallback even with the modern evdev driver.
+comment|// But if neither Qt nor X11 does mouse emulation, it will not be possible
+comment|// to interact with mouse-oriented QWidgets; so we have to let Qt do it.
+if|if
+condition|(
+name|m_xi2Minor
+operator|>=
+literal|2
+operator|&&
+name|result
+operator|==
+name|Success
+condition|)
+name|has_touch_without_mouse_emulation
+operator|=
+literal|true
 expr_stmt|;
 endif|#
 directive|endif

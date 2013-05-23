@@ -498,6 +498,20 @@ name|templateStuff
 expr_stmt|;
 block|}
 name|void
+name|setReconstitutedBrief
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|t
+parameter_list|)
+block|{
+name|reconstitutedBrief_
+operator|=
+name|t
+expr_stmt|;
+block|}
+name|void
 name|setPageType
 parameter_list|(
 name|PageType
@@ -696,6 +710,12 @@ name|false
 return|;
 block|}
 name|virtual
+name|bool
+name|isWrapper
+argument_list|()
+specifier|const
+expr_stmt|;
+name|virtual
 name|void
 name|addMember
 parameter_list|(
@@ -739,6 +759,11 @@ name|setAbstract
 parameter_list|(
 name|bool
 parameter_list|)
+block|{ }
+name|virtual
+name|void
+name|setWrapper
+parameter_list|()
 block|{ }
 name|virtual
 name|QString
@@ -1004,6 +1029,17 @@ specifier|const
 block|{
 return|return
 name|templateStuff_
+return|;
+block|}
+specifier|const
+name|QString
+operator|&
+name|reconstitutedBrief
+argument_list|()
+specifier|const
+block|{
+return|return
+name|reconstitutedBrief_
 return|;
 block|}
 name|PageType
@@ -1358,6 +1394,9 @@ name|since_
 decl_stmt|;
 name|QString
 name|templateStuff_
+decl_stmt|;
+name|QString
+name|reconstitutedBrief_
 decl_stmt|;
 name|mutable
 name|QString
@@ -2108,6 +2147,16 @@ name|true
 return|;
 block|}
 name|virtual
+name|bool
+name|isWrapper
+argument_list|()
+specifier|const
+block|{
+return|return
+name|wrapper_
+return|;
+block|}
+name|virtual
 name|QString
 name|obsoleteLink
 argument_list|()
@@ -2129,6 +2178,15 @@ operator|=
 name|t
 block|; }
 block|;
+name|virtual
+name|void
+name|setWrapper
+argument_list|()
+block|{
+name|wrapper_
+operator|=
+name|true
+block|; }
 name|void
 name|addBaseClass
 argument_list|(
@@ -2281,6 +2339,9 @@ name|ignoredBases
 block|;
 name|bool
 name|abstract_
+block|;
+name|bool
+name|wrapper_
 block|;
 name|QString
 name|sname
@@ -2878,6 +2939,16 @@ name|abstract_
 return|;
 block|}
 name|virtual
+name|bool
+name|isWrapper
+argument_list|()
+specifier|const
+block|{
+return|return
+name|wrapper_
+return|;
+block|}
+name|virtual
 name|void
 name|setAbstract
 argument_list|(
@@ -2887,6 +2958,15 @@ block|{
 name|abstract_
 operator|=
 name|b
+block|; }
+name|virtual
+name|void
+name|setWrapper
+argument_list|()
+block|{
+name|wrapper_
+operator|=
+name|true
 block|; }
 name|virtual
 name|bool
@@ -3067,6 +3147,9 @@ name|abstract_
 block|;
 name|bool
 name|cnodeRequired_
+block|;
+name|bool
+name|wrapper_
 block|;
 name|ClassNode
 operator|*

@@ -127,7 +127,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQNX: failed to query buffer size, errno=%d"
@@ -135,7 +134,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Get stride of buffer
 name|errno
 operator|=
@@ -162,7 +160,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQNX: failed to query buffer stride, errno=%d"
@@ -170,7 +167,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Get access to buffer's data
 name|errno
 operator|=
@@ -205,7 +201,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQNX: failed to query buffer pointer, errno=%d"
@@ -213,14 +208,12 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|dataPtr
 operator|==
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQNX: buffer pointer is NULL, errno=%d"
@@ -228,7 +221,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Get format of buffer
 name|errno
 operator|=
@@ -255,7 +247,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQNX: failed to query buffer format, errno=%d"
@@ -263,7 +254,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Convert screen format to QImage format
 name|QImage
 operator|::
@@ -442,13 +432,11 @@ name|m_buffer
 operator|==
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQNX: can't invalidate cache for null buffer"
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Evict buffer's data from cache
 name|errno
 operator|=
@@ -485,7 +473,6 @@ name|result
 operator|!=
 literal|0
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"QQNX: failed to invalidate cache, errno=%d"
@@ -493,7 +480,6 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 end_function
 begin_macro

@@ -894,6 +894,12 @@ literal|"bin"
 block|}
 block|,
 block|{
+literal|"HostLibraries"
+block|,
+literal|"lib"
+block|}
+block|,
+block|{
 literal|"HostData"
 block|,
 literal|"."

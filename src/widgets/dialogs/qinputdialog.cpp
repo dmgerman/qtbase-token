@@ -2084,7 +2084,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QInputDialog     \brief The QInputDialog class provides a simple convenience dialog to get a     single value from the user.     \ingroup standard-dialogs     \inmodule QtWidgets      The input value can be a string, a number or an item from a list. A label     must be set to tell the user what they should enter.      Four static convenience functions are provided: getText(), getInt(),     getDouble(), and getItem(). All the functions can be used in a similar way,     for example:      \snippet dialogs/standarddialogs/dialog.cpp 3      The \c ok variable is set to true if the user clicks \uicontrol OK; otherwise it     is set to false.      \image inputdialogs.png Input Dialogs      The \l{dialogs/standarddialogs}{Standard Dialogs} example shows how to use     QInputDialog as well as other built-in Qt dialogs.      \sa QMessageBox, {Standard Dialogs Example} */
+comment|/*!     \class QInputDialog     \brief The QInputDialog class provides a simple convenience dialog to get a     single value from the user.     \ingroup standard-dialogs     \inmodule QtWidgets      The input value can be a string, a number or an item from a list. A label     must be set to tell the user what they should enter.      Four static convenience functions are provided: getText(), getInt(),     getDouble(), and getItem(). All the functions can be used in a similar way,     for example:      \snippet dialogs/standarddialogs/dialog.cpp 3      The \c ok variable is set to true if the user clicks \uicontrol OK; otherwise, it     is set to false.      \image inputdialogs.png Input Dialogs      The \l{dialogs/standarddialogs}{Standard Dialogs} example shows how to use     QInputDialog as well as other built-in Qt dialogs.      \sa QMessageBox, {Standard Dialogs Example} */
 end_comment
 begin_comment
 comment|/*!     \enum QInputDialog::InputMode     \since 4.5      This enum describes the different modes of input that can be selected for     the dialog.      \value TextInput   Used to input text strings.     \value IntInput    Used to input integers.     \value DoubleInput Used to input floating point numbers with double                        precision accuracy.      \sa inputMode */
@@ -2133,7 +2133,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     \since 4.5      \property QInputDialog::inputMode      \brief the mode used for input      This property help determines which widget is used for entering input into     the dialog. */
+comment|/*!     \since 4.5      \property QInputDialog::inputMode      \brief the mode used for input      This property helps determine which widget is used for entering input into     the dialog. */
 end_comment
 begin_function
 DECL|function|setInputMode
@@ -2277,7 +2277,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.5      \property QInputDialog::labelText      \brief the text to for the label to describe what needs to be input */
+comment|/*!     \since 4.5      \property QInputDialog::labelText      \brief the label's text which describes what needs to be input */
 end_comment
 begin_function
 DECL|function|setLabelText
@@ -2363,7 +2363,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \enum QInputDialog::InputDialogOption      \since 4.5      This enum specifies various options that affect the look and feel     of an input dialog.      \value NoButtons Don't display \uicontrol{OK} and \uicontrol{Cancel} buttons. (Useful for "live dialogs".)     \value UseListViewForComboBoxItems Use a QListView rather than a non-editable QComboBox for                                        displaying the items set with setComboBoxItems().      \sa options, setOption(), testOption() */
+comment|/*!     \enum QInputDialog::InputDialogOption      \since 4.5      This enum specifies various options that affect the look and feel     of an input dialog.      \value NoButtons Don't display \uicontrol{OK} and \uicontrol{Cancel} buttons (useful for "live dialogs").     \value UseListViewForComboBoxItems Use a QListView rather than a non-editable QComboBox for                                        displaying the items set with setComboBoxItems().      \sa options, setOption(), testOption() */
 end_comment
 begin_comment
 comment|/*!     Sets the given \a option to be enabled if \a on is true;     otherwise, clears the given \a option.      \sa options, testOption() */
@@ -2739,7 +2739,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.5      \property QInputDialog::comboBoxEditable      \brief whether or not the combo box is used in the input dialog is editable */
+comment|/*!     \since 4.5      \property QInputDialog::comboBoxEditable      \brief whether or not the combo box used in the input dialog is editable */
 end_comment
 begin_function
 DECL|function|setComboBoxEditable
@@ -2825,7 +2825,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.5      \property QInputDialog::comboBoxItems      \brief the items used in the combobox for the input dialog */
+comment|/*!     \since 4.5      \property QInputDialog::comboBoxItems      \brief the items used in the combo box for the input dialog */
 end_comment
 begin_function
 DECL|function|setComboBoxItems
@@ -3567,7 +3567,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.5      \property QInputDialog::doubleDecimals      \brief sets the percision of the double spinbox in decimals      \sa QDoubleSpinBox::setDecimals() */
+comment|/*!     \since 4.5      \property QInputDialog::doubleDecimals      \brief sets the precision of the double spinbox in decimals      \sa QDoubleSpinBox::setDecimals() */
 end_comment
 begin_function
 DECL|function|setDoubleDecimals
@@ -4550,7 +4550,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Static convenience function to let the user select an item from a string     list.      \a title is the text which is displayed in the title bar of the dialog.     \a label is the text which is shown to the user (it should say what should     be entered).     \a items is the string list which is inserted into the combobox.     \a current is the number  of the item which should be the current item.     \a inputMethodHints is the input method hints that will be used if the     combobox is editable and an input method is active.      If \a editable is true the user can enter their own text; otherwise the     user may only select one of the existing items.      If \a ok is nonnull \e *\a ok will be set to true if the user pressed     \uicontrol OK and to false if the user pressed \uicontrol Cancel. The dialog's parent     is \a parent. The dialog will be modal and uses the widget \a flags.      This function returns the text of the current item, or if \a editable is     true, the current text of the combobox.      Use this static function like this:      \snippet dialogs/standarddialogs/dialog.cpp 2      \warning Do not delete \a parent during the execution of the dialog. If you     want to do this, you should create the dialog yourself using one of the     QInputDialog constructors.      \sa getText(), getInt(), getDouble() */
+comment|/*!     Static convenience function to let the user select an item from a string     list.      \a title is the text which is displayed in the title bar of the dialog.     \a label is the text which is shown to the user (it should say what should     be entered).     \a items is the string list which is inserted into the combo box.     \a current is the number  of the item which should be the current item.     \a inputMethodHints is the input method hints that will be used if the     combo box is editable and an input method is active.      If \a editable is true the user can enter their own text; otherwise, the     user may only select one of the existing items.      If \a ok is nonnull \e *\a ok will be set to true if the user pressed     \uicontrol OK and to false if the user pressed \uicontrol Cancel. The dialog's parent     is \a parent. The dialog will be modal and uses the widget \a flags.      This function returns the text of the current item, or if \a editable is     true, the current text of the combo box.      Use this static function like this:      \snippet dialogs/standarddialogs/dialog.cpp 2      \warning Do not delete \a parent during the execution of the dialog. If you     want to do this, you should create the dialog yourself using one of the     QInputDialog constructors.      \sa getText(), getInt(), getDouble() */
 end_comment
 begin_function
 DECL|function|getItem

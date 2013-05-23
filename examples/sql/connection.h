@@ -155,10 +155,9 @@ name|query
 operator|.
 name|exec
 argument_list|(
-literal|"create table offices (id int primary key,"
+literal|"create table items (id int primary key,"
 literal|"imagefile int,"
-literal|"location varchar(20),"
-literal|"country varchar(20),"
+literal|"itemtype varchar(20),"
 literal|"description varchar(100))"
 argument_list|)
 expr_stmt|;
@@ -166,119 +165,81 @@ name|query
 operator|.
 name|exec
 argument_list|(
-literal|"insert into offices "
-literal|"values(0, 0, 'Oslo', 'Norway',"
-literal|"'Oslo is home to more than 500 000 citizens and has a "
-literal|"lot to offer.It has been called \"The city with the big "
-literal|"heart\" and this is a nickname we are happy to live up to.')"
+literal|"insert into items "
+literal|"values(0, 0, 'Qt',"
+literal|"'Qt is a full development framework with tools designed to "
+literal|"streamline the creation of stunning applications and  "
+literal|"amazing user interfaces for desktop, embedded and mobile "
+literal|"platforms.')"
 argument_list|)
 expr_stmt|;
 name|query
 operator|.
 name|exec
 argument_list|(
-literal|"insert into offices "
-literal|"values(1, 1, 'Brisbane', 'Australia',"
-literal|"'Brisbane is the capital of Queensland, the Sunshine State, "
-literal|"where it is beautiful one day, perfect the next.  "
-literal|"Brisbane is Australia''s 3rd largest city, being home "
-literal|"to almost 2 million people.')"
+literal|"insert into items "
+literal|"values(1, 1, 'Qt Quick',"
+literal|"'Qt Quick is a collection of techniques designed to help "
+literal|"developers create intuitive, modern-looking, and fluid "
+literal|"user interfaces using a CSS& JavaScript like language.')"
 argument_list|)
 expr_stmt|;
 name|query
 operator|.
 name|exec
 argument_list|(
-literal|"insert into offices "
-literal|"values(2, 2, 'Redwood City', 'US',"
-literal|"'You find Redwood City in the heart of the Bay Area "
-literal|"just north of Silicon Valley. The largest nearby city is "
-literal|"San Jose which is the third largest city in California "
-literal|"and the 10th largest in the US.')"
+literal|"insert into items "
+literal|"values(2, 2, 'Qt Creator',"
+literal|"'Qt Creator is a powerful cross-platform integrated "
+literal|"development environment (IDE), including UI design tools "
+literal|"and on-device debugging.')"
 argument_list|)
 expr_stmt|;
 name|query
 operator|.
 name|exec
 argument_list|(
-literal|"insert into offices "
-literal|"values(3, 3, 'Berlin', 'Germany',"
-literal|"'Berlin, the capital of Germany is dynamic, cosmopolitan "
-literal|"and creative, allowing for every kind of lifestyle. "
-literal|"East meets West in the metropolis at the heart of a "
-literal|"changing Europe.')"
+literal|"insert into items "
+literal|"values(3, 3, 'Qt Project',"
+literal|"'The Qt Project governs the open source development of Qt, "
+literal|"allowing anyone wanting to contribute to join the effort "
+literal|"through a meritocratic structure of approvers and "
+literal|"maintainers.')"
 argument_list|)
 expr_stmt|;
 name|query
 operator|.
 name|exec
 argument_list|(
-literal|"insert into offices "
-literal|"values(4, 4, 'Munich', 'Germany',"
-literal|"'Several technology companies are represented in Munich, "
-literal|"and the city is often called the \"Bavarian Silicon Valley\". "
-literal|"The exciting city is also filled with culture, "
-literal|"art and music. ')"
+literal|"create table images (itemid int, file varchar(20))"
 argument_list|)
 expr_stmt|;
 name|query
 operator|.
 name|exec
 argument_list|(
-literal|"insert into offices "
-literal|"values(5, 5, 'Beijing', 'China',"
-literal|"'Beijing as a capital city has more than 3000 years of "
-literal|"history. Today the city counts 12 million citizens, and "
-literal|"is the political, economic and cultural centre of China.')"
+literal|"insert into images values(0, 'images/qt-logo.png')"
 argument_list|)
 expr_stmt|;
 name|query
 operator|.
 name|exec
 argument_list|(
-literal|"create table images (locationid int, file varchar(20))"
+literal|"insert into images values(1, 'images/qt-quick.png')"
 argument_list|)
 expr_stmt|;
 name|query
 operator|.
 name|exec
 argument_list|(
-literal|"insert into images values(0, 'images/oslo.png')"
+literal|"insert into images values(2, 'images/qt-creator.png')"
 argument_list|)
 expr_stmt|;
 name|query
 operator|.
 name|exec
 argument_list|(
-literal|"insert into images values(1, 'images/brisbane.png')"
-argument_list|)
-expr_stmt|;
-name|query
-operator|.
-name|exec
-argument_list|(
-literal|"insert into images values(2, 'images/redwood.png')"
-argument_list|)
-expr_stmt|;
-name|query
-operator|.
-name|exec
-argument_list|(
-literal|"insert into images values(3, 'images/berlin.png')"
-argument_list|)
-expr_stmt|;
-name|query
-operator|.
-name|exec
-argument_list|(
-literal|"insert into images values(4, 'images/munich.png')"
-argument_list|)
-expr_stmt|;
-name|query
-operator|.
-name|exec
-argument_list|(
-literal|"insert into images values(5, 'images/beijing.png')"
+literal|"insert into images values(3, 'images/qt-project.png')"
 argument_list|)
 expr_stmt|;
 return|return

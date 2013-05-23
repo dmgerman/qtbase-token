@@ -12521,7 +12521,7 @@ expr_stmt|;
 if|if
 condition|(
 name|dataStreamVersion
-operator|>=
+operator|==
 name|QDataStream
 operator|::
 name|Qt_5_0
@@ -12538,12 +12538,21 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// ... but lower versions don't, so we have to here.
+comment|// ... but other versions don't, so we have to here.
 name|dataStream
 operator|<<
 name|dateTimeAsUTC
 operator|<<
 name|dateTimeAsUTC
+expr_stmt|;
+comment|// We'll also make sure that a deserialised local datetime is the same
+comment|// time of day (potentially different UTC time), regardless of which
+comment|// timezone it was serialised in. E.g.: Tue Aug 14 08:00:00 2012
+comment|// serialised in WST should be deserialised as Tue Aug 14 08:00:00 2012
+comment|// HST.
+name|dataStream
+operator|<<
+name|dateTime
 expr_stmt|;
 block|}
 block|}
@@ -12604,7 +12613,7 @@ expr_stmt|;
 if|if
 condition|(
 name|dataStreamVersion
-operator|>=
+operator|==
 name|QDataStream
 operator|::
 name|Qt_5_0
@@ -12763,6 +12772,32 @@ name|toUTC
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|dataStreamVersion
+operator|!=
+name|QDataStream
+operator|::
+name|Qt_5_0
+condition|)
+block|{
+comment|// Deserialised local datetime should be the same time of day,
+comment|// regardless of which timezone it was serialised in.
+name|QDateTime
+name|localDeserialized
+decl_stmt|;
+name|dataStream
+operator|>>
+name|localDeserialized
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|localDeserialized
+argument_list|,
+name|dateTime
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|qputenv
 argument_list|(

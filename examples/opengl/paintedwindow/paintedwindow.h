@@ -110,13 +110,6 @@ block|;
 name|private
 operator|:
 name|void
-name|resizeEvent
-argument_list|(
-name|QResizeEvent
-operator|*
-argument_list|)
-block|;
-name|void
 name|exposeEvent
 argument_list|(
 name|QExposeEvent

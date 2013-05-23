@@ -1722,6 +1722,14 @@ argument|Spanish
 argument_list|,
 argument|LatinAmericaAndTheCaribbean
 argument_list|)
+name|TEST_CTOR
+argument_list|(
+literal|"fr_MA"
+argument_list|,
+argument|French
+argument_list|,
+argument|Morocco
+argument_list|)
 comment|// test default countries for languages
 name|TEST_CTOR
 argument_list|(

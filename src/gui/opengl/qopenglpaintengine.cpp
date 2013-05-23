@@ -874,6 +874,29 @@ operator|::
 name|KeepAspectRatio
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+name|defined
+argument_list|(
+name|QT_OPENGL_ES_2
+argument_list|)
+comment|// OpenGL ES does not support GL_REPEAT wrap modes for NPOT textures. So instead,
+comment|// we emulate GL_REPEAT by only taking the fractional part of the texture coords
+comment|// in the qopenglslTextureBrushSrcFragmentShader program.
+name|GLuint
+name|wrapMode
+init|=
+name|GL_CLAMP_TO_EDGE
+decl_stmt|;
+else|#
+directive|else
+name|GLuint
+name|wrapMode
+init|=
+name|GL_REPEAT
+decl_stmt|;
+endif|#
+directive|endif
 name|funcs
 operator|.
 name|glActiveTexture
@@ -901,7 +924,7 @@ name|updateTextureFilter
 argument_list|(
 name|GL_TEXTURE_2D
 argument_list|,
-name|GL_REPEAT
+name|wrapMode
 argument_list|,
 name|q
 operator|->

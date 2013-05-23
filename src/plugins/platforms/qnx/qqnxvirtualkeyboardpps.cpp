@@ -703,13 +703,11 @@ argument_list|)
 operator|==
 literal|0
 condition|)
-block|{
 name|setVisible
 argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-block|}
 elseif|else
 if|if
 condition|(
@@ -722,13 +720,11 @@ argument_list|)
 operator|==
 literal|0
 condition|)
-block|{
 name|setVisible
 argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-block|}
 elseif|else
 if|if
 condition|(
@@ -756,7 +752,13 @@ argument_list|)
 operator|==
 literal|0
 condition|)
-block|{ }
+name|qVirtualKeyboardDebug
+argument_list|()
+operator|<<
+name|Q_FUNC_INFO
+operator|<<
+literal|"Unhandled command 'connect'"
+expr_stmt|;
 else|else
 name|qCritical
 argument_list|(
@@ -814,11 +816,13 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
+block|{
 name|qCritical
 argument_list|(
 literal|"QQnxVirtualKeyboard: Unexpected keyboard PPS message type"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 end_function
 begin_function
@@ -1357,11 +1361,9 @@ operator|==
 operator|-
 literal|1
 condition|)
-block|{
 name|close
 argument_list|()
 expr_stmt|;
-block|}
 name|pps_encoder_reset
 argument_list|(
 name|m_encoder

@@ -842,9 +842,13 @@ name|MSWindowsOwnDC
 init|=
 literal|0x00000200
 block|,
-name|X11BypassWindowManagerHint
+name|BypassWindowManagerHint
 init|=
 literal|0x00000400
+block|,
+name|X11BypassWindowManagerHint
+init|=
+name|BypassWindowManagerHint
 block|,
 name|FramelessWindowHint
 init|=

@@ -977,15 +977,11 @@ name|bool
 name|enabled
 parameter_list|)
 block|{
-if|if
-condition|(
-name|enabled
-condition|)
-name|qWarning
+name|Q_UNUSED
 argument_list|(
-literal|"This plugin does not support frame strut events."
+argument|enabled
 argument_list|)
-expr_stmt|;
+comment|// Do not warn as widgets enable it by default causing warnings with XCB.
 block|}
 end_function
 begin_comment

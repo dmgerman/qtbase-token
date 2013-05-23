@@ -191,6 +191,16 @@ name|queryKeyboardModifiers
 argument_list|()
 specifier|const
 block|;
+name|QList
+operator|<
+name|int
+operator|>
+name|possibleKeys
+argument_list|(
+argument|const QKeyEvent *e
+argument_list|)
+specifier|const
+block|;
 name|QStringList
 name|themeNames
 argument_list|()
@@ -201,6 +211,13 @@ operator|*
 name|createPlatformTheme
 argument_list|(
 argument|const QString&name
+argument_list|)
+specifier|const
+block|;
+name|QVariant
+name|styleHint
+argument_list|(
+argument|StyleHint hint
 argument_list|)
 specifier|const
 block|;

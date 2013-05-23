@@ -2750,6 +2750,19 @@ name|Value
 block|{
 name|public
 label|:
+enum|enum
+block|{
+name|MaxSize
+init|=
+operator|(
+literal|1
+operator|<<
+literal|27
+operator|)
+operator|-
+literal|1
+block|}
+enum|;
 union|union
 block|{
 name|uint
@@ -2901,7 +2914,6 @@ specifier|static
 name|int
 name|requiredStorage
 parameter_list|(
-specifier|const
 name|QJsonValue
 modifier|&
 name|v

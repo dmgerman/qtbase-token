@@ -225,11 +225,8 @@ name|disableEventFilter
 parameter_list|()
 function_decl|;
 name|void
-name|resetDndState
-parameter_list|(
-name|bool
-name|deleteSource
-parameter_list|)
+name|restoreCursor
+parameter_list|()
 function_decl|;
 name|void
 name|exitDndEventLoop

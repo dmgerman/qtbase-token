@@ -150,16 +150,6 @@ name|colormap
 argument_list|()
 specifier|const
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_WS_WIN
-specifier|static
-name|HPALETTE
-name|hPal
-parameter_list|()
-function_decl|;
-endif|#
-directive|endif
 name|private
 label|:
 name|QColormap

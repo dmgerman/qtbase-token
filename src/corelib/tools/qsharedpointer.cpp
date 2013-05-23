@@ -590,7 +590,7 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|Q_OS_MACX
+name|Q_OS_MAC
 argument_list|)
 define|#
 directive|define

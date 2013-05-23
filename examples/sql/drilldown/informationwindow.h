@@ -40,7 +40,7 @@ name|InformationWindow
 argument_list|(
 argument|int id
 argument_list|,
-argument|QSqlRelationalTableModel *offices
+argument|QSqlRelationalTableModel *items
 argument_list|,
 argument|QWidget *parent =
 literal|0
@@ -88,7 +88,7 @@ name|createButtons
 argument_list|()
 block|;
 name|int
-name|locationId
+name|itemId
 block|;
 name|QString
 name|displayedImage
@@ -99,11 +99,7 @@ name|imageFileEditor
 block|;
 name|QLabel
 operator|*
-name|locationText
-block|;
-name|QLabel
-operator|*
-name|countryText
+name|itemText
 block|;
 name|QTextEdit
 operator|*

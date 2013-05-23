@@ -56,7 +56,7 @@ return|;
 name|View
 name|view
 argument_list|(
-literal|"offices"
+literal|"items"
 argument_list|,
 literal|"images"
 argument_list|)

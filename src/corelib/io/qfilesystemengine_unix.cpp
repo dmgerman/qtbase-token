@@ -78,13 +78,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_MAC
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_IOS
+name|Q_OS_MACX
 argument_list|)
 DECL|function|_q_isMacHidden
 specifier|static
@@ -642,13 +636,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_MAC
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_IOS
+name|Q_OS_MACX
 argument_list|)
 block|{
 name|FSRef
@@ -875,13 +863,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_MAC
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_IOS
+name|Q_OS_MACX
 argument_list|)
 comment|// When using -mmacosx-version-min=10.4, we get the legacy realpath implementation,
 comment|// which does not work properly with the realpath(X,0) form. See QTBUG-28282.
@@ -1926,13 +1908,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_MAC
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_IOS
+name|Q_OS_MACX
 argument_list|)
 end_if
 begin_comment
@@ -2066,13 +2042,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_MAC
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_IOS
+name|Q_OS_MACX
 argument_list|)
 if|if
 condition|(
@@ -2121,7 +2091,7 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
-comment|// defined(Q_OS_MAC)&& !defined(Q_OS_IOS)
+comment|// defined(Q_OS_MACX)
 if|if
 condition|(
 name|what
@@ -2401,13 +2371,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_MAC
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_IOS
+name|Q_OS_MACX
 argument_list|)
 if|if
 condition|(
@@ -2686,13 +2650,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_MAC
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_IOS
+name|Q_OS_MACX
 argument_list|)
 if|if
 condition|(

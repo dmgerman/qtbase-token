@@ -2214,6 +2214,16 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|myprogress
+operator|==
+literal|0
+condition|)
+name|myprogress
+operator|=
+literal|1
+expr_stmt|;
+if|if
+condition|(
 operator|(
 name|totalSteps
 operator|-
