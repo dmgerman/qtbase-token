@@ -60,6 +60,7 @@ end_decl_stmt
 begin_decl_stmt
 DECL|variable|QPlatformDrag
 name|class
+name|Q_GUI_EXPORT
 name|QBasicDrag
 range|:
 name|public
@@ -262,6 +263,7 @@ empty_stmt|;
 end_empty_stmt
 begin_decl_stmt
 name|class
+name|Q_GUI_EXPORT
 name|QSimpleDrag
 range|:
 name|public
