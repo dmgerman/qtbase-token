@@ -1599,6 +1599,7 @@ name|result
 operator|!=
 literal|0
 condition|)
+block|{
 name|qWarning
 argument_list|()
 operator|<<
@@ -1613,6 +1614,7 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
+block|}
 comment|// If the child window has been configured for transparency, lazily create
 comment|// a full-screen buffer to back the root window.
 if|if
