@@ -11625,6 +11625,75 @@ name|noDefault
 operator|<<
 name|fallback
 expr_stmt|;
+specifier|const
+name|char
+name|src
+index|[]
+init|=
+block|{
+name|char
+argument_list|(
+literal|0xff
+argument_list|)
+block|,
+name|char
+argument_list|(
+literal|0xfe
+argument_list|)
+block|,
+name|char
+argument_list|(
+literal|0x7a
+argument_list|)
+block|,
+name|char
+argument_list|(
+literal|0x03
+argument_list|)
+block|,
+literal|0
+block|,
+literal|0
+block|}
+decl_stmt|;
+name|html
+operator|=
+name|src
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"greek text UTF-16LE"
+argument_list|)
+operator|<<
+name|html
+operator|<<
+literal|106
+operator|<<
+literal|1014
+expr_stmt|;
+name|html
+operator|=
+literal|"<meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"><span style=\"color: rgb(0, 0, 0); font-family: "
+literal|"'Galatia SIL'; font-size: 27px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; "
+literal|"line-height: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: "
+literal|"auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; display: inline !important; float: "
+literal|"none;\">&#x37b</span>\000"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"greek text UTF-8"
+argument_list|)
+operator|<<
+name|html
+operator|<<
+literal|106
+operator|<<
+literal|106
+expr_stmt|;
 block|}
 end_function
 begin_function
