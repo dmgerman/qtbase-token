@@ -3087,6 +3087,14 @@ argument_list|(
 name|logbuf
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|d
+operator|->
+name|linked
+condition|)
+block|{
 name|QString
 name|name
 init|=
@@ -3123,6 +3131,7 @@ name|d
 operator|->
 name|log
 expr_stmt|;
+block|}
 operator|delete
 index|[]
 name|logbuf
