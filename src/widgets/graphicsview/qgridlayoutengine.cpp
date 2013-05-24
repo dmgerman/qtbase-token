@@ -1614,6 +1614,13 @@ block|{
 if|if
 condition|(
 name|hasIgnoreFlag
+operator|||
+name|sizes
+index|[
+name|i
+index|]
+operator|==
+literal|0.0
 condition|)
 block|{
 name|factors
