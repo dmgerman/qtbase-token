@@ -1518,7 +1518,7 @@ name|buf
 argument_list|)
 argument_list|,
 literal|"********* Start testing of %s *********\n"
-literal|"Config: Using QTest library "
+literal|"Config: Using QtTest library "
 name|QTEST_VERSION_STR
 literal|", Qt %s\n"
 argument_list|,
