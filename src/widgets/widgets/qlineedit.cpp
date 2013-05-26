@@ -5811,6 +5811,16 @@ argument_list|()
 operator|.
 name|isEmpty
 argument_list|()
+operator|&&
+name|d
+operator|->
+name|control
+operator|->
+name|preeditAreaText
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 if|if
