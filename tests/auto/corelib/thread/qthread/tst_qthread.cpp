@@ -1151,6 +1151,19 @@ operator|::
 name|setPriority
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"Thread priority is not supported on WinRT"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|Simple_Thread
 name|thread
 decl_stmt|;
@@ -2309,6 +2322,19 @@ operator|::
 name|terminate
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"Terminate is not supported on WinRT"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|Terminate_Thread
 name|thread
 decl_stmt|;
@@ -2710,6 +2736,19 @@ operator|::
 name|terminated
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"Terminate is not supported on WinRT"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|SignalRecorder
 name|recorder
 decl_stmt|;
@@ -3970,6 +4009,19 @@ operator|::
 name|adoptedThreadSetPriority
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"Thread priority is not supported on WinRT"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|NativeThreadWrapper
 name|nativeThread
 decl_stmt|;
