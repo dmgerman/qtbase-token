@@ -6813,11 +6813,6 @@ name|buff
 argument_list|)
 argument_list|)
 expr_stmt|;
-return|return
-name|d
-operator|->
-name|cachedApplicationFilePath
-return|;
 block|}
 else|else
 block|{
@@ -6876,20 +6871,23 @@ name|first
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|d
+operator|->
+name|cachedApplicationFilePath
+operator|=
+name|QString
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 return|return
 name|d
 operator|->
 name|cachedApplicationFilePath
 return|;
-block|}
-else|else
-block|{
-return|return
-name|QString
-argument_list|()
-return|;
-block|}
-block|}
 elif|#
 directive|elif
 name|defined
@@ -7000,6 +6998,16 @@ return|;
 block|}
 endif|#
 directive|endif
+if|if
+condition|(
+operator|!
+name|arguments
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 name|QString
 name|argv0
 init|=
@@ -7043,7 +7051,7 @@ literal|'/'
 argument_list|)
 condition|)
 block|{
-comment|/*           If argv0 starts with a slash, it is already an absolute           file path.         */
+comment|/*               If argv0 starts with a slash, it is already an absolute               file path.             */
 name|absPath
 operator|=
 name|argv0
@@ -7063,7 +7071,7 @@ argument_list|)
 argument_list|)
 condition|)
 block|{
-comment|/*           If argv0 contains one or more slashes, it is a file path           relative to the current directory.         */
+comment|/*               If argv0 contains one or more slashes, it is a file path               relative to the current directory.             */
 name|absPath
 operator|=
 name|QDir
@@ -7079,7 +7087,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|/*           Otherwise, the file path has to be determined using the           PATH environment variable.         */
+comment|/*               Otherwise, the file path has to be determined using the               PATH environment variable.             */
 name|absPath
 operator|=
 name|QStandardPaths
@@ -7122,6 +7130,17 @@ else|:
 name|QString
 argument_list|()
 expr_stmt|;
+block|}
+else|else
+block|{
+name|d
+operator|->
+name|cachedApplicationFilePath
+operator|=
+name|QString
+argument_list|()
+expr_stmt|;
+block|}
 return|return
 name|d
 operator|->
