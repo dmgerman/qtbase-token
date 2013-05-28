@@ -128,6 +128,9 @@ operator|=
 name|window
 argument_list|()
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|QBACKINGSTORE_DEBUG
 if|if
 condition|(
 name|win
@@ -159,6 +162,8 @@ operator|<<
 literal|", behavior is undefined"
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 name|d_ptr
 operator|->
 name|platformBackingStore
