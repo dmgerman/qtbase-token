@@ -897,11 +897,6 @@ parameter_list|(
 name|QMenu
 modifier|*
 name|menu
-parameter_list|,
-name|bool
-name|justRegister
-init|=
-name|false
 parameter_list|)
 function_decl|;
 end_function_decl
