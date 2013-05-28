@@ -4427,8 +4427,6 @@ name|msg
 argument_list|)
 argument_list|,
 literal|false
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 return|return
@@ -4633,8 +4631,6 @@ name|QString
 argument_list|()
 argument_list|,
 literal|false
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 name|result
@@ -4704,8 +4700,6 @@ name|QString
 argument_list|()
 argument_list|,
 literal|false
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 name|result
@@ -5650,8 +5644,6 @@ operator|->
 name|text
 argument_list|,
 literal|true
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 name|QWindowSystemInterface
@@ -5686,8 +5678,6 @@ operator|->
 name|text
 argument_list|,
 literal|true
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 name|result
@@ -5778,8 +5768,6 @@ argument_list|,
 name|text
 argument_list|,
 literal|false
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 name|result
@@ -6033,8 +6021,6 @@ argument_list|()
 operator|)
 argument_list|,
 literal|false
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 name|result
