@@ -181,6 +181,16 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+name|QMakeVfs
+name|vfs
+decl_stmt|;
+name|Option
+operator|::
+name|vfs
+operator|=
+operator|&
+name|vfs
+expr_stmt|;
 name|QMakeGlobals
 name|globals
 decl_stmt|;
@@ -470,6 +480,9 @@ name|parser
 argument_list|(
 operator|&
 name|proFileCache
+argument_list|,
+operator|&
+name|vfs
 argument_list|,
 operator|&
 name|Option

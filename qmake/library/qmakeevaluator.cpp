@@ -25,6 +25,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qmakevfs.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"ioutils.h"
 end_include
 begin_include
@@ -740,6 +745,10 @@ name|QMakeParser
 modifier|*
 name|parser
 parameter_list|,
+name|QMakeVfs
+modifier|*
+name|vfs
+parameter_list|,
 name|QMakeHandler
 modifier|*
 name|handler
@@ -770,6 +779,11 @@ member_init_list|,
 name|m_handler
 argument_list|(
 name|handler
+argument_list|)
+member_init_list|,
+name|m_vfs
+argument_list|(
+name|vfs
 argument_list|)
 block|{
 comment|// So that single-threaded apps don't have to call initialize() for now.
@@ -5848,8 +5862,8 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|IoUtils
-operator|::
+name|m_vfs
+operator|->
 name|exists
 argument_list|(
 name|superfile
@@ -5920,8 +5934,8 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|IoUtils
-operator|::
+name|m_vfs
+operator|->
 name|exists
 argument_list|(
 name|conffile
@@ -5944,8 +5958,8 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|IoUtils
-operator|::
+name|m_vfs
+operator|->
 name|exists
 argument_list|(
 name|cachefile
@@ -6454,6 +6468,8 @@ argument_list|(
 name|m_option
 argument_list|,
 name|m_parser
+argument_list|,
+name|m_vfs
 argument_list|,
 name|m_handler
 argument_list|)
@@ -7461,6 +7477,8 @@ argument_list|(
 name|m_option
 argument_list|,
 name|m_parser
+argument_list|,
+name|m_vfs
 argument_list|,
 name|m_handler
 argument_list|)
@@ -10384,8 +10402,8 @@ name|LoadSilent
 operator|)
 operator|&&
 operator|!
-name|IoUtils
-operator|::
+name|m_vfs
+operator|->
 name|exists
 argument_list|(
 name|fileName
@@ -10972,6 +10990,8 @@ argument_list|(
 name|m_option
 argument_list|,
 name|m_parser
+argument_list|,
+name|m_vfs
 argument_list|,
 name|m_handler
 argument_list|)

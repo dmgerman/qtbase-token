@@ -157,6 +157,12 @@ name|ProFileCache
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QMakeVfs
+name|class
+name|QMakeVfs
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QMAKE_EXPORT
 name|QMakeParser
@@ -174,6 +180,10 @@ argument_list|(
 name|ProFileCache
 operator|*
 name|cache
+argument_list|,
+name|QMakeVfs
+operator|*
+name|vfs
 argument_list|,
 name|QMakeParserHandler
 operator|*
@@ -759,6 +769,10 @@ decl_stmt|;
 name|QMakeParserHandler
 modifier|*
 name|m_handler
+decl_stmt|;
+name|QMakeVfs
+modifier|*
+name|m_vfs
 decl_stmt|;
 comment|// This doesn't help gcc 3.3 ...
 name|template

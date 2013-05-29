@@ -407,6 +407,10 @@ name|QMakeParser
 operator|*
 name|parser
 argument_list|,
+name|QMakeVfs
+operator|*
+name|vfs
+argument_list|,
 name|QMakeHandler
 operator|*
 name|handler
@@ -1448,6 +1452,10 @@ block|;
 name|QMakeHandler
 operator|*
 name|m_handler
+block|;
+name|QMakeVfs
+operator|*
+name|m_vfs
 block|; }
 block|;
 name|Q_DECLARE_OPERATORS_FOR_FLAGS

@@ -75,6 +75,15 @@ name|proFileCache
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|member|vfs
+name|QMakeVfs
+modifier|*
+name|Option
+operator|::
+name|vfs
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|member|parser
 name|QMakeParser
 modifier|*

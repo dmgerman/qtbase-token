@@ -21,6 +21,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qmakevfs.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<qmakeparser.h>
 end_include
 begin_include
@@ -223,6 +228,12 @@ specifier|static
 name|ProFileCache
 modifier|*
 name|proFileCache
+decl_stmt|;
+DECL|member|vfs
+specifier|static
+name|QMakeVfs
+modifier|*
+name|vfs
 decl_stmt|;
 DECL|member|parser
 specifier|static

@@ -53,6 +53,10 @@ name|Option
 operator|::
 name|parser
 argument_list|,
+name|Option
+operator|::
+name|vfs
+argument_list|,
 operator|&
 name|Option
 operator|::
@@ -80,6 +84,10 @@ argument_list|,
 name|Option
 operator|::
 name|parser
+argument_list|,
+name|Option
+operator|::
+name|vfs
 argument_list|,
 operator|&
 name|Option
