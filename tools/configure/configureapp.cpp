@@ -11841,7 +11841,7 @@ literal|"partial"
 argument_list|,
 literal|"-process"
 argument_list|,
-literal|"Generate top-level Makefiles/Project files."
+literal|"Generate only top-level Makefile."
 argument_list|)
 expr_stmt|;
 name|desc
@@ -25972,6 +25972,13 @@ literal|"VCPROJFILES"
 index|]
 operator|==
 literal|"yes"
+operator|&&
+name|dictionary
+index|[
+literal|"PROCESS"
+index|]
+operator|==
+literal|"full"
 operator|)
 decl_stmt|;
 while|while
