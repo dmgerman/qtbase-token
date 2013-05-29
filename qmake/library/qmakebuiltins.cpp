@@ -1662,10 +1662,7 @@ condition|(
 operator|!
 name|doWriteFile
 argument_list|(
-name|qfi
-operator|.
-name|filePath
-argument_list|()
+name|fn
 argument_list|,
 name|mode
 argument_list|,
@@ -1691,10 +1688,7 @@ name|QDir
 operator|::
 name|toNativeSeparators
 argument_list|(
-name|qfi
-operator|.
-name|filePath
-argument_list|()
+name|fn
 argument_list|)
 argument_list|,
 name|errStr
@@ -1709,10 +1703,7 @@ name|m_parser
 operator|->
 name|discardFileFromCache
 argument_list|(
-name|qfi
-operator|.
-name|filePath
-argument_list|()
+name|fn
 argument_list|)
 expr_stmt|;
 return|return
