@@ -23,6 +23,11 @@ include|#
 directive|include
 file|<QtCore/qstring.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qobjectdefs.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 ifndef|#
@@ -111,9 +116,13 @@ name|class
 name|Q_GUI_EXPORT
 name|QKeySequence
 block|{
+name|Q_GADGET
+name|Q_ENUMS
+argument_list|(
+name|StandardKey
+argument_list|)
 name|public
-label|:
-enum|enum
+range|:     enum
 name|StandardKey
 block|{
 name|UnknownKey
@@ -252,7 +261,7 @@ name|FullScreen
 block|,
 name|Deselect
 block|}
-enum|;
+decl_stmt|;
 enum|enum
 name|SequenceFormat
 block|{
