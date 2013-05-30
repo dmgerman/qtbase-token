@@ -4900,12 +4900,13 @@ argument_list|(
 name|uncleanDir
 argument_list|)
 else|:
-name|Location
-operator|::
-name|canonicalRelativePath
+name|QDir
 argument_list|(
 name|uncleanDir
 argument_list|)
+operator|.
+name|canonicalPath
+argument_list|()
 decl_stmt|;
 name|QStringList
 name|result
