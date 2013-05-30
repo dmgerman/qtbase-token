@@ -145,6 +145,13 @@ name|CWP_SKIPINVISIBLE
 value|0x0001
 end_define
 begin_define
+DECL|macro|CWP_SKIPTRANSPARENT
+define|#
+directive|define
+name|CWP_SKIPTRANSPARENT
+value|0x0004
+end_define
+begin_define
 DECL|macro|findPlatformWindowAt
 define|#
 directive|define
