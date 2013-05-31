@@ -5289,12 +5289,9 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|option
-operator|.
-name|rect
-operator|.
-name|setHeight
-argument_list|(
+name|int
+name|height
+init|=
 name|q
 operator|->
 name|rowHeight
@@ -5304,6 +5301,30 @@ operator|.
 name|row
 argument_list|()
 argument_list|)
+decl_stmt|;
+comment|// if the option.height == 0 then q->itemDelegate(index)->sizeHint(option, index) will be wrong.
+comment|// The option.height == 0 is used to conclude that the text is not wrapped, and hence it will
+comment|// (exactly like widthHintForIndex) return a QSize with a long width (that we don't use) -
+comment|// and the height of the text if it was/is on one line.
+comment|// What we want is a height hint for the current width (and we know that this section is not hidden)
+comment|// Therefore we catch this special situation with:
+if|if
+condition|(
+name|height
+operator|==
+literal|0
+condition|)
+name|height
+operator|=
+literal|1
+expr_stmt|;
+name|option
+operator|.
+name|rect
+operator|.
+name|setHeight
+argument_list|(
+name|height
 argument_list|)
 expr_stmt|;
 name|option
