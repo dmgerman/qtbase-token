@@ -10588,6 +10588,16 @@ name|fn
 argument_list|)
 condition|)
 block|{
+name|QStringRef
+name|currPath
+init|=
+name|IoUtils
+operator|::
+name|pathName
+argument_list|(
+name|currFn
+argument_list|)
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -10607,7 +10617,7 @@ name|root
 control|)
 if|if
 condition|(
-name|currFn
+name|currPath
 operator|==
 name|m_featureRoots
 operator|.
@@ -10615,8 +10625,6 @@ name|at
 argument_list|(
 name|root
 argument_list|)
-operator|+
-name|fn
 condition|)
 block|{
 name|start_root

@@ -104,6 +104,17 @@ return|;
 block|}
 specifier|static
 name|QStringRef
+name|pathName
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|fileName
+parameter_list|)
+function_decl|;
+comment|// Requires normalized path
+specifier|static
+name|QStringRef
 name|fileName
 parameter_list|(
 specifier|const
