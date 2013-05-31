@@ -779,7 +779,7 @@ argument|const QModelIndex&index
 argument_list|,
 argument|int hint
 argument_list|,
-argument|const QStyleOptionViewItem&option
+argument|QStyleOptionViewItem&option
 argument_list|)
 specifier|const
 block|;
