@@ -100,7 +100,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtPlatformSupport/private/qshapedpixmapdndwindow_p.h>
+file|<private/qshapedpixmapdndwindow_p.h>
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE

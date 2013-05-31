@@ -6903,7 +6903,7 @@ decl|,
 name|cnodes
 control|)
 block|{
-comment|/*                   Don't generate anything for a QML property group node.                   It is just a place holder for a collection of QML property                   nodes. Recurse to its children, which are the QML property                   nodes.                  */
+comment|/*                   Don't generate anything for a QML property group node.                   It is just a place holder for a collection of QML property                   nodes. Recurse to its children, which are the QML property                   nodes.                    Do the same thing for collision nodes - we want children                   of collision nodes in the index, but leaving out the                   parent collision page will make searching for nodes easier.                  */
 if|if
 condition|(
 name|child
@@ -6914,6 +6914,15 @@ operator|==
 name|Node
 operator|::
 name|QmlPropertyGroup
+operator|||
+name|child
+operator|->
+name|subType
+argument_list|()
+operator|==
+name|Node
+operator|::
+name|Collision
 condition|)
 block|{
 specifier|const
