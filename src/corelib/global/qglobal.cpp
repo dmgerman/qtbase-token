@@ -927,9 +927,9 @@ operator|::
 name|macVersion
 parameter_list|()
 block|{
-ifndef|#
-directive|ifndef
-name|Q_OS_IOS
+ifdef|#
+directive|ifdef
+name|Q_OS_MACX
 name|SInt32
 name|gestalt_version
 decl_stmt|;
