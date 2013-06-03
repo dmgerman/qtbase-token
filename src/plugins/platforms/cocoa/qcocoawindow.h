@@ -351,6 +351,10 @@ argument|Qt::WindowType type = Qt::Widget
 argument_list|)
 specifier|const
 block|;
+name|void
+name|setSynchedWindowStateFromWindow
+argument_list|()
+block|;
 name|NSInteger
 name|windowLevel
 argument_list|(
