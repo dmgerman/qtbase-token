@@ -16202,6 +16202,11 @@ if|if
 condition|(
 name|member
 operator|->
+name|isInternal
+argument_list|()
+operator|||
+name|member
+operator|->
 name|type
 argument_list|()
 operator|!=
@@ -16331,6 +16336,12 @@ decl_stmt|;
 if|if
 condition|(
 name|gn
+operator|&&
+operator|!
+name|docNode
+operator|->
+name|isInternal
+argument_list|()
 condition|)
 name|docNodeMap
 index|[

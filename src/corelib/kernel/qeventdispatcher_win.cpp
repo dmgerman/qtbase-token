@@ -60,6 +60,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qsysinfo.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<private/qthread_p.h>
 end_include
 begin_include
@@ -1310,6 +1315,33 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
+if|#
+directive|if
+name|defined
+argument_list|(
+name|_MSC_VER
+argument_list|)
+operator|&&
+name|_MSC_VER
+operator|>=
+literal|1700
+if|if
+condition|(
+name|QSysInfo
+operator|::
+name|WindowsVersion
+operator|>=
+name|QSysInfo
+operator|::
+name|WV_WINDOWS8
+condition|)
+block|{
+comment|// QTBUG-27266, Disable when running MSVC2012-built code on pre-Windows 8
+else|#
+directive|else
+block|{
+endif|#
+directive|endif
 name|qtimeSetEvent
 operator|=
 operator|(
@@ -1344,6 +1376,7 @@ argument_list|,
 literal|"timeKillEvent"
 argument_list|)
 expr_stmt|;
+block|}
 else|#
 directive|else
 name|qtimeSetEvent
@@ -1384,8 +1417,6 @@ endif|#
 directive|endif
 block|}
 block|}
-end_function
-begin_constructor
 DECL|function|QEventDispatcherWin32Private
 name|QEventDispatcherWin32Private
 operator|::
@@ -1437,8 +1468,6 @@ name|resolveTimerAPI
 argument_list|()
 expr_stmt|;
 block|}
-end_constructor
-begin_destructor
 DECL|function|~QEventDispatcherWin32Private
 name|QEventDispatcherWin32Private
 operator|::
@@ -1489,8 +1518,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_destructor
-begin_function
 DECL|function|activateEventNotifier
 name|void
 name|QEventDispatcherWin32Private
@@ -1521,11 +1548,7 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_comment
 comment|// This function is called by a workerthread
-end_comment
-begin_function
 DECL|function|qt_fast_timer_proc
 name|void
 name|WINAPI
@@ -1588,8 +1611,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|qt_internal_proc
 name|LRESULT
 name|QT_WIN_CALLBACK
@@ -2054,8 +2075,6 @@ name|lp
 argument_list|)
 return|;
 block|}
-end_function
-begin_function
 DECL|function|qt_GetMessageHook
 name|LRESULT
 name|QT_WIN_CALLBACK
@@ -2299,8 +2318,6 @@ return|;
 endif|#
 directive|endif
 block|}
-end_function
-begin_function
 DECL|function|qt_create_internal_window
 specifier|static
 name|HWND
@@ -2523,8 +2540,6 @@ return|return
 name|wnd
 return|;
 block|}
-end_function
-begin_function
 DECL|function|registerTimer
 name|void
 name|QEventDispatcherWin32Private
@@ -2710,8 +2725,6 @@ literal|"QEventDispatcherWin32::registerTimer: Failed to create a timer"
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|unregisterTimer
 name|void
 name|QEventDispatcherWin32Private
@@ -2797,8 +2810,6 @@ operator|delete
 name|t
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|sendTimerEvent
 name|void
 name|QEventDispatcherWin32Private
@@ -2881,8 +2892,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-end_function
-begin_function
 DECL|function|doWsaAsyncSelect
 name|void
 name|QEventDispatcherWin32Private
@@ -2969,8 +2978,6 @@ name|sn_event
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|createInternalHwnd
 name|void
 name|QEventDispatcherWin32
@@ -3156,8 +3163,6 @@ name|wakeUp
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_constructor
 DECL|function|QEventDispatcherWin32
 name|QEventDispatcherWin32
 operator|::
@@ -3177,8 +3182,6 @@ argument_list|,
 name|parent
 argument_list|)
 block|{ }
-end_constructor
-begin_constructor
 DECL|function|QEventDispatcherWin32
 name|QEventDispatcherWin32
 operator|::
@@ -3200,8 +3203,6 @@ argument_list|,
 name|parent
 argument_list|)
 block|{ }
-end_constructor
-begin_destructor
 DECL|function|~QEventDispatcherWin32
 name|QEventDispatcherWin32
 operator|::
@@ -3209,8 +3210,6 @@ name|~
 name|QEventDispatcherWin32
 parameter_list|()
 block|{ }
-end_destructor
-begin_function
 DECL|function|processEvents
 name|bool
 name|QEventDispatcherWin32
@@ -4061,8 +4060,6 @@ return|return
 name|retVal
 return|;
 block|}
-end_function
-begin_function
 DECL|function|hasPendingEvents
 name|bool
 name|QEventDispatcherWin32
@@ -4092,8 +4089,6 @@ name|PM_NOREMOVE
 argument_list|)
 return|;
 block|}
-end_function
-begin_function
 DECL|function|registerSocketNotifier
 name|void
 name|QEventDispatcherWin32
@@ -4303,8 +4298,6 @@ name|sockfd
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|unregisterSocketNotifier
 name|void
 name|QEventDispatcherWin32
@@ -4462,8 +4455,6 @@ name|sockfd
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|registerTimer
 name|void
 name|QEventDispatcherWin32
@@ -4626,8 +4617,6 @@ argument_list|)
 expr_stmt|;
 comment|// store timers in dict
 block|}
-end_function
-begin_function
 DECL|function|unregisterTimer
 name|bool
 name|QEventDispatcherWin32
@@ -4753,8 +4742,6 @@ return|return
 literal|true
 return|;
 block|}
-end_function
-begin_function
 DECL|function|unregisterTimers
 name|bool
 name|QEventDispatcherWin32
@@ -4916,8 +4903,6 @@ return|return
 literal|true
 return|;
 block|}
-end_function
-begin_function
 name|QList
 argument_list|<
 name|QEventDispatcherWin32
@@ -5032,8 +5017,6 @@ return|return
 name|list
 return|;
 block|}
-end_function
-begin_function
 DECL|function|registerEventNotifier
 name|bool
 name|QEventDispatcherWin32
@@ -5148,8 +5131,6 @@ return|return
 literal|true
 return|;
 block|}
-end_function
-begin_function
 DECL|function|unregisterEventNotifier
 name|void
 name|QEventDispatcherWin32
@@ -5235,8 +5216,6 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|activateEventNotifiers
 name|void
 name|QEventDispatcherWin32
@@ -5355,8 +5334,6 @@ endif|#
 directive|endif
 block|}
 block|}
-end_function
-begin_function
 DECL|function|remainingTime
 name|int
 name|QEventDispatcherWin32
@@ -5504,8 +5481,6 @@ operator|-
 literal|1
 return|;
 block|}
-end_function
-begin_function
 DECL|function|wakeUp
 name|void
 name|QEventDispatcherWin32
@@ -5559,8 +5534,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_function
 DECL|function|interrupt
 name|void
 name|QEventDispatcherWin32
@@ -5583,8 +5556,6 @@ name|wakeUp
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|flush
 name|void
 name|QEventDispatcherWin32
@@ -5592,8 +5563,6 @@ operator|::
 name|flush
 parameter_list|()
 block|{ }
-end_function
-begin_function
 DECL|function|startingUp
 name|void
 name|QEventDispatcherWin32
@@ -5601,8 +5570,6 @@ operator|::
 name|startingUp
 parameter_list|()
 block|{ }
-end_function
-begin_function
 DECL|function|closingDown
 name|void
 name|QEventDispatcherWin32
@@ -5770,8 +5737,6 @@ expr_stmt|;
 endif|#
 directive|endif
 block|}
-end_function
-begin_function
 DECL|function|event
 name|bool
 name|QEventDispatcherWin32
@@ -5969,8 +5934,6 @@ name|e
 argument_list|)
 return|;
 block|}
-end_function
-begin_function
 DECL|function|sendPostedEvents
 name|void
 name|QEventDispatcherWin32
@@ -5997,8 +5960,6 @@ name|threadData
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_macro
 name|QT_END_NAMESPACE
-end_macro
+end_function
 end_unit

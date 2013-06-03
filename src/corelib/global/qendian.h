@@ -153,6 +153,17 @@ argument_list|,
 argument|uchar *dest
 argument_list|)
 block|{
+comment|// Using sizeof(T) inside memcpy function produces internal compiler error with
+comment|// MSVC2008/ARM in tst_endian -> use extra indirection to resolve size of T.
+specifier|const
+name|size_t
+name|size
+operator|=
+sizeof|sizeof
+argument_list|(
+name|T
+argument_list|)
+block|;
 name|memcpy
 argument_list|(
 name|dest
@@ -160,10 +171,7 @@ argument_list|,
 operator|&
 name|src
 argument_list|,
-sizeof|sizeof
-argument_list|(
-name|T
-argument_list|)
+name|size
 argument_list|)
 block|; }
 comment|/* T qFromLittleEndian(const uchar *src)  * This function will read a little-endian encoded value from \a src  * and return the value in host-endian encoding.  * There is no requirement that \a src must be aligned. */
