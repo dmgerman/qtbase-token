@@ -4945,8 +4945,9 @@ name|statics
 operator|.
 name|strQMAKE_PLATFORM
 condition|)
-name|updateFeaturePaths
-argument_list|()
+name|m_featureRoots
+operator|=
+literal|0
 expr_stmt|;
 ifdef|#
 directive|ifdef
@@ -6388,6 +6389,7 @@ operator|.
 name|toString
 argument_list|()
 expr_stmt|;
+comment|// This also ensures that m_featureRoots is valid.
 if|if
 condition|(
 name|evaluateFeatureFile
