@@ -2928,7 +2928,8 @@ index|]
 argument_list|)
 decl_stmt|;
 comment|// Generate a screen position that is always inside the active window
-comment|// or the primary screen.
+comment|// or the primary screen.  Even though we report this as a QRectF, internally
+comment|// Qt uses QRect/QPoint so we need to bound the size to winRect.size() - QSize(1, 1)
 specifier|const
 name|qreal
 name|wx
@@ -2945,10 +2946,14 @@ operator|.
 name|x
 argument_list|()
 operator|*
+operator|(
 name|winRect
 operator|.
 name|width
 argument_list|()
+operator|-
+literal|1
+operator|)
 decl_stmt|;
 specifier|const
 name|qreal
@@ -2966,10 +2971,14 @@ operator|.
 name|y
 argument_list|()
 operator|*
+operator|(
 name|winRect
 operator|.
 name|height
 argument_list|()
+operator|-
+literal|1
+operator|)
 decl_stmt|;
 specifier|const
 name|qreal
