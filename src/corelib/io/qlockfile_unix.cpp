@@ -30,6 +30,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"QtCore/qdatetime.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"private/qcore_unix_p.h"
 end_include
 begin_comment
@@ -204,6 +209,9 @@ operator|::
 name|checkFcntlWorksAfterFlock
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_TEMPORARYFILE
 name|QTemporaryFile
 name|file
 decl_stmt|;
@@ -216,8 +224,7 @@ name|open
 argument_list|()
 condition|)
 return|return
-operator|-
-literal|2
+literal|0
 return|;
 specifier|const
 name|int
@@ -250,8 +257,7 @@ literal|1
 condition|)
 comment|// other threads, and other processes on a local fs
 return|return
-operator|-
-literal|3
+literal|0
 return|;
 name|struct
 name|flock
@@ -311,6 +317,13 @@ return|;
 return|return
 literal|1
 return|;
+else|#
+directive|else
+return|return
+literal|0
+return|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_decl_stmt

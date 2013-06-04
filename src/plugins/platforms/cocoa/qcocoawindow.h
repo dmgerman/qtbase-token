@@ -282,6 +282,11 @@ name|frameMargins
 argument_list|()
 specifier|const
 block|;
+name|QSurfaceFormat
+name|format
+argument_list|()
+specifier|const
+block|;
 name|void
 name|requestActivateWindow
 argument_list|()

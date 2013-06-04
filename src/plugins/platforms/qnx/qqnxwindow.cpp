@@ -361,14 +361,18 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-comment|// Make the window opaque
+comment|// Blend the window with Source Over Porter-Duff behavior onto whatever's
+comment|// behind it.
+comment|//
+comment|// If the desired use-case is opaque, the Widget painting framework will
+comment|// already fill in the alpha channel with full opacity.
 name|errno
 operator|=
 literal|0
 expr_stmt|;
 name|val
 operator|=
-name|SCREEN_TRANSPARENCY_NONE
+name|SCREEN_TRANSPARENCY_SOURCE_OVER
 expr_stmt|;
 name|result
 operator|=
@@ -1600,6 +1604,7 @@ name|result
 operator|!=
 literal|0
 condition|)
+block|{
 name|qWarning
 argument_list|()
 operator|<<
@@ -1614,6 +1619,30 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
+block|}
+comment|// If the child window has been configured for transparency, lazily create
+comment|// a full-screen buffer to back the root window.
+if|if
+condition|(
+name|window
+argument_list|()
+operator|->
+name|requestedFormat
+argument_list|()
+operator|.
+name|hasAlpha
+argument_list|()
+condition|)
+block|{
+name|m_screen
+operator|->
+name|rootWindow
+argument_list|()
+operator|->
+name|makeTranslucent
+argument_list|()
+expr_stmt|;
+block|}
 comment|// check if there are any buffers available
 name|int
 name|bufferCount

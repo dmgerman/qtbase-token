@@ -1389,7 +1389,7 @@ argument|STACK *a
 argument_list|,
 argument|a
 argument_list|,
-argument|void *b
+argument|char *b
 argument_list|,
 argument|b
 argument_list|,
@@ -3037,6 +3037,13 @@ argument_list|,
 argument|DUMMYARG
 argument_list|)
 end_macro
+begin_if
+if|#
+directive|if
+name|OPENSSL_VERSION_NUMBER
+operator|>=
+literal|0x10000000L
+end_if
 begin_macro
 name|DEFINEFUNC2
 argument_list|(
@@ -3058,6 +3065,35 @@ argument_list|,
 argument|return
 argument_list|)
 end_macro
+begin_else
+else|#
+directive|else
+end_else
+begin_macro
+name|DEFINEFUNC2
+argument_list|(
+argument|int
+argument_list|,
+argument|ASN1_STRING_print
+argument_list|,
+argument|BIO *a
+argument_list|,
+argument|a
+argument_list|,
+argument|ASN1_STRING *b
+argument_list|,
+argument|b
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|DEFINEFUNC
 argument_list|(

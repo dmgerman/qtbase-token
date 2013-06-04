@@ -90,6 +90,11 @@ operator|==
 literal|0
 argument_list|)
 expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|shutdown
+argument_list|)
+expr_stmt|;
 name|QNetworkConfigurationManagerPrivate
 modifier|*
 name|cmp

@@ -6027,7 +6027,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \fn Qt::ItemFlags QTreeWidgetItem::flags() const      Returns the flags used to describe the item. These determine whether     the item can be checked, edited, and selected.      The default value for flags is     Qt::ItemIsSelectable | Qt::ItemIsUserCheckable | Qt::ItemIsEnabled | Qt::ItemIsDragEnabled.     If the item was constructed with a parent, flags will in addition contain Qt::ItemIsDropEnabled.      \sa setFlags() */
+comment|/*!     \fn Qt::ItemFlags QTreeWidgetItem::flags() const      Returns the flags used to describe the item. These determine whether     the item can be checked, edited, and selected.      The default value for flags is     Qt::ItemIsSelectable | Qt::ItemIsUserCheckable | Qt::ItemIsEnabled |     Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled.      \sa setFlags() */
 end_comment
 begin_function
 DECL|function|flags

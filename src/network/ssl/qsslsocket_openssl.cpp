@@ -7918,7 +7918,7 @@ name|intermediates
 argument_list|,
 cast|reinterpret_cast
 argument_list|<
-name|X509
+name|char
 operator|*
 argument_list|>
 argument_list|(

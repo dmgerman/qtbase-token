@@ -31,7 +31,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtPlatformSupport/private/qsimpledrag_p.h>
+file|<private/qsimpledrag_p.h>
 end_include
 begin_include
 include|#

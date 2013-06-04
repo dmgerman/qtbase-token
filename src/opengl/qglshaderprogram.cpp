@@ -3311,6 +3311,14 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+operator|!
+name|d
+operator|->
+name|linked
+condition|)
+block|{
+if|if
+condition|(
 name|name
 operator|.
 name|isEmpty
@@ -3339,6 +3347,7 @@ name|d
 operator|->
 name|log
 expr_stmt|;
+block|}
 operator|delete
 index|[]
 name|logbuf

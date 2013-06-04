@@ -3402,11 +3402,18 @@ literal|false
 return|;
 block|}
 block|}
+comment|// bail out if the string is not pure latin1 or too long to hold as a latin1string (which has only 16 bit for the length)
 if|if
 condition|(
 name|ch
 operator|>
 literal|0xff
+operator|||
+name|json
+operator|-
+name|start
+operator|>=
+literal|0x8000
 condition|)
 block|{
 operator|*

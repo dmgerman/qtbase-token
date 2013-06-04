@@ -117,6 +117,41 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// The default z-order of a window (intended to be overlain) created by
+end_comment
+begin_comment
+comment|// mmrender.
+end_comment
+begin_decl_stmt
+DECL|variable|MMRENDER_DEFAULT_ZORDER
+specifier|static
+specifier|const
+name|int
+name|MMRENDER_DEFAULT_ZORDER
+init|=
+operator|-
+literal|1
+decl_stmt|;
+end_decl_stmt
+begin_comment
+comment|// The maximum z-order at which a foreign window will be considered
+end_comment
+begin_comment
+comment|// an underlay.
+end_comment
+begin_decl_stmt
+DECL|variable|MAX_UNDERLAY_ZORDER
+specifier|static
+specifier|const
+name|int
+name|MAX_UNDERLAY_ZORDER
+init|=
+name|MMRENDER_DEFAULT_ZORDER
+operator|-
+literal|1
+decl_stmt|;
+end_decl_stmt
 begin_function
 name|QT_BEGIN_NAMESPACE
 DECL|function|determineScreenSize
@@ -2317,11 +2352,74 @@ name|const_iterator
 name|it
 decl_stmt|;
 name|int
-name|topZorder
-init|=
-literal|1
+name|result
 decl_stmt|;
-comment|// root window is z-order 0, all "top" level windows are "above" it
+name|int
+name|topZorder
+decl_stmt|;
+name|errno
+operator|=
+literal|0
+expr_stmt|;
+name|result
+operator|=
+name|screen_get_window_property_iv
+argument_list|(
+name|rootWindow
+argument_list|()
+operator|->
+name|nativeHandle
+argument_list|()
+argument_list|,
+name|SCREEN_PROPERTY_ZORDER
+argument_list|,
+operator|&
+name|topZorder
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|result
+operator|!=
+literal|0
+condition|)
+name|qFatal
+argument_list|(
+literal|"QQnxScreen: failed to query root window z-order, errno=%d"
+argument_list|,
+name|errno
+argument_list|)
+expr_stmt|;
+name|topZorder
+operator|++
+expr_stmt|;
+comment|// root window has the lowest z-order in the windowgroup
+comment|// Underlays sit immediately above the root window in the z-ordering
+name|Q_FOREACH
+argument_list|(
+argument|screen_window_t underlay
+argument_list|,
+argument|m_underlays
+argument_list|)
+block|{
+comment|// Do nothing when this fails. This can happen if we have stale windows in m_underlays,
+comment|// which in turn can happen because a window was removed but we didn't get a notification
+comment|// yet.
+name|screen_set_window_property_iv
+argument_list|(
+name|underlay
+argument_list|,
+name|SCREEN_PROPERTY_ZORDER
+argument_list|,
+operator|&
+name|topZorder
+argument_list|)
+expr_stmt|;
+name|topZorder
+operator|++
+expr_stmt|;
+block|}
+comment|// Normal Qt windows come next above underlays in the z-ordering
 for|for
 control|(
 name|it
@@ -2351,9 +2449,7 @@ argument_list|(
 name|topZorder
 argument_list|)
 expr_stmt|;
-name|topZorder
-operator|++
-expr_stmt|;
+comment|// Finally overlays sit above all else in the z-ordering
 name|Q_FOREACH
 argument_list|(
 argument|screen_window_t overlay
@@ -2361,9 +2457,7 @@ argument_list|,
 argument|m_overlays
 argument_list|)
 block|{
-comment|// Do nothing when this fails. This can happen if we have stale windows in mOverlays,
-comment|// which in turn can happen because a window was removed but we didn't get a notification
-comment|// yet.
+comment|// No error handling, see underlay logic above
 name|screen_set_window_property_iv
 argument_list|(
 name|overlay
@@ -2554,11 +2648,34 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|removeOverlayWindow
+DECL|function|addUnderlayWindow
 name|void
 name|QQnxScreen
 operator|::
-name|removeOverlayWindow
+name|addUnderlayWindow
+parameter_list|(
+name|screen_window_t
+name|window
+parameter_list|)
+block|{
+name|m_underlays
+operator|.
+name|append
+argument_list|(
+name|window
+argument_list|)
+expr_stmt|;
+name|updateHierarchy
+argument_list|()
+expr_stmt|;
+block|}
+end_function
+begin_function
+DECL|function|removeOverlayOrUnderlayWindow
+name|void
+name|QQnxScreen
+operator|::
+name|removeOverlayOrUnderlayWindow
 parameter_list|(
 name|screen_window_t
 name|window
@@ -2566,9 +2683,16 @@ parameter_list|)
 block|{
 specifier|const
 name|int
-name|numOverlaysRemoved
+name|numRemoved
 init|=
 name|m_overlays
+operator|.
+name|removeAll
+argument_list|(
+name|window
+argument_list|)
+operator|+
+name|m_underlays
 operator|.
 name|removeAll
 argument_list|(
@@ -2577,7 +2701,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|numOverlaysRemoved
+name|numRemoved
 operator|>
 literal|0
 condition|)
@@ -2655,6 +2779,36 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+name|int
+name|zorder
+decl_stmt|;
+if|if
+condition|(
+name|screen_get_window_property_iv
+argument_list|(
+name|windowHandle
+argument_list|,
+name|SCREEN_PROPERTY_ZORDER
+argument_list|,
+operator|&
+name|zorder
+argument_list|)
+operator|!=
+literal|0
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QQnx: Failed to get z-order for window, errno=%d"
+argument_list|,
+name|errno
+argument_list|)
+expr_stmt|;
+name|zorder
+operator|=
+literal|0
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|display
@@ -2666,7 +2820,12 @@ block|{
 comment|// A window was created on this screen. If we don't know about this window yet, it means
 comment|// it was not created by Qt, but by some foreign library like the multimedia renderer, which
 comment|// creates an overlay window when playing a video.
-comment|// Treat all foreign windows as overlays here.
+comment|//
+comment|// Treat all foreign windows as overlays or underlays here.
+comment|//
+comment|// Assume that if a foreign window already has a Z-Order both negative and
+comment|// less than the default Z-Order installed by mmrender on windows it creates,
+comment|// the windows should be treated as an underlay. Otherwise, we treat it as an overlay.
 if|if
 condition|(
 operator|!
@@ -2675,11 +2834,25 @@ argument_list|(
 name|windowHandle
 argument_list|)
 condition|)
+block|{
+if|if
+condition|(
+name|zorder
+operator|<=
+name|MAX_UNDERLAY_ZORDER
+condition|)
+name|addUnderlayWindow
+argument_list|(
+name|windowHandle
+argument_list|)
+expr_stmt|;
+else|else
 name|addOverlayWindow
 argument_list|(
 name|windowHandle
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_function
@@ -2718,7 +2891,7 @@ argument_list|(
 name|window
 argument_list|)
 decl_stmt|;
-name|removeOverlayWindow
+name|removeOverlayOrUnderlayWindow
 argument_list|(
 name|windowHandle
 argument_list|)

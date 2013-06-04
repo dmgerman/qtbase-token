@@ -202,7 +202,20 @@ argument_list|()
 argument_list|,
 name|parent
 argument_list|)
-block|{ }
+block|{
+name|qDBusRegisterMetaType
+argument_list|<
+name|ConnmanMap
+argument_list|>
+argument_list|()
+expr_stmt|;
+name|qDBusRegisterMetaType
+argument_list|<
+name|ConnmanMapList
+argument_list|>
+argument_list|()
+expr_stmt|;
+block|}
 end_constructor
 begin_destructor
 DECL|function|~QConnmanManagerInterface

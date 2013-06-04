@@ -802,6 +802,35 @@ endif|#
 directive|endif
 end_endif
 begin_comment
+comment|// QPdf
+end_comment
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_PDF
+argument_list|)
+operator|&&
+operator|(
+name|defined
+argument_list|(
+name|QT_NO_TEMPORARYFILE
+argument_list|)
+operator|)
+end_if
+begin_define
+DECL|macro|QT_NO_PDF
+define|#
+directive|define
+name|QT_NO_PDF
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
 comment|// QMenu
 end_comment
 begin_if

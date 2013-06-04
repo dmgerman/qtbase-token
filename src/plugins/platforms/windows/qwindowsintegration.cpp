@@ -2497,6 +2497,9 @@ name|useRTLExtensions
 argument_list|()
 argument_list|)
 return|;
+ifdef|#
+directive|ifdef
+name|Q_OS_WINCE
 case|case
 name|QPlatformIntegration
 operator|::
@@ -2508,6 +2511,11 @@ comment|// ignored by checking GetMessageExtraInfo() for MI_WP_SIGNATURE (0xFF51
 return|return
 literal|false
 return|;
+endif|#
+directive|endif
+comment|// Q_OS_WINCE
+default|default:
+break|break;
 block|}
 return|return
 name|QPlatformIntegration

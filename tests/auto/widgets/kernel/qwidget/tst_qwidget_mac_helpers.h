@@ -23,7 +23,7 @@ directive|pragma
 name|once
 end_pragma
 begin_comment
-comment|// Yeah, it's deprecated in general, but it's standard practive for Mac OS X.
+comment|// Yeah, it's deprecated in general, but it's standard practice for Mac OS X.
 end_comment
 begin_decl_stmt
 name|QString
