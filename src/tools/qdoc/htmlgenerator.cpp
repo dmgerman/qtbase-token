@@ -10357,6 +10357,11 @@ argument_list|()
 condition|)
 name|shortVersion
 operator|=
+name|QLatin1String
+argument_list|(
+literal|" | "
+argument_list|)
+operator|+
 name|project
 operator|+
 name|QLatin1Char
@@ -10365,26 +10370,21 @@ literal|' '
 argument_list|)
 operator|+
 name|shortVersion
-operator|+
-name|QLatin1String
-argument_list|(
-literal|": "
-argument_list|)
 expr_stmt|;
 else|else
 name|shortVersion
 operator|=
 name|QLatin1String
 argument_list|(
+literal|" | "
+argument_list|)
+operator|+
+name|QLatin1String
+argument_list|(
 literal|"Qt "
 argument_list|)
 operator|+
 name|shortVersion
-operator|+
-name|QLatin1String
-argument_list|(
-literal|": "
-argument_list|)
 expr_stmt|;
 comment|// Generating page title
 name|out
@@ -10392,12 +10392,12 @@ argument_list|()
 operator|<<
 literal|"<title>"
 operator|<<
-name|shortVersion
-operator|<<
 name|protectEnc
 argument_list|(
 name|title
 argument_list|)
+operator|<<
+name|shortVersion
 operator|<<
 literal|"</title>\n"
 expr_stmt|;
