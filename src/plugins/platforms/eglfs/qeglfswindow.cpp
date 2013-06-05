@@ -109,6 +109,11 @@ operator|::
 name|create
 parameter_list|()
 block|{
+if|if
+condition|(
+name|m_window
+condition|)
+return|return;
 name|setWindowState
 argument_list|(
 name|Qt
@@ -116,11 +121,6 @@ operator|::
 name|WindowFullScreen
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|m_window
-condition|)
-return|return;
 if|if
 condition|(
 name|window
