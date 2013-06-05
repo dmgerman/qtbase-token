@@ -8255,11 +8255,6 @@ argument_list|(
 literal|"QT_HOST_DATA/get"
 argument_list|)
 argument_list|)
-operator|.
-name|toQString
-argument_list|(
-name|m_mtmp
-argument_list|)
 operator|+
 name|mkspecs_concat
 operator|)
