@@ -11930,7 +11930,7 @@ literal|"\t\t\t\t"
 operator|<<
 name|writeSettings
 argument_list|(
-literal|"TARGET_BUILD_DIR"
+literal|"INSTALL_DIR"
 argument_list|,
 name|dir
 argument_list|)
