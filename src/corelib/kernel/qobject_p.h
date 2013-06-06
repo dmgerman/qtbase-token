@@ -787,6 +787,55 @@ argument_list|,
 argument|Func2 slot
 argument_list|)
 block|;
+specifier|static
+name|QMetaObject
+operator|::
+name|Connection
+name|connectImpl
+argument_list|(
+argument|const QObject *sender
+argument_list|,
+argument|int signal_index
+argument_list|,
+argument|const QObject *receiver
+argument_list|,
+argument|void **slot
+argument_list|,
+argument|QtPrivate::QSlotObjectBase *slotObj
+argument_list|,
+argument|Qt::ConnectionType type
+argument_list|,
+argument|const int *types
+argument_list|,
+argument|const QMetaObject *senderMetaObject
+argument_list|)
+block|;
+specifier|static
+name|QMetaObject
+operator|::
+name|Connection
+name|connect
+argument_list|(
+argument|const QObject *sender
+argument_list|,
+argument|int signal_index
+argument_list|,
+argument|QtPrivate::QSlotObjectBase *slotObj
+argument_list|,
+argument|Qt::ConnectionType type
+argument_list|)
+block|;
+specifier|static
+name|bool
+name|disconnect
+argument_list|(
+argument|const QObject *sender
+argument_list|,
+argument|int signal_index
+argument_list|,
+argument|void **slot
+argument_list|)
+block|;
 name|public
 operator|:
 name|ExtraData

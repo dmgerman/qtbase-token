@@ -2142,6 +2142,10 @@ name|class
 name|QObject
 block|;
 name|friend
+name|class
+name|QObjectPrivate
+block|;
+name|friend
 expr|struct
 name|QMetaObject
 block|;
