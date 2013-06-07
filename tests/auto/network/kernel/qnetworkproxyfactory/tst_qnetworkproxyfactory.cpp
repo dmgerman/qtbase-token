@@ -2732,6 +2732,26 @@ argument_list|)
 expr_stmt|;
 else|#
 directive|else
+name|Q_UNUSED
+argument_list|(
+argument|envVar
+argument_list|)
+name|Q_UNUSED
+argument_list|(
+argument|url
+argument_list|)
+name|Q_UNUSED
+argument_list|(
+argument|proxyType
+argument_list|)
+name|Q_UNUSED
+argument_list|(
+argument|hostName
+argument_list|)
+name|Q_UNUSED
+argument_list|(
+argument|port
+argument_list|)
 name|QSKIP
 argument_list|(
 literal|"Generic system proxy not available on this platform."
