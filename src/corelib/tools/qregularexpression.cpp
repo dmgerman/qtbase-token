@@ -1089,8 +1089,8 @@ name|Q_DISABLE_COPY
 parameter_list|(
 name|QPcreJitStackPointer
 parameter_list|)
-constructor_decl|;
-public|public:
+specifier|public
+private|:
 comment|/*!         \internal     */
 DECL|function|QPcreJitStackPointer
 name|QPcreJitStackPointer
