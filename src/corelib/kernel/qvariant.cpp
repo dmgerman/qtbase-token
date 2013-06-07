@@ -12242,6 +12242,11 @@ name|userStream
 init|=
 literal|false
 decl_stmt|;
+name|bool
+name|canConvertToString
+init|=
+literal|false
+decl_stmt|;
 if|if
 condition|(
 name|typeId
@@ -12250,6 +12255,7 @@ name|QMetaType
 operator|::
 name|User
 condition|)
+block|{
 name|userStream
 operator|=
 name|QMetaType
@@ -12268,9 +12274,8 @@ argument_list|,
 name|typeId
 argument_list|)
 expr_stmt|;
-name|bool
 name|canConvertToString
-init|=
+operator|=
 name|v
 operator|.
 name|canConvert
@@ -12278,7 +12283,8 @@ argument_list|<
 name|QString
 argument_list|>
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
