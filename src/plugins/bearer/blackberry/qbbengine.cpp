@@ -205,10 +205,9 @@ return|;
 case|case
 name|NETSTATUS_INTERFACE_TYPE_CELLULAR
 case|:
-comment|//### TODO  not sure which BearerType would be the best
-comment|//to return here. We need to be able to get more
-comment|//information on the bearer type in order to return
-comment|//the exact match.
+comment|// The exact bearer type is determined in QNetworkConfiguration
+comment|// at the time this info is queried, because opposed to the
+comment|// information here the type might change quickly.
 return|return
 name|QNetworkConfiguration
 operator|::

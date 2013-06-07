@@ -202,6 +202,10 @@ block|,
 name|BearerBluetooth
 block|,
 name|BearerWiMAX
+block|,
+name|BearerEVDO
+block|,
+name|BearerLTE
 block|}
 expr_stmt|;
 name|StateFlags
