@@ -2339,7 +2339,7 @@ name|QString
 operator|::
 name|fromUtf8
 argument_list|(
-literal|"\xE1\x9A\x80"
+literal|"x\xE1\x9A\x80x"
 argument_list|)
 operator|<<
 name|QString
@@ -2473,7 +2473,7 @@ name|QString
 operator|::
 name|fromUtf8
 argument_list|(
-literal|"\xC2\x85"
+literal|"x\xC2\x85x"
 argument_list|)
 operator|<<
 name|QString
@@ -2499,7 +2499,7 @@ name|QString
 operator|::
 name|fromUtf8
 argument_list|(
-literal|"\xE1\xA0\x8E"
+literal|"x\xE1\xA0\x8Ex"
 argument_list|)
 operator|<<
 name|QString
@@ -2549,7 +2549,7 @@ name|QString
 operator|::
 name|fromUtf8
 argument_list|(
-literal|"\xF0\x9D\x85\xB5"
+literal|"x\xF0\x9D\x85\xB5x"
 argument_list|)
 operator|<<
 name|QString
@@ -2575,7 +2575,7 @@ name|QString
 operator|::
 name|fromUtf8
 argument_list|(
-literal|"\xEF\x84\xA3"
+literal|"x\xEF\x84\xA3x"
 argument_list|)
 operator|<<
 name|QString
@@ -2601,7 +2601,7 @@ name|QString
 operator|::
 name|fromUtf8
 argument_list|(
-literal|"\xF3\xB1\x88\xB4"
+literal|"x\xF3\xB1\x88\xB4x"
 argument_list|)
 operator|<<
 name|QString
@@ -2627,7 +2627,7 @@ name|QString
 operator|::
 name|fromUtf8
 argument_list|(
-literal|"\xF4\x8F\x88\xB4"
+literal|"x\xF4\x8F\x88\xB4x"
 argument_list|)
 operator|<<
 name|QString
@@ -2653,7 +2653,7 @@ name|QString
 operator|::
 name|fromUtf8
 argument_list|(
-literal|"\xF2\x8F\xBF\xBE"
+literal|"x\xF2\x8F\xBF\xBEx"
 argument_list|)
 operator|<<
 name|QString
@@ -2679,7 +2679,7 @@ name|QString
 operator|::
 name|fromUtf8
 argument_list|(
-literal|"\xF4\x8F\xBF\xBF"
+literal|"x\xF4\x8F\xBF\xBFx"
 argument_list|)
 operator|<<
 name|QString
@@ -2705,7 +2705,7 @@ name|QString
 operator|::
 name|fromUtf8
 argument_list|(
-literal|"\xED\xBD\x82"
+literal|"x\xED\xBD\x82x"
 argument_list|)
 operator|<<
 name|QString
@@ -2731,7 +2731,7 @@ name|QString
 operator|::
 name|fromUtf8
 argument_list|(
-literal|"\xEF\xBF\xBD"
+literal|"x\xEF\xBF\xBDx"
 argument_list|)
 operator|<<
 name|QString
@@ -2757,7 +2757,7 @@ name|QString
 operator|::
 name|fromUtf8
 argument_list|(
-literal|"\xE2\xBF\xB5"
+literal|"x\xE2\xBF\xB5x"
 argument_list|)
 operator|<<
 name|QString
@@ -2811,15 +2811,11 @@ name|QString
 operator|::
 name|fromUtf8
 argument_list|(
-literal|"\xE2\x80\x8E"
+literal|"x\xE2\x80\x8Ex"
 argument_list|)
 operator|<<
 name|QString
-operator|::
-name|fromUtf8
-argument_list|(
-literal|"\xCC\x81"
-argument_list|)
+argument_list|()
 operator|<<
 name|QString
 argument_list|(
@@ -2841,15 +2837,11 @@ name|QString
 operator|::
 name|fromUtf8
 argument_list|(
-literal|"\xE2\x80\xAA"
+literal|"x\xE2\x80\xAA"
 argument_list|)
 operator|<<
 name|QString
-operator|::
-name|fromUtf8
-argument_list|(
-literal|"\xCC\x81"
-argument_list|)
+argument_list|()
 operator|<<
 name|QString
 argument_list|(
@@ -2871,15 +2863,11 @@ name|QString
 operator|::
 name|fromUtf8
 argument_list|(
-literal|"\xF3\xA0\x80\x81"
+literal|"x\xF3\xA0\x80\x81x"
 argument_list|)
 operator|<<
 name|QString
-operator|::
-name|fromUtf8
-argument_list|(
-literal|"\xCC\x81"
-argument_list|)
+argument_list|()
 operator|<<
 name|QString
 argument_list|(
@@ -2901,7 +2889,7 @@ name|QString
 operator|::
 name|fromUtf8
 argument_list|(
-literal|"\xF3\xA0\x81\x82"
+literal|"x\xF3\xA0\x81\x82x"
 argument_list|)
 operator|<<
 name|QString
@@ -3185,33 +3173,6 @@ argument_list|,
 name|profile
 argument_list|)
 expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"Left-to-right mark U+200E"
-argument_list|,
-literal|"Investigate further"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"Deprecated U+202A"
-argument_list|,
-literal|"Investigate further"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"Language tagging character U+E0001"
-argument_list|,
-literal|"Investigate further"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
 name|qt_nameprep
 argument_list|(
 operator|&
@@ -3462,15 +3423,7 @@ init|=
 block|{
 literal|'D'
 block|,
-literal|0xdb40
-block|,
-literal|0xdc20
-block|,
 literal|'o'
-block|,
-literal|0xd834
-block|,
-literal|0xdd7a
 block|,
 literal|'\''
 block|,
@@ -3497,7 +3450,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"highcodes (D, U+E0020, o, U+1D17A, ', U+2060, h)"
+literal|"highcodes (D, o, ', U+2060, h)"
 argument_list|)
 operator|<<
 name|QString
