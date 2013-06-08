@@ -14327,6 +14327,166 @@ literal|"http://[ff02::1"
 operator|<<
 literal|"Expected ']' to match '[' in hostname"
 expr_stmt|;
+comment|// invalid IDN hostnames happen in TolerantMode too
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"idn-prohibited-char-space"
+argument_list|)
+operator|<<
+literal|"http:// "
+operator|<<
+literal|"Invalid hostname (contains invalid characters)"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"idn-prohibited-char-nbsp"
+argument_list|)
+operator|<<
+literal|"http://\xc2\xa0"
+operator|<<
+literal|"Invalid hostname (contains invalid characters)"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"idn-prohibited-char-control-1f"
+argument_list|)
+operator|<<
+literal|"http://\x1f"
+operator|<<
+literal|"Invalid hostname (contains invalid characters)"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"idn-prohibited-char-control-7f"
+argument_list|)
+operator|<<
+literal|"http://\x7f"
+operator|<<
+literal|"Invalid hostname (contains invalid characters)"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"idn-prohibited-char-control-80"
+argument_list|)
+operator|<<
+literal|"http://\xc2\x80"
+operator|<<
+literal|"Invalid hostname (contains invalid characters)"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"idn-prohibited-char-private-bmp"
+argument_list|)
+operator|<<
+literal|"http://\xee\x80\x80"
+operator|<<
+literal|"Invalid hostname (contains invalid characters)"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"idn-prohibited-char-private-plane15"
+argument_list|)
+operator|<<
+literal|"http://\xf3\xb0\x80\x80"
+operator|<<
+literal|"Invalid hostname (contains invalid characters)"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"idn-prohibited-char-private-plane16"
+argument_list|)
+operator|<<
+literal|"http://\xf4\x80\x80\x80"
+operator|<<
+literal|"Invalid hostname (contains invalid characters)"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"idn-prohibited-char-ffff"
+argument_list|)
+operator|<<
+literal|"http://\xef\xbf\xbf"
+operator|<<
+literal|"Invalid hostname (contains invalid characters)"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"idn-prohibited-char-surrogate-1"
+argument_list|)
+operator|<<
+literal|"http://"
+operator|+
+name|QString
+argument_list|(
+name|QChar
+argument_list|(
+literal|0xD800
+argument_list|)
+argument_list|)
+operator|<<
+literal|"Invalid hostname (contains invalid characters)"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"idn-prohibited-char-surrogate-2"
+argument_list|)
+operator|<<
+literal|"http://"
+operator|+
+name|QString
+argument_list|(
+name|QChar
+argument_list|(
+literal|0xDC00
+argument_list|)
+argument_list|)
+operator|<<
+literal|"Invalid hostname (contains invalid characters)"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"idn-prohibited-char-surrogate-3"
+argument_list|)
+operator|<<
+literal|"http://"
+operator|+
+name|QString
+argument_list|(
+name|QChar
+argument_list|(
+literal|0xD800
+argument_list|)
+argument_list|)
+operator|+
+literal|"a"
+operator|<<
+literal|"Invalid hostname (contains invalid characters)"
+expr_stmt|;
+comment|// FIXME: add some tests for prohibited BiDi (RFC 3454 section 6)
 comment|// port errors happen in TolerantMode too
 name|QTest
 operator|::
