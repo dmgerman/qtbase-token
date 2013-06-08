@@ -19274,9 +19274,8 @@ name|str
 operator|->
 name|replace
 argument_list|(
+operator|--
 name|i
-operator|-
-literal|1
 argument_list|,
 literal|2
 argument_list|,
@@ -19298,6 +19297,12 @@ argument_list|)
 argument_list|,
 name|l
 argument_list|)
+expr_stmt|;
+name|i
+operator|+=
+name|l
+operator|-
+literal|1
 expr_stmt|;
 name|d
 operator|=
