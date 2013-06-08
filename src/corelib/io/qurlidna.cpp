@@ -19234,6 +19234,10 @@ condition|(
 name|l
 operator|>
 literal|1
+operator|||
+name|uc
+operator|>
+literal|0xffff
 condition|)
 block|{
 if|if
