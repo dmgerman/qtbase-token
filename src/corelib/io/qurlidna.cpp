@@ -23665,7 +23665,7 @@ decl_stmt|;
 if|if
 condition|(
 name|uc
-operator|>
+operator|>=
 literal|0x80
 condition|)
 block|{

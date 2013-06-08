@@ -2466,6 +2466,32 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
+literal|"Non-ASCII 8bit control character U+0080"
+argument_list|)
+operator|<<
+name|QString
+operator|::
+name|fromUtf8
+argument_list|(
+literal|"x\xC2\x80x"
+argument_list|)
+operator|<<
+name|QString
+argument_list|()
+operator|<<
+name|QString
+argument_list|(
+literal|"Nameprep"
+argument_list|)
+operator|<<
+literal|0
+operator|<<
+name|STRINGPREP_CONTAINS_PROHIBITED
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
 literal|"Non-ASCII 8bit control character U+0085"
 argument_list|)
 operator|<<
