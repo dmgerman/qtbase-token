@@ -912,6 +912,9 @@ name|errno
 argument_list|)
 argument_list|)
 expr_stmt|;
+return|return
+literal|0
+return|;
 block|}
 return|return
 name|metaData
