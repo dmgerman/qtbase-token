@@ -511,6 +511,11 @@ name|hasCFFTable
 argument_list|()
 specifier|const
 block|;
+name|bool
+name|hasCMapTable
+argument_list|()
+specifier|const
+block|;
 specifier|const
 name|QSharedPointer
 operator|<
