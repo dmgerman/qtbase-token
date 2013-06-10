@@ -196,10 +196,10 @@ expr_stmt|;
 name|readToken
 argument_list|()
 expr_stmt|;
-comment|/*       The set of active namespaces is cleared before parsing       each source file. The word "source" here means cpp file.      */
-name|activeNamespaces_
-operator|.
-name|clear
+comment|/*       The set of open namespaces is cleared before parsing       each source file. The word "source" here means cpp file.      */
+name|qdb_
+operator|->
+name|clearOpenNamespaces
 argument_list|()
 expr_stmt|;
 name|processQdocComments
