@@ -597,8 +597,14 @@ name|placeholderText
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|hasFocus
+name|d
+operator|->
+name|control
+operator|->
+name|text
+argument_list|()
+operator|.
+name|isEmpty
 argument_list|()
 condition|)
 name|update
