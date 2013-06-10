@@ -18,6 +18,11 @@ include|#
 directive|include
 file|<QWidget>
 end_include
+begin_include
+include|#
+directive|include
+file|<QCheckBox>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QComboBox
@@ -144,6 +149,14 @@ block|;
 name|QCheckBox
 operator|*
 name|m_chkReallocMsgBox
+block|;
+name|QLineEdit
+operator|*
+name|m_checkboxText
+block|;
+name|QLabel
+operator|*
+name|m_checkBoxResult
 block|;
 name|QMessageBox
 operator|*
