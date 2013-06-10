@@ -412,6 +412,9 @@ end_namespace
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_comment
+comment|/*  * The return value is the result of the clipLine() call performed at the start  * of each of the two functions, aka "false" means completely outside the devices  * rect.  */
+end_comment
 begin_function_decl
 template|template
 parameter_list|<
@@ -422,7 +425,7 @@ name|class
 name|Dasher
 parameter_list|>
 specifier|static
-name|void
+name|bool
 name|drawLine
 parameter_list|(
 name|QCosmeticStroker
@@ -456,7 +459,7 @@ name|class
 name|Dasher
 parameter_list|>
 specifier|static
-name|void
+name|bool
 name|drawLineAA
 parameter_list|(
 name|QCosmeticStroker
@@ -3689,6 +3692,9 @@ name|this
 operator|->
 name|lastPixel
 decl_stmt|;
+name|bool
+name|unclipped
+init|=
 name|stroke
 argument_list|(
 name|this
@@ -3715,11 +3721,13 @@ argument_list|()
 argument_list|,
 name|caps
 argument_list|)
-expr_stmt|;
-comment|/* fix for gaps in polylines with fastpen and aliased in a sequence                of points with small distances: if current point p2 has been dropped                out, keep last non dropped point p. */
+decl_stmt|;
+comment|/* fix for gaps in polylines with fastpen and aliased in a sequence                of points with small distances: if current point p2 has been dropped                out, keep last non dropped point p.                 However, if the line was completely outside the devicerect, we                still need to update p to avoid drawing the line after this one from                a bad starting position.             */
 if|if
 condition|(
 name|fastPenAliased
+operator|&&
+name|unclipped
 condition|)
 block|{
 if|if
@@ -3753,12 +3761,10 @@ operator|-
 literal|2
 condition|)
 block|{
-block|{
 name|p
 operator|=
 name|p2
 expr_stmt|;
-block|}
 block|}
 block|}
 else|else
@@ -4651,7 +4657,7 @@ name|Dasher
 parameter_list|>
 DECL|function|drawLine
 specifier|static
-name|void
+name|bool
 name|drawLine
 parameter_list|(
 name|QCosmeticStroker
@@ -4689,7 +4695,9 @@ argument_list|,
 name|ry2
 argument_list|)
 condition|)
-return|return;
+return|return
+literal|false
+return|;
 specifier|const
 name|int
 name|half
@@ -5248,7 +5256,9 @@ condition|(
 operator|!
 name|dx
 condition|)
-return|return;
+return|return
+literal|true
+return|;
 name|QCosmeticStroker
 operator|::
 name|Direction
@@ -5715,6 +5725,9 @@ name|lastPixel
 operator|=
 name|last
 expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 end_function
 begin_function
@@ -5728,7 +5741,7 @@ name|Dasher
 parameter_list|>
 DECL|function|drawLineAA
 specifier|static
-name|void
+name|bool
 name|drawLineAA
 parameter_list|(
 name|QCosmeticStroker
@@ -5766,7 +5779,9 @@ argument_list|,
 name|ry2
 argument_list|)
 condition|)
-return|return;
+return|return
+literal|false
+return|;
 name|int
 name|x1
 init|=
@@ -6234,7 +6249,9 @@ condition|(
 operator|!
 name|dx
 condition|)
-return|return;
+return|return
+literal|true
+return|;
 name|int
 name|yinc
 init|=
@@ -6635,6 +6652,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+return|return
+literal|true
+return|;
 block|}
 end_function
 begin_macro
