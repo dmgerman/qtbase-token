@@ -10414,22 +10414,24 @@ name|resizeEventPending
 condition|)
 block|{
 comment|// as a convenience for plugins, send a resize event before the first expose event if they haven't done so
-name|QSize
+comment|// window->geometry() should have a valid size as soon as a handle exists.
+name|QResizeEvent
+name|e
+argument_list|(
+name|window
+operator|->
+name|geometry
+argument_list|()
+operator|.
 name|size
-init|=
+argument_list|()
+argument_list|,
 name|p
 operator|->
 name|geometry
 operator|.
 name|size
 argument_list|()
-decl_stmt|;
-name|QResizeEvent
-name|e
-argument_list|(
-name|size
-argument_list|,
-name|size
 argument_list|)
 decl_stmt|;
 name|QGuiApplication
