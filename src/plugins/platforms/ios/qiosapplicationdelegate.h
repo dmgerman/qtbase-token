@@ -47,15 +47,8 @@ modifier|*
 name|qiosViewController
 decl_stmt|;
 end_decl_stmt
-begin_expr_stmt
+begin_macro
 unit|@
 name|end
-expr|@
-name|interface
-name|QIOSMainWrapperApplicationDelegate
-operator|:
-name|QIOSApplicationDelegate
-expr|@
-name|end
-end_expr_stmt
+end_macro
 end_unit
