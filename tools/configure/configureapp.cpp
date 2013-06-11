@@ -611,12 +611,6 @@ argument_list|)
 expr_stmt|;
 comment|// Exit cleanly for Ctrl+C
 block|}
-name|cout
-operator|<<
-literal|"Preparing build tree..."
-operator|<<
-name|endl
-expr_stmt|;
 name|QDir
 argument_list|(
 name|buildPath
@@ -634,51 +628,6 @@ argument_list|(
 literal|"mkspecs"
 argument_list|)
 expr_stmt|;
-name|buildDir
-operator|.
-name|mkpath
-argument_list|(
-literal|"doc"
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|Environment
-operator|::
-name|cpdir
-argument_list|(
-name|sourcePath
-operator|+
-literal|"/doc/global"
-argument_list|,
-name|buildPath
-operator|+
-literal|"/doc/global"
-argument_list|)
-condition|)
-block|{
-name|cout
-operator|<<
-literal|"Couldn't copy global documentation!"
-operator|<<
-name|sourcePath
-operator|<<
-literal|" "
-operator|<<
-name|buildPath
-operator|<<
-name|endl
-expr_stmt|;
-name|dictionary
-index|[
-literal|"DONE"
-index|]
-operator|=
-literal|"error"
-expr_stmt|;
-return|return;
-block|}
 block|}
 name|defaultBuildParts
 operator|<<
