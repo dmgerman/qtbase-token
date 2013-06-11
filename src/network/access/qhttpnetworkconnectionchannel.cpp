@@ -809,6 +809,12 @@ expr_stmt|;
 name|allDone
 argument_list|()
 expr_stmt|;
+name|connection
+operator|->
+name|preConnectFinished
+argument_list|()
+expr_stmt|;
+comment|// will only decrease the counter
 name|reply
 operator|=
 literal|0

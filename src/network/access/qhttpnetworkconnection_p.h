@@ -386,6 +386,10 @@ argument_list|)
 block|;
 endif|#
 directive|endif
+name|void
+name|preConnectFinished
+argument_list|()
+block|;
 name|private
 operator|:
 name|Q_DECLARE_PRIVATE
@@ -799,6 +803,9 @@ operator|<
 name|HttpMessagePair
 operator|>
 name|lowPriorityQueue
+block|;
+name|int
+name|preConnectRequests
 block|;
 ifndef|#
 directive|ifndef

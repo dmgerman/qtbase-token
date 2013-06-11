@@ -2070,6 +2070,10 @@ name|echoPerformance
 parameter_list|()
 function_decl|;
 name|void
+name|preConnectEncrypted_data
+parameter_list|()
+function_decl|;
+name|void
 name|preConnectEncrypted
 parameter_list|()
 function_decl|;
@@ -2113,6 +2117,10 @@ parameter_list|()
 function_decl|;
 name|void
 name|httpsUpload
+parameter_list|()
+function_decl|;
+name|void
+name|preConnect_data
 parameter_list|()
 function_decl|;
 name|void
@@ -2641,6 +2649,46 @@ block|}
 block|}
 end_function
 begin_function
+DECL|function|preConnectEncrypted_data
+name|void
+name|tst_qnetworkreply
+operator|::
+name|preConnectEncrypted_data
+parameter_list|()
+block|{
+name|QTest
+operator|::
+name|addColumn
+argument_list|<
+name|int
+argument_list|>
+argument_list|(
+literal|"sleepTime"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"2secs"
+argument_list|)
+operator|<<
+literal|2000
+expr_stmt|;
+comment|// to start a new request after preconnecting is done
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"100ms"
+argument_list|)
+operator|<<
+literal|100
+expr_stmt|;
+comment|// to start a new request while preconnecting is in-flight
+block|}
+end_function
+begin_function
 DECL|function|preConnectEncrypted
 name|void
 name|tst_qnetworkreply
@@ -2766,6 +2814,13 @@ name|clearAccessCache
 argument_list|()
 expr_stmt|;
 comment|// now try to make the connection beforehand
+name|QFETCH
+argument_list|(
+name|int
+argument_list|,
+name|sleepTime
+argument_list|)
+expr_stmt|;
 name|manager
 operator|.
 name|connectToHostEncrypted
@@ -2778,9 +2833,9 @@ operator|::
 name|instance
 argument_list|()
 operator|.
-name|enterLoop
+name|enterLoopMSecs
 argument_list|(
-literal|2
+name|sleepTime
 argument_list|)
 expr_stmt|;
 comment|// now make another request and hopefully use the existing connection
@@ -4826,6 +4881,19 @@ block|}
 block|}
 end_function
 begin_function
+DECL|function|preConnect_data
+name|void
+name|tst_qnetworkreply
+operator|::
+name|preConnect_data
+parameter_list|()
+block|{
+name|preConnectEncrypted_data
+argument_list|()
+expr_stmt|;
+block|}
+end_function
+begin_function
 DECL|function|preConnect
 name|void
 name|tst_qnetworkreply
@@ -4951,6 +5019,13 @@ name|clearAccessCache
 argument_list|()
 expr_stmt|;
 comment|// now try to make the connection beforehand
+name|QFETCH
+argument_list|(
+name|int
+argument_list|,
+name|sleepTime
+argument_list|)
+expr_stmt|;
 name|manager
 operator|.
 name|connectToHost
@@ -4963,9 +5038,9 @@ operator|::
 name|instance
 argument_list|()
 operator|.
-name|enterLoop
+name|enterLoopMSecs
 argument_list|(
-literal|2
+name|sleepTime
 argument_list|)
 expr_stmt|;
 comment|// now make another request and hopefully use the existing connection

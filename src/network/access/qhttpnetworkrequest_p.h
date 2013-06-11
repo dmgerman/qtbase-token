@@ -297,6 +297,17 @@ argument_list|(
 name|bool
 argument_list|)
 block|;
+name|bool
+name|isPreConnect
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setPreConnect
+argument_list|(
+argument|bool preConnect
+argument_list|)
+block|;
 name|void
 name|setUploadByteDevice
 argument_list|(
@@ -424,6 +435,9 @@ name|withCredentials
 block|;
 name|bool
 name|ssl
+block|;
+name|bool
+name|preConnect
 block|; }
 decl_stmt|;
 end_decl_stmt
