@@ -580,37 +580,6 @@ name|buildDir
 condition|)
 block|{
 comment|//shadow builds!
-if|if
-condition|(
-name|QStandardPaths
-operator|::
-name|findExecutable
-argument_list|(
-name|QStringLiteral
-argument_list|(
-literal|"perl.exe"
-argument_list|)
-argument_list|)
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
-name|cout
-operator|<<
-literal|"Error: Creating a shadow build of Qt requires"
-operator|<<
-name|endl
-operator|<<
-literal|"perl to be in the PATH environment"
-expr_stmt|;
-name|exit
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
-comment|// Exit cleanly for Ctrl+C
-block|}
 name|cout
 operator|<<
 literal|"Preparing build tree..."
