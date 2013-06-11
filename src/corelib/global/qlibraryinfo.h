@@ -138,6 +138,8 @@ block|{
 name|FinalPaths
 block|,
 name|EffectivePaths
+block|,
+name|EffectiveSourcePaths
 block|}
 enum|;
 specifier|static
