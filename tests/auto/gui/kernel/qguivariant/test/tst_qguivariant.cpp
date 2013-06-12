@@ -3048,9 +3048,9 @@ name|setValue
 argument_list|(
 name|QVector2D
 argument_list|(
-literal|0.1
+literal|0.1f
 argument_list|,
-literal|0.2
+literal|0.2f
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3058,9 +3058,9 @@ name|QCOMPARE
 argument_list|(
 name|QVector2D
 argument_list|(
-literal|0.1
+literal|0.1f
 argument_list|,
-literal|0.2
+literal|0.2f
 argument_list|)
 argument_list|,
 name|qvariant_cast

@@ -5894,7 +5894,7 @@ name|QT_CLASS_LIB
 argument_list|(
 argument|QPrintDialog
 argument_list|,
-argument|QtWidgets
+argument|QtPrintSupport
 argument_list|,
 argument|qprintdialog.h
 argument_list|)
@@ -5904,7 +5904,7 @@ name|QT_CLASS_LIB
 argument_list|(
 argument|QPrintPreviewDialog
 argument_list|,
-argument|QtWidgets
+argument|QtPrintSupport
 argument_list|,
 argument|qprintpreviewdialog.h
 argument_list|)
@@ -9464,7 +9464,7 @@ name|QT_CLASS_LIB
 argument_list|(
 argument|QPrintPreviewWidget
 argument_list|,
-argument|QtWidgets
+argument|QtPrintSupport
 argument_list|,
 argument|qprintpreviewwidget.h
 argument_list|)

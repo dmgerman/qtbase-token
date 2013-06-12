@@ -112,7 +112,10 @@ name|this
 operator|->
 name|size
 operator|=
+name|int
+argument_list|(
 name|newSize
+argument_list|)
 block|;     }
 name|void
 name|copyAppend
@@ -273,7 +276,10 @@ name|this
 operator|->
 name|size
 operator|+=
+name|int
+argument_list|(
 name|n
+argument_list|)
 block|;     }
 name|void
 name|truncate
@@ -308,7 +314,10 @@ name|this
 operator|->
 name|size
 operator|=
+name|int
+argument_list|(
 name|newSize
+argument_list|)
 block|;     }
 name|void
 name|destroyAll

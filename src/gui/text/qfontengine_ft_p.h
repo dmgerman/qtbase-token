@@ -1297,6 +1297,13 @@ argument|int&vfactor
 argument_list|)
 specifier|const
 block|;
+name|bool
+name|shouldUseDesignMetrics
+argument_list|(
+argument|ShaperFlags flags
+argument_list|)
+specifier|const
+block|;
 name|GlyphFormat
 name|defaultFormat
 block|;

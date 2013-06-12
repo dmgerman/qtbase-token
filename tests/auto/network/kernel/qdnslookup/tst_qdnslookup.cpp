@@ -175,7 +175,7 @@ argument_list|(
 literal|"normal"
 argument_list|)
 operator|<<
-literal|".test.macieira.org"
+literal|".test.qt-project.org"
 expr_stmt|;
 name|QTest
 operator|::
@@ -184,7 +184,7 @@ argument_list|(
 literal|"idn"
 argument_list|)
 operator|<<
-literal|".alqualond\xc3\xab.test.macieira.org"
+literal|".alqualond\xc3\xab.test.qt-project.org"
 expr_stmt|;
 block|}
 end_function
@@ -1291,7 +1291,7 @@ literal|""
 operator|<<
 literal|""
 operator|<<
-literal|"ns3.macieira.info."
+literal|"ns-foo.linpro.net."
 operator|<<
 literal|""
 operator|<<
@@ -1328,7 +1328,7 @@ literal|""
 operator|<<
 literal|""
 operator|<<
-literal|"gondolin.macieira.info.;ns3.macieira.info."
+literal|"ns-bar.linpro.net.;ns-foo.linpro.net."
 operator|<<
 literal|""
 operator|<<

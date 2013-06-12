@@ -2237,9 +2237,8 @@ name|private
 label|:
 name|Q_DISABLE_COPY
 argument_list|(
-name|WindowSystemEventList
+argument|WindowSystemEventList
 argument_list|)
-expr_stmt|;
 block|}
 empty_stmt|;
 specifier|static

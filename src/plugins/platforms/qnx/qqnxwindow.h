@@ -390,6 +390,10 @@ name|topZorder
 argument_list|)
 block|;
 name|void
+name|applyWindowState
+argument_list|()
+block|;
+name|void
 name|fetchBuffers
 argument_list|()
 block|;

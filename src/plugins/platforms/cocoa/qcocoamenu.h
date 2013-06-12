@@ -30,6 +30,12 @@ file|"qcocoamenuitem.h"
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+DECL|variable|QCocoaMenuBar
+name|class
+name|QCocoaMenuBar
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QCocoaMenu
 range|:
@@ -224,6 +230,20 @@ name|merged
 argument_list|()
 specifier|const
 block|;
+name|void
+name|setMenuBar
+argument_list|(
+name|QCocoaMenuBar
+operator|*
+name|menuBar
+argument_list|)
+block|;
+name|QCocoaMenuBar
+operator|*
+name|menuBar
+argument_list|()
+specifier|const
+block|;
 name|private
 operator|:
 name|QCocoaMenuItem
@@ -270,6 +290,10 @@ name|m_enabled
 block|;
 name|quintptr
 name|m_tag
+block|;
+name|QCocoaMenuBar
+operator|*
+name|m_menuBar
 block|; }
 decl_stmt|;
 end_decl_stmt

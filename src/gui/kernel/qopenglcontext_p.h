@@ -180,9 +180,8 @@ name|QOpenGLMultiGroupSharedResource
 decl_stmt|;
 name|Q_DISABLE_COPY
 argument_list|(
-name|QOpenGLSharedResource
+argument|QOpenGLSharedResource
 argument_list|)
-expr_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt

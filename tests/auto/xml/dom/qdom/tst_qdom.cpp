@@ -9260,11 +9260,17 @@ decl_stmt|;
 comment|/* http://www.fileformat.info/info/unicode/char/00FC/index.htm */
 name|baseline
 operator|+=
+name|char
+argument_list|(
 literal|0xC3
+argument_list|)
 expr_stmt|;
 name|baseline
 operator|+=
+name|char
+argument_list|(
 literal|0xBC
+argument_list|)
 expr_stmt|;
 name|baseline
 operator|+=

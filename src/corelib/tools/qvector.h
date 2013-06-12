@@ -3259,11 +3259,24 @@ argument_list|(
 argument|int asize
 argument_list|)
 block|{
+name|Q_ASSERT_X
+argument_list|(
+name|asize
+operator|>=
+literal|0
+argument_list|,
+literal|"QVector::QVector"
+argument_list|,
+literal|"Size must be greater than or equal to 0."
+argument_list|)
+block|;
 if|if
 condition|(
 name|Q_LIKELY
 argument_list|(
 name|asize
+operator|>
+literal|0
 argument_list|)
 condition|)
 block|{
@@ -3327,9 +3340,22 @@ argument_list|,
 argument|const T&t
 argument_list|)
 block|{
+name|Q_ASSERT_X
+argument_list|(
+name|asize
+operator|>=
+literal|0
+argument_list|,
+literal|"QVector::QVector"
+argument_list|,
+literal|"Size must be greater than or equal to 0."
+argument_list|)
+block|;
 if|if
 condition|(
 name|asize
+operator|>
+literal|0
 condition|)
 block|{
 name|d

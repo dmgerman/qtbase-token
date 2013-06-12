@@ -392,6 +392,20 @@ name|suffix
 decl_stmt|;
 if|if
 condition|(
+name|qt_debug_component
+argument_list|()
+condition|)
+name|qDebug
+argument_list|()
+operator|<<
+literal|"QFactoryLoader::QFactoryLoader() checking directory path"
+operator|<<
+name|path
+operator|<<
+literal|"..."
+expr_stmt|;
+if|if
+condition|(
 operator|!
 name|QDir
 argument_list|(

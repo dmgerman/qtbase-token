@@ -158,18 +158,6 @@ name|argument
 return|;
 block|}
 end_function
-begin_decl_stmt
-DECL|variable|dbusConnection
-specifier|static
-name|QDBusConnection
-name|dbusConnection
-init|=
-name|QDBusConnection
-operator|::
-name|systemBus
-argument_list|()
-decl_stmt|;
-end_decl_stmt
 begin_constructor
 DECL|function|QConnmanManagerInterface
 name|QConnmanManagerInterface
@@ -306,7 +294,7 @@ block|{
 name|qWarning
 argument_list|()
 operator|<<
-literal|"PropertyCHanged not connected"
+literal|"PropertyChanged not connected"
 expr_stmt|;
 block|}
 block|}
@@ -413,7 +401,10 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-name|dbusConnection
+name|QDBusConnection
+operator|::
+name|systemBus
+argument_list|()
 operator|.
 name|connect
 argument_list|(
@@ -1830,7 +1821,10 @@ operator|==
 name|propertyChangedSignal
 condition|)
 block|{
-name|dbusConnection
+name|QDBusConnection
+operator|::
+name|systemBus
+argument_list|()
 operator|.
 name|connect
 argument_list|(
@@ -2153,7 +2147,10 @@ operator|==
 name|propertyChangedSignal
 condition|)
 block|{
-name|dbusConnection
+name|QDBusConnection
+operator|::
+name|systemBus
+argument_list|()
 operator|.
 name|connect
 argument_list|(
@@ -2225,7 +2222,10 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-name|dbusConnection
+name|QDBusConnection
+operator|::
+name|systemBus
+argument_list|()
 operator|.
 name|connect
 argument_list|(
@@ -2504,12 +2504,6 @@ argument_list|)
 decl_stmt|;
 block|}
 end_function
-begin_comment
-comment|// void moveBefore(QDBusObjectPath&service);
-end_comment
-begin_comment
-comment|// void moveAfter(QDBusObjectPath&service);
-end_comment
 begin_comment
 comment|// properties
 end_comment
@@ -3687,7 +3681,10 @@ operator|==
 name|propertyChangedSignal
 condition|)
 block|{
-name|dbusConnection
+name|QDBusConnection
+operator|::
+name|systemBus
+argument_list|()
 operator|.
 name|connect
 argument_list|(
@@ -3759,7 +3756,10 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-name|dbusConnection
+name|QDBusConnection
+operator|::
+name|systemBus
+argument_list|()
 operator|.
 name|connect
 argument_list|(
@@ -4102,14 +4102,6 @@ argument_list|(
 name|signal
 argument_list|)
 expr_stmt|;
-comment|//    static const QMetaMethod propertyChangedSignal = QMetaMethod::fromSignal(&QConnmanAgentInterface::propertyChanged);
-comment|//    if (signal == propertyChangedSignal) {
-comment|//        dbusConnection.connect(QLatin1String(CONNMAN_SERVICE),
-comment|//                               this->path(),
-comment|//                               QLatin1String(CONNMAN_NETWORK_INTERFACE),
-comment|//                               QLatin1String("PropertyChanged"),
-comment|//                               this,SIGNAL(propertyChanged(QString,QVariant&)));
-comment|//    }
 block|}
 end_function
 begin_function
@@ -4130,9 +4122,6 @@ argument_list|(
 name|signal
 argument_list|)
 expr_stmt|;
-comment|//    static const QMetaMethod propertyChangedSignal = QMetaMethod::fromSignal(&QConnmanAgentInterface::propertyChanged);
-comment|//    if (signal == propertyChangedSignal) {
-comment|//    }
 block|}
 end_function
 begin_function
@@ -4162,15 +4151,6 @@ comment|/*error*/
 parameter_list|)
 block|{ }
 end_function
-begin_comment
-comment|//dict QConnmanAgentInterface::requestInput(QDBusObjectPath&path, dict fields)
-end_comment
-begin_comment
-comment|//{
-end_comment
-begin_comment
-comment|//}
-end_comment
 begin_function
 DECL|function|cancel
 name|void

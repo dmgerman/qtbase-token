@@ -800,9 +800,21 @@ modifier|&
 name|edx
 parameter_list|)
 block|{
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_CC_GNU
+argument_list|)
+asm|asm (".byte 0x0F, 0x01, 0xD0"
+comment|// xgetbv instruction
+asm|: "=a" (eax), "=d" (edx)         : "c" (in));
+elif|#
+directive|elif
+name|defined
+argument_list|(
 name|Q_OS_WIN
+argument_list|)
 name|quint64
 name|result
 init|=
@@ -821,15 +833,6 @@ name|result
 operator|>>
 literal|32
 expr_stmt|;
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|Q_CC_GNU
-argument_list|)
-asm|asm (".byte 0x0F, 0x01, 0xD0"
-comment|// xgetbv instruction
-asm|: "=a" (eax), "=d" (edx)         : "c" (in));
 endif|#
 directive|endif
 block|}

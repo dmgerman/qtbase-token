@@ -914,6 +914,8 @@ argument_list|,
 name|winEventPosition
 argument_list|)
 decl_stmt|;
+comment|// In this context, neither an invisible nor a transparent window (transparent regarding mouse
+comment|// events, "click-through") can be considered as the window under mouse.
 name|QWindow
 modifier|*
 name|currentWindowUnderMouse
@@ -928,6 +930,10 @@ operator|::
 name|windowAt
 argument_list|(
 name|globalPosition
+argument_list|,
+name|CWP_SKIPINVISIBLE
+operator||
+name|CWP_SKIPTRANSPARENT
 argument_list|)
 else|:
 name|window

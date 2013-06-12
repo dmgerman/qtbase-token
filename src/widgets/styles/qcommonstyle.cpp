@@ -37936,7 +37936,7 @@ name|themeHint
 argument_list|(
 name|QPlatformTheme
 operator|::
-name|ToolButtonStyle
+name|ItemViewActivateItemOnSingleClick
 argument_list|)
 operator|.
 name|toBool

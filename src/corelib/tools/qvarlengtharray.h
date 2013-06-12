@@ -1272,6 +1272,26 @@ argument_list|(
 argument|asize
 argument_list|)
 block|{
+name|Q_STATIC_ASSERT_X
+argument_list|(
+name|Prealloc
+operator|>
+literal|0
+argument_list|,
+literal|"QVarLengthArray Prealloc must be greater than 0."
+argument_list|)
+block|;
+name|Q_ASSERT_X
+argument_list|(
+name|s
+operator|>=
+literal|0
+argument_list|,
+literal|"QVarLengthArray::QVarLengthArray()"
+argument_list|,
+literal|"Size must be greater than or equal to 0."
+argument_list|)
+block|;
 if|if
 condition|(
 name|s
