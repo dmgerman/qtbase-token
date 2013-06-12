@@ -4768,6 +4768,18 @@ name|embedded
 operator|=
 literal|0
 expr_stmt|;
+name|x
+operator|->
+name|window
+operator|=
+literal|0
+expr_stmt|;
+name|x
+operator|->
+name|screenIndex
+operator|=
+literal|0
+expr_stmt|;
 ifdef|#
 directive|ifdef
 name|Q_WS_MAC
@@ -4780,9 +4792,6 @@ expr_stmt|;
 endif|#
 directive|endif
 comment|// Q_WS_MAC
-name|createTLSysExtra
-argument_list|()
-expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QWIDGET_EXTRA_DEBUG
@@ -36117,6 +36126,15 @@ block|{
 name|d
 operator|->
 name|createTLExtra
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|on
+condition|)
+name|d
+operator|->
+name|createTLSysExtra
 argument_list|()
 expr_stmt|;
 ifndef|#
