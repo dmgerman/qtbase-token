@@ -4508,6 +4508,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|state
+operator|&&
 operator|!
 name|state
 operator|->
