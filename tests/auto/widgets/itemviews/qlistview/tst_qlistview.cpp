@@ -8648,6 +8648,37 @@ argument_list|,
 literal|150
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_BLACKBERRY
+comment|// BB standard font size is too big, triggering
+comment|// a horizontal scrollbar even when word-wrapping
+comment|// is enabled
+name|QFont
+name|font
+init|=
+name|lv
+operator|.
+name|font
+argument_list|()
+decl_stmt|;
+name|font
+operator|.
+name|setPointSize
+argument_list|(
+literal|5
+argument_list|)
+expr_stmt|;
+name|lv
+operator|.
+name|setFont
+argument_list|(
+name|font
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+comment|// Q_OS_BLACKBERRY
 name|lv
 operator|.
 name|showNormal
