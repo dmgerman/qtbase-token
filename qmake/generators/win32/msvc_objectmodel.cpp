@@ -12034,20 +12034,6 @@ name|CustomBuildTool
 operator|.
 name|AdditionalDependencies
 expr_stmt|;
-name|deps
-operator|+=
-name|cmd
-operator|.
-name|left
-argument_list|(
-name|cmd
-operator|.
-name|indexOf
-argument_list|(
-literal|' '
-argument_list|)
-argument_list|)
-expr_stmt|;
 comment|// Make sure that all deps are only once
 name|QHash
 argument_list|<
