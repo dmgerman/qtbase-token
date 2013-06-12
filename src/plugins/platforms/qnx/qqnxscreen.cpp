@@ -242,9 +242,11 @@ literal|1
 index|]
 argument_list|)
 return|;
-name|qWarning
+name|qScreenDebug
 argument_list|(
-literal|"QQnxScreen: screen_get_display_property_iv() reported an invalid physical screen size (%dx%d). Falling back to QQNX_PHYSICAL_SCREEN_SIZE environment variable."
+literal|"QQnxScreen: screen_get_display_property_iv() reported an invalid "
+literal|"physical screen size (%dx%d). Falling back to QQNX_PHYSICAL_SCREEN_SIZE "
+literal|"environment variable."
 argument_list|,
 name|val
 index|[
@@ -346,7 +348,9 @@ condition|)
 block|{
 name|qFatal
 argument_list|(
-literal|"QQnxScreen: The value of QQNX_PHYSICAL_SCREEN_SIZE must be in the format \"width,height\" in mm, with width, height> 0. Example: QQNX_PHYSICAL_SCREEN_SIZE=150,90"
+literal|"QQnxScreen: The value of QQNX_PHYSICAL_SCREEN_SIZE must be in the format "
+literal|"\"width,height\" in mm, with width, height> 0. "
+literal|"Example: QQNX_PHYSICAL_SCREEN_SIZE=150,90"
 argument_list|)
 expr_stmt|;
 return|return
@@ -384,7 +388,8 @@ argument_list|)
 decl_stmt|;
 name|qWarning
 argument_list|(
-literal|"QQnxScreen: QQNX_PHYSICAL_SCREEN_SIZE variable not set. Falling back to defines QQNX_PHYSICAL_SCREEN_WIDTH/QQNX_PHYSICAL_SCREEN_HEIGHT (%dx%d)"
+literal|"QQnxScreen: QQNX_PHYSICAL_SCREEN_SIZE variable not set. Falling back to defines "
+literal|"QQNX_PHYSICAL_SCREEN_WIDTH/QQNX_PHYSICAL_SCREEN_HEIGHT (%dx%d)"
 argument_list|,
 name|defSize
 operator|.
@@ -408,7 +413,8 @@ name|primaryScreen
 condition|)
 name|qFatal
 argument_list|(
-literal|"QQnxScreen: QQNX_PHYSICAL_SCREEN_SIZE variable not set. Could not determine physical screen size."
+literal|"QQnxScreen: QQNX_PHYSICAL_SCREEN_SIZE variable not set. "
+literal|"Could not determine physical screen size."
 argument_list|)
 expr_stmt|;
 return|return
