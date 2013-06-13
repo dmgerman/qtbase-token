@@ -1352,7 +1352,22 @@ modifier|&
 name|headerName
 parameter_list|)
 block|{
-comment|// headerName is not empty here
+if|if
+condition|(
+name|headerName
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+return|return
+name|QNetworkRequest
+operator|::
+name|KnownHeaders
+argument_list|(
+operator|-
+literal|1
+argument_list|)
+return|;
 switch|switch
 condition|(
 name|tolower
