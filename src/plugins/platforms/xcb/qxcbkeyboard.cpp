@@ -1288,6 +1288,13 @@ directive|define
 name|XF86XK_TouchpadOff
 value|0x1008FFB1
 end_define
+begin_define
+DECL|macro|XF86XK_AudioMicMute
+define|#
+directive|define
+name|XF86XK_AudioMicMute
+value|0x1008FFB2
+end_define
 begin_comment
 comment|// end of XF86keysyms.h
 end_comment
@@ -2809,6 +2816,12 @@ block|,
 name|Qt
 operator|::
 name|Key_TouchpadOff
+block|,
+name|XF86XK_AudioMicMute
+block|,
+name|Qt
+operator|::
+name|Key_MicMute
 block|,
 name|XF86XK_Launch0
 block|,
