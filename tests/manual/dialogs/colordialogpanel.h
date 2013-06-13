@@ -24,6 +24,7 @@ directive|include
 file|<QColorDialog>
 end_include
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 DECL|variable|QComboBox
 name|class
 name|QComboBox
@@ -42,6 +43,7 @@ name|QPushButton
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+name|QT_END_NAMESPACE
 name|class
 name|ColorDialogPanel
 range|:

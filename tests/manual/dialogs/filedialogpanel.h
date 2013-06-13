@@ -29,6 +29,7 @@ directive|include
 file|<QPointer>
 end_include
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 DECL|variable|QPushButton
 name|class
 name|QPushButton
@@ -59,6 +60,7 @@ name|QPlainTextEdit
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+name|QT_END_NAMESPACE
 DECL|variable|LabelLineEdit
 name|class
 name|LabelLineEdit

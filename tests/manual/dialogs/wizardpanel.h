@@ -31,12 +31,14 @@ name|WizardOptionsControl
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 DECL|variable|QWizard
 name|class
 name|QWizard
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+name|QT_END_NAMESPACE
 name|class
 name|WizardPanel
 range|:
