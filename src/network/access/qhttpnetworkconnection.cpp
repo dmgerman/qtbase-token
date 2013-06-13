@@ -4746,7 +4746,15 @@ name|QAbstractSocket
 operator|::
 name|HostLookupState
 operator|)
+operator|||
+name|channels
+index|[
+name|i
+index|]
+operator|.
+name|pendingEncrypt
 condition|)
+comment|// pendingEncrypt == "EncryptingState"
 name|queuedRequest
 operator|--
 expr_stmt|;

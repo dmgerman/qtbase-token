@@ -689,6 +689,11 @@ name|QHttpNetworkConnectionChannel
 operator|::
 name|ClosingState
 expr_stmt|;
+comment|// pendingEncrypt must only be true in between connected and encrypted states
+name|pendingEncrypt
+operator|=
+literal|false
+expr_stmt|;
 if|if
 condition|(
 name|socket
