@@ -2506,6 +2506,8 @@ argument_list|)
 expr_stmt|;
 name|qFatal
 argument_list|(
+literal|"%s"
+argument_list|,
 name|qPrintable
 argument_list|(
 name|fatalMessage
