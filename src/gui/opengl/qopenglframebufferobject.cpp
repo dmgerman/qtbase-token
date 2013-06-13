@@ -3467,7 +3467,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QOpenGLFramebufferObject::bindDefault()     \internal      Switches rendering back to the default, windowing system provided     framebuffer.     Returns true upon success, false otherwise.      \sa bind(), release() */
+comment|/*!     \fn bool QOpenGLFramebufferObject::bindDefault()      Switches rendering back to the default, windowing system provided     framebuffer.     Returns true upon success, false otherwise.      \sa bind(), release() */
 end_comment
 begin_function
 DECL|function|bindDefault

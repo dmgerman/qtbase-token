@@ -338,7 +338,10 @@ name|QByteArray
 argument_list|(
 literal|50
 argument_list|,
+name|char
+argument_list|(
 literal|0xdd
+argument_list|)
 argument_list|)
 operator|<<
 name|QByteArray

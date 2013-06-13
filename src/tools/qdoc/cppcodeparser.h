@@ -696,12 +696,6 @@ block|;
 name|QRegExp
 name|sep
 block|;
-name|QSet
-operator|<
-name|QString
-operator|>
-name|activeNamespaces_
-block|;
 name|private
 operator|:
 name|QString

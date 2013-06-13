@@ -44,10 +44,22 @@ name|bool
 name|value
 parameter_list|)
 block|{
+name|Q_ASSERT_X
+argument_list|(
+name|size
+operator|>=
+literal|0
+argument_list|,
+literal|"QBitArray::QBitArray"
+argument_list|,
+literal|"Size must be greater than or equal to 0."
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
-operator|!
 name|size
+operator|<=
+literal|0
 condition|)
 block|{
 name|d
