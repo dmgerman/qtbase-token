@@ -80,6 +80,18 @@ name|QDateTimeEdit
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QIcon
+name|class
+name|QIcon
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|QToolButton
+name|class
+name|QToolButton
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|Q_WIDGETS_EXPORT
 name|QLineEdit
@@ -90,7 +102,7 @@ block|{
 name|Q_OBJECT
 name|Q_ENUMS
 argument_list|(
-argument|EchoMode
+argument|ActionPosition EchoMode
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
@@ -166,6 +178,14 @@ argument|Qt::CursorMoveStyle cursorMoveStyle READ cursorMoveStyle WRITE setCurso
 argument_list|)
 name|public
 operator|:
+expr|enum
+name|ActionPosition
+block|{
+name|LeadingPosition
+block|,
+name|TrailingPosition
+block|}
+block|;
 name|explicit
 name|QLineEdit
 argument_list|(
@@ -530,6 +550,49 @@ name|textMargins
 argument_list|()
 specifier|const
 block|;
+ifdef|#
+directive|ifdef
+name|Q_NO_USING_KEYWORD
+specifier|inline
+name|void
+name|addAction
+argument_list|(
+argument|QAction *action
+argument_list|)
+block|{
+name|QWidget
+operator|::
+name|addAction
+argument_list|(
+name|action
+argument_list|)
+block|; }
+else|#
+directive|else
+name|using
+name|QWidget
+operator|::
+name|addAction
+block|;
+endif|#
+directive|endif
+name|void
+name|addAction
+argument_list|(
+argument|QAction *action
+argument_list|,
+argument|ActionPosition position
+argument_list|)
+block|;
+name|QAction
+operator|*
+name|addAction
+argument_list|(
+argument|const QIcon&icon
+argument_list|,
+argument|ActionPosition position
+argument_list|)
+block|;
 name|public
 name|Q_SLOTS
 operator|:
@@ -866,6 +929,12 @@ argument_list|(
 argument|d_func()
 argument_list|,
 argument|void _q_updateNeeded(const QRect&)
+argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_textChanged(const QString&)
 argument_list|)
 block|}
 decl_stmt|;
