@@ -28,6 +28,11 @@ include|#
 directive|include
 file|<qpa/qwindowsysteminterface.h>
 end_include
+begin_include
+include|#
+directive|include
+file|"qiosapplicationstate.h"
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QPlatformIntegration
@@ -167,6 +172,9 @@ decl_stmt|;
 name|QTouchDevice
 modifier|*
 name|m_touchDevice
+decl_stmt|;
+name|QIOSApplicationState
+name|m_applicationState
 decl_stmt|;
 block|}
 end_decl_stmt
