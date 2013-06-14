@@ -14850,6 +14850,47 @@ operator|<<
 name|invalidDateTime
 argument_list|()
 expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"text second fraction"
+argument_list|)
+operator|<<
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"Mon 6. May 2013 01:02:03.456"
+argument_list|)
+operator|<<
+name|Qt
+operator|::
+name|TextDate
+operator|<<
+name|QDateTime
+argument_list|(
+name|QDate
+argument_list|(
+literal|2013
+argument_list|,
+literal|5
+argument_list|,
+literal|6
+argument_list|)
+argument_list|,
+name|QTime
+argument_list|(
+literal|1
+argument_list|,
+literal|2
+argument_list|,
+literal|3
+argument_list|,
+literal|456
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// Test Qt::ISODate format.
 name|QTest
 operator|::
