@@ -63,6 +63,12 @@ name|QWindowsScreenManager
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QWindowsTabletSupport
+name|class
+name|QWindowsTabletSupport
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QWindowsWindow
 name|class
 name|QWindowsWindow
@@ -444,6 +450,10 @@ specifier|static
 name|int
 name|verboseTheming
 decl_stmt|;
+specifier|static
+name|int
+name|verboseTablet
+decl_stmt|;
 name|explicit
 name|QWindowsContext
 parameter_list|()
@@ -690,6 +700,12 @@ modifier|&
 name|screenManager
 parameter_list|()
 function_decl|;
+name|QWindowsTabletSupport
+operator|*
+name|tabletSupport
+argument_list|()
+specifier|const
+expr_stmt|;
 ifndef|#
 directive|ifndef
 name|Q_OS_WINCE
