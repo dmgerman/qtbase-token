@@ -8059,7 +8059,6 @@ operator|<
 name|end
 condition|)
 block|{
-specifier|register
 name|int
 name|x1
 init|=
@@ -8069,7 +8068,6 @@ operator|>>
 literal|16
 operator|)
 decl_stmt|;
-specifier|register
 name|int
 name|x2
 init|=
@@ -8091,7 +8089,6 @@ operator|<
 name|count
 argument_list|)
 expr_stmt|;
-specifier|register
 name|int
 name|distx
 init|=
@@ -8103,7 +8100,6 @@ operator|)
 operator|>>
 literal|8
 decl_stmt|;
-specifier|register
 name|int
 name|idistx
 init|=
@@ -11343,7 +11339,6 @@ operator|++
 name|i
 control|)
 block|{
-specifier|register
 name|int
 name|x1
 init|=
@@ -11353,7 +11348,6 @@ operator|>>
 literal|16
 operator|)
 decl_stmt|;
-specifier|register
 name|int
 name|x2
 init|=
@@ -11375,7 +11369,6 @@ operator|<
 name|count
 argument_list|)
 expr_stmt|;
-specifier|register
 name|int
 name|distx
 init|=
@@ -11387,7 +11380,6 @@ operator|)
 operator|>>
 literal|8
 decl_stmt|;
-specifier|register
 name|int
 name|idistx
 init|=

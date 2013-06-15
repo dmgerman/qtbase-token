@@ -1323,7 +1323,6 @@ operator|.
 name|bits
 argument_list|()
 decl_stmt|;
-specifier|register
 name|QRgb
 modifier|*
 name|p

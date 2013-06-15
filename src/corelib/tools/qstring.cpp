@@ -1205,7 +1205,6 @@ condition|)
 return|return
 literal|true
 return|;
-specifier|register
 union|union
 block|{
 specifier|const
@@ -1302,7 +1301,6 @@ comment|// now both addresses are 4-bytes aligned
 block|}
 comment|// both addresses are 4-bytes aligned
 comment|// do a fast 32-bit comparison
-specifier|register
 specifier|const
 name|quint32
 modifier|*
@@ -1378,7 +1376,6 @@ block|}
 else|else
 block|{
 comment|// one of the addresses isn't 4-byte aligned but the other is
-specifier|register
 specifier|const
 name|quint16
 modifier|*
@@ -14576,7 +14573,6 @@ argument_list|,
 name|length2
 argument_list|)
 return|;
-specifier|register
 specifier|const
 name|ushort
 modifier|*
@@ -14592,7 +14588,6 @@ argument_list|(
 name|data1
 argument_list|)
 decl_stmt|;
-specifier|register
 specifier|const
 name|ushort
 modifier|*

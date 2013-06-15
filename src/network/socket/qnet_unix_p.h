@@ -170,7 +170,6 @@ operator|==
 literal|0
 argument_list|)
 expr_stmt|;
-specifier|register
 name|int
 name|fd
 decl_stmt|;
@@ -333,7 +332,6 @@ operator|==
 literal|0
 argument_list|)
 expr_stmt|;
-specifier|register
 name|int
 name|fd
 decl_stmt|;
@@ -528,7 +526,6 @@ name|QT_SOCKLEN_T
 name|addrlen
 parameter_list|)
 block|{
-specifier|register
 name|int
 name|ret
 decl_stmt|;
@@ -780,7 +777,6 @@ argument_list|()
 expr_stmt|;
 endif|#
 directive|endif
-specifier|register
 name|int
 name|ret
 decl_stmt|;

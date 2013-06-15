@@ -413,11 +413,9 @@ argument|T&_q_value
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
-specifier|register
 name|T
 name|originalValue
 block|;
-specifier|register
 name|T
 name|newValue
 block|;
@@ -481,11 +479,9 @@ argument|T&_q_value
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
-specifier|register
 name|T
 name|originalValue
 block|;
-specifier|register
 name|T
 name|newValue
 block|;
@@ -553,7 +549,6 @@ argument|T newValue
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
-specifier|register
 name|T
 name|originalValue
 block|;
@@ -674,7 +669,6 @@ name|defined
 argument_list|(
 name|__thumb__
 argument_list|)
-specifier|register
 name|T
 name|originalValue
 block|;
@@ -763,11 +757,9 @@ argument|typename QAtomicAdditiveType<T>::AdditiveT valueToAdd
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
-specifier|register
 name|T
 name|originalValue
 block|;
-specifier|register
 name|T
 name|newValue
 block|;

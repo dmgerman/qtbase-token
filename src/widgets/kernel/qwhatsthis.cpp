@@ -1648,7 +1648,6 @@ operator|++
 name|i
 control|)
 block|{
-specifier|register
 name|QWidget
 modifier|*
 name|w

@@ -795,7 +795,6 @@ name|sem_flg
 operator|=
 name|SEM_UNDO
 expr_stmt|;
-specifier|register
 name|int
 name|res
 decl_stmt|;

@@ -3228,7 +3228,6 @@ operator|++
 name|i
 control|)
 block|{
-specifier|register
 name|QObject
 modifier|*
 name|obj
@@ -3348,7 +3347,6 @@ operator|++
 name|i
 control|)
 block|{
-specifier|register
 name|QObject
 modifier|*
 name|obj

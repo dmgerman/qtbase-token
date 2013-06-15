@@ -527,7 +527,6 @@ modifier|*
 name|str2
 parameter_list|)
 block|{
-specifier|register
 specifier|const
 name|uchar
 modifier|*
@@ -543,7 +542,6 @@ argument_list|(
 name|str1
 argument_list|)
 decl_stmt|;
-specifier|register
 specifier|const
 name|uchar
 modifier|*
@@ -661,7 +659,6 @@ name|uint
 name|len
 parameter_list|)
 block|{
-specifier|register
 specifier|const
 name|uchar
 modifier|*
@@ -677,7 +674,6 @@ argument_list|(
 name|str1
 argument_list|)
 decl_stmt|;
-specifier|register
 specifier|const
 name|uchar
 modifier|*
@@ -856,7 +852,6 @@ operator|++
 name|str2
 control|)
 block|{
-specifier|register
 name|int
 name|diff
 init|=
@@ -1002,7 +997,7 @@ unit|static void createCRC16Table()
 comment|// build CRC16 lookup table
 end_comment
 begin_undef
-unit|{     register unsigned int i;     register unsigned int j;     unsigned short crc_tbl[16];     unsigned int v0, v1, v2, v3;     for (i = 0; i< 16; i++) {         v0 = i& 1;         v1 = (i>> 1)& 1;         v2 = (i>> 2)& 1;         v3 = (i>> 3)& 1;         j = 0;
+unit|{     unsigned int i;     unsigned int j;     unsigned short crc_tbl[16];     unsigned int v0, v1, v2, v3;     for (i = 0; i< 16; i++) {         v0 = i& 1;         v1 = (i>> 1)& 1;         v2 = (i>> 2)& 1;         v3 = (i>> 3)& 1;         j = 0;
 undef|#
 directive|undef
 name|SET_BIT
@@ -1087,7 +1082,6 @@ name|uint
 name|len
 parameter_list|)
 block|{
-specifier|register
 name|quint16
 name|crc
 init|=
@@ -7677,7 +7671,6 @@ operator|*
 name|this
 argument_list|)
 decl_stmt|;
-specifier|register
 name|uchar
 modifier|*
 name|p
@@ -7748,7 +7741,6 @@ operator|*
 name|this
 argument_list|)
 decl_stmt|;
-specifier|register
 name|uchar
 modifier|*
 name|p

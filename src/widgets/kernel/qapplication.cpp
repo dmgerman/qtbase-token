@@ -2040,7 +2040,6 @@ operator|++
 name|it
 control|)
 block|{
-specifier|register
 name|QWidget
 modifier|*
 name|w
@@ -3380,7 +3379,6 @@ operator|++
 name|it
 control|)
 block|{
-specifier|register
 name|QWidget
 modifier|*
 name|w
@@ -3634,7 +3632,6 @@ operator|++
 name|it1
 control|)
 block|{
-specifier|register
 name|QWidget
 modifier|*
 name|w
@@ -3726,7 +3723,6 @@ operator|++
 name|it2
 control|)
 block|{
-specifier|register
 name|QWidget
 modifier|*
 name|w
@@ -4414,7 +4410,6 @@ operator|++
 name|it
 control|)
 block|{
-specifier|register
 name|QWidget
 modifier|*
 name|w
@@ -5082,7 +5077,6 @@ operator|++
 name|it
 control|)
 block|{
-specifier|register
 name|QWidget
 modifier|*
 name|w
@@ -5476,7 +5470,6 @@ operator|++
 name|it
 control|)
 block|{
-specifier|register
 name|QWidget
 modifier|*
 name|w
@@ -11886,7 +11879,6 @@ operator|++
 name|i
 control|)
 block|{
-specifier|register
 name|QObject
 modifier|*
 name|obj

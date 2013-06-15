@@ -333,7 +333,6 @@ operator|::
 name|ref
 argument_list|()
 block|{
-specifier|register
 name|int
 name|old
 block|,
@@ -393,7 +392,6 @@ operator|::
 name|deref
 argument_list|()
 block|{
-specifier|register
 name|int
 name|old
 block|,
@@ -456,7 +454,6 @@ argument_list|,
 argument|int newValue
 argument_list|)
 block|{
-specifier|register
 name|int
 name|ret
 block|;
@@ -525,7 +522,6 @@ argument_list|,
 argument|int newValue
 argument_list|)
 block|{
-specifier|register
 name|int
 name|ret
 block|;
@@ -595,7 +591,6 @@ argument_list|,
 argument|int newValue
 argument_list|)
 block|{
-specifier|register
 name|int
 name|ret
 block|;
@@ -663,7 +658,6 @@ argument_list|(
 argument|int newValue
 argument_list|)
 block|{
-specifier|register
 name|int
 name|old
 block|,
@@ -726,7 +720,6 @@ argument_list|(
 argument|int newValue
 argument_list|)
 block|{
-specifier|register
 name|int
 name|old
 block|,
@@ -790,7 +783,6 @@ argument_list|(
 argument|int newValue
 argument_list|)
 block|{
-specifier|register
 name|int
 name|old
 block|,
@@ -854,7 +846,6 @@ argument_list|(
 argument|int valueToAdd
 argument_list|)
 block|{
-specifier|register
 name|int
 name|old
 block|,
@@ -917,7 +908,6 @@ argument_list|(
 argument|int valueToAdd
 argument_list|)
 block|{
-specifier|register
 name|int
 name|old
 block|,
@@ -981,7 +971,6 @@ argument_list|(
 argument|int valueToAdd
 argument_list|)
 block|{
-specifier|register
 name|int
 name|old
 block|,
@@ -1055,7 +1044,6 @@ argument_list|,
 argument|T *newValue
 argument_list|)
 block|{
-specifier|register
 name|void
 operator|*
 name|ret
@@ -1133,7 +1121,6 @@ argument_list|,
 argument|T *newValue
 argument_list|)
 block|{
-specifier|register
 name|void
 operator|*
 name|ret
@@ -1212,7 +1199,6 @@ argument_list|,
 argument|T *newValue
 argument_list|)
 block|{
-specifier|register
 name|void
 operator|*
 name|ret
@@ -1290,7 +1276,6 @@ argument_list|(
 argument|T *newValue
 argument_list|)
 block|{
-specifier|register
 name|T
 operator|*
 name|old
@@ -1364,7 +1349,6 @@ argument_list|(
 argument|T *newValue
 argument_list|)
 block|{
-specifier|register
 name|T
 operator|*
 name|old
@@ -1439,7 +1423,6 @@ argument_list|(
 argument|T *newValue
 argument_list|)
 block|{
-specifier|register
 name|T
 operator|*
 name|old
@@ -1514,7 +1497,6 @@ argument_list|(
 argument|qptrdiff valueToAdd
 argument_list|)
 block|{
-specifier|register
 name|T
 operator|*
 name|old
@@ -1595,7 +1577,6 @@ argument_list|(
 argument|qptrdiff valueToAdd
 argument_list|)
 block|{
-specifier|register
 name|T
 operator|*
 name|old
@@ -1677,7 +1658,6 @@ argument_list|(
 argument|qptrdiff valueToAdd
 argument_list|)
 block|{
-specifier|register
 name|T
 operator|*
 name|old

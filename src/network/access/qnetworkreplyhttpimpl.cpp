@@ -113,7 +113,6 @@ specifier|inline
 name|bool
 name|isSeparator
 parameter_list|(
-specifier|register
 name|char
 name|c
 parameter_list|)
@@ -394,7 +393,6 @@ name|length
 argument_list|()
 condition|)
 block|{
-specifier|register
 name|char
 name|c
 init|=
@@ -471,7 +469,6 @@ name|length
 argument_list|()
 condition|)
 block|{
-specifier|register
 name|char
 name|c
 init|=

@@ -44,7 +44,6 @@ name|QChar
 name|c
 parameter_list|)
 block|{
-specifier|register
 name|ushort
 name|u
 init|=
@@ -103,7 +102,6 @@ name|QChar
 name|c
 parameter_list|)
 block|{
-specifier|register
 name|ushort
 name|u
 init|=
@@ -168,7 +166,6 @@ name|QChar
 name|c
 parameter_list|)
 block|{
-specifier|register
 name|ushort
 name|u
 init|=
@@ -1461,7 +1458,6 @@ modifier|*
 name|signature
 parameter_list|)
 block|{
-specifier|register
 name|char
 name|c
 init|=
