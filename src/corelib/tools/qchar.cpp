@@ -2979,12 +2979,6 @@ operator|<
 literal|2
 condition|)
 return|return;
-name|int
-name|starter
-init|=
-literal|0
-decl_stmt|;
-comment|// starter position
 name|uint
 name|stcode
 init|=
@@ -2992,16 +2986,25 @@ literal|0
 decl_stmt|;
 comment|// starter code point
 name|int
+name|starter
+init|=
+operator|-
+literal|1
+decl_stmt|;
+comment|// starter position
+name|int
 name|next
 init|=
 operator|-
 literal|1
 decl_stmt|;
+comment|// to prevent i == next
 name|int
 name|lastCombining
 init|=
-literal|0
+literal|255
 decl_stmt|;
+comment|// to prevent combining> lastCombining
 name|int
 name|pos
 init|=
@@ -3148,6 +3151,7 @@ name|combiningClass
 decl_stmt|;
 if|if
 condition|(
+operator|(
 name|i
 operator|==
 name|next
@@ -3155,15 +3159,13 @@ operator|||
 name|combining
 operator|>
 name|lastCombining
-condition|)
-block|{
-name|Q_ASSERT
-argument_list|(
+operator|)
+operator|&&
 name|starter
 operator|>=
 name|from
-argument_list|)
-expr_stmt|;
+condition|)
+block|{
 comment|// allowed to form ligature with S
 name|uint
 name|ligature
