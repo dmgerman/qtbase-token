@@ -10022,12 +10022,8 @@ literal|"XQMAKESPEC"
 argument_list|)
 condition|)
 block|{
-comment|//Disable building tools, docs and translations when cross compiling.
+comment|//Disable building tools when cross compiling.
 name|nobuildParts
-operator|<<
-literal|"docs"
-operator|<<
-literal|"translations"
 operator|<<
 literal|"tools"
 expr_stmt|;
