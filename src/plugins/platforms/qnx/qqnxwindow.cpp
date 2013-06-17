@@ -713,6 +713,16 @@ argument_list|)
 expr_stmt|;
 name|QWindowSystemInterface
 operator|::
+name|handleExposeEvent
+argument_list|(
+name|window
+argument_list|()
+argument_list|,
+name|rect
+argument_list|)
+expr_stmt|;
+name|QWindowSystemInterface
+operator|::
 name|setSynchronousWindowsSystemEvents
 argument_list|(
 literal|false
