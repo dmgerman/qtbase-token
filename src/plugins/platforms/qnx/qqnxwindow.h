@@ -267,6 +267,10 @@ argument|Qt::WindowState state
 argument_list|)
 block|;
 name|void
+name|propagateSizeHints
+argument_list|()
+block|;
+name|void
 name|gainedFocus
 argument_list|()
 block|;

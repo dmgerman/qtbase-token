@@ -2705,6 +2705,24 @@ expr_stmt|;
 block|}
 end_function
 begin_function
+DECL|function|propagateSizeHints
+name|void
+name|QQnxWindow
+operator|::
+name|propagateSizeHints
+parameter_list|()
+block|{
+comment|// nothing to do; silence base class warning
+name|qWindowDebug
+argument_list|()
+operator|<<
+name|Q_FUNC_INFO
+operator|<<
+literal|": ignored"
+expr_stmt|;
+block|}
+end_function
+begin_function
 DECL|function|gainedFocus
 name|void
 name|QQnxWindow
