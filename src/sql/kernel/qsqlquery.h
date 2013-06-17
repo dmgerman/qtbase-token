@@ -161,6 +161,16 @@ name|field
 argument_list|)
 decl|const
 decl_stmt|;
+name|bool
+name|isNull
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|name
+argument_list|)
+decl|const
+decl_stmt|;
 name|int
 name|at
 argument_list|()
