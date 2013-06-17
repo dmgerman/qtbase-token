@@ -246,6 +246,9 @@ operator|>
 name|dictionary
 expr_stmt|;
 name|QStringList
+name|allBuildParts
+decl_stmt|;
+name|QStringList
 name|defaultBuildParts
 decl_stmt|;
 name|QStringList
