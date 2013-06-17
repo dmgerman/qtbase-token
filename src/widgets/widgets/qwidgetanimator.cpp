@@ -292,6 +292,26 @@ decl_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_NO_ANIMATION
+comment|//If the QStyle has animations, animate
+if|if
+condition|(
+name|widget
+operator|->
+name|style
+argument_list|()
+operator|->
+name|styleHint
+argument_list|(
+name|QStyle
+operator|::
+name|SH_Widget_Animate
+argument_list|,
+literal|0
+argument_list|,
+name|widget
+argument_list|)
+condition|)
+block|{
 name|AnimationMap
 operator|::
 name|const_iterator
@@ -401,8 +421,12 @@ operator|::
 name|DeleteWhenStopped
 argument_list|)
 expr_stmt|;
-else|#
-directive|else
+block|}
+else|else
+endif|#
+directive|endif
+comment|//QT_NO_ANIMATION
+block|{
 comment|//we do it in one shot
 name|widget
 operator|->
@@ -424,9 +448,7 @@ expr_stmt|;
 endif|#
 directive|endif
 comment|//QT_NO_MAINWINDOW
-endif|#
-directive|endif
-comment|//QT_NO_ANIMATION
+block|}
 block|}
 end_function
 begin_function

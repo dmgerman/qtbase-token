@@ -1522,6 +1522,8 @@ name|SH_ToolTip_WakeUpDelay
 block|,
 name|SH_ToolTip_FallAsleepDelay
 block|,
+name|SH_Widget_Animate
+block|,
 comment|// Add new style hint values here
 name|SH_CustomBase
 operator|=
