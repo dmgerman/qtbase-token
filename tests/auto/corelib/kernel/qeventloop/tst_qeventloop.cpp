@@ -562,7 +562,7 @@ name|processEvents
 parameter_list|()
 block|{
 name|QSignalSpy
-name|spy1
+name|aboutToBlockSpy
 argument_list|(
 name|QAbstractEventDispatcher
 operator|::
@@ -577,7 +577,7 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 name|QSignalSpy
-name|spy2
+name|awakeSpy
 argument_list|(
 name|QAbstractEventDispatcher
 operator|::
@@ -593,7 +593,7 @@ argument_list|)
 decl_stmt|;
 name|QVERIFY
 argument_list|(
-name|spy1
+name|aboutToBlockSpy
 operator|.
 name|isValid
 argument_list|()
@@ -601,7 +601,7 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-name|spy2
+name|awakeSpy
 operator|.
 name|isValid
 argument_list|()
@@ -638,7 +638,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|spy1
+name|aboutToBlockSpy
 operator|.
 name|count
 argument_list|()
@@ -648,7 +648,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|spy2
+name|awakeSpy
 operator|.
 name|count
 argument_list|()
@@ -675,12 +675,12 @@ argument_list|()
 expr_stmt|;
 comment|// no events to process, QEventLoop::processEvents() should return
 comment|// false
-name|spy1
+name|aboutToBlockSpy
 operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-name|spy2
+name|awakeSpy
 operator|.
 name|clear
 argument_list|()
@@ -696,7 +696,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|spy1
+name|aboutToBlockSpy
 operator|.
 name|count
 argument_list|()
@@ -706,7 +706,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|spy2
+name|awakeSpy
 operator|.
 name|count
 argument_list|()
@@ -725,12 +725,12 @@ argument_list|)
 decl_stmt|;
 comment|// wait for more events to process, QEventLoop::processEvents()
 comment|// should return true
-name|spy1
+name|aboutToBlockSpy
 operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-name|spy2
+name|awakeSpy
 operator|.
 name|clear
 argument_list|()
@@ -751,7 +751,7 @@ comment|// Verify that the eventloop has blocked and woken up. Some eventloops
 comment|// may block and wake up multiple times.
 name|QVERIFY
 argument_list|(
-name|spy1
+name|aboutToBlockSpy
 operator|.
 name|count
 argument_list|()
@@ -761,7 +761,7 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-name|spy2
+name|awakeSpy
 operator|.
 name|count
 argument_list|()
@@ -773,12 +773,12 @@ comment|// We should get one awake for each aboutToBlock, plus one awake when
 comment|// processEvents is entered.
 name|QVERIFY
 argument_list|(
-name|spy2
+name|awakeSpy
 operator|.
 name|count
 argument_list|()
 operator|>=
-name|spy1
+name|aboutToBlockSpy
 operator|.
 name|count
 argument_list|()
