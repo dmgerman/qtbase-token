@@ -184,6 +184,15 @@ operator|->
 name|window
 argument_list|()
 expr_stmt|;
+comment|// Sometimes this method is called even though there is nothing to be
+comment|// flushed, for instance, after an expose event directly follows a
+comment|// geometry change event.
+if|if
+condition|(
+operator|!
+name|m_hasUnflushedPaintOperations
+condition|)
+return|return;
 name|QQnxWindow
 modifier|*
 name|targetWindow
@@ -334,12 +343,6 @@ comment|// even though they might share a backing store. This is unneeded overhe
 comment|// libscreen allows to have windows without buffers, or does it?
 comment|// We assume that the TLW has been flushed previously and that no changes were made to the
 comment|// backing store inbetween (### does Qt guarantee this?)
-name|Q_ASSERT
-argument_list|(
-operator|!
-name|m_hasUnflushedPaintOperations
-argument_list|)
-expr_stmt|;
 name|targetWindow
 operator|->
 name|adjustBufferSize
