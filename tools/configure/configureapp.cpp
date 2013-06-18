@@ -26096,11 +26096,7 @@ literal|"-r"
 expr_stmt|;
 name|args
 operator|<<
-operator|(
 name|sourcePath
-operator|+
-literal|"/qtbase.pro"
-operator|)
 expr_stmt|;
 name|args
 operator|<<
