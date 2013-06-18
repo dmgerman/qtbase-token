@@ -299,6 +299,10 @@ name|initLibrarianTool
 argument_list|()
 block|;
 name|void
+name|initManifestTool
+argument_list|()
+block|;
+name|void
 name|initResourceTool
 argument_list|()
 block|;
