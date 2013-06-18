@@ -4177,10 +4177,39 @@ argument_list|)
 block|;
 name|private
 operator|:
+ifdef|#
+directive|ifdef
+name|Q_CC_CLANG
+pragma|#
+directive|pragma
+name|clang
+name|diagnostic
+name|push
+pragma|#
+directive|pragma
+name|clang
+name|diagnostic
+name|ignored
+literal|"-Wunused-private-field"
+endif|#
+directive|endif
+comment|// Q_CC_CLANG
 name|QObject
 operator|*
 name|m_target
 block|;
+comment|// Qt 6 remove.
+ifdef|#
+directive|ifdef
+name|Q_CC_CLANG
+pragma|#
+directive|pragma
+name|clang
+name|diagnostic
+name|pop
+endif|#
+directive|endif
+comment|// Q_CC_CLANG
 name|QPointF
 name|m_startPos
 block|;
