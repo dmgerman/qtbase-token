@@ -945,6 +945,28 @@ end_define
 begin_elif
 elif|#
 directive|elif
+name|defined
+name|__ANDROID__
+end_elif
+begin_comment
+comment|/* Android lacks __clear_cache; instead, cacheflush should be used. */
+end_comment
+begin_define
+DECL|macro|SLJIT_CACHE_FLUSH
+define|#
+directive|define
+name|SLJIT_CACHE_FLUSH
+parameter_list|(
+name|from
+parameter_list|,
+name|to
+parameter_list|)
+define|\
+value|cacheflush((long)(from), (long)(to), 0)
+end_define
+begin_elif
+elif|#
+directive|elif
 operator|(
 name|defined
 name|SLJIT_CONFIG_PPC_32
