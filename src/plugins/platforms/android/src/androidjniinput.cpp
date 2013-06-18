@@ -1548,6 +1548,60 @@ operator|::
 name|Key_VolumeUp
 return|;
 case|case
+literal|0x000000b7
+case|:
+comment|// KEYCODE_PROG_RED
+return|return
+name|Qt
+operator|::
+name|Key_Red
+return|;
+case|case
+literal|0x000000b8
+case|:
+comment|// KEYCODE_PROG_GREEN
+return|return
+name|Qt
+operator|::
+name|Key_Green
+return|;
+case|case
+literal|0x000000b9
+case|:
+comment|// KEYCODE_PROG_YELLOW
+return|return
+name|Qt
+operator|::
+name|Key_Yellow
+return|;
+case|case
+literal|0x000000ba
+case|:
+comment|// KEYCODE_PROG_BLUE
+return|return
+name|Qt
+operator|::
+name|Key_Blue
+return|;
+case|case
+literal|0x000000a6
+case|:
+comment|// KEYCODE_CHANNEL_UP
+return|return
+name|Qt
+operator|::
+name|Key_ChannelUp
+return|;
+case|case
+literal|0x000000a7
+case|:
+comment|// KEYCODE_CHANNEL_DOWN
+return|return
+name|Qt
+operator|::
+name|Key_ChannelDown
+return|;
+case|case
 literal|0x00000000
 case|:
 comment|// KEYCODE_UNKNOWN
