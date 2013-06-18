@@ -26098,14 +26098,6 @@ name|args
 operator|<<
 name|sourcePath
 expr_stmt|;
-name|args
-operator|<<
-literal|"-o"
-expr_stmt|;
-name|args
-operator|<<
-name|buildPath
-expr_stmt|;
 name|QDir
 operator|::
 name|setCurrent
