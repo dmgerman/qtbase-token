@@ -4312,10 +4312,9 @@ index|[
 literal|256
 index|]
 decl_stmt|;
-comment|// we probably should let the compiler do this for us, by
-comment|// declaring QMessageLogContext::file to be const wchar_t * in
-comment|// the first place, but the #ifdefery above is very complex
-comment|// and we wouldn't be able to change it later on...
+comment|// we probably should let the compiler do this for us, by declaring QMessageLogContext::file to
+comment|// be const wchar_t * in the first place, but the #ifdefery above is very complex  and we
+comment|// wouldn't be able to change it later on...
 name|convert_to_wchar_t_elided
 argument_list|(
 name|contextFileL
@@ -4384,13 +4383,17 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|(
 name|ret
 operator|==
 literal|0
+operator|)
 operator|&&
+operator|(
 name|reportMode
 operator|&
 name|_CRTDBG_MODE_WNDW
+operator|)
 condition|)
 return|return;
 comment|// ignore
