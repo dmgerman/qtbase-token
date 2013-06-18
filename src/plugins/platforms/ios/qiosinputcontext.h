@@ -82,6 +82,9 @@ block|;
 name|UIView
 operator|*
 name|m_focusView
+block|;
+name|bool
+name|m_hasPendingHideRequest
 block|; }
 decl_stmt|;
 end_decl_stmt
