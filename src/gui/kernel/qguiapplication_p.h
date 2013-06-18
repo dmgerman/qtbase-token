@@ -187,6 +187,15 @@ name|bool
 name|shouldQuit
 argument_list|()
 block|;
+name|bool
+name|shouldQuitInternal
+argument_list|(
+specifier|const
+name|QWindowList
+operator|&
+name|processedWindows
+argument_list|)
+block|;
 specifier|static
 name|Qt
 operator|::
