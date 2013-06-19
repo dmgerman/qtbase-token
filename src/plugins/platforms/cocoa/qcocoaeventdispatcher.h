@@ -335,12 +335,6 @@ operator|>
 name|cocoaModalSessionStack
 block|;
 name|bool
-name|currentExecIsNSAppRun
-block|;
-name|bool
-name|nsAppRunCalledByQt
-block|;
-name|bool
 name|cleanupModalSessionsNeeded
 block|;
 name|NSModalSession
@@ -384,10 +378,6 @@ argument_list|()
 block|;
 name|void
 name|maybeCancelWaitForMoreEvents
-argument_list|()
-block|;
-name|void
-name|ensureNSAppInitialized
 argument_list|()
 block|;
 name|QCFSocketNotifier
