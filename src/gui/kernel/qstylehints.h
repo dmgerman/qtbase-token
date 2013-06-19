@@ -96,6 +96,11 @@ name|useRtlExtensions
 argument_list|()
 specifier|const
 block|;
+name|bool
+name|setFocusOnTouchRelease
+argument_list|()
+specifier|const
+block|;
 name|private
 operator|:
 name|friend

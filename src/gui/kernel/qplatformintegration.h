@@ -394,6 +394,8 @@ block|,
 name|SynthesizeMouseFromTouchEvents
 block|,
 name|PasswordMaskCharacter
+block|,
+name|SetFocusOnTouchRelease
 block|}
 enum|;
 name|virtual
