@@ -3313,6 +3313,10 @@ name|Key_TouchpadOff
 init|=
 literal|0x01000112
 block|,
+name|Key_MicMute
+init|=
+literal|0x01000113
+block|,
 name|Key_MediaLast
 init|=
 literal|0x0100ffff
