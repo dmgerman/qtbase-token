@@ -184,6 +184,15 @@ operator|->
 name|window
 argument_list|()
 expr_stmt|;
+comment|// Sometimes this method is called even though there is nothing to be
+comment|// flushed, for instance, after an expose event directly follows a
+comment|// geometry change event.
+if|if
+condition|(
+operator|!
+name|m_hasUnflushedPaintOperations
+condition|)
+return|return;
 name|QQnxWindow
 modifier|*
 name|targetWindow

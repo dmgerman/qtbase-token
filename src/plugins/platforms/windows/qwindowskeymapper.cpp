@@ -3454,7 +3454,6 @@ condition|)
 block|{
 for|for
 control|(
-specifier|register
 name|size_t
 name|i
 init|=

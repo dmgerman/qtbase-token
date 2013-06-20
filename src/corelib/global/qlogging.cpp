@@ -1891,7 +1891,6 @@ operator|&&
 name|templatecount
 condition|)
 block|{
-specifier|register
 name|char
 name|c
 init|=

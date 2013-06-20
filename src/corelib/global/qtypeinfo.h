@@ -165,7 +165,7 @@ block|; }
 expr_stmt|;
 end_expr_stmt
 begin_comment
-comment|/*!     \class QTypeInfoMerger     \inmodule QtCore     \internal      \brief QTypeInfoMerger merges the QTypeInfo flags of T1, T2... and presents them     as a QTypeInfo<T> would do.      Let's assume that we have a simple set of structs:      \snippet code/src_corelib_global_qglobal.cpp 50      To create a proper QTypeInfo specialization for A struct, we have to check     all sub-components; B, C and D, then take the lowest common denominator and call     Q_DECLATE_TYPEINFO with the resulting flags. An easier and less fragile approach is to     use QTypeInfoMerger, which does that automatically. So struct A would have     the following QTypeInfo definition:      \snippet code/src_corelib_global_qglobal.cpp 51 */
+comment|/*!     \class QTypeInfoMerger     \inmodule QtCore     \internal      \brief QTypeInfoMerger merges the QTypeInfo flags of T1, T2... and presents them     as a QTypeInfo<T> would do.      Let's assume that we have a simple set of structs:      \snippet code/src_corelib_global_qglobal.cpp 50      To create a proper QTypeInfo specialization for A struct, we have to check     all sub-components; B, C and D, then take the lowest common denominator and call     Q_DECLARE_TYPEINFO with the resulting flags. An easier and less fragile approach is to     use QTypeInfoMerger, which does that automatically. So struct A would have     the following QTypeInfo definition:      \snippet code/src_corelib_global_qglobal.cpp 51 */
 end_comment
 begin_expr_stmt
 DECL|variable|T

@@ -779,6 +779,9 @@ name|encoding
 argument_list|)
 condition|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_TEXTCODEC
 if|if
 condition|(
 name|requestedType
@@ -812,6 +815,8 @@ name|data
 argument_list|)
 return|;
 block|}
+endif|#
+directive|endif
 return|return
 name|data
 return|;

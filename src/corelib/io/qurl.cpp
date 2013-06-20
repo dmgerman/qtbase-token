@@ -3059,7 +3059,6 @@ operator|--
 name|i
 control|)
 block|{
-specifier|register
 name|ushort
 name|c
 init|=
@@ -5024,7 +5023,6 @@ operator|++
 name|i
 control|)
 block|{
-specifier|register
 name|uint
 name|uc
 init|=
@@ -6192,7 +6190,6 @@ operator|++
 name|i
 control|)
 block|{
-specifier|register
 name|ushort
 name|c
 init|=
@@ -6360,7 +6357,6 @@ operator|++
 name|i
 control|)
 block|{
-specifier|register
 name|uint
 name|uc
 init|=

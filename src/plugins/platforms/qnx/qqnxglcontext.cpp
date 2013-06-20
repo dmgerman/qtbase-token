@@ -1144,6 +1144,17 @@ argument_list|(
 name|surfaceSize
 argument_list|)
 expr_stmt|;
+comment|// Post root window, in case it hasn't been posted yet, to make it appear.
+name|platformWindow
+operator|->
+name|screen
+argument_list|()
+operator|->
+name|onWindowPost
+argument_list|(
+name|platformWindow
+argument_list|)
+expr_stmt|;
 comment|// Obtain the native handle for our window
 name|screen_window_t
 name|handle

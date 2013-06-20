@@ -135,7 +135,6 @@ name|pl
 operator|-
 literal|1
 decl_stmt|;
-specifier|register
 specifier|const
 name|uchar
 modifier|*

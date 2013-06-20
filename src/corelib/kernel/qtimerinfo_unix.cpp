@@ -484,7 +484,6 @@ operator|++
 name|i
 control|)
 block|{
-specifier|register
 name|QTimerInfo
 modifier|*
 name|t
@@ -588,7 +587,6 @@ name|index
 operator|--
 condition|)
 block|{
-specifier|register
 specifier|const
 name|QTimerInfo
 modifier|*
@@ -872,7 +870,6 @@ comment|//  other multiples of 50
 comment|//  other multiples of 25
 comment|//
 comment|// The objective is to make most timers wake up at the same time, thereby reducing CPU wakeups.
-specifier|register
 name|uint
 name|interval
 init|=
@@ -883,7 +880,6 @@ operator|->
 name|interval
 argument_list|)
 decl_stmt|;
-specifier|register
 name|uint
 name|msec
 init|=
@@ -944,7 +940,6 @@ condition|)
 block|{
 comment|// round to even
 comment|// round towards multiples of 50 ms
-specifier|register
 name|bool
 name|roundUp
 init|=
@@ -976,7 +971,6 @@ else|else
 block|{
 comment|// round to multiple of 4
 comment|// round towards multiples of 100 ms
-specifier|register
 name|bool
 name|roundUp
 init|=
@@ -1743,7 +1737,6 @@ operator|++
 name|i
 control|)
 block|{
-specifier|register
 name|QTimerInfo
 modifier|*
 name|t
@@ -2153,7 +2146,6 @@ operator|++
 name|i
 control|)
 block|{
-specifier|register
 name|QTimerInfo
 modifier|*
 name|t
@@ -2253,7 +2245,6 @@ operator|++
 name|i
 control|)
 block|{
-specifier|register
 name|QTimerInfo
 modifier|*
 name|t
@@ -2359,7 +2350,6 @@ operator|++
 name|i
 control|)
 block|{
-specifier|register
 specifier|const
 name|QTimerInfo
 modifier|*

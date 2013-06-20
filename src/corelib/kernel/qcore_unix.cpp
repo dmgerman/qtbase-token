@@ -186,7 +186,6 @@ name|orig_timeout
 condition|)
 block|{
 comment|// no timeout -> block forever
-specifier|register
 name|int
 name|ret
 decl_stmt|;

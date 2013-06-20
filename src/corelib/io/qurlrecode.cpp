@@ -2190,7 +2190,6 @@ operator|++
 name|input
 control|)
 block|{
-specifier|register
 name|ushort
 name|c
 decl_stmt|;
@@ -2273,7 +2272,6 @@ block|}
 break|break;
 name|non_trivial
 label|:
-specifier|register
 name|uint
 name|decoded
 decl_stmt|;

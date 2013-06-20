@@ -2652,7 +2652,6 @@ condition|)
 block|{
 comment|// increase the strongref, but never up from zero
 comment|// or less (-1 is used by QWeakPointer on untracked QObject)
-specifier|register
 name|int
 name|tmp
 init|=
@@ -4597,7 +4596,6 @@ argument_list|(
 argument|const QSharedPointer<T>&src
 argument_list|)
 block|{
-specifier|register
 name|X
 operator|*
 name|ptr
@@ -4683,7 +4681,6 @@ argument_list|(
 argument|const QSharedPointer<T>&src
 argument_list|)
 block|{
-specifier|register
 name|X
 operator|*
 name|ptr
@@ -4783,7 +4780,6 @@ argument_list|(
 argument|const QSharedPointer<T>&src
 argument_list|)
 block|{
-specifier|register
 name|X
 operator|*
 name|ptr
@@ -4910,7 +4906,6 @@ argument_list|(
 argument|const QSharedPointer<T>&src
 argument_list|)
 block|{
-specifier|register
 name|X
 operator|*
 name|ptr

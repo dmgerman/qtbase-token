@@ -390,11 +390,9 @@ operator|::
 name|ref
 argument_list|()
 block|{
-specifier|register
 name|int
 name|originalValue
 block|;
-specifier|register
 name|int
 name|newValue
 block|;
@@ -458,11 +456,9 @@ operator|::
 name|deref
 argument_list|()
 block|{
-specifier|register
 name|int
 name|originalValue
 block|;
-specifier|register
 name|int
 name|newValue
 block|;
@@ -531,7 +527,6 @@ argument_list|,
 argument|int newValue
 argument_list|)
 block|{
-specifier|register
 name|int
 name|result
 block|;
@@ -600,7 +595,6 @@ argument_list|,
 argument|int newValue
 argument_list|)
 block|{
-specifier|register
 name|int
 name|result
 block|;
@@ -670,7 +664,6 @@ argument_list|,
 argument|int newValue
 argument_list|)
 block|{
-specifier|register
 name|int
 name|result
 block|;
@@ -738,7 +731,6 @@ argument_list|(
 argument|int newValue
 argument_list|)
 block|{
-specifier|register
 name|int
 name|originalValue
 block|;
@@ -793,7 +785,6 @@ argument_list|(
 argument|int newValue
 argument_list|)
 block|{
-specifier|register
 name|int
 name|originalValue
 block|;
@@ -849,7 +840,6 @@ argument_list|(
 argument|int newValue
 argument_list|)
 block|{
-specifier|register
 name|int
 name|originalValue
 block|;
@@ -905,11 +895,9 @@ argument_list|(
 argument|int valueToAdd
 argument_list|)
 block|{
-specifier|register
 name|int
 name|originalValue
 block|;
-specifier|register
 name|int
 name|newValue
 block|;
@@ -973,11 +961,9 @@ argument_list|(
 argument|int valueToAdd
 argument_list|)
 block|{
-specifier|register
 name|int
 name|originalValue
 block|;
-specifier|register
 name|int
 name|newValue
 block|;
@@ -1042,11 +1028,9 @@ argument_list|(
 argument|int valueToAdd
 argument_list|)
 block|{
-specifier|register
 name|int
 name|originalValue
 block|;
-specifier|register
 name|int
 name|newValue
 block|;
@@ -1162,7 +1146,6 @@ argument_list|,
 argument|T *newValue
 argument_list|)
 block|{
-specifier|register
 name|void
 operator|*
 name|result
@@ -1242,7 +1225,6 @@ argument_list|,
 argument|T *newValue
 argument_list|)
 block|{
-specifier|register
 name|void
 operator|*
 name|result
@@ -1323,7 +1305,6 @@ argument_list|,
 argument|T *newValue
 argument_list|)
 block|{
-specifier|register
 name|void
 operator|*
 name|result
@@ -1403,7 +1384,6 @@ argument_list|(
 argument|T *newValue
 argument_list|)
 block|{
-specifier|register
 name|T
 operator|*
 name|originalValue
@@ -1470,7 +1450,6 @@ argument_list|(
 argument|T *newValue
 argument_list|)
 block|{
-specifier|register
 name|T
 operator|*
 name|originalValue
@@ -1538,7 +1517,6 @@ argument_list|(
 argument|T *newValue
 argument_list|)
 block|{
-specifier|register
 name|T
 operator|*
 name|originalValue
@@ -1606,12 +1584,10 @@ argument_list|(
 argument|qptrdiff valueToAdd
 argument_list|)
 block|{
-specifier|register
 name|T
 operator|*
 name|originalValue
 block|;
-specifier|register
 name|T
 operator|*
 name|newValue
@@ -1692,12 +1668,10 @@ argument_list|(
 argument|qptrdiff valueToAdd
 argument_list|)
 block|{
-specifier|register
 name|T
 operator|*
 name|originalValue
 block|;
-specifier|register
 name|T
 operator|*
 name|newValue
@@ -1779,12 +1753,10 @@ argument_list|(
 argument|qptrdiff valueToAdd
 argument_list|)
 block|{
-specifier|register
 name|T
 operator|*
 name|originalValue
 block|;
-specifier|register
 name|T
 operator|*
 name|newValue

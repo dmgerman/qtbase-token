@@ -118,7 +118,6 @@ specifier|inline
 name|bool
 name|isLWS
 parameter_list|(
-specifier|register
 name|char
 name|c
 parameter_list|)

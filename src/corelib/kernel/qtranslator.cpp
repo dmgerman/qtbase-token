@@ -4209,7 +4209,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload translate()      Returns the translation for the key (\a context, \a sourceText,     \a disambiguation). If none is found, also tries (\a context, \a     sourceText, ""). If that still fails, returns a null string.      If \a n is not -1, it is used to choose an appropriate form for     the translation (e.g. "%n file found" vs. "%n files found").      If you need to programatically insert translations into a     QTranslator, this function can be reimplemented.      \sa load() */
+comment|/*!     Returns the translation for the key (\a context, \a sourceText,     \a disambiguation). If none is found, also tries (\a context, \a     sourceText, ""). If that still fails, returns a null string.      If \a n is not -1, it is used to choose an appropriate form for     the translation (e.g. "%n file found" vs. "%n files found").      If you need to programatically insert translations into a     QTranslator, this function can be reimplemented.      \sa load() */
 end_comment
 begin_function
 DECL|function|translate

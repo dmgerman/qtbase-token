@@ -1338,6 +1338,9 @@ argument_list|(
 name|outFile
 argument_list|)
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_TEXTCODEC
 if|if
 condition|(
 name|outputCodec
@@ -1349,6 +1352,8 @@ argument_list|(
 name|outputCodec
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|outStreamStack
 operator|.
 name|push

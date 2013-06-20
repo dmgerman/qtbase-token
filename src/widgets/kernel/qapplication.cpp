@@ -2040,7 +2040,6 @@ operator|++
 name|it
 control|)
 block|{
-specifier|register
 name|QWidget
 modifier|*
 name|w
@@ -3380,7 +3379,6 @@ operator|++
 name|it
 control|)
 block|{
-specifier|register
 name|QWidget
 modifier|*
 name|w
@@ -3634,7 +3632,6 @@ operator|++
 name|it1
 control|)
 block|{
-specifier|register
 name|QWidget
 modifier|*
 name|w
@@ -3726,7 +3723,6 @@ operator|++
 name|it2
 control|)
 block|{
-specifier|register
 name|QWidget
 modifier|*
 name|w
@@ -4414,7 +4410,6 @@ operator|++
 name|it
 control|)
 block|{
-specifier|register
 name|QWidget
 modifier|*
 name|w
@@ -5082,7 +5077,6 @@ operator|++
 name|it
 control|)
 block|{
-specifier|register
 name|QWidget
 modifier|*
 name|w
@@ -5476,7 +5470,6 @@ operator|++
 name|it
 control|)
 block|{
-specifier|register
 name|QWidget
 modifier|*
 name|w
@@ -10533,6 +10526,9 @@ operator|::
 name|topLevelWidgets
 argument_list|()
 decl_stmt|;
+name|QWindowList
+name|processedWindows
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -10562,6 +10558,16 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
+name|processedWindows
+operator|.
+name|push_back
+argument_list|(
+name|w
+operator|->
+name|windowHandle
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|w
@@ -10591,8 +10597,10 @@ block|}
 return|return
 name|QGuiApplicationPrivate
 operator|::
-name|shouldQuit
-argument_list|()
+name|shouldQuitInternal
+argument_list|(
+name|processedWindows
+argument_list|)
 return|;
 block|}
 end_function
@@ -11886,7 +11894,6 @@ operator|++
 name|i
 control|)
 block|{
-specifier|register
 name|QObject
 modifier|*
 name|obj

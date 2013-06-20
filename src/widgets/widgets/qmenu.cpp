@@ -15724,6 +15724,11 @@ if|if
 condition|(
 operator|!
 name|action
+operator|||
+name|action
+operator|->
+name|isSeparator
+argument_list|()
 condition|)
 block|{
 if|if
@@ -15737,6 +15742,15 @@ operator|!
 name|d
 operator|->
 name|currentAction
+operator|||
+operator|(
+name|action
+operator|&&
+name|action
+operator|->
+name|isSeparator
+argument_list|()
+operator|)
 operator|||
 operator|!
 operator|(

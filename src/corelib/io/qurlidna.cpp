@@ -23653,7 +23653,6 @@ operator|++
 name|out
 control|)
 block|{
-specifier|register
 name|ushort
 name|uc
 init|=
@@ -24208,7 +24207,6 @@ operator|++
 name|i
 control|)
 block|{
-specifier|register
 name|ushort
 name|c
 init|=
@@ -26152,7 +26150,6 @@ operator|++
 name|out
 control|)
 block|{
-specifier|register
 name|ushort
 name|uc
 init|=
@@ -26300,7 +26297,6 @@ argument_list|()
 operator|-
 name|prevLen
 expr_stmt|;
-specifier|register
 name|int
 name|toReserve
 init|=

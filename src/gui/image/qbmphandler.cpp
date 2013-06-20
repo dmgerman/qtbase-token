@@ -60,7 +60,6 @@ operator|==
 literal|2
 condition|)
 block|{
-specifier|register
 name|uint
 modifier|*
 name|p
@@ -2189,7 +2188,6 @@ decl_stmt|;
 name|quint8
 name|b
 decl_stmt|;
-specifier|register
 name|uchar
 modifier|*
 name|p
@@ -2654,7 +2652,6 @@ operator|!=
 name|buflen
 condition|)
 break|break;
-specifier|register
 name|uchar
 modifier|*
 name|p
@@ -2760,7 +2757,6 @@ decl_stmt|;
 name|quint8
 name|b
 decl_stmt|;
-specifier|register
 name|uchar
 modifier|*
 name|p
@@ -3142,7 +3138,6 @@ literal|32
 condition|)
 block|{
 comment|// 16,24,32 bit BMP image
-specifier|register
 name|QRgb
 modifier|*
 name|p
@@ -3966,7 +3961,6 @@ decl_stmt|,
 modifier|*
 name|end
 decl_stmt|;
-specifier|register
 specifier|const
 name|uchar
 modifier|*

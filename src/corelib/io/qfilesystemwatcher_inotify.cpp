@@ -943,7 +943,6 @@ modifier|*
 name|parent
 parameter_list|)
 block|{
-specifier|register
 name|int
 name|fd
 init|=

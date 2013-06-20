@@ -8669,7 +8669,6 @@ name|int
 name|qRegisterMetaTypeStreamOperators
 argument_list|()
 block|{
-specifier|register
 name|int
 name|id
 operator|=

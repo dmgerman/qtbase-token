@@ -2530,7 +2530,6 @@ argument_list|()
 expr_stmt|;
 break|break;
 block|}
-specifier|register
 name|uchar
 modifier|*
 name|p
@@ -2727,7 +2726,6 @@ name|icoAttrib
 operator|.
 name|h
 decl_stmt|;
-specifier|register
 name|QRgb
 modifier|*
 name|p

@@ -486,7 +486,6 @@ modifier|*
 modifier|*
 name|endptr
 parameter_list|,
-specifier|register
 name|int
 name|base
 parameter_list|,
@@ -511,7 +510,6 @@ modifier|*
 modifier|*
 name|endptr
 parameter_list|,
-specifier|register
 name|int
 name|base
 parameter_list|,
