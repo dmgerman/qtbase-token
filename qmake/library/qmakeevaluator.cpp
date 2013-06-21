@@ -5663,12 +5663,14 @@ name|name
 decl_stmt|;
 if|if
 condition|(
-operator|!
 name|uname
 argument_list|(
 operator|&
 name|name
 argument_list|)
+operator|!=
+operator|-
+literal|1
 condition|)
 block|{
 name|vars
