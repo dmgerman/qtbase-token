@@ -35,7 +35,7 @@ name|QThreadPool
 argument_list|,
 name|theInstance
 argument_list|)
-comment|/*     QThread wrapper, provides synchronizitaion against a ThreadPool */
+comment|/*     QThread wrapper, provides synchronization against a ThreadPool */
 DECL|class|QThreadPoolThread
 name|class
 name|QThreadPoolThread
@@ -57,7 +57,7 @@ name|run
 argument_list|()
 block|;
 name|void
-name|registerTheadInactive
+name|registerThreadInactive
 argument_list|()
 block|;
 DECL|member|manager
@@ -186,7 +186,7 @@ literal|"This is not supported, exceptions thrown in worker threads must be\n"
 literal|"caught before control returns to Qt Concurrent."
 argument_list|)
 expr_stmt|;
-name|registerTheadInactive
+name|registerThreadInactive
 argument_list|()
 expr_stmt|;
 throw|throw;
@@ -257,7 +257,7 @@ operator|->
 name|isExiting
 condition|)
 block|{
-name|registerTheadInactive
+name|registerThreadInactive
 argument_list|()
 expr_stmt|;
 break|break;
@@ -282,7 +282,7 @@ name|manager
 operator|->
 name|waitingThreads
 expr_stmt|;
-name|registerTheadInactive
+name|registerThreadInactive
 argument_list|()
 expr_stmt|;
 comment|// wait for work, exiting after the expiry timeout is reached
@@ -334,7 +334,7 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-name|registerTheadInactive
+name|registerThreadInactive
 argument_list|()
 expr_stmt|;
 break|break;
@@ -343,11 +343,11 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|registerTheadInactive
+DECL|function|registerThreadInactive
 name|void
 name|QThreadPoolThread
 operator|::
-name|registerTheadInactive
+name|registerThreadInactive
 parameter_list|()
 block|{
 if|if
@@ -906,7 +906,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal     Makes all threads exit, waits for each tread to exit and deletes it. */
+comment|/*!     \internal     Makes all threads exit, waits for each thread to exit and deletes it. */
 end_comment
 begin_function
 DECL|function|reset
@@ -1198,7 +1198,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal     Seaches for \a runnable in the queue, removes it from the queue and     runs it if found. This functon does not return until the runnable     has completed. */
+comment|/*!     \internal     Searches for \a runnable in the queue, removes it from the queue and     runs it if found. This function does not return until the runnable     has completed. */
 end_comment
 begin_function
 DECL|function|stealRunnable
