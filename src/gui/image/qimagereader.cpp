@@ -966,7 +966,10 @@ argument_list|()
 operator|<<
 literal|"QImageReader::createReadHandler: the"
 operator|<<
+name|keyMap
+operator|.
 name|keys
+argument_list|()
 operator|.
 name|at
 argument_list|(
@@ -1459,7 +1462,10 @@ argument_list|()
 operator|<<
 literal|"QImageReader::createReadHandler: the"
 operator|<<
+name|keyMap
+operator|.
 name|keys
+argument_list|()
 operator|.
 name|at
 argument_list|(
