@@ -2641,9 +2641,9 @@ operator|!=
 name|aliasId
 condition|)
 block|{
-name|qFatal
+name|qWarning
 argument_list|(
-literal|"QMetaType::registerTypedef: Binary compatibility break "
+literal|"QMetaType::registerTypedef: "
 literal|"-- Type name '%s' previously registered as typedef of '%s' [%i], "
 literal|"now registering as typedef of '%s' [%i]."
 argument_list|,
