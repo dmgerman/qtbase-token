@@ -659,7 +659,6 @@ block|{
 comment|// implement fetchAndStore on top of testAndSet
 name|Q_FOREVER
 block|{
-specifier|register
 name|T
 name|tmp
 operator|=
@@ -863,7 +862,6 @@ block|{
 comment|// implement fetchAndAdd on top of testAndSet
 name|Q_FOREVER
 block|{
-specifier|register
 name|T
 name|tmp
 operator|=

@@ -885,7 +885,6 @@ block|}
 else|else
 block|{
 comment|// read ascii data
-specifier|register
 name|uchar
 modifier|*
 name|p

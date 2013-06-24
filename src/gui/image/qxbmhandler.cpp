@@ -51,7 +51,6 @@ specifier|inline
 name|int
 name|hex2byte
 parameter_list|(
-specifier|register
 name|char
 modifier|*
 name|p
@@ -1164,7 +1163,6 @@ name|bcnt
 init|=
 literal|0
 decl_stmt|;
-specifier|register
 name|char
 modifier|*
 name|p

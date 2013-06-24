@@ -704,7 +704,6 @@ name|O_CLOEXEC
 expr_stmt|;
 endif|#
 directive|endif
-specifier|register
 name|int
 name|fd
 decl_stmt|;
@@ -826,7 +825,6 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-specifier|register
 name|int
 name|ret
 decl_stmt|;
@@ -1017,7 +1015,6 @@ operator|==
 literal|0
 argument_list|)
 expr_stmt|;
-specifier|register
 name|int
 name|ret
 decl_stmt|;
@@ -1133,7 +1130,6 @@ operator|==
 literal|0
 argument_list|)
 expr_stmt|;
-specifier|register
 name|int
 name|ret
 decl_stmt|;
@@ -1379,7 +1375,6 @@ name|int
 name|fd
 parameter_list|)
 block|{
-specifier|register
 name|int
 name|ret
 decl_stmt|;
@@ -1447,7 +1442,6 @@ name|envp
 index|[]
 parameter_list|)
 block|{
-specifier|register
 name|int
 name|ret
 decl_stmt|;
@@ -1489,7 +1483,6 @@ name|argv
 index|[]
 parameter_list|)
 block|{
-specifier|register
 name|int
 name|ret
 decl_stmt|;
@@ -1529,7 +1522,6 @@ name|argv
 index|[]
 parameter_list|)
 block|{
-specifier|register
 name|int
 name|ret
 decl_stmt|;
@@ -1568,7 +1560,6 @@ name|int
 name|options
 parameter_list|)
 block|{
-specifier|register
 name|int
 name|ret
 decl_stmt|;

@@ -4659,6 +4659,9 @@ name|code
 init|=
 literal|0
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_TEXTCODEC
 name|QTextCodec
 modifier|*
 name|systemCodec
@@ -4668,6 +4671,8 @@ operator|::
 name|codecForLocale
 argument_list|()
 decl_stmt|;
+endif|#
+directive|endif
 comment|// Commentary in X11/keysymdef says that X codes match ASCII, so it
 comment|// is safe to use the locale functions to process X codes in ISO8859-1.
 comment|// This is mainly for compatibility - applications should not use the
@@ -4683,6 +4688,9 @@ operator|(
 name|keysym
 operator|<
 literal|256
+ifndef|#
+directive|ifndef
+name|QT_NO_TEXTCODEC
 operator|&&
 name|systemCodec
 operator|->
@@ -4690,6 +4698,8 @@ name|mibEnum
 argument_list|()
 operator|==
 literal|4
+endif|#
+directive|endif
 operator|)
 condition|)
 block|{

@@ -954,7 +954,6 @@ specifier|inline
 name|bool
 name|_q_ia64_fetchadd_immediate
 parameter_list|(
-specifier|register
 name|int
 name|value
 parameter_list|)
@@ -1081,7 +1080,6 @@ argument_list|,
 argument|int newValue
 argument_list|)
 block|{
-specifier|register
 name|int
 name|expectedValueCopy
 operator|=
@@ -1123,7 +1121,6 @@ argument_list|,
 argument|int newValue
 argument_list|)
 block|{
-specifier|register
 name|int
 name|expectedValueCopy
 operator|=
@@ -1173,7 +1170,6 @@ argument_list|,
 argument|int newValue
 argument_list|)
 block|{
-specifier|register
 name|int
 name|expectedValueCopy
 operator|=
@@ -1466,7 +1462,6 @@ argument_list|,
 argument|T *newValue
 argument_list|)
 block|{
-specifier|register
 name|T
 operator|*
 name|expectedValueCopy
@@ -1539,7 +1534,6 @@ operator|=
 operator|&
 name|_q_value
 block|;
-specifier|register
 name|T
 operator|*
 name|expectedValueCopy
@@ -1611,7 +1605,6 @@ operator|=
 operator|&
 name|_q_value
 block|;
-specifier|register
 name|T
 operator|*
 name|expectedValueCopy
@@ -4529,7 +4522,6 @@ operator|::
 name|AddScale
 block|;
 comment|// implement the test-and-set loop
-specifier|register
 name|T
 name|old
 block|,
@@ -4624,7 +4616,6 @@ argument_list|)
 name|Q_DECL_NOTHROW
 block|{
 comment|// implement the test-and-set loop
-specifier|register
 name|T
 name|old
 block|,
@@ -4728,7 +4719,6 @@ operator|::
 name|AddScale
 block|;
 comment|// implement the test-and-set loop
-specifier|register
 name|T
 name|old
 block|,
@@ -4823,7 +4813,6 @@ argument_list|)
 name|Q_DECL_NOTHROW
 block|{
 comment|// implement the test-and-set loop
-specifier|register
 name|T
 name|old
 block|,
@@ -4927,7 +4916,6 @@ operator|::
 name|AddScale
 block|;
 comment|// implement the test-and-set loop
-specifier|register
 name|T
 name|old
 block|,
@@ -5022,7 +5010,6 @@ argument_list|)
 name|Q_DECL_NOTHROW
 block|{
 comment|// implement the test-and-set loop
-specifier|register
 name|T
 name|old
 block|,
@@ -5126,7 +5113,6 @@ operator|::
 name|AddScale
 block|;
 comment|// implement the test-and-set loop
-specifier|register
 name|T
 name|old
 block|,
@@ -5221,7 +5207,6 @@ argument_list|)
 name|Q_DECL_NOTHROW
 block|{
 comment|// implement the test-and-set loop
-specifier|register
 name|T
 name|old
 block|,

@@ -69,7 +69,6 @@ modifier|*
 name|d
 parameter_list|)
 block|{
-specifier|register
 name|quintptr
 name|u
 init|=

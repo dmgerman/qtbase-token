@@ -673,6 +673,28 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+if|if
+condition|(
+operator|!
+name|QGuiApplicationPrivate
+operator|::
+name|platformIntegration
+argument_list|()
+operator|->
+name|hasCapability
+argument_list|(
+name|QPlatformIntegration
+operator|::
+name|NonFullScreenWindows
+argument_list|)
+condition|)
+block|{
+name|QSKIP
+argument_list|(
+literal|"This platform does not support non-fullscreen windows"
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Some platforms enforce minimum widths for windows, which can cause extra resize
 comment|// events, so set the width to suitably large value to avoid those.
 specifier|const
@@ -763,9 +785,10 @@ argument_list|,
 name|geometry
 argument_list|)
 expr_stmt|;
+comment|//  explicitly use non-fullscreen show. show() can be fullscreen on some platforms
 name|window
 operator|.
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 name|QCoreApplication
@@ -2076,7 +2099,7 @@ argument_list|)
 expr_stmt|;
 name|window
 operator|.
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 name|QVERIFY

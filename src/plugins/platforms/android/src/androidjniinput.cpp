@@ -592,6 +592,25 @@ name|jint
 name|y
 parameter_list|)
 block|{
+comment|//### TODO: add proper API for Qt 5.2
+specifier|static
+name|bool
+name|rightMouseFromLongPress
+init|=
+name|qgetenv
+argument_list|(
+literal|"QT_NECESSITAS_COMPATIBILITY_LONG_PRESS"
+argument_list|)
+operator|.
+name|toInt
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|rightMouseFromLongPress
+condition|)
+return|return;
 name|m_ignoreMouseEvents
 operator|=
 literal|true

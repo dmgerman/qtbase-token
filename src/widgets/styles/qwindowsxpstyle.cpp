@@ -3586,7 +3586,6 @@ operator|++
 name|y
 control|)
 block|{
-specifier|register
 name|DWORD
 modifier|*
 name|buffer
@@ -3731,7 +3730,6 @@ operator|++
 name|y
 control|)
 block|{
-specifier|register
 name|DWORD
 modifier|*
 name|buffer
@@ -3750,7 +3748,6 @@ operator|)
 decl_stmt|;
 for|for
 control|(
-specifier|register
 name|int
 name|x
 init|=
@@ -3898,7 +3895,6 @@ operator|++
 name|y
 control|)
 block|{
-specifier|register
 name|DWORD
 modifier|*
 name|buffer
@@ -3917,7 +3913,6 @@ operator|)
 decl_stmt|;
 for|for
 control|(
-specifier|register
 name|int
 name|x
 init|=
@@ -3946,7 +3941,6 @@ literal|0xFF000000
 expr_stmt|;
 continue|continue;
 block|}
-specifier|register
 name|unsigned
 name|int
 name|alphaValue

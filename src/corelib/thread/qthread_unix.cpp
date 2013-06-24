@@ -631,6 +631,18 @@ argument_list|(
 name|current_thread_data_key
 argument_list|)
 expr_stmt|;
+comment|// Reset current_thread_data_once in case we end up recreating
+comment|// the thread-data in the rare case of QObject construction
+comment|// after destroying the QThreadData.
+name|pthread_once_t
+name|pthread_once_init
+init|=
+name|PTHREAD_ONCE_INIT
+decl_stmt|;
+name|current_thread_data_once
+operator|=
+name|pthread_once_init
+expr_stmt|;
 block|}
 end_function
 begin_macro

@@ -319,7 +319,6 @@ specifier|static
 name|char
 name|qtolower
 parameter_list|(
-specifier|register
 name|char
 name|c
 parameter_list|)
@@ -350,7 +349,6 @@ specifier|static
 name|bool
 name|qisalnum
 parameter_list|(
-specifier|register
 name|char
 name|c
 parameter_list|)

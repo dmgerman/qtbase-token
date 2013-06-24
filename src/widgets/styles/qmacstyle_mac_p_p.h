@@ -262,6 +262,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qset.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtWidgets/qgraphicsproxywidget.h>
 end_include
 begin_include
@@ -687,6 +692,16 @@ operator|<
 name|QObject
 operator|>
 name|autoDefaultButton
+block|;
+specifier|static
+name|QSet
+operator|<
+name|QPointer
+operator|<
+name|QObject
+operator|>
+expr|>
+name|scrollBars
 block|;      struct
 name|ButtonState
 block|{

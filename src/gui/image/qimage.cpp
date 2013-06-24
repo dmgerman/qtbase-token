@@ -8445,7 +8445,6 @@ operator|/
 literal|8
 operator|)
 decl_stmt|;
-specifier|register
 specifier|const
 name|uchar
 modifier|*
@@ -12387,7 +12386,6 @@ name|y
 operator|++
 control|)
 block|{
-specifier|register
 name|uint
 modifier|*
 name|p
@@ -12477,7 +12475,6 @@ name|y
 operator|++
 control|)
 block|{
-specifier|register
 name|uint
 modifier|*
 name|p
@@ -12734,7 +12731,6 @@ name|y
 operator|++
 control|)
 block|{
-specifier|register
 name|uchar
 modifier|*
 name|p
@@ -12815,7 +12811,6 @@ name|y
 operator|++
 control|)
 block|{
-specifier|register
 name|uchar
 modifier|*
 name|p

@@ -436,7 +436,6 @@ operator|==
 literal|0
 condition|)
 return|return;
-specifier|register
 name|QPoint
 modifier|*
 name|p
@@ -444,7 +443,6 @@ init|=
 name|data
 argument_list|()
 decl_stmt|;
-specifier|register
 name|int
 name|i
 init|=
@@ -1047,7 +1045,6 @@ argument_list|,
 literal|0
 argument_list|)
 return|;
-specifier|register
 specifier|const
 name|QPoint
 modifier|*
@@ -1486,7 +1483,6 @@ name|isNull
 argument_list|()
 condition|)
 return|return;
-specifier|register
 name|QPointF
 modifier|*
 name|p
@@ -1494,7 +1490,6 @@ init|=
 name|data
 argument_list|()
 decl_stmt|;
-specifier|register
 name|int
 name|i
 init|=
@@ -1592,7 +1587,6 @@ argument_list|,
 literal|0
 argument_list|)
 return|;
-specifier|register
 specifier|const
 name|QPointF
 modifier|*

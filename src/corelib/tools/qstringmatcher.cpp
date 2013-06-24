@@ -192,7 +192,6 @@ name|pl
 operator|-
 literal|1
 decl_stmt|;
-specifier|register
 specifier|const
 name|ushort
 modifier|*

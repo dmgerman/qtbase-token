@@ -43,7 +43,7 @@ end_decl_stmt
 begin_typedef
 DECL|typedef|StrokeLine
 typedef|typedef
-name|void
+name|bool
 function_decl|(
 modifier|*
 name|StrokeLine

@@ -3832,6 +3832,9 @@ operator|&
 name|fin
 argument_list|)
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_TEXTCODEC
 name|stream
 operator|.
 name|setCodec
@@ -3839,6 +3842,8 @@ argument_list|(
 literal|"UTF-8"
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|QString
 name|text
 init|=

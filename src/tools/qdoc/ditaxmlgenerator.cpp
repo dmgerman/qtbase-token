@@ -1532,6 +1532,9 @@ argument_list|(
 name|CONFIG_TAGFILE
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_TEXTCODEC
 name|outputEncoding
 operator|=
 name|config
@@ -1567,6 +1570,8 @@ name|toLocal8Bit
 argument_list|()
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|naturalLanguage
 operator|=
 name|config
@@ -18654,6 +18659,9 @@ modifier|&
 name|string
 parameter_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_TEXTCODEC
 return|return
 name|protect
 argument_list|(
@@ -18662,6 +18670,16 @@ argument_list|,
 name|outputEncoding
 argument_list|)
 return|;
+else|#
+directive|else
+return|return
+name|protect
+argument_list|(
+name|string
+argument_list|)
+return|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function

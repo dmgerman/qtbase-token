@@ -117,6 +117,7 @@ begin_define
 define|#
 directive|define
 name|accessibleDebug
+value|while (false) qDebug
 end_define
 begin_endif
 endif|#

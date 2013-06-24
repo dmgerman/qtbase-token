@@ -1829,7 +1829,6 @@ name|ndigits
 condition|)
 comment|// no change
 return|return;
-specifier|register
 name|int
 name|i
 decl_stmt|;
