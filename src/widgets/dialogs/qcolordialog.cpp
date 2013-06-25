@@ -9395,6 +9395,18 @@ operator|&
 name|ShowAlphaChannel
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|options
+operator|&
+name|DontUseNativeDialog
+condition|)
+name|d
+operator|->
+name|nativeDialogInUse
+operator|=
+literal|false
+expr_stmt|;
 block|}
 end_function
 begin_function
@@ -9433,7 +9445,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \enum QColorDialog::ColorDialogOption      \since 4.5      This enum specifies various options that affect the look and feel     of a color dialog.      \value ShowAlphaChannel Allow the user to select the alpha component of a color.     \value NoButtons Don't display \uicontrol{OK} and \uicontrol{Cancel} buttons. (Useful for "live dialogs".)     \value DontUseNativeDialog Use Qt's standard color dialog on the Mac instead of Apple's                                native color panel.      \sa options, setOption(), testOption(), windowModality() */
+comment|/*!     \enum QColorDialog::ColorDialogOption      \since 4.5      This enum specifies various options that affect the look and feel     of a color dialog.      \value ShowAlphaChannel Allow the user to select the alpha component of a color.     \value NoButtons Don't display \uicontrol{OK} and \uicontrol{Cancel} buttons. (Useful for "live dialogs".)     \value DontUseNativeDialog  Use Qt's standard color dialog instead of the operating system                                 native color dialog.      \sa options, setOption(), testOption(), windowModality() */
 end_comment
 begin_comment
 comment|/*!     \fn void QColorDialog::currentColorChanged(const QColor&color)      This signal is emitted whenever the current color changes in the dialog.     The current color is specified by \a color.      \sa color, colorSelected() */

@@ -6802,6 +6802,8 @@ operator|::
 name|EvalConfigFile
 argument_list|,
 name|LoadProOnly
+operator||
+name|LoadHidden
 argument_list|)
 operator|!=
 name|ReturnTrue
@@ -10245,6 +10247,13 @@ condition|(
 name|ok
 operator|==
 name|ReturnTrue
+operator|&&
+operator|!
+operator|(
+name|flags
+operator|&
+name|LoadHidden
+operator|)
 condition|)
 block|{
 name|ProStringList

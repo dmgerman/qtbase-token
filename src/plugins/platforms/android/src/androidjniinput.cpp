@@ -1337,7 +1337,7 @@ comment|// KEYCODE_MEDIA_FAST_FORWARD
 return|return
 name|Qt
 operator|::
-name|Key_Forward
+name|Key_AudioForward
 return|;
 case|case
 literal|0x00000057
@@ -1366,6 +1366,7 @@ return|;
 case|case
 literal|0x00000059
 case|:
+comment|// KEYCODE_MEDIA_REWIND
 return|return
 name|Qt
 operator|::
@@ -1399,10 +1400,11 @@ return|;
 case|case
 literal|0x0000005b
 case|:
+comment|// KEYCODE_MUTE
 return|return
 name|Qt
 operator|::
-name|Key_VolumeMute
+name|Key_MicMute
 return|;
 case|case
 literal|0x0000004e
@@ -1527,6 +1529,15 @@ return|return
 name|Qt
 operator|::
 name|Key_VolumeDown
+return|;
+case|case
+literal|0x000000a4
+case|:
+comment|// KEYCODE_VOLUME_MUTE
+return|return
+name|Qt
+operator|::
+name|Key_VolumeMute
 return|;
 case|case
 literal|0x00000018
