@@ -300,6 +300,8 @@ name|SmallFont
 block|,
 name|MiniFont
 block|,
+name|FixedFont
+block|,
 name|NFonts
 block|}
 enum|;

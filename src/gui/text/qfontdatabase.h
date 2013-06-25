@@ -73,6 +73,10 @@ name|Q_ENUMS
 argument_list|(
 name|WritingSystem
 argument_list|)
+name|Q_ENUMS
+argument_list|(
+name|SystemFont
+argument_list|)
 name|public
 range|:
 comment|// do not re-order or delete entries from this enum without updating the
@@ -155,6 +159,18 @@ block|,
 name|WritingSystemsCount
 block|}
 decl_stmt|;
+enum|enum
+name|SystemFont
+block|{
+name|GeneralFont
+block|,
+name|FixedFont
+block|,
+name|TitleFont
+block|,
+name|SmallestReadableFont
+block|}
+enum|;
 specifier|static
 name|QList
 operator|<
@@ -465,6 +481,14 @@ specifier|static
 name|bool
 name|supportsThreadedFontRendering
 parameter_list|()
+function_decl|;
+specifier|static
+name|QFont
+name|systemFont
+parameter_list|(
+name|SystemFont
+name|type
+parameter_list|)
 function_decl|;
 name|private
 label|:
