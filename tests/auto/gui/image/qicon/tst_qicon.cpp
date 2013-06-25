@@ -3218,6 +3218,20 @@ operator|.
 name|availableSizes
 argument_list|()
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|QT_NO_WIDGETS
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"See QTBUG-31993"
+argument_list|,
+name|Abort
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QCOMPARE
 argument_list|(
 name|availableSizes
@@ -4463,6 +4477,20 @@ argument_list|,
 literal|32
 argument_list|)
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|QT_NO_WIDGETS
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"See QTBUG-31993"
+argument_list|,
+name|Abort
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QCOMPARE
 argument_list|(
 name|pm1
