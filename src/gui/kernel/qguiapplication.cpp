@@ -2491,7 +2491,7 @@ name|fatalMessage
 init|=
 name|QStringLiteral
 argument_list|(
-literal|"Failed to find or load platform plugin \"%1\".\n"
+literal|"This application failed to start because it could not find or load the Qt platform plugin \"%1\".\n\n"
 argument_list|)
 operator|.
 name|arg
@@ -2507,11 +2507,12 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
+block|{
 name|fatalMessage
 operator|+=
 name|QStringLiteral
 argument_list|(
-literal|"Available platforms are: %1\n"
+literal|"Available platform plugins are: %1.\n\n"
 argument_list|)
 operator|.
 name|arg
@@ -2527,11 +2528,12 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|fatalMessage
 operator|+=
 name|QStringLiteral
 argument_list|(
-literal|"GUI applications require a platform plugin. Terminating."
+literal|"Reinstalling the application may fix this problem."
 argument_list|)
 expr_stmt|;
 if|#
