@@ -35899,7 +35899,7 @@ operator|.
 name|hasGeometry
 argument_list|()
 operator|||
-name|upRule
+name|downRule
 operator|.
 name|hasPosition
 argument_list|()
