@@ -12,6 +12,11 @@ include|#
 directive|include
 file|"qnetworkconfiguration_p.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<QDebug>
+end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -25,11 +30,6 @@ end_include
 begin_comment
 comment|// qt_safe_open
 end_comment
-begin_include
-include|#
-directive|include
-file|<QDebug>
-end_include
 begin_include
 include|#
 directive|include
@@ -48,7 +48,7 @@ comment|/*!     \class QNetworkConfiguration      \brief The QNetworkConfigurati
 comment|/*!     \enum QNetworkConfiguration::Type      This enum describes the type of configuration.      \value InternetAccessPoint  The configuration specifies the details for a single access point.                                 Note that configurations of type InternetAccessPoint may be part                                 of other QNetworkConfigurations of type ServiceNetwork.     \value ServiceNetwork       The configuration is based on a group of QNetworkConfigurations of                                 type InternetAccessPoint. All group members can reach the same                                 target network. This type of configuration is a mandatory                                 requirement for roaming enabled network sessions. On some                                 platforms this form of configuration may also be called Service                                 Network Access Point (SNAP).     \value UserChoice           The configuration is a placeholder which will be resolved to an                                 actual configuration by the platform when a session is opened. Depending                                 on the platform the selection may generate a popup dialog asking the user                                 for his preferred choice.     \value Invalid              The configuration is invalid. */
 comment|/*!     \enum QNetworkConfiguration::StateFlag      Specifies the configuration states.      \value Undefined    This state is used for transient configurations such as newly discovered                         WLANs for which the user has not actually created a configuration yet.     \value Defined      Defined configurations are known to the system but are not immediately                         usable (e.g. a configured WLAN is not within range or the Ethernet cable                         is currently not plugged into the machine).     \value Discovered   A discovered configuration can be immediately used to create a new                         QNetworkSession. An example of a discovered configuration could be a WLAN                         which is within in range. If the device moves out of range the discovered                         flag is dropped. A second example is a GPRS configuration which generally                         remains discovered for as long as the device has network coverage. A                         configuration that has this state is also in state                         QNetworkConfiguration::Defined. If the configuration is a service network                         this flag is set if at least one of the underlying access points                         configurations has the Discovered state.     \value Active       The configuration is currently used by an open network session                         (see \l QNetworkSession::isOpen()). However this does not mean that the                         current process is the entity that created the open session. It merely                         indicates that if a new QNetworkSession were to be constructed based on                         this configuration \l QNetworkSession::state() would return                         \l QNetworkSession::Connected. This state implies the                         QNetworkConfiguration::Discovered state. */
 comment|/*!     \enum QNetworkConfiguration::Purpose      Specifies the purpose of the configuration.      \value UnknownPurpose           The configuration doesn't specify any purpose. This is the default value.     \value PublicPurpose            The configuration can be used for general purpose internet access.     \value PrivatePurpose           The configuration is suitable to access a private network such as an office Intranet.     \value ServiceSpecificPurpose   The configuration can be used for operator specific services (e.g.                                     receiving MMS messages or content streaming). */
-comment|/*!     \enum QNetworkConfiguration::BearerType      Specifies the type of bearer used by a configuration.      \value BearerUnknown    The type of bearer is unknown or unspecified. The bearerTypeName()                             function may return additional information.     \value BearerEthernet   The configuration is for an Ethernet interfaces.     \value BearerWLAN       The configuration is for a Wireless LAN interface.     \value Bearer2G         The configuration is for a CSD, GPRS, HSCSD, EDGE or cdmaOne interface.     \value BearerCDMA2000   The configuration is for CDMA interface.     \value BearerWCDMA      The configuration is for W-CDMA/UMTS interface.     \value BearerHSPA       The configuration is for High Speed Packet Access (HSPA) interface.     \value BearerBluetooth  The configuration is for a Bluetooth interface.     \value BearerWiMAX      The configuration is for a WiMAX interface.     \value BearerEVDO       The configuration is for an EVDO (3G) interface.     \value BearerLTE        The configuration is for a LTE (4G) interface. */
+comment|/*!     \enum QNetworkConfiguration::BearerType      Specifies the type of bearer used by a configuration.      \value BearerUnknown    The type of bearer is unknown or unspecified. The bearerTypeName()                             function may return additional information.     \value BearerEthernet   The configuration is for an Ethernet interfaces.     \value BearerWLAN       The configuration is for a Wireless LAN interface.     \value Bearer2G         The configuration is for a CSD, GPRS, HSCSD, EDGE or cdmaOne interface.     \value Bearer3G         The configuration is for a 3G interface.     \value Bearer4G         The configuration is for a 4G interface.     \value BearerCDMA2000   The configuration is for CDMA interface.     \value BearerWCDMA      The configuration is for W-CDMA/UMTS interface.     \value BearerHSPA       The configuration is for High Speed Packet Access (HSPA) interface.     \value BearerBluetooth  The configuration is for a Bluetooth interface.     \value BearerWiMAX      The configuration is for a WiMAX interface.     \value BearerEVDO       The configuration is for an EVDO (3G) interface.     \value BearerLTE        The configuration is for a LTE (4G) interface. */
 ifdef|#
 directive|ifdef
 name|Q_OS_BLACKBERRY
@@ -925,7 +925,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the type of bearer used by this network configuration.      If the bearer type is \l {QNetworkConfiguration::BearerUnknown}{unknown} the bearerTypeName()     function can be used to retrieve a textural type name for the bearer.      An invalid network configuration always returns the BearerUnknown value. */
+comment|/*!     Returns the type of bearer used by this network configuration.      If the bearer type is \l {QNetworkConfiguration::BearerUnknown}{unknown} the bearerTypeName()     function can be used to retrieve a textural type name for the bearer.      An invalid network configuration always returns the BearerUnknown value.      \sa bearerTypeName(), bearerTypeFamily() */
 end_comment
 begin_function
 DECL|function|bearerType
@@ -1009,7 +1009,138 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the type of bearer used by this network configuration as a string.      The string is not translated and therefore can not be shown to the user. The subsequent table     shows the fixed mappings between BearerType and the bearer type name for known types.  If the     BearerType is unknown this function may return additional information if it is available;     otherwise an empty string will be returned.      \table         \header             \li BearerType             \li Value         \row             \li BearerUnknown             \li             \li The session is based on an unknown or unspecified bearer type. The value of the                string returned describes the bearer type.         \row             \li BearerEthernet             \li Ethernet         \row             \li BearerWLAN             \li WLAN         \row             \li Bearer2G             \li 2G         \row             \li BearerCDMA2000             \li CDMA2000         \row             \li BearerWCDMA             \li WCDMA         \row             \li BearerHSPA             \li HSPA         \row             \li BearerBluetooth             \li Bluetooth         \row             \li BearerWiMAX             \li WiMAX         \row             \li BearerEVDO             \li EVDO         \row             \li BearerLTE             \li LTE     \endtable      This function returns an empty string if this is an invalid configuration, a network     configuration of type \l QNetworkConfiguration::ServiceNetwork or     \l QNetworkConfiguration::UserChoice.      \sa bearerType() */
+comment|/*!     \since 5.2      Returns the bearer type family used by this network configuration.     The following table lists how bearerType() values map to     bearerTypeFamily() values:      \table         \header             \li bearer type             \li bearer type family         \row             \li BearerUnknown, Bearer2G, BearerEthernet, BearerWLAN,             BearerBluetooth             \li (same type)         \row             \li BearerCDMA2000, BearerEVDO, BearerWCDMA, BearerHSPA, Bearer3G             \li Bearer3G         \row             \li BearerWiMAX, BearerLTE, Bearer4G             \li Bearer4G     \endtable      An invalid network configuration always returns the BearerUnknown value.      \sa bearerType(), bearerTypeName() */
+end_comment
+begin_function
+DECL|function|bearerTypeFamily
+name|QNetworkConfiguration
+operator|::
+name|BearerType
+name|QNetworkConfiguration
+operator|::
+name|bearerTypeFamily
+parameter_list|()
+specifier|const
+block|{
+name|QNetworkConfiguration
+operator|::
+name|BearerType
+name|type
+init|=
+name|bearerType
+argument_list|()
+decl_stmt|;
+switch|switch
+condition|(
+name|type
+condition|)
+block|{
+case|case
+name|QNetworkConfiguration
+operator|::
+name|BearerUnknown
+case|:
+comment|// fallthrough
+case|case
+name|QNetworkConfiguration
+operator|::
+name|Bearer2G
+case|:
+comment|// fallthrough
+case|case
+name|QNetworkConfiguration
+operator|::
+name|BearerEthernet
+case|:
+comment|// fallthrough
+case|case
+name|QNetworkConfiguration
+operator|::
+name|BearerWLAN
+case|:
+comment|// fallthrough
+case|case
+name|QNetworkConfiguration
+operator|::
+name|BearerBluetooth
+case|:
+return|return
+name|type
+return|;
+case|case
+name|QNetworkConfiguration
+operator|::
+name|BearerCDMA2000
+case|:
+comment|// fallthrough
+case|case
+name|QNetworkConfiguration
+operator|::
+name|BearerEVDO
+case|:
+comment|// fallthrough
+case|case
+name|QNetworkConfiguration
+operator|::
+name|BearerWCDMA
+case|:
+comment|// fallthrough
+case|case
+name|QNetworkConfiguration
+operator|::
+name|BearerHSPA
+case|:
+comment|// fallthrough
+case|case
+name|QNetworkConfiguration
+operator|::
+name|Bearer3G
+case|:
+return|return
+name|QNetworkConfiguration
+operator|::
+name|Bearer3G
+return|;
+case|case
+name|QNetworkConfiguration
+operator|::
+name|BearerWiMAX
+case|:
+comment|// fallthrough
+case|case
+name|QNetworkConfiguration
+operator|::
+name|BearerLTE
+case|:
+comment|// fallthrough
+case|case
+name|QNetworkConfiguration
+operator|::
+name|Bearer4G
+case|:
+return|return
+name|QNetworkConfiguration
+operator|::
+name|Bearer4G
+return|;
+default|default:
+name|qWarning
+argument_list|()
+operator|<<
+literal|"unknown bearer type"
+operator|<<
+name|type
+expr_stmt|;
+return|return
+name|QNetworkConfiguration
+operator|::
+name|BearerUnknown
+return|;
+block|}
+block|}
+end_function
+begin_comment
+comment|/*!     Returns the type of bearer used by this network configuration as a string.      The string is not translated and therefore can not be shown to the user. The subsequent table     shows the fixed mappings between BearerType and the bearer type name for known types.  If the     BearerType is unknown this function may return additional information if it is available;     otherwise an empty string will be returned.      \table         \header             \li BearerType             \li Value         \row             \li BearerUnknown             \li             \li The session is based on an unknown or unspecified bearer type. The value of the                string returned describes the bearer type.         \row             \li BearerEthernet             \li Ethernet         \row             \li BearerWLAN             \li WLAN         \row             \li Bearer2G             \li 2G         \row             \li Bearer3G             \li 3G         \row             \li Bearer4G             \li 4G         \row             \li BearerCDMA2000             \li CDMA2000         \row             \li BearerWCDMA             \li WCDMA         \row             \li BearerHSPA             \li HSPA         \row             \li BearerBluetooth             \li Bluetooth         \row             \li BearerWiMAX             \li WiMAX         \row             \li BearerEVDO             \li EVDO         \row             \li BearerLTE             \li LTE     \endtable      This function returns an empty string if this is an invalid configuration, a network     configuration of type \l QNetworkConfiguration::ServiceNetwork or     \l QNetworkConfiguration::UserChoice.      \sa bearerType(), bearerTypeFamily() */
 end_comment
 begin_function
 DECL|function|bearerTypeName
@@ -1161,6 +1292,24 @@ return|return
 name|QStringLiteral
 argument_list|(
 literal|"2G"
+argument_list|)
+return|;
+case|case
+name|Bearer3G
+case|:
+return|return
+name|QStringLiteral
+argument_list|(
+literal|"3G"
+argument_list|)
+return|;
+case|case
+name|Bearer4G
+case|:
+return|return
+name|QStringLiteral
+argument_list|(
+literal|"4G"
 argument_list|)
 return|;
 case|case

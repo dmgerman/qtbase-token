@@ -206,6 +206,10 @@ block|,
 name|BearerEVDO
 block|,
 name|BearerLTE
+block|,
+name|Bearer3G
+block|,
+name|Bearer4G
 block|}
 expr_stmt|;
 name|StateFlags
@@ -225,6 +229,11 @@ specifier|const
 expr_stmt|;
 name|BearerType
 name|bearerType
+argument_list|()
+specifier|const
+expr_stmt|;
+name|BearerType
+name|bearerTypeFamily
 argument_list|()
 specifier|const
 expr_stmt|;
