@@ -946,6 +946,18 @@ operator|==
 name|Qt
 operator|::
 name|ToolTip
+operator|||
+operator|(
+name|window
+argument_list|()
+operator|->
+name|flags
+argument_list|()
+operator|&
+name|Qt
+operator|::
+name|BypassWindowManagerHint
+operator|)
 block|,
 comment|// XCB_CW_SAVE_UNDER
 name|type
