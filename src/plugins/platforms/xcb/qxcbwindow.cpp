@@ -7444,8 +7444,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
 name|Q_XCB_CALL
 argument_list|(
 name|xcb_set_input_focus
@@ -7465,7 +7463,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 name|connection
 argument_list|()
 operator|->

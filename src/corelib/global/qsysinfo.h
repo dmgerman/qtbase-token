@@ -301,6 +301,10 @@ name|MV_10_8
 init|=
 literal|0x000A
 block|,
+name|MV_10_9
+init|=
+literal|0x000B
+block|,
 comment|/* codenames */
 name|MV_CHEETAH
 init|=
@@ -337,6 +341,10 @@ block|,
 name|MV_MOUNTAINLION
 init|=
 name|MV_10_8
+block|,
+name|MV_MAVERICKS
+init|=
+name|MV_10_9
 block|}
 enum|;
 specifier|static

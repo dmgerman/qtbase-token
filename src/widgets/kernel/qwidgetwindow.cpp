@@ -2130,9 +2130,6 @@ operator|==
 name|QEvent
 operator|::
 name|MouseButtonPress
-operator|&&
-operator|!
-name|qt_button_down
 condition|)
 name|qt_button_down
 operator|=
