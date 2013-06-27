@@ -74,9 +74,9 @@ argument|QChar::Script script
 argument_list|)
 specifier|const
 block|;
-ifndef|#
-directive|ifndef
-name|Q_OS_IOS
+ifdef|#
+directive|ifdef
+name|Q_OS_MACX
 name|QStringList
 name|addApplicationFont
 argument_list|(

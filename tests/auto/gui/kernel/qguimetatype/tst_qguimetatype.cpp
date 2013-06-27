@@ -92,6 +92,22 @@ block|}
 class|;
 end_class
 begin_define
+DECL|macro|FOR_EACH_GUI_METATYPE_BASE
+define|#
+directive|define
+name|FOR_EACH_GUI_METATYPE_BASE
+parameter_list|(
+name|F
+parameter_list|)
+define|\
+value|F(QFont, QFont) \     F(QPixmap, QPixmap) \     F(QBrush, QBrush) \     F(QColor, QColor) \     F(QPalette, QPalette) \     F(QImage, QImage) \     F(QPolygon, QPolygon) \     F(QRegion, QRegion) \     F(QBitmap, QBitmap) \     F(QKeySequence, QKeySequence) \     F(QPen, QPen) \     F(QTextLength, QTextLength) \     F(QTextFormat, QTextFormat) \     F(QMatrix, QMatrix) \     F(QTransform, QTransform) \     F(QMatrix4x4, QMatrix4x4) \     F(QVector2D, QVector2D) \     F(QVector3D, QVector3D) \     F(QVector4D, QVector4D) \     F(QQuaternion, QQuaternion)
+end_define
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QTEST_NO_CURSOR
+end_ifndef
+begin_define
 DECL|macro|FOR_EACH_GUI_METATYPE
 define|#
 directive|define
@@ -100,8 +116,33 @@ parameter_list|(
 name|F
 parameter_list|)
 define|\
-value|F(QFont, QFont) \     F(QPixmap, QPixmap) \     F(QBrush, QBrush) \     F(QColor, QColor) \     F(QPalette, QPalette) \     F(QImage, QImage) \     F(QPolygon, QPolygon) \     F(QRegion, QRegion) \     F(QBitmap, QBitmap) \     F(QCursor, QCursor) \     F(QKeySequence, QKeySequence) \     F(QPen, QPen) \     F(QTextLength, QTextLength) \     F(QTextFormat, QTextFormat) \     F(QMatrix, QMatrix) \     F(QTransform, QTransform) \     F(QMatrix4x4, QMatrix4x4) \     F(QVector2D, QVector2D) \     F(QVector3D, QVector3D) \     F(QVector4D, QVector4D) \     F(QQuaternion, QQuaternion)
+value|FOR_EACH_GUI_METATYPE_BASE(F) \         F(QCursor, QCursor)
 end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_comment
+comment|// !QTEST_NO_CURSOR
+end_comment
+begin_define
+DECL|macro|FOR_EACH_GUI_METATYPE
+define|#
+directive|define
+name|FOR_EACH_GUI_METATYPE
+parameter_list|(
+name|F
+parameter_list|)
+define|\
+value|FOR_EACH_GUI_METATYPE_BASE(F)
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !QTEST_NO_CURSOR
+end_comment
 begin_namespace
 namespace|namespace
 block|{

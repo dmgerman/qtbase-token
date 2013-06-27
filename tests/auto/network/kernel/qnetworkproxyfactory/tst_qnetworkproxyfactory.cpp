@@ -2642,14 +2642,9 @@ name|Q_OS_WIN
 operator|)
 operator|&&
 operator|(
-operator|(
 operator|!
 name|defined
-name|Q_OS_MAC
-operator|)
-operator|||
-name|defined
-name|Q_OS_IOS
+name|Q_OS_MACX
 operator|)
 name|qputenv
 argument_list|(

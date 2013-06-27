@@ -282,6 +282,10 @@ block|,
 name|LoadSilent
 operator|=
 literal|0x10
+block|,
+name|LoadHidden
+operator|=
+literal|0x20
 block|}
 block|;
 name|Q_DECLARE_FLAGS

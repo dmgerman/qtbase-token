@@ -670,6 +670,13 @@ name|generateBackgroundPattern
 argument_list|()
 specifier|const
 block|;
+name|void
+name|setAutoDefaultButton
+argument_list|(
+argument|QObject *button
+argument_list|)
+specifier|const
+block|;
 name|public
 operator|:
 name|mutable

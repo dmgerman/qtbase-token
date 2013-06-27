@@ -196,11 +196,11 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|Q_OS_IOS
-end_ifndef
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_MACX
+end_ifdef
 begin_include
 include|#
 directive|include
@@ -211,7 +211,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|//Q_OS_IOS
+comment|// Q_OS_MACX
 end_comment
 begin_ifdef
 ifdef|#

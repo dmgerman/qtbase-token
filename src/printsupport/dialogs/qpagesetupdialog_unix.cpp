@@ -3945,6 +3945,11 @@ argument_list|,
 name|parent
 argument_list|)
 block|{
+name|Q_D
+argument_list|(
+name|QPageSetupDialog
+argument_list|)
+expr_stmt|;
 name|setWindowTitle
 argument_list|(
 name|QCoreApplication
@@ -3956,6 +3961,18 @@ argument_list|,
 literal|"Page Setup"
 argument_list|)
 argument_list|)
+expr_stmt|;
+cast|static_cast
+argument_list|<
+name|QUnixPageSetupDialogPrivate
+operator|*
+argument_list|>
+argument_list|(
+name|d
+argument_list|)
+operator|->
+name|init
+argument_list|()
 expr_stmt|;
 block|}
 end_constructor
@@ -3984,6 +4001,11 @@ argument_list|,
 name|parent
 argument_list|)
 block|{
+name|Q_D
+argument_list|(
+name|QPageSetupDialog
+argument_list|)
+expr_stmt|;
 name|setWindowTitle
 argument_list|(
 name|QCoreApplication
@@ -3995,6 +4017,18 @@ argument_list|,
 literal|"Page Setup"
 argument_list|)
 argument_list|)
+expr_stmt|;
+cast|static_cast
+argument_list|<
+name|QUnixPageSetupDialogPrivate
+operator|*
+argument_list|>
+argument_list|(
+name|d
+argument_list|)
+operator|->
+name|init
+argument_list|()
 expr_stmt|;
 block|}
 end_constructor

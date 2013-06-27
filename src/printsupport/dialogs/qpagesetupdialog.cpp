@@ -66,20 +66,8 @@ argument_list|(
 name|prntr
 argument_list|)
 expr_stmt|;
-name|init
-argument_list|()
-expr_stmt|;
 block|}
 end_constructor
-begin_function
-DECL|function|init
-name|void
-name|QPageSetupDialogPrivate
-operator|::
-name|init
-parameter_list|()
-block|{ }
-end_function
 begin_function
 DECL|function|setPrinter
 name|void
