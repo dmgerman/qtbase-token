@@ -5867,9 +5867,12 @@ argument_list|(
 name|col
 argument_list|)
 expr_stmt|;
+name|QRect
+name|ph
+init|=
 name|lineRect
 operator|.
-name|adjust
+name|adjusted
 argument_list|(
 name|minLB
 argument_list|,
@@ -5879,7 +5882,7 @@ literal|0
 argument_list|,
 literal|0
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|QString
 name|elidedText
 init|=
@@ -5895,7 +5898,7 @@ name|Qt
 operator|::
 name|ElideRight
 argument_list|,
-name|lineRect
+name|ph
 operator|.
 name|width
 argument_list|()
@@ -5905,7 +5908,7 @@ name|p
 operator|.
 name|drawText
 argument_list|(
-name|lineRect
+name|ph
 argument_list|,
 name|va
 argument_list|,
