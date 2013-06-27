@@ -1077,6 +1077,10 @@ return|return
 literal|false
 return|;
 block|}
+ifndef|#
+directive|ifndef
+name|QT_NO_TEMPORARYFILE
+comment|// This #ifndef disables the workaround it encloses. Therefore, this configuration is not recommended.
 ifdef|#
 directive|ifdef
 name|Q_OS_LINUX
@@ -1276,6 +1280,10 @@ literal|false
 return|;
 endif|#
 directive|endif
+comment|// Q_OS_LINUX
+endif|#
+directive|endif
+comment|// QT_NO_TEMPORARYFILE
 block|}
 name|unsetError
 argument_list|()
