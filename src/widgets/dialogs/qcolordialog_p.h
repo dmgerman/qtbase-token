@@ -244,6 +244,14 @@ argument|QRgb rgb
 argument_list|)
 block|;
 name|void
+name|_q_nextCustom
+argument_list|(
+name|int
+argument_list|,
+name|int
+argument_list|)
+block|;
+name|void
 name|_q_newCustom
 argument_list|(
 name|int
