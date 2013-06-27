@@ -452,14 +452,7 @@ name|drawPixmap
 argument_list|(
 name|rect
 argument_list|,
-name|pixmap
-argument_list|(
-name|pixmapSize
-argument_list|,
-name|mode
-argument_list|,
-name|state
-argument_list|)
+name|px
 argument_list|)
 expr_stmt|;
 block|}
