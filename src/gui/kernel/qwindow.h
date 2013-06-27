@@ -309,8 +309,6 @@ name|WRITE
 name|setMinimumWidth
 name|NOTIFY
 name|minimumWidthChanged
-name|REVISION
-literal|1
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
@@ -322,8 +320,6 @@ name|WRITE
 name|setMinimumHeight
 name|NOTIFY
 name|minimumHeightChanged
-name|REVISION
-literal|1
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
@@ -335,8 +331,6 @@ name|WRITE
 name|setMaximumWidth
 name|NOTIFY
 name|maximumWidthChanged
-name|REVISION
-literal|1
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
@@ -348,8 +342,6 @@ name|WRITE
 name|setMaximumHeight
 name|NOTIFY
 name|maximumHeightChanged
-name|REVISION
-literal|1
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
@@ -398,8 +390,6 @@ name|WRITE
 name|reportContentOrientationChange
 name|NOTIFY
 name|contentOrientationChanged
-name|REVISION
-literal|1
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
@@ -1200,10 +1190,6 @@ name|int
 name|arg
 parameter_list|)
 function_decl|;
-name|Q_REVISION
-argument_list|(
-literal|1
-argument_list|)
 name|void
 name|setMinimumWidth
 parameter_list|(
@@ -1211,10 +1197,6 @@ name|int
 name|w
 parameter_list|)
 function_decl|;
-name|Q_REVISION
-argument_list|(
-literal|1
-argument_list|)
 name|void
 name|setMinimumHeight
 parameter_list|(
@@ -1222,10 +1204,6 @@ name|int
 name|h
 parameter_list|)
 function_decl|;
-name|Q_REVISION
-argument_list|(
-literal|1
-argument_list|)
 name|void
 name|setMaximumWidth
 parameter_list|(
@@ -1233,10 +1211,6 @@ name|int
 name|w
 parameter_list|)
 function_decl|;
-name|Q_REVISION
-argument_list|(
-literal|1
-argument_list|)
 name|void
 name|setMaximumHeight
 parameter_list|(
@@ -1307,10 +1281,6 @@ name|int
 name|arg
 parameter_list|)
 function_decl|;
-name|Q_REVISION
-argument_list|(
-literal|1
-argument_list|)
 name|void
 name|minimumWidthChanged
 parameter_list|(
@@ -1318,10 +1288,6 @@ name|int
 name|arg
 parameter_list|)
 function_decl|;
-name|Q_REVISION
-argument_list|(
-literal|1
-argument_list|)
 name|void
 name|minimumHeightChanged
 parameter_list|(
@@ -1329,10 +1295,6 @@ name|int
 name|arg
 parameter_list|)
 function_decl|;
-name|Q_REVISION
-argument_list|(
-literal|1
-argument_list|)
 name|void
 name|maximumWidthChanged
 parameter_list|(
@@ -1340,10 +1302,6 @@ name|int
 name|arg
 parameter_list|)
 function_decl|;
-name|Q_REVISION
-argument_list|(
-literal|1
-argument_list|)
 name|void
 name|maximumHeightChanged
 parameter_list|(
@@ -1379,10 +1337,6 @@ name|void
 name|activeChanged
 parameter_list|()
 function_decl|;
-name|Q_REVISION
-argument_list|(
-literal|1
-argument_list|)
 name|void
 name|contentOrientationChanged
 argument_list|(
