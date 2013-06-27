@@ -125,6 +125,11 @@ include|#
 directive|include
 file|"qandroidplatformtheme.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"qandroidsystemlocale.h"
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|member|m_defaultGeometryWidth
@@ -322,6 +327,11 @@ operator|=
 operator|new
 name|QAndroidPlatformClipboard
 argument_list|()
+expr_stmt|;
+name|m_androidSystemLocale
+operator|=
+operator|new
+name|QAndroidSystemLocale
 expr_stmt|;
 block|}
 end_constructor
@@ -664,6 +674,9 @@ name|m_androidPlatformNativeInterface
 expr_stmt|;
 operator|delete
 name|m_androidFDB
+expr_stmt|;
+operator|delete
+name|m_androidSystemLocale
 expr_stmt|;
 name|QtAndroid
 operator|::

@@ -69,6 +69,7 @@ ifndef|#
 directive|ifndef
 name|QT_NO_SYSTEMLOCALE
 name|class
+name|Q_CORE_EXPORT
 name|QSystemLocale
 block|{
 name|public

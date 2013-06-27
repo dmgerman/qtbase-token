@@ -79,6 +79,12 @@ name|class
 name|QAndroidPlatformServices
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|QAndroidSystemLocale
+name|class
+name|QAndroidSystemLocale
+decl_stmt|;
+end_decl_stmt
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -423,6 +429,10 @@ block|;
 name|QPlatformClipboard
 operator|*
 name|m_androidPlatformClipboard
+block|;
+name|QAndroidSystemLocale
+operator|*
+name|m_androidSystemLocale
 block|;
 name|mutable
 name|QAndroidInputContext
