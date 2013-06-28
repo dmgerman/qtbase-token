@@ -6799,7 +6799,13 @@ name|m_startPos
 argument_list|(
 name|startPos
 argument_list|)
-block|{ }
+block|{
+name|Q_UNUSED
+argument_list|(
+name|m_target
+argument_list|)
+expr_stmt|;
+block|}
 end_constructor
 begin_comment
 comment|/*!     Destroys QScrollEvent. */
