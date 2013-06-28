@@ -7492,31 +7492,6 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// Two unit vectors.
-name|QLineF
-name|v1
-argument_list|(
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-literal|1
-argument_list|,
-literal|0
-argument_list|)
-decl_stmt|;
-name|QLineF
-name|v2
-argument_list|(
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-literal|1
-argument_list|)
-decl_stmt|;
 comment|// Generate the style options
 name|QStyleOptionGraphicsItem
 modifier|*
