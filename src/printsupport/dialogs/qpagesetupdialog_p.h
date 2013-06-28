@@ -98,11 +98,6 @@ operator|*
 name|printer
 argument_list|)
 block|;
-name|virtual
-name|void
-name|init
-argument_list|()
-block|;
 name|void
 name|setPrinter
 argument_list|(

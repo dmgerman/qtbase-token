@@ -89,11 +89,11 @@ include|#
 directive|include
 file|"qglobal.h"
 end_include
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|Q_OS_IOS
-end_ifndef
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_MACX
+end_ifdef
 begin_include
 include|#
 directive|include

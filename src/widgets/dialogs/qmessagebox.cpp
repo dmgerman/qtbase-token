@@ -4704,6 +4704,10 @@ condition|(
 name|d
 operator|->
 name|detailsText
+operator|&&
+name|d
+operator|->
+name|detailsText
 operator|->
 name|isVisible
 argument_list|()

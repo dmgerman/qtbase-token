@@ -1563,6 +1563,16 @@ operator|::
 name|include_dir
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_WIDGETS
+name|QSKIP
+argument_list|(
+literal|"This test depends on QtWidgets"
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|QString
 name|workDir
 init|=
@@ -1675,6 +1685,8 @@ name|buildDir
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
