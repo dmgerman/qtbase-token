@@ -1626,6 +1626,8 @@ operator|->
 name|hasTouchWithoutMouseEmulation
 argument_list|()
 return|;
+default|default:
+break|break;
 block|}
 return|return
 name|QPlatformIntegration
