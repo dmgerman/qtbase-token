@@ -1218,6 +1218,10 @@ name|int
 name|h
 parameter_list|)
 function_decl|;
+name|Q_REVISION
+argument_list|(
+literal|1
+argument_list|)
 name|void
 name|alert
 parameter_list|(
