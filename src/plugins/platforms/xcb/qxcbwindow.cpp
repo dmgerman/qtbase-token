@@ -8524,6 +8524,35 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|event
+operator|->
+name|type
+operator|==
+name|atom
+argument_list|(
+name|QXcbAtom
+operator|::
+name|MANAGER
+argument_list|)
+operator|||
+name|event
+operator|->
+name|type
+operator|==
+name|atom
+argument_list|(
+name|QXcbAtom
+operator|::
+name|_NET_ACTIVE_WINDOW
+argument_list|)
+condition|)
+block|{
+comment|// Ignore _NET_ACTIVE_WINDOW which is received when the user clicks on a system tray icon and
+comment|// MANAGER which indicates the creation of a system tray.
+block|}
 else|else
 block|{
 name|qWarning

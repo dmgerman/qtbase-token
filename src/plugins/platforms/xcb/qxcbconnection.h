@@ -205,6 +205,12 @@ name|QXcbNativeInterface
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QXcbSystemTrayTracker
+name|class
+name|QXcbSystemTrayTracker
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|namespace
 name|QXcbAtom
 block|{
@@ -226,6 +232,12 @@ name|_NET_WM_SYNC_REQUEST
 block|,
 name|_NET_WM_SYNC_REQUEST_COUNTER
 block|,
+name|MANAGER
+block|,
+comment|// System tray notification
+name|_NET_SYSTEM_TRAY_OPCODE
+block|,
+comment|// System tray operation
 comment|// ICCCM window state
 name|WM_STATE
 block|,
@@ -669,6 +681,15 @@ name|handleUnmapNotifyEvent
 parameter_list|(
 specifier|const
 name|xcb_unmap_notify_event_t
+modifier|*
+parameter_list|)
+block|{}
+name|virtual
+name|void
+name|handleDestroyNotifyEvent
+parameter_list|(
+specifier|const
+name|xcb_destroy_notify_event_t
 modifier|*
 parameter_list|)
 block|{}
@@ -1386,6 +1407,13 @@ name|m_nativeInterface
 return|;
 block|}
 end_expr_stmt
+begin_function_decl
+name|QXcbSystemTrayTracker
+modifier|*
+name|systemTrayTracker
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_decl_stmt
 name|private
 name|slots
@@ -2162,6 +2190,12 @@ end_decl_stmt
 begin_decl_stmt
 name|QByteArray
 name|m_startupId
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|QXcbSystemTrayTracker
+modifier|*
+name|m_systemTrayTracker
 decl_stmt|;
 end_decl_stmt
 begin_define

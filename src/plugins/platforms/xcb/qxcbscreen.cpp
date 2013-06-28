@@ -463,6 +463,9 @@ operator||
 name|XCB_EVENT_MASK_LEAVE_WINDOW
 operator||
 name|XCB_EVENT_MASK_PROPERTY_CHANGE
+operator||
+name|XCB_EVENT_MASK_STRUCTURE_NOTIFY
+comment|// for the "MANAGER" atom (system tray notification).
 block|}
 decl_stmt|;
 name|xcb_change_window_attributes
