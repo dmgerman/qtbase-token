@@ -86,6 +86,15 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+name|w
+operator|->
+name|setSurfaceType
+argument_list|(
+name|QSurface
+operator|::
+name|OpenGLSurface
+argument_list|)
+expr_stmt|;
 block|}
 end_constructor
 begin_destructor

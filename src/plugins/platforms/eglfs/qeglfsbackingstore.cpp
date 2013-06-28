@@ -732,17 +732,6 @@ operator|::
 name|makeCurrent
 parameter_list|()
 block|{
-comment|// needed to prevent QOpenGLContext::makeCurrent() from failing
-name|window
-argument_list|()
-operator|->
-name|setSurfaceType
-argument_list|(
-name|QSurface
-operator|::
-name|OpenGLSurface
-argument_list|)
-expr_stmt|;
 operator|(
 cast|static_cast
 argument_list|<
