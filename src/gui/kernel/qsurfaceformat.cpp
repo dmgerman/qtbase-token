@@ -324,7 +324,7 @@ block|}
 class|;
 end_class
 begin_comment
-comment|/*!     \class QSurfaceFormat     \since 5.0     \brief The QSurfaceFormat class represents the format of a QSurface.     \inmodule QtGui      The format includes the size of the color buffers, red, green, and blue;     the size of the alpha buffer; the size of the depth and stencil buffers;     and number of samples per pixel for multisampling. In addition, the format     contains surface configuration parameters such as OpenGL profile and     version for rendering, whether or not enable stereo buffers, and swap     behaviour. */
+comment|/*!     \class QSurfaceFormat     \since 5.0     \brief The QSurfaceFormat class represents the format of a QSurface.     \inmodule QtGui      The format includes the size of the color buffers, red, green, and blue;     the size of the alpha buffer; the size of the depth and stencil buffers;     and number of samples per pixel for multisampling. In addition, the format     contains surface configuration parameters such as OpenGL profile and     version for rendering, whether or not to enable stereo buffers, and swap     behaviour. */
 end_comment
 begin_comment
 comment|/*!     \enum QSurfaceFormat::FormatOption      This enum contains format options for use with QSurfaceFormat.      \value StereoBuffers Used to request stereo buffers in the surface format.     \value DebugContext Used to request a debug context with extra debugging information.     \value DeprecatedFunctions Used to request that deprecated functions be included         in the OpenGL context profile. If not specified, you should get a forward compatible context         without support functionality marked as deprecated. This requires OpenGL version 3.0 or higher. */
@@ -816,7 +816,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Set the swap \a behavior of the surface.      The swap behavior specifies whether single, double, or triple     buffering is desired. The default, SwapBehavior::DefaultSwapBehavior,     gives the default swap behavior of the platform. */
+comment|/*!     Set the swap \a behavior of the surface.      The swap behavior specifies whether single, double, or triple     buffering is desired. The default, DefaultSwapBehavior,     gives the default swap behavior of the platform. */
 end_comment
 begin_function
 DECL|function|setSwapBehavior
