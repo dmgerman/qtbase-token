@@ -284,7 +284,19 @@ begin_comment
 comment|/*!     \fn QFlag::QFlag(int value)      Constructs a QFlag object that stores the given \a value. */
 end_comment
 begin_comment
+comment|/*!     \fn QFlag::QFlag(uint value)     \since Qt 5.3      Constructs a QFlag object that stores the given \a value. */
+end_comment
+begin_comment
+comment|/*!     \fn QFlag::QFlag(short value)     \since 5.3      Constructs a QFlag object that stores the given \a value. */
+end_comment
+begin_comment
+comment|/*!     \fn QFlag::QFlag(ushort value)     \since Qt 5.3      Constructs a QFlag object that stores the given \a value. */
+end_comment
+begin_comment
 comment|/*!     \fn QFlag::operator int() const      Returns the value stored by the QFlag object. */
+end_comment
+begin_comment
+comment|/*!     \fn QFlag::operator uint() const     \since Qt 5.3      Returns the value stored by the QFlag object. */
 end_comment
 begin_comment
 comment|/*!     \class QFlags     \inmodule QtCore     \brief The QFlags class provides a type-safe way of storing     OR-combinations of enum values.       \ingroup tools      The QFlags<Enum> class is a template class, where Enum is an enum     type. QFlags is used throughout Qt for storing combinations of     enum values.      The traditional C++ approach for storing OR-combinations of enum     values is to use an \c int or \c uint variable. The inconvenience     with this approach is that there's no type checking at all; any     enum value can be OR'd with any other enum value and passed on to     a function that takes an \c int or \c uint.      Qt uses QFlags to provide type safety. For example, the     Qt::Alignment type is simply a typedef for     QFlags<Qt::AlignmentFlag>. QLabel::setAlignment() takes a     Qt::Alignment parameter, which means that any combination of     Qt::AlignmentFlag values, or 0, is legal:      \snippet code/src_corelib_global_qglobal.cpp 0      If you try to pass a value from another enum or just a plain     integer other than 0, the compiler will report an error. If you     need to cast integer values to flags in a untyped fashion, you can     use the explicit QFlags constructor as cast operator.      If you want to use QFlags for your own enum types, use     the Q_DECLARE_FLAGS() and Q_DECLARE_OPERATORS_FOR_FLAGS().      Example:      \snippet code/src_corelib_global_qglobal.cpp 1      You can then use the \c MyClass::Options type to store     combinations of \c MyClass::Option values.      \section1 Flags and the Meta-Object System      The Q_DECLARE_FLAGS() macro does not expose the flags to the meta-object     system, so they cannot be used by Qt Script or edited in Qt Designer.     To make the flags available for these purposes, the Q_FLAGS() macro must     be used:      \snippet code/src_corelib_global_qglobal.cpp meta-object flags      \section1 Naming Convention      A sensible naming convention for enum types and associated QFlags     types is to give a singular name to the enum type (e.g., \c     Option) and a plural name to the QFlags type (e.g., \c Options).     When a singular name is desired for the QFlags type (e.g., \c     Alignment), you can use \c Flag as the suffix for the enum type     (e.g., \c AlignmentFlag).      \sa QFlag */
