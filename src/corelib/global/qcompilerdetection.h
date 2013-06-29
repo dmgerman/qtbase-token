@@ -2183,11 +2183,20 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_CC_CLANG
-end_ifdef
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_CC_INTEL
+argument_list|)
+end_if
 begin_comment
 comment|/* General C++ features */
 end_comment
