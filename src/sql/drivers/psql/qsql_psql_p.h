@@ -302,7 +302,7 @@ block|,
 name|Version9
 operator|=
 literal|16
-block|,     }
+block|}
 block|;
 name|explicit
 name|QPSQLDriver
