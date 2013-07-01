@@ -14327,7 +14327,40 @@ literal|"http://[ff02::1"
 operator|<<
 literal|"Expected ']' to match '[' in hostname"
 expr_stmt|;
-comment|// invalid IDN hostnames happen in TolerantMode too
+comment|// invalid hostnames happen in TolerantMode too
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"invalid-hostname-leading-dot"
+argument_list|)
+operator|<<
+literal|"http://.co.uk"
+operator|<<
+literal|"Invalid hostname (contains invalid characters)"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"invalid-hostname-double-dot"
+argument_list|)
+operator|<<
+literal|"http://co..uk"
+operator|<<
+literal|"Invalid hostname (contains invalid characters)"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"invalid-hostname-non-LDH"
+argument_list|)
+operator|<<
+literal|"http://foo,bar.example.com"
+operator|<<
+literal|"Invalid hostname (contains invalid characters)"
+expr_stmt|;
 name|QTest
 operator|::
 name|newRow
