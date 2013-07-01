@@ -707,6 +707,9 @@ name|printStackTrace
 argument_list|()
 expr_stmt|;
 block|}
+name|finish
+argument_list|()
+expr_stmt|;
 name|System
 operator|.
 name|exit
