@@ -1518,6 +1518,10 @@ name|SH_ScrollBar_Transient
 block|,
 name|SH_Menu_SupportsSections
 block|,
+name|SH_ToolTip_WakeUpDelay
+block|,
+name|SH_ToolTip_FallAsleepDelay
+block|,
 comment|// Add new style hint values here
 name|SH_CustomBase
 operator|=
