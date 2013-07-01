@@ -663,6 +663,9 @@ name|QUrl
 operator|::
 name|FormattingOptions
 name|options
+parameter_list|,
+name|Section
+name|appendingTo
 parameter_list|)
 specifier|const
 function_decl|;
@@ -2815,6 +2818,9 @@ name|QUrl
 operator|::
 name|FormattingOptions
 name|options
+parameter_list|,
+name|Section
+name|appendingTo
 parameter_list|)
 specifier|const
 block|{
@@ -8657,6 +8663,10 @@ argument_list|(
 name|result
 argument_list|,
 name|options
+argument_list|,
+name|QUrlPrivate
+operator|::
+name|Fragment
 argument_list|)
 expr_stmt|;
 if|if
@@ -9604,6 +9614,10 @@ argument_list|(
 name|url
 argument_list|,
 name|options
+argument_list|,
+name|QUrlPrivate
+operator|::
+name|FullUrl
 argument_list|)
 expr_stmt|;
 block|}
