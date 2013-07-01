@@ -930,7 +930,7 @@ decl_stmt|;
 if|if
 condition|(
 name|i
-operator|>
+operator|>=
 name|d
 operator|->
 name|colCount
