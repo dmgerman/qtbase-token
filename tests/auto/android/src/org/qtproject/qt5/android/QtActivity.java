@@ -588,6 +588,13 @@ argument_list|(
 literal|"lib_name"
 argument_list|)
 expr_stmt|;
+name|libraryList
+operator|.
+name|add
+argument_list|(
+name|mainLib
+argument_list|)
+expr_stmt|;
 name|int
 name|slash
 init|=
