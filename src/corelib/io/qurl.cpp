@@ -4519,6 +4519,11 @@ specifier|const
 name|QChar
 modifier|*
 name|end
+parameter_list|,
+name|QUrl
+operator|::
+name|ParsingMode
+name|mode
 parameter_list|)
 block|{
 name|QIPAddressUtils
@@ -4541,6 +4546,21 @@ name|end
 argument_list|)
 condition|)
 block|{
+comment|// this struct is kept in automatic storage because it's only 4 bytes
+specifier|const
+name|ushort
+name|decodeColon
+index|[]
+init|=
+block|{
+name|decode
+argument_list|(
+literal|':'
+argument_list|)
+block|,
+literal|0
+block|}
+decl_stmt|;
 comment|// IPv6 failed parsing, check if it was a percent-encoded character in
 comment|// the middle and try again
 name|QString
@@ -4548,6 +4568,12 @@ name|decoded
 decl_stmt|;
 if|if
 condition|(
+name|mode
+operator|!=
+name|QUrl
+operator|::
+name|TolerantMode
+operator|||
 operator|!
 name|qt_urlRecode
 argument_list|(
@@ -4557,11 +4583,9 @@ name|begin
 argument_list|,
 name|end
 argument_list|,
-name|QUrl
-operator|::
-name|FullyEncoded
-argument_list|,
 literal|0
+argument_list|,
+name|decodeColon
 argument_list|)
 condition|)
 block|{
@@ -4586,6 +4610,8 @@ name|decoded
 operator|.
 name|constEnd
 argument_list|()
+argument_list|,
+name|mode
 argument_list|)
 return|;
 block|}
@@ -4816,6 +4842,8 @@ argument_list|,
 name|end
 operator|-
 literal|1
+argument_list|,
+name|mode
 argument_list|)
 condition|)
 return|return
@@ -4912,9 +4940,7 @@ name|begin
 argument_list|,
 name|end
 argument_list|,
-name|QUrl
-operator|::
-name|DecodeReserved
+literal|0
 argument_list|,
 literal|0
 argument_list|)
