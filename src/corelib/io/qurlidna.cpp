@@ -26062,6 +26062,12 @@ name|length
 argument_list|()
 condition|)
 break|break;
+if|if
+condition|(
+name|idx
+operator|>
+literal|0
+condition|)
 return|return
 name|QString
 argument_list|()
