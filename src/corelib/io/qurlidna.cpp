@@ -25974,6 +25974,9 @@ name|domain
 parameter_list|,
 name|AceOperation
 name|op
+parameter_list|,
+name|AceLeadingDot
+name|dot
 parameter_list|)
 block|{
 if|if
@@ -26062,6 +26065,16 @@ name|length
 argument_list|()
 condition|)
 break|break;
+if|if
+condition|(
+name|dot
+operator|==
+name|ForbidLeadingDot
+operator|||
+name|idx
+operator|>
+literal|0
+condition|)
 return|return
 name|QString
 argument_list|()

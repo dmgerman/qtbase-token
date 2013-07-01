@@ -88,6 +88,19 @@ begin_comment
 comment|// in qurlidna.cpp
 end_comment
 begin_enum
+DECL|enum|AceLeadingDot
+DECL|enumerator|AllowLeadingDot
+DECL|enumerator|ForbidLeadingDot
+enum|enum
+name|AceLeadingDot
+block|{
+name|AllowLeadingDot
+block|,
+name|ForbidLeadingDot
+block|}
+enum|;
+end_enum
+begin_enum
 DECL|enum|AceOperation
 DECL|enumerator|ToAceOnly
 DECL|enumerator|NormalizeAce
@@ -112,6 +125,9 @@ name|domain
 parameter_list|,
 name|AceOperation
 name|op
+parameter_list|,
+name|AceLeadingDot
+name|dot
 parameter_list|)
 function_decl|;
 end_function_decl

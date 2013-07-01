@@ -4037,6 +4037,8 @@ argument_list|(
 name|host
 argument_list|,
 name|ToAceOnly
+argument_list|,
+name|AllowLeadingDot
 argument_list|)
 expr_stmt|;
 else|else
@@ -4856,6 +4858,8 @@ name|len
 argument_list|)
 argument_list|,
 name|NormalizeAce
+argument_list|,
+name|ForbidLeadingDot
 argument_list|)
 expr_stmt|;
 if|if
@@ -8658,6 +8662,8 @@ argument_list|(
 name|tld
 argument_list|,
 name|ToAceOnly
+argument_list|,
+name|AllowLeadingDot
 argument_list|)
 return|;
 block|}
@@ -9809,6 +9815,9 @@ name|domain
 argument_list|)
 argument_list|,
 name|NormalizeAce
+argument_list|,
+name|ForbidLeadingDot
+comment|/*FIXME: make configurable*/
 argument_list|)
 return|;
 block|}
@@ -9837,6 +9846,9 @@ argument_list|(
 name|domain
 argument_list|,
 name|ToAceOnly
+argument_list|,
+name|ForbidLeadingDot
+comment|/*FIXME: make configurable*/
 argument_list|)
 decl_stmt|;
 return|return
