@@ -762,6 +762,8 @@ argument_list|,
 name|m_displayMetricsXDpi
 argument_list|,
 name|m_displayMetricsYDpi
+argument_list|,
+literal|1.0
 argument_list|)
 expr_stmt|;
 name|startQtApplication
@@ -880,6 +882,8 @@ argument_list|,
 name|XDpi
 argument_list|,
 name|YDpi
+argument_list|,
+literal|1.0
 argument_list|)
 expr_stmt|;
 block|}
@@ -1763,6 +1767,9 @@ name|XDpi
 parameter_list|,
 name|double
 name|YDpi
+parameter_list|,
+name|double
+name|scaledDensity
 parameter_list|)
 function_decl|;
 DECL|method|handleOrientationChanged
