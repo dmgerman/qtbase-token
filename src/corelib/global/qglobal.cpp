@@ -450,7 +450,7 @@ begin_comment
 comment|/*****************************************************************************   System detection routines  *****************************************************************************/
 end_comment
 begin_comment
-comment|/*!     \class QSysInfo     \inmodule QtCore     \brief The QSysInfo class provides information about the system.      \list     \li \l WordSize specifies the size of a pointer for the platform        on which the application is compiled.     \li \l ByteOrder specifies whether the platform is big-endian or        little-endian.     \li \l WindowsVersion specifies the version of the Windows operating        system on which the application is run (Windows only)     \li \l MacintoshVersion specifies the version of the Macintosh        operating system on which the application is run (Mac only).     \endlist      Some constants are defined only on certain platforms. You can use     the preprocessor symbols Q_OS_WIN and Q_OS_MACX to test that     the application is compiled under Windows or OS X.      \sa QLibraryInfo */
+comment|/*!     \class QSysInfo     \inmodule QtCore     \brief The QSysInfo class provides information about the system.      \list     \li \l WordSize specifies the size of a pointer for the platform        on which the application is compiled.     \li \l ByteOrder specifies whether the platform is big-endian or        little-endian.     \li \l WindowsVersion specifies the version of the Windows operating        system on which the application is run (Windows only)     \li \l MacintoshVersion specifies the version of the Macintosh        operating system on which the application is run (Mac only).     \endlist      Some constants are defined only on certain platforms. You can use     the preprocessor symbols Q_OS_WIN and Q_OS_OSX to test that     the application is compiled under Windows or OS X.      \sa QLibraryInfo */
 end_comment
 begin_comment
 comment|/*!     \enum QSysInfo::Sizes      This enum provides platform-specific information about the sizes of data     structures used by the underlying architecture.      \value WordSize The size in bits of a pointer for the platform on which            the application is compiled (32 or 64). */
@@ -477,13 +477,13 @@ begin_comment
 comment|/*!     \enum QSysInfo::MacVersion      This enum provides symbolic names for the various versions of the     OS X operating system. On OS X, the     QSysInfo::MacintoshVersion variable gives the version of the     system on which the application is run.      \value MV_9        Mac OS 9 (unsupported)     \value MV_10_0     Mac OS X 10.0 (unsupported)     \value MV_10_1     Mac OS X 10.1 (unsupported)     \value MV_10_2     Mac OS X 10.2 (unsupported)     \value MV_10_3     Mac OS X 10.3 (unsupported)     \value MV_10_4     Mac OS X 10.4 (unsupported)     \value MV_10_5     Mac OS X 10.5 (unsupported)     \value MV_10_6     Mac OS X 10.6     \value MV_10_7     OS X 10.7     \value MV_10_8     OS X 10.8     \value MV_10_9     OS X 10.9     \value MV_Unknown  An unknown and currently unsupported platform      \value MV_CHEETAH  Apple codename for MV_10_0     \value MV_PUMA     Apple codename for MV_10_1     \value MV_JAGUAR   Apple codename for MV_10_2     \value MV_PANTHER  Apple codename for MV_10_3     \value MV_TIGER    Apple codename for MV_10_4     \value MV_LEOPARD  Apple codename for MV_10_5     \value MV_SNOWLEOPARD  Apple codename for MV_10_6     \value MV_LION     Apple codename for MV_10_7     \value MV_MOUNTAINLION Apple codename for MV_10_8     \value MV_MAVERICKS    Apple codename for MV_10_9      \sa WinVersion */
 end_comment
 begin_comment
-comment|/*!     \macro Q_OS_DARWIN     \relates<QtGlobal>      Defined on Darwin OS (synonym for Q_OS_MAC). */
+comment|/*!     \macro Q_OS_DARWIN     \relates<QtGlobal>      Defined on Darwin-based operating systems such as OS X and iOS,     including any open source version(s) of Darwin. */
 end_comment
 begin_comment
-comment|/*!     \macro Q_OS_MAC     \relates<QtGlobal>      Defined on OS X and iOS (synonym for Q_OS_DARWIN).  */
+comment|/*!     \macro Q_OS_MAC     \relates<QtGlobal>      Defined on Darwin-based operating systems distributed by Apple, which     currently includes OS X and iOS, but not the open source version.  */
 end_comment
 begin_comment
-comment|/*!     \macro Q_OS_MACX     \relates<QtGlobal>      Defined on OS X.  */
+comment|/*!     \macro Q_OS_OSX     \relates<QtGlobal>      Defined on OS X.  */
 end_comment
 begin_comment
 comment|/*!     \macro Q_OS_IOS     \relates<QtGlobal>      Defined on iOS.  */
