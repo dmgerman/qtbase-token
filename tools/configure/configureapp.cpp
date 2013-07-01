@@ -10449,6 +10449,13 @@ index|]
 operator|=
 literal|"auto"
 expr_stmt|;
+name|dictionary
+index|[
+literal|"QT_XKBCOMMON"
+index|]
+operator|=
+literal|"no"
+expr_stmt|;
 block|}
 elseif|else
 if|if
