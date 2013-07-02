@@ -509,7 +509,11 @@ modifier|*
 name|result
 parameter_list|)
 block|{
-enum|enum
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_CLASS_ENUM
+enum_decl|enum :
+name|quint64
 block|{
 name|signatureMask
 init|=
@@ -519,7 +523,26 @@ name|miWpSignature
 init|=
 literal|0xff515700
 block|}
-enum|;
+enum_decl|;
+else|#
+directive|else
+specifier|static
+specifier|const
+name|quint64
+name|signatureMask
+init|=
+literal|0xffffff00
+decl_stmt|;
+specifier|static
+specifier|const
+name|quint64
+name|miWpSignature
+init|=
+literal|0xff515700
+decl_stmt|;
+endif|#
+directive|endif
+comment|// !Q_COMPILER_CLASS_ENUM
 if|if
 condition|(
 name|et
@@ -545,7 +568,7 @@ directive|ifndef
 name|Q_OS_WINCE
 comment|// Check for events synthesized from touch. Lower byte is touch index, 0 means pen.
 specifier|const
-name|LPARAM
+name|quint64
 name|extraInfo
 init|=
 name|GetMessageExtraInfo
