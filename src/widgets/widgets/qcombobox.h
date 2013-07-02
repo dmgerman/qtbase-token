@@ -986,14 +986,14 @@ argument|d_func()
 argument_list|,
 argument|void _q_modelReset()
 argument_list|)
-ifdef|#
-directive|ifdef
-name|QT_KEYPAD_NAVIGATION
+ifndef|#
+directive|ifndef
+name|QT_NO_COMPLETER
 name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
 argument_list|,
-argument|void _q_completerActivated()
+argument|void _q_completerActivated(const QModelIndex&index)
 argument_list|)
 endif|#
 directive|endif
