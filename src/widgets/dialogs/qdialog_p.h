@@ -288,7 +288,6 @@ block|;
 name|bool
 name|nativeDialogInUse
 block|;
-comment|// Assigned in setVisible_sys() in derived classes.
 name|QPlatformDialogHelper
 operator|*
 name|platformHelper

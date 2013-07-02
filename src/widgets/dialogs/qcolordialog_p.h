@@ -163,6 +163,10 @@ operator|&
 name|initial
 argument_list|)
 block|;
+name|void
+name|initWidgets
+argument_list|()
+block|;
 name|QRgb
 name|currentColor
 argument_list|()
