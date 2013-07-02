@@ -14872,6 +14872,28 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
+literal|"invalid-ipv6-char1"
+argument_list|)
+operator|<<
+literal|"http://[::g]"
+operator|<<
+literal|"Invalid IPv6 address (character 'g' not permitted)"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"invalid-ipv6-char2"
+argument_list|)
+operator|<<
+literal|"http://[z::]"
+operator|<<
+literal|"Invalid IPv6 address (character 'z' not permitted)"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
 literal|"invalid-ipvfuture-1"
 argument_list|)
 operator|<<
