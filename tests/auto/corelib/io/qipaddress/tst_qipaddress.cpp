@@ -2874,6 +2874,8 @@ operator|.
 name|constEnd
 argument_list|()
 argument_list|)
+operator|==
+literal|0
 decl_stmt|;
 name|QVERIFY
 argument_list|(
@@ -3392,6 +3394,8 @@ operator|.
 name|constEnd
 argument_list|()
 argument_list|)
+operator|==
+literal|0
 decl_stmt|;
 name|QVERIFY
 argument_list|(

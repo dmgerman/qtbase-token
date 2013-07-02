@@ -4594,9 +4594,11 @@ operator|::
 name|IPv6Address
 name|address
 decl_stmt|;
-if|if
-condition|(
-operator|!
+specifier|const
+name|QChar
+modifier|*
+name|ret
+init|=
 name|QIPAddressUtils
 operator|::
 name|parseIp6
@@ -4607,6 +4609,10 @@ name|begin
 argument_list|,
 name|end
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|ret
 condition|)
 block|{
 comment|// this struct is kept in automatic storage because it's only 4 bytes

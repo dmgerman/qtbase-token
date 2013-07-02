@@ -791,6 +791,8 @@ operator|.
 name|constEnd
 argument_list|()
 argument_list|)
+operator|==
+literal|0
 return|;
 block|}
 end_function

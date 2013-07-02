@@ -84,7 +84,9 @@ name|end
 parameter_list|)
 function_decl|;
 name|Q_CORE_EXPORT
-name|bool
+specifier|const
+name|QChar
+modifier|*
 name|parseIp6
 parameter_list|(
 name|IPv6Address
