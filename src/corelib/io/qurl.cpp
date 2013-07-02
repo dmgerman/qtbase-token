@@ -4208,6 +4208,11 @@ specifier|const
 name|QChar
 modifier|*
 name|end
+parameter_list|,
+name|QUrl
+operator|::
+name|ParsingMode
+name|mode
 parameter_list|)
 block|{
 comment|//    IPvFuture     = "v" 1*HEXDIG "." 1*( unreserved / sub-delims / ":" )
@@ -4264,7 +4269,7 @@ index|]
 operator|.
 name|unicode
 argument_list|()
-operator|>=
+operator|<=
 literal|'F'
 operator|)
 operator|||
@@ -4338,6 +4343,12 @@ name|decoded
 decl_stmt|;
 if|if
 condition|(
+name|mode
+operator|==
+name|QUrl
+operator|::
+name|TolerantMode
+operator|&&
 name|qt_urlRecode
 argument_list|(
 name|decoded
@@ -4348,7 +4359,7 @@ name|end
 argument_list|,
 name|QUrl
 operator|::
-name|FullyEncoded
+name|FullyDecoded
 argument_list|,
 literal|0
 argument_list|)
@@ -4804,6 +4815,8 @@ argument_list|,
 name|begin
 argument_list|,
 name|end
+argument_list|,
+name|mode
 argument_list|)
 decl_stmt|;
 if|if
@@ -11742,7 +11755,12 @@ case|:
 return|return
 name|QStringLiteral
 argument_list|(
-literal|"Invalid IPvFuture address"
+literal|"Invalid IPvFuture address (character '%1' not permitted)"
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|c
 argument_list|)
 return|;
 case|case
