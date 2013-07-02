@@ -1246,7 +1246,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|// From RFC 3896, Appendix A Collected ABNF for URI
+comment|// From RFC 3986, Appendix A Collected ABNF for URI
 end_comment
 begin_comment
 comment|//    URI           = scheme ":" hier-part [ "?" query ] [ "#" fragment ]
@@ -1327,79 +1327,115 @@ begin_comment
 comment|// slash-separated segments of "pchar"
 end_comment
 begin_comment
-comment|// The above is the strict definition of the URL components and it is what we
+comment|// The above is the strict definition of the URL components and we mostly
 end_comment
 begin_comment
-comment|// return encoded as FullyEncoded. However, we store the equivalent to
+comment|// adhere to it, with few exceptions. QUrl obeys the following behavior:
 end_comment
 begin_comment
-comment|// PrettyDecoded internally, as that is the default formatting mode and most
+comment|//  - percent-encoding sequences always use uppercase HEXDIG;
 end_comment
 begin_comment
-comment|// likely to be used. PrettyDecoded decodes spaces, unicode sequences and
+comment|//  - unreserved characters are *always* decoded, no exceptions;
 end_comment
 begin_comment
-comment|// unambiguous delimiters.
+comment|//  - the space character and bytes with the high bit set are controlled by
+end_comment
+begin_comment
+comment|//    the EncodeSpaces and EncodeUnicode bits;
+end_comment
+begin_comment
+comment|//  - control characters, the percent sign itself, and bytes with the high
+end_comment
+begin_comment
+comment|//    bit set that don't form valid UTF-8 sequences are always encoded,
+end_comment
+begin_comment
+comment|//    except in FullyDecoded mode;
+end_comment
+begin_comment
+comment|//  - sub-delims are always left alone, except in FullyDecoded mode;
+end_comment
+begin_comment
+comment|//  - gen-delim change behavior depending on which section of the URL (or
+end_comment
+begin_comment
+comment|//    the entire URL) we're looking at; see below;
+end_comment
+begin_comment
+comment|//  - characters not mentioned above, like "<", and ">", are usually
+end_comment
+begin_comment
+comment|//    decoded in individual sections of the URL, but encoded when the full
+end_comment
+begin_comment
+comment|//    URL is put together (we can change on subjective definition of
+end_comment
+begin_comment
+comment|//    "pretty").
 end_comment
 begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// An ambiguous delimiter is a delimiter that, if appeared decoded, would be
+comment|// The behavior for the delimiters bears some explanation. The spec says in
 end_comment
 begin_comment
-comment|// interpreted as the beginning of a new component. The exact delimiters that
+comment|// section 2.2:
 end_comment
 begin_comment
-comment|// match that definition change according to the use. When each field is
+comment|//     URIs that differ in the replacement of a reserved character with its
 end_comment
 begin_comment
-comment|// considered in isolation from the rest, there are no ambiguities. In other
+comment|//     corresponding percent-encoded octet are not equivalent.
 end_comment
 begin_comment
-comment|// words, we always store the most decoded form (except for the query, see
+comment|// (note: QUrl API mistakenly uses the "reserved" term, so we will refer to
 end_comment
 begin_comment
-comment|// below).
+comment|// them here as "delimiters").
 end_comment
 begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// The ambiguities arise when components are put together. From last to first
+comment|// For that reason, we cannot encode delimiters found in decoded form and we
 end_comment
 begin_comment
-comment|// component of a full URL, the ambiguities are:
+comment|// cannot decode the ones found in encoded form if that would change the
 end_comment
 begin_comment
-comment|//  - fragment: none, since it's the last.
+comment|// interpretation. Conversely, we *can* perform the transformation if it would
 end_comment
 begin_comment
-comment|//  - query: the "#" character is ambiguous, as it starts the fragment. In
+comment|// not change the interpretation. From the last component of a URL to the first,
 end_comment
 begin_comment
-comment|//    addition, the "+" character is treated specially, as should be both
+comment|// here are the gen-delims we can unambiguously transform when the field is
 end_comment
 begin_comment
-comment|//    intra-query delimiters. Since we don't know which ones they are, we
+comment|// taken in isolation:
 end_comment
 begin_comment
-comment|//    keep all reserved characters untouched.
+comment|//  - fragment: none, since it's the last
 end_comment
 begin_comment
-comment|//  - path: the "#" and "?" characters are ambigous. In addition to them,
+comment|//    Deviation: the spec says "#"<-> %23 is unambiguous, but we treat it as if were
 end_comment
 begin_comment
-comment|//    the slash itself is considered special.
+comment|//  - query: "#" is unambiguous
+end_comment
+begin_comment
+comment|//  - path: "#" and "?" are unambiguous
 end_comment
 begin_comment
 comment|//  - host: completely special but never ambiguous, see setHost() below.
 end_comment
 begin_comment
-comment|//  - password: the "#", "?", "/", "[", "]" and "@" characters are ambiguous
+comment|//  - password: the "#", "?", "/", "[", "]" and "@" characters are unambiguous
 end_comment
 begin_comment
-comment|//  - username: the "#", "?", "/", "[", "]", "@", and ":" characters are ambiguous
+comment|//  - username: the "#", "?", "/", "[", "]", "@", and ":" characters are unambiguous
 end_comment
 begin_comment
 comment|//  - scheme: doesn't accept any delimiter, see setScheme() below.
@@ -1408,40 +1444,49 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// When the authority component is considered in isolation, the ambiguities of
+comment|// Internally, QUrl stores each component in the format that corresponds to the
 end_comment
 begin_comment
-comment|// its components are:
+comment|// default mode (PrettyDecoded). It deviates from the "strict" FullyEncoded
 end_comment
 begin_comment
-comment|//  - host: special, never ambiguous
+comment|// mode in the following way:
 end_comment
 begin_comment
-comment|//  - password: "[", "]", "@" are ambiguous
+comment|//  - spaces are decoded
 end_comment
 begin_comment
-comment|//  - username: "[", "]", "@", ":" are ambiguous
+comment|//  - valid UTF-8 sequences are decoded
+end_comment
+begin_comment
+comment|//  - gen-delims that can be unambiguously transformed are decoded
+end_comment
+begin_comment
+comment|//  - characters controlled by DecodeReserved are often decoded, though this behavior
+end_comment
+begin_comment
+comment|//    can change depending on the subjective definition of "pretty"
 end_comment
 begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// Finally, when the userinfo is considered in isolation, the ambiguities of its
+comment|// Note that the list of gen-delims that we can transform is different for the
 end_comment
 begin_comment
-comment|// components are:
+comment|// user info (user name + password) and the authority (user info + host +
 end_comment
 begin_comment
-comment|//  - password: none, since it's the last
-end_comment
-begin_comment
-comment|//  - username: ":" is ambiguous
+comment|// port).
 end_comment
 begin_comment
 comment|// list the recoding table modifications to be used with the recodeFromUser and
 end_comment
 begin_comment
-comment|// appendToUser functions, according to the rules above.
+comment|// appendToUser functions, according to the rules above. Spaces and UTF-8
+end_comment
+begin_comment
+comment|// sequences are handled outside the tables.
 end_comment
 begin_comment
 comment|// the encodedXXX tables are run with the delimiters set to "leave" by default;
@@ -1483,519 +1528,485 @@ parameter_list|)
 value|ushort(0x200 | (x))
 end_define
 begin_decl_stmt
-DECL|variable|encodedUserNameActions
+DECL|variable|userNameInIsolation
 specifier|static
 specifier|const
 name|ushort
-name|encodedUserNameActions
+name|userNameInIsolation
 index|[]
 init|=
 block|{
-comment|// first field, everything must be encoded, including the ":"
-comment|//    userinfo      = *( unreserved / pct-encoded / sub-delims / ":" )
-name|encode
-argument_list|(
-literal|'/'
-argument_list|)
-block|,
-comment|// 0
-name|encode
-argument_list|(
-literal|'?'
-argument_list|)
-block|,
-comment|// 1
-name|encode
-argument_list|(
-literal|'#'
-argument_list|)
-block|,
-comment|// 2
-name|encode
-argument_list|(
-literal|'['
-argument_list|)
-block|,
-comment|// 3
-name|encode
-argument_list|(
-literal|']'
-argument_list|)
-block|,
-comment|// 4
-name|encode
-argument_list|(
-literal|'@'
-argument_list|)
-block|,
-comment|// 5
-name|encode
-argument_list|(
-literal|':'
-argument_list|)
-block|,
-comment|// 6
-literal|0
-block|}
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|decodedUserNameInAuthorityActions
-specifier|static
-specifier|const
-name|ushort
-modifier|*
-specifier|const
-name|decodedUserNameInAuthorityActions
-init|=
-name|encodedUserNameActions
-operator|+
-literal|3
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|decodedUserNameInUserInfoActions
-specifier|static
-specifier|const
-name|ushort
-modifier|*
-specifier|const
-name|decodedUserNameInUserInfoActions
-init|=
-name|encodedUserNameActions
-operator|+
-literal|6
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|decodedUserNameInUrlActions
-specifier|static
-specifier|const
-name|ushort
-modifier|*
-specifier|const
-name|decodedUserNameInUrlActions
-init|=
-name|encodedUserNameActions
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|decodedUserNameInIsolationActions
-specifier|static
-specifier|const
-name|ushort
-modifier|*
-specifier|const
-name|decodedUserNameInIsolationActions
-init|=
-literal|0
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|encodedPasswordActions
-specifier|static
-specifier|const
-name|ushort
-name|encodedPasswordActions
-index|[]
-init|=
-block|{
-comment|// same as encodedUserNameActions, but decode ":"
-comment|//    userinfo      = *( unreserved / pct-encoded / sub-delims / ":" )
-name|encode
-argument_list|(
-literal|'/'
-argument_list|)
-block|,
-comment|// 0
-name|encode
-argument_list|(
-literal|'?'
-argument_list|)
-block|,
-comment|// 1
-name|encode
-argument_list|(
-literal|'#'
-argument_list|)
-block|,
-comment|// 2
-name|encode
-argument_list|(
-literal|'['
-argument_list|)
-block|,
-comment|// 3
-name|encode
-argument_list|(
-literal|']'
-argument_list|)
-block|,
-comment|// 4
-name|encode
-argument_list|(
-literal|'@'
-argument_list|)
-block|,
-comment|// 5
-literal|0
-block|}
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|decodedPasswordInAuthorityActions
-specifier|static
-specifier|const
-name|ushort
-modifier|*
-specifier|const
-name|decodedPasswordInAuthorityActions
-init|=
-name|encodedPasswordActions
-operator|+
-literal|3
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|decodedPasswordInUserInfoActions
-specifier|static
-specifier|const
-name|ushort
-modifier|*
-specifier|const
-name|decodedPasswordInUserInfoActions
-init|=
-literal|0
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|decodedPasswordInUrlActions
-specifier|static
-specifier|const
-name|ushort
-modifier|*
-specifier|const
-name|decodedPasswordInUrlActions
-init|=
-name|encodedPasswordActions
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|decodedPasswordInIsolationActions
-specifier|static
-specifier|const
-name|ushort
-modifier|*
-specifier|const
-name|decodedPasswordInIsolationActions
-init|=
-literal|0
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|encodedPathActions
-specifier|static
-specifier|const
-name|ushort
-name|encodedPathActions
-index|[]
-init|=
-block|{
-comment|//    pchar         = unreserved / pct-encoded / sub-delims / ":" / "@"
-name|encode
-argument_list|(
-literal|'['
-argument_list|)
-block|,
-comment|// 0
-name|encode
-argument_list|(
-literal|']'
-argument_list|)
-block|,
-comment|// 1
-name|encode
-argument_list|(
-literal|'?'
-argument_list|)
-block|,
-comment|// 2
-name|encode
-argument_list|(
-literal|'#'
-argument_list|)
-block|,
-comment|// 3
-name|leave
-argument_list|(
-literal|'/'
-argument_list|)
-block|,
-comment|// 4
-literal|0
-block|}
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|decodedPathInUrlActions
-specifier|static
-specifier|const
-name|ushort
-name|decodedPathInUrlActions
-index|[]
-init|=
-block|{
-name|decode
-argument_list|(
-literal|'{'
-argument_list|)
-block|,
-comment|// 0
-name|decode
-argument_list|(
-literal|'}'
-argument_list|)
-block|,
-comment|// 1
-name|encode
-argument_list|(
-literal|'?'
-argument_list|)
-block|,
-comment|// 2
-name|encode
-argument_list|(
-literal|'#'
-argument_list|)
-block|,
-comment|// 3
-name|leave
-argument_list|(
-literal|'/'
-argument_list|)
-block|,
-comment|// 4
-literal|0
-block|}
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|decodedPathInIsolationActions
-specifier|static
-specifier|const
-name|ushort
-modifier|*
-specifier|const
-name|decodedPathInIsolationActions
-init|=
-name|encodedPathActions
-operator|+
-literal|4
-decl_stmt|;
-end_decl_stmt
-begin_comment
-DECL|variable|decodedPathInIsolationActions
-comment|// leave('/')
-end_comment
-begin_decl_stmt
-DECL|variable|encodedFragmentActions
-specifier|static
-specifier|const
-name|ushort
-name|encodedFragmentActions
-index|[]
-init|=
-block|{
-comment|//    fragment      = *( pchar / "/" / "?" )
-comment|// gen-delims permitted: ":" / "@" / "/" / "?"
-comment|//   ->   must encode: "[" / "]" / "#"
-comment|// HOWEVER: we allow "#" to remain decoded
-name|decode
-argument_list|(
-literal|'#'
-argument_list|)
-block|,
-comment|// 0
 name|decode
 argument_list|(
 literal|':'
 argument_list|)
 block|,
-comment|// 1
+comment|// 0
 name|decode
 argument_list|(
 literal|'@'
 argument_list|)
 block|,
+comment|// 1
+name|decode
+argument_list|(
+literal|']'
+argument_list|)
+block|,
 comment|// 2
 name|decode
 argument_list|(
-literal|'/'
+literal|'['
 argument_list|)
 block|,
 comment|// 3
 name|decode
 argument_list|(
-literal|'?'
+literal|'/'
 argument_list|)
 block|,
 comment|// 4
-name|encode
+name|decode
 argument_list|(
-literal|'['
+literal|'?'
 argument_list|)
 block|,
 comment|// 5
-name|encode
-argument_list|(
-literal|']'
-argument_list|)
-block|,
-comment|// 6
-literal|0
-block|}
-decl_stmt|;
-end_decl_stmt
-begin_comment
-comment|//static const ushort * const decodedFragmentInUrlActions = 0;
-end_comment
-begin_decl_stmt
-DECL|variable|decodedFragmentInIsolationActions
-specifier|static
-specifier|const
-name|ushort
-modifier|*
-specifier|const
-name|decodedFragmentInIsolationActions
-init|=
-literal|0
-decl_stmt|;
-end_decl_stmt
-begin_comment
-comment|// the query is handled specially: the decodedQueryXXX tables are run with
-end_comment
-begin_comment
-comment|// the delimiters set to "leave" by default and the others set to "encode"
-end_comment
-begin_decl_stmt
-DECL|variable|encodedQueryActions
-specifier|static
-specifier|const
-name|ushort
-name|encodedQueryActions
-index|[]
-init|=
-block|{
-comment|//    query         = *( pchar / "/" / "?" )
-comment|// gen-delims permitted: ":" / "@" / "/" / "?"
-comment|// HOWEVER: we leave alone them alone, plus "[" and "]"
-comment|//   ->   must encode: "#"
-name|encode
+name|decode
 argument_list|(
 literal|'#'
 argument_list|)
 block|,
-comment|// 0
-literal|0
-block|}
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|decodedQueryInIsolationActions
-specifier|static
-specifier|const
-name|ushort
-name|decodedQueryInIsolationActions
-index|[]
-init|=
-block|{
+comment|// 6
 name|decode
 argument_list|(
 literal|'"'
 argument_list|)
 block|,
-comment|// 0
+comment|// 7
 name|decode
 argument_list|(
 literal|'<'
 argument_list|)
 block|,
-comment|// 1
 name|decode
 argument_list|(
 literal|'>'
 argument_list|)
 block|,
-comment|// 2
 name|decode
 argument_list|(
 literal|'^'
 argument_list|)
 block|,
-comment|// 3
 name|decode
 argument_list|(
 literal|'\\'
 argument_list|)
 block|,
-comment|// 4
 name|decode
 argument_list|(
 literal|'|'
 argument_list|)
 block|,
-comment|// 5
 name|decode
 argument_list|(
 literal|'{'
 argument_list|)
 block|,
-comment|// 6
 name|decode
 argument_list|(
 literal|'}'
 argument_list|)
 block|,
-comment|// 7
-name|decode
-argument_list|(
-literal|'#'
-argument_list|)
-block|,
-comment|// 8
 literal|0
 block|}
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|decodedQueryInUrlActions
+DECL|variable|passwordInIsolation
 specifier|static
 specifier|const
 name|ushort
-name|decodedQueryInUrlActions
+modifier|*
+specifier|const
+name|passwordInIsolation
+init|=
+name|userNameInIsolation
+operator|+
+literal|1
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|pathInIsolation
+specifier|static
+specifier|const
+name|ushort
+modifier|*
+specifier|const
+name|pathInIsolation
+init|=
+name|userNameInIsolation
+operator|+
+literal|5
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|queryInIsolation
+specifier|static
+specifier|const
+name|ushort
+modifier|*
+specifier|const
+name|queryInIsolation
+init|=
+name|userNameInIsolation
+operator|+
+literal|6
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|fragmentInIsolation
+specifier|static
+specifier|const
+name|ushort
+modifier|*
+specifier|const
+name|fragmentInIsolation
+init|=
+name|userNameInIsolation
+operator|+
+literal|7
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|userNameInUserInfo
+specifier|static
+specifier|const
+name|ushort
+name|userNameInUserInfo
 index|[]
 init|=
 block|{
+name|encode
+argument_list|(
+literal|':'
+argument_list|)
+block|,
+comment|// 0
 name|decode
 argument_list|(
-literal|'{'
+literal|'@'
+argument_list|)
+block|,
+comment|// 1
+name|decode
+argument_list|(
+literal|']'
+argument_list|)
+block|,
+comment|// 2
+name|decode
+argument_list|(
+literal|'['
+argument_list|)
+block|,
+comment|// 3
+name|decode
+argument_list|(
+literal|'/'
+argument_list|)
+block|,
+comment|// 4
+name|decode
+argument_list|(
+literal|'?'
+argument_list|)
+block|,
+comment|// 5
+name|decode
+argument_list|(
+literal|'#'
 argument_list|)
 block|,
 comment|// 6
 name|decode
 argument_list|(
-literal|'}'
+literal|'"'
 argument_list|)
 block|,
 comment|// 7
+name|decode
+argument_list|(
+literal|'<'
+argument_list|)
+block|,
+name|decode
+argument_list|(
+literal|'>'
+argument_list|)
+block|,
+name|decode
+argument_list|(
+literal|'^'
+argument_list|)
+block|,
+name|decode
+argument_list|(
+literal|'\\'
+argument_list|)
+block|,
+name|decode
+argument_list|(
+literal|'|'
+argument_list|)
+block|,
+name|decode
+argument_list|(
+literal|'{'
+argument_list|)
+block|,
+name|decode
+argument_list|(
+literal|'}'
+argument_list|)
+block|,
+literal|0
+block|}
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|passwordInUserInfo
+specifier|static
+specifier|const
+name|ushort
+modifier|*
+specifier|const
+name|passwordInUserInfo
+init|=
+name|userNameInUserInfo
+operator|+
+literal|1
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|userNameInAuthority
+specifier|static
+specifier|const
+name|ushort
+name|userNameInAuthority
+index|[]
+init|=
+block|{
+name|encode
+argument_list|(
+literal|':'
+argument_list|)
+block|,
+comment|// 0
+name|encode
+argument_list|(
+literal|'@'
+argument_list|)
+block|,
+comment|// 1
+name|encode
+argument_list|(
+literal|']'
+argument_list|)
+block|,
+comment|// 2
+name|encode
+argument_list|(
+literal|'['
+argument_list|)
+block|,
+comment|// 3
+name|decode
+argument_list|(
+literal|'/'
+argument_list|)
+block|,
+comment|// 4
+name|decode
+argument_list|(
+literal|'?'
+argument_list|)
+block|,
+comment|// 5
+name|decode
+argument_list|(
+literal|'#'
+argument_list|)
+block|,
+comment|// 6
+name|decode
+argument_list|(
+literal|'"'
+argument_list|)
+block|,
+comment|// 7
+name|decode
+argument_list|(
+literal|'<'
+argument_list|)
+block|,
+name|decode
+argument_list|(
+literal|'>'
+argument_list|)
+block|,
+name|decode
+argument_list|(
+literal|'^'
+argument_list|)
+block|,
+name|decode
+argument_list|(
+literal|'\\'
+argument_list|)
+block|,
+name|decode
+argument_list|(
+literal|'|'
+argument_list|)
+block|,
+name|decode
+argument_list|(
+literal|'{'
+argument_list|)
+block|,
+name|decode
+argument_list|(
+literal|'}'
+argument_list|)
+block|,
+literal|0
+block|}
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|passwordInAuthority
+specifier|static
+specifier|const
+name|ushort
+modifier|*
+specifier|const
+name|passwordInAuthority
+init|=
+name|userNameInAuthority
+operator|+
+literal|1
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|userNameInUrl
+specifier|static
+specifier|const
+name|ushort
+name|userNameInUrl
+index|[]
+init|=
+block|{
+name|encode
+argument_list|(
+literal|':'
+argument_list|)
+block|,
+comment|// 0
+name|encode
+argument_list|(
+literal|'@'
+argument_list|)
+block|,
+comment|// 1
+name|encode
+argument_list|(
+literal|']'
+argument_list|)
+block|,
+comment|// 2
+name|encode
+argument_list|(
+literal|'['
+argument_list|)
+block|,
+comment|// 3
+name|encode
+argument_list|(
+literal|'/'
+argument_list|)
+block|,
+comment|// 4
+name|encode
+argument_list|(
+literal|'?'
+argument_list|)
+block|,
+comment|// 5
 name|encode
 argument_list|(
 literal|'#'
 argument_list|)
 block|,
-comment|// 8
+comment|// 6
+comment|// no need to list encode(x) for the other characters
 literal|0
 block|}
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|passwordInUrl
+specifier|static
+specifier|const
+name|ushort
+modifier|*
+specifier|const
+name|passwordInUrl
+init|=
+name|userNameInUrl
+operator|+
+literal|1
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|pathInUrl
+specifier|static
+specifier|const
+name|ushort
+modifier|*
+specifier|const
+name|pathInUrl
+init|=
+name|userNameInUrl
+operator|+
+literal|5
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|queryInUrl
+specifier|static
+specifier|const
+name|ushort
+modifier|*
+specifier|const
+name|queryInUrl
+init|=
+name|userNameInUrl
+operator|+
+literal|6
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|fragmentInUrl
+specifier|static
+specifier|const
+name|ushort
+modifier|*
+specifier|const
+name|fragmentInUrl
+init|=
+literal|0
 decl_stmt|;
 end_decl_stmt
 begin_function
@@ -2088,9 +2099,7 @@ name|begin
 argument_list|,
 name|end
 argument_list|,
-name|QUrl
-operator|::
-name|DecodeReserved
+literal|0
 argument_list|,
 name|actions
 argument_list|)
@@ -2113,22 +2122,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|// appendXXXX functions:
+comment|// appendXXXX functions: copy from the internal form to the external, user form.
 end_comment
 begin_comment
-comment|// the internal value is stored in its most decoded form, so that case is easy.
-end_comment
-begin_comment
-comment|// DecodeUnicode and DecodeSpaces are handled by qt_urlRecode.
-end_comment
-begin_comment
-comment|// That leaves these functions to handle two cases related to delimiters:
-end_comment
-begin_comment
-comment|//  1) encoded                           encodedXXXX tables
-end_comment
-begin_comment
-comment|//  2) decoded                           decodedXXXX tables
+comment|// the internal value is stored in its PrettyDecoded form, so that case is easy.
 end_comment
 begin_function
 DECL|function|appendToUser
@@ -2154,14 +2151,15 @@ parameter_list|,
 specifier|const
 name|ushort
 modifier|*
-name|encodedActions
-parameter_list|,
-specifier|const
-name|ushort
-modifier|*
-name|decodedActions
+name|actions
 parameter_list|)
 block|{
+name|options
+operator||=
+name|QUrl
+operator|::
+name|EncodeDelimiters
+expr_stmt|;
 if|if
 condition|(
 name|options
@@ -2177,30 +2175,6 @@ name|value
 expr_stmt|;
 return|return;
 block|}
-specifier|const
-name|ushort
-modifier|*
-name|actions
-init|=
-literal|0
-decl_stmt|;
-if|if
-condition|(
-name|options
-operator|&
-name|QUrl
-operator|::
-name|EncodeDelimiters
-condition|)
-name|actions
-operator|=
-name|encodedActions
-expr_stmt|;
-else|else
-name|actions
-operator|=
-name|decodedActions
-expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -2396,11 +2370,11 @@ condition|)
 block|{
 name|userNameActions
 operator|=
-name|encodedUserNameActions
+name|userNameInUrl
 expr_stmt|;
 name|passwordActions
 operator|=
-name|encodedPasswordActions
+name|passwordInUrl
 expr_stmt|;
 block|}
 else|else
@@ -2415,11 +2389,11 @@ name|UserInfo
 case|:
 name|userNameActions
 operator|=
-name|decodedUserNameInUserInfoActions
+name|userNameInUserInfo
 expr_stmt|;
 name|passwordActions
 operator|=
-name|decodedPasswordInUserInfoActions
+name|passwordInUserInfo
 expr_stmt|;
 break|break;
 case|case
@@ -2427,45 +2401,38 @@ name|Authority
 case|:
 name|userNameActions
 operator|=
-name|decodedUserNameInAuthorityActions
+name|userNameInAuthority
 expr_stmt|;
 name|passwordActions
 operator|=
-name|decodedPasswordInAuthorityActions
+name|passwordInAuthority
 expr_stmt|;
 break|break;
 case|case
 name|FullUrl
 case|:
-default|default:
 name|userNameActions
 operator|=
-name|decodedUserNameInUrlActions
+name|userNameInUrl
 expr_stmt|;
 name|passwordActions
 operator|=
-name|decodedPasswordInUrlActions
+name|passwordInUrl
+expr_stmt|;
+break|break;
+default|default:
+comment|// can't happen
+name|Q_UNREACHABLE
+argument_list|()
 expr_stmt|;
 break|break;
 block|}
 block|}
-if|if
-condition|(
-operator|(
-name|options
-operator|&
-name|QUrl
-operator|::
-name|EncodeReserved
-operator|)
-operator|==
-literal|0
-condition|)
 name|options
 operator||=
 name|QUrl
 operator|::
-name|DecodeReserved
+name|EncodeDelimiters
 expr_stmt|;
 if|if
 condition|(
@@ -2565,6 +2532,7 @@ name|options
 parameter_list|)
 specifier|const
 block|{
+comment|// only called from QUrl::userName()
 name|appendToUser
 argument_list|(
 name|appendTo
@@ -2573,9 +2541,15 @@ name|userName
 argument_list|,
 name|options
 argument_list|,
-name|encodedUserNameActions
-argument_list|,
-name|decodedUserNameInIsolationActions
+name|options
+operator|&
+name|QUrl
+operator|::
+name|EncodeDelimiters
+condition|?
+name|userNameInUrl
+else|:
+name|userNameInIsolation
 argument_list|)
 expr_stmt|;
 block|}
@@ -2599,6 +2573,7 @@ name|options
 parameter_list|)
 specifier|const
 block|{
+comment|// only called from QUrl::password()
 name|appendToUser
 argument_list|(
 name|appendTo
@@ -2607,9 +2582,15 @@ name|password
 argument_list|,
 name|options
 argument_list|,
-name|encodedPasswordActions
-argument_list|,
-name|decodedPasswordInIsolationActions
+name|options
+operator|&
+name|QUrl
+operator|::
+name|EncodeDelimiters
+condition|?
+name|passwordInUrl
+else|:
+name|passwordInIsolation
 argument_list|)
 expr_stmt|;
 block|}
@@ -2740,51 +2721,6 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|appendingTo
-operator|!=
-name|Path
-operator|&&
-operator|!
-operator|(
-name|options
-operator|&
-name|QUrl
-operator|::
-name|EncodeDelimiters
-operator|)
-condition|)
-block|{
-if|if
-condition|(
-operator|!
-name|qt_urlRecode
-argument_list|(
-name|appendTo
-argument_list|,
-name|thePath
-operator|.
-name|constData
-argument_list|()
-argument_list|,
-name|thePath
-operator|.
-name|constEnd
-argument_list|()
-argument_list|,
-name|options
-argument_list|,
-name|decodedPathInUrlActions
-argument_list|)
-condition|)
-name|appendTo
-operator|+=
-name|thePath
-expr_stmt|;
-block|}
-else|else
-block|{
 name|appendToUser
 argument_list|(
 name|appendTo
@@ -2793,12 +2729,21 @@ name|thePath
 argument_list|,
 name|options
 argument_list|,
-name|encodedPathActions
-argument_list|,
-name|decodedPathInIsolationActions
+name|appendingTo
+operator|==
+name|FullUrl
+operator|||
+name|options
+operator|&
+name|QUrl
+operator|::
+name|EncodeDelimiters
+condition|?
+name|pathInUrl
+else|:
+name|pathInIsolation
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 end_function
 begin_function
@@ -2831,9 +2776,19 @@ name|fragment
 argument_list|,
 name|options
 argument_list|,
-name|encodedFragmentActions
-argument_list|,
-name|decodedFragmentInIsolationActions
+name|appendingTo
+operator|==
+name|FullUrl
+operator|||
+name|options
+operator|&
+name|QUrl
+operator|::
+name|EncodeDelimiters
+condition|?
+name|fragmentInUrl
+else|:
+name|fragmentInIsolation
 argument_list|)
 expr_stmt|;
 block|}
@@ -2860,98 +2815,28 @@ name|appendingTo
 parameter_list|)
 specifier|const
 block|{
-comment|// almost the same code as the previous functions
-comment|// except we prefer not to touch the delimiters
-if|if
-condition|(
+name|appendToUser
+argument_list|(
+name|appendTo
+argument_list|,
+name|query
+argument_list|,
 name|options
-operator|==
-name|QUrl
-operator|::
-name|PrettyDecoded
-operator|&&
+argument_list|,
 name|appendingTo
 operator|==
-name|Query
-condition|)
-block|{
-name|appendTo
-operator|+=
-name|query
-expr_stmt|;
-return|return;
-block|}
-specifier|const
-name|ushort
-modifier|*
-name|actions
-init|=
-literal|0
-decl_stmt|;
-if|if
-condition|(
+name|FullUrl
+operator|||
 name|options
 operator|&
 name|QUrl
 operator|::
 name|EncodeDelimiters
-condition|)
-block|{
-name|actions
-operator|=
-name|encodedQueryActions
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|// reset to default qt_urlRecode behaviour (leave delimiters alone)
-name|options
-operator||=
-name|QUrl
-operator|::
-name|EncodeDelimiters
-expr_stmt|;
-name|actions
-operator|=
-name|appendingTo
-operator|==
-name|Query
 condition|?
-name|decodedQueryInIsolationActions
+name|queryInUrl
 else|:
-name|decodedQueryInUrlActions
-expr_stmt|;
-block|}
-if|if
-condition|(
-operator|!
-name|qt_urlRecode
-argument_list|(
-name|appendTo
-argument_list|,
-name|query
-operator|.
-name|constData
-argument_list|()
-argument_list|,
-name|query
-operator|.
-name|constData
-argument_list|()
-operator|+
-name|query
-operator|.
-name|length
-argument_list|()
-argument_list|,
-name|options
-argument_list|,
-name|actions
+name|queryInIsolation
 argument_list|)
-condition|)
-name|appendTo
-operator|+=
-name|query
 expr_stmt|;
 block|}
 end_function
@@ -3794,7 +3679,7 @@ name|recodeFromUser
 argument_list|(
 name|value
 argument_list|,
-name|decodedUserNameInIsolationActions
+name|userNameInIsolation
 argument_list|,
 name|from
 argument_list|,
@@ -3833,7 +3718,7 @@ name|recodeFromUser
 argument_list|(
 name|value
 argument_list|,
-name|decodedPasswordInIsolationActions
+name|passwordInIsolation
 argument_list|,
 name|from
 argument_list|,
@@ -3869,7 +3754,7 @@ name|recodeFromUser
 argument_list|(
 name|value
 argument_list|,
-name|decodedPathInIsolationActions
+name|pathInIsolation
 argument_list|,
 name|from
 argument_list|,
@@ -3908,7 +3793,7 @@ name|recodeFromUser
 argument_list|(
 name|value
 argument_list|,
-name|decodedFragmentInIsolationActions
+name|fragmentInIsolation
 argument_list|,
 name|from
 argument_list|,
@@ -3941,68 +3826,17 @@ name|sectionIsPresent
 operator||=
 name|Query
 expr_stmt|;
-comment|// use the default actions for the query (don't set QUrl::DecodeAllDelimiters)
-name|QString
-name|output
-decl_stmt|;
-specifier|const
-name|QChar
-modifier|*
-name|begin
-init|=
-name|value
-operator|.
-name|constData
-argument_list|()
-operator|+
-name|from
-decl_stmt|;
-specifier|const
-name|QChar
-modifier|*
-name|end
-init|=
-name|value
-operator|.
-name|constData
-argument_list|()
-operator|+
-name|iend
-decl_stmt|;
-comment|// leave delimiters alone but decode the rest
-if|if
-condition|(
-name|qt_urlRecode
-argument_list|(
-name|output
-argument_list|,
-name|begin
-argument_list|,
-name|end
-argument_list|,
-name|QUrl
-operator|::
-name|EncodeDelimiters
-argument_list|,
-name|decodedQueryInIsolationActions
-argument_list|)
-condition|)
 name|query
 operator|=
-name|output
-expr_stmt|;
-else|else
-name|query
-operator|=
-name|value
-operator|.
-name|mid
+name|recodeFromUser
 argument_list|(
+name|value
+argument_list|,
+name|queryInIsolation
+argument_list|,
 name|from
 argument_list|,
 name|iend
-operator|-
-name|from
 argument_list|)
 expr_stmt|;
 block|}
