@@ -775,6 +775,10 @@ block|,
 name|NPOTTextureRepeat
 operator|=
 literal|0x2000
+block|,
+name|FixedFunctionPipeline
+operator|=
+literal|0x4000
 block|}
 expr_stmt|;
 name|Q_DECLARE_FLAGS
