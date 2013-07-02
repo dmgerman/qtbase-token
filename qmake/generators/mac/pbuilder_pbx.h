@@ -106,6 +106,15 @@ operator|*
 name|where
 argument_list|)
 block|;
+name|ProStringList
+name|fixListForOutput
+argument_list|(
+specifier|const
+name|ProStringList
+operator|&
+name|list
+argument_list|)
+block|;
 name|int
 name|reftypeForFile
 argument_list|(
