@@ -2154,12 +2154,6 @@ modifier|*
 name|actions
 parameter_list|)
 block|{
-name|options
-operator||=
-name|QUrl
-operator|::
-name|EncodeDelimiters
-expr_stmt|;
 if|if
 condition|(
 name|options
@@ -2428,12 +2422,6 @@ expr_stmt|;
 break|break;
 block|}
 block|}
-name|options
-operator||=
-name|QUrl
-operator|::
-name|EncodeDelimiters
-expr_stmt|;
 if|if
 condition|(
 operator|!
