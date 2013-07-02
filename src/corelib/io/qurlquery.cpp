@@ -415,22 +415,13 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// The "+" sub-delimiter is always left untouched. We never encode "+" to "%2B"
+comment|// QUrlQuery handling of delimiters is quite simple: we never touch any of
 end_comment
 begin_comment
-comment|// nor do we decode "%2B" to "+", no matter what the user asks.
+comment|// them, except for the "#" character and the pair and value delimiters. Those
 end_comment
 begin_comment
-comment|//
-end_comment
-begin_comment
-comment|// The rest of the delimiters are kept in their decoded forms and that's
-end_comment
-begin_comment
-comment|// considered non-ambiguous. That includes the pair and value delimiters
-end_comment
-begin_comment
-comment|// themselves.
+comment|// are always kept in their decoded forms.
 end_comment
 begin_comment
 comment|//
@@ -474,24 +465,6 @@ name|x
 parameter_list|)
 value|ushort(0x200 | (x))
 end_define
-begin_decl_stmt
-DECL|variable|prettyDecodedActions
-specifier|static
-specifier|const
-name|ushort
-name|prettyDecodedActions
-index|[]
-init|=
-block|{
-name|leave
-argument_list|(
-literal|'+'
-argument_list|)
-block|,
-literal|0
-block|}
-decl_stmt|;
-end_decl_stmt
 begin_function
 DECL|function|recodeFromUser
 specifier|inline
@@ -510,6 +483,35 @@ block|{
 comment|// note: duplicated in setQuery()
 name|QString
 name|output
+decl_stmt|;
+name|ushort
+name|prettyDecodedActions
+index|[]
+init|=
+block|{
+name|decode
+argument_list|(
+name|pairDelimiter
+operator|.
+name|unicode
+argument_list|()
+argument_list|)
+block|,
+name|decode
+argument_list|(
+name|valueDelimiter
+operator|.
+name|unicode
+argument_list|()
+argument_list|)
+block|,
+name|decode
+argument_list|(
+literal|'#'
+argument_list|)
+block|,
+literal|0
+block|}
 decl_stmt|;
 if|if
 condition|(
@@ -638,7 +640,7 @@ argument_list|()
 argument_list|,
 name|encoding
 argument_list|,
-name|prettyDecodedActions
+literal|0
 argument_list|)
 condition|)
 return|return
@@ -728,6 +730,35 @@ modifier|&
 name|query
 parameter_list|)
 block|{
+name|ushort
+name|prettyDecodedActions
+index|[]
+init|=
+block|{
+name|decode
+argument_list|(
+name|pairDelimiter
+operator|.
+name|unicode
+argument_list|()
+argument_list|)
+block|,
+name|decode
+argument_list|(
+name|valueDelimiter
+operator|.
+name|unicode
+argument_list|()
+argument_list|)
+block|,
+name|decode
+argument_list|(
+literal|'#'
+argument_list|)
+block|,
+literal|0
+block|}
+decl_stmt|;
 name|itemList
 operator|.
 name|clear
@@ -1432,25 +1463,14 @@ name|QString
 argument_list|()
 return|;
 comment|// unlike the component encoding, for the whole query we need to modify a little:
-comment|//  - the "#" character is ambiguous, so we decode it only in DecodeAllDelimiters mode
+comment|//  - the "#" character is unambiguous, so we encode it in EncodeDelimiters mode
 comment|//  - the query delimiter pair must always be encoded
-comment|//  - the non-delimiters vary on DecodeUnambiguousDelimiters
-comment|// so:
-comment|//  - full encoding: encode the non-delimiters, the pair, "#", "[" and "]"
-comment|//  - pretty decode: decode the non-delimiters, "[" and "]"; encode the pair and "#"
-comment|//  - decode all: decode the non-delimiters, "[", "]", "#"; encode the pair
 comment|// start with what's always encoded
 name|ushort
 name|tableActions
 index|[]
 init|=
 block|{
-name|leave
-argument_list|(
-literal|'+'
-argument_list|)
-block|,
-comment|// 0
 name|encode
 argument_list|(
 name|d
@@ -1461,7 +1481,7 @@ name|unicode
 argument_list|()
 argument_list|)
 block|,
-comment|// 1
+comment|// 0
 name|encode
 argument_list|(
 name|d
@@ -1472,13 +1492,10 @@ name|unicode
 argument_list|()
 argument_list|)
 block|,
-comment|// 2
-name|decode
-argument_list|(
-literal|'#'
-argument_list|)
+comment|// 1
+literal|0
 block|,
-comment|// 3
+comment|// 2
 literal|0
 block|}
 decl_stmt|;
@@ -1493,7 +1510,7 @@ condition|)
 block|{
 name|tableActions
 index|[
-literal|3
+literal|2
 index|]
 operator|=
 name|encode
