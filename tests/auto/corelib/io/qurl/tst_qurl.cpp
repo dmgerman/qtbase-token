@@ -12341,7 +12341,7 @@ literal|"x://[va.1]"
 operator|<<
 literal|true
 operator|<<
-literal|"x://[va.1]"
+literal|"x://[vA.1]"
 expr_stmt|;
 name|QTest
 operator|::
