@@ -4230,6 +4230,14 @@ literal|"-._~"
 decl_stmt|;
 comment|// unreserved
 comment|// the brackets and the "v" have been checked
+specifier|const
+name|QChar
+modifier|*
+specifier|const
+name|origBegin
+init|=
+name|begin
+decl_stmt|;
 if|if
 condition|(
 name|begin
@@ -4518,7 +4526,18 @@ name|begin
 expr_stmt|;
 else|else
 return|return
+name|decoded
+operator|.
+name|isEmpty
+argument_list|()
+condition|?
 name|begin
+else|:
+operator|&
+name|origBegin
+index|[
+literal|2
+index|]
 return|;
 block|}
 name|host
@@ -4534,7 +4553,7 @@ return|;
 block|}
 return|return
 operator|&
-name|begin
+name|origBegin
 index|[
 literal|2
 index|]
