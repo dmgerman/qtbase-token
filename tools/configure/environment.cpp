@@ -270,6 +270,28 @@ block|}
 block|,
 comment|// link.exe, lib.exe
 block|{
+name|CC_NET2013
+block|,
+literal|"Microsoft (R) 32-bit C/C++ Optimizing Compiler.NET 2013 (12.0)"
+block|,
+literal|"Software\\Microsoft\\VisualStudio\\SxS\\VC7\\12.0"
+block|,
+literal|"cl.exe"
+block|}
+block|,
+comment|// link.exe, lib.exe
+block|{
+name|CC_NET2013
+block|,
+literal|"Microsoft (R) 32-bit C/C++ Optimizing Compiler.NET 2013 (12.0)"
+block|,
+literal|"Software\\Wow6432Node\\Microsoft\\VisualStudio\\SxS\\VC7\\12.0"
+block|,
+literal|"cl.exe"
+block|}
+block|,
+comment|// link.exe, lib.exe
+block|{
 name|CC_UNKNOWN
 block|,
 literal|"Unknown"
@@ -369,6 +391,14 @@ argument_list|()
 condition|)
 block|{
 case|case
+name|CC_NET2013
+case|:
+name|spec
+operator|=
+literal|"win32-msvc2013"
+expr_stmt|;
+break|break;
+case|case
 name|CC_NET2012
 case|:
 name|spec
@@ -453,6 +483,18 @@ modifier|&
 name|qmakeSpec
 parameter_list|)
 block|{
+if|if
+condition|(
+name|qmakeSpec
+operator|==
+name|QLatin1String
+argument_list|(
+literal|"win32-msvc2013"
+argument_list|)
+condition|)
+return|return
+name|CC_NET2013
+return|;
 if|if
 condition|(
 name|qmakeSpec
