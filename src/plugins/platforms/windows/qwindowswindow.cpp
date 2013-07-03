@@ -4585,11 +4585,6 @@ block|{
 ifndef|#
 directive|ifndef
 name|Q_OS_WINCE
-name|QWindowSystemInterface
-operator|::
-name|flushWindowSystemEvents
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|testFlag
