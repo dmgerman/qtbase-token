@@ -3534,7 +3534,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -3585,7 +3594,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -3636,7 +3654,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -3687,7 +3714,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -3738,7 +3774,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -3789,7 +3834,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -3840,7 +3894,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -3891,7 +3954,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -3942,7 +4014,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -3993,7 +4074,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -4044,7 +4134,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -4095,7 +4194,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -4146,7 +4254,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -4197,7 +4314,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -4248,7 +4374,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -4299,7 +4434,232 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
+block|}
+block|,
+block|{
+comment|// Format_RGBX8888
+literal|0
+block|,
+comment|// Format_Invalid,
+literal|0
+block|,
+comment|// Format_Mono,
+literal|0
+block|,
+comment|// Format_MonoLSB,
+literal|0
+block|,
+comment|// Format_Indexed8,
+literal|0
+block|,
+comment|// Format_RGB32,
+literal|0
+block|,
+comment|// Format_ARGB32,
+literal|0
+block|,
+comment|// Format_ARGB32_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB16,
+literal|0
+block|,
+comment|// Format_ARGB8565_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB666,
+literal|0
+block|,
+comment|// Format_ARGB6666_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB555,
+literal|0
+block|,
+comment|// Format_ARGB8555_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB888,
+literal|0
+block|,
+comment|// Format_RGB444,
+literal|0
+block|,
+comment|// Format_ARGB4444_Premultiplied,
+if|#
+directive|if
+name|Q_BYTE_ORDER
+operator|==
+name|Q_LITTLE_ENDIAN
+name|qt_scale_image_rgb32_on_rgb32
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+name|qt_scale_image_argb32_on_argb32
+block|,
+comment|// Format_RGBA8888_Premultiplied,
+else|#
+directive|else
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
+endif|#
+directive|endif
+block|}
+block|,
+block|{
+comment|// Format_RGBA8888
+literal|0
+block|,
+comment|// Format_Invalid,
+literal|0
+block|,
+comment|// Format_Mono,
+literal|0
+block|,
+comment|// Format_MonoLSB,
+literal|0
+block|,
+comment|// Format_Indexed8,
+literal|0
+block|,
+comment|// Format_RGB32,
+literal|0
+block|,
+comment|// Format_ARGB32,
+literal|0
+block|,
+comment|// Format_ARGB32_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB16,
+literal|0
+block|,
+comment|// Format_ARGB8565_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB666,
+literal|0
+block|,
+comment|// Format_ARGB6666_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB555,
+literal|0
+block|,
+comment|// Format_ARGB8555_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB888,
+literal|0
+block|,
+comment|// Format_RGB444,
+literal|0
+block|,
+comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
+block|}
+block|,
+block|{
+comment|// Format_RGBA8888_Premultiplied
+literal|0
+block|,
+comment|// Format_Invalid,
+literal|0
+block|,
+comment|// Format_Mono,
+literal|0
+block|,
+comment|// Format_MonoLSB,
+literal|0
+block|,
+comment|// Format_Indexed8,
+literal|0
+block|,
+comment|// Format_RGB32,
+literal|0
+block|,
+comment|// Format_ARGB32,
+literal|0
+block|,
+comment|// Format_ARGB32_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB16,
+literal|0
+block|,
+comment|// Format_ARGB8565_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB666,
+literal|0
+block|,
+comment|// Format_ARGB6666_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB555,
+literal|0
+block|,
+comment|// Format_ARGB8555_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB888,
+literal|0
+block|,
+comment|// Format_RGB444,
+literal|0
+block|,
+comment|// Format_ARGB4444_Premultiplied,
+if|#
+directive|if
+name|Q_BYTE_ORDER
+operator|==
+name|Q_LITTLE_ENDIAN
+name|qt_scale_image_rgb32_on_rgb32
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+name|qt_scale_image_argb32_on_argb32
+block|,
+comment|// Format_RGBA8888_Premultiplied,
+else|#
+directive|else
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
+endif|#
+directive|endif
 block|}
 block|}
 decl_stmt|;
@@ -4368,7 +4728,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -4419,7 +4788,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -4470,7 +4848,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -4521,7 +4908,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -4572,7 +4968,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -4623,7 +5028,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -4674,7 +5088,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -4725,7 +5148,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -4776,7 +5208,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -4827,7 +5268,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -4878,7 +5328,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -4929,7 +5388,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -4980,7 +5448,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -5031,7 +5508,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -5082,7 +5568,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -5133,7 +5628,232 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
+block|}
+block|,
+block|{
+comment|// Format_RGBX8888
+literal|0
+block|,
+comment|// Format_Invalid,
+literal|0
+block|,
+comment|// Format_Mono,
+literal|0
+block|,
+comment|// Format_MonoLSB,
+literal|0
+block|,
+comment|// Format_Indexed8,
+literal|0
+block|,
+comment|// Format_RGB32,
+literal|0
+block|,
+comment|// Format_ARGB32,
+literal|0
+block|,
+comment|// Format_ARGB32_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB16,
+literal|0
+block|,
+comment|// Format_ARGB8565_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB666,
+literal|0
+block|,
+comment|// Format_ARGB6666_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB555,
+literal|0
+block|,
+comment|// Format_ARGB8555_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB888,
+literal|0
+block|,
+comment|// Format_RGB444,
+literal|0
+block|,
+comment|// Format_ARGB4444_Premultiplied,
+if|#
+directive|if
+name|Q_BYTE_ORDER
+operator|==
+name|Q_LITTLE_ENDIAN
+name|qt_blend_rgb32_on_rgb32
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+name|qt_blend_argb32_on_argb32
+block|,
+comment|// Format_RGBA8888_Premultiplied,
+else|#
+directive|else
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
+endif|#
+directive|endif
+block|}
+block|,
+block|{
+comment|// Format_RGBA8888
+literal|0
+block|,
+comment|// Format_Invalid,
+literal|0
+block|,
+comment|// Format_Mono,
+literal|0
+block|,
+comment|// Format_MonoLSB,
+literal|0
+block|,
+comment|// Format_Indexed8,
+literal|0
+block|,
+comment|// Format_RGB32,
+literal|0
+block|,
+comment|// Format_ARGB32,
+literal|0
+block|,
+comment|// Format_ARGB32_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB16,
+literal|0
+block|,
+comment|// Format_ARGB8565_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB666,
+literal|0
+block|,
+comment|// Format_ARGB6666_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB555,
+literal|0
+block|,
+comment|// Format_ARGB8555_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB888,
+literal|0
+block|,
+comment|// Format_RGB444,
+literal|0
+block|,
+comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
+block|}
+block|,
+block|{
+comment|// Format_RGBA8888_Premultiplied
+literal|0
+block|,
+comment|// Format_Invalid,
+literal|0
+block|,
+comment|// Format_Mono,
+literal|0
+block|,
+comment|// Format_MonoLSB,
+literal|0
+block|,
+comment|// Format_Indexed8,
+literal|0
+block|,
+comment|// Format_RGB32,
+literal|0
+block|,
+comment|// Format_ARGB32,
+literal|0
+block|,
+comment|// Format_ARGB32_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB16,
+literal|0
+block|,
+comment|// Format_ARGB8565_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB666,
+literal|0
+block|,
+comment|// Format_ARGB6666_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB555,
+literal|0
+block|,
+comment|// Format_ARGB8555_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB888,
+literal|0
+block|,
+comment|// Format_RGB444,
+literal|0
+block|,
+comment|// Format_ARGB4444_Premultiplied,
+if|#
+directive|if
+name|Q_BYTE_ORDER
+operator|==
+name|Q_LITTLE_ENDIAN
+name|qt_blend_rgb32_on_rgb32
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+name|qt_blend_argb32_on_argb32
+block|,
+comment|// Format_RGBA8888_Premultiplied,
+else|#
+directive|else
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
+endif|#
+directive|endif
 block|}
 block|}
 decl_stmt|;
@@ -5202,7 +5922,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -5253,7 +5982,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -5304,7 +6042,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -5355,7 +6102,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -5406,7 +6162,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -5457,7 +6222,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -5508,7 +6282,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -5559,7 +6342,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -5610,7 +6402,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -5661,7 +6462,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -5712,7 +6522,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -5763,7 +6582,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -5814,7 +6642,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -5865,7 +6702,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -5916,7 +6762,16 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 block|,
 block|{
@@ -5967,7 +6822,232 @@ literal|0
 block|,
 comment|// Format_RGB444,
 literal|0
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
+block|}
+block|,
+block|{
+comment|// Format_RGBX8888
+literal|0
+block|,
+comment|// Format_Invalid,
+literal|0
+block|,
+comment|// Format_Mono,
+literal|0
+block|,
+comment|// Format_MonoLSB,
+literal|0
+block|,
+comment|// Format_Indexed8,
+literal|0
+block|,
+comment|// Format_RGB32,
+literal|0
+block|,
+comment|// Format_ARGB32,
+literal|0
+block|,
+comment|// Format_ARGB32_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB16,
+literal|0
+block|,
+comment|// Format_ARGB8565_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB666,
+literal|0
+block|,
+comment|// Format_ARGB6666_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB555,
+literal|0
+block|,
+comment|// Format_ARGB8555_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB888,
+literal|0
+block|,
+comment|// Format_RGB444,
+literal|0
+block|,
+comment|// Format_ARGB4444_Premultiplied,
+if|#
+directive|if
+name|Q_BYTE_ORDER
+operator|==
+name|Q_LITTLE_ENDIAN
+name|qt_transform_image_rgb32_on_rgb32
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+name|qt_transform_image_argb32_on_argb32
+block|,
+comment|// Format_RGBA8888_Premultiplied,
+else|#
+directive|else
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
+endif|#
+directive|endif
+block|}
+block|,
+block|{
+comment|// Format_RGBA8888
+literal|0
+block|,
+comment|// Format_Invalid,
+literal|0
+block|,
+comment|// Format_Mono,
+literal|0
+block|,
+comment|// Format_MonoLSB,
+literal|0
+block|,
+comment|// Format_Indexed8,
+literal|0
+block|,
+comment|// Format_RGB32,
+literal|0
+block|,
+comment|// Format_ARGB32,
+literal|0
+block|,
+comment|// Format_ARGB32_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB16,
+literal|0
+block|,
+comment|// Format_ARGB8565_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB666,
+literal|0
+block|,
+comment|// Format_ARGB6666_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB555,
+literal|0
+block|,
+comment|// Format_ARGB8555_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB888,
+literal|0
+block|,
+comment|// Format_RGB444,
+literal|0
+block|,
+comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
+block|}
+block|,
+block|{
+comment|// Format_RGBA8888_Premultiplied
+literal|0
+block|,
+comment|// Format_Invalid,
+literal|0
+block|,
+comment|// Format_Mono,
+literal|0
+block|,
+comment|// Format_MonoLSB,
+literal|0
+block|,
+comment|// Format_Indexed8,
+literal|0
+block|,
+comment|// Format_RGB32,
+literal|0
+block|,
+comment|// Format_ARGB32,
+literal|0
+block|,
+comment|// Format_ARGB32_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB16,
+literal|0
+block|,
+comment|// Format_ARGB8565_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB666,
+literal|0
+block|,
+comment|// Format_ARGB6666_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB555,
+literal|0
+block|,
+comment|// Format_ARGB8555_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB888,
+literal|0
+block|,
+comment|// Format_RGB444,
+literal|0
+block|,
+comment|// Format_ARGB4444_Premultiplied,
+if|#
+directive|if
+name|Q_BYTE_ORDER
+operator|==
+name|Q_LITTLE_ENDIAN
+name|qt_transform_image_rgb32_on_rgb32
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+name|qt_transform_image_argb32_on_argb32
+block|,
+comment|// Format_RGBA8888_Premultiplied,
+else|#
+directive|else
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+comment|// Format_RGBA8888_Premultiplied,
+endif|#
+directive|endif
 block|}
 block|}
 decl_stmt|;

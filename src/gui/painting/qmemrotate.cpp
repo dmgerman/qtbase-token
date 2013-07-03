@@ -3766,7 +3766,34 @@ literal|0
 block|,
 literal|0
 block|}
+block|,
 comment|// Format_ARGB4444_Premultiplied,
+block|{
+name|qt_memrotate90_32
+block|,
+name|qt_memrotate180_32
+block|,
+name|qt_memrotate270_32
+block|}
+block|,
+comment|// Format_RGBX8888,
+block|{
+name|qt_memrotate90_32
+block|,
+name|qt_memrotate180_32
+block|,
+name|qt_memrotate270_32
+block|}
+block|,
+comment|// Format_RGBA8888,
+block|{
+name|qt_memrotate90_32
+block|,
+name|qt_memrotate180_32
+block|,
+name|qt_memrotate270_32
+block|}
+comment|// Format_RGBA8888_Premultiplied,
 block|}
 decl_stmt|;
 end_decl_stmt

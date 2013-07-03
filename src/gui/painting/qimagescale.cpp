@@ -6501,6 +6501,15 @@ operator|==
 name|QImage
 operator|::
 name|Format_ARGB32_Premultiplied
+operator|||
+name|src
+operator|.
+name|format
+argument_list|()
+operator|==
+name|QImage
+operator|::
+name|Format_RGBA8888_Premultiplied
 condition|)
 name|qt_qimageScaleArgb
 argument_list|(

@@ -2000,6 +2000,16 @@ name|QImage
 operator|::
 name|Format_ARGB32
 case|:
+case|case
+name|QImage
+operator|::
+name|Format_RGBA8888_Premultiplied
+case|:
+case|case
+name|QImage
+operator|::
+name|Format_RGBA8888
+case|:
 name|gccaps
 operator||=
 name|PorterDuff
@@ -2034,6 +2044,11 @@ case|case
 name|QImage
 operator|::
 name|Format_RGB16
+case|:
+case|case
+name|QImage
+operator|::
+name|Format_RGBX8888
 case|:
 break|break;
 default|default:
@@ -12951,6 +12966,11 @@ case|case
 name|QImage
 operator|::
 name|Format_ARGB4444_Premultiplied
+case|:
+case|case
+name|QImage
+operator|::
+name|Format_RGBA8888_Premultiplied
 case|:
 comment|// Combine premultiplied color with the opacity set on the painter.
 name|d

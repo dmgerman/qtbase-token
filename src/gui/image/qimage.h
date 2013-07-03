@@ -346,6 +346,12 @@ name|Format_RGB444
 block|,
 name|Format_ARGB4444_Premultiplied
 block|,
+name|Format_RGBX8888
+block|,
+name|Format_RGBA8888
+block|,
+name|Format_RGBA8888_Premultiplied
+block|,
 if|#
 directive|if
 literal|0
