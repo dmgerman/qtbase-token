@@ -11326,6 +11326,7 @@ case|:
 ifndef|#
 directive|ifndef
 name|Q_OS_WINCE
+comment|// Note: "Windows XP Professional x64 Edition has version number WV_5_2 (WV_2003).
 if|if
 condition|(
 name|QWindowsIntegration
@@ -11344,10 +11345,10 @@ name|QSysInfo
 operator|::
 name|windowsVersion
 argument_list|()
-operator|==
+operator|<=
 name|QSysInfo
 operator|::
-name|WV_XP
+name|WV_2003
 condition|)
 block|{
 return|return
