@@ -20339,6 +20339,21 @@ name|m
 parameter_list|)
 specifier|const
 block|{
+comment|// The raster engine does not support projected cached glyph drawing
+if|if
+condition|(
+name|m
+operator|.
+name|type
+argument_list|()
+operator|>=
+name|QTransform
+operator|::
+name|TxProject
+condition|)
+return|return
+literal|false
+return|;
 comment|// The font engine might not support filling the glyph cache
 comment|// with the given transform applied, in which case we need to
 comment|// fall back to the QPainterPath code-path.
