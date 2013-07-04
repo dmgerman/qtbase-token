@@ -7522,9 +7522,7 @@ condition|)
 block|{
 name|t
 operator|<<
-literal|"first: all"
-operator|<<
-name|endl
+literal|"first: all\n"
 expr_stmt|;
 name|QList
 argument_list|<
@@ -7638,9 +7636,7 @@ argument_list|()
 operator|->
 name|target
 operator|<<
-literal|"-install"
-operator|<<
-name|endl
+literal|"-install\n"
 operator|<<
 literal|"uninstall: "
 operator|<<
@@ -7651,9 +7647,7 @@ argument_list|()
 operator|->
 name|target
 operator|<<
-literal|"-uninstall"
-operator|<<
-name|endl
+literal|"-uninstall\n"
 expr_stmt|;
 block|}
 name|writeSubTargets
@@ -10480,11 +10474,7 @@ argument_list|,
 name|dst
 argument_list|)
 operator|<<
-literal|" "
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|" \n\n"
 expr_stmt|;
 block|}
 name|t
@@ -14495,9 +14485,7 @@ condition|)
 block|{
 name|t
 operator|<<
-literal|"\n\t"
-operator|<<
-literal|"-$(DEL_FILE) "
+literal|"\n\t-$(DEL_FILE) "
 operator|<<
 name|tmp_clean
 expr_stmt|;
@@ -16374,9 +16362,7 @@ condition|)
 block|{
 name|t
 operator|<<
-literal|"\n####### Custom Compiler Variables"
-operator|<<
-name|endl
+literal|"\n####### Custom Compiler Variables\n"
 expr_stmt|;
 name|first
 operator|=
@@ -16583,9 +16569,7 @@ condition|)
 block|{
 name|t
 operator|<<
-literal|"####### Custom Variables"
-operator|<<
-name|endl
+literal|"####### Custom Variables\n"
 expr_stmt|;
 name|t
 operator|<<
@@ -16670,15 +16654,9 @@ expr_stmt|;
 comment|//const QString ofile = Option::fixPathToTargetOS(fileFixify(Option::output.fileName()));
 name|t
 operator|<<
-literal|"first all clean install distclean uninstall: "
+literal|"first all clean install distclean uninstall: qmake\n"
 operator|<<
-literal|"qmake"
-operator|<<
-name|endl
-operator|<<
-literal|"qmake_all:"
-operator|<<
-name|endl
+literal|"qmake_all:\n"
 expr_stmt|;
 name|writeMakeQmake
 argument_list|(
@@ -16687,11 +16665,7 @@ argument_list|)
 expr_stmt|;
 name|t
 operator|<<
-literal|"FORCE:"
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|"FORCE:\n\n"
 expr_stmt|;
 return|return
 literal|true
@@ -16712,11 +16686,7 @@ parameter_list|)
 block|{
 name|t
 operator|<<
-literal|"####### Compile"
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|"####### Compile\n\n"
 expr_stmt|;
 name|writeObj
 argument_list|(
@@ -16734,11 +16704,7 @@ argument_list|)
 expr_stmt|;
 name|t
 operator|<<
-literal|"####### Install"
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|"####### Install\n\n"
 expr_stmt|;
 name|writeInstalls
 argument_list|(
@@ -16747,11 +16713,7 @@ argument_list|)
 expr_stmt|;
 name|t
 operator|<<
-literal|"FORCE:"
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|"FORCE:\n\n"
 expr_stmt|;
 return|return
 literal|true
@@ -16947,9 +16909,7 @@ parameter_list|)
 block|{
 name|t
 operator|<<
-literal|"#############################################################################"
-operator|<<
-name|endl
+literal|"#############################################################################\n"
 expr_stmt|;
 name|t
 operator|<<
@@ -17041,9 +17001,7 @@ name|endl
 expr_stmt|;
 name|t
 operator|<<
-literal|"#############################################################################"
-operator|<<
-name|endl
+literal|"#############################################################################\n"
 expr_stmt|;
 name|t
 operator|<<
@@ -18033,9 +17991,7 @@ argument_list|()
 decl_stmt|;
 name|t
 operator|<<
-literal|"first: make_first"
-operator|<<
-name|endl
+literal|"first: make_first\n"
 expr_stmt|;
 name|int
 name|flags
@@ -19269,19 +19225,13 @@ operator|)
 operator|->
 name|target
 operator|<<
-literal|"-"
-operator|<<
-literal|"qmake_all"
+literal|"-qmake_all"
 expr_stmt|;
 block|}
 block|}
 name|t
 operator|<<
-literal|" FORCE"
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|" FORCE\n\n"
 expr_stmt|;
 block|}
 for|for
@@ -19499,9 +19449,7 @@ argument_list|)
 expr_stmt|;
 name|t
 operator|<<
-literal|" FORCE"
-operator|<<
-name|endl
+literal|" FORCE\n"
 expr_stmt|;
 if|if
 condition|(
@@ -20355,11 +20303,7 @@ expr_stmt|;
 block|}
 name|t
 operator|<<
-literal|"FORCE:"
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|"FORCE:\n\n"
 expr_stmt|;
 block|}
 end_function
@@ -20441,9 +20385,7 @@ name|toQString
 argument_list|()
 argument_list|)
 operator|<<
-literal|": "
-operator|<<
-literal|"\n\t"
+literal|": \n\t"
 operator|<<
 literal|"@$(QMAKE) -prl "
 operator|<<
@@ -20688,9 +20630,7 @@ name|t
 operator|<<
 name|i
 operator|<<
-literal|":"
-operator|<<
-name|endl
+literal|":\n"
 expr_stmt|;
 block|}
 block|}
@@ -20723,11 +20663,7 @@ name|noDummyQmakeAll
 condition|)
 name|t
 operator|<<
-literal|"qmake_all: FORCE"
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|"qmake_all: FORCE\n\n"
 expr_stmt|;
 block|}
 block|}
@@ -24628,9 +24564,7 @@ literal|" "
 operator|<<
 name|pkgConfiglibName
 operator|<<
-literal|" "
-operator|<<
-name|endl
+literal|" \n"
 expr_stmt|;
 name|ProStringList
 name|libs
@@ -24768,9 +24702,7 @@ literal|" "
 argument_list|)
 comment|//<< varGlue("DEFINES","-D"," -D"," ")
 operator|<<
-literal|"-I${includedir}"
-operator|<<
-name|endl
+literal|"-I${includedir}\n"
 expr_stmt|;
 comment|// requires
 specifier|const

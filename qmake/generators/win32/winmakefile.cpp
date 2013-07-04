@@ -3328,33 +3328,23 @@ decl_stmt|;
 comment|// default: Unicode
 name|ts
 operator|<<
-literal|"# if defined(UNDER_CE)"
-operator|<<
-name|endl
+literal|"# if defined(UNDER_CE)\n"
 expr_stmt|;
 name|ts
 operator|<<
-literal|"#  include<winbase.h>"
-operator|<<
-name|endl
+literal|"#  include<winbase.h>\n"
 expr_stmt|;
 name|ts
 operator|<<
-literal|"# else"
-operator|<<
-name|endl
+literal|"# else\n"
 expr_stmt|;
 name|ts
 operator|<<
-literal|"#  include<winver.h>"
-operator|<<
-name|endl
+literal|"#  include<winver.h>\n"
 expr_stmt|;
 name|ts
 operator|<<
-literal|"# endif"
-operator|<<
-name|endl
+literal|"# endif\n"
 expr_stmt|;
 name|ts
 operator|<<
@@ -3420,9 +3410,7 @@ expr_stmt|;
 block|}
 name|ts
 operator|<<
-literal|"VS_VERSION_INFO VERSIONINFO"
-operator|<<
-name|endl
+literal|"VS_VERSION_INFO VERSIONINFO\n"
 expr_stmt|;
 name|ts
 operator|<<
@@ -3462,45 +3450,31 @@ name|endl
 expr_stmt|;
 name|ts
 operator|<<
-literal|"\tFILEFLAGSMASK 0x3fL"
-operator|<<
-name|endl
+literal|"\tFILEFLAGSMASK 0x3fL\n"
 expr_stmt|;
 name|ts
 operator|<<
-literal|"#ifdef _DEBUG"
-operator|<<
-name|endl
+literal|"#ifdef _DEBUG\n"
 expr_stmt|;
 name|ts
 operator|<<
-literal|"\tFILEFLAGS VS_FF_DEBUG"
-operator|<<
-name|endl
+literal|"\tFILEFLAGS VS_FF_DEBUG\n"
 expr_stmt|;
 name|ts
 operator|<<
-literal|"#else"
-operator|<<
-name|endl
+literal|"#else\n"
 expr_stmt|;
 name|ts
 operator|<<
-literal|"\tFILEFLAGS 0x0L"
-operator|<<
-name|endl
+literal|"\tFILEFLAGS 0x0L\n"
 expr_stmt|;
 name|ts
 operator|<<
-literal|"#endif"
-operator|<<
-name|endl
+literal|"#endif\n"
 expr_stmt|;
 name|ts
 operator|<<
-literal|"\tFILEOS VOS__WINDOWS32"
-operator|<<
-name|endl
+literal|"\tFILEOS VOS__WINDOWS32\n"
 expr_stmt|;
 if|if
 condition|(
@@ -3513,40 +3487,28 @@ argument_list|)
 condition|)
 name|ts
 operator|<<
-literal|"\tFILETYPE VFT_DLL"
-operator|<<
-name|endl
+literal|"\tFILETYPE VFT_DLL\n"
 expr_stmt|;
 else|else
 name|ts
 operator|<<
-literal|"\tFILETYPE VFT_APP"
-operator|<<
-name|endl
+literal|"\tFILETYPE VFT_APP\n"
 expr_stmt|;
 name|ts
 operator|<<
-literal|"\tFILESUBTYPE 0x0L"
-operator|<<
-name|endl
+literal|"\tFILESUBTYPE 0x0L\n"
 expr_stmt|;
 name|ts
 operator|<<
-literal|"\tBEGIN"
-operator|<<
-name|endl
+literal|"\tBEGIN\n"
 expr_stmt|;
 name|ts
 operator|<<
-literal|"\t\tBLOCK \"StringFileInfo\""
-operator|<<
-name|endl
+literal|"\t\tBLOCK \"StringFileInfo\"\n"
 expr_stmt|;
 name|ts
 operator|<<
-literal|"\t\tBEGIN"
-operator|<<
-name|endl
+literal|"\t\tBEGIN\n"
 expr_stmt|;
 name|ts
 operator|<<
@@ -3585,15 +3547,11 @@ literal|'0'
 argument_list|)
 argument_list|)
 operator|<<
-literal|"\""
-operator|<<
-name|endl
+literal|"\"\n"
 expr_stmt|;
 name|ts
 operator|<<
-literal|"\t\t\tBEGIN"
-operator|<<
-name|endl
+literal|"\t\t\tBEGIN\n"
 expr_stmt|;
 name|ts
 operator|<<
@@ -3601,9 +3559,7 @@ literal|"\t\t\t\tVALUE \"CompanyName\", \""
 operator|<<
 name|companyName
 operator|<<
-literal|"\\0\""
-operator|<<
-name|endl
+literal|"\\0\"\n"
 expr_stmt|;
 name|ts
 operator|<<
@@ -3611,9 +3567,7 @@ literal|"\t\t\t\tVALUE \"FileDescription\", \""
 operator|<<
 name|description
 operator|<<
-literal|"\\0\""
-operator|<<
-name|endl
+literal|"\\0\"\n"
 expr_stmt|;
 name|ts
 operator|<<
@@ -3621,9 +3575,7 @@ literal|"\t\t\t\tVALUE \"FileVersion\", \""
 operator|<<
 name|versionString
 operator|<<
-literal|"\\0\""
-operator|<<
-name|endl
+literal|"\\0\"\n"
 expr_stmt|;
 name|ts
 operator|<<
@@ -3631,9 +3583,7 @@ literal|"\t\t\t\tVALUE \"LegalCopyright\", \""
 operator|<<
 name|copyright
 operator|<<
-literal|"\\0\""
-operator|<<
-name|endl
+literal|"\\0\"\n"
 expr_stmt|;
 name|ts
 operator|<<
@@ -3641,9 +3591,7 @@ literal|"\t\t\t\tVALUE \"OriginalFilename\", \""
 operator|<<
 name|originalName
 operator|<<
-literal|"\\0\""
-operator|<<
-name|endl
+literal|"\\0\"\n"
 expr_stmt|;
 name|ts
 operator|<<
@@ -3651,9 +3599,7 @@ literal|"\t\t\t\tVALUE \"ProductName\", \""
 operator|<<
 name|productName
 operator|<<
-literal|"\\0\""
-operator|<<
-name|endl
+literal|"\\0\"\n"
 expr_stmt|;
 name|ts
 operator|<<
@@ -3661,33 +3607,23 @@ literal|"\t\t\t\tVALUE \"ProductVersion\", \""
 operator|<<
 name|versionString
 operator|<<
-literal|"\\0\""
-operator|<<
-name|endl
+literal|"\\0\"\n"
 expr_stmt|;
 name|ts
 operator|<<
-literal|"\t\t\tEND"
-operator|<<
-name|endl
+literal|"\t\t\tEND\n"
 expr_stmt|;
 name|ts
 operator|<<
-literal|"\t\tEND"
-operator|<<
-name|endl
+literal|"\t\tEND\n"
 expr_stmt|;
 name|ts
 operator|<<
-literal|"\t\tBLOCK \"VarFileInfo\""
-operator|<<
-name|endl
+literal|"\t\tBLOCK \"VarFileInfo\"\n"
 expr_stmt|;
 name|ts
 operator|<<
-literal|"\t\tBEGIN"
-operator|<<
-name|endl
+literal|"\t\tBEGIN\n"
 expr_stmt|;
 name|ts
 operator|<<
@@ -3730,21 +3666,15 @@ name|endl
 expr_stmt|;
 name|ts
 operator|<<
-literal|"\t\tEND"
-operator|<<
-name|endl
+literal|"\t\tEND\n"
 expr_stmt|;
 name|ts
 operator|<<
-literal|"\tEND"
-operator|<<
-name|endl
+literal|"\tEND\n"
 expr_stmt|;
 name|ts
 operator|<<
-literal|"/* End of Version info */"
-operator|<<
-name|endl
+literal|"/* End of Version info */\n"
 expr_stmt|;
 name|ts
 operator|<<
@@ -4717,9 +4647,7 @@ block|}
 block|}
 name|t
 operator|<<
-literal|"\n\t-$(DEL_FILE) $(DESTDIR_TARGET)"
-operator|<<
-name|endl
+literal|"\n\t-$(DEL_FILE) $(DESTDIR_TARGET)\n"
 expr_stmt|;
 block|{
 name|QString
@@ -4856,9 +4784,7 @@ argument_list|()
 condition|)
 name|t
 operator|<<
-literal|"-I"
-operator|<<
-literal|"\""
+literal|"-I\""
 operator|<<
 name|inc
 operator|<<
@@ -4892,11 +4818,7 @@ parameter_list|)
 block|{
 name|t
 operator|<<
-literal|"####### Compiler, tools and options"
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|"####### Compiler, tools and options\n\n"
 expr_stmt|;
 name|t
 operator|<<
@@ -4957,9 +4879,7 @@ argument_list|(
 literal|"QMAKE_CFLAGS"
 argument_list|)
 operator|<<
-literal|" $(DEFINES)"
-operator|<<
-name|endl
+literal|" $(DEFINES)\n"
 expr_stmt|;
 name|t
 operator|<<
@@ -4970,9 +4890,7 @@ argument_list|(
 literal|"QMAKE_CXXFLAGS"
 argument_list|)
 operator|<<
-literal|" $(DEFINES)"
-operator|<<
-name|endl
+literal|" $(DEFINES)\n"
 expr_stmt|;
 name|writeIncPart
 argument_list|(
@@ -5231,11 +5149,7 @@ name|endl
 expr_stmt|;
 name|t
 operator|<<
-literal|"####### Output directory"
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|"####### Output directory\n\n"
 expr_stmt|;
 if|if
 condition|(
@@ -5274,9 +5188,7 @@ expr_stmt|;
 else|else
 name|t
 operator|<<
-literal|"OBJECTS_DIR   = . "
-operator|<<
-name|endl
+literal|"OBJECTS_DIR   = . \n"
 expr_stmt|;
 name|t
 operator|<<
@@ -5284,11 +5196,7 @@ name|endl
 expr_stmt|;
 name|t
 operator|<<
-literal|"####### Files"
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|"####### Files\n\n"
 expr_stmt|;
 name|t
 operator|<<
@@ -5466,9 +5374,7 @@ argument_list|(
 name|destDir
 argument_list|)
 operator|<<
-literal|" #avoid trailing-slash linebreak"
-operator|<<
-name|endl
+literal|" #avoid trailing-slash linebreak\n"
 expr_stmt|;
 name|t
 operator|<<
@@ -5501,11 +5407,7 @@ name|endl
 expr_stmt|;
 name|t
 operator|<<
-literal|"####### Implicit rules"
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|"####### Implicit rules\n\n"
 expr_stmt|;
 name|writeImplicitRulesPart
 argument_list|(
@@ -5514,11 +5416,7 @@ argument_list|)
 expr_stmt|;
 name|t
 operator|<<
-literal|"####### Build rules"
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|"####### Build rules\n\n"
 expr_stmt|;
 name|writeBuildRulesPart
 argument_list|(
@@ -5583,9 +5481,7 @@ control|)
 block|{
 name|t
 operator|<<
-literal|"\t"
-operator|<<
-literal|"-$(COPY_FILE) \"$(DESTDIR_TARGET)\" "
+literal|"\t-$(COPY_FILE) \"$(DESTDIR_TARGET)\" "
 operator|<<
 name|Option
 operator|::
@@ -5750,9 +5646,7 @@ block|}
 block|}
 name|t
 operator|<<
-literal|"dist:"
-operator|<<
-literal|"\n\t"
+literal|"dist:\n\t"
 operator|<<
 literal|"$(ZIP) "
 operator|<<
@@ -5761,9 +5655,7 @@ argument_list|(
 literal|"QMAKE_ORIG_TARGET"
 argument_list|)
 operator|<<
-literal|".zip "
-operator|<<
-literal|"$(SOURCES) $(DIST) "
+literal|".zip $(SOURCES) $(DIST) "
 operator|<<
 name|dist_files
 operator|.
