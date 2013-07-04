@@ -2199,6 +2199,24 @@ begin_comment
 comment|/*! \fn QMap::const_iterator QMap::constEnd() const      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the imaginary     item after the last item in the map.      \sa constBegin(), end() */
 end_comment
 begin_comment
+comment|/*! \fn const Key&QMap::firstKey() const      Returns a reference to the smallest key in the map.     This function assumes that the map is not empty.      \sa lastKey(), first(), isEmpty() */
+end_comment
+begin_comment
+comment|/*! \fn const Key&QMap::lastKey() const      Returns a reference to the largest key in the map.     This function assumes that the map is not empty.      \sa firstKey(), last(), isEmpty() */
+end_comment
+begin_comment
+comment|/*! \fn T&QMap::first()      Returns a reference to the first value in the map, that is the value mapped     to the smallest key. This function assumes that the map is not empty.      \sa last(), firstKey(), isEmpty() */
+end_comment
+begin_comment
+comment|/*! \fn const T&QMap::first() const      \overload */
+end_comment
+begin_comment
+comment|/*! \fn T&QMap::last()      Returns a reference to the last value in the map, that is the value mapped     to the largest key. This function assumes that the map is not empty.      \sa first(), lastKey(), isEmpty() */
+end_comment
+begin_comment
+comment|/*! \fn const T&QMap::last() const      \overload */
+end_comment
+begin_comment
 comment|/*! \fn QMap::iterator QMap::erase(iterator pos)      Removes the (key, value) pair pointed to by the iterator \a pos     from the map, and returns an iterator to the next item in the     map.      \sa remove() */
 end_comment
 begin_comment
