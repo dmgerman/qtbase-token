@@ -843,6 +843,16 @@ name|atom
 argument_list|(
 argument|QXcbAtom::Atom atom
 argument_list|)
+specifier|const
+block|;
+name|QXcbAtom
+operator|::
+name|Atom
+name|qatom
+argument_list|(
+argument|xcb_atom_t atom
+argument_list|)
+specifier|const
 block|;
 name|xcb_atom_t
 name|internAtom
@@ -1680,29 +1690,6 @@ expr_stmt|;
 block|}
 struct|;
 end_struct
-begin_function_decl
-name|void
-name|xi2QueryTabletData
-parameter_list|(
-name|void
-modifier|*
-name|dev
-parameter_list|,
-name|TabletData
-modifier|*
-name|tabletData
-parameter_list|)
-function_decl|;
-end_function_decl
-begin_comment
-comment|// use no XI stuff in headers
-end_comment
-begin_function_decl
-name|void
-name|xi2SetupTabletDevices
-parameter_list|()
-function_decl|;
-end_function_decl
 begin_function_decl
 name|bool
 name|xi2HandleTabletEvent
