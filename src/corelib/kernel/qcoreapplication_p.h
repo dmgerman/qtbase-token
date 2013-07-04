@@ -343,7 +343,9 @@ argument_list|)
 block|;
 endif|#
 directive|endif
-name|uint
+name|QCoreApplicationPrivate
+operator|::
+name|Type
 name|application_type
 block|;
 name|QString

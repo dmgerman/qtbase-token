@@ -1614,7 +1614,9 @@ directive|endif
 member_init_list|,
 name|application_type
 argument_list|(
-literal|0
+name|QCoreApplicationPrivate
+operator|::
+name|Tty
 argument_list|)
 ifndef|#
 directive|ifndef
@@ -2716,7 +2718,9 @@ specifier|extern
 name|void
 name|qt_core_eval_init
 argument_list|(
-name|uint
+name|QCoreApplicationPrivate
+operator|::
+name|Type
 argument_list|)
 decl_stmt|;
 name|qt_core_eval_init

@@ -1564,7 +1564,9 @@ specifier|extern
 name|void
 name|qt_gui_eval_init
 argument_list|(
-name|uint
+name|QCoreApplicationPrivate
+operator|::
+name|Type
 argument_list|)
 block|;
 name|qt_gui_eval_init
