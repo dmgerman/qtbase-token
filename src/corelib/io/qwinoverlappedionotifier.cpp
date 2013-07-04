@@ -226,6 +226,11 @@ name|unlock
 argument_list|()
 expr_stmt|;
 block|}
+using|using
+name|QThread
+operator|::
+name|isRunning
+using|;
 protected|protected:
 DECL|function|run
 name|void
@@ -624,6 +629,24 @@ modifier|*
 name|overlapped
 parameter_list|)
 block|{
+if|if
+condition|(
+operator|!
+name|iocp
+operator|->
+name|isRunning
+argument_list|()
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"Called QWinOverlappedIoNotifier::waitForNotified on inactive notifier."
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
 forever|forever
 block|{
 name|DWORD
