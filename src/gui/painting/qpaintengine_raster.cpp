@@ -20356,9 +20356,17 @@ literal|false
 return|;
 comment|// The font engine might not support filling the glyph cache
 comment|// with the given transform applied, in which case we need to
-comment|// fall back to the QPainterPath code-path.
+comment|// fall back to the QPainterPath code-path. This does not apply
+comment|// for engines with internal caching, as we don't use the engine
+comment|// to fill up our cache in that case.
 if|if
 condition|(
+operator|!
+name|fontEngine
+operator|->
+name|hasInternalCaching
+argument_list|()
+operator|&&
 operator|!
 name|fontEngine
 operator|->

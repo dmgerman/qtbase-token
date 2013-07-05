@@ -802,6 +802,14 @@ argument_list|)
 block|;
 name|virtual
 name|bool
+name|supportsTransformation
+argument_list|(
+argument|const QTransform&transform
+argument_list|)
+specifier|const
+block|;
+name|virtual
+name|bool
 name|canRender
 argument_list|(
 argument|const QChar *string

@@ -9146,6 +9146,35 @@ expr_stmt|;
 block|}
 end_function
 begin_function
+DECL|function|supportsTransformation
+name|bool
+name|QFontEngineFT
+operator|::
+name|supportsTransformation
+parameter_list|(
+specifier|const
+name|QTransform
+modifier|&
+name|transform
+parameter_list|)
+specifier|const
+block|{
+comment|// The freetype engine falls back to QFontEngine for tranformed glyphs,
+comment|// which uses fast-tranform and produces very ugly results, so we claim
+comment|// to support just translations.
+return|return
+name|transform
+operator|.
+name|type
+argument_list|()
+operator|<=
+name|QTransform
+operator|::
+name|TxTranslate
+return|;
+block|}
+end_function
+begin_function
 DECL|function|getChar
 specifier|static
 specifier|inline

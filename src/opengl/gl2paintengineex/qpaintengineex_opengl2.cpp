@@ -3504,17 +3504,76 @@ name|t
 parameter_list|)
 specifier|const
 block|{
-comment|// Don't try to cache vastly transformed fonts
-return|return
+comment|// The paint engine does not support projected cached glyph drawing
+if|if
+condition|(
 name|t
 operator|.
 name|type
 argument_list|()
-operator|<
+operator|==
 name|QTransform
 operator|::
 name|TxProject
+condition|)
+return|return
+literal|false
+return|;
+comment|// The font engine might not support filling the glyph cache
+comment|// with the given transform applied, in which case we need to
+comment|// fall back to the QPainterPath code-path.
+if|if
+condition|(
+operator|!
+name|fontEngine
+operator|->
+name|supportsTransformation
+argument_list|(
+name|t
+argument_list|)
+condition|)
+block|{
+comment|// Except that drawing paths is slow, so for scales between
+comment|// 0.5 and 2.0 we leave the glyph cache untransformed and deal
+comment|// with the transform ourselves when painting, resulting in
+comment|// drawing 1x cached glyphs with a smooth-scale.
+name|float
+name|det
+init|=
+name|t
+operator|.
+name|determinant
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|det
+operator|>=
+literal|0.25f
 operator|&&
+name|det
+operator|<=
+literal|4.f
+condition|)
+block|{
+comment|// Assuming the baseclass still agrees
+return|return
+name|QPaintEngineEx
+operator|::
+name|shouldDrawCachedGlyphs
+argument_list|(
+name|fontEngine
+argument_list|,
+name|t
+argument_list|)
+return|;
+block|}
+return|return
+literal|false
+return|;
+comment|// Fall back to path-drawing
+block|}
+return|return
 name|QPaintEngineEx
 operator|::
 name|shouldDrawCachedGlyphs
@@ -9054,11 +9113,35 @@ name|recreateVertexArrays
 init|=
 literal|false
 decl_stmt|;
-comment|// We allow scaling, so that the glyph-cache will contain glyphs with the
-comment|// appropriate resolution in the case of displays with a device-pixel-ratio != 1.
 name|QTransform
-name|transform
+name|glyphCacheTransform
+decl_stmt|;
+name|QFontEngine
+modifier|*
+name|fe
 init|=
+name|staticTextItem
+operator|->
+name|fontEngine
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|fe
+operator|->
+name|supportsTransformation
+argument_list|(
+name|s
+operator|->
+name|matrix
+argument_list|)
+condition|)
+block|{
+comment|// The font-engine supports rendering glyphs with the current transform, so we
+comment|// build a glyph-cache with the scale pre-applied, so that the cache contains
+comment|// glyphs with the appropriate resolution in the case of retina displays.
+name|glyphCacheTransform
+operator|=
 name|s
 operator|->
 name|matrix
@@ -9139,16 +9222,8 @@ operator|.
 name|length
 argument_list|()
 argument_list|)
-decl_stmt|;
-name|QFontEngine
-modifier|*
-name|fe
-init|=
-name|staticTextItem
-operator|->
-name|fontEngine
-argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
 name|QGLTextureGlyphCache
 modifier|*
 name|cache
@@ -9165,7 +9240,7 @@ name|cacheKey
 argument_list|,
 name|glyphType
 argument_list|,
-name|transform
+name|glyphCacheTransform
 argument_list|)
 decl_stmt|;
 if|if
@@ -9195,7 +9270,7 @@ name|QGLTextureGlyphCache
 argument_list|(
 name|glyphType
 argument_list|,
-name|transform
+name|glyphCacheTransform
 argument_list|)
 expr_stmt|;
 name|fe
