@@ -2321,7 +2321,7 @@ operator|->
 name|string
 argument_list|()
 operator|==
-literal|"qmlclasses"
+literal|"qmltypes"
 condition|)
 block|{
 name|generateCompactList
