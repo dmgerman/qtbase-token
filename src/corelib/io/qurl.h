@@ -1134,6 +1134,14 @@ argument_list|)
 argument_list|)
 decl|const
 decl_stmt|;
+name|QUrl
+name|adjusted
+argument_list|(
+name|FormattingOptions
+name|options
+argument_list|)
+decl|const
+decl_stmt|;
 name|QByteArray
 name|toEncoded
 argument_list|(
