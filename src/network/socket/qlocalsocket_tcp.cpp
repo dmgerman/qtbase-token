@@ -999,11 +999,11 @@ emit|;
 block|}
 end_function
 begin_function
-DECL|function|open
-name|bool
+DECL|function|connectToServer
+name|void
 name|QLocalSocket
 operator|::
-name|open
+name|connectToServer
 parameter_list|(
 name|OpenMode
 name|openMode
@@ -1043,9 +1043,7 @@ operator|::
 name|OperationError
 argument_list|)
 emit|;
-return|return
-literal|false
-return|;
+return|return;
 block|}
 name|d
 operator|->
@@ -1090,9 +1088,7 @@ literal|"QLocalSocket::connectToServer"
 argument_list|)
 argument_list|)
 expr_stmt|;
-return|return
-literal|false
-return|;
+return|return;
 block|}
 specifier|const
 name|QLatin1String
@@ -1185,9 +1181,7 @@ literal|"QLocalSocket::connectToServer"
 argument_list|)
 argument_list|)
 expr_stmt|;
-return|return
-literal|false
-return|;
+return|return;
 block|}
 name|d
 operator|->
@@ -1211,9 +1205,6 @@ argument_list|(
 name|openMode
 argument_list|)
 expr_stmt|;
-return|return
-literal|true
-return|;
 block|}
 end_function
 begin_function
