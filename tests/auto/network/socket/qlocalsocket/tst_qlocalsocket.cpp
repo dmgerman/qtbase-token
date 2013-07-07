@@ -1128,6 +1128,15 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QLocalSocket::waitForDisconnected() is not allowed in UnconnectedState"
+argument_list|)
+expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|socket
@@ -1466,6 +1475,15 @@ name|UnknownSocketError
 argument_list|)
 expr_stmt|;
 comment|// already isListening
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QLocalServer::listen() called when already listening"
+argument_list|)
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
@@ -5762,7 +5780,12 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|QTRY_COMPARE
+name|client
+operator|.
+name|waitForDisconnected
+argument_list|()
+expr_stmt|;
+name|QCOMPARE
 argument_list|(
 name|readChannelFinishedSpy
 operator|.
@@ -5795,11 +5818,6 @@ name|buffer
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|client
-operator|.
-name|waitForDisconnected
-argument_list|()
-expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|client
@@ -5823,6 +5841,15 @@ name|debug
 parameter_list|()
 block|{
 comment|// Make sure this compiles
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtDebugMsg
+argument_list|,
+literal|"QLocalSocket::ConnectionRefusedError QLocalSocket::UnconnectedState "
+argument_list|)
+expr_stmt|;
 name|qDebug
 argument_list|()
 operator|<<
@@ -6513,15 +6540,7 @@ argument_list|,
 name|bound
 argument_list|)
 expr_stmt|;
-name|qDebug
-argument_list|()
-operator|<<
-literal|"socket"
-operator|<<
-name|path
-operator|<<
-name|abstract
-expr_stmt|;
+comment|//    qDebug()<< "socket"<< path<< abstract;
 name|int
 name|listenSocket
 decl_stmt|;

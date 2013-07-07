@@ -1669,9 +1669,16 @@ argument_list|()
 operator|==
 name|UnconnectedState
 condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QLocalSocket::waitForDisconnected() is not allowed in UnconnectedState"
+argument_list|)
+expr_stmt|;
 return|return
 literal|false
 return|;
+block|}
 if|if
 condition|(
 operator|!
