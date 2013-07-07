@@ -157,6 +157,16 @@ modifier|*
 name|context
 parameter_list|)
 function_decl|;
+name|NativeResourceForContextFunction
+name|nativeResourceFunctionForContext
+argument_list|(
+specifier|const
+name|QByteArray
+operator|&
+name|resource
+argument_list|)
+name|Q_DECL_OVERRIDE
+decl_stmt|;
 name|QPlatformScreen
 operator|*
 name|screen
