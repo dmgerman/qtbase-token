@@ -5524,9 +5524,18 @@ argument_list|()
 operator|.
 name|isEmpty
 argument_list|()
+operator|&&
+name|itemText
+argument_list|(
+name|currentIndex
+argument_list|)
+operator|!=
+name|lineEdit
+operator|->
+name|text
+argument_list|()
 condition|)
 block|{
-comment|//here we just check if the current item was entered
 specifier|const
 name|int
 name|index
@@ -5551,16 +5560,6 @@ name|index
 operator|!=
 operator|-
 literal|1
-operator|&&
-name|itemText
-argument_list|(
-name|currentIndex
-argument_list|)
-operator|!=
-name|lineEdit
-operator|->
-name|text
-argument_list|()
 condition|)
 block|{
 name|q
