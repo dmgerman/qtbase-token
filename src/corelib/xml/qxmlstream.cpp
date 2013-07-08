@@ -7785,7 +7785,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!  If the tokenType() is \l StartElement, this function returns the   element's namespace declarations. Otherwise an empty vector is   returned.    The QXmlStreamNamespaceDeclaration class is defined to be a QVector   of QXmlStreamNamespaceDeclaration.    \sa addExtraNamespaceDeclaration(), addExtraNamespaceDeclarations()  */
+comment|/*!  If the tokenType() is \l StartElement, this function returns the   element's namespace declarations. Otherwise an empty vector is   returned.    The QXmlStreamNamespaceDeclarations class is defined to be a QVector   of QXmlStreamNamespaceDeclaration.    \sa addExtraNamespaceDeclaration(), addExtraNamespaceDeclarations()  */
 end_comment
 begin_function
 DECL|function|namespaceDeclarations
