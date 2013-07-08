@@ -8,13 +8,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QEVENTDISPATCHER_IOS_P_H
+name|QEVENTDISPATCHER_CF_P_H
 end_ifndef
 begin_define
-DECL|macro|QEVENTDISPATCHER_IOS_P_H
+DECL|macro|QEVENTDISPATCHER_CF_P_H
 define|#
 directive|define
-name|QEVENTDISPATCHER_IOS_P_H
+name|QEVENTDISPATCHER_CF_P_H
 end_define
 begin_include
 include|#
@@ -39,7 +39,7 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
-name|QIOSEventDispatcher
+name|QEventDispatcherCoreFoundation
 range|:
 name|public
 name|QAbstractEventDispatcher
@@ -48,7 +48,7 @@ name|Q_OBJECT
 name|public
 operator|:
 name|explicit
-name|QIOSEventDispatcher
+name|QEventDispatcherCoreFoundation
 argument_list|(
 name|QObject
 operator|*
@@ -58,7 +58,7 @@ literal|0
 argument_list|)
 block|;
 operator|~
-name|QIOSEventDispatcher
+name|QEventDispatcherCoreFoundation
 argument_list|()
 block|;
 name|bool
@@ -214,6 +214,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QEVENTDISPATCHER_IOS_P_H
+comment|// QEVENTDISPATCHER_CF_P_H
 end_comment
 end_unit
