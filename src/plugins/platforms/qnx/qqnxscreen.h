@@ -464,10 +464,6 @@ decl_stmt|;
 name|QRect
 name|m_currentGeometry
 decl_stmt|;
-name|QPlatformOpenGLContext
-modifier|*
-name|m_platformContext
-decl_stmt|;
 name|QList
 operator|<
 name|QQnxWindow

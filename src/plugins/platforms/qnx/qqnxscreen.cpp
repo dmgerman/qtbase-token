@@ -477,11 +477,6 @@ operator|::
 name|PrimaryOrientation
 argument_list|)
 member_init_list|,
-name|m_platformContext
-argument_list|(
-literal|0
-argument_list|)
-member_init_list|,
 name|m_cursor
 argument_list|(
 operator|new
@@ -2367,6 +2362,12 @@ name|errno
 operator|=
 literal|0
 expr_stmt|;
+if|if
+condition|(
+name|isPrimaryScreen
+argument_list|()
+condition|)
+block|{
 name|result
 operator|=
 name|screen_get_window_property_iv
@@ -2396,6 +2397,16 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|topZorder
+operator|=
+literal|0
+expr_stmt|;
+comment|//We do not need z ordering on the secondary screen, because only one window
+comment|//is supported there
+block|}
 name|topZorder
 operator|++
 expr_stmt|;
