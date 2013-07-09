@@ -1314,7 +1314,7 @@ begin_comment
 comment|/*!     \fn void QProcess::finished(int exitCode)     \obsolete     \overload      Use finished(int exitCode, QProcess::ExitStatus status) instead. */
 end_comment
 begin_comment
-comment|/*!     \fn void QProcess::finished(int exitCode, QProcess::ExitStatus exitStatus)      This signal is emitted when the process finishes. \a exitCode is the exit     code of the process, and \a exitStatus is the exit status.  After the     process has finished, the buffers in QProcess are still intact. You can     still read any data that the process may have written before it finished.      \sa exitStatus() */
+comment|/*!     \fn void QProcess::finished(int exitCode, QProcess::ExitStatus exitStatus)      This signal is emitted when the process finishes. \a exitCode is the exit     code of the process (only valid for normal exits), and \a exitStatus is     the exit status.     After the process has finished, the buffers in QProcess are still intact.     You can still read any data that the process may have written before it     finished.      \sa exitStatus() */
 end_comment
 begin_comment
 comment|/*!     \fn void QProcess::readyReadStandardOutput()      This signal is emitted when the process has made new data     available through its standard output channel (\c stdout). It is     emitted regardless of the current \l{readChannel()}{read channel}.      \sa readAllStandardOutput(), readChannel() */
@@ -5932,7 +5932,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the exit code of the last process that finished. */
+comment|/*!     Returns the exit code of the last process that finished.      This value is not valid unless exitStatus() returns NormalExit. */
 end_comment
 begin_function
 DECL|function|exitCode
