@@ -5714,6 +5714,8 @@ literal|"Abs MT Touch Minor\0"
 literal|"Abs MT Pressure\0"
 literal|"Abs MT Tracking ID\0"
 literal|"Max Contacts\0"
+literal|"Rel X\0"
+literal|"Rel Y\0"
 comment|// XInput2 tablet
 literal|"Abs X\0"
 literal|"Abs Y\0"

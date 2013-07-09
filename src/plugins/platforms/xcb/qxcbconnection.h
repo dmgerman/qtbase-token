@@ -463,6 +463,10 @@ name|AbsMTTrackingID
 block|,
 name|MaxContacts
 block|,
+name|RelX
+block|,
+name|RelY
+block|,
 comment|// XInput2 tablet
 name|AbsX
 block|,
