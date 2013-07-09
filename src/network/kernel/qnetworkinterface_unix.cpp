@@ -2003,31 +2003,6 @@ modifier|*
 argument_list|>
 name|interfaces
 decl_stmt|;
-name|int
-name|socket
-decl_stmt|;
-if|if
-condition|(
-operator|(
-name|socket
-operator|=
-name|qt_safe_socket
-argument_list|(
-name|AF_INET
-argument_list|,
-name|SOCK_STREAM
-argument_list|,
-name|IPPROTO_IP
-argument_list|)
-operator|)
-operator|==
-operator|-
-literal|1
-condition|)
-return|return
-name|interfaces
-return|;
-comment|// error
 name|ifaddrs
 modifier|*
 name|interfaceListing
@@ -2045,12 +2020,6 @@ literal|1
 condition|)
 block|{
 comment|// error
-operator|::
-name|close
-argument_list|(
-name|socket
-argument_list|)
-expr_stmt|;
 return|return
 name|interfaces
 return|;
@@ -2223,12 +2192,6 @@ block|}
 name|freeifaddrs
 argument_list|(
 name|interfaceListing
-argument_list|)
-expr_stmt|;
-operator|::
-name|close
-argument_list|(
-name|socket
 argument_list|)
 expr_stmt|;
 return|return
