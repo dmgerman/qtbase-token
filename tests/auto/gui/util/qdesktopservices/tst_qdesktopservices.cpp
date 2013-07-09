@@ -131,6 +131,15 @@ argument_list|(
 name|Q_OS_WINCE
 argument_list|)
 comment|// this test is only valid on windows on other systems it might mean open a new document in the application handling .file
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"ShellExecute 'file://invalid.file' failed (error 3)."
+argument_list|)
+expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|QDesktopServices
