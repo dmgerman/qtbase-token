@@ -112,21 +112,8 @@ modifier|&
 name|timeout
 parameter_list|)
 block|{
-if|if
-condition|(
-operator|!
-name|QElapsedTimer
-operator|::
-name|isMonotonic
-argument_list|()
-condition|)
-block|{
-comment|// we cannot recalculate the timeout without a monotonic clock as the time may have changed
-return|return
-literal|false
-return|;
-block|}
-comment|// clock source is monotonic, so we can recalculate how much timeout is left
+comment|// clock source is (hopefully) monotonic, so we can recalculate how much timeout is left;
+comment|// if it isn't monotonic, we'll simply hope that it hasn't jumped, because we have no alternative
 name|struct
 name|timespec
 name|now
