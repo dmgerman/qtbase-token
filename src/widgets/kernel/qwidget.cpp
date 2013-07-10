@@ -16388,7 +16388,7 @@ block|}
 endif|#
 directive|endif
 comment|//QT_NO_GRAPHICSEFFECT
-comment|/*!    \brief The setGraphicsEffect function is for setting the widget's graphics effect.      Sets \a effect as the widget's effect. If there already is an effect installed     on this widget, QWidget will delete the existing effect before installing     the new \a effect.      If \a effect is the installed on a different widget, setGraphicsEffect() will remove     the effect from the widget and install it on this widget.      QWidget takes ownership of \a effect.      \note This function will apply the effect on itself and all its children.      \since 4.6      \sa graphicsEffect() */
+comment|/*!    \brief The setGraphicsEffect function is for setting the widget's graphics effect.      Sets \a effect as the widget's effect. If there already is an effect installed     on this widget, QWidget will delete the existing effect before installing     the new \a effect.      If \a effect is the installed effect on a different widget, setGraphicsEffect() will remove     the effect from the widget and install it on this widget.      QWidget takes ownership of \a effect.      \note This function will apply the effect on itself and all its children.      \since 4.6      \sa graphicsEffect() */
 ifndef|#
 directive|ifndef
 name|QT_NO_GRAPHICSEFFECT
