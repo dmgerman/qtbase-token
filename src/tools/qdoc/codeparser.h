@@ -269,10 +269,12 @@ return|;
 block|}
 name|protected
 label|:
+specifier|const
 name|QSet
 operator|<
 name|QString
 operator|>
+operator|&
 name|commonMetaCommands
 argument_list|()
 expr_stmt|;

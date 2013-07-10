@@ -3057,7 +3057,7 @@ if|if
 condition|(
 name|parent
 operator|->
-name|subType
+name|type
 argument_list|()
 operator|==
 name|Node

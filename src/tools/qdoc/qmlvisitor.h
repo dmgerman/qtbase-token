@@ -116,6 +116,7 @@ name|Engine
 operator|*
 name|engine
 argument_list|,
+specifier|const
 name|QSet
 operator|<
 name|QString
@@ -123,6 +124,7 @@ operator|>
 operator|&
 name|commands
 argument_list|,
+specifier|const
 name|QSet
 operator|<
 name|QString
@@ -408,7 +410,7 @@ name|quint32
 name|nestingLevel
 block|;
 name|QString
-name|filePath
+name|filePath_
 block|;
 name|QString
 name|name
@@ -423,13 +425,13 @@ name|QSet
 operator|<
 name|QString
 operator|>
-name|commands
+name|commands_
 block|;
 name|QSet
 operator|<
 name|QString
 operator|>
-name|topics
+name|topics_
 block|;
 name|QSet
 operator|<

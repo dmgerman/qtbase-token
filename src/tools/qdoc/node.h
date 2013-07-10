@@ -90,6 +90,12 @@ name|class
 name|QDocDatabase
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|QmlPropertyNode
+name|class
+name|QmlPropertyNode
+decl_stmt|;
+end_decl_stmt
 begin_typedef
 DECL|typedef|NodeList
 typedef|typedef
@@ -173,6 +179,8 @@ name|Property
 block|,
 name|Variable
 block|,
+name|QmlPropertyGroup
+block|,
 name|QmlProperty
 block|,
 name|QmlSignal
@@ -206,8 +214,6 @@ block|,
 name|ExternalPage
 block|,
 name|QmlClass
-block|,
-name|QmlPropertyGroup
 block|,
 name|QmlBasicType
 block|,
@@ -701,6 +707,16 @@ return|;
 block|}
 name|virtual
 name|bool
+name|isAlias
+argument_list|()
+specifier|const
+block|{
+return|return
+name|false
+return|;
+block|}
+name|virtual
+name|bool
 name|isGroup
 argument_list|()
 specifier|const
@@ -715,6 +731,26 @@ name|isWrapper
 argument_list|()
 specifier|const
 expr_stmt|;
+name|virtual
+name|bool
+name|isReadOnly
+argument_list|()
+specifier|const
+block|{
+return|return
+name|false
+return|;
+block|}
+name|virtual
+name|bool
+name|isDefault
+argument_list|()
+specifier|const
+block|{
+return|return
+name|false
+return|;
+block|}
 name|virtual
 name|void
 name|addMember
@@ -777,8 +813,9 @@ argument_list|()
 return|;
 block|}
 name|virtual
-name|bool
-name|hasProperty
+name|QmlPropertyNode
+modifier|*
+name|hasQmlProperty
 argument_list|(
 specifier|const
 name|QString
@@ -787,7 +824,7 @@ argument_list|)
 decl|const
 block|{
 return|return
-name|false
+literal|0
 return|;
 block|}
 name|virtual
@@ -812,6 +849,22 @@ name|isInternal
 argument_list|()
 specifier|const
 expr_stmt|;
+name|virtual
+name|void
+name|setDataType
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+parameter_list|)
+block|{ }
+name|virtual
+name|void
+name|setReadOnly
+parameter_list|(
+name|bool
+parameter_list|)
+block|{ }
 name|bool
 name|isIndexNode
 argument_list|()
@@ -986,7 +1039,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|d
+name|doc_
 return|;
 block|}
 name|Status
@@ -1368,7 +1421,7 @@ name|Location
 name|loc
 decl_stmt|;
 name|Doc
-name|d
+name|doc_
 decl_stmt|;
 name|QMap
 operator|<
@@ -1826,6 +1879,15 @@ return|return
 name|outputFileName_
 return|;
 block|}
+name|virtual
+name|QmlPropertyNode
+operator|*
+name|hasQmlProperty
+argument_list|(
+argument|const QString&
+argument_list|)
+specifier|const
+block|;
 name|void
 name|printChildren
 argument_list|(
@@ -2471,28 +2533,6 @@ name|Group
 operator|)
 return|;
 block|}
-name|virtual
-name|bool
-name|isQmlPropertyGroup
-argument_list|()
-specifier|const
-block|{
-return|return
-operator|(
-name|nodeSubtype_
-operator|==
-name|QmlPropertyGroup
-operator|)
-return|;
-block|}
-name|virtual
-name|bool
-name|hasProperty
-argument_list|(
-argument|const QString&
-argument_list|)
-specifier|const
-block|;
 name|protected
 operator|:
 name|SubType
@@ -3207,14 +3247,14 @@ block|}
 expr|}
 block|;
 name|class
-name|QmlPropGroupNode
+name|QmlPropertyGroupNode
 operator|:
 name|public
-name|DocNode
+name|InnerNode
 block|{
 name|public
 operator|:
-name|QmlPropGroupNode
+name|QmlPropertyGroupNode
 argument_list|(
 name|QmlClassNode
 operator|*
@@ -3228,7 +3268,7 @@ argument_list|)
 block|;
 name|virtual
 operator|~
-name|QmlPropGroupNode
+name|QmlPropertyGroupNode
 argument_list|()
 block|{ }
 name|virtual
@@ -3316,6 +3356,16 @@ name|QString
 name|idNumber
 argument_list|()
 block|;
+name|virtual
+name|bool
+name|isQmlPropertyGroup
+argument_list|()
+specifier|const
+block|{
+return|return
+name|true
+return|;
+block|}
 specifier|const
 name|QString
 operator|&
@@ -3355,29 +3405,7 @@ name|public
 operator|:
 name|QmlPropertyNode
 argument_list|(
-argument|QmlClassNode *parent
-argument_list|,
-argument|const QString& name
-argument_list|,
-argument|const QString& type
-argument_list|,
-argument|bool attached
-argument_list|)
-block|;
-name|QmlPropertyNode
-argument_list|(
-argument|QmlPropGroupNode* parent
-argument_list|,
-argument|const QString& name
-argument_list|,
-argument|const QString& type
-argument_list|,
-argument|bool attached
-argument_list|)
-block|;
-name|QmlPropertyNode
-argument_list|(
-argument|QmlPropertyNode* parent
+argument|InnerNode *parent
 argument_list|,
 argument|const QString& name
 argument_list|,
@@ -3391,6 +3419,7 @@ operator|~
 name|QmlPropertyNode
 argument_list|()
 block|{ }
+name|virtual
 name|void
 name|setDataType
 argument_list|(
@@ -3427,6 +3456,7 @@ argument_list|(
 name|designable
 argument_list|)
 block|; }
+name|virtual
 name|void
 name|setReadOnly
 argument_list|(
@@ -3482,15 +3512,6 @@ operator|)
 return|;
 block|}
 name|bool
-name|isDefault
-argument_list|()
-specifier|const
-block|{
-return|return
-name|isdefault_
-return|;
-block|}
-name|bool
 name|isStored
 argument_list|()
 specifier|const
@@ -3526,6 +3547,17 @@ operator|*
 name|qdb
 argument_list|)
 block|;
+name|virtual
+name|bool
+name|isDefault
+argument_list|()
+specifier|const
+block|{
+return|return
+name|isdefault_
+return|;
+block|}
+name|virtual
 name|bool
 name|isReadOnly
 argument_list|()
@@ -3538,6 +3570,16 @@ name|readOnly_
 argument_list|,
 name|false
 argument_list|)
+return|;
+block|}
+name|virtual
+name|bool
+name|isAlias
+argument_list|()
+specifier|const
+block|{
+return|return
+name|isAlias_
 return|;
 block|}
 name|virtual
@@ -3630,14 +3672,6 @@ name|qmlModuleIdentifier
 argument_list|()
 return|;
 block|}
-name|virtual
-name|bool
-name|hasProperty
-argument_list|(
-argument|const QString& name
-argument_list|)
-specifier|const
-block|;
 name|PropertyNode
 operator|*
 name|correspondingProperty
@@ -3657,7 +3691,7 @@ block|{
 return|return
 name|static_cast
 operator|<
-name|QmlPropGroupNode
+name|QmlPropertyGroupNode
 operator|*
 operator|>
 operator|(
@@ -3667,30 +3701,6 @@ operator|)
 operator|->
 name|element
 argument_list|()
-return|;
-block|}
-name|void
-name|appendQmlPropNode
-argument_list|(
-argument|QmlPropertyNode* p
-argument_list|)
-block|{
-name|qmlPropNodes_
-operator|.
-name|append
-argument_list|(
-name|p
-argument_list|)
-block|; }
-specifier|const
-name|NodeList
-operator|&
-name|qmlPropNodes
-argument_list|()
-specifier|const
-block|{
-return|return
-name|qmlPropNodes_
 return|;
 block|}
 name|private
@@ -3705,6 +3715,9 @@ name|FlagValue
 name|designable_
 block|;
 name|bool
+name|isAlias_
+block|;
+name|bool
 name|isdefault_
 block|;
 name|bool
@@ -3712,9 +3725,6 @@ name|attached_
 block|;
 name|FlagValue
 name|readOnly_
-block|;
-name|NodeList
-name|qmlPropNodes_
 block|; }
 block|;
 name|class
@@ -4794,6 +4804,7 @@ operator|~
 name|PropertyNode
 argument_list|()
 block|{ }
+name|virtual
 name|void
 name|setDataType
 argument_list|(

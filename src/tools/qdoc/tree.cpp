@@ -602,7 +602,7 @@ operator|&&
 operator|(
 name|node
 operator|->
-name|subType
+name|type
 argument_list|()
 operator|!=
 name|Node

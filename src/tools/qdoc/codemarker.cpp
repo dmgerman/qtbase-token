@@ -1862,7 +1862,7 @@ if|if
 condition|(
 name|p
 operator|->
-name|subType
+name|type
 argument_list|()
 operator|==
 name|Node

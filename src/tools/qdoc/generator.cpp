@@ -1461,7 +1461,7 @@ if|if
 condition|(
 name|node
 operator|->
-name|subType
+name|type
 argument_list|()
 operator|==
 name|Node
@@ -2399,7 +2399,7 @@ if|if
 condition|(
 name|parentNode
 operator|->
-name|subType
+name|type
 argument_list|()
 operator|==
 name|Node
@@ -5373,18 +5373,6 @@ argument_list|()
 operator|==
 name|Node
 operator|::
-name|QmlPropertyGroup
-condition|)
-return|return;
-if|if
-condition|(
-name|docNode
-operator|->
-name|subType
-argument_list|()
-operator|==
-name|Node
-operator|::
 name|Page
 condition|)
 block|{
@@ -5412,6 +5400,19 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+elseif|else
+if|if
+condition|(
+name|node
+operator|->
+name|type
+argument_list|()
+operator|==
+name|Node
+operator|::
+name|QmlPropertyGroup
+condition|)
+return|return;
 comment|/*       Obtain a code marker for the source file.      */
 name|CodeMarker
 modifier|*
@@ -10627,14 +10628,6 @@ return|;
 case|case
 name|Node
 operator|::
-name|QmlPropertyGroup
-case|:
-return|return
-literal|"property group"
-return|;
-case|case
-name|Node
-operator|::
 name|QmlBasicType
 case|:
 return|return
@@ -10677,6 +10670,46 @@ name|Property
 case|:
 return|return
 literal|"property"
+return|;
+case|case
+name|Node
+operator|::
+name|QmlPropertyGroup
+case|:
+return|return
+literal|"property group"
+return|;
+case|case
+name|Node
+operator|::
+name|QmlProperty
+case|:
+return|return
+literal|"QML property"
+return|;
+case|case
+name|Node
+operator|::
+name|QmlSignal
+case|:
+return|return
+literal|"QML signal"
+return|;
+case|case
+name|Node
+operator|::
+name|QmlSignalHandler
+case|:
+return|return
+literal|"QML signal handler"
+return|;
+case|case
+name|Node
+operator|::
+name|QmlMethod
+case|:
+return|return
+literal|"QML method"
 return|;
 default|default:
 return|return
