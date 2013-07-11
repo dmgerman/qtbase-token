@@ -1226,6 +1226,7 @@ name|toMSecsSinceEpoch
 argument_list|()
 specifier|const
 expr_stmt|;
+comment|// ### Qt 6: use quint64 instead of uint
 name|uint
 name|toTime_t
 argument_list|()
@@ -1265,6 +1266,7 @@ name|qint64
 name|msecs
 parameter_list|)
 function_decl|;
+comment|// ### Qt 6: use quint64 instead of uint
 name|void
 name|setTime_t
 parameter_list|(
@@ -1576,6 +1578,7 @@ parameter_list|)
 function_decl|;
 endif|#
 directive|endif
+comment|// ### Qt 6: use quint64 instead of uint
 specifier|static
 name|QDateTime
 name|fromTime_t
