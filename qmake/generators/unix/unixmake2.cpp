@@ -455,6 +455,17 @@ name|src_incremental
 init|=
 literal|false
 decl_stmt|;
+name|ProStringList
+modifier|&
+name|bundledFiles
+init|=
+name|project
+operator|->
+name|values
+argument_list|(
+literal|"QMAKE_BUNDLED_FILES"
+argument_list|)
+decl_stmt|;
 name|t
 operator|<<
 literal|"####### Compiler, tools and options\n\n"
@@ -4225,6 +4236,21 @@ literal|"QMAKE_BUNDLE"
 argument_list|)
 condition|)
 block|{
+name|QString
+name|currentLink
+init|=
+name|destdir
+operator|+
+literal|"Versions/Current"
+decl_stmt|;
+name|bundledFiles
+operator|<<
+name|currentLink
+operator|<<
+name|destdir
+operator|+
+literal|"$(TARGET)"
+expr_stmt|;
 name|t
 operator|<<
 literal|"\n\t"
@@ -4273,9 +4299,9 @@ literal|"\n\t"
 operator|<<
 literal|"-$(DEL_FILE) "
 operator|<<
-name|destdir
+name|currentLink
 operator|<<
-literal|"Versions/Current\n\t"
+literal|"\n\t"
 operator|<<
 name|varGlue
 argument_list|(
@@ -4296,9 +4322,7 @@ argument_list|)
 operator|+
 literal|" "
 operator|+
-name|destdir
-operator|+
-literal|"Versions/Current"
+name|currentLink
 argument_list|)
 operator|<<
 literal|"\n\t"
@@ -5442,6 +5466,10 @@ literal|"QMAKE_BUNDLE_RESOURCE_FILE"
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|bundledFiles
+operator|<<
+name|resources
+expr_stmt|;
 name|QString
 name|destdir
 init|=
@@ -5534,6 +5562,10 @@ name|toQString
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|bundledFiles
+operator|<<
+name|info_plist_out
+expr_stmt|;
 name|QString
 name|destdir
 init|=
@@ -5813,6 +5845,10 @@ literal|1
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|bundledFiles
+operator|<<
+name|icon_path
+expr_stmt|;
 name|t
 operator|<<
 name|icon_path
@@ -6072,8 +6108,9 @@ argument_list|)
 operator|+
 literal|"/"
 decl_stmt|;
-name|t
-operator|<<
+name|QString
+name|link
+init|=
 name|Option
 operator|::
 name|fixPathToLocalOS
@@ -6087,6 +6124,14 @@ argument_list|(
 name|pkey
 argument_list|)
 argument_list|)
+decl_stmt|;
+name|bundledFiles
+operator|<<
+name|link
+expr_stmt|;
+name|t
+operator|<<
+name|link
 operator|<<
 literal|": \n\t"
 operator|<<
@@ -6223,6 +6268,10 @@ name|fileName
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|bundledFiles
+operator|<<
+name|dst
+expr_stmt|;
 name|t
 operator|<<
 name|dst
