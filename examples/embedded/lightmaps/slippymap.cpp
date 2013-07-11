@@ -1137,7 +1137,7 @@ name|setRawHeader
 argument_list|(
 literal|"User-Agent"
 argument_list|,
-literal|"Nokia (Qt) Graphics Dojo 1.0"
+literal|"Digia (Qt) Graphics Dojo 1.0"
 argument_list|)
 expr_stmt|;
 name|request
