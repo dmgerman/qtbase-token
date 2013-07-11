@@ -1839,11 +1839,6 @@ end_endif
 begin_if
 if|#
 directive|if
-name|defined
-argument_list|(
-name|_CHAR16T
-argument_list|)
-operator|||
 name|__cplusplus
 operator|>=
 literal|201103L

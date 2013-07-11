@@ -465,13 +465,9 @@ argument_list|()
 decl_stmt|;
 name|t
 operator|<<
-literal|"// !$*UTF8*$!"
+literal|"// !$*UTF8*$!\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"{"
-operator|<<
-literal|"\n"
+literal|"{\n"
 operator|<<
 literal|"\t"
 operator|<<
@@ -484,21 +480,9 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t"
-operator|<<
-literal|"classes = {"
-operator|<<
-literal|"\n"
-operator|<<
-literal|"\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\tclasses = {\n\t};\n"
 operator|<<
 literal|"\t"
 operator|<<
@@ -516,15 +500,9 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t"
-operator|<<
-literal|"objects = {"
-operator|<<
-name|endl
+literal|"\tobjects = {\n"
 expr_stmt|;
 comment|//SUBDIRS
 name|QList
@@ -1322,9 +1300,7 @@ literal|"\t\t"
 operator|<<
 name|project_key
 operator|<<
-literal|" = {"
-operator|<<
-literal|"\n"
+literal|" = {\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -1337,9 +1313,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -1350,9 +1324,7 @@ argument_list|,
 literal|"wrapper.pb-project"
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -1374,9 +1346,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -1387,9 +1357,7 @@ argument_list|,
 name|pbxproj
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -1400,15 +1368,9 @@ argument_list|,
 literal|"<absolute>"
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t};\n"
 expr_stmt|;
 comment|//WRAPPER
 name|t
@@ -1422,9 +1384,7 @@ operator|+
 literal|"_WRAPPER"
 argument_list|)
 operator|<<
-literal|" = {"
-operator|<<
-literal|"\n"
+literal|" = {\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -1437,9 +1397,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 if|if
 condition|(
@@ -1464,9 +1422,7 @@ argument_list|,
 literal|"wrapper.application"
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -1484,9 +1440,7 @@ operator|+
 literal|".app"
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 block|}
 else|else
@@ -1502,9 +1456,7 @@ argument_list|,
 literal|"compiled.mach-o.dylib"
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -1522,9 +1474,7 @@ operator|+
 literal|".dylib"
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 block|}
 name|t
@@ -1543,9 +1493,7 @@ literal|"_WRAPPERREF"
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -1558,15 +1506,9 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t};\n"
 expr_stmt|;
 name|t
 operator|<<
@@ -1579,9 +1521,7 @@ operator|+
 literal|"_WRAPPERREF"
 argument_list|)
 operator|<<
-literal|" = {"
-operator|<<
-literal|"\n"
+literal|" = {\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -1592,9 +1532,7 @@ argument_list|,
 name|project_key
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -1607,9 +1545,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -1620,10 +1556,8 @@ argument_list|,
 literal|"2"
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
-comment|//<< "\t\t\t"<< writeSettings("remoteGlobalIDString", keyFor(pbxproj + "QMAKE_PBX_REFERENCE"))<< ";"<< "\n"
+literal|";\n"
+comment|//<< "\t\t\t"<< writeSettings("remoteGlobalIDString", keyFor(pbxproj + "QMAKE_PBX_REFERENCE"))<< ";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -1639,9 +1573,7 @@ literal|"QMAKE_PBX_REFERENCE!!!"
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -1657,15 +1589,9 @@ literal|"TARGET"
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t};\n"
 expr_stmt|;
 comment|//PRODUCTGROUP
 name|t
@@ -1679,9 +1605,7 @@ operator|+
 literal|"_PRODUCTGROUP"
 argument_list|)
 operator|<<
-literal|" = {"
-operator|<<
-literal|"\n"
+literal|" = {\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -1706,9 +1630,7 @@ argument_list|,
 literal|4
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -1721,9 +1643,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -1734,9 +1654,7 @@ argument_list|,
 literal|"Products"
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -1747,15 +1665,9 @@ argument_list|,
 literal|"<group>"
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t};\n"
 expr_stmt|;
 block|}
 ifdef|#
@@ -1781,9 +1693,7 @@ literal|"\t\t"
 operator|<<
 name|container_proxy
 operator|<<
-literal|" = {"
-operator|<<
-literal|"\n"
+literal|" = {\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -1794,9 +1704,7 @@ argument_list|,
 name|project_key
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -1809,9 +1717,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -1822,9 +1728,7 @@ argument_list|,
 literal|"1"
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -1840,9 +1744,7 @@ literal|"QMAKE_PBX_TARGET"
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -1858,15 +1760,9 @@ literal|"TARGET"
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t};\n"
 expr_stmt|;
 comment|//targetref
 name|t
@@ -1880,9 +1776,7 @@ operator|+
 literal|"_TARGETREF"
 argument_list|)
 operator|<<
-literal|" = {"
-operator|<<
-literal|"\n"
+literal|" = {\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -1895,9 +1789,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -1930,9 +1822,7 @@ literal|")"
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -1943,15 +1833,9 @@ argument_list|,
 name|container_proxy
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t};\n"
 expr_stmt|;
 block|}
 endif|#
@@ -2024,9 +1908,7 @@ name|key
 argument_list|()
 argument_list|)
 operator|<<
-literal|" = {"
-operator|<<
-literal|"\n"
+literal|" = {\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -2039,9 +1921,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -2059,9 +1939,7 @@ argument_list|,
 literal|4
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -2088,9 +1966,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -2101,15 +1977,9 @@ argument_list|,
 literal|"<Group>"
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t};\n"
 expr_stmt|;
 block|}
 comment|//DUMP EVERYTHING THAT TIES THE ABOVE TOGETHER
@@ -2368,9 +2238,7 @@ literal|"\t\t"
 operator|<<
 name|key
 operator|<<
-literal|" = {"
-operator|<<
-literal|"\n"
+literal|" = {\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -2383,15 +2251,9 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t\t"
-operator|<<
-literal|"buildSettings = {"
-operator|<<
-literal|"\n"
+literal|"\t\t\tbuildSettings = {\n"
 expr_stmt|;
 for|for
 control|(
@@ -2437,17 +2299,11 @@ name|value
 argument_list|()
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 name|t
 operator|<<
-literal|"\t\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t\t};\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -2458,15 +2314,9 @@ argument_list|,
 name|name
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t};\n"
 expr_stmt|;
 block|}
 name|t
@@ -2478,9 +2328,7 @@ argument_list|(
 literal|"QMAKE_SUBDIR_PBX_BUILDCONFIG_LIST"
 argument_list|)
 operator|<<
-literal|" = {"
-operator|<<
-literal|"\n"
+literal|" = {\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -2493,9 +2341,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -2515,9 +2361,7 @@ argument_list|,
 literal|4
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -2530,9 +2374,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -2545,15 +2387,9 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t};\n"
 expr_stmt|;
 ifdef|#
 directive|ifdef
@@ -2568,9 +2404,7 @@ argument_list|(
 literal|"QMAKE_SUBDIR_PBX_AGGREGATE_TARGET"
 argument_list|)
 operator|<<
-literal|" = {"
-operator|<<
-literal|"\n"
+literal|" = {\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -2586,15 +2420,9 @@ argument_list|,
 literal|4
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t\t"
-operator|<<
-literal|"buildSettings = {"
-operator|<<
-literal|"\n"
+literal|"\t\t\tbuildSettings = {\n"
 operator|<<
 literal|"\t\t\t\t"
 operator|<<
@@ -2613,15 +2441,9 @@ name|first
 argument_list|()
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t\t};\n"
 expr_stmt|;
 block|{
 name|ProStringList
@@ -2683,9 +2505,7 @@ argument_list|,
 literal|4
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 block|}
 name|t
 operator|<<
@@ -2700,9 +2520,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -2721,9 +2539,7 @@ name|first
 argument_list|()
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -2742,15 +2558,9 @@ name|first
 argument_list|()
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t};\n"
 expr_stmt|;
 endif|#
 directive|endif
@@ -2764,9 +2574,7 @@ argument_list|(
 literal|"QMAKE_SUBDIR_PBX_ROOT_GROUP"
 argument_list|)
 operator|<<
-literal|" = {"
-operator|<<
-literal|"\n"
+literal|" = {\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -2786,9 +2594,7 @@ argument_list|,
 literal|4
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -2801,9 +2607,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -2814,15 +2618,9 @@ argument_list|,
 literal|"<group>"
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t};\n"
 expr_stmt|;
 comment|//ROOT
 name|t
@@ -2834,21 +2632,11 @@ argument_list|(
 literal|"QMAKE_SUBDIR_PBX_ROOT"
 argument_list|)
 operator|<<
-literal|" = {"
+literal|" = {\n"
 operator|<<
-literal|"\n"
+literal|"\t\t\tbuildSettings = {\n"
 operator|<<
-literal|"\t\t\t"
-operator|<<
-literal|"buildSettings = {"
-operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t\t};\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -2868,9 +2656,7 @@ argument_list|,
 literal|4
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -2883,9 +2669,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -2899,9 +2683,7 @@ literal|"QMAKE_SUBDIR_PBX_ROOT_GROUP"
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -2913,9 +2695,7 @@ name|ProStringList
 argument_list|()
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 name|t
 operator|<<
@@ -2931,17 +2711,11 @@ literal|"QMAKE_SUBDIR_PBX_BUILDCONFIG_LIST"
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 name|t
 operator|<<
-literal|"\t\t\t"
-operator|<<
-literal|"projectReferences = ("
-operator|<<
-literal|"\n"
+literal|"\t\t\tprojectReferences = (\n"
 expr_stmt|;
 block|{
 specifier|const
@@ -2986,11 +2760,7 @@ index|]
 decl_stmt|;
 name|t
 operator|<<
-literal|"\t\t\t\t"
-operator|<<
-literal|"{"
-operator|<<
-literal|"\n"
+literal|"\t\t\t\t{\n"
 operator|<<
 literal|"\t\t\t\t\t"
 operator|<<
@@ -3006,9 +2776,7 @@ literal|"_PRODUCTGROUP"
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t\t\t"
 operator|<<
@@ -3024,25 +2792,15 @@ literal|"_PROJECTREF"
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t\t\t"
-operator|<<
-literal|"},"
-operator|<<
-literal|"\n"
+literal|"\t\t\t\t},\n"
 expr_stmt|;
 block|}
 block|}
 name|t
 operator|<<
-literal|"\t\t\t"
-operator|<<
-literal|");"
-operator|<<
-literal|"\n"
+literal|"\t\t\t);\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -3072,24 +2830,14 @@ argument_list|,
 literal|4
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t};\n"
 expr_stmt|;
 comment|//FOOTER
 name|t
 operator|<<
-literal|"\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t};\n"
 operator|<<
 literal|"\t"
 operator|<<
@@ -3103,13 +2851,9 @@ literal|"QMAKE_SUBDIR_PBX_ROOT"
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"}"
-operator|<<
-name|endl
+literal|"}\n"
 expr_stmt|;
 return|return
 literal|true
@@ -3859,19 +3603,13 @@ name|buildConfigGroups
 decl_stmt|;
 name|buildConfigGroups
 operator|<<
-literal|"PROJECT"
-operator|<<
-literal|"TARGET"
+literal|"PROJECTTARGET"
 expr_stmt|;
 name|t
 operator|<<
-literal|"// !$*UTF8*$!"
+literal|"// !$*UTF8*$!\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"{"
-operator|<<
-literal|"\n"
+literal|"{\n"
 operator|<<
 literal|"\t"
 operator|<<
@@ -3884,21 +3622,9 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t"
-operator|<<
-literal|"classes = {"
-operator|<<
-literal|"\n"
-operator|<<
-literal|"\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\tclasses = {\n\t};\n"
 operator|<<
 literal|"\t"
 operator|<<
@@ -3916,15 +3642,9 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t"
-operator|<<
-literal|"objects = {"
-operator|<<
-name|endl
+literal|"\tobjects = {\n"
 expr_stmt|;
 comment|//MAKE QMAKE equivelant
 if|if
@@ -4082,9 +3802,7 @@ literal|"\t\t"
 operator|<<
 name|phase_key
 operator|<<
-literal|" = {"
-operator|<<
-literal|"\n"
+literal|" = {\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -4097,9 +3815,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -4115,9 +3831,7 @@ argument_list|,
 literal|4
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -4130,9 +3844,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -4145,9 +3857,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -4158,9 +3868,7 @@ argument_list|,
 literal|"Qt Qmake"
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -4171,9 +3879,7 @@ argument_list|,
 literal|"/bin/sh"
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -4201,15 +3907,9 @@ name|mkfile
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t};\n"
 expr_stmt|;
 block|}
 comment|// FIXME: Move all file resolving logic out of ProjectBuilderSources::files(), as it
@@ -5144,9 +4844,7 @@ literal|"\t\t"
 operator|<<
 name|src_key
 operator|<<
-literal|" = {"
-operator|<<
-literal|"\n"
+literal|" = {\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -5159,9 +4857,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -5175,9 +4871,7 @@ name|file
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 if|if
 condition|(
@@ -5199,9 +4893,7 @@ name|name
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 name|t
 operator|<<
@@ -5217,9 +4909,7 @@ name|file
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 name|QString
 name|filetype
@@ -5248,17 +4938,11 @@ argument_list|,
 name|filetype
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 name|t
 operator|<<
-literal|"\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t};\n"
 expr_stmt|;
 if|if
 condition|(
@@ -5302,9 +4986,7 @@ literal|"\t\t"
 operator|<<
 name|build_key
 operator|<<
-literal|" = {"
-operator|<<
-literal|"\n"
+literal|" = {\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -5315,9 +4997,7 @@ argument_list|,
 name|src_key
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -5330,15 +5010,9 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t\t"
-operator|<<
-literal|"settings = {"
-operator|<<
-literal|"\n"
+literal|"\t\t\tsettings = {\n"
 operator|<<
 literal|"\t\t\t\t"
 operator|<<
@@ -5354,21 +5028,11 @@ argument_list|,
 literal|5
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
+literal|"\t\t\t};\n"
 operator|<<
-literal|"\t\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t};\n"
 expr_stmt|;
 name|project
 operator|->
@@ -5529,9 +5193,7 @@ name|key
 argument_list|()
 argument_list|)
 operator|<<
-literal|" = {"
-operator|<<
-literal|"\n"
+literal|" = {\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -5544,9 +5206,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -5564,9 +5224,7 @@ argument_list|,
 literal|4
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -5593,9 +5251,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -5606,15 +5262,9 @@ argument_list|,
 literal|"<Group>"
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t};\n"
 expr_stmt|;
 block|}
 comment|//PREPROCESS BUILDPHASE (just a makefile)
@@ -5793,9 +5443,7 @@ name|endl
 expr_stmt|;
 name|mkt
 operator|<<
-literal|"INCPATH       = "
-operator|<<
-literal|"-I"
+literal|"INCPATH       = -I"
 operator|<<
 name|specdir
 argument_list|()
@@ -5878,9 +5526,7 @@ name|incit
 control|)
 name|mkt
 operator|<<
-literal|" "
-operator|<<
-literal|"-I"
+literal|" -I"
 operator|<<
 name|escapeFilePath
 argument_list|(
@@ -6143,23 +5789,15 @@ literal|"\n"
 expr_stmt|;
 name|mkt
 operator|<<
-literal|"preprocess: $(PARSERS) compilers"
-operator|<<
-name|endl
+literal|"preprocess: $(PARSERS) compilers\n"
 expr_stmt|;
 name|mkt
 operator|<<
-literal|"clean preprocess_clean: parser_clean compiler_clean"
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|"clean preprocess_clean: parser_clean compiler_clean\n\n"
 expr_stmt|;
 name|mkt
 operator|<<
-literal|"parser_clean:"
-operator|<<
-literal|"\n"
+literal|"parser_clean:\n"
 expr_stmt|;
 if|if
 condition|(
@@ -6181,9 +5819,7 @@ argument_list|)
 condition|)
 name|mkt
 operator|<<
-literal|"\t-rm -f $(PARSERS)"
-operator|<<
-literal|"\n"
+literal|"\t-rm -f $(PARSERS)\n"
 expr_stmt|;
 name|writeExtraTargets
 argument_list|(
@@ -6504,9 +6140,7 @@ literal|"\t\t"
 operator|<<
 name|phase_key
 operator|<<
-literal|" = {"
-operator|<<
-literal|"\n"
+literal|" = {\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -6519,9 +6153,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -6537,9 +6169,7 @@ argument_list|,
 literal|4
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -6552,9 +6182,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -6567,9 +6195,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -6580,9 +6206,7 @@ argument_list|,
 literal|"Qt Preprocessors"
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -6593,9 +6217,7 @@ argument_list|,
 literal|"/bin/sh"
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -6623,15 +6245,9 @@ name|mkfile
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t};\n"
 expr_stmt|;
 block|}
 comment|//SOURCE BUILDPHASE
@@ -6676,9 +6292,7 @@ literal|"\t\t"
 operator|<<
 name|key
 operator|<<
-literal|" = {"
-operator|<<
-literal|"\n"
+literal|" = {\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -6691,9 +6305,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -6711,9 +6323,7 @@ argument_list|,
 literal|4
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -6726,9 +6336,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -6741,9 +6349,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -6754,15 +6360,9 @@ argument_list|,
 name|grp
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t};\n"
 expr_stmt|;
 block|}
 if|if
@@ -7671,9 +7271,7 @@ literal|"\t\t"
 operator|<<
 name|key
 operator|<<
-literal|" = {"
-operator|<<
-literal|"\n"
+literal|" = {\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -7686,9 +7284,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -7702,9 +7298,7 @@ name|name
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -7718,9 +7312,7 @@ name|library
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -7741,9 +7333,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -7757,9 +7347,7 @@ name|library
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 if|if
 condition|(
@@ -7776,17 +7364,11 @@ argument_list|,
 literal|"wrapper.framework"
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 name|t
 operator|<<
-literal|"\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t};\n"
 expr_stmt|;
 name|project
 operator|->
@@ -7816,9 +7398,7 @@ literal|"\t\t"
 operator|<<
 name|build_key
 operator|<<
-literal|" = {"
-operator|<<
-literal|"\n"
+literal|" = {\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -7829,9 +7409,7 @@ argument_list|,
 name|key
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -7844,27 +7422,13 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
+literal|"\t\t\tsettings = {\n"
 operator|<<
-literal|"\t\t\t"
+literal|"\t\t\t};\n"
 operator|<<
-literal|"settings = {"
-operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t};\n"
 expr_stmt|;
 name|project
 operator|->
@@ -8035,11 +7599,7 @@ name|endl
 expr_stmt|;
 name|mkt
 operator|<<
-literal|"sublibs: $(SUBLIBS)"
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|"sublibs: $(SUBLIBS)\n\n"
 expr_stmt|;
 name|tmp
 operator|=
@@ -8076,9 +7636,7 @@ index|[
 name|i
 index|]
 operator|<<
-literal|".a"
-operator|<<
-literal|":\n\t"
+literal|".a:\n\t"
 operator|<<
 name|var
 argument_list|(
@@ -8148,9 +7706,7 @@ literal|"\t\t"
 operator|<<
 name|phase_key
 operator|<<
-literal|" = {"
-operator|<<
-literal|"\n"
+literal|" = {\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -8163,9 +7719,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -8181,9 +7735,7 @@ argument_list|,
 literal|4
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -8196,9 +7748,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -8211,9 +7761,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -8224,9 +7772,7 @@ argument_list|,
 literal|"Qt Sublibs"
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -8265,15 +7811,9 @@ name|mkfile
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t};\n"
 expr_stmt|;
 block|}
 comment|//LIBRARY BUILDPHASE
@@ -8337,9 +7877,7 @@ literal|"\t\t"
 operator|<<
 name|key
 operator|<<
-literal|" = {"
-operator|<<
-literal|"\n"
+literal|" = {\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -8359,9 +7897,7 @@ argument_list|,
 literal|4
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -8374,9 +7910,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -8390,9 +7924,7 @@ name|grp
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -8403,15 +7935,9 @@ argument_list|,
 literal|"<Group>"
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t};\n"
 expr_stmt|;
 block|}
 block|}
@@ -8447,9 +7973,7 @@ literal|"\t\t"
 operator|<<
 name|key
 operator|<<
-literal|" = {"
-operator|<<
-literal|"\n"
+literal|" = {\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -8462,9 +7986,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -8484,9 +8006,7 @@ argument_list|,
 literal|4
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -8499,9 +8019,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -8514,9 +8032,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -8530,15 +8046,9 @@ name|grp
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t};\n"
 expr_stmt|;
 block|}
 if|if
@@ -8626,9 +8136,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -8639,9 +8147,7 @@ argument_list|,
 literal|"Project Copy"
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -8654,9 +8160,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -8672,9 +8176,7 @@ argument_list|,
 literal|4
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -8690,9 +8192,7 @@ argument_list|,
 literal|4
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -8708,9 +8208,7 @@ argument_list|,
 literal|4
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -8723,9 +8221,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -8736,9 +8232,7 @@ argument_list|,
 literal|"/bin/sh"
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -8757,13 +8251,9 @@ argument_list|)
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t"
-operator|<<
-literal|"};\n"
+literal|"\t\t};\n"
 expr_stmt|;
 block|}
 comment|// Copy Bundle Resources
@@ -8932,9 +8422,7 @@ literal|"\t\t"
 operator|<<
 name|file_ref_key
 operator|<<
-literal|" = {"
-operator|<<
-literal|"\n"
+literal|" = {\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -8947,9 +8435,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -8963,9 +8449,7 @@ name|fn
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -8979,15 +8463,9 @@ name|fn
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t};\n"
 expr_stmt|;
 name|QString
 name|file_key
@@ -9027,9 +8505,7 @@ argument_list|,
 name|file_ref_key
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -9042,17 +8518,9 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t"
-operator|<<
-literal|"}"
-operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|"\t\t};\n"
 expr_stmt|;
 block|}
 if|if
@@ -9139,9 +8607,7 @@ operator|+
 literal|"' Files to Bundle"
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -9154,9 +8620,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -9170,9 +8634,7 @@ name|path
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -9185,9 +8647,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -9202,9 +8662,7 @@ argument_list|,
 literal|4
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -9217,9 +8675,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -9232,17 +8688,9 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t"
-operator|<<
-literal|"}"
-operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|"\t\t};\n"
 expr_stmt|;
 block|}
 else|else
@@ -9380,9 +8828,7 @@ literal|"\t\t"
 operator|<<
 name|key
 operator|<<
-literal|" = {"
-operator|<<
-literal|"\n"
+literal|" = {\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -9395,9 +8841,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -9412,9 +8856,7 @@ argument_list|,
 literal|4
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -9427,9 +8869,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -9442,9 +8882,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -9458,15 +8896,9 @@ name|grp
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t};\n"
 expr_stmt|;
 block|}
 name|QString
@@ -9495,9 +8927,7 @@ literal|"\t\t"
 operator|<<
 name|bundle_data_key
 operator|<<
-literal|" = {"
-operator|<<
-literal|"\n"
+literal|" = {\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -9512,9 +8942,7 @@ argument_list|,
 literal|4
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -9527,9 +8955,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -9540,9 +8966,7 @@ argument_list|,
 literal|"Bundle Resources"
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -9553,15 +8977,9 @@ argument_list|,
 literal|"<Group>"
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t};\n"
 expr_stmt|;
 block|}
 comment|//REFERENCE
@@ -9593,9 +9011,7 @@ operator|+
 literal|"QMAKE_PBX_REFERENCE"
 argument_list|)
 operator|<<
-literal|" = {"
-operator|<<
-literal|"\n"
+literal|" = {\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -9608,9 +9024,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -9623,9 +9037,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 if|if
 condition|(
@@ -9721,9 +9133,7 @@ literal|"QMAKE_PBX_BUNDLE_TYPE"
 argument_list|)
 argument_list|)
 operator|+
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 block|}
 elseif|else
@@ -9771,9 +9181,7 @@ argument_list|,
 literal|"wrapper.application"
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 block|}
 else|else
@@ -9789,9 +9197,7 @@ argument_list|,
 literal|"compiled.mach-o.executable"
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 block|}
 name|QString
@@ -9844,9 +9250,7 @@ name|targ
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 block|}
 else|else
@@ -10029,9 +9433,7 @@ literal|"QMAKE_PBX_BUNDLE_TYPE"
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 block|}
 elseif|else
@@ -10087,9 +9489,7 @@ argument_list|,
 literal|"wrapper.framework"
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 block|}
 else|else
@@ -10105,9 +9505,7 @@ argument_list|,
 literal|"compiled.mach-o.dylib"
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 block|}
 name|t
@@ -10124,9 +9522,7 @@ name|lib
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 block|}
 name|t
@@ -10142,15 +9538,9 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t};\n"
 expr_stmt|;
 block|{
 comment|//Products group
@@ -10185,9 +9575,7 @@ literal|"\t\t"
 operator|<<
 name|key
 operator|<<
-literal|" = {"
-operator|<<
-literal|"\n"
+literal|" = {\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -10207,9 +9595,7 @@ argument_list|,
 literal|4
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -10222,9 +9608,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -10235,9 +9619,7 @@ argument_list|,
 literal|"Products"
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -10248,15 +9630,9 @@ argument_list|,
 literal|"<Group>"
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t};\n"
 expr_stmt|;
 block|}
 comment|//DUMP EVERYTHING THAT TIES THE ABOVE TOGETHER
@@ -10270,9 +9646,7 @@ argument_list|(
 literal|"QMAKE_PBX_ROOT_GROUP"
 argument_list|)
 operator|<<
-literal|" = {"
-operator|<<
-literal|"\n"
+literal|" = {\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -10292,9 +9666,7 @@ argument_list|,
 literal|4
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -10307,9 +9679,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -10328,9 +9698,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -10341,15 +9709,9 @@ argument_list|,
 literal|"<Group>"
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t};\n"
 expr_stmt|;
 comment|//TARGET
 name|QString
@@ -10380,9 +9742,7 @@ literal|"\t\t"
 operator|<<
 name|target_key
 operator|<<
-literal|" = {"
-operator|<<
-literal|"\n"
+literal|" = {\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -10409,9 +9769,7 @@ argument_list|,
 literal|4
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 name|t
 operator|<<
@@ -10433,9 +9791,7 @@ argument_list|,
 literal|4
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -10451,9 +9807,7 @@ literal|"QMAKE_PBX_REFERENCE"
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 name|t
 operator|<<
@@ -10471,9 +9825,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 name|t
 operator|<<
@@ -10488,9 +9840,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 name|t
 operator|<<
@@ -10506,9 +9856,7 @@ argument_list|,
 name|SettingsAsList
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 if|if
 condition|(
@@ -10549,9 +9897,7 @@ literal|"QMAKE_PBX_PRODUCT_TYPE"
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 block|}
 else|else
@@ -10576,9 +9922,7 @@ argument_list|,
 literal|"com.apple.product-type.application"
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 else|else
 name|t
@@ -10592,9 +9936,7 @@ argument_list|,
 literal|"com.apple.product-type.tool"
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 block|}
 name|t
@@ -10616,9 +9958,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -10637,9 +9977,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 block|}
 else|else
@@ -10693,9 +10031,7 @@ name|lib
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -10709,9 +10045,7 @@ name|lib
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 if|if
 condition|(
@@ -10739,9 +10073,7 @@ literal|"QMAKE_PBX_PRODUCT_TYPE"
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 elseif|else
 if|if
@@ -10764,9 +10096,7 @@ argument_list|,
 literal|"com.apple.product-type.library.static"
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 elseif|else
 if|if
@@ -10789,9 +10119,7 @@ argument_list|,
 literal|"com.apple.product-type.framework"
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 else|else
 name|t
@@ -10805,9 +10133,7 @@ argument_list|,
 literal|"com.apple.product-type.library.dynamic"
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 block|}
 if|if
@@ -10839,17 +10165,11 @@ argument_list|)
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 name|t
 operator|<<
-literal|"\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t};\n"
 expr_stmt|;
 comment|//DEBUG/RELEASE
 name|QString
@@ -11244,9 +10564,7 @@ literal|"\t\t"
 operator|<<
 name|key
 operator|<<
-literal|" = {"
-operator|<<
-literal|"\n"
+literal|" = {\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -11259,15 +10577,9 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t\t"
-operator|<<
-literal|"buildSettings = {"
-operator|<<
-literal|"\n"
+literal|"\t\t\tbuildSettings = {\n"
 expr_stmt|;
 for|for
 control|(
@@ -11358,9 +10670,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 name|ProString
 name|program
@@ -11397,9 +10707,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 name|program
 operator|=
@@ -11445,9 +10753,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 name|program
 operator|=
@@ -11483,9 +10789,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 if|if
 condition|(
@@ -11852,9 +11156,7 @@ argument_list|,
 literal|"Info.plist"
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 block|}
 block|}
@@ -11875,9 +11177,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 if|if
 condition|(
@@ -11935,9 +11235,7 @@ argument_list|,
 name|dir
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 block|}
 if|if
@@ -11963,9 +11261,7 @@ name|ProStringList
 argument_list|()
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 if|if
 condition|(
@@ -12021,9 +11317,7 @@ literal|"VER_PAT"
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 if|if
 condition|(
@@ -12059,9 +11353,7 @@ literal|"VER_MIN"
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 if|if
 condition|(
@@ -12105,9 +11397,7 @@ literal|"QMAKE_FRAMEWORK_VERSION"
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 block|}
 if|if
@@ -12136,9 +11426,7 @@ literal|"COMPAT_VERSION"
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 if|if
 condition|(
@@ -12166,9 +11454,7 @@ literal|"QMAKE_MACOSX_DEPLOYMENT_TARGET"
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 if|if
 condition|(
@@ -12196,9 +11482,7 @@ literal|"QMAKE_IOS_DEPLOYMENT_TARGET"
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 if|if
 condition|(
@@ -12226,9 +11510,7 @@ literal|"QMAKE_XCODE_CODE_SIGN_IDENTITY"
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 name|tmp
 operator|=
@@ -12315,9 +11597,7 @@ name|val
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 block|}
 if|if
@@ -12342,9 +11622,7 @@ argument_list|,
 literal|"YES"
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t\t"
 operator|<<
@@ -12363,9 +11641,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 block|}
 name|t
@@ -12395,9 +11671,7 @@ argument_list|,
 literal|5
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t\t"
 operator|<<
@@ -12415,9 +11689,7 @@ argument_list|,
 literal|5
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t\t"
 operator|<<
@@ -12448,9 +11720,7 @@ argument_list|,
 literal|5
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 block|{
 name|ProStringList
@@ -12561,9 +11831,7 @@ argument_list|,
 literal|5
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 block|}
 block|{
@@ -12675,9 +11943,7 @@ argument_list|,
 literal|5
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 block|}
 if|if
@@ -12724,9 +11990,7 @@ argument_list|,
 literal|6
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 block|}
 specifier|const
@@ -12778,9 +12042,7 @@ argument_list|,
 name|archs
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 if|if
 condition|(
@@ -12814,9 +12076,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 block|}
 else|else
@@ -12855,9 +12115,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 block|}
 else|else
@@ -12890,9 +12148,7 @@ argument_list|,
 literal|"STATIC"
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 else|else
 name|t
@@ -12906,9 +12162,7 @@ argument_list|,
 literal|"DYNAMIC"
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 name|ProString
 name|lib
@@ -12959,19 +12213,13 @@ name|lib
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 block|}
 block|}
 name|t
 operator|<<
-literal|"\t\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t\t};\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -12982,15 +12230,9 @@ argument_list|,
 name|name
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t};\n"
 expr_stmt|;
 block|}
 block|}
@@ -13028,9 +12270,7 @@ name|i
 argument_list|)
 argument_list|)
 operator|<<
-literal|" = {"
-operator|<<
-literal|"\n"
+literal|" = {\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -13043,9 +12283,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -13075,9 +12313,7 @@ argument_list|,
 literal|4
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -13090,9 +12326,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -13103,15 +12337,9 @@ argument_list|,
 name|defaultConfig
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t};\n"
 expr_stmt|;
 block|}
 comment|//ROOT
@@ -13124,9 +12352,7 @@ argument_list|(
 literal|"QMAKE_PBX_ROOT"
 argument_list|)
 operator|<<
-literal|" = {"
-operator|<<
-literal|"\n"
+literal|" = {\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -13139,9 +12365,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -13152,9 +12376,7 @@ argument_list|,
 literal|"Xcode 3.2"
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -13167,9 +12389,7 @@ argument_list|,
 name|SettingsNoQuote
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -13183,9 +12403,7 @@ literal|"QMAKE_PBX_ROOT_GROUP"
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -13199,9 +12417,7 @@ literal|"Products"
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 name|t
 operator|<<
@@ -13217,9 +12433,7 @@ literal|"QMAKE_PBX_BUILDCONFIG_LIST_PROJECT"
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 expr_stmt|;
 name|t
 operator|<<
@@ -13233,9 +12447,7 @@ name|ProStringList
 argument_list|()
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -13246,9 +12458,7 @@ argument_list|,
 literal|""
 argument_list|)
 operator|<<
-literal|";"
-operator|<<
-literal|"\n"
+literal|";\n"
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -13268,25 +12478,15 @@ argument_list|,
 literal|4
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t\t};\n"
 expr_stmt|;
 comment|// FIXME: Deal with developmentRegion and knownRegions for QMAKE_PBX_ROOT
 comment|//FOOTER
 name|t
 operator|<<
-literal|"\t"
-operator|<<
-literal|"};"
-operator|<<
-literal|"\n"
+literal|"\t};\n"
 operator|<<
 literal|"\t"
 operator|<<
@@ -13300,13 +12500,9 @@ literal|"QMAKE_PBX_ROOT"
 argument_list|)
 argument_list|)
 operator|<<
-literal|";"
+literal|";\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"}"
-operator|<<
-name|endl
+literal|"}\n"
 expr_stmt|;
 if|if
 condition|(
@@ -13410,9 +12606,7 @@ name|mkwrapt
 operator|<<
 literal|"#This is a makefile wrapper for PROJECT BUILDER\n"
 operator|<<
-literal|"all:"
-operator|<<
-literal|"\n\t"
+literal|"all:\n\t"
 operator|<<
 literal|"cd "
 operator|<<
@@ -13433,9 +12627,7 @@ argument_list|()
 operator|<<
 literal|"\n"
 operator|<<
-literal|"install: all"
-operator|<<
-literal|"\n\t"
+literal|"install: all\n\t"
 operator|<<
 literal|"cd "
 operator|<<
@@ -13456,9 +12648,7 @@ argument_list|()
 operator|<<
 literal|" install\n"
 operator|<<
-literal|"distclean clean: preprocess_clean"
-operator|<<
-literal|"\n\t"
+literal|"distclean clean: preprocess_clean\n\t"
 operator|<<
 literal|"cd "
 operator|<<
@@ -13477,9 +12667,7 @@ operator|<<
 name|pbxbuild
 argument_list|()
 operator|<<
-literal|" clean"
-operator|<<
-literal|"\n"
+literal|" clean\n"
 operator|<<
 operator|(
 operator|!
@@ -13490,9 +12678,7 @@ else|:
 literal|""
 operator|)
 operator|<<
-literal|":"
-operator|<<
-literal|"\n"
+literal|":\n"
 expr_stmt|;
 if|if
 condition|(
@@ -13502,9 +12688,7 @@ name|mkwrapt
 operator|<<
 name|cleans
 operator|<<
-literal|":"
-operator|<<
-literal|"\n\t"
+literal|":\n\t"
 operator|<<
 literal|"make -f "
 operator|<<
@@ -13514,9 +12698,7 @@ name|Option
 operator|::
 name|dir_sep
 operator|<<
-literal|"qt_preprocess.mak $@"
-operator|<<
-name|endl
+literal|"qt_preprocess.mak $@\n"
 expr_stmt|;
 name|writingUnixMakefileGenerator
 operator|=

@@ -1036,7 +1036,7 @@ name|project
 operator|->
 name|isActiveConfig
 argument_list|(
-literal|"macx"
+literal|"mac"
 argument_list|)
 condition|)
 block|{
@@ -1864,7 +1864,7 @@ name|project
 operator|->
 name|isActiveConfig
 argument_list|(
-literal|"macx"
+literal|"mac"
 argument_list|)
 operator|&&
 operator|!

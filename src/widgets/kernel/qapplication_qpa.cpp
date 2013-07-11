@@ -343,6 +343,24 @@ modifier|*
 name|wnd
 parameter_list|)
 block|{
+while|while
+condition|(
+name|wnd
+operator|&&
+operator|!
+name|wnd
+operator|->
+name|isTopLevel
+argument_list|()
+condition|)
+comment|// QTBUG-32177, wnd might be a QQuickView embedded via window container.
+name|wnd
+operator|=
+name|wnd
+operator|->
+name|parent
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|wnd

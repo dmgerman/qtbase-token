@@ -183,6 +183,22 @@ ifdef|#
 directive|ifdef
 name|Q_OS_WIN64
 block|{
+name|NET2013
+block|,
+literal|"MSVC.NET 2013 (12.0)"
+block|,
+literal|"Software\\Wow6432Node\\Microsoft\\VisualStudio\\12.0\\Setup\\VC\\ProductDir"
+block|}
+block|,
+block|{
+name|NET2013
+block|,
+literal|"MSVC.NET 2013 Express Edition (12.0)"
+block|,
+literal|"Software\\Wow6432Node\\Microsoft\\VCExpress\\12.0\\Setup\\VC\\ProductDir"
+block|}
+block|,
+block|{
 name|NET2012
 block|,
 literal|"MSVC.NET 2012 (11.0)"
@@ -264,6 +280,22 @@ block|}
 block|,
 else|#
 directive|else
+block|{
+name|NET2013
+block|,
+literal|"MSVC.NET 2013 (12.0)"
+block|,
+literal|"Software\\Microsoft\\VisualStudio\\12.0\\Setup\\VC\\ProductDir"
+block|}
+block|,
+block|{
+name|NET2013
+block|,
+literal|"MSVC.NET 2013 Express Edition (12.0)"
+block|,
+literal|"Software\\Microsoft\\VCExpress\\12.0\\Setup\\VC\\ProductDir"
+block|}
+block|,
 block|{
 name|NET2012
 block|,
@@ -795,6 +827,17 @@ index|[]
 init|=
 literal|"Microsoft Visual Studio Solution File, Format Version 12.00"
 literal|"\n# Visual Studio 2012"
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|_slnHeader120
+specifier|const
+name|char
+name|_slnHeader120
+index|[]
+init|=
+literal|"Microsoft Visual Studio Solution File, Format Version 12.00"
+literal|"\n# Visual Studio 2013"
 decl_stmt|;
 end_decl_stmt
 begin_comment
@@ -3762,6 +3805,14 @@ argument_list|()
 condition|)
 block|{
 case|case
+name|NET2013
+case|:
+name|t
+operator|<<
+name|_slnHeader120
+expr_stmt|;
+break|break;
+case|case
 name|NET2012
 case|:
 name|t
@@ -5600,6 +5651,16 @@ name|which_dotnet_version
 argument_list|()
 condition|)
 block|{
+case|case
+name|NET2013
+case|:
+name|vcProject
+operator|.
+name|Version
+operator|=
+literal|"13.00"
+expr_stmt|;
+break|break;
 case|case
 name|NET2012
 case|:
@@ -8564,6 +8625,18 @@ literal|"IDLSOURCES"
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|project
+operator|->
+name|values
+argument_list|(
+literal|"RC_FILE"
+argument_list|)
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
 name|vcProject
 operator|.
 name|GeneratedFiles

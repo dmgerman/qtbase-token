@@ -800,143 +800,6 @@ block|}
 enum|;
 end_enum
 begin_comment
-comment|// Unfortunately FontConfig doesn't know about some languages. We have to test these through the
-end_comment
-begin_comment
-comment|// charset. The lists below contain the systems where we need to do this.
-end_comment
-begin_decl_stmt
-DECL|variable|sampleCharForWritingSystem
-specifier|static
-specifier|const
-name|ushort
-name|sampleCharForWritingSystem
-index|[]
-init|=
-block|{
-literal|0
-block|,
-comment|// Any
-literal|0
-block|,
-comment|// Latin
-literal|0
-block|,
-comment|// Greek
-literal|0
-block|,
-comment|// Cyrillic
-literal|0
-block|,
-comment|// Armenian
-literal|0
-block|,
-comment|// Hebrew
-literal|0
-block|,
-comment|// Arabic
-literal|0
-block|,
-comment|// Syriac
-literal|0
-block|,
-comment|// Thaana
-literal|0
-block|,
-comment|// Devanagari
-literal|0
-block|,
-comment|// Bengali
-literal|0
-block|,
-comment|// Gurmukhi
-literal|0
-block|,
-comment|// Gujarati
-literal|0
-block|,
-comment|// Oriya
-literal|0
-block|,
-comment|// Tamil
-literal|0xc15
-block|,
-comment|// Telugu
-literal|0xc95
-block|,
-comment|// Kannada
-literal|0xd15
-block|,
-comment|// Malayalam
-literal|0xd9a
-block|,
-comment|// Sinhala
-literal|0
-block|,
-comment|// Thai
-literal|0
-block|,
-comment|// Lao
-literal|0
-block|,
-comment|// Tibetan
-literal|0x1000
-block|,
-comment|// Myanmar
-literal|0
-block|,
-comment|// Georgian
-literal|0
-block|,
-comment|// Khmer
-literal|0
-block|,
-comment|// SimplifiedChinese
-literal|0
-block|,
-comment|// TraditionalChinese
-literal|0
-block|,
-comment|// Japanese
-literal|0
-block|,
-comment|// Korean
-literal|0
-block|,
-comment|// Vietnamese
-literal|0
-block|,
-comment|// Symbol
-literal|0x1681
-block|,
-comment|// Ogham
-literal|0x16a0
-block|,
-comment|// Runic
-literal|0x7ca
-comment|// N'Ko
-block|}
-decl_stmt|;
-end_decl_stmt
-begin_enum
-DECL|enumerator|SampleCharCount
-enum|enum
-block|{
-name|SampleCharCount
-init|=
-sizeof|sizeof
-argument_list|(
-name|sampleCharForWritingSystem
-argument_list|)
-operator|/
-expr|sizeof
-operator|(
-name|ushort
-operator|)
-block|}
-enum|;
-end_enum
-begin_comment
 comment|// Newer FontConfig let's us sort out fonts that contain certain glyphs, but no
 end_comment
 begin_comment
@@ -1146,116 +1009,6 @@ break|break;
 block|}
 return|return
 name|stylehint
-return|;
-block|}
-end_function
-begin_function
-DECL|function|isSymbolFont
-specifier|static
-name|bool
-name|isSymbolFont
-parameter_list|(
-name|FontFile
-modifier|*
-name|fontFile
-parameter_list|)
-block|{
-if|if
-condition|(
-name|fontFile
-operator|==
-literal|0
-operator|||
-name|fontFile
-operator|->
-name|fileName
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-return|return
-literal|false
-return|;
-name|QFontEngine
-operator|::
-name|FaceId
-name|id
-decl_stmt|;
-name|id
-operator|.
-name|filename
-operator|=
-name|QFile
-operator|::
-name|encodeName
-argument_list|(
-name|fontFile
-operator|->
-name|fileName
-argument_list|)
-expr_stmt|;
-name|id
-operator|.
-name|index
-operator|=
-name|fontFile
-operator|->
-name|indexValue
-expr_stmt|;
-name|QFreetypeFace
-modifier|*
-name|f
-init|=
-name|QFreetypeFace
-operator|::
-name|getFace
-argument_list|(
-name|id
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|f
-operator|==
-literal|0
-condition|)
-block|{
-name|qWarning
-argument_list|(
-literal|"isSymbolFont: Couldn't open face %s/%d"
-argument_list|,
-name|id
-operator|.
-name|filename
-operator|.
-name|data
-argument_list|()
-argument_list|,
-name|id
-operator|.
-name|index
-argument_list|)
-expr_stmt|;
-return|return
-literal|false
-return|;
-block|}
-name|bool
-name|hasSymbolMap
-init|=
-name|f
-operator|->
-name|symbol_map
-decl_stmt|;
-name|f
-operator|->
-name|release
-argument_list|(
-name|id
-argument_list|)
-expr_stmt|;
-return|return
-name|hasSymbolMap
 return|;
 block|}
 end_function
@@ -1781,6 +1534,11 @@ operator|==
 name|FcResultMatch
 condition|)
 block|{
+name|bool
+name|hasLang
+init|=
+literal|false
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -1832,6 +1590,7 @@ name|langRes
 operator|!=
 name|FcLangDifferentLang
 condition|)
+block|{
 name|writingSystems
 operator|.
 name|setSupported
@@ -1844,8 +1603,28 @@ name|i
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|hasLang
+operator|=
+literal|true
+expr_stmt|;
 block|}
 block|}
+block|}
+if|if
+condition|(
+operator|!
+name|hasLang
+condition|)
+comment|// none of our known languages, add it to the other set
+name|writingSystems
+operator|.
+name|setSupported
+argument_list|(
+name|QFontDatabase
+operator|::
+name|Other
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -1861,102 +1640,6 @@ operator|::
 name|Other
 argument_list|)
 expr_stmt|;
-block|}
-name|FcCharSet
-modifier|*
-name|cs
-init|=
-literal|0
-decl_stmt|;
-name|res
-operator|=
-name|FcPatternGetCharSet
-argument_list|(
-name|fonts
-operator|->
-name|fonts
-index|[
-name|i
-index|]
-argument_list|,
-name|FC_CHARSET
-argument_list|,
-literal|0
-argument_list|,
-operator|&
-name|cs
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|res
-operator|==
-name|FcResultMatch
-condition|)
-block|{
-comment|// some languages are not supported by FontConfig, we rather check the
-comment|// charset to detect these
-for|for
-control|(
-name|int
-name|i
-init|=
-literal|1
-init|;
-name|i
-operator|<
-name|SampleCharCount
-condition|;
-operator|++
-name|i
-control|)
-block|{
-if|if
-condition|(
-operator|!
-name|sampleCharForWritingSystem
-index|[
-name|i
-index|]
-operator|||
-name|writingSystems
-operator|.
-name|supported
-argument_list|(
-name|QFontDatabase
-operator|::
-name|WritingSystem
-argument_list|(
-name|i
-argument_list|)
-argument_list|)
-condition|)
-continue|continue;
-if|if
-condition|(
-name|FcCharSetHasChar
-argument_list|(
-name|cs
-argument_list|,
-name|sampleCharForWritingSystem
-index|[
-name|i
-index|]
-argument_list|)
-condition|)
-name|writingSystems
-operator|.
-name|setSupported
-argument_list|(
-name|QFontDatabase
-operator|::
-name|WritingSystem
-argument_list|(
-name|i
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 if|#
 directive|if
@@ -2093,98 +1776,6 @@ name|indexValue
 operator|=
 name|indexValue
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|writingSystems
-operator|.
-name|supported
-argument_list|(
-name|QFontDatabase
-operator|::
-name|Symbol
-argument_list|)
-condition|)
-block|{
-comment|// Symbol encoding used to encode various crap in the 32..255 character
-comment|// code range, which belongs to Latin character code range.
-comment|// Symbol fonts usually don't have any other code ranges support.
-name|bool
-name|mightBeSymbolFont
-init|=
-literal|true
-decl_stmt|;
-for|for
-control|(
-name|int
-name|j
-init|=
-literal|2
-init|;
-name|j
-operator|<
-name|QFontDatabase
-operator|::
-name|WritingSystemsCount
-condition|;
-operator|++
-name|j
-control|)
-block|{
-if|if
-condition|(
-name|writingSystems
-operator|.
-name|supported
-argument_list|(
-name|QFontDatabase
-operator|::
-name|WritingSystem
-argument_list|(
-name|j
-argument_list|)
-argument_list|)
-condition|)
-block|{
-name|mightBeSymbolFont
-operator|=
-literal|false
-expr_stmt|;
-break|break;
-block|}
-block|}
-if|if
-condition|(
-name|mightBeSymbolFont
-operator|&&
-name|isSymbolFont
-argument_list|(
-name|fontFile
-argument_list|)
-condition|)
-block|{
-name|writingSystems
-operator|.
-name|setSupported
-argument_list|(
-name|QFontDatabase
-operator|::
-name|Latin
-argument_list|,
-literal|false
-argument_list|)
-expr_stmt|;
-name|writingSystems
-operator|.
-name|setSupported
-argument_list|(
-name|QFontDatabase
-operator|::
-name|Symbol
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 name|QFont
 operator|::
 name|Style

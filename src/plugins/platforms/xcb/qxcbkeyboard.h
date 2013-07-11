@@ -182,6 +182,10 @@ argument_list|,
 argument|xcb_timestamp_t time
 argument_list|)
 block|;
+name|void
+name|resolveMaskConflicts
+argument_list|()
+block|;
 name|QString
 name|keysymToUnicode
 argument_list|(
@@ -265,6 +269,12 @@ name|altgr
 block|;
 name|uint
 name|meta
+block|;
+name|uint
+name|super
+block|;
+name|uint
+name|hyper
 block|;     }
 block|;
 name|_mod_masks

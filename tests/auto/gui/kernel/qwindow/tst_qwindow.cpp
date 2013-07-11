@@ -661,18 +661,6 @@ operator|::
 name|positioning
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-comment|// the fullscreen animation delay on OS X Lion also causes failures in
-comment|// the isActive() test below, so it's best to just skip it for now
-name|QSKIP
-argument_list|(
-literal|"Multiple failures in this test on Mac OS X, see QTBUG-23059"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 operator|!
@@ -904,6 +892,20 @@ operator|::
 name|processEvents
 argument_list|()
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_MACX
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"Multiple failures in this test on Mac OS X, see QTBUG-23059"
+argument_list|,
+name|Abort
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QTRY_COMPARE
 argument_list|(
 name|window
@@ -1006,6 +1008,19 @@ condition|)
 block|{
 name|QPoint
 name|framePos
+init|=
+name|QGuiApplication
+operator|::
+name|primaryScreen
+argument_list|()
+operator|->
+name|availableVirtualGeometry
+argument_list|()
+operator|.
+name|topLeft
+argument_list|()
+operator|+
+name|QPoint
 argument_list|(
 literal|40
 argument_list|,

@@ -71,30 +71,6 @@ name|QColor
 name|currentColor
 argument_list|()
 specifier|const
-block|;
-name|public
-operator|:
-name|bool
-name|showCocoaColorPanel
-argument_list|(
-argument|Qt::WindowModality windowModality
-argument_list|,
-argument|QWindow *parent
-argument_list|)
-block|;
-name|bool
-name|hideCocoaColorPanel
-argument_list|()
-block|;
-name|void
-name|createNSColorPanelDelegate
-argument_list|()
-block|;
-name|private
-operator|:
-name|void
-operator|*
-name|mDelegate
 block|; }
 decl_stmt|;
 end_decl_stmt

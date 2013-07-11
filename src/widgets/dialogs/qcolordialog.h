@@ -346,6 +346,12 @@ name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
 argument_list|,
+argument|void _q_nextCustom(int, int)
+argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
 argument|void _q_newCustom(int, int)
 argument_list|)
 name|Q_PRIVATE_SLOT

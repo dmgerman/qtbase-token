@@ -1882,6 +1882,16 @@ init|=
 literal|"InterworkCalls"
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|_GenerateManifest
+specifier|const
+name|char
+name|_GenerateManifest
+index|[]
+init|=
+literal|"GenerateManifest"
+decl_stmt|;
+end_decl_stmt
 begin_comment
 comment|// XmlOutput stream functions ------------------------------
 end_comment
@@ -14505,6 +14515,15 @@ argument_list|,
 name|tool
 operator|.
 name|Version
+argument_list|)
+operator|<<
+name|attrT
+argument_list|(
+name|_GenerateManifest
+argument_list|,
+name|tool
+operator|.
+name|GenerateManifest
 argument_list|)
 operator|<<
 name|closetag

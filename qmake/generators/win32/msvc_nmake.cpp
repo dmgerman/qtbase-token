@@ -135,9 +135,7 @@ literal|" "
 expr_stmt|;
 name|t
 operator|<<
-literal|"all first clean:"
-operator|<<
-literal|"\n\t"
+literal|"all first clean:\n\t"
 operator|<<
 literal|"@echo \"Some of the required modules ("
 operator|<<
@@ -146,15 +144,9 @@ argument_list|(
 literal|"QMAKE_FAILED_REQUIREMENTS"
 argument_list|)
 operator|<<
-literal|") are not available.\""
+literal|") are not available.\"\n\t"
 operator|<<
-literal|"\n\t"
-operator|<<
-literal|"@echo \"Skipped.\""
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|"@echo \"Skipped.\"\n\n"
 expr_stmt|;
 name|writeMakeQmake
 argument_list|(
@@ -1002,9 +994,7 @@ argument_list|(
 literal|" \\\n\t\t"
 argument_list|)
 operator|<<
-literal|"\n\t"
-operator|<<
-literal|"$(CXX) "
+literal|"\n\t$(CXX) "
 operator|+
 name|precompRule
 operator|+
@@ -2398,15 +2388,7 @@ argument_list|)
 operator|<<
 name|endl
 operator|<<
-literal|"\t$<"
-operator|<<
-name|endl
-operator|<<
-literal|"<<"
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|"\t$<\n<<\n\n"
 expr_stmt|;
 for|for
 control|(
@@ -2482,15 +2464,7 @@ argument_list|)
 operator|<<
 name|endl
 operator|<<
-literal|"\t$<"
-operator|<<
-name|endl
-operator|<<
-literal|"<<"
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|"\t$<\n<<\n\n"
 expr_stmt|;
 block|}
 block|}
@@ -2620,9 +2594,7 @@ argument_list|)
 decl_stmt|;
 name|t
 operator|<<
-literal|"first: all"
-operator|<<
-name|endl
+literal|"first: all\n"
 expr_stmt|;
 name|t
 operator|<<
@@ -2651,11 +2623,7 @@ argument_list|,
 literal|" "
 argument_list|)
 operator|<<
-literal|"$(DESTDIR_TARGET)"
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|"$(DESTDIR_TARGET)\n\n"
 expr_stmt|;
 name|t
 operator|<<
@@ -2704,18 +2672,14 @@ condition|)
 block|{
 name|t
 operator|<<
-literal|"\n\t"
-operator|<<
-literal|"$(LIBAPP) $(LIBFLAGS) "
+literal|"\n\t$(LIBAPP) $(LIBFLAGS) "
 operator|<<
 name|var
 argument_list|(
 literal|"QMAKE_LINK_O_FLAG"
 argument_list|)
 operator|<<
-literal|"$(DESTDIR_TARGET) @<<"
-operator|<<
-literal|"\n\t  "
+literal|"$(DESTDIR_TARGET) @<<\n\t  "
 operator|<<
 literal|"$(OBJECTS)"
 operator|<<
@@ -3090,9 +3054,7 @@ else|else
 block|{
 name|t
 operator|<<
-literal|"\n\t"
-operator|<<
-literal|"rc.exe /fo"
+literal|"\n\trc.exe /fo"
 operator|<<
 name|manifest_res
 operator|<<
@@ -3131,9 +3093,7 @@ argument_list|)
 expr_stmt|;
 name|t
 operator|<<
-literal|"\n\t"
-operator|<<
-literal|"mt.exe /nologo /manifest "
+literal|"\n\tmt.exe /nologo /manifest "
 operator|<<
 name|manifest
 operator|<<

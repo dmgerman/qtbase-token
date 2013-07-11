@@ -247,9 +247,7 @@ literal|" "
 expr_stmt|;
 name|t
 operator|<<
-literal|"first all clean install distclean uninstall qmake_all:"
-operator|<<
-literal|"\n\t"
+literal|"first all clean install distclean uninstall qmake_all:\n\t"
 operator|<<
 literal|"@echo \"Some of the required modules ("
 operator|<<
@@ -258,15 +256,9 @@ argument_list|(
 literal|"QMAKE_FAILED_REQUIREMENTS"
 argument_list|)
 operator|<<
-literal|") are not available.\""
+literal|") are not available.\"\n\t"
 operator|<<
-literal|"\n\t"
-operator|<<
-literal|"@echo \"Skipped.\""
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|"@echo \"Skipped.\"\n\n"
 expr_stmt|;
 name|writeMakeQmake
 argument_list|(
@@ -275,11 +267,7 @@ argument_list|)
 expr_stmt|;
 name|t
 operator|<<
-literal|"FORCE:"
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|"FORCE:\n\n"
 expr_stmt|;
 return|return
 literal|true
@@ -469,11 +457,7 @@ literal|false
 decl_stmt|;
 name|t
 operator|<<
-literal|"####### Compiler, tools and options"
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|"####### Compiler, tools and options\n\n"
 expr_stmt|;
 name|t
 operator|<<
@@ -534,9 +518,7 @@ argument_list|(
 literal|"QMAKE_CFLAGS"
 argument_list|)
 operator|<<
-literal|" $(DEFINES)"
-operator|<<
-name|endl
+literal|" $(DEFINES)\n"
 expr_stmt|;
 name|t
 operator|<<
@@ -547,15 +529,11 @@ argument_list|(
 literal|"QMAKE_CXXFLAGS"
 argument_list|)
 operator|<<
-literal|" $(DEFINES)"
-operator|<<
-name|endl
+literal|" $(DEFINES)\n"
 expr_stmt|;
 name|t
 operator|<<
-literal|"INCPATH       = "
-operator|<<
-literal|"-I"
+literal|"INCPATH       = -I"
 operator|<<
 name|specdir
 argument_list|()
@@ -655,9 +633,7 @@ argument_list|()
 condition|)
 name|t
 operator|<<
-literal|" "
-operator|<<
-literal|"-I"
+literal|" -I"
 operator|<<
 name|inc
 expr_stmt|;
@@ -721,9 +697,7 @@ name|endl
 expr_stmt|;
 name|t
 operator|<<
-literal|"LIBS          = "
-operator|<<
-literal|"$(SUBLIBS) "
+literal|"LIBS          = $(SUBLIBS) "
 operator|<<
 name|var
 argument_list|(
@@ -975,11 +949,7 @@ name|endl
 expr_stmt|;
 name|t
 operator|<<
-literal|"####### Output directory"
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|"####### Output directory\n\n"
 expr_stmt|;
 if|if
 condition|(
@@ -1008,9 +978,7 @@ expr_stmt|;
 else|else
 name|t
 operator|<<
-literal|"OBJECTS_DIR   = ./"
-operator|<<
-name|endl
+literal|"OBJECTS_DIR   = ./\n"
 expr_stmt|;
 name|t
 operator|<<
@@ -1019,11 +987,7 @@ expr_stmt|;
 comment|/* files */
 name|t
 operator|<<
-literal|"####### Files"
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|"####### Files\n\n"
 expr_stmt|;
 name|t
 operator|<<
@@ -1365,9 +1329,7 @@ argument_list|(
 literal|"DESTDIR"
 argument_list|)
 operator|<<
-literal|"#avoid trailing-slash linebreak"
-operator|<<
-name|endl
+literal|"#avoid trailing-slash linebreak\n"
 expr_stmt|;
 if|if
 condition|(
@@ -1669,17 +1631,11 @@ expr_stmt|;
 comment|/* rules */
 name|t
 operator|<<
-literal|"first: all"
-operator|<<
-name|endl
+literal|"first: all\n"
 expr_stmt|;
 name|t
 operator|<<
-literal|"####### Implicit rules"
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|"####### Implicit rules\n\n"
 expr_stmt|;
 name|t
 operator|<<
@@ -2066,11 +2022,7 @@ argument_list|)
 decl_stmt|;
 name|t
 operator|<<
-literal|"###### Dependencies"
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|"###### Dependencies\n\n"
 expr_stmt|;
 name|t
 operator|<<
@@ -2093,9 +2045,7 @@ argument_list|)
 condition|)
 name|t
 operator|<<
-literal|"@echo Creating depend for $<"
-operator|<<
-literal|"\n\t"
+literal|"@echo Creating depend for $<\n\t"
 expr_stmt|;
 name|t
 operator|<<
@@ -2114,11 +2064,7 @@ literal|" $< | sed \"s,^\\($(*F).o\\):,"
 operator|<<
 name|odir
 operator|<<
-literal|"\\1:,g\">$@"
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|"\\1:,g\">$@\n\n"
 expr_stmt|;
 name|t
 operator|<<
@@ -2141,9 +2087,7 @@ argument_list|)
 condition|)
 name|t
 operator|<<
-literal|"@echo Creating depend for $<"
-operator|<<
-literal|"\n\t"
+literal|"@echo Creating depend for $<\n\t"
 expr_stmt|;
 name|t
 operator|<<
@@ -2162,11 +2106,7 @@ literal|" $< | sed \"s,^\\($(*F).o\\):,"
 operator|<<
 name|odir
 operator|<<
-literal|"\\1:,g\">$@"
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|"\\1:,g\">$@\n\n"
 expr_stmt|;
 specifier|static
 specifier|const
@@ -2522,11 +2462,7 @@ block|}
 block|}
 name|t
 operator|<<
-literal|"####### Build rules"
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|"####### Build rules\n\n"
 expr_stmt|;
 if|if
 condition|(
@@ -2815,9 +2751,7 @@ name|t
 operator|<<
 name|targ
 operator|<<
-literal|"'\""
-operator|<<
-literal|"\n\t"
+literal|"'\"\n\t"
 operator|<<
 literal|"(cd "
 operator|<<
@@ -2830,9 +2764,7 @@ argument_list|)
 operator|<<
 literal|";"
 operator|<<
-literal|"$(MAKE))"
-operator|<<
-name|endl
+literal|"$(MAKE))\n"
 expr_stmt|;
 block|}
 block|}
@@ -3037,17 +2969,13 @@ name|t
 operator|<<
 name|incr_target_dir
 operator|<<
-literal|": $(OBJECTS)"
-operator|<<
-literal|"\n\t"
+literal|": $(OBJECTS)\n\t"
 operator|<<
 literal|"ld -r  -o "
 operator|<<
 name|incr_target_dir
 operator|<<
-literal|" $(OBJECTS)"
-operator|<<
-name|endl
+literal|" $(OBJECTS)\n"
 expr_stmt|;
 comment|//communicated below
 name|deps
@@ -3145,9 +3073,7 @@ name|t
 operator|<<
 name|incr_target_dir
 operator|<<
-literal|": $(INCREMENTAL_OBJECTS)"
-operator|<<
-literal|"\n\t"
+literal|": $(INCREMENTAL_OBJECTS)\n\t"
 expr_stmt|;
 if|if
 condition|(
@@ -3178,9 +3104,7 @@ literal|" -o "
 operator|<<
 name|incr_target_dir
 operator|<<
-literal|" $(INCREMENTAL_OBJECTS)"
-operator|<<
-name|endl
+literal|" $(INCREMENTAL_OBJECTS)\n"
 expr_stmt|;
 comment|//communicated below
 if|if
@@ -3954,9 +3878,7 @@ name|t
 operator|<<
 name|incr_target_dir
 operator|<<
-literal|": $(INCREMENTAL_OBJECTS)"
-operator|<<
-literal|"\n\t"
+literal|": $(INCREMENTAL_OBJECTS)\n\t"
 expr_stmt|;
 if|if
 condition|(
@@ -3990,9 +3912,7 @@ argument_list|)
 operator|<<
 name|incr_target_dir
 operator|<<
-literal|" $(INCREMENTAL_OBJECTS)"
-operator|<<
-name|endl
+literal|" $(INCREMENTAL_OBJECTS)\n"
 expr_stmt|;
 comment|//communicated below
 name|ProStringList
@@ -4048,9 +3968,7 @@ expr_stmt|;
 block|}
 name|t
 operator|<<
-literal|"all: "
-operator|<<
-literal|" "
+literal|"all:  "
 operator|<<
 name|escapeDependencyPath
 argument_list|(
@@ -4082,11 +4000,7 @@ literal|" "
 operator|<<
 name|destdir
 operator|<<
-literal|"$(TARGET)"
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|"$(TARGET)\n\n"
 expr_stmt|;
 comment|//real target
 name|t
@@ -4152,11 +4066,7 @@ literal|" "
 operator|<<
 name|destdir
 operator|<<
-literal|"$(TARGET)"
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|"$(TARGET)\n\n"
 expr_stmt|;
 name|t
 operator|<<
@@ -4252,9 +4162,7 @@ name|t
 operator|<<
 literal|"\n\t"
 operator|<<
-literal|"-$(DEL_FILE) $(TARGET)"
-operator|<<
-literal|"\n\t"
+literal|"-$(DEL_FILE) $(TARGET)\n\t"
 operator|<<
 name|var
 argument_list|(
@@ -4321,9 +4229,7 @@ name|t
 operator|<<
 literal|"\n\t"
 operator|<<
-literal|"-$(DEL_FILE) $(TARGET) $(TARGET0) $(DESTDIR)$(TARGET0)"
-operator|<<
-literal|"\n\t"
+literal|"-$(DEL_FILE) $(TARGET) $(TARGET0) $(DESTDIR)$(TARGET0)\n\t"
 operator|<<
 name|var
 argument_list|(
@@ -4341,9 +4247,7 @@ argument_list|)
 operator|<<
 literal|"\n\t"
 operator|<<
-literal|"-$(MOVE) $(TARGET) $(DESTDIR)$(TARGETD)"
-operator|<<
-literal|"\n\t"
+literal|"-$(MOVE) $(TARGET) $(DESTDIR)$(TARGETD)\n\t"
 operator|<<
 name|mkdir_p_asstring
 argument_list|(
@@ -4380,9 +4284,7 @@ literal|"-$(DEL_FILE) "
 operator|<<
 name|destdir
 operator|<<
-literal|"Versions/Current"
-operator|<<
-literal|"\n\t"
+literal|"Versions/Current\n\t"
 operator|<<
 name|varGlue
 argument_list|(
@@ -4451,9 +4353,7 @@ name|t
 operator|<<
 literal|"\n\t"
 operator|<<
-literal|"-$(DEL_FILE) $(TARGET) $(TARGET0) $(TARGET1) $(TARGET2)"
-operator|<<
-literal|"\n\t"
+literal|"-$(DEL_FILE) $(TARGET) $(TARGET0) $(TARGET1) $(TARGET2)\n\t"
 operator|<<
 name|var
 argument_list|(
@@ -4593,9 +4493,7 @@ name|t
 operator|<<
 literal|"\n\t"
 operator|<<
-literal|"-$(DEL_FILE) $(TARGET) $(TARGET0)"
-operator|<<
-literal|"\n\t"
+literal|"-$(DEL_FILE) $(TARGET) $(TARGET0)\n\t"
 operator|<<
 name|var
 argument_list|(
@@ -4698,11 +4596,7 @@ condition|)
 block|{
 name|t
 operator|<<
-literal|"staticlib: $(TARGETA)"
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|"staticlib: $(TARGETA)\n\n"
 expr_stmt|;
 name|t
 operator|<<
@@ -4734,9 +4628,7 @@ argument_list|)
 operator|<<
 literal|"\n\t"
 operator|<<
-literal|"-$(DEL_FILE) $(TARGETA) "
-operator|<<
-literal|"\n\t"
+literal|"-$(DEL_FILE) $(TARGETA) \n\t"
 operator|<<
 name|var
 argument_list|(
@@ -4763,9 +4655,7 @@ argument_list|)
 condition|)
 name|t
 operator|<<
-literal|"\n\t"
-operator|<<
-literal|"$(RANLIB) $(TARGETA)"
+literal|"\n\t$(RANLIB) $(TARGETA)"
 expr_stmt|;
 name|t
 operator|<<
@@ -4843,9 +4733,7 @@ literal|"staticlib: "
 operator|<<
 name|destdir
 operator|<<
-literal|"$(TARGET)"
-operator|<<
-literal|"\n\n"
+literal|"$(TARGET)\n\n"
 expr_stmt|;
 if|if
 condition|(
@@ -4896,9 +4784,7 @@ literal|"\n\t"
 expr_stmt|;
 name|t
 operator|<<
-literal|"-$(DEL_FILE) $(TARGET)"
-operator|<<
-literal|"\n\t"
+literal|"-$(DEL_FILE) $(TARGET)\n\t"
 operator|<<
 name|var
 argument_list|(
@@ -4940,11 +4826,7 @@ argument_list|)
 condition|)
 name|t
 operator|<<
-literal|"\t"
-operator|<<
-literal|"$(RANLIB) $(TARGET)"
-operator|<<
-literal|"\n"
+literal|"\t$(RANLIB) $(TARGET)\n"
 expr_stmt|;
 if|if
 condition|(
@@ -4956,19 +4838,13 @@ argument_list|()
 condition|)
 name|t
 operator|<<
-literal|"\t"
-operator|<<
-literal|"-$(DEL_FILE) "
+literal|"\t-$(DEL_FILE) "
 operator|<<
 name|destdir
 operator|<<
-literal|"$(TARGET)"
+literal|"$(TARGET)\n"
 operator|<<
-literal|"\n"
-operator|<<
-literal|"\t"
-operator|<<
-literal|"-$(MOVE) $(TARGET) "
+literal|"\t-$(MOVE) $(TARGET) "
 operator|<<
 name|destdir
 operator|<<
@@ -5256,9 +5132,7 @@ argument_list|)
 condition|)
 name|t
 operator|<<
-literal|"\t"
-operator|<<
-literal|"$(RANLIB) "
+literal|"\t$(RANLIB) "
 operator|<<
 operator|(
 operator|*
@@ -5277,9 +5151,7 @@ argument_list|()
 condition|)
 name|t
 operator|<<
-literal|"\t"
-operator|<<
-literal|"-$(DEL_FILE) "
+literal|"\t-$(DEL_FILE) "
 operator|<<
 name|destdir
 operator|<<
@@ -5290,9 +5162,7 @@ operator|)
 operator|<<
 literal|"\n"
 operator|<<
-literal|"\t"
-operator|<<
-literal|"-$(MOVE) "
+literal|"\t-$(MOVE) "
 operator|<<
 operator|(
 operator|*
@@ -5420,9 +5290,7 @@ argument_list|(
 literal|" "
 argument_list|)
 operator|<<
-literal|": "
-operator|<<
-literal|"\n\t"
+literal|": \n\t"
 operator|<<
 literal|"@$(QMAKE) -prl "
 operator|<<
@@ -5492,9 +5360,7 @@ name|t
 operator|<<
 name|pkginfo
 operator|<<
-literal|": "
-operator|<<
-literal|"\n\t"
+literal|": \n\t"
 expr_stmt|;
 if|if
 condition|(
@@ -5611,9 +5477,7 @@ name|t
 operator|<<
 name|resources
 operator|<<
-literal|": "
-operator|<<
-literal|"\n\t"
+literal|": \n\t"
 expr_stmt|;
 name|t
 operator|<<
@@ -5630,9 +5494,7 @@ literal|"@touch "
 operator|<<
 name|resources
 operator|<<
-literal|"\n\t"
-operator|<<
-name|endl
+literal|"\n\t\n"
 expr_stmt|;
 block|}
 if|if
@@ -5702,9 +5564,7 @@ name|t
 operator|<<
 name|info_plist_out
 operator|<<
-literal|": "
-operator|<<
-literal|"\n\t"
+literal|": \n\t"
 expr_stmt|;
 if|if
 condition|(
@@ -6237,9 +6097,7 @@ name|pkey
 argument_list|)
 argument_list|)
 operator|<<
-literal|": "
-operator|<<
-literal|"\n\t"
+literal|": \n\t"
 operator|<<
 name|mkdir_p_asstring
 argument_list|(
@@ -6544,9 +6402,7 @@ argument_list|)
 decl_stmt|;
 name|t
 operator|<<
-literal|"dist: "
-operator|<<
-literal|"\n\t"
+literal|"dist: \n\t"
 operator|<<
 name|mkdir_p_asstring
 argument_list|(
@@ -6798,9 +6654,7 @@ condition|)
 block|{
 name|t
 operator|<<
-literal|"incrclean:"
-operator|<<
-literal|"\n"
+literal|"incrclean:\n"
 expr_stmt|;
 if|if
 condition|(
@@ -6808,9 +6662,7 @@ name|src_incremental
 condition|)
 name|t
 operator|<<
-literal|"\t-$(DEL_FILE) $(INCREMENTAL_OBJECTS)"
-operator|<<
-literal|"\n"
+literal|"\t-$(DEL_FILE) $(INCREMENTAL_OBJECTS)\n"
 expr_stmt|;
 name|t
 operator|<<
@@ -6847,16 +6699,12 @@ argument_list|)
 condition|)
 name|t
 operator|<<
-literal|"-$(LIBTOOL) --mode=clean $(DEL_FILE) $(OBJECTS)"
-operator|<<
-literal|"\n\t"
+literal|"-$(LIBTOOL) --mode=clean $(DEL_FILE) $(OBJECTS)\n\t"
 expr_stmt|;
 else|else
 name|t
 operator|<<
-literal|"-$(DEL_FILE) $(OBJECTS)"
-operator|<<
-literal|"\n\t"
+literal|"-$(DEL_FILE) $(OBJECTS)\n\t"
 expr_stmt|;
 block|}
 if|if
@@ -7190,9 +7038,7 @@ name|src_incremental
 condition|)
 name|t
 operator|<<
-literal|"-$(DEL_FILE) $(INCREMENTAL_OBJECTS)"
-operator|<<
-literal|"\n\t"
+literal|"-$(DEL_FILE) $(INCREMENTAL_OBJECTS)\n\t"
 expr_stmt|;
 name|t
 operator|<<
@@ -7207,9 +7053,7 @@ argument_list|,
 literal|"\n\t"
 argument_list|)
 operator|<<
-literal|"-$(DEL_FILE) *~ core *.core"
-operator|<<
-literal|"\n"
+literal|"-$(DEL_FILE) *~ core *.core\n"
 operator|<<
 name|varGlue
 argument_list|(
@@ -7228,11 +7072,7 @@ name|endl
 expr_stmt|;
 name|t
 operator|<<
-literal|"####### Sub-libraries"
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|"####### Sub-libraries\n\n"
 expr_stmt|;
 if|if
 condition|(
@@ -7382,9 +7222,7 @@ name|dir_sep
 expr_stmt|;
 name|t
 operator|<<
-literal|"distclean: "
-operator|<<
-literal|"clean\n"
+literal|"distclean: clean\n"
 expr_stmt|;
 if|if
 condition|(
@@ -7434,11 +7272,7 @@ condition|)
 block|{
 name|t
 operator|<<
-literal|"\t-$(LIBTOOL) --mode=clean $(DEL_FILE) "
-operator|<<
-literal|"$(TARGET)"
-operator|<<
-name|endl
+literal|"\t-$(LIBTOOL) --mode=clean $(DEL_FILE) $(TARGET)\n"
 expr_stmt|;
 block|}
 elseif|else
@@ -7477,11 +7311,7 @@ literal|"\t-$(DEL_FILE) "
 operator|<<
 name|destdir
 operator|<<
-literal|"$(TARGET)"
-operator|<<
-literal|" "
-operator|<<
-name|endl
+literal|"$(TARGET) \n"
 expr_stmt|;
 name|t
 operator|<<
@@ -7497,22 +7327,14 @@ literal|"$(TARGET1) "
 operator|<<
 name|destdir
 operator|<<
-literal|"$(TARGET2) $(TARGETA)"
-operator|<<
-name|endl
+literal|"$(TARGET2) $(TARGETA)\n"
 expr_stmt|;
 block|}
 else|else
 block|{
 name|t
 operator|<<
-literal|"\t-$(DEL_FILE) "
-operator|<<
-literal|"$(TARGET)"
-operator|<<
-literal|" "
-operator|<<
-name|endl
+literal|"\t-$(DEL_FILE) $(TARGET) \n"
 expr_stmt|;
 block|}
 name|t
@@ -7599,9 +7421,7 @@ argument_list|()
 decl_stmt|;
 name|t
 operator|<<
-literal|"###### Prefix headers"
-operator|<<
-name|endl
+literal|"###### Prefix headers\n"
 expr_stmt|;
 name|QString
 name|comps

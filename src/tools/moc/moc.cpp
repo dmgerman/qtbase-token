@@ -4590,6 +4590,34 @@ name|requiredQtContainers
 argument_list|)
 expr_stmt|;
 block|}
+comment|// after finding the containers, we sort them into a list to avoid
+comment|// non-deterministic behavior which may cause rebuilds unnecessarily.
+name|QList
+argument_list|<
+name|QByteArray
+argument_list|>
+name|requiredContainerList
+init|=
+name|requiredQtContainers
+operator|.
+name|toList
+argument_list|()
+decl_stmt|;
+name|std
+operator|::
+name|sort
+argument_list|(
+name|requiredContainerList
+operator|.
+name|begin
+argument_list|()
+argument_list|,
+name|requiredContainerList
+operator|.
+name|end
+argument_list|()
+argument_list|)
+expr_stmt|;
 foreach|foreach
 control|(
 specifier|const
@@ -4597,7 +4625,7 @@ name|QByteArray
 modifier|&
 name|qtContainer
 decl|,
-name|requiredQtContainers
+name|requiredContainerList
 control|)
 block|{
 name|fprintf

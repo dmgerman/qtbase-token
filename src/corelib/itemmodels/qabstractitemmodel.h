@@ -493,6 +493,25 @@ name|class
 name|QPersistentModelIndexData
 decl_stmt|;
 end_decl_stmt
+begin_comment
+comment|// qHash is a friend, but we can't use default arguments for friends (Â§8.3.6.4)
+end_comment
+begin_function_decl
+name|uint
+name|qHash
+parameter_list|(
+specifier|const
+name|QPersistentModelIndex
+modifier|&
+name|index
+parameter_list|,
+name|uint
+name|seed
+init|=
+literal|0
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_decl_stmt
 name|class
 name|Q_CORE_EXPORT
@@ -781,8 +800,6 @@ modifier|&
 parameter_list|,
 name|uint
 name|seed
-init|=
-literal|0
 parameter_list|)
 function_decl|;
 ifndef|#

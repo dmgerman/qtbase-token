@@ -2013,6 +2013,7 @@ comment|// depending on the return type
 DECL|function|fromstrerror_helper
 specifier|static
 specifier|inline
+name|Q_DECL_UNUSED
 name|QString
 name|fromstrerror_helper
 parameter_list|(
@@ -2036,6 +2037,7 @@ block|}
 DECL|function|fromstrerror_helper
 specifier|static
 specifier|inline
+name|Q_DECL_UNUSED
 name|QString
 name|fromstrerror_helper
 parameter_list|(

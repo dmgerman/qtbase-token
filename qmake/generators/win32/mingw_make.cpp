@@ -528,9 +528,7 @@ condition|)
 block|{
 name|t
 operator|<<
-literal|"all clean:"
-operator|<<
-literal|"\n\t"
+literal|"all clean:\n\t"
 operator|<<
 literal|"@echo \"Some of the required modules ("
 operator|<<
@@ -539,15 +537,9 @@ argument_list|(
 literal|"QMAKE_FAILED_REQUIREMENTS"
 argument_list|)
 operator|<<
-literal|") are not available.\""
+literal|") are not available.\"\n\t"
 operator|<<
-literal|"\n\t"
-operator|<<
-literal|"@echo \"Skipped.\""
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|"@echo \"Skipped.\"\n\n"
 expr_stmt|;
 name|writeMakeQmake
 argument_list|(
@@ -672,13 +664,9 @@ literal|" "
 expr_stmt|;
 name|t
 operator|<<
-literal|"first all clean install distclean uninstall: qmake"
+literal|"first all clean install distclean uninstall: qmake\n"
 operator|<<
-name|endl
-operator|<<
-literal|"qmake_all:"
-operator|<<
-name|endl
+literal|"qmake_all:\n"
 expr_stmt|;
 name|writeMakeQmake
 argument_list|(
@@ -687,11 +675,7 @@ argument_list|)
 expr_stmt|;
 name|t
 operator|<<
-literal|"FORCE:"
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|"FORCE:\n\n"
 expr_stmt|;
 return|return
 literal|true
@@ -799,9 +783,7 @@ argument_list|)
 decl_stmt|;
 name|t
 operator|<<
-literal|"INPUT("
-operator|<<
-name|endl
+literal|"INPUT(\n"
 expr_stmt|;
 for|for
 control|(
@@ -864,9 +846,7 @@ expr_stmt|;
 block|}
 name|t
 operator|<<
-literal|");"
-operator|<<
-name|endl
+literal|");\n"
 expr_stmt|;
 name|t
 operator|.
@@ -988,9 +968,7 @@ expr_stmt|;
 block|}
 name|t
 operator|<<
-literal|"SAVE"
-operator|<<
-name|endl
+literal|"SAVE\n"
 expr_stmt|;
 name|t
 operator|.
@@ -1222,9 +1200,7 @@ argument_list|(
 name|preCompHeaderOut
 argument_list|)
 operator|<<
-literal|"\n\t"
-operator|<<
-literal|"$(CC) -x c-header -c $(CFLAGS) $(INCPATH) -o "
+literal|"\n\t$(CC) -x c-header -c $(CFLAGS) $(INCPATH) -o "
 operator|<<
 name|cHeader
 operator|<<
@@ -1283,9 +1259,7 @@ argument_list|(
 name|preCompHeaderOut
 argument_list|)
 operator|<<
-literal|"\n\t"
-operator|<<
-literal|"$(CXX) -x c++-header -c $(CXXFLAGS) $(INCPATH) -o "
+literal|"\n\t$(CXX) -x c++-header -c $(CXXFLAGS) $(INCPATH) -o "
 operator|<<
 name|cppHeader
 operator|<<
@@ -2666,9 +2640,7 @@ parameter_list|)
 block|{
 name|t
 operator|<<
-literal|"first: all"
-operator|<<
-name|endl
+literal|"first: all\n"
 expr_stmt|;
 name|t
 operator|<<
@@ -2708,11 +2680,7 @@ argument_list|,
 literal|" "
 argument_list|)
 operator|<<
-literal|" $(DESTDIR_TARGET)"
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|" $(DESTDIR_TARGET)\n\n"
 expr_stmt|;
 name|t
 operator|<<
@@ -2791,9 +2759,7 @@ condition|)
 block|{
 name|t
 operator|<<
-literal|"\n\t"
-operator|<<
-literal|"$(LIB) $(DESTDIR_TARGET) "
+literal|"\n\t$(LIB) $(DESTDIR_TARGET) "
 operator|<<
 name|objectsLinkLine
 operator|<<
@@ -2827,9 +2793,7 @@ condition|)
 block|{
 name|t
 operator|<<
-literal|"\n\t"
-operator|<<
-literal|"$(LINKER) $(LFLAGS) "
+literal|"\n\t$(LINKER) $(LFLAGS) "
 operator|<<
 name|var
 argument_list|(
@@ -2840,9 +2804,7 @@ literal|"$(DESTDIR_TARGET) "
 operator|<<
 name|objectsLinkLine
 operator|<<
-literal|" "
-operator|<<
-literal|" $(LIBS)"
+literal|"  $(LIBS)"
 expr_stmt|;
 block|}
 if|if
@@ -3041,11 +3003,7 @@ argument_list|)
 operator|<<
 name|incPathStr
 operator|<<
-literal|" $(DEFINES)"
-operator|<<
-name|endl
-operator|<<
-name|endl
+literal|" $(DEFINES)\n\n"
 expr_stmt|;
 block|}
 block|}

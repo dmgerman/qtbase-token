@@ -182,6 +182,12 @@ name|Q_DECLARE_PRIVATE
 argument_list|(
 argument|QOpenGLVertexArrayObject
 argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_contextAboutToBeDestroyed()
+argument_list|)
 name|QOpenGLVertexArrayObject
 argument_list|(
 name|QOpenGLVertexArrayObjectPrivate

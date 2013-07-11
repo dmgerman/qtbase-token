@@ -1614,7 +1614,9 @@ directive|endif
 member_init_list|,
 name|application_type
 argument_list|(
-literal|0
+name|QCoreApplicationPrivate
+operator|::
+name|Tty
 argument_list|)
 ifndef|#
 directive|ifndef
@@ -2716,7 +2718,9 @@ specifier|extern
 name|void
 name|qt_core_eval_init
 argument_list|(
-name|uint
+name|QCoreApplicationPrivate
+operator|::
+name|Type
 argument_list|)
 decl_stmt|;
 name|qt_core_eval_init
@@ -5084,16 +5088,13 @@ name|posted
 operator|=
 literal|false
 expr_stmt|;
-name|QScopedPointer
-argument_list|<
 name|QEvent
-argument_list|>
+modifier|*
 name|e
-argument_list|(
+init|=
 name|pe
 operator|.
 name|event
-argument_list|)
 decl_stmt|;
 name|QObject
 modifier|*
@@ -5181,6 +5182,16 @@ argument_list|(
 name|locker
 argument_list|)
 decl_stmt|;
+name|QScopedPointer
+argument_list|<
+name|QEvent
+argument_list|>
+name|event_deleter
+argument_list|(
+name|e
+argument_list|)
+decl_stmt|;
+comment|// will delete the event (with the mutex unlocked)
 comment|// after all that work, it's time to deliver the event.
 name|QCoreApplication
 operator|::
@@ -5189,9 +5200,6 @@ argument_list|(
 name|r
 argument_list|,
 name|e
-operator|.
-name|data
-argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// careful when adding anything below this point - the
