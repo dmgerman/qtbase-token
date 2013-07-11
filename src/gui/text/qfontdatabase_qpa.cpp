@@ -285,7 +285,6 @@ block|}
 end_function
 begin_function
 DECL|function|qt_registerAliasToFontFamily
-name|Q_GUI_EXPORT
 name|void
 name|qt_registerAliasToFontFamily
 parameter_list|(
