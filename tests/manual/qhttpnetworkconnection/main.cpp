@@ -54,6 +54,16 @@ function_decl|;
 block|}
 class|;
 end_class
+begin_decl_stmt
+DECL|variable|urlC
+specifier|const
+name|char
+name|urlC
+index|[]
+init|=
+literal|"http://download.qt-project.org/official_releases/online_installers/qt-linux-opensource-1.4.0-x86-online.run"
+decl_stmt|;
+end_decl_stmt
 begin_function
 DECL|function|bigRemoteFile
 name|void
@@ -76,7 +86,12 @@ name|request
 argument_list|(
 name|QUrl
 argument_list|(
-literal|"http://nds1.nokia.com/files/support/global/phones/software/Nokia_Ovi_Suite_webinstaller.exe"
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+name|urlC
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -122,6 +137,8 @@ name|qDebug
 argument_list|()
 operator|<<
 literal|"Starting download"
+operator|<<
+name|urlC
 expr_stmt|;
 name|t
 operator|.
