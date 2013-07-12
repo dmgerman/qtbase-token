@@ -187,21 +187,89 @@ argument_list|)
 expr_stmt|;
 name|QTest
 operator|::
+name|addColumn
+argument_list|<
+name|QString
+argument_list|>
+argument_list|(
+literal|"testFileName"
+argument_list|)
+expr_stmt|;
+specifier|const
+name|QString
+name|testFile
+init|=
+name|QStringLiteral
+argument_list|(
+literal|"testfile.txt"
+argument_list|)
+decl_stmt|;
+comment|// QTBUG-31341: Test the UNICODE capabilities; ensure no QString::toLower()
+comment|// is in the code path since that will lower case for example
+comment|// LATIN_CAPITAL_LETTER_I_WITH_DOT_ABOVE with context, whereas the Windows file
+comment|// system will not.
+specifier|const
+name|QString
+name|specialCharacterFile
+init|=
+name|QString
+argument_list|(
+name|QChar
+argument_list|(
+name|ushort
+argument_list|(
+literal|0x130
+argument_list|)
+argument_list|)
+argument_list|)
+comment|// LATIN_CAPITAL_LETTER_I_WITH_DOT_ABOVE
+operator|+
+name|QChar
+argument_list|(
+name|ushort
+argument_list|(
+literal|0x00DC
+argument_list|)
+argument_list|)
+comment|// LATIN_CAPITAL_LETTER_U_WITH_DIAERESIS
+operator|+
+name|QStringLiteral
+argument_list|(
+literal|".txt"
+argument_list|)
+decl_stmt|;
+name|QTest
+operator|::
 name|newRow
 argument_list|(
-literal|"native backend"
+literal|"native backend-testfile"
 argument_list|)
 operator|<<
 literal|"native"
+operator|<<
+name|testFile
 expr_stmt|;
 name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"poller backend"
+literal|"poller backend-testfile"
 argument_list|)
 operator|<<
 literal|"poller"
+operator|<<
+name|testFile
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"native backend-specialchars"
+argument_list|)
+operator|<<
+literal|"native"
+operator|<<
+name|specialCharacterFile
 expr_stmt|;
 block|}
 end_function
@@ -218,6 +286,13 @@ argument_list|(
 name|QString
 argument_list|,
 name|backend
+argument_list|)
+expr_stmt|;
+name|QFETCH
+argument_list|(
+name|QString
+argument_list|,
+name|testFileName
 argument_list|)
 expr_stmt|;
 comment|// create test file
@@ -243,30 +318,14 @@ operator|.
 name|path
 argument_list|()
 operator|+
-name|QStringLiteral
+name|QLatin1Char
 argument_list|(
-literal|"/testfile.txt"
+literal|'/'
 argument_list|)
+operator|+
+name|testFileName
 argument_list|)
 decl_stmt|;
-name|testFile
-operator|.
-name|setPermissions
-argument_list|(
-name|QFile
-operator|::
-name|ReadOwner
-operator||
-name|QFile
-operator|::
-name|WriteOwner
-argument_list|)
-expr_stmt|;
-name|testFile
-operator|.
-name|remove
-argument_list|()
-expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|testFile

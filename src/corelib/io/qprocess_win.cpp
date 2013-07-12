@@ -3313,6 +3313,9 @@ if|if
 condition|(
 operator|!
 name|readOperationActive
+operator|||
+operator|!
+name|readyReadEmitted
 condition|)
 break|break;
 name|Sleep

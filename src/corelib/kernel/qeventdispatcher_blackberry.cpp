@@ -25,6 +25,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"private/qthread_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<bps/bps.h>
 end_include
 begin_include
@@ -1262,11 +1267,22 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// Wait for event or file to be ready
 name|event
 operator|=
 literal|0
 expr_stmt|;
+block|{
+comment|// We need to increase loop level in this scope,
+comment|// because bps_get_event can also invoke callbacks
+name|QScopedLoopLevelCounter
+name|loopLevelCounter
+argument_list|(
+name|d
+operator|->
+name|threadData
+argument_list|)
+decl_stmt|;
+comment|// Wait for event or file to be ready
 specifier|const
 name|int
 name|result
@@ -1290,9 +1306,10 @@ argument_list|)
 condition|)
 name|qWarning
 argument_list|(
-literal|"QEventDispatcherBlackberry bps_get_event failed"
+literal|"QEventDispatcherBlackberry: bps_get_event failed"
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!

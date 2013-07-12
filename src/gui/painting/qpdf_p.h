@@ -815,6 +815,15 @@ name|pageRect
 argument_list|()
 specifier|const
 block|;
+name|void
+name|setPaperSize
+argument_list|(
+specifier|const
+name|QSizeF
+operator|&
+name|pageSizeMM
+argument_list|)
+block|;
 name|int
 name|width
 argument_list|()

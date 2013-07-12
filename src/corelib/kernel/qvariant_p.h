@@ -1057,6 +1057,12 @@ operator|&&
 name|_MSC_VER
 operator|>=
 literal|1400
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_CC_INTEL
+argument_list|)
 comment|// MSVC 2005, 2008 version: no decltype, but 'sealed' classes (>=2010 has decltype)
 name|template
 operator|<
