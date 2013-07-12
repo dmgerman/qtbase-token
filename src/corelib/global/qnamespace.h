@@ -597,7 +597,7 @@ block|}
 enum|;
 comment|// Text formatting flags for QPainter::drawText and QLabel.
 comment|// The following two enums can be combined to one integer which
-comment|// is passed as 'flags' to drawText and qt_format_text.
+comment|// is passed as 'flags' to QPainter::drawText, QFontMetrics::boundingRect and qt_format_text.
 enum|enum
 name|AlignmentFlag
 block|{
@@ -653,6 +653,14 @@ name|AlignVCenter
 init|=
 literal|0x0080
 block|,
+name|AlignBaseline
+init|=
+literal|0x0100
+block|,
+comment|// Note that 0x100 will clash with Qt::TextSingleLine = 0x100 due to what the comment above
+comment|// this enum declaration states. However, since Qt::AlignBaseline is only used by layouts,
+comment|// it doesn't make sense to pass Qt::AlignBaseline to QPainter::drawText(), so there
+comment|// shouldn't really be any ambiguity between the two overlapping enum values.
 name|AlignVertical_Mask
 init|=
 name|AlignTop
@@ -660,6 +668,8 @@ operator||
 name|AlignBottom
 operator||
 name|AlignVCenter
+operator||
+name|AlignBaseline
 block|,
 name|AlignCenter
 init|=
