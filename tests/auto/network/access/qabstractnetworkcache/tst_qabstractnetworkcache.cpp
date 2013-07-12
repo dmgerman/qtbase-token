@@ -1292,8 +1292,6 @@ literal|"httpcachetest_cachecontrol.cgi?max-age=1000, must-revalidate"
 operator|<<
 literal|true
 expr_stmt|;
-comment|// see QTBUG-7060
-comment|//QTest::newRow("nokia-boston")<< QNetworkRequest::PreferNetwork<< "http://waplabdc.nokia-boston.com/browser/users/venkat/cache/Cache_directives/private_1b.asp"<< true;
 name|QTest
 operator|::
 name|newRow
