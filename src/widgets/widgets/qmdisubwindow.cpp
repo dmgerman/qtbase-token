@@ -14007,7 +14007,7 @@ argument_list|(
 operator|new
 name|QSizeGrip
 argument_list|(
-literal|0
+name|this
 argument_list|)
 argument_list|)
 expr_stmt|;
