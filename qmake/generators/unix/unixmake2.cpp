@@ -4266,16 +4266,7 @@ literal|"-"
 argument_list|,
 literal|" "
 argument_list|,
-literal|" Versions/"
-operator|+
-name|project
-operator|->
-name|first
-argument_list|(
-literal|"QMAKE_FRAMEWORK_VERSION"
-argument_list|)
-operator|+
-literal|"/$(TARGET) $(DESTDIR)$(TARGET0)"
+literal|" Versions/Current/$(TARGET) $(DESTDIR)$(TARGET0)"
 argument_list|)
 operator|<<
 literal|"\n\t"
