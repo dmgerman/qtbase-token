@@ -6712,44 +6712,8 @@ end_comment
 begin_comment
 comment|// authority() calls canonicalHost() which sets this
 end_comment
-begin_comment
-unit|if (!isHostValid)         return;      if (scheme == QLatin1String("mailto")) {         if (!host.isEmpty() || port != -1 || !userName.isEmpty() || !password.isEmpty()) {             that->isValid = false;             that->errorInfo.setParams(0, QT_TRANSLATE_NOOP(QUrl, "expected empty host, username,"                                                            "port and password"),                                       0, 0);         }     } else if (scheme == ftpScheme() || scheme == httpScheme()) {         if (host.isEmpty()&& !(path.isEmpty()&& encodedPath.isEmpty())) {             that->isValid = false;             that->errorInfo.setParams(0, QT_TRANSLATE_NOOP(QUrl, "the host is empty, but not the path"),                                       0, 0);         }     } }  inline const QByteArray&QUrlPrivate::normalized() const {     if (QURL_HASFLAG(stateFlags, QUrlPrivate::Normalized))         return encodedNormalized;      QUrlPrivate *that = const_cast<QUrlPrivate *>(this);     QURL_SETFLAG(that->stateFlags, QUrlPrivate::Normalized);      QUrlPrivate tmp = *this;     tmp.scheme = tmp.scheme.toLower();     tmp.host = tmp.canonicalHost();
-comment|// ensure the encoded and normalized parts of the URL
-end_comment
-begin_comment
-unit|tmp.ensureEncodedParts();     if (tmp.encodedUserName.contains('%'))         q_normalizePercentEncoding(&tmp.encodedUserName, userNameExcludeChars);     if (tmp.encodedPassword.contains('%'))         q_normalizePercentEncoding(&tmp.encodedPassword, passwordExcludeChars);     if (tmp.encodedFragment.contains('%'))         q_normalizePercentEncoding(&tmp.encodedFragment, fragmentExcludeChars);      if (tmp.encodedPath.contains('%')) {
-comment|// the path is a bit special:
-end_comment
-begin_comment
-comment|// the slashes shouldn't be encoded or decoded.
-end_comment
-begin_comment
-comment|// They should remain exactly like they are right now
-end_comment
-begin_comment
-comment|//
-end_comment
-begin_comment
-comment|// treat the path as a slash-separated sequence of pchar
-end_comment
-begin_comment
-unit|QByteArray result;         result.reserve(tmp.encodedPath.length());         if (tmp.encodedPath.startsWith('/'))             result.append('/');          const char *data = tmp.encodedPath.constData();         int lastSlash = 0;         int nextSlash;         do {             ++lastSlash;             nextSlash = tmp.encodedPath.indexOf('/', lastSlash);             int len;             if (nextSlash == -1)                 len = tmp.encodedPath.length() - lastSlash;             else                 len = nextSlash - lastSlash;              if (memchr(data + lastSlash, '%', len)) {
-comment|// there's at least one percent before the next slash
-end_comment
-begin_comment
-unit|QByteArray block = QByteArray(data + lastSlash, len);                 q_normalizePercentEncoding(&block, pathExcludeChars);                 result.append(block);             } else {
-comment|// no percents in this path segment, append wholesale
-end_comment
-begin_comment
-unit|result.append(data + lastSlash, len);             }
-comment|// append the slash too, if it's there
-end_comment
-begin_comment
-unit|if (nextSlash != -1)                 result.append('/');              lastSlash = nextSlash;         } while (lastSlash != -1);          tmp.encodedPath = result;     }      if (!tmp.scheme.isEmpty())
-comment|// relative test
-end_comment
 begin_endif
-unit|removeDotsFromPath(&tmp.encodedPath);      int qLen = tmp.query.length();     for (int i = 0; i< qLen; i++) {         if (qLen - i> 2&& tmp.query.at(i) == '%') {             ++i;             tmp.query[i] = qToLower(tmp.query.at(i));             ++i;             tmp.query[i] = qToLower(tmp.query.at(i));         }     }     encodedNormalized = tmp.toEncoded();      return encodedNormalized; }
+unit|if (!isHostValid)         return;      if (scheme == QLatin1String("mailto")) {         if (!host.isEmpty() || port != -1 || !userName.isEmpty() || !password.isEmpty()) {             that->isValid = false;             that->errorInfo.setParams(0, QT_TRANSLATE_NOOP(QUrl, "expected empty host, username,"                                                            "port and password"),                                       0, 0);         }     } else if (scheme == ftpScheme() || scheme == httpScheme()) {         if (host.isEmpty()&& !(path.isEmpty()&& encodedPath.isEmpty())) {             that->isValid = false;             that->errorInfo.setParams(0, QT_TRANSLATE_NOOP(QUrl, "the host is empty, but not the path"),                                       0, 0);         }     } }
 endif|#
 directive|endif
 end_endif
