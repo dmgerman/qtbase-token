@@ -209,4 +209,24 @@ end_comment
 begin_comment
 comment|//! [6]
 end_comment
+begin_comment
+comment|//! [7]
+end_comment
+begin_decl_stmt
+name|QUrl
+name|url
+argument_list|(
+literal|"http://qt-project.org/support/file.html"
+argument_list|)
+decl_stmt|;
+end_decl_stmt
+begin_comment
+comment|// url.adjusted(RemoveFilename) == "http://qt-project.org/support/"
+end_comment
+begin_comment
+comment|// url.fileName() == "file.html"
+end_comment
+begin_comment
+comment|//! [7]
+end_comment
 end_unit

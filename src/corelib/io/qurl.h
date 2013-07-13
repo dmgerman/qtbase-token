@@ -1415,6 +1415,16 @@ name|PrettyDecoded
 argument_list|)
 decl|const
 decl_stmt|;
+name|QString
+name|fileName
+argument_list|(
+name|ComponentFormattingOptions
+name|options
+operator|=
+name|PrettyDecoded
+argument_list|)
+decl|const
+decl_stmt|;
 name|bool
 name|hasQuery
 argument_list|()
