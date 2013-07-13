@@ -1132,6 +1132,62 @@ argument_list|()
 expr_stmt|;
 comment|// returns "UXQgaXMgZ3JlYXQh"
 comment|//! [39]
+comment|//! [39bis]
+name|QByteArray
+name|text
+argument_list|(
+literal|"<p>Hello?</p>"
+argument_list|)
+decl_stmt|;
+name|text
+operator|.
+name|toBase64
+argument_list|(
+name|QByteArray
+operator|::
+name|Base64
+operator||
+name|QByteArray
+operator|::
+name|OmitTrailingEquals
+argument_list|)
+expr_stmt|;
+comment|// returns "PHA+SGVsbG8/PC9wPg"
+name|text
+operator|.
+name|toBase64
+argument_list|(
+name|QByteArray
+operator|::
+name|Base64
+argument_list|)
+expr_stmt|;
+comment|// returns "PHA+SGVsbG8/PC9wPg=="
+name|text
+operator|.
+name|toBase64
+argument_list|(
+name|QByteArray
+operator|::
+name|Base64Url
+argument_list|)
+expr_stmt|;
+comment|// returns "PHA-SGVsbG8_PC9wPg=="
+name|text
+operator|.
+name|toBase64
+argument_list|(
+name|QByteArray
+operator|::
+name|Base64Url
+operator||
+name|QByteArray
+operator|::
+name|OmitTrailingEquals
+argument_list|)
+expr_stmt|;
+comment|// returns "PHA-SGVsbG8_PC9wPg"
+comment|//! [39bis]
 comment|//! [40]
 name|QByteArray
 name|ba
@@ -1307,6 +1363,32 @@ argument_list|()
 expr_stmt|;
 comment|// returns "Qt is great!"
 comment|//! [44]
+comment|//! [44bis]
+name|QByteArray
+operator|::
+name|fromBase64
+argument_list|(
+literal|"PHA+SGVsbG8/PC9wPg=="
+argument_list|,
+name|QByteArray
+operator|::
+name|Base64Encoding
+argument_list|)
+expr_stmt|;
+comment|// returns "<p>Hello?</p>"
+name|QByteArray
+operator|::
+name|fromBase64
+argument_list|(
+literal|"PHA-SGVsbG8_PC9wPg=="
+argument_list|,
+name|QByteArray
+operator|::
+name|Base64UrlEncoding
+argument_list|)
+expr_stmt|;
+comment|// returns "<p>Hello?</p>"
+comment|//! [44bis]
 comment|//! [45]
 name|QByteArray
 name|text
