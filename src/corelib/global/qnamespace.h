@@ -3802,6 +3802,9 @@ block|,
 name|DefaultLocaleShortDate
 block|,
 name|DefaultLocaleLongDate
+block|,
+name|RFC2822Date
+comment|// RFC 2822 (+ 850 and 1036 during parsing)
 block|}
 expr_stmt|;
 enum|enum
