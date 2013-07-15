@@ -714,12 +714,6 @@ operator|->
 name|parent
 argument_list|()
 decl_stmt|;
-name|int
-name|pgc_idx
-init|=
-operator|-
-literal|1
-decl_stmt|;
 name|node
 operator|->
 name|setDoc
@@ -779,10 +773,6 @@ literal|"qmlpropertygroup"
 argument_list|)
 condition|)
 block|{
-name|pgc_idx
-operator|=
-name|i
-expr_stmt|;
 name|qDebug
 argument_list|()
 operator|<<
