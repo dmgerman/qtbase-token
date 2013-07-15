@@ -15156,14 +15156,14 @@ name|QMakeLocalFileName
 argument_list|>
 operator|::
 name|Iterator
-name|it
+name|dit
 init|=
 name|depdirs
 operator|.
 name|begin
 argument_list|()
 init|;
-name|it
+name|dit
 operator|!=
 name|depdirs
 operator|.
@@ -15171,7 +15171,7 @@ name|end
 argument_list|()
 condition|;
 operator|++
-name|it
+name|dit
 control|)
 block|{
 if|if
@@ -15180,7 +15180,7 @@ name|exists
 argument_list|(
 operator|(
 operator|*
-name|it
+name|dit
 operator|)
 operator|.
 name|real
@@ -15198,7 +15198,7 @@ name|localFile
 operator|=
 operator|(
 operator|*
-name|it
+name|dit
 operator|)
 operator|.
 name|local
@@ -15820,14 +15820,14 @@ name|QMakeLocalFileName
 argument_list|>
 operator|::
 name|Iterator
-name|it
+name|dit
 init|=
 name|depdirs
 operator|.
 name|begin
 argument_list|()
 init|;
-name|it
+name|dit
 operator|!=
 name|depdirs
 operator|.
@@ -15835,7 +15835,7 @@ name|end
 argument_list|()
 condition|;
 operator|++
-name|it
+name|dit
 control|)
 block|{
 if|if
@@ -15844,7 +15844,7 @@ name|exists
 argument_list|(
 operator|(
 operator|*
-name|it
+name|dit
 operator|)
 operator|.
 name|real
@@ -15862,7 +15862,7 @@ name|localFile
 operator|=
 operator|(
 operator|*
-name|it
+name|dit
 operator|)
 operator|.
 name|local
