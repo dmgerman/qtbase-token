@@ -1366,6 +1366,17 @@ end_function
 begin_comment
 comment|/*!     Resolve alias to actual font family names.      \since 5.0  */
 end_comment
+begin_function_decl
+name|QString
+name|qt_resolveFontFamilyAlias
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|alias
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_function
 DECL|function|resolveFontFamilyAlias
 name|QString
@@ -1381,7 +1392,10 @@ parameter_list|)
 specifier|const
 block|{
 return|return
+name|qt_resolveFontFamilyAlias
+argument_list|(
 name|family
+argument_list|)
 return|;
 block|}
 end_function

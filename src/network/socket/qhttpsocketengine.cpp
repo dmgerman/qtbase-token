@@ -2152,7 +2152,7 @@ name|char
 name|method
 index|[]
 init|=
-literal|"CONNECT "
+literal|"CONNECT"
 decl_stmt|;
 name|QByteArray
 name|peerAddress
@@ -2204,6 +2204,10 @@ name|data
 init|=
 name|method
 decl_stmt|;
+name|data
+operator|+=
+literal|" "
+expr_stmt|;
 name|data
 operator|+=
 name|path
