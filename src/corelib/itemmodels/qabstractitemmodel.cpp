@@ -5076,7 +5076,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the actions supported by the data in this model.      The default implementation returns supportedDropActions() unless specific     values have been set with setSupportedDragActions().      supportedDragActions() is used by QAbstractItemView::startDrag() as the     default values when a drag occurs.      \sa Qt::DropActions, {Using drag and drop with item views} */
+comment|/*!     Returns the actions supported by the data in this model.      The default implementation returns supportedDropActions(). Reimplement     this function if you wish to support additional actions.      supportedDragActions() is used by QAbstractItemView::startDrag() as the     default values when a drag occurs.      \sa Qt::DropActions, {Using drag and drop with item views} */
 end_comment
 begin_function
 DECL|function|supportedDragActions
@@ -5145,7 +5145,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2     \obsolete     \fn void QAbstractItemModel::setSupportedDragActions(Qt::DropActions actions)      Sets the supported drag \a actions for the items in the model.      \sa supportedDragActions(), {Using drag and drop with item views} */
+comment|/*!     \since 4.2     \obsolete     \fn void QAbstractItemModel::setSupportedDragActions(Qt::DropActions actions)      This function is obsolete. Reimplement supportedDragActions() instead.      Sets the supported drag \a actions for the items in the model.      \sa supportedDragActions(), {Using drag and drop with item views} */
 end_comment
 begin_comment
 comment|/*!     \note The base class implementation of this function does nothing and     returns false.      On models that support this, inserts \a count rows into the model before     the given \a row. Items in the new row will be children of the item     represented by the \a parent model index.      If \a row is 0, the rows are prepended to any existing rows in the parent.      If \a row is rowCount(), the rows are appended to any existing rows in the     parent.      If \a parent has no children, a single column with \a count rows is     inserted.      Returns true if the rows were successfully inserted; otherwise returns     false.      If you implement your own model, you can reimplement this function if you     want to support insertions. Alternatively, you can provide your own API for     altering the data. In either case, you will need to call     beginInsertRows() and endInsertRows() to notify other components that the     model has changed.      \sa insertColumns(), removeRows(), beginInsertRows(), endInsertRows() */
