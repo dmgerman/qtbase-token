@@ -3603,7 +3603,9 @@ name|buildConfigGroups
 decl_stmt|;
 name|buildConfigGroups
 operator|<<
-literal|"PROJECTTARGET"
+literal|"PROJECT"
+operator|<<
+literal|"TARGET"
 expr_stmt|;
 name|t
 operator|<<
