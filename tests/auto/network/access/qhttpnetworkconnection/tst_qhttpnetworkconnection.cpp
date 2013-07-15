@@ -4880,8 +4880,6 @@ operator|+
 literal|"/qtest/rfc3252.txt"
 argument_list|)
 decl_stmt|;
-comment|// located in Berlin:
-comment|//QHttpNetworkRequest *request = new QHttpNetworkRequest(QUrl("http://klinsmann.nokia.trolltech.de/~berlin/qtcreatorad.gif"));
 if|if
 condition|(
 name|pipeliningAllowed

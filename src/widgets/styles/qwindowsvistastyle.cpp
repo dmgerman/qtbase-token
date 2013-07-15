@@ -3037,17 +3037,25 @@ name|QAccessible
 operator|::
 name|StaticText
 argument_list|)
-condition|)
-block|{
+operator|||
 else|#
 directive|else
 if|if
 condition|(
-literal|false
-condition|)
-block|{
 endif|#
 directive|endif
+operator|(
+name|widget
+operator|&&
+name|widget
+operator|->
+name|inherits
+argument_list|(
+literal|"QTextEdit"
+argument_list|)
+operator|)
+condition|)
+block|{
 name|painter
 operator|->
 name|save
@@ -5426,7 +5434,11 @@ expr_stmt|;
 break|break;
 block|}
 block|}
+end_function
+begin_comment
 comment|/*!  \internal   see drawPrimitive for comments on the animation support  */
+end_comment
+begin_function
 DECL|function|drawControl
 name|void
 name|QWindowsVistaStyle
@@ -10722,7 +10734,11 @@ expr_stmt|;
 break|break;
 block|}
 block|}
+end_function
+begin_comment
 comment|/*!   \internal    see drawPrimitive for comments on the animation support   */
+end_comment
+begin_function
 DECL|function|drawComplexControl
 name|void
 name|QWindowsVistaStyle
@@ -13456,7 +13472,11 @@ expr_stmt|;
 break|break;
 block|}
 block|}
+end_function
+begin_comment
 comment|/*!  \internal  */
+end_comment
+begin_function
 DECL|function|sizeFromContents
 name|QSize
 name|QWindowsVistaStyle
@@ -13815,7 +13835,11 @@ name|widget
 argument_list|)
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!  \internal  */
+end_comment
+begin_function
 DECL|function|subElementRect
 name|QRect
 name|QWindowsVistaStyle
@@ -14633,7 +14657,11 @@ return|return
 name|rect
 return|;
 block|}
+end_function
+begin_comment
 comment|/*   This function is used by subControlRect to check if a button   should be drawn for the given subControl given a set of window flags. */
+end_comment
+begin_function
 DECL|function|buttonVisible
 specifier|static
 name|bool
@@ -14881,7 +14909,11 @@ return|return
 name|retVal
 return|;
 block|}
+end_function
+begin_comment
 comment|/*! \internal */
+end_comment
+begin_function
 DECL|function|styleHint
 name|int
 name|QWindowsVistaStyle
@@ -15058,7 +15090,11 @@ return|return
 name|ret
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!  \internal  */
+end_comment
+begin_function
 DECL|function|subControlRect
 name|QRect
 name|QWindowsVistaStyle
@@ -15862,7 +15898,11 @@ return|return
 name|rect
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!  \internal  */
+end_comment
+begin_function
 DECL|function|hitTestComplexControl
 name|QStyle
 operator|::
@@ -15930,7 +15970,11 @@ name|widget
 argument_list|)
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!  \internal  */
+end_comment
+begin_function
 DECL|function|pixelMetric
 name|int
 name|QWindowsVistaStyle
@@ -16038,7 +16082,11 @@ name|widget
 argument_list|)
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!  \internal  */
+end_comment
+begin_function
 DECL|function|standardPalette
 name|QPalette
 name|QWindowsVistaStyle
@@ -16054,7 +16102,11 @@ name|standardPalette
 argument_list|()
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!  \internal  */
+end_comment
+begin_function
 DECL|function|polish
 name|void
 name|QWindowsVistaStyle
@@ -16074,7 +16126,11 @@ name|app
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!  \internal  */
+end_comment
+begin_function
 DECL|function|polish
 name|void
 name|QWindowsVistaStyle
@@ -16472,7 +16528,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+begin_comment
 comment|/*!  \internal  */
+end_comment
+begin_function
 DECL|function|unpolish
 name|void
 name|QWindowsVistaStyle
@@ -16784,7 +16844,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+begin_comment
 comment|/*!  \internal  */
+end_comment
+begin_function
 DECL|function|unpolish
 name|void
 name|QWindowsVistaStyle
@@ -16804,7 +16868,11 @@ name|app
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!  \internal  */
+end_comment
+begin_function
 DECL|function|polish
 name|void
 name|QWindowsVistaStyle
@@ -16846,7 +16914,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!  \internal  */
+end_comment
+begin_function
 DECL|function|standardPixmap
 name|QPixmap
 name|QWindowsVistaStyle
@@ -16903,6 +16975,8 @@ name|widget
 argument_list|)
 return|;
 block|}
+end_function
+begin_constructor
 DECL|function|QWindowsVistaStylePrivate
 name|QWindowsVistaStylePrivate
 operator|::
@@ -16921,6 +16995,8 @@ name|resolveSymbols
 argument_list|()
 expr_stmt|;
 block|}
+end_constructor
+begin_destructor
 DECL|function|~QWindowsVistaStylePrivate
 name|QWindowsVistaStylePrivate
 operator|::
@@ -16932,6 +17008,8 @@ name|cleanupTreeViewTheming
 argument_list|()
 expr_stmt|;
 block|}
+end_destructor
+begin_function
 DECL|function|transitionsEnabled
 name|bool
 name|QWindowsVistaStylePrivate
@@ -16972,7 +17050,11 @@ return|return
 literal|false
 return|;
 block|}
+end_function
+begin_comment
 comment|/*! \internal     Returns true if all the necessary theme engine symbols were     resolved. */
+end_comment
+begin_function
 DECL|function|resolveSymbols
 name|bool
 name|QWindowsVistaStylePrivate
@@ -17288,7 +17370,11 @@ operator|!=
 literal|0
 return|;
 block|}
+end_function
+begin_comment
 comment|/*  * We need to set the windows "explorer" theme explicitly on a native  * window and open the "TREEVIEW" theme handle passing its window handle  * in order to get Vista-style item view themes (particulary drawBackground()  * for selected items needs this).  * We invoke a service of the native Windows interface to create  * a non-visible window handle, open the theme on it and insert it into  * the cache so that it is found by XPThemeData::handle() first.  */
+end_comment
+begin_function
 DECL|function|createTreeViewHelperWindow
 specifier|static
 specifier|inline
@@ -17396,6 +17482,8 @@ return|return
 literal|0
 return|;
 block|}
+end_function
+begin_function
 DECL|function|initTreeViewTheming
 name|bool
 name|QWindowsVistaStylePrivate
@@ -17476,6 +17564,8 @@ name|m_treeViewHelper
 argument_list|)
 return|;
 block|}
+end_function
+begin_function
 DECL|function|cleanupTreeViewTheming
 name|void
 name|QWindowsVistaStylePrivate
@@ -17499,7 +17589,11 @@ literal|0
 expr_stmt|;
 block|}
 block|}
+end_function
+begin_comment
 comment|/*! \reimp */
+end_comment
+begin_function
 DECL|function|standardIcon
 name|QIcon
 name|QWindowsVistaStyle
@@ -17836,8 +17930,10 @@ name|widget
 argument_list|)
 return|;
 block|}
-name|QT_END_NAMESPACE
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
 endif|#
 directive|endif

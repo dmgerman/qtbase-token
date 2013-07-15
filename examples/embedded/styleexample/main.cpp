@@ -50,14 +50,14 @@ name|app
 operator|.
 name|setOrganizationName
 argument_list|(
-literal|"Nokia"
+literal|"QtProject"
 argument_list|)
 expr_stmt|;
 name|app
 operator|.
 name|setOrganizationDomain
 argument_list|(
-literal|"com.nokia.qt"
+literal|"www.qt-project.org"
 argument_list|)
 expr_stmt|;
 name|StyleWidget

@@ -4576,7 +4576,6 @@ literal|"/fluke.gif"
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|//QNetworkRequest request(QUrl("https://www.nokia.com/robots.txt"));
 comment|// Disable keep-alive so we have the full re-connecting of TCP.
 name|request
 operator|.
@@ -4633,7 +4632,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//QHostInfo::lookupHost("www.nokia.com",&helper, SLOT(doNextRequest()));
 comment|// we can use QBENCHMARK_ONCE when we find out how to make it really run once.
 comment|// there is still a warmup-run :(
 comment|//QBENCHMARK_ONCE {

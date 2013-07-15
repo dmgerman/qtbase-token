@@ -9400,6 +9400,10 @@ modifier|&
 name|error
 parameter_list|)
 block|{
+name|mode
+operator|=
+name|ServerMode
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -9416,10 +9420,6 @@ block|}
 name|server
 operator|=
 name|s
-expr_stmt|;
-name|mode
-operator|=
-name|ServerMode
 expr_stmt|;
 name|dbus_bool_t
 name|data_allocated
@@ -9537,6 +9537,10 @@ modifier|&
 name|error
 parameter_list|)
 block|{
+name|mode
+operator|=
+name|PeerMode
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -9553,10 +9557,6 @@ block|}
 name|connection
 operator|=
 name|c
-expr_stmt|;
-name|mode
-operator|=
-name|PeerMode
 expr_stmt|;
 name|q_dbus_connection_set_exit_on_disconnect
 argument_list|(
@@ -9754,6 +9754,10 @@ modifier|&
 name|error
 parameter_list|)
 block|{
+name|mode
+operator|=
+name|ClientMode
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -9770,10 +9774,6 @@ block|}
 name|connection
 operator|=
 name|dbc
-expr_stmt|;
-name|mode
-operator|=
-name|ClientMode
 expr_stmt|;
 specifier|const
 name|char
