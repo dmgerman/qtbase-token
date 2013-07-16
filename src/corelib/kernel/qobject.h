@@ -1063,6 +1063,23 @@ argument_list|,
 argument|Functor functor
 argument_list|)
 expr_stmt|;
+specifier|static
+name|QMetaObject
+operator|::
+name|Connection
+name|connect
+argument_list|(
+argument|const QObject *sender
+argument_list|,
+argument|PointerToMemberFunction signal
+argument_list|,
+argument|const QObject *context
+argument_list|,
+argument|Functor functor
+argument_list|,
+argument|Qt::ConnectionType type
+argument_list|)
+expr_stmt|;
 else|#
 directive|else
 comment|//Connect a signal to a pointer to qobject member function
@@ -1297,6 +1314,86 @@ argument_list|,
 argument|Func2 slot
 argument_list|)
 block|{
+return|return
+name|connect
+argument_list|(
+name|sender
+argument_list|,
+name|signal
+argument_list|,
+name|sender
+argument_list|,
+name|slot
+argument_list|,
+name|Qt
+operator|::
+name|DirectConnection
+argument_list|)
+return|;
+block|}
+end_expr_stmt
+begin_comment
+comment|//connect to a function pointer  (not a member)
+end_comment
+begin_expr_stmt
+name|template
+operator|<
+name|typename
+name|Func1
+operator|,
+name|typename
+name|Func2
+operator|>
+specifier|static
+specifier|inline
+name|typename
+name|QtPrivate
+operator|::
+name|QEnableIf
+operator|<
+name|int
+argument_list|(
+name|QtPrivate
+operator|::
+name|FunctionPointer
+operator|<
+name|Func2
+operator|>
+operator|::
+name|ArgumentCount
+argument_list|)
+operator|>=
+literal|0
+operator|&&
+operator|!
+name|QtPrivate
+operator|::
+name|FunctionPointer
+operator|<
+name|Func2
+operator|>
+operator|::
+name|IsPointerToMemberFunction
+operator|,
+name|QMetaObject
+operator|::
+name|Connection
+operator|>
+operator|::
+name|Type
+name|connect
+argument_list|(
+argument|const typename QtPrivate::FunctionPointer<Func1>::Object *sender
+argument_list|,
+argument|Func1 signal
+argument_list|,
+argument|const QObject *context
+argument_list|,
+argument|Func2 slot
+argument_list|,
+argument|Qt::ConnectionType type = Qt::AutoConnection
+argument_list|)
+block|{
 typedef|typedef
 name|QtPrivate
 operator|::
@@ -1405,6 +1502,46 @@ literal|"Return type of the slot is not compatible with the return type of the s
 argument_list|)
 expr_stmt|;
 end_expr_stmt
+begin_decl_stmt
+specifier|const
+name|int
+modifier|*
+name|types
+init|=
+literal|0
+decl_stmt|;
+end_decl_stmt
+begin_if
+if|if
+condition|(
+name|type
+operator|==
+name|Qt
+operator|::
+name|QueuedConnection
+operator|||
+name|type
+operator|==
+name|Qt
+operator|::
+name|BlockingQueuedConnection
+condition|)
+name|types
+operator|=
+name|QtPrivate
+operator|::
+name|ConnectionTypes
+operator|<
+name|typename
+name|SignalType
+operator|::
+name|Arguments
+operator|>
+operator|::
+name|types
+argument_list|()
+expr_stmt|;
+end_if
 begin_return
 return|return
 name|connectImpl
@@ -1413,7 +1550,7 @@ argument|sender
 argument_list|,
 argument|reinterpret_cast<void **>(&signal)
 argument_list|,
-argument|sender
+argument|context
 argument_list|,
 literal|0
 argument_list|,
@@ -1425,9 +1562,9 @@ argument|SlotType::ArgumentCount>::Value
 argument_list|,
 argument|typename SignalType::ReturnType>(slot)
 argument_list|,
-argument|Qt::DirectConnection
+argument|type
 argument_list|,
-literal|0
+argument|types
 argument_list|,
 argument|&SignalType::Object::staticMetaObject
 argument_list|)
@@ -1478,6 +1615,74 @@ argument_list|,
 argument|Func1 signal
 argument_list|,
 argument|Func2 slot
+argument_list|)
+block|{
+return|return
+name|connect
+argument_list|(
+name|sender
+argument_list|,
+name|signal
+argument_list|,
+name|sender
+argument_list|,
+name|slot
+argument_list|,
+name|Qt
+operator|::
+name|DirectConnection
+argument_list|)
+return|;
+block|}
+end_expr_stmt
+begin_comment
+comment|//connect to a functor, with a "context" object defining in which event loop is going to be executed
+end_comment
+begin_expr_stmt
+name|template
+operator|<
+name|typename
+name|Func1
+operator|,
+name|typename
+name|Func2
+operator|>
+specifier|static
+specifier|inline
+name|typename
+name|QtPrivate
+operator|::
+name|QEnableIf
+operator|<
+name|QtPrivate
+operator|::
+name|FunctionPointer
+operator|<
+name|Func2
+operator|>
+operator|::
+name|ArgumentCount
+operator|==
+operator|-
+literal|1
+operator|,
+name|QMetaObject
+operator|::
+name|Connection
+operator|>
+operator|::
+name|Type
+name|connect
+argument_list|(
+argument|const typename QtPrivate::FunctionPointer<Func1>::Object *sender
+argument_list|,
+argument|Func1 signal
+argument_list|,
+argument|const QObject *context
+argument_list|,
+argument|Func2 slot
+argument_list|,
+argument|Qt::ConnectionType type = Qt::AutoConnection
 argument_list|)
 block|{
 if|#
@@ -1606,6 +1811,8 @@ name|sender
 argument_list|,
 name|signal
 argument_list|,
+name|context
+argument_list|,
 name|slot
 argument_list|,
 operator|&
@@ -1613,6 +1820,8 @@ name|Func2
 operator|::
 name|operator
 argument_list|()
+argument_list|,
+name|type
 argument_list|)
 return|;
 end_return
@@ -1639,9 +1848,13 @@ argument|const QObject *sender
 argument_list|,
 argument|Func1 signal
 argument_list|,
+argument|const QObject *context
+argument_list|,
 argument|Func2 slot
 argument_list|,
 argument|Func2Operator
+argument_list|,
+argument|Qt::ConnectionType type
 argument_list|)
 block|{
 typedef|typedef
@@ -1790,6 +2003,46 @@ end_macro
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_decl_stmt
+specifier|const
+name|int
+modifier|*
+name|types
+init|=
+literal|0
+decl_stmt|;
+end_decl_stmt
+begin_if
+if|if
+condition|(
+name|type
+operator|==
+name|Qt
+operator|::
+name|QueuedConnection
+operator|||
+name|type
+operator|==
+name|Qt
+operator|::
+name|BlockingQueuedConnection
+condition|)
+name|types
+operator|=
+name|QtPrivate
+operator|::
+name|ConnectionTypes
+operator|<
+name|typename
+name|SignalType
+operator|::
+name|Arguments
+operator|>
+operator|::
+name|types
+argument_list|()
+expr_stmt|;
+end_if
 begin_return
 return|return
 name|connectImpl
@@ -1798,7 +2051,7 @@ argument|sender
 argument_list|,
 argument|reinterpret_cast<void **>(&signal)
 argument_list|,
-argument|sender
+argument|context
 argument_list|,
 literal|0
 argument_list|,
@@ -1812,9 +2065,9 @@ argument|SlotArgumentCount>::Value
 argument_list|,
 argument|typename SignalType::ReturnType>(slot)
 argument_list|,
-argument|Qt::DirectConnection
+argument|type
 argument_list|,
-literal|0
+argument|types
 argument_list|,
 argument|&SignalType::Object::staticMetaObject
 argument_list|)
