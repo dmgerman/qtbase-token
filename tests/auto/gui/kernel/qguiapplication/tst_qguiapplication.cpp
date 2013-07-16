@@ -2614,6 +2614,21 @@ argument_list|)
 expr_stmt|;
 name|window2
 operator|->
+name|setFlags
+argument_list|(
+name|window2
+operator|->
+name|flags
+argument_list|()
+operator|&
+name|Qt
+operator|::
+name|Tool
+argument_list|)
+expr_stmt|;
+comment|// QTBUG-32433, don't be fooled by unusual window flags.
+name|window2
+operator|->
 name|resize
 argument_list|(
 name|windowSize
