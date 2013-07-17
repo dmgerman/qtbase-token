@@ -1001,10 +1001,6 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// addApplicationFont is supported on Mac, don't skip the test if it breaks.
-ifndef|#
-directive|ifndef
-name|Q_OS_MAC
 if|if
 condition|(
 name|id
@@ -1017,8 +1013,6 @@ argument_list|(
 literal|"Skip the test since app fonts are not supported on this system"
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 specifier|const
 name|QStringList
 name|addedFamilies
@@ -1122,20 +1116,6 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-name|QEXPECT_FAIL
-argument_list|(
-literal|"font file"
-argument_list|,
-literal|"QTBUG-23062"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|db
