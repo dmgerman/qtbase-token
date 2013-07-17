@@ -222,6 +222,10 @@ block|,
 name|SideWidgetCreatedByWidgetAction
 operator|=
 literal|0x2
+block|,
+name|SideWidgetClearButton
+operator|=
+literal|0x4
 block|}
 block|;      struct
 name|SideWidgetEntry
@@ -753,6 +757,13 @@ end_function_decl
 begin_expr_stmt
 name|QSize
 name|iconSize
+argument_list|()
+specifier|const
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+name|QIcon
+name|clearButtonIcon
 argument_list|()
 specifier|const
 expr_stmt|;

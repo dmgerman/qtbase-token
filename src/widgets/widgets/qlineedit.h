@@ -176,6 +176,10 @@ name|Q_PROPERTY
 argument_list|(
 argument|Qt::CursorMoveStyle cursorMoveStyle READ cursorMoveStyle WRITE setCursorMoveStyle
 argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|bool clearButtonEnabled READ isClearButtonEnabled WRITE setClearButtonEnabled
+argument_list|)
 name|public
 operator|:
 expr|enum
@@ -256,6 +260,17 @@ argument_list|)
 block|;
 name|bool
 name|hasFrame
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setClearButtonEnabled
+argument_list|(
+argument|bool enable
+argument_list|)
+block|;
+name|bool
+name|isClearButtonEnabled
 argument_list|()
 specifier|const
 block|;      enum
