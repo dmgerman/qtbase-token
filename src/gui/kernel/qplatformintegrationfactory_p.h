@@ -90,6 +90,15 @@ name|QStringList
 modifier|&
 name|args
 parameter_list|,
+name|int
+modifier|&
+name|argc
+parameter_list|,
+name|char
+modifier|*
+modifier|*
+name|argv
+parameter_list|,
 specifier|const
 name|QString
 modifier|&

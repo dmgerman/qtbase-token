@@ -61,6 +61,13 @@ argument_list|,
 specifier|const
 name|QStringList
 operator|&
+argument_list|,
+name|int
+operator|&
+argument_list|,
+name|char
+operator|*
+operator|*
 argument_list|)
 decl_stmt|;
 block|}
@@ -83,6 +90,13 @@ specifier|const
 name|QStringList
 modifier|&
 name|paramList
+parameter_list|,
+name|int
+modifier|&
+parameter_list|,
+name|char
+modifier|*
+modifier|*
 parameter_list|)
 block|{
 if|if

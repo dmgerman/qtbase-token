@@ -2412,6 +2412,15 @@ specifier|const
 name|QString
 modifier|&
 name|platformPluginPath
+parameter_list|,
+name|int
+modifier|&
+name|argc
+parameter_list|,
+name|char
+modifier|*
+modifier|*
+name|argv
 parameter_list|)
 block|{
 comment|// Split into platform name and arguments
@@ -2452,6 +2461,10 @@ argument_list|(
 name|name
 argument_list|,
 name|arguments
+argument_list|,
+name|argc
+argument_list|,
+name|argv
 argument_list|,
 name|platformPluginPath
 argument_list|)
@@ -3193,6 +3206,10 @@ name|platformName
 argument_list|)
 argument_list|,
 name|platformPluginPath
+argument_list|,
+name|argc
+argument_list|,
+name|argv
 argument_list|)
 expr_stmt|;
 block|}

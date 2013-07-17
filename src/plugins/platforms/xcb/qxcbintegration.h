@@ -63,6 +63,15 @@ specifier|const
 name|QStringList
 operator|&
 name|parameters
+argument_list|,
+name|int
+operator|&
+name|argc
+argument_list|,
+name|char
+operator|*
+operator|*
+name|argv
 argument_list|)
 block|;
 operator|~
