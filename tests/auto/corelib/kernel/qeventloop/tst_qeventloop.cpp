@@ -2619,11 +2619,6 @@ argument_list|(
 name|parent
 argument_list|)
 member_init_list|,
-name|loop
-argument_list|(
-name|loop
-argument_list|)
-member_init_list|,
 name|locker
 argument_list|(
 name|loop
@@ -2693,10 +2688,6 @@ name|done
 parameter_list|()
 function_decl|;
 private|private:
-name|QEventLoop
-modifier|*
-name|loop
-decl_stmt|;
 name|QEventLoopLocker
 name|locker
 decl_stmt|;
