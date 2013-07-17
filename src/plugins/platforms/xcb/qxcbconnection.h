@@ -231,6 +231,8 @@ name|WM_STATE
 block|,
 name|WM_CHANGE_STATE
 block|,
+name|WM_CLASS
+block|,
 comment|// Session management
 name|WM_CLIENT_LEADER
 block|,

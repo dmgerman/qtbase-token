@@ -234,6 +234,11 @@ name|first
 argument_list|()
 return|;
 block|}
+name|QByteArray
+name|wmClass
+argument_list|()
+specifier|const
+block|;
 name|private
 operator|:
 name|QList
@@ -287,7 +292,10 @@ name|class
 name|QXcbConnection
 block|;
 comment|// access QPlatformIntegration::screenAdded()
-block|}
+name|mutable
+name|QByteArray
+name|m_wmClass
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_macro
