@@ -8771,7 +8771,6 @@ literal|0
 argument_list|)
 argument_list|)
 condition|)
-block|{
 name|icon
 operator|=
 name|icon
@@ -8797,7 +8796,6 @@ operator|+
 literal|".BUILDABLE"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|QString
 name|grp
