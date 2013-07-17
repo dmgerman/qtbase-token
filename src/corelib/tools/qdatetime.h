@@ -1238,6 +1238,11 @@ name|offsetFromUtc
 argument_list|()
 specifier|const
 expr_stmt|;
+name|QString
+name|timeZoneAbbreviation
+argument_list|()
+specifier|const
+expr_stmt|;
 name|qint64
 name|toMSecsSinceEpoch
 argument_list|()
