@@ -1230,7 +1230,7 @@ index|[
 literal|"COMPILE_EXAMPLES"
 index|]
 operator|=
-literal|"auto"
+literal|"yes"
 expr_stmt|;
 name|dictionary
 index|[
@@ -10825,9 +10825,9 @@ argument_list|)
 expr_stmt|;
 name|desc
 argument_list|(
-literal|"-compile-examples"
+literal|"-no-compile-examples"
 argument_list|,
-literal|"Compile examples even in a production build.\n"
+literal|"Install only the sources of examples.\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -12743,43 +12743,6 @@ operator|+
 literal|"/.git"
 argument_list|)
 operator|)
-condition|)
-return|return
-literal|"no"
-return|;
-comment|// Do not actually build the examples in production builds with -prefix, unless requested
-if|if
-condition|(
-name|option
-operator|==
-literal|"COMPILE_EXAMPLES"
-operator|&&
-name|QDir
-operator|::
-name|cleanPath
-argument_list|(
-name|dictionary
-index|[
-literal|"QT_BUILD_TREE"
-index|]
-argument_list|)
-operator|!=
-name|QDir
-operator|::
-name|cleanPath
-argument_list|(
-name|dictionary
-index|[
-literal|"QT_INSTALL_PREFIX"
-index|]
-argument_list|)
-operator|&&
-name|dictionary
-index|[
-literal|"BUILDDEV"
-index|]
-operator|==
-literal|"no"
 condition|)
 return|return
 literal|"no"
