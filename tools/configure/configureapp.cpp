@@ -19901,6 +19901,17 @@ name|endl
 expr_stmt|;
 name|configStream
 operator|<<
+literal|"    QT_TARGET_ARCH = "
+operator|<<
+name|dictionary
+index|[
+literal|"QT_ARCH"
+index|]
+operator|<<
+name|endl
+expr_stmt|;
+name|configStream
+operator|<<
 literal|"} else {"
 operator|<<
 name|endl
