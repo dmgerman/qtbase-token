@@ -5115,11 +5115,17 @@ name|prl
 operator|+
 literal|1
 argument_list|,
+name|escapeFilePath
+argument_list|(
 name|prl_libs
 operator|.
 name|at
 argument_list|(
 name|prl
+argument_list|)
+operator|.
+name|toQString
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
