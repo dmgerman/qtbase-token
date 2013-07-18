@@ -21465,12 +21465,12 @@ expr_stmt|;
 name|QString
 name|heading
 init|=
-literal|"Property Group:  "
-operator|+
 name|qpgn
 operator|->
 name|name
 argument_list|()
+operator|+
+literal|" group"
 decl_stmt|;
 name|out
 argument_list|()

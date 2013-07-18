@@ -611,13 +611,6 @@ name|legaleseText
 argument_list|()
 specifier|const
 block|;
-specifier|const
-name|QString
-operator|&
-name|baseName
-argument_list|()
-specifier|const
-block|;
 name|Sections
 name|granularity
 argument_list|()
