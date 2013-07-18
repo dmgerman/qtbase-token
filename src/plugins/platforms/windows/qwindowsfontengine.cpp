@@ -6477,24 +6477,19 @@ name|options
 init|=
 literal|0
 decl_stmt|;
-ifdef|#
-directive|ifdef
-name|DEBUG
-name|Q_ASSERT
-argument_list|(
-operator|!
+if|if
+condition|(
 name|has_transformation
-argument_list|)
+condition|)
+block|{
+name|qWarning
+argument_list|()
+operator|<<
+literal|"QWindowsFontEngine is unable to apply transformations other than translations for fonts on Windows CE."
+operator|<<
+literal|"If you need them anyway, start your application with -platform windows:fontengine=freetype."
 expr_stmt|;
-else|#
-directive|else
-name|Q_UNUSED
-argument_list|(
-name|has_transformation
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
+block|}
 endif|#
 directive|endif
 comment|// wince
