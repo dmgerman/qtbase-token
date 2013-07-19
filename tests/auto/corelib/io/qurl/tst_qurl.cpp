@@ -19124,9 +19124,10 @@ argument_list|)
 operator|<<
 name|BA
 argument_list|(
-literal|"http://www.kde.org#a#b"
+literal|"http://www.kde.org#a%23b"
 argument_list|)
 expr_stmt|;
+comment|// toString uses "a#b"
 name|QTest
 operator|::
 name|newRow
@@ -23688,7 +23689,7 @@ argument_list|)
 operator|<<
 name|QUrl
 argument_list|(
-literal|"x://::@host/:@/[]?:/?@[]?##:/?@[]"
+literal|"x://::@host/:@/[]?:/?@[]?#:/?@[]"
 argument_list|)
 operator|<<
 name|int
@@ -23712,9 +23713,9 @@ literal|"/:@/[]"
 operator|<<
 literal|":/?@[]?"
 operator|<<
-literal|"#:/?@[]"
+literal|":/?@[]"
 operator|<<
-literal|"x://::@host/:@/[]?:/?@[]?##:/?@[]"
+literal|"x://::@host/:@/[]?:/?@[]?#:/?@[]"
 expr_stmt|;
 comment|// 3) and test that the same encoded sequences remain encoded
 name|QTest

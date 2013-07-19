@@ -1420,9 +1420,6 @@ begin_comment
 comment|//  - fragment: none, since it's the last
 end_comment
 begin_comment
-comment|//    Deviation: the spec says "#"<-> %23 is unambiguous, but we treat it as if were
-end_comment
-begin_comment
 comment|//  - query: "#" is unambiguous
 end_comment
 begin_comment
@@ -2006,7 +2003,9 @@ modifier|*
 specifier|const
 name|fragmentInUrl
 init|=
-literal|0
+name|userNameInUrl
+operator|+
+literal|6
 decl_stmt|;
 end_decl_stmt
 begin_function
@@ -2764,10 +2763,6 @@ name|fragment
 argument_list|,
 name|options
 argument_list|,
-name|appendingTo
-operator|==
-name|FullUrl
-operator|||
 name|options
 operator|&
 name|QUrl
@@ -2775,6 +2770,12 @@ operator|::
 name|EncodeDelimiters
 condition|?
 name|fragmentInUrl
+else|:
+name|appendingTo
+operator|==
+name|FullUrl
+condition|?
+literal|0
 else|:
 name|fragmentInIsolation
 argument_list|)

@@ -240,6 +240,21 @@ argument_list|)
 operator|<<
 literal|"This should search \"/profile/5\" on Google."
 expr_stmt|;
+comment|// see QTBUG-31945
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"two-fragments"
+argument_list|)
+operator|<<
+name|QUrl
+argument_list|(
+literal|"http://developer.apple.com/library/ios/#documentation/uikit/reference/UIViewController_Class/Reference/Reference.html#//apple_ref/doc/uid/TP40006926-CH3-SW81"
+argument_list|)
+operator|<<
+literal|"This should open \"Implementing a Container View Controller\" in the UIViewController docs"
+expr_stmt|;
 name|QTest
 operator|::
 name|newRow
@@ -310,11 +325,14 @@ name|message
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY
+argument_list|(
 name|QDesktopServices
 operator|::
 name|openUrl
 argument_list|(
 name|data
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
