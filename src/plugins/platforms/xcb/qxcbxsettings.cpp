@@ -995,6 +995,11 @@ name|Q_FUNC_INFO
 operator|<<
 literal|"Failed to find XSETTINGS_S atom"
 expr_stmt|;
+name|free
+argument_list|(
+name|error
+argument_list|)
+expr_stmt|;
 return|return;
 block|}
 name|xcb_atom_t
@@ -1051,6 +1056,11 @@ name|Q_FUNC_INFO
 operator|<<
 literal|"Failed to get selection owner for XSETTINGS_S atom"
 expr_stmt|;
+name|free
+argument_list|(
+name|error
+argument_list|)
+expr_stmt|;
 return|return;
 block|}
 name|d_ptr
@@ -1060,6 +1070,11 @@ operator|=
 name|selection_result
 operator|->
 name|owner
+expr_stmt|;
+name|free
+argument_list|(
+name|selection_result
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -1071,11 +1086,6 @@ condition|)
 block|{
 return|return;
 block|}
-name|free
-argument_list|(
-name|selection_result
-argument_list|)
-expr_stmt|;
 specifier|const
 name|uint32_t
 name|event
