@@ -2454,6 +2454,9 @@ literal|0
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \since 5.0     \internal      This function decodes a percent-encoded string located from \a begin to \a     end, by appending each character to \a appendTo. It returns the number of     characters appended. Each percent-encoded sequence is decoded as follows:      \list       \li from %00 to %7F: the exact decoded value is appended;       \li from %80 to %FF: QChar::ReplacementCharacter is appended;       \li bad encoding: original input is copied to the output, undecoded.     \endlist      Given the above, it's important for the input to already have all UTF-8     percent sequences decoded by qt_urlRecode (that is, the input should not     have been processed with QUrl::EncodeUnicode).      The input should also be a valid percent-encoded sequence (the output of     qt_urlRecode is always valid). */
+end_comment
 begin_function
 DECL|function|decode
 specifier|static
@@ -2689,6 +2692,26 @@ index|[
 literal|1
 index|]
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|output
+index|[
+operator|-
+literal|1
+index|]
+operator|>=
+literal|0x80
+condition|)
+name|output
+index|[
+operator|-
+literal|1
+index|]
+operator|=
+name|QChar
+operator|::
+name|ReplacementCharacter
 expr_stmt|;
 name|input
 operator|+=
