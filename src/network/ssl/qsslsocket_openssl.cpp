@@ -2416,6 +2416,16 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
+name|Q_OS_QNX
+argument_list|)
+name|s_loadRootCertsOnDemand
+operator|=
+literal|true
+expr_stmt|;
+elif|#
+directive|elif
+name|defined
+argument_list|(
 name|Q_OS_UNIX
 argument_list|)
 operator|&&
