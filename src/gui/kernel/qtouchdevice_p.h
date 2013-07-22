@@ -72,7 +72,14 @@ argument_list|)
 operator|,
 name|caps
 argument_list|(
-argument|QTouchDevice::Position
+name|QTouchDevice
+operator|::
+name|Position
+argument_list|)
+operator|,
+name|maxTouchPoints
+argument_list|(
+literal|1
 argument_list|)
 block|{ }
 name|QTouchDevice
@@ -87,6 +94,9 @@ name|caps
 expr_stmt|;
 name|QString
 name|name
+decl_stmt|;
+name|int
+name|maxTouchPoints
 decl_stmt|;
 specifier|static
 name|void

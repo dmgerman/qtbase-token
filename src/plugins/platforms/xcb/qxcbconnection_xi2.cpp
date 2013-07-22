@@ -964,6 +964,17 @@ argument_list|(
 name|classinfo
 argument_list|)
 decl_stmt|;
+name|dev
+operator|->
+name|qtTouchDevice
+operator|->
+name|setMaximumTouchPoints
+argument_list|(
+name|tci
+operator|->
+name|num_touches
+argument_list|)
+expr_stmt|;
 switch|switch
 condition|(
 name|tci
@@ -1144,7 +1155,7 @@ directive|ifdef
 name|XI2_DEBUG
 name|qDebug
 argument_list|(
-literal|"registered new device %s with %d classes"
+literal|"registered new device %s with %d classes and %d maximum touch points"
 argument_list|,
 name|dev
 operator|->
@@ -1157,6 +1168,13 @@ operator|->
 name|xiDeviceInfo
 operator|->
 name|num_classes
+argument_list|,
+name|dev
+operator|->
+name|qtTouchDevice
+operator|->
+name|maximumTouchPoints
+argument_list|()
 argument_list|)
 expr_stmt|;
 endif|#

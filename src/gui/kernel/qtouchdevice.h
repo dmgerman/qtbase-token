@@ -106,6 +106,11 @@ name|capabilities
 argument_list|()
 specifier|const
 expr_stmt|;
+name|int
+name|maximumTouchPoints
+argument_list|()
+specifier|const
+expr_stmt|;
 name|void
 name|setName
 parameter_list|(
@@ -127,6 +132,13 @@ name|setCapabilities
 parameter_list|(
 name|Capabilities
 name|caps
+parameter_list|)
+function_decl|;
+name|void
+name|setMaximumTouchPoints
+parameter_list|(
+name|int
+name|max
 parameter_list|)
 function_decl|;
 name|private

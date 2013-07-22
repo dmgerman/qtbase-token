@@ -115,6 +115,25 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     Returns the maximum number of simultaneous touch points (fingers) that     can be detected.     \since 5.2   */
+end_comment
+begin_function
+DECL|function|maximumTouchPoints
+name|int
+name|QTouchDevice
+operator|::
+name|maximumTouchPoints
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|d
+operator|->
+name|maxTouchPoints
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     Returns the touch device name.      This string may often be empty. It is however useful for systems that have     more than one touch input device because there it can be used to     differentiate between the devices (i.e. to tell from which device a     QTouchEvent originates from). */
 end_comment
 begin_function
@@ -174,6 +193,28 @@ operator|->
 name|caps
 operator|=
 name|caps
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*!   Sets the maximum number of simultaneous touchpoints \a max   supported by the device and its driver.   */
+end_comment
+begin_function
+DECL|function|setMaximumTouchPoints
+name|void
+name|QTouchDevice
+operator|::
+name|setMaximumTouchPoints
+parameter_list|(
+name|int
+name|max
+parameter_list|)
+block|{
+name|d
+operator|->
+name|maxTouchPoints
+operator|=
+name|max
 expr_stmt|;
 block|}
 end_function
