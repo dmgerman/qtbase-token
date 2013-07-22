@@ -4760,9 +4760,19 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
+argument_list|(
 name|SHLIB_VERSION_NUMBER
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_QNX
+argument_list|)
+comment|// on QNX, the libs are always libssl.so and libcrypto.so
 comment|// first attempt: the canonical name is libssl.so.<SHLIB_VERSION_NUMBER>
 name|libssl
 operator|->
