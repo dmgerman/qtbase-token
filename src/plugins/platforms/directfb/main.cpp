@@ -86,7 +86,7 @@ name|Q_OBJECT
 name|Q_PLUGIN_METADATA
 argument_list|(
 name|IID
-literal|"org.qt-project.Qt.QPA.QPlatformIntegrationFactoryInterface.5.1"
+literal|"org.qt-project.Qt.QPA.QPlatformIntegrationFactoryInterface.5.2"
 name|FILE
 literal|"directfb.json"
 argument_list|)

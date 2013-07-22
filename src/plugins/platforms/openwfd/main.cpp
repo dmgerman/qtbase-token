@@ -26,7 +26,7 @@ block|{
 name|Q_PLUGIN_METADATA
 argument_list|(
 argument|IID
-literal|"org.qt-project.Qt.QPA.QPlatformIntegrationFactoryInterface.5.1"
+literal|"org.qt-project.Qt.QPA.QPlatformIntegrationFactoryInterface.5.2"
 argument_list|)
 public|public:
 name|QPlatformIntegration
