@@ -9529,6 +9529,33 @@ argument_list|(
 literal|"standard input:1: Error: Class contains Q_OBJECT macro but does not inherit from QObject"
 argument_list|)
 expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"Warning on invalid macro"
+argument_list|)
+operator|<<
+name|QByteArray
+argument_list|(
+literal|"#define Foo(a, b)\n class X : public QObject { Q_OBJECT  }; \n Foo(a) \n Foo(a,b,c) \n"
+argument_list|)
+operator|<<
+name|QStringList
+argument_list|()
+operator|<<
+literal|0
+operator|<<
+name|QString
+argument_list|(
+literal|"IGNORE_ALL_STDOUT"
+argument_list|)
+operator|<<
+name|QString
+argument_list|(
+literal|":3: Warning: Macro argument mismatch.\n:4: Warning: Macro argument mismatch."
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function
@@ -9748,6 +9775,11 @@ argument_list|)
 operator|.
 name|trimmed
 argument_list|()
+operator|.
+name|remove
+argument_list|(
+literal|'\r'
+argument_list|)
 argument_list|,
 name|expectedStdErr
 argument_list|)
