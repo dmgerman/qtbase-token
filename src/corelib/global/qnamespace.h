@@ -3370,6 +3370,18 @@ name|Key_ChannelDown
 init|=
 literal|0x01000119
 block|,
+name|Key_Guide
+init|=
+literal|0x0100011a
+block|,
+name|Key_Info
+init|=
+literal|0x0100011b
+block|,
+name|Key_Settings
+init|=
+literal|0x0100011c
+block|,
 name|Key_MediaLast
 init|=
 literal|0x0100ffff
@@ -3416,6 +3428,10 @@ block|,
 comment|//Key_Jisho   = 0x01020007, // IME: Dictionary key
 comment|//Key_Oyayubi_Left = 0x01020008, // IME: Left Oyayubi key
 comment|//Key_Oyayubi_Right = 0x01020009, // IME: Right Oyayubi key
+name|Key_Exit
+init|=
+literal|0x0102000a
+block|,
 comment|// Device keys
 name|Key_Context1
 init|=

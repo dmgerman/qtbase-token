@@ -1786,6 +1786,15 @@ operator|::
 name|Key_Blue
 return|;
 case|case
+literal|0x000000a5
+case|:
+comment|// KEYCODE_INFO
+return|return
+name|Qt
+operator|::
+name|Key_Info
+return|;
+case|case
 literal|0x000000a6
 case|:
 comment|// KEYCODE_CHANNEL_UP
@@ -1822,6 +1831,15 @@ operator|::
 name|Key_ZoomOut
 return|;
 case|case
+literal|0x000000ac
+case|:
+comment|// KEYCODE_GUIDE
+return|return
+name|Qt
+operator|::
+name|Key_Guide
+return|;
+case|case
 literal|0x000000af
 case|:
 comment|// KEYCODE_CAPTIONS
@@ -1829,6 +1847,15 @@ return|return
 name|Qt
 operator|::
 name|Key_Subtitle
+return|;
+case|case
+literal|0x000000b0
+case|:
+comment|// KEYCODE_SETTINGS
+return|return
+name|Qt
+operator|::
+name|Key_Settings
 return|;
 case|case
 literal|0x000000d0
