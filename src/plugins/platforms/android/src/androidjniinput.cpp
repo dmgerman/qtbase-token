@@ -1153,10 +1153,11 @@ return|;
 case|case
 literal|0x0000001b
 case|:
+comment|// KEYCODE_CAMERA
 return|return
 name|Qt
 operator|::
-name|Key_WebCam
+name|Key_Camera
 return|;
 case|case
 literal|0x0000001c
@@ -1177,6 +1178,7 @@ return|;
 case|case
 literal|0x00000043
 case|:
+comment|// KEYCODE_DEL
 return|return
 name|Qt
 operator|::
@@ -1503,6 +1505,69 @@ operator|::
 name|Key_VolumeUp
 return|;
 case|case
+literal|0x00000011
+case|:
+comment|// KEYCODE_STAR
+return|return
+name|Qt
+operator|::
+name|Key_Asterisk
+return|;
+case|case
+literal|0x00000012
+case|:
+comment|// KEYCODE_POUND
+return|return
+name|Qt
+operator|::
+name|Key_NumberSign
+return|;
+case|case
+literal|0x00000050
+case|:
+comment|// KEYCODE_FOCUS
+return|return
+name|Qt
+operator|::
+name|Key_CameraFocus
+return|;
+case|case
+literal|0x00000070
+case|:
+comment|// KEYCODE_FORWARD_DEL
+return|return
+name|Qt
+operator|::
+name|Key_Delete
+return|;
+case|case
+literal|0x00000080
+case|:
+comment|// KEYCODE_MEDIA_CLOSE
+return|return
+name|Qt
+operator|::
+name|Key_Close
+return|;
+case|case
+literal|0x00000081
+case|:
+comment|// KEYCODE_MEDIA_EJECT
+return|return
+name|Qt
+operator|::
+name|Key_Eject
+return|;
+case|case
+literal|0x00000082
+case|:
+comment|// KEYCODE_MEDIA_RECORD
+return|return
+name|Qt
+operator|::
+name|Key_MediaRecord
+return|;
+case|case
 literal|0x000000b7
 case|:
 comment|// KEYCODE_PROG_RED
@@ -1557,17 +1622,68 @@ operator|::
 name|Key_ChannelDown
 return|;
 case|case
+literal|0x000000a8
+case|:
+comment|// KEYCODE_ZOOM_IN
+return|return
+name|Qt
+operator|::
+name|Key_ZoomIn
+return|;
+case|case
+literal|0x000000a9
+case|:
+comment|// KEYCODE_ZOOM_OUT
+return|return
+name|Qt
+operator|::
+name|Key_ZoomOut
+return|;
+case|case
+literal|0x000000af
+case|:
+comment|// KEYCODE_CAPTIONS
+return|return
+name|Qt
+operator|::
+name|Key_Subtitle
+return|;
+case|case
+literal|0x000000d0
+case|:
+comment|// KEYCODE_CALENDAR
+return|return
+name|Qt
+operator|::
+name|Key_Calendar
+return|;
+case|case
+literal|0x000000d1
+case|:
+comment|// KEYCODE_MUSIC
+return|return
+name|Qt
+operator|::
+name|Key_Music
+return|;
+case|case
+literal|0x000000d2
+case|:
+comment|// KEYCODE_CALCULATOR
+return|return
+name|Qt
+operator|::
+name|Key_Calculator
+return|;
+case|case
 literal|0x00000000
 case|:
 comment|// KEYCODE_UNKNOWN
-case|case
-literal|0x00000011
-case|:
-comment|// KEYCODE_STAR ?!?!?
-case|case
-literal|0x00000012
-case|:
-comment|// KEYCODE_POUND ?!?!?
+return|return
+name|Qt
+operator|::
+name|Key_unknown
+return|;
 case|case
 literal|0x00000053
 case|:
@@ -1580,10 +1696,6 @@ case|case
 literal|0x00000044
 case|:
 comment|// KEYCODE_GRAVE ?!?!?
-case|case
-literal|0x00000050
-case|:
-comment|// KEYCODE_FOCUS ?!?!?
 return|return
 name|Qt
 operator|::
