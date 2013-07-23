@@ -7377,7 +7377,6 @@ decl_stmt|;
 ifdef|#
 directive|ifdef
 name|PROEVALUATOR_THREAD_SAFE
-block|{
 name|QMutexLocker
 name|locker
 argument_list|(
@@ -7585,7 +7584,6 @@ condition|)
 return|return
 name|ReturnFalse
 return|;
-block|}
 endif|#
 directive|endif
 name|initFrom
