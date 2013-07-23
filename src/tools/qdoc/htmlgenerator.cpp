@@ -12219,27 +12219,9 @@ block|{
 name|out
 argument_list|()
 operator|<<
-literal|"<p><b>The following class members are part of the "
-literal|"Qt compatibility layer.</b> We advise against "
-literal|"using them in new code.</p>\n"
-expr_stmt|;
-block|}
-else|else
-block|{
-name|out
-argument_list|()
+literal|"<p><b>The following members of class "
 operator|<<
-literal|"<p><b>The following class members are obsolete.</b> "
-operator|<<
-literal|"They are provided to keep old source code working. "
-operator|<<
-literal|"We strongly advise against using them in new code.</p>\n"
-expr_stmt|;
-block|}
-name|out
-argument_list|()
-operator|<<
-literal|"<p><ul><li><a href=\""
+literal|"<a href=\""
 operator|<<
 name|linkForNode
 argument_list|(
@@ -12258,8 +12240,48 @@ name|name
 argument_list|()
 argument_list|)
 operator|<<
-literal|" class reference</a></li></ul></p>\n"
+literal|"</a>"
+operator|<<
+literal|"are part of the "
+literal|"Qt compatibility layer.</b> We advise against "
+literal|"using them in new code.</p>\n"
 expr_stmt|;
+block|}
+else|else
+block|{
+name|out
+argument_list|()
+operator|<<
+literal|"<p><b>The following members of class "
+operator|<<
+literal|"<a href=\""
+operator|<<
+name|linkForNode
+argument_list|(
+name|inner
+argument_list|,
+literal|0
+argument_list|)
+operator|<<
+literal|"\">"
+operator|<<
+name|protectEnc
+argument_list|(
+name|inner
+operator|->
+name|name
+argument_list|()
+argument_list|)
+operator|<<
+literal|"</a>"
+operator|<<
+literal|" are obsolete.</b> "
+operator|<<
+literal|"They are provided to keep old source code working. "
+operator|<<
+literal|"We strongly advise against using them in new code.</p>\n"
+expr_stmt|;
+block|}
 for|for
 control|(
 name|i
