@@ -25,18 +25,6 @@ file|<qpa/qplatformdialoghelper.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-DECL|variable|QFontDialog
-name|class
-name|QFontDialog
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|QFontDialogPrivate
-name|class
-name|QFontDialogPrivate
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|class
 name|QCocoaFontDialogHelper
 range|:
@@ -82,30 +70,6 @@ name|QFont
 name|currentFont
 argument_list|()
 specifier|const
-block|;
-name|protected
-operator|:
-name|void
-name|createNSFontPanelDelegate
-argument_list|()
-block|;
-name|bool
-name|showCocoaFontPanel
-argument_list|(
-argument|Qt::WindowModality windowModality
-argument_list|,
-argument|QWindow *parent
-argument_list|)
-block|;
-name|bool
-name|hideCocoaFontPanel
-argument_list|()
-block|;
-name|private
-operator|:
-name|void
-operator|*
-name|mDelegate
 block|; }
 decl_stmt|;
 end_decl_stmt
