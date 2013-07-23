@@ -7574,6 +7574,17 @@ block|}
 ifdef|#
 directive|ifdef
 name|PROEVALUATOR_THREAD_SAFE
+elseif|else
+if|if
+condition|(
+operator|!
+name|baseEnv
+operator|->
+name|isOk
+condition|)
+return|return
+name|ReturnFalse
+return|;
 block|}
 endif|#
 directive|endif
