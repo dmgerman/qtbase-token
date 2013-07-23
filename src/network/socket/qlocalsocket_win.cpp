@@ -463,11 +463,11 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|open
-name|bool
+DECL|function|connectToServer
+name|void
 name|QLocalSocket
 operator|::
-name|open
+name|connectToServer
 parameter_list|(
 name|OpenMode
 name|openMode
@@ -507,9 +507,7 @@ operator|::
 name|OperationError
 argument_list|)
 emit|;
-return|return
-literal|false
-return|;
+return|return;
 block|}
 name|d
 operator|->
@@ -598,9 +596,7 @@ operator|->
 name|state
 argument_list|)
 emit|;
-return|return
-literal|false
-return|;
+return|return;
 block|}
 name|QString
 name|pipePath
@@ -779,9 +775,7 @@ operator|=
 name|QString
 argument_list|()
 expr_stmt|;
-return|return
-literal|false
-return|;
+return|return;
 block|}
 comment|// we have a valid handle
 if|if
@@ -810,9 +804,6 @@ name|connected
 argument_list|()
 emit|;
 block|}
-return|return
-literal|true
-return|;
 block|}
 end_function
 begin_comment
@@ -1678,9 +1669,16 @@ argument_list|()
 operator|==
 name|UnconnectedState
 condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QLocalSocket::waitForDisconnected() is not allowed in UnconnectedState"
+argument_list|)
+expr_stmt|;
 return|return
 literal|false
 return|;
+block|}
 if|if
 condition|(
 operator|!

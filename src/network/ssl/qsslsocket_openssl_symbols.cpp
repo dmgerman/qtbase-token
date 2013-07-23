@@ -76,7 +76,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|Q_OS_ANDROID_NO_SDK
+name|Q_OS_ANDROID
 argument_list|)
 end_if
 begin_include
@@ -3943,7 +3943,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|Q_OS_ANDROID_NO_SDK
+name|Q_OS_ANDROID
 argument_list|)
 end_if
 begin_function
@@ -4179,7 +4179,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_ANDROID_NO_SDK
+name|Q_OS_ANDROID
 argument_list|)
 name|paths
 operator|<<

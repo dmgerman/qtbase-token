@@ -439,7 +439,7 @@ name|window
 operator|->
 name|flags
 argument_list|()
-operator|&&
+operator|&
 name|Qt
 operator|::
 name|WindowDoesNotAcceptFocus

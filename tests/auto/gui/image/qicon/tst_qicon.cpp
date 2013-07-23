@@ -2595,7 +2595,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/qt-project.org/styles/commonstyle/images/standardbutton-open-16.png"
+literal|":/styles/commonstyle/images/standardbutton-open-16.png"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2605,7 +2605,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/qt-project.org/styles/commonstyle/images/standardbutton-open-32.png"
+literal|":/styles/commonstyle/images/standardbutton-open-32.png"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2615,7 +2615,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/qt-project.org/styles/commonstyle/images/standardbutton-open-128.png"
+literal|":/styles/commonstyle/images/standardbutton-open-128.png"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2625,7 +2625,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/qt-project.org/styles/commonstyle/images/standardbutton-save-16.png"
+literal|":/styles/commonstyle/images/standardbutton-save-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -2642,7 +2642,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/qt-project.org/styles/commonstyle/images/standardbutton-save-32.png"
+literal|":/styles/commonstyle/images/standardbutton-save-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -2659,7 +2659,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/qt-project.org/styles/commonstyle/images/standardbutton-save-128.png"
+literal|":/styles/commonstyle/images/standardbutton-save-128.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -2693,7 +2693,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/qt-project.org/styles/commonstyle/images/standardbutton-open-16.png"
+literal|":/styles/commonstyle/images/standardbutton-open-16.png"
 argument_list|)
 argument_list|)
 operator|.
@@ -2721,7 +2721,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/qt-project.org/styles/commonstyle/images/standardbutton-open-32.png"
+literal|":/styles/commonstyle/images/standardbutton-open-32.png"
 argument_list|)
 argument_list|)
 operator|.
@@ -2749,7 +2749,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/qt-project.org/styles/commonstyle/images/standardbutton-open-128.png"
+literal|":/styles/commonstyle/images/standardbutton-open-128.png"
 argument_list|)
 argument_list|)
 operator|.
@@ -2777,7 +2777,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/qt-project.org/styles/commonstyle/images/standardbutton-save-16.png"
+literal|":/styles/commonstyle/images/standardbutton-save-16.png"
 argument_list|)
 argument_list|)
 operator|.
@@ -2805,7 +2805,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/qt-project.org/styles/commonstyle/images/standardbutton-save-32.png"
+literal|":/styles/commonstyle/images/standardbutton-save-32.png"
 argument_list|)
 argument_list|)
 operator|.
@@ -2833,7 +2833,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/qt-project.org/styles/commonstyle/images/standardbutton-save-128.png"
+literal|":/styles/commonstyle/images/standardbutton-save-128.png"
 argument_list|)
 argument_list|)
 operator|.
@@ -2864,7 +2864,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/qt-project.org/styles/commonstyle/images/standardbutton-open-16.png"
+literal|":/styles/commonstyle/images/standardbutton-open-16.png"
 argument_list|)
 argument_list|)
 operator|.
@@ -2892,7 +2892,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/qt-project.org/styles/commonstyle/images/standardbutton-save-16.png"
+literal|":/styles/commonstyle/images/standardbutton-save-16.png"
 argument_list|)
 argument_list|)
 operator|.
@@ -3203,7 +3203,7 @@ name|icon
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/qt-project.org/styles/commonstyle/images/standardbutton-open-16.png"
+literal|":/styles/commonstyle/images/standardbutton-open-16.png"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -3218,20 +3218,6 @@ operator|.
 name|availableSizes
 argument_list|()
 decl_stmt|;
-ifdef|#
-directive|ifdef
-name|QT_NO_WIDGETS
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"See QTBUG-31993"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|availableSizes
@@ -3270,7 +3256,7 @@ name|file
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/qt-project.org/styles/commonstyle/images/standardbutton-open-16.png"
+literal|":/styles/commonstyle/images/standardbutton-open-16.png"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -4409,7 +4395,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/qt-project.org/styles/commonstyle/images/standardbutton-open-16.png"
+literal|":/styles/commonstyle/images/standardbutton-open-16.png"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4451,7 +4437,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/qt-project.org/styles/commonstyle/images/standardbutton-open-16.png"
+literal|":/styles/commonstyle/images/standardbutton-open-16.png"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4477,20 +4463,6 @@ argument_list|,
 literal|32
 argument_list|)
 decl_stmt|;
-ifdef|#
-directive|ifdef
-name|QT_NO_WIDGETS
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"See QTBUG-31993"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|pm1
