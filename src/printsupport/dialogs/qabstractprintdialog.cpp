@@ -928,7 +928,7 @@ begin_comment
 comment|/*!     \fn QPrinter *QPrintDialog::printer()      Returns the printer that this printer dialog operates     on. This can be useful when using the QPrintDialog::open() method. */
 end_comment
 begin_comment
-comment|/*!   Closes the dialog and sets its result code to \a result. If this dialog   is shown with exec(), done() causes the local event loop to finish,   and exec() to return \a result.    \sa QDialog::done() */
+comment|/*!   Closes the dialog and sets its result code to \a result. If this dialog   is shown with exec(), done() causes the local event loop to finish,   and exec() to return \a result.    \note This function does not apply to the Native Print Dialog on the Mac   OS X and Windows platforms, because the dialog is required to be modal   and only the user can close it.    \sa QDialog::done() */
 end_comment
 begin_function
 DECL|function|done
