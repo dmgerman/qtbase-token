@@ -10296,7 +10296,9 @@ name|parsedProFile
 argument_list|(
 name|fileName
 argument_list|,
-literal|true
+name|QMakeParser
+operator|::
+name|ParseUseCache
 argument_list|)
 condition|)
 block|{

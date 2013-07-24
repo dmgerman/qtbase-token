@@ -535,8 +535,8 @@ name|QString
 modifier|&
 name|fileName
 parameter_list|,
-name|bool
-name|cache
+name|ParseFlags
+name|flags
 parameter_list|)
 block|{
 name|ProFile
@@ -545,7 +545,11 @@ name|pro
 decl_stmt|;
 if|if
 condition|(
-name|cache
+operator|(
+name|flags
+operator|&
+name|ParseUseCache
+operator|)
 operator|&&
 name|m_cache
 condition|)
