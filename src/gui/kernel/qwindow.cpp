@@ -2152,6 +2152,27 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|flags
+argument_list|()
+operator|&
+name|Qt
+operator|::
+name|WindowDoesNotAcceptFocus
+condition|)
+block|{
+name|qWarning
+argument_list|()
+operator|<<
+literal|"requestActivate() called for "
+operator|<<
+name|this
+operator|<<
+literal|" which has Qt::WindowDoesNotAcceptFocus set."
+expr_stmt|;
+return|return;
+block|}
+if|if
+condition|(
 name|d
 operator|->
 name|platformWindow

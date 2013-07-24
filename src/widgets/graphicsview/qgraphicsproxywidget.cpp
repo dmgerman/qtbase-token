@@ -959,6 +959,14 @@ literal|0
 return|;
 block|}
 block|}
+if|if
+condition|(
+operator|!
+name|child
+condition|)
+return|return
+literal|0
+return|;
 name|QWidget
 modifier|*
 name|oldChild

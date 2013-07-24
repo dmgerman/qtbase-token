@@ -47148,6 +47148,30 @@ name|isFinished
 argument_list|()
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_MACX
+if|if
+condition|(
+name|QSysInfo
+operator|::
+name|MacintoshVersion
+operator|==
+name|QSysInfo
+operator|::
+name|MV_10_8
+condition|)
+name|QEXPECT_FAIL
+argument_list|(
+literal|"ftp, bg, nobg"
+argument_list|,
+literal|"See QTBUG-32435"
+argument_list|,
+name|Abort
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QCOMPARE
 argument_list|(
 name|reply

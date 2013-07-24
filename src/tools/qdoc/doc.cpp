@@ -5229,7 +5229,7 @@ name|warning
 argument_list|(
 name|tr
 argument_list|(
-literal|"Missing '\\%1' or '\\%1' before '\\%3'"
+literal|"Missing '\\%1' or '\\%2' before '\\%3'"
 argument_list|)
 operator|.
 name|arg
@@ -5870,7 +5870,7 @@ name|warning
 argument_list|(
 name|tr
 argument_list|(
-literal|"Missing format name after '\\%1"
+literal|"Missing format name after '\\%1'"
 argument_list|)
 operator|.
 name|arg

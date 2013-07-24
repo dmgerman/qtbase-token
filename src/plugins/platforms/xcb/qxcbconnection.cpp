@@ -5594,6 +5594,7 @@ literal|"_NET_WM_SYNC_REQUEST_COUNTER\0"
 comment|// ICCCM window state
 literal|"WM_STATE\0"
 literal|"WM_CHANGE_STATE\0"
+literal|"WM_CLASS\0"
 comment|// Session management
 literal|"WM_CLIENT_LEADER\0"
 literal|"WM_WINDOW_ROLE\0"

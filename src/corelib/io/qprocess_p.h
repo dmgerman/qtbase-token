@@ -1443,6 +1443,15 @@ decl_stmt|;
 endif|#
 directive|endif
 name|void
+name|start
+argument_list|(
+name|QIODevice
+operator|::
+name|OpenMode
+name|mode
+argument_list|)
+decl_stmt|;
+name|void
 name|startProcess
 parameter_list|()
 function_decl|;

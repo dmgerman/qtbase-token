@@ -3603,7 +3603,9 @@ name|buildConfigGroups
 decl_stmt|;
 name|buildConfigGroups
 operator|<<
-literal|"PROJECTTARGET"
+literal|"PROJECT"
+operator|<<
+literal|"TARGET"
 expr_stmt|;
 name|t
 operator|<<
@@ -8769,7 +8771,6 @@ literal|0
 argument_list|)
 argument_list|)
 condition|)
-block|{
 name|icon
 operator|=
 name|icon
@@ -8795,7 +8796,6 @@ operator|+
 literal|".BUILDABLE"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|QString
 name|grp
