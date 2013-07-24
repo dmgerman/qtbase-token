@@ -2784,7 +2784,7 @@ decl_stmt|;
 name|QRegExp
 name|warningMsg
 argument_list|(
-literal|"Include file .* not found"
+literal|"Cannot read .*: No such file or directory"
 argument_list|)
 decl_stmt|;
 name|QVERIFY
