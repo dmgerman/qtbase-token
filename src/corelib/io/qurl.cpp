@@ -3936,7 +3936,26 @@ name|options
 parameter_list|)
 specifier|const
 block|{
-comment|// this is the only flag that matters
+comment|// EncodeUnicode is the only flag that matters
+if|if
+condition|(
+operator|(
+name|options
+operator|&
+name|QUrl
+operator|::
+name|FullyDecoded
+operator|)
+operator|==
+name|QUrl
+operator|::
+name|FullyDecoded
+condition|)
+name|options
+operator|=
+literal|0
+expr_stmt|;
+else|else
 name|options
 operator|&=
 name|QUrl
