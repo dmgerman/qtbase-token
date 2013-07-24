@@ -185,6 +185,10 @@ block|,
 name|ParseUseCache
 init|=
 literal|1
+block|,
+name|ParseReportMissing
+init|=
+literal|2
 block|}
 enum|;
 name|Q_DECLARE_FLAGS
@@ -409,6 +413,9 @@ parameter_list|(
 name|ProFile
 modifier|*
 name|pro
+parameter_list|,
+name|ParseFlags
+name|flags
 parameter_list|)
 function_decl|;
 name|bool

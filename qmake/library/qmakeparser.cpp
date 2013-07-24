@@ -756,6 +756,8 @@ operator|!
 name|read
 argument_list|(
 name|pro
+argument_list|,
+name|flags
 argument_list|)
 condition|)
 block|{
@@ -858,6 +860,8 @@ operator|!
 name|read
 argument_list|(
 name|pro
+argument_list|,
+name|flags
 argument_list|)
 condition|)
 block|{
@@ -974,6 +978,9 @@ parameter_list|(
 name|ProFile
 modifier|*
 name|pro
+parameter_list|,
+name|ParseFlags
+name|flags
 parameter_list|)
 block|{
 name|QString
@@ -1006,6 +1013,13 @@ if|if
 condition|(
 name|m_handler
 operator|&&
+operator|(
+operator|(
+name|flags
+operator|&
+name|ParseReportMissing
+operator|)
+operator|||
 name|m_vfs
 operator|->
 name|exists
@@ -1015,6 +1029,7 @@ operator|->
 name|fileName
 argument_list|()
 argument_list|)
+operator|)
 condition|)
 name|m_handler
 operator|->
