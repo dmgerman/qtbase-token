@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtWidgets/private/qaccessiblewidget_p.h>
+file|<QtWidgets/qaccessiblewidget.h>
 end_include
 begin_include
 include|#

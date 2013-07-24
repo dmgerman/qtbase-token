@@ -26,7 +26,7 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!     \class QAccessiblePlugin     \brief The QAccessiblePlugin class provides an abstract base for     accessibility plugins.     \internal      \ingroup plugins     \ingroup accessibility      Writing an accessibility plugin is achieved by subclassing this     base class, reimplementing the pure virtual function create(),     and exporting the class with the Q_PLUGIN_METADATA() macro.      \sa QAccessibleBridgePlugin, {How to Create Qt Plugins} */
+comment|/*!     \class QAccessiblePlugin     \brief The QAccessiblePlugin class provides an abstract base for     accessibility plugins.      \ingroup plugins     \ingroup accessibility      Writing an accessibility plugin is achieved by subclassing this     base class, reimplementing the pure virtual function create(),     and exporting the class with the Q_PLUGIN_METADATA() macro.      \sa QAccessibleBridgePlugin, {How to Create Qt Plugins} */
 end_comment
 begin_comment
 comment|/*!     Constructs an accessibility plugin with the given \a parent. This     is invoked automatically by the plugin loader. */

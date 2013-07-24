@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qaccessiblewidget_p.h"
+file|"qaccessiblewidget.h"
 end_include
 begin_ifndef
 ifndef|#
@@ -629,7 +629,7 @@ block|}
 class|;
 end_class
 begin_comment
-comment|/*!     \class QAccessibleWidget     \brief The QAccessibleWidget class implements the QAccessibleInterface for QWidgets.     \internal      \ingroup accessibility     \inmodule QtWidgets      This class is part of \l {Accessibility for QWidget Applications}.      This class is convenient to use as a base class for custom     implementations of QAccessibleInterfaces that provide information     about widget objects.      The class provides functions to retrieve the parentObject() (the     widget's parent widget), and the associated widget(). Controlling     signals can be added with addControllingSignal(), and setters are     provided for various aspects of the interface implementation, for     example setValue(), setDescription(), setAccelerator(), and     setHelp().      \sa QAccessible, QAccessibleObject */
+comment|/*!     \class QAccessibleWidget     \brief The QAccessibleWidget class implements the QAccessibleInterface for QWidgets.      \ingroup accessibility     \inmodule QtWidgets      This class is part of \l {Accessibility for QWidget Applications}.      This class is convenient to use as a base class for custom     implementations of QAccessibleInterfaces that provide information     about widget objects.      The class provides functions to retrieve the parentObject() (the     widget's parent widget), and the associated widget(). Controlling     signals can be added with addControllingSignal(), and setters are     provided for various aspects of the interface implementation, for     example setValue(), setDescription(), setAccelerator(), and     setHelp().      \sa QAccessible, QAccessibleObject */
 end_comment
 begin_comment
 comment|/*!     Creates a QAccessibleWidget object for widget \a w.     \a role and \a name are optional parameters that set the object's     role and name properties. */
@@ -686,6 +686,9 @@ name|name
 expr_stmt|;
 block|}
 end_constructor
+begin_comment
+comment|/*! \reimp */
+end_comment
 begin_function
 DECL|function|isValid
 name|bool

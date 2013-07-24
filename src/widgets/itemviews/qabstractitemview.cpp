@@ -117,11 +117,6 @@ include|#
 directive|include
 file|<qaccessible.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<private/qaccessible2_p.h>
-end_include
 begin_endif
 endif|#
 directive|endif
