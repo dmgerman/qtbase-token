@@ -267,6 +267,12 @@ argument|Qt::WindowState state
 argument_list|)
 block|;
 name|void
+name|setExposed
+argument_list|(
+argument|bool exposed
+argument_list|)
+block|;
+name|void
 name|propagateSizeHints
 argument_list|()
 block|;
@@ -509,6 +515,9 @@ name|m_parentWindow
 block|;
 name|bool
 name|m_visible
+block|;
+name|bool
+name|m_exposed
 block|;
 name|QRect
 name|m_unmaximizedGeometry

@@ -3025,6 +3025,19 @@ operator|!
 name|window
 condition|)
 return|return;
+name|Q_FOREACH
+argument_list|(
+argument|QQnxWindow *childWindow
+argument_list|,
+argument|m_childWindows
+argument_list|)
+name|childWindow
+operator|->
+name|setExposed
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|QWindowSystemInterface
 operator|::
 name|handleWindowActivated
@@ -3067,6 +3080,19 @@ name|groupName
 argument_list|()
 condition|)
 return|return;
+name|Q_FOREACH
+argument_list|(
+argument|QQnxWindow *childWindow
+argument_list|,
+argument|m_childWindows
+argument_list|)
+name|childWindow
+operator|->
+name|setExposed
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|QWindowSystemInterface
 operator|::
 name|handleWindowActivated
