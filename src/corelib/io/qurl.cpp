@@ -9917,6 +9917,8 @@ argument_list|(
 name|path
 argument_list|,
 name|options
+operator||
+name|FullyEncoded
 argument_list|,
 name|QUrlPrivate
 operator|::
@@ -9928,6 +9930,8 @@ operator|.
 name|setPath
 argument_list|(
 name|path
+argument_list|,
+name|TolerantMode
 argument_list|)
 expr_stmt|;
 block|}
@@ -12881,7 +12885,11 @@ init|=
 name|url
 operator|.
 name|path
-argument_list|()
+argument_list|(
+name|QUrl
+operator|::
+name|PrettyDecoded
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -12910,6 +12918,10 @@ name|midRef
 argument_list|(
 literal|2
 argument_list|)
+argument_list|,
+name|QUrl
+operator|::
+name|TolerantMode
 argument_list|)
 expr_stmt|;
 block|}

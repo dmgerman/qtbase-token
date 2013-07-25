@@ -1455,6 +1455,40 @@ argument_list|)
 decl_stmt|;
 name|QCOMPARE
 argument_list|(
+name|url4EncodedDots
+operator|.
+name|path
+argument_list|(
+name|QUrl
+operator|::
+name|PrettyDecoded
+argument_list|)
+argument_list|,
+name|QString
+argument_list|(
+literal|"/.//b/..%2F/b/c/"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|url4EncodedDots
+operator|.
+name|path
+argument_list|(
+name|QUrl
+operator|::
+name|FullyDecoded
+argument_list|)
+argument_list|,
+name|QString
+argument_list|(
+literal|"/.//b/..//b/c/"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
 name|QString
 operator|::
 name|fromLatin1
@@ -2981,7 +3015,7 @@ block|{
 name|QUrl
 name|url
 argument_list|(
-literal|"http://user:pass@[56::56:56:56:127.0.0.1]:99"
+literal|"http://user%3A:pass%40@[56::56:56:56:127.0.0.1]:99"
 argument_list|)
 decl_stmt|;
 name|QVERIFY
@@ -3033,6 +3067,36 @@ name|QCOMPARE
 argument_list|(
 name|url
 operator|.
+name|userName
+argument_list|()
+argument_list|,
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"user:"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|url
+operator|.
+name|password
+argument_list|()
+argument_list|,
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"pass@"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|url
+operator|.
 name|userInfo
 argument_list|()
 argument_list|,
@@ -3040,7 +3104,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"user:pass"
+literal|"user%3A:pass@"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3081,7 +3145,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"user:pass@[56::56:56:56:7f00:1]:99"
+literal|"user%3A:pass%40@[56::56:56:56:7f00:1]:99"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3106,7 +3170,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"http://user:pass@[56::56:56:56:7f00:1]:99"
+literal|"http://user%3A:pass%40@[56::56:56:56:7f00:1]:99"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3121,7 +3185,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"http://user@[56::56:56:56:7f00:1]:99"
+literal|"http://user%3A@[56::56:56:56:7f00:1]:99"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4131,7 +4195,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"/home/charles/foo moo"
+literal|"/home/charles/foo%20moo"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4150,7 +4214,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"/home/charles/foo%20moo"
+literal|"/home/charles/foo%2520moo"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4667,7 +4731,7 @@ argument_list|()
 argument_list|,
 name|QString
 argument_list|(
-literal|"text/javascript,d5 %3D 'five\\u0027s'%3B"
+literal|"text/javascript,d5 = 'five\\u0027s';"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -9058,7 +9122,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"/a%25.txt"
+literal|"/a%.txt"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -9086,7 +9150,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"/a%2525.txt"
+literal|"/a%25.txt"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -9114,7 +9178,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"/%2580.txt"
+literal|"/%80.txt"
 argument_list|)
 expr_stmt|;
 block|}
@@ -19319,7 +19383,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"/specials/Print To File (PDF%252FAcrobat)"
+literal|"/specials/Print To File (PDF%2FAcrobat)"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -19340,7 +19404,22 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"Print To File (PDF%252FAcrobat)"
+literal|"Print To File (PDF%2FAcrobat)"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|qurl2
+operator|.
+name|fileName
+argument_list|()
+argument_list|,
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"Print To File (PDF%2FAcrobat)"
 argument_list|)
 argument_list|)
 expr_stmt|;

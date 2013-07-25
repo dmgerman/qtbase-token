@@ -1304,7 +1304,7 @@ parameter_list|,
 name|ParsingMode
 name|mode
 init|=
-name|TolerantMode
+name|DecodedMode
 parameter_list|)
 function_decl|;
 name|QString
@@ -1313,7 +1313,7 @@ argument_list|(
 name|ComponentFormattingOptions
 name|options
 operator|=
-name|PrettyDecoded
+name|FullyDecoded
 argument_list|)
 decl|const
 decl_stmt|;
@@ -1328,7 +1328,7 @@ parameter_list|,
 name|ParsingMode
 name|mode
 init|=
-name|TolerantMode
+name|DecodedMode
 parameter_list|)
 function_decl|;
 name|QString
@@ -1336,7 +1336,7 @@ name|password
 argument_list|(
 name|ComponentFormattingOptions
 operator|=
-name|PrettyDecoded
+name|FullyDecoded
 argument_list|)
 decl|const
 decl_stmt|;
@@ -1351,7 +1351,7 @@ parameter_list|,
 name|ParsingMode
 name|mode
 init|=
-name|TolerantMode
+name|DecodedMode
 parameter_list|)
 function_decl|;
 name|QString
@@ -1359,7 +1359,7 @@ name|host
 argument_list|(
 name|ComponentFormattingOptions
 operator|=
-name|PrettyDecoded
+name|FullyDecoded
 argument_list|)
 decl|const
 decl_stmt|;
@@ -1369,7 +1369,7 @@ argument_list|(
 name|ComponentFormattingOptions
 name|options
 operator|=
-name|PrettyDecoded
+name|FullyDecoded
 argument_list|)
 decl|const
 decl_stmt|;
@@ -1402,7 +1402,7 @@ parameter_list|,
 name|ParsingMode
 name|mode
 init|=
-name|TolerantMode
+name|DecodedMode
 parameter_list|)
 function_decl|;
 name|QString
@@ -1411,7 +1411,7 @@ argument_list|(
 name|ComponentFormattingOptions
 name|options
 operator|=
-name|PrettyDecoded
+name|FullyDecoded
 argument_list|)
 decl|const
 decl_stmt|;
@@ -1421,7 +1421,7 @@ argument_list|(
 name|ComponentFormattingOptions
 name|options
 operator|=
-name|PrettyDecoded
+name|FullyDecoded
 argument_list|)
 decl|const
 decl_stmt|;
