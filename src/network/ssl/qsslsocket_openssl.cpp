@@ -3725,6 +3725,47 @@ operator|<=
 literal|0
 condition|)
 block|{
+name|int
+name|error
+init|=
+name|q_SSL_get_error
+argument_list|(
+name|ssl
+argument_list|,
+name|writtenBytes
+argument_list|)
+decl_stmt|;
+comment|//write can result in a want_write_error - not an error - continue transmitting
+if|if
+condition|(
+name|error
+operator|==
+name|SSL_ERROR_WANT_WRITE
+condition|)
+block|{
+name|transmitting
+operator|=
+literal|true
+expr_stmt|;
+break|break;
+block|}
+elseif|else
+if|if
+condition|(
+name|error
+operator|==
+name|SSL_ERROR_WANT_READ
+condition|)
+block|{
+comment|//write can result in a want_read error, possibly due to renegotiation - not an error - stop transmitting
+name|transmitting
+operator|=
+literal|false
+expr_stmt|;
+break|break;
+block|}
+else|else
+block|{
 comment|// ### Better error handling.
 name|q
 operator|->
@@ -3764,6 +3805,7 @@ name|SslInternalError
 argument_list|)
 emit|;
 return|return;
+block|}
 block|}
 ifdef|#
 directive|ifdef
