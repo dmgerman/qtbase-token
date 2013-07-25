@@ -2573,6 +2573,24 @@ modifier|*
 name|node
 parameter_list|)
 block|{
+comment|/*       Don't include index nodes in the help file. Or DITA map nodes.      */
+if|if
+condition|(
+name|node
+operator|->
+name|isIndexNode
+argument_list|()
+operator|||
+name|node
+operator|->
+name|subType
+argument_list|()
+operator|==
+name|Node
+operator|::
+name|DitaMap
+condition|)
+return|return;
 if|if
 condition|(
 operator|!

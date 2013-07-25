@@ -5389,6 +5389,14 @@ if|if
 condition|(
 name|node
 operator|->
+name|isIndexNode
+argument_list|()
+condition|)
+return|return;
+if|if
+condition|(
+name|node
+operator|->
 name|type
 argument_list|()
 operator|==
