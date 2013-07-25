@@ -304,6 +304,11 @@ comment|// access QPlatformIntegration::screenAdded()
 name|mutable
 name|QByteArray
 name|m_wmClass
+block|;
+specifier|const
+name|char
+operator|*
+name|m_instanceName
 block|; }
 decl_stmt|;
 end_decl_stmt
