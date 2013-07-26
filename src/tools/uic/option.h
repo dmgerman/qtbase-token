@@ -137,10 +137,6 @@ DECL|member|translateFunction
 name|QString
 name|translateFunction
 decl_stmt|;
-DECL|member|uic3
-name|QString
-name|uic3
-decl_stmt|;
 ifdef|#
 directive|ifdef
 name|QT_UIC_JAVA_GENERATOR
