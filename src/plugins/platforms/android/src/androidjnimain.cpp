@@ -70,6 +70,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"androidjniaccessibility.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"androidjniinput.h"
 end_include
 begin_include
@@ -3804,6 +3809,14 @@ argument_list|)
 operator|||
 operator|!
 name|QtAndroidMenu
+operator|::
+name|registerNatives
+argument_list|(
+name|env
+argument_list|)
+operator|||
+operator|!
+name|QtAndroidAccessibility
 operator|::
 name|registerNatives
 argument_list|(

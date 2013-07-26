@@ -55,13 +55,16 @@ name|lastUsedId
 argument_list|)
 condition|)
 block|{
+comment|// (wrap back when when we reach UINT_MAX - 1)
+comment|// -1 because on Android -1 is taken for the "View" so just avoid it completely for consistency
 if|if
 condition|(
 name|lastUsedId
 operator|==
 name|UINT_MAX
+operator|-
+literal|1
 condition|)
-comment|// (wrap back when when we reach UINT_MAX)
 name|lastUsedId
 operator|=
 name|FirstId
