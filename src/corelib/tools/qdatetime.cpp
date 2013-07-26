@@ -2823,7 +2823,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the date as a string. The \a format parameter determines     the format of the result string.      These expressions may be used:      \table     \header \li Expression \li Output     \row \li d \li the day as number without a leading zero (1 to 31)     \row \li dd \li the day as number with a leading zero (01 to 31)     \row \li ddd          \li the abbreviated localized day name (e.g. 'Mon' to 'Sun').             Uses QDate::shortDayName().     \row \li dddd          \li the long localized day name (e.g. 'Monday' to 'Sunday').             Uses QDate::longDayName().     \row \li M \li the month as number without a leading zero (1 to 12)     \row \li MM \li the month as number with a leading zero (01 to 12)     \row \li MMM          \li the abbreviated localized month name (e.g. 'Jan' to 'Dec').             Uses QDate::shortMonthName().     \row \li MMMM          \li the long localized month name (e.g. 'January' to 'December').             Uses QDate::longMonthName().     \row \li yy \li the year as two digit number (00 to 99)     \row \li yyyy \li the year as four digit number. If the year is negative,             a minus sign is prepended in addition.     \endtable      All other input characters will be ignored. Any sequence of characters that     are enclosed in single quotes will be treated as text and not be used as an     expression. Two consecutive single quotes ("''") are replaced by a singlequote     in the output. Formats without separators (e.g. "ddMM") are currently not supported.      Example format strings (assuming that the QDate is the 20 July     1969):      \table     \header \li Format            \li Result     \row    \li dd.MM.yyyy        \li 20.07.1969     \row    \li ddd MMMM d yy     \li Sun July 20 69     \row    \li 'The day is' dddd \li The day is Sunday     \endtable      If the datetime is invalid, an empty string will be returned.      \warning The Qt::ISODate format is only valid for years in the     range 0 to 9999. This restriction may apply to locale-aware     formats as well, depending on the locale settings.      \sa QDateTime::toString(), QTime::toString(), QLocale::toString()  */
+comment|/*!     Returns the date as a string. The \a format parameter determines     the format of the result string.      These expressions may be used:      \table     \header \li Expression \li Output     \row \li d \li the day as number without a leading zero (1 to 31)     \row \li dd \li the day as number with a leading zero (01 to 31)     \row \li ddd          \li the abbreviated localized day name (e.g. 'Mon' to 'Sun').             Uses QDate::shortDayName().     \row \li dddd          \li the long localized day name (e.g. 'Monday' to 'Sunday').             Uses QDate::longDayName().     \row \li M \li the month as number without a leading zero (1 to 12)     \row \li MM \li the month as number with a leading zero (01 to 12)     \row \li MMM          \li the abbreviated localized month name (e.g. 'Jan' to 'Dec').             Uses QDate::shortMonthName().     \row \li MMMM          \li the long localized month name (e.g. 'January' to 'December').             Uses QDate::longMonthName().     \row \li yy \li the year as two digit number (00 to 99)     \row \li yyyy \li the year as four digit number. If the year is negative,             a minus sign is prepended in addition.     \endtable      All other input characters will be ignored. Any sequence of characters that     are enclosed in single quotes will be treated as text and not be used as an     expression. Two consecutive single quotes ("''") are replaced by a singlequote     in the output. Formats without separators (e.g. "ddMM") are currently not supported.      Example format strings (assuming that the QDate is the 20 July     1969):      \table     \header \li Format            \li Result     \row    \li dd.MM.yyyy        \li 20.07.1969     \row    \li ddd MMMM d yy     \li Sun July 20 69     \row    \li 'The day is' dddd \li The day is Sunday     \endtable      If the datetime is invalid, an empty string will be returned.      \sa QDateTime::toString(), QTime::toString(), QLocale::toString()  */
 end_comment
 begin_function
 DECL|function|toString
@@ -2839,17 +2839,6 @@ name|format
 parameter_list|)
 specifier|const
 block|{
-if|if
-condition|(
-name|year
-argument_list|()
-operator|>
-literal|9999
-condition|)
-return|return
-name|QString
-argument_list|()
-return|;
 return|return
 name|QLocale
 operator|::
