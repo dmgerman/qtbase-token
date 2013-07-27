@@ -4018,6 +4018,29 @@ name|Node
 operator|*
 name|n
 operator|=
+literal|0
+block|;
+if|if
+condition|(
+name|d
+operator|->
+name|ref
+operator|.
+name|isShared
+argument_list|()
+condition|)
+name|n
+operator|=
+name|detach_helper_grow
+argument_list|(
+name|iBefore
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
+else|else
+name|n
+operator|=
 name|reinterpret_cast
 operator|<
 name|Node
@@ -4031,7 +4054,7 @@ argument_list|(
 name|iBefore
 argument_list|)
 operator|)
-block|;
+expr_stmt|;
 name|QT_TRY
 block|{
 name|node_construct
@@ -4055,13 +4078,14 @@ argument_list|)
 block|;
 name|QT_RETHROW
 block|;     }
+end_expr_stmt
+begin_return
 return|return
 name|n
 return|;
-block|}
-end_expr_stmt
+end_return
 begin_expr_stmt
-name|template
+unit|} template
 operator|<
 name|typename
 name|T
