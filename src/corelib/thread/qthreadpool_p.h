@@ -156,6 +156,10 @@ argument|int msecs
 argument_list|)
 block|;
 name|void
+name|clear
+argument_list|()
+block|;
+name|void
 name|stealRunnable
 argument_list|(
 name|QRunnable
