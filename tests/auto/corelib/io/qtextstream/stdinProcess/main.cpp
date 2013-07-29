@@ -5,12 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtCore/QCoreApplication>
+file|<QtCore/QTextStream>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/QTextStream>
+file|<stdio.h>
 end_include
 begin_function
 DECL|function|main
@@ -18,22 +18,12 @@ name|int
 name|main
 parameter_list|(
 name|int
-name|argc
 parameter_list|,
 name|char
 modifier|*
 modifier|*
-name|argv
 parameter_list|)
 block|{
-name|QCoreApplication
-name|a
-argument_list|(
-name|argc
-argument_list|,
-name|argv
-argument_list|)
-decl_stmt|;
 name|QTextStream
 name|qin
 argument_list|(
@@ -64,9 +54,11 @@ name|b
 operator|>>
 name|c
 expr_stmt|;
-name|qDebug
+name|fprintf
 argument_list|(
-literal|"%d %d %d"
+name|stderr
+argument_list|,
+literal|"%d %d %d\n"
 argument_list|,
 name|a
 argument_list|,

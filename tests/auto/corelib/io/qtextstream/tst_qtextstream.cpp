@@ -8221,12 +8221,6 @@ literal|5000
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|QChar
-name|quoteChar
-argument_list|(
-literal|'"'
-argument_list|)
-decl_stmt|;
 name|QCOMPARE
 argument_list|(
 name|stream
@@ -8238,17 +8232,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"%1hello world%2 \n"
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|quoteChar
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|quoteChar
+literal|"hello world\n"
 argument_list|)
 argument_list|)
 expr_stmt|;
