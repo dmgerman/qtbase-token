@@ -55,6 +55,11 @@ name|m_window
 argument_list|(
 literal|0
 argument_list|)
+member_init_list|,
+name|has_window
+argument_list|(
+literal|false
+argument_list|)
 block|{
 specifier|static
 name|int
@@ -120,7 +125,7 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|m_window
+name|has_window
 condition|)
 return|return;
 name|setWindowState
@@ -252,9 +257,9 @@ name|invalidateSurface
 parameter_list|()
 block|{
 comment|// Native surface has been deleted behind our backs
-name|m_window
+name|has_window
 operator|=
-literal|0
+literal|false
 expr_stmt|;
 if|if
 condition|(
@@ -345,6 +350,10 @@ argument_list|,
 name|m_format
 argument_list|)
 expr_stmt|;
+name|has_window
+operator|=
+literal|true
+expr_stmt|;
 name|m_surface
 operator|=
 name|eglCreateWindowSurface
@@ -429,7 +438,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|m_window
+name|has_window
 condition|)
 block|{
 name|QEglFSHooks
@@ -442,9 +451,9 @@ argument_list|(
 name|m_window
 argument_list|)
 expr_stmt|;
-name|m_window
+name|has_window
 operator|=
-literal|0
+literal|false
 expr_stmt|;
 block|}
 block|}
