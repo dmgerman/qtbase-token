@@ -303,6 +303,8 @@ argument_list|(
 literal|"files"
 argument_list|,
 name|MODE_WORLD_WRITEABLE
+operator||
+name|MODE_WORLD_READABLE
 argument_list|)
 operator|.
 name|getAbsolutePath
@@ -315,6 +317,8 @@ argument_list|(
 literal|"files"
 argument_list|,
 name|MODE_WORLD_WRITEABLE
+operator||
+name|MODE_WORLD_READABLE
 argument_list|)
 operator|.
 name|getAbsolutePath
@@ -327,6 +331,8 @@ argument_list|(
 literal|"files"
 argument_list|,
 name|MODE_WORLD_WRITEABLE
+operator||
+name|MODE_WORLD_READABLE
 argument_list|)
 operator|.
 name|getAbsolutePath
@@ -798,6 +804,8 @@ argument_list|(
 literal|"files"
 argument_list|,
 name|MODE_WORLD_WRITEABLE
+operator||
+name|MODE_WORLD_READABLE
 argument_list|)
 expr_stmt|;
 name|requestWindowFeature
