@@ -110,9 +110,6 @@ name|m_window
 block|;
 name|private
 operator|:
-name|WId
-name|m_winid
-block|;
 name|EGLConfig
 name|m_config
 block|;
