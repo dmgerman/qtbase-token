@@ -3079,6 +3079,13 @@ name|onAccepted
 parameter_list|()
 block|{
 emit|emit
+name|currentFontChanged
+argument_list|(
+name|currentFont
+argument_list|()
+argument_list|)
+emit|;
+emit|emit
 name|accept
 argument_list|()
 emit|;
