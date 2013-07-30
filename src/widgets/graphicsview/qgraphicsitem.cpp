@@ -12038,35 +12038,47 @@ name|QTransform
 argument_list|()
 return|;
 block|}
-comment|// First translate the base untransformable item.
+comment|// Determine the inherited origin. Find the parent of the topmost untransformable.
+comment|// Use its scene transform to map the position of the untransformable. Then use
+comment|// that viewport position as the anchoring point for the untransformable subtree.
+name|QGraphicsItem
+modifier|*
+name|parentOfUntransformedAncestor
+init|=
 name|untransformedAncestor
 operator|->
-name|d_ptr
+name|parentItem
+argument_list|()
+decl_stmt|;
+name|QTransform
+name|inheritedMatrix
+decl_stmt|;
+if|if
+condition|(
+name|parentOfUntransformedAncestor
+condition|)
+name|inheritedMatrix
+operator|=
+name|parentOfUntransformedAncestor
 operator|->
-name|ensureSceneTransform
+name|sceneTransform
 argument_list|()
 expr_stmt|;
 name|QPointF
 name|mappedPoint
 init|=
 operator|(
-name|untransformedAncestor
-operator|->
-name|d_ptr
-operator|->
-name|sceneTransform
+name|inheritedMatrix
 operator|*
 name|viewportTransform
 operator|)
 operator|.
 name|map
 argument_list|(
-name|QPointF
-argument_list|(
-literal|0
-argument_list|,
-literal|0
-argument_list|)
+name|untransformedAncestor
+operator|->
+name|pos
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// COMBINE
