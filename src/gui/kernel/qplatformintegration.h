@@ -198,6 +198,8 @@ block|,
 name|ForeignWindows
 block|,
 name|NonFullScreenWindows
+block|,
+name|NativeWidgets
 block|}
 enum|;
 name|virtual

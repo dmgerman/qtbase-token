@@ -364,6 +364,12 @@ case|:
 return|return
 literal|false
 return|;
+case|case
+name|NativeWidgets
+case|:
+return|return
+literal|false
+return|;
 default|default:
 ifndef|#
 directive|ifndef

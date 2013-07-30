@@ -244,6 +244,10 @@ return|return
 name|cap
 operator|==
 name|NonFullScreenWindows
+operator|||
+name|cap
+operator|==
+name|NativeWidgets
 return|;
 block|}
 end_function
