@@ -2404,7 +2404,7 @@ argument_list|)
 operator|:
 name|d
 argument_list|(
-argument|reinterpret_cast<Data *>(dd.ptr)
+argument|static_cast<Data *>(dd.ptr)
 argument_list|)
 block|{     }
 name|private
