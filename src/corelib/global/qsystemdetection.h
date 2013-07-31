@@ -1139,27 +1139,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_empty
-empty|#
-end_empty
-begin_if
-if|#
-directive|if
-operator|(
-name|__MAC_OS_X_VERSION_MAX_ALLOWED
-operator|>
-name|__MAC_10_8
-operator|)
-end_if
-begin_warning
-warning|#
-directive|warning
-literal|"This version of OS X is unsupported"
-end_warning
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_endif
 endif|#
 directive|endif
