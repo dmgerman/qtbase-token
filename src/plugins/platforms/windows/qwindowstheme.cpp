@@ -1613,17 +1613,6 @@ name|COLOR_GRAYTEXT
 argument_list|)
 argument_list|)
 decl_stmt|;
-specifier|const
-name|bool
-name|isFlat
-init|=
-name|booleanSystemParametersInfo
-argument_list|(
-name|SPI_GETFLATMENU
-argument_list|,
-literal|false
-argument_list|)
-decl_stmt|;
 comment|// we might need a special color group for the result.
 name|result
 operator|.
@@ -1718,6 +1707,17 @@ expr_stmt|;
 ifndef|#
 directive|ifndef
 name|Q_OS_WINCE
+specifier|const
+name|bool
+name|isFlat
+init|=
+name|booleanSystemParametersInfo
+argument_list|(
+name|SPI_GETFLATMENU
+argument_list|,
+literal|false
+argument_list|)
+decl_stmt|;
 name|result
 operator|.
 name|setColor
