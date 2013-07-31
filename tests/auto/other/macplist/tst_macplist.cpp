@@ -90,8 +90,8 @@ operator|::
 name|fromLatin1
 argument_list|(
 literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
-literal|"<!DOCTYPE plist SYSTEM \"file://localhost/System/Library/DTDs/PropertyList.dtd\">\n"
-literal|"<plist version=\"0.9\">\n"
+literal|"<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n"
+literal|"<plist version=\"1.0\">\n"
 literal|"<dict>\n"
 literal|"<key>CFBundleIconFile</key>\n"
 literal|"<string></string>\n"
@@ -119,8 +119,8 @@ operator|::
 name|fromLatin1
 argument_list|(
 literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
-literal|"<!DOCTYPE plist SYSTEM \"file://localhost/System/Library/DTDs/PropertyList.dtd\">\n"
-literal|"<plist version=\"0.9\">\n"
+literal|"<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n"
+literal|"<plist version=\"1.0\">\n"
 literal|"<dict>\n"
 literal|"<key>CFBundleIconFile</key>\n"
 literal|"<string></string>\n"
@@ -150,8 +150,8 @@ operator|::
 name|fromLatin1
 argument_list|(
 literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
-literal|"<!DOCTYPE plist SYSTEM \"file://localhost/System/Library/DTDs/PropertyList.dtd\">\n"
-literal|"<plist version=\"0.9\">\n"
+literal|"<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n"
+literal|"<plist version=\"1.0\">\n"
 literal|"<dict>\n"
 literal|"<key>CFBundleIconFile</key>\n"
 literal|"<string></string>\n"
@@ -181,8 +181,8 @@ operator|::
 name|fromLatin1
 argument_list|(
 literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
-literal|"<!DOCTYPE plist SYSTEM \"file://localhost/System/Library/DTDs/PropertyList.dtd\">\n"
-literal|"<plist version=\"0.9\">\n"
+literal|"<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n"
+literal|"<plist version=\"1.0\">\n"
 literal|"<dict>\n"
 literal|"<key>CFBundleIconFile</key>\n"
 literal|"<string></string>\n"
@@ -212,8 +212,8 @@ operator|::
 name|fromLatin1
 argument_list|(
 literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
-literal|"<!DOCTYPE plist SYSTEM \"file://localhost/System/Library/DTDs/PropertyList.dtd\">\n"
-literal|"<plist version=\"0.9\">\n"
+literal|"<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n"
+literal|"<plist version=\"1.0\">\n"
 literal|"<dict>\n"
 literal|"<key>CFBundleIconFile</key>\n"
 literal|"<string></string>\n"
