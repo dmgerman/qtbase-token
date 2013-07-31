@@ -1081,6 +1081,11 @@ name|map_withmod
 init|=
 literal|0
 decl_stmt|;
+name|quint8
+name|modifiers
+init|=
+name|m_modifiers
+decl_stmt|;
 comment|// get a specific and plain mapping for the keycode and the current modifiers
 for|for
 control|(
@@ -1179,6 +1184,32 @@ name|m
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|m_locks
+index|[
+literal|0
+index|]
+comment|/*CapsLock*/
+operator|&&
+name|map_withmod
+operator|&&
+operator|(
+name|map_withmod
+operator|->
+name|flags
+operator|&
+name|QEvdevKeyboardMap
+operator|::
+name|IsLetter
+operator|)
+condition|)
+name|modifiers
+operator|^=
+name|QEvdevKeyboardMap
+operator|::
+name|ModShift
+expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QT_QPA_KEYMAP_DEBUG
@@ -1188,7 +1219,7 @@ literal|"Processing key event: keycode=%3d, modifiers=%02x pressed=%d, autorepea
 argument_list|, \
 name|keycode
 argument_list|,
-name|m_modifiers
+name|modifiers
 argument_list|,
 name|pressed
 condition|?
@@ -1254,7 +1285,7 @@ literal|"Could not find a suitable mapping for keycode: %3d, modifiers: %02x"
 argument_list|,
 name|keycode
 argument_list|,
-name|m_modifiers
+name|modifiers
 argument_list|)
 expr_stmt|;
 endif|#
@@ -1381,12 +1412,6 @@ condition|?
 name|CapsLockOn
 else|:
 name|CapsLockOff
-expr_stmt|;
-name|m_modifiers
-operator|^=
-name|QEvdevKeyboardMap
-operator|::
-name|ModShift
 expr_stmt|;
 break|break;
 case|case
@@ -1713,7 +1738,7 @@ name|QEvdevKeyboardHandler
 operator|::
 name|toQtModifiers
 argument_list|(
-name|m_modifiers
+name|modifiers
 argument_list|)
 expr_stmt|;
 block|}
