@@ -852,6 +852,12 @@ break|break;
 case|case
 name|NAVIGATOR_WINDOW_INVISIBLE
 case|:
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_BLACKBERRY_TABLET
+argument_list|)
 name|m_navigatorEventHandler
 operator|->
 name|handleWindowGroupDeactivated
@@ -859,6 +865,8 @@ argument_list|(
 name|id
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 break|break;
 block|}
 break|break;
