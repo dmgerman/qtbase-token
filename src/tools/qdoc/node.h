@@ -2280,7 +2280,6 @@ name|obsoleteLink_
 operator|=
 name|t
 block|; }
-block|;
 name|virtual
 name|void
 name|setWrapper
@@ -2482,6 +2481,16 @@ name|DocNode
 argument_list|()
 block|{ }
 name|void
+name|setQtVariable
+argument_list|(
+argument|const QString&variable
+argument_list|)
+block|{
+name|qtVariable_
+operator|=
+name|variable
+block|; }
+name|void
 name|setTitle
 argument_list|(
 argument|const QString&title
@@ -2501,6 +2510,15 @@ name|subtitle_
 operator|=
 name|subTitle
 block|; }
+name|QString
+name|qtVariable
+argument_list|()
+specifier|const
+block|{
+return|return
+name|qtVariable_
+return|;
+block|}
 name|SubType
 name|subType
 argument_list|()
@@ -2584,6 +2602,11 @@ name|title_
 block|;
 name|QString
 name|subtitle_
+block|;
+name|private
+operator|:
+name|QString
+name|qtVariable_
 block|; }
 block|;
 name|class

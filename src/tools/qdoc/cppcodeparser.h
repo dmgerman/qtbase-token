@@ -1169,6 +1169,13 @@ directive|define
 name|COMMAND_RELEASEDATE
 value|Doc::alias("releasedate")
 end_define
+begin_define
+DECL|macro|COMMAND_QTVARIABLE
+define|#
+directive|define
+name|COMMAND_QTVARIABLE
+value|Doc::alias("qtvariable")
+end_define
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
