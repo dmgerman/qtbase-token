@@ -1756,15 +1756,6 @@ name|Qt
 operator|::
 name|TouchPointMoved
 expr_stmt|;
-else|else
-name|touchPoint
-operator|.
-name|state
-operator|=
-name|Qt
-operator|::
-name|TouchPointStationary
-expr_stmt|;
 break|break;
 case|case
 name|XI_TouchEnd
@@ -1873,7 +1864,6 @@ name|values
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// If a touchpoint was released, we can forget it, because the ID won't be reused.
 if|if
 condition|(
 name|touchPoint
@@ -1884,6 +1874,7 @@ name|Qt
 operator|::
 name|TouchPointReleased
 condition|)
+comment|// If a touchpoint was released, we can forget it, because the ID won't be reused.
 name|m_touchPoints
 operator|.
 name|remove
@@ -1892,6 +1883,17 @@ name|touchPoint
 operator|.
 name|id
 argument_list|)
+expr_stmt|;
+else|else
+comment|// Make sure that we don't send TouchPointPressed/Moved in more than one QTouchEvent
+comment|// with this touch point if the next XI2 event is about a different touch point.
+name|touchPoint
+operator|.
+name|state
+operator|=
+name|Qt
+operator|::
+name|TouchPointStationary
 expr_stmt|;
 block|}
 block|}
