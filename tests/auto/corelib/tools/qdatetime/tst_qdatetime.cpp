@@ -12791,8 +12791,8 @@ argument_list|,
 name|dataStreamVersion
 argument_list|)
 expr_stmt|;
-comment|// Save the previous timezone so we can restore it afterwards, just in case.
-name|QString
+comment|// Save the previous timezone so we can restore it afterwards, otherwise later tests will break
+name|QByteArray
 name|previousTimeZone
 init|=
 name|qgetenv
@@ -13129,14 +13129,24 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|previousTimeZone
+operator|.
+name|isNull
+argument_list|()
+condition|)
+name|qunsetenv
+argument_list|(
+literal|"TZ"
+argument_list|)
+expr_stmt|;
+else|else
 name|qputenv
 argument_list|(
 literal|"TZ"
 argument_list|,
 name|previousTimeZone
-operator|.
-name|toLocal8Bit
-argument_list|()
 operator|.
 name|constData
 argument_list|()
