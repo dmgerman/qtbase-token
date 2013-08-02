@@ -11191,7 +11191,7 @@ decl_stmt|;
 if|if
 condition|(
 name|moduleNode
-operator|||
+operator|&&
 operator|!
 name|moduleNode
 operator|->
