@@ -2043,7 +2043,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QScrollArea::alignment     \brief the alignment of the scroll area's widget     \since 4.2      By default, the widget stays rooted to the top-left corner of the     scroll area. */
+comment|/*!     \property QScrollArea::alignment     \brief the alignment of the scroll area's widget     \since 4.2      A valid alignment is a combination of the following flags:     \list     \li \c Qt::AlignLeft     \li \c Qt::AlignHCenter     \li \c Qt::AlignRight     \li \c Qt::AlignTop     \li \c Qt::AlignVCenter     \li \c Qt::AlignBottom     \endlist     By default, the widget stays rooted to the top-left corner of the     scroll area. */
 end_comment
 begin_function
 DECL|function|setAlignment
