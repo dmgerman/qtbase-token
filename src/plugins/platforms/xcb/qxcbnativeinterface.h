@@ -83,6 +83,8 @@ block|,
 name|StartupId
 block|,
 name|TrayWindow
+block|,
+name|GetTimestamp
 block|}
 block|;
 name|QXcbNativeInterface
@@ -224,6 +226,16 @@ block|;
 name|void
 operator|*
 name|appUserTime
+argument_list|(
+specifier|const
+name|QXcbScreen
+operator|*
+name|screen
+argument_list|)
+block|;
+name|void
+operator|*
+name|getTimestamp
 argument_list|(
 specifier|const
 name|QXcbScreen
