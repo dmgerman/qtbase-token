@@ -2757,8 +2757,12 @@ name|handleCloseEvent
 parameter_list|(
 name|QCloseEvent
 modifier|*
+name|event
 parameter_list|)
 block|{
+name|bool
+name|is_closing
+init|=
 name|m_widget
 operator|->
 name|d_func
@@ -2769,6 +2773,13 @@ argument_list|(
 name|QWidgetPrivate
 operator|::
 name|CloseWithSpontaneousEvent
+argument_list|)
+decl_stmt|;
+name|event
+operator|->
+name|setAccepted
+argument_list|(
+name|is_closing
 argument_list|)
 expr_stmt|;
 block|}
