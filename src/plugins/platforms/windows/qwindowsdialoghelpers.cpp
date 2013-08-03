@@ -11366,7 +11366,7 @@ argument_list|()
 operator|>
 name|QSysInfo
 operator|::
-name|WV_XP
+name|WV_2003
 condition|)
 return|return
 operator|new
