@@ -848,6 +848,8 @@ argument_list|,
 argument|Qt::Orientation qt4O
 argument_list|,
 argument|Qt::KeyboardModifiers mods
+argument_list|,
+argument|QWheelEvent::Phase phase = QWheelEvent::Changed
 argument_list|)
 operator|:
 name|InputEvent
@@ -888,7 +890,12 @@ argument_list|)
 block|,
 name|globalPos
 argument_list|(
-argument|global
+name|global
+argument_list|)
+block|,
+name|phase
+argument_list|(
+argument|phase
 argument_list|)
 block|{ }
 name|QPoint
@@ -910,6 +917,11 @@ name|localPos
 block|;
 name|QPointF
 name|globalPos
+block|;
+name|QWheelEvent
+operator|::
+name|Phase
+name|phase
 block|;     }
 decl_stmt|;
 name|class

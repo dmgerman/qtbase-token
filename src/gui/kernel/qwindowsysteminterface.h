@@ -92,6 +92,11 @@ include|#
 directive|include
 file|<QtGui/QVector2D>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtGui/QWheelEvent>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QMimeData
@@ -642,6 +647,15 @@ operator|=
 name|Qt
 operator|::
 name|NoModifier
+argument_list|,
+name|QWheelEvent
+operator|::
+name|Phase
+name|phase
+operator|=
+name|QWheelEvent
+operator|::
+name|Changed
 argument_list|)
 decl_stmt|;
 specifier|static
@@ -679,6 +693,15 @@ operator|=
 name|Qt
 operator|::
 name|NoModifier
+argument_list|,
+name|QWheelEvent
+operator|::
+name|Phase
+name|phase
+operator|=
+name|QWheelEvent
+operator|::
+name|Changed
 argument_list|)
 decl_stmt|;
 comment|// Wheel event compatibility functions. Will be removed: do not use.

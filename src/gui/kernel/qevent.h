@@ -732,6 +732,16 @@ name|QInputEvent
 block|{
 name|public
 operator|:
+expr|enum
+name|Phase
+block|{
+name|Started
+block|,
+name|Changed
+block|,
+name|Ended
+block|}
+block|;
 name|QWheelEvent
 argument_list|(
 argument|const QPointF&pos
@@ -777,6 +787,27 @@ argument_list|,
 argument|Qt::MouseButtons buttons
 argument_list|,
 argument|Qt::KeyboardModifiers modifiers
+argument_list|)
+block|;
+name|QWheelEvent
+argument_list|(
+argument|const QPointF&pos
+argument_list|,
+argument|const QPointF& globalPos
+argument_list|,
+argument|QPoint pixelDelta
+argument_list|,
+argument|QPoint angleDelta
+argument_list|,
+argument|int qt4Delta
+argument_list|,
+argument|Qt::Orientation qt4Orientation
+argument_list|,
+argument|Qt::MouseButtons buttons
+argument_list|,
+argument|Qt::KeyboardModifiers modifiers
+argument_list|,
+argument|Phase phase
 argument_list|)
 block|;
 operator|~
@@ -944,6 +975,19 @@ return|return
 name|mouseState
 return|;
 block|}
+specifier|inline
+name|Phase
+name|phase
+argument_list|()
+specifier|const
+block|{
+return|return
+name|Phase
+argument_list|(
+name|ph
+argument_list|)
+return|;
+block|}
 name|protected
 operator|:
 name|QPointF
@@ -971,8 +1015,15 @@ operator|::
 name|MouseButtons
 name|mouseState
 block|;
+name|uint
+name|ph
+operator|:
+literal|2
+block|;
 name|int
 name|reserved
+operator|:
+literal|30
 block|; }
 decl_stmt|;
 end_decl_stmt

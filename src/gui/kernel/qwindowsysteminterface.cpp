@@ -1720,6 +1720,11 @@ name|Qt
 operator|::
 name|KeyboardModifiers
 name|mods
+parameter_list|,
+name|QWheelEvent
+operator|::
+name|Phase
+name|phase
 parameter_list|)
 block|{
 name|unsigned
@@ -1748,6 +1753,8 @@ argument_list|,
 name|angleDelta
 argument_list|,
 name|mods
+argument_list|,
+name|phase
 argument_list|)
 expr_stmt|;
 block|}
@@ -1786,6 +1793,11 @@ name|Qt
 operator|::
 name|KeyboardModifiers
 name|mods
+parameter_list|,
+name|QWheelEvent
+operator|::
+name|Phase
+name|phase
 parameter_list|)
 block|{
 comment|// Qt 4 sends two separate wheel events for horizontal and vertical
@@ -1801,12 +1813,20 @@ name|WheelEvent
 modifier|*
 name|e
 decl_stmt|;
+comment|// Pass QWheelEvent::Started and QWheelEvent::Ended through
+comment|// even if the wheel delta is null.
 if|if
 condition|(
 name|angleDelta
 operator|.
 name|isNull
 argument_list|()
+operator|&&
+name|phase
+operator|==
+name|QWheelEvent
+operator|::
+name|Changed
 condition|)
 return|return;
 comment|// Simple case: vertical deltas only:
@@ -1856,6 +1876,8 @@ operator|::
 name|Vertical
 argument_list|,
 name|mods
+argument_list|,
+name|phase
 argument_list|)
 expr_stmt|;
 name|QWindowSystemInterfacePrivate
@@ -1914,6 +1936,8 @@ operator|::
 name|Horizontal
 argument_list|,
 name|mods
+argument_list|,
+name|phase
 argument_list|)
 expr_stmt|;
 name|QWindowSystemInterfacePrivate
@@ -1957,6 +1981,8 @@ operator|::
 name|Vertical
 argument_list|,
 name|mods
+argument_list|,
+name|phase
 argument_list|)
 expr_stmt|;
 name|QWindowSystemInterfacePrivate
@@ -1999,6 +2025,8 @@ operator|::
 name|Horizontal
 argument_list|,
 name|mods
+argument_list|,
+name|phase
 argument_list|)
 expr_stmt|;
 name|QWindowSystemInterfacePrivate
