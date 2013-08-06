@@ -321,6 +321,20 @@ argument|int section
 argument_list|)
 specifier|const
 block|;
+name|bool
+name|isFirstVisibleSection
+argument_list|(
+argument|int section
+argument_list|)
+specifier|const
+block|;
+name|bool
+name|isLastVisibleSection
+argument_list|(
+argument|int section
+argument_list|)
+specifier|const
+block|;
 specifier|inline
 name|bool
 name|rowIntersectsSelection
