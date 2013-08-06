@@ -537,9 +537,11 @@ argument_list|)
 name|qintptr
 name|tmp1
 decl_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_PROCESSOR_X86_32
+if|#
+directive|if
+name|Q_PROCESSOR_X86
+operator|<
+literal|5
 comment|// check if the CPUID instruction is supported
 name|long
 name|cpuid_supported
