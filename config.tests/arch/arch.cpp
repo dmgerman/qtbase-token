@@ -188,6 +188,34 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
+name|__AVX512F__
+comment|// AVX512 Foundation, Intel Xeon Phi codename "Knights Landing"
+literal|" avx512f"
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|__AVX512CD__
+comment|// AVX512 Conflict Detection, Intel Xeon Phi codename "Knights Landing"
+literal|" avx512cd"
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|__AVX512ER__
+comment|// AVX512 Exponentiation& Reciprocal, Intel Xeon Phi codename "Knights Landing"
+literal|" avx512ef"
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|__AVX512PF__
+comment|// AVX512 Prefetch, Intel Xeon Phi codename "Knights Landing"
+literal|" avx512pf"
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
 name|__BMI__
 comment|// Bit Manipulation Instructions 1, Intel Core 4th Generation ("Haswell"), AMD "Bulldozer 2"
 literal|" bmi"
@@ -292,6 +320,13 @@ directive|ifdef
 name|__RDRND__
 comment|// Random number generator, Intel Core 3rd Generation ("Ivy Bridge")
 literal|" rdrnd"
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|__SHA__
+comment|// SHA-1 and SHA-256 instructions, Intel processor TBA
+literal|" sha"
 endif|#
 directive|endif
 if|#
