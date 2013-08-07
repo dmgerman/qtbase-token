@@ -4455,6 +4455,11 @@ name|completion
 operator|=
 name|prefix
 expr_stmt|;
+name|index
+operator|=
+name|QModelIndex
+argument_list|()
+expr_stmt|;
 block|}
 else|else
 block|{
