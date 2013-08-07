@@ -1188,6 +1188,13 @@ directive|define
 name|HTMLGENERATOR_NONAVIGATIONBAR
 value|"nonavigationbar"
 end_define
+begin_define
+DECL|macro|HTMLGENERATOR_NOSUBDIRS
+define|#
+directive|define
+name|HTMLGENERATOR_NOSUBDIRS
+value|"nosubdirs"
+end_define
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

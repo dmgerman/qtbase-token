@@ -19476,6 +19476,9 @@ condition|)
 block|{
 if|if
 condition|(
+name|useOutputSubdirs
+argument_list|()
+operator|&&
 name|node
 operator|->
 name|outputSubdirectory
