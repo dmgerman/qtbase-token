@@ -22272,7 +22272,7 @@ literal|"yes"
 condition|)
 name|tmpStream
 operator|<<
-literal|"#define QT_COMPILER_SUPPORTS_SSE2"
+literal|"#define QT_COMPILER_SUPPORTS_SSE2 1"
 operator|<<
 name|endl
 expr_stmt|;
@@ -22287,7 +22287,7 @@ literal|"yes"
 condition|)
 name|tmpStream
 operator|<<
-literal|"#define QT_COMPILER_SUPPORTS_SSE3"
+literal|"#define QT_COMPILER_SUPPORTS_SSE3 1"
 operator|<<
 name|endl
 expr_stmt|;
@@ -22302,7 +22302,7 @@ literal|"yes"
 condition|)
 name|tmpStream
 operator|<<
-literal|"#define QT_COMPILER_SUPPORTS_SSSE3"
+literal|"#define QT_COMPILER_SUPPORTS_SSSE3 1"
 operator|<<
 name|endl
 expr_stmt|;
@@ -22317,7 +22317,7 @@ literal|"yes"
 condition|)
 name|tmpStream
 operator|<<
-literal|"#define QT_COMPILER_SUPPORTS_SSE4_1"
+literal|"#define QT_COMPILER_SUPPORTS_SSE4_1 1"
 operator|<<
 name|endl
 expr_stmt|;
@@ -22332,7 +22332,7 @@ literal|"yes"
 condition|)
 name|tmpStream
 operator|<<
-literal|"#define QT_COMPILER_SUPPORTS_SSE4_2"
+literal|"#define QT_COMPILER_SUPPORTS_SSE4_2 1"
 operator|<<
 name|endl
 expr_stmt|;
@@ -22347,7 +22347,7 @@ literal|"yes"
 condition|)
 name|tmpStream
 operator|<<
-literal|"#define QT_COMPILER_SUPPORTS_AVX"
+literal|"#define QT_COMPILER_SUPPORTS_AVX 1"
 operator|<<
 name|endl
 expr_stmt|;
@@ -22362,7 +22362,7 @@ literal|"yes"
 condition|)
 name|tmpStream
 operator|<<
-literal|"#define QT_COMPILER_SUPPORTS_AVX2"
+literal|"#define QT_COMPILER_SUPPORTS_AVX2 1"
 operator|<<
 name|endl
 expr_stmt|;
@@ -22377,7 +22377,7 @@ literal|"yes"
 condition|)
 name|tmpStream
 operator|<<
-literal|"#define QT_COMPILER_SUPPORTS_IWMMXT"
+literal|"#define QT_COMPILER_SUPPORTS_IWMMXT 1"
 operator|<<
 name|endl
 expr_stmt|;
