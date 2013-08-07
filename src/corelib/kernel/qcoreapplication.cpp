@@ -6953,9 +6953,25 @@ name|defined
 argument_list|(
 name|Q_OS_UNIX
 argument_list|)
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_OS_LINUX
+argument_list|)
+operator|&&
+operator|(
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_ANDROID
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_ANDROID_NO_SDK
+argument_list|)
+operator|)
 comment|// Try looking for a /proc/<pid>/exe symlink first which points to
 comment|// the absolute path of the executable
 name|QFileInfo
