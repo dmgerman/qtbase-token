@@ -183,6 +183,20 @@ end_endif
 begin_comment
 comment|// QT_NO_DATASTREAM
 end_comment
+begin_decl_stmt
+DECL|variable|maxSizeSection
+specifier|static
+specifier|const
+name|int
+name|maxSizeSection
+init|=
+literal|1048575
+decl_stmt|;
+end_decl_stmt
+begin_comment
+DECL|variable|maxSizeSection
+comment|// since section size is in a bitfield (uint 20). See qheaderview_p.h
+end_comment
 begin_comment
 comment|/*!     \class QHeaderView      \brief The QHeaderView class provides a header row or header column for     item views.      \ingroup model-view     \inmodule QtWidgets      A QHeaderView displays the headers used in item views such as the     QTableView and QTreeView classes. It takes the place of Qt3's \c QHeader     class previously used for the same purpose, but uses the Qt's model/view     architecture for consistency with the item view classes.      The QHeaderView class is one of the \l{Model/View Classes} and is part of     Qt's \l{Model/View Programming}{model/view framework}.      The header gets the data for each section from the model using the     QAbstractItemModel::headerData() function. You can set the data by using     QAbstractItemModel::setHeaderData().      Each header has an orientation() and a number of sections, given by the     count() function. A section refers to a part of the header - either a row     or a column, depending on the orientation.      Sections can be moved and resized using moveSection() and resizeSection();     they can also be hidden and shown with hideSection() and showSection().      Each section of a header is described by a section ID, specified by its     section(), and can be located at a particular visualIndex() in the header.     A section can have a sort indicator set with setSortIndicator(); this     indicates whether the items in the associated item view will be sorted in     the order given by the section.      For a horizontal header the section is equivalent to a column in the model,     and for a vertical header the section is equivalent to a row in the model.      \section1 Moving Header Sections      A header can be fixed in place, or made movable with setSectionsMovable(). It can     be made clickable with setSectionsClickable(), and has resizing behavior in     accordance with setSectionResizeMode()      \note Double-clicking on a header to resize a section only applies for     visible rows.      A header will emit sectionMoved() if the user moves a section,     sectionResized() if the user resizes a section, and sectionClicked() as     well as sectionHandleDoubleClicked() in response to mouse clicks. A header     will also emit sectionCountChanged().      You can identify a section using the logicalIndex() and logicalIndexAt()     functions, or by its index position, using the visualIndex() and     visualIndexAt() functions. The visual index will change if a section is     moved, but the logical index will not change.      \section1 Appearance      QTableWidget and QTableView create default headers. If you want     the headers to be visible, you can use \l{QFrame::}{setVisible()}.      Not all \l{Qt::}{ItemDataRole}s will have an effect on a     QHeaderView. If you need to draw other roles, you can subclass     QHeaderView and reimplement \l{QHeaderView::}{paintEvent()}.     QHeaderView respects the following item data roles:     \l{Qt::}{TextAlignmentRole}, \l{Qt::}{DisplayRole},     \l{Qt::}{FontRole}, \l{Qt::}{DecorationRole},     \l{Qt::}{ForegroundRole}, and \l{Qt::}{BackgroundRole}.      \note Each header renders the data for each section itself, and does not     rely on a delegate. As a result, calling a header's setItemDelegate()     function will have no effect.      \sa {Model/View Programming}, QListView, QTableView, QTreeView */
 end_comment
@@ -3284,8 +3298,12 @@ name|count
 argument_list|()
 operator|||
 name|size
-operator|<
+argument_list|<
 literal|0
+operator|||
+name|size
+argument_list|>
+name|maxSizeSection
 condition|)
 return|return;
 if|if
@@ -5229,8 +5247,12 @@ expr_stmt|;
 if|if
 condition|(
 name|size
-operator|<
+argument_list|<
 literal|0
+operator|||
+name|size
+argument_list|>
+name|maxSizeSection
 condition|)
 return|return;
 name|d
@@ -5370,8 +5392,12 @@ expr_stmt|;
 if|if
 condition|(
 name|size
-operator|<
+argument_list|<
 literal|0
+operator|||
+name|size
+argument_list|>
+name|maxSizeSection
 condition|)
 return|return;
 name|d
@@ -16007,6 +16033,13 @@ return|return
 name|globalResizeMode
 return|;
 return|return
+cast|static_cast
+argument_list|<
+name|QHeaderView
+operator|::
+name|ResizeMode
+argument_list|>
+argument_list|(
 name|sectionItems
 operator|.
 name|at
@@ -16015,6 +16048,7 @@ name|visual
 argument_list|)
 operator|.
 name|resizeMode
+argument_list|)
 return|;
 block|}
 end_function
