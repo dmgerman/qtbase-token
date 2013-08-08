@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qdatetime_p.h>
+file|<private/qdatetimeparser_p.h>
 end_include
 begin_include
 include|#
