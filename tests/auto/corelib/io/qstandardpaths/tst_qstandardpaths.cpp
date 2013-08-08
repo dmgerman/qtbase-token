@@ -741,7 +741,7 @@ argument_list|)
 expr_stmt|;
 name|QStandardPaths
 operator|::
-name|enableTestMode
+name|setTestModeEnabled
 argument_list|(
 literal|true
 argument_list|)
@@ -1038,7 +1038,7 @@ comment|// On Windows, what should "Program Files" become, in test mode?
 comment|//testLocations.insert(QStandardPaths::ApplicationsLocation, QStandardPaths::writableLocation(QStandardPaths::ApplicationsLocation));
 name|QStandardPaths
 operator|::
-name|enableTestMode
+name|setTestModeEnabled
 argument_list|(
 literal|false
 argument_list|)

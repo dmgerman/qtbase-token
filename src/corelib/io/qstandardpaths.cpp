@@ -1150,7 +1150,10 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!   \fn void QStandardPaths::enableTestMode(bool testMode)    If \a testMode is true, this enables a special "test mode" in   QStandardPaths, which changes writable locations   to point to test directories, in order to prevent auto tests from reading from   or writing to the current user's configuration.    This affects the locations into which test programs might write files:   GenericDataLocation, DataLocation, ConfigLocation,   GenericCacheLocation, CacheLocation.   Other locations are not affected.    On Unix, XDG_DATA_HOME is set to ~/.qttest/share, XDG_CONFIG_HOME is   set to ~/.qttest/config, and XDG_CACHE_HOME is set to ~/.qttest/cache.    On Mac, data goes to "~/.qttest/Application Support", cache goes to   ~/.qttest/Cache, and config goes to ~/.qttest/Preferences.    On Windows, everything goes to a "qttest" directory under Application Data. */
+comment|/*!   \fn void QStandardPaths::enableTestMode(bool testMode)   \obsolete Use QStandardPaths::setTestModeEnabled  */
+end_comment
+begin_comment
+comment|/*!   \fn void QStandardPaths::setTestModeEnabled(bool testMode)    If \a testMode is true, this enables a special "test mode" in   QStandardPaths, which changes writable locations   to point to test directories, in order to prevent auto tests from reading from   or writing to the current user's configuration.    This affects the locations into which test programs might write files:   GenericDataLocation, DataLocation, ConfigLocation,   GenericCacheLocation, CacheLocation.   Other locations are not affected.    On Unix, XDG_DATA_HOME is set to ~/.qttest/share, XDG_CONFIG_HOME is   set to ~/.qttest/config, and XDG_CACHE_HOME is set to ~/.qttest/cache.    On Mac, data goes to "~/.qttest/Application Support", cache goes to   ~/.qttest/Cache, and config goes to ~/.qttest/Preferences.    On Windows, everything goes to a "qttest" directory under Application Data. */
 end_comment
 begin_decl_stmt
 DECL|variable|qsp_testMode
@@ -1161,12 +1164,43 @@ init|=
 literal|false
 decl_stmt|;
 end_decl_stmt
+begin_if
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|2
+argument_list|)
+end_if
 begin_function
 DECL|function|enableTestMode
 name|void
 name|QStandardPaths
 operator|::
 name|enableTestMode
+parameter_list|(
+name|bool
+name|testMode
+parameter_list|)
+block|{
+name|qsp_testMode
+operator|=
+name|testMode
+expr_stmt|;
+block|}
+end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_function
+DECL|function|setTestModeEnabled
+name|void
+name|QStandardPaths
+operator|::
+name|setTestModeEnabled
 parameter_list|(
 name|bool
 name|testMode
