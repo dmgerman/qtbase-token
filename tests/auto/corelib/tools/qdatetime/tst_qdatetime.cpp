@@ -10468,116 +10468,6 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-name|QTest
-operator|::
-name|newRow
-argument_list|(
-literal|"QDate min"
-argument_list|)
-operator|<<
-name|QDateTime
-argument_list|(
-name|QDate
-operator|::
-name|fromJulianDay
-argument_list|(
-name|minJd
-argument_list|()
-argument_list|)
-argument_list|,
-name|QTime
-argument_list|(
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-literal|0
-argument_list|)
-argument_list|,
-name|Qt
-operator|::
-name|UTC
-argument_list|)
-operator|<<
-name|QDateTime
-argument_list|(
-name|QDate
-operator|::
-name|fromJulianDay
-argument_list|(
-name|minJd
-argument_list|()
-argument_list|)
-argument_list|,
-name|QTime
-argument_list|(
-literal|1
-argument_list|,
-literal|0
-argument_list|,
-literal|0
-argument_list|)
-argument_list|,
-name|Qt
-operator|::
-name|LocalTime
-argument_list|)
-expr_stmt|;
-name|QTest
-operator|::
-name|newRow
-argument_list|(
-literal|"QDate max"
-argument_list|)
-operator|<<
-name|QDateTime
-argument_list|(
-name|QDate
-operator|::
-name|fromJulianDay
-argument_list|(
-name|maxJd
-argument_list|()
-argument_list|)
-argument_list|,
-name|QTime
-argument_list|(
-literal|22
-argument_list|,
-literal|59
-argument_list|,
-literal|59
-argument_list|)
-argument_list|,
-name|Qt
-operator|::
-name|UTC
-argument_list|)
-operator|<<
-name|QDateTime
-argument_list|(
-name|QDate
-operator|::
-name|fromJulianDay
-argument_list|(
-name|maxJd
-argument_list|()
-argument_list|)
-argument_list|,
-name|QTime
-argument_list|(
-literal|23
-argument_list|,
-literal|59
-argument_list|,
-literal|59
-argument_list|)
-argument_list|,
-name|Qt
-operator|::
-name|LocalTime
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|europeanTimeZone
@@ -25126,6 +25016,22 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+comment|// Windows uses SecondOccurrence
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"QDateTime doesn't properly support Daylight Transitions"
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+comment|// Q_OS_WIN
 name|QCOMPARE
 argument_list|(
 name|test
@@ -25229,10 +25135,11 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_WIN
+ifndef|#
+directive|ifndef
+name|Q_OS_MAC
 comment|// Windows uses SecondOccurrence
+comment|// Linux mktime bug uses last calculation
 name|QEXPECT_FAIL
 argument_list|(
 literal|""
@@ -25244,7 +25151,7 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-comment|// Q_OS_WIN
+comment|// Q_OS_MAC
 name|QCOMPARE
 argument_list|(
 name|test
@@ -25314,10 +25221,11 @@ literal|28
 argument_list|)
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
+ifndef|#
+directive|ifndef
+name|Q_OS_WIN
 comment|// Mac uses FirstOccurrence
+comment|// Linux mktime bug uses last calculation
 name|QEXPECT_FAIL
 argument_list|(
 literal|""
@@ -25329,7 +25237,7 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-comment|// Q_OS_MAC
+comment|// Q_OS_WIN
 name|QCOMPARE
 argument_list|(
 name|test
@@ -25347,10 +25255,11 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
+ifndef|#
+directive|ifndef
+name|Q_OS_WIN
 comment|// Mac uses FirstOccurrence
+comment|// Linux mktime bug uses last calculation
 name|QEXPECT_FAIL
 argument_list|(
 literal|""
@@ -25362,7 +25271,7 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-comment|// Q_OS_MAC
+comment|// Q_OS_WIN
 name|QCOMPARE
 argument_list|(
 name|test

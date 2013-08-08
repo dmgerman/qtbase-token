@@ -188,16 +188,6 @@ argument|QTime&outTime
 argument_list|)
 specifier|const
 block|;
-comment|// Add msecs to given datetime and return result
-specifier|static
-name|QDateTime
-name|addMSecs
-argument_list|(
-argument|const QDateTime&dt
-argument_list|,
-argument|qint64 msecs
-argument_list|)
-block|;
 comment|// Add msecs to given datetime and put result in utcDate and utcTime
 specifier|static
 name|void
