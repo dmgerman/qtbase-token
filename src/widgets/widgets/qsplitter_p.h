@@ -233,6 +233,11 @@ argument_list|)
 block|,
 name|blockChildAdd
 argument_list|(
+name|false
+argument_list|)
+block|,
+name|opaqueResizeSet
+argument_list|(
 argument|false
 argument_list|)
 block|{}
@@ -280,6 +285,9 @@ name|handleWidth
 block|;
 name|bool
 name|blockChildAdd
+block|;
+name|bool
+name|opaqueResizeSet
 block|;
 specifier|inline
 name|int

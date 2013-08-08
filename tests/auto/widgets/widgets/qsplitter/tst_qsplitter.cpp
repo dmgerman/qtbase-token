@@ -261,6 +261,31 @@ name|obj1
 decl_stmt|;
 comment|// bool QSplitter::opaqueResize()
 comment|// void QSplitter::setOpaqueResize(bool)
+name|bool
+name|styleHint
+init|=
+name|obj1
+operator|.
+name|style
+argument_list|()
+operator|->
+name|styleHint
+argument_list|(
+name|QStyle
+operator|::
+name|SH_Splitter_OpaqueResize
+argument_list|)
+decl_stmt|;
+name|QCOMPARE
+argument_list|(
+name|styleHint
+argument_list|,
+name|obj1
+operator|.
+name|opaqueResize
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|obj1
 operator|.
 name|setOpaqueResize

@@ -38410,6 +38410,14 @@ literal|true
 expr_stmt|;
 block|}
 break|break;
+case|case
+name|SH_Splitter_OpaqueResize
+case|:
+name|ret
+operator|=
+literal|true
+expr_stmt|;
+break|break;
 default|default:
 name|ret
 operator|=

@@ -6295,7 +6295,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QSplitter::opaqueResize     \brief whether resizing is opaque      Opaque resizing is on by default. */
+comment|/*!     \property QSplitter::opaqueResize     \brief whether resizing is opaque      The default resize behavior is style dependent (determined by the     SH_Splitter_OpaqueResize style hint). However, you can override it     by calling setOpaqueResize()      \sa QStyle::StyleHint */
 end_comment
 begin_function
 DECL|function|opaqueResize
@@ -6315,7 +6315,25 @@ expr_stmt|;
 return|return
 name|d
 operator|->
+name|opaqueResizeSet
+condition|?
+name|d
+operator|->
 name|opaque
+else|:
+name|style
+argument_list|()
+operator|->
+name|styleHint
+argument_list|(
+name|QStyle
+operator|::
+name|SH_Splitter_OpaqueResize
+argument_list|,
+literal|0
+argument_list|,
+name|this
+argument_list|)
 return|;
 block|}
 end_function
@@ -6334,6 +6352,12 @@ name|Q_D
 argument_list|(
 name|QSplitter
 argument_list|)
+expr_stmt|;
+name|d
+operator|->
+name|opaqueResizeSet
+operator|=
+literal|true
 expr_stmt|;
 name|d
 operator|->
@@ -6970,7 +6994,7 @@ expr_stmt|;
 name|int
 name|version
 init|=
-literal|0
+literal|1
 decl_stmt|;
 name|QByteArray
 name|data
@@ -7079,6 +7103,12 @@ name|orientation
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|stream
+operator|<<
+name|d
+operator|->
+name|opaqueResizeSet
+expr_stmt|;
 return|return
 name|data
 return|;
@@ -7108,7 +7138,7 @@ expr_stmt|;
 name|int
 name|version
 init|=
-literal|0
+literal|1
 decl_stmt|;
 name|QByteArray
 name|sd
@@ -7159,7 +7189,7 @@ operator|!=
 name|SplitterMagic
 operator|||
 name|v
-operator|!=
+operator|>
 name|version
 condition|)
 return|return
@@ -7223,6 +7253,18 @@ name|d
 operator|->
 name|doResize
 argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|v
+operator|>=
+literal|1
+condition|)
+name|stream
+operator|>>
+name|d
+operator|->
+name|opaqueResizeSet
 expr_stmt|;
 return|return
 literal|true
