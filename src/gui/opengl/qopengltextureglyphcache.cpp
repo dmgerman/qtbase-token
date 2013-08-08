@@ -1959,7 +1959,12 @@ name|bits
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//        }
+if|#
+directive|if
+literal|0
+block|}
+endif|#
+directive|endif
 block|}
 block|}
 end_function
