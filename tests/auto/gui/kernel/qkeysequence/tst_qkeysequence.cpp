@@ -20,6 +20,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qpa/qplatformtheme_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<private/qkeysequence_p.h>
 end_include
 begin_include
@@ -1807,7 +1812,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/* * We must ensure that the keyBindings data is always sorted * so that we can safely perform binary searches. */
+comment|/* * We must ensure that the keyBindings data are always sorted by standardKey * so that we can safely perform binary searches. */
 end_comment
 begin_ifdef
 ifdef|#
@@ -1825,21 +1830,21 @@ block|{
 name|uint
 name|N
 init|=
-name|QKeySequencePrivate
+name|QPlatformThemePrivate
 operator|::
 name|numberOfKeyBindings
 decl_stmt|;
 name|uint
 name|val
 init|=
-name|QKeySequencePrivate
+name|QPlatformThemePrivate
 operator|::
 name|keyBindings
 index|[
 literal|0
 index|]
 operator|.
-name|shortcut
+name|standardKey
 decl_stmt|;
 for|for
 control|(
@@ -1859,14 +1864,14 @@ block|{
 name|uint
 name|nextval
 init|=
-name|QKeySequencePrivate
+name|QPlatformThemePrivate
 operator|::
 name|keyBindings
 index|[
 name|i
 index|]
 operator|.
-name|shortcut
+name|standardKey
 decl_stmt|;
 if|if
 condition|(

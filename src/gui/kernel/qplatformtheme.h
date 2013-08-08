@@ -47,6 +47,11 @@ include|#
 directive|include
 file|<QtCore/QScopedPointer>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtGui/QKeySequence>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QIconEngine
@@ -662,6 +667,17 @@ name|iconName
 argument_list|)
 decl|const
 decl_stmt|;
+name|virtual
+name|QList
+operator|<
+name|QKeySequence
+operator|>
+name|keyBindings
+argument_list|(
+argument|QKeySequence::StandardKey key
+argument_list|)
+specifier|const
+expr_stmt|;
 specifier|static
 name|QVariant
 name|defaultThemeHint
