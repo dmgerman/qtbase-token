@@ -10126,6 +10126,14 @@ literal|0
 decl_stmt|;
 if|if
 condition|(
+name|m_cumulative
+condition|)
+name|flags
+operator|=
+name|LoadSilent
+expr_stmt|;
+if|if
+condition|(
 name|args
 operator|.
 name|count
