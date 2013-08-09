@@ -952,6 +952,7 @@ decl_stmt|;
 comment|// Automatically prepend the sysroot to target paths
 if|if
 condition|(
+operator|(
 name|loc
 argument_list|<
 name|SysrootPath
@@ -959,6 +960,14 @@ operator|||
 name|loc
 argument_list|>
 name|LastHostPath
+operator|)
+operator|&&
+name|qt_sysrootify_prefix
+index|[
+literal|12
+index|]
+operator|==
+literal|'y'
 condition|)
 block|{
 name|QString
