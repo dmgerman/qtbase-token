@@ -155,6 +155,15 @@ name|data
 argument_list|()
 return|;
 block|}
+name|void
+name|clearWindowUnderMouse
+parameter_list|()
+block|{
+name|m_windowUnderMouse
+operator|=
+literal|0
+expr_stmt|;
+block|}
 name|private
 label|:
 specifier|inline

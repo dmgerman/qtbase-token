@@ -2792,6 +2792,23 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_function
+DECL|function|clearWindowUnderMouse
+name|void
+name|QWindowsContext
+operator|::
+name|clearWindowUnderMouse
+parameter_list|()
+block|{
+name|d
+operator|->
+name|m_mouseHandler
+operator|.
+name|clearWindowUnderMouse
+argument_list|()
+expr_stmt|;
+block|}
+end_function
 begin_comment
 comment|/*!     \brief Find a child window at a screen point.      Deep search for a QWindow at global point, skipping non-owned     windows (accessibility?). Implemented using ChildWindowFromPointEx()     instead of (historically used) WindowFromPoint() to get a well-defined     behaviour for hidden/transparent windows.      \a cwex_flags are flags of ChildWindowFromPointEx().     \a parent is the parent window, pass GetDesktopWindow() for top levels. */
 end_comment
