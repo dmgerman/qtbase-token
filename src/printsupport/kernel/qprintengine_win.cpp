@@ -278,7 +278,7 @@ name|B5
 block|}
 block|,
 block|{
-name|DMPAPER_FOLIO
+name|DMPAPER_A4_PLUS
 block|,
 name|QPrinter
 operator|::
@@ -387,14 +387,6 @@ block|,
 name|QPrinter
 operator|::
 name|Letter
-block|}
-block|,
-block|{
-name|DMPAPER_A4_PLUS
-block|,
-name|QPrinter
-operator|::
-name|A4
 block|}
 block|,
 block|{
