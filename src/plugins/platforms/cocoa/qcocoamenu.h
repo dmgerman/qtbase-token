@@ -194,6 +194,16 @@ return|return
 name|m_nativeItem
 return|;
 block|}
+specifier|inline
+name|bool
+name|isVisible
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_visible
+return|;
+block|}
 name|virtual
 name|QPlatformMenuItem
 operator|*
@@ -287,6 +297,9 @@ name|m_delegate
 block|;
 name|bool
 name|m_enabled
+block|;
+name|bool
+name|m_visible
 block|;
 name|quintptr
 name|m_tag
