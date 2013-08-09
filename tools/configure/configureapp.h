@@ -157,6 +157,10 @@ name|generateQConfigPri
 parameter_list|()
 function_decl|;
 name|void
+name|generateQDevicePri
+parameter_list|()
+function_decl|;
+name|void
 name|prepareConfigTests
 parameter_list|()
 function_decl|;
