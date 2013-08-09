@@ -474,6 +474,17 @@ argument_list|(
 literal|"HTML.outputsubdir"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|singleOutputSubdir
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|singleOutputSubdir
+operator|=
+literal|"html"
+expr_stmt|;
 block|}
 comment|// Allow modules and third-party application/libraries to link
 comment|// to the Qt docs without having to explicitly pass --indexdir.
