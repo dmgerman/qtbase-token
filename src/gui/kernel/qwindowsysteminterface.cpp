@@ -1721,9 +1721,9 @@ operator|::
 name|KeyboardModifiers
 name|mods
 parameter_list|,
-name|QWheelEvent
+name|Qt
 operator|::
-name|Phase
+name|ScrollPhase
 name|phase
 parameter_list|)
 block|{
@@ -1794,9 +1794,9 @@ operator|::
 name|KeyboardModifiers
 name|mods
 parameter_list|,
-name|QWheelEvent
+name|Qt
 operator|::
-name|Phase
+name|ScrollPhase
 name|phase
 parameter_list|)
 block|{
@@ -1813,7 +1813,7 @@ name|WheelEvent
 modifier|*
 name|e
 decl_stmt|;
-comment|// Pass QWheelEvent::Started and QWheelEvent::Ended through
+comment|// Pass Qt::ScrollBegin and Qt::ScrollEnd through
 comment|// even if the wheel delta is null.
 if|if
 condition|(
@@ -1824,9 +1824,9 @@ argument_list|()
 operator|&&
 name|phase
 operator|==
-name|QWheelEvent
+name|Qt
 operator|::
-name|Changed
+name|ScrollUpdate
 condition|)
 return|return;
 comment|// Simple case: vertical deltas only:

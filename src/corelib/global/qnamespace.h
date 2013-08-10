@@ -220,6 +220,10 @@ name|Q_ENUMS
 argument_list|(
 name|TimerType
 argument_list|)
+name|Q_ENUMS
+argument_list|(
+name|ScrollPhase
+argument_list|)
 endif|#
 directive|endif
 comment|// defined(Q_MOC_RUN)
@@ -4795,6 +4799,18 @@ block|,
 name|CoarseTimer
 block|,
 name|VeryCoarseTimer
+block|}
+enum|;
+enum|enum
+name|ScrollPhase
+block|{
+name|ScrollBegin
+init|=
+literal|1
+block|,
+name|ScrollUpdate
+block|,
+name|ScrollEnd
 block|}
 enum|;
 block|}

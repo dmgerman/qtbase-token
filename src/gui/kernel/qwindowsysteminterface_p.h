@@ -855,7 +855,7 @@ argument|Qt::Orientation qt4O
 argument_list|,
 argument|Qt::KeyboardModifiers mods
 argument_list|,
-argument|QWheelEvent::Phase phase = QWheelEvent::Changed
+argument|Qt::ScrollPhase phase = Qt::ScrollUpdate
 argument_list|)
 operator|:
 name|InputEvent
@@ -924,9 +924,9 @@ block|;
 name|QPointF
 name|globalPos
 block|;
-name|QWheelEvent
+name|Qt
 operator|::
-name|Phase
+name|ScrollPhase
 name|phase
 block|;     }
 decl_stmt|;

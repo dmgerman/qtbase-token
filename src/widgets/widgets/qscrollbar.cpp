@@ -1759,9 +1759,9 @@ operator|->
 name|phase
 argument_list|()
 operator|==
-name|QWheelEvent
+name|Qt
 operator|::
-name|Started
+name|ScrollBegin
 condition|)
 name|d
 operator|->
@@ -1778,9 +1778,9 @@ operator|->
 name|phase
 argument_list|()
 operator|==
-name|QWheelEvent
+name|Qt
 operator|::
-name|Ended
+name|ScrollEnd
 condition|)
 name|d
 operator|->

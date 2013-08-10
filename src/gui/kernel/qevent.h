@@ -732,16 +732,6 @@ name|QInputEvent
 block|{
 name|public
 operator|:
-expr|enum
-name|Phase
-block|{
-name|Started
-block|,
-name|Changed
-block|,
-name|Ended
-block|}
-block|;
 name|QWheelEvent
 argument_list|(
 argument|const QPointF&pos
@@ -807,7 +797,7 @@ argument|Qt::MouseButtons buttons
 argument_list|,
 argument|Qt::KeyboardModifiers modifiers
 argument_list|,
-argument|Phase phase
+argument|Qt::ScrollPhase phase
 argument_list|)
 block|;
 operator|~
@@ -976,13 +966,17 @@ name|mouseState
 return|;
 block|}
 specifier|inline
-name|Phase
+name|Qt
+operator|::
+name|ScrollPhase
 name|phase
 argument_list|()
 specifier|const
 block|{
 return|return
-name|Phase
+name|Qt
+operator|::
+name|ScrollPhase
 argument_list|(
 name|ph
 argument_list|)

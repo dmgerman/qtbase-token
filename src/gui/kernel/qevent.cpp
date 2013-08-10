@@ -711,7 +711,7 @@ argument_list|)
 block|{}
 end_constructor
 begin_comment
-comment|/*!     Constructs a wheel event object.      The \a pos provides the location of the mouse cursor     within the window. The position in global coordinates is specified     by \a globalPos.      \a pixelDelta contains the scrolling distance in pixels on screen, while     \a angleDelta contains the wheel rotation distance. \a pixelDelta is     optional and can be null.      The mouse and keyboard states at the time of the event are specified by     \a buttons and \a modifiers.      For backwards compatibility, the event can also hold monodirectional wheel     event data: \a qt4Delta specifies the rotation, and \a qt4Orientation the     direction.      The phase() is initialized to QWheelEvent::Changed. Use the other constructor     to specify the phase explicitly.      \sa posF(), globalPosF(), angleDelta(), pixelDelta() */
+comment|/*!     Constructs a wheel event object.      The \a pos provides the location of the mouse cursor     within the window. The position in global coordinates is specified     by \a globalPos.      \a pixelDelta contains the scrolling distance in pixels on screen, while     \a angleDelta contains the wheel rotation distance. \a pixelDelta is     optional and can be null.      The mouse and keyboard states at the time of the event are specified by     \a buttons and \a modifiers.      For backwards compatibility, the event can also hold monodirectional wheel     event data: \a qt4Delta specifies the rotation, and \a qt4Orientation the     direction.      The phase() is initialized to Qt::ScrollUpdate. Use the other constructor     to specify the phase explicitly.      \sa posF(), globalPosF(), angleDelta(), pixelDelta() */
 end_comment
 begin_constructor
 DECL|function|QWheelEvent
@@ -798,12 +798,14 @@ argument_list|)
 member_init_list|,
 name|ph
 argument_list|(
-name|Changed
+name|Qt
+operator|::
+name|ScrollUpdate
 argument_list|)
 block|{}
 end_constructor
 begin_comment
-comment|/*!     Constructs a wheel event object.      The \a pos provides the location of the mouse cursor     within the window. The position in global coordinates is specified     by \a globalPos.      \a pixelDelta contains the scrolling distance in pixels on screen, while     \a angleDelta contains the wheel rotation distance. \a pixelDelta is     optional and can be null.      The mouse and keyboard states at the time of the event are specified by     \a buttons and \a modifiers.      For backwards compatibility, the event can also hold monodirectional wheel     event data: \a qt4Delta specifies the rotation, and \a qt4Orientation the     direction.      The phase of the event is specified by \a phase.      \sa posF(), globalPosF(), angleDelta(), pixelDelta(), phase() */
+comment|/*!     Constructs a wheel event object.      The \a pos provides the location of the mouse cursor     within the window. The position in global coordinates is specified     by \a globalPos.      \a pixelDelta contains the scrolling distance in pixels on screen, while     \a angleDelta contains the wheel rotation distance. \a pixelDelta is     optional and can be null.      The mouse and keyboard states at the time of the event are specified by     \a buttons and \a modifiers.      For backwards compatibility, the event can also hold monodirectional wheel     event data: \a qt4Delta specifies the rotation, and \a qt4Orientation the     direction.      The scrolling phase of the event is specified by \a phase.      \sa posF(), globalPosF(), angleDelta(), pixelDelta(), phase() */
 end_comment
 begin_constructor
 DECL|function|QWheelEvent
@@ -845,7 +847,9 @@ operator|::
 name|KeyboardModifiers
 name|modifiers
 parameter_list|,
-name|Phase
+name|Qt
+operator|::
+name|ScrollPhase
 name|phase
 parameter_list|)
 member_init_list|:
@@ -938,10 +942,7 @@ begin_comment
 comment|/*!     \fn const QPointF&QWheelEvent::globalPosF() const      Returns the global position of the mouse pointer \e{at the time     of the event}. This is important on asynchronous window systems     such as X11; whenever you move your widgets around in response to     mouse events, globalPosF() can differ a lot from the current     cursor position returned by QCursor::pos().      \sa posF() */
 end_comment
 begin_comment
-comment|/*!     \enum QWheelEvent::Phase     \since 5.2      This enum describes the phase of a wheel event.      \value Started Scrolling has started, but the scrolling     distance did not yet change.      \value Changed The scrolling distance has changed (default).      \value Ended Scrolling has ended, but the scrolling distance     did not change anymore. */
-end_comment
-begin_comment
-comment|/*!     \fn QWheelEvent::Phase QWheelEvent::phase() const     \since 5.2      Returns the phase of this wheel event. */
+comment|/*!     \fn Qt::ScrollPhase QWheelEvent::phase() const     \since 5.2      Returns the scrolling phase of this wheel event. */
 end_comment
 begin_comment
 comment|/*!     \class QKeyEvent     \brief The QKeyEvent class describes a key event.      \ingroup events     \inmodule QtGui      Key events are sent to the widget with keyboard input focus     when keys are pressed or released.      A key event contains a special accept flag that indicates whether     the receiver will handle the key event. You should call ignore()     if the key press or release event is not handled by your widget.     A key event is propagated up the parent widget chain until a     widget accepts it with accept() or an event filter consumes it.     Key events for multimedia keys are ignored by default. You should     call accept() if your widget handles those events.      The QWidget::setEnable() function can be used to enable or disable     mouse and keyboard events for a widget.      The event handlers QWidget::keyPressEvent(), QWidget::keyReleaseEvent(),     QGraphicsItem::keyPressEvent() and QGraphicsItem::keyReleaseEvent()     receive key events.      \sa QFocusEvent, QWidget::grabKeyboard() */
