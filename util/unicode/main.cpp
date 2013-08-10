@@ -3268,8 +3268,10 @@ literal|"    ushort upperCaseSpecial    : 1;\n"
 literal|"    ushort titleCaseSpecial    : 1;\n"
 literal|"    ushort caseFoldSpecial     : 1;\n"
 literal|"    ushort unicodeVersion      : 4;\n"
-literal|"    ushort graphemeBreakClass  : 8; /* 4 used */\n"
-literal|"    ushort wordBreakClass      : 8; /* 4 used */\n"
+literal|"    ushort nfQuickCheck        : 8;\n"
+comment|// could be narrowed
+literal|"    ushort graphemeBreakClass  : 4; /* 4 used */\n"
+literal|"    ushort wordBreakClass      : 4; /* 4 used */\n"
 literal|"    ushort sentenceBreakClass  : 8; /* 4 used */\n"
 literal|"    ushort lineBreakClass      : 8; /* 6 used */\n"
 literal|"    ushort script              : 8; /* 7 used */\n"
@@ -3453,6 +3455,12 @@ operator|==
 name|o
 operator|.
 name|script
+operator|&&
+name|nfQuickCheck
+operator|==
+name|o
+operator|.
+name|nfQuickCheck
 operator|)
 return|;
 block|}
@@ -3558,6 +3566,11 @@ decl_stmt|;
 DECL|member|script
 name|int
 name|script
+decl_stmt|;
+comment|// from DerivedNormalizationProps.txt
+DECL|member|nfQuickCheck
+name|uchar
+name|nfQuickCheck
 decl_stmt|;
 block|}
 struct|;
@@ -4197,6 +4210,12 @@ operator|=
 name|QChar
 operator|::
 name|Script_Unknown
+expr_stmt|;
+name|p
+operator|.
+name|nfQuickCheck
+operator|=
+literal|0
 expr_stmt|;
 name|propertyIndex
 operator|=
@@ -6767,9 +6786,27 @@ condition|(
 name|propName
 operator|!=
 literal|"Full_Composition_Exclusion"
+operator|&&
+name|propName
+operator|!=
+literal|"NFD_QC"
+operator|&&
+name|propName
+operator|!=
+literal|"NFC_QC"
+operator|&&
+name|propName
+operator|!=
+literal|"NFKD_QC"
+operator|&&
+name|propName
+operator|!=
+literal|"NFKC_QC"
 condition|)
+block|{
 comment|// ###
 continue|continue;
+block|}
 name|QByteArray
 name|codes
 init|=
@@ -6889,12 +6926,214 @@ argument_list|(
 name|codepoint
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|propName
+operator|==
+literal|"Full_Composition_Exclusion"
+condition|)
+block|{
 name|d
 operator|.
 name|excludedComposition
 operator|=
 literal|true
 expr_stmt|;
+block|}
+else|else
+block|{
+name|Q_STATIC_ASSERT
+argument_list|(
+name|QString
+operator|::
+name|NormalizationForm_D
+operator|==
+literal|0
+argument_list|)
+expr_stmt|;
+name|Q_STATIC_ASSERT
+argument_list|(
+name|QString
+operator|::
+name|NormalizationForm_C
+operator|==
+literal|1
+argument_list|)
+expr_stmt|;
+name|Q_STATIC_ASSERT
+argument_list|(
+name|QString
+operator|::
+name|NormalizationForm_KD
+operator|==
+literal|2
+argument_list|)
+expr_stmt|;
+name|Q_STATIC_ASSERT
+argument_list|(
+name|QString
+operator|::
+name|NormalizationForm_KC
+operator|==
+literal|3
+argument_list|)
+expr_stmt|;
+name|QString
+operator|::
+name|NormalizationForm
+name|form
+decl_stmt|;
+if|if
+condition|(
+name|propName
+operator|==
+literal|"NFD_QC"
+condition|)
+name|form
+operator|=
+name|QString
+operator|::
+name|NormalizationForm_D
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|propName
+operator|==
+literal|"NFC_QC"
+condition|)
+name|form
+operator|=
+name|QString
+operator|::
+name|NormalizationForm_C
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|propName
+operator|==
+literal|"NFKD_QC"
+condition|)
+name|form
+operator|=
+name|QString
+operator|::
+name|NormalizationForm_KD
+expr_stmt|;
+else|else
+comment|// if (propName == "NFKC_QC")
+name|form
+operator|=
+name|QString
+operator|::
+name|NormalizationForm_KC
+expr_stmt|;
+name|Q_ASSERT
+argument_list|(
+name|l
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|3
+argument_list|)
+expr_stmt|;
+name|l
+index|[
+literal|2
+index|]
+operator|=
+name|l
+index|[
+literal|2
+index|]
+operator|.
+name|trimmed
+argument_list|()
+expr_stmt|;
+enum|enum
+block|{
+name|NFQC_YES
+init|=
+literal|0
+block|,
+name|NFQC_NO
+init|=
+literal|1
+block|,
+name|NFQC_MAYBE
+init|=
+literal|3
+block|}
+enum|;
+name|uchar
+name|ynm
+init|=
+operator|(
+name|l
+index|[
+literal|2
+index|]
+operator|==
+literal|"N"
+condition|?
+name|NFQC_NO
+else|:
+name|l
+index|[
+literal|2
+index|]
+operator|==
+literal|"M"
+condition|?
+name|NFQC_MAYBE
+else|:
+name|NFQC_YES
+operator|)
+decl_stmt|;
+if|if
+condition|(
+name|ynm
+operator|==
+name|NFQC_MAYBE
+condition|)
+block|{
+comment|// if this changes, we need to revise the normalizationQuickCheckHelper() implementation
+name|Q_ASSERT
+argument_list|(
+name|form
+operator|==
+name|QString
+operator|::
+name|NormalizationForm_C
+operator|||
+name|form
+operator|==
+name|QString
+operator|::
+name|NormalizationForm_KC
+argument_list|)
+expr_stmt|;
+block|}
+name|d
+operator|.
+name|p
+operator|.
+name|nfQuickCheck
+operator||=
+operator|(
+name|ynm
+operator|<<
+operator|(
+name|form
+operator|<<
+literal|1
+operator|)
+operator|)
+expr_stmt|;
+comment|// 2 bits per NF
+block|}
 block|}
 block|}
 for|for
@@ -11672,8 +11911,24 @@ name|out
 operator|+=
 literal|", "
 expr_stmt|;
-comment|//     "        ushort graphemeBreakClass  : 8; /* 4 used */\n"
-comment|//     "        ushort wordBreakClass      : 8; /* 4 used */\n"
+comment|//     "    ushort nfQuickCheck        : 8;\n"
+name|out
+operator|+=
+name|QByteArray
+operator|::
+name|number
+argument_list|(
+name|p
+operator|.
+name|nfQuickCheck
+argument_list|)
+expr_stmt|;
+name|out
+operator|+=
+literal|", "
+expr_stmt|;
+comment|//     "        ushort graphemeBreakClass  : 4; /* 4 used */\n"
+comment|//     "        ushort wordBreakClass      : 4; /* 4 used */\n"
 comment|//     "        ushort sentenceBreakClass  : 8; /* 4 used */\n"
 comment|//     "        ushort lineBreakClass      : 8; /* 6 used */\n"
 name|out
