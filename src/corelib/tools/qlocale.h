@@ -2911,6 +2911,10 @@ name|SintMaarten
 init|=
 literal|256
 block|,
+name|Kosovo
+init|=
+literal|257
+block|,
 name|DemocraticRepublicOfCongo
 init|=
 name|CongoKinshasa
@@ -2937,7 +2941,7 @@ name|Syria
 block|,
 name|LastCountry
 init|=
-name|SintMaarten
+name|Kosovo
 block|}
 enum|;
 comment|// GENERATED PART ENDS HERE
