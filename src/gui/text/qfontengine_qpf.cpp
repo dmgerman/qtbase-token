@@ -51,11 +51,6 @@ include|#
 directive|include
 file|"private/qfontengine_ft_p.h"
 end_include
-begin_include
-include|#
-directive|include
-file|<private/qharfbuzz_p.h>
-end_include
 begin_endif
 endif|#
 directive|endif
@@ -4963,7 +4958,7 @@ operator|!
 name|freetype
 condition|)
 return|return
-name|HB_Err_Not_Covered
+name|Err_Not_Covered
 return|;
 name|lockFace
 argument_list|()

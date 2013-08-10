@@ -220,11 +220,6 @@ DECL|member|face
 name|FT_Face
 name|face
 decl_stmt|;
-DECL|member|hbFace
-name|void
-modifier|*
-name|hbFace
-decl_stmt|;
 DECL|member|xsize
 name|int
 name|xsize
@@ -379,6 +374,15 @@ decl_stmt|;
 DECL|member|fontData
 name|QByteArray
 name|fontData
+decl_stmt|;
+DECL|member|hbFace
+name|void
+modifier|*
+name|hbFace
+decl_stmt|;
+DECL|member|hbFace_destroy_func
+name|qt_destroy_func_t
+name|hbFace_destroy_func
 decl_stmt|;
 block|}
 struct|;
