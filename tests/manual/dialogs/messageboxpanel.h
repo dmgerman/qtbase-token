@@ -119,6 +119,10 @@ name|m_informativeText
 block|;
 name|QLineEdit
 operator|*
+name|m_detailedtext
+block|;
+name|QLineEdit
+operator|*
 name|m_buttonsMask
 block|;
 name|QPushButton

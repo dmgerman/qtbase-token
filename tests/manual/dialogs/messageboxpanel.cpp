@@ -96,6 +96,12 @@ operator|new
 name|QLineEdit
 argument_list|)
 member_init_list|,
+name|m_detailedtext
+argument_list|(
+operator|new
+name|QLineEdit
+argument_list|)
+member_init_list|,
 name|m_buttonsMask
 argument_list|(
 operator|new
@@ -224,6 +230,30 @@ operator|->
 name|addWidget
 argument_list|(
 name|m_informativeText
+argument_list|)
+expr_stmt|;
+comment|// detailed text
+name|optionsLayout
+operator|->
+name|addWidget
+argument_list|(
+operator|new
+name|QLabel
+argument_list|(
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"detailed Text"
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|optionsLayout
+operator|->
+name|addWidget
+argument_list|(
+name|m_detailedtext
 argument_list|)
 expr_stmt|;
 comment|// icon
@@ -565,6 +595,16 @@ operator|.
 name|setInformativeText
 argument_list|(
 name|m_informativeText
+operator|->
+name|text
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|box
+operator|.
+name|setDetailedText
+argument_list|(
+name|m_detailedtext
 operator|->
 name|text
 argument_list|()
