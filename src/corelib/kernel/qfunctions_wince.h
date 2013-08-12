@@ -259,6 +259,14 @@ name|time_t
 name|tt
 parameter_list|)
 function_decl|;
+name|time_t
+name|qt_wince_ftToTime_t
+parameter_list|(
+specifier|const
+name|FILETIME
+name|ft
+parameter_list|)
+function_decl|;
 comment|// File I/O ---------------------------------------------------------
 DECL|macro|_O_RDONLY
 define|#
@@ -1696,6 +1704,16 @@ argument_list|,
 argument|FILETIME
 argument_list|,
 argument|time_t
+argument_list|)
+end_macro
+begin_macro
+name|generate_inline_return_func1
+argument_list|(
+argument|ftToTime_t
+argument_list|,
+argument|time_t
+argument_list|,
+argument|FILETIME
 argument_list|)
 end_macro
 begin_macro
