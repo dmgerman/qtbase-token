@@ -11235,6 +11235,12 @@ condition|(
 name|baseEnv
 operator|->
 name|inProgress
+operator|&&
+name|baseEnv
+operator|->
+name|evaluator
+operator|!=
+name|this
 condition|)
 block|{
 comment|// The env is still in the works, but it may be already past the cache
