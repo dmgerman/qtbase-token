@@ -68,6 +68,8 @@ name|QSharedData
 block|{
 name|public
 operator|:
+comment|// Never change or delete this enum, it is required for backwards compatible
+comment|// serialization of QDateTime before 5.2, so is essentially public API
 expr|enum
 name|Spec
 block|{
@@ -93,12 +95,27 @@ operator|=
 literal|3
 block|}
 block|;
+comment|// Daylight Time Status
+block|enum
+name|DaylightStatus
+block|{
+name|NoDaylightTime
+block|,
+name|UnknownDaylightTime
+block|,
+name|StandardTime
+block|,
+name|DaylightTime
+block|}
+block|;
 name|QDateTimePrivate
 argument_list|()
 operator|:
-name|spec
+name|m_spec
 argument_list|(
-name|LocalUnknown
+name|Qt
+operator|::
+name|LocalTime
 argument_list|)
 block|,
 name|m_offsetFromUtc
@@ -144,11 +161,11 @@ operator|.
 name|time
 argument_list|)
 block|,
-name|spec
+name|m_spec
 argument_list|(
 name|other
 operator|.
-name|spec
+name|m_spec
 argument_list|)
 block|,
 name|m_offsetFromUtc
@@ -162,8 +179,10 @@ block|;
 name|QTime
 name|time
 block|;
-name|Spec
-name|spec
+name|Qt
+operator|::
+name|TimeSpec
+name|m_spec
 block|;
 name|int
 name|m_offsetFromUtc
@@ -198,6 +217,14 @@ argument_list|,
 argument|QTime&utcTime
 argument_list|,
 argument|qint64 msecs
+argument_list|)
+block|;
+name|void
+name|setTimeSpec
+argument_list|(
+argument|Qt::TimeSpec spec
+argument_list|,
+argument|int offsetSeconds
 argument_list|)
 block|;
 specifier|static
