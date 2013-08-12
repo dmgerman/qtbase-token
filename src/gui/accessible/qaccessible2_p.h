@@ -476,38 +476,6 @@ specifier|const
 operator|=
 literal|0
 expr_stmt|;
-comment|//            Gets the row and column indexes and extents of this cell accessible and whether or not it is selected.
-comment|//          ### Is this really needed??
-comment|//
-comment|//          ### Maybe change to QSize cellSize(), we already have accessors for the row, column and selected
-name|virtual
-name|void
-name|rowColumnExtents
-argument_list|(
-name|int
-operator|*
-name|row
-argument_list|,
-name|int
-operator|*
-name|column
-argument_list|,
-name|int
-operator|*
-name|rowExtents
-argument_list|,
-name|int
-operator|*
-name|columnExtents
-argument_list|,
-name|bool
-operator|*
-name|selected
-argument_list|)
-decl|const
-init|=
-literal|0
-decl_stmt|;
 comment|//            Returns a reference to the accessbile of the containing table.
 name|virtual
 name|QAccessibleInterface
