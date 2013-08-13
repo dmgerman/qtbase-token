@@ -4872,6 +4872,12 @@ begin_comment
 comment|/*!     \fn bool QTime::operator>=(const QTime&t) const      Returns true if this time is later than or equal to \a t;     otherwise returns false. */
 end_comment
 begin_comment
+comment|/*!     \fn QTime QTime::fromMSecsSinceStartOfDay(int msecs)      Returns a new QTime instance with the time set to the number of \a msecs     since the start of the day, i.e. since 00:00:00.      If \a msecs falls outside the valid range an invalid QTime will be returned.      \sa msecsSinceStartOfDay() */
+end_comment
+begin_comment
+comment|/*!     \fn int QTime::msecsSinceStartOfDay() const      Returns the number of msecs since the start of the day, i.e. since 00:00:00.      \sa fromMSecsSinceStartOfDay() */
+end_comment
+begin_comment
 comment|/*!     \fn QTime::currentTime()      Returns the current time as reported by the system clock.      Note that the accuracy depends on the accuracy of the underlying     operating system; not all systems provide 1-millisecond accuracy. */
 end_comment
 begin_ifndef
@@ -6863,15 +6869,8 @@ operator|->
 name|time
 operator|=
 name|QTime
-argument_list|(
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-literal|0
-argument_list|)
-operator|.
-name|addMSecs
+operator|::
+name|fromMSecsSinceStartOfDay
 argument_list|(
 name|msecs
 argument_list|)
@@ -14003,21 +14002,10 @@ block|{
 return|return
 name|qHash
 argument_list|(
-name|QTime
-argument_list|(
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-literal|0
-argument_list|)
-operator|.
-name|msecsTo
-argument_list|(
 name|key
-argument_list|)
+operator|.
+name|msecsSinceStartOfDay
+argument_list|()
 argument_list|,
 name|seed
 argument_list|)
