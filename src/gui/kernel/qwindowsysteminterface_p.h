@@ -212,6 +212,12 @@ name|UserInputEvent
 operator||
 literal|0x18
 block|,
+name|EnterWhatsThisMode
+init|=
+name|UserInputEvent
+operator||
+literal|0x19
+block|,
 name|ApplicationStateChanged
 init|=
 literal|0x19

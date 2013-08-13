@@ -1529,6 +1529,16 @@ argument_list|)
 decl_stmt|;
 endif|#
 directive|endif
+ifndef|#
+directive|ifndef
+name|QT_NO_WHATSTHIS
+specifier|static
+name|void
+name|handleEnterWhatsThisEvent
+parameter_list|()
+function_decl|;
+endif|#
+directive|endif
 comment|// For event dispatcher implementations
 specifier|static
 name|bool
