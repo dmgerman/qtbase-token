@@ -23,7 +23,7 @@ directive|ifndef
 name|QT_CRYPTOGRAPHICHASH_ONLY_SHA1
 end_ifndef
 begin_comment
-comment|// qdoc only needs SHA-1
+comment|// qdoc and qmake only need SHA-1
 end_comment
 begin_include
 include|#

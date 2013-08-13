@@ -1761,7 +1761,7 @@ argument_list|()
 argument_list|,
 name|QCryptographicHash
 operator|::
-name|Md5
+name|Sha1
 argument_list|)
 decl_stmt|;
 name|memcpy
