@@ -25124,6 +25124,35 @@ literal|""
 operator|<<
 literal|"http://example.com"
 expr_stmt|;
+comment|// If the %3A gets decoded to ":", the URL becomes invalid;
+comment|// see test path-invalid-1 below
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"path-%3A-before-slash"
+argument_list|)
+operator|<<
+name|QUrl
+argument_list|()
+operator|<<
+name|int
+argument_list|(
+name|Path
+argument_list|)
+operator|<<
+literal|"c%3A/"
+operator|<<
+name|Tolerant
+operator|<<
+literal|true
+operator|<<
+name|PrettyDecoded
+operator|<<
+literal|"c%3A/"
+operator|<<
+literal|"c%3A/"
+expr_stmt|;
 comment|// the other fields can be present and be empty
 comment|// that is, their delimiters would be present, but there would be nothing to one side
 name|QTest
