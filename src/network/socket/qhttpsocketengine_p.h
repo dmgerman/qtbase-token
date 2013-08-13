@@ -118,6 +118,8 @@ block|,
 name|SendAuthentication
 block|,
 name|ReadResponseContent
+block|,
+name|ReadResponseHeader
 block|}
 block|;
 name|QHttpSocketEngine
@@ -468,6 +470,10 @@ argument_list|()
 block|;
 name|void
 name|emitConnectionNotification
+argument_list|()
+block|;
+name|bool
+name|readHttpHeader
 argument_list|()
 block|;
 name|Q_DECLARE_PRIVATE
