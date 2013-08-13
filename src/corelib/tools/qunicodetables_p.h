@@ -149,15 +149,20 @@ range|:
 literal|4
 decl_stmt|;
 name|ushort
-name|graphemeBreakClass
+name|nfQuickCheck
 range|:
 literal|8
+decl_stmt|;
+name|ushort
+name|graphemeBreakClass
+range|:
+literal|4
 decl_stmt|;
 comment|/* 4 used */
 name|ushort
 name|wordBreakClass
 range|:
-literal|8
+literal|4
 decl_stmt|;
 comment|/* 4 used */
 name|ushort
