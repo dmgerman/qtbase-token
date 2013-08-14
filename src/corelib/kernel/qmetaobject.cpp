@@ -6341,6 +6341,9 @@ end_comment
 begin_comment
 comment|/*!     \fn QMetaMethod::QMetaMethod()     \internal */
 end_comment
+begin_comment
+comment|/*!     \macro Q_METAMETHOD_INVOKE_MAX_ARGS     \relates QMetaMethod      Equals maximum number of arguments available for     execution of the method via QMetaMethod::invoke()  */
+end_comment
 begin_function
 DECL|function|signature
 name|QByteArray

@@ -625,6 +625,11 @@ argument_list|(
 name|false
 argument_list|)
 block|,
+name|workaround_missingPrecisionQualifiers
+argument_list|(
+name|false
+argument_list|)
+block|,
 name|active_engine
 argument_list|(
 literal|0
@@ -719,6 +724,9 @@ block|;
 name|bool
 name|workaround_brokenTexSubImage
 block|;
+name|bool
+name|workaround_missingPrecisionQualifiers
+block|;
 name|QPaintEngineEx
 operator|*
 name|active_engine
@@ -737,6 +745,21 @@ name|int
 name|maxTextureSize
 argument_list|()
 block|;
+specifier|static
+name|QOpenGLContextPrivate
+operator|*
+name|get
+argument_list|(
+argument|QOpenGLContext *context
+argument_list|)
+block|{
+return|return
+name|context
+operator|->
+name|d_func
+argument_list|()
+return|;
+block|}
 if|#
 directive|if
 operator|!

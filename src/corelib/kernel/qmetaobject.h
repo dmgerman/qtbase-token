@@ -35,6 +35,13 @@ name|class
 name|QList
 expr_stmt|;
 end_expr_stmt
+begin_define
+DECL|macro|Q_METAMETHOD_INVOKE_MAX_ARGS
+define|#
+directive|define
+name|Q_METAMETHOD_INVOKE_MAX_ARGS
+value|10
+end_define
 begin_decl_stmt
 name|class
 name|Q_CORE_EXPORT

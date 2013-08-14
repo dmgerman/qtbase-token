@@ -112,6 +112,7 @@ literal|"  -binary              output a binary file for use as a dynamic resour
 literal|"  -namespace           turn off namespace macros\n"
 literal|"  -project             Output a resource file containing all\n"
 literal|"                       files from the current directory\n"
+literal|"  -list                lists .qrc file entries\n"
 literal|"  -version             display version\n"
 literal|"  -help                display this information\n"
 argument_list|,

@@ -2640,7 +2640,7 @@ begin_comment
 comment|/*! \fn QList<Key> QHash::keys(const T&value) const      \overload      Returns a list containing all the keys associated with value \a     value, in an arbitrary order.      This function can be slow (\l{linear time}), because QHash's     internal data structure is optimized for fast lookup by key, not     by value. */
 end_comment
 begin_comment
-comment|/*! \fn QList<T> QHash::values() const      Returns a list containing all the values in the hash, in an     arbitrary order. If a key is associated multiple values, all of     its values will be in the list, and not just the most recently     inserted one.      The order is guaranteed to be the same as that used by keys().      \sa keys(), value() */
+comment|/*! \fn QList<T> QHash::values() const      Returns a list containing all the values in the hash, in an     arbitrary order. If a key is associated with multiple values, all of     its values will be in the list, and not just the most recently     inserted one.      The order is guaranteed to be the same as that used by keys().      \sa keys(), value() */
 end_comment
 begin_comment
 comment|/*! \fn QList<T> QHash::values(const Key&key) const      \overload      Returns a list of all the values associated with the \a key,     from the most recently inserted to the least recently inserted.      \sa count(), insertMulti() */

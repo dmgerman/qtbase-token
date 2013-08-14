@@ -91,6 +91,15 @@ name|screenGeometry
 argument_list|)
 expr_stmt|;
 block|}
+name|w
+operator|->
+name|setSurfaceType
+argument_list|(
+name|QSurface
+operator|::
+name|OpenGLSurface
+argument_list|)
+expr_stmt|;
 block|}
 end_constructor
 begin_function

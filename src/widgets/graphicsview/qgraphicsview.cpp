@@ -12442,16 +12442,6 @@ argument_list|)
 expr_stmt|;
 name|mouseEvent
 operator|.
-name|setButtons
-argument_list|(
-name|event
-operator|->
-name|buttons
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|mouseEvent
-operator|.
 name|setAccepted
 argument_list|(
 literal|false

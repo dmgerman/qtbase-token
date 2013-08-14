@@ -128,7 +128,7 @@ name|delete
 name|s
 block|; }
 name|void
-name|updateScreenList
+name|_q_updateScreens
 argument_list|()
 block|;
 name|QList

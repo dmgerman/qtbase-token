@@ -1522,32 +1522,6 @@ operator|.
 name|height
 argument_list|()
 decl_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QT_OPENGL_ES_2
-argument_list|)
-name|QOpenGLExtensions
-name|extensions
-argument_list|(
-name|ctx
-argument_list|)
-decl_stmt|;
-name|bool
-name|hasBGRA
-init|=
-name|extensions
-operator|.
-name|hasOpenGLExtension
-argument_list|(
-name|QOpenGLExtensions
-operator|::
-name|BGRATextureFormat
-argument_list|)
-decl_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 name|mask
@@ -1652,18 +1626,6 @@ operator|::
 name|Format_RGB32
 comment|// We need to make the alpha component equal to the average of the RGB values.
 comment|// This is needed when drawing sub-pixel antialiased text on translucent targets.
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QT_OPENGL_ES_2
-argument_list|)
-operator|||
-operator|!
-name|hasBGRA
-comment|// We need to reverse the bytes
-endif|#
-directive|endif
 condition|)
 block|{
 for|for
@@ -1794,13 +1756,7 @@ name|defined
 argument_list|(
 name|QT_OPENGL_ES_2
 argument_list|)
-if|if
-condition|(
-operator|!
-name|hasBGRA
-condition|)
-block|{
-comment|// Reverse bytes to match GL_RGBA
+comment|// swizzle the bits to accommodate for the GL_RGBA upload.
 name|src
 index|[
 name|x
@@ -1839,8 +1795,6 @@ operator|<<
 literal|16
 operator|)
 expr_stmt|;
-block|}
-else|else
 endif|#
 directive|endif
 name|src
@@ -1910,10 +1864,6 @@ name|maskWidth
 argument_list|,
 name|maskHeight
 argument_list|,
-name|hasBGRA
-condition|?
-name|GL_BGRA_EXT
-else|:
 name|GL_RGBA
 argument_list|,
 name|GL_UNSIGNED_BYTE
@@ -2009,7 +1959,12 @@ name|bits
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//        }
+if|#
+directive|if
+literal|0
+block|}
+endif|#
+directive|endif
 block|}
 block|}
 end_function

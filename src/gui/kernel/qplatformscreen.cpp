@@ -511,6 +511,19 @@ modifier|*
 name|window
 parameter_list|)
 block|{
+comment|// QTBUG 32681: It can happen during the transition between screens
+comment|// when one screen is disconnected that the window doesn't have a screen.
+if|if
+condition|(
+operator|!
+name|window
+operator|->
+name|screen
+argument_list|()
+condition|)
+return|return
+literal|0
+return|;
 return|return
 name|window
 operator|->

@@ -430,6 +430,10 @@ name|void
 name|finishProcessBeforeReadingDone
 parameter_list|()
 function_decl|;
+name|void
+name|waitForStartedWithoutStart
+parameter_list|()
+function_decl|;
 comment|// keep these at the end, since they use lots of processes and sometimes
 comment|// caused obscure failures to occur in tests that followed them (esp. on the Mac)
 name|void
@@ -12378,6 +12382,30 @@ argument_list|,
 name|QStringLiteral
 argument_list|(
 literal|"10239 -this is a number"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_function
+DECL|function|waitForStartedWithoutStart
+name|void
+name|tst_QProcess
+operator|::
+name|waitForStartedWithoutStart
+parameter_list|()
+block|{
+name|QProcess
+name|process
+decl_stmt|;
+name|QVERIFY
+argument_list|(
+operator|!
+name|process
+operator|.
+name|waitForStarted
+argument_list|(
+literal|5000
 argument_list|)
 argument_list|)
 expr_stmt|;

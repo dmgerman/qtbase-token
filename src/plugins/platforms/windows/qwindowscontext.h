@@ -616,6 +616,10 @@ name|windowUnderMouse
 argument_list|()
 specifier|const
 expr_stmt|;
+name|void
+name|clearWindowUnderMouse
+parameter_list|()
+function_decl|;
 specifier|inline
 name|bool
 name|windowsProc
