@@ -598,9 +598,6 @@ block|}
 endif|#
 directive|endif
 comment|// QT_NO_TABLETEVENT
-ifdef|#
-directive|ifdef
-name|XI2_DEBUG
 if|if
 condition|(
 operator|!
@@ -621,6 +618,9 @@ operator|.
 name|deviceid
 argument_list|)
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|XI2_DEBUG
 if|if
 condition|(
 name|dev
@@ -726,10 +726,17 @@ name|height
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+name|dev
+argument_list|)
+expr_stmt|;
 endif|#
 directive|endif
 comment|// XI2_DEBUG
+block|}
 block|}
 name|XIFreeDeviceInfo
 argument_list|(
