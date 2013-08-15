@@ -1644,6 +1644,9 @@ argument_list|(
 literal|"rawtypes"
 argument_list|)
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|initClass
 init|=
 name|classLoader
