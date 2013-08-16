@@ -3424,7 +3424,7 @@ argument_list|)
 block|}
 block|,
 comment|// --------------------------------------------------------------
-comment|// Miscellaenous keys
+comment|// Miscellaneous keys
 block|{
 name|Qt
 operator|::
