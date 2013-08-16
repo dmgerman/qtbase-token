@@ -108,6 +108,17 @@ name|c
 operator|=
 literal|0
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|QT_DEBUG
+name|env
+operator|->
+name|ExceptionDescribe
+argument_list|()
+expr_stmt|;
+endif|#
+directive|endif
+comment|// QT_DEBUG
 name|env
 operator|->
 name|ExceptionClear
@@ -315,6 +326,17 @@ name|id
 operator|=
 literal|0
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|QT_DEBUG
+name|env
+operator|->
+name|ExceptionDescribe
+argument_list|()
+expr_stmt|;
+endif|#
+directive|endif
+comment|// QT_DEBUG
 name|env
 operator|->
 name|ExceptionClear
@@ -491,6 +513,17 @@ name|id
 operator|=
 literal|0
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|QT_DEBUG
+name|env
+operator|->
+name|ExceptionDescribe
+argument_list|()
+expr_stmt|;
+endif|#
+directive|endif
+comment|// QT_DEBUG
 name|env
 operator|->
 name|ExceptionClear
