@@ -213,12 +213,11 @@ specifier|const
 block|;
 name|void
 name|readXKBConfig
-argument_list|(
-expr|struct
-name|xkb_rule_names
-operator|*
-name|names
-argument_list|)
+argument_list|()
+block|;
+name|void
+name|clearXKBConfig
+argument_list|()
 block|;
 ifdef|#
 directive|ifdef
@@ -258,6 +257,9 @@ block|;     struct
 name|xkb_state
 operator|*
 name|xkb_state
+block|;     struct
+name|xkb_rule_names
+name|xkb_names
 block|;      struct
 name|_mod_masks
 block|{

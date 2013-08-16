@@ -7892,6 +7892,10 @@ operator|&&
 name|item
 operator|.
 name|widgetItem
+operator|&&
+name|item
+operator|.
+name|widgetItem
 operator|->
 name|widget
 argument_list|()

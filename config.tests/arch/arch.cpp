@@ -182,21 +182,21 @@ directive|endif
 ifdef|#
 directive|ifdef
 name|__AVX2__
-comment|// AVX 2, Intel codename "Haswell"
+comment|// AVX 2, Intel Core 4th Generation ("Haswell")
 literal|" avx2"
 endif|#
 directive|endif
 ifdef|#
 directive|ifdef
 name|__BMI__
-comment|// Bit Manipulation Instructions 1, Intel codename "Haswell", AMD "Bulldozer 2"
+comment|// Bit Manipulation Instructions 1, Intel Core 4th Generation ("Haswell"), AMD "Bulldozer 2"
 literal|" bmi"
 endif|#
 directive|endif
 ifdef|#
 directive|ifdef
 name|__BMI2__
-comment|// Bit Manipulation Instructions 2, Intel codename "Haswell"
+comment|// Bit Manipulation Instructions 2, Intel Core 4th Generation ("Haswell")
 literal|" bmi2"
 endif|#
 directive|endif
@@ -211,14 +211,14 @@ directive|endif
 ifdef|#
 directive|ifdef
 name|__F16C__
-comment|// 16-bit floating point conversion, Intel codename "Ivy Bridge"
+comment|// 16-bit floating point conversion, Intel Core 3rd Generation ("Ivy Bridge")
 literal|" f16c"
 endif|#
 directive|endif
 ifdef|#
 directive|ifdef
 name|__FMA__
-comment|// Fused Multiply-Add with 3 arguments, Intel codename "Haswell", AMD "Bulldozer 2"
+comment|// Fused Multiply-Add with 3 arguments, Intel Core 4th Generation ("Haswell"), AMD "Bulldozer 2"
 comment|// a.k.a. "FMA3"
 literal|" fma"
 endif|#
@@ -233,7 +233,7 @@ directive|endif
 ifdef|#
 directive|ifdef
 name|__FSGSBASE__
-comment|// rdfsgsbase, wrfsgsbase, Intel codename "Ivy Bridge"
+comment|// rdfsgsbase, wrfsgsbase, Intel Core 3rd Generation ("Ivy Bridge")
 literal|" fsgsbase"
 endif|#
 directive|endif
@@ -247,7 +247,7 @@ directive|endif
 ifdef|#
 directive|ifdef
 name|__LZCNT__
-comment|// Leading-Zero bit count, Intel codename "Haswell"
+comment|// Leading-Zero bit count, Intel Core 4th Generation ("Haswell")
 literal|" lzcnt"
 endif|#
 directive|endif
@@ -290,7 +290,7 @@ directive|endif
 ifdef|#
 directive|ifdef
 name|__RDRND__
-comment|// Random number generator, Intel codename "Ivy Bridge"
+comment|// Random number generator, Intel Core 3rd Generation ("Ivy Bridge")
 literal|" rdrnd"
 endif|#
 directive|endif

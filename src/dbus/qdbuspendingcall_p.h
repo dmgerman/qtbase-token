@@ -147,9 +147,6 @@ block|;
 name|int
 name|methodIdx
 block|;
-name|bool
-name|autoDelete
-block|;
 comment|// }
 name|mutable
 name|QMutex
@@ -201,11 +198,6 @@ block|,
 name|connection
 argument_list|(
 name|connection
-argument_list|)
-block|,
-name|autoDelete
-argument_list|(
-name|false
 argument_list|)
 block|,
 name|watcherHelper

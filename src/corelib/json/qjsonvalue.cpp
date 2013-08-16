@@ -997,6 +997,8 @@ case|case
 name|Array
 case|:
 return|return
+name|d
+condition|?
 name|QJsonArray
 argument_list|(
 name|d
@@ -1015,11 +1017,16 @@ argument_list|)
 operator|.
 name|toVariantList
 argument_list|()
+else|:
+name|QVariantList
+argument_list|()
 return|;
 case|case
 name|Object
 case|:
 return|return
+name|d
+condition|?
 name|QJsonObject
 argument_list|(
 name|d
@@ -1037,6 +1044,9 @@ argument_list|)
 argument_list|)
 operator|.
 name|toVariantMap
+argument_list|()
+else|:
+name|QVariantMap
 argument_list|()
 return|;
 case|case

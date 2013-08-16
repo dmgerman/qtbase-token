@@ -119,6 +119,17 @@ operator|=
 name|weight
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|m_matchingMimeTypes
+operator|.
+name|contains
+argument_list|(
+name|mimeType
+argument_list|)
+condition|)
+block|{
 name|m_matchingMimeTypes
 operator|.
 name|append
@@ -147,6 +158,7 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 end_function
 begin_comment

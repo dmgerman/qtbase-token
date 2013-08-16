@@ -1329,7 +1329,17 @@ name|d
 operator|->
 name|size
 argument_list|()
+operator|+
+name|multiPart
+operator|->
+name|boundary
+operator|.
+name|count
+argument_list|()
+operator|+
+literal|6
 condition|)
+comment|// 6 == 2 boundary dashes, \r\n after boundary, \r\n after multipart
 name|index
 operator|++
 expr_stmt|;

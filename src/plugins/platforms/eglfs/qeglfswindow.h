@@ -112,14 +112,14 @@ name|m_window
 block|;
 name|private
 operator|:
-name|WId
-name|m_winid
-block|;
 name|EGLConfig
 name|m_config
 block|;
 name|QSurfaceFormat
 name|m_format
+block|;
+name|bool
+name|has_window
 block|; }
 decl_stmt|;
 end_decl_stmt

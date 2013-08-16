@@ -2514,12 +2514,13 @@ end_endif
 begin_if
 if|#
 directive|if
-literal|0
+name|__has_feature
+argument_list|(
+name|cxx_thread_local
+argument_list|)
 end_if
-begin_comment
-comment|/* not implemented in clang yet */
-end_comment
 begin_define
+DECL|macro|Q_COMPILER_THREAD_LOCAL
 define|#
 directive|define
 name|Q_COMPILER_THREAD_LOCAL

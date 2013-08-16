@@ -60,6 +60,14 @@ operator|*
 name|surface
 argument_list|)
 block|;
+name|bool
+name|makeCurrent
+argument_list|(
+name|QPlatformSurface
+operator|*
+name|surface
+argument_list|)
+block|;
 name|private
 operator|:
 specifier|const

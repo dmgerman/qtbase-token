@@ -8287,7 +8287,7 @@ argument_list|)
 expr_stmt|;
 name|w
 operator|.
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 name|QVERIFY
@@ -11804,7 +11804,7 @@ argument_list|)
 expr_stmt|;
 name|glw
 operator|.
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 name|QVERIFY

@@ -5502,38 +5502,6 @@ argument_list|(
 literal|"same"
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_MAC
-argument_list|)
-comment|// Since 10.6 we use realpath() in qfsfileengine, and it properly handles
-comment|// file system case sensitivity. However here in the autotest we don't
-comment|// check if the file system is case sensitive, so to make it pass in the
-comment|// default OS X installation we assume we are running on a case insensitive
-comment|// file system if on 10.6 and on a case sensitive file system if on 10.5
-name|bool
-name|caseSensitiveOnMac
-init|=
-literal|true
-decl_stmt|;
-if|if
-condition|(
-name|QSysInfo
-operator|::
-name|MacintoshVersion
-operator|>=
-name|QSysInfo
-operator|::
-name|MV_10_6
-condition|)
-name|caseSensitiveOnMac
-operator|=
-literal|false
-expr_stmt|;
-endif|#
-directive|endif
 name|QString
 name|caseChangedSource
 init|=
@@ -5634,7 +5602,21 @@ name|Q_OS_MAC
 argument_list|)
 operator|<<
 operator|!
-name|caseSensitiveOnMac
+name|pathconf
+argument_list|(
+name|QDir
+operator|::
+name|currentPath
+argument_list|()
+operator|.
+name|toLatin1
+argument_list|()
+operator|.
+name|constData
+argument_list|()
+argument_list|,
+name|_PC_CASE_SENSITIVE
+argument_list|)
 expr_stmt|;
 else|#
 directive|else
@@ -5653,6 +5635,33 @@ operator|::
 name|compare
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_MAC
+argument_list|)
+if|if
+condition|(
+name|qstrcmp
+argument_list|(
+name|QTest
+operator|::
+name|currentDataTag
+argument_list|()
+argument_list|,
+literal|"casesense1"
+argument_list|)
+operator|==
+literal|0
+condition|)
+name|QSKIP
+argument_list|(
+literal|"Qt thinks all UNIX filesystems are case sensitive, see QTBUG-28246"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QFETCH
 argument_list|(
 name|QString

@@ -2391,6 +2391,33 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+ifdef|#
+directive|ifdef
+name|Q_OS_MACX
+if|if
+condition|(
+name|drawGlyphs
+operator|.
+name|toImage
+argument_list|()
+operator|!=
+name|textLayoutDraw
+operator|.
+name|toImage
+argument_list|()
+condition|)
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"See QTBUG-32690"
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+comment|// Q_OS_MACX
 name|QCOMPARE
 argument_list|(
 name|drawGlyphs

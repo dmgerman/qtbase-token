@@ -70,6 +70,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qdbuspendingcall_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qdbusthreaddebug_p.h"
 end_include
 begin_include
@@ -1568,6 +1573,12 @@ operator|->
 name|sendWithReplyAsync
 argument_list|(
 name|message
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
 argument_list|,
 name|timeout
 argument_list|)
