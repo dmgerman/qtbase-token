@@ -186,6 +186,12 @@ begin_comment
 comment|/*!     \fn void QVector3D::setZ(float z)      Sets the z coordinate of this point to the given \a z coordinate.      \sa z(), setX(), setY() */
 end_comment
 begin_comment
+comment|/*! \fn float&QVector3D::operator[](int i)     \since 5.2      Returns the component of the vector at index position \a i     as a modifiable reference.      \a i must be a valid index position in the vector (i.e., 0<= \a i< 3). */
+end_comment
+begin_comment
+comment|/*! \fn float QVector3D::operator[](int i) const     \since 5.2      Returns the component of the vector at index position \a i.      \a i must be a valid index position in the vector (i.e., 0<= \a i< 3). */
+end_comment
+begin_comment
 comment|/*!     Returns the normalized unit vector form of this vector.      If this vector is null, then a null vector is returned.  If the length     of the vector is very close to 1, then the vector will be returned as-is.     Otherwise the normalized form of the vector of length 1 will be returned.      \sa length(), normalize() */
 end_comment
 begin_function

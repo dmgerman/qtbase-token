@@ -249,6 +249,12 @@ begin_comment
 comment|/*!     \fn void QVector4D::setW(float w)      Sets the w coordinate of this point to the given \a w coordinate.      \sa w(), setX(), setY(), setZ() */
 end_comment
 begin_comment
+comment|/*! \fn float&QVector4D::operator[](int i)     \since 5.2      Returns the component of the vector at index position \a i     as a modifiable reference.      \a i must be a valid index position in the vector (i.e., 0<= \a i< 4). */
+end_comment
+begin_comment
+comment|/*! \fn float QVector4D::operator[](int i) const     \since 5.2      Returns the component of the vector at index position \a i.      \a i must be a valid index position in the vector (i.e., 0<= \a i< 4). */
+end_comment
+begin_comment
 comment|/*!     Returns the length of the vector from the origin.      \sa lengthSquared(), normalized() */
 end_comment
 begin_function

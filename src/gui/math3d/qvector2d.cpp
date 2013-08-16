@@ -134,6 +134,12 @@ begin_comment
 comment|/*!     \fn void QVector2D::setY(float y)      Sets the y coordinate of this point to the given \a y coordinate.      \sa y(), setX() */
 end_comment
 begin_comment
+comment|/*! \fn float&QVector2D::operator[](int i)     \since 5.2      Returns the component of the vector at index position \a i     as a modifiable reference.      \a i must be a valid index position in the vector (i.e., 0<= \a i< 2). */
+end_comment
+begin_comment
+comment|/*! \fn float QVector2D::operator[](int i) const     \since 5.2      Returns the component of the vector at index position \a i.      \a i must be a valid index position in the vector (i.e., 0<= \a i< 2). */
+end_comment
+begin_comment
 comment|/*!     Returns the length of the vector from the origin.      \sa lengthSquared(), normalized() */
 end_comment
 begin_function
