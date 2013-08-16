@@ -119,6 +119,7 @@ name|QJNIObject
 block|{
 name|public
 label|:
+name|explicit
 name|QJNIObject
 argument_list|(
 specifier|const
@@ -147,6 +148,7 @@ argument_list|,
 operator|...
 argument_list|)
 expr_stmt|;
+name|explicit
 name|QJNIObject
 argument_list|(
 argument|jclass clazz
@@ -166,6 +168,7 @@ argument_list|,
 argument|...
 argument_list|)
 empty_stmt|;
+name|explicit
 name|QJNIObject
 argument_list|(
 argument|jobject obj
