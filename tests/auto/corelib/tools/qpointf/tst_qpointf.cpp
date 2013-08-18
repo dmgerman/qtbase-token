@@ -1591,7 +1591,7 @@ name|p
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|qFuzzyCompare
+name|QCOMPARE
 argument_list|(
 name|dot
 argument_list|(
@@ -1600,7 +1600,10 @@ argument_list|,
 name|p
 argument_list|)
 argument_list|,
-literal|1
+name|qreal
+argument_list|(
+literal|1.0
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1625,7 +1628,7 @@ name|p
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|qFuzzyCompare
+name|QCOMPARE
 argument_list|(
 name|dot
 argument_list|(
@@ -1634,7 +1637,10 @@ argument_list|,
 name|p
 argument_list|)
 argument_list|,
-literal|1
+name|qreal
+argument_list|(
+literal|1.0
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
