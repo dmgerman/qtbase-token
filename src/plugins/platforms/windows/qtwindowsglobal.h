@@ -205,6 +205,12 @@ name|MouseEventFlag
 operator|+
 literal|1
 block|,
+name|NonClientHitTest
+init|=
+name|NonClientEventFlag
+operator|+
+literal|2
+block|,
 name|KeyEvent
 init|=
 name|KeyEventFlag
@@ -473,6 +479,20 @@ name|QtWindows
 operator|::
 name|CalculateSize
 return|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+case|case
+name|WM_NCHITTEST
+case|:
+return|return
+name|QtWindows
+operator|::
+name|NonClientHitTest
+return|;
+endif|#
+directive|endif
+comment|// !Q_OS_WINCE
 case|case
 name|WM_GETMINMAXINFO
 case|:
