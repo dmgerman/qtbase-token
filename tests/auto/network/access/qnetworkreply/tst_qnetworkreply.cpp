@@ -37570,19 +37570,40 @@ argument_list|,
 name|sessionPersistenceEnabled
 argument_list|)
 expr_stmt|;
-comment|// test server sends a life time hint of 0, which is not common
-comment|// practice; however it is good enough because the default is -1
+comment|// test server sends a life time hint of 0 (old server) or 300 (new server),
+comment|// without session ticket we get -1
+name|QList
+argument_list|<
 name|int
+argument_list|>
 name|expectedSessionTicketLifeTimeHint
 init|=
 name|sessionPersistenceEnabled
 condition|?
+name|QList
+argument_list|<
+name|int
+argument_list|>
+argument_list|()
+operator|<<
 literal|0
+operator|<<
+literal|300
 else|:
+name|QList
+argument_list|<
+name|int
+argument_list|>
+argument_list|()
+operator|<<
 operator|-
 literal|1
 decl_stmt|;
-name|QCOMPARE
+name|QVERIFY2
+argument_list|(
+name|expectedSessionTicketLifeTimeHint
+operator|.
+name|contains
 argument_list|(
 name|warmupReply
 operator|->
@@ -37591,8 +37612,9 @@ argument_list|()
 operator|.
 name|sessionTicketLifeTimeHint
 argument_list|()
+argument_list|)
 argument_list|,
-name|expectedSessionTicketLifeTimeHint
+literal|"server did not send expected session life time hint"
 argument_list|)
 expr_stmt|;
 name|warmupReply
