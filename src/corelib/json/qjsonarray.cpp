@@ -46,7 +46,7 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!     \class QJsonArray     \inmodule QtCore     \ingroup json     \reentrant     \since 5.0      \brief The QJsonArray class encapsulates a JSON array.      A JSON array is a list of values. The list can be manipulated by inserting and     removing QJsonValue's from the array.      A QJsonArray can be converted to and from a QVariantList. You can query the     number of entries with size(), insert(), and remove() entries from it     and iterate over its content using the standard C++ iterator pattern.      QJsonArray is an implicitly shared class and shares the data with the document     it has been created from as long as it is not being modified.      You can convert the array to and from text based JSON through QJsonDocument. */
+comment|/*!     \class QJsonArray     \inmodule QtCore     \ingroup json     \reentrant     \since 5.0      \brief The QJsonArray class encapsulates a JSON array.      A JSON array is a list of values. The list can be manipulated by inserting and     removing QJsonValue's from the array.      A QJsonArray can be converted to and from a QVariantList. You can query the     number of entries with size(), insert(), and remove() entries from it     and iterate over its content using the standard C++ iterator pattern.      QJsonArray is an implicitly shared class and shares the data with the document     it has been created from as long as it is not being modified.      You can convert the array to and from text based JSON through QJsonDocument.      \sa {JSON Support in Qt}, {JSON Save Game Example} */
 end_comment
 begin_comment
 comment|/*!     \typedef QJsonArray::Iterator      Qt-style synonym for QJsonArray::iterator. */
