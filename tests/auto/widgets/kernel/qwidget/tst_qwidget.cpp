@@ -31964,6 +31964,19 @@ operator|::
 name|moveChild
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|UBUNTU_ONEIRIC
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"QTBUG-30566 - Unstable auto-test"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QFETCH
 argument_list|(
 name|QPoint
@@ -32321,6 +32334,19 @@ operator|::
 name|showAndMoveChild
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|UBUNTU_ONEIRIC
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"QTBUG-30566 - Unstable auto-test"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QWidget
 name|parent
 argument_list|(
@@ -50049,6 +50075,19 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Not having window server access causes the wrong number of repaints to be issues"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+if|#
+directive|if
+name|defined
+argument_list|(
+name|UBUNTU_ONEIRIC
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"QTBUG-30566 - Unstable auto-test"
 argument_list|)
 expr_stmt|;
 endif|#
