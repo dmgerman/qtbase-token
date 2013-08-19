@@ -21860,15 +21860,6 @@ literal|0
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QDateTime doesn't properly support Daylight Transitions"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
@@ -22189,15 +22180,6 @@ operator|::
 name|LocalTime
 argument_list|)
 expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QDateTime doesn't properly support Daylight Transitions"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
@@ -22357,15 +22339,6 @@ literal|25
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QDateTime doesn't properly support Daylight Transitions"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|test
@@ -22448,15 +22421,6 @@ literal|25
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QDateTime doesn't properly support Daylight Transitions"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|test
@@ -22537,15 +22501,6 @@ literal|3
 argument_list|,
 literal|25
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QDateTime doesn't properly support Daylight Transitions"
-argument_list|,
-name|Continue
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
