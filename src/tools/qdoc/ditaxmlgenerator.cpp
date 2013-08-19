@@ -19134,7 +19134,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Constructs a file name appropriate for the \a node and returns   it. If the \a node is not a fake node, or if it is a fake node but   it is neither an external page node nor an image node or a ditamap,   call the PageGenerator::fileName() function.  */
+comment|/*!   Constructs a file name appropriate for the \a node and returns   it. If the \a node is not a fake node, or if it is a fake node but   it is neither an external page node nor an image node or a ditamap,   call the Generator::fileName() function.  */
 end_comment
 begin_function
 DECL|function|fileName
