@@ -738,8 +738,6 @@ name|activeThreadCount
 parameter_list|()
 specifier|const
 block|{
-comment|// To improve scalability this function is called without holding
-comment|// the mutex lock -- keep it thread-safe.
 return|return
 operator|(
 name|allThreads
@@ -1494,8 +1492,15 @@ argument_list|(
 name|QThreadPool
 argument_list|)
 expr_stmt|;
-comment|// To improve scalability perform a check on the thread count
-comment|// before locking the mutex.
+name|QMutexLocker
+name|locker
+argument_list|(
+operator|&
+name|d
+operator|->
+name|mutex
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|d
@@ -1519,15 +1524,6 @@ condition|)
 return|return
 literal|false
 return|;
-name|QMutexLocker
-name|locker
-argument_list|(
-operator|&
-name|d
-operator|->
-name|mutex
-argument_list|)
-decl_stmt|;
 return|return
 name|d
 operator|->
@@ -1686,6 +1682,15 @@ specifier|const
 name|QThreadPool
 argument_list|)
 expr_stmt|;
+name|QMutexLocker
+name|locker
+argument_list|(
+operator|&
+name|d
+operator|->
+name|mutex
+argument_list|)
+decl_stmt|;
 return|return
 name|d
 operator|->
