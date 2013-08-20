@@ -1647,6 +1647,12 @@ case|:
 return|return
 literal|true
 return|;
+case|case
+name|ForeignWindows
+case|:
+return|return
+literal|true
+return|;
 default|default:
 return|return
 name|QPlatformIntegration
