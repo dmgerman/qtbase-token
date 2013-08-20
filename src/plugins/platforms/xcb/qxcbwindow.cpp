@@ -8588,10 +8588,43 @@ name|QXcbAtom
 operator|::
 name|_NET_ACTIVE_WINDOW
 argument_list|)
+operator|||
+name|event
+operator|->
+name|type
+operator|==
+name|atom
+argument_list|(
+name|QXcbAtom
+operator|::
+name|_NET_WM_STATE
+argument_list|)
+operator|||
+name|event
+operator|->
+name|type
+operator|==
+name|atom
+argument_list|(
+name|QXcbAtom
+operator|::
+name|MANAGER
+argument_list|)
+operator|||
+name|event
+operator|->
+name|type
+operator|==
+name|atom
+argument_list|(
+name|QXcbAtom
+operator|::
+name|WM_CHANGE_STATE
+argument_list|)
 condition|)
 block|{
-comment|// Ignore _NET_ACTIVE_WINDOW which is received when the user clicks on a system tray icon and
-comment|// MANAGER which indicates the creation of a system tray.
+comment|// Ignore _NET_ACTIVE_WINDOW, _NET_WM_STATE, MANAGER which are relate to tray icons
+comment|// and other messages.
 block|}
 else|else
 block|{
