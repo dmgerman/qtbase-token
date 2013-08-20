@@ -20075,6 +20075,24 @@ operator|::
 name|bypassGraphicsProxyWidget
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_MAC
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_WIN
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"Test case unstable on this platform, QTBUG-33067"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QFETCH
 argument_list|(
 name|bool
