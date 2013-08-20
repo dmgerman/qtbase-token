@@ -19898,6 +19898,19 @@ operator|::
 name|deleteProxyForChildWidget
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_WIN
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"This test is crashing on windows, it needs to be fixed. QTBUG-29684"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QDialog
 name|dialog
 decl_stmt|;
