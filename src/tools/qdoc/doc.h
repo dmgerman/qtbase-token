@@ -807,6 +807,17 @@ operator|&
 name|title
 argument_list|)
 block|;
+specifier|static
+specifier|const
+name|Config
+operator|*
+name|config
+argument_list|()
+block|{
+return|return
+name|config_
+return|;
+block|}
 name|private
 operator|:
 name|void
@@ -816,6 +827,12 @@ block|;
 name|DocPrivate
 operator|*
 name|priv
+block|;
+specifier|static
+specifier|const
+name|Config
+operator|*
+name|config_
 block|; }
 block|;
 DECL|typedef|DocList
