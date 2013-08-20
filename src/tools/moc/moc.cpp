@@ -4029,6 +4029,27 @@ argument_list|(
 literal|"Class declarations lacks Q_OBJECT macro."
 argument_list|)
 expr_stmt|;
+comment|// Add meta tags to the plugin meta data:
+if|if
+condition|(
+operator|!
+name|def
+operator|.
+name|pluginData
+operator|.
+name|iid
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|def
+operator|.
+name|pluginData
+operator|.
+name|metaArgs
+operator|=
+name|metaArgs
+expr_stmt|;
 name|checkSuperClasses
 argument_list|(
 operator|&
