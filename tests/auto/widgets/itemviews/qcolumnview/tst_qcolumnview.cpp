@@ -2413,20 +2413,10 @@ operator|<
 literal|0
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|last
-operator|<=
-name|view
-operator|.
-name|HorizontalOffset
-argument_list|()
-condition|)
-block|{
 name|qDebug
 argument_list|()
 operator|<<
-literal|"Test failure. last="
+literal|"last="
 operator|<<
 name|last
 operator|<<
@@ -2437,7 +2427,6 @@ operator|.
 name|HorizontalOffset
 argument_list|()
 expr_stmt|;
-block|}
 name|QTRY_VERIFY
 argument_list|(
 name|last
