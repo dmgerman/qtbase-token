@@ -6509,11 +6509,6 @@ operator|->
 name|parent
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|quitOnClose
-condition|)
-block|{
 name|QWindowList
 name|list
 init|=
@@ -6586,6 +6581,11 @@ operator|::
 name|emitLastWindowClosed
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|quitOnClose
+condition|)
+block|{
 name|QCoreApplicationPrivate
 modifier|*
 name|applicationPrivate
