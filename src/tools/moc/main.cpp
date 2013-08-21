@@ -20,11 +20,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qconfig.cpp>
-end_include
-begin_include
-include|#
-directive|include
 file|<qfile.h>
 end_include
 begin_include

@@ -17,13 +17,36 @@ include|#
 directive|include
 file|"../../3rdparty/sha1/sha1.cpp"
 end_include
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|QT_BOOTSTRAPPED
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_CRYPTOGRAPHICHASH_ONLY_SHA1
+argument_list|)
+end_if
+begin_error
+error|#
+directive|error
+literal|"Are you sure you need the other hashing algorithms besides SHA-1?"
+end_error
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_CRYPTOGRAPHICHASH_ONLY_SHA1
 end_ifndef
 begin_comment
-comment|// qdoc only needs SHA-1
+comment|// qdoc and qmake only need SHA-1
 end_comment
 begin_include
 include|#

@@ -9733,6 +9733,10 @@ name|isOpaque
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|d
+operator|->
+name|viewport
+operator|->
 name|update
 argument_list|()
 expr_stmt|;
