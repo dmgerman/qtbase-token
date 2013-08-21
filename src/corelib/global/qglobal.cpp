@@ -516,6 +516,9 @@ begin_comment
 comment|/*!     \macro Q_OS_LINUX     \relates<QtGlobal>      Defined on Linux. */
 end_comment
 begin_comment
+comment|/*!     \macro Q_OS_ANDROID     \relates<QtGlobal>      Defined on Android. */
+end_comment
+begin_comment
 comment|/*!     \macro Q_OS_FREEBSD     \relates<QtGlobal>      Defined on FreeBSD. */
 end_comment
 begin_comment
