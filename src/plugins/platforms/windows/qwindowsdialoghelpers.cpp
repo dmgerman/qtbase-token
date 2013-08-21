@@ -3252,11 +3252,16 @@ name|verboseDialogs
 condition|)
 name|qDebug
 argument_list|(
-literal|"%s modal=%d native=%p parent=%p"
+literal|"%s modal=%d modal supported? %d native=%p parent=%p"
 argument_list|,
 name|__FUNCTION__
 argument_list|,
 name|modal
+argument_list|,
+name|supportsNonModalDialog
+argument_list|(
+name|parent
+argument_list|)
 argument_list|,
 name|m_nativeDialog
 operator|.
