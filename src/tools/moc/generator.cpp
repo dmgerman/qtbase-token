@@ -6071,7 +6071,7 @@ name|fprintf
 argument_list|(
 name|out
 argument_list|,
-literal|"                emit %s();\n"
+literal|"                Q_EMIT %s();\n"
 argument_list|,
 name|p
 operator|.
@@ -6112,7 +6112,7 @@ name|fprintf
 argument_list|(
 name|out
 argument_list|,
-literal|"                emit %s(%s%s);\n"
+literal|"                Q_EMIT %s(%s%s);\n"
 argument_list|,
 name|p
 operator|.

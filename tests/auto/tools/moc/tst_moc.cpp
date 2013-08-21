@@ -16532,6 +16532,27 @@ argument_list|(
 argument|tst_Moc
 argument_list|)
 end_macro
+begin_comment
+comment|// the generated code must compile with QT_NO_KEYWORDS
+end_comment
+begin_undef
+DECL|macro|signals
+undef|#
+directive|undef
+name|signals
+end_undef
+begin_undef
+DECL|macro|slots
+undef|#
+directive|undef
+name|slots
+end_undef
+begin_undef
+DECL|macro|emit
+undef|#
+directive|undef
+name|emit
+end_undef
 begin_include
 include|#
 directive|include
