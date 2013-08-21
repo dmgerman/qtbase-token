@@ -106,10 +106,10 @@ name|QMakeInternal
 namespace|;
 end_using
 begin_function
-DECL|function|qtMD5
+DECL|function|qtSha1
 specifier|static
 name|QString
-name|qtMD5
+name|qtSha1
 parameter_list|(
 specifier|const
 name|QByteArray
@@ -128,7 +128,7 @@ name|src
 argument_list|,
 name|QCryptographicHash
 operator|::
-name|Md5
+name|Sha1
 argument_list|)
 decl_stmt|;
 return|return
@@ -13037,7 +13037,7 @@ condition|)
 block|{
 name|ret
 operator|=
-name|qtMD5
+name|qtSha1
 argument_list|(
 name|block
 operator|.

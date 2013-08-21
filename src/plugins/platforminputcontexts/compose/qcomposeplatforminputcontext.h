@@ -123,7 +123,7 @@ name|QObject
 operator|*
 name|m_focusObject
 block|;
-name|QList
+name|QVector
 operator|<
 name|QComposeTableElement
 operator|>

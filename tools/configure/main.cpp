@@ -134,6 +134,23 @@ condition|)
 return|return
 literal|3
 return|;
+comment|// Generate qdevice.pri
+name|app
+operator|.
+name|generateQDevicePri
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|app
+operator|.
+name|isOk
+argument_list|()
+condition|)
+return|return
+literal|3
+return|;
 comment|// Prepare the config test build directory.
 name|app
 operator|.

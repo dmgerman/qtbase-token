@@ -157,6 +157,10 @@ name|generateQConfigPri
 parameter_list|()
 function_decl|;
 name|void
+name|generateQDevicePri
+parameter_list|()
+function_decl|;
+name|void
 name|prepareConfigTests
 parameter_list|()
 function_decl|;
@@ -394,6 +398,14 @@ decl_stmt|;
 name|int
 name|outputWidth
 decl_stmt|;
+name|void
+name|substPrefix
+parameter_list|(
+name|QString
+modifier|*
+name|path
+parameter_list|)
+function_decl|;
 name|QString
 name|formatPath
 parameter_list|(
