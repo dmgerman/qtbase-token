@@ -83,19 +83,13 @@ name|QQnxScreen
 block|;
 name|public
 operator|:
-expr|enum
-name|WindowType
-block|{
-name|EGL
-block|,
-name|Raster
-block|}
-block|;
 name|QQnxWindow
 argument_list|(
 argument|QWindow *window
 argument_list|,
 argument|screen_context_t context
+argument_list|,
+argument|bool needRootWindow
 argument_list|)
 block|;
 name|virtual
@@ -150,9 +144,12 @@ return|return
 name|m_window
 return|;
 block|}
+name|virtual
 name|void
 name|adjustBufferSize
 argument_list|()
+operator|=
+literal|0
 block|;
 name|void
 name|setBufferSize
@@ -294,14 +291,21 @@ return|return
 name|m_mmRendererWindow
 return|;
 block|}
-name|virtual
-name|WindowType
-name|windowType
+name|void
+name|setRotation
+argument_list|(
+argument|int rotation
+argument_list|)
+block|;
+name|QByteArray
+name|groupName
 argument_list|()
 specifier|const
-operator|=
-literal|0
-block|;
+block|{
+return|return
+name|m_windowGroupName
+return|;
+block|}
 name|protected
 operator|:
 name|virtual
@@ -332,8 +336,16 @@ name|QQnxAbstractCover
 operator|>
 name|m_cover
 block|;
+name|QQnxWindow
+operator|*
+name|m_parentWindow
+block|;
 name|private
 operator|:
+name|void
+name|createWindowGroup
+argument_list|()
+block|;
 name|QRect
 name|setGeometryHelper
 argument_list|(
@@ -399,10 +411,6 @@ operator|*
 operator|>
 name|m_childWindows
 block|;
-name|QQnxWindow
-operator|*
-name|m_parentWindow
-block|;
 name|bool
 name|m_visible
 block|;
@@ -422,6 +430,12 @@ name|m_mmRendererWindowName
 block|;
 name|screen_window_t
 name|m_mmRendererWindow
+block|;
+name|QByteArray
+name|m_windowGroupName
+block|;
+name|bool
+name|m_isTopLevel
 block|; }
 decl_stmt|;
 end_decl_stmt
