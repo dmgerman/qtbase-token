@@ -73,6 +73,12 @@ DECL|enumerator|VirtualDesktop
 name|VirtualDesktop
 init|=
 literal|0x2
+block|,
+DECL|enumerator|LockScreen
+name|LockScreen
+init|=
+literal|0x4
+comment|// Temporary screen existing during user change, etc.
 block|}
 enum|;
 name|QWindowsScreenData
