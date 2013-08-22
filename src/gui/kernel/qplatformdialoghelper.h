@@ -145,9 +145,7 @@ name|public
 operator|:
 expr|enum
 name|StyleHint
-block|{
-name|SnapToDefaultButton
-block|}
+block|{     }
 block|;     enum
 name|DialogCode
 block|{

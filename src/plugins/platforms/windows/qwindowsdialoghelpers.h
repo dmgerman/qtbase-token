@@ -127,14 +127,6 @@ name|hide
 argument_list|()
 block|;
 name|virtual
-name|QVariant
-name|styleHint
-argument_list|(
-argument|QPlatformDialogHelper::StyleHint
-argument_list|)
-specifier|const
-block|;
-name|virtual
 name|bool
 name|supportsNonModalDialog
 argument_list|(

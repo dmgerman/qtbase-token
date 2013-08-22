@@ -212,6 +212,8 @@ block|,
 name|IconPixmapSizes
 block|,
 name|PasswordMaskCharacter
+block|,
+name|DialogSnapToDefaultButton
 block|}
 enum|;
 enum|enum

@@ -40,7 +40,6 @@ end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 comment|/*!     \class QPlatformDialogHelper     \since 5.0     \internal     \ingroup qpa      \brief The QPlatformDialogHelper class allows for platform-specific customization of dialogs.  */
-comment|/*!     \enum QPlatformDialogHelper::StyleHint      This enum type specifies platform-specific style hints.      \value SnapToDefaultButton Snap the mouse to the center of the default                                button. There is corresponding system                                setting on Windows.      \sa styleHint() */
 DECL|function|QPlatformDialogHelper
 name|QPlatformDialogHelper
 operator|::
@@ -92,23 +91,11 @@ name|StyleHint
 name|hint
 parameter_list|)
 block|{
-switch|switch
-condition|(
-name|hint
-condition|)
-block|{
-case|case
-name|QPlatformDialogHelper
-operator|::
-name|SnapToDefaultButton
-case|:
-return|return
-name|QVariant
+name|Q_UNUSED
 argument_list|(
-literal|false
+name|hint
 argument_list|)
-return|;
-block|}
+expr_stmt|;
 return|return
 name|QVariant
 argument_list|()
