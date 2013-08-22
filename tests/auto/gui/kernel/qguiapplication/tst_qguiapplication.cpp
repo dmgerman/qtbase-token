@@ -4836,7 +4836,7 @@ name|qt_plugin_instance
 expr_stmt|;
 name|testPluginInfo
 operator|.
-name|metaData
+name|rawMetaData
 operator|=
 name|qt_plugin_query_metadata
 expr_stmt|;

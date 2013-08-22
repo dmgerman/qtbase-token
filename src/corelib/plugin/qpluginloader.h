@@ -18,6 +18,11 @@ include|#
 directive|include
 file|<QtCore/qlibrary.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qplugin.h>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -97,6 +102,14 @@ block|;
 specifier|static
 name|QObjectList
 name|staticInstances
+argument_list|()
+block|;
+specifier|static
+name|QVector
+operator|<
+name|QStaticPlugin
+operator|>
+name|staticPlugins
 argument_list|()
 block|;
 name|bool

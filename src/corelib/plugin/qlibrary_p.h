@@ -213,14 +213,6 @@ name|QStringList
 name|prefixes_sys
 parameter_list|()
 function_decl|;
-specifier|static
-name|QVector
-operator|<
-name|QStaticPlugin
-operator|>
-name|staticPlugins
-argument_list|()
-expr_stmt|;
 name|QPointer
 operator|<
 name|QObject

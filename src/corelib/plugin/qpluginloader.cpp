@@ -54,6 +54,15 @@ begin_comment
 comment|/*!     \class QPluginLoader     \inmodule QtCore     \reentrant     \brief The QPluginLoader class loads a plugin at run-time.       \ingroup plugins      QPluginLoader provides access to a \l{How to Create Qt     Plugins}{Qt plugin}. A Qt plugin is stored in a shared library (a     DLL) and offers these benefits over shared libraries accessed     using QLibrary:      \list     \li QPluginLoader checks that a plugin is linked against the same        version of Qt as the application.     \li QPluginLoader provides direct access to a root component object        (instance()), instead of forcing you to resolve a C function manually.     \endlist      An instance of a QPluginLoader object operates on a single shared     library file, which we call a plugin. It provides access to the     functionality in the plugin in a platform-independent way. To     specify which plugin to load, either pass a file name in     the constructor or set it with setFileName().      The most important functions are load() to dynamically load the     plugin file, isLoaded() to check whether loading was successful,     and instance() to access the root component in the plugin. The     instance() function implicitly tries to load the plugin if it has     not been loaded yet. Multiple instances of QPluginLoader can be     used to access the same physical plugin.      Once loaded, plugins remain in memory until all instances of     QPluginLoader has been unloaded, or until the application     terminates. You can attempt to unload a plugin using unload(),     but if other instances of QPluginLoader are using the same     library, the call will fail, and unloading will only happen when     every instance has called unload(). Right before the unloading     happen, the root component will also be deleted.      See \l{How to Create Qt Plugins} for more information about     how to make your application extensible through plugins.      Note that the QPluginLoader cannot be used if your application is     statically linked against Qt. In this case, you will also have to     link to plugins statically. You can use QLibrary if you need to     load dynamic libraries in a statically linked application.      \sa QLibrary, {Plug& Paint Example} */
 end_comment
 begin_comment
+comment|/*!     \class QStaticPlugin     \inmodule QtCore     \since 5.2      \brief QStaticPlugin is a struct containing a reference to a     static plugin instance together with its meta data.      \sa QPluginLoader, {How to Create Qt Plugins} */
+end_comment
+begin_comment
+comment|/*!     \fn QObject *QStaticPlugin::instance()      Returns the plugin instance.      \sa QPluginLoader::staticInstances() */
+end_comment
+begin_comment
+comment|/*!     \fn const char *QStaticPlugin::rawMetaData()      Returns the raw meta data for the plugin.      \sa metaData(), Q_PLUGIN_METADATA() */
+end_comment
+begin_comment
 comment|/*!     Constructs a plugin loader with the given \a parent. */
 end_comment
 begin_constructor
@@ -935,7 +944,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a list of static plugin instances (root components) held     by the plugin loader. */
+comment|/*!     Returns a list of static plugin instances (root components) held     by the plugin loader.     \sa staticPlugins() */
 end_comment
 begin_function
 DECL|function|staticInstances
@@ -996,13 +1005,16 @@ name|instances
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Returns a list of QStaticPlugins held by the plugin     loader. The function is similar to \l staticInstances()     with the addition that a QStaticPlugin also contains     meta data information.     \sa staticInstances() */
+end_comment
 begin_function
 DECL|function|staticPlugins
 name|QVector
 argument_list|<
 name|QStaticPlugin
 argument_list|>
-name|QLibraryPrivate
+name|QPluginLoader
 operator|::
 name|staticPlugins
 parameter_list|()
@@ -1027,6 +1039,32 @@ name|QVector
 argument_list|<
 name|QStaticPlugin
 argument_list|>
+argument_list|()
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     Returns a the meta data for the plugin as a QJsonObject.      \sa rawMetaData() */
+end_comment
+begin_function
+DECL|function|metaData
+name|QJsonObject
+name|QStaticPlugin
+operator|::
+name|metaData
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|QLibraryPrivate
+operator|::
+name|fromRawMetaData
+argument_list|(
+name|rawMetaData
+argument_list|()
+argument_list|)
+operator|.
+name|object
 argument_list|()
 return|;
 block|}
