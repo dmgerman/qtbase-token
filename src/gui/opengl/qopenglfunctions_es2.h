@@ -25,6 +25,11 @@ name|defined
 argument_list|(
 name|QT_OPENGL_ES_2
 argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_QDOC
+argument_list|)
 end_if
 begin_include
 include|#
