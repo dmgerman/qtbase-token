@@ -297,6 +297,7 @@ else|else
 block|{
 comment|// Use a fake directory, since we will copy the output to a sub directory of
 comment|// installDir when using "make install". This is just for a proper relative path.
+comment|//QDir installDir(path.section('/', 0, -3) + "/outputdir");
 name|QDir
 name|installDir
 argument_list|(
@@ -312,7 +313,12 @@ operator|-
 literal|3
 argument_list|)
 operator|+
-literal|"/outputdir"
+literal|'/'
+operator|+
+name|Generator
+operator|::
+name|outputSubdir
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|indexUrl
