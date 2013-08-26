@@ -224,6 +224,12 @@ operator|-
 literal|1
 argument_list|)
 block|,
+name|maximumSectionSize
+argument_list|(
+operator|-
+literal|1
+argument_list|)
+block|,
 name|lastSectionSize
 argument_list|(
 literal|0
@@ -1205,6 +1211,9 @@ name|defaultSectionSize
 block|;
 name|int
 name|minimumSectionSize
+block|;
+name|int
+name|maximumSectionSize
 block|;
 name|int
 name|lastSectionSize

@@ -69,6 +69,10 @@ argument|int minimumSectionSize READ minimumSectionSize WRITE setMinimumSectionS
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
+argument|int maximumSectionSize READ maximumSectionSize WRITE setMaximumSectionSize
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
 argument|Qt::Alignment defaultAlignment READ defaultAlignment WRITE setDefaultAlignment
 argument_list|)
 name|Q_ENUMS
@@ -555,6 +559,17 @@ specifier|const
 block|;
 name|void
 name|setMinimumSectionSize
+argument_list|(
+argument|int size
+argument_list|)
+block|;
+name|int
+name|maximumSectionSize
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setMaximumSectionSize
 argument_list|(
 argument|int size
 argument_list|)
