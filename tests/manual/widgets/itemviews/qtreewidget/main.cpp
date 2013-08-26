@@ -444,7 +444,7 @@ argument_list|(
 name|itemInfo
 argument_list|)
 expr_stmt|;
-name|radioFirstName
+name|radioLastName
 operator|->
 name|setChecked
 argument_list|(
@@ -548,6 +548,18 @@ operator|->
 name|setTreePosition
 argument_list|(
 operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+name|treeWidget
+operator|->
+name|header
+argument_list|()
+operator|->
+name|swapSections
+argument_list|(
+literal|0
+argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
