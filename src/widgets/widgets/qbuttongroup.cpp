@@ -33,6 +33,12 @@ begin_comment
 comment|/*!     \fn void QButtonGroup::buttonReleased(int id)     \since 4.2      This signal is emitted when a button with the given \a id is     released.      \sa QAbstractButton::released() */
 end_comment
 begin_comment
+comment|/*!     \fn void QButtonGroup::buttonToggled(QAbstractButton *button, bool checked)     \since 5.2      This signal is emitted when the given \a button is toggled.     \a checked is true if the button is checked, or false if the button is unchecked.      \sa QAbstractButton::toggled() */
+end_comment
+begin_comment
+comment|/*!     \fn void QButtonGroup::buttonToggled(int id, bool checked)     \since 5.2      This signal is emitted when a button with the given \a id is toggled.     \a checked is true if the button is checked, or false if the button is unchecked.      \sa QAbstractButton::toggled() */
+end_comment
+begin_comment
 comment|/*!     \fn void QButtonGroup::addButton(QAbstractButton *button, int id = -1);      Adds the given \a button to the button group. If \a id is -1,     an id will be assigned to the button.     Automatically assigned ids are guaranteed to be negative,     starting with -2. If you are assigning your own ids, use     positive values to avoid conflicts.      \sa removeButton(), buttons() */
 end_comment
 begin_comment

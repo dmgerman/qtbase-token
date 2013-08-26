@@ -208,6 +208,12 @@ block|;
 name|void
 name|emitClicked
 argument_list|()
+block|;
+name|void
+name|emitToggled
+argument_list|(
+argument|bool checked
+argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
