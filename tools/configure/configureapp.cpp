@@ -11545,7 +11545,7 @@ name|desc
 argument_list|(
 literal|"PCRE"
 argument_list|,
-literal|"qt"
+literal|"system"
 argument_list|,
 literal|"-system-pcre"
 argument_list|,
@@ -11677,7 +11677,7 @@ name|desc
 argument_list|(
 literal|"FREETYPE"
 argument_list|,
-literal|"yes"
+literal|"system"
 argument_list|,
 literal|"-system-freetype"
 argument_list|,
