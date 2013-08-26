@@ -22007,6 +22007,8 @@ name|l4
 operator|)
 operator|<<
 name|endl
+expr_stmt|;
+name|sout
 operator|<<
 name|endl
 expr_stmt|;
@@ -22547,6 +22549,8 @@ literal|"SYSTEM_PROXIES"
 index|]
 operator|<<
 name|endl
+expr_stmt|;
+name|sout
 operator|<<
 name|endl
 expr_stmt|;
@@ -22610,8 +22614,6 @@ literal|"FREETYPE"
 index|]
 operator|<<
 name|endl
-operator|<<
-name|endl
 expr_stmt|;
 name|sout
 operator|<<
@@ -22670,6 +22672,10 @@ name|dictionary
 index|[
 literal|"ANGLE"
 index|]
+operator|<<
+name|endl
+expr_stmt|;
+name|sout
 operator|<<
 name|endl
 expr_stmt|;
@@ -22744,6 +22750,8 @@ literal|"STYLE_WINDOWSMOBILE"
 index|]
 operator|<<
 name|endl
+expr_stmt|;
+name|sout
 operator|<<
 name|endl
 expr_stmt|;
@@ -22860,6 +22868,8 @@ literal|"SQL_IBASE"
 index|]
 operator|<<
 name|endl
+expr_stmt|;
+name|sout
 operator|<<
 name|endl
 expr_stmt|;
@@ -23168,6 +23178,8 @@ literal|"CE_SIGNATURE"
 index|]
 operator|<<
 name|endl
+expr_stmt|;
+name|sout
 operator|<<
 name|endl
 expr_stmt|;
