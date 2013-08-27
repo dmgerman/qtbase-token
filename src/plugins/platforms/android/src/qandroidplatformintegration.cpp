@@ -374,6 +374,12 @@ return|return
 literal|true
 return|;
 case|case
+name|ApplicationState
+case|:
+return|return
+literal|true
+return|;
+case|case
 name|NonFullScreenWindows
 case|:
 return|return

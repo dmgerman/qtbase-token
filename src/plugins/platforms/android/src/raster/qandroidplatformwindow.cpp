@@ -7,6 +7,16 @@ include|#
 directive|include
 file|"qandroidplatformwindow.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"androidjnimain.h"
+end_include
+begin_include
+include|#
+directive|include
+file|<qpa/qwindowsysteminterface.h>
+end_include
 begin_constructor
 DECL|function|QAndroidPlatformWindow
 name|QAndroidPlatformWindow
@@ -55,6 +65,37 @@ name|propagateSizeHints
 parameter_list|()
 block|{
 comment|//shut up warning from default implementation
+block|}
+end_function
+begin_function
+DECL|function|setVisible
+name|void
+name|QAndroidPlatformWindow
+operator|::
+name|setVisible
+parameter_list|(
+name|bool
+name|visible
+parameter_list|)
+block|{
+name|QFbWindow
+operator|::
+name|setVisible
+argument_list|(
+name|visible
+argument_list|)
+expr_stmt|;
+comment|// The Android Activity is activated before Qt is initialized, causing the application state to
+comment|// never be set to 'active'. We explicitly set this state when the first window becomes visible.
+if|if
+condition|(
+name|visible
+condition|)
+name|QtAndroid
+operator|::
+name|setApplicationActive
+argument_list|()
+expr_stmt|;
 block|}
 end_function
 end_unit

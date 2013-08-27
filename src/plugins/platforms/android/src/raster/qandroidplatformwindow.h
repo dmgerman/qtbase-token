@@ -49,6 +49,13 @@ name|void
 name|propagateSizeHints
 parameter_list|()
 function_decl|;
+name|void
+name|setVisible
+parameter_list|(
+name|bool
+name|visible
+parameter_list|)
+function_decl|;
 name|public
 name|slots
 range|:

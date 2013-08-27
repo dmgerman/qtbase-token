@@ -2661,6 +2661,18 @@ name|updateWindow
 parameter_list|()
 function_decl|;
 comment|// window methods
+comment|// application methods
+DECL|method|updateApplicationState
+specifier|public
+specifier|static
+specifier|native
+name|void
+name|updateApplicationState
+parameter_list|(
+name|int
+name|state
+parameter_list|)
+function_decl|;
 comment|// menu methods
 DECL|method|onPrepareOptionsMenu
 specifier|public

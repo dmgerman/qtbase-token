@@ -362,6 +362,17 @@ argument_list|(
 name|visible
 argument_list|)
 expr_stmt|;
+comment|// The Android Activity is activated before Qt is initialized, causing the application state to
+comment|// never be set to 'active'. We explicitly set this state when the first window becomes visible.
+if|if
+condition|(
+name|visible
+condition|)
+name|QtAndroid
+operator|::
+name|setApplicationActive
+argument_list|()
+expr_stmt|;
 name|QWindowSystemInterface
 operator|::
 name|handleExposeEvent
