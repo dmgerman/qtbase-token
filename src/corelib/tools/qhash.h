@@ -5855,7 +5855,7 @@ argument_list|)
 argument_list|,
 literal|"QHash::erase"
 argument_list|,
-literal|"The specified const_iterator argument 'it' is invalid"
+literal|"The specified iterator argument 'it' is invalid"
 argument_list|)
 block|;
 if|if
@@ -5897,7 +5897,7 @@ operator|->
 name|numBuckets
 operator|)
 decl_stmt|;
-name|const_iterator
+name|iterator
 name|bucketIterator
 argument_list|(
 operator|*
