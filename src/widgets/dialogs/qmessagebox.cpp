@@ -8459,6 +8459,7 @@ name|d
 operator|->
 name|detailsButton
 condition|)
+block|{
 name|d
 operator|->
 name|detailsButton
@@ -8469,6 +8470,18 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+name|addButton
+argument_list|(
+name|d
+operator|->
+name|detailsButton
+argument_list|,
+name|QMessageBox
+operator|::
+name|ActionRole
+argument_list|)
+expr_stmt|;
+block|}
 name|d
 operator|->
 name|detailsText
