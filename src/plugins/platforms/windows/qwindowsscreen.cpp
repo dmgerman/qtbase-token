@@ -420,6 +420,42 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|data
+operator|.
+name|name
+operator|=
+name|QString
+operator|::
+name|fromWCharArray
+argument_list|(
+name|info
+operator|.
+name|szDevice
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|data
+operator|.
+name|name
+operator|==
+name|QLatin1String
+argument_list|(
+literal|"WinDisc"
+argument_list|)
+condition|)
+block|{
+name|data
+operator|.
+name|flags
+operator||=
+name|QWindowsScreenData
+operator|::
+name|LockScreen
+expr_stmt|;
+block|}
+else|else
+block|{
 ifdef|#
 directive|ifdef
 name|Q_OS_WINCE
@@ -543,7 +579,7 @@ name|refreshRate
 operator|>
 literal|1
 condition|)
-comment|// 0,1 means heardware default.
+comment|// 0,1 means hardware default.
 name|data
 operator|.
 name|refreshRateHz
@@ -584,6 +620,9 @@ name|first
 argument_list|)
 expr_stmt|;
 block|}
+comment|// CreateDC() failed
+block|}
+comment|// not lock screen
 name|data
 operator|.
 name|geometry
@@ -696,21 +735,8 @@ comment|// EnumDisplayMonitors (as opposed to EnumDisplayDevices) enumerates onl
 comment|// virtual desktop screens.
 name|data
 operator|.
-name|name
-operator|=
-name|QString
-operator|::
-name|fromWCharArray
-argument_list|(
-name|info
-operator|.
-name|szDevice
-argument_list|)
-expr_stmt|;
-name|data
-operator|.
 name|flags
-operator|=
+operator||=
 name|QWindowsScreenData
 operator|::
 name|VirtualDesktop
@@ -968,6 +994,20 @@ condition|)
 name|nospace
 operator|<<
 literal|" virtual desktop"
+expr_stmt|;
+if|if
+condition|(
+name|d
+operator|.
+name|flags
+operator|&
+name|QWindowsScreenData
+operator|::
+name|LockScreen
+condition|)
+name|nospace
+operator|<<
+literal|" lock screen"
 expr_stmt|;
 return|return
 name|dbg
@@ -2113,12 +2153,35 @@ name|handleScreenChanges
 parameter_list|()
 block|{
 comment|// Look for changed monitors, add new ones
-specifier|const
 name|WindowsScreenDataList
 name|newDataList
 init|=
 name|monitorData
 argument_list|()
+decl_stmt|;
+specifier|const
+name|bool
+name|lockScreen
+init|=
+name|newDataList
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|1
+operator|&&
+operator|(
+name|newDataList
+operator|.
+name|front
+argument_list|()
+operator|.
+name|flags
+operator|&
+name|QWindowsScreenData
+operator|::
+name|LockScreen
+operator|)
 decl_stmt|;
 foreach|foreach
 control|(
@@ -2210,7 +2273,14 @@ block|}
 comment|// exists
 block|}
 comment|// for new screens.
-comment|// Remove deleted ones.
+comment|// Remove deleted ones but keep main monitors if we get only the
+comment|// temporary lock screen to avoid window recreation (QTBUG-33062).
+if|if
+condition|(
+operator|!
+name|lockScreen
+condition|)
+block|{
 for|for
 control|(
 name|int
@@ -2287,6 +2357,8 @@ block|}
 comment|// not found
 block|}
 comment|// for existing screens
+block|}
+comment|// not lock screen
 return|return
 literal|true
 return|;

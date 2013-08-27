@@ -7111,6 +7111,8 @@ block|}
 if|if
 condition|(
 name|window
+operator|&&
+name|window
 operator|->
 name|d_func
 argument_list|()

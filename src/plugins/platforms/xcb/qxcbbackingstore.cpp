@@ -1371,6 +1371,19 @@ name|handle
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|platformWindow
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QXcbBackingStore::flush: QWindow has no platform window (QTBUG-32681)"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 name|QVector
 argument_list|<
 name|QRect

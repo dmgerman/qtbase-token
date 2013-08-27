@@ -128,6 +128,26 @@ operator|=
 name|window
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|win
+operator|->
+name|handle
+argument_list|()
+condition|)
+block|{
+name|qWarning
+argument_list|()
+operator|<<
+literal|"QBackingStore::flush() called for "
+operator|<<
+name|win
+operator|<<
+literal|" which does not have a handle."
+expr_stmt|;
+return|return;
+block|}
 ifdef|#
 directive|ifdef
 name|QBACKINGSTORE_DEBUG
