@@ -3328,7 +3328,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2      Redirects the process' standard input to the file indicated by \a     fileName. When an input redirection is in place, the QProcess     object will be in read-only mode (calling write() will result in     error).      If the file \a fileName does not exist at the moment start() is     called or is not readable, starting the process will fail.      Calling setStandardInputFile() after the process has started has no     effect.      \sa setStandardOutputFile(), setStandardErrorFile(),         setStandardOutputProcess() */
+comment|/*!     \since 4.2      Redirects the process' standard input to the file indicated by \a     fileName. When an input redirection is in place, the QProcess     object will be in read-only mode (calling write() will result in     error).      To make the process read EOF right away, pass nullDevice() here.     This is cleaner than using closeWriteChannel() before writing any     data, because it can be set up prior to starting the process.      If the file \a fileName does not exist at the moment start() is     called or is not readable, starting the process will fail.      Calling setStandardInputFile() after the process has started has no     effect.      \sa setStandardOutputFile(), setStandardErrorFile(),         setStandardOutputProcess() */
 end_comment
 begin_function
 DECL|function|setStandardInputFile
@@ -3357,7 +3357,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2      Redirects the process' standard output to the file \a     fileName. When the redirection is in place, the standard output     read channel is closed: reading from it using read() will always     fail, as will readAllStandardOutput().      If the file \a fileName doesn't exist at the moment start() is     called, it will be created. If it cannot be created, the starting     will fail.      If the file exists and \a mode is QIODevice::Truncate, the file     will be truncated. Otherwise (if \a mode is QIODevice::Append),     the file will be appended to.      Calling setStandardOutputFile() after the process has started has     no effect.      \sa setStandardInputFile(), setStandardErrorFile(),         setStandardOutputProcess() */
+comment|/*!     \since 4.2      Redirects the process' standard output to the file \a     fileName. When the redirection is in place, the standard output     read channel is closed: reading from it using read() will always     fail, as will readAllStandardOutput().      To discard all standard output from the process, pass nullDevice()     here. This is more efficient than simply never reading the standard     output, as no QProcess buffers are filled.      If the file \a fileName doesn't exist at the moment start() is     called, it will be created. If it cannot be created, the starting     will fail.      If the file exists and \a mode is QIODevice::Truncate, the file     will be truncated. Otherwise (if \a mode is QIODevice::Append),     the file will be appended to.      Calling setStandardOutputFile() after the process has started has     no effect.      \sa setStandardInputFile(), setStandardErrorFile(),         setStandardOutputProcess() */
 end_comment
 begin_function
 DECL|function|setStandardOutputFile
@@ -6388,6 +6388,38 @@ end_function
 begin_comment
 comment|/*!     \fn QProcessEnvironment QProcessEnvironment::systemEnvironment()      \since 4.6      \brief The systemEnvironment function returns the environment of     the calling process.      It is returned as a QProcessEnvironment. This function does not     cache the system environment. Therefore, it's possible to obtain     an updated version of the environment if low-level C library     functions like \tt setenv ot \tt putenv have been called.      However, note that repeated calls to this function will recreate the     QProcessEnvironment object, which is a non-trivial operation.      \sa QProcess::systemEnvironment() */
 end_comment
+begin_comment
+comment|/*!     \since 5.2      \brief The null device of the operating system.      The returned file path uses native directory separators.      \sa QProcess::setStandardInputFile(), QProcess::setStandardOutputFile(),         QProcess::setStandardErrorFile() */
+end_comment
+begin_function
+DECL|function|nullDevice
+name|QString
+name|QProcess
+operator|::
+name|nullDevice
+parameter_list|()
+block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+return|return
+name|QStringLiteral
+argument_list|(
+literal|"\\\\.\\NUL"
+argument_list|)
+return|;
+else|#
+directive|else
+return|return
+name|QStringLiteral
+argument_list|(
+literal|"/dev/null"
+argument_list|)
+return|;
+endif|#
+directive|endif
+block|}
+end_function
 begin_comment
 comment|/*!     \typedef Q_PID     \relates QProcess      Typedef for the identifiers used to represent processes on the underlying     platform. On Unix, this corresponds to \l qint64; on Windows, it     corresponds to \c{_PROCESS_INFORMATION*}.      \sa QProcess::pid() */
 end_comment

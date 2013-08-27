@@ -737,6 +737,11 @@ name|QStringList
 name|systemEnvironment
 argument_list|()
 block|;
+specifier|static
+name|QString
+name|nullDevice
+argument_list|()
+block|;
 name|public
 name|Q_SLOTS
 operator|:
