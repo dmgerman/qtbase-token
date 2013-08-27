@@ -362,4 +362,55 @@ end_decl_stmt
 begin_comment
 comment|//! [12]
 end_comment
+begin_comment
+comment|//! [13]
+end_comment
+begin_decl_stmt
+DECL|variable|mimeTypeFilters
+name|QStringList
+name|mimeTypeFilters
+decl_stmt|;
+end_decl_stmt
+begin_expr_stmt
+name|mimeTypeFilters
+operator|<<
+literal|"image/jpeg"
+comment|// will show "JPEG image (*.jpeg *.jpg *.jpe)
+operator|<<
+literal|"image/png"
+comment|// will show "PNG image (*.png)"
+operator|<<
+literal|"application/octet-stream"
+expr_stmt|;
+end_expr_stmt
+begin_comment
+comment|// will show "All files (*)"
+end_comment
+begin_function_decl
+name|QFileDialog
+name|dialog
+parameter_list|(
+name|this
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_expr_stmt
+name|dialog
+operator|.
+name|setMimeTypeFilters
+argument_list|(
+name|mimeTypeFilters
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+name|dialog
+operator|.
+name|exec
+argument_list|()
+expr_stmt|;
+end_expr_stmt
+begin_comment
+comment|//! [13]
+end_comment
 end_unit

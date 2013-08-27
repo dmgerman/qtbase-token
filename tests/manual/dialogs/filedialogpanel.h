@@ -60,6 +60,12 @@ name|QPlainTextEdit
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QFormLayout
+name|class
+name|QFormLayout
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|QT_END_NAMESPACE
 DECL|variable|LabelLineEdit
 name|class
@@ -164,6 +170,12 @@ name|void
 name|enableDeleteModalDialogButton
 argument_list|()
 block|;
+name|void
+name|useMimeTypeFilters
+argument_list|(
+name|bool
+argument_list|)
+block|;
 name|private
 operator|:
 name|QString
@@ -189,6 +201,10 @@ argument_list|(
 argument|QFileDialog *d
 argument_list|)
 specifier|const
+block|;
+name|QFormLayout
+operator|*
+name|filesLayout
 block|;
 name|QCheckBox
 operator|*
@@ -248,6 +264,10 @@ name|LabelLineEdit
 operator|*
 operator|>
 name|m_labelLineEdits
+block|;
+name|QCheckBox
+operator|*
+name|m_useMimeTypeFilters
 block|;
 name|QPlainTextEdit
 operator|*
