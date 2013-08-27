@@ -4835,6 +4835,12 @@ operator|->
 name|hide
 argument_list|()
 expr_stmt|;
+name|d
+operator|->
+name|closePopupMode
+operator|=
+literal|1
+expr_stmt|;
 block|}
 block|}
 else|else
