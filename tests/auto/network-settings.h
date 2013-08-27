@@ -208,49 +208,23 @@ modifier|&
 name|actual
 parameter_list|)
 block|{
-name|QList
-operator|<
-name|QByteArray
-operator|>
-name|expected
-expr_stmt|;
-comment|// A few different vsFTPd versions.
-comment|// Feel free to add more as needed
-name|expected
-operator|<<
-name|QByteArray
+comment|// output would be e.g. "220 (vsFTPd 2.3.5)\r\n221 Goodbye.\r\n"
+name|QRegExp
+name|ftpVersion
 argument_list|(
-literal|"220 (vsFTPd 2.0.5)\r\n221 Goodbye.\r\n"
-argument_list|)
-expr_stmt|;
-name|expected
-operator|<<
-name|QByteArray
+name|QStringLiteral
 argument_list|(
-literal|"220 (vsFTPd 2.2.2)\r\n221 Goodbye.\r\n"
+literal|"220 \\(vsFTPd \\d+\\.\\d+.\\d+\\)\\r\\n221 Goodbye.\\r\\n"
 argument_list|)
-expr_stmt|;
-name|Q_FOREACH
+argument_list|)
+decl_stmt|;
+return|return
+name|ftpVersion
+operator|.
+name|exactMatch
 argument_list|(
-argument|QByteArray const& ba
-argument_list|,
-argument|expected
-argument_list|)
-block|{
-if|if
-condition|(
-name|ba
-operator|==
 name|actual
-condition|)
-block|{
-return|return
-name|true
-return|;
-block|}
-block|}
-return|return
-name|false
+argument_list|)
 return|;
 block|}
 specifier|static
