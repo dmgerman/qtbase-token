@@ -199,6 +199,10 @@ name|Q_ENUMS
 argument_list|(
 name|ConnectionType
 argument_list|)
+name|Q_ENUMS
+argument_list|(
+name|ApplicationState
+argument_list|)
 ifndef|#
 directive|ifndef
 name|QT_NO_GESTURES

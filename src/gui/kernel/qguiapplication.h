@@ -464,6 +464,13 @@ name|quitOnLastWindowClosed
 argument_list|()
 block|;
 specifier|static
+name|Qt
+operator|::
+name|ApplicationState
+name|applicationState
+argument_list|()
+block|;
+specifier|static
 name|int
 name|exec
 argument_list|()
@@ -536,6 +543,12 @@ argument_list|(
 name|QWindow
 operator|*
 name|focusWindow
+argument_list|)
+block|;
+name|void
+name|applicationStateChanged
+argument_list|(
+argument|Qt::ApplicationState state
 argument_list|)
 block|;
 ifndef|#
