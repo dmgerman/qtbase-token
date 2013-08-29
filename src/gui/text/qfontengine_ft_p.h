@@ -110,13 +110,14 @@ name|QFontconfigDatabase
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|/*  * This struct represents one font file on disk (like Arial.ttf) and is shared between all the font engines  * that show this font file (at different pixel sizes).  */
+comment|/*  * This class represents one font file on disk (like Arial.ttf) and is shared between all the font engines  * that show this font file (at different pixel sizes).  */
 end_comment
-begin_struct
-DECL|struct|QFreetypeFace
-struct|struct
+begin_decl_stmt
+name|class
 name|QFreetypeFace
 block|{
+name|public
+label|:
 name|void
 name|computeSize
 parameter_list|(
@@ -194,7 +195,6 @@ name|face_id
 argument_list|)
 decl_stmt|;
 comment|// locks the struct for usage. Any read/write operations require locking.
-DECL|function|lock
 name|void
 name|lock
 parameter_list|()
@@ -205,7 +205,6 @@ name|lock
 argument_list|()
 expr_stmt|;
 block|}
-DECL|function|unlock
 name|void
 name|unlock
 parameter_list|()
@@ -216,33 +215,26 @@ name|unlock
 argument_list|()
 expr_stmt|;
 block|}
-DECL|member|face
 name|FT_Face
 name|face
 decl_stmt|;
-DECL|member|xsize
 name|int
 name|xsize
 decl_stmt|;
 comment|// 26.6
-DECL|member|ysize
 name|int
 name|ysize
 decl_stmt|;
 comment|// 26.6
-DECL|member|matrix
 name|FT_Matrix
 name|matrix
 decl_stmt|;
-DECL|member|unicode_map
 name|FT_CharMap
 name|unicode_map
 decl_stmt|;
-DECL|member|symbol_map
 name|FT_CharMap
 name|symbol_map
 decl_stmt|;
-DECL|enumerator|cmapCacheSize
 enum|enum
 block|{
 name|cmapCacheSize
@@ -250,7 +242,6 @@ init|=
 literal|0x200
 block|}
 enum|;
-DECL|member|cmapCache
 name|glyph_t
 name|cmapCache
 index|[
@@ -334,14 +325,12 @@ init|=
 name|false
 parameter_list|)
 function_decl|;
-DECL|member|private
 name|private
 label|:
 name|friend
 name|class
 name|QFontEngineFT
 decl_stmt|;
-DECL|member|QFreetypeFace
 name|friend
 block|struct
 name|QScopedPointerDeleter
@@ -349,7 +338,6 @@ operator|<
 name|QFreetypeFace
 operator|>
 expr_stmt|;
-DECL|function|QFreetypeFace
 name|QFreetypeFace
 argument_list|()
 operator|:
@@ -358,35 +346,31 @@ argument_list|(
 argument|QMutex::Recursive
 argument_list|)
 block|{}
-DECL|function|~QFreetypeFace
 operator|~
 name|QFreetypeFace
 argument_list|()
 block|{}
-DECL|member|ref
 name|QAtomicInt
 name|ref
 expr_stmt|;
-DECL|member|_lock
 name|QMutex
 name|_lock
 decl_stmt|;
-DECL|member|fontData
 name|QByteArray
 name|fontData
 decl_stmt|;
-DECL|member|hbFace
 name|void
 modifier|*
 name|hbFace
 decl_stmt|;
-DECL|member|hbFace_destroy_func
 name|qt_destroy_func_t
 name|hbFace_destroy_func
 decl_stmt|;
 block|}
-struct|;
-end_struct
+end_decl_stmt
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
 begin_comment
 comment|// If this is exported this breaks compilation of the windows
 end_comment
