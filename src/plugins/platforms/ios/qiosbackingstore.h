@@ -53,10 +53,6 @@ operator|&
 argument_list|)
 block|;
 name|void
-name|endPaint
-argument_list|()
-block|;
-name|void
 name|flush
 argument_list|(
 name|QWindow

@@ -97,24 +97,6 @@ argument_list|,
 argument|int dy
 argument_list|)
 block|;
-name|void
-name|beginPaint
-argument_list|(
-specifier|const
-name|QRegion
-operator|&
-name|region
-argument_list|)
-block|;
-name|void
-name|endPaint
-argument_list|(
-specifier|const
-name|QRegion
-operator|&
-name|region
-argument_list|)
-block|;
 name|private
 operator|:
 name|void

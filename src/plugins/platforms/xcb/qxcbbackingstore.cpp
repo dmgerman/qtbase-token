@@ -1228,19 +1228,6 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|endPaint
-name|void
-name|QXcbBackingStore
-operator|::
-name|endPaint
-parameter_list|(
-specifier|const
-name|QRegion
-modifier|&
-parameter_list|)
-block|{ }
-end_function
-begin_function
 DECL|function|flush
 name|void
 name|QXcbBackingStore

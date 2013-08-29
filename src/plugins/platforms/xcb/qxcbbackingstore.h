@@ -119,14 +119,6 @@ name|QRegion
 modifier|&
 parameter_list|)
 function_decl|;
-name|void
-name|endPaint
-parameter_list|(
-specifier|const
-name|QRegion
-modifier|&
-parameter_list|)
-function_decl|;
 name|private
 label|:
 name|QXcbShmImage

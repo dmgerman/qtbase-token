@@ -799,15 +799,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|endPaint
-name|void
-name|QEglFSBackingStore
-operator|::
-name|endPaint
-parameter_list|()
-block|{ }
-end_function
-begin_function
 DECL|function|resize
 name|void
 name|QEglFSBackingStore
