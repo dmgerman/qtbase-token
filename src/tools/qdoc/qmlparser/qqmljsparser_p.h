@@ -581,11 +581,10 @@ argument_list|)
 block|{
 if|if
 condition|(
-operator|!
 name|d
 operator|.
 name|kind
-operator|==
+operator|!=
 name|DiagnosticMessage
 operator|::
 name|Warning
