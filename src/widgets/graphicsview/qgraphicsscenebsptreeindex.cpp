@@ -2534,15 +2534,6 @@ name|item
 expr_stmt|;
 block|}
 block|}
-if|if
-condition|(
-name|order
-operator|!=
-operator|-
-literal|1
-condition|)
-block|{
-comment|//We sort descending order
 name|d
 operator|->
 name|sortItems
@@ -2557,7 +2548,6 @@ operator|->
 name|sortCacheEnabled
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|itemList
 return|;
