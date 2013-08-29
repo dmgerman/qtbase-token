@@ -446,8 +446,9 @@ begin_typedef
 typedef|typedef
 enum|enum
 block|{
-DECL|enumerator|HB_BUFFER_FLAGS_DEFAULT
-name|HB_BUFFER_FLAGS_DEFAULT
+comment|/*< flags>*/
+DECL|enumerator|HB_BUFFER_FLAG_DEFAULT
+name|HB_BUFFER_FLAG_DEFAULT
 init|=
 literal|0x00000000
 block|,
@@ -758,8 +759,9 @@ begin_typedef
 typedef|typedef
 enum|enum
 block|{
-DECL|enumerator|HB_BUFFER_SERIALIZE_FLAGS_DEFAULT
-name|HB_BUFFER_SERIALIZE_FLAGS_DEFAULT
+comment|/*< flags>*/
+DECL|enumerator|HB_BUFFER_SERIALIZE_FLAG_DEFAULT
+name|HB_BUFFER_SERIALIZE_FLAG_DEFAULT
 init|=
 literal|0x00000000
 block|,

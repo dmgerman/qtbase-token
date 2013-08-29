@@ -37,6 +37,16 @@ end_include
 begin_include
 include|#
 directive|include
+file|"hb-deprecated.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"hb-face.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"hb-font.h"
 end_include
 begin_include

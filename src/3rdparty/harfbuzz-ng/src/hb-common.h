@@ -2149,16 +2149,6 @@ name|hb_script_t
 typedef|;
 end_typedef
 begin_comment
-comment|/* Deprecated misspellings. */
-end_comment
-begin_define
-DECL|macro|HB_SCRIPT_CANADIAN_ABORIGINAL
-define|#
-directive|define
-name|HB_SCRIPT_CANADIAN_ABORIGINAL
-value|HB_SCRIPT_CANADIAN_SYLLABICS
-end_define
-begin_comment
 comment|/* These are moved out of hb_script_t because glib-mkenums chokes otherwise. */
 end_comment
 begin_if
