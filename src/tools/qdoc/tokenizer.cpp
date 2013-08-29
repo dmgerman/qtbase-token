@@ -934,12 +934,9 @@ operator|=
 name|getChar
 argument_list|()
 expr_stmt|;
+comment|/*                   Removed check for '&&', only interpret '&=' as an operator.                   '&&' is also used for an rvalue reference. QTBUG-32675                  */
 if|if
 condition|(
-name|yyCh
-operator|==
-literal|'&'
-operator|||
 name|yyCh
 operator|==
 literal|'='
