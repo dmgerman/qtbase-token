@@ -6945,7 +6945,6 @@ comment|// intentional fall through
 default|default:
 if|if
 condition|(
-operator|!
 name|bd
 operator|->
 name|colors
@@ -6955,7 +6954,7 @@ index|]
 operator|.
 name|style
 argument_list|()
-operator|!=
+operator|==
 name|Qt
 operator|::
 name|NoBrush
