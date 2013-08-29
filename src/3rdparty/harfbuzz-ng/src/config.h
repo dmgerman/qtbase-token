@@ -28,6 +28,12 @@ define|#
 directive|define
 name|HB_NO_UNICODE_FUNCS
 end_define
+begin_define
+DECL|macro|HB_DISABLE_DEPRECATED
+define|#
+directive|define
+name|HB_DISABLE_DEPRECATED
+end_define
 begin_include
 include|#
 directive|include
