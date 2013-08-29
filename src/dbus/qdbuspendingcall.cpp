@@ -533,7 +533,6 @@ comment|// no signature to validate against
 comment|// can't use startsWith here because a null string doesn't start or end with an empty string
 if|if
 condition|(
-operator|!
 name|replyMessage
 operator|.
 name|signature
@@ -543,7 +542,7 @@ name|indexOf
 argument_list|(
 name|expectedReplySignature
 argument_list|)
-operator|==
+operator|!=
 literal|0
 condition|)
 block|{
