@@ -151,7 +151,7 @@ block|}
 block|;      enum
 name|StandardButton
 block|{
-comment|// keep this in sync with QDialogButtonBox::StandardButton
+comment|// keep this in sync with QDialogButtonBox::StandardButton and QMessageDialogOptions::StandardButton
 name|NoButton
 operator|=
 literal|0x00000000

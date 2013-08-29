@@ -224,6 +224,8 @@ block|,
 name|ColorDialog
 block|,
 name|FontDialog
+block|,
+name|MessageDialog
 block|}
 enum|;
 enum|enum
