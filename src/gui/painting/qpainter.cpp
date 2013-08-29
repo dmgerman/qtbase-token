@@ -4324,7 +4324,6 @@ name|bool
 name|brushXform
 init|=
 operator|(
-operator|!
 name|s
 operator|->
 name|brush
@@ -4334,7 +4333,7 @@ argument_list|()
 operator|.
 name|type
 argument_list|()
-operator|==
+operator|!=
 name|QTransform
 operator|::
 name|TxNone
@@ -4345,7 +4344,6 @@ name|bool
 name|penXform
 init|=
 operator|(
-operator|!
 name|s
 operator|->
 name|pen
@@ -4358,7 +4356,7 @@ argument_list|()
 operator|.
 name|type
 argument_list|()
-operator|==
+operator|!=
 name|QTransform
 operator|::
 name|TxNone
