@@ -360,10 +360,13 @@ block|}
 while|while
 condition|(
 name|len
-operator|>=
+operator|>
 literal|0
 condition|)
 block|{
+operator|--
+name|len
+expr_stmt|;
 if|if
 condition|(
 name|bits
@@ -377,11 +380,7 @@ operator|(
 literal|1
 operator|<<
 operator|(
-operator|(
 name|len
-operator|-
-literal|1
-operator|)
 operator|&
 literal|7
 operator|)
@@ -389,9 +388,6 @@ operator|)
 condition|)
 operator|++
 name|numBits
-expr_stmt|;
-operator|--
-name|len
 expr_stmt|;
 block|}
 endif|#
