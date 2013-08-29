@@ -27,12 +27,22 @@ include|#
 directive|include
 file|<string.h>
 end_include
-begin_function
+begin_macro
 name|QT_BEGIN_NAMESPACE
+end_macro
+begin_comment
 comment|/*!     \class QBitArray     \inmodule QtCore     \brief The QBitArray class provides an array of bits.      \ingroup tools     \ingroup shared     \reentrant      A QBitArray is an array that gives access to individual bits and     provides operators (\l{operator&()}{AND}, \l{operator|()}{OR},     \l{operator^()}{XOR}, and \l{operator~()}{NOT}) that work on     entire arrays of bits. It uses \l{implicit sharing} (copy-on-write)     to reduce memory usage and to avoid the needless copying of data.      The following code constructs a QBitArray containing 200 bits     initialized to false (0):      \snippet code/src_corelib_tools_qbitarray.cpp 0      To initialize the bits to true, either pass \c true as second     argument to the constructor, or call fill() later on.      QBitArray uses 0-based indexes, just like C++ arrays. To access     the bit at a particular index position, you can use operator[]().     On non-const bit arrays, operator[]() returns a reference to a     bit that can be used on the left side of an assignment. For     example:      \snippet code/src_corelib_tools_qbitarray.cpp 1      For technical reasons, it is more efficient to use testBit() and     setBit() to access bits in the array than operator[](). For     example:      \snippet code/src_corelib_tools_qbitarray.cpp 2      QBitArray supports \c{&} (\l{operator&()}{AND}), \c{|}     (\l{operator|()}{OR}), \c{^} (\l{operator^()}{XOR}),     \c{~} (\l{operator~()}{NOT}), as well as     \c{&=}, \c{|=}, and \c{^=}. These operators work in the same way     as the built-in C++ bitwise operators of the same name. For     example:      \snippet code/src_corelib_tools_qbitarray.cpp 3      For historical reasons, QBitArray distinguishes between a null     bit array and an empty bit array. A \e null bit array is a bit     array that is initialized using QBitArray's default constructor.     An \e empty bit array is any bit array with size 0. A null bit     array is always empty, but an empty bit array isn't necessarily     null:      \snippet code/src_corelib_tools_qbitarray.cpp 4      All functions except isNull() treat null bit arrays the same as     empty bit arrays; for example, QBitArray() compares equal to     QBitArray(0). We recommend that you always use isEmpty() and     avoid isNull().      \sa QByteArray, QVector */
+end_comment
+begin_comment
 comment|/*! \fn QBitArray::QBitArray()      Constructs an empty bit array.      \sa isEmpty() */
+end_comment
+begin_comment
 comment|/*  * QBitArray construction note:  *  * We overallocate the byte array by 1 byte. The first user bit is at  * d.data()[1]. On the extra first byte, we store the difference between the  * number of bits in the byte array (including this byte) and the number of  * bits in the bit array. Therefore, it's always a number between 8 and 15.  *  * This allows for fast calculation of the bit array size:  *    inline int size() const { return (d.size()<< 3) - *d.constData(); }  *  * Note: for an array of zero size, *d.constData() is the QByteArray implicit NUL.  */
+end_comment
+begin_comment
 comment|/*!     Constructs a bit array containing \a size bits. The bits are     initialized with \a value, which defaults to false (0). */
+end_comment
+begin_constructor
 DECL|function|QBitArray
 name|QBitArray
 operator|::
@@ -44,6 +54,29 @@ parameter_list|,
 name|bool
 name|value
 parameter_list|)
+member_init_list|:
+name|d
+argument_list|(
+name|size
+operator|<=
+literal|0
+condition|?
+literal|0
+else|:
+literal|1
+operator|+
+operator|(
+name|size
+operator|+
+literal|7
+operator|)
+operator|/
+literal|8
+argument_list|,
+name|Qt
+operator|::
+name|Uninitialized
+argument_list|)
 block|{
 name|Q_ASSERT_X
 argument_list|(
@@ -62,31 +95,7 @@ name|size
 operator|<=
 literal|0
 condition|)
-block|{
-name|d
-operator|.
-name|resize
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
 return|return;
-block|}
-name|d
-operator|.
-name|resize
-argument_list|(
-literal|1
-operator|+
-operator|(
-name|size
-operator|+
-literal|7
-operator|)
-operator|/
-literal|8
-argument_list|)
-expr_stmt|;
 name|uchar
 modifier|*
 name|c
@@ -106,6 +115,8 @@ decl_stmt|;
 name|memset
 argument_list|(
 name|c
+operator|+
+literal|1
 argument_list|,
 name|value
 condition|?
@@ -117,6 +128,8 @@ name|d
 operator|.
 name|size
 argument_list|()
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 operator|*
@@ -165,7 +178,7 @@ operator|-
 literal|1
 expr_stmt|;
 block|}
-end_function
+end_constructor
 begin_comment
 comment|/*! \fn int QBitArray::size() const      Returns the number of bits stored in the bit array.      \sa resize() */
 end_comment
