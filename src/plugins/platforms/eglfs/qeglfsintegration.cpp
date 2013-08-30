@@ -842,6 +842,11 @@ block|{
 if|if
 condition|(
 name|window
+operator|&&
+name|window
+operator|->
+name|handle
+argument_list|()
 condition|)
 return|return
 cast|static_cast
