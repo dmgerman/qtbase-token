@@ -7430,6 +7430,11 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_DEBUG
+end_ifndef
 begin_function
 DECL|function|check_and_warn_compat
 specifier|static
@@ -7561,6 +7566,10 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*!     \threadsafe      Creates a connection of the given \a type from the \a signal in     the \a sender object to the \a method in the \a receiver object.     Returns a handle to the connection that can be used to disconnect     it later.      You must use the \c SIGNAL() and \c SLOT() macros when specifying     the \a signal and the \a method, for example:      \snippet code/src_corelib_kernel_qobject.cpp 22      This example ensures that the label always displays the current     scroll bar value. Note that the signal and slots parameters must not     contain any variable names, only the type. E.g. the following would     not work and return false:      \snippet code/src_corelib_kernel_qobject.cpp 23      A signal can also be connected to another signal:      \snippet code/src_corelib_kernel_qobject.cpp 24      In this example, the \c MyWidget constructor relays a signal from     a private member variable, and makes it available under a name     that relates to \c MyWidget.      A signal can be connected to many slots and signals. Many signals     can be connected to one slot.      If a signal is connected to several slots, the slots are activated     in the same order in which the connections were made, when the     signal is emitted.      The function returns a QMetaObject::Connection that represents     a handle to a connection if it successfully     connects the signal to the slot. The connection handle will be invalid     if it cannot create the connection, for example, if QObject is unable     to verify the existence of either \a signal or \a method, or if their     signatures aren't compatible.     You can check if the handle is valid by casting it to a bool.      By default, a signal is emitted for every connection you make;     two signals are emitted for duplicate connections. You can break     all of these connections with a single disconnect() call.     If you pass the Qt::UniqueConnection \a type, the connection will only     be made if it is not a duplicate. If there is already a duplicate     (exact same signal to the exact same slot on the same objects),     the connection will fail and connect will return an invalid QMetaObject::Connection.      The optional \a type parameter describes the type of connection     to establish. In particular, it determines whether a particular     signal is delivered to a slot immediately or queued for delivery     at a later time. If the signal is queued, the parameters must be     of types that are known to Qt's meta-object system, because Qt     needs to copy the arguments to store them in an event behind the     scenes. If you try to use a queued connection and get the error     message      \snippet code/src_corelib_kernel_qobject.cpp 25      call qRegisterMetaType() to register the data type before you     establish the connection.      \sa disconnect(), sender(), qRegisterMetaType(), Q_DECLARE_METATYPE() */
 end_comment

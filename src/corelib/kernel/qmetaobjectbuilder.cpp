@@ -100,6 +100,7 @@ begin_function
 DECL|function|priv
 specifier|static
 specifier|inline
+name|Q_DECL_UNUSED
 specifier|const
 name|QMetaObjectPrivate
 modifier|*
