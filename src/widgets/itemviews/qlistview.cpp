@@ -8816,7 +8816,7 @@ parameter_list|(
 specifier|const
 name|QSize
 modifier|&
-name|step
+comment|/*step*/
 parameter_list|)
 block|{
 name|horizontalScrollBar
