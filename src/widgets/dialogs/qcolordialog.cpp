@@ -8314,6 +8314,9 @@ operator|->
 name|grabMouse
 argument_list|()
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CURSOR
 name|q
 operator|->
 name|setCursor
@@ -8323,6 +8326,8 @@ operator|::
 name|CrossCursor
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|q
 operator|->
 name|grabKeyboard
@@ -8444,6 +8449,9 @@ operator|->
 name|releaseKeyboard
 argument_list|()
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CURSOR
 name|q
 operator|->
 name|setCursor
@@ -8453,6 +8461,8 @@ operator|::
 name|ArrowCursor
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|q
 operator|->
 name|setMouseTracking
