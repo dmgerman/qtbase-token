@@ -243,7 +243,7 @@ name|ignoreMessage
 argument_list|(
 name|QtWarningMsg
 argument_list|,
-literal|"Option names cannot start with a '-'"
+literal|"QCommandLineOption: Option names cannot start with a '-'"
 argument_list|)
 expr_stmt|;
 name|parser

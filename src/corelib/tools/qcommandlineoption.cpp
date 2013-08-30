@@ -302,7 +302,7 @@ argument_list|()
 condition|)
 name|qWarning
 argument_list|(
-literal|"Options must have at least one name"
+literal|"QCommandLineOption: Options must have at least one name"
 argument_list|)
 expr_stmt|;
 foreach|foreach
@@ -324,7 +324,7 @@ argument_list|()
 condition|)
 name|qWarning
 argument_list|(
-literal|"Option names cannot be empty"
+literal|"QCommandLineOption: Option names cannot be empty"
 argument_list|)
 expr_stmt|;
 elseif|else
@@ -342,7 +342,7 @@ argument_list|)
 condition|)
 name|qWarning
 argument_list|(
-literal|"Option names cannot start with a '-'"
+literal|"QCommandLineOption: Option names cannot start with a '-'"
 argument_list|)
 expr_stmt|;
 elseif|else
@@ -360,7 +360,7 @@ argument_list|)
 condition|)
 name|qWarning
 argument_list|(
-literal|"Option names cannot start with a '/'"
+literal|"QCommandLineOption: Option names cannot start with a '/'"
 argument_list|)
 expr_stmt|;
 elseif|else
@@ -378,7 +378,7 @@ argument_list|)
 condition|)
 name|qWarning
 argument_list|(
-literal|"Option names cannot contain a '='"
+literal|"QCommandLineOption: Option names cannot contain a '='"
 argument_list|)
 expr_stmt|;
 else|else
