@@ -9888,14 +9888,7 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|defaultSuffix
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
+comment|// QTBUG-33156, also create empty strings to trigger the appending mechanism.
 name|ofn
 operator|->
 name|lpstrDefExt
