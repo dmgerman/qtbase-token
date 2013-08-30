@@ -327,7 +327,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.2     \class QCommandLineParser     \inmodule QtCore     \ingroup tools      \brief The QCommandLineParser class provides a means for handling the     command line options.      QCoreApplication provides the command-line arguments as a simple list of strings.     QCommandLineParser provides the ability to define a set of options, parse the     command-line arguments, and store which options have actually been used, as     well as option values.      Any argument that isn't an option (i.e. doesn't start with a \c{-}) is stored     as a "positional argument".      The parser handles short names, long names, more than one name for the same     option, and option values.      Options on the command line are recognized as starting with a single or     double \c{-} character(s).     The option \c{-} (single dash alone) is a special case, often meaning standard     input, and not treated as an option. The parser will treat everything after the     option \c{--} (double dash) as positional arguments.      Short options are single letters. The option \c{v} would be specified by     passing \c{-v} on the command line. In the default parsing mode, short options     can be written in a compact form, for instance \c{-abc} is equivalent to \c{-a -b -c}.     The parsing mode for can be set to ParseAsLongOptions, in which case \c{-abc}     will be parsed as the long option \a{abc}.      Long options are more than one letter long and cannot be compacted together.     The long option \c{verbose} would be passed as \c{--verbose} or \c{-verbose}.      Passing values to options can be done using the assignment operator: \c{-v=value}     \c{--verbose=value}, or a space: \c{-v value} \c{--verbose value}, i.e. the next     argument is used as value (even if it starts with a \c{-}).      The parser does not support optional values - if an option is set to     require a value, one must be present. If such an option is placed last     and has no value, the option will be treated as if it had not been     specified.      The parser does not automatically support negating or disabling long options     by using the format \c{--disable-option} or \c{--no-option}. However, it is     possible to handle this case explicitly by making an option with \c{no-option}     as one of its names, and handling the option explicitly.      Example:     \snippet code/src_corelib_tools_qcommandlineparser.cpp 3      Known limitation: the parsing of Qt options inside QCoreApplication and subclasses     happens before QCommandLineParser exists, so it can't take it into account. This     means any option value that looks like a builtin Qt option, will be treated by     QCoreApplication as a builtin Qt option. Example: \c{--profile -reverse} will     lead to QGuiApplication seeing the -reverse option set, and removing it from     QCoreApplication::arguments() before QCommandLineParser defines the \c{profile}     option and parses the command line.      \sa QCommandLineOption, QCoreApplication */
+comment|/*!     \since 5.2     \class QCommandLineParser     \inmodule QtCore     \ingroup tools      \brief The QCommandLineParser class provides a means for handling the     command line options.      QCoreApplication provides the command-line arguments as a simple list of strings.     QCommandLineParser provides the ability to define a set of options, parse the     command-line arguments, and store which options have actually been used, as     well as option values.      Any argument that isn't an option (i.e. doesn't start with a \c{-}) is stored     as a "positional argument".      The parser handles short names, long names, more than one name for the same     option, and option values.      Options on the command line are recognized as starting with a single or     double \c{-} character(s).     The option \c{-} (single dash alone) is a special case, often meaning standard     input, and not treated as an option. The parser will treat everything after the     option \c{--} (double dash) as positional arguments.      Short options are single letters. The option \c{v} would be specified by     passing \c{-v} on the command line. In the default parsing mode, short options     can be written in a compact form, for instance \c{-abc} is equivalent to \c{-a -b -c}.     The parsing mode for can be set to ParseAsLongOptions, in which case \c{-abc}     will be parsed as the long option \c{abc}.      Long options are more than one letter long and cannot be compacted together.     The long option \c{verbose} would be passed as \c{--verbose} or \c{-verbose}.      Passing values to options can be done using the assignment operator: \c{-v=value}     \c{--verbose=value}, or a space: \c{-v value} \c{--verbose value}, i.e. the next     argument is used as value (even if it starts with a \c{-}).      The parser does not support optional values - if an option is set to     require a value, one must be present. If such an option is placed last     and has no value, the option will be treated as if it had not been     specified.      The parser does not automatically support negating or disabling long options     by using the format \c{--disable-option} or \c{--no-option}. However, it is     possible to handle this case explicitly by making an option with \c{no-option}     as one of its names, and handling the option explicitly.      Example:     \snippet code/src_corelib_tools_qcommandlineparser_main.cpp 0      Known limitation: the parsing of Qt options inside QCoreApplication and subclasses     happens before QCommandLineParser exists, so it can't take it into account. This     means any option value that looks like a builtin Qt option, will be treated by     QCoreApplication as a builtin Qt option. Example: \c{--profile -reverse} will     lead to QGuiApplication seeing the -reverse option set, and removing it from     QCoreApplication::arguments() before QCommandLineParser defines the \c{profile}     option and parses the command line.      \sa QCommandLineOption, QCoreApplication */
 end_comment
 begin_comment
 comment|/*!     Constructs a command line parser object. */
@@ -548,7 +548,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Adds the help option (\c{-h}, \c{--help} and \c{-?} on Windows)     This option is handled automatically by QCommandLineParser.      Remember to use setApplicationDescription to set the application description,     which will be displayed when this option is used.      Example:     \code         setApplicationDescription(QCoreApplication::translate("main", "The best application in the world"));         addHelpOption();     \endcode      Returns the option instance, which can be used to call isSet(). */
+comment|/*!     Adds the help option (\c{-h}, \c{--help} and \c{-?} on Windows)     This option is handled automatically by QCommandLineParser.      Remember to use setApplicationDescription to set the application description,     which will be displayed when this option is used.      Example:     \snippet code/src_corelib_tools_qcommandlineparser_main.cpp 0      Returns the option instance, which can be used to call isSet(). */
 end_comment
 begin_function
 DECL|function|addHelpOption
@@ -607,7 +607,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the application \a description shown by helpText().     Most applications don't need to call this directly, addHelpOption()     also sets the application description. */
+comment|/*!     Sets the application \a description shown by helpText(). */
 end_comment
 begin_function
 DECL|function|setApplicationDescription
@@ -631,7 +631,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the application description set in setApplicationDescription()     or addHelpOption(). */
+comment|/*!     Returns the application description set in setApplicationDescription(). */
 end_comment
 begin_function
 DECL|function|applicationDescription
@@ -650,7 +650,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Defines an additional argument to the application, for the benefit of the help text.      The argument \a name and \a description will appear under the \c{Arguments:} section     of the help. If \a syntax is specified, it will be appended to the Usage line, otherwise     the \a name will be appended.      Example:     \snippet code/src_corelib_tools_qcommandlineparser.cpp 1      \sa addHelpOption(), helpText() */
+comment|/*!     Defines an additional argument to the application, for the benefit of the help text.      The argument \a name and \a description will appear under the \c{Arguments:} section     of the help. If \a syntax is specified, it will be appended to the Usage line, otherwise     the \a name will be appended.      Example:     \snippet code/src_corelib_tools_qcommandlineparser.cpp 2      \sa addHelpOption(), helpText() */
 end_comment
 begin_function
 DECL|function|addPositionalArgument
@@ -717,7 +717,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Clears the definitions of additional arguments from the help text.      This is only needed for the special case of tools which support multiple commands     with different options. Once the actual command has been identified, the options     for this command can be defined, and the help text for the command can be adjusted     accordingly.      Example:     \snippet code/src_corelib_tools_qcommandlineparser.cpp 2 */
+comment|/*!     Clears the definitions of additional arguments from the help text.      This is only needed for the special case of tools which support multiple commands     with different options. Once the actual command has been identified, the options     for this command can be defined, and the help text for the command can be adjusted     accordingly.      Example:     \snippet code/src_corelib_tools_qcommandlineparser.cpp 3 */
 end_comment
 begin_function
 DECL|function|clearPositionalArguments
@@ -737,7 +737,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Parses the command line \a arguments.      Most programs don't need to call this, a simple call to process(app) is enough.      parse() is more low-level, and only does the parsing. The application will have to     take care of the error handling, using errorText() if parse() returns false.     This can be useful for instance to show a graphical error message in graphical programs.      Calling parse() instead of process() can also be useful in order to ignore unknown     options temporarily, because more option definitions will be provided later on     (depending on one of the arguments), before calling process().      Don't forget that \a arguments must start with the name of the executable (ignored, though).      Return false in case of a parse error (unknown option or missing value); returns true otherwise.      \sa process() */
+comment|/*!     Parses the command line \a arguments.      Most programs don't need to call this, a simple call to process() is enough.      parse() is more low-level, and only does the parsing. The application will have to     take care of the error handling, using errorText() if parse() returns false.     This can be useful for instance to show a graphical error message in graphical programs.      Calling parse() instead of process() can also be useful in order to ignore unknown     options temporarily, because more option definitions will be provided later on     (depending on one of the arguments), before calling process().      Don't forget that \a arguments must start with the name of the executable (ignored, though).      Returns false in case of a parse error (unknown option or missing value); returns true otherwise.      \sa process() */
 end_comment
 begin_function
 DECL|function|parse
@@ -855,7 +855,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Processes the command line \a arguments.      This means both parsing them, and handling the builtin options,     \c{--version} if addVersionOption was called, \c{--help} if addHelpOption was called,     as well as giving an error on unknown option names.     In each of these three cases, the current process will then stop, using the exit() function.      \sa QCoreApplication::arguments(), parse()  */
+comment|/*!     Processes the command line \a arguments.      In addition to parsing the options (like parse()), this function also handles the builtin     options and handles errors.      The builtin options are \c{--version} if addVersionOption was called and \c{--help} if addHelpOption was called.      When invoking one of these options, or when an error happens (for instance an unknown option was     passed), the current process will then stop, using the exit() function.      \sa QCoreApplication::arguments(), parse()  */
 end_comment
 begin_function
 DECL|function|process
@@ -1297,7 +1297,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal      Parse the list of arguments \a arguments.      Any results from a previous parse operation are removed.     The parser will not look for further options once it encounters the option     \c{--}; this does not include when \c{--} follows an option that requires a value.      Options that were successfully recognized, and their values, are     removed from the input list. If \c m_bRemoveUnknownLongNames is     \c true, unrecognized options are removed and placed into a list of     unknown option names. Anything left over is placed into a list of     leftover arguments.  */
+comment|/*!     \internal      Parse the list of arguments \a args, and fills in     optionNames, optionValuesHash, unknownOptionNames, positionalArguments, and errorText.      Any results from a previous parse operation are removed.      The parser will not look for further options once it encounters the option     \c{--}; this does not include when \c{--} follows an option that requires a value.  */
 end_comment
 begin_function
 DECL|function|parse
@@ -1877,7 +1877,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Checks whether the option \a name was passed to the application.      Returns true if the option \a name was set, false otherwise.      This is the recommended way to check for options with no values.      The name provided can be any long or short name of any option that was     added with \c addOption(). All the options names are treated as being     equivalent. If the name is not recognized or that option was not present,     false is returned.      Example:     \snippet code/src_corelib_tools_qcommandlineparser.cpp 0  */
+comment|/*!     Checks whether the option \a name was passed to the application.      Returns true if the option \a name was set, false otherwise.      The name provided can be any long or short name of any option that was     added with \c addOption(). All the options names are treated as being     equivalent. If the name is not recognized or that option was not present,     false is returned.      Example:     \snippet code/src_corelib_tools_qcommandlineparser.cpp 0  */
 end_comment
 begin_function
 DECL|function|isSet
@@ -1956,7 +1956,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the option value found for the given option name \a optionName, or     an empty string if not found.      The name provided can be any long or short name of any option that was     added with \c addOption(). All the option names are treated as being     equivalent. If the name is not recognized or that option was not present, an     empty string is returned.      For options found by the parser, the last value found for     that option is returned. If the option wasn't specified on the command line,     the default value is returned.      An empty string is returned if the option does not take a value.      \sa values()  */
+comment|/*!     Returns the option value found for the given option name \a optionName, or     an empty string if not found.      The name provided can be any long or short name of any option that was     added with \c addOption(). All the option names are treated as being     equivalent. If the name is not recognized or that option was not present, an     empty string is returned.      For options found by the parser, the last value found for     that option is returned. If the option wasn't specified on the command line,     the default value is returned.      An empty string is returned if the option does not take a value.      \sa values(), QCommandLineOption::setDefaultValue(), QCommandLineOption::setDefaultValues()  */
 end_comment
 begin_function
 DECL|function|value
@@ -2009,7 +2009,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a list of option values found for the given option name \a     optionName, or an empty list if not found.      The name provided can be any long or short name of any option that was     added with \c addOption(). All the options names are treated as being     equivalent. If the name is not recognized or that option was not present, an     empty list is returned.      For options found by the parser, the list will contain an entry for     each time the option was encountered by the parser. If the option wasn't     specified on the command line, the default values are returned.      An empty list is returned if the option does not take a value.      \sa value()  */
+comment|/*!     Returns a list of option values found for the given option name \a     optionName, or an empty list if not found.      The name provided can be any long or short name of any option that was     added with \c addOption(). All the options names are treated as being     equivalent. If the name is not recognized or that option was not present, an     empty list is returned.      For options found by the parser, the list will contain an entry for     each time the option was encountered by the parser. If the option wasn't     specified on the command line, the default values are returned.      An empty list is returned if the option does not take a value.      \sa value(), QCommandLineOption::setDefaultValue(), QCommandLineOption::setDefaultValues()  */
 end_comment
 begin_function
 DECL|function|values
@@ -2110,7 +2110,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload     Returns true if the \a option was set, false otherwise. */
+comment|/*!     \overload     Checks whether the \a option was passed to the application.      Returns true if the \a option was set, false otherwise.      This is the recommended way to check for options with no values.      Example:     \snippet code/src_corelib_tools_qcommandlineparser.cpp 1 */
 end_comment
 begin_function
 DECL|function|isSet
@@ -2141,7 +2141,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload     Returns the option value found for the given \a option, or     an empty string if not found. */
+comment|/*!     \overload     Returns the option value found for the given \a option, or     an empty string if not found.      For options found by the parser, the last value found for     that option is returned. If the option wasn't specified on the command line,     the default value is returned.      An empty string is returned if the option does not take a value.      \sa values(), QCommandLineOption::setDefaultValue(), QCommandLineOption::setDefaultValues() */
 end_comment
 begin_function
 DECL|function|value
@@ -2172,7 +2172,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload     Returns a list of option values found for the given \a option,     or an empty list if not found. */
+comment|/*!     \overload     Returns a list of option values found for the given \a option,     or an empty list if not found.      For options found by the parser, the list will contain an entry for     each time the option was encountered by the parser. If the option wasn't     specified on the command line, the default values are returned.      An empty list is returned if the option does not take a value.      \sa value(), QCommandLineOption::setDefaultValue(), QCommandLineOption::setDefaultValues() */
 end_comment
 begin_function
 DECL|function|values
