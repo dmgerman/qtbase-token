@@ -12497,6 +12497,33 @@ operator|&
 name|mouseEvent
 argument_list|)
 expr_stmt|;
+comment|// Update the original mouse event accepted state.
+specifier|const
+name|bool
+name|isAccepted
+init|=
+name|mouseEvent
+operator|.
+name|isAccepted
+argument_list|()
+decl_stmt|;
+name|event
+operator|->
+name|setAccepted
+argument_list|(
+name|isAccepted
+argument_list|)
+expr_stmt|;
+comment|// Update the last mouse event accepted state.
+name|d
+operator|->
+name|lastMouseEvent
+operator|.
+name|setAccepted
+argument_list|(
+name|isAccepted
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_comment
