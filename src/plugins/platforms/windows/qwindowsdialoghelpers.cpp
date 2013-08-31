@@ -3994,6 +3994,7 @@ name|nativeFileDialog
 argument_list|)
 block|{}
 DECL|function|~QWindowsNativeFileDialogEventHandler
+specifier|virtual
 name|~
 name|QWindowsNativeFileDialogEventHandler
 parameter_list|()
