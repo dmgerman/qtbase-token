@@ -2062,6 +2062,11 @@ name|qreal
 name|documentMargin
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+name|QUrl
+name|baseUrl
+decl_stmt|;
+end_decl_stmt
 begin_function_decl
 name|void
 name|mergeCachedResources

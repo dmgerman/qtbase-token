@@ -38,6 +38,11 @@ include|#
 directive|include
 file|<QtGui/qfont.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qurl.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QTextFormatCollection
@@ -109,12 +114,6 @@ begin_decl_stmt
 DECL|variable|QTextCodec
 name|class
 name|QTextCodec
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|QUrl
-name|class
-name|QUrl
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -310,6 +309,10 @@ argument_list|)
 name|QDOC_PROPERTY
 argument_list|(
 argument|QTextOption defaultTextOption READ defaultTextOption WRITE setDefaultTextOption
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|QUrl baseUrl READ baseUrl WRITE setBaseUrl NOTIFY baseUrlChanged
 argument_list|)
 name|public
 operator|:
@@ -888,6 +891,20 @@ operator|&
 name|option
 argument_list|)
 block|;
+name|QUrl
+name|baseUrl
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setBaseUrl
+argument_list|(
+specifier|const
+name|QUrl
+operator|&
+name|url
+argument_list|)
+block|;
 name|Qt
 operator|::
 name|CursorMoveStyle
@@ -952,6 +969,15 @@ name|void
 name|blockCountChanged
 argument_list|(
 argument|int newBlockCount
+argument_list|)
+block|;
+name|void
+name|baseUrlChanged
+argument_list|(
+specifier|const
+name|QUrl
+operator|&
+name|url
 argument_list|)
 block|;
 name|void
