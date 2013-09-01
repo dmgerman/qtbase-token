@@ -431,10 +431,15 @@ end_endif
 begin_comment
 comment|// Q_OS_WINCE_WM
 end_comment
-begin_else
-else|#
-directive|else
-end_else
+begin_elif
+elif|#
+directive|elif
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
+end_elif
 begin_comment
 comment|//  Q_OS_WINCE
 end_comment
@@ -446,12 +451,25 @@ name|Q_CHECK_PAINTEVENTS
 define|\
 value|if (::SwitchDesktop(::GetThreadDesktop(::GetCurrentThreadId())) == 0) \         QSKIP("desktop is not visible, this test would fail");
 end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_comment
+comment|//  !Q_OS_WINCE&& !Q_OS_WINRT
+end_comment
+begin_define
+DECL|macro|Q_CHECK_PAINTEVENTS
+define|#
+directive|define
+name|Q_CHECK_PAINTEVENTS
+end_define
 begin_endif
 endif|#
 directive|endif
 end_endif
 begin_comment
-comment|//  !Q_OS_WINCE
+comment|// Q_OS_WINRT
 end_comment
 begin_else
 else|#
@@ -1124,6 +1142,12 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 name|void
 name|setGeometry_win
 parameter_list|()
@@ -1354,6 +1378,12 @@ directive|if
 name|defined
 argument_list|(
 name|Q_OS_WIN
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
 argument_list|)
 name|void
 name|gdiPainting
@@ -2494,6 +2524,12 @@ operator|!
 name|defined
 argument_list|(
 name|Q_OS_WINCE
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
 argument_list|)
 name|obj1
 operator|.
@@ -7673,9 +7709,18 @@ argument_list|(
 literal|0.5
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_OS_WIN
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 name|QVERIFY
 argument_list|(
 operator|!
@@ -24440,9 +24485,19 @@ operator|=
 name|QRegion
 argument_list|()
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|Q_OS_WIN
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WIN32
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINCE
+argument_list|)
 name|topLevel
 operator|.
 name|resize
@@ -29985,6 +30040,12 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 end_if
 begin_function
 DECL|function|setGeometry_win
@@ -30124,7 +30185,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// defined (Q_OS_WIN)&& !defined(Q_OS_WINCE)
+comment|// defined (Q_OS_WIN)&& !defined(Q_OS_WINCE)&& !defined(Q_OS_WINRT)
 end_comment
 begin_comment
 comment|// Since X11 WindowManager operation are all async, and we have no way to know if the window
@@ -52309,11 +52370,20 @@ expr_stmt|;
 comment|// Don't crash.
 block|}
 end_function
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_OS_WIN
-end_ifdef
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
+end_if
 begin_class
 DECL|class|GDIWidget
 class|class
@@ -52692,7 +52762,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// Q_OS_WIN
+comment|// Q_OS_WIN&& !Q_OS_WINRT
 end_comment
 begin_function
 DECL|function|reparentStaticWidget

@@ -268,6 +268,9 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
 name|Sleep
 argument_list|(
 name|DWORD
@@ -276,6 +279,20 @@ name|ms
 argument_list|)
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|WaitForSingleObjectEx
+argument_list|(
+name|GetCurrentThread
+argument_list|()
+argument_list|,
+name|ms
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 else|#
 directive|else
 name|struct
@@ -614,6 +631,9 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+ifndef|#
+directive|ifndef
+name|QT_NO_PROCESS
 name|QProcess
 name|git
 decl_stmt|;
@@ -866,6 +886,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+endif|#
+directive|endif
+comment|// !QT_NO_PROCESS
 return|return
 name|pi
 return|;

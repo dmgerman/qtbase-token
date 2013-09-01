@@ -74,6 +74,24 @@ name|X
 parameter_list|)
 value|Sleep(X)
 end_define
+begin_elif
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
+end_elif
+begin_define
+DECL|macro|sleep
+define|#
+directive|define
+name|sleep
+parameter_list|(
+name|X
+parameter_list|)
+value|WaitForSingleObjectEx(GetCurrentThread(), X, FALSE);
+end_define
 begin_endif
 endif|#
 directive|endif

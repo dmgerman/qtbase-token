@@ -118,6 +118,12 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 end_if
 begin_include
 include|#
@@ -474,6 +480,12 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 name|void
 name|ntfsJunctionPointsAndSymlinks_data
 parameter_list|()
@@ -529,6 +541,12 @@ operator|!
 name|defined
 argument_list|(
 name|Q_OS_WINCE
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
 argument_list|)
 name|void
 name|owner
@@ -6328,9 +6346,18 @@ directive|endif
 comment|//In Vista the last-access timestamp is not updated when the file is accessed/touched (by default).
 comment|//To enable this the HKLM\SYSTEM\CurrentControlSet\Control\FileSystem\NtfsDisableLastAccessUpdate
 comment|//is set to 0, in the test machine.
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_OS_WIN
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 name|HKEY
 name|key
 decl_stmt|;
@@ -6504,7 +6531,7 @@ operator|::
 name|fileTimes_oldFile
 parameter_list|()
 block|{
-comment|// This is not supported on WinCE
+comment|// This is not supported on WinCE or WinRT
 if|#
 directive|if
 name|defined
@@ -6516,6 +6543,12 @@ operator|!
 name|defined
 argument_list|(
 name|Q_OS_WINCE
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
 argument_list|)
 comment|// All files are opened in share mode (both read and write).
 name|DWORD
@@ -8020,6 +8053,12 @@ operator|!
 name|defined
 argument_list|(
 name|Q_OS_WINCE
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
 argument_list|)
 end_if
 begin_function
@@ -10224,6 +10263,12 @@ operator|!
 name|defined
 argument_list|(
 name|Q_OS_WINCE
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
 argument_list|)
 end_if
 begin_if
