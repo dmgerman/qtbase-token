@@ -1054,6 +1054,12 @@ operator|!
 name|platformTheme
 condition|)
 return|return;
+name|qt_app_palettes_hash
+argument_list|()
+operator|->
+name|clear
+argument_list|()
+expr_stmt|;
 name|setPossiblePalette
 argument_list|(
 name|platformTheme
@@ -1297,6 +1303,11 @@ init|=
 name|qt_app_fonts_hash
 argument_list|()
 decl_stmt|;
+name|fontHash
+operator|->
+name|clear
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 specifier|const
