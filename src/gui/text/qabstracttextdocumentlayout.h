@@ -225,6 +225,15 @@ argument_list|,
 argument|QObject *component
 argument_list|)
 block|;
+name|void
+name|unregisterHandler
+argument_list|(
+argument|int objectType
+argument_list|,
+argument|QObject *component =
+literal|0
+argument_list|)
+block|;
 name|QTextObjectInterface
 operator|*
 name|handlerForObject
