@@ -908,7 +908,7 @@ name|contentsChange
 argument_list|(
 argument|int from
 argument_list|,
-argument|int charsRemoves
+argument|int charsRemoved
 argument_list|,
 argument|int charsAdded
 argument_list|)
