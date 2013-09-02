@@ -82,6 +82,11 @@ include|#
 directive|include
 file|<qpa/qplatformservices.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 DECL|function|ResourceHelper
@@ -90,7 +95,9 @@ operator|::
 name|ResourceHelper
 parameter_list|()
 block|{
-name|qFill
+name|std
+operator|::
+name|fill
 argument_list|(
 name|palettes
 argument_list|,
@@ -110,7 +117,9 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|qFill
+name|std
+operator|::
+name|fill
 argument_list|(
 name|fonts
 argument_list|,
@@ -162,7 +171,9 @@ operator|::
 name|NFonts
 argument_list|)
 expr_stmt|;
-name|qFill
+name|std
+operator|::
+name|fill
 argument_list|(
 name|palettes
 argument_list|,
@@ -182,7 +193,9 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|qFill
+name|std
+operator|::
+name|fill
 argument_list|(
 name|fonts
 argument_list|,
