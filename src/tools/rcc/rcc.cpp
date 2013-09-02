@@ -57,6 +57,11 @@ include|#
 directive|include
 file|<qxmlstream.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_comment
 comment|// Note: A copy of this file is used in Qt Designer (qttools/src/designer/src/lib/shared/rcc.cpp)
 end_comment
@@ -4871,7 +4876,9 @@ operator|.
 name|values
 argument_list|()
 decl_stmt|;
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|m_children
 operator|.
@@ -4987,7 +4994,9 @@ operator|.
 name|values
 argument_list|()
 decl_stmt|;
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|m_children
 operator|.
