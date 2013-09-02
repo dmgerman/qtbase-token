@@ -21,6 +21,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qsharedpointer.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<jni.h>
 end_include
 begin_expr_stmt
@@ -40,11 +45,11 @@ comment|/**  * Allows to wrap any Java class and partially hide some of the jni 
 end_comment
 begin_decl_stmt
 name|class
-name|QJNIObject
+name|QJNIObjectPrivate
 block|{
 name|public
 label|:
-name|QJNIObject
+name|QJNIObjectPrivate
 argument_list|(
 specifier|const
 name|char
@@ -52,6 +57,82 @@ operator|*
 name|className
 argument_list|)
 expr_stmt|;
+name|QJNIObjectPrivate
+argument_list|(
+argument|const char *className
+argument_list|,
+argument|const char *sig
+argument_list|,
+argument|va_list args
+argument_list|)
+empty_stmt|;
+name|QJNIObjectPrivate
+argument_list|(
+argument|jclass clazz
+argument_list|)
+empty_stmt|;
+name|QJNIObjectPrivate
+argument_list|(
+argument|jclass clazz
+argument_list|,
+argument|const char *sig
+argument_list|,
+argument|va_list args
+argument_list|)
+empty_stmt|;
+name|QJNIObjectPrivate
+argument_list|(
+argument|jobject obj
+argument_list|)
+empty_stmt|;
+operator|~
+name|QJNIObjectPrivate
+argument_list|()
+expr_stmt|;
+name|private
+label|:
+name|Q_DISABLE_COPY
+argument_list|(
+argument|QJNIObjectPrivate
+argument_list|)
+name|friend
+name|class
+name|QJNIObject
+decl_stmt|;
+name|jobject
+name|m_jobject
+decl_stmt|;
+name|jclass
+name|m_jclass
+decl_stmt|;
+name|bool
+name|m_own_jclass
+decl_stmt|;
+block|}
+end_decl_stmt
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
+begin_decl_stmt
+name|class
+name|QJNIObject
+block|{
+name|public
+label|:
+name|explicit
+name|QJNIObject
+argument_list|(
+specifier|const
+name|char
+operator|*
+name|className
+argument_list|)
+operator|:
+name|d
+argument_list|(
+argument|new QJNIObjectPrivate(className)
+argument_list|)
+block|{ }
 name|QJNIObject
 argument_list|(
 specifier|const
@@ -67,11 +148,17 @@ argument_list|,
 operator|...
 argument_list|)
 expr_stmt|;
+name|explicit
 name|QJNIObject
 argument_list|(
 argument|jclass clazz
 argument_list|)
-empty_stmt|;
+block|:
+name|d
+argument_list|(
+argument|new QJNIObjectPrivate(clazz)
+argument_list|)
+block|{ }
 name|QJNIObject
 argument_list|(
 argument|jclass clazz
@@ -81,32 +168,40 @@ argument_list|,
 argument|...
 argument_list|)
 empty_stmt|;
+name|explicit
 name|QJNIObject
 argument_list|(
 argument|jobject obj
 argument_list|)
-empty_stmt|;
+block|:
+name|d
+argument_list|(
+argument|new QJNIObjectPrivate(obj)
+argument_list|)
+block|{ }
 name|virtual
 operator|~
 name|QJNIObject
 argument_list|()
-expr_stmt|;
+block|{ }
 specifier|static
 name|bool
 name|isClassAvailable
-parameter_list|(
+argument_list|(
 specifier|const
 name|char
-modifier|*
+operator|*
 name|className
-parameter_list|)
-function_decl|;
+argument_list|)
+expr_stmt|;
 name|bool
 name|isValid
 argument_list|()
 specifier|const
 block|{
 return|return
+name|d
+operator|->
 name|m_jobject
 operator|!=
 literal|0
@@ -118,6 +213,8 @@ argument_list|()
 specifier|const
 block|{
 return|return
+name|d
+operator|->
 name|m_jobject
 return|;
 block|}
@@ -656,17 +753,14 @@ argument_list|,
 argument|T value
 argument_list|)
 expr_stmt|;
-name|protected
+name|private
 label|:
-name|jobject
-name|m_jobject
-decl_stmt|;
-name|jclass
-name|m_jclass
-decl_stmt|;
-name|bool
-name|m_own_jclass
-decl_stmt|;
+name|QSharedPointer
+operator|<
+name|QJNIObjectPrivate
+operator|>
+name|d
+expr_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt

@@ -3024,7 +3024,7 @@ operator|)
 condition|)
 name|that
 operator|->
-name|error
+name|warning
 argument_list|(
 literal|"Macro argument mismatch."
 argument_list|)
@@ -3132,6 +3132,13 @@ condition|(
 name|index
 operator|>=
 literal|0
+operator|&&
+name|index
+operator|<
+name|arguments
+operator|.
+name|size
+argument_list|()
 condition|)
 block|{
 comment|// each argument undoergoes macro expansion if it's not used as part of a # or ##

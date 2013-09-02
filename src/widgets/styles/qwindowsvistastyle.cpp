@@ -12839,6 +12839,17 @@ name|size
 operator|.
 name|cy
 decl_stmt|;
+if|if
+condition|(
+name|QSysInfo
+operator|::
+name|WindowsVersion
+operator|<
+name|QSysInfo
+operator|::
+name|WV_WINDOWS8
+condition|)
+block|{
 name|QRect
 name|gripperBounds
 decl_stmt|;
@@ -13069,6 +13080,7 @@ operator|->
 name|restore
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

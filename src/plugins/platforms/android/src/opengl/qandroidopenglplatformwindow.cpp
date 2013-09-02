@@ -140,11 +140,6 @@ operator|::
 name|flushWindowSystemEvents
 argument_list|()
 expr_stmt|;
-name|QEglFSWindow
-operator|::
-name|invalidateSurface
-argument_list|()
-expr_stmt|;
 name|m_window
 operator|=
 literal|0
