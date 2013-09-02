@@ -302,6 +302,16 @@ argument_list|()
 block|;
 endif|#
 directive|endif
+ifdef|#
+directive|ifdef
+name|Q_OS_OSX
+name|NSMenu
+operator|*
+name|toNSMenu
+argument_list|()
+block|;
+endif|#
+directive|endif
 name|bool
 name|isNativeMenuBar
 argument_list|()
