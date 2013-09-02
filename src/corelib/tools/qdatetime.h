@@ -1281,6 +1281,11 @@ name|timeZoneAbbreviation
 argument_list|()
 specifier|const
 expr_stmt|;
+name|bool
+name|isDaylightTime
+argument_list|()
+specifier|const
+expr_stmt|;
 name|qint64
 name|toMSecsSinceEpoch
 argument_list|()
