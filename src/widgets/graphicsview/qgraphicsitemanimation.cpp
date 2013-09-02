@@ -45,6 +45,11 @@ include|#
 directive|include
 file|<QtGui/qmatrix.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
@@ -630,7 +635,9 @@ name|binList
 operator|<<
 name|pair
 expr_stmt|;
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|binList
 operator|->

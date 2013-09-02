@@ -7996,7 +7996,9 @@ name|newFiles
 init|=
 name|files
 decl_stmt|;
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|newFiles
 operator|.
@@ -9149,7 +9151,9 @@ block|}
 block|}
 block|}
 comment|// bundle up all of the changed signals into as few as possible.
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|rowsToUpdate
 operator|.

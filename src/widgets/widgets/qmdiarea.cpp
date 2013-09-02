@@ -120,6 +120,11 @@ include|#
 directive|include
 file|<private/qlayoutengine_p.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
@@ -2106,7 +2111,9 @@ operator|.
 name|values
 argument_list|()
 decl_stmt|;
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|xlist
 operator|.
@@ -2130,7 +2137,9 @@ operator|.
 name|values
 argument_list|()
 decl_stmt|;
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|ylist
 operator|.
