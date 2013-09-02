@@ -43,6 +43,11 @@ include|#
 directive|include
 file|<stdlib.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_expr_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|T
@@ -2734,7 +2739,9 @@ operator|::
 name|isComplex
 condition|)
 block|{
-name|qCopy
+name|std
+operator|::
+name|copy
 argument_list|(
 name|ptr
 operator|+
