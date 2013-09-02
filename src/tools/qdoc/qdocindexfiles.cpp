@@ -52,6 +52,11 @@ include|#
 directive|include
 file|<qdebug.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 comment|/*!   \class QDocIndexFiles    This class handles qdoc index files.  */
@@ -7071,7 +7076,9 @@ operator|->
 name|childNodes
 argument_list|()
 decl_stmt|;
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|cnodes
 operator|.

@@ -121,6 +121,11 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_expr_stmt
 name|QT_BEGIN_NAMESPACE
 comment|/*   The default indent for code is 4.   The default value for false is 0.   The default supported file extensions are cpp, h, qdoc and qml.   The default language is c++.   The default output format is html.   The default tab size is 8.   And those are all the default values for configuration variables.  */
@@ -852,7 +857,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|foundIndices
 operator|.
