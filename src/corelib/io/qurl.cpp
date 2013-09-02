@@ -10128,6 +10128,18 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*! \fn QUrl QUrl::fromCFURL(CFURLRef url)     \since 5.2      Constructs a QUrl containing a copy of the CFURL \a url. */
+end_comment
+begin_comment
+comment|/*! \fn CFURLRef QUrl::toCFURL() const     \since 5.2      Creates a CFURL from a QUrl. The caller owns the CFURL and is     responsible for releasing it. */
+end_comment
+begin_comment
+comment|/*!     \fn QUrl QUrl::fromNSURL(const NSURL *url)     \since 5.2      Constructs a QUrl containing a copy of the NSURL \a url. */
+end_comment
+begin_comment
+comment|/*!     \fn NSURL* QUrl::toNSURL() const     \since 5.2      Creates a NSURL from a QUrl. The NSURL is autoreleased. */
+end_comment
+begin_comment
 comment|/*!     \internal     \since 5.0     Used in the setEncodedXXX compatibility functions. Converts \a ba to     QString form. */
 end_comment
 begin_function

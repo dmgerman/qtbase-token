@@ -3609,6 +3609,15 @@ end_comment
 begin_comment
 comment|/*!     \macro Q_DECL_FINAL     \since 5.0     \relates<QtGlobal>      This macro can be used to declare an overriding virtual or a class     as "final", with Java semantics. Further-derived classes can then     no longer override this virtual function, or inherit from this     class, respectively.      It expands to "final" if your compiler supports that C++11     contextual keyword, or something non-standard if your compiler     supports something close enough to the C++11 semantics, or to     nothing otherwise.      The macro goes at the end of the function, usually after the     \c{const}, if any:     \code     // more-derived classes no longer permitted to override this:     virtual void MyWidget::paintEvent(QPaintEvent*) Q_DECL_FINAL;     \endcode      For classes, it goes in front of the \c{:} in the class     definition, if any:     \code     class QRect Q_DECL_FINAL { // cannot be derived from         // ...     };     \endcode      \sa Q_DECL_OVERRIDE */
 end_comment
+begin_comment
+comment|/*!     \macro Q_FORWARD_DECLARE_OBJC_CLASS(classname)     \since 5.2     \relates<QtGlobal>      Forward-declares an Objective-C \a classname in a manner such that it can be     compiled as either Objective-C or C++.      This is primarily intended for use in header files that may be included by     both Objective-C and C++ source files. */
+end_comment
+begin_comment
+comment|/*!     \macro Q_FORWARD_DECLARE_CF_TYPE(type)     \since 5.2     \relates<QtGlobal>      Forward-declares a Core Foundation \a type. This includes the actual     type and the ref type. For example, Q_FORWARD_DECLARE_CF_TYPE(CFString)     declares __CFString and CFStringRef. */
+end_comment
+begin_comment
+comment|/*!     \macro Q_FORWARD_DECLARE_MUTABLE_CF_TYPE(type)     \since 5.2     \relates<QtGlobal>      Forward-declares a mutable Core Foundation \a type. This includes the actual     type and the ref type. For example, Q_FORWARD_DECLARE_CF_TYPE(CFString)     declares __CFMutableString and CFMutableStringRef. */
+end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
