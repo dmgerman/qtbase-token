@@ -5009,6 +5009,11 @@ comment|// a second time
 comment|// sync dtor blocks waiting for finished
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_PROCESS
+end_ifndef
 begin_function
 DECL|function|runUpdateMimeDatabase
 specifier|static
@@ -5202,6 +5207,13 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !QT_NO_PROCESS
+end_comment
 begin_function
 DECL|function|checkHasMimeType
 specifier|static
@@ -5292,6 +5304,16 @@ operator|::
 name|installNewGlobalMimeType
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_PROCESS
+name|QSKIP
+argument_list|(
+literal|"This test requires QProcess support"
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|qmime_secondsBetweenChecks
 operator|=
 literal|0
@@ -5615,6 +5637,9 @@ name|isValid
 argument_list|()
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|// !QT_NO_PROCESS
 block|}
 end_function
 begin_function
@@ -5625,6 +5650,16 @@ operator|::
 name|installNewLocalMimeType
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_PROCESS
+name|QSKIP
+argument_list|(
+literal|"This test requires QProcess support"
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|qmime_secondsBetweenChecks
 operator|=
 literal|0
@@ -6016,6 +6051,8 @@ name|isValid
 argument_list|()
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_macro

@@ -11759,6 +11759,16 @@ operator|::
 name|suddenRemoteDisconnect
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_PROCESS
+name|QSKIP
+argument_list|(
+literal|"This test requires QProcess support"
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|QFETCH
 argument_list|(
 name|QString
@@ -12182,6 +12192,9 @@ argument_list|,
 literal|"SUCCESS\n"
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|// !QT_NO_PROCESS
 block|}
 end_function
 begin_comment

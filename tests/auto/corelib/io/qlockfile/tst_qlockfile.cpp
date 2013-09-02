@@ -150,6 +150,7 @@ literal|"qlockfiletesthelper/qlockfile_test_helper"
 expr_stmt|;
 endif|#
 directive|endif
+comment|// !QT_NO_PROCESS
 block|}
 end_function
 begin_function
@@ -388,6 +389,16 @@ operator|::
 name|lockOutOtherProcess
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_PROCESS
+name|QSKIP
+argument_list|(
+literal|"This test requires QProcess support"
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 comment|// Lock
 specifier|const
 name|QString
@@ -526,6 +537,9 @@ name|fileName
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|// !QT_NO_PROCESS
 block|}
 end_function
 begin_function
@@ -1122,6 +1136,16 @@ operator|::
 name|staleLockFromCrashedProcess
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_PROCESS
+name|QSKIP
+argument_list|(
+literal|"This test requires QProcess support"
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|QFETCH
 argument_list|(
 name|int
@@ -1237,6 +1261,9 @@ name|NoError
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|// !QT_NO_PROCESS
 block|}
 end_function
 begin_function
@@ -1247,6 +1274,16 @@ operator|::
 name|staleShortLockFromBusyProcess
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_PROCESS
+name|QSKIP
+argument_list|(
+literal|"This test requires QProcess support"
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 specifier|const
 name|QString
 name|fileName
@@ -1414,6 +1451,9 @@ name|tryLock
 argument_list|()
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|// !QT_NO_PROCESS
 block|}
 end_function
 begin_function
@@ -1424,6 +1464,16 @@ operator|::
 name|staleLongLockFromBusyProcess
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_PROCESS
+name|QSKIP
+argument_list|(
+literal|"This test requires QProcess support"
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 specifier|const
 name|QString
 name|fileName
@@ -1561,6 +1611,9 @@ operator|.
 name|waitForFinished
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
+comment|// !QT_NO_PROCESS
 block|}
 end_function
 begin_function
@@ -1711,6 +1764,16 @@ operator|::
 name|staleLockRace
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_PROCESS
+name|QSKIP
+argument_list|(
+literal|"This test requires QProcess support"
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 comment|// Multiple threads notice a stale lock at the same time
 comment|// Only one thread should delete it, otherwise a race will ensue
 specifier|const
@@ -1857,6 +1920,9 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|// !QT_NO_PROCESS
 block|}
 end_function
 begin_function

@@ -3142,6 +3142,16 @@ parameter_list|()
 block|{
 ifdef|#
 directive|ifdef
+name|QT_NO_PROCESS
+name|QSKIP
+argument_list|(
+literal|"This test requires QProcess support"
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
+ifdef|#
+directive|ifdef
 name|Q_OS_WINCE
 name|QSKIP
 argument_list|(
@@ -3235,6 +3245,9 @@ literal|"qcommandlineparser_test_helper 1.0\n"
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|// !QT_NO_PROCESS
 block|}
 end_function
 begin_function
@@ -3345,6 +3358,16 @@ operator|::
 name|testHelpOption
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_PROCESS
+name|QSKIP
+argument_list|(
+literal|"This test requires QProcess support"
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 ifdef|#
 directive|ifdef
 name|Q_OS_WINCE
@@ -3575,6 +3598,9 @@ name|expectedResizeHelp
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|// !QT_NO_PROCESS
 block|}
 end_function
 begin_macro

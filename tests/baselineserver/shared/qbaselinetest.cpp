@@ -479,6 +479,16 @@ name|void
 name|fetchCustomClientProperties
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_PROCESS
+name|QSKIP
+argument_list|(
+literal|"This test requires QProcess support"
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|QString
 name|script
 init|=
@@ -688,6 +698,9 @@ operator|<<
 name|line
 expr_stmt|;
 block|}
+endif|#
+directive|endif
+comment|// !QT_NO_PROCESS
 block|}
 DECL|function|connect
 name|bool

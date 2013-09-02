@@ -185,6 +185,9 @@ DECL|namespace|QTest
 namespace|namespace
 name|QTest
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_PROCESS
 DECL|class|QExternalProcess
 class|class
 name|QExternalProcess
@@ -255,6 +258,9 @@ endif|#
 directive|endif
 block|}
 class|;
+endif|#
+directive|endif
+comment|// !QT_NO_PROCESS
 DECL|class|QExternalTestPrivate
 class|class
 name|QExternalTestPrivate
@@ -2012,6 +2018,9 @@ operator|::
 name|runQmake
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_PROCESS
 if|if
 condition|(
 name|temporaryDirPath
@@ -2207,6 +2216,15 @@ name|exitCode
 operator|==
 literal|0
 return|;
+else|#
+directive|else
+comment|// QT_NO_PROCESS
+return|return
+literal|false
+return|;
+endif|#
+directive|endif
+comment|// QT_NO_PROCESS
 block|}
 DECL|function|runMake
 name|bool
@@ -2218,6 +2236,14 @@ name|Target
 name|target
 parameter_list|)
 block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_PROCESS
+return|return
+literal|false
+return|;
+else|#
+directive|else
 if|if
 condition|(
 name|temporaryDirPath
@@ -2510,6 +2536,9 @@ expr_stmt|;
 return|return
 name|ok
 return|;
+endif|#
+directive|endif
+comment|// !QT_NO_PROCESS
 block|}
 DECL|function|commonSetup
 name|bool

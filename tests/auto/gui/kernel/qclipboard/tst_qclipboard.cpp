@@ -872,6 +872,9 @@ modifier|*
 name|errorMessage
 parameter_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_PROCESS
 name|QProcess
 name|process
 decl_stmt|;
@@ -1076,6 +1079,27 @@ block|}
 return|return
 literal|true
 return|;
+else|#
+directive|else
+comment|// QT_NO_PROCESS
+name|Q_UNUSED
+argument_list|(
+argument|program
+argument_list|)
+name|Q_UNUSED
+argument_list|(
+argument|arguments
+argument_list|)
+name|Q_UNUSED
+argument_list|(
+argument|errorMessage
+argument_list|)
+return|return
+literal|false
+return|;
+endif|#
+directive|endif
+comment|// QT_NO_PROCESS
 block|}
 end_function
 begin_comment
