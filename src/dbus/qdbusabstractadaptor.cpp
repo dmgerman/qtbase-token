@@ -925,9 +925,19 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// sort the adaptor list
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|adaptors
+operator|.
+name|begin
+argument_list|()
+argument_list|,
+name|adaptors
+operator|.
+name|end
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
