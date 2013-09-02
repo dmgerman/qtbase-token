@@ -72,6 +72,11 @@ include|#
 directive|include
 file|<qpa/qplatformintegration.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_comment
 comment|// FIXME This workaround can be removed for xcb-icccm> 3.8
 end_comment
@@ -3988,7 +3993,9 @@ if|if
 condition|(
 name|statesEnd
 operator|!=
-name|qFind
+name|std
+operator|::
+name|find
 argument_list|(
 name|states
 argument_list|,
@@ -4010,7 +4017,9 @@ if|if
 condition|(
 name|statesEnd
 operator|!=
-name|qFind
+name|std
+operator|::
+name|find
 argument_list|(
 name|states
 argument_list|,
@@ -4032,7 +4041,9 @@ if|if
 condition|(
 name|statesEnd
 operator|!=
-name|qFind
+name|std
+operator|::
+name|find
 argument_list|(
 name|states
 argument_list|,
@@ -4054,7 +4065,9 @@ if|if
 condition|(
 name|statesEnd
 operator|!=
-name|qFind
+name|std
+operator|::
+name|find
 argument_list|(
 name|states
 argument_list|,
@@ -4076,7 +4089,9 @@ if|if
 condition|(
 name|statesEnd
 operator|!=
-name|qFind
+name|std
+operator|::
+name|find
 argument_list|(
 name|states
 argument_list|,
@@ -4098,7 +4113,9 @@ if|if
 condition|(
 name|statesEnd
 operator|!=
-name|qFind
+name|std
+operator|::
+name|find
 argument_list|(
 name|states
 argument_list|,
@@ -4120,7 +4137,9 @@ if|if
 condition|(
 name|statesEnd
 operator|!=
-name|qFind
+name|std
+operator|::
+name|find
 argument_list|(
 name|states
 argument_list|,
@@ -4142,7 +4161,9 @@ if|if
 condition|(
 name|statesEnd
 operator|!=
-name|qFind
+name|std
+operator|::
+name|find
 argument_list|(
 name|states
 argument_list|,

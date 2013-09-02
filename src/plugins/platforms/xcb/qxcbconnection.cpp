@@ -65,11 +65,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtAlgorithms>
-end_include
-begin_include
-include|#
-directive|include
 file|<QSocketNotifier>
 end_include
 begin_include
@@ -86,6 +81,11 @@ begin_include
 include|#
 directive|include
 file|<QByteArray>
+end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
 end_include
 begin_include
 include|#
@@ -5855,7 +5855,9 @@ operator|::
 name|Atom
 argument_list|>
 argument_list|(
-name|qFind
+name|std
+operator|::
+name|find
 argument_list|(
 name|m_allAtoms
 argument_list|,
