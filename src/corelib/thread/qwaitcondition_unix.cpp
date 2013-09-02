@@ -493,7 +493,7 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|// many vendors warn of spurios wakeups from
+comment|// many vendors warn of spurious wakeups from
 comment|// pthread_cond_wait(), especially after signal delivery,
 comment|// even though POSIX doesn't allow for it... sigh
 continue|continue;
