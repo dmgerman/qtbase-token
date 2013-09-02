@@ -145,6 +145,10 @@ name|SourceEvaluator
 operator|=
 literal|0x10
 block|,
+name|CumulativeEvalMessage
+operator|=
+literal|0x1000
+block|,
 name|EvalWarnLanguage
 operator|=
 name|SourceEvaluator
@@ -173,10 +177,9 @@ name|virtual
 name|void
 name|fileMessage
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|msg
+argument|int type
+argument_list|,
+argument|const QString&msg
 argument_list|)
 operator|=
 literal|0

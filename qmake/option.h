@@ -175,10 +175,9 @@ block|;
 name|void
 name|fileMessage
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|msg
+argument|int type
+argument_list|,
+argument|const QString&msg
 argument_list|)
 block|;
 name|void

@@ -221,9 +221,15 @@ name|virtual
 name|void
 name|fileMessage
 argument_list|(
+argument|int type
+argument_list|,
 argument|const QString&msg
 argument_list|)
 block|{
+name|Q_UNUSED
+argument_list|(
+argument|type
+argument_list|)
 name|doPrint
 argument_list|(
 name|msg
