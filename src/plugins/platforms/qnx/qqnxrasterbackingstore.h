@@ -25,9 +25,9 @@ file|<screen/screen.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-DECL|variable|QQnxWindow
+DECL|variable|QQnxRasterWindow
 name|class
-name|QQnxWindow
+name|QQnxRasterWindow
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -151,7 +151,7 @@ name|int
 name|dy
 block|;     }
 block|;
-name|QQnxWindow
+name|QQnxRasterWindow
 operator|*
 name|platformWindow
 argument_list|()
