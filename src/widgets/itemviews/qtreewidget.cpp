@@ -2515,7 +2515,9 @@ operator|&
 name|itemGreaterThan
 operator|)
 decl_stmt|;
-name|qStableSort
+name|std
+operator|::
+name|stable_sort
 argument_list|(
 name|sorting
 operator|.
@@ -3906,7 +3908,9 @@ operator|&
 name|itemGreaterThan
 operator|)
 decl_stmt|;
-name|qStableSort
+name|std
+operator|::
+name|stable_sort
 argument_list|(
 name|sorting
 operator|.

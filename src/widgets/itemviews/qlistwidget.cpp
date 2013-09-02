@@ -1751,7 +1751,9 @@ operator|&
 name|itemGreaterThan
 operator|)
 decl_stmt|;
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|sorting
 operator|.
@@ -1989,7 +1991,9 @@ operator|&
 name|itemGreaterThan
 operator|)
 decl_stmt|;
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|sorting
 operator|.
@@ -6561,9 +6565,19 @@ name|topIndex
 argument_list|)
 condition|)
 return|return;
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|persIndexes
+operator|.
+name|begin
+argument_list|()
+argument_list|,
+name|persIndexes
+operator|.
+name|end
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// The dropped items will remain in the same visual order.

@@ -101,6 +101,11 @@ include|#
 directive|include
 file|<private/qheaderview_p.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
@@ -20076,7 +20081,9 @@ expr_stmt|;
 block|}
 block|}
 comment|//let's sort the list
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|logicalIndexes
 operator|.
