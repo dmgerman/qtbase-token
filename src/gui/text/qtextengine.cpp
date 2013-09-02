@@ -16763,7 +16763,9 @@ name|addFormatSortedByEnd
 init|=
 name|addFormatSortedByStart
 decl_stmt|;
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|addFormatSortedByStart
 operator|.
@@ -16783,7 +16785,9 @@ name|addFormats
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|addFormatSortedByEnd
 operator|.

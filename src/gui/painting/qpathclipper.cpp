@@ -27,6 +27,11 @@ include|#
 directive|include
 file|<qmath.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_comment
 comment|/**   The algorithm is as follows:    1. Find all intersections between the two paths (including self-intersections),      and build a winged edge structure of non-intersecting parts.   2. While there are more unhandled edges:     3. Pick a y-coordinate from an unhandled edge.     4. Intersect the horizontal line at y-coordinate with all edges.     5. Traverse intersections left to right deciding whether each subpath should be added or not.     6. If the subpath should be added, traverse the winged-edge structure and add the edges to        a separate winged edge structure.     7. Mark all edges in subpaths crossing the horizontal line as handled.  8. (Optional) Simplify the resulting winged edge structure by merging shared edges.  9. Convert the resulting winged edge structure to a painter path.  */
 end_comment
@@ -4665,7 +4670,9 @@ literal|0
 expr_stmt|;
 block|}
 block|}
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|intersections
 operator|.
@@ -9740,7 +9747,9 @@ argument_list|)
 operator|->
 name|y
 expr_stmt|;
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|y_coords
 operator|.
@@ -10899,7 +10908,9 @@ name|isEmpty
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|crossings
 operator|.

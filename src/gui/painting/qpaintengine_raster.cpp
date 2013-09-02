@@ -129,6 +129,11 @@ include|#
 directive|include
 file|<limits.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -10086,7 +10091,9 @@ name|points
 operator|+
 name|i
 expr_stmt|;
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|sorted
 operator|.

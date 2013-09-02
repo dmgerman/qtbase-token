@@ -37,6 +37,11 @@ include|#
 directive|include
 file|<QtGui/QColor>
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 comment|/*!     \class QPlatformDialogHelper     \since 5.0     \internal     \ingroup qpa      \brief The QPlatformDialogHelper class allows for platform-specific customization of dialogs.  */
@@ -548,7 +553,9 @@ operator|/
 literal|2
 argument_list|)
 expr_stmt|;
-name|qFill
+name|std
+operator|::
+name|fill
 argument_list|(
 name|customRgb
 argument_list|,

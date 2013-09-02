@@ -47,6 +47,11 @@ include|#
 directive|include
 file|<private/qharfbuzz_p.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 DECL|function|qtransform_equals_no_translate
@@ -6372,9 +6377,19 @@ block|}
 block|}
 name|end
 label|:
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|kerning_pairs
+operator|.
+name|begin
+argument_list|()
+argument_list|,
+name|kerning_pairs
+operator|.
+name|end
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|//    for (int i = 0; i< kerning_pairs.count(); ++i)

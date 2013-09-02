@@ -67,6 +67,11 @@ include|#
 directive|include
 file|<qdebug.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
@@ -1086,7 +1091,9 @@ block|{
 name|QStandardItemModelLessThan
 name|lt
 decl_stmt|;
-name|qStableSort
+name|std
+operator|::
+name|stable_sort
 argument_list|(
 name|sortable
 operator|.
@@ -1107,7 +1114,9 @@ block|{
 name|QStandardItemModelGreaterThan
 name|gt
 decl_stmt|;
-name|qStableSort
+name|std
+operator|::
+name|stable_sort
 argument_list|(
 name|sortable
 operator|.

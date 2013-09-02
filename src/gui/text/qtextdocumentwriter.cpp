@@ -57,6 +57,11 @@ include|#
 directive|include
 file|"qtextodfwriter_p.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
@@ -986,9 +991,19 @@ expr_stmt|;
 endif|#
 directive|endif
 comment|// QT_NO_TEXTODFWRITER
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|answer
+operator|.
+name|begin
+argument_list|()
+argument_list|,
+name|answer
+operator|.
+name|end
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return

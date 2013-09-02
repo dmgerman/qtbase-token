@@ -32,6 +32,11 @@ include|#
 directive|include
 file|<private/qdrawhelper_p.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
@@ -1469,7 +1474,9 @@ argument_list|()
 expr_stmt|;
 return|return;
 block|}
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|d
 operator|.
