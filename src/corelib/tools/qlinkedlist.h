@@ -33,6 +33,11 @@ include|#
 directive|include
 file|<list>
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
@@ -3161,7 +3166,9 @@ block|;
 name|iterator
 name|it
 operator|=
-name|qFind
+name|std
+operator|::
+name|find
 argument_list|(
 name|begin
 argument_list|()
