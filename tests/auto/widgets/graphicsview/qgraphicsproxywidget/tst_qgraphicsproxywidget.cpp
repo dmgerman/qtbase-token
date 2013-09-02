@@ -15276,6 +15276,16 @@ operator|::
 name|popup_subwidget
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+name|QSKIP
+argument_list|(
+literal|"This test crashes on Windows, QTBUG-33213"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QGroupBox
 modifier|*
 name|groupBox
