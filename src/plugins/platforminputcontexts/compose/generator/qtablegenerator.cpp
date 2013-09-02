@@ -35,6 +35,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<algorithm>
+end_include
+begin_include
+include|#
+directive|include
 file|<xkbcommon/xkbcommon.h>
 end_include
 begin_ifdef
@@ -2093,7 +2098,9 @@ block|{
 comment|// Stable-sorting to ensure that the item that appeared before the other in the
 comment|// original container will still appear first after the sort. This property is
 comment|// needed to handle the cases when user re-defines already defined key sequence
-name|qStableSort
+name|std
+operator|::
+name|stable_sort
 argument_list|(
 name|m_composeTable
 operator|.

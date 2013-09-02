@@ -22,6 +22,11 @@ include|#
 directive|include
 file|<QtCore/QDebug>
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 comment|//#define DEBUG_COMPOSING
@@ -521,7 +526,9 @@ operator|::
 name|const_iterator
 name|it
 init|=
-name|qLowerBound
+name|std
+operator|::
+name|lower_bound
 argument_list|(
 name|m_composeTable
 operator|.
