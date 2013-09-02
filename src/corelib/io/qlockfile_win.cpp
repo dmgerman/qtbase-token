@@ -48,20 +48,6 @@ operator|::
 name|tryLock_sys
 parameter_list|()
 block|{
-name|SECURITY_ATTRIBUTES
-name|securityAtts
-init|=
-block|{
-sizeof|sizeof
-argument_list|(
-name|SECURITY_ATTRIBUTES
-argument_list|)
-block|,
-name|NULL
-block|,
-name|FALSE
-block|}
-decl_stmt|;
 specifier|const
 name|QFileSystemEntry
 name|fileEntry
@@ -79,6 +65,23 @@ name|DWORD
 name|dwShareMode
 init|=
 name|FILE_SHARE_READ
+decl_stmt|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
+name|SECURITY_ATTRIBUTES
+name|securityAtts
+init|=
+block|{
+sizeof|sizeof
+argument_list|(
+name|SECURITY_ATTRIBUTES
+argument_list|)
+block|,
+name|NULL
+block|,
+name|FALSE
+block|}
 decl_stmt|;
 name|HANDLE
 name|fh
@@ -113,6 +116,40 @@ argument_list|,
 name|NULL
 argument_list|)
 decl_stmt|;
+else|#
+directive|else
+comment|// !Q_OS_WINRT
+name|HANDLE
+name|fh
+init|=
+name|CreateFile2
+argument_list|(
+operator|(
+specifier|const
+name|wchar_t
+operator|*
+operator|)
+name|fileEntry
+operator|.
+name|nativeFilePath
+argument_list|()
+operator|.
+name|utf16
+argument_list|()
+argument_list|,
+name|GENERIC_WRITE
+argument_list|,
+name|dwShareMode
+argument_list|,
+name|CREATE_NEW
+argument_list|,
+comment|// error if already exists
+name|NULL
+argument_list|)
+decl_stmt|;
+endif|#
+directive|endif
+comment|// Q_OS_WINRT
 if|if
 condition|(
 name|fh
@@ -317,6 +354,11 @@ condition|)
 return|return
 literal|false
 return|;
+comment|// On WinRT there seems to be no way of obtaining information about other
+comment|// processes due to sandboxing
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
 name|HANDLE
 name|procHandle
 init|=
@@ -365,6 +407,9 @@ condition|)
 return|return
 literal|true
 return|;
+endif|#
+directive|endif
+comment|// !Q_OS_WINRT
 specifier|const
 name|qint64
 name|age

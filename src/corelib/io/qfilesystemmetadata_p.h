@@ -792,6 +792,9 @@ init|=
 name|false
 parameter_list|)
 function_decl|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
 specifier|inline
 name|void
 name|fillFromFindInfo
@@ -801,6 +804,8 @@ modifier|&
 name|fileInfo
 parameter_list|)
 function_decl|;
+endif|#
+directive|endif
 endif|#
 directive|endif
 name|private
@@ -1427,8 +1432,14 @@ endif|#
 directive|endif
 block|}
 end_if
+begin_ifndef
+unit|}
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
+end_ifndef
 begin_expr_stmt
-unit|}  inline
+unit|inline
 DECL|function|fillFromFindInfo
 name|void
 name|QFileSystemMetaData
@@ -1510,6 +1521,16 @@ unit|}
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// !Q_OS_WINRT
+end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// Q_OS_WIN
+end_comment
 begin_endif
 unit|QT_END_NAMESPACE
 endif|#
