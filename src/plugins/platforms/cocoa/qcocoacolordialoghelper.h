@@ -71,13 +71,6 @@ name|QColor
 name|currentColor
 argument_list|()
 specifier|const
-block|;
-name|bool
-name|event
-argument_list|(
-name|QEvent
-operator|*
-argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
