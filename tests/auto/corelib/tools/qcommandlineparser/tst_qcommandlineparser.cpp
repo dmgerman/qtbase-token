@@ -3290,6 +3290,33 @@ directive|endif
 comment|// !QT_NO_PROCESS
 block|}
 end_function
+begin_decl_stmt
+DECL|variable|expectedOptionsHelp
+specifier|static
+specifier|const
+name|char
+name|expectedOptionsHelp
+index|[]
+init|=
+literal|"Options:\n"
+literal|"  -h, --help                  Displays this help.\n"
+literal|"  -v, --version               Displays version information.\n"
+literal|"  --load<url>                Load file from URL.\n"
+literal|"  -o, --output<file>         Set output file.\n"
+literal|"  -D<key=value>              Define macro.\n"
+literal|"  -n, --no-implicit-includes  Disable magic generation of implicit\n"
+literal|"                              #include-directives.\n"
+literal|"  --newline                   This is an option with a rather long\n"
+literal|"                              description using explicit newline characters (but\n"
+literal|"                              testing automatic wrapping too). In addition,\n"
+literal|"                              here, we test breaking after a comma. Testing\n"
+literal|"                              -option. Long URL:\n"
+literal|"                              http://qt-project.org/wiki/How_to_create_a_library\n"
+literal|"                              _with_Qt_and_use_it_in_an_application\n"
+literal|"                              abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwx\n"
+literal|"                              yzabcdefghijklmnopqrstuvwxyz\n"
+decl_stmt|;
+end_decl_stmt
 begin_function
 DECL|function|testHelpOption_data
 name|void
@@ -3323,21 +3350,31 @@ expr_stmt|;
 name|QString
 name|expectedOutput
 init|=
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
 literal|"Usage: testhelper/qcommandlineparser_test_helper [options] parsingMode command\n"
 literal|"Test helper\n"
 literal|"\n"
-literal|"Options:\n"
-literal|"  -h, --help                  Displays this help.\n"
-literal|"  -v, --version               Displays version information.\n"
-literal|"  --load<url>                Load file from URL.\n"
-literal|"  -o, --output<file>         Set output file.\n"
-literal|"  -D<key=value>              Define macro.\n"
-literal|"  -n, --no-implicit-includes  Disable automatic generation of implicit #include\n"
-literal|"                              -directives.\n"
+argument_list|)
+operator|+
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+name|expectedOptionsHelp
+argument_list|)
+operator|+
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
 literal|"\n"
 literal|"Arguments:\n"
 literal|"  parsingMode                 The parsing mode to test.\n"
 literal|"  command                     The command to execute.\n"
+argument_list|)
 decl_stmt|;
 ifdef|#
 directive|ifdef
@@ -3517,6 +3554,24 @@ directive|endif
 name|QCOMPARE
 argument_list|(
 name|output
+operator|.
+name|split
+argument_list|(
+literal|'\n'
+argument_list|)
+argument_list|,
+name|expectedHelpOutput
+operator|.
+name|split
+argument_list|(
+literal|'\n'
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// easier to debug than the next line, on failure
+name|QCOMPARE
+argument_list|(
+name|output
 argument_list|,
 name|expectedHelpOutput
 argument_list|)
@@ -3589,17 +3644,15 @@ directive|endif
 name|QByteArray
 name|expectedResizeHelp
 init|=
+name|QByteArrayLiteral
+argument_list|(
 literal|"Usage: testhelper/qcommandlineparser_test_helper [options] resize [resize_options]\n"
 literal|"Test helper\n"
 literal|"\n"
-literal|"Options:\n"
-literal|"  -h, --help                  Displays this help.\n"
-literal|"  -v, --version               Displays version information.\n"
-literal|"  --load<url>                Load file from URL.\n"
-literal|"  -o, --output<file>         Set output file.\n"
-literal|"  -D<key=value>              Define macro.\n"
-literal|"  -n, --no-implicit-includes  Disable automatic generation of implicit #include\n"
-literal|"                              -directives.\n"
+argument_list|)
+operator|+
+name|expectedOptionsHelp
+operator|+
 literal|"  --size<size>               New size.\n"
 literal|"\n"
 literal|"Arguments:\n"

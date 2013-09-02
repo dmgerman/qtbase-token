@@ -226,7 +226,7 @@ name|setDescription
 argument_list|(
 name|QStringLiteral
 argument_list|(
-literal|"Disable automatic generation of implicit #include-directives."
+literal|"Disable magic generation of implicit #include-directives."
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -235,6 +235,42 @@ operator|.
 name|addOption
 argument_list|(
 name|noImplicitIncludesOption
+argument_list|)
+expr_stmt|;
+name|QCommandLineOption
+name|newlineOption
+argument_list|(
+name|QStringList
+argument_list|()
+operator|<<
+name|QStringLiteral
+argument_list|(
+literal|"newline"
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|newlineOption
+operator|.
+name|setDescription
+argument_list|(
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"This is an option with a rather long\n"
+literal|"description using explicit newline characters "
+literal|"(but testing automatic wrapping too). In addition, "
+literal|"here, we test breaking after a comma. Testing -option. "
+literal|"Long URL: http://qt-project.org/wiki/How_to_create_a_library_with_Qt_and_use_it_in_an_application "
+literal|"abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|parser
+operator|.
+name|addOption
+argument_list|(
+name|newlineOption
 argument_list|)
 expr_stmt|;
 comment|// This program supports different options depending on the "command" (first argument).
