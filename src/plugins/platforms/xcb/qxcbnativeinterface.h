@@ -85,6 +85,8 @@ block|,
 name|TrayWindow
 block|,
 name|GetTimestamp
+block|,
+name|X11Screen
 block|}
 block|;
 name|QXcbNativeInterface
@@ -246,6 +248,11 @@ block|;
 name|void
 operator|*
 name|startupId
+argument_list|()
+block|;
+name|void
+operator|*
+name|x11Screen
 argument_list|()
 block|;
 specifier|static
