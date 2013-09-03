@@ -1924,7 +1924,9 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-name|qFill
+name|std
+operator|::
+name|fill
 argument_list|(
 name|m_themes
 argument_list|,
