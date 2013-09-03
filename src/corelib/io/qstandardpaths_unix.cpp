@@ -1162,6 +1162,52 @@ literal|':'
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// Normalize paths
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|dirs
+operator|.
+name|count
+argument_list|()
+condition|;
+name|i
+operator|++
+control|)
+name|dirs
+index|[
+name|i
+index|]
+operator|=
+name|QDir
+operator|::
+name|cleanPath
+argument_list|(
+name|dirs
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// Remove duplicates from the list, there's no use for duplicated
+comment|// paths in XDG_DATA_DIRS - if it's not found in the given
+comment|// directory the first time, it won't be there the second time.
+comment|// Plus duplicate paths causes problems for example for mimetypes,
+comment|// where duplicate paths here lead to duplicated mime types returned
+comment|// for a file, eg "text/plain,text/plain" instead of "text/plain"
+name|dirs
+operator|.
+name|removeDuplicates
+argument_list|()
+expr_stmt|;
 block|}
 return|return
 name|dirs
