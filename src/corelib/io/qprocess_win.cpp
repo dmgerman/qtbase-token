@@ -2449,17 +2449,17 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-comment|// Forwarded channels must not set the CREATE_NO_WINDOW flag because this
-comment|// will render the stdout/stderr handles we're passing useless.
+comment|// We cannot unconditionally set the CREATE_NO_WINDOW flag, because this
+comment|// will render the stdout/stderr handles connected to a console useless
+comment|// (this typically affects ForwardedChannels mode).
+comment|// However, we also do not want console tools launched from a GUI app to
+comment|// create new console windows (behavior consistent with UNIX).
 name|DWORD
 name|dwCreationFlags
 init|=
 operator|(
-name|processChannelMode
-operator|==
-name|QProcess
-operator|::
-name|ForwardedChannels
+name|GetConsoleWindow
+argument_list|()
 condition|?
 literal|0
 else|:
