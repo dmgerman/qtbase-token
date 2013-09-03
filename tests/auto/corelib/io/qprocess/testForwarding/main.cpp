@@ -40,7 +40,6 @@ operator|::
 name|ForwardedChannels
 condition|)
 return|return
-operator|-
 literal|1
 return|;
 name|process
@@ -61,8 +60,7 @@ literal|5000
 argument_list|)
 condition|)
 return|return
-operator|-
-literal|1
+literal|2
 return|;
 if|if
 condition|(
@@ -76,8 +74,7 @@ operator|!=
 literal|10
 condition|)
 return|return
-operator|-
-literal|1
+literal|3
 return|;
 name|process
 operator|.
@@ -95,8 +92,7 @@ literal|5000
 argument_list|)
 condition|)
 return|return
-operator|-
-literal|1
+literal|4
 return|;
 if|if
 condition|(
@@ -108,8 +104,7 @@ operator|!=
 literal|0
 condition|)
 return|return
-operator|-
-literal|1
+literal|5
 return|;
 endif|#
 directive|endif
