@@ -335,6 +335,10 @@ block|,
 name|MergedChannels
 block|,
 name|ForwardedChannels
+block|,
+name|ForwardedOutputChannel
+block|,
+name|ForwardedErrorChannel
 block|}
 block|;     enum
 name|ExitStatus

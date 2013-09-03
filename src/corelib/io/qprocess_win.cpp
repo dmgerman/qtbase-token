@@ -529,6 +529,12 @@ operator|!=
 name|QProcess
 operator|::
 name|ForwardedChannels
+operator|&&
+name|processChannelMode
+operator|!=
+name|QProcess
+operator|::
+name|ForwardedOutputChannel
 condition|)
 block|{
 if|if
@@ -593,6 +599,12 @@ operator|!=
 name|QProcess
 operator|::
 name|ForwardedChannels
+operator|&&
+name|processChannelMode
+operator|!=
+name|QProcess
+operator|::
+name|ForwardedErrorChannel
 condition|)
 block|{
 if|if
