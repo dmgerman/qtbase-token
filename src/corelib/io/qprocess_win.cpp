@@ -3395,13 +3395,6 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|processChannelMode
-operator|!=
-name|QProcess
-operator|::
-name|ForwardedChannels
-operator|&&
-operator|(
 operator|(
 name|stdoutReader
 operator|&&
@@ -3422,7 +3415,6 @@ name|waitForReadyRead
 argument_list|(
 literal|0
 argument_list|)
-operator|)
 operator|)
 condition|)
 return|return
