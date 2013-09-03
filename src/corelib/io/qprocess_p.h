@@ -1302,6 +1302,11 @@ name|processChannelMode
 expr_stmt|;
 name|QProcess
 operator|::
+name|InputChannelMode
+name|inputChannelMode
+expr_stmt|;
+name|QProcess
+operator|::
 name|ProcessError
 name|processError
 expr_stmt|;

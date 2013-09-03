@@ -1290,7 +1290,10 @@ begin_comment
 comment|/*!     \enum QProcess::ProcessChannel      This enum describes the process channels used by the running process.     Pass one of these values to setReadChannel() to set the     current read channel of QProcess.      \value StandardOutput The standard output (stdout) of the running            process.      \value StandardError The standard error (stderr) of the running            process.      \sa setReadChannel() */
 end_comment
 begin_comment
-comment|/*!     \enum QProcess::ProcessChannelMode      This enum describes the process channel modes of QProcess. Pass     one of these values to setProcessChannelMode() to set the     current read channel mode.      \value SeparateChannels QProcess manages the output of the     running process, keeping standard output and standard error data     in separate internal buffers. You can select the QProcess's     current read channel by calling setReadChannel(). This is the     default channel mode of QProcess.      \value MergedChannels QProcess merges the output of the running     process into the standard output channel (\c stdout). The     standard error channel (\c stderr) will not receive any data. The     standard output and standard error data of the running process     are interleaved.      \value ForwardedChannels QProcess forwards the output of the     running process onto the main process. Anything the child process     writes to its standard output and standard error will be written     to the standard output and standard error of the main process.      \value ForwardedErrorChannel QProcess manages the standard output     of the running process, but forwards its standard error onto the     main process. This reflects the typical use of command line tools     as filters, where the standard output is redirected to another     process or a file, while standard error is printed to the console     for diagnostic purposes.     (This value was introduced in Qt 5.2.)      \value ForwardedOutputChannel Complementary to ForwardedErrorChannel.     (This value was introduced in Qt 5.2.)      \note Windows intentionally suppresses output from GUI-only     applications to inherited consoles.     This does \e not apply to output redirected to files or pipes.     To forward the output of GUI-only applications on the console     nonetheless, you must use SeparateChannels and do the forwarding     yourself by reading the output and writing it to the appropriate     output channels.      \sa setProcessChannelMode() */
+comment|/*!     \enum QProcess::ProcessChannelMode      This enum describes the process output channel modes of QProcess.     Pass one of these values to setProcessChannelMode() to set the     current read channel mode.      \value SeparateChannels QProcess manages the output of the     running process, keeping standard output and standard error data     in separate internal buffers. You can select the QProcess's     current read channel by calling setReadChannel(). This is the     default channel mode of QProcess.      \value MergedChannels QProcess merges the output of the running     process into the standard output channel (\c stdout). The     standard error channel (\c stderr) will not receive any data. The     standard output and standard error data of the running process     are interleaved.      \value ForwardedChannels QProcess forwards the output of the     running process onto the main process. Anything the child process     writes to its standard output and standard error will be written     to the standard output and standard error of the main process.      \value ForwardedErrorChannel QProcess manages the standard output     of the running process, but forwards its standard error onto the     main process. This reflects the typical use of command line tools     as filters, where the standard output is redirected to another     process or a file, while standard error is printed to the console     for diagnostic purposes.     (This value was introduced in Qt 5.2.)      \value ForwardedOutputChannel Complementary to ForwardedErrorChannel.     (This value was introduced in Qt 5.2.)      \note Windows intentionally suppresses output from GUI-only     applications to inherited consoles.     This does \e not apply to output redirected to files or pipes.     To forward the output of GUI-only applications on the console     nonetheless, you must use SeparateChannels and do the forwarding     yourself by reading the output and writing it to the appropriate     output channels.      \sa setProcessChannelMode() */
+end_comment
+begin_comment
+comment|/*!     \enum QProcess::InputChannelMode     \since 5.2      This enum describes the process input channel modes of QProcess.     Pass one of these values to setInputChannelMode() to set the     current write channel mode.      \value ManagedInputChannel QProcess manages the input of the running     process. This is the default input channel mode of QProcess.      \value ForwardedInputChannel QProcess forwards the input of the main     process onto the running process. The child process reads its standard     input from the same source as the main process.     Note that the main process must not try to read its standard input     while the child process is running.      \sa setInputChannelMode() */
 end_comment
 begin_comment
 comment|/*!     \enum QProcess::ProcessError      This enum describes the different types of errors that are     reported by QProcess.      \value FailedToStart The process failed to start. Either the     invoked program is missing, or you may have insufficient     permissions to invoke the program.      \value Crashed The process crashed some time after starting     successfully.      \value Timedout The last waitFor...() function timed out. The     state of QProcess is unchanged, and you can try calling     waitFor...() again.      \value WriteError An error occurred when attempting to write to the     process. For example, the process may not be running, or it may     have closed its input channel.      \value ReadError An error occurred when attempting to read from     the process. For example, the process may not be running.      \value UnknownError An unknown error occurred. This is the default     return value of error().      \sa error() */
@@ -1343,6 +1346,12 @@ operator|=
 name|QProcess
 operator|::
 name|SeparateChannels
+expr_stmt|;
+name|inputChannelMode
+operator|=
+name|QProcess
+operator|::
+name|ManagedInputChannel
 expr_stmt|;
 name|processError
 operator|=
@@ -3082,6 +3091,60 @@ expr_stmt|;
 name|d
 operator|->
 name|processChannelMode
+operator|=
+name|mode
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*!     \since 5.2      Returns the channel mode of the QProcess standard input channel.      \sa setInputChannelMode(), InputChannelMode */
+end_comment
+begin_function
+DECL|function|inputChannelMode
+name|QProcess
+operator|::
+name|InputChannelMode
+name|QProcess
+operator|::
+name|inputChannelMode
+parameter_list|()
+specifier|const
+block|{
+name|Q_D
+argument_list|(
+specifier|const
+name|QProcess
+argument_list|)
+expr_stmt|;
+return|return
+name|d
+operator|->
+name|inputChannelMode
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     \since 5.2      Sets the channel mode of the QProcess standard intput     channel to the \a mode specified.     This mode will be used the next time start() is called.      \sa inputChannelMode(), InputChannelMode */
+end_comment
+begin_function
+DECL|function|setInputChannelMode
+name|void
+name|QProcess
+operator|::
+name|setInputChannelMode
+parameter_list|(
+name|InputChannelMode
+name|mode
+parameter_list|)
+block|{
+name|Q_D
+argument_list|(
+name|QProcess
+argument_list|)
+expr_stmt|;
+name|d
+operator|->
+name|inputChannelMode
 operator|=
 name|mode
 expr_stmt|;

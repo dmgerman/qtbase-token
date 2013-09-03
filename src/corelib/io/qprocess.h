@@ -341,6 +341,13 @@ block|,
 name|ForwardedErrorChannel
 block|}
 block|;     enum
+name|InputChannelMode
+block|{
+name|ManagedInputChannel
+block|,
+name|ForwardedInputChannel
+block|}
+block|;     enum
 name|ExitStatus
 block|{
 name|NormalExit
@@ -442,6 +449,17 @@ name|void
 name|setProcessChannelMode
 argument_list|(
 argument|ProcessChannelMode mode
+argument_list|)
+block|;
+name|InputChannelMode
+name|inputChannelMode
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setInputChannelMode
+argument_list|(
+argument|InputChannelMode mode
 argument_list|)
 block|;
 name|ProcessChannel
