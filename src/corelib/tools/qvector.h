@@ -72,6 +72,11 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QRegion
@@ -1903,7 +1908,9 @@ argument_list|()
 argument_list|)
 argument_list|)
 block|;
-name|qCopy
+name|std
+operator|::
+name|copy
 argument_list|(
 name|vector
 operator|.
@@ -1956,7 +1963,9 @@ name|size
 argument_list|()
 argument_list|)
 block|;
-name|qCopy
+name|std
+operator|::
+name|copy
 argument_list|(
 name|constBegin
 argument_list|()

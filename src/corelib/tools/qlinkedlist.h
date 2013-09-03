@@ -1972,7 +1972,9 @@ name|T
 operator|>
 name|tmp
 block|;
-name|qCopy
+name|std
+operator|::
+name|copy
 argument_list|(
 name|list
 operator|.
@@ -2017,7 +2019,9 @@ name|T
 operator|>
 name|tmp
 block|;
-name|qCopy
+name|std
+operator|::
+name|copy
 argument_list|(
 name|constBegin
 argument_list|()
