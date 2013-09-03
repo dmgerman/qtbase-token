@@ -4452,6 +4452,18 @@ comment|// This is a compile-time test
 name|QVariant
 name|v
 decl_stmt|;
+DECL|macro|FOR_EACH_GUI_CLASS_BASE
+define|#
+directive|define
+name|FOR_EACH_GUI_CLASS_BASE
+parameter_list|(
+name|F
+parameter_list|)
+define|\
+value|F(Font) \     F(Pixmap) \     F(Brush) \     F(Color) \     F(Palette) \     F(Icon) \     F(Image) \     F(Polygon) \     F(Region) \     F(Bitmap) \     F(KeySequence) \     F(Pen) \     F(TextLength) \     F(TextFormat) \     F(Matrix) \     F(Transform) \     F(Matrix4x4) \     F(Vector2D) \     F(Vector3D) \     F(Vector4D) \     F(Quaternion) \     F(PolygonF)
+ifndef|#
+directive|ifndef
+name|QTEST_NO_CURSOR
 DECL|macro|FOR_EACH_GUI_CLASS
 define|#
 directive|define
@@ -4460,7 +4472,30 @@ parameter_list|(
 name|F
 parameter_list|)
 define|\
-value|F(Font) \     F(Pixmap) \     F(Brush) \     F(Color) \     F(Palette) \     F(Icon) \     F(Image) \     F(Polygon) \     F(Region) \     F(Bitmap) \     F(Cursor) \     F(KeySequence) \     F(Pen) \     F(TextLength) \     F(TextFormat) \     F(Matrix) \     F(Transform) \     F(Matrix4x4) \     F(Vector2D) \     F(Vector3D) \     F(Vector4D) \     F(Quaternion) \     F(PolygonF) \  #define CONSTRUCT(TYPE) \     { \         Q##TYPE t; \         v = t; \         QVERIFY(true); \     }
+value|FOR_EACH_GUI_CLASS_BASE(F) \     F(Cursor)
+else|#
+directive|else
+comment|// !QTEST_NO_CURSOR
+define|#
+directive|define
+name|FOR_EACH_GUI_CLASS
+parameter_list|(
+name|F
+parameter_list|)
+define|\
+value|FOR_EACH_GUI_CLASS_BASE(F)
+endif|#
+directive|endif
+comment|// QTEST_NO_CURSOR
+DECL|macro|CONSTRUCT
+define|#
+directive|define
+name|CONSTRUCT
+parameter_list|(
+name|TYPE
+parameter_list|)
+define|\
+value|{ \         Q##TYPE t; \         v = t; \         QVERIFY(true); \     }
 name|FOR_EACH_GUI_CLASS
 argument_list|(
 argument|CONSTRUCT
