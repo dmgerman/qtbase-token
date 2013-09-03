@@ -16,7 +16,7 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!     \class QOpenGLFunctions_ES2     \inmodule QtGui     \since 5.1     \wrapper     \brief The QOpenGLFunctions_ES2 class provides all functions for OpenGL ES 2      \sa QAbstractOpenGLFunctions */
+comment|/*!     \class QOpenGLFunctions_ES2     \inmodule QtGui     \since 5.1     \wrapper     \brief The QOpenGLFunctions_ES2 class provides all functions for OpenGL ES 2      This class is a wrapper for OpenGL ES 2 functions. See reference pages on     \l {http://www.khronos.org/opengles/sdk/docs/man/}{khronos.org} for     function documentation.      \sa QAbstractOpenGLFunctions */
 end_comment
 begin_constructor
 DECL|function|QOpenGLFunctions_ES2

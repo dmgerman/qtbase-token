@@ -16,7 +16,7 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!     \class QOpenGLFunctions_1_0     \inmodule QtGui     \since 5.1     \wrapper     \brief The QOpenGLFunctions_1_0 class provides all functions for this version and profile of OpenGL.      \sa QAbstractOpenGLFunctions */
+comment|/*!     \class QOpenGLFunctions_1_0     \inmodule QtGui     \since 5.1     \wrapper     \brief The QOpenGLFunctions_1_0 class provides all functions for OpenGL 1.0 specification.      This class is a wrapper for functions from OpenGL 1.0 specification.     See reference pages on \l {http://www.opengl.org/sdk/docs/}{opengl.org}     for function documentation.      \sa QAbstractOpenGLFunctions */
 end_comment
 begin_constructor
 DECL|function|QOpenGLFunctions_1_0
