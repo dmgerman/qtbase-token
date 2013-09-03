@@ -865,13 +865,21 @@ return|return
 name|m_primaryScreen
 return|;
 block|}
+specifier|inline
 name|xcb_atom_t
 name|atom
 argument_list|(
 argument|QXcbAtom::Atom atom
 argument_list|)
 specifier|const
-block|;
+block|{
+return|return
+name|m_allAtoms
+index|[
+name|atom
+index|]
+return|;
+block|}
 name|QXcbAtom
 operator|::
 name|Atom
