@@ -13,6 +13,11 @@ define|#
 directive|define
 name|QIOSAPPLICATIONSTATE_H
 end_define
+begin_include
+include|#
+directive|include
+file|<QtCore/qglobal.h>
+end_include
 begin_expr_stmt
 name|QT_BEGIN_NAMESPACE
 expr|@
