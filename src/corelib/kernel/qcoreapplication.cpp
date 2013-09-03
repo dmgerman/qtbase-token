@@ -289,6 +289,11 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
@@ -1690,7 +1695,9 @@ block|}
 ifdef|#
 directive|ifdef
 name|Q_OS_WIN
-name|qCopy
+name|std
+operator|::
+name|copy
 argument_list|(
 name|argv
 argument_list|,
