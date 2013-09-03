@@ -11174,6 +11174,18 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|//add the QT variable to the map
+if|if
+condition|(
+operator|!
+name|classe
+operator|->
+name|moduleName
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 name|DocNode
 modifier|*
 name|moduleNode
@@ -11243,6 +11255,7 @@ argument_list|,
 name|text
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 if|if
