@@ -6796,6 +6796,12 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|geometry
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+operator|||
 name|d
 operator|->
 name|model
@@ -6926,13 +6932,12 @@ name|isWrapping
 argument_list|()
 condition|)
 block|{
-specifier|const
-name|QSize
-name|maxSize
-init|=
-name|maximumViewportSize
+name|d
+operator|->
+name|layoutChildren
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+comment|// we need the viewport size to be updated
 if|if
 condition|(
 name|d
@@ -6956,8 +6961,9 @@ name|d
 operator|->
 name|setContentsSize
 argument_list|(
-name|maxSize
-operator|.
+name|viewport
+argument_list|()
+operator|->
 name|width
 argument_list|()
 argument_list|,
@@ -7004,8 +7010,9 @@ operator|.
 name|width
 argument_list|()
 argument_list|,
-name|maxSize
-operator|.
+name|viewport
+argument_list|()
+operator|->
 name|height
 argument_list|()
 argument_list|)
