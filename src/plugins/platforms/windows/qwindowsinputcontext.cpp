@@ -72,6 +72,11 @@ include|#
 directive|include
 file|<QtGui/QGuiApplication>
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 DECL|function|debugComposition
@@ -2573,7 +2578,9 @@ operator|+
 literal|1
 argument_list|)
 decl_stmt|;
-name|qCopy
+name|std
+operator|::
+name|copy
 argument_list|(
 name|surroundingText
 operator|.

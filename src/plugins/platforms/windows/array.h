@@ -16,7 +16,12 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtCore/QtAlgorithms>
+file|<QtCore/QtGlobal>
+end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
 end_include
 begin_expr_stmt
 name|QT_BEGIN_NAMESPACE
@@ -237,7 +242,9 @@ condition|(
 name|oldData
 condition|)
 block|{
-name|qCopy
+name|std
+operator|::
+name|copy
 argument_list|(
 name|oldData
 argument_list|,
