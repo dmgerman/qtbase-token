@@ -120,6 +120,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<algorithm>
+end_include
+begin_include
+include|#
+directive|include
 file|"qtwindows_additional.h"
 end_include
 begin_define
@@ -10809,7 +10814,9 @@ argument_list|(
 name|color
 argument_list|)
 block|{
-name|qFill
+name|std
+operator|::
+name|fill
 argument_list|(
 name|m_customColors
 argument_list|,

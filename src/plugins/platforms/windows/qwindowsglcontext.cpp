@@ -45,6 +45,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<algorithm>
+end_include
+begin_include
+include|#
+directive|include
 file|<wingdi.h>
 end_include
 begin_include
@@ -2228,7 +2233,9 @@ index|[
 name|attribSize
 index|]
 decl_stmt|;
-name|qFill
+name|std
+operator|::
+name|fill
 argument_list|(
 name|iAttributes
 argument_list|,
@@ -3032,7 +3039,9 @@ index|[
 name|attribSize
 index|]
 decl_stmt|;
-name|qFill
+name|std
+operator|::
+name|fill
 argument_list|(
 name|iAttributes
 argument_list|,
@@ -3046,7 +3055,9 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|qFill
+name|std
+operator|::
+name|fill
 argument_list|(
 name|iValues
 argument_list|,
@@ -3460,7 +3471,9 @@ name|attribIndex
 init|=
 literal|0
 decl_stmt|;
-name|qFill
+name|std
+operator|::
+name|fill
 argument_list|(
 name|attributes
 argument_list|,

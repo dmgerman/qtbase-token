@@ -111,6 +111,11 @@ include|#
 directive|include
 file|<private/qsystemlibrary_p.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 DECL|function|operator <<
@@ -2140,7 +2145,9 @@ name|m_instance
 operator|=
 name|this
 expr_stmt|;
-name|qFill
+name|std
+operator|::
+name|fill
 argument_list|(
 name|m_fonts
 argument_list|,
@@ -2158,7 +2165,9 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|qFill
+name|std
+operator|::
+name|fill
 argument_list|(
 name|m_palettes
 argument_list|,
@@ -2612,7 +2621,9 @@ operator|+
 name|NPalettes
 argument_list|)
 expr_stmt|;
-name|qFill
+name|std
+operator|::
+name|fill
 argument_list|(
 name|m_palettes
 argument_list|,
@@ -2765,7 +2776,9 @@ operator|+
 name|NFonts
 argument_list|)
 expr_stmt|;
-name|qFill
+name|std
+operator|::
+name|fill
 argument_list|(
 name|m_fonts
 argument_list|,
