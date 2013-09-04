@@ -506,9 +506,8 @@ enum|;
 end_enum
 begin_decl_stmt
 DECL|variable|XEMBED_VERSION
-specifier|static
-name|unsigned
-name|int
+specifier|const
+name|long
 name|XEMBED_VERSION
 init|=
 literal|0
