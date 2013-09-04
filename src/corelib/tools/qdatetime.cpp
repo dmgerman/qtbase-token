@@ -1396,11 +1396,11 @@ if|if
 condition|(
 name|secsSinceEpoch
 operator|!=
-operator|(
-name|uint
-operator|)
+name|time_t
+argument_list|(
 operator|-
 literal|1
+argument_list|)
 condition|)
 block|{
 operator|*
