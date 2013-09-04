@@ -706,12 +706,7 @@ expr_stmt|;
 else|else
 name|m_syncRequestSupported
 operator|=
-name|m_windowManagerName
-operator|!=
-name|QLatin1String
-argument_list|(
-literal|"KWin"
-argument_list|)
+literal|true
 expr_stmt|;
 name|m_clientLeader
 operator|=
