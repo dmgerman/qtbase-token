@@ -303,17 +303,6 @@ name|fontEngine
 expr_stmt|;
 specifier|const
 name|int
-name|margin
-init|=
-name|m_current_fontengine
-operator|->
-name|glyphMargin
-argument_list|(
-name|m_type
-argument_list|)
-decl_stmt|;
-specifier|const
-name|int
 name|padding
 init|=
 name|glyphPadding
@@ -707,22 +696,6 @@ argument_list|)
 expr_stmt|;
 continue|continue;
 block|}
-name|glyph_width
-operator|+=
-name|margin
-operator|*
-literal|2
-operator|+
-literal|4
-expr_stmt|;
-name|glyph_height
-operator|+=
-name|margin
-operator|*
-literal|2
-operator|+
-literal|4
-expr_stmt|;
 comment|// align to 8-bit boundary
 if|if
 condition|(
@@ -805,10 +778,6 @@ literal|true
 return|;
 name|rowHeight
 operator|+=
-name|margin
-operator|*
-literal|2
-operator|+
 name|paddingDoubled
 expr_stmt|;
 if|if
@@ -891,10 +860,6 @@ argument_list|,
 name|c
 operator|.
 name|h
-operator|+
-name|margin
-operator|*
-literal|2
 argument_list|)
 expr_stmt|;
 if|if
@@ -964,10 +929,6 @@ operator|=
 name|c
 operator|.
 name|h
-operator|+
-name|margin
-operator|*
-literal|2
 expr_stmt|;
 comment|// New row
 block|}
