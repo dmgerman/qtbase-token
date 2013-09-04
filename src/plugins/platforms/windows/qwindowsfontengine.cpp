@@ -6506,16 +6506,12 @@ operator|+
 literal|2
 operator|*
 name|margin
-operator|+
-literal|4
 argument_list|,
 name|ih
 operator|+
 literal|2
 operator|*
 name|margin
-operator|+
-literal|4
 argument_list|,
 name|QWindowsNativeImage
 operator|::
@@ -6759,8 +6755,6 @@ operator|+=
 name|margin
 operator|*
 literal|2
-operator|+
-literal|4
 expr_stmt|;
 name|gm
 operator|.
@@ -6769,8 +6763,6 @@ operator|+=
 name|margin
 operator|*
 literal|2
-operator|+
-literal|4
 expr_stmt|;
 return|return
 name|gm
