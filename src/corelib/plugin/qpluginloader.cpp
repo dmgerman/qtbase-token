@@ -371,6 +371,14 @@ name|instance
 return|;
 block|}
 end_function
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|QT_SHARED
+argument_list|)
+end_if
 begin_function
 DECL|function|locatePlugin
 specifier|static
@@ -576,6 +584,10 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*!     \property QPluginLoader::fileName     \brief the file name of the plugin      We recommend omitting the file's suffix in the file name, since     QPluginLoader will automatically look for the file with the appropriate     suffix (see QLibrary::isLibrary()).      When loading the plugin, QPluginLoader searches in the current directory and     in all plugin locations specified by QCoreApplication::libraryPaths(),     unless the file name has an absolute path. After loading the plugin     successfully, fileName() returns the fully-qualified file name of     the plugin, including the full path to the plugin if one was given     in the constructor or passed to setFileName().      If the file name does not exist, it will not be set. This property     will then contain an empty string.      By default, this property contains an empty string.      \sa load() */
 end_comment
