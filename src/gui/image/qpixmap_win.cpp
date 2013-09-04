@@ -1520,6 +1520,16 @@ modifier|&
 name|p
 parameter_list|)
 block|{
+if|if
+condition|(
+name|p
+operator|.
+name|isNull
+argument_list|()
+condition|)
+return|return
+literal|0
+return|;
 name|QBitmap
 name|maskBitmap
 init|=
