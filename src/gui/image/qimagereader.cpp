@@ -331,6 +331,8 @@ block|{
 name|_qt_JpegFormat
 block|,
 literal|"jpeg"
+block|,
+literal|"image/jpeg"
 block|}
 block|,
 endif|#
