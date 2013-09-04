@@ -2385,9 +2385,13 @@ name|options
 operator|&
 name|SubPath
 operator|&&
+operator|!
 name|node
 operator|->
-name|activeChildren
+name|children
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 return|return
 literal|false
@@ -2559,11 +2563,6 @@ block|}
 else|else
 block|{
 comment|// add entry
-operator|++
-name|node
-operator|->
-name|activeChildren
-expr_stmt|;
 name|node
 operator|=
 name|node
