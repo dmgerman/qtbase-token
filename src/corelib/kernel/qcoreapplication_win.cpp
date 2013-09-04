@@ -63,18 +63,6 @@ file|<qt_windows.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-DECL|variable|usingWinMain
-name|bool
-name|usingWinMain
-init|=
-literal|false
-decl_stmt|;
-end_decl_stmt
-begin_comment
-DECL|variable|usingWinMain
-comment|// whether the qWinMain() is used or not
-end_comment
-begin_decl_stmt
 DECL|variable|appCmdShow
 name|int
 name|appCmdShow
@@ -458,10 +446,6 @@ block|;
 return|return;
 block|}
 name|already_called
-operator|=
-literal|true
-argument_list|;
-name|usingWinMain
 operator|=
 literal|true
 argument_list|;
