@@ -361,6 +361,33 @@ name|value
 argument_list|()
 operator|)
 return|;
+comment|// default in case the style has not set a font
+specifier|static
+name|QFont
+name|systemFont
+argument_list|(
+literal|"Roboto"
+argument_list|,
+literal|12.0
+operator|*
+literal|100
+operator|/
+literal|72
+argument_list|)
+decl_stmt|;
+comment|// keep default size the same after changing from 100 dpi to 72 dpi
+if|if
+condition|(
+name|type
+operator|==
+name|QPlatformTheme
+operator|::
+name|SystemFont
+condition|)
+return|return
+operator|&
+name|systemFont
+return|;
 return|return
 literal|0
 return|;

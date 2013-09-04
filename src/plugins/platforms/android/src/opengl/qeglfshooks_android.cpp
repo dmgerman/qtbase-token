@@ -215,7 +215,7 @@ operator|::
 name|scaledDensity
 argument_list|()
 operator|*
-literal|100
+literal|72
 decl_stmt|;
 return|return
 name|QDpi
