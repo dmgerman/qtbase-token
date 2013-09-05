@@ -5160,7 +5160,7 @@ name|access
 operator|=
 name|FunctionDef
 operator|::
-name|Protected
+name|Public
 expr_stmt|;
 name|parseFunction
 argument_list|(

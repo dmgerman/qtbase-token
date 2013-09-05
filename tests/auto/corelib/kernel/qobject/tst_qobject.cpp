@@ -15584,7 +15584,7 @@ argument_list|()
 operator|==
 name|QMetaMethod
 operator|::
-name|Protected
+name|Public
 argument_list|)
 expr_stmt|;
 name|QVERIFY

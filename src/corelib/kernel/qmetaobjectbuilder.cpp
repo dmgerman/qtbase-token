@@ -1529,7 +1529,7 @@ argument_list|)
 argument_list|,
 name|QMetaMethod
 operator|::
-name|Protected
+name|Public
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -8770,7 +8770,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the access specification of this method (private, protected,     or public).  The default value is QMetaMethod::Public for methods,     slots, and constructors.  The default value is QMetaMethod::Protected     for signals.      \sa setAccess() */
+comment|/*!     Returns the access specification of this method (private, protected,     or public).  The default value is QMetaMethod::Public for methods,     slots, signals and constructors.      \sa setAccess() */
 end_comment
 begin_function
 DECL|function|access

@@ -1181,7 +1181,7 @@ operator|)
 operator|<<
 name|QMetaMethod
 operator|::
-name|Protected
+name|Public
 operator|<<
 name|QMetaMethod
 operator|::
@@ -1399,7 +1399,7 @@ argument_list|()
 operator|<<
 name|QMetaMethod
 operator|::
-name|Protected
+name|Public
 operator|<<
 name|QMetaMethod
 operator|::
@@ -1472,7 +1472,7 @@ operator|)
 operator|<<
 name|QMetaMethod
 operator|::
-name|Protected
+name|Public
 operator|<<
 name|QMetaMethod
 operator|::
@@ -1763,7 +1763,7 @@ operator|)
 operator|<<
 name|QMetaMethod
 operator|::
-name|Protected
+name|Public
 operator|<<
 name|QMetaMethod
 operator|::
@@ -2052,7 +2052,7 @@ operator|)
 operator|<<
 name|QMetaMethod
 operator|::
-name|Protected
+name|Public
 operator|<<
 name|QMetaMethod
 operator|::
@@ -2343,7 +2343,7 @@ operator|)
 operator|<<
 name|QMetaMethod
 operator|::
-name|Protected
+name|Public
 operator|<<
 name|QMetaMethod
 operator|::
@@ -2627,7 +2627,7 @@ operator|)
 operator|<<
 name|QMetaMethod
 operator|::
-name|Protected
+name|Public
 operator|<<
 name|QMetaMethod
 operator|::
@@ -2887,7 +2887,7 @@ operator|)
 operator|<<
 name|QMetaMethod
 operator|::
-name|Protected
+name|Public
 operator|<<
 name|QMetaMethod
 operator|::
@@ -3055,7 +3055,7 @@ operator|)
 operator|<<
 name|QMetaMethod
 operator|::
-name|Protected
+name|Public
 operator|<<
 name|QMetaMethod
 operator|::
@@ -3223,7 +3223,7 @@ operator|)
 operator|<<
 name|QMetaMethod
 operator|::
-name|Protected
+name|Public
 operator|<<
 name|QMetaMethod
 operator|::
@@ -3632,7 +3632,7 @@ name|parameterNames
 operator|<<
 name|QMetaMethod
 operator|::
-name|Protected
+name|Public
 operator|<<
 name|QMetaMethod
 operator|::
@@ -3839,7 +3839,7 @@ operator|)
 operator|<<
 name|QMetaMethod
 operator|::
-name|Protected
+name|Public
 operator|<<
 name|QMetaMethod
 operator|::

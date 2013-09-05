@@ -1533,7 +1533,7 @@ name|mm
 operator|.
 name|flags
 operator|=
-name|AccessProtected
+name|AccessPublic
 operator||
 name|MethodSignal
 operator||
