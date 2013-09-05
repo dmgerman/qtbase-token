@@ -475,7 +475,7 @@ define|#
 directive|define
 name|Q_UNREACHABLE_IMPL
 parameter_list|()
-value|__assume(0)
+value|__builtin_unreachable()
 end_define
 begin_elif
 elif|#
