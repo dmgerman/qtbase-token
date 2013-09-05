@@ -630,10 +630,9 @@ end_macro
 begin_block
 block|{ }
 end_block
-begin_union
-union|union
-block|{
+begin_struct
 struct|struct
+name|Bits
 block|{
 name|quint32
 name|horStretch
@@ -676,8 +675,14 @@ range|:
 literal|1
 decl_stmt|;
 block|}
-name|bits
 struct|;
+end_struct
+begin_union
+union|union
+block|{
+name|Bits
+name|bits
+decl_stmt|;
 name|quint32
 name|data
 decl_stmt|;

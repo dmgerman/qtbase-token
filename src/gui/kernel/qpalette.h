@@ -1228,9 +1228,8 @@ name|QPalettePrivate
 modifier|*
 name|d
 decl_stmt|;
-union|union
-block|{
 struct|struct
+name|Data
 block|{
 name|uint
 name|current_group
@@ -1243,8 +1242,12 @@ range|:
 literal|28
 decl_stmt|;
 block|}
-name|data
 struct|;
+union|union
+block|{
+name|Data
+name|data
+decl_stmt|;
 name|quint32
 name|for_faster_swapping_dont_use
 decl_stmt|;
