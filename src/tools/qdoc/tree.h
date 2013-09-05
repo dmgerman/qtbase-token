@@ -441,14 +441,6 @@ name|funcRole
 argument_list|)
 decl_stmt|;
 name|void
-name|addToQmlModule
-parameter_list|(
-name|Node
-modifier|*
-name|node
-parameter_list|)
-function_decl|;
-name|void
 name|resolveInheritance
 parameter_list|(
 name|NamespaceNode
