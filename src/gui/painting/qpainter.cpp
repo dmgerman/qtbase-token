@@ -5948,7 +5948,8 @@ operator|->
 name|changeFlags
 operator|&=
 operator|~
-operator|(
+name|uint
+argument_list|(
 name|QPaintEngine
 operator|::
 name|DirtyClipPath
@@ -5956,7 +5957,7 @@ operator||
 name|QPaintEngine
 operator|::
 name|DirtyClipRegion
-operator|)
+argument_list|)
 expr_stmt|;
 name|tmp
 operator|->
