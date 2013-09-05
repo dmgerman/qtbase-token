@@ -863,6 +863,14 @@ name|int
 name|to
 parameter_list|)
 block|{
+if|if
+condition|(
+name|customTypesConversionRegistry
+operator|.
+name|isDestroyed
+argument_list|()
+condition|)
+return|return;
 name|customTypesConversionRegistry
 argument_list|()
 operator|->
