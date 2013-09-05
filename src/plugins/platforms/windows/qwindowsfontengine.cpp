@@ -6699,7 +6699,6 @@ name|glyph_t
 name|glyph
 parameter_list|,
 name|QFixed
-name|pos
 parameter_list|,
 specifier|const
 name|QTransform
