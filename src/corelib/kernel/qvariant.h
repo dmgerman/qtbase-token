@@ -4685,7 +4685,12 @@ name|data
 operator|.
 name|o
 else|:
-literal|0
+name|QVariantValueHelper
+operator|::
+name|metaType
+argument_list|(
+name|v
+argument_list|)
 operator|)
 return|;
 block|}
