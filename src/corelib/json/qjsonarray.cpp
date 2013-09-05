@@ -1931,11 +1931,21 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_ifndef
-ifndef|#
-directive|ifndef
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
 name|QT_NO_DEBUG_STREAM
-end_ifndef
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_JSON_READONLY
+argument_list|)
+end_if
 begin_function
 DECL|function|operator <<
 name|QDebug

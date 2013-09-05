@@ -187,6 +187,10 @@ name|void
 name|proFileCache
 parameter_list|()
 function_decl|;
+name|void
+name|json
+parameter_list|()
+function_decl|;
 private|private:
 DECL|member|test_compiler
 name|TestCompiler
@@ -3253,6 +3257,198 @@ argument_list|(
 name|workDir
 argument_list|,
 literal|"pro_file_cache"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_function
+DECL|function|json
+name|void
+name|tst_qmake
+operator|::
+name|json
+parameter_list|()
+block|{
+name|QString
+name|workDir
+init|=
+name|base_path
+operator|+
+literal|"/testdata/json"
+decl_stmt|;
+name|QVERIFY
+argument_list|(
+name|test_compiler
+operator|.
+name|qmake
+argument_list|(
+name|workDir
+argument_list|,
+literal|"json.pro"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QString
+name|output
+init|=
+name|test_compiler
+operator|.
+name|commandOutput
+argument_list|()
+decl_stmt|;
+comment|// all keys
+name|QVERIFY
+argument_list|(
+name|output
+operator|.
+name|contains
+argument_list|(
+literal|"json._KEYS_ array false null number object string true"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// array
+name|QVERIFY
+argument_list|(
+name|output
+operator|.
+name|contains
+argument_list|(
+literal|"json.array._KEYS_ 0 1 2"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|output
+operator|.
+name|contains
+argument_list|(
+literal|"json.array.0 arrayItem1"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|output
+operator|.
+name|contains
+argument_list|(
+literal|"json.array.1 arrayItem2"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|output
+operator|.
+name|contains
+argument_list|(
+literal|"json.array.2 arrayItem3"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// object
+name|QVERIFY
+argument_list|(
+name|output
+operator|.
+name|contains
+argument_list|(
+literal|"json.object._KEYS_ key1 key2"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|output
+operator|.
+name|contains
+argument_list|(
+literal|"json.object.key1 objectValue1"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|output
+operator|.
+name|contains
+argument_list|(
+literal|"json.object.key1 objectValue1"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// value types
+name|QVERIFY
+argument_list|(
+name|output
+operator|.
+name|contains
+argument_list|(
+literal|"json.string: test string"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|output
+operator|.
+name|contains
+argument_list|(
+literal|"json.number: 999"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|output
+operator|.
+name|contains
+argument_list|(
+literal|"json.true: true"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|output
+operator|.
+name|contains
+argument_list|(
+literal|"json.false: false"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|output
+operator|.
+name|contains
+argument_list|(
+literal|"json.null:"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// functional booleans
+name|QVERIFY
+argument_list|(
+name|output
+operator|.
+name|contains
+argument_list|(
+literal|"json.true is true"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|output
+operator|.
+name|contains
+argument_list|(
+literal|"json.false is false"
 argument_list|)
 argument_list|)
 expr_stmt|;
