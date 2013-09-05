@@ -26,6 +26,29 @@ name|void
 parameter_list|)
 function_decl|;
 end_typedef
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
+end_if
+begin_decl_stmt
+DECL|variable|ptrGetTickCount64
+specifier|static
+specifier|const
+name|PtrGetTickCount64
+name|ptrGetTickCount64
+init|=
+operator|&
+name|GetTickCount64
+decl_stmt|;
+end_decl_stmt
+begin_else
+else|#
+directive|else
+end_else
 begin_decl_stmt
 DECL|variable|ptrGetTickCount64
 specifier|static
@@ -35,6 +58,10 @@ init|=
 literal|0
 decl_stmt|;
 end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 comment|// Result of QueryPerformanceFrequency, 0 indicates that the high resolution timer is unavailable
@@ -64,6 +91,9 @@ condition|(
 name|done
 condition|)
 return|return;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
 comment|// try to get GetTickCount64 from the system
 name|HMODULE
 name|kernel32
@@ -114,6 +144,9 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+endif|#
+directive|endif
+comment|// !Q_OS_WINRT
 comment|// Retrieve the number of high-resolution performance counter ticks per second
 name|LARGE_INTEGER
 name|frequency
