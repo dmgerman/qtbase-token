@@ -11488,9 +11488,10 @@ name|QMetaType
 operator|::
 name|typeFlags
 argument_list|(
-name|d
+name|oldValue
 operator|.
-name|type
+name|userType
+argument_list|()
 argument_list|)
 operator|&
 name|QMetaType
