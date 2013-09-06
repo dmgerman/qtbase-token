@@ -572,7 +572,10 @@ name|childFlag
 operator|)
 operator|||
 operator|(
+name|int
+argument_list|(
 name|childFlag
+argument_list|)
 operator|==
 operator|-
 literal|1
@@ -585,7 +588,10 @@ name|handlesChildEvents
 operator|)
 operator|||
 operator|(
+name|int
+argument_list|(
 name|childFlag
+argument_list|)
 operator|==
 operator|-
 literal|2
@@ -673,7 +679,10 @@ comment|// Don't process children if the item has the main flag set on itself.
 if|if
 condition|(
 operator|(
+name|int
+argument_list|(
 name|childFlag
+argument_list|)
 operator|!=
 operator|-
 literal|1
