@@ -1443,6 +1443,24 @@ operator|::
 name|DisableArb
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|param
+operator|==
+name|QLatin1String
+argument_list|(
+literal|"mousefromtouch"
+argument_list|)
+condition|)
+block|{
+name|options
+operator||=
+name|QWindowsIntegration
+operator|::
+name|PassOsMouseEventsSynthesizedFromTouch
+expr_stmt|;
+block|}
 block|}
 return|return
 name|options
@@ -2539,23 +2557,39 @@ name|useRTLExtensions
 argument_list|()
 argument_list|)
 return|;
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
 case|case
 name|QPlatformIntegration
 operator|::
 name|SynthesizeMouseFromTouchEvents
 case|:
+ifdef|#
+directive|ifdef
+name|Q_OS_WINCE
 comment|// We do not want Qt to synthesize mouse events as Windows also does that.
 comment|// Alternatively, Windows-generated touch mouse events can be identified and
 comment|// ignored by checking GetMessageExtraInfo() for MI_WP_SIGNATURE (0xFF515700).
 return|return
 literal|false
 return|;
+else|#
+directive|else
+comment|// Q_OS_WINCE
+return|return
+name|QVariant
+argument_list|(
+operator|!
+operator|(
+name|d
+operator|->
+name|m_options
+operator|&
+name|PassOsMouseEventsSynthesizedFromTouch
+operator|)
+argument_list|)
+return|;
 endif|#
 directive|endif
-comment|// Q_OS_WINCE
+comment|// !Q_OS_WINCE
 default|default:
 break|break;
 block|}

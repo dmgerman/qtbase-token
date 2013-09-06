@@ -567,6 +567,29 @@ ifndef|#
 directive|ifndef
 name|Q_OS_WINCE
 comment|// Check for events synthesized from touch. Lower byte is touch index, 0 means pen.
+specifier|static
+specifier|const
+name|bool
+name|passSynthesizedMouseEvents
+init|=
+name|QWindowsIntegration
+operator|::
+name|instance
+argument_list|()
+operator|->
+name|options
+argument_list|()
+operator|&
+name|QWindowsIntegration
+operator|::
+name|PassOsMouseEventsSynthesizedFromTouch
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|passSynthesizedMouseEvents
+condition|)
+block|{
 specifier|const
 name|quint64
 name|extraInfo
@@ -599,6 +622,7 @@ condition|)
 return|return
 literal|false
 return|;
+block|}
 endif|#
 directive|endif
 comment|// !Q_OS_WINCE
