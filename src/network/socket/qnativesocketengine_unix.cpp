@@ -3267,9 +3267,12 @@ literal|0
 operator|&&
 name|sizeofv
 operator|>=
+name|QT_SOCKOPTLEN_T
+argument_list|(
 sizeof|sizeof
 argument_list|(
 name|v
+argument_list|)
 argument_list|)
 condition|)
 block|{
