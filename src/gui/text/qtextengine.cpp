@@ -4875,6 +4875,9 @@ name|itemLength
 argument_list|)
 condition|)
 block|{
+name|Q_UNREACHABLE
+argument_list|()
+expr_stmt|;
 comment|// ### report OOM error somehow
 return|return;
 block|}
@@ -5037,6 +5040,9 @@ name|nGlyphs
 argument_list|)
 condition|)
 block|{
+name|Q_UNREACHABLE
+argument_list|()
+expr_stmt|;
 comment|// ### report OOM error somehow
 return|return;
 block|}
@@ -5077,6 +5083,9 @@ name|shaperFlags
 argument_list|)
 condition|)
 block|{
+name|Q_UNREACHABLE
+argument_list|()
+expr_stmt|;
 comment|// ### if this happens there is a bug in the fontengine
 return|return;
 block|}
@@ -5411,6 +5420,9 @@ operator|==
 literal|0
 condition|)
 block|{
+name|Q_UNREACHABLE
+argument_list|()
+expr_stmt|;
 comment|// ### report shaping errors somehow
 return|return;
 block|}
