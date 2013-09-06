@@ -907,6 +907,11 @@ name|sHGetStockIconInfo
 argument_list|(
 literal|0
 argument_list|)
+member_init_list|,
+name|sHGetImageList
+argument_list|(
+literal|0
+argument_list|)
 block|{ }
 end_constructor
 begin_function
@@ -950,6 +955,18 @@ operator|.
 name|resolve
 argument_list|(
 literal|"SHGetStockIconInfo"
+argument_list|)
+expr_stmt|;
+name|sHGetImageList
+operator|=
+operator|(
+name|SHGetImageList
+operator|)
+name|library
+operator|.
+name|resolve
+argument_list|(
+literal|"SHGetImageList"
 argument_list|)
 expr_stmt|;
 block|}
