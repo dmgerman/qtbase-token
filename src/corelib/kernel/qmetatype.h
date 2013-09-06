@@ -8764,7 +8764,7 @@ parameter_list|(
 name|SINGLE_ARG_TEMPLATE
 parameter_list|)
 define|\
-value|template<typename T> \ struct QMetaTypeId< SINGLE_ARG_TEMPLATE<T>> \ { \     enum { \         Defined = QMetaTypeId2<T>::Defined \     }; \     static int qt_metatype_id() \     { \         static QBasicAtomicInt metatype_id = Q_BASIC_ATOMIC_INITIALIZER(0); \         if (const int id = metatype_id.load()) \             return id; \         const char *tName = QMetaType::typeName(qMetaTypeId<T>()); \         Q_ASSERT(tName); \         const int tNameLen = qstrlen(tName); \         QByteArray typeName; \         typeName.reserve(int(sizeof(#SINGLE_ARG_TEMPLATE)) + 1 + tNameLen + 1 + 1); \         typeName.append(#SINGLE_ARG_TEMPLATE, int(sizeof(#SINGLE_ARG_TEMPLATE)) - 1) \             .append('<').append(tName, tNameLen); \         if (typeName.endsWith('>')) \             typeName.append(' '); \         typeName.append('>'); \         const int newId = qRegisterNormalizedMetaType< SINGLE_ARG_TEMPLATE<T>>( \                         typeName, \                         reinterpret_cast< SINGLE_ARG_TEMPLATE<T> *>(quintptr(-1))); \         metatype_id.storeRelease(newId); \         return newId; \     } \ };
+value|QT_BEGIN_NAMESPACE \ template<typename T> \ struct QMetaTypeId< SINGLE_ARG_TEMPLATE<T>> \ { \     enum { \         Defined = QMetaTypeId2<T>::Defined \     }; \     static int qt_metatype_id() \     { \         static QBasicAtomicInt metatype_id = Q_BASIC_ATOMIC_INITIALIZER(0); \         if (const int id = metatype_id.load()) \             return id; \         const char *tName = QMetaType::typeName(qMetaTypeId<T>()); \         Q_ASSERT(tName); \         const int tNameLen = qstrlen(tName); \         QByteArray typeName; \         typeName.reserve(int(sizeof(#SINGLE_ARG_TEMPLATE)) + 1 + tNameLen + 1 + 1); \         typeName.append(#SINGLE_ARG_TEMPLATE, int(sizeof(#SINGLE_ARG_TEMPLATE)) - 1) \             .append('<').append(tName, tNameLen); \         if (typeName.endsWith('>')) \             typeName.append(' '); \         typeName.append('>'); \         const int newId = qRegisterNormalizedMetaType< SINGLE_ARG_TEMPLATE<T>>( \                         typeName, \                         reinterpret_cast< SINGLE_ARG_TEMPLATE<T> *>(quintptr(-1))); \         metatype_id.storeRelease(newId); \         return newId; \     } \ }; \ QT_END_NAMESPACE
 end_define
 begin_define
 DECL|macro|Q_DECLARE_METATYPE_TEMPLATE_2ARG
@@ -8775,7 +8775,7 @@ parameter_list|(
 name|DOUBLE_ARG_TEMPLATE
 parameter_list|)
 define|\
-value|template<typename T, typename U> \ struct QMetaTypeId< DOUBLE_ARG_TEMPLATE<T, U>> \ { \     enum { \         Defined = QMetaTypeId2<T>::Defined&& QMetaTypeId2<U>::Defined \     }; \     static int qt_metatype_id() \     { \         static QBasicAtomicInt metatype_id = Q_BASIC_ATOMIC_INITIALIZER(0); \         if (const int id = metatype_id.loadAcquire()) \             return id; \         const char *tName = QMetaType::typeName(qMetaTypeId<T>()); \         const char *uName = QMetaType::typeName(qMetaTypeId<U>()); \         Q_ASSERT(tName); \         Q_ASSERT(uName); \         const int tNameLen = qstrlen(tName); \         const int uNameLen = qstrlen(uName); \         QByteArray typeName; \         typeName.reserve(int(sizeof(#DOUBLE_ARG_TEMPLATE)) + 1 + tNameLen + 1 + uNameLen + 1 + 1); \         typeName.append(#DOUBLE_ARG_TEMPLATE, int(sizeof(#DOUBLE_ARG_TEMPLATE)) - 1) \             .append('<').append(tName, tNameLen).append(',').append(uName, uNameLen); \         if (typeName.endsWith('>')) \             typeName.append(' '); \         typeName.append('>'); \         const int newId = qRegisterNormalizedMetaType< DOUBLE_ARG_TEMPLATE<T, U>>(\                         typeName, \                         reinterpret_cast< DOUBLE_ARG_TEMPLATE<T, U> *>(quintptr(-1))); \         metatype_id.storeRelease(newId); \         return newId; \     } \ };
+value|QT_BEGIN_NAMESPACE \ template<typename T, typename U> \ struct QMetaTypeId< DOUBLE_ARG_TEMPLATE<T, U>> \ { \     enum { \         Defined = QMetaTypeId2<T>::Defined&& QMetaTypeId2<U>::Defined \     }; \     static int qt_metatype_id() \     { \         static QBasicAtomicInt metatype_id = Q_BASIC_ATOMIC_INITIALIZER(0); \         if (const int id = metatype_id.loadAcquire()) \             return id; \         const char *tName = QMetaType::typeName(qMetaTypeId<T>()); \         const char *uName = QMetaType::typeName(qMetaTypeId<U>()); \         Q_ASSERT(tName); \         Q_ASSERT(uName); \         const int tNameLen = qstrlen(tName); \         const int uNameLen = qstrlen(uName); \         QByteArray typeName; \         typeName.reserve(int(sizeof(#DOUBLE_ARG_TEMPLATE)) + 1 + tNameLen + 1 + uNameLen + 1 + 1); \         typeName.append(#DOUBLE_ARG_TEMPLATE, int(sizeof(#DOUBLE_ARG_TEMPLATE)) - 1) \             .append('<').append(tName, tNameLen).append(',').append(uName, uNameLen); \         if (typeName.endsWith('>')) \             typeName.append(' '); \         typeName.append('>'); \         const int newId = qRegisterNormalizedMetaType< DOUBLE_ARG_TEMPLATE<T, U>>(\                         typeName, \                         reinterpret_cast< DOUBLE_ARG_TEMPLATE<T, U> *>(quintptr(-1))); \         metatype_id.storeRelease(newId); \         return newId; \     } \ }; \ QT_END_NAMESPACE
 end_define
 begin_decl_stmt
 name|namespace
@@ -8820,7 +8820,16 @@ parameter_list|(
 name|SMART_POINTER
 parameter_list|)
 define|\
-value|QT_BEGIN_NAMESPACE \ namespace QtPrivate { \ template<typename T> \ struct SharedPointerMetaTypeIdHelper<SMART_POINTER<T>, true> \ { \     enum { \         Defined = 1 \     }; \     static int qt_metatype_id() \     { \         static QBasicAtomicInt metatype_id = Q_BASIC_ATOMIC_INITIALIZER(0); \         if (const int id = metatype_id.loadAcquire()) \             return id; \         const char * const cName = T::staticMetaObject.className(); \         QByteArray typeName; \         typeName.reserve(int(sizeof(#SMART_POINTER) + 1 + strlen(cName) + 1)); \         typeName.append(#SMART_POINTER, int(sizeof(#SMART_POINTER)) - 1) \             .append('<').append(cName).append('>'); \         const int newId = qRegisterNormalizedMetaType< SMART_POINTER<T>>( \                         typeName, \                         reinterpret_cast< SMART_POINTER<T> *>(quintptr(-1))); \         metatype_id.storeRelease(newId); \         return newId; \     } \ }; \ } \ template<typename T> \ struct QMetaTypeId< SMART_POINTER<T>> \     : QtPrivate::SharedPointerMetaTypeIdHelper< SMART_POINTER<T>, \                                                 QtPrivate::IsPointerToTypeDerivedFromQObject<T*>::Value> \ { \ };\ QT_END_NAMESPACE \  #define QT_FOR_EACH_AUTOMATIC_TEMPLATE_SMART_POINTER(F) \     F(QSharedPointer) \     F(QWeakPointer) \     F(QPointer)
+value|QT_BEGIN_NAMESPACE \ namespace QtPrivate { \ template<typename T> \ struct SharedPointerMetaTypeIdHelper<SMART_POINTER<T>, true> \ { \     enum { \         Defined = 1 \     }; \     static int qt_metatype_id() \     { \         static QBasicAtomicInt metatype_id = Q_BASIC_ATOMIC_INITIALIZER(0); \         if (const int id = metatype_id.loadAcquire()) \             return id; \         const char * const cName = T::staticMetaObject.className(); \         QByteArray typeName; \         typeName.reserve(int(sizeof(#SMART_POINTER) + 1 + strlen(cName) + 1)); \         typeName.append(#SMART_POINTER, int(sizeof(#SMART_POINTER)) - 1) \             .append('<').append(cName).append('>'); \         const int newId = qRegisterNormalizedMetaType< SMART_POINTER<T>>( \                         typeName, \                         reinterpret_cast< SMART_POINTER<T> *>(quintptr(-1))); \         metatype_id.storeRelease(newId); \         return newId; \     } \ }; \ } \ template<typename T> \ struct QMetaTypeId< SMART_POINTER<T>> \     : QtPrivate::SharedPointerMetaTypeIdHelper< SMART_POINTER<T>, \                                                 QtPrivate::IsPointerToTypeDerivedFromQObject<T*>::Value> \ { \ };\ QT_END_NAMESPACE
+DECL|macro|QT_FOR_EACH_AUTOMATIC_TEMPLATE_SMART_POINTER
+define|#
+directive|define
+name|QT_FOR_EACH_AUTOMATIC_TEMPLATE_SMART_POINTER
+parameter_list|(
+name|F
+parameter_list|)
+define|\
+value|F(QSharedPointer) \     F(QWeakPointer) \     F(QPointer)
 DECL|macro|Q_DECLARE_METATYPE_TEMPLATE_1ARG_ITER
 define|#
 directive|define
@@ -8829,7 +8838,8 @@ parameter_list|(
 name|TEMPLATENAME
 parameter_list|)
 define|\
-value|template<class T> class TEMPLATENAME; \     Q_DECLARE_METATYPE_TEMPLATE_1ARG(TEMPLATENAME)
+value|QT_BEGIN_NAMESPACE \     template<class T> class TEMPLATENAME; \     QT_END_NAMESPACE \     Q_DECLARE_METATYPE_TEMPLATE_1ARG(TEMPLATENAME)
+name|QT_END_NAMESPACE
 DECL|function|QT_FOR_EACH_AUTOMATIC_TEMPLATE_1ARG
 name|QT_FOR_EACH_AUTOMATIC_TEMPLATE_1ARG
 argument_list|(
@@ -8857,7 +8867,7 @@ parameter_list|,
 name|CPPTYPE
 parameter_list|)
 define|\
-value|template<class T1, class T2> CPPTYPE TEMPLATENAME; \     Q_DECLARE_METATYPE_TEMPLATE_2ARG(TEMPLATENAME)
+value|QT_BEGIN_NAMESPACE \     template<class T1, class T2> CPPTYPE TEMPLATENAME; \     QT_END_NAMESPACE \     Q_DECLARE_METATYPE_TEMPLATE_2ARG(TEMPLATENAME)
 name|QT_FOR_EACH_AUTOMATIC_TEMPLATE_2ARG
 argument_list|(
 argument|Q_DECLARE_METATYPE_TEMPLATE_2ARG_ITER
@@ -8883,7 +8893,6 @@ name|TEMPLATENAME
 parameter_list|)
 define|\
 value|Q_DECLARE_SMART_POINTER_METATYPE(TEMPLATENAME)
-name|QT_END_NAMESPACE
 name|QT_FOR_EACH_AUTOMATIC_TEMPLATE_SMART_POINTER
 argument_list|(
 argument|Q_DECLARE_METATYPE_TEMPLATE_SMART_POINTER_ITER
