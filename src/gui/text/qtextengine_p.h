@@ -3618,6 +3618,7 @@ begin_decl_stmt
 name|int
 name|shapeTextWithHarfbuzz
 argument_list|(
+specifier|const
 name|QScriptItem
 operator|&
 name|si
@@ -3633,6 +3634,14 @@ argument_list|,
 name|QFontEngine
 operator|*
 name|fontEngine
+argument_list|,
+specifier|const
+name|QVector
+operator|<
+name|uint
+operator|>
+operator|&
+name|itemBoundaries
 argument_list|,
 name|bool
 name|kerningEnabled
