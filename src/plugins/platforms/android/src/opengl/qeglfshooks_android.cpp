@@ -250,6 +250,11 @@ argument_list|(
 name|size
 argument_list|)
 expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|format
+argument_list|)
+expr_stmt|;
 name|ANativeWindow
 modifier|*
 name|window

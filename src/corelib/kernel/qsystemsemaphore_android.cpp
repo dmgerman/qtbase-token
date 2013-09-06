@@ -75,6 +75,11 @@ modifier|&
 name|function
 parameter_list|)
 block|{
+name|Q_UNUSED
+argument_list|(
+name|function
+argument_list|)
+expr_stmt|;
 name|qWarning
 argument_list|()
 operator|<<
@@ -97,6 +102,11 @@ name|AccessMode
 name|mode
 parameter_list|)
 block|{
+name|Q_UNUSED
+argument_list|(
+name|mode
+argument_list|)
+expr_stmt|;
 name|qWarning
 argument_list|()
 operator|<<
@@ -138,6 +148,11 @@ name|int
 name|count
 parameter_list|)
 block|{
+name|Q_UNUSED
+argument_list|(
+name|count
+argument_list|)
+expr_stmt|;
 name|qWarning
 argument_list|()
 operator|<<

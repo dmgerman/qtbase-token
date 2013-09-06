@@ -87,6 +87,11 @@ modifier|&
 name|function
 parameter_list|)
 block|{
+name|Q_UNUSED
+argument_list|(
+name|function
+argument_list|)
+expr_stmt|;
 name|qWarning
 argument_list|()
 operator|<<
@@ -152,6 +157,11 @@ modifier|&
 name|fileName
 parameter_list|)
 block|{
+name|Q_UNUSED
+argument_list|(
+name|fileName
+argument_list|)
+expr_stmt|;
 name|qWarning
 argument_list|()
 operator|<<
@@ -207,6 +217,11 @@ name|int
 name|size
 parameter_list|)
 block|{
+name|Q_UNUSED
+argument_list|(
+name|size
+argument_list|)
+expr_stmt|;
 name|qWarning
 argument_list|()
 operator|<<
@@ -232,6 +247,11 @@ name|AccessMode
 name|mode
 parameter_list|)
 block|{
+name|Q_UNUSED
+argument_list|(
+name|mode
+argument_list|)
+expr_stmt|;
 name|qWarning
 argument_list|()
 operator|<<
