@@ -3933,23 +3933,17 @@ literal|"Qt"
 argument_list|,
 literal|"%s:%d (%s): %s"
 argument_list|,
-name|qPrintable
-argument_list|(
 name|context
 operator|.
 name|file
-argument_list|)
 argument_list|,
 name|context
 operator|.
 name|line
 argument_list|,
-name|qPrintable
-argument_list|(
 name|context
 operator|.
 name|function
-argument_list|)
 argument_list|,
 name|qPrintable
 argument_list|(
