@@ -2250,9 +2250,7 @@ argument_list|(
 name|var
 operator|.
 name|toQString
-argument_list|(
-name|m_tmp1
-argument_list|)
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
