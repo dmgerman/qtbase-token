@@ -42,18 +42,30 @@ name|defined
 argument_list|(
 name|__clang__
 argument_list|)
-operator|&&
-operator|!
-name|defined
+end_if
+begin_if
+if|#
+directive|if
+name|__has_feature
 argument_list|(
-name|_LIBCPP_VERSION
+name|cxx_generalized_initializers
 argument_list|)
 end_if
-begin_error
-error|#
-directive|error
-literal|"C++11 with clang requires libc++ runtime"
-end_error
+begin_comment
+comment|//   On Mac OS X, the libstdc++ headers don't include<initializer_list>
+end_comment
+begin_comment
+comment|//   This #include here forces a failure unless we're using libc++
+end_comment
+begin_include
+include|#
+directive|include
+file|<initializer_list>
+end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_endif
 endif|#
 directive|endif
