@@ -191,6 +191,17 @@ parameter_list|)
 define|\
 value|F(QHash, class) \     F(QMap, class) \     F(QPair, struct)
 end_define
+begin_define
+DECL|macro|QT_FOR_EACH_AUTOMATIC_TEMPLATE_SMART_POINTER
+define|#
+directive|define
+name|QT_FOR_EACH_AUTOMATIC_TEMPLATE_SMART_POINTER
+parameter_list|(
+name|F
+parameter_list|)
+define|\
+value|F(QSharedPointer) \     F(QWeakPointer) \     F(QPointer)
+end_define
 begin_decl_stmt
 DECL|variable|QDataStream
 name|class
@@ -6380,39 +6391,17 @@ name|class
 name|QWidget
 decl_stmt|;
 end_decl_stmt
-begin_expr_stmt
-DECL|variable|QSharedPointer
-name|template
-operator|<
-name|class
-name|T
-operator|>
-name|class
-name|QSharedPointer
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-DECL|variable|QWeakPointer
-name|template
-operator|<
-name|class
-name|T
-operator|>
-name|class
-name|QWeakPointer
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-DECL|variable|QPointer
-name|template
-operator|<
-name|class
-name|T
-operator|>
-name|class
-name|QPointer
-expr_stmt|;
-end_expr_stmt
+begin_define
+DECL|macro|QT_FORWARD_DECLARE_SHARED_POINTER_TYPES_ITER
+define|#
+directive|define
+name|QT_FORWARD_DECLARE_SHARED_POINTER_TYPES_ITER
+parameter_list|(
+name|Name
+parameter_list|)
+define|\
+value|template<class T> class Name; \  QT_FOR_EACH_AUTOMATIC_TEMPLATE_SMART_POINTER(QT_FORWARD_DECLARE_SHARED_POINTER_TYPES_ITER)
+end_define
 begin_decl_stmt
 name|namespace
 name|QtPrivate
@@ -8821,15 +8810,6 @@ name|SMART_POINTER
 parameter_list|)
 define|\
 value|QT_BEGIN_NAMESPACE \ namespace QtPrivate { \ template<typename T> \ struct SharedPointerMetaTypeIdHelper<SMART_POINTER<T>, true> \ { \     enum { \         Defined = 1 \     }; \     static int qt_metatype_id() \     { \         static QBasicAtomicInt metatype_id = Q_BASIC_ATOMIC_INITIALIZER(0); \         if (const int id = metatype_id.loadAcquire()) \             return id; \         const char * const cName = T::staticMetaObject.className(); \         QByteArray typeName; \         typeName.reserve(int(sizeof(#SMART_POINTER) + 1 + strlen(cName) + 1)); \         typeName.append(#SMART_POINTER, int(sizeof(#SMART_POINTER)) - 1) \             .append('<').append(cName).append('>'); \         const int newId = qRegisterNormalizedMetaType< SMART_POINTER<T>>( \                         typeName, \                         reinterpret_cast< SMART_POINTER<T> *>(quintptr(-1))); \         metatype_id.storeRelease(newId); \         return newId; \     } \ }; \ } \ template<typename T> \ struct QMetaTypeId< SMART_POINTER<T>> \     : QtPrivate::SharedPointerMetaTypeIdHelper< SMART_POINTER<T>, \                                                 QtPrivate::IsPointerToTypeDerivedFromQObject<T*>::Value> \ { \ };\ QT_END_NAMESPACE
-DECL|macro|QT_FOR_EACH_AUTOMATIC_TEMPLATE_SMART_POINTER
-define|#
-directive|define
-name|QT_FOR_EACH_AUTOMATIC_TEMPLATE_SMART_POINTER
-parameter_list|(
-name|F
-parameter_list|)
-define|\
-value|F(QSharedPointer) \     F(QWeakPointer) \     F(QPointer)
 DECL|macro|Q_DECLARE_METATYPE_TEMPLATE_1ARG_ITER
 define|#
 directive|define
