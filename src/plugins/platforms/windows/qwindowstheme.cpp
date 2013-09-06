@@ -4209,7 +4209,8 @@ specifier|static
 name|int
 name|defaultFolderIIcon
 init|=
-literal|0
+operator|-
+literal|1
 decl_stmt|;
 specifier|const
 name|bool
@@ -4322,6 +4323,8 @@ operator|(
 name|useDefaultFolderIcon
 operator|&&
 name|defaultFolderIIcon
+operator|>=
+literal|0
 operator|)
 condition|?
 name|defaultFolderIIcon
@@ -4498,8 +4501,9 @@ if|if
 condition|(
 name|useDefaultFolderIcon
 operator|&&
-operator|!
 name|defaultFolderIIcon
+operator|<
+literal|0
 condition|)
 name|defaultFolderIIcon
 operator|=
