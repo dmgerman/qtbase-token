@@ -2701,6 +2701,12 @@ define|#
 directive|define
 name|QT_NO_PROCESS
 end_define
+begin_define
+DECL|macro|QT_NO_FILESYSTEMWATCHER
+define|#
+directive|define
+name|QT_NO_FILESYSTEMWATCHER
+end_define
 begin_endif
 endif|#
 directive|endif
