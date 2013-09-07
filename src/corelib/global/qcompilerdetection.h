@@ -1974,6 +1974,12 @@ name|__INTEL_COMPILER
 operator|>=
 literal|1300
 end_if
+begin_define
+DECL|macro|Q_COMPILER_ATOMICS
+define|#
+directive|define
+name|Q_COMPILER_ATOMICS
+end_define
 begin_comment
 comment|//       constexpr support is only partial
 end_comment
