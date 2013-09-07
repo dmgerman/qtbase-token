@@ -113,6 +113,11 @@ name|void
 name|destroy
 argument_list|()
 block|;
+specifier|static
+name|void
+name|updateStaticNativeWindow
+argument_list|()
+block|;
 name|private
 operator|:
 name|QSize

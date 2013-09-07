@@ -372,6 +372,14 @@ operator|&
 name|t
 argument_list|)
 block|;
+name|bool
+name|writeDummyMakefile
+argument_list|(
+name|QTextStream
+operator|&
+name|t
+argument_list|)
+block|;
 name|virtual
 name|bool
 name|writeStubMakefile

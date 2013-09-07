@@ -514,42 +514,14 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|project
-operator|->
-name|values
+name|writeDummyMakefile
 argument_list|(
-literal|"QMAKE_FAILED_REQUIREMENTS"
+name|t
 argument_list|)
-operator|.
-name|isEmpty
-argument_list|()
 condition|)
-block|{
-name|t
-operator|<<
-literal|"all clean:\n\t"
-operator|<<
-literal|"@echo \"Some of the required modules ("
-operator|<<
-name|var
-argument_list|(
-literal|"QMAKE_FAILED_REQUIREMENTS"
-argument_list|)
-operator|<<
-literal|") are not available.\"\n\t"
-operator|<<
-literal|"@echo \"Skipped.\"\n\n"
-expr_stmt|;
-name|writeMakeQmake
-argument_list|(
-name|t
-argument_list|)
-expr_stmt|;
 return|return
 literal|true
 return|;
-block|}
 if|if
 condition|(
 name|project

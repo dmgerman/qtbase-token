@@ -11832,8 +11832,10 @@ expr_stmt|;
 block|}
 block|}
 name|deps
-operator|+=
+operator|=
 name|inputs
+operator|+
+name|deps
 expr_stmt|;
 comment|// input files themselves too..
 comment|// Replace variables for command w/all input files
@@ -11860,8 +11862,11 @@ block|}
 else|else
 block|{
 name|deps
-operator|+=
+operator|.
+name|prepend
+argument_list|(
 name|inFile
+argument_list|)
 expr_stmt|;
 comment|// input file itself too..
 name|cmd
@@ -12114,12 +12119,7 @@ operator|.
 name|AdditionalDependencies
 expr_stmt|;
 comment|// Make sure that all deps are only once
-name|QHash
-argument_list|<
-name|QString
-argument_list|,
-name|bool
-argument_list|>
+name|QStringList
 name|uniqDeps
 decl_stmt|;
 for|for
@@ -12162,28 +12162,20 @@ name|isEmpty
 argument_list|()
 condition|)
 name|uniqDeps
-index|[
+operator|<<
 name|aDep
-index|]
-operator|=
-literal|false
 expr_stmt|;
 block|}
+name|uniqDeps
+operator|.
+name|removeDuplicates
+argument_list|()
+expr_stmt|;
 name|CustomBuildTool
 operator|.
 name|AdditionalDependencies
 operator|=
 name|uniqDeps
-operator|.
-name|keys
-argument_list|()
-expr_stmt|;
-name|CustomBuildTool
-operator|.
-name|AdditionalDependencies
-operator|.
-name|sort
-argument_list|()
 expr_stmt|;
 block|}
 comment|// Ensure that none of the output files are also dependencies. Or else, the custom buildstep

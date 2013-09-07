@@ -614,6 +614,15 @@ operator|==
 name|Qt
 operator|::
 name|Popup
+operator|||
+name|tw
+operator|->
+name|windowType
+argument_list|()
+operator|==
+name|Qt
+operator|::
+name|SubWindow
 operator|)
 condition|)
 name|tw

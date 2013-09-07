@@ -20,6 +20,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qmetaobject_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<qcoreapplication.h>
 end_include
 begin_include
@@ -8084,9 +8089,35 @@ argument_list|)
 operator|!=
 literal|0
 condition|)
+block|{
+comment|// String comparison failed, try compare the metatype.
+name|int
+name|t
+init|=
+name|returnType
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|t
+operator|==
+name|QMetaType
+operator|::
+name|UnknownType
+operator|||
+name|t
+operator|!=
+name|QMetaType
+operator|::
+name|type
+argument_list|(
+name|normalized
+argument_list|)
+condition|)
 return|return
 literal|false
 return|;
+block|}
 block|}
 block|}
 comment|// check argument count (we don't allow invoking a method if given too few arguments)

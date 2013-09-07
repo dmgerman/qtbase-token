@@ -3285,6 +3285,25 @@ operator|<
 literal|1700
 operator|)
 end_if
+begin_comment
+comment|// MinGW-64 defines FILE_ID_128 as of gcc-4.8.1 along with FILE_SUPPORTS_INTEGRITY_STREAMS
+end_comment
+begin_if
+if|#
+directive|if
+operator|!
+operator|(
+name|defined
+argument_list|(
+name|Q_CC_MINGW
+argument_list|)
+operator|&&
+name|defined
+argument_list|(
+name|FILE_SUPPORTS_INTEGRITY_STREAMS
+argument_list|)
+operator|)
+end_if
 begin_typedef
 DECL|struct|_FILE_ID_128
 typedef|typedef
@@ -3307,6 +3326,13 @@ typedef|*
 name|PFILE_ID_128
 typedef|;
 end_typedef
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !(Q_CC_MINGW&& FILE_SUPPORTS_INTEGRITY_STREAMS)
+end_comment
 begin_typedef
 DECL|struct|_FILE_ID_INFO
 typedef|typedef
@@ -3521,6 +3547,7 @@ name|result
 operator|+=
 literal|':'
 expr_stmt|;
+comment|// Note: MinGW-64's definition of FILE_ID_128 differs from the MSVC one.
 name|result
 operator|+=
 name|QByteArray
@@ -3529,19 +3556,16 @@ operator|(
 name|char
 operator|*
 operator|)
+operator|&
 name|infoEx
 operator|.
 name|FileId
-operator|.
-name|Identifier
 argument_list|,
 sizeof|sizeof
 argument_list|(
 name|infoEx
 operator|.
 name|FileId
-operator|.
-name|Identifier
 argument_list|)
 argument_list|)
 operator|.
