@@ -178,17 +178,8 @@ name|Char
 argument_list|(
 literal|'\"'
 argument_list|)
-operator|||
-operator|*
-name|p
-operator|==
-name|Char
-argument_list|(
-literal|'\''
-argument_list|)
 condition|)
 block|{
-comment|// " or ' quote
 name|quote
 operator|=
 operator|*
@@ -279,8 +270,14 @@ literal|'\\'
 condition|)
 block|{
 comment|// escape char?
+comment|// testing by looking at argc, argv shows that it only escapes quotes and backslashes
 if|if
 condition|(
+name|p
+operator|<
+name|p_end
+operator|&&
+operator|(
 operator|*
 operator|(
 name|p
@@ -288,7 +285,23 @@ operator|+
 literal|1
 operator|)
 operator|==
-name|quote
+name|Char
+argument_list|(
+literal|'\"'
+argument_list|)
+operator|||
+operator|*
+operator|(
+name|p
+operator|+
+literal|1
+operator|)
+operator|==
+name|Char
+argument_list|(
+literal|'\\'
+argument_list|)
+operator|)
 condition|)
 name|p
 operator|++
@@ -309,18 +322,9 @@ name|Char
 argument_list|(
 literal|'\"'
 argument_list|)
-operator|||
-operator|*
-name|p
-operator|==
-name|Char
-argument_list|(
-literal|'\''
-argument_list|)
 operator|)
 condition|)
 block|{
-comment|// " or ' quote
 name|quote
 operator|=
 operator|*
