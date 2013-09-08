@@ -24442,6 +24442,14 @@ expr_stmt|;
 block|}
 block|}
 block|}
+if|if
+condition|(
+operator|!
+name|val
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
 name|t
 operator|<<
 name|var
