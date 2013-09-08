@@ -4211,7 +4211,7 @@ begin_comment
 comment|/*!     \fn bool QAbstractItemModel::removeRow(int row, const QModelIndex&parent)      Removes the given \a row from the child items of the \a parent specified.      Returns true if the row is removed; otherwise returns false.      This is a convenience function that calls removeRows(). The     QAbstractItemModel implementation of removeRows() does nothing.      \sa removeRows(), removeColumn(), insertRow() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QAbstractItemModel::moveRow(const QModelIndex&sourceParent, int sourceColumn, const QModelIndex&destinationParent, int destinationChild)      On models that support this, moves \a sourceColumn from \a sourceParent to \a destinationChild under     \a destinationParent.      Returns true if the columns were successfully moved; otherwise returns     false.      \sa moveRows(), moveColumn() */
+comment|/*!     \fn bool QAbstractItemModel::moveRow(const QModelIndex&sourceParent, int sourceRow, const QModelIndex&destinationParent, int destinationChild)      On models that support this, moves \a sourceRow from \a sourceParent to \a destinationChild under     \a destinationParent.      Returns true if the rows were successfully moved; otherwise returns     false.      \sa moveRows(), moveColumn() */
 end_comment
 begin_comment
 comment|/*!     \fn bool QAbstractItemModel::moveColumn(const QModelIndex&sourceParent, int sourceColumn, const QModelIndex&destinationParent, int destinationChild)      On models that support this, moves \a sourceColumn from \a sourceParent to \a destinationChild under     \a destinationParent.      Returns true if the columns were successfully moved; otherwise returns     false.      \sa moveColumns(), moveRow() */
