@@ -20292,6 +20292,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/*!     \fn void QWidget::windowIconTextChanged(const QString&iconText)      This signal is emitted when the window's icon text has changed, with the     new \a iconText as an argument.      \since 5.2 */
 DECL|function|setWindowIconText
 name|void
 name|QWidget
@@ -20353,7 +20354,14 @@ operator|&
 name|e
 argument_list|)
 expr_stmt|;
+emit|emit
+name|windowIconTextChanged
+argument_list|(
+name|iconText
+argument_list|)
+emit|;
 block|}
+comment|/*!     \fn void QWidget::windowTitleChanged(const QString&title)      This signal is emitted when the window's title has changed, with the     new \a title as an argument.      \since 5.2 */
 DECL|function|setWindowTitle
 name|void
 name|QWidget
@@ -20427,6 +20435,12 @@ operator|&
 name|e
 argument_list|)
 expr_stmt|;
+emit|emit
+name|windowTitleChanged
+argument_list|(
+name|title
+argument_list|)
+emit|;
 block|}
 comment|/*!     \property QWidget::windowIcon     \brief the widget's icon      This property only makes sense for windows. If no icon     has been set, windowIcon() returns the application icon     (QApplication::windowIcon()).      \sa windowIconText, windowTitle */
 DECL|function|windowIcon
@@ -20588,6 +20602,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/*!     \fn void QWidget::windowIconChanged(const QIcon&icon)      This signal is emitted when the window's icon has changed, with the     new \a icon as an argument.      \since 5.2 */
 DECL|function|setWindowIcon
 name|void
 name|QWidget
@@ -20667,6 +20682,12 @@ operator|->
 name|setWindowIcon_helper
 argument_list|()
 expr_stmt|;
+emit|emit
+name|windowIconChanged
+argument_list|(
+name|icon
+argument_list|)
+emit|;
 block|}
 comment|/*!     \property QWidget::windowIconText     \brief the widget's icon text      This property only makes sense for windows. If no icon     text has been set, this functions returns an empty string.      \sa windowIcon, windowTitle */
 DECL|function|windowIconText
