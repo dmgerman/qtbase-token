@@ -1812,7 +1812,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*  * C++11 support  *  *  Paper           Macro  *  N2341           Q_COMPILER_ALIGNAS  *  N2341           Q_COMPILER_ALIGNOF  *  N2427           Q_COMPILER_ATOMICS  *  N2761           Q_COMPILER_ATTRIBUTES  *  N2541           Q_COMPILER_AUTO_FUNCTION  *  N1984 N2546     Q_COMPILER_AUTO_TYPE  *  N2437           Q_COMPILER_CLASS_ENUM  *  N2235           Q_COMPILER_CONSTEXPR  *  N2343 N3276     Q_COMPILER_DECLTYPE  *  N2346           Q_COMPILER_DEFAULT_MEMBERS  *  N2346           Q_COMPILER_DELETE_MEMBERS  *  N1986           Q_COMPILER_DELEGATING_CONSTRUCTORS  *  N3206 N3272     Q_COMPILER_EXPLICIT_OVERRIDES   (v0.9 and above only)  *  N1987           Q_COMPILER_EXTERN_TEMPLATES  *  N2540           Q_COMPILER_INHERITING_CONSTRUCTORS  *  N2672           Q_COMPILER_INITIALIZER_LISTS  *  N2658 N2927     Q_COMPILER_LAMBDA   (v1.0 and above only)  *  N2756           Q_COMPILER_NONSTATIC_MEMBER_INIT  *  N2855 N3050     Q_COMPILER_NOEXCEPT  *  N2431           Q_COMPILER_NULLPTR  *  N2930           Q_COMPILER_RANGE_FOR  *  N2442           Q_COMPILER_RAW_STRINGS  *  N2439           Q_COMPILER_REF_QUALIFIERS  *  N2118 N2844 N3053 Q_COMPILER_RVALUE_REFS   (Note: GCC 4.3 implements only the oldest)  *  N1720           Q_COMPILER_STATIC_ASSERT  *  N2258           Q_COMPILER_TEMPLATE_ALIAS  *  N2659           Q_COMPILER_THREAD_LOCAL  *  N2765           Q_COMPILER_UDL  *  N2442           Q_COMPILER_UNICODE_STRINGS  *  N2544           Q_COMPILER_UNRESTRICTED_UNIONS  *  N1653           Q_COMPILER_VARIADIC_MACROS  *  N2242 N2555     Q_COMPILER_VARIADIC_TEMPLATES  */
+comment|/*  * C++11 support  *  *  Paper           Macro  *  N2341           Q_COMPILER_ALIGNAS  *  N2341           Q_COMPILER_ALIGNOF  *  N2427           Q_COMPILER_ATOMICS  *  N2761           Q_COMPILER_ATTRIBUTES  *  N2541           Q_COMPILER_AUTO_FUNCTION  *  N1984 N2546     Q_COMPILER_AUTO_TYPE  *  N2437           Q_COMPILER_CLASS_ENUM  *  N2235           Q_COMPILER_CONSTEXPR  *  N2343 N3276     Q_COMPILER_DECLTYPE  *  N2346           Q_COMPILER_DEFAULT_MEMBERS  *  N2346           Q_COMPILER_DELETE_MEMBERS  *  N1986           Q_COMPILER_DELEGATING_CONSTRUCTORS  *  N2437           Q_COMPILER_EXPLICIT_CONVERSIONS  *  N3206 N3272     Q_COMPILER_EXPLICIT_OVERRIDES   (v0.9 and above only)  *  N1987           Q_COMPILER_EXTERN_TEMPLATES  *  N2540           Q_COMPILER_INHERITING_CONSTRUCTORS  *  N2672           Q_COMPILER_INITIALIZER_LISTS  *  N2658 N2927     Q_COMPILER_LAMBDA   (v1.0 and above only)  *  N2756           Q_COMPILER_NONSTATIC_MEMBER_INIT  *  N2855 N3050     Q_COMPILER_NOEXCEPT  *  N2431           Q_COMPILER_NULLPTR  *  N2930           Q_COMPILER_RANGE_FOR  *  N2442           Q_COMPILER_RAW_STRINGS  *  N2439           Q_COMPILER_REF_QUALIFIERS  *  N2118 N2844 N3053 Q_COMPILER_RVALUE_REFS   (Note: GCC 4.3 implements only the oldest)  *  N1720           Q_COMPILER_STATIC_ASSERT  *  N2258           Q_COMPILER_TEMPLATE_ALIAS  *  N2659           Q_COMPILER_THREAD_LOCAL  *  N2765           Q_COMPILER_UDL  *  N2442           Q_COMPILER_UNICODE_STRINGS  *  N2544           Q_COMPILER_UNRESTRICTED_UNIONS  *  N1653           Q_COMPILER_VARIADIC_MACROS  *  N2242 N2555     Q_COMPILER_VARIADIC_TEMPLATES  */
 end_comment
 begin_ifdef
 ifdef|#
@@ -2325,6 +2325,24 @@ DECL|macro|Q_COMPILER_DELEGATING_CONSTRUCTORS
 define|#
 directive|define
 name|Q_COMPILER_DELEGATING_CONSTRUCTORS
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_if
+if|#
+directive|if
+name|__has_feature
+argument_list|(
+name|cxx_explicit_conversions
+argument_list|)
+end_if
+begin_define
+DECL|macro|Q_COMPILER_EXPLICIT_CONVERSIONS
+define|#
+directive|define
+name|Q_COMPILER_EXPLICIT_CONVERSIONS
 end_define
 begin_endif
 endif|#
@@ -2868,6 +2886,12 @@ end_if
 begin_comment
 comment|/* C++11 features supported in GCC 4.5: */
 end_comment
+begin_define
+DECL|macro|Q_COMPILER_EXPLICIT_CONVERSIONS
+define|#
+directive|define
+name|Q_COMPILER_EXPLICIT_CONVERSIONS
+end_define
 begin_define
 DECL|macro|Q_COMPILER_LAMBDA
 define|#
