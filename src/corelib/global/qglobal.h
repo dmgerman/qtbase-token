@@ -783,6 +783,25 @@ directive|define
 name|QT_POINTER_SIZE
 value|4
 end_define
+begin_elif
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|Q_OS_ANDROID
+argument_list|)
+end_elif
+begin_define
+DECL|macro|QT_POINTER_SIZE
+define|#
+directive|define
+name|QT_POINTER_SIZE
+value|4
+end_define
+begin_comment
+DECL|macro|QT_POINTER_SIZE
+comment|// ### Add auto-detection to Windows configure
+end_comment
 begin_endif
 endif|#
 directive|endif
