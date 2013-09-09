@@ -31,7 +31,6 @@ range|:
 name|public
 name|QFontEngineMultiQPA
 block|{
-name|Q_OBJECT
 name|public
 operator|:
 name|explicit

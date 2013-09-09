@@ -88,19 +88,10 @@ range|:
 name|public
 name|QFontEngine
 block|{
-name|Q_OBJECT
-name|Q_PROPERTY
-argument_list|(
-argument|HFONT hFont READ hFont STORED false
-argument_list|)
-name|Q_PROPERTY
-argument_list|(
-argument|LOGFONT logFont READ logFont STORED false
-argument_list|)
-name|Q_PROPERTY
-argument_list|(
-argument|bool trueType READ trueType STORED false
-argument_list|)
+name|friend
+name|class
+name|QWindowsMultiFontEngine
+block|;
 name|public
 operator|:
 name|QWindowsFontEngine
@@ -486,34 +477,6 @@ specifier|const
 block|{
 return|return
 name|m_fontEngineData
-return|;
-block|}
-comment|// Properties accessed by QWin32PrintEngine (Qt Print Support)
-name|LOGFONT
-name|logFont
-argument_list|()
-specifier|const
-block|{
-return|return
-name|m_logfont
-return|;
-block|}
-name|HFONT
-name|hFont
-argument_list|()
-specifier|const
-block|{
-return|return
-name|hfont
-return|;
-block|}
-name|bool
-name|trueType
-argument_list|()
-specifier|const
-block|{
-return|return
-name|ttf
 return|;
 block|}
 name|void

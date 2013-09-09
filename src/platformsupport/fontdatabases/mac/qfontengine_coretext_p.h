@@ -65,7 +65,6 @@ range|:
 name|public
 name|QFontEngine
 block|{
-name|Q_OBJECT
 name|public
 operator|:
 name|QCoreTextFontEngine

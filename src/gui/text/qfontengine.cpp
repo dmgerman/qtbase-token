@@ -1019,9 +1019,6 @@ operator|::
 name|QFontEngine
 parameter_list|()
 member_init_list|:
-name|QObject
-argument_list|()
-member_init_list|,
 name|ref
 argument_list|(
 literal|0
