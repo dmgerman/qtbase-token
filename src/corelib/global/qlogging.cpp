@@ -4911,7 +4911,7 @@ begin_comment
 comment|/*!     \fn QMessageLogContext::QMessageLogContext()     \internal      Constructs a QMessageLogContext */
 end_comment
 begin_comment
-comment|/*!     \fn QMessageLogContext::QMessageLogContext(const char *fileName, int lineNumber, const char *functionName, const char *categoryName)     \internal      Constructs a QMessageLogContext with for file \a fileName at line     \a lineNumber, in function \a functionName, and category \a CategoryName. */
+comment|/*!     \fn QMessageLogContext::QMessageLogContext(const char *fileName, int lineNumber, const char *functionName, const char *categoryName)     \internal      Constructs a QMessageLogContext with for file \a fileName at line     \a lineNumber, in function \a functionName, and category \a categoryName. */
 end_comment
 begin_macro
 name|QT_END_NAMESPACE
