@@ -19,6 +19,12 @@ directive|include
 file|<qpa/qplatformtheme.h>
 end_include
 begin_decl_stmt
+DECL|variable|QAndroidPlatformNativeInterface
+name|class
+name|QAndroidPlatformNativeInterface
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QAndroidPlatformTheme
 range|:
@@ -27,6 +33,13 @@ name|QPlatformTheme
 block|{
 name|public
 operator|:
+name|QAndroidPlatformTheme
+argument_list|(
+name|QAndroidPlatformNativeInterface
+operator|*
+name|androidPlatformNativeInterface
+argument_list|)
+block|;
 name|virtual
 name|QPlatformMenuBar
 operator|*
@@ -49,12 +62,38 @@ argument_list|()
 specifier|const
 block|;
 name|virtual
+specifier|const
+name|QPalette
+operator|*
+name|palette
+argument_list|(
+argument|Palette type = SystemPalette
+argument_list|)
+specifier|const
+block|;
+name|virtual
+specifier|const
+name|QFont
+operator|*
+name|font
+argument_list|(
+argument|Font type = SystemFont
+argument_list|)
+specifier|const
+block|;
+name|virtual
 name|QVariant
 name|themeHint
 argument_list|(
 argument|ThemeHint hint
 argument_list|)
 specifier|const
+block|;
+name|private
+operator|:
+name|QAndroidPlatformNativeInterface
+operator|*
+name|m_androidPlatformNativeInterface
 block|; }
 decl_stmt|;
 end_decl_stmt

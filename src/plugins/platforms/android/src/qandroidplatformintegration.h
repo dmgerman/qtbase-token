@@ -124,6 +124,22 @@ name|QByteArray
 operator|&
 name|resource
 argument_list|)
+block|;
+name|QHash
+operator|<
+name|int
+block|,
+name|QPalette
+operator|>
+name|m_palettes
+block|;
+name|QHash
+operator|<
+name|int
+block|,
+name|QFont
+operator|>
+name|m_fonts
 block|; }
 decl_stmt|;
 end_decl_stmt

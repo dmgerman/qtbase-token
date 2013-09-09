@@ -504,7 +504,7 @@ specifier|final
 name|int
 name|MINISTRO_API_LEVEL
 init|=
-literal|3
+literal|4
 decl_stmt|;
 comment|// Ministro api level (check IMinistro.aidl file)
 DECL|field|NECESSITAS_API_LEVEL
@@ -729,12 +729,10 @@ comment|// and must be separated with "\t"
 comment|// e.g "-param1\t-param2=value2\t-param3\tvalue3"
 DECL|field|ENVIRONMENT_VARIABLES
 specifier|private
-specifier|static
-specifier|final
 name|String
 name|ENVIRONMENT_VARIABLES
 init|=
-literal|"QT_USE_ANDROID_NATIVE_STYLE=0\t"
+literal|"QT_USE_ANDROID_NATIVE_STYLE=1\t"
 decl_stmt|;
 comment|// use this variable to add any environment variables to your application.
 comment|// the env vars must be separated with "\t"
@@ -742,6 +740,20 @@ comment|// e.g. "ENV_VAR1=1\tENV_VAR2=2\t"
 comment|// Currently the following vars are used by the android plugin:
 comment|// * QT_USE_ANDROID_NATIVE_STYLE - 1 to use the android widget style if available,
 comment|//   note that the android style plugin in Qt 5.1 is not fully functional.
+DECL|field|QT_ANDROID_THEME
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|QT_ANDROID_THEME
+init|=
+literal|"light"
+decl_stmt|;
+comment|// sets the default theme to light. Possible values are:
+comment|// * ""           - for the device default dark theme
+comment|// * "light"      - for the device default light theme
+comment|// * "holo"       - for the holo dark theme
+comment|// * "holo_light" - for the holo light theme
 DECL|field|INCOMPATIBLE_MINISTRO_VERSION
 specifier|private
 specifier|static
@@ -752,6 +764,15 @@ init|=
 literal|1
 decl_stmt|;
 comment|// Incompatible Ministro version. Ministro needs to be upgraded.
+DECL|field|DISPLAY_DPI_KEY
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|DISPLAY_DPI_KEY
+init|=
+literal|"display.dpi"
+decl_stmt|;
 DECL|field|BUFFER_SIZE
 specifier|private
 specifier|static
@@ -1486,6 +1507,25 @@ argument_list|(
 name|REPOSITORY_KEY
 argument_list|,
 name|m_repository
+argument_list|)
+expr_stmt|;
+name|parameters
+operator|.
+name|putInt
+argument_list|(
+name|DISPLAY_DPI_KEY
+argument_list|,
+name|QtActivity
+operator|.
+name|this
+operator|.
+name|getResources
+argument_list|()
+operator|.
+name|getDisplayMetrics
+argument_list|()
+operator|.
+name|densityDpi
 argument_list|)
 expr_stmt|;
 name|m_service
@@ -3685,6 +3725,24 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+name|ENVIRONMENT_VARIABLES
+operator|+=
+literal|"\tQT_ANDROID_THEME="
+operator|+
+name|QT_ANDROID_THEME
+operator|+
+literal|"/\tQT_ANDROID_THEME_DISPLAY_DPI="
+operator|+
+name|getResources
+argument_list|()
+operator|.
+name|getDisplayMetrics
+argument_list|()
+operator|.
+name|densityDpi
+operator|+
+literal|"\t"
+expr_stmt|;
 name|requestWindowFeature
 argument_list|(
 name|Window

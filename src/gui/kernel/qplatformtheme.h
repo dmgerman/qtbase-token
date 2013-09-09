@@ -237,6 +237,10 @@ name|ToolButtonPalette
 block|,
 name|ButtonPalette
 block|,
+name|CheckBoxPalette
+block|,
+name|RadioButtonPalette
+block|,
 name|HeaderPalette
 block|,
 name|ComboBoxPalette
@@ -288,6 +292,10 @@ block|,
 name|DockWidgetTitleFont
 block|,
 name|PushButtonFont
+block|,
+name|CheckBoxFont
+block|,
+name|RadioButtonFont
 block|,
 name|ToolButtonFont
 block|,
