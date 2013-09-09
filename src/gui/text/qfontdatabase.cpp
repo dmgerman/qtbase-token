@@ -10364,7 +10364,7 @@ begin_comment
 comment|/*!     \fn bool QFontDatabase::removeAllApplicationFonts()     \since 4.2      Removes all application-local fonts previously added using addApplicationFont()     and addApplicationFontFromData().      Returns true if unloading of the fonts succeeded; otherwise     returns false.      \sa removeApplicationFont(), addApplicationFont(), addApplicationFontFromData() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QFontDatabase::supportsThreadedFontRendering()     \since 4.4      Returns true if font rendering is supported outside the GUI     thread, false otherwise. In other words, a return value of false     means that all QPainter::drawText() calls outside the GUI thread     will not produce readable output.      \sa {Thread-Support in Qt Modules#Painting In Threads}{Painting In Threads} */
+comment|/*!     \fn bool QFontDatabase::supportsThreadedFontRendering()     \since 4.4     \deprecated      Returns true if font rendering is supported outside the GUI     thread, false otherwise. In other words, a return value of false     means that all QPainter::drawText() calls outside the GUI thread     will not produce readable output.      As of 5.0, always returns true.      \sa {Thread-Support in Qt Modules#Painting In Threads}{Painting In Threads} */
 end_comment
 begin_macro
 name|QT_END_NAMESPACE

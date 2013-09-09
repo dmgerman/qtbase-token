@@ -1355,19 +1355,6 @@ literal|true
 return|;
 block|}
 end_function
-begin_function
-DECL|function|supportsThreadedFontRendering
-name|bool
-name|QFontDatabase
-operator|::
-name|supportsThreadedFontRendering
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
-end_function
 begin_comment
 comment|/*!     \internal */
 end_comment

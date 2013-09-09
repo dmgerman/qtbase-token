@@ -30474,19 +30474,6 @@ operator|::
 name|drawTextOutsideGuiThread
 parameter_list|()
 block|{
-if|if
-condition|(
-operator|!
-name|QFontDatabase
-operator|::
-name|supportsThreadedFontRendering
-argument_list|()
-condition|)
-name|QSKIP
-argument_list|(
-literal|"No threaded font rendering"
-argument_list|)
-expr_stmt|;
 name|QImage
 name|referenceRendering
 argument_list|(

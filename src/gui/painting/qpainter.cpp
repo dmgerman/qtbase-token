@@ -23649,26 +23649,6 @@ operator|!
 name|engine
 condition|)
 return|return;
-ifndef|#
-directive|ifndef
-name|QT_NO_DEBUG
-name|qt_painter_thread_test
-argument_list|(
-name|device
-operator|->
-name|devType
-argument_list|()
-argument_list|,
-literal|"text and fonts"
-argument_list|,
-name|QFontDatabase
-operator|::
-name|supportsThreadedFontRendering
-argument_list|()
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QTextItemInt
 modifier|&
 name|ti
