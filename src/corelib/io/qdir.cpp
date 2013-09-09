@@ -985,6 +985,7 @@ specifier|const
 name|QDirSortItem
 modifier|&
 parameter_list|)
+specifier|const
 function_decl|;
 block|}
 class|;
@@ -1007,6 +1008,7 @@ name|QDirSortItem
 modifier|&
 name|n2
 parameter_list|)
+specifier|const
 block|{
 specifier|const
 name|QDirSortItem
