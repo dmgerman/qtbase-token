@@ -17028,8 +17028,6 @@ name|devType
 argument_list|()
 argument_list|,
 literal|"drawPixmap()"
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 endif|#
@@ -17555,8 +17553,6 @@ name|devType
 argument_list|()
 argument_list|,
 literal|"drawPixmap()"
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 endif|#
@@ -24940,8 +24936,6 @@ name|devType
 argument_list|()
 argument_list|,
 literal|"drawTiledPixmap()"
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 endif|#
