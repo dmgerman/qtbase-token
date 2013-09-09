@@ -476,6 +476,11 @@ index|[
 literal|0
 index|]
 decl_stmt|;
+name|QString
+name|qmlModuleName
+init|=
+name|qmid
+decl_stmt|;
 if|if
 condition|(
 name|blankSplit
@@ -521,7 +526,7 @@ name|qmlModules_
 operator|.
 name|contains
 argument_list|(
-name|qmid
+name|qmlModuleName
 argument_list|)
 condition|)
 return|return
@@ -529,7 +534,7 @@ name|qmlModules_
 operator|.
 name|value
 argument_list|(
-name|qmid
+name|qmlModuleName
 argument_list|)
 return|;
 name|dn
@@ -542,7 +547,7 @@ operator|->
 name|root
 argument_list|()
 argument_list|,
-name|name
+name|qmlModuleName
 argument_list|,
 name|Node
 operator|::
@@ -569,7 +574,16 @@ name|qmlModules_
 operator|.
 name|insert
 argument_list|(
-name|qmid
+name|qmlModuleName
+argument_list|,
+name|dn
+argument_list|)
+expr_stmt|;
+name|masterMap_
+operator|.
+name|insert
+argument_list|(
+name|qmlModuleName
 argument_list|,
 name|dn
 argument_list|)
@@ -4858,6 +4872,7 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
+block|{
 name|internalLocations
 operator|.
 name|append
@@ -4871,6 +4886,9 @@ name|location
 argument_list|()
 argument_list|)
 expr_stmt|;
+break|break;
+comment|// Just report one duplicate for now.
+block|}
 operator|++
 name|j
 expr_stmt|;

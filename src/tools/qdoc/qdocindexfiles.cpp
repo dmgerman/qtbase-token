@@ -710,6 +710,14 @@ argument_list|(
 literal|"qml-module-version"
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|qmlModuleName
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
 name|qdb_
 operator|->
 name|addToQmlModule
