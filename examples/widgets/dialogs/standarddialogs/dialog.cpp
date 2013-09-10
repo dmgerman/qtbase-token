@@ -20,6 +20,14 @@ name|MESSAGE
 define|\
 value|Dialog::tr("<p>Message boxes have a caption, a text, " \                "and any number of buttons, each with standard or custom texts." \                "<p>Click a button to close the message box. Pressing the Esc button " \                "will activate the detected escape button (if any).")
 end_define
+begin_define
+DECL|macro|MESSAGE_DETAILS
+define|#
+directive|define
+name|MESSAGE_DETAILS
+define|\
+value|Dialog::tr("If a message box has detailed text, the user can reveal it " \                "by pressing the Show Details... button.")
+end_define
 begin_class
 DECL|class|DialogOptionsWidget
 class|class
@@ -2853,6 +2861,13 @@ argument_list|,
 name|this
 argument_list|)
 decl_stmt|;
+name|msgBox
+operator|.
+name|setDetailedText
+argument_list|(
+name|MESSAGE_DETAILS
+argument_list|)
+expr_stmt|;
 name|msgBox
 operator|.
 name|addButton
