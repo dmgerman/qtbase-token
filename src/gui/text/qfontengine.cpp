@@ -1248,11 +1248,19 @@ if|if
 condition|(
 name|useHarfbuzzNG
 condition|)
-name|qFatal
+return|return
+name|hb_qt_font_get_for_engine
 argument_list|(
-literal|"Called QFontEngine::harfbuzzFont() in Harfbuzz-NG mode!"
+cast|const_cast
+argument_list|<
+name|QFontEngine
+operator|*
+argument_list|>
+argument_list|(
+name|this
 argument_list|)
-expr_stmt|;
+argument_list|)
+return|;
 endif|#
 directive|endif
 if|if
@@ -1446,11 +1454,19 @@ if|if
 condition|(
 name|useHarfbuzzNG
 condition|)
-name|qFatal
+return|return
+name|hb_qt_face_get_for_engine
 argument_list|(
-literal|"Called QFontEngine::harfbuzzFace() in Harfbuzz-NG mode!"
+cast|const_cast
+argument_list|<
+name|QFontEngine
+operator|*
+argument_list|>
+argument_list|(
+name|this
 argument_list|)
-expr_stmt|;
+argument_list|)
+return|;
 endif|#
 directive|endif
 if|if
