@@ -4935,9 +4935,6 @@ operator|>
 expr|struct
 name|QSequentialIterableConvertFunctor
 block|{
-name|QSequentialIterableConvertFunctor
-argument_list|()
-block|{}
 name|QSequentialIterableImpl
 name|operator
 argument_list|()
@@ -6029,9 +6026,6 @@ operator|>
 expr|struct
 name|QAssociativeIterableConvertFunctor
 block|{
-name|QAssociativeIterableConvertFunctor
-argument_list|()
-block|{}
 name|QAssociativeIterableImpl
 name|operator
 argument_list|()
@@ -6321,9 +6315,6 @@ name|U
 operator|>
 expr|>
 block|{
-name|QPairVariantInterfaceConvertFunctor
-argument_list|()
-block|{}
 name|QPairVariantInterfaceImpl
 name|operator
 argument_list|()
@@ -6372,9 +6363,6 @@ name|U
 operator|>
 expr|>
 block|{
-name|QPairVariantInterfaceConvertFunctor
-argument_list|()
-block|{}
 name|QPairVariantInterfaceImpl
 name|operator
 argument_list|()
@@ -9271,8 +9259,6 @@ name|toId
 argument_list|)
 condition|)
 block|{
-specifier|static
-specifier|const
 name|QtMetaTypePrivate
 operator|::
 name|QPairVariantInterfaceConvertFunctor
@@ -9377,8 +9363,6 @@ name|toId
 argument_list|)
 condition|)
 block|{
-specifier|static
-specifier|const
 name|QtMetaTypePrivate
 operator|::
 name|QSequentialIterableConvertFunctor
@@ -9481,8 +9465,6 @@ name|toId
 argument_list|)
 condition|)
 block|{
-specifier|static
-specifier|const
 name|QtMetaTypePrivate
 operator|::
 name|QAssociativeIterableConvertFunctor
