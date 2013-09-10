@@ -2864,6 +2864,16 @@ name|script
 argument_list|)
 condition|)
 block|{
+name|qWarning
+argument_list|(
+literal|"  OpenType support missing for script %d"
+argument_list|,
+name|int
+argument_list|(
+name|script
+argument_list|)
+argument_list|)
+expr_stmt|;
 operator|delete
 name|engine
 expr_stmt|;
