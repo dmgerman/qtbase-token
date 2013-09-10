@@ -7280,48 +7280,6 @@ end_function
 begin_comment
 comment|// Creation functions
 end_comment
-begin_function
-DECL|function|scriptRequiresOpenType
-specifier|static
-specifier|inline
-name|bool
-name|scriptRequiresOpenType
-parameter_list|(
-name|int
-name|script
-parameter_list|)
-block|{
-return|return
-operator|(
-operator|(
-name|script
-operator|>=
-name|QChar
-operator|::
-name|Script_Syriac
-operator|&&
-name|script
-operator|<=
-name|QChar
-operator|::
-name|Script_Sinhala
-operator|)
-operator|||
-name|script
-operator|==
-name|QChar
-operator|::
-name|Script_Khmer
-operator|||
-name|script
-operator|==
-name|QChar
-operator|::
-name|Script_Nko
-operator|)
-return|;
-block|}
-end_function
 begin_decl_stmt
 DECL|variable|other_tryFonts
 specifier|static
@@ -9062,17 +9020,6 @@ operator|::
 name|Raster_RGBMask
 expr_stmt|;
 comment|// Also check for OpenType tables when using complex scripts
-comment|// ### TODO: This only works for scripts that require OpenType. More generally
-comment|// for scripts that do not require OpenType we should just look at the list of
-comment|// supported writing systems in the font's OS/2 table.
-if|if
-condition|(
-name|scriptRequiresOpenType
-argument_list|(
-name|script
-argument_list|)
-condition|)
-block|{
 if|if
 condition|(
 operator|!
@@ -9100,7 +9047,6 @@ expr_stmt|;
 return|return
 literal|0
 return|;
-block|}
 block|}
 name|few
 operator|->

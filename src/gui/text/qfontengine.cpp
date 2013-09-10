@@ -1550,6 +1550,45 @@ name|script
 parameter_list|)
 specifier|const
 block|{
+comment|// ### TODO: This only works for scripts that require OpenType. More generally
+comment|// for scripts that do not require OpenType we should just look at the list of
+comment|// supported writing systems in the font's OS/2 table.
+if|if
+condition|(
+operator|!
+operator|(
+operator|(
+name|script
+operator|>=
+name|QChar
+operator|::
+name|Script_Syriac
+operator|&&
+name|script
+operator|<=
+name|QChar
+operator|::
+name|Script_Sinhala
+operator|)
+operator|||
+name|script
+operator|==
+name|QChar
+operator|::
+name|Script_Khmer
+operator|||
+name|script
+operator|==
+name|QChar
+operator|::
+name|Script_Nko
+operator|)
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
 ifdef|#
 directive|ifdef
 name|QT_ENABLE_HARFBUZZ_NG
