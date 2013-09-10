@@ -1269,8 +1269,7 @@ return|;
 block|}
 if|if
 condition|(
-operator|!
-name|hasData
+name|isBuffered
 operator|&&
 name|socketEngine
 condition|)
@@ -1278,7 +1277,16 @@ name|socketEngine
 operator|->
 name|setReadNotificationEnabled
 argument_list|(
-literal|true
+name|readBufferMaxSize
+operator|==
+literal|0
+operator|||
+name|readBufferMaxSize
+operator|>
+name|q
+operator|->
+name|bytesAvailable
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// reset the read socket notifier state if we reentered inside the
