@@ -615,6 +615,11 @@ operator|::
 name|surfaceChanged
 parameter_list|()
 block|{
+name|QAndroidOpenGLPlatformWindow
+operator|::
+name|updateStaticNativeWindow
+argument_list|()
+expr_stmt|;
 foreach|foreach
 control|(
 name|QWindow

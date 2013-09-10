@@ -4936,7 +4936,14 @@ operator|>
 operator|::
 name|isComplex
 condition|)
+name|static_cast
+operator|<
+name|T
+operator|*
+operator|>
+operator|(
 name|abegin
+operator|)
 operator|->
 expr|~
 name|T
