@@ -406,8 +406,6 @@ name|mode
 condition|)
 name|mode
 operator|=
-name|mode
-operator|=
 operator|&
 name|builtin_1024x768
 expr_stmt|;
