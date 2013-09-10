@@ -78,6 +78,7 @@ decl_stmt|;
 ifdef|#
 directive|ifdef
 name|Q_COMPILER_RVALUE_REFS
+specifier|inline
 name|QCollatorSortKey
 modifier|&
 name|operator
