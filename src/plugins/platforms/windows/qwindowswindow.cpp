@@ -1243,13 +1243,18 @@ condition|)
 block|{
 if|if
 condition|(
+name|hasAlpha
+operator|&&
+operator|(
 name|flags
 operator|&
 name|Qt
 operator|::
 name|FramelessWindowHint
+operator|)
 condition|)
 block|{
+comment|// Windows with alpha: Use blend function to update.
 name|BLENDFUNCTION
 name|blend
 init|=
