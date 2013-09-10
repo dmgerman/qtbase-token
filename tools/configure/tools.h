@@ -60,6 +60,11 @@ specifier|const
 name|QString
 operator|&
 name|path
+argument_list|,
+specifier|const
+name|QString
+operator|&
+name|sourcePath
 argument_list|)
 decl_stmt|;
 block|}
