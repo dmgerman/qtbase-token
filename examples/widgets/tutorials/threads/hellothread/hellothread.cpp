@@ -15,12 +15,6 @@ end_include
 begin_comment
 comment|/*  * demonstrates use of QThread, says hello in another thread and terminates  */
 end_comment
-begin_comment
-comment|//! [1]
-end_comment
-begin_comment
-comment|// hellothread/hellothread.cpp
-end_comment
 begin_function
 DECL|function|run
 name|void
@@ -42,7 +36,4 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|//! [1]
-end_comment
 end_unit
