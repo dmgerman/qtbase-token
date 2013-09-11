@@ -170,6 +170,32 @@ argument_list|()
 specifier|const
 block|;
 name|void
+name|setStartBannerPage
+argument_list|(
+argument|const QCUPSSupport::BannerPage bannerPage = QCUPSSupport::NoBanner
+argument_list|)
+block|;
+name|QCUPSSupport
+operator|::
+name|BannerPage
+name|startBannerPage
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setEndBannerPage
+argument_list|(
+argument|const QCUPSSupport::BannerPage bannerPage = QCUPSSupport::NoBanner
+argument_list|)
+block|;
+name|QCUPSSupport
+operator|::
+name|BannerPage
+name|endBannerPage
+argument_list|()
+specifier|const
+block|;
+name|void
 name|initJobHold
 argument_list|()
 block|;
@@ -179,6 +205,10 @@ argument_list|()
 block|;
 name|void
 name|initJobPriority
+argument_list|()
+block|;
+name|void
+name|initBannerPages
 argument_list|()
 block|;
 name|QPrinter
