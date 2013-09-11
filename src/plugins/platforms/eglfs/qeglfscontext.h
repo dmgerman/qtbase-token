@@ -67,6 +67,11 @@ name|QPlatformSurface
 operator|*
 name|surface
 argument_list|)
+block|;
+name|private
+operator|:
+name|bool
+name|m_swapIntervalSet
 block|; }
 decl_stmt|;
 end_decl_stmt
