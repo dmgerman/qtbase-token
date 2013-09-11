@@ -6849,7 +6849,7 @@ operator|!=
 literal|0
 condition|)
 block|{
-comment|/*                   If the QML type is abstract, do not create                   a new entry in the list for it. Instead,                   add its members to the current entry.                  */
+comment|/*                   If the QML type is abstract, do not create                   a new entry in the list for it. Instead,                   add its members to the current entry.                    However, if the first class is abstract,                   there is no current entry. In that case,                   create a new entry in the list anyway.                   I'm not sure that is correct, but it at                   least can prevent a crash.                  */
 if|if
 condition|(
 operator|!
@@ -6857,6 +6857,9 @@ name|current
 operator|->
 name|isAbstract
 argument_list|()
+operator|||
+operator|!
+name|classMap
 condition|)
 block|{
 name|classMap
