@@ -216,7 +216,14 @@ operator|->
 name|primarySurface
 argument_list|()
 condition|)
+block|{
+name|qFatal
+argument_list|(
+literal|"EGLFS: Multiple windows are not supported"
+argument_list|)
+expr_stmt|;
 return|return;
+block|}
 name|EGLDisplay
 name|display
 init|=
@@ -602,6 +609,30 @@ name|winId
 parameter_list|()
 specifier|const
 block|{
+comment|// Return a fake WId for desktop windows.
+if|if
+condition|(
+name|window
+argument_list|()
+operator|->
+name|type
+argument_list|()
+operator|==
+name|Qt
+operator|::
+name|Desktop
+condition|)
+return|return
+name|std
+operator|::
+name|numeric_limits
+argument_list|<
+name|WId
+argument_list|>
+operator|::
+name|max
+argument_list|()
+return|;
 return|return
 name|WId
 argument_list|(
