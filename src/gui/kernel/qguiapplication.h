@@ -634,7 +634,17 @@ block|;
 name|friend
 name|class
 name|QPlatformIntegration
-block|; }
+block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_SESSIONMANAGER
+name|friend
+name|class
+name|QPlatformSessionManager
+block|;
+endif|#
+directive|endif
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_macro

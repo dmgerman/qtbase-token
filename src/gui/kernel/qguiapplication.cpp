@@ -4725,14 +4725,14 @@ operator|::
 name|flushWindowSystemEvents
 argument_list|()
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_SESSIONMANAGER
 name|Q_Q
 argument_list|(
 name|QGuiApplication
 argument_list|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_SESSIONMANAGER
 comment|// connect to the session manager
 name|session_manager
 operator|=

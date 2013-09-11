@@ -248,6 +248,22 @@ name|wmClass
 argument_list|()
 specifier|const
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_SESSIONMANAGER
+name|QPlatformSessionManager
+operator|*
+name|createPlatformSessionManager
+argument_list|(
+argument|const QString&id
+argument_list|,
+argument|const QString&key
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+endif|#
+directive|endif
 name|private
 operator|:
 name|QList
