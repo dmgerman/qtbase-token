@@ -9385,6 +9385,7 @@ operator|->
 name|size
 condition|)
 block|{
+comment|// encode 3 bytes at a time
 name|int
 name|chunk
 init|=
@@ -9463,8 +9464,6 @@ name|int
 argument_list|(
 name|uchar
 argument_list|(
-name|d
-operator|->
 name|data
 argument_list|()
 index|[
