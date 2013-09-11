@@ -961,6 +961,12 @@ specifier|const
 block|;
 name|private
 operator|:
+name|QHeaderView
+operator|*
+name|headerView
+argument_list|()
+specifier|const
+block|;
 name|QPointer
 operator|<
 name|QAbstractItemView

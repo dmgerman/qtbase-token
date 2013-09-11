@@ -866,6 +866,13 @@ argument|const QModelIndex&index
 argument_list|)
 specifier|const
 block|;
+name|int
+name|accessibleTree2Index
+argument_list|(
+argument|const QModelIndex&index
+argument_list|)
+specifier|const
+block|;
 name|Q_DECLARE_PRIVATE
 argument_list|(
 argument|QTreeView
