@@ -125,6 +125,10 @@ name|virtual
 name|EGLNativeWindowType
 name|createNativeWindow
 parameter_list|(
+name|QPlatformWindow
+modifier|*
+name|platformWindow
+parameter_list|,
 specifier|const
 name|QSize
 modifier|&

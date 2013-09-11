@@ -381,6 +381,8 @@ argument_list|()
 operator|->
 name|createNativeWindow
 argument_list|(
+name|this
+argument_list|,
 name|QEglFSHooks
 operator|::
 name|hooks
