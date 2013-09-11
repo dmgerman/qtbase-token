@@ -1760,7 +1760,7 @@ argument_list|,
 name|textureCoordinates
 argument_list|)
 expr_stmt|;
-name|glUniform1f
+name|glUniform1i
 argument_list|(
 name|m_textureEntry
 argument_list|,
