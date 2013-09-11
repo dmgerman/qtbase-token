@@ -3555,10 +3555,8 @@ condition|)
 return|return
 name|container
 operator|.
-name|at
-argument_list|(
-literal|0
-argument_list|)
+name|front
+argument_list|()
 return|;
 specifier|const
 name|int
