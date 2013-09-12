@@ -4075,8 +4075,6 @@ literal|3
 index|]
 decl_stmt|;
 block|}
-DECL|variable|Q_PACKED
-name|Q_PACKED
 struct|;
 end_struct
 begin_expr_stmt

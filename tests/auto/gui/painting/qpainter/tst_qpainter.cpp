@@ -17287,8 +17287,6 @@ literal|3
 index|]
 decl_stmt|;
 block|}
-DECL|variable|Q_PACKED
-name|Q_PACKED
 class|;
 end_class
 begin_function

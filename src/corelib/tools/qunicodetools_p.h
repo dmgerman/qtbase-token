@@ -54,7 +54,6 @@ end_macro
 begin_struct
 DECL|struct|QCharAttributes
 struct|struct
-name|Q_PACKED
 name|QCharAttributes
 block|{
 DECL|member|graphemeBoundary

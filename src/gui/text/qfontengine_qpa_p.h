@@ -229,7 +229,6 @@ block|,
 name|GlyphBlock
 block|}
 block|;      struct
-name|Q_PACKED
 name|Header
 block|{
 name|char
@@ -253,7 +252,6 @@ name|quint16
 name|dataSize
 block|;     }
 block|;      struct
-name|Q_PACKED
 name|Block
 block|{
 name|quint16
@@ -266,7 +264,6 @@ name|quint32
 name|dataSize
 block|;     }
 block|;      struct
-name|Q_PACKED
 name|Glyph
 block|{
 name|quint8
