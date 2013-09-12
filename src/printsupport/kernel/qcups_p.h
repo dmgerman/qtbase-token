@@ -214,6 +214,20 @@ block|,
 name|TopSecret
 block|}
 enum|;
+comment|// Enum for valid page set
+enum|enum
+name|PageSet
+block|{
+name|AllPages
+init|=
+literal|0
+block|,
+comment|//CUPS Default
+name|OddPages
+block|,
+name|EvenPages
+block|}
+enum|;
 specifier|static
 name|bool
 name|isAvailable
@@ -478,6 +492,19 @@ name|endBannerPage
 parameter_list|)
 function_decl|;
 specifier|static
+name|void
+name|setPageSet
+parameter_list|(
+name|QPrinter
+modifier|*
+name|printer
+parameter_list|,
+specifier|const
+name|PageSet
+name|pageSet
+parameter_list|)
+function_decl|;
+specifier|static
 name|bool
 name|printerHasPPD
 parameter_list|(
@@ -644,6 +671,12 @@ argument_list|(
 name|QCUPSSupport
 operator|::
 name|BannerPage
+argument_list|)
+name|Q_DECLARE_METATYPE
+argument_list|(
+name|QCUPSSupport
+operator|::
+name|PageSet
 argument_list|)
 end_decl_stmt
 begin_endif
