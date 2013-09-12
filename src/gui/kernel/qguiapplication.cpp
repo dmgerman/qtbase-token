@@ -6438,19 +6438,6 @@ operator|!
 name|window
 condition|)
 return|return;
-if|if
-condition|(
-name|window
-operator|->
-name|d_func
-argument_list|()
-operator|->
-name|blockedByModalWindow
-condition|)
-block|{
-comment|// a modal window is blocking this window, don't allow mouse events through
-return|return;
-block|}
 name|QMouseEvent
 name|ev
 argument_list|(
@@ -6518,6 +6505,19 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+if|if
+condition|(
+name|window
+operator|->
+name|d_func
+argument_list|()
+operator|->
+name|blockedByModalWindow
+condition|)
+block|{
+comment|// a modal window is blocking this window, don't allow mouse events through
+return|return;
+block|}
 name|QGuiApplication
 operator|::
 name|sendSpontaneousEvent
