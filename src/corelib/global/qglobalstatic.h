@@ -234,9 +234,19 @@ operator|->
 expr|(
 end_expr_stmt
 begin_block
-DECL|function|operator
 unit|)
 block|{
+name|Q_ASSERT_X
+argument_list|(
+operator|!
+name|isDestroyed
+argument_list|()
+argument_list|,
+literal|"Q_GLOBAL_STATIC"
+argument_list|,
+literal|"The global static was used after being destroyed"
+argument_list|)
+expr_stmt|;
 return|return
 name|innerFunction
 argument_list|()
@@ -250,6 +260,17 @@ name|operator
 modifier|*
 parameter_list|()
 block|{
+name|Q_ASSERT_X
+argument_list|(
+operator|!
+name|isDestroyed
+argument_list|()
+argument_list|,
+literal|"Q_GLOBAL_STATIC"
+argument_list|,
+literal|"The global static was used after being destroyed"
+argument_list|)
+expr_stmt|;
 return|return
 operator|*
 name|innerFunction
