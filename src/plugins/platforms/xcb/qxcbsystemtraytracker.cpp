@@ -445,7 +445,7 @@ name|value
 init|=
 name|XCB_EVENT_MASK_STRUCTURE_NOTIFY
 decl_stmt|;
-name|Q_XCB_CALL
+name|Q_XCB_CALL2
 argument_list|(
 name|xcb_change_window_attributes
 argument_list|(
@@ -461,6 +461,8 @@ argument_list|,
 operator|&
 name|value
 argument_list|)
+argument_list|,
+name|m_connection
 argument_list|)
 expr_stmt|;
 block|}
