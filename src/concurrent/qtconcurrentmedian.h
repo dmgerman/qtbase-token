@@ -235,8 +235,6 @@ argument_list|(
 name|bufferSize
 operator|/
 literal|2
-operator|+
-literal|1
 argument_list|)
 expr_stmt|;
 block|}
