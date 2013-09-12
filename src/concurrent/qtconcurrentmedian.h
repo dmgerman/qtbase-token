@@ -188,7 +188,10 @@ index|[
 name|currentIndex
 index|]
 operator|=
+name|qMove
+argument_list|(
 name|value
+argument_list|)
 expr_stmt|;
 block|}
 name|bool
@@ -266,8 +269,11 @@ argument_list|)
 expr_stmt|;
 name|currentMedian
 operator|=
+name|qMove
+argument_list|(
 operator|*
 name|mid
+argument_list|)
 expr_stmt|;
 block|}
 return|return
