@@ -170,6 +170,10 @@ argument|Qt::ScreenOrientation orientation READ orientation NOTIFY orientationCh
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
+argument|Qt::ScreenOrientation nativeOrientation READ nativeOrientation
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
 argument|qreal refreshRate READ refreshRate NOTIFY refreshRateChanged
 argument_list|)
 name|public
@@ -290,6 +294,13 @@ name|Qt
 operator|::
 name|ScreenOrientation
 name|orientation
+argument_list|()
+specifier|const
+block|;
+name|Qt
+operator|::
+name|ScreenOrientation
+name|nativeOrientation
 argument_list|()
 specifier|const
 block|;

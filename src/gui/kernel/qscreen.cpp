@@ -856,6 +856,36 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \property QScreen::nativeOrientation     \brief the native screen orientation     \since 5.2      The native orientation of the screen is the orientation where the logo     sticker of the device appears the right way up, or Qt::PrimaryOrientation     if the platform does not support this functionality.      The native orientation is a property of the hardware, and does not change. */
+end_comment
+begin_function
+DECL|function|nativeOrientation
+name|Qt
+operator|::
+name|ScreenOrientation
+name|QScreen
+operator|::
+name|nativeOrientation
+parameter_list|()
+specifier|const
+block|{
+name|Q_D
+argument_list|(
+specifier|const
+name|QScreen
+argument_list|)
+expr_stmt|;
+return|return
+name|d
+operator|->
+name|platformScreen
+operator|->
+name|nativeOrientation
+argument_list|()
+return|;
+block|}
+end_function
+begin_comment
 comment|// i must be power of two
 end_comment
 begin_function
