@@ -735,12 +735,6 @@ directive|define
 name|Q_PACKED
 value|__attribute__ ((__packed__))
 end_define
-begin_define
-DECL|macro|Q_NO_PACKED_REFERENCE
-define|#
-directive|define
-name|Q_NO_PACKED_REFERENCE
-end_define
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -3697,12 +3691,6 @@ define|#
 directive|define
 name|Q_PACKED
 end_define
-begin_undef
-DECL|macro|Q_NO_PACKED_REFERENCE
-undef|#
-directive|undef
-name|Q_NO_PACKED_REFERENCE
-end_undef
 begin_endif
 endif|#
 directive|endif
