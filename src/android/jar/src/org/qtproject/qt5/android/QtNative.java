@@ -2447,7 +2447,10 @@ name|void
 name|handleOrientationChanged
 parameter_list|(
 name|int
-name|newOrientation
+name|newRotation
+parameter_list|,
+name|int
+name|nativeOrientation
 parameter_list|)
 function_decl|;
 comment|// screen methods

@@ -3101,33 +3101,93 @@ name|jobject
 comment|/*thiz*/
 parameter_list|,
 name|jint
-name|newOrientation
+name|newRotation
+parameter_list|,
+name|jint
+name|nativeOrientation
 parameter_list|)
 block|{
-if|if
-condition|(
-name|m_androidPlatformIntegration
-operator|==
-literal|0
-condition|)
-return|return;
+comment|// Array of orientations rotated in 90 degree increments, counterclockwise
+comment|// (same direction as Android measures angles)
+specifier|static
+specifier|const
+name|Qt
+operator|::
+name|ScreenOrientation
+name|orientations
+index|[]
+init|=
+block|{
+name|Qt
+operator|::
+name|PortraitOrientation
+block|,
+name|Qt
+operator|::
+name|LandscapeOrientation
+block|,
+name|Qt
+operator|::
+name|InvertedPortraitOrientation
+block|,
+name|Qt
+operator|::
+name|InvertedLandscapeOrientation
+block|}
+decl_stmt|;
+comment|// The Android API defines the following constants:
+comment|// ROTATION_0 :   0
+comment|// ROTATION_90 :  1
+comment|// ROTATION_180 : 2
+comment|// ROTATION_270 : 3
+comment|// ORIENTATION_PORTRAIT :  1
+comment|// ORIENTATION_LANDSCAPE : 2
+comment|// and newRotation is how much the current orientation is rotated relative to nativeOrientation
+comment|// which means that we can be really clever here :)
 name|Qt
 operator|::
 name|ScreenOrientation
 name|screenOrientation
 init|=
-name|newOrientation
-operator|==
+name|orientations
+index|[
+operator|(
+name|nativeOrientation
+operator|-
 literal|1
-condition|?
-name|Qt
-operator|::
-name|PortraitOrientation
-else|:
-name|Qt
-operator|::
-name|LandscapeOrientation
+operator|+
+name|newRotation
+operator|)
+operator|%
+literal|4
+index|]
 decl_stmt|;
+name|Qt
+operator|::
+name|ScreenOrientation
+name|native
+init|=
+name|orientations
+index|[
+name|nativeOrientation
+operator|-
+literal|1
+index|]
+decl_stmt|;
+name|QAndroidPlatformIntegration
+operator|::
+name|setScreenOrientation
+argument_list|(
+name|screenOrientation
+argument_list|,
+name|native
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|m_androidPlatformIntegration
+condition|)
+block|{
 name|QPlatformScreen
 modifier|*
 name|screen
@@ -3149,6 +3209,7 @@ argument_list|,
 name|screenOrientation
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 end_function
 begin_decl_stmt
@@ -3318,7 +3379,7 @@ block|,
 block|{
 literal|"handleOrientationChanged"
 block|,
-literal|"(I)V"
+literal|"(II)V"
 block|,
 operator|(
 name|void

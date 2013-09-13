@@ -371,6 +371,15 @@ argument|int gh
 argument_list|)
 block|;
 specifier|static
+name|void
+name|setScreenOrientation
+argument_list|(
+argument|Qt::ScreenOrientation currentOrientation
+argument_list|,
+argument|Qt::ScreenOrientation nativeOrientation
+argument_list|)
+block|;
+specifier|static
 name|QSize
 name|defaultDesktopSize
 argument_list|()
@@ -446,6 +455,18 @@ block|;
 specifier|static
 name|int
 name|m_defaultPhysicalSizeHeight
+block|;
+specifier|static
+name|Qt
+operator|::
+name|ScreenOrientation
+name|m_orientation
+block|;
+specifier|static
+name|Qt
+operator|::
+name|ScreenOrientation
+name|m_nativeOrientation
 block|;
 name|QPlatformFontDatabase
 operator|*
