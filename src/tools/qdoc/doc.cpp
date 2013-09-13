@@ -1519,6 +1519,13 @@ name|Doc
 operator|::
 name|Part
 argument_list|)
+member_init_list|,
+name|section
+argument_list|(
+name|Doc
+operator|::
+name|NoSection
+argument_list|)
 block|{ }
 block|}
 class|;
