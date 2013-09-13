@@ -705,7 +705,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the file specified by \a fileName exists; otherwise     returns false. */
+comment|/*!     Returns true if the file specified by \a fileName exists; otherwise     returns false.      \note If \a fileName is a symlink that points to a non-existing     file, false is returned. */
 end_comment
 begin_function
 name|bool
