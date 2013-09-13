@@ -4083,6 +4083,16 @@ argument_list|,
 name|size
 argument_list|)
 expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|p
+operator|.
+name|pageSizeMM
+argument_list|()
+argument_list|,
+name|size
+argument_list|)
+expr_stmt|;
 name|QSizeF
 name|ptSize
 init|=
