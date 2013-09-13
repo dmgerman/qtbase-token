@@ -26,6 +26,11 @@ include|#
 directive|include
 file|"hoverpoints.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_define
 DECL|macro|printf
 define|#
@@ -1991,7 +1996,9 @@ name|m_sortType
 operator|==
 name|XSort
 condition|)
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|m_points
 operator|.
@@ -2013,7 +2020,9 @@ name|m_sortType
 operator|==
 name|YSort
 condition|)
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|m_points
 operator|.

@@ -52,6 +52,11 @@ include|#
 directive|include
 file|<QNetworkInterface>
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_comment
 comment|// These constants could also be configurable by the user.
 end_comment
@@ -3671,9 +3676,19 @@ name|peer
 argument_list|)
 expr_stmt|;
 block|}
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|points
+operator|.
+name|begin
+argument_list|()
+argument_list|,
+name|points
+operator|.
+name|end
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Minimize the list so the point difference is never more than 1.
