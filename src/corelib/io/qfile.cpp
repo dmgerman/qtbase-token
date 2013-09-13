@@ -722,12 +722,11 @@ parameter_list|)
 block|{
 return|return
 name|QFileInfo
+operator|::
+name|exists
 argument_list|(
 name|fileName
 argument_list|)
-operator|.
-name|exists
-argument_list|()
 return|;
 block|}
 end_function

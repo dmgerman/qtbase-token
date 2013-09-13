@@ -252,6 +252,16 @@ name|exists
 argument_list|()
 specifier|const
 expr_stmt|;
+specifier|static
+name|bool
+name|exists
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|file
+parameter_list|)
+function_decl|;
 name|void
 name|refresh
 parameter_list|()
