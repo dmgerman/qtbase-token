@@ -65,6 +65,11 @@ include|#
 directive|include
 file|<qt_windows.h>
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
+end_ifndef
 begin_include
 include|#
 directive|include
@@ -75,6 +80,10 @@ include|#
 directive|include
 file|<objbase.h>
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_endif
 endif|#
 directive|endif
@@ -1220,6 +1229,12 @@ operator|!
 name|defined
 argument_list|(
 name|Q_OS_WINCE
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
 argument_list|)
 block|{
 name|UINT

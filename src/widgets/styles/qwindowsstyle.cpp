@@ -1039,6 +1039,12 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 comment|//fetch native title bar colors
 if|if
 condition|(
@@ -1713,6 +1719,10 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
+comment|// There is no title bar in Windows Runtime applications
 case|case
 name|PM_TitleBarHeight
 case|:
@@ -1775,13 +1785,26 @@ literal|1
 expr_stmt|;
 block|}
 break|break;
+endif|#
+directive|endif
+comment|// !Q_OS_WINRT
 case|case
 name|PM_ScrollBarExtent
 case|:
 block|{
-ifndef|#
-directive|ifndef
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
 name|Q_OS_WINCE
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 name|NONCLIENTMETRICS
 name|ncm
 decl_stmt|;
@@ -1834,6 +1857,7 @@ expr_stmt|;
 else|else
 endif|#
 directive|endif
+comment|// !Q_OS_WINCE&& !Q_OS_WINRT
 name|ret
 operator|=
 name|QCommonStyle
@@ -1877,6 +1901,10 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
+comment|// Mdi concept not available for WinRT applications
 case|case
 name|PM_MdiSubWindowFrameWidth
 case|:
@@ -1907,6 +1935,10 @@ directive|endif
 break|break;
 endif|#
 directive|endif
+comment|// !Q_OS_WINRT
+endif|#
+directive|endif
+comment|// Q_OS_WIN
 case|case
 name|PM_ToolBarItemMargin
 case|:
@@ -1996,6 +2028,12 @@ operator|!
 name|defined
 argument_list|(
 name|Q_OS_WINCE
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
 argument_list|)
 name|QPixmap
 name|desktopIcon
@@ -2171,6 +2209,7 @@ return|;
 block|}
 endif|#
 directive|endif
+comment|// Q_OS_WIN&& !Q_OS_WINCE&& !Q_OS_WINRT
 return|return
 name|QCommonStyle
 operator|::
@@ -2309,6 +2348,13 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
+comment|// Option not used on WinRT -> common style
 case|case
 name|SH_UnderlineShortcut
 case|:
@@ -2521,6 +2567,7 @@ break|break;
 block|}
 endif|#
 directive|endif
+comment|// Q_OS_WIN&& !Q_OS_WINRT
 ifndef|#
 directive|ifndef
 name|QT_NO_RUBBERBAND

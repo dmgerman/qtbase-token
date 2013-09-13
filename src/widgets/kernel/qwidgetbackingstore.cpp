@@ -433,11 +433,20 @@ ifndef|#
 directive|ifndef
 name|QT_NO_PAINT_DEBUG
 end_ifndef
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_OS_WIN
-end_ifdef
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
+end_if
 begin_function
 DECL|function|showYellowThing_win
 specifier|static
@@ -693,7 +702,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|//  Q_OS_WIN
+comment|//  defined(Q_OS_WIN)&& !defined(Q_OS_WINRT)
 end_comment
 begin_function
 DECL|function|showYellowThing
@@ -786,9 +795,18 @@ operator|=
 name|nativeParent
 expr_stmt|;
 block|}
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_OS_WIN
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 name|Q_UNUSED
 argument_list|(
 name|unclipped
