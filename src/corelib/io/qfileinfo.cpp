@@ -1645,7 +1645,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the file exists; otherwise returns false.      \note If the file is a symlink that points to a non existing      file, false is returned. */
+comment|/*!     Returns true if the file exists; otherwise returns false.      \note If the file is a symlink that points to a non-existing     file, false is returned. */
 end_comment
 begin_function
 DECL|function|exists
