@@ -105,6 +105,10 @@ name|void
 name|paintOnScreen
 argument_list|()
 block|;
+name|void
+name|resetResources
+argument_list|()
+block|;
 name|protected
 operator|:
 ifndef|#
@@ -165,6 +169,11 @@ name|customCursorTexture
 argument_list|(
 literal|0
 argument_list|)
+block|,
+name|customCursorPending
+argument_list|(
+argument|false
+argument_list|)
 block|{ }
 name|uint
 name|texture
@@ -195,6 +204,9 @@ block|;
 comment|// current cursor position
 name|uint
 name|customCursorTexture
+block|;
+name|bool
+name|customCursorPending
 block|;     }
 name|m_cursor
 block|;
