@@ -1462,7 +1462,7 @@ name|size
 argument_list|()
 expr_stmt|;
 comment|// Returns 4.
-name|ba2
+name|ba3
 operator|.
 name|constData
 argument_list|()

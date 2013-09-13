@@ -1453,25 +1453,6 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|r
-operator|==
-literal|0
-condition|)
-comment|// Enforce an order - the order the items appear in the array
-name|r
-operator|=
-operator|(
-operator|&
-name|n1
-operator|)
-operator|-
-operator|(
-operator|&
-name|n2
-operator|)
-expr_stmt|;
-if|if
-condition|(
 name|qt_cmp_si_sort_flags
 operator|&
 name|QDir

@@ -628,12 +628,28 @@ block|}
 name|setWindowModified_helper
 argument_list|()
 expr_stmt|;
-name|setWinId
-argument_list|(
+name|WId
+name|id
+init|=
 name|win
 operator|->
 name|winId
 argument_list|()
+decl_stmt|;
+comment|// See the QPlatformWindow::winId() documentation
+name|Q_ASSERT
+argument_list|(
+name|id
+operator|!=
+name|WId
+argument_list|(
+literal|0
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|setWinId
+argument_list|(
+name|id
 argument_list|)
 expr_stmt|;
 comment|// Check children and create windows for them if necessary
