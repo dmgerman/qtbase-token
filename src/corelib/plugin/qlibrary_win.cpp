@@ -104,6 +104,9 @@ operator|::
 name|load_sys
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
 comment|//avoid 'Bad Image' message box
 name|UINT
 name|oldmode
@@ -115,6 +118,8 @@ operator||
 name|SEM_NOOPENFILEERRORBOX
 argument_list|)
 decl_stmt|;
+endif|#
+directive|endif
 comment|// We make the following attempts at locating the library:
 comment|//
 comment|// WinCE
@@ -218,6 +223,9 @@ argument_list|,
 argument|attempts
 argument_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
 name|pHnd
 operator|=
 name|LoadLibrary
@@ -237,6 +245,53 @@ name|utf16
 argument_list|()
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+comment|// Q_OS_WINRT
+name|QString
+name|path
+init|=
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
+name|QDir
+operator|::
+name|current
+argument_list|()
+operator|.
+name|relativeFilePath
+argument_list|(
+name|fileName
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|pHnd
+operator|=
+name|LoadPackagedLibrary
+argument_list|(
+operator|(
+name|LPCWSTR
+operator|)
+name|path
+operator|.
+name|utf16
+argument_list|()
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|pHnd
+condition|)
+name|qualifiedFileName
+operator|=
+name|attempt
+expr_stmt|;
+endif|#
+directive|endif
+comment|// !Q_OS_WINRT
 comment|// If we have a handle or the last error is something other than "unable
 comment|// to find the module", then bail out
 if|if
@@ -251,11 +306,16 @@ name|ERROR_MOD_NOT_FOUND
 condition|)
 break|break;
 block|}
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
 name|SetErrorMode
 argument_list|(
 name|oldmode
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 operator|!
@@ -291,6 +351,9 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
 name|wchar_t
 name|buffer
 index|[
@@ -372,6 +435,9 @@ argument_list|(
 name|moduleFileName
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|// !Q_OS_WINRT
 block|}
 return|return
 operator|(
