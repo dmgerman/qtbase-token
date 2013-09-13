@@ -6659,7 +6659,7 @@ operator|::
 name|Private
 condition|)
 return|return
-literal|true
+literal|false
 return|;
 if|if
 condition|(
