@@ -3355,6 +3355,12 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 comment|// Windows: Display message box unless it is a console application
 comment|// or debug build showing an assert box.
 if|if
@@ -3401,7 +3407,7 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-comment|// Q_OS_WIN&& !Q_OS_WINCE
+comment|// Q_OS_WIN&& !Q_OS_WINCE&& !Q_OS_WINRT
 name|qFatal
 argument_list|(
 literal|"%s"

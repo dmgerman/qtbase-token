@@ -7193,12 +7193,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_WIN32
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_WINCE
+name|Q_OS_WIN
 argument_list|)
 return|return
 name|GetCurrentProcessId
@@ -7286,9 +7281,18 @@ argument_list|(
 name|ac
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_OS_WIN
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 comment|// On Windows, it is possible to pass Unicode arguments on
 comment|// the command line. To restore those, we split the command line
 comment|// and filter out arguments that were deleted by derived application

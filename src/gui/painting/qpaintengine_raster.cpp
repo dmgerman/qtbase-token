@@ -637,6 +637,15 @@ name|bool
 name|winClearTypeFontsEnabled
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_WINRT
+return|return
+literal|false
+return|;
+else|#
+directive|else
+comment|// Q_OS_WINRT
 name|UINT
 name|result
 init|=
@@ -650,12 +659,10 @@ argument_list|(
 name|SPI_GETFONTSMOOTHINGTYPE
 argument_list|)
 comment|// MinGW
-DECL|macro|SPI_GETFONTSMOOTHINGTYPE
 define|#
 directive|define
 name|SPI_GETFONTSMOOTHINGTYPE
 value|0x200A
-DECL|macro|FE_FONTSMOOTHINGCLEARTYPE
 define|#
 directive|define
 name|FE_FONTSMOOTHINGCLEARTYPE
@@ -679,6 +686,9 @@ name|result
 operator|==
 name|FE_FONTSMOOTHINGCLEARTYPE
 return|;
+endif|#
+directive|endif
+comment|// !Q_OS_WINRT
 block|}
 end_function
 begin_comment

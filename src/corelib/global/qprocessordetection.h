@@ -1204,6 +1204,11 @@ name|defined
 argument_list|(
 name|_WIN32_WCE
 argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|WINAPI_FAMILY
+argument_list|)
 end_elif
 begin_comment
 comment|// Windows CE is always little-endian according to MSDN.

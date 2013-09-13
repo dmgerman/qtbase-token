@@ -775,6 +775,11 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 end_elif
 begin_define
 DECL|macro|QT_POINTER_SIZE

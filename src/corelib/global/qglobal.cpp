@@ -501,6 +501,12 @@ begin_comment
 comment|/*!     \macro Q_OS_WINCE     \relates<QtGlobal>      Defined on Windows CE. */
 end_comment
 begin_comment
+comment|/*!     \macro Q_OS_WINRT     \relates<QtGlobal>      Defined for Windows Runtime (Windows Store apps) on Windows 8, Windows RT,     and Windows Phone 8. */
+end_comment
+begin_comment
+comment|/*!     \macro Q_OS_WINPHONE     \relates<QtGlobal>      Defined on Windows Phone 8. */
+end_comment
+begin_comment
 comment|/*!     \macro Q_OS_CYGWIN     \relates<QtGlobal>      Defined on Cygwin. */
 end_comment
 begin_comment
@@ -1010,6 +1016,11 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 end_elif
 begin_function
 name|QT_BEGIN_INCLUDE_NAMESPACE
@@ -1079,6 +1090,17 @@ condition|)
 return|return
 name|winver
 return|;
+ifdef|#
+directive|ifdef
+name|Q_OS_WINRT
+name|winver
+operator|=
+name|QSysInfo
+operator|::
+name|WV_WINDOWS8
+expr_stmt|;
+else|#
+directive|else
 name|winver
 operator|=
 name|QSysInfo
@@ -1578,6 +1600,9 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
+endif|#
+directive|endif
+comment|// !Q_OS_WINRT
 return|return
 name|winver
 return|;

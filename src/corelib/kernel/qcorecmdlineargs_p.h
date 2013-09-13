@@ -55,9 +55,18 @@ file|"QtCore/qstringlist.h"
 end_include
 begin_expr_stmt
 name|QT_BEGIN_NAMESPACE
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_OS_WIN
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 name|QT_BEGIN_INCLUDE_NAMESPACE
 include|#
 directive|include
@@ -578,7 +587,7 @@ else|#
 directive|else
 end_else
 begin_comment
-comment|// !Q_OS_WIN
+comment|// Q_OS_WIN&& !Q_OS_WINRT
 end_comment
 begin_function
 specifier|static
@@ -634,7 +643,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// Q_OS_WIN
+comment|// !Q_OS_WIN || Q_OS_WINRT
 end_comment
 begin_macro
 name|QT_END_NAMESPACE
