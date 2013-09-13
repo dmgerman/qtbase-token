@@ -206,6 +206,8 @@ block|,
 name|NonFullScreenWindows
 block|,
 name|NativeWidgets
+block|,
+name|WindowManagement
 block|}
 enum|;
 name|virtual
