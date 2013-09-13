@@ -4877,7 +4877,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Override this to handle mouse events (\a ev). */
+comment|/*!     Override this to handle window move events (\a ev). */
 end_comment
 begin_function
 DECL|function|moveEvent
