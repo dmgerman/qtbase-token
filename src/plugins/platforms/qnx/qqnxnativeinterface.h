@@ -41,6 +41,20 @@ name|QWindow
 operator|*
 name|window
 argument_list|)
+block|;
+name|void
+operator|*
+name|nativeResourceForScreen
+argument_list|(
+specifier|const
+name|QByteArray
+operator|&
+name|resource
+argument_list|,
+name|QScreen
+operator|*
+name|screen
+argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
