@@ -2216,7 +2216,7 @@ name|font
 parameter_list|)
 block|{
 return|return
-name|uint
+name|quintptr
 argument_list|(
 name|hb_font_get_user_data
 argument_list|(
