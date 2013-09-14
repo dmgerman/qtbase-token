@@ -86,16 +86,6 @@ literal|48
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|FullHeaderSize
-specifier|static
-specifier|const
-name|int
-name|FullHeaderSize
-init|=
-literal|68
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|ProtocolId
 specifier|static
 specifier|const
