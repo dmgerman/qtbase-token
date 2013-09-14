@@ -1314,27 +1314,17 @@ operator|>
 name|SlotType
 expr_stmt|;
 end_typedef
-begin_expr_stmt
-name|reinterpret_cast
-operator|<
-name|typename
-name|SignalType
-operator|::
-name|Object
-operator|*
-operator|>
-operator|(
-literal|0
-operator|)
-operator|->
-name|qt_check_for_QOBJECT_macro
+begin_macro
+name|Q_STATIC_ASSERT_X
 argument_list|(
-argument|*reinterpret_cast<typename SignalType::Object *>(
-literal|0
-argument|)
+argument|QtPrivate::HasQ_OBJECT_Macro<typename SignalType::Object>::Value
+argument_list|,
+literal|"No Q_OBJECT in the class with the signal"
 argument_list|)
-expr_stmt|;
-end_expr_stmt
+end_macro
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
 begin_comment
 comment|//compilation error if the arguments does not match.
 end_comment
@@ -1526,27 +1516,17 @@ operator|>
 name|SlotType
 expr_stmt|;
 end_typedef
-begin_expr_stmt
-name|reinterpret_cast
-operator|<
-name|typename
-name|SignalType
-operator|::
-name|Object
-operator|*
-operator|>
-operator|(
-literal|0
-operator|)
-operator|->
-name|qt_check_for_QOBJECT_macro
+begin_macro
+name|Q_STATIC_ASSERT_X
 argument_list|(
-argument|*reinterpret_cast<typename SignalType::Object *>(
-literal|0
-argument|)
+argument|QtPrivate::HasQ_OBJECT_Macro<typename SignalType::Object>::Value
+argument_list|,
+literal|"No Q_OBJECT in the class with the signal"
 argument_list|)
-expr_stmt|;
-end_expr_stmt
+end_macro
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
 begin_comment
 comment|//compilation error if the arguments does not match.
 end_comment

@@ -1110,25 +1110,13 @@ name|Func2
 operator|>
 name|SlotType
 expr_stmt|;
-name|reinterpret_cast
-operator|<
-name|typename
-name|SignalType
-operator|::
-name|Object
-operator|*
-operator|>
-operator|(
-literal|0
-operator|)
-operator|->
-name|qt_check_for_QOBJECT_macro
+name|Q_STATIC_ASSERT_X
 argument_list|(
-argument|*reinterpret_cast<typename SignalType::Object *>(
-literal|0
-argument|)
+argument|QtPrivate::HasQ_OBJECT_Macro<typename SignalType::Object>::Value
+argument_list|,
+literal|"No Q_OBJECT in the class with the signal"
 argument_list|)
-expr_stmt|;
+empty_stmt|;
 comment|//compilation error if the arguments does not match.
 name|Q_STATIC_ASSERT_X
 argument_list|(
@@ -1330,6 +1318,17 @@ operator|>
 name|SlotType
 expr_stmt|;
 end_typedef
+begin_macro
+name|Q_STATIC_ASSERT_X
+argument_list|(
+argument|QtPrivate::HasQ_OBJECT_Macro<typename SignalType::Object>::Value
+argument_list|,
+literal|"No Q_OBJECT in the class with the signal"
+argument_list|)
+end_macro
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
 begin_comment
 comment|//compilation error if the arguments does not match.
 end_comment
@@ -1780,6 +1779,17 @@ literal|"Return type of the slot is not compatible with the return type of the s
 argument_list|)
 expr_stmt|;
 end_expr_stmt
+begin_macro
+name|Q_STATIC_ASSERT_X
+argument_list|(
+argument|QtPrivate::HasQ_OBJECT_Macro<typename SignalType::Object>::Value
+argument_list|,
+literal|"No Q_OBJECT in the class with the signal"
+argument_list|)
+end_macro
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
 begin_return
 return|return
 name|connectImpl
@@ -2036,27 +2046,17 @@ operator|>
 name|SlotType
 expr_stmt|;
 end_typedef
-begin_expr_stmt
-name|reinterpret_cast
-operator|<
-name|typename
-name|SignalType
-operator|::
-name|Object
-operator|*
-operator|>
-operator|(
-literal|0
-operator|)
-operator|->
-name|qt_check_for_QOBJECT_macro
+begin_macro
+name|Q_STATIC_ASSERT_X
 argument_list|(
-argument|*reinterpret_cast<typename SignalType::Object *>(
-literal|0
-argument|)
+argument|QtPrivate::HasQ_OBJECT_Macro<typename SignalType::Object>::Value
+argument_list|,
+literal|"No Q_OBJECT in the class with the signal"
 argument_list|)
-expr_stmt|;
-end_expr_stmt
+end_macro
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
 begin_comment
 comment|//compilation error if the arguments does not match.
 end_comment
@@ -2943,35 +2943,42 @@ argument_list|(
 argument|QObject *object
 argument_list|)
 block|{
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_QOBJECT_CHECK
-argument_list|)
-name|reinterpret_cast
+typedef|typedef
+name|typename
+name|QtPrivate
+operator|::
+name|remove_cv
+operator|<
+name|typename
+name|QtPrivate
+operator|::
+name|remove_pointer
 operator|<
 name|T
 operator|>
-operator|(
-name|object
-operator|)
-operator|->
-name|qt_check_for_QOBJECT_macro
-argument_list|(
-operator|*
-name|reinterpret_cast
-operator|<
-name|T
+operator|::
+name|type
 operator|>
-operator|(
-name|object
-operator|)
+operator|::
+name|type
+name|ObjType
+expr_stmt|;
+name|Q_STATIC_ASSERT_X
+argument_list|(
+name|QtPrivate
+operator|::
+name|HasQ_OBJECT_Macro
+operator|<
+name|ObjType
+operator|>
+operator|::
+name|Value
+argument_list|,
+literal|"qobject_cast require the type to have a Q_OBJECT macro"
 argument_list|)
-block|;
-endif|#
-directive|endif
+expr_stmt|;
+end_expr_stmt
+begin_return
 return|return
 name|static_cast
 operator|<
@@ -2994,10 +3001,9 @@ name|object
 argument_list|)
 operator|)
 return|;
-block|}
-end_expr_stmt
+end_return
 begin_expr_stmt
-name|template
+unit|}  template
 operator|<
 name|class
 name|T
@@ -3010,42 +3016,42 @@ argument_list|(
 argument|const QObject *object
 argument_list|)
 block|{
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_QOBJECT_CHECK
-argument_list|)
-name|reinterpret_cast
+typedef|typedef
+name|typename
+name|QtPrivate
+operator|::
+name|remove_cv
+operator|<
+name|typename
+name|QtPrivate
+operator|::
+name|remove_pointer
 operator|<
 name|T
 operator|>
-operator|(
-name|object
-operator|)
-operator|->
-name|qt_check_for_QOBJECT_macro
+operator|::
+name|type
+operator|>
+operator|::
+name|type
+name|ObjType
+expr_stmt|;
+name|Q_STATIC_ASSERT_X
 argument_list|(
-operator|*
-name|reinterpret_cast
+name|QtPrivate
+operator|::
+name|HasQ_OBJECT_Macro
 operator|<
-name|T
+name|ObjType
 operator|>
-operator|(
-name|const_cast
-operator|<
-name|QObject
-operator|*
-operator|>
-operator|(
-name|object
-operator|)
-operator|)
+operator|::
+name|Value
+argument_list|,
+literal|"qobject_cast require the type to have a Q_OBJECT macro"
 argument_list|)
-block|;
-endif|#
-directive|endif
+expr_stmt|;
+end_expr_stmt
+begin_return
 return|return
 name|static_cast
 operator|<
@@ -3068,11 +3074,10 @@ name|object
 argument_list|)
 operator|)
 return|;
-block|}
-end_expr_stmt
+end_return
 begin_expr_stmt
+unit|}   template
 DECL|function|qobject_interface_iid
-name|template
 operator|<
 name|class
 name|T

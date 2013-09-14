@@ -1549,7 +1549,7 @@ argument|f
 argument_list|)
 block|{}
 block|}
-block|;  }
+block|; }
 name|QT_END_NAMESPACE
 end_decl_stmt
 begin_endif
