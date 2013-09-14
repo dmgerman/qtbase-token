@@ -40,7 +40,6 @@ end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 DECL|function|qt_registerFont
-name|Q_GUI_EXPORT
 name|void
 name|qt_registerFont
 parameter_list|(

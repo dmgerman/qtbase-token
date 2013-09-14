@@ -29,7 +29,6 @@ file|<QtCore/QDir>
 end_include
 begin_function_decl
 name|QT_BEGIN_NAMESPACE
-specifier|extern
 name|void
 name|qt_registerFont
 parameter_list|(
