@@ -18,11 +18,6 @@ include|#
 directive|include
 file|<QtCore/qglobal.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<algorithm>
-end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 comment|/*     Warning: The contents of QAlgorithmsPrivate is not a part of the public Qt API     and may be changed from version to version or even be completely removed. */
@@ -1356,9 +1351,7 @@ comment|// Implementation is duplicated from QAlgorithmsPrivate.
 name|RandomAccessIterator
 name|it
 operator|=
-name|std
-operator|::
-name|lower_bound
+name|qLowerBound
 argument_list|(
 name|begin
 argument_list|,
@@ -2531,9 +2524,7 @@ block|{
 name|RandomAccessIterator
 name|it
 operator|=
-name|std
-operator|::
-name|lower_bound
+name|qLowerBoundHelper
 argument_list|(
 name|begin
 argument_list|,
