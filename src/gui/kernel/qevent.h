@@ -597,6 +597,13 @@ return|;
 block|}
 endif|#
 directive|endif
+name|Qt
+operator|::
+name|MouseEventSource
+name|source
+argument_list|()
+specifier|const
+block|;
 name|protected
 operator|:
 name|QPointF

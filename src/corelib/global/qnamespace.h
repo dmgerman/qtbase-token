@@ -4835,6 +4835,16 @@ block|,
 name|ScrollEnd
 block|}
 enum|;
+enum|enum
+name|MouseEventSource
+block|{
+name|MouseEventNotSynthesized
+block|,
+name|MouseEventSynthesizedBySystem
+block|,
+name|MouseEventSynthesizedByQt
+block|}
+enum|;
 block|}
 end_decl_stmt
 begin_ifdef

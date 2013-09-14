@@ -584,6 +584,11 @@ name|Qt
 operator|::
 name|KeyboardModifiers
 name|mods
+parameter_list|,
+name|Qt
+operator|::
+name|MouseEventSource
+name|source
 parameter_list|)
 block|{
 name|unsigned
@@ -610,6 +615,8 @@ argument_list|,
 name|b
 argument_list|,
 name|mods
+argument_list|,
+name|source
 argument_list|)
 expr_stmt|;
 block|}
@@ -647,6 +654,11 @@ name|Qt
 operator|::
 name|KeyboardModifiers
 name|mods
+parameter_list|,
+name|Qt
+operator|::
+name|MouseEventSource
+name|source
 parameter_list|)
 block|{
 name|QWindowSystemInterfacePrivate
@@ -671,6 +683,8 @@ argument_list|,
 name|b
 argument_list|,
 name|mods
+argument_list|,
+name|source
 argument_list|)
 decl_stmt|;
 name|QWindowSystemInterfacePrivate
@@ -712,6 +726,11 @@ name|Qt
 operator|::
 name|KeyboardModifiers
 name|mods
+parameter_list|,
+name|Qt
+operator|::
+name|MouseEventSource
+name|source
 parameter_list|)
 block|{
 specifier|const
@@ -739,6 +758,8 @@ argument_list|,
 name|b
 argument_list|,
 name|mods
+argument_list|,
+name|source
 argument_list|)
 expr_stmt|;
 block|}
@@ -776,6 +797,11 @@ name|Qt
 operator|::
 name|KeyboardModifiers
 name|mods
+parameter_list|,
+name|Qt
+operator|::
+name|MouseEventSource
+name|source
 parameter_list|)
 block|{
 name|QWindowSystemInterfacePrivate
@@ -804,6 +830,8 @@ argument_list|,
 name|b
 argument_list|,
 name|mods
+argument_list|,
+name|source
 argument_list|)
 decl_stmt|;
 name|QWindowSystemInterfacePrivate

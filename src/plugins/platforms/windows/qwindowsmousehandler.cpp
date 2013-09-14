@@ -563,6 +563,15 @@ argument_list|,
 name|result
 argument_list|)
 return|;
+name|Qt
+operator|::
+name|MouseEventSource
+name|source
+init|=
+name|Qt
+operator|::
+name|MouseEventNotSynthesized
+decl_stmt|;
 ifndef|#
 directive|ifndef
 name|Q_OS_WINCE
@@ -624,6 +633,12 @@ condition|)
 return|return
 literal|false
 return|;
+name|source
+operator|=
+name|Qt
+operator|::
+name|MouseEventSynthesizedBySystem
+expr_stmt|;
 block|}
 endif|#
 directive|endif
@@ -702,6 +717,8 @@ name|QWindowsKeyMapper
 operator|::
 name|queryKeyboardModifiers
 argument_list|()
+argument_list|,
+name|source
 argument_list|)
 expr_stmt|;
 return|return
@@ -1472,6 +1489,8 @@ name|QWindowsKeyMapper
 operator|::
 name|queryKeyboardModifiers
 argument_list|()
+argument_list|,
+name|source
 argument_list|)
 expr_stmt|;
 name|m_previousCaptureWindow

@@ -431,6 +431,30 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
+comment|/*!   \since 5.3    Returns information about the mouse event source.    The mouse event source can be used to distinguish between genuine   and artificial mouse events. The latter are events that are   synthesized from touch events by the operating system or Qt itself.    \note Many platforms provide no such information. On such platforms   \l Qt::MouseEventNotSynthesized is returned always.    \sa Qt::MouseEventSource  */
+end_comment
+begin_function
+DECL|function|source
+name|Qt
+operator|::
+name|MouseEventSource
+name|QMouseEvent
+operator|::
+name|source
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|QGuiApplicationPrivate
+operator|::
+name|mouseEventSource
+argument_list|(
+name|this
+argument_list|)
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     \fn QPointF QMouseEvent::localPos() const      \since 5.0      Returns the position of the mouse cursor as a QPointF, relative to the     widget or item that received the event.      If you move the widget as a result of the mouse event, use the     screen position returned by screenPos() to avoid a shaking     motion.      \sa x(), y(), windowPos(), screenPos() */
 end_comment
 begin_comment

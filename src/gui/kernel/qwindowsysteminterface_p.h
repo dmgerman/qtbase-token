@@ -744,6 +744,8 @@ argument_list|,
 argument|Qt::MouseButtons b
 argument_list|,
 argument|Qt::KeyboardModifiers mods
+argument_list|,
+argument|Qt::MouseEventSource src = Qt::MouseEventNotSynthesized
 argument_list|)
 operator|:
 name|InputEvent
@@ -769,7 +771,12 @@ argument_list|)
 block|,
 name|buttons
 argument_list|(
-argument|b
+name|b
+argument_list|)
+block|,
+name|source
+argument_list|(
+argument|src
 argument_list|)
 block|{ }
 name|MouseEvent
@@ -787,6 +794,8 @@ argument_list|,
 argument|Qt::MouseButtons b
 argument_list|,
 argument|Qt::KeyboardModifiers mods
+argument_list|,
+argument|Qt::MouseEventSource src = Qt::MouseEventNotSynthesized
 argument_list|)
 operator|:
 name|InputEvent
@@ -812,7 +821,12 @@ argument_list|)
 block|,
 name|buttons
 argument_list|(
-argument|b
+name|b
+argument_list|)
+block|,
+name|source
+argument_list|(
+argument|src
 argument_list|)
 block|{ }
 name|QPointF
@@ -825,6 +839,11 @@ name|Qt
 operator|::
 name|MouseButtons
 name|buttons
+block|;
+name|Qt
+operator|::
+name|MouseEventSource
+name|source
 block|;     }
 decl_stmt|;
 name|class
