@@ -8,10 +8,10 @@ directive|ifndef
 name|GRAPHICSVIEW_H
 end_ifndef
 begin_define
-DECL|macro|GRAPHICSVIEW
+DECL|macro|GRAPHICSVIEW_H
 define|#
 directive|define
-name|GRAPHICSVIEW
+name|GRAPHICSVIEW_H
 end_define
 begin_include
 include|#
