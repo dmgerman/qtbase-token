@@ -2974,7 +2974,7 @@ operator|>
 operator|::
 name|Value
 argument_list|,
-literal|"qobject_cast require the type to have a Q_OBJECT macro"
+literal|"qobject_cast requires the type to have a Q_OBJECT macro"
 argument_list|)
 expr_stmt|;
 end_expr_stmt
@@ -3047,7 +3047,7 @@ operator|>
 operator|::
 name|Value
 argument_list|,
-literal|"qobject_cast require the type to have a Q_OBJECT macro"
+literal|"qobject_cast requires the type to have a Q_OBJECT macro"
 argument_list|)
 expr_stmt|;
 end_expr_stmt
