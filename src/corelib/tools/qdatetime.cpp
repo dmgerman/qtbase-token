@@ -8056,6 +8056,14 @@ end_comment
 begin_comment
 comment|/*!     \fn qint64 QDateTime::currentMSecsSinceEpoch()     \since 4.7      Returns the number of milliseconds since 1970-01-01T00:00:00 Universal     Coordinated Time. This number is like the POSIX time_t variable, but     expressed in milliseconds instead.      \sa currentDateTime(), currentDateTimeUtc(), toTime_t(), toTimeSpec() */
 end_comment
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_WIN
+argument_list|)
+end_if
 begin_function
 DECL|function|msecsFromDecomposed
 specifier|static
@@ -8095,14 +8103,6 @@ name|msec
 return|;
 block|}
 end_function
-begin_if
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_WIN
-argument_list|)
-end_if
 begin_function
 DECL|function|currentDate
 name|QDate
