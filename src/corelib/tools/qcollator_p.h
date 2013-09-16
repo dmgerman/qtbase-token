@@ -38,7 +38,7 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|Q_OS_DARWIN
+name|Q_OS_OSX
 argument_list|)
 end_elif
 begin_include
@@ -78,7 +78,7 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|Q_OS_DARWIN
+name|Q_OS_OSX
 argument_list|)
 end_elif
 begin_typedef
