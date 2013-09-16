@@ -289,6 +289,9 @@ literal|0
 return|;
 block|}
 block|}
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
 if|if
 condition|(
 name|ptrGetTickCount64
@@ -340,6 +343,17 @@ operator|<<
 literal|32
 operator|)
 return|;
+else|#
+directive|else
+comment|// !Q_OS_WINRT
+comment|// ptrGetTickCount64 is always set on WinRT but GetTickCount is not available
+return|return
+name|ptrGetTickCount64
+argument_list|()
+return|;
+endif|#
+directive|endif
+comment|// Q_OS_WINRT
 block|}
 end_function
 begin_function
