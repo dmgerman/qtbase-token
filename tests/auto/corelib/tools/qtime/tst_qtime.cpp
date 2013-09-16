@@ -7287,7 +7287,7 @@ name|TextDate
 operator|<<
 name|QString
 argument_list|(
-literal|"00:00:00.000"
+literal|"00:00:00"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -7314,7 +7314,7 @@ name|ISODate
 operator|<<
 name|QString
 argument_list|(
-literal|"00:00:00.000"
+literal|"00:00:00"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -7341,7 +7341,7 @@ name|TextDate
 operator|<<
 name|QString
 argument_list|(
-literal|"10:12:34.000"
+literal|"10:12:34"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -7368,7 +7368,7 @@ name|ISODate
 operator|<<
 name|QString
 argument_list|(
-literal|"10:12:34.000"
+literal|"10:12:34"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -7395,7 +7395,7 @@ name|TextDate
 operator|<<
 name|QString
 argument_list|(
-literal|"10:12:34.001"
+literal|"10:12:34"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -7422,7 +7422,7 @@ name|ISODate
 operator|<<
 name|QString
 argument_list|(
-literal|"10:12:34.001"
+literal|"10:12:34"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -7449,7 +7449,7 @@ name|TextDate
 operator|<<
 name|QString
 argument_list|(
-literal|"10:12:34.999"
+literal|"10:12:34"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -7476,7 +7476,7 @@ name|ISODate
 operator|<<
 name|QString
 argument_list|(
-literal|"10:12:34.999"
+literal|"10:12:34"
 argument_list|)
 expr_stmt|;
 name|QTest

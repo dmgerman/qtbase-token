@@ -8282,7 +8282,7 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"12:34:56.000"
+literal|"12:34:56"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -8318,7 +8318,7 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"2002-01-01T12:34:56.000"
+literal|"2002-01-01T12:34:56"
 argument_list|)
 expr_stmt|;
 name|QTest

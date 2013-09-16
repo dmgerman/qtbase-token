@@ -5201,7 +5201,7 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"1978-11-09T13:28:34.000"
+literal|"1978-11-09T13:28:34"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -5238,7 +5238,7 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"1978-11-09T13:28:34.000Z"
+literal|"1978-11-09T13:28:34Z"
 argument_list|)
 expr_stmt|;
 name|QDateTime
@@ -5281,7 +5281,7 @@ name|dt
 operator|<<
 name|QString
 argument_list|(
-literal|"1978-11-09T13:28:34.000+05:30"
+literal|"1978-11-09T13:28:34+05:30"
 argument_list|)
 expr_stmt|;
 name|dt
@@ -5303,7 +5303,7 @@ name|dt
 operator|<<
 name|QString
 argument_list|(
-literal|"1978-11-09T13:28:34.000-02:00"
+literal|"1978-11-09T13:28:34-02:00"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -5341,45 +5341,6 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|()
-expr_stmt|;
-name|QTest
-operator|::
-name|newRow
-argument_list|(
-literal|"999 milliseconds UTC"
-argument_list|)
-operator|<<
-name|QDateTime
-argument_list|(
-name|QDate
-argument_list|(
-literal|2000
-argument_list|,
-literal|1
-argument_list|,
-literal|1
-argument_list|)
-argument_list|,
-name|QTime
-argument_list|(
-literal|13
-argument_list|,
-literal|28
-argument_list|,
-literal|34
-argument_list|,
-literal|999
-argument_list|)
-argument_list|,
-name|Qt
-operator|::
-name|UTC
-argument_list|)
-operator|<<
-name|QString
-argument_list|(
-literal|"2000-01-01T13:28:34.999Z"
-argument_list|)
 expr_stmt|;
 block|}
 end_function
@@ -5603,7 +5564,7 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"Wed Jan 2 01:02:03.000 2013"
+literal|"Wed Jan 2 01:02:03 2013"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -5640,7 +5601,7 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"Wed Jan 2 01:02:03.000 2013 GMT"
+literal|"Wed Jan 2 01:02:03 2013 GMT"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -5683,7 +5644,7 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"Wed Jan 2 01:02:03.000 2013 GMT+1000"
+literal|"Wed Jan 2 01:02:03 2013 GMT+1000"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -5727,7 +5688,7 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"Wed Jan 2 01:02:03.000 2013 GMT-1000"
+literal|"Wed Jan 2 01:02:03 2013 GMT-1000"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -6236,7 +6197,7 @@ name|str2
 argument_list|,
 name|QString
 argument_list|(
-literal|"1995-05-20T12:34:56.000"
+literal|"1995-05-20T12:34:56"
 argument_list|)
 argument_list|)
 expr_stmt|;
