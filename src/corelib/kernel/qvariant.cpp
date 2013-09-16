@@ -12703,6 +12703,9 @@ begin_comment
 comment|/*! \fn QSequentialIterable::const_iterator::const_iterator(const const_iterator&other)      Creates a copy of \a other. */
 end_comment
 begin_comment
+comment|/*! \fn QSequentialIterable::const_iterator::const_iterator& QSequentialIterable::const_iterator::operator=(const const_iterator&other)     Assigns \a other to this. */
+end_comment
+begin_comment
 comment|/*! \fn QVariant QSequentialIterable::const_iterator::operator*() const      Returns the current item, converted to a QVariant. */
 end_comment
 begin_comment
@@ -12761,6 +12764,9 @@ comment|/*! \fn QAssociativeIterable::const_iterator::~const_iterator()      Des
 end_comment
 begin_comment
 comment|/*! \fn QAssociativeIterable::const_iterator::const_iterator(const const_iterator&other)      Creates a copy of \a other. */
+end_comment
+begin_comment
+comment|/*! \fn QAssociativeIterable::const_iterator::const_iterator& QAssociativeIterable::const_iterator::operator=(const const_iterator&other)     Assigns \a other to this. */
 end_comment
 begin_comment
 comment|/*! \fn QVariant QAssociativeIterable::const_iterator::operator*() const      Returns the current value, converted to a QVariant. */
