@@ -20,6 +20,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/QCoreApplication>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/QStack>
 end_include
 begin_include
@@ -159,6 +164,11 @@ operator|::
 name|sendPostedEvents
 parameter_list|()
 block|{
+name|QCoreApplication
+operator|::
+name|sendPostedEvents
+argument_list|()
+expr_stmt|;
 name|QWindowSystemInterface
 operator|::
 name|sendWindowSystemEvents
