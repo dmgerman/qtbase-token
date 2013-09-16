@@ -99,6 +99,11 @@ name|defined
 argument_list|(
 name|Q_PROCESSOR_ARM_V7
 argument_list|)
+operator|&&
+name|defined
+argument_list|(
+name|Q_PROCESSOR_ARM_32
+argument_list|)
 end_elif
 begin_include
 include|#
@@ -112,6 +117,11 @@ name|defined
 argument_list|(
 name|Q_PROCESSOR_ARM_V6
 argument_list|)
+operator|&&
+name|defined
+argument_list|(
+name|Q_PROCESSOR_ARM_32
+argument_list|)
 end_elif
 begin_include
 include|#
@@ -124,6 +134,11 @@ directive|elif
 name|defined
 argument_list|(
 name|Q_PROCESSOR_ARM_V5
+argument_list|)
+operator|&&
+name|defined
+argument_list|(
+name|Q_PROCESSOR_ARM_32
 argument_list|)
 end_elif
 begin_include
