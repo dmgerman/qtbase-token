@@ -4915,7 +4915,7 @@ name|warning
 argument_list|(
 name|tr
 argument_list|(
-literal|"This page exists in more than one file: \"%1\""
+literal|"This page title exists in more than one file: \"%1\""
 argument_list|)
 operator|.
 name|arg

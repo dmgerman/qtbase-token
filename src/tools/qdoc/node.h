@@ -416,7 +416,7 @@ modifier|&
 name|location
 parameter_list|)
 block|{
-name|loc
+name|loc_
 operator|=
 name|location
 expr_stmt|;
@@ -1086,7 +1086,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|loc
+name|loc_
 return|;
 block|}
 specifier|const
@@ -1476,7 +1476,7 @@ name|QString
 name|name_
 decl_stmt|;
 name|Location
-name|loc
+name|loc_
 decl_stmt|;
 name|Doc
 name|doc_
