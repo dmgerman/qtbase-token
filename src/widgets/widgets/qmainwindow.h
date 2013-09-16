@@ -361,6 +361,11 @@ operator|*
 name|widget
 argument_list|)
 block|;
+name|QWidget
+operator|*
+name|takeCentralWidget
+argument_list|()
+block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_DOCKWIDGET
