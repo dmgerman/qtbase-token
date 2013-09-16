@@ -23,16 +23,6 @@ directive|include
 file|<QtCore/QPropertyAnimation>
 end_include
 begin_decl_stmt
-DECL|variable|FACE_SIZE
-specifier|static
-specifier|const
-name|qreal
-name|FACE_SIZE
-init|=
-literal|0.4
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|speeds
 specifier|static
 specifier|const

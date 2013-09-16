@@ -12,9 +12,6 @@ include|#
 directive|include
 file|"hellothread.h"
 end_include
-begin_comment
-comment|//! [1]
-end_comment
 begin_function
 DECL|function|main
 name|int
@@ -69,7 +66,4 @@ literal|0
 return|;
 block|}
 end_function
-begin_comment
-comment|//! [1]
-end_comment
 end_unit

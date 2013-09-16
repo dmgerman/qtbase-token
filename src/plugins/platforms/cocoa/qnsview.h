@@ -119,9 +119,6 @@ operator|*
 name|m_glContext
 block|;
 name|bool
-name|m_drawRectHasBeenCalled
-block|;
-name|bool
 name|m_shouldSetGLContextinDrawRect
 block|; }
 operator|-
