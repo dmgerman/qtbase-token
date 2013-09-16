@@ -884,7 +884,11 @@ argument_list|(
 name|url
 operator|.
 name|userName
-argument_list|()
+argument_list|(
+name|QUrl
+operator|::
+name|FullyDecoded
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|auth
@@ -894,7 +898,11 @@ argument_list|(
 name|url
 operator|.
 name|password
-argument_list|()
+argument_list|(
+name|QUrl
+operator|::
+name|FullyDecoded
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|connection
