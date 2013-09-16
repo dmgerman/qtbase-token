@@ -387,7 +387,7 @@ operator|)
 specifier|const
 block|{
 return|return
-name|E1
+name|QFlag
 argument_list|(
 name|i
 argument_list|)
@@ -407,7 +407,7 @@ operator|)
 specifier|const
 block|{
 return|return
-name|E2
+name|QFlag
 argument_list|(
 name|i
 argument_list|)
@@ -458,7 +458,7 @@ block|{
 return|return
 name|QUrlTwoFlags
 argument_list|(
-name|E1
+name|QFlag
 argument_list|(
 name|i
 operator||
@@ -485,7 +485,7 @@ block|{
 return|return
 name|QUrlTwoFlags
 argument_list|(
-name|E1
+name|QFlag
 argument_list|(
 name|i
 operator||
@@ -510,7 +510,7 @@ block|{
 return|return
 name|QUrlTwoFlags
 argument_list|(
-name|E2
+name|QFlag
 argument_list|(
 name|i
 operator||
@@ -535,7 +535,7 @@ block|{
 return|return
 name|QUrlTwoFlags
 argument_list|(
-name|E1
+name|QFlag
 argument_list|(
 name|i
 operator|^
@@ -562,7 +562,7 @@ block|{
 return|return
 name|QUrlTwoFlags
 argument_list|(
-name|E1
+name|QFlag
 argument_list|(
 name|i
 operator|^
@@ -587,7 +587,7 @@ block|{
 return|return
 name|QUrlTwoFlags
 argument_list|(
-name|E2
+name|QFlag
 argument_list|(
 name|i
 operator|^
@@ -612,7 +612,7 @@ block|{
 return|return
 name|QUrlTwoFlags
 argument_list|(
-name|E1
+name|QFlag
 argument_list|(
 name|i
 operator|&
@@ -637,7 +637,7 @@ block|{
 return|return
 name|QUrlTwoFlags
 argument_list|(
-name|E1
+name|QFlag
 argument_list|(
 name|i
 operator|&
@@ -662,7 +662,7 @@ block|{
 return|return
 name|QUrlTwoFlags
 argument_list|(
-name|E1
+name|QFlag
 argument_list|(
 name|i
 operator|&
@@ -687,7 +687,7 @@ block|{
 return|return
 name|QUrlTwoFlags
 argument_list|(
-name|E2
+name|QFlag
 argument_list|(
 name|i
 operator|&
@@ -710,7 +710,7 @@ block|{
 return|return
 name|QUrlTwoFlags
 argument_list|(
-name|E1
+name|QFlag
 argument_list|(
 operator|~
 name|i

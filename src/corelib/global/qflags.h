@@ -500,7 +500,7 @@ block|{
 return|return
 name|QFlags
 argument_list|(
-name|Enum
+name|QFlag
 argument_list|(
 name|i
 operator||
@@ -527,7 +527,7 @@ block|{
 return|return
 name|QFlags
 argument_list|(
-name|Enum
+name|QFlag
 argument_list|(
 name|i
 operator||
@@ -555,7 +555,7 @@ block|{
 return|return
 name|QFlags
 argument_list|(
-name|Enum
+name|QFlag
 argument_list|(
 name|i
 operator|^
@@ -582,7 +582,7 @@ block|{
 return|return
 name|QFlags
 argument_list|(
-name|Enum
+name|QFlag
 argument_list|(
 name|i
 operator|^
@@ -610,7 +610,7 @@ block|{
 return|return
 name|QFlags
 argument_list|(
-name|Enum
+name|QFlag
 argument_list|(
 name|i
 operator|&
@@ -635,7 +635,7 @@ block|{
 return|return
 name|QFlags
 argument_list|(
-name|Enum
+name|QFlag
 argument_list|(
 name|i
 operator|&
@@ -660,7 +660,7 @@ block|{
 return|return
 name|QFlags
 argument_list|(
-name|Enum
+name|QFlag
 argument_list|(
 name|i
 operator|&
@@ -686,7 +686,7 @@ block|{
 return|return
 name|QFlags
 argument_list|(
-name|Enum
+name|QFlag
 argument_list|(
 operator|~
 name|i
