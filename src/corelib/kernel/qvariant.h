@@ -3272,8 +3272,13 @@ name|QtMetaTypePrivate
 operator|::
 name|QSequentialIterableImpl
 name|impl
-operator|=
+expr_stmt|;
+name|impl
+operator|.
+name|copy
+argument_list|(
 name|m_impl
+argument_list|)
 expr_stmt|;
 name|m_impl
 operator|.
@@ -3285,11 +3290,11 @@ expr_stmt|;
 return|return
 name|const_iterator
 argument_list|(
-name|impl
+argument|impl
 argument_list|,
-name|this
-operator|->
-name|ref
+argument|new QAtomicInt(
+literal|0
+argument|)
 argument_list|)
 return|;
 block|}
@@ -3323,8 +3328,13 @@ name|QtMetaTypePrivate
 operator|::
 name|QSequentialIterableImpl
 name|impl
-operator|=
+expr_stmt|;
+name|impl
+operator|.
+name|copy
+argument_list|(
 name|m_impl
+argument_list|)
 expr_stmt|;
 name|m_impl
 operator|.
@@ -3337,11 +3347,11 @@ expr_stmt|;
 return|return
 name|const_iterator
 argument_list|(
-name|impl
+argument|impl
 argument_list|,
-name|this
-operator|->
-name|ref
+argument|new QAtomicInt(
+literal|0
+argument|)
 argument_list|)
 return|;
 block|}
@@ -4091,8 +4101,13 @@ name|QtMetaTypePrivate
 operator|::
 name|QAssociativeIterableImpl
 name|impl
-operator|=
+block|;
+name|impl
+operator|.
+name|copy
+argument_list|(
 name|m_impl
+argument_list|)
 block|;
 name|m_impl
 operator|.
@@ -4104,11 +4119,11 @@ block|;
 return|return
 name|const_iterator
 argument_list|(
-name|impl
+argument|impl
 argument_list|,
-name|this
-operator|->
-name|ref
+argument|new QAtomicInt(
+literal|0
+argument|)
 argument_list|)
 return|;
 block|}
@@ -4149,8 +4164,13 @@ name|QtMetaTypePrivate
 operator|::
 name|QAssociativeIterableImpl
 name|impl
-operator|=
+block|;
+name|impl
+operator|.
+name|copy
+argument_list|(
 name|m_impl
+argument_list|)
 block|;
 name|m_impl
 operator|.
@@ -4163,11 +4183,11 @@ block|;
 return|return
 name|const_iterator
 argument_list|(
-name|impl
+argument|impl
 argument_list|,
-name|this
-operator|->
-name|ref
+argument|new QAtomicInt(
+literal|0
+argument|)
 argument_list|)
 return|;
 block|}
