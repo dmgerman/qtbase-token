@@ -246,6 +246,15 @@ directive|endif
 operator|delete
 name|m_blitProgram
 expr_stmt|;
+if|if
+condition|(
+name|m_textureResource
+condition|)
+name|m_textureResource
+operator|->
+name|free
+argument_list|()
+expr_stmt|;
 block|}
 end_destructor
 begin_function
