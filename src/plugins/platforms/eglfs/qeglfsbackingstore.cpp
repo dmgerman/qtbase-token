@@ -108,6 +108,9 @@ name|QEglFSBackingStore
 parameter_list|()
 block|{
 operator|delete
+name|m_program
+expr_stmt|;
+operator|delete
 name|m_context
 expr_stmt|;
 block|}
