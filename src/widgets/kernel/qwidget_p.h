@@ -3393,6 +3393,13 @@ range|:
 literal|1
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+name|uint
+name|mustHaveWindowHandle
+range|:
+literal|1
+decl_stmt|;
+end_decl_stmt
 begin_ifndef
 ifndef|#
 directive|ifndef

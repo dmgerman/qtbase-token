@@ -938,6 +938,11 @@ name|usesDoubleBufferedGLContext
 argument_list|(
 literal|0
 argument_list|)
+member_init_list|,
+name|mustHaveWindowHandle
+argument_list|(
+literal|0
+argument_list|)
 ifndef|#
 directive|ifndef
 name|QT_NO_IM
@@ -2774,6 +2779,11 @@ name|Qt
 operator|::
 name|MSWindowsOwnDC
 condition|)
+block|{
+name|mustHaveWindowHandle
+operator|=
+literal|1
+expr_stmt|;
 name|q
 operator|->
 name|setAttribute
@@ -2783,6 +2793,7 @@ operator|::
 name|WA_NativeWindow
 argument_list|)
 expr_stmt|;
+block|}
 comment|//#ifdef Q_WS_MAC
 comment|//    q->setAttribute(Qt::WA_NativeWindow);
 comment|//#endif
@@ -35811,7 +35822,7 @@ return|return;
 block|}
 endif|#
 directive|endif
-comment|// Don't set WA_NativeWindow on platforms that don't support it
+comment|// Don't set WA_NativeWindow on platforms that don't support it -- except for QGLWidget, which depends on it
 if|if
 condition|(
 name|attribute
@@ -35819,6 +35830,11 @@ operator|==
 name|Qt
 operator|::
 name|WA_NativeWindow
+operator|&&
+operator|!
+name|d
+operator|->
+name|mustHaveWindowHandle
 condition|)
 block|{
 name|QPlatformIntegration
