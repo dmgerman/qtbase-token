@@ -6059,7 +6059,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Returns a string that specifies the picture format of the picture read     from IO device \a d, or 0 if the device cannot be read or if the     format is not recognized.      Make sure that \a d is at the right position in the device (for     example, at the beginning of the file).      \sa QIODevice::at() */
+comment|/*!     \overload      Returns a string that specifies the picture format of the picture read     from IO device \a d, or 0 if the device cannot be read or if the     format is not recognized.      Make sure that \a d is at the right position in the device (for     example, at the beginning of the file).      \sa QIODevice::pos() */
 end_comment
 begin_function
 DECL|function|pictureFormat

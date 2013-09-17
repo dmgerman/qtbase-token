@@ -3920,7 +3920,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the shortcut key sequence for the mnemonic in \a text,     or an empty key sequence if no mnemonics are found.      For example, mnemonic("E&xit") returns \c{Qt::ALT+Qt::Key_X},     mnemonic("&Quit") returns \c{ALT+Key_Q}, and mnemonic("Quit")     returns an empty QKeySequence.      We provide a \l{accelerators.html}{list of common mnemonics}     in English. At the time of writing, Microsoft and Open Group do     not appear to have issued equivalent recommendations for other     languages.      \sa qt_set_sequence_auto_mnemonic() */
+comment|/*!     Returns the shortcut key sequence for the mnemonic in \a text,     or an empty key sequence if no mnemonics are found.      For example, mnemonic("E&xit") returns \c{Qt::ALT+Qt::Key_X},     mnemonic("&Quit") returns \c{ALT+Key_Q}, and mnemonic("Quit")     returns an empty QKeySequence.      We provide a \l{accelerators.html}{list of common mnemonics}     in English. At the time of writing, Microsoft and Open Group do     not appear to have issued equivalent recommendations for other     languages. */
 end_comment
 begin_function
 DECL|function|mnemonic

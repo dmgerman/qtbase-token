@@ -7659,7 +7659,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QCoreApplication::applicationName     \brief the name of this application      The value is used by the QSettings class when it is constructed     using the empty constructor. This saves having to repeat this     information each time a QSettings object is created.      If not set, the application name defaults to the executable name (since 5.0).      \sa organizationName, organizationDomain, applicationVersion, applicationFilePath */
+comment|/*!     \property QCoreApplication::applicationName     \brief the name of this application      The value is used by the QSettings class when it is constructed     using the empty constructor. This saves having to repeat this     information each time a QSettings object is created.      If not set, the application name defaults to the executable name (since 5.0).      \sa organizationName, organizationDomain, applicationVersion, applicationFilePath() */
 end_comment
 begin_comment
 comment|/*!   \fn void QCoreApplication::applicationNameChanged()   \internal    Primarily for QML, see organizationNameChanged. */

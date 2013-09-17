@@ -248,19 +248,19 @@ begin_comment
 comment|/*!     \fn bool QMetaType::isRegistered() const     \since 5.0      Returns true if this QMetaType object contains valid     information about a type, false otherwise. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QMetaType::sizeOf() const     \since 5.0      Returns the size of the type in bytes (i.e. sizeof(T),     where T is the actual type for which this QMetaType instance     was constructed for).      This function is typically used together with construct()     to perform low-level management of the memory used by a type.      \sa QMetaType::construct(void *where, const void *copy), QMetaType::sizeOf(int) */
+comment|/*!     \fn bool QMetaType::sizeOf() const     \since 5.0      Returns the size of the type in bytes (i.e. sizeof(T),     where T is the actual type for which this QMetaType instance     was constructed for).      This function is typically used together with construct()     to perform low-level management of the memory used by a type.      \sa QMetaType::construct(), QMetaType::sizeOf() */
 end_comment
 begin_comment
-comment|/*!     \fn TypeFlags QMetaType::flags() const     \since 5.0      Returns flags of the type for which this QMetaType instance was constructed.      \sa QMetaType::TypeFlags, QMetaType::typeFlags(int type) */
+comment|/*!     \fn TypeFlags QMetaType::flags() const     \since 5.0      Returns flags of the type for which this QMetaType instance was constructed.      \sa QMetaType::TypeFlags, QMetaType::typeFlags() */
 end_comment
 begin_comment
 comment|/*!     \fn const QMetaObject *QMetaType::metaObject() const     \since 5.0     \internal */
 end_comment
 begin_comment
-comment|/*!     \fn void *QMetaType::create(const void *copy = 0) const     \since 5.0      Returns a copy of \a copy, assuming it is of the type that this     QMetaType instance was created for. If \a copy is null, creates     a default constructed instance.      \sa QMetaType::destroy(void*) */
+comment|/*!     \fn void *QMetaType::create(const void *copy = 0) const     \since 5.0      Returns a copy of \a copy, assuming it is of the type that this     QMetaType instance was created for. If \a copy is null, creates     a default constructed instance.      \sa QMetaType::destroy() */
 end_comment
 begin_comment
-comment|/*!     \fn void QMetaType::destroy(void *data) const     \since 5.0      Destroys the \a data, assuming it is of the type that this     QMetaType instance was created for.      \sa QMetaType::create(const void *) */
+comment|/*!     \fn void QMetaType::destroy(void *data) const     \since 5.0      Destroys the \a data, assuming it is of the type that this     QMetaType instance was created for.      \sa QMetaType::create() */
 end_comment
 begin_comment
 comment|/*!     \fn void *QMetaType::construct(void *where, const void *copy = 0) const     \since 5.0      Constructs a value of the type that this QMetaType instance     was constructed for in the existing memory addressed by \a where,     that is a copy of \a copy, and returns \a where. If \a copy is     zero, the value is default constructed.      This is a low-level function for explicitly managing the memory     used to store the type. Consider calling create() if you don't     need this level of control (that is, use "new" rather than     "placement new").      You must ensure that \a where points to a location where the new     value can be stored and that \a where is suitably aligned.     The type's size can be queried by calling sizeOf().      The rule of thumb for alignment is that a type is aligned to its     natural boundary, which is the smallest power of 2 that is bigger     than the type, unless that alignment is larger than the maximum     useful alignment for the platform. For practical purposes,     alignment larger than 2 * sizeof(void*) is only necessary for     special hardware instructions (e.g., aligned SSE loads and stores     on x86). */

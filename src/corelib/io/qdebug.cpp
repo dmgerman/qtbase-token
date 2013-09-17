@@ -265,7 +265,7 @@ argument_list|)
 block|{ }
 end_constructor
 begin_comment
-comment|/*!     Destroyes a QDebugStateSaver instance, which restores the settings     used by \a dbg when the QDebugStateSaver instance was created.      \sa QDebug::setAutoInsertSpaces(), QDebug::autoInsertSpaces() */
+comment|/*!     Destroyes a QDebugStateSaver instance, which restores the settings     used when the QDebugStateSaver instance was created.      \sa QDebug::setAutoInsertSpaces(), QDebug::autoInsertSpaces() */
 end_comment
 begin_destructor
 DECL|function|~QDebugStateSaver

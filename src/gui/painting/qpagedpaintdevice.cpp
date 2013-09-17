@@ -286,7 +286,7 @@ begin_comment
 comment|/*!   \fn bool QPagedPaintDevice::newPage()    Starts a new page. Returns \c true on success. */
 end_comment
 begin_comment
-comment|/*!   Sets the size of the a page to \a size.    \sa setPageSizeMM   */
+comment|/*!   Sets the size of the a page to \a size.    \sa setPageSizeMM()   */
 end_comment
 begin_function
 DECL|function|setPageSize
@@ -406,7 +406,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Sets the margins to be used to \a margins.    Margins are specified in millimeters.    The margins are purely a hint to the drawing method. They don't affect the   coordinate system or clipping.    \sa margins   */
+comment|/*!   Sets the margins to be used to \a margins.    Margins are specified in millimeters.    The margins are purely a hint to the drawing method. They don't affect the   coordinate system or clipping.    \sa margins()   */
 end_comment
 begin_function
 DECL|function|setMargins
@@ -430,7 +430,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   returns the current margins of the paint device. The default is 0.    \sa setMargins   */
+comment|/*!   returns the current margins of the paint device. The default is 0.    \sa setMargins()   */
 end_comment
 begin_function
 DECL|function|margins

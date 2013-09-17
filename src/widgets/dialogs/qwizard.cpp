@@ -11492,7 +11492,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QWizard::currentId     \brief the ID of the current page      This property cannot be set directly. To change the current page,     call next(), back(), or restart().      By default, this property has a value of -1, indicating that no page is     currently shown.      \sa currentIdChanged(), currentPage() */
+comment|/*!     \property QWizard::currentId     \brief the ID of the current page      This property cannot be set directly. To change the current page,     call next(), back(), or restart().      By default, this property has a value of -1, indicating that no page is     currently shown.      \sa currentPage() */
 end_comment
 begin_function
 DECL|function|currentId
