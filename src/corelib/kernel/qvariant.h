@@ -3108,6 +3108,9 @@ operator|.
 name|destroyIter
 argument_list|()
 expr_stmt|;
+name|delete
+name|ref
+decl_stmt|;
 block|}
 block|}
 specifier|inline
@@ -3785,6 +3788,9 @@ operator|.
 name|destroyIter
 argument_list|()
 expr_stmt|;
+name|delete
+name|ref
+decl_stmt|;
 block|}
 block|}
 specifier|inline
