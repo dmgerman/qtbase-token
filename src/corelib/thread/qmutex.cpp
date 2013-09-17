@@ -42,6 +42,11 @@ include|#
 directive|include
 file|"qmutex_p.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"qtypetraits.h"
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -143,12 +148,25 @@ argument_list|(
 literal|0
 argument_list|)
 block|{}
+comment|// written to by the thread that first owns 'mutex';
+comment|// read during attempts to acquire ownership of 'mutex' from any other thread:
 DECL|member|owner
+name|QAtomicPointer
+argument_list|<
+name|QtPrivate
+operator|::
+name|remove_pointer
+argument_list|<
 name|Qt
 operator|::
 name|HANDLE
+argument_list|>
+operator|::
+name|type
+argument_list|>
 name|owner
 decl_stmt|;
+comment|// only ever accessed from the thread that owns 'mutex':
 DECL|member|count
 name|uint
 name|count
@@ -1458,6 +1476,9 @@ decl_stmt|;
 if|if
 condition|(
 name|owner
+operator|.
+name|load
+argument_list|()
 operator|==
 name|self
 condition|)
@@ -1518,8 +1539,11 @@ condition|(
 name|success
 condition|)
 name|owner
-operator|=
+operator|.
+name|store
+argument_list|(
 name|self
+argument_list|)
 expr_stmt|;
 return|return
 name|success
@@ -1552,8 +1576,11 @@ block|}
 else|else
 block|{
 name|owner
-operator|=
+operator|.
+name|store
+argument_list|(
 literal|0
+argument_list|)
 expr_stmt|;
 name|mutex
 operator|.
