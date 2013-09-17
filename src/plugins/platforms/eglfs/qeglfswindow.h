@@ -88,6 +88,11 @@ name|format
 argument_list|()
 specifier|const
 block|;
+name|EGLNativeWindowType
+name|eglWindow
+argument_list|()
+specifier|const
+block|;
 name|QEglFSScreen
 operator|*
 name|screen
