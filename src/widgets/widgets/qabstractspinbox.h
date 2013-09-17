@@ -106,6 +106,10 @@ name|Q_PROPERTY
 argument_list|(
 argument|bool keyboardTracking READ keyboardTracking WRITE setKeyboardTracking
 argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|bool showGroupSeparator READ isGroupSeparatorShown WRITE setGroupSeparatorShown
+argument_list|)
 name|public
 operator|:
 name|explicit
@@ -271,6 +275,17 @@ argument_list|)
 block|;
 name|bool
 name|isAccelerated
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setGroupSeparatorShown
+argument_list|(
+argument|bool shown
+argument_list|)
+block|;
+name|bool
+name|isGroupSeparatorShown
 argument_list|()
 specifier|const
 block|;
