@@ -3610,18 +3610,6 @@ name|startLocation
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-block|}
-if|if
-condition|(
-name|topics
-operator|.
-name|size
-argument_list|()
-operator|==
-literal|1
-condition|)
-block|{
 name|nodes
 operator|.
 name|append
@@ -3636,7 +3624,7 @@ argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
-return|return;
+block|}
 block|}
 block|}
 for|for
@@ -3670,7 +3658,9 @@ name|topic
 operator|==
 name|COMMAND_QMLPROPERTYGROUP
 condition|)
+block|{
 continue|continue;
+block|}
 name|topic
 operator|=
 name|topics
@@ -9974,7 +9964,6 @@ literal|true
 expr_stmt|;
 block|}
 block|}
-comment|// if (isQmlPropertyTopic&& doc.location().fileName().endsWith("qquickitem.cpp")) {
 name|NodeList
 name|nodes
 decl_stmt|;
