@@ -75,12 +75,6 @@ name|QPagePreview
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QCUPSSupport
-name|class
-name|QCUPSSupport
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|class
 name|QPageSetupWidget
 range|:
@@ -153,6 +147,10 @@ name|_q_paperSizeChanged
 argument_list|()
 block|;
 name|void
+name|_q_pagesPerSheetChanged
+argument_list|()
+block|;
+name|void
 name|unitChanged
 argument_list|(
 argument|int item
@@ -184,6 +182,10 @@ argument_list|)
 block|;
 name|private
 operator|:
+name|friend
+name|class
+name|QUnixPrintWidgetPrivate
+block|;
 name|Ui
 operator|::
 name|QPageSetupWidget
@@ -220,6 +222,10 @@ name|m_blockSignals
 block|;
 name|bool
 name|m_cups
+block|;
+name|void
+name|initPagesPerSheet
+argument_list|()
 block|; }
 decl_stmt|;
 end_decl_stmt
