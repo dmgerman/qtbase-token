@@ -260,6 +260,8 @@ block|,
 name|FullScreen
 block|,
 name|Deselect
+block|,
+name|DeleteCompleteLine
 block|}
 decl_stmt|;
 enum|enum
