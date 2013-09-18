@@ -14258,6 +14258,10 @@ literal|" "
 operator|<<
 name|escapeDependencyPath
 argument_list|(
+name|Option
+operator|::
+name|fixPathToTargetOS
+argument_list|(
 name|replaceExtraCompilerVariables
 argument_list|(
 name|tmp_out
@@ -14266,6 +14270,7 @@ name|input
 argument_list|,
 name|QString
 argument_list|()
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -14301,6 +14306,10 @@ literal|" "
 operator|<<
 name|escapeDependencyPath
 argument_list|(
+name|Option
+operator|::
+name|fixPathToTargetOS
+argument_list|(
 name|replaceExtraCompilerVariables
 argument_list|(
 name|tmp_out
@@ -14315,6 +14324,7 @@ argument_list|()
 argument_list|,
 name|QString
 argument_list|()
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -14569,6 +14579,10 @@ name|append
 argument_list|(
 literal|" "
 operator|+
+name|Option
+operator|::
+name|fixPathToTargetOS
+argument_list|(
 name|replaceExtraCompilerVariables
 argument_list|(
 name|tmp_clean
@@ -14583,6 +14597,7 @@ name|tinp
 argument_list|,
 name|QString
 argument_list|()
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -14701,7 +14716,12 @@ expr_stmt|;
 block|}
 name|files
 operator|+=
+name|Option
+operator|::
+name|fixPathToTargetOS
+argument_list|(
 name|file
+argument_list|)
 expr_stmt|;
 block|}
 if|if
@@ -15429,7 +15449,12 @@ name|t
 operator|<<
 name|escapeDependencyPath
 argument_list|(
+name|Option
+operator|::
+name|fixPathToTargetOS
+argument_list|(
 name|out
+argument_list|)
 argument_list|)
 operator|<<
 literal|":"
@@ -15575,6 +15600,10 @@ name|out
 init|=
 name|unescapeFilePath
 argument_list|(
+name|Option
+operator|::
+name|fixPathToTargetOS
+argument_list|(
 name|replaceExtraCompilerVariables
 argument_list|(
 name|tmp_out
@@ -15583,6 +15612,7 @@ name|inpf
 argument_list|,
 name|QString
 argument_list|()
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
