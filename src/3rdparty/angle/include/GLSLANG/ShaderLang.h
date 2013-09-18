@@ -153,7 +153,7 @@ DECL|macro|ANGLE_SH_VERSION
 define|#
 directive|define
 name|ANGLE_SH_VERSION
-value|110
+value|112
 comment|//
 comment|// The names of the following enums have been derived by replacing GL prefix
 comment|// with SH. For example, SH_INFO_LOG_LENGTH is equivalent to GL_INFO_LOG_LENGTH.
@@ -357,6 +357,32 @@ typedef|;
 typedef|typedef
 enum|enum
 block|{
+DECL|enumerator|SH_PRECISION_HIGHP
+name|SH_PRECISION_HIGHP
+init|=
+literal|0x5001
+block|,
+DECL|enumerator|SH_PRECISION_MEDIUMP
+name|SH_PRECISION_MEDIUMP
+init|=
+literal|0x5002
+block|,
+DECL|enumerator|SH_PRECISION_LOWP
+name|SH_PRECISION_LOWP
+init|=
+literal|0x5003
+block|,
+DECL|enumerator|SH_PRECISION_UNDEFINED
+name|SH_PRECISION_UNDEFINED
+init|=
+literal|0
+block|}
+DECL|typedef|ShPrecisionType
+name|ShPrecisionType
+typedef|;
+typedef|typedef
+enum|enum
+block|{
 DECL|enumerator|SH_INFO_LOG_LENGTH
 name|SH_INFO_LOG_LENGTH
 init|=
@@ -387,6 +413,16 @@ DECL|enumerator|SH_ACTIVE_ATTRIBUTE_MAX_LENGTH
 name|SH_ACTIVE_ATTRIBUTE_MAX_LENGTH
 init|=
 literal|0x8B8A
+block|,
+DECL|enumerator|SH_VARYINGS
+name|SH_VARYINGS
+init|=
+literal|0x8BBB
+block|,
+DECL|enumerator|SH_VARYING_MAX_LENGTH
+name|SH_VARYING_MAX_LENGTH
+init|=
+literal|0x8BBC
 block|,
 DECL|enumerator|SH_MAPPED_NAME_MAX_LENGTH
 name|SH_MAPPED_NAME_MAX_LENGTH
@@ -440,8 +476,8 @@ name|SH_OBJECT_CODE
 init|=
 literal|0x0004
 block|,
-DECL|enumerator|SH_ATTRIBUTES_UNIFORMS
-name|SH_ATTRIBUTES_UNIFORMS
+DECL|enumerator|SH_VARIABLES
+name|SH_VARIABLES
 init|=
 literal|0x0008
 block|,
@@ -494,6 +530,11 @@ init|=
 literal|0x0400
 block|,
 comment|// Enforce the GLSL 1.017 Appendix A section 7 packing restrictions.
+comment|// This flag only enforces (and can only enforce) the packing
+comment|// restrictions for uniform variables in both vertex and fragment
+comment|// shaders. ShCheckVariablesWithinPackingLimits() lets embedders
+comment|// enforce the packing restrictions for varying variables during
+comment|// program link time.
 DECL|enumerator|SH_ENFORCE_PACKING_RESTRICTIONS
 name|SH_ENFORCE_PACKING_RESTRICTIONS
 init|=
@@ -509,7 +550,28 @@ DECL|enumerator|SH_CLAMP_INDIRECT_ARRAY_BOUNDS
 name|SH_CLAMP_INDIRECT_ARRAY_BOUNDS
 init|=
 literal|0x1000
-block|}
+block|,
+comment|// This flag limits the complexity of an expression.
+DECL|enumerator|SH_LIMIT_EXPRESSION_COMPLEXITY
+name|SH_LIMIT_EXPRESSION_COMPLEXITY
+init|=
+literal|0x2000
+block|,
+comment|// This flag limits the depth of the call stack.
+DECL|enumerator|SH_LIMIT_CALL_STACK_DEPTH
+name|SH_LIMIT_CALL_STACK_DEPTH
+init|=
+literal|0x4000
+block|,
+comment|// This flag initializes gl_Position to vec4(0.0, 0.0, 0.0, 1.0) at
+comment|// the beginning of the vertex shader, and has no effect in the
+comment|// fragment shader. It is intended as a workaround for drivers which
+comment|// incorrectly fail to link programs if gl_Position is not written.
+DECL|enumerator|SH_INIT_GL_POSITION
+name|SH_INIT_GL_POSITION
+init|=
+literal|0x8000
+block|, }
 DECL|typedef|ShCompileOptions
 name|ShCompileOptions
 typedef|;
@@ -624,6 +686,10 @@ DECL|member|EXT_draw_buffers
 name|int
 name|EXT_draw_buffers
 decl_stmt|;
+DECL|member|EXT_frag_depth
+name|int
+name|EXT_frag_depth
+decl_stmt|;
 comment|// Set to 1 if highp precision is supported in the fragment language.
 comment|// Default is 0.
 DECL|member|FragmentPrecisionHigh
@@ -642,6 +708,16 @@ comment|// Default is SH_CLAMP_WITH_CLAMP_INTRINSIC.
 DECL|member|ArrayIndexClampingStrategy
 name|ShArrayIndexClampingStrategy
 name|ArrayIndexClampingStrategy
+decl_stmt|;
+comment|// The maximum complexity an expression can be.
+DECL|member|MaxExpressionComplexity
+name|int
+name|MaxExpressionComplexity
+decl_stmt|;
+comment|// The maximum depth a call stack can be.
+DECL|member|MaxCallStackDepth
+name|int
+name|MaxCallStackDepth
 decl_stmt|;
 block|}
 DECL|typedef|ShBuiltInResources
@@ -732,9 +808,8 @@ comment|// SH_INTERMEDIATE_TREE: Writes intermediate tree to info log.
 comment|//                       Can be queried by calling ShGetInfoLog().
 comment|// SH_OBJECT_CODE: Translates intermediate tree to glsl or hlsl shader.
 comment|//                 Can be queried by calling ShGetObjectCode().
-comment|// SH_ATTRIBUTES_UNIFORMS: Extracts attributes and uniforms.
-comment|//                         Can be queried by calling ShGetActiveAttrib() and
-comment|//                         ShGetActiveUniform().
+comment|// SH_VARIABLES: Extracts attributes, uniforms, and varyings.
+comment|//               Can be queried by calling ShGetVariableInfo().
 comment|//
 name|COMPILER_EXPORT
 name|int
@@ -775,6 +850,9 @@ comment|// SH_ACTIVE_UNIFORMS: the number of active uniform variables.
 comment|// SH_ACTIVE_UNIFORM_MAX_LENGTH: the length of the longest active uniform
 comment|//                               variable name including the null
 comment|//                               termination character.
+comment|// SH_VARYINGS: the number of varying variables.
+comment|// SH_VARYING_MAX_LENGTH: the length of the longest varying variable name
+comment|//                        including the null termination character.
 comment|// SH_MAPPED_NAME_MAX_LENGTH: the length of the mapped variable name including
 comment|//                            the null termination character.
 comment|// SH_NAME_MAX_LENGTH: the max length of a user-defined name including the
@@ -842,32 +920,43 @@ modifier|*
 name|objCode
 parameter_list|)
 function_decl|;
-comment|// Returns information about an active attribute variable.
+comment|// Returns information about a shader variable.
 comment|// Parameters:
 comment|// handle: Specifies the compiler
-comment|// index: Specifies the index of the attribute variable to be queried.
+comment|// variableType: Specifies the variable type; options include
+comment|//               SH_ACTIVE_ATTRIBUTES, SH_ACTIVE_UNIFORMS, SH_VARYINGS.
+comment|// index: Specifies the index of the variable to be queried.
 comment|// length: Returns the number of characters actually written in the string
 comment|//         indicated by name (excluding the null terminator) if a value other
 comment|//         than NULL is passed.
-comment|// size: Returns the size of the attribute variable.
-comment|// type: Returns the data type of the attribute variable.
+comment|// size: Returns the size of the variable.
+comment|// type: Returns the data type of the variable.
+comment|// precision: Returns the precision of the variable.
+comment|// staticUse: Returns 1 if the variable is accessed in a statement after
+comment|//            pre-processing, whether or not run-time flow of control will
+comment|//            cause that statement to be executed.
+comment|//            Returns 0 otherwise.
 comment|// name: Returns a null terminated string containing the name of the
-comment|//       attribute variable. It is assumed that name has enough memory to
-comment|//       accomodate the attribute variable name. The size of the buffer
-comment|//       required to store the attribute variable name can be obtained by
-comment|//       calling ShGetInfo with SH_ACTIVE_ATTRIBUTE_MAX_LENGTH.
+comment|//       variable. It is assumed that name has enough memory to accormodate
+comment|//       the variable name. The size of the buffer required to store the
+comment|//       variable name can be obtained by calling ShGetInfo with
+comment|//       SH_ACTIVE_ATTRIBUTE_MAX_LENGTH, SH_ACTIVE_UNIFORM_MAX_LENGTH,
+comment|//       SH_VARYING_MAX_LENGTH.
 comment|// mappedName: Returns a null terminated string containing the mapped name of
-comment|//             the attribute variable, It is assumed that mappedName has enough
-comment|//             memory (SH_MAPPED_NAME_MAX_LENGTH), or NULL if don't care
-comment|//             about the mapped name. If the name is not mapped, then name and
-comment|//             mappedName are the same.
+comment|//             the variable, It is assumed that mappedName has enough memory
+comment|//             (SH_MAPPED_NAME_MAX_LENGTH), or NULL if don't care about the
+comment|//             mapped name. If the name is not mapped, then name and mappedName
+comment|//             are the same.
 name|COMPILER_EXPORT
 name|void
-name|ShGetActiveAttrib
+name|ShGetVariableInfo
 parameter_list|(
 specifier|const
 name|ShHandle
 name|handle
+parameter_list|,
+name|ShShaderInfo
+name|variableType
 parameter_list|,
 name|int
 name|index
@@ -884,56 +973,13 @@ name|ShDataType
 modifier|*
 name|type
 parameter_list|,
-name|char
+name|ShPrecisionType
 modifier|*
-name|name
-parameter_list|,
-name|char
-modifier|*
-name|mappedName
-parameter_list|)
-function_decl|;
-comment|// Returns information about an active uniform variable.
-comment|// Parameters:
-comment|// handle: Specifies the compiler
-comment|// index: Specifies the index of the uniform variable to be queried.
-comment|// length: Returns the number of characters actually written in the string
-comment|//         indicated by name (excluding the null terminator) if a value
-comment|//         other than NULL is passed.
-comment|// size: Returns the size of the uniform variable.
-comment|// type: Returns the data type of the uniform variable.
-comment|// name: Returns a null terminated string containing the name of the
-comment|//       uniform variable. It is assumed that name has enough memory to
-comment|//       accomodate the uniform variable name. The size of the buffer required
-comment|//       to store the uniform variable name can be obtained by calling
-comment|//       ShGetInfo with SH_ACTIVE_UNIFORMS_MAX_LENGTH.
-comment|// mappedName: Returns a null terminated string containing the mapped name of
-comment|//             the uniform variable, It is assumed that mappedName has enough
-comment|//             memory (SH_MAPPED_NAME_MAX_LENGTH), or NULL if don't care
-comment|//             about the mapped name. If the name is not mapped, then name and
-comment|//             mappedName are the same.
-name|COMPILER_EXPORT
-name|void
-name|ShGetActiveUniform
-parameter_list|(
-specifier|const
-name|ShHandle
-name|handle
-parameter_list|,
-name|int
-name|index
-parameter_list|,
-name|size_t
-modifier|*
-name|length
+name|precision
 parameter_list|,
 name|int
 modifier|*
-name|size
-parameter_list|,
-name|ShDataType
-modifier|*
-name|type
+name|staticUse
 parameter_list|,
 name|char
 modifier|*
@@ -1000,6 +1046,44 @@ name|void
 modifier|*
 modifier|*
 name|params
+parameter_list|)
+function_decl|;
+typedef|typedef
+struct|struct
+block|{
+DECL|member|type
+name|ShDataType
+name|type
+decl_stmt|;
+DECL|member|size
+name|int
+name|size
+decl_stmt|;
+block|}
+DECL|typedef|ShVariableInfo
+name|ShVariableInfo
+typedef|;
+comment|// Returns 1 if the passed in variables pack in maxVectors following
+comment|// the packing rules from the GLSL 1.017 spec, Appendix A, section 7.
+comment|// Returns 0 otherwise. Also look at the SH_ENFORCE_PACKING_RESTRICTIONS
+comment|// flag above.
+comment|// Parameters:
+comment|// maxVectors: the available rows of registers.
+comment|// varInfoArray: an array of variable info (types and sizes).
+comment|// varInfoArraySize: the size of the variable array.
+name|COMPILER_EXPORT
+name|int
+name|ShCheckVariablesWithinPackingLimits
+parameter_list|(
+name|int
+name|maxVectors
+parameter_list|,
+name|ShVariableInfo
+modifier|*
+name|varInfoArray
+parameter_list|,
+name|size_t
+name|varInfoArraySize
 parameter_list|)
 function_decl|;
 ifdef|#

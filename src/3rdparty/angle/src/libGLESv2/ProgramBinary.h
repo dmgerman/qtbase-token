@@ -529,6 +529,10 @@ argument_list|()
 specifier|const
 block|;
 name|void
+name|initAttributesByLayout
+argument_list|()
+block|;
+name|void
 name|sortAttributesByLayout
 argument_list|(
 argument|rx::TranslatedAttribute attributes[gl::MAX_VERTEX_ATTRIBS]
@@ -720,6 +724,12 @@ index|]
 block|;
 name|int
 name|mSemanticIndex
+index|[
+name|MAX_VERTEX_ATTRIBS
+index|]
+block|;
+name|int
+name|mAttributesByLayout
 index|[
 name|MAX_VERTEX_ATTRIBS
 index|]

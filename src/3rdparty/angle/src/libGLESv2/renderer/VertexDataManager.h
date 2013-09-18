@@ -82,10 +82,12 @@ name|VertexAttribute
 operator|*
 name|attribute
 expr_stmt|;
-name|UINT
+name|unsigned
+name|int
 name|offset
 decl_stmt|;
-name|UINT
+name|unsigned
+name|int
 name|stride
 decl_stmt|;
 comment|// 0 means not to advance the read pointer at all

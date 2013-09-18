@@ -167,8 +167,6 @@ name|sink
 operator|.
 name|location
 argument_list|(
-name|EncodeSourceLoc
-argument_list|(
 name|loc
 operator|.
 name|file
@@ -176,7 +174,6 @@ argument_list|,
 name|loc
 operator|.
 name|line
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|sink

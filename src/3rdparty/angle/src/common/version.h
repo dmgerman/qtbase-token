@@ -11,7 +11,7 @@ DECL|macro|MINOR_VERSION
 define|#
 directive|define
 name|MINOR_VERSION
-value|1
+value|2
 end_define
 begin_define
 DECL|macro|BUILD_VERSION
@@ -25,7 +25,7 @@ DECL|macro|BUILD_REVISION
 define|#
 directive|define
 name|BUILD_REVISION
-value|2037
+value|2446
 end_define
 begin_define
 DECL|macro|STRINGIFY

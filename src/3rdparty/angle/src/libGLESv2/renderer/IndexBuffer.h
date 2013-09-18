@@ -36,6 +36,11 @@ include|#
 directive|include
 file|"common/angleutils.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"libGLESv2/renderer/IndexRangeCache.h"
+end_include
 begin_decl_stmt
 name|namespace
 name|rx
@@ -216,7 +221,7 @@ name|getSerial
 argument_list|()
 specifier|const
 expr_stmt|;
-name|int
+name|bool
 name|mapBuffer
 parameter_list|(
 name|unsigned
@@ -227,6 +232,11 @@ name|void
 modifier|*
 modifier|*
 name|outMappedMemory
+parameter_list|,
+name|unsigned
+name|int
+modifier|*
+name|streamOffset
 parameter_list|)
 function_decl|;
 name|bool
@@ -355,122 +365,18 @@ argument_list|,
 argument|GLenum indexType
 argument_list|)
 block|;
-name|unsigned
-name|int
-name|lookupRange
-argument_list|(
-argument|intptr_t offset
-argument_list|,
-argument|GLsizei count
-argument_list|,
-argument|unsigned int *minIndex
-argument_list|,
-argument|unsigned int *maxIndex
-argument_list|)
-block|;
-comment|// Returns the offset into the index buffer, or -1 if not found
-name|void
-name|addRange
-argument_list|(
-argument|intptr_t offset
-argument_list|,
-argument|GLsizei count
-argument_list|,
-argument|unsigned int minIndex
-argument_list|,
-argument|unsigned int maxIndex
-argument_list|,
-argument|unsigned int streamOffset
-argument_list|)
+name|IndexRangeCache
+operator|*
+name|getIndexRangeCache
+argument_list|()
 block|;
 name|private
 operator|:
-expr|struct
-name|IndexRange
-block|{
-name|intptr_t
-name|offset
-block|;
-name|GLsizei
-name|count
-block|;
-name|bool
-name|operator
-operator|<
-operator|(
-specifier|const
-name|IndexRange
-operator|&
-name|rhs
-operator|)
-specifier|const
-block|{
-if|if
-condition|(
-name|offset
-operator|!=
-name|rhs
-operator|.
-name|offset
-condition|)
-block|{
-return|return
-name|offset
-operator|<
-name|rhs
-operator|.
-name|offset
-return|;
-block|}
-if|if
-condition|(
-name|count
-operator|!=
-name|rhs
-operator|.
-name|count
-condition|)
-block|{
-return|return
-name|count
-operator|<
-name|rhs
-operator|.
-name|count
-return|;
-block|}
-return|return
-name|false
-return|;
-block|}
-expr|}
-block|;      struct
-name|IndexResult
-block|{
-name|unsigned
-name|int
-name|minIndex
-block|;
-name|unsigned
-name|int
-name|maxIndex
-block|;
-name|unsigned
-name|int
-name|streamOffset
-block|;     }
-block|;
-name|std
-operator|::
-name|map
-operator|<
-name|IndexRange
-block|,
-name|IndexResult
-operator|>
-name|mCache
+name|IndexRangeCache
+name|mIndexRangeCache
 block|; }
-block|;  }
+decl_stmt|;
+block|}
 end_decl_stmt
 begin_endif
 endif|#

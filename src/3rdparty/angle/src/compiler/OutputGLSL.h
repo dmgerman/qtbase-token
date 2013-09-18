@@ -60,6 +60,15 @@ name|writeVariablePrecision
 argument_list|(
 name|TPrecision
 argument_list|)
+block|;
+name|virtual
+name|void
+name|visitSymbol
+argument_list|(
+name|TIntermSymbol
+operator|*
+name|node
+argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt

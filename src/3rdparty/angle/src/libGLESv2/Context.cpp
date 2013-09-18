@@ -322,6 +322,14 @@ literal|false
 expr_stmt|;
 name|mState
 operator|.
+name|rasterizer
+operator|.
+name|multiSample
+operator|=
+literal|false
+expr_stmt|;
+name|mState
+operator|.
 name|scissorTest
 operator|=
 literal|false
@@ -4671,6 +4679,9 @@ case|:
 case|case
 name|GL_RGBA8_OES
 case|:
+case|case
+name|GL_BGRA8_EXT
+case|:
 name|renderbuffer
 operator|=
 operator|new
@@ -7645,6 +7656,21 @@ name|GLenum
 name|drawMode
 parameter_list|)
 block|{
+name|Framebuffer
+modifier|*
+name|framebufferObject
+init|=
+name|getDrawFramebuffer
+argument_list|()
+decl_stmt|;
+name|int
+name|samples
+init|=
+name|framebufferObject
+operator|->
+name|getSamples
+argument_list|()
+decl_stmt|;
 name|mState
 operator|.
 name|rasterizer
@@ -7655,6 +7681,18 @@ operator|(
 name|drawMode
 operator|==
 name|GL_POINTS
+operator|)
+expr_stmt|;
+name|mState
+operator|.
+name|rasterizer
+operator|.
+name|multiSample
+operator|=
+operator|(
+name|samples
+operator|!=
+literal|0
 operator|)
 expr_stmt|;
 name|mRenderer
@@ -7688,13 +7726,6 @@ operator|!=
 literal|0
 condition|)
 block|{
-name|Framebuffer
-modifier|*
-name|framebufferObject
-init|=
-name|getDrawFramebuffer
-argument_list|()
-decl_stmt|;
 name|float
 name|threshold
 init|=
@@ -7709,10 +7740,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|framebufferObject
-operator|->
-name|getSamples
-argument_list|()
+name|samples
 condition|;
 operator|++
 name|i
@@ -10650,6 +10678,10 @@ block|}
 name|extensionString
 operator|+=
 literal|"GL_EXT_texture_storage "
+expr_stmt|;
+name|extensionString
+operator|+=
+literal|"GL_EXT_frag_depth "
 expr_stmt|;
 comment|// ANGLE-specific extensions
 if|if

@@ -114,28 +114,24 @@ operator|*
 name|renderTarget
 argument_list|)
 block|;
-comment|// Adds reference, caller must call Release
 name|ID3D11Texture2D
 operator|*
 name|getTexture
 argument_list|()
 specifier|const
 block|;
-comment|// Adds reference, caller must call Release
 name|ID3D11RenderTargetView
 operator|*
 name|getRenderTargetView
 argument_list|()
 specifier|const
 block|;
-comment|// Adds reference, caller must call Release
 name|ID3D11DepthStencilView
 operator|*
 name|getDepthStencilView
 argument_list|()
 specifier|const
 block|;
-comment|// Adds reference, caller must call Release
 name|ID3D11ShaderResourceView
 operator|*
 name|getShaderResourceView

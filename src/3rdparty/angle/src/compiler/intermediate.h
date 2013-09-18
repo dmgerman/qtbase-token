@@ -57,6 +57,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<algorithm>
+end_include
+begin_include
+include|#
+directive|include
 file|"compiler/Common.h"
 end_include
 begin_include
@@ -544,18 +549,42 @@ block|{
 name|public
 label|:
 name|POOL_ALLOCATOR_NEW_DELETE
-argument_list|(
-argument|GlobalPoolAllocator
-argument_list|)
+argument_list|()
+expr_stmt|;
 name|TIntermNode
 argument_list|()
-operator|:
+block|{
+comment|// TODO: Move this to TSourceLoc constructor
+comment|// after getting rid of TPublicType.
 name|line
-argument_list|(
+operator|.
+name|first_file
+operator|=
+name|line
+operator|.
+name|last_file
+operator|=
 literal|0
-argument_list|)
-block|{}
+expr_stmt|;
+name|line
+operator|.
+name|first_line
+operator|=
+name|line
+operator|.
+name|last_line
+operator|=
+literal|0
+expr_stmt|;
+block|}
+name|virtual
+operator|~
+name|TIntermNode
+argument_list|()
+block|{ }
+specifier|const
 name|TSourceLoc
+operator|&
 name|getLine
 argument_list|()
 specifier|const
@@ -567,7 +596,9 @@ block|}
 name|void
 name|setLine
 parameter_list|(
+specifier|const
 name|TSourceLoc
+modifier|&
 name|l
 parameter_list|)
 block|{
@@ -666,16 +697,11 @@ return|return
 literal|0
 return|;
 block|}
-name|virtual
-operator|~
-name|TIntermNode
-argument_list|()
-block|{ }
 name|protected
-operator|:
+label|:
 name|TSourceLoc
 name|line
-expr_stmt|;
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt
@@ -1903,11 +1929,6 @@ argument_list|(
 name|false
 argument_list|)
 block|,
-name|endLine
-argument_list|(
-literal|0
-argument_list|)
-block|,
 name|useEmulatedFunction
 argument_list|(
 argument|false
@@ -2034,25 +2055,6 @@ name|debug
 return|;
 block|}
 name|void
-name|setEndLine
-argument_list|(
-argument|TSourceLoc line
-argument_list|)
-block|{
-name|endLine
-operator|=
-name|line
-block|; }
-name|TSourceLoc
-name|getEndLine
-argument_list|()
-specifier|const
-block|{
-return|return
-name|endLine
-return|;
-block|}
-name|void
 name|setUseEmulatedFunction
 argument_list|()
 block|{
@@ -2104,9 +2106,6 @@ name|optimize
 block|;
 name|bool
 name|debug
-block|;
-name|TSourceLoc
-name|endLine
 block|;
 comment|// If set to true, replace the built-in function call with an emulated one
 comment|// to work around driver bugs.
@@ -2335,9 +2334,8 @@ block|{
 name|public
 label|:
 name|POOL_ALLOCATOR_NEW_DELETE
-argument_list|(
-argument|GlobalPoolAllocator
-argument_list|)
+argument_list|()
+expr_stmt|;
 name|TIntermTraverser
 argument_list|(
 argument|bool preVisit = true
@@ -2370,6 +2368,11 @@ name|rightToLeft
 argument_list|)
 operator|,
 name|depth
+argument_list|(
+literal|0
+argument_list|)
+operator|,
+name|maxDepth
 argument_list|(
 literal|0
 argument_list|)
@@ -2486,12 +2489,32 @@ return|return
 name|true
 return|;
 block|}
+name|int
+name|getMaxDepth
+argument_list|()
+specifier|const
+block|{
+return|return
+name|maxDepth
+return|;
+block|}
 name|void
 name|incrementDepth
 parameter_list|()
 block|{
 name|depth
 operator|++
+expr_stmt|;
+name|maxDepth
+operator|=
+name|std
+operator|::
+name|max
+argument_list|(
+name|maxDepth
+argument_list|,
+name|depth
+argument_list|)
 expr_stmt|;
 block|}
 name|void
@@ -2537,6 +2560,9 @@ name|protected
 label|:
 name|int
 name|depth
+decl_stmt|;
+name|int
+name|maxDepth
 decl_stmt|;
 block|}
 end_decl_stmt

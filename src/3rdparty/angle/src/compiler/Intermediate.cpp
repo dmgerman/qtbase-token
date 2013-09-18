@@ -585,7 +585,9 @@ name|TType
 modifier|&
 name|type
 parameter_list|,
+specifier|const
 name|TSourceLoc
+modifier|&
 name|line
 parameter_list|)
 block|{
@@ -649,7 +651,9 @@ name|TIntermTyped
 modifier|*
 name|right
 parameter_list|,
+specifier|const
 name|TSourceLoc
+modifier|&
 name|line
 parameter_list|,
 name|TSymbolTable
@@ -902,19 +906,6 @@ argument_list|(
 name|op
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|line
-operator|==
-literal|0
-condition|)
-name|line
-operator|=
-name|right
-operator|->
-name|getLine
-argument_list|()
-expr_stmt|;
 name|node
 operator|->
 name|setLine
@@ -1046,7 +1037,9 @@ name|TIntermTyped
 modifier|*
 name|right
 parameter_list|,
+specifier|const
 name|TSourceLoc
+modifier|&
 name|line
 parameter_list|)
 block|{
@@ -1064,19 +1057,6 @@ argument_list|(
 name|op
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|line
-operator|==
-literal|0
-condition|)
-name|line
-operator|=
-name|left
-operator|->
-name|getLine
-argument_list|()
-expr_stmt|;
 name|node
 operator|->
 name|setLine
@@ -1181,7 +1161,9 @@ name|TIntermTyped
 modifier|*
 name|index
 parameter_list|,
+specifier|const
 name|TSourceLoc
+modifier|&
 name|line
 parameter_list|)
 block|{
@@ -1195,19 +1177,6 @@ argument_list|(
 name|op
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|line
-operator|==
-literal|0
-condition|)
-name|line
-operator|=
-name|index
-operator|->
-name|getLine
-argument_list|()
-expr_stmt|;
 name|node
 operator|->
 name|setLine
@@ -1265,7 +1234,9 @@ name|TIntermNode
 modifier|*
 name|childNode
 parameter_list|,
+specifier|const
 name|TSourceLoc
+modifier|&
 name|line
 parameter_list|,
 name|TSymbolTable
@@ -1301,9 +1272,9 @@ name|message
 argument_list|(
 name|EPrefixInternalError
 argument_list|,
-literal|"Bad type in AddUnaryMath"
-argument_list|,
 name|line
+argument_list|,
+literal|"Bad type in AddUnaryMath"
 argument_list|)
 expr_stmt|;
 return|return
@@ -1550,19 +1521,6 @@ argument_list|(
 name|op
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|line
-operator|==
-literal|0
-condition|)
-name|line
-operator|=
-name|child
-operator|->
-name|getLine
-argument_list|()
-expr_stmt|;
 name|node
 operator|->
 name|setLine
@@ -1668,7 +1626,9 @@ parameter_list|,
 name|TOperator
 name|op
 parameter_list|,
+specifier|const
 name|TSourceLoc
+modifier|&
 name|line
 parameter_list|)
 block|{
@@ -1724,19 +1684,6 @@ argument_list|(
 name|node
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|line
-operator|==
-literal|0
-condition|)
-name|line
-operator|=
-name|node
-operator|->
-name|getLine
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 else|else
@@ -1756,12 +1703,6 @@ argument_list|(
 name|op
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|line
-operator|!=
-literal|0
-condition|)
 name|aggNode
 operator|->
 name|setLine
@@ -2046,12 +1987,12 @@ name|message
 argument_list|(
 name|EPrefixInternalError
 argument_list|,
-literal|"Bad promotion node"
-argument_list|,
 name|node
 operator|->
 name|getLine
 argument_list|()
+argument_list|,
+literal|"Bad promotion node"
 argument_list|)
 expr_stmt|;
 return|return
@@ -2095,12 +2036,12 @@ name|message
 argument_list|(
 name|EPrefixInternalError
 argument_list|,
-literal|"Bad promotion node"
-argument_list|,
 name|node
 operator|->
 name|getLine
 argument_list|()
+argument_list|,
+literal|"Bad promotion node"
 argument_list|)
 expr_stmt|;
 return|return
@@ -2144,12 +2085,12 @@ name|message
 argument_list|(
 name|EPrefixInternalError
 argument_list|,
-literal|"Bad promotion node"
-argument_list|,
 name|node
 operator|->
 name|getLine
 argument_list|()
+argument_list|,
+literal|"Bad promotion node"
 argument_list|)
 expr_stmt|;
 return|return
@@ -2166,12 +2107,12 @@ name|message
 argument_list|(
 name|EPrefixInternalError
 argument_list|,
-literal|"Bad promotion type"
-argument_list|,
 name|node
 operator|->
 name|getLine
 argument_list|()
+argument_list|,
+literal|"Bad promotion type"
 argument_list|)
 expr_stmt|;
 return|return
@@ -2276,7 +2217,9 @@ name|TIntermNode
 modifier|*
 name|right
 parameter_list|,
+specifier|const
 name|TSourceLoc
+modifier|&
 name|line
 parameter_list|)
 block|{
@@ -2357,12 +2300,6 @@ argument_list|(
 name|right
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|line
-operator|!=
-literal|0
-condition|)
 name|aggNode
 operator|->
 name|setLine
@@ -2402,7 +2339,9 @@ name|TIntermNode
 modifier|*
 name|node
 parameter_list|,
+specifier|const
 name|TSourceLoc
+modifier|&
 name|line
 parameter_list|)
 block|{
@@ -2432,28 +2371,11 @@ argument_list|(
 name|node
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|line
-operator|!=
-literal|0
-condition|)
 name|aggNode
 operator|->
 name|setLine
 argument_list|(
 name|line
-argument_list|)
-expr_stmt|;
-else|else
-name|aggNode
-operator|->
-name|setLine
-argument_list|(
-name|node
-operator|->
-name|getLine
-argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -2497,7 +2419,9 @@ parameter_list|,
 name|TIntermNodePair
 name|nodePair
 parameter_list|,
+specifier|const
 name|TSourceLoc
+modifier|&
 name|line
 parameter_list|)
 block|{
@@ -2629,7 +2553,9 @@ name|TIntermTyped
 modifier|*
 name|right
 parameter_list|,
+specifier|const
 name|TSourceLoc
+modifier|&
 name|line
 parameter_list|)
 block|{
@@ -2752,7 +2678,9 @@ name|TIntermTyped
 modifier|*
 name|falseBlock
 parameter_list|,
+specifier|const
 name|TSourceLoc
+modifier|&
 name|line
 parameter_list|)
 block|{
@@ -2929,7 +2857,9 @@ name|TType
 modifier|&
 name|t
 parameter_list|,
+specifier|const
 name|TSourceLoc
+modifier|&
 name|line
 parameter_list|)
 block|{
@@ -2969,7 +2899,9 @@ name|TVectorFields
 modifier|&
 name|fields
 parameter_list|,
+specifier|const
 name|TSourceLoc
+modifier|&
 name|line
 parameter_list|)
 block|{
@@ -3111,7 +3043,9 @@ name|TIntermNode
 modifier|*
 name|body
 parameter_list|,
+specifier|const
 name|TSourceLoc
+modifier|&
 name|line
 parameter_list|)
 block|{
@@ -3165,7 +3099,9 @@ parameter_list|(
 name|TOperator
 name|branchOp
 parameter_list|,
+specifier|const
 name|TSourceLoc
+modifier|&
 name|line
 parameter_list|)
 block|{
@@ -3196,7 +3132,9 @@ name|TIntermTyped
 modifier|*
 name|expression
 parameter_list|,
+specifier|const
 name|TSourceLoc
+modifier|&
 name|line
 parameter_list|)
 block|{
@@ -3675,10 +3613,10 @@ name|message
 argument_list|(
 name|EPrefixInternalError
 argument_list|,
-literal|"Invalid operation for arrays"
-argument_list|,
 name|getLine
 argument_list|()
+argument_list|,
+literal|"Invalid operation for arrays"
 argument_list|)
 expr_stmt|;
 return|return
@@ -4148,10 +4086,10 @@ name|message
 argument_list|(
 name|EPrefixInternalError
 argument_list|,
-literal|"Missing elses"
-argument_list|,
 name|getLine
 argument_list|()
+argument_list|,
+literal|"Missing elses"
 argument_list|)
 expr_stmt|;
 return|return
@@ -4336,10 +4274,10 @@ name|message
 argument_list|(
 name|EPrefixInternalError
 argument_list|,
-literal|"Missing elses"
-argument_list|,
 name|getLine
 argument_list|()
+argument_list|,
+literal|"Missing elses"
 argument_list|)
 expr_stmt|;
 return|return
@@ -4513,24 +4451,27 @@ name|leftUnionArray
 parameter_list|)
 block|{
 specifier|const
-name|TTypeList
-modifier|*
+name|TFieldList
+modifier|&
 name|fields
 init|=
 name|leftNodeType
 operator|.
 name|getStruct
 argument_list|()
+operator|->
+name|fields
+argument_list|()
 decl_stmt|;
 name|size_t
 name|structSize
 init|=
 name|fields
-operator|->
+operator|.
 name|size
 argument_list|()
 decl_stmt|;
-name|int
+name|size_t
 name|index
 init|=
 literal|0
@@ -4550,25 +4491,23 @@ name|j
 operator|++
 control|)
 block|{
-name|int
+name|size_t
 name|size
 init|=
-operator|(
-operator|*
 name|fields
-operator|)
 index|[
 name|j
 index|]
-operator|.
+operator|->
 name|type
+argument_list|()
 operator|->
 name|getObjectSize
 argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|int
+name|size_t
 name|i
 init|=
 literal|0
@@ -4583,15 +4522,13 @@ control|)
 block|{
 if|if
 condition|(
-operator|(
-operator|*
 name|fields
-operator|)
 index|[
 name|j
 index|]
-operator|.
+operator|->
 name|type
+argument_list|()
 operator|->
 name|getBasicType
 argument_list|()
@@ -4606,14 +4543,14 @@ name|CompareStructure
 argument_list|(
 operator|*
 operator|(
-operator|*
 name|fields
-operator|)
 index|[
 name|j
 index|]
-operator|.
+operator|->
 name|type
+argument_list|()
+operator|)
 argument_list|,
 operator|&
 name|rightUnionArray
@@ -4697,7 +4634,7 @@ operator|.
 name|clearArrayness
 argument_list|()
 expr_stmt|;
-name|int
+name|size_t
 name|arraySize
 init|=
 name|leftNodeType
@@ -4707,7 +4644,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|int
+name|size_t
 name|i
 init|=
 literal|0
@@ -4720,7 +4657,7 @@ operator|++
 name|i
 control|)
 block|{
-name|int
+name|size_t
 name|offset
 init|=
 name|typeWithoutArrayness
@@ -4816,7 +4753,7 @@ init|=
 name|getUnionArrayPointer
 argument_list|()
 decl_stmt|;
-name|int
+name|size_t
 name|objectSize
 init|=
 name|getType
@@ -4883,7 +4820,7 @@ index|]
 expr_stmt|;
 for|for
 control|(
-name|int
+name|size_t
 name|i
 init|=
 literal|0
@@ -4947,7 +4884,7 @@ index|]
 expr_stmt|;
 for|for
 control|(
-name|int
+name|size_t
 name|i
 init|=
 literal|0
@@ -5027,7 +4964,7 @@ block|{
 comment|// support MSVC++6.0
 for|for
 control|(
-name|int
+name|size_t
 name|i
 init|=
 literal|0
@@ -5071,7 +5008,7 @@ block|{
 comment|// support MSVC++6.0
 for|for
 control|(
-name|int
+name|size_t
 name|i
 init|=
 literal|0
@@ -5121,7 +5058,7 @@ block|{
 comment|// support MSVC++6.0
 for|for
 control|(
-name|int
+name|size_t
 name|i
 init|=
 literal|0
@@ -5179,10 +5116,10 @@ name|message
 argument_list|(
 name|EPrefixInternalError
 argument_list|,
-literal|"Constant Folding cannot be done for matrix multiply"
-argument_list|,
 name|getLine
 argument_list|()
+argument_list|,
+literal|"Constant Folding cannot be done for matrix multiply"
 argument_list|)
 expr_stmt|;
 return|return
@@ -5336,7 +5273,7 @@ block|{
 comment|// support MSVC++6.0
 for|for
 control|(
-name|int
+name|size_t
 name|i
 init|=
 literal|0
@@ -5379,10 +5316,10 @@ name|message
 argument_list|(
 name|EPrefixWarning
 argument_list|,
-literal|"Divide by zero error during constant folding"
-argument_list|,
 name|getLine
 argument_list|()
+argument_list|,
+literal|"Divide by zero error during constant folding"
 argument_list|)
 expr_stmt|;
 name|tempConstArray
@@ -5456,10 +5393,10 @@ name|message
 argument_list|(
 name|EPrefixWarning
 argument_list|,
-literal|"Divide by zero error during constant folding"
-argument_list|,
 name|getLine
 argument_list|()
+argument_list|,
+literal|"Divide by zero error during constant folding"
 argument_list|)
 expr_stmt|;
 name|tempConstArray
@@ -5508,10 +5445,10 @@ name|message
 argument_list|(
 name|EPrefixInternalError
 argument_list|,
-literal|"Constant folding cannot be done for \"/\""
-argument_list|,
 name|getLine
 argument_list|()
+argument_list|,
+literal|"Constant folding cannot be done for \"/\""
 argument_list|)
 expr_stmt|;
 return|return
@@ -5542,10 +5479,10 @@ name|message
 argument_list|(
 name|EPrefixInternalError
 argument_list|,
-literal|"Constant Folding cannot be done for matrix times vector"
-argument_list|,
 name|getLine
 argument_list|()
+argument_list|,
+literal|"Constant Folding cannot be done for matrix times vector"
 argument_list|)
 expr_stmt|;
 return|return
@@ -5697,10 +5634,10 @@ name|message
 argument_list|(
 name|EPrefixInternalError
 argument_list|,
-literal|"Constant Folding cannot be done for vector times matrix"
-argument_list|,
 name|getLine
 argument_list|()
+argument_list|,
+literal|"Constant Folding cannot be done for vector times matrix"
 argument_list|)
 expr_stmt|;
 return|return
@@ -5823,7 +5760,7 @@ block|{
 comment|// support MSVC++6.0
 for|for
 control|(
-name|int
+name|size_t
 name|i
 init|=
 literal|0
@@ -5868,7 +5805,7 @@ block|{
 comment|// support MSVC++6.0
 for|for
 control|(
-name|int
+name|size_t
 name|i
 init|=
 literal|0
@@ -5912,7 +5849,7 @@ block|{
 comment|// support MSVC++6.0
 for|for
 control|(
-name|int
+name|size_t
 name|i
 init|=
 literal|0
@@ -6209,7 +6146,7 @@ else|else
 block|{
 for|for
 control|(
-name|int
+name|size_t
 name|i
 init|=
 literal|0
@@ -6344,7 +6281,7 @@ else|else
 block|{
 for|for
 control|(
-name|int
+name|size_t
 name|i
 init|=
 literal|0
@@ -6448,10 +6385,10 @@ name|message
 argument_list|(
 name|EPrefixInternalError
 argument_list|,
-literal|"Invalid operator for constant folding"
-argument_list|,
 name|getLine
 argument_list|()
+argument_list|,
+literal|"Invalid operator for constant folding"
 argument_list|)
 expr_stmt|;
 return|return
@@ -6503,7 +6440,7 @@ index|]
 decl_stmt|;
 for|for
 control|(
-name|int
+name|size_t
 name|i
 init|=
 literal|0
@@ -6584,10 +6521,10 @@ name|message
 argument_list|(
 name|EPrefixInternalError
 argument_list|,
-literal|"Unary operation not folded into constant"
-argument_list|,
 name|getLine
 argument_list|()
+argument_list|,
+literal|"Unary operation not folded into constant"
 argument_list|)
 expr_stmt|;
 return|return
@@ -6638,10 +6575,10 @@ name|message
 argument_list|(
 name|EPrefixInternalError
 argument_list|,
-literal|"Unary operation not folded into constant"
-argument_list|,
 name|getLine
 argument_list|()
+argument_list|,
+literal|"Unary operation not folded into constant"
 argument_list|)
 expr_stmt|;
 return|return
@@ -6696,7 +6633,7 @@ modifier|*
 name|node
 parameter_list|)
 block|{
-name|int
+name|size_t
 name|size
 init|=
 name|node
@@ -6719,7 +6656,7 @@ index|]
 decl_stmt|;
 for|for
 control|(
-name|int
+name|size_t
 name|i
 init|=
 literal|0
@@ -6835,12 +6772,12 @@ name|message
 argument_list|(
 name|EPrefixInternalError
 argument_list|,
-literal|"Cannot promote"
-argument_list|,
 name|node
 operator|->
 name|getLine
 argument_list|()
+argument_list|,
+literal|"Cannot promote"
 argument_list|)
 expr_stmt|;
 return|return
@@ -6946,12 +6883,12 @@ name|message
 argument_list|(
 name|EPrefixInternalError
 argument_list|,
-literal|"Cannot promote"
-argument_list|,
 name|node
 operator|->
 name|getLine
 argument_list|()
+argument_list|,
+literal|"Cannot promote"
 argument_list|)
 expr_stmt|;
 return|return
@@ -7043,12 +6980,12 @@ name|message
 argument_list|(
 name|EPrefixInternalError
 argument_list|,
-literal|"Cannot promote"
-argument_list|,
 name|node
 operator|->
 name|getLine
 argument_list|()
+argument_list|,
+literal|"Cannot promote"
 argument_list|)
 expr_stmt|;
 return|return
@@ -7065,12 +7002,12 @@ name|message
 argument_list|(
 name|EPrefixInternalError
 argument_list|,
-literal|"Incorrect data type found"
-argument_list|,
 name|node
 operator|->
 name|getLine
 argument_list|()
+argument_list|,
+literal|"Incorrect data type found"
 argument_list|)
 expr_stmt|;
 return|return

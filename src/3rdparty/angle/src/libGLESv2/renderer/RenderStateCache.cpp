@@ -1230,7 +1230,9 @@ name|rasterDesc
 operator|.
 name|MultisampleEnable
 operator|=
-name|TRUE
+name|rasterState
+operator|.
+name|multiSample
 expr_stmt|;
 name|rasterDesc
 operator|.

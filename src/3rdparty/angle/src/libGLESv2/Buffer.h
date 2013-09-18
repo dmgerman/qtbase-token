@@ -44,6 +44,11 @@ include|#
 directive|include
 file|"common/RefCountObject.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"libGLESv2/renderer/IndexRangeCache.h"
+end_include
 begin_decl_stmt
 name|namespace
 name|rx
@@ -126,6 +131,7 @@ name|unsigned
 name|int
 name|size
 argument_list|()
+specifier|const
 block|;
 name|rx
 operator|::
@@ -151,6 +157,13 @@ argument_list|(
 argument|int dataSize
 argument_list|)
 block|;
+name|rx
+operator|::
+name|IndexRangeCache
+operator|*
+name|getIndexRangeCache
+argument_list|()
+block|;
 name|private
 operator|:
 name|DISALLOW_COPY_AND_ASSIGN
@@ -172,6 +185,11 @@ operator|::
 name|BufferStorage
 operator|*
 name|mBufferStorage
+block|;
+name|rx
+operator|::
+name|IndexRangeCache
+name|mIndexRangeCache
 block|;
 name|rx
 operator|::

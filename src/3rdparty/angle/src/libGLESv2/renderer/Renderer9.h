@@ -1031,6 +1031,14 @@ argument|DWORD usage
 argument_list|)
 specifier|const
 block|;
+name|virtual
+name|bool
+name|getLUID
+argument_list|(
+argument|LUID *adapterLuid
+argument_list|)
+specifier|const
+block|;
 name|private
 operator|:
 name|DISALLOW_COPY_AND_ASSIGN
@@ -1381,6 +1389,9 @@ name|mCurNear
 block|;
 name|float
 name|mCurFar
+block|;
+name|float
+name|mCurDepthFront
 block|;
 name|bool
 name|mForceSetBlendState

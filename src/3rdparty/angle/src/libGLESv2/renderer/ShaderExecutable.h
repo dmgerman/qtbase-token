@@ -81,6 +81,7 @@ name|ShaderExecutable
 argument_list|()
 block|{
 name|delete
+index|[]
 name|mFunction
 block|;     }
 name|void

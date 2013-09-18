@@ -3,7 +3,7 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// Copyright (c) 2012 The ANGLE Project Authors. All rights reserved.
+comment|// Copyright (c) 2012-2013 The ANGLE Project Authors. All rights reserved.
 end_comment
 begin_comment
 comment|// Use of this source code is governed by a BSD-style license that can be
@@ -109,6 +109,9 @@ name|polygonOffsetUnits
 decl_stmt|;
 name|bool
 name|pointDrawMode
+decl_stmt|;
+name|bool
+name|multiSample
 decl_stmt|;
 block|}
 struct|;

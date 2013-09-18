@@ -283,12 +283,19 @@ condition|(
 name|mBuffer
 condition|)
 block|{
+comment|// Check for integer overflows and out-out-bounds map requests
 if|if
 condition|(
 name|offset
 operator|+
 name|size
-operator|>
+argument_list|<
+name|offset
+operator|||
+name|offset
+operator|+
+name|size
+argument_list|>
 name|mBufferSize
 condition|)
 block|{

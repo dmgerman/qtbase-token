@@ -1022,12 +1022,14 @@ break|break;
 default|default:
 name|out
 operator|.
-name|message
+name|prefix
 argument_list|(
 name|EPrefixError
-argument_list|,
-literal|"Bad unary op"
 argument_list|)
+expr_stmt|;
+name|out
+operator|<<
+literal|"Bad unary op"
 expr_stmt|;
 block|}
 name|out
@@ -1083,12 +1085,14 @@ condition|)
 block|{
 name|out
 operator|.
-name|message
+name|prefix
 argument_list|(
 name|EPrefixError
-argument_list|,
-literal|"node is still EOpNull!"
 argument_list|)
+expr_stmt|;
+name|out
+operator|<<
+literal|"node is still EOpNull!"
 expr_stmt|;
 return|return
 literal|true
@@ -1480,12 +1484,14 @@ break|break;
 default|default:
 name|out
 operator|.
-name|message
+name|prefix
 argument_list|(
 name|EPrefixError
-argument_list|,
-literal|"Bad aggregation op"
 argument_list|)
+expr_stmt|;
+name|out
+operator|<<
+literal|"Bad aggregation op"
 expr_stmt|;
 block|}
 if|if
@@ -1690,7 +1696,7 @@ name|out
 init|=
 name|sink
 decl_stmt|;
-name|int
+name|size_t
 name|size
 init|=
 name|node
@@ -1703,7 +1709,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|int
+name|size_t
 name|i
 init|=
 literal|0
@@ -1826,12 +1832,12 @@ name|message
 argument_list|(
 name|EPrefixInternalError
 argument_list|,
-literal|"Unknown constant"
-argument_list|,
 name|node
 operator|->
 name|getLine
 argument_list|()
+argument_list|,
+literal|"Unknown constant"
 argument_list|)
 expr_stmt|;
 break|break;

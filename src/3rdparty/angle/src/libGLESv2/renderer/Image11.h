@@ -229,9 +229,9 @@ operator|:
 name|HRESULT
 name|map
 argument_list|(
-name|D3D11_MAPPED_SUBRESOURCE
-operator|*
-name|map
+argument|D3D11_MAP mapType
+argument_list|,
+argument|D3D11_MAPPED_SUBRESOURCE *map
 argument_list|)
 block|;
 name|void

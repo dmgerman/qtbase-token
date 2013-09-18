@@ -1996,7 +1996,8 @@ name|TSymbolTable
 modifier|&
 name|symbolTable
 init|=
-name|GlobalParseContext
+name|GetGlobalParseContext
+argument_list|()
 operator|->
 name|symbolTable
 decl_stmt|;

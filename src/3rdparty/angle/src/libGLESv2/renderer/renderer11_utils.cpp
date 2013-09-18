@@ -1286,7 +1286,7 @@ case|case
 name|GL_LUMINANCE32F_EXT
 case|:
 return|return
-name|DXGI_FORMAT_R32G32B32_FLOAT
+name|DXGI_FORMAT_R32G32B32A32_FLOAT
 return|;
 case|case
 name|GL_RGBA16F_EXT

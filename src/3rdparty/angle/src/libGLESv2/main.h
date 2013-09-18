@@ -3,7 +3,7 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// Copyright (c) 2002-2010 The ANGLE Project Authors. All rights reserved.
+comment|// Copyright (c) 2002-2013 The ANGLE Project Authors. All rights reserved.
 end_comment
 begin_comment
 comment|// Use of this source code is governed by a BSD-style license that can be
@@ -220,7 +220,7 @@ argument|egl::Display *display
 argument_list|,
 argument|HDC hDc
 argument_list|,
-argument|bool softwareDevice
+argument|EGLNativeDisplayType displayId
 argument_list|)
 expr_stmt|;
 name|void

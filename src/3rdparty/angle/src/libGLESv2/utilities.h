@@ -180,6 +180,13 @@ name|GLenum
 name|format
 parameter_list|)
 function_decl|;
+name|GLsizei
+name|ComputeTypeSize
+parameter_list|(
+name|GLenum
+name|type
+parameter_list|)
+function_decl|;
 name|bool
 name|IsCompressed
 parameter_list|(

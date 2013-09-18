@@ -80,13 +80,6 @@ name|bool
 name|lineStart
 block|;     }
 block|;
-specifier|static
-specifier|const
-name|std
-operator|::
-name|size_t
-name|kMaxTokenLength
-block|;
 name|Tokenizer
 argument_list|(
 name|Diagnostics
@@ -108,6 +101,16 @@ argument_list|,
 argument|const int length[]
 argument_list|)
 block|;
+name|void
+name|setMaxTokenLength
+argument_list|(
+argument|size_t maxLength
+argument_list|)
+block|{
+name|mMaxTokenLength
+operator|=
+name|maxLength
+block|; }
 name|void
 name|setFileNumber
 argument_list|(
@@ -153,7 +156,9 @@ name|Context
 name|mContext
 block|;
 comment|// Scanner extra.
-block|}
+name|size_t
+name|mMaxTokenLength
+block|; }
 decl_stmt|;
 block|}
 end_decl_stmt

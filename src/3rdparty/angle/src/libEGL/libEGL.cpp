@@ -680,10 +680,15 @@ case|case
 name|EGL_EXTENSIONS
 case|:
 return|return
+name|egl
+operator|::
+name|success
+argument_list|(
 name|display
 operator|->
 name|getExtensionString
 argument_list|()
+argument_list|)
 return|;
 case|case
 name|EGL_VENDOR
@@ -693,7 +698,10 @@ name|egl
 operator|::
 name|success
 argument_list|(
-literal|"Google Inc."
+name|display
+operator|->
+name|getVendorString
+argument_list|()
 argument_list|)
 return|;
 case|case
@@ -3676,6 +3684,13 @@ return|return
 name|EGL_FALSE
 return|;
 block|}
+if|if
+condition|(
+name|dpy
+operator|!=
+name|EGL_NO_DISPLAY
+condition|)
+block|{
 name|rx
 operator|::
 name|Renderer
@@ -3719,6 +3734,7 @@ argument_list|,
 name|EGL_FALSE
 argument_list|)
 return|;
+block|}
 block|}
 if|if
 condition|(

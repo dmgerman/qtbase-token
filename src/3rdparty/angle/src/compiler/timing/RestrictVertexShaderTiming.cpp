@@ -47,24 +47,17 @@ name|mNumErrors
 expr_stmt|;
 name|mSink
 operator|.
-name|prefix
+name|message
 argument_list|(
 name|EPrefixError
-argument_list|)
-expr_stmt|;
-name|mSink
-operator|.
-name|location
-argument_list|(
+argument_list|,
 name|node
 operator|->
 name|getLine
 argument_list|()
+argument_list|,
+literal|"Samplers are not permitted in vertex shaders"
 argument_list|)
-expr_stmt|;
-name|mSink
-operator|<<
-literal|"Samplers are not permitted in vertex shaders.\n"
 expr_stmt|;
 block|}
 block|}

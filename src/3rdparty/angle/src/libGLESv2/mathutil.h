@@ -365,6 +365,18 @@ return|return
 name|supports
 return|;
 block|}
+if|#
+directive|if
+name|defined
+argument_list|(
+name|_M_IX86
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|_M_AMD64
+argument_list|)
+comment|// ARM doesn't provide __cpuid()
 name|int
 name|info
 index|[
@@ -409,6 +421,8 @@ operator|&
 literal|1
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 name|checked
 operator|=
 name|true

@@ -36,6 +36,9 @@ name|ConstantUnion
 block|{
 name|public
 label|:
+name|POOL_ALLOCATOR_NEW_DELETE
+argument_list|()
+expr_stmt|;
 name|ConstantUnion
 argument_list|()
 block|{
@@ -48,10 +51,6 @@ operator|=
 name|EbtVoid
 expr_stmt|;
 block|}
-name|POOL_ALLOCATOR_NEW_DELETE
-argument_list|(
-argument|GlobalPoolAllocator
-argument_list|)
 name|void
 name|setIConst
 parameter_list|(

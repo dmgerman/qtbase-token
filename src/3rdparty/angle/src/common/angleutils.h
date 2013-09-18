@@ -28,6 +28,11 @@ define|#
 directive|define
 name|COMMON_ANGLEUTILS_H_
 end_define
+begin_include
+include|#
+directive|include
+file|<stddef.h>
+end_include
 begin_comment
 comment|// A macro to disallow the copy constructor and operator= functions
 end_comment

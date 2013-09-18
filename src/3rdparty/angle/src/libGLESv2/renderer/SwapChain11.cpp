@@ -955,6 +955,11 @@ operator|&
 name|mShareHandle
 argument_list|)
 expr_stmt|;
+name|offscreenTextureResource
+operator|->
+name|Release
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|FAILED

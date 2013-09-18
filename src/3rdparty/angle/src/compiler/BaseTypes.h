@@ -329,13 +329,6 @@ DECL|enumerator|EvqUniform
 name|EvqUniform
 block|,
 comment|// Readonly, vertex and fragment
-comment|// pack/unpack input and output
-DECL|enumerator|EvqInput
-name|EvqInput
-block|,
-DECL|enumerator|EvqOutput
-name|EvqOutput
-block|,
 comment|// parameters
 DECL|enumerator|EvqIn
 name|EvqIn
@@ -372,6 +365,9 @@ name|EvqFragColor
 block|,
 DECL|enumerator|EvqFragData
 name|EvqFragData
+block|,
+DECL|enumerator|EvqFragDepth
+name|EvqFragDepth
 block|,
 comment|// end of list
 DECL|enumerator|EvqLast
@@ -497,20 +493,6 @@ literal|"inout"
 return|;
 break|break;
 case|case
-name|EvqInput
-case|:
-return|return
-literal|"input"
-return|;
-break|break;
-case|case
-name|EvqOutput
-case|:
-return|return
-literal|"output"
-return|;
-break|break;
-case|case
 name|EvqPosition
 case|:
 return|return
@@ -550,6 +532,13 @@ name|EvqFragData
 case|:
 return|return
 literal|"FragData"
+return|;
+break|break;
+case|case
+name|EvqFragDepth
+case|:
+return|return
+literal|"FragDepth"
 return|;
 break|break;
 default|default:

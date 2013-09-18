@@ -1006,6 +1006,14 @@ operator|*
 name|renderTargetView
 argument_list|)
 block|;
+name|virtual
+name|bool
+name|getLUID
+argument_list|(
+argument|LUID *adapterLuid
+argument_list|)
+specifier|const
+block|;
 name|private
 operator|:
 name|DISALLOW_COPY_AND_ASSIGN
@@ -1068,12 +1076,9 @@ block|;
 name|void
 name|maskedClear
 argument_list|(
-specifier|const
-name|gl
-operator|::
-name|ClearParameters
-operator|&
-name|clearParams
+argument|const gl::ClearParameters&clearParams
+argument_list|,
+argument|bool usingExtendedDrawBuffers
 argument_list|)
 block|;
 name|rx
@@ -1363,6 +1368,10 @@ decl_stmt|;
 name|float
 name|mCurFar
 decl_stmt|;
+comment|// Currently applied primitive topology
+name|D3D11_PRIMITIVE_TOPOLOGY
+name|mCurrentPrimitiveTopology
+decl_stmt|;
 name|unsigned
 name|int
 name|mAppliedIBSerial
@@ -1392,6 +1401,10 @@ name|ID3D11Buffer
 modifier|*
 name|mDriverConstantBufferVS
 decl_stmt|;
+name|ID3D11Buffer
+modifier|*
+name|mCurrentVertexConstantBuffer
+decl_stmt|;
 name|dx_PixelConstants
 name|mPixelConstants
 decl_stmt|;
@@ -1401,6 +1414,14 @@ decl_stmt|;
 name|ID3D11Buffer
 modifier|*
 name|mDriverConstantBufferPS
+decl_stmt|;
+name|ID3D11Buffer
+modifier|*
+name|mCurrentPixelConstantBuffer
+decl_stmt|;
+name|ID3D11Buffer
+modifier|*
+name|mCurrentGeometryConstantBuffer
 decl_stmt|;
 comment|// Vertex, index and input layouts
 name|VertexDataManager
@@ -1476,7 +1497,11 @@ name|mClearVS
 decl_stmt|;
 name|ID3D11PixelShader
 modifier|*
-name|mClearPS
+name|mClearSinglePS
+decl_stmt|;
+name|ID3D11PixelShader
+modifier|*
+name|mClearMultiplePS
 decl_stmt|;
 name|ID3D11RasterizerState
 modifier|*

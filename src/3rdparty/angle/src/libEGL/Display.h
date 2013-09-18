@@ -3,7 +3,7 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// Copyright (c) 2002-2012 The ANGLE Project Authors. All rights reserved.
+comment|// Copyright (c) 2002-2013 The ANGLE Project Authors. All rights reserved.
 end_comment
 begin_comment
 comment|// Use of this source code is governed by a BSD-style license that can be
@@ -270,6 +270,13 @@ name|getExtensionString
 argument_list|()
 specifier|const
 expr_stmt|;
+specifier|const
+name|char
+operator|*
+name|getVendorString
+argument_list|()
+specifier|const
+expr_stmt|;
 name|private
 label|:
 name|DISALLOW_COPY_AND_ASSIGN
@@ -282,8 +289,6 @@ argument_list|(
 argument|EGLNativeDisplayType displayId
 argument_list|,
 argument|HDC deviceContext
-argument_list|,
-argument|bool software
 argument_list|)
 empty_stmt|;
 name|bool
@@ -341,10 +346,19 @@ name|void
 name|initExtensionString
 parameter_list|()
 function_decl|;
+name|void
+name|initVendorString
+parameter_list|()
+function_decl|;
 name|std
 operator|::
 name|string
 name|mExtensionString
+expr_stmt|;
+name|std
+operator|::
+name|string
+name|mVendorString
 expr_stmt|;
 block|}
 empty_stmt|;

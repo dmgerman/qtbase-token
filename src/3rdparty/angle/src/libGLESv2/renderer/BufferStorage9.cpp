@@ -224,6 +224,7 @@ if|if
 condition|(
 name|data
 condition|)
+block|{
 name|memcpy
 argument_list|(
 cast|reinterpret_cast
@@ -242,6 +243,7 @@ argument_list|,
 name|size
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|function|clear
 name|void

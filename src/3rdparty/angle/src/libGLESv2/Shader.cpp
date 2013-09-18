@@ -935,6 +935,13 @@ operator|=
 literal|1
 expr_stmt|;
 comment|// Shader Model 2+ always supports FP24 (s16e7) which corresponds to highp
+name|resources
+operator|.
+name|EXT_frag_depth
+operator|=
+literal|1
+expr_stmt|;
+comment|// Shader Model 2+ always supports explicit depth output
 name|mFragmentCompiler
 operator|=
 name|ShConstructCompiler
@@ -1207,6 +1214,28 @@ argument_list|)
 operator|!=
 name|NULL
 expr_stmt|;
+name|mUsesDepthRange
+operator|=
+name|strstr
+argument_list|(
+name|mHlsl
+argument_list|,
+literal|"GL_USES_DEPTH_RANGE"
+argument_list|)
+operator|!=
+name|NULL
+expr_stmt|;
+name|mUsesFragDepth
+operator|=
+name|strstr
+argument_list|(
+name|mHlsl
+argument_list|,
+literal|"GL_USES_FRAG_DEPTH"
+argument_list|)
+operator|!=
+name|NULL
+expr_stmt|;
 block|}
 block|}
 DECL|function|resetVaryingsRegisterAssignment
@@ -1311,6 +1340,14 @@ operator|=
 literal|false
 expr_stmt|;
 name|mUsesPointCoord
+operator|=
+literal|false
+expr_stmt|;
+name|mUsesDepthRange
+operator|=
+literal|false
+expr_stmt|;
+name|mUsesFragDepth
 operator|=
 literal|false
 expr_stmt|;

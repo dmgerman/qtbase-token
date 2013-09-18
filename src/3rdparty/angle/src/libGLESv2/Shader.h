@@ -440,6 +440,12 @@ decl_stmt|;
 name|bool
 name|mUsesPointCoord
 decl_stmt|;
+name|bool
+name|mUsesDepthRange
+decl_stmt|;
+name|bool
+name|mUsesFragDepth
+decl_stmt|;
 specifier|static
 name|void
 modifier|*

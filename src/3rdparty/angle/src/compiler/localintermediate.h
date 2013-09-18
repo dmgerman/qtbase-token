@@ -81,9 +81,8 @@ block|{
 name|public
 label|:
 name|POOL_ALLOCATOR_NEW_DELETE
-argument_list|(
-argument|GlobalPoolAllocator
-argument_list|)
+argument_list|()
+expr_stmt|;
 name|TIntermediate
 argument_list|(
 name|TInfoSink
@@ -106,7 +105,7 @@ argument|const TString&
 argument_list|,
 argument|const TType&
 argument_list|,
-argument|TSourceLoc
+argument|const TSourceLoc&
 argument_list|)
 expr_stmt|;
 name|TIntermTyped
@@ -138,7 +137,9 @@ name|TIntermTyped
 modifier|*
 name|right
 parameter_list|,
+specifier|const
 name|TSourceLoc
+modifier|&
 parameter_list|,
 name|TSymbolTable
 modifier|&
@@ -159,7 +160,9 @@ name|TIntermTyped
 modifier|*
 name|right
 parameter_list|,
+specifier|const
 name|TSourceLoc
+modifier|&
 parameter_list|)
 function_decl|;
 name|TIntermTyped
@@ -177,7 +180,9 @@ name|TIntermTyped
 modifier|*
 name|index
 parameter_list|,
+specifier|const
 name|TSourceLoc
+modifier|&
 parameter_list|)
 function_decl|;
 name|TIntermTyped
@@ -191,7 +196,9 @@ name|TIntermNode
 modifier|*
 name|child
 parameter_list|,
+specifier|const
 name|TSourceLoc
+modifier|&
 parameter_list|,
 name|TSymbolTable
 modifier|&
@@ -209,7 +216,9 @@ name|TIntermNode
 modifier|*
 name|right
 parameter_list|,
+specifier|const
 name|TSourceLoc
+modifier|&
 parameter_list|)
 function_decl|;
 name|TIntermAggregate
@@ -220,7 +229,9 @@ name|TIntermNode
 modifier|*
 name|node
 parameter_list|,
+specifier|const
 name|TSourceLoc
+modifier|&
 parameter_list|)
 function_decl|;
 name|TIntermAggregate
@@ -232,7 +243,9 @@ modifier|*
 parameter_list|,
 name|TOperator
 parameter_list|,
+specifier|const
 name|TSourceLoc
+modifier|&
 parameter_list|)
 function_decl|;
 name|TIntermNode
@@ -246,7 +259,9 @@ parameter_list|,
 name|TIntermNodePair
 name|code
 parameter_list|,
+specifier|const
 name|TSourceLoc
+modifier|&
 parameter_list|)
 function_decl|;
 name|TIntermTyped
@@ -265,7 +280,9 @@ name|TIntermTyped
 modifier|*
 name|falseBlock
 parameter_list|,
+specifier|const
 name|TSourceLoc
+modifier|&
 parameter_list|)
 function_decl|;
 name|TIntermTyped
@@ -280,7 +297,9 @@ name|TIntermTyped
 modifier|*
 name|right
 parameter_list|,
+specifier|const
 name|TSourceLoc
+modifier|&
 parameter_list|)
 function_decl|;
 name|TIntermConstantUnion
@@ -294,7 +313,9 @@ specifier|const
 name|TType
 modifier|&
 parameter_list|,
+specifier|const
 name|TSourceLoc
+modifier|&
 parameter_list|)
 function_decl|;
 name|TIntermTyped
@@ -310,7 +331,9 @@ function_decl|;
 name|bool
 name|parseConstTree
 parameter_list|(
+specifier|const
 name|TSourceLoc
+modifier|&
 parameter_list|,
 name|TIntermNode
 modifier|*
@@ -349,7 +372,9 @@ parameter_list|,
 name|TIntermNode
 modifier|*
 parameter_list|,
+specifier|const
 name|TSourceLoc
+modifier|&
 parameter_list|)
 function_decl|;
 name|TIntermBranch
@@ -358,7 +383,9 @@ name|addBranch
 parameter_list|(
 name|TOperator
 parameter_list|,
+specifier|const
 name|TSourceLoc
+modifier|&
 parameter_list|)
 function_decl|;
 name|TIntermBranch
@@ -370,7 +397,9 @@ parameter_list|,
 name|TIntermTyped
 modifier|*
 parameter_list|,
+specifier|const
 name|TSourceLoc
+modifier|&
 parameter_list|)
 function_decl|;
 name|TIntermTyped
@@ -380,7 +409,9 @@ parameter_list|(
 name|TVectorFields
 modifier|&
 parameter_list|,
+specifier|const
 name|TSourceLoc
+modifier|&
 parameter_list|)
 function_decl|;
 name|bool
@@ -404,12 +435,6 @@ name|TIntermNode
 modifier|*
 parameter_list|)
 function_decl|;
-name|protected
-label|:
-name|TInfoSink
-modifier|&
-name|infoSink
-decl_stmt|;
 name|private
 label|:
 name|void
@@ -421,6 +446,10 @@ operator|&
 operator|)
 decl_stmt|;
 comment|// prevent assignments
+name|TInfoSink
+modifier|&
+name|infoSink
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt

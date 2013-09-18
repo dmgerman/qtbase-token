@@ -110,8 +110,7 @@ argument|unsigned int offset
 argument_list|)
 block|;
 name|virtual
-name|unsigned
-name|int
+name|bool
 name|getSpaceRequired
 argument_list|(
 argument|const gl::VertexAttribute&attrib
@@ -119,6 +118,8 @@ argument_list|,
 argument|GLsizei count
 argument_list|,
 argument|GLsizei instances
+argument_list|,
+argument|unsigned int *outSpaceRequired
 argument_list|)
 specifier|const
 block|;

@@ -201,7 +201,7 @@ modifier|*
 parameter_list|)
 function_decl|;
 DECL|member|index
-name|int
+name|size_t
 name|index
 decl_stmt|;
 DECL|member|unionArray
@@ -232,7 +232,7 @@ modifier|&
 name|symbolTable
 decl_stmt|;
 DECL|member|size
-name|int
+name|size_t
 name|size
 decl_stmt|;
 comment|// size of the constructor ( 4 for vec4)
@@ -241,7 +241,7 @@ name|bool
 name|isMatrix
 decl_stmt|;
 DECL|member|matrixSize
-name|int
+name|size_t
 name|matrixSize
 decl_stmt|;
 comment|// dimension of the matrix (nominal size and not the instance size)
@@ -292,12 +292,12 @@ name|message
 argument_list|(
 name|EPrefixInternalError
 argument_list|,
-literal|"Symbol Node found in constant constructor"
-argument_list|,
 name|node
 operator|->
 name|getLine
 argument_list|()
+argument_list|,
+literal|"Symbol Node found in constant constructor"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -364,14 +364,14 @@ name|message
 argument_list|(
 name|EPrefixError
 argument_list|,
-name|buf
-operator|.
-name|c_str
-argument_list|()
-argument_list|,
 name|node
 operator|->
 name|getLine
+argument_list|()
+argument_list|,
+name|buf
+operator|.
+name|c_str
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -391,12 +391,12 @@ name|message
 argument_list|(
 name|EPrefixInternalError
 argument_list|,
-literal|"Binary Node found in constant constructor"
-argument_list|,
 name|node
 operator|->
 name|getLine
 argument_list|()
+argument_list|,
+literal|"Binary Node found in constant constructor"
 argument_list|)
 expr_stmt|;
 return|return
@@ -447,14 +447,14 @@ name|message
 argument_list|(
 name|EPrefixError
 argument_list|,
-name|buf
-operator|.
-name|c_str
-argument_list|()
-argument_list|,
 name|node
 operator|->
 name|getLine
+argument_list|()
+argument_list|,
+name|buf
+operator|.
+name|c_str
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -526,14 +526,14 @@ name|message
 argument_list|(
 name|EPrefixError
 argument_list|,
-name|buf
-operator|.
-name|c_str
-argument_list|()
-argument_list|,
 name|node
 operator|->
 name|getLine
+argument_list|()
+argument_list|,
+name|buf
+operator|.
+name|c_str
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -753,12 +753,12 @@ name|message
 argument_list|(
 name|EPrefixInternalError
 argument_list|,
-literal|"Selection Node found in constant constructor"
-argument_list|,
 name|node
 operator|->
 name|getLine
 argument_list|()
+argument_list|,
+literal|"Selection Node found in constant constructor"
 argument_list|)
 expr_stmt|;
 name|error
@@ -812,7 +812,7 @@ name|leftUnionArray
 init|=
 name|unionArray
 decl_stmt|;
-name|int
+name|size_t
 name|instanceSize
 init|=
 name|type
@@ -833,7 +833,7 @@ operator|!
 name|singleConstantParam
 condition|)
 block|{
-name|int
+name|size_t
 name|size
 init|=
 name|node
@@ -855,7 +855,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|int
+name|size_t
 name|i
 init|=
 literal|0
@@ -894,7 +894,7 @@ block|}
 block|}
 else|else
 block|{
-name|int
+name|size_t
 name|totalSize
 init|=
 name|index
@@ -916,14 +916,14 @@ operator|!
 name|isMatrix
 condition|)
 block|{
-name|int
+name|size_t
 name|count
 init|=
 literal|0
 decl_stmt|;
 for|for
 control|(
-name|int
+name|size_t
 name|i
 init|=
 name|index
@@ -978,19 +978,19 @@ block|}
 else|else
 block|{
 comment|// for matrix constructors
-name|int
+name|size_t
 name|count
 init|=
 literal|0
 decl_stmt|;
-name|int
+name|size_t
 name|element
 init|=
 name|index
 decl_stmt|;
 for|for
 control|(
-name|int
+name|size_t
 name|i
 init|=
 name|index
@@ -1101,12 +1101,12 @@ name|message
 argument_list|(
 name|EPrefixInternalError
 argument_list|,
-literal|"Loop Node found in constant constructor"
-argument_list|,
 name|node
 operator|->
 name|getLine
 argument_list|()
+argument_list|,
+literal|"Loop Node found in constant constructor"
 argument_list|)
 expr_stmt|;
 name|error
@@ -1141,12 +1141,12 @@ name|message
 argument_list|(
 name|EPrefixInternalError
 argument_list|,
-literal|"Branch Node found in constant constructor"
-argument_list|,
 name|node
 operator|->
 name|getLine
 argument_list|()
+argument_list|,
+literal|"Branch Node found in constant constructor"
 argument_list|)
 expr_stmt|;
 name|error
@@ -1180,7 +1180,9 @@ name|TIntermediate
 operator|::
 name|parseConstTree
 parameter_list|(
+specifier|const
 name|TSourceLoc
+modifier|&
 name|line
 parameter_list|,
 name|TIntermNode

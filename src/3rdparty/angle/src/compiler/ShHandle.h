@@ -277,6 +277,17 @@ return|return
 name|uniforms
 return|;
 block|}
+specifier|const
+name|TVariableInfoList
+operator|&
+name|getVaryings
+argument_list|()
+specifier|const
+block|{
+return|return
+name|varyings
+return|;
+block|}
 name|int
 name|getMappedNameMaxLength
 argument_list|()
@@ -344,13 +355,15 @@ name|void
 name|clearResults
 argument_list|()
 block|;
-comment|// Return true if function recursion is detected.
+comment|// Return true if function recursion is detected or call depth exceeded.
 name|bool
-name|detectRecursion
+name|detectCallDepth
 argument_list|(
-name|TIntermNode
-operator|*
-name|root
+argument|TIntermNode* root
+argument_list|,
+argument|TInfoSink& infoSink
+argument_list|,
+argument|bool limitCallStackDepth
 argument_list|)
 block|;
 comment|// Rewrites a shader's intermediate tree according to the CSS Shaders spec.
@@ -372,9 +385,9 @@ operator|*
 name|root
 argument_list|)
 block|;
-comment|// Collect info for all attribs and uniforms.
+comment|// Collect info for all attribs, uniforms, varyings.
 name|void
-name|collectAttribsUniforms
+name|collectVariables
 argument_list|(
 name|TIntermNode
 operator|*
@@ -437,6 +450,15 @@ operator|&
 name|graph
 argument_list|)
 block|;
+comment|// Return true if the maximum expression complexity below the limit.
+name|bool
+name|limitExpressionComplexity
+argument_list|(
+name|TIntermNode
+operator|*
+name|root
+argument_list|)
+block|;
 comment|// Get built-in extensions with default behavior.
 specifier|const
 name|TExtensionBehavior
@@ -483,6 +505,12 @@ block|;
 name|int
 name|maxUniformVectors
 block|;
+name|int
+name|maxExpressionComplexity
+block|;
+name|int
+name|maxCallStackDepth
+block|;
 name|ShBuiltInResources
 name|compileResources
 block|;
@@ -520,6 +548,10 @@ name|TVariableInfoList
 name|uniforms
 block|;
 comment|// Active uniforms in the compiled shader.
+name|TVariableInfoList
+name|varyings
+block|;
+comment|// Varyings in the compiled shader.
 comment|// Cached copy of the ref-counted singleton.
 name|LongNameMap
 operator|*

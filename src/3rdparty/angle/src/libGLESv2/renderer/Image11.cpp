@@ -232,6 +232,8 @@ name|dest
 operator|->
 name|map
 argument_list|(
+name|D3D11_MAP_WRITE
+argument_list|,
 operator|&
 name|destMapped
 argument_list|)
@@ -240,6 +242,8 @@ name|src
 operator|->
 name|map
 argument_list|(
+name|D3D11_MAP_READ
+argument_list|,
 operator|&
 name|srcMapped
 argument_list|)
@@ -1000,6 +1004,8 @@ name|result
 init|=
 name|map
 argument_list|(
+name|D3D11_MAP_WRITE
+argument_list|,
 operator|&
 name|mappedImage
 argument_list|)
@@ -1148,7 +1154,7 @@ break|break;
 case|case
 name|GL_LUMINANCE32F_EXT
 case|:
-name|loadLuminanceFloatDataToRGB
+name|loadLuminanceFloatDataToRGBA
 argument_list|(
 name|width
 argument_list|,
@@ -1402,7 +1408,7 @@ break|break;
 case|case
 name|GL_RGB32F_EXT
 case|:
-name|loadRGBFloatDataToNative
+name|loadRGBFloatDataToRGBA
 argument_list|(
 name|width
 argument_list|,
@@ -1542,6 +1548,8 @@ name|result
 init|=
 name|map
 argument_list|(
+name|D3D11_MAP_WRITE
+argument_list|,
 operator|&
 name|mappedImage
 argument_list|)
@@ -2070,6 +2078,8 @@ name|result
 init|=
 name|map
 argument_list|(
+name|D3D11_MAP_WRITE
+argument_list|,
 operator|&
 name|mappedImage
 argument_list|)
@@ -2350,6 +2360,8 @@ name|desc
 operator|.
 name|CPUAccessFlags
 operator|=
+name|D3D11_CPU_ACCESS_READ
+operator||
 name|D3D11_CPU_ACCESS_WRITE
 expr_stmt|;
 name|desc
@@ -2432,6 +2444,9 @@ name|Image11
 operator|::
 name|map
 parameter_list|(
+name|D3D11_MAP
+name|mapType
+parameter_list|,
 name|D3D11_MAPPED_SUBRESOURCE
 modifier|*
 name|map
@@ -2469,7 +2484,7 @@ name|mStagingTexture
 argument_list|,
 name|mStagingSubresource
 argument_list|,
-name|D3D11_MAP_WRITE
+name|mapType
 argument_list|,
 literal|0
 argument_list|,

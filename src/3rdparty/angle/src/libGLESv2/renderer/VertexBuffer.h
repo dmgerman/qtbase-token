@@ -127,8 +127,7 @@ init|=
 literal|0
 function_decl|;
 name|virtual
-name|unsigned
-name|int
+name|bool
 name|getSpaceRequired
 argument_list|(
 specifier|const
@@ -143,6 +142,11 @@ name|count
 argument_list|,
 name|GLsizei
 name|instances
+argument_list|,
+name|unsigned
+name|int
+operator|*
+name|outSpaceRequired
 argument_list|)
 decl|const
 init|=
@@ -237,7 +241,7 @@ operator|~
 name|VertexBufferInterface
 argument_list|()
 expr_stmt|;
-name|void
+name|bool
 name|reserveVertexSpace
 argument_list|(
 specifier|const
@@ -254,7 +258,7 @@ name|GLsizei
 name|instances
 argument_list|)
 decl_stmt|;
-name|void
+name|bool
 name|reserveRawDataSpace
 parameter_list|(
 name|unsigned
@@ -275,7 +279,7 @@ argument_list|()
 specifier|const
 expr_stmt|;
 name|virtual
-name|int
+name|bool
 name|storeVertexAttributes
 argument_list|(
 specifier|const
@@ -293,10 +297,15 @@ name|count
 argument_list|,
 name|GLsizei
 name|instances
+argument_list|,
+name|unsigned
+name|int
+operator|*
+name|outStreamOffset
 argument_list|)
 decl_stmt|;
 name|virtual
-name|int
+name|bool
 name|storeRawData
 parameter_list|(
 specifier|const
@@ -307,6 +316,11 @@ parameter_list|,
 name|unsigned
 name|int
 name|size
+parameter_list|,
+name|unsigned
+name|int
+modifier|*
+name|outStreamOffset
 parameter_list|)
 function_decl|;
 name|VertexBuffer
@@ -435,7 +449,7 @@ operator|~
 name|StaticVertexBufferInterface
 argument_list|()
 block|;
-name|int
+name|bool
 name|storeVertexAttributes
 argument_list|(
 argument|const gl::VertexAttribute&attrib
@@ -445,18 +459,16 @@ argument_list|,
 argument|GLsizei count
 argument_list|,
 argument|GLsizei instances
+argument_list|,
+argument|unsigned int *outStreamOffset
 argument_list|)
 block|;
-comment|// Returns the offset into the vertex buffer, or -1 if not found
-name|int
+name|bool
 name|lookupAttribute
 argument_list|(
-specifier|const
-name|gl
-operator|::
-name|VertexAttribute
-operator|&
-name|attribute
+argument|const gl::VertexAttribute&attribute
+argument_list|,
+argument|unsigned int* outStreamOffset
 argument_list|)
 block|;
 name|protected

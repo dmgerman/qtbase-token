@@ -25,39 +25,56 @@ define|#
 directive|define
 name|COMPILER_UTIL_H
 end_define
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|__cplusplus
-end_ifdef
-begin_extern
-extern|extern
-literal|"C"
-block|{
-endif|#
-directive|endif
-comment|// atof_dot is like atof but forcing C locale, i.e. forcing '.' as decimal point.
-name|double
-name|atof_dot
+begin_comment
+comment|// atof_clamp is like atof but
+end_comment
+begin_comment
+comment|//   1. it forces C locale, i.e. forcing '.' as decimal point.
+end_comment
+begin_comment
+comment|//   2. it clamps the value to -FLT_MAX or FLT_MAX if overflow happens.
+end_comment
+begin_comment
+comment|// Return false if overflow happens.
+end_comment
+begin_function_decl
+specifier|extern
+name|bool
+name|atof_clamp
 parameter_list|(
 specifier|const
 name|char
 modifier|*
 name|str
+parameter_list|,
+name|float
+modifier|*
+name|value
 parameter_list|)
 function_decl|;
-ifdef|#
-directive|ifdef
-name|__cplusplus
-block|}
-end_extern
+end_function_decl
 begin_comment
-comment|// end extern "C"
+comment|// If overflow happens, clamp the value to INT_MIN or INT_MAX.
 end_comment
-begin_endif
-endif|#
-directive|endif
-end_endif
+begin_comment
+comment|// Return false if overflow happens.
+end_comment
+begin_function_decl
+specifier|extern
+name|bool
+name|atoi_clamp
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|str
+parameter_list|,
+name|int
+modifier|*
+name|value
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_endif
 endif|#
 directive|endif

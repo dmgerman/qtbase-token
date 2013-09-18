@@ -291,6 +291,11 @@ name|getSamples
 argument_list|()
 specifier|const
 expr_stmt|;
+name|bool
+name|usingExtendedDrawBuffers
+argument_list|()
+specifier|const
+expr_stmt|;
 name|virtual
 name|GLenum
 name|completeness

@@ -255,6 +255,22 @@ argument_list|)
 block|;
 name|private
 operator|:
+name|bool
+name|structDeclared
+argument_list|(
+argument|const TStructure* structure
+argument_list|)
+specifier|const
+block|;
+name|void
+name|declareStruct
+argument_list|(
+specifier|const
+name|TStructure
+operator|*
+name|structure
+argument_list|)
+block|;
 name|TInfoSinkBase
 operator|&
 name|mObjSink

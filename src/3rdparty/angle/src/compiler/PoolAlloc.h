@@ -763,7 +763,7 @@ end_comment
 begin_function_decl
 specifier|extern
 name|TPoolAllocator
-modifier|&
+modifier|*
 name|GetGlobalPoolAllocator
 parameter_list|()
 function_decl|;
@@ -779,26 +779,6 @@ name|poolAllocator
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_define
-DECL|macro|GlobalPoolAllocator
-define|#
-directive|define
-name|GlobalPoolAllocator
-value|GetGlobalPoolAllocator()
-end_define
-begin_struct
-DECL|struct|TThreadGlobalPools
-struct|struct
-name|TThreadGlobalPools
-block|{
-DECL|member|globalPoolAllocator
-name|TPoolAllocator
-modifier|*
-name|globalPoolAllocator
-decl_stmt|;
-block|}
-struct|;
-end_struct
 begin_comment
 comment|//
 end_comment
@@ -935,7 +915,7 @@ argument_list|()
 operator|:
 name|allocator
 argument_list|(
-argument|&GlobalPoolAllocator
+argument|GetGlobalPoolAllocator()
 argument_list|)
 block|{ }
 name|pool_allocator
