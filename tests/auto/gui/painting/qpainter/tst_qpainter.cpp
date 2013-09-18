@@ -173,6 +173,12 @@ argument_list|(
 argument|QPainterPath
 argument_list|)
 end_macro
+begin_macro
+name|Q_DECLARE_METATYPE
+argument_list|(
+argument|QImage::Format
+argument_list|)
+end_macro
 begin_class
 DECL|class|tst_QPainter
 class|class
@@ -10144,12 +10150,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QImage::Format
-argument_list|)
-end_macro
 begin_function
 DECL|function|qimageFormats_data
 name|void
