@@ -99,6 +99,10 @@ function_decl|;
 name|EGLNativeWindowType
 name|createNativeWindow
 parameter_list|(
+name|QPlatformWindow
+modifier|*
+name|platformWindow
+parameter_list|,
 specifier|const
 name|QSize
 modifier|&
@@ -284,6 +288,10 @@ name|QEglFSAndroidHooks
 operator|::
 name|createNativeWindow
 parameter_list|(
+name|QPlatformWindow
+modifier|*
+name|platformWindow
+parameter_list|,
 specifier|const
 name|QSize
 modifier|&
@@ -295,6 +303,11 @@ modifier|&
 name|format
 parameter_list|)
 block|{
+name|Q_UNUSED
+argument_list|(
+name|platformWindow
+argument_list|)
+expr_stmt|;
 name|Q_UNUSED
 argument_list|(
 name|size
