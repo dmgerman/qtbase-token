@@ -16946,6 +16946,7 @@ name|va_list
 name|ap
 parameter_list|)
 block|{
+specifier|const
 name|QLocale
 name|locale
 argument_list|(
