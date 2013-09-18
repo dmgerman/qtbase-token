@@ -362,6 +362,15 @@ name|eglGetError
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|m_cover
+condition|)
+name|m_cover
+operator|->
+name|updateCover
+argument_list|()
+expr_stmt|;
 block|}
 end_function
 begin_function

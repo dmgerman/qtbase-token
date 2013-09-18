@@ -317,6 +317,15 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|m_cover
+condition|)
+name|m_cover
+operator|->
+name|updateCover
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_function

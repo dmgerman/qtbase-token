@@ -848,6 +848,12 @@ literal|0x00000020
 operator||
 name|Window
 block|,
+name|CoverWindow
+init|=
+literal|0x00000040
+operator||
+name|Window
+block|,
 name|WindowType_Mask
 init|=
 literal|0x000000ff

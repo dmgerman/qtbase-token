@@ -489,6 +489,10 @@ operator|*
 operator|>
 name|m_childWindows
 expr_stmt|;
+name|QQnxWindow
+modifier|*
+name|m_coverWindow
+decl_stmt|;
 name|QList
 operator|<
 name|screen_window_t
