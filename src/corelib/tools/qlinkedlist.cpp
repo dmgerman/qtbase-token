@@ -59,6 +59,9 @@ begin_comment
 comment|/*! \fn QLinkedList::QLinkedList(const QLinkedList<T>&other)      Constructs a copy of \a other.      This operation occurs in \l{constant time}, because QLinkedList     is \l{implicitly shared}. This makes returning a QLinkedList from     a function very fast. If a shared instance is modified, it will     be copied (copy-on-write), and this takes \l{linear time}.      \sa operator=() */
 end_comment
 begin_comment
+comment|/*! \fn QLinkedList::QLinkedList(std::initializer_list<T> list)     \since 5.2      Constructs a list from the std::initializer_list specified by \a list.      This constructor is only enabled if the compiler supports C++11     initializer lists. */
+end_comment
+begin_comment
 comment|/*! \fn QLinkedList::~QLinkedList()      Destroys the list. References to the values in the list, and all     iterators over this list, become invalid. */
 end_comment
 begin_comment
