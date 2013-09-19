@@ -234,6 +234,9 @@ decl_stmt|;
 name|ProKey
 name|strARGS
 decl_stmt|;
+name|ProKey
+name|strARGC
+decl_stmt|;
 name|QString
 name|strDot
 decl_stmt|;
