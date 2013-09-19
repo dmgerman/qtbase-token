@@ -4559,6 +4559,11 @@ name|defined
 argument_list|(
 name|QT_NO_LIBRARY
 argument_list|)
+if|if
+condition|(
+name|propertiesDialogShown
+condition|)
+block|{
 name|QCUPSSupport
 operator|::
 name|PagesPerSheet
@@ -4609,8 +4614,6 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|propertiesDialogShown
-operator|&&
 name|pagesPerSheet
 operator|!=
 name|QCUPSSupport
@@ -4646,6 +4649,7 @@ expr_stmt|;
 return|return
 literal|false
 return|;
+block|}
 block|}
 endif|#
 directive|endif
