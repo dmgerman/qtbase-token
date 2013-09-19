@@ -876,6 +876,9 @@ name|type
 condition|)
 block|{
 case|case
+name|QtTraceMsg
+case|:
+case|case
 name|QtDebugMsg
 case|:
 name|QTest
