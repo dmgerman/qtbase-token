@@ -501,9 +501,6 @@ decl_stmt|;
 name|QWaitCondition
 name|pausedWaitCondition
 decl_stmt|;
-name|int
-name|pendingResults
-decl_stmt|;
 name|QtPrivate
 operator|::
 name|ResultStoreBase
