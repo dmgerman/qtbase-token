@@ -5752,7 +5752,7 @@ operator|.
 name|targetName
 operator|.
 name|offset
-operator|>=
+operator|>
 operator|(
 name|unsigned
 operator|)
