@@ -3991,8 +3991,6 @@ init|;
 name|i
 operator|<
 name|N
-operator|-
-literal|1
 condition|;
 operator|++
 name|i
