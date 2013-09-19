@@ -9,6 +9,13 @@ directive|define
 name|QT_NO_URL_CAST_FROM_STRING
 value|1
 end_define
+begin_define
+DECL|macro|_WIN32_WINNT
+define|#
+directive|define
+name|_WIN32_WINNT
+value|0x0600
+end_define
 begin_include
 include|#
 directive|include
