@@ -1227,6 +1227,17 @@ if|if
 condition|(
 name|noIO
 argument_list|()
+operator|||
+operator|(
+name|project
+operator|->
+name|first
+argument_list|(
+literal|"TEMPLATE"
+argument_list|)
+operator|==
+literal|"subdirs"
+operator|)
 condition|)
 continue|continue;
 name|QString
