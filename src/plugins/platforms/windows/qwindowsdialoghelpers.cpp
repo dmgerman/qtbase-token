@@ -1255,7 +1255,7 @@ end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|__IShellEnumItems_INTERFACE_DEFINED__
+name|__IEnumShellItems_INTERFACE_DEFINED__
 end_ifndef
 begin_macro
 DECL|function|DECLARE_INTERFACE_
