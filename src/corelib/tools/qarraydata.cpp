@@ -327,11 +327,17 @@ name|capacity
 operator|=
 name|qAllocMore
 argument_list|(
+name|int
+argument_list|(
 name|objectSize
 operator|*
 name|capacity
+argument_list|)
 argument_list|,
+name|int
+argument_list|(
 name|headerSize
+argument_list|)
 argument_list|)
 operator|/
 name|int

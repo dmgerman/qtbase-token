@@ -9873,9 +9873,12 @@ name|descIndent
 operator|-
 name|optionIndent
 operator|-
+name|int
+argument_list|(
 name|strlen
 argument_list|(
 name|option
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|int
