@@ -1371,6 +1371,13 @@ return|;
 block|}
 expr|}
 block|;
+name|Data
+name|dataForTzTransition
+argument_list|(
+argument|QTzTransitionTime tran
+argument_list|)
+specifier|const
+block|;
 name|QList
 operator|<
 name|QTzTransitionTime

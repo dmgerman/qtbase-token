@@ -1297,7 +1297,7 @@ decl_stmt|;
 if|if
 condition|(
 name|toMSecsSinceEpoch
-operator|>
+operator|>=
 name|fromMSecsSinceEpoch
 condition|)
 block|{
@@ -1314,6 +1314,13 @@ argument_list|)
 decl_stmt|;
 while|while
 condition|(
+name|next
+operator|.
+name|atMSecsSinceEpoch
+operator|!=
+name|invalidMSecs
+argument_list|()
+operator|&&
 name|next
 operator|.
 name|atMSecsSinceEpoch
