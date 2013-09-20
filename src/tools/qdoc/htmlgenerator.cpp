@@ -20614,6 +20614,12 @@ condition|(
 name|useOutputSubdirs
 argument_list|()
 operator|&&
+operator|!
+name|node
+operator|->
+name|isExternalPage
+argument_list|()
+operator|&&
 name|node
 operator|->
 name|outputSubdirectory
@@ -20624,6 +20630,7 @@ operator|->
 name|outputSubdirectory
 argument_list|()
 condition|)
+block|{
 name|link
 operator|.
 name|prepend
@@ -20644,6 +20651,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|link
