@@ -69,10 +69,10 @@ name|XpNativeDialogs
 operator|=
 literal|0x10
 block|,
-name|PassOsMouseEventsSynthesizedFromTouch
+name|DontPassOsMouseEventsSynthesizedFromTouch
 operator|=
 literal|0x20
-comment|// Pass OS-generated mouse events from touch.
+comment|// Do not pass OS-generated mouse events from touch.
 block|}
 block|;
 name|explicit
