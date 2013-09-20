@@ -12,6 +12,11 @@ include|#
 directive|include
 file|<QtCore/qstringlist.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 comment|// needed by the punycode encoder/decoder
@@ -19186,7 +19191,9 @@ name|NameprepCaseFoldingEntry
 modifier|*
 name|entry
 init|=
-name|qBinaryFind
+name|std
+operator|::
+name|lower_bound
 argument_list|(
 name|NameprepCaseFolding
 argument_list|,
@@ -19201,11 +19208,19 @@ if|if
 condition|(
 operator|(
 name|entry
-operator|-
-name|NameprepCaseFolding
-operator|)
 operator|!=
+name|NameprepCaseFolding
+operator|+
 name|N
+operator|)
+operator|&&
+operator|!
+operator|(
+name|uc
+operator|<
+operator|*
+name|entry
+operator|)
 condition|)
 block|{
 name|int
