@@ -18,6 +18,11 @@ include|#
 directive|include
 file|<qpa/qplatformprintersupport.h>
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_PRINTER
+end_ifndef
 begin_include
 include|#
 directive|include
@@ -114,6 +119,13 @@ argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_PRINTER
+end_comment
 begin_endif
 endif|#
 directive|endif
