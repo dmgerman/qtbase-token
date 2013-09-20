@@ -325,10 +325,14 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|false
+name|writingUnixMakefileGenerator
+operator|&&
+name|UnixMakefileGenerator
+operator|::
+name|doDepends
+argument_list|()
 return|;
 block|}
-comment|//never necesary
 expr|}
 block|;
 DECL|function|~ProjectBuilderMakefileGenerator

@@ -1714,7 +1714,7 @@ begin_comment
 comment|/*! \typedef QString::Iterator      Qt-style synonym for QString::iterator. */
 end_comment
 begin_comment
-comment|/*! \typedef QString::const_iterator      The QString::const_iterator typedef provides an STL-style const     iterator for QString.      \sa QString::iterator */
+comment|/*! \typedef QString::const_iterator      This typedef provides an STL-style const iterator for QString.      \sa QString::iterator */
 end_comment
 begin_comment
 comment|/*! \typedef QString::iterator      The QString::iterator typedef provides an STL-style non-const     iterator for QString.      \sa QString::const_iterator */
@@ -1726,10 +1726,10 @@ begin_comment
 comment|/*!     \typedef QString::difference_type      The QString::size_type typedef provides an STL-style type for difference between pointers. */
 end_comment
 begin_comment
-comment|/*!     \typedef QString::const_reference      The QString::const_reference typedef provides an STL-style     const reference for a QString element (QChar). */
+comment|/*!     \typedef QString::const_reference      This typedef provides an STL-style const reference for a QString element (QChar). */
 end_comment
 begin_comment
-comment|/*!     \typedef QString::reference      The QString::reference typedef provides an STL-style     reference for a QString element (QChar). */
+comment|/*!     \typedef QString::reference      This typedef provides an STL-style     reference for a QString element (QChar). */
 end_comment
 begin_comment
 comment|/*!     \typedef QString::const_pointer      The QString::const_pointer typedef provides an STL-style     const pointer to a QString element (QChar). */
@@ -1738,7 +1738,7 @@ begin_comment
 comment|/*!     \typedef QString::pointer      The QString::const_pointer typedef provides an STL-style     pointer to a QString element (QChar). */
 end_comment
 begin_comment
-comment|/*!     \typedef QString::value_type      The QString::const_reference typedef provides an STL-style     value type for QString. */
+comment|/*!     \typedef QString::value_type      This typedef provides an STL-style value type for QString. */
 end_comment
 begin_comment
 comment|/*! \fn QString::iterator QString::begin()      Returns an \l{STL-style iterators}{STL-style iterator} pointing to the first character in     the string.      \sa constBegin(), end() */

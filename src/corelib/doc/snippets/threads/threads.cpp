@@ -17,29 +17,6 @@ include|#
 directive|include
 file|<QThreadStorage>
 end_include
-begin_include
-include|#
-directive|include
-file|"threads.h"
-end_include
-begin_comment
-comment|//! [0]
-end_comment
-begin_function
-DECL|function|run
-name|void
-name|MyThread
-operator|::
-name|run
-parameter_list|()
-comment|//! [0] //! [1]
-block|{
-comment|//! [1] //! [2]
-block|}
-end_function
-begin_comment
-comment|//! [2]
-end_comment
 begin_define
 DECL|macro|Counter
 define|#

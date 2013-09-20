@@ -171,16 +171,6 @@ init|=
 literal|10000
 decl_stmt|;
 end_decl_stmt
-begin_decl_stmt
-DECL|variable|EndGamePieces
-specifier|static
-specifier|const
-name|int
-name|EndGamePieces
-init|=
-literal|5
-decl_stmt|;
-end_decl_stmt
 begin_class
 DECL|class|TorrentPiece
 class|class

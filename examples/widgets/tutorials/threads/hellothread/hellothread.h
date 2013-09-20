@@ -18,12 +18,6 @@ include|#
 directive|include
 file|<QThread>
 end_include
-begin_comment
-comment|//! [1]
-end_comment
-begin_comment
-comment|// hellothread/hellothread.h
-end_comment
 begin_decl_stmt
 name|class
 name|HelloThread
@@ -40,9 +34,6 @@ argument_list|()
 block|; }
 decl_stmt|;
 end_decl_stmt
-begin_comment
-comment|//! [1]
-end_comment
 begin_endif
 endif|#
 directive|endif
