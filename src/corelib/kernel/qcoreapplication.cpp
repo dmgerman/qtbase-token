@@ -7436,7 +7436,9 @@ name|i
 control|)
 if|if
 condition|(
-name|qFind
+name|std
+operator|::
+name|find
 argument_list|(
 name|av
 argument_list|,
