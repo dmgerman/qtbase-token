@@ -7,6 +7,11 @@ include|#
 directive|include
 file|<QCoreApplication>
 end_include
+begin_include
+include|#
+directive|include
+file|<QLoggingCategory>
+end_include
 begin_struct
 DECL|struct|T
 struct|struct
@@ -86,6 +91,19 @@ name|qCritical
 argument_list|(
 literal|"qCritical"
 argument_list|)
+expr_stmt|;
+name|QLoggingCategory
+name|cat
+argument_list|(
+literal|"category"
+argument_list|)
+decl_stmt|;
+name|qCWarning
+argument_list|(
+name|cat
+argument_list|)
+operator|<<
+literal|"qDebug with category"
 expr_stmt|;
 name|qSetMessagePattern
 argument_list|(
