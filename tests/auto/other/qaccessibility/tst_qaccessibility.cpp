@@ -7126,6 +7126,16 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|verifyHierarchy
+argument_list|(
+name|tabBarInterface
+argument_list|)
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|tabBarInterface
