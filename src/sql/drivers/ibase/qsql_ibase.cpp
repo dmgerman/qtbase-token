@@ -7017,6 +7017,13 @@ name|String
 argument_list|)
 expr_stmt|;
 break|break;
+case|case
+name|QSql
+operator|::
+name|LowPrecisionDouble
+case|:
+comment|// no conversion
+break|break;
 block|}
 block|}
 name|row
@@ -8385,6 +8392,9 @@ name|FinishQuery
 case|:
 case|case
 name|MultipleResultSets
+case|:
+case|case
+name|CancelQuery
 case|:
 return|return
 literal|false
