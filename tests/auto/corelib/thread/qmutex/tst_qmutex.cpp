@@ -2875,19 +2875,6 @@ argument_list|,
 name|timeout
 argument_list|)
 decl_stmt|;
-name|QSignalSpy
-name|spy
-argument_list|(
-operator|&
-name|thr
-argument_list|,
-name|SIGNAL
-argument_list|(
-name|started
-argument_list|()
-argument_list|)
-argument_list|)
-decl_stmt|;
 name|mutex
 operator|.
 name|lock
@@ -2901,7 +2888,7 @@ expr_stmt|;
 comment|// the thread should have stopped in tryLock(), waiting for us to unlock
 comment|// the mutex. The following test can be falsely positive due to timing:
 comment|// tryLock may still fail but hasn't failed yet. But it certainly cannot be
-comment|// a false negative: if wait() returns, tryLock failed.
+comment|// a false negative: if wait() returns true, tryLock failed.
 name|QVERIFY
 argument_list|(
 operator|!
@@ -2920,16 +2907,6 @@ name|mutex
 operator|.
 name|unlock
 argument_list|()
-expr_stmt|;
-name|QCOMPARE
-argument_list|(
-name|spy
-operator|.
-name|count
-argument_list|()
-argument_list|,
-literal|1
-argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
