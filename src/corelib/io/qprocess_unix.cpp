@@ -278,15 +278,29 @@ name|qt_sa_old_sigchld_handler
 decl_stmt|;
 end_decl_stmt
 begin_function
-DECL|function|qt_sa_sigchld_handler
+DECL|function|qt_sa_sigchld_sigaction
 specifier|static
 name|void
-name|qt_sa_sigchld_handler
+name|qt_sa_sigchld_sigaction
 parameter_list|(
 name|int
 name|signum
+parameter_list|,
+name|siginfo_t
+modifier|*
+name|info
+parameter_list|,
+name|void
+modifier|*
+name|context
 parameter_list|)
 block|{
+comment|// *Never* use the info or contect variables in this function
+comment|// (except for passing them to the next signal in the chain).
+comment|// We cannot be sure if another library or if the application
+comment|// installed a signal handler for SIGCHLD without SA_SIGINFO
+comment|// and fails to pass the arguments to us. If they do that,
+comment|// these arguments contain garbage and we'd most likely crash.
 name|qt_safe_write
 argument_list|(
 name|qt_qprocess_deadChild_pipe
@@ -314,7 +328,56 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-comment|// load it as volatile
+comment|// load as volatile
+specifier|volatile
+name|struct
+name|sigaction
+modifier|*
+name|vsa
+init|=
+operator|&
+name|qt_sa_old_sigchld_handler
+decl_stmt|;
+if|if
+condition|(
+name|qt_sa_old_sigchld_handler
+operator|.
+name|sa_flags
+operator|&
+name|SA_SIGINFO
+condition|)
+block|{
+name|void
+function_decl|(
+modifier|*
+name|oldAction
+function_decl|)
+parameter_list|(
+name|int
+parameter_list|,
+name|siginfo_t
+modifier|*
+parameter_list|,
+name|void
+modifier|*
+parameter_list|)
+init|=
+name|vsa
+operator|->
+name|sa_sigaction
+function_decl|;
+name|oldAction
+argument_list|(
+name|signum
+argument_list|,
+name|info
+argument_list|,
+name|context
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|void
 function_decl|(
 modifier|*
@@ -324,21 +387,10 @@ parameter_list|(
 name|int
 parameter_list|)
 init|=
-operator|(
-operator|(
-specifier|volatile
-init|struct
-name|sigaction
-operator|*
-init|)
-ref_qualifier|&
-name|qt_sa_old_sigchld_handler
-block|)
-function|->
+name|vsa
+operator|->
 name|sa_handler
-function|;
-end_function
-begin_if
+function_decl|;
 if|if
 condition|(
 name|oldAction
@@ -352,10 +404,12 @@ argument_list|(
 name|signum
 argument_list|)
 expr_stmt|;
-end_if
+block|}
+block|}
+end_function
 begin_function
-unit|}  static
 DECL|function|add_fd
+specifier|static
 specifier|inline
 name|void
 name|add_fd
@@ -577,30 +631,35 @@ name|struct
 name|sigaction
 name|action
 decl_stmt|;
-name|memset
+comment|// use the old handler as template, i.e., preserve the signal mask
+comment|// otherwise the original signal handler might be interrupted although it
+comment|// was marked to never be interrupted
+operator|::
+name|sigaction
 argument_list|(
+name|SIGCHLD
+argument_list|,
+name|NULL
+argument_list|,
 operator|&
 name|action
-argument_list|,
-literal|0
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|action
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|action
 operator|.
-name|sa_handler
+name|sa_sigaction
 operator|=
-name|qt_sa_sigchld_handler
+name|qt_sa_sigchld_sigaction
 expr_stmt|;
+comment|// set the SA_SIGINFO flag such that we can use the three argument handler
+comment|// function
 name|action
 operator|.
 name|sa_flags
 operator|=
 name|SA_NOCLDSTOP
+operator||
+name|SA_SIGINFO
 expr_stmt|;
 operator|::
 name|sigaction
@@ -710,9 +769,9 @@ if|if
 condition|(
 name|currentAction
 operator|.
-name|sa_handler
+name|sa_sigaction
 operator|==
-name|qt_sa_sigchld_handler
+name|qt_sa_sigchld_sigaction
 condition|)
 block|{
 operator|::

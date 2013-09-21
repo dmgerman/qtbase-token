@@ -7922,6 +7922,13 @@ case|:
 return|return
 literal|72
 return|;
+case|case
+name|QPaintDevice
+operator|::
+name|PdmDevicePixelRatio
+case|:
+empty_stmt|;
+comment|// fall through
 block|}
 return|return
 literal|0

@@ -428,12 +428,11 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-operator|!
 name|tb
 operator|->
 name|popupMode
 argument_list|()
-operator|!=
+operator|==
 name|QToolButton
 operator|::
 name|DelayedPopup
