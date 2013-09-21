@@ -79,7 +79,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|//on solaris, threads that loop one the release bool variable
+comment|//on solaris, threads that loop on the release bool variable
 end_comment
 begin_comment
 comment|//needs to sleep more than 1 usec.
@@ -1475,8 +1475,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 DECL|variable|release
-specifier|volatile
-name|bool
+name|QAtomicInt
 name|release
 decl_stmt|;
 end_decl_stmt
@@ -1632,6 +1631,9 @@ expr_stmt|;
 while|while
 condition|(
 name|release
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|false
 condition|)
@@ -1691,6 +1693,9 @@ expr_stmt|;
 while|while
 condition|(
 name|release
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|false
 condition|)
@@ -2412,8 +2417,11 @@ name|QReadWriteLock
 name|testLock
 decl_stmt|;
 name|release
-operator|=
+operator|.
+name|store
+argument_list|(
 literal|false
+argument_list|)
 expr_stmt|;
 name|threadDone
 operator|=
@@ -2463,8 +2471,11 @@ literal|1
 argument_list|)
 expr_stmt|;
 name|release
-operator|=
+operator|.
+name|store
+argument_list|(
 literal|true
+argument_list|)
 expr_stmt|;
 name|wlt
 operator|.
