@@ -488,7 +488,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns \c true if the query is \l{isActive()}{active} and positioned   on a valid record and the \a field is NULL; otherwise returns   false. Note that for some drivers, isNull() will not return accurate   information until after an attempt is made to retrieve data.    \sa isActive(), isValid(), value() */
+comment|/*!     Returns \c true if the query is not \l{isActive()}{active},     the query is not positioned on a valid record,     there is no such field, or the field is null; otherwise \c false.     Note that for some drivers, isNull() will not return accurate     information until after an attempt is made to retrieve data.      \sa isActive(), isValid(), value() */
 end_comment
 begin_function
 DECL|function|isNull
@@ -502,23 +502,23 @@ name|field
 parameter_list|)
 specifier|const
 block|{
-if|if
-condition|(
+return|return
+operator|!
 name|d
 operator|->
 name|sqlResult
 operator|->
 name|isActive
 argument_list|()
-operator|&&
+operator|||
+operator|!
 name|d
 operator|->
 name|sqlResult
 operator|->
 name|isValid
 argument_list|()
-condition|)
-return|return
+operator|||
 name|d
 operator|->
 name|sqlResult
@@ -527,9 +527,6 @@ name|isNull
 argument_list|(
 name|field
 argument_list|)
-return|;
-return|return
-literal|true
 return|;
 block|}
 end_function

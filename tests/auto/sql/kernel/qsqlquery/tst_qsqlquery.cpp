@@ -9362,6 +9362,17 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// For a non existent field, it should be returning true.
+name|QVERIFY
+argument_list|(
+name|q
+operator|.
+name|isNull
+argument_list|(
+literal|2
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_comment
