@@ -136,6 +136,15 @@ argument_list|()
 block|;
 name|private
 operator|:
+name|QString
+name|getPathFromID
+argument_list|(
+argument|int id
+argument_list|)
+specifier|const
+block|;
+name|private
+operator|:
 name|QInotifyFileSystemWatcherEngine
 argument_list|(
 argument|int fd
@@ -154,7 +163,7 @@ name|int
 operator|>
 name|pathToID
 block|;
-name|QHash
+name|QMultiHash
 operator|<
 name|int
 block|,
