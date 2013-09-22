@@ -1044,6 +1044,27 @@ argument_list|(
 name|tmp3
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|__COUNTER__
+comment|// if the compiler supports __COUNTER__, multiple
+comment|// Q_STATIC_ASSERT's on a single line should compile:
+name|Q_STATIC_ASSERT
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|Q_STATIC_ASSERT_X
+argument_list|(
+operator|!
+literal|false
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+comment|// __COUNTER__
 name|QVERIFY
 argument_list|(
 literal|true

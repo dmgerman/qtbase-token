@@ -3327,6 +3327,26 @@ name|B
 parameter_list|)
 value|A ## B
 end_define
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|__COUNTER__
+end_ifdef
+begin_define
+DECL|macro|Q_STATIC_ASSERT
+define|#
+directive|define
+name|Q_STATIC_ASSERT
+parameter_list|(
+name|Condition
+parameter_list|)
+define|\
+value|enum {Q_STATIC_ASSERT_PRIVATE_JOIN(q_static_assert_result, __COUNTER__) = sizeof(QStaticAssertFailure<!!(Condition)>)}
+end_define
+begin_else
+else|#
+directive|else
+end_else
 begin_define
 DECL|macro|Q_STATIC_ASSERT
 define|#
@@ -3338,6 +3358,13 @@ parameter_list|)
 define|\
 value|enum {Q_STATIC_ASSERT_PRIVATE_JOIN(q_static_assert_result, __LINE__) = sizeof(QStaticAssertFailure<!!(Condition)>)}
 end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* __COUNTER__ */
+end_comment
 begin_define
 DECL|macro|Q_STATIC_ASSERT_X
 define|#
