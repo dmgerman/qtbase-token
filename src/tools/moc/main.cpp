@@ -769,6 +769,15 @@ index|]
 operator|=
 name|dummyVariadicFunctionMacro
 expr_stmt|;
+name|pp
+operator|.
+name|macros
+index|[
+literal|"__declspec"
+index|]
+operator|=
+name|dummyVariadicFunctionMacro
+expr_stmt|;
 name|QString
 name|filename
 decl_stmt|;
