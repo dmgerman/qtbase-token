@@ -9814,6 +9814,44 @@ operator|)
 operator|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+operator|(
+name|opts
+operator|&
+name|QWizard
+operator|::
+name|NoCancelButton
+operator|)
+condition|)
+name|btn
+operator|.
+name|cancel
+operator|->
+name|setVisible
+argument_list|(
+name|buttonLayoutContains
+argument_list|(
+name|QWizard
+operator|::
+name|CancelButton
+argument_list|)
+operator|&&
+operator|(
+name|canContinue
+operator|||
+operator|!
+operator|(
+name|opts
+operator|&
+name|QWizard
+operator|::
+name|NoCancelButtonOnLastPage
+operator|)
+operator|)
+argument_list|)
+expr_stmt|;
 name|bool
 name|useDefault
 init|=
@@ -10593,7 +10631,7 @@ begin_comment
 comment|/*!     \enum QWizard::WizardStyle      This enum specifies the different looks supported by QWizard.      \value ClassicStyle  Classic Windows look     \value ModernStyle  Modern Windows look     \value MacStyle  Mac OS X look     \value AeroStyle  Windows Aero look      \omitvalue NStyles      \sa setWizardStyle(), WizardOption, {Wizard Look and Feel} */
 end_comment
 begin_comment
-comment|/*!     \enum QWizard::WizardOption      This enum specifies various options that affect the look and feel     of a wizard.      \value IndependentPages  The pages are independent of each other                              (i.e., they don't derive values from each                              other).     \value IgnoreSubTitles  Don't show any subtitles, even if they are set.     \value ExtendedWatermarkPixmap  Extend any WatermarkPixmap all the                                     way down to the window's edge.     \value NoDefaultButton  Don't make the \uicontrol Next or \uicontrol Finish button the                             dialog's \l{QPushButton::setDefault()}{default button}.     \value NoBackButtonOnStartPage  Don't show the \uicontrol Back button on the start page.     \value NoBackButtonOnLastPage   Don't show the \uicontrol Back button on the last page.     \value DisabledBackButtonOnLastPage  Disable the \uicontrol Back button on the last page.     \value HaveNextButtonOnLastPage  Show the (disabled) \uicontrol Next button on the last page.     \value HaveFinishButtonOnEarlyPages  Show the (disabled) \uicontrol Finish button on non-final pages.     \value NoCancelButton  Don't show the \uicontrol Cancel button.     \value CancelButtonOnLeft  Put the \uicontrol Cancel button on the left of \uicontrol Back (rather than on                                the right of \uicontrol Finish or \uicontrol Next).     \value HaveHelpButton  Show the \uicontrol Help button.     \value HelpButtonOnRight  Put the \uicontrol Help button on the far right of the button layout                               (rather than on the far left).     \value HaveCustomButton1  Show the first user-defined button (CustomButton1).     \value HaveCustomButton2  Show the second user-defined button (CustomButton2).     \value HaveCustomButton3  Show the third user-defined button (CustomButton3).      \sa setOptions(), setOption(), testOption() */
+comment|/*!     \enum QWizard::WizardOption      This enum specifies various options that affect the look and feel     of a wizard.      \value IndependentPages  The pages are independent of each other                              (i.e., they don't derive values from each                              other).     \value IgnoreSubTitles  Don't show any subtitles, even if they are set.     \value ExtendedWatermarkPixmap  Extend any WatermarkPixmap all the                                     way down to the window's edge.     \value NoDefaultButton  Don't make the \uicontrol Next or \uicontrol Finish button the                             dialog's \l{QPushButton::setDefault()}{default button}.     \value NoBackButtonOnStartPage  Don't show the \uicontrol Back button on the start page.     \value NoBackButtonOnLastPage   Don't show the \uicontrol Back button on the last page.     \value DisabledBackButtonOnLastPage  Disable the \uicontrol Back button on the last page.     \value HaveNextButtonOnLastPage  Show the (disabled) \uicontrol Next button on the last page.     \value HaveFinishButtonOnEarlyPages  Show the (disabled) \uicontrol Finish button on non-final pages.     \value NoCancelButton  Don't show the \uicontrol Cancel button.     \value CancelButtonOnLeft  Put the \uicontrol Cancel button on the left of \uicontrol Back (rather than on                                the right of \uicontrol Finish or \uicontrol Next).     \value HaveHelpButton  Show the \uicontrol Help button.     \value HelpButtonOnRight  Put the \uicontrol Help button on the far right of the button layout                               (rather than on the far left).     \value HaveCustomButton1  Show the first user-defined button (CustomButton1).     \value HaveCustomButton2  Show the second user-defined button (CustomButton2).     \value HaveCustomButton3  Show the third user-defined button (CustomButton3).     \value NoCancelButtonOnLastPage   Don't show the \uicontrol Cancel button on the last page.      \sa setOptions(), setOption(), testOption() */
 end_comment
 begin_comment
 comment|/*!     Constructs a wizard with the given \a parent and window \a flags.      \sa parent(), windowFlags() */
@@ -12280,6 +12318,8 @@ operator||
 name|HaveFinishButtonOnEarlyPages
 operator||
 name|DisabledBackButtonOnLastPage
+operator||
+name|NoCancelButtonOnLastPage
 operator|)
 condition|)
 block|{
