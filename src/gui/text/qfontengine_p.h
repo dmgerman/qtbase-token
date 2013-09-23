@@ -2041,26 +2041,18 @@ name|QTestFontEngine
 argument_list|(
 argument|int size
 argument_list|)
-operator|:
-name|QFontEngineBox
-argument_list|(
-argument|size
-argument_list|)
-block|{}
+block|;
 name|virtual
 name|Type
 name|type
 argument_list|()
 specifier|const
-block|{
-return|return
-name|TestFontEngine
-return|;
-block|}
-expr|}
-block|;
-name|QT_END_NAMESPACE
+block|; }
+decl_stmt|;
 end_decl_stmt
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
 endif|#
 directive|endif
