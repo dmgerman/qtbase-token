@@ -14966,6 +14966,10 @@ argument_list|(
 literal|" Qt::TimeZone "
 argument_list|)
 operator|+
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
 name|date
 operator|.
 name|timeZone
@@ -14973,6 +14977,7 @@ argument_list|()
 operator|.
 name|id
 argument_list|()
+argument_list|)
 expr_stmt|;
 break|break;
 endif|#
