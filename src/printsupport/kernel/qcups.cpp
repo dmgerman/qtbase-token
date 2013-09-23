@@ -2790,10 +2790,13 @@ argument_list|(
 literal|"number-up"
 argument_list|)
 argument_list|,
+name|QLatin1String
+argument_list|(
 name|pagesPerSheetData
 index|[
 name|pagesPerSheet
 index|]
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|setCupsOption
@@ -2805,10 +2808,13 @@ argument_list|(
 literal|"number-up-layout"
 argument_list|)
 argument_list|,
+name|QLatin1String
+argument_list|(
 name|pageLayoutData
 index|[
 name|pagesPerSheetLayout
 index|]
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|setCupsOptions
@@ -2855,7 +2861,7 @@ argument_list|(
 literal|"page-ranges"
 argument_list|)
 argument_list|,
-name|QString
+name|QStringLiteral
 argument_list|(
 literal|"%1-%2"
 argument_list|)
