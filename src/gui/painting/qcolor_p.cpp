@@ -7,26 +7,6 @@ include|#
 directive|include
 file|"qglobal.h"
 end_include
-begin_if
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_CC_BOR
-argument_list|)
-end_if
-begin_comment
-comment|// needed for qsort() because of a std namespace problem on Borland
-end_comment
-begin_include
-include|#
-directive|include
-file|"qplatformdefs.h"
-end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_include
 include|#
 directive|include
