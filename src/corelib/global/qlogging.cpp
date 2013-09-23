@@ -616,7 +616,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"%s"
+literal|"%s\n"
 argument_list|,
 name|emergency_buf
 argument_list|)
@@ -643,7 +643,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"%s"
+literal|"%s\n"
 argument_list|,
 name|emergency_buf
 argument_list|)
