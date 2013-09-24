@@ -1248,6 +1248,15 @@ name|input_absinfo
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|bool
+name|has_x_range
+init|=
+literal|false
+decl_stmt|,
+name|has_y_range
+init|=
+literal|false
+decl_stmt|;
 if|if
 condition|(
 name|ioctl
@@ -1256,6 +1265,7 @@ name|m_fd
 argument_list|,
 name|EVIOCGABS
 argument_list|(
+operator|(
 name|d
 operator|->
 name|m_singleTouch
@@ -1263,6 +1273,7 @@ condition|?
 name|ABS_X
 else|:
 name|ABS_MT_POSITION_X
+operator|)
 argument_list|)
 argument_list|,
 operator|&
@@ -1301,6 +1312,10 @@ name|absInfo
 operator|.
 name|maximum
 expr_stmt|;
+name|has_x_range
+operator|=
+literal|true
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -1310,6 +1325,7 @@ name|m_fd
 argument_list|,
 name|EVIOCGABS
 argument_list|(
+operator|(
 name|d
 operator|->
 name|m_singleTouch
@@ -1317,6 +1333,7 @@ condition|?
 name|ABS_Y
 else|:
 name|ABS_MT_POSITION_Y
+operator|)
 argument_list|)
 argument_list|,
 operator|&
@@ -1355,7 +1372,24 @@ name|absInfo
 operator|.
 name|maximum
 expr_stmt|;
+name|has_y_range
+operator|=
+literal|true
+expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|has_x_range
+operator|||
+operator|!
+name|has_y_range
+condition|)
+name|qWarning
+argument_list|(
+literal|"evdevtouch: Invalid ABS limits, behavior unspecified"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|ioctl
