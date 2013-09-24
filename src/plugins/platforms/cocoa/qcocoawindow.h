@@ -584,6 +584,9 @@ block|;
 name|int
 name|m_registerTouchCount
 block|;
+name|bool
+name|m_resizableTransientParent
+block|;
 specifier|static
 specifier|const
 name|int
