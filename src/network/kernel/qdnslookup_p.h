@@ -204,6 +204,9 @@ operator|::
 name|Type
 name|type
 block|;
+name|QHostAddress
+name|nameserver
+block|;
 name|QDnsLookupReply
 name|reply
 block|;
