@@ -702,10 +702,10 @@ name|jniEnv
 argument_list|,
 name|JNI_VERSION_1_6
 argument_list|)
-operator|!=
+operator|==
 name|JNI_EDETACHED
 condition|)
-return|return;
+block|{
 if|if
 condition|(
 name|vm
@@ -719,6 +719,13 @@ literal|0
 argument_list|)
 operator|<
 literal|0
+condition|)
+return|return;
+block|}
+if|if
+condition|(
+operator|!
+name|jniEnv
 condition|)
 return|return;
 if|if
