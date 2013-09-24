@@ -258,10 +258,10 @@ begin_comment
 comment|/*! \fn QVector<T>&QVector::operator<<(const QVector<T>&other)      Appends \a other to the vector and returns a reference to the     vector. */
 end_comment
 begin_comment
-comment|/*! \typedef QVector::iterator      The QVector::iterator typedef provides an STL-style non-const     iterator for QVector and QStack.      QVector provides both \l{STL-style iterators} and \l{Java-style     iterators}. The STL-style non-const iterator is simply a typedef     for "T *" (pointer to T).      \sa QVector::begin(), QVector::end(), QVector::const_iterator, QMutableVectorIterator */
+comment|/*! \typedef QVector::iterator      The QVector::iterator typedef provides an STL-style non-const     iterator for QVector and QStack.      QVector provides both \l{STL-style iterators} and \l{Java-style     iterators}. The STL-style non-const iterator is simply a typedef     for "T *" (pointer to T).      \warning Iterators on implicitly shared containers do not work     exactly like STL-iterators. You should avoid copying a container     while iterators are active on that container. For more information,     read \l{Implicit sharing iterator problem}.      \sa QVector::begin(), QVector::end(), QVector::const_iterator, QMutableVectorIterator */
 end_comment
 begin_comment
-comment|/*! \typedef QVector::const_iterator      The QVector::const_iterator typedef provides an STL-style const     iterator for QVector and QStack.      QVector provides both \l{STL-style iterators} and \l{Java-style     iterators}. The STL-style const iterator is simply a typedef for     "const T *" (pointer to const T).      \sa QVector::constBegin(), QVector::constEnd(), QVector::iterator, QVectorIterator */
+comment|/*! \typedef QVector::const_iterator      The QVector::const_iterator typedef provides an STL-style const     iterator for QVector and QStack.      QVector provides both \l{STL-style iterators} and \l{Java-style     iterators}. The STL-style const iterator is simply a typedef for     "const T *" (pointer to const T).      \warning Iterators on implicitly shared containers do not work     exactly like STL-iterators. You should avoid copying a container     while iterators are active on that container. For more information,     read \l{Implicit sharing iterator problem}.      \sa QVector::constBegin(), QVector::constEnd(), QVector::iterator, QVectorIterator */
 end_comment
 begin_comment
 comment|/*! \typedef QVector::Iterator      Qt-style synonym for QVector::iterator. */
