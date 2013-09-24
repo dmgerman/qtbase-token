@@ -10730,60 +10730,10 @@ operator|==
 literal|1
 condition|)
 block|{
-comment|// Handle legacy use of \since<version>.
-if|if
-condition|(
-name|project
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
+comment|// If there is only one argument, assume it is the Qt version number.
 name|text
 operator|<<
-literal|"version"
-expr_stmt|;
-else|else
-name|text
-operator|<<
-name|Atom
-argument_list|(
-name|Atom
-operator|::
-name|Link
-argument_list|,
-name|project
-argument_list|)
-operator|<<
-name|Atom
-argument_list|(
-name|Atom
-operator|::
-name|FormattingLeft
-argument_list|,
-name|ATOM_FORMATTING_LINK
-argument_list|)
-operator|<<
-name|Atom
-argument_list|(
-name|Atom
-operator|::
-name|String
-argument_list|,
-name|project
-argument_list|)
-operator|<<
-name|Atom
-argument_list|(
-name|Atom
-operator|::
-name|FormattingRight
-argument_list|,
-name|ATOM_FORMATTING_LINK
-argument_list|)
-expr_stmt|;
-name|text
-operator|<<
-literal|" "
+literal|" Qt "
 operator|<<
 name|since
 index|[
@@ -10793,7 +10743,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// Reconstruct the<project><version> string.
+comment|//Otherwise, reconstruct the<project><version> string.
 name|text
 operator|<<
 literal|" "
@@ -11601,60 +11551,10 @@ operator|==
 literal|1
 condition|)
 block|{
-comment|// Handle legacy use of \since<version>.
-if|if
-condition|(
-name|project
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
+comment|// If there is only one argument, assume it is the Qt version number.
 name|text
 operator|<<
-literal|"version"
-expr_stmt|;
-else|else
-name|text
-operator|<<
-name|Atom
-argument_list|(
-name|Atom
-operator|::
-name|Link
-argument_list|,
-name|project
-argument_list|)
-operator|<<
-name|Atom
-argument_list|(
-name|Atom
-operator|::
-name|FormattingLeft
-argument_list|,
-name|ATOM_FORMATTING_LINK
-argument_list|)
-operator|<<
-name|Atom
-argument_list|(
-name|Atom
-operator|::
-name|String
-argument_list|,
-name|project
-argument_list|)
-operator|<<
-name|Atom
-argument_list|(
-name|Atom
-operator|::
-name|FormattingRight
-argument_list|,
-name|ATOM_FORMATTING_LINK
-argument_list|)
-expr_stmt|;
-name|text
-operator|<<
-literal|" "
+literal|" Qt "
 operator|<<
 name|since
 index|[
@@ -11664,7 +11564,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// Reconstruct the<project><version> string.
+comment|//Otherwise, reconstruct the<project><version> string.
 name|text
 operator|<<
 literal|" "
