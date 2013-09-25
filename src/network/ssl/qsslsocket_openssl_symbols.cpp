@@ -120,6 +120,24 @@ name|functionName
 argument_list|)
 expr_stmt|;
 block|}
+DECL|function|qsslSocketCannotResolveSymbolWarning
+name|void
+name|qsslSocketCannotResolveSymbolWarning
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|functionName
+parameter_list|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QSslSocket: cannot resolve %s"
+argument_list|,
+name|functionName
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_namespace
 begin_ifdef
@@ -3723,7 +3741,7 @@ parameter_list|(
 name|func
 parameter_list|)
 define|\
-value|if (!(_q_##func = _q_PTR_##func(libs.first->resolve(#func)))     \&& !(_q_##func = _q_PTR_##func(libs.second->resolve(#func)))) \         qWarning("QSslSocket: cannot resolve "#func);
+value|if (!(_q_##func = _q_PTR_##func(libs.first->resolve(#func)))     \&& !(_q_##func = _q_PTR_##func(libs.second->resolve(#func)))) \         qsslSocketCannotResolveSymbolWarning(#func);
 end_define
 begin_if
 if|#
