@@ -144,6 +144,12 @@ begin_comment
 comment|//#define QT_NO_IMAGE_TEXT
 end_comment
 begin_comment
+comment|// QKeySequenceEdit
+end_comment
+begin_comment
+comment|//#define QT_NO_KEYSEQUENCEEDIT
+end_comment
+begin_comment
 comment|// QLCDNumber
 end_comment
 begin_comment
@@ -767,6 +773,35 @@ DECL|macro|QT_NO_IMAGEFORMATPLUGIN
 define|#
 directive|define
 name|QT_NO_IMAGEFORMATPLUGIN
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QKeySequenceEdit
+end_comment
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_KEYSEQUENCEEDIT
+argument_list|)
+operator|&&
+operator|(
+name|defined
+argument_list|(
+name|QT_NO_SHORTCUT
+argument_list|)
+operator|)
+end_if
+begin_define
+DECL|macro|QT_NO_KEYSEQUENCEEDIT
+define|#
+directive|define
+name|QT_NO_KEYSEQUENCEEDIT
 end_define
 begin_endif
 endif|#

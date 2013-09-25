@@ -27,6 +27,11 @@ include|#
 directive|include
 file|"cp949codetbl_p.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_function_decl
 name|QT_BEGIN_NAMESPACE
 ifndef|#
@@ -53464,7 +53469,9 @@ name|short
 modifier|*
 name|ptr
 init|=
-name|qBinaryFind
+name|std
+operator|::
+name|lower_bound
 argument_list|(
 name|cp949_icode_to_unicode
 argument_list|,
@@ -53482,6 +53489,11 @@ operator|==
 name|cp949_icode_to_unicode
 operator|+
 literal|8822
+operator|||
+name|ch
+operator|<
+operator|*
+name|ptr
 condition|)
 block|{
 comment|// Error

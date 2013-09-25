@@ -856,6 +856,14 @@ name|length
 argument_list|()
 operator|>
 literal|0
+operator|&&
+operator|!
+name|params
+operator|.
+name|startsWith
+argument_list|(
+literal|"\t"
+argument_list|)
 condition|)
 name|params
 operator|=
@@ -869,8 +877,6 @@ name|f
 operator|.
 name|getAbsolutePath
 argument_list|()
-operator|+
-literal|"\t"
 operator|+
 name|params
 argument_list|,

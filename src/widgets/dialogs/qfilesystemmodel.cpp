@@ -116,6 +116,9 @@ name|d_func
 argument_list|()
 argument_list|)
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_FILESYSTEMWATCHER
 name|d
 operator|->
 name|fileInfoGatherer
@@ -125,6 +128,8 @@ argument_list|(
 name|path
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 return|return
 name|QDir
 argument_list|(
@@ -1580,6 +1585,9 @@ argument_list|,
 name|info
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_FILESYSTEMWATCHER
 name|node
 operator|->
 name|populate
@@ -1592,6 +1600,8 @@ name|info
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 else|else
 block|{
@@ -2589,6 +2599,9 @@ name|populatedChildren
 operator|=
 literal|true
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_FILESYSTEMWATCHER
 name|d
 operator|->
 name|fileInfoGatherer
@@ -2601,6 +2614,8 @@ name|parent
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_comment
@@ -2750,6 +2765,9 @@ operator|->
 name|myComputer
 argument_list|()
 return|;
+ifndef|#
+directive|ifndef
+name|QT_NO_FILESYSTEMWATCHER
 case|case
 name|Qt
 operator|::
@@ -2770,6 +2788,8 @@ operator|::
 name|Computer
 argument_list|)
 return|;
+endif|#
+directive|endif
 block|}
 return|return
 name|QVariant
@@ -2948,6 +2968,9 @@ argument_list|(
 name|index
 argument_list|)
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_FILESYSTEMWATCHER
 if|if
 condition|(
 name|icon
@@ -3002,6 +3025,9 @@ name|File
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
+comment|// QT_NO_FILESYSTEMWATCHER
 return|return
 name|icon
 return|;
@@ -3466,11 +3492,16 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+ifndef|#
+directive|ifndef
+name|QT_NO_FILESYSTEMWATCHER
 name|fileInfoGatherer
 operator|.
 name|resolveSymlinks
 argument_list|()
 operator|&&
+endif|#
+directive|endif
 operator|!
 name|resolvedSymLinks
 operator|.
@@ -3942,6 +3973,9 @@ name|parent
 operator|=
 name|parentNode
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_FILESYSTEMWATCHER
 name|oldValue
 operator|->
 name|populate
@@ -3956,6 +3990,8 @@ name|info
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|oldValue
 operator|->
 name|isVisible
@@ -6232,6 +6268,9 @@ name|dirNode
 operator|->
 name|isSymLink
 argument_list|()
+ifndef|#
+directive|ifndef
+name|QT_NO_FILESYSTEMWATCHER
 operator|&&
 name|d
 operator|->
@@ -6239,6 +6278,8 @@ name|fileInfoGatherer
 operator|.
 name|resolveSymlinks
 argument_list|()
+endif|#
+directive|endif
 operator|&&
 name|d
 operator|->
@@ -6606,6 +6647,9 @@ index|[
 name|name
 index|]
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_FILESYSTEMWATCHER
 name|node
 operator|->
 name|populate
@@ -6633,6 +6677,8 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|d
 operator|->
 name|addVisibleFiles
@@ -6890,6 +6936,9 @@ argument_list|)
 condition|)
 block|{
 comment|//This remove the watcher for the old rootPath
+ifndef|#
+directive|ifndef
+name|QT_NO_FILESYSTEMWATCHER
 name|d
 operator|->
 name|fileInfoGatherer
@@ -6900,6 +6949,8 @@ name|rootPath
 argument_list|()
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 comment|//This line "marks" the node as dirty, so the next fetchMore
 comment|//call on the path will ask the gatherer to install a watcher again
 comment|//But it doesn't re-fetch everything
@@ -7082,6 +7133,9 @@ argument_list|(
 name|QFileSystemModel
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_FILESYSTEMWATCHER
 name|d
 operator|->
 name|fileInfoGatherer
@@ -7091,6 +7145,8 @@ argument_list|(
 name|provider
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|d
 operator|->
 name|root
@@ -7118,6 +7174,9 @@ name|iconProvider
 parameter_list|()
 specifier|const
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_FILESYSTEMWATCHER
 name|Q_D
 argument_list|(
 specifier|const
@@ -7132,6 +7191,13 @@ operator|.
 name|iconProvider
 argument_list|()
 return|;
+else|#
+directive|else
+return|return
+literal|0
+return|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_comment
@@ -7231,6 +7297,9 @@ name|bool
 name|enable
 parameter_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_FILESYSTEMWATCHER
 name|Q_D
 argument_list|(
 name|QFileSystemModel
@@ -7245,6 +7314,8 @@ argument_list|(
 name|enable
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -7256,6 +7327,9 @@ name|resolveSymlinks
 parameter_list|()
 specifier|const
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_FILESYSTEMWATCHER
 name|Q_D
 argument_list|(
 specifier|const
@@ -7270,6 +7344,13 @@ operator|.
 name|resolveSymlinks
 argument_list|()
 return|;
+else|#
+directive|else
+return|return
+literal|false
+return|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_comment
@@ -7713,6 +7794,9 @@ operator|::
 name|LanguageChange
 condition|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_FILESYSTEMWATCHER
 name|d
 operator|->
 name|root
@@ -7730,6 +7814,8 @@ name|QString
 argument_list|()
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 return|return
 literal|true
 return|;
@@ -7779,6 +7865,9 @@ name|d_func
 argument_list|()
 argument_list|)
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_FILESYSTEMWATCHER
 name|d
 operator|->
 name|fileInfoGatherer
@@ -7788,6 +7877,8 @@ argument_list|(
 name|path
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 return|return
 name|QDir
 argument_list|()
@@ -7902,10 +7993,10 @@ name|QStringList
 operator|::
 name|iterator
 name|iterator
-decl_stmt|;
-name|iterator
-operator|=
-name|qBinaryFind
+init|=
+name|std
+operator|::
+name|lower_bound
 argument_list|(
 name|newFiles
 operator|.
@@ -7924,17 +8015,30 @@ argument_list|()
 operator|->
 name|fileName
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
+operator|(
 name|iterator
 operator|==
 name|newFiles
 operator|.
 name|end
 argument_list|()
+operator|)
+operator|||
+operator|(
+name|i
+operator|.
+name|value
+argument_list|()
+operator|->
+name|fileName
+operator|<
+operator|*
+name|iterator
+operator|)
 condition|)
-block|{
 name|toRemove
 operator|.
 name|append
@@ -7947,7 +8051,6 @@ operator|->
 name|fileName
 argument_list|)
 expr_stmt|;
-block|}
 operator|++
 name|i
 expr_stmt|;
@@ -8682,6 +8785,9 @@ modifier|&
 name|updates
 parameter_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_FILESYSTEMWATCHER
 name|Q_Q
 argument_list|(
 name|QFileSystemModel
@@ -9218,6 +9324,9 @@ name|delayedSort
 argument_list|()
 expr_stmt|;
 block|}
+endif|#
+directive|endif
+comment|// !QT_NO_FILESYSTEMWATCHER
 block|}
 end_function
 begin_comment
@@ -9280,6 +9389,9 @@ argument_list|>
 argument_list|>
 argument_list|()
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_FILESYSTEMWATCHER
 name|q
 operator|->
 name|connect
@@ -9412,6 +9524,9 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|// !QT_NO_FILESYSTEMWATCHER
 name|q
 operator|->
 name|connect

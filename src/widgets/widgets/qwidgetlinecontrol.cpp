@@ -7180,6 +7180,12 @@ name|ke
 operator|==
 name|QKeySequence
 operator|::
+name|MoveToEndOfLine
+operator|||
+name|ke
+operator|==
+name|QKeySequence
+operator|::
 name|MoveToStartOfDocument
 operator|||
 name|ke
@@ -7241,6 +7247,12 @@ operator|==
 name|QKeySequence
 operator|::
 name|SelectEndOfDocument
+operator|||
+name|ke
+operator|==
+name|QKeySequence
+operator|::
+name|DeleteCompleteLine
 condition|)
 block|{
 name|ke

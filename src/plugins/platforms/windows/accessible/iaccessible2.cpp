@@ -4293,7 +4293,7 @@ name|qtDesc
 init|=
 name|tableIface
 operator|->
-name|columnDescription
+name|rowDescription
 argument_list|(
 name|row
 argument_list|)

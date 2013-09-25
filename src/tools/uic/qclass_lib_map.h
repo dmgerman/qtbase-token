@@ -9332,6 +9332,16 @@ end_macro
 begin_macro
 name|QT_CLASS_LIB
 argument_list|(
+argument|QKeySequenceEdit
+argument_list|,
+argument|QtWidgets
+argument_list|,
+argument|qkeysequenceedit.h
+argument_list|)
+end_macro
+begin_macro
+name|QT_CLASS_LIB
+argument_list|(
 argument|QLabel
 argument_list|,
 argument|QtWidgets

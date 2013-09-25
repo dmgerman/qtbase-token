@@ -414,29 +414,12 @@ block|; }
 name|void
 name|updateCurrentValue
 argument_list|(
-argument|const QVariant&current
-argument_list|)
-block|{
-name|priv
-operator|->
-name|moveTab
-argument_list|(
-name|priv
-operator|->
-name|tabList
-operator|.
-name|indexOf
-argument_list|(
-operator|*
-name|tab
-argument_list|)
-argument_list|,
+specifier|const
+name|QVariant
+operator|&
 name|current
-operator|.
-name|toInt
-argument_list|()
 argument_list|)
-block|; }
+block|;
 name|void
 name|updateState
 argument_list|(
@@ -444,29 +427,7 @@ argument|State
 argument_list|,
 argument|State newState
 argument_list|)
-block|{
-if|if
-condition|(
-name|newState
-operator|==
-name|Stopped
-condition|)
-name|priv
-operator|->
-name|moveTabFinished
-argument_list|(
-name|priv
-operator|->
-name|tabList
-operator|.
-name|indexOf
-argument_list|(
-operator|*
-name|tab
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
+block|;
 name|private
 operator|:
 comment|//these are needed for the callbacks
