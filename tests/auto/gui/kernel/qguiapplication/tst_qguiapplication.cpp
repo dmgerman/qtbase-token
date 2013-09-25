@@ -42,6 +42,11 @@ include|#
 directive|include
 file|<QDebug>
 end_include
+begin_include
+include|#
+directive|include
+file|"tst_qcoreapplication.h"
+end_include
 begin_enum
 DECL|enumerator|spacing
 DECL|enumerator|windowSize
@@ -63,7 +68,7 @@ class|class
 name|tst_QGuiApplication
 super|:
 specifier|public
-name|QObject
+name|tst_QCoreApplication
 block|{
 name|Q_OBJECT
 private|private
