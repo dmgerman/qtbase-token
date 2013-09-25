@@ -221,6 +221,35 @@ block|;
 name|int
 name|evaluateCondition
 argument_list|()
+block|;      enum
+name|TokenizeMode
+block|{
+name|TokenizeCpp
+block|,
+name|TokenizePreprocessor
+block|,
+name|PreparePreprocessorStatement
+block|,
+name|TokenizePreprocessorStatement
+block|,
+name|TokenizeInclude
+block|,
+name|PrepareDefine
+block|,
+name|TokenizeDefine
+block|}
+block|;
+specifier|static
+name|Symbols
+name|tokenize
+argument_list|(
+argument|const QByteArray&input
+argument_list|,
+argument|int lineNum =
+literal|1
+argument_list|,
+argument|TokenizeMode mode = TokenizeCpp
+argument_list|)
 block|;
 name|private
 operator|:
