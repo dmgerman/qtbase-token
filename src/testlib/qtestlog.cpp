@@ -1500,7 +1500,7 @@ name|saveCoverageTool
 argument_list|(
 name|QTestResult
 operator|::
-name|currentAppname
+name|currentAppName
 argument_list|()
 argument_list|,
 name|failCount
