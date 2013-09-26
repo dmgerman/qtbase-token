@@ -1889,22 +1889,22 @@ begin_comment
 comment|/*! \fn const T&QList::at(int i) const      Returns the item at index position \a i in the list. \a i must be     a valid index position in the list (i.e., 0<= \a i< size()).      This function is very fast (\l{constant time}).      \sa value(), operator[]() */
 end_comment
 begin_comment
-comment|/*! \fn T&QList::operator[](int i)      Returns the item at index position \a i as a modifiable reference.     \a i must be a valid index position in the list (i.e., 0<= \a i<     size()).      This function is very fast (\l{constant time}).      \sa at(), value() */
+comment|/*! \fn T&QList::operator[](int i)      Returns the item at index position \a i as a modifiable reference.     \a i must be a valid index position in the list (i.e., 0<= \a i<     size()).      If this function is called on a list that is currently being shared, it     will trigger a copy of all elements. Otherwise, this function runs in     \l{constant time}. If you do not want to modify the list you should use     QList::at().      \sa at(), value() */
 end_comment
 begin_comment
-comment|/*! \fn const T&QList::operator[](int i) const      \overload      Same as at(). */
+comment|/*! \fn const T&QList::operator[](int i) const      \overload      Same as at(). This function runs in \l{constant time}. */
 end_comment
 begin_comment
 comment|/*! \fn QList::reserve(int alloc)      Reserve space for \a alloc elements.      If \a alloc is smaller than the current size of the list, nothing will happen.      Use this function to avoid repetetive reallocation of QList's internal     data if you can predict how many elements will be appended.     Note that the reservation applies only to the internal pointer array.      \since 4.7 */
 end_comment
 begin_comment
-comment|/*! \fn void QList::append(const T&value)      Inserts \a value at the end of the list.      Example:     \snippet code/src_corelib_tools_qlistdata.cpp 6      This is the same as list.insert(size(), \a value).      This operation is typically very fast (\l{constant time}),     because QList preallocates extra space on both sides of its     internal buffer to allow for fast growth at both ends of the     list.      \sa operator<<(), prepend(), insert() */
+comment|/*! \fn void QList::append(const T&value)      Inserts \a value at the end of the list.      Example:     \snippet code/src_corelib_tools_qlistdata.cpp 6      This is the same as list.insert(size(), \a value).      If this list is not shared, this operation is typically     very fast (amortized \l{constant time}), because QList     preallocates extra space on both sides of its internal     buffer to allow for fast growth at both ends of the list.      \sa operator<<(), prepend(), insert() */
 end_comment
 begin_comment
 comment|/*! \fn void QList::append(const QList<T>&value)      \overload      \since 4.5      Appends the items of the \a value list to this list.      \sa operator<<(), operator+=() */
 end_comment
 begin_comment
-comment|/*! \fn void QList::prepend(const T&value)      Inserts \a value at the beginning of the list.      Example:     \snippet code/src_corelib_tools_qlistdata.cpp 7      This is the same as list.insert(0, \a value).      This operation is usually very fast (\l{constant time}), because     QList preallocates extra space on both sides of its internal     buffer to allow for fast growth at both ends of the list.      \sa append(), insert() */
+comment|/*! \fn void QList::prepend(const T&value)      Inserts \a value at the beginning of the list.      Example:     \snippet code/src_corelib_tools_qlistdata.cpp 7      This is the same as list.insert(0, \a value).      If this list is not shared, this operation is typically     very fast (amortized \l{constant time}), because QList     preallocates extra space on both sides of its internal     buffer to allow for fast growth at both ends of the list.      \sa append(), insert() */
 end_comment
 begin_comment
 comment|/*! \fn void QList::insert(int i, const T&value)      Inserts \a value at index position \a i in the list. If \a i     is 0, the value is prepended to the list. If \a i is size(), the     value is appended to the list.      Example:     \snippet code/src_corelib_tools_qlistdata.cpp 8      \sa append(), prepend(), replace(), removeAt() */
@@ -1928,10 +1928,10 @@ begin_comment
 comment|/*! \fn T QList::takeAt(int i)      Removes the item at index position \a i and returns it. \a i must     be a valid index position in the list (i.e., 0<= \a i< size()).      If you don't use the return value, removeAt() is more efficient.      \sa removeAt(), takeFirst(), takeLast() */
 end_comment
 begin_comment
-comment|/*! \fn T QList::takeFirst()      Removes the first item in the list and returns it. This is the     same as takeAt(0). This function assumes the list is not empty. To     avoid failure, call isEmpty() before calling this function.      This operation takes \l{constant time}.      If you don't use the return value, removeFirst() is more     efficient.      \sa takeLast(), takeAt(), removeFirst() */
+comment|/*! \fn T QList::takeFirst()      Removes the first item in the list and returns it. This is the     same as takeAt(0). This function assumes the list is not empty. To     avoid failure, call isEmpty() before calling this function.      If this list is not shared, this operation takes \l{constant time}.      If you don't use the return value, removeFirst() is more     efficient.      \sa takeLast(), takeAt(), removeFirst() */
 end_comment
 begin_comment
-comment|/*! \fn T QList::takeLast()      Removes the last item in the list and returns it. This is the     same as takeAt(size() - 1). This function assumes the list is     not empty. To avoid failure, call isEmpty() before calling this     function.      This operation takes \l{constant time}.      If you don't use the return value, removeLast() is more     efficient.      \sa takeFirst(), takeAt(), removeLast() */
+comment|/*! \fn T QList::takeLast()      Removes the last item in the list and returns it. This is the     same as takeAt(size() - 1). This function assumes the list is     not empty. To avoid failure, call isEmpty() before calling this     function.      If this list is not shared, this operation takes \l{constant time}.      If you don't use the return value, removeLast() is more     efficient.      \sa takeFirst(), takeAt(), removeLast() */
 end_comment
 begin_comment
 comment|/*! \fn void QList::move(int from, int to)      Moves the item at index position \a from to index position \a to.      Example:     \snippet code/src_corelib_tools_qlistdata.cpp 11      This is the same as insert(\a{to}, takeAt(\a{from})).This function     assumes that both \a from and \a to are at least 0 but less than     size(). To avoid failure, test that both \a from and \a to are at     least 0 and less than size().      \sa swap(), insert(), takeAt() */
