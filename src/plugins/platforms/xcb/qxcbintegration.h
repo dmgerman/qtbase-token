@@ -124,7 +124,7 @@ specifier|const
 block|;
 name|QAbstractEventDispatcher
 operator|*
-name|guiThreadEventDispatcher
+name|createEventDispatcher
 argument_list|()
 specifier|const
 block|;
@@ -299,10 +299,6 @@ operator|<
 name|QPlatformInputContext
 operator|>
 name|m_inputContext
-block|;
-name|QAbstractEventDispatcher
-operator|*
-name|m_eventDispatcher
 block|;
 ifndef|#
 directive|ifndef

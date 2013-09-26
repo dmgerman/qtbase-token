@@ -311,7 +311,7 @@ specifier|const
 block|;
 name|QAbstractEventDispatcher
 operator|*
-name|guiThreadEventDispatcher
+name|createEventDispatcher
 argument_list|()
 specifier|const
 block|;
@@ -405,10 +405,6 @@ operator|<
 name|QPlatformFontDatabase
 operator|>
 name|mFontDb
-block|;
-name|QAbstractEventDispatcher
-operator|*
-name|mEventDispatcher
 block|;
 name|QScopedPointer
 operator|<

@@ -126,7 +126,7 @@ decl|const
 decl_stmt|;
 name|QAbstractEventDispatcher
 operator|*
-name|guiThreadEventDispatcher
+name|createEventDispatcher
 argument_list|()
 specifier|const
 expr_stmt|;
