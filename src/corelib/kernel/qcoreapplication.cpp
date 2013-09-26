@@ -500,6 +500,17 @@ name|appName
 parameter_list|()
 specifier|const
 block|{
+specifier|static
+name|QBasicMutex
+name|applicationNameMutex
+decl_stmt|;
+name|QMutexLocker
+name|locker
+argument_list|(
+operator|&
+name|applicationNameMutex
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|applicationName
