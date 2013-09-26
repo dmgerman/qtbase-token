@@ -1546,6 +1546,9 @@ begin_comment
 comment|/*!     \enum QFont::Style      This enum describes the different styles of glyphs that are used to     display text.      \value StyleNormal  Normal glyphs used in unstyled text.     \value StyleItalic  Italic glyphs that are specifically designed for                         the purpose of representing italicized text.     \value StyleOblique Glyphs with an italic appearance that are typically                         based on the unstyled glyphs, but are not fine-tuned                         for the purpose of representing italicized text.      \sa Weight */
 end_comment
 begin_comment
+comment|/*!     \fn QFont&QFont::operator=(QFont&&other)      Move-assigns \a other to this QFont instance.      \since 5.2 */
+end_comment
+begin_comment
 comment|/*!     \fn QString QFont::rawName() const      Returns the name of the font within the underlying window system.      On X11, this function will return an empty string.      Using the return value of this function is usually \e not \e     portable.      \sa setRawName() */
 end_comment
 begin_comment

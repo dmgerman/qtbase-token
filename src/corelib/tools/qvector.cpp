@@ -12,6 +12,9 @@ begin_comment
 comment|/*! \fn QVector::QVector()      Constructs an empty vector.      \sa resize() */
 end_comment
 begin_comment
+comment|/*!     \fn QVector::QVector(QVector<T>&&other)      Move-constructs a QVector instance, making it point at the same     object that \a other was pointing to.      \since 5.2 */
+end_comment
+begin_comment
 comment|/*! \fn QVector::QVector(int size)      Constructs a vector with an initial size of \a size elements.      The elements are initialized with a \l{default-constructed     value}.      \sa resize() */
 end_comment
 begin_comment
@@ -28,6 +31,9 @@ comment|/*! \fn QVector::~QVector()      Destroys the vector. */
 end_comment
 begin_comment
 comment|/*! \fn QVector<T>&QVector::operator=(const QVector<T>&other)      Assigns \a other to this vector and returns a reference to this     vector. */
+end_comment
+begin_comment
+comment|/*!     \fn QVector<T>&QVector::operator=(QVector<T>&&other)      Move-assigns \a other to this QVector instance.      \since 5.2 */
 end_comment
 begin_comment
 comment|/*! \fn void QVector::swap(QVector<T>&other)     \since 4.8      Swaps vector \a other with this vector. This operation is very fast and     never fails. */

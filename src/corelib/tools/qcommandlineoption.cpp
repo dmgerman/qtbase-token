@@ -66,6 +66,9 @@ begin_comment
 comment|/*!     \since 5.2     \class QCommandLineOption     \brief The QCommandLineOption class defines a possible command-line option.     \inmodule QtCore     \ingroup shared     \ingroup tools      This class is used to describe an option on the command line. It allows     different ways of defining the same option with multiple aliases possible.     It is also used to describe how the option is used - it may be a flag (e.g. \c{-v})     or take an argument (e.g. \c{-o file}).      Examples:     \snippet code/src_corelib_tools_qcommandlineoption.cpp 0      \sa QCommandLineParser */
 end_comment
 begin_comment
+comment|/*!     \fn QCommandLineOption&QCommandLineOption::operator=(QCommandLineOption&&other)      Move-assigns \a other to this QCommandLineOption instance.      \since 5.2 */
+end_comment
+begin_comment
 comment|/*!     Constructs a command line option object with the given arguments.      The name of the option is set to \a name.     The name can be either short or long. If the name is one character in     length, it is considered a short name. Option names must not be empty,     must not start with a dash or a slash character, must not contain a \c{=}     and cannot be repeated.      The description is set to \a description. It is customary to add a "."     at the end of the description.      In addition, the \a valueName can be set if the option expects a value.     The default value for the option is set to \a defaultValue.      \sa setDescription(), setValueName(), setDefaultValues() */
 end_comment
 begin_constructor

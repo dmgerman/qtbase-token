@@ -165,6 +165,9 @@ begin_comment
 comment|/*! \fn QContiguousCache<T>&QContiguousCache::operator=(const QContiguousCache<T>&other)      Assigns \a other to this cache and returns a reference to this cache. */
 end_comment
 begin_comment
+comment|/*!     \fn QContiguousCache<T>&QContiguousCache::operator=(QContiguousCache<T>&&other)      Move-assigns \a other to this QContiguousCache instance.      \since 5.2 */
+end_comment
+begin_comment
 comment|/*! \fn void QContiguousCache::swap(QContiguousCache<T>&other)     \since 4.8      Swaps cache \a other with this cache. This operation is very     fast and never fails. */
 end_comment
 begin_comment

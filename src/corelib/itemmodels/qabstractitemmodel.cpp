@@ -270,6 +270,12 @@ begin_comment
 comment|/*!   \class QPersistentModelIndex   \inmodule QtCore   \ingroup shared    \brief The QPersistentModelIndex class is used to locate data in a data model.    \ingroup model-view    A QPersistentModelIndex is a model index that can be stored by an   application, and later used to access information in a model.   Unlike the QModelIndex class, it is safe to store a   QPersistentModelIndex since the model will ensure that references   to items will continue to be valid as long as they can be accessed   by the model.    It is good practice to check that persistent model indexes are valid   before using them.    \sa {Model/View Programming}, QModelIndex, QAbstractItemModel */
 end_comment
 begin_comment
+comment|/*!     \fn QPersistentModelIndex::QPersistentModelIndex(QPersistentModelIndex&&other)      Move-constructs a QPersistentModelIndex instance, making it point at the same     object that \a other was pointing to.      \since 5.2 */
+end_comment
+begin_comment
+comment|/*!     \fn QPersistentModelIndex&QPersistentModelIndex::operator=(QPersistentModelIndex&&other)      Move-assigns \a other to this QPersistentModelIndex instance.      \since 5.2 */
+end_comment
+begin_comment
 comment|/*!   \fn QPersistentModelIndex::QPersistentModelIndex()    \internal */
 end_comment
 begin_constructor

@@ -1129,6 +1129,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn QPainterPath&QPainterPath::operator=(QPainterPath&&other)      Move-assigns \a other to this QPainterPath instance.      \since 5.2 */
+end_comment
+begin_comment
 comment|/*!     \fn void QPainterPath::swap(QPainterPath&other)     \since 4.8      Swaps painter path \a other with this painter path. This operation is very     fast and never fails. */
 end_comment
 begin_comment

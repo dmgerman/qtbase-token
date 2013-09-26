@@ -537,6 +537,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn QTimeZone&QTimeZone::operator=(QTimeZone&&other)      Move-assigns \a other to this QTimeZone instance, transferring the     ownership of the managed pointer to this instance.      \since 5.2 */
+end_comment
+begin_comment
 comment|/*!     Returns true if this time zone is equal to the \a other time zone. */
 end_comment
 begin_function
