@@ -1015,6 +1015,10 @@ specifier|virtual
 name|EGLNativeWindowType
 name|createNativeWindow
 parameter_list|(
+name|QPlatformWindow
+modifier|*
+name|window
+parameter_list|,
 specifier|const
 name|QSize
 modifier|&
@@ -1160,6 +1164,10 @@ name|QEglFSPiHooks
 operator|::
 name|createNativeWindow
 parameter_list|(
+name|QPlatformWindow
+modifier|*
+name|window
+parameter_list|,
 specifier|const
 name|QSize
 modifier|&
@@ -1171,6 +1179,10 @@ modifier|&
 name|format
 parameter_list|)
 block|{
+name|Q_UNUSED
+argument_list|(
+argument|window
+argument_list|)
 return|return
 name|createDispmanxLayer
 argument_list|(

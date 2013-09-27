@@ -876,6 +876,9 @@ name|type
 condition|)
 block|{
 case|case
+name|QtTraceMsg
+case|:
+case|case
 name|QtDebugMsg
 case|:
 name|QTest
@@ -1497,7 +1500,7 @@ name|saveCoverageTool
 argument_list|(
 name|QTestResult
 operator|::
-name|currentAppname
+name|currentAppName
 argument_list|()
 argument_list|,
 name|failCount

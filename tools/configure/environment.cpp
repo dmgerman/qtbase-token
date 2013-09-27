@@ -1474,9 +1474,12 @@ control|)
 block|{
 name|strLen
 operator|=
+name|int
+argument_list|(
 name|wcslen
 argument_list|(
 name|envString
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QString

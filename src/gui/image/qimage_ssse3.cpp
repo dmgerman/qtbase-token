@@ -143,7 +143,10 @@ name|shuffleMask
 init|=
 name|_mm_set_epi8
 argument_list|(
+name|char
+argument_list|(
 literal|0xff
+argument_list|)
 argument_list|,
 literal|9
 argument_list|,
@@ -151,7 +154,10 @@ literal|10
 argument_list|,
 literal|11
 argument_list|,
+name|char
+argument_list|(
 literal|0xff
+argument_list|)
 argument_list|,
 literal|6
 argument_list|,
@@ -159,7 +165,10 @@ literal|7
 argument_list|,
 literal|8
 argument_list|,
+name|char
+argument_list|(
 literal|0xff
+argument_list|)
 argument_list|,
 literal|3
 argument_list|,
@@ -167,7 +176,10 @@ literal|4
 argument_list|,
 literal|5
 argument_list|,
+name|char
+argument_list|(
 literal|0xff
+argument_list|)
 argument_list|,
 literal|0
 argument_list|,
@@ -183,7 +195,10 @@ name|shuffleMaskEnd
 init|=
 name|_mm_set_epi8
 argument_list|(
+name|char
+argument_list|(
 literal|0xff
+argument_list|)
 argument_list|,
 literal|13
 argument_list|,
@@ -191,7 +206,10 @@ literal|14
 argument_list|,
 literal|15
 argument_list|,
+name|char
+argument_list|(
 literal|0xff
+argument_list|)
 argument_list|,
 literal|10
 argument_list|,
@@ -199,7 +217,10 @@ literal|11
 argument_list|,
 literal|12
 argument_list|,
+name|char
+argument_list|(
 literal|0xff
+argument_list|)
 argument_list|,
 literal|7
 argument_list|,
@@ -207,7 +228,10 @@ literal|8
 argument_list|,
 literal|9
 argument_list|,
+name|char
+argument_list|(
 literal|0xff
+argument_list|)
 argument_list|,
 literal|4
 argument_list|,

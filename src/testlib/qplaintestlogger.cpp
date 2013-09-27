@@ -800,7 +800,7 @@ name|defined
 argument_list|(
 name|Q_OS_ANDROID
 argument_list|)
-name|__android_log_print
+name|__android_log_write
 argument_list|(
 name|ANDROID_LOG_INFO
 argument_list|,

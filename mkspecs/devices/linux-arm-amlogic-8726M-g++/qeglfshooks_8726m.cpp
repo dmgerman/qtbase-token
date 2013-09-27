@@ -64,6 +64,10 @@ specifier|virtual
 name|EGLNativeWindowType
 name|createNativeWindow
 parameter_list|(
+name|QPlatformWindow
+modifier|*
+name|window
+parameter_list|,
 specifier|const
 name|QSize
 modifier|&
@@ -171,6 +175,10 @@ name|QEglFS8726MHooks
 operator|::
 name|createNativeWindow
 parameter_list|(
+name|QPlatformWindow
+modifier|*
+name|window
+parameter_list|,
 specifier|const
 name|QSize
 modifier|&
@@ -184,9 +192,12 @@ parameter_list|)
 block|{
 name|Q_UNUSED
 argument_list|(
-name|format
+argument|window
 argument_list|)
-expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+argument|format
+argument_list|)
 name|fbdev_window
 modifier|*
 name|window

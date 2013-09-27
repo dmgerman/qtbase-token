@@ -1191,7 +1191,10 @@ name|char
 operator|*
 operator|>
 operator|(
-literal|"tst_qglobal"
+name|QTest
+operator|::
+name|currentAppName
+argument_list|()
 operator|)
 block|}
 decl_stmt|;

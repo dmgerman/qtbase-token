@@ -4862,7 +4862,10 @@ name|char
 operator|*
 argument_list|>
 argument_list|(
-literal|"tst_qguiapplication"
+name|QTest
+operator|::
+name|currentAppName
+argument_list|()
 argument_list|)
 block|,
 cast|const_cast

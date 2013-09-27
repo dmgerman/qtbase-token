@@ -23,6 +23,11 @@ include|#
 directive|include
 file|<qpa/qplatformnativeinterface.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtGui/qpixmap.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QWidget
@@ -157,6 +162,12 @@ name|QPrintEngine
 operator|*
 name|printEngine
 argument_list|)
+block|;
+comment|/*         Function to return the default background pixmap.         Needed by QWizard in the Qt widget module.     */
+name|Q_INVOKABLE
+name|QPixmap
+name|defaultBackgroundPixmapForQWizard
+argument_list|()
 block|;
 comment|// QMacPastebardMime support. The mac pasteboard void pointers are
 comment|// QMacPastebardMime instances from the cocoa plugin or qtmacextras

@@ -3419,6 +3419,8 @@ comment|// Offsets are stored as total offset, want to know separate UTC and DST
 comment|// so find the first non-dst transition to use as base UTC Offset
 name|int
 name|utcOffset
+init|=
+literal|0
 decl_stmt|;
 foreach|foreach
 control|(

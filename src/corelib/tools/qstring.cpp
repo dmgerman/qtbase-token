@@ -12240,7 +12240,10 @@ name|signedBitOffset
 init|=
 name|_mm_set1_epi16
 argument_list|(
+name|short
+argument_list|(
 literal|0x8000
+argument_list|)
 argument_list|)
 decl_stmt|;
 specifier|const
