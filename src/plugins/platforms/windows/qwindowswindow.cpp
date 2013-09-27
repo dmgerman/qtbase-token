@@ -6846,7 +6846,7 @@ block|{
 name|qWarning
 argument_list|(
 literal|"%s: Attempt to set a size (%dx%d) violating the constraints"
-literal|"(%dx%d - %dx%d) on window '%s'."
+literal|"(%dx%d - %dx%d) on window %s/'%s'."
 argument_list|,
 name|__FUNCTION__
 argument_list|,
@@ -6886,6 +6886,15 @@ operator|.
 name|maximumSize
 operator|.
 name|height
+argument_list|()
+argument_list|,
+name|window
+argument_list|()
+operator|->
+name|metaObject
+argument_list|()
+operator|->
+name|className
 argument_list|()
 argument_list|,
 name|qPrintable
@@ -6926,7 +6935,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"%s: Unable to set geometry %dx%d+%d+%d on '%s'."
+literal|"%s: Unable to set geometry %dx%d+%d+%d on %s/'%s'."
 literal|" Resulting geometry:  %dx%d+%d+%d "
 literal|"(frame: %d, %d, %d, %d, custom margin: %d, %d, %d, %d"
 literal|", minimum size: %dx%d, maximum size: %dx%d)."
@@ -6951,6 +6960,15 @@ argument_list|,
 name|rect
 operator|.
 name|y
+argument_list|()
+argument_list|,
+name|window
+argument_list|()
+operator|->
+name|metaObject
+argument_list|()
+operator|->
+name|className
 argument_list|()
 argument_list|,
 name|qPrintable
@@ -10048,9 +10066,18 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"%s: Not setting mouse grab for invisible window %s"
+literal|"%s: Not setting mouse grab for invisible window %s/'%s'"
 argument_list|,
 name|__FUNCTION__
+argument_list|,
+name|window
+argument_list|()
+operator|->
+name|metaObject
+argument_list|()
+operator|->
+name|className
+argument_list|()
 argument_list|,
 name|qPrintable
 argument_list|(
@@ -11380,9 +11407,27 @@ name|EGL_NO_SURFACE
 condition|)
 name|qWarning
 argument_list|(
-literal|"%s: Could not create the egl surface (eglCreateWindowSurface failed): error = 0x%x\n"
+literal|"%s: Could not create the egl surface for %s/'%s' (eglCreateWindowSurface failed): error = 0x%x\n"
 argument_list|,
 name|Q_FUNC_INFO
+argument_list|,
+name|window
+argument_list|()
+operator|->
+name|metaObject
+argument_list|()
+operator|->
+name|className
+argument_list|()
+argument_list|,
+name|qPrintable
+argument_list|(
+name|window
+argument_list|()
+operator|->
+name|objectName
+argument_list|()
+argument_list|)
 argument_list|,
 name|eglGetError
 argument_list|()
