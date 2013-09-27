@@ -13023,7 +13023,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QGuiApplication::setOverrideCursor(const QCursor&cursor)      Sets the application override cursor to \a cursor.      Application override cursors are intended for showing the user that the     application is in a special state, for example during an operation that     might take some time.      This cursor will be displayed in all the application's widgets until     restoreOverrideCursor() or another setOverrideCursor() is called.      Application cursors are stored on an internal stack. setOverrideCursor()     pushes the cursor onto the stack, and restoreOverrideCursor() pops the     active cursor off the stack. changeOverrideCursor() changes the curently     active application override cursor.      Every setOverrideCursor() must eventually be followed by a corresponding     restoreOverrideCursor(), otherwise the stack will never be emptied.      Example:     \snippet code/src_gui_kernel_qapplication_x11.cpp 0      \sa overrideCursor(), restoreOverrideCursor(), changeOverrideCursor(),     QWidget::setCursor() */
+comment|/*!     \fn void QGuiApplication::setOverrideCursor(const QCursor&cursor)      Sets the application override cursor to \a cursor.      Application override cursors are intended for showing the user that the     application is in a special state, for example during an operation that     might take some time.      This cursor will be displayed in all the application's widgets until     restoreOverrideCursor() or another setOverrideCursor() is called.      Application cursors are stored on an internal stack. setOverrideCursor()     pushes the cursor onto the stack, and restoreOverrideCursor() pops the     active cursor off the stack. changeOverrideCursor() changes the curently     active application override cursor.      Every setOverrideCursor() must eventually be followed by a corresponding     restoreOverrideCursor(), otherwise the stack will never be emptied.      Example:     \snippet code/src_gui_kernel_qguiapplication_x11.cpp 0      \sa overrideCursor(), restoreOverrideCursor(), changeOverrideCursor(),     QWidget::setCursor() */
 end_comment
 begin_function
 DECL|function|setOverrideCursor
@@ -13199,7 +13199,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets whether Qt should use the system's standard colors, fonts, etc., to     \a on. By default, this is true.      This function must be called before creating the QGuiApplication object, like     this:      \snippet code/src_gui_kernel_qapplication.cpp 6      \sa desktopSettingsAware() */
+comment|/*!     Sets whether Qt should use the system's standard colors, fonts, etc., to     \a on. By default, this is true.      This function must be called before creating the QGuiApplication object, like     this:      \snippet code/src_gui_kernel_qguiapplication.cpp 0      \sa desktopSettingsAware() */
 end_comment
 begin_function
 DECL|function|setDesktopSettingsAware

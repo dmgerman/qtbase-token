@@ -159,7 +159,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the distance, in pixels, that the mouse must be moved with a button     held down before a drag and drop operation will begin.      If you support drag and drop in your application, and want to start a drag     and drop operation after the user has moved the cursor a certain distance     with a button held down, you should use this property's value as the     minimum distance required.      For example, if the mouse position of the click is stored in \c startPos     and the current position (e.g. in the mouse move event) is \c currentPos,     you can find out if a drag should be started with code like this:      \snippet code/src_gui_kernel_qapplication.cpp 7      \sa startDragTime(), QPoint::manhattanLength(), {Drag and Drop} */
+comment|/*!     Returns the distance, in pixels, that the mouse must be moved with a button     held down before a drag and drop operation will begin.      If you support drag and drop in your application, and want to start a drag     and drop operation after the user has moved the cursor a certain distance     with a button held down, you should use this property's value as the     minimum distance required.      For example, if the mouse position of the click is stored in \c startPos     and the current position (e.g. in the mouse move event) is \c currentPos,     you can find out if a drag should be started with code like this:      \snippet code/src_gui_kernel_qguiapplication.cpp 6      \sa startDragTime(), QPoint::manhattanLength(), {Drag and Drop} */
 end_comment
 begin_function
 DECL|function|startDragDistance

@@ -13,6 +13,30 @@ define|#
 directive|define
 name|QXCBSESSIONMANAGER_H
 end_define
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|//  W A R N I N G
+end_comment
+begin_comment
+comment|//  -------------
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// This file is part of the QPA API and is not meant to be used
+end_comment
+begin_comment
+comment|// in applications. Usage of this API may make your code
+end_comment
+begin_comment
+comment|// source and binary incompatible with future versions of Qt.
+end_comment
+begin_comment
+comment|//
+end_comment
 begin_include
 include|#
 directive|include
