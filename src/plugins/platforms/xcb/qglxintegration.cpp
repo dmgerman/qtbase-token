@@ -311,6 +311,23 @@ operator|&
 name|a
 argument_list|)
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_DEBUG
+name|XStoreName
+argument_list|(
+name|DISPLAY_FROM_XCB
+argument_list|(
+name|screen
+argument_list|)
+argument_list|,
+name|window
+argument_list|,
+literal|"Qt GLX dummy window"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|XFreeColormap
 argument_list|(
 name|DISPLAY_FROM_XCB
