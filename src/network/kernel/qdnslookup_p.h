@@ -240,6 +240,8 @@ argument_list|(
 argument|QDnsLookup::Type type
 argument_list|,
 argument|const QByteArray&name
+argument_list|,
+argument|const QHostAddress&nameserver
 argument_list|)
 operator|:
 name|requestType
@@ -250,6 +252,11 @@ decl_stmt|,
 name|requestName
 argument_list|(
 name|name
+argument_list|)
+decl_stmt|,
+name|nameserver
+argument_list|(
+name|nameserver
 argument_list|)
 block|{ }
 name|void
@@ -282,6 +289,11 @@ name|QByteArray
 modifier|&
 name|requestName
 parameter_list|,
+specifier|const
+name|QHostAddress
+modifier|&
+name|nameserver
+parameter_list|,
 name|QDnsLookupReply
 modifier|*
 name|reply
@@ -294,6 +306,9 @@ name|requestType
 expr_stmt|;
 name|QByteArray
 name|requestName
+decl_stmt|;
+name|QHostAddress
+name|nameserver
 decl_stmt|;
 block|}
 end_decl_stmt

@@ -1258,6 +1258,10 @@ name|d
 operator|->
 name|name
 argument_list|)
+argument_list|,
+name|d
+operator|->
+name|nameserver
 argument_list|)
 expr_stmt|;
 name|connect
@@ -2231,6 +2235,8 @@ argument_list|(
 name|requestType
 argument_list|,
 name|requestName
+argument_list|,
+name|nameserver
 argument_list|,
 operator|&
 name|reply

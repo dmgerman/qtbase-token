@@ -15,6 +15,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qdebug.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<wrl.h>
 end_include
 begin_include
@@ -128,11 +133,30 @@ name|QByteArray
 modifier|&
 name|requestName
 parameter_list|,
+specifier|const
+name|QHostAddress
+modifier|&
+name|nameserver
+parameter_list|,
 name|QDnsLookupReply
 modifier|*
 name|reply
 parameter_list|)
 block|{
+comment|// TODO: Add nameserver support for winRT
+if|if
+condition|(
+operator|!
+name|nameserver
+operator|.
+name|isNull
+argument_list|()
+condition|)
+name|qWarning
+argument_list|()
+operator|<<
+literal|"Ignoring nameserver as its currently not supported on WinRT"
+expr_stmt|;
 comment|// TODO: is there any way to do "proper" dns lookup?
 if|if
 condition|(
