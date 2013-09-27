@@ -586,6 +586,13 @@ name|Q_TESTLIB_EXPORT
 specifier|const
 name|char
 modifier|*
+name|currentAppName
+parameter_list|()
+function_decl|;
+name|Q_TESTLIB_EXPORT
+specifier|const
+name|char
+modifier|*
 name|currentTestFunction
 parameter_list|()
 function_decl|;

@@ -566,7 +566,6 @@ return|;
 ifndef|#
 directive|ifndef
 name|Q_OS_WINCE
-comment|// Check for events synthesized from touch. Lower byte is touch index, 0 means pen.
 specifier|static
 specifier|const
 name|bool
@@ -590,6 +589,9 @@ operator|!
 name|passSynthesizedMouseEvents
 condition|)
 block|{
+comment|// Check for events synthesized from touch. Lower 7 bits are touch/pen index, bit 8 indicates touch.
+comment|// However, when tablet support is active, extraInfo is a packet serial number. This is not a problem
+comment|// since we do not want to ignore mouse events coming from a tablet.
 specifier|const
 name|quint64
 name|extraInfo
@@ -612,7 +614,7 @@ operator|&&
 operator|(
 name|extraInfo
 operator|&
-literal|0xff
+literal|0x80
 operator|)
 decl_stmt|;
 if|if

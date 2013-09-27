@@ -343,6 +343,9 @@ block|;
 name|bool
 name|cleanupModalSessionsNeeded
 block|;
+name|uint
+name|processEventsCalled
+block|;
 name|NSModalSession
 name|currentModalSessionCached
 block|;

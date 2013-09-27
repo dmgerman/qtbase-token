@@ -10,11 +10,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"../../corelib/kernel/qcorecmdlineargs_p.h"
-end_include
-begin_include
-include|#
-directive|include
 file|<qdebug.h>
 end_include
 begin_include

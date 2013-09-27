@@ -366,6 +366,10 @@ name|vsa
 operator|->
 name|sa_sigaction
 function_decl|;
+if|if
+condition|(
+name|oldAction
+condition|)
 name|oldAction
 argument_list|(
 name|signum

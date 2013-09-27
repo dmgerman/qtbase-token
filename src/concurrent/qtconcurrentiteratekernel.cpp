@@ -190,11 +190,22 @@ literal|0
 operator|)
 comment|// detect availablility of CLOCK_THREAD_CPUTIME_ID
 specifier|static
-name|long
-name|useThreadCpuTime
+name|QBasicAtomicInt
+name|sUseThreadCpuTime
 init|=
+name|Q_BASIC_ATOMIC_INITIALIZER
+argument_list|(
 operator|-
 literal|2
+argument_list|)
+decl_stmt|;
+name|int
+name|useThreadCpuTime
+init|=
+name|sUseThreadCpuTime
+operator|.
+name|load
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -204,14 +215,31 @@ operator|-
 literal|2
 condition|)
 block|{
-comment|// sysconf() will return either -1 or _POSIX_VERSION (don't care about thread races here)
+comment|// sysconf() will return either -1L or _POSIX_VERSION
+comment|// (don't care about sysconf's exact return value)
 name|useThreadCpuTime
 operator|=
 name|sysconf
 argument_list|(
 name|_SC_THREAD_CPUTIME
 argument_list|)
+operator|==
+operator|-
+literal|1L
+condition|?
+operator|-
+literal|1
+else|:
+literal|0
 expr_stmt|;
+name|sUseThreadCpuTime
+operator|.
+name|store
+argument_list|(
+name|useThreadCpuTime
+argument_list|)
+expr_stmt|;
+comment|// might happen multiple times, but doesn't matter
 block|}
 if|if
 condition|(

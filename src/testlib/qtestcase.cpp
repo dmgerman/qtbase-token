@@ -3476,7 +3476,7 @@ name|installCoverageTool
 argument_list|(
 name|QTestResult
 operator|::
-name|currentAppname
+name|currentAppName
 argument_list|()
 argument_list|,
 name|QTestResult
@@ -5967,7 +5967,7 @@ literal|0
 condition|)
 name|QTestResult
 operator|::
-name|setCurrentAppname
+name|setCurrentAppName
 argument_list|(
 name|argv
 index|[
@@ -7547,6 +7547,27 @@ end_function
 begin_comment
 comment|/*! \fn void QTest::addColumn(const char *name, T *dummy = 0)      Adds a column with type \c{T} to the current test data.     \a name is the name of the column. \a dummy is a workaround     for buggy compilers and can be ignored.      To populate the column with values, newRow() can be used. Use     \l QFETCH() to fetch the data in the actual test.      Example:     \snippet code/src_qtestlib_qtestcase.cpp 21      To add custom types to the testdata, the type must be registered with     QMetaType via \l Q_DECLARE_METATYPE().      \b {Note:} This macro can only be used in a test's data function     that is invoked by the test framework.      See \l {Chapter 2: Data Driven Testing}{Data Driven Testing} for     a more extensive example.      \sa QTest::newRow(), QFETCH(), QMetaType */
 end_comment
+begin_comment
+comment|/*!     Returns the name of the binary that is currently executed. */
+end_comment
+begin_function
+DECL|function|currentAppName
+specifier|const
+name|char
+modifier|*
+name|QTest
+operator|::
+name|currentAppName
+parameter_list|()
+block|{
+return|return
+name|QTestResult
+operator|::
+name|currentAppName
+argument_list|()
+return|;
+block|}
+end_function
 begin_comment
 comment|/*!     Returns the name of the test function that is currently executed.      Example:      \snippet code/src_qtestlib_qtestcase.cpp 22 */
 end_comment

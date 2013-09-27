@@ -34,12 +34,6 @@ name|QLineEdit
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QVBoxLayout
-name|class
-name|QVBoxLayout
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|class
 name|QKeySequenceEditPrivate
 range|:
@@ -82,10 +76,6 @@ block|;
 name|QLineEdit
 operator|*
 name|lineEdit
-block|;
-name|QVBoxLayout
-operator|*
-name|layout
 block|;
 name|QKeySequence
 name|keySequence

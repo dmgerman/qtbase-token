@@ -2923,6 +2923,21 @@ condition|(
 name|errno
 operator|==
 name|EEXIST
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_QNX
+argument_list|)
+comment|// On QNX the QNet (VFS paths of other hosts mounted under a directory
+comment|// such as /net) mountpoint returns ENOENT, despite existing. stat()
+comment|// on the QNet mountpoint returns successfully and reports S_IFDIR.
+operator|||
+name|errno
+operator|==
+name|ENOENT
+endif|#
+directive|endif
 condition|)
 block|{
 name|QT_STATBUF

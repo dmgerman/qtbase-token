@@ -6509,6 +6509,14 @@ directive|if
 operator|!
 name|defined
 name|Q_OS_WIN
+if|if
+condition|(
+operator|!
+name|wronlyFileName
+operator|.
+name|isNull
+argument_list|()
+condition|)
 name|QFile
 operator|::
 name|remove

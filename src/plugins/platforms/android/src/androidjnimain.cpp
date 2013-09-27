@@ -2017,6 +2017,12 @@ control|)
 block|{
 if|if
 condition|(
+operator|!
+name|string
+operator|.
+name|isEmpty
+argument_list|()
+operator|&&
 name|putenv
 argument_list|(
 name|string

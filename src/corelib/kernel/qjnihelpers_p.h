@@ -82,6 +82,10 @@ modifier|*
 name|env
 parameter_list|)
 function_decl|;
+name|jobject
+name|classLoader
+parameter_list|()
+function_decl|;
 block|}
 end_decl_stmt
 begin_macro
