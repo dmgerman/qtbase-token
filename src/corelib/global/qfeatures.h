@@ -605,35 +605,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QFileSystemModel
-end_comment
-begin_if
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_FILESYSTEMMODEL
-argument_list|)
-operator|&&
-operator|(
-name|defined
-argument_list|(
-name|QT_NO_FILESYSTEMWATCHER
-argument_list|)
-operator|)
-end_if
-begin_define
-DECL|macro|QT_NO_FILESYSTEMMODEL
-define|#
-directive|define
-name|QT_NO_FILESYSTEMMODEL
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
 comment|// File Transfer Protocol
 end_comment
 begin_if
