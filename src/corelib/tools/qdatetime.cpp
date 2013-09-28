@@ -8721,21 +8721,6 @@ expr_stmt|;
 return|return;
 block|}
 comment|// We have a valid date and time and a Qt::LocalTime or Qt::TimeZone that needs calculating
-name|QDate
-name|date
-decl_stmt|;
-name|QTime
-name|time
-decl_stmt|;
-name|getDateTime
-argument_list|(
-operator|&
-name|date
-argument_list|,
-operator|&
-name|time
-argument_list|)
-expr_stmt|;
 comment|// LocalTime and TimeZone might fall into "missing" DaylightTime transition hour
 comment|// Calling toEpochMSecs will adjust the returned date/time if it does
 name|QDate
@@ -8807,13 +8792,14 @@ comment|// QT_BOOTSTRAPPED
 block|}
 if|if
 condition|(
+name|timeToMSecs
+argument_list|(
 name|testDate
-operator|==
-name|date
-operator|&&
+argument_list|,
 name|testTime
+argument_list|)
 operator|==
-name|time
+name|m_msecs
 condition|)
 block|{
 name|setValidDateTime
