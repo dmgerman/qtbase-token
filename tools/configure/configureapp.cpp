@@ -10225,14 +10225,14 @@ index|[
 literal|"OPENGL"
 index|]
 operator|=
-literal|"no"
+literal|"yes"
 expr_stmt|;
 name|dictionary
 index|[
 literal|"OPENGL_ES_2"
 index|]
 operator|=
-literal|"no"
+literal|"yes"
 expr_stmt|;
 name|dictionary
 index|[
@@ -10295,7 +10295,7 @@ index|[
 literal|"ANGLE"
 index|]
 operator|=
-literal|"no"
+literal|"d3d11"
 expr_stmt|;
 if|if
 condition|(
