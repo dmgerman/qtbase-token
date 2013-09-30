@@ -71,6 +71,11 @@ argument_list|(
 literal|0
 argument_list|)
 member_init_list|,
+name|unused2
+argument_list|(
+literal|0
+argument_list|)
+member_init_list|,
 name|f
 argument_list|(
 literal|0
@@ -128,6 +133,11 @@ literal|false
 argument_list|)
 member_init_list|,
 name|unused
+argument_list|(
+literal|0
+argument_list|)
+member_init_list|,
+name|unused2
 argument_list|(
 literal|0
 argument_list|)
@@ -221,6 +231,13 @@ argument_list|(
 name|o
 operator|.
 name|unused
+argument_list|)
+member_init_list|,
+name|unused2
+argument_list|(
+name|o
+operator|.
+name|unused2
 argument_list|)
 member_init_list|,
 name|f
