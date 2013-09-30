@@ -74,6 +74,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qmutex.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<private/qprocess_p.h>
 end_include
 begin_include
