@@ -1915,11 +1915,6 @@ function_decl|;
 endif|#
 directive|endif
 private|private:
-DECL|member|c
-name|uint
-name|c
-decl_stmt|;
-comment|// character classes
 DECL|member|r
 name|QVector
 argument_list|<
@@ -1928,11 +1923,6 @@ argument_list|>
 name|r
 decl_stmt|;
 comment|// character ranges
-DECL|member|n
-name|bool
-name|n
-decl_stmt|;
-comment|// negative?
 ifndef|#
 directive|ifndef
 name|QT_NO_REGEXP_OPTIM
@@ -1946,6 +1936,16 @@ decl_stmt|;
 comment|// first-occurrence array
 endif|#
 directive|endif
+DECL|member|c
+name|uint
+name|c
+decl_stmt|;
+comment|// character classes
+DECL|member|n
+name|bool
+name|n
+decl_stmt|;
+comment|// negative?
 block|}
 class|;
 end_class

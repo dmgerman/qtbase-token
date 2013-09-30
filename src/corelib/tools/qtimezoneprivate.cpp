@@ -2818,13 +2818,6 @@ argument_list|(
 name|other
 argument_list|)
 member_init_list|,
-name|m_offsetFromUtc
-argument_list|(
-name|other
-operator|.
-name|m_offsetFromUtc
-argument_list|)
-member_init_list|,
 name|m_name
 argument_list|(
 name|other
@@ -2839,6 +2832,13 @@ operator|.
 name|m_abbreviation
 argument_list|)
 member_init_list|,
+name|m_comment
+argument_list|(
+name|other
+operator|.
+name|m_comment
+argument_list|)
+member_init_list|,
 name|m_country
 argument_list|(
 name|other
@@ -2846,11 +2846,11 @@ operator|.
 name|m_country
 argument_list|)
 member_init_list|,
-name|m_comment
+name|m_offsetFromUtc
 argument_list|(
 name|other
 operator|.
-name|m_comment
+name|m_offsetFromUtc
 argument_list|)
 block|{ }
 end_constructor
