@@ -1227,6 +1227,15 @@ argument_list|)
 argument_list|)
 operator|->
 name|positionAutomatic
+operator|&&
+name|w
+operator|->
+name|type
+argument_list|()
+operator|!=
+name|Qt
+operator|::
+name|Popup
 condition|)
 block|{
 if|if
