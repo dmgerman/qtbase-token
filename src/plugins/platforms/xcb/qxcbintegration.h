@@ -303,6 +303,7 @@ block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_ACCESSIBILITY
+name|mutable
 name|QScopedPointer
 operator|<
 name|QPlatformAccessibility
