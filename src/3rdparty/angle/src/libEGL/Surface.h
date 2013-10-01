@@ -50,6 +50,11 @@ include|#
 directive|include
 file|"common/angleutils.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"windows.h"
+end_include
 begin_decl_stmt
 name|namespace
 name|gl
@@ -92,7 +97,7 @@ argument|Display *display
 argument_list|,
 argument|const egl::Config *config
 argument_list|,
-argument|HWND window
+argument|EGLNativeWindowType window
 argument_list|,
 argument|EGLint postSubBufferSupported
 argument_list|)
@@ -130,7 +135,7 @@ name|bool
 name|resetSwapChain
 parameter_list|()
 function_decl|;
-name|HWND
+name|EGLNativeWindowType
 name|getWindowHandle
 parameter_list|()
 function_decl|;
@@ -303,7 +308,7 @@ name|height
 parameter_list|)
 function_decl|;
 specifier|const
-name|HWND
+name|EGLNativeWindowType
 name|mWindow
 decl_stmt|;
 comment|// Window that the surface is created for.

@@ -134,7 +134,7 @@ function_decl|;
 name|EGLSurface
 name|createWindowSurface
 parameter_list|(
-name|HWND
+name|EGLNativeWindowType
 name|window
 parameter_list|,
 name|EGLConfig
@@ -236,7 +236,7 @@ decl_stmt|;
 name|bool
 name|hasExistingWindowSurface
 parameter_list|(
-name|HWND
+name|EGLNativeWindowType
 name|window
 parameter_list|)
 function_decl|;

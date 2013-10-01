@@ -114,19 +114,16 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|__MINGW32__
-end_ifdef
 begin_ifndef
 ifndef|#
 directive|ifndef
 name|D3DCOMPILER_DLL
 end_ifndef
-begin_comment
-comment|//Add define + typedefs for older MinGW-w64 headers (pre 5783)
-end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|ANGLE_OS_WINPHONE
+end_ifndef
 begin_define
 DECL|macro|D3DCOMPILER_DLL
 define|#
@@ -134,6 +131,58 @@ directive|define
 name|D3DCOMPILER_DLL
 value|L"d3dcompiler_43.dll"
 end_define
+begin_comment
+DECL|macro|D3DCOMPILER_DLL
+comment|// Lowest common denominator
+end_comment
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|D3DCOMPILER_DLL
+define|#
+directive|define
+name|D3DCOMPILER_DLL
+value|L"qtd3dcompiler.dll"
+end_define
+begin_comment
+DECL|macro|D3DCOMPILER_DLL
+comment|// Placeholder DLL for phone
+end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// ANGLE_OS_WINPHONE
+end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// D3DCOMPILER_DLL
+end_comment
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|__MINGW32__
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|ANGLE_OS_WINPHONE
+argument_list|)
+end_if
+begin_comment
+comment|//Add define + typedefs for older MinGW-w64 headers (pre 5783)
+end_comment
+begin_comment
+comment|//Also define these on Windows Phone, which doesn't have a shader compiler
+end_comment
 begin_function_decl
 name|HRESULT
 name|WINAPI
@@ -254,14 +303,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// D3DCOMPILER_DLL
-end_comment
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// __MINGW32__
+comment|// __MINGW32__ || ANGLE_OS_WINPHONE
 end_comment
 begin_namespace
 DECL|namespace|rx
@@ -386,6 +428,13 @@ block|}
 else|#
 directive|else
 comment|// Load the version of the D3DCompiler DLL associated with the Direct3D version ANGLE was built with.
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|ANGLE_OS_WINRT
+argument_list|)
 name|mD3dCompilerModule
 operator|=
 name|LoadLibrary
@@ -393,6 +442,19 @@ argument_list|(
 name|D3DCOMPILER_DLL
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|mD3dCompilerModule
+operator|=
+name|LoadPackagedLibrary
+argument_list|(
+name|D3DCOMPILER_DLL
+argument_list|,
+name|NULL
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 endif|#
 directive|endif
 comment|// ANGLE_PRELOADED_D3DCOMPILER_MODULE_NAMES

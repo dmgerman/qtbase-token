@@ -167,7 +167,7 @@ name|SwapChain
 operator|*
 name|createSwapChain
 argument_list|(
-argument|HWND window
+argument|EGLNativeWindowType window
 argument_list|,
 argument|HANDLE shareHandle
 argument_list|,
