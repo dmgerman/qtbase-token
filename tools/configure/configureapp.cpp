@@ -869,6 +869,13 @@ index|]
 operator|=
 literal|"auto"
 expr_stmt|;
+name|dictionary
+index|[
+literal|"QREAL"
+index|]
+operator|=
+literal|"double"
+expr_stmt|;
 comment|//Only used when cross compiling.
 name|dictionary
 index|[
@@ -2142,6 +2149,42 @@ break|break;
 name|dictionary
 index|[
 literal|"QCONFIG"
+index|]
+operator|=
+name|configCmdLine
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|configCmdLine
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+operator|==
+literal|"-qreal"
+condition|)
+block|{
+operator|++
+name|i
+expr_stmt|;
+if|if
+condition|(
+name|i
+operator|==
+name|argCount
+condition|)
+break|break;
+name|dictionary
+index|[
+literal|"QREAL"
 index|]
 operator|=
 name|configCmdLine
@@ -12128,6 +12171,14 @@ argument_list|)
 expr_stmt|;
 name|desc
 argument_list|(
+literal|"-qreal [double|float]"
+argument_list|,
+literal|"typedef qreal to the specified type. The default is double.\n"
+literal|"Note that changing this flag affects binary compatibility.\n"
+argument_list|)
+expr_stmt|;
+name|desc
+argument_list|(
 literal|"RTTI"
 argument_list|,
 literal|"no"
@@ -21081,6 +21132,26 @@ condition|)
 name|tmpStream
 operator|<<
 literal|"#define QT_COMPILER_SUPPORTS_NEON"
+operator|<<
+name|endl
+expr_stmt|;
+if|if
+condition|(
+name|dictionary
+index|[
+literal|"QREAL"
+index|]
+operator|!=
+literal|"double"
+condition|)
+name|tmpStream
+operator|<<
+literal|"#define QT_COORD_TYPE "
+operator|<<
+name|dictionary
+index|[
+literal|"QREAL"
+index|]
 operator|<<
 name|endl
 expr_stmt|;
