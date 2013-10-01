@@ -3365,6 +3365,8 @@ expr_stmt|;
 name|readOperationActive
 operator|=
 name|stdoutReader
+operator|&&
+name|stdoutReader
 operator|->
 name|isReadOperationActive
 argument_list|()
@@ -3386,6 +3388,8 @@ argument_list|)
 expr_stmt|;
 name|readOperationActive
 operator||=
+name|stderrReader
+operator|&&
 name|stderrReader
 operator|->
 name|isReadOperationActive
