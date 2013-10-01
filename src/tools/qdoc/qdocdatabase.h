@@ -348,7 +348,7 @@ modifier|&
 name|name
 parameter_list|)
 function_decl|;
-name|DocNode
+name|QmlModuleNode
 modifier|*
 name|findQmlModule
 parameter_list|(
@@ -378,7 +378,7 @@ modifier|&
 name|name
 parameter_list|)
 function_decl|;
-name|DocNode
+name|QmlModuleNode
 modifier|*
 name|addQmlModule
 parameter_list|(
@@ -416,8 +416,7 @@ modifier|*
 name|node
 parameter_list|)
 function_decl|;
-name|DocNode
-modifier|*
+name|void
 name|addToQmlModule
 parameter_list|(
 specifier|const
