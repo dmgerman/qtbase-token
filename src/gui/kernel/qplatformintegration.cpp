@@ -388,6 +388,18 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!   Performs initialization steps that depend on having an event dispatcher   available. Called after the event dispatcher has been created.    Tasks that require an event dispatcher, for example creating socket notifiers, cannot be   performed in the constructor. Instead, they should be performed here. The default   implementation does nothing. */
+end_comment
+begin_function
+DECL|function|initialize
+name|void
+name|QPlatformIntegration
+operator|::
+name|initialize
+parameter_list|()
+block|{ }
+end_function
+begin_comment
 comment|/*!   Returns the platforms input context.    The default implementation returns 0, implying no input method support. */
 end_comment
 begin_function

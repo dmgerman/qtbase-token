@@ -310,6 +310,11 @@ specifier|const
 operator|=
 literal|0
 expr_stmt|;
+name|virtual
+name|void
+name|initialize
+parameter_list|()
+function_decl|;
 comment|//Deeper window system integrations
 name|virtual
 name|QPlatformFontDatabase

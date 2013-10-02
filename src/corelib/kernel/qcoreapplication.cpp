@@ -2052,6 +2052,15 @@ endif|#
 directive|endif
 block|}
 end_function
+begin_function
+DECL|function|eventDispatcherReady
+name|void
+name|QCoreApplicationPrivate
+operator|::
+name|eventDispatcherReady
+parameter_list|()
+block|{ }
+end_function
 begin_decl_stmt
 DECL|member|theMainThread
 name|QThread
@@ -2690,6 +2699,11 @@ operator|=
 name|QCoreApplicationPrivate
 operator|::
 name|eventDispatcher
+expr_stmt|;
+name|d
+operator|->
+name|eventDispatcherReady
+argument_list|()
 expr_stmt|;
 endif|#
 directive|endif

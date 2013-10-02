@@ -128,6 +128,10 @@ name|createEventDispatcher
 argument_list|()
 specifier|const
 expr_stmt|;
+name|void
+name|initialize
+parameter_list|()
+function_decl|;
 name|QVariant
 name|styleHint
 argument_list|(
@@ -232,6 +236,10 @@ return|;
 block|}
 name|private
 label|:
+name|void
+name|createInputHandlers
+parameter_list|()
+function_decl|;
 name|EGLDisplay
 name|mDisplay
 decl_stmt|;
