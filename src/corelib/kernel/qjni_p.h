@@ -705,6 +705,24 @@ name|friend
 name|class
 name|QJNIObject
 decl_stmt|;
+name|QJNIObjectPrivate
+argument_list|(
+argument|const char *className
+argument_list|,
+argument|const char *sig
+argument_list|,
+argument|va_list args
+argument_list|)
+empty_stmt|;
+name|QJNIObjectPrivate
+argument_list|(
+argument|jclass clazz
+argument_list|,
+argument|const char *sig
+argument_list|,
+argument|va_list args
+argument_list|)
+empty_stmt|;
 name|template
 operator|<
 name|typename
