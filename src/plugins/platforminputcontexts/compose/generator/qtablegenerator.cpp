@@ -72,6 +72,14 @@ end_include
 begin_comment
 comment|// strncasecmp
 end_comment
+begin_include
+include|#
+directive|include
+file|<clocale>
+end_include
+begin_comment
+comment|// LC_CTYPE
+end_comment
 begin_constructor
 DECL|function|TableGenerator
 name|TableGenerator

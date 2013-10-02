@@ -37,6 +37,14 @@ include|#
 directive|include
 file|<X11/SM/SMlib.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<cerrno>
+end_include
+begin_comment
+comment|// ERANGE
+end_comment
 begin_class
 DECL|class|QSmSocketReceiver
 class|class
