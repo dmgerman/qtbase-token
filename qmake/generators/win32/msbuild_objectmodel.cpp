@@ -12553,11 +12553,12 @@ case|:
 return|return
 literal|"v120"
 return|;
-block|}
+default|default:
 return|return
 name|QString
 argument_list|()
 return|;
+block|}
 block|}
 end_function
 begin_macro
