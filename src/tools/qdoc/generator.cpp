@@ -1021,7 +1021,7 @@ operator|||
 operator|(
 name|base
 operator|->
-name|qmlModuleIdentifier
+name|qmlModuleName
 argument_list|()
 operator|==
 name|subs
@@ -1029,7 +1029,7 @@ index|[
 name|i
 index|]
 operator|->
-name|qmlModuleIdentifier
+name|qmlModuleName
 argument_list|()
 operator|)
 condition|)
@@ -2435,7 +2435,7 @@ name|mq
 operator|=
 name|node
 operator|->
-name|qmlModuleIdentifier
+name|qmlModuleName
 argument_list|()
 operator|.
 name|replace

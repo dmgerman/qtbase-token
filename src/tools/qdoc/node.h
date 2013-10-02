@@ -1345,7 +1345,7 @@ name|virtual
 specifier|const
 name|Node
 modifier|*
-name|applyModuleIdentifier
+name|applyModuleName
 argument_list|(
 specifier|const
 name|Node
@@ -2883,7 +2883,7 @@ name|virtual
 specifier|const
 name|Node
 operator|*
-name|applyModuleIdentifier
+name|applyModuleName
 argument_list|(
 argument|const Node* origin
 argument_list|)

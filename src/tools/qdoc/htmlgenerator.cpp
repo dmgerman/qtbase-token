@@ -7459,7 +7459,7 @@ condition|(
 operator|!
 name|n
 operator|->
-name|qmlModuleIdentifier
+name|qmlModuleName
 argument_list|()
 operator|.
 name|isEmpty
@@ -7469,7 +7469,7 @@ name|t
 operator|=
 name|n
 operator|->
-name|qmlModuleIdentifier
+name|qmlModuleName
 argument_list|()
 operator|+
 literal|"::"
@@ -7768,7 +7768,7 @@ condition|(
 operator|!
 name|n
 operator|->
-name|qmlModuleIdentifier
+name|qmlModuleName
 argument_list|()
 operator|.
 name|isEmpty
@@ -7778,7 +7778,7 @@ name|label
 operator|=
 name|n
 operator|->
-name|qmlModuleIdentifier
+name|qmlModuleName
 argument_list|()
 operator|+
 literal|"::"

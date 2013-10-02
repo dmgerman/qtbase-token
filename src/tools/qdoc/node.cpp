@@ -329,7 +329,7 @@ condition|(
 operator|!
 name|dn
 operator|->
-name|qmlModuleIdentifier
+name|qmlModuleName
 argument_list|()
 operator|.
 name|isEmpty
@@ -347,7 +347,7 @@ condition|)
 return|return
 name|dn
 operator|->
-name|qmlModuleIdentifier
+name|qmlModuleName
 argument_list|()
 operator|+
 literal|"::"
@@ -8887,7 +8887,7 @@ name|result
 operator|=
 name|baseNode_
 operator|->
-name|qmlModuleIdentifier
+name|qmlModuleName
 argument_list|()
 operator|+
 literal|"::"
@@ -9363,7 +9363,7 @@ argument_list|)
 operator|.
 name|arg
 argument_list|(
-name|qmlModuleIdentifier
+name|qmlModuleName
 argument_list|()
 argument_list|)
 operator|.
@@ -9396,7 +9396,7 @@ argument_list|)
 operator|.
 name|arg
 argument_list|(
-name|qmlModuleIdentifier
+name|qmlModuleName
 argument_list|()
 argument_list|)
 operator|.
@@ -9929,16 +9929,16 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   This node is a name collision node. Find a child of this node   such that the child's QML module identifier matches origin's   QML module identifier. Return the matching node, or return this   node if there is no matching node.  */
+comment|/*!   This node is a name collision node. Find a child of this node   such that the child's QML module name matches origin's QML module   Name. Return the matching node, or return this node if there is   no matching node.  */
 end_comment
 begin_function
-DECL|function|applyModuleIdentifier
+DECL|function|applyModuleName
 specifier|const
 name|Node
 modifier|*
 name|NameCollisionNode
 operator|::
-name|applyModuleIdentifier
+name|applyModuleName
 parameter_list|(
 specifier|const
 name|Node
@@ -9954,7 +9954,7 @@ operator|&&
 operator|!
 name|origin
 operator|->
-name|qmlModuleIdentifier
+name|qmlModuleName
 argument_list|()
 operator|.
 name|isEmpty
@@ -10020,7 +10020,7 @@ if|if
 condition|(
 name|origin
 operator|->
-name|qmlModuleIdentifier
+name|qmlModuleName
 argument_list|()
 operator|==
 operator|(
@@ -10028,7 +10028,7 @@ operator|*
 name|i
 operator|)
 operator|->
-name|qmlModuleIdentifier
+name|qmlModuleName
 argument_list|()
 condition|)
 return|return
