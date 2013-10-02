@@ -9356,7 +9356,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*     Returns false on parse error. However, as many keys are read as     possible, so if the user doesn't check the status he will get the     most out of the file anyway. */
+comment|/*     Returns \c false on parse error. However, as many keys are read as     possible, so if the user doesn't check the status he will get the     most out of the file anyway. */
 end_comment
 begin_function
 DECL|function|readIniFile
@@ -12357,7 +12357,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if settings can be written using this QSettings     object; returns false otherwise.      One reason why isWritable() might return false is if     QSettings operates on a read-only file.      \warning This function is not perfectly reliable, because the     file permissions can change at any time.      \sa fileName(), status(), sync() */
+comment|/*!     Returns \c true if settings can be written using this QSettings     object; returns \c false otherwise.      One reason why isWritable() might return false is if     QSettings operates on a read-only file.      \warning This function is not perfectly reliable, because the     file permissions can change at any time.      \sa fileName(), status(), sync() */
 end_comment
 begin_function
 DECL|function|isWritable
@@ -12520,7 +12520,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if there exists a setting called \a key; returns     false otherwise.      If a group is set using beginGroup(), \a key is taken to be     relative to that group.      Note that the Windows registry and INI files use case-insensitive     keys, whereas the Carbon Preferences API on Mac OS X uses     case-sensitive keys. To avoid portability problems, see the     \l{Section and Key Syntax} rules.      \sa value(), setValue() */
+comment|/*!     Returns \c true if there exists a setting called \a key; returns     false otherwise.      If a group is set using beginGroup(), \a key is taken to be     relative to that group.      Note that the Windows registry and INI files use case-insensitive     keys, whereas the Carbon Preferences API on Mac OS X uses     case-sensitive keys. To avoid portability problems, see the     \l{Section and Key Syntax} rules.      \sa value(), setValue() */
 end_comment
 begin_function
 DECL|function|contains
@@ -12594,7 +12594,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if fallbacks are enabled; returns false otherwise.      By default, fallbacks are enabled.      \sa setFallbacksEnabled() */
+comment|/*!     Returns \c true if fallbacks are enabled; returns \c false otherwise.      By default, fallbacks are enabled.      \sa setFallbacksEnabled() */
 end_comment
 begin_function
 DECL|function|fallbacksEnabled

@@ -79,7 +79,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!   Returns true if the \a code is recognized by the parser.  */
+comment|/*!   Returns \c true if the \a code is recognized by the parser.  */
 end_comment
 begin_function
 DECL|function|recognizeCode
@@ -145,7 +145,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if \a ext is any of a list of file extensions   for the QML language.  */
+comment|/*!   Returns \c true if \a ext is any of a list of file extensions   for the QML language.  */
 end_comment
 begin_function
 DECL|function|recognizeExtension
@@ -168,7 +168,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if the \a language is recognized. Only "QML" is   recognized by this marker.  */
+comment|/*!   Returns \c true if the \a language is recognized. Only "QML" is   recognized by this marker.  */
 end_comment
 begin_function
 DECL|function|recognizeLanguage

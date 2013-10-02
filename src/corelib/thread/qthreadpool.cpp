@@ -1406,7 +1406,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Reserves a thread and uses it to run \a runnable, unless this thread will     make the current thread count exceed maxThreadCount().  In that case,     \a runnable is added to a run queue instead. The \a priority argument can     be used to control the run queue's order of execution.      Note that the thread pool takes ownership of the \a runnable if     \l{QRunnable::autoDelete()}{runnable->autoDelete()} returns true,     and the \a runnable will be deleted automatically by the thread     pool after the \l{QRunnable::run()}{runnable->run()} returns. If     \l{QRunnable::autoDelete()}{runnable->autoDelete()} returns false,     ownership of \a runnable remains with the caller. Note that     changing the auto-deletion on \a runnable after calling this     functions results in undefined behavior. */
+comment|/*!     Reserves a thread and uses it to run \a runnable, unless this thread will     make the current thread count exceed maxThreadCount().  In that case,     \a runnable is added to a run queue instead. The \a priority argument can     be used to control the run queue's order of execution.      Note that the thread pool takes ownership of the \a runnable if     \l{QRunnable::autoDelete()}{runnable->autoDelete()} returns \c true,     and the \a runnable will be deleted automatically by the thread     pool after the \l{QRunnable::run()}{runnable->run()} returns. If     \l{QRunnable::autoDelete()}{runnable->autoDelete()} returns \c false,     ownership of \a runnable remains with the caller. Note that     changing the auto-deletion on \a runnable after calling this     functions results in undefined behavior. */
 end_comment
 begin_function
 DECL|function|start
@@ -1489,7 +1489,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Attempts to reserve a thread to run \a runnable.      If no threads are available at the time of calling, then this function     does nothing and returns false.  Otherwise, \a runnable is run immediately     using one available thread and this function returns true.      Note that the thread pool takes ownership of the \a runnable if     \l{QRunnable::autoDelete()}{runnable->autoDelete()} returns true,     and the \a runnable will be deleted automatically by the thread     pool after the \l{QRunnable::run()}{runnable->run()} returns. If     \l{QRunnable::autoDelete()}{runnable->autoDelete()} returns false,     ownership of \a runnable remains with the caller. Note that     changing the auto-deletion on \a runnable after calling this     function results in undefined behavior. */
+comment|/*!     Attempts to reserve a thread to run \a runnable.      If no threads are available at the time of calling, then this function     does nothing and returns \c false.  Otherwise, \a runnable is run immediately     using one available thread and this function returns \c true.      Note that the thread pool takes ownership of the \a runnable if     \l{QRunnable::autoDelete()}{runnable->autoDelete()} returns \c true,     and the \a runnable will be deleted automatically by the thread     pool after the \l{QRunnable::run()}{runnable->run()} returns. If     \l{QRunnable::autoDelete()}{runnable->autoDelete()} returns \c false,     ownership of \a runnable remains with the caller. Note that     changing the auto-deletion on \a runnable after calling this     function results in undefined behavior. */
 end_comment
 begin_function
 DECL|function|tryStart
@@ -1793,7 +1793,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Waits up to \a msecs milliseconds for all threads to exit and removes all     threads from the thread pool. Returns true if all threads were removed;     otherwise it returns false. If \a msecs is -1 (the default), the timeout     is ignored (waits for the last thread to exit). */
+comment|/*!     Waits up to \a msecs milliseconds for all threads to exit and removes all     threads from the thread pool. Returns \c true if all threads were removed;     otherwise it returns \c false. If \a msecs is -1 (the default), the timeout     is ignored (waits for the last thread to exit). */
 end_comment
 begin_function
 DECL|function|waitForDone
@@ -1836,7 +1836,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.2      Removes the runnables that are not yet started from the queue.     The runnables for which \l{QRunnable::autoDelete()}{runnable->autoDelete()}     returns true are deleted.      \sa start() */
+comment|/*!     \since 5.2      Removes the runnables that are not yet started from the queue.     The runnables for which \l{QRunnable::autoDelete()}{runnable->autoDelete()}     returns \c true are deleted.      \sa start() */
 end_comment
 begin_function
 DECL|function|clear

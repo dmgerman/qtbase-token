@@ -133,7 +133,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     Processes pending events that match \a flags until there are no     more events to process. Returns true if pending events were handled;     otherwise returns false.      This function is especially useful if you have a long running     operation and want to show its progress without allowing user     input; i.e. by using the \l ExcludeUserInputEvents flag.      This function is simply a wrapper for     QAbstractEventDispatcher::processEvents(). See the documentation     for that function for details. */
+comment|/*!     Processes pending events that match \a flags until there are no     more events to process. Returns \c true if pending events were handled;     otherwise returns \c false.      This function is especially useful if you have a long running     operation and want to show its progress without allowing user     input; i.e. by using the \l ExcludeUserInputEvents flag.      This function is simply a wrapper for     QAbstractEventDispatcher::processEvents(). See the documentation     for that function for details. */
 end_comment
 begin_function
 DECL|function|processEvents
@@ -620,7 +620,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the event loop is running; otherwise returns     false. The event loop is considered running from the time when     exec() is called until exit() is called.      \sa exec(), exit()  */
+comment|/*!     Returns \c true if the event loop is running; otherwise returns     false. The event loop is considered running from the time when     exec() is called until exit() is called.      \sa exec(), exit()  */
 end_comment
 begin_function
 DECL|function|isRunning

@@ -829,7 +829,7 @@ begin_comment
 comment|/*!   \enum QSharedMemory::AccessMode    \value ReadOnly The shared memory segment is read-only. Writing to   the shared memory segment is not allowed. An attempt to write to a   shared memory segment created with ReadOnly causes the program to   abort.    \value ReadWrite Reading and writing the shared memory segment are   both allowed. */
 end_comment
 begin_comment
-comment|/*!   Attempts to attach the process to the shared memory segment   identified by the key that was passed to the constructor or to a   call to setKey() or setNativeKey(). The access \a mode is \l {QSharedMemory::}   {ReadWrite} by default. It can also be \l {QSharedMemory::}   {ReadOnly}. Returns true if the attach operation is successful. If   false is returned, call error() to determine which error occurred.   After attaching the shared memory segment, a pointer to the shared   memory can be obtained by calling data().    \sa isAttached(), detach(), create()  */
+comment|/*!   Attempts to attach the process to the shared memory segment   identified by the key that was passed to the constructor or to a   call to setKey() or setNativeKey(). The access \a mode is \l {QSharedMemory::}   {ReadWrite} by default. It can also be \l {QSharedMemory::}   {ReadOnly}. Returns \c true if the attach operation is successful. If   false is returned, call error() to determine which error occurred.   After attaching the shared memory segment, a pointer to the shared   memory can be obtained by calling data().    \sa isAttached(), detach(), create()  */
 end_comment
 begin_function
 DECL|function|attach
@@ -924,7 +924,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if this process is attached to the shared memory   segment.    \sa attach(), detach()  */
+comment|/*!   Returns \c true if this process is attached to the shared memory   segment.    \sa attach(), detach()  */
 end_comment
 begin_function
 DECL|function|isAttached
@@ -953,7 +953,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Detaches the process from the shared memory segment. If this was the   last process attached to the shared memory segment, then the shared   memory segment is released by the system, i.e., the contents are   destroyed. The function returns true if it detaches the shared   memory segment. If it returns false, it usually means the segment   either isn't attached, or it is locked by another process.    \sa attach(), isAttached()  */
+comment|/*!   Detaches the process from the shared memory segment. If this was the   last process attached to the shared memory segment, then the shared   memory segment is released by the system, i.e., the contents are   destroyed. The function returns \c true if it detaches the shared   memory segment. If it returns \c false, it usually means the segment   either isn't attached, or it is locked by another process.    \sa attach(), isAttached()  */
 end_comment
 begin_function
 DECL|function|detach
@@ -1107,7 +1107,7 @@ directive|ifndef
 name|QT_NO_SYSTEMSEMAPHORE
 end_ifndef
 begin_comment
-comment|/*!   This is a semaphore that locks the shared memory segment for access   by this process and returns true. If another process has locked the   segment, this function blocks until the lock is released. Then it   acquires the lock and returns true. If this function returns false,   it means that you have ignored a false return from create() or attach(),   that you have set the key with setNativeKey() or that   QSystemSemaphore::acquire() failed due to an unknown system error.    \sa unlock(), data(), QSystemSemaphore::acquire()  */
+comment|/*!   This is a semaphore that locks the shared memory segment for access   by this process and returns \c true. If another process has locked the   segment, this function blocks until the lock is released. Then it   acquires the lock and returns \c true. If this function returns \c false,   it means that you have ignored a false return from create() or attach(),   that you have set the key with setNativeKey() or that   QSystemSemaphore::acquire() failed due to an unknown system error.    \sa unlock(), data(), QSystemSemaphore::acquire()  */
 end_comment
 begin_function
 DECL|function|lock
@@ -1196,7 +1196,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Releases the lock on the shared memory segment and returns true, if   the lock is currently held by this process. If the segment is not   locked, or if the lock is held by another process, nothing happens   and false is returned.    \sa lock()  */
+comment|/*!   Releases the lock on the shared memory segment and returns \c true, if   the lock is currently held by this process. If the segment is not   locked, or if the lock is held by another process, nothing happens   and false is returned.    \sa lock()  */
 end_comment
 begin_function
 DECL|function|unlock

@@ -540,7 +540,7 @@ begin_comment
 comment|/*!     \fn QTimeZone&QTimeZone::operator=(QTimeZone&&other)      Move-assigns \a other to this QTimeZone instance, transferring the     ownership of the managed pointer to this instance.      \since 5.2 */
 end_comment
 begin_comment
-comment|/*!     Returns true if this time zone is equal to the \a other time zone. */
+comment|/*!     Returns \c true if this time zone is equal to the \a other time zone. */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -589,7 +589,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this time zone is not equal to the \a other time zone. */
+comment|/*!     Returns \c true if this time zone is not equal to the \a other time zone. */
 end_comment
 begin_function
 DECL|function|operator !=
@@ -638,7 +638,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this time zone is valid. */
+comment|/*!     Returns \c true if this time zone is valid. */
 end_comment
 begin_function
 DECL|function|isValid
@@ -1014,7 +1014,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the time zone has observed daylight time at any time.      \sa isDaylightTime(), daylightTimeOffset() */
+comment|/*!     Returns \c true if the time zone has observed daylight time at any time.      \sa isDaylightTime(), daylightTimeOffset() */
 end_comment
 begin_function
 DECL|function|hasDaylightTime
@@ -1043,7 +1043,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the given \a atDateTime is in daylight time.      \sa hasDaylightTime(), daylightTimeOffset() */
+comment|/*!     Returns \c true if the given \a atDateTime is in daylight time.      \sa hasDaylightTime(), daylightTimeOffset() */
 end_comment
 begin_function
 DECL|function|isDaylightTime
@@ -1131,7 +1131,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the system backend supports obtaining transitions. */
+comment|/*!     Returns \c true if the system backend supports obtaining transitions. */
 end_comment
 begin_function
 DECL|function|hasTransitions
@@ -1364,7 +1364,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if a given time zone \a olsenId is available on this system.      \sa availableTimeZoneIds() */
+comment|/*!     Returns \c true if a given time zone \a olsenId is available on this system.      \sa availableTimeZoneIds() */
 end_comment
 begin_function
 DECL|function|isTimeZoneIdAvailable

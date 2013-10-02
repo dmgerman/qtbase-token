@@ -1204,7 +1204,7 @@ comment|// d auto-deletes
 block|}
 end_destructor
 begin_comment
-comment|/*!     Returns true if this object and the \a other object contain the same     contents, in the same order, and use the same query delimiters. */
+comment|/*!     Returns \c true if this object and the \a other object contain the same     contents, in the same order, and use the same query delimiters. */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -1277,7 +1277,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this QUrlQUery object contains no key-value pairs, such as     after being default-constructed or after parsing an empty query string.      \sa setQuery(), clear() */
+comment|/*!     Returns \c true if this QUrlQUery object contains no key-value pairs, such as     after being default-constructed or after parsing an empty query string.      \sa setQuery(), clear() */
 end_comment
 begin_function
 DECL|function|isEmpty
@@ -1994,7 +1994,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if there is a query string pair whose key is equal     to \a key from the URL.      \sa addQueryItem(), queryItemValue() */
+comment|/*!     Returns \c true if there is a query string pair whose key is equal     to \a key from the URL.      \sa addQueryItem(), queryItemValue() */
 end_comment
 begin_function
 DECL|function|hasQueryItem
@@ -2398,7 +2398,7 @@ begin_comment
 comment|/*!     \fn QString QUrlQuery::toString(QUrl::ComponentFormattingOptions encoding = QUrl::PrettyDecoded) const      Returns this QUrlQuery as a QString. \a encoding can be used to specify the URL string encoding of the return value. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QUrlQuery::operator!=(const QUrlQuery&other) const      Returns true if \a other is not equal to this QUrlQuery. Otherwise, returns false.      \sa operator==() */
+comment|/*!     \fn bool QUrlQuery::operator!=(const QUrlQuery&other) const      Returns \c true if \a other is not equal to this QUrlQuery. Otherwise, returns \c false.      \sa operator==() */
 end_comment
 begin_macro
 name|QT_END_NAMESPACE

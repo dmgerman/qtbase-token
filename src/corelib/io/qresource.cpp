@@ -1814,7 +1814,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the resource really exists in the resource hierarchy,     false otherwise.  */
+comment|/*!     Returns \c true if the resource really exists in the resource hierarchy,     false otherwise.  */
 end_comment
 begin_function
 DECL|function|isValid
@@ -1848,10 +1848,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QResource::isFile() const      Returns true if the resource represents a file and thus has data     backing it, false if it represents a directory.      \sa isDir() */
+comment|/*!     \fn bool QResource::isFile() const      Returns \c true if the resource represents a file and thus has data     backing it, false if it represents a directory.      \sa isDir() */
 end_comment
 begin_comment
-comment|/*!     Returns true if the resource represents a file and the data backing it     is in a compressed format, false otherwise.      \sa data(), isFile() */
+comment|/*!     Returns \c true if the resource represents a file and the data backing it     is in a compressed format, false otherwise.      \sa data(), isFile() */
 end_comment
 begin_function
 DECL|function|isCompressed
@@ -1943,7 +1943,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the resource represents a directory and thus may have     children() in it, false if it represents a file.      \sa isFile() */
+comment|/*!     Returns \c true if the resource represents a directory and thus may have     children() in it, false if it represents a file.      \sa isFile() */
 end_comment
 begin_function
 DECL|function|isDir
@@ -5171,7 +5171,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!    \fn bool QResource::registerResource(const QString&rccFileName, const QString&mapRoot)     Registers the resource with the given \a rccFileName at the location in the    resource tree specified by \a mapRoot, and returns true if the file is    successfully opened; otherwise returns false.     \sa unregisterResource() */
+comment|/*!    \fn bool QResource::registerResource(const QString&rccFileName, const QString&mapRoot)     Registers the resource with the given \a rccFileName at the location in the    resource tree specified by \a mapRoot, and returns \c true if the file is    successfully opened; otherwise returns \c false.     \sa unregisterResource() */
 end_comment
 begin_function
 name|bool
@@ -5298,7 +5298,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \fn bool QResource::unregisterResource(const QString&rccFileName, const QString&mapRoot)    Unregisters the resource with the given \a rccFileName at the location in   the resource tree specified by \a mapRoot, and returns true if the   resource is successfully unloaded and no references exist for the   resource; otherwise returns false.    \sa registerResource() */
+comment|/*!   \fn bool QResource::unregisterResource(const QString&rccFileName, const QString&mapRoot)    Unregisters the resource with the given \a rccFileName at the location in   the resource tree specified by \a mapRoot, and returns \c true if the   resource is successfully unloaded and no references exist for the   resource; otherwise returns \c false.    \sa registerResource() */
 end_comment
 begin_function
 name|bool
@@ -5449,7 +5449,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!    \fn bool QResource::registerResource(const uchar *rccData, const QString&mapRoot)    \since 4.3     Registers the resource with the given \a rccData at the location in the    resource tree specified by \a mapRoot, and returns true if the file is    successfully opened; otherwise returns false.     \warning The data must remain valid throughout the life of any QFile    that may reference the resource data.     \sa unregisterResource() */
+comment|/*!    \fn bool QResource::registerResource(const uchar *rccData, const QString&mapRoot)    \since 4.3     Registers the resource with the given \a rccData at the location in the    resource tree specified by \a mapRoot, and returns \c true if the file is    successfully opened; otherwise returns \c false.     \warning The data must remain valid throughout the life of any QFile    that may reference the resource data.     \sa unregisterResource() */
 end_comment
 begin_function
 name|bool
@@ -5570,7 +5570,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \fn bool QResource::unregisterResource(const uchar *rccData, const QString&mapRoot)   \since 4.3    Unregisters the resource with the given \a rccData at the location in the   resource tree specified by \a mapRoot, and returns true if the resource is   successfully unloaded and no references exist into the resource; otherwise returns false.    \sa registerResource() */
+comment|/*!   \fn bool QResource::unregisterResource(const uchar *rccData, const QString&mapRoot)   \since 4.3    Unregisters the resource with the given \a rccData at the location in the   resource tree specified by \a mapRoot, and returns \c true if the resource is   successfully unloaded and no references exist into the resource; otherwise returns \c false.    \sa registerResource() */
 end_comment
 begin_function
 name|bool

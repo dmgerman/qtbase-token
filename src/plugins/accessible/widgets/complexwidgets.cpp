@@ -972,7 +972,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Selects the item with index \a child if \a on is true; otherwise     unselects it. If \a extend is true and the selection mode is not     \c Single and there is an existing selection, the selection is     extended to include all the items from the existing selection up     to and including the item with index \a child. Returns true if a     selection was made or extended; otherwise returns false.      \sa selection(), clearSelection() */
+comment|/*!     Selects the item with index \a child if \a on is true; otherwise     unselects it. If \a extend is true and the selection mode is not     \c Single and there is an existing selection, the selection is     extended to include all the items from the existing selection up     to and including the item with index \a child. Returns \c true if a     selection was made or extended; otherwise returns \c false.      \sa selection(), clearSelection() */
 end_comment
 begin_function
 DECL|function|setSelected

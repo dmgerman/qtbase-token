@@ -736,10 +736,10 @@ begin_comment
 comment|/*!     \fn void QDBusPendingCall::swap(QDBusPendingCall&other)     \since 5.0      Swaps this pending call instance with \a other. This function is     very fast and never fails. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QDBusPendingCallWatcher::isFinished() const      Returns true if the pending call has finished processing and the     reply has been received.      Note that this function only changes state if you call     waitForFinished() or if an external D-Bus event happens, which in     general only happens if you return to the event loop execution.      \sa QDBusPendingReply::isFinished() */
+comment|/*!     \fn bool QDBusPendingCallWatcher::isFinished() const      Returns \c true if the pending call has finished processing and the     reply has been received.      Note that this function only changes state if you call     waitForFinished() or if an external D-Bus event happens, which in     general only happens if you return to the event loop execution.      \sa QDBusPendingReply::isFinished() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QDBusPendingReply::isFinished() const      Returns true if the pending call has finished processing and the     reply has been received. If this function returns true, the     isError(), error() and reply() methods should return valid     information.      Note that this function only changes state if you call     waitForFinished() or if an external D-Bus event happens, which in     general only happens if you return to the event loop execution.      \sa QDBusPendingCallWatcher::isFinished() */
+comment|/*!     \fn bool QDBusPendingReply::isFinished() const      Returns \c true if the pending call has finished processing and the     reply has been received. If this function returns \c true, the     isError(), error() and reply() methods should return valid     information.      Note that this function only changes state if you call     waitForFinished() or if an external D-Bus event happens, which in     general only happens if you return to the event loop execution.      \sa QDBusPendingCallWatcher::isFinished() */
 end_comment
 begin_function
 DECL|function|isFinished
@@ -802,7 +802,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QDBusPendingReply::isValid() const      Returns true if the reply contains a normal reply message, false     if it contains anything else.      If the pending call has not finished processing, this function     return false. */
+comment|/*!     \fn bool QDBusPendingReply::isValid() const      Returns \c true if the reply contains a normal reply message, false     if it contains anything else.      If the pending call has not finished processing, this function     return false. */
 end_comment
 begin_function
 DECL|function|isValid
@@ -845,7 +845,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QDBusPendingReply::isError() const      Returns true if the reply contains an error message, false if it     contains a normal method reply.      If the pending call has not finished processing, this function     also returns true. */
+comment|/*!     \fn bool QDBusPendingReply::isError() const      Returns \c true if the reply contains an error message, false if it     contains a normal method reply.      If the pending call has not finished processing, this function     also returns \c true. */
 end_comment
 begin_function
 DECL|function|isError
@@ -992,7 +992,7 @@ directive|if
 literal|0
 end_if
 begin_comment
-comment|/*!     Sets the slot \a member in object \a target to be called when the     reply arrives. The slot's parameter list must match the reply     message's arguments for it to be called.      It may, optionally, contain a QDBusMessage final parameter. If it     is present, the parameter will contain the reply message object.      The callback will not be called if the reply is an error message.      This function returns true if it could set the callback, false     otherwise. It is not a guarantee that the callback will be     called.      \warning QDBusPendingCall only supports one callback per pending              asynchronous call, even if multiple QDBusPendingCall              objects are referencing the same pending call. */
+comment|/*!     Sets the slot \a member in object \a target to be called when the     reply arrives. The slot's parameter list must match the reply     message's arguments for it to be called.      It may, optionally, contain a QDBusMessage final parameter. If it     is present, the parameter will contain the reply message object.      The callback will not be called if the reply is an error message.      This function returns \c true if it could set the callback, false     otherwise. It is not a guarantee that the callback will be     called.      \warning QDBusPendingCall only supports one callback per pending              asynchronous call, even if multiple QDBusPendingCall              objects are referencing the same pending call. */
 end_comment
 begin_endif
 unit|bool QDBusPendingCall::setReplyCallback(QObject *target, const char *member) {     if (!d)         return false;      return d->setReplyCallback(target, member); }

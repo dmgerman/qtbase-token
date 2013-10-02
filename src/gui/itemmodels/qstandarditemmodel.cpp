@@ -5021,10 +5021,10 @@ begin_comment
 comment|/*!     \fn void QStandardItem::appendColumn(const QList<QStandardItem*>&items)      Appends a column containing \a items. If necessary, the row count is     increased to the size of \a items.      \sa insertColumn() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QStandardItemModel::insertRow(int row, const QModelIndex&parent)      Inserts a single row before the given \a row in the child items of the     \a parent specified. Returns true if the row is inserted; otherwise     returns false.      \sa insertRows(), insertColumn(), removeRow() */
+comment|/*!     \fn bool QStandardItemModel::insertRow(int row, const QModelIndex&parent)      Inserts a single row before the given \a row in the child items of the     \a parent specified. Returns \c true if the row is inserted; otherwise     returns \c false.      \sa insertRows(), insertColumn(), removeRow() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QStandardItemModel::insertColumn(int column, const QModelIndex&parent)      Inserts a single column before the given \a column in the child items of     the \a parent specified. Returns true if the column is inserted; otherwise     returns false.      \sa insertColumns(), insertRow(), removeColumn() */
+comment|/*!     \fn bool QStandardItemModel::insertColumn(int column, const QModelIndex&parent)      Inserts a single column before the given \a column in the child items of     the \a parent specified. Returns \c true if the column is inserted; otherwise     returns \c false.      \sa insertColumns(), insertRow(), removeColumn() */
 end_comment
 begin_comment
 comment|/*!     \fn QStandardItem::insertRow(int row, QStandardItem *item)     \overload      Inserts a row at \a row containing \a item.      When building a list or a tree that has only one column, this function     provides a convenient way to insert a single new item. */
@@ -5465,7 +5465,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this item has any children; otherwise returns false.      \sa rowCount(), columnCount(), child() */
+comment|/*!     Returns \c true if this item has any children; otherwise returns \c false.      \sa rowCount(), columnCount(), child() */
 end_comment
 begin_function
 DECL|function|hasChildren
@@ -6077,7 +6077,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this item is less than \a other; otherwise returns false.      The default implementation uses the data for the item's sort role (see     QStandardItemModel::sortRole) to perform the comparison if the item     belongs to a model; otherwise, the data for the item's Qt::DisplayRole     (text()) is used to perform the comparison.      sortChildren() and QStandardItemModel::sort() use this function when     sorting items. If you want custom sorting, you can subclass QStandardItem     and reimplement this function. */
+comment|/*!     Returns \c true if this item is less than \a other; otherwise returns \c false.      The default implementation uses the data for the item's sort role (see     QStandardItemModel::sortRole) to perform the comparison if the item     belongs to a model; otherwise, the data for the item's Qt::DisplayRole     (text()) is used to perform the comparison.      sortChildren() and QStandardItemModel::sort() use this function when     sorting items. If you want custom sorting, you can subclass QStandardItem     and reimplement this function. */
 end_comment
 begin_function
 DECL|function|operator <

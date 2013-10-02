@@ -1393,7 +1393,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal      Fixes the current text so that it is valid given any set validators.      Returns true if the text was changed.  Otherwise returns false. */
+comment|/*!     \internal      Fixes the current text so that it is valid given any set validators.      Returns \c true if the text was changed.  Otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|fixup
@@ -4987,7 +4987,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal      Returns true if the given text \a str is valid for any     validator or input mask set for the line control.      Otherwise returns false */
+comment|/*!     \internal      Returns \c true if the given text \a str is valid for any     validator or input mask set for the line control.      Otherwise returns \c false */
 end_comment
 begin_function
 DECL|function|hasAcceptableInput

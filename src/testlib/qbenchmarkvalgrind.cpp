@@ -49,7 +49,7 @@ file|<QtTest/private/callgrind_p.h>
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
-comment|// Returns true iff a sufficiently recent valgrind is available.
+comment|// Returns \c true iff a sufficiently recent valgrind is available.
 DECL|function|haveValgrind
 name|bool
 name|QBenchmarkValgrindUtils
@@ -219,7 +219,7 @@ begin_comment
 comment|// Reruns this program through callgrind.
 end_comment
 begin_comment
-comment|// Returns true upon success, otherwise false.
+comment|// Returns \c true upon success, otherwise false.
 end_comment
 begin_function
 DECL|function|rerunThroughCallgrind
@@ -821,7 +821,7 @@ begin_comment
 comment|// current directory.
 end_comment
 begin_comment
-comment|// Returns true upon success, otherwise false.
+comment|// Returns \c true upon success, otherwise false.
 end_comment
 begin_function
 DECL|function|runCallgrindSubProcess

@@ -69,7 +69,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     Loads the picture stored in the file called \a fileName, with the     given \a format, into *\a picture. Returns true on success;     otherwise returns false.      \sa savePicture() */
+comment|/*!     Loads the picture stored in the file called \a fileName, with the     given \a format, into *\a picture. Returns \c true on success;     otherwise returns \c false.      \sa savePicture() */
 end_comment
 begin_function
 DECL|function|loadPicture
@@ -111,7 +111,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Saves the given \a picture into the file called \a fileName,     using the specified \a format. Returns true on success; otherwise     returns false.      \sa loadPicture() */
+comment|/*!     Saves the given \a picture into the file called \a fileName,     using the specified \a format. Returns \c true on success; otherwise     returns \c false.      \sa loadPicture() */
 end_comment
 begin_function
 DECL|function|savePicture

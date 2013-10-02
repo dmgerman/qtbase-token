@@ -2974,7 +2974,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if attribute \a attribute is set;   otherwise returns false.    \sa setAttribute()  */
+comment|/*!   Returns \c true if attribute \a attribute is set;   otherwise returns \c false.    \sa setAttribute()  */
 end_comment
 begin_function
 DECL|function|testAttribute
@@ -3005,10 +3005,10 @@ directive|ifndef
 name|QT_NO_QOBJECT
 end_ifndef
 begin_comment
-comment|/*!     \property QCoreApplication::quitLockEnabled      Returns true if the use of the QEventLoopLocker feature can cause the     application to quit, otherwise returns false.      \sa QEventLoopLocker */
+comment|/*!     \property QCoreApplication::quitLockEnabled      Returns \c true if the use of the QEventLoopLocker feature can cause the     application to quit, otherwise returns \c false.      \sa QEventLoopLocker */
 end_comment
 begin_comment
-comment|/*!     Returns true if the use of the QEventLoopLocker feature can cause the     application to quit, otherwise returns false.      \sa QEventLoopLocker  */
+comment|/*!     Returns \c true if the use of the QEventLoopLocker feature can cause the     application to quit, otherwise returns \c false.      \sa QEventLoopLocker  */
 end_comment
 begin_function
 DECL|function|isQuitLockEnabled
@@ -3139,7 +3139,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Sends \a event to \a receiver: \a {receiver}->event(\a event).   Returns the value that is returned from the receiver's event   handler. Note that this function is called for all events sent to   any object in any thread.    For certain types of events (e.g. mouse and key events),   the event will be propagated to the receiver's parent and so on up to   the top-level object if the receiver is not interested in the event   (i.e., it returns false).    There are five different ways that events can be processed;   reimplementing this virtual function is just one of them. All five   approaches are listed below:   \list 1   \li Reimplementing paintEvent(), mousePressEvent() and so   on. This is the commonest, easiest and least powerful way.    \li Reimplementing this function. This is very powerful, providing   complete control; but only one subclass can be active at a time.    \li Installing an event filter on QCoreApplication::instance(). Such   an event filter is able to process all events for all widgets, so   it's just as powerful as reimplementing notify(); furthermore, it's   possible to have more than one application-global event filter.   Global event filters even see mouse events for   \l{QWidget::isEnabled()}{disabled widgets}. Note that application   event filters are only called for objects that live in the main   thread.    \li Reimplementing QObject::event() (as QWidget does). If you do   this you get Tab key presses, and you get to see the events before   any widget-specific event filters.    \li Installing an event filter on the object. Such an event filter gets all   the events, including Tab and Shift+Tab key press events, as long as they   do not change the focus widget.   \endlist    \sa QObject::event(), installNativeEventFilter() */
+comment|/*!   Sends \a event to \a receiver: \a {receiver}->event(\a event).   Returns the value that is returned from the receiver's event   handler. Note that this function is called for all events sent to   any object in any thread.    For certain types of events (e.g. mouse and key events),   the event will be propagated to the receiver's parent and so on up to   the top-level object if the receiver is not interested in the event   (i.e., it returns \c false).    There are five different ways that events can be processed;   reimplementing this virtual function is just one of them. All five   approaches are listed below:   \list 1   \li Reimplementing paintEvent(), mousePressEvent() and so   on. This is the commonest, easiest and least powerful way.    \li Reimplementing this function. This is very powerful, providing   complete control; but only one subclass can be active at a time.    \li Installing an event filter on QCoreApplication::instance(). Such   an event filter is able to process all events for all widgets, so   it's just as powerful as reimplementing notify(); furthermore, it's   possible to have more than one application-global event filter.   Global event filters even see mouse events for   \l{QWidget::isEnabled()}{disabled widgets}. Note that application   event filters are only called for objects that live in the main   thread.    \li Reimplementing QObject::event() (as QWidget does). If you do   this you get Tab key presses, and you get to see the events before   any widget-specific event filters.    \li Installing an event filter on the object. Such an event filter gets all   the events, including Tab and Shift+Tab key press events, as long as they   do not change the focus widget.   \endlist    \sa QObject::event(), installNativeEventFilter() */
 end_comment
 begin_function
 DECL|function|notify
@@ -3518,7 +3518,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if an application object has not been created yet;   otherwise returns false.    \sa closingDown() */
+comment|/*!   Returns \c true if an application object has not been created yet;   otherwise returns \c false.    \sa closingDown() */
 end_comment
 begin_function
 DECL|function|startingUp
@@ -3537,7 +3537,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if the application objects are being destroyed;   otherwise returns false.    \sa startingUp() */
+comment|/*!   Returns \c true if the application objects are being destroyed;   otherwise returns \c false.    \sa startingUp() */
 end_comment
 begin_function
 DECL|function|closingDown
@@ -4236,7 +4236,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \internal   Returns true if \a event was compressed away (possibly deleted) and should not be added to the list. */
+comment|/*!   \internal   Returns \c true if \a event was compressed away (possibly deleted) and should not be added to the list. */
 end_comment
 begin_function
 DECL|function|compressEvent
@@ -5947,7 +5947,7 @@ directive|ifndef
 name|QT_NO_TRANSLATION
 end_ifndef
 begin_comment
-comment|/*!     Adds the translation file \a translationFile to the list of     translation files to be used for translations.      Multiple translation files can be installed. Translations are     searched for in the reverse order in which they were installed,     so the most recently installed translation file is searched first     and the first translation file installed is searched last.     The search stops as soon as a translation containing a matching     string is found.      Installing or removing a QTranslator, or changing an installed QTranslator     generates a \l{QEvent::LanguageChange}{LanguageChange} event for the     QCoreApplication instance. A QApplication instance will propagate the event     to all toplevel windows, where a reimplementation of changeEvent can     re-translate the user interface by passing user-visible strings via the     tr() function to the respective property setters. User-interface classes     generated by Qt Designer provide a \c retranslateUi() function that can be     called.      The function returns true on success and false on failure.      \sa removeTranslator(), translate(), QTranslator::load(), {Dynamic Translation} */
+comment|/*!     Adds the translation file \a translationFile to the list of     translation files to be used for translations.      Multiple translation files can be installed. Translations are     searched for in the reverse order in which they were installed,     so the most recently installed translation file is searched first     and the first translation file installed is searched last.     The search stops as soon as a translation containing a matching     string is found.      Installing or removing a QTranslator, or changing an installed QTranslator     generates a \l{QEvent::LanguageChange}{LanguageChange} event for the     QCoreApplication instance. A QApplication instance will propagate the event     to all toplevel windows, where a reimplementation of changeEvent can     re-translate the user interface by passing user-visible strings via the     tr() function to the respective property setters. User-interface classes     generated by Qt Designer provide a \c retranslateUi() function that can be     called.      The function returns \c true on success and false on failure.      \sa removeTranslator(), translate(), QTranslator::load(), {Dynamic Translation} */
 end_comment
 begin_function
 DECL|function|installTranslator
@@ -6044,7 +6044,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Removes the translation file \a translationFile from the list of     translation files used by this application. (It does not delete the     translation file from the file system.)      The function returns true on success and false on failure.      \sa installTranslator(), translate(), QObject::tr() */
+comment|/*!     Removes the translation file \a translationFile from the list of     translation files used by this application. (It does not delete the     translation file from the file system.)      The function returns \c true on success and false on failure.      \sa installTranslator(), translate(), QObject::tr() */
 end_comment
 begin_function
 DECL|function|removeTranslator
@@ -8479,7 +8479,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     This function returns true if there are pending events; otherwise     returns false. Pending events can be either from the window     system or posted events using postEvent().      \sa QAbstractEventDispatcher::hasPendingEvents() */
+comment|/*!     This function returns \c true if there are pending events; otherwise     returns \c false. Pending events can be either from the window     system or posted events using postEvent().      \sa QAbstractEventDispatcher::hasPendingEvents() */
 end_comment
 begin_function
 DECL|function|hasPendingEvents

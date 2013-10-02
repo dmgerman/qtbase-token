@@ -532,7 +532,7 @@ begin_comment
 comment|/*!     \fn void QNetworkConfiguration::swap(QNetworkConfiguration&other)     \since 5.0      Swaps this network configuration with \a other. This function is     very fast and never fails. */
 end_comment
 begin_comment
-comment|/*!     Returns true, if this configuration is the same as the \a other     configuration given; otherwise returns false. */
+comment|/*!     Returns \c true, if this configuration is the same as the \a other     configuration given; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -561,7 +561,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QNetworkConfiguration::operator!=(const QNetworkConfiguration&other) const      Returns true if this configuration is not the same as the \a other     configuration given; otherwise returns false. */
+comment|/*!     \fn bool QNetworkConfiguration::operator!=(const QNetworkConfiguration&other) const      Returns \c true if this configuration is not the same as the \a other     configuration given; otherwise returns \c false. */
 end_comment
 begin_comment
 comment|/*!     Returns the user visible name of this configuration.      The name may either be the name of the underlying access point or the     name for service network that this configuration represents. */
@@ -678,7 +678,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this QNetworkConfiguration object is valid.     A configuration may become invalid if the user deletes the configuration or     the configuration was default-constructed.      The addition and removal of configurations can be monitored via the     QNetworkConfigurationManager.      \sa QNetworkConfigurationManager */
+comment|/*!     Returns \c true if this QNetworkConfiguration object is valid.     A configuration may become invalid if the user deletes the configuration or     the configuration was default-constructed.      The addition and removal of configurations can be monitored via the     QNetworkConfigurationManager.      \sa QNetworkConfigurationManager */
 end_comment
 begin_function
 DECL|function|isValid
@@ -794,7 +794,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this configuration supports roaming; otherwise false. */
+comment|/*!     Returns \c true if this configuration supports roaming; otherwise false. */
 end_comment
 begin_function
 DECL|function|isRoamingAvailable

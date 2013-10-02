@@ -1851,13 +1851,13 @@ return|;
 block|}
 end_function
 begin_comment
-comment|// Returns true if the method defined by the given meta-object&handle
+comment|// Returns \c true if the method defined by the given meta-object&handle
 end_comment
 begin_comment
 comment|// matches the given name, argument count and argument types, otherwise
 end_comment
 begin_comment
-comment|// returns false.
+comment|// returns \c false.
 end_comment
 begin_function
 DECL|function|methodMatch
@@ -3637,7 +3637,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal      Returns true if the \a signalTypes and \a methodTypes are     compatible; otherwise returns false. */
+comment|/*!     \internal      Returns \c true if the \a signalTypes and \a methodTypes are     compatible; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|checkConnectArgs
@@ -3709,7 +3709,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal      Returns true if the \a signal and \a method arguments are     compatible; otherwise returns false. */
+comment|/*!     \internal      Returns \c true if the \a signal and \a method arguments are     compatible; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|checkConnectArgs
@@ -5272,7 +5272,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the \a signal and \a method arguments are     compatible; otherwise returns false.      Both \a signal and \a method are expected to be normalized.      \sa normalizedSignature() */
+comment|/*!     Returns \c true if the \a signal and \a method arguments are     compatible; otherwise returns \c false.      Both \a signal and \a method are expected to be normalized.      \sa normalizedSignature() */
 end_comment
 begin_function
 DECL|function|checkConnectArgs
@@ -5400,7 +5400,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.0     \overload      Returns true if the \a signal and \a method arguments are     compatible; otherwise returns false. */
+comment|/*!     \since 5.0     \overload      Returns \c true if the \a signal and \a method arguments are     compatible; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|checkConnectArgs
@@ -5923,7 +5923,7 @@ DECL|enumerator|MaximumParamCount
 comment|// up to 10 arguments + 1 return value
 end_comment
 begin_comment
-comment|/*!     Invokes the \a member (a signal or a slot name) on the object \a     obj. Returns true if the member could be invoked. Returns false     if there is no such member or the parameters did not match.      The invocation can be either synchronous or asynchronous,     depending on \a type:      \list     \li If \a type is Qt::DirectConnection, the member will be invoked immediately.      \li If \a type is Qt::QueuedConnection,        a QEvent will be sent and the member is invoked as soon as the application        enters the main event loop.      \li If \a type is Qt::BlockingQueuedConnection, the method will be invoked in        the same way as for Qt::QueuedConnection, except that the current thread        will block until the event is delivered. Using this connection type to        communicate between objects in the same thread will lead to deadlocks.      \li If \a type is Qt::AutoConnection, the member is invoked        synchronously if \a obj lives in the same thread as the        caller; otherwise it will invoke the member asynchronously.     \endlist      The return value of the \a member function call is placed in \a     ret. If the invocation is asynchronous, the return value cannot     be evaluated. You can pass up to ten arguments (\a val0, \a val1,     \a val2, \a val3, \a val4, \a val5, \a val6, \a val7, \a val8,     and \a val9) to the \a member function.      QGenericArgument and QGenericReturnArgument are internal     helper classes. Because signals and slots can be dynamically     invoked, you must enclose the arguments using the Q_ARG() and     Q_RETURN_ARG() macros. Q_ARG() takes a type name and a     const reference of that type; Q_RETURN_ARG() takes a type name     and a non-const reference.      You only need to pass the name of the signal or slot to this function,     not the entire signature. For example, to asynchronously invoke     the \l{QThread::quit()}{quit()} slot on a     QThread, use the following code:      \snippet code/src_corelib_kernel_qmetaobject.cpp 2      With asynchronous method invocations, the parameters must be of     types that are known to Qt's meta-object system, because Qt needs     to copy the arguments to store them in an event behind the     scenes. If you try to use a queued connection and get the error     message      \snippet code/src_corelib_kernel_qmetaobject.cpp 3      call qRegisterMetaType() to register the data type before you     call invokeMethod().      To synchronously invoke the \c compute(QString, int, double) slot on     some arbitrary object \c obj retrieve its return value:      \snippet code/src_corelib_kernel_qmetaobject.cpp 4      If the "compute" slot does not take exactly one QString, one int     and one double in the specified order, the call will fail.      \sa Q_ARG(), Q_RETURN_ARG(), qRegisterMetaType(), QMetaMethod::invoke() */
+comment|/*!     Invokes the \a member (a signal or a slot name) on the object \a     obj. Returns \c true if the member could be invoked. Returns \c false     if there is no such member or the parameters did not match.      The invocation can be either synchronous or asynchronous,     depending on \a type:      \list     \li If \a type is Qt::DirectConnection, the member will be invoked immediately.      \li If \a type is Qt::QueuedConnection,        a QEvent will be sent and the member is invoked as soon as the application        enters the main event loop.      \li If \a type is Qt::BlockingQueuedConnection, the method will be invoked in        the same way as for Qt::QueuedConnection, except that the current thread        will block until the event is delivered. Using this connection type to        communicate between objects in the same thread will lead to deadlocks.      \li If \a type is Qt::AutoConnection, the member is invoked        synchronously if \a obj lives in the same thread as the        caller; otherwise it will invoke the member asynchronously.     \endlist      The return value of the \a member function call is placed in \a     ret. If the invocation is asynchronous, the return value cannot     be evaluated. You can pass up to ten arguments (\a val0, \a val1,     \a val2, \a val3, \a val4, \a val5, \a val6, \a val7, \a val8,     and \a val9) to the \a member function.      QGenericArgument and QGenericReturnArgument are internal     helper classes. Because signals and slots can be dynamically     invoked, you must enclose the arguments using the Q_ARG() and     Q_RETURN_ARG() macros. Q_ARG() takes a type name and a     const reference of that type; Q_RETURN_ARG() takes a type name     and a non-const reference.      You only need to pass the name of the signal or slot to this function,     not the entire signature. For example, to asynchronously invoke     the \l{QThread::quit()}{quit()} slot on a     QThread, use the following code:      \snippet code/src_corelib_kernel_qmetaobject.cpp 2      With asynchronous method invocations, the parameters must be of     types that are known to Qt's meta-object system, because Qt needs     to copy the arguments to store them in an event behind the     scenes. If you try to use a queued connection and get the error     message      \snippet code/src_corelib_kernel_qmetaobject.cpp 3      call qRegisterMetaType() to register the data type before you     call invokeMethod().      To synchronously invoke the \c compute(QString, int, double) slot on     some arbitrary object \c obj retrieve its return value:      \snippet code/src_corelib_kernel_qmetaobject.cpp 4      If the "compute" slot does not take exactly one QString, one int     and one double in the specified order, the call will fail.      \sa Q_ARG(), Q_RETURN_ARG(), qRegisterMetaType(), QMetaMethod::invoke() */
 end_comment
 begin_function
 DECL|function|invokeMethod
@@ -6329,13 +6329,13 @@ begin_comment
 comment|/*!     \enum QMetaMethod::Attributes      \internal      \value Compatibility     \value Cloned     \value Scriptable */
 end_comment
 begin_comment
-comment|/*!     \fn bool QMetaMethod::isValid() const     \since 5.0      Returns true if this method is valid (can be introspected and     invoked), otherwise returns false. */
+comment|/*!     \fn bool QMetaMethod::isValid() const     \since 5.0      Returns \c true if this method is valid (can be introspected and     invoked), otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*! \fn bool operator==(const QMetaMethod&m1, const QMetaMethod&m2)     \since 5.0     \relates QMetaMethod     \overload      Returns true if method \a m1 is equal to method \a m2,     otherwise returns false. */
+comment|/*! \fn bool operator==(const QMetaMethod&m1, const QMetaMethod&m2)     \since 5.0     \relates QMetaMethod     \overload      Returns \c true if method \a m1 is equal to method \a m2,     otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*! \fn bool operator!=(const QMetaMethod&m1, const QMetaMethod&m2)     \since 5.0     \relates QMetaMethod     \overload      Returns true if method \a m1 is not equal to method \a m2,     otherwise returns false. */
+comment|/*! \fn bool operator!=(const QMetaMethod&m1, const QMetaMethod&m2)     \since 5.0     \relates QMetaMethod     \overload      Returns \c true if method \a m1 is not equal to method \a m2,     otherwise returns \c false. */
 end_comment
 begin_comment
 comment|/*!     \fn const QMetaObject *QMetaMethod::enclosingMetaObject() const     \internal */
@@ -7955,7 +7955,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Invokes this method on the object \a object. Returns true if the member could be invoked.     Returns false if there is no such member or the parameters did not match.      The invocation can be either synchronous or asynchronous, depending on the     \a connectionType:      \list     \li If \a connectionType is Qt::DirectConnection, the member will be invoked immediately.      \li If \a connectionType is Qt::QueuedConnection,        a QEvent will be posted and the member is invoked as soon as the application        enters the main event loop.      \li If \a connectionType is Qt::AutoConnection, the member is invoked        synchronously if \a object lives in the same thread as the        caller; otherwise it will invoke the member asynchronously.     \endlist      The return value of this method call is placed in \a     returnValue. If the invocation is asynchronous, the return value cannot     be evaluated. You can pass up to ten arguments (\a val0, \a val1,     \a val2, \a val3, \a val4, \a val5, \a val6, \a val7, \a val8,     and \a val9) to this method call.      QGenericArgument and QGenericReturnArgument are internal     helper classes. Because signals and slots can be dynamically     invoked, you must enclose the arguments using the Q_ARG() and     Q_RETURN_ARG() macros. Q_ARG() takes a type name and a     const reference of that type; Q_RETURN_ARG() takes a type name     and a non-const reference.      To asynchronously invoke the     \l{QPushButton::animateClick()}{animateClick()} slot on a     QPushButton:      \snippet code/src_corelib_kernel_qmetaobject.cpp 6      With asynchronous method invocations, the parameters must be of     types that are known to Qt's meta-object system, because Qt needs     to copy the arguments to store them in an event behind the     scenes. If you try to use a queued connection and get the error     message      \snippet code/src_corelib_kernel_qmetaobject.cpp 7      call qRegisterMetaType() to register the data type before you     call QMetaMethod::invoke().      To synchronously invoke the \c compute(QString, int, double) slot on     some arbitrary object \c obj retrieve its return value:      \snippet code/src_corelib_kernel_qmetaobject.cpp 8      QMetaObject::normalizedSignature() is used here to ensure that the format     of the signature is what invoke() expects.  E.g. extra whitespace is     removed.      If the "compute" slot does not take exactly one QString, one int     and one double in the specified order, the call will fail.      \warning this method will not test the validity of the arguments: \a object     must be an instance of the class of the QMetaObject of which this QMetaMethod     has been constructed with.  The arguments must have the same type as the ones     expected by the method, else, the behaviour is undefined.      \sa Q_ARG(), Q_RETURN_ARG(), qRegisterMetaType(), QMetaObject::invokeMethod() */
+comment|/*!     Invokes this method on the object \a object. Returns \c true if the member could be invoked.     Returns \c false if there is no such member or the parameters did not match.      The invocation can be either synchronous or asynchronous, depending on the     \a connectionType:      \list     \li If \a connectionType is Qt::DirectConnection, the member will be invoked immediately.      \li If \a connectionType is Qt::QueuedConnection,        a QEvent will be posted and the member is invoked as soon as the application        enters the main event loop.      \li If \a connectionType is Qt::AutoConnection, the member is invoked        synchronously if \a object lives in the same thread as the        caller; otherwise it will invoke the member asynchronously.     \endlist      The return value of this method call is placed in \a     returnValue. If the invocation is asynchronous, the return value cannot     be evaluated. You can pass up to ten arguments (\a val0, \a val1,     \a val2, \a val3, \a val4, \a val5, \a val6, \a val7, \a val8,     and \a val9) to this method call.      QGenericArgument and QGenericReturnArgument are internal     helper classes. Because signals and slots can be dynamically     invoked, you must enclose the arguments using the Q_ARG() and     Q_RETURN_ARG() macros. Q_ARG() takes a type name and a     const reference of that type; Q_RETURN_ARG() takes a type name     and a non-const reference.      To asynchronously invoke the     \l{QPushButton::animateClick()}{animateClick()} slot on a     QPushButton:      \snippet code/src_corelib_kernel_qmetaobject.cpp 6      With asynchronous method invocations, the parameters must be of     types that are known to Qt's meta-object system, because Qt needs     to copy the arguments to store them in an event behind the     scenes. If you try to use a queued connection and get the error     message      \snippet code/src_corelib_kernel_qmetaobject.cpp 7      call qRegisterMetaType() to register the data type before you     call QMetaMethod::invoke().      To synchronously invoke the \c compute(QString, int, double) slot on     some arbitrary object \c obj retrieve its return value:      \snippet code/src_corelib_kernel_qmetaobject.cpp 8      QMetaObject::normalizedSignature() is used here to ensure that the format     of the signature is what invoke() expects.  E.g. extra whitespace is     removed.      If the "compute" slot does not take exactly one QString, one int     and one double in the specified order, the call will fail.      \warning this method will not test the validity of the arguments: \a object     must be an instance of the class of the QMetaObject of which this QMetaMethod     has been constructed with.  The arguments must have the same type as the ones     expected by the method, else, the behaviour is undefined.      \sa Q_ARG(), Q_RETURN_ARG(), qRegisterMetaType(), QMetaObject::invokeMethod() */
 end_comment
 begin_function
 DECL|function|invoke
@@ -8864,7 +8864,7 @@ begin_comment
 comment|/*!     \class QMetaEnum     \inmodule QtCore     \brief The QMetaEnum class provides meta-data about an enumerator.      \ingroup objectmodel      Use name() for the enumerator's name. The enumerator's keys (names     of each enumerated item) are returned by key(); use keyCount() to find     the number of keys. isFlag() returns whether the enumerator is     meant to be used as a flag, meaning that its values can be combined     using the OR operator.      The conversion functions keyToValue(), valueToKey(), keysToValue(),     and valueToKeys() allow conversion between the integer     representation of an enumeration or set value and its literal     representation. The scope() function returns the class scope this     enumerator was declared in.      \sa QMetaObject, QMetaMethod, QMetaProperty */
 end_comment
 begin_comment
-comment|/*!     \fn bool QMetaEnum::isValid() const      Returns true if this enum is valid (has a name); otherwise returns     false.      \sa name() */
+comment|/*!     \fn bool QMetaEnum::isValid() const      Returns \c true if this enum is valid (has a name); otherwise returns     false.      \sa name() */
 end_comment
 begin_comment
 comment|/*!     \fn const QMetaObject *QMetaEnum::enclosingMetaObject() const     \internal */
@@ -9116,7 +9116,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this enumerator is used as a flag; otherwise returns     false.      When used as flags, enumerators can be combined using the OR     operator.      \sa keysToValue(), valueToKeys() */
+comment|/*!     Returns \c true if this enumerator is used as a flag; otherwise returns     false.      When used as flags, enumerators can be combined using the OR     operator.      \sa keysToValue(), valueToKeys() */
 end_comment
 begin_function
 DECL|function|isFlag
@@ -10091,10 +10091,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QMetaProperty     \inmodule QtCore     \brief The QMetaProperty class provides meta-data about a property.      \ingroup objectmodel      Property meta-data is obtained from an object's meta-object. See     QMetaObject::property() and QMetaObject::propertyCount() for     details.      \section1 Property Meta-Data      A property has a name() and a type(), as well as various     attributes that specify its behavior: isReadable(), isWritable(),     isDesignable(), isScriptable(), revision(), and isStored().      If the property is an enumeration, isEnumType() returns true; if the     property is an enumeration that is also a flag (i.e. its values     can be combined using the OR operator), isEnumType() and     isFlagType() both return true. The enumerator for these types is     available from enumerator().      The property's values are set and retrieved with read(), write(),     and reset(); they can also be changed through QObject's set and get     functions. See QObject::setProperty() and QObject::property() for     details.      \section1 Copying and Assignment      QMetaProperty objects can be copied by value. However, each copy will     refer to the same underlying property meta-data.      \sa QMetaObject, QMetaEnum, QMetaMethod, {Qt's Property System} */
+comment|/*!     \class QMetaProperty     \inmodule QtCore     \brief The QMetaProperty class provides meta-data about a property.      \ingroup objectmodel      Property meta-data is obtained from an object's meta-object. See     QMetaObject::property() and QMetaObject::propertyCount() for     details.      \section1 Property Meta-Data      A property has a name() and a type(), as well as various     attributes that specify its behavior: isReadable(), isWritable(),     isDesignable(), isScriptable(), revision(), and isStored().      If the property is an enumeration, isEnumType() returns \c true; if the     property is an enumeration that is also a flag (i.e. its values     can be combined using the OR operator), isEnumType() and     isFlagType() both return true. The enumerator for these types is     available from enumerator().      The property's values are set and retrieved with read(), write(),     and reset(); they can also be changed through QObject's set and get     functions. See QObject::setProperty() and QObject::property() for     details.      \section1 Copying and Assignment      QMetaProperty objects can be copied by value. However, each copy will     refer to the same underlying property meta-data.      \sa QMetaObject, QMetaEnum, QMetaMethod, {Qt's Property System} */
 end_comment
 begin_comment
-comment|/*!     \fn bool QMetaProperty::isValid() const      Returns true if this property is valid (readable); otherwise     returns false.      \sa isReadable() */
+comment|/*!     \fn bool QMetaProperty::isValid() const      Returns \c true if this property is valid (readable); otherwise     returns \c false.      \sa isReadable() */
 end_comment
 begin_comment
 comment|/*!     \fn const QMetaObject *QMetaProperty::enclosingMetaObject() const     \internal */
@@ -10633,7 +10633,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the property's type is an enumeration value that     is used as a flag; otherwise returns false.      Flags can be combined using the OR operator. A flag type is     implicitly also an enum type.      \sa isEnumType(), enumerator(), QMetaEnum::isFlag() */
+comment|/*!     Returns \c true if the property's type is an enumeration value that     is used as a flag; otherwise returns \c false.      Flags can be combined using the OR operator. A flag type is     implicitly also an enum type.      \sa isEnumType(), enumerator(), QMetaEnum::isFlag() */
 end_comment
 begin_function
 DECL|function|isFlagType
@@ -10656,7 +10656,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the property's type is an enumeration value;     otherwise returns false.      \sa enumerator(), isFlagType() */
+comment|/*!     Returns \c true if the property's type is an enumeration value;     otherwise returns \c false.      \sa enumerator(), isFlagType() */
 end_comment
 begin_function
 DECL|function|isEnumType
@@ -10722,7 +10722,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal      Returns true if the property has a C++ setter function that     follows Qt's standard "name" / "setName" pattern. Designer and uic     query hasStdCppSet() in order to avoid expensive     QObject::setProperty() calls. All properties in Qt [should] follow     this pattern. */
+comment|/*!     \internal      Returns \c true if the property has a C++ setter function that     follows Qt's standard "name" / "setName" pattern. Designer and uic     query hasStdCppSet() in order to avoid expensive     QObject::setProperty() calls. All properties in Qt [should] follow     this pattern. */
 end_comment
 begin_function
 DECL|function|hasStdCppSet
@@ -11199,7 +11199,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Writes \a value as the property's value to the given \a object. Returns     true if the write succeeded; otherwise returns false.      \sa read(), reset(), isWritable() */
+comment|/*!     Writes \a value as the property's value to the given \a object. Returns     true if the write succeeded; otherwise returns \c false.      \sa read(), reset(), isWritable() */
 end_comment
 begin_function
 DECL|function|write
@@ -11701,7 +11701,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Resets the property for the given \a object with a reset method.     Returns true if the reset worked; otherwise returns false.      Reset methods are optional; only a few properties support them.      \sa read(), write() */
+comment|/*!     Resets the property for the given \a object with a reset method.     Returns \c true if the reset worked; otherwise returns \c false.      Reset methods are optional; only a few properties support them.      \sa read(), write() */
 end_comment
 begin_function
 DECL|function|reset
@@ -11766,7 +11766,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this property can be reset to a default value; otherwise     returns false.      \sa reset() */
+comment|/*!     Returns \c true if this property can be reset to a default value; otherwise     returns \c false.      \sa reset() */
 end_comment
 begin_function
 DECL|function|isResettable
@@ -11807,7 +11807,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this property is readable; otherwise returns false.      \sa isWritable(), read(), isValid()  */
+comment|/*!     Returns \c true if this property is readable; otherwise returns \c false.      \sa isWritable(), read(), isValid()  */
 end_comment
 begin_function
 DECL|function|isReadable
@@ -11848,7 +11848,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this property has a corresponding change notify signal;     otherwise returns false.      \sa notifySignal()  */
+comment|/*!     Returns \c true if this property has a corresponding change notify signal;     otherwise returns \c false.      \sa notifySignal()  */
 end_comment
 begin_function
 DECL|function|hasNotifySignal
@@ -12169,7 +12169,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this property is writable; otherwise returns     false.      \sa isReadable(), write()  */
+comment|/*!     Returns \c true if this property is writable; otherwise returns     false.      \sa isReadable(), write()  */
 end_comment
 begin_function
 DECL|function|isWritable
@@ -12210,7 +12210,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this property is designable for the given \a object;     otherwise returns false.      If no \a object is given, the function returns false if the     \c{Q_PROPERTY()}'s \c DESIGNABLE attribute is false; otherwise     returns true (if the attribute is true or is a function or expression).      \sa isScriptable(), isStored() */
+comment|/*!     Returns \c true if this property is designable for the given \a object;     otherwise returns \c false.      If no \a object is given, the function returns \c false if the     \c{Q_PROPERTY()}'s \c DESIGNABLE attribute is false; otherwise     returns \c true (if the attribute is true or is a function or expression).      \sa isScriptable(), isStored() */
 end_comment
 begin_function
 DECL|function|isDesignable
@@ -12304,7 +12304,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the property is scriptable for the given \a object;     otherwise returns false.      If no \a object is given, the function returns false if the     \c{Q_PROPERTY()}'s \c SCRIPTABLE attribute is false; otherwise returns     true (if the attribute is true or is a function or expression).      \sa isDesignable(), isStored() */
+comment|/*!     Returns \c true if the property is scriptable for the given \a object;     otherwise returns \c false.      If no \a object is given, the function returns \c false if the     \c{Q_PROPERTY()}'s \c SCRIPTABLE attribute is false; otherwise returns     true (if the attribute is true or is a function or expression).      \sa isDesignable(), isStored() */
 end_comment
 begin_function
 DECL|function|isScriptable
@@ -12398,7 +12398,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the property is stored for \a object; otherwise returns     false.      If no \a object is given, the function returns false if the     \c{Q_PROPERTY()}'s \c STORED attribute is false; otherwise returns     true (if the attribute is true or is a function or expression).      \sa isDesignable(), isScriptable() */
+comment|/*!     Returns \c true if the property is stored for \a object; otherwise returns     false.      If no \a object is given, the function returns \c false if the     \c{Q_PROPERTY()}'s \c STORED attribute is false; otherwise returns     true (if the attribute is true or is a function or expression).      \sa isDesignable(), isScriptable() */
 end_comment
 begin_function
 DECL|function|isStored
@@ -12492,7 +12492,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this property is designated as the \c USER     property, i.e., the one that the user can edit for \a object or     that is significant in some other way.  Otherwise it returns     false. e.g., the \c text property is the \c USER editable property     of a QLineEdit.      If \a object is null, the function returns false if the \c     {Q_PROPERTY()}'s \c USER attribute is false. Otherwise it returns     true.      \sa QMetaObject::userProperty(), isDesignable(), isScriptable() */
+comment|/*!     Returns \c true if this property is designated as the \c USER     property, i.e., the one that the user can edit for \a object or     that is significant in some other way.  Otherwise it returns     false. e.g., the \c text property is the \c USER editable property     of a QLineEdit.      If \a object is null, the function returns \c false if the \c     {Q_PROPERTY()}'s \c USER attribute is false. Otherwise it returns     true.      \sa QMetaObject::userProperty(), isDesignable(), isScriptable() */
 end_comment
 begin_function
 DECL|function|isUser
@@ -12586,7 +12586,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.6     Returns true if the property is constant; otherwise returns false.      A property is constant if the \c{Q_PROPERTY()}'s \c CONSTANT attribute     is set. */
+comment|/*!     \since 4.6     Returns \c true if the property is constant; otherwise returns \c false.      A property is constant if the \c{Q_PROPERTY()}'s \c CONSTANT attribute     is set. */
 end_comment
 begin_function
 DECL|function|isConstant
@@ -12627,7 +12627,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.6     Returns true if the property is final; otherwise returns false.      A property is final if the \c{Q_PROPERTY()}'s \c FINAL attribute     is set. */
+comment|/*!     \since 4.6     Returns \c true if the property is final; otherwise returns \c false.      A property is final if the \c{Q_PROPERTY()}'s \c FINAL attribute     is set. */
 end_comment
 begin_function
 DECL|function|isFinal
@@ -12668,7 +12668,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \obsolete      Returns true if the property is editable for the given \a object;     otherwise returns false.      If no \a object is given, the function returns false if the     \c{Q_PROPERTY()}'s \c EDITABLE attribute is false; otherwise returns     true (if the attribute is true or is a function or expression).      \sa isDesignable(), isScriptable(), isStored() */
+comment|/*!     \obsolete      Returns \c true if the property is editable for the given \a object;     otherwise returns \c false.      If no \a object is given, the function returns \c false if the     \c{Q_PROPERTY()}'s \c EDITABLE attribute is false; otherwise returns     true (if the attribute is true or is a function or expression).      \sa isDesignable(), isScriptable(), isStored() */
 end_comment
 begin_function
 DECL|function|isEditable

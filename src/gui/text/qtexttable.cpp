@@ -448,7 +448,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QTextTableCell::isValid() const      Returns true if this is a valid table cell; otherwise returns     false. */
+comment|/*!     \fn bool QTextTableCell::isValid() const      Returns \c true if this is a valid table cell; otherwise returns     false. */
 end_comment
 begin_comment
 comment|/*!     Returns the first valid cursor position in this cell.      \sa lastCursorPosition() */
@@ -786,10 +786,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QTextCursor QTextTableCell::operator==(const QTextTableCell&other) const      Returns true if this cell object and the \a other cell object     describe the same cell; otherwise returns false. */
+comment|/*!     \fn QTextCursor QTextTableCell::operator==(const QTextTableCell&other) const      Returns \c true if this cell object and the \a other cell object     describe the same cell; otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*!     \fn QTextCursor QTextTableCell::operator!=(const QTextTableCell&other) const      Returns true if this cell object and the \a other cell object     describe different cells; otherwise returns false. */
+comment|/*!     \fn QTextCursor QTextTableCell::operator!=(const QTextTableCell&other) const      Returns \c true if this cell object and the \a other cell object     describe different cells; otherwise returns \c false. */
 end_comment
 begin_comment
 comment|/*!     \fn QTextTableCell::~QTextTableCell()      Destroys the table cell. */

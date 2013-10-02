@@ -9152,7 +9152,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this property has a notify signal; false otherwise.      \sa notifySignal(), setNotifySignal(), removeNotifySignal() */
+comment|/*!     Returns \c true if this property has a notify signal; false otherwise.      \sa notifySignal(), setNotifySignal(), removeNotifySignal() */
 end_comment
 begin_function
 DECL|function|hasNotifySignal
@@ -9352,7 +9352,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this property is readable; otherwise returns false.     The default value is true.      \sa setReadable(), isWritable() */
+comment|/*!     Returns \c true if this property is readable; otherwise returns \c false.     The default value is true.      \sa setReadable(), isWritable() */
 end_comment
 begin_function
 DECL|function|isReadable
@@ -9389,7 +9389,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this property is writable; otherwise returns false.     The default value is true.      \sa setWritable(), isReadable() */
+comment|/*!     Returns \c true if this property is writable; otherwise returns \c false.     The default value is true.      \sa setWritable(), isReadable() */
 end_comment
 begin_function
 DECL|function|isWritable
@@ -9426,7 +9426,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this property can be reset to a default value; otherwise     returns false.  The default value is false.      \sa setResettable() */
+comment|/*!     Returns \c true if this property can be reset to a default value; otherwise     returns \c false.  The default value is false.      \sa setResettable() */
 end_comment
 begin_function
 DECL|function|isResettable
@@ -9463,7 +9463,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this property is designable; otherwise returns false.     This default value is false.      \sa setDesignable(), isScriptable(), isStored() */
+comment|/*!     Returns \c true if this property is designable; otherwise returns \c false.     This default value is false.      \sa setDesignable(), isScriptable(), isStored() */
 end_comment
 begin_function
 DECL|function|isDesignable
@@ -9500,7 +9500,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the property is scriptable; otherwise returns false.     This default value is true.      \sa setScriptable(), isDesignable(), isStored() */
+comment|/*!     Returns \c true if the property is scriptable; otherwise returns \c false.     This default value is true.      \sa setScriptable(), isDesignable(), isStored() */
 end_comment
 begin_function
 DECL|function|isScriptable
@@ -9537,7 +9537,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the property is stored; otherwise returns false.     This default value is false.      \sa setStored(), isDesignable(), isScriptable() */
+comment|/*!     Returns \c true if the property is stored; otherwise returns \c false.     This default value is false.      \sa setStored(), isDesignable(), isScriptable() */
 end_comment
 begin_function
 DECL|function|isStored
@@ -9574,7 +9574,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the property is editable; otherwise returns false.     This default value is false.      \sa setEditable(), isDesignable(), isScriptable(), isStored() */
+comment|/*!     Returns \c true if the property is editable; otherwise returns \c false.     This default value is false.      \sa setEditable(), isDesignable(), isScriptable(), isStored() */
 end_comment
 begin_function
 DECL|function|isEditable
@@ -9611,7 +9611,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this property is designated as the \c USER     property, i.e., the one that the user can edit or that is     significant in some other way.  Otherwise it returns     false.  This default value is false.      \sa setUser(), isDesignable(), isScriptable() */
+comment|/*!     Returns \c true if this property is designated as the \c USER     property, i.e., the one that the user can edit or that is     significant in some other way.  Otherwise it returns     false.  This default value is false.      \sa setUser(), isDesignable(), isScriptable() */
 end_comment
 begin_function
 DECL|function|isUser
@@ -9648,7 +9648,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the property has a C++ setter function that     follows Qt's standard "name" / "setName" pattern. Designer and uic     query hasStdCppSet() in order to avoid expensive     QObject::setProperty() calls. All properties in Qt [should] follow     this pattern.  The default value is false.      \sa setStdCppSet() */
+comment|/*!     Returns \c true if the property has a C++ setter function that     follows Qt's standard "name" / "setName" pattern. Designer and uic     query hasStdCppSet() in order to avoid expensive     QObject::setProperty() calls. All properties in Qt [should] follow     this pattern.  The default value is false.      \sa setStdCppSet() */
 end_comment
 begin_function
 DECL|function|hasStdCppSet
@@ -9685,7 +9685,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the property is an enumerator or flag type;     otherwise returns false.  This default value is false.      \sa setEnumOrFlag() */
+comment|/*!     Returns \c true if the property is an enumerator or flag type;     otherwise returns \c false.  This default value is false.      \sa setEnumOrFlag() */
 end_comment
 begin_function
 DECL|function|isEnumOrFlag
@@ -9722,7 +9722,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the property is constant; otherwise returns false.     The default value is false. */
+comment|/*!     Returns \c true if the property is constant; otherwise returns \c false.     The default value is false. */
 end_comment
 begin_function
 DECL|function|isConstant
@@ -9759,7 +9759,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the property is final; otherwise returns false.     The default value is false. */
+comment|/*!     Returns \c true if the property is final; otherwise returns \c false.     The default value is false. */
 end_comment
 begin_function
 DECL|function|isFinal
@@ -10399,7 +10399,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this enumerator is used as a flag; otherwise returns     false.      \sa setIsFlag() */
+comment|/*!     Returns \c true if this enumerator is used as a flag; otherwise returns     false.      \sa setIsFlag() */
 end_comment
 begin_function
 DECL|function|isFlag

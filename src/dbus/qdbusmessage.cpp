@@ -2406,7 +2406,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sends the message without waiting for a reply. This is suitable     for errors, signals, and return values as well as calls whose     return values are not necessary.      Returns true if the message was queued successfully;     otherwise returns false.      \sa QDBusConnection::send() */
+comment|/*!     Sends the message without waiting for a reply. This is suitable     for errors, signals, and return values as well as calls whose     return values are not necessary.      Returns \c true if the message was queued successfully;     otherwise returns \c false.      \sa QDBusConnection::send() */
 end_comment
 begin_ifndef
 ifndef|#

@@ -7884,7 +7884,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*   Returns true if the widget \a w can be added to the layout \a l;   otherwise returns false. */
+comment|/*   Returns \c true if the widget \a w can be added to the layout \a l;   otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|checkWidget

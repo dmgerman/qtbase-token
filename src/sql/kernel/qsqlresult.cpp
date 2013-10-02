@@ -1055,7 +1055,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the result is positioned on a valid record (that     is, the result is not positioned before the first or after the     last record); otherwise returns false.      \sa at() */
+comment|/*!     Returns \c true if the result is positioned on a valid record (that     is, the result is not positioned before the first or after the     last record); otherwise returns \c false.      \sa at() */
 end_comment
 begin_function
 DECL|function|isValid
@@ -1092,10 +1092,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QSqlResult::isNull(int index)      Returns true if the field at position \a index in the current row     is null; otherwise returns false. */
+comment|/*!     \fn bool QSqlResult::isNull(int index)      Returns \c true if the field at position \a index in the current row     is null; otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*!     Returns true if the result has records to be retrieved; otherwise     returns false. */
+comment|/*!     Returns \c true if the result has records to be retrieved; otherwise     returns \c false. */
 end_comment
 begin_function
 DECL|function|isActive
@@ -1174,7 +1174,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the current result is from a \c SELECT statement;     otherwise returns false.      \sa setSelect() */
+comment|/*!     Returns \c true if the current result is from a \c SELECT statement;     otherwise returns \c false.      \sa setSelect() */
 end_comment
 begin_function
 DECL|function|isSelect
@@ -1391,7 +1391,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if you can only scroll forward through the result     set; otherwise returns false.      \sa setForwardOnly() */
+comment|/*!     Returns \c true if you can only scroll forward through the result     set; otherwise returns \c false.      \sa setForwardOnly() */
 end_comment
 begin_function
 DECL|function|isForwardOnly
@@ -1443,7 +1443,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Prepares the given \a query, using the underlying database     functionality where possible. Returns true if the query is     prepared successfully; otherwise returns false.      Note: This method should have been called "safePrepare()".      \sa prepare() */
+comment|/*!     Prepares the given \a query, using the underlying database     functionality where possible. Returns \c true if the query is     prepared successfully; otherwise returns \c false.      Note: This method should have been called "safePrepare()".      \sa prepare() */
 end_comment
 begin_function
 DECL|function|savePrepare
@@ -1548,7 +1548,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Prepares the given \a query for execution; the query will normally     use placeholders so that it can be executed repeatedly. Returns     true if the query is prepared successfully; otherwise returns false.      \sa exec() */
+comment|/*!     Prepares the given \a query for execution; the query will normally     use placeholders so that it can be executed repeatedly. Returns     true if the query is prepared successfully; otherwise returns \c false.      \sa exec() */
 end_comment
 begin_function
 DECL|function|prepare
@@ -2590,7 +2590,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if at least one of the query's bound values is a \c     QSql::Out or a QSql::InOut; otherwise returns false.      \sa bindValueType() */
+comment|/*!     Returns \c true if at least one of the query's bound values is a \c     QSql::Out or a QSql::InOut; otherwise returns \c false.      \sa bindValueType() */
 end_comment
 begin_function
 DECL|function|hasOutValues

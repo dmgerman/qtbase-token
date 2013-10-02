@@ -1230,7 +1230,7 @@ block|}
 block|}
 end_destructor
 begin_comment
-comment|/*!     Creates the underlying OpenGL vertex array object. There must be a valid OpenGL context     that supports vertex array objects current for this function to succeed.      Returns true if the OpenGL vertex array object was successfully created. */
+comment|/*!     Creates the underlying OpenGL vertex array object. There must be a valid OpenGL context     that supports vertex array objects current for this function to succeed.      Returns \c true if the OpenGL vertex array object was successfully created. */
 end_comment
 begin_function
 DECL|function|create
@@ -1277,7 +1277,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true is the underlying OpenGL vertex array object has been created. If this     returns true and the associated OpenGL context is current, then you are able to bind()     this object. */
+comment|/*!     Returns \c true is the underlying OpenGL vertex array object has been created. If this     returns \c true and the associated OpenGL context is current, then you are able to bind()     this object. */
 end_comment
 begin_function
 DECL|function|isCreated

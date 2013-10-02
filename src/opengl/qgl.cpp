@@ -1242,7 +1242,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*!     \fn bool QGLFormat::doubleBuffer() const      Returns true if double buffering is enabled; otherwise returns     false. Double buffering is enabled by default.      \sa setDoubleBuffer() */
+comment|/*!     \fn bool QGLFormat::doubleBuffer() const      Returns \c true if double buffering is enabled; otherwise returns     false. Double buffering is enabled by default.      \sa setDoubleBuffer() */
 end_comment
 begin_comment
 comment|/*!     If \a enable is true sets double buffering; otherwise sets single     buffering.      Double buffering is enabled by default.      Double buffering is a technique where graphics are rendered on an     off-screen buffer and not directly to the screen. When the drawing     has been completed, the program calls a swapBuffers() function to     exchange the screen contents with the buffer. The result is     flicker-free drawing and often better performance.      Note that single buffered contexts are currently not supported     with EGL.      \sa doubleBuffer(), QGLContext::swapBuffers(),     QGLWidget::swapBuffers() */
@@ -1274,7 +1274,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QGLFormat::depth() const      Returns true if the depth buffer is enabled; otherwise returns     false. The depth buffer is enabled by default.      \sa setDepth(), setDepthBufferSize() */
+comment|/*!     \fn bool QGLFormat::depth() const      Returns \c true if the depth buffer is enabled; otherwise returns     false. The depth buffer is enabled by default.      \sa setDepth(), setDepthBufferSize() */
 end_comment
 begin_comment
 comment|/*!     If \a enable is true enables the depth buffer; otherwise disables     the depth buffer.      The depth buffer is enabled by default.      The purpose of a depth buffer (or Z-buffering) is to remove hidden     surfaces. Pixels are assigned Z values based on the distance to     the viewer. A pixel with a high Z value is closer to the viewer     than a pixel with a low Z value. This information is used to     decide whether to draw a pixel or not.      \sa depth(), setDepthBufferSize() */
@@ -1306,7 +1306,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QGLFormat::rgba() const      Returns true if RGBA color mode is set. Returns false if color     index mode is set. The default color mode is RGBA.      \sa setRgba() */
+comment|/*!     \fn bool QGLFormat::rgba() const      Returns \c true if RGBA color mode is set. Returns \c false if color     index mode is set. The default color mode is RGBA.      \sa setRgba() */
 end_comment
 begin_comment
 comment|/*!     If \a enable is true sets RGBA mode. If \a enable is false sets     color index mode.      The default color mode is RGBA.      RGBA is the preferred mode for most OpenGL applications. In RGBA     color mode you specify colors as red + green + blue + alpha     quadruplets.      In color index mode you specify an index into a color lookup     table.      \sa rgba() */
@@ -1338,7 +1338,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QGLFormat::alpha() const      Returns true if the alpha buffer in the framebuffer is enabled;     otherwise returns false. The alpha buffer is disabled by default.      \sa setAlpha(), setAlphaBufferSize() */
+comment|/*!     \fn bool QGLFormat::alpha() const      Returns \c true if the alpha buffer in the framebuffer is enabled;     otherwise returns \c false. The alpha buffer is disabled by default.      \sa setAlpha(), setAlphaBufferSize() */
 end_comment
 begin_comment
 comment|/*!     If \a enable is true enables the alpha buffer; otherwise disables     the alpha buffer.      The alpha buffer is disabled by default.      The alpha buffer is typically used for implementing transparency     or translucency. The A in RGBA specifies the transparency of a     pixel.      \sa alpha(), setAlphaBufferSize() */
@@ -1370,7 +1370,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QGLFormat::accum() const      Returns true if the accumulation buffer is enabled; otherwise     returns false. The accumulation buffer is disabled by default.      \sa setAccum(), setAccumBufferSize() */
+comment|/*!     \fn bool QGLFormat::accum() const      Returns \c true if the accumulation buffer is enabled; otherwise     returns \c false. The accumulation buffer is disabled by default.      \sa setAccum(), setAccumBufferSize() */
 end_comment
 begin_comment
 comment|/*!     If \a enable is true enables the accumulation buffer; otherwise     disables the accumulation buffer.      The accumulation buffer is disabled by default.      The accumulation buffer is used to create blur effects and     multiple exposures.      \sa accum(), setAccumBufferSize() */
@@ -1402,7 +1402,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QGLFormat::stencil() const      Returns true if the stencil buffer is enabled; otherwise returns     false. The stencil buffer is enabled by default.      \sa setStencil(), setStencilBufferSize() */
+comment|/*!     \fn bool QGLFormat::stencil() const      Returns \c true if the stencil buffer is enabled; otherwise returns     false. The stencil buffer is enabled by default.      \sa setStencil(), setStencilBufferSize() */
 end_comment
 begin_comment
 comment|/*!     If \a enable is true enables the stencil buffer; otherwise     disables the stencil buffer.      The stencil buffer is enabled by default.      The stencil buffer masks certain parts of the drawing area so that     masked parts are not drawn on.      \sa stencil(), setStencilBufferSize() */
@@ -1434,7 +1434,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QGLFormat::stereo() const      Returns true if stereo buffering is enabled; otherwise returns     false. Stereo buffering is disabled by default.      \sa setStereo() */
+comment|/*!     \fn bool QGLFormat::stereo() const      Returns \c true if stereo buffering is enabled; otherwise returns     false. Stereo buffering is disabled by default.      \sa setStereo() */
 end_comment
 begin_comment
 comment|/*!     If \a enable is true enables stereo buffering; otherwise disables     stereo buffering.      Stereo buffering is disabled by default.      Stereo buffering provides extra color buffers to generate left-eye     and right-eye images.      \sa stereo() */
@@ -1466,7 +1466,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QGLFormat::directRendering() const      Returns true if direct rendering is enabled; otherwise returns     false.      Direct rendering is enabled by default.      \sa setDirectRendering() */
+comment|/*!     \fn bool QGLFormat::directRendering() const      Returns \c true if direct rendering is enabled; otherwise returns     false.      Direct rendering is enabled by default.      \sa setDirectRendering() */
 end_comment
 begin_comment
 comment|/*!     If \a enable is true enables direct rendering; otherwise disables     direct rendering.      Direct rendering is enabled by default.      Enabling this option will make OpenGL bypass the underlying window     system and render directly from hardware to the screen, if this is     supported by the system.      \sa directRendering() */
@@ -1498,7 +1498,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QGLFormat::sampleBuffers() const      Returns true if multisample buffer support is enabled; otherwise     returns false.      The multisample buffer is disabled by default.      \sa setSampleBuffers() */
+comment|/*!     \fn bool QGLFormat::sampleBuffers() const      Returns \c true if multisample buffer support is enabled; otherwise     returns \c false.      The multisample buffer is disabled by default.      \sa setSampleBuffers() */
 end_comment
 begin_comment
 comment|/*!     If \a enable is true, a GL context with multisample buffer support     is picked; otherwise ignored.      \sa sampleBuffers(), setSamples(), samples() */
@@ -1641,7 +1641,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QGLFormat::hasOverlay() const      Returns true if overlay plane is enabled; otherwise returns false.      Overlay is disabled by default.      \sa setOverlay() */
+comment|/*!     \fn bool QGLFormat::hasOverlay() const      Returns \c true if overlay plane is enabled; otherwise returns \c false.      Overlay is disabled by default.      \sa setOverlay() */
 end_comment
 begin_comment
 comment|/*!     If \a enable is true enables an overlay plane; otherwise disables     the overlay plane.      Enabling the overlay plane will cause QGLWidget to create an     additional context in an overlay plane. See the QGLWidget     documentation for further information.      \sa hasOverlay() */
@@ -1762,7 +1762,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if format option \a opt is set; otherwise returns false.      \sa setOption() */
+comment|/*!     Returns \c true if format option \a opt is set; otherwise returns \c false.      \sa setOption() */
 end_comment
 begin_function
 DECL|function|testOption
@@ -2405,10 +2405,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QGLFormat::hasOpenGL()      Returns true if the window system has any OpenGL support;     otherwise returns false.      \warning This function must not be called until the QApplication     object has been created. */
+comment|/*!     \fn bool QGLFormat::hasOpenGL()      Returns \c true if the window system has any OpenGL support;     otherwise returns \c false.      \warning This function must not be called until the QApplication     object has been created. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QGLFormat::hasOpenGLOverlays()      Returns true if the window system supports OpenGL overlays;     otherwise returns false.      \warning This function must not be called until the QApplication     object has been created. */
+comment|/*!     \fn bool QGLFormat::hasOpenGLOverlays()      Returns \c true if the window system supports OpenGL overlays;     otherwise returns \c false.      \warning This function must not be called until the QApplication     object has been created. */
 end_comment
 begin_function
 DECL|function|qOpenGLVersionFlagsFromString
@@ -3305,7 +3305,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if all the options of the two QGLFormat objects     \a a and \a b are equal; otherwise returns false.      \relates QGLFormat */
+comment|/*!     Returns \c true if all the options of the two QGLFormat objects     \a a and \a b are equal; otherwise returns \c false.      \relates QGLFormat */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -3649,7 +3649,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     Returns false if all the options of the two QGLFormat objects     \a a and \a b are equal; otherwise returns true.      \relates QGLFormat */
+comment|/*!     Returns \c false if all the options of the two QGLFormat objects     \a a and \a b are equal; otherwise returns \c true.      \relates QGLFormat */
 end_comment
 begin_function
 DECL|function|operator !=
@@ -9813,16 +9813,16 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QGLContext::isValid() const      Returns true if a GL rendering context has been successfully     created; otherwise returns false. */
+comment|/*!     \fn bool QGLContext::isValid() const      Returns \c true if a GL rendering context has been successfully     created; otherwise returns \c false. */
 end_comment
 begin_comment
 comment|/*!     \fn void QGLContext::setValid(bool valid)     \internal      Forces the GL rendering context to be valid. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QGLContext::isSharing() const      Returns true if this context is sharing its GL context with     another QGLContext, otherwise false is returned. Note that context     sharing might not be supported between contexts with different     formats. */
+comment|/*!     \fn bool QGLContext::isSharing() const      Returns \c true if this context is sharing its GL context with     another QGLContext, otherwise false is returned. Note that context     sharing might not be supported between contexts with different     formats. */
 end_comment
 begin_comment
-comment|/*!     Returns true if \a context1 and \a context2 are sharing their     GL resources such as textures, shader programs, etc;     otherwise returns false.      \since 4.6 */
+comment|/*!     Returns \c true if \a context1 and \a context2 are sharing their     GL resources such as textures, shader programs, etc;     otherwise returns \c false.      \since 4.6 */
 end_comment
 begin_function
 DECL|function|areSharing
@@ -9869,10 +9869,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QGLContext::deviceIsPixmap() const      Returns true if the paint device of this context is a pixmap;     otherwise returns false. */
+comment|/*!     \fn bool QGLContext::deviceIsPixmap() const      Returns \c true if the paint device of this context is a pixmap;     otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QGLContext::windowCreated() const      Returns true if a window has been created for this context;     otherwise returns false.      \sa setWindowCreated() */
+comment|/*!     \fn bool QGLContext::windowCreated() const      Returns \c true if a window has been created for this context;     otherwise returns \c false.      \sa setWindowCreated() */
 end_comment
 begin_comment
 comment|/*!     \fn void QGLContext::setWindowCreated(bool on)      If \a on is true the context has had a window created for it. If     \a on is false no window has been created for the context.      \sa windowCreated() */
@@ -9881,7 +9881,7 @@ begin_comment
 comment|/*!     \fn uint QGLContext::colorIndex(const QColor& c) const      \internal      Returns a colormap index for the color c, in ColorIndex mode. Used     by qglColor() and qglClearColor(). */
 end_comment
 begin_comment
-comment|/*!     \fn bool QGLContext::initialized() const      Returns true if this context has been initialized, i.e. if     QGLWidget::initializeGL() has been performed on it; otherwise     returns false.      \sa setInitialized() */
+comment|/*!     \fn bool QGLContext::initialized() const      Returns \c true if this context has been initialized, i.e. if     QGLWidget::initializeGL() has been performed on it; otherwise     returns \c false.      \sa setInitialized() */
 end_comment
 begin_comment
 comment|/*!     \fn void QGLContext::setInitialized(bool on)      If \a on is true the context has been initialized, i.e.     QGLContext::setInitialized() has been called on it. If \a on is     false the context has not been initialized.      \sa initialized() */
@@ -9893,7 +9893,7 @@ begin_comment
 comment|/*!     \fn QColor QGLContext::overlayTransparentColor() const      If this context is a valid context in an overlay plane, returns     the plane's transparent color. Otherwise returns an \l{QColor::isValid()}{invalid} color.      The returned color's \l{QColor::pixel()}{pixel} value is     the index of the transparent color in the colormap of the overlay     plane. (Naturally, the color's RGB values are meaningless.)      The returned QColor object will generally work as expected only     when passed as the argument to QGLWidget::qglColor() or     QGLWidget::qglClearColor(). Under certain circumstances it can     also be used to draw transparent graphics with a QPainter. See the     examples/opengl/overlay_x11 example for details. */
 end_comment
 begin_comment
-comment|/*!     Creates the GL context. Returns true if it was successful in     creating a valid GL rendering context on the paint device     specified in the constructor; otherwise returns false (i.e. the     context is invalid).      If the OpenGL implementation on your system does not support the requested     version of OpenGL context, then QGLContext will try to create the closest     matching version. The actual created context properties can be queried     using the QGLFormat returned by the format() function. For example, if     you request a context that supports OpenGL 4.3 Core profile but the driver     and/or hardware only supports version 3.2 Core profile contexts then you will     get a 3.2 Core profile context.      After successful creation, format() returns the set of features of     the created GL rendering context.      If \a shareContext points to a valid QGLContext, this method will     try to establish OpenGL display list and texture object sharing     between this context and the \a shareContext. Note that this may     fail if the two contexts have different \l {format()} {formats}.     Use isSharing() to see if sharing is in effect.      \warning Implementation note: initialization of C++ class     members usually takes place in the class constructor. QGLContext     is an exception because it must be simple to customize. The     virtual functions chooseContext() (and chooseVisual() for X11) can     be reimplemented in a subclass to select a particular context. The     problem is that virtual functions are not properly called during     construction (even though this is correct C++) because C++     constructs class hierarchies from the bottom up. For this reason     we need a create() function.      \sa chooseContext(), format(), isValid() */
+comment|/*!     Creates the GL context. Returns \c true if it was successful in     creating a valid GL rendering context on the paint device     specified in the constructor; otherwise returns \c false (i.e. the     context is invalid).      If the OpenGL implementation on your system does not support the requested     version of OpenGL context, then QGLContext will try to create the closest     matching version. The actual created context properties can be queried     using the QGLFormat returned by the format() function. For example, if     you request a context that supports OpenGL 4.3 Core profile but the driver     and/or hardware only supports version 3.2 Core profile contexts then you will     get a 3.2 Core profile context.      After successful creation, format() returns the set of features of     the created GL rendering context.      If \a shareContext points to a valid QGLContext, this method will     try to establish OpenGL display list and texture object sharing     between this context and the \a shareContext. Note that this may     fail if the two contexts have different \l {format()} {formats}.     Use isSharing() to see if sharing is in effect.      \warning Implementation note: initialization of C++ class     members usually takes place in the class constructor. QGLContext     is an exception because it must be simple to customize. The     virtual functions chooseContext() (and chooseVisual() for X11) can     be reimplemented in a subclass to select a particular context. The     problem is that virtual functions are not properly called during     construction (even though this is correct C++) because C++     constructs class hierarchies from the bottom up. For this reason     we need a create() function.      \sa chooseContext(), format(), isValid() */
 end_comment
 begin_function
 DECL|function|create
@@ -10772,19 +10772,19 @@ begin_comment
 comment|/*!     \fn QGLFormat QGLWidget::format() const      Returns the format of the contained GL rendering context. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QGLWidget::doubleBuffer() const      Returns true if the contained GL rendering context has double     buffering; otherwise returns false.      \sa QGLFormat::doubleBuffer() */
+comment|/*!     \fn bool QGLWidget::doubleBuffer() const      Returns \c true if the contained GL rendering context has double     buffering; otherwise returns \c false.      \sa QGLFormat::doubleBuffer() */
 end_comment
 begin_comment
 comment|/*!     \fn void QGLWidget::setAutoBufferSwap(bool on)      If \a on is true automatic GL buffer swapping is switched on;     otherwise it is switched off.      If \a on is true and the widget is using a double-buffered format,     the background and foreground GL buffers will automatically be     swapped after each paintGL() call.      The buffer auto-swapping is on by default.      \sa autoBufferSwap(), doubleBuffer(), swapBuffers() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QGLWidget::autoBufferSwap() const      Returns true if the widget is doing automatic GL buffer swapping;     otherwise returns false.      \sa setAutoBufferSwap() */
+comment|/*!     \fn bool QGLWidget::autoBufferSwap() const      Returns \c true if the widget is doing automatic GL buffer swapping;     otherwise returns \c false.      \sa setAutoBufferSwap() */
 end_comment
 begin_comment
 comment|/*!     \fn QFunctionPointer QGLContext::getProcAddress() const      Returns a function pointer to the GL extension function passed in     \a proc. 0 is returned if a pointer to the function could not be     obtained. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QGLWidget::isValid() const      Returns true if the widget has a valid GL rendering context;     otherwise returns false. A widget will be invalid if the system     has no \l{QGLFormat::hasOpenGL()}{OpenGL support}. */
+comment|/*!     \fn bool QGLWidget::isValid() const      Returns \c true if the widget has a valid GL rendering context;     otherwise returns \c false. A widget will be invalid if the system     has no \l{QGLFormat::hasOpenGL()}{OpenGL support}. */
 end_comment
 begin_function
 DECL|function|isValid
@@ -10816,7 +10816,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QGLWidget::isSharing() const      Returns true if this widget's GL context is shared with another GL     context, otherwise false is returned. Context sharing might not be     possible if the widgets use different formats.      \sa format() */
+comment|/*!     \fn bool QGLWidget::isSharing() const      Returns \c true if this widget's GL context is shared with another GL     context, otherwise false is returned. Context sharing might not be     possible if the widgets use different formats.      \sa format() */
 end_comment
 begin_function
 DECL|function|isSharing

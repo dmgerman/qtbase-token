@@ -1384,7 +1384,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \internal    Parses the format \a newFormat. If successful, returns true and   sets up the format. Else keeps the old format and returns false.  */
+comment|/*!   \internal    Parses the format \a newFormat. If successful, returns \c true and   sets up the format. Else keeps the old format and returns \c false.  */
 end_comment
 begin_function
 DECL|function|countRepeat
@@ -8736,7 +8736,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \internal    Returns true if str can be modified to represent a   number that is within min and max. */
+comment|/*!   \internal    Returns \c true if str can be modified to represent a   number that is within min and max. */
 end_comment
 begin_function
 DECL|function|potentialValue

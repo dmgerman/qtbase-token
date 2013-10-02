@@ -157,7 +157,7 @@ begin_comment
 comment|/*!     \fn void QGlyphRun::swap(QGlyphRun&other)     \since 5.0      Swaps this glyph run instance with \a other. This function is very     fast and never fails. */
 end_comment
 begin_comment
-comment|/*!     Compares \a other to this QGlyphRun object. Returns true if the list of glyph indexes,     the list of positions and the font are all equal, otherwise returns false. */
+comment|/*!     Compares \a other to this QGlyphRun object. Returns \c true if the list of glyph indexes,     the list of positions and the font are all equal, otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -348,7 +348,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QGlyphRun::operator!=(const QGlyphRun&other) const      Compares \a other to this QGlyphRun object. Returns true if any of the list of glyph     indexes, the list of positions or the font are different, otherwise returns false. */
+comment|/*!     \fn bool QGlyphRun::operator!=(const QGlyphRun&other) const      Compares \a other to this QGlyphRun object. Returns \c true if any of the list of glyph     indexes, the list of positions or the font are different, otherwise returns \c false. */
 end_comment
 begin_comment
 comment|/*!     Returns the font selected for this QGlyphRun object.      \sa setRawFont() */
@@ -757,7 +757,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!    Returns true if this QGlyphRun should be painted with an overline decoration.     \sa setOverline(), flags() */
+comment|/*!    Returns \c true if this QGlyphRun should be painted with an overline decoration.     \sa setOverline(), flags() */
 end_comment
 begin_function
 DECL|function|overline
@@ -801,7 +801,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!    Returns true if this QGlyphRun should be painted with an underline decoration.     \sa setUnderline(), flags() */
+comment|/*!    Returns \c true if this QGlyphRun should be painted with an underline decoration.     \sa setUnderline(), flags() */
 end_comment
 begin_function
 DECL|function|underline
@@ -845,7 +845,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!    Returns true if this QGlyphRun should be painted with a strike out decoration.     \sa setStrikeOut(), flags() */
+comment|/*!    Returns \c true if this QGlyphRun should be painted with a strike out decoration.     \sa setStrikeOut(), flags() */
 end_comment
 begin_function
 DECL|function|strikeOut
@@ -889,7 +889,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if this QGlyphRun contains glyphs that are painted from the right to the left.    \since 5.0   \sa setRightToLeft(), flags() */
+comment|/*!   Returns \c true if this QGlyphRun contains glyphs that are painted from the right to the left.    \since 5.0   \sa setRightToLeft(), flags() */
 end_comment
 begin_function
 DECL|function|isRightToLeft
@@ -1288,7 +1288,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if the QGlyphRun does not contain any glyphs.    \since 5.0 */
+comment|/*!   Returns \c true if the QGlyphRun does not contain any glyphs.    \since 5.0 */
 end_comment
 begin_function
 DECL|function|isEmpty

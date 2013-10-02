@@ -121,7 +121,7 @@ comment|/*!     \variable QTextLayout::FormatRange::format     Specifies the for
 comment|/*!     \class QTextInlineObject     \reentrant      \brief The QTextInlineObject class represents an inline object in     a QTextLayout.     \inmodule QtGui      \ingroup richtext-processing      This class is only used if the text layout is used to lay out     parts of a QTextDocument.      The inline object has various attributes that can be set, for     example using, setWidth(), setAscent(), and setDescent(). The     rectangle it occupies is given by rect(), and its direction by     isRightToLeft(). Its position in the text layout is given by at(),     and its format is given by format(). */
 comment|/*!     \fn QTextInlineObject::QTextInlineObject(int i, QTextEngine *e)      Creates a new inline object for the item at position \a i in the     text engine \a e. */
 comment|/*!     \fn QTextInlineObject::QTextInlineObject()      \internal */
-comment|/*!     \fn bool QTextInlineObject::isValid() const      Returns true if this inline object is valid; otherwise returns     false. */
+comment|/*!     \fn bool QTextInlineObject::isValid() const      Returns \c true if this inline object is valid; otherwise returns     false. */
 comment|/*!     Returns the inline object's rectangle.      \sa ascent(), descent(), width() */
 DECL|function|rect
 name|QRectF
@@ -1179,7 +1179,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the complete layout information is cached; otherwise     returns false.      \sa setCacheEnabled() */
+comment|/*!     Returns \c true if the complete layout information is cached; otherwise     returns \c false.      \sa setCacheEnabled() */
 end_comment
 begin_function
 DECL|function|cacheEnabled
@@ -1889,7 +1889,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!/     Returns true if position \a pos is a valid cursor position.      In a Unicode context some positions in the text are not valid     cursor positions, because the position is inside a Unicode     surrogate or a grapheme cluster.      A grapheme cluster is a sequence of two or more Unicode characters     that form one indivisible entity on the screen. For example the     latin character `\unicode{0xC4}' can be represented in Unicode by two     characters, `A' (0x41), and the combining diaresis (0x308). A text     cursor can only validly be positioned before or after these two     characters, never between them since that wouldn't make sense. In     indic languages every syllable forms a grapheme cluster. */
+comment|/*!/     Returns \c true if position \a pos is a valid cursor position.      In a Unicode context some positions in the text are not valid     cursor positions, because the position is inside a Unicode     surrogate or a grapheme cluster.      A grapheme cluster is a sequence of two or more Unicode characters     that form one indivisible entity on the screen. For example the     latin character `\unicode{0xC4}' can be represented in Unicode by two     characters, `A' (0x41), and the combining diaresis (0x308). A text     cursor can only validly be positioned before or after these two     characters, never between them since that wouldn't make sense. In     indic languages every syllable forms a grapheme cluster. */
 end_comment
 begin_function
 DECL|function|isValidCursorPosition
@@ -4933,7 +4933,7 @@ begin_comment
 comment|/*!     \fn QTextLine::QTextLine()      Creates an invalid line. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTextLine::isValid() const      Returns true if this text line is valid; otherwise returns false. */
+comment|/*!     \fn bool QTextLine::isValid() const      Returns \c true if this text line is valid; otherwise returns \c false. */
 end_comment
 begin_comment
 comment|/*!     \fn int QTextLine::lineNumber() const      Returns the position of the line in the text engine. */
@@ -5306,7 +5306,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.6      Returns true if positive leading is included into the line's height;     otherwise returns false.      By default, leading is not included.      \sa setLeadingIncluded() */
+comment|/*!     \since 4.6      Returns \c true if positive leading is included into the line's height;     otherwise returns \c false.      By default, leading is not included.      \sa setLeadingIncluded() */
 end_comment
 begin_function
 DECL|function|leadingIncluded

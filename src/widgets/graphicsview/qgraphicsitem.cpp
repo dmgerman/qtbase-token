@@ -12,7 +12,7 @@ begin_comment
 comment|/*!     \variable QGraphicsItem::UserType      The lowest permitted type value for custom items (subclasses     of QGraphicsItem or any of the standard items). This value is     used in conjunction with a reimplementation of QGraphicsItem::type()     and declaring a Type enum value. Example:      \snippet code/src_gui_graphicsview_qgraphicsitem.cpp 1      \note UserType = 65536 */
 end_comment
 begin_comment
-comment|/*!     \enum QGraphicsItem::GraphicsItemFlag      This enum describes different flags that you can set on an item to     toggle different features in the item's behavior.      All flags are disabled by default.      \value ItemIsMovable The item supports interactive movement using     the mouse. By clicking on the item and then dragging, the item     will move together with the mouse cursor. If the item has     children, all children are also moved. If the item is part of a     selection, all selected items are also moved. This feature is     provided as a convenience through the base implementation of     QGraphicsItem's mouse event handlers.      \value ItemIsSelectable The item supports selection. Enabling this     feature will enable setSelected() to toggle selection for the     item. It will also let the item be selected automatically as a     result of calling QGraphicsScene::setSelectionArea(), by clicking     on an item, or by using rubber band selection in QGraphicsView.      \value ItemIsFocusable The item supports keyboard input focus (i.e., it is     an input item). Enabling this flag will allow the item to accept focus,     which again allows the delivery of key events to     QGraphicsItem::keyPressEvent() and QGraphicsItem::keyReleaseEvent().      \value ItemClipsToShape The item clips to its own shape. The item cannot     draw or receive mouse, tablet, drag and drop or hover events outside its     shape. It is disabled by default. This behavior is enforced by     QGraphicsView::drawItems() or QGraphicsScene::drawItems(). This flag was     introduced in Qt 4.3.      \value ItemClipsChildrenToShape The item clips the painting of all its     descendants to its own shape. Items that are either direct or indirect     children of this item cannot draw outside this item's shape. By default,     this flag is disabled; children can draw anywhere. This behavior is     enforced by QGraphicsView::drawItems() or     QGraphicsScene::drawItems(). This flag was introduced in Qt 4.3.      \value ItemIgnoresTransformations The item ignores inherited     transformations (i.e., its position is still anchored to its parent, but     the parent or view rotation, zoom or shear transformations are ignored).     This flag is useful for keeping text label items horizontal and unscaled,     so they will still be readable if the view is transformed.  When set, the     item's view geometry and scene geometry will be maintained separately. You     must call deviceTransform() to map coordinates and detect collisions in     the view. By default, this flag is disabled. This flag was introduced in     Qt 4.3. \note With this flag set you can still scale the item itself, and     that scale transformation will influence the item's children.      \value ItemIgnoresParentOpacity The item ignores its parent's opacity. The     item's effective opacity is the same as its own; it does not combine with     the parent's opacity. This flags allows your item to keep its absolute     opacity even if the parent is semitransparent. This flag was introduced in     Qt 4.5.      \value ItemDoesntPropagateOpacityToChildren The item doesn't propagate its     opacity to its children. This flag allows you to create a semitransparent     item that does not affect the opacity of its children. This flag was     introduced in Qt 4.5.      \value ItemStacksBehindParent The item is stacked behind its parent. By     default, child items are stacked on top of the parent item. But setting     this flag, the child will be stacked behind it. This flag is useful for     drop shadow effects and for decoration objects that follow the parent     item's geometry without drawing on top of it. This flag was introduced     in Qt 4.5.      \value ItemUsesExtendedStyleOption The item makes use of either     \l{QStyleOptionGraphicsItem::} {exposedRect} or     \l{QStyleOptionGraphicsItem::} {matrix} in     QStyleOptionGraphicsItem. By default, the     \l{QStyleOptionGraphicsItem::} {exposedRect} is initialized to the     item's boundingRect() and the     \l{QStyleOptionGraphicsItem::}{matrix} is untransformed.  You can     enable this flag for the style options to be set up with more     fine-grained values.  Note that     QStyleOptionGraphicsItem::levelOfDetail is unaffected by this flag     and always initialized to 1. Use     QStyleOptionGraphicsItem::levelOfDetailFromTransform() if you need     a higher value. This flag was introduced in Qt 4.6.      \value ItemHasNoContents The item does not paint anything (i.e., calling     paint() on the item has no effect). You should set this flag on items that     do not need to be painted to ensure that Graphics View avoids unnecessary     painting preparations. This flag was introduced in Qt 4.6.      \value ItemSendsGeometryChanges The item enables itemChange()     notifications for ItemPositionChange, ItemPositionHasChanged,     ItemMatrixChange, ItemTransformChange, ItemTransformHasChanged,     ItemRotationChange, ItemRotationHasChanged, ItemScaleChange, ItemScaleHasChanged,     ItemTransformOriginPointChange, and ItemTransformOriginPointHasChanged. For     performance reasons, these notifications are disabled by default. You must     enable this flag to receive notifications for position and transform     changes. This flag was introduced in Qt 4.6.      \value ItemAcceptsInputMethod The item supports input methods typically     used for Asian languages.     This flag was introduced in Qt 4.6.      \value ItemNegativeZStacksBehindParent The item automatically     stacks behind it's parent if it's z-value is negative. This flag     enables setZValue() to toggle ItemStacksBehindParent. This flag     was introduced in Qt 4.6.      \value ItemIsPanel The item is a panel. A panel provides activation and     contained focus handling. Only one panel can be active at a time (see     QGraphicsItem::isActive()). When no panel is active, QGraphicsScene     activates all non-panel items. Window items (i.e.,     QGraphicsItem::isWindow() returns true) are panels. This flag was     introduced in Qt 4.6.      \omitvalue ItemIsFocusScope \omit Internal only (for now). \endomit      \value ItemSendsScenePositionChanges The item enables itemChange()     notifications for ItemScenePositionHasChanged. For performance reasons,     these notifications are disabled by default. You must enable this flag     to receive notifications for scene position changes. This flag was     introduced in Qt 4.6.      \omitvalue ItemStopsClickFocusPropagation \omit The item stops propagating     click focus to items underneath when being clicked on. This flag     allows you create a non-focusable item that can be clicked on without     changing the focus. \endomit      \omitvalue ItemStopsFocusHandling \omit Same as     ItemStopsClickFocusPropagation, but also suppresses focus-out. This flag     allows you to completely take over focus handling.     This flag was introduced in Qt 4.7. \endomit */
+comment|/*!     \enum QGraphicsItem::GraphicsItemFlag      This enum describes different flags that you can set on an item to     toggle different features in the item's behavior.      All flags are disabled by default.      \value ItemIsMovable The item supports interactive movement using     the mouse. By clicking on the item and then dragging, the item     will move together with the mouse cursor. If the item has     children, all children are also moved. If the item is part of a     selection, all selected items are also moved. This feature is     provided as a convenience through the base implementation of     QGraphicsItem's mouse event handlers.      \value ItemIsSelectable The item supports selection. Enabling this     feature will enable setSelected() to toggle selection for the     item. It will also let the item be selected automatically as a     result of calling QGraphicsScene::setSelectionArea(), by clicking     on an item, or by using rubber band selection in QGraphicsView.      \value ItemIsFocusable The item supports keyboard input focus (i.e., it is     an input item). Enabling this flag will allow the item to accept focus,     which again allows the delivery of key events to     QGraphicsItem::keyPressEvent() and QGraphicsItem::keyReleaseEvent().      \value ItemClipsToShape The item clips to its own shape. The item cannot     draw or receive mouse, tablet, drag and drop or hover events outside its     shape. It is disabled by default. This behavior is enforced by     QGraphicsView::drawItems() or QGraphicsScene::drawItems(). This flag was     introduced in Qt 4.3.      \value ItemClipsChildrenToShape The item clips the painting of all its     descendants to its own shape. Items that are either direct or indirect     children of this item cannot draw outside this item's shape. By default,     this flag is disabled; children can draw anywhere. This behavior is     enforced by QGraphicsView::drawItems() or     QGraphicsScene::drawItems(). This flag was introduced in Qt 4.3.      \value ItemIgnoresTransformations The item ignores inherited     transformations (i.e., its position is still anchored to its parent, but     the parent or view rotation, zoom or shear transformations are ignored).     This flag is useful for keeping text label items horizontal and unscaled,     so they will still be readable if the view is transformed.  When set, the     item's view geometry and scene geometry will be maintained separately. You     must call deviceTransform() to map coordinates and detect collisions in     the view. By default, this flag is disabled. This flag was introduced in     Qt 4.3. \note With this flag set you can still scale the item itself, and     that scale transformation will influence the item's children.      \value ItemIgnoresParentOpacity The item ignores its parent's opacity. The     item's effective opacity is the same as its own; it does not combine with     the parent's opacity. This flags allows your item to keep its absolute     opacity even if the parent is semitransparent. This flag was introduced in     Qt 4.5.      \value ItemDoesntPropagateOpacityToChildren The item doesn't propagate its     opacity to its children. This flag allows you to create a semitransparent     item that does not affect the opacity of its children. This flag was     introduced in Qt 4.5.      \value ItemStacksBehindParent The item is stacked behind its parent. By     default, child items are stacked on top of the parent item. But setting     this flag, the child will be stacked behind it. This flag is useful for     drop shadow effects and for decoration objects that follow the parent     item's geometry without drawing on top of it. This flag was introduced     in Qt 4.5.      \value ItemUsesExtendedStyleOption The item makes use of either     \l{QStyleOptionGraphicsItem::} {exposedRect} or     \l{QStyleOptionGraphicsItem::} {matrix} in     QStyleOptionGraphicsItem. By default, the     \l{QStyleOptionGraphicsItem::} {exposedRect} is initialized to the     item's boundingRect() and the     \l{QStyleOptionGraphicsItem::}{matrix} is untransformed.  You can     enable this flag for the style options to be set up with more     fine-grained values.  Note that     QStyleOptionGraphicsItem::levelOfDetail is unaffected by this flag     and always initialized to 1. Use     QStyleOptionGraphicsItem::levelOfDetailFromTransform() if you need     a higher value. This flag was introduced in Qt 4.6.      \value ItemHasNoContents The item does not paint anything (i.e., calling     paint() on the item has no effect). You should set this flag on items that     do not need to be painted to ensure that Graphics View avoids unnecessary     painting preparations. This flag was introduced in Qt 4.6.      \value ItemSendsGeometryChanges The item enables itemChange()     notifications for ItemPositionChange, ItemPositionHasChanged,     ItemMatrixChange, ItemTransformChange, ItemTransformHasChanged,     ItemRotationChange, ItemRotationHasChanged, ItemScaleChange, ItemScaleHasChanged,     ItemTransformOriginPointChange, and ItemTransformOriginPointHasChanged. For     performance reasons, these notifications are disabled by default. You must     enable this flag to receive notifications for position and transform     changes. This flag was introduced in Qt 4.6.      \value ItemAcceptsInputMethod The item supports input methods typically     used for Asian languages.     This flag was introduced in Qt 4.6.      \value ItemNegativeZStacksBehindParent The item automatically     stacks behind it's parent if it's z-value is negative. This flag     enables setZValue() to toggle ItemStacksBehindParent. This flag     was introduced in Qt 4.6.      \value ItemIsPanel The item is a panel. A panel provides activation and     contained focus handling. Only one panel can be active at a time (see     QGraphicsItem::isActive()). When no panel is active, QGraphicsScene     activates all non-panel items. Window items (i.e.,     QGraphicsItem::isWindow() returns \c true) are panels. This flag was     introduced in Qt 4.6.      \omitvalue ItemIsFocusScope \omit Internal only (for now). \endomit      \value ItemSendsScenePositionChanges The item enables itemChange()     notifications for ItemScenePositionHasChanged. For performance reasons,     these notifications are disabled by default. You must enable this flag     to receive notifications for scene position changes. This flag was     introduced in Qt 4.6.      \omitvalue ItemStopsClickFocusPropagation \omit The item stops propagating     click focus to items underneath when being clicked on. This flag     allows you create a non-focusable item that can be clicked on without     changing the focus. \endomit      \omitvalue ItemStopsFocusHandling \omit Same as     ItemStopsClickFocusPropagation, but also suppresses focus-out. This flag     allows you to completely take over focus handling.     This flag was introduced in Qt 4.7. \endomit */
 end_comment
 begin_comment
 comment|/*!     \enum QGraphicsItem::GraphicsItemChange      This enum describes the state changes that are notified by     QGraphicsItem::itemChange(). The notifications are sent as the state     changes, and in some cases, adjustments can be made (see the documentation     for each change for details).      Note: Be careful with calling functions on the QGraphicsItem itself inside     itemChange(), as certain function calls can lead to unwanted     recursion. For example, you cannot call setPos() in itemChange() on an     ItemPositionChange notification, as the setPos() function will again call     itemChange(ItemPositionChange). Instead, you can return the new, adjusted     position from itemChange().      \value ItemEnabledChange The item's enabled state changes. If the item is     presently enabled, it will become disabled, and vice verca. The value     argument is the new enabled state (i.e., true or false). Do not call     setEnabled() in itemChange() as this notification is delivered. Instead,     you can return the new state from itemChange().      \value ItemEnabledHasChanged The item's enabled state has changed. The     value argument is the new enabled state (i.e., true or false). Do not call     setEnabled() in itemChange() as this notification is delivered. The return     value is ignored.      \value ItemMatrixChange The item's affine transformation matrix is     changing. This value is obsolete; you can use ItemTransformChange instead.      \value ItemPositionChange The item's position changes. This notification     is sent if the ItemSendsGeometryChanges flag is enabled, and when the     item's local position changes, relative to its parent (i.e., as a result     of calling setPos() or moveBy()). The value argument is the new position     (i.e., a QPointF).  You can call pos() to get the original position. Do     not call setPos() or moveBy() in itemChange() as this notification is     delivered; instead, you can return the new, adjusted position from     itemChange(). After this notification, QGraphicsItem immediately sends the     ItemPositionHasChanged notification if the position changed.      \value ItemPositionHasChanged The item's position has changed. This     notification is sent if the ItemSendsGeometryChanges flag is enabled, and     after the item's local position, relative to its parent, has changed. The     value argument is the new position (the same as pos()), and QGraphicsItem     ignores the return value for this notification (i.e., a read-only     notification).      \value ItemTransformChange The item's transformation matrix changes. This     notification is send if the ItemSendsGeometryChanges flag is enabled, and     when the item's local transformation matrix changes (i.e., as a result of     calling setTransform(). The value argument is the new matrix (i.e., a     QTransform); to get the old matrix, call transform(). Do not call     setTransform() or set any of the transformation properties in itemChange()     as this notification is delivered; instead, you can return the new matrix     from itemChange().  This notification is not sent if you change the     transformation properties.      \value ItemTransformHasChanged The item's transformation matrix has     changed either because setTransform is called, or one of the     transformation properties is changed. This notification is sent if the     ItemSendsGeometryChanges flag is enabled, and after the item's local     transformation matrix has changed. The value argument is the new matrix     (same as transform()), and QGraphicsItem ignores the return value for this     notification (i.e., a read-only notification).      \value ItemRotationChange The item's rotation property changes. This     notification is sent if the ItemSendsGeometryChanges flag is enabled, and     when the item's rotation property changes (i.e., as a result of calling     setRotation()). The value argument is the new rotation (i.e., a double);     to get the old rotation, call rotation(). Do not call setRotation() in     itemChange() as this notification is delivered; instead, you can return     the new rotation from itemChange().      \value ItemRotationHasChanged The item's rotation property has changed.     This notification is sent if the ItemSendsGeometryChanges flag is enabled,     and after the item's rotation property has changed. The value argument is     the new rotation (i.e., a double), and QGraphicsItem ignores the return     value for this notification (i.e., a read-only notification). Do not call     setRotation() in itemChange() as this notification is delivered.      \value ItemScaleChange The item's scale property changes. This notification     is sent if the ItemSendsGeometryChanges flag is enabled, and when the item's     scale property changes (i.e., as a result of calling setScale()). The value     argument is the new scale (i.e., a double); to get the old scale, call     scale(). Do not call setScale() in itemChange() as this notification is     delivered; instead, you can return the new scale from itemChange().      \value ItemScaleHasChanged The item's scale property has changed. This     notification is sent if the ItemSendsGeometryChanges flag is enabled, and     after the item's scale property has changed. The value argument is the new     scale (i.e., a double), and QGraphicsItem ignores the return value for this     notification (i.e., a read-only notification). Do not call setScale() in     itemChange() as this notification is delivered.      \value ItemTransformOriginPointChange The item's transform origin point     property changes. This notification is sent if the ItemSendsGeometryChanges     flag is enabled, and when the item's transform origin point property changes     (i.e., as a result of calling setTransformOriginPoint()). The value argument     is the new origin point (i.e., a QPointF); to get the old origin point, call     transformOriginPoint(). Do not call setTransformOriginPoint() in itemChange()     as this notification is delivered; instead, you can return the new transform     origin point from itemChange().      \value ItemTransformOriginPointHasChanged The item's transform origin point     property has changed. This notification is sent if the ItemSendsGeometryChanges     flag is enabled, and after the item's transform origin point property has     changed. The value argument is the new origin point (i.e., a QPointF), and     QGraphicsItem ignores the return value for this notification (i.e., a read-only     notification). Do not call setTransformOriginPoint() in itemChange() as this     notification is delivered.      \value ItemSelectedChange The item's selected state changes. If the item is     presently selected, it will become unselected, and vice verca. The value     argument is the new selected state (i.e., true or false). Do not call     setSelected() in itemChange() as this notification is delivered; instead, you     can return the new selected state from itemChange().      \value ItemSelectedHasChanged The item's selected state has changed. The     value argument is the new selected state (i.e., true or false). Do not     call setSelected() in itemChange() as this notification is delivered. The     return value is ignored.      \value ItemVisibleChange The item's visible state changes. If the item is     presently visible, it will become invisible, and vice verca. The value     argument is the new visible state (i.e., true or false). Do not call     setVisible() in itemChange() as this notification is delivered; instead,     you can return the new visible state from itemChange().      \value ItemVisibleHasChanged The item's visible state has changed. The     value argument is the new visible state (i.e., true or false). Do not call     setVisible() in itemChange() as this notification is delivered. The return     value is ignored.      \value ItemParentChange The item's parent changes. The value argument is     the new parent item (i.e., a QGraphicsItem pointer).  Do not call     setParentItem() in itemChange() as this notification is delivered;     instead, you can return the new parent from itemChange().      \value ItemParentHasChanged The item's parent has changed. The value     argument is the new parent (i.e., a pointer to a QGraphicsItem). Do not     call setParentItem() in itemChange() as this notification is     delivered. The return value is ignored.      \value ItemChildAddedChange A child is added to this item. The value     argument is the new child item (i.e., a QGraphicsItem pointer). Do not     pass this item to any item's setParentItem() function as this notification     is delivered. The return value is unused; you cannot adjust anything in     this notification. Note that the new child might not be fully constructed     when this notification is sent; calling pure virtual functions on     the child can lead to a crash.      \value ItemChildRemovedChange A child is removed from this item. The value     argument is the child item that is about to be removed (i.e., a     QGraphicsItem pointer). The return value is unused; you cannot adjust     anything in this notification.      \value ItemSceneChange The item is moved to a new scene. This notification is     also sent when the item is added to its initial scene, and when it is removed.     The item's scene() is the old scene (or 0 if the item has not been added to a     scene yet). The value argument is the new scene (i.e., a QGraphicsScene     pointer), or a null pointer if the item is removed from a scene. Do not     override this change by passing this item to QGraphicsScene::addItem() as this     notification is delivered; instead, you can return the new scene from     itemChange(). Use this feature with caution; objecting to a scene change can     quickly lead to unwanted recursion.      \value ItemSceneHasChanged The item's scene has changed. The item's scene() is     the new scene. This notification is also sent when the item is added to its     initial scene, and when it is removed.The value argument is the new scene     (i.e., a pointer to a QGraphicsScene). Do not call setScene() in itemChange()     as this notification is delivered. The return value is ignored.      \value ItemCursorChange The item's cursor changes. The value argument is     the new cursor (i.e., a QCursor). Do not call setCursor() in itemChange()     as this notification is delivered. Instead, you can return a new cursor     from itemChange().      \value ItemCursorHasChanged The item's cursor has changed. The value     argument is the new cursor (i.e., a QCursor). Do not call setCursor() as     this notification is delivered. The return value is ignored.      \value ItemToolTipChange The item's tooltip changes. The value argument is     the new tooltip (i.e., a QToolTip). Do not call setToolTip() in     itemChange() as this notification is delivered. Instead, you can return a     new tooltip from itemChange().      \value ItemToolTipHasChanged The item's tooltip has changed. The value     argument is the new tooltip (i.e., a QToolTip). Do not call setToolTip()     as this notification is delivered. The return value is ignored.      \value ItemFlagsChange The item's flags change. The value argument is the     new flags (i.e., a quint32). Do not call setFlags() in itemChange() as     this notification is delivered. Instead, you can return the new flags from     itemChange().      \value ItemFlagsHaveChanged The item's flags have changed. The value     argument is the new flags (i.e., a quint32). Do not call setFlags() in     itemChange() as this notification is delivered. The return value is     ignored.      \value ItemZValueChange The item's Z-value changes. The value argument is     the new Z-value (i.e., a double). Do not call setZValue() in itemChange()     as this notification is delivered. Instead, you can return a new Z-value     from itemChange().      \value ItemZValueHasChanged The item's Z-value has changed. The value     argument is the new Z-value (i.e., a double). Do not call setZValue() as     this notification is delivered. The return value is ignored.      \value ItemOpacityChange The item's opacity changes. The value argument is     the new opacity (i.e., a double). Do not call setOpacity() in itemChange()     as this notification is delivered. Instead, you can return a new opacity     from itemChange().      \value ItemOpacityHasChanged The item's opacity has changed. The value     argument is the new opacity (i.e., a double). Do not call setOpacity() as     this notification is delivered. The return value is ignored.      \value ItemScenePositionHasChanged The item's scene position has changed.     This notification is sent if the ItemSendsScenePositionChanges flag is     enabled, and after the item's scene position has changed (i.e., the     position or transformation of the item itself or the position or     transformation of any ancestor has changed). The value argument is the     new scene position (the same as scenePos()), and QGraphicsItem ignores     the return value for this notification (i.e., a read-only notification). */
@@ -4518,7 +4518,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.4     Returns true if this item is a widget (i.e., QGraphicsWidget); otherwise,     returns false. */
+comment|/*!     \since 4.4     Returns \c true if this item is a widget (i.e., QGraphicsWidget); otherwise,     returns \c false. */
 end_comment
 begin_function
 DECL|function|isWidget
@@ -4537,7 +4537,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.4     Returns true if the item is a QGraphicsWidget window, otherwise returns     false.      \sa QGraphicsWidget::windowFlags() */
+comment|/*!     \since 4.4     Returns \c true if the item is a QGraphicsWidget window, otherwise returns     false.      \sa QGraphicsWidget::windowFlags() */
 end_comment
 begin_function
 DECL|function|isWindow
@@ -4575,7 +4575,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.6     Returns true if the item is a panel; otherwise returns false.      \sa QGraphicsItem::panel(), ItemIsPanel */
+comment|/*!     \since 4.6     Returns \c true if the item is a panel; otherwise returns \c false.      \sa QGraphicsItem::panel(), ItemIsPanel */
 end_comment
 begin_function
 DECL|function|isPanel
@@ -5757,7 +5757,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.6      Returns true if this item is blocked by a modal panel, false otherwise. If \a blockingPanel is     non-zero, \a blockingPanel will be set to the modal panel that is blocking this item. If this     item is not blocked, \a blockingPanel will not be set by this function.      This function always returns false for items not in a scene.      \sa panelModality(), setPanelModality(), PanelModality */
+comment|/*!     \since 4.6      Returns \c true if this item is blocked by a modal panel, false otherwise. If \a blockingPanel is     non-zero, \a blockingPanel will be set to the modal panel that is blocking this item. If this     item is not blocked, \a blockingPanel will not be set by this function.      This function always returns \c false for items not in a scene.      \sa panelModality(), setPanelModality(), PanelModality */
 end_comment
 begin_function
 DECL|function|isBlockedByModalPanel
@@ -6256,7 +6256,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this item has a cursor set; otherwise, false is returned.      By default, items don't have any cursor set. cursor() will return a     standard pointing arrow cursor.      \sa unsetCursor() */
+comment|/*!     Returns \c true if this item has a cursor set; otherwise, false is returned.      By default, items don't have any cursor set. cursor() will return a     standard pointing arrow cursor.      \sa unsetCursor() */
 end_comment
 begin_function
 DECL|function|hasCursor
@@ -6377,7 +6377,7 @@ begin_comment
 comment|// QT_NO_CURSOR
 end_comment
 begin_comment
-comment|/*!    Returns true if the item is visible; otherwise, false is returned.     Note that the item's general visibility is unrelated to whether or not it    is actually being visualized by a QGraphicsView.     \sa setVisible() */
+comment|/*!    Returns \c true if the item is visible; otherwise, false is returned.     Note that the item's general visibility is unrelated to whether or not it    is actually being visualized by a QGraphicsView.     \sa setVisible() */
 end_comment
 begin_function
 DECL|function|isVisible
@@ -6396,7 +6396,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.4     Returns true if the item is visible to \a parent; otherwise, false is     returned. \a parent can be 0, in which case this function will return     whether the item is visible to the scene or not.      An item may not be visible to its ancestors even if isVisible() is true. It     may also be visible to its ancestors even if isVisible() is false. If     any ancestor is hidden, the item itself will be implicitly hidden, in which     case this function will return false.      \sa isVisible(), setVisible() */
+comment|/*!     \since 4.4     Returns \c true if the item is visible to \a parent; otherwise, false is     returned. \a parent can be 0, in which case this function will return     whether the item is visible to the scene or not.      An item may not be visible to its ancestors even if isVisible() is true. It     may also be visible to its ancestors even if isVisible() is false. If     any ancestor is hidden, the item itself will be implicitly hidden, in which     case this function will return false.      \sa isVisible(), setVisible() */
 end_comment
 begin_function
 DECL|function|isVisibleTo
@@ -7370,7 +7370,7 @@ begin_comment
 comment|/*!     \fn void QGraphicsItem::show()      Shows the item (items are visible by default).      This convenience function is equivalent to calling \c setVisible(true).      \sa hide(), setVisible() */
 end_comment
 begin_comment
-comment|/*!     Returns true if the item is enabled; otherwise, false is returned.      \sa setEnabled() */
+comment|/*!     Returns \c true if the item is enabled; otherwise, false is returned.      \sa setEnabled() */
 end_comment
 begin_function
 DECL|function|isEnabled
@@ -7699,7 +7699,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this item is selected; otherwise, false is returned.      Items that are in a group inherit the group's selected state.      Items are not selected by default.      \sa setSelected(), QGraphicsScene::setSelectionArea() */
+comment|/*!     Returns \c true if this item is selected; otherwise, false is returned.      Items that are in a group inherit the group's selected state.      Items are not selected by default.      \sa setSelected(), QGraphicsScene::setSelectionArea() */
 end_comment
 begin_function
 DECL|function|isSelected
@@ -8739,7 +8739,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!    Returns true if this item can accept drag and drop events; otherwise,    returns false. By default, items do not accept drag and drop events; items    are transparent to drag and drop.     \sa setAcceptDrops() */
+comment|/*!    Returns \c true if this item can accept drag and drop events; otherwise,    returns \c false. By default, items do not accept drag and drop events; items    are transparent to drag and drop.     \sa setAcceptDrops() */
 end_comment
 begin_function
 DECL|function|acceptDrops
@@ -8881,7 +8881,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.4      Returns true if an item accepts hover events     (QGraphicsSceneHoverEvent); otherwise, returns false. By default,     items do not accept hover events.      \sa setAcceptedMouseButtons() */
+comment|/*!     \since 4.4      Returns \c true if an item accepts hover events     (QGraphicsSceneHoverEvent); otherwise, returns \c false. By default,     items do not accept hover events.      \sa setAcceptedMouseButtons() */
 end_comment
 begin_function
 DECL|function|acceptHoverEvents
@@ -8985,7 +8985,7 @@ begin_comment
 comment|/*!     \fn void QGraphicsItem::setAcceptsHoverEvents(bool enabled)     \obsolete      Use setAcceptHoverEvents(\a enabled) instead. */
 end_comment
 begin_comment
-comment|/*! \since 4.6      Returns true if an item accepts \l{QTouchEvent}{touch events};     otherwise, returns false. By default, items do not accept touch events.      \sa setAcceptTouchEvents() */
+comment|/*! \since 4.6      Returns \c true if an item accepts \l{QTouchEvent}{touch events};     otherwise, returns \c false. By default, items do not accept touch events.      \sa setAcceptTouchEvents() */
 end_comment
 begin_function
 DECL|function|acceptTouchEvents
@@ -9083,7 +9083,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.6      Returns true if this item filters child events (i.e., all events     intended for any of its children are instead sent to this item);     otherwise, false is returned.      The default value is false; child events are not filtered.      \sa setFiltersChildEvents() */
+comment|/*!     \since 4.6      Returns \c true if this item filters child events (i.e., all events     intended for any of its children are instead sent to this item);     otherwise, false is returned.      The default value is false; child events are not filtered.      \sa setFiltersChildEvents() */
 end_comment
 begin_function
 DECL|function|filtersChildEvents
@@ -9146,7 +9146,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \obsolete      Returns true if this item handles child events (i.e., all events     intended for any of its children are instead sent to this item);     otherwise, false is returned.      This property is useful for item groups; it allows one item to     handle events on behalf of its children, as opposed to its     children handling their events individually.      The default is to return false; children handle their own events.     The exception for this is if the item is a QGraphicsItemGroup, then     it defaults to return true.      \sa setHandlesChildEvents() */
+comment|/*!     \obsolete      Returns \c true if this item handles child events (i.e., all events     intended for any of its children are instead sent to this item);     otherwise, false is returned.      This property is useful for item groups; it allows one item to     handle events on behalf of its children, as opposed to its     children handling their events individually.      The default is to return false; children handle their own events.     The exception for this is if the item is a QGraphicsItemGroup, then     it defaults to return true.      \sa setHandlesChildEvents() */
 end_comment
 begin_function
 DECL|function|handlesChildEvents
@@ -9209,7 +9209,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.6     Returns true if this item is active; otherwise returns false.      An item can only be active if the scene is active. An item is active     if it is, or is a descendent of, an active panel. Items in non-active     panels are not active.      Items that are not part of a panel follow scene activation when the     scene has no active panel.      Only active items can gain input focus.      \sa QGraphicsScene::isActive(), QGraphicsScene::activePanel(), panel(), isPanel() */
+comment|/*!     \since 4.6     Returns \c true if this item is active; otherwise returns \c false.      An item can only be active if the scene is active. An item is active     if it is, or is a descendent of, an active panel. Items in non-active     panels are not active.      Items that are not part of a panel follow scene activation when the     scene has no active panel.      Only active items can gain input focus.      \sa QGraphicsScene::isActive(), QGraphicsScene::activePanel(), panel(), isPanel() */
 end_comment
 begin_function
 DECL|function|isActive
@@ -9399,7 +9399,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this item is active, and it or its \l{focusProxy()}{focus     proxy} has keyboard input focus; otherwise, returns false.      \sa focusItem(), setFocus(), QGraphicsScene::setFocusItem(), isActive() */
+comment|/*!     Returns \c true if this item is active, and it or its \l{focusProxy()}{focus     proxy} has keyboard input focus; otherwise, returns \c false.      \sa focusItem(), setFocus(), QGraphicsScene::setFocusItem(), isActive() */
 end_comment
 begin_function
 DECL|function|hasFocus
@@ -14018,7 +14018,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this item is clipped. An item is clipped if it has either     set the \l ItemClipsToShape flag, or if it or any of its ancestors has set     the \l ItemClipsChildrenToShape flag.      Clipping affects the item's appearance (i.e., painting), as well as mouse     and hover event delivery.      \sa clipPath(), shape(), setFlags() */
+comment|/*!     Returns \c true if this item is clipped. An item is clipped if it has either     set the \l ItemClipsToShape flag, or if it or any of its ancestors has set     the \l ItemClipsChildrenToShape flag.      Clipping affects the item's appearance (i.e., painting), as well as mouse     and hover event delivery.      \sa clipPath(), shape(), setFlags() */
 end_comment
 begin_function
 DECL|function|isClipped
@@ -14274,7 +14274,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this item contains \a point, which is in local     coordinates; otherwise, false is returned. It is most often called from     QGraphicsView to determine what item is under the cursor, and for that     reason, the implementation of this function should be as light-weight as     possible.      By default, this function calls shape(), but you can reimplement it in a     subclass to provide a (perhaps more efficient) implementation.      \sa shape(), boundingRect(), collidesWithPath() */
+comment|/*!     Returns \c true if this item contains \a point, which is in local     coordinates; otherwise, false is returned. It is most often called from     QGraphicsView to determine what item is under the cursor, and for that     reason, the implementation of this function should be as light-weight as     possible.      By default, this function calls shape(), but you can reimplement it in a     subclass to provide a (perhaps more efficient) implementation.      \sa shape(), boundingRect(), collidesWithPath() */
 end_comment
 begin_function
 DECL|function|contains
@@ -14313,7 +14313,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!      Returns true if this item collides with \a other; otherwise     returns false.      The \a mode is applied to \a other, and the resulting shape or     bounding rectangle is then compared to this item's shape. The     default value for \a mode is Qt::IntersectsItemShape; \a other     collides with this item if it either intersects, contains, or is     contained by this item's shape (see Qt::ItemSelectionMode for     details).      The default implementation is based on shape intersection, and it calls     shape() on both items. Because the complexity of arbitrary shape-shape     intersection grows with an order of magnitude when the shapes are complex,     this operation can be noticably time consuming. You have the option of     reimplementing this function in a subclass of QGraphicsItem to provide a     custom algorithm. This allows you to make use of natural constraints in     the shapes of your own items, in order to improve the performance of the     collision detection. For instance, two untransformed perfectly circular     items' collision can be determined very efficiently by comparing their     positions and radii.      Keep in mind that when reimplementing this function and calling shape() or     boundingRect() on \a other, the returned coordinates must be mapped to     this item's coordinate system before any intersection can take place.      \sa contains(), shape() */
+comment|/*!      Returns \c true if this item collides with \a other; otherwise     returns \c false.      The \a mode is applied to \a other, and the resulting shape or     bounding rectangle is then compared to this item's shape. The     default value for \a mode is Qt::IntersectsItemShape; \a other     collides with this item if it either intersects, contains, or is     contained by this item's shape (see Qt::ItemSelectionMode for     details).      The default implementation is based on shape intersection, and it calls     shape() on both items. Because the complexity of arbitrary shape-shape     intersection grows with an order of magnitude when the shapes are complex,     this operation can be noticably time consuming. You have the option of     reimplementing this function in a subclass of QGraphicsItem to provide a     custom algorithm. This allows you to make use of natural constraints in     the shapes of your own items, in order to improve the performance of the     collision detection. For instance, two untransformed perfectly circular     items' collision can be determined very efficiently by comparing their     positions and radii.      Keep in mind that when reimplementing this function and calling shape() or     boundingRect() on \a other, the returned coordinates must be mapped to     this item's coordinate system before any intersection can take place.      \sa contains(), shape() */
 end_comment
 begin_function
 DECL|function|collidesWithItem
@@ -14540,7 +14540,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this item collides with \a path.      The collision is determined by \a mode. The default value for \a mode is     Qt::IntersectsItemShape; \a path collides with this item if it either     intersects, contains, or is contained by this item's shape.      Note that this function checks whether the item's shape or     bounding rectangle (depending on \a mode) is contained within \a     path, and not whether \a path is contained within the items shape     or bounding rectangle.      \sa collidesWithItem(), contains(), shape() */
+comment|/*!     Returns \c true if this item collides with \a path.      The collision is determined by \a mode. The default value for \a mode is     Qt::IntersectsItemShape; \a path collides with this item if it either     intersects, contains, or is contained by this item's shape.      Note that this function checks whether the item's shape or     bounding rectangle (depending on \a mode) is contained within \a     path, and not whether \a path is contained within the items shape     or bounding rectangle.      \sa collidesWithItem(), contains(), shape() */
 end_comment
 begin_function
 DECL|function|collidesWithPath
@@ -14759,7 +14759,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal      Item obscurity helper function.      Returns true if the subrect \a rect of \a item's bounding rect is obscured     by \a other (i.e., \a other's opaque area covers \a item's \a rect     completely. \a other is assumed to already be "on top of" \a item     wrt. stacking order. */
+comment|/*!     \internal      Item obscurity helper function.      Returns \c true if the subrect \a rect of \a item's bounding rect is obscured     by \a other (i.e., \a other's opaque area covers \a item's \a rect     completely. \a other is assumed to already be "on top of" \a item     wrt. stacking order. */
 end_comment
 begin_function
 DECL|function|qt_QGraphicsItem_isObscured
@@ -14804,7 +14804,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload     \since 4.3      Returns true if \a rect is completely obscured by the opaque shape of any     of colliding items above it (i.e., with a higher Z value than this item).      \sa opaqueArea() */
+comment|/*!     \overload     \since 4.3      Returns \c true if \a rect is completely obscured by the opaque shape of any     of colliding items above it (i.e., with a higher Z value than this item).      \sa opaqueArea() */
 end_comment
 begin_function
 DECL|function|isObscured
@@ -14908,7 +14908,7 @@ begin_comment
 comment|/*!     \fn bool QGraphicsItem::isObscured(qreal x, qreal y, qreal w, qreal h) const     \overload     \since 4.3      This convenience function is equivalent to calling isObscured(QRectF(\a x, \a y, \a w, \a h)). */
 end_comment
 begin_comment
-comment|/*!     Returns true if this item's bounding rect is completely obscured by the     opaque shape of \a item.      The base implementation maps \a item's opaqueArea() to this item's     coordinate system, and then checks if this item's boundingRect() is fully     contained within the mapped shape.      You can reimplement this function to provide a custom algorithm for     determining whether this item is obscured by \a item.      \sa opaqueArea(), isObscured() */
+comment|/*!     Returns \c true if this item's bounding rect is completely obscured by the     opaque shape of \a item.      The base implementation maps \a item's opaqueArea() to this item's     coordinate system, and then checks if this item's boundingRect() is fully     contained within the mapped shape.      You can reimplement this function to provide a custom algorithm for     determining whether this item is obscured by \a item.      \sa opaqueArea(), isObscured() */
 end_comment
 begin_function
 DECL|function|isObscuredBy
@@ -15449,7 +15449,7 @@ begin_comment
 comment|/*!     \fn virtual void QGraphicsItem::paint(QPainter *painter, const     QStyleOptionGraphicsItem *option, QWidget *widget = 0) = 0      This function, which is usually called by QGraphicsView, paints the     contents of an item in local coordinates.      Reimplement this function in a QGraphicsItem subclass to provide the     item's painting implementation, using \a painter. The \a option parameter     provides style options for the item, such as its state, exposed area and     its level-of-detail hints. The \a widget argument is optional. If     provided, it points to the widget that is being painted on; otherwise, it     is 0. For cached painting, \a widget is always 0.      \snippet code/src_gui_graphicsview_qgraphicsitem.cpp 10      The painter's pen is 0-width by default, and its pen is initialized to the     QPalette::Text brush from the paint device's palette. The brush is     initialized to QPalette::Window.      Make sure to constrain all painting inside the boundaries of     boundingRect() to avoid rendering artifacts (as QGraphicsView does not     clip the painter for you). In particular, when QPainter renders the     outline of a shape using an assigned QPen, half of the outline will be     drawn outside, and half inside, the shape you're rendering (e.g., with a     pen width of 2 units, you must draw outlines 1 unit inside     boundingRect()). QGraphicsItem does not support use of cosmetic pens with     a non-zero width.      All painting is done in local coordinates.      \sa setCacheMode(), QPen::width(), {Item Coordinates}, ItemUsesExtendedStyleOption */
 end_comment
 begin_comment
-comment|/*!     \internal     Returns true if we can discard an update request; otherwise false. */
+comment|/*!     \internal     Returns \c true if we can discard an update request; otherwise false. */
 end_comment
 begin_function
 DECL|function|discardUpdateRequest
@@ -16792,7 +16792,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Schedules a redraw of the area covered by \a rect in this item. You can     call this function whenever your item needs to be redrawn, such as if it     changes appearance or size.      This function does not cause an immediate paint; instead it schedules a     paint request that is processed by QGraphicsView after control reaches the     event loop. The item will only be redrawn if it is visible in any     associated view.      As a side effect of the item being repainted, other items that overlap the     area \a rect may also be repainted.      If the item is invisible (i.e., isVisible() returns false), this function     does nothing.      \sa paint(), boundingRect() */
+comment|/*!     Schedules a redraw of the area covered by \a rect in this item. You can     call this function whenever your item needs to be redrawn, such as if it     changes appearance or size.      This function does not cause an immediate paint; instead it schedules a     paint request that is processed by QGraphicsView after control reaches the     event loop. The item will only be redrawn if it is visible in any     associated view.      As a side effect of the item being repainted, other items that overlap the     area \a rect may also be repainted.      If the item is invisible (i.e., isVisible() returns \c false), this function     does nothing.      \sa paint(), boundingRect() */
 end_comment
 begin_function
 DECL|function|update
@@ -18908,7 +18908,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this item is an ancestor of \a child (i.e., if this item     is \a child's parent, or one of \a child's parent's ancestors).      \sa parentItem() */
+comment|/*!     Returns \c true if this item is an ancestor of \a child (i.e., if this item     is \a child's parent, or one of \a child's parent's ancestors).      \sa parentItem() */
 end_comment
 begin_function
 DECL|function|isAncestorOf
@@ -19139,7 +19139,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4,4     Returns true if this item is currently under the mouse cursor in one of     the views; otherwise, false is returned.      \sa QGraphicsScene::views(), QCursor::pos() */
+comment|/*!     \since 4,4     Returns \c true if this item is currently under the mouse cursor in one of     the views; otherwise, false is returned.      \sa QGraphicsScene::views(), QCursor::pos() */
 end_comment
 begin_function
 DECL|function|isUnderMouse
@@ -19479,7 +19479,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     This virtual function receives events to this item. Reimplement     this function to intercept events before they are dispatched to     the specialized event handlers contextMenuEvent(), focusInEvent(),     focusOutEvent(), hoverEnterEvent(), hoverMoveEvent(),     hoverLeaveEvent(), keyPressEvent(), keyReleaseEvent(),     mousePressEvent(), mouseReleaseEvent(), mouseMoveEvent(), and     mouseDoubleClickEvent().      Returns true if the event was recognized and handled; otherwise, (e.g., if     the event type was not recognized,) false is returned.      \a event is the intercepted event. */
+comment|/*!     This virtual function receives events to this item. Reimplement     this function to intercept events before they are dispatched to     the specialized event handlers contextMenuEvent(), focusInEvent(),     focusOutEvent(), hoverEnterEvent(), hoverMoveEvent(),     hoverLeaveEvent(), keyPressEvent(), keyReleaseEvent(),     mousePressEvent(), mouseReleaseEvent(), mouseMoveEvent(), and     mouseDoubleClickEvent().      Returns \c true if the event was recognized and handled; otherwise, (e.g., if     the event type was not recognized,) false is returned.      \a event is the intercepted event. */
 end_comment
 begin_function
 DECL|function|sceneEvent
@@ -23696,13 +23696,13 @@ begin_comment
 comment|/*!   \fn void QGraphicsObject::scaleChanged()    This signal is emitted when the scale of the item changes. */
 end_comment
 begin_comment
-comment|/*!   \property QGraphicsObject::enabled   \brief whether the item is enabled or not    This property is declared in QGraphicsItem.    By default, this property is true.    \sa QGraphicsItem::isEnabled(), QGraphicsItem::setEnabled() */
+comment|/*!   \property QGraphicsObject::enabled   \brief whether the item is enabled or not    This property is declared in QGraphicsItem.    By default, this property is \c true.    \sa QGraphicsItem::isEnabled(), QGraphicsItem::setEnabled() */
 end_comment
 begin_comment
 comment|/*!   \fn void QGraphicsObject::enabledChanged()    This signal gets emitted whenever the item get's enabled or disabled.    \sa isEnabled() */
 end_comment
 begin_comment
-comment|/*!   \property QGraphicsObject::visible   \brief whether the item is visible or not    This property is declared in QGraphicsItem.    By default, this property is true.    \sa QGraphicsItem::isVisible(), QGraphicsItem::setVisible() */
+comment|/*!   \property QGraphicsObject::visible   \brief whether the item is visible or not    This property is declared in QGraphicsItem.    By default, this property is \c true.    \sa QGraphicsItem::isVisible(), QGraphicsItem::setVisible() */
 end_comment
 begin_comment
 comment|/*!   \fn QGraphicsObject::visibleChanged()    This signal gets emitted whenever the visibility of the item changes    \sa visible */
@@ -31441,7 +31441,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.5      Returns true if the \uicontrol Tab key will cause the widget to change focus;     otherwise, false is returned.      By default, this behavior is disabled, and this function will return false.      \sa setTabChangesFocus() */
+comment|/*!     \since 4.5      Returns \c true if the \uicontrol Tab key will cause the widget to change focus;     otherwise, false is returned.      By default, this behavior is disabled, and this function will return false.      \sa setTabChangesFocus() */
 end_comment
 begin_function
 DECL|function|tabChangesFocus

@@ -2112,22 +2112,22 @@ begin_comment
 comment|/*! \fn void QMultiMap::swap(QMultiMap<Key, T>&other)     \since 4.8      Swaps map \a other with this map. This operation is very     fast and never fails. */
 end_comment
 begin_comment
-comment|/*! \fn bool QMap::operator==(const QMap<Key, T>&other) const      Returns true if \a other is equal to this map; otherwise returns     false.      Two maps are considered equal if they contain the same (key,     value) pairs.      This function requires the value type to implement \c     operator==().      \sa operator!=() */
+comment|/*! \fn bool QMap::operator==(const QMap<Key, T>&other) const      Returns \c true if \a other is equal to this map; otherwise returns     false.      Two maps are considered equal if they contain the same (key,     value) pairs.      This function requires the value type to implement \c     operator==().      \sa operator!=() */
 end_comment
 begin_comment
-comment|/*! \fn bool QMap::operator!=(const QMap<Key, T>&other) const      Returns true if \a other is not equal to this map; otherwise     returns false.      Two maps are considered equal if they contain the same (key,     value) pairs.      This function requires the value type to implement \c     operator==().      \sa operator==() */
+comment|/*! \fn bool QMap::operator!=(const QMap<Key, T>&other) const      Returns \c true if \a other is not equal to this map; otherwise     returns \c false.      Two maps are considered equal if they contain the same (key,     value) pairs.      This function requires the value type to implement \c     operator==().      \sa operator==() */
 end_comment
 begin_comment
 comment|/*! \fn int QMap::size() const      Returns the number of (key, value) pairs in the map.      \sa isEmpty(), count() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QMap::isEmpty() const      Returns true if the map contains no items; otherwise returns     false.      \sa size() */
+comment|/*!     \fn bool QMap::isEmpty() const      Returns \c true if the map contains no items; otherwise returns     false.      \sa size() */
 end_comment
 begin_comment
 comment|/*! \fn void QMap::detach()      \internal      Detaches this map from any other maps with which it may share     data.      \sa isDetached() */
 end_comment
 begin_comment
-comment|/*! \fn bool QMap::isDetached() const      \internal      Returns true if the map's internal data isn't shared with any     other map object; otherwise returns false.      \sa detach() */
+comment|/*! \fn bool QMap::isDetached() const      \internal      Returns \c true if the map's internal data isn't shared with any     other map object; otherwise returns \c false.      \sa detach() */
 end_comment
 begin_comment
 comment|/*! \fn void QMap::setSharable(bool sharable)      \internal */
@@ -2145,7 +2145,7 @@ begin_comment
 comment|/*! \fn T QMap::take(const Key&key)      Removes the item with the key \a key from the map and returns     the value associated with it.      If the item does not exist in the map, the function simply     returns a \l{default-constructed value}. If there are multiple     items for \a key in the map, only the most recently inserted one     is removed and returned.      If you don't use the return value, remove() is more efficient.      \sa remove() */
 end_comment
 begin_comment
-comment|/*! \fn bool QMap::contains(const Key&key) const      Returns true if the map contains an item with key \a key;     otherwise returns false.      \sa count(), QMultiMap::contains() */
+comment|/*! \fn bool QMap::contains(const Key&key) const      Returns \c true if the map contains an item with key \a key;     otherwise returns \c false.      \sa count(), QMultiMap::contains() */
 end_comment
 begin_comment
 comment|/*! \fn const T QMap::value(const Key&key, const T&defaultValue) const      Returns the value associated with the key \a key.      If the map contains no item with key \a key, the function returns     \a defaultValue. If no \a defaultValue is specified, the function     returns a \l{default-constructed value}. If there are multiple     items for \a key in the map, the value of the most recently     inserted one is returned.      \sa key(), values(), contains(), operator[]() */
@@ -2322,10 +2322,10 @@ begin_comment
 comment|/*! \fn T *QMap::iterator::operator->() const      Returns a pointer to the current item's value.      \sa value() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QMap::iterator::operator==(const iterator&other) const     \fn bool QMap::iterator::operator==(const const_iterator&other) const      Returns true if \a other points to the same item as this     iterator; otherwise returns false.      \sa operator!=() */
+comment|/*!     \fn bool QMap::iterator::operator==(const iterator&other) const     \fn bool QMap::iterator::operator==(const const_iterator&other) const      Returns \c true if \a other points to the same item as this     iterator; otherwise returns \c false.      \sa operator!=() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QMap::iterator::operator!=(const iterator&other) const     \fn bool QMap::iterator::operator!=(const const_iterator&other) const      Returns true if \a other points to a different item than this     iterator; otherwise returns false.      \sa operator==() */
+comment|/*!     \fn bool QMap::iterator::operator!=(const iterator&other) const     \fn bool QMap::iterator::operator!=(const const_iterator&other) const      Returns \c true if \a other points to a different item than this     iterator; otherwise returns \c false.      \sa operator==() */
 end_comment
 begin_comment
 comment|/*! \fn QMap::iterator QMap::iterator::operator++()      The prefix ++ operator (\c{++i}) advances the iterator to the     next item in the map and returns an iterator to the new current     item.      Calling this function on QMap::end() leads to undefined results.      \sa operator--() */
@@ -2391,10 +2391,10 @@ begin_comment
 comment|/*! \fn const T *QMap::const_iterator::operator->() const      Returns a pointer to the current item's value.      \sa value() */
 end_comment
 begin_comment
-comment|/*! \fn bool QMap::const_iterator::operator==(const const_iterator&other) const      Returns true if \a other points to the same item as this     iterator; otherwise returns false.      \sa operator!=() */
+comment|/*! \fn bool QMap::const_iterator::operator==(const const_iterator&other) const      Returns \c true if \a other points to the same item as this     iterator; otherwise returns \c false.      \sa operator!=() */
 end_comment
 begin_comment
-comment|/*! \fn bool QMap::const_iterator::operator!=(const const_iterator&other) const      Returns true if \a other points to a different item than this     iterator; otherwise returns false.      \sa operator==() */
+comment|/*! \fn bool QMap::const_iterator::operator!=(const const_iterator&other) const      Returns \c true if \a other points to a different item than this     iterator; otherwise returns \c false.      \sa operator==() */
 end_comment
 begin_comment
 comment|/*! \fn QMap::const_iterator QMap::const_iterator::operator++()      The prefix ++ operator (\c{++i}) advances the iterator to the     next item in the map and returns an iterator to the new current     item.      Calling this function on QMap::end() leads to undefined results.      \sa operator--() */
@@ -2454,7 +2454,7 @@ begin_comment
 comment|/*! \fn QMultiMap QMultiMap::operator+(const QMultiMap&other) const      Returns a map that contains all the items in this map in     addition to all the items in \a other. If a key is common to both     maps, the resulting map will contain the key multiple times.      \sa operator+=() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QMultiMap::contains(const Key&key, const T&value) const     \since 4.3      Returns true if the map contains an item with key \a key and     value \a value; otherwise returns false.      \sa QMap::contains() */
+comment|/*!     \fn bool QMultiMap::contains(const Key&key, const T&value) const     \since 4.3      Returns \c true if the map contains an item with key \a key and     value \a value; otherwise returns \c false.      \sa QMap::contains() */
 end_comment
 begin_comment
 comment|/*!     \fn bool QMultiMap::contains(const Key&key) const     \overload     \sa QMap::contains() */

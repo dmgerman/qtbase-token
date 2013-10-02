@@ -2593,7 +2593,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the given \a option is enabled; otherwise, returns     false.      \sa options, setOption() */
+comment|/*!     Returns \c true if the given \a option is enabled; otherwise, returns     false.      \sa options, setOption() */
 end_comment
 begin_function
 DECL|function|testOption

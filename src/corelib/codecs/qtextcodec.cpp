@@ -2359,7 +2359,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the Unicode character \a ch can be fully encoded     with this codec; otherwise returns false. */
+comment|/*!     Returns \c true if the Unicode character \a ch can be fully encoded     with this codec; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|canEncode

@@ -376,7 +376,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Adds the option \a option to look for while parsing.      Returns true if adding the option was successful; otherwise returns false.      Adding the option fails if there is no name attached to the option, or     the option has a name that clashes with an option name added before.  */
+comment|/*!     Adds the option \a option to look for while parsing.      Returns \c true if adding the option was successful; otherwise returns \c false.      Adding the option fails if there is no name attached to the option, or     the option has a name that clashes with an option name added before.  */
 end_comment
 begin_function
 DECL|function|addOption
@@ -723,7 +723,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Parses the command line \a arguments.      Most programs don't need to call this, a simple call to process() is enough.      parse() is more low-level, and only does the parsing. The application will have to     take care of the error handling, using errorText() if parse() returns false.     This can be useful for instance to show a graphical error message in graphical programs.      Calling parse() instead of process() can also be useful in order to ignore unknown     options temporarily, because more option definitions will be provided later on     (depending on one of the arguments), before calling process().      Don't forget that \a arguments must start with the name of the executable (ignored, though).      Returns false in case of a parse error (unknown option or missing value); returns true otherwise.      \sa process() */
+comment|/*!     Parses the command line \a arguments.      Most programs don't need to call this, a simple call to process() is enough.      parse() is more low-level, and only does the parsing. The application will have to     take care of the error handling, using errorText() if parse() returns \c false.     This can be useful for instance to show a graphical error message in graphical programs.      Calling parse() instead of process() can also be useful in order to ignore unknown     options temporarily, because more option definitions will be provided later on     (depending on one of the arguments), before calling process().      Don't forget that \a arguments must start with the name of the executable (ignored, though).      Returns \c false in case of a parse error (unknown option or missing value); returns \c true otherwise.      \sa process() */
 end_comment
 begin_function
 DECL|function|parse
@@ -749,7 +749,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a translated error text for the user.     This should only be called when parse() returns false. */
+comment|/*!     Returns a translated error text for the user.     This should only be called when parse() returns \c false. */
 end_comment
 begin_function
 DECL|function|errorText
@@ -1010,7 +1010,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal     Looks up the option \a optionName (found on the command line) and register it as found.     Returns true on success.  */
+comment|/*!     \internal     Looks up the option \a optionName (found on the command line) and register it as found.     Returns \c true on success.  */
 end_comment
 begin_function
 DECL|function|registerFoundOption
@@ -1062,7 +1062,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \internal     \brief Parse the value for a given option, if it was defined to expect one.      The value is taken from the next argument, or after the equal sign in \a argument.      \param optionName the short option name     \param argument the argument from the command line currently parsed. Only used for -k=value parsing.     \param argumentIterator iterator to the currently parsed argument. Incremented if the next argument contains the value.     \param argsEnd args.end(), to check if ++argumentIterator goes out of bounds     Returns true on success.  */
+comment|/*!     \internal     \brief Parse the value for a given option, if it was defined to expect one.      The value is taken from the next argument, or after the equal sign in \a argument.      \param optionName the short option name     \param argument the argument from the command line currently parsed. Only used for -k=value parsing.     \param argumentIterator iterator to the currently parsed argument. Incremented if the next argument contains the value.     \param argsEnd args.end(), to check if ++argumentIterator goes out of bounds     Returns \c true on success.  */
 end_comment
 begin_function
 DECL|function|parseOptionValue
@@ -1863,7 +1863,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Checks whether the option \a name was passed to the application.      Returns true if the option \a name was set, false otherwise.      The name provided can be any long or short name of any option that was     added with \c addOption(). All the options names are treated as being     equivalent. If the name is not recognized or that option was not present,     false is returned.      Example:     \snippet code/src_corelib_tools_qcommandlineparser.cpp 0  */
+comment|/*!     Checks whether the option \a name was passed to the application.      Returns \c true if the option \a name was set, false otherwise.      The name provided can be any long or short name of any option that was     added with \c addOption(). All the options names are treated as being     equivalent. If the name is not recognized or that option was not present,     false is returned.      Example:     \snippet code/src_corelib_tools_qcommandlineparser.cpp 0  */
 end_comment
 begin_function
 DECL|function|isSet
@@ -2106,7 +2106,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload     Checks whether the \a option was passed to the application.      Returns true if the \a option was set, false otherwise.      This is the recommended way to check for options with no values.      Example:     \snippet code/src_corelib_tools_qcommandlineparser.cpp 1 */
+comment|/*!     \overload     Checks whether the \a option was passed to the application.      Returns \c true if the \a option was set, false otherwise.      This is the recommended way to check for options with no values.      Example:     \snippet code/src_corelib_tools_qcommandlineparser.cpp 1 */
 end_comment
 begin_function
 DECL|function|isSet

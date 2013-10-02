@@ -357,7 +357,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*!     Returns true if the file can only be manipulated sequentially;     otherwise returns false.      Most files support random-access, but some special files may not.      \sa QIODevice::isSequential() */
+comment|/*!     Returns \c true if the file can only be manipulated sequentially;     otherwise returns \c false.      Most files support random-access, but some special files may not.      \sa QIODevice::isSequential() */
 end_comment
 begin_function
 DECL|function|isSequential
@@ -502,7 +502,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Flushes any buffered data to the file. Returns true if successful;     otherwise returns false. */
+comment|/*!     Flushes any buffered data to the file. Returns \c true if successful;     otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|flush
@@ -787,7 +787,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if the end of the file has been reached; otherwise returns   false.    For regular empty files on Unix (e.g. those in \c /proc), this function   returns true, since the file system reports that the size of such a file is   0. Therefore, you should not depend on atEnd() when reading data from such a   file, but rather call read() until no more data can be read. */
+comment|/*!   Returns \c true if the end of the file has been reached; otherwise returns   false.    For regular empty files on Unix (e.g. those in \c /proc), this function   returns \c true, since the file system reports that the size of such a file is   0. Therefore, you should not depend on atEnd() when reading data from such a   file, but rather call read() until no more data can be read. */
 end_comment
 begin_function
 DECL|function|atEnd
@@ -1676,7 +1676,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the file error status.      The I/O device status returns an error code. For example, if open()     returns false, or a read/write operation returns -1, this function can     be called to find out the reason why the operation failed.      \sa unsetError() */
+comment|/*!     Returns the file error status.      The I/O device status returns an error code. For example, if open()     returns \c false, or a read/write operation returns -1, this function can     be called to find out the reason why the operation failed.      \sa unsetError() */
 end_comment
 begin_function
 DECL|function|error
@@ -1778,7 +1778,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the file size (in bytes) \a sz. Returns true if the file if the     resize succeeds; false otherwise. If \a sz is larger than the file     currently is the new bytes will be set to 0, if \a sz is smaller the     file is simply truncated.      \sa size() */
+comment|/*!     Sets the file size (in bytes) \a sz. Returns \c true if the file if the     resize succeeds; false otherwise. If \a sz is larger than the file     currently is the new bytes will be set to 0, if \a sz is smaller the     file is simply truncated.      \sa size() */
 end_comment
 begin_function
 DECL|function|resize
@@ -1939,7 +1939,7 @@ comment|//ewww
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the permissions for the file to the \a permissions specified.     Returns true if successful, or false if the permissions cannot be     modified.      \sa permissions() */
+comment|/*!     Sets the permissions for the file to the \a permissions specified.     Returns \c true if successful, or false if the permissions cannot be     modified.      \sa permissions() */
 end_comment
 begin_function
 DECL|function|setPermissions
@@ -2101,7 +2101,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Unmaps the memory \a address.      Returns true if the unmap succeeds; false otherwise.      \sa map()  */
+comment|/*!     Unmaps the memory \a address.      Returns \c true if the unmap succeeds; false otherwise.      \sa map()  */
 end_comment
 begin_function
 DECL|function|unmap

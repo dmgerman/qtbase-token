@@ -136,7 +136,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*!     \internal      Returns true if this key is the same as the given \a key; otherwise returns     false. */
+comment|/*!     \internal      Returns \c true if this key is the same as the given \a key; otherwise returns     false. */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -619,7 +619,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*   This is supposed to cut the cache size down by about 25% in a   minute once the application becomes idle, to let any inserted pixmap   remain in the cache for some time before it becomes a candidate for   cleaning-up, and to not cut down the size of the cache while the   cache is in active use.    When the last detached pixmap has been deleted from the cache, kill the   timer so Qt won't keep the CPU from going into sleep mode. Currently   the timer is not restarted when the pixmap becomes unused, but it does   restart once something else is added (i.e. the cache space is actually needed).    Returns true if any were removed. */
+comment|/*   This is supposed to cut the cache size down by about 25% in a   minute once the application becomes idle, to let any inserted pixmap   remain in the cache for some time before it becomes a candidate for   cleaning-up, and to not cut down the size of the cache while the   cache is in active use.    When the last detached pixmap has been deleted from the cache, kill the   timer so Qt won't keep the CPU from going into sleep mode. Currently   the timer is not restarted when the pixmap becomes unused, but it does   restart once something else is added (i.e. the cache space is actually needed).    Returns \c true if any were removed. */
 end_comment
 begin_function
 DECL|function|flushDetachedPixmaps
@@ -2019,7 +2019,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Looks for a cached pixmap associated with the given \a key in the cache.     If the pixmap is found, the function sets \a pixmap to that pixmap and     returns true; otherwise it leaves \a pixmap alone and returns false.      \since 4.6      Example:     \snippet code/src_gui_image_qpixmapcache.cpp 1 */
+comment|/*!     Looks for a cached pixmap associated with the given \a key in the cache.     If the pixmap is found, the function sets \a pixmap to that pixmap and     returns \c true; otherwise it leaves \a pixmap alone and returns \c false.      \since 4.6      Example:     \snippet code/src_gui_image_qpixmapcache.cpp 1 */
 end_comment
 begin_function
 DECL|function|find
@@ -2070,7 +2070,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Looks for a cached pixmap associated with the given \a key in the cache.     If the pixmap is found, the function sets \a pixmap to that pixmap and     returns true; otherwise it leaves \a pixmap alone and returns false. If     the pixmap is not found, it means that the \a key is no longer valid,     so it will be released for the next insertion.      \since 4.6 */
+comment|/*!     Looks for a cached pixmap associated with the given \a key in the cache.     If the pixmap is found, the function sets \a pixmap to that pixmap and     returns \c true; otherwise it leaves \a pixmap alone and returns \c false. If     the pixmap is not found, it means that the \a key is no longer valid,     so it will be released for the next insertion.      \since 4.6 */
 end_comment
 begin_function
 DECL|function|find
@@ -2139,7 +2139,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Inserts a copy of the pixmap \a pixmap associated with the \a key into     the cache.      All pixmaps inserted by the Qt library have a key starting with     "$qt", so your own pixmap keys should never begin "$qt".      When a pixmap is inserted and the cache is about to exceed its     limit, it removes pixmaps until there is enough room for the     pixmap to be inserted.      The oldest pixmaps (least recently accessed in the cache) are     deleted when more space is needed.      The function returns true if the object was inserted into the     cache; otherwise it returns false.      \sa setCacheLimit() */
+comment|/*!     Inserts a copy of the pixmap \a pixmap associated with the \a key into     the cache.      All pixmaps inserted by the Qt library have a key starting with     "$qt", so your own pixmap keys should never begin "$qt".      When a pixmap is inserted and the cache is about to exceed its     limit, it removes pixmaps until there is enough room for the     pixmap to be inserted.      The oldest pixmaps (least recently accessed in the cache) are     deleted when more space is needed.      The function returns \c true if the object was inserted into the     cache; otherwise it returns \c false.      \sa setCacheLimit() */
 end_comment
 begin_function
 DECL|function|insert
@@ -2236,7 +2236,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Replaces the pixmap associated with the given \a key with the \a pixmap     specified. Returns true if the \a pixmap has been correctly inserted into     the cache; otherwise returns false.      \sa setCacheLimit(), insert()      \since 4.6 */
+comment|/*!     Replaces the pixmap associated with the given \a key with the \a pixmap     specified. Returns \c true if the \a pixmap has been correctly inserted into     the cache; otherwise returns \c false.      \sa setCacheLimit(), insert()      \since 4.6 */
 end_comment
 begin_function
 DECL|function|replace

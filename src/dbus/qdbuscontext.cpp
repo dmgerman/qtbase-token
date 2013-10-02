@@ -158,7 +158,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     Returns true if we are processing a D-Bus call. If this function     returns true, the rest of the functions in this class are     available.      Accessing those functions when this function returns false is     undefined and may lead to crashes. */
+comment|/*!     Returns \c true if we are processing a D-Bus call. If this function     returns \c true, the rest of the functions in this class are     available.      Accessing those functions when this function returns \c false is     undefined and may lead to crashes. */
 end_comment
 begin_function
 DECL|function|calledFromDBus
@@ -215,7 +215,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this call will have a delayed reply.      \sa setDelayedReply() */
+comment|/*!     Returns \c true if this call will have a delayed reply.      \sa setDelayedReply() */
 end_comment
 begin_function
 DECL|function|isDelayedReply

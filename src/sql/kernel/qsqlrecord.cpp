@@ -312,10 +312,10 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*!     \fn bool QSqlRecord::operator!=(const QSqlRecord&other) const      Returns true if this object is not identical to \a other;     otherwise returns false.      \sa operator==() */
+comment|/*!     \fn bool QSqlRecord::operator!=(const QSqlRecord&other) const      Returns \c true if this object is not identical to \a other;     otherwise returns \c false.      \sa operator==() */
 end_comment
 begin_comment
-comment|/*!     Returns true if this object is identical to \a other (i.e., has     the same fields in the same order); otherwise returns false.      \sa operator!=() */
+comment|/*!     Returns \c true if this object is identical to \a other (i.e., has     the same fields in the same order); otherwise returns \c false.      \sa operator!=() */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -731,7 +731,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if there are no fields in the record; otherwise     returns false.      \sa append(), insert(), clear() */
+comment|/*!     Returns \c true if there are no fields in the record; otherwise     returns \c false.      \sa append(), insert(), clear() */
 end_comment
 begin_function
 DECL|function|isEmpty
@@ -753,7 +753,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if there is a field in the record called \a name;     otherwise returns false. */
+comment|/*!     Returns \c true if there is a field in the record called \a name;     otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|contains
@@ -906,7 +906,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Returns true if the field \a index is null or if there is no field at     position \a index; otherwise returns false. */
+comment|/*!     \overload      Returns \c true if the field \a index is null or if there is no field at     position \a index; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|isNull
@@ -936,7 +936,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the field called \a name is null or if there is no     field called \a name; otherwise returns false.      \sa setNull() */
+comment|/*!     Returns \c true if the field called \a name is null or if there is no     field called \a name; otherwise returns \c false.      \sa setNull() */
 end_comment
 begin_function
 DECL|function|isNull
@@ -1030,7 +1030,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the record has a field called \a name and this     field is to be generated (the default); otherwise returns false.      \sa setGenerated() */
+comment|/*!     Returns \c true if the record has a field called \a name and this     field is to be generated (the default); otherwise returns \c false.      \sa setGenerated() */
 end_comment
 begin_function
 DECL|function|isGenerated
@@ -1058,7 +1058,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \overload      Returns true if the record has a field at position \a index and this     field is to be generated (the default); otherwise returns false.      \sa setGenerated() */
+comment|/*! \overload      Returns \c true if the record has a field at position \a index and this     field is to be generated (the default); otherwise returns \c false.      \sa setGenerated() */
 end_comment
 begin_function
 DECL|function|isGenerated

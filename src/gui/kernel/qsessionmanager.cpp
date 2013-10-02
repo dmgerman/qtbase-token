@@ -215,7 +215,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Asks the session manager for permission to interact with the user. Returns     true if interaction is permitted; otherwise returns false.      The rationale behind this mechanism is to make it possible to synchronize     user interaction during a shutdown. Advanced session managers may ask all     applications simultaneously to commit their data, resulting in a much     faster shutdown.      When the interaction is completed we strongly recommend releasing the user     interaction semaphore with a call to release(). This way, other     applications may get the chance to interact with the user while your     application is still busy saving data. (The semaphore is implicitly     released when the application exits.)      If the user decides to cancel the shutdown process during the interaction     phase, you must tell the session manager that this has happened by calling     cancel().      Here's an example of how an application's QGuiApplication::commitDataRequest()     might be implemented:      \snippet code/src_gui_kernel_qguiapplication.cpp 8      If an error occurred within the application while saving its data, you may     want to try allowsErrorInteraction() instead.      \sa QGuiApplication::commitDataRequest(), release(), cancel() */
+comment|/*!     Asks the session manager for permission to interact with the user. Returns     true if interaction is permitted; otherwise returns \c false.      The rationale behind this mechanism is to make it possible to synchronize     user interaction during a shutdown. Advanced session managers may ask all     applications simultaneously to commit their data, resulting in a much     faster shutdown.      When the interaction is completed we strongly recommend releasing the user     interaction semaphore with a call to release(). This way, other     applications may get the chance to interact with the user while your     application is still busy saving data. (The semaphore is implicitly     released when the application exits.)      If the user decides to cancel the shutdown process during the interaction     phase, you must tell the session manager that this has happened by calling     cancel().      Here's an example of how an application's QGuiApplication::commitDataRequest()     might be implemented:      \snippet code/src_gui_kernel_qguiapplication.cpp 8      If an error occurred within the application while saving its data, you may     want to try allowsErrorInteraction() instead.      \sa QGuiApplication::commitDataRequest(), release(), cancel() */
 end_comment
 begin_function
 DECL|function|allowsInteraction
@@ -241,7 +241,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if error interaction is permitted; otherwise returns false.      This is similar to allowsInteraction(), but also enables the application to     tell the user about any errors that occur. Session managers may give error     interaction requests higher priority, which means that it is more likely     that an error interaction is permitted. However, you are still not     guaranteed that the session manager will allow interaction.      \sa allowsInteraction(), release(), cancel() */
+comment|/*!     Returns \c true if error interaction is permitted; otherwise returns \c false.      This is similar to allowsInteraction(), but also enables the application to     tell the user about any errors that occur. Session managers may give error     interaction requests higher priority, which means that it is more likely     that an error interaction is permitted. However, you are still not     guaranteed that the session manager will allow interaction.      \sa allowsInteraction(), release(), cancel() */
 end_comment
 begin_function
 DECL|function|allowsErrorInteraction
@@ -577,7 +577,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the session manager is currently performing a second     session management phase; otherwise returns false.      \sa requestPhase2() */
+comment|/*!     Returns \c true if the session manager is currently performing a second     session management phase; otherwise returns \c false.      \sa requestPhase2() */
 end_comment
 begin_function
 DECL|function|isPhase2

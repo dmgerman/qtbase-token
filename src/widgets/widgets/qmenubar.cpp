@@ -9133,7 +9133,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QMenuBar::nativeMenuBar     \brief Whether or not a menubar will be used as a native menubar on platforms that support it     \since 4.6      This property specifies whether or not the menubar should be used as a native menubar on platforms     that support it. The currently supported platforms are Mac OS X and Windows CE. On these platforms     if this property is true, the menubar is used in the native menubar and is not in the window of     its parent, if false the menubar remains in the window. On other platforms the value of this     attribute has no effect.      The default is to follow whether the Qt::AA_DontUseNativeMenuBar attribute     is set for the application. Explicitly settings this property overrides     the presence (or abscence) of the attribute. */
+comment|/*!     \property QMenuBar::nativeMenuBar     \brief Whether or not a menubar will be used as a native menubar on platforms that support it     \since 4.6      This property specifies whether or not the menubar should be used as a native menubar on platforms     that support it. The currently supported platforms are Mac OS X and Windows CE. On these platforms     if this property is \c true, the menubar is used in the native menubar and is not in the window of     its parent, if false the menubar remains in the window. On other platforms the value of this     attribute has no effect.      The default is to follow whether the Qt::AA_DontUseNativeMenuBar attribute     is set for the application. Explicitly settings this property overrides     the presence (or abscence) of the attribute. */
 end_comment
 begin_function
 DECL|function|setNativeMenuBar

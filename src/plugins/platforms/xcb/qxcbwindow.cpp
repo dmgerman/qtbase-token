@@ -519,7 +519,7 @@ literal|0
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|// Returns true if we should set WM_TRANSIENT_FOR on \a w
+comment|// Returns \c true if we should set WM_TRANSIENT_FOR on \a w
 end_comment
 begin_function
 DECL|function|isTransient

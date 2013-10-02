@@ -56,8 +56,8 @@ comment|/*!     \fn QQuaternion::QQuaternion(const QVector4D& vector)      Const
 comment|/*!     \fn QVector4D QQuaternion::toVector4D() const      Returns this quaternion as a 4D vector. */
 endif|#
 directive|endif
-comment|/*!     \fn bool QQuaternion::isNull() const      Returns true if the x, y, z, and scalar components of this     quaternion are set to 0.0; otherwise returns false. */
-comment|/*!     \fn bool QQuaternion::isIdentity() const      Returns true if the x, y, and z components of this     quaternion are set to 0.0, and the scalar component is set     to 1.0; otherwise returns false. */
+comment|/*!     \fn bool QQuaternion::isNull() const      Returns \c true if the x, y, z, and scalar components of this     quaternion are set to 0.0; otherwise returns \c false. */
+comment|/*!     \fn bool QQuaternion::isIdentity() const      Returns \c true if the x, y, and z components of this     quaternion are set to 0.0, and the scalar component is set     to 1.0; otherwise returns \c false. */
 comment|/*!     \fn float QQuaternion::x() const      Returns the x coordinate of this quaternion's vector.      \sa setX(), y(), z(), scalar() */
 comment|/*!     \fn float QQuaternion::y() const      Returns the y coordinate of this quaternion's vector.      \sa setY(), x(), z(), scalar() */
 comment|/*!     \fn float QQuaternion::z() const      Returns the z coordinate of this quaternion's vector.      \sa setZ(), x(), y(), scalar() */
@@ -606,10 +606,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool operator==(const QQuaternion&q1, const QQuaternion&q2)     \relates QQuaternion      Returns true if \a q1 is equal to \a q2; otherwise returns false.     This operator uses an exact floating-point comparison. */
+comment|/*!     \fn bool operator==(const QQuaternion&q1, const QQuaternion&q2)     \relates QQuaternion      Returns \c true if \a q1 is equal to \a q2; otherwise returns \c false.     This operator uses an exact floating-point comparison. */
 end_comment
 begin_comment
-comment|/*!     \fn bool operator!=(const QQuaternion&q1, const QQuaternion&q2)     \relates QQuaternion      Returns true if \a q1 is not equal to \a q2; otherwise returns false.     This operator uses an exact floating-point comparison. */
+comment|/*!     \fn bool operator!=(const QQuaternion&q1, const QQuaternion&q2)     \relates QQuaternion      Returns \c true if \a q1 is not equal to \a q2; otherwise returns \c false.     This operator uses an exact floating-point comparison. */
 end_comment
 begin_comment
 comment|/*!     \fn const QQuaternion operator+(const QQuaternion&q1, const QQuaternion&q2)     \relates QQuaternion      Returns a QQuaternion object that is the sum of the given quaternions,     \a q1 and \a q2; each component is added separately.      \sa QQuaternion::operator+=() */
@@ -633,7 +633,7 @@ begin_comment
 comment|/*!     \fn const QQuaternion operator/(const QQuaternion&quaternion, float divisor)     \relates QQuaternion      Returns the QQuaternion object formed by dividing all components of     the given \a quaternion by the given \a divisor.      \sa QQuaternion::operator/=() */
 end_comment
 begin_comment
-comment|/*!     \fn bool qFuzzyCompare(const QQuaternion& q1, const QQuaternion& q2)     \relates QQuaternion      Returns true if \a q1 and \a q2 are equal, allowing for a small     fuzziness factor for floating-point comparisons; false otherwise. */
+comment|/*!     \fn bool qFuzzyCompare(const QQuaternion& q1, const QQuaternion& q2)     \relates QQuaternion      Returns \c true if \a q1 and \a q2 are equal, allowing for a small     fuzziness factor for floating-point comparisons; false otherwise. */
 end_comment
 begin_comment
 comment|/*!     Interpolates along the shortest spherical path between the     rotational positions \a q1 and \a q2.  The value \a t should     be between 0 and 1, indicating the spherical distance to travel     between \a q1 and \a q2.      If \a t is less than or equal to 0, then \a q1 will be returned.     If \a t is greater than or equal to 1, then \a q2 will be returned.      \sa nlerp() */

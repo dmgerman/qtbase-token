@@ -2868,7 +2868,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the regular expression is a valid regular expression (that     is, it contains no syntax errors, etc.), or false otherwise. Use     errorString() to obtain a textual description of the error.      \sa errorString(), patternErrorOffset() */
+comment|/*!     Returns \c true if the regular expression is a valid regular expression (that     is, it contains no syntax errors, etc.), or false otherwise. Use     errorString() to obtain a textual description of the error.      \sa errorString(), patternErrorOffset() */
 end_comment
 begin_function
 DECL|function|isValid
@@ -3093,7 +3093,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the regular expression is equal to \a re, or false     otherwise. Two QRegularExpression objects are equal if they have     the same pattern string and the same pattern options.      \sa operator!=() */
+comment|/*!     Returns \c true if the regular expression is equal to \a re, or false     otherwise. Two QRegularExpression objects are equal if they have     the same pattern string and the same pattern options.      \sa operator!=() */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -3144,7 +3144,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QRegularExpression::operator!=(const QRegularExpression&re) const      Returns true if the regular expression is different from \a re, or     false otherwise.      \sa operator==() */
+comment|/*!     \fn bool QRegularExpression::operator!=(const QRegularExpression&re) const      Returns \c true if the regular expression is different from \a re, or     false otherwise.      \sa operator==() */
 end_comment
 begin_comment
 comment|/*!     Escapes all characters of \a str so that they no longer have any special     meaning when used as a regular expression pattern string, and returns     the escaped string. For instance:      \snippet code/src_corelib_tools_qregularexpression.cpp 26      This is very convenient in order to build patterns from arbitrary strings:      \snippet code/src_corelib_tools_qregularexpression.cpp 27      \note This function implements Perl's quotemeta algorithm and escapes with     a backslash all characters in \a str, except for the characters in the     \c{[A-Z]}, \c{[a-z]} and \c{[0-9]} ranges, as well as the underscore     (\c{_}) character. The only difference with Perl is that a literal NUL     inside \a str is escaped with the sequence \c{"\\0"} (backslash +     \c{'0'}), instead of \c{"\\\0"} (backslash + \c{NUL}). */
@@ -4214,7 +4214,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the regular expression matched against the subject string,     or false otherwise.      \sa QRegularExpression::match(), hasPartialMatch() */
+comment|/*!     Returns \c true if the regular expression matched against the subject string,     or false otherwise.      \sa QRegularExpression::match(), hasPartialMatch() */
 end_comment
 begin_function
 DECL|function|hasMatch
@@ -4233,7 +4233,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the regular expression partially matched against the     subject string, or false otherwise.      \note Only a match that explicitly used the one of the partial match types     can yield a partial match. Still, if such a match succeeds totally, this     function will return false, while hasMatch() will return true.      \sa QRegularExpression::match(), QRegularExpression::MatchType, hasMatch() */
+comment|/*!     Returns \c true if the regular expression partially matched against the     subject string, or false otherwise.      \note Only a match that explicitly used the one of the partial match types     can yield a partial match. Still, if such a match succeeds totally, this     function will return false, while hasMatch() will return true.      \sa QRegularExpression::match(), QRegularExpression::MatchType, hasMatch() */
 end_comment
 begin_function
 DECL|function|hasPartialMatch
@@ -4252,7 +4252,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the match object was obtained as a result from the     QRegularExpression::match() function invoked on a valid QRegularExpression     object; returns false if the QRegularExpression was invalid.      \sa QRegularExpression::match(), QRegularExpression::isValid() */
+comment|/*!     Returns \c true if the match object was obtained as a result from the     QRegularExpression::match() function invoked on a valid QRegularExpression     object; returns \c false if the QRegularExpression was invalid.      \sa QRegularExpression::match(), QRegularExpression::isValid() */
 end_comment
 begin_function
 DECL|function|isValid
@@ -4392,7 +4392,7 @@ begin_comment
 comment|/*!     \fn void QRegularExpressionMatchIterator::swap(QRegularExpressionMatchIterator&other)      Swaps the iterator \a other with this iterator object. This operation is     very fast and never fails. */
 end_comment
 begin_comment
-comment|/*!     Returns true if the iterator object was obtained as a result from the     QRegularExpression::globalMatch() function invoked on a valid     QRegularExpression object; returns false if the QRegularExpression was     invalid.      \sa QRegularExpression::globalMatch(), QRegularExpression::isValid() */
+comment|/*!     Returns \c true if the iterator object was obtained as a result from the     QRegularExpression::globalMatch() function invoked on a valid     QRegularExpression object; returns \c false if the QRegularExpression was     invalid.      \sa QRegularExpression::globalMatch(), QRegularExpression::isValid() */
 end_comment
 begin_function
 DECL|function|isValid
@@ -4414,7 +4414,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if there is at least one match result ahead of the iterator;     otherwise it returns false.      \sa next() */
+comment|/*!     Returns \c true if there is at least one match result ahead of the iterator;     otherwise it returns \c false.      \sa next() */
 end_comment
 begin_function
 DECL|function|hasNext

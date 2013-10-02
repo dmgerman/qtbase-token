@@ -290,7 +290,7 @@ block|}
 block|}
 end_destructor
 begin_comment
-comment|/*!     Returns true if this QDBusServer object is connected.      If it isn't connected, you need to call the constructor again. */
+comment|/*!     Returns \c true if this QDBusServer object is connected.      If it isn't connected, you need to call the constructor again. */
 end_comment
 begin_function
 DECL|function|isConnected

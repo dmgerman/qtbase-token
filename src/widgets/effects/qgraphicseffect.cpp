@@ -410,7 +410,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the source effectively is a pixmap, e.g., a     QGraphicsPixmapItem.      This function is useful for optimization purposes. For instance, there's no     point in drawing the source in device coordinates to avoid pixmap scaling     if this function returns true - the source pixmap will be scaled anyways. */
+comment|/*!     Returns \c true if the source effectively is a pixmap, e.g., a     QGraphicsPixmapItem.      This function is useful for optimization purposes. For instance, there's no     point in drawing the source in device coordinates to avoid pixmap scaling     if this function returns \c true - the source pixmap will be scaled anyways. */
 end_comment
 begin_function
 DECL|function|isPixmap
@@ -431,7 +431,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the source effectively is a pixmap, e.g., a     QGraphicsPixmapItem.      This function is useful for optimization purposes. For instance, there's no     point in drawing the source in device coordinates to avoid pixmap scaling     if this function returns true - the source pixmap will be scaled anyways. */
+comment|/*!     Returns \c true if the source effectively is a pixmap, e.g., a     QGraphicsPixmapItem.      This function is useful for optimization purposes. For instance, there's no     point in drawing the source in device coordinates to avoid pixmap scaling     if this function returns \c true - the source pixmap will be scaled anyways. */
 end_comment
 begin_function
 DECL|function|sourceIsPixmap

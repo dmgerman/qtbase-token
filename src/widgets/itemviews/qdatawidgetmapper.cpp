@@ -2082,7 +2082,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Submits all changes from the mapped widgets to the model.      For every mapped section, the item delegate reads the current     value from the widget and sets it in the model. Finally, the     model's \l {QAbstractItemModel::}{submit()} method is invoked.      Returns true if all the values were submitted, otherwise false.      Note: For database models, QSqlQueryModel::lastError() can be     used to retrieve the last error.      \sa revert(), setSubmitPolicy()  */
+comment|/*!     Submits all changes from the mapped widgets to the model.      For every mapped section, the item delegate reads the current     value from the widget and sets it in the model. Finally, the     model's \l {QAbstractItemModel::}{submit()} method is invoked.      Returns \c true if all the values were submitted, otherwise false.      Note: For database models, QSqlQueryModel::lastError() can be     used to retrieve the last error.      \sa revert(), setSubmitPolicy()  */
 end_comment
 begin_function
 DECL|function|submit

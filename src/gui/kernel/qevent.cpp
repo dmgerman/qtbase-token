@@ -1282,7 +1282,7 @@ directive|ifndef
 name|QT_NO_SHORTCUT
 end_ifndef
 begin_comment
-comment|/*!     \fn bool QKeyEvent::matches(QKeySequence::StandardKey key) const     \since 4.2      Returns true if the key event matches the given standard \a key;     otherwise returns false. */
+comment|/*!     \fn bool QKeyEvent::matches(QKeySequence::StandardKey key) const     \since 4.2      Returns \c true if the key event matches the given standard \a key;     otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|matches
@@ -1356,7 +1356,7 @@ begin_comment
 comment|// QT_NO_SHORTCUT
 end_comment
 begin_comment
-comment|/*!     \fn bool QKeyEvent::isAutoRepeat() const      Returns true if this event comes from an auto-repeating key;     returns false if it comes from an initial key press.      Note that if the event is a multiple-key compressed event that is     partly due to auto-repeat, this function could return either true     or false indeterminately. */
+comment|/*!     \fn bool QKeyEvent::isAutoRepeat() const      Returns \c true if this event comes from an auto-repeating key;     returns \c false if it comes from an initial key press.      Note that if the event is a multiple-key compressed event that is     partly due to auto-repeat, this function could return either true     or false indeterminately. */
 end_comment
 begin_comment
 comment|/*!     \fn int QKeyEvent::count() const      Returns the number of keys involved in this event. If text()     is not empty, this is simply the length of the string.      \sa Qt::WA_KeyCompression */
@@ -1425,10 +1425,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QFocusEvent::gotFocus() const      Returns true if type() is QEvent::FocusIn; otherwise returns     false. */
+comment|/*!     \fn bool QFocusEvent::gotFocus() const      Returns \c true if type() is QEvent::FocusIn; otherwise returns     false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QFocusEvent::lostFocus() const      Returns true if type() is QEvent::FocusOut; otherwise returns     false. */
+comment|/*!     \fn bool QFocusEvent::lostFocus() const      Returns \c true if type() is QEvent::FocusOut; otherwise returns     false. */
 end_comment
 begin_comment
 comment|/*!     \class QPaintEvent     \brief The QPaintEvent class contains event parameters for paint events.     \inmodule QtGui      \ingroup events      Paint events are sent to widgets that need to update themselves,     for instance when part of a widget is exposed because a covering     widget was moved.      The event contains a region() that needs to be updated, and a     rect() that is the bounding rectangle of that region. Both are     provided because many widgets can't make much use of region(),     and rect() can be much faster than region().boundingRect().      \section1 Automatic Clipping      Painting is clipped to region() during the processing of a paint     event. This clipping is performed by Qt's paint system and is     independent of any clipping that may be applied to a QPainter used to     draw on the paint device.      As a result, the value returned by QPainter::clipRegion() on     a newly-constructed QPainter will not reflect the clip region that is     used by the paint system.      \sa QPainter, QWidget::update(), QWidget::repaint(),         QWidget::paintEvent() */
@@ -1685,7 +1685,7 @@ begin_comment
 comment|/*!     \fn const QSize&QResizeEvent::oldSize() const      Returns the old size of the widget. */
 end_comment
 begin_comment
-comment|/*!     \class QCloseEvent     \brief The QCloseEvent class contains parameters that describe a close event.      \ingroup events     \inmodule QtGui      Close events are sent to widgets that the user wants to close,     usually by choosing "Close" from the window menu, or by clicking     the \uicontrol{X} title bar button. They are also sent when you call     QWidget::close() to close a widget programmatically.      Close events contain a flag that indicates whether the receiver     wants the widget to be closed or not. When a widget accepts the     close event, it is hidden (and destroyed if it was created with     the Qt::WA_DeleteOnClose flag). If it refuses to accept the close     event nothing happens. (Under X11 it is possible that the window     manager will forcibly close the window; but at the time of writing     we are not aware of any window manager that does this.)      The event handler QWidget::closeEvent() receives close events. The     default implementation of this event handler accepts the close     event. If you do not want your widget to be hidden, or want some     special handing, you should reimplement the event handler and     ignore() the event.      The \l{mainwindows/application#close event handler}{closeEvent() in the     Application example} shows a close event handler that     asks whether to save a document before closing.      If you want the widget to be deleted when it is closed, create it     with the Qt::WA_DeleteOnClose flag. This is very useful for     independent top-level windows in a multi-window application.      \l{QObject}s emits the \l{QObject::destroyed()}{destroyed()}     signal when they are deleted.      If the last top-level window is closed, the     QApplication::lastWindowClosed() signal is emitted.      The isAccepted() function returns true if the event's receiver has     agreed to close the widget; call accept() to agree to close the     widget and call ignore() if the receiver of this event does not     want the widget to be closed.      \sa QWidget::close(), QWidget::hide(), QObject::destroyed(),         QCoreApplication::exec(), QCoreApplication::quit(),         QApplication::lastWindowClosed() */
+comment|/*!     \class QCloseEvent     \brief The QCloseEvent class contains parameters that describe a close event.      \ingroup events     \inmodule QtGui      Close events are sent to widgets that the user wants to close,     usually by choosing "Close" from the window menu, or by clicking     the \uicontrol{X} title bar button. They are also sent when you call     QWidget::close() to close a widget programmatically.      Close events contain a flag that indicates whether the receiver     wants the widget to be closed or not. When a widget accepts the     close event, it is hidden (and destroyed if it was created with     the Qt::WA_DeleteOnClose flag). If it refuses to accept the close     event nothing happens. (Under X11 it is possible that the window     manager will forcibly close the window; but at the time of writing     we are not aware of any window manager that does this.)      The event handler QWidget::closeEvent() receives close events. The     default implementation of this event handler accepts the close     event. If you do not want your widget to be hidden, or want some     special handing, you should reimplement the event handler and     ignore() the event.      The \l{mainwindows/application#close event handler}{closeEvent() in the     Application example} shows a close event handler that     asks whether to save a document before closing.      If you want the widget to be deleted when it is closed, create it     with the Qt::WA_DeleteOnClose flag. This is very useful for     independent top-level windows in a multi-window application.      \l{QObject}s emits the \l{QObject::destroyed()}{destroyed()}     signal when they are deleted.      If the last top-level window is closed, the     QApplication::lastWindowClosed() signal is emitted.      The isAccepted() function returns \c true if the event's receiver has     agreed to close the widget; call accept() to agree to close the     widget and call ignore() if the receiver of this event does not     want the widget to be closed.      \sa QWidget::close(), QWidget::hide(), QObject::destroyed(),         QCoreApplication::exec(), QCoreApplication::quit(),         QApplication::lastWindowClosed() */
 end_comment
 begin_comment
 comment|/*!     Constructs a close event object.      \sa accept() */
@@ -3228,7 +3228,7 @@ begin_comment
 comment|// QT_NO_ACTION
 end_comment
 begin_comment
-comment|/*!     \class QHideEvent     \brief The QHideEvent class provides an event which is sent after a widget is hidden.      \ingroup events     \inmodule QtGui      This event is sent just before QWidget::hide() returns, and also     when a top-level window has been hidden (iconified) by the user.      If spontaneous() is true, the event originated outside the     application. In this case, the user hid the window using the     window manager controls, either by iconifying the window or by     switching to another virtual desktop where the window isn't     visible. The window will become hidden but not withdrawn. If the     window was iconified, QWidget::isMinimized() returns true.      \sa QShowEvent */
+comment|/*!     \class QHideEvent     \brief The QHideEvent class provides an event which is sent after a widget is hidden.      \ingroup events     \inmodule QtGui      This event is sent just before QWidget::hide() returns, and also     when a top-level window has been hidden (iconified) by the user.      If spontaneous() is true, the event originated outside the     application. In this case, the user hid the window using the     window manager controls, either by iconifying the window or by     switching to another virtual desktop where the window isn't     visible. The window will become hidden but not withdrawn. If the     window was iconified, QWidget::isMinimized() returns \c true.      \sa QShowEvent */
 end_comment
 begin_comment
 comment|/*!     Constructs a QHideEvent. */
@@ -3381,7 +3381,7 @@ begin_comment
 comment|/*!     \fn QUrl QFileOpenEvent::url() const      Returns the url that is being opened.      \since 4.6 */
 end_comment
 begin_comment
-comment|/*!     \fn bool QFileOpenEvent::openFile(QFile&file, QIODevice::OpenMode flags) const      Opens a QFile on the \a file referenced by this event in the mode specified     by \a flags. Returns true if successful; otherwise returns false.      This is necessary as some files cannot be opened by name, but require specific     information stored in this event.      \since 4.8 */
+comment|/*!     \fn bool QFileOpenEvent::openFile(QFile&file, QIODevice::OpenMode flags) const      Opens a QFile on the \a file referenced by this event in the mode specified     by \a flags. Returns \c true if successful; otherwise returns \c false.      This is necessary as some files cannot be opened by name, but require specific     information stored in this event.      \since 4.8 */
 end_comment
 begin_function
 DECL|function|openFile
@@ -4953,7 +4953,7 @@ begin_comment
 comment|/*!     \fn int QShortcutEvent::shortcutId() const      Returns the ID of the QShortcut object for which this event was     generated.      \sa QShortcut::id() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QShortcutEvent::isAmbiguous() const      Returns true if the key sequence that triggered the event is     ambiguous.      \sa QShortcut::activatedAmbiguously() */
+comment|/*!     \fn bool QShortcutEvent::isAmbiguous() const      Returns \c true if the key sequence that triggered the event is     ambiguous.      \sa QShortcut::activatedAmbiguously() */
 end_comment
 begin_comment
 comment|/*!     \class QWindowStateChangeEvent     \ingroup events     \inmodule QtGui      \brief The QWindowStateChangeEvent class provides the window state before a     window state change. */

@@ -261,7 +261,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Adds the cookies in the list \a cookieList to this cookie     jar. Before being inserted cookies are normalized.      Returns true if one or more cookies are set for \a url,     otherwise false.      If a cookie already exists in the cookie jar, it will be     overridden by those in \a cookieList.      The default QNetworkCookieJar class implements only a very basic     security policy (it makes sure that the cookies' domain and path     match the reply's). To enhance the security policy with your own     algorithms, override setCookiesFromUrl().      Also, QNetworkCookieJar does not have a maximum cookie jar     size. Reimplement this function to discard older cookies to create     room for new ones.      \sa cookiesForUrl(), QNetworkAccessManager::setCookieJar(), QNetworkCookie::normalize() */
+comment|/*!     Adds the cookies in the list \a cookieList to this cookie     jar. Before being inserted cookies are normalized.      Returns \c true if one or more cookies are set for \a url,     otherwise false.      If a cookie already exists in the cookie jar, it will be     overridden by those in \a cookieList.      The default QNetworkCookieJar class implements only a very basic     security policy (it makes sure that the cookies' domain and path     match the reply's). To enhance the security policy with your own     algorithms, override setCookiesFromUrl().      Also, QNetworkCookieJar does not have a maximum cookie jar     size. Reimplement this function to discard older cookies to create     room for new ones.      \sa cookiesForUrl(), QNetworkAccessManager::setCookieJar(), QNetworkCookie::normalize() */
 end_comment
 begin_function
 DECL|function|setCookiesFromUrl
@@ -581,7 +581,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.0     Adds \a cookie to this cookie jar.      Returns true if \a cookie was added, false otherwise.      If a cookie with the same identifier already exists in the     cookie jar, it will be overridden. */
+comment|/*!     \since 5.0     Adds \a cookie to this cookie jar.      Returns \c true if \a cookie was added, false otherwise.      If a cookie with the same identifier already exists in the     cookie jar, it will be overridden. */
 end_comment
 begin_function
 DECL|function|insertCookie
@@ -652,7 +652,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.0     If a cookie with the same identifier as \a cookie exists in this cookie jar     it will be updated. This function uses insertCookie().      Returns true if \a cookie was updated, false if no cookie in the jar matches     the identifier of \a cookie.      \sa QNetworkCookie::hasSameIdentifier() */
+comment|/*!     \since 5.0     If a cookie with the same identifier as \a cookie exists in this cookie jar     it will be updated. This function uses insertCookie().      Returns \c true if \a cookie was updated, false if no cookie in the jar matches     the identifier of \a cookie.      \sa QNetworkCookie::hasSameIdentifier() */
 end_comment
 begin_function
 DECL|function|updateCookie
@@ -686,7 +686,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.0     Deletes from cookie jar the cookie found to have the same identifier as \a cookie.      Returns true if a cookie was deleted, false otherwise.      \sa QNetworkCookie::hasSameIdentifier() */
+comment|/*!     \since 5.0     Deletes from cookie jar the cookie found to have the same identifier as \a cookie.      Returns \c true if a cookie was deleted, false otherwise.      \sa QNetworkCookie::hasSameIdentifier() */
 end_comment
 begin_function
 DECL|function|deleteCookie
@@ -766,7 +766,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.0     Returns true if the domain and path of \a cookie are valid, false otherwise.     The \a url parameter is used to determine if the domain specified in the cookie     is allowed. */
+comment|/*!     \since 5.0     Returns \c true if the domain and path of \a cookie are valid, false otherwise.     The \a url parameter is used to determine if the domain specified in the cookie     is allowed. */
 end_comment
 begin_function
 DECL|function|validateCookie

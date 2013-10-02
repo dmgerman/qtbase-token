@@ -5801,7 +5801,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QDockWidget::floating     \brief whether the dock widget is floating      A floating dock widget is presented to the user as an independent     window "on top" of its parent QMainWindow, instead of being     docked in the QMainWindow.      By default, this property is true.      \sa isWindow() */
+comment|/*!     \property QDockWidget::floating     \brief whether the dock widget is floating      A floating dock widget is presented to the user as an independent     window "on top" of its parent QMainWindow, instead of being     docked in the QMainWindow.      By default, this property is \c true.      \sa isWindow() */
 end_comment
 begin_function
 DECL|function|setFloating
@@ -6009,7 +6009,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QDockWidget::isAreaAllowed(Qt::DockWidgetArea area) const      Returns true if this dock widget can be placed in the given \a area;     otherwise returns false. */
+comment|/*!     \fn bool QDockWidget::isAreaAllowed(Qt::DockWidgetArea area) const      Returns \c true if this dock widget can be placed in the given \a area;     otherwise returns \c false. */
 end_comment
 begin_comment
 comment|/*! \reimp */

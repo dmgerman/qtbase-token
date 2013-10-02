@@ -1514,7 +1514,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the pen has a solid fill, otherwise false.      \sa style(), dashPattern() */
+comment|/*!     Returns \c true if the pen has a solid fill, otherwise false.      \sa style(), dashPattern() */
 end_comment
 begin_function
 DECL|function|isSolid
@@ -1540,7 +1540,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the pen is cosmetic; otherwise returns false.      Cosmetic pens are used to draw strokes that have a constant width     regardless of any transformations applied to the QPainter they are     used with. Drawing a shape with a cosmetic pen ensures that its     outline will have the same thickness at different scale factors.      A zero width pen is cosmetic by default.      \sa setCosmetic(), widthF() */
+comment|/*!     Returns \c true if the pen is cosmetic; otherwise returns \c false.      Cosmetic pens are used to draw strokes that have a constant width     regardless of any transformations applied to the QPainter they are     used with. Drawing a shape with a cosmetic pen ensures that its     outline will have the same thickness at different scale factors.      A zero width pen is cosmetic by default.      \sa setCosmetic(), widthF() */
 end_comment
 begin_function
 DECL|function|isCosmetic
@@ -1620,10 +1620,10 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QPen::operator!=(const QPen&pen) const      Returns true if the pen is different from the given \a pen;     otherwise false. Two pens are different if they have different     styles, widths or colors.      \sa operator==() */
+comment|/*!     \fn bool QPen::operator!=(const QPen&pen) const      Returns \c true if the pen is different from the given \a pen;     otherwise false. Two pens are different if they have different     styles, widths or colors.      \sa operator==() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QPen::operator==(const QPen&pen) const      Returns true if the pen is equal to the given \a pen; otherwise     false. Two pens are equal if they have equal styles, widths and     colors.      \sa operator!=() */
+comment|/*!     \fn bool QPen::operator==(const QPen&pen) const      Returns \c true if the pen is equal to the given \a pen; otherwise     false. Two pens are equal if they have equal styles, widths and     colors.      \sa operator!=() */
 end_comment
 begin_function
 DECL|function|operator ==

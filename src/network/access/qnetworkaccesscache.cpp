@@ -475,7 +475,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Removes the entry pointed by \a key from the linked list.     Returns true if the entry removed was the oldest one.  */
+comment|/*!     Removes the entry pointed by \a key from the linked list.     Returns \c true if the entry removed was the oldest one.  */
 end_comment
 begin_function
 DECL|function|unlinkEntry

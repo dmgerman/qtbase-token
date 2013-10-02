@@ -362,7 +362,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the window should appear active from a style perspective.      This function can make platform-specific isActive checks, such as checking     if the QWindow is embedded in an active native window. */
+comment|/*!     Returns \c true if the window should appear active from a style perspective.      This function can make platform-specific isActive checks, such as checking     if the QWindow is embedded in an active native window. */
 end_comment
 begin_function
 DECL|function|isActive
@@ -379,7 +379,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the window is a descendant of an embedded non-Qt window.     Example of an embedded non-Qt window is the parent window of an in-process QAxServer.      If \a parentWindow is nonzero, only check if the window is embedded in the     specified \a parentWindow. */
+comment|/*!     Returns \c true if the window is a descendant of an embedded non-Qt window.     Example of an embedded non-Qt window is the parent window of an in-process QAxServer.      If \a parentWindow is nonzero, only check if the window is embedded in the     specified \a parentWindow. */
 end_comment
 begin_function
 DECL|function|isEmbedded

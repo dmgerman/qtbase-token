@@ -857,7 +857,7 @@ block|}
 struct|;
 end_struct
 begin_comment
-comment|/*!     \internal      Returns true if \a p or any of its parents enable the     Qt::BypassGraphicsProxyWidget window flag. Used in QWidget::show() and     QWidget::setParent() to determine whether it's necessary to embed the     widget into a QGraphicsProxyWidget or not. */
+comment|/*!     \internal      Returns \c true if \a p or any of its parents enable the     Qt::BypassGraphicsProxyWidget window flag. Used in QWidget::show() and     QWidget::setParent() to determine whether it's necessary to embed the     widget into a QGraphicsProxyWidget or not. */
 end_comment
 begin_function
 DECL|function|bypassGraphicsProxyWidget

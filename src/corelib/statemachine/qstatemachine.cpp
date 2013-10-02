@@ -153,7 +153,7 @@ comment|/*!     \property QStateMachine::globalRestorePolicy      \brief the res
 ifndef|#
 directive|ifndef
 name|QT_NO_ANIMATION
-comment|/*!     \property QStateMachine::animated      \brief whether animations are enabled      The default value of this property is true.      \sa QAbstractTransition::addAnimation() */
+comment|/*!     \property QStateMachine::animated      \brief whether animations are enabled      The default value of this property is \c true.      \sa QAbstractTransition::addAnimation() */
 endif|#
 directive|endif
 comment|// #define QSTATEMACHINE_DEBUG
@@ -4823,7 +4823,7 @@ directive|ifndef
 name|QT_NO_PROPERTIES
 end_ifndef
 begin_comment
-comment|/*!   \internal   Returns true if the given state has saved the value of the given property,   otherwise returns false. */
+comment|/*!   \internal   Returns \c true if the given state has saved the value of the given property,   otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|hasRestorable
@@ -12012,7 +12012,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \threadsafe    Cancels the delayed event identified by the given \a id. The id should be a   value returned by a call to postDelayedEvent(). Returns true if the event   was successfully cancelled, otherwise returns false.    \sa postDelayedEvent() */
+comment|/*!   \threadsafe    Cancels the delayed event identified by the given \a id. The id should be a   value returned by a call to postDelayedEvent(). Returns \c true if the event   was successfully cancelled, otherwise returns \c false.    \sa postDelayedEvent() */
 end_comment
 begin_function
 DECL|function|cancelDelayedEvent

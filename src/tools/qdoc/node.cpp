@@ -2171,7 +2171,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if the node's status is Internal, or if its   parent is a class with internal status.  */
+comment|/*!   Returns \c true if the node's status is Internal, or if its   parent is a class with internal status.  */
 end_comment
 begin_function
 DECL|function|isInternal
@@ -2252,7 +2252,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*!   Returns true if this node's members coolection is not empty.  */
+comment|/*!   Returns \c true if this node's members coolection is not empty.  */
 end_comment
 begin_function
 DECL|function|hasMembers
@@ -2307,7 +2307,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if this node's members collection contains at   least one namespace node.  */
+comment|/*!   Returns \c true if this node's members collection contains at   least one namespace node.  */
 end_comment
 begin_function
 DECL|function|hasNamespaces
@@ -2371,7 +2371,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if this node's members collection contains at   least one class node.  */
+comment|/*!   Returns \c true if this node's members collection contains at   least one class node.  */
 end_comment
 begin_function
 DECL|function|hasClasses
@@ -2969,7 +2969,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Find the node in this node's children that has the given \a name. If   this node is a QML class node, be sure to also look in the children   of its property group nodes. Return the matching node or 0. This is   not a recearsive search.    If \a qml is true, only match a node for which node->isQmlNode()   returns true. If \a qml is false, only match a node for which   node->isQmlNode() returns false.  */
+comment|/*!   Find the node in this node's children that has the given \a name. If   this node is a QML class node, be sure to also look in the children   of its property group nodes. Return the matching node or 0. This is   not a recearsive search.    If \a qml is true, only match a node for which node->isQmlNode()   returns \c true. If \a qml is false, only match a node for which   node->isQmlNode() returns \c false.  */
 end_comment
 begin_function
 DECL|function|findChildNodeByName
@@ -4284,10 +4284,10 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn bool InnerNode::isInnerNode() const   Returns true because this is an inner node.  */
+comment|/*! \fn bool InnerNode::isInnerNode() const   Returns \c true because this is an inner node.  */
 end_comment
 begin_comment
-comment|/*!   Returns true if the node is a class node or a QML type node   that is marked as being a wrapper class or QML type, or if   it is a member of a wrapper class or type.  */
+comment|/*!   Returns \c true if the node is a class node or a QML type node   that is marked as being a wrapper class or QML type, or if   it is a member of a wrapper class or type.  */
 end_comment
 begin_function
 DECL|function|isWrapper
@@ -4352,7 +4352,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   If \a qml is true, only match a node for which node->isQmlNode()   returns true. If \a qml is false, only match a node for which   node->isQmlNode() returns false.  */
+comment|/*!   If \a qml is true, only match a node for which node->isQmlNode()   returns \c true. If \a qml is false, only match a node for which   node->isQmlNode() returns \c false.  */
 end_comment
 begin_function
 DECL|function|findChildNodeByName
@@ -5699,7 +5699,7 @@ begin_comment
 comment|/*!   \class LeafNode  */
 end_comment
 begin_comment
-comment|/*! \fn bool LeafNode::isInnerNode() const   Returns false because this is a LeafNode.  */
+comment|/*! \fn bool LeafNode::isInnerNode() const   Returns \c false because this is a LeafNode.  */
 end_comment
 begin_comment
 comment|/*!   Constructs a leaf node named \a name of the specified   \a type. The new leaf node becomes a child of \a parent.  */
@@ -9272,7 +9272,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!   Returns true if a QML property or attached property is   not read-only. The algorithm for figuring this out is long   amd tedious and almost certainly will break. It currently   doesn't work for the qmlproperty:    \code       bool PropertyChanges::explicit,   \endcode    ...because the tokenizer gets confused on \e{explicit}.  */
+comment|/*!   Returns \c true if a QML property or attached property is   not read-only. The algorithm for figuring this out is long   amd tedious and almost certainly will break. It currently   doesn't work for the qmlproperty:    \code       bool PropertyChanges::explicit,   \endcode    ...because the tokenizer gets confused on \e{explicit}.  */
 end_comment
 begin_function
 DECL|function|isWritable
@@ -9785,7 +9785,7 @@ begin_comment
 comment|/*! \fn void NameCollisionNode::clearCurrentChild()   Sets the current child to 0. This should be called at the   end of each file, because the current child is only valid   within the file where the child is defined.  */
 end_comment
 begin_comment
-comment|/*!   Returns true if this collision node's current node is a QML node.  */
+comment|/*!   Returns \c true if this collision node's current node is a QML node.  */
 end_comment
 begin_function
 DECL|function|isQmlNode

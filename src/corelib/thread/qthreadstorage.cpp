@@ -827,7 +827,7 @@ begin_comment
 comment|/*!     \fn QThreadStorage::~QThreadStorage()      Destroys the per-thread data storage object.      Note: The per-thread data stored is not deleted. Any data left     in QThreadStorage is leaked. Make sure that all threads using     QThreadStorage have exited before deleting the QThreadStorage.      \sa hasLocalData() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QThreadStorage::hasLocalData() const      If T is a pointer type, returns true if the calling thread has     non-zero data available.      If T is a value type, returns whether the data has already been     constructed by calling setLocalData or localData.      \sa localData() */
+comment|/*!     \fn bool QThreadStorage::hasLocalData() const      If T is a pointer type, returns \c true if the calling thread has     non-zero data available.      If T is a value type, returns whether the data has already been     constructed by calling setLocalData or localData.      \sa localData() */
 end_comment
 begin_comment
 comment|/*!     \fn T&QThreadStorage::localData()      Returns a reference to the data that was set by the calling     thread.      If no data has been set, this will create a default constructed     instance of type T.      \sa hasLocalData() */

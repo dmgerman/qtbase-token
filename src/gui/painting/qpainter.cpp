@@ -1028,7 +1028,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*    \internal    Returns true if using a shared painter; otherwise false. */
+comment|/*    \internal    Returns \c true if using a shared painter; otherwise false. */
 end_comment
 begin_function
 DECL|function|attachPainterPrivate
@@ -5275,7 +5275,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if begin() has been called and end() has not yet been     called; otherwise returns false.      \sa begin(), QPaintDevice::paintingActive() */
+comment|/*!     Returns \c true if begin() has been called and end() has not yet been     called; otherwise returns \c false.      \sa begin(), QPaintDevice::paintingActive() */
 end_comment
 begin_function
 DECL|function|isActive
@@ -5955,7 +5955,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!      \fn bool QPainter::begin(QPaintDevice *device)      Begins painting the paint \a device and returns true if     successful; otherwise returns false.      Notice that all painter settings (setPen(), setBrush() etc.) are reset     to default values when begin() is called.      The errors that can occur are serious problems, such as these:      \snippet code/src_gui_painting_qpainter.cpp 3      Note that most of the time, you can use one of the constructors     instead of begin(), and that end() is automatically done at     destruction.      \warning A paint device can only be painted by one painter at a     time.      \warning Painting on a QImage with the format     QImage::Format_Indexed8 is not supported.      \sa end(), QPainter() */
+comment|/*!      \fn bool QPainter::begin(QPaintDevice *device)      Begins painting the paint \a device and returns \c true if     successful; otherwise returns \c false.      Notice that all painter settings (setPen(), setBrush() etc.) are reset     to default values when begin() is called.      The errors that can occur are serious problems, such as these:      \snippet code/src_gui_painting_qpainter.cpp 3      Note that most of the time, you can use one of the constructors     instead of begin(), and that end() is automatically done at     destruction.      \warning A paint device can only be painted by one painter at a     time.      \warning Painting on a QImage with the format     QImage::Format_Indexed8 is not supported.      \sa end(), QPainter() */
 end_comment
 begin_function
 DECL|function|qt_cleanup_painter_state
@@ -6942,7 +6942,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Ends painting. Any resources used while painting are released. You     don't normally need to call this since it is called by the     destructor.      Returns true if the painter is no longer active; otherwise returns false.      \sa begin(), isActive() */
+comment|/*!     Ends painting. Any resources used while painting are released. You     don't normally need to call this since it is called by the     destructor.      Returns \c true if the painter is no longer active; otherwise returns \c false.      \sa begin(), isActive() */
 end_comment
 begin_function
 DECL|function|end
@@ -7986,7 +7986,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if clipping has been set; otherwise returns false.      \sa setClipping(), {QPainter#Clipping}{Clipping} */
+comment|/*!     Returns \c true if clipping has been set; otherwise returns \c false.      \sa setClipping(), {QPainter#Clipping}{Clipping} */
 end_comment
 begin_function
 DECL|function|hasClipping
@@ -10496,7 +10496,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2      Returns true if world transformation is enabled; otherwise returns     false.      \sa setWorldMatrixEnabled(), worldTransform(), {Coordinate System} */
+comment|/*!     \since 4.2      Returns \c true if world transformation is enabled; otherwise returns     false.      \sa setWorldMatrixEnabled(), worldTransform(), {Coordinate System} */
 end_comment
 begin_function
 DECL|function|worldMatrixEnabled
@@ -26320,10 +26320,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QPainter::testRenderHint(RenderHint hint) const     \since 4.3      Returns true if \a hint is set; otherwise returns false.      \sa renderHints(), setRenderHint() */
+comment|/*!     \fn bool QPainter::testRenderHint(RenderHint hint) const     \since 4.3      Returns \c true if \a hint is set; otherwise returns \c false.      \sa renderHints(), setRenderHint() */
 end_comment
 begin_comment
-comment|/*!     Returns true if view transformation is enabled; otherwise returns     false.      \sa setViewTransformEnabled(), worldTransform() */
+comment|/*!     Returns \c true if view transformation is enabled; otherwise returns     false.      \sa setViewTransformEnabled(), worldTransform() */
 end_comment
 begin_function
 DECL|function|viewTransformEnabled

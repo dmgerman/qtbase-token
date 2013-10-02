@@ -442,7 +442,7 @@ block|}
 block|}
 end_namespace
 begin_comment
-comment|/*!     Creates the buffer object in the GL server.  Returns true if     the object was created; false otherwise.      This function must be called with a current QGLContext.     The buffer will be bound to and can only be used in     that context (or any other context that is shared with it).      This function will return false if the GL implementation     does not support buffers, or there is no current QGLContext.      \sa isCreated(), allocate(), write(), destroy() */
+comment|/*!     Creates the buffer object in the GL server.  Returns \c true if     the object was created; false otherwise.      This function must be called with a current QGLContext.     The buffer will be bound to and can only be used in     that context (or any other context that is shared with it).      This function will return false if the GL implementation     does not support buffers, or there is no current QGLContext.      \sa isCreated(), allocate(), write(), destroy() */
 end_comment
 begin_function
 DECL|function|create
@@ -595,7 +595,7 @@ name|ctx
 value|QGLContext::currentContext()
 end_define
 begin_comment
-comment|/*!     Returns true if this buffer has been created; false otherwise.      \sa create(), destroy() */
+comment|/*!     Returns \c true if this buffer has been created; false otherwise.      \sa create(), destroy() */
 end_comment
 begin_function
 DECL|function|isCreated
@@ -666,7 +666,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Reads the \a count bytes in this buffer starting at \a offset     into \a data.  Returns true on success; false if reading from     the buffer is not supported.  Buffer reading is not supported     under OpenGL/ES.      It is assumed that this buffer has been bound to the current context.      \sa write(), bind() */
+comment|/*!     Reads the \a count bytes in this buffer starting at \a offset     into \a data.  Returns \c true on success; false if reading from     the buffer is not supported.  Buffer reading is not supported     under OpenGL/ES.      It is assumed that this buffer has been bound to the current context.      \sa write(), bind() */
 end_comment
 begin_function
 DECL|function|read
@@ -932,7 +932,7 @@ begin_comment
 comment|/*!     \fn void QGLBuffer::allocate(int count)     \overload      Allocates \a count bytes of space to the buffer.  Any previous     contents will be removed.      It is assumed that create() has been called on this buffer and that     it has been bound to the current context.      \sa create(), write() */
 end_comment
 begin_comment
-comment|/*!     Binds the buffer associated with this object to the current     GL context.  Returns false if binding was not possible, usually because     type() is not supported on this GL implementation.      The buffer must be bound to the same QGLContext current when create()     was called, or to another QGLContext that is sharing with it.     Otherwise, false will be returned from this function.      \sa release(), create() */
+comment|/*!     Binds the buffer associated with this object to the current     GL context.  Returns \c false if binding was not possible, usually because     type() is not supported on this GL implementation.      The buffer must be bound to the same QGLContext current when create()     was called, or to another QGLContext that is sharing with it.     Otherwise, false will be returned from this function.      \sa release(), create() */
 end_comment
 begin_function
 DECL|function|bind
@@ -1344,7 +1344,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Unmaps the buffer after it was mapped into the application's     memory space with a previous call to map().  Returns true if     the unmap succeeded; false otherwise.      It is assumed that this buffer has been bound to the current context,     and that it was previously mapped with map().      This function is only supported under OpenGL/ES if the     \c{GL_OES_mapbuffer} extension is present.      \sa map() */
+comment|/*!     Unmaps the buffer after it was mapped into the application's     memory space with a previous call to map().  Returns \c true if     the unmap succeeded; false otherwise.      It is assumed that this buffer has been bound to the current context,     and that it was previously mapped with map().      This function is only supported under OpenGL/ES if the     \c{GL_OES_mapbuffer} extension is present.      \sa map() */
 end_comment
 begin_function
 DECL|function|unmap

@@ -1441,7 +1441,7 @@ name|editingWidget
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|/*!     Returns true if this widget currently has edit focus; otherwise false.      This feature is only available in Qt for Embedded Linux.      \sa setEditFocus(), QApplication::keypadNavigationEnabled() */
+comment|/*!     Returns \c true if this widget currently has edit focus; otherwise false.      This feature is only available in Qt for Embedded Linux.      \sa setEditFocus(), QApplication::keypadNavigationEnabled() */
 end_comment
 begin_function
 DECL|function|hasEditFocus
@@ -1708,7 +1708,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     \property QWidget::autoFillBackground     \brief whether the widget background is filled automatically     \since 4.1      If enabled, this property will cause Qt to fill the background of the     widget before invoking the paint event. The color used is defined by the     QPalette::Window color role from the widget's \l{QPalette}{palette}.      In addition, Windows are always filled with QPalette::Window, unless the     WA_OpaquePaintEvent or WA_NoSystemBackground attributes are set.      This property cannot be turned off (i.e., set to false) if a widget's     parent has a static gradient for its background.      \warning Use this property with caution in conjunction with     \l{Qt Style Sheets}. When a widget has a style sheet with a valid     background or a border-image, this property is automatically disabled.      By default, this property is false.      \sa Qt::WA_OpaquePaintEvent, Qt::WA_NoSystemBackground,     {QWidget#Transparency and Double Buffering}{Transparency and Double Buffering} */
+comment|/*!     \property QWidget::autoFillBackground     \brief whether the widget background is filled automatically     \since 4.1      If enabled, this property will cause Qt to fill the background of the     widget before invoking the paint event. The color used is defined by the     QPalette::Window color role from the widget's \l{QPalette}{palette}.      In addition, Windows are always filled with QPalette::Window, unless the     WA_OpaquePaintEvent or WA_NoSystemBackground attributes are set.      This property cannot be turned off (i.e., set to false) if a widget's     parent has a static gradient for its background.      \warning Use this property with caution in conjunction with     \l{Qt Style Sheets}. When a widget has a style sheet with a valid     background or a border-image, this property is automatically disabled.      By default, this property is \c false.      \sa Qt::WA_OpaquePaintEvent, Qt::WA_NoSystemBackground,     {QWidget#Transparency and Double Buffering}{Transparency and Double Buffering} */
 end_comment
 begin_function
 DECL|function|autoFillBackground
@@ -5103,7 +5103,7 @@ literal|0
 expr_stmt|;
 block|}
 block|}
-comment|/*   Returns true if there are widgets above this which overlap with   \a rect, which is in parent's coordinate system (same as crect). */
+comment|/*   Returns \c true if there are widgets above this which overlap with   \a rect, which is in parent's coordinate system (same as crect). */
 DECL|function|isOverlapped
 name|bool
 name|QWidgetPrivate
@@ -9690,8 +9690,8 @@ endif|#
 directive|endif
 comment|// QT_NO_STYLE_STYLESHEET
 block|}
-comment|/*!     \fn bool QWidget::isWindow() const      Returns true if the widget is an independent window, otherwise     returns false.      A window is a widget that isn't visually the child of any other     widget and that usually has a frame and a     \l{QWidget::setWindowTitle()}{window title}.      A window can have a \l{QWidget::parentWidget()}{parent widget}.     It will then be grouped with its parent and deleted when the     parent is deleted, minimized when the parent is minimized etc. If     supported by the window manager, it will also have a common     taskbar entry with its parent.      QDialog and QMainWindow widgets are by default windows, even if a     parent widget is specified in the constructor. This behavior is     specified by the Qt::Window flag.      \sa window(), isModal(), parentWidget() */
-comment|/*!     \property QWidget::modal     \brief whether the widget is a modal widget      This property only makes sense for windows. A modal widget     prevents widgets in all other windows from getting any input.      By default, this property is false.      \sa isWindow(), windowModality, QDialog */
+comment|/*!     \fn bool QWidget::isWindow() const      Returns \c true if the widget is an independent window, otherwise     returns \c false.      A window is a widget that isn't visually the child of any other     widget and that usually has a frame and a     \l{QWidget::setWindowTitle()}{window title}.      A window can have a \l{QWidget::parentWidget()}{parent widget}.     It will then be grouped with its parent and deleted when the     parent is deleted, minimized when the parent is minimized etc. If     supported by the window manager, it will also have a common     taskbar entry with its parent.      QDialog and QMainWindow widgets are by default windows, even if a     parent widget is specified in the constructor. This behavior is     specified by the Qt::Window flag.      \sa window(), isModal(), parentWidget() */
+comment|/*!     \property QWidget::modal     \brief whether the widget is a modal widget      This property only makes sense for windows. A modal widget     prevents widgets in all other windows from getting any input.      By default, this property is \c false.      \sa isWindow(), windowModality, QDialog */
 comment|/*!     \property QWidget::windowModality     \brief which windows are blocked by the modal widget     \since 4.1      This property only makes sense for windows. A modal widget     prevents widgets in other windows from getting input. The value of     this property controls which windows are blocked when the widget     is visible. Changing this property while the window is visible has     no effect; you must hide() the widget first, then show() it again.      By default, this property is Qt::NonModal.      \sa isWindow(), QWidget::modal, QDialog */
 DECL|function|windowModality
 name|Qt
@@ -9763,8 +9763,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*!     \fn bool QWidget::underMouse() const      Returns true if the widget is under the mouse cursor; otherwise     returns false.      This value is not updated properly during drag and drop     operations.      \sa enterEvent(), leaveEvent() */
-comment|/*!     \property QWidget::minimized     \brief whether this widget is minimized (iconified)      This property is only relevant for windows.      By default, this property is false.      \sa showMinimized(), visible, show(), hide(), showNormal(), maximized */
+comment|/*!     \fn bool QWidget::underMouse() const      Returns \c true if the widget is under the mouse cursor; otherwise     returns \c false.      This value is not updated properly during drag and drop     operations.      \sa enterEvent(), leaveEvent() */
+comment|/*!     \property QWidget::minimized     \brief whether this widget is minimized (iconified)      This property is only relevant for windows.      By default, this property is \c false.      \sa showMinimized(), visible, show(), hide(), showNormal(), maximized */
 DECL|function|isMinimized
 name|bool
 name|QWidget
@@ -9836,7 +9836,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*!     \property QWidget::maximized     \brief whether this widget is maximized      This property is only relevant for windows.      \note Due to limitations on some window systems, this does not always     report the expected results (e.g., if the user on X11 maximizes the     window via the window manager, Qt has no way of distinguishing this     from any other resize). This is expected to improve as window manager     protocols evolve.      By default, this property is false.      \sa windowState(), showMaximized(), visible, show(), hide(), showNormal(), minimized */
+comment|/*!     \property QWidget::maximized     \brief whether this widget is maximized      This property is only relevant for windows.      \note Due to limitations on some window systems, this does not always     report the expected results (e.g., if the user on X11 maximizes the     window via the window manager, Qt has no way of distinguishing this     from any other resize). This is expected to improve as window manager     protocols evolve.      By default, this property is \c false.      \sa windowState(), showMaximized(), visible, show(), hide(), showNormal(), minimized */
 DECL|function|isMaximized
 name|bool
 name|QWidget
@@ -9922,8 +9922,8 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*!     \fn void QWidget::setWindowState(Qt::WindowStates windowState)      Sets the window state to \a windowState. The window state is a OR'ed     combination of Qt::WindowState: Qt::WindowMinimized,     Qt::WindowMaximized, Qt::WindowFullScreen, and Qt::WindowActive.      If the window is not visible (i.e. isVisible() returns false), the     window state will take effect when show() is called. For visible     windows, the change is immediate. For example, to toggle between     full-screen and normal mode, use the following code:      \snippet code/src_gui_kernel_qwidget.cpp 0      In order to restore and activate a minimized window (while     preserving its maximized and/or full-screen state), use the following:      \snippet code/src_gui_kernel_qwidget.cpp 1      Calling this function will hide the widget. You must call show() to make     the widget visible again.      \note On some window systems Qt::WindowActive is not immediate, and may be     ignored in certain cases.      When the window state changes, the widget receives a changeEvent()     of type QEvent::WindowStateChange.      \sa Qt::WindowState, windowState() */
-comment|/*!     \property QWidget::fullScreen     \brief whether the widget is shown in full screen mode      A widget in full screen mode occupies the whole screen area and does not     display window decorations, such as a title bar.      By default, this property is false.      \sa windowState(), minimized, maximized */
+comment|/*!     \fn void QWidget::setWindowState(Qt::WindowStates windowState)      Sets the window state to \a windowState. The window state is a OR'ed     combination of Qt::WindowState: Qt::WindowMinimized,     Qt::WindowMaximized, Qt::WindowFullScreen, and Qt::WindowActive.      If the window is not visible (i.e. isVisible() returns \c false), the     window state will take effect when show() is called. For visible     windows, the change is immediate. For example, to toggle between     full-screen and normal mode, use the following code:      \snippet code/src_gui_kernel_qwidget.cpp 0      In order to restore and activate a minimized window (while     preserving its maximized and/or full-screen state), use the following:      \snippet code/src_gui_kernel_qwidget.cpp 1      Calling this function will hide the widget. You must call show() to make     the widget visible again.      \note On some window systems Qt::WindowActive is not immediate, and may be     ignored in certain cases.      When the window state changes, the widget receives a changeEvent()     of type QEvent::WindowStateChange.      \sa Qt::WindowState, windowState() */
+comment|/*!     \property QWidget::fullScreen     \brief whether the widget is shown in full screen mode      A widget in full screen mode occupies the whole screen area and does not     display window decorations, such as a title bar.      By default, this property is \c false.      \sa windowState(), minimized, maximized */
 DECL|function|isFullScreen
 name|bool
 name|QWidget
@@ -10249,7 +10249,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*!     Returns true if this widget would become enabled if \a ancestor is     enabled; otherwise returns false.        This is the case if neither the widget itself nor every parent up     to but excluding \a ancestor has been explicitly disabled.      isEnabledTo(0) is equivalent to isEnabled().      \sa setEnabled(), enabled */
+comment|/*!     Returns \c true if this widget would become enabled if \a ancestor is     enabled; otherwise returns \c false.        This is the case if neither the widget itself nor every parent up     to but excluding \a ancestor has been explicitly disabled.      isEnabledTo(0) is equivalent to isEnabled().      \sa setEnabled(), enabled */
 DECL|function|isEnabledTo
 name|bool
 name|QWidget
@@ -10675,7 +10675,7 @@ endif|#
 directive|endif
 comment|// QT_NO_ACTION
 comment|/*!   \fn bool QWidget::isEnabledToTLW() const   \obsolete    This function is deprecated. It is equivalent to isEnabled() */
-comment|/*!     \property QWidget::enabled     \brief whether the widget is enabled      In general an enabled widget handles keyboard and mouse events; a disabled     widget does not. An exception is made with \l{QAbstractButton}.      Some widgets display themselves differently when they are     disabled. For example a button might draw its label grayed out. If     your widget needs to know when it becomes enabled or disabled, you     can use the changeEvent() with type QEvent::EnabledChange.      Disabling a widget implicitly disables all its children. Enabling     respectively enables all child widgets unless they have been     explicitly disabled. It it not possible to explicitly enable a child     widget which is not a window while its parent widget remains disabled.      By default, this property is true.      \sa isEnabledTo(), QKeyEvent, QMouseEvent, changeEvent() */
+comment|/*!     \property QWidget::enabled     \brief whether the widget is enabled      In general an enabled widget handles keyboard and mouse events; a disabled     widget does not. An exception is made with \l{QAbstractButton}.      Some widgets display themselves differently when they are     disabled. For example a button might draw its label grayed out. If     your widget needs to know when it becomes enabled or disabled, you     can use the changeEvent() with type QEvent::EnabledChange.      Disabling a widget implicitly disables all its children. Enabling     respectively enables all child widgets unless they have been     explicitly disabled. It it not possible to explicitly enable a child     widget which is not a window while its parent widget remains disabled.      By default, this property is \c true.      \sa isEnabledTo(), QKeyEvent, QMouseEvent, changeEvent() */
 DECL|function|setEnabled
 name|void
 name|QWidget
@@ -11086,7 +11086,7 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*!     \property QWidget::acceptDrops     \brief whether drop events are enabled for this widget      Setting this property to true announces to the system that this     widget \e may be able to accept drop events.      If the widget is the desktop (windowType() == Qt::Desktop), this may     fail if another application is using the desktop; you can call     acceptDrops() to test if this occurs.      \warning Do not modify this property in a drag and drop event handler.      By default, this property is false.      \sa {Drag and Drop} */
+comment|/*!     \property QWidget::acceptDrops     \brief whether drop events are enabled for this widget      Setting this property to true announces to the system that this     widget \e may be able to accept drop events.      If the widget is the desktop (windowType() == Qt::Desktop), this may     fail if another application is using the desktop; you can call     acceptDrops() to test if this occurs.      \warning Do not modify this property in a drag and drop event handler.      By default, this property is \c false.      \sa {Drag and Drop} */
 DECL|function|acceptDrops
 name|bool
 name|QWidget
@@ -19911,7 +19911,7 @@ name|resolveLocale
 argument_list|()
 expr_stmt|;
 block|}
-comment|/*!     \property QWidget::windowTitle     \brief the window title (caption)      This property only makes sense for top-level widgets, such as     windows and dialogs. If no caption has been set, the title is based of the     \l windowFilePath. If neither of these is set, then the title is     an empty string.      If you use the \l windowModified mechanism, the window title must     contain a "[*]" placeholder, which indicates where the '*' should     appear. Normally, it should appear right after the file name     (e.g., "document1.txt[*] - Text Editor"). If the \l     windowModified property is false (the default), the placeholder     is simply removed.      On some desktop platforms (including Windows and Unix), the application name     (from QGuiApplication::applicationDisplayName) is added at the end of the     window title, if set. This is done by the QPA plugin, so it is shown to the     user, but isn't part of the windowTitle string.      \sa windowIcon, windowIconText, windowModified, windowFilePath */
+comment|/*!     \property QWidget::windowTitle     \brief the window title (caption)      This property only makes sense for top-level widgets, such as     windows and dialogs. If no caption has been set, the title is based of the     \l windowFilePath. If neither of these is set, then the title is     an empty string.      If you use the \l windowModified mechanism, the window title must     contain a "[*]" placeholder, which indicates where the '*' should     appear. Normally, it should appear right after the file name     (e.g., "document1.txt[*] - Text Editor"). If the \l     windowModified property is \c false (the default), the placeholder     is simply removed.      On some desktop platforms (including Windows and Unix), the application name     (from QGuiApplication::applicationDisplayName) is added at the end of the     window title, if set. This is done by the QPA plugin, so it is shown to the     user, but isn't part of the windowTitle string.      \sa windowIcon, windowIconText, windowModified, windowFilePath */
 DECL|function|windowTitle
 name|QString
 name|QWidget
@@ -21116,7 +21116,7 @@ else|:
 literal|0
 return|;
 block|}
-comment|/*!     \property QWidget::focus     \brief whether this widget (or its focus proxy) has the keyboard     input focus      By default, this property is false.      \note Obtaining the value of this property for a widget is effectively equivalent     to checking whether QApplication::focusWidget() refers to the widget.      \sa setFocus(), clearFocus(), setFocusPolicy(), QApplication::focusWidget() */
+comment|/*!     \property QWidget::focus     \brief whether this widget (or its focus proxy) has the keyboard     input focus      By default, this property is \c false.      \note Obtaining the value of this property for a widget is effectively equivalent     to checking whether QApplication::focusWidget() refers to the widget.      \sa setFocus(), clearFocus(), setFocusPolicy(), QApplication::focusWidget() */
 DECL|function|hasFocus
 name|bool
 name|QWidget
@@ -22183,9 +22183,9 @@ directive|endif
 block|}
 block|}
 block|}
-comment|/*!     \fn bool QWidget::focusNextChild()      Finds a new widget to give the keyboard focus to, as appropriate     for \uicontrol Tab, and returns true if it can find a new widget, or     false if it can't.      \sa focusPreviousChild() */
-comment|/*!     \fn bool QWidget::focusPreviousChild()      Finds a new widget to give the keyboard focus to, as appropriate     for \uicontrol Shift+Tab, and returns true if it can find a new widget,     or false if it can't.      \sa focusNextChild() */
-comment|/*!     Finds a new widget to give the keyboard focus to, as appropriate     for Tab and Shift+Tab, and returns true if it can find a new     widget, or false if it can't.      If \a next is true, this function searches forward, if \a next     is false, it searches backward.      Sometimes, you will want to reimplement this function. For     example, a web browser might reimplement it to move its "current     active link" forward or backward, and call     focusNextPrevChild() only when it reaches the last or     first link on the "page".      Child widgets call focusNextPrevChild() on their parent widgets,     but only the window that contains the child widgets decides where     to redirect focus. By reimplementing this function for an object,     you thus gain control of focus traversal for all child widgets.      \sa focusNextChild(), focusPreviousChild() */
+comment|/*!     \fn bool QWidget::focusNextChild()      Finds a new widget to give the keyboard focus to, as appropriate     for \uicontrol Tab, and returns \c true if it can find a new widget, or     false if it can't.      \sa focusPreviousChild() */
+comment|/*!     \fn bool QWidget::focusPreviousChild()      Finds a new widget to give the keyboard focus to, as appropriate     for \uicontrol Shift+Tab, and returns \c true if it can find a new widget,     or false if it can't.      \sa focusNextChild() */
+comment|/*!     Finds a new widget to give the keyboard focus to, as appropriate     for Tab and Shift+Tab, and returns \c true if it can find a new     widget, or false if it can't.      If \a next is true, this function searches forward, if \a next     is false, it searches backward.      Sometimes, you will want to reimplement this function. For     example, a web browser might reimplement it to move its "current     active link" forward or backward, and call     focusNextPrevChild() only when it reaches the last or     first link on the "page".      Child widgets call focusNextPrevChild() on their parent widgets,     but only the window that contains the child widgets decides where     to redirect focus. By reimplementing this function for an object,     you thus gain control of focus traversal for all child widgets.      \sa focusNextChild(), focusPreviousChild() */
 DECL|function|focusNextPrevChild
 name|bool
 name|QWidget
@@ -22471,7 +22471,7 @@ name|focus_prev
 argument_list|)
 return|;
 block|}
-comment|/*!     \property QWidget::isActiveWindow     \brief whether this widget's window is the active window      The active window is the window that contains the widget that has     keyboard focus (The window may still have focus if it has no     widgets or none of its widgets accepts keyboard focus).      When popup windows are visible, this property is true for both the     active window \e and for the popup.      By default, this property is false.      \sa activateWindow(), QApplication::activeWindow() */
+comment|/*!     \property QWidget::isActiveWindow     \brief whether this widget's window is the active window      The active window is the window that contains the widget that has     keyboard focus (The window may still have focus if it has no     widgets or none of its widgets accepts keyboard focus).      When popup windows are visible, this property is \c true for both the     active window \e and for the popup.      By default, this property is \c false.      \sa activateWindow(), QApplication::activeWindow() */
 DECL|function|isActiveWindow
 name|bool
 name|QWidget
@@ -24199,7 +24199,7 @@ return|return
 name|array
 return|;
 block|}
-comment|/*!     \since 4.2      Restores the geometry and state top-level widgets stored in the     byte array \a geometry. Returns true on success; otherwise     returns false.      If the restored geometry is off-screen, it will be modified to be     inside the available screen geometry.      To restore geometry saved using QSettings, you can use code like     this:      \snippet code/src_gui_kernel_qwidget.cpp 12      See the \l{Window Geometry} documentation for an overview of geometry     issues with windows.      Use QMainWindow::restoreState() to restore the geometry and the     state of toolbars and dock widgets.      \sa saveGeometry(), QSettings, QMainWindow::saveState(), QMainWindow::restoreState() */
+comment|/*!     \since 4.2      Restores the geometry and state top-level widgets stored in the     byte array \a geometry. Returns \c true on success; otherwise     returns \c false.      If the restored geometry is off-screen, it will be modified to be     inside the available screen geometry.      To restore geometry saved using QSettings, you can use code like     this:      \snippet code/src_gui_kernel_qwidget.cpp 12      See the \l{Window Geometry} documentation for an overview of geometry     issues with windows.      Use QMainWindow::restoreState() to restore the geometry and the     state of toolbars and dock widgets.      \sa saveGeometry(), QSettings, QMainWindow::saveState(), QMainWindow::restoreState() */
 DECL|function|restoreGeometry
 name|bool
 name|QWidget
@@ -25281,7 +25281,7 @@ name|policy
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*!     \property QWidget::updatesEnabled     \brief whether updates are enabled      An updates enabled widget receives paint events and has a system     background; a disabled widget does not. This also implies that     calling update() and repaint() has no effect if updates are     disabled.      By default, this property is true.      setUpdatesEnabled() is normally used to disable updates for a     short period of time, for instance to avoid screen flicker during     large changes. In Qt, widgets normally do not generate screen     flicker, but on X11 the server might erase regions on the screen     when widgets get hidden before they can be replaced by other     widgets. Disabling updates solves this.      Example:     \snippet code/src_gui_kernel_qwidget.cpp 13      Disabling a widget implicitly disables all its children. Enabling a widget     enables all child widgets \e except top-level widgets or those that     have been explicitly disabled. Re-enabling updates implicitly calls     update() on the widget.      \sa paintEvent() */
+comment|/*!     \property QWidget::updatesEnabled     \brief whether updates are enabled      An updates enabled widget receives paint events and has a system     background; a disabled widget does not. This also implies that     calling update() and repaint() has no effect if updates are     disabled.      By default, this property is \c true.      setUpdatesEnabled() is normally used to disable updates for a     short period of time, for instance to avoid screen flicker during     large changes. In Qt, widgets normally do not generate screen     flicker, but on X11 the server might erase regions on the screen     when widgets get hidden before they can be replaced by other     widgets. Disabling updates solves this.      Example:     \snippet code/src_gui_kernel_qwidget.cpp 13      Disabling a widget implicitly disables all its children. Enabling a widget     enables all child widgets \e except top-level widgets or those that     have been explicitly disabled. Re-enabling updates implicitly calls     update() on the widget.      \sa paintEvent() */
 DECL|function|setUpdatesEnabled
 name|void
 name|QWidget
@@ -26537,7 +26537,7 @@ block|}
 endif|#
 directive|endif
 block|}
-comment|/*!     \fn bool QWidget::isHidden() const      Returns true if the widget is hidden, otherwise returns false.      A hidden widget will only become visible when show() is called on     it. It will not be automatically shown when the parent is shown.      To check visibility, use !isVisible() instead (notice the exclamation mark).      isHidden() implies !isVisible(), but a widget can be not visible     and not hidden at the same time. This is the case for widgets that are children of     widgets that are not visible.       Widgets are hidden if:     \list         \li they were created as independent windows,         \li they were created as children of visible widgets,         \li hide() or setVisible(false) was called.     \endlist */
+comment|/*!     \fn bool QWidget::isHidden() const      Returns \c true if the widget is hidden, otherwise returns \c false.      A hidden widget will only become visible when show() is called on     it. It will not be automatically shown when the parent is shown.      To check visibility, use !isVisible() instead (notice the exclamation mark).      isHidden() implies !isVisible(), but a widget can be not visible     and not hidden at the same time. This is the case for widgets that are children of     widgets that are not visible.       Widgets are hidden if:     \list         \li they were created as independent windows,         \li they were created as children of visible widgets,         \li hide() or setVisible(false) was called.     \endlist */
 DECL|function|setVisible
 name|void
 name|QWidget
@@ -28013,7 +28013,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/*!     Closes this widget. Returns true if the widget was closed;     otherwise returns false.      First it sends the widget a QCloseEvent. The widget is     \l{hide()}{hidden} if it \l{QCloseEvent::accept()}{accepts}     the close event. If it \l{QCloseEvent::ignore()}{ignores}     the event, nothing happens. The default     implementation of QWidget::closeEvent() accepts the close event.      If the widget has the Qt::WA_DeleteOnClose flag, the widget     is also deleted. A close events is delivered to the widget no     matter if the widget is visible or not.      The \l QApplication::lastWindowClosed() signal is emitted when the     last visible primary window (i.e. window with no parent) with the     Qt::WA_QuitOnClose attribute set is closed. By default this     attribute is set for all widgets except transient windows such as     splash screens, tool windows, and popup menus.  */
+comment|/*!     Closes this widget. Returns \c true if the widget was closed;     otherwise returns \c false.      First it sends the widget a QCloseEvent. The widget is     \l{hide()}{hidden} if it \l{QCloseEvent::accept()}{accepts}     the close event. If it \l{QCloseEvent::ignore()}{ignores}     the event, nothing happens. The default     implementation of QWidget::closeEvent() accepts the close event.      If the widget has the Qt::WA_DeleteOnClose flag, the widget     is also deleted. A close events is delivered to the widget no     matter if the widget is visible or not.      The \l QApplication::lastWindowClosed() signal is emitted when the     last visible primary window (i.e. window with no parent) with the     Qt::WA_QuitOnClose attribute set is closed. By default this     attribute is set for all widgets except transient windows such as     splash screens, tool windows, and popup menus.  */
 DECL|function|close
 name|bool
 name|QWidget
@@ -28034,7 +28034,7 @@ argument_list|)
 return|;
 block|}
 comment|/*!     \property QWidget::visible     \brief whether the widget is visible      Calling setVisible(true) or show() sets the widget to visible     status if all its parent widgets up to the window are visible. If     an ancestor is not visible, the widget won't become visible until     all its ancestors are shown. If its size or position has changed,     Qt guarantees that a widget gets move and resize events just     before it is shown. If the widget has not been resized yet, Qt     will adjust the widget's size to a useful default using     adjustSize().      Calling setVisible(false) or hide() hides a widget explicitly. An     explicitly hidden widget will never become visible, even if all     its ancestors become visible, unless you show it.      A widget receives show and hide events when its visibility status     changes. Between a hide and a show event, there is no need to     waste CPU cycles preparing or displaying information to the user.     A video application, for example, might simply stop generating new     frames.      A widget that happens to be obscured by other windows on the     screen is considered to be visible. The same applies to iconified     windows and windows that exist on another virtual     desktop (on platforms that support this concept). A widget     receives spontaneous show and hide events when its mapping status     is changed by the window system, e.g. a spontaneous hide event     when the user minimizes the window, and a spontaneous show event     when the window is restored again.      You almost never have to reimplement the setVisible() function. If     you need to change some settings before a widget is shown, use     showEvent() instead. If you need to do some delayed initialization     use the Polish event delivered to the event() function.      \sa show(), hide(), isHidden(), isVisibleTo(), isMinimized(),     showEvent(), hideEvent() */
-comment|/*!     Returns true if this widget would become visible if \a ancestor is     shown; otherwise returns false.      The true case occurs if neither the widget itself nor any parent     up to but excluding \a ancestor has been explicitly hidden.      This function will still return true if the widget is obscured by     other windows on the screen, but could be physically visible if it     or they were to be moved.      isVisibleTo(0) is identical to isVisible().      \sa show(), hide(), isVisible() */
+comment|/*!     Returns \c true if this widget would become visible if \a ancestor is     shown; otherwise returns \c false.      The true case occurs if neither the widget itself nor any parent     up to but excluding \a ancestor has been explicitly hidden.      This function will still return true if the widget is obscured by     other windows on the screen, but could be physically visible if it     or they were to be moved.      isVisibleTo(0) is identical to isVisible().      \sa show(), hide(), isVisible() */
 DECL|function|isVisibleTo
 name|bool
 name|QWidget
@@ -28659,7 +28659,7 @@ argument_list|)
 return|;
 block|}
 comment|/*!     \fn QWidget *QWidget::parentWidget() const      Returns the parent of this widget, or 0 if it does not have any     parent widget. */
-comment|/*!     Returns true if this widget is a parent, (or grandparent and so on     to any level), of the given \a child, and both widgets are within     the same window; otherwise returns false. */
+comment|/*!     Returns \c true if this widget is a parent, (or grandparent and so on     to any level), of the given \a child, and both widgets are within     the same window; otherwise returns \c false. */
 DECL|function|isAncestorOf
 name|bool
 name|QWidget
@@ -28812,7 +28812,7 @@ block|}
 endif|#
 directive|endif
 comment|/*****************************************************************************   QWidget event handling  *****************************************************************************/
-comment|/*!     This is the main event handler; it handles event \a event. You can     reimplement this function in a subclass, but we recommend using     one of the specialized event handlers instead.      Key press and release events are treated differently from other     events. event() checks for Tab and Shift+Tab and tries to move the     focus appropriately. If there is no widget to move the focus to     (or the key press is not Tab or Shift+Tab), event() calls     keyPressEvent().      Mouse and tablet event handling is also slightly special: only     when the widget is \l enabled, event() will call the specialized     handlers such as mousePressEvent(); otherwise it will discard the     event.      This function returns true if the event was recognized, otherwise     it returns false.  If the recognized event was accepted (see \l     QEvent::accepted), any further processing such as event     propagation to the parent widget stops.      \sa closeEvent(), focusInEvent(), focusOutEvent(), enterEvent(),     keyPressEvent(), keyReleaseEvent(), leaveEvent(),     mouseDoubleClickEvent(), mouseMoveEvent(), mousePressEvent(),     mouseReleaseEvent(), moveEvent(), paintEvent(), resizeEvent(),     QObject::event(), QObject::timerEvent() */
+comment|/*!     This is the main event handler; it handles event \a event. You can     reimplement this function in a subclass, but we recommend using     one of the specialized event handlers instead.      Key press and release events are treated differently from other     events. event() checks for Tab and Shift+Tab and tries to move the     focus appropriately. If there is no widget to move the focus to     (or the key press is not Tab or Shift+Tab), event() calls     keyPressEvent().      Mouse and tablet event handling is also slightly special: only     when the widget is \l enabled, event() will call the specialized     handlers such as mousePressEvent(); otherwise it will discard the     event.      This function returns \c true if the event was recognized, otherwise     it returns \c false.  If the recognized event was accepted (see \l     QEvent::accepted), any further processing such as event     propagation to the parent widget stops.      \sa closeEvent(), focusInEvent(), focusOutEvent(), enterEvent(),     keyPressEvent(), keyReleaseEvent(), leaveEvent(),     mouseDoubleClickEvent(), mouseMoveEvent(), mousePressEvent(),     mouseReleaseEvent(), moveEvent(), paintEvent(), resizeEvent(),     QObject::event(), QObject::timerEvent() */
 DECL|function|event
 name|bool
 name|QWidget
@@ -32895,7 +32895,7 @@ operator|-
 literal|1
 return|;
 block|}
-comment|/*!     \since 5.0      Returns true if the widget's preferred height depends on its width; otherwise returns false. */
+comment|/*!     \since 5.0      Returns \c true if the widget's preferred height depends on its width; otherwise returns \c false. */
 DECL|function|hasHeightForWidth
 name|bool
 name|QWidget
@@ -37035,7 +37035,7 @@ default|default:
 break|break;
 block|}
 block|}
-comment|/*! \fn bool QWidget::testAttribute(Qt::WidgetAttribute attribute) const    Returns true if attribute \a attribute is set on this widget;   otherwise returns false.    \sa setAttribute()  */
+comment|/*! \fn bool QWidget::testAttribute(Qt::WidgetAttribute attribute) const    Returns \c true if attribute \a attribute is set on this widget;   otherwise returns \c false.    \sa setAttribute()  */
 DECL|function|testAttribute_helper
 name|bool
 name|QWidget
@@ -38663,7 +38663,7 @@ block|}
 ifdef|#
 directive|ifdef
 name|QT_KEYPAD_NAVIGATION
-comment|/*!     \internal      Changes the focus  from the current focusWidget to a widget in     the \a direction.      Returns true, if there was a widget in that direction */
+comment|/*!     \internal      Changes the focus  from the current focusWidget to a widget in     the \a direction.      Returns \c true, if there was a widget in that direction */
 DECL|function|navigateToDirection
 name|bool
 name|QWidgetPrivate
@@ -39966,7 +39966,7 @@ comment|/*!     \fn void QWidget::destroy(bool destroyWindow, bool destroySubWin
 comment|/*!     \fn QPaintEngine *QWidget::paintEngine() const      Returns the widget's paint engine.      Note that this function should not be called explicitly by the     user, since it's meant for reimplementation purposes only. The     function is called by Qt internally, and the default     implementation may not always return a valid pointer. */
 comment|/*!     \fn QPoint QWidget::mapToGlobal(const QPoint&pos) const      Translates the widget coordinate \a pos to global screen     coordinates. For example, \c{mapToGlobal(QPoint(0,0))} would give     the global coordinates of the top-left pixel of the widget.      \sa mapFromGlobal(), mapTo(), mapToParent() */
 comment|/*!     \fn QPoint QWidget::mapFromGlobal(const QPoint&pos) const      Translates the global screen coordinate \a pos to widget     coordinates.      \sa mapToGlobal(), mapFrom(), mapFromParent() */
-comment|/*!     \fn void QWidget::grabMouse()      Grabs the mouse input.      This widget receives all mouse events until releaseMouse() is     called; other widgets get no mouse events at all. Keyboard     events are not affected. Use grabKeyboard() if you want to grab     that.      \warning Bugs in mouse-grabbing applications very often lock the     terminal. Use this function with extreme caution, and consider     using the \c -nograb command line option while debugging.      It is almost never necessary to grab the mouse when using Qt, as     Qt grabs and releases it sensibly. In particular, Qt grabs the     mouse when a mouse button is pressed and keeps it until the last     button is released.      \note Only visible widgets can grab mouse input. If isVisible()     returns false for a widget, that widget cannot call grabMouse().      \note \b{(Mac OS X developers)} For \e Cocoa, calling     grabMouse() on a widget only works when the mouse is inside the     frame of that widget.  For \e Carbon, it works outside the widget's     frame as well, like for Windows and X11.      \sa releaseMouse(), grabKeyboard(), releaseKeyboard() */
+comment|/*!     \fn void QWidget::grabMouse()      Grabs the mouse input.      This widget receives all mouse events until releaseMouse() is     called; other widgets get no mouse events at all. Keyboard     events are not affected. Use grabKeyboard() if you want to grab     that.      \warning Bugs in mouse-grabbing applications very often lock the     terminal. Use this function with extreme caution, and consider     using the \c -nograb command line option while debugging.      It is almost never necessary to grab the mouse when using Qt, as     Qt grabs and releases it sensibly. In particular, Qt grabs the     mouse when a mouse button is pressed and keeps it until the last     button is released.      \note Only visible widgets can grab mouse input. If isVisible()     returns \c false for a widget, that widget cannot call grabMouse().      \note \b{(Mac OS X developers)} For \e Cocoa, calling     grabMouse() on a widget only works when the mouse is inside the     frame of that widget.  For \e Carbon, it works outside the widget's     frame as well, like for Windows and X11.      \sa releaseMouse(), grabKeyboard(), releaseKeyboard() */
 comment|/*!     \fn void QWidget::grabMouse(const QCursor&cursor)     \overload grabMouse()      Grabs the mouse input and changes the cursor shape.      The cursor will assume shape \a cursor (for as long as the mouse     focus is grabbed) and this widget will be the only one to receive     mouse events until releaseMouse() is called().      \warning Grabbing the mouse might lock the terminal.      \note \b{(Mac OS X developers)} See the note in QWidget::grabMouse().      \sa releaseMouse(), grabKeyboard(), releaseKeyboard(), setCursor() */
 comment|/*!     \fn void QWidget::releaseMouse()      Releases the mouse grab.      \sa grabMouse(), grabKeyboard(), releaseKeyboard() */
 comment|/*!     \fn void QWidget::grabKeyboard()      Grabs the keyboard input.      This widget receives all keyboard events until releaseKeyboard()     is called; other widgets get no keyboard events at all. Mouse     events are not affected. Use grabMouse() if you want to grab that.      The focus widget is not affected, except that it doesn't receive     any keyboard events. setFocus() moves the focus as usual, but the     new focus widget receives keyboard events only after     releaseKeyboard() is called.      If a different widget is currently grabbing keyboard input, that     widget's grab is released first.      \sa releaseKeyboard(), grabMouse(), releaseMouse(), focusWidget() */

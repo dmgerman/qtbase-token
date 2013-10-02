@@ -1164,7 +1164,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the URL is a directory; otherwise returns false.      \sa isValid() */
+comment|/*!     Returns \c true if the URL is a directory; otherwise returns \c false.      \sa isValid() */
 end_comment
 begin_function
 DECL|function|isDir
@@ -1191,7 +1191,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the URL is a file; otherwise returns false.      \sa isValid() */
+comment|/*!     Returns \c true if the URL is a file; otherwise returns \c false.      \sa isValid() */
 end_comment
 begin_function
 DECL|function|isFile
@@ -1218,7 +1218,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the URL is a symbolic link; otherwise returns false.      \sa isValid() */
+comment|/*!     Returns \c true if the URL is a symbolic link; otherwise returns \c false.      \sa isValid() */
 end_comment
 begin_function
 DECL|function|isSymLink
@@ -1245,7 +1245,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the URL is writable; otherwise returns false.      \sa isValid() */
+comment|/*!     Returns \c true if the URL is writable; otherwise returns \c false.      \sa isValid() */
 end_comment
 begin_function
 DECL|function|isWritable
@@ -1272,7 +1272,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the URL is readable; otherwise returns false.      \sa isValid() */
+comment|/*!     Returns \c true if the URL is readable; otherwise returns \c false.      \sa isValid() */
 end_comment
 begin_function
 DECL|function|isReadable
@@ -1299,7 +1299,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the URL is executable; otherwise returns false.      \sa isValid() */
+comment|/*!     Returns \c true if the URL is executable; otherwise returns \c false.      \sa isValid() */
 end_comment
 begin_function
 DECL|function|isExecutable
@@ -1326,7 +1326,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if \a i1 is greater than \a i2; otherwise returns     false. The objects are compared by the value, which is specified     by \a sortBy. This must be one of QDir::Name, QDir::Time or     QDir::Size. */
+comment|/*!     Returns \c true if \a i1 is greater than \a i2; otherwise returns     false. The objects are compared by the value, which is specified     by \a sortBy. This must be one of QDir::Name, QDir::Time or     QDir::Size. */
 end_comment
 begin_function
 DECL|function|greaterThan
@@ -1410,7 +1410,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if \a i1 is less than \a i2; otherwise returns false.     The objects are compared by the value, which is specified by \a     sortBy. This must be one of QDir::Name, QDir::Time or QDir::Size. */
+comment|/*!     Returns \c true if \a i1 is less than \a i2; otherwise returns \c false.     The objects are compared by the value, which is specified by \a     sortBy. This must be one of QDir::Name, QDir::Time or QDir::Size. */
 end_comment
 begin_function
 DECL|function|lessThan
@@ -1447,7 +1447,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if \a i1 equals to \a i2; otherwise returns false.     The objects are compared by the value, which is specified by \a     sortBy. This must be one of QDir::Name, QDir::Time or QDir::Size. */
+comment|/*!     Returns \c true if \a i1 equals to \a i2; otherwise returns \c false.     The objects are compared by the value, which is specified by \a     sortBy. This must be one of QDir::Name, QDir::Time or QDir::Size. */
 end_comment
 begin_function
 DECL|function|equal
@@ -1531,7 +1531,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this QUrlInfo is equal to \a other; otherwise     returns false.      \sa lessThan(), equal() */
+comment|/*!     Returns \c true if this QUrlInfo is equal to \a other; otherwise     returns \c false.      \sa lessThan(), equal() */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -1706,10 +1706,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QUrlInfo::operator!=(const QUrlInfo&other) const     \since 4.2      Returns true if this QUrlInfo is not equal to \a other; otherwise     returns false.      \sa lessThan(), equal() */
+comment|/*!     \fn bool QUrlInfo::operator!=(const QUrlInfo&other) const     \since 4.2      Returns \c true if this QUrlInfo is not equal to \a other; otherwise     returns \c false.      \sa lessThan(), equal() */
 end_comment
 begin_comment
-comment|/*!     Returns true if the URL info is valid; otherwise returns false.     Valid means that the QUrlInfo contains real information.      You should always check if the URL info is valid before relying on     the values. */
+comment|/*!     Returns \c true if the URL info is valid; otherwise returns \c false.     Valid means that the QUrlInfo contains real information.      You should always check if the URL info is valid before relying on     the values. */
 end_comment
 begin_function
 DECL|function|isValid

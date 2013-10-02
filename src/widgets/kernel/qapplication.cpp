@@ -8695,7 +8695,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal     Returns true if \a widget is blocked by a modal window.  */
+comment|/*! \internal     Returns \c true if \a widget is blocked by a modal window.  */
 end_comment
 begin_function
 DECL|function|isBlockedByModal
@@ -9341,7 +9341,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!\internal    Called from qapplication_\e{platform}.cpp, returns true   if the widget should accept the event.  */
+comment|/*!\internal    Called from qapplication_\e{platform}.cpp, returns \c true   if the widget should accept the event.  */
 end_comment
 begin_function
 DECL|function|tryModalHelper
@@ -15343,7 +15343,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if Qt is set to use keypad navigation; otherwise returns     false.  The default value is false.      This feature is available in Qt for Embedded Linux, and Windows CE only.      \note On Windows CE this feature is disabled by default for touch device           mkspecs. To enable keypad navigation, build Qt with           QT_KEYPAD_NAVIGATION defined.      \deprecated      \sa navigationMode() */
+comment|/*!     Returns \c true if Qt is set to use keypad navigation; otherwise returns     false.  The default value is false.      This feature is available in Qt for Embedded Linux, and Windows CE only.      \note On Windows CE this feature is disabled by default for touch device           mkspecs. To enable keypad navigation, build Qt with           QT_KEYPAD_NAVIGATION defined.      \deprecated      \sa navigationMode() */
 end_comment
 begin_function
 DECL|function|keypadNavigationEnabled
@@ -15509,7 +15509,7 @@ begin_comment
 comment|/*!     \fn void QApplication::setEffectEnabled(Qt::UIEffect effect, bool enable)      Enables the UI effect \a effect if \a enable is true, otherwise the effect     will not be used.      \note All effects are disabled on screens running at less than 16-bit color     depth.      \sa isEffectEnabled(), Qt::UIEffect, setDesktopSettingsAware() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QApplication::isEffectEnabled(Qt::UIEffect effect)      Returns true if \a effect is enabled; otherwise returns false.      By default, Qt will try to use the desktop settings. To prevent this, call     setDesktopSettingsAware(false).      \note All effects are disabled on screens running at less than 16-bit color     depth.      \sa setEffectEnabled(), Qt::UIEffect */
+comment|/*!     \fn bool QApplication::isEffectEnabled(Qt::UIEffect effect)      Returns \c true if \a effect is enabled; otherwise returns \c false.      By default, Qt will try to use the desktop settings. To prevent this, call     setDesktopSettingsAware(false).      \note All effects are disabled on screens running at less than 16-bit color     depth.      \sa setEffectEnabled(), Qt::UIEffect */
 end_comment
 begin_comment
 comment|/*!     \fn void QApplication::beep()      Sounds the bell, using the default volume and sound. The function is \e not     available in Qt for Embedded Linux. */

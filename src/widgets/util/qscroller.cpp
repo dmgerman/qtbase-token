@@ -7037,7 +7037,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal     Prepares scrolling by sending a QScrollPrepareEvent to the receiver widget.     Returns true if the scrolling was accepted and a target was returned. */
+comment|/*! \internal     Prepares scrolling by sending a QScrollPrepareEvent to the receiver widget.     Returns \c true if the scrolling was accepted and a target was returned. */
 end_comment
 begin_function
 DECL|function|prepareScrolling

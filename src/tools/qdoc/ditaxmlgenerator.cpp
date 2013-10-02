@@ -27924,7 +27924,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if \a format is "DITAXML" or "HTML" .  */
+comment|/*!   Returns \c true if \a format is "DITAXML" or "HTML" .  */
 end_comment
 begin_function
 DECL|function|canHandleFormat
@@ -30356,7 +30356,7 @@ comment|//</topicref>
 block|}
 end_function
 begin_comment
-comment|/*!   Looks up the tag name for \a t in the map of metadata   values for the current topic in \a inner. If a value   for the tag is found, the element is written with the   found value. Otherwise if \a force is set, an empty   element is written using the tag.    Returns true or false depending on whether it writes   an element using the tag \a t.    \note If \a t is found in the metadata map, it is erased.   i.e. Once you call this function for a particular \a t,   you consume \a t.  */
+comment|/*!   Looks up the tag name for \a t in the map of metadata   values for the current topic in \a inner. If a value   for the tag is found, the element is written with the   found value. Otherwise if \a force is set, an empty   element is written using the tag.    Returns \c true or false depending on whether it writes   an element using the tag \a t.    \note If \a t is found in the metadata map, it is erased.   i.e. Once you call this function for a particular \a t,   you consume \a t.  */
 end_comment
 begin_function
 DECL|function|writeMetadataElement
@@ -30432,7 +30432,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Looks up the tag name for \a t in the map of metadata   values for the current topic in \a inner. If one or more   value sfor the tag are found, the elements are written.   Otherwise nothing is written.    Returns true or false depending on whether it writes   at least one element using the tag \a t.    \note If \a t is found in the metadata map, it is erased.   i.e. Once you call this function for a particular \a t,   you consume \a t.  */
+comment|/*!   Looks up the tag name for \a t in the map of metadata   values for the current topic in \a inner. If one or more   value sfor the tag are found, the elements are written.   Otherwise nothing is written.    Returns \c true or false depending on whether it writes   at least one element using the tag \a t.    \note If \a t is found in the metadata map, it is erased.   i.e. Once you call this function for a particular \a t,   you consume \a t.  */
 end_comment
 begin_function
 DECL|function|writeMetadataElements

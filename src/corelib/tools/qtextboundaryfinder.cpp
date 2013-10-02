@@ -981,7 +981,7 @@ begin_comment
 comment|/*! \fn QTextBoundaryFinder::BoundaryType QTextBoundaryFinder::type() const    Returns the type of the QTextBoundaryFinder. */
 end_comment
 begin_comment
-comment|/*! \fn bool QTextBoundaryFinder::isValid() const     Returns true if the text boundary finder is valid; otherwise returns false.    A default QTextBoundaryFinder is invalid. */
+comment|/*! \fn bool QTextBoundaryFinder::isValid() const     Returns \c true if the text boundary finder is valid; otherwise returns \c false.    A default QTextBoundaryFinder is invalid. */
 end_comment
 begin_comment
 comment|/*!   Returns the string  the QTextBoundaryFinder object operates on. */
@@ -1305,7 +1305,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if the object's position() is currently at a valid text boundary. */
+comment|/*!   Returns \c true if the object's position() is currently at a valid text boundary. */
 end_comment
 begin_function
 DECL|function|isAtBoundary

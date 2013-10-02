@@ -653,7 +653,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     Destroys the QThread.      Note that deleting a QThread object will not stop the execution     of the thread it manages. Deleting a running QThread (i.e.     isFinished() returns false) will probably result in a program     crash. Wait for the finished() signal before deleting the     QThread. */
+comment|/*!     Destroys the QThread.      Note that deleting a QThread object will not stop the execution     of the thread it manages. Deleting a running QThread (i.e.     isFinished() returns \c false) will probably result in a program     crash. Wait for the finished() signal before deleting the     QThread. */
 end_comment
 begin_destructor
 DECL|function|~QThread
@@ -734,7 +734,7 @@ block|}
 block|}
 end_destructor
 begin_comment
-comment|/*!     Returns true if the thread is finished; otherwise returns false.      \sa isRunning() */
+comment|/*!     Returns \c true if the thread is finished; otherwise returns \c false.      \sa isRunning() */
 end_comment
 begin_function
 DECL|function|isFinished
@@ -772,7 +772,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the thread is running; otherwise returns false.      \sa isFinished() */
+comment|/*!     Returns \c true if the thread is running; otherwise returns \c false.      \sa isFinished() */
 end_comment
 begin_function
 DECL|function|isRunning

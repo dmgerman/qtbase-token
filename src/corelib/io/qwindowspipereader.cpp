@@ -828,7 +828,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \internal     Sets the correct size of the read buffer after a read operation.     Returns false, if an error occurred or the connection dropped.  */
+comment|/*!     \internal     Sets the correct size of the read buffer after a read operation.     Returns \c false, if an error occurred or the connection dropped.  */
 end_comment
 begin_function
 DECL|function|completeAsyncRead
@@ -979,7 +979,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Waits for the completion of the asynchronous read operation.     Returns true, if we've emitted the readyRead signal.  */
+comment|/*!     Waits for the completion of the asynchronous read operation.     Returns \c true, if we've emitted the readyRead signal.  */
 end_comment
 begin_function
 DECL|function|waitForReadyRead

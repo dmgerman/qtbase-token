@@ -226,7 +226,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*     Returns true if string t is made only of white space; otherwise     returns false. */
+comment|/*     Returns \c true if string t is made only of white space; otherwise     returns \c false. */
 end_comment
 begin_function
 DECL|function|isOnlyWhiteSpace
@@ -794,7 +794,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*     Returns true if typedIn the same as okayCh or is null; otherwise     returns false. */
+comment|/*     Returns \c true if typedIn the same as okayCh or is null; otherwise     returns \c false. */
 end_comment
 begin_function
 DECL|function|okay
@@ -1408,7 +1408,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*     Returns true if the start of the bottom line of yyProgram (and     potentially the whole line) is part of a C-style comment;     otherwise returns false. */
+comment|/*     Returns \c true if the start of the bottom line of yyProgram (and     potentially the whole line) is part of a C-style comment;     otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|bottomLineStartsInCComment
@@ -1658,10 +1658,10 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*     A function called match...() modifies the linizer state. If it     returns true, yyLine is the top line of the matched construct;     otherwise, the linizer is left in an unknown state.      A function called is...() keeps the linizer state intact. */
+comment|/*     A function called match...() modifies the linizer state. If it     returns \c true, yyLine is the top line of the matched construct;     otherwise, the linizer is left in an unknown state.      A function called is...() keeps the linizer state intact. */
 end_comment
 begin_comment
-comment|/*     Returns true if the current line (and upwards) forms a braceless     control statement; otherwise returns false.      The first line of the following example is a "braceless control     statement":          if ( x )             y; */
+comment|/*     Returns \c true if the current line (and upwards) forms a braceless     control statement; otherwise returns \c false.      The first line of the following example is a "braceless control     statement":          if ( x )             y; */
 end_comment
 begin_function
 DECL|function|matchBracelessControlStatement
@@ -1851,7 +1851,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*     Returns true if yyLine is an unfinished line; otherwise returns     false.      In many places we'll use the terms "standalone line", "unfinished     line" and "continuation line". The meaning of these should be     evident from this code example:          a = b;    // standalone line         c = d +   // unfinished line             e +   // unfinished continuation line             f +   // unfinished continuation line             g;    // continuation line */
+comment|/*     Returns \c true if yyLine is an unfinished line; otherwise returns     false.      In many places we'll use the terms "standalone line", "unfinished     line" and "continuation line". The meaning of these should be     evident from this code example:          a = b;    // standalone line         c = d +   // unfinished line             e +   // unfinished continuation line             f +   // unfinished continuation line             g;    // continuation line */
 end_comment
 begin_function
 DECL|function|isUnfinishedLine
@@ -2016,7 +2016,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*     Returns true if yyLine is a continuation line; otherwise returns     false. */
+comment|/*     Returns \c true if yyLine is a continuation line; otherwise returns     false. */
 end_comment
 begin_function
 DECL|function|isContinuationLine

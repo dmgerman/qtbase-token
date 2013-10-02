@@ -5830,7 +5830,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*   Returns true if anchor a matches at position pos + i in the input   string, otherwise false. */
+comment|/*   Returns \c true if anchor a matches at position pos + i in the input   string, otherwise false. */
 end_comment
 begin_function
 DECL|function|testAnchor
@@ -18297,7 +18297,7 @@ begin_comment
 comment|/*!     \fn void QRegExp::swap(QRegExp&other)     \since 4.8      Swaps regular expression \a other with this regular     expression. This operation is very fast and never fails. */
 end_comment
 begin_comment
-comment|/*!     Returns true if this regular expression is equal to \a rx;     otherwise returns false.      Two QRegExp objects are equal if they have the same pattern     strings and the same settings for case sensitivity, wildcard and     minimal matching. */
+comment|/*!     Returns \c true if this regular expression is equal to \a rx;     otherwise returns \c false.      Two QRegExp objects are equal if they have the same pattern     strings and the same settings for case sensitivity, wildcard and     minimal matching. */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -18338,10 +18338,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QRegExp::operator!=(const QRegExp&rx) const      Returns true if this regular expression is not equal to \a rx;     otherwise returns false.      \sa operator==() */
+comment|/*!     \fn bool QRegExp::operator!=(const QRegExp&rx) const      Returns \c true if this regular expression is not equal to \a rx;     otherwise returns \c false.      \sa operator==() */
 end_comment
 begin_comment
-comment|/*!     Returns true if the pattern string is empty; otherwise returns     false.      If you call exactMatch() with an empty pattern on an empty string     it will return true; otherwise it returns false since it operates     over the whole string. If you call indexIn() with an empty pattern     on \e any string it will return the start offset (0 by default)     because the empty pattern matches the 'emptiness' at the start of     the string. In this case the length of the match returned by     matchedLength() will be 0.      See QString::isEmpty(). */
+comment|/*!     Returns \c true if the pattern string is empty; otherwise returns     false.      If you call exactMatch() with an empty pattern on an empty string     it will return true; otherwise it returns \c false since it operates     over the whole string. If you call indexIn() with an empty pattern     on \e any string it will return the start offset (0 by default)     because the empty pattern matches the 'emptiness' at the start of     the string. In this case the length of the match returned by     matchedLength() will be 0.      See QString::isEmpty(). */
 end_comment
 begin_function
 DECL|function|isEmpty
@@ -18365,7 +18365,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the regular expression is valid; otherwise returns     false. An invalid regular expression never matches.      The pattern \b{[a-z} is an example of an invalid pattern, since     it lacks a closing square bracket.      Note that the validity of a regexp may also depend on the setting     of the wildcard flag, for example \b{*.html} is a valid     wildcard regexp but an invalid full regexp.      \sa errorString() */
+comment|/*!     Returns \c true if the regular expression is valid; otherwise returns     false. An invalid regular expression never matches.      The pattern \b{[a-z} is an example of an invalid pattern, since     it lacks a closing square bracket.      Note that the validity of a regexp may also depend on the setting     of the wildcard flag, for example \b{*.html} is a valid     wildcard regexp but an invalid full regexp.      \sa errorString() */
 end_comment
 begin_function
 DECL|function|isValid
@@ -18611,7 +18611,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if minimal (non-greedy) matching is enabled;     otherwise returns false.      \sa caseSensitivity(), setMinimal() */
+comment|/*!     Returns \c true if minimal (non-greedy) matching is enabled;     otherwise returns \c false.      \sa caseSensitivity(), setMinimal() */
 end_comment
 begin_function
 DECL|function|isMinimal
@@ -18655,7 +18655,7 @@ begin_comment
 comment|// ### Qt 5: make non-const
 end_comment
 begin_comment
-comment|/*!     Returns true if \a str is matched exactly by this regular     expression; otherwise returns false. You can determine how much of     the string was matched by calling matchedLength().      For a given regexp string R, exactMatch("R") is the equivalent of     indexIn("^R$") since exactMatch() effectively encloses the regexp     in the start of string and end of string anchors, except that it     sets matchedLength() differently.      For example, if the regular expression is \b{blue}, then     exactMatch() returns true only for input \c blue. For inputs \c     bluebell, \c blutak and \c lightblue, exactMatch() returns false     and matchedLength() will return 4, 3 and 0 respectively.      Although const, this function sets matchedLength(),     capturedTexts(), and pos().      \sa indexIn(), lastIndexIn() */
+comment|/*!     Returns \c true if \a str is matched exactly by this regular     expression; otherwise returns \c false. You can determine how much of     the string was matched by calling matchedLength().      For a given regexp string R, exactMatch("R") is the equivalent of     indexIn("^R$") since exactMatch() effectively encloses the regexp     in the start of string and end of string anchors, except that it     sets matchedLength() differently.      For example, if the regular expression is \b{blue}, then     exactMatch() returns \c true only for input \c blue. For inputs \c     bluebell, \c blutak and \c lightblue, exactMatch() returns \c false     and matchedLength() will return 4, 3 and 0 respectively.      Although const, this function sets matchedLength(),     capturedTexts(), and pos().      \sa indexIn(), lastIndexIn() */
 end_comment
 begin_function
 DECL|function|exactMatch

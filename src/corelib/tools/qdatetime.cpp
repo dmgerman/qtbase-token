@@ -1589,7 +1589,7 @@ begin_comment
 comment|/*!     \fn QDate::QDate()      Constructs a null date. Null dates are invalid.      \sa isNull(), isValid() */
 end_comment
 begin_comment
-comment|/*!     Constructs a date with year \a y, month \a m and day \a d.      If the specified date is invalid, the date is not set and     isValid() returns false.      \warning Years 1 to 99 are interpreted as is. Year 0 is invalid.      \sa isValid() */
+comment|/*!     Constructs a date with year \a y, month \a m and day \a d.      If the specified date is invalid, the date is not set and     isValid() returns \c false.      \warning Years 1 to 99 are interpreted as is. Year 0 is invalid.      \sa isValid() */
 end_comment
 begin_constructor
 DECL|function|QDate
@@ -1619,10 +1619,10 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     \fn bool QDate::isNull() const      Returns true if the date is null; otherwise returns false. A null     date is invalid.      \note The behavior of this function is equivalent to isValid().      \sa isValid() */
+comment|/*!     \fn bool QDate::isNull() const      Returns \c true if the date is null; otherwise returns \c false. A null     date is invalid.      \note The behavior of this function is equivalent to isValid().      \sa isValid() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QDate::isValid() const      Returns true if this date is valid; otherwise returns false.      \sa isNull() */
+comment|/*!     \fn bool QDate::isValid() const      Returns \c true if this date is valid; otherwise returns \c false.      \sa isNull() */
 end_comment
 begin_comment
 comment|/*!     Returns the year of this date. Negative numbers indicate years     before 1 CE, such that year -44 is 44 BCE.      Returns 0 if the date is invalid.      \sa month(), day() */
@@ -2842,7 +2842,7 @@ begin_comment
 comment|/*!     \fn bool QDate::setYMD(int y, int m, int d)      \deprecated in 5.0, use setDate() instead.      Sets the date's year \a y, month \a m, and day \a d.      If \a y is in the range 0 to 99, it is interpreted as 1900 to     1999.     Returns \c false if the date is invalid.      Use setDate() instead. */
 end_comment
 begin_comment
-comment|/*!     \since 4.2      Sets the date's \a year, \a month, and \a day. Returns true if     the date is valid; otherwise returns false.      If the specified date is invalid, the QDate object is set to be     invalid.      \sa isValid() */
+comment|/*!     \since 4.2      Sets the date's \a year, \a month, and \a day. Returns \c true if     the date is valid; otherwise returns \c false.      If the specified date is invalid, the QDate object is set to be     invalid.      \sa isValid() */
 end_comment
 begin_function
 DECL|function|setDate
@@ -3383,22 +3383,22 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QDate::operator==(const QDate&d) const      Returns true if this date is equal to \a d; otherwise returns     false.  */
+comment|/*!     \fn bool QDate::operator==(const QDate&d) const      Returns \c true if this date is equal to \a d; otherwise returns     false.  */
 end_comment
 begin_comment
-comment|/*!     \fn bool QDate::operator!=(const QDate&d) const      Returns true if this date is different from \a d; otherwise     returns false. */
+comment|/*!     \fn bool QDate::operator!=(const QDate&d) const      Returns \c true if this date is different from \a d; otherwise     returns \c false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QDate::operator<(const QDate&d) const      Returns true if this date is earlier than \a d; otherwise returns     false. */
+comment|/*!     \fn bool QDate::operator<(const QDate&d) const      Returns \c true if this date is earlier than \a d; otherwise returns     false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QDate::operator<=(const QDate&d) const      Returns true if this date is earlier than or equal to \a d;     otherwise returns false. */
+comment|/*!     \fn bool QDate::operator<=(const QDate&d) const      Returns \c true if this date is earlier than or equal to \a d;     otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QDate::operator>(const QDate&d) const      Returns true if this date is later than \a d; otherwise returns     false. */
+comment|/*!     \fn bool QDate::operator>(const QDate&d) const      Returns \c true if this date is later than \a d; otherwise returns     false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QDate::operator>=(const QDate&d) const      Returns true if this date is later than or equal to \a d;     otherwise returns false. */
+comment|/*!     \fn bool QDate::operator>=(const QDate&d) const      Returns \c true if this date is later than or equal to \a d;     otherwise returns \c false. */
 end_comment
 begin_comment
 comment|/*!     \fn QDate::currentDate()     Returns the current date, as reported by the system clock.      \sa QTime::currentTime(), QDateTime::currentDateTime() */
@@ -3915,7 +3915,7 @@ begin_comment
 comment|// QT_NO_DATESTRING
 end_comment
 begin_comment
-comment|/*!     \overload      Returns true if the specified date (\a year, \a month, and \a     day) is valid; otherwise returns false.      Example:     \snippet code/src_corelib_tools_qdatetime.cpp 4      \sa isNull(), setDate() */
+comment|/*!     \overload      Returns \c true if the specified date (\a year, \a month, and \a     day) is valid; otherwise returns \c false.      Example:     \snippet code/src_corelib_tools_qdatetime.cpp 4      \sa isNull(), setDate() */
 end_comment
 begin_function
 DECL|function|isValid
@@ -3986,7 +3986,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QDate::isLeapYear(int year)      Returns true if the specified \a year is a leap year; otherwise     returns false. */
+comment|/*!     \fn bool QDate::isLeapYear(int year)      Returns \c true if the specified \a year is a leap year; otherwise     returns \c false. */
 end_comment
 begin_function
 DECL|function|isLeapYear
@@ -4045,7 +4045,7 @@ begin_comment
 comment|/*!     \class QTime     \inmodule QtCore     \reentrant      \brief The QTime class provides clock time functions.       A QTime object contains a clock time, i.e. the number of hours,     minutes, seconds, and milliseconds since midnight. It can read the     current time from the system clock and measure a span of elapsed     time. It provides functions for comparing times and for     manipulating a time by adding a number of milliseconds.      QTime uses the 24-hour clock format; it has no concept of AM/PM.     Unlike QDateTime, QTime knows nothing about time zones or     daylight savings time (DST).      A QTime object is typically created either by giving the number     of hours, minutes, seconds, and milliseconds explicitly, or by     using the static function currentTime(), which creates a QTime     object that contains the system's local time. Note that the     accuracy depends on the accuracy of the underlying operating     system; not all systems provide 1-millisecond accuracy.      The hour(), minute(), second(), and msec() functions provide     access to the number of hours, minutes, seconds, and milliseconds     of the time. The same information is provided in textual format by     the toString() function.      QTime provides a full set of operators to compare two QTime     objects. QTime A is considered smaller than QTime B if A is     earlier than B.      The addSecs() and addMSecs() functions provide the time a given     number of seconds or milliseconds later than a given time.     Correspondingly, the number of seconds or milliseconds     between two times can be found using secsTo() or msecsTo().      QTime can be used to measure a span of elapsed time using the     start(), restart(), and elapsed() functions.      \sa QDate, QDateTime */
 end_comment
 begin_comment
-comment|/*!     \fn QTime::QTime()      Constructs a null time object. A null time can be a QTime(0, 0, 0, 0)     (i.e., midnight) object, except that isNull() returns true and isValid()     returns false.      \sa isNull(), isValid() */
+comment|/*!     \fn QTime::QTime()      Constructs a null time object. A null time can be a QTime(0, 0, 0, 0)     (i.e., midnight) object, except that isNull() returns \c true and isValid()     returns \c false.      \sa isNull(), isValid() */
 end_comment
 begin_comment
 comment|/*!     Constructs a time with hour \a h, minute \a m, seconds \a s and     milliseconds \a ms.      \a h must be in the range 0 to 23, \a m and \a s must be in the     range 0 to 59, and \a ms must be in the range 0 to 999.      \sa isValid() */
@@ -4083,10 +4083,10 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     \fn bool QTime::isNull() const      Returns true if the time is null (i.e., the QTime object was     constructed using the default constructor); otherwise returns     false. A null time is also an invalid time.      \sa isValid() */
+comment|/*!     \fn bool QTime::isNull() const      Returns \c true if the time is null (i.e., the QTime object was     constructed using the default constructor); otherwise returns     false. A null time is also an invalid time.      \sa isValid() */
 end_comment
 begin_comment
-comment|/*!     Returns true if the time is valid; otherwise returns false. For example,     the time 23:30:55.746 is valid, but 24:12:30 is invalid.      \sa isNull() */
+comment|/*!     Returns \c true if the time is valid; otherwise returns \c false. For example,     the time 23:30:55.746 is valid, but 24:12:30 is invalid.      \sa isNull() */
 end_comment
 begin_function
 DECL|function|isValid
@@ -4529,7 +4529,7 @@ begin_comment
 comment|//QT_NO_DATESTRING
 end_comment
 begin_comment
-comment|/*!     Sets the time to hour \a h, minute \a m, seconds \a s and     milliseconds \a ms.      \a h must be in the range 0 to 23, \a m and \a s must be in the     range 0 to 59, and \a ms must be in the range 0 to 999.     Returns true if the set time is valid; otherwise returns false.      \sa isValid() */
+comment|/*!     Sets the time to hour \a h, minute \a m, seconds \a s and     milliseconds \a ms.      \a h must be in the range 0 to 23, \a m and \a s must be in the     range 0 to 59, and \a ms must be in the range 0 to 999.     Returns \c true if the set time is valid; otherwise returns \c false.      \sa isValid() */
 end_comment
 begin_function
 DECL|function|setHMS
@@ -4875,22 +4875,22 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QTime::operator==(const QTime&t) const      Returns true if this time is equal to \a t; otherwise returns false. */
+comment|/*!     \fn bool QTime::operator==(const QTime&t) const      Returns \c true if this time is equal to \a t; otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTime::operator!=(const QTime&t) const      Returns true if this time is different from \a t; otherwise returns false. */
+comment|/*!     \fn bool QTime::operator!=(const QTime&t) const      Returns \c true if this time is different from \a t; otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTime::operator<(const QTime&t) const      Returns true if this time is earlier than \a t; otherwise returns false. */
+comment|/*!     \fn bool QTime::operator<(const QTime&t) const      Returns \c true if this time is earlier than \a t; otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTime::operator<=(const QTime&t) const      Returns true if this time is earlier than or equal to \a t;     otherwise returns false. */
+comment|/*!     \fn bool QTime::operator<=(const QTime&t) const      Returns \c true if this time is earlier than or equal to \a t;     otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTime::operator>(const QTime&t) const      Returns true if this time is later than \a t; otherwise returns false. */
+comment|/*!     \fn bool QTime::operator>(const QTime&t) const      Returns \c true if this time is later than \a t; otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTime::operator>=(const QTime&t) const      Returns true if this time is later than or equal to \a t;     otherwise returns false. */
+comment|/*!     \fn bool QTime::operator>=(const QTime&t) const      Returns \c true if this time is later than or equal to \a t;     otherwise returns \c false. */
 end_comment
 begin_comment
 comment|/*!     \fn QTime QTime::fromMSecsSinceStartOfDay(int msecs)      Returns a new QTime instance with the time set to the number of \a msecs     since the start of the day, i.e. since 00:00:00.      If \a msecs falls outside the valid range an invalid QTime will be returned.      \sa msecsSinceStartOfDay() */
@@ -5599,7 +5599,7 @@ begin_comment
 comment|// QT_NO_DATESTRING
 end_comment
 begin_comment
-comment|/*!     \overload      Returns true if the specified time is valid; otherwise returns     false.      The time is valid if \a h is in the range 0 to 23, \a m and     \a s are in the range 0 to 59, and \a ms is in the range 0 to 999.      Example:      \snippet code/src_corelib_tools_qdatetime.cpp 9 */
+comment|/*!     \overload      Returns \c true if the specified time is valid; otherwise returns     false.      The time is valid if \a h is in the range 0 to 23, \a m and     \a s are in the range 0 to 59, and \a ms is in the range 0 to 999.      Example:      \snippet code/src_corelib_tools_qdatetime.cpp 9 */
 end_comment
 begin_function
 DECL|function|isValid
@@ -9267,7 +9267,7 @@ begin_comment
 comment|/*!     \fn void QDateTime::swap(QDateTime&other)     \since 5.0      Swaps this datetime with \a other. This operation is very fast     and never fails. */
 end_comment
 begin_comment
-comment|/*!     Returns true if both the date and the time are null; otherwise     returns false. A null datetime is invalid.      \sa QDate::isNull(), QTime::isNull(), isValid() */
+comment|/*!     Returns \c true if both the date and the time are null; otherwise     returns \c false. A null datetime is invalid.      \sa QDate::isNull(), QTime::isNull(), isValid() */
 end_comment
 begin_function
 DECL|function|isNull
@@ -9292,7 +9292,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if both the date and the time are valid and they are valid in     the current Qt::TimeSpec, otherwise returns false.      If the timeSpec() is Qt::LocalTime or Qt::TimeZone then the date and time are     checked to see if they fall in the Standard Time to Daylight Time transition     hour, i.e. if the transition is at 2am and the clock goes forward to 3am     then the time from 02:00:00 to 02:59:59.999 is considered to be invalid.      \sa QDate::isValid(), QTime::isValid() */
+comment|/*!     Returns \c true if both the date and the time are valid and they are valid in     the current Qt::TimeSpec, otherwise returns \c false.      If the timeSpec() is Qt::LocalTime or Qt::TimeZone then the date and time are     checked to see if they fall in the Standard Time to Daylight Time transition     hour, i.e. if the transition is at 2am and the clock goes forward to 3am     then the time from 02:00:00 to 02:59:59.999 is considered to be invalid.      \sa QDate::isValid(), QTime::isValid() */
 end_comment
 begin_function
 DECL|function|isValid
@@ -11653,7 +11653,7 @@ begin_comment
 comment|// QT_BOOTSTRAPPED
 end_comment
 begin_comment
-comment|/*!     Returns true if this datetime is equal to the \a other datetime;     otherwise returns false.      \sa operator!=() */
+comment|/*!     Returns \c true if this datetime is equal to the \a other datetime;     otherwise returns \c false.      \sa operator!=() */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -11730,10 +11730,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QDateTime::operator!=(const QDateTime&other) const      Returns true if this datetime is different from the \a other     datetime; otherwise returns false.      Two datetimes are different if either the date, the time, or the     time zone components are different.      \sa operator==() */
+comment|/*!     \fn bool QDateTime::operator!=(const QDateTime&other) const      Returns \c true if this datetime is different from the \a other     datetime; otherwise returns \c false.      Two datetimes are different if either the date, the time, or the     time zone components are different.      \sa operator==() */
 end_comment
 begin_comment
-comment|/*!     Returns true if this datetime is earlier than the \a other     datetime; otherwise returns false. */
+comment|/*!     Returns \c true if this datetime is earlier than the \a other     datetime; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|operator <
@@ -11810,13 +11810,13 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QDateTime::operator<=(const QDateTime&other) const      Returns true if this datetime is earlier than or equal to the     \a other datetime; otherwise returns false. */
+comment|/*!     \fn bool QDateTime::operator<=(const QDateTime&other) const      Returns \c true if this datetime is earlier than or equal to the     \a other datetime; otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QDateTime::operator>(const QDateTime&other) const      Returns true if this datetime is later than the \a other datetime;     otherwise returns false. */
+comment|/*!     \fn bool QDateTime::operator>(const QDateTime&other) const      Returns \c true if this datetime is later than the \a other datetime;     otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QDateTime::operator>=(const QDateTime&other) const      Returns true if this datetime is later than or equal to the     \a other datetime; otherwise returns false. */
+comment|/*!     \fn bool QDateTime::operator>=(const QDateTime&other) const      Returns \c true if this datetime is later than or equal to the     \a other datetime; otherwise returns \c false. */
 end_comment
 begin_comment
 comment|/*!     \fn QDateTime QDateTime::currentDateTime()     Returns the current datetime, as reported by the system clock, in     the local time zone.      \sa currentDateTimeUtc(), QDate::currentDate(), QTime::currentTime(), toTimeSpec() */

@@ -3992,7 +3992,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \property QDialogButtonBox::centerButtons     \brief whether the buttons in the button box are centered      By default, this property is false. This behavior is appopriate     for most types of dialogs. A notable exception is message boxes     on most platforms (e.g. Windows), where the button box is     centered horizontally.      \sa QMessageBox */
+comment|/*!     \property QDialogButtonBox::centerButtons     \brief whether the buttons in the button box are centered      By default, this property is \c false. This behavior is appopriate     for most types of dialogs. A notable exception is message boxes     on most platforms (e.g. Windows), where the button box is     centered horizontally.      \sa QMessageBox */
 end_comment
 begin_function
 DECL|function|setCenterButtons

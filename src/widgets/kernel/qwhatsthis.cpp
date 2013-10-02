@@ -2500,7 +2500,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the user interface is in "What's This?" mode;     otherwise returns false.      \sa enterWhatsThisMode() */
+comment|/*!     Returns \c true if the user interface is in "What's This?" mode;     otherwise returns \c false.      \sa enterWhatsThisMode() */
 end_comment
 begin_function
 DECL|function|inWhatsThisMode

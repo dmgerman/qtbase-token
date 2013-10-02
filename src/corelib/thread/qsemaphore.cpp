@@ -262,7 +262,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Tries to acquire \c n resources guarded by the semaphore and     returns true on success. If available()< \a n, this call     immediately returns false without acquiring any resources.      Example:      \snippet code/src_corelib_thread_qsemaphore.cpp 2      \sa acquire() */
+comment|/*!     Tries to acquire \c n resources guarded by the semaphore and     returns \c true on success. If available()< \a n, this call     immediately returns \c false without acquiring any resources.      Example:      \snippet code/src_corelib_thread_qsemaphore.cpp 2      \sa acquire() */
 end_comment
 begin_function
 DECL|function|tryAcquire
@@ -318,7 +318,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Tries to acquire \c n resources guarded by the semaphore and     returns true on success. If available()< \a n, this call will     wait for at most \a timeout milliseconds for resources to become     available.      Note: Passing a negative number as the \a timeout is equivalent to     calling acquire(), i.e. this function will wait forever for     resources to become available if \a timeout is negative.      Example:      \snippet code/src_corelib_thread_qsemaphore.cpp 3      \sa acquire() */
+comment|/*!     Tries to acquire \c n resources guarded by the semaphore and     returns \c true on success. If available()< \a n, this call will     wait for at most \a timeout milliseconds for resources to become     available.      Note: Passing a negative number as the \a timeout is equivalent to     calling acquire(), i.e. this function will wait forever for     resources to become available if \a timeout is negative.      Example:      \snippet code/src_corelib_thread_qsemaphore.cpp 3      \sa acquire() */
 end_comment
 begin_function
 DECL|function|tryAcquire

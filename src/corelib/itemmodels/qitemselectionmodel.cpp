@@ -44,9 +44,9 @@ comment|/*!     \fn const QAbstractItemModel *QItemSelectionRange::model() const
 comment|/*!     \fn QModelIndex QItemSelectionRange::topLeft() const      Returns the index for the item located at the top-left corner of     the selection range.      \sa top(), left(), bottomRight() */
 comment|/*!     \fn QModelIndex QItemSelectionRange::bottomRight() const      Returns the index for the item located at the bottom-right corner     of the selection range.      \sa bottom(), right(), topLeft() */
 comment|/*!     \fn QModelIndex QItemSelectionRange::parent() const      Returns the parent model item index of the items in the selection range.  */
-comment|/*!     \fn bool QItemSelectionRange::contains(const QModelIndex&index) const      Returns true if the model item specified by the \a index lies within the     range of selected items; otherwise returns false. */
-comment|/*!     \fn bool QItemSelectionRange::contains(int row, int column,                                            const QModelIndex&parentIndex) const     \overload      Returns true if the model item specified by (\a row, \a column)     and with \a parentIndex as the parent item lies within the range     of selected items; otherwise returns false. */
-comment|/*!     \fn bool QItemSelectionRange::intersects(const QItemSelectionRange&other) const      Returns true if this selection range intersects (overlaps with) the \a other     range given; otherwise returns false.  */
+comment|/*!     \fn bool QItemSelectionRange::contains(const QModelIndex&index) const      Returns \c true if the model item specified by the \a index lies within the     range of selected items; otherwise returns \c false. */
+comment|/*!     \fn bool QItemSelectionRange::contains(int row, int column,                                            const QModelIndex&parentIndex) const     \overload      Returns \c true if the model item specified by (\a row, \a column)     and with \a parentIndex as the parent item lies within the range     of selected items; otherwise returns \c false. */
+comment|/*!     \fn bool QItemSelectionRange::intersects(const QItemSelectionRange&other) const      Returns \c true if this selection range intersects (overlaps with) the \a other     range given; otherwise returns \c false.  */
 DECL|function|intersects
 name|bool
 name|QItemSelectionRange
@@ -292,16 +292,16 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QItemSelectionRange::operator==(const QItemSelectionRange&other) const      Returns true if the selection range is exactly the same as the \a other     range given; otherwise returns false.  */
+comment|/*!     \fn bool QItemSelectionRange::operator==(const QItemSelectionRange&other) const      Returns \c true if the selection range is exactly the same as the \a other     range given; otherwise returns \c false.  */
 end_comment
 begin_comment
-comment|/*!     \fn bool QItemSelectionRange::operator!=(const QItemSelectionRange&other) const      Returns true if the selection range differs from the \a other range given;     otherwise returns false.  */
+comment|/*!     \fn bool QItemSelectionRange::operator!=(const QItemSelectionRange&other) const      Returns \c true if the selection range differs from the \a other range given;     otherwise returns \c false.  */
 end_comment
 begin_comment
-comment|/*!     \fn bool QItemSelectionRange::operator<(const QItemSelectionRange&other) const      Returns true if the selection range is less than the \a other     range given; otherwise returns false.      The less than calculation is not directly useful to developers - the way that ranges     with different parents compare is not defined. This operator only exists so that the     class can be used with QMap.  */
+comment|/*!     \fn bool QItemSelectionRange::operator<(const QItemSelectionRange&other) const      Returns \c true if the selection range is less than the \a other     range given; otherwise returns \c false.      The less than calculation is not directly useful to developers - the way that ranges     with different parents compare is not defined. This operator only exists so that the     class can be used with QMap.  */
 end_comment
 begin_comment
-comment|/*!     \fn bool QItemSelectionRange::isValid() const      Returns true if the selection range is valid; otherwise returns false.  */
+comment|/*!     \fn bool QItemSelectionRange::isValid() const      Returns \c true if the selection range is valid; otherwise returns \c false.  */
 end_comment
 begin_function
 DECL|function|rowLengthsFromRange
@@ -594,7 +594,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the selection range contains no selectable item     \since 4.7 */
+comment|/*!     Returns \c true if the selection range contains no selectable item     \since 4.7 */
 end_comment
 begin_function
 DECL|function|isEmpty
@@ -976,7 +976,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the selection contains the given \a index; otherwise     returns false. */
+comment|/*!     Returns \c true if the selection contains the given \a index; otherwise     returns \c false. */
 end_comment
 begin_function
 DECL|function|contains
@@ -5754,7 +5754,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the given model item \a index is selected. */
+comment|/*!     Returns \c true if the given model item \a index is selected. */
 end_comment
 begin_function
 DECL|function|isSelected
@@ -5977,7 +5977,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if all items are selected in the \a row with the given     \a parent.      Note that this function is usually faster than calling isSelected()     on all items in the same row and that unselectable items are     ignored. */
+comment|/*!     Returns \c true if all items are selected in the \a row with the given     \a parent.      Note that this function is usually faster than calling isSelected()     on all items in the same row and that unselectable items are     ignored. */
 end_comment
 begin_function
 DECL|function|isRowSelected
@@ -6454,7 +6454,7 @@ comment|// no columns means no selected items
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if all items are selected in the \a column with the given     \a parent.      Note that this function is usually faster than calling isSelected()     on all items in the same column and that unselectable items are     ignored. */
+comment|/*!     Returns \c true if all items are selected in the \a column with the given     \a parent.      Note that this function is usually faster than calling isSelected()     on all items in the same column and that unselectable items are     ignored. */
 end_comment
 begin_function
 DECL|function|isColumnSelected
@@ -6915,7 +6915,7 @@ comment|// no rows means no selected items
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if there are any items selected in the \a row with the given     \a parent. */
+comment|/*!     Returns \c true if there are any items selected in the \a row with the given     \a parent. */
 end_comment
 begin_function
 DECL|function|rowIntersectsSelection
@@ -7129,7 +7129,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if there are any items selected in the \a column with the given     \a parent. */
+comment|/*!     Returns \c true if there are any items selected in the \a column with the given     \a parent. */
 end_comment
 begin_function
 DECL|function|columnIntersectsSelection
@@ -7341,7 +7341,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2      Returns true if the selection model contains any selection ranges;     otherwise returns false. */
+comment|/*!     \since 4.2      Returns \c true if the selection model contains any selection ranges;     otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|hasSelection

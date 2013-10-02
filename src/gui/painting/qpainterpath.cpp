@@ -671,19 +671,19 @@ begin_comment
 comment|/*!     \variable QPainterPath::Element::type     \brief the type of element      \sa isCurveTo(), isLineTo(), isMoveTo() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QPainterPath::Element::operator==(const Element&other) const     \since 4.2      Returns true if this element is equal to \a other;     otherwise returns false.      \sa operator!=() */
+comment|/*!     \fn bool QPainterPath::Element::operator==(const Element&other) const     \since 4.2      Returns \c true if this element is equal to \a other;     otherwise returns \c false.      \sa operator!=() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QPainterPath::Element::operator!=(const Element&other) const     \since 4.2      Returns true if this element is not equal to \a other;     otherwise returns false.      \sa operator==() */
+comment|/*!     \fn bool QPainterPath::Element::operator!=(const Element&other) const     \since 4.2      Returns \c true if this element is not equal to \a other;     otherwise returns \c false.      \sa operator==() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QPainterPath::Element::isCurveTo () const      Returns true if the element is a curve, otherwise returns false.      \sa type, QPainterPath::CurveToElement */
+comment|/*!     \fn bool QPainterPath::Element::isCurveTo () const      Returns \c true if the element is a curve, otherwise returns \c false.      \sa type, QPainterPath::CurveToElement */
 end_comment
 begin_comment
-comment|/*!     \fn bool QPainterPath::Element::isLineTo () const      Returns true if the element is a line, otherwise returns false.      \sa type, QPainterPath::LineToElement */
+comment|/*!     \fn bool QPainterPath::Element::isLineTo () const      Returns \c true if the element is a line, otherwise returns \c false.      \sa type, QPainterPath::LineToElement */
 end_comment
 begin_comment
-comment|/*!     \fn bool QPainterPath::Element::isMoveTo () const      Returns true if the element is moving the current position,     otherwise returns false.      \sa type, QPainterPath::MoveToElement */
+comment|/*!     \fn bool QPainterPath::Element::isMoveTo () const      Returns \c true if the element is moving the current position,     otherwise returns \c false.      \sa type, QPainterPath::MoveToElement */
 end_comment
 begin_comment
 comment|/*!     \fn QPainterPath::Element::operator QPointF () const      Returns the element's position.      \sa x, y */
@@ -4493,7 +4493,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QPainterPath::isEmpty() const      Returns true if either there are no elements in this path, or if the only     element is a MoveToElement; otherwise returns false.      \sa elementCount() */
+comment|/*!     \fn bool QPainterPath::isEmpty() const      Returns \c true if either there are no elements in this path, or if the only     element is a MoveToElement; otherwise returns \c false.      \sa elementCount() */
 end_comment
 begin_function
 DECL|function|isEmpty
@@ -6259,7 +6259,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QPainterPath::contains(const QPointF&point) const      Returns true if the given \a point is inside the path, otherwise     returns false.      \sa intersects() */
+comment|/*!     \fn bool QPainterPath::contains(const QPointF&point) const      Returns \c true if the given \a point is inside the path, otherwise     returns \c false.      \sa intersects() */
 end_comment
 begin_function
 DECL|function|contains
@@ -7328,7 +7328,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*     Returns true if any lines or curves cross the four edges in of rect */
+comment|/*     Returns \c true if any lines or curves cross the four edges in of rect */
 end_comment
 begin_function
 DECL|function|qt_painterpath_check_crossing
@@ -7682,7 +7682,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QPainterPath::intersects(const QRectF&rectangle) const      Returns true if any point in the given \a rectangle intersects the     path; otherwise returns false.      There is an intersection if any of the lines making up the     rectangle crosses a part of the path or if any part of the     rectangle overlaps with any area enclosed by the path. This     function respects the current fillRule to determine what is     considered inside the path.      \sa contains() */
+comment|/*!     \fn bool QPainterPath::intersects(const QRectF&rectangle) const      Returns \c true if any point in the given \a rectangle intersects the     path; otherwise returns \c false.      There is an intersection if any of the lines making up the     rectangle crosses a part of the path or if any part of the     rectangle overlaps with any area enclosed by the path. This     function respects the current fillRule to determine what is     considered inside the path.      \sa contains() */
 end_comment
 begin_function
 DECL|function|intersects
@@ -8034,7 +8034,7 @@ begin_comment
 comment|/*!     \fn QPainterPath QPainterPath::translated(const QPointF&offset) const;     \overload     \since 4.6      Returns a copy of the path that is translated by the given \a offset.      \sa translate() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QPainterPath::contains(const QRectF&rectangle) const      Returns true if the given \a rectangle is inside the path,     otherwise returns false. */
+comment|/*!     \fn bool QPainterPath::contains(const QRectF&rectangle) const      Returns \c true if the given \a rectangle is inside the path,     otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|contains
@@ -8410,7 +8410,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this painterpath is equal to the given \a path.      Note that comparing paths may involve a per element comparison     which can be slow for complex paths.      \sa operator!=() */
+comment|/*!     Returns \c true if this painterpath is equal to the given \a path.      Note that comparing paths may involve a per element comparison     which can be slow for complex paths.      \sa operator!=() */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -8634,7 +8634,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this painter path differs from the given \a path.      Note that comparing paths may involve a per element comparison     which can be slow for complex paths.      \sa operator==() */
+comment|/*!     Returns \c true if this painter path differs from the given \a path.      Note that comparing paths may involve a per element comparison     which can be slow for complex paths.      \sa operator==() */
 end_comment
 begin_function
 DECL|function|operator !=
@@ -12425,7 +12425,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \since 4.3    Returns true if the current path intersects at any point the given path \a p.   Also returns true if the current path contains or is contained by any part of \a p.    Set operations on paths will treat the paths as areas. Non-closed   paths will be treated as implicitly closed.    \sa contains()  */
+comment|/*!   \since 4.3    Returns \c true if the current path intersects at any point the given path \a p.   Also returns \c true if the current path contains or is contained by any part of \a p.    Set operations on paths will treat the paths as areas. Non-closed   paths will be treated as implicitly closed.    \sa contains()  */
 end_comment
 begin_function
 DECL|function|intersects
@@ -12492,7 +12492,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \since 4.3    Returns true if the given path \a p is contained within   the current path. Returns false if any edges of the current path and   \a p intersect.    Set operations on paths will treat the paths as areas. Non-closed   paths will be treated as implicitly closed.    \sa intersects()  */
+comment|/*!   \since 4.3    Returns \c true if the given path \a p is contained within   the current path. Returns \c false if any edges of the current path and   \a p intersect.    Set operations on paths will treat the paths as areas. Non-closed   paths will be treated as implicitly closed.    \sa intersects()  */
 end_comment
 begin_function
 DECL|function|contains

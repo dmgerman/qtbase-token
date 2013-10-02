@@ -14,7 +14,7 @@ file|"qnumeric_p.h"
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
-comment|/*!     Returns true if the double \a {d} is equivalent to infinity.     \relates<QtGlobal> */
+comment|/*!     Returns \c true if the double \a {d} is equivalent to infinity.     \relates<QtGlobal> */
 DECL|function|qIsInf
 name|Q_CORE_EXPORT
 name|bool
@@ -33,7 +33,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the double \a {d} is not a number (NaN).     \relates<QtGlobal> */
+comment|/*!     Returns \c true if the double \a {d} is not a number (NaN).     \relates<QtGlobal> */
 end_comment
 begin_function
 DECL|function|qIsNaN
@@ -54,7 +54,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the double \a {d} is a finite number.     \relates<QtGlobal> */
+comment|/*!     Returns \c true if the double \a {d} is a finite number.     \relates<QtGlobal> */
 end_comment
 begin_function
 DECL|function|qIsFinite
@@ -75,7 +75,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the float \a {f} is equivalent to infinity.     \relates<QtGlobal> */
+comment|/*!     Returns \c true if the float \a {f} is equivalent to infinity.     \relates<QtGlobal> */
 end_comment
 begin_function
 DECL|function|qIsInf
@@ -96,7 +96,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the float \a {f} is not a number (NaN).     \relates<QtGlobal> */
+comment|/*!     Returns \c true if the float \a {f} is not a number (NaN).     \relates<QtGlobal> */
 end_comment
 begin_function
 DECL|function|qIsNaN
@@ -117,7 +117,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the float \a {f} is a finite number.     \relates<QtGlobal> */
+comment|/*!     Returns \c true if the float \a {f} is a finite number.     \relates<QtGlobal> */
 end_comment
 begin_function
 DECL|function|qIsFinite

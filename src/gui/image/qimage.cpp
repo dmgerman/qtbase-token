@@ -3842,7 +3842,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QImage::isNull() const      Returns true if it is a null image, otherwise returns false.      A null image has all parameters set to zero and no allocated data. */
+comment|/*!     \fn bool QImage::isNull() const      Returns \c true if it is a null image, otherwise returns \c false.      A null image has all parameters set to zero and no allocated data. */
 end_comment
 begin_function
 DECL|function|isNull
@@ -19013,10 +19013,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QImage::valid(const QPoint&pos) const      Returns true if \a pos is a valid coordinate pair within the     image; otherwise returns false.      \sa rect(), QRect::contains() */
+comment|/*!     \fn bool QImage::valid(const QPoint&pos) const      Returns \c true if \a pos is a valid coordinate pair within the     image; otherwise returns \c false.      \sa rect(), QRect::contains() */
 end_comment
 begin_comment
-comment|/*!     \overload      Returns true if QPoint(\a x, \a y) is a valid coordinate pair     within the image; otherwise returns false. */
+comment|/*!     \overload      Returns \c true if QPoint(\a x, \a y) is a valid coordinate pair     within the image; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|valid
@@ -19948,7 +19948,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if all the colors in the image are shades of gray     (i.e. their red, green and blue components are equal); otherwise     false.      Note that this function is slow for images without color table.      \sa isGrayscale() */
+comment|/*!     Returns \c true if all the colors in the image are shades of gray     (i.e. their red, green and blue components are equal); otherwise     false.      Note that this function is slow for images without color table.      \sa isGrayscale() */
 end_comment
 begin_function
 DECL|function|allGray
@@ -20360,7 +20360,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     For 32-bit images, this function is equivalent to allGray().      For 8-bpp images, this function returns true if color(i) is     QRgb(i, i, i) for all indexes of the color table; otherwise     returns false.      \sa allGray(), {QImage#Image Formats}{Image Formats} */
+comment|/*!     For 32-bit images, this function is equivalent to allGray().      For 8-bpp images, this function returns \c true if color(i) is     QRgb(i, i, i) for all indexes of the color table; otherwise     returns \c false.      \sa allGray(), {QImage#Image Formats}{Image Formats} */
 end_comment
 begin_function
 DECL|function|isGrayscale
@@ -23611,7 +23611,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Loads an image from the file with the given \a fileName. Returns true if     the image was successfully loaded; otherwise invalidates the image     and returns false.      The loader attempts to read the image using the specified \a format, e.g.,     PNG or JPG. If \a format is not specified (which is the default), the     loader probes the file for a header to guess the file format.      The file name can either refer to an actual file on disk or to one     of the application's embedded resources. See the     \l{resources.html}{Resource System} overview for details on how to     embed images and other resource files in the application's     executable.      \sa {QImage#Reading and Writing Image Files}{Reading and Writing Image Files} */
+comment|/*!     Loads an image from the file with the given \a fileName. Returns \c true if     the image was successfully loaded; otherwise invalidates the image     and returns \c false.      The loader attempts to read the image using the specified \a format, e.g.,     PNG or JPG. If \a format is not specified (which is the default), the     loader probes the file for a header to guess the file format.      The file name can either refer to an actual file on disk or to one     of the application's embedded resources. See the     \l{resources.html}{Resource System} overview for details on how to     embed images and other resource files in the application's     executable.      \sa {QImage#Reading and Writing Image Files}{Reading and Writing Image Files} */
 end_comment
 begin_function
 DECL|function|load
@@ -23704,7 +23704,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QImage::loadFromData(const uchar *data, int len, const char *format)      Loads an image from the first \a len bytes of the given binary \a     data. Returns true if the image was successfully loaded; otherwise     invalidates the image and returns false.      The loader attempts to read the image using the specified \a format, e.g.,     PNG or JPG. If \a format is not specified (which is the default), the     loader probes the file for a header to guess the file format.      \sa {QImage#Reading and Writing Image Files}{Reading and Writing Image Files} */
+comment|/*!     \fn bool QImage::loadFromData(const uchar *data, int len, const char *format)      Loads an image from the first \a len bytes of the given binary \a     data. Returns \c true if the image was successfully loaded; otherwise     invalidates the image and returns \c false.      The loader attempts to read the image using the specified \a format, e.g.,     PNG or JPG. If \a format is not specified (which is the default), the     loader probes the file for a header to guess the file format.      \sa {QImage#Reading and Writing Image Files}{Reading and Writing Image Files} */
 end_comment
 begin_function
 DECL|function|loadFromData
@@ -23836,7 +23836,7 @@ begin_comment
 comment|/*!     \fn QImage QImage::fromData(const QByteArray&data, const char *format)      \overload      Loads an image from the given QByteArray \a data. */
 end_comment
 begin_comment
-comment|/*!     Saves the image to the file with the given \a fileName, using the     given image file \a format and \a quality factor. If \a format is     0, QImage will attempt to guess the format by looking at \a fileName's     suffix.      The \a quality factor must be in the range 0 to 100 or -1. Specify     0 to obtain small compressed files, 100 for large uncompressed     files, and -1 (the default) to use the default settings.      Returns true if the image was successfully saved; otherwise     returns false.      \sa {QImage#Reading and Writing Image Files}{Reading and Writing     Image Files} */
+comment|/*!     Saves the image to the file with the given \a fileName, using the     given image file \a format and \a quality factor. If \a format is     0, QImage will attempt to guess the format by looking at \a fileName's     suffix.      The \a quality factor must be in the range 0 to 100 or -1. Specify     0 to obtain small compressed files, 100 for large uncompressed     files, and -1 (the default) to use the default settings.      Returns \c true if the image was successfully saved; otherwise     returns \c false.      \sa {QImage#Reading and Writing Image Files}{Reading and Writing     Image Files} */
 end_comment
 begin_function
 DECL|function|save
@@ -24203,7 +24203,7 @@ begin_comment
 comment|// QT_NO_DATASTREAM
 end_comment
 begin_comment
-comment|/*!     \fn bool QImage::operator==(const QImage& image) const      Returns true if this image and the given \a image have the same     contents; otherwise returns false.      The comparison can be slow, unless there is some obvious     difference (e.g. different size or format), in which case the     function will return quickly.      \sa operator=() */
+comment|/*!     \fn bool QImage::operator==(const QImage& image) const      Returns \c true if this image and the given \a image have the same     contents; otherwise returns \c false.      The comparison can be slow, unless there is some obvious     difference (e.g. different size or format), in which case the     function will return quickly.      \sa operator=() */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -24600,7 +24600,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QImage::operator!=(const QImage& image) const      Returns true if this image and the given \a image have different     contents; otherwise returns false.      The comparison can be slow, unless there is some obvious     difference, such as different widths, in which case the function     will return quickly.      \sa operator=() */
+comment|/*!     \fn bool QImage::operator!=(const QImage& image) const      Returns \c true if this image and the given \a image have different     contents; otherwise returns \c false.      The comparison can be slow, unless there is some obvious     difference, such as different widths, in which case the function     will return quickly.      \sa operator=() */
 end_comment
 begin_function
 DECL|function|operator !=
@@ -26072,7 +26072,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal      Returns true if the image is detached; otherwise returns false.      \sa detach(), {Implicit Data Sharing} */
+comment|/*!     \internal      Returns \c true if the image is detached; otherwise returns \c false.      \sa detach(), {Implicit Data Sharing} */
 end_comment
 begin_function
 DECL|function|isDetached
@@ -26964,7 +26964,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the image has a format that respects the alpha     channel, otherwise returns false.      \sa {QImage#Image Information}{Image Information} */
+comment|/*!     Returns \c true if the image has a format that respects the alpha     channel, otherwise returns \c false.      \sa {QImage#Image Information}{Image Information} */
 end_comment
 begin_function
 DECL|function|hasAlphaChannel

@@ -1559,7 +1559,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Sets the data for the model item \a index with the given \a role to   the data referenced by the \a value. Returns true if successful;   otherwise returns false.    \sa Qt::ItemDataRole */
+comment|/*!   Sets the data for the model item \a index with the given \a role to   the data referenced by the \a value. Returns \c true if successful;   otherwise returns \c false.    \sa Qt::ItemDataRole */
 end_comment
 begin_function
 DECL|function|setData
@@ -1866,7 +1866,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if the \a parent model item has children; otherwise   returns false. */
+comment|/*!   Returns \c true if the \a parent model item has children; otherwise   returns \c false. */
 end_comment
 begin_function
 DECL|function|hasChildren
@@ -2309,7 +2309,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Handles the \a data supplied by a drag and drop operation that ended with     the given \a action over the row in the model specified by the \a row and     \a column and by the \a parent index.      Returns true if the drop was successful, and false otherwise.      \sa supportedDropActions() */
+comment|/*!     Handles the \a data supplied by a drag and drop operation that ended with     the given \a action over the row in the model specified by the \a row and     \a column and by the \a parent index.      Returns \c true if the drop was successful, and false otherwise.      \sa supportedDropActions() */
 end_comment
 begin_function
 DECL|function|dropMimeData
@@ -3015,7 +3015,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \property QDirModel::readOnly   \brief Whether the directory model allows writing to the file system    If this property is set to false, the directory model will allow renaming, copying   and deleting of files and directories.    This property is true by default */
+comment|/*!   \property QDirModel::readOnly   \brief Whether the directory model allows writing to the file system    If this property is set to false, the directory model will allow renaming, copying   and deleting of files and directories.    This property is \c true by default */
 end_comment
 begin_function
 DECL|function|setReadOnly
@@ -3064,7 +3064,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \property QDirModel::lazyChildCount   \brief Whether the directory model optimizes the hasChildren function   to only check if the item is a directory.    If this property is set to false, the directory model will make sure that a directory   actually containes any files before reporting that it has children.   Otherwise the directory model will report that an item has children if the item   is a directory.    This property is false by default */
+comment|/*!   \property QDirModel::lazyChildCount   \brief Whether the directory model optimizes the hasChildren function   to only check if the item is a directory.    If this property is set to false, the directory model will make sure that a directory   actually containes any files before reporting that it has children.   Otherwise the directory model will report that an item has children if the item   is a directory.    This property is \c false by default */
 end_comment
 begin_function
 DECL|function|setLazyChildCount
@@ -4130,7 +4130,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if the model item \a index represents a directory;   otherwise returns false. */
+comment|/*!   Returns \c true if the model item \a index represents a directory;   otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|isDir

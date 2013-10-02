@@ -4025,7 +4025,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*   \internal    Sends the sequence of commands \a cmds to the FTP server. When the commands   are all done the finished() signal is emitted. When an error occurs, the   error() signal is emitted.    If there are pending commands in the queue this functions returns false and   the \a cmds are not added to the queue; otherwise it returns true. */
+comment|/*   \internal    Sends the sequence of commands \a cmds to the FTP server. When the commands   are all done the finished() signal is emitted. When an error occurs, the   error() signal is emitted.    If there are pending commands in the queue this functions returns \c false and   the \a cmds are not added to the queue; otherwise it returns \c true. */
 end_comment
 begin_function
 DECL|function|sendCommands
@@ -4784,7 +4784,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*   \internal    Process a reply from the FTP server.    Returns true if the reply was processed or false if the reply has to be   processed at a later point. */
+comment|/*   \internal    Process a reply from the FTP server.    Returns \c true if the reply was processed or false if the reply has to be   processed at a later point. */
 end_comment
 begin_function
 DECL|function|processReply
@@ -5667,7 +5667,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*   \internal    Starts next pending command. Returns false if there are no pending commands,   otherwise it returns true. */
+comment|/*   \internal    Starts next pending command. Returns \c false if there are no pending commands,   otherwise it returns \c true. */
 end_comment
 begin_function
 DECL|function|startNextCmd
@@ -8038,7 +8038,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal     Returns true if there are any commands scheduled that have not yet     been executed; otherwise returns false.      The command that is being executed is \e not considered as a     scheduled command.      \sa clearPendingCommands(), currentId(), currentCommand() */
+comment|/*!     \internal     Returns \c true if there are any commands scheduled that have not yet     been executed; otherwise returns \c false.      The command that is being executed is \e not considered as a     scheduled command.      \sa clearPendingCommands(), currentId(), currentCommand() */
 end_comment
 begin_function
 DECL|function|hasPendingCommands

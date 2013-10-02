@@ -299,10 +299,10 @@ begin_comment
 comment|/*!     \fn QFlags QFlags::operator~() const      Returns a QFlags object that contains the bitwise negation of     this object.      \sa operator&(), operator|(), operator^() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QFlags::operator!() const      Returns true if no flag is set (i.e., if the value stored by the     QFlags object is 0); otherwise returns false. */
+comment|/*!     \fn bool QFlags::operator!() const      Returns \c true if no flag is set (i.e., if the value stored by the     QFlags object is 0); otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QFlags::testFlag(Enum flag) const     \since 4.2      Returns true if the \a flag is set, otherwise false. */
+comment|/*!     \fn bool QFlags::testFlag(Enum flag) const     \since 4.2      Returns \c true if the \a flag is set, otherwise false. */
 end_comment
 begin_comment
 comment|/*!   \macro Q_DISABLE_COPY(Class)   \relates QObject    Disables the use of copy constructors and assignment operators   for the given \a Class.    Instances of subclasses of QObject should not be thought of as   values that can be copied or assigned, but as unique identities.   This means that when you create your own subclass of QObject   (director or indirect), you should \e not give it a copy constructor   or an assignment operator.  However, it may not enough to simply   omit them from your class, because, if you mistakenly write some code   that requires a copy constructor or an assignment operator (it's easy   to do), your compiler will thoughtfully create it for you. You must   do more.    The curious user will have seen that the Qt classes derived   from QObject typically include this macro in a private section:    \snippet code/src_corelib_global_qglobal.cpp 43    It declares a copy constructor and an assignment operator in the   private section, so that if you use them by mistake, the compiler   will report an error.    \snippet code/src_corelib_global_qglobal.cpp 44    But even this might not catch absolutely every case. You might be   tempted to do something like this:    \snippet code/src_corelib_global_qglobal.cpp 45    First of all, don't do that. Most compilers will generate code that   uses the copy constructor, so the privacy violation error will be   reported, but your C++ compiler is not required to generate code for   this statement in a specific way. It could generate code using   \e{neither} the copy constructor \e{nor} the assignment operator we   made private. In that case, no error would be reported, but your   application would probably crash when you called a member function   of \c{w}. */
@@ -2769,7 +2769,7 @@ directive|endif
 block|}
 end_function
 begin_comment
-comment|/*!     \relates<QtGlobal>      This function deletes the variable \a varName from the environment.      Returns true on success.      \since 5.1      \sa qputenv(), qgetenv() */
+comment|/*!     \relates<QtGlobal>      This function deletes the variable \a varName from the environment.      Returns \c true on success.      \since 5.1      \sa qputenv(), qgetenv() */
 end_comment
 begin_function
 DECL|function|qunsetenv

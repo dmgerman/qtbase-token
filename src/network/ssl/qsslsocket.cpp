@@ -481,7 +481,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Initializes QSslSocket with the native socket descriptor \a     socketDescriptor. Returns true if \a socketDescriptor is accepted     as a valid socket descriptor; otherwise returns false.     The socket is opened in the mode specified by \a openMode, and     enters the socket state specified by \a state.      \b{Note:} It is not possible to initialize two sockets with the same     native socket descriptor.      \sa socketDescriptor() */
+comment|/*!     Initializes QSslSocket with the native socket descriptor \a     socketDescriptor. Returns \c true if \a socketDescriptor is accepted     as a valid socket descriptor; otherwise returns \c false.     The socket is opened in the mode specified by \a openMode, and     enters the socket state specified by \a state.      \b{Note:} It is not possible to initialize two sockets with the same     native socket descriptor.      \sa socketDescriptor() */
 end_comment
 begin_function
 DECL|function|setSocketDescriptor
@@ -760,7 +760,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the socket is encrypted; otherwise, false is returned.      An encrypted socket encrypts all data that is written by calling write()     or putChar() before the data is written to the network, and decrypts all     incoming data as the data is received from the network, before you call     read(), readLine() or getChar().      QSslSocket emits encrypted() when it enters encrypted mode.      You can call sessionCipher() to find which cryptographic cipher is used to     encrypt and decrypt your data.      \sa mode() */
+comment|/*!     Returns \c true if the socket is encrypted; otherwise, false is returned.      An encrypted socket encrypts all data that is written by calling write()     or putChar() before the data is written to the network, and decrypts all     incoming data as the data is received from the network, before you call     read(), readLine() or getChar().      QSslSocket emits encrypted() when it enters encrypted mode.      You can call sessionCipher() to find which cryptographic cipher is used to     encrypt and decrypt your data.      \sa mode() */
 end_comment
 begin_function
 DECL|function|isEncrypted
@@ -1214,7 +1214,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \reimp      Returns true if you can read one while line (terminated by a single ASCII     '\\n' character) of decrypted characters; otherwise, false is returned. */
+comment|/*!     \reimp      Returns \c true if you can read one while line (terminated by a single ASCII     '\\n' character) of decrypted characters; otherwise, false is returned. */
 end_comment
 begin_function
 DECL|function|canReadLine
@@ -1382,7 +1382,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     This function writes as much as possible from the internal write buffer to     the underlying network socket, without blocking. If any data was written,     this function returns true; otherwise false is returned.      Call this function if you need QSslSocket to start sending buffered data     immediately. The number of bytes successfully written depends on the     operating system. In most cases, you do not need to call this function,     because QAbstractSocket will start sending data automatically once control     goes back to the event loop. In the absence of an event loop, call     waitForBytesWritten() instead.      \sa write(), waitForBytesWritten() */
+comment|/*!     This function writes as much as possible from the internal write buffer to     the underlying network socket, without blocking. If any data was written,     this function returns \c true; otherwise false is returned.      Call this function if you need QSslSocket to start sending buffered data     immediately. The number of bytes successfully written depends on the     operating system. In most cases, you do not need to call this function,     because QAbstractSocket will start sending data automatically once control     goes back to the event loop. In the absence of an event loop, call     waitForBytesWritten() instead.      \sa write(), waitForBytesWritten() */
 end_comment
 begin_comment
 comment|// Note! docs copied from QAbstractSocket::flush()
@@ -2405,7 +2405,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Searches all files in the \a path for certificates encoded in the   specified \a format and adds them to this socket's CA certificate   database. \a path can be explicit, or it can contain wildcards in   the format specified by \a syntax. Returns true if one or more   certificates are added to the socket's CA certificate database;   otherwise returns false.    The CA certificate database is used by the socket during the   handshake phase to validate the peer's certificate.    For more precise control, use addCaCertificate().    \sa addCaCertificate(), QSslCertificate::fromPath() */
+comment|/*!   Searches all files in the \a path for certificates encoded in the   specified \a format and adds them to this socket's CA certificate   database. \a path can be explicit, or it can contain wildcards in   the format specified by \a syntax. Returns \c true if one or more   certificates are added to the socket's CA certificate database;   otherwise returns \c false.    The CA certificate database is used by the socket during the   handshake phase to validate the peer's certificate.    For more precise control, use addCaCertificate().    \sa addCaCertificate(), QSslCertificate::fromPath() */
 end_comment
 begin_function
 DECL|function|addCaCertificates
@@ -2611,7 +2611,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Searches all files in the \a path for certificates with the     specified \a encoding and adds them to the default CA certificate     database. \a path can be an explicit file, or it can contain     wildcards in the format specified by \a syntax. Returns true if     any CA certificates are added to the default database.      Each SSL socket's CA certificate database is initialized to the     default CA certificate database.      \sa defaultCaCertificates(), addCaCertificates(), addDefaultCaCertificate() */
+comment|/*!     Searches all files in the \a path for certificates with the     specified \a encoding and adds them to the default CA certificate     database. \a path can be an explicit file, or it can contain     wildcards in the format specified by \a syntax. Returns \c true if     any CA certificates are added to the default database.      Each SSL socket's CA certificate database is initialized to the     default CA certificate database.      \sa defaultCaCertificates(), addCaCertificates(), addDefaultCaCertificate() */
 end_comment
 begin_function
 DECL|function|addDefaultCaCertificates
@@ -2777,7 +2777,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Waits until the socket is connected, or \a msecs milliseconds,     whichever happens first. If the connection has been established,     this function returns true; otherwise it returns false.      \sa QAbstractSocket::waitForConnected() */
+comment|/*!     Waits until the socket is connected, or \a msecs milliseconds,     whichever happens first. If the connection has been established,     this function returns \c true; otherwise it returns \c false.      \sa QAbstractSocket::waitForConnected() */
 end_comment
 begin_function
 DECL|function|waitForConnected
@@ -3282,7 +3282,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Waits until the socket has disconnected or \a msecs milliseconds,     whichever comes first. If the connection has been disconnected,     this function returns true; otherwise it returns false.      \sa QAbstractSocket::waitForDisconnected() */
+comment|/*!     Waits until the socket has disconnected or \a msecs milliseconds,     whichever comes first. If the connection has been disconnected,     this function returns \c true; otherwise it returns \c false.      \sa QAbstractSocket::waitForDisconnected() */
 end_comment
 begin_function
 DECL|function|waitForDisconnected
@@ -3466,7 +3466,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this platform supports SSL; otherwise, returns     false. If the platform doesn't support SSL, the socket will fail     in the connection phase. */
+comment|/*!     Returns \c true if this platform supports SSL; otherwise, returns     false. If the platform doesn't support SSL, the socket will fail     in the connection phase. */
 end_comment
 begin_function
 DECL|function|supportsSsl

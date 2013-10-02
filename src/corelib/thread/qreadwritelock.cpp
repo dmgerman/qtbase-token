@@ -260,7 +260,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Attempts to lock for reading. If the lock was obtained, this     function returns true, otherwise it returns false instead of     waiting for the lock to become available, i.e. it does not block.      The lock attempt will fail if another thread has locked for     writing.      If the lock was obtained, the lock must be unlocked with unlock()     before another thread can successfully lock it for writing.      It is not possible to lock for read if the thread already has     locked for write.      \sa unlock(), lockForRead() */
+comment|/*!     Attempts to lock for reading. If the lock was obtained, this     function returns \c true, otherwise it returns \c false instead of     waiting for the lock to become available, i.e. it does not block.      The lock attempt will fail if another thread has locked for     writing.      If the lock was obtained, the lock must be unlocked with unlock()     before another thread can successfully lock it for writing.      It is not possible to lock for read if the thread already has     locked for write.      \sa unlock(), lockForRead() */
 end_comment
 begin_function
 DECL|function|tryLockForRead
@@ -414,7 +414,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \overload      Attempts to lock for reading. This function returns true if the     lock was obtained; otherwise it returns false. If another thread     has locked for writing, this function will wait for at most \a     timeout milliseconds for the lock to become available.      Note: Passing a negative number as the \a timeout is equivalent to     calling lockForRead(), i.e. this function will wait forever until     lock can be locked for reading when \a timeout is negative.      If the lock was obtained, the lock must be unlocked with unlock()     before another thread can successfully lock it for writing.      It is not possible to lock for read if the thread already has     locked for write.      \sa unlock(), lockForRead() */
+comment|/*! \overload      Attempts to lock for reading. This function returns \c true if the     lock was obtained; otherwise it returns \c false. If another thread     has locked for writing, this function will wait for at most \a     timeout milliseconds for the lock to become available.      Note: Passing a negative number as the \a timeout is equivalent to     calling lockForRead(), i.e. this function will wait forever until     lock can be locked for reading when \a timeout is negative.      If the lock was obtained, the lock must be unlocked with unlock()     before another thread can successfully lock it for writing.      It is not possible to lock for read if the thread already has     locked for write.      \sa unlock(), lockForRead() */
 end_comment
 begin_function
 DECL|function|tryLockForRead
@@ -753,7 +753,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Attempts to lock for writing. If the lock was obtained, this     function returns true; otherwise, it returns false immediately.      The lock attempt will fail if another thread has locked for     reading or writing.      If the lock was obtained, the lock must be unlocked with unlock()     before another thread can successfully lock it.      It is not possible to lock for write if the thread already has     locked for read.      \sa unlock(), lockForWrite() */
+comment|/*!     Attempts to lock for writing. If the lock was obtained, this     function returns \c true; otherwise, it returns \c false immediately.      The lock attempt will fail if another thread has locked for     reading or writing.      If the lock was obtained, the lock must be unlocked with unlock()     before another thread can successfully lock it.      It is not possible to lock for write if the thread already has     locked for read.      \sa unlock(), lockForWrite() */
 end_comment
 begin_function
 DECL|function|tryLockForWrite
@@ -872,7 +872,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \overload      Attempts to lock for writing. This function returns true if the     lock was obtained; otherwise it returns false. If another thread     has locked for reading or writing, this function will wait for at     most \a timeout milliseconds for the lock to become available.      Note: Passing a negative number as the \a timeout is equivalent to     calling lockForWrite(), i.e. this function will wait forever until     lock can be locked for writing when \a timeout is negative.      If the lock was obtained, the lock must be unlocked with unlock()     before another thread can successfully lock it.      It is not possible to lock for write if the thread already has     locked for read.      \sa unlock(), lockForWrite() */
+comment|/*! \overload      Attempts to lock for writing. This function returns \c true if the     lock was obtained; otherwise it returns \c false. If another thread     has locked for reading or writing, this function will wait for at     most \a timeout milliseconds for the lock to become available.      Note: Passing a negative number as the \a timeout is equivalent to     calling lockForWrite(), i.e. this function will wait forever until     lock can be locked for writing when \a timeout is negative.      If the lock was obtained, the lock must be unlocked with unlock()     before another thread can successfully lock it.      It is not possible to lock for write if the thread already has     locked for read.      \sa unlock(), lockForWrite() */
 end_comment
 begin_function
 DECL|function|tryLockForWrite

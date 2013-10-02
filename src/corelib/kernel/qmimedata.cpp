@@ -1249,7 +1249,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the object can return a list of urls; otherwise     returns false.      URLs correspond to the MIME type \c text/uri-list.      \sa setUrls(), urls(), hasFormat() */
+comment|/*!     Returns \c true if the object can return a list of urls; otherwise     returns \c false.      URLs correspond to the MIME type \c text/uri-list.      \sa setUrls(), urls(), hasFormat() */
 end_comment
 begin_function
 DECL|function|hasUrls
@@ -1350,7 +1350,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the object can return plain text (MIME type \c     text/plain); otherwise returns false.      \sa setText(), text(), hasHtml(), hasFormat() */
+comment|/*!     Returns \c true if the object can return plain text (MIME type \c     text/plain); otherwise returns \c false.      \sa setText(), text(), hasHtml(), hasFormat() */
 end_comment
 begin_function
 DECL|function|hasText
@@ -1454,7 +1454,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the object can return HTML (MIME type \c     text/html); otherwise returns false.      \sa setHtml(), html(), hasFormat() */
+comment|/*!     Returns \c true if the object can return HTML (MIME type \c     text/html); otherwise returns \c false.      \sa setHtml(), html(), hasFormat() */
 end_comment
 begin_function
 DECL|function|hasHtml
@@ -1547,7 +1547,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the object can return an image; otherwise returns     false.      \sa setImageData(), imageData(), hasFormat() */
+comment|/*!     Returns \c true if the object can return an image; otherwise returns     false.      \sa setImageData(), imageData(), hasFormat() */
 end_comment
 begin_function
 DECL|function|hasImage
@@ -1640,7 +1640,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the object can return a color (MIME type \c     application/x-color); otherwise returns false.      \sa setColorData(), colorData(), hasFormat() */
+comment|/*!     Returns \c true if the object can return a color (MIME type \c     application/x-color); otherwise returns \c false.      \sa setColorData(), colorData(), hasFormat() */
 end_comment
 begin_function
 DECL|function|hasColor
@@ -1748,7 +1748,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the object can return data for the MIME type     specified by \a mimeType; otherwise returns false.      For the most common types of data, you can call the higher-level     functions hasText(), hasHtml(), hasUrls(), hasImage(), and     hasColor() instead.      \sa formats(), setData(), data() */
+comment|/*!     Returns \c true if the object can return data for the MIME type     specified by \a mimeType; otherwise returns \c false.      For the most common types of data, you can call the higher-level     functions hasText(), hasHtml(), hasUrls(), hasImage(), and     hasColor() instead.      \sa formats(), setData(), data() */
 end_comment
 begin_function
 DECL|function|hasFormat

@@ -284,7 +284,7 @@ begin_comment
 comment|/*!     \fn void QFontMetrics::swap(QFontMetrics&other)     \since 5.0      Swaps this font metrics instance with \a other. This function is     very fast and never fails. */
 end_comment
 begin_comment
-comment|/*!     Returns true if \a other is equal to this object; otherwise     returns false.      Two font metrics are considered equal if they were constructed     from the same QFont and the paint devices they were constructed     for are considered compatible.      \sa operator!=() */
+comment|/*!     Returns \c true if \a other is equal to this object; otherwise     returns \c false.      Two font metrics are considered equal if they were constructed     from the same QFont and the paint devices they were constructed     for are considered compatible.      \sa operator!=() */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -311,7 +311,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QFontMetrics::operator !=(const QFontMetrics&other) const      Returns true if \a other is not equal to this object; otherwise returns false.      Two font metrics are considered equal if they were constructed     from the same QFont and the paint devices they were constructed     for are considered compatible.      \sa operator==() */
+comment|/*!     \fn bool QFontMetrics::operator !=(const QFontMetrics&other) const      Returns \c true if \a other is not equal to this object; otherwise returns \c false.      Two font metrics are considered equal if they were constructed     from the same QFont and the paint devices they were constructed     for are considered compatible.      \sa operator==() */
 end_comment
 begin_comment
 comment|/*!     Returns the ascent of the font.      The ascent of a font is the distance from the baseline to the     highest position characters extend to. In practice, some font     designers break this rule, e.g. when they put more than one accent     on top of a character, or to accommodate an unusual character in     an exotic language, so it is possible (though rare) that this     value will be too small.      \sa descent() */
@@ -797,7 +797,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if character \a ch is a valid character in the font;     otherwise returns false. */
+comment|/*!     Returns \c true if character \a ch is a valid character in the font;     otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|inFont
@@ -866,7 +866,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!    Returns true if the character \a ucs4 encoded in UCS-4/UTF-32 is a valid    character in the font; otherwise returns false. */
+comment|/*!    Returns \c true if the character \a ucs4 encoded in UCS-4/UTF-32 is a valid    character in the font; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|inFontUcs4
@@ -3022,7 +3022,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if the font metrics are equal to the \a other font   metrics; otherwise returns false.    Two font metrics are considered equal if they were constructed from the   same QFont and the paint devices they were constructed for are   considered to be compatible. */
+comment|/*!   Returns \c true if the font metrics are equal to the \a other font   metrics; otherwise returns \c false.    Two font metrics are considered equal if they were constructed from the   same QFont and the paint devices they were constructed for are   considered to be compatible. */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -3049,7 +3049,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QFontMetricsF::operator !=(const QFontMetricsF&other) const     \overload      Returns true if the font metrics are not equal to the \a other font     metrics; otherwise returns false.      \sa operator==() */
+comment|/*!     \fn bool QFontMetricsF::operator !=(const QFontMetricsF&other) const     \overload      Returns \c true if the font metrics are not equal to the \a other font     metrics; otherwise returns \c false.      \sa operator==() */
 end_comment
 begin_comment
 comment|/*!     Returns the ascent of the font.      The ascent of a font is the distance from the baseline to the     highest position characters extend to. In practice, some font     designers break this rule, e.g. when they put more than one accent     on top of a character, or to accommodate an unusual character in     an exotic language, so it is possible (though rare) that this     value will be too small.      \sa descent() */
@@ -3521,7 +3521,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if character \a ch is a valid character in the font;     otherwise returns false. */
+comment|/*!     Returns \c true if character \a ch is a valid character in the font;     otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|inFont
@@ -3590,7 +3590,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QFontMetricsF::inFontUcs4(uint ch) const      Returns true if the character given by \a ch, encoded in UCS-4/UTF-32,     is a valid character in the font; otherwise returns false. */
+comment|/*!     \fn bool QFontMetricsF::inFontUcs4(uint ch) const      Returns \c true if the character given by \a ch, encoded in UCS-4/UTF-32,     is a valid character in the font; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|inFontUcs4

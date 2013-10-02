@@ -152,7 +152,7 @@ name|appname
 argument_list|)
 decl|const
 decl_stmt|;
-comment|// Returns true if the lock belongs to dead PID, or is old.
+comment|// Returns \c true if the lock belongs to dead PID, or is old.
 comment|// The attempt to delete it will tell us if it was really stale or not, though.
 name|bool
 name|isApparentlyStale

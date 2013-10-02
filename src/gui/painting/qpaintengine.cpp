@@ -654,7 +654,7 @@ begin_comment
 comment|/*!     \enum QPaintEngine::Type      \value X11     \value Windows     \value MacPrinter     \value CoreGraphics Mac OS X's Quartz2D (CoreGraphics)     \value QuickDraw Mac OS X's QuickDraw     \value QWindowSystem Qt for Embedded Linux     \value PostScript (No longer supported)     \value OpenGL     \value Picture QPicture format     \value SVG Scalable Vector Graphics XML format     \value Raster     \value Direct3D Windows only, Direct3D based engine     \value Pdf Portable Document Format     \value OpenVG     \value User First user type ID     \value MaxUser Last user type ID     \value OpenGL2     \value PaintBuffer     \value Blitter */
 end_comment
 begin_comment
-comment|/*!     \fn bool QPaintEngine::isActive() const      Returns true if the paint engine is actively drawing; otherwise     returns false.      \sa setActive() */
+comment|/*!     \fn bool QPaintEngine::isActive() const      Returns \c true if the paint engine is actively drawing; otherwise     returns \c false.      \sa setActive() */
 end_comment
 begin_comment
 comment|/*!     \fn void QPaintEngine::setActive(bool state)      Sets the active state of the paint engine to \a state.      \sa isActive() */
@@ -1823,10 +1823,10 @@ begin_comment
 comment|/*!     \fn void QPaintEngine::setDirty(DirtyFlags df)      \internal */
 end_comment
 begin_comment
-comment|/*!     \fn bool QPaintEngine::hasFeature(PaintEngineFeatures feature) const      Returns true if the paint engine supports the specified \a     feature; otherwise returns false. */
+comment|/*!     \fn bool QPaintEngine::hasFeature(PaintEngineFeatures feature) const      Returns \c true if the paint engine supports the specified \a     feature; otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QPaintEngine::isExtended() const      \internal      Returns true if the paint engine is a QPaintEngineEx derivative. */
+comment|/*!     \fn bool QPaintEngine::isExtended() const      \internal      Returns \c true if the paint engine is a QPaintEngineEx derivative. */
 end_comment
 begin_comment
 comment|/*!     \fn void QPaintEngine::updateState(const QPaintEngineState&state)      Reimplement this function to update the state of a paint engine.      When implemented, this function is responsible for checking the     paint engine's current \a state and update the properties that are     changed. Use the QPaintEngineState::state() function to find out     which properties that must be updated, then use the corresponding     \l {GetFunction}{get function} to retrieve the current values for     the given properties.      \sa QPaintEngineState */

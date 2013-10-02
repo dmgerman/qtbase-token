@@ -375,7 +375,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn bool QMutex::tryLock(int timeout)      Attempts to lock the mutex. This function returns true if the lock     was obtained; otherwise it returns false. If another thread has     locked the mutex, this function will wait for at most \a timeout     milliseconds for the mutex to become available.      Note: Passing a negative number as the \a timeout is equivalent to     calling lock(), i.e. this function will wait forever until mutex     can be locked if \a timeout is negative.      If the lock was obtained, the mutex must be unlocked with unlock()     before another thread can successfully lock it.      Calling this function multiple times on the same mutex from the     same thread is allowed if this mutex is a     \l{QMutex::Recursive}{recursive mutex}. If this mutex is a     \l{QMutex::NonRecursive}{non-recursive mutex}, this function will     \e always return false when attempting to lock the mutex     recursively.      \sa lock(), unlock() */
+comment|/*! \fn bool QMutex::tryLock(int timeout)      Attempts to lock the mutex. This function returns \c true if the lock     was obtained; otherwise it returns \c false. If another thread has     locked the mutex, this function will wait for at most \a timeout     milliseconds for the mutex to become available.      Note: Passing a negative number as the \a timeout is equivalent to     calling lock(), i.e. this function will wait forever until mutex     can be locked if \a timeout is negative.      If the lock was obtained, the mutex must be unlocked with unlock()     before another thread can successfully lock it.      Calling this function multiple times on the same mutex from the     same thread is allowed if this mutex is a     \l{QMutex::Recursive}{recursive mutex}. If this mutex is a     \l{QMutex::NonRecursive}{non-recursive mutex}, this function will     \e always return false when attempting to lock the mutex     recursively.      \sa lock(), unlock() */
 end_comment
 begin_function
 name|bool
@@ -494,7 +494,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QMutex::isRecursive()     \since 5.0      Returns true if the mutex is recursive  */
+comment|/*!     \fn void QMutex::isRecursive()     \since 5.0      Returns \c true if the mutex is recursive  */
 end_comment
 begin_function
 DECL|function|isRecursive

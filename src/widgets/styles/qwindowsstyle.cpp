@@ -419,7 +419,7 @@ directive|endif
 block|}
 end_constructor
 begin_comment
-comment|// Returns true if the toplevel parent of \a widget has seen the Alt-key
+comment|// Returns \c true if the toplevel parent of \a widget has seen the Alt-key
 end_comment
 begin_function
 DECL|function|hasSeenAlt

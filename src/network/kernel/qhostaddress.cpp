@@ -2003,10 +2003,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QHostAddress::operator!=(const QHostAddress&other) const     \since 4.2      Returns true if this host address is not the same as the \a other     address given; otherwise returns false. */
+comment|/*!     \fn bool QHostAddress::operator!=(const QHostAddress&other) const     \since 4.2      Returns \c true if this host address is not the same as the \a other     address given; otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QHostAddress::operator!=(SpecialAddress other) const      Returns true if this host address is not the same as the \a other     address given; otherwise returns false. */
+comment|/*!     \fn bool QHostAddress::operator!=(SpecialAddress other) const      Returns \c true if this host address is not the same as the \a other     address given; otherwise returns \c false. */
 end_comment
 begin_comment
 comment|/*!     Sets the host address to 0.0.0.0. */
@@ -2099,7 +2099,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Sets the IPv4 or IPv6 address specified by the string     representation specified by \a address (e.g. "127.0.0.1").     Returns true and sets the address if the address was successfully     parsed; otherwise returns false. */
+comment|/*!     \overload      Sets the IPv4 or IPv6 address specified by the string     representation specified by \a address (e.g. "127.0.0.1").     Returns \c true and sets the address if the address was successfully     parsed; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|setAddress
@@ -2129,7 +2129,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QHostAddress::setAddress(const sockaddr *sockaddr)     \overload      Sets the IPv4 or IPv6 address specified by the native structure \a     sockaddr.  Returns true and sets the address if the address was     successfully parsed; otherwise returns false. */
+comment|/*!     \fn void QHostAddress::setAddress(const sockaddr *sockaddr)     \overload      Sets the IPv4 or IPv6 address specified by the native structure \a     sockaddr.  Returns \c true and sets the address if the address was     successfully parsed; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|setAddress
@@ -2470,7 +2470,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this host address is the same as the \a other address     given; otherwise returns false. */
+comment|/*!     Returns \c true if this host address is the same as the \a other address     given; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -2588,7 +2588,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this host address is the same as the \a other     address given; otherwise returns false. */
+comment|/*!     Returns \c true if this host address is the same as the \a other     address given; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -2727,7 +2727,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this host address is null (INADDR_ANY or in6addr_any).     The default constructor creates a null address, and that address is     not valid for any host or interface. */
+comment|/*!     Returns \c true if this host address is null (INADDR_ANY or in6addr_any).     The default constructor creates a null address, and that address is     not valid for any host or interface. */
 end_comment
 begin_function
 DECL|function|isNull
@@ -2755,7 +2755,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.5      Returns true if this IP is in the subnet described by the network     prefix \a subnet and netmask \a netmask.      An IP is considered to belong to a subnet if it is contained     between the lowest and the highest address in that subnet. In the     case of IP version 4, the lowest address is the network address,     while the highest address is the broadcast address.      The \a subnet argument does not have to be the actual network     address (the lowest address in the subnet). It can be any valid IP     belonging to that subnet. In particular, if it is equal to the IP     address held by this object, this function will always return true     (provided the netmask is a valid value).      \sa parseSubnet() */
+comment|/*!     \since 4.5      Returns \c true if this IP is in the subnet described by the network     prefix \a subnet and netmask \a netmask.      An IP is considered to belong to a subnet if it is contained     between the lowest and the highest address in that subnet. In the     case of IP version 4, the lowest address is the network address,     while the highest address is the broadcast address.      The \a subnet argument does not have to be the actual network     address (the lowest address in the subnet). It can be any valid IP     belonging to that subnet. In particular, if it is equal to the IP     address held by this object, this function will always return true     (provided the netmask is a valid value).      \sa parseSubnet() */
 end_comment
 begin_function
 DECL|function|isInSubnet
@@ -3019,7 +3019,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.5     \overload      Returns true if this IP is in the subnet described by \a     subnet. The QHostAddress member of \a subnet contains the network     prefix and the int (second) member contains the netmask (prefix     length). */
+comment|/*!     \since 4.5     \overload      Returns \c true if this IP is in the subnet described by \a     subnet. The QHostAddress member of \a subnet contains the network     prefix and the int (second) member contains the netmask (prefix     length). */
 end_comment
 begin_function
 DECL|function|isInSubnet
@@ -3548,7 +3548,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.0      returns true if the address is the IPv6 loopback address, or any     of the IPv4 loopback addresses. */
+comment|/*!     \since 5.0      returns \c true if the address is the IPv6 loopback address, or any     of the IPv4 loopback addresses. */
 end_comment
 begin_function
 DECL|function|isLoopback

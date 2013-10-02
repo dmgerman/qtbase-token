@@ -715,7 +715,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Opens the file handle \a fh in \a openMode mode. Returns true on     success; otherwise returns false. */
+comment|/*!     Opens the file handle \a fh in \a openMode mode. Returns \c true on     success; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|open
@@ -1009,7 +1009,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Opens the file descriptor \a fd in \a openMode mode. Returns true     on success; otherwise returns false. */
+comment|/*!     Opens the file descriptor \a fd in \a openMode mode. Returns \c true     on success; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|open
@@ -3364,7 +3364,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn bool QFSFileEngine::caseSensitive() const   Returns true for Windows, false for Unix. */
+comment|/*! \fn bool QFSFileEngine::caseSensitive() const   Returns \c true for Windows, false for Unix. */
 end_comment
 begin_comment
 comment|/*! \fn bool QFSFileEngine::copy(const QString&copyName)    For windows, copy the file to file \a copyName.    Not implemented for Unix. */
@@ -3388,7 +3388,7 @@ begin_comment
 comment|/*! \fn bool QFSFileEngine::isRelativePath() const   \reimp */
 end_comment
 begin_comment
-comment|/*! \fn bool QFSFileEngine::link(const QString&newName)    Creates a link from the file currently specified by fileName() to   \a newName. What a link is depends on the underlying filesystem   (be it a shortcut on Windows or a symbolic link on Unix). Returns   true if successful; otherwise returns false. */
+comment|/*! \fn bool QFSFileEngine::link(const QString&newName)    Creates a link from the file currently specified by fileName() to   \a newName. What a link is depends on the underlying filesystem   (be it a shortcut on Windows or a symbolic link on Unix). Returns   true if successful; otherwise returns \c false. */
 end_comment
 begin_comment
 comment|/*! \fn bool QFSFileEngine::mkdir(const QString&name, bool createParentDirectories) const   \reimp */
@@ -3415,7 +3415,7 @@ begin_comment
 comment|/*! \fn QString QFSFileEngine::rootPath()   Returns the root path.    \sa homePath() */
 end_comment
 begin_comment
-comment|/*! \fn bool QFSFileEngine::setCurrentPath(const QString&path)   Sets the current path (e.g., for QDir), to \a path. Returns true if the   new path exists; otherwise this function does nothing, and returns false.    \sa currentPath() */
+comment|/*! \fn bool QFSFileEngine::setCurrentPath(const QString&path)   Sets the current path (e.g., for QDir), to \a path. Returns \c true if the   new path exists; otherwise this function does nothing, and returns \c false.    \sa currentPath() */
 end_comment
 begin_comment
 comment|/*! \fn bool QFSFileEngine::setPermissions(uint perms)   \reimp */

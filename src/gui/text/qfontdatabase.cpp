@@ -5976,7 +5976,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the font that has family \a family and style \a     style is fixed pitch; otherwise returns false. */
+comment|/*!     Returns \c true if the font that has family \a family and style \a     style is fixed pitch; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|isFixedPitch
@@ -6054,7 +6054,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the font that has family \a family and style \a     style is a scalable bitmap font; otherwise returns false. Scaling     a bitmap font usually produces an unattractive hardly readable     result, because the pixels of the font are scaled. If you need to     scale a bitmap font it is better to scale it to one of the fixed     sizes returned by smoothSizes().      \sa isScalable(), isSmoothlyScalable() */
+comment|/*!     Returns \c true if the font that has family \a family and style \a     style is a scalable bitmap font; otherwise returns \c false. Scaling     a bitmap font usually produces an unattractive hardly readable     result, because the pixels of the font are scaled. If you need to     scale a bitmap font it is better to scale it to one of the fixed     sizes returned by smoothSizes().      \sa isScalable(), isSmoothlyScalable() */
 end_comment
 begin_function
 DECL|function|isBitmapScalable
@@ -6272,7 +6272,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the font that has family \a family and style \a     style is smoothly scalable; otherwise returns false. If this     function returns true, it's safe to scale this font to any size,     and the result will always look attractive.      \sa isScalable(), isBitmapScalable() */
+comment|/*!     Returns \c true if the font that has family \a family and style \a     style is smoothly scalable; otherwise returns \c false. If this     function returns \c true, it's safe to scale this font to any size,     and the result will always look attractive.      \sa isScalable(), isBitmapScalable() */
 end_comment
 begin_function
 DECL|function|isSmoothlyScalable
@@ -6480,7 +6480,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the font that has family \a family and style \a     style is scalable; otherwise returns false.      \sa isBitmapScalable(), isSmoothlyScalable() */
+comment|/*!     Returns \c true if the font that has family \a family and style \a     style is scalable; otherwise returns \c false.      \sa isBitmapScalable(), isSmoothlyScalable() */
 end_comment
 begin_function
 DECL|function|isScalable
@@ -7445,7 +7445,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the font that has family \a family and style \a     style is italic; otherwise returns false.      \sa weight(), bold() */
+comment|/*!     Returns \c true if the font that has family \a family and style \a     style is italic; otherwise returns \c false.      \sa weight(), bold() */
 end_comment
 begin_function
 DECL|function|italic
@@ -7651,7 +7651,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the font that has family \a family and style \a     style is bold; otherwise returns false.      \sa italic(), weight() */
+comment|/*!     Returns \c true if the font that has family \a family and style \a     style is bold; otherwise returns \c false.      \sa italic(), weight() */
 end_comment
 begin_function
 DECL|function|bold
@@ -10358,13 +10358,13 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QFontDatabase::removeApplicationFont(int id)     \since 4.2      Removes the previously loaded application font identified by \a     id. Returns true if unloading of the font succeeded; otherwise     returns false.      \sa removeAllApplicationFonts(), addApplicationFont(),         addApplicationFontFromData() */
+comment|/*!     \fn bool QFontDatabase::removeApplicationFont(int id)     \since 4.2      Removes the previously loaded application font identified by \a     id. Returns \c true if unloading of the font succeeded; otherwise     returns \c false.      \sa removeAllApplicationFonts(), addApplicationFont(),         addApplicationFontFromData() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QFontDatabase::removeAllApplicationFonts()     \since 4.2      Removes all application-local fonts previously added using addApplicationFont()     and addApplicationFontFromData().      Returns true if unloading of the fonts succeeded; otherwise     returns false.      \sa removeApplicationFont(), addApplicationFont(), addApplicationFontFromData() */
+comment|/*!     \fn bool QFontDatabase::removeAllApplicationFonts()     \since 4.2      Removes all application-local fonts previously added using addApplicationFont()     and addApplicationFontFromData().      Returns \c true if unloading of the fonts succeeded; otherwise     returns \c false.      \sa removeApplicationFont(), addApplicationFont(), addApplicationFontFromData() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QFontDatabase::supportsThreadedFontRendering()     \since 4.4     \deprecated      Returns true if font rendering is supported outside the GUI     thread, false otherwise. In other words, a return value of false     means that all QPainter::drawText() calls outside the GUI thread     will not produce readable output.      As of 5.0, always returns true.      \sa {Thread-Support in Qt Modules#Painting In Threads}{Painting In Threads} */
+comment|/*!     \fn bool QFontDatabase::supportsThreadedFontRendering()     \since 4.4     \deprecated      Returns \c true if font rendering is supported outside the GUI     thread, false otherwise. In other words, a return value of false     means that all QPainter::drawText() calls outside the GUI thread     will not produce readable output.      As of 5.0, always returns \c true.      \sa {Thread-Support in Qt Modules#Painting In Threads}{Painting In Threads} */
 end_comment
 begin_macro
 name|QT_END_NAMESPACE

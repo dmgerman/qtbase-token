@@ -223,7 +223,7 @@ emit|;
 block|}
 end_function
 begin_comment
-comment|/*!     This function can be reimplemented to return true whenever input method is animating     shown or hidden. Default implementation returns false.  */
+comment|/*!     This function can be reimplemented to return true whenever input method is animating     shown or hidden. Default implementation returns \c false.  */
 end_comment
 begin_function
 DECL|function|isAnimating
@@ -286,7 +286,7 @@ parameter_list|()
 block|{ }
 end_function
 begin_comment
-comment|/*!     Returns input panel visibility status. Default implementation returns false.  */
+comment|/*!     Returns input panel visibility status. Default implementation returns \c false.  */
 end_comment
 begin_function
 DECL|function|isInputPanelVisible
@@ -427,7 +427,7 @@ argument_list|)
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if current focus object supports input method events.  */
+comment|/*!     Returns \c true if current focus object supports input method events.  */
 end_comment
 begin_function
 DECL|function|inputMethodAccepted

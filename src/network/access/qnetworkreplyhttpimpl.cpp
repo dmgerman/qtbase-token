@@ -7146,7 +7146,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Starts the backend.  Returns true if the backend is started.  Returns false if the backend     could not be started due to an unopened or roaming session.  The caller should recall this     function once the session has been opened or the roaming process has finished. */
+comment|/*!     Starts the backend.  Returns \c true if the backend is started.  Returns \c false if the backend     could not be started due to an unopened or roaming session.  The caller should recall this     function once the session has been opened or the roaming process has finished. */
 end_comment
 begin_function
 DECL|function|start
@@ -9196,7 +9196,7 @@ emit|;
 block|}
 end_function
 begin_comment
-comment|/*     Migrates the backend of the QNetworkReply to a new network connection if required.  Returns     true if the reply is migrated or it is not required; otherwise returns false. */
+comment|/*     Migrates the backend of the QNetworkReply to a new network connection if required.  Returns     true if the reply is migrated or it is not required; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|migrateBackend

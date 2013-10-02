@@ -6042,7 +6042,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \relates QString   Returns true if string \a s1 is equal to string \a s2; otherwise   returns false.    The comparison is based exclusively on the numeric Unicode values of   the characters and is very fast, but is not what a human would   expect. Consider sorting user-interface strings with   localeAwareCompare(). */
+comment|/*!   \relates QString   Returns \c true if string \a s1 is equal to string \a s2; otherwise   returns \c false.    The comparison is based exclusively on the numeric Unicode values of   the characters and is very fast, but is not what a human would   expect. Consider sorting user-interface strings with   localeAwareCompare(). */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -6218,7 +6218,7 @@ begin_comment
 comment|/*! \fn bool QString::operator==(const char *other) const      \overload operator==()      The \a other const char pointer is converted to a QString using     the fromUtf8() function.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example. */
 end_comment
 begin_comment
-comment|/*!    \relates QString     Returns true if string \a s1 is lexically less than string     \a s2; otherwise returns false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings using the     QString::localeAwareCompare() function. */
+comment|/*!    \relates QString     Returns \c true if string \a s1 is lexically less than string     \a s2; otherwise returns \c false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings using the     QString::localeAwareCompare() function. */
 end_comment
 begin_function
 DECL|function|operator <
@@ -6391,7 +6391,7 @@ begin_comment
 comment|/*! \fn bool QString::operator<(const char *other) const      \overload operator<()      The \a other const char pointer is converted to a QString using     the fromUtf8() function.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example. */
 end_comment
 begin_comment
-comment|/*! \fn bool QString::operator<=(const QString&s1, const QString&s2)      Returns true if string \a s1 is lexically less than or equal to     string \a s2; otherwise returns false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     localeAwareCompare(). */
+comment|/*! \fn bool QString::operator<=(const QString&s1, const QString&s2)      Returns \c true if string \a s1 is lexically less than or equal to     string \a s2; otherwise returns \c false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     localeAwareCompare(). */
 end_comment
 begin_comment
 comment|/*! \fn bool QString::operator<=(QLatin1String other) const      \overload operator<=() */
@@ -6403,7 +6403,7 @@ begin_comment
 comment|/*! \fn bool QString::operator<=(const char *other) const      \overload operator<=()      The \a other const char pointer is converted to a QString using     the fromUtf8() function.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example. */
 end_comment
 begin_comment
-comment|/*! \fn bool QString::operator>(const QString&s1, const QString&s2)      Returns true if string \a s1 is lexically greater than string \a     s2; otherwise returns false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     localeAwareCompare(). */
+comment|/*! \fn bool QString::operator>(const QString&s1, const QString&s2)      Returns \c true if string \a s1 is lexically greater than string \a     s2; otherwise returns \c false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     localeAwareCompare(). */
 end_comment
 begin_comment
 comment|/*!     \overload operator>() */
@@ -6533,7 +6533,7 @@ begin_comment
 comment|/*! \fn bool QString::operator>(const char *other) const      \overload operator>()      The \a other const char pointer is converted to a QString using     the fromUtf8() function.      You can disable this operator by defining \c QT_NO_CAST_FROM_ASCII     when you compile your applications. This can be useful if you want     to ensure that all user-visible strings go through QObject::tr(),     for example. */
 end_comment
 begin_comment
-comment|/*! \fn bool operator>=(const QString&s1, const QString&s2)     \relates QString      Returns true if string \a s1 is lexically greater than or equal to     string \a s2; otherwise returns false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     localeAwareCompare(). */
+comment|/*! \fn bool operator>=(const QString&s1, const QString&s2)     \relates QString      Returns \c true if string \a s1 is lexically greater than or equal to     string \a s2; otherwise returns \c false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     localeAwareCompare(). */
 end_comment
 begin_comment
 comment|/*! \fn bool QString::operator>=(QLatin1String other) const      \overload operator>=() */
@@ -6545,7 +6545,7 @@ begin_comment
 comment|/*! \fn bool QString::operator>=(const char *other) const      \overload operator>=()      The \a other const char pointer is converted to a QString using     the fromUtf8() function.      You can disable this operator by defining \c QT_NO_CAST_FROM_ASCII     when you compile your applications. This can be useful if you want     to ensure that all user-visible strings go through QObject::tr(),     for example. */
 end_comment
 begin_comment
-comment|/*! \fn bool operator!=(const QString&s1, const QString&s2)     \relates QString      Returns true if string \a s1 is not equal to string \a s2;     otherwise returns false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     localeAwareCompare(). */
+comment|/*! \fn bool operator!=(const QString&s1, const QString&s2)     \relates QString      Returns \c true if string \a s1 is not equal to string \a s2;     otherwise returns \c false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     localeAwareCompare(). */
 end_comment
 begin_comment
 comment|/*! \fn bool QString::operator!=(QLatin1String other) const      \overload operator!=() */
@@ -9627,19 +9627,19 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn bool QString::contains(const QString&str, Qt::CaseSensitivity cs = Qt::CaseSensitive) const      Returns true if this string contains an occurrence of the string     \a str; otherwise returns false.      If \a cs is Qt::CaseSensitive (default), the search is     case sensitive; otherwise the search is case insensitive.      Example:     \snippet qstring/main.cpp 17      \sa indexOf(), count() */
+comment|/*! \fn bool QString::contains(const QString&str, Qt::CaseSensitivity cs = Qt::CaseSensitive) const      Returns \c true if this string contains an occurrence of the string     \a str; otherwise returns \c false.      If \a cs is Qt::CaseSensitive (default), the search is     case sensitive; otherwise the search is case insensitive.      Example:     \snippet qstring/main.cpp 17      \sa indexOf(), count() */
 end_comment
 begin_comment
-comment|/*! \fn bool QString::contains(QChar ch, Qt::CaseSensitivity cs = Qt::CaseSensitive) const      \overload contains()      Returns true if this string contains an occurrence of the     character \a ch; otherwise returns false. */
+comment|/*! \fn bool QString::contains(QChar ch, Qt::CaseSensitivity cs = Qt::CaseSensitive) const      \overload contains()      Returns \c true if this string contains an occurrence of the     character \a ch; otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*! \fn bool QString::contains(const QStringRef&str, Qt::CaseSensitivity cs = Qt::CaseSensitive) const     \since 4.8      Returns true if this string contains an occurrence of the string     reference \a str; otherwise returns false.      If \a cs is Qt::CaseSensitive (default), the search is     case sensitive; otherwise the search is case insensitive.      \sa indexOf(), count() */
+comment|/*! \fn bool QString::contains(const QStringRef&str, Qt::CaseSensitivity cs = Qt::CaseSensitive) const     \since 4.8      Returns \c true if this string contains an occurrence of the string     reference \a str; otherwise returns \c false.      If \a cs is Qt::CaseSensitive (default), the search is     case sensitive; otherwise the search is case insensitive.      \sa indexOf(), count() */
 end_comment
 begin_comment
-comment|/*! \fn bool QString::contains(const QRegExp&rx) const      \overload contains()      Returns true if the regular expression \a rx matches somewhere in     this string; otherwise returns false. */
+comment|/*! \fn bool QString::contains(const QRegExp&rx) const      \overload contains()      Returns \c true if the regular expression \a rx matches somewhere in     this string; otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*! \fn bool QString::contains(QRegExp&rx) const     \overload contains()     \since 4.5      Returns true if the regular expression \a rx matches somewhere in     this string; otherwise returns false.      If there is a match, the \a rx regular expression will contain the     matched captures (see QRegExp::matchedLength, QRegExp::cap). */
+comment|/*! \fn bool QString::contains(QRegExp&rx) const     \overload contains()     \since 4.5      Returns \c true if the regular expression \a rx matches somewhere in     this string; otherwise returns \c false.      If there is a match, the \a rx regular expression will contain the     matched captures (see QRegExp::matchedLength, QRegExp::cap). */
 end_comment
 begin_ifndef
 ifndef|#
@@ -10080,7 +10080,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \overload contains()     \since 5.0      Returns true if the regular expression \a re matches somewhere in     this string; otherwise returns false. */
+comment|/*! \overload contains()     \since 5.0      Returns \c true if the regular expression \a re matches somewhere in     this string; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|contains
@@ -10134,7 +10134,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload contains()     \since 5.1      Returns true if the regular expression \a re matches somewhere in this     string; otherwise returns false.      If the match is successful and \a match is not a null pointer, it also     writes the results of the match into the QRegularExpressionMatch object     pointed by \a match.      \sa QRegularExpression::match() */
+comment|/*!     \overload contains()     \since 5.1      Returns \c true if the regular expression \a re matches somewhere in this     string; otherwise returns \c false.      If the match is successful and \a match is not a null pointer, it also     writes the results of the match into the QRegularExpressionMatch object     pointed by \a match.      \sa QRegularExpression::match() */
 end_comment
 begin_function
 DECL|function|contains
@@ -11695,7 +11695,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the string starts with \a s; otherwise returns     false.      If \a cs is Qt::CaseSensitive (default), the search is     case sensitive; otherwise the search is case insensitive.      \snippet qstring/main.cpp 65      \sa endsWith() */
+comment|/*!     Returns \c true if the string starts with \a s; otherwise returns     false.      If \a cs is Qt::CaseSensitive (default), the search is     case sensitive; otherwise the search is case insensitive.      \snippet qstring/main.cpp 65      \sa endsWith() */
 end_comment
 begin_function
 DECL|function|startsWith
@@ -11794,7 +11794,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \overload startsWith()    Returns true if the string starts with \a c; otherwise returns   false. */
+comment|/*!   \overload startsWith()    Returns \c true if the string starts with \a c; otherwise returns   false. */
 end_comment
 begin_function
 DECL|function|startsWith
@@ -11858,7 +11858,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.8     \overload     Returns true if the string starts with the string reference \a s;     otherwise returns false.      If \a cs is Qt::CaseSensitive (default), the search is case     sensitive; otherwise the search is case insensitive.      \sa endsWith() */
+comment|/*!     \since 4.8     \overload     Returns \c true if the string starts with the string reference \a s;     otherwise returns \c false.      If \a cs is Qt::CaseSensitive (default), the search is case     sensitive; otherwise the search is case insensitive.      \sa endsWith() */
 end_comment
 begin_function
 DECL|function|startsWith
@@ -11916,7 +11916,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the string ends with \a s; otherwise returns     false.      If \a cs is Qt::CaseSensitive (default), the search is case     sensitive; otherwise the search is case insensitive.      \snippet qstring/main.cpp 20      \sa startsWith() */
+comment|/*!     Returns \c true if the string ends with \a s; otherwise returns     false.      If \a cs is Qt::CaseSensitive (default), the search is case     sensitive; otherwise the search is case insensitive.      \snippet qstring/main.cpp 20      \sa startsWith() */
 end_comment
 begin_function
 DECL|function|endsWith
@@ -11974,7 +11974,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.8     \overload endsWith()     Returns true if the string ends with the string reference \a s;     otherwise returns false.      If \a cs is Qt::CaseSensitive (default), the search is case     sensitive; otherwise the search is case insensitive.      \sa startsWith() */
+comment|/*!     \since 4.8     \overload endsWith()     Returns \c true if the string ends with the string reference \a s;     otherwise returns \c false.      If \a cs is Qt::CaseSensitive (default), the search is case     sensitive; otherwise the search is case insensitive.      \sa startsWith() */
 end_comment
 begin_function
 DECL|function|endsWith
@@ -12073,7 +12073,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if the string ends with \a c; otherwise returns   false.    \overload endsWith()  */
+comment|/*!   Returns \c true if the string ends with \a c; otherwise returns   false.    \overload endsWith()  */
 end_comment
 begin_function
 DECL|function|endsWith
@@ -14400,10 +14400,10 @@ begin_comment
 comment|/*!     \fn int QString::size() const      Returns the number of characters in this string.      The last character in the string is at position size() - 1. In     addition, QString ensures that the character at position size()     is always '\\0', so that you can use the return value of data()     and constData() as arguments to functions that expect     '\\0'-terminated strings.      Example:      \snippet qstring/main.cpp 58      \sa isEmpty(), resize() */
 end_comment
 begin_comment
-comment|/*! \fn bool QString::isNull() const      Returns true if this string is null; otherwise returns false.      Example:      \snippet qstring/main.cpp 28      Qt makes a distinction between null strings and empty strings for     historical reasons. For most applications, what matters is     whether or not a string contains any data, and this can be     determined using the isEmpty() function.      \sa isEmpty() */
+comment|/*! \fn bool QString::isNull() const      Returns \c true if this string is null; otherwise returns \c false.      Example:      \snippet qstring/main.cpp 28      Qt makes a distinction between null strings and empty strings for     historical reasons. For most applications, what matters is     whether or not a string contains any data, and this can be     determined using the isEmpty() function.      \sa isEmpty() */
 end_comment
 begin_comment
-comment|/*! \fn bool QString::isEmpty() const      Returns true if the string has no characters; otherwise returns     false.      Example:      \snippet qstring/main.cpp 27      \sa size() */
+comment|/*! \fn bool QString::isEmpty() const      Returns \c true if the string has no characters; otherwise returns     false.      Example:      \snippet qstring/main.cpp 27      \sa size() */
 end_comment
 begin_comment
 comment|/*! \fn QString&QString::operator+=(const QString&other)      Appends the string \a other onto the end of this string and     returns a reference to this string.      Example:      \snippet qstring/main.cpp 84      This operation is typically very fast (\l{constant time}),     because QString preallocates extra space at the end of the string     data so it can grow without reallocating the entire string each     time.      \sa append(), prepend() */
@@ -14430,22 +14430,22 @@ begin_comment
 comment|/*! \fn QString&QString::operator+=(QChar::SpecialCharacter c)      \overload operator+=()      \internal */
 end_comment
 begin_comment
-comment|/*!     \fn bool operator==(const char *s1, const QString&s2)      \overload  operator==()     \relates QString      Returns true if \a s1 is equal to \a s2; otherwise returns false.     Note that no string is equal to \a s1 being 0.      Equivalent to \c {s1 != 0&& compare(s1, s2) == 0}.      \sa QString::compare() */
+comment|/*!     \fn bool operator==(const char *s1, const QString&s2)      \overload  operator==()     \relates QString      Returns \c true if \a s1 is equal to \a s2; otherwise returns \c false.     Note that no string is equal to \a s1 being 0.      Equivalent to \c {s1 != 0&& compare(s1, s2) == 0}.      \sa QString::compare() */
 end_comment
 begin_comment
-comment|/*!     \fn bool operator!=(const char *s1, const QString&s2)     \relates QString      Returns true if \a s1 is not equal to \a s2; otherwise returns     false.      For \a s1 != 0, this is equivalent to \c {compare(} \a s1, \a s2     \c {) != 0}. Note that no string is equal to \a s1 being 0.      \sa QString::compare() */
+comment|/*!     \fn bool operator!=(const char *s1, const QString&s2)     \relates QString      Returns \c true if \a s1 is not equal to \a s2; otherwise returns     false.      For \a s1 != 0, this is equivalent to \c {compare(} \a s1, \a s2     \c {) != 0}. Note that no string is equal to \a s1 being 0.      \sa QString::compare() */
 end_comment
 begin_comment
-comment|/*!     \fn bool operator<(const char *s1, const QString&s2)     \relates QString      Returns true if \a s1 is lexically less than \a s2; otherwise     returns false.  For \a s1 != 0, this is equivalent to \c     {compare(s1, s2)< 0}.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings using the     QString::localeAwareCompare() function.      \sa QString::compare() */
+comment|/*!     \fn bool operator<(const char *s1, const QString&s2)     \relates QString      Returns \c true if \a s1 is lexically less than \a s2; otherwise     returns \c false.  For \a s1 != 0, this is equivalent to \c     {compare(s1, s2)< 0}.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings using the     QString::localeAwareCompare() function.      \sa QString::compare() */
 end_comment
 begin_comment
-comment|/*!     \fn bool operator<=(const char *s1, const QString&s2)     \relates QString      Returns true if \a s1 is lexically less than or equal to \a s2;     otherwise returns false.  For \a s1 != 0, this is equivalent to \c     {compare(s1, s2)<= 0}.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     QString::localeAwareCompare().      \sa QString::compare() */
+comment|/*!     \fn bool operator<=(const char *s1, const QString&s2)     \relates QString      Returns \c true if \a s1 is lexically less than or equal to \a s2;     otherwise returns \c false.  For \a s1 != 0, this is equivalent to \c     {compare(s1, s2)<= 0}.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     QString::localeAwareCompare().      \sa QString::compare() */
 end_comment
 begin_comment
-comment|/*!     \fn bool operator>(const char *s1, const QString&s2)     \relates QString      Returns true if \a s1 is lexically greater than \a s2; otherwise     returns false.  Equivalent to \c {compare(s1, s2)> 0}.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings using the     QString::localeAwareCompare() function.      \sa QString::compare() */
+comment|/*!     \fn bool operator>(const char *s1, const QString&s2)     \relates QString      Returns \c true if \a s1 is lexically greater than \a s2; otherwise     returns \c false.  Equivalent to \c {compare(s1, s2)> 0}.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings using the     QString::localeAwareCompare() function.      \sa QString::compare() */
 end_comment
 begin_comment
-comment|/*!     \fn bool operator>=(const char *s1, const QString&s2)     \relates QString      Returns true if \a s1 is lexically greater than or equal to \a s2;     otherwise returns false.  For \a s1 != 0, this is equivalent to \c     {compare(s1, s2)>= 0}.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings using the     QString::localeAwareCompare() function. */
+comment|/*!     \fn bool operator>=(const char *s1, const QString&s2)     \relates QString      Returns \c true if \a s1 is lexically greater than or equal to \a s2;     otherwise returns \c false.  For \a s1 != 0, this is equivalent to \c     {compare(s1, s2)>= 0}.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings using the     QString::localeAwareCompare() function. */
 end_comment
 begin_comment
 comment|/*!     \fn const QString operator+(const QString&s1, const QString&s2)     \relates QString      Returns a string which is the result of concatenating \a s1 and \a     s2. */
@@ -23388,7 +23388,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn bool QString::isRightToLeft() const      Returns true if the string is read right to left. */
+comment|/*! \fn bool QString::isRightToLeft() const      Returns \c true if the string is read right to left. */
 end_comment
 begin_function
 DECL|function|isRightToLeft
@@ -23773,58 +23773,58 @@ begin_comment
 comment|/*! \fn int QLatin1String::size() const      Returns the size of the Latin-1 string stored in this object. */
 end_comment
 begin_comment
-comment|/*! \fn bool QLatin1String::operator==(const QString&other) const      Returns true if this string is equal to string \a other;     otherwise returns false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     QString::localeAwareCompare(). */
+comment|/*! \fn bool QLatin1String::operator==(const QString&other) const      Returns \c true if this string is equal to string \a other;     otherwise returns \c false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     QString::localeAwareCompare(). */
 end_comment
 begin_comment
 comment|/*!     \fn bool QLatin1String::operator==(const char *other) const     \since 4.3     \overload      The \a other const char pointer is converted to a QString using     the QString::fromUtf8() function.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example. */
 end_comment
 begin_comment
-comment|/*! \fn bool QLatin1String::operator!=(const QString&other) const      Returns true if this string is not equal to string \a other;     otherwise returns false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     QString::localeAwareCompare(). */
+comment|/*! \fn bool QLatin1String::operator!=(const QString&other) const      Returns \c true if this string is not equal to string \a other;     otherwise returns \c false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     QString::localeAwareCompare(). */
 end_comment
 begin_comment
 comment|/*!     \fn bool QLatin1String::operator!=(const char *other) const     \since 4.3     \overload operator!=()      The \a other const char pointer is converted to a QString using     the QString::fromUtf8() function.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QLatin1String::operator>(const QString&other) const      Returns true if this string is lexically greater than string \a     other; otherwise returns false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     QString::localeAwareCompare(). */
+comment|/*!     \fn bool QLatin1String::operator>(const QString&other) const      Returns \c true if this string is lexically greater than string \a     other; otherwise returns \c false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     QString::localeAwareCompare(). */
 end_comment
 begin_comment
 comment|/*!     \fn bool QLatin1String::operator>(const char *other) const     \since 4.3     \overload      The \a other const char pointer is converted to a QString using     the QString::fromUtf8() function.      You can disable this operator by defining \c QT_NO_CAST_FROM_ASCII     when you compile your applications. This can be useful if you want     to ensure that all user-visible strings go through QObject::tr(),     for example. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QLatin1String::operator<(const QString&other) const      Returns true if this string is lexically less than the \a other     string; otherwise returns false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings using the     QString::localeAwareCompare() function. */
+comment|/*!     \fn bool QLatin1String::operator<(const QString&other) const      Returns \c true if this string is lexically less than the \a other     string; otherwise returns \c false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings using the     QString::localeAwareCompare() function. */
 end_comment
 begin_comment
 comment|/*!     \fn bool QLatin1String::operator<(const char *other) const     \since 4.3     \overload      The \a other const char pointer is converted to a QString using     the QString::fromUtf8() function.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QLatin1String::operator>=(const QString&other) const      Returns true if this string is lexically greater than or equal     to string \a other; otherwise returns false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     QString::localeAwareCompare(). */
+comment|/*!     \fn bool QLatin1String::operator>=(const QString&other) const      Returns \c true if this string is lexically greater than or equal     to string \a other; otherwise returns \c false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     QString::localeAwareCompare(). */
 end_comment
 begin_comment
 comment|/*!     \fn bool QLatin1String::operator>=(const char *other) const     \since 4.3     \overload      The \a other const char pointer is converted to a QString using     the QString::fromUtf8() function.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example. */
 end_comment
 begin_comment
-comment|/*! \fn bool QLatin1String::operator<=(const QString&other) const      Returns true if this string is lexically less than or equal     to string \a other; otherwise returns false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     QString::localeAwareCompare(). */
+comment|/*! \fn bool QLatin1String::operator<=(const QString&other) const      Returns \c true if this string is lexically less than or equal     to string \a other; otherwise returns \c false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     QString::localeAwareCompare(). */
 end_comment
 begin_comment
 comment|/*!     \fn bool QLatin1String::operator<=(const char *other) const     \since 4.3     \overload      The \a other const char pointer is converted to a QString using     the QString::fromUtf8() function.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example. */
 end_comment
 begin_comment
-comment|/*! \fn bool operator==(QLatin1String s1, QLatin1String s2)    \relates QLatin1String     Returns true if string \a s1 is lexically equal to string \a s2; otherwise    returns false. */
+comment|/*! \fn bool operator==(QLatin1String s1, QLatin1String s2)    \relates QLatin1String     Returns \c true if string \a s1 is lexically equal to string \a s2; otherwise    returns \c false. */
 end_comment
 begin_comment
-comment|/*! \fn bool operator!=(QLatin1String s1, QLatin1String s2)    \relates QLatin1String     Returns true if string \a s1 is lexically unequal to string \a s2; otherwise    returns false. */
+comment|/*! \fn bool operator!=(QLatin1String s1, QLatin1String s2)    \relates QLatin1String     Returns \c true if string \a s1 is lexically unequal to string \a s2; otherwise    returns \c false. */
 end_comment
 begin_comment
-comment|/*! \fn bool operator<(QLatin1String s1, QLatin1String s2)    \relates QLatin1String     Returns true if string \a s1 is lexically smaller than string \a s2; otherwise    returns false. */
+comment|/*! \fn bool operator<(QLatin1String s1, QLatin1String s2)    \relates QLatin1String     Returns \c true if string \a s1 is lexically smaller than string \a s2; otherwise    returns \c false. */
 end_comment
 begin_comment
-comment|/*! \fn bool operator<=(QLatin1String s1, QLatin1String s2)    \relates QLatin1String     Returns true if string \a s1 is lexically smaller than or equal to string \a s2; otherwise    returns false. */
+comment|/*! \fn bool operator<=(QLatin1String s1, QLatin1String s2)    \relates QLatin1String     Returns \c true if string \a s1 is lexically smaller than or equal to string \a s2; otherwise    returns \c false. */
 end_comment
 begin_comment
-comment|/*! \fn bool operator>(QLatin1String s1, QLatin1String s2)    \relates QLatin1String     Returns true if string \a s1 is lexically greater than string \a s2; otherwise    returns false. */
+comment|/*! \fn bool operator>(QLatin1String s1, QLatin1String s2)    \relates QLatin1String     Returns \c true if string \a s1 is lexically greater than string \a s2; otherwise    returns \c false. */
 end_comment
 begin_comment
-comment|/*! \fn bool operator>=(QLatin1String s1, QLatin1String s2)    \relates QLatin1String     Returns true if string \a s1 is lexically greater than or equal to    string \a s2; otherwise returns false. */
+comment|/*! \fn bool operator>=(QLatin1String s1, QLatin1String s2)    \relates QLatin1String     Returns \c true if string \a s1 is lexically greater than or equal to    string \a s2; otherwise returns \c false. */
 end_comment
 begin_if
 if|#
@@ -24412,10 +24412,10 @@ begin_comment
 comment|/*!     \fn int QStringRef::length() const     Returns the number of characters referred to by the string reference.     Equivalent to size() and count().      \sa position(), string() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QStringRef::isEmpty() const      Returns true if the string reference has no characters; otherwise returns     false.      A string reference is empty if its size is zero.      \sa size() */
+comment|/*!     \fn bool QStringRef::isEmpty() const      Returns \c true if the string reference has no characters; otherwise returns     false.      A string reference is empty if its size is zero.      \sa size() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QStringRef::isNull() const      Returns true if string() returns a null pointer or a pointer to a     null string; otherwise returns true.      \sa size() */
+comment|/*!     \fn bool QStringRef::isNull() const      Returns \c true if string() returns a null pointer or a pointer to a     null string; otherwise returns \c true.      \sa size() */
 end_comment
 begin_comment
 comment|/*!     \fn const QString *QStringRef::string() const      Returns a pointer to the string referred to by the string reference, or     0 if it does not reference a string.      \sa unicode() */
@@ -24485,7 +24485,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \relates QStringRef     Returns true if string reference \a s1 is lexically equal to string reference \a s2; otherwise    returns false. */
+comment|/*! \relates QStringRef     Returns \c true if string reference \a s1 is lexically equal to string reference \a s2; otherwise    returns \c false. */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -24548,7 +24548,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \relates QStringRef     Returns true if string \a s1 is lexically equal to string reference \a s2; otherwise    returns false. */
+comment|/*! \relates QStringRef     Returns \c true if string \a s1 is lexically equal to string reference \a s2; otherwise    returns \c false. */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -24611,7 +24611,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \relates QStringRef     Returns true if string  \a s1 is lexically equal to string reference \a s2; otherwise    returns false. */
+comment|/*! \relates QStringRef     Returns \c true if string  \a s1 is lexically equal to string reference \a s2; otherwise    returns \c false. */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -24740,7 +24740,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!    \relates QStringRef      Returns true if string reference \a s1 is lexically less than     string reference \a s2; otherwise returns false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings using the     QString::localeAwareCompare() function. */
+comment|/*!    \relates QStringRef      Returns \c true if string reference \a s1 is lexically less than     string reference \a s2; otherwise returns \c false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings using the     QString::localeAwareCompare() function. */
 end_comment
 begin_function
 DECL|function|operator <
@@ -24788,13 +24788,13 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!\fn bool operator<=(const QStringRef&s1,const QStringRef&s2)     \relates QStringRef      Returns true if string reference \a s1 is lexically less than     or equal to string reference \a s2; otherwise returns false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings using the     QString::localeAwareCompare() function. */
+comment|/*!\fn bool operator<=(const QStringRef&s1,const QStringRef&s2)     \relates QStringRef      Returns \c true if string reference \a s1 is lexically less than     or equal to string reference \a s2; otherwise returns \c false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings using the     QString::localeAwareCompare() function. */
 end_comment
 begin_comment
-comment|/*!\fn bool operator>=(const QStringRef&s1,const QStringRef&s2)     \relates QStringRef      Returns true if string reference \a s1 is lexically greater than     or equal to string reference \a s2; otherwise returns false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings using the     QString::localeAwareCompare() function. */
+comment|/*!\fn bool operator>=(const QStringRef&s1,const QStringRef&s2)     \relates QStringRef      Returns \c true if string reference \a s1 is lexically greater than     or equal to string reference \a s2; otherwise returns \c false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings using the     QString::localeAwareCompare() function. */
 end_comment
 begin_comment
-comment|/*!\fn bool operator>(const QStringRef&s1,const QStringRef&s2)     \relates QStringRef      Returns true if string reference \a s1 is lexically greater than     string reference \a s2; otherwise returns false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings using the     QString::localeAwareCompare() function. */
+comment|/*!\fn bool operator>(const QStringRef&s1,const QStringRef&s2)     \relates QStringRef      Returns \c true if string reference \a s1 is lexically greater than     string reference \a s2; otherwise returns \c false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings using the     QString::localeAwareCompare() function. */
 end_comment
 begin_comment
 comment|/*!     \fn const QChar QStringRef::at(int position) const      Returns the character at the given index \a position in the     string reference.      The \a position must be a valid index position in the string     (i.e., 0<= \a position< size()). */
@@ -26282,7 +26282,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.8      Returns true if the string reference starts with \a str; otherwise     returns false.      If \a cs is Qt::CaseSensitive (default), the search is     case sensitive; otherwise the search is case insensitive.      \sa QString::startsWith(), endsWith() */
+comment|/*!     \since 4.8      Returns \c true if the string reference starts with \a str; otherwise     returns \c false.      If \a cs is Qt::CaseSensitive (default), the search is     case sensitive; otherwise the search is case insensitive.      \sa QString::startsWith(), endsWith() */
 end_comment
 begin_function
 DECL|function|startsWith
@@ -26439,7 +26439,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.8     \overload startsWith()      Returns true if the string reference starts with \a ch; otherwise     returns false.      If \a cs is Qt::CaseSensitive (default), the search is case     sensitive; otherwise the search is case insensitive.      \sa QString::startsWith(), endsWith() */
+comment|/*!     \since 4.8     \overload startsWith()      Returns \c true if the string reference starts with \a ch; otherwise     returns \c false.      If \a cs is Qt::CaseSensitive (default), the search is case     sensitive; otherwise the search is case insensitive.      \sa QString::startsWith(), endsWith() */
 end_comment
 begin_function
 DECL|function|startsWith
@@ -26523,7 +26523,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.8     Returns true if the string reference ends with \a str; otherwise     returns false.      If \a cs is Qt::CaseSensitive (default), the search is case     sensitive; otherwise the search is case insensitive.      \sa QString::endsWith(), startsWith() */
+comment|/*!     \since 4.8     Returns \c true if the string reference ends with \a str; otherwise     returns \c false.      If \a cs is Qt::CaseSensitive (default), the search is case     sensitive; otherwise the search is case insensitive.      \sa QString::endsWith(), startsWith() */
 end_comment
 begin_function
 DECL|function|endsWith
@@ -26581,7 +26581,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.8     \overload endsWith()      Returns true if the string reference ends with \a ch; otherwise     returns false.      If \a cs is Qt::CaseSensitive (default), the search is case     sensitive; otherwise the search is case insensitive.      \sa QString::endsWith(), endsWith() */
+comment|/*!     \since 4.8     \overload endsWith()      Returns \c true if the string reference ends with \a ch; otherwise     returns \c false.      If \a cs is Qt::CaseSensitive (default), the search is case     sensitive; otherwise the search is case insensitive.      \sa QString::endsWith(), endsWith() */
 end_comment
 begin_function
 DECL|function|endsWith
@@ -26775,16 +26775,16 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn bool QStringRef::contains(const QString&str, Qt::CaseSensitivity cs = Qt::CaseSensitive) const      \since 4.8     Returns true if this string reference contains an occurrence of     the string \a str; otherwise returns false.      If \a cs is Qt::CaseSensitive (default), the search is     case sensitive; otherwise the search is case insensitive.      \sa indexOf(), count() */
+comment|/*! \fn bool QStringRef::contains(const QString&str, Qt::CaseSensitivity cs = Qt::CaseSensitive) const      \since 4.8     Returns \c true if this string reference contains an occurrence of     the string \a str; otherwise returns \c false.      If \a cs is Qt::CaseSensitive (default), the search is     case sensitive; otherwise the search is case insensitive.      \sa indexOf(), count() */
 end_comment
 begin_comment
-comment|/*! \fn bool QStringRef::contains(QChar ch, Qt::CaseSensitivity cs = Qt::CaseSensitive) const      \overload contains()     \since 4.8      Returns true if this string contains an occurrence of the     character \a ch; otherwise returns false.      If \a cs is Qt::CaseSensitive (default), the search is     case sensitive; otherwise the search is case insensitive.  */
+comment|/*! \fn bool QStringRef::contains(QChar ch, Qt::CaseSensitivity cs = Qt::CaseSensitive) const      \overload contains()     \since 4.8      Returns \c true if this string contains an occurrence of the     character \a ch; otherwise returns \c false.      If \a cs is Qt::CaseSensitive (default), the search is     case sensitive; otherwise the search is case insensitive.  */
 end_comment
 begin_comment
-comment|/*! \fn bool QStringRef::contains(const QStringRef&str, Qt::CaseSensitivity cs = Qt::CaseSensitive) const     \overload contains()     \since 4.8      Returns true if this string reference contains an occurrence of     the string reference \a str; otherwise returns false.      If \a cs is Qt::CaseSensitive (default), the search is     case sensitive; otherwise the search is case insensitive.      \sa indexOf(), count() */
+comment|/*! \fn bool QStringRef::contains(const QStringRef&str, Qt::CaseSensitivity cs = Qt::CaseSensitive) const     \overload contains()     \since 4.8      Returns \c true if this string reference contains an occurrence of     the string reference \a str; otherwise returns \c false.      If \a cs is Qt::CaseSensitive (default), the search is     case sensitive; otherwise the search is case insensitive.      \sa indexOf(), count() */
 end_comment
 begin_comment
-comment|/*! \fn bool QStringRef::contains(QLatin1String str, Qt::CaseSensitivity cs) const     \since 4,8     \overload contains()      Returns true if this string reference contains an occurrence of     the string \a str; otherwise returns false.      If \a cs is Qt::CaseSensitive (default), the search is     case sensitive; otherwise the search is case insensitive.      \sa indexOf(), count() */
+comment|/*! \fn bool QStringRef::contains(QLatin1String str, Qt::CaseSensitivity cs) const     \since 4,8     \overload contains()      Returns \c true if this string reference contains an occurrence of     the string \a str; otherwise returns \c false.      If \a cs is Qt::CaseSensitive (default), the search is     case sensitive; otherwise the search is case insensitive.      \sa indexOf(), count() */
 end_comment
 begin_function
 DECL|function|qt_last_index_of

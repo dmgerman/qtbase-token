@@ -244,7 +244,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Acquires one of the resources guarded by this semaphore, if there is   one available, and returns true. If all the resources guarded by this   semaphore have already been acquired, the call blocks until one of   them is released by another process or thread having a semaphore   with the same key.    If false is returned, a system error has occurred. Call error()   to get a value of QSystemSemaphore::SystemSemaphoreError that   indicates which error occurred.    \sa release()  */
+comment|/*!   Acquires one of the resources guarded by this semaphore, if there is   one available, and returns \c true. If all the resources guarded by this   semaphore have already been acquired, the call blocks until one of   them is released by another process or thread having a semaphore   with the same key.    If false is returned, a system error has occurred. Call error()   to get a value of QSystemSemaphore::SystemSemaphoreError that   indicates which error occurred.    \sa release()  */
 end_comment
 begin_function
 DECL|function|acquire
@@ -266,7 +266,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Releases \a n resources guarded by the semaphore. Returns true   unless there is a system error.    Example: Create a system semaphore having five resources; acquire   them all and then release them all.    \snippet code/src_corelib_kernel_qsystemsemaphore.cpp 1    This function can also "create" resources. For example, immediately   following the sequence of statements above, suppose we add the   statement:    \snippet code/src_corelib_kernel_qsystemsemaphore.cpp 2    Ten new resources are now guarded by the semaphore, in addition to   the five that already existed. You would not normally use this   function to create more resources.    \sa acquire()  */
+comment|/*!   Releases \a n resources guarded by the semaphore. Returns \c true   unless there is a system error.    Example: Create a system semaphore having five resources; acquire   them all and then release them all.    \snippet code/src_corelib_kernel_qsystemsemaphore.cpp 1    This function can also "create" resources. For example, immediately   following the sequence of statements above, suppose we add the   statement:    \snippet code/src_corelib_kernel_qsystemsemaphore.cpp 2    Ten new resources are now guarded by the semaphore, in addition to   the five that already existed. You would not normally use this   function to create more resources.    \sa acquire()  */
 end_comment
 begin_function
 DECL|function|release

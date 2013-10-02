@@ -6031,7 +6031,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \property QGraphicsView::interactive     \brief whether the view allowed scene interaction.      If enabled, this view is set to allow scene interaction. Otherwise, this     view will not allow interaction, and any mouse or key events are ignored     (i.e., it will act as a read-only view).      By default, this property is true. */
+comment|/*!     \property QGraphicsView::interactive     \brief whether the view allowed scene interaction.      If enabled, this view is set to allow scene interaction. Otherwise, this     view will not allow interaction, and any mouse or key events are ignored     (i.e., it will act as a read-only view).      By default, this property is \c true. */
 end_comment
 begin_function
 DECL|function|isInteractive
@@ -15467,7 +15467,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.6      Returns true if the view is transformed (i.e., a non-identity transform     has been assigned, or the scrollbars are adjusted).      \sa setTransform(), horizontalScrollBar(), verticalScrollBar() */
+comment|/*!     \since 4.6      Returns \c true if the view is transformed (i.e., a non-identity transform     has been assigned, or the scrollbars are adjusted).      \sa setTransform(), horizontalScrollBar(), verticalScrollBar() */
 end_comment
 begin_function
 DECL|function|isTransformed

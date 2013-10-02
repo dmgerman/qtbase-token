@@ -5133,7 +5133,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the underlying OpenGL texture object has been created.      \sa create(), destroy(), textureId() */
+comment|/*!     Returns \c true if the underlying OpenGL texture object has been created.      \sa create(), destroy(), textureId() */
 end_comment
 begin_function
 DECL|function|isCreated
@@ -5311,7 +5311,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this texture is bound to the corresponding target     of the currently active texture unit.      \sa bind(), release() */
+comment|/*!     Returns \c true if this texture is bound to the corresponding target     of the currently active texture unit.      \sa bind(), release() */
 end_comment
 begin_function
 DECL|function|isBound
@@ -5344,7 +5344,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this texture is bound to the corresponding target     of texture unit \a unit.      \sa bind(), release() */
+comment|/*!     Returns \c true if this texture is bound to the corresponding target     of texture unit \a unit.      \sa bind(), release() */
 end_comment
 begin_function
 DECL|function|isBound
@@ -6654,7 +6654,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if server-side storage for this texture as been     allocated.      The texture format, dimensions, mipmap levels and array layers     cannot be altered once storage ihas been allocated.      \sa allocateStorage(), setDimensions(), setMipLevels(), setLayers(), setFormat() */
+comment|/*!     Returns \c true if server-side storage for this texture as been     allocated.      The texture format, dimensions, mipmap levels and array layers     cannot be altered once storage ihas been allocated.      \sa allocateStorage(), setDimensions(), setMipLevels(), setLayers(), setFormat() */
 end_comment
 begin_function
 DECL|function|isStorageAllocated
@@ -6766,7 +6766,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this texture object is actually a view onto another     texture object.      \sa createTextureView() */
+comment|/*!     Returns \c true if this texture object is actually a view onto another     texture object.      \sa createTextureView() */
 end_comment
 begin_function
 DECL|function|isTextureView
@@ -7436,7 +7436,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if your OpenGL implementation and version supports the texture     feature \a feature. */
+comment|/*!     Returns \c true if your OpenGL implementation and version supports the texture     feature \a feature. */
 end_comment
 begin_function
 DECL|function|hasFeature

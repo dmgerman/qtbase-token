@@ -845,7 +845,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this tool button is a split button. */
+comment|/*!     Returns \c true if this tool button is a split button. */
 end_comment
 begin_function
 DECL|function|isSplitButton
