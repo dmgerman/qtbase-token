@@ -6596,6 +6596,7 @@ expr_stmt|;
 comment|// Only deploy for CE and WinRT projects
 if|if
 condition|(
+operator|(
 operator|!
 name|project
 operator|->
@@ -6617,6 +6618,7 @@ name|isEmpty
 argument_list|(
 literal|"CE_ARCH"
 argument_list|)
+operator|)
 operator|||
 name|conf
 operator|.
