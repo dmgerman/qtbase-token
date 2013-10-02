@@ -543,6 +543,17 @@ argument_list|)
 block|;
 specifier|static
 name|void
+name|processGestureEvent
+argument_list|(
+name|QWindowSystemInterfacePrivate
+operator|::
+name|GestureEvent
+operator|*
+name|e
+argument_list|)
+block|;
+specifier|static
+name|void
 name|processPlatformPanelEvent
 argument_list|(
 name|QWindowSystemInterfacePrivate

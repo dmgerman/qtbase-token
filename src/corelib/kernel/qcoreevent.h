@@ -774,7 +774,7 @@ name|NativeGesture
 operator|=
 literal|197
 block|,
-comment|// Internal for platform gesture support
+comment|// QtGui native gesture
 endif|#
 directive|endif
 name|RequestSoftwareInputPanel
