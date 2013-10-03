@@ -2403,6 +2403,11 @@ name|getQmlTypes
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+name|QStringLiteral
+argument_list|(
+literal|""
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -2610,6 +2615,11 @@ name|getObsoleteQmlTypes
 argument_list|()
 argument_list|,
 literal|false
+argument_list|,
+name|QStringLiteral
+argument_list|(
+literal|""
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -2662,6 +2672,11 @@ name|getQmlTypesWithObsoleteMembers
 argument_list|()
 argument_list|,
 literal|false
+argument_list|,
+name|QStringLiteral
+argument_list|(
+literal|""
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3648,7 +3663,7 @@ name|ncmap
 argument_list|,
 literal|false
 argument_list|,
-name|QString
+name|QStringLiteral
 argument_list|(
 literal|"Q"
 argument_list|)
@@ -3671,9 +3686,9 @@ name|nqcmap
 argument_list|,
 literal|false
 argument_list|,
-name|QString
+name|QStringLiteral
 argument_list|(
-literal|"Q"
+literal|""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -14551,7 +14566,7 @@ name|isEmpty
 argument_list|()
 condition|)
 return|return;
-comment|/*       If commonPrefix is not empty, then the caller knows what       the common prefix is and has passed it in, so just use that       one. But if the commonPrefix is empty (it normally is), then       compute a common prefix using this simple algorithm. Note we       assume the prefix length is 1, i.e. we will have a single       character as the common prefix.      */
+comment|/*       If commonPrefix is not empty, then the caller knows what       the common prefix is and has passed it in, so just use that       one. But if commonPrefix is a null string (default value), then       compute a common prefix using this simple algorithm. Note we       assume the prefix length is 1, i.e. we will have a single       character as the common prefix.      */
 name|int
 name|commonPrefixLen
 init|=
@@ -14562,9 +14577,10 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|commonPrefixLen
-operator|==
-literal|0
+name|commonPrefix
+operator|.
+name|isNull
+argument_list|()
 condition|)
 block|{
 name|QVector
@@ -14825,6 +14841,10 @@ name|commonPrefixLen
 decl_stmt|;
 if|if
 condition|(
+name|idx
+operator|>
+literal|0
+operator|&&
 operator|!
 name|pieces
 operator|.

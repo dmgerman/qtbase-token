@@ -30,7 +30,7 @@ end_if
 begin_include
 include|#
 directive|include
-file|<QSharedDataPointer>
+file|<QtCore/QSharedDataPointer>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE

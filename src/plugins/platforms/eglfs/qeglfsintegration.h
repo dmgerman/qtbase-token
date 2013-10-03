@@ -124,7 +124,7 @@ specifier|const
 expr_stmt|;
 name|QAbstractEventDispatcher
 operator|*
-name|guiThreadEventDispatcher
+name|createEventDispatcher
 argument_list|()
 specifier|const
 expr_stmt|;
@@ -234,10 +234,6 @@ name|private
 label|:
 name|EGLDisplay
 name|mDisplay
-decl_stmt|;
-name|QAbstractEventDispatcher
-modifier|*
-name|mEventDispatcher
 decl_stmt|;
 name|QScopedPointer
 operator|<

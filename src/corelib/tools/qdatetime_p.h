@@ -109,12 +109,22 @@ block|enum
 name|DaylightStatus
 block|{
 name|NoDaylightTime
+operator|=
+operator|-
+literal|2
 block|,
 name|UnknownDaylightTime
+operator|=
+operator|-
+literal|1
 block|,
 name|StandardTime
+operator|=
+literal|0
 block|,
 name|DaylightTime
+operator|=
+literal|1
 block|}
 block|;
 comment|// Status of date/time
@@ -144,6 +154,14 @@ block|,
 name|TimeZoneCached
 operator|=
 literal|0x20
+block|,
+name|SetToStandardTime
+operator|=
+literal|0x40
+block|,
+name|SetToDaylightTime
+operator|=
+literal|0x80
 block|}
 block|;
 name|Q_DECLARE_FLAGS
@@ -318,6 +336,17 @@ argument|QTime *time
 argument_list|)
 specifier|const
 block|;
+name|void
+name|setDaylightStatus
+argument_list|(
+argument|DaylightStatus status
+argument_list|)
+block|;
+name|DaylightStatus
+name|daylightStatus
+argument_list|()
+specifier|const
+block|;
 comment|// Returns msecs since epoch, assumes offset value is current
 specifier|inline
 name|qint64
@@ -487,6 +516,21 @@ name|m_status
 operator|&
 operator|~
 name|TimeZoneCached
+block|; }
+specifier|inline
+name|void
+name|clearSetToDaylightStatus
+argument_list|()
+block|{
+name|m_status
+operator|=
+name|m_status
+operator|&
+operator|~
+name|SetToStandardTime
+operator|&
+operator|~
+name|SetToDaylightTime
 block|; }
 ifndef|#
 directive|ifndef

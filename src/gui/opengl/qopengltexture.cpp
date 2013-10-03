@@ -599,7 +599,7 @@ name|QOpenGLContext
 operator|::
 name|currentContext
 argument_list|()
-operator|==
+operator|!=
 name|context
 condition|)
 block|{

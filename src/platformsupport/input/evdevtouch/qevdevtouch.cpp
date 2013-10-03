@@ -724,8 +724,16 @@ literal|"Evdev Touch Handler"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|QString
-name|dev
+name|bool
+name|printDeviceInfo
+init|=
+name|qgetenv
+argument_list|(
+literal|"QT_QPA_EVDEV_DEBUG"
+argument_list|)
+operator|.
+name|toInt
+argument_list|()
 decl_stmt|;
 comment|// only the first device argument is used for now
 name|QString
@@ -764,6 +772,9 @@ argument_list|(
 literal|':'
 argument_list|)
 argument_list|)
+decl_stmt|;
+name|QString
+name|dev
 decl_stmt|;
 name|int
 name|rotationAngle
@@ -975,7 +986,22 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
+block|{
+if|if
+condition|(
+name|printDeviceInfo
+condition|)
+name|qDebug
+argument_list|(
+literal|"evdevtouch: No touch devices found"
+argument_list|)
+expr_stmt|;
 return|return;
+block|}
+if|if
+condition|(
+name|printDeviceInfo
+condition|)
 name|qDebug
 argument_list|(
 literal|"evdevtouch: Using device %s"
@@ -1054,7 +1080,7 @@ name|qErrnoWarning
 argument_list|(
 name|errno
 argument_list|,
-literal|"Cannot open input device %s"
+literal|"evdevtouch: Cannot open input device %s"
 argument_list|,
 name|qPrintable
 argument_list|(
@@ -1103,7 +1129,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"mtdev_open failed: %d"
+literal|"evdevtouch: mtdev_open failed: %d"
 argument_list|,
 name|mtdeverr
 argument_list|)
@@ -1209,9 +1235,13 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
+if|if
+condition|(
+name|printDeviceInfo
+condition|)
 name|qDebug
 argument_list|(
-literal|"Protocol type %c %s (%s)"
+literal|"evdevtouch: Protocol type %c %s (%s)"
 argument_list|,
 name|d
 operator|->
@@ -1283,9 +1313,13 @@ operator|>=
 literal|0
 condition|)
 block|{
+if|if
+condition|(
+name|printDeviceInfo
+condition|)
 name|qDebug
 argument_list|(
-literal|"min X: %d max X: %d"
+literal|"evdevtouch: min X: %d max X: %d"
 argument_list|,
 name|absInfo
 operator|.
@@ -1343,9 +1377,13 @@ operator|>=
 literal|0
 condition|)
 block|{
+if|if
+condition|(
+name|printDeviceInfo
+condition|)
 name|qDebug
 argument_list|(
-literal|"min Y: %d max Y: %d"
+literal|"evdevtouch: min Y: %d max Y: %d"
 argument_list|,
 name|absInfo
 operator|.
@@ -1408,9 +1446,13 @@ operator|>=
 literal|0
 condition|)
 block|{
+if|if
+condition|(
+name|printDeviceInfo
+condition|)
 name|qDebug
 argument_list|(
-literal|"min pressure: %d max pressure: %d"
+literal|"evdevtouch: min pressure: %d max pressure: %d"
 argument_list|,
 name|absInfo
 operator|.
@@ -1489,9 +1531,13 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|printDeviceInfo
+condition|)
 name|qDebug
 argument_list|(
-literal|"device name: %s"
+literal|"evdevtouch: device name: %s"
 argument_list|,
 name|name
 argument_list|)
@@ -1534,7 +1580,7 @@ expr_stmt|;
 else|else
 name|qWarning
 argument_list|(
-literal|"ERROR: The device is grabbed by another process. No events will be read."
+literal|"evdevtouch: The device is grabbed by another process. No events will be read."
 argument_list|)
 expr_stmt|;
 if|if
@@ -1724,7 +1770,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"Got EOF from input device"
+literal|"evdevtouch: Got EOF from input device"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1748,14 +1794,11 @@ operator|!=
 name|EAGAIN
 condition|)
 block|{
-name|qWarning
-argument_list|(
-literal|"Could not read from input device: %s"
-argument_list|,
-name|strerror
+name|qErrnoWarning
 argument_list|(
 name|errno
-argument_list|)
+argument_list|,
+literal|"evdevtouch: Could not read from input device"
 argument_list|)
 expr_stmt|;
 if|if

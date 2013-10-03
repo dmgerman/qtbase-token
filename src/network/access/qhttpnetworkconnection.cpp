@@ -2885,6 +2885,10 @@ condition|(
 name|networkLayerState
 operator|==
 name|Unknown
+operator|||
+name|networkLayerState
+operator|==
+name|InProgress
 condition|)
 block|{
 name|startHostInfoLookup

@@ -389,6 +389,9 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn QPalette&QPalette::operator=(QPalette&&other)      Move-assigns \a other to this QPalette instance.      \since 5.2 */
+end_comment
+begin_comment
 comment|/*!    \fn const QColor&QPalette::color(ColorRole role) const     \overload      Returns the color that has been set for the given color \a role in     the current ColorGroup.      \sa brush(), ColorRole  */
 end_comment
 begin_comment

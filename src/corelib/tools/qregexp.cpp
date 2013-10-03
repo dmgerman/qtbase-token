@@ -18291,6 +18291,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn QRegExp&QRegExp::operator=(QRegExp&&other)      Move-assigns \a other to this QRegExp instance.      \since 5.2 */
+end_comment
+begin_comment
 comment|/*!     \fn void QRegExp::swap(QRegExp&other)     \since 4.8      Swaps regular expression \a other with this regular     expression. This operation is very fast and never fails. */
 end_comment
 begin_comment

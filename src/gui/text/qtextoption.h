@@ -465,8 +465,12 @@ decl_stmt|;
 name|uint
 name|unused
 range|:
-literal|18
+literal|17
 decl_stmt|;
+name|uint
+name|unused2
+decl_stmt|;
+comment|// ### Qt 6: remove unnecessary, extra 32 bits
 name|uint
 name|f
 decl_stmt|;

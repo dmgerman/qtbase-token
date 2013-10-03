@@ -299,50 +299,6 @@ end_comment
 begin_comment
 comment|//! [6]
 end_comment
-begin_function
-DECL|function|main
-name|int
-name|main
-parameter_list|(
-name|int
-name|argc
-parameter_list|,
-name|char
-modifier|*
-name|argv
-index|[]
-parameter_list|)
-block|{
-name|QApplication
-operator|::
-name|setDesktopSettingsAware
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-name|QApplication
-name|app
-argument_list|(
-name|argc
-argument_list|,
-name|argv
-argument_list|)
-decl_stmt|;
-operator|...
-return|return
-name|app
-operator|.
-name|exec
-argument_list|()
-return|;
-block|}
-end_function
-begin_comment
-comment|//! [6]
-end_comment
-begin_comment
-comment|//! [7]
-end_comment
 begin_if
 if|if
 condition|(
@@ -365,185 +321,10 @@ argument_list|()
 expr_stmt|;
 end_if
 begin_comment
+comment|//! [6]
+end_comment
+begin_comment
 comment|//! [7]
-end_comment
-begin_comment
-comment|//! [8]
-end_comment
-begin_function
-DECL|function|commitData
-name|void
-name|MyApplication
-operator|::
-name|commitData
-parameter_list|(
-name|QSessionManager
-modifier|&
-name|manager
-parameter_list|)
-block|{
-if|if
-condition|(
-name|manager
-operator|.
-name|allowsInteraction
-argument_list|()
-condition|)
-block|{
-name|int
-name|ret
-init|=
-name|QMessageBox
-operator|::
-name|warning
-argument_list|(
-name|mainWindow
-argument_list|,
-name|tr
-argument_list|(
-literal|"My Application"
-argument_list|)
-argument_list|,
-name|tr
-argument_list|(
-literal|"Save changes to document?"
-argument_list|)
-argument_list|,
-name|QMessageBox
-operator|::
-name|Save
-operator||
-name|QMessageBox
-operator|::
-name|Discard
-operator||
-name|QMessageBox
-operator|::
-name|Cancel
-argument_list|)
-decl_stmt|;
-switch|switch
-condition|(
-name|ret
-condition|)
-block|{
-case|case
-name|QMessageBox
-operator|::
-name|Save
-case|:
-name|manager
-operator|.
-name|release
-argument_list|()
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|saveDocument
-argument_list|()
-condition|)
-name|manager
-operator|.
-name|cancel
-argument_list|()
-expr_stmt|;
-break|break;
-case|case
-name|QMessageBox
-operator|::
-name|Discard
-case|:
-break|break;
-case|case
-name|QMessageBox
-operator|::
-name|Cancel
-case|:
-default|default:
-name|manager
-operator|.
-name|cancel
-argument_list|()
-expr_stmt|;
-block|}
-block|}
-else|else
-block|{
-comment|// we did not get permission to interact, then
-comment|// do something reasonable instead
-block|}
-block|}
-end_function
-begin_comment
-comment|//! [8]
-end_comment
-begin_comment
-comment|//! [9]
-end_comment
-begin_expr_stmt
-name|appname
-operator|-
-name|session
-name|id
-end_expr_stmt
-begin_comment
-comment|//! [9]
-end_comment
-begin_comment
-comment|//! [10]
-end_comment
-begin_foreach
-foreach|foreach
-control|(
-specifier|const
-name|QString
-modifier|&
-name|command
-decl|,
-name|mySession
-operator|.
-name|restartCommand
-argument_list|()
-control|)
-DECL|variable|command
-name|do_something
-argument_list|(
-name|command
-argument_list|)
-expr_stmt|;
-end_foreach
-begin_comment
-comment|//! [10]
-end_comment
-begin_comment
-comment|//! [11]
-end_comment
-begin_foreach
-foreach|foreach
-control|(
-specifier|const
-name|QString
-modifier|&
-name|command
-decl|,
-name|mySession
-operator|.
-name|discardCommand
-argument_list|()
-control|)
-DECL|variable|command
-name|do_something
-argument_list|(
-name|command
-argument_list|)
-expr_stmt|;
-end_foreach
-begin_comment
-comment|//! [11]
-end_comment
-begin_comment
-comment|//! [12]
 end_comment
 begin_decl_stmt
 DECL|variable|widget
@@ -575,10 +356,10 @@ argument_list|()
 expr_stmt|;
 end_if
 begin_comment
-comment|//! [12]
+comment|//! [7]
 end_comment
 begin_comment
-comment|//! [13]
+comment|//! [8]
 end_comment
 begin_decl_stmt
 DECL|variable|widget
@@ -608,6 +389,6 @@ argument_list|()
 expr_stmt|;
 end_if
 begin_comment
-comment|//! [13]
+comment|//! [8]
 end_comment
 end_unit

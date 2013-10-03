@@ -159,14 +159,7 @@ block|;
 name|void
 name|createEventDispatcher
 argument_list|()
-block|;
-name|void
-name|setEventDispatcher
-argument_list|(
-name|QAbstractEventDispatcher
-operator|*
-name|eventDispatcher
-argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void

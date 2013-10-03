@@ -5369,6 +5369,12 @@ begin_comment
 comment|/*!     \obsolete Use QMetaType::Type instead     \enum QVariant::Type      This enum type defines the types of variable that a QVariant can     contain.      \value Invalid  no type     \value BitArray  a QBitArray     \value Bitmap  a QBitmap     \value Bool  a bool     \value Brush  a QBrush     \value ByteArray  a QByteArray     \value Char  a QChar     \value Color  a QColor     \value Cursor  a QCursor     \value Date  a QDate     \value DateTime  a QDateTime     \value Double  a double     \value EasingCurve a QEasingCurve     \value Uuid a QUuid     \value ModelIndex a QModelIndex     \value Font  a QFont     \value Hash a QVariantHash     \value Icon  a QIcon     \value Image  a QImage     \value Int  an int     \value KeySequence  a QKeySequence     \value Line  a QLine     \value LineF  a QLineF     \value List  a QVariantList     \value Locale  a QLocale     \value LongLong a \l qlonglong     \value Map  a QVariantMap     \value Matrix  a QMatrix     \value Transform  a QTransform     \value Matrix4x4  a QMatrix4x4     \value Palette  a QPalette     \value Pen  a QPen     \value Pixmap  a QPixmap     \value Point  a QPoint     \value PointF  a QPointF     \value Polygon a QPolygon     \value PolygonF a QPolygonF     \value Quaternion  a QQuaternion     \value Rect  a QRect     \value RectF  a QRectF     \value RegExp  a QRegExp     \value RegularExpression  a QRegularExpression     \value Region  a QRegion     \value Size  a QSize     \value SizeF  a QSizeF     \value SizePolicy  a QSizePolicy     \value String  a QString     \value StringList  a QStringList     \value TextFormat  a QTextFormat     \value TextLength  a QTextLength     \value Time  a QTime     \value UInt  a \l uint     \value ULongLong a \l qulonglong     \value Url  a QUrl     \value Vector2D  a QVector2D     \value Vector3D  a QVector3D     \value Vector4D  a QVector4D      \value UserType Base value for user-defined types.      \omitvalue LastGuiType     \omitvalue LastCoreType     \omitvalue LastType */
 end_comment
 begin_comment
+comment|/*!     \fn QVariant::QVariant(QVariant&&other)      Move-constructs a QVariant instance, making it point at the same     object that \a other was pointing to.      \since 5.2 */
+end_comment
+begin_comment
+comment|/*!     \fn QVariant&QVariant::operator=(QVariant&&other)      Move-assigns \a other to this QVariant instance.      \since 5.2 */
+end_comment
+begin_comment
 comment|/*!     \fn QVariant::QVariant()      Constructs an invalid variant. */
 end_comment
 begin_comment

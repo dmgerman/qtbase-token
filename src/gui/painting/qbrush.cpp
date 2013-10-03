@@ -2468,6 +2468,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn QBrush&QBrush::operator=(QBrush&&other)      Move-assigns \a other to this QBrush instance.      \since 5.2 */
+end_comment
+begin_comment
 comment|/*!     \fn void QBrush::swap(QBrush&other)     \since 4.8      Swaps brush \a other with this brush. This operation is very     fast and never fails. */
 end_comment
 begin_comment

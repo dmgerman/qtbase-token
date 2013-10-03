@@ -289,12 +289,12 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|guiThreadEventDispatcher
+DECL|function|createEventDispatcher
 name|QAbstractEventDispatcher
 modifier|*
 name|QMinimalEglIntegration
 operator|::
-name|guiThreadEventDispatcher
+name|createEventDispatcher
 parameter_list|()
 specifier|const
 block|{

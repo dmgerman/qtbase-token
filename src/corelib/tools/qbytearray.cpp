@@ -2048,6 +2048,9 @@ begin_comment
 comment|/*! \fn QByteArray::QByteArray(const QByteArray&other)      Constructs a copy of \a other.      This operation takes \l{constant time}, because QByteArray is     \l{implicitly shared}. This makes returning a QByteArray from a     function very fast. If a shared instance is modified, it will be     copied (copy-on-write), taking \l{linear time}.      \sa operator=() */
 end_comment
 begin_comment
+comment|/*!     \fn QByteArray::QByteArray(QByteArray&&other)      Move-constructs a QByteArray instance, making it point at the same     object that \a other was pointing to.      \since 5.2 */
+end_comment
+begin_comment
 comment|/*! \fn QByteArray::QByteArray(QByteArrayDataPtr dd)      \internal      Constructs a byte array pointing to the same data as \a dd. */
 end_comment
 begin_comment
@@ -2287,6 +2290,9 @@ name|this
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \fn QByteArray&QByteArray::operator=(QByteArray&&other)      Move-assigns \a other to this QByteArray instance.      \since 5.2 */
+end_comment
 begin_comment
 comment|/*! \fn void QByteArray::swap(QByteArray&other)     \since 4.8      Swaps byte array \a other with this byte array. This operation is very     fast and never fails. */
 end_comment

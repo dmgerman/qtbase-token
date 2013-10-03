@@ -2082,6 +2082,9 @@ begin_comment
 comment|/*! \fn QMap::QMap()      Constructs an empty map.      \sa clear() */
 end_comment
 begin_comment
+comment|/*!     \fn QMap::QMap(QMap<Key, T>&&other)      Move-constructs a QMap instance, making it point at the same     object that \a other was pointing to.      \since 5.2 */
+end_comment
+begin_comment
 comment|/*! \fn QMap::QMap(const QMap<Key, T>&other)      Constructs a copy of \a other.      This operation occurs in \l{constant time}, because QMap is     \l{implicitly shared}. This makes returning a QMap from a     function very fast. If a shared instance is modified, it will be     copied (copy-on-write), and this takes \l{linear time}.      \sa operator=() */
 end_comment
 begin_comment
@@ -2098,6 +2101,9 @@ comment|/*! \fn QMap::~QMap()      Destroys the map. References to the values in
 end_comment
 begin_comment
 comment|/*! \fn QMap<Key, T>&QMap::operator=(const QMap<Key, T>&other)      Assigns \a other to this map and returns a reference to this map. */
+end_comment
+begin_comment
+comment|/*!     \fn QMap<Key, T>&QMap::operator=(QMap<Key, T>&&other)      Move-assigns \a other to this QMap instance.      \since 5.2 */
 end_comment
 begin_comment
 comment|/*! \fn void QMap::swap(QMap<Key, T>&other)     \since 4.8      Swaps map \a other with this map. This operation is very     fast and never fails. */

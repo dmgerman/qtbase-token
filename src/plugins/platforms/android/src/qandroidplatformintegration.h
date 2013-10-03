@@ -206,7 +206,7 @@ specifier|const
 block|;
 name|QAbstractEventDispatcher
 operator|*
-name|guiThreadEventDispatcher
+name|createEventDispatcher
 argument_list|()
 specifier|const
 block|;
@@ -426,10 +426,6 @@ block|;
 ifndef|#
 directive|ifndef
 name|ANDROID_PLUGIN_OPENGL
-name|QAbstractEventDispatcher
-operator|*
-name|m_eventDispatcher
-block|;
 name|QAndroidPlatformScreen
 operator|*
 name|m_primaryScreen
