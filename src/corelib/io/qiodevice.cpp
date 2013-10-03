@@ -312,7 +312,7 @@ parameter_list|,
 name|returnType
 parameter_list|)
 define|\
-value|do { \        if ((d->openMode& WriteOnly) == 0) { \            if (d->openMode == NotOpen) \                return returnType; \            qWarning("QIODevice::"#function": ReadOnly device"); \            return returnType; \        } \    } while (0)
+value|do { \        if ((d->openMode& WriteOnly) == 0) { \            if (d->openMode == NotOpen) { \                qWarning("QIODevice::"#function": device not open"); \                return returnType; \            } \            qWarning("QIODevice::"#function": ReadOnly device"); \            return returnType; \        } \    } while (0)
 end_define
 begin_define
 DECL|macro|CHECK_READABLE
@@ -325,7 +325,7 @@ parameter_list|,
 name|returnType
 parameter_list|)
 define|\
-value|do { \        if ((d->openMode& ReadOnly) == 0) { \            if (d->openMode == NotOpen) \                return returnType; \            qWarning("QIODevice::"#function": WriteOnly device"); \            return returnType; \        } \    } while (0)
+value|do { \        if ((d->openMode& ReadOnly) == 0) { \            if (d->openMode == NotOpen) { \                qWarning("QIODevice::"#function": device not open"); \                return returnType; \            } \            qWarning("QIODevice::"#function": WriteOnly device"); \            return returnType; \        } \    } while (0)
 end_define
 begin_comment
 comment|/*!     \internal  */
