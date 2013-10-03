@@ -35,6 +35,12 @@ file|"qiosapplicationstate.h"
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+DECL|variable|QIOSServices
+name|class
+name|QIOSServices
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QPlatformIntegration
 name|class
 name|QIOSIntegration
@@ -103,6 +109,13 @@ operator|*
 name|inputContext
 argument_list|()
 specifier|const
+expr_stmt|;
+name|QPlatformServices
+operator|*
+name|services
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|QVariant
 name|styleHint
@@ -179,6 +192,10 @@ name|m_touchDevice
 decl_stmt|;
 name|QIOSApplicationState
 name|m_applicationState
+decl_stmt|;
+name|QIOSServices
+modifier|*
+name|m_platformServices
 decl_stmt|;
 block|}
 end_decl_stmt
