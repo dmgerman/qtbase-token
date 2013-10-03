@@ -4075,6 +4075,11 @@ name|getCppClasses
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+name|QStringLiteral
+argument_list|(
+literal|"Q"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -4101,6 +4106,11 @@ name|getQmlTypes
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+name|QStringLiteral
+argument_list|(
+literal|""
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -4244,6 +4254,8 @@ operator|==
 literal|"compatclasses"
 condition|)
 block|{
+comment|// "compatclasses" is no longer used. Delete this at some point.
+comment|// mws 03/10/2013
 name|generateCompactList
 argument_list|(
 name|Generic
@@ -4256,6 +4268,11 @@ name|getCompatibilityClasses
 argument_list|()
 argument_list|,
 literal|false
+argument_list|,
+name|QStringLiteral
+argument_list|(
+literal|"Q"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -4282,6 +4299,11 @@ name|getObsoleteClasses
 argument_list|()
 argument_list|,
 literal|false
+argument_list|,
+name|QStringLiteral
+argument_list|(
+literal|"Q"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -4308,6 +4330,11 @@ name|getObsoleteQmlTypes
 argument_list|()
 argument_list|,
 literal|false
+argument_list|,
+name|QStringLiteral
+argument_list|(
+literal|""
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -4334,6 +4361,11 @@ name|getClassesWithObsoleteMembers
 argument_list|()
 argument_list|,
 literal|false
+argument_list|,
+name|QStringLiteral
+argument_list|(
+literal|"Q"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -4360,6 +4392,11 @@ name|getQmlTypesWithObsoleteMembers
 argument_list|()
 argument_list|,
 literal|false
+argument_list|,
+name|QStringLiteral
+argument_list|(
+literal|""
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -4410,6 +4447,8 @@ operator|==
 literal|"mainclasses"
 condition|)
 block|{
+comment|// "mainclasses" is no longer used. Delete this at some point.
+comment|// mws 03/10/2013
 name|generateCompactList
 argument_list|(
 name|Generic
@@ -4422,6 +4461,11 @@ name|getMainClasses
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+name|QStringLiteral
+argument_list|(
+literal|"Q"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -4436,6 +4480,8 @@ operator|==
 literal|"services"
 condition|)
 block|{
+comment|// "services" is no longer used. Delete this at some point.
+comment|// mws 03/10/2013
 name|generateCompactList
 argument_list|(
 name|Generic
@@ -4448,6 +4494,11 @@ name|getServiceClasses
 argument_list|()
 argument_list|,
 literal|false
+argument_list|,
+name|QStringLiteral
+argument_list|(
+literal|"Q"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
