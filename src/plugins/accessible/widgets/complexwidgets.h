@@ -120,11 +120,13 @@ argument_list|(
 argument|int index
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|childCount
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|indexOfChild
@@ -132,11 +134,13 @@ argument_list|(
 argument|const QAccessibleInterface *child
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|isValid
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QAccessibleInterface
 operator|*
@@ -147,6 +151,7 @@ argument_list|,
 argument|int y
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 comment|//protected:
 name|QAbstractScrollArea
@@ -232,6 +237,7 @@ name|int
 name|childCount
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QString
 name|text
@@ -239,6 +245,7 @@ argument_list|(
 argument|QAccessible::Text t
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|setSelected
@@ -265,6 +272,7 @@ argument_list|(
 argument|int index
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|indexOfChild
@@ -272,6 +280,7 @@ argument_list|(
 argument|const QAccessibleInterface *child
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
@@ -327,6 +336,7 @@ name|int
 name|childCount
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QAccessibleInterface
 operator|*
@@ -337,6 +347,7 @@ argument_list|,
 argument|int y
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|indexOfChild
@@ -344,6 +355,7 @@ argument_list|(
 argument|const QAccessibleInterface *child
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QAccessibleInterface
 operator|*
@@ -352,6 +364,7 @@ argument_list|(
 argument|int index
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QString
 name|text
@@ -359,12 +372,14 @@ argument_list|(
 argument|QAccessible::Text t
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 comment|// QAccessibleActionInterface
 name|QStringList
 name|actionNames
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QString
 name|localizedActionDescription
@@ -372,15 +387,14 @@ argument_list|(
 argument|const QString&actionName
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|doAction
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|actionName
+argument|const QString&actionName
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QStringList
 name|keyBindingsForAction
@@ -388,6 +402,7 @@ argument_list|(
 argument|const QString&actionName
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
