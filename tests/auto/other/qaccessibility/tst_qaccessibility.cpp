@@ -22856,9 +22856,6 @@ name|imageInterface
 operator|->
 name|imagePosition
 argument_list|()
-operator|.
-name|topLeft
-argument_list|()
 argument_list|,
 name|labelPos
 argument_list|)

@@ -2018,7 +2018,7 @@ comment|/*! \internal */
 end_comment
 begin_function
 DECL|function|imagePosition
-name|QRect
+name|QPoint
 name|QAccessibleDisplay
 operator|::
 name|imagePosition
@@ -2045,7 +2045,7 @@ operator|!
 name|label
 condition|)
 return|return
-name|QRect
+name|QPoint
 argument_list|()
 return|;
 specifier|const
@@ -2064,11 +2064,11 @@ operator|!
 name|pixmap
 condition|)
 return|return
-name|QRect
+name|QPoint
 argument_list|()
 return|;
 return|return
-name|QRect
+name|QPoint
 argument_list|(
 name|label
 operator|->
@@ -2079,11 +2079,6 @@ operator|->
 name|pos
 argument_list|()
 argument_list|)
-argument_list|,
-name|label
-operator|->
-name|size
-argument_list|()
 argument_list|)
 return|;
 block|}
