@@ -51,11 +51,6 @@ name|Q_QDOC
 name|namespace
 name|QtConcurrent
 block|{
-name|using
-name|std
-operator|::
-name|advance
-expr_stmt|;
 comment|/*     The BlockSizeManager class manages how many iterations a thread should     reserve and process at a time. This is done by measuring the time spent     in the user code versus the control part code, and then increasing     the block size if the ratio between them is to small. The block size     management is done on the basis of the median of several timing measuremens,     and it is done induvidualy for each thread. */
 name|class
 name|Q_CONCURRENT_EXPORT

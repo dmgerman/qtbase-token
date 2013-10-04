@@ -137,6 +137,8 @@ name|it
 init|=
 name|sequenceBeginIterator
 decl_stmt|;
+name|std
+operator|::
 name|advance
 argument_list|(
 name|it
@@ -168,6 +170,8 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+name|std
+operator|::
 name|advance
 argument_list|(
 name|it
@@ -427,6 +431,8 @@ name|it
 init|=
 name|sequenceBeginIterator
 decl_stmt|;
+name|std
+operator|::
 name|advance
 argument_list|(
 name|it
@@ -464,6 +470,8 @@ operator|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|std
+operator|::
 name|advance
 argument_list|(
 name|it
@@ -693,6 +701,8 @@ name|it
 init|=
 name|sequenceBeginIterator
 decl_stmt|;
+name|std
+operator|::
 name|advance
 argument_list|(
 name|it
@@ -730,6 +740,8 @@ name|begin
 operator|)
 argument_list|)
 expr_stmt|;
+name|std
+operator|::
 name|advance
 argument_list|(
 name|it
