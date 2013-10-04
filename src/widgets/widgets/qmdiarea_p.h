@@ -331,7 +331,10 @@ name|rects
 argument_list|)
 block|;
 specifier|static
-name|void
+name|QVector
+operator|<
+name|QRect
+operator|>
 name|getCandidatePlacements
 argument_list|(
 specifier|const
@@ -351,13 +354,6 @@ specifier|const
 name|QRect
 operator|&
 name|domain
-argument_list|,
-name|QVector
-operator|<
-name|QRect
-operator|>
-operator|&
-name|candidates
 argument_list|)
 block|;
 specifier|static
@@ -386,7 +382,10 @@ name|source
 argument_list|)
 block|;
 specifier|static
-name|void
+name|QVector
+operator|<
+name|QRect
+operator|>
 name|findNonInsiders
 argument_list|(
 specifier|const
@@ -400,17 +399,13 @@ name|QRect
 operator|>
 operator|&
 name|source
-argument_list|,
+argument_list|)
+block|;
+specifier|static
 name|QVector
 operator|<
 name|QRect
 operator|>
-operator|&
-name|result
-argument_list|)
-block|;
-specifier|static
-name|void
 name|findMaxOverlappers
 argument_list|(
 specifier|const
@@ -425,13 +420,6 @@ name|QRect
 operator|>
 operator|&
 name|source
-argument_list|,
-name|QVector
-operator|<
-name|QRect
-operator|>
-operator|&
-name|result
 argument_list|)
 block|; }
 block|; }
