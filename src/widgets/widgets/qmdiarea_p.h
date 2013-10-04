@@ -66,6 +66,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QVector>
+end_include
+begin_include
+include|#
+directive|include
 file|<QRect>
 end_include
 begin_include
@@ -254,7 +259,7 @@ name|place
 argument_list|(
 argument|const QSize&size
 argument_list|,
-argument|const QList<QRect>&rects
+argument|const QVector<QRect>&rects
 argument_list|,
 argument|const QRect&domain
 argument_list|)
@@ -280,7 +285,7 @@ name|place
 argument_list|(
 argument|const QSize&size
 argument_list|,
-argument|const QList<QRect>&rects
+argument|const QVector<QRect>&rects
 argument_list|,
 argument|const QRect&domain
 argument_list|)
@@ -296,7 +301,7 @@ operator|&
 name|source
 argument_list|,
 specifier|const
-name|QList
+name|QVector
 operator|<
 name|QRect
 operator|>
@@ -309,7 +314,7 @@ name|QRect
 name|findMinOverlapRect
 argument_list|(
 specifier|const
-name|QList
+name|QVector
 operator|<
 name|QRect
 operator|>
@@ -317,7 +322,7 @@ operator|&
 name|source
 argument_list|,
 specifier|const
-name|QList
+name|QVector
 operator|<
 name|QRect
 operator|>
@@ -335,7 +340,7 @@ operator|&
 name|size
 argument_list|,
 specifier|const
-name|QList
+name|QVector
 operator|<
 name|QRect
 operator|>
@@ -347,7 +352,7 @@ name|QRect
 operator|&
 name|domain
 argument_list|,
-name|QList
+name|QVector
 operator|<
 name|QRect
 operator|>
@@ -365,14 +370,14 @@ operator|&
 name|domain
 argument_list|,
 specifier|const
-name|QList
+name|QVector
 operator|<
 name|QRect
 operator|>
 operator|&
 name|rects
 argument_list|,
-name|QList
+name|QVector
 operator|<
 name|QRect
 operator|>
@@ -389,14 +394,14 @@ name|QRect
 operator|&
 name|domain
 argument_list|,
-name|QList
+name|QVector
 operator|<
 name|QRect
 operator|>
 operator|&
 name|source
 argument_list|,
-name|QList
+name|QVector
 operator|<
 name|QRect
 operator|>
@@ -414,14 +419,14 @@ operator|&
 name|domain
 argument_list|,
 specifier|const
-name|QList
+name|QVector
 operator|<
 name|QRect
 operator|>
 operator|&
 name|source
 argument_list|,
-name|QList
+name|QVector
 operator|<
 name|QRect
 operator|>
