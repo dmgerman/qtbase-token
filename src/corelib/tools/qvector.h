@@ -916,6 +916,62 @@ decl|const
 decl_stmt|;
 end_decl_stmt
 begin_comment
+comment|// QList compatibility
+end_comment
+begin_function
+name|void
+name|removeAt
+parameter_list|(
+name|int
+name|i
+parameter_list|)
+block|{
+name|remove
+argument_list|(
+name|i
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_expr_stmt
+name|int
+name|length
+argument_list|()
+specifier|const
+block|{
+return|return
+name|size
+argument_list|()
+return|;
+block|}
+end_expr_stmt
+begin_function
+name|T
+name|takeAt
+parameter_list|(
+name|int
+name|i
+parameter_list|)
+block|{
+name|T
+name|t
+init|=
+name|at
+argument_list|(
+name|i
+argument_list|)
+decl_stmt|;
+name|remove
+argument_list|(
+name|i
+argument_list|)
+expr_stmt|;
+return|return
+name|t
+return|;
+block|}
+end_function
+begin_comment
 comment|// STL-style
 end_comment
 begin_typedef
@@ -1492,7 +1548,7 @@ name|mid
 argument_list|(
 argument|int pos
 argument_list|,
-argument|int length = -
+argument|int len = -
 literal|1
 argument_list|)
 specifier|const
@@ -5788,17 +5844,17 @@ name|mid
 argument_list|(
 argument|int pos
 argument_list|,
-argument|int length
+argument|int len
 argument_list|)
 specifier|const
 block|{
 if|if
 condition|(
-name|length
+name|len
 operator|<
 literal|0
 condition|)
-name|length
+name|len
 operator|=
 name|size
 argument_list|()
@@ -5813,7 +5869,7 @@ name|pos
 operator|==
 literal|0
 operator|&&
-name|length
+name|len
 operator|==
 name|size
 argument_list|()
@@ -5828,12 +5884,12 @@ if|if
 condition|(
 name|pos
 operator|+
-name|length
+name|len
 operator|>
 name|size
 argument_list|()
 condition|)
-name|length
+name|len
 operator|=
 name|size
 argument_list|()
@@ -5854,7 +5910,7 @@ name|copy
 operator|.
 name|reserve
 argument_list|(
-name|length
+name|len
 argument_list|)
 expr_stmt|;
 end_expr_stmt
@@ -5870,7 +5926,7 @@ name|i
 operator|<
 name|pos
 operator|+
-name|length
+name|len
 condition|;
 operator|++
 name|i
