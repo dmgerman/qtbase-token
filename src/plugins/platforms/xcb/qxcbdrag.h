@@ -389,7 +389,7 @@ init|=
 literal|100
 block|}
 enum|;
-name|QList
+name|QVector
 operator|<
 name|xcb_atom_t
 operator|>

@@ -394,7 +394,7 @@ name|formats
 argument_list|()
 expr_stmt|;
 comment|// trigger update of format list
-name|QList
+name|QVector
 argument_list|<
 name|xcb_atom_t
 argument_list|>
@@ -426,6 +426,13 @@ argument_list|(
 name|xcb_atom_t
 argument_list|)
 decl_stmt|;
+name|atoms
+operator|.
+name|reserve
+argument_list|(
+name|size
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -2497,7 +2504,7 @@ operator|++
 name|i
 control|)
 block|{
-name|QList
+name|QVector
 argument_list|<
 name|xcb_atom_t
 argument_list|>

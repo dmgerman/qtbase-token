@@ -640,7 +640,7 @@ operator|++
 name|i
 control|)
 block|{
-name|QList
+name|QVector
 argument_list|<
 name|xcb_atom_t
 argument_list|>
@@ -6153,7 +6153,7 @@ return|return
 name|result
 return|;
 block|}
-name|QList
+name|QVector
 argument_list|<
 name|xcb_atom_t
 argument_list|>

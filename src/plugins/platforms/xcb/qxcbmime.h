@@ -66,7 +66,7 @@ name|QXcbMime
 argument_list|()
 block|;
 specifier|static
-name|QList
+name|QVector
 operator|<
 name|xcb_atom_t
 operator|>
@@ -135,7 +135,7 @@ argument|const QString&format
 argument_list|,
 argument|QVariant::Type requestedType
 argument_list|,
-argument|const QList<xcb_atom_t>&atoms
+argument|const QVector<xcb_atom_t>&atoms
 argument_list|,
 argument|QByteArray *requestedEncoding
 argument_list|)
