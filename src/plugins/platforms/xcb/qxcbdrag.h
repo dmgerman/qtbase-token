@@ -36,11 +36,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qlist.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<qpoint.h>
 end_include
 begin_include
@@ -469,7 +464,7 @@ name|time
 decl_stmt|;
 block|}
 struct|;
-name|QList
+name|QVector
 operator|<
 name|Transaction
 operator|>
