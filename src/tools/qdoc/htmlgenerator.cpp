@@ -22436,6 +22436,13 @@ argument_list|,
 name|marker
 argument_list|)
 expr_stmt|;
+name|generateOverloadedSignal
+argument_list|(
+name|node
+argument_list|,
+name|marker
+argument_list|)
+expr_stmt|;
 name|generateThreadSafeness
 argument_list|(
 name|node
