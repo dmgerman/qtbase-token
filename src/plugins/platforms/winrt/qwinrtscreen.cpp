@@ -3923,6 +3923,9 @@ block|{
 name|boolean
 name|isPressed
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINPHONE
 name|pointerPoint
 operator|->
 name|get_IsInContact
@@ -3931,6 +3934,19 @@ operator|&
 name|isPressed
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|properties
+operator|->
+name|get_IsLeftButtonPressed
+argument_list|(
+operator|&
+name|isPressed
+argument_list|)
+expr_stmt|;
+comment|// IsInContact not reliable on phone
+endif|#
+directive|endif
 name|it
 operator|.
 name|value
