@@ -249,6 +249,12 @@ name|orientation
 argument_list|()
 specifier|const
 block|;
+name|void
+name|setOrientationUpdateMask
+argument_list|(
+argument|Qt::ScreenOrientations mask
+argument_list|)
+block|;
 name|QWindow
 operator|*
 name|topWindow
