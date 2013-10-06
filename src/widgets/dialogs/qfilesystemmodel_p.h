@@ -2085,7 +2085,7 @@ block|}
 struct|;
 end_struct
 begin_expr_stmt
-name|QList
+name|QVector
 operator|<
 name|Fetching
 operator|>
