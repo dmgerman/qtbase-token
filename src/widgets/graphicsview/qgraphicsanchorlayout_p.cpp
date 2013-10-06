@@ -5416,7 +5416,7 @@ index|[
 name|orientation
 index|]
 decl_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|QPair
 argument_list|<
@@ -9981,7 +9981,7 @@ index|[
 name|orientation
 index|]
 decl_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|QPair
 argument_list|<
@@ -10461,7 +10461,7 @@ name|orientation
 index|]
 decl_stmt|;
 specifier|const
-name|QList
+name|QVector
 argument_list|<
 name|QPair
 argument_list|<

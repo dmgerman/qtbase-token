@@ -58,6 +58,11 @@ include|#
 directive|include
 file|<QtCore/qabstractitemmodel.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qvector.h>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -709,7 +714,7 @@ argument|const QModelIndex&index
 argument_list|)
 specifier|const
 block|;
-name|QList
+name|QVector
 operator|<
 name|QPair
 operator|<

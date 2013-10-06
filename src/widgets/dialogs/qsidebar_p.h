@@ -63,6 +63,11 @@ include|#
 directive|include
 file|<qurl.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<qvector.h>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -325,7 +330,7 @@ name|QFileSystemModel
 operator|*
 name|fileSystemModel
 block|;
-name|QList
+name|QVector
 operator|<
 name|QPair
 operator|<

@@ -894,7 +894,7 @@ name|setOfVertices
 return|;
 end_return
 begin_expr_stmt
-unit|}      QList
+unit|}      QVector
 operator|<
 name|QPair
 operator|<
@@ -909,7 +909,7 @@ name|connections
 argument_list|()
 specifier|const
 block|{
-name|QList
+name|QVector
 operator|<
 name|QPair
 operator|<

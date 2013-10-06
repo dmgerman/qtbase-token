@@ -20151,7 +20151,7 @@ block|}
 end_function
 begin_function
 DECL|function|columnRanges
-name|QList
+name|QVector
 argument_list|<
 name|QPair
 argument_list|<
@@ -20290,7 +20290,7 @@ name|end
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|QPair
 argument_list|<
@@ -20470,7 +20470,7 @@ name|bottomIndex
 argument_list|)
 decl_stmt|;
 specifier|const
-name|QList
+name|QVector
 argument_list|<
 name|QPair
 argument_list|<
@@ -20488,7 +20488,7 @@ argument_list|,
 name|bottomIndex
 argument_list|)
 decl_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|QPair
 argument_list|<
