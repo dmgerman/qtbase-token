@@ -688,7 +688,7 @@ argument_list|,
 name|VerticalSortHint
 argument_list|)
 emit|;
-name|QList
+name|QVector
 argument_list|<
 name|QPair
 argument_list|<
