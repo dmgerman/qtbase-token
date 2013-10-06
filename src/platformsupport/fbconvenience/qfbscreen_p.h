@@ -311,7 +311,7 @@ name|QPainter
 modifier|*
 name|mCompositePainter
 decl_stmt|;
-name|QList
+name|QVector
 operator|<
 name|QPair
 operator|<
