@@ -823,13 +823,15 @@ directive|if
 literal|0
 block|if (!mWindowStack[i]->isVisible())             continue;         if (mWindowStack[i]->isMinimized())             continue;          if (!mWindowStack[i]->testAttribute(Qt::WA_TranslucentBackground)) {             QRect localGeometry = mWindowStack.at(i)->geometry().translated(-screenOffset);
 comment|// global to local translation
-block|remainingScreen -= localGeometry;             QRegion windowRegion(localGeometry);             windowRegion -= remainingScreen;             foreach (QRect rect, windowRegion.rects()) {                 mCachedRects += QPair<QRect, int>(rect, i);             }         }
+block|remainingScreen -= localGeometry;             QRegion windowRegion(localGeometry);             windowRegion -= remainingScreen;             foreach (const QRect&rect, windowRegion.rects()) {                 mCachedRects += QPair<QRect, int>(rect, i);             }         }
 endif|#
 directive|endif
 block|}
 foreach|foreach
 control|(
+specifier|const
 name|QRect
+modifier|&
 name|rect
 decl|,
 name|remainingScreen
@@ -1050,7 +1052,9 @@ expr_stmt|;
 comment|// we only expect one rectangle, but defensive coding...
 foreach|foreach
 control|(
+specifier|const
 name|QRect
+modifier|&
 name|rect
 decl|,
 name|intersect
