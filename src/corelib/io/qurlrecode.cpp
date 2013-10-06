@@ -1258,13 +1258,6 @@ argument_list|(
 name|uc
 argument_list|)
 operator|||
-name|QChar
-operator|::
-name|isNonCharacter
-argument_list|(
-name|uc
-argument_list|)
-operator|||
 name|uc
 operator|>
 name|QChar
