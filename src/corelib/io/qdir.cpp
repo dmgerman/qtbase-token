@@ -4298,7 +4298,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QDir::mkdir: Empty or null file name(s)"
+literal|"QDir::mkdir: Empty or null file name"
 argument_list|)
 expr_stmt|;
 return|return
@@ -4386,7 +4386,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QDir::rmdir: Empty or null file name(s)"
+literal|"QDir::rmdir: Empty or null file name"
 argument_list|)
 expr_stmt|;
 return|return
@@ -4474,7 +4474,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QDir::mkpath: Empty or null file name(s)"
+literal|"QDir::mkpath: Empty or null file name"
 argument_list|)
 expr_stmt|;
 return|return
@@ -4562,7 +4562,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QDir::rmpath: Empty or null file name(s)"
+literal|"QDir::rmpath: Empty or null file name"
 argument_list|)
 expr_stmt|;
 return|return
