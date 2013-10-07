@@ -20197,7 +20197,7 @@ index|]
 else|:
 name|QString
 argument_list|(
-literal|"4.7"
+literal|"4.8"
 argument_list|)
 argument_list|)
 decl_stmt|;
