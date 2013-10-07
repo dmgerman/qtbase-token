@@ -273,8 +273,6 @@ case|:
 return|return
 literal|true
 return|;
-default|default:
-break|break;
 block|}
 return|return
 literal|false
@@ -338,7 +336,6 @@ break|break;
 case|case
 name|QtFatalMsg
 case|:
-default|default:
 break|break;
 block|}
 block|}
