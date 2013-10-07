@@ -39452,6 +39452,26 @@ operator|::
 name|paint
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_MACX
+if|if
+condition|(
+name|QSysInfo
+operator|::
+name|MacintoshVersion
+operator|==
+name|QSysInfo
+operator|::
+name|MV_10_7
+condition|)
+name|QSKIP
+argument_list|(
+literal|"QTBUG-31454 - Unstable auto-test"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QGraphicsScene
 name|scene
 decl_stmt|;
