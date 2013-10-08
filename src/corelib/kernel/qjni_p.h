@@ -97,7 +97,7 @@ end_label
 begin_decl_stmt
 name|friend
 name|class
-name|QJNIEnvironment
+name|QAndroidJniEnvironment
 decl_stmt|;
 end_decl_stmt
 begin_macro
@@ -703,7 +703,7 @@ name|private
 label|:
 name|friend
 name|class
-name|QJNIObject
+name|QAndroidJniObject
 decl_stmt|;
 name|QJNIObjectPrivate
 argument_list|(
