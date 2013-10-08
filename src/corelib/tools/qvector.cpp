@@ -126,6 +126,12 @@ begin_comment
 comment|/*! \fn void QVector::removeAt(int i)     \since 5.2      Removes the element at index position \a i.     Equivalent to     \code     remove(i);     \endcode      Provided for compatibility with QList.      \sa remove(), QList::removeAt() */
 end_comment
 begin_comment
+comment|/*! \fn int QVector::removeAll(const T&t)     \since 5.4      Removes all elements that compare equal to \a t from the     vector. Returns the number of elements removed, if any.      Provided for compatibility with QList.      \sa removeOne(), QList::removeAll() */
+end_comment
+begin_comment
+comment|/*! \fn bool QVector::removeOne(const T&t)     \since 5.4      Removes the first element that compares equal to \a t from the     vector. Returns whether an element was, in fact, removed.      Provided for compatibility with QList.      \sa removeAll(), QList::removeOne() */
+end_comment
+begin_comment
 comment|/*! \fn int QVector::length() const     \since 5.2      Same as size() and count().      Provided for compatibility with QList.      \sa size(), count(), QList::length() */
 end_comment
 begin_comment
