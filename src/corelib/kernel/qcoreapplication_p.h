@@ -137,10 +137,6 @@ name|appName
 argument_list|()
 specifier|const
 block|;
-name|mutable
-name|QString
-name|applicationName
-block|;
 ifdef|#
 directive|ifdef
 name|Q_OS_MAC
