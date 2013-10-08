@@ -2167,8 +2167,25 @@ argument_list|)
 operator|.
 name|currentPointerType
 decl_stmt|;
-comment|// When entering proximity, the tablet driver snaps the mouse pointer to the
-comment|// tablet position scaled to the virtual desktop and keeps it in sync.
+comment|// The tablet can be used in 2 different modes, depending on it settings:
+comment|// 1) Absolute (pen) mode:
+comment|//    The coordinates are scaled to the virtual desktop (by default). The user
+comment|//    can also choose to scale to the monitor or a region of the screen.
+comment|//    When entering proximity, the tablet driver snaps the mouse pointer to the
+comment|//    tablet position scaled to that area and keeps it in sync.
+comment|// 2) Relative (mouse) mode:
+comment|//    The pen follows the mouse. The constant 'absoluteRange' specifies the
+comment|//    manhattanLength difference for detecting if a tablet input device is in this mode,
+comment|//    in which case we snap the position to the mouse position.
+comment|// It seems there is no way to find out the mode programmatically, the LOGCONTEXT orgX/Y/Ext
+comment|// area is always the virtual desktop.
+enum|enum
+block|{
+name|absoluteRange
+init|=
+literal|20
+block|}
+enum|;
 specifier|const
 name|QRect
 name|virtualDesktopArea
@@ -2257,10 +2274,14 @@ argument_list|)
 else|:
 literal|0
 decl_stmt|;
-specifier|const
+comment|// This code is to delay the tablet data one cycle to sync with the mouse location.
 name|QPointF
 name|globalPosF
 init|=
+name|m_oldGlobalPosF
+decl_stmt|;
+name|m_oldGlobalPosF
+operator|=
 name|m_devices
 operator|.
 name|at
@@ -2280,7 +2301,7 @@ name|pkY
 argument_list|,
 name|virtualDesktopArea
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|QWindow
 modifier|*
 name|target
@@ -2290,7 +2311,6 @@ operator|::
 name|tabletPressTarget
 decl_stmt|;
 comment|// Pass to window that grabbed it.
-specifier|const
 name|QPoint
 name|globalPos
 init|=
@@ -2299,6 +2319,41 @@ operator|.
 name|toPoint
 argument_list|()
 decl_stmt|;
+comment|// Get Mouse Position and compare to tablet info
+specifier|const
+name|QPoint
+name|mouseLocation
+init|=
+name|QWindowsCursor
+operator|::
+name|mousePosition
+argument_list|()
+decl_stmt|;
+comment|// Positions should be almost the same if we are in absolute
+comment|// mode. If they are not, use the mouse location.
+if|if
+condition|(
+operator|(
+name|mouseLocation
+operator|-
+name|globalPos
+operator|)
+operator|.
+name|manhattanLength
+argument_list|()
+operator|>
+name|absoluteRange
+condition|)
+block|{
+name|globalPos
+operator|=
+name|mouseLocation
+expr_stmt|;
+name|globalPosF
+operator|=
+name|globalPos
+expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
