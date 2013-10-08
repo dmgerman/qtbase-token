@@ -11850,7 +11850,6 @@ argument_list|,
 name|icon
 argument_list|)
 expr_stmt|;
-comment|// #### shouldn't cause dataChanged()
 name|QCOMPARE
 argument_list|(
 name|itemChangedSpy
@@ -11858,13 +11857,8 @@ operator|.
 name|count
 argument_list|()
 argument_list|,
-literal|1
+literal|0
 argument_list|)
-expr_stmt|;
-name|itemChangedSpy
-operator|.
-name|clear
-argument_list|()
 expr_stmt|;
 name|QString
 name|toolTip
