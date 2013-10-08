@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtGui>
+file|<QtCore>
 end_include
 begin_include
 include|#
