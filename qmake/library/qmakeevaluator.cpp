@@ -7132,6 +7132,47 @@ block|}
 block|}
 end_function
 begin_function
+DECL|function|applyExtraConfigs
+name|void
+name|QMakeEvaluator
+operator|::
+name|applyExtraConfigs
+parameter_list|()
+block|{
+if|if
+condition|(
+name|m_extraConfigs
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+return|return;
+name|evaluateCommand
+argument_list|(
+name|fL1S
+argument_list|(
+literal|"CONFIG += "
+argument_list|)
+operator|+
+name|m_extraConfigs
+operator|.
+name|join
+argument_list|(
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
+argument_list|)
+argument_list|,
+name|fL1S
+argument_list|(
+literal|"(extra configs)"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_function
 DECL|function|evaluateConfigFeatures
 name|QMakeEvaluator
 operator|::
@@ -7704,6 +7745,11 @@ name|value
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// In case default_pre needs to make decisions based on the current
+comment|// build pass configuration.
+name|applyExtraConfigs
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 operator|(
@@ -7723,6 +7769,17 @@ condition|)
 goto|goto
 name|failed
 goto|;
+if|if
+condition|(
+operator|!
+name|m_option
+operator|->
+name|precmds
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 name|evaluateCommand
 argument_list|(
 name|m_option
@@ -7735,38 +7792,11 @@ literal|"(command line)"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// After user configs, to override them
-if|if
-condition|(
-operator|!
-name|m_extraConfigs
-operator|.
-name|isEmpty
+comment|// Again, after user configs, to override them
+name|applyExtraConfigs
 argument_list|()
-condition|)
-name|evaluateCommand
-argument_list|(
-name|fL1S
-argument_list|(
-literal|"CONFIG += "
-argument_list|)
-operator|+
-name|m_extraConfigs
-operator|.
-name|join
-argument_list|(
-name|QLatin1Char
-argument_list|(
-literal|' '
-argument_list|)
-argument_list|)
-argument_list|,
-name|fL1S
-argument_list|(
-literal|"(extra configs)"
-argument_list|)
-argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|debugMsg
 argument_list|(
@@ -7841,36 +7871,8 @@ expr_stmt|;
 comment|// Again, to ensure the project does not mess with us.
 comment|// Specifically, do not allow a project to override debug/release within a
 comment|// debug_and_release build pass - it's too late for that at this point anyway.
-if|if
-condition|(
-operator|!
-name|m_extraConfigs
-operator|.
-name|isEmpty
+name|applyExtraConfigs
 argument_list|()
-condition|)
-name|evaluateCommand
-argument_list|(
-name|fL1S
-argument_list|(
-literal|"CONFIG += "
-argument_list|)
-operator|+
-name|m_extraConfigs
-operator|.
-name|join
-argument_list|(
-name|QLatin1Char
-argument_list|(
-literal|' '
-argument_list|)
-argument_list|)
-argument_list|,
-name|fL1S
-argument_list|(
-literal|"(extra configs)"
-argument_list|)
-argument_list|)
 expr_stmt|;
 if|if
 condition|(

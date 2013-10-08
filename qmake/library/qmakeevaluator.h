@@ -655,6 +655,10 @@ operator|&
 name|where
 argument_list|)
 block|;
+name|void
+name|applyExtraConfigs
+argument_list|()
+block|;
 name|VisitReturn
 name|visitProFile
 argument_list|(
