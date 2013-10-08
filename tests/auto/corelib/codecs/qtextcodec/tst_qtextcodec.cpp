@@ -20,11 +20,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qtextdocument.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<time.h>
 end_include
 begin_include
@@ -1525,7 +1520,7 @@ name|QTextCodec
 modifier|*
 name|codec
 init|=
-name|Qt
+name|QTextCodec
 operator|::
 name|codecForHtml
 argument_list|(
