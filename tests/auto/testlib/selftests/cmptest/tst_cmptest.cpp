@@ -12,6 +12,11 @@ include|#
 directive|include
 file|<QtTest/QtTest>
 end_include
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_GUI_LIB
+end_ifdef
 begin_include
 include|#
 directive|include
@@ -22,6 +27,10 @@ include|#
 directive|include
 file|<QtGui/QPixmap>
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/* XPM test data for QPixmap, QImage tests (use drag cursors as example) */
 end_comment
@@ -253,6 +262,9 @@ name|void
 name|compareQListDouble
 parameter_list|()
 function_decl|;
+ifdef|#
+directive|ifdef
+name|QT_GUI_LIB
 name|void
 name|compareQPixmaps
 parameter_list|()
@@ -269,6 +281,8 @@ name|void
 name|compareQImages_data
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 block|}
 class|;
 end_class
@@ -1230,6 +1244,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_GUI_LIB
+end_ifdef
 begin_function
 DECL|function|compareQPixmaps_data
 name|void
@@ -1576,6 +1595,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|QTEST_MAIN
 argument_list|(
