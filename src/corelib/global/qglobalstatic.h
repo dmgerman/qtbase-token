@@ -60,10 +60,18 @@ argument_list|(
 name|QT_NO_THREAD
 argument_list|)
 operator|||
+operator|(
 name|defined
 argument_list|(
 name|Q_CC_GNU
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_MAC
+argument_list|)
+operator|)
 end_if
 begin_comment
 comment|// some compilers support thread-safe statics
@@ -75,7 +83,22 @@ begin_comment
 comment|// support it. C++11 also requires this behavior.
 end_comment
 begin_comment
-comment|// Clang and Intel CC masquerade as GCC when compiling on Linux and Mac OS X.
+comment|// Clang and Intel CC masquerade as GCC when compiling on Linux.
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// Apple's libc++abi however uses a global lock for initializing local statics,
+end_comment
+begin_comment
+comment|// which will block other threads also trying to initialize a local static
+end_comment
+begin_comment
+comment|// until the constructor returns ...
+end_comment
+begin_comment
+comment|// We better avoid these kind of problems by using our own locked implementation.
 end_comment
 begin_define
 DECL|macro|Q_GLOBAL_STATIC_INTERNAL
