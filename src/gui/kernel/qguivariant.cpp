@@ -372,7 +372,7 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-comment|// This class is a hack that customizes access to QPolygon
+comment|// This class is a hack that customizes access to QPolygon and QPolygonF
 template|template
 parameter_list|<
 name|class
@@ -453,6 +453,30 @@ return|return
 name|v_cast
 argument_list|<
 name|QPolygon
+argument_list|>
+argument_list|(
+name|Base
+operator|::
+name|m_d
+argument_list|)
+operator|->
+name|isEmpty
+argument_list|()
+return|;
+block|}
+DECL|function|delegate
+name|bool
+name|delegate
+parameter_list|(
+specifier|const
+name|QPolygonF
+modifier|*
+parameter_list|)
+block|{
+return|return
+name|v_cast
+argument_list|<
+name|QPolygonF
 argument_list|>
 argument_list|(
 name|Base
