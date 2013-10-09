@@ -222,6 +222,16 @@ decl_stmt|;
 name|bool
 name|enabledTrace
 decl_stmt|;
+comment|// reserve space for future use
+name|bool
+name|placeholder1
+decl_stmt|;
+name|bool
+name|placeholder2
+decl_stmt|;
+name|bool
+name|placeholder3
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt
