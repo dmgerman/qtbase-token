@@ -519,11 +519,10 @@ parameter_list|()
 block|{
 comment|// Assemble data, to write in a single call to write
 comment|// (otherwise we'd have to check every write call)
+comment|// Use operator% from the fast builder to avoid multiple memory allocations.
 name|QByteArray
 name|fileData
-decl_stmt|;
-name|fileData
-operator|+=
+init|=
 name|QByteArray
 operator|::
 name|number
@@ -533,35 +532,25 @@ operator|::
 name|applicationPid
 argument_list|()
 argument_list|)
-expr_stmt|;
-name|fileData
-operator|+=
+operator|%
 literal|'\n'
-expr_stmt|;
-name|fileData
-operator|+=
+operator|%
 name|qAppName
 argument_list|()
 operator|.
 name|toUtf8
 argument_list|()
-expr_stmt|;
-name|fileData
-operator|+=
+operator|%
 literal|'\n'
-expr_stmt|;
-name|fileData
-operator|+=
+operator|%
 name|localHostName
 argument_list|()
 operator|.
 name|toUtf8
 argument_list|()
-expr_stmt|;
-name|fileData
-operator|+=
+operator|%
 literal|'\n'
-expr_stmt|;
+decl_stmt|;
 specifier|const
 name|QByteArray
 name|lockFileName
