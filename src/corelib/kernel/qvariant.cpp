@@ -8025,6 +8025,11 @@ init|=
 name|type
 argument_list|()
 decl_stmt|;
+name|bool
+name|fakeUserType
+init|=
+literal|false
+decl_stmt|;
 if|if
 condition|(
 name|s
@@ -8174,6 +8179,26 @@ operator|+=
 literal|1
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|typeId
+operator|==
+name|QMetaType
+operator|::
+name|QPolygonF
+condition|)
+block|{
+comment|// This existed in Qt 4 only as a custom type
+name|typeId
+operator|=
+literal|127
+expr_stmt|;
+name|fakeUserType
+operator|=
+literal|true
+expr_stmt|;
+block|}
 block|}
 name|s
 operator|<<
@@ -8208,6 +8233,8 @@ operator|>=
 name|QVariant
 operator|::
 name|UserType
+operator|||
+name|fakeUserType
 condition|)
 block|{
 name|s
