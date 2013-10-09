@@ -22311,18 +22311,6 @@ comment|// 2012-03-25 02:00:00 CET  became 03:00:00 CEST at msecs = 133263720000
 comment|// 2012-10-28 03:00:00 CEST became 02:00:00 CET  at msecs = 1351386000000
 specifier|const
 name|qint64
-name|daylight2011
-init|=
-literal|1301187600000
-decl_stmt|;
-specifier|const
-name|qint64
-name|standard2011
-init|=
-literal|1319936400000
-decl_stmt|;
-specifier|const
-name|qint64
 name|daylight2012
 init|=
 literal|1332637200000
@@ -23736,22 +23724,6 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|Q_OS_MAC
-comment|// Linux mktime bug uses last calculation
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QDateTime doesn't properly support Daylight Transitions"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-comment|// Q_OS_MAC
 name|QCOMPARE
 argument_list|(
 name|hourBefore
@@ -23818,15 +23790,6 @@ literal|999
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QDateTime doesn't properly support Daylight Transitions"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|msecBefore
@@ -23889,22 +23852,6 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-comment|// Mac defaults to FirstOccurrence here
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QDateTime doesn't properly support Daylight Transitions"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-comment|// Q_OS_MAC
 name|QCOMPARE
 argument_list|(
 name|atTran
@@ -25373,22 +25320,6 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_WIN
-comment|// Windows uses SecondOccurrence
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QDateTime doesn't properly support Daylight Transitions"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-comment|// Q_OS_WIN
 name|QCOMPARE
 argument_list|(
 name|test
@@ -25492,11 +25423,10 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|Q_OS_MAC
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
 comment|// Windows uses SecondOccurrence
-comment|// Linux mktime bug uses last calculation
 name|QEXPECT_FAIL
 argument_list|(
 literal|""
@@ -25508,7 +25438,7 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-comment|// Q_OS_MAC
+comment|// Q_OS_WIN
 name|QCOMPARE
 argument_list|(
 name|test
@@ -25578,11 +25508,10 @@ literal|28
 argument_list|)
 argument_list|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|Q_OS_WIN
-comment|// Mac uses FirstOccurrence
-comment|// Linux mktime bug uses last calculation
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+comment|// Mac uses FirstOccurrence, Windows uses SecondOccurrence, Linux uses last calculation
 name|QEXPECT_FAIL
 argument_list|(
 literal|""
@@ -25612,11 +25541,10 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|Q_OS_WIN
-comment|// Mac uses FirstOccurrence
-comment|// Linux mktime bug uses last calculation
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+comment|// Mac uses FirstOccurrence, Windows uses SecondOccurrence, Linux uses last calculation
 name|QEXPECT_FAIL
 argument_list|(
 literal|""

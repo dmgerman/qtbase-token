@@ -1768,6 +1768,9 @@ begin_comment
 comment|/*!     \fn QString::QString()      Constructs a null string. Null strings are also empty.      \sa isEmpty() */
 end_comment
 begin_comment
+comment|/*!     \fn QString::QString(QString&&other)      Move-constructs a QString instance, making it point at the same     object that \a other was pointing to.      \since 5.2 */
+end_comment
+begin_comment
 comment|/*! \fn QString::QString(const char *str)      Constructs a string initialized with the 8-bit string \a str. The     given const char pointer is converted to Unicode using the     fromUtf8() function.      You can disable this constructor by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example.      \sa fromLatin1(), fromLocal8Bit(), fromUtf8() */
 end_comment
 begin_comment
@@ -2840,6 +2843,9 @@ name|this
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \fn QString&QString::operator=(QString&&other)      Move-assigns \a other to this QString instance.      \since 5.2 */
+end_comment
 begin_comment
 comment|/*! \fn QString&QString::operator=(QLatin1String str)      \overload operator=()      Assigns the Latin-1 string \a str to this string. */
 end_comment

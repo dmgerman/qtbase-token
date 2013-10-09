@@ -91,7 +91,7 @@ specifier|const
 block|;
 name|QAbstractEventDispatcher
 operator|*
-name|guiThreadEventDispatcher
+name|createEventDispatcher
 argument_list|()
 specifier|const
 block|;
@@ -119,10 +119,6 @@ block|;
 name|QPlatformFontDatabase
 operator|*
 name|m_fontDb
-block|;
-name|QAbstractEventDispatcher
-operator|*
-name|m_eventDispatcher
 block|; }
 decl_stmt|;
 end_decl_stmt

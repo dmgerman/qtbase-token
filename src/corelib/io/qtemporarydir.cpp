@@ -768,7 +768,10 @@ literal|"."
 argument_list|)
 argument_list|)
 expr_stmt|;
-return|return
+specifier|const
+name|bool
+name|result
+init|=
 name|QDir
 argument_list|(
 name|path
@@ -777,6 +780,31 @@ argument_list|)
 operator|.
 name|removeRecursively
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|result
+condition|)
+block|{
+name|qWarning
+argument_list|()
+operator|<<
+literal|"QTemporaryDir: Unable to remove"
+operator|<<
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
+name|path
+argument_list|()
+argument_list|)
+operator|<<
+literal|"most likely due to the presence of read-only files."
+expr_stmt|;
+block|}
+return|return
+name|result
 return|;
 block|}
 end_function

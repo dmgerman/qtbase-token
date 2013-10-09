@@ -56,6 +56,9 @@ begin_comment
 comment|/*! \fn QLinkedList::QLinkedList()      Constructs an empty list. */
 end_comment
 begin_comment
+comment|/*!     \fn QLinkedList::QLinkedList(QLinkedList<T>&&other)      Move-constructs a QLinkedList instance, making it point at the same     object that \a other was pointing to.      \since 5.2 */
+end_comment
+begin_comment
 comment|/*! \fn QLinkedList::QLinkedList(const QLinkedList<T>&other)      Constructs a copy of \a other.      This operation occurs in \l{constant time}, because QLinkedList     is \l{implicitly shared}. This makes returning a QLinkedList from     a function very fast. If a shared instance is modified, it will     be copied (copy-on-write), and this takes \l{linear time}.      \sa operator=() */
 end_comment
 begin_comment
@@ -279,6 +282,9 @@ comment|/*! \fn QLinkedList::iterator::iterator(const iterator&other)      Const
 end_comment
 begin_comment
 comment|/*! \fn QLinkedList::iterator&QLinkedList::iterator::operator=(const iterator&other)      Assigns \a other to this iterator. */
+end_comment
+begin_comment
+comment|/*!     \fn QLinkedList<T>&QLinkedList::operator=(QLinkedList<T>&&other)      Move-assigns \a other to this QLinkedList instance.      \since 5.2 */
 end_comment
 begin_comment
 comment|/*! \fn T&QLinkedList::iterator::operator*() const      Returns a modifiable reference to the current item.      You can change the value of an item by using operator*() on the     left side of an assignment, for example:      \snippet code/src_corelib_tools_qlinkedlist.cpp 13      \sa operator->() */

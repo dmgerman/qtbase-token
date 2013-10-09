@@ -2556,6 +2556,9 @@ begin_comment
 comment|/*! \fn QHash::QHash()      Constructs an empty hash.      \sa clear() */
 end_comment
 begin_comment
+comment|/*!     \fn QHash::QHash(QHash<Key, T>&&other)      Move-constructs a QHash instance, making it point at the same     object that \a other was pointing to.      \since 5.2 */
+end_comment
+begin_comment
 comment|/*! \fn QHash::QHash(std::initializer_list<std::pair<Key,T>> list)     \since 5.1      Constructs a hash with a copy of each of the elements in the     initializer list \a list.      This function is only available if the program is being     compiled in C++11 mode. */
 end_comment
 begin_comment
@@ -2566,6 +2569,9 @@ comment|/*! \fn QHash::~QHash()      Destroys the hash. References to the values
 end_comment
 begin_comment
 comment|/*! \fn QHash<Key, T>&QHash::operator=(const QHash<Key, T>&other)      Assigns \a other to this hash and returns a reference to this hash. */
+end_comment
+begin_comment
+comment|/*!     \fn QHash<Key, T>&QHash::operator=(QHash<Key, T>&&other)      Move-assigns \a other to this QHash instance.      \since 5.2 */
 end_comment
 begin_comment
 comment|/*! \fn void QHash::swap(QHash<Key, T>&other)     \since 4.8      Swaps hash \a other with this hash. This operation is very     fast and never fails. */

@@ -304,7 +304,7 @@ comment|// Event dispatcher:
 name|virtual
 name|QAbstractEventDispatcher
 operator|*
-name|guiThreadEventDispatcher
+name|createEventDispatcher
 argument_list|()
 specifier|const
 operator|=

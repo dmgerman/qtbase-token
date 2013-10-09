@@ -124,7 +124,7 @@ specifier|const
 block|;
 name|QAbstractEventDispatcher
 operator|*
-name|guiThreadEventDispatcher
+name|createEventDispatcher
 argument_list|()
 specifier|const
 block|;
@@ -300,13 +300,10 @@ name|QPlatformInputContext
 operator|>
 name|m_inputContext
 block|;
-name|QAbstractEventDispatcher
-operator|*
-name|m_eventDispatcher
-block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_ACCESSIBILITY
+name|mutable
 name|QScopedPointer
 operator|<
 name|QPlatformAccessibility

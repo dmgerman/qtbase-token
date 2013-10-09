@@ -647,6 +647,9 @@ begin_comment
 comment|/*!     \fn QRegion&QRegion::operator=(const QRegion&r)      Assigns \a r to this region and returns a reference to the region. */
 end_comment
 begin_comment
+comment|/*!     \fn QRegion&QRegion::operator=(QRegion&&other)      Move-assigns \a other to this QRegion instance.      \since 5.2 */
+end_comment
+begin_comment
 comment|/*!     \fn void QRegion::swap(QRegion&other)     \since 4.8      Swaps region \a other with this region. This operation is very     fast and never fails. */
 end_comment
 begin_comment

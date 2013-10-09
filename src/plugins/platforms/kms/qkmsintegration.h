@@ -116,7 +116,7 @@ specifier|const
 expr_stmt|;
 name|QAbstractEventDispatcher
 operator|*
-name|guiThreadEventDispatcher
+name|createEventDispatcher
 argument_list|()
 specifier|const
 expr_stmt|;
@@ -187,10 +187,6 @@ expr_stmt|;
 name|QPlatformFontDatabase
 modifier|*
 name|m_fontDatabase
-decl_stmt|;
-name|QAbstractEventDispatcher
-modifier|*
-name|m_eventDispatcher
 decl_stmt|;
 name|QPlatformNativeInterface
 modifier|*

@@ -4051,6 +4051,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn QEasingCurve::QEasingCurve(QEasingCurve&&other)      Move-constructs a QEasingCurve instance, making it point at the same     object that \a other was pointing to.      \since 5.2 */
+end_comment
+begin_comment
 comment|/*!     Constructs an easing curve of the given \a type.  */
 end_comment
 begin_constructor
@@ -4124,6 +4127,9 @@ block|}
 end_destructor
 begin_comment
 comment|/*!     \fn QEasingCurve&QEasingCurve::operator=(const QEasingCurve&other)     Copy \a other.  */
+end_comment
+begin_comment
+comment|/*!     \fn QEasingCurve&QEasingCurve::operator=(QEasingCurve&&other)      Move-assigns \a other to this QEasingCurve instance.      \since 5.2 */
 end_comment
 begin_comment
 comment|/*!     \fn void QEasingCurve::swap(QEasingCurve&other)     \since 5.0      Swaps curve \a other with this curve. This operation is very     fast and never fails. */

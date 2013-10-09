@@ -2912,6 +2912,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn QIcon&QIcon::operator=(QIcon&&other)      Move-assigns \a other to this QIcon instance.      \since 5.2 */
+end_comment
+begin_comment
 comment|/*!     \fn void QIcon::swap(QIcon&other)     \since 4.8      Swaps icon \a other with this icon. This operation is very     fast and never fails. */
 end_comment
 begin_comment

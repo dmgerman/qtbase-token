@@ -63,6 +63,11 @@ name|QRect
 operator|&
 argument_list|)
 block|;
+name|QRect
+name|geometry
+argument_list|()
+specifier|const
+block|;
 name|WId
 name|winId
 argument_list|()

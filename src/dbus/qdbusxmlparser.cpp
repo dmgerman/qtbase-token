@@ -428,6 +428,9 @@ literal|"<annotation value=\""
 argument_list|)
 operator|+
 name|value
+operator|.
+name|toHtmlEscaped
+argument_list|()
 operator|+
 name|QLatin1String
 argument_list|(

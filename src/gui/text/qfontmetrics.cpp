@@ -278,6 +278,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn QFontMetrics&QFontMetrics::operator=(QFontMetrics&&other)      Move-assigns \a other to this QFontMetrics instance.      \since 5.2 */
+end_comment
+begin_comment
 comment|/*!     \fn void QFontMetrics::swap(QFontMetrics&other)     \since 5.0      Swaps this font metrics instance with \a other. This function is     very fast and never fails. */
 end_comment
 begin_comment

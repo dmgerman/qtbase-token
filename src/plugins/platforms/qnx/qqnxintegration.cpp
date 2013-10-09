@@ -1029,6 +1029,10 @@ name|m_bpsEventFilter
 expr_stmt|;
 endif|#
 directive|endif
+comment|// In case the event-dispatcher was never transferred to QCoreApplication
+operator|delete
+name|m_eventDispatcher
+expr_stmt|;
 operator|delete
 name|m_screenEventHandler
 expr_stmt|;
@@ -1388,12 +1392,12 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|guiThreadEventDispatcher
+DECL|function|createEventDispatcher
 name|QAbstractEventDispatcher
 modifier|*
 name|QQnxIntegration
 operator|::
-name|guiThreadEventDispatcher
+name|createEventDispatcher
 parameter_list|()
 specifier|const
 block|{
@@ -1402,8 +1406,19 @@ argument_list|()
 operator|<<
 name|Q_FUNC_INFO
 expr_stmt|;
-return|return
+comment|// We transfer ownersip of the event-dispatcher to QtCoreApplication
+name|QAbstractEventDispatcher
+modifier|*
+name|eventDispatcher
+init|=
 name|m_eventDispatcher
+decl_stmt|;
+name|m_eventDispatcher
+operator|=
+literal|0
+expr_stmt|;
+return|return
+name|eventDispatcher
 return|;
 block|}
 end_function

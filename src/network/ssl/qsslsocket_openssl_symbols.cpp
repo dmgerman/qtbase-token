@@ -93,109 +93,162 @@ include|#
 directive|include
 file|<algorithm>
 end_include
-begin_decl_stmt
+begin_macro
 name|QT_BEGIN_NAMESPACE
+end_macro
+begin_comment
 comment|/*     Note to maintainer:     -------------------      We load OpenSSL symbols dynamically. Because symbols are known to     disappear, and signatures sometimes change, between releases, we need to     be careful about how this is done. To ensure we don't end up dereferencing     null function pointers, and continue running even if certain functions are     missing, we define helper functions for each of the symbols we load from     OpenSSL, all prefixed with "q_" (declared in     qsslsocket_openssl_symbols_p.h). So instead of calling SSL_connect     directly, we call q_SSL_connect, which is a function that checks if the     actual SSL_connect fptr is null, and returns a failure if it is, or calls     SSL_connect if it isn't.      This requires a somewhat tedious process of declaring each function we     want to call in OpenSSL thrice: once with the q_, in _p.h, once using the     DEFINEFUNC macros below, and once in the function that actually resolves     the symbols, below the DEFINEFUNC declarations below.      There's one DEFINEFUNC macro declared for every number of arguments     exposed by OpenSSL (feel free to extend when needed). The easiest thing to     do is to find an existing entry that matches the arg count of the function     you want to import, and do the same.      The first macro arg is the function return type. The second is the     verbatim name of the function/symbol. Then follows a list of N pairs of     argument types with a variable name, and just the variable name (char *a,     a, char *b, b, etc). Finally there's two arguments - a suitable return     statement for the error case (for an int function, return 0 or return -1     is usually right). Then either just "return" or DUMMYARG, the latter being     for void functions.      Note: Take into account that these macros and declarations are processed     at compile-time, and the result depends on the OpenSSL headers the     compiling host has installed, but the symbols are resolved at run-time,     possibly with a different version of OpenSSL. */
+end_comment
+begin_namespace
+namespace|namespace
+block|{
+DECL|function|qsslSocketUnresolvedSymbolWarning
+name|void
+name|qsslSocketUnresolvedSymbolWarning
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|functionName
+parameter_list|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QSslSocket: cannot call unresolved function %s"
+argument_list|,
+name|functionName
+argument_list|)
+expr_stmt|;
+block|}
+DECL|function|qsslSocketCannotResolveSymbolWarning
+name|void
+name|qsslSocketCannotResolveSymbolWarning
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|functionName
+parameter_list|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QSslSocket: cannot resolve %s"
+argument_list|,
+name|functionName
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+end_namespace
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|SSLEAY_MACROS
+end_ifdef
+begin_macro
 name|DEFINEFUNC3
 argument_list|(
-name|void
-operator|*
+argument|void *
 argument_list|,
-name|ASN1_dup
+argument|ASN1_dup
 argument_list|,
-name|i2d_of_void
-operator|*
-name|a
+argument|i2d_of_void *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-name|d2i_of_void
-operator|*
-name|b
+argument|d2i_of_void *b
 argument_list|,
-name|b
+argument|b
 argument_list|,
-name|char
-operator|*
-name|c
+argument|char *c
 argument_list|,
-name|c
-argument_list|, return
+argument|c
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|long
+argument|long
 argument_list|,
-name|ASN1_INTEGER_get
+argument|ASN1_INTEGER_get
 argument_list|,
-name|ASN1_INTEGER
-operator|*
-name|a
+argument|ASN1_INTEGER *a
 argument_list|,
-name|a
-argument_list|, return
+argument|a
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|unsigned
-name|char
-operator|*
+argument|unsigned char *
 argument_list|,
-name|ASN1_STRING_data
+argument|ASN1_STRING_data
 argument_list|,
-name|ASN1_STRING
-operator|*
-name|a
+argument|ASN1_STRING *a
 argument_list|,
-name|a
-argument_list|, return
+argument|a
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|int
+argument|int
 argument_list|,
-name|ASN1_STRING_length
+argument|ASN1_STRING_length
 argument_list|,
-name|ASN1_STRING
-operator|*
-name|a
+argument|ASN1_STRING *a
 argument_list|,
-name|a
-argument_list|, return
+argument|a
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC2
 argument_list|(
-name|int
+argument|int
 argument_list|,
-name|ASN1_STRING_to_UTF8
+argument|ASN1_STRING_to_UTF8
 argument_list|,
-name|unsigned
-name|char
-operator|*
-operator|*
-name|a
+argument|unsigned char **a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-name|ASN1_STRING
-operator|*
-name|b
+argument|ASN1_STRING *b
 argument_list|,
-name|b
-argument_list|, return
+argument|b
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
-decl_stmt|;
-end_decl_stmt
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
 begin_macro
 name|DEFINEFUNC4
 argument_list|(
@@ -3688,7 +3741,7 @@ parameter_list|(
 name|func
 parameter_list|)
 define|\
-value|if (!(_q_##func = _q_PTR_##func(libs.first->resolve(#func)))     \&& !(_q_##func = _q_PTR_##func(libs.second->resolve(#func)))) \         qWarning("QSslSocket: cannot resolve "#func);
+value|if (!(_q_##func = _q_PTR_##func(libs.first->resolve(#func)))     \&& !(_q_##func = _q_PTR_##func(libs.second->resolve(#func)))) \         qsslSocketCannotResolveSymbolWarning(#func);
 end_define
 begin_if
 if|#
@@ -4679,18 +4732,6 @@ modifier|*
 argument_list|>
 name|pair
 decl_stmt|;
-name|pair
-operator|.
-name|first
-operator|=
-literal|0
-expr_stmt|;
-name|pair
-operator|.
-name|second
-operator|=
-literal|0
-expr_stmt|;
 if|#
 directive|if
 name|defined

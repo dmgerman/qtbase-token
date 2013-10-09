@@ -739,7 +739,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-comment|// Also refuse if the process is being debugged, specifically, if it is
+comment|// Do not block if the process is being debugged, specifically, if it is
 comment|// displaying a runtime assert, which is not caught by isHungAppWindow().
 if|if
 condition|(
@@ -748,16 +748,18 @@ argument_list|(
 name|m_nextClipboardViewer
 argument_list|)
 condition|)
-block|{
-name|qWarning
+name|PostMessage
 argument_list|(
-literal|"%s: Cowardly refusing to send clipboard message to application under debugger..."
+name|m_nextClipboardViewer
 argument_list|,
-name|Q_FUNC_INFO
+name|message
+argument_list|,
+name|wParam
+argument_list|,
+name|lParam
 argument_list|)
 expr_stmt|;
-return|return;
-block|}
+else|else
 name|SendMessage
 argument_list|(
 name|m_nextClipboardViewer

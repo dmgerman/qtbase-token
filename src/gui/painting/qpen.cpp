@@ -597,6 +597,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn QPen&QPen::operator=(QPen&&other)      Move-assigns \a other to this QPen instance.      \since 5.2 */
+end_comment
+begin_comment
 comment|/*!     \fn void QPen::swap(QPen&other)     \since 4.8      Swaps pen \a other with this pen. This operation is very     fast and never fails. */
 end_comment
 begin_comment

@@ -1116,6 +1116,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn QPixmap&QPixmap::operator=(QPixmap&&other)      Move-assigns \a other to this QPixmap instance.      \since 5.2 */
+end_comment
+begin_comment
 comment|/*!     \fn void QPixmap::swap(QPixmap&other)     \since 4.8      Swaps pixmap \a other with this pixmap. This operation is very     fast and never fails. */
 end_comment
 begin_comment

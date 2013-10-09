@@ -51,6 +51,11 @@ include|#
 directive|include
 file|"qsslsocket_openssl_p.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qglobal.h>
+end_include
 begin_function_decl
 name|QT_BEGIN_NAMESPACE
 DECL|macro|DUMMYARG
@@ -82,7 +87,7 @@ parameter_list|,
 name|funcret
 parameter_list|)
 define|\
-value|typedef ret (*_q_PTR_##func)(arg);					\     static _q_PTR_##func _q_##func = 0;					\     ret q_##func(arg) {						\         if (!_q_##func) {				\             qWarning("QSslSocket: cannot call unresolved function "#func);	\             err;								\         } \         funcret _q_##func(a); \     }
+value|typedef ret (*_q_PTR_##func)(arg);					\     static _q_PTR_##func _q_##func = 0;					\     ret q_##func(arg) {						\         if (Q_UNLIKELY(!_q_##func)) { \             qsslSocketUnresolvedSymbolWarning(#func); \             err;								\         } \         funcret _q_##func(a); \     }
 comment|// ret func(arg1, arg2)
 DECL|macro|DEFINEFUNC2
 define|#
@@ -106,7 +111,7 @@ parameter_list|,
 name|funcret
 parameter_list|)
 define|\
-value|typedef ret (*_q_PTR_##func)(arg1, arg2);         \     static _q_PTR_##func _q_##func = 0;               \     ret q_##func(arg1, arg2) { \         if (!_q_##func) { \             qWarning("QSslSocket: cannot call unresolved function "#func);\             err; \         } \         funcret _q_##func(a, b); \     }
+value|typedef ret (*_q_PTR_##func)(arg1, arg2);         \     static _q_PTR_##func _q_##func = 0;               \     ret q_##func(arg1, arg2) { \         if (Q_UNLIKELY(!_q_##func)) { \             qsslSocketUnresolvedSymbolWarning(#func);\             err; \         } \         funcret _q_##func(a, b); \     }
 comment|// ret func(arg1, arg2, arg3)
 DECL|macro|DEFINEFUNC3
 define|#
@@ -134,7 +139,7 @@ parameter_list|,
 name|funcret
 parameter_list|)
 define|\
-value|typedef ret (*_q_PTR_##func)(arg1, arg2, arg3);            \     static _q_PTR_##func _q_##func = 0;                        \     ret q_##func(arg1, arg2, arg3) { \         if (!_q_##func) { \             qWarning("QSslSocket: cannot call unresolved function "#func); \             err; \         } \         funcret _q_##func(a, b, c); \     }
+value|typedef ret (*_q_PTR_##func)(arg1, arg2, arg3);            \     static _q_PTR_##func _q_##func = 0;                        \     ret q_##func(arg1, arg2, arg3) { \         if (Q_UNLIKELY(!_q_##func)) { \             qsslSocketUnresolvedSymbolWarning(#func); \             err; \         } \         funcret _q_##func(a, b, c); \     }
 comment|// ret func(arg1, arg2, arg3, arg4)
 DECL|macro|DEFINEFUNC4
 define|#
@@ -166,7 +171,7 @@ parameter_list|,
 name|funcret
 parameter_list|)
 define|\
-value|typedef ret (*_q_PTR_##func)(arg1, arg2, arg3, arg4);               \     static _q_PTR_##func _q_##func = 0;                                 \     ret q_##func(arg1, arg2, arg3, arg4) { \          if (!_q_##func) { \              qWarning("QSslSocket: cannot call unresolved function "#func); \              err; \          } \          funcret _q_##func(a, b, c, d); \     }
+value|typedef ret (*_q_PTR_##func)(arg1, arg2, arg3, arg4);               \     static _q_PTR_##func _q_##func = 0;                                 \     ret q_##func(arg1, arg2, arg3, arg4) { \          if (Q_UNLIKELY(!_q_##func)) { \              qsslSocketUnresolvedSymbolWarning(#func); \              err; \          } \          funcret _q_##func(a, b, c, d); \     }
 comment|// ret func(arg1, arg2, arg3, arg4, arg5)
 DECL|macro|DEFINEFUNC5
 define|#
@@ -202,7 +207,7 @@ parameter_list|,
 name|funcret
 parameter_list|)
 define|\
-value|typedef ret (*_q_PTR_##func)(arg1, arg2, arg3, arg4, arg5);         \     static _q_PTR_##func _q_##func = 0;                                 \     ret q_##func(arg1, arg2, arg3, arg4, arg5) { \         if (!_q_##func) { \             qWarning("QSslSocket: cannot call unresolved function "#func); \             err; \         } \         funcret _q_##func(a, b, c, d, e); \     }
+value|typedef ret (*_q_PTR_##func)(arg1, arg2, arg3, arg4, arg5);         \     static _q_PTR_##func _q_##func = 0;                                 \     ret q_##func(arg1, arg2, arg3, arg4, arg5) { \         if (Q_UNLIKELY(!_q_##func)) { \             qsslSocketUnresolvedSymbolWarning(#func); \             err; \         } \         funcret _q_##func(a, b, c, d, e); \     }
 comment|// ret func(arg1, arg2, arg3, arg4, arg6)
 DECL|macro|DEFINEFUNC6
 define|#
@@ -242,7 +247,7 @@ parameter_list|,
 name|funcret
 parameter_list|)
 define|\
-value|typedef ret (*_q_PTR_##func)(arg1, arg2, arg3, arg4, arg5, arg6);   \     static _q_PTR_##func _q_##func = 0;                                 \     ret q_##func(arg1, arg2, arg3, arg4, arg5, arg6) { \         if (!_q_##func) { \             qWarning("QSslSocket: cannot call unresolved function "#func); \             err; \         } \         funcret _q_##func(a, b, c, d, e, f); \     }
+value|typedef ret (*_q_PTR_##func)(arg1, arg2, arg3, arg4, arg5, arg6);   \     static _q_PTR_##func _q_##func = 0;                                 \     ret q_##func(arg1, arg2, arg3, arg4, arg5, arg6) { \         if (Q_UNLIKELY(!_q_##func)) { \             qsslSocketUnresolvedSymbolWarning(#func); \             err; \         } \         funcret _q_##func(a, b, c, d, e, f); \     }
 comment|// ret func(arg1, arg2, arg3, arg4, arg6, arg7)
 DECL|macro|DEFINEFUNC7
 define|#
@@ -286,7 +291,7 @@ parameter_list|,
 name|funcret
 parameter_list|)
 define|\
-value|typedef ret (*_q_PTR_##func)(arg1, arg2, arg3, arg4, arg5, arg6, arg7);   \     static _q_PTR_##func _q_##func = 0;                                       \     ret q_##func(arg1, arg2, arg3, arg4, arg5, arg6, arg7) { \         if (!_q_##func) { \             qWarning("QSslSocket: cannot call unresolved function "#func); \             err; \         } \         funcret _q_##func(a, b, c, d, e, f, g); \     }
+value|typedef ret (*_q_PTR_##func)(arg1, arg2, arg3, arg4, arg5, arg6, arg7);   \     static _q_PTR_##func _q_##func = 0;                                       \     ret q_##func(arg1, arg2, arg3, arg4, arg5, arg6, arg7) { \         if (Q_UNLIKELY(!_q_##func)) { \             qsslSocketUnresolvedSymbolWarning(#func); \             err; \         } \         funcret _q_##func(a, b, c, d, e, f, g); \     }
 comment|// ret func(arg1, arg2, arg3, arg4, arg6, arg7, arg8, arg9)
 DECL|macro|DEFINEFUNC9
 define|#
@@ -338,7 +343,7 @@ parameter_list|,
 name|funcret
 parameter_list|)
 define|\
-value|typedef ret (*_q_PTR_##func)(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9);   \     static _q_PTR_##func _q_##func = 0;                                                   \     ret q_##func(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9) { \         if (_q_##func) { \             qWarning("QSslSocket: cannot call unresolved function "#func); \             err; \         }   \         funcret _q_##func(a, b, c, d, e, f, g, h, i); \     }
+value|typedef ret (*_q_PTR_##func)(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9);   \     static _q_PTR_##func _q_##func = 0;                                                   \     ret q_##func(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9) { \         if (Q_UNLIKELY(!_q_##func)) { \             qsslSocketUnresolvedSymbolWarning(#func); \             err; \         }   \         funcret _q_##func(a, b, c, d, e, f, g, h, i); \     }
 comment|// **************** Shared declarations ******************
 else|#
 directive|else
