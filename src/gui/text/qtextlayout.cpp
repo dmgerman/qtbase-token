@@ -361,7 +361,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the inline object's decent to \a d.      \sa descent(), setAscent(), width(), rect() */
+comment|/*!     Sets the inline object's descent to \a d.      \sa descent(), setAscent(), width(), rect() */
 end_comment
 begin_function
 DECL|function|setDescent
@@ -4918,7 +4918,7 @@ return|return;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QTextLine     \reentrant      \brief The QTextLine class represents a line of text inside a QTextLayout.     \inmodule QtGui      \ingroup richtext-processing      A text line is usually created by QTextLayout::createLine().      After being created, the line can be filled using the setLineWidth()     or setNumColumns() functions. A line has a number of attributes including the     rectangle it occupies, rect(), its coordinates, x() and y(), its     textLength(), width() and naturalTextWidth(), and its ascent() and decent()     relative to the text. The position of the cursor in terms of the     line is available from cursorToX() and its inverse from     xToCursor(). A line can be moved with setPosition(). */
+comment|/*!     \class QTextLine     \reentrant      \brief The QTextLine class represents a line of text inside a QTextLayout.     \inmodule QtGui      \ingroup richtext-processing      A text line is usually created by QTextLayout::createLine().      After being created, the line can be filled using the setLineWidth()     or setNumColumns() functions. A line has a number of attributes including the     rectangle it occupies, rect(), its coordinates, x() and y(), its     textLength(), width() and naturalTextWidth(), and its ascent() and descent()     relative to the text. The position of the cursor in terms of the     line is available from cursorToX() and its inverse from     xToCursor(). A line can be moved with setPosition(). */
 end_comment
 begin_comment
 comment|/*!     \enum QTextLine::Edge      \value Leading     \value Trailing */
