@@ -1786,7 +1786,15 @@ condition|)
 return|return
 name|QFileInfo
 argument_list|(
-name|file
+operator|new
+name|QFileInfoPrivate
+argument_list|(
+name|entry
+argument_list|,
+name|data
+argument_list|,
+name|engine
+argument_list|)
 argument_list|)
 operator|.
 name|exists
