@@ -113,7 +113,7 @@ specifier|const
 block|;
 name|QAbstractEventDispatcher
 operator|*
-name|guiThreadEventDispatcher
+name|createEventDispatcher
 argument_list|()
 specifier|const
 block|;
@@ -143,10 +143,6 @@ block|;
 name|QWinRTScreen
 operator|*
 name|m_screen
-block|;
-name|QAbstractEventDispatcher
-operator|*
-name|m_eventDispatcher
 block|;
 name|QPlatformFontDatabase
 operator|*
