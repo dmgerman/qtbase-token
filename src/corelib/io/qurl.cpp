@@ -11022,7 +11022,6 @@ literal|false
 return|;
 if|if
 condition|(
-operator|!
 operator|(
 name|d
 operator|->
@@ -11030,7 +11029,7 @@ name|sectionIsPresent
 operator|&
 name|mask
 operator|)
-operator|==
+operator|!=
 operator|(
 name|url
 operator|.
