@@ -246,6 +246,7 @@ name|ReadOnly
 argument_list|)
 condition|)
 block|{
+comment|//qDebug()<< "READING:"<< path;
 name|QDomDocument
 name|document
 decl_stmt|;
@@ -2715,9 +2716,17 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
+operator|(
 name|access
 operator|==
 literal|"private"
+operator|)
+operator|||
+operator|(
+name|access
+operator|==
+literal|"internal"
+operator|)
 condition|)
 name|node
 operator|->
