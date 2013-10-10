@@ -1763,7 +1763,7 @@ expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
 name|QStyleOptionViewItem
-name|viewOptions
+name|viewOptionsV1
 argument_list|()
 specifier|const
 expr_stmt|;

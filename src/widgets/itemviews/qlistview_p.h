@@ -3088,7 +3088,7 @@ block|{
 return|return
 name|dd
 operator|->
-name|viewOptions
+name|viewOptionsV1
 argument_list|()
 return|;
 block|}

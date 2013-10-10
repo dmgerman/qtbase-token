@@ -7218,7 +7218,7 @@ name|option
 init|=
 name|d
 operator|->
-name|viewOptions
+name|viewOptionsV1
 argument_list|()
 decl_stmt|;
 specifier|const
@@ -13364,7 +13364,7 @@ name|option
 init|=
 name|d
 operator|->
-name|viewOptions
+name|viewOptionsV1
 argument_list|()
 decl_stmt|;
 name|int
@@ -13789,7 +13789,7 @@ name|option
 init|=
 name|d
 operator|->
-name|viewOptions
+name|viewOptionsV1
 argument_list|()
 decl_stmt|;
 name|int

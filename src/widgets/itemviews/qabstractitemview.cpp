@@ -5395,7 +5395,7 @@ name|option
 init|=
 name|d
 operator|->
-name|viewOptions
+name|viewOptionsV1
 argument_list|()
 decl_stmt|;
 name|option
@@ -6511,7 +6511,7 @@ name|option
 init|=
 name|d
 operator|->
-name|viewOptions
+name|viewOptionsV1
 argument_list|()
 decl_stmt|;
 if|if
@@ -10310,7 +10310,7 @@ name|option
 init|=
 name|d
 operator|->
-name|viewOptions
+name|viewOptionsV1
 argument_list|()
 decl_stmt|;
 name|QEditorIndexHash
@@ -11892,7 +11892,7 @@ name|sizeHint
 argument_list|(
 name|d
 operator|->
-name|viewOptions
+name|viewOptionsV1
 argument_list|()
 argument_list|,
 name|index
@@ -11952,7 +11952,7 @@ name|option
 init|=
 name|d
 operator|->
-name|viewOptions
+name|viewOptionsV1
 argument_list|()
 decl_stmt|;
 name|int
@@ -12126,7 +12126,7 @@ name|option
 init|=
 name|d
 operator|->
-name|viewOptions
+name|viewOptionsV1
 argument_list|()
 decl_stmt|;
 name|int
@@ -12277,7 +12277,7 @@ name|options
 init|=
 name|d
 operator|->
-name|viewOptions
+name|viewOptionsV1
 argument_list|()
 decl_stmt|;
 name|options
@@ -15019,11 +15019,11 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|viewOptions
+DECL|function|viewOptionsV1
 name|QStyleOptionViewItem
 name|QAbstractItemViewPrivate
 operator|::
-name|viewOptions
+name|viewOptionsV1
 parameter_list|()
 specifier|const
 block|{
@@ -18387,7 +18387,7 @@ decl_stmt|;
 name|QStyleOptionViewItem
 name|options
 init|=
-name|viewOptions
+name|viewOptionsV1
 argument_list|()
 decl_stmt|;
 name|options
@@ -18488,7 +18488,7 @@ decl_stmt|;
 name|QStyleOptionViewItem
 name|options
 init|=
-name|viewOptions
+name|viewOptionsV1
 argument_list|()
 decl_stmt|;
 name|options
@@ -18787,7 +18787,7 @@ decl_stmt|;
 name|QStyleOptionViewItem
 name|option
 init|=
-name|viewOptions
+name|viewOptionsV1
 argument_list|()
 decl_stmt|;
 name|option

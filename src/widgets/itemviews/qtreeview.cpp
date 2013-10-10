@@ -5968,7 +5968,7 @@ name|option
 init|=
 name|d
 operator|->
-name|viewOptions
+name|viewOptionsV1
 argument_list|()
 decl_stmt|;
 specifier|const
@@ -14658,7 +14658,7 @@ name|option
 init|=
 name|d
 operator|->
-name|viewOptions
+name|viewOptionsV1
 argument_list|()
 decl_stmt|;
 specifier|const
@@ -15174,7 +15174,7 @@ name|option
 init|=
 name|d
 operator|->
-name|viewOptions
+name|viewOptionsV1
 argument_list|()
 decl_stmt|;
 comment|// ### If we want word wrapping in the items,
@@ -16834,7 +16834,7 @@ comment|//and now let's render the editors the editors
 name|QStyleOptionViewItem
 name|option
 init|=
-name|viewOptions
+name|viewOptionsV1
 argument_list|()
 decl_stmt|;
 for|for

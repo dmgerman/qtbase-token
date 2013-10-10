@@ -3339,7 +3339,7 @@ name|option
 init|=
 name|d
 operator|->
-name|viewOptions
+name|viewOptionsV1
 argument_list|()
 decl_stmt|;
 name|QPainter
@@ -6856,7 +6856,7 @@ name|option
 init|=
 name|d
 operator|->
-name|viewOptions
+name|viewOptionsV1
 argument_list|()
 decl_stmt|;
 name|QSize
