@@ -6456,6 +6456,14 @@ directive|ifndef
 name|QT_NO_CURSOR
 if|if
 condition|(
+operator|!
+name|e
+operator|->
+name|synthetic
+condition|)
+block|{
+if|if
+condition|(
 specifier|const
 name|QScreen
 modifier|*
@@ -6487,6 +6495,7 @@ argument_list|(
 name|ev
 argument_list|)
 expr_stmt|;
+block|}
 endif|#
 directive|endif
 if|if
