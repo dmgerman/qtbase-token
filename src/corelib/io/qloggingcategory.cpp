@@ -344,19 +344,18 @@ begin_comment
 comment|/*!     \fn QLoggingCategory&QLoggingCategory::operator()()      Returns the object itself. This allows both a QLoggingCategory variable, and     a factory method returning a QLoggingCategory, to be used in \l qCDebug(),     \l qCWarning(), \l qCCritical() macros.  */
 end_comment
 begin_comment
-comment|/*!     Returns the category \c "default" that is used e.g. by qDebug(), qWarning(),     qCritical(), qFatal().  */
+comment|/*!     Returns a pointer to the global category \c "default" that     is used e.g. by qDebug(), qWarning(), qCritical(), qFatal().      \note The returned pointer may be null during destruction of     static objects.      \note Ownership of the category is not transferred, do not     \c delete the returned pointer.   */
 end_comment
 begin_function
 DECL|function|defaultCategory
 name|QLoggingCategory
-modifier|&
+modifier|*
 name|QLoggingCategory
 operator|::
 name|defaultCategory
 parameter_list|()
 block|{
 return|return
-operator|*
 name|qtDefaultCategory
 argument_list|()
 return|;

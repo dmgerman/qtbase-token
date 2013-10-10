@@ -4369,7 +4369,6 @@ name|QLoggingCategory
 modifier|*
 name|defaultCategory
 init|=
-operator|&
 name|QLoggingCategory
 operator|::
 name|defaultCategory

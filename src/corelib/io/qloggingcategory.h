@@ -151,7 +151,7 @@ return|;
 block|}
 specifier|static
 name|QLoggingCategory
-modifier|&
+modifier|*
 name|defaultCategory
 parameter_list|()
 function_decl|;
