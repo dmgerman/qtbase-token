@@ -2377,6 +2377,11 @@ condition|)
 block|{
 if|#
 directive|if
+name|defined
+argument_list|(
+name|Q_OS_BLACKBERRY
+argument_list|)
+operator|&&
 operator|!
 name|defined
 argument_list|(
@@ -2403,12 +2408,6 @@ operator|&
 name|m_window
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_BLACKBERRY
-argument_list|)
 name|m_cover
 operator|.
 name|reset
@@ -2419,9 +2418,6 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-endif|#
-directive|endif
-comment|// Q_OS_BLACKBERRY_TABLET
 name|m_exposed
 operator|=
 literal|false
