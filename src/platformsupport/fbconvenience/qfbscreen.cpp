@@ -637,6 +637,19 @@ name|screenOffset
 argument_list|)
 expr_stmt|;
 comment|// global to local translation
+name|scheduleUpdate
+argument_list|()
+expr_stmt|;
+block|}
+end_function
+begin_function
+DECL|function|scheduleUpdate
+name|void
+name|QFbScreen
+operator|::
+name|scheduleUpdate
+parameter_list|()
+block|{
 if|if
 condition|(
 operator|!
@@ -645,13 +658,11 @@ operator|.
 name|isActive
 argument_list|()
 condition|)
-block|{
 name|mRedrawTimer
 operator|.
 name|start
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 end_function
 begin_function
