@@ -11315,6 +11315,13 @@ name|pixelSize
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|scEngine
+operator|->
+name|ref
+operator|.
+name|ref
+parameter_list|()
+constructor_decl|;
 name|scaledEngine
 operator|=
 name|QFontEngineMultiQPA
@@ -11347,7 +11354,7 @@ name|scEngine
 operator|->
 name|ref
 operator|.
-name|load
+name|deref
 argument_list|()
 condition|)
 operator|delete
