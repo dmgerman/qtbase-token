@@ -2178,6 +2178,7 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
+block|{
 name|fbDevice
 operator|=
 name|QLatin1String
@@ -2185,7 +2186,44 @@ argument_list|(
 literal|"/dev/fb0"
 argument_list|)
 expr_stmt|;
-comment|// ## auto-detect
+if|if
+condition|(
+operator|!
+name|QFile
+operator|::
+name|exists
+argument_list|(
+name|fbDevice
+argument_list|)
+condition|)
+name|fbDevice
+operator|=
+name|QLatin1String
+argument_list|(
+literal|"/dev/graphics/fb0"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|QFile
+operator|::
+name|exists
+argument_list|(
+name|fbDevice
+argument_list|)
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"Unable to figure out framebuffer device. Specify it manually."
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
+block|}
 comment|// Open the device
 name|mFbFd
 operator|=
