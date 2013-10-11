@@ -2179,6 +2179,27 @@ name|project
 operator|->
 name|isEmpty
 argument_list|(
+literal|"QMAKE_STREAM_EDITOR"
+argument_list|)
+condition|)
+name|project
+operator|->
+name|values
+argument_list|(
+literal|"QMAKE_STREAM_EDITOR"
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"$(QMAKE) -install sed"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|project
+operator|->
+name|isEmpty
+argument_list|(
 literal|"QMAKE_INSTALL_FILE"
 argument_list|)
 condition|)

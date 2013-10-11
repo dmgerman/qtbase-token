@@ -25033,13 +25033,6 @@ name|isActiveConfig
 argument_list|(
 literal|"no_sed_meta_install"
 argument_list|)
-operator|||
-name|project
-operator|->
-name|isEmpty
-argument_list|(
-literal|"QMAKE_STREAM_EDITOR"
-argument_list|)
 condition|)
 block|{
 name|ret
